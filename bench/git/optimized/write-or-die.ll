@@ -51,7 +51,7 @@ if.end10.thread:                                  ; preds = %if.then4
   br label %if.end16
 
 if.else:                                          ; preds = %if.then4
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %3 = load i32, ptr %st_mode, align 8
   %and = and i32 %3, 61440
   %cmp8 = icmp eq i32 %and, 32768

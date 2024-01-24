@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.otherName_st = type { ptr, ptr }
 
 @OTHERNAME_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 144, i64 0, i64 8, ptr @.str.5, ptr @ASN1_ANY_it }], align 16
 @.str = private unnamed_addr constant [10 x i8] c"OTHERNAME\00", align 1
@@ -200,17 +197,17 @@ if.end:                                           ; preds = %lor.lhs.false2
   ]
 
 sw.bb:                                            ; preds = %if.end, %if.end
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %d, align 8
-  %d5 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %b, i64 0, i32 1
+  %d5 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load ptr, ptr %d5, align 8
   %call = tail call i32 @ASN1_TYPE_cmp(ptr noundef %2, ptr noundef %3) #5
   br label %return
 
 sw.bb6:                                           ; preds = %if.end
-  %d7 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d7 = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load ptr, ptr %d7, align 8
-  %d8 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %b, i64 0, i32 1
+  %d8 = getelementptr inbounds i8, ptr %b, i64 8
   %5 = load ptr, ptr %d8, align 8
   %tobool.i = icmp ne ptr %4, null
   %tobool1.i = icmp ne ptr %5, null
@@ -225,41 +222,41 @@ if.end.i:                                         ; preds = %sw.bb6
   br i1 %cmp.not.i, label %if.end4.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %value.i = getelementptr inbounds %struct.otherName_st, ptr %4, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %4, i64 8
   %8 = load ptr, ptr %value.i, align 8
-  %value5.i = getelementptr inbounds %struct.otherName_st, ptr %5, i64 0, i32 1
+  %value5.i = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr %value5.i, align 8
   %call6.i = tail call i32 @ASN1_TYPE_cmp(ptr noundef %8, ptr noundef %9) #5
   br label %return
 
 sw.bb10:                                          ; preds = %if.end, %if.end, %if.end
-  %d11 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d11 = getelementptr inbounds i8, ptr %a, i64 8
   %10 = load ptr, ptr %d11, align 8
-  %d12 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %b, i64 0, i32 1
+  %d12 = getelementptr inbounds i8, ptr %b, i64 8
   %11 = load ptr, ptr %d12, align 8
   %call13 = tail call i32 @ASN1_STRING_cmp(ptr noundef %10, ptr noundef %11) #5
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %d15 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d15 = getelementptr inbounds i8, ptr %a, i64 8
   %12 = load ptr, ptr %d15, align 8
-  %d16 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %b, i64 0, i32 1
+  %d16 = getelementptr inbounds i8, ptr %b, i64 8
   %13 = load ptr, ptr %d16, align 8
   %call17 = tail call i32 @X509_NAME_cmp(ptr noundef %12, ptr noundef %13) #5
   br label %return
 
 sw.bb18:                                          ; preds = %if.end
-  %d19 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d19 = getelementptr inbounds i8, ptr %a, i64 8
   %14 = load ptr, ptr %d19, align 8
-  %d20 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %b, i64 0, i32 1
+  %d20 = getelementptr inbounds i8, ptr %b, i64 8
   %15 = load ptr, ptr %d20, align 8
   %call21 = tail call i32 @ASN1_OCTET_STRING_cmp(ptr noundef %14, ptr noundef %15) #5
   br label %return
 
 sw.bb22:                                          ; preds = %if.end
-  %d23 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d23 = getelementptr inbounds i8, ptr %a, i64 8
   %16 = load ptr, ptr %d23, align 8
-  %d24 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %b, i64 0, i32 1
+  %d24 = getelementptr inbounds i8, ptr %b, i64 8
   %17 = load ptr, ptr %d24, align 8
   %call25 = tail call i32 @OBJ_cmp(ptr noundef %16, ptr noundef %17) #5
   br label %return
@@ -287,9 +284,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %value = getelementptr inbounds %struct.otherName_st, ptr %a, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %value, align 8
-  %value5 = getelementptr inbounds %struct.otherName_st, ptr %b, i64 0, i32 1
+  %value5 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load ptr, ptr %value5, align 8
   %call6 = tail call i32 @ASN1_TYPE_cmp(ptr noundef %2, ptr noundef %3) #5
   br label %return
@@ -314,7 +311,7 @@ entry:
   br i1 %switch, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.epilog.sink.split:                             ; preds = %entry
-  %d10 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d10 = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %value, ptr %d10, align 8
   br label %sw.epilog
 
@@ -339,7 +336,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %switch, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end
-  %d11 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %a, i64 0, i32 1
+  %d11 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %d11, align 8
   br label %return
 
@@ -357,9 +354,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %oid, ptr %call.i, align 8
-  %value1 = getelementptr inbounds %struct.otherName_st, ptr %call.i, i64 0, i32 1
+  %value1 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %value, ptr %value1, align 8
-  %d10.i = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d10.i = getelementptr inbounds i8, ptr %gen, i64 8
   store ptr %call.i, ptr %d10.i, align 8
   store i32 0, ptr %gen, align 8
   br label %return
@@ -381,7 +378,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %gen, i64 8
   %1 = load ptr, ptr %d, align 8
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %poid, align 8
@@ -392,9 +389,9 @@ if.end2:                                          ; preds = %if.then1, %if.end
   br i1 %tobool3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %d5 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %gen, i64 0, i32 1
+  %d5 = getelementptr inbounds i8, ptr %gen, i64 8
   %3 = load ptr, ptr %d5, align 8
-  %value = getelementptr inbounds %struct.otherName_st, ptr %3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value, align 8
   store ptr %4, ptr %pvalue, align 8
   br label %return

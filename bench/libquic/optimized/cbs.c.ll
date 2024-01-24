@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @CBS_init(ptr nocapture noundef writeonly %cbs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   store ptr %data, ptr %cbs, align 8
-  %len2 = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %cbs, i64 8
   store i64 %len, ptr %len2, align 8
   ret void
 }
@@ -17,7 +17,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @CBS_skip(ptr nocapture noundef %cbs, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %len.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ult i64 %0, %len
   br i1 %cmp.i, label %cbs_get.exit, label %if.end.i
@@ -45,7 +45,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @CBS_len(ptr nocapture noundef readonly %cbs) local_unnamed_addr #2 {
 entry:
-  %len = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len, align 8
   ret i64 %0
 }
@@ -57,7 +57,7 @@ entry:
   tail call void @free(ptr noundef %0) #14
   store ptr null, ptr %out_ptr, align 8
   store i64 0, ptr %out_len, align 8
-  %len = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %cbs, i64 8
   %1 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -97,7 +97,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = load ptr, ptr %cbs, align 8
-  %len = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %cbs, i64 8
   %2 = load i64, ptr %len, align 8
   %call = tail call ptr @BUF_strndup(ptr noundef %1, i64 noundef %2) #14
   store ptr %call, ptr %out_ptr, align 8
@@ -112,7 +112,7 @@ declare ptr @BUF_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 define hidden i32 @CBS_contains_zero_byte(ptr nocapture noundef readonly %cbs) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %cbs, align 8
-  %len = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %cbs, i64 8
   %1 = load i64, ptr %len, align 8
   %call = tail call ptr @memchr(ptr noundef %0, i32 noundef 0, i64 noundef %1) #15
   %cmp = icmp ne ptr %call, null
@@ -126,7 +126,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define hidden i32 @CBS_mem_equal(ptr nocapture noundef readonly %cbs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #3 {
 entry:
-  %len1 = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len1, align 8
   %cmp.not = icmp eq i64 %0, %len
   br i1 %cmp.not, label %if.end, label %return
@@ -148,7 +148,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_u8(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out) local_unnamed_addr #8 {
 entry:
-  %len.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %return, label %if.end
@@ -171,7 +171,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_u16(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out) local_unnamed_addr #9 {
 entry:
-  %len.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %cmp.i.i = icmp ult i64 %0, 2
   br i1 %cmp.i.i, label %return, label %cbs_get.exit.i
@@ -208,7 +208,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_u24(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out) local_unnamed_addr #9 {
 entry:
-  %len.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %cmp.i.i = icmp ult i64 %0, 3
   br i1 %cmp.i.i, label %cbs_get_u.exit, label %cbs_get.exit.i
@@ -245,7 +245,7 @@ cbs_get_u.exit:                                   ; preds = %entry, %for.end.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_u32(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out) local_unnamed_addr #9 {
 entry:
-  %len.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %cmp.i.i = icmp ult i64 %0, 4
   br i1 %cmp.i.i, label %cbs_get_u.exit, label %cbs_get.exit.i
@@ -282,7 +282,7 @@ cbs_get_u.exit:                                   ; preds = %entry, %for.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @CBS_get_bytes(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %len.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ult i64 %0, %len
   br i1 %cmp.i, label %return, label %if.end
@@ -294,7 +294,7 @@ if.end:                                           ; preds = %entry
   %sub.i = sub i64 %0, %len
   store i64 %sub.i, ptr %len.i, align 8
   store ptr %1, ptr %out, align 8
-  %len2.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %len, ptr %len2.i, align 8
   br label %return
 
@@ -306,7 +306,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_copy_bytes(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out, i64 noundef %len) local_unnamed_addr #10 {
 entry:
-  %len.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ult i64 %0, %len
   br i1 %cmp.i, label %return, label %if.end
@@ -331,7 +331,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_u8_length_prefixed(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out) local_unnamed_addr #8 {
 entry:
-  %len.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i.i, label %cbs_get_length_prefixed.exit, label %cbs_get.exit.i.i
@@ -353,7 +353,7 @@ if.end.i.i:                                       ; preds = %cbs_get.exit.i.i
   %sub.i.i5.i = sub i64 %sub.i.i.i, %3
   store i64 %sub.i.i5.i, ptr %len.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %out, align 8
-  %len2.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %len2.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %3, ptr %len2.i.i.i, align 8
   br label %cbs_get_length_prefixed.exit
 
@@ -365,7 +365,7 @@ cbs_get_length_prefixed.exit:                     ; preds = %entry, %cbs_get.exi
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_u16_length_prefixed(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out) local_unnamed_addr #9 {
 entry:
-  %len.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %0, 2
   br i1 %cmp.i.i.i, label %cbs_get_length_prefixed.exit, label %cbs_get.exit.i.i
@@ -401,7 +401,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %sub.i.i5.i = sub i64 %sub.i.i.i, %3
   store i64 %sub.i.i5.i, ptr %len.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %out, align 8
-  %len2.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %len2.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %3, ptr %len2.i.i.i, align 8
   br label %cbs_get_length_prefixed.exit
 
@@ -413,7 +413,7 @@ cbs_get_length_prefixed.exit:                     ; preds = %entry, %if.end.i, %
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_u24_length_prefixed(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out) local_unnamed_addr #9 {
 entry:
-  %len.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %0, 3
   br i1 %cmp.i.i.i, label %cbs_get_length_prefixed.exit, label %cbs_get.exit.i.i
@@ -449,7 +449,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %sub.i.i5.i = sub i64 %sub.i.i.i, %3
   store i64 %sub.i.i5.i, ptr %len.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %out, align 8
-  %len2.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %len2.i.i.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %3, ptr %len2.i.i.i, align 8
   br label %cbs_get_length_prefixed.exit
 
@@ -559,7 +559,7 @@ if.end.i42.i:                                     ; preds = %if.end75.i
 
 return.sink.split.i:                              ; preds = %if.end.i42.i
   store ptr %8, ptr %out, align 8
-  %out.sroa.gep49.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %out.sroa.gep49.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %len.0.i, ptr %out.sroa.gep49.i, align 8
   br label %cbs_get_any_asn1_element.exit
 
@@ -703,7 +703,7 @@ return.sink.split.i:                              ; preds = %if.end.i42.i, %if.e
   %.sink.i = phi ptr [ %5, %if.end.i31.i ], [ %11, %if.end.i42.i ]
   %len.0.sink.i = phi i64 [ 2, %if.end.i31.i ], [ %len.0.i, %if.end.i42.i ]
   store ptr %.sink.i, ptr %out, align 8
-  %out.sroa.gep49.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %out.sroa.gep49.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %len.0.sink.i, ptr %out.sroa.gep49.i, align 8
   br label %cbs_get_any_asn1_element.exit
 
@@ -800,7 +800,7 @@ CBS_get_any_asn1_element.exit.i:                  ; preds = %if.end.i42.i.i.i
 
 CBS_get_any_asn1_element.exit.i.thread:           ; preds = %if.end.i42.i.i.i
   store ptr %header.sroa.0.0.copyload.i.i.i, ptr %out, align 8
-  %out.sroa.gep.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %out.sroa.gep.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %.else.val.i, ptr %out.sroa.gep.i, align 8
   %cmp1.not.i1 = icmp ne i32 %conv.i.i.i, %tag_value
   %cmp.i.i26.i = icmp ult i64 %.else.val.i, %add68.sink.i.i.i
@@ -907,7 +907,7 @@ if.end.i42.i.i.i:                                 ; preds = %if.end75.sink.split
 
 if.end.i42.i.i.else.i:                            ; preds = %if.end.i42.i.i.i
   store ptr %header.sroa.0.0.copyload.i.i.i, ptr %out, align 8
-  %out.sroa.gep.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %out.sroa.gep.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %len.0.ph.i.i.i, ptr %out.sroa.gep.i, align 8
   br label %CBS_get_any_asn1_element.exit.i
 
@@ -924,7 +924,7 @@ cbs_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_el
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @CBS_peek_asn1_tag(ptr nocapture noundef readonly %cbs, i32 noundef %tag_value) local_unnamed_addr #12 {
 entry:
-  %len.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1078,7 +1078,7 @@ return:                                           ; preds = %for.body, %if.end28
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_optional_asn1(ptr nocapture noundef %cbs, ptr noundef writeonly %out, ptr noundef writeonly %out_present, i32 noundef %tag) local_unnamed_addr #9 {
 entry:
-  %len.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.end4, label %CBS_peek_asn1_tag.exit
@@ -1171,7 +1171,7 @@ CBS_get_any_asn1_element.exit.i.i:                ; preds = %if.end.i42.i.i.i.i
 
 CBS_get_any_asn1_element.exit.i.thread.i:         ; preds = %if.end.i42.i.i.i.i
   store ptr %1, ptr %out, align 8
-  %out.sroa.gep.i.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %out.sroa.gep.i.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %.else.val.i.i, ptr %out.sroa.gep.i.i, align 8
   %cmp.i.i26.i.i = icmp ult i64 %.else.val.i.i, %add68.sink.i.i.i.i
   br i1 %cmp.i.i26.i.i, label %return, label %CBS_get_asn1.exit.thread8
@@ -1200,7 +1200,7 @@ return:                                           ; preds = %CBS_get_any_asn1_el
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_optional_asn1_octet_string(ptr nocapture noundef %cbs, ptr noundef writeonly %out, ptr noundef writeonly %out_present, i32 noundef %tag) local_unnamed_addr #9 {
 entry:
-  %len.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.else, label %CBS_peek_asn1_tag.exit.i
@@ -1367,7 +1367,7 @@ CBS_get_any_asn1_element.exit.i.i:                ; preds = %if.end.i42.i.i.i.i
 
 CBS_get_any_asn1_element.exit.i.thread.i:         ; preds = %if.end.i42.i.i.i.i
   store ptr %add.ptr.i.i27.i.i.i, ptr %out, align 8
-  %out.sroa.gep.i.i = getelementptr inbounds %struct.cbs_st, ptr %out, i64 0, i32 1
+  %out.sroa.gep.i.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %.else.val.i.i, ptr %out.sroa.gep.i.i, align 8
   %cmp1.not.i1.i = icmp ne i8 %9, 4
   %cmp.i.i26.i.i = icmp ult i64 %.else.val.i.i, %add68.sink.i.i.i.i
@@ -1410,7 +1410,7 @@ return:                                           ; preds = %CBS_get_any_asn1_el
 define hidden noundef i32 @CBS_get_optional_asn1_uint64(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out, i32 noundef %tag, i64 noundef %default_value) local_unnamed_addr #9 {
 entry:
   %child = alloca %struct.cbs_st, align 8
-  %len.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.else, label %CBS_peek_asn1_tag.exit.i
@@ -1498,7 +1498,7 @@ if.end.i42.i.i.i.i.i:                             ; preds = %if.end75.sink.split
   br i1 %cmp.i.i26.i.i.i, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end.i42.i.i.i.i.i
-  %out.sroa.gep.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %child, i64 0, i32 1
+  %out.sroa.gep.i.i.i = getelementptr inbounds i8, ptr %child, i64 8
   %add.ptr.i.i27.i.i.i = getelementptr inbounds i8, ptr %1, i64 %add68.sink.i.i.i.i.i
   store ptr %add.ptr.i.i27.i.i.i, ptr %child, align 8
   %sub.i.i29.i.i.i = sub nsw i64 %.else.val.i.i.i, %add68.sink.i.i.i.i.i
@@ -1525,7 +1525,7 @@ return:                                           ; preds = %if.end.i42.i.i.i.i.
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @CBS_get_optional_asn1_bool(ptr nocapture noundef %cbs, ptr nocapture noundef writeonly %out, i32 noundef %tag, i32 noundef %default_value) local_unnamed_addr #9 {
 entry:
-  %len.i.i.i = getelementptr inbounds %struct.cbs_st, ptr %cbs, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %0 = load i64, ptr %len.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %return.sink.split, label %CBS_peek_asn1_tag.exit.i

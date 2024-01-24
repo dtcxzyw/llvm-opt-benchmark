@@ -275,23 +275,23 @@ _.exit:                                           ; preds = %is_terminal_dumb.ex
 if.end17:                                         ; preds = %if.then4, %_.exit, %land.end
   %4 = phi i1 [ true, %_.exit ], [ false, %land.end ], [ false, %if.then4 ]
   %call18 = call ptr @strbuf_realpath(ptr noundef nonnull %realpath, ptr noundef %path, i32 noundef 1) #10
-  %buf = getelementptr inbounds %struct.strbuf, ptr %realpath, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %realpath, i64 16
   %5 = load ptr, ptr %buf, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %p, ptr noundef nonnull %editor, ptr noundef %5, ptr noundef null) #10
   %tobool19.not = icmp eq ptr %env, null
   br i1 %tobool19.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %env21 = getelementptr inbounds %struct.child_process, ptr %p, i64 0, i32 1
+  %env21 = getelementptr inbounds i8, ptr %p, i64 24
   call void @strvec_pushv(ptr noundef nonnull %env21, ptr noundef nonnull %env) #10
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %if.end17
-  %use_shell = getelementptr inbounds %struct.child_process, ptr %p, i64 0, i32 11
+  %use_shell = getelementptr inbounds i8, ptr %p, i64 104
   %bf.load = load i16, ptr %use_shell, align 8
   %bf.set = or i16 %bf.load, 32
   store i16 %bf.set, ptr %use_shell, align 8
-  %trace2_child_class = getelementptr inbounds %struct.child_process, ptr %p, i64 0, i32 5
+  %trace2_child_class = getelementptr inbounds i8, ptr %p, i64 64
   store ptr @.str.16, ptr %trace2_child_class, align 8
   %call23 = call i32 @start_command(ptr noundef nonnull %p) #10
   %cmp = icmp slt i32 %call23, 0
@@ -403,9 +403,9 @@ _.exit:                                           ; preds = %if.then4, %if.end3.
   br label %if.end33
 
 if.else:                                          ; preds = %if.end
-  %buf = getelementptr inbounds %struct.strbuf, ptr %buffer, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %buffer, i64 16
   %1 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %buffer, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buffer, i64 8
   %2 = load i64, ptr %len, align 8
   %call8 = tail call i64 @write_in_full(i32 noundef %call3, ptr noundef %1, i64 noundef %2) #10
   %cmp9 = icmp slt i64 %call8, 0

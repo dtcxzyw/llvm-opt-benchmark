@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -26,11 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.60" = type { %"struct.std::_Head_base.63" }
 %"struct.std::_Head_base.63" = type { ptr }
 %struct.timespec = type { i64, i64 }
-%class.anon = type { ptr, ptr, ptr, ptr }
-%class.anon.5 = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %struct.evp_aead_ctx_st = type { ptr, ptr }
-%class.anon.6 = type { i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr }
-%class.anon.7 = type { ptr, ptr, i64, ptr }
 %"class.std::unique_ptr.11" = type { %"struct.std::__uniq_ptr_data.12" }
 %"struct.std::__uniq_ptr_data.12" = type { %"class.std::__uniq_ptr_impl.13" }
 %"class.std::__uniq_ptr_impl.13" = type { %"class.std::tuple.14" }
@@ -55,10 +50,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.38" = type { %"struct.std::_Tuple_impl.39" }
 %"struct.std::_Tuple_impl.39" = type { %"struct.std::_Head_base.42" }
 %"struct.std::_Head_base.42" = type { ptr }
-%class.anon.46 = type { ptr, ptr, ptr, ptr }
-%class.anon.47 = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-%class.anon.64 = type { ptr, i64 }
-%class.anon.66 = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -210,7 +201,7 @@ entry:
   %ref.tmp198 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp199 = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %selected) #16
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %args, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %args, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -966,13 +957,13 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %0) #18
   store ptr %call3, ptr %sig, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %fake_sha256_hash, i8 0, i64 32, i1 false)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i7 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %key, ptr %call.i.i2.i7, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i7.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i7, i64 8
   store ptr %sig, ptr %ref.tmp.sroa.2.0.call.i.i2.i7.sroa_idx, align 8
@@ -1050,7 +1041,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont15:                                    ; preds = %.noexc
   %12 = load i32, ptr %results, align 4
   %call.i15 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %13 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %12 to double
   %conv4.i = uitofp i32 %13 to double
@@ -1059,13 +1050,13 @@ invoke.cont15:                                    ; preds = %.noexc
   %call5.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %12, ptr noundef %call.i15, i32 noundef %13, double noundef %mul.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #16
   %14 = load i32, ptr %sig_len, align 4
-  %_M_manager.i.i16 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp16, i64 0, i32 1
+  %_M_manager.i.i16 = getelementptr inbounds i8, ptr %agg.tmp16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp16, i8 0, i64 32, i1 false)
   %call.i.i2.i18 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  %_M_invoker.i17 = getelementptr inbounds %"class.std::function", ptr %agg.tmp16, i64 0, i32 1
+  %_M_invoker.i17 = getelementptr inbounds i8, ptr %agg.tmp16, i64 24
   store ptr %key, ptr %call.i.i2.i18, align 16
   %ref.tmp17.sroa.2.0.call.i.i2.i18.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i18, i64 8
   store ptr %fake_sha256_hash, ptr %ref.tmp17.sroa.2.0.call.i.i2.i18.sroa_idx, align 8
@@ -1916,8 +1907,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %public_key, ptr %agg.tmp, align 8
   %ref.tmp.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %private_key, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -1971,7 +1962,7 @@ if.end4:                                          ; preds = %_ZNSt8functionIFbvE
 invoke.cont10:                                    ; preds = %if.end4
   %7 = load i32, ptr %results, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %8 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %7 to double
   %conv4.i = uitofp i32 %8 to double
@@ -1980,8 +1971,8 @@ invoke.cont10:                                    ; preds = %if.end4
   %call5.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %7, ptr noundef %call.i, i32 noundef %8, double noundef %mul.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #16
-  %_M_manager.i.i19 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp11, i64 0, i32 1
-  %_M_invoker.i20 = getelementptr inbounds %"class.std::function", ptr %agg.tmp11, i64 0, i32 1
+  %_M_manager.i.i19 = getelementptr inbounds i8, ptr %agg.tmp11, i64 16
+  %_M_invoker.i20 = getelementptr inbounds i8, ptr %agg.tmp11, i64 24
   store ptr %private_key, ptr %agg.tmp11, align 8
   %ref.tmp12.sroa.2.0.agg.tmp11.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
   store ptr %signature, ptr %ref.tmp12.sroa.2.0.agg.tmp11.sroa_idx, align 8
@@ -2048,8 +2039,8 @@ invoke.cont25:                                    ; preds = %if.end19
   %call5.i39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %17, ptr noundef %call.i33, i32 noundef %18, double noundef %mul.i38)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #16
-  %_M_manager.i.i40 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp28, i64 0, i32 1
-  %_M_invoker.i41 = getelementptr inbounds %"class.std::function", ptr %agg.tmp28, i64 0, i32 1
+  %_M_manager.i.i40 = getelementptr inbounds i8, ptr %agg.tmp28, i64 16
+  %_M_invoker.i41 = getelementptr inbounds i8, ptr %agg.tmp28, i64 24
   store ptr %public_key, ptr %agg.tmp28, align 8
   %ref.tmp29.sroa.2.0.agg.tmp28.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp28, i64 8
   store ptr %signature, ptr %ref.tmp29.sroa.2.0.agg.tmp28.sroa_idx, align 8
@@ -2121,8 +2112,8 @@ invoke.cont43:                                    ; preds = %if.end37
   %call5.i60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %29, ptr noundef %call.i54, i32 noundef %30, double noundef %mul.i59)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39) #16
-  %_M_manager.i.i61 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp46, i64 0, i32 1
-  %_M_invoker.i62 = getelementptr inbounds %"class.std::function", ptr %agg.tmp46, i64 0, i32 1
+  %_M_manager.i.i61 = getelementptr inbounds i8, ptr %agg.tmp46, i64 16
+  %_M_invoker.i62 = getelementptr inbounds i8, ptr %agg.tmp46, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp46, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i62, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i61, align 8
@@ -2192,8 +2183,8 @@ invoke.cont61:                                    ; preds = %if.end55
   %call5.i81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %41, ptr noundef %call.i75, i32 noundef %42, double noundef %mul.i80)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #16
-  %_M_manager.i.i82 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp64, i64 0, i32 1
-  %_M_invoker.i83 = getelementptr inbounds %"class.std::function", ptr %agg.tmp64, i64 0, i32 1
+  %_M_manager.i.i82 = getelementptr inbounds i8, ptr %agg.tmp64, i64 16
+  %_M_invoker.i83 = getelementptr inbounds i8, ptr %agg.tmp64, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp64, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i83, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i82, align 8
@@ -2325,8 +2316,8 @@ lpad:                                             ; preds = %if.end
 
 if.end8:                                          ; preds = %invoke.cont
   %3 = load i64, ptr %alice_msg_len, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %alice_msg, ptr %agg.tmp, align 8
   %ref.tmp.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %3, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -2385,7 +2376,7 @@ if.end15:                                         ; preds = %if.then12, %_ZNSt8f
 invoke.cont21:                                    ; preds = %if.end15
   %13 = load i32, ptr %results, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %14 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %13 to double
   %conv4.i = uitofp i32 %14 to double
@@ -2446,8 +2437,8 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %call2 = tail call ptr @NEWHOPE_POLY_new()
   %call3 = call i32 @RAND_bytes(ptr noundef nonnull %clientmsg, i64 noundef 2048)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %call2, ptr %agg.tmp, align 8
   %ref.tmp.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %clientmsg, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -2507,7 +2498,7 @@ if.end7:                                          ; preds = %_ZNSt8functionIFbvE
 invoke.cont13:                                    ; preds = %if.end7
   %9 = load i32, ptr %results, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %10 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %9 to double
   %conv4.i = uitofp i32 %10 to double
@@ -2557,12 +2548,12 @@ entry:
   %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #16
   %0 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %0, 1000000
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   %1 = load i64, ptr %tv_nsec.i, align 8
   %div.i = sdiv i64 %1, 1000
   %add.i = add i64 %div.i, %mul.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %func, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %func, i64 16
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFbvEEclEv.exit
@@ -2572,7 +2563,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %entry
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %func, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %func, i64 24
   %3 = load ptr, ptr %_M_invoker.i, align 8
   %call2.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %func)
   br i1 %call2.i, label %if.end, label %return
@@ -2582,7 +2573,7 @@ if.end:                                           ; preds = %_ZNKSt8functionIFbv
   %call.i12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i11) #16
   %4 = load i64, ptr %ts.i11, align 8
   %mul.i13 = mul i64 %4, 1000000
-  %tv_nsec.i14 = getelementptr inbounds %struct.timespec, ptr %ts.i11, i64 0, i32 1
+  %tv_nsec.i14 = getelementptr inbounds i8, ptr %ts.i11, i64 8
   %5 = load i64, ptr %tv_nsec.i14, align 8
   %div.i15 = sdiv i64 %5, 1000
   %add.i16 = add i64 %div.i15, %mul.i13
@@ -2604,7 +2595,7 @@ if.else7:                                         ; preds = %if.else
 
 if.end12:                                         ; preds = %if.else, %if.end, %if.else7
   %iterations_between_time_checks.0 = phi i32 [ %spec.store.select, %if.else7 ], [ 250, %if.end ], [ 1000, %if.else ]
-  %tv_nsec.i26 = getelementptr inbounds %struct.timespec, ptr %ts.i23, i64 0, i32 1
+  %tv_nsec.i26 = getelementptr inbounds i8, ptr %ts.i23, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.end, %if.end12
@@ -2647,7 +2638,7 @@ for.end:                                          ; preds = %if.end17
 
 for.end24:                                        ; preds = %for.end
   %conv26 = trunc i64 %sub20 to i32
-  %us = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us = getelementptr inbounds i8, ptr %results, i64 4
   store i32 %conv26, ptr %us, align 4
   store i32 %6, ptr %results, align 4
   br label %return
@@ -2678,12 +2669,12 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #6
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS8_E3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #0 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
-  %0 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.anon, ptr %__functor.val, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %__functor.val, align 8
   %call2.i.i.i = tail call i32 @RSA_sign(i32 noundef 672, ptr noundef %1, i32 noundef 32, ptr noundef %4, ptr noundef %6, ptr noundef %7)
@@ -2755,12 +2746,12 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS8_E3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #0 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
-  %0 = getelementptr inbounds %class.anon.5, ptr %__functor.val, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %class.anon.5, ptr %__functor.val, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.anon.5, ptr %__functor.val, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %6 = load i32, ptr %5, align 8
   %conv.i.i.i = zext i32 %6 to i64
   %7 = load ptr, ptr %__functor.val, align 8
@@ -2898,13 +2889,13 @@ lpad20:                                           ; preds = %if.then37.invoke, %
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont28
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i25 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #18
           to label %invoke.cont33 unwind label %lpad20
 
 invoke.cont33:                                    ; preds = %if.end
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store i64 %chunk_len, ptr %call.i.i2.i25, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i25.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i25, i64 8
   store i64 %call2, ptr %ref.tmp.sroa.2.0.call.i.i2.i25.sroa_idx, align 8
@@ -2992,7 +2983,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont45:                                    ; preds = %.noexc
   %24 = load i32, ptr %results, align 4
   %call.i33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %25 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %24 to double
   %conv4.i = uitofp i32 %25 to double
@@ -3093,25 +3084,25 @@ entry:
   %out_len.i.i.i = alloca i64, align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %out_len.i.i.i)
-  %0 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 6
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 48
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 5
+  %2 = getelementptr inbounds i8, ptr %__functor.val, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %__functor.val, align 8
-  %5 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %6 = load i64, ptr %5, align 8
   %add.i.i.i = add i64 %6, %4
-  %7 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 7
+  %7 = getelementptr inbounds i8, ptr %__functor.val, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 4
+  %12 = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 8
+  %14 = getelementptr inbounds i8, ptr %__functor.val, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %class.anon.6, ptr %__functor.val, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %18 = load i64, ptr %17, align 8
   %call3.i.i.i = call i32 @EVP_AEAD_CTX_seal(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %out_len.i.i.i, i64 noundef %add.i.i.i, ptr noundef %9, i64 noundef %11, ptr noundef %13, i64 noundef %4, ptr noundef %16, i64 noundef %18)
   %tobool.i.i.i = icmp ne i32 %call3.i.i.i, 0
@@ -3167,8 +3158,8 @@ entry:
   %results = alloca %struct.TimeResults, align 4
   %agg.tmp = alloca %"class.std::function", align 8
   %call = tail call ptr @EVP_MD_CTX_create()
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %0, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
@@ -3235,7 +3226,7 @@ _ZNSt8functionIFbvEED2Ev.exit10:                  ; preds = %lpad, %if.then.i.i7
 if.end4:                                          ; preds = %_ZNSt8functionIFbvEED2Ev.exit
   %11 = load i32, ptr %results, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %12 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %11 to double
   %conv4.i = uitofp i32 %12 to double
@@ -3266,7 +3257,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %md_len.i.i.i)
   %0 = load ptr, ptr %__functor.val, align 8
-  %1 = getelementptr inbounds %class.anon.7, ptr %__functor.val, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %2 = load ptr, ptr %1, align 8
   %call.i.i.i = tail call i32 @EVP_DigestInit_ex(ptr noundef %0, ptr noundef %2, ptr noundef null)
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
@@ -3274,9 +3265,9 @@ entry:
 
 land.lhs.true.i.i.i:                              ; preds = %entry
   %3 = load ptr, ptr %__functor.val, align 8
-  %4 = getelementptr inbounds %class.anon.7, ptr %__functor.val, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %class.anon.7, ptr %__functor.val, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %7 = load i64, ptr %6, align 8
   %call2.i.i.i = tail call i32 @EVP_DigestUpdate(ptr noundef %3, ptr noundef %5, i64 noundef %7)
   %tobool3.not.i.i.i = icmp eq i32 %call2.i.i.i, 0
@@ -3346,8 +3337,8 @@ entry:
   %scratch = alloca [8192 x i8], align 16
   %results = alloca %struct.TimeResults, align 4
   %agg.tmp = alloca %"class.std::function", align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store i64 %chunk_len, ptr %agg.tmp, align 8
   %ref.tmp.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %scratch, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
@@ -3399,7 +3390,7 @@ _ZNSt8functionIFbvEED2Ev.exit9:                   ; preds = %lpad, %if.then.i.i6
 if.end2:                                          ; preds = %_ZNSt8functionIFbvEED2Ev.exit
   %7 = load i32, ptr %results, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %8 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %7 to double
   %conv4.i = uitofp i32 %8 to double
@@ -3470,8 +3461,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 16, i1 false)
   store i32 %nid, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
@@ -3522,7 +3513,7 @@ _ZNSt8functionIFbvEED2Ev.exit9:                   ; preds = %lpad, %if.then.i.i6
 if.end4:                                          ; preds = %_ZNSt8functionIFbvEED2Ev.exit
   %7 = load i32, ptr %results, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %8 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %7 to double
   %conv4.i = uitofp i32 %8 to double
@@ -3948,13 +3939,13 @@ invoke.cont9:                                     ; preds = %if.end7
 
 if.end13:                                         ; preds = %invoke.cont9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %digest, i8 42, i64 20, i1 false)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %if.end13
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %key, ptr %call.i.i2.i5, align 16
   %ref.tmp.sroa.2.0.call.i.i2.i5.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i5, i64 8
   store ptr %signature, ptr %ref.tmp.sroa.2.0.call.i.i2.i5.sroa_idx, align 8
@@ -4022,7 +4013,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont23:                                    ; preds = %.noexc
   %10 = load i32, ptr %results, align 4
   %call.i13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #16
-  %us.i = getelementptr inbounds %struct.TimeResults, ptr %results, i64 0, i32 1
+  %us.i = getelementptr inbounds i8, ptr %results, i64 4
   %11 = load i32, ptr %us.i, align 4
   %conv.i = uitofp i32 %10 to double
   %conv4.i = uitofp i32 %11 to double
@@ -4031,13 +4022,13 @@ invoke.cont23:                                    ; preds = %.noexc
   %call5.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %10, ptr noundef %call.i13, i32 noundef %11, double noundef %mul.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #16
   %12 = load i32, ptr %sig_len, align 4
-  %_M_manager.i.i14 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp24, i64 0, i32 1
+  %_M_manager.i.i14 = getelementptr inbounds i8, ptr %agg.tmp24, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp24, i8 0, i64 32, i1 false)
   %call.i.i2.i16 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont23
-  %_M_invoker.i15 = getelementptr inbounds %"class.std::function", ptr %agg.tmp24, i64 0, i32 1
+  %_M_invoker.i15 = getelementptr inbounds i8, ptr %agg.tmp24, i64 24
   store ptr %key, ptr %call.i.i2.i16, align 16
   %ref.tmp25.sroa.2.0.call.i.i2.i16.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i16, i64 8
   store ptr %signature, ptr %ref.tmp25.sroa.2.0.call.i.i2.i16.sroa_idx, align 8
@@ -4147,11 +4138,11 @@ declare i64 @ECDSA_size(ptr noundef) local_unnamed_addr #2
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #0 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
-  %0 = getelementptr inbounds %class.anon.46, ptr %__functor.val, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %class.anon.46, ptr %__functor.val, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.anon.46, ptr %__functor.val, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %__functor.val, align 8
   %7 = load ptr, ptr %6, align 8
@@ -4205,11 +4196,11 @@ declare i32 @ECDSA_sign(i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr 
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #0 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
-  %0 = getelementptr inbounds %class.anon.47, ptr %__functor.val, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %1 = load ptr, ptr %0, align 8
-  %2 = getelementptr inbounds %class.anon.47, ptr %__functor.val, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %__functor.val, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.anon.47, ptr %__functor.val, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %5 = load i32, ptr %4, align 8
   %conv.i.i.i = zext i32 %5 to i64
   %6 = load ptr, ptr %__functor.val, align 8
@@ -4508,7 +4499,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 lor.lhs.false.i.i.i:                              ; preds = %invoke.cont.i.i.i
   %0 = load ptr, ptr %__functor, align 8
-  %1 = getelementptr inbounds %class.anon.64, ptr %__functor, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %__functor, i64 8
   %2 = load i64, ptr %1, align 8
   %call8.i.i.i = invoke i32 @SPAKE2_process_msg(ptr noundef %call.i.i.i, ptr noundef nonnull %bob_key.i.i.i, ptr noundef nonnull %bob_key_len.i.i.i, i64 noundef 64, ptr noundef %0, i64 noundef %2)
           to label %invoke.cont7.i.i.i unwind label %lpad.i.i.i
@@ -4589,7 +4580,7 @@ entry:
   %0 = load ptr, ptr %__functor, align 8
   call void @NEWHOPE_keygen(ptr noundef nonnull %servermsg.i.i.i, ptr noundef %0)
   %1 = load ptr, ptr %__functor, align 8
-  %2 = getelementptr inbounds %class.anon.66, ptr %__functor, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %__functor, i64 8
   %3 = load ptr, ptr %2, align 8
   %call.i.i.i = call i32 @NEWHOPE_server_compute_key(ptr noundef nonnull %server_key.i.i.i, ptr noundef %1, ptr noundef %3, i64 noundef 2048)
   %tobool.not.i.i.i = icmp ne i32 %call.i.i.i, 0

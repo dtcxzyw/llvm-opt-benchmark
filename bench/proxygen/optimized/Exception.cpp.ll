@@ -3,11 +3,6 @@ source_filename = "bench/proxygen/original/Exception.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.proxygen::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string", i32, i32 }
-%"class.std::exception" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -37,14 +32,14 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define void @_ZN8proxygen9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg_, ptr noundef nonnull align 8 dereferenceable(32) %msg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %code_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 2
+  %code_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %code_, align 8
-  %proxygenError_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 3
+  %proxygenError_ = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %proxygenError_, align 4
   ret void
 
@@ -67,7 +62,7 @@ define void @_ZN8proxygen9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenc
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %msg_)
           to label %call.i.noexc unwind label %lpad
@@ -101,9 +96,9 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
-  %code_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 2
+  %code_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %code_, align 8
-  %proxygenError_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 3
+  %proxygenError_ = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %proxygenError_, align 4
   ret void
 
@@ -129,18 +124,18 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN8proxygen9ExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
-  %msg_2 = getelementptr inbounds %"class.proxygen::Exception", ptr %other, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_2 = getelementptr inbounds i8, ptr %other, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg_, ptr noundef nonnull align 8 dereferenceable(32) %msg_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %code_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 2
-  %code_3 = getelementptr inbounds %"class.proxygen::Exception", ptr %other, i64 0, i32 2
+  %code_ = getelementptr inbounds i8, ptr %this, i64 40
+  %code_3 = getelementptr inbounds i8, ptr %other, i64 40
   %0 = load i32, ptr %code_3, align 8
   store i32 %0, ptr %code_, align 8
-  %proxygenError_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 3
-  %proxygenError_4 = getelementptr inbounds %"class.proxygen::Exception", ptr %other, i64 0, i32 3
+  %proxygenError_ = getelementptr inbounds i8, ptr %this, i64 44
+  %proxygenError_4 = getelementptr inbounds i8, ptr %other, i64 44
   %1 = load i32, ptr %proxygenError_4, align 4
   store i32 %1, ptr %proxygenError_, align 4
   ret void
@@ -156,18 +151,18 @@ lpad:                                             ; preds = %entry
 define void @_ZN8proxygen9ExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
-  %msg_2 = getelementptr inbounds %"class.proxygen::Exception", ptr %other, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_2 = getelementptr inbounds i8, ptr %other, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg_, ptr noundef nonnull align 8 dereferenceable(32) %msg_2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %code_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 2
-  %code_3 = getelementptr inbounds %"class.proxygen::Exception", ptr %other, i64 0, i32 2
+  %code_ = getelementptr inbounds i8, ptr %this, i64 40
+  %code_3 = getelementptr inbounds i8, ptr %other, i64 40
   %0 = load i32, ptr %code_3, align 8
   store i32 %0, ptr %code_, align 8
-  %proxygenError_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 3
-  %proxygenError_4 = getelementptr inbounds %"class.proxygen::Exception", ptr %other, i64 0, i32 3
+  %proxygenError_ = getelementptr inbounds i8, ptr %this, i64 44
+  %proxygenError_4 = getelementptr inbounds i8, ptr %other, i64 44
   %1 = load i32, ptr %proxygenError_4, align 4
   store i32 %1, ptr %proxygenError_, align 4
   ret void
@@ -194,7 +189,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK8proxygen9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #8
   ret ptr %call
 }
@@ -206,7 +201,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define linkonce_odr void @_ZN8proxygen9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
   ret void
@@ -216,7 +211,7 @@ entry:
 define linkonce_odr void @_ZN8proxygen9ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11

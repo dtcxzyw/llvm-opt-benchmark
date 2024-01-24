@@ -3,13 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-x509_r2x.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.X509_val_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/x509_r2x.c\00", align 1
 @__func__.X509_REQ_to_X509 = private unnamed_addr constant [17 x i8] c"X509_REQ_to_X509\00", align 1
 
@@ -27,7 +20,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %r, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load ptr, ptr %attributes, align 8
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #2
   %cmp3.not = icmp eq i32 %call2, 0
@@ -56,14 +49,14 @@ if.end18:                                         ; preds = %if.end13
   br i1 %cmp20, label %err, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
-  %validity = getelementptr inbounds %struct.x509_cinf_st, ptr %call, i64 0, i32 4
+  %validity = getelementptr inbounds i8, ptr %call, i64 56
   %1 = load ptr, ptr %validity, align 8
   %call23 = tail call ptr @X509_gmtime_adj(ptr noundef %1, i64 noundef 0) #2
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %err, label %if.end26
 
 if.end26:                                         ; preds = %if.end22
-  %notAfter = getelementptr inbounds %struct.x509_cinf_st, ptr %call, i64 0, i32 4, i32 1
+  %notAfter = getelementptr inbounds i8, ptr %call, i64 64
   %2 = load ptr, ptr %notAfter, align 8
   %conv = sext i32 %days to i64
   %mul = mul nsw i64 %conv, 86400

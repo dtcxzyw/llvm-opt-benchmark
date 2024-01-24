@@ -60,7 +60,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.49 = private unnamed_addr constant [21 x i8] c"error_callback_fired\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_bio_memleak) #3
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_bio_get_mem) #3
@@ -87,9 +87,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 10, ptr %bufmem, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %bufmem, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %bufmem, i64 8
   store ptr @test_bio_memleak.str, ptr %data, align 8
-  %max = getelementptr inbounds %struct.buf_mem_st, ptr %bufmem, i64 0, i32 2
+  %max = getelementptr inbounds i8, ptr %bufmem, i64 16
   store i64 10, ptr %max, align 8
   %call4 = call i64 @BIO_ctrl(ptr noundef %call1, i32 noundef 114, i64 noundef 0, ptr noundef nonnull %bufmem) #3
   call void @BIO_set_flags(ptr noundef %call1, i32 noundef 512) #3
@@ -144,7 +144,7 @@ if.end12:                                         ; preds = %if.end7
 if.end17:                                         ; preds = %if.end12
   %call18 = call i32 @BIO_free(ptr noundef %call1) #3
   %1 = load ptr, ptr %bufmem, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %1, align 8
   %call19 = call i32 @test_mem_eq(ptr noundef nonnull @.str.7, i32 noundef 61, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.15, i64 noundef 12) #3
@@ -447,9 +447,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 15, ptr %bufmem, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %bufmem, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %bufmem, i64 8
   store ptr @test_bio_i2d_ASN1_mime.str, ptr %data, align 8
-  %max = getelementptr inbounds %struct.buf_mem_st, ptr %bufmem, i64 0, i32 2
+  %max = getelementptr inbounds i8, ptr %bufmem, i64 16
   store i64 15, ptr %max, align 8
   %call4 = call i64 @BIO_ctrl(ptr noundef %call1, i32 noundef 114, i64 noundef 0, ptr noundef nonnull %bufmem) #3
   call void @BIO_set_flags(ptr noundef %call1, i32 noundef 512) #3
@@ -537,7 +537,7 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @BIO_error_callback(ptr nocapture readnone %bio, i32 noundef %cmd, ptr nocapture readnone %argp, i64 %len, i32 %argi, i64 %argl, i32 noundef %ret, ptr nocapture readnone %processed) #2 {
+define internal noundef i64 @BIO_error_callback(ptr nocapture readnone %bio, i32 noundef %cmd, ptr nocapture readnone %argp, i64 %len, i32 %argi, i64 %argl, i32 noundef %ret, ptr nocapture readnone %processed) #2 {
 entry:
   %and = and i32 %cmd, 130
   %cmp.not = icmp eq i32 %and, 0

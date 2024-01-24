@@ -138,7 +138,7 @@ for.cond.cleanup17:                               ; preds = %for.body18
   br i1 %cmp31, label %for.cond33.preheader, label %if.end66
 
 for.cond33.preheader:                             ; preds = %for.cond.cleanup17
-  %add.ptr52 = getelementptr inbounds i64, ptr %buckets, i64 256
+  %add.ptr52 = getelementptr inbounds i8, ptr %buckets, i64 2048
   %narrow = add nuw nsw i8 %shift, 8
   %lnot = xor i1 %inout, true
   br label %for.body36
@@ -222,7 +222,7 @@ entry:
   br i1 %cmp24, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr1.i = getelementptr inbounds double, ptr %__first, i64 1
+  %add.ptr1.i = getelementptr inbounds i8, ptr %__first, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit, %while.body.lr.ph
@@ -240,7 +240,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i:                                   ; preds = %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, %if.then
   %__last.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i ], [ %__last.addr.026, %if.then ]
-  %incdec.ptr.i.i = getelementptr inbounds double, ptr %__last.addr.08.i.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__last.addr.08.i.i, i64 -8
   %0 = load double, ptr %incdec.ptr.i.i, align 8, !tbaa !15
   %1 = load double, ptr %__first, align 8, !tbaa !15
   store double %1, ptr %incdec.ptr.i.i, align 8, !tbaa !15
@@ -322,7 +322,7 @@ if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.025, -1
   %div.i1617 = lshr i64 %sub.ptr.sub27, 4
   %add.ptr.i = getelementptr inbounds double, ptr %__first, i64 %div.i1617
-  %add.ptr2.i = getelementptr inbounds double, ptr %__last.addr.026, i64 -1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %__last.addr.026, i64 -8
   %8 = load double, ptr %add.ptr1.i, align 8, !tbaa !15
   %9 = load double, ptr %add.ptr.i, align 8, !tbaa !15
   %cmp.i.i.i = fcmp olt double %8, %9
@@ -392,12 +392,12 @@ while.cond1.i.i:                                  ; preds = %while.cond1.i.i, %w
   %__first.addr.1.i.i = phi ptr [ %__first.addr.0.i.i, %while.body.i.i13 ], [ %incdec.ptr.i.i14, %while.cond1.i.i ]
   %16 = load double, ptr %__first.addr.1.i.i, align 8, !tbaa !15
   %cmp.i.i12.i = fcmp olt double %16, %15
-  %incdec.ptr.i.i14 = getelementptr inbounds double, ptr %__first.addr.1.i.i, i64 1
+  %incdec.ptr.i.i14 = getelementptr inbounds i8, ptr %__first.addr.1.i.i, i64 8
   br i1 %cmp.i.i12.i, label %while.cond1.i.i, label %while.cond4.i.i, !llvm.loop !22
 
 while.cond4.i.i:                                  ; preds = %while.cond1.i.i, %while.cond4.i.i
   %__last.addr.0.pn.i.i = phi ptr [ %__last.addr.1.i.i, %while.cond4.i.i ], [ %__last.addr.0.i.i, %while.cond1.i.i ]
-  %__last.addr.1.i.i = getelementptr inbounds double, ptr %__last.addr.0.pn.i.i, i64 -1
+  %__last.addr.1.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i, i64 -8
   %17 = load double, ptr %__last.addr.1.i.i, align 8, !tbaa !15
   %cmp.i20.i.i = fcmp olt double %15, %17
   br i1 %cmp.i20.i.i, label %while.cond4.i.i, label %while.end8.i.i, !llvm.loop !23
@@ -461,7 +461,7 @@ while.body.i.i.1:                                 ; preds = %if.else.i.1, %while
   %__next.013.i.i.1 = phi ptr [ %__next.0.i.i.1, %while.body.i.i.1 ], [ %scevgep, %if.else.i.1 ]
   %__last.addr.012.i.i.1 = phi ptr [ %__next.013.i.i.1, %while.body.i.i.1 ], [ %__i.021.i.ptr.1, %if.else.i.1 ]
   store double %5, ptr %__last.addr.012.i.i.1, align 8, !tbaa !15
-  %__next.0.i.i.1 = getelementptr inbounds double, ptr %__next.013.i.i.1, i64 -1
+  %__next.0.i.i.1 = getelementptr inbounds i8, ptr %__next.013.i.i.1, i64 -8
   %6 = load double, ptr %__next.0.i.i.1, align 8, !tbaa !15
   %cmp.i.i.i.1 = fcmp olt double %2, %6
   br i1 %cmp.i.i.i.1, label %while.body.i.i.1, label %for.inc.i.1, !llvm.loop !26
@@ -489,7 +489,7 @@ while.body.i.i.2:                                 ; preds = %if.else.i.2, %while
   %__next.013.i.i.2 = phi ptr [ %__next.0.i.i.2, %while.body.i.i.2 ], [ %__i.021.i.ptr.1, %if.else.i.2 ]
   %__last.addr.012.i.i.2 = phi ptr [ %__next.013.i.i.2, %while.body.i.i.2 ], [ %__i.021.i.ptr.2, %if.else.i.2 ]
   store double %10, ptr %__last.addr.012.i.i.2, align 8, !tbaa !15
-  %__next.0.i.i.2 = getelementptr inbounds double, ptr %__next.013.i.i.2, i64 -1
+  %__next.0.i.i.2 = getelementptr inbounds i8, ptr %__next.013.i.i.2, i64 -8
   %11 = load double, ptr %__next.0.i.i.2, align 8, !tbaa !15
   %cmp.i.i.i.2 = fcmp olt double %7, %11
   br i1 %cmp.i.i.i.2, label %while.body.i.i.2, label %for.inc.i.2, !llvm.loop !26
@@ -517,7 +517,7 @@ while.body.i.i.3:                                 ; preds = %if.else.i.3, %while
   %__next.013.i.i.3 = phi ptr [ %__next.0.i.i.3, %while.body.i.i.3 ], [ %__i.021.i.ptr.2, %if.else.i.3 ]
   %__last.addr.012.i.i.3 = phi ptr [ %__next.013.i.i.3, %while.body.i.i.3 ], [ %__i.021.i.ptr.3, %if.else.i.3 ]
   store double %15, ptr %__last.addr.012.i.i.3, align 8, !tbaa !15
-  %__next.0.i.i.3 = getelementptr inbounds double, ptr %__next.013.i.i.3, i64 -1
+  %__next.0.i.i.3 = getelementptr inbounds i8, ptr %__next.013.i.i.3, i64 -8
   %16 = load double, ptr %__next.0.i.i.3, align 8, !tbaa !15
   %cmp.i.i.i.3 = fcmp olt double %12, %16
   br i1 %cmp.i.i.i.3, label %while.body.i.i.3, label %for.inc.i.3, !llvm.loop !26
@@ -545,7 +545,7 @@ while.body.i.i.4:                                 ; preds = %if.else.i.4, %while
   %__next.013.i.i.4 = phi ptr [ %__next.0.i.i.4, %while.body.i.i.4 ], [ %__i.021.i.ptr.3, %if.else.i.4 ]
   %__last.addr.012.i.i.4 = phi ptr [ %__next.013.i.i.4, %while.body.i.i.4 ], [ %__i.021.i.ptr.4, %if.else.i.4 ]
   store double %20, ptr %__last.addr.012.i.i.4, align 8, !tbaa !15
-  %__next.0.i.i.4 = getelementptr inbounds double, ptr %__next.013.i.i.4, i64 -1
+  %__next.0.i.i.4 = getelementptr inbounds i8, ptr %__next.013.i.i.4, i64 -8
   %21 = load double, ptr %__next.0.i.i.4, align 8, !tbaa !15
   %cmp.i.i.i.4 = fcmp olt double %17, %21
   br i1 %cmp.i.i.i.4, label %while.body.i.i.4, label %for.inc.i.4, !llvm.loop !26
@@ -573,7 +573,7 @@ while.body.i.i.5:                                 ; preds = %if.else.i.5, %while
   %__next.013.i.i.5 = phi ptr [ %__next.0.i.i.5, %while.body.i.i.5 ], [ %__i.021.i.ptr.4, %if.else.i.5 ]
   %__last.addr.012.i.i.5 = phi ptr [ %__next.013.i.i.5, %while.body.i.i.5 ], [ %__i.021.i.ptr.5, %if.else.i.5 ]
   store double %25, ptr %__last.addr.012.i.i.5, align 8, !tbaa !15
-  %__next.0.i.i.5 = getelementptr inbounds double, ptr %__next.013.i.i.5, i64 -1
+  %__next.0.i.i.5 = getelementptr inbounds i8, ptr %__next.013.i.i.5, i64 -8
   %26 = load double, ptr %__next.0.i.i.5, align 8, !tbaa !15
   %cmp.i.i.i.5 = fcmp olt double %22, %26
   br i1 %cmp.i.i.i.5, label %while.body.i.i.5, label %for.inc.i.5, !llvm.loop !26
@@ -601,7 +601,7 @@ while.body.i.i.6:                                 ; preds = %if.else.i.6, %while
   %__next.013.i.i.6 = phi ptr [ %__next.0.i.i.6, %while.body.i.i.6 ], [ %__i.021.i.ptr.5, %if.else.i.6 ]
   %__last.addr.012.i.i.6 = phi ptr [ %__next.013.i.i.6, %while.body.i.i.6 ], [ %__i.021.i.ptr.6, %if.else.i.6 ]
   store double %30, ptr %__last.addr.012.i.i.6, align 8, !tbaa !15
-  %__next.0.i.i.6 = getelementptr inbounds double, ptr %__next.013.i.i.6, i64 -1
+  %__next.0.i.i.6 = getelementptr inbounds i8, ptr %__next.013.i.i.6, i64 -8
   %31 = load double, ptr %__next.0.i.i.6, align 8, !tbaa !15
   %cmp.i.i.i.6 = fcmp olt double %27, %31
   br i1 %cmp.i.i.i.6, label %while.body.i.i.6, label %for.inc.i.6, !llvm.loop !26
@@ -629,7 +629,7 @@ while.body.i.i.7:                                 ; preds = %if.else.i.7, %while
   %__next.013.i.i.7 = phi ptr [ %__next.0.i.i.7, %while.body.i.i.7 ], [ %__i.021.i.ptr.6, %if.else.i.7 ]
   %__last.addr.012.i.i.7 = phi ptr [ %__next.013.i.i.7, %while.body.i.i.7 ], [ %__i.021.i.ptr.7, %if.else.i.7 ]
   store double %35, ptr %__last.addr.012.i.i.7, align 8, !tbaa !15
-  %__next.0.i.i.7 = getelementptr inbounds double, ptr %__next.013.i.i.7, i64 -1
+  %__next.0.i.i.7 = getelementptr inbounds i8, ptr %__next.013.i.i.7, i64 -8
   %36 = load double, ptr %__next.0.i.i.7, align 8, !tbaa !15
   %cmp.i.i.i.7 = fcmp olt double %32, %36
   br i1 %cmp.i.i.i.7, label %while.body.i.i.7, label %for.inc.i.7, !llvm.loop !26
@@ -657,7 +657,7 @@ while.body.i.i.8:                                 ; preds = %if.else.i.8, %while
   %__next.013.i.i.8 = phi ptr [ %__next.0.i.i.8, %while.body.i.i.8 ], [ %__i.021.i.ptr.7, %if.else.i.8 ]
   %__last.addr.012.i.i.8 = phi ptr [ %__next.013.i.i.8, %while.body.i.i.8 ], [ %__i.021.i.ptr.8, %if.else.i.8 ]
   store double %40, ptr %__last.addr.012.i.i.8, align 8, !tbaa !15
-  %__next.0.i.i.8 = getelementptr inbounds double, ptr %__next.013.i.i.8, i64 -1
+  %__next.0.i.i.8 = getelementptr inbounds i8, ptr %__next.013.i.i.8, i64 -8
   %41 = load double, ptr %__next.0.i.i.8, align 8, !tbaa !15
   %cmp.i.i.i.8 = fcmp olt double %37, %41
   br i1 %cmp.i.i.i.8, label %while.body.i.i.8, label %for.inc.i.8, !llvm.loop !26
@@ -685,7 +685,7 @@ while.body.i.i.9:                                 ; preds = %if.else.i.9, %while
   %__next.013.i.i.9 = phi ptr [ %__next.0.i.i.9, %while.body.i.i.9 ], [ %__i.021.i.ptr.8, %if.else.i.9 ]
   %__last.addr.012.i.i.9 = phi ptr [ %__next.013.i.i.9, %while.body.i.i.9 ], [ %__i.021.i.ptr.9, %if.else.i.9 ]
   store double %45, ptr %__last.addr.012.i.i.9, align 8, !tbaa !15
-  %__next.0.i.i.9 = getelementptr inbounds double, ptr %__next.013.i.i.9, i64 -1
+  %__next.0.i.i.9 = getelementptr inbounds i8, ptr %__next.013.i.i.9, i64 -8
   %46 = load double, ptr %__next.0.i.i.9, align 8, !tbaa !15
   %cmp.i.i.i.9 = fcmp olt double %42, %46
   br i1 %cmp.i.i.i.9, label %while.body.i.i.9, label %for.inc.i.9, !llvm.loop !26
@@ -713,7 +713,7 @@ while.body.i.i.10:                                ; preds = %if.else.i.10, %whil
   %__next.013.i.i.10 = phi ptr [ %__next.0.i.i.10, %while.body.i.i.10 ], [ %__i.021.i.ptr.9, %if.else.i.10 ]
   %__last.addr.012.i.i.10 = phi ptr [ %__next.013.i.i.10, %while.body.i.i.10 ], [ %__i.021.i.ptr.10, %if.else.i.10 ]
   store double %50, ptr %__last.addr.012.i.i.10, align 8, !tbaa !15
-  %__next.0.i.i.10 = getelementptr inbounds double, ptr %__next.013.i.i.10, i64 -1
+  %__next.0.i.i.10 = getelementptr inbounds i8, ptr %__next.013.i.i.10, i64 -8
   %51 = load double, ptr %__next.0.i.i.10, align 8, !tbaa !15
   %cmp.i.i.i.10 = fcmp olt double %47, %51
   br i1 %cmp.i.i.i.10, label %while.body.i.i.10, label %for.inc.i.10, !llvm.loop !26
@@ -741,7 +741,7 @@ while.body.i.i.11:                                ; preds = %if.else.i.11, %whil
   %__next.013.i.i.11 = phi ptr [ %__next.0.i.i.11, %while.body.i.i.11 ], [ %__i.021.i.ptr.10, %if.else.i.11 ]
   %__last.addr.012.i.i.11 = phi ptr [ %__next.013.i.i.11, %while.body.i.i.11 ], [ %__i.021.i.ptr.11, %if.else.i.11 ]
   store double %55, ptr %__last.addr.012.i.i.11, align 8, !tbaa !15
-  %__next.0.i.i.11 = getelementptr inbounds double, ptr %__next.013.i.i.11, i64 -1
+  %__next.0.i.i.11 = getelementptr inbounds i8, ptr %__next.013.i.i.11, i64 -8
   %56 = load double, ptr %__next.0.i.i.11, align 8, !tbaa !15
   %cmp.i.i.i.11 = fcmp olt double %52, %56
   br i1 %cmp.i.i.i.11, label %while.body.i.i.11, label %for.inc.i.11, !llvm.loop !26
@@ -769,7 +769,7 @@ while.body.i.i.12:                                ; preds = %if.else.i.12, %whil
   %__next.013.i.i.12 = phi ptr [ %__next.0.i.i.12, %while.body.i.i.12 ], [ %__i.021.i.ptr.11, %if.else.i.12 ]
   %__last.addr.012.i.i.12 = phi ptr [ %__next.013.i.i.12, %while.body.i.i.12 ], [ %__i.021.i.ptr.12, %if.else.i.12 ]
   store double %60, ptr %__last.addr.012.i.i.12, align 8, !tbaa !15
-  %__next.0.i.i.12 = getelementptr inbounds double, ptr %__next.013.i.i.12, i64 -1
+  %__next.0.i.i.12 = getelementptr inbounds i8, ptr %__next.013.i.i.12, i64 -8
   %61 = load double, ptr %__next.0.i.i.12, align 8, !tbaa !15
   %cmp.i.i.i.12 = fcmp olt double %57, %61
   br i1 %cmp.i.i.i.12, label %while.body.i.i.12, label %for.inc.i.12, !llvm.loop !26
@@ -797,7 +797,7 @@ while.body.i.i.13:                                ; preds = %if.else.i.13, %whil
   %__next.013.i.i.13 = phi ptr [ %__next.0.i.i.13, %while.body.i.i.13 ], [ %__i.021.i.ptr.12, %if.else.i.13 ]
   %__last.addr.012.i.i.13 = phi ptr [ %__next.013.i.i.13, %while.body.i.i.13 ], [ %__i.021.i.ptr.13, %if.else.i.13 ]
   store double %65, ptr %__last.addr.012.i.i.13, align 8, !tbaa !15
-  %__next.0.i.i.13 = getelementptr inbounds double, ptr %__next.013.i.i.13, i64 -1
+  %__next.0.i.i.13 = getelementptr inbounds i8, ptr %__next.013.i.i.13, i64 -8
   %66 = load double, ptr %__next.0.i.i.13, align 8, !tbaa !15
   %cmp.i.i.i.13 = fcmp olt double %62, %66
   br i1 %cmp.i.i.i.13, label %while.body.i.i.13, label %for.inc.i.13, !llvm.loop !26
@@ -825,7 +825,7 @@ while.body.i.i.14:                                ; preds = %if.else.i.14, %whil
   %__next.013.i.i.14 = phi ptr [ %__next.0.i.i.14, %while.body.i.i.14 ], [ %__i.021.i.ptr.13, %if.else.i.14 ]
   %__last.addr.012.i.i.14 = phi ptr [ %__next.013.i.i.14, %while.body.i.i.14 ], [ %__i.021.i.ptr.14, %if.else.i.14 ]
   store double %70, ptr %__last.addr.012.i.i.14, align 8, !tbaa !15
-  %__next.0.i.i.14 = getelementptr inbounds double, ptr %__next.013.i.i.14, i64 -1
+  %__next.0.i.i.14 = getelementptr inbounds i8, ptr %__next.013.i.i.14, i64 -8
   %71 = load double, ptr %__next.0.i.i.14, align 8, !tbaa !15
   %cmp.i.i.i.14 = fcmp olt double %67, %71
   br i1 %cmp.i.i.i.14, label %while.body.i.i.14, label %for.inc.i.14, !llvm.loop !26
@@ -837,14 +837,14 @@ if.then.i.i.i.i.i.i.14:                           ; preds = %for.inc.i.13
 for.inc.i.14:                                     ; preds = %while.body.i.i.14, %if.then.i.i.i.i.i.i.14, %if.else.i.14
   %__first.sink.i.14 = phi ptr [ %__first, %if.then.i.i.i.i.i.i.14 ], [ %__i.021.i.ptr.14, %if.else.i.14 ], [ %__next.013.i.i.14, %while.body.i.i.14 ]
   store double %67, ptr %__first.sink.i.14, align 8, !tbaa !15
-  %add.ptr = getelementptr inbounds double, ptr %__first, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %__first, i64 128
   %cmp.not4.i = icmp eq ptr %add.ptr, %__last
   br i1 %cmp.not4.i, label %if.end, label %for.body.i10
 
 for.body.i10:                                     ; preds = %for.inc.i.14, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
   %__i.05.i = phi ptr [ %incdec.ptr.i, %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i ], [ %add.ptr, %for.inc.i.14 ]
   %72 = load double, ptr %__i.05.i, align 8, !tbaa !15
-  %__next.010.i.i = getelementptr inbounds double, ptr %__i.05.i, i64 -1
+  %__next.010.i.i = getelementptr inbounds i8, ptr %__i.05.i, i64 -8
   %73 = load double, ptr %__next.010.i.i, align 8, !tbaa !15
   %cmp.i11.i.i11 = fcmp olt double %72, %73
   br i1 %cmp.i11.i.i11, label %while.body.i.i12, label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i
@@ -854,7 +854,7 @@ while.body.i.i12:                                 ; preds = %for.body.i10, %whil
   %__next.013.i.i13 = phi ptr [ %__next.0.i.i15, %while.body.i.i12 ], [ %__next.010.i.i, %for.body.i10 ]
   %__last.addr.012.i.i14 = phi ptr [ %__next.013.i.i13, %while.body.i.i12 ], [ %__i.05.i, %for.body.i10 ]
   store double %74, ptr %__last.addr.012.i.i14, align 8, !tbaa !15
-  %__next.0.i.i15 = getelementptr inbounds double, ptr %__next.013.i.i13, i64 -1
+  %__next.0.i.i15 = getelementptr inbounds i8, ptr %__next.013.i.i13, i64 -8
   %75 = load double, ptr %__next.0.i.i15, align 8, !tbaa !15
   %cmp.i.i.i16 = fcmp olt double %72, %75
   br i1 %cmp.i.i.i16, label %while.body.i.i12, label %_ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !27
@@ -862,13 +862,13 @@ while.body.i.i12:                                 ; preds = %for.body.i10, %whil
 _ZSt25__unguarded_linear_insertIPdN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i: ; preds = %while.body.i.i12, %for.body.i10
   %__last.addr.0.lcssa.i.i = phi ptr [ %__i.05.i, %for.body.i10 ], [ %__next.013.i.i13, %while.body.i.i12 ]
   store double %72, ptr %__last.addr.0.lcssa.i.i, align 8, !tbaa !15
-  %incdec.ptr.i = getelementptr inbounds double, ptr %__i.05.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.05.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %if.end, label %for.body.i10, !llvm.loop !28
 
 if.else:                                          ; preds = %entry
   %cmp.i = icmp eq ptr %__first, %__last
-  %__i.018.i17 = getelementptr inbounds double, ptr %__first, i64 1
+  %__i.018.i17 = getelementptr inbounds i8, ptr %__first, i64 8
   %cmp1.not19.i = icmp eq ptr %__i.018.i17, %__last
   %or.cond = select i1 %cmp.i, i1 true, i1 %cmp1.not19.i
   br i1 %or.cond, label %if.end, label %for.body.i19
@@ -886,7 +886,7 @@ if.then.i.i.i.i.i.i36:                            ; preds = %for.body.i19
   %sub.ptr.sub.i.i.i.i.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i37, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i.i39 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i38, 3
   %.pre.i.i.i.i.i.i40 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i39
-  %add.ptr3.i41 = getelementptr inbounds double, ptr %__first.pn20.i21, i64 2
+  %add.ptr3.i41 = getelementptr inbounds i8, ptr %__first.pn20.i21, i64 16
   %add.ptr.i.i.i.i.i.i42 = getelementptr inbounds double, ptr %add.ptr3.i41, i64 %.pre.i.i.i.i.i.i40
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i42, ptr nonnull align 8 %__first, i64 %sub.ptr.sub.i.i.i.i.i.i38, i1 false)
   br label %for.inc.i25
@@ -901,7 +901,7 @@ while.body.i.i29:                                 ; preds = %if.else.i23, %while
   %__next.013.i.i30 = phi ptr [ %__next.0.i.i32, %while.body.i.i29 ], [ %__first.pn20.i21, %if.else.i23 ]
   %__last.addr.012.i.i31 = phi ptr [ %__next.013.i.i30, %while.body.i.i29 ], [ %__i.021.i20, %if.else.i23 ]
   store double %79, ptr %__last.addr.012.i.i31, align 8, !tbaa !15
-  %__next.0.i.i32 = getelementptr inbounds double, ptr %__next.013.i.i30, i64 -1
+  %__next.0.i.i32 = getelementptr inbounds i8, ptr %__next.013.i.i30, i64 -8
   %80 = load double, ptr %__next.0.i.i32, align 8, !tbaa !15
   %cmp.i.i.i33 = fcmp olt double %76, %80
   br i1 %cmp.i.i.i33, label %while.body.i.i29, label %for.inc.i25, !llvm.loop !29
@@ -909,7 +909,7 @@ while.body.i.i29:                                 ; preds = %if.else.i23, %while
 for.inc.i25:                                      ; preds = %while.body.i.i29, %if.else.i23, %if.then.i.i.i.i.i.i36
   %__first.sink.i26 = phi ptr [ %__first, %if.then.i.i.i.i.i.i36 ], [ %__i.021.i20, %if.else.i23 ], [ %__next.013.i.i30, %while.body.i.i29 ]
   store double %76, ptr %__first.sink.i26, align 8, !tbaa !15
-  %__i.0.i27 = getelementptr inbounds double, ptr %__i.021.i20, i64 1
+  %__i.0.i27 = getelementptr inbounds i8, ptr %__i.021.i20, i64 8
   %cmp1.not.i28 = icmp eq ptr %__i.0.i27, %__last
   br i1 %cmp1.not.i28, label %if.end, label %for.body.i19, !llvm.loop !30
 

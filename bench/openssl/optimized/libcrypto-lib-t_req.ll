@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-t_req.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/x509/t_req.c\00", align 1
 @__func__.X509_REQ_print_fp = private unnamed_addr constant [18 x i8] c"X509_REQ_print_fp\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Certificate Request:\0A\00", align 1
@@ -33,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.21 = private unnamed_addr constant [5 x i8] c"%20s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
+define noundef i32 @X509_REQ_print_fp(ptr noundef %fp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #3
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #3
@@ -48,7 +44,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 106, i64 noundef 0, ptr noundef %fp) #3
-  %call.i = tail call i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !4
+  %call.i = tail call noundef i32 @X509_REQ_print_ex(ptr noundef nonnull %call1, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !4
   %call4 = tail call i32 @BIO_free(ptr noundef nonnull %call1) #3
   br label %return
 
@@ -70,7 +66,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
+define noundef i32 @X509_REQ_print(ptr noundef %bp, ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_REQ_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef 0, i64 noundef 0), !range !4
   ret i32 %call
@@ -79,7 +75,7 @@ entry:
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
+define noundef i32 @X509_REQ_print_ex(ptr noundef %bp, ptr noundef %x, i64 noundef %nmflags, i64 noundef %cflag) local_unnamed_addr #0 {
 entry:
   %koid = alloca ptr, align 8
   %sig_alg = alloca ptr, align 8
@@ -251,7 +247,7 @@ if.end136:                                        ; preds = %if.then128, %sw.epi
   %ii.0 = phi i32 [ 0, %if.then128 ], [ %inc, %sw.epilog ]
   %call134 = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call113, i32 noundef %ii.0) #3
   %1 = load i32, ptr %call134, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call134, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call134, i64 8
   %2 = load ptr, ptr %value, align 8
   %sub = sub i32 25, %j.0
   %cmp13878 = icmp slt i32 %j.0, 25
@@ -298,7 +294,7 @@ if.end150:                                        ; preds = %for.end
   ]
 
 sw.bb:                                            ; preds = %if.end150, %if.end150, %if.end150, %if.end150, %if.end150
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %bs.095, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %bs.095, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i32, ptr %bs.095, align 8
   %call151 = call i32 @BIO_write(ptr noundef %bp, ptr noundef %4, i32 noundef %5) #3

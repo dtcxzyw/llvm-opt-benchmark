@@ -19,7 +19,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %prev.addr.041 = phi i32 [ %prev, %while.body.lr.ph ], [ %prev.addr.1.lcssa, %while.end ]
   %i.040 = phi i32 [ 0, %while.body.lr.ph ], [ %i.1.lcssa, %while.end ]
   %vtable = load ptr, ptr %sink, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %sink, i32 noundef 1, i32 noundef %mul, ptr noundef nonnull %scratch, i32 noundef 64, ptr noundef nonnull %capacity)
   %1 = load i32, ptr %capacity, align 4
@@ -266,7 +266,7 @@ while.end:                                        ; preds = %if.end32, %if.end
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv33 = trunc i64 %sub.ptr.sub to i32
   %vtable34 = load ptr, ptr %sink, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 2
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 16
   %25 = load ptr, ptr %vfn35, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %buffer.0, i32 noundef %conv33)
   %cmp = icmp slt i32 %i.1.lcssa, %length

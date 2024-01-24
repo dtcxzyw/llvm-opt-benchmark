@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/hw_acpi_acpi-qmp-cmds.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.AcpiDeviceIfClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"acpi-device-interface\00", align 1
 @.str.2 = private unnamed_addr constant [32 x i8] c"../qemu/hw/acpi/acpi-qmp-cmds.c\00", align 1
@@ -31,7 +27,7 @@ if.then:                                          ; preds = %entry
   %call.i = call ptr @object_get_class(ptr noundef nonnull %call) #2
   %call1.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 22, ptr noundef nonnull @__func__.ACPI_DEVICE_IF_GET_CLASS) #2
   %call2 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 22, ptr noundef nonnull @__func__.qmp_query_acpi_ospm_status) #2
-  %ospm_status = getelementptr inbounds %struct.AcpiDeviceIfClass, ptr %call1.i, i64 0, i32 1
+  %ospm_status = getelementptr inbounds i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %ospm_status, align 8
   call void %0(ptr noundef %call2, ptr noundef nonnull %prev) #2
   br label %if.end

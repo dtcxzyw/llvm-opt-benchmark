@@ -327,7 +327,7 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.done20
   %7 = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !18
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 32
   %8 = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !19
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %5, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !20
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 40
   %9 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !21
@@ -468,10 +468,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.07 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !22
   tail call void @_ZNSt8_Rb_treeIiSt4pairIKiN5folly3ssl8LockTypeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !23
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #14
   %cmp.not = icmp eq ptr %1, null
@@ -566,7 +566,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end
   %7 = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !18
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 32
   %8 = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !19
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %5, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !20
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %inLockTypes, i64 40
   %9 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !21

@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/block_vhdx-endian.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.VHDXHeader = type { i32, i32, i64, %struct.MSGUID, %struct.MSGUID, %struct.MSGUID, i16, i16, i32, i64 }
-%struct.MSGUID = type { i32, i16, i16, [8 x i8] }
-
 @.str = private unnamed_addr constant [10 x i8] c"h != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"../qemu/block/vhdx-endian.c\00", align 1
 @__PRETTY_FUNCTION__.vhdx_header_le_import = private unnamed_addr constant [41 x i8] c"void vhdx_header_le_import(VHDXHeader *)\00", align 1
@@ -68,38 +65,38 @@ if.else3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %0 = load i32, ptr %orig_h, align 1
   store i32 %0, ptr %new_h, align 1
-  %checksum = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 1
+  %checksum = getelementptr inbounds i8, ptr %orig_h, i64 4
   %1 = load i32, ptr %checksum, align 1
-  %checksum7 = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 1
+  %checksum7 = getelementptr inbounds i8, ptr %new_h, i64 4
   store i32 %1, ptr %checksum7, align 1
-  %sequence_number = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 2
+  %sequence_number = getelementptr inbounds i8, ptr %orig_h, i64 8
   %2 = load i64, ptr %sequence_number, align 1
-  %sequence_number9 = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 2
+  %sequence_number9 = getelementptr inbounds i8, ptr %new_h, i64 8
   store i64 %2, ptr %sequence_number9, align 1
-  %file_write_guid = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 3
-  %file_write_guid10 = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 3
+  %file_write_guid = getelementptr inbounds i8, ptr %new_h, i64 16
+  %file_write_guid10 = getelementptr inbounds i8, ptr %orig_h, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %file_write_guid, ptr noundef nonnull align 1 dereferenceable(16) %file_write_guid10, i64 16, i1 false)
-  %data_write_guid = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 4
-  %data_write_guid11 = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 4
+  %data_write_guid = getelementptr inbounds i8, ptr %new_h, i64 32
+  %data_write_guid11 = getelementptr inbounds i8, ptr %orig_h, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid, ptr noundef nonnull align 1 dereferenceable(16) %data_write_guid11, i64 16, i1 false)
-  %log_guid = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 5
-  %log_guid12 = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 5
+  %log_guid = getelementptr inbounds i8, ptr %new_h, i64 48
+  %log_guid12 = getelementptr inbounds i8, ptr %orig_h, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %log_guid, ptr noundef nonnull align 1 dereferenceable(16) %log_guid12, i64 16, i1 false)
-  %log_version = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 6
+  %log_version = getelementptr inbounds i8, ptr %orig_h, i64 64
   %3 = load i16, ptr %log_version, align 1
-  %log_version17 = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 6
+  %log_version17 = getelementptr inbounds i8, ptr %new_h, i64 64
   store i16 %3, ptr %log_version17, align 1
-  %version = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 7
+  %version = getelementptr inbounds i8, ptr %orig_h, i64 66
   %4 = load i16, ptr %version, align 1
-  %version19 = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 7
+  %version19 = getelementptr inbounds i8, ptr %new_h, i64 66
   store i16 %4, ptr %version19, align 1
-  %log_length = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 8
+  %log_length = getelementptr inbounds i8, ptr %orig_h, i64 68
   %5 = load i32, ptr %log_length, align 1
-  %log_length21 = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 8
+  %log_length21 = getelementptr inbounds i8, ptr %new_h, i64 68
   store i32 %5, ptr %log_length21, align 1
-  %log_offset = getelementptr inbounds %struct.VHDXHeader, ptr %orig_h, i64 0, i32 9
+  %log_offset = getelementptr inbounds i8, ptr %orig_h, i64 72
   %6 = load i64, ptr %log_offset, align 1
-  %log_offset23 = getelementptr inbounds %struct.VHDXHeader, ptr %new_h, i64 0, i32 9
+  %log_offset23 = getelementptr inbounds i8, ptr %new_h, i64 72
   store i64 %6, ptr %log_offset23, align 1
   ret void
 }

@@ -8,9 +8,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN5alloc3fmt6format17h39b9d9843f90733fE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !5
   switch i64 %5, label %10 [
     i64 0, label %8
@@ -36,7 +36,7 @@ define hidden void @_ZN5alloc3fmt6format17h39b9d9843f90733fE(ptr sret({ { { ptr,
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !5
   br label %11
 }

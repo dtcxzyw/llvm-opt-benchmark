@@ -7,13 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::BasicFixedString.4" = type { [5 x i8], i64 }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"struct.facebook::velox::detail::VeloxCheckFailArgs" = type { ptr, i64, ptr, ptr, ptr, ptr, i8 }
-%"class.facebook::velox::VeloxException" = type { %"class.std::exception", %"class.std::shared_ptr" }
-%"class.std::exception" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 
 $_ZN8facebook5velox6detail14veloxCheckFailINS0_17VeloxRuntimeErrorENS1_22CompileTimeEmptyStringEEEvRKNS1_18VeloxCheckFailArgsET0_ = comdat any
 
@@ -115,7 +108,7 @@ invoke.cont3:                                     ; preds = %invoke.cont1
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %line = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load i64, ptr %line, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call6, i64 noundef %1)
           to label %invoke.cont7 unwind label %lpad
@@ -125,7 +118,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %function = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 2
+  %function = getelementptr inbounds i8, ptr %args, i64 16
   %2 = load ptr, ptr %function, align 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef %2)
           to label %invoke.cont11 unwind label %lpad
@@ -135,7 +128,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %expression = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 3
+  %expression = getelementptr inbounds i8, ptr %args, i64 24
   %3 = load ptr, ptr %expression, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef %3)
           to label %invoke.cont15 unwind label %lpad
@@ -153,7 +146,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont21
-  %errorSource = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 4
+  %errorSource = getelementptr inbounds i8, ptr %args, i64 32
   %4 = load ptr, ptr %errorSource, align 8
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call24, ptr noundef %4)
           to label %invoke.cont25 unwind label %lpad
@@ -163,7 +156,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %errorCode = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 5
+  %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %5 = load ptr, ptr %errorCode, align 8
   %call30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call28, ptr noundef %5)
           to label %invoke.cont29 unwind label %lpad
@@ -182,7 +175,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
   %11 = load ptr, ptr %errorCode, align 8
   %call.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
-  %isRetriable = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 6
+  %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
   %13 = and i8 %12, 1
   %tobool = icmp ne i8 %13, 0
@@ -198,7 +191,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   store ptr %11, ptr %agg.tmp42.sroa.2.0.agg.tmp4222.sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3620, i8 0, i64 16, i1 false)
   store i64 7, ptr %agg.tmp3.i, align 8
-  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp3.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %14, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3620, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4222, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4423)
           to label %invoke.cont45 unwind label %lpad37
@@ -252,13 +245,13 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr void @_ZN8facebook5velox17VeloxRuntimeErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -266,10 +259,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %if.end8.sink.split.i.i.i.i.i
@@ -295,10 +288,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -320,7 +313,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit
@@ -358,7 +351,7 @@ invoke.cont3:                                     ; preds = %invoke.cont1
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %line = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load i64, ptr %line, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call6, i64 noundef %1)
           to label %invoke.cont7 unwind label %lpad
@@ -368,7 +361,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %function = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 2
+  %function = getelementptr inbounds i8, ptr %args, i64 16
   %2 = load ptr, ptr %function, align 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef %2)
           to label %invoke.cont11 unwind label %lpad
@@ -378,7 +371,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %expression = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 3
+  %expression = getelementptr inbounds i8, ptr %args, i64 24
   %3 = load ptr, ptr %expression, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef %3)
           to label %invoke.cont15 unwind label %lpad
@@ -396,7 +389,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %errorSource = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 4
+  %errorSource = getelementptr inbounds i8, ptr %args, i64 32
   %4 = load ptr, ptr %errorSource, align 8
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call22, ptr noundef %4)
           to label %invoke.cont23 unwind label %lpad
@@ -406,7 +399,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont23
-  %errorCode = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 5
+  %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %5 = load ptr, ptr %errorCode, align 8
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call26, ptr noundef %5)
           to label %invoke.cont27 unwind label %lpad
@@ -426,7 +419,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %call.i.i15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #8
   %11 = load ptr, ptr %errorCode, align 8
   %call.i.i19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #8
-  %isRetriable = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 6
+  %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %12 = load i8, ptr %isRetriable, align 8
   %13 = and i8 %12, 1
   %tobool = icmp ne i8 %13, 0
@@ -444,7 +437,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %agg.tmp34.sroa.2.0.agg.tmp3423.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3423, i64 8
   store ptr %s, ptr %agg.tmp34.sroa.2.0.agg.tmp3423.sroa_idx, align 8
   store i64 7, ptr %agg.tmp3.i, align 8
-  %14 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp3.i, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %14, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3423, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3725, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3926)
           to label %invoke.cont41 unwind label %lpad40
@@ -501,7 +494,7 @@ invoke.cont3:                                     ; preds = %invoke.cont1
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %line = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load i64, ptr %line, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call6, i64 noundef %1)
           to label %invoke.cont7 unwind label %lpad
@@ -511,7 +504,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %function = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 2
+  %function = getelementptr inbounds i8, ptr %args, i64 16
   %2 = load ptr, ptr %function, align 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef %2)
           to label %invoke.cont11 unwind label %lpad
@@ -521,7 +514,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %expression = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 3
+  %expression = getelementptr inbounds i8, ptr %args, i64 24
   %3 = load ptr, ptr %expression, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef %3)
           to label %invoke.cont15 unwind label %lpad
@@ -539,7 +532,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %errorSource = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 4
+  %errorSource = getelementptr inbounds i8, ptr %args, i64 32
   %4 = load ptr, ptr %errorSource, align 8
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call22, ptr noundef %4)
           to label %invoke.cont23 unwind label %lpad
@@ -549,7 +542,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont23
-  %errorCode = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 5
+  %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %5 = load ptr, ptr %errorCode, align 8
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call26, ptr noundef %5)
           to label %invoke.cont27 unwind label %lpad
@@ -571,7 +564,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %12 = extractvalue { i64, ptr } %call35, 1
   %13 = load ptr, ptr %errorCode, align 8
   %call.i.i17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
-  %isRetriable = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 6
+  %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %14 = load i8, ptr %isRetriable, align 8
   %15 = and i8 %14, 1
   %tobool = icmp ne i8 %15, 0
@@ -589,7 +582,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   %agg.tmp34.sroa.2.0.agg.tmp3421.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3421, i64 8
   store ptr %12, ptr %agg.tmp34.sroa.2.0.agg.tmp3421.sroa_idx, align 8
   store i64 7, ptr %agg.tmp3.i, align 8
-  %16 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp3.i, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %16, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3421, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3823, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4024)
           to label %invoke.cont42 unwind label %lpad41
@@ -638,17 +631,17 @@ entry:
   store i64 %inc, ptr %call, align 8
   %exception = tail call ptr @__cxa_allocate_exception(i64 24) #8
   %1 = load ptr, ptr %args, align 8
-  %line = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i64, ptr %line, align 8
-  %function = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 2
+  %function = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load ptr, ptr %function, align 8
-  %expression = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 3
+  %expression = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %expression, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  %errorCode = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 5
+  %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %5 = load ptr, ptr %errorCode, align 8
   %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
-  %isRetriable = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 6
+  %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
   %7 = and i8 %6, 1
   %tobool = icmp ne i8 %7, 0
@@ -664,7 +657,7 @@ entry:
   store ptr %5, ptr %agg.tmp4.sroa.2.0.agg.tmp415.sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp113, i8 0, i64 16, i1 false)
   store i64 4, ptr %agg.tmp3.i, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp3.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %8, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
           to label %invoke.cont6 unwind label %lpad
@@ -689,13 +682,13 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN8facebook5velox14VeloxUserErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -703,10 +696,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %if.end8.sink.split.i.i.i.i.i
@@ -732,10 +725,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -757,7 +750,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit
@@ -780,18 +773,18 @@ entry:
   store i64 %inc, ptr %call, align 8
   %exception = tail call ptr @__cxa_allocate_exception(i64 24) #8
   %1 = load ptr, ptr %args, align 8
-  %line = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i64, ptr %line, align 8
-  %function = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 2
+  %function = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load ptr, ptr %function, align 8
-  %expression = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 3
+  %expression = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %expression, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %call.i.i7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #8
-  %errorCode = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 5
+  %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %5 = load ptr, ptr %errorCode, align 8
   %call.i.i11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
-  %isRetriable = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 6
+  %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %6 = load i8, ptr %isRetriable, align 8
   %7 = and i8 %6, 1
   %tobool = icmp ne i8 %7, 0
@@ -809,7 +802,7 @@ entry:
   %agg.tmp1.sroa.2.0.agg.tmp115.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp115, i64 8
   store ptr %s, ptr %agg.tmp1.sroa.2.0.agg.tmp115.sroa_idx, align 8
   store i64 4, ptr %agg.tmp3.i, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp3.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %8, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp115, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp317, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp418)
           to label %invoke.cont unwind label %lpad
@@ -843,20 +836,20 @@ entry:
   store i64 %inc, ptr %call, align 8
   %exception = tail call ptr @__cxa_allocate_exception(i64 24) #8
   %1 = load ptr, ptr %args, align 8
-  %line = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i64, ptr %line, align 8
-  %function = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 2
+  %function = getelementptr inbounds i8, ptr %args, i64 16
   %3 = load ptr, ptr %function, align 8
-  %expression = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 3
+  %expression = getelementptr inbounds i8, ptr %args, i64 24
   %4 = load ptr, ptr %expression, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %call2 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #8
   %5 = extractvalue { i64, ptr } %call2, 0
   %6 = extractvalue { i64, ptr } %call2, 1
-  %errorCode = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 5
+  %errorCode = getelementptr inbounds i8, ptr %args, i64 40
   %7 = load ptr, ptr %errorCode, align 8
   %call.i.i9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
-  %isRetriable = getelementptr inbounds %"struct.facebook::velox::detail::VeloxCheckFailArgs", ptr %args, i64 0, i32 6
+  %isRetriable = getelementptr inbounds i8, ptr %args, i64 48
   %8 = load i8, ptr %isRetriable, align 8
   %9 = and i8 %8, 1
   %tobool = icmp ne i8 %9, 0
@@ -874,7 +867,7 @@ entry:
   %agg.tmp1.sroa.2.0.agg.tmp113.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113, i64 8
   store ptr %6, ptr %agg.tmp1.sroa.2.0.agg.tmp113.sroa_idx, align 8
   store i64 4, ptr %agg.tmp3.i, align 8
-  %10 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp3.i, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %10, align 8
   invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
           to label %invoke.cont unwind label %lpad
@@ -904,13 +897,13 @@ declare void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewI
 define linkonce_odr void @_ZN8facebook5velox17VeloxRuntimeErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8facebook5velox17VeloxRuntimeErrorD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -918,10 +911,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -947,10 +940,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -972,7 +965,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %_ZN8facebook5velox17VeloxRuntimeErrorD2Ev.exit
@@ -986,7 +979,7 @@ _ZN8facebook5velox17VeloxRuntimeErrorD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK8facebook5velox14VeloxException4whatEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %state_, align 8
   %call2 = tail call noundef ptr @_ZNK8facebook5velox14VeloxException5State4whatEv(ptr noundef nonnull align 8 dereferenceable(320) %0) #8
   ret ptr %call2
@@ -1005,13 +998,13 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define linkonce_odr void @_ZN8facebook5velox14VeloxExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1019,10 +1012,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %if.end8.sink.split.i.i.i.i
@@ -1048,10 +1041,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1073,7 +1066,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %_ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit
@@ -1087,13 +1080,13 @@ _ZNSt10shared_ptrIKN8facebook5velox14VeloxException5StateEED2Ev.exit: ; preds = 
 define linkonce_odr void @_ZN8facebook5velox14VeloxExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1101,10 +1094,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %if.end8.sink.split.i.i.i.i.i
@@ -1130,10 +1123,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1155,7 +1148,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %_ZN8facebook5velox14VeloxExceptionD2Ev.exit
@@ -1170,13 +1163,13 @@ _ZN8facebook5velox14VeloxExceptionD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_c
 define linkonce_odr void @_ZN8facebook5velox14VeloxUserErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox14VeloxExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.facebook::velox::VeloxException", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8facebook5velox14VeloxUserErrorD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1184,10 +1177,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -1213,10 +1206,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1238,7 +1231,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   br label %_ZN8facebook5velox14VeloxUserErrorD2Ev.exit

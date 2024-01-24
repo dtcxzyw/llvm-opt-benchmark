@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_op_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local void @riscv_raise_exception(ptr noundef %env, i32 noundef %exception, i64 noundef %pc) local_unnamed_addr #0 {
 entry:
@@ -64,7 +61,7 @@ declare i32 @riscv_csrrw(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_csrw(ptr noundef %env, i32 noundef %csr, i64 noundef %src) local_unnamed_addr #2 {
 entry:
-  %xl = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 25
+  %xl = getelementptr inbounds i8, ptr %env, i64 5024
   %0 = load i32, ptr %xl, align 16
   %cmp = icmp eq i32 %0, 1
   %cond = select i1 %cmp, i64 4294967295, i64 -1
@@ -121,7 +118,7 @@ if.end:                                           ; preds = %entry
   %2 = load i128, ptr %rv, align 16
   %coerce7.sroa.2.0.extract.shift = lshr i128 %2, 64
   %coerce7.sroa.2.0.extract.trunc = trunc i128 %coerce7.sroa.2.0.extract.shift to i64
-  %retxh = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 26
+  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %coerce7.sroa.2.0.extract.trunc, ptr %retxh, align 8
   %coerce9.sroa.0.0.extract.trunc = trunc i128 %2 to i64
   ret i64 %coerce9.sroa.0.0.extract.trunc
@@ -169,7 +166,7 @@ if.end:                                           ; preds = %entry
   %2 = load i128, ptr %rv, align 16
   %coerce7.sroa.2.0.extract.shift = lshr i128 %2, 64
   %coerce7.sroa.2.0.extract.trunc = trunc i128 %coerce7.sroa.2.0.extract.shift to i64
-  %retxh = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 26
+  %retxh = getelementptr inbounds i8, ptr %env, i64 5032
   store i64 %coerce7.sroa.2.0.extract.trunc, ptr %retxh, align 8
   %coerce9.sroa.0.0.extract.trunc = trunc i128 %2 to i64
   ret i64 %coerce9.sroa.0.0.extract.trunc

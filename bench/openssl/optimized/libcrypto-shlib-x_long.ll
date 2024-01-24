@@ -16,21 +16,21 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [5 x i8] c"%ld\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @LONG_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @LONG_it() local_unnamed_addr #0 {
 entry:
   ret ptr @LONG_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ZLONG_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ZLONG_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ZLONG_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @long_new(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %it) #1 {
+define internal noundef i32 @long_new(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %it) #1 {
 entry:
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   store i64 %0, ptr %pval, align 8
   ret i32 1
@@ -39,14 +39,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @long_free(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %it) #1 {
 entry:
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   store i64 %0, ptr %pval, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @long_c2i(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #2 {
+define internal noundef i32 @long_c2i(ptr nocapture noundef writeonly %pval, ptr nocapture noundef readonly %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #2 {
 entry:
   %cmp = icmp sgt i32 %len, 1
   br i1 %cmp, label %if.then, label %if.then10
@@ -144,7 +144,7 @@ if.end33:                                         ; preds = %if.then10, %if.end2
   %tobool34.not = icmp ne i64 %sign.16982, 0
   %sub36 = sext i1 %tobool34.not to i64
   %spec.select = xor i64 %utmp.0.lcssa83, %sub36
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %5 = load i64, ptr %size, align 8
   %cmp38 = icmp eq i64 %spec.select, %5
   br i1 %cmp38, label %if.then40, label %if.end41
@@ -168,7 +168,7 @@ return:                                           ; preds = %if.end41, %if.then4
 define internal i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #3 {
 entry:
   %ltmp.0.copyload = load i64, ptr %pval, align 8
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %ltmp.0.copyload, %0
   br i1 %cmp, label %return, label %if.end

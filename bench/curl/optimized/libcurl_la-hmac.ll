@@ -3,9 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-hmac.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.HMAC_params = type { ptr, ptr, ptr, i32, i32, i32 }
-%struct.HMAC_context = type { ptr, ptr, ptr }
-
 @Curl_cmalloc = external local_unnamed_addr global ptr, align 8
 @hmac_ipad = internal constant i8 54, align 1
 @hmac_opad = internal constant i8 92, align 1
@@ -15,12 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden ptr @Curl_HMAC_init(ptr noundef %hashparams, ptr noundef %key, i32 noundef %keylen) local_unnamed_addr #0 {
 entry:
   %b = alloca i8, align 1
-  %hmac_ctxtsize = getelementptr inbounds %struct.HMAC_params, ptr %hashparams, i64 0, i32 3
+  %hmac_ctxtsize = getelementptr inbounds i8, ptr %hashparams, i64 24
   %0 = load i32, ptr %hmac_ctxtsize, align 8
   %mul = shl i32 %0, 1
   %conv = zext i32 %mul to i64
   %add = add nuw nsw i64 %conv, 24
-  %hmac_resultlen = getelementptr inbounds %struct.HMAC_params, ptr %hashparams, i64 0, i32 5
+  %hmac_resultlen = getelementptr inbounds i8, ptr %hashparams, i64 32
   %1 = load i32, ptr %hmac_resultlen, align 8
   %conv1 = zext i32 %1 to i64
   %add2 = add nuw nsw i64 %add, %conv1
@@ -31,15 +28,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %hashparams, ptr %call, align 8
-  %add.ptr = getelementptr inbounds %struct.HMAC_context, ptr %call, i64 1
-  %hmac_hashctxt1 = getelementptr inbounds %struct.HMAC_context, ptr %call, i64 0, i32 1
+  %add.ptr = getelementptr inbounds i8, ptr %call, i64 24
+  %hmac_hashctxt1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %add.ptr, ptr %hmac_hashctxt1, align 8
   %3 = load i32, ptr %hmac_ctxtsize, align 8
   %idx.ext = zext i32 %3 to i64
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
-  %hmac_hashctxt2 = getelementptr inbounds %struct.HMAC_context, ptr %call, i64 0, i32 2
+  %hmac_hashctxt2 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %add.ptr5, ptr %hmac_hashctxt2, align 8
-  %hmac_maxkeylen = getelementptr inbounds %struct.HMAC_params, ptr %hashparams, i64 0, i32 4
+  %hmac_maxkeylen = getelementptr inbounds i8, ptr %hashparams, i64 28
   %4 = load i32, ptr %hmac_maxkeylen, align 4
   %cmp = icmp ult i32 %4, %keylen
   br i1 %cmp, label %if.then7, label %if.end17
@@ -47,7 +44,7 @@ if.end:                                           ; preds = %entry
 if.then7:                                         ; preds = %if.end
   %5 = load ptr, ptr %hashparams, align 8
   %call9 = tail call i32 %5(ptr noundef nonnull %add.ptr) #2
-  %hmac_hupdate = getelementptr inbounds %struct.HMAC_params, ptr %hashparams, i64 0, i32 1
+  %hmac_hupdate = getelementptr inbounds i8, ptr %hashparams, i64 8
   %6 = load ptr, ptr %hmac_hupdate, align 8
   %7 = load ptr, ptr %hmac_hashctxt1, align 8
   tail call void %6(ptr noundef %7, ptr noundef %key, i32 noundef %keylen) #2
@@ -55,7 +52,7 @@ if.then7:                                         ; preds = %if.end
   %9 = load i32, ptr %hmac_ctxtsize, align 8
   %idx.ext13 = zext i32 %9 to i64
   %add.ptr14 = getelementptr inbounds i8, ptr %8, i64 %idx.ext13
-  %hmac_hfinal = getelementptr inbounds %struct.HMAC_params, ptr %hashparams, i64 0, i32 2
+  %hmac_hfinal = getelementptr inbounds i8, ptr %hashparams, i64 16
   %10 = load ptr, ptr %hmac_hfinal, align 8
   %11 = load ptr, ptr %hmac_hashctxt1, align 8
   tail call void %10(ptr noundef %add.ptr14, ptr noundef %11) #2
@@ -77,7 +74,7 @@ if.end17:                                         ; preds = %if.then7, %if.end
   br i1 %cmp2543.not, label %for.cond36.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end17
-  %hmac_hupdate29 = getelementptr inbounds %struct.HMAC_params, ptr %hashparams, i64 0, i32 1
+  %hmac_hupdate29 = getelementptr inbounds i8, ptr %hashparams, i64 8
   br label %for.body
 
 for.cond36.preheader:                             ; preds = %for.body, %if.end17
@@ -86,7 +83,7 @@ for.cond36.preheader:                             ; preds = %for.body, %if.end17
   br i1 %cmp3947, label %for.body41.lr.ph, label %return
 
 for.body41.lr.ph:                                 ; preds = %for.cond36.preheader
-  %hmac_hupdate42 = getelementptr inbounds %struct.HMAC_params, ptr %hashparams, i64 0, i32 1
+  %hmac_hupdate42 = getelementptr inbounds i8, ptr %hashparams, i64 8
   br label %for.body41
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -131,9 +128,9 @@ return:                                           ; preds = %for.body41, %for.co
 define hidden noundef i32 @Curl_HMAC_update(ptr nocapture noundef readonly %ctxt, ptr noundef %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctxt, align 8
-  %hmac_hupdate = getelementptr inbounds %struct.HMAC_params, ptr %0, i64 0, i32 1
+  %hmac_hupdate = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %hmac_hupdate, align 8
-  %hmac_hashctxt1 = getelementptr inbounds %struct.HMAC_context, ptr %ctxt, i64 0, i32 1
+  %hmac_hashctxt1 = getelementptr inbounds i8, ptr %ctxt, i64 8
   %2 = load ptr, ptr %hmac_hashctxt1, align 8
   tail call void %1(ptr noundef %2, ptr noundef %data, i32 noundef %len) #2
   ret i32 0
@@ -147,9 +144,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %hmac_hashctxt2 = getelementptr inbounds %struct.HMAC_context, ptr %ctxt, i64 0, i32 2
+  %hmac_hashctxt2 = getelementptr inbounds i8, ptr %ctxt, i64 16
   %1 = load ptr, ptr %hmac_hashctxt2, align 8
-  %hmac_ctxtsize = getelementptr inbounds %struct.HMAC_params, ptr %0, i64 0, i32 3
+  %hmac_ctxtsize = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %hmac_ctxtsize, align 8
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -157,16 +154,16 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %result.addr.0 = phi ptr [ %result, %entry ], [ %add.ptr, %if.then ]
-  %hmac_hfinal = getelementptr inbounds %struct.HMAC_params, ptr %0, i64 0, i32 2
+  %hmac_hfinal = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %hmac_hfinal, align 8
-  %hmac_hashctxt1 = getelementptr inbounds %struct.HMAC_context, ptr %ctxt, i64 0, i32 1
+  %hmac_hashctxt1 = getelementptr inbounds i8, ptr %ctxt, i64 8
   %4 = load ptr, ptr %hmac_hashctxt1, align 8
   tail call void %3(ptr noundef %result.addr.0, ptr noundef %4) #2
-  %hmac_hupdate = getelementptr inbounds %struct.HMAC_params, ptr %0, i64 0, i32 1
+  %hmac_hupdate = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %hmac_hupdate, align 8
-  %hmac_hashctxt22 = getelementptr inbounds %struct.HMAC_context, ptr %ctxt, i64 0, i32 2
+  %hmac_hashctxt22 = getelementptr inbounds i8, ptr %ctxt, i64 16
   %6 = load ptr, ptr %hmac_hashctxt22, align 8
-  %hmac_resultlen = getelementptr inbounds %struct.HMAC_params, ptr %0, i64 0, i32 5
+  %hmac_resultlen = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %hmac_resultlen, align 8
   tail call void %5(ptr noundef %6, ptr noundef %result.addr.0, i32 noundef %7) #2
   %8 = load ptr, ptr %hmac_hfinal, align 8
@@ -188,9 +185,9 @@ entry:
 if.end:                                           ; preds = %entry
   %call2 = tail call i32 @curlx_uztoui(i64 noundef %datalen) #2
   %0 = load ptr, ptr %call1, align 8
-  %hmac_hupdate.i = getelementptr inbounds %struct.HMAC_params, ptr %0, i64 0, i32 1
+  %hmac_hupdate.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %hmac_hupdate.i, align 8
-  %hmac_hashctxt1.i = getelementptr inbounds %struct.HMAC_context, ptr %call1, i64 0, i32 1
+  %hmac_hashctxt1.i = getelementptr inbounds i8, ptr %call1, i64 8
   %2 = load ptr, ptr %hmac_hashctxt1.i, align 8
   tail call void %1(ptr noundef %2, ptr noundef %data, i32 noundef %call2) #2
   %3 = load ptr, ptr %call1, align 8
@@ -198,9 +195,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %Curl_HMAC_final.exit
 
 if.then.i:                                        ; preds = %if.end
-  %hmac_hashctxt2.i = getelementptr inbounds %struct.HMAC_context, ptr %call1, i64 0, i32 2
+  %hmac_hashctxt2.i = getelementptr inbounds i8, ptr %call1, i64 16
   %4 = load ptr, ptr %hmac_hashctxt2.i, align 8
-  %hmac_ctxtsize.i = getelementptr inbounds %struct.HMAC_params, ptr %3, i64 0, i32 3
+  %hmac_ctxtsize.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %hmac_ctxtsize.i, align 8
   %idx.ext.i = zext i32 %5 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %idx.ext.i
@@ -208,15 +205,15 @@ if.then.i:                                        ; preds = %if.end
 
 Curl_HMAC_final.exit:                             ; preds = %if.end, %if.then.i
   %result.addr.0.i = phi ptr [ %output, %if.end ], [ %add.ptr.i, %if.then.i ]
-  %hmac_hfinal.i = getelementptr inbounds %struct.HMAC_params, ptr %3, i64 0, i32 2
+  %hmac_hfinal.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %hmac_hfinal.i, align 8
   %7 = load ptr, ptr %hmac_hashctxt1.i, align 8
   tail call void %6(ptr noundef %result.addr.0.i, ptr noundef %7) #2
-  %hmac_hupdate.i4 = getelementptr inbounds %struct.HMAC_params, ptr %3, i64 0, i32 1
+  %hmac_hupdate.i4 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load ptr, ptr %hmac_hupdate.i4, align 8
-  %hmac_hashctxt22.i = getelementptr inbounds %struct.HMAC_context, ptr %call1, i64 0, i32 2
+  %hmac_hashctxt22.i = getelementptr inbounds i8, ptr %call1, i64 16
   %9 = load ptr, ptr %hmac_hashctxt22.i, align 8
-  %hmac_resultlen.i = getelementptr inbounds %struct.HMAC_params, ptr %3, i64 0, i32 5
+  %hmac_resultlen.i = getelementptr inbounds i8, ptr %3, i64 32
   %10 = load i32, ptr %hmac_resultlen.i, align 8
   tail call void %8(ptr noundef %9, ptr noundef %result.addr.0.i, i32 noundef %10) #2
   %11 = load ptr, ptr %hmac_hfinal.i, align 8

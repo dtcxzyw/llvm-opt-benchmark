@@ -6,31 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.FDMonOps = type { ptr, ptr, ptr }
 %struct.Notifier = type { ptr, %struct.anon.6 }
 %struct.anon.6 = type { ptr, ptr }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon, i8, %struct.EventNotifier, %struct.anon.0, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.0 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
-%struct.AioHandler = type { %struct._GPollFD, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.1, %struct.anon.2, %struct.anon.3, %struct.anon.4, %struct.anon.5, i32, i64, i8 }
 %struct._GPollFD = type { i32, i16, i16 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr, ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.anon.5 = type { ptr }
 
 @fdmon_poll_ops = dso_local local_unnamed_addr constant %struct.FDMonOps { ptr @fdmon_poll_update, ptr @fdmon_poll_wait, ptr @aio_poll_disabled }, align 8
 @npfd = internal thread_local global i32 0, align 4
@@ -64,7 +40,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 while.end:                                        ; preds = %entry
-  %aio_handlers = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 3
+  %aio_handlers = getelementptr inbounds i8, ptr %ctx, i64 152
   %2 = load atomic i64, ptr %aio_handlers monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !5
   %tobool.not16 = icmp eq i64 %2, 0
@@ -80,13 +56,13 @@ for.body.lr.ph:                                   ; preds = %while.end
 for.body:                                         ; preds = %for.body.lr.ph, %while.end9
   %node.017.in = phi i64 [ %2, %for.body.lr.ph ], [ %19, %while.end9 ]
   %node.017 = inttoptr i64 %node.017.in to ptr
-  %le_prev = getelementptr inbounds %struct.AioHandler, ptr %node.017, i64 0, i32 10, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %node.017, i64 104
   %5 = load ptr, ptr %le_prev, align 8
   %cmp1.not = icmp eq ptr %5, null
   br i1 %cmp1.not, label %land.lhs.true, label %while.end9
 
 land.lhs.true:                                    ; preds = %for.body
-  %events = getelementptr inbounds %struct._GPollFD, ptr %node.017, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %node.017, i64 4
   %6 = load i16, ptr %events, align 4
   %tobool2.not = icmp eq i16 %6, 0
   br i1 %tobool2.not, label %while.end9, label %if.then3
@@ -160,7 +136,7 @@ add_pollfd.exit:                                  ; preds = %if.then3.add_pollfd
   br label %while.end9
 
 while.end9:                                       ; preds = %for.body, %land.lhs.true, %add_pollfd.exit
-  %node10 = getelementptr inbounds %struct.AioHandler, ptr %node.017, i64 0, i32 8
+  %node10 = getelementptr inbounds i8, ptr %node.017, i64 64
   %19 = load atomic i64, ptr %node10 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %tobool.not = icmp eq i64 %19, 0
@@ -173,9 +149,9 @@ for.end:                                          ; preds = %while.end9, %while.
 
 if.then12:                                        ; preds = %for.end
   store i32 0, ptr %0, align 4
-  %fdmon_ops = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 29
+  %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
   %21 = load ptr, ptr %fdmon_ops, align 8
-  %wait = getelementptr inbounds %struct.FDMonOps, ptr %21, i64 0, i32 1
+  %wait = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %wait, align 8
   %call13 = tail call i32 %22(ptr noundef %ctx, ptr noundef %ready_list, i64 noundef %timeout) #7
   br label %return

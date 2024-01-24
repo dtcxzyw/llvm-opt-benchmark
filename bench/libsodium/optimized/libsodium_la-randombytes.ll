@@ -37,7 +37,7 @@ if.then:                                          ; preds = %entry
   store ptr @randombytes_sysrandom_implementation, ptr @implementation, align 8
   tail call fastcc void @randombytes_init_if_needed()
   %1 = load ptr, ptr @implementation, align 8
-  %stir.i = getelementptr inbounds %struct.randombytes_implementation, ptr %1, i64 0, i32 2
+  %stir.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %stir.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.end, label %if.then.i
@@ -55,7 +55,7 @@ define i32 @randombytes_random() local_unnamed_addr #1 {
 entry:
   tail call fastcc void @randombytes_init_if_needed()
   %0 = load ptr, ptr @implementation, align 8
-  %random = getelementptr inbounds %struct.randombytes_implementation, ptr %0, i64 0, i32 1
+  %random = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %random, align 8
   %call = tail call i32 %1() #5
   ret i32 %call
@@ -66,7 +66,7 @@ define void @randombytes_stir() local_unnamed_addr #1 {
 entry:
   tail call fastcc void @randombytes_init_if_needed()
   %0 = load ptr, ptr @implementation, align 8
-  %stir = getelementptr inbounds %struct.randombytes_implementation, ptr %0, i64 0, i32 2
+  %stir = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %stir, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -84,7 +84,7 @@ define i32 @randombytes_uniform(i32 noundef %upper_bound) local_unnamed_addr #1 
 entry:
   tail call fastcc void @randombytes_init_if_needed()
   %0 = load ptr, ptr @implementation, align 8
-  %uniform = getelementptr inbounds %struct.randombytes_implementation, ptr %0, i64 0, i32 3
+  %uniform = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %uniform, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -105,7 +105,7 @@ if.end4:                                          ; preds = %if.end
 do.body:                                          ; preds = %do.body, %if.end4
   tail call fastcc void @randombytes_init_if_needed()
   %2 = load ptr, ptr @implementation, align 8
-  %random.i = getelementptr inbounds %struct.randombytes_implementation, ptr %2, i64 0, i32 1
+  %random.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %random.i, align 8
   %call.i = tail call i32 %3() #5
   %cmp6 = icmp ult i32 %call.i, %rem
@@ -129,7 +129,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @implementation, align 8
-  %buf1 = getelementptr inbounds %struct.randombytes_implementation, ptr %0, i64 0, i32 4
+  %buf1 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %buf1, align 8
   tail call void %1(ptr noundef nonnull %buf, i64 noundef %size) #5
   br label %if.end
@@ -172,7 +172,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %close = getelementptr inbounds %struct.randombytes_implementation, ptr %0, i64 0, i32 5
+  %close = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %close, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %return, label %if.then
@@ -195,7 +195,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr @implementation, align 8
-  %buf1.i = getelementptr inbounds %struct.randombytes_implementation, ptr %0, i64 0, i32 4
+  %buf1.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %buf1.i, align 8
   tail call void %1(ptr noundef nonnull %buf, i64 noundef %buf_len) #5
   br label %randombytes_buf.exit

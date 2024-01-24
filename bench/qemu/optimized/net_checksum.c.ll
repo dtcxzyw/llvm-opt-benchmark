@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/net_checksum.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.eth_header = type { [6 x i8], [6 x i8], i16 }
-%struct.ip_header = type { i8, i8, i16, i16, i16, i8, i8, i16, i32, i32 }
 %struct.iovec = type { ptr, i64 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
@@ -182,14 +180,14 @@ net_checksum_finish.exit:                         ; preds = %while.body.i, %net_
   ret i16 %conv.i
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @net_checksum_calculate(ptr nocapture noundef %data, i32 noundef %length, i32 noundef %csum_flag) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %length, 14
   br i1 %cmp, label %sw.epilog81, label %if.end
 
 if.end:                                           ; preds = %entry
-  %h_proto = getelementptr inbounds %struct.eth_header, ptr %data, i64 0, i32 2
+  %h_proto = getelementptr inbounds i8, ptr %data, i64 12
   %h_proto.val = load i16, ptr %h_proto, align 1
   %0 = tail call i16 @llvm.bswap.i16(i16 %h_proto.val)
   switch i16 %0, label %sw.default [
@@ -227,7 +225,7 @@ if.end19:                                         ; preds = %if.end13
   br i1 %tobool.not, label %if.end27, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %ip_sum = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 7
+  %ip_sum = getelementptr inbounds i8, ptr %add.ptr14, i64 10
   store i16 0, ptr %ip_sum, align 1
   %conv.i = zext nneg i8 %1 to i32
   %and24 = shl nuw nsw i32 %conv.i, 2
@@ -300,26 +298,26 @@ net_raw_checksum.exit:                            ; preds = %while.body.i.i, %ne
   br label %if.end27
 
 if.end27:                                         ; preds = %net_raw_checksum.exit, %if.end19
-  %ip_off = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 4
+  %ip_off = getelementptr inbounds i8, ptr %add.ptr14, i64 6
   %10 = load i16, ptr %ip_off, align 2
   %11 = and i16 %10, -193
   %cmp31.not = icmp eq i16 %11, 0
   br i1 %cmp31.not, label %if.end34, label %sw.epilog81
 
 if.end34:                                         ; preds = %if.end27
-  %ip_len35 = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 2
+  %ip_len35 = getelementptr inbounds i8, ptr %add.ptr14, i64 2
   %ip_len35.val = load i16, ptr %ip_len35, align 1
   %12 = tail call i16 @llvm.bswap.i16(i16 %ip_len35.val)
-  %conv1.i38 = zext i16 %12 to i32
-  %cmp37 = icmp slt i32 %sub, %conv1.i38
+  %conv1.i37 = zext i16 %12 to i32
+  %cmp37 = icmp slt i32 %sub, %conv1.i37
   br i1 %cmp37, label %sw.epilog81, label %if.end40
 
 if.end40:                                         ; preds = %if.end34
-  %conv.i39 = zext nneg i8 %1 to i32
-  %and43 = shl nuw nsw i32 %conv.i39, 2
+  %conv.i38 = zext nneg i8 %1 to i32
+  %and43 = shl nuw nsw i32 %conv.i38, 2
   %shl44 = and i32 %and43, 60
-  %sub45 = sub nsw i32 %conv1.i38, %shl44
-  %ip_p = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 6
+  %sub45 = sub nsw i32 %conv1.i37, %shl44
+  %ip_p = getelementptr inbounds i8, ptr %add.ptr14, i64 9
   %13 = load i8, ptr %ip_p, align 1
   switch i8 %13, label %sw.epilog81 [
     i8 6, label %sw.bb47
@@ -334,11 +332,11 @@ sw.bb47:                                          ; preds = %if.end40
   br i1 %or.cond, label %sw.epilog81, label %if.end57
 
 if.end57:                                         ; preds = %sw.bb47
-  %add.ptr52 = getelementptr %struct.ip_header, ptr %add.ptr14, i64 1
-  %th_sum = getelementptr %struct.ip_header, ptr %add.ptr14, i64 1, i32 9
+  %add.ptr52 = getelementptr i8, ptr %add.ptr14, i64 20
+  %th_sum = getelementptr i8, ptr %add.ptr14, i64 36
   store i16 0, ptr %th_sum, align 1
   %conv58 = trunc i32 %sub45 to i16
-  %ip_src = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 8
+  %ip_src = getelementptr inbounds i8, ptr %add.ptr14, i64 12
   %call61 = tail call zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %conv58, i16 noundef zeroext 6, ptr noundef nonnull %ip_src, ptr noundef %add.ptr52)
   br label %sw.epilog81.sink.split
 
@@ -346,15 +344,15 @@ sw.bb63:                                          ; preds = %if.end40
   %and64 = and i32 %csum_flag, 4
   %tobool65.not = icmp eq i32 %and64, 0
   %cmp70 = icmp ult i32 %sub45, 8
-  %or.cond35 = select i1 %tobool65.not, i1 true, i1 %cmp70
-  br i1 %or.cond35, label %sw.epilog81, label %if.end73
+  %or.cond34 = select i1 %tobool65.not, i1 true, i1 %cmp70
+  br i1 %or.cond34, label %sw.epilog81, label %if.end73
 
 if.end73:                                         ; preds = %sw.bb63
-  %add.ptr68 = getelementptr %struct.ip_header, ptr %add.ptr14, i64 1
-  %uh_sum = getelementptr %struct.ip_header, ptr %add.ptr14, i64 1, i32 4
+  %add.ptr68 = getelementptr i8, ptr %add.ptr14, i64 20
+  %uh_sum = getelementptr i8, ptr %add.ptr14, i64 26
   store i16 0, ptr %uh_sum, align 1
   %conv74 = trunc i32 %sub45 to i16
-  %ip_src77 = getelementptr inbounds %struct.ip_header, ptr %add.ptr14, i64 0, i32 8
+  %ip_src77 = getelementptr inbounds i8, ptr %add.ptr14, i64 12
   %call78 = tail call zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %conv74, i16 noundef zeroext 17, ptr noundef nonnull %ip_src77, ptr noundef %add.ptr68)
   br label %sw.epilog81.sink.split
 
@@ -369,7 +367,7 @@ sw.epilog81:                                      ; preds = %sw.epilog81.sink.sp
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @net_checksum_add_iov(ptr nocapture noundef readonly %iov, i32 noundef %iov_cnt, i32 noundef %iov_off, i32 noundef %size, i32 noundef %csum_offset) local_unnamed_addr #3 {
 entry:
   %cmp24 = icmp ne i32 %iov_cnt, 0
@@ -389,14 +387,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %iovec_off.028 = phi i64 [ 0, %for.body.preheader ], [ %add, %if.end ]
   %res.026 = phi i32 [ 0, %for.body.preheader ], [ %res.1, %if.end ]
   %conv = zext i32 %iov_off.addr.031 to i64
-  %iov_len = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %add = add i64 %2, %iovec_off.028
   %cmp1 = icmp ugt i64 %add, %conv
   br i1 %cmp1, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv
   %sub = sub i64 %add, %conv
   %conv8 = zext i32 %size.addr.030 to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv8)
@@ -487,8 +485,8 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 

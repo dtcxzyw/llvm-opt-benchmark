@@ -21,9 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.decoration = type { ptr, i32, i32, ptr }
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [3 x i8] c"-h\00", align 1
 @diff_files_usage = internal constant [1283 x i8] c"git diff-files [-q] [-0 | -1 | -2 | -3 | -c | --cc] [<common-diff-options>] [<path>...]\0A\0Acommon diff options:\0A  -z            output diff-raw with lines terminated with NUL.\0A  -p            output patch format.\0A  -u            synonym for -p.\0A  --patch-with-raw\0A                output both a patch and the diff-raw format.\0A  --stat        show diffstat instead of patch.\0A  --numstat     show numeric diffstat instead of patch.\0A  --patch-with-stat\0A                output a patch and prepend its diffstat.\0A  --name-only   show only names of changed files.\0A  --name-status show names and status of changed files.\0A  --full-index  show full object name on index lines.\0A  --abbrev=<n>  abbreviate object names in diff-tree header and diff-raw.\0A  -R            swap input file pairs.\0A  -B            detect complete rewrites.\0A  -M            detect renames.\0A  -C            detect copies.\0A  --find-copies-harder\0A                try unchanged files as candidate for copy detection.\0A  -l<n>         limit rename attempts up to <n> paths.\0A  -O<file>      reorder diffs according to the <file>.\0A  -S<string>    find filepair whose only one side contains the string.\0A  --pickaxe-all\0A                show all files diff when -S is used and hit is found.\0A  -a  --text    treat all files as text.\0A\00", align 16
@@ -42,7 +39,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -57,26 +54,26 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %1 = load ptr, ptr @the_repository, align 8
   tail call void @prepare_repo_settings(ptr noundef %1) #6
   %2 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 10, i32 6
+  %command_requires_full_index = getelementptr inbounds i8, ptr %2, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   call void @repo_init_revisions(ptr noundef %2, ptr noundef nonnull %rev, ptr noundef %prefix) #6
-  %abbrev = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 20
+  %abbrev = getelementptr inbounds i8, ptr %rev, i64 328
   store i32 0, ptr %abbrev, align 8
-  %ita_invisible_in_index = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52, i32 35
+  %ita_invisible_in_index = getelementptr inbounds i8, ptr %rev, i64 1796
   store i32 1, ptr %ita_invisible_in_index, align 4
   %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #6
   %cmp318 = icmp sgt i32 %call2, 1
   br i1 %cmp318, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %if.end
-  %max_count22 = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 43
+  %max_count22 = getelementptr inbounds i8, ptr %rev, i64 1412
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end32
   %options.021 = phi i32 [ 0, %land.rhs.lr.ph ], [ %options.1, %if.end32 ]
   %argc.addr.020 = phi i32 [ %call2, %land.rhs.lr.ph ], [ %dec, %if.end32 ]
   %argv.addr.019 = phi ptr [ %argv, %land.rhs.lr.ph ], [ %arrayidx4, %if.end32 ]
-  %arrayidx4 = getelementptr inbounds ptr, ptr %argv.addr.019, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %argv.addr.019, i64 8
   %3 = load ptr, ptr %arrayidx4, align 8
   %4 = load i8, ptr %3, align 1
   %cmp6 = icmp eq i8 %4, 45
@@ -119,7 +116,7 @@ if.end32:                                         ; preds = %if.end32.sink.split
 
 while.end:                                        ; preds = %land.rhs, %if.end32, %if.end
   %options.0.lcssa = phi i32 [ 0, %if.end ], [ %options.1, %if.end32 ], [ %options.021, %land.rhs ]
-  %output_format = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52, i32 25
+  %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
   %5 = load i32, ptr %output_format, align 4
   %tobool34.not = icmp eq i32 %5, 0
   br i1 %tobool34.not, label %if.then35, label %if.end38
@@ -130,20 +127,20 @@ if.then35:                                        ; preds = %while.end
 
 if.end38:                                         ; preds = %if.then35, %while.end
   %6 = phi i32 [ 1, %if.then35 ], [ %5, %while.end ]
-  %rotate_to_strict = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52, i32 3
+  %rotate_to_strict = getelementptr inbounds i8, ptr %rev, i64 1492
   store i32 1, ptr %rotate_to_strict, align 4
-  %pending = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 1
+  %pending = getelementptr inbounds i8, ptr %rev, i64 8
   %7 = load i32, ptr %pending, align 8
   %tobool40 = icmp ne i32 %7, 0
-  %min_age = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 46
+  %min_age = getelementptr inbounds i8, ptr %rev, i64 1432
   %8 = load i64, ptr %min_age, align 8
   %cmp41 = icmp ne i64 %8, -1
   %or.cond = select i1 %tobool40, i1 true, i1 %cmp41
-  %max_age = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 44
+  %max_age = getelementptr inbounds i8, ptr %rev, i64 1416
   %9 = load i64, ptr %max_age, align 8
   %cmp44 = icmp ne i64 %9, -1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp44
-  %max_count47 = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 43
+  %max_count47 = getelementptr inbounds i8, ptr %rev, i64 1412
   %10 = load i32, ptr %max_count47, align 4
   %cmp48 = icmp sgt i32 %10, 3
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp48
@@ -166,7 +163,7 @@ if.then59:                                        ; preds = %if.end51
 
 if.end60:                                         ; preds = %if.then59, %if.end51
   %11 = load ptr, ptr @the_repository, align 8
-  %pathspec = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52, i32 59
+  %pathspec = getelementptr inbounds i8, ptr %rev, i64 1936
   %call62 = call i32 @repo_read_index_preload(ptr noundef %11, ptr noundef nonnull %pathspec, i32 noundef 0) #6
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %if.then65, label %if.end66
@@ -176,7 +173,7 @@ if.then65:                                        ; preds = %if.end60
   unreachable
 
 if.end66:                                         ; preds = %if.end60
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52
+  %diffopt = getelementptr inbounds i8, ptr %rev, i64 1472
   call void @run_diff_files(ptr noundef nonnull %rev, i32 noundef %options.0.lcssa) #6
   %call68 = call i32 @diff_result_code(ptr noundef nonnull %diffopt) #6
   call void @release_revisions(ptr noundef nonnull %rev) #6

@@ -11,14 +11,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @cov_2char = internal unnamed_addr constant [64 x i8] c"./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", align 16
 
 ; Function Attrs: nounwind uwtable
-define ptr @DES_crypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt) local_unnamed_addr #0 {
+define noundef ptr @DES_crypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @DES_fcrypt(ptr noundef %buf, ptr noundef %salt, ptr noundef nonnull @DES_crypt.buff)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @DES_fcrypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt, ptr noundef writeonly %ret) local_unnamed_addr #0 {
+define noundef ptr @DES_fcrypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt, ptr noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %out = alloca [2 x i32], align 4
   %key = alloca [8 x i8], align 1
@@ -104,7 +104,7 @@ for.end40:                                        ; preds = %if.end26, %for.body
   %conv54 = trunc i32 %shr52 to i8
   %incdec.ptr55 = getelementptr inbounds i8, ptr %bb, i64 4
   store i8 %conv54, ptr %incdec.ptr51, align 1
-  %arrayidx56 = getelementptr inbounds [2 x i32], ptr %out, i64 0, i64 1
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 4
   %9 = load i32, ptr %arrayidx56, align 4
   %conv58 = trunc i32 %9 to i8
   %incdec.ptr59 = getelementptr inbounds i8, ptr %bb, i64 5
@@ -120,7 +120,7 @@ for.end40:                                        ; preds = %if.end26, %for.body
   %shr68 = lshr i32 %9, 24
   %conv70 = trunc i32 %shr68 to i8
   store i8 %conv70, ptr %incdec.ptr67, align 1
-  %arrayidx72 = getelementptr inbounds [9 x i8], ptr %bb, i64 0, i64 8
+  %arrayidx72 = getelementptr inbounds i8, ptr %bb, i64 8
   store i8 0, ptr %arrayidx72, align 1
   br label %for.cond77.preheader
 

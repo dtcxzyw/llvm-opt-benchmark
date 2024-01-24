@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.absl::Condition" = type { [16 x i8], ptr, ptr }
-%"class.absl::Barrier" = type { %"class.absl::Mutex", i32, i32 }
-%"class.absl::Mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -22,7 +18,7 @@ define dso_local noundef zeroext i1 @_ZN4absl7Barrier5BlockEv(ptr noundef nonnul
 entry:
   %ref.tmp = alloca %"class.absl::Condition", align 8
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %num_to_block_ = getelementptr inbounds %"class.absl::Barrier", ptr %this, i64 0, i32 1
+  %num_to_block_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %num_to_block_, align 8
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %num_to_block_, align 8
@@ -30,7 +26,7 @@ entry:
   br i1 %cmp, label %do.body, label %if.end
 
 do.body:                                          ; preds = %entry
-  %num_to_exit_ = getelementptr inbounds %"class.absl::Barrier", ptr %this, i64 0, i32 2
+  %num_to_exit_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %num_to_exit_, align 4
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds ([131 x i8], ptr @.str, i64 0, i64 120), i32 noundef 36, ptr noundef nonnull @.str.1, i32 noundef %dec, i32 noundef %1)
           to label %do.body4 unwind label %lpad
@@ -63,7 +59,7 @@ invoke.cont9:                                     ; preds = %if.end
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont9
-  %num_to_exit_11 = getelementptr inbounds %"class.absl::Barrier", ptr %this, i64 0, i32 2
+  %num_to_exit_11 = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i32, ptr %num_to_exit_11, align 4
   %dec12 = add nsw i32 %5, -1
   store i32 %dec12, ptr %num_to_exit_11, align 4

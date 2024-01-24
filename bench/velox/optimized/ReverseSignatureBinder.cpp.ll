@@ -3,41 +3,6 @@ source_filename = "bench/velox/original/ReverseSignatureBinder.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::exec::TypeSignature" = type { %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::optional" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::velox::exec::TypeSignature, std::allocator<facebook::velox::exec::TypeSignature>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::exec::TypeSignature, std::allocator<facebook::velox::exec::TypeSignature>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::exec::TypeSignature, std::allocator<facebook::velox::exec::TypeSignature>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::exec::TypeSignature, std::allocator<facebook::velox::exec::TypeSignature>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"class.facebook::velox::exec::FunctionSignature" = type <{ ptr, %"class.std::unordered_map.24", %"class.facebook::velox::exec::TypeSignature", %"class.std::vector", %"class.std::vector.38", i8, [7 x i8] }>
-%"class.std::unordered_map.24" = type { %"class.std::_Hashtable.25" }
-%"class.std::_Hashtable.25" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::vector.38" = type { %"struct.std::_Bvector_base" }
-%"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" }
-%"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
-%"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
-%"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"class.facebook::velox::exec::ReverseSignatureBinder" = type { %"class.facebook::velox::exec::SignatureBinderBase", %"class.std::shared_ptr" }
-%"class.facebook::velox::exec::SignatureBinderBase" = type { ptr, %"class.std::unordered_map", %"class.std::unordered_map.10" }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.10" = type { %"class.std::_Hashtable.11" }
-%"class.std::_Hashtable.11" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-
 $_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_ = comdat any
 
 $__clang_call_terminate = comdat any
@@ -49,16 +14,16 @@ $_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairI
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8facebook5velox4exec22ReverseSignatureBinder29hasConstrainedIntegerVariableERKNS1_13TypeSignatureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(96) %type) local_unnamed_addr #0 align 2 {
 entry:
-  %parameters_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %type, i64 0, i32 1
+  %parameters_.i = getelementptr inbounds i8, ptr %type, i64 32
   %0 = load ptr, ptr %parameters_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %type, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %type, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.then, label %for.body
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %variables_.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %2, i64 0, i32 1
+  %variables_.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %call.i = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %variables_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %type)
   %cmp.i.not = icmp eq ptr %call.i, null
   br i1 %cmp.i.not, label %return, label %land.lhs.true
@@ -78,7 +43,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 for.body:                                         ; preds = %entry, %for.body
   %__begin2.sroa.0.014 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %call25 = tail call noundef zeroext i1 @_ZNK8facebook5velox4exec22ReverseSignatureBinder29hasConstrainedIntegerVariableERKNS1_13TypeSignatureE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(96) %__begin2.sroa.0.014)
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__begin2.sroa.0.014, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.014, i64 96
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i, %1
   %or.cond = select i1 %call25, i1 true, i1 %cmp.i9.not
   br i1 %or.cond, label %return, label %for.body
@@ -92,14 +57,14 @@ return:                                           ; preds = %for.body, %if.then,
 define noundef zeroext i1 @_ZN8facebook5velox4exec22ReverseSignatureBinder7tryBindEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %returnType_.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %0, i64 0, i32 2
+  %returnType_.i = getelementptr inbounds i8, ptr %0, i64 64
   %call2 = tail call noundef zeroext i1 @_ZNK8facebook5velox4exec22ReverseSignatureBinder29hasConstrainedIntegerVariableERKNS1_13TypeSignatureE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(96) %returnType_.i)
   br i1 %call2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %returnType_.i1 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignature", ptr %1, i64 0, i32 2
-  %returnType_ = getelementptr inbounds %"class.facebook::velox::exec::ReverseSignatureBinder", ptr %this, i64 0, i32 1
+  %returnType_.i1 = getelementptr inbounds i8, ptr %1, i64 64
+  %returnType_ = getelementptr inbounds i8, ptr %this, i64 120
   %call5 = tail call noundef zeroext i1 @_ZN8facebook5velox4exec19SignatureBinderBase7tryBindERKNS1_13TypeSignatureERKSt10shared_ptrIKNS0_4TypeEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(96) %returnType_.i1, ptr noundef nonnull align 8 dereferenceable(16) %returnType_)
   br label %return
 
@@ -113,13 +78,13 @@ declare noundef zeroext i1 @_ZN8facebook5velox4exec19SignatureBinderBase7tryBind
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable.25", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not = icmp ugt i64 %0, 20
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable.25", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.08 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i.not9 = icmp eq ptr %retval.sroa.0.08, null
   br i1 %cmp.i.not9, label %return, label %for.body
@@ -163,7 +128,7 @@ terminate.lpad.i.i:                               ; preds = %if.end15
   unreachable
 
 _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N8facebook5velox4exec17SignatureVariableEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS8_.exit: ; preds = %if.end15
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.25", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i2.i.i, %4
   %call.i = tail call noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %call.i2.i.i)
@@ -214,7 +179,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable.25", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr.i.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 112
   %.pre = load i64, ptr %add.ptr.i.phi.trans.insert, align 8
   br label %for.cond

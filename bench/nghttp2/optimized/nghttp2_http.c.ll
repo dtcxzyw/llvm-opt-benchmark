@@ -4,36 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.nghttp2_extpri = type { i32, i32 }
-%struct.nghttp2_rcbuf = type { ptr, ptr, ptr, i64, i32 }
-%struct.nghttp2_stream = type { %struct.nghttp2_pq_entry, %struct.nghttp2_pq, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i32, i8, i8, i8, i8, i8, i8 }
-%struct.nghttp2_pq_entry = type { i64 }
-%struct.nghttp2_pq = type { ptr, ptr, i64, i64, ptr }
-%struct.nghttp2_hd_nv = type { ptr, ptr, i32, i8 }
-%struct.nghttp2_session = type { %struct.nghttp2_map, %struct.nghttp2_stream, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, [8 x %struct.anon], %struct.nghttp2_active_outbound_item, %struct.nghttp2_inbound_frame, %struct.nghttp2_hd_deflater, %struct.nghttp2_hd_inflater, %struct.nghttp2_session_callbacks, %struct.nghttp2_mem, ptr, ptr, ptr, ptr, ptr, ptr, %struct.nghttp2_ratelim, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, %struct.nghttp2_settings_storage, %struct.nghttp2_settings_storage, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, [32 x i8] }
-%struct.nghttp2_map = type { ptr, ptr, i64, i32, i32 }
-%struct.nghttp2_outbound_queue = type { ptr, ptr, i64 }
-%struct.anon = type { %struct.nghttp2_pq }
-%struct.nghttp2_active_outbound_item = type { ptr, %struct.nghttp2_bufs, i32 }
-%struct.nghttp2_bufs = type { ptr, ptr, ptr, i64, i64, i64, i64, i64 }
-%struct.nghttp2_inbound_frame = type { %union.nghttp2_frame, %union.nghttp2_ext_frame_payload, ptr, %struct.nghttp2_buf, %struct.nghttp2_buf, ptr, i64, i64, i64, i64, i32, [32 x i8] }
-%union.nghttp2_frame = type { %struct.nghttp2_headers }
-%struct.nghttp2_headers = type { %struct.nghttp2_frame_hd, i64, %struct.nghttp2_priority_spec, ptr, i64, i32 }
-%struct.nghttp2_frame_hd = type { i64, i32, i8, i8, i8 }
-%struct.nghttp2_priority_spec = type { i32, i32, i8 }
-%union.nghttp2_ext_frame_payload = type { %struct.nghttp2_ext_altsvc }
-%struct.nghttp2_ext_altsvc = type { ptr, i64, ptr, i64 }
-%struct.nghttp2_buf = type { ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_hd_deflater = type { %struct.nghttp2_hd_context, %struct.nghttp2_hd_map, i64, i64, i8 }
-%struct.nghttp2_hd_context = type { %struct.nghttp2_hd_ringbuf, ptr, i64, i64, i32, i8 }
-%struct.nghttp2_hd_ringbuf = type { ptr, i64, i64, i64 }
-%struct.nghttp2_hd_map = type { [128 x ptr] }
-%struct.nghttp2_hd_inflater = type { %struct.nghttp2_hd_context, %struct.nghttp2_hd_huff_decode_context, %struct.nghttp2_buf, %struct.nghttp2_buf, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64, i32, i32, i8, i8, i8 }
-%struct.nghttp2_hd_huff_decode_context = type { i16 }
-%struct.nghttp2_session_callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_mem = type { ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_ratelim = type { i64, i64, i64, i64 }
-%struct.nghttp2_settings_storage = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.nghttp2_push_promise = type { %struct.nghttp2_frame_hd, i64, ptr, i64, i32, i8 }
 %struct.nghttp2_nv = type { ptr, ptr, i64, i64, i8 }
 %struct.sf_parser = type { ptr, ptr, i32 }
 %struct.sf_vec = type { ptr, i64 }
@@ -57,9 +27,9 @@ define hidden noundef i32 @nghttp2_http_on_header(ptr nocapture noundef readonly
 entry:
   %extpri.i = alloca %struct.nghttp2_extpri, align 4
   %0 = load ptr, ptr %nv, align 8
-  %base = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %0, i64 0, i32 2
+  %base = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %base, align 8
-  %len = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %0, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i64, ptr %len, align 8
   %call = tail call i32 @nghttp2_check_header_name(ptr noundef %1, i64 noundef %2) #9
   %tobool.not = icmp eq i32 %call, 0
@@ -67,20 +37,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %nv, align 8
-  %len3 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %3, i64 0, i32 3
+  %len3 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i64, ptr %len3, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %for.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %base5 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %3, i64 0, i32 2
+  %base5 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %base5, align 8
   %6 = load i8, ptr %5, align 1
   %cmp6 = icmp eq i8 %6, 58
   br i1 %cmp6, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %land.lhs.true
-  %base14 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %3, i64 0, i32 2
+  %base14 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load ptr, ptr %base14, align 8
   br label %for.body
 
@@ -98,14 +68,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %if.then
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %10 = load i32, ptr %http_flags, align 4
   %or = or i32 %10, 64
   store i32 %or, ptr %http_flags, align 4
   br label %return
 
 if.end25:                                         ; preds = %entry
-  %token = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 2
+  %token = getelementptr inbounds i8, ptr %nv, i64 16
   %11 = load i32, ptr %token, align 8
   switch i32 %11, label %if.end25.sw.default_crit_edge [
     i32 1, label %sw.bb
@@ -117,62 +87,62 @@ if.end25:                                         ; preds = %entry
   ]
 
 if.end25.sw.default_crit_edge:                    ; preds = %if.end25
-  %flags84.phi.trans.insert = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 29
+  %flags84.phi.trans.insert = getelementptr inbounds i8, ptr %stream, i64 216
   %.pre = load i8, ptr %flags84.phi.trans.insert, align 8
   br label %sw.default
 
 sw.bb:                                            ; preds = %if.end25
-  %value = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %nv, i64 8
   %12 = load ptr, ptr %value, align 8
-  %base26 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %12, i64 0, i32 2
+  %base26 = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %base26, align 8
-  %len28 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %12, i64 0, i32 3
+  %len28 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load i64, ptr %len28, align 8
   %call29 = tail call i32 @nghttp2_check_method(ptr noundef %13, i64 noundef %14) #9
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %if.end25
-  %value31 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value31 = getelementptr inbounds i8, ptr %nv, i64 8
   %15 = load ptr, ptr %value31, align 8
-  %base32 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %15, i64 0, i32 2
+  %base32 = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %base32, align 8
-  %len34 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %15, i64 0, i32 3
+  %len34 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load i64, ptr %len34, align 8
   %call35 = tail call i32 @nghttp2_check_path(ptr noundef %16, i64 noundef %17) #9
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %if.end25, %if.end25
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %18 = load i8, ptr %server, align 4
   %tobool38.not = icmp eq i8 %18, 0
   br i1 %tobool38.not, label %lor.lhs.false, label %if.then42
 
 lor.lhs.false:                                    ; preds = %sw.bb36
-  %type = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %frame, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %frame, i64 12
   %19 = load i8, ptr %type, align 4
   %cmp40 = icmp eq i8 %19, 5
   br i1 %cmp40, label %if.then42, label %if.else
 
 if.then42:                                        ; preds = %lor.lhs.false, %sw.bb36
-  %value43 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value43 = getelementptr inbounds i8, ptr %nv, i64 8
   %20 = load ptr, ptr %value43, align 8
-  %base44 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %20, i64 0, i32 2
+  %base44 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load ptr, ptr %base44, align 8
-  %len46 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %20, i64 0, i32 3
+  %len46 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i64, ptr %len46, align 8
   %call47 = tail call i32 @nghttp2_check_authority(ptr noundef %21, i64 noundef %22) #9
   br label %sw.epilog
 
 if.else:                                          ; preds = %lor.lhs.false
-  %flags = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 29
+  %flags = getelementptr inbounds i8, ptr %stream, i64 216
   %23 = load i8, ptr %flags, align 8
   %24 = and i8 %23, 64
   %tobool49.not = icmp eq i8 %24, 0
-  %value57 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value57 = getelementptr inbounds i8, ptr %nv, i64 8
   %25 = load ptr, ptr %value57, align 8
-  %base58 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %25, i64 0, i32 2
+  %base58 = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load ptr, ptr %base58, align 8
-  %len60 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %25, i64 0, i32 3
+  %len60 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load i64, ptr %len60, align 8
   br i1 %tobool49.not, label %if.else56, label %if.then50
 
@@ -185,11 +155,11 @@ if.else56:                                        ; preds = %if.else
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %if.end25
-  %value65 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value65 = getelementptr inbounds i8, ptr %nv, i64 8
   %28 = load ptr, ptr %value65, align 8
-  %base66 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %28, i64 0, i32 2
+  %base66 = getelementptr inbounds i8, ptr %28, i64 16
   %29 = load ptr, ptr %base66, align 8
-  %len68 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %28, i64 0, i32 3
+  %len68 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load i64, ptr %len68, align 8
   %cmp.i = icmp eq i64 %30, 0
   br i1 %cmp.i, label %if.then103, label %if.end.i
@@ -234,18 +204,18 @@ for.inc.i:                                        ; preds = %lor.lhs.false40.i, 
   br i1 %cmp15.not.i, label %if.end121, label %for.body.i, !llvm.loop !6
 
 sw.bb70:                                          ; preds = %if.end25
-  %flags71 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 29
+  %flags71 = getelementptr inbounds i8, ptr %stream, i64 216
   %38 = load i8, ptr %flags71, align 8
   %39 = and i8 %38, 64
   %tobool74.not = icmp eq i8 %39, 0
   br i1 %tobool74.not, label %sw.default, label %land.lhs.true75
 
 land.lhs.true75:                                  ; preds = %sw.bb70
-  %value76 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value76 = getelementptr inbounds i8, ptr %nv, i64 8
   %40 = load ptr, ptr %value76, align 8
-  %base77 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %40, i64 0, i32 2
+  %base77 = getelementptr inbounds i8, ptr %40, i64 16
   %41 = load ptr, ptr %base77, align 8
-  %len79 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %40, i64 0, i32 3
+  %len79 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load i64, ptr %len79, align 8
   %cmp5.not.i = icmp eq i64 %42, 0
   br i1 %cmp5.not.i, label %if.then103, label %for.body.i43
@@ -268,11 +238,11 @@ sw.default:                                       ; preds = %for.body.i43, %if.e
   %44 = phi i8 [ %.pre, %if.end25.sw.default_crit_edge ], [ %38, %sw.bb70 ], [ %38, %for.body.i43 ]
   %45 = and i8 %44, 64
   %tobool87.not = icmp eq i8 %45, 0
-  %value95 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value95 = getelementptr inbounds i8, ptr %nv, i64 8
   %46 = load ptr, ptr %value95, align 8
-  %base96 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %46, i64 0, i32 2
+  %base96 = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load ptr, ptr %base96, align 8
-  %len98 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %46, i64 0, i32 3
+  %len98 = getelementptr inbounds i8, ptr %46, i64 24
   %48 = load i64, ptr %len98, align 8
   br i1 %tobool87.not, label %if.else94, label %if.then88
 
@@ -291,7 +261,7 @@ sw.epilog:                                        ; preds = %if.then88, %if.else
 
 if.then103:                                       ; preds = %for.inc.i44, %lor.lhs.false40.i, %land.lhs.true75, %if.end.i, %sw.bb64, %sw.epilog
   %49 = load ptr, ptr %nv, align 8
-  %len105 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %49, i64 0, i32 3
+  %len105 = getelementptr inbounds i8, ptr %49, i64 24
   %50 = load i64, ptr %len105, align 8
   %cmp106.not = icmp eq i64 %50, 0
   br i1 %cmp106.not, label %if.else109, label %if.end110
@@ -301,33 +271,33 @@ if.else109:                                       ; preds = %if.then103
   unreachable
 
 if.end110:                                        ; preds = %if.then103
-  %base112 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %49, i64 0, i32 2
+  %base112 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load ptr, ptr %base112, align 8
   %52 = load i8, ptr %51, align 1
   %cmp115 = icmp eq i8 %52, 58
   br i1 %cmp115, label %return, label %if.end118
 
 if.end118:                                        ; preds = %if.end110
-  %http_flags119 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags119 = getelementptr inbounds i8, ptr %stream, i64 212
   %53 = load i32, ptr %http_flags119, align 4
   %or120 = or i32 %53, 64
   store i32 %or120, ptr %http_flags119, align 4
   br label %return
 
 if.end121:                                        ; preds = %for.inc.i, %if.end14.i, %sw.epilog
-  %server122 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %server122 = getelementptr inbounds i8, ptr %session, i64 2876
   %54 = load i8, ptr %server122, align 4
   %tobool124.not = icmp eq i8 %54, 0
   br i1 %tobool124.not, label %lor.lhs.false125, label %land.rhs
 
 lor.lhs.false125:                                 ; preds = %if.end121
-  %type126 = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %frame, i64 0, i32 2
+  %type126 = getelementptr inbounds i8, ptr %frame, i64 12
   %55 = load i8, ptr %type126, align 4
   %cmp128 = icmp eq i8 %55, 5
   br i1 %cmp128, label %land.end, label %if.end137
 
 land.rhs:                                         ; preds = %if.end121
-  %pending_enable_connect_protocol = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 50
+  %pending_enable_connect_protocol = getelementptr inbounds i8, ptr %session, i64 2873
   %56 = load i8, ptr %pending_enable_connect_protocol, align 1
   %tobool135 = icmp ne i8 %56, 0
   %57 = zext i1 %tobool135 to i32
@@ -337,7 +307,7 @@ land.end:                                         ; preds = %lor.lhs.false125, %
   %land.ext = phi i32 [ %57, %land.rhs ], [ 0, %lor.lhs.false125 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %extpri.i)
   %58 = load ptr, ptr %nv, align 8
-  %base.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %58, i64 0, i32 2
+  %base.i = getelementptr inbounds i8, ptr %58, i64 16
   %59 = load ptr, ptr %base.i, align 8
   %60 = load i8, ptr %59, align 1
   %cmp.i46 = icmp eq i8 %60, 58
@@ -348,7 +318,7 @@ if.then.i:                                        ; preds = %land.end
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %http_request_on_header.exit
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %http_flags.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i = getelementptr inbounds i8, ptr %stream, i64 212
   %61 = load i32, ptr %http_flags.i, align 4
   %and.i = and i32 %61, 64
   %tobool2.not.i = icmp eq i32 %and.i, 0
@@ -374,16 +344,16 @@ if.end4.i:                                        ; preds = %lor.lhs.false.i, %l
   ]
 
 sw.bb.i:                                          ; preds = %if.end4.i
-  %http_flags.i.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i.i = getelementptr inbounds i8, ptr %stream, i64 212
   %63 = load i32, ptr %http_flags.i.i, align 4
   %and.i.i = and i32 %63, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %lor.lhs.false.i.i, label %http_request_on_header.exit
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb.i
-  %value.i.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %nv, i64 8
   %64 = load ptr, ptr %value.i.i, align 8
-  %len.i.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %64, i64 0, i32 3
+  %len.i.i = getelementptr inbounds i8, ptr %64, i64 24
   %65 = load i64, ptr %len.i.i, align 8
   %cmp.i.i = icmp eq i64 %65, 0
   br i1 %cmp.i.i, label %http_request_on_header.exit, label %check_pseudo_header.exit.i
@@ -394,16 +364,16 @@ check_pseudo_header.exit.i:                       ; preds = %lor.lhs.false.i.i
   br label %sw.epilog216.i
 
 sw.bb8.i:                                         ; preds = %if.end4.i
-  %http_flags.i64.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i64.i = getelementptr inbounds i8, ptr %stream, i64 212
   %66 = load i32, ptr %http_flags.i64.i, align 4
   %and.i65.i = and i32 %66, 4
   %tobool.not.i66.i = icmp eq i32 %and.i65.i, 0
   br i1 %tobool.not.i66.i, label %lor.lhs.false.i68.i, label %http_request_on_header.exit
 
 lor.lhs.false.i68.i:                              ; preds = %sw.bb8.i
-  %value.i69.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value.i69.i = getelementptr inbounds i8, ptr %nv, i64 8
   %67 = load ptr, ptr %value.i69.i, align 8
-  %len.i70.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %67, i64 0, i32 3
+  %len.i70.i = getelementptr inbounds i8, ptr %67, i64 24
   %68 = load i64, ptr %len.i70.i, align 8
   %cmp.i71.i = icmp eq i64 %68, 0
   br i1 %cmp.i71.i, label %http_request_on_header.exit, label %if.end12.i
@@ -412,7 +382,7 @@ if.end12.i:                                       ; preds = %lor.lhs.false.i68.i
   %or.i73.i = or disjoint i32 %66, 4
   store i32 %or.i73.i, ptr %http_flags.i64.i, align 4
   %69 = load ptr, ptr %value.i69.i, align 8
-  %len.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %69, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %69, i64 24
   %70 = load i64, ptr %len.i, align 8
   switch i64 %70, label %sw.epilog216.i [
     i64 4, label %land.lhs.true.i
@@ -420,7 +390,7 @@ if.end12.i:                                       ; preds = %lor.lhs.false.i68.i
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end12.i
-  %base19.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %69, i64 0, i32 2
+  %base19.i = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load ptr, ptr %base19.i, align 8
   %bcmp63.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.4, ptr noundef nonnull dereferenceable(4) %71, i64 4)
   %cmp23.i = icmp eq i32 %bcmp63.i, 0
@@ -432,7 +402,7 @@ if.then25.i:                                      ; preds = %land.lhs.true.i
   br label %sw.epilog216.i
 
 sw.bb28.i:                                        ; preds = %if.end12.i
-  %base30.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %69, i64 0, i32 2
+  %base30.i = getelementptr inbounds i8, ptr %69, i64 16
   %72 = load ptr, ptr %base30.i, align 8
   %arrayidx31.i = getelementptr inbounds i8, ptr %72, i64 6
   %73 = load i8, ptr %arrayidx31.i, align 1
@@ -447,7 +417,7 @@ land.lhs.true38.i:                                ; preds = %sw.bb28.i
   br i1 %cmp44.i, label %if.then46.i, label %sw.epilog216.i
 
 if.then46.i:                                      ; preds = %land.lhs.true38.i
-  %stream_id.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 17
+  %stream_id.i = getelementptr inbounds i8, ptr %stream, i64 168
   %74 = load i32, ptr %stream_id.i, align 8
   %75 = and i32 %74, 1
   %cmp47.i = icmp eq i32 %75, 0
@@ -469,16 +439,16 @@ if.then67.i:                                      ; preds = %land.lhs.true59.i
   br label %sw.epilog216.i
 
 sw.bb72.i:                                        ; preds = %if.end4.i
-  %http_flags.i75.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i75.i = getelementptr inbounds i8, ptr %stream, i64 212
   %76 = load i32, ptr %http_flags.i75.i, align 4
   %and.i76.i = and i32 %76, 2
   %tobool.not.i77.i = icmp eq i32 %and.i76.i, 0
   br i1 %tobool.not.i77.i, label %lor.lhs.false.i79.i, label %http_request_on_header.exit
 
 lor.lhs.false.i79.i:                              ; preds = %sw.bb72.i
-  %value.i80.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value.i80.i = getelementptr inbounds i8, ptr %nv, i64 8
   %77 = load ptr, ptr %value.i80.i, align 8
-  %len.i81.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %77, i64 0, i32 3
+  %len.i81.i = getelementptr inbounds i8, ptr %77, i64 24
   %78 = load i64, ptr %len.i81.i, align 8
   %cmp.i82.i = icmp eq i64 %78, 0
   br i1 %cmp.i82.i, label %http_request_on_header.exit, label %if.end76.i
@@ -487,7 +457,7 @@ if.end76.i:                                       ; preds = %lor.lhs.false.i79.i
   %or.i84.i = or disjoint i32 %76, 2
   store i32 %or.i84.i, ptr %http_flags.i75.i, align 4
   %79 = load ptr, ptr %value.i80.i, align 8
-  %base78.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %79, i64 0, i32 2
+  %base78.i = getelementptr inbounds i8, ptr %79, i64 16
   %80 = load ptr, ptr %base78.i, align 8
   %81 = load i8, ptr %80, align 1
   %cmp81.i = icmp eq i8 %81, 47
@@ -499,7 +469,7 @@ if.then83.i:                                      ; preds = %if.end76.i
   br label %sw.epilog216.i
 
 if.else.i:                                        ; preds = %if.end76.i
-  %len87.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %79, i64 0, i32 3
+  %len87.i = getelementptr inbounds i8, ptr %79, i64 24
   %82 = load i64, ptr %len87.i, align 8
   %cmp88.i = icmp eq i64 %82, 1
   %cmp95.i = icmp eq i8 %81, 42
@@ -512,16 +482,16 @@ if.then97.i:                                      ; preds = %if.else.i
   br label %sw.epilog216.i
 
 sw.bb102.i:                                       ; preds = %if.end4.i
-  %http_flags.i86.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i86.i = getelementptr inbounds i8, ptr %stream, i64 212
   %83 = load i32, ptr %http_flags.i86.i, align 4
   %and.i87.i = and i32 %83, 8
   %tobool.not.i88.i = icmp eq i32 %and.i87.i, 0
   br i1 %tobool.not.i88.i, label %lor.lhs.false.i90.i, label %http_request_on_header.exit
 
 lor.lhs.false.i90.i:                              ; preds = %sw.bb102.i
-  %value.i91.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value.i91.i = getelementptr inbounds i8, ptr %nv, i64 8
   %84 = load ptr, ptr %value.i91.i, align 8
-  %len.i92.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %84, i64 0, i32 3
+  %len.i92.i = getelementptr inbounds i8, ptr %84, i64 24
   %85 = load i64, ptr %len.i92.i, align 8
   %cmp.i93.i = icmp eq i64 %85, 0
   br i1 %cmp.i93.i, label %http_request_on_header.exit, label %if.end106.i
@@ -530,7 +500,7 @@ if.end106.i:                                      ; preds = %lor.lhs.false.i90.i
   %or.i95.i = or disjoint i32 %83, 8
   store i32 %or.i95.i, ptr %http_flags.i86.i, align 4
   %86 = load ptr, ptr %value.i91.i, align 8
-  %len108.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %86, i64 0, i32 3
+  %len108.i = getelementptr inbounds i8, ptr %86, i64 24
   %87 = load i64, ptr %len108.i, align 8
   switch i64 %87, label %sw.epilog216.i [
     i64 4, label %land.lhs.true111.i
@@ -538,7 +508,7 @@ if.end106.i:                                      ; preds = %lor.lhs.false.i90.i
   ]
 
 land.lhs.true111.i:                               ; preds = %if.end106.i
-  %base113.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %86, i64 0, i32 2
+  %base113.i = getelementptr inbounds i8, ptr %86, i64 16
   %88 = load ptr, ptr %base113.i, align 8
   br label %for.body.i.i
 
@@ -565,7 +535,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %land
   br i1 %cmp4.not.i.i, label %for.cond.i.i, label %sw.epilog216.i
 
 land.lhs.true121.i:                               ; preds = %if.end106.i
-  %base123.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %86, i64 0, i32 2
+  %base123.i = getelementptr inbounds i8, ptr %86, i64 16
   %93 = load ptr, ptr %base123.i, align 8
   br label %for.body.i98.i
 
@@ -601,16 +571,16 @@ sw.bb130.i:                                       ; preds = %if.end4.i
   br i1 %tobool131.not.i, label %http_request_on_header.exit, label %if.end133.i
 
 if.end133.i:                                      ; preds = %sw.bb130.i
-  %http_flags.i114.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i114.i = getelementptr inbounds i8, ptr %stream, i64 212
   %98 = load i32, ptr %http_flags.i114.i, align 4
   %and.i115.i = and i32 %98, 32768
   %tobool.not.i116.i = icmp eq i32 %and.i115.i, 0
   br i1 %tobool.not.i116.i, label %lor.lhs.false.i118.i, label %http_request_on_header.exit
 
 lor.lhs.false.i118.i:                             ; preds = %if.end133.i
-  %value.i119.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value.i119.i = getelementptr inbounds i8, ptr %nv, i64 8
   %99 = load ptr, ptr %value.i119.i, align 8
-  %len.i120.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %99, i64 0, i32 3
+  %len.i120.i = getelementptr inbounds i8, ptr %99, i64 24
   %100 = load i64, ptr %len.i120.i, align 8
   %cmp.i121.i = icmp eq i64 %100, 0
   br i1 %cmp.i121.i, label %http_request_on_header.exit, label %check_pseudo_header.exit124.i
@@ -621,16 +591,16 @@ check_pseudo_header.exit124.i:                    ; preds = %lor.lhs.false.i118.
   br label %sw.epilog216.i
 
 sw.bb138.i:                                       ; preds = %if.end4.i
-  %http_flags.i125.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i125.i = getelementptr inbounds i8, ptr %stream, i64 212
   %101 = load i32, ptr %http_flags.i125.i, align 4
   %and.i126.i = and i32 %101, 16
   %tobool.not.i127.i = icmp eq i32 %and.i126.i, 0
   br i1 %tobool.not.i127.i, label %lor.lhs.false.i129.i, label %http_request_on_header.exit
 
 lor.lhs.false.i129.i:                             ; preds = %sw.bb138.i
-  %value.i130.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value.i130.i = getelementptr inbounds i8, ptr %nv, i64 8
   %102 = load ptr, ptr %value.i130.i, align 8
-  %len.i131.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %102, i64 0, i32 3
+  %len.i131.i = getelementptr inbounds i8, ptr %102, i64 24
   %103 = load i64, ptr %len.i131.i, align 8
   %cmp.i132.i = icmp eq i64 %103, 0
   br i1 %cmp.i132.i, label %http_request_on_header.exit, label %check_pseudo_header.exit135.i
@@ -641,17 +611,17 @@ check_pseudo_header.exit135.i:                    ; preds = %lor.lhs.false.i129.
   br label %sw.epilog216.i
 
 sw.bb143.i:                                       ; preds = %if.end4.i
-  %content_length.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length.i = getelementptr inbounds i8, ptr %stream, i64 48
   %104 = load i64, ptr %content_length.i, align 8
   %cmp144.not.i = icmp eq i64 %104, -1
   br i1 %cmp144.not.i, label %if.end147.i, label %http_request_on_header.exit
 
 if.end147.i:                                      ; preds = %sw.bb143.i
-  %value148.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value148.i = getelementptr inbounds i8, ptr %nv, i64 8
   %105 = load ptr, ptr %value148.i, align 8
-  %base149.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %105, i64 0, i32 2
+  %base149.i = getelementptr inbounds i8, ptr %105, i64 16
   %106 = load ptr, ptr %base149.i, align 8
-  %len151.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %105, i64 0, i32 3
+  %len151.i = getelementptr inbounds i8, ptr %105, i64 24
   %107 = load i64, ptr %len151.i, align 8
   %call152.i = tail call fastcc i64 @parse_uint(ptr noundef %106, i64 noundef %107)
   store i64 %call152.i, ptr %content_length.i, align 8
@@ -659,15 +629,15 @@ if.end147.i:                                      ; preds = %sw.bb143.i
   br i1 %cmp155.i, label %http_request_on_header.exit, label %sw.epilog216.i
 
 sw.bb160.i:                                       ; preds = %if.end4.i
-  %value161.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value161.i = getelementptr inbounds i8, ptr %nv, i64 8
   %108 = load ptr, ptr %value161.i, align 8
-  %len162.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %108, i64 0, i32 3
+  %len162.i = getelementptr inbounds i8, ptr %108, i64 24
   %109 = load i64, ptr %len162.i, align 8
   %cmp163.i = icmp eq i64 %109, 8
   br i1 %cmp163.i, label %land.lhs.true165.i, label %http_request_on_header.exit
 
 land.lhs.true165.i:                               ; preds = %sw.bb160.i
-  %base167.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %108, i64 0, i32 2
+  %base167.i = getelementptr inbounds i8, ptr %108, i64 16
   %110 = load ptr, ptr %base167.i, align 8
   br label %for.body.i136.i
 
@@ -698,35 +668,35 @@ sw.bb174.i:                                       ; preds = %if.end4.i
   br i1 %tobool175.not.i, label %land.lhs.true176.i, label %sw.epilog216.i
 
 land.lhs.true176.i:                               ; preds = %sw.bb174.i
-  %stream_id177.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 17
+  %stream_id177.i = getelementptr inbounds i8, ptr %stream, i64 168
   %115 = load i32, ptr %stream_id177.i, align 8
   %and178.i = and i32 %115, 1
   %tobool179.not.i = icmp eq i32 %and178.i, 0
   br i1 %tobool179.not.i, label %sw.epilog216.i, label %land.lhs.true180.i
 
 land.lhs.true180.i:                               ; preds = %land.lhs.true176.i
-  %flags.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 29
+  %flags.i = getelementptr inbounds i8, ptr %stream, i64 216
   %116 = load i8, ptr %flags.i, align 8
   %117 = and i8 %116, 16
   %tobool183.not.i = icmp eq i8 %117, 0
   br i1 %tobool183.not.i, label %sw.epilog216.i, label %land.lhs.true184.i
 
 land.lhs.true184.i:                               ; preds = %land.lhs.true180.i
-  %http_flags185.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags185.i = getelementptr inbounds i8, ptr %stream, i64 212
   %118 = load i32, ptr %http_flags185.i, align 4
   %and186.i = and i32 %118, 131072
   %tobool187.not.i = icmp eq i32 %and186.i, 0
   br i1 %tobool187.not.i, label %if.then188.i, label %sw.epilog216.i
 
 if.then188.i:                                     ; preds = %land.lhs.true184.i
-  %http_extpri.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 34
+  %http_extpri.i = getelementptr inbounds i8, ptr %stream, i64 221
   %119 = load i8, ptr %http_extpri.i, align 1
   call void @nghttp2_extpri_from_uint8(ptr noundef nonnull %extpri.i, i8 noundef zeroext %119) #9
-  %value189.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value189.i = getelementptr inbounds i8, ptr %nv, i64 8
   %120 = load ptr, ptr %value189.i, align 8
-  %base190.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %120, i64 0, i32 2
+  %base190.i = getelementptr inbounds i8, ptr %120, i64 16
   %121 = load ptr, ptr %base190.i, align 8
-  %len192.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %120, i64 0, i32 3
+  %len192.i = getelementptr inbounds i8, ptr %120, i64 24
   %122 = load i64, ptr %len192.i, align 8
   %call193.i = call i32 @nghttp2_http_parse_priority(ptr noundef nonnull %extpri.i, ptr noundef %121, i64 noundef %122), !range !9
   %cmp194.i = icmp eq i32 %call193.i, 0
@@ -752,14 +722,14 @@ sw.default.i:                                     ; preds = %if.end4.i
 
 sw.epilog216.i:                                   ; preds = %for.cond.i148.i, %for.body.i98.i, %for.body.i.i, %sw.default.i, %if.else201.i, %if.then196.i, %land.lhs.true184.i, %land.lhs.true180.i, %land.lhs.true176.i, %sw.bb174.i, %if.end147.i, %check_pseudo_header.exit135.i, %check_pseudo_header.exit124.i, %if.then126.i, %if.end106.i, %if.then97.i, %if.else.i, %if.then83.i, %if.then67.i, %land.lhs.true59.i, %if.end50.i, %land.lhs.true38.i, %sw.bb28.i, %if.then25.i, %land.lhs.true.i, %if.end12.i, %check_pseudo_header.exit.i
   %125 = load ptr, ptr %nv, align 8
-  %base218.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %125, i64 0, i32 2
+  %base218.i = getelementptr inbounds i8, ptr %125, i64 16
   %126 = load ptr, ptr %base218.i, align 8
   %127 = load i8, ptr %126, align 1
   %cmp221.not.i = icmp eq i8 %127, 58
   br i1 %cmp221.not.i, label %http_request_on_header.exit, label %if.then223.i
 
 if.then223.i:                                     ; preds = %sw.epilog216.i
-  %http_flags224.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags224.i = getelementptr inbounds i8, ptr %stream, i64 212
   %128 = load i32, ptr %http_flags224.i, align 4
   %or225.i = or i32 %128, 64
   store i32 %or225.i, ptr %http_flags224.i, align 4
@@ -772,7 +742,7 @@ http_request_on_header.exit:                      ; preds = %for.body.i136.i, %i
 
 if.end137:                                        ; preds = %lor.lhs.false125
   %129 = load ptr, ptr %nv, align 8
-  %base.i48 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %129, i64 0, i32 2
+  %base.i48 = getelementptr inbounds i8, ptr %129, i64 16
   %130 = load ptr, ptr %base.i48, align 8
   %131 = load i8, ptr %130, align 1
   %cmp.i49 = icmp eq i8 %131, 58
@@ -783,7 +753,7 @@ if.then.i76:                                      ; preds = %if.end137
   br i1 %tobool.not.i77, label %lor.lhs.false.i78, label %return
 
 lor.lhs.false.i78:                                ; preds = %if.then.i76
-  %http_flags.i79 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i79 = getelementptr inbounds i8, ptr %stream, i64 212
   %132 = load i32, ptr %http_flags.i79, align 4
   %and.i80 = and i32 %132, 64
   %tobool2.not.i81 = icmp eq i32 %and.i80, 0
@@ -803,16 +773,16 @@ if.end4.i50:                                      ; preds = %lor.lhs.false.i78, 
   ]
 
 sw.bb.i61:                                        ; preds = %if.end4.i50
-  %http_flags.i.i62 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags.i.i62 = getelementptr inbounds i8, ptr %stream, i64 212
   %134 = load i32, ptr %http_flags.i.i62, align 4
   %and.i.i63 = and i32 %134, 32
   %tobool.not.i.i64 = icmp eq i32 %and.i.i63, 0
   br i1 %tobool.not.i.i64, label %lor.lhs.false.i.i65, label %return
 
 lor.lhs.false.i.i65:                              ; preds = %sw.bb.i61
-  %value.i.i66 = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value.i.i66 = getelementptr inbounds i8, ptr %nv, i64 8
   %135 = load ptr, ptr %value.i.i66, align 8
-  %len.i.i67 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %135, i64 0, i32 3
+  %len.i.i67 = getelementptr inbounds i8, ptr %135, i64 24
   %136 = load i64, ptr %len.i.i67, align 8
   %cmp.i.i68 = icmp eq i64 %136, 0
   br i1 %cmp.i.i68, label %return, label %if.end7.i
@@ -821,13 +791,13 @@ if.end7.i:                                        ; preds = %lor.lhs.false.i.i65
   %or.i.i69 = or disjoint i32 %134, 32
   store i32 %or.i.i69, ptr %http_flags.i.i62, align 4
   %137 = load ptr, ptr %value.i.i66, align 8
-  %len.i70 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %137, i64 0, i32 3
+  %len.i70 = getelementptr inbounds i8, ptr %137, i64 24
   %138 = load i64, ptr %len.i70, align 8
   %cmp8.not.i = icmp eq i64 %138, 3
   br i1 %cmp8.not.i, label %if.end11.i, label %return
 
 if.end11.i:                                       ; preds = %if.end7.i
-  %base13.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %137, i64 0, i32 2
+  %base13.i = getelementptr inbounds i8, ptr %137, i64 16
   %139 = load ptr, ptr %base13.i, align 8
   br label %for.body.i.i71
 
@@ -858,13 +828,13 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   br i1 %exitcond.not.i.i74, label %parse_uint.exit.i, label %for.body.i.i71, !llvm.loop !10
 
 parse_uint.exit.thread.i:                         ; preds = %if.end12.i.i, %for.body.i.i71
-  %status_code59.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 27
+  %status_code59.i = getelementptr inbounds i8, ptr %stream, i64 208
   store i16 -1, ptr %status_code59.i, align 8
   br label %return
 
 parse_uint.exit.i:                                ; preds = %if.end20.i.i
   %conv17.i = trunc i64 %add.i.i to i16
-  %status_code.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 27
+  %status_code.i = getelementptr inbounds i8, ptr %stream, i64 208
   store i16 %conv17.i, ptr %status_code.i, align 8
   switch i16 %conv17.i, label %sw.epilog.i [
     i16 -1, label %return
@@ -872,27 +842,27 @@ parse_uint.exit.i:                                ; preds = %if.end20.i.i
   ]
 
 sw.bb29.i:                                        ; preds = %if.end4.i50
-  %status_code30.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 27
+  %status_code30.i = getelementptr inbounds i8, ptr %stream, i64 208
   %142 = load i16, ptr %status_code30.i, align 8
   %cmp32.i = icmp eq i16 %142, 204
   br i1 %cmp32.i, label %if.then34.i, label %if.end52.i
 
 if.then34.i:                                      ; preds = %sw.bb29.i
-  %content_length.i54 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length.i54 = getelementptr inbounds i8, ptr %stream, i64 48
   %143 = load i64, ptr %content_length.i54, align 8
   %cmp35.not.i = icmp eq i64 %143, -1
   br i1 %cmp35.not.i, label %if.end38.i, label %return
 
 if.end38.i:                                       ; preds = %if.then34.i
-  %value39.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value39.i = getelementptr inbounds i8, ptr %nv, i64 8
   %144 = load ptr, ptr %value39.i, align 8
-  %len40.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %144, i64 0, i32 3
+  %len40.i = getelementptr inbounds i8, ptr %144, i64 24
   %145 = load i64, ptr %len40.i, align 8
   %cmp41.i = icmp eq i64 %145, 1
   br i1 %cmp41.i, label %land.lhs.true.i55, label %return
 
 land.lhs.true.i55:                                ; preds = %if.end38.i
-  %base44.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %144, i64 0, i32 2
+  %base44.i = getelementptr inbounds i8, ptr %144, i64 16
   %146 = load ptr, ptr %base44.i, align 8
   %147 = load i8, ptr %146, align 1
   %148 = add i8 %147, -65
@@ -917,24 +887,24 @@ if.end58.i:                                       ; preds = %if.end52.i
   br i1 %cmp62.i, label %land.lhs.true64.i, label %if.end69.i
 
 land.lhs.true64.i:                                ; preds = %if.end58.i
-  %http_flags65.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags65.i = getelementptr inbounds i8, ptr %stream, i64 212
   %149 = load i32, ptr %http_flags65.i, align 4
   %and66.i = and i32 %149, 128
   %tobool67.not.i = icmp eq i32 %and66.i, 0
   br i1 %tobool67.not.i, label %if.end69.i, label %return
 
 if.end69.i:                                       ; preds = %land.lhs.true64.i, %if.end58.i
-  %content_length70.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length70.i = getelementptr inbounds i8, ptr %stream, i64 48
   %150 = load i64, ptr %content_length70.i, align 8
   %cmp71.not.i = icmp eq i64 %150, -1
   br i1 %cmp71.not.i, label %if.end74.i, label %return
 
 if.end74.i:                                       ; preds = %if.end69.i
-  %value75.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value75.i = getelementptr inbounds i8, ptr %nv, i64 8
   %151 = load ptr, ptr %value75.i, align 8
-  %base76.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %151, i64 0, i32 2
+  %base76.i = getelementptr inbounds i8, ptr %151, i64 16
   %152 = load ptr, ptr %base76.i, align 8
-  %len78.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %151, i64 0, i32 3
+  %len78.i = getelementptr inbounds i8, ptr %151, i64 24
   %153 = load i64, ptr %len78.i, align 8
   %call79.i = tail call fastcc i64 @parse_uint(ptr noundef %152, i64 noundef %153)
   store i64 %call79.i, ptr %content_length70.i, align 8
@@ -942,15 +912,15 @@ if.end74.i:                                       ; preds = %if.end69.i
   br i1 %cmp82.i, label %return, label %sw.epilog.i
 
 sw.bb87.i:                                        ; preds = %if.end4.i50
-  %value88.i = getelementptr inbounds %struct.nghttp2_hd_nv, ptr %nv, i64 0, i32 1
+  %value88.i = getelementptr inbounds i8, ptr %nv, i64 8
   %154 = load ptr, ptr %value88.i, align 8
-  %len89.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %154, i64 0, i32 3
+  %len89.i = getelementptr inbounds i8, ptr %154, i64 24
   %155 = load i64, ptr %len89.i, align 8
   %cmp90.i = icmp eq i64 %155, 8
   br i1 %cmp90.i, label %land.lhs.true92.i, label %return
 
 land.lhs.true92.i:                                ; preds = %sw.bb87.i
-  %base94.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %154, i64 0, i32 2
+  %base94.i = getelementptr inbounds i8, ptr %154, i64 16
   %156 = load ptr, ptr %base94.i, align 8
   br label %for.body.i39.i
 
@@ -981,14 +951,14 @@ sw.default.i75:                                   ; preds = %if.end4.i50
 
 sw.epilog.i:                                      ; preds = %for.cond.i51.i, %sw.default.i75, %if.end74.i, %parse_uint.exit.i
   %161 = load ptr, ptr %nv, align 8
-  %base110.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %161, i64 0, i32 2
+  %base110.i = getelementptr inbounds i8, ptr %161, i64 16
   %162 = load ptr, ptr %base110.i, align 8
   %163 = load i8, ptr %162, align 1
   %cmp113.not.i = icmp eq i8 %163, 58
   br i1 %cmp113.not.i, label %return, label %if.then115.i
 
 if.then115.i:                                     ; preds = %sw.epilog.i
-  %http_flags116.i = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags116.i = getelementptr inbounds i8, ptr %stream, i64 212
   %164 = load i32, ptr %http_flags116.i, align 4
   %or.i53 = or i32 %164, 64
   store i32 %or.i53, ptr %http_flags116.i, align 4
@@ -1017,7 +987,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @nghttp2_http_on_request_headers(ptr nocapture noundef %stream, ptr nocapture noundef readonly %frame) local_unnamed_addr #3 {
 entry:
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %0 = load i32, ptr %http_flags, align 4
   %and = and i32 %0, 32768
   %1 = and i32 %0, 32896
@@ -1030,7 +1000,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond13.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length = getelementptr inbounds i8, ptr %stream, i64 48
   store i64 -1, ptr %content_length, align 8
   br label %if.end35
 
@@ -1058,7 +1028,7 @@ if.end31:                                         ; preds = %if.end18
   br i1 %or.cond22, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.end31, %if.end
-  %type = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %frame, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %frame, i64 12
   %6 = load i8, ptr %type, align 4
   %cmp36 = icmp eq i8 %6, 5
   br i1 %cmp36, label %if.then38, label %return
@@ -1066,7 +1036,7 @@ if.end35:                                         ; preds = %if.end31, %if.end
 if.then38:                                        ; preds = %if.end35
   %and40 = and i32 %0, 1920
   store i32 %and40, ptr %http_flags, align 4
-  %content_length41 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length41 = getelementptr inbounds i8, ptr %stream, i64 48
   store i64 -1, ptr %content_length41, align 8
   br label %return
 
@@ -1078,14 +1048,14 @@ return:                                           ; preds = %if.end31, %if.end18
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @nghttp2_http_on_response_headers(ptr nocapture noundef %stream) local_unnamed_addr #3 {
 entry:
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %0 = load i32, ptr %http_flags, align 4
   %and = and i32 %0, 32
   %cmp = icmp eq i32 %and, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %status_code = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 27
+  %status_code = getelementptr inbounds i8, ptr %stream, i64 208
   %1 = load i16, ptr %status_code, align 8
   %.fr = freeze i16 %1
   %.off = add i16 %.fr, -100
@@ -1096,7 +1066,7 @@ if.then3:                                         ; preds = %if.end
   %and5 = and i32 %0, 1920
   %or = or disjoint i32 %and5, 16384
   store i32 %or, ptr %http_flags, align 4
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length = getelementptr inbounds i8, ptr %stream, i64 48
   store i64 -1, ptr %content_length, align 8
   store i16 -1, ptr %status_code, align 8
   br label %return
@@ -1121,7 +1091,7 @@ switch.early.test:                                ; preds = %land.lhs.true.i
   ]
 
 if.then12:                                        ; preds = %switch.early.test, %switch.early.test, %land.lhs.true.i, %if.end8
-  %content_length13 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length13 = getelementptr inbounds i8, ptr %stream, i64 48
   store i64 0, ptr %content_length13, align 8
   br label %return
 
@@ -1131,7 +1101,7 @@ if.else:                                          ; preds = %switch.early.test
   br i1 %tobool16.not, label %return, label %if.then17
 
 if.then17:                                        ; preds = %if.else
-  %content_length18 = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length18 = getelementptr inbounds i8, ptr %stream, i64 48
   store i64 -1, ptr %content_length18, align 8
   br label %return
 
@@ -1143,7 +1113,7 @@ return:                                           ; preds = %if.then12, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @nghttp2_http_on_trailer_headers(ptr nocapture noundef readnone %stream, ptr nocapture noundef readonly %frame) local_unnamed_addr #4 {
 entry:
-  %flags = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %frame, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %frame, i64 13
   %0 = load i8, ptr %flags, align 1
   %1 = and i8 %0, 1
   %sext = add nsw i8 %1, -1
@@ -1154,20 +1124,20 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @nghttp2_http_on_remote_end_stream(ptr nocapture noundef readonly %stream) local_unnamed_addr #4 {
 entry:
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %0 = load i32, ptr %http_flags, align 4
   %and = and i32 %0, 16384
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length = getelementptr inbounds i8, ptr %stream, i64 48
   %1 = load i64, ptr %content_length, align 8
   %cmp.not = icmp eq i64 %1, -1
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %recv_content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 3
+  %recv_content_length = getelementptr inbounds i8, ptr %stream, i64 56
   %2 = load i64, ptr %recv_content_length, align 8
   %cmp2.not = icmp eq i64 %1, %2
   br i1 %cmp2.not, label %if.end4, label %return
@@ -1183,18 +1153,18 @@ return:                                           ; preds = %land.lhs.true, %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden i32 @nghttp2_http_on_data_chunk(ptr nocapture noundef %stream, i64 noundef %n) local_unnamed_addr #3 {
 entry:
-  %recv_content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 3
+  %recv_content_length = getelementptr inbounds i8, ptr %stream, i64 56
   %0 = load i64, ptr %recv_content_length, align 8
   %add = add nsw i64 %0, %n
   store i64 %add, ptr %recv_content_length, align 8
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %1 = load i32, ptr %http_flags, align 4
   %and = and i32 %1, 16384
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %content_length = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 2
+  %content_length = getelementptr inbounds i8, ptr %stream, i64 48
   %2 = load i64, ptr %content_length, align 8
   %cmp.not = icmp ne i64 %2, -1
   %cmp3 = icmp sgt i64 %add, %2
@@ -1210,40 +1180,35 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @nghttp2_http_record_request_method(ptr nocapture noundef %stream, ptr nocapture noundef readonly %frame) local_unnamed_addr #5 {
 entry:
-  %type = getelementptr inbounds %struct.nghttp2_frame_hd, ptr %frame, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
   switch i8 %0, label %for.end [
-    i8 1, label %sw.bb
+    i8 1, label %sw.epilog
     i8 5, label %sw.bb3
   ]
 
-sw.bb:                                            ; preds = %entry
-  %nva1 = getelementptr inbounds %struct.nghttp2_headers, ptr %frame, i64 0, i32 3
-  %nvlen2 = getelementptr inbounds %struct.nghttp2_headers, ptr %frame, i64 0, i32 4
-  br label %sw.epilog
-
 sw.bb3:                                           ; preds = %entry
-  %nva4 = getelementptr inbounds %struct.nghttp2_push_promise, ptr %frame, i64 0, i32 2
-  %nvlen5 = getelementptr inbounds %struct.nghttp2_push_promise, ptr %frame, i64 0, i32 3
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb3, %sw.bb
-  %nvlen.0.in = phi ptr [ %nvlen5, %sw.bb3 ], [ %nvlen2, %sw.bb ]
-  %nva.0.in = phi ptr [ %nva4, %sw.bb3 ], [ %nva1, %sw.bb ]
-  %nva.0 = load ptr, ptr %nva.0.in, align 8
-  %nvlen.0 = load i64, ptr %nvlen.0.in, align 8
-  %cmp24.not = icmp eq i64 %nvlen.0, 0
-  br i1 %cmp24.not, label %for.end, label %for.body
+sw.epilog:                                        ; preds = %entry, %sw.bb3
+  %.sink26 = phi i64 [ 24, %sw.bb3 ], [ 40, %entry ]
+  %.sink = phi i64 [ 32, %sw.bb3 ], [ 48, %entry ]
+  %nva4 = getelementptr inbounds i8, ptr %frame, i64 %.sink26
+  %nvlen5 = getelementptr inbounds i8, ptr %frame, i64 %.sink
+  %nva.0 = load ptr, ptr %nva4, align 8
+  %nvlen.0 = load i64, ptr %nvlen5, align 8
+  %cmp22.not = icmp eq i64 %nvlen.0, 0
+  br i1 %cmp22.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %sw.epilog, %for.inc
-  %i.025 = phi i64 [ %inc, %for.inc ], [ 0, %sw.epilog ]
-  %namelen = getelementptr inbounds %struct.nghttp2_nv, ptr %nva.0, i64 %i.025, i32 2
+  %i.023 = phi i64 [ %inc, %for.inc ], [ 0, %sw.epilog ]
+  %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %nva.0, i64 %i.023
+  %namelen = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %namelen, align 8
   %cmp7 = icmp eq i64 %1, 7
   br i1 %cmp7, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %nva.0, i64 %i.025
   %2 = load ptr, ptr %arrayidx, align 8
   %arrayidx9 = getelementptr inbounds i8, ptr %2, i64 6
   %3 = load i8, ptr %arrayidx9, align 1
@@ -1256,7 +1221,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   br i1 %cmp16, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %land.lhs.true13
-  %valuelen = getelementptr inbounds %struct.nghttp2_nv, ptr %nva.0, i64 %i.025, i32 3
+  %valuelen = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load i64, ptr %valuelen, align 8
   switch i64 %4, label %for.end [
     i64 7, label %land.lhs.true20
@@ -1264,27 +1229,27 @@ if.end:                                           ; preds = %land.lhs.true13
   ]
 
 land.lhs.true20:                                  ; preds = %if.end
-  %value = getelementptr inbounds %struct.nghttp2_nv, ptr %nva.0, i64 %i.025, i32 1
+  %value = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load ptr, ptr %value, align 8
   %bcmp19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(7) %5, i64 7)
   %cmp23 = icmp eq i32 %bcmp19, 0
   br i1 %cmp23, label %for.end.sink.split, label %for.end
 
 land.lhs.true30:                                  ; preds = %if.end
-  %value31 = getelementptr inbounds %struct.nghttp2_nv, ptr %nva.0, i64 %i.025, i32 1
+  %value31 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load ptr, ptr %value31, align 8
   %bcmp20 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.4, ptr noundef nonnull dereferenceable(4) %6, i64 4)
   %cmp34 = icmp eq i32 %bcmp20, 0
   br i1 %cmp34, label %for.end.sink.split, label %for.end
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true13
-  %inc = add nuw i64 %i.025, 1
+  %inc = add nuw i64 %i.023, 1
   %exitcond.not = icmp eq i64 %inc, %nvlen.0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end.sink.split:                               ; preds = %land.lhs.true30, %land.lhs.true20
   %.sink28 = phi i32 [ 128, %land.lhs.true20 ], [ 256, %land.lhs.true30 ]
-  %http_flags = getelementptr inbounds %struct.nghttp2_stream, ptr %stream, i64 0, i32 28
+  %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
   %7 = load i32, ptr %http_flags, align 4
   %or38 = or i32 %7, %.sink28
   store i32 %or38, ptr %http_flags, align 4
@@ -1304,8 +1269,8 @@ entry:
   %pri.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %dest, i64 4
   %pri.sroa.3.0.copyload = load i32, ptr %pri.sroa.3.0..sroa_idx, align 4
   call void @sf_parser_init(ptr noundef nonnull %sfp, ptr noundef %value, i64 noundef %valuelen) #9
-  %len = getelementptr inbounds %struct.sf_vec, ptr %key, i64 0, i32 1
-  %0 = getelementptr inbounds %struct.sf_value, ptr %val, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %key, i64 8
+  %0 = getelementptr inbounds i8, ptr %val, i64 8
   br label %for.cond.outer.outer
 
 for.cond.outer.outer:                             ; preds = %if.end10, %entry

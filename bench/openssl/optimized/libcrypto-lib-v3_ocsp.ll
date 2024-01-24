@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ocsp_crl_id_st = type { ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.ocsp_service_locator_st = type { ptr, ptr }
-%struct.ACCESS_DESCRIPTION_st = type { ptr, ptr }
 
 @ossl_v3_ocsp_crlid = local_unnamed_addr constant %struct.v3_ext_method { i32 367, i32 0, ptr @OCSP_CRLID_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2r_ocsp_crlid, ptr null, ptr null }, align 8
 @ossl_v3_ocsp_acutoff = local_unnamed_addr constant %struct.v3_ext_method { i32 370, i32 0, ptr @ASN1_GENERALIZEDTIME_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2r_ocsp_acutoff, ptr null, ptr null }, align 8
@@ -31,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 declare ptr @OCSP_CRLID_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_ocsp_crlid(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal noundef i32 @i2r_ocsp_crlid(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %0 = load ptr, ptr %in, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -54,7 +50,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end6, %entry
-  %crlNum = getelementptr inbounds %struct.ocsp_crl_id_st, ptr %in, i64 0, i32 1
+  %crlNum = getelementptr inbounds i8, ptr %in, i64 8
   %2 = load ptr, ptr %crlNum, align 8
   %tobool12.not = icmp eq ptr %2, null
   br i1 %tobool12.not, label %if.end27, label %if.then13
@@ -76,7 +72,7 @@ if.end22:                                         ; preds = %if.end17
   br i1 %cmp24, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end22, %if.end11
-  %crlTime = getelementptr inbounds %struct.ocsp_crl_id_st, ptr %in, i64 0, i32 2
+  %crlTime = getelementptr inbounds i8, ptr %in, i64 16
   %4 = load ptr, ptr %crlTime, align 8
   %tobool28.not = icmp eq ptr %4, null
   br i1 %tobool28.not, label %return, label %if.then29
@@ -160,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @d2i_ocsp_nonce(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) #1 {
+define internal noundef ptr @d2i_ocsp_nonce(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length) #1 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -217,7 +213,7 @@ return:                                           ; preds = %if.end7, %if.then9,
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @i2d_ocsp_nonce(ptr nocapture noundef readonly %a, ptr noundef %pp) #2 {
 entry:
   %tobool.not = icmp eq ptr %pp, null
@@ -225,7 +221,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pp, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %a, align 8
   %conv = sext i32 %2 to i64
@@ -270,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @i2r_ocsp_nocheck(ptr nocapture readnone %method, ptr nocapture readnone %nocheck, ptr nocapture readnone %out, i32 %indent) #3 {
+define internal noundef i32 @i2r_ocsp_nocheck(ptr nocapture readnone %method, ptr nocapture readnone %nocheck, ptr nocapture readnone %out, i32 %indent) #3 {
 entry:
   ret i32 1
 }
@@ -278,7 +274,7 @@ entry:
 declare ptr @OCSP_SERVICELOC_it() #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @i2r_ocsp_serviceloc(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
+define internal noundef i32 @i2r_ocsp_serviceloc(ptr nocapture readnone %method, ptr nocapture noundef readonly %in, ptr noundef %bp, i32 noundef %ind) #1 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.7, i32 noundef %ind, ptr noundef nonnull @.str.1) #5
   %cmp = icmp slt i32 %call, 1
@@ -291,7 +287,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %locator = getelementptr inbounds %struct.ocsp_service_locator_st, ptr %in, i64 0, i32 1
+  %locator = getelementptr inbounds i8, ptr %in, i64 8
   %1 = load ptr, ptr %locator, align 8
   %call612 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp713 = icmp sgt i32 %call612, 0
@@ -328,7 +324,7 @@ if.end19:                                         ; preds = %if.end14
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end19
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call10, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call10, i64 8
   %5 = load ptr, ptr %location, align 8
   %call24 = tail call i32 @GENERAL_NAME_print(ptr noundef %bp, ptr noundef %5) #5
   %cmp25 = icmp slt i32 %call24, 1
@@ -382,7 +378,7 @@ declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }

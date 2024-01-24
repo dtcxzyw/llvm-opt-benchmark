@@ -8,12 +8,12 @@ define hidden void @CRYPTO_chacha_20(ptr noundef %out, ptr noundef %in, i64 noun
 entry:
   %counter_nonce = alloca [4 x i32], align 16
   store i32 %counter, ptr %counter_nonce, align 16
-  %arrayidx15 = getelementptr inbounds [4 x i32], ptr %counter_nonce, i64 0, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %counter_nonce, i64 4
   %0 = load <2 x i32>, ptr %nonce, align 1
   store <2 x i32> %0, ptr %arrayidx15, align 4
   %add.ptr35 = getelementptr inbounds i8, ptr %nonce, i64 8
   %1 = load i32, ptr %add.ptr35, align 1
-  %arrayidx53 = getelementptr inbounds [4 x i32], ptr %counter_nonce, i64 0, i64 3
+  %arrayidx53 = getelementptr inbounds i8, ptr %counter_nonce, i64 12
   store i32 %1, ptr %arrayidx53, align 4
   call void @ChaCha20_ctr32(ptr noundef %out, ptr noundef %in, i64 noundef %in_len, ptr noundef %key, ptr noundef nonnull %counter_nonce) #2
   ret void

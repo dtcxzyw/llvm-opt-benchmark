@@ -3,12 +3,6 @@ source_filename = "bench/hyperscan/original/repeat.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.RepeatRangeControl = type { i64, i8 }
-%struct.RepeatBitmapControl = type { i64, i64 }
-%struct.RepeatInfo = type { i8, i32, i32, i32, i32, i32, i32, [2 x i32], i32, i32, i32, i32, i32 }
-%struct.RepeatTrailerControl = type { i64, i64 }
-%struct.RepeatRingControl = type { i64, i16, i16 }
-
 @mmbit_keyshift_lut = external local_unnamed_addr constant [32 x i8], align 16
 @mmbit_maxlevel_from_keyshift_lut = external local_unnamed_addr constant [32 x i8], align 16
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
@@ -41,11 +35,11 @@ entry:
 define hidden i64 @repeatLastTopRange(ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
-  %num = getelementptr inbounds %struct.RepeatRangeControl, ptr %ctrl, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %ctrl, i64 8
   %1 = load i8, ptr %num, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr inbounds i16, ptr %state, i64 %idx.ext
-  %add.ptr1 = getelementptr inbounds i16, ptr %add.ptr, i64 -1
+  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
   %2 = load i16, ptr %add.ptr1, align 1
   %conv2 = zext i16 %2 to i64
   %add = add i64 %0, %conv2
@@ -55,7 +49,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @repeatLastTopBitmap(ptr nocapture noundef readonly %ctrl) local_unnamed_addr #0 {
 entry:
-  %bitmap = getelementptr inbounds %struct.RepeatBitmapControl, ptr %ctrl, i64 0, i32 1
+  %bitmap = getelementptr inbounds i8, ptr %ctrl, i64 8
   %0 = load i64, ptr %bitmap, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -76,7 +70,7 @@ return:                                           ; preds = %entry, %if.end
 define hidden i64 @repeatLastTopTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %repeatMin, align 4
   %conv = zext i32 %1 to i64
   %sub = sub i64 %0, %conv
@@ -93,7 +87,7 @@ entry:
   %1 = load i64, ptr %ctrl, align 8
   %sub = sub i64 %inc, %1
   %cmp = icmp ult i64 %inc, %1
-  %repeatMin6.phi.trans.insert = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin6.phi.trans.insert = getelementptr inbounds i8, ptr %info, i64 4
   %.pre = load i32, ptr %repeatMin6.phi.trans.insert, align 4
   %.pre325 = zext i32 %.pre to i64
   %cmp2 = icmp ult i64 %sub, %.pre325
@@ -737,17 +731,17 @@ return:                                           ; preds = %if.else.i280, %for.
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden i64 @repeatNextMatchRange(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #1 {
 entry:
-  %num = getelementptr inbounds %struct.RepeatRangeControl, ptr %ctrl, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %ctrl, i64 8
   %0 = load i8, ptr %num, align 8
   %cmp9.not = icmp eq i8 %0, 0
   br i1 %cmp9.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = load i64, ptr %ctrl, align 8
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %2 = load i32, ptr %repeatMin, align 4
   %conv4 = zext i32 %2 to i64
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %wide.trip.count = zext i8 %0 to i64
   br label %for.body
 
@@ -786,10 +780,10 @@ return:                                           ; preds = %for.body, %for.cond
 define hidden i64 @repeatNextMatchBitmap(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
-  %bitmap2 = getelementptr inbounds %struct.RepeatBitmapControl, ptr %ctrl, i64 0, i32 1
+  %bitmap2 = getelementptr inbounds i8, ptr %ctrl, i64 8
   %1 = load i64, ptr %bitmap2, align 8
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
@@ -828,9 +822,9 @@ return:                                           ; preds = %while.cond, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @repeatNextMatchTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i32, ptr %repeatMax, align 4
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %repeatMin, align 4
   %sub = sub i32 %0, %1
   %2 = load i64, ptr %ctrl, align 8
@@ -848,7 +842,7 @@ do.end12:                                         ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %bitmap15 = getelementptr inbounds %struct.RepeatTrailerControl, ptr %ctrl, i64 0, i32 1
+  %bitmap15 = getelementptr inbounds i8, ptr %ctrl, i64 8
   %3 = load i64, ptr %bitmap15, align 8
   %sub17 = sub i64 %2, %offset
   %cmp20 = icmp ult i64 %sub17, 65
@@ -971,9 +965,9 @@ if.end.i35.i:                                     ; preds = %do.body.i.i
   br i1 %cmp17.i.not.i, label %storeInitialRingTop.exit, label %do.body.i.i, !llvm.loop !13
 
 storeInitialRingTop.exit:                         ; preds = %if.end.i35.i, %while.body.i.i, %if.then.i13.i, %if.then.i36.i
-  %first.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i16 0, ptr %first.i, align 8
-  %last.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 2
+  %last.i = getelementptr inbounds i8, ptr %ctrl, i64 10
   store i16 1, ptr %last.i, align 2
   br label %if.end63
 
@@ -1828,7 +1822,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %num = getelementptr inbounds %struct.RepeatRangeControl, ptr %ctrl, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %ctrl, i64 8
   %0 = load i8, ptr %num, align 8
   %conv = zext i8 %0 to i32
   %cmp46.not = icmp eq i8 %0, 0
@@ -1836,7 +1830,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %1 = load i64, ptr %ctrl, align 8
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load i32, ptr %repeatMax, align 4
   %conv8 = zext i32 %2 to i64
   %wide.trip.count = zext i8 %0 to i64
@@ -1844,7 +1838,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 do.end:                                           ; preds = %entry
   store i64 %offset, ptr %ctrl, align 8
-  %num.i107 = getelementptr inbounds %struct.RepeatRangeControl, ptr %ctrl, i64 0, i32 1
+  %num.i107 = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i8 1, ptr %num.i107, align 8
   store i16 0, ptr %state, align 1
   br label %done
@@ -1921,14 +1915,14 @@ if.end57:                                         ; preds = %if.end57thread-pre-
   br i1 %cmp60, label %append, label %if.end63
 
 if.end63:                                         ; preds = %if.end57
-  %repeatMax64 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax64 = getelementptr inbounds i8, ptr %info, i64 8
   %13 = load i32, ptr %repeatMax64, align 4
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %14 = load i32, ptr %repeatMin, align 4
   %sub65 = sub i32 %13, %14
   %idx.ext69 = zext i8 %12 to i64
   %add.ptr70 = getelementptr inbounds i16, ptr %state, i64 %idx.ext69
-  %add.ptr71 = getelementptr inbounds i16, ptr %add.ptr70, i64 -2
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -4
   %15 = load i16, ptr %add.ptr71, align 1
   %conv73 = zext i16 %15 to i64
   %16 = add i64 %.pre, %conv73
@@ -1938,7 +1932,7 @@ if.end63:                                         ; preds = %if.end57
   br i1 %cmp77.not, label %append, label %if.then79
 
 if.then79:                                        ; preds = %if.end63
-  %add.ptr84 = getelementptr inbounds i16, ptr %add.ptr70, i64 -1
+  %add.ptr84 = getelementptr inbounds i8, ptr %add.ptr70, i64 -2
   %sub86 = sub i64 %offset, %.pre
   %conv87 = trunc i64 %sub86 to i16
   store i16 %conv87, ptr %add.ptr84, align 1
@@ -1966,21 +1960,21 @@ entry:
   br i1 %tobool.not, label %do.end3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %bitmap = getelementptr inbounds %struct.RepeatBitmapControl, ptr %ctrl, i64 0, i32 1
+  %bitmap = getelementptr inbounds i8, ptr %ctrl, i64 8
   %0 = load i64, ptr %bitmap, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %do.end3, label %if.end
 
 do.end3:                                          ; preds = %lor.lhs.false, %entry
   store i64 %offset, ptr %ctrl, align 8
-  %bitmap5 = getelementptr inbounds %struct.RepeatBitmapControl, ptr %ctrl, i64 0, i32 1
+  %bitmap5 = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i64 1, ptr %bitmap5, align 8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
   %1 = load i64, ptr %ctrl, align 8
   %2 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !5
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %3 = load i32, ptr %repeatMax, align 4
   %conv8 = zext i32 %3 to i64
   %add = xor i64 %2, 63
@@ -2026,7 +2020,7 @@ return:                                           ; preds = %if.end38, %do.end13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @repeatStoreTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef %ctrl, i64 noundef %offset, i8 noundef signext %is_alive) local_unnamed_addr #4 {
 entry:
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %0 = load i32, ptr %repeatMin, align 4
   %conv = zext i32 %0 to i64
   %add = add i64 %conv, %offset
@@ -2035,12 +2029,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %add, ptr %ctrl, align 8
-  %bitmap = getelementptr inbounds %struct.RepeatTrailerControl, ptr %ctrl, i64 0, i32 1
+  %bitmap = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i64 0, ptr %bitmap, align 8
   br label %if.end46
 
 if.end:                                           ; preds = %entry
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %1 = load i32, ptr %repeatMax, align 4
   %sub = sub i32 %1, %0
   %2 = load i64, ptr %ctrl, align 8
@@ -2049,14 +2043,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end
-  %bitmap12 = getelementptr inbounds %struct.RepeatTrailerControl, ptr %ctrl, i64 0, i32 1
+  %bitmap12 = getelementptr inbounds i8, ptr %ctrl, i64 8
   %3 = load i64, ptr %bitmap12, align 8
   %shl = shl i64 %3, %sub8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi i64 [ %shl, %cond.true ], [ 0, %if.end ]
-  %bitmap13 = getelementptr inbounds %struct.RepeatTrailerControl, ptr %ctrl, i64 0, i32 1
+  %bitmap13 = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i64 %cond, ptr %bitmap13, align 8
   %conv14 = zext i32 %sub to i64
   %cmp15.not = icmp ugt i64 %sub8, %conv14
@@ -2121,7 +2115,7 @@ entry:
   %add.i = add i32 %info.val, 1
   %1 = load i64, ptr %ctrl, align 8
   %sub = sub i64 %offset, %1
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %2 = load i32, ptr %repeatMin, align 4
   %conv = zext i32 %2 to i64
   %cmp = icmp ult i64 %sub, %conv
@@ -2798,23 +2792,23 @@ define hidden noundef i32 @repeatHasMatchRange(ptr nocapture noundef readonly %i
 entry:
   %0 = load i64, ptr %ctrl, align 8
   %sub = sub i64 %offset, %0
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %repeatMin, align 4
   %conv = zext i32 %1 to i64
   %cmp = icmp ult i64 %sub, %conv
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %num = getelementptr inbounds %struct.RepeatRangeControl, ptr %ctrl, i64 0, i32 1
+  %num = getelementptr inbounds i8, ptr %ctrl, i64 8
   %2 = load i8, ptr %num, align 8
   %idx.ext = zext i8 %2 to i64
   %add.ptr = getelementptr inbounds i16, ptr %state, i64 %idx.ext
-  %add.ptr7 = getelementptr inbounds i16, ptr %add.ptr, i64 -1
+  %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
   %3 = load i16, ptr %add.ptr7, align 1
   %conv8 = zext i16 %3 to i64
   %4 = add i64 %0, %conv8
   %sub9 = sub i64 %offset, %4
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %5 = load i32, ptr %repeatMax, align 4
   %conv10 = zext i32 %5 to i64
   %cmp11 = icmp ugt i64 %sub9, %conv10
@@ -2859,7 +2853,7 @@ return:                                           ; preds = %for.cond, %for.body
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
 define hidden noundef i32 @repeatHasMatchBitmap(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #2 {
 entry:
-  %bitmap1 = getelementptr inbounds %struct.RepeatBitmapControl, ptr %ctrl, i64 0, i32 1
+  %bitmap1 = getelementptr inbounds i8, ptr %ctrl, i64 8
   %0 = load i64, ptr %bitmap1, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -2867,7 +2861,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %ctrl, align 8
   %sub = sub i64 %offset, %1
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %2 = load i32, ptr %repeatMin, align 4
   %conv = zext i32 %2 to i64
   %cmp = icmp ult i64 %sub, %conv
@@ -2879,7 +2873,7 @@ if.end9:                                          ; preds = %if.end
   %conv10 = and i64 %asmresult.i52, 4294967295
   %4 = add i64 %1, %conv10
   %sub13 = sub i64 %offset, %4
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %5 = load i32, ptr %repeatMax, align 4
   %conv14 = zext i32 %5 to i64
   %cmp15 = icmp ugt i64 %sub13, %conv14
@@ -2914,9 +2908,9 @@ return:                                           ; preds = %while.body, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @repeatHasMatchTrailer(ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %ctrl, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i32, ptr %repeatMax, align 4
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %repeatMin, align 4
   %sub = sub i32 %0, %1
   %2 = load i64, ptr %ctrl, align 8
@@ -2938,7 +2932,7 @@ if.end11:                                         ; preds = %if.end
 if.then18:                                        ; preds = %if.end11
   %3 = xor i64 %offset, -1
   %sub21 = add i64 %2, %3
-  %bitmap = getelementptr inbounds %struct.RepeatTrailerControl, ptr %ctrl, i64 0, i32 1
+  %bitmap = getelementptr inbounds i8, ptr %ctrl, i64 8
   %4 = load i64, ptr %bitmap, align 8
   %sh_prom = and i64 %sub21, 4294967295
   %shl = shl nuw i64 1, %sh_prom
@@ -2970,15 +2964,15 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %repeatMax.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax.i = getelementptr inbounds i8, ptr %info, i64 8
   %1 = load i32, ptr %repeatMax.i, align 4
   %cmp.i = icmp ugt i32 %1, 253
   %cond.neg.i = select i1 %cmp.i, i32 -4, i32 -2
-  %packedCtrlSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 4
+  %packedCtrlSize.i = getelementptr inbounds i8, ptr %info, i64 16
   %2 = load i32, ptr %packedCtrlSize.i, align 4
   %sub.i = add i32 %cond.neg.i, %2
   %3 = load i64, ptr %ctrl, align 8
-  %horizon.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 3
+  %horizon.i = getelementptr inbounds i8, ptr %info, i64 12
   %4 = load i32, ptr %horizon.i, align 4
   %conv.i = zext i32 %4 to i64
   %sub.i.i = sub i64 %offset, %3
@@ -3048,9 +3042,9 @@ sw.bb25.i.i.i:                                    ; preds = %sw.bb
 storePackedRelative.exit.i:                       ; preds = %sw.bb25.i.i.i, %sw.bb23.i.i.i, %sw.bb18.i.i.i, %sw.bb16.i.i.i, %sw.bb11.i.i.i, %sw.bb6.i.i.i, %sw.bb1.i.i.i, %sw.bb.i.i.i, %sw.bb
   %idx.ext.i = zext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i
-  %first.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   %5 = load i16, ptr %first.i, align 8
-  %last.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 2
+  %last.i = getelementptr inbounds i8, ptr %ctrl, i64 10
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %storePackedRelative.exit.i
@@ -3070,14 +3064,14 @@ if.else.i:                                        ; preds = %storePackedRelative
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry, %entry
-  %packedCtrlSize.i23 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 4
+  %packedCtrlSize.i23 = getelementptr inbounds i8, ptr %info, i64 16
   %8 = load i32, ptr %packedCtrlSize.i23, align 4
   %tobool.not.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb1
   %9 = load i64, ptr %ctrl, align 8
-  %horizon.i24 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 3
+  %horizon.i24 = getelementptr inbounds i8, ptr %info, i64 12
   %10 = load i32, ptr %horizon.i24, align 4
   %conv.i25 = zext i32 %10 to i64
   %sub.i.i26 = sub i64 %offset, %9
@@ -3146,10 +3140,10 @@ sw.bb25.i.i.i28:                                  ; preds = %if.end.i
 
 sw.bb2:                                           ; preds = %entry
   %11 = load i64, ptr %ctrl, align 8
-  %horizon.i50 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 3
+  %horizon.i50 = getelementptr inbounds i8, ptr %info, i64 12
   %12 = load i32, ptr %horizon.i50, align 4
   %conv.i51 = zext i32 %12 to i64
-  %packedCtrlSize.i52 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 4
+  %packedCtrlSize.i52 = getelementptr inbounds i8, ptr %info, i64 16
   %13 = load i32, ptr %packedCtrlSize.i52, align 4
   %sub.i.i53 = sub i64 %offset, %11
   %spec.select.i54 = tail call i64 @llvm.umin.i64(i64 %sub.i.i53, i64 %conv.i51)
@@ -3216,7 +3210,7 @@ sw.bb25.i.i.i55:                                  ; preds = %sw.bb2
   br label %repeatPackRange.exit
 
 repeatPackRange.exit:                             ; preds = %sw.bb2, %sw.bb.i.i.i77, %sw.bb1.i.i.i73, %sw.bb6.i.i.i70, %sw.bb11.i.i.i67, %sw.bb16.i.i.i65, %sw.bb18.i.i.i60, %sw.bb23.i.i.i58, %sw.bb25.i.i.i55
-  %num.i = getelementptr inbounds %struct.RepeatRangeControl, ptr %ctrl, i64 0, i32 1
+  %num.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   %14 = load i8, ptr %num.i, align 8
   %15 = load i32, ptr %packedCtrlSize.i52, align 4
   %sub3.i = add i32 %15, -1
@@ -3229,7 +3223,7 @@ sw.bb3:                                           ; preds = %entry
   %ctrl.val = load i64, ptr %ctrl, align 8
   %16 = getelementptr i8, ptr %ctrl, i64 8
   %ctrl.val22 = load i64, ptr %16, align 8
-  %repeatMax.i78 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax.i78 = getelementptr inbounds i8, ptr %info, i64 8
   %17 = load i32, ptr %repeatMax.i78, align 4
   %conv.i79 = zext i32 %17 to i64
   %cond.i = tail call i64 @llvm.usub.sat.i64(i64 %offset, i64 %conv.i79)
@@ -3252,7 +3246,7 @@ if.else.i82:                                      ; preds = %sw.bb3
 
 do.end.i:                                         ; preds = %if.else.i82, %if.then.i80
   %bitmap.0.i = phi i64 [ %cond14.i, %if.then.i80 ], [ %cond23.i, %if.else.i82 ]
-  %packedCtrlSize.i81 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 4
+  %packedCtrlSize.i81 = getelementptr inbounds i8, ptr %info, i64 16
   %18 = load i32, ptr %packedCtrlSize.i81, align 4
   switch i32 %18, label %sw.epilog [
     i32 8, label %sw.bb.i.i
@@ -3325,15 +3319,15 @@ sw.bb25.i.i:                                      ; preds = %do.end.i
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %patchCount.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 8
+  %patchCount.i = getelementptr inbounds i8, ptr %info, i64 36
   %19 = load i32, ptr %patchCount.i, align 4
   %cmp.i83 = icmp ugt i32 %19, 253
   %cond.neg.i84 = select i1 %cmp.i83, i32 -4, i32 -2
-  %packedCtrlSize.i85 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 4
+  %packedCtrlSize.i85 = getelementptr inbounds i8, ptr %info, i64 16
   %20 = load i32, ptr %packedCtrlSize.i85, align 4
   %sub.i86 = add i32 %cond.neg.i84, %20
   %21 = load i64, ptr %ctrl, align 8
-  %horizon.i87 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 3
+  %horizon.i87 = getelementptr inbounds i8, ptr %info, i64 12
   %22 = load i32, ptr %horizon.i87, align 4
   %conv.i88 = zext i32 %22 to i64
   %sub.i.i89 = sub i64 %offset, %21
@@ -3403,9 +3397,9 @@ sw.bb25.i.i.i91:                                  ; preds = %sw.bb4
 storePackedRelative.exit.i93:                     ; preds = %sw.bb25.i.i.i91, %sw.bb23.i.i.i105, %sw.bb18.i.i.i107, %sw.bb16.i.i.i112, %sw.bb11.i.i.i114, %sw.bb6.i.i.i117, %sw.bb1.i.i.i120, %sw.bb.i.i.i124, %sw.bb4
   %idx.ext.i94 = zext i32 %sub.i86 to i64
   %add.ptr.i95 = getelementptr inbounds i8, ptr %dest, i64 %idx.ext.i94
-  %first.i96 = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first.i96 = getelementptr inbounds i8, ptr %ctrl, i64 8
   %23 = load i16, ptr %first.i96, align 8
-  %last.i97 = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 2
+  %last.i97 = getelementptr inbounds i8, ptr %ctrl, i64 10
   br i1 %cmp.i83, label %if.then.i103, label %if.else.i98
 
 if.then.i103:                                     ; preds = %storePackedRelative.exit.i93
@@ -3431,7 +3425,7 @@ sw.bb5:                                           ; preds = %entry
   br i1 %tobool.not.i125, label %if.end.i128, label %if.then.i126
 
 if.then.i126:                                     ; preds = %sw.bb5
-  %repeatMin.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin.i = getelementptr inbounds i8, ptr %info, i64 4
   %27 = load i32, ptr %repeatMin.i, align 4
   %conv.i127 = zext i32 %27 to i64
   %sub.neg.i = sub i64 %conv.i127, %26
@@ -3440,16 +3434,16 @@ if.then.i126:                                     ; preds = %sw.bb5
 if.end.i128:                                      ; preds = %if.then.i126, %sw.bb5
   %top.0.neg.i = phi i64 [ %sub.neg.i, %if.then.i126 ], [ 0, %sw.bb5 ]
   %sub3.i129 = add i64 %top.0.neg.i, %offset
-  %horizon.i130 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 3
+  %horizon.i130 = getelementptr inbounds i8, ptr %info, i64 12
   %28 = load i32, ptr %horizon.i130, align 4
   %conv4.i = zext i32 %28 to i64
   %sub3.conv4.i = tail call i64 @llvm.umin.i64(i64 %sub3.i129, i64 %conv4.i)
   store i64 %sub3.conv4.i, ptr %v.i, align 16
-  %bitmap.i = getelementptr inbounds %struct.RepeatTrailerControl, ptr %ctrl, i64 0, i32 1
+  %bitmap.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   %29 = load i64, ptr %bitmap.i, align 8
-  %arrayidx8.i = getelementptr inbounds [2 x i64], ptr %v.i, i64 0, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %v.i, i64 8
   store i64 %29, ptr %arrayidx8.i, align 8
-  %packedFieldSizes.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 7
+  %packedFieldSizes.i = getelementptr inbounds i8, ptr %info, i64 28
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end12.i.i, %if.end.i128
@@ -3679,7 +3673,7 @@ loadPackedRelative.exit.i:                        ; preds = %sw.bb37.i.i.i, %sw.
 
 if.then.i:                                        ; preds = %loadPackedRelative.exit.i
   %16 = load i16, ptr %add.ptr.i, align 1
-  %first.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i16 %16, ptr %first.i, align 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %17 = load i16, ptr %add.ptr6.i, align 1
@@ -3688,7 +3682,7 @@ if.then.i:                                        ; preds = %loadPackedRelative.
 if.else.i:                                        ; preds = %loadPackedRelative.exit.i
   %18 = load i8, ptr %add.ptr.i, align 1
   %conv.i = zext i8 %18 to i16
-  %first10.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first10.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i16 %conv.i, ptr %first10.i, align 8
   %arrayidx11.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   %19 = load i8, ptr %arrayidx11.i, align 1
@@ -3697,7 +3691,7 @@ if.else.i:                                        ; preds = %loadPackedRelative.
 
 repeatUnpackRing.exit:                            ; preds = %if.then.i, %if.else.i
   %conv12.sink.i = phi i16 [ %17, %if.then.i ], [ %conv12.i, %if.else.i ]
-  %20 = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %ctrl, i64 10
   store i16 %conv12.sink.i, ptr %20, align 2
   br label %sw.epilog
 
@@ -3791,7 +3785,7 @@ repeatUnpackOffset.exit:                          ; preds = %sw.bb1, %loadPacked
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %packedCtrlSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 4
+  %packedCtrlSize.i = getelementptr inbounds i8, ptr %info, i64 16
   %35 = load i32, ptr %packedCtrlSize.i, align 4
   switch i32 %35, label %repeatUnpackRange.exit [
     i32 9, label %sw.bb.i.i.i101
@@ -3877,17 +3871,17 @@ repeatUnpackRange.exit:                           ; preds = %sw.bb2, %sw.bb.i.i.
   %idxprom.i = zext i32 %sub3.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %src, i64 %idxprom.i
   %50 = load i8, ptr %arrayidx.i, align 1
-  %num.i = getelementptr inbounds %struct.RepeatRangeControl, ptr %ctrl, i64 0, i32 1
+  %num.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i8 %50, ptr %num.i, align 8
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %repeatMax.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax.i = getelementptr inbounds i8, ptr %info, i64 8
   %51 = load i32, ptr %repeatMax.i, align 4
   %conv.i102 = zext i32 %51 to i64
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %offset, i64 %conv.i102)
   store i64 %spec.select.i, ptr %ctrl, align 8
-  %packedCtrlSize.i103 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 4
+  %packedCtrlSize.i103 = getelementptr inbounds i8, ptr %info, i64 16
   %52 = load i32, ptr %packedCtrlSize.i103, align 4
   switch i32 %52, label %repeatUnpackBitmap.exit [
     i32 8, label %sw.bb.i.i
@@ -3966,7 +3960,7 @@ sw.bb37.i.i:                                      ; preds = %sw.bb3
 
 repeatUnpackBitmap.exit:                          ; preds = %sw.bb3, %sw.bb.i.i, %sw.bb1.i.i, %sw.bb9.i.i, %sw.bb17.i.i, %sw.bb24.i.i, %sw.bb27.i.i, %sw.bb34.i.i, %sw.bb37.i.i
   %retval.i.0.i = phi i64 [ %conv38.i.i, %sw.bb37.i.i ], [ %conv36.i.i, %sw.bb34.i.i ], [ %or33.i.i, %sw.bb27.i.i ], [ %conv26.i.i, %sw.bb24.i.i ], [ %or23.i.i, %sw.bb17.i.i ], [ %or16.i.i, %sw.bb9.i.i ], [ %or8.i.i, %sw.bb1.i.i ], [ %53, %sw.bb.i.i ], [ 0, %sw.bb3 ]
-  %bitmap.i = getelementptr inbounds %struct.RepeatBitmapControl, ptr %ctrl, i64 0, i32 1
+  %bitmap.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i64 %retval.i.0.i, ptr %bitmap.i, align 8
   br label %sw.epilog
 
@@ -4063,7 +4057,7 @@ loadPackedRelative.exit.i109:                     ; preds = %sw.bb37.i.i.i107, %
 
 if.then.i120:                                     ; preds = %loadPackedRelative.exit.i109
   %81 = load i16, ptr %add.ptr.i113, align 1
-  %first.i121 = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first.i121 = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i16 %81, ptr %first.i121, align 8
   %add.ptr6.i122 = getelementptr inbounds i8, ptr %add.ptr.i113, i64 2
   %82 = load i16, ptr %add.ptr6.i122, align 1
@@ -4072,7 +4066,7 @@ if.then.i120:                                     ; preds = %loadPackedRelative.
 if.else.i114:                                     ; preds = %loadPackedRelative.exit.i109
   %83 = load i8, ptr %add.ptr.i113, align 1
   %conv.i115 = zext i8 %83 to i16
-  %first10.i116 = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first10.i116 = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i16 %conv.i115, ptr %first10.i116, align 8
   %arrayidx11.i117 = getelementptr inbounds i8, ptr %add.ptr.i113, i64 1
   %84 = load i8, ptr %arrayidx11.i117, align 1
@@ -4081,13 +4075,13 @@ if.else.i114:                                     ; preds = %loadPackedRelative.
 
 repeatUnpackSparseOptimalP.exit:                  ; preds = %if.then.i120, %if.else.i114
   %conv12.sink.i119 = phi i16 [ %82, %if.then.i120 ], [ %conv12.i118, %if.else.i114 ]
-  %85 = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 2
+  %85 = getelementptr inbounds i8, ptr %ctrl, i64 10
   store i16 %conv12.sink.i119, ptr %85, align 2
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %v.i)
-  %packedFieldSizes.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 7
+  %packedFieldSizes.i = getelementptr inbounds i8, ptr %info, i64 28
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %while.end.i.i, %sw.bb5
@@ -4160,14 +4154,14 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 repeatUnpackTrailer.exit:                         ; preds = %while.end.i.i
   %88 = load i64, ptr %v.i, align 16
   %sub.i159 = sub i64 %offset, %88
-  %repeatMin.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin.i = getelementptr inbounds i8, ptr %info, i64 4
   %89 = load i32, ptr %repeatMin.i, align 4
   %conv.i160 = zext i32 %89 to i64
   %add.i = add i64 %sub.i159, %conv.i160
   store i64 %add.i, ptr %ctrl, align 8
-  %arrayidx3.i = getelementptr inbounds [2 x i64], ptr %v.i, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %v.i, i64 8
   %90 = load i64, ptr %arrayidx3.i, align 8
-  %bitmap.i161 = getelementptr inbounds %struct.RepeatTrailerControl, ptr %ctrl, i64 0, i32 1
+  %bitmap.i161 = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i64 %90, ptr %bitmap.i161, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i)
   br label %sw.epilog
@@ -4186,11 +4180,11 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i64 @sparseLastTop(ptr noundef %info, ptr nocapture noundef readonly %xs, ptr nocapture noundef readonly %state) unnamed_addr #7 {
 entry:
-  %patchSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 9
+  %patchSize = getelementptr inbounds i8, ptr %info, i64 40
   %0 = load i32, ptr %patchSize, align 4
-  %patchCount = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 8
+  %patchCount = getelementptr inbounds i8, ptr %info, i64 36
   %1 = load i32, ptr %patchCount, align 4
-  %encodingSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 10
+  %encodingSize = getelementptr inbounds i8, ptr %info, i64 44
   %2 = load i32, ptr %encodingSize, align 4
   %3 = getelementptr i8, ptr %xs, i64 8
   %xs.val = load i16, ptr %3, align 8
@@ -4205,7 +4199,7 @@ entry:
   %cmp.not = icmp ult i32 %sub, %1
   %sub2 = select i1 %cmp.not, i32 0, i32 %1
   %spec.select = sub i32 %sub, %sub2
-  %patchesOffset = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 12
+  %patchesOffset = getelementptr inbounds i8, ptr %info, i64 52
   %5 = load i32, ptr %patchesOffset, align 4
   %idx.ext = zext i32 %5 to i64
   %add.ptr = getelementptr inbounds i8, ptr %state, i64 %idx.ext
@@ -4331,10 +4325,10 @@ return:                                           ; preds = %for.cond, %do.end18
 define hidden i64 @repeatNextMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr noundef readonly %state, i64 noundef %offset) local_unnamed_addr #7 {
 entry:
   %add = add i64 %offset, 1
-  %patchSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 9
+  %patchSize = getelementptr inbounds i8, ptr %info, i64 40
   %0 = load i32, ptr %patchSize, align 4
   %1 = load i64, ptr %ctrl, align 8
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %2 = load i32, ptr %repeatMin, align 4
   %conv = zext i32 %2 to i64
   %add2 = add i64 %1, %conv
@@ -4342,14 +4336,14 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %first = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first = getelementptr inbounds i8, ptr %ctrl, i64 8
   %3 = load i16, ptr %first, align 8
   %conv4 = zext i16 %3 to i32
   br label %do.end23
 
 if.else:                                          ; preds = %entry
   %call = tail call fastcc i64 @sparseLastTop(ptr noundef nonnull %info, ptr noundef nonnull %ctrl, ptr noundef %state)
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %4 = load i32, ptr %repeatMax, align 4
   %conv5 = zext i32 %4 to i64
   %add6 = add i64 %call, %conv5
@@ -4368,26 +4362,26 @@ if.else12:                                        ; preds = %if.else
 do.end23:                                         ; preds = %if.else12, %if.then
   %patch.0 = phi i32 [ %conv4, %if.then ], [ %div, %if.else12 ]
   %tval.0 = phi i32 [ 0, %if.then ], [ %sub20.recomposed, %if.else12 ]
-  %patchCount = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 8
+  %patchCount = getelementptr inbounds i8, ptr %info, i64 36
   %5 = load i32, ptr %patchCount, align 4
   %cmp24.not = icmp ult i32 %patch.0, %5
   br i1 %cmp24.not, label %do.end29, label %return
 
 do.end29:                                         ; preds = %do.end23
-  %first30 = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first30 = getelementptr inbounds i8, ptr %ctrl, i64 8
   %6 = load i16, ptr %first30, align 8
   %conv31 = zext i16 %6 to i32
   %add32 = add i32 %patch.0, %conv31
   %cmp33.not = icmp ult i32 %add32, %5
   %sub36 = select i1 %cmp33.not, i32 0, i32 %5
   %spec.select614 = sub i32 %add32, %sub36
-  %patchesOffset = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 12
+  %patchesOffset = getelementptr inbounds i8, ptr %info, i64 52
   %7 = load i32, ptr %patchesOffset, align 4
   %idx.ext = zext i32 %7 to i64
   %add.ptr = getelementptr inbounds i8, ptr %state, i64 %idx.ext
-  %encodingSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 10
+  %encodingSize = getelementptr inbounds i8, ptr %info, i64 44
   %8 = load i32, ptr %encodingSize, align 4
-  %last = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 2
+  %last = getelementptr inbounds i8, ptr %ctrl, i64 10
   %9 = load i16, ptr %last, align 2
   %conv38 = zext i16 %9 to i32
   %cmp39.not = icmp ult i32 %spec.select614, %conv38
@@ -4708,7 +4702,7 @@ for.body.lr.ph:                                   ; preds = %if.then39.i, %if.th
   %add.i.i = add i64 %35, 7
   %and.i.i = and i64 %add.i.i, -8
   %36 = inttoptr i64 %and.i.i to ptr
-  %minPeriod.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 6
+  %minPeriod.i = getelementptr inbounds i8, ptr %info, i64 24
   %cmp.i293 = icmp ult i32 %5, 257
   %sub.i1643 = add i32 %5, -1
   %37 = tail call i32 @llvm.ctlz.i32(i32 %sub.i1643, i1 true), !range !8
@@ -5427,7 +5421,7 @@ for.body117.lr.ph:                                ; preds = %if.then39.i429, %if
   %and.i.i634 = and i64 %add.i.i633, -8
   %104 = inttoptr i64 %and.i.i634 to ptr
   %cmp.not11.i635 = icmp eq i32 %0, 0
-  %minPeriod.i637 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 6
+  %minPeriod.i637 = getelementptr inbounds i8, ptr %info, i64 24
   %cmp.i299 = icmp ult i32 %5, 257
   %sub.i1632 = add i32 %5, -1
   %105 = tail call i32 @llvm.ctlz.i32(i32 %sub.i1632, i1 true), !range !8
@@ -5874,7 +5868,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call = tail call fastcc i64 @sparseLastTop(ptr noundef %info, ptr noundef %ctrl, ptr noundef %state)
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i32, ptr %repeatMax, align 4
   %conv = zext i32 %0 to i64
   %add = add i64 %call, %conv
@@ -5883,7 +5877,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   store i64 %offset, ptr %ctrl, align 8
-  %patchCount.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 8
+  %patchCount.i = getelementptr inbounds i8, ptr %info, i64 36
   %1 = load i32, ptr %patchCount.i, align 4
   %tobool.i.not.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i, label %if.then.i18.i, label %if.end.i.i998
@@ -5955,11 +5949,11 @@ if.end.i47.i:                                     ; preds = %do.body.i.i
   br i1 %cmp17.i.not.i, label %mmbit_set_i.exit.i, label %do.body.i.i, !llvm.loop !13
 
 mmbit_set_i.exit.i:                               ; preds = %if.end.i47.i, %while.body.i.i, %if.then.i48.i, %if.then.i18.i
-  %patchesOffset.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 12
+  %patchesOffset.i = getelementptr inbounds i8, ptr %info, i64 52
   %12 = load i32, ptr %patchesOffset.i, align 4
   %idx.ext.i1001 = zext i32 %12 to i64
   %add.ptr.i1002 = getelementptr inbounds i8, ptr %state, i64 %idx.ext.i1001
-  %encodingSize.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 10
+  %encodingSize.i = getelementptr inbounds i8, ptr %info, i64 44
   %13 = load i32, ptr %encodingSize.i, align 4
   switch i32 %13, label %storeInitialRingTopPatch.exit [
     i32 8, label %sw.bb.i.i1015
@@ -6015,9 +6009,9 @@ sw.bb25.i.i1003:                                  ; preds = %mmbit_set_i.exit.i
   br label %storeInitialRingTopPatch.exit
 
 storeInitialRingTopPatch.exit:                    ; preds = %mmbit_set_i.exit.i, %sw.bb.i.i1015, %sw.bb1.i.i1012, %sw.bb6.i.i1010, %sw.bb11.i.i1008, %sw.bb16.i.i1007, %sw.bb18.i.i1005, %sw.bb23.i.i1004, %sw.bb25.i.i1003
-  %first.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 1
+  %first.i = getelementptr inbounds i8, ptr %ctrl, i64 8
   store i16 0, ptr %first.i, align 8
-  %last.i = getelementptr inbounds %struct.RepeatRingControl, ptr %ctrl, i64 0, i32 2
+  %last.i = getelementptr inbounds i8, ptr %ctrl, i64 10
   store i16 1, ptr %last.i, align 2
   br label %return
 
@@ -6025,15 +6019,15 @@ if.end:                                           ; preds = %lor.lhs.false
   %14 = load i64, ptr %ctrl, align 8
   %sub = sub i64 %offset, %14
   %conv3 = trunc i64 %sub to i32
-  %patchSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 9
+  %patchSize = getelementptr inbounds i8, ptr %info, i64 40
   %15 = load i32, ptr %patchSize, align 4
-  %patchCount = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 8
+  %patchCount = getelementptr inbounds i8, ptr %info, i64 36
   %16 = load i32, ptr %patchCount, align 4
-  %encodingSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 10
+  %encodingSize = getelementptr inbounds i8, ptr %info, i64 44
   %17 = load i32, ptr %encodingSize, align 4
   %div = udiv i32 %conv3, %15
   %sub106.recomposed = urem i32 %conv3, %15
-  %patchesOffset = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 12
+  %patchesOffset = getelementptr inbounds i8, ptr %info, i64 52
   %18 = load i32, ptr %patchesOffset, align 4
   %idx.ext = zext i32 %18 to i64
   %add.ptr = getelementptr inbounds i8, ptr %state, i64 %idx.ext
@@ -7915,7 +7909,7 @@ return:                                           ; preds = %if.end.i2624, %whil
 define hidden noundef i32 @repeatHasMatchSparseOptimalP(ptr noundef %info, ptr nocapture noundef readonly %ctrl, ptr nocapture noundef readonly %state, i64 noundef %offset) local_unnamed_addr #7 {
 entry:
   %0 = load i64, ptr %ctrl, align 8
-  %repeatMin = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 1
+  %repeatMin = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %repeatMin, align 4
   %conv = zext i32 %1 to i64
   %add = add i64 %0, %conv
@@ -7924,7 +7918,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %call = tail call fastcc i64 @sparseLastTop(ptr noundef nonnull %info, ptr noundef nonnull %ctrl, ptr noundef %state)
-  %repeatMax = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 2
+  %repeatMax = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load i32, ptr %repeatMax, align 4
   %conv5 = zext i32 %2 to i64
   %add6 = add i64 %call, %conv5
@@ -7934,9 +7928,9 @@ if.else:                                          ; preds = %entry
 if.end12:                                         ; preds = %if.else
   %sub = sub i64 %offset, %0
   %conv14 = trunc i64 %sub to i32
-  %patchSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 9
+  %patchSize = getelementptr inbounds i8, ptr %info, i64 40
   %3 = load i32, ptr %patchSize, align 4
-  %patchCount = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 8
+  %patchCount = getelementptr inbounds i8, ptr %info, i64 36
   %4 = load i32, ptr %patchCount, align 4
   %5 = getelementptr i8, ptr %ctrl, i64 8
   %ctrl.val = load i16, ptr %5, align 8
@@ -8003,11 +7997,11 @@ return:                                           ; preds = %if.then82, %if.end4
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc signext i8 @sparseHasMatch(ptr noundef %info, ptr nocapture noundef readonly %state, i32 noundef %lower, i32 noundef %upper) unnamed_addr #7 {
 entry:
-  %patchSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 9
+  %patchSize = getelementptr inbounds i8, ptr %info, i64 40
   %0 = load i32, ptr %patchSize, align 4
-  %patchCount = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 8
+  %patchCount = getelementptr inbounds i8, ptr %info, i64 36
   %1 = load i32, ptr %patchCount, align 4
-  %encodingSize = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 10
+  %encodingSize = getelementptr inbounds i8, ptr %info, i64 44
   %2 = load i32, ptr %encodingSize, align 4
   %div = udiv i32 %lower, %0
   %div1 = udiv i32 %upper, %0
@@ -8018,7 +8012,7 @@ entry:
   %add.i = add i64 %3, 7
   %and.i = and i64 %add.i, -8
   %4 = inttoptr i64 %and.i to ptr
-  %patchesOffset = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 12
+  %patchesOffset = getelementptr inbounds i8, ptr %info, i64 52
   %5 = load i32, ptr %patchesOffset, align 4
   %idx.ext = zext i32 %5 to i64
   %add.ptr = getelementptr inbounds i8, ptr %state, i64 %idx.ext
@@ -8167,7 +8161,7 @@ if.then11:                                        ; preds = %partial_load_u64a.e
   br i1 %cmp.not11.i, label %if.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then11
-  %minPeriod.i = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 6
+  %minPeriod.i = getelementptr inbounds i8, ptr %info, i64 24
   br label %for.body.i236
 
 for.body.i236:                                    ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -8659,7 +8653,7 @@ partial_load_u64a.exit:                           ; preds = %if.end33, %sw.bb37.
   br i1 %cmp.not11.i248, label %getSparseOptimalTargetValue.exit270, label %for.body.lr.ph.i249
 
 for.body.lr.ph.i249:                              ; preds = %partial_load_u64a.exit
-  %minPeriod.i250 = getelementptr inbounds %struct.RepeatInfo, ptr %info, i64 0, i32 6
+  %minPeriod.i250 = getelementptr inbounds i8, ptr %info, i64 24
   br label %for.body.i252
 
 for.body.i252:                                    ; preds = %for.inc.i263, %for.body.lr.ph.i249

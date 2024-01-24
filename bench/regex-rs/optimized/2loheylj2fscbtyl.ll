@@ -62,7 +62,7 @@ define void @_ZN12aho_corasick11ahocorasick11AhoCorasick4find17h7d20055d713e6627
   %5 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h93605397f123d8d9E"(ptr nonnull sret({ { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }) align 8 %4, ptr align 8 %2)
-  %6 = getelementptr inbounds { { ptr, ptr }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %1, i64 17
   %7 = load i8, ptr %6, align 1, !range !5, !noundef !6
   %8 = call zeroext i1 @_ZN12aho_corasick4util6search5Input12get_anchored17h85ec550568b3daa4E(ptr nonnull align 8 %4)
   %9 = call align 1 ptr @_ZN12aho_corasick11ahocorasick28enforce_anchored_consistency17h7896736d89d8e830E(i8 %7, i1 zeroext %8)
@@ -74,7 +74,7 @@ define void @_ZN12aho_corasick11ahocorasick11AhoCorasick4find17h7d20055d713e6627
   %13 = call { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hbc2774b69ecd380aE"(ptr nonnull align 8 %1)
   %14 = extractvalue { ptr, ptr } %13, 0
   %15 = extractvalue { ptr, ptr } %13, 1
-  %16 = getelementptr inbounds ptr, ptr %15, i64 18
+  %16 = getelementptr inbounds i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8, !invariant.load !6, !nonnull !6
   call void %17(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr align 1 %14, ptr nonnull align 8 %4)
   br label %_ZN12aho_corasick11ahocorasick11AhoCorasick8try_find17h74e0692f7da1af90E.exit
@@ -93,7 +93,7 @@ _ZN12aho_corasick11ahocorasick11AhoCorasick8try_find17h74e0692f7da1af90E.exit: ;
 define void @_ZN12aho_corasick11ahocorasick11AhoCorasick8try_find17h74e0692f7da1af90E(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h93605397f123d8d9E"(ptr nonnull sret({ { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }) align 8 %4, ptr align 8 %2)
-  %5 = getelementptr inbounds { { ptr, ptr }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %1, i64 17
   %6 = load i8, ptr %5, align 1, !range !5, !noundef !6
   %7 = call zeroext i1 @_ZN12aho_corasick4util6search5Input12get_anchored17h85ec550568b3daa4E(ptr nonnull align 8 %4)
   %8 = call align 1 ptr @_ZN12aho_corasick11ahocorasick28enforce_anchored_consistency17h7896736d89d8e830E(i8 %6, i1 zeroext %7)
@@ -105,7 +105,7 @@ define void @_ZN12aho_corasick11ahocorasick11AhoCorasick8try_find17h74e0692f7da1
   %12 = call { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hbc2774b69ecd380aE"(ptr nonnull align 8 %1)
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
-  %15 = getelementptr inbounds ptr, ptr %14, i64 18
+  %15 = getelementptr inbounds i8, ptr %14, i64 144
   %16 = load ptr, ptr %15, align 8, !invariant.load !6, !nonnull !6
   call void %16(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr align 1 %13, ptr nonnull align 8 %4)
   br label %18
@@ -137,14 +137,14 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17h08c4327c
   %19 = alloca { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h899b47f0d64c23d0E(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %17, ptr align 8 %1, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %18, ptr nonnull align 8 %17)
-  %20 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %18, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %18, i64 432
   %21 = load i8, ptr %20, align 8, !range !7, !noundef !6
   %.not = icmp eq i8 %21, 3
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %19, ptr noundef nonnull align 8 dereferenceable(440) %18, i64 440, i1 false)
-  %23 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 73
   %24 = load i8, ptr %23, align 1, !range !7, !noundef !6
   switch i8 %24, label %default.unreachable27 [
     i8 3, label %26
@@ -162,7 +162,7 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17h08c4327c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %14, ptr noundef nonnull align 8 dereferenceable(440) %18, i64 440, i1 false)
   call void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder10build_auto17h82e61bd46e60ec5eE(ptr nonnull sret({ { ptr, ptr }, i8, [7 x i8] }) align 8 %15, ptr nonnull align 8 %1, ptr nonnull align 8 %14)
   %27 = load <2 x ptr>, ptr %15, align 16
-  %.phi.trans.insert25 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %15, i64 0, i32 1
+  %.phi.trans.insert25 = getelementptr inbounds i8, ptr %15, i64 16
   %.pre26 = load i8, ptr %.phi.trans.insert25, align 16, !range !5
   br label %28
 
@@ -174,13 +174,13 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17h08c4327c
 28:                                               ; preds = %26, %34
   %29 = phi i8 [ %.pre26, %26 ], [ 0, %34 ]
   %30 = phi <2 x ptr> [ %27, %26 ], [ %36, %34 ]
-  %31 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 3
+  %31 = getelementptr inbounds i8, ptr %1, i64 72
   %32 = load i8, ptr %31, align 8, !range !5, !noundef !6
-  %33 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   store <2 x ptr> %30, ptr %33, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %29, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 2
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
   store i8 %32, ptr %.sroa.4.0..sroa_idx, align 1
   store i64 0, ptr %0, align 8
   br label %68
@@ -195,12 +195,12 @@ default.unreachable27:                            ; preds = %22
   br label %28
 
 37:                                               ; preds = %22
-  %38 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %1, i64 40
   invoke void @_ZN12aho_corasick3nfa10contiguous7Builder24build_from_noncontiguous17he5f44e86df0c1e8cE(ptr nonnull sret({ [376 x i8], i8, [7 x i8] }) align 8 %11, ptr nonnull align 8 %38, ptr nonnull align 8 %19)
           to label %41 unwind label %.thread21
 
 39:                                               ; preds = %22
-  %40 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
   invoke void @_ZN12aho_corasick3dfa7Builder24build_from_noncontiguous17h916eb9d32ee55923E(ptr nonnull sret({ [416 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %40, ptr nonnull align 8 %19)
           to label %53 unwind label %.thread21
 
@@ -209,7 +209,7 @@ default.unreachable27:                            ; preds = %22
           to label %42 unwind label %.thread21
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds { [376 x i8], i8, [7 x i8] }, ptr %12, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %12, i64 376
   %44 = load i8, ptr %43, align 8, !range !7, !noundef !6
   %.not14 = icmp eq i8 %44, 3
   br i1 %.not14, label %47, label %45
@@ -243,7 +243,7 @@ default.unreachable27:                            ; preds = %22
           to label %54 unwind label %.thread21
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds { [416 x i8], i8, [7 x i8] }, ptr %8, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %8, i64 416
   %56 = load i8, ptr %55, align 8, !range !7, !noundef !6
   %.not13 = icmp eq i8 %56, 3
   br i1 %.not13, label %59, label %57
@@ -271,15 +271,15 @@ default.unreachable27:                            ; preds = %22
 64:                                               ; preds = %57, %45
   %.ph28 = phi ptr [ @anon.5a483d0f2e58e324a2b604f27039a738.9, %45 ], [ @anon.5a483d0f2e58e324a2b604f27039a738.13, %57 ]
   %.ph29 = phi ptr [ %46, %45 ], [ %58, %57 ]
-  %65 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 3
+  %65 = getelementptr inbounds i8, ptr %1, i64 72
   %66 = load i8, ptr %65, align 8, !range !5, !noundef !6
-  %67 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.ph29, ptr %67, align 8
-  %.sroa.2.0..sroa_idx32 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %.sroa.2.0..sroa_idx32 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.ph28, ptr %.sroa.2.0..sroa_idx32, align 8
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %24, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.4.0..sroa_idx34 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 2
+  %.sroa.4.0..sroa_idx34 = getelementptr inbounds i8, ptr %0, i64 25
   store i8 %66, ptr %.sroa.4.0..sroa_idx34, align 1
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17h752e32bcb7ac32f0E"(ptr nonnull align 8 %19)
@@ -316,14 +316,14 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17ha45feae2
   %19 = alloca { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h5495c7ef8d82a177E(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %17, ptr align 8 %1, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %18, ptr nonnull align 8 %17)
-  %20 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %18, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %18, i64 432
   %21 = load i8, ptr %20, align 8, !range !7, !noundef !6
   %.not = icmp eq i8 %21, 3
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %19, ptr noundef nonnull align 8 dereferenceable(440) %18, i64 440, i1 false)
-  %23 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 73
   %24 = load i8, ptr %23, align 1, !range !7, !noundef !6
   switch i8 %24, label %default.unreachable27 [
     i8 3, label %26
@@ -341,7 +341,7 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17ha45feae2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %14, ptr noundef nonnull align 8 dereferenceable(440) %18, i64 440, i1 false)
   call void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder10build_auto17h82e61bd46e60ec5eE(ptr nonnull sret({ { ptr, ptr }, i8, [7 x i8] }) align 8 %15, ptr nonnull align 8 %1, ptr nonnull align 8 %14)
   %27 = load <2 x ptr>, ptr %15, align 16
-  %.phi.trans.insert25 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %15, i64 0, i32 1
+  %.phi.trans.insert25 = getelementptr inbounds i8, ptr %15, i64 16
   %.pre26 = load i8, ptr %.phi.trans.insert25, align 16, !range !5
   br label %28
 
@@ -353,13 +353,13 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17ha45feae2
 28:                                               ; preds = %26, %34
   %29 = phi i8 [ %.pre26, %26 ], [ 0, %34 ]
   %30 = phi <2 x ptr> [ %27, %26 ], [ %36, %34 ]
-  %31 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 3
+  %31 = getelementptr inbounds i8, ptr %1, i64 72
   %32 = load i8, ptr %31, align 8, !range !5, !noundef !6
-  %33 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   store <2 x ptr> %30, ptr %33, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %29, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 2
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
   store i8 %32, ptr %.sroa.4.0..sroa_idx, align 1
   store i64 0, ptr %0, align 8
   br label %68
@@ -374,12 +374,12 @@ default.unreachable27:                            ; preds = %22
   br label %28
 
 37:                                               ; preds = %22
-  %38 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %1, i64 40
   invoke void @_ZN12aho_corasick3nfa10contiguous7Builder24build_from_noncontiguous17he5f44e86df0c1e8cE(ptr nonnull sret({ [376 x i8], i8, [7 x i8] }) align 8 %11, ptr nonnull align 8 %38, ptr nonnull align 8 %19)
           to label %41 unwind label %.thread21
 
 39:                                               ; preds = %22
-  %40 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
   invoke void @_ZN12aho_corasick3dfa7Builder24build_from_noncontiguous17h916eb9d32ee55923E(ptr nonnull sret({ [416 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %40, ptr nonnull align 8 %19)
           to label %53 unwind label %.thread21
 
@@ -388,7 +388,7 @@ default.unreachable27:                            ; preds = %22
           to label %42 unwind label %.thread21
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds { [376 x i8], i8, [7 x i8] }, ptr %12, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %12, i64 376
   %44 = load i8, ptr %43, align 8, !range !7, !noundef !6
   %.not14 = icmp eq i8 %44, 3
   br i1 %.not14, label %47, label %45
@@ -422,7 +422,7 @@ default.unreachable27:                            ; preds = %22
           to label %54 unwind label %.thread21
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds { [416 x i8], i8, [7 x i8] }, ptr %8, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %8, i64 416
   %56 = load i8, ptr %55, align 8, !range !7, !noundef !6
   %.not13 = icmp eq i8 %56, 3
   br i1 %.not13, label %59, label %57
@@ -450,15 +450,15 @@ default.unreachable27:                            ; preds = %22
 64:                                               ; preds = %57, %45
   %.ph28 = phi ptr [ @anon.5a483d0f2e58e324a2b604f27039a738.9, %45 ], [ @anon.5a483d0f2e58e324a2b604f27039a738.13, %57 ]
   %.ph29 = phi ptr [ %46, %45 ], [ %58, %57 ]
-  %65 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 3
+  %65 = getelementptr inbounds i8, ptr %1, i64 72
   %66 = load i8, ptr %65, align 8, !range !5, !noundef !6
-  %67 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.ph29, ptr %67, align 8
-  %.sroa.2.0..sroa_idx32 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %.sroa.2.0..sroa_idx32 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.ph28, ptr %.sroa.2.0..sroa_idx32, align 8
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %24, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.4.0..sroa_idx34 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 2
+  %.sroa.4.0..sroa_idx34 = getelementptr inbounds i8, ptr %0, i64 25
   store i8 %66, ptr %.sroa.4.0..sroa_idx34, align 1
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17h752e32bcb7ac32f0E"(ptr nonnull align 8 %19)
@@ -495,14 +495,14 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17hb9b58118
   %19 = alloca { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h81d7b82d46be7d2fE(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %17, ptr align 8 %1, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %18, ptr nonnull align 8 %17)
-  %20 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %18, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %18, i64 432
   %21 = load i8, ptr %20, align 8, !range !7, !noundef !6
   %.not = icmp eq i8 %21, 3
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %19, ptr noundef nonnull align 8 dereferenceable(440) %18, i64 440, i1 false)
-  %23 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 4
+  %23 = getelementptr inbounds i8, ptr %1, i64 73
   %24 = load i8, ptr %23, align 1, !range !7, !noundef !6
   switch i8 %24, label %default.unreachable27 [
     i8 3, label %26
@@ -520,7 +520,7 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17hb9b58118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(440) %14, ptr noundef nonnull align 8 dereferenceable(440) %18, i64 440, i1 false)
   call void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder10build_auto17h82e61bd46e60ec5eE(ptr nonnull sret({ { ptr, ptr }, i8, [7 x i8] }) align 8 %15, ptr nonnull align 8 %1, ptr nonnull align 8 %14)
   %27 = load <2 x ptr>, ptr %15, align 16
-  %.phi.trans.insert25 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %15, i64 0, i32 1
+  %.phi.trans.insert25 = getelementptr inbounds i8, ptr %15, i64 16
   %.pre26 = load i8, ptr %.phi.trans.insert25, align 16, !range !5
   br label %28
 
@@ -532,13 +532,13 @@ define void @_ZN12aho_corasick11ahocorasick18AhoCorasickBuilder5build17hb9b58118
 28:                                               ; preds = %26, %34
   %29 = phi i8 [ %.pre26, %26 ], [ 0, %34 ]
   %30 = phi <2 x ptr> [ %27, %26 ], [ %36, %34 ]
-  %31 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 3
+  %31 = getelementptr inbounds i8, ptr %1, i64 72
   %32 = load i8, ptr %31, align 8, !range !5, !noundef !6
-  %33 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   store <2 x ptr> %30, ptr %33, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %29, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 2
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
   store i8 %32, ptr %.sroa.4.0..sroa_idx, align 1
   store i64 0, ptr %0, align 8
   br label %68
@@ -553,12 +553,12 @@ default.unreachable27:                            ; preds = %22
   br label %28
 
 37:                                               ; preds = %22
-  %38 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %1, i64 40
   invoke void @_ZN12aho_corasick3nfa10contiguous7Builder24build_from_noncontiguous17he5f44e86df0c1e8cE(ptr nonnull sret({ [376 x i8], i8, [7 x i8] }) align 8 %11, ptr nonnull align 8 %38, ptr nonnull align 8 %19)
           to label %41 unwind label %.thread21
 
 39:                                               ; preds = %22
-  %40 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %1, i64 16
   invoke void @_ZN12aho_corasick3dfa7Builder24build_from_noncontiguous17h916eb9d32ee55923E(ptr nonnull sret({ [416 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %40, ptr nonnull align 8 %19)
           to label %53 unwind label %.thread21
 
@@ -567,7 +567,7 @@ default.unreachable27:                            ; preds = %22
           to label %42 unwind label %.thread21
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds { [376 x i8], i8, [7 x i8] }, ptr %12, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %12, i64 376
   %44 = load i8, ptr %43, align 8, !range !7, !noundef !6
   %.not14 = icmp eq i8 %44, 3
   br i1 %.not14, label %47, label %45
@@ -601,7 +601,7 @@ default.unreachable27:                            ; preds = %22
           to label %54 unwind label %.thread21
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds { [416 x i8], i8, [7 x i8] }, ptr %8, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %8, i64 416
   %56 = load i8, ptr %55, align 8, !range !7, !noundef !6
   %.not13 = icmp eq i8 %56, 3
   br i1 %.not13, label %59, label %57
@@ -629,15 +629,15 @@ default.unreachable27:                            ; preds = %22
 64:                                               ; preds = %57, %45
   %.ph28 = phi ptr [ @anon.5a483d0f2e58e324a2b604f27039a738.9, %45 ], [ @anon.5a483d0f2e58e324a2b604f27039a738.13, %57 ]
   %.ph29 = phi ptr [ %46, %45 ], [ %58, %57 ]
-  %65 = getelementptr inbounds { { i64, i8, i8, i8, [5 x i8] }, { { i64, i8, i8, i8, [5 x i8] }, i8, i8, [6 x i8] }, { i64, { i64, i8, i8, i8, [5 x i8] }, i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 3
+  %65 = getelementptr inbounds i8, ptr %1, i64 72
   %66 = load i8, ptr %65, align 8, !range !5, !noundef !6
-  %67 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.ph29, ptr %67, align 8
-  %.sroa.2.0..sroa_idx32 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %.sroa.2.0..sroa_idx32 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.ph28, ptr %.sroa.2.0..sroa_idx32, align 8
-  %.sroa.3.0..sroa_idx33 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.3.0..sroa_idx33 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %24, ptr %.sroa.3.0..sroa_idx33, align 8
-  %.sroa.4.0..sroa_idx34 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %0, i64 0, i32 1, i32 2
+  %.sroa.4.0..sroa_idx34 = getelementptr inbounds i8, ptr %0, i64 25
   store i8 %66, ptr %.sroa.4.0..sroa_idx34, align 1
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17h752e32bcb7ac32f0E"(ptr nonnull align 8 %19)
@@ -666,14 +666,14 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hba56e4
 define internal zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h583eacd68be4f0f4E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 11
+  %4 = getelementptr inbounds i8, ptr %0, i64 400
   %5 = call zeroext i1 @_ZN4core3cmp10PartialOrd2le17hce79daa8bdbf232aE(ptr nonnull align 4 %3, ptr nonnull align 4 %4)
   ret i1 %5
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i8 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h7a3a539e7e758c0eE"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 12
+  %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   ret i8 %3
 }
@@ -682,7 +682,7 @@ define internal noundef i8 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_cor
 define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10next_state17h88ddc3d53fc4e42aE"(ptr align 8 %0, i1 zeroext %1, i32 %2, i8 %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = tail call i8 @_ZN12aho_corasick4util8alphabet11ByteClasses3get17h0c25c9f7a073112fE(ptr nonnull align 1 %6, i8 %3)
   %8 = call i32 @_ZN12aho_corasick4util10primitives7StateID6as_u3217hf718114a09aa8172E(ptr nonnull align 4 %5)
   %9 = zext i8 %7 to i32
@@ -695,7 +695,7 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17h141e5d1221ba2e95E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = tail call align 4 ptr @"_ZN12aho_corasick4util10primitives127_$LT$impl$u20$core..ops..index..Index$LT$aho_corasick..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h5111e105b0dcb9a3E"(ptr nonnull align 8 %3, i32 %1, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.31)
   %5 = tail call i64 @_ZN12aho_corasick4util10primitives10SmallIndex8as_usize17hdf45588977740a83E(ptr align 4 %4)
   ret i64 %5
@@ -708,14 +708,14 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
   br i1 %2, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %1, i64 0, i32 11, i32 2
+  %7 = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load i32, ptr %7, align 8, !noundef !6
   store i32 %8, ptr %5, align 4
   %9 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %5, ptr nonnull align 4 @anon.5a483d0f2e58e324a2b604f27039a738.27)
   br i1 %9, label %17, label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %1, i64 0, i32 11, i32 3
+  %11 = getelementptr inbounds i8, ptr %1, i64 412
   %12 = load i32, ptr %11, align 4, !noundef !6
   store i32 %12, ptr %4, align 4
   %13 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %4, ptr nonnull align 4 @anon.5a483d0f2e58e324a2b604f27039a738.27)
@@ -723,13 +723,13 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
 
 14:                                               ; preds = %6
   %15 = load i32, ptr %5, align 4, !noundef !6
-  %16 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %15, ptr %16, align 4
   br label %20
 
 17:                                               ; preds = %6
   %18 = call align 1 ptr @_ZN12aho_corasick4util5error10MatchError24invalid_input_unanchored17h68f7326268661a63E()
-  %19 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %18, ptr %19, align 8
   br label %20
 
@@ -740,13 +740,13 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
 
 21:                                               ; preds = %10
   %22 = load i32, ptr %4, align 4, !noundef !6
-  %23 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %22, ptr %23, align 4
   br label %20
 
 24:                                               ; preds = %10
   %25 = call align 1 ptr @_ZN12aho_corasick4util5error10MatchError22invalid_input_anchored17h318bc03ae590779aE()
-  %26 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %25, ptr %26, align 8
   br label %20
 }
@@ -754,14 +754,14 @@ define internal void @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick.
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12memory_usage17h4d14339b5a9f02d1E"(ptr align 8 %0) unnamed_addr #1 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h2bf10b32e0fdcd9eE"(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hea91cbe3c2805660E"(ptr nonnull align 8 %3)
   %5 = mul i64 %4, 24
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8, !noundef !6
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17he703f4259245e1ccE"(ptr nonnull align 8 %8)
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hca9df670481872f2E"(ptr nonnull align 8 %10)
   %12 = tail call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2a5924dc4666704eE"(ptr align 8 %11, i64 0)
   %reass.add = add i64 %9, %2
@@ -774,7 +774,7 @@ define internal i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12patterns_len17hc8db2a4eadb0bdcbE"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17he703f4259245e1ccE"(ptr nonnull align 8 %2)
   ret i64 %3
 }
@@ -784,12 +784,12 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
   %5 = call i64 @_ZN12aho_corasick4util10primitives7StateID8as_usize17hc1fadcd8d1e76027E(ptr nonnull align 4 %4)
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 7
+  %6 = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load i64, ptr %6, align 8, !noundef !6
   %8 = and i64 %7, 63
   %9 = lshr i64 %5, %8
   %10 = add i64 %9, -2
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = call align 8 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbdef3a7484052080E"(ptr nonnull align 8 %11, i64 %10, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.34)
   %13 = call align 4 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7001dadc4b924a0bE"(ptr align 8 %12, i64 %2, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.35)
   %14 = load i32, ptr %13, align 4, !noundef !6
@@ -798,14 +798,14 @@ define internal noundef i32 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15max_pattern_len17hdf848d2a38a51c5fE"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 10
+  %2 = getelementptr inbounds i8, ptr %0, i64 392
   %3 = load i64, ptr %2, align 8, !noundef !6
   ret i64 %3
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15min_pattern_len17h039355c74de89f95E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 9
+  %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = load i64, ptr %2, align 8, !noundef !6
   ret i64 %3
 }
@@ -828,7 +828,7 @@ define internal zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_cor
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 11, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 404
   %8 = call zeroext i1 @_ZN4core3cmp10PartialOrd2le17hce79daa8bdbf232aE(ptr nonnull align 4 %4, ptr nonnull align 4 %7)
   br label %9
 
@@ -841,12 +841,12 @@ define internal zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_cor
 define internal zeroext i1 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17ha8b161b329555f48E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 11, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 408
   %5 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %3, ptr nonnull align 4 %4)
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 11, i32 3
+  %7 = getelementptr inbounds i8, ptr %0, i64 412
   %8 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %3, ptr nonnull align 4 %7)
   br label %9
 
@@ -860,12 +860,12 @@ define internal i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = call i64 @_ZN12aho_corasick4util10primitives7StateID8as_usize17hc1fadcd8d1e76027E(ptr nonnull align 4 %3)
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 7
+  %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load i64, ptr %5, align 8, !noundef !6
   %7 = and i64 %6, 63
   %8 = lshr i64 %4, %7
   %9 = add i64 %8, -2
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = call align 8 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hbdef3a7484052080E"(ptr nonnull align 8 %10, i64 %9, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.37)
   %12 = call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h9d543ce926a3d07cE"(ptr align 8 %11)
   ret i64 %12
@@ -873,7 +873,7 @@ define internal i64 @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal align 8 ptr @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17ha4e59ae0df4fc2a8E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hca9df670481872f2E"(ptr nonnull align 8 %2)
   ret ptr %3
 }
@@ -882,14 +882,14 @@ define internal align 8 ptr @"_ZN77_$LT$aho_corasick..dfa..DFA$u20$as$u20$aho_co
 define internal zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17hb7bee2e9e8e0c649E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 360
   %5 = call zeroext i1 @_ZN4core3cmp10PartialOrd2le17hce79daa8bdbf232aE(ptr nonnull align 4 %3, ptr nonnull align 4 %4)
   ret i1 %5
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i8 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h1d23ed04d72a3299E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 9
+  %2 = getelementptr inbounds i8, ptr %0, i64 376
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   ret i8 %3
 }
@@ -905,7 +905,7 @@ define internal i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$ah
   %11 = zext i1 %1 to i8
   store i8 %11, ptr %10, align 1
   store i32 %2, ptr %9, align 4
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 5
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
   %13 = tail call i8 @_ZN12aho_corasick4util8alphabet11ByteClasses3get17h0c25c9f7a073112fE(ptr nonnull align 1 %12, i8 %3)
   %14 = zext i8 %13 to i64
   %15 = add nuw nsw i64 %14, 2
@@ -1061,20 +1061,19 @@ define internal i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$ah
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hed9be2bdec2ffc8eE"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call align 4 ptr @"_ZN12aho_corasick4util10primitives127_$LT$impl$u20$core..ops..index..Index$LT$aho_corasick..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h5111e105b0dcb9a3E"(ptr nonnull align 8 %3, i32 %1, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.50)
   %5 = tail call i64 @_ZN12aho_corasick4util10primitives10SmallIndex8as_usize17hdf45588977740a83E(ptr align 4 %4)
   ret i64 %5
 }
 
-; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11start_state17h5f9a6f791b048e99E"(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1, i1 zeroext %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %1, i64 0, i32 8, i32 3
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %1, i64 0, i32 8, i32 2
-  %.sink.in = select i1 %2, ptr %4, ptr %5
-  %.sink = load i32, ptr %.sink.in, align 4, !noundef !6
-  %6 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
-  store i32 %.sink, ptr %6, align 4
+  %. = select i1 %2, i64 372, i64 368
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.
+  %.sink = load i32, ptr %4, align 4, !noundef !6
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink, ptr %5, align 4
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -1082,11 +1081,11 @@ define internal void @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$a
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12memory_usage17h3dbfe256a1e1f118E"(ptr align 8 %0) unnamed_addr #1 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h716533ab7cc18e06E"(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17he703f4259245e1ccE"(ptr nonnull align 8 %3)
   %5 = add i64 %4, %2
   %6 = shl i64 %5, 2
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 3
+  %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hca9df670481872f2E"(ptr nonnull align 8 %7)
   %9 = tail call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h813b2a3c7c3852e1E"(ptr align 8 %8, i64 0)
   %10 = add i64 %6, %9
@@ -1095,7 +1094,7 @@ define internal i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$ah
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12patterns_len17hb9739aa0611db3d3E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17he703f4259245e1ccE"(ptr nonnull align 8 %2)
   ret i64 %3
 }
@@ -1106,7 +1105,7 @@ define internal i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$ah
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 4
+  %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i64, ptr %7, align 8, !noundef !6
   %9 = call i64 @_ZN12aho_corasick4util10primitives7StateID8as_usize17hc1fadcd8d1e76027E(ptr nonnull align 4 %6)
   %10 = call { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5923ff8a62f23e76E"(ptr align 8 %0, i64 %9, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.51)
@@ -1188,14 +1187,14 @@ define internal i32 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$ah
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15max_pattern_len17he2bc5859227303c3E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 7
+  %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load i64, ptr %2, align 8, !noundef !6
   ret i64 %3
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15min_pattern_len17h9e60eb4fe652c526E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 6
+  %2 = getelementptr inbounds i8, ptr %0, i64 344
   %3 = load i64, ptr %2, align 8, !noundef !6
   ret i64 %3
 }
@@ -1218,7 +1217,7 @@ define internal zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 8, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 364
   %8 = call zeroext i1 @_ZN4core3cmp10PartialOrd2le17hce79daa8bdbf232aE(ptr nonnull align 4 %4, ptr nonnull align 4 %7)
   br label %9
 
@@ -1231,12 +1230,12 @@ define internal zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as
 define internal zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17hda22084c1b1b0e17E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 8, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 368
   %5 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %3, ptr nonnull align 4 %4)
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 8, i32 3
+  %7 = getelementptr inbounds i8, ptr %0, i64 372
   %8 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %3, ptr nonnull align 4 %7)
   br label %9
 
@@ -1249,7 +1248,7 @@ define internal zeroext i1 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as
 define internal i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9match_len17h40238993feca3bccE"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 4
+  %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = call i64 @_ZN12aho_corasick4util10primitives7StateID8as_usize17hc1fadcd8d1e76027E(ptr nonnull align 4 %3)
   %7 = call { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5923ff8a62f23e76E"(ptr align 8 %0, i64 %6, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.52)
@@ -1302,7 +1301,7 @@ define internal i64 @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$ah
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal align 8 ptr @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17h06cc00c050a576d3E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hca9df670481872f2E"(ptr nonnull align 8 %2)
   ret ptr %3
 }
@@ -1311,14 +1310,14 @@ define internal align 8 ptr @"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$a
 define internal zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10is_special17h63caa246f9b9fc06E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 9
+  %4 = getelementptr inbounds i8, ptr %0, i64 416
   %5 = call zeroext i1 @_ZN4core3cmp10PartialOrd2le17hce79daa8bdbf232aE(ptr nonnull align 4 %3, ptr nonnull align 4 %4)
   ret i1 %5
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i8 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$10match_kind17h14308be6deb8e2f3E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 10
+  %2 = getelementptr inbounds i8, ptr %0, i64 432
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   ret i8 %3
 }
@@ -1331,17 +1330,17 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %8 = alloca i8, align 1
   %9 = zext i1 %1 to i8
   store i8 %9, ptr %8, align 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 6
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
-  %12 = getelementptr inbounds { ptr, i32 }, ptr %6, i64 0, i32 1
-  %13 = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
   br label %14
 
 14:                                               ; preds = %43, %4
   %.0 = phi i32 [ %2, %4 ], [ %45, %43 ]
   %15 = call align 4 ptr @"_ZN12aho_corasick4util10primitives125_$LT$impl$u20$core..ops..index..Index$LT$aho_corasick..util..primitives..StateID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h94d55fa8ee13a639E"(ptr align 8 %0, i32 %.0, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.26)
-  %16 = getelementptr inbounds { i32, i32, i32, i32, i32 }, ptr %15, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %16, ptr nonnull align 4 @anon.5a483d0f2e58e324a2b604f27039a738.27)
   br i1 %17, label %25, label %18
 
@@ -1408,20 +1407,19 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11pattern_len17hd19f1ebcc7979964E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = tail call align 4 ptr @"_ZN12aho_corasick4util10primitives127_$LT$impl$u20$core..ops..index..Index$LT$aho_corasick..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h5111e105b0dcb9a3E"(ptr nonnull align 8 %3, i32 %1, ptr nonnull align 8 @anon.5a483d0f2e58e324a2b604f27039a738.54)
   %5 = tail call i64 @_ZN12aho_corasick4util10primitives10SmallIndex8as_usize17hdf45588977740a83E(ptr align 4 %4)
   ret i64 %5
 }
 
-; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define internal void @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$11start_state17hd0c70e4105feeec8E"(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1, i1 zeroext %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %1, i64 0, i32 9, i32 3
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %1, i64 0, i32 9, i32 2
-  %.sink.in = select i1 %2, ptr %4, ptr %5
-  %.sink = load i32, ptr %.sink.in, align 4, !noundef !6
-  %6 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
-  store i32 %.sink, ptr %6, align 4
+  %. = select i1 %2, i64 428, i64 424
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.
+  %.sink = load i32, ptr %4, align 4, !noundef !6
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.sink, ptr %5, align 4
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -1430,17 +1428,17 @@ define internal void @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u2
 define internal i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12memory_usage17h6361e213fe85b702E"(ptr align 8 %0) unnamed_addr #1 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h3be041387ca146d3E"(ptr align 8 %0)
   %3 = mul i64 %2, 20
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17he896befbc631c51dE"(ptr nonnull align 8 %4)
   %6 = mul i64 %5, 9
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 3
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hb245ad7522c277d3E"(ptr nonnull align 8 %7)
   %9 = shl i64 %8, 3
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h2bf10b32e0fdcd9eE"(ptr nonnull align 8 %10)
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 96
   %13 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17he703f4259245e1ccE"(ptr nonnull align 8 %12)
-  %14 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 5
+  %14 = getelementptr inbounds i8, ptr %0, i64 120
   %15 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hca9df670481872f2E"(ptr nonnull align 8 %14)
   %16 = tail call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h0192641fad1cf76cE"(ptr align 8 %15, i64 0)
   %reass.add = add i64 %13, %11
@@ -1454,7 +1452,7 @@ define internal i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$12patterns_len17hf815339192fe7fe4E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17he703f4259245e1ccE"(ptr nonnull align 8 %2)
   ret i64 %3
 }
@@ -1466,7 +1464,7 @@ define internal i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20
   %.fca.0.extract = extractvalue { ptr, i32 } %5, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, i32 } %5, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i32 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %6 = call { i32, i32 } @_ZN4core4iter6traits8iterator8Iterator3nth17hd7309926d1541345E(ptr nonnull align 8 %4, i64 %2)
   %7 = extractvalue { i32, i32 } %6, 0
@@ -1477,14 +1475,14 @@ define internal i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15max_pattern_len17h47b1b37c02d5bbd1E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load i64, ptr %2, align 8, !noundef !6
   ret i64 %3
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$15min_pattern_len17hcf48873d26e5c096E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 7
+  %2 = getelementptr inbounds i8, ptr %0, i64 400
   %3 = load i64, ptr %2, align 8, !noundef !6
   ret i64 %3
 }
@@ -1507,7 +1505,7 @@ define internal zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 9, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 420
   %8 = call zeroext i1 @_ZN4core3cmp10PartialOrd2le17hce79daa8bdbf232aE(ptr nonnull align 4 %4, ptr nonnull align 4 %7)
   br label %9
 
@@ -1520,12 +1518,12 @@ define internal zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20
 define internal zeroext i1 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_start17h8638e00492a498d2E"(ptr align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 9, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 424
   %5 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %3, ptr nonnull align 4 %4)
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 9, i32 3
+  %7 = getelementptr inbounds i8, ptr %0, i64 428
   %8 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %3, ptr nonnull align 4 %7)
   br label %9
 
@@ -1545,7 +1543,7 @@ define internal i64 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
 define internal align 8 ptr @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$9prefilter17h8768c8346a3e2e58E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, ptr %0, i64 0, i32 5
+  %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hca9df670481872f2E"(ptr nonnull align 8 %2)
   ret ptr %3
 }
@@ -1820,7 +1818,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

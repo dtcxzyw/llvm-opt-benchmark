@@ -3,39 +3,29 @@ source_filename = "bench/hyperscan/original/som_stream.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.hs_scratch = type { i32, i8, i32, i32, i32, i32, i32, %struct.RoseContext, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.catchup_pq, %struct.core_info, %struct.match_deduper, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i8 }
-%struct.RoseContext = type { i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, ptr, i64, ptr, i64 }
-%struct.catchup_pq = type { ptr, i32 }
-%struct.core_info = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i64, i8 }
-%struct.match_deduper = type { [2 x ptr], [2 x ptr], [2 x ptr], i32, i32, i64, i8 }
-%struct.RoseEngine = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, i32, %struct.RoseStateOffsets, %struct.RoseBoundaryReports, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatter_full_plan }
-%struct.RoseStateOffsets = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.RoseBoundaryReports = type { i32, i32, i32 }
-%struct.scatter_full_plan = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @mmbit_maxlevel_direct_lut = external local_unnamed_addr constant [32 x i8], align 16
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @storeSomToStream(ptr nocapture noundef readonly %scratch, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %rose1 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %rose1 = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose1, align 8
-  %somLocationCount = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 20
+  %somLocationCount = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %somLocationCount, align 8
-  %state = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 3
+  %state = getelementptr inbounds i8, ptr %scratch, i64 256
   %2 = load ptr, ptr %state, align 8
-  %somValid = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 18
+  %somValid = getelementptr inbounds i8, ptr %0, i64 356
   %3 = load i32, ptr %somValid, align 4
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
-  %somLocation = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 17
+  %somLocation = getelementptr inbounds i8, ptr %0, i64 352
   %4 = load i32, ptr %somLocation, align 4
   %idx.ext4 = zext i32 %4 to i64
   %add.ptr5 = getelementptr inbounds i8, ptr %2, i64 %idx.ext4
-  %som_store6 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 22
+  %som_store6 = getelementptr inbounds i8, ptr %scratch, i64 424
   %5 = load ptr, ptr %som_store6, align 8
-  %somHorizon = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 8
+  %somHorizon = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %somHorizon, align 8
   %tobool.i17.not = icmp eq i32 %1, 0
   br i1 %tobool.i17.not, label %for.end, label %if.end.i19
@@ -624,24 +614,24 @@ for.end:                                          ; preds = %if.end19.i, %for.en
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @loadSomFromStream(ptr nocapture noundef readonly %scratch, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %rose1 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %rose1 = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose1, align 8
-  %somLocationCount = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 20
+  %somLocationCount = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %somLocationCount, align 8
   %.fr = freeze i32 %1
-  %state = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 3
+  %state = getelementptr inbounds i8, ptr %scratch, i64 256
   %2 = load ptr, ptr %state, align 8
-  %somValid = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 18
+  %somValid = getelementptr inbounds i8, ptr %0, i64 356
   %3 = load i32, ptr %somValid, align 4
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
-  %somLocation = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 17
+  %somLocation = getelementptr inbounds i8, ptr %0, i64 352
   %4 = load i32, ptr %somLocation, align 4
   %idx.ext4 = zext i32 %4 to i64
   %add.ptr5 = getelementptr inbounds i8, ptr %2, i64 %idx.ext4
-  %som_store6 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 22
+  %som_store6 = getelementptr inbounds i8, ptr %scratch, i64 424
   %5 = load ptr, ptr %som_store6, align 8
-  %somHorizon = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 8
+  %somHorizon = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %somHorizon, align 8
   %tobool.i18.not = icmp eq i32 %.fr, 0
   br i1 %tobool.i18.not, label %for.end, label %if.end.i20

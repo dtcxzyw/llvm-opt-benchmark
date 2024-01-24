@@ -3,13 +3,6 @@ source_filename = "bench/libzmq/original/fq.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.zmq::fq_t" = type <{ %"class.zmq::array_t", i64, i64, i8, [7 x i8] }>
-%"class.zmq::array_t" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl_data" }
-
 $__clang_call_terminate = comdat any
 
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -34,7 +27,7 @@ entry:
 define void @_ZN3zmq4fq_tD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %do.end, label %if.then
@@ -99,7 +92,7 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -112,9 +105,9 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %_M_finish.i1.i = getelementptr inbounds %"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i1.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -122,7 +115,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %pipe_, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i1.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %4, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i1.i, align 8
   %.pre = load ptr, ptr %this, align 8
   br label %_ZN3zmq7array_tINS_6pipe_tELi1EE9push_backEPS1_.exit
@@ -167,7 +160,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN3zmq6pipe_tESaIS2_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -185,7 +178,7 @@ _ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
 _ZN3zmq7array_tINS_6pipe_tELi1EE9push_backEPS1_.exit: ; preds = %if.then.i.i, %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
   %7 = phi ptr [ %.pre, %if.then.i.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %8 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPN3zmq6pipe_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
-  %_active = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 1
+  %_active = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i64, ptr %_active, align 8
   %sub.ptr.lhs.cast.i.i2 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i3 = ptrtoint ptr %7 to i64
@@ -242,7 +235,7 @@ entry:
   %_array_index.i.i = getelementptr inbounds i8, ptr %pipe_, i64 32
   %1 = load i32, ptr %_array_index.i.i, align 8
   %conv.i = sext i32 %1 to i64
-  %_active = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 1
+  %_active = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_active, align 8
   %cmp = icmp ugt i64 %2, %conv.i
   br i1 %cmp, label %if.then, label %if.end9
@@ -286,7 +279,7 @@ _ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit:    ; preds = %if.end.i, %if.then7
   %9 = load ptr, ptr %add.ptr.i11.i, align 8
   store ptr %7, ptr %add.ptr.i11.i, align 8
   store ptr %9, ptr %add.ptr.i12.i, align 8
-  %_current = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 2
+  %_current = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i64, ptr %_current, align 8
   %11 = load i64, ptr %_active, align 8
   %cmp6 = icmp eq i64 %10, %11
@@ -298,7 +291,7 @@ if.then7:                                         ; preds = %_ZN3zmq7array_tINS_
 
 if.end9:                                          ; preds = %_ZN3zmq7array_tINS_6pipe_tELi1EE4swapEmm.exit, %if.then7, %entry
   %12 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<zmq::pipe_t *, std::allocator<zmq::pipe_t *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i, label %_ZN3zmq7array_tINS_6pipe_tELi1EE5eraseEPS1_.exit, label %if.end.i.i
@@ -306,18 +299,18 @@ if.end9:                                          ; preds = %_ZN3zmq7array_tINS_
 if.end.i.i:                                       ; preds = %if.end9
   %14 = load i32, ptr %_array_index.i.i, align 8
   %conv.i6 = sext i32 %14 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %13, i64 -1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !nonnull !4, !noundef !4
   %_array_index.i.i.i = getelementptr inbounds i8, ptr %15, i64 32
   store i32 %14, ptr %_array_index.i.i.i, align 8
   %16 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr.i.i4.i.i = getelementptr inbounds ptr, ptr %16, i64 -1
+  %add.ptr.i.i4.i.i = getelementptr inbounds i8, ptr %16, i64 -8
   %17 = load ptr, ptr %add.ptr.i.i4.i.i, align 8
   %18 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %conv.i6
   store ptr %17, ptr %add.ptr.i.i.i, align 8
   %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %19, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 -8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   br label %_ZN3zmq7array_tINS_6pipe_tELi1EE5eraseEPS1_.exit
 
@@ -333,7 +326,7 @@ entry:
   %_array_index.i.i = getelementptr inbounds i8, ptr %pipe_, i64 32
   %1 = load i32, ptr %_array_index.i.i, align 8
   %conv.i = sext i32 %1 to i64
-  %_active = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 1
+  %_active = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_active, align 8
   %3 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %conv.i
@@ -403,14 +396,14 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %_active = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 1
+  %_active = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %_active, align 8
   %cmp6.not11 = icmp eq i64 %3, 0
   br i1 %cmp6.not11, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %do.end
-  %_current = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 2
-  %_more28 = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 3
+  %_current = getelementptr inbounds i8, ptr %this, i64 32
+  %_more28 = getelementptr inbounds i8, ptr %this, i64 40
   %.pre = load i64, ptr %_current, align 8
   br label %while.body
 
@@ -561,20 +554,20 @@ declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq4fq_t6has_inEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %_more = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 3
+  %_more = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %_more, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %entry
-  %_active = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 1
+  %_active = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_active, align 8
   %cmp.not2 = icmp eq i64 %2, 0
   br i1 %cmp.not2, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %_current = getelementptr inbounds %"class.zmq::fq_t", ptr %this, i64 0, i32 2
+  %_current = getelementptr inbounds i8, ptr %this, i64 32
   %.pre = load i64, ptr %_current, align 8
   br label %while.body
 

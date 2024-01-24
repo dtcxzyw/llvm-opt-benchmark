@@ -112,7 +112,7 @@ declare zeroext i1 @replay_has_events() local_unnamed_addr #1
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @replay_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
+define internal noundef i32 @replay_post_load(ptr nocapture noundef %opaque, i32 %version_id) #0 {
 entry:
   %0 = load i32, ptr @replay_mode, align 4
   switch i32 %0, label %if.end3 [
@@ -122,16 +122,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @replay_file, align 8
-  %file_offset = getelementptr inbounds %struct.ReplayState, ptr %opaque, i64 0, i32 5
+  %file_offset = getelementptr inbounds i8, ptr %opaque, i64 40
   %2 = load i64, ptr %file_offset, align 8
   %call = tail call i32 @fseek(ptr noundef %1, i64 noundef %2, i32 noundef 0)
   tail call void @replay_fetch_data_kind() #5
   br label %if.end3
 
 if.then2:                                         ; preds = %entry
-  %instruction_count = getelementptr inbounds %struct.ReplayState, ptr %opaque, i64 0, i32 2
+  %instruction_count = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 0, ptr %instruction_count, align 8
-  %block_request_id = getelementptr inbounds %struct.ReplayState, ptr %opaque, i64 0, i32 6
+  %block_request_id = getelementptr inbounds i8, ptr %opaque, i64 48
   store i64 0, ptr %block_request_id, align 8
   br label %if.end3
 
@@ -140,11 +140,11 @@ if.end3:                                          ; preds = %entry, %if.then2, %
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal i32 @replay_pre_save(ptr nocapture noundef writeonly %opaque) #3 {
+define internal noundef i32 @replay_pre_save(ptr nocapture noundef writeonly %opaque) #3 {
 entry:
   %0 = load ptr, ptr @replay_file, align 8
   %call = tail call i64 @ftell(ptr noundef %0)
-  %file_offset = getelementptr inbounds %struct.ReplayState, ptr %opaque, i64 0, i32 5
+  %file_offset = getelementptr inbounds i8, ptr %opaque, i64 40
   store i64 %call, ptr %file_offset, align 8
   ret i32 0
 }

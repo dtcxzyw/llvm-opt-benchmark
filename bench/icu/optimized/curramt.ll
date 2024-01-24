@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.1, [32 x i8] }
 %struct.anon.1 = type { i16, i32, i32, ptr }
-%"class.icu_75::Measure" = type { %"class.icu_75::UObject", %"class.icu_75::Formattable", ptr }
 
 @_ZTVN6icu_7514CurrencyAmountE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN6icu_7514CurrencyAmountE, ptr @_ZN6icu_7514CurrencyAmountD1Ev, ptr @_ZN6icu_7514CurrencyAmountD0Ev, ptr @_ZNK6icu_7514CurrencyAmount17getDynamicClassIDEv, ptr @_ZNK6icu_7514CurrencyAmount5cloneEv] }, align 8
 @_ZZN6icu_7514CurrencyAmount16getStaticClassIDEvE7classID = internal global i8 0, align 1
@@ -214,7 +213,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(28) ptr @_ZNK6icu_7514CurrencyAmount11getCurrencyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %unit.i = getelementptr inbounds %"class.icu_75::Measure", ptr %this, i64 0, i32 2
+  %unit.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %unit.i, align 8
   ret ptr %0
 }

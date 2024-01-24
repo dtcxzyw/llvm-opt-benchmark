@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [25 x i8] c"Now is the time for all \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_mdc2, i32 noundef 1, i32 noundef 1) #4
   ret i32 1
@@ -24,7 +24,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_mdc2(i32 noundef %idx) #0 {
+define internal noundef i32 @test_mdc2(i32 noundef %idx) #0 {
 entry:
   %md = alloca [16 x i8], align 16
   %c = alloca %struct.mdc2_ctx_st, align 4
@@ -37,7 +37,7 @@ entry:
   %call2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %call3 = call i32 @MDC2_Update(ptr noundef nonnull %c, ptr noundef %0, i64 noundef %call2) #4
   %call5 = call i32 @MDC2_Final(ptr noundef nonnull %md, ptr noundef nonnull %c) #4
-  %expected = getelementptr inbounds %struct.TESTDATA, ptr %testdata, i64 0, i32 1
+  %expected = getelementptr inbounds i8, ptr %testdata, i64 8
   %call7 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 65, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %expected, i64 noundef 16, ptr noundef nonnull %md, i64 noundef 16) #4
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %if.then, label %return

@@ -5,15 +5,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.google::FlagRegisterer" = type { i8 }
 %"struct.folly::MemoryMapping::Options" = type { i64, i8, i8, i8, i8, i8, ptr }
-%"class.folly::File" = type <{ i32, i8, [3 x i8] }>
-%"class.folly::MemoryMapping" = type { %"class.folly::File", ptr, i64, %"struct.folly::MemoryMapping::Options", i8, %"class.folly::Range" }
-%"class.folly::Range" = type { ptr, ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %"class.google::ErrnoLogMessage" = type { %"class.google::LogMessage" }
 %"struct.google::CheckOpString" = type { ptr }
+%"class.folly::File" = type <{ i32, i8, [3 x i8] }>
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"class.fmt::v8::format_arg_store" = type { %"struct.fmt::v8::detail::arg_data" }
 %"struct.fmt::v8::detail::arg_data" = type { [2 x %"class.fmt::v8::detail::value"] }
@@ -22,6 +20,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.folly::MemoryMapping" = type { %"class.folly::File", ptr, i64, %"struct.folly::MemoryMapping::Options", i8, %"class.folly::Range" }
+%"class.folly::Range" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -101,51 +101,51 @@ define void @_ZN5folly13MemoryMappingC2EOS0_(ptr noundef nonnull align 8 derefer
 entry:
   %__tmp.i.i = alloca %"struct.folly::MemoryMapping::Options", align 8
   store i32 -1, ptr %this, align 8, !tbaa !7
-  %ownsFd_.i = getelementptr inbounds %"class.folly::File", ptr %this, i64 0, i32 1
+  %ownsFd_.i = getelementptr inbounds i8, ptr %this, i64 4
   store i8 0, ptr %ownsFd_.i, align 4, !tbaa !13
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
-  %shared.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 1
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
+  %shared.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mapStart_, i8 0, i64 24, i1 false)
   store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %shared.i, align 8, !tbaa !14
-  %grow.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 5
+  %grow.i = getelementptr inbounds i8, ptr %this, i64 36
   store i8 0, ptr %grow.i, align 4, !tbaa !15
-  %address.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 6
+  %address.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %address.i, align 8, !tbaa !19
-  %locked_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
+  %locked_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %locked_, align 8, !tbaa !20
-  %data_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_, i8 0, i64 16, i1 false)
   tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #18
-  %mapStart_3.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 1
+  %mapStart_3.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %mapStart_, align 8, !tbaa !23
   %1 = load ptr, ptr %mapStart_3.i, align 8, !tbaa !23
   store ptr %1, ptr %mapStart_, align 8, !tbaa !23
   store ptr %0, ptr %mapStart_3.i, align 8, !tbaa !23
-  %mapLength_4.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 2
+  %mapLength_4.i = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i64, ptr %mapLength_, align 8, !tbaa !24
   %3 = load i64, ptr %mapLength_4.i, align 8, !tbaa !24
   store i64 %3, ptr %mapLength_, align 8, !tbaa !24
   store i64 %2, ptr %mapLength_4.i, align 8, !tbaa !24
-  %options_5.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 3
+  %options_5.i = getelementptr inbounds i8, ptr %other, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %options_, i64 24, i1 false), !tbaa.struct !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_, ptr noundef nonnull align 8 dereferenceable(24) %options_5.i, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_5.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i)
-  %locked_6.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 4
+  %locked_6.i = getelementptr inbounds i8, ptr %other, i64 48
   %4 = load i8, ptr %locked_, align 8, !tbaa !14, !range !26, !noundef !27
   %5 = load i8, ptr %locked_6.i, align 8, !tbaa !14, !range !26, !noundef !27
   store i8 %5, ptr %locked_, align 8, !tbaa !14
   store i8 %4, ptr %locked_6.i, align 8, !tbaa !14
-  %data_7.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 5
+  %data_7.i = getelementptr inbounds i8, ptr %other, i64 56
   %6 = load ptr, ptr %data_, align 8, !tbaa !23
   %7 = load ptr, ptr %data_7.i, align 8, !tbaa !23
   store ptr %7, ptr %data_, align 8, !tbaa !23
   store ptr %6, ptr %data_7.i, align 8, !tbaa !23
-  %e_.i.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5, i32 1
-  %e_3.i.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 5, i32 1
+  %e_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %e_3.i.i.i = getelementptr inbounds i8, ptr %other, i64 64
   %8 = load ptr, ptr %e_.i.i.i, align 8, !tbaa !23
   %9 = load ptr, ptr %e_3.i.i.i, align 8, !tbaa !23
   store ptr %9, ptr %e_.i.i.i, align 8, !tbaa !23
@@ -158,39 +158,39 @@ define void @_ZN5folly13MemoryMapping4swapERS0_(ptr noundef nonnull align 8 dere
 invoke.cont:
   %__tmp.i = alloca %"struct.folly::MemoryMapping::Options", align 8
   tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #18
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
-  %mapStart_3 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 1
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mapStart_3 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %mapStart_, align 8, !tbaa !23
   %1 = load ptr, ptr %mapStart_3, align 8, !tbaa !23
   store ptr %1, ptr %mapStart_, align 8, !tbaa !23
   store ptr %0, ptr %mapStart_3, align 8, !tbaa !23
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
-  %mapLength_4 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 2
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
+  %mapLength_4 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i64, ptr %mapLength_, align 8, !tbaa !24
   %3 = load i64, ptr %mapLength_4, align 8, !tbaa !24
   store i64 %3, ptr %mapLength_, align 8, !tbaa !24
   store i64 %2, ptr %mapLength_4, align 8, !tbaa !24
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
-  %options_5 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 3
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
+  %options_5 = getelementptr inbounds i8, ptr %other, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %options_, i64 24, i1 false), !tbaa.struct !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_, ptr noundef nonnull align 8 dereferenceable(24) %options_5, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_5, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i)
-  %locked_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
-  %locked_6 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 4
+  %locked_ = getelementptr inbounds i8, ptr %this, i64 48
+  %locked_6 = getelementptr inbounds i8, ptr %other, i64 48
   %4 = load i8, ptr %locked_, align 8, !tbaa !14, !range !26, !noundef !27
   %5 = load i8, ptr %locked_6, align 8, !tbaa !14, !range !26, !noundef !27
   store i8 %5, ptr %locked_, align 8, !tbaa !14
   store i8 %4, ptr %locked_6, align 8, !tbaa !14
-  %data_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5
-  %data_7 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 5
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
+  %data_7 = getelementptr inbounds i8, ptr %other, i64 56
   %6 = load ptr, ptr %data_, align 8, !tbaa !23
   %7 = load ptr, ptr %data_7, align 8, !tbaa !23
   store ptr %7, ptr %data_, align 8, !tbaa !23
   store ptr %6, ptr %data_7, align 8, !tbaa !23
-  %e_.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5, i32 1
-  %e_3.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 5, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %e_3.i.i = getelementptr inbounds i8, ptr %other, i64 64
   %8 = load ptr, ptr %e_.i.i, align 8, !tbaa !23
   %9 = load ptr, ptr %e_3.i.i, align 8, !tbaa !23
   store ptr %9, ptr %e_.i.i, align 8, !tbaa !23
@@ -203,13 +203,13 @@ define void @_ZN5folly13MemoryMappingC2ENS_4FileEllNS0_7OptionsE(ptr noundef non
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
   tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) #18
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapStart_, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_, ptr noundef nonnull align 8 dereferenceable(24) %options, i64 24, i1 false), !tbaa.struct !25
-  %locked_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
+  %locked_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %locked_, align 8, !tbaa !20
-  %data_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_, i8 0, i64 16, i1 false)
   %0 = load i32, ptr %this, align 8, !tbaa !7
   %cmp.i.not = icmp eq i32 %0, -1
@@ -303,8 +303,8 @@ entry:
   %indirect-arg-temp225 = alloca { i64, i64 }, align 8
   %ref.tmp305 = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp307 = alloca { i64, i64 }, align 8
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
-  %grow2 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 5
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
+  %grow2 = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %grow2, align 4, !tbaa !29, !range !26, !noundef !27
   %tobool = icmp eq i8 %0, 0
   %1 = load i32, ptr %this, align 8, !tbaa !7
@@ -344,7 +344,7 @@ if.then:                                          ; preds = %cleanup.done19
 cond.false33:                                     ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp35) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
-  %.fca.1.gep358 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep358 = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep358, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35, ptr noundef nonnull @.str.7, i32 noundef 138, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
   %call40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35)
@@ -593,13 +593,13 @@ while.exit178:                                    ; preds = %_ZN6google12Check_G
   %14 = load i64, ptr %options_, align 8, !tbaa !24
   %rem = srem i64 %offset, %14
   %sub185 = sub nsw i64 %offset, %rem
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %length, ptr %mapLength_, align 8, !tbaa !43
   %cmp187.not = icmp eq i64 %length, -1
   br i1 %cmp187.not, label %if.end194.thread, label %if.end194
 
 if.end194.thread:                                 ; preds = %while.exit178
-  %st_size465 = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size465 = getelementptr inbounds i8, ptr %st, i64 48
   %15 = load i64, ptr %st_size465, align 8
   %sub198466 = sub nsw i64 %15, %sub185
   %cond467 = select i1 %cmp.i, i64 %sub198466, i64 -1
@@ -629,7 +629,7 @@ if.end194:                                        ; preds = %while.exit178
   %17 = srem i64 %sub192, %14
   %mul = sub nsw i64 %sub192, %17
   store i64 %mul, ptr %mapLength_, align 8, !tbaa !43
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %18 = load i64, ptr %st_size, align 8
   %sub198 = sub nsw i64 %18, %sub185
   %cond = select i1 %cmp.i, i64 %sub198, i64 %length
@@ -656,7 +656,7 @@ if.then210:                                       ; preds = %if.then208
 cond.false221:                                    ; preds = %if.then210
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp223) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp225, align 8, !tbaa !31
-  %.fca.1.gep350 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp225, i64 0, i32 1
+  %.fca.1.gep350 = getelementptr inbounds i8, ptr %indirect-arg-temp225, i64 8
   store i64 0, ptr %.fca.1.gep350, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp223, ptr noundef nonnull @.str.7, i32 noundef 178, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp225)
   %call229 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp223)
@@ -706,26 +706,26 @@ if.end261:                                        ; preds = %if.end261.sink.spli
   br i1 %cmp262, label %if.then263, label %if.else265
 
 if.then263:                                       ; preds = %if.end261
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapStart_, i8 0, i64 16, i1 false)
   br label %if.end337
 
 if.else265:                                       ; preds = %if.end261
-  %shared = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 1
+  %shared = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i8, ptr %shared, align 8, !tbaa !44, !range !26, !noundef !27
   %tobool267.not = icmp eq i8 %23, 0
   %cond268 = select i1 %tobool267.not, i32 2, i32 1
   %or = or disjoint i32 %cond268, 32
   %spec.select = select i1 %cmp.i, i32 %cond268, i32 %or
-  %prefault = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 2
+  %prefault = getelementptr inbounds i8, ptr %this, i64 33
   %24 = load i8, ptr %prefault, align 1, !tbaa !45, !range !26, !noundef !27
   %tobool273.not = icmp eq i8 %24, 0
   %or275 = or disjoint i32 %spec.select, 32768
   %flags.1 = select i1 %tobool273.not, i32 %spec.select, i32 %or275
-  %readable = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 3
+  %readable = getelementptr inbounds i8, ptr %this, i64 34
   %25 = load i8, ptr %readable, align 2, !tbaa !46, !range !26, !noundef !27
   %tobool278.not = icmp eq i8 %25, 0
-  %writable = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 4
+  %writable = getelementptr inbounds i8, ptr %this, i64 35
   %26 = load i8, ptr %writable, align 1, !range !26
   %tobool280.not = icmp eq i8 %26, 0
   %or.cond = select i1 %tobool278.not, i1 %tobool280.not, i1 false
@@ -733,7 +733,7 @@ if.else265:                                       ; preds = %if.end261
   %cond289 = select i1 %tobool280.not, i32 0, i32 2
   %or290 = or disjoint i32 %cond289, %cond285
   %prot.0 = select i1 %or.cond, i32 0, i32 %or290
-  %address = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3, i32 6
+  %address = getelementptr inbounds i8, ptr %this, i64 40
   %27 = load ptr, ptr %address, align 8, !tbaa !47
   %28 = load i32, ptr %this, align 8, !tbaa !7
   %call296 = call ptr @mmap(ptr noundef %27, i64 noundef %22, i32 noundef %prot.0, i32 noundef %flags.1, i32 noundef %28, i64 noundef %sub185) #18
@@ -743,7 +743,7 @@ if.else265:                                       ; preds = %if.end261
 cond.false303:                                    ; preds = %if.else265
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp305) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp307, align 8, !tbaa !31
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp307, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp307, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp305, ptr noundef nonnull @.str.7, i32 noundef 222, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp307)
   %call311 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp305)
@@ -776,13 +776,13 @@ cleanup.action325:                                ; preds = %invoke.cont318
   br label %cleanup.done332
 
 cleanup.done332:                                  ; preds = %cleanup.action325, %if.else265
-  %mapStart_336 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
+  %mapStart_336 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call296, ptr %mapStart_336, align 8, !tbaa !48
-  %data_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   %add.ptr = getelementptr inbounds i8, ptr %call296, i64 %rem
   store ptr %add.ptr, ptr %data_, align 8, !tbaa !49
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %length.addr.1
-  %e_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %e_.i, align 8, !tbaa !50
   br label %if.end337
 
@@ -812,7 +812,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 define void @_ZN5folly13MemoryMappingC2EPKcllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::File", align 4
-  %writable = getelementptr inbounds %"struct.folly::MemoryMapping::Options", ptr %options, i64 0, i32 4
+  %writable = getelementptr inbounds i8, ptr %options, i64 11
   %0 = load i8, ptr %writable, align 1, !tbaa !51, !range !26, !noundef !27
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, i32 0, i32 2
@@ -859,15 +859,15 @@ declare void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5)
 define void @_ZN5folly13MemoryMappingC2ENS0_13AnonymousTypeElNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 %0, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8, !tbaa !7
-  %ownsFd_.i = getelementptr inbounds %"class.folly::File", ptr %this, i64 0, i32 1
+  %ownsFd_.i = getelementptr inbounds i8, ptr %this, i64 4
   store i8 0, ptr %ownsFd_.i, align 4, !tbaa !13
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapStart_, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_, ptr noundef nonnull align 8 dereferenceable(24) %options, i64 24, i1 false), !tbaa.struct !25
-  %locked_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
+  %locked_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %locked_, align 8, !tbaa !20
-  %data_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_, i8 0, i64 16, i1 false)
   invoke void @_ZN5folly13MemoryMapping4initEll(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef 0, i64 noundef %length)
           to label %invoke.cont2 unwind label %lpad
@@ -982,11 +982,11 @@ entry:
   %indirect-arg-temp54 = alloca { i64, i64 }, align 8
   %ref.tmp73 = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp74 = alloca { i64, i64 }, align 8
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mapStart_, align 8, !tbaa !48
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mapLength_, align 8, !tbaa !43
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr @_ZN5fLI6422FLAGS_mlock_chunk_sizeE, align 8, !tbaa !24
   %cmp.i.i = icmp slt i64 %2, 1
   br i1 %cmp.i.i, label %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i, label %if.end.i.i
@@ -1053,20 +1053,20 @@ if.end.i:                                         ; preds = %while.body.lr.ph.sp
   br i1 %cmp.not.not.i, label %while.body.i, label %"_ZN5folly12_GLOBAL__N_113memOpInChunksIZNS_13MemoryMapping5mlockENS2_8LockModeENS2_9LockFlagsEE3$_0EEbT_PvmlRm.exit", !llvm.loop !59
 
 "_ZN5folly12_GLOBAL__N_113memOpInChunksIZNS_13MemoryMapping5mlockENS2_8LockModeENS2_9LockFlagsEE3$_0EEbT_PvmlRm.exit": ; preds = %if.end.i, %if.end.us.i, %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i
-  %locked_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
+  %locked_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %locked_, align 8, !tbaa !20
   br label %cleanup
 
 if.end:                                           ; preds = %while.body.i, %while.body.us.i, %while.body.lr.ph.split.i, %while.body.lr.ph.split.us.i
   %amountSucceeded.2.ph = phi i64 [ 0, %while.body.lr.ph.split.i ], [ 0, %while.body.lr.ph.split.us.i ], [ %add.us.i, %while.body.us.i ], [ %add.i, %while.body.i ]
-  %locked_142 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
+  %locked_142 = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %locked_142, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %msg) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #18, !noalias !60
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %5 = load i64, ptr %mapLength_, align 8, !tbaa !24, !noalias !66
   store i64 %5, ptr %ref.tmp.i, align 16, !tbaa.struct !67, !alias.scope !63, !noalias !60
-  %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %amountSucceeded.2.ph, ptr %arrayinit.element.i.i, align 16, !tbaa.struct !67, !alias.scope !63, !noalias !60
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %msg, ptr nonnull @.str.23, i64 22, i64 67, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #18, !noalias !60
@@ -1084,7 +1084,7 @@ land.lhs.true:                                    ; preds = %if.end
 if.then9:                                         ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
-  %.fca.1.gep93 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep93 = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep93, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.7, i32 noundef 330, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
           to label %invoke.cont unwind label %lpad
@@ -1095,7 +1095,7 @@ invoke.cont:                                      ; preds = %if.then9
 
 invoke.cont11:                                    ; preds = %invoke.cont
   %7 = load ptr, ptr %msg, align 8, !tbaa !78
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %msg, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %msg, i64 8
   %8 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !79
   %call2.i104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef %7, i64 noundef %8)
           to label %invoke.cont13 unwind label %lpad10
@@ -1149,7 +1149,7 @@ invoke.cont33:                                    ; preds = %cond.false
 
 invoke.cont36:                                    ; preds = %invoke.cont33
   %13 = load ptr, ptr %msg, align 8, !tbaa !78
-  %_M_string_length.i.i105 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %msg, i64 0, i32 1
+  %_M_string_length.i.i105 = getelementptr inbounds i8, ptr %msg, i64 8
   %14 = load i64, ptr %_M_string_length.i.i105, align 8, !tbaa !79
   %call2.i106 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call37, ptr noundef %13, i64 noundef %14)
           to label %cleanup.action unwind label %lpad35
@@ -1183,7 +1183,7 @@ cleanup.action49:                                 ; preds = %lpad35, %lpad32
 if.else52:                                        ; preds = %land.lhs.true, %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp53) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp54, align 8, !tbaa !31
-  %.fca.1.gep90 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp54, i64 0, i32 1
+  %.fca.1.gep90 = getelementptr inbounds i8, ptr %indirect-arg-temp54, i64 8
   store i64 0, ptr %.fca.1.gep90, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp53, ptr noundef nonnull @.str.7, i32 noundef 334, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp54)
           to label %invoke.cont56 unwind label %lpad55
@@ -1194,7 +1194,7 @@ invoke.cont56:                                    ; preds = %if.else52
 
 invoke.cont58:                                    ; preds = %invoke.cont56
   %18 = load ptr, ptr %msg, align 8, !tbaa !78
-  %_M_string_length.i.i108 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %msg, i64 0, i32 1
+  %_M_string_length.i.i108 = getelementptr inbounds i8, ptr %msg, i64 8
   %19 = load i64, ptr %_M_string_length.i.i108, align 8, !tbaa !79
   %call2.i109 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call59, ptr noundef %18, i64 noundef %19)
           to label %invoke.cont60 unwind label %lpad57
@@ -1257,7 +1257,7 @@ if.end.i125:                                      ; preds = %while.body.i120
 if.then72:                                        ; preds = %while.body.i120
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp73) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp74, align 8, !tbaa !31
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp74, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp74, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp73, ptr noundef nonnull @.str.7, i32 noundef 344, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp74)
           to label %invoke.cont76 unwind label %lpad75
@@ -1293,12 +1293,12 @@ ehcleanup83:                                      ; preds = %lpad77, %lpad75
 
 if.end84:                                         ; preds = %if.end.i125, %invoke.cont80, %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i118
   %27 = load ptr, ptr %msg, align 8, !tbaa !78
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %msg, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %msg, i64 16
   %cmp.i.i.i129 = icmp eq ptr %27, %28
   br i1 %cmp.i.i.i129, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %if.end84
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %msg, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %msg, i64 8
   %29 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !79
   %cmp3.i.i.i = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1315,12 +1315,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ehcleanup85:                                      ; preds = %ehcleanup83, %ehcleanup63, %cleanup.action49, %lpad22, %ehcleanup
   %.pn100.pn = phi { ptr, i32 } [ %.pn100, %ehcleanup83 ], [ %.pn98, %ehcleanup ], [ %.pn96, %cleanup.action49 ], [ %15, %lpad22 ], [ %.pn, %ehcleanup63 ]
   %30 = load ptr, ptr %msg, align 8, !tbaa !78
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %msg, i64 0, i32 2
+  %31 = getelementptr inbounds i8, ptr %msg, i64 16
   %cmp.i.i.i130 = icmp eq ptr %30, %31
   br i1 %cmp.i.i.i130, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i132, label %if.then.i.i131
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i132: ; preds = %ehcleanup85
-  %_M_string_length.i.i.i133 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %msg, i64 0, i32 1
+  %_M_string_length.i.i.i133 = getelementptr inbounds i8, ptr %msg, i64 8
   %32 = load i64, ptr %_M_string_length.i.i.i133, align 8, !tbaa !79
   %cmp3.i.i.i134 = icmp ult i64 %32, 16
   call void @llvm.assume(i1 %cmp3.i.i.i134)
@@ -1373,22 +1373,22 @@ entry:
   %indirect-arg-temp = alloca { i64, i64 }, align 8
   %ref.tmp16 = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp17 = alloca { i64, i64 }, align 8
-  %locked_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
+  %locked_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %locked_, align 8, !tbaa !20, !range !26, !noundef !27
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mapStart_, align 8, !tbaa !48
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mapLength_, align 8, !tbaa !43
   %3 = load i64, ptr @_ZN5fLI6422FLAGS_mlock_chunk_sizeE, align 8, !tbaa !24
   %cmp.i.i = icmp slt i64 %3, 1
   br i1 %cmp.i.i, label %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %options_, align 8, !tbaa !54
   %rem.i.i = srem i64 %3, %4
   %tobool.not.i.i = icmp eq i64 %rem.i.i, 0
@@ -1419,7 +1419,7 @@ if.end.i:                                         ; preds = %while.body.i
 if.then2:                                         ; preds = %while.body.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
-  %.fca.1.gep27 = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep27 = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep27, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.7, i32 noundef 362, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
@@ -1456,7 +1456,7 @@ land.lhs.true10:                                  ; preds = %if.end6
 if.then15:                                        ; preds = %land.lhs.true10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp16) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp17, align 8, !tbaa !31
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp17, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp17, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16, ptr noundef nonnull @.str.7, i32 noundef 366, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp17)
   %call20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16)
@@ -1496,7 +1496,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly13MemoryMapping14hintLinearScanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %mapLength_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
+  %mapLength_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_.i, align 8, !tbaa !43
   tail call void @_ZNK5folly13MemoryMapping6adviseEimm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 2, i64 noundef 0, i64 noundef %0)
   ret void
@@ -1505,7 +1505,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5folly13MemoryMapping6adviseEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %advice) local_unnamed_addr #6 align 2 {
 entry:
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_, align 8, !tbaa !43
   tail call void @_ZNK5folly13MemoryMapping6adviseEimm(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %advice, i64 noundef 0, i64 noundef %0)
   ret void
@@ -1518,20 +1518,20 @@ entry:
   %ref.tmp = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp = alloca { i64, i64 }, align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_, align 8, !tbaa !43
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mapStart_, align 8, !tbaa !48
   %2 = load i64, ptr @_ZN5fLI6422FLAGS_mlock_chunk_sizeE, align 8, !tbaa !24
   %cmp.i.i = icmp slt i64 %2, 1
   br i1 %cmp.i.i, label %_ZN5folly12_GLOBAL__N_114memOpChunkSizeEll.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %options_, align 8, !tbaa !54
   %rem.i.i = srem i64 %2, %3
   %tobool.not.i.i = icmp eq i64 %rem.i.i, 0
@@ -1561,7 +1561,7 @@ if.end.i:                                         ; preds = %while.body.i
 if.then3:                                         ; preds = %while.body.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   invoke void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.7, i32 noundef 384, i32 noundef 3, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
           to label %invoke.cont4 unwind label %terminate.lpad
@@ -1576,7 +1576,7 @@ invoke.cont4:                                     ; preds = %if.then3
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %4 = load i64, ptr %mapLength_, align 8, !tbaa !24, !noalias !88
   store i64 %4, ptr %ref.tmp.i, align 16, !tbaa.struct !67, !alias.scope !88
-  %arrayinit.element.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %amountSucceeded.0, ptr %arrayinit.element.i.i, align 16, !tbaa.struct !67, !alias.scope !88
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr nonnull @.str.26, i64 23, i64 67, ptr nonnull %ref.tmp.i)
           to label %invoke.cont10 unwind label %terminate.lpad
@@ -1584,14 +1584,14 @@ invoke.cont4:                                     ; preds = %if.then3
 invoke.cont10:                                    ; preds = %.noexc14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #18, !noalias !85
   %5 = load ptr, ptr %ref.tmp7, align 8, !tbaa !78
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp7, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %6 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !79
   %call2.i1617 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef %5, i64 noundef %6)
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont10
   %7 = load ptr, ptr %ref.tmp7, align 8, !tbaa !78
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp7, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -1640,7 +1640,7 @@ entry:
   %add = add i64 %length, %offset
   store i64 %add, ptr %ref.tmp, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2) #18
-  %mapLength_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
+  %mapLength_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_, align 8, !tbaa !43
   store i64 %0, ptr %ref.tmp2, align 8, !tbaa !24
   %cmp.not.i = icmp ugt i64 %add, %0
@@ -1666,7 +1666,7 @@ _ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 while.exit:                                       ; preds = %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit_crit_edge, %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   %1 = phi i64 [ %.pre, %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.exit_crit_edge ], [ %0, %_ZN6google12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #18
-  %options_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
+  %options_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %options_, align 8, !tbaa !54
   %rem = urem i64 %offset, %2
   %sub = sub nuw i64 %offset, %rem
@@ -1726,7 +1726,7 @@ if.end:                                           ; preds = %if.then, %while.exi
   br i1 %cmp28, label %cleanup, label %if.end30
 
 if.end30:                                         ; preds = %if.end
-  %mapStart_ = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
+  %mapStart_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %mapStart_, align 8, !tbaa !48
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %sub
   %call31 = call i32 @madvise(ptr noundef %add.ptr, i64 noundef %length.addr.0, i32 noundef %advice) #18
@@ -1736,7 +1736,7 @@ if.end30:                                         ; preds = %if.end
 cond.false:                                       ; preds = %if.end30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp33) #18
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8, !tbaa !31
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !31
   call void @_ZN6google15ErrnoLogMessageC1EPKciiiMNS_10LogMessageEFvvE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33, ptr noundef nonnull @.str.7, i32 noundef 414, i32 noundef 1, i32 noundef 0, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
   %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp33)
@@ -1806,39 +1806,39 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN5folly13MemoryMapping
 entry:
   %__tmp.i.i = alloca %"struct.folly::MemoryMapping::Options", align 8
   tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %other) #18
-  %mapStart_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 1
-  %mapStart_3.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 1
+  %mapStart_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mapStart_3.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %mapStart_.i, align 8, !tbaa !23
   %1 = load ptr, ptr %mapStart_3.i, align 8, !tbaa !23
   store ptr %1, ptr %mapStart_.i, align 8, !tbaa !23
   store ptr %0, ptr %mapStart_3.i, align 8, !tbaa !23
-  %mapLength_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 2
-  %mapLength_4.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 2
+  %mapLength_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mapLength_4.i = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i64, ptr %mapLength_.i, align 8, !tbaa !24
   %3 = load i64, ptr %mapLength_4.i, align 8, !tbaa !24
   store i64 %3, ptr %mapLength_.i, align 8, !tbaa !24
   store i64 %2, ptr %mapLength_4.i, align 8, !tbaa !24
-  %options_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 3
-  %options_5.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 3
+  %options_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %options_5.i = getelementptr inbounds i8, ptr %other, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %options_.i, i64 24, i1 false), !tbaa.struct !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i, ptr noundef nonnull align 8 dereferenceable(24) %options_5.i, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_5.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i)
-  %locked_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 4
-  %locked_6.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 4
+  %locked_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %locked_6.i = getelementptr inbounds i8, ptr %other, i64 48
   %4 = load i8, ptr %locked_.i, align 8, !tbaa !14, !range !26, !noundef !27
   %5 = load i8, ptr %locked_6.i, align 8, !tbaa !14, !range !26, !noundef !27
   store i8 %5, ptr %locked_.i, align 8, !tbaa !14
   store i8 %4, ptr %locked_6.i, align 8, !tbaa !14
-  %data_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5
-  %data_7.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 5
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %data_7.i = getelementptr inbounds i8, ptr %other, i64 56
   %6 = load ptr, ptr %data_.i, align 8, !tbaa !23
   %7 = load ptr, ptr %data_7.i, align 8, !tbaa !23
   store ptr %7, ptr %data_.i, align 8, !tbaa !23
   store ptr %6, ptr %data_7.i, align 8, !tbaa !23
-  %e_.i.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %this, i64 0, i32 5, i32 1
-  %e_3.i.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %other, i64 0, i32 5, i32 1
+  %e_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %e_3.i.i.i = getelementptr inbounds i8, ptr %other, i64 64
   %8 = load ptr, ptr %e_.i.i.i, align 8, !tbaa !23
   %9 = load ptr, ptr %e_3.i.i.i, align 8, !tbaa !23
   store ptr %9, ptr %e_.i.i.i, align 8, !tbaa !23
@@ -1854,39 +1854,39 @@ define void @_ZN5folly4swapERNS_13MemoryMappingES1_(ptr noundef nonnull align 8 
 entry:
   %__tmp.i.i = alloca %"struct.folly::MemoryMapping::Options", align 8
   tail call void @_ZN5folly4swapERNS_4FileES1_(ptr noundef nonnull align 4 dereferenceable(5) %a, ptr noundef nonnull align 4 dereferenceable(5) %b) #18
-  %mapStart_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %a, i64 0, i32 1
-  %mapStart_3.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %b, i64 0, i32 1
+  %mapStart_.i = getelementptr inbounds i8, ptr %a, i64 8
+  %mapStart_3.i = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %mapStart_.i, align 8, !tbaa !23
   %1 = load ptr, ptr %mapStart_3.i, align 8, !tbaa !23
   store ptr %1, ptr %mapStart_.i, align 8, !tbaa !23
   store ptr %0, ptr %mapStart_3.i, align 8, !tbaa !23
-  %mapLength_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %a, i64 0, i32 2
-  %mapLength_4.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %b, i64 0, i32 2
+  %mapLength_.i = getelementptr inbounds i8, ptr %a, i64 16
+  %mapLength_4.i = getelementptr inbounds i8, ptr %b, i64 16
   %2 = load i64, ptr %mapLength_.i, align 8, !tbaa !24
   %3 = load i64, ptr %mapLength_4.i, align 8, !tbaa !24
   store i64 %3, ptr %mapLength_.i, align 8, !tbaa !24
   store i64 %2, ptr %mapLength_4.i, align 8, !tbaa !24
-  %options_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %a, i64 0, i32 3
-  %options_5.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %b, i64 0, i32 3
+  %options_.i = getelementptr inbounds i8, ptr %a, i64 24
+  %options_5.i = getelementptr inbounds i8, ptr %b, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %options_.i, i64 24, i1 false), !tbaa.struct !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i, ptr noundef nonnull align 8 dereferenceable(24) %options_5.i, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_5.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i, i64 24, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i)
-  %locked_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %a, i64 0, i32 4
-  %locked_6.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %b, i64 0, i32 4
+  %locked_.i = getelementptr inbounds i8, ptr %a, i64 48
+  %locked_6.i = getelementptr inbounds i8, ptr %b, i64 48
   %4 = load i8, ptr %locked_.i, align 8, !tbaa !14, !range !26, !noundef !27
   %5 = load i8, ptr %locked_6.i, align 8, !tbaa !14, !range !26, !noundef !27
   store i8 %5, ptr %locked_.i, align 8, !tbaa !14
   store i8 %4, ptr %locked_6.i, align 8, !tbaa !14
-  %data_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %a, i64 0, i32 5
-  %data_7.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %b, i64 0, i32 5
+  %data_.i = getelementptr inbounds i8, ptr %a, i64 56
+  %data_7.i = getelementptr inbounds i8, ptr %b, i64 56
   %6 = load ptr, ptr %data_.i, align 8, !tbaa !23
   %7 = load ptr, ptr %data_7.i, align 8, !tbaa !23
   store ptr %7, ptr %data_.i, align 8, !tbaa !23
   store ptr %6, ptr %data_7.i, align 8, !tbaa !23
-  %e_.i.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %a, i64 0, i32 5, i32 1
-  %e_3.i.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %b, i64 0, i32 5, i32 1
+  %e_.i.i.i = getelementptr inbounds i8, ptr %a, i64 64
+  %e_3.i.i.i = getelementptr inbounds i8, ptr %b, i64 64
   %8 = load ptr, ptr %e_.i.i.i, align 8, !tbaa !23
   %9 = load ptr, ptr %e_3.i.i.i, align 8, !tbaa !23
   store ptr %9, ptr %e_.i.i.i, align 8, !tbaa !23
@@ -1930,10 +1930,10 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep = getelementptr i8, ptr %dst, i64 %5
   %next.gep30 = getelementptr i8, ptr %src, i64 %5
   %wide.load = load <2 x i64>, ptr %next.gep30, align 8, !tbaa !24
-  %6 = getelementptr i64, ptr %next.gep30, i64 2
+  %6 = getelementptr i8, ptr %next.gep30, i64 16
   %wide.load32 = load <2 x i64>, ptr %6, align 8, !tbaa !24
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !24
-  %7 = getelementptr i64, ptr %next.gep, i64 2
+  %7 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load32, ptr %7, align 8, !tbaa !24
   %index.next = add nuw i64 %index, 4
   %8 = icmp eq i64 %index.next, %n.vec
@@ -2053,9 +2053,9 @@ while.body:                                       ; preds = %while.body.preheade
   %dstl.016 = phi ptr [ %incdec.ptr1, %while.body ], [ %dstl.016.ph, %while.body.preheader6 ]
   %srcl.015 = phi ptr [ %incdec.ptr, %while.body ], [ %srcl.015.ph, %while.body.preheader6 ]
   %size.addr.014 = phi i64 [ %sub, %while.body ], [ %size.addr.014.ph, %while.body.preheader6 ]
-  %incdec.ptr = getelementptr inbounds i64, ptr %srcl.015, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %srcl.015, i64 8
   %18 = load i64, ptr %srcl.015, align 8, !tbaa !24
-  %incdec.ptr1 = getelementptr inbounds i64, ptr %dstl.016, i64 1
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %dstl.016, i64 8
   store i64 %18, ptr %dstl.016, align 8, !tbaa !24
   %sub = add i64 %size.addr.014, -8
   %cmp = icmp ugt i64 %sub, 7
@@ -2115,14 +2115,14 @@ entry:
   %agg.tmp8 = alloca %"struct.folly::MemoryMapping::Options", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %srcMap) #18
   store i64 0, ptr %agg.tmp, align 8, !tbaa !100
-  %shared.i = getelementptr inbounds %"struct.folly::MemoryMapping::Options", ptr %agg.tmp, i64 0, i32 1
+  %shared.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store <4 x i8> <i8 1, i8 0, i8 1, i8 0>, ptr %shared.i, align 8, !tbaa !14
-  %grow.i = getelementptr inbounds %"struct.folly::MemoryMapping::Options", ptr %agg.tmp, i64 0, i32 5
+  %grow.i = getelementptr inbounds i8, ptr %agg.tmp, i64 12
   store i8 0, ptr %grow.i, align 4, !tbaa !15
-  %address.i = getelementptr inbounds %"struct.folly::MemoryMapping::Options", ptr %agg.tmp, i64 0, i32 6
+  %address.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr null, ptr %address.i, align 8, !tbaa !19
   call void @_ZN5folly13MemoryMappingC1EPKcllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %srcMap, ptr noundef %src, i64 noundef 0, i64 noundef -1, ptr noundef nonnull byval(%"struct.folly::MemoryMapping::Options") align 8 %agg.tmp)
-  %mapLength_.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %srcMap, i64 0, i32 2
+  %mapLength_.i.i = getelementptr inbounds i8, ptr %srcMap, i64 16
   %0 = load i64, ptr %mapLength_.i.i, align 8, !tbaa !43
   invoke void @_ZNK5folly13MemoryMapping6adviseEimm(ptr noundef nonnull align 8 dereferenceable(72) %srcMap, i32 noundef 2, i64 noundef 0, i64 noundef %0)
           to label %invoke.cont unwind label %lpad
@@ -2133,9 +2133,9 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont9 unwind label %lpad2
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  %data_.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %srcMap, i64 0, i32 5
+  %data_.i = getelementptr inbounds i8, ptr %srcMap, i64 56
   %1 = load ptr, ptr %data_.i, align 8, !tbaa !49
-  %e_.i.i.i = getelementptr inbounds %"class.folly::MemoryMapping", ptr %srcMap, i64 0, i32 5, i32 1
+  %e_.i.i.i = getelementptr inbounds i8, ptr %srcMap, i64 64
   %2 = load ptr, ptr %e_.i.i.i, align 8, !tbaa !50
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -2152,7 +2152,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 invoke.cont25:                                    ; preds = %invoke.cont9
   call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp1) #18
-  %data_.i38 = getelementptr inbounds %"class.folly::MemoryMapping", ptr %destMap, i64 0, i32 5
+  %data_.i38 = getelementptr inbounds i8, ptr %destMap, i64 56
   %retval.sroa.0.0.copyload.i = load ptr, ptr %data_.i38, align 8, !tbaa.struct !106
   %3 = load ptr, ptr %data_.i, align 8, !tbaa !49
   %4 = load ptr, ptr %e_.i.i.i, align 8, !tbaa !50
@@ -2191,10 +2191,10 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep = getelementptr i8, ptr %retval.sroa.0.0.copyload.i, i64 %10
   %next.gep59 = getelementptr i8, ptr %3, i64 %10
   %wide.load = load <2 x i64>, ptr %next.gep59, align 8, !tbaa !24
-  %11 = getelementptr i64, ptr %next.gep59, i64 2
+  %11 = getelementptr i8, ptr %next.gep59, i64 16
   %wide.load61 = load <2 x i64>, ptr %11, align 8, !tbaa !24
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !24
-  %12 = getelementptr i64, ptr %next.gep, i64 2
+  %12 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load61, ptr %12, align 8, !tbaa !24
   %index.next = add nuw i64 %index, 4
   %13 = icmp eq i64 %index.next, %n.vec
@@ -2314,9 +2314,9 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %dstl.016.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %dstl.016.i.ph, %while.body.i.preheader6 ]
   %srcl.015.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %srcl.015.i.ph, %while.body.i.preheader6 ]
   %size.addr.014.i = phi i64 [ %sub.i, %while.body.i ], [ %size.addr.014.i.ph, %while.body.i.preheader6 ]
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %srcl.015.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %srcl.015.i, i64 8
   %23 = load i64, ptr %srcl.015.i, align 8, !tbaa !24
-  %incdec.ptr1.i = getelementptr inbounds i64, ptr %dstl.016.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %dstl.016.i, i64 8
   store i64 %23, ptr %dstl.016.i, align 8, !tbaa !24
   %sub.i = add i64 %size.addr.014.i, -8
   %cmp.i = icmp ugt i64 %sub.i, 7

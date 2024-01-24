@@ -4,10 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ge25519_precomp = type { [5 x i64], [5 x i64], [5 x i64] }
-%struct.ge25519_p3 = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
-%struct.ge25519_p1p1 = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
 %struct.ge25519_p2 = type { [5 x i64], [5 x i64], [5 x i64] }
 %struct.ge25519_cached = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
+%struct.ge25519_p1p1 = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
+%struct.ge25519_p3 = type { [5 x i64], [5 x i64], [5 x i64], [5 x i64] }
 
 @ed25519_d = internal constant [5 x i64] [i64 929955233495203, i64 466365720129213, i64 1662059464998953, i64 2033849074728123, i64 1442794654840575], align 16
 @fe25519_sqrtm1 = internal constant [5 x i64] [i64 1718705420411056, i64 234908883556509, i64 2233514472574048, i64 2117202627021982, i64 765476049583133], align 16
@@ -44,13 +44,13 @@ entry:
   %shr13 = lshr i64 %add.ptr11.val, 12
   %and14 = and i64 %shr13, 2251799813685247
   store i64 %and, ptr %h, align 8
-  %arrayidx15 = getelementptr i64, ptr %h, i64 1
+  %arrayidx15 = getelementptr i8, ptr %h, i64 8
   store i64 %and2, ptr %arrayidx15, align 8
-  %arrayidx16 = getelementptr i64, ptr %h, i64 2
+  %arrayidx16 = getelementptr i8, ptr %h, i64 16
   store i64 %and6, ptr %arrayidx16, align 8
-  %arrayidx17 = getelementptr i64, ptr %h, i64 3
+  %arrayidx17 = getelementptr i8, ptr %h, i64 24
   store i64 %and10, ptr %arrayidx17, align 8
-  %arrayidx18 = getelementptr i64, ptr %h, i64 4
+  %arrayidx18 = getelementptr i8, ptr %h, i64 32
   store i64 %and14, ptr %arrayidx18, align 8
   ret void
 }
@@ -60,16 +60,16 @@ define hidden void @_sodium_fe25519_tobytes(ptr nocapture noundef writeonly %s, 
 entry:
   %0 = load i64, ptr %h, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx2.i = getelementptr i64, ptr %h, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %h, i64 8
   %1 = load i64, ptr %arrayidx2.i, align 8
   %conv3.i = zext i64 %1 to i128
-  %arrayidx5.i = getelementptr i64, ptr %h, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %h, i64 16
   %2 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %2 to i128
-  %arrayidx8.i = getelementptr i64, ptr %h, i64 3
+  %arrayidx8.i = getelementptr i8, ptr %h, i64 24
   %3 = load i64, ptr %arrayidx8.i, align 8
   %conv9.i = zext i64 %3 to i128
-  %arrayidx11.i = getelementptr i64, ptr %h, i64 4
+  %arrayidx11.i = getelementptr i8, ptr %h, i64 32
   %4 = load i64, ptr %arrayidx11.i, align 8
   %conv12.i = zext i64 %4 to i128
   %shr.i = lshr i128 %conv.i, 51
@@ -173,16 +173,16 @@ entry:
   %t3 = alloca [5 x i64], align 16
   %0 = load i64, ptr %z, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx1.i = getelementptr i64, ptr %z, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %z, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
   %conv2.i = zext i64 %1 to i128
-  %arrayidx3.i = getelementptr i64, ptr %z, i64 2
+  %arrayidx3.i = getelementptr i8, ptr %z, i64 16
   %2 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = zext i64 %2 to i128
-  %arrayidx5.i = getelementptr i64, ptr %z, i64 3
+  %arrayidx5.i = getelementptr i8, ptr %z, i64 24
   %3 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr i64, ptr %z, i64 4
+  %arrayidx7.i = getelementptr i8, ptr %z, i64 32
   %4 = load i64, ptr %arrayidx7.i, align 8
   %conv8.i = zext i64 %4 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -230,10 +230,10 @@ entry:
   %conv52.i = and i128 %shr50.i, 18446744073709551615
   %add35.i = add i128 %mul34.i, %mul36.i
   %add37.i = add i128 %add35.i, %mul33.i
-  %arrayidx73.i = getelementptr inbounds i64, ptr %t0, i64 1
-  %arrayidx74.i = getelementptr inbounds i64, ptr %t0, i64 2
-  %arrayidx75.i = getelementptr inbounds i64, ptr %t0, i64 3
-  %arrayidx76.i = getelementptr inbounds i64, ptr %t0, i64 4
+  %arrayidx73.i = getelementptr inbounds i8, ptr %t0, i64 8
+  %arrayidx74.i = getelementptr inbounds i8, ptr %t0, i64 16
+  %arrayidx75.i = getelementptr inbounds i8, ptr %t0, i64 24
+  %arrayidx76.i = getelementptr inbounds i8, ptr %t0, i64 32
   %add53.i = add i128 %add32.i, %conv52.i
   %shr56.i = lshr i128 %add53.i, 51
   %conv58.i = and i128 %shr56.i, 18446744073709551615
@@ -316,10 +316,10 @@ entry:
   %shr69.i86 = lshr i64 %add68.i85, 51
   %and70.i87 = and i64 %add68.i85, 2251799813685247
   %add71.i88 = add nuw nsw i64 %shr69.i86, %and49.i66
-  %arrayidx73.i89 = getelementptr inbounds i64, ptr %t1, i64 1
-  %arrayidx74.i90 = getelementptr inbounds i64, ptr %t1, i64 2
-  %arrayidx75.i91 = getelementptr inbounds i64, ptr %t1, i64 3
-  %arrayidx76.i92 = getelementptr inbounds i64, ptr %t1, i64 4
+  %arrayidx73.i89 = getelementptr inbounds i8, ptr %t1, i64 8
+  %arrayidx74.i90 = getelementptr inbounds i8, ptr %t1, i64 16
+  %arrayidx75.i91 = getelementptr inbounds i8, ptr %t1, i64 24
+  %arrayidx76.i92 = getelementptr inbounds i8, ptr %t1, i64 32
   %conv.i93 = zext nneg i64 %and67.i84 to i128
   %conv2.i95 = zext nneg i64 %and70.i87 to i128
   %conv4.i97 = zext nneg i64 %add71.i88 to i128
@@ -445,10 +445,10 @@ entry:
   %conv52.i220 = and i128 %shr50.i219, 18446744073709551615
   %add35.i226 = add i128 %mul34.i205, %mul36.i206
   %add37.i227 = add i128 %add35.i226, %mul33.i204
-  %arrayidx73.i241 = getelementptr inbounds i64, ptr %t2, i64 1
-  %arrayidx74.i242 = getelementptr inbounds i64, ptr %t2, i64 2
-  %arrayidx75.i243 = getelementptr inbounds i64, ptr %t2, i64 3
-  %arrayidx76.i244 = getelementptr inbounds i64, ptr %t2, i64 4
+  %arrayidx73.i241 = getelementptr inbounds i8, ptr %t2, i64 8
+  %arrayidx74.i242 = getelementptr inbounds i8, ptr %t2, i64 16
+  %arrayidx75.i243 = getelementptr inbounds i8, ptr %t2, i64 24
+  %arrayidx76.i244 = getelementptr inbounds i8, ptr %t2, i64 32
   %add53.i221 = add i128 %add32.i203, %conv52.i220
   %shr56.i224 = lshr i128 %add53.i221, 51
   %conv58.i225 = and i128 %shr56.i224, 18446744073709551615
@@ -867,10 +867,10 @@ for.end31:                                        ; preds = %for.body26
   %shr69.i618 = lshr i64 %add68.i617, 51
   %and70.i619 = and i64 %add68.i617, 2251799813685247
   %add71.i620 = add nuw nsw i64 %shr69.i618, %and49.i598
-  %arrayidx73.i621 = getelementptr inbounds i64, ptr %t3, i64 1
-  %arrayidx74.i622 = getelementptr inbounds i64, ptr %t3, i64 2
-  %arrayidx75.i623 = getelementptr inbounds i64, ptr %t3, i64 3
-  %arrayidx76.i624 = getelementptr inbounds i64, ptr %t3, i64 4
+  %arrayidx73.i621 = getelementptr inbounds i8, ptr %t3, i64 8
+  %arrayidx74.i622 = getelementptr inbounds i8, ptr %t3, i64 16
+  %arrayidx75.i623 = getelementptr inbounds i8, ptr %t3, i64 24
+  %arrayidx76.i624 = getelementptr inbounds i8, ptr %t3, i64 32
   br label %for.body39
 
 for.body39:                                       ; preds = %for.end31, %for.body39
@@ -1568,30 +1568,30 @@ define internal fastcc void @fe25519_mul(ptr nocapture noundef writeonly %h, ptr
 entry:
   %0 = load i64, ptr %f, align 8
   %conv = zext i64 %0 to i128
-  %arrayidx1 = getelementptr i64, ptr %f, i64 1
+  %arrayidx1 = getelementptr i8, ptr %f, i64 8
   %1 = load i64, ptr %arrayidx1, align 8
   %conv2 = zext i64 %1 to i128
-  %arrayidx3 = getelementptr i64, ptr %f, i64 2
+  %arrayidx3 = getelementptr i8, ptr %f, i64 16
   %2 = load i64, ptr %arrayidx3, align 8
   %conv4 = zext i64 %2 to i128
-  %arrayidx5 = getelementptr i64, ptr %f, i64 3
+  %arrayidx5 = getelementptr i8, ptr %f, i64 24
   %3 = load i64, ptr %arrayidx5, align 8
   %conv6 = zext i64 %3 to i128
-  %arrayidx7 = getelementptr i64, ptr %f, i64 4
+  %arrayidx7 = getelementptr i8, ptr %f, i64 32
   %4 = load i64, ptr %arrayidx7, align 8
   %conv8 = zext i64 %4 to i128
   %5 = load i64, ptr %g, align 8
   %conv10 = zext i64 %5 to i128
-  %arrayidx11 = getelementptr i64, ptr %g, i64 1
+  %arrayidx11 = getelementptr i8, ptr %g, i64 8
   %6 = load i64, ptr %arrayidx11, align 8
   %conv12 = zext i64 %6 to i128
-  %arrayidx13 = getelementptr i64, ptr %g, i64 2
+  %arrayidx13 = getelementptr i8, ptr %g, i64 16
   %7 = load i64, ptr %arrayidx13, align 8
   %conv14 = zext i64 %7 to i128
-  %arrayidx15 = getelementptr i64, ptr %g, i64 3
+  %arrayidx15 = getelementptr i8, ptr %g, i64 24
   %8 = load i64, ptr %arrayidx15, align 8
   %conv16 = zext i64 %8 to i128
-  %arrayidx17 = getelementptr i64, ptr %g, i64 4
+  %arrayidx17 = getelementptr i8, ptr %g, i64 32
   %9 = load i64, ptr %arrayidx17, align 8
   %conv18 = zext i64 %9 to i128
   %mul = mul nuw nsw i128 %conv2, 19
@@ -1657,9 +1657,9 @@ entry:
   %add61 = add i128 %add59, %mul60
   %add63 = add i128 %add61, %mul58
   %add65 = add i128 %add63, %mul57
-  %arrayidx101 = getelementptr i64, ptr %h, i64 1
-  %arrayidx102 = getelementptr i64, ptr %h, i64 2
-  %arrayidx103 = getelementptr i64, ptr %h, i64 3
+  %arrayidx101 = getelementptr i8, ptr %h, i64 8
+  %arrayidx102 = getelementptr i8, ptr %h, i64 16
+  %arrayidx103 = getelementptr i8, ptr %h, i64 24
   %add81 = add i128 %add56, %conv80
   %shr84 = lshr i128 %add81, 51
   %conv86 = and i128 %shr84, 18446744073709551615
@@ -1696,7 +1696,7 @@ entry:
   %vxx = alloca [5 x i64], align 16
   %negx = alloca [5 x i64], align 16
   %x_sqrtm1 = alloca [5 x i64], align 16
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   %s.val.i = load i64, ptr %s, align 1
   %and.i = and i64 %s.val.i, 2251799813685247
   %add.ptr.i = getelementptr i8, ptr %s, i64 6
@@ -1716,17 +1716,17 @@ entry:
   %shr13.i = lshr i64 %add.ptr11.val.i, 12
   %and14.i = and i64 %shr13.i, 2251799813685247
   store i64 %and.i, ptr %Y, align 8
-  %arrayidx15.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %h, i64 48
   store i64 %and2.i, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 2
+  %arrayidx16.i = getelementptr i8, ptr %h, i64 56
   store i64 %and6.i, ptr %arrayidx16.i, align 8
-  %arrayidx17.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 3
+  %arrayidx17.i = getelementptr i8, ptr %h, i64 64
   store i64 %and10.i, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 4
+  %arrayidx18.i = getelementptr i8, ptr %h, i64 72
   store i64 %and14.i, ptr %arrayidx18.i, align 8
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z, align 8
-  %arrayidx1.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %h, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %conv.i = zext nneg i64 %and.i to i128
   %conv2.i = zext nneg i64 %and2.i to i128
@@ -1793,13 +1793,13 @@ entry:
   %and70.i = and i64 %add68.i, 2251799813685247
   %add71.i = add nuw nsw i64 %shr69.i, %and49.i
   store i64 %and67.i, ptr %u, align 16
-  %arrayidx73.i = getelementptr inbounds i64, ptr %u, i64 1
+  %arrayidx73.i = getelementptr inbounds i8, ptr %u, i64 8
   store i64 %and70.i, ptr %arrayidx73.i, align 8
-  %arrayidx74.i = getelementptr inbounds i64, ptr %u, i64 2
+  %arrayidx74.i = getelementptr inbounds i8, ptr %u, i64 16
   store i64 %add71.i, ptr %arrayidx74.i, align 16
-  %arrayidx75.i = getelementptr inbounds i64, ptr %u, i64 3
+  %arrayidx75.i = getelementptr inbounds i8, ptr %u, i64 24
   store i64 %and55.i, ptr %arrayidx75.i, align 8
-  %arrayidx76.i = getelementptr inbounds i64, ptr %u, i64 4
+  %arrayidx76.i = getelementptr inbounds i8, ptr %u, i64 32
   store i64 %and61.i, ptr %arrayidx76.i, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %v, ptr noundef nonnull %u, ptr noundef nonnull @ed25519_d)
   %add18.i = add nuw nsw i64 %and67.i, 4503599627370457
@@ -1820,16 +1820,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %u, ptr noundef %h)
   %1 = load i64, ptr %h, align 8
   %conv.i39 = zext i64 %1 to i128
-  %arrayidx1.i40 = getelementptr i64, ptr %h, i64 1
+  %arrayidx1.i40 = getelementptr i8, ptr %h, i64 8
   %2 = load i64, ptr %arrayidx1.i40, align 8
   %conv2.i41 = zext i64 %2 to i128
-  %arrayidx3.i42 = getelementptr i64, ptr %h, i64 2
+  %arrayidx3.i42 = getelementptr i8, ptr %h, i64 16
   %3 = load i64, ptr %arrayidx3.i42, align 8
   %conv4.i43 = zext i64 %3 to i128
-  %arrayidx5.i44 = getelementptr i64, ptr %h, i64 3
+  %arrayidx5.i44 = getelementptr i8, ptr %h, i64 24
   %4 = load i64, ptr %arrayidx5.i44, align 8
   %conv6.i45 = zext i64 %4 to i128
-  %arrayidx7.i46 = getelementptr i64, ptr %h, i64 4
+  %arrayidx7.i46 = getelementptr i8, ptr %h, i64 32
   %5 = load i64, ptr %arrayidx7.i46, align 8
   %conv8.i47 = zext i64 %5 to i128
   %shl.i48 = shl nuw nsw i128 %conv.i39, 1
@@ -1877,10 +1877,10 @@ entry:
   %conv52.i90 = and i128 %shr50.i89, 18446744073709551615
   %add35.i96 = add i128 %mul34.i75, %mul36.i76
   %add37.i97 = add i128 %add35.i96, %mul33.i74
-  %arrayidx73.i111 = getelementptr inbounds i64, ptr %vxx, i64 1
-  %arrayidx74.i112 = getelementptr inbounds i64, ptr %vxx, i64 2
-  %arrayidx75.i113 = getelementptr inbounds i64, ptr %vxx, i64 3
-  %arrayidx76.i114 = getelementptr inbounds i64, ptr %vxx, i64 4
+  %arrayidx73.i111 = getelementptr inbounds i8, ptr %vxx, i64 8
+  %arrayidx74.i112 = getelementptr inbounds i8, ptr %vxx, i64 16
+  %arrayidx75.i113 = getelementptr inbounds i8, ptr %vxx, i64 24
+  %arrayidx76.i114 = getelementptr inbounds i8, ptr %vxx, i64 32
   %add53.i91 = add i128 %add32.i73, %conv52.i90
   %shr56.i94 = lshr i128 %add53.i91, 51
   %conv58.i95 = and i128 %shr56.i94, 18446744073709551615
@@ -2164,13 +2164,13 @@ entry:
   %sub27.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i
   %sub30.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i
   store i64 %sub.i.i, ptr %negx, align 16
-  %arrayidx32.i.i = getelementptr inbounds i64, ptr %negx, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %negx, i64 8
   store i64 %sub21.i.i, ptr %arrayidx32.i.i, align 8
-  %arrayidx33.i.i = getelementptr inbounds i64, ptr %negx, i64 2
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %negx, i64 16
   store i64 %sub24.i.i, ptr %arrayidx33.i.i, align 16
-  %arrayidx34.i.i = getelementptr inbounds i64, ptr %negx, i64 3
+  %arrayidx34.i.i = getelementptr inbounds i8, ptr %negx, i64 24
   store i64 %sub27.i.i, ptr %arrayidx34.i.i, align 8
-  %arrayidx35.i.i = getelementptr inbounds i64, ptr %negx, i64 4
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %negx, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i172)
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %s.i172, ptr noundef nonnull %h)
@@ -2183,7 +2183,7 @@ entry:
   %xor270 = xor i8 %34, %32
   %xor = zext nneg i8 %xor270 to i32
   %35 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %h, ptr nonnull %negx, i32 %xor) #10, !srcloc !13
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %h, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %h, ptr noundef nonnull %Y)
   %or = or i32 %call.i171, %call.i
   %sub62 = add i32 %or, -1
@@ -2198,16 +2198,16 @@ entry:
   %t2 = alloca [5 x i64], align 16
   %0 = load i64, ptr %z, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx1.i = getelementptr i64, ptr %z, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %z, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
   %conv2.i = zext i64 %1 to i128
-  %arrayidx3.i = getelementptr i64, ptr %z, i64 2
+  %arrayidx3.i = getelementptr i8, ptr %z, i64 16
   %2 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = zext i64 %2 to i128
-  %arrayidx5.i = getelementptr i64, ptr %z, i64 3
+  %arrayidx5.i = getelementptr i8, ptr %z, i64 24
   %3 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr i64, ptr %z, i64 4
+  %arrayidx7.i = getelementptr i8, ptr %z, i64 32
   %4 = load i64, ptr %arrayidx7.i, align 8
   %conv8.i = zext i64 %4 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -2255,10 +2255,10 @@ entry:
   %conv52.i = and i128 %shr50.i, 18446744073709551615
   %add35.i = add i128 %mul34.i, %mul36.i
   %add37.i = add i128 %add35.i, %mul33.i
-  %arrayidx73.i = getelementptr inbounds i64, ptr %t0, i64 1
-  %arrayidx74.i = getelementptr inbounds i64, ptr %t0, i64 2
-  %arrayidx75.i = getelementptr inbounds i64, ptr %t0, i64 3
-  %arrayidx76.i = getelementptr inbounds i64, ptr %t0, i64 4
+  %arrayidx73.i = getelementptr inbounds i8, ptr %t0, i64 8
+  %arrayidx74.i = getelementptr inbounds i8, ptr %t0, i64 16
+  %arrayidx75.i = getelementptr inbounds i8, ptr %t0, i64 24
+  %arrayidx76.i = getelementptr inbounds i8, ptr %t0, i64 32
   %add53.i = add i128 %add32.i, %conv52.i
   %shr56.i = lshr i128 %add53.i, 51
   %conv58.i = and i128 %shr56.i, 18446744073709551615
@@ -2341,10 +2341,10 @@ entry:
   %shr69.i85 = lshr i64 %add68.i84, 51
   %and70.i86 = and i64 %add68.i84, 2251799813685247
   %add71.i87 = add nuw nsw i64 %shr69.i85, %and49.i65
-  %arrayidx73.i88 = getelementptr inbounds i64, ptr %t1, i64 1
-  %arrayidx74.i89 = getelementptr inbounds i64, ptr %t1, i64 2
-  %arrayidx75.i90 = getelementptr inbounds i64, ptr %t1, i64 3
-  %arrayidx76.i91 = getelementptr inbounds i64, ptr %t1, i64 4
+  %arrayidx73.i88 = getelementptr inbounds i8, ptr %t1, i64 8
+  %arrayidx74.i89 = getelementptr inbounds i8, ptr %t1, i64 16
+  %arrayidx75.i90 = getelementptr inbounds i8, ptr %t1, i64 24
+  %arrayidx76.i91 = getelementptr inbounds i8, ptr %t1, i64 32
   %conv.i92 = zext nneg i64 %and67.i83 to i128
   %conv2.i94 = zext nneg i64 %and70.i86 to i128
   %conv4.i96 = zext nneg i64 %add71.i87 to i128
@@ -2888,10 +2888,10 @@ for.end31:                                        ; preds = %for.body26
   %shr69.i617 = lshr i64 %add68.i616, 51
   %and70.i618 = and i64 %add68.i616, 2251799813685247
   %add71.i619 = add nuw nsw i64 %shr69.i617, %and49.i597
-  %arrayidx73.i620 = getelementptr inbounds i64, ptr %t2, i64 1
-  %arrayidx74.i621 = getelementptr inbounds i64, ptr %t2, i64 2
-  %arrayidx75.i622 = getelementptr inbounds i64, ptr %t2, i64 3
-  %arrayidx76.i623 = getelementptr inbounds i64, ptr %t2, i64 4
+  %arrayidx73.i620 = getelementptr inbounds i8, ptr %t2, i64 8
+  %arrayidx74.i621 = getelementptr inbounds i8, ptr %t2, i64 16
+  %arrayidx75.i622 = getelementptr inbounds i8, ptr %t2, i64 24
+  %arrayidx76.i623 = getelementptr inbounds i8, ptr %t2, i64 32
   br label %for.body39
 
 for.body39:                                       ; preds = %for.end31, %for.body39
@@ -3639,7 +3639,7 @@ entry:
   %v = alloca [5 x i64], align 16
   %v3 = alloca [5 x i64], align 16
   %vxx = alloca [5 x i64], align 16
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   %s.val.i = load i64, ptr %s, align 1
   %and.i = and i64 %s.val.i, 2251799813685247
   %add.ptr.i = getelementptr i8, ptr %s, i64 6
@@ -3659,17 +3659,17 @@ entry:
   %shr13.i = lshr i64 %add.ptr11.val.i, 12
   %and14.i = and i64 %shr13.i, 2251799813685247
   store i64 %and.i, ptr %Y, align 8
-  %arrayidx15.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %h, i64 48
   store i64 %and2.i, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 2
+  %arrayidx16.i = getelementptr i8, ptr %h, i64 56
   store i64 %and6.i, ptr %arrayidx16.i, align 8
-  %arrayidx17.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 3
+  %arrayidx17.i = getelementptr i8, ptr %h, i64 64
   store i64 %and10.i, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 4
+  %arrayidx18.i = getelementptr i8, ptr %h, i64 72
   store i64 %and14.i, ptr %arrayidx18.i, align 8
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z, align 8
-  %arrayidx1.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %h, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %conv.i = zext nneg i64 %and.i to i128
   %conv2.i = zext nneg i64 %and2.i to i128
@@ -3736,13 +3736,13 @@ entry:
   %and70.i = and i64 %add68.i, 2251799813685247
   %add71.i = add nuw nsw i64 %shr69.i, %and49.i
   store i64 %and67.i, ptr %u, align 16
-  %arrayidx73.i = getelementptr inbounds i64, ptr %u, i64 1
+  %arrayidx73.i = getelementptr inbounds i8, ptr %u, i64 8
   store i64 %and70.i, ptr %arrayidx73.i, align 8
-  %arrayidx74.i = getelementptr inbounds i64, ptr %u, i64 2
+  %arrayidx74.i = getelementptr inbounds i8, ptr %u, i64 16
   store i64 %add71.i, ptr %arrayidx74.i, align 16
-  %arrayidx75.i = getelementptr inbounds i64, ptr %u, i64 3
+  %arrayidx75.i = getelementptr inbounds i8, ptr %u, i64 24
   store i64 %and55.i, ptr %arrayidx75.i, align 8
-  %arrayidx76.i = getelementptr inbounds i64, ptr %u, i64 4
+  %arrayidx76.i = getelementptr inbounds i8, ptr %u, i64 32
   store i64 %and61.i, ptr %arrayidx76.i, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %v, ptr noundef nonnull %u, ptr noundef nonnull @ed25519_d)
   %add18.i = add nuw nsw i64 %and67.i, 4503599627370457
@@ -3757,13 +3757,13 @@ entry:
   store i64 %add29.i, ptr %arrayidx76.i, align 16
   %0 = load i64, ptr %v, align 16
   %add.i36 = add i64 %0, 1
-  %arrayidx2.i37 = getelementptr inbounds i64, ptr %v, i64 1
+  %arrayidx2.i37 = getelementptr inbounds i8, ptr %v, i64 8
   %1 = load i64, ptr %arrayidx2.i37, align 8
-  %arrayidx5.i39 = getelementptr inbounds i64, ptr %v, i64 2
+  %arrayidx5.i39 = getelementptr inbounds i8, ptr %v, i64 16
   %2 = load i64, ptr %arrayidx5.i39, align 16
-  %arrayidx8.i = getelementptr inbounds i64, ptr %v, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %v, i64 24
   %3 = load i64, ptr %arrayidx8.i, align 8
-  %arrayidx11.i = getelementptr inbounds i64, ptr %v, i64 4
+  %arrayidx11.i = getelementptr inbounds i8, ptr %v, i64 32
   %4 = load i64, ptr %arrayidx11.i, align 16
   store i64 %add.i36, ptr %v, align 16
   store i64 %1, ptr %arrayidx2.i37, align 8
@@ -3820,10 +3820,10 @@ entry:
   %conv52.i95 = and i128 %shr50.i94, 18446744073709551615
   %add35.i101 = add i128 %mul34.i80, %mul36.i81
   %add37.i102 = add i128 %add35.i101, %mul33.i79
-  %arrayidx73.i116 = getelementptr inbounds i64, ptr %v3, i64 1
-  %arrayidx74.i117 = getelementptr inbounds i64, ptr %v3, i64 2
-  %arrayidx75.i118 = getelementptr inbounds i64, ptr %v3, i64 3
-  %arrayidx76.i119 = getelementptr inbounds i64, ptr %v3, i64 4
+  %arrayidx73.i116 = getelementptr inbounds i8, ptr %v3, i64 8
+  %arrayidx74.i117 = getelementptr inbounds i8, ptr %v3, i64 16
+  %arrayidx75.i118 = getelementptr inbounds i8, ptr %v3, i64 24
+  %arrayidx76.i119 = getelementptr inbounds i8, ptr %v3, i64 32
   %add53.i96 = add i128 %add32.i78, %conv52.i95
   %shr56.i99 = lshr i128 %add53.i96, 51
   %conv58.i100 = and i128 %shr56.i99, 18446744073709551615
@@ -3902,10 +3902,10 @@ entry:
   %conv52.i171 = and i128 %shr50.i170, 18446744073709551615
   %add35.i177 = add i128 %mul34.i156, %mul36.i157
   %add37.i178 = add i128 %add35.i177, %mul33.i155
-  %arrayidx73.i192 = getelementptr i64, ptr %h, i64 1
-  %arrayidx74.i193 = getelementptr i64, ptr %h, i64 2
-  %arrayidx75.i194 = getelementptr i64, ptr %h, i64 3
-  %arrayidx76.i195 = getelementptr i64, ptr %h, i64 4
+  %arrayidx73.i192 = getelementptr i8, ptr %h, i64 8
+  %arrayidx74.i193 = getelementptr i8, ptr %h, i64 16
+  %arrayidx75.i194 = getelementptr i8, ptr %h, i64 24
+  %arrayidx76.i195 = getelementptr i8, ptr %h, i64 32
   %add53.i172 = add i128 %add32.i154, %conv52.i171
   %shr56.i175 = lshr i128 %add53.i172, 51
   %conv58.i176 = and i128 %shr56.i175, 18446744073709551615
@@ -3988,10 +3988,10 @@ entry:
   %conv52.i247 = and i128 %shr50.i246, 18446744073709551615
   %add35.i253 = add i128 %mul34.i232, %mul36.i233
   %add37.i254 = add i128 %add35.i253, %mul33.i231
-  %arrayidx73.i268 = getelementptr inbounds i64, ptr %vxx, i64 1
-  %arrayidx74.i269 = getelementptr inbounds i64, ptr %vxx, i64 2
-  %arrayidx75.i270 = getelementptr inbounds i64, ptr %vxx, i64 3
-  %arrayidx76.i271 = getelementptr inbounds i64, ptr %vxx, i64 4
+  %arrayidx73.i268 = getelementptr inbounds i8, ptr %vxx, i64 8
+  %arrayidx74.i269 = getelementptr inbounds i8, ptr %vxx, i64 16
+  %arrayidx75.i270 = getelementptr inbounds i8, ptr %vxx, i64 24
+  %arrayidx76.i271 = getelementptr inbounds i8, ptr %vxx, i64 32
   %add53.i248 = add i128 %add32.i230, %conv52.i247
   %shr56.i251 = lshr i128 %add53.i248, 51
   %conv58.i252 = and i128 %shr56.i251, 18446744073709551615
@@ -4303,7 +4303,7 @@ if.then73:                                        ; preds = %if.end67
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then73, %if.end67
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %h, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %h, ptr noundef nonnull %Y)
   br label %return
 
@@ -4315,13 +4315,13 @@ return:                                           ; preds = %if.then, %if.end78
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define hidden void @_sodium_ge25519_p1p1_to_p2(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
-  %T = getelementptr inbounds %struct.ge25519_p1p1, ptr %p, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef %p, ptr noundef nonnull %T)
-  %Y = getelementptr inbounds %struct.ge25519_p2, ptr %r, i64 0, i32 1
-  %Y5 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p, i64 0, i32 1
-  %Z = getelementptr inbounds %struct.ge25519_p1p1, ptr %p, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %r, i64 40
+  %Y5 = getelementptr inbounds i8, ptr %p, i64 40
+  %Z = getelementptr inbounds i8, ptr %p, i64 80
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Y, ptr noundef nonnull %Y5, ptr noundef nonnull %Z)
-  %Z8 = getelementptr inbounds %struct.ge25519_p2, ptr %r, i64 0, i32 2
+  %Z8 = getelementptr inbounds i8, ptr %r, i64 80
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Z8, ptr noundef nonnull %Z, ptr noundef nonnull %T)
   ret void
 }
@@ -4329,15 +4329,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define hidden void @_sodium_ge25519_p1p1_to_p3(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
-  %T = getelementptr inbounds %struct.ge25519_p1p1, ptr %p, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef %p, ptr noundef nonnull %T)
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 1
-  %Y5 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p, i64 0, i32 1
-  %Z = getelementptr inbounds %struct.ge25519_p1p1, ptr %p, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %r, i64 40
+  %Y5 = getelementptr inbounds i8, ptr %p, i64 40
+  %Z = getelementptr inbounds i8, ptr %p, i64 80
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Y, ptr noundef nonnull %Y5, ptr noundef nonnull %Z)
-  %Z8 = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 2
+  %Z8 = getelementptr inbounds i8, ptr %r, i64 80
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Z8, ptr noundef nonnull %Z, ptr noundef nonnull %T)
-  %T14 = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 3
+  %T14 = getelementptr inbounds i8, ptr %r, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %T14, ptr noundef %p, ptr noundef nonnull %Y5)
   ret void
 }
@@ -4346,13 +4346,13 @@ entry:
 define hidden void @_sodium_ge25519_p2_to_p3(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %r, ptr noundef nonnull align 8 dereferenceable(40) %p, i64 40, i1 false)
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 1
-  %Y4 = getelementptr inbounds %struct.ge25519_p2, ptr %p, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %r, i64 40
+  %Y4 = getelementptr inbounds i8, ptr %p, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y, ptr noundef nonnull align 8 dereferenceable(40) %Y4, i64 40, i1 false)
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 2
-  %Z7 = getelementptr inbounds %struct.ge25519_p2, ptr %p, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %r, i64 80
+  %Z7 = getelementptr inbounds i8, ptr %p, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z, ptr noundef nonnull align 8 dereferenceable(40) %Z7, i64 40, i1 false)
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %r, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef %p, ptr noundef nonnull %Y4)
   ret void
 }
@@ -4363,24 +4363,24 @@ entry:
   %recip = alloca [5 x i64], align 16
   %x = alloca [5 x i64], align 16
   %y = alloca [5 x i64], align 16
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
   call void @_sodium_fe25519_invert(ptr noundef nonnull %recip, ptr noundef nonnull %Z)
   call fastcc void @fe25519_mul(ptr noundef nonnull %x, ptr noundef %h, ptr noundef nonnull %recip)
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef nonnull %recip)
   call void @_sodium_fe25519_tobytes(ptr noundef %s, ptr noundef nonnull %y)
   %0 = load i64, ptr %x, align 16
   %conv.i.i = zext i64 %0 to i128
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %x, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %arrayidx2.i.i, align 8
   %conv3.i.i = zext i64 %1 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %x, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load i64, ptr %arrayidx5.i.i, align 16
   %conv6.i.i = zext i64 %2 to i128
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %x, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %x, i64 24
   %3 = load i64, ptr %arrayidx8.i.i, align 8
   %conv9.i.i = zext i64 %3 to i128
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %x, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %x, i64 32
   %4 = load i64, ptr %arrayidx11.i.i, align 16
   %conv12.i.i = zext i64 %4 to i128
   %shr.i.i = lshr i128 %conv.i.i, 51
@@ -4442,24 +4442,24 @@ entry:
   %recip = alloca [5 x i64], align 16
   %x = alloca [5 x i64], align 16
   %y = alloca [5 x i64], align 16
-  %Z = getelementptr inbounds %struct.ge25519_p2, ptr %h, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
   call void @_sodium_fe25519_invert(ptr noundef nonnull %recip, ptr noundef nonnull %Z)
   call fastcc void @fe25519_mul(ptr noundef nonnull %x, ptr noundef %h, ptr noundef nonnull %recip)
-  %Y = getelementptr inbounds %struct.ge25519_p2, ptr %h, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef nonnull %recip)
   call void @_sodium_fe25519_tobytes(ptr noundef %s, ptr noundef nonnull %y)
   %0 = load i64, ptr %x, align 16
   %conv.i.i = zext i64 %0 to i128
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %x, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %arrayidx2.i.i, align 8
   %conv3.i.i = zext i64 %1 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %x, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load i64, ptr %arrayidx5.i.i, align 16
   %conv6.i.i = zext i64 %2 to i128
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %x, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %x, i64 24
   %3 = load i64, ptr %arrayidx8.i.i, align 8
   %conv9.i.i = zext i64 %3 to i128
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %x, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %x, i64 32
   %4 = load i64, ptr %arrayidx11.i.i, align 16
   %conv12.i.i = zext i64 %4 to i128
   %shr.i.i = lshr i128 %conv.i.i, 51
@@ -4712,40 +4712,40 @@ for.inc73.i36:                                    ; preds = %for.inc70.i62, %if.
   br i1 %exitcond70.not.i38, label %slide_vartime.exit70, label %for.body10.i28, !llvm.loop !24
 
 slide_vartime.exit70:                             ; preds = %for.inc73.i36
-  %Y.i = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %A, i64 40
   %18 = load i64, ptr %Y.i, align 8
   %19 = load i64, ptr %A, align 8
   %add.i.i = add i64 %19, %18
-  %arrayidx2.i.i = getelementptr %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 1
+  %arrayidx2.i.i = getelementptr i8, ptr %A, i64 48
   %20 = load i64, ptr %arrayidx2.i.i, align 8
-  %arrayidx3.i.i = getelementptr i64, ptr %A, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %A, i64 8
   %21 = load i64, ptr %arrayidx3.i.i, align 8
   %add4.i.i = add i64 %21, %20
-  %arrayidx5.i.i = getelementptr %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 2
+  %arrayidx5.i.i = getelementptr i8, ptr %A, i64 56
   %22 = load i64, ptr %arrayidx5.i.i, align 8
-  %arrayidx6.i.i = getelementptr i64, ptr %A, i64 2
+  %arrayidx6.i.i = getelementptr i8, ptr %A, i64 16
   %23 = load i64, ptr %arrayidx6.i.i, align 8
   %add7.i.i = add i64 %23, %22
-  %arrayidx8.i.i = getelementptr %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 3
+  %arrayidx8.i.i = getelementptr i8, ptr %A, i64 64
   %24 = load i64, ptr %arrayidx8.i.i, align 8
-  %arrayidx9.i.i = getelementptr i64, ptr %A, i64 3
+  %arrayidx9.i.i = getelementptr i8, ptr %A, i64 24
   %25 = load i64, ptr %arrayidx9.i.i, align 8
   %add10.i.i = add i64 %25, %24
-  %arrayidx11.i.i = getelementptr %struct.ge25519_p3, ptr %A, i64 0, i32 1, i64 4
+  %arrayidx11.i.i = getelementptr i8, ptr %A, i64 72
   %26 = load i64, ptr %arrayidx11.i.i, align 8
-  %arrayidx12.i.i = getelementptr i64, ptr %A, i64 4
+  %arrayidx12.i.i = getelementptr i8, ptr %A, i64 32
   %27 = load i64, ptr %arrayidx12.i.i, align 8
   %add13.i.i = add i64 %27, %26
   store i64 %add.i.i, ptr %Ai, align 16
-  %arrayidx15.i.i = getelementptr inbounds i64, ptr %Ai, i64 1
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %Ai, i64 8
   store i64 %add4.i.i, ptr %arrayidx15.i.i, align 8
-  %arrayidx16.i.i = getelementptr inbounds i64, ptr %Ai, i64 2
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %Ai, i64 16
   store i64 %add7.i.i, ptr %arrayidx16.i.i, align 16
-  %arrayidx17.i.i = getelementptr inbounds i64, ptr %Ai, i64 3
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %Ai, i64 24
   store i64 %add10.i.i, ptr %arrayidx17.i.i, align 8
-  %arrayidx18.i.i = getelementptr inbounds i64, ptr %Ai, i64 4
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %Ai, i64 32
   store i64 %add13.i.i, ptr %arrayidx18.i.i, align 16
-  %YminusX.i = getelementptr inbounds %struct.ge25519_cached, ptr %Ai, i64 0, i32 1
+  %YminusX.i = getelementptr inbounds i8, ptr %Ai, i64 40
   %shr.i.i = lshr i64 %19, 51
   %add.i11.i = add i64 %21, %shr.i.i
   %and.i.i = and i64 %19, 2251799813685247
@@ -4773,80 +4773,80 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i = add i64 %26, 4503599627370494
   %sub30.i.i = sub i64 %add29.i.i, %and16.i.i
   store i64 %sub.i.i, ptr %YminusX.i, align 8
-  %arrayidx32.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %Ai, i64 0, i32 1, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %Ai, i64 48
   store i64 %sub21.i.i, ptr %arrayidx32.i.i, align 16
-  %arrayidx33.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %Ai, i64 0, i32 1, i64 2
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %Ai, i64 56
   store i64 %sub24.i.i, ptr %arrayidx33.i.i, align 8
-  %arrayidx34.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %Ai, i64 0, i32 1, i64 3
+  %arrayidx34.i.i = getelementptr inbounds i8, ptr %Ai, i64 64
   store i64 %sub27.i.i, ptr %arrayidx34.i.i, align 16
-  %arrayidx35.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %Ai, i64 0, i32 1, i64 4
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %Ai, i64 72
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 8
-  %Z.i = getelementptr inbounds %struct.ge25519_cached, ptr %Ai, i64 0, i32 2
-  %Z9.i = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %Ai, i64 80
+  %Z9.i = getelementptr inbounds i8, ptr %A, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  %T2d.i = getelementptr inbounds %struct.ge25519_cached, ptr %Ai, i64 0, i32 3
-  %T.i = getelementptr inbounds %struct.ge25519_p3, ptr %A, i64 0, i32 3
+  %T2d.i = getelementptr inbounds i8, ptr %Ai, i64 120
+  %T.i = getelementptr inbounds i8, ptr %A, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i, ptr noundef nonnull %T.i, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %A, i64 40, i1 false)
-  %Y.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 1
+  %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
-  %Z.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 2
+  %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
-  %T.i71 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 3
+  %T.i71 = getelementptr inbounds i8, ptr %t, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %A2, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
-  %Y.i72 = getelementptr inbounds %struct.ge25519_p3, ptr %A2, i64 0, i32 1
-  %Y5.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 1
-  %Z.i73 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 2
+  %Y.i72 = getelementptr inbounds i8, ptr %A2, i64 40
+  %Y5.i = getelementptr inbounds i8, ptr %t, i64 40
+  %Z.i73 = getelementptr inbounds i8, ptr %t, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i72, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
-  %Z8.i = getelementptr inbounds %struct.ge25519_p3, ptr %A2, i64 0, i32 2
+  %Z8.i = getelementptr inbounds i8, ptr %A2, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
-  %T14.i = getelementptr inbounds %struct.ge25519_p3, ptr %A2, i64 0, i32 3
+  %T14.i = getelementptr inbounds i8, ptr %A2, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %Ai)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
-  %Y.i75 = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 1
+  %Y.i75 = getelementptr inbounds i8, ptr %u, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
-  %Z8.i78 = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 2
+  %Z8.i78 = getelementptr inbounds i8, ptr %u, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
-  %T14.i79 = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 3
+  %T14.i79 = getelementptr inbounds i8, ptr %u, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx3 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %Ai, i64 160
   %28 = load i64, ptr %Y.i75, align 8
   %29 = load i64, ptr %u, align 8
   %add.i.i81 = add i64 %29, %28
-  %arrayidx2.i.i82 = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 1, i64 1
+  %arrayidx2.i.i82 = getelementptr inbounds i8, ptr %u, i64 48
   %30 = load i64, ptr %arrayidx2.i.i82, align 8
-  %arrayidx3.i.i83 = getelementptr inbounds i64, ptr %u, i64 1
+  %arrayidx3.i.i83 = getelementptr inbounds i8, ptr %u, i64 8
   %31 = load i64, ptr %arrayidx3.i.i83, align 8
   %add4.i.i84 = add i64 %31, %30
-  %arrayidx5.i.i85 = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 1, i64 2
+  %arrayidx5.i.i85 = getelementptr inbounds i8, ptr %u, i64 56
   %32 = load i64, ptr %arrayidx5.i.i85, align 8
-  %arrayidx6.i.i86 = getelementptr inbounds i64, ptr %u, i64 2
+  %arrayidx6.i.i86 = getelementptr inbounds i8, ptr %u, i64 16
   %33 = load i64, ptr %arrayidx6.i.i86, align 8
   %add7.i.i87 = add i64 %33, %32
-  %arrayidx8.i.i88 = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 1, i64 3
+  %arrayidx8.i.i88 = getelementptr inbounds i8, ptr %u, i64 64
   %34 = load i64, ptr %arrayidx8.i.i88, align 8
-  %arrayidx9.i.i89 = getelementptr inbounds i64, ptr %u, i64 3
+  %arrayidx9.i.i89 = getelementptr inbounds i8, ptr %u, i64 24
   %35 = load i64, ptr %arrayidx9.i.i89, align 8
   %add10.i.i90 = add i64 %35, %34
-  %arrayidx11.i.i91 = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 1, i64 4
+  %arrayidx11.i.i91 = getelementptr inbounds i8, ptr %u, i64 72
   %36 = load i64, ptr %arrayidx11.i.i91, align 8
-  %arrayidx12.i.i92 = getelementptr inbounds i64, ptr %u, i64 4
+  %arrayidx12.i.i92 = getelementptr inbounds i8, ptr %u, i64 32
   %37 = load i64, ptr %arrayidx12.i.i92, align 8
   %add13.i.i93 = add i64 %37, %36
   store i64 %add.i.i81, ptr %arrayidx3, align 16
-  %arrayidx15.i.i94 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 0, i64 1
+  %arrayidx15.i.i94 = getelementptr inbounds i8, ptr %Ai, i64 168
   store i64 %add4.i.i84, ptr %arrayidx15.i.i94, align 8
-  %arrayidx16.i.i95 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 0, i64 2
+  %arrayidx16.i.i95 = getelementptr inbounds i8, ptr %Ai, i64 176
   store i64 %add7.i.i87, ptr %arrayidx16.i.i95, align 16
-  %arrayidx17.i.i96 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 0, i64 3
+  %arrayidx17.i.i96 = getelementptr inbounds i8, ptr %Ai, i64 184
   store i64 %add10.i.i90, ptr %arrayidx17.i.i96, align 8
-  %arrayidx18.i.i97 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 0, i64 4
+  %arrayidx18.i.i97 = getelementptr inbounds i8, ptr %Ai, i64 192
   store i64 %add13.i.i93, ptr %arrayidx18.i.i97, align 16
-  %YminusX.i98 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 1
+  %YminusX.i98 = getelementptr inbounds i8, ptr %Ai, i64 200
   %shr.i.i99 = lshr i64 %29, 51
   %add.i11.i100 = add i64 %31, %shr.i.i99
   %and.i.i101 = and i64 %29, 2251799813685247
@@ -4874,24 +4874,24 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i123 = add i64 %36, 4503599627370494
   %sub30.i.i124 = sub i64 %add29.i.i123, %and16.i.i112
   store i64 %sub.i.i116, ptr %YminusX.i98, align 8
-  %arrayidx32.i.i125 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 1, i64 1
+  %arrayidx32.i.i125 = getelementptr inbounds i8, ptr %Ai, i64 208
   store i64 %sub21.i.i118, ptr %arrayidx32.i.i125, align 16
-  %arrayidx33.i.i126 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 1, i64 2
+  %arrayidx33.i.i126 = getelementptr inbounds i8, ptr %Ai, i64 216
   store i64 %sub24.i.i120, ptr %arrayidx33.i.i126, align 8
-  %arrayidx34.i.i127 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 1, i64 3
+  %arrayidx34.i.i127 = getelementptr inbounds i8, ptr %Ai, i64 224
   store i64 %sub27.i.i122, ptr %arrayidx34.i.i127, align 16
-  %arrayidx35.i.i128 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 1, i64 4
+  %arrayidx35.i.i128 = getelementptr inbounds i8, ptr %Ai, i64 232
   store i64 %sub30.i.i124, ptr %arrayidx35.i.i128, align 8
-  %Z.i129 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 2
+  %Z.i129 = getelementptr inbounds i8, ptr %Ai, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i129, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i131 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 1, i32 3
+  %T2d.i131 = getelementptr inbounds i8, ptr %Ai, i64 280
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i131, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx3)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx5 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %Ai, i64 320
   %38 = load i64, ptr %Y.i75, align 8
   %39 = load i64, ptr %u, align 8
   %add.i.i140 = add i64 %39, %38
@@ -4908,15 +4908,15 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %47 = load i64, ptr %arrayidx12.i.i92, align 8
   %add13.i.i152 = add i64 %47, %46
   store i64 %add.i.i140, ptr %arrayidx5, align 16
-  %arrayidx15.i.i153 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 0, i64 1
+  %arrayidx15.i.i153 = getelementptr inbounds i8, ptr %Ai, i64 328
   store i64 %add4.i.i143, ptr %arrayidx15.i.i153, align 8
-  %arrayidx16.i.i154 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 0, i64 2
+  %arrayidx16.i.i154 = getelementptr inbounds i8, ptr %Ai, i64 336
   store i64 %add7.i.i146, ptr %arrayidx16.i.i154, align 16
-  %arrayidx17.i.i155 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 0, i64 3
+  %arrayidx17.i.i155 = getelementptr inbounds i8, ptr %Ai, i64 344
   store i64 %add10.i.i149, ptr %arrayidx17.i.i155, align 8
-  %arrayidx18.i.i156 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 0, i64 4
+  %arrayidx18.i.i156 = getelementptr inbounds i8, ptr %Ai, i64 352
   store i64 %add13.i.i152, ptr %arrayidx18.i.i156, align 16
-  %YminusX.i157 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 1
+  %YminusX.i157 = getelementptr inbounds i8, ptr %Ai, i64 360
   %shr.i.i158 = lshr i64 %39, 51
   %add.i11.i159 = add i64 %41, %shr.i.i158
   %and.i.i160 = and i64 %39, 2251799813685247
@@ -4944,24 +4944,24 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i182 = add i64 %46, 4503599627370494
   %sub30.i.i183 = sub i64 %add29.i.i182, %and16.i.i171
   store i64 %sub.i.i175, ptr %YminusX.i157, align 8
-  %arrayidx32.i.i184 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 1, i64 1
+  %arrayidx32.i.i184 = getelementptr inbounds i8, ptr %Ai, i64 368
   store i64 %sub21.i.i177, ptr %arrayidx32.i.i184, align 16
-  %arrayidx33.i.i185 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 1, i64 2
+  %arrayidx33.i.i185 = getelementptr inbounds i8, ptr %Ai, i64 376
   store i64 %sub24.i.i179, ptr %arrayidx33.i.i185, align 8
-  %arrayidx34.i.i186 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 1, i64 3
+  %arrayidx34.i.i186 = getelementptr inbounds i8, ptr %Ai, i64 384
   store i64 %sub27.i.i181, ptr %arrayidx34.i.i186, align 16
-  %arrayidx35.i.i187 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 1, i64 4
+  %arrayidx35.i.i187 = getelementptr inbounds i8, ptr %Ai, i64 392
   store i64 %sub30.i.i183, ptr %arrayidx35.i.i187, align 8
-  %Z.i188 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 2
+  %Z.i188 = getelementptr inbounds i8, ptr %Ai, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i188, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i190 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 2, i32 3
+  %T2d.i190 = getelementptr inbounds i8, ptr %Ai, i64 440
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i190, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx5)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx7 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %Ai, i64 480
   %48 = load i64, ptr %Y.i75, align 8
   %49 = load i64, ptr %u, align 8
   %add.i.i199 = add i64 %49, %48
@@ -4978,15 +4978,15 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %57 = load i64, ptr %arrayidx12.i.i92, align 8
   %add13.i.i211 = add i64 %57, %56
   store i64 %add.i.i199, ptr %arrayidx7, align 16
-  %arrayidx15.i.i212 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 0, i64 1
+  %arrayidx15.i.i212 = getelementptr inbounds i8, ptr %Ai, i64 488
   store i64 %add4.i.i202, ptr %arrayidx15.i.i212, align 8
-  %arrayidx16.i.i213 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 0, i64 2
+  %arrayidx16.i.i213 = getelementptr inbounds i8, ptr %Ai, i64 496
   store i64 %add7.i.i205, ptr %arrayidx16.i.i213, align 16
-  %arrayidx17.i.i214 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 0, i64 3
+  %arrayidx17.i.i214 = getelementptr inbounds i8, ptr %Ai, i64 504
   store i64 %add10.i.i208, ptr %arrayidx17.i.i214, align 8
-  %arrayidx18.i.i215 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 0, i64 4
+  %arrayidx18.i.i215 = getelementptr inbounds i8, ptr %Ai, i64 512
   store i64 %add13.i.i211, ptr %arrayidx18.i.i215, align 16
-  %YminusX.i216 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 1
+  %YminusX.i216 = getelementptr inbounds i8, ptr %Ai, i64 520
   %shr.i.i217 = lshr i64 %49, 51
   %add.i11.i218 = add i64 %51, %shr.i.i217
   %and.i.i219 = and i64 %49, 2251799813685247
@@ -5014,24 +5014,24 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i241 = add i64 %56, 4503599627370494
   %sub30.i.i242 = sub i64 %add29.i.i241, %and16.i.i230
   store i64 %sub.i.i234, ptr %YminusX.i216, align 8
-  %arrayidx32.i.i243 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 1, i64 1
+  %arrayidx32.i.i243 = getelementptr inbounds i8, ptr %Ai, i64 528
   store i64 %sub21.i.i236, ptr %arrayidx32.i.i243, align 16
-  %arrayidx33.i.i244 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 1, i64 2
+  %arrayidx33.i.i244 = getelementptr inbounds i8, ptr %Ai, i64 536
   store i64 %sub24.i.i238, ptr %arrayidx33.i.i244, align 8
-  %arrayidx34.i.i245 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 1, i64 3
+  %arrayidx34.i.i245 = getelementptr inbounds i8, ptr %Ai, i64 544
   store i64 %sub27.i.i240, ptr %arrayidx34.i.i245, align 16
-  %arrayidx35.i.i246 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 1, i64 4
+  %arrayidx35.i.i246 = getelementptr inbounds i8, ptr %Ai, i64 552
   store i64 %sub30.i.i242, ptr %arrayidx35.i.i246, align 8
-  %Z.i247 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 2
+  %Z.i247 = getelementptr inbounds i8, ptr %Ai, i64 560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i247, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i249 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 3, i32 3
+  %T2d.i249 = getelementptr inbounds i8, ptr %Ai, i64 600
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i249, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx7)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx9 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %Ai, i64 640
   %58 = load i64, ptr %Y.i75, align 8
   %59 = load i64, ptr %u, align 8
   %add.i.i258 = add i64 %59, %58
@@ -5048,15 +5048,15 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %67 = load i64, ptr %arrayidx12.i.i92, align 8
   %add13.i.i270 = add i64 %67, %66
   store i64 %add.i.i258, ptr %arrayidx9, align 16
-  %arrayidx15.i.i271 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 0, i64 1
+  %arrayidx15.i.i271 = getelementptr inbounds i8, ptr %Ai, i64 648
   store i64 %add4.i.i261, ptr %arrayidx15.i.i271, align 8
-  %arrayidx16.i.i272 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 0, i64 2
+  %arrayidx16.i.i272 = getelementptr inbounds i8, ptr %Ai, i64 656
   store i64 %add7.i.i264, ptr %arrayidx16.i.i272, align 16
-  %arrayidx17.i.i273 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 0, i64 3
+  %arrayidx17.i.i273 = getelementptr inbounds i8, ptr %Ai, i64 664
   store i64 %add10.i.i267, ptr %arrayidx17.i.i273, align 8
-  %arrayidx18.i.i274 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 0, i64 4
+  %arrayidx18.i.i274 = getelementptr inbounds i8, ptr %Ai, i64 672
   store i64 %add13.i.i270, ptr %arrayidx18.i.i274, align 16
-  %YminusX.i275 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 1
+  %YminusX.i275 = getelementptr inbounds i8, ptr %Ai, i64 680
   %shr.i.i276 = lshr i64 %59, 51
   %add.i11.i277 = add i64 %61, %shr.i.i276
   %and.i.i278 = and i64 %59, 2251799813685247
@@ -5084,24 +5084,24 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i300 = add i64 %66, 4503599627370494
   %sub30.i.i301 = sub i64 %add29.i.i300, %and16.i.i289
   store i64 %sub.i.i293, ptr %YminusX.i275, align 8
-  %arrayidx32.i.i302 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 1, i64 1
+  %arrayidx32.i.i302 = getelementptr inbounds i8, ptr %Ai, i64 688
   store i64 %sub21.i.i295, ptr %arrayidx32.i.i302, align 16
-  %arrayidx33.i.i303 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 1, i64 2
+  %arrayidx33.i.i303 = getelementptr inbounds i8, ptr %Ai, i64 696
   store i64 %sub24.i.i297, ptr %arrayidx33.i.i303, align 8
-  %arrayidx34.i.i304 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 1, i64 3
+  %arrayidx34.i.i304 = getelementptr inbounds i8, ptr %Ai, i64 704
   store i64 %sub27.i.i299, ptr %arrayidx34.i.i304, align 16
-  %arrayidx35.i.i305 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 1, i64 4
+  %arrayidx35.i.i305 = getelementptr inbounds i8, ptr %Ai, i64 712
   store i64 %sub30.i.i301, ptr %arrayidx35.i.i305, align 8
-  %Z.i306 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 2
+  %Z.i306 = getelementptr inbounds i8, ptr %Ai, i64 720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i306, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i308 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 4, i32 3
+  %T2d.i308 = getelementptr inbounds i8, ptr %Ai, i64 760
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i308, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx9)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx11 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5
+  %arrayidx11 = getelementptr inbounds i8, ptr %Ai, i64 800
   %68 = load i64, ptr %Y.i75, align 8
   %69 = load i64, ptr %u, align 8
   %add.i.i317 = add i64 %69, %68
@@ -5118,15 +5118,15 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %77 = load i64, ptr %arrayidx12.i.i92, align 8
   %add13.i.i329 = add i64 %77, %76
   store i64 %add.i.i317, ptr %arrayidx11, align 16
-  %arrayidx15.i.i330 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 0, i64 1
+  %arrayidx15.i.i330 = getelementptr inbounds i8, ptr %Ai, i64 808
   store i64 %add4.i.i320, ptr %arrayidx15.i.i330, align 8
-  %arrayidx16.i.i331 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 0, i64 2
+  %arrayidx16.i.i331 = getelementptr inbounds i8, ptr %Ai, i64 816
   store i64 %add7.i.i323, ptr %arrayidx16.i.i331, align 16
-  %arrayidx17.i.i332 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 0, i64 3
+  %arrayidx17.i.i332 = getelementptr inbounds i8, ptr %Ai, i64 824
   store i64 %add10.i.i326, ptr %arrayidx17.i.i332, align 8
-  %arrayidx18.i.i333 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 0, i64 4
+  %arrayidx18.i.i333 = getelementptr inbounds i8, ptr %Ai, i64 832
   store i64 %add13.i.i329, ptr %arrayidx18.i.i333, align 16
-  %YminusX.i334 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 1
+  %YminusX.i334 = getelementptr inbounds i8, ptr %Ai, i64 840
   %shr.i.i335 = lshr i64 %69, 51
   %add.i11.i336 = add i64 %71, %shr.i.i335
   %and.i.i337 = and i64 %69, 2251799813685247
@@ -5154,24 +5154,24 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i359 = add i64 %76, 4503599627370494
   %sub30.i.i360 = sub i64 %add29.i.i359, %and16.i.i348
   store i64 %sub.i.i352, ptr %YminusX.i334, align 8
-  %arrayidx32.i.i361 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 1, i64 1
+  %arrayidx32.i.i361 = getelementptr inbounds i8, ptr %Ai, i64 848
   store i64 %sub21.i.i354, ptr %arrayidx32.i.i361, align 16
-  %arrayidx33.i.i362 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 1, i64 2
+  %arrayidx33.i.i362 = getelementptr inbounds i8, ptr %Ai, i64 856
   store i64 %sub24.i.i356, ptr %arrayidx33.i.i362, align 8
-  %arrayidx34.i.i363 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 1, i64 3
+  %arrayidx34.i.i363 = getelementptr inbounds i8, ptr %Ai, i64 864
   store i64 %sub27.i.i358, ptr %arrayidx34.i.i363, align 16
-  %arrayidx35.i.i364 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 1, i64 4
+  %arrayidx35.i.i364 = getelementptr inbounds i8, ptr %Ai, i64 872
   store i64 %sub30.i.i360, ptr %arrayidx35.i.i364, align 8
-  %Z.i365 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 2
+  %Z.i365 = getelementptr inbounds i8, ptr %Ai, i64 880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i365, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i367 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 5, i32 3
+  %T2d.i367 = getelementptr inbounds i8, ptr %Ai, i64 920
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i367, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx11)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx13 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6
+  %arrayidx13 = getelementptr inbounds i8, ptr %Ai, i64 960
   %78 = load i64, ptr %Y.i75, align 8
   %79 = load i64, ptr %u, align 8
   %add.i.i376 = add i64 %79, %78
@@ -5188,15 +5188,15 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %87 = load i64, ptr %arrayidx12.i.i92, align 8
   %add13.i.i388 = add i64 %87, %86
   store i64 %add.i.i376, ptr %arrayidx13, align 16
-  %arrayidx15.i.i389 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 0, i64 1
+  %arrayidx15.i.i389 = getelementptr inbounds i8, ptr %Ai, i64 968
   store i64 %add4.i.i379, ptr %arrayidx15.i.i389, align 8
-  %arrayidx16.i.i390 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 0, i64 2
+  %arrayidx16.i.i390 = getelementptr inbounds i8, ptr %Ai, i64 976
   store i64 %add7.i.i382, ptr %arrayidx16.i.i390, align 16
-  %arrayidx17.i.i391 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 0, i64 3
+  %arrayidx17.i.i391 = getelementptr inbounds i8, ptr %Ai, i64 984
   store i64 %add10.i.i385, ptr %arrayidx17.i.i391, align 8
-  %arrayidx18.i.i392 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 0, i64 4
+  %arrayidx18.i.i392 = getelementptr inbounds i8, ptr %Ai, i64 992
   store i64 %add13.i.i388, ptr %arrayidx18.i.i392, align 16
-  %YminusX.i393 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 1
+  %YminusX.i393 = getelementptr inbounds i8, ptr %Ai, i64 1000
   %shr.i.i394 = lshr i64 %79, 51
   %add.i11.i395 = add i64 %81, %shr.i.i394
   %and.i.i396 = and i64 %79, 2251799813685247
@@ -5224,24 +5224,24 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i418 = add i64 %86, 4503599627370494
   %sub30.i.i419 = sub i64 %add29.i.i418, %and16.i.i407
   store i64 %sub.i.i411, ptr %YminusX.i393, align 8
-  %arrayidx32.i.i420 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 1, i64 1
+  %arrayidx32.i.i420 = getelementptr inbounds i8, ptr %Ai, i64 1008
   store i64 %sub21.i.i413, ptr %arrayidx32.i.i420, align 16
-  %arrayidx33.i.i421 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 1, i64 2
+  %arrayidx33.i.i421 = getelementptr inbounds i8, ptr %Ai, i64 1016
   store i64 %sub24.i.i415, ptr %arrayidx33.i.i421, align 8
-  %arrayidx34.i.i422 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 1, i64 3
+  %arrayidx34.i.i422 = getelementptr inbounds i8, ptr %Ai, i64 1024
   store i64 %sub27.i.i417, ptr %arrayidx34.i.i422, align 16
-  %arrayidx35.i.i423 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 1, i64 4
+  %arrayidx35.i.i423 = getelementptr inbounds i8, ptr %Ai, i64 1032
   store i64 %sub30.i.i419, ptr %arrayidx35.i.i423, align 8
-  %Z.i424 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 2
+  %Z.i424 = getelementptr inbounds i8, ptr %Ai, i64 1040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i424, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i426 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 6, i32 3
+  %T2d.i426 = getelementptr inbounds i8, ptr %Ai, i64 1080
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i426, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t, ptr noundef nonnull %A2, ptr noundef nonnull %arrayidx13)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %t, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i75, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i73)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z.i73, ptr noundef nonnull %T.i71)
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i79, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
-  %arrayidx15 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7
+  %arrayidx15 = getelementptr inbounds i8, ptr %Ai, i64 1120
   %88 = load i64, ptr %Y.i75, align 8
   %89 = load i64, ptr %u, align 8
   %add.i.i435 = add i64 %89, %88
@@ -5258,15 +5258,15 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %97 = load i64, ptr %arrayidx12.i.i92, align 8
   %add13.i.i447 = add i64 %97, %96
   store i64 %add.i.i435, ptr %arrayidx15, align 16
-  %arrayidx15.i.i448 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 0, i64 1
+  %arrayidx15.i.i448 = getelementptr inbounds i8, ptr %Ai, i64 1128
   store i64 %add4.i.i438, ptr %arrayidx15.i.i448, align 8
-  %arrayidx16.i.i449 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 0, i64 2
+  %arrayidx16.i.i449 = getelementptr inbounds i8, ptr %Ai, i64 1136
   store i64 %add7.i.i441, ptr %arrayidx16.i.i449, align 16
-  %arrayidx17.i.i450 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 0, i64 3
+  %arrayidx17.i.i450 = getelementptr inbounds i8, ptr %Ai, i64 1144
   store i64 %add10.i.i444, ptr %arrayidx17.i.i450, align 8
-  %arrayidx18.i.i451 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 0, i64 4
+  %arrayidx18.i.i451 = getelementptr inbounds i8, ptr %Ai, i64 1152
   store i64 %add13.i.i447, ptr %arrayidx18.i.i451, align 16
-  %YminusX.i452 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 1
+  %YminusX.i452 = getelementptr inbounds i8, ptr %Ai, i64 1160
   %shr.i.i453 = lshr i64 %89, 51
   %add.i11.i454 = add i64 %91, %shr.i.i453
   %and.i.i455 = and i64 %89, 2251799813685247
@@ -5294,26 +5294,26 @@ slide_vartime.exit70:                             ; preds = %for.inc73.i36
   %add29.i.i477 = add i64 %96, 4503599627370494
   %sub30.i.i478 = sub i64 %add29.i.i477, %and16.i.i466
   store i64 %sub.i.i470, ptr %YminusX.i452, align 8
-  %arrayidx32.i.i479 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 1, i64 1
+  %arrayidx32.i.i479 = getelementptr inbounds i8, ptr %Ai, i64 1168
   store i64 %sub21.i.i472, ptr %arrayidx32.i.i479, align 16
-  %arrayidx33.i.i480 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 1, i64 2
+  %arrayidx33.i.i480 = getelementptr inbounds i8, ptr %Ai, i64 1176
   store i64 %sub24.i.i474, ptr %arrayidx33.i.i480, align 8
-  %arrayidx34.i.i481 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 1, i64 3
+  %arrayidx34.i.i481 = getelementptr inbounds i8, ptr %Ai, i64 1184
   store i64 %sub27.i.i476, ptr %arrayidx34.i.i481, align 16
-  %arrayidx35.i.i482 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 1, i64 4
+  %arrayidx35.i.i482 = getelementptr inbounds i8, ptr %Ai, i64 1192
   store i64 %sub30.i.i478, ptr %arrayidx35.i.i482, align 8
-  %Z.i483 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 2
+  %Z.i483 = getelementptr inbounds i8, ptr %Ai, i64 1200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i483, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i78, i64 40, i1 false)
-  %T2d.i485 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 7, i32 3
+  %T2d.i485 = getelementptr inbounds i8, ptr %Ai, i64 1240
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i485, ptr noundef nonnull %T14.i79, ptr noundef nonnull @ed25519_d2)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %r, i8 0, i64 40, i1 false)
-  %Y.i487 = getelementptr inbounds %struct.ge25519_p2, ptr %r, i64 0, i32 1
+  %Y.i487 = getelementptr inbounds i8, ptr %r, i64 40
   store i64 1, ptr %Y.i487, align 8
-  %arrayidx1.i.i = getelementptr %struct.ge25519_p2, ptr %r, i64 0, i32 1, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %r, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
-  %Z.i488 = getelementptr inbounds %struct.ge25519_p2, ptr %r, i64 0, i32 2
+  %Z.i488 = getelementptr inbounds i8, ptr %r, i64 80
   store i64 1, ptr %Z.i488, align 8
-  %arrayidx1.i3.i = getelementptr %struct.ge25519_p2, ptr %r, i64 0, i32 2, i64 1
+  %arrayidx1.i3.i = getelementptr i8, ptr %r, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i3.i, i8 0, i64 32, i1 false)
   br label %for.body
 
@@ -5341,26 +5341,26 @@ for.end:                                          ; preds = %for.body, %lor.lhs.
   br i1 %cmp22624, label %for.body24.lr.ph, label %for.end80
 
 for.body24.lr.ph:                                 ; preds = %for.end
-  %arrayidx15.i.i515 = getelementptr inbounds i64, ptr %t, i64 1
-  %arrayidx16.i.i516 = getelementptr inbounds i64, ptr %t, i64 2
-  %arrayidx17.i.i517 = getelementptr inbounds i64, ptr %t, i64 3
-  %arrayidx18.i.i518 = getelementptr inbounds i64, ptr %t, i64 4
-  %arrayidx32.i.i541 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 1, i64 1
-  %arrayidx33.i.i542 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 1, i64 2
-  %arrayidx34.i.i543 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 1, i64 3
-  %arrayidx35.i.i544 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 1, i64 4
-  %arrayidx19.i70.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 2, i64 1
-  %arrayidx22.i73.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 2, i64 2
-  %arrayidx25.i76.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 2, i64 3
-  %arrayidx28.i79.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 2, i64 4
-  %arrayidx1.i103.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 3, i64 1
-  %arrayidx2.i104.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 3, i64 2
-  %arrayidx3.i105.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 3, i64 3
-  %arrayidx4.i106.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t, i64 0, i32 3, i64 4
-  %arrayidx2.i29.i = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 2, i64 1
-  %arrayidx5.i32.i = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 2, i64 2
-  %arrayidx8.i35.i = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 2, i64 3
-  %arrayidx11.i38.i = getelementptr inbounds %struct.ge25519_p3, ptr %u, i64 0, i32 2, i64 4
+  %arrayidx15.i.i515 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx16.i.i516 = getelementptr inbounds i8, ptr %t, i64 16
+  %arrayidx17.i.i517 = getelementptr inbounds i8, ptr %t, i64 24
+  %arrayidx18.i.i518 = getelementptr inbounds i8, ptr %t, i64 32
+  %arrayidx32.i.i541 = getelementptr inbounds i8, ptr %t, i64 48
+  %arrayidx33.i.i542 = getelementptr inbounds i8, ptr %t, i64 56
+  %arrayidx34.i.i543 = getelementptr inbounds i8, ptr %t, i64 64
+  %arrayidx35.i.i544 = getelementptr inbounds i8, ptr %t, i64 72
+  %arrayidx19.i70.i = getelementptr inbounds i8, ptr %t, i64 88
+  %arrayidx22.i73.i = getelementptr inbounds i8, ptr %t, i64 96
+  %arrayidx25.i76.i = getelementptr inbounds i8, ptr %t, i64 104
+  %arrayidx28.i79.i = getelementptr inbounds i8, ptr %t, i64 112
+  %arrayidx1.i103.i = getelementptr inbounds i8, ptr %t, i64 128
+  %arrayidx2.i104.i = getelementptr inbounds i8, ptr %t, i64 136
+  %arrayidx3.i105.i = getelementptr inbounds i8, ptr %t, i64 144
+  %arrayidx4.i106.i = getelementptr inbounds i8, ptr %t, i64 152
+  %arrayidx2.i29.i = getelementptr inbounds i8, ptr %u, i64 88
+  %arrayidx5.i32.i = getelementptr inbounds i8, ptr %u, i64 96
+  %arrayidx8.i35.i = getelementptr inbounds i8, ptr %u, i64 104
+  %arrayidx11.i38.i = getelementptr inbounds i8, ptr %u, i64 112
   %100 = zext nneg i32 %i.0623 to i64
   br label %for.body24
 
@@ -5447,12 +5447,12 @@ if.then41:                                        ; preds = %if.else
   store i64 %sub24.i.i537, ptr %arrayidx33.i.i542, align 8
   store i64 %sub27.i.i538, ptr %arrayidx34.i.i543, align 8
   store i64 %sub30.i.i540, ptr %arrayidx35.i.i544, align 8
-  %YminusX.i546 = getelementptr [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 %idxprom46, i32 1
+  %YminusX.i546 = getelementptr inbounds i8, ptr %arrayidx47, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull %YminusX.i546)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef %arrayidx47)
-  %T2d.i548 = getelementptr [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 %idxprom46, i32 3
+  %T2d.i548 = getelementptr inbounds i8, ptr %arrayidx47, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull %T2d.i548, ptr noundef nonnull %T14.i79)
-  %Z27.i = getelementptr [8 x %struct.ge25519_cached], ptr %Ai, i64 0, i64 %idxprom46, i32 2
+  %Z27.i = getelementptr inbounds i8, ptr %arrayidx47, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %t, ptr noundef nonnull %Z8.i78, ptr noundef nonnull %Z27.i)
   %114 = load i64, ptr %t, align 8
   %add.i31.i = shl i64 %114, 1
@@ -5644,10 +5644,10 @@ if.then68:                                        ; preds = %if.else62
   store i64 %sub24.i.i598, ptr %arrayidx33.i.i542, align 8
   store i64 %sub27.i.i599, ptr %arrayidx34.i.i543, align 8
   store i64 %sub30.i.i601, ptr %arrayidx35.i.i544, align 8
-  %yminusx.i = getelementptr [8 x %struct.ge25519_precomp], ptr @_sodium_ge25519_double_scalarmult_vartime.Bi, i64 0, i64 %idxprom74, i32 1
+  %yminusx.i = getelementptr inbounds i8, ptr %arrayidx75, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z.i73, ptr noundef nonnull %t, ptr noundef nonnull %yminusx.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y5.i, ptr noundef nonnull %Y5.i, ptr noundef %arrayidx75)
-  %xy2d.i = getelementptr [8 x %struct.ge25519_precomp], ptr @_sodium_ge25519_double_scalarmult_vartime.Bi, i64 0, i64 %idxprom74, i32 2
+  %xy2d.i = getelementptr inbounds i8, ptr %arrayidx75, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %T.i71, ptr noundef nonnull %xy2d.i, ptr noundef nonnull %T14.i79)
   %147 = load i64, ptr %Z8.i78, align 8
   %add.i28.i = shl i64 %147, 1
@@ -5773,32 +5773,32 @@ for.end80:                                        ; preds = %for.inc, %if.end77,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @ge25519_add_cached(ptr nocapture noundef %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #0 {
 entry:
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 1
-  %arrayidx2.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 1
-  %arrayidx3.i = getelementptr i64, ptr %p, i64 1
-  %arrayidx5.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 2
-  %arrayidx6.i = getelementptr i64, ptr %p, i64 2
-  %arrayidx8.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 3
-  %arrayidx9.i = getelementptr i64, ptr %p, i64 3
-  %arrayidx11.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 4
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
+  %arrayidx2.i = getelementptr i8, ptr %p, i64 48
+  %arrayidx3.i = getelementptr i8, ptr %p, i64 8
+  %arrayidx5.i = getelementptr i8, ptr %p, i64 56
+  %arrayidx6.i = getelementptr i8, ptr %p, i64 16
+  %arrayidx8.i = getelementptr i8, ptr %p, i64 64
+  %arrayidx9.i = getelementptr i8, ptr %p, i64 24
+  %arrayidx11.i = getelementptr i8, ptr %p, i64 72
   %0 = load i64, ptr %arrayidx11.i, align 8
-  %arrayidx12.i = getelementptr i64, ptr %p, i64 4
+  %arrayidx12.i = getelementptr i8, ptr %p, i64 32
   %1 = load i64, ptr %arrayidx12.i, align 8
   %add13.i = add i64 %1, %0
-  %arrayidx15.i = getelementptr i64, ptr %r, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %r, i64 8
   %2 = load <2 x i64>, ptr %Y, align 8
   %3 = load <2 x i64>, ptr %p, align 8
   %4 = add <2 x i64> %3, %2
-  %arrayidx16.i = getelementptr i64, ptr %r, i64 2
-  %arrayidx17.i = getelementptr i64, ptr %r, i64 3
+  %arrayidx16.i = getelementptr i8, ptr %r, i64 16
+  %arrayidx17.i = getelementptr i8, ptr %r, i64 24
   %5 = load <2 x i64>, ptr %arrayidx5.i, align 8
   %6 = load <2 x i64>, ptr %arrayidx6.i, align 8
   %7 = add <2 x i64> %6, %5
   store <2 x i64> %4, ptr %r, align 8
   store <2 x i64> %7, ptr %arrayidx16.i, align 8
-  %arrayidx18.i = getelementptr i64, ptr %r, i64 4
+  %arrayidx18.i = getelementptr i8, ptr %r, i64 32
   store i64 %add13.i, ptr %arrayidx18.i, align 8
-  %Y4 = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 1
+  %Y4 = getelementptr inbounds i8, ptr %r, i64 40
   %8 = load i64, ptr %p, align 8
   %9 = load i64, ptr %arrayidx3.i, align 8
   %10 = load i64, ptr %arrayidx6.i, align 8
@@ -5812,8 +5812,8 @@ entry:
   %14 = load i64, ptr %arrayidx8.i, align 8
   %15 = load i64, ptr %arrayidx11.i, align 8
   %add29.i = add i64 %15, 4503599627370494
-  %arrayidx32.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 1
-  %arrayidx33.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 2
+  %arrayidx32.i = getelementptr i8, ptr %r, i64 48
+  %arrayidx33.i = getelementptr i8, ptr %r, i64 56
   %add.i30 = add i64 %9, %shr.i
   %shr5.i = lshr i64 %add.i30, 51
   %add6.i = add i64 %shr5.i, %10
@@ -5837,20 +5837,20 @@ entry:
   %sub30.i = sub i64 %add29.i, %and16.i
   store i64 %sub.i, ptr %Y4, align 8
   store <2 x i64> %21, ptr %arrayidx32.i, align 8
-  %arrayidx34.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 3
+  %arrayidx34.i = getelementptr i8, ptr %r, i64 64
   store i64 %sub27.i, ptr %arrayidx34.i, align 8
-  %arrayidx35.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 4
+  %arrayidx35.i = getelementptr i8, ptr %r, i64 72
   store i64 %sub30.i, ptr %arrayidx35.i, align 8
-  %Z = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %r, i64 80
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Z, ptr noundef nonnull %r, ptr noundef %q)
-  %YminusX = getelementptr inbounds %struct.ge25519_cached, ptr %q, i64 0, i32 1
+  %YminusX = getelementptr inbounds i8, ptr %q, i64 40
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Y4, ptr noundef nonnull %Y4, ptr noundef nonnull %YminusX)
-  %T = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 3
-  %T2d = getelementptr inbounds %struct.ge25519_cached, ptr %q, i64 0, i32 3
-  %T21 = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %r, i64 120
+  %T2d = getelementptr inbounds i8, ptr %q, i64 120
+  %T21 = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %T2d, ptr noundef nonnull %T21)
-  %Z25 = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 2
-  %Z27 = getelementptr inbounds %struct.ge25519_cached, ptr %q, i64 0, i32 2
+  %Z25 = getelementptr inbounds i8, ptr %p, i64 80
+  %Z27 = getelementptr inbounds i8, ptr %q, i64 80
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %r, ptr noundef nonnull %Z25, ptr noundef nonnull %Z27)
   %22 = load i64, ptr %r, align 8
   %add.i31 = shl i64 %22, 1
@@ -5886,19 +5886,19 @@ entry:
   %reass.sub166 = sub i64 %32, %and.i54
   %add18.i68 = add i64 %reass.sub166, 4503599627370458
   %sub.i69 = add i64 %add18.i68, %mul.neg.i66
-  %arrayidx19.i70 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 1
+  %arrayidx19.i70 = getelementptr i8, ptr %r, i64 88
   %33 = load i64, ptr %arrayidx19.i70, align 8
   %reass.sub167 = sub i64 %33, %and7.i57
   %sub21.i72 = add i64 %reass.sub167, 4503599627370494
-  %arrayidx22.i73 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 2
+  %arrayidx22.i73 = getelementptr i8, ptr %r, i64 96
   %34 = load i64, ptr %arrayidx22.i73, align 8
   %reass.sub168 = sub i64 %34, %and10.i60
   %sub24.i75 = add i64 %reass.sub168, 4503599627370494
-  %arrayidx25.i76 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 3
+  %arrayidx25.i76 = getelementptr i8, ptr %r, i64 104
   %35 = load i64, ptr %arrayidx25.i76, align 8
   %reass.sub169 = sub i64 %35, %and13.i63
   %sub27.i78 = add i64 %reass.sub169, 4503599627370494
-  %arrayidx28.i79 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 4
+  %arrayidx28.i79 = getelementptr i8, ptr %r, i64 112
   %36 = load i64, ptr %arrayidx28.i79, align 8
   %add29.i80 = add i64 %36, 4503599627370494
   %sub30.i81 = sub i64 %add29.i80, %and16.i65
@@ -5919,16 +5919,16 @@ entry:
   store i64 %add13.i98, ptr %arrayidx35.i, align 8
   %37 = load i64, ptr %T, align 8
   %add.i103 = add i64 %37, %add.i31
-  %arrayidx3.i105 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 1
+  %arrayidx3.i105 = getelementptr i8, ptr %r, i64 128
   %38 = load i64, ptr %arrayidx3.i105, align 8
   %add4.i106 = add i64 %38, %add4.i34
-  %arrayidx6.i108 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 2
+  %arrayidx6.i108 = getelementptr i8, ptr %r, i64 136
   %39 = load i64, ptr %arrayidx6.i108, align 8
   %add7.i109 = add i64 %39, %add7.i37
-  %arrayidx9.i111 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 3
+  %arrayidx9.i111 = getelementptr i8, ptr %r, i64 144
   %40 = load i64, ptr %arrayidx9.i111, align 8
   %add10.i112 = add i64 %40, %add10.i40
-  %arrayidx12.i114 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 4
+  %arrayidx12.i114 = getelementptr i8, ptr %r, i64 152
   %41 = load i64, ptr %arrayidx12.i114, align 8
   %add13.i115 = add i64 %41, %add13.i43
   store i64 %add.i103, ptr %Z, align 8
@@ -5975,16 +5975,16 @@ define internal fastcc void @ge25519_p2_dbl(ptr nocapture noundef writeonly %r, 
 entry:
   %0 = load i64, ptr %p, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx1.i = getelementptr i64, ptr %p, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %p, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
   %conv2.i = zext i64 %1 to i128
-  %arrayidx3.i = getelementptr i64, ptr %p, i64 2
+  %arrayidx3.i = getelementptr i8, ptr %p, i64 16
   %2 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = zext i64 %2 to i128
-  %arrayidx5.i = getelementptr i64, ptr %p, i64 3
+  %arrayidx5.i = getelementptr i8, ptr %p, i64 24
   %3 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr i64, ptr %p, i64 4
+  %arrayidx7.i = getelementptr i8, ptr %p, i64 32
   %4 = load i64, ptr %arrayidx7.i, align 8
   %conv8.i = zext i64 %4 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -6051,28 +6051,28 @@ entry:
   %and70.i = and i64 %add68.i, 2251799813685247
   %add71.i = add nuw nsw i64 %shr69.i, %and49.i
   store i64 %and67.i, ptr %r, align 8
-  %arrayidx73.i = getelementptr i64, ptr %r, i64 1
+  %arrayidx73.i = getelementptr i8, ptr %r, i64 8
   store i64 %and70.i, ptr %arrayidx73.i, align 8
-  %arrayidx74.i = getelementptr i64, ptr %r, i64 2
+  %arrayidx74.i = getelementptr i8, ptr %r, i64 16
   store i64 %add71.i, ptr %arrayidx74.i, align 8
-  %arrayidx75.i = getelementptr i64, ptr %r, i64 3
+  %arrayidx75.i = getelementptr i8, ptr %r, i64 24
   store i64 %and55.i, ptr %arrayidx75.i, align 8
-  %arrayidx76.i = getelementptr i64, ptr %r, i64 4
+  %arrayidx76.i = getelementptr i8, ptr %r, i64 32
   store i64 %and61.i, ptr %arrayidx76.i, align 8
-  %Z = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 2
-  %Y = getelementptr inbounds %struct.ge25519_p2, ptr %p, i64 0, i32 1
+  %Z = getelementptr inbounds i8, ptr %r, i64 80
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
   %5 = load i64, ptr %Y, align 8
   %conv.i20 = zext i64 %5 to i128
-  %arrayidx1.i21 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 1, i64 1
+  %arrayidx1.i21 = getelementptr i8, ptr %p, i64 48
   %6 = load i64, ptr %arrayidx1.i21, align 8
   %conv2.i22 = zext i64 %6 to i128
-  %arrayidx3.i23 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 1, i64 2
+  %arrayidx3.i23 = getelementptr i8, ptr %p, i64 56
   %7 = load i64, ptr %arrayidx3.i23, align 8
   %conv4.i24 = zext i64 %7 to i128
-  %arrayidx5.i25 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 1, i64 3
+  %arrayidx5.i25 = getelementptr i8, ptr %p, i64 64
   %8 = load i64, ptr %arrayidx5.i25, align 8
   %conv6.i26 = zext i64 %8 to i128
-  %arrayidx7.i27 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 1, i64 4
+  %arrayidx7.i27 = getelementptr i8, ptr %p, i64 72
   %9 = load i64, ptr %arrayidx7.i27, align 8
   %conv8.i28 = zext i64 %9 to i128
   %shl.i29 = shl nuw nsw i128 %conv.i20, 1
@@ -6139,28 +6139,28 @@ entry:
   %and70.i90 = and i64 %add68.i88, 2251799813685247
   %add71.i91 = add nuw nsw i64 %shr69.i89, %and49.i69
   store i64 %and67.i87, ptr %Z, align 8
-  %arrayidx73.i92 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 1
+  %arrayidx73.i92 = getelementptr i8, ptr %r, i64 88
   store i64 %and70.i90, ptr %arrayidx73.i92, align 8
-  %arrayidx74.i93 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 2
+  %arrayidx74.i93 = getelementptr i8, ptr %r, i64 96
   store i64 %add71.i91, ptr %arrayidx74.i93, align 8
-  %arrayidx75.i94 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 3
+  %arrayidx75.i94 = getelementptr i8, ptr %r, i64 104
   store i64 %and55.i74, ptr %arrayidx75.i94, align 8
-  %arrayidx76.i95 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 4
+  %arrayidx76.i95 = getelementptr i8, ptr %r, i64 112
   store i64 %and61.i81, ptr %arrayidx76.i95, align 8
-  %T = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 3
-  %Z6 = getelementptr inbounds %struct.ge25519_p2, ptr %p, i64 0, i32 2
+  %T = getelementptr inbounds i8, ptr %r, i64 120
+  %Z6 = getelementptr inbounds i8, ptr %p, i64 80
   %10 = load i64, ptr %Z6, align 8
   %conv.i96 = zext i64 %10 to i128
-  %arrayidx1.i97 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 2, i64 1
+  %arrayidx1.i97 = getelementptr i8, ptr %p, i64 88
   %11 = load i64, ptr %arrayidx1.i97, align 8
   %conv2.i98 = zext i64 %11 to i128
-  %arrayidx3.i99 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 2, i64 2
+  %arrayidx3.i99 = getelementptr i8, ptr %p, i64 96
   %12 = load i64, ptr %arrayidx3.i99, align 8
   %conv4.i100 = zext i64 %12 to i128
-  %arrayidx5.i101 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 2, i64 3
+  %arrayidx5.i101 = getelementptr i8, ptr %p, i64 104
   %13 = load i64, ptr %arrayidx5.i101, align 8
   %conv6.i102 = zext i64 %13 to i128
-  %arrayidx7.i103 = getelementptr %struct.ge25519_p2, ptr %p, i64 0, i32 2, i64 4
+  %arrayidx7.i103 = getelementptr i8, ptr %p, i64 112
   %14 = load i64, ptr %arrayidx7.i103, align 8
   %conv8.i104 = zext i64 %14 to i128
   %shl.i105 = shl nuw nsw i128 %conv.i96, 1
@@ -6232,22 +6232,22 @@ entry:
   %and75.i = and i64 %add73.i, 2251799813685247
   %add76.i = add nuw nsw i64 %shr74.i, %and54.i
   store i64 %and72.i, ptr %T, align 8
-  %arrayidx78.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 1
+  %arrayidx78.i = getelementptr i8, ptr %r, i64 128
   store i64 %and75.i, ptr %arrayidx78.i, align 8
-  %arrayidx79.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 2
+  %arrayidx79.i = getelementptr i8, ptr %r, i64 136
   store i64 %add76.i, ptr %arrayidx79.i, align 8
-  %arrayidx80.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 3
+  %arrayidx80.i = getelementptr i8, ptr %r, i64 144
   store i64 %and60.i, ptr %arrayidx80.i, align 8
-  %arrayidx81.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 4
+  %arrayidx81.i = getelementptr i8, ptr %r, i64 152
   store i64 %and66.i, ptr %arrayidx81.i, align 8
-  %Y8 = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 1
+  %Y8 = getelementptr inbounds i8, ptr %r, i64 40
   %15 = load i64, ptr %arrayidx3.i, align 8
   %16 = load i64, ptr %arrayidx3.i23, align 8
   %add7.i = add i64 %16, %15
-  %arrayidx15.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 1
-  %arrayidx16.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 2
-  %arrayidx17.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 3
-  %arrayidx18.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 4
+  %arrayidx15.i = getelementptr i8, ptr %r, i64 48
+  %arrayidx16.i = getelementptr i8, ptr %r, i64 56
+  %arrayidx17.i = getelementptr i8, ptr %r, i64 64
+  %arrayidx18.i = getelementptr i8, ptr %r, i64 72
   %conv4.i146 = zext i64 %add7.i to i128
   %mul10.i153 = mul nuw nsw i128 %conv4.i146, 38
   %17 = load <2 x i64>, ptr %p, align 8
@@ -6428,32 +6428,32 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @ge25519_add_precomp(ptr nocapture noundef %r, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %q) unnamed_addr #0 {
 entry:
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 1
-  %arrayidx2.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 1
-  %arrayidx3.i = getelementptr i64, ptr %p, i64 1
-  %arrayidx5.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 2
-  %arrayidx6.i = getelementptr i64, ptr %p, i64 2
-  %arrayidx8.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 3
-  %arrayidx9.i = getelementptr i64, ptr %p, i64 3
-  %arrayidx11.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 4
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
+  %arrayidx2.i = getelementptr i8, ptr %p, i64 48
+  %arrayidx3.i = getelementptr i8, ptr %p, i64 8
+  %arrayidx5.i = getelementptr i8, ptr %p, i64 56
+  %arrayidx6.i = getelementptr i8, ptr %p, i64 16
+  %arrayidx8.i = getelementptr i8, ptr %p, i64 64
+  %arrayidx9.i = getelementptr i8, ptr %p, i64 24
+  %arrayidx11.i = getelementptr i8, ptr %p, i64 72
   %0 = load i64, ptr %arrayidx11.i, align 8
-  %arrayidx12.i = getelementptr i64, ptr %p, i64 4
+  %arrayidx12.i = getelementptr i8, ptr %p, i64 32
   %1 = load i64, ptr %arrayidx12.i, align 8
   %add13.i = add i64 %1, %0
-  %arrayidx15.i = getelementptr i64, ptr %r, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %r, i64 8
   %2 = load <2 x i64>, ptr %Y, align 8
   %3 = load <2 x i64>, ptr %p, align 8
   %4 = add <2 x i64> %3, %2
-  %arrayidx16.i = getelementptr i64, ptr %r, i64 2
-  %arrayidx17.i = getelementptr i64, ptr %r, i64 3
+  %arrayidx16.i = getelementptr i8, ptr %r, i64 16
+  %arrayidx17.i = getelementptr i8, ptr %r, i64 24
   %5 = load <2 x i64>, ptr %arrayidx5.i, align 8
   %6 = load <2 x i64>, ptr %arrayidx6.i, align 8
   %7 = add <2 x i64> %6, %5
   store <2 x i64> %4, ptr %r, align 8
   store <2 x i64> %7, ptr %arrayidx16.i, align 8
-  %arrayidx18.i = getelementptr i64, ptr %r, i64 4
+  %arrayidx18.i = getelementptr i8, ptr %r, i64 32
   store i64 %add13.i, ptr %arrayidx18.i, align 8
-  %Y4 = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 1
+  %Y4 = getelementptr inbounds i8, ptr %r, i64 40
   %8 = load i64, ptr %p, align 8
   %9 = load i64, ptr %arrayidx3.i, align 8
   %10 = load i64, ptr %arrayidx6.i, align 8
@@ -6467,8 +6467,8 @@ entry:
   %14 = load i64, ptr %arrayidx8.i, align 8
   %15 = load i64, ptr %arrayidx11.i, align 8
   %add29.i = add i64 %15, 4503599627370494
-  %arrayidx32.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 1
-  %arrayidx33.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 2
+  %arrayidx32.i = getelementptr i8, ptr %r, i64 48
+  %arrayidx33.i = getelementptr i8, ptr %r, i64 56
   %add.i27 = add i64 %9, %shr.i
   %shr5.i = lshr i64 %add.i27, 51
   %add6.i = add i64 %shr5.i, %10
@@ -6492,31 +6492,31 @@ entry:
   %sub30.i = sub i64 %add29.i, %and16.i
   store i64 %sub.i, ptr %Y4, align 8
   store <2 x i64> %21, ptr %arrayidx32.i, align 8
-  %arrayidx34.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 3
+  %arrayidx34.i = getelementptr i8, ptr %r, i64 64
   store i64 %sub27.i, ptr %arrayidx34.i, align 8
-  %arrayidx35.i = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 1, i64 4
+  %arrayidx35.i = getelementptr i8, ptr %r, i64 72
   store i64 %sub30.i, ptr %arrayidx35.i, align 8
-  %Z = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %r, i64 80
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Z, ptr noundef nonnull %r, ptr noundef %q)
-  %yminusx = getelementptr inbounds %struct.ge25519_precomp, ptr %q, i64 0, i32 1
+  %yminusx = getelementptr inbounds i8, ptr %q, i64 40
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %Y4, ptr noundef nonnull %Y4, ptr noundef nonnull %yminusx)
-  %T = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 3
-  %xy2d = getelementptr inbounds %struct.ge25519_precomp, ptr %q, i64 0, i32 2
-  %T21 = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %r, i64 120
+  %xy2d = getelementptr inbounds i8, ptr %q, i64 80
+  %T21 = getelementptr inbounds i8, ptr %p, i64 120
   tail call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %xy2d, ptr noundef nonnull %T21)
-  %Z24 = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 2
+  %Z24 = getelementptr inbounds i8, ptr %p, i64 80
   %22 = load i64, ptr %Z24, align 8
   %add.i28 = shl i64 %22, 1
-  %arrayidx2.i29 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 1
+  %arrayidx2.i29 = getelementptr i8, ptr %p, i64 88
   %23 = load i64, ptr %arrayidx2.i29, align 8
   %add4.i31 = shl i64 %23, 1
-  %arrayidx5.i32 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 2
+  %arrayidx5.i32 = getelementptr i8, ptr %p, i64 96
   %24 = load i64, ptr %arrayidx5.i32, align 8
   %add7.i34 = shl i64 %24, 1
-  %arrayidx8.i35 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 3
+  %arrayidx8.i35 = getelementptr i8, ptr %p, i64 104
   %25 = load i64, ptr %arrayidx8.i35, align 8
   %add10.i37 = shl i64 %25, 1
-  %arrayidx11.i38 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 4
+  %arrayidx11.i38 = getelementptr i8, ptr %p, i64 112
   %26 = load i64, ptr %arrayidx11.i38, align 8
   %add13.i40 = shl i64 %26, 1
   %27 = load i64, ptr %Y4, align 8
@@ -6543,19 +6543,19 @@ entry:
   %reass.sub163 = sub i64 %32, %and.i51
   %add18.i65 = add i64 %reass.sub163, 4503599627370458
   %sub.i66 = add i64 %add18.i65, %mul.neg.i63
-  %arrayidx19.i67 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 1
+  %arrayidx19.i67 = getelementptr i8, ptr %r, i64 88
   %33 = load i64, ptr %arrayidx19.i67, align 8
   %reass.sub164 = sub i64 %33, %and7.i54
   %sub21.i69 = add i64 %reass.sub164, 4503599627370494
-  %arrayidx22.i70 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 2
+  %arrayidx22.i70 = getelementptr i8, ptr %r, i64 96
   %34 = load i64, ptr %arrayidx22.i70, align 8
   %reass.sub165 = sub i64 %34, %and10.i57
   %sub24.i72 = add i64 %reass.sub165, 4503599627370494
-  %arrayidx25.i73 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 3
+  %arrayidx25.i73 = getelementptr i8, ptr %r, i64 104
   %35 = load i64, ptr %arrayidx25.i73, align 8
   %reass.sub166 = sub i64 %35, %and13.i60
   %sub27.i75 = add i64 %reass.sub166, 4503599627370494
-  %arrayidx28.i76 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 2, i64 4
+  %arrayidx28.i76 = getelementptr i8, ptr %r, i64 112
   %36 = load i64, ptr %arrayidx28.i76, align 8
   %add29.i77 = add i64 %36, 4503599627370494
   %sub30.i78 = sub i64 %add29.i77, %and16.i62
@@ -6576,16 +6576,16 @@ entry:
   store i64 %add13.i95, ptr %arrayidx35.i, align 8
   %37 = load i64, ptr %T, align 8
   %add.i100 = add i64 %37, %add.i28
-  %arrayidx3.i102 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 1
+  %arrayidx3.i102 = getelementptr i8, ptr %r, i64 128
   %38 = load i64, ptr %arrayidx3.i102, align 8
   %add4.i103 = add i64 %38, %add4.i31
-  %arrayidx6.i105 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 2
+  %arrayidx6.i105 = getelementptr i8, ptr %r, i64 136
   %39 = load i64, ptr %arrayidx6.i105, align 8
   %add7.i106 = add i64 %39, %add7.i34
-  %arrayidx9.i108 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 3
+  %arrayidx9.i108 = getelementptr i8, ptr %r, i64 144
   %40 = load i64, ptr %arrayidx9.i108, align 8
   %add10.i109 = add i64 %40, %add10.i37
-  %arrayidx12.i111 = getelementptr %struct.ge25519_p1p1, ptr %r, i64 0, i32 3, i64 4
+  %arrayidx12.i111 = getelementptr i8, ptr %r, i64 152
   %41 = load i64, ptr %arrayidx12.i111, align 8
   %add13.i112 = add i64 %41, %add13.i40
   store i64 %add.i100, ptr %Z, align 8
@@ -6653,40 +6653,40 @@ entry:
   %p8 = alloca %struct.ge25519_p3, align 8
   %pi = alloca [8 x %struct.ge25519_cached], align 16
   %t = alloca %struct.ge25519_cached, align 8
-  %Y.i = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %p, i64 40
   %0 = load i64, ptr %Y.i, align 8
   %1 = load i64, ptr %p, align 8
   %add.i.i = add i64 %1, %0
-  %arrayidx2.i.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 1
+  %arrayidx2.i.i = getelementptr i8, ptr %p, i64 48
   %2 = load i64, ptr %arrayidx2.i.i, align 8
-  %arrayidx3.i.i = getelementptr i64, ptr %p, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %p, i64 8
   %3 = load i64, ptr %arrayidx3.i.i, align 8
   %add4.i.i = add i64 %3, %2
-  %arrayidx5.i.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 2
+  %arrayidx5.i.i = getelementptr i8, ptr %p, i64 56
   %4 = load i64, ptr %arrayidx5.i.i, align 8
-  %arrayidx6.i.i = getelementptr i64, ptr %p, i64 2
+  %arrayidx6.i.i = getelementptr i8, ptr %p, i64 16
   %5 = load i64, ptr %arrayidx6.i.i, align 8
   %add7.i.i = add i64 %5, %4
-  %arrayidx8.i.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 3
+  %arrayidx8.i.i = getelementptr i8, ptr %p, i64 64
   %6 = load i64, ptr %arrayidx8.i.i, align 8
-  %arrayidx9.i.i = getelementptr i64, ptr %p, i64 3
+  %arrayidx9.i.i = getelementptr i8, ptr %p, i64 24
   %7 = load i64, ptr %arrayidx9.i.i, align 8
   %add10.i.i = add i64 %7, %6
-  %arrayidx11.i.i = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 4
+  %arrayidx11.i.i = getelementptr i8, ptr %p, i64 72
   %8 = load i64, ptr %arrayidx11.i.i, align 8
-  %arrayidx12.i.i = getelementptr i64, ptr %p, i64 4
+  %arrayidx12.i.i = getelementptr i8, ptr %p, i64 32
   %9 = load i64, ptr %arrayidx12.i.i, align 8
   %add13.i.i = add i64 %9, %8
   store i64 %add.i.i, ptr %pi, align 16
-  %arrayidx15.i.i = getelementptr inbounds i64, ptr %pi, i64 1
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %pi, i64 8
   store i64 %add4.i.i, ptr %arrayidx15.i.i, align 8
-  %arrayidx16.i.i = getelementptr inbounds i64, ptr %pi, i64 2
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %pi, i64 16
   store i64 %add7.i.i, ptr %arrayidx16.i.i, align 16
-  %arrayidx17.i.i = getelementptr inbounds i64, ptr %pi, i64 3
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %pi, i64 24
   store i64 %add10.i.i, ptr %arrayidx17.i.i, align 8
-  %arrayidx18.i.i = getelementptr inbounds i64, ptr %pi, i64 4
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %pi, i64 32
   store i64 %add13.i.i, ptr %arrayidx18.i.i, align 16
-  %YminusX.i = getelementptr inbounds %struct.ge25519_cached, ptr %pi, i64 0, i32 1
+  %YminusX.i = getelementptr inbounds i8, ptr %pi, i64 40
   %shr.i.i = lshr i64 %1, 51
   %add.i11.i = add i64 %3, %shr.i.i
   %and.i.i = and i64 %1, 2251799813685247
@@ -6714,72 +6714,72 @@ entry:
   %add29.i.i = add i64 %8, 4503599627370494
   %sub30.i.i = sub i64 %add29.i.i, %and16.i.i
   store i64 %sub.i.i, ptr %YminusX.i, align 8
-  %arrayidx32.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %pi, i64 0, i32 1, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %pi, i64 48
   store i64 %sub21.i.i, ptr %arrayidx32.i.i, align 16
-  %arrayidx33.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %pi, i64 0, i32 1, i64 2
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %pi, i64 56
   store i64 %sub24.i.i, ptr %arrayidx33.i.i, align 8
-  %arrayidx34.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %pi, i64 0, i32 1, i64 3
+  %arrayidx34.i.i = getelementptr inbounds i8, ptr %pi, i64 64
   store i64 %sub27.i.i, ptr %arrayidx34.i.i, align 16
-  %arrayidx35.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %pi, i64 0, i32 1, i64 4
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %pi, i64 72
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 8
-  %Z.i = getelementptr inbounds %struct.ge25519_cached, ptr %pi, i64 0, i32 2
-  %Z9.i = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %pi, i64 80
+  %Z9.i = getelementptr inbounds i8, ptr %p, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  %T2d.i = getelementptr inbounds %struct.ge25519_cached, ptr %pi, i64 0, i32 3
-  %T.i = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 3
+  %T2d.i = getelementptr inbounds i8, ptr %pi, i64 120
+  %T.i = getelementptr inbounds i8, ptr %p, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i, ptr noundef nonnull %T.i, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %p, i64 40, i1 false)
-  %Y.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 1
+  %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
-  %Z.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 2
+  %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t2, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
-  %T.i27 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t2, i64 0, i32 3
+  %T.i27 = getelementptr inbounds i8, ptr %t2, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull %t2, ptr noundef nonnull %T.i27)
-  %Y.i28 = getelementptr inbounds %struct.ge25519_p3, ptr %p2, i64 0, i32 1
-  %Y5.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %t2, i64 0, i32 1
-  %Z.i29 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t2, i64 0, i32 2
+  %Y.i28 = getelementptr inbounds i8, ptr %p2, i64 40
+  %Y5.i = getelementptr inbounds i8, ptr %t2, i64 40
+  %Z.i29 = getelementptr inbounds i8, ptr %t2, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i28, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i29)
-  %Z8.i = getelementptr inbounds %struct.ge25519_p3, ptr %p2, i64 0, i32 2
+  %Z8.i = getelementptr inbounds i8, ptr %p2, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i29, ptr noundef nonnull %T.i27)
-  %T14.i = getelementptr inbounds %struct.ge25519_p3, ptr %p2, i64 0, i32 3
+  %T14.i = getelementptr inbounds i8, ptr %p2, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %t2, ptr noundef nonnull %Y5.i)
-  %arrayidx1 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %pi, i64 160
   %10 = load i64, ptr %Y.i28, align 8
   %11 = load i64, ptr %p2, align 8
   %add.i.i31 = add i64 %11, %10
-  %arrayidx2.i.i32 = getelementptr inbounds %struct.ge25519_p3, ptr %p2, i64 0, i32 1, i64 1
+  %arrayidx2.i.i32 = getelementptr inbounds i8, ptr %p2, i64 48
   %12 = load i64, ptr %arrayidx2.i.i32, align 8
-  %arrayidx3.i.i33 = getelementptr inbounds i64, ptr %p2, i64 1
+  %arrayidx3.i.i33 = getelementptr inbounds i8, ptr %p2, i64 8
   %13 = load i64, ptr %arrayidx3.i.i33, align 8
   %add4.i.i34 = add i64 %13, %12
-  %arrayidx5.i.i35 = getelementptr inbounds %struct.ge25519_p3, ptr %p2, i64 0, i32 1, i64 2
+  %arrayidx5.i.i35 = getelementptr inbounds i8, ptr %p2, i64 56
   %14 = load i64, ptr %arrayidx5.i.i35, align 8
-  %arrayidx6.i.i36 = getelementptr inbounds i64, ptr %p2, i64 2
+  %arrayidx6.i.i36 = getelementptr inbounds i8, ptr %p2, i64 16
   %15 = load i64, ptr %arrayidx6.i.i36, align 8
   %add7.i.i37 = add i64 %15, %14
-  %arrayidx8.i.i38 = getelementptr inbounds %struct.ge25519_p3, ptr %p2, i64 0, i32 1, i64 3
+  %arrayidx8.i.i38 = getelementptr inbounds i8, ptr %p2, i64 64
   %16 = load i64, ptr %arrayidx8.i.i38, align 8
-  %arrayidx9.i.i39 = getelementptr inbounds i64, ptr %p2, i64 3
+  %arrayidx9.i.i39 = getelementptr inbounds i8, ptr %p2, i64 24
   %17 = load i64, ptr %arrayidx9.i.i39, align 8
   %add10.i.i40 = add i64 %17, %16
-  %arrayidx11.i.i41 = getelementptr inbounds %struct.ge25519_p3, ptr %p2, i64 0, i32 1, i64 4
+  %arrayidx11.i.i41 = getelementptr inbounds i8, ptr %p2, i64 72
   %18 = load i64, ptr %arrayidx11.i.i41, align 8
-  %arrayidx12.i.i42 = getelementptr inbounds i64, ptr %p2, i64 4
+  %arrayidx12.i.i42 = getelementptr inbounds i8, ptr %p2, i64 32
   %19 = load i64, ptr %arrayidx12.i.i42, align 8
   %add13.i.i43 = add i64 %19, %18
   store i64 %add.i.i31, ptr %arrayidx1, align 16
-  %arrayidx15.i.i44 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 0, i64 1
+  %arrayidx15.i.i44 = getelementptr inbounds i8, ptr %pi, i64 168
   store i64 %add4.i.i34, ptr %arrayidx15.i.i44, align 8
-  %arrayidx16.i.i45 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 0, i64 2
+  %arrayidx16.i.i45 = getelementptr inbounds i8, ptr %pi, i64 176
   store i64 %add7.i.i37, ptr %arrayidx16.i.i45, align 16
-  %arrayidx17.i.i46 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 0, i64 3
+  %arrayidx17.i.i46 = getelementptr inbounds i8, ptr %pi, i64 184
   store i64 %add10.i.i40, ptr %arrayidx17.i.i46, align 8
-  %arrayidx18.i.i47 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 0, i64 4
+  %arrayidx18.i.i47 = getelementptr inbounds i8, ptr %pi, i64 192
   store i64 %add13.i.i43, ptr %arrayidx18.i.i47, align 16
-  %YminusX.i48 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 1
+  %YminusX.i48 = getelementptr inbounds i8, ptr %pi, i64 200
   %shr.i.i49 = lshr i64 %11, 51
   %add.i11.i50 = add i64 %13, %shr.i.i49
   %and.i.i51 = and i64 %11, 2251799813685247
@@ -6807,63 +6807,63 @@ entry:
   %add29.i.i73 = add i64 %18, 4503599627370494
   %sub30.i.i74 = sub i64 %add29.i.i73, %and16.i.i62
   store i64 %sub.i.i66, ptr %YminusX.i48, align 8
-  %arrayidx32.i.i75 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 1, i64 1
+  %arrayidx32.i.i75 = getelementptr inbounds i8, ptr %pi, i64 208
   store i64 %sub21.i.i68, ptr %arrayidx32.i.i75, align 16
-  %arrayidx33.i.i76 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 1, i64 2
+  %arrayidx33.i.i76 = getelementptr inbounds i8, ptr %pi, i64 216
   store i64 %sub24.i.i70, ptr %arrayidx33.i.i76, align 8
-  %arrayidx34.i.i77 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 1, i64 3
+  %arrayidx34.i.i77 = getelementptr inbounds i8, ptr %pi, i64 224
   store i64 %sub27.i.i72, ptr %arrayidx34.i.i77, align 16
-  %arrayidx35.i.i78 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 1, i64 4
+  %arrayidx35.i.i78 = getelementptr inbounds i8, ptr %pi, i64 232
   store i64 %sub30.i.i74, ptr %arrayidx35.i.i78, align 8
-  %Z.i79 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 2
+  %Z.i79 = getelementptr inbounds i8, ptr %pi, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i79, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i, i64 40, i1 false)
-  %T2d.i81 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 1, i32 3
+  %T2d.i81 = getelementptr inbounds i8, ptr %pi, i64 280
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i81, ptr noundef nonnull %T14.i, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t3, ptr noundef nonnull %p, ptr noundef nonnull %arrayidx1)
-  %T.i83 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t3, i64 0, i32 3
+  %T.i83 = getelementptr inbounds i8, ptr %t3, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p3, ptr noundef nonnull %t3, ptr noundef nonnull %T.i83)
-  %Y.i84 = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1
-  %Y5.i85 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t3, i64 0, i32 1
-  %Z.i86 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t3, i64 0, i32 2
+  %Y.i84 = getelementptr inbounds i8, ptr %p3, i64 40
+  %Y5.i85 = getelementptr inbounds i8, ptr %t3, i64 40
+  %Z.i86 = getelementptr inbounds i8, ptr %t3, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i84, ptr noundef nonnull %Y5.i85, ptr noundef nonnull %Z.i86)
-  %Z8.i87 = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 2
+  %Z8.i87 = getelementptr inbounds i8, ptr %p3, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i87, ptr noundef nonnull %Z.i86, ptr noundef nonnull %T.i83)
-  %T14.i88 = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 3
+  %T14.i88 = getelementptr inbounds i8, ptr %p3, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i88, ptr noundef nonnull %t3, ptr noundef nonnull %Y5.i85)
-  %arrayidx3 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %pi, i64 320
   %20 = load i64, ptr %Y.i84, align 8
   %21 = load i64, ptr %p3, align 8
   %add.i.i90 = add i64 %21, %20
-  %arrayidx2.i.i91 = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1, i64 1
+  %arrayidx2.i.i91 = getelementptr inbounds i8, ptr %p3, i64 48
   %22 = load i64, ptr %arrayidx2.i.i91, align 8
-  %arrayidx3.i.i92 = getelementptr inbounds i64, ptr %p3, i64 1
+  %arrayidx3.i.i92 = getelementptr inbounds i8, ptr %p3, i64 8
   %23 = load i64, ptr %arrayidx3.i.i92, align 8
   %add4.i.i93 = add i64 %23, %22
-  %arrayidx5.i.i94 = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1, i64 2
+  %arrayidx5.i.i94 = getelementptr inbounds i8, ptr %p3, i64 56
   %24 = load i64, ptr %arrayidx5.i.i94, align 8
-  %arrayidx6.i.i95 = getelementptr inbounds i64, ptr %p3, i64 2
+  %arrayidx6.i.i95 = getelementptr inbounds i8, ptr %p3, i64 16
   %25 = load i64, ptr %arrayidx6.i.i95, align 8
   %add7.i.i96 = add i64 %25, %24
-  %arrayidx8.i.i97 = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1, i64 3
+  %arrayidx8.i.i97 = getelementptr inbounds i8, ptr %p3, i64 64
   %26 = load i64, ptr %arrayidx8.i.i97, align 8
-  %arrayidx9.i.i98 = getelementptr inbounds i64, ptr %p3, i64 3
+  %arrayidx9.i.i98 = getelementptr inbounds i8, ptr %p3, i64 24
   %27 = load i64, ptr %arrayidx9.i.i98, align 8
   %add10.i.i99 = add i64 %27, %26
-  %arrayidx11.i.i100 = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1, i64 4
+  %arrayidx11.i.i100 = getelementptr inbounds i8, ptr %p3, i64 72
   %28 = load i64, ptr %arrayidx11.i.i100, align 8
-  %arrayidx12.i.i101 = getelementptr inbounds i64, ptr %p3, i64 4
+  %arrayidx12.i.i101 = getelementptr inbounds i8, ptr %p3, i64 32
   %29 = load i64, ptr %arrayidx12.i.i101, align 8
   %add13.i.i102 = add i64 %29, %28
   store i64 %add.i.i90, ptr %arrayidx3, align 16
-  %arrayidx15.i.i103 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 0, i64 1
+  %arrayidx15.i.i103 = getelementptr inbounds i8, ptr %pi, i64 328
   store i64 %add4.i.i93, ptr %arrayidx15.i.i103, align 8
-  %arrayidx16.i.i104 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 0, i64 2
+  %arrayidx16.i.i104 = getelementptr inbounds i8, ptr %pi, i64 336
   store i64 %add7.i.i96, ptr %arrayidx16.i.i104, align 16
-  %arrayidx17.i.i105 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 0, i64 3
+  %arrayidx17.i.i105 = getelementptr inbounds i8, ptr %pi, i64 344
   store i64 %add10.i.i99, ptr %arrayidx17.i.i105, align 8
-  %arrayidx18.i.i106 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 0, i64 4
+  %arrayidx18.i.i106 = getelementptr inbounds i8, ptr %pi, i64 352
   store i64 %add13.i.i102, ptr %arrayidx18.i.i106, align 16
-  %YminusX.i107 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 1
+  %YminusX.i107 = getelementptr inbounds i8, ptr %pi, i64 360
   %shr.i.i108 = lshr i64 %21, 51
   %add.i11.i109 = add i64 %23, %shr.i.i108
   %and.i.i110 = and i64 %21, 2251799813685247
@@ -6891,70 +6891,70 @@ entry:
   %add29.i.i132 = add i64 %28, 4503599627370494
   %sub30.i.i133 = sub i64 %add29.i.i132, %and16.i.i121
   store i64 %sub.i.i125, ptr %YminusX.i107, align 8
-  %arrayidx32.i.i134 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 1, i64 1
+  %arrayidx32.i.i134 = getelementptr inbounds i8, ptr %pi, i64 368
   store i64 %sub21.i.i127, ptr %arrayidx32.i.i134, align 16
-  %arrayidx33.i.i135 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 1, i64 2
+  %arrayidx33.i.i135 = getelementptr inbounds i8, ptr %pi, i64 376
   store i64 %sub24.i.i129, ptr %arrayidx33.i.i135, align 8
-  %arrayidx34.i.i136 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 1, i64 3
+  %arrayidx34.i.i136 = getelementptr inbounds i8, ptr %pi, i64 384
   store i64 %sub27.i.i131, ptr %arrayidx34.i.i136, align 16
-  %arrayidx35.i.i137 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 1, i64 4
+  %arrayidx35.i.i137 = getelementptr inbounds i8, ptr %pi, i64 392
   store i64 %sub30.i.i133, ptr %arrayidx35.i.i137, align 8
-  %Z.i138 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 2
+  %Z.i138 = getelementptr inbounds i8, ptr %pi, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i138, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i87, i64 40, i1 false)
-  %T2d.i140 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 2, i32 3
+  %T2d.i140 = getelementptr inbounds i8, ptr %pi, i64 440
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i140, ptr noundef nonnull %T14.i88, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i142)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i142, ptr noundef nonnull align 8 dereferenceable(40) %p2, i64 40, i1 false)
-  %Y.i.i143 = getelementptr inbounds %struct.ge25519_p2, ptr %q.i142, i64 0, i32 1
+  %Y.i.i143 = getelementptr inbounds i8, ptr %q.i142, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i143, ptr noundef nonnull align 8 dereferenceable(40) %Y.i28, i64 40, i1 false)
-  %Z.i.i145 = getelementptr inbounds %struct.ge25519_p2, ptr %q.i142, i64 0, i32 2
+  %Z.i.i145 = getelementptr inbounds i8, ptr %q.i142, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i145, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t4, ptr noundef nonnull %q.i142)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i142)
-  %T.i147 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t4, i64 0, i32 3
+  %T.i147 = getelementptr inbounds i8, ptr %t4, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p4, ptr noundef nonnull %t4, ptr noundef nonnull %T.i147)
-  %Y.i148 = getelementptr inbounds %struct.ge25519_p3, ptr %p4, i64 0, i32 1
-  %Y5.i149 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t4, i64 0, i32 1
-  %Z.i150 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t4, i64 0, i32 2
+  %Y.i148 = getelementptr inbounds i8, ptr %p4, i64 40
+  %Y5.i149 = getelementptr inbounds i8, ptr %t4, i64 40
+  %Z.i150 = getelementptr inbounds i8, ptr %t4, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i148, ptr noundef nonnull %Y5.i149, ptr noundef nonnull %Z.i150)
-  %Z8.i151 = getelementptr inbounds %struct.ge25519_p3, ptr %p4, i64 0, i32 2
+  %Z8.i151 = getelementptr inbounds i8, ptr %p4, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i151, ptr noundef nonnull %Z.i150, ptr noundef nonnull %T.i147)
-  %T14.i152 = getelementptr inbounds %struct.ge25519_p3, ptr %p4, i64 0, i32 3
+  %T14.i152 = getelementptr inbounds i8, ptr %p4, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i152, ptr noundef nonnull %t4, ptr noundef nonnull %Y5.i149)
-  %arrayidx4 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3
+  %arrayidx4 = getelementptr inbounds i8, ptr %pi, i64 480
   %30 = load i64, ptr %Y.i148, align 8
   %31 = load i64, ptr %p4, align 8
   %add.i.i154 = add i64 %31, %30
-  %arrayidx2.i.i155 = getelementptr inbounds %struct.ge25519_p3, ptr %p4, i64 0, i32 1, i64 1
+  %arrayidx2.i.i155 = getelementptr inbounds i8, ptr %p4, i64 48
   %32 = load i64, ptr %arrayidx2.i.i155, align 8
-  %arrayidx3.i.i156 = getelementptr inbounds i64, ptr %p4, i64 1
+  %arrayidx3.i.i156 = getelementptr inbounds i8, ptr %p4, i64 8
   %33 = load i64, ptr %arrayidx3.i.i156, align 8
   %add4.i.i157 = add i64 %33, %32
-  %arrayidx5.i.i158 = getelementptr inbounds %struct.ge25519_p3, ptr %p4, i64 0, i32 1, i64 2
+  %arrayidx5.i.i158 = getelementptr inbounds i8, ptr %p4, i64 56
   %34 = load i64, ptr %arrayidx5.i.i158, align 8
-  %arrayidx6.i.i159 = getelementptr inbounds i64, ptr %p4, i64 2
+  %arrayidx6.i.i159 = getelementptr inbounds i8, ptr %p4, i64 16
   %35 = load i64, ptr %arrayidx6.i.i159, align 8
   %add7.i.i160 = add i64 %35, %34
-  %arrayidx8.i.i161 = getelementptr inbounds %struct.ge25519_p3, ptr %p4, i64 0, i32 1, i64 3
+  %arrayidx8.i.i161 = getelementptr inbounds i8, ptr %p4, i64 64
   %36 = load i64, ptr %arrayidx8.i.i161, align 8
-  %arrayidx9.i.i162 = getelementptr inbounds i64, ptr %p4, i64 3
+  %arrayidx9.i.i162 = getelementptr inbounds i8, ptr %p4, i64 24
   %37 = load i64, ptr %arrayidx9.i.i162, align 8
   %add10.i.i163 = add i64 %37, %36
-  %arrayidx11.i.i164 = getelementptr inbounds %struct.ge25519_p3, ptr %p4, i64 0, i32 1, i64 4
+  %arrayidx11.i.i164 = getelementptr inbounds i8, ptr %p4, i64 72
   %38 = load i64, ptr %arrayidx11.i.i164, align 8
-  %arrayidx12.i.i165 = getelementptr inbounds i64, ptr %p4, i64 4
+  %arrayidx12.i.i165 = getelementptr inbounds i8, ptr %p4, i64 32
   %39 = load i64, ptr %arrayidx12.i.i165, align 8
   %add13.i.i166 = add i64 %39, %38
   store i64 %add.i.i154, ptr %arrayidx4, align 16
-  %arrayidx15.i.i167 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 0, i64 1
+  %arrayidx15.i.i167 = getelementptr inbounds i8, ptr %pi, i64 488
   store i64 %add4.i.i157, ptr %arrayidx15.i.i167, align 8
-  %arrayidx16.i.i168 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 0, i64 2
+  %arrayidx16.i.i168 = getelementptr inbounds i8, ptr %pi, i64 496
   store i64 %add7.i.i160, ptr %arrayidx16.i.i168, align 16
-  %arrayidx17.i.i169 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 0, i64 3
+  %arrayidx17.i.i169 = getelementptr inbounds i8, ptr %pi, i64 504
   store i64 %add10.i.i163, ptr %arrayidx17.i.i169, align 8
-  %arrayidx18.i.i170 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 0, i64 4
+  %arrayidx18.i.i170 = getelementptr inbounds i8, ptr %pi, i64 512
   store i64 %add13.i.i166, ptr %arrayidx18.i.i170, align 16
-  %YminusX.i171 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 1
+  %YminusX.i171 = getelementptr inbounds i8, ptr %pi, i64 520
   %shr.i.i172 = lshr i64 %31, 51
   %add.i11.i173 = add i64 %33, %shr.i.i172
   %and.i.i174 = and i64 %31, 2251799813685247
@@ -6982,63 +6982,63 @@ entry:
   %add29.i.i196 = add i64 %38, 4503599627370494
   %sub30.i.i197 = sub i64 %add29.i.i196, %and16.i.i185
   store i64 %sub.i.i189, ptr %YminusX.i171, align 8
-  %arrayidx32.i.i198 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 1, i64 1
+  %arrayidx32.i.i198 = getelementptr inbounds i8, ptr %pi, i64 528
   store i64 %sub21.i.i191, ptr %arrayidx32.i.i198, align 16
-  %arrayidx33.i.i199 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 1, i64 2
+  %arrayidx33.i.i199 = getelementptr inbounds i8, ptr %pi, i64 536
   store i64 %sub24.i.i193, ptr %arrayidx33.i.i199, align 8
-  %arrayidx34.i.i200 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 1, i64 3
+  %arrayidx34.i.i200 = getelementptr inbounds i8, ptr %pi, i64 544
   store i64 %sub27.i.i195, ptr %arrayidx34.i.i200, align 16
-  %arrayidx35.i.i201 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 1, i64 4
+  %arrayidx35.i.i201 = getelementptr inbounds i8, ptr %pi, i64 552
   store i64 %sub30.i.i197, ptr %arrayidx35.i.i201, align 8
-  %Z.i202 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 2
+  %Z.i202 = getelementptr inbounds i8, ptr %pi, i64 560
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i202, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i151, i64 40, i1 false)
-  %T2d.i204 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 3, i32 3
+  %T2d.i204 = getelementptr inbounds i8, ptr %pi, i64 600
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i204, ptr noundef nonnull %T14.i152, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t5, ptr noundef nonnull %p, ptr noundef nonnull %arrayidx4)
-  %T.i206 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t5, i64 0, i32 3
+  %T.i206 = getelementptr inbounds i8, ptr %t5, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p5, ptr noundef nonnull %t5, ptr noundef nonnull %T.i206)
-  %Y.i207 = getelementptr inbounds %struct.ge25519_p3, ptr %p5, i64 0, i32 1
-  %Y5.i208 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t5, i64 0, i32 1
-  %Z.i209 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t5, i64 0, i32 2
+  %Y.i207 = getelementptr inbounds i8, ptr %p5, i64 40
+  %Y5.i208 = getelementptr inbounds i8, ptr %t5, i64 40
+  %Z.i209 = getelementptr inbounds i8, ptr %t5, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i207, ptr noundef nonnull %Y5.i208, ptr noundef nonnull %Z.i209)
-  %Z8.i210 = getelementptr inbounds %struct.ge25519_p3, ptr %p5, i64 0, i32 2
+  %Z8.i210 = getelementptr inbounds i8, ptr %p5, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i210, ptr noundef nonnull %Z.i209, ptr noundef nonnull %T.i206)
-  %T14.i211 = getelementptr inbounds %struct.ge25519_p3, ptr %p5, i64 0, i32 3
+  %T14.i211 = getelementptr inbounds i8, ptr %p5, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i211, ptr noundef nonnull %t5, ptr noundef nonnull %Y5.i208)
-  %arrayidx6 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %pi, i64 640
   %40 = load i64, ptr %Y.i207, align 8
   %41 = load i64, ptr %p5, align 8
   %add.i.i213 = add i64 %41, %40
-  %arrayidx2.i.i214 = getelementptr inbounds %struct.ge25519_p3, ptr %p5, i64 0, i32 1, i64 1
+  %arrayidx2.i.i214 = getelementptr inbounds i8, ptr %p5, i64 48
   %42 = load i64, ptr %arrayidx2.i.i214, align 8
-  %arrayidx3.i.i215 = getelementptr inbounds i64, ptr %p5, i64 1
+  %arrayidx3.i.i215 = getelementptr inbounds i8, ptr %p5, i64 8
   %43 = load i64, ptr %arrayidx3.i.i215, align 8
   %add4.i.i216 = add i64 %43, %42
-  %arrayidx5.i.i217 = getelementptr inbounds %struct.ge25519_p3, ptr %p5, i64 0, i32 1, i64 2
+  %arrayidx5.i.i217 = getelementptr inbounds i8, ptr %p5, i64 56
   %44 = load i64, ptr %arrayidx5.i.i217, align 8
-  %arrayidx6.i.i218 = getelementptr inbounds i64, ptr %p5, i64 2
+  %arrayidx6.i.i218 = getelementptr inbounds i8, ptr %p5, i64 16
   %45 = load i64, ptr %arrayidx6.i.i218, align 8
   %add7.i.i219 = add i64 %45, %44
-  %arrayidx8.i.i220 = getelementptr inbounds %struct.ge25519_p3, ptr %p5, i64 0, i32 1, i64 3
+  %arrayidx8.i.i220 = getelementptr inbounds i8, ptr %p5, i64 64
   %46 = load i64, ptr %arrayidx8.i.i220, align 8
-  %arrayidx9.i.i221 = getelementptr inbounds i64, ptr %p5, i64 3
+  %arrayidx9.i.i221 = getelementptr inbounds i8, ptr %p5, i64 24
   %47 = load i64, ptr %arrayidx9.i.i221, align 8
   %add10.i.i222 = add i64 %47, %46
-  %arrayidx11.i.i223 = getelementptr inbounds %struct.ge25519_p3, ptr %p5, i64 0, i32 1, i64 4
+  %arrayidx11.i.i223 = getelementptr inbounds i8, ptr %p5, i64 72
   %48 = load i64, ptr %arrayidx11.i.i223, align 8
-  %arrayidx12.i.i224 = getelementptr inbounds i64, ptr %p5, i64 4
+  %arrayidx12.i.i224 = getelementptr inbounds i8, ptr %p5, i64 32
   %49 = load i64, ptr %arrayidx12.i.i224, align 8
   %add13.i.i225 = add i64 %49, %48
   store i64 %add.i.i213, ptr %arrayidx6, align 16
-  %arrayidx15.i.i226 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 0, i64 1
+  %arrayidx15.i.i226 = getelementptr inbounds i8, ptr %pi, i64 648
   store i64 %add4.i.i216, ptr %arrayidx15.i.i226, align 8
-  %arrayidx16.i.i227 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 0, i64 2
+  %arrayidx16.i.i227 = getelementptr inbounds i8, ptr %pi, i64 656
   store i64 %add7.i.i219, ptr %arrayidx16.i.i227, align 16
-  %arrayidx17.i.i228 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 0, i64 3
+  %arrayidx17.i.i228 = getelementptr inbounds i8, ptr %pi, i64 664
   store i64 %add10.i.i222, ptr %arrayidx17.i.i228, align 8
-  %arrayidx18.i.i229 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 0, i64 4
+  %arrayidx18.i.i229 = getelementptr inbounds i8, ptr %pi, i64 672
   store i64 %add13.i.i225, ptr %arrayidx18.i.i229, align 16
-  %YminusX.i230 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 1
+  %YminusX.i230 = getelementptr inbounds i8, ptr %pi, i64 680
   %shr.i.i231 = lshr i64 %41, 51
   %add.i11.i232 = add i64 %43, %shr.i.i231
   %and.i.i233 = and i64 %41, 2251799813685247
@@ -7066,70 +7066,70 @@ entry:
   %add29.i.i255 = add i64 %48, 4503599627370494
   %sub30.i.i256 = sub i64 %add29.i.i255, %and16.i.i244
   store i64 %sub.i.i248, ptr %YminusX.i230, align 8
-  %arrayidx32.i.i257 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 1, i64 1
+  %arrayidx32.i.i257 = getelementptr inbounds i8, ptr %pi, i64 688
   store i64 %sub21.i.i250, ptr %arrayidx32.i.i257, align 16
-  %arrayidx33.i.i258 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 1, i64 2
+  %arrayidx33.i.i258 = getelementptr inbounds i8, ptr %pi, i64 696
   store i64 %sub24.i.i252, ptr %arrayidx33.i.i258, align 8
-  %arrayidx34.i.i259 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 1, i64 3
+  %arrayidx34.i.i259 = getelementptr inbounds i8, ptr %pi, i64 704
   store i64 %sub27.i.i254, ptr %arrayidx34.i.i259, align 16
-  %arrayidx35.i.i260 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 1, i64 4
+  %arrayidx35.i.i260 = getelementptr inbounds i8, ptr %pi, i64 712
   store i64 %sub30.i.i256, ptr %arrayidx35.i.i260, align 8
-  %Z.i261 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 2
+  %Z.i261 = getelementptr inbounds i8, ptr %pi, i64 720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i261, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i210, i64 40, i1 false)
-  %T2d.i263 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 4, i32 3
+  %T2d.i263 = getelementptr inbounds i8, ptr %pi, i64 760
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i263, ptr noundef nonnull %T14.i211, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i265)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i265, ptr noundef nonnull align 8 dereferenceable(40) %p3, i64 40, i1 false)
-  %Y.i.i266 = getelementptr inbounds %struct.ge25519_p2, ptr %q.i265, i64 0, i32 1
+  %Y.i.i266 = getelementptr inbounds i8, ptr %q.i265, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i266, ptr noundef nonnull align 8 dereferenceable(40) %Y.i84, i64 40, i1 false)
-  %Z.i.i268 = getelementptr inbounds %struct.ge25519_p2, ptr %q.i265, i64 0, i32 2
+  %Z.i.i268 = getelementptr inbounds i8, ptr %q.i265, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i268, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i87, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t6, ptr noundef nonnull %q.i265)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i265)
-  %T.i270 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t6, i64 0, i32 3
+  %T.i270 = getelementptr inbounds i8, ptr %t6, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p6, ptr noundef nonnull %t6, ptr noundef nonnull %T.i270)
-  %Y.i271 = getelementptr inbounds %struct.ge25519_p3, ptr %p6, i64 0, i32 1
-  %Y5.i272 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t6, i64 0, i32 1
-  %Z.i273 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t6, i64 0, i32 2
+  %Y.i271 = getelementptr inbounds i8, ptr %p6, i64 40
+  %Y5.i272 = getelementptr inbounds i8, ptr %t6, i64 40
+  %Z.i273 = getelementptr inbounds i8, ptr %t6, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i271, ptr noundef nonnull %Y5.i272, ptr noundef nonnull %Z.i273)
-  %Z8.i274 = getelementptr inbounds %struct.ge25519_p3, ptr %p6, i64 0, i32 2
+  %Z8.i274 = getelementptr inbounds i8, ptr %p6, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i274, ptr noundef nonnull %Z.i273, ptr noundef nonnull %T.i270)
-  %T14.i275 = getelementptr inbounds %struct.ge25519_p3, ptr %p6, i64 0, i32 3
+  %T14.i275 = getelementptr inbounds i8, ptr %p6, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i275, ptr noundef nonnull %t6, ptr noundef nonnull %Y5.i272)
-  %arrayidx7 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5
+  %arrayidx7 = getelementptr inbounds i8, ptr %pi, i64 800
   %50 = load i64, ptr %Y.i271, align 8
   %51 = load i64, ptr %p6, align 8
   %add.i.i277 = add i64 %51, %50
-  %arrayidx2.i.i278 = getelementptr inbounds %struct.ge25519_p3, ptr %p6, i64 0, i32 1, i64 1
+  %arrayidx2.i.i278 = getelementptr inbounds i8, ptr %p6, i64 48
   %52 = load i64, ptr %arrayidx2.i.i278, align 8
-  %arrayidx3.i.i279 = getelementptr inbounds i64, ptr %p6, i64 1
+  %arrayidx3.i.i279 = getelementptr inbounds i8, ptr %p6, i64 8
   %53 = load i64, ptr %arrayidx3.i.i279, align 8
   %add4.i.i280 = add i64 %53, %52
-  %arrayidx5.i.i281 = getelementptr inbounds %struct.ge25519_p3, ptr %p6, i64 0, i32 1, i64 2
+  %arrayidx5.i.i281 = getelementptr inbounds i8, ptr %p6, i64 56
   %54 = load i64, ptr %arrayidx5.i.i281, align 8
-  %arrayidx6.i.i282 = getelementptr inbounds i64, ptr %p6, i64 2
+  %arrayidx6.i.i282 = getelementptr inbounds i8, ptr %p6, i64 16
   %55 = load i64, ptr %arrayidx6.i.i282, align 8
   %add7.i.i283 = add i64 %55, %54
-  %arrayidx8.i.i284 = getelementptr inbounds %struct.ge25519_p3, ptr %p6, i64 0, i32 1, i64 3
+  %arrayidx8.i.i284 = getelementptr inbounds i8, ptr %p6, i64 64
   %56 = load i64, ptr %arrayidx8.i.i284, align 8
-  %arrayidx9.i.i285 = getelementptr inbounds i64, ptr %p6, i64 3
+  %arrayidx9.i.i285 = getelementptr inbounds i8, ptr %p6, i64 24
   %57 = load i64, ptr %arrayidx9.i.i285, align 8
   %add10.i.i286 = add i64 %57, %56
-  %arrayidx11.i.i287 = getelementptr inbounds %struct.ge25519_p3, ptr %p6, i64 0, i32 1, i64 4
+  %arrayidx11.i.i287 = getelementptr inbounds i8, ptr %p6, i64 72
   %58 = load i64, ptr %arrayidx11.i.i287, align 8
-  %arrayidx12.i.i288 = getelementptr inbounds i64, ptr %p6, i64 4
+  %arrayidx12.i.i288 = getelementptr inbounds i8, ptr %p6, i64 32
   %59 = load i64, ptr %arrayidx12.i.i288, align 8
   %add13.i.i289 = add i64 %59, %58
   store i64 %add.i.i277, ptr %arrayidx7, align 16
-  %arrayidx15.i.i290 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 0, i64 1
+  %arrayidx15.i.i290 = getelementptr inbounds i8, ptr %pi, i64 808
   store i64 %add4.i.i280, ptr %arrayidx15.i.i290, align 8
-  %arrayidx16.i.i291 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 0, i64 2
+  %arrayidx16.i.i291 = getelementptr inbounds i8, ptr %pi, i64 816
   store i64 %add7.i.i283, ptr %arrayidx16.i.i291, align 16
-  %arrayidx17.i.i292 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 0, i64 3
+  %arrayidx17.i.i292 = getelementptr inbounds i8, ptr %pi, i64 824
   store i64 %add10.i.i286, ptr %arrayidx17.i.i292, align 8
-  %arrayidx18.i.i293 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 0, i64 4
+  %arrayidx18.i.i293 = getelementptr inbounds i8, ptr %pi, i64 832
   store i64 %add13.i.i289, ptr %arrayidx18.i.i293, align 16
-  %YminusX.i294 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 1
+  %YminusX.i294 = getelementptr inbounds i8, ptr %pi, i64 840
   %shr.i.i295 = lshr i64 %51, 51
   %add.i11.i296 = add i64 %53, %shr.i.i295
   %and.i.i297 = and i64 %51, 2251799813685247
@@ -7157,63 +7157,63 @@ entry:
   %add29.i.i319 = add i64 %58, 4503599627370494
   %sub30.i.i320 = sub i64 %add29.i.i319, %and16.i.i308
   store i64 %sub.i.i312, ptr %YminusX.i294, align 8
-  %arrayidx32.i.i321 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 1, i64 1
+  %arrayidx32.i.i321 = getelementptr inbounds i8, ptr %pi, i64 848
   store i64 %sub21.i.i314, ptr %arrayidx32.i.i321, align 16
-  %arrayidx33.i.i322 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 1, i64 2
+  %arrayidx33.i.i322 = getelementptr inbounds i8, ptr %pi, i64 856
   store i64 %sub24.i.i316, ptr %arrayidx33.i.i322, align 8
-  %arrayidx34.i.i323 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 1, i64 3
+  %arrayidx34.i.i323 = getelementptr inbounds i8, ptr %pi, i64 864
   store i64 %sub27.i.i318, ptr %arrayidx34.i.i323, align 16
-  %arrayidx35.i.i324 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 1, i64 4
+  %arrayidx35.i.i324 = getelementptr inbounds i8, ptr %pi, i64 872
   store i64 %sub30.i.i320, ptr %arrayidx35.i.i324, align 8
-  %Z.i325 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 2
+  %Z.i325 = getelementptr inbounds i8, ptr %pi, i64 880
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i325, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i274, i64 40, i1 false)
-  %T2d.i327 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 5, i32 3
+  %T2d.i327 = getelementptr inbounds i8, ptr %pi, i64 920
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i327, ptr noundef nonnull %T14.i275, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %t7, ptr noundef nonnull %p, ptr noundef nonnull %arrayidx7)
-  %T.i329 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t7, i64 0, i32 3
+  %T.i329 = getelementptr inbounds i8, ptr %t7, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p7, ptr noundef nonnull %t7, ptr noundef nonnull %T.i329)
-  %Y.i330 = getelementptr inbounds %struct.ge25519_p3, ptr %p7, i64 0, i32 1
-  %Y5.i331 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t7, i64 0, i32 1
-  %Z.i332 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t7, i64 0, i32 2
+  %Y.i330 = getelementptr inbounds i8, ptr %p7, i64 40
+  %Y5.i331 = getelementptr inbounds i8, ptr %t7, i64 40
+  %Z.i332 = getelementptr inbounds i8, ptr %t7, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i330, ptr noundef nonnull %Y5.i331, ptr noundef nonnull %Z.i332)
-  %Z8.i333 = getelementptr inbounds %struct.ge25519_p3, ptr %p7, i64 0, i32 2
+  %Z8.i333 = getelementptr inbounds i8, ptr %p7, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i333, ptr noundef nonnull %Z.i332, ptr noundef nonnull %T.i329)
-  %T14.i334 = getelementptr inbounds %struct.ge25519_p3, ptr %p7, i64 0, i32 3
+  %T14.i334 = getelementptr inbounds i8, ptr %p7, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i334, ptr noundef nonnull %t7, ptr noundef nonnull %Y5.i331)
-  %arrayidx9 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6
+  %arrayidx9 = getelementptr inbounds i8, ptr %pi, i64 960
   %60 = load i64, ptr %Y.i330, align 8
   %61 = load i64, ptr %p7, align 8
   %add.i.i336 = add i64 %61, %60
-  %arrayidx2.i.i337 = getelementptr inbounds %struct.ge25519_p3, ptr %p7, i64 0, i32 1, i64 1
+  %arrayidx2.i.i337 = getelementptr inbounds i8, ptr %p7, i64 48
   %62 = load i64, ptr %arrayidx2.i.i337, align 8
-  %arrayidx3.i.i338 = getelementptr inbounds i64, ptr %p7, i64 1
+  %arrayidx3.i.i338 = getelementptr inbounds i8, ptr %p7, i64 8
   %63 = load i64, ptr %arrayidx3.i.i338, align 8
   %add4.i.i339 = add i64 %63, %62
-  %arrayidx5.i.i340 = getelementptr inbounds %struct.ge25519_p3, ptr %p7, i64 0, i32 1, i64 2
+  %arrayidx5.i.i340 = getelementptr inbounds i8, ptr %p7, i64 56
   %64 = load i64, ptr %arrayidx5.i.i340, align 8
-  %arrayidx6.i.i341 = getelementptr inbounds i64, ptr %p7, i64 2
+  %arrayidx6.i.i341 = getelementptr inbounds i8, ptr %p7, i64 16
   %65 = load i64, ptr %arrayidx6.i.i341, align 8
   %add7.i.i342 = add i64 %65, %64
-  %arrayidx8.i.i343 = getelementptr inbounds %struct.ge25519_p3, ptr %p7, i64 0, i32 1, i64 3
+  %arrayidx8.i.i343 = getelementptr inbounds i8, ptr %p7, i64 64
   %66 = load i64, ptr %arrayidx8.i.i343, align 8
-  %arrayidx9.i.i344 = getelementptr inbounds i64, ptr %p7, i64 3
+  %arrayidx9.i.i344 = getelementptr inbounds i8, ptr %p7, i64 24
   %67 = load i64, ptr %arrayidx9.i.i344, align 8
   %add10.i.i345 = add i64 %67, %66
-  %arrayidx11.i.i346 = getelementptr inbounds %struct.ge25519_p3, ptr %p7, i64 0, i32 1, i64 4
+  %arrayidx11.i.i346 = getelementptr inbounds i8, ptr %p7, i64 72
   %68 = load i64, ptr %arrayidx11.i.i346, align 8
-  %arrayidx12.i.i347 = getelementptr inbounds i64, ptr %p7, i64 4
+  %arrayidx12.i.i347 = getelementptr inbounds i8, ptr %p7, i64 32
   %69 = load i64, ptr %arrayidx12.i.i347, align 8
   %add13.i.i348 = add i64 %69, %68
   store i64 %add.i.i336, ptr %arrayidx9, align 16
-  %arrayidx15.i.i349 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 0, i64 1
+  %arrayidx15.i.i349 = getelementptr inbounds i8, ptr %pi, i64 968
   store i64 %add4.i.i339, ptr %arrayidx15.i.i349, align 8
-  %arrayidx16.i.i350 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 0, i64 2
+  %arrayidx16.i.i350 = getelementptr inbounds i8, ptr %pi, i64 976
   store i64 %add7.i.i342, ptr %arrayidx16.i.i350, align 16
-  %arrayidx17.i.i351 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 0, i64 3
+  %arrayidx17.i.i351 = getelementptr inbounds i8, ptr %pi, i64 984
   store i64 %add10.i.i345, ptr %arrayidx17.i.i351, align 8
-  %arrayidx18.i.i352 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 0, i64 4
+  %arrayidx18.i.i352 = getelementptr inbounds i8, ptr %pi, i64 992
   store i64 %add13.i.i348, ptr %arrayidx18.i.i352, align 16
-  %YminusX.i353 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 1
+  %YminusX.i353 = getelementptr inbounds i8, ptr %pi, i64 1000
   %shr.i.i354 = lshr i64 %61, 51
   %add.i11.i355 = add i64 %63, %shr.i.i354
   %and.i.i356 = and i64 %61, 2251799813685247
@@ -7241,70 +7241,70 @@ entry:
   %add29.i.i378 = add i64 %68, 4503599627370494
   %sub30.i.i379 = sub i64 %add29.i.i378, %and16.i.i367
   store i64 %sub.i.i371, ptr %YminusX.i353, align 8
-  %arrayidx32.i.i380 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 1, i64 1
+  %arrayidx32.i.i380 = getelementptr inbounds i8, ptr %pi, i64 1008
   store i64 %sub21.i.i373, ptr %arrayidx32.i.i380, align 16
-  %arrayidx33.i.i381 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 1, i64 2
+  %arrayidx33.i.i381 = getelementptr inbounds i8, ptr %pi, i64 1016
   store i64 %sub24.i.i375, ptr %arrayidx33.i.i381, align 8
-  %arrayidx34.i.i382 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 1, i64 3
+  %arrayidx34.i.i382 = getelementptr inbounds i8, ptr %pi, i64 1024
   store i64 %sub27.i.i377, ptr %arrayidx34.i.i382, align 16
-  %arrayidx35.i.i383 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 1, i64 4
+  %arrayidx35.i.i383 = getelementptr inbounds i8, ptr %pi, i64 1032
   store i64 %sub30.i.i379, ptr %arrayidx35.i.i383, align 8
-  %Z.i384 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 2
+  %Z.i384 = getelementptr inbounds i8, ptr %pi, i64 1040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i384, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i333, i64 40, i1 false)
-  %T2d.i386 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 6, i32 3
+  %T2d.i386 = getelementptr inbounds i8, ptr %pi, i64 1080
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i386, ptr noundef nonnull %T14.i334, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i388)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i388, ptr noundef nonnull align 8 dereferenceable(40) %p4, i64 40, i1 false)
-  %Y.i.i389 = getelementptr inbounds %struct.ge25519_p2, ptr %q.i388, i64 0, i32 1
+  %Y.i.i389 = getelementptr inbounds i8, ptr %q.i388, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i389, ptr noundef nonnull align 8 dereferenceable(40) %Y.i148, i64 40, i1 false)
-  %Z.i.i391 = getelementptr inbounds %struct.ge25519_p2, ptr %q.i388, i64 0, i32 2
+  %Z.i.i391 = getelementptr inbounds i8, ptr %q.i388, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i391, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i151, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %t8, ptr noundef nonnull %q.i388)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i388)
-  %T.i393 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t8, i64 0, i32 3
+  %T.i393 = getelementptr inbounds i8, ptr %t8, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p8, ptr noundef nonnull %t8, ptr noundef nonnull %T.i393)
-  %Y.i394 = getelementptr inbounds %struct.ge25519_p3, ptr %p8, i64 0, i32 1
-  %Y5.i395 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t8, i64 0, i32 1
-  %Z.i396 = getelementptr inbounds %struct.ge25519_p1p1, ptr %t8, i64 0, i32 2
+  %Y.i394 = getelementptr inbounds i8, ptr %p8, i64 40
+  %Y5.i395 = getelementptr inbounds i8, ptr %t8, i64 40
+  %Z.i396 = getelementptr inbounds i8, ptr %t8, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i394, ptr noundef nonnull %Y5.i395, ptr noundef nonnull %Z.i396)
-  %Z8.i397 = getelementptr inbounds %struct.ge25519_p3, ptr %p8, i64 0, i32 2
+  %Z8.i397 = getelementptr inbounds i8, ptr %p8, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i397, ptr noundef nonnull %Z.i396, ptr noundef nonnull %T.i393)
-  %T14.i398 = getelementptr inbounds %struct.ge25519_p3, ptr %p8, i64 0, i32 3
+  %T14.i398 = getelementptr inbounds i8, ptr %p8, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i398, ptr noundef nonnull %t8, ptr noundef nonnull %Y5.i395)
-  %arrayidx10 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7
+  %arrayidx10 = getelementptr inbounds i8, ptr %pi, i64 1120
   %70 = load i64, ptr %Y.i394, align 8
   %71 = load i64, ptr %p8, align 8
   %add.i.i400 = add i64 %71, %70
-  %arrayidx2.i.i401 = getelementptr inbounds %struct.ge25519_p3, ptr %p8, i64 0, i32 1, i64 1
+  %arrayidx2.i.i401 = getelementptr inbounds i8, ptr %p8, i64 48
   %72 = load i64, ptr %arrayidx2.i.i401, align 8
-  %arrayidx3.i.i402 = getelementptr inbounds i64, ptr %p8, i64 1
+  %arrayidx3.i.i402 = getelementptr inbounds i8, ptr %p8, i64 8
   %73 = load i64, ptr %arrayidx3.i.i402, align 8
   %add4.i.i403 = add i64 %73, %72
-  %arrayidx5.i.i404 = getelementptr inbounds %struct.ge25519_p3, ptr %p8, i64 0, i32 1, i64 2
+  %arrayidx5.i.i404 = getelementptr inbounds i8, ptr %p8, i64 56
   %74 = load i64, ptr %arrayidx5.i.i404, align 8
-  %arrayidx6.i.i405 = getelementptr inbounds i64, ptr %p8, i64 2
+  %arrayidx6.i.i405 = getelementptr inbounds i8, ptr %p8, i64 16
   %75 = load i64, ptr %arrayidx6.i.i405, align 8
   %add7.i.i406 = add i64 %75, %74
-  %arrayidx8.i.i407 = getelementptr inbounds %struct.ge25519_p3, ptr %p8, i64 0, i32 1, i64 3
+  %arrayidx8.i.i407 = getelementptr inbounds i8, ptr %p8, i64 64
   %76 = load i64, ptr %arrayidx8.i.i407, align 8
-  %arrayidx9.i.i408 = getelementptr inbounds i64, ptr %p8, i64 3
+  %arrayidx9.i.i408 = getelementptr inbounds i8, ptr %p8, i64 24
   %77 = load i64, ptr %arrayidx9.i.i408, align 8
   %add10.i.i409 = add i64 %77, %76
-  %arrayidx11.i.i410 = getelementptr inbounds %struct.ge25519_p3, ptr %p8, i64 0, i32 1, i64 4
+  %arrayidx11.i.i410 = getelementptr inbounds i8, ptr %p8, i64 72
   %78 = load i64, ptr %arrayidx11.i.i410, align 8
-  %arrayidx12.i.i411 = getelementptr inbounds i64, ptr %p8, i64 4
+  %arrayidx12.i.i411 = getelementptr inbounds i8, ptr %p8, i64 32
   %79 = load i64, ptr %arrayidx12.i.i411, align 8
   %add13.i.i412 = add i64 %79, %78
   store i64 %add.i.i400, ptr %arrayidx10, align 16
-  %arrayidx15.i.i413 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 0, i64 1
+  %arrayidx15.i.i413 = getelementptr inbounds i8, ptr %pi, i64 1128
   store i64 %add4.i.i403, ptr %arrayidx15.i.i413, align 8
-  %arrayidx16.i.i414 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 0, i64 2
+  %arrayidx16.i.i414 = getelementptr inbounds i8, ptr %pi, i64 1136
   store i64 %add7.i.i406, ptr %arrayidx16.i.i414, align 16
-  %arrayidx17.i.i415 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 0, i64 3
+  %arrayidx17.i.i415 = getelementptr inbounds i8, ptr %pi, i64 1144
   store i64 %add10.i.i409, ptr %arrayidx17.i.i415, align 8
-  %arrayidx18.i.i416 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 0, i64 4
+  %arrayidx18.i.i416 = getelementptr inbounds i8, ptr %pi, i64 1152
   store i64 %add13.i.i412, ptr %arrayidx18.i.i416, align 16
-  %YminusX.i417 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 1
+  %YminusX.i417 = getelementptr inbounds i8, ptr %pi, i64 1160
   %shr.i.i418 = lshr i64 %71, 51
   %add.i11.i419 = add i64 %73, %shr.i.i418
   %and.i.i420 = and i64 %71, 2251799813685247
@@ -7332,17 +7332,17 @@ entry:
   %add29.i.i442 = add i64 %78, 4503599627370494
   %sub30.i.i443 = sub i64 %add29.i.i442, %and16.i.i431
   store i64 %sub.i.i435, ptr %YminusX.i417, align 8
-  %arrayidx32.i.i444 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 1, i64 1
+  %arrayidx32.i.i444 = getelementptr inbounds i8, ptr %pi, i64 1168
   store i64 %sub21.i.i437, ptr %arrayidx32.i.i444, align 16
-  %arrayidx33.i.i445 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 1, i64 2
+  %arrayidx33.i.i445 = getelementptr inbounds i8, ptr %pi, i64 1176
   store i64 %sub24.i.i439, ptr %arrayidx33.i.i445, align 8
-  %arrayidx34.i.i446 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 1, i64 3
+  %arrayidx34.i.i446 = getelementptr inbounds i8, ptr %pi, i64 1184
   store i64 %sub27.i.i441, ptr %arrayidx34.i.i446, align 16
-  %arrayidx35.i.i447 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 1, i64 4
+  %arrayidx35.i.i447 = getelementptr inbounds i8, ptr %pi, i64 1192
   store i64 %sub30.i.i443, ptr %arrayidx35.i.i447, align 8
-  %Z.i448 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 2
+  %Z.i448 = getelementptr inbounds i8, ptr %pi, i64 1200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %Z.i448, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i397, i64 40, i1 false)
-  %T2d.i450 = getelementptr inbounds [8 x %struct.ge25519_cached], ptr %pi, i64 0, i64 7, i32 3
+  %T2d.i450 = getelementptr inbounds i8, ptr %pi, i64 1240
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i450, ptr noundef nonnull %T14.i398, ptr noundef nonnull @ed25519_d2)
   br label %for.body
 
@@ -7378,25 +7378,25 @@ for.body28:                                       ; preds = %for.body, %for.body
   br i1 %exitcond495.not, label %for.end51, label %for.body28, !llvm.loop !28
 
 for.end51:                                        ; preds = %for.body28
-  %arrayidx53 = getelementptr inbounds [64 x i8], ptr %e, i64 0, i64 63
+  %arrayidx53 = getelementptr inbounds i8, ptr %e, i64 63
   %87 = load i8, ptr %arrayidx53, align 1
   %add55 = add i8 %87, %86
   store i8 %add55, ptr %arrayidx53, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %h, i8 0, i64 40, i1 false)
-  %Y.i452 = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 1
+  %Y.i452 = getelementptr inbounds i8, ptr %h, i64 40
   store i64 1, ptr %Y.i452, align 8
-  %arrayidx1.i.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %h, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
-  %Z.i453 = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 2
+  %Z.i453 = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z.i453, align 8
-  %arrayidx1.i4.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 1
+  %arrayidx1.i4.i = getelementptr i8, ptr %h, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i4.i, i8 0, i64 72, i1 false)
-  %T.i454 = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 3
-  %Y.i455 = getelementptr inbounds %struct.ge25519_p2, ptr %s, i64 0, i32 1
-  %Y5.i456 = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 1
-  %Z.i457 = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 2
-  %Z8.i458 = getelementptr inbounds %struct.ge25519_p2, ptr %s, i64 0, i32 2
-  %T14.i479 = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 3
+  %T.i454 = getelementptr inbounds i8, ptr %r, i64 120
+  %Y.i455 = getelementptr inbounds i8, ptr %s, i64 40
+  %Y5.i456 = getelementptr inbounds i8, ptr %r, i64 40
+  %Z.i457 = getelementptr inbounds i8, ptr %r, i64 80
+  %Z8.i458 = getelementptr inbounds i8, ptr %s, i64 80
+  %T14.i479 = getelementptr inbounds i8, ptr %h, i64 120
   br label %for.body60
 
 for.body60:                                       ; preds = %for.end51, %for.body60
@@ -7449,126 +7449,126 @@ entry:
   %mul = shl i8 %and, 1
   %sub3 = sub i8 %b, %mul
   store i64 1, ptr %t, align 8
-  %arrayidx1.i.i = getelementptr i64, ptr %t, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %t, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
-  %YminusX.i = getelementptr inbounds %struct.ge25519_cached, ptr %t, i64 0, i32 1
+  %YminusX.i = getelementptr inbounds i8, ptr %t, i64 40
   store i64 1, ptr %YminusX.i, align 8
-  %arrayidx1.i4.i = getelementptr %struct.ge25519_cached, ptr %t, i64 0, i32 1, i64 1
+  %arrayidx1.i4.i = getelementptr i8, ptr %t, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i4.i, i8 0, i64 32, i1 false)
-  %Z.i = getelementptr inbounds %struct.ge25519_cached, ptr %t, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %t, i64 80
   store i64 1, ptr %Z.i, align 8
-  %arrayidx1.i5.i = getelementptr %struct.ge25519_cached, ptr %t, i64 0, i32 2, i64 1
+  %arrayidx1.i5.i = getelementptr i8, ptr %t, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i5.i, i8 0, i64 72, i1 false)
   %xor3.i = xor i8 %sub3, 1
   %conv3.i = zext i8 %xor3.i to i32
   %sub.i = add nsw i32 %conv3.i, -1
   %shr.i = lshr i32 %sub.i, 31
   %1 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %cached, i32 %shr.i) #10, !srcloc !13
-  %YminusX4.i = getelementptr inbounds %struct.ge25519_cached, ptr %cached, i64 0, i32 1
+  %YminusX4.i = getelementptr inbounds i8, ptr %cached, i64 40
   %2 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i, i32 %shr.i) #10, !srcloc !13
-  %Z8.i = getelementptr inbounds %struct.ge25519_cached, ptr %cached, i64 0, i32 2
+  %Z8.i = getelementptr inbounds i8, ptr %cached, i64 80
   %3 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i, i32 %shr.i) #10, !srcloc !13
-  %T2d.i = getelementptr inbounds %struct.ge25519_cached, ptr %t, i64 0, i32 3
-  %T2d12.i = getelementptr inbounds %struct.ge25519_cached, ptr %cached, i64 0, i32 3
+  %T2d.i = getelementptr inbounds i8, ptr %t, i64 120
+  %T2d12.i = getelementptr inbounds i8, ptr %cached, i64 120
   %4 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i, i32 %shr.i) #10, !srcloc !13
-  %arrayidx6 = getelementptr %struct.ge25519_cached, ptr %cached, i64 1
+  %arrayidx6 = getelementptr i8, ptr %cached, i64 160
   %xor3.i33 = xor i8 %sub3, 2
   %conv3.i34 = zext i8 %xor3.i33 to i32
   %sub.i35 = add nsw i32 %conv3.i34, -1
   %shr.i36 = lshr i32 %sub.i35, 31
   %5 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx6, i32 %shr.i36) #10, !srcloc !13
-  %YminusX4.i40 = getelementptr %struct.ge25519_cached, ptr %cached, i64 1, i32 1
+  %YminusX4.i40 = getelementptr i8, ptr %cached, i64 200
   %6 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i40, i32 %shr.i36) #10, !srcloc !13
-  %Z8.i42 = getelementptr %struct.ge25519_cached, ptr %cached, i64 1, i32 2
+  %Z8.i42 = getelementptr i8, ptr %cached, i64 240
   %7 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i42, i32 %shr.i36) #10, !srcloc !13
-  %T2d12.i44 = getelementptr %struct.ge25519_cached, ptr %cached, i64 1, i32 3
+  %T2d12.i44 = getelementptr i8, ptr %cached, i64 280
   %8 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i44, i32 %shr.i36) #10, !srcloc !13
-  %arrayidx8 = getelementptr %struct.ge25519_cached, ptr %cached, i64 2
+  %arrayidx8 = getelementptr i8, ptr %cached, i64 320
   %xor3.i45 = xor i8 %sub3, 3
   %conv3.i46 = zext i8 %xor3.i45 to i32
   %sub.i47 = add nsw i32 %conv3.i46, -1
   %shr.i48 = lshr i32 %sub.i47, 31
   %9 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx8, i32 %shr.i48) #10, !srcloc !13
-  %YminusX4.i52 = getelementptr %struct.ge25519_cached, ptr %cached, i64 2, i32 1
+  %YminusX4.i52 = getelementptr i8, ptr %cached, i64 360
   %10 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i52, i32 %shr.i48) #10, !srcloc !13
-  %Z8.i54 = getelementptr %struct.ge25519_cached, ptr %cached, i64 2, i32 2
+  %Z8.i54 = getelementptr i8, ptr %cached, i64 400
   %11 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i54, i32 %shr.i48) #10, !srcloc !13
-  %T2d12.i56 = getelementptr %struct.ge25519_cached, ptr %cached, i64 2, i32 3
+  %T2d12.i56 = getelementptr i8, ptr %cached, i64 440
   %12 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i56, i32 %shr.i48) #10, !srcloc !13
-  %arrayidx10 = getelementptr %struct.ge25519_cached, ptr %cached, i64 3
+  %arrayidx10 = getelementptr i8, ptr %cached, i64 480
   %xor3.i57 = xor i8 %sub3, 4
   %conv3.i58 = zext i8 %xor3.i57 to i32
   %sub.i59 = add nsw i32 %conv3.i58, -1
   %shr.i60 = lshr i32 %sub.i59, 31
   %13 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx10, i32 %shr.i60) #10, !srcloc !13
-  %YminusX4.i64 = getelementptr %struct.ge25519_cached, ptr %cached, i64 3, i32 1
+  %YminusX4.i64 = getelementptr i8, ptr %cached, i64 520
   %14 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i64, i32 %shr.i60) #10, !srcloc !13
-  %Z8.i66 = getelementptr %struct.ge25519_cached, ptr %cached, i64 3, i32 2
+  %Z8.i66 = getelementptr i8, ptr %cached, i64 560
   %15 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i66, i32 %shr.i60) #10, !srcloc !13
-  %T2d12.i68 = getelementptr %struct.ge25519_cached, ptr %cached, i64 3, i32 3
+  %T2d12.i68 = getelementptr i8, ptr %cached, i64 600
   %16 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i68, i32 %shr.i60) #10, !srcloc !13
-  %arrayidx12 = getelementptr %struct.ge25519_cached, ptr %cached, i64 4
+  %arrayidx12 = getelementptr i8, ptr %cached, i64 640
   %xor3.i69 = xor i8 %sub3, 5
   %conv3.i70 = zext i8 %xor3.i69 to i32
   %sub.i71 = add nsw i32 %conv3.i70, -1
   %shr.i72 = lshr i32 %sub.i71, 31
   %17 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx12, i32 %shr.i72) #10, !srcloc !13
-  %YminusX4.i76 = getelementptr %struct.ge25519_cached, ptr %cached, i64 4, i32 1
+  %YminusX4.i76 = getelementptr i8, ptr %cached, i64 680
   %18 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i76, i32 %shr.i72) #10, !srcloc !13
-  %Z8.i78 = getelementptr %struct.ge25519_cached, ptr %cached, i64 4, i32 2
+  %Z8.i78 = getelementptr i8, ptr %cached, i64 720
   %19 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i78, i32 %shr.i72) #10, !srcloc !13
-  %T2d12.i80 = getelementptr %struct.ge25519_cached, ptr %cached, i64 4, i32 3
+  %T2d12.i80 = getelementptr i8, ptr %cached, i64 760
   %20 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i80, i32 %shr.i72) #10, !srcloc !13
-  %arrayidx14 = getelementptr %struct.ge25519_cached, ptr %cached, i64 5
+  %arrayidx14 = getelementptr i8, ptr %cached, i64 800
   %xor3.i81 = xor i8 %sub3, 6
   %conv3.i82 = zext i8 %xor3.i81 to i32
   %sub.i83 = add nsw i32 %conv3.i82, -1
   %shr.i84 = lshr i32 %sub.i83, 31
   %21 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx14, i32 %shr.i84) #10, !srcloc !13
-  %YminusX4.i88 = getelementptr %struct.ge25519_cached, ptr %cached, i64 5, i32 1
+  %YminusX4.i88 = getelementptr i8, ptr %cached, i64 840
   %22 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i88, i32 %shr.i84) #10, !srcloc !13
-  %Z8.i90 = getelementptr %struct.ge25519_cached, ptr %cached, i64 5, i32 2
+  %Z8.i90 = getelementptr i8, ptr %cached, i64 880
   %23 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i90, i32 %shr.i84) #10, !srcloc !13
-  %T2d12.i92 = getelementptr %struct.ge25519_cached, ptr %cached, i64 5, i32 3
+  %T2d12.i92 = getelementptr i8, ptr %cached, i64 920
   %24 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i92, i32 %shr.i84) #10, !srcloc !13
-  %arrayidx16 = getelementptr %struct.ge25519_cached, ptr %cached, i64 6
+  %arrayidx16 = getelementptr i8, ptr %cached, i64 960
   %xor3.i93 = xor i8 %sub3, 7
   %conv3.i94 = zext i8 %xor3.i93 to i32
   %sub.i95 = add nsw i32 %conv3.i94, -1
   %shr.i96 = lshr i32 %sub.i95, 31
   %25 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx16, i32 %shr.i96) #10, !srcloc !13
-  %YminusX4.i100 = getelementptr %struct.ge25519_cached, ptr %cached, i64 6, i32 1
+  %YminusX4.i100 = getelementptr i8, ptr %cached, i64 1000
   %26 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i100, i32 %shr.i96) #10, !srcloc !13
-  %Z8.i102 = getelementptr %struct.ge25519_cached, ptr %cached, i64 6, i32 2
+  %Z8.i102 = getelementptr i8, ptr %cached, i64 1040
   %27 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i102, i32 %shr.i96) #10, !srcloc !13
-  %T2d12.i104 = getelementptr %struct.ge25519_cached, ptr %cached, i64 6, i32 3
+  %T2d12.i104 = getelementptr i8, ptr %cached, i64 1080
   %28 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i104, i32 %shr.i96) #10, !srcloc !13
-  %arrayidx18 = getelementptr %struct.ge25519_cached, ptr %cached, i64 7
+  %arrayidx18 = getelementptr i8, ptr %cached, i64 1120
   %xor3.i105 = xor i8 %sub3, 8
   %conv3.i106 = zext i8 %xor3.i105 to i32
   %sub.i107 = add nsw i32 %conv3.i106, -1
   %shr.i108 = lshr i32 %sub.i107, 31
   %29 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx18, i32 %shr.i108) #10, !srcloc !13
-  %YminusX4.i112 = getelementptr %struct.ge25519_cached, ptr %cached, i64 7, i32 1
+  %YminusX4.i112 = getelementptr i8, ptr %cached, i64 1160
   %30 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %YminusX.i, ptr nonnull %YminusX4.i112, i32 %shr.i108) #10, !srcloc !13
-  %Z8.i114 = getelementptr %struct.ge25519_cached, ptr %cached, i64 7, i32 2
+  %Z8.i114 = getelementptr i8, ptr %cached, i64 1200
   %31 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %Z.i, ptr nonnull %Z8.i114, i32 %shr.i108) #10, !srcloc !13
-  %T2d12.i116 = getelementptr %struct.ge25519_cached, ptr %cached, i64 7, i32 3
+  %T2d12.i116 = getelementptr i8, ptr %cached, i64 1240
   %32 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %T2d.i, ptr nonnull %T2d12.i116, i32 %shr.i108) #10, !srcloc !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %minust, ptr noundef nonnull align 8 dereferenceable(40) %YminusX.i, i64 40, i1 false)
-  %YminusX21 = getelementptr inbounds %struct.ge25519_cached, ptr %minust, i64 0, i32 1
+  %YminusX21 = getelementptr inbounds i8, ptr %minust, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %YminusX21, ptr noundef nonnull align 8 dereferenceable(40) %t, i64 40, i1 false)
-  %Z = getelementptr inbounds %struct.ge25519_cached, ptr %minust, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %minust, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z, ptr noundef nonnull align 8 dereferenceable(40) %Z.i, i64 40, i1 false)
-  %T2d = getelementptr inbounds %struct.ge25519_cached, ptr %minust, i64 0, i32 3
+  %T2d = getelementptr inbounds i8, ptr %minust, i64 120
   %33 = load i64, ptr %T2d.i, align 8
-  %arrayidx1.i.i117 = getelementptr %struct.ge25519_cached, ptr %t, i64 0, i32 3, i64 1
+  %arrayidx1.i.i117 = getelementptr i8, ptr %t, i64 128
   %34 = load i64, ptr %arrayidx1.i.i117, align 8
-  %arrayidx2.i.i = getelementptr %struct.ge25519_cached, ptr %t, i64 0, i32 3, i64 2
+  %arrayidx2.i.i = getelementptr i8, ptr %t, i64 136
   %35 = load i64, ptr %arrayidx2.i.i, align 8
-  %arrayidx3.i.i = getelementptr %struct.ge25519_cached, ptr %t, i64 0, i32 3, i64 3
+  %arrayidx3.i.i = getelementptr i8, ptr %t, i64 144
   %36 = load i64, ptr %arrayidx3.i.i, align 8
-  %arrayidx4.i.i = getelementptr %struct.ge25519_cached, ptr %t, i64 0, i32 3, i64 4
+  %arrayidx4.i.i = getelementptr i8, ptr %t, i64 152
   %37 = load i64, ptr %arrayidx4.i.i, align 8
   %shr.i.i = lshr i64 %33, 51
   %add.i.i = add i64 %34, %shr.i.i
@@ -7592,13 +7592,13 @@ entry:
   %sub27.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i
   %sub30.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i
   store i64 %sub.i.i, ptr %T2d, align 8
-  %arrayidx32.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %minust, i64 0, i32 3, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %minust, i64 128
   store i64 %sub21.i.i, ptr %arrayidx32.i.i, align 8
-  %arrayidx33.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %minust, i64 0, i32 3, i64 2
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %minust, i64 136
   store i64 %sub24.i.i, ptr %arrayidx33.i.i, align 8
-  %arrayidx34.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %minust, i64 0, i32 3, i64 3
+  %arrayidx34.i.i = getelementptr inbounds i8, ptr %minust, i64 144
   store i64 %sub27.i.i, ptr %arrayidx34.i.i, align 8
-  %arrayidx35.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %minust, i64 0, i32 3, i64 4
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %minust, i64 152
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 8
   %conv.i118 = zext nneg i8 %0 to i32
   %38 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %t, ptr nonnull %minust, i32 %conv.i118) #10, !srcloc !13
@@ -7650,23 +7650,23 @@ for.body17:                                       ; preds = %for.body, %for.body
   br i1 %exitcond69.not, label %for.end40, label %for.body17, !llvm.loop !31
 
 for.end40:                                        ; preds = %for.body17
-  %arrayidx42 = getelementptr inbounds [64 x i8], ptr %e, i64 0, i64 63
+  %arrayidx42 = getelementptr inbounds i8, ptr %e, i64 63
   %7 = load i8, ptr %arrayidx42, align 1
   %add44 = add i8 %7, %6
   store i8 %add44, ptr %arrayidx42, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %h, i8 0, i64 40, i1 false)
-  %Y.i = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %h, i64 40
   store i64 1, ptr %Y.i, align 8
-  %arrayidx1.i.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %h, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i, i8 0, i64 32, i1 false)
-  %Z.i = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z.i, align 8
-  %arrayidx1.i4.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 1
+  %arrayidx1.i4.i = getelementptr i8, ptr %h, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i4.i, i8 0, i64 72, i1 false)
-  %T.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 3
-  %Y5.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 1
-  %Z.i31 = getelementptr inbounds %struct.ge25519_p1p1, ptr %r, i64 0, i32 2
-  %T14.i = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 3
+  %T.i = getelementptr inbounds i8, ptr %r, i64 120
+  %Y5.i = getelementptr inbounds i8, ptr %r, i64 40
+  %Z.i31 = getelementptr inbounds i8, ptr %r, i64 80
+  %T14.i = getelementptr inbounds i8, ptr %h, i64 120
   br label %for.body49
 
 for.body49:                                       ; preds = %for.end40, %for.body49
@@ -7688,16 +7688,16 @@ for.body49:                                       ; preds = %for.end40, %for.bod
 for.end54:                                        ; preds = %for.body49
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %h, i64 40, i1 false)
-  %Y.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 1
+  %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i, i64 40, i1 false)
-  %Z.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 2
+  %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
-  %Y.i33 = getelementptr inbounds %struct.ge25519_p2, ptr %s, i64 0, i32 1
+  %Y.i33 = getelementptr inbounds i8, ptr %s, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i33, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i31)
-  %Z8.i36 = getelementptr inbounds %struct.ge25519_p2, ptr %s, i64 0, i32 2
+  %Z8.i36 = getelementptr inbounds i8, ptr %s, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i36, ptr noundef nonnull %Z.i31, ptr noundef nonnull %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %r, ptr noundef nonnull %s)
   call fastcc void @fe25519_mul(ptr noundef nonnull %s, ptr noundef nonnull %r, ptr noundef nonnull %T.i)
@@ -7746,104 +7746,104 @@ entry:
   %mul.i = shl i8 %and.i, 1
   %sub3.i = sub i8 %b, %mul.i
   store i64 1, ptr %t, align 8
-  %arrayidx1.i.i.i = getelementptr i64, ptr %t, i64 1
+  %arrayidx1.i.i.i = getelementptr i8, ptr %t, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i.i.i, i8 0, i64 32, i1 false)
-  %yminusx.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %t, i64 0, i32 1
+  %yminusx.i.i = getelementptr inbounds i8, ptr %t, i64 40
   store i64 1, ptr %yminusx.i.i, align 8
-  %arrayidx1.i3.i.i = getelementptr %struct.ge25519_precomp, ptr %t, i64 0, i32 1, i64 1
+  %arrayidx1.i3.i.i = getelementptr i8, ptr %t, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %arrayidx1.i3.i.i, i8 0, i64 72, i1 false)
   %xor3.i.i = xor i8 %sub3.i, 1
   %conv3.i.i = zext i8 %xor3.i.i to i32
   %sub.i.i = add nsw i32 %conv3.i.i, -1
   %shr.i.i = lshr i32 %sub.i.i, 31
   %1 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx, i32 %shr.i.i) #10, !srcloc !13
-  %yminusx4.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %arrayidx, i64 0, i32 1
+  %yminusx4.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %2 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i.i, i32 %shr.i.i) #10, !srcloc !13
-  %xy2d.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %t, i64 0, i32 2
-  %xy2d8.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %arrayidx, i64 0, i32 2
+  %xy2d.i.i = getelementptr inbounds i8, ptr %t, i64 80
+  %xy2d8.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %3 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i.i, i32 %shr.i.i) #10, !srcloc !13
-  %arrayidx6.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx, i64 120
   %xor3.i31.i = xor i8 %sub3.i, 2
   %conv3.i32.i = zext i8 %xor3.i31.i to i32
   %sub.i33.i = add nsw i32 %conv3.i32.i, -1
   %shr.i34.i = lshr i32 %sub.i33.i, 31
   %4 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx6.i, i32 %shr.i34.i) #10, !srcloc !13
-  %yminusx4.i38.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 1, i32 1
+  %yminusx4.i38.i = getelementptr i8, ptr %arrayidx, i64 160
   %5 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i38.i, i32 %shr.i34.i) #10, !srcloc !13
-  %xy2d8.i40.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 1, i32 2
+  %xy2d8.i40.i = getelementptr i8, ptr %arrayidx, i64 200
   %6 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i40.i, i32 %shr.i34.i) #10, !srcloc !13
-  %arrayidx8.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 2
+  %arrayidx8.i = getelementptr i8, ptr %arrayidx, i64 240
   %xor3.i41.i = xor i8 %sub3.i, 3
   %conv3.i42.i = zext i8 %xor3.i41.i to i32
   %sub.i43.i = add nsw i32 %conv3.i42.i, -1
   %shr.i44.i = lshr i32 %sub.i43.i, 31
   %7 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx8.i, i32 %shr.i44.i) #10, !srcloc !13
-  %yminusx4.i48.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 2, i32 1
+  %yminusx4.i48.i = getelementptr i8, ptr %arrayidx, i64 280
   %8 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i48.i, i32 %shr.i44.i) #10, !srcloc !13
-  %xy2d8.i50.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 2, i32 2
+  %xy2d8.i50.i = getelementptr i8, ptr %arrayidx, i64 320
   %9 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i50.i, i32 %shr.i44.i) #10, !srcloc !13
-  %arrayidx10.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 3
+  %arrayidx10.i = getelementptr i8, ptr %arrayidx, i64 360
   %xor3.i51.i = xor i8 %sub3.i, 4
   %conv3.i52.i = zext i8 %xor3.i51.i to i32
   %sub.i53.i = add nsw i32 %conv3.i52.i, -1
   %shr.i54.i = lshr i32 %sub.i53.i, 31
   %10 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx10.i, i32 %shr.i54.i) #10, !srcloc !13
-  %yminusx4.i58.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 3, i32 1
+  %yminusx4.i58.i = getelementptr i8, ptr %arrayidx, i64 400
   %11 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i58.i, i32 %shr.i54.i) #10, !srcloc !13
-  %xy2d8.i60.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 3, i32 2
+  %xy2d8.i60.i = getelementptr i8, ptr %arrayidx, i64 440
   %12 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i60.i, i32 %shr.i54.i) #10, !srcloc !13
-  %arrayidx12.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 4
+  %arrayidx12.i = getelementptr i8, ptr %arrayidx, i64 480
   %xor3.i61.i = xor i8 %sub3.i, 5
   %conv3.i62.i = zext i8 %xor3.i61.i to i32
   %sub.i63.i = add nsw i32 %conv3.i62.i, -1
   %shr.i64.i = lshr i32 %sub.i63.i, 31
   %13 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx12.i, i32 %shr.i64.i) #10, !srcloc !13
-  %yminusx4.i68.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 4, i32 1
+  %yminusx4.i68.i = getelementptr i8, ptr %arrayidx, i64 520
   %14 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i68.i, i32 %shr.i64.i) #10, !srcloc !13
-  %xy2d8.i70.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 4, i32 2
+  %xy2d8.i70.i = getelementptr i8, ptr %arrayidx, i64 560
   %15 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i70.i, i32 %shr.i64.i) #10, !srcloc !13
-  %arrayidx14.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 5
+  %arrayidx14.i = getelementptr i8, ptr %arrayidx, i64 600
   %xor3.i71.i = xor i8 %sub3.i, 6
   %conv3.i72.i = zext i8 %xor3.i71.i to i32
   %sub.i73.i = add nsw i32 %conv3.i72.i, -1
   %shr.i74.i = lshr i32 %sub.i73.i, 31
   %16 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx14.i, i32 %shr.i74.i) #10, !srcloc !13
-  %yminusx4.i78.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 5, i32 1
+  %yminusx4.i78.i = getelementptr i8, ptr %arrayidx, i64 640
   %17 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i78.i, i32 %shr.i74.i) #10, !srcloc !13
-  %xy2d8.i80.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 5, i32 2
+  %xy2d8.i80.i = getelementptr i8, ptr %arrayidx, i64 680
   %18 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i80.i, i32 %shr.i74.i) #10, !srcloc !13
-  %arrayidx16.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 6
+  %arrayidx16.i = getelementptr i8, ptr %arrayidx, i64 720
   %xor3.i81.i = xor i8 %sub3.i, 7
   %conv3.i82.i = zext i8 %xor3.i81.i to i32
   %sub.i83.i = add nsw i32 %conv3.i82.i, -1
   %shr.i84.i = lshr i32 %sub.i83.i, 31
   %19 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx16.i, i32 %shr.i84.i) #10, !srcloc !13
-  %yminusx4.i88.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 6, i32 1
+  %yminusx4.i88.i = getelementptr i8, ptr %arrayidx, i64 760
   %20 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i88.i, i32 %shr.i84.i) #10, !srcloc !13
-  %xy2d8.i90.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 6, i32 2
+  %xy2d8.i90.i = getelementptr i8, ptr %arrayidx, i64 800
   %21 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i90.i, i32 %shr.i84.i) #10, !srcloc !13
-  %arrayidx18.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 7
+  %arrayidx18.i = getelementptr i8, ptr %arrayidx, i64 840
   %xor3.i91.i = xor i8 %sub3.i, 8
   %conv3.i92.i = zext i8 %xor3.i91.i to i32
   %sub.i93.i = add nsw i32 %conv3.i92.i, -1
   %shr.i94.i = lshr i32 %sub.i93.i, 31
   %22 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr %arrayidx18.i, i32 %shr.i94.i) #10, !srcloc !13
-  %yminusx4.i98.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 7, i32 1
+  %yminusx4.i98.i = getelementptr i8, ptr %arrayidx, i64 880
   %23 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %yminusx.i.i, ptr nonnull %yminusx4.i98.i, i32 %shr.i94.i) #10, !srcloc !13
-  %xy2d8.i100.i = getelementptr %struct.ge25519_precomp, ptr %arrayidx, i64 7, i32 2
+  %xy2d8.i100.i = getelementptr i8, ptr %arrayidx, i64 920
   %24 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %xy2d.i.i, ptr nonnull %xy2d8.i100.i, i32 %shr.i94.i) #10, !srcloc !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %minust.i, ptr noundef nonnull align 8 dereferenceable(40) %yminusx.i.i, i64 40, i1 false)
-  %yminusx21.i = getelementptr inbounds %struct.ge25519_precomp, ptr %minust.i, i64 0, i32 1
+  %yminusx21.i = getelementptr inbounds i8, ptr %minust.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %yminusx21.i, ptr noundef nonnull align 8 dereferenceable(40) %t, i64 40, i1 false)
-  %xy2d.i = getelementptr inbounds %struct.ge25519_precomp, ptr %minust.i, i64 0, i32 2
+  %xy2d.i = getelementptr inbounds i8, ptr %minust.i, i64 80
   %25 = load i64, ptr %xy2d.i.i, align 8
-  %arrayidx1.i.i101.i = getelementptr %struct.ge25519_precomp, ptr %t, i64 0, i32 2, i64 1
+  %arrayidx1.i.i101.i = getelementptr i8, ptr %t, i64 88
   %26 = load i64, ptr %arrayidx1.i.i101.i, align 8
-  %arrayidx2.i.i.i = getelementptr %struct.ge25519_precomp, ptr %t, i64 0, i32 2, i64 2
+  %arrayidx2.i.i.i = getelementptr i8, ptr %t, i64 96
   %27 = load i64, ptr %arrayidx2.i.i.i, align 8
-  %arrayidx3.i.i.i = getelementptr %struct.ge25519_precomp, ptr %t, i64 0, i32 2, i64 3
+  %arrayidx3.i.i.i = getelementptr i8, ptr %t, i64 104
   %28 = load i64, ptr %arrayidx3.i.i.i, align 8
-  %arrayidx4.i.i.i = getelementptr %struct.ge25519_precomp, ptr %t, i64 0, i32 2, i64 4
+  %arrayidx4.i.i.i = getelementptr i8, ptr %t, i64 112
   %29 = load i64, ptr %arrayidx4.i.i.i, align 8
   %shr.i.i.i = lshr i64 %25, 51
   %add.i.i.i = add i64 %26, %shr.i.i.i
@@ -7867,13 +7867,13 @@ entry:
   %sub27.i.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i.i
   %sub30.i.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i.i
   store i64 %sub.i.i.i, ptr %xy2d.i, align 8
-  %arrayidx32.i.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %minust.i, i64 0, i32 2, i64 1
+  %arrayidx32.i.i.i = getelementptr inbounds i8, ptr %minust.i, i64 88
   store i64 %sub21.i.i.i, ptr %arrayidx32.i.i.i, align 8
-  %arrayidx33.i.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %minust.i, i64 0, i32 2, i64 2
+  %arrayidx33.i.i.i = getelementptr inbounds i8, ptr %minust.i, i64 96
   store i64 %sub24.i.i.i, ptr %arrayidx33.i.i.i, align 8
-  %arrayidx34.i.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %minust.i, i64 0, i32 2, i64 3
+  %arrayidx34.i.i.i = getelementptr inbounds i8, ptr %minust.i, i64 104
   store i64 %sub27.i.i.i, ptr %arrayidx34.i.i.i, align 8
-  %arrayidx35.i.i.i = getelementptr inbounds %struct.ge25519_precomp, ptr %minust.i, i64 0, i32 2, i64 4
+  %arrayidx35.i.i.i = getelementptr inbounds i8, ptr %minust.i, i64 112
   store i64 %sub30.i.i.i, ptr %arrayidx35.i.i.i, align 8
   %conv.i102.i = zext nneg i8 %0 to i32
   %30 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %t, ptr nonnull %minust.i, i32 %conv.i102.i) #10, !srcloc !13
@@ -7888,40 +7888,40 @@ define hidden void @_sodium_ge25519_p3_add(ptr nocapture noundef writeonly %r, p
 entry:
   %q_cached = alloca %struct.ge25519_cached, align 8
   %p1p1 = alloca %struct.ge25519_p1p1, align 8
-  %Y.i = getelementptr inbounds %struct.ge25519_p3, ptr %q, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %q, i64 40
   %0 = load i64, ptr %Y.i, align 8
   %1 = load i64, ptr %q, align 8
   %add.i.i = add i64 %1, %0
-  %arrayidx2.i.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 1, i64 1
+  %arrayidx2.i.i = getelementptr i8, ptr %q, i64 48
   %2 = load i64, ptr %arrayidx2.i.i, align 8
-  %arrayidx3.i.i = getelementptr i64, ptr %q, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %q, i64 8
   %3 = load i64, ptr %arrayidx3.i.i, align 8
   %add4.i.i = add i64 %3, %2
-  %arrayidx5.i.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 1, i64 2
+  %arrayidx5.i.i = getelementptr i8, ptr %q, i64 56
   %4 = load i64, ptr %arrayidx5.i.i, align 8
-  %arrayidx6.i.i = getelementptr i64, ptr %q, i64 2
+  %arrayidx6.i.i = getelementptr i8, ptr %q, i64 16
   %5 = load i64, ptr %arrayidx6.i.i, align 8
   %add7.i.i = add i64 %5, %4
-  %arrayidx8.i.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 1, i64 3
+  %arrayidx8.i.i = getelementptr i8, ptr %q, i64 64
   %6 = load i64, ptr %arrayidx8.i.i, align 8
-  %arrayidx9.i.i = getelementptr i64, ptr %q, i64 3
+  %arrayidx9.i.i = getelementptr i8, ptr %q, i64 24
   %7 = load i64, ptr %arrayidx9.i.i, align 8
   %add10.i.i = add i64 %7, %6
-  %arrayidx11.i.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 1, i64 4
+  %arrayidx11.i.i = getelementptr i8, ptr %q, i64 72
   %8 = load i64, ptr %arrayidx11.i.i, align 8
-  %arrayidx12.i.i = getelementptr i64, ptr %q, i64 4
+  %arrayidx12.i.i = getelementptr i8, ptr %q, i64 32
   %9 = load i64, ptr %arrayidx12.i.i, align 8
   %add13.i.i = add i64 %9, %8
   store i64 %add.i.i, ptr %q_cached, align 8
-  %arrayidx15.i.i = getelementptr inbounds i64, ptr %q_cached, i64 1
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %q_cached, i64 8
   store i64 %add4.i.i, ptr %arrayidx15.i.i, align 8
-  %arrayidx16.i.i = getelementptr inbounds i64, ptr %q_cached, i64 2
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %q_cached, i64 16
   store i64 %add7.i.i, ptr %arrayidx16.i.i, align 8
-  %arrayidx17.i.i = getelementptr inbounds i64, ptr %q_cached, i64 3
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %q_cached, i64 24
   store i64 %add10.i.i, ptr %arrayidx17.i.i, align 8
-  %arrayidx18.i.i = getelementptr inbounds i64, ptr %q_cached, i64 4
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %q_cached, i64 32
   store i64 %add13.i.i, ptr %arrayidx18.i.i, align 8
-  %YminusX.i = getelementptr inbounds %struct.ge25519_cached, ptr %q_cached, i64 0, i32 1
+  %YminusX.i = getelementptr inbounds i8, ptr %q_cached, i64 40
   %shr.i.i = lshr i64 %1, 51
   %add.i11.i = add i64 %3, %shr.i.i
   %and.i.i = and i64 %1, 2251799813685247
@@ -7949,30 +7949,30 @@ entry:
   %add29.i.i = add i64 %8, 4503599627370494
   %sub30.i.i = sub i64 %add29.i.i, %and16.i.i
   store i64 %sub.i.i, ptr %YminusX.i, align 8
-  %arrayidx32.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %q_cached, i64 0, i32 1, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %q_cached, i64 48
   store i64 %sub21.i.i, ptr %arrayidx32.i.i, align 8
-  %arrayidx33.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %q_cached, i64 0, i32 1, i64 2
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %q_cached, i64 56
   store i64 %sub24.i.i, ptr %arrayidx33.i.i, align 8
-  %arrayidx34.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %q_cached, i64 0, i32 1, i64 3
+  %arrayidx34.i.i = getelementptr inbounds i8, ptr %q_cached, i64 64
   store i64 %sub27.i.i, ptr %arrayidx34.i.i, align 8
-  %arrayidx35.i.i = getelementptr inbounds %struct.ge25519_cached, ptr %q_cached, i64 0, i32 1, i64 4
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %q_cached, i64 72
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 8
-  %Z.i = getelementptr inbounds %struct.ge25519_cached, ptr %q_cached, i64 0, i32 2
-  %Z9.i = getelementptr inbounds %struct.ge25519_p3, ptr %q, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %q_cached, i64 80
+  %Z9.i = getelementptr inbounds i8, ptr %q, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z9.i, i64 40, i1 false)
-  %T2d.i = getelementptr inbounds %struct.ge25519_cached, ptr %q_cached, i64 0, i32 3
-  %T.i = getelementptr inbounds %struct.ge25519_p3, ptr %q, i64 0, i32 3
+  %T2d.i = getelementptr inbounds i8, ptr %q_cached, i64 120
+  %T.i = getelementptr inbounds i8, ptr %q, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T2d.i, ptr noundef nonnull %T.i, ptr noundef nonnull @ed25519_d2)
   call fastcc void @ge25519_add_cached(ptr noundef nonnull %p1p1, ptr noundef %p, ptr noundef nonnull %q_cached)
-  %T.i1 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 3
+  %T.i1 = getelementptr inbounds i8, ptr %p1p1, i64 120
   call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef nonnull %p1p1, ptr noundef nonnull %T.i1)
-  %Y.i2 = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 1
-  %Y5.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 1
-  %Z.i3 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 2
+  %Y.i2 = getelementptr inbounds i8, ptr %r, i64 40
+  %Y5.i = getelementptr inbounds i8, ptr %p1p1, i64 40
+  %Z.i3 = getelementptr inbounds i8, ptr %p1p1, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i2, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i3)
-  %Z8.i = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 2
+  %Z8.i = getelementptr inbounds i8, ptr %r, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i3, ptr noundef nonnull %T.i1)
-  %T14.i = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 3
+  %T14.i = getelementptr inbounds i8, ptr %r, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %p1p1, ptr noundef nonnull %Y5.i)
   ret void
 }
@@ -7982,13 +7982,13 @@ define hidden void @_sodium_ge25519_p3_sub(ptr nocapture noundef writeonly %r, p
 entry:
   %q_neg = alloca %struct.ge25519_p3, align 8
   %0 = load i64, ptr %q, align 8
-  %arrayidx1.i.i.i = getelementptr i64, ptr %q, i64 1
+  %arrayidx1.i.i.i = getelementptr i8, ptr %q, i64 8
   %1 = load i64, ptr %arrayidx1.i.i.i, align 8
-  %arrayidx2.i.i.i = getelementptr i64, ptr %q, i64 2
+  %arrayidx2.i.i.i = getelementptr i8, ptr %q, i64 16
   %2 = load i64, ptr %arrayidx2.i.i.i, align 8
-  %arrayidx3.i.i.i = getelementptr i64, ptr %q, i64 3
+  %arrayidx3.i.i.i = getelementptr i8, ptr %q, i64 24
   %3 = load i64, ptr %arrayidx3.i.i.i, align 8
-  %arrayidx4.i.i.i = getelementptr i64, ptr %q, i64 4
+  %arrayidx4.i.i.i = getelementptr i8, ptr %q, i64 32
   %4 = load i64, ptr %arrayidx4.i.i.i, align 8
   %shr.i.i.i = lshr i64 %0, 51
   %add.i.i.i = add i64 %1, %shr.i.i.i
@@ -8012,30 +8012,30 @@ entry:
   %sub27.i.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i.i
   %sub30.i.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i.i
   store i64 %sub.i.i.i, ptr %q_neg, align 8
-  %arrayidx32.i.i.i = getelementptr inbounds i64, ptr %q_neg, i64 1
+  %arrayidx32.i.i.i = getelementptr inbounds i8, ptr %q_neg, i64 8
   store i64 %sub21.i.i.i, ptr %arrayidx32.i.i.i, align 8
-  %arrayidx33.i.i.i = getelementptr inbounds i64, ptr %q_neg, i64 2
+  %arrayidx33.i.i.i = getelementptr inbounds i8, ptr %q_neg, i64 16
   store i64 %sub24.i.i.i, ptr %arrayidx33.i.i.i, align 8
-  %arrayidx34.i.i.i = getelementptr inbounds i64, ptr %q_neg, i64 3
+  %arrayidx34.i.i.i = getelementptr inbounds i8, ptr %q_neg, i64 24
   store i64 %sub27.i.i.i, ptr %arrayidx34.i.i.i, align 8
-  %arrayidx35.i.i.i = getelementptr inbounds i64, ptr %q_neg, i64 4
+  %arrayidx35.i.i.i = getelementptr inbounds i8, ptr %q_neg, i64 32
   store i64 %sub30.i.i.i, ptr %arrayidx35.i.i.i, align 8
-  %Y.i = getelementptr inbounds %struct.ge25519_p3, ptr %q_neg, i64 0, i32 1
-  %Y4.i = getelementptr inbounds %struct.ge25519_p3, ptr %q, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %q_neg, i64 40
+  %Y4.i = getelementptr inbounds i8, ptr %q, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i, i64 40, i1 false)
-  %Z.i = getelementptr inbounds %struct.ge25519_p3, ptr %q_neg, i64 0, i32 2
-  %Z7.i = getelementptr inbounds %struct.ge25519_p3, ptr %q, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %q_neg, i64 80
+  %Z7.i = getelementptr inbounds i8, ptr %q, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i, i64 40, i1 false)
-  %T.i = getelementptr inbounds %struct.ge25519_p3, ptr %q_neg, i64 0, i32 3
-  %T10.i = getelementptr inbounds %struct.ge25519_p3, ptr %q, i64 0, i32 3
+  %T.i = getelementptr inbounds i8, ptr %q_neg, i64 120
+  %T10.i = getelementptr inbounds i8, ptr %q, i64 120
   %5 = load i64, ptr %T10.i, align 8
-  %arrayidx1.i.i7.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 3, i64 1
+  %arrayidx1.i.i7.i = getelementptr i8, ptr %q, i64 128
   %6 = load i64, ptr %arrayidx1.i.i7.i, align 8
-  %arrayidx2.i.i8.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 3, i64 2
+  %arrayidx2.i.i8.i = getelementptr i8, ptr %q, i64 136
   %7 = load i64, ptr %arrayidx2.i.i8.i, align 8
-  %arrayidx3.i.i9.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 3, i64 3
+  %arrayidx3.i.i9.i = getelementptr i8, ptr %q, i64 144
   %8 = load i64, ptr %arrayidx3.i.i9.i, align 8
-  %arrayidx4.i.i10.i = getelementptr %struct.ge25519_p3, ptr %q, i64 0, i32 3, i64 4
+  %arrayidx4.i.i10.i = getelementptr i8, ptr %q, i64 152
   %9 = load i64, ptr %arrayidx4.i.i10.i, align 8
   %shr.i.i11.i = lshr i64 %5, 51
   %add.i.i12.i = add i64 %6, %shr.i.i11.i
@@ -8059,13 +8059,13 @@ entry:
   %sub27.i.i30.i = sub nuw nsw i64 4503599627370494, %and13.i.i22.i
   %sub30.i.i31.i = sub nuw nsw i64 4503599627370494, %and16.i.i24.i
   store i64 %sub.i.i27.i, ptr %T.i, align 8
-  %arrayidx32.i.i32.i = getelementptr inbounds %struct.ge25519_p3, ptr %q_neg, i64 0, i32 3, i64 1
+  %arrayidx32.i.i32.i = getelementptr inbounds i8, ptr %q_neg, i64 128
   store i64 %sub21.i.i28.i, ptr %arrayidx32.i.i32.i, align 8
-  %arrayidx33.i.i33.i = getelementptr inbounds %struct.ge25519_p3, ptr %q_neg, i64 0, i32 3, i64 2
+  %arrayidx33.i.i33.i = getelementptr inbounds i8, ptr %q_neg, i64 136
   store i64 %sub24.i.i29.i, ptr %arrayidx33.i.i33.i, align 8
-  %arrayidx34.i.i34.i = getelementptr inbounds %struct.ge25519_p3, ptr %q_neg, i64 0, i32 3, i64 3
+  %arrayidx34.i.i34.i = getelementptr inbounds i8, ptr %q_neg, i64 144
   store i64 %sub27.i.i30.i, ptr %arrayidx34.i.i34.i, align 8
-  %arrayidx35.i.i35.i = getelementptr inbounds %struct.ge25519_p3, ptr %q_neg, i64 0, i32 3, i64 4
+  %arrayidx35.i.i35.i = getelementptr inbounds i8, ptr %q_neg, i64 152
   store i64 %sub30.i.i31.i, ptr %arrayidx35.i.i35.i, align 8
   call void @_sodium_ge25519_p3_add(ptr noundef %r, ptr noundef %p, ptr noundef nonnull %q_neg)
   ret void
@@ -8082,16 +8082,16 @@ entry:
   %t1 = alloca [5 x i64], align 16
   %0 = load i64, ptr %p, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx1.i = getelementptr i64, ptr %p, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %p, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
   %conv2.i = zext i64 %1 to i128
-  %arrayidx3.i = getelementptr i64, ptr %p, i64 2
+  %arrayidx3.i = getelementptr i8, ptr %p, i64 16
   %2 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = zext i64 %2 to i128
-  %arrayidx5.i = getelementptr i64, ptr %p, i64 3
+  %arrayidx5.i = getelementptr i8, ptr %p, i64 24
   %3 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr i64, ptr %p, i64 4
+  %arrayidx7.i = getelementptr i8, ptr %p, i64 32
   %4 = load i64, ptr %arrayidx7.i, align 8
   %conv8.i = zext i64 %4 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -8158,27 +8158,27 @@ entry:
   %and70.i = and i64 %add68.i, 2251799813685247
   %add71.i = add nuw nsw i64 %shr69.i, %and49.i
   store i64 %and67.i, ptr %x2, align 16
-  %arrayidx73.i = getelementptr inbounds i64, ptr %x2, i64 1
+  %arrayidx73.i = getelementptr inbounds i8, ptr %x2, i64 8
   store i64 %and70.i, ptr %arrayidx73.i, align 8
-  %arrayidx74.i = getelementptr inbounds i64, ptr %x2, i64 2
+  %arrayidx74.i = getelementptr inbounds i8, ptr %x2, i64 16
   store i64 %add71.i, ptr %arrayidx74.i, align 16
-  %arrayidx75.i = getelementptr inbounds i64, ptr %x2, i64 3
+  %arrayidx75.i = getelementptr inbounds i8, ptr %x2, i64 24
   store i64 %and55.i, ptr %arrayidx75.i, align 8
-  %arrayidx76.i = getelementptr inbounds i64, ptr %x2, i64 4
+  %arrayidx76.i = getelementptr inbounds i8, ptr %x2, i64 32
   store i64 %and61.i, ptr %arrayidx76.i, align 16
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
   %5 = load i64, ptr %Y, align 8
   %conv.i3 = zext i64 %5 to i128
-  %arrayidx1.i4 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 1
+  %arrayidx1.i4 = getelementptr i8, ptr %p, i64 48
   %6 = load i64, ptr %arrayidx1.i4, align 8
   %conv2.i5 = zext i64 %6 to i128
-  %arrayidx3.i6 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 2
+  %arrayidx3.i6 = getelementptr i8, ptr %p, i64 56
   %7 = load i64, ptr %arrayidx3.i6, align 8
   %conv4.i7 = zext i64 %7 to i128
-  %arrayidx5.i8 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 3
+  %arrayidx5.i8 = getelementptr i8, ptr %p, i64 64
   %8 = load i64, ptr %arrayidx5.i8, align 8
   %conv6.i9 = zext i64 %8 to i128
-  %arrayidx7.i10 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 1, i64 4
+  %arrayidx7.i10 = getelementptr i8, ptr %p, i64 72
   %9 = load i64, ptr %arrayidx7.i10, align 8
   %conv8.i11 = zext i64 %9 to i128
   %shl.i12 = shl nuw nsw i128 %conv.i3, 1
@@ -8245,27 +8245,27 @@ entry:
   %and70.i73 = and i64 %add68.i71, 2251799813685247
   %add71.i74 = add nuw nsw i64 %shr69.i72, %and49.i52
   store i64 %and67.i70, ptr %y2, align 16
-  %arrayidx73.i75 = getelementptr inbounds i64, ptr %y2, i64 1
+  %arrayidx73.i75 = getelementptr inbounds i8, ptr %y2, i64 8
   store i64 %and70.i73, ptr %arrayidx73.i75, align 8
-  %arrayidx74.i76 = getelementptr inbounds i64, ptr %y2, i64 2
+  %arrayidx74.i76 = getelementptr inbounds i8, ptr %y2, i64 16
   store i64 %add71.i74, ptr %arrayidx74.i76, align 16
-  %arrayidx75.i77 = getelementptr inbounds i64, ptr %y2, i64 3
+  %arrayidx75.i77 = getelementptr inbounds i8, ptr %y2, i64 24
   store i64 %and55.i57, ptr %arrayidx75.i77, align 8
-  %arrayidx76.i78 = getelementptr inbounds i64, ptr %y2, i64 4
+  %arrayidx76.i78 = getelementptr inbounds i8, ptr %y2, i64 32
   store i64 %and61.i64, ptr %arrayidx76.i78, align 16
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %p, i64 80
   %10 = load i64, ptr %Z, align 8
   %conv.i79 = zext i64 %10 to i128
-  %arrayidx1.i80 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 1
+  %arrayidx1.i80 = getelementptr i8, ptr %p, i64 88
   %11 = load i64, ptr %arrayidx1.i80, align 8
   %conv2.i81 = zext i64 %11 to i128
-  %arrayidx3.i82 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 2
+  %arrayidx3.i82 = getelementptr i8, ptr %p, i64 96
   %12 = load i64, ptr %arrayidx3.i82, align 8
   %conv4.i83 = zext i64 %12 to i128
-  %arrayidx5.i84 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 3
+  %arrayidx5.i84 = getelementptr i8, ptr %p, i64 104
   %13 = load i64, ptr %arrayidx5.i84, align 8
   %conv6.i85 = zext i64 %13 to i128
-  %arrayidx7.i86 = getelementptr %struct.ge25519_p3, ptr %p, i64 0, i32 2, i64 4
+  %arrayidx7.i86 = getelementptr i8, ptr %p, i64 112
   %14 = load i64, ptr %arrayidx7.i86, align 8
   %conv8.i87 = zext i64 %14 to i128
   %shl.i88 = shl nuw nsw i128 %conv.i79, 1
@@ -8313,9 +8313,9 @@ entry:
   %conv52.i130 = and i128 %shr50.i129, 18446744073709551615
   %add35.i136 = add i128 %mul34.i115, %mul36.i116
   %add37.i137 = add i128 %add35.i136, %mul33.i114
-  %arrayidx73.i151 = getelementptr inbounds i64, ptr %z2, i64 1
-  %arrayidx74.i152 = getelementptr inbounds i64, ptr %z2, i64 2
-  %arrayidx75.i153 = getelementptr inbounds i64, ptr %z2, i64 3
+  %arrayidx73.i151 = getelementptr inbounds i8, ptr %z2, i64 8
+  %arrayidx74.i152 = getelementptr inbounds i8, ptr %z2, i64 16
+  %arrayidx75.i153 = getelementptr inbounds i8, ptr %z2, i64 24
   %add53.i131 = add i128 %add32.i113, %conv52.i130
   %shr56.i134 = lshr i128 %add53.i131, 51
   %conv58.i135 = and i128 %shr56.i134, 18446744073709551615
@@ -8359,13 +8359,13 @@ entry:
   %add29.i = add nuw nsw i64 %and61.i64, 4503599627370494
   %sub30.i = sub nuw nsw i64 %add29.i, %and16.i
   store i64 %sub.i, ptr %t0, align 16
-  %arrayidx32.i = getelementptr inbounds i64, ptr %t0, i64 1
+  %arrayidx32.i = getelementptr inbounds i8, ptr %t0, i64 8
   store i64 %sub21.i, ptr %arrayidx32.i, align 8
-  %arrayidx33.i = getelementptr inbounds i64, ptr %t0, i64 2
+  %arrayidx33.i = getelementptr inbounds i8, ptr %t0, i64 16
   store i64 %sub24.i, ptr %arrayidx33.i, align 16
-  %arrayidx34.i = getelementptr inbounds i64, ptr %t0, i64 3
+  %arrayidx34.i = getelementptr inbounds i8, ptr %t0, i64 24
   store i64 %sub27.i, ptr %arrayidx34.i, align 8
-  %arrayidx35.i = getelementptr inbounds i64, ptr %t0, i64 4
+  %arrayidx35.i = getelementptr inbounds i8, ptr %t0, i64 32
   store i64 %sub30.i, ptr %arrayidx35.i, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %t0, ptr noundef nonnull %t0, ptr noundef nonnull %z2)
   call fastcc void @fe25519_mul(ptr noundef nonnull %t1, ptr noundef nonnull %x2, ptr noundef nonnull %y2)
@@ -8435,17 +8435,17 @@ entry:
   %and70.i230 = and i64 %add68.i228, 2251799813685247
   %19 = load i64, ptr %t1, align 16
   %add.i236 = add i64 %and67.i227, %19
-  %arrayidx2.i237 = getelementptr inbounds i64, ptr %t1, i64 1
+  %arrayidx2.i237 = getelementptr inbounds i8, ptr %t1, i64 8
   %20 = load i64, ptr %arrayidx2.i237, align 8
   %add4.i = add i64 %and70.i230, %20
-  %arrayidx5.i239 = getelementptr inbounds i64, ptr %t1, i64 2
+  %arrayidx5.i239 = getelementptr inbounds i8, ptr %t1, i64 16
   %21 = load i64, ptr %arrayidx5.i239, align 16
   %add71.i231 = add i64 %and49.i209, %21
   %add7.i = add i64 %add71.i231, %shr69.i229
-  %arrayidx8.i = getelementptr inbounds i64, ptr %t1, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %t1, i64 24
   %22 = load i64, ptr %arrayidx8.i, align 8
   %add10.i = add i64 %and55.i214, %22
-  %arrayidx11.i = getelementptr inbounds i64, ptr %t1, i64 4
+  %arrayidx11.i = getelementptr inbounds i8, ptr %t1, i64 32
   %23 = load i64, ptr %arrayidx11.i, align 16
   %add13.i = add i64 %and61.i221, %23
   %shr.i244 = lshr i64 %add.i236, 51
@@ -8639,23 +8639,23 @@ entry:
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %p, i64 40, i1 false)
-  %Y.i.i.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i.i, i64 0, i32 1
-  %Y4.i.i.i.i = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 1
+  %Y.i.i.i.i = getelementptr inbounds i8, ptr %q.i.i.i, i64 40
+  %Y4.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i.i.i.i, i64 40, i1 false)
-  %Z.i.i.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i.i, i64 0, i32 2
-  %Z7.i.i.i.i = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 2
+  %Z.i.i.i.i = getelementptr inbounds i8, ptr %q.i.i.i, i64 80
+  %Z7.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i.i.i.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i.i, ptr noundef nonnull %q.i.i.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i.i)
-  %T.i.i.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i.i, i64 0, i32 3
+  %T.i.i.i = getelementptr inbounds i8, ptr %p1p1.i.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_10.i, ptr noundef nonnull %p1p1.i.i, ptr noundef nonnull %T.i.i.i)
-  %Y.i.i.i = getelementptr inbounds %struct.ge25519_p3, ptr %_10.i, i64 0, i32 1
-  %Y5.i.i.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i.i, i64 0, i32 1
-  %Z.i.i.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i.i, i64 0, i32 2
+  %Y.i.i.i = getelementptr inbounds i8, ptr %_10.i, i64 40
+  %Y5.i.i.i = getelementptr inbounds i8, ptr %p1p1.i.i, i64 40
+  %Z.i.i.i = getelementptr inbounds i8, ptr %p1p1.i.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i.i, ptr noundef nonnull %Y5.i.i.i, ptr noundef nonnull %Z.i.i.i)
-  %Z8.i.i.i = getelementptr inbounds %struct.ge25519_p3, ptr %_10.i, i64 0, i32 2
+  %Z8.i.i.i = getelementptr inbounds i8, ptr %_10.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i.i, ptr noundef nonnull %Z.i.i.i, ptr noundef nonnull %T.i.i.i)
-  %T14.i.i.i = getelementptr inbounds %struct.ge25519_p3, ptr %_10.i, i64 0, i32 3
+  %T14.i.i.i = getelementptr inbounds i8, ptr %_10.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i.i, ptr noundef nonnull %p1p1.i.i, ptr noundef nonnull %Y5.i.i.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_11.i, ptr noundef %p, ptr noundef nonnull %_10.i)
@@ -8666,64 +8666,64 @@ entry:
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i20.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i19.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i19.i, ptr noundef nonnull align 8 dereferenceable(40) %_1000.i, i64 40, i1 false)
-  %Y.i.i.i21.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i19.i, i64 0, i32 1
-  %Y4.i.i.i22.i = getelementptr inbounds %struct.ge25519_p3, ptr %_1000.i, i64 0, i32 1
+  %Y.i.i.i21.i = getelementptr inbounds i8, ptr %q.i.i19.i, i64 40
+  %Y4.i.i.i22.i = getelementptr inbounds i8, ptr %_1000.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i21.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i.i.i22.i, i64 40, i1 false)
-  %Z.i.i.i23.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i19.i, i64 0, i32 2
-  %Z7.i.i.i24.i = getelementptr inbounds %struct.ge25519_p3, ptr %_1000.i, i64 0, i32 2
+  %Z.i.i.i23.i = getelementptr inbounds i8, ptr %q.i.i19.i, i64 80
+  %Z7.i.i.i24.i = getelementptr inbounds i8, ptr %_1000.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i23.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i.i.i24.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i20.i, ptr noundef nonnull %q.i.i19.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i19.i)
-  %T.i.i25.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i20.i, i64 0, i32 3
+  %T.i.i25.i = getelementptr inbounds i8, ptr %p1p1.i20.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_10000.i, ptr noundef nonnull %p1p1.i20.i, ptr noundef nonnull %T.i.i25.i)
-  %Y.i.i26.i = getelementptr inbounds %struct.ge25519_p3, ptr %_10000.i, i64 0, i32 1
-  %Y5.i.i27.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i20.i, i64 0, i32 1
-  %Z.i.i28.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i20.i, i64 0, i32 2
+  %Y.i.i26.i = getelementptr inbounds i8, ptr %_10000.i, i64 40
+  %Y5.i.i27.i = getelementptr inbounds i8, ptr %p1p1.i20.i, i64 40
+  %Z.i.i28.i = getelementptr inbounds i8, ptr %p1p1.i20.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i26.i, ptr noundef nonnull %Y5.i.i27.i, ptr noundef nonnull %Z.i.i28.i)
-  %Z8.i.i29.i = getelementptr inbounds %struct.ge25519_p3, ptr %_10000.i, i64 0, i32 2
+  %Z8.i.i29.i = getelementptr inbounds i8, ptr %_10000.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i29.i, ptr noundef nonnull %Z.i.i28.i, ptr noundef nonnull %T.i.i25.i)
-  %T14.i.i30.i = getelementptr inbounds %struct.ge25519_p3, ptr %_10000.i, i64 0, i32 3
+  %T14.i.i30.i = getelementptr inbounds i8, ptr %_10000.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i30.i, ptr noundef nonnull %p1p1.i20.i, ptr noundef nonnull %Y5.i.i27.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i20.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i32.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i31.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i31.i, ptr noundef nonnull align 8 dereferenceable(40) %_10000.i, i64 40, i1 false)
-  %Y.i.i.i33.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i31.i, i64 0, i32 1
+  %Y.i.i.i33.i = getelementptr inbounds i8, ptr %q.i.i31.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i33.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i26.i, i64 40, i1 false)
-  %Z.i.i.i35.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i31.i, i64 0, i32 2
+  %Z.i.i.i35.i = getelementptr inbounds i8, ptr %q.i.i31.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i35.i, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i.i29.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i32.i, ptr noundef nonnull %q.i.i31.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i31.i)
-  %T.i.i37.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i32.i, i64 0, i32 3
+  %T.i.i37.i = getelementptr inbounds i8, ptr %p1p1.i32.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_100000.i, ptr noundef nonnull %p1p1.i32.i, ptr noundef nonnull %T.i.i37.i)
-  %Y.i.i38.i = getelementptr inbounds %struct.ge25519_p3, ptr %_100000.i, i64 0, i32 1
-  %Y5.i.i39.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i32.i, i64 0, i32 1
-  %Z.i.i40.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i32.i, i64 0, i32 2
+  %Y.i.i38.i = getelementptr inbounds i8, ptr %_100000.i, i64 40
+  %Y5.i.i39.i = getelementptr inbounds i8, ptr %p1p1.i32.i, i64 40
+  %Z.i.i40.i = getelementptr inbounds i8, ptr %p1p1.i32.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i38.i, ptr noundef nonnull %Y5.i.i39.i, ptr noundef nonnull %Z.i.i40.i)
-  %Z8.i.i41.i = getelementptr inbounds %struct.ge25519_p3, ptr %_100000.i, i64 0, i32 2
+  %Z8.i.i41.i = getelementptr inbounds i8, ptr %_100000.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i41.i, ptr noundef nonnull %Z.i.i40.i, ptr noundef nonnull %T.i.i37.i)
-  %T14.i.i42.i = getelementptr inbounds %struct.ge25519_p3, ptr %_100000.i, i64 0, i32 3
+  %T14.i.i42.i = getelementptr inbounds i8, ptr %_100000.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i42.i, ptr noundef nonnull %p1p1.i32.i, ptr noundef nonnull %Y5.i.i39.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i32.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_100110.i, ptr noundef nonnull %_110.i, ptr noundef nonnull %_100000.i)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %p1p1.i44.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i.i43.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i.i43.i, ptr noundef nonnull align 8 dereferenceable(40) %_100000.i, i64 40, i1 false)
-  %Y.i.i.i45.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i43.i, i64 0, i32 1
+  %Y.i.i.i45.i = getelementptr inbounds i8, ptr %q.i.i43.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i.i45.i, ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i38.i, i64 40, i1 false)
-  %Z.i.i.i47.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i.i43.i, i64 0, i32 2
+  %Z.i.i.i47.i = getelementptr inbounds i8, ptr %q.i.i43.i, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i.i47.i, ptr noundef nonnull align 8 dereferenceable(40) %Z8.i.i41.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1p1.i44.i, ptr noundef nonnull %q.i.i43.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i.i43.i)
-  %T.i.i49.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i44.i, i64 0, i32 3
+  %T.i.i49.i = getelementptr inbounds i8, ptr %p1p1.i44.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %_1000000.i, ptr noundef nonnull %p1p1.i44.i, ptr noundef nonnull %T.i.i49.i)
-  %Y.i.i50.i = getelementptr inbounds %struct.ge25519_p3, ptr %_1000000.i, i64 0, i32 1
-  %Y5.i.i51.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i44.i, i64 0, i32 1
-  %Z.i.i52.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1.i44.i, i64 0, i32 2
+  %Y.i.i50.i = getelementptr inbounds i8, ptr %_1000000.i, i64 40
+  %Y5.i.i51.i = getelementptr inbounds i8, ptr %p1p1.i44.i, i64 40
+  %Z.i.i52.i = getelementptr inbounds i8, ptr %p1p1.i44.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i.i50.i, ptr noundef nonnull %Y5.i.i51.i, ptr noundef nonnull %Z.i.i52.i)
-  %Z8.i.i53.i = getelementptr inbounds %struct.ge25519_p3, ptr %_1000000.i, i64 0, i32 2
+  %Z8.i.i53.i = getelementptr inbounds i8, ptr %_1000000.i, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i.i53.i, ptr noundef nonnull %Z.i.i52.i, ptr noundef nonnull %T.i.i49.i)
-  %T14.i.i54.i = getelementptr inbounds %struct.ge25519_p3, ptr %_1000000.i, i64 0, i32 3
+  %T14.i.i54.i = getelementptr inbounds i8, ptr %_1000000.i, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i.i54.i, ptr noundef nonnull %p1p1.i44.i, ptr noundef nonnull %Y5.i.i51.i)
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %p1p1.i44.i)
   call void @_sodium_ge25519_p3_add(ptr noundef nonnull %_1010000.i, ptr noundef nonnull %_10000.i, ptr noundef nonnull %_1000000.i)
@@ -8779,16 +8779,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   %0 = load i64, ptr %pl, align 8
   %conv.i.i = zext i64 %0 to i128
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %pl, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %pl, i64 8
   %1 = load i64, ptr %arrayidx2.i.i, align 8
   %conv3.i.i = zext i64 %1 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %pl, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %pl, i64 16
   %2 = load i64, ptr %arrayidx5.i.i, align 8
   %conv6.i.i = zext i64 %2 to i128
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %pl, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %pl, i64 24
   %3 = load i64, ptr %arrayidx8.i.i, align 8
   %conv9.i.i = zext i64 %3 to i128
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %pl, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %pl, i64 32
   %4 = load i64, ptr %arrayidx11.i.i, align 8
   %conv12.i.i = zext i64 %4 to i128
   %shr.i.i = lshr i128 %conv.i.i, 51
@@ -8929,22 +8929,22 @@ entry:
   %x = alloca [5 x i64], align 16
   %y = alloca [5 x i64], align 16
   %y_sqrtm1 = alloca [5 x i64], align 16
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %p, i64 80
   call void @_sodium_fe25519_invert(ptr noundef nonnull %recip, ptr noundef nonnull %Z)
   call fastcc void @fe25519_mul(ptr noundef nonnull %x, ptr noundef %p, ptr noundef nonnull %recip)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   %0 = load i64, ptr %x, align 16
   %conv.i.i = zext i64 %0 to i128
-  %arrayidx2.i.i52 = getelementptr inbounds i64, ptr %x, i64 1
+  %arrayidx2.i.i52 = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load i64, ptr %arrayidx2.i.i52, align 8
   %conv3.i.i = zext i64 %1 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %x, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load i64, ptr %arrayidx5.i.i, align 16
   %conv6.i.i = zext i64 %2 to i128
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %x, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %x, i64 24
   %3 = load i64, ptr %arrayidx8.i.i, align 8
   %conv9.i.i = zext i64 %3 to i128
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %x, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %x, i64 32
   %4 = load i64, ptr %arrayidx11.i.i, align 16
   %conv12.i.i = zext i64 %4 to i128
   %shr.i.i53 = lshr i128 %conv.i.i, 51
@@ -9038,21 +9038,21 @@ entry:
   store i64 %or15.i, ptr %add.ptr18.i, align 8
   %call.i = call i32 @sodium_is_zero(ptr noundef nonnull %s.i, i64 noundef 32) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i)
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %y, ptr noundef nonnull %Y, ptr noundef nonnull %recip)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i8)
   %10 = load i64, ptr %y, align 16
   %conv.i.i57 = zext i64 %10 to i128
-  %arrayidx2.i.i58 = getelementptr inbounds i64, ptr %y, i64 1
+  %arrayidx2.i.i58 = getelementptr inbounds i8, ptr %y, i64 8
   %11 = load i64, ptr %arrayidx2.i.i58, align 8
   %conv3.i.i59 = zext i64 %11 to i128
-  %arrayidx5.i.i60 = getelementptr inbounds i64, ptr %y, i64 2
+  %arrayidx5.i.i60 = getelementptr inbounds i8, ptr %y, i64 16
   %12 = load i64, ptr %arrayidx5.i.i60, align 16
   %conv6.i.i61 = zext i64 %12 to i128
-  %arrayidx8.i.i62 = getelementptr inbounds i64, ptr %y, i64 3
+  %arrayidx8.i.i62 = getelementptr inbounds i8, ptr %y, i64 24
   %13 = load i64, ptr %arrayidx8.i.i62, align 8
   %conv9.i.i63 = zext i64 %13 to i128
-  %arrayidx11.i.i64 = getelementptr inbounds i64, ptr %y, i64 4
+  %arrayidx11.i.i64 = getelementptr inbounds i8, ptr %y, i64 32
   %14 = load i64, ptr %arrayidx11.i.i64, align 16
   %conv12.i.i65 = zext i64 %14 to i128
   %shr.i.i66 = lshr i128 %conv.i.i57, 51
@@ -9148,13 +9148,13 @@ entry:
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i8)
   %or11 = or i32 %call.i9, %call.i
   %20 = load i64, ptr %p, align 8
-  %arrayidx1.i.i = getelementptr i64, ptr %p, i64 1
+  %arrayidx1.i.i = getelementptr i8, ptr %p, i64 8
   %21 = load i64, ptr %arrayidx1.i.i, align 8
-  %arrayidx2.i.i = getelementptr i64, ptr %p, i64 2
+  %arrayidx2.i.i = getelementptr i8, ptr %p, i64 16
   %22 = load i64, ptr %arrayidx2.i.i, align 8
-  %arrayidx3.i.i = getelementptr i64, ptr %p, i64 3
+  %arrayidx3.i.i = getelementptr i8, ptr %p, i64 24
   %23 = load i64, ptr %arrayidx3.i.i, align 8
-  %arrayidx4.i.i = getelementptr i64, ptr %p, i64 4
+  %arrayidx4.i.i = getelementptr i8, ptr %p, i64 32
   %24 = load i64, ptr %arrayidx4.i.i, align 8
   %shr.i.i = lshr i64 %20, 51
   %add.i.i = add i64 %21, %shr.i.i
@@ -9193,19 +9193,19 @@ entry:
   %reass.sub332 = sub nsw i64 %mul.neg.i, %and.i
   %add18.i = add nsw i64 %reass.sub332, 4503599627370458
   %sub.i = add i64 %add18.i, %25
-  %arrayidx19.i = getelementptr inbounds i64, ptr %y_sqrtm1, i64 1
+  %arrayidx19.i = getelementptr inbounds i8, ptr %y_sqrtm1, i64 8
   %26 = load i64, ptr %arrayidx19.i, align 8
   %reass.sub333 = sub i64 %26, %and7.i
   %sub21.i = add i64 %reass.sub333, 4503599627370494
-  %arrayidx22.i = getelementptr inbounds i64, ptr %y_sqrtm1, i64 2
+  %arrayidx22.i = getelementptr inbounds i8, ptr %y_sqrtm1, i64 16
   %27 = load i64, ptr %arrayidx22.i, align 16
   %reass.sub334 = sub i64 %27, %and10.i
   %sub24.i = add i64 %reass.sub334, 4503599627370494
-  %arrayidx25.i = getelementptr inbounds i64, ptr %y_sqrtm1, i64 3
+  %arrayidx25.i = getelementptr inbounds i8, ptr %y_sqrtm1, i64 24
   %28 = load i64, ptr %arrayidx25.i, align 8
   %reass.sub335 = sub i64 %28, %and13.i
   %sub27.i = add i64 %reass.sub335, 4503599627370494
-  %arrayidx28.i = getelementptr inbounds i64, ptr %y_sqrtm1, i64 4
+  %arrayidx28.i = getelementptr inbounds i8, ptr %y_sqrtm1, i64 32
   %29 = load i64, ptr %arrayidx28.i, align 16
   %add29.i = add i64 %29, 4503599627370494
   %sub30.i = sub i64 %add29.i, %and16.i
@@ -12504,21 +12504,21 @@ entry:
   %p2 = alloca %struct.ge25519_p2, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %q.i, ptr noundef nonnull align 8 dereferenceable(40) %p3, i64 40, i1 false)
-  %Y.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 1
-  %Y4.i.i = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1
+  %Y.i.i = getelementptr inbounds i8, ptr %q.i, i64 40
+  %Y4.i.i = getelementptr inbounds i8, ptr %p3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i.i, i64 40, i1 false)
-  %Z.i.i = getelementptr inbounds %struct.ge25519_p2, ptr %q.i, i64 0, i32 2
-  %Z7.i.i = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 2
+  %Z.i.i = getelementptr inbounds i8, ptr %q.i, i64 80
+  %Z7.i.i = getelementptr inbounds i8, ptr %p3, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i.i, i64 40, i1 false)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1, ptr noundef nonnull %q.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %q.i)
-  %T.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1, i64 0, i32 3
+  %T.i = getelementptr inbounds i8, ptr %p1, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull %p1, ptr noundef nonnull %T.i)
-  %Y.i = getelementptr inbounds %struct.ge25519_p2, ptr %p2, i64 0, i32 1
-  %Y5.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1, i64 0, i32 1
-  %Z.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1, i64 0, i32 2
+  %Y.i = getelementptr inbounds i8, ptr %p2, i64 40
+  %Y5.i = getelementptr inbounds i8, ptr %p1, i64 40
+  %Z.i = getelementptr inbounds i8, ptr %p1, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i)
-  %Z8.i = getelementptr inbounds %struct.ge25519_p2, ptr %p2, i64 0, i32 2
+  %Z8.i = getelementptr inbounds i8, ptr %p2, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z8.i, ptr noundef nonnull %Z.i, ptr noundef nonnull %T.i)
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %p1, ptr noundef nonnull %p2)
   call fastcc void @fe25519_mul(ptr noundef nonnull %p2, ptr noundef nonnull %p1, ptr noundef nonnull %T.i)
@@ -12528,7 +12528,7 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef %p3, ptr noundef nonnull %p1, ptr noundef nonnull %T.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y4.i.i, ptr noundef nonnull %Y5.i, ptr noundef nonnull %Z.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z7.i.i, ptr noundef nonnull %Z.i, ptr noundef nonnull %T.i)
-  %T14.i = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 3
+  %T14.i = getelementptr inbounds i8, ptr %p3, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %p1, ptr noundef nonnull %Y5.i)
   ret void
 }
@@ -12567,25 +12567,25 @@ entry:
   %shr13.i = lshr i64 %add.ptr11.val.i, 12
   %and14.i = and i64 %shr13.i, 2251799813685247
   store i64 %and.i, ptr %r_fe, align 16
-  %arrayidx15.i = getelementptr inbounds i64, ptr %r_fe, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %r_fe, i64 8
   store i64 %and2.i, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr inbounds i64, ptr %r_fe, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %r_fe, i64 16
   store i64 %and6.i, ptr %arrayidx16.i, align 16
-  %arrayidx17.i = getelementptr inbounds i64, ptr %r_fe, i64 3
+  %arrayidx17.i = getelementptr inbounds i8, ptr %r_fe, i64 24
   store i64 %and10.i, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr inbounds i64, ptr %r_fe, i64 4
+  %arrayidx18.i = getelementptr inbounds i8, ptr %r_fe, i64 32
   store i64 %and14.i, ptr %arrayidx18.i, align 16
   call fastcc void @ge25519_elligator2(ptr noundef nonnull %x, ptr noundef nonnull %y, ptr noundef nonnull %r_fe, ptr noundef nonnull %notsquare)
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %p3, i64 40
   call fastcc void @ge25519_mont_to_ed(ptr noundef nonnull %p3, ptr noundef nonnull %Y, ptr noundef nonnull %x, ptr noundef nonnull %y)
   %2 = load i64, ptr %p3, align 8
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %p3, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %p3, i64 8
   %3 = load i64, ptr %arrayidx1.i.i, align 8
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %p3, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %p3, i64 16
   %4 = load i64, ptr %arrayidx2.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %p3, i64 3
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %p3, i64 24
   %5 = load i64, ptr %arrayidx3.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds i64, ptr %p3, i64 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %p3, i64 32
   %6 = load i64, ptr %arrayidx4.i.i, align 8
   %shr.i.i = lshr i64 %2, 51
   %add.i.i = add i64 %3, %shr.i.i
@@ -12609,13 +12609,13 @@ entry:
   %sub27.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i
   %sub30.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i
   store i64 %sub.i.i, ptr %negxed, align 16
-  %arrayidx32.i.i = getelementptr inbounds i64, ptr %negxed, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %negxed, i64 8
   store i64 %sub21.i.i, ptr %arrayidx32.i.i, align 8
-  %arrayidx33.i.i = getelementptr inbounds i64, ptr %negxed, i64 2
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %negxed, i64 16
   store i64 %sub24.i.i, ptr %arrayidx33.i.i, align 16
-  %arrayidx34.i.i = getelementptr inbounds i64, ptr %negxed, i64 3
+  %arrayidx34.i.i = getelementptr inbounds i8, ptr %negxed, i64 24
   store i64 %sub27.i.i, ptr %arrayidx34.i.i, align 8
-  %arrayidx35.i.i = getelementptr inbounds i64, ptr %negxed, i64 4
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %negxed, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   %conv.i.i = zext i64 %2 to i128
   %conv3.i.i = zext i64 %3 to i128
@@ -12671,11 +12671,11 @@ entry:
   %conv20 = zext nneg i8 %shr to i32
   %xor = xor i32 %and.i5, %conv20
   %8 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %p3, ptr nonnull %negxed, i32 %xor) #10, !srcloc !13
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %p3, i64 80
   store i64 1, ptr %Z, align 8
-  %arrayidx1.i = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 2, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %p3, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %p3, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %p3, ptr noundef nonnull %Y)
   call void @_sodium_ge25519_clear_cofactor(ptr noundef nonnull %p3)
   call void @_sodium_ge25519_p3_tobytes(ptr noundef nonnull %s, ptr noundef nonnull %p3)
@@ -12710,16 +12710,16 @@ entry:
   %negx = alloca [5 x i64], align 16
   %0 = load i64, ptr %r, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx1.i = getelementptr i64, ptr %r, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %r, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
   %conv2.i = zext i64 %1 to i128
-  %arrayidx3.i = getelementptr i64, ptr %r, i64 2
+  %arrayidx3.i = getelementptr i8, ptr %r, i64 16
   %2 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = zext i64 %2 to i128
-  %arrayidx5.i = getelementptr i64, ptr %r, i64 3
+  %arrayidx5.i = getelementptr i8, ptr %r, i64 24
   %3 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr i64, ptr %r, i64 4
+  %arrayidx7.i = getelementptr i8, ptr %r, i64 32
   %4 = load i64, ptr %arrayidx7.i, align 8
   %conv8.i = zext i64 %4 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -12772,10 +12772,10 @@ entry:
   %and54.i = and i64 %conv53.i, 2251799813685247
   %shr55.i = lshr i128 %add52.i, 51
   %conv57.i = and i128 %shr55.i, 18446744073709551615
-  %arrayidx78.i = getelementptr inbounds i64, ptr %rr2, i64 1
-  %arrayidx79.i = getelementptr inbounds i64, ptr %rr2, i64 2
-  %arrayidx80.i = getelementptr inbounds i64, ptr %rr2, i64 3
-  %arrayidx81.i = getelementptr inbounds i64, ptr %rr2, i64 4
+  %arrayidx78.i = getelementptr inbounds i8, ptr %rr2, i64 8
+  %arrayidx79.i = getelementptr inbounds i8, ptr %rr2, i64 16
+  %arrayidx80.i = getelementptr inbounds i8, ptr %rr2, i64 24
+  %arrayidx81.i = getelementptr inbounds i8, ptr %rr2, i64 32
   %add58.i = add i128 %conv57.i, %shl41.i
   %shr61.i = lshr i128 %add58.i, 51
   %conv63.i = and i128 %shr61.i, 18446744073709551615
@@ -12836,10 +12836,10 @@ entry:
   %conv39.i = and i128 %mul.i13, 2251799813685246
   %add40.i = add nuw nsw i128 %mul38.i, %conv39.i
   %conv41.i = trunc i128 %add40.i to i64
-  %arrayidx43.i = getelementptr i64, ptr %x, i64 1
-  %arrayidx44.i = getelementptr i64, ptr %x, i64 2
-  %arrayidx45.i = getelementptr i64, ptr %x, i64 3
-  %arrayidx46.i = getelementptr i64, ptr %x, i64 4
+  %arrayidx43.i = getelementptr i8, ptr %x, i64 8
+  %arrayidx44.i = getelementptr i8, ptr %x, i64 16
+  %arrayidx45.i = getelementptr i8, ptr %x, i64 24
+  %arrayidx46.i = getelementptr i8, ptr %x, i64 32
   %shr.i.i = lshr i64 %conv41.i, 51
   %add.i.i = add nuw nsw i64 %shr.i.i, %and9.i
   %and.i.i = and i64 %conv41.i, 2251799813685247
@@ -12913,10 +12913,10 @@ entry:
   %add32.i56 = add nuw nsw i128 %add30.i54, %mul28.i52
   %add35.i62 = add nuw nsw i128 %mul34.i58, %mul36.i59
   %add37.i63 = add nuw nsw i128 %add35.i62, %mul33.i57
-  %arrayidx73.i = getelementptr inbounds i64, ptr %x2, i64 1
-  %arrayidx74.i = getelementptr inbounds i64, ptr %x2, i64 2
-  %arrayidx75.i = getelementptr inbounds i64, ptr %x2, i64 3
-  %arrayidx76.i = getelementptr inbounds i64, ptr %x2, i64 4
+  %arrayidx73.i = getelementptr inbounds i8, ptr %x2, i64 8
+  %arrayidx74.i = getelementptr inbounds i8, ptr %x2, i64 16
+  %arrayidx75.i = getelementptr inbounds i8, ptr %x2, i64 24
+  %arrayidx76.i = getelementptr inbounds i8, ptr %x2, i64 32
   %add53.i = add nuw nsw i128 %add32.i56, %shr50.i
   %shr56.i = lshr i128 %add53.i, 51
   %add59.i = add nuw nsw i128 %add37.i63, %shr56.i
@@ -12975,22 +12975,22 @@ entry:
   store i64 %and18.i80, ptr %arrayidx74.i, align 16
   %18 = load i64, ptr %x3, align 16
   %add.i104 = add i64 %sub.i.i, %18
-  %arrayidx2.i = getelementptr inbounds i64, ptr %x3, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %x3, i64 8
   %19 = load i64, ptr %arrayidx2.i, align 8
   %add4.i = add i64 %19, %sub21.i.i
-  %arrayidx5.i106 = getelementptr inbounds i64, ptr %x3, i64 2
+  %arrayidx5.i106 = getelementptr inbounds i8, ptr %x3, i64 16
   %20 = load i64, ptr %arrayidx5.i106, align 16
   %add7.i = add i64 %20, %sub24.i.i
-  %arrayidx8.i = getelementptr inbounds i64, ptr %x3, i64 3
+  %arrayidx8.i = getelementptr inbounds i8, ptr %x3, i64 24
   %21 = load i64, ptr %arrayidx8.i, align 8
   %add10.i = add i64 %21, %sub27.i.i
-  %arrayidx11.i = getelementptr inbounds i64, ptr %x3, i64 4
+  %arrayidx11.i = getelementptr inbounds i8, ptr %x3, i64 32
   %22 = load i64, ptr %arrayidx11.i, align 16
   %add13.i = add i64 %22, %sub30.i.i
-  %arrayidx15.i = getelementptr inbounds i64, ptr %gx1, i64 1
-  %arrayidx16.i = getelementptr inbounds i64, ptr %gx1, i64 2
-  %arrayidx17.i = getelementptr inbounds i64, ptr %gx1, i64 3
-  %arrayidx18.i = getelementptr inbounds i64, ptr %gx1, i64 4
+  %arrayidx15.i = getelementptr inbounds i8, ptr %gx1, i64 8
+  %arrayidx16.i = getelementptr inbounds i8, ptr %gx1, i64 16
+  %arrayidx17.i = getelementptr inbounds i8, ptr %gx1, i64 24
+  %arrayidx18.i = getelementptr inbounds i8, ptr %gx1, i64 32
   %add.i107 = add i64 %add.i104, %conv41.i99
   %add4.i110 = add i64 %and9.i73, %add4.i
   %add7.i113 = add i64 %and18.i80, %add7.i
@@ -13013,16 +13013,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %_11.i, ptr noundef nonnull %gx1, ptr noundef nonnull %_10.i)
   %23 = load i64, ptr %_11.i, align 16
   %conv.i.i = zext i64 %23 to i128
-  %arrayidx1.i.i124 = getelementptr inbounds i64, ptr %_11.i, i64 1
+  %arrayidx1.i.i124 = getelementptr inbounds i8, ptr %_11.i, i64 8
   %24 = load i64, ptr %arrayidx1.i.i124, align 8
   %conv2.i.i = zext i64 %24 to i128
-  %arrayidx3.i.i125 = getelementptr inbounds i64, ptr %_11.i, i64 2
+  %arrayidx3.i.i125 = getelementptr inbounds i8, ptr %_11.i, i64 16
   %25 = load i64, ptr %arrayidx3.i.i125, align 16
   %conv4.i.i = zext i64 %25 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %_11.i, i64 3
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %_11.i, i64 24
   %26 = load i64, ptr %arrayidx5.i.i, align 8
   %conv6.i.i = zext i64 %26 to i128
-  %arrayidx7.i.i = getelementptr inbounds i64, ptr %_11.i, i64 4
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %_11.i, i64 32
   %27 = load i64, ptr %arrayidx7.i.i, align 16
   %conv8.i.i = zext i64 %27 to i128
   %shl.i.i = shl nuw nsw i128 %conv.i.i, 1
@@ -13084,9 +13084,9 @@ entry:
   %shr69.i.i = lshr i64 %add68.i.i, 51
   %and70.i.i = and i64 %add68.i.i, 2251799813685247
   %add71.i.i = add nuw nsw i64 %shr69.i.i, %and49.i.i
-  %arrayidx73.i.i = getelementptr inbounds i64, ptr %_1100.i, i64 1
-  %arrayidx74.i.i = getelementptr inbounds i64, ptr %_1100.i, i64 2
-  %arrayidx75.i.i = getelementptr inbounds i64, ptr %_1100.i, i64 3
+  %arrayidx73.i.i = getelementptr inbounds i8, ptr %_1100.i, i64 8
+  %arrayidx74.i.i = getelementptr inbounds i8, ptr %_1100.i, i64 16
+  %arrayidx75.i.i = getelementptr inbounds i8, ptr %_1100.i, i64 24
   %conv.i3.i = zext nneg i64 %and67.i.i to i128
   %conv2.i5.i = zext nneg i64 %and70.i.i to i128
   %conv4.i7.i = zext nneg i64 %add71.i.i to i128
@@ -13158,16 +13158,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %_1111.i, ptr noundef nonnull %_11.i, ptr noundef nonnull %_1100.i)
   %32 = load i64, ptr %_1111.i, align 16
   %conv.i79.i = zext i64 %32 to i128
-  %arrayidx1.i80.i = getelementptr inbounds i64, ptr %_1111.i, i64 1
+  %arrayidx1.i80.i = getelementptr inbounds i8, ptr %_1111.i, i64 8
   %33 = load i64, ptr %arrayidx1.i80.i, align 8
   %conv2.i81.i = zext i64 %33 to i128
-  %arrayidx3.i82.i = getelementptr inbounds i64, ptr %_1111.i, i64 2
+  %arrayidx3.i82.i = getelementptr inbounds i8, ptr %_1111.i, i64 16
   %34 = load i64, ptr %arrayidx3.i82.i, align 16
   %conv4.i83.i = zext i64 %34 to i128
-  %arrayidx5.i84.i = getelementptr inbounds i64, ptr %_1111.i, i64 3
+  %arrayidx5.i84.i = getelementptr inbounds i8, ptr %_1111.i, i64 24
   %35 = load i64, ptr %arrayidx5.i84.i, align 8
   %conv6.i85.i = zext i64 %35 to i128
-  %arrayidx7.i86.i = getelementptr inbounds i64, ptr %_1111.i, i64 4
+  %arrayidx7.i86.i = getelementptr inbounds i8, ptr %_1111.i, i64 32
   %36 = load i64, ptr %arrayidx7.i86.i, align 16
   %conv8.i87.i = zext i64 %36 to i128
   %shl.i88.i = shl nuw nsw i128 %conv.i79.i, 1
@@ -13229,9 +13229,9 @@ entry:
   %shr69.i148.i = lshr i64 %add68.i147.i, 51
   %and70.i149.i = and i64 %add68.i147.i, 2251799813685247
   %add71.i150.i = add nuw nsw i64 %shr69.i148.i, %and49.i128.i
-  %arrayidx73.i151.i = getelementptr inbounds i64, ptr %_11110000.i, i64 1
-  %arrayidx74.i152.i = getelementptr inbounds i64, ptr %_11110000.i, i64 2
-  %arrayidx75.i153.i = getelementptr inbounds i64, ptr %_11110000.i, i64 3
+  %arrayidx73.i151.i = getelementptr inbounds i8, ptr %_11110000.i, i64 8
+  %arrayidx74.i152.i = getelementptr inbounds i8, ptr %_11110000.i, i64 16
+  %arrayidx75.i153.i = getelementptr inbounds i8, ptr %_11110000.i, i64 24
   %conv.i155.i = zext nneg i64 %and67.i146.i to i128
   %conv2.i157.i = zext nneg i64 %and70.i149.i to i128
   %conv4.i159.i = zext nneg i64 %add71.i150.i to i128
@@ -13435,16 +13435,16 @@ entry:
   call fastcc void @fe25519_sqmul(ptr noundef nonnull %t.i, i32 noundef 3, ptr noundef nonnull %_11.i)
   %41 = load i64, ptr %t.i, align 16
   %conv.i383.i = zext i64 %41 to i128
-  %arrayidx1.i384.i = getelementptr inbounds i64, ptr %t.i, i64 1
+  %arrayidx1.i384.i = getelementptr inbounds i8, ptr %t.i, i64 8
   %42 = load i64, ptr %arrayidx1.i384.i, align 8
   %conv2.i385.i = zext i64 %42 to i128
-  %arrayidx3.i386.i = getelementptr inbounds i64, ptr %t.i, i64 2
+  %arrayidx3.i386.i = getelementptr inbounds i8, ptr %t.i, i64 16
   %43 = load i64, ptr %arrayidx3.i386.i, align 16
   %conv4.i387.i = zext i64 %43 to i128
-  %arrayidx5.i388.i = getelementptr inbounds i64, ptr %t.i, i64 3
+  %arrayidx5.i388.i = getelementptr inbounds i8, ptr %t.i, i64 24
   %44 = load i64, ptr %arrayidx5.i388.i, align 8
   %conv6.i389.i = zext i64 %44 to i128
-  %arrayidx7.i390.i = getelementptr inbounds i64, ptr %t.i, i64 4
+  %arrayidx7.i390.i = getelementptr inbounds i8, ptr %t.i, i64 32
   %45 = load i64, ptr %arrayidx7.i390.i, align 16
   %conv8.i391.i = zext i64 %45 to i128
   %shl.i392.i = shl nuw nsw i128 %conv.i383.i, 1
@@ -13583,13 +13583,13 @@ entry:
   %sub27.i.i153 = sub nuw nsw i64 4503599627370494, %and13.i.i145
   %sub30.i.i154 = sub nuw nsw i64 4503599627370494, %and16.i.i147
   store i64 %sub.i.i150, ptr %negx, align 16
-  %arrayidx32.i.i155 = getelementptr inbounds i64, ptr %negx, i64 1
+  %arrayidx32.i.i155 = getelementptr inbounds i8, ptr %negx, i64 8
   store i64 %sub21.i.i151, ptr %arrayidx32.i.i155, align 8
-  %arrayidx33.i.i156 = getelementptr inbounds i64, ptr %negx, i64 2
+  %arrayidx33.i.i156 = getelementptr inbounds i8, ptr %negx, i64 16
   store i64 %sub24.i.i152, ptr %arrayidx33.i.i156, align 16
-  %arrayidx34.i.i157 = getelementptr inbounds i64, ptr %negx, i64 3
+  %arrayidx34.i.i157 = getelementptr inbounds i8, ptr %negx, i64 24
   store i64 %sub27.i.i153, ptr %arrayidx34.i.i157, align 8
-  %arrayidx35.i.i158 = getelementptr inbounds i64, ptr %negx, i64 4
+  %arrayidx35.i.i158 = getelementptr inbounds i8, ptr %negx, i64 32
   store i64 %sub30.i.i154, ptr %arrayidx35.i.i158, align 16
   %48 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x, ptr nonnull %negx, i32 %and.i129) #10, !srcloc !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %x2, i8 0, i64 40, i1 false)
@@ -13687,9 +13687,9 @@ entry:
   %conv52.i.i218 = and i128 %shr50.i.i217, 18446744073709551615
   %add35.i.i222 = add i128 %mul34.i.i203, %mul36.i.i204
   %add37.i.i223 = add i128 %add35.i.i222, %mul33.i.i202
-  %arrayidx73.i.i235 = getelementptr inbounds i64, ptr %x2.i, i64 1
-  %arrayidx74.i.i236 = getelementptr inbounds i64, ptr %x2.i, i64 2
-  %arrayidx75.i.i237 = getelementptr inbounds i64, ptr %x2.i, i64 3
+  %arrayidx73.i.i235 = getelementptr inbounds i8, ptr %x2.i, i64 8
+  %arrayidx74.i.i236 = getelementptr inbounds i8, ptr %x2.i, i64 16
+  %arrayidx75.i.i237 = getelementptr inbounds i8, ptr %x2.i, i64 24
   %add53.i.i219 = add i128 %add32.i.i201, %conv52.i.i218
   %shr56.i.i220 = lshr i128 %add53.i.i219, 51
   %conv58.i.i221 = and i128 %shr56.i.i220, 18446744073709551615
@@ -13746,22 +13746,22 @@ entry:
   %conv41.i.i = trunc i128 %add40.i.i to i64
   %64 = load i64, ptr %x3.i, align 16
   %add.i16.i = add i64 %64, %sub.i
-  %arrayidx2.i.i239 = getelementptr inbounds i64, ptr %x3.i, i64 1
+  %arrayidx2.i.i239 = getelementptr inbounds i8, ptr %x3.i, i64 8
   %65 = load i64, ptr %arrayidx2.i.i239, align 8
   %add4.i.i = add i64 %65, %sub21.i
-  %arrayidx5.i18.i = getelementptr inbounds i64, ptr %x3.i, i64 2
+  %arrayidx5.i18.i = getelementptr inbounds i8, ptr %x3.i, i64 16
   %66 = load i64, ptr %arrayidx5.i18.i, align 16
   %add7.i.i = add i64 %66, %sub24.i
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %x3.i, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %x3.i, i64 24
   %67 = load i64, ptr %arrayidx8.i.i, align 8
   %add10.i.i = add i64 %67, %sub27.i
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %x3.i, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %x3.i, i64 32
   %68 = load i64, ptr %arrayidx11.i.i, align 16
   %add13.i.i = add i64 %68, %sub30.i
-  %arrayidx15.i.i = getelementptr i64, ptr %y, i64 1
-  %arrayidx16.i.i = getelementptr i64, ptr %y, i64 2
-  %arrayidx17.i.i = getelementptr i64, ptr %y, i64 3
-  %arrayidx18.i.i = getelementptr i64, ptr %y, i64 4
+  %arrayidx15.i.i = getelementptr i8, ptr %y, i64 8
+  %arrayidx16.i.i = getelementptr i8, ptr %y, i64 16
+  %arrayidx17.i.i = getelementptr i8, ptr %y, i64 24
+  %arrayidx18.i.i = getelementptr i8, ptr %y, i64 32
   %add.i19.i = add i64 %add.i16.i, %conv41.i.i
   %add4.i22.i = add i64 %add4.i.i, %and9.i.i
   %add7.i25.i = add i64 %add7.i.i, %and18.i.i
@@ -13780,16 +13780,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %m_root.i.i.i, ptr noundef nonnull %p_root.i.i.i, ptr noundef nonnull @fe25519_sqrtm1)
   %69 = load i64, ptr %m_root.i.i.i, align 16
   %conv.i.i.i.i = zext i64 %69 to i128
-  %arrayidx1.i.i.i.i = getelementptr inbounds i64, ptr %m_root.i.i.i, i64 1
+  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %m_root.i.i.i, i64 8
   %70 = load i64, ptr %arrayidx1.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i64 %70 to i128
-  %arrayidx3.i.i.i.i = getelementptr inbounds i64, ptr %m_root.i.i.i, i64 2
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %m_root.i.i.i, i64 16
   %71 = load i64, ptr %arrayidx3.i.i.i.i, align 16
   %conv4.i.i.i.i = zext i64 %71 to i128
-  %arrayidx5.i.i.i.i = getelementptr inbounds i64, ptr %m_root.i.i.i, i64 3
+  %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %m_root.i.i.i, i64 24
   %72 = load i64, ptr %arrayidx5.i.i.i.i, align 8
   %conv6.i.i.i.i = zext i64 %72 to i128
-  %arrayidx7.i.i.i.i = getelementptr inbounds i64, ptr %m_root.i.i.i, i64 4
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %m_root.i.i.i, i64 32
   %73 = load i64, ptr %arrayidx7.i.i.i.i, align 16
   %conv8.i.i.i.i = zext i64 %73 to i128
   %shl.i.i.i.i = shl nuw nsw i128 %conv.i.i.i.i, 1
@@ -14196,26 +14196,26 @@ entry:
   %x_minus_one = alloca [5 x i64], align 16
   %x_plus_one_y_inv = alloca [5 x i64], align 16
   store i64 1, ptr %one, align 16
-  %arrayidx1.i = getelementptr inbounds i64, ptr %one, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %one, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
   %0 = load i64, ptr %x, align 8
   %add.i = add i64 %0, 1
-  %arrayidx2.i = getelementptr i64, ptr %x, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %x, i64 8
   %1 = load i64, ptr %arrayidx2.i, align 8
-  %arrayidx5.i = getelementptr i64, ptr %x, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %x, i64 16
   %2 = load i64, ptr %arrayidx5.i, align 8
-  %arrayidx8.i = getelementptr i64, ptr %x, i64 3
+  %arrayidx8.i = getelementptr i8, ptr %x, i64 24
   %3 = load i64, ptr %arrayidx8.i, align 8
-  %arrayidx11.i = getelementptr i64, ptr %x, i64 4
+  %arrayidx11.i = getelementptr i8, ptr %x, i64 32
   %4 = load i64, ptr %arrayidx11.i, align 8
   store i64 %add.i, ptr %x_plus_one, align 16
-  %arrayidx15.i = getelementptr inbounds i64, ptr %x_plus_one, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %x_plus_one, i64 8
   store i64 %1, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr inbounds i64, ptr %x_plus_one, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %x_plus_one, i64 16
   store i64 %2, ptr %arrayidx16.i, align 16
-  %arrayidx17.i = getelementptr inbounds i64, ptr %x_plus_one, i64 3
+  %arrayidx17.i = getelementptr inbounds i8, ptr %x_plus_one, i64 24
   store i64 %3, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr inbounds i64, ptr %x_plus_one, i64 4
+  %arrayidx18.i = getelementptr inbounds i8, ptr %x_plus_one, i64 32
   store i64 %4, ptr %arrayidx18.i, align 16
   %add18.i = add i64 %0, 4503599627370457
   %sub21.i = add i64 %1, 4503599627370494
@@ -14223,13 +14223,13 @@ entry:
   %reass.sub35.i = add i64 %3, 4503599627370494
   %add29.i = add i64 %4, 4503599627370494
   store i64 %add18.i, ptr %x_minus_one, align 16
-  %arrayidx32.i = getelementptr inbounds i64, ptr %x_minus_one, i64 1
+  %arrayidx32.i = getelementptr inbounds i8, ptr %x_minus_one, i64 8
   store i64 %sub21.i, ptr %arrayidx32.i, align 8
-  %arrayidx33.i = getelementptr inbounds i64, ptr %x_minus_one, i64 2
+  %arrayidx33.i = getelementptr inbounds i8, ptr %x_minus_one, i64 16
   store i64 %reass.sub34.i, ptr %arrayidx33.i, align 16
-  %arrayidx34.i = getelementptr inbounds i64, ptr %x_minus_one, i64 3
+  %arrayidx34.i = getelementptr inbounds i8, ptr %x_minus_one, i64 24
   store i64 %reass.sub35.i, ptr %arrayidx34.i, align 8
-  %arrayidx35.i = getelementptr inbounds i64, ptr %x_minus_one, i64 4
+  %arrayidx35.i = getelementptr inbounds i8, ptr %x_minus_one, i64 32
   store i64 %add29.i, ptr %arrayidx35.i, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %x_plus_one_y_inv, ptr noundef nonnull %x_plus_one, ptr noundef %y)
   call void @_sodium_fe25519_invert(ptr noundef nonnull %x_plus_one_y_inv, ptr noundef nonnull %x_plus_one_y_inv)
@@ -14241,16 +14241,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   %5 = load i64, ptr %x_plus_one_y_inv, align 16
   %conv.i.i = zext i64 %5 to i128
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %x_plus_one_y_inv, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %x_plus_one_y_inv, i64 8
   %6 = load i64, ptr %arrayidx2.i.i, align 8
   %conv3.i.i = zext i64 %6 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %x_plus_one_y_inv, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %x_plus_one_y_inv, i64 16
   %7 = load i64, ptr %arrayidx5.i.i, align 16
   %conv6.i.i = zext i64 %7 to i128
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %x_plus_one_y_inv, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %x_plus_one_y_inv, i64 24
   %8 = load i64, ptr %arrayidx8.i.i, align 8
   %conv9.i.i = zext i64 %8 to i128
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %x_plus_one_y_inv, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %x_plus_one_y_inv, i64 32
   %9 = load i64, ptr %arrayidx11.i.i, align 16
   %conv12.i.i = zext i64 %9 to i128
   %shr.i.i = lshr i128 %conv.i.i, 51
@@ -14394,13 +14394,13 @@ entry:
   %fl.i.24.fl.i.24.fl.i.24.fl.24.fl.24.add.ptr11.val.i.i = load i64, ptr %fl.i.24.fl.i.24.fl.i.24.fl.24.fl.24.add.ptr11.i.sroa_idx, align 8
   %shr13.i.i = lshr i64 %fl.i.24.fl.i.24.fl.i.24.fl.24.fl.24.add.ptr11.val.i.i, 12
   %and14.i.i = and i64 %shr13.i.i, 2251799813685247
-  %arrayidx15.i.i = getelementptr inbounds i64, ptr %fe_f, i64 1
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %fe_f, i64 8
   store i64 %and2.i.i, ptr %arrayidx15.i.i, align 8
-  %arrayidx16.i.i = getelementptr inbounds i64, ptr %fe_f, i64 2
+  %arrayidx16.i.i = getelementptr inbounds i8, ptr %fe_f, i64 16
   store i64 %and6.i.i, ptr %arrayidx16.i.i, align 16
-  %arrayidx17.i.i = getelementptr inbounds i64, ptr %fe_f, i64 3
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %fe_f, i64 24
   store i64 %and10.i.i, ptr %arrayidx17.i.i, align 8
-  %arrayidx18.i.i = getelementptr inbounds i64, ptr %fe_f, i64 4
+  %arrayidx18.i.i = getelementptr inbounds i8, ptr %fe_f, i64 32
   store i64 %and14.i.i, ptr %arrayidx18.i.i, align 16
   %gl.i.0.gl.i.0.gl.i.0.gl.0.gl.0.s.val.i11.i = load i64, ptr %gl.i, align 16
   %and.i12.i = and i64 %gl.i.0.gl.i.0.gl.i.0.gl.0.gl.0.s.val.i11.i, 2251799813685247
@@ -14421,13 +14421,13 @@ entry:
   %shr13.i27.i = lshr i64 %gl.i.24.gl.i.24.gl.i.24.gl.24.gl.24.add.ptr11.val.i26.i, 12
   %and14.i28.i = and i64 %shr13.i27.i, 2251799813685247
   store i64 %and.i12.i, ptr %fe_g.i, align 16
-  %arrayidx15.i29.i = getelementptr inbounds i64, ptr %fe_g.i, i64 1
+  %arrayidx15.i29.i = getelementptr inbounds i8, ptr %fe_g.i, i64 8
   store i64 %and2.i16.i, ptr %arrayidx15.i29.i, align 8
-  %arrayidx16.i30.i = getelementptr inbounds i64, ptr %fe_g.i, i64 2
+  %arrayidx16.i30.i = getelementptr inbounds i8, ptr %fe_g.i, i64 16
   store i64 %and6.i20.i, ptr %arrayidx16.i30.i, align 16
-  %arrayidx17.i31.i = getelementptr inbounds i64, ptr %fe_g.i, i64 3
+  %arrayidx17.i31.i = getelementptr inbounds i8, ptr %fe_g.i, i64 24
   store i64 %and10.i24.i, ptr %arrayidx17.i31.i, align 8
-  %arrayidx18.i32.i = getelementptr inbounds i64, ptr %fe_g.i, i64 4
+  %arrayidx18.i32.i = getelementptr inbounds i8, ptr %fe_g.i, i64 32
   store i64 %and14.i28.i, ptr %arrayidx18.i32.i, align 16
   %arrayidx10.i = getelementptr i8, ptr %h, i64 31
   %2 = load i8, ptr %arrayidx10.i, align 1
@@ -14547,13 +14547,13 @@ fe25519_reduce64.exit:                            ; preds = %for.body.i
   call fastcc void @ge25519_elligator2(ptr noundef nonnull %x, ptr noundef nonnull %y, ptr noundef nonnull %fe_f, ptr noundef nonnull %notsquare)
   %21 = load i32, ptr %notsquare, align 4
   %22 = load i64, ptr %y, align 16
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %y, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %y, i64 8
   %23 = load i64, ptr %arrayidx1.i.i, align 8
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %y, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %y, i64 16
   %24 = load i64, ptr %arrayidx2.i.i, align 16
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %y, i64 3
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %y, i64 24
   %25 = load i64, ptr %arrayidx3.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds i64, ptr %y, i64 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %y, i64 32
   %26 = load i64, ptr %arrayidx4.i.i, align 16
   %shr.i.i1 = lshr i64 %22, 51
   %add.i.i2 = add i64 %23, %shr.i.i1
@@ -14577,13 +14577,13 @@ fe25519_reduce64.exit:                            ; preds = %for.body.i
   %sub27.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i
   %sub30.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i
   store i64 %sub.i.i, ptr %negy, align 16
-  %arrayidx32.i.i = getelementptr inbounds i64, ptr %negy, i64 1
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %negy, i64 8
   store i64 %sub21.i.i, ptr %arrayidx32.i.i, align 8
-  %arrayidx33.i.i = getelementptr inbounds i64, ptr %negy, i64 2
+  %arrayidx33.i.i = getelementptr inbounds i8, ptr %negy, i64 16
   store i64 %sub24.i.i, ptr %arrayidx33.i.i, align 16
-  %arrayidx34.i.i = getelementptr inbounds i64, ptr %negy, i64 3
+  %arrayidx34.i.i = getelementptr inbounds i8, ptr %negy, i64 24
   store i64 %sub27.i.i, ptr %arrayidx34.i.i, align 8
-  %arrayidx35.i.i = getelementptr inbounds i64, ptr %negy, i64 4
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %negy, i64 32
   store i64 %sub30.i.i, ptr %arrayidx35.i.i, align 16
   %conv.i.i6 = zext i64 %22 to i128
   %conv3.i.i8 = zext i64 %23 to i128
@@ -14640,13 +14640,13 @@ fe25519_reduce64.exit:                            ; preds = %for.body.i
   %28 = xor i32 %conv, %and.i
   %xor10 = xor i32 %28, 1
   %29 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %y, ptr nonnull %negy, i32 %xor10) #10, !srcloc !13
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %p3, i64 40
   call fastcc void @ge25519_mont_to_ed(ptr noundef nonnull %p3, ptr noundef nonnull %Y, ptr noundef nonnull %x, ptr noundef nonnull %y)
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %p3, i64 80
   store i64 1, ptr %Z, align 8
-  %arrayidx1.i = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 2, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %p3, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i, i8 0, i64 32, i1 false)
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %p3, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %p3, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %p3, ptr noundef nonnull %Y)
   call void @_sodium_ge25519_clear_cofactor(ptr noundef nonnull %p3)
   call void @_sodium_ge25519_p3_tobytes(ptr noundef %s, ptr noundef nonnull %p3)
@@ -14722,13 +14722,13 @@ if.end:                                           ; preds = %ristretto255_is_can
   %shr13.i = lshr i64 %add.ptr11.val.i, 12
   %and14.i = and i64 %shr13.i, 2251799813685247
   store i64 %and.i, ptr %s_, align 16
-  %arrayidx15.i = getelementptr inbounds i64, ptr %s_, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %s_, i64 8
   store i64 %and2.i, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr inbounds i64, ptr %s_, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %s_, i64 16
   store i64 %and6.i, ptr %arrayidx16.i, align 16
-  %arrayidx17.i = getelementptr inbounds i64, ptr %s_, i64 3
+  %arrayidx17.i = getelementptr inbounds i8, ptr %s_, i64 24
   store i64 %and10.i, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr inbounds i64, ptr %s_, i64 4
+  %arrayidx18.i = getelementptr inbounds i8, ptr %s_, i64 32
   store i64 %and14.i, ptr %arrayidx18.i, align 16
   %conv.i = zext nneg i64 %and.i to i128
   %conv2.i = zext nneg i64 %and2.i to i128
@@ -14794,7 +14794,7 @@ if.end:                                           ; preds = %ristretto255_is_can
   %shr69.i = lshr i64 %add68.i, 51
   %and70.i = and i64 %add68.i, 2251799813685247
   %add71.i = add nuw nsw i64 %shr69.i, %and49.i
-  %arrayidx1.i25 = getelementptr inbounds i64, ptr %u1, i64 1
+  %arrayidx1.i25 = getelementptr inbounds i8, ptr %u1, i64 8
   %shr8.i = lshr i64 %add71.i, 51
   %add9.i = add nuw nsw i64 %shr8.i, %and55.i
   %and10.i32 = and i64 %add71.i, 2251799813685247
@@ -14807,11 +14807,11 @@ if.end:                                           ; preds = %ristretto255_is_can
   %reass.sub = sub nsw i64 %mul.neg.i, %and67.i
   %sub.i33 = add nsw i64 %reass.sub, 4503599627370459
   %sub21.i = sub nuw nsw i64 4503599627370494, %and70.i
-  %arrayidx22.i = getelementptr inbounds i64, ptr %u1, i64 2
+  %arrayidx22.i = getelementptr inbounds i8, ptr %u1, i64 16
   %sub24.i = sub nuw nsw i64 4503599627370494, %and10.i32
-  %arrayidx25.i = getelementptr inbounds i64, ptr %u1, i64 3
+  %arrayidx25.i = getelementptr inbounds i8, ptr %u1, i64 24
   %sub27.i = sub nuw nsw i64 4503599627370494, %and13.i
-  %arrayidx28.i = getelementptr inbounds i64, ptr %u1, i64 4
+  %arrayidx28.i = getelementptr inbounds i8, ptr %u1, i64 32
   %sub30.i = sub nuw nsw i64 4503599627370494, %and16.i
   store i64 %sub.i33, ptr %u1, align 16
   store i64 %sub21.i, ptr %arrayidx1.i25, align 8
@@ -14865,9 +14865,9 @@ if.end:                                           ; preds = %ristretto255_is_can
   %add32.i68 = add nuw nsw i128 %add30.i66, %mul28.i64
   %add35.i91 = add nuw nsw i128 %mul34.i70, %mul36.i71
   %add37.i92 = add nuw nsw i128 %add35.i91, %mul33.i69
-  %arrayidx73.i106 = getelementptr inbounds i64, ptr %u1u1, i64 1
-  %arrayidx74.i107 = getelementptr inbounds i64, ptr %u1u1, i64 2
-  %arrayidx75.i108 = getelementptr inbounds i64, ptr %u1u1, i64 3
+  %arrayidx73.i106 = getelementptr inbounds i8, ptr %u1u1, i64 8
+  %arrayidx74.i107 = getelementptr inbounds i8, ptr %u1u1, i64 16
+  %arrayidx75.i108 = getelementptr inbounds i8, ptr %u1u1, i64 24
   %add53.i86 = add nuw nsw i128 %add32.i68, %shr50.i84
   %shr56.i89 = lshr i128 %add53.i86, 51
   %add59.i93 = add nuw nsw i128 %add37.i92, %shr56.i89
@@ -14889,11 +14889,11 @@ if.end:                                           ; preds = %ristretto255_is_can
   store i64 %and70.i104, ptr %arrayidx73.i106, align 8
   store i64 %add71.i105, ptr %arrayidx74.i107, align 16
   store <2 x i64> %12, ptr %arrayidx75.i108, align 8
-  %arrayidx1.i110 = getelementptr inbounds i64, ptr %u2, i64 1
+  %arrayidx1.i110 = getelementptr inbounds i8, ptr %u2, i64 8
   %add.i111 = add nuw nsw i64 %and67.i, 1
-  %arrayidx5.i114 = getelementptr inbounds i64, ptr %u2, i64 2
-  %arrayidx8.i = getelementptr inbounds i64, ptr %u2, i64 3
-  %arrayidx11.i = getelementptr inbounds i64, ptr %u2, i64 4
+  %arrayidx5.i114 = getelementptr inbounds i8, ptr %u2, i64 16
+  %arrayidx8.i = getelementptr inbounds i8, ptr %u2, i64 24
+  %arrayidx11.i = getelementptr inbounds i8, ptr %u2, i64 32
   store i64 %add.i111, ptr %u2, align 16
   store i64 %and70.i, ptr %arrayidx1.i110, align 8
   store i64 %add71.i, ptr %arrayidx5.i114, align 16
@@ -14964,23 +14964,23 @@ if.end:                                           ; preds = %ristretto255_is_can
   %and70.i189 = and i64 %add68.i187, 2251799813685247
   %add71.i190 = add nuw nsw i64 %shr69.i188, %and49.i168
   store i64 %and67.i186, ptr %u2u2, align 16
-  %arrayidx73.i191 = getelementptr inbounds i64, ptr %u2u2, i64 1
+  %arrayidx73.i191 = getelementptr inbounds i8, ptr %u2u2, i64 8
   store i64 %and70.i189, ptr %arrayidx73.i191, align 8
-  %arrayidx74.i192 = getelementptr inbounds i64, ptr %u2u2, i64 2
+  %arrayidx74.i192 = getelementptr inbounds i8, ptr %u2u2, i64 16
   store i64 %add71.i190, ptr %arrayidx74.i192, align 16
-  %arrayidx75.i193 = getelementptr inbounds i64, ptr %u2u2, i64 3
+  %arrayidx75.i193 = getelementptr inbounds i8, ptr %u2u2, i64 24
   store i64 %and55.i173, ptr %arrayidx75.i193, align 8
-  %arrayidx76.i194 = getelementptr inbounds i64, ptr %u2u2, i64 4
+  %arrayidx76.i194 = getelementptr inbounds i8, ptr %u2u2, i64 32
   store i64 %and61.i180, ptr %arrayidx76.i194, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %v, ptr noundef nonnull @ed25519_d, ptr noundef nonnull %u1u1)
   %13 = load i64, ptr %v, align 16
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %v, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %14 = load i64, ptr %arrayidx1.i.i, align 8
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %v, i64 2
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %v, i64 16
   %15 = load i64, ptr %arrayidx2.i.i, align 16
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %v, i64 3
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %v, i64 24
   %16 = load i64, ptr %arrayidx3.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds i64, ptr %v, i64 4
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %v, i64 32
   %17 = load i64, ptr %arrayidx4.i.i, align 16
   %shr.i.i = lshr i64 %13, 51
   %add.i.i = add i64 %14, %shr.i.i
@@ -15025,26 +15025,26 @@ if.end:                                           ; preds = %ristretto255_is_can
   store i64 %sub30.i228, ptr %arrayidx4.i.i, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %v_u2u2, ptr noundef nonnull %v, ptr noundef nonnull %u2u2)
   store i64 1, ptr %one, align 16
-  %arrayidx1.i233 = getelementptr inbounds i64, ptr %one, i64 1
+  %arrayidx1.i233 = getelementptr inbounds i8, ptr %one, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i233, i8 0, i64 32, i1 false)
   %call29 = call fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %one, ptr noundef nonnull %v_u2u2)
   call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %u2)
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y, ptr noundef nonnull %inv_sqrt, ptr noundef %h)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y, ptr noundef nonnull %Y, ptr noundef nonnull %v)
   call fastcc void @fe25519_mul(ptr noundef %h, ptr noundef %h, ptr noundef nonnull %s_)
   %24 = load i64, ptr %h, align 8
   %add.i234 = shl i64 %24, 1
-  %arrayidx2.i235 = getelementptr i64, ptr %h, i64 1
+  %arrayidx2.i235 = getelementptr i8, ptr %h, i64 8
   %25 = load i64, ptr %arrayidx2.i235, align 8
   %add4.i237 = shl i64 %25, 1
-  %arrayidx5.i238 = getelementptr i64, ptr %h, i64 2
+  %arrayidx5.i238 = getelementptr i8, ptr %h, i64 16
   %26 = load i64, ptr %arrayidx5.i238, align 8
   %add7.i240 = shl i64 %26, 1
-  %arrayidx8.i241 = getelementptr i64, ptr %h, i64 3
+  %arrayidx8.i241 = getelementptr i8, ptr %h, i64 24
   %27 = load i64, ptr %arrayidx8.i241, align 8
   %add10.i243 = shl i64 %27, 1
-  %arrayidx11.i244 = getelementptr i64, ptr %h, i64 4
+  %arrayidx11.i244 = getelementptr i8, ptr %h, i64 32
   %28 = load i64, ptr %arrayidx11.i244, align 8
   %add13.i246 = shl i64 %28, 1
   store i64 %add.i234, ptr %h, align 8
@@ -15081,22 +15081,22 @@ if.end:                                           ; preds = %ristretto255_is_can
   %sub27.i.i.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i.i.i
   %sub30.i.i.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i.i.i
   store i64 %sub.i.i.i.i, ptr %negf.i.i, align 16
-  %arrayidx32.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 1
+  %arrayidx32.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 8
   store i64 %sub21.i.i.i.i, ptr %arrayidx32.i.i.i.i, align 8
-  %arrayidx33.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 2
+  %arrayidx33.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 16
   store i64 %sub24.i.i.i.i, ptr %arrayidx33.i.i.i.i, align 16
-  %arrayidx34.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 3
+  %arrayidx34.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 24
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
-  %arrayidx35.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 4
+  %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
   %31 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %h, ptr nonnull %negf.i.i, i32 %and.i.i251) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y, ptr noundef nonnull %u1, ptr noundef nonnull %Y)
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
   store i64 1, ptr %Z, align 8
-  %arrayidx1.i253 = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 1
+  %arrayidx1.i253 = getelementptr i8, ptr %h, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i253, i8 0, i64 32, i1 false)
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %h, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %h, ptr noundef nonnull %Y)
   %sub = sub i32 1, %call29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
@@ -15133,16 +15133,16 @@ entry:
   %x_sqrtm1 = alloca [5 x i64], align 16
   %0 = load i64, ptr %v, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx1.i = getelementptr i64, ptr %v, i64 1
+  %arrayidx1.i = getelementptr i8, ptr %v, i64 8
   %1 = load i64, ptr %arrayidx1.i, align 8
   %conv2.i = zext i64 %1 to i128
-  %arrayidx3.i = getelementptr i64, ptr %v, i64 2
+  %arrayidx3.i = getelementptr i8, ptr %v, i64 16
   %2 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = zext i64 %2 to i128
-  %arrayidx5.i = getelementptr i64, ptr %v, i64 3
+  %arrayidx5.i = getelementptr i8, ptr %v, i64 24
   %3 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr i64, ptr %v, i64 4
+  %arrayidx7.i = getelementptr i8, ptr %v, i64 32
   %4 = load i64, ptr %arrayidx7.i, align 8
   %conv8.i = zext i64 %4 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -15190,10 +15190,10 @@ entry:
   %conv52.i = and i128 %shr50.i, 18446744073709551615
   %add35.i = add i128 %mul34.i, %mul36.i
   %add37.i = add i128 %add35.i, %mul33.i
-  %arrayidx73.i = getelementptr inbounds i64, ptr %v3, i64 1
-  %arrayidx74.i = getelementptr inbounds i64, ptr %v3, i64 2
-  %arrayidx75.i = getelementptr inbounds i64, ptr %v3, i64 3
-  %arrayidx76.i = getelementptr inbounds i64, ptr %v3, i64 4
+  %arrayidx73.i = getelementptr inbounds i8, ptr %v3, i64 8
+  %arrayidx74.i = getelementptr inbounds i8, ptr %v3, i64 16
+  %arrayidx75.i = getelementptr inbounds i8, ptr %v3, i64 24
+  %arrayidx76.i = getelementptr inbounds i8, ptr %v3, i64 32
   %add53.i = add i128 %add32.i, %conv52.i
   %shr56.i = lshr i128 %add53.i, 51
   %conv58.i = and i128 %shr56.i, 18446744073709551615
@@ -15272,10 +15272,10 @@ entry:
   %conv52.i75 = and i128 %shr50.i74, 18446744073709551615
   %add35.i81 = add i128 %mul34.i60, %mul36.i61
   %add37.i82 = add i128 %add35.i81, %mul33.i59
-  %arrayidx73.i96 = getelementptr i64, ptr %x, i64 1
-  %arrayidx74.i97 = getelementptr i64, ptr %x, i64 2
-  %arrayidx75.i98 = getelementptr i64, ptr %x, i64 3
-  %arrayidx76.i99 = getelementptr i64, ptr %x, i64 4
+  %arrayidx73.i96 = getelementptr i8, ptr %x, i64 8
+  %arrayidx74.i97 = getelementptr i8, ptr %x, i64 16
+  %arrayidx75.i98 = getelementptr i8, ptr %x, i64 24
+  %arrayidx76.i99 = getelementptr i8, ptr %x, i64 32
   %add53.i76 = add i128 %add32.i58, %conv52.i75
   %shr56.i79 = lshr i128 %add53.i76, 51
   %conv58.i80 = and i128 %shr56.i79, 18446744073709551615
@@ -15358,10 +15358,10 @@ entry:
   %conv52.i151 = and i128 %shr50.i150, 18446744073709551615
   %add35.i157 = add i128 %mul34.i136, %mul36.i137
   %add37.i158 = add i128 %add35.i157, %mul33.i135
-  %arrayidx73.i172 = getelementptr inbounds i64, ptr %vxx, i64 1
-  %arrayidx74.i173 = getelementptr inbounds i64, ptr %vxx, i64 2
-  %arrayidx75.i174 = getelementptr inbounds i64, ptr %vxx, i64 3
-  %arrayidx76.i175 = getelementptr inbounds i64, ptr %vxx, i64 4
+  %arrayidx73.i172 = getelementptr inbounds i8, ptr %vxx, i64 8
+  %arrayidx74.i173 = getelementptr inbounds i8, ptr %vxx, i64 16
+  %arrayidx75.i174 = getelementptr inbounds i8, ptr %vxx, i64 24
+  %arrayidx76.i175 = getelementptr inbounds i8, ptr %vxx, i64 32
   %add53.i152 = add i128 %add32.i134, %conv52.i151
   %shr56.i155 = lshr i128 %add53.i152, 51
   %conv58.i156 = and i128 %shr56.i155, 18446744073709551615
@@ -15386,13 +15386,13 @@ entry:
   store <2 x i64> %26, ptr %arrayidx75.i174, align 8
   call fastcc void @fe25519_mul(ptr noundef nonnull %vxx, ptr noundef nonnull %vxx, ptr noundef nonnull %v)
   %27 = load i64, ptr %u, align 8
-  %arrayidx1.i176 = getelementptr i64, ptr %u, i64 1
+  %arrayidx1.i176 = getelementptr i8, ptr %u, i64 8
   %28 = load i64, ptr %arrayidx1.i176, align 8
-  %arrayidx2.i = getelementptr i64, ptr %u, i64 2
+  %arrayidx2.i = getelementptr i8, ptr %u, i64 16
   %29 = load i64, ptr %arrayidx2.i, align 8
-  %arrayidx3.i177 = getelementptr i64, ptr %u, i64 3
+  %arrayidx3.i177 = getelementptr i8, ptr %u, i64 24
   %30 = load i64, ptr %arrayidx3.i177, align 8
-  %arrayidx4.i = getelementptr i64, ptr %u, i64 4
+  %arrayidx4.i = getelementptr i8, ptr %u, i64 32
   %31 = load i64, ptr %arrayidx4.i, align 8
   %shr.i178 = lshr i64 %27, 51
   %add.i179 = add i64 %28, %shr.i178
@@ -15433,16 +15433,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %f_root_check, ptr noundef nonnull %u, ptr noundef nonnull @fe25519_sqrtm1)
   %37 = load i64, ptr %f_root_check, align 16
   %add.i185 = add i64 %37, %32
-  %arrayidx3.i187 = getelementptr inbounds i64, ptr %f_root_check, i64 1
+  %arrayidx3.i187 = getelementptr inbounds i8, ptr %f_root_check, i64 8
   %38 = load i64, ptr %arrayidx3.i187, align 8
   %add4.i188 = add i64 %38, %33
-  %arrayidx6.i190 = getelementptr inbounds i64, ptr %f_root_check, i64 2
+  %arrayidx6.i190 = getelementptr inbounds i8, ptr %f_root_check, i64 16
   %39 = load i64, ptr %arrayidx6.i190, align 16
   %add7.i191 = add i64 %39, %34
-  %arrayidx9.i193 = getelementptr inbounds i64, ptr %f_root_check, i64 3
+  %arrayidx9.i193 = getelementptr inbounds i8, ptr %f_root_check, i64 24
   %40 = load i64, ptr %arrayidx9.i193, align 8
   %add10.i194 = add i64 %40, %35
-  %arrayidx12.i196 = getelementptr inbounds i64, ptr %f_root_check, i64 4
+  %arrayidx12.i196 = getelementptr inbounds i8, ptr %f_root_check, i64 32
   %41 = load i64, ptr %arrayidx12.i196, align 16
   %add13.i197 = add i64 %41, %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
@@ -15773,13 +15773,13 @@ entry:
   %sub27.i.i.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i.i.i
   %sub30.i.i.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i.i.i
   store i64 %sub.i.i.i.i, ptr %negf.i.i, align 16
-  %arrayidx32.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 1
+  %arrayidx32.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 8
   store i64 %sub21.i.i.i.i, ptr %arrayidx32.i.i.i.i, align 8
-  %arrayidx33.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 2
+  %arrayidx33.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 16
   store i64 %sub24.i.i.i.i, ptr %arrayidx33.i.i.i.i, align 16
-  %arrayidx34.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 3
+  %arrayidx34.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 24
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
-  %arrayidx35.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 4
+  %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
   %65 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %x, ptr nonnull %negf.i.i, i32 %and.i.i) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
@@ -15810,39 +15810,39 @@ entry:
   %x_z_inv = alloca [5 x i64], align 16
   %z_inv = alloca [5 x i64], align 16
   %zmy = alloca [5 x i64], align 16
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 2
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 1
+  %Z = getelementptr inbounds i8, ptr %h, i64 80
+  %Y = getelementptr inbounds i8, ptr %h, i64 40
   %0 = load i64, ptr %Z, align 8
   %1 = load i64, ptr %Y, align 8
   %add.i = add i64 %1, %0
-  %arrayidx2.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %h, i64 88
   %2 = load i64, ptr %arrayidx2.i, align 8
-  %arrayidx3.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 1
+  %arrayidx3.i = getelementptr i8, ptr %h, i64 48
   %3 = load i64, ptr %arrayidx3.i, align 8
   %add4.i = add i64 %3, %2
-  %arrayidx5.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %h, i64 96
   %4 = load i64, ptr %arrayidx5.i, align 8
-  %arrayidx6.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 2
+  %arrayidx6.i = getelementptr i8, ptr %h, i64 56
   %5 = load i64, ptr %arrayidx6.i, align 8
   %add7.i = add i64 %5, %4
-  %arrayidx8.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 3
+  %arrayidx8.i = getelementptr i8, ptr %h, i64 104
   %6 = load i64, ptr %arrayidx8.i, align 8
-  %arrayidx9.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 3
+  %arrayidx9.i = getelementptr i8, ptr %h, i64 64
   %7 = load i64, ptr %arrayidx9.i, align 8
   %add10.i = add i64 %7, %6
-  %arrayidx11.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 2, i64 4
+  %arrayidx11.i = getelementptr i8, ptr %h, i64 112
   %8 = load i64, ptr %arrayidx11.i, align 8
-  %arrayidx12.i = getelementptr %struct.ge25519_p3, ptr %h, i64 0, i32 1, i64 4
+  %arrayidx12.i = getelementptr i8, ptr %h, i64 72
   %9 = load i64, ptr %arrayidx12.i, align 8
   %add13.i = add i64 %9, %8
   store i64 %add.i, ptr %u1, align 16
-  %arrayidx15.i = getelementptr inbounds i64, ptr %u1, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %u1, i64 8
   store i64 %add4.i, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr inbounds i64, ptr %u1, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %u1, i64 16
   store i64 %add7.i, ptr %arrayidx16.i, align 16
-  %arrayidx17.i = getelementptr inbounds i64, ptr %u1, i64 3
+  %arrayidx17.i = getelementptr inbounds i8, ptr %u1, i64 24
   store i64 %add10.i, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr inbounds i64, ptr %u1, i64 4
+  %arrayidx18.i = getelementptr inbounds i8, ptr %u1, i64 32
   store i64 %add13.i, ptr %arrayidx18.i, align 16
   %shr.i = lshr i64 %1, 51
   %add.i17 = add i64 %3, %shr.i
@@ -15871,28 +15871,28 @@ entry:
   %add29.i = add i64 %8, 4503599627370494
   %sub30.i = sub i64 %add29.i, %and16.i
   store i64 %sub.i, ptr %zmy, align 16
-  %arrayidx32.i = getelementptr inbounds i64, ptr %zmy, i64 1
+  %arrayidx32.i = getelementptr inbounds i8, ptr %zmy, i64 8
   store i64 %sub21.i, ptr %arrayidx32.i, align 8
-  %arrayidx33.i = getelementptr inbounds i64, ptr %zmy, i64 2
+  %arrayidx33.i = getelementptr inbounds i8, ptr %zmy, i64 16
   store i64 %sub24.i, ptr %arrayidx33.i, align 16
-  %arrayidx34.i = getelementptr inbounds i64, ptr %zmy, i64 3
+  %arrayidx34.i = getelementptr inbounds i8, ptr %zmy, i64 24
   store i64 %sub27.i, ptr %arrayidx34.i, align 8
-  %arrayidx35.i = getelementptr inbounds i64, ptr %zmy, i64 4
+  %arrayidx35.i = getelementptr inbounds i8, ptr %zmy, i64 32
   store i64 %sub30.i, ptr %arrayidx35.i, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %u1, ptr noundef nonnull %u1, ptr noundef nonnull %zmy)
   call fastcc void @fe25519_mul(ptr noundef nonnull %u2, ptr noundef %h, ptr noundef nonnull %Y)
   %10 = load i64, ptr %u2, align 16
   %conv.i = zext i64 %10 to i128
-  %arrayidx1.i18 = getelementptr inbounds i64, ptr %u2, i64 1
+  %arrayidx1.i18 = getelementptr inbounds i8, ptr %u2, i64 8
   %11 = load i64, ptr %arrayidx1.i18, align 8
   %conv2.i = zext i64 %11 to i128
-  %arrayidx3.i19 = getelementptr inbounds i64, ptr %u2, i64 2
+  %arrayidx3.i19 = getelementptr inbounds i8, ptr %u2, i64 16
   %12 = load i64, ptr %arrayidx3.i19, align 16
   %conv4.i = zext i64 %12 to i128
-  %arrayidx5.i20 = getelementptr inbounds i64, ptr %u2, i64 3
+  %arrayidx5.i20 = getelementptr inbounds i8, ptr %u2, i64 24
   %13 = load i64, ptr %arrayidx5.i20, align 8
   %conv6.i = zext i64 %13 to i128
-  %arrayidx7.i = getelementptr inbounds i64, ptr %u2, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %u2, i64 32
   %14 = load i64, ptr %arrayidx7.i, align 16
   %conv8.i = zext i64 %14 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -15940,9 +15940,9 @@ entry:
   %conv52.i = and i128 %shr50.i, 18446744073709551615
   %add35.i = add i128 %mul34.i, %mul36.i
   %add37.i = add i128 %add35.i, %mul33.i
-  %arrayidx73.i = getelementptr inbounds i64, ptr %u1_u2u2, i64 1
-  %arrayidx74.i = getelementptr inbounds i64, ptr %u1_u2u2, i64 2
-  %arrayidx75.i = getelementptr inbounds i64, ptr %u1_u2u2, i64 3
+  %arrayidx73.i = getelementptr inbounds i8, ptr %u1_u2u2, i64 8
+  %arrayidx74.i = getelementptr inbounds i8, ptr %u1_u2u2, i64 16
+  %arrayidx75.i = getelementptr inbounds i8, ptr %u1_u2u2, i64 24
   %add53.i = add i128 %add32.i, %conv52.i
   %shr56.i = lshr i128 %add53.i, 51
   %conv58.i = and i128 %shr56.i, 18446744073709551615
@@ -15967,13 +15967,13 @@ entry:
   store <2 x i64> %18, ptr %arrayidx75.i, align 8
   call fastcc void @fe25519_mul(ptr noundef nonnull %u1_u2u2, ptr noundef nonnull %u1, ptr noundef nonnull %u1_u2u2)
   store i64 1, ptr %one, align 16
-  %arrayidx1.i24 = getelementptr inbounds i64, ptr %one, i64 1
+  %arrayidx1.i24 = getelementptr inbounds i8, ptr %one, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx1.i24, i8 0, i64 32, i1 false)
   %call = call fastcc i32 @ristretto255_sqrt_ratio_m1(ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %one, ptr noundef nonnull %u1_u2u2)
   call fastcc void @fe25519_mul(ptr noundef nonnull %den1, ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %u1)
   call fastcc void @fe25519_mul(ptr noundef nonnull %den2, ptr noundef nonnull %inv_sqrt, ptr noundef nonnull %u2)
   call fastcc void @fe25519_mul(ptr noundef nonnull %z_inv, ptr noundef nonnull %den1, ptr noundef nonnull %den2)
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %h, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %h, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %z_inv, ptr noundef nonnull %z_inv, ptr noundef nonnull %T)
   call fastcc void @fe25519_mul(ptr noundef nonnull %ix, ptr noundef %h, ptr noundef nonnull @fe25519_sqrtm1)
   call fastcc void @fe25519_mul(ptr noundef nonnull %iy, ptr noundef nonnull %Y, ptr noundef nonnull @fe25519_sqrtm1)
@@ -15981,16 +15981,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %t_z_inv, ptr noundef nonnull %T, ptr noundef nonnull %z_inv)
   %19 = load i64, ptr %t_z_inv, align 16
   %conv.i.i = zext i64 %19 to i128
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %t_z_inv, i64 1
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %t_z_inv, i64 8
   %20 = load i64, ptr %arrayidx2.i.i, align 8
   %conv3.i.i = zext i64 %20 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %t_z_inv, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %t_z_inv, i64 16
   %21 = load i64, ptr %arrayidx5.i.i, align 16
   %conv6.i.i = zext i64 %21 to i128
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %t_z_inv, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %t_z_inv, i64 24
   %22 = load i64, ptr %arrayidx8.i.i, align 8
   %conv9.i.i = zext i64 %22 to i128
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %t_z_inv, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %t_z_inv, i64 32
   %23 = load i64, ptr %arrayidx11.i.i, align 16
   %conv12.i.i = zext i64 %23 to i128
   %shr.i.i = lshr i128 %conv.i.i, 51
@@ -16048,16 +16048,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %x_z_inv, ptr noundef nonnull %x_, ptr noundef nonnull %z_inv)
   %28 = load i64, ptr %x_z_inv, align 16
   %conv.i.i72 = zext i64 %28 to i128
-  %arrayidx2.i.i73 = getelementptr inbounds i64, ptr %x_z_inv, i64 1
+  %arrayidx2.i.i73 = getelementptr inbounds i8, ptr %x_z_inv, i64 8
   %29 = load i64, ptr %arrayidx2.i.i73, align 8
   %conv3.i.i74 = zext i64 %29 to i128
-  %arrayidx5.i.i75 = getelementptr inbounds i64, ptr %x_z_inv, i64 2
+  %arrayidx5.i.i75 = getelementptr inbounds i8, ptr %x_z_inv, i64 16
   %30 = load i64, ptr %arrayidx5.i.i75, align 16
   %conv6.i.i76 = zext i64 %30 to i128
-  %arrayidx8.i.i77 = getelementptr inbounds i64, ptr %x_z_inv, i64 3
+  %arrayidx8.i.i77 = getelementptr inbounds i8, ptr %x_z_inv, i64 24
   %31 = load i64, ptr %arrayidx8.i.i77, align 8
   %conv9.i.i78 = zext i64 %31 to i128
-  %arrayidx11.i.i79 = getelementptr inbounds i64, ptr %x_z_inv, i64 4
+  %arrayidx11.i.i79 = getelementptr inbounds i8, ptr %x_z_inv, i64 32
   %32 = load i64, ptr %arrayidx11.i.i79, align 16
   %conv12.i.i80 = zext i64 %32 to i128
   %shr.i.i81 = lshr i128 %conv.i.i72, 51
@@ -16108,13 +16108,13 @@ entry:
   %and.i27 = and i32 %s.i26.sroa.0.0.extract.trunc, 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %negf.i)
   %34 = load i64, ptr %y_, align 16
-  %arrayidx1.i.i.i = getelementptr inbounds i64, ptr %y_, i64 1
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %y_, i64 8
   %35 = load i64, ptr %arrayidx1.i.i.i, align 8
-  %arrayidx2.i.i.i = getelementptr inbounds i64, ptr %y_, i64 2
+  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %y_, i64 16
   %36 = load i64, ptr %arrayidx2.i.i.i, align 16
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %y_, i64 3
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %y_, i64 24
   %37 = load i64, ptr %arrayidx3.i.i.i, align 8
-  %arrayidx4.i.i.i = getelementptr inbounds i64, ptr %y_, i64 4
+  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %y_, i64 32
   %38 = load i64, ptr %arrayidx4.i.i.i, align 16
   %shr.i.i.i = lshr i64 %34, 51
   %add.i.i.i = add i64 %35, %shr.i.i.i
@@ -16138,13 +16138,13 @@ entry:
   %sub27.i.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i.i
   %sub30.i.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i.i
   store i64 %sub.i.i.i, ptr %negf.i, align 16
-  %arrayidx32.i.i.i = getelementptr inbounds i64, ptr %negf.i, i64 1
+  %arrayidx32.i.i.i = getelementptr inbounds i8, ptr %negf.i, i64 8
   store i64 %sub21.i.i.i, ptr %arrayidx32.i.i.i, align 8
-  %arrayidx33.i.i.i = getelementptr inbounds i64, ptr %negf.i, i64 2
+  %arrayidx33.i.i.i = getelementptr inbounds i8, ptr %negf.i, i64 16
   store i64 %sub24.i.i.i, ptr %arrayidx33.i.i.i, align 16
-  %arrayidx34.i.i.i = getelementptr inbounds i64, ptr %negf.i, i64 3
+  %arrayidx34.i.i.i = getelementptr inbounds i8, ptr %negf.i, i64 24
   store i64 %sub27.i.i.i, ptr %arrayidx34.i.i.i, align 8
-  %arrayidx35.i.i.i = getelementptr inbounds i64, ptr %negf.i, i64 4
+  %arrayidx35.i.i.i = getelementptr inbounds i8, ptr %negf.i, i64 32
   store i64 %sub30.i.i.i, ptr %arrayidx35.i.i.i, align 16
   %39 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %y_, ptr nonnull %negf.i, i32 %and.i27) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i)
@@ -16161,8 +16161,8 @@ entry:
   %46 = load i64, ptr %arrayidx8.i, align 8
   %47 = load i64, ptr %arrayidx11.i, align 8
   %add29.i61 = add i64 %47, 4503599627370494
-  %arrayidx32.i63 = getelementptr inbounds i64, ptr %s_, i64 1
-  %arrayidx33.i64 = getelementptr inbounds i64, ptr %s_, i64 2
+  %arrayidx32.i63 = getelementptr inbounds i8, ptr %s_, i64 8
+  %arrayidx33.i64 = getelementptr inbounds i8, ptr %s_, i64 16
   %add.i34 = add i64 %41, %shr.i33
   %shr5.i36 = lshr i64 %add.i34, 51
   %add6.i37 = add i64 %shr5.i36, %42
@@ -16186,9 +16186,9 @@ entry:
   %sub30.i62 = sub i64 %add29.i61, %and16.i46
   store i64 %sub.i50, ptr %s_, align 16
   store <2 x i64> %53, ptr %arrayidx32.i63, align 8
-  %arrayidx34.i65 = getelementptr inbounds i64, ptr %s_, i64 3
+  %arrayidx34.i65 = getelementptr inbounds i8, ptr %s_, i64 24
   store i64 %sub27.i59, ptr %arrayidx34.i65, align 8
-  %arrayidx35.i66 = getelementptr inbounds i64, ptr %s_, i64 4
+  %arrayidx35.i66 = getelementptr inbounds i8, ptr %s_, i64 32
   store i64 %sub30.i62, ptr %arrayidx35.i66, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %s_, ptr noundef nonnull %den_inv, ptr noundef nonnull %s_)
   %54 = load i64, ptr %s_, align 16
@@ -16270,13 +16270,13 @@ entry:
   %sub27.i.i.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i.i.i
   %sub30.i.i.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i.i.i
   store i64 %sub.i.i.i.i, ptr %negf.i.i, align 16
-  %arrayidx32.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 1
+  %arrayidx32.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 8
   store i64 %sub21.i.i.i.i, ptr %arrayidx32.i.i.i.i, align 8
-  %arrayidx33.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 2
+  %arrayidx33.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 16
   store i64 %sub24.i.i.i.i, ptr %arrayidx33.i.i.i.i, align 16
-  %arrayidx34.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 3
+  %arrayidx34.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 24
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
-  %arrayidx35.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 4
+  %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
   %60 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %s_, ptr nonnull %negf.i.i, i32 %and.i.i) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
@@ -16311,13 +16311,13 @@ entry:
   %shr13.i = lshr i64 %add.ptr11.val.i, 12
   %and14.i = and i64 %shr13.i, 2251799813685247
   store i64 %and.i, ptr %r0, align 16
-  %arrayidx15.i = getelementptr inbounds i64, ptr %r0, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %r0, i64 8
   store i64 %and2.i, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr inbounds i64, ptr %r0, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %r0, i64 16
   store i64 %and6.i, ptr %arrayidx16.i, align 16
-  %arrayidx17.i = getelementptr inbounds i64, ptr %r0, i64 3
+  %arrayidx17.i = getelementptr inbounds i8, ptr %r0, i64 24
   store i64 %and10.i, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr inbounds i64, ptr %r0, i64 4
+  %arrayidx18.i = getelementptr inbounds i8, ptr %r0, i64 32
   store i64 %and14.i, ptr %arrayidx18.i, align 16
   %add.ptr = getelementptr i8, ptr %h, i64 32
   %s.val.i2 = load i64, ptr %add.ptr, align 1
@@ -16339,13 +16339,13 @@ entry:
   %shr13.i18 = lshr i64 %add.ptr11.val.i17, 12
   %and14.i19 = and i64 %shr13.i18, 2251799813685247
   store i64 %and.i3, ptr %r1, align 16
-  %arrayidx15.i20 = getelementptr inbounds i64, ptr %r1, i64 1
+  %arrayidx15.i20 = getelementptr inbounds i8, ptr %r1, i64 8
   store i64 %and2.i7, ptr %arrayidx15.i20, align 8
-  %arrayidx16.i21 = getelementptr inbounds i64, ptr %r1, i64 2
+  %arrayidx16.i21 = getelementptr inbounds i8, ptr %r1, i64 16
   store i64 %and6.i11, ptr %arrayidx16.i21, align 16
-  %arrayidx17.i22 = getelementptr inbounds i64, ptr %r1, i64 3
+  %arrayidx17.i22 = getelementptr inbounds i8, ptr %r1, i64 24
   store i64 %and10.i15, ptr %arrayidx17.i22, align 8
-  %arrayidx18.i23 = getelementptr inbounds i64, ptr %r1, i64 4
+  %arrayidx18.i23 = getelementptr inbounds i8, ptr %r1, i64 32
   store i64 %and14.i19, ptr %arrayidx18.i23, align 16
   call fastcc void @ristretto255_elligator(ptr noundef nonnull %p0, ptr noundef nonnull %r0)
   call fastcc void @ristretto255_elligator(ptr noundef nonnull %p1, ptr noundef nonnull %r1)
@@ -16372,16 +16372,16 @@ entry:
   %w3 = alloca [5 x i64], align 16
   %0 = load i64, ptr %t, align 8
   %conv.i = zext i64 %0 to i128
-  %arrayidx1.i6 = getelementptr i64, ptr %t, i64 1
+  %arrayidx1.i6 = getelementptr i8, ptr %t, i64 8
   %1 = load i64, ptr %arrayidx1.i6, align 8
   %conv2.i = zext i64 %1 to i128
-  %arrayidx3.i = getelementptr i64, ptr %t, i64 2
+  %arrayidx3.i = getelementptr i8, ptr %t, i64 16
   %2 = load i64, ptr %arrayidx3.i, align 8
   %conv4.i = zext i64 %2 to i128
-  %arrayidx5.i = getelementptr i64, ptr %t, i64 3
+  %arrayidx5.i = getelementptr i8, ptr %t, i64 24
   %3 = load i64, ptr %arrayidx5.i, align 8
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr i64, ptr %t, i64 4
+  %arrayidx7.i = getelementptr i8, ptr %t, i64 32
   %4 = load i64, ptr %arrayidx7.i, align 8
   %conv8.i = zext i64 %4 to i128
   %shl.i = shl nuw nsw i128 %conv.i, 1
@@ -16429,10 +16429,10 @@ entry:
   %conv52.i = and i128 %shr50.i, 18446744073709551615
   %add35.i = add i128 %mul34.i, %mul36.i
   %add37.i = add i128 %add35.i, %mul33.i
-  %arrayidx73.i = getelementptr inbounds i64, ptr %r, i64 1
-  %arrayidx74.i = getelementptr inbounds i64, ptr %r, i64 2
-  %arrayidx75.i = getelementptr inbounds i64, ptr %r, i64 3
-  %arrayidx76.i = getelementptr inbounds i64, ptr %r, i64 4
+  %arrayidx73.i = getelementptr inbounds i8, ptr %r, i64 8
+  %arrayidx74.i = getelementptr inbounds i8, ptr %r, i64 16
+  %arrayidx75.i = getelementptr inbounds i8, ptr %r, i64 24
+  %arrayidx76.i = getelementptr inbounds i8, ptr %r, i64 32
   %add53.i = add i128 %add32.i, %conv52.i
   %shr56.i = lshr i128 %add53.i, 51
   %conv58.i = and i128 %shr56.i, 18446744073709551615
@@ -16463,19 +16463,19 @@ entry:
   %12 = load i64, ptr %arrayidx75.i, align 8
   %13 = load i64, ptr %arrayidx76.i, align 16
   store i64 %add.i7, ptr %u, align 16
-  %arrayidx15.i = getelementptr inbounds i64, ptr %u, i64 1
+  %arrayidx15.i = getelementptr inbounds i8, ptr %u, i64 8
   store i64 %10, ptr %arrayidx15.i, align 8
-  %arrayidx16.i = getelementptr inbounds i64, ptr %u, i64 2
+  %arrayidx16.i = getelementptr inbounds i8, ptr %u, i64 16
   store i64 %11, ptr %arrayidx16.i, align 16
-  %arrayidx17.i = getelementptr inbounds i64, ptr %u, i64 3
+  %arrayidx17.i = getelementptr inbounds i8, ptr %u, i64 24
   store i64 %12, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr inbounds i64, ptr %u, i64 4
+  %arrayidx18.i = getelementptr inbounds i8, ptr %u, i64 32
   store i64 %13, ptr %arrayidx18.i, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %u, ptr noundef nonnull %u, ptr noundef nonnull @ed25519_onemsqd)
-  %arrayidx1.i10 = getelementptr inbounds i64, ptr %c, i64 1
-  %arrayidx2.i.i = getelementptr inbounds i64, ptr %c, i64 2
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %c, i64 3
-  %arrayidx4.i.i = getelementptr inbounds i64, ptr %c, i64 4
+  %arrayidx1.i10 = getelementptr inbounds i8, ptr %c, i64 8
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %c, i64 16
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %c, i64 24
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %c, i64 32
   store i64 4503599627370457, ptr %c, align 16
   store i64 4503599627370494, ptr %arrayidx1.i10, align 8
   store i64 4503599627370494, ptr %arrayidx2.i.i, align 16
@@ -16487,23 +16487,23 @@ entry:
   %add10.i17 = add i64 %12, 2033849074728123
   %add13.i19 = add i64 %13, 1442794654840575
   store i64 %add.i11, ptr %rpd, align 16
-  %arrayidx15.i20 = getelementptr inbounds i64, ptr %rpd, i64 1
+  %arrayidx15.i20 = getelementptr inbounds i8, ptr %rpd, i64 8
   store i64 %add4.i13, ptr %arrayidx15.i20, align 8
-  %arrayidx16.i21 = getelementptr inbounds i64, ptr %rpd, i64 2
+  %arrayidx16.i21 = getelementptr inbounds i8, ptr %rpd, i64 16
   store i64 %add7.i15, ptr %arrayidx16.i21, align 16
-  %arrayidx17.i22 = getelementptr inbounds i64, ptr %rpd, i64 3
+  %arrayidx17.i22 = getelementptr inbounds i8, ptr %rpd, i64 24
   store i64 %add10.i17, ptr %arrayidx17.i22, align 8
-  %arrayidx18.i23 = getelementptr inbounds i64, ptr %rpd, i64 4
+  %arrayidx18.i23 = getelementptr inbounds i8, ptr %rpd, i64 32
   store i64 %add13.i19, ptr %arrayidx18.i23, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %v, ptr noundef nonnull %r, ptr noundef nonnull @ed25519_d)
   %14 = load i64, ptr %v, align 16
-  %arrayidx1.i24 = getelementptr inbounds i64, ptr %v, i64 1
+  %arrayidx1.i24 = getelementptr inbounds i8, ptr %v, i64 8
   %15 = load i64, ptr %arrayidx1.i24, align 8
-  %arrayidx2.i25 = getelementptr inbounds i64, ptr %v, i64 2
+  %arrayidx2.i25 = getelementptr inbounds i8, ptr %v, i64 16
   %16 = load i64, ptr %arrayidx2.i25, align 16
-  %arrayidx3.i26 = getelementptr inbounds i64, ptr %v, i64 3
+  %arrayidx3.i26 = getelementptr inbounds i8, ptr %v, i64 24
   %17 = load i64, ptr %arrayidx3.i26, align 8
-  %arrayidx4.i = getelementptr inbounds i64, ptr %v, i64 4
+  %arrayidx4.i = getelementptr inbounds i8, ptr %v, i64 32
   %18 = load i64, ptr %arrayidx4.i, align 16
   %shr.i27 = lshr i64 %14, 51
   %add.i28 = add i64 %15, %shr.i27
@@ -16537,16 +16537,16 @@ entry:
   call fastcc void @fe25519_mul(ptr noundef nonnull %s_prime, ptr noundef nonnull %s, ptr noundef nonnull %t)
   %19 = load i64, ptr %s_prime, align 16
   %conv.i.i = zext i64 %19 to i128
-  %arrayidx2.i.i285 = getelementptr inbounds i64, ptr %s_prime, i64 1
+  %arrayidx2.i.i285 = getelementptr inbounds i8, ptr %s_prime, i64 8
   %20 = load i64, ptr %arrayidx2.i.i285, align 8
   %conv3.i.i = zext i64 %20 to i128
-  %arrayidx5.i.i = getelementptr inbounds i64, ptr %s_prime, i64 2
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %s_prime, i64 16
   %21 = load i64, ptr %arrayidx5.i.i, align 16
   %conv6.i.i = zext i64 %21 to i128
-  %arrayidx8.i.i = getelementptr inbounds i64, ptr %s_prime, i64 3
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %s_prime, i64 24
   %22 = load i64, ptr %arrayidx8.i.i, align 8
   %conv9.i.i = zext i64 %22 to i128
-  %arrayidx11.i.i = getelementptr inbounds i64, ptr %s_prime, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %s_prime, i64 32
   %23 = load i64, ptr %arrayidx11.i.i, align 16
   %conv12.i.i = zext i64 %23 to i128
   %shr.i.i286 = lshr i128 %conv.i.i, 51
@@ -16618,13 +16618,13 @@ entry:
   %sub27.i.i.i.i = sub nuw nsw i64 4503599627370494, %and13.i.i.i.i
   %sub30.i.i.i.i = sub nuw nsw i64 4503599627370494, %and16.i.i.i.i
   store i64 %sub.i.i.i.i, ptr %negf.i.i, align 16
-  %arrayidx32.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 1
+  %arrayidx32.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 8
   store i64 %sub21.i.i.i.i, ptr %arrayidx32.i.i.i.i, align 8
-  %arrayidx33.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 2
+  %arrayidx33.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 16
   store i64 %sub24.i.i.i.i, ptr %arrayidx33.i.i.i.i, align 16
-  %arrayidx34.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 3
+  %arrayidx34.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 24
   store i64 %sub27.i.i.i.i, ptr %arrayidx34.i.i.i.i, align 8
-  %arrayidx35.i.i.i.i = getelementptr inbounds i64, ptr %negf.i.i, i64 4
+  %arrayidx35.i.i.i.i = getelementptr inbounds i8, ptr %negf.i.i, i64 32
   store i64 %sub30.i.i.i.i, ptr %arrayidx35.i.i.i.i, align 16
   %25 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %s_prime, ptr nonnull %negf.i.i, i32 %and.i.i30) #10, !srcloc !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %negf.i.i)
@@ -16663,16 +16663,16 @@ entry:
   %32 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %c, ptr nonnull %r, i32 %sub) #10, !srcloc !13
   %33 = load i64, ptr %arrayidx76.i, align 16
   %add29.i93 = add i64 %33, 4503599627370494
-  %arrayidx32.i95 = getelementptr inbounds i64, ptr %n, i64 1
+  %arrayidx32.i95 = getelementptr inbounds i8, ptr %n, i64 8
   %34 = load <2 x i64>, ptr %r, align 16
   %35 = add <2 x i64> %34, <i64 4503599627370457, i64 4503599627370494>
   store <2 x i64> %35, ptr %n, align 16
-  %arrayidx33.i96 = getelementptr inbounds i64, ptr %n, i64 2
-  %arrayidx34.i97 = getelementptr inbounds i64, ptr %n, i64 3
+  %arrayidx33.i96 = getelementptr inbounds i8, ptr %n, i64 16
+  %arrayidx34.i97 = getelementptr inbounds i8, ptr %n, i64 24
   %36 = load <2 x i64>, ptr %arrayidx74.i, align 16
   %37 = add <2 x i64> %36, <i64 4503599627370494, i64 4503599627370494>
   store <2 x i64> %37, ptr %arrayidx33.i96, align 16
-  %arrayidx35.i98 = getelementptr inbounds i64, ptr %n, i64 4
+  %arrayidx35.i98 = getelementptr inbounds i8, ptr %n, i64 32
   store i64 %add29.i93, ptr %arrayidx35.i98, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %n, ptr noundef nonnull %n, ptr noundef nonnull %c)
   call fastcc void @fe25519_mul(ptr noundef nonnull %n, ptr noundef nonnull %n, ptr noundef nonnull @ed25519_sqdmone)
@@ -16716,26 +16716,26 @@ entry:
   store i64 %sub30.i132, ptr %arrayidx35.i98, align 16
   %52 = load i64, ptr %s, align 16
   %add.i137 = shl i64 %52, 1
-  %arrayidx2.i138 = getelementptr inbounds i64, ptr %s, i64 1
+  %arrayidx2.i138 = getelementptr inbounds i8, ptr %s, i64 8
   %53 = load i64, ptr %arrayidx2.i138, align 8
   %add4.i140 = shl i64 %53, 1
-  %arrayidx5.i141 = getelementptr inbounds i64, ptr %s, i64 2
+  %arrayidx5.i141 = getelementptr inbounds i8, ptr %s, i64 16
   %54 = load i64, ptr %arrayidx5.i141, align 16
   %add7.i143 = shl i64 %54, 1
-  %arrayidx8.i144 = getelementptr inbounds i64, ptr %s, i64 3
+  %arrayidx8.i144 = getelementptr inbounds i8, ptr %s, i64 24
   %55 = load i64, ptr %arrayidx8.i144, align 8
   %add10.i146 = shl i64 %55, 1
-  %arrayidx11.i147 = getelementptr inbounds i64, ptr %s, i64 4
+  %arrayidx11.i147 = getelementptr inbounds i8, ptr %s, i64 32
   %56 = load i64, ptr %arrayidx11.i147, align 16
   %add13.i149 = shl i64 %56, 1
   store i64 %add.i137, ptr %w0, align 16
-  %arrayidx15.i150 = getelementptr inbounds i64, ptr %w0, i64 1
+  %arrayidx15.i150 = getelementptr inbounds i8, ptr %w0, i64 8
   store i64 %add4.i140, ptr %arrayidx15.i150, align 8
-  %arrayidx16.i151 = getelementptr inbounds i64, ptr %w0, i64 2
+  %arrayidx16.i151 = getelementptr inbounds i8, ptr %w0, i64 16
   store i64 %add7.i143, ptr %arrayidx16.i151, align 16
-  %arrayidx17.i152 = getelementptr inbounds i64, ptr %w0, i64 3
+  %arrayidx17.i152 = getelementptr inbounds i8, ptr %w0, i64 24
   store i64 %add10.i146, ptr %arrayidx17.i152, align 8
-  %arrayidx18.i153 = getelementptr inbounds i64, ptr %w0, i64 4
+  %arrayidx18.i153 = getelementptr inbounds i8, ptr %w0, i64 32
   store i64 %add13.i149, ptr %arrayidx18.i153, align 16
   call fastcc void @fe25519_mul(ptr noundef nonnull %w0, ptr noundef nonnull %w0, ptr noundef nonnull %v)
   call fastcc void @fe25519_mul(ptr noundef nonnull %w1, ptr noundef nonnull %n, ptr noundef nonnull @ed25519_sqrtadm1)
@@ -16823,30 +16823,30 @@ entry:
   %sub27.i260 = sub nuw nsw i64 4503599627370494, %and13.i245
   %sub30.i263 = sub nuw nsw i64 4503599627370494, %and16.i247
   store i64 %sub.i251, ptr %w2, align 16
-  %arrayidx32.i264 = getelementptr inbounds i64, ptr %w2, i64 1
+  %arrayidx32.i264 = getelementptr inbounds i8, ptr %w2, i64 8
   store i64 %sub21.i254, ptr %arrayidx32.i264, align 8
-  %arrayidx33.i265 = getelementptr inbounds i64, ptr %w2, i64 2
+  %arrayidx33.i265 = getelementptr inbounds i8, ptr %w2, i64 16
   store i64 %sub24.i257, ptr %arrayidx33.i265, align 16
-  %arrayidx34.i266 = getelementptr inbounds i64, ptr %w2, i64 3
+  %arrayidx34.i266 = getelementptr inbounds i8, ptr %w2, i64 24
   store i64 %sub27.i260, ptr %arrayidx34.i266, align 8
-  %arrayidx35.i267 = getelementptr inbounds i64, ptr %w2, i64 4
+  %arrayidx35.i267 = getelementptr inbounds i8, ptr %w2, i64 32
   store i64 %sub30.i263, ptr %arrayidx35.i267, align 16
   %add.i268 = add nuw nsw i64 %and67.i221, 1
   store i64 %add.i268, ptr %w3, align 16
-  %arrayidx15.i281 = getelementptr inbounds i64, ptr %w3, i64 1
+  %arrayidx15.i281 = getelementptr inbounds i8, ptr %w3, i64 8
   store i64 %and70.i224, ptr %arrayidx15.i281, align 8
-  %arrayidx16.i282 = getelementptr inbounds i64, ptr %w3, i64 2
+  %arrayidx16.i282 = getelementptr inbounds i8, ptr %w3, i64 16
   store i64 %add71.i225, ptr %arrayidx16.i282, align 16
-  %arrayidx17.i283 = getelementptr inbounds i64, ptr %w3, i64 3
+  %arrayidx17.i283 = getelementptr inbounds i8, ptr %w3, i64 24
   store i64 %and55.i208, ptr %arrayidx17.i283, align 8
-  %arrayidx18.i284 = getelementptr inbounds i64, ptr %w3, i64 4
+  %arrayidx18.i284 = getelementptr inbounds i8, ptr %w3, i64 32
   store i64 %and61.i215, ptr %arrayidx18.i284, align 16
   call fastcc void @fe25519_mul(ptr noundef %p, ptr noundef nonnull %w0, ptr noundef nonnull %w3)
-  %Y = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 1
+  %Y = getelementptr inbounds i8, ptr %p, i64 40
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y, ptr noundef nonnull %w2, ptr noundef nonnull %w1)
-  %Z = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 2
+  %Z = getelementptr inbounds i8, ptr %p, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z, ptr noundef nonnull %w1, ptr noundef nonnull %w3)
-  %T = getelementptr inbounds %struct.ge25519_p3, ptr %p, i64 0, i32 3
+  %T = getelementptr inbounds i8, ptr %p, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T, ptr noundef nonnull %w0, ptr noundef nonnull %w2)
   ret void
 }
@@ -16862,19 +16862,19 @@ entry:
   %p2 = alloca %struct.ge25519_p2, align 8
   %p1p1 = alloca %struct.ge25519_p1p1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p2, ptr noundef nonnull align 8 dereferenceable(40) %r, i64 40, i1 false)
-  %Y.i = getelementptr inbounds %struct.ge25519_p2, ptr %p2, i64 0, i32 1
-  %Y4.i = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 1
+  %Y.i = getelementptr inbounds i8, ptr %p2, i64 40
+  %Y4.i = getelementptr inbounds i8, ptr %r, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Y.i, ptr noundef nonnull align 8 dereferenceable(40) %Y4.i, i64 40, i1 false)
-  %Z.i = getelementptr inbounds %struct.ge25519_p2, ptr %p2, i64 0, i32 2
-  %Z7.i = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 2
+  %Z.i = getelementptr inbounds i8, ptr %p2, i64 80
+  %Z7.i = getelementptr inbounds i8, ptr %r, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Z.i, ptr noundef nonnull align 8 dereferenceable(40) %Z7.i, i64 40, i1 false)
   %cmp12 = icmp sgt i32 %n, 0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %T.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 3
-  %Y5.i = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 1
-  %Z.i6 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 2
+  %T.i = getelementptr inbounds i8, ptr %p1p1, i64 120
+  %Y5.i = getelementptr inbounds i8, ptr %p1p1, i64 40
+  %Z.i6 = getelementptr inbounds i8, ptr %p1p1, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -16888,13 +16888,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !39
 
 for.end:                                          ; preds = %for.body, %entry
-  %T.i7 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 3
+  %T.i7 = getelementptr inbounds i8, ptr %p1p1, i64 120
   call fastcc void @fe25519_mul(ptr noundef %r, ptr noundef nonnull %p1p1, ptr noundef nonnull %T.i7)
-  %Y5.i9 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 1
-  %Z.i10 = getelementptr inbounds %struct.ge25519_p1p1, ptr %p1p1, i64 0, i32 2
+  %Y5.i9 = getelementptr inbounds i8, ptr %p1p1, i64 40
+  %Z.i10 = getelementptr inbounds i8, ptr %p1p1, i64 80
   call fastcc void @fe25519_mul(ptr noundef nonnull %Y4.i, ptr noundef nonnull %Y5.i9, ptr noundef nonnull %Z.i10)
   call fastcc void @fe25519_mul(ptr noundef nonnull %Z7.i, ptr noundef nonnull %Z.i10, ptr noundef nonnull %T.i7)
-  %T14.i = getelementptr inbounds %struct.ge25519_p3, ptr %r, i64 0, i32 3
+  %T14.i = getelementptr inbounds i8, ptr %r, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %p1p1, ptr noundef nonnull %Y5.i9)
   tail call void @_sodium_ge25519_p3_add(ptr noundef %r, ptr noundef %r, ptr noundef %q)
   ret void
@@ -16910,10 +16910,10 @@ entry:
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx1.i = getelementptr i64, ptr %s, i64 1
-  %arrayidx3.i = getelementptr i64, ptr %s, i64 2
-  %arrayidx5.i = getelementptr i64, ptr %s, i64 3
-  %arrayidx7.i = getelementptr i64, ptr %s, i64 4
+  %arrayidx1.i = getelementptr i8, ptr %s, i64 8
+  %arrayidx3.i = getelementptr i8, ptr %s, i64 16
+  %arrayidx5.i = getelementptr i8, ptr %s, i64 24
+  %arrayidx7.i = getelementptr i8, ptr %s, i64 32
   %s.promoted = load i64, ptr %s, align 8
   %arrayidx1.i.promoted = load i64, ptr %arrayidx1.i, align 8
   %arrayidx3.i.promoted = load i64, ptr %arrayidx3.i, align 8

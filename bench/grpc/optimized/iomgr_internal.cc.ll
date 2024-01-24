@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.grpc_iomgr_platform_vtable = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.absl::lts_20230802::Status" = type { i64 }
 
 $_ZN4absl12lts_202308026StatusD2Ev = comdat any
@@ -52,7 +51,7 @@ entry:
 define void @_Z25grpc_iomgr_platform_flushv() local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr @_ZL21iomgr_platform_vtable, align 8
-  %flush = getelementptr inbounds %struct.grpc_iomgr_platform_vtable, ptr %0, i64 0, i32 1
+  %flush = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %flush, align 8
   tail call void %1()
   ret void
@@ -62,7 +61,7 @@ entry:
 define void @_Z28grpc_iomgr_platform_shutdownv() local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr @_ZL21iomgr_platform_vtable, align 8
-  %shutdown = getelementptr inbounds %struct.grpc_iomgr_platform_vtable, ptr %0, i64 0, i32 2
+  %shutdown = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %shutdown, align 8
   tail call void %1()
   ret void
@@ -72,7 +71,7 @@ entry:
 define void @_Z47grpc_iomgr_platform_shutdown_background_closurev() local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr @_ZL21iomgr_platform_vtable, align 8
-  %shutdown_background_closure = getelementptr inbounds %struct.grpc_iomgr_platform_vtable, ptr %0, i64 0, i32 3
+  %shutdown_background_closure = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %shutdown_background_closure, align 8
   tail call void %1()
   ret void
@@ -82,7 +81,7 @@ entry:
 define noundef zeroext i1 @_Z51grpc_iomgr_platform_is_any_background_poller_threadv() local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr @_ZL21iomgr_platform_vtable, align 8
-  %is_any_background_poller_thread = getelementptr inbounds %struct.grpc_iomgr_platform_vtable, ptr %0, i64 0, i32 4
+  %is_any_background_poller_thread = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %is_any_background_poller_thread, align 8
   %call = tail call noundef zeroext i1 %1()
   ret i1 %call
@@ -93,7 +92,7 @@ define noundef zeroext i1 @_Z52grpc_iomgr_platform_add_closure_to_background_pol
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr @_ZL21iomgr_platform_vtable, align 8
-  %add_closure_to_background_poller = getelementptr inbounds %struct.grpc_iomgr_platform_vtable, ptr %0, i64 0, i32 5
+  %add_closure_to_background_poller = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %add_closure_to_background_poller, align 8
   %2 = load i64, ptr %error, align 8
   store i64 %2, ptr %agg.tmp, align 8

@@ -42,7 +42,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h5495c7ef8d82a1
   %11 = alloca { [432 x i8], i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous8Compiler3new17ha2714e63107471e4E(ptr nonnull sret({ [945 x i8], i8, [6 x i8] }) align 8 %8, ptr align 8 %1)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb9fe56246915992aE"(ptr nonnull sret({ [945 x i8], i8, [6 x i8] }) align 8 %9, ptr nonnull align 8 %8)
-  %12 = getelementptr inbounds { [945 x i8], i8, [6 x i8] }, ptr %9, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %9, i64 945
   %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
   %.not = icmp eq i8 %13, 2
   br i1 %.not, label %17, label %14
@@ -51,7 +51,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h5495c7ef8d82a1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(952) %6, ptr noundef nonnull align 8 dereferenceable(952) %9, i64 952, i1 false)
   call void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a288929E(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %10, ptr nonnull align 8 %6, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %11, ptr nonnull align 8 %10)
-  %15 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %11, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %11, i64 432
   %16 = load i8, ptr %15, align 8, !range !7, !noundef !6
   %.not2 = icmp eq i8 %16, 3
   br i1 %.not2, label %19, label %18
@@ -85,7 +85,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h81d7b82d46be7d
   %11 = alloca { [432 x i8], i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous8Compiler3new17ha2714e63107471e4E(ptr nonnull sret({ [945 x i8], i8, [6 x i8] }) align 8 %8, ptr align 8 %1)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb9fe56246915992aE"(ptr nonnull sret({ [945 x i8], i8, [6 x i8] }) align 8 %9, ptr nonnull align 8 %8)
-  %12 = getelementptr inbounds { [945 x i8], i8, [6 x i8] }, ptr %9, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %9, i64 945
   %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
   %.not = icmp eq i8 %13, 2
   br i1 %.not, label %17, label %14
@@ -94,7 +94,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h81d7b82d46be7d
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(952) %6, ptr noundef nonnull align 8 dereferenceable(952) %9, i64 952, i1 false)
   call void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c71abbE(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %10, ptr nonnull align 8 %6, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %11, ptr nonnull align 8 %10)
-  %15 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %11, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %11, i64 432
   %16 = load i8, ptr %15, align 8, !range !7, !noundef !6
   %.not2 = icmp eq i8 %16, 3
   br i1 %.not2, label %19, label %18
@@ -128,7 +128,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h899b47f0d64c23
   %11 = alloca { [432 x i8], i8, [7 x i8] }, align 8
   call void @_ZN12aho_corasick3nfa13noncontiguous8Compiler3new17ha2714e63107471e4E(ptr nonnull sret({ [945 x i8], i8, [6 x i8] }) align 8 %8, ptr align 8 %1)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb9fe56246915992aE"(ptr nonnull sret({ [945 x i8], i8, [6 x i8] }) align 8 %9, ptr nonnull align 8 %8)
-  %12 = getelementptr inbounds { [945 x i8], i8, [6 x i8] }, ptr %9, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %9, i64 945
   %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
   %.not = icmp eq i8 %13, 2
   br i1 %.not, label %17, label %14
@@ -137,7 +137,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17h899b47f0d64c23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(952) %6, ptr noundef nonnull align 8 dereferenceable(952) %9, i64 952, i1 false)
   call void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd97e4fbE(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %10, ptr nonnull align 8 %6, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h1da57a608fe07d33E"(ptr nonnull sret({ [432 x i8], i8, [7 x i8] }) align 8 %11, ptr nonnull align 8 %10)
-  %15 = getelementptr inbounds { [432 x i8], i8, [7 x i8] }, ptr %11, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %11, i64 432
   %16 = load i8, ptr %15, align 8, !range !7, !noundef !6
   %.not2 = icmp eq i8 %16, 3
   br i1 %.not2, label %19, label %18
@@ -210,23 +210,23 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h49129f1
   br i1 %45, label %._crit_edge52, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %4
-  %46 = getelementptr inbounds { [1 x i32], i32 }, ptr %34, i64 0, i32 1
-  %47 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %27, i64 0, i32 1
-  %48 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %27, i64 0, i32 1, i32 1
-  %49 = getelementptr inbounds { [1 x i32], i32 }, ptr %30, i64 0, i32 1
-  %50 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2
-  %51 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 7
-  %52 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 8
-  %53 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 4
-  %54 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 1
-  %55 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 3
-  %56 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 2
-  %57 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 6
-  %58 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 2
-  %59 = getelementptr inbounds { ptr, i32 }, ptr %6, i64 0, i32 1
-  %60 = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1
-  %.sroa.325.0..sroa_idx = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1, i32 1
-  %61 = getelementptr inbounds { [1 x i32], i32 }, ptr %18, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %34, i64 4
+  %47 = getelementptr inbounds i8, ptr %27, i64 8
+  %48 = getelementptr inbounds i8, ptr %27, i64 16
+  %49 = getelementptr inbounds i8, ptr %30, i64 4
+  %50 = getelementptr inbounds i8, ptr %1, i64 40
+  %51 = getelementptr inbounds i8, ptr %1, i64 440
+  %52 = getelementptr inbounds i8, ptr %1, i64 448
+  %53 = getelementptr inbounds i8, ptr %1, i64 136
+  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %55 = getelementptr inbounds i8, ptr %1, i64 480
+  %56 = getelementptr inbounds i8, ptr %1, i64 464
+  %57 = getelementptr inbounds i8, ptr %1, i64 184
+  %58 = getelementptr inbounds i8, ptr %1, i64 88
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = getelementptr inbounds i8, ptr %5, i64 1
+  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
+  %61 = getelementptr inbounds i8, ptr %18, i64 4
   br label %62
 
 ._crit_edge52:                                    ; preds = %.backedge37, %4
@@ -297,7 +297,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h49129f1
 85:                                               ; preds = %75
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e66cd5dbe17df9E"(ptr nonnull align 8 %53, i32 %76)
   %86 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %87 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %86, i64 0, i32 2
+  %87 = getelementptr inbounds i8, ptr %86, i64 9
   %88 = load i8, ptr %87, align 1, !range !10, !noundef !6
   %.not = icmp eq i8 %88, 0
   br i1 %.not, label %89, label %96
@@ -356,7 +356,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h49129f1
 107:                                              ; preds = %.lr.ph, %104
   %.027 = phi i1 [ %106, %104 ], [ true, %.lr.ph ]
   %108 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %109 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %108, i64 0, i32 1
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = call zeroext i1 @_ZN12aho_corasick4util6search9MatchKind17is_leftmost_first17h61cca61613d425f7E(ptr nonnull align 1 %109)
   %111 = select i1 %110, i1 %.027, i1 false
   br i1 %111, label %.backedge37, label %112
@@ -364,14 +364,14 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h49129f1
 112:                                              ; preds = %107
   call void @_ZN12aho_corasick4util8alphabet12ByteClassSet9set_range17h11d02e8e46989767E(ptr nonnull align 8 %1, i8 %102, i8 %102)
   %113 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %114 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %113, i64 0, i32 3
+  %114 = getelementptr inbounds i8, ptr %113, i64 10
   %115 = load i8, ptr %114, align 2, !range !10, !noundef !6
   %.not31 = icmp eq i8 %115, 0
   br i1 %.not31, label %116, label %141
 
 116:                                              ; preds = %141, %112
   %117 = call align 4 ptr @"_ZN12aho_corasick4util10primitives125_$LT$impl$u20$core..ops..index..Index$LT$aho_corasick..util..primitives..StateID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h94d55fa8ee13a639E"(ptr nonnull align 8 %50, i32 %.02845, ptr nonnull align 8 @anon.c76a91d6b1fa5a7070f1a2a4027a58e1.1)
-  %118 = getelementptr inbounds { i32, i32, i32, i32, i32 }, ptr %117, i64 0, i32 1
+  %118 = getelementptr inbounds i8, ptr %117, i64 4
   %119 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %118, ptr nonnull align 4 @anon.c76a91d6b1fa5a7070f1a2a4027a58e1.2)
   br i1 %119, label %127, label %120
 
@@ -456,7 +456,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17h49129f1
 
 155:                                              ; preds = %150
   %156 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %157 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %156, i64 0, i32 3
+  %157 = getelementptr inbounds i8, ptr %156, i64 10
   %158 = load i8, ptr %157, align 2, !range !10, !noundef !6
   %.not33 = icmp eq i8 %158, 0
   br i1 %.not33, label %.backedge, label %160
@@ -530,23 +530,23 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he5f14e1
   br i1 %45, label %._crit_edge52, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %4
-  %46 = getelementptr inbounds { [1 x i32], i32 }, ptr %34, i64 0, i32 1
-  %47 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %27, i64 0, i32 1
-  %48 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %27, i64 0, i32 1, i32 1
-  %49 = getelementptr inbounds { [1 x i32], i32 }, ptr %30, i64 0, i32 1
-  %50 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2
-  %51 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 7
-  %52 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 8
-  %53 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 4
-  %54 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 1
-  %55 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 3
-  %56 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 2
-  %57 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 6
-  %58 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 2
-  %59 = getelementptr inbounds { ptr, i32 }, ptr %6, i64 0, i32 1
-  %60 = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1
-  %.sroa.325.0..sroa_idx = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1, i32 1
-  %61 = getelementptr inbounds { [1 x i32], i32 }, ptr %18, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %34, i64 4
+  %47 = getelementptr inbounds i8, ptr %27, i64 8
+  %48 = getelementptr inbounds i8, ptr %27, i64 16
+  %49 = getelementptr inbounds i8, ptr %30, i64 4
+  %50 = getelementptr inbounds i8, ptr %1, i64 40
+  %51 = getelementptr inbounds i8, ptr %1, i64 440
+  %52 = getelementptr inbounds i8, ptr %1, i64 448
+  %53 = getelementptr inbounds i8, ptr %1, i64 136
+  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %55 = getelementptr inbounds i8, ptr %1, i64 480
+  %56 = getelementptr inbounds i8, ptr %1, i64 464
+  %57 = getelementptr inbounds i8, ptr %1, i64 184
+  %58 = getelementptr inbounds i8, ptr %1, i64 88
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = getelementptr inbounds i8, ptr %5, i64 1
+  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
+  %61 = getelementptr inbounds i8, ptr %18, i64 4
   br label %62
 
 ._crit_edge52:                                    ; preds = %.backedge37, %4
@@ -617,7 +617,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he5f14e1
 85:                                               ; preds = %75
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e66cd5dbe17df9E"(ptr nonnull align 8 %53, i32 %76)
   %86 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %87 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %86, i64 0, i32 2
+  %87 = getelementptr inbounds i8, ptr %86, i64 9
   %88 = load i8, ptr %87, align 1, !range !10, !noundef !6
   %.not = icmp eq i8 %88, 0
   br i1 %.not, label %89, label %96
@@ -676,7 +676,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he5f14e1
 107:                                              ; preds = %.lr.ph, %104
   %.027 = phi i1 [ %106, %104 ], [ true, %.lr.ph ]
   %108 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %109 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %108, i64 0, i32 1
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = call zeroext i1 @_ZN12aho_corasick4util6search9MatchKind17is_leftmost_first17h61cca61613d425f7E(ptr nonnull align 1 %109)
   %111 = select i1 %110, i1 %.027, i1 false
   br i1 %111, label %.backedge37, label %112
@@ -684,14 +684,14 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he5f14e1
 112:                                              ; preds = %107
   call void @_ZN12aho_corasick4util8alphabet12ByteClassSet9set_range17h11d02e8e46989767E(ptr nonnull align 8 %1, i8 %102, i8 %102)
   %113 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %114 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %113, i64 0, i32 3
+  %114 = getelementptr inbounds i8, ptr %113, i64 10
   %115 = load i8, ptr %114, align 2, !range !10, !noundef !6
   %.not31 = icmp eq i8 %115, 0
   br i1 %.not31, label %116, label %141
 
 116:                                              ; preds = %141, %112
   %117 = call align 4 ptr @"_ZN12aho_corasick4util10primitives125_$LT$impl$u20$core..ops..index..Index$LT$aho_corasick..util..primitives..StateID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h94d55fa8ee13a639E"(ptr nonnull align 8 %50, i32 %.02845, ptr nonnull align 8 @anon.c76a91d6b1fa5a7070f1a2a4027a58e1.1)
-  %118 = getelementptr inbounds { i32, i32, i32, i32, i32 }, ptr %117, i64 0, i32 1
+  %118 = getelementptr inbounds i8, ptr %117, i64 4
   %119 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %118, ptr nonnull align 4 @anon.c76a91d6b1fa5a7070f1a2a4027a58e1.2)
   br i1 %119, label %127, label %120
 
@@ -776,7 +776,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he5f14e1
 
 155:                                              ; preds = %150
   %156 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %157 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %156, i64 0, i32 3
+  %157 = getelementptr inbounds i8, ptr %156, i64 10
   %158 = load i8, ptr %157, align 2, !range !10, !noundef !6
   %.not33 = icmp eq i8 %158, 0
   br i1 %.not33, label %.backedge, label %160
@@ -850,23 +850,23 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he7d6928
   br i1 %45, label %._crit_edge52, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %4
-  %46 = getelementptr inbounds { [1 x i32], i32 }, ptr %34, i64 0, i32 1
-  %47 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %27, i64 0, i32 1
-  %48 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %27, i64 0, i32 1, i32 1
-  %49 = getelementptr inbounds { [1 x i32], i32 }, ptr %30, i64 0, i32 1
-  %50 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2
-  %51 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 7
-  %52 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 8
-  %53 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 4
-  %54 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 1
-  %55 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 3
-  %56 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 2
-  %57 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 6
-  %58 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 2
-  %59 = getelementptr inbounds { ptr, i32 }, ptr %6, i64 0, i32 1
-  %60 = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1
-  %.sroa.325.0..sroa_idx = getelementptr inbounds { [1 x i8], <{ i8, i32, i32 }> }, ptr %5, i64 0, i32 1, i32 1
-  %61 = getelementptr inbounds { [1 x i32], i32 }, ptr %18, i64 0, i32 1
+  %46 = getelementptr inbounds i8, ptr %34, i64 4
+  %47 = getelementptr inbounds i8, ptr %27, i64 8
+  %48 = getelementptr inbounds i8, ptr %27, i64 16
+  %49 = getelementptr inbounds i8, ptr %30, i64 4
+  %50 = getelementptr inbounds i8, ptr %1, i64 40
+  %51 = getelementptr inbounds i8, ptr %1, i64 440
+  %52 = getelementptr inbounds i8, ptr %1, i64 448
+  %53 = getelementptr inbounds i8, ptr %1, i64 136
+  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %55 = getelementptr inbounds i8, ptr %1, i64 480
+  %56 = getelementptr inbounds i8, ptr %1, i64 464
+  %57 = getelementptr inbounds i8, ptr %1, i64 184
+  %58 = getelementptr inbounds i8, ptr %1, i64 88
+  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = getelementptr inbounds i8, ptr %5, i64 1
+  %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
+  %61 = getelementptr inbounds i8, ptr %18, i64 4
   br label %62
 
 ._crit_edge52:                                    ; preds = %.backedge37, %4
@@ -937,7 +937,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he7d6928
 85:                                               ; preds = %75
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb7e66cd5dbe17df9E"(ptr nonnull align 8 %53, i32 %76)
   %86 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %87 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %86, i64 0, i32 2
+  %87 = getelementptr inbounds i8, ptr %86, i64 9
   %88 = load i8, ptr %87, align 1, !range !10, !noundef !6
   %.not = icmp eq i8 %88, 0
   br i1 %.not, label %89, label %96
@@ -996,7 +996,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he7d6928
 107:                                              ; preds = %.lr.ph, %104
   %.027 = phi i1 [ %106, %104 ], [ true, %.lr.ph ]
   %108 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %109 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %108, i64 0, i32 1
+  %109 = getelementptr inbounds i8, ptr %108, i64 8
   %110 = call zeroext i1 @_ZN12aho_corasick4util6search9MatchKind17is_leftmost_first17h61cca61613d425f7E(ptr nonnull align 1 %109)
   %111 = select i1 %110, i1 %.027, i1 false
   br i1 %111, label %.backedge37, label %112
@@ -1004,14 +1004,14 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he7d6928
 112:                                              ; preds = %107
   call void @_ZN12aho_corasick4util8alphabet12ByteClassSet9set_range17h11d02e8e46989767E(ptr nonnull align 8 %1, i8 %102, i8 %102)
   %113 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %114 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %113, i64 0, i32 3
+  %114 = getelementptr inbounds i8, ptr %113, i64 10
   %115 = load i8, ptr %114, align 2, !range !10, !noundef !6
   %.not31 = icmp eq i8 %115, 0
   br i1 %.not31, label %116, label %141
 
 116:                                              ; preds = %141, %112
   %117 = call align 4 ptr @"_ZN12aho_corasick4util10primitives125_$LT$impl$u20$core..ops..index..Index$LT$aho_corasick..util..primitives..StateID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h94d55fa8ee13a639E"(ptr nonnull align 8 %50, i32 %.02845, ptr nonnull align 8 @anon.c76a91d6b1fa5a7070f1a2a4027a58e1.1)
-  %118 = getelementptr inbounds { i32, i32, i32, i32, i32 }, ptr %117, i64 0, i32 1
+  %118 = getelementptr inbounds i8, ptr %117, i64 4
   %119 = call zeroext i1 @"_ZN80_$LT$aho_corasick..util..primitives..StateID$u20$as$u20$core..cmp..PartialEq$GT$2eq17h10d3d2ae424b51beE"(ptr nonnull align 4 %118, ptr nonnull align 4 @anon.c76a91d6b1fa5a7070f1a2a4027a58e1.2)
   br i1 %119, label %127, label %120
 
@@ -1096,7 +1096,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie17he7d6928
 
 155:                                              ; preds = %150
   %156 = load ptr, ptr %54, align 8, !nonnull !6, !align !9, !noundef !6
-  %157 = getelementptr inbounds { i64, i8, i8, i8, [5 x i8] }, ptr %156, i64 0, i32 3
+  %157 = getelementptr inbounds i8, ptr %156, i64 10
   %158 = load i8, ptr %157, align 2, !range !10, !noundef !6
   %.not33 = icmp eq i8 %158, 0
   br i1 %.not33, label %.backedge, label %160
@@ -1134,7 +1134,7 @@ define void @"_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie28_$u7b$$
 define void @"_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie28_$u7b$$u7b$closure$u7d$$u7d$17h1c5d2960153eba5bE"(ptr sret({ { i32, [5 x i32] } }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #1 {
   %4 = load ptr, ptr %1, align 8, !nonnull !6, !align !11, !noundef !6
   %5 = load i32, ptr %4, align 4, !noundef !6
-  %6 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !6
   tail call void @_ZN12aho_corasick4util5error10BuildError16pattern_too_long17he00c567b3726883eE(ptr sret({ { i32, [5 x i32] } }) align 8 %0, i32 %5, i64 %7)
   ret void
@@ -1144,7 +1144,7 @@ define void @"_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie28_$u7b$$
 define void @"_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie28_$u7b$$u7b$closure$u7d$$u7d$17h269551a8193c6dadE"(ptr sret({ { i32, [5 x i32] } }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #1 {
   %4 = load ptr, ptr %1, align 8, !nonnull !6, !align !11, !noundef !6
   %5 = load i32, ptr %4, align 4, !noundef !6
-  %6 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !6
   tail call void @_ZN12aho_corasick4util5error10BuildError16pattern_too_long17he00c567b3726883eE(ptr sret({ { i32, [5 x i32] } }) align 8 %0, i32 %5, i64 %7)
   ret void
@@ -1174,7 +1174,7 @@ define void @"_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie28_$u7b$$
 define void @"_ZN12aho_corasick3nfa13noncontiguous8Compiler10build_trie28_$u7b$$u7b$closure$u7d$$u7d$17hcec49f2574411635E"(ptr sret({ { i32, [5 x i32] } }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #1 {
   %4 = load ptr, ptr %1, align 8, !nonnull !6, !align !11, !noundef !6
   %5 = load i32, ptr %4, align 4, !noundef !6
-  %6 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !6
   tail call void @_ZN12aho_corasick4util5error10BuildError16pattern_too_long17he00c567b3726883eE(ptr sret({ { i32, [5 x i32] } }) align 8 %0, i32 %5, i64 %7)
   ret void
@@ -1215,8 +1215,8 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
   %35 = alloca { i32, [5 x i32] }, align 8
   %36 = alloca { i32, [5 x i32] }, align 8
   %37 = alloca <{ i8, i32, i32 }>, align 1
-  %38 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2
-  %39 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 1
+  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds i8, ptr %1, i64 64
   invoke void @"_ZN87_$LT$aho_corasick..nfa..noncontiguous..Transition$u20$as$u20$core..default..Default$GT$7default17h133b28ed0bded8b2E"(ptr nonnull sret(<{ i8, i32, i32 }>) align 1 %37)
           to label %42 unwind label %40
 
@@ -1230,7 +1230,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
           to label %43 unwind label %40
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 3
+  %44 = getelementptr inbounds i8, ptr %1, i64 112
   %45 = invoke { i32, i32 } @"_ZN82_$LT$aho_corasick..nfa..noncontiguous..Match$u20$as$u20$core..default..Default$GT$7default17hc15e1f9422829ad4E"()
           to label %46 unwind label %40
 
@@ -1241,7 +1241,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
           to label %49 unwind label %40
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 2
+  %50 = getelementptr inbounds i8, ptr %1, i64 88
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf5b2418e4f53cc5fE"(ptr nonnull align 8 %50, i32 0)
           to label %51 unwind label %40
 
@@ -1293,10 +1293,10 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds { [1 x i32], i32 }, ptr %30, i64 0, i32 1
+  %69 = getelementptr inbounds i8, ptr %30, i64 4
   %70 = load i32, ptr %69, align 4, !noundef !6
-  %71 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9
-  %72 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 2
+  %71 = getelementptr inbounds i8, ptr %1, i64 456
+  %72 = getelementptr inbounds i8, ptr %1, i64 464
   store i32 %70, ptr %72, align 8
   invoke void @_ZN12aho_corasick3nfa13noncontiguous3NFA11alloc_state17hea8fd918d4cc7294E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %26, ptr nonnull align 8 %38, i64 0)
           to label %74 unwind label %40
@@ -1315,9 +1315,9 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds { [1 x i32], i32 }, ptr %27, i64 0, i32 1
+  %79 = getelementptr inbounds i8, ptr %27, i64 4
   %80 = load i32, ptr %79, align 4, !noundef !6
-  %81 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 3
+  %81 = getelementptr inbounds i8, ptr %1, i64 468
   store i32 %80, ptr %81, align 4
   invoke void @_ZN12aho_corasick3nfa13noncontiguous8Compiler27init_unanchored_start_state17h4a2fc4133a6b3306E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %23, ptr nonnull align 8 %1)
           to label %83 unwind label %40
@@ -1382,7 +1382,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
           to label %102 unwind label %40
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 6
+  %103 = getelementptr inbounds i8, ptr %1, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %103, ptr noundef nonnull align 1 dereferenceable(256) %15, i64 256, i1 false)
   invoke void @_ZN12aho_corasick3nfa13noncontiguous8Compiler24set_anchored_start_state17h62eff629d8636f6fE(ptr nonnull sret({ i32, [5 x i32] }) align 8 %13, ptr nonnull align 8 %1)
           to label %104 unwind label %40
@@ -1453,12 +1453,12 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
           to label %126 unwind label %40
 
 126:                                              ; preds = %125
-  %127 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 3
+  %127 = getelementptr inbounds i8, ptr %1, i64 480
   invoke void @_ZN12aho_corasick4util9prefilter7Builder5build17h330c1adbf333f6b6E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %5, ptr nonnull align 8 %127)
           to label %128 unwind label %40
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 5
+  %129 = getelementptr inbounds i8, ptr %1, i64 160
   invoke void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aho_corasick..util..prefilter..Prefilter$GT$$GT$17h44f047fb41e98c87E"(ptr nonnull align 8 %129)
           to label %132 unwind label %130
 
@@ -1474,7 +1474,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
           to label %134 unwind label %40
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 1
+  %135 = getelementptr inbounds i8, ptr %1, i64 460
   %.0.in = select i1 %133, ptr %81, ptr %135
   %.0 = load i32, ptr %.0.in, align 4, !noundef !6
   store i32 %.0, ptr %71, align 8
@@ -1490,7 +1490,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17h8f78ae1cdd9
           to label %138 unwind label %40
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 4
+  %139 = getelementptr inbounds i8, ptr %1, i64 136
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h2bf54068f8de1ce0E"(ptr nonnull align 8 %139)
           to label %140 unwind label %40
 
@@ -1556,8 +1556,8 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
   %35 = alloca { i32, [5 x i32] }, align 8
   %36 = alloca { i32, [5 x i32] }, align 8
   %37 = alloca <{ i8, i32, i32 }>, align 1
-  %38 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2
-  %39 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 1
+  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds i8, ptr %1, i64 64
   invoke void @"_ZN87_$LT$aho_corasick..nfa..noncontiguous..Transition$u20$as$u20$core..default..Default$GT$7default17h133b28ed0bded8b2E"(ptr nonnull sret(<{ i8, i32, i32 }>) align 1 %37)
           to label %42 unwind label %40
 
@@ -1571,7 +1571,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
           to label %43 unwind label %40
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 3
+  %44 = getelementptr inbounds i8, ptr %1, i64 112
   %45 = invoke { i32, i32 } @"_ZN82_$LT$aho_corasick..nfa..noncontiguous..Match$u20$as$u20$core..default..Default$GT$7default17hc15e1f9422829ad4E"()
           to label %46 unwind label %40
 
@@ -1582,7 +1582,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
           to label %49 unwind label %40
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 2
+  %50 = getelementptr inbounds i8, ptr %1, i64 88
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf5b2418e4f53cc5fE"(ptr nonnull align 8 %50, i32 0)
           to label %51 unwind label %40
 
@@ -1634,10 +1634,10 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds { [1 x i32], i32 }, ptr %30, i64 0, i32 1
+  %69 = getelementptr inbounds i8, ptr %30, i64 4
   %70 = load i32, ptr %69, align 4, !noundef !6
-  %71 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9
-  %72 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 2
+  %71 = getelementptr inbounds i8, ptr %1, i64 456
+  %72 = getelementptr inbounds i8, ptr %1, i64 464
   store i32 %70, ptr %72, align 8
   invoke void @_ZN12aho_corasick3nfa13noncontiguous3NFA11alloc_state17hea8fd918d4cc7294E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %26, ptr nonnull align 8 %38, i64 0)
           to label %74 unwind label %40
@@ -1656,9 +1656,9 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds { [1 x i32], i32 }, ptr %27, i64 0, i32 1
+  %79 = getelementptr inbounds i8, ptr %27, i64 4
   %80 = load i32, ptr %79, align 4, !noundef !6
-  %81 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 3
+  %81 = getelementptr inbounds i8, ptr %1, i64 468
   store i32 %80, ptr %81, align 4
   invoke void @_ZN12aho_corasick3nfa13noncontiguous8Compiler27init_unanchored_start_state17h4a2fc4133a6b3306E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %23, ptr nonnull align 8 %1)
           to label %83 unwind label %40
@@ -1723,7 +1723,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
           to label %102 unwind label %40
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 6
+  %103 = getelementptr inbounds i8, ptr %1, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %103, ptr noundef nonnull align 1 dereferenceable(256) %15, i64 256, i1 false)
   invoke void @_ZN12aho_corasick3nfa13noncontiguous8Compiler24set_anchored_start_state17h62eff629d8636f6fE(ptr nonnull sret({ i32, [5 x i32] }) align 8 %13, ptr nonnull align 8 %1)
           to label %104 unwind label %40
@@ -1794,12 +1794,12 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
           to label %126 unwind label %40
 
 126:                                              ; preds = %125
-  %127 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 3
+  %127 = getelementptr inbounds i8, ptr %1, i64 480
   invoke void @_ZN12aho_corasick4util9prefilter7Builder5build17h330c1adbf333f6b6E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %5, ptr nonnull align 8 %127)
           to label %128 unwind label %40
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 5
+  %129 = getelementptr inbounds i8, ptr %1, i64 160
   invoke void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aho_corasick..util..prefilter..Prefilter$GT$$GT$17h44f047fb41e98c87E"(ptr nonnull align 8 %129)
           to label %132 unwind label %130
 
@@ -1815,7 +1815,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
           to label %134 unwind label %40
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 1
+  %135 = getelementptr inbounds i8, ptr %1, i64 460
   %.0.in = select i1 %133, ptr %81, ptr %135
   %.0 = load i32, ptr %.0.in, align 4, !noundef !6
   store i32 %.0, ptr %71, align 8
@@ -1831,7 +1831,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17hbe771ffcd1c
           to label %138 unwind label %40
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 4
+  %139 = getelementptr inbounds i8, ptr %1, i64 136
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h2bf54068f8de1ce0E"(ptr nonnull align 8 %139)
           to label %140 unwind label %40
 
@@ -1897,8 +1897,8 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
   %35 = alloca { i32, [5 x i32] }, align 8
   %36 = alloca { i32, [5 x i32] }, align 8
   %37 = alloca <{ i8, i32, i32 }>, align 1
-  %38 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2
-  %39 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 1
+  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds i8, ptr %1, i64 64
   invoke void @"_ZN87_$LT$aho_corasick..nfa..noncontiguous..Transition$u20$as$u20$core..default..Default$GT$7default17h133b28ed0bded8b2E"(ptr nonnull sret(<{ i8, i32, i32 }>) align 1 %37)
           to label %42 unwind label %40
 
@@ -1912,7 +1912,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
           to label %43 unwind label %40
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 3
+  %44 = getelementptr inbounds i8, ptr %1, i64 112
   %45 = invoke { i32, i32 } @"_ZN82_$LT$aho_corasick..nfa..noncontiguous..Match$u20$as$u20$core..default..Default$GT$7default17hc15e1f9422829ad4E"()
           to label %46 unwind label %40
 
@@ -1923,7 +1923,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
           to label %49 unwind label %40
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 2
+  %50 = getelementptr inbounds i8, ptr %1, i64 88
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf5b2418e4f53cc5fE"(ptr nonnull align 8 %50, i32 0)
           to label %51 unwind label %40
 
@@ -1975,10 +1975,10 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds { [1 x i32], i32 }, ptr %30, i64 0, i32 1
+  %69 = getelementptr inbounds i8, ptr %30, i64 4
   %70 = load i32, ptr %69, align 4, !noundef !6
-  %71 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9
-  %72 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 2
+  %71 = getelementptr inbounds i8, ptr %1, i64 456
+  %72 = getelementptr inbounds i8, ptr %1, i64 464
   store i32 %70, ptr %72, align 8
   invoke void @_ZN12aho_corasick3nfa13noncontiguous3NFA11alloc_state17hea8fd918d4cc7294E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %26, ptr nonnull align 8 %38, i64 0)
           to label %74 unwind label %40
@@ -1997,9 +1997,9 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds { [1 x i32], i32 }, ptr %27, i64 0, i32 1
+  %79 = getelementptr inbounds i8, ptr %27, i64 4
   %80 = load i32, ptr %79, align 4, !noundef !6
-  %81 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 3
+  %81 = getelementptr inbounds i8, ptr %1, i64 468
   store i32 %80, ptr %81, align 4
   invoke void @_ZN12aho_corasick3nfa13noncontiguous8Compiler27init_unanchored_start_state17h4a2fc4133a6b3306E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %23, ptr nonnull align 8 %1)
           to label %83 unwind label %40
@@ -2064,7 +2064,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
           to label %102 unwind label %40
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 6
+  %103 = getelementptr inbounds i8, ptr %1, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %103, ptr noundef nonnull align 1 dereferenceable(256) %15, i64 256, i1 false)
   invoke void @_ZN12aho_corasick3nfa13noncontiguous8Compiler24set_anchored_start_state17h62eff629d8636f6fE(ptr nonnull sret({ i32, [5 x i32] }) align 8 %13, ptr nonnull align 8 %1)
           to label %104 unwind label %40
@@ -2135,12 +2135,12 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
           to label %126 unwind label %40
 
 126:                                              ; preds = %125
-  %127 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 3
+  %127 = getelementptr inbounds i8, ptr %1, i64 480
   invoke void @_ZN12aho_corasick4util9prefilter7Builder5build17h330c1adbf333f6b6E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %5, ptr nonnull align 8 %127)
           to label %128 unwind label %40
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 5
+  %129 = getelementptr inbounds i8, ptr %1, i64 160
   invoke void @"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$aho_corasick..util..prefilter..Prefilter$GT$$GT$17h44f047fb41e98c87E"(ptr nonnull align 8 %129)
           to label %132 unwind label %130
 
@@ -2156,7 +2156,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
           to label %134 unwind label %40
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 9, i32 1
+  %135 = getelementptr inbounds i8, ptr %1, i64 460
   %.0.in = select i1 %133, ptr %81, ptr %135
   %.0 = load i32, ptr %.0.in, align 4, !noundef !6
   store i32 %.0, ptr %71, align 8
@@ -2172,7 +2172,7 @@ define void @_ZN12aho_corasick3nfa13noncontiguous8Compiler7compile17he1a746294a2
           to label %138 unwind label %40
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds { { { { [2 x i128] } } }, ptr, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] }, { { i64, { ptr, [2 x i64] } }, { [77 x i8], i8, [2 x i8] }, i64, { { { ptr, i64 }, i64 }, i64, i16, i8, [5 x i8] }, { { [256 x i8] }, { { [2 x i128] } }, i64, i16, i8, i8, [4 x i8] }, i8, i8, [6 x i8] } }, ptr %1, i64 0, i32 2, i32 4
+  %139 = getelementptr inbounds i8, ptr %1, i64 136
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h2bf54068f8de1ce0E"(ptr nonnull align 8 %139)
           to label %140 unwind label %40
 

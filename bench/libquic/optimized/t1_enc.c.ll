@@ -4,17 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ssl3_enc_method = type { ptr, ptr, ptr }
-%struct.ssl_st = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.crypto_ex_data_st, ptr, i32, i32, i32, i32, i16, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i8, i8, i32 }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ssl3_state_st = type { [8 x i8], [8 x i8], [32 x i8], [32 x i8], i8, i8, %struct.ssl3_buffer_st, %struct.ssl3_buffer_st, %struct.ssl3_record_st, i8, i32, i32, i32, i32, ptr, ptr, %struct.env_md_ctx_st, %struct.env_md_ctx_st, i8, i32, [2 x i8], i32, i8, i8, ptr, ptr, ptr, %struct.anon, [64 x i8], i8, [64 x i8], i8, i32, i32, ptr, i64, ptr, i64, i8, [64 x i8] }
-%struct.ssl3_buffer_st = type { ptr, i16, i16, i16 }
-%struct.ssl3_record_st = type { i8, i16, ptr }
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.anon = type { [64 x i8], i32, [64 x i8], i32, i64, i32, ptr, i32, i32, %union.anon, %union.anon.0, i8, i32, ptr, ptr, i64, ptr, i8, i8, i8, i8, i32, i8, ptr, i64, i8, ptr, i8, i8, i8, %struct.ssl_ecdh_ctx_st, ptr, i16 }
-%union.anon = type { i32 }
-%union.anon.0 = type { i16 }
-%struct.ssl_ecdh_ctx_st = type { ptr, ptr }
-%struct.ssl_session_st = type { i32, i32, i32, i32, [48 x i8], i32, [32 x i8], i32, [32 x i8], ptr, ptr, ptr, i64, i64, i64, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64, i64, ptr, i64, ptr, [32 x i8], [64 x i8], i32, i32, i8 }
 %struct.hmac_ctx_st = type { ptr, %struct.env_md_ctx_st, %struct.env_md_ctx_st, %struct.env_md_ctx_st }
 
 @.str = private unnamed_addr constant [14 x i8] c"key expansion\00", align 1
@@ -33,18 +23,18 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %new_mac_secret_len = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 18
+  %new_mac_secret_len = getelementptr inbounds i8, ptr %0, i64 505
   %1 = load i8, ptr %new_mac_secret_len, align 1
   %conv7 = zext i8 %1 to i64
-  %new_key_len = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 19
+  %new_key_len = getelementptr inbounds i8, ptr %0, i64 506
   %2 = load i8, ptr %new_key_len, align 2
   %conv10 = zext i8 %2 to i64
-  %new_fixed_iv_len = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 20
+  %new_fixed_iv_len = getelementptr inbounds i8, ptr %0, i64 507
   %3 = load i8, ptr %new_fixed_iv_len, align 1
   %conv13 = zext i8 %3 to i64
-  %key_block = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 16
+  %key_block = getelementptr inbounds i8, ptr %0, i64 496
   %4 = load ptr, ptr %key_block, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %conv7
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv7
@@ -67,7 +57,7 @@ if.end23:                                         ; preds = %if.end, %if.end, %i
   %cond = xor i32 %conv24, 1
   %call26 = tail call zeroext i16 @ssl3_protocol_version(ptr noundef nonnull %ssl) #8
   %5 = load ptr, ptr %s3, align 8
-  %new_cipher = getelementptr inbounds %struct.ssl3_state_st, ptr %5, i64 0, i32 27, i32 6
+  %new_cipher = getelementptr inbounds i8, ptr %5, i64 440
   %6 = load ptr, ptr %new_cipher, align 8
   %call29 = tail call ptr @SSL_AEAD_CTX_new(i32 noundef %cond, i16 noundef zeroext %call26, ptr noundef %6, ptr noundef %key.0, i64 noundef %conv10, ptr noundef %mac_secret.0, i64 noundef %conv7, ptr noundef %iv.0, i64 noundef %conv13) #8
   %cmp30 = icmp eq ptr %call29, null
@@ -96,18 +86,18 @@ entry:
   %aead = alloca ptr, align 8
   %mac_secret_len = alloca i64, align 8
   %fixed_iv_len = alloca i64, align 8
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %key_block_length = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 17
+  %key_block_length = getelementptr inbounds i8, ptr %0, i64 504
   %1 = load i8, ptr %key_block_length, align 8
   %cmp.not = icmp eq i8 %1, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store ptr null, ptr %aead, align 8
-  %session = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 25
+  %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %2 = load ptr, ptr %session, align 8
-  %cipher = getelementptr inbounds %struct.ssl_session_st, ptr %2, i64 0, i32 15
+  %cipher = getelementptr inbounds i8, ptr %2, i64 184
   %3 = load ptr, ptr %cipher, align 8
   %cmp2 = icmp eq ptr %3, null
   br i1 %cmp2, label %if.then7, label %lor.lhs.false
@@ -147,25 +137,25 @@ if.end18:                                         ; preds = %if.end16, %if.end8
   %key_len.0 = phi i64 [ %sub, %if.end16 ], [ %call9, %if.end8 ]
   %conv19 = trunc i64 %5 to i8
   %6 = load ptr, ptr %s3, align 8
-  %new_mac_secret_len = getelementptr inbounds %struct.ssl3_state_st, ptr %6, i64 0, i32 27, i32 18
+  %new_mac_secret_len = getelementptr inbounds i8, ptr %6, i64 505
   store i8 %conv19, ptr %new_mac_secret_len, align 1
   %conv22 = trunc i64 %key_len.0 to i8
   %7 = load ptr, ptr %s3, align 8
-  %new_key_len = getelementptr inbounds %struct.ssl3_state_st, ptr %7, i64 0, i32 27, i32 19
+  %new_key_len = getelementptr inbounds i8, ptr %7, i64 506
   store i8 %conv22, ptr %new_key_len, align 2
   %conv25 = trunc i64 %.pre to i8
   %8 = load ptr, ptr %s3, align 8
-  %new_fixed_iv_len = getelementptr inbounds %struct.ssl3_state_st, ptr %8, i64 0, i32 27, i32 20
+  %new_fixed_iv_len = getelementptr inbounds i8, ptr %8, i64 507
   store i8 %conv25, ptr %new_fixed_iv_len, align 1
   %9 = load ptr, ptr %s3, align 8
-  %new_mac_secret_len.i = getelementptr inbounds %struct.ssl3_state_st, ptr %9, i64 0, i32 27, i32 18
+  %new_mac_secret_len.i = getelementptr inbounds i8, ptr %9, i64 505
   %10 = load i8, ptr %new_mac_secret_len.i, align 1
   %conv.i = zext i8 %10 to i64
-  %new_key_len.i = getelementptr inbounds %struct.ssl3_state_st, ptr %9, i64 0, i32 27, i32 19
+  %new_key_len.i = getelementptr inbounds i8, ptr %9, i64 506
   %11 = load i8, ptr %new_key_len.i, align 2
   %conv3.i = zext i8 %11 to i64
   %add.i = add nuw nsw i64 %conv3.i, %conv.i
-  %new_fixed_iv_len.i = getelementptr inbounds %struct.ssl3_state_st, ptr %9, i64 0, i32 27, i32 20
+  %new_fixed_iv_len.i = getelementptr inbounds i8, ptr %9, i64 507
   %12 = load i8, ptr %new_fixed_iv_len.i, align 1
   %conv6.i = zext i8 %12 to i64
   %add7.i = add nuw nsw i64 %add.i, %conv6.i
@@ -181,16 +171,16 @@ if.then32:                                        ; preds = %if.end18
 
 if.end33:                                         ; preds = %if.end18
   %13 = load ptr, ptr %s3, align 8
-  %enc_method.i = getelementptr inbounds %struct.ssl3_state_st, ptr %13, i64 0, i32 26
+  %enc_method.i = getelementptr inbounds i8, ptr %13, i64 280
   %14 = load ptr, ptr %enc_method.i, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %session, align 8
-  %master_key.i = getelementptr inbounds %struct.ssl_session_st, ptr %16, i64 0, i32 4
-  %master_key_length.i = getelementptr inbounds %struct.ssl_session_st, ptr %16, i64 0, i32 3
+  %master_key.i = getelementptr inbounds i8, ptr %16, i64 16
+  %master_key_length.i = getelementptr inbounds i8, ptr %16, i64 12
   %17 = load i32, ptr %master_key_length.i, align 4
   %conv.i21 = sext i32 %17 to i64
-  %server_random.i = getelementptr inbounds %struct.ssl3_state_st, ptr %13, i64 0, i32 2
-  %client_random.i = getelementptr inbounds %struct.ssl3_state_st, ptr %13, i64 0, i32 3
+  %server_random.i = getelementptr inbounds i8, ptr %13, i64 16
+  %client_random.i = getelementptr inbounds i8, ptr %13, i64 48
   %call.i = call i32 %15(ptr noundef nonnull %ssl, ptr noundef nonnull %call29, i64 noundef %mul.i, ptr noundef nonnull %master_key.i, i64 noundef %conv.i21, ptr noundef nonnull @.str, i64 noundef 13, ptr noundef nonnull %server_random.i, i64 noundef 32, ptr noundef nonnull %client_random.i, i64 noundef 32) #8
   %tobool35.not = icmp eq i32 %call.i, 0
   br i1 %tobool35.not, label %if.then36, label %if.end37
@@ -202,10 +192,10 @@ if.then36:                                        ; preds = %if.end33
 if.end37:                                         ; preds = %if.end33
   %conv38 = trunc i64 %mul.i to i8
   %18 = load ptr, ptr %s3, align 8
-  %key_block_length41 = getelementptr inbounds %struct.ssl3_state_st, ptr %18, i64 0, i32 27, i32 17
+  %key_block_length41 = getelementptr inbounds i8, ptr %18, i64 504
   store i8 %conv38, ptr %key_block_length41, align 8
   %19 = load ptr, ptr %s3, align 8
-  %key_block = getelementptr inbounds %struct.ssl3_state_st, ptr %19, i64 0, i32 27, i32 16
+  %key_block = getelementptr inbounds i8, ptr %19, i64 496
   store ptr %call29, ptr %key_block, align 8
   br label %return
 
@@ -225,16 +215,16 @@ declare void @ssl_set_write_state(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @SSL_get_key_block_len(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
 entry:
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %new_mac_secret_len = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 18
+  %new_mac_secret_len = getelementptr inbounds i8, ptr %0, i64 505
   %1 = load i8, ptr %new_mac_secret_len, align 1
   %conv = zext i8 %1 to i64
-  %new_key_len = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 19
+  %new_key_len = getelementptr inbounds i8, ptr %0, i64 506
   %2 = load i8, ptr %new_key_len, align 2
   %conv3 = zext i8 %2 to i64
   %add = add nuw nsw i64 %conv3, %conv
-  %new_fixed_iv_len = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 20
+  %new_fixed_iv_len = getelementptr inbounds i8, ptr %0, i64 507
   %3 = load i8, ptr %new_fixed_iv_len, align 1
   %conv6 = zext i8 %3 to i64
   %add7 = add nuw nsw i64 %add, %conv6
@@ -245,19 +235,19 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SSL_generate_key_block(ptr noundef %ssl, ptr noundef %out, i64 noundef %out_len) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %enc_method = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 26
+  %enc_method = getelementptr inbounds i8, ptr %0, i64 280
   %1 = load ptr, ptr %enc_method, align 8
   %2 = load ptr, ptr %1, align 8
-  %session = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 25
+  %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %3 = load ptr, ptr %session, align 8
-  %master_key = getelementptr inbounds %struct.ssl_session_st, ptr %3, i64 0, i32 4
-  %master_key_length = getelementptr inbounds %struct.ssl_session_st, ptr %3, i64 0, i32 3
+  %master_key = getelementptr inbounds i8, ptr %3, i64 16
+  %master_key_length = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %master_key_length, align 4
   %conv = sext i32 %4 to i64
-  %server_random = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 2
-  %client_random = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 3
+  %server_random = getelementptr inbounds i8, ptr %0, i64 16
+  %client_random = getelementptr inbounds i8, ptr %0, i64 48
   %call = tail call i32 %2(ptr noundef %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef nonnull %master_key, i64 noundef %conv, ptr noundef nonnull @.str, i64 noundef 13, ptr noundef nonnull %server_random, i64 noundef 32, ptr noundef nonnull %client_random, i64 noundef 32) #8
   ret i32 %call
 }
@@ -283,16 +273,16 @@ entry:
   %len.i6 = alloca i32, align 4
   %ctx_copy.i = alloca %struct.env_md_ctx_st, align 8
   %len.i = alloca i32, align 4
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %handshake_md5 = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 17
+  %handshake_md5 = getelementptr inbounds i8, ptr %0, i64 208
   %call = tail call ptr @EVP_MD_CTX_md(ptr noundef nonnull %handshake_md5) #8
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %s3, align 8
-  %handshake_md52 = getelementptr inbounds %struct.ssl3_state_st, ptr %1, i64 0, i32 17
+  %handshake_md52 = getelementptr inbounds i8, ptr %1, i64 208
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx_copy.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @EVP_MD_CTX_init(ptr noundef nonnull %ctx_copy.i) #8
@@ -331,7 +321,7 @@ append_digest.exit:                               ; preds = %lor.lhs.false.i
 if.end:                                           ; preds = %append_digest.exit, %entry
   %md5_len.1 = phi i64 [ 0, %entry ], [ %conv.i, %append_digest.exit ]
   %3 = load ptr, ptr %s3, align 8
-  %handshake_hash = getelementptr inbounds %struct.ssl3_state_st, ptr %3, i64 0, i32 16
+  %handshake_hash = getelementptr inbounds i8, ptr %3, i64 176
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %md5_len.1
   %sub = sub i64 %out_len, %md5_len.1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx_copy.i5)
@@ -381,9 +371,9 @@ declare ptr @EVP_MD_CTX_md(ptr noundef) local_unnamed_addr #1
 define hidden noundef i32 @tls1_generate_master_secret(ptr noundef %ssl, ptr noundef %out, ptr noundef %premaster, i64 noundef %premaster_len) local_unnamed_addr #0 {
 entry:
   %digests = alloca [64 x i8], align 16
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %extended_master_secret = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 27, i32 25
+  %extended_master_secret = getelementptr inbounds i8, ptr %0, i64 536
   %1 = load i8, ptr %extended_master_secret, align 8
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -395,7 +385,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %2 = load ptr, ptr %s3, align 8
-  %enc_method = getelementptr inbounds %struct.ssl3_state_st, ptr %2, i64 0, i32 26
+  %enc_method = getelementptr inbounds i8, ptr %2, i64 280
   %3 = load ptr, ptr %enc_method, align 8
   %4 = load ptr, ptr %3, align 8
   %conv = sext i32 %call to i64
@@ -404,11 +394,11 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool5.not, label %return, label %if.end19
 
 if.else:                                          ; preds = %entry
-  %enc_method9 = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 26
+  %enc_method9 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = load ptr, ptr %enc_method9, align 8
   %6 = load ptr, ptr %5, align 8
-  %client_random = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 3
-  %server_random = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 2
+  %client_random = getelementptr inbounds i8, ptr %0, i64 48
+  %server_random = getelementptr inbounds i8, ptr %0, i64 16
   %call15 = tail call i32 %6(ptr noundef nonnull %ssl, ptr noundef %out, i64 noundef 48, ptr noundef %premaster, i64 noundef %premaster_len, ptr noundef nonnull @.str.3, i64 noundef 13, ptr noundef nonnull %client_random, i64 noundef 32, ptr noundef nonnull %server_random, i64 noundef 32) #8
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %if.end19
@@ -424,9 +414,9 @@ return:                                           ; preds = %if.else, %if.end, %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SSL_export_keying_material(ptr noundef %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef %label, i64 noundef %label_len, ptr nocapture noundef readonly %context, i64 noundef %context_len, i32 noundef %use_context) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %have_version = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 4
+  %have_version = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load i8, ptr %have_version, align 8
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -463,10 +453,10 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end10:                                         ; preds = %if.end7
-  %client_random = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 3
+  %client_random = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %client_random, i64 32, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 32
-  %server_random = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 2
+  %server_random = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %server_random, i64 32, i1 false)
   br i1 %tobool1.not, label %if.end20, label %if.then15
 
@@ -483,13 +473,13 @@ if.then15:                                        ; preds = %if.end10
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then15, %if.end10
-  %enc_method = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 26
+  %enc_method = getelementptr inbounds i8, ptr %0, i64 280
   %3 = load ptr, ptr %enc_method, align 8
   %4 = load ptr, ptr %3, align 8
-  %session = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 25
+  %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %5 = load ptr, ptr %session, align 8
-  %master_key = getelementptr inbounds %struct.ssl_session_st, ptr %5, i64 0, i32 4
-  %master_key_length = getelementptr inbounds %struct.ssl_session_st, ptr %5, i64 0, i32 3
+  %master_key = getelementptr inbounds i8, ptr %5, i64 16
+  %master_key_length = getelementptr inbounds i8, ptr %5, i64 12
   %6 = load i32, ptr %master_key_length, align 4
   %conv24 = sext i32 %6 to i64
   %call25 = tail call i32 %4(ptr noundef nonnull %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef nonnull %master_key, i64 noundef %conv24, ptr noundef %label, i64 noundef %label_len, ptr noundef nonnull %call, i64 noundef %seed_len.0, ptr noundef null, i64 noundef 0) #8
@@ -551,15 +541,15 @@ entry:
 if.end2:                                          ; preds = %entry
   %tobool.not = icmp eq i32 %from_server, 0
   %spec.select = select i1 %tobool.not, ptr @.str.4, ptr @.str.5
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %enc_method = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 26
+  %enc_method = getelementptr inbounds i8, ptr %0, i64 280
   %1 = load ptr, ptr %enc_method, align 8
   %2 = load ptr, ptr %1, align 8
-  %session = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 25
+  %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %3 = load ptr, ptr %session, align 8
-  %master_key = getelementptr inbounds %struct.ssl_session_st, ptr %3, i64 0, i32 4
-  %master_key_length = getelementptr inbounds %struct.ssl_session_st, ptr %3, i64 0, i32 3
+  %master_key = getelementptr inbounds i8, ptr %3, i64 16
+  %master_key_length = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i32, ptr %master_key_length, align 4
   %conv = sext i32 %4 to i64
   %conv6 = zext nneg i32 %call to i64
@@ -579,23 +569,23 @@ entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %ret = alloca i32, align 4
   %cmp = icmp eq i32 %md_nid, 4
-  %s3 = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 14
+  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %handshake_md5 = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 17
+  %handshake_md5 = getelementptr inbounds i8, ptr %0, i64 208
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %handshake_hash = getelementptr inbounds %struct.ssl3_state_st, ptr %0, i64 0, i32 16
+  %handshake_hash = getelementptr inbounds i8, ptr %0, i64 176
   %call = tail call i32 @EVP_MD_CTX_type(ptr noundef nonnull %handshake_hash) #8
   %cmp2 = icmp eq i32 %call, %md_nid
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else
   %1 = load ptr, ptr %s3, align 8
-  %handshake_hash5 = getelementptr inbounds %struct.ssl3_state_st, ptr %1, i64 0, i32 16
+  %handshake_hash5 = getelementptr inbounds i8, ptr %1, i64 176
   br label %if.end7
 
 if.else6:                                         ; preds = %if.else

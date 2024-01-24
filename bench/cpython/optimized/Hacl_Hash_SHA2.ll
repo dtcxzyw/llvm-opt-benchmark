@@ -7,12 +7,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @Hacl_SHA2_Scalar32_sha256_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %hash, align 4
-  %arrayidx29 = getelementptr i32, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29, align 4
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha256_update_nblocks(i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #1 {
 entry:
   %cmp4.not = icmp ult i32 %len, 64
@@ -36,7 +36,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @sha256_update(ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) unnamed_addr #2 {
 entry:
   %hash_old.sroa.0.0.copyload = load i32, ptr %hash, align 4
@@ -55,52 +55,52 @@ entry:
   %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 28
   %hash_old.sroa.9.0.copyload = load i32, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 4
   %b.val = load i32, ptr %b, align 1
-  %or7.i = tail call i32 @llvm.bswap.i32(i32 %b.val)
+  %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %b.val)
   %add.ptr = getelementptr i8, ptr %b, i64 4
   %add.ptr.val = load i32, ptr %add.ptr, align 1
-  %or7.i3774 = tail call i32 @llvm.bswap.i32(i32 %add.ptr.val)
+  %or7.i3774 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr.val)
   %add.ptr5 = getelementptr i8, ptr %b, i64 8
   %add.ptr5.val = load i32, ptr %add.ptr5, align 1
-  %or7.i3775 = tail call i32 @llvm.bswap.i32(i32 %add.ptr5.val)
+  %or7.i3775 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr5.val)
   %add.ptr9 = getelementptr i8, ptr %b, i64 12
   %add.ptr9.val = load i32, ptr %add.ptr9, align 1
-  %or7.i3776 = tail call i32 @llvm.bswap.i32(i32 %add.ptr9.val)
+  %or7.i3776 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr9.val)
   %add.ptr13 = getelementptr i8, ptr %b, i64 16
   %add.ptr13.val = load i32, ptr %add.ptr13, align 1
-  %or7.i3777 = tail call i32 @llvm.bswap.i32(i32 %add.ptr13.val)
+  %or7.i3777 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr13.val)
   %add.ptr17 = getelementptr i8, ptr %b, i64 20
   %add.ptr17.val = load i32, ptr %add.ptr17, align 1
-  %or7.i3778 = tail call i32 @llvm.bswap.i32(i32 %add.ptr17.val)
+  %or7.i3778 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr17.val)
   %add.ptr21 = getelementptr i8, ptr %b, i64 24
   %add.ptr21.val = load i32, ptr %add.ptr21, align 1
-  %or7.i3779 = tail call i32 @llvm.bswap.i32(i32 %add.ptr21.val)
+  %or7.i3779 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr21.val)
   %add.ptr25 = getelementptr i8, ptr %b, i64 28
   %add.ptr25.val = load i32, ptr %add.ptr25, align 1
-  %or7.i3780 = tail call i32 @llvm.bswap.i32(i32 %add.ptr25.val)
+  %or7.i3780 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr25.val)
   %add.ptr29 = getelementptr i8, ptr %b, i64 32
   %add.ptr29.val = load i32, ptr %add.ptr29, align 1
-  %or7.i3781 = tail call i32 @llvm.bswap.i32(i32 %add.ptr29.val)
+  %or7.i3781 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr29.val)
   %add.ptr33 = getelementptr i8, ptr %b, i64 36
   %add.ptr33.val = load i32, ptr %add.ptr33, align 1
-  %or7.i3782 = tail call i32 @llvm.bswap.i32(i32 %add.ptr33.val)
+  %or7.i3782 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr33.val)
   %add.ptr37 = getelementptr i8, ptr %b, i64 40
   %add.ptr37.val = load i32, ptr %add.ptr37, align 1
-  %or7.i3783 = tail call i32 @llvm.bswap.i32(i32 %add.ptr37.val)
+  %or7.i3783 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr37.val)
   %add.ptr41 = getelementptr i8, ptr %b, i64 44
   %add.ptr41.val = load i32, ptr %add.ptr41, align 1
-  %or7.i3784 = tail call i32 @llvm.bswap.i32(i32 %add.ptr41.val)
+  %or7.i3784 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr41.val)
   %add.ptr45 = getelementptr i8, ptr %b, i64 48
   %add.ptr45.val = load i32, ptr %add.ptr45, align 1
-  %or7.i3785 = tail call i32 @llvm.bswap.i32(i32 %add.ptr45.val)
+  %or7.i3785 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr45.val)
   %add.ptr49 = getelementptr i8, ptr %b, i64 52
   %add.ptr49.val = load i32, ptr %add.ptr49, align 1
-  %or7.i3786 = tail call i32 @llvm.bswap.i32(i32 %add.ptr49.val)
+  %or7.i3786 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr49.val)
   %add.ptr53 = getelementptr i8, ptr %b, i64 56
   %add.ptr53.val = load i32, ptr %add.ptr53, align 1
-  %or7.i3787 = tail call i32 @llvm.bswap.i32(i32 %add.ptr53.val)
+  %or7.i3787 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr53.val)
   %add.ptr57 = getelementptr i8, ptr %b, i64 60
   %add.ptr57.val = load i32, ptr %add.ptr57, align 1
-  %or7.i3788 = tail call i32 @llvm.bswap.i32(i32 %add.ptr57.val)
+  %or7.i3788 = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr57.val)
   %or = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.6.0.copyload, i32 %hash_old.sroa.6.0.copyload, i32 26)
   %or75 = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.6.0.copyload, i32 %hash_old.sroa.6.0.copyload, i32 21)
   %or78 = tail call i32 @llvm.fshl.i32(i32 %hash_old.sroa.6.0.copyload, i32 %hash_old.sroa.6.0.copyload, i32 7)
@@ -2344,7 +2344,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha256_update_last(i64 noundef %totlen, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) local_unnamed_addr #2 {
 entry:
   %last = alloca [128 x i8], align 16
@@ -2352,7 +2352,7 @@ entry:
   %cmp = icmp ult i32 %0, -65
   %. = select i1 %cmp, i64 128, i64 64
   %shl = shl i64 %totlen, 3
-  %or19.i = tail call i64 @llvm.bswap.i64(i64 %shl)
+  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl)
   %conv = zext i32 %len to i64
   %1 = icmp ugt i32 %len, 127
   %2 = sub nsw i64 128, %conv
@@ -2383,10 +2383,10 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha256_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly %h) local_unnamed_addr #2 {
 entry:
-  %arrayidx30 = getelementptr i32, ptr %st, i64 4
+  %arrayidx30 = getelementptr i8, ptr %st, i64 16
   %0 = load <4 x i32>, ptr %st, align 4
   %1 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %0)
   %hbuf.sroa.6.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 16
@@ -2401,12 +2401,12 @@ entry:
 define hidden void @Hacl_SHA2_Scalar32_sha224_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %hash, align 4
-  %arrayidx29 = getelementptr i32, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha224_update_last(i64 noundef %totlen, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #2 {
 entry:
   %last.i = alloca [128 x i8], align 16
@@ -2415,7 +2415,7 @@ entry:
   %cmp.i = icmp ult i32 %0, -65
   %..i = select i1 %cmp.i, i64 128, i64 64
   %shl.i = shl i64 %totlen, 3
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
   %conv.i = zext i32 %len to i64
   %1 = icmp ugt i32 %len, 127
   %2 = sub nsw i64 128, %conv.i
@@ -2440,18 +2440,18 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha224_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly %h) local_unnamed_addr #2 {
 entry:
-  %arrayidx30 = getelementptr i32, ptr %st, i64 4
+  %arrayidx30 = getelementptr i8, ptr %st, i64 16
   %0 = load i32, ptr %arrayidx30, align 4
-  %or7.i34 = tail call i32 @llvm.bswap.i32(i32 %0)
-  %arrayidx38 = getelementptr i32, ptr %st, i64 5
+  %or7.i34 = tail call noundef i32 @llvm.bswap.i32(i32 %0)
+  %arrayidx38 = getelementptr i8, ptr %st, i64 20
   %1 = load i32, ptr %arrayidx38, align 4
-  %or7.i35 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %arrayidx46 = getelementptr i32, ptr %st, i64 6
+  %or7.i35 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
+  %arrayidx46 = getelementptr i8, ptr %st, i64 24
   %2 = load i32, ptr %arrayidx46, align 4
-  %or7.i36 = tail call i32 @llvm.bswap.i32(i32 %2)
+  %or7.i36 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   %3 = load <4 x i32>, ptr %st, align 4
   %4 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %3)
   store <4 x i32> %4, ptr %h, align 1
@@ -2468,24 +2468,24 @@ entry:
 define hidden void @python_hashlib_Hacl_SHA2_Scalar32_sha512_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store i64 7640891576956012808, ptr %hash, align 8
-  %arrayidx8 = getelementptr i64, ptr %hash, i64 1
+  %arrayidx8 = getelementptr i8, ptr %hash, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8, align 8
-  %arrayidx15 = getelementptr i64, ptr %hash, i64 2
+  %arrayidx15 = getelementptr i8, ptr %hash, i64 16
   store i64 4354685564936845355, ptr %arrayidx15, align 8
-  %arrayidx22 = getelementptr i64, ptr %hash, i64 3
+  %arrayidx22 = getelementptr i8, ptr %hash, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22, align 8
-  %arrayidx29 = getelementptr i64, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 32
   store i64 5840696475078001361, ptr %arrayidx29, align 8
-  %arrayidx36 = getelementptr i64, ptr %hash, i64 5
+  %arrayidx36 = getelementptr i8, ptr %hash, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36, align 8
-  %arrayidx43 = getelementptr i64, ptr %hash, i64 6
+  %arrayidx43 = getelementptr i8, ptr %hash, i64 48
   store i64 2270897969802886507, ptr %arrayidx43, align 8
-  %arrayidx50 = getelementptr i64, ptr %hash, i64 7
+  %arrayidx50 = getelementptr i8, ptr %hash, i64 56
   store i64 6620516959819538809, ptr %arrayidx50, align 8
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha512_update_nblocks(i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #1 {
 entry:
   %cmp4.not = icmp ult i32 %len, 128
@@ -2509,7 +2509,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @sha512_update(ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) unnamed_addr #2 {
 entry:
   %hash_old.sroa.0.0.copyload = load i64, ptr %hash, align 8
@@ -2528,52 +2528,52 @@ entry:
   %hash_old.sroa.9.0.hash.sroa_idx = getelementptr inbounds i8, ptr %hash, i64 56
   %hash_old.sroa.9.0.copyload = load i64, ptr %hash_old.sroa.9.0.hash.sroa_idx, align 8
   %b.val = load i64, ptr %b, align 1
-  %or19.i = tail call i64 @llvm.bswap.i64(i64 %b.val)
+  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %b.val)
   %add.ptr = getelementptr i8, ptr %b, i64 8
   %add.ptr.val = load i64, ptr %add.ptr, align 1
-  %or19.i4702 = tail call i64 @llvm.bswap.i64(i64 %add.ptr.val)
+  %or19.i4702 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr.val)
   %add.ptr5 = getelementptr i8, ptr %b, i64 16
   %add.ptr5.val = load i64, ptr %add.ptr5, align 1
-  %or19.i4703 = tail call i64 @llvm.bswap.i64(i64 %add.ptr5.val)
+  %or19.i4703 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr5.val)
   %add.ptr9 = getelementptr i8, ptr %b, i64 24
   %add.ptr9.val = load i64, ptr %add.ptr9, align 1
-  %or19.i4704 = tail call i64 @llvm.bswap.i64(i64 %add.ptr9.val)
+  %or19.i4704 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr9.val)
   %add.ptr13 = getelementptr i8, ptr %b, i64 32
   %add.ptr13.val = load i64, ptr %add.ptr13, align 1
-  %or19.i4705 = tail call i64 @llvm.bswap.i64(i64 %add.ptr13.val)
+  %or19.i4705 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr13.val)
   %add.ptr17 = getelementptr i8, ptr %b, i64 40
   %add.ptr17.val = load i64, ptr %add.ptr17, align 1
-  %or19.i4706 = tail call i64 @llvm.bswap.i64(i64 %add.ptr17.val)
+  %or19.i4706 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr17.val)
   %add.ptr21 = getelementptr i8, ptr %b, i64 48
   %add.ptr21.val = load i64, ptr %add.ptr21, align 1
-  %or19.i4707 = tail call i64 @llvm.bswap.i64(i64 %add.ptr21.val)
+  %or19.i4707 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr21.val)
   %add.ptr25 = getelementptr i8, ptr %b, i64 56
   %add.ptr25.val = load i64, ptr %add.ptr25, align 1
-  %or19.i4708 = tail call i64 @llvm.bswap.i64(i64 %add.ptr25.val)
+  %or19.i4708 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr25.val)
   %add.ptr29 = getelementptr i8, ptr %b, i64 64
   %add.ptr29.val = load i64, ptr %add.ptr29, align 1
-  %or19.i4709 = tail call i64 @llvm.bswap.i64(i64 %add.ptr29.val)
+  %or19.i4709 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr29.val)
   %add.ptr33 = getelementptr i8, ptr %b, i64 72
   %add.ptr33.val = load i64, ptr %add.ptr33, align 1
-  %or19.i4710 = tail call i64 @llvm.bswap.i64(i64 %add.ptr33.val)
+  %or19.i4710 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr33.val)
   %add.ptr37 = getelementptr i8, ptr %b, i64 80
   %add.ptr37.val = load i64, ptr %add.ptr37, align 1
-  %or19.i4711 = tail call i64 @llvm.bswap.i64(i64 %add.ptr37.val)
+  %or19.i4711 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr37.val)
   %add.ptr41 = getelementptr i8, ptr %b, i64 88
   %add.ptr41.val = load i64, ptr %add.ptr41, align 1
-  %or19.i4712 = tail call i64 @llvm.bswap.i64(i64 %add.ptr41.val)
+  %or19.i4712 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr41.val)
   %add.ptr45 = getelementptr i8, ptr %b, i64 96
   %add.ptr45.val = load i64, ptr %add.ptr45, align 1
-  %or19.i4713 = tail call i64 @llvm.bswap.i64(i64 %add.ptr45.val)
+  %or19.i4713 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr45.val)
   %add.ptr49 = getelementptr i8, ptr %b, i64 104
   %add.ptr49.val = load i64, ptr %add.ptr49, align 1
-  %or19.i4714 = tail call i64 @llvm.bswap.i64(i64 %add.ptr49.val)
+  %or19.i4714 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr49.val)
   %add.ptr53 = getelementptr i8, ptr %b, i64 112
   %add.ptr53.val = load i64, ptr %add.ptr53, align 1
-  %or19.i4715 = tail call i64 @llvm.bswap.i64(i64 %add.ptr53.val)
+  %or19.i4715 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr53.val)
   %add.ptr57 = getelementptr i8, ptr %b, i64 120
   %add.ptr57.val = load i64, ptr %add.ptr57, align 1
-  %or19.i4716 = tail call i64 @llvm.bswap.i64(i64 %add.ptr57.val)
+  %or19.i4716 = tail call noundef i64 @llvm.bswap.i64(i64 %add.ptr57.val)
   %or = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.6.0.copyload, i64 %hash_old.sroa.6.0.copyload, i64 50)
   %or75 = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.6.0.copyload, i64 %hash_old.sroa.6.0.copyload, i64 46)
   %or78 = tail call i64 @llvm.fshl.i64(i64 %hash_old.sroa.6.0.copyload, i64 %hash_old.sroa.6.0.copyload, i64 23)
@@ -5425,17 +5425,17 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha512_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %hash) local_unnamed_addr #2 {
 entry:
   %last = alloca [256 x i8], align 16
   %0 = add i32 %len, -112
   %cmp = icmp ult i32 %0, -129
   %. = select i1 %cmp, i64 256, i64 128
-  %add.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
+  %add.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
   %shl.i.i = shl i64 %totlen.coerce0, 3
-  %or19.i.i.i = tail call i64 @llvm.bswap.i64(i64 %add.i.i.i.i)
-  %or19.i3.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i)
+  %or19.i3.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
   %conv = zext i32 %len to i64
   %1 = icmp ugt i32 %len, 255
   %2 = sub nsw i64 256, %conv
@@ -5462,32 +5462,32 @@ if.end13:                                         ; preds = %if.then12, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha512_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly %h) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %st, align 8
-  %or19.i = tail call i64 @llvm.bswap.i64(i64 %0)
-  %arrayidx6 = getelementptr i64, ptr %st, i64 1
+  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
+  %arrayidx6 = getelementptr i8, ptr %st, i64 8
   %1 = load i64, ptr %arrayidx6, align 8
-  %or19.i31 = tail call i64 @llvm.bswap.i64(i64 %1)
-  %arrayidx14 = getelementptr i64, ptr %st, i64 2
+  %or19.i31 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
+  %arrayidx14 = getelementptr i8, ptr %st, i64 16
   %2 = load i64, ptr %arrayidx14, align 8
-  %or19.i32 = tail call i64 @llvm.bswap.i64(i64 %2)
-  %arrayidx22 = getelementptr i64, ptr %st, i64 3
+  %or19.i32 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
+  %arrayidx22 = getelementptr i8, ptr %st, i64 24
   %3 = load i64, ptr %arrayidx22, align 8
-  %or19.i33 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx30 = getelementptr i64, ptr %st, i64 4
+  %or19.i33 = tail call noundef i64 @llvm.bswap.i64(i64 %3)
+  %arrayidx30 = getelementptr i8, ptr %st, i64 32
   %4 = load i64, ptr %arrayidx30, align 8
-  %or19.i34 = tail call i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx38 = getelementptr i64, ptr %st, i64 5
+  %or19.i34 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
+  %arrayidx38 = getelementptr i8, ptr %st, i64 40
   %5 = load i64, ptr %arrayidx38, align 8
-  %or19.i35 = tail call i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx46 = getelementptr i64, ptr %st, i64 6
+  %or19.i35 = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %arrayidx46 = getelementptr i8, ptr %st, i64 48
   %6 = load i64, ptr %arrayidx46, align 8
-  %or19.i36 = tail call i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx54 = getelementptr i64, ptr %st, i64 7
+  %or19.i36 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %arrayidx54 = getelementptr i8, ptr %st, i64 56
   %7 = load i64, ptr %arrayidx54, align 8
-  %or19.i37 = tail call i64 @llvm.bswap.i64(i64 %7)
+  %or19.i37 = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   store i64 %or19.i, ptr %h, align 1
   %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 8
   store i64 %or19.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
@@ -5510,24 +5510,24 @@ entry:
 define hidden void @Hacl_SHA2_Scalar32_sha384_init(ptr nocapture noundef writeonly %hash) local_unnamed_addr #0 {
 entry:
   store i64 -3766243637369397544, ptr %hash, align 8
-  %arrayidx8 = getelementptr i64, ptr %hash, i64 1
+  %arrayidx8 = getelementptr i8, ptr %hash, i64 8
   store i64 7105036623409894663, ptr %arrayidx8, align 8
-  %arrayidx15 = getelementptr i64, ptr %hash, i64 2
+  %arrayidx15 = getelementptr i8, ptr %hash, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15, align 8
-  %arrayidx22 = getelementptr i64, ptr %hash, i64 3
+  %arrayidx22 = getelementptr i8, ptr %hash, i64 24
   store i64 1526699215303891257, ptr %arrayidx22, align 8
-  %arrayidx29 = getelementptr i64, ptr %hash, i64 4
+  %arrayidx29 = getelementptr i8, ptr %hash, i64 32
   store i64 7436329637833083697, ptr %arrayidx29, align 8
-  %arrayidx36 = getelementptr i64, ptr %hash, i64 5
+  %arrayidx36 = getelementptr i8, ptr %hash, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36, align 8
-  %arrayidx43 = getelementptr i64, ptr %hash, i64 6
+  %arrayidx43 = getelementptr i8, ptr %hash, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43, align 8
-  %arrayidx50 = getelementptr i64, ptr %hash, i64 7
+  %arrayidx50 = getelementptr i8, ptr %hash, i64 56
   store i64 5167115440072839076, ptr %arrayidx50, align 8
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha384_update_nblocks(i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #1 {
 entry:
   %cmp4.not.i = icmp ult i32 %len, 128
@@ -5551,7 +5551,7 @@ Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha384_update_last(i64 %totlen.coerce0, i64 %totlen.coerce1, i32 noundef %len, ptr nocapture noundef readonly %b, ptr nocapture noundef %st) local_unnamed_addr #2 {
 entry:
   %last.i = alloca [256 x i8], align 16
@@ -5559,10 +5559,10 @@ entry:
   %0 = add i32 %len, -112
   %cmp.i = icmp ult i32 %0, -129
   %..i = select i1 %cmp.i, i64 256, i64 128
-  %add.i.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
+  %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %totlen.coerce1, i64 %totlen.coerce0, i64 3)
   %shl.i.i.i = shl i64 %totlen.coerce0, 3
-  %or19.i.i.i.i = tail call i64 @llvm.bswap.i64(i64 %add.i.i.i.i.i)
-  %or19.i3.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i.i)
+  %or19.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %add.i.i.i.i.i)
+  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
   %conv.i = zext i32 %len to i64
   %1 = icmp ugt i32 %len, 255
   %2 = sub nsw i64 256, %conv.i
@@ -5589,26 +5589,26 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA2_Scalar32_sha384_finish(ptr nocapture noundef readonly %st, ptr nocapture noundef writeonly %h) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %st, align 8
-  %or19.i = tail call i64 @llvm.bswap.i64(i64 %0)
-  %arrayidx6 = getelementptr i64, ptr %st, i64 1
+  %or19.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)
+  %arrayidx6 = getelementptr i8, ptr %st, i64 8
   %1 = load i64, ptr %arrayidx6, align 8
-  %or19.i31 = tail call i64 @llvm.bswap.i64(i64 %1)
-  %arrayidx14 = getelementptr i64, ptr %st, i64 2
+  %or19.i31 = tail call noundef i64 @llvm.bswap.i64(i64 %1)
+  %arrayidx14 = getelementptr i8, ptr %st, i64 16
   %2 = load i64, ptr %arrayidx14, align 8
-  %or19.i32 = tail call i64 @llvm.bswap.i64(i64 %2)
-  %arrayidx22 = getelementptr i64, ptr %st, i64 3
+  %or19.i32 = tail call noundef i64 @llvm.bswap.i64(i64 %2)
+  %arrayidx22 = getelementptr i8, ptr %st, i64 24
   %3 = load i64, ptr %arrayidx22, align 8
-  %or19.i33 = tail call i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx30 = getelementptr i64, ptr %st, i64 4
+  %or19.i33 = tail call noundef i64 @llvm.bswap.i64(i64 %3)
+  %arrayidx30 = getelementptr i8, ptr %st, i64 32
   %4 = load i64, ptr %arrayidx30, align 8
-  %or19.i34 = tail call i64 @llvm.bswap.i64(i64 %4)
-  %arrayidx38 = getelementptr i64, ptr %st, i64 5
+  %or19.i34 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
+  %arrayidx38 = getelementptr i8, ptr %st, i64 40
   %5 = load i64, ptr %arrayidx38, align 8
-  %or19.i35 = tail call i64 @llvm.bswap.i64(i64 %5)
+  %or19.i35 = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   store i64 %or19.i, ptr %h, align 1
   %hbuf.sroa.3.0.h.sroa_idx = getelementptr inbounds i8, ptr %h, i64 8
   store i64 %or19.i31, ptr %hbuf.sroa.3.0.h.sroa_idx, align 1
@@ -5624,7 +5624,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_256() local_unnamed_addr #5 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_256() local_unnamed_addr #5 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
   %call1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #16
@@ -5635,7 +5635,7 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %call1, align 4
-  %arrayidx29.i = getelementptr i32, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29.i, align 4
   ret ptr %call4
 }
@@ -5647,7 +5647,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
@@ -5675,7 +5675,7 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %scrut.sroa.0.0.copyload, align 4
-  %arrayidx29.i = getelementptr i32, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29.i, align 4
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -5683,15 +5683,15 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
   ret i8 %call
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i8 @update_224_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i8 @update_224_256(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -5840,7 +5840,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i8 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst) local_unnamed_addr #11 {
 entry:
   %last.i = alloca [128 x i8], align 16
@@ -5872,7 +5872,7 @@ entry:
   %cmp.i = icmp ult i32 %1, -65
   %..i = select i1 %cmp.i, i64 128, i64 64
   %shl.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
   %2 = sub nuw nsw i64 128, %idx.ext
   %3 = getelementptr i8, ptr %last.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
@@ -5891,7 +5891,7 @@ if.then12.i:                                      ; preds = %entry
 
 Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i)
-  %arrayidx30.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 4
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %4 = load <4 x i32>, ptr %tmp_block_state, align 16
   %5 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %4)
   store <4 x i32> %5, ptr %dst, align 1
@@ -5917,13 +5917,13 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Streaming_SHA2_hash_256(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
 entry:
   %last.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %st, align 16
-  %arrayidx29.i = getelementptr inbounds i32, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29.i, align 16
   %rem1 = and i32 %input_len, 63
   %conv = zext i32 %input_len to i64
@@ -5954,7 +5954,7 @@ Hacl_SHA2_Scalar32_sha256_update_nblocks.exit:    ; preds = %for.body.i, %entry
   %cmp.i = icmp ult i32 %1, -65
   %..i = select i1 %cmp.i, i64 128, i64 64
   %shl.i = shl nuw nsw i64 %conv, 3
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
   %2 = sub nuw nsw i64 128, %idx.ext5
   %3 = getelementptr i8, ptr %last.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
@@ -5984,7 +5984,7 @@ Hacl_SHA2_Scalar32_sha256_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_224() local_unnamed_addr #5 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_224() local_unnamed_addr #5 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
   %call1 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 8, i64 noundef 4) #16
@@ -5995,7 +5995,7 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %call1, align 4
-  %arrayidx29.i = getelementptr i32, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29.i, align 4
   ret ptr %call4
 }
@@ -6008,7 +6008,7 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %scrut.sroa.0.0.copyload, align 4
-  %arrayidx29.i = getelementptr i32, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29.i, align 4
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -6016,14 +6016,14 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_224(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_224(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_224_256(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
   ret i8 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_224(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst) local_unnamed_addr #11 {
 entry:
   %last.i.i = alloca [128 x i8], align 16
@@ -6055,7 +6055,7 @@ entry:
   %cmp.i.i = icmp ult i32 %1, -65
   %..i.i = select i1 %cmp.i.i, i64 128, i64 64
   %shl.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
   %2 = sub nuw nsw i64 128, %idx.ext
   %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
@@ -6074,15 +6074,15 @@ if.then12.i.i:                                    ; preds = %entry
 
 Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %entry, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
-  %arrayidx30.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 4
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %4 = load i32, ptr %arrayidx30.i, align 16
-  %or7.i34.i = tail call i32 @llvm.bswap.i32(i32 %4)
-  %arrayidx38.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 5
+  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 20
   %5 = load i32, ptr %arrayidx38.i, align 4
-  %or7.i35.i = tail call i32 @llvm.bswap.i32(i32 %5)
-  %arrayidx46.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 6
+  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
+  %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
   %6 = load i32, ptr %arrayidx46.i, align 8
-  %or7.i36.i = tail call i32 @llvm.bswap.i32(i32 %6)
+  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   %7 = load <4 x i32>, ptr %tmp_block_state, align 16
   %8 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %7)
   store <4 x i32> %8, ptr %dst, align 1
@@ -6107,13 +6107,13 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Streaming_SHA2_hash_224(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
 entry:
   %last.i.i = alloca [128 x i8], align 16
   %st = alloca [8 x i32], align 16
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %st, align 16
-  %arrayidx29.i = getelementptr inbounds i32, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29.i, align 16
   %rem1 = and i32 %input_len, 63
   %conv = zext i32 %input_len to i64
@@ -6144,7 +6144,7 @@ sha224_update_nblocks.exit:                       ; preds = %for.body.i.i, %entr
   %cmp.i.i = icmp ult i32 %1, -65
   %..i.i = select i1 %cmp.i.i, i64 128, i64 64
   %shl.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
   %2 = sub nuw nsw i64 128, %idx.ext5
   %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
@@ -6162,15 +6162,15 @@ if.then12.i.i:                                    ; preds = %sha224_update_nbloc
   br label %Hacl_SHA2_Scalar32_sha224_update_last.exit
 
 Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %sha224_update_nblocks.exit, %if.then12.i.i
-  %arrayidx43.i = getelementptr inbounds i32, ptr %st, i64 6
-  %arrayidx36.i = getelementptr inbounds i32, ptr %st, i64 5
+  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 24
+  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %last.i.i)
   %4 = load i32, ptr %arrayidx29.i, align 16
-  %or7.i34.i = tail call i32 @llvm.bswap.i32(i32 %4)
+  %or7.i34.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   %5 = load i32, ptr %arrayidx36.i, align 4
-  %or7.i35.i = tail call i32 @llvm.bswap.i32(i32 %5)
+  %or7.i35.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
   %6 = load i32, ptr %arrayidx43.i, align 8
-  %or7.i36.i = tail call i32 @llvm.bswap.i32(i32 %6)
+  %or7.i36.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   %7 = load <4 x i32>, ptr %st, align 16
   %8 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %7)
   store <4 x i32> %8, ptr %dst, align 1
@@ -6184,7 +6184,7 @@ Hacl_SHA2_Scalar32_sha224_update_last.exit:       ; preds = %sha224_update_nbloc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_512() local_unnamed_addr #5 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_512() local_unnamed_addr #5 {
 entry:
   %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #16
   %call1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #16
@@ -6195,25 +6195,25 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i64 7640891576956012808, ptr %call1, align 8
-  %arrayidx8.i = getelementptr i64, ptr %call1, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %call1, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %call1, i64 16
   store i64 4354685564936845355, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %call1, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %call1, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 32
   store i64 5840696475078001361, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %call1, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %call1, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %call1, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %call1, i64 48
   store i64 2270897969802886507, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %call1, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %call1, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
   ret ptr %call4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr nocapture noundef readonly %s0) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
@@ -6241,19 +6241,19 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store i64 7640891576956012808, ptr %scrut.sroa.0.0.copyload, align 8
-  %arrayidx8.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store i64 4354685564936845355, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 32
   store i64 5840696475078001361, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 48
   store i64 2270897969802886507, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -6261,15 +6261,15 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
   ret i8 %call
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i8 @update_384_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc noundef zeroext i8 @update_384_512(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) unnamed_addr #10 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -6418,7 +6418,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i8 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst) local_unnamed_addr #11 {
 entry:
   %last.i = alloca [256 x i8], align 16
@@ -6453,10 +6453,10 @@ entry:
   %2 = add nsw i32 %r.0, -112
   %cmp.i = icmp ult i32 %2, -129
   %..i = select i1 %cmp.i, i64 256, i64 128
-  %add.i.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
+  %add.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
   %shl.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i, 56
-  %or19.i3.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i.i)
+  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
   %3 = sub nuw nsw i64 256, %idx.ext
   %4 = getelementptr i8, ptr %last.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, i8 0, i64 %3, i1 false)
@@ -6478,28 +6478,28 @@ if.then12.i:                                      ; preds = %entry
 Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %entry, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
   %5 = load i64, ptr %tmp_block_state, align 16
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx6.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 1
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
   %6 = load i64, ptr %arrayidx6.i, align 8
-  %or19.i31.i = tail call i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx14.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 2
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %7 = load i64, ptr %arrayidx14.i, align 16
-  %or19.i32.i = tail call i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx22.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 3
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
+  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
   %8 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call i64 @llvm.bswap.i64(i64 %8)
-  %arrayidx30.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 4
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
   %9 = load i64, ptr %arrayidx30.i, align 16
-  %or19.i34.i = tail call i64 @llvm.bswap.i64(i64 %9)
-  %arrayidx38.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 5
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
   %10 = load i64, ptr %arrayidx38.i, align 8
-  %or19.i35.i = tail call i64 @llvm.bswap.i64(i64 %10)
-  %arrayidx46.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 6
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
+  %arrayidx46.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 48
   %11 = load i64, ptr %arrayidx46.i, align 16
-  %or19.i36.i = tail call i64 @llvm.bswap.i64(i64 %11)
-  %arrayidx54.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 7
+  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %11)
+  %arrayidx54.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 56
   %12 = load i64, ptr %arrayidx54.i, align 8
-  %or19.i37.i = tail call i64 @llvm.bswap.i64(i64 %12)
+  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %12)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
@@ -6530,25 +6530,25 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Streaming_SHA2_hash_512(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
 entry:
   %last.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
   store i64 7640891576956012808, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i64, ptr %st, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds i64, ptr %st, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 16
   store i64 4354685564936845355, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds i64, ptr %st, i64 3
+  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 24
   store i64 -6534734903238641935, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds i64, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 32
   store i64 5840696475078001361, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i64, ptr %st, i64 5
+  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 40
   store i64 -7276294671716946913, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds i64, ptr %st, i64 6
+  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 48
   store i64 2270897969802886507, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds i64, ptr %st, i64 7
+  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
   %rem1 = and i32 %input_len, 127
   %conv = zext i32 %input_len to i64
@@ -6579,7 +6579,7 @@ Hacl_SHA2_Scalar32_sha512_update_nblocks.exit:    ; preds = %for.body.i, %entry
   %cmp.i = icmp ult i32 %1, -129
   %..i = select i1 %cmp.i, i64 256, i64 128
   %shl.i.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i3.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i.i)
+  %or19.i3.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i)
   %2 = sub nuw nsw i64 256, %idx.ext5
   %3 = getelementptr i8, ptr %last.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
@@ -6601,21 +6601,21 @@ if.then12.i:                                      ; preds = %Hacl_SHA2_Scalar32_
 Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha512_update_nblocks.exit, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i)
   %4 = load i64, ptr %st, align 16
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %4)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   %5 = load i64, ptr %arrayidx8.i, align 8
-  %or19.i31.i = tail call i64 @llvm.bswap.i64(i64 %5)
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   %6 = load i64, ptr %arrayidx15.i, align 16
-  %or19.i32.i = tail call i64 @llvm.bswap.i64(i64 %6)
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   %7 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call i64 @llvm.bswap.i64(i64 %7)
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   %8 = load i64, ptr %arrayidx29.i, align 16
-  %or19.i34.i = tail call i64 @llvm.bswap.i64(i64 %8)
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   %9 = load i64, ptr %arrayidx36.i, align 8
-  %or19.i35.i = tail call i64 @llvm.bswap.i64(i64 %9)
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
   %10 = load i64, ptr %arrayidx43.i, align 16
-  %or19.i36.i = tail call i64 @llvm.bswap.i64(i64 %10)
+  %or19.i36.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
   %11 = load i64, ptr %arrayidx50.i, align 8
-  %or19.i37.i = tail call i64 @llvm.bswap.i64(i64 %11)
+  %or19.i37.i = tail call noundef i64 @llvm.bswap.i64(i64 %11)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
@@ -6635,7 +6635,7 @@ Hacl_SHA2_Scalar32_sha512_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_384() local_unnamed_addr #5 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_384() local_unnamed_addr #5 {
 entry:
   %call = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 128, i64 noundef 1) #16
   %call1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 8, i64 noundef 8) #16
@@ -6646,19 +6646,19 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i64 -3766243637369397544, ptr %call1, align 8
-  %arrayidx8.i = getelementptr i64, ptr %call1, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %call1, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %call1, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %call1, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %call1, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %call1, i64 24
   store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %call1, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %call1, i64 32
   store i64 7436329637833083697, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %call1, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %call1, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %call1, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %call1, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %call1, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %call1, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
   ret ptr %call4
 }
@@ -6671,19 +6671,19 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store i64 -3766243637369397544, ptr %scrut.sroa.0.0.copyload, align 8
-  %arrayidx8.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 1
+  %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 2
+  %arrayidx15.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15.i, align 8
-  %arrayidx22.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 3
+  %arrayidx22.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 24
   store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 32
   store i64 7436329637833083697, ptr %arrayidx29.i, align 8
-  %arrayidx36.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 5
+  %arrayidx36.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 6
+  %arrayidx43.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 8
-  %arrayidx50.i = getelementptr i64, ptr %scrut.sroa.0.0.copyload, i64 7
+  %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -6691,14 +6691,14 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_384(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i8 @python_hashlib_Hacl_Streaming_SHA2_update_384(ptr nocapture noundef %p, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #10 {
 entry:
   %call = tail call fastcc zeroext i8 @update_384_512(ptr noundef %p, ptr noundef %input, i32 noundef %input_len), !range !7
   ret i8 %call
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_finish_384(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst) local_unnamed_addr #11 {
 entry:
   %last.i.i = alloca [256 x i8], align 16
@@ -6733,10 +6733,10 @@ entry:
   %2 = add nsw i32 %r.0, -112
   %cmp.i.i = icmp ult i32 %2, -129
   %..i.i = select i1 %cmp.i.i, i64 256, i64 128
-  %add.i.i.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
+  %add.i.i.i.i.i.i = tail call noundef i64 @llvm.fshl.i64(i64 %shr.i.i.i, i64 %scrut.sroa.3.0.copyload, i64 3)
   %shl.i.i.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
   %or19.i.i.i.i.i = shl nuw nsw i64 %add.i.i.i.i.i.i, 56
-  %or19.i3.i.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
+  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
   %3 = sub nuw nsw i64 256, %idx.ext
   %4 = getelementptr i8, ptr %last.i.i, i64 %idx.ext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4, i8 0, i64 %3, i1 false)
@@ -6758,22 +6758,22 @@ if.then12.i.i:                                    ; preds = %entry
 Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %entry, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
   %5 = load i64, ptr %tmp_block_state, align 16
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %5)
-  %arrayidx6.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 1
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
+  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
   %6 = load i64, ptr %arrayidx6.i, align 8
-  %or19.i31.i = tail call i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx14.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 2
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
+  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %7 = load i64, ptr %arrayidx14.i, align 16
-  %or19.i32.i = tail call i64 @llvm.bswap.i64(i64 %7)
-  %arrayidx22.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 3
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
+  %arrayidx22.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 24
   %8 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call i64 @llvm.bswap.i64(i64 %8)
-  %arrayidx30.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 4
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
+  %arrayidx30.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 32
   %9 = load i64, ptr %arrayidx30.i, align 16
-  %or19.i34.i = tail call i64 @llvm.bswap.i64(i64 %9)
-  %arrayidx38.i = getelementptr inbounds i64, ptr %tmp_block_state, i64 5
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 40
   %10 = load i64, ptr %arrayidx38.i, align 8
-  %or19.i35.i = tail call i64 @llvm.bswap.i64(i64 %10)
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %10)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
@@ -6800,25 +6800,25 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Streaming_SHA2_hash_384(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
 entry:
   %last.i.i = alloca [256 x i8], align 16
   %st = alloca [8 x i64], align 16
   store i64 -3766243637369397544, ptr %st, align 16
-  %arrayidx8.i = getelementptr inbounds i64, ptr %st, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %st, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
-  %arrayidx15.i = getelementptr inbounds i64, ptr %st, i64 2
+  %arrayidx15.i = getelementptr inbounds i8, ptr %st, i64 16
   store i64 -7973340178411365097, ptr %arrayidx15.i, align 16
-  %arrayidx22.i = getelementptr inbounds i64, ptr %st, i64 3
+  %arrayidx22.i = getelementptr inbounds i8, ptr %st, i64 24
   store i64 1526699215303891257, ptr %arrayidx22.i, align 8
-  %arrayidx29.i = getelementptr inbounds i64, ptr %st, i64 4
+  %arrayidx29.i = getelementptr inbounds i8, ptr %st, i64 32
   store i64 7436329637833083697, ptr %arrayidx29.i, align 16
-  %arrayidx36.i = getelementptr inbounds i64, ptr %st, i64 5
+  %arrayidx36.i = getelementptr inbounds i8, ptr %st, i64 40
   store i64 -8163818279084223215, ptr %arrayidx36.i, align 8
-  %arrayidx43.i = getelementptr inbounds i64, ptr %st, i64 6
+  %arrayidx43.i = getelementptr inbounds i8, ptr %st, i64 48
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 16
-  %arrayidx50.i = getelementptr inbounds i64, ptr %st, i64 7
+  %arrayidx50.i = getelementptr inbounds i8, ptr %st, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
   %rem1 = and i32 %input_len, 127
   %conv = zext i32 %input_len to i64
@@ -6849,7 +6849,7 @@ Hacl_SHA2_Scalar32_sha384_update_nblocks.exit:    ; preds = %for.body.i.i, %entr
   %cmp.i.i = icmp ult i32 %1, -129
   %..i.i = select i1 %cmp.i.i, i64 256, i64 128
   %shl.i.i.i.i = shl nuw nsw i64 %conv, 3
-  %or19.i3.i.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
+  %or19.i3.i.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i.i.i)
   %2 = sub nuw nsw i64 256, %idx.ext5
   %3 = getelementptr i8, ptr %last.i.i, i64 %idx.ext5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
@@ -6871,17 +6871,17 @@ if.then12.i.i:                                    ; preds = %Hacl_SHA2_Scalar32_
 Hacl_SHA2_Scalar32_sha384_update_last.exit:       ; preds = %Hacl_SHA2_Scalar32_sha384_update_nblocks.exit, %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %last.i.i)
   %4 = load i64, ptr %st, align 16
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %4)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %4)
   %5 = load i64, ptr %arrayidx8.i, align 8
-  %or19.i31.i = tail call i64 @llvm.bswap.i64(i64 %5)
+  %or19.i31.i = tail call noundef i64 @llvm.bswap.i64(i64 %5)
   %6 = load i64, ptr %arrayidx15.i, align 16
-  %or19.i32.i = tail call i64 @llvm.bswap.i64(i64 %6)
+  %or19.i32.i = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   %7 = load i64, ptr %arrayidx22.i, align 8
-  %or19.i33.i = tail call i64 @llvm.bswap.i64(i64 %7)
+  %or19.i33.i = tail call noundef i64 @llvm.bswap.i64(i64 %7)
   %8 = load i64, ptr %arrayidx29.i, align 16
-  %or19.i34.i = tail call i64 @llvm.bswap.i64(i64 %8)
+  %or19.i34.i = tail call noundef i64 @llvm.bswap.i64(i64 %8)
   %9 = load i64, ptr %arrayidx36.i, align 8
-  %or19.i35.i = tail call i64 @llvm.bswap.i64(i64 %9)
+  %or19.i35.i = tail call noundef i64 @llvm.bswap.i64(i64 %9)
   store i64 %or19.i.i, ptr %dst, align 1
   %hbuf.sroa.3.0.h.sroa_idx.i = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %or19.i31.i, ptr %hbuf.sroa.3.0.h.sroa_idx.i, align 1
@@ -6918,8 +6918,8 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6927,8 +6927,8 @@ attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

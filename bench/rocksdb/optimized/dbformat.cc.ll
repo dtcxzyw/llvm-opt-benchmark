@@ -8,9 +8,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"struct.rocksdb::PerfContext" = type <{ %"struct.rocksdb::PerfContextBase", ptr, i8, [7 x i8] }>
 %"struct.rocksdb::PerfContextBase" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%"class.rocksdb::Slice" = type { ptr, i64 }
-%"struct.rocksdb::ParsedInternalKey" = type <{ %"class.rocksdb::Slice", i64, i8, [7 x i8] }>
 %"class.std::allocator" = type { i8 }
+%"struct.rocksdb::ParsedInternalKey" = type <{ %"class.rocksdb::Slice", i64, i8, [7 x i8] }>
+%"class.rocksdb::Slice" = type { ptr, i64 }
 %"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -18,11 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.rocksdb::InternalKeyComparator" = type { %"class.rocksdb::CompareInterface", %"class.rocksdb::UserComparatorWrapper" }
-%"class.rocksdb::CompareInterface" = type { ptr }
-%"class.rocksdb::UserComparatorWrapper" = type { ptr }
-%"class.rocksdb::LookupKey" = type { ptr, ptr, ptr, [200 x i8] }
-%"class.rocksdb::IterKey" = type { ptr, ptr, i64, i64, [39 x i8], i8 }
 %struct._Guard = type { ptr }
 
 $_ZN7rocksdb16ParseInternalKeyERKNS_5SliceEPNS_17ParsedInternalKeyEb = comdat any
@@ -119,12 +114,12 @@ define void @_ZN7rocksdb17AppendInternalKeyEPNSt7__cxx1112basic_stringIcSt11char
 entry:
   %value.addr.i = alloca i64, align 8
   %0 = load ptr, ptr %key, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %size_.i, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %0, i64 noundef %1)
-  %sequence = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %key, i64 0, i32 1
+  %sequence = getelementptr inbounds i8, ptr %key, i64 16
   %2 = load i64, ptr %sequence, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %key, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %key, i64 24
   %3 = load i8, ptr %type, align 8
   %shl.i = shl i64 %2, 8
   %conv.i = zext i8 %3 to i64
@@ -143,18 +138,18 @@ define void @_ZN7rocksdb39AppendInternalKeyWithDifferentTimestampEPNSt7__cxx1112
 entry:
   %value.addr.i = alloca i64, align 8
   %0 = load ptr, ptr %key, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %size_.i, align 8
-  %size_.i8 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ts, i64 0, i32 1
+  %size_.i8 = getelementptr inbounds i8, ptr %ts, i64 8
   %2 = load i64, ptr %size_.i8, align 8
   %sub = sub i64 %1, %2
   %call4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %0, i64 noundef %sub)
   %3 = load ptr, ptr %ts, align 8
   %4 = load i64, ptr %size_.i8, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %3, i64 noundef %4)
-  %sequence = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %key, i64 0, i32 1
+  %sequence = getelementptr inbounds i8, ptr %key, i64 16
   %5 = load i64, ptr %sequence, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %key, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %key, i64 24
   %6 = load i8, ptr %type, align 8
   %shl.i = shl i64 %5, 8
   %conv.i = zext i8 %6 to i64
@@ -206,7 +201,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %1 = load ptr, ptr %key, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load i64, ptr %size_.i, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %1, i64 noundef %2)
           to label %invoke.cont5 unwind label %lpad1
@@ -270,7 +265,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %1 = load ptr, ptr %key, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load i64, ptr %size_.i, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %1, i64 noundef %2)
           to label %invoke.cont5 unwind label %lpad1
@@ -309,7 +304,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad.body
 define void @_ZN7rocksdb29AppendUserKeyWithMinTimestampEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceEm(ptr noundef nonnull %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef %ts_sz) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %key, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %size_.i, align 8
   %sub = sub i64 %1, %ts_sz
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %0, i64 noundef %sub)
@@ -325,7 +320,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %key, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %size_.i, align 8
   %sub = sub i64 %1, %ts_sz
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %0, i64 noundef %sub)
@@ -389,7 +384,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb30PadInternalKeyWithMinTimestampEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceEm(ptr noundef nonnull %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef %ts_sz) local_unnamed_addr #3 {
 entry:
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i64, ptr %size_.i, align 8
   %sub = add i64 %0, -8
   %add = add i64 %0, %ts_sz
@@ -408,7 +403,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb29StripTimestampFromInternalKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceEm(ptr noundef nonnull %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef %ts_sz) local_unnamed_addr #3 {
 entry:
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i64, ptr %size_.i, align 8
   %sub = sub i64 %0, %ts_sz
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %sub)
@@ -428,7 +423,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb34ReplaceInternalKeyWithMinTimestampEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5SliceEm(ptr noundef nonnull %result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key, i64 noundef %ts_sz) local_unnamed_addr #3 {
 entry:
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i64, ptr %size_.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %0)
   %1 = load ptr, ptr %key, align 8
@@ -509,9 +504,9 @@ if.else:                                          ; preds = %invoke.cont
           to label %if.end unwind label %lpad5
 
 if.end:                                           ; preds = %if.else, %invoke.cont8
-  %sequence = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %this, i64 0, i32 1
+  %sequence = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %sequence, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %this, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %type, align 8
   %conv = zext i8 %5 to i32
   %call11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 50, ptr noundef nonnull @.str.3, i64 noundef %4, i32 noundef %conv) #16
@@ -551,15 +546,15 @@ invoke.cont:
   %ref.tmp13 = alloca %"class.rocksdb::Slice", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
   store ptr @.str, ptr %parsed, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %parsed, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store i64 0, ptr %size_.i.i, align 8
-  %sequence.i = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %parsed, i64 0, i32 1
+  %sequence.i = getelementptr inbounds i8, ptr %parsed, i64 16
   store i64 72057594037927935, ptr %sequence.i, align 8
-  %type.i = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %parsed, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %parsed, i64 24
   store i8 0, ptr %type.i, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   store ptr %call.i, ptr %ref.tmp2, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp2, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   store i64 %call2.i, ptr %size_.i, align 8
   invoke void @_ZN7rocksdb16ParseInternalKeyERKNS_5SliceEPNS_17ParsedInternalKeyEb(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull %parsed, i1 noundef zeroext false)
@@ -568,7 +563,7 @@ invoke.cont:
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = load i8, ptr %ref.tmp, align 8
   %cmp.i = icmp eq i8 %0, 0
-  %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp, i64 0, i32 6
+  %state_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -601,7 +596,7 @@ if.else:                                          ; preds = %_ZN7rocksdb6StatusD
 invoke.cont10:                                    ; preds = %if.else
   %call.i6 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   store ptr %call.i6, ptr %ref.tmp13, align 8
-  %size_.i7 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp13, i64 0, i32 1
+  %size_.i7 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %call2.i8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   store i64 %call2.i8, ptr %size_.i7, align 8
   invoke void @_ZN7rocksdb12EscapeStringB5cxx11ERKNS_5SliceE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
@@ -642,7 +637,7 @@ entry:
   %ref.tmp20 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp21 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %internal_key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %internal_key, i64 8
   %0 = load i64, ptr %size_.i, align 8
   %cmp = icmp ult i64 %0, 8
   br i1 %cmp, label %if.then, label %if.end
@@ -661,11 +656,11 @@ invoke.cont5:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %call.i15) #16
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #16
   store ptr %call.i, ptr %ref.tmp, align 8
-  %size_.i16 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i16 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #16
   store i64 %call2.i, ptr %size_.i16, align 8
   store ptr @.str, ptr %ref.tmp8, align 8
-  %size_.i17 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp8, i64 0, i32 1
+  %size_.i17 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store i64 0, ptr %size_.i17, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8, i8 noundef zeroext 0)
           to label %invoke.cont10 unwind label %lpad6
@@ -704,9 +699,9 @@ if.end:                                           ; preds = %entry
   %result.0.copyload.i = load i64, ptr %add.ptr13, align 1
   %conv = trunc i64 %result.0.copyload.i to i8
   %shr = lshr i64 %result.0.copyload.i, 8
-  %sequence = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %result, i64 0, i32 1
+  %sequence = getelementptr inbounds i8, ptr %result, i64 16
   store i64 %shr, ptr %sequence, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %result, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %result, i64 24
   store i8 %conv, ptr %type, align 8
   %5 = load ptr, ptr %internal_key, align 8
   %sub = add i64 %0, -8
@@ -726,19 +721,19 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then19:                                        ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   br label %return
 
 if.else:                                          ; preds = %if.end
   store ptr @.str.7, ptr %ref.tmp20, align 8
-  %size_.i20 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp20, i64 0, i32 1
+  %size_.i20 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   store i64 13, ptr %size_.i20, align 8
   call void @_ZNK7rocksdb17ParsedInternalKey11DebugStringB5cxx11Ebb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(25) %result, i1 noundef zeroext %log_err_key, i1 noundef zeroext true)
   %call.i21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #16
   store ptr %call.i21, ptr %ref.tmp21, align 8
-  %size_.i22 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp21, i64 0, i32 1
+  %size_.i22 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   %call2.i23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #16
   store i64 %call2.i23, ptr %size_.i22, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21, i8 noundef zeroext 0)
@@ -773,7 +768,7 @@ declare void @_ZN7rocksdb12EscapeStringB5cxx11ERKNS_5SliceE(ptr sret(%"class.std
 ; Function Attrs: uwtable
 define noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInternalKeyES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(25) %a, ptr noundef nonnull align 8 dereferenceable(25) %b) local_unnamed_addr #6 align 2 {
 entry:
-  %user_comparator_ = getelementptr inbounds %"class.rocksdb::InternalKeyComparator", ptr %this, i64 0, i32 1
+  %user_comparator_ = getelementptr inbounds i8, ptr %this, i64 8
   br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %0, label %_ZTWN7rocksdb10perf_levelE.exit.i
 
 0:                                                ; preds = %entry
@@ -804,16 +799,16 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit: ; preds = %_ZT
   %6 = load ptr, ptr %user_comparator_, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 32
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b)
   %cmp = icmp eq i32 %call.i, 0
   br i1 %cmp, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit
-  %sequence = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %a, i64 0, i32 1
+  %sequence = getelementptr inbounds i8, ptr %a, i64 16
   %8 = load i64, ptr %sequence, align 8
-  %sequence3 = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %b, i64 0, i32 1
+  %sequence3 = getelementptr inbounds i8, ptr %b, i64 16
   %9 = load i64, ptr %sequence3, align 8
   %cmp4 = icmp ugt i64 %8, %9
   br i1 %cmp4, label %if.end25, label %if.else
@@ -823,9 +818,9 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp8, label %if.end25, label %if.else10
 
 if.else10:                                        ; preds = %if.else
-  %type = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %a, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %a, i64 24
   %10 = load i8, ptr %type, align 8
-  %type11 = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %b, i64 0, i32 2
+  %type11 = getelementptr inbounds i8, ptr %b, i64 24
   %11 = load i8, ptr %type11, align 8
   %cmp13 = icmp ugt i8 %10, %11
   br i1 %cmp13, label %if.end25, label %if.else15
@@ -844,13 +839,13 @@ if.end25:                                         ; preds = %if.else15, %if.else
 define noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceERKNS_17ParsedInternalKeyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(25) %b) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8
-  %user_comparator_ = getelementptr inbounds %"class.rocksdb::InternalKeyComparator", ptr %this, i64 0, i32 1
+  %user_comparator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %a, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %a, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i64, ptr %size_.i.i, align 8
   %sub.i = add i64 %1, -8
   store ptr %0, ptr %ref.tmp, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %sub.i, ptr %2, align 8
   br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %3, label %_ZTWN7rocksdb10perf_levelE.exit.i
 
@@ -882,7 +877,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit: ; preds = %_ZT
   %9 = load ptr, ptr %user_comparator_, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 32
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %b)
   %cmp = icmp eq i32 %call.i, 0
@@ -894,10 +889,10 @@ if.then:                                          ; preds = %_ZNK7rocksdb21UserC
   %add.ptr = getelementptr inbounds i8, ptr %11, i64 %12
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   %result.0.copyload.i = load i64, ptr %add.ptr5, align 1
-  %sequence = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %b, i64 0, i32 1
+  %sequence = getelementptr inbounds i8, ptr %b, i64 16
   %13 = load i64, ptr %sequence, align 8
   %shl = shl i64 %13, 8
-  %type = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %b, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %b, i64 24
   %14 = load i8, ptr %type, align 8
   %conv = zext i8 %14 to i64
   %or = or disjoint i64 %shl, %conv
@@ -919,13 +914,13 @@ define noundef i32 @_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_17ParsedInt
 entry:
   %ref.tmp.i = alloca %"class.rocksdb::Slice", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %user_comparator_.i = getelementptr inbounds %"class.rocksdb::InternalKeyComparator", ptr %this, i64 0, i32 1
+  %user_comparator_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %b, align 8
-  %size_.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %b, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %size_.i.i.i, align 8
   %sub.i.i = add i64 %1, -8
   store ptr %0, ptr %ref.tmp.i, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %sub.i.i, ptr %2, align 8
   br i1 icmp ne (ptr @_ZTHN7rocksdb10perf_levelE, ptr null), label %3, label %_ZTWN7rocksdb10perf_levelE.exit.i.i
 
@@ -957,7 +952,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i: ; preds = %_
   %9 = load ptr, ptr %user_comparator_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %vtable.i.i = load ptr, ptr %add.ptr.i.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %a)
   %cmp.i = icmp eq i32 %call.i.i, 0
@@ -969,10 +964,10 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21UserC
   %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %12
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
   %result.0.copyload.i.i = load i64, ptr %add.ptr5.i, align 1
-  %sequence.i = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %a, i64 0, i32 1
+  %sequence.i = getelementptr inbounds i8, ptr %a, i64 16
   %13 = load i64, ptr %sequence.i, align 8
   %shl.i = shl i64 %13, 8
-  %type.i = getelementptr inbounds %"struct.rocksdb::ParsedInternalKey", ptr %a, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %a, i64 24
   %14 = load i8, ptr %type.i, align 8
   %conv.i = zext i8 %14 to i64
   %or.i = or disjoint i64 %shl.i, %conv.i
@@ -994,13 +989,13 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceERKNS_17ParsedInternalKey
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb9LookupKeyC2ERKNS_5SliceEmPS2_(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %_user_key, i64 noundef %s, ptr noundef readonly %ts) unnamed_addr #3 align 2 {
 entry:
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %_user_key, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %_user_key, i64 8
   %0 = load i64, ptr %size_.i, align 8
   %cmp = icmp eq ptr %ts, null
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %size_.i21 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ts, i64 0, i32 1
+  %size_.i21 = getelementptr inbounds i8, ptr %ts, i64 8
   %1 = load i64, ptr %size_.i21, align 8
   br label %cond.end
 
@@ -1012,7 +1007,7 @@ cond.end:                                         ; preds = %entry, %cond.false
   br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
-  %space_ = getelementptr inbounds %"class.rocksdb::LookupKey", ptr %this, i64 0, i32 3
+  %space_ = getelementptr inbounds i8, ptr %this, i64 24
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
@@ -1025,7 +1020,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %2 = trunc i64 %add to i32
   %conv = add i32 %2, 8
   %call8 = tail call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %dst.0, i32 noundef %conv)
-  %kstart_ = getelementptr inbounds %"class.rocksdb::LookupKey", ptr %this, i64 0, i32 1
+  %kstart_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call8, ptr %kstart_, align 8
   %3 = load ptr, ptr %_user_key, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8, ptr align 1 %3, i64 %0, i1 false)
@@ -1044,7 +1039,7 @@ if.end14:                                         ; preds = %if.then11, %if.end
   %or.i = or disjoint i64 %shl.i, 22
   store i64 %or.i, ptr %dst.1, align 1
   %add.ptr16 = getelementptr inbounds i8, ptr %dst.1, i64 8
-  %end_ = getelementptr inbounds %"class.rocksdb::LookupKey", ptr %this, i64 0, i32 2
+  %end_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr16, ptr %end_, align 8
   ret void
 }
@@ -1061,7 +1056,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %key_size) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %space_.i = getelementptr inbounds %"class.rocksdb::IterKey", ptr %this, i64 0, i32 4
+  %space_.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.not.i = icmp eq ptr %0, %space_.i
   br i1 %cmp.not.i, label %_ZN7rocksdb7IterKey11ResetBufferEv.exit, label %if.then.i
 
@@ -1078,9 +1073,9 @@ delete.end.i:                                     ; preds = %delete.notnull.i, %
   br label %_ZN7rocksdb7IterKey11ResetBufferEv.exit
 
 _ZN7rocksdb7IterKey11ResetBufferEv.exit:          ; preds = %entry, %delete.end.i
-  %buf_size_.i = getelementptr inbounds %"class.rocksdb::IterKey", ptr %this, i64 0, i32 3
+  %buf_size_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 39, ptr %buf_size_.i, align 8
-  %key_size_.i = getelementptr inbounds %"class.rocksdb::IterKey", ptr %this, i64 0, i32 2
+  %key_size_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %key_size_.i, align 8
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %key_size) #18
   store ptr %call, ptr %this, align 8

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.cliSSLconfig = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr }
-%struct.redisContext = type { ptr, i32, [128 x i8], i32, i32, ptr, ptr, i32, ptr, ptr, %struct.anon, %struct.anon.0, ptr, i64, ptr, ptr, ptr, ptr }
-%struct.anon = type { ptr, ptr, i32 }
-%struct.anon.0 = type { ptr }
 %struct.cliConnInfo = type { ptr, i32, i32, ptr, ptr }
 
 @stdin = external local_unnamed_addr global ptr, align 8
@@ -39,7 +36,7 @@ define dso_local i64 @cliWriteConn(ptr noundef %c, ptr noundef %buf, i64 noundef
 entry:
   %done = alloca i32, align 4
   store i32 0, ptr %done, align 4
-  %obuf = getelementptr inbounds %struct.redisContext, ptr %c, i64 0, i32 5
+  %obuf = getelementptr inbounds i8, ptr %c, i64 152
   %0 = load ptr, ptr %obuf, align 8
   %call = tail call ptr @hi_sdscatlen(ptr noundef %0, ptr noundef %buf, i64 noundef %buf_len) #11
   store ptr %call, ptr %obuf, align 8
@@ -48,7 +45,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds %struct.redisContext, ptr %c, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %c, i64 144
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -466,7 +463,7 @@ if.then21:                                        ; preds = %if.then17
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr9 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call22 = tail call fastcc ptr @percentDecode(ptr noundef nonnull %add.ptr9, i64 noundef %sub.ptr.sub)
-  %user = getelementptr inbounds %struct.cliConnInfo, ptr %connInfo, i64 0, i32 4
+  %user = getelementptr inbounds i8, ptr %connInfo, i64 24
   store ptr %call22, ptr %user, align 8
   %add.ptr23 = getelementptr inbounds i8, ptr %call18, i64 1
   br label %if.end24
@@ -477,7 +474,7 @@ if.end24:                                         ; preds = %if.then21, %if.then
   %sub.ptr.rhs.cast26 = ptrtoint ptr %curr.0 to i64
   %sub.ptr.sub27 = sub i64 %sub.ptr.lhs.cast25, %sub.ptr.rhs.cast26
   %call28 = tail call fastcc ptr @percentDecode(ptr noundef nonnull %curr.0, i64 noundef %sub.ptr.sub27)
-  %auth = getelementptr inbounds %struct.cliConnInfo, ptr %connInfo, i64 0, i32 3
+  %auth = getelementptr inbounds i8, ptr %connInfo, i64 16
   store ptr %call28, ptr %auth, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %call15, i64 1
   br label %if.end30
@@ -515,7 +512,7 @@ if.then47:                                        ; preds = %if.then43
 if.then52:                                        ; preds = %if.then47
   %add.ptr53 = getelementptr inbounds i8, ptr %call45, i64 2
   %call54 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr53) #15
-  %hostport = getelementptr inbounds %struct.cliConnInfo, ptr %connInfo, i64 0, i32 1
+  %hostport = getelementptr inbounds i8, ptr %connInfo, i64 8
   store i32 %call54, ptr %hostport, align 8
   br label %if.end55
 
@@ -531,7 +528,7 @@ if.else58:                                        ; preds = %if.then37
 if.then61:                                        ; preds = %if.else58
   %add.ptr62 = getelementptr inbounds i8, ptr %call59, i64 1
   %call63 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr62) #15
-  %hostport64 = getelementptr inbounds %struct.cliConnInfo, ptr %connInfo, i64 0, i32 1
+  %hostport64 = getelementptr inbounds i8, ptr %connInfo, i64 8
   store i32 %call63, ptr %hostport64, align 8
   %add.ptr65 = getelementptr inbounds i8, ptr %call59, i64 -1
   br label %if.end67
@@ -558,7 +555,7 @@ if.end73:                                         ; preds = %if.end67, %if.end33
 
 if.end83:                                         ; preds = %if.end73
   %call84 = tail call i32 @atoi(ptr nocapture noundef nonnull %add.ptr76) #15
-  %input_dbnum = getelementptr inbounds %struct.cliConnInfo, ptr %connInfo, i64 0, i32 2
+  %input_dbnum = getelementptr inbounds i8, ptr %connInfo, i64 12
   store i32 %call84, ptr %input_dbnum, align 4
   br label %return
 
@@ -700,7 +697,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %auth = getelementptr inbounds %struct.cliConnInfo, ptr %connInfo, i64 0, i32 3
+  %auth = getelementptr inbounds i8, ptr %connInfo, i64 16
   %1 = load ptr, ptr %auth, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -710,7 +707,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %user = getelementptr inbounds %struct.cliConnInfo, ptr %connInfo, i64 0, i32 4
+  %user = getelementptr inbounds i8, ptr %connInfo, i64 24
   %2 = load ptr, ptr %user, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.end9, label %if.then7

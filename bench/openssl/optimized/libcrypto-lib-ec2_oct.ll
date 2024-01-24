@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ec2_oct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
-%struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/ec/ec2_oct.c\00", align 1
 @__func__.ossl_ec_GF2m_simple_set_compressed_coordinates = private unnamed_addr constant [47 x i8] c"ossl_ec_GF2m_simple_set_compressed_coordinates\00", align 1
 @__func__.ossl_ec_GF2m_simple_point2oct = private unnamed_addr constant [30 x i8] c"ossl_ec_GF2m_simple_point2oct\00", align 1
@@ -35,7 +31,7 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp9, label %err80, label %if.end11
 
 if.end11:                                         ; preds = %if.end3
-  %poly = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 11
+  %poly = getelementptr inbounds i8, ptr %group, i64 72
   %call12 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %call6, ptr noundef %x_, ptr noundef nonnull %poly) #3
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %err80, label %if.end14
@@ -46,7 +42,7 @@ if.end14:                                         ; preds = %if.end11
   br i1 %tobool16.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %if.end14
-  %b = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 13
+  %b = getelementptr inbounds i8, ptr %group, i64 104
   %0 = load ptr, ptr %b, align 8
   %call20 = tail call i32 @BN_GF2m_mod_sqrt_arr(ptr noundef %call7, ptr noundef %0, ptr noundef nonnull %poly, ptr noundef nonnull %ctx.addr.0) #3
   %tobool21.not = icmp eq i32 %call20, 0
@@ -54,7 +50,7 @@ if.then17:                                        ; preds = %if.end14
 
 if.else:                                          ; preds = %if.end14
   %1 = load ptr, ptr %group, align 8
-  %field_sqr = getelementptr inbounds %struct.ec_method_st, ptr %1, i64 0, i32 33
+  %field_sqr = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %field_sqr, align 8
   %call24 = tail call i32 %2(ptr noundef nonnull %group, ptr noundef %call5, ptr noundef %call6, ptr noundef nonnull %ctx.addr.0) #3
   %tobool25.not = icmp eq i32 %call24, 0
@@ -62,16 +58,16 @@ if.else:                                          ; preds = %if.end14
 
 if.end27:                                         ; preds = %if.else
   %3 = load ptr, ptr %group, align 8
-  %field_div = getelementptr inbounds %struct.ec_method_st, ptr %3, i64 0, i32 34
+  %field_div = getelementptr inbounds i8, ptr %3, i64 264
   %4 = load ptr, ptr %field_div, align 8
-  %b29 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 13
+  %b29 = getelementptr inbounds i8, ptr %group, i64 104
   %5 = load ptr, ptr %b29, align 8
   %call30 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef %call5, ptr noundef %5, ptr noundef %call5, ptr noundef nonnull %ctx.addr.0) #3
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err80, label %if.end33
 
 if.end33:                                         ; preds = %if.end27
-  %a = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 12
+  %a = getelementptr inbounds i8, ptr %group, i64 96
   %6 = load ptr, ptr %a, align 8
   %call34 = tail call i32 @BN_GF2m_add(ptr noundef %call5, ptr noundef %6, ptr noundef %call5) #3
   %tobool35.not = icmp eq i32 %call34, 0
@@ -112,7 +108,7 @@ if.end58:                                         ; preds = %if.end41
   %call59 = tail call i32 @ERR_clear_last_mark() #3
   %call60 = tail call i32 @BN_is_odd(ptr noundef nonnull %call8) #3
   %8 = load ptr, ptr %group, align 8
-  %field_mul = getelementptr inbounds %struct.ec_method_st, ptr %8, i64 0, i32 32
+  %field_mul = getelementptr inbounds i8, ptr %8, i64 248
   %9 = load ptr, ptr %field_mul, align 8
   %call64 = tail call i32 %9(ptr noundef nonnull %group, ptr noundef %call7, ptr noundef %call6, ptr noundef nonnull %call8, ptr noundef nonnull %ctx.addr.0) #3
   %tobool65.not = icmp eq i32 %call64, 0
@@ -282,7 +278,7 @@ land.lhs.true48:                                  ; preds = %if.end43
 
 if.then51:                                        ; preds = %land.lhs.true48
   %0 = load ptr, ptr %group, align 8
-  %field_div = getelementptr inbounds %struct.ec_method_st, ptr %0, i64 0, i32 34
+  %field_div = getelementptr inbounds i8, ptr %0, i64 264
   %1 = load ptr, ptr %field_div, align 8
   %call52 = tail call i32 %1(ptr noundef nonnull %group, ptr noundef nonnull %call35, ptr noundef %call34, ptr noundef %call33, ptr noundef nonnull %ctx.addr.0) #3
   %tobool53.not = icmp eq i32 %call52, 0
@@ -568,7 +564,7 @@ if.then94:                                        ; preds = %if.then91
 
 if.else96:                                        ; preds = %if.then88
   %3 = load ptr, ptr %group, align 8
-  %field_div = getelementptr inbounds %struct.ec_method_st, ptr %3, i64 0, i32 34
+  %field_div = getelementptr inbounds i8, ptr %3, i64 264
   %4 = load ptr, ptr %field_div, align 8
   %call97 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef nonnull %call52, ptr noundef %call51, ptr noundef %call50, ptr noundef nonnull %ctx.addr.0) #3
   %tobool98.not = icmp eq i32 %call97, 0

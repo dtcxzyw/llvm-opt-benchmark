@@ -27,8 +27,8 @@ define void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h3ff1765145cb64c8E"(
 
 14:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  %15 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %8, i64 0, i32 1
-  %16 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %8, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds i8, ptr %8, i64 16
   br label %17
 
 17:                                               ; preds = %33, %14

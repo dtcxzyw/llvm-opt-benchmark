@@ -4,11 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.url_info = type { ptr, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.urlmatch_item = type { i64, i64, i8 }
-%struct.urlmatch_config = type { %struct.string_list, %struct.url_info, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
+%struct.url_info = type { ptr, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.urlmatch_config_entry.synthkey = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
@@ -106,7 +103,7 @@ if.end3.i:                                        ; preds = %if.then25
 
 _.exit:                                           ; preds = %if.then25, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.1, %if.then25 ]
-  %err = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i, ptr %err, align 8
   br label %return
 
@@ -117,8 +114,8 @@ if.end28:                                         ; preds = %lor.lhs.false18
   br i1 %tobool30.not307, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end28
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %norm, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %norm, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %strbuf_addch.exit
@@ -174,7 +171,7 @@ while.end:                                        ; preds = %strbuf_addch.exit, 
   br i1 %or.cond171, label %if.then38, label %if.end77
 
 if.then38:                                        ; preds = %while.end
-  %len = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %norm, i64 8
   %17 = load i64, ptr %len, align 8
   %cmp39 = icmp ugt ptr %call33, %url.addr.0.lcssa
   br i1 %cmp39, label %if.then41, label %if.then38.if.end71_crit_edge
@@ -207,7 +204,7 @@ if.end3.i176:                                     ; preds = %if.then46
 
 _.exit179:                                        ; preds = %if.then46, %if.end3.i176
   %retval.0.i178 = phi ptr [ %call.i177, %if.end3.i176 ], [ @.str.5, %if.then46 ]
-  %err49 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err49 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i178, ptr %err49, align 8
   br label %if.end50
 
@@ -216,7 +213,7 @@ if.end50:                                         ; preds = %_.exit179, %if.then
   br label %return
 
 if.end51:                                         ; preds = %if.then41
-  %buf = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %norm, i64 16
   %19 = load ptr, ptr %buf, align 8
   %add.ptr52 = getelementptr inbounds i8, ptr %19, i64 %call1
   %add.ptr53 = getelementptr inbounds i8, ptr %add.ptr52, i64 3
@@ -273,7 +270,7 @@ lor.lhs.false79:                                  ; preds = %if.end77
   br i1 %memchr170.not, label %if.else95, label %if.then83
 
 if.then83:                                        ; preds = %lor.lhs.false79, %if.end77
-  %buf84 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 2
+  %buf84 = getelementptr inbounds i8, ptr %norm, i64 16
   %25 = load ptr, ptr %buf84, align 8
   %call85 = call i32 @starts_with(ptr noundef %25, ptr noundef nonnull @.str.7) #15
   %tobool86.not = icmp eq i32 %call85, 0
@@ -295,7 +292,7 @@ if.end3.i181:                                     ; preds = %if.then89
 
 _.exit184:                                        ; preds = %if.then89, %if.end3.i181
   %retval.0.i183 = phi ptr [ %call.i182, %if.end3.i181 ], [ @.str.8, %if.then89 ]
-  %err92 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err92 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i183, ptr %err92, align 8
   br label %if.end93
 
@@ -304,7 +301,7 @@ if.end93:                                         ; preds = %_.exit184, %if.then
   br label %return
 
 if.else95:                                        ; preds = %lor.lhs.false79
-  %len96 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 1
+  %len96 = getelementptr inbounds i8, ptr %norm, i64 8
   %27 = load i64, ptr %len96, align 8
   br label %if.end97
 
@@ -353,7 +350,7 @@ if.end3.i186:                                     ; preds = %if.then127
 
 _.exit189:                                        ; preds = %if.then127, %if.end3.i186
   %retval.0.i188 = phi ptr [ %call.i187, %if.end3.i186 ], [ @.str.9, %if.then127 ]
-  %err130 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err130 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i188, ptr %err130, align 8
   br label %if.end131
 
@@ -377,8 +374,8 @@ while.cond153.preheader:                          ; preds = %if.end133
   br i1 %cmp154310, label %while.body156.lr.ph, label %while.end161
 
 while.body156.lr.ph:                              ; preds = %while.cond153.preheader
-  %len.i.i200 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 1
-  %buf.i205 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 2
+  %len.i.i200 = getelementptr inbounds i8, ptr %norm, i64 8
+  %buf.i205 = getelementptr inbounds i8, ptr %norm, i64 16
   %30 = add i64 %url_len.0, %sub.ptr.rhs.cast141
   %scevgep = getelementptr i8, ptr %url.addr.1, i64 %sub.ptr.sub142
   br label %while.body156
@@ -399,7 +396,7 @@ if.end3.i191:                                     ; preds = %if.then147
 
 _.exit194:                                        ; preds = %if.then147, %if.end3.i191
   %retval.0.i193 = phi ptr [ %call.i192, %if.end3.i191 ], [ @.str.12, %if.then147 ]
-  %err150 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err150 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i193, ptr %err150, align 8
   br label %if.end151
 
@@ -486,7 +483,7 @@ if.else181:                                       ; preds = %if.end177
   ]
 
 land.lhs.true187:                                 ; preds = %if.else181
-  %buf188 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 2
+  %buf188 = getelementptr inbounds i8, ptr %norm, i64 16
   %44 = load ptr, ptr %buf188, align 8
   %call189 = call i32 @starts_with(ptr noundef %44, ptr noundef nonnull @.str.14) #15
   %tobool190.not = icmp eq i32 %call189, 0
@@ -498,7 +495,7 @@ land.lhs.true191:                                 ; preds = %land.lhs.true187
   br i1 %tobool193.not, label %if.end254, label %if.else209
 
 land.lhs.true201:                                 ; preds = %if.else181
-  %buf202 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 2
+  %buf202 = getelementptr inbounds i8, ptr %norm, i64 16
   %45 = load ptr, ptr %buf202, align 8
   %call203 = call i32 @starts_with(ptr noundef %45, ptr noundef nonnull @.str.16) #15
   %tobool204.not = icmp eq i32 %call203, 0
@@ -530,7 +527,7 @@ if.end3.i215:                                     ; preds = %if.then218
 
 _.exit218:                                        ; preds = %if.then218, %if.end3.i215
   %retval.0.i217 = phi ptr [ %call.i216, %if.end3.i215 ], [ @.str.19, %if.then218 ]
-  %err221 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err221 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i217, ptr %err221, align 8
   br label %if.end222
 
@@ -564,7 +561,7 @@ if.end3.i220:                                     ; preds = %if.then239
 
 _.exit223:                                        ; preds = %if.then239, %if.end3.i220
   %retval.0.i222 = phi ptr [ %call.i221, %if.end3.i220 ], [ @.str.19, %if.then239 ]
-  %err242 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err242 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i222, ptr %err242, align 8
   br label %if.end243
 
@@ -574,7 +571,7 @@ if.end243:                                        ; preds = %_.exit223, %if.then
 
 if.end244:                                        ; preds = %if.end231
   call fastcc void @strbuf_addch(ptr noundef nonnull %norm, i32 noundef 58)
-  %len245 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 1
+  %len245 = getelementptr inbounds i8, ptr %norm, i64 8
   %49 = load i64, ptr %len245, align 8
   call void @strbuf_add(ptr noundef nonnull %norm, ptr noundef nonnull %url.addr.3, i64 noundef %sub.ptr.sub184) #15
   br label %if.end254
@@ -592,7 +589,7 @@ if.end259:                                        ; preds = %if.end254, %while.e
   %url_len.2 = phi i64 [ %sub258, %if.end254 ], [ %url_len.1.lcssa, %while.end161 ]
   %url.addr.4 = phi ptr [ %add.ptr, %if.end254 ], [ %url.addr.2.lcssa, %while.end161 ]
   %tobool260.not = icmp eq i64 %host_off.0, 0
-  %len268.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 1
+  %len268.phi.trans.insert = getelementptr inbounds i8, ptr %norm, i64 8
   %.pre = load i64, ptr %len268.phi.trans.insert, align 8
   br i1 %tobool260.not, label %if.end267, label %if.then261
 
@@ -606,8 +603,8 @@ if.then261:                                       ; preds = %if.end259
 
 if.end267:                                        ; preds = %if.end259, %if.then261
   %host_len.0 = phi i64 [ %sub266, %if.then261 ], [ 0, %if.end259 ]
-  %len268 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 1
-  %buf269 = getelementptr inbounds %struct.strbuf, ptr %norm, i64 0, i32 2
+  %len268 = getelementptr inbounds i8, ptr %norm, i64 8
+  %buf269 = getelementptr inbounds i8, ptr %norm, i64 16
   %50 = load ptr, ptr %buf269, align 8
   %add.ptr270 = getelementptr inbounds i8, ptr %50, i64 %.pre
   call fastcc void @strbuf_addch(ptr noundef nonnull %norm, i32 noundef 47)
@@ -645,7 +642,7 @@ if.end3.i225:                                     ; preds = %if.then288
 
 _.exit228:                                        ; preds = %if.then288, %if.end3.i225
   %retval.0.i227 = phi ptr [ %call.i226, %if.end3.i225 ], [ @.str.5, %if.then288 ]
-  %err291 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err291 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i227, ptr %err291, align 8
   br label %if.end292
 
@@ -727,7 +724,7 @@ if.end3.i245:                                     ; preds = %if.then321
 
 _.exit248:                                        ; preds = %if.then321, %if.end3.i245
   %retval.0.i247 = phi ptr [ %call.i246, %if.end3.i245 ], [ @.str.22, %if.then321 ]
-  %err324 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err324 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i247, ptr %err324, align 8
   br label %if.end325
 
@@ -864,7 +861,7 @@ if.end3.i287:                                     ; preds = %if.then372
 
 _.exit290:                                        ; preds = %if.then372, %if.end3.i287
   %retval.0.i289 = phi ptr [ %call.i288, %if.end3.i287 ], [ @.str.5, %if.then372 ]
-  %err375 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err375 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr %retval.0.i289, ptr %err375, align 8
   br label %if.end376
 
@@ -879,32 +876,32 @@ if.end378:                                        ; preds = %if.then367, %for.en
 
 if.then381:                                       ; preds = %if.end378
   store ptr %call379, ptr %out_info, align 8
-  %err383 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 1
+  %err383 = getelementptr inbounds i8, ptr %out_info, i64 8
   store ptr null, ptr %err383, align 8
   %72 = load i64, ptr %result_len, align 8
-  %url_len384 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 2
+  %url_len384 = getelementptr inbounds i8, ptr %out_info, i64 16
   store i64 %72, ptr %url_len384, align 8
-  %scheme_len385 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 3
+  %scheme_len385 = getelementptr inbounds i8, ptr %out_info, i64 24
   store i64 %call1, ptr %scheme_len385, align 8
-  %user_off386 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 4
+  %user_off386 = getelementptr inbounds i8, ptr %out_info, i64 32
   store i64 %user_off.0, ptr %user_off386, align 8
-  %user_len387 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 5
+  %user_len387 = getelementptr inbounds i8, ptr %out_info, i64 40
   store i64 %user_len.1, ptr %user_len387, align 8
-  %passwd_off388 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 6
+  %passwd_off388 = getelementptr inbounds i8, ptr %out_info, i64 48
   store i64 %passwd_off.1, ptr %passwd_off388, align 8
-  %passwd_len389 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 7
+  %passwd_len389 = getelementptr inbounds i8, ptr %out_info, i64 56
   store i64 %passwd_len.1, ptr %passwd_len389, align 8
-  %host_off390 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 8
+  %host_off390 = getelementptr inbounds i8, ptr %out_info, i64 64
   store i64 %host_off.0, ptr %host_off390, align 8
-  %host_len391 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 9
+  %host_len391 = getelementptr inbounds i8, ptr %out_info, i64 72
   store i64 %host_len.0, ptr %host_len391, align 8
-  %port_off392 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 10
+  %port_off392 = getelementptr inbounds i8, ptr %out_info, i64 80
   store i64 %port_off.1, ptr %port_off392, align 8
-  %port_len393 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 11
+  %port_len393 = getelementptr inbounds i8, ptr %out_info, i64 88
   store i64 %port_len.1, ptr %port_len393, align 8
-  %path_off394 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 12
+  %path_off394 = getelementptr inbounds i8, ptr %out_info, i64 96
   store i64 %.pre, ptr %path_off394, align 8
-  %path_len395 = getelementptr inbounds %struct.url_info, ptr %out_info, i64 0, i32 13
+  %path_len395 = getelementptr inbounds i8, ptr %out_info, i64 104
   store i64 %sub365, ptr %path_len395, align 8
   br label %return
 
@@ -920,13 +917,13 @@ entry:
   %synthkey = alloca %struct.strbuf, align 8
   %norm_info = alloca %struct.url_info, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %matched, i8 0, i64 24, i1 false)
-  %url1 = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 1
+  %url1 = getelementptr inbounds i8, ptr %cb, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %synthkey, ptr noundef nonnull align 8 dereferenceable(24) @__const.urlmatch_config_entry.synthkey, i64 24, i1 false)
-  %select_fn3 = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 7
+  %select_fn3 = getelementptr inbounds i8, ptr %cb, i64 192
   %0 = load ptr, ptr %select_fn3, align 8
   %tobool.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool.not, ptr @cmp_matches, ptr %0
-  %section = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 2
+  %section = getelementptr inbounds i8, ptr %cb, i64 152
   %1 = load ptr, ptr %section, align 8
   br label %do.body.i
 
@@ -949,7 +946,7 @@ lor.lhs.false:                                    ; preds = %do.body.i
   br i1 %cmp.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %do.cond.i, %lor.lhs.false
-  %cascade_fn = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 6
+  %cascade_fn = getelementptr inbounds i8, ptr %cb, i64 184
   %4 = load ptr, ptr %cascade_fn, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %return, label %if.then7
@@ -983,9 +980,9 @@ lor.lhs.false5.i:                                 ; preds = %if.then17
   br i1 %tobool7.not.i, label %return.critedge, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false5.i
-  %scheme_len.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 3
+  %scheme_len.i = getelementptr inbounds i8, ptr %norm_info, i64 24
   %7 = load i64, ptr %scheme_len.i, align 8
-  %scheme_len8.i = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 1, i32 3
+  %scheme_len8.i = getelementptr inbounds i8, ptr %cb, i64 64
   %8 = load i64, ptr %scheme_len8.i, align 8
   %cmp.not.i = icmp eq i64 %7, %8
   br i1 %cmp.not.i, label %lor.lhs.false9.i, label %return.critedge
@@ -996,21 +993,21 @@ lor.lhs.false9.i:                                 ; preds = %if.end.i
   br i1 %tobool13.not.i, label %if.end15.i, label %return.critedge
 
 if.end15.i:                                       ; preds = %lor.lhs.false9.i
-  %user_off.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 4
+  %user_off.i = getelementptr inbounds i8, ptr %norm_info, i64 32
   %9 = load i64, ptr %user_off.i, align 8
   %tobool16.not.i = icmp eq i64 %9, 0
   br i1 %tobool16.not.i, label %if.end34.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %user_off18.i = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 1, i32 4
+  %user_off18.i = getelementptr inbounds i8, ptr %cb, i64 72
   %10 = load i64, ptr %user_off18.i, align 8
   %tobool19.not.i = icmp eq i64 %10, 0
   br i1 %tobool19.not.i, label %return.critedge, label %lor.lhs.false20.i
 
 lor.lhs.false20.i:                                ; preds = %if.then17.i
-  %user_len.i = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 1, i32 5
+  %user_len.i = getelementptr inbounds i8, ptr %cb, i64 80
   %11 = load i64, ptr %user_len.i, align 8
-  %user_len21.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 5
+  %user_len21.i = getelementptr inbounds i8, ptr %norm_info, i64 40
   %12 = load i64, ptr %user_len21.i, align 8
   %cmp22.not.i = icmp eq i64 %11, %12
   br i1 %cmp22.not.i, label %lor.lhs.false23.i, label %return.critedge
@@ -1029,18 +1026,18 @@ if.end34.i:                                       ; preds = %lor.lhs.false23.i, 
   br i1 %tobool36.not.i, label %return.critedge, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end34.i
-  %port_len.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 11
+  %port_len.i = getelementptr inbounds i8, ptr %norm_info, i64 88
   %13 = load i64, ptr %port_len.i, align 8
-  %port_len39.i = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 1, i32 11
+  %port_len39.i = getelementptr inbounds i8, ptr %cb, i64 128
   %14 = load i64, ptr %port_len39.i, align 8
   %cmp40.not.i = icmp eq i64 %13, %14
   br i1 %cmp40.not.i, label %lor.lhs.false41.i, label %return.critedge
 
 lor.lhs.false41.i:                                ; preds = %if.end38.i
-  %port_off.i = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 1, i32 10
+  %port_off.i = getelementptr inbounds i8, ptr %cb, i64 120
   %15 = load i64, ptr %port_off.i, align 8
   %add.ptr43.i = getelementptr inbounds i8, ptr %5, i64 %15
-  %port_off45.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 10
+  %port_off45.i = getelementptr inbounds i8, ptr %norm_info, i64 80
   %16 = load i64, ptr %port_off45.i, align 8
   %add.ptr46.i = getelementptr inbounds i8, ptr %6, i64 %16
   %call48.i = call i32 @strncmp(ptr noundef nonnull %add.ptr43.i, ptr noundef nonnull %add.ptr46.i, i64 noundef %13) #14
@@ -1048,13 +1045,13 @@ lor.lhs.false41.i:                                ; preds = %if.end38.i
   br i1 %tobool49.not.i, label %if.end51.i, label %return.critedge
 
 if.end51.i:                                       ; preds = %lor.lhs.false41.i
-  %path_off.i = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 1, i32 12
+  %path_off.i = getelementptr inbounds i8, ptr %cb, i64 136
   %17 = load i64, ptr %path_off.i, align 8
   %add.ptr53.i = getelementptr inbounds i8, ptr %5, i64 %17
-  %path_off55.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 12
+  %path_off55.i = getelementptr inbounds i8, ptr %norm_info, i64 96
   %18 = load i64, ptr %path_off55.i, align 8
   %add.ptr56.i = getelementptr inbounds i8, ptr %6, i64 %18
-  %url_len.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 2
+  %url_len.i = getelementptr inbounds i8, ptr %norm_info, i64 16
   %19 = load i64, ptr %url_len.i, align 8
   %sub.i = sub i64 %19, %18
   %call58.i = call fastcc i64 @url_match_prefix(ptr noundef nonnull %add.ptr53.i, ptr noundef nonnull %add.ptr56.i, i64 noundef %sub.i)
@@ -1062,25 +1059,25 @@ if.end51.i:                                       ; preds = %lor.lhs.false41.i
   br i1 %tobool59.not.i, label %return.critedge, label %if.end61.i
 
 if.end61.i:                                       ; preds = %if.end51.i
-  %host_len.i = getelementptr inbounds %struct.url_info, ptr %norm_info, i64 0, i32 9
+  %host_len.i = getelementptr inbounds i8, ptr %norm_info, i64 72
   %20 = load i64, ptr %host_len.i, align 8
   store i64 %20, ptr %matched, align 8
-  %pathmatch_len.i = getelementptr inbounds %struct.urlmatch_item, ptr %matched, i64 0, i32 1
+  %pathmatch_len.i = getelementptr inbounds i8, ptr %matched, i64 8
   store i64 %call58.i, ptr %pathmatch_len.i, align 8
-  %user_matched.i = getelementptr inbounds %struct.urlmatch_item, ptr %matched, i64 0, i32 2
+  %user_matched.i = getelementptr inbounds i8, ptr %matched, i64 16
   store i8 %usermatched.0.i, ptr %user_matched.i, align 8
   call void @free(ptr noundef %call14) #15
   call void @free(ptr noundef nonnull %call15) #15
   br label %if.end29
 
 if.else:                                          ; preds = %if.then13
-  %fallback_match_fn = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 8
+  %fallback_match_fn = getelementptr inbounds i8, ptr %cb, i64 200
   %21 = load ptr, ptr %fallback_match_fn, align 8
   %tobool19.not = icmp eq ptr %21, null
   br i1 %tobool19.not, label %return.critedge, label %if.then20
 
 if.then20:                                        ; preds = %if.else
-  %cb22 = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 4
+  %cb22 = getelementptr inbounds i8, ptr %cb, i64 168
   %22 = load ptr, ptr %cb22, align 8
   %call23 = call i32 %21(ptr noundef %call14, ptr noundef %22) #15
   %23 = icmp eq i32 %call23, 0
@@ -1093,7 +1090,7 @@ if.end29:                                         ; preds = %if.end61.i, %if.the
 
 if.end30:                                         ; preds = %if.end29, %if.end10
   %key.1 = phi ptr [ %incdec.ptr, %if.end10 ], [ %add.ptr, %if.end29 ]
-  %key31 = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 3
+  %key31 = getelementptr inbounds i8, ptr %cb, i64 160
   %24 = load ptr, ptr %key31, align 8
   %tobool32.not = icmp eq ptr %24, null
   br i1 %tobool32.not, label %if.end37, label %land.lhs.true
@@ -1105,7 +1102,7 @@ land.lhs.true:                                    ; preds = %if.end30
 
 if.end37:                                         ; preds = %land.lhs.true, %if.end30
   %call38 = call ptr @string_list_insert(ptr noundef nonnull %cb, ptr noundef nonnull %key.1) #15
-  %util = getelementptr inbounds %struct.string_list_item, ptr %call38, i64 0, i32 1
+  %util = getelementptr inbounds i8, ptr %call38, i64 8
   %25 = load ptr, ptr %util, align 8
   %tobool39.not = icmp eq ptr %25, null
   br i1 %tobool39.not, label %if.then40, label %if.else43
@@ -1135,7 +1132,7 @@ if.end50:                                         ; preds = %if.else43.if.end50_
   br i1 %tobool.not.i.i, label %if.then.i35, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.end50
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %synthkey, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %synthkey, i64 8
   %29 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %29, 1
   %tobool.not.i33 = icmp eq i64 %28, %.neg.i
@@ -1143,7 +1140,7 @@ strbuf_avail.exit.i:                              ; preds = %if.end50
 
 if.then.i35:                                      ; preds = %strbuf_avail.exit.i, %if.end50
   call void @strbuf_grow(ptr noundef nonnull %synthkey, i64 noundef 1) #15
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %synthkey, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %synthkey, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -1151,9 +1148,9 @@ if.then.i35:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i35
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i35 ], [ %.neg.i, %strbuf_avail.exit.i ]
   %30 = phi i64 [ %.pre.i, %if.then.i35 ], [ %29, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %synthkey, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %synthkey, i64 16
   %31 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %synthkey, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %synthkey, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %31, i64 %30
   store i8 46, ptr %arrayidx.i, align 1
@@ -1163,10 +1160,10 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i, align 1
   %call.i36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key.1) #14
   call void @strbuf_add(ptr noundef nonnull %synthkey, ptr noundef nonnull %key.1, i64 noundef %call.i36) #15
-  %collect_fn = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 5
+  %collect_fn = getelementptr inbounds i8, ptr %cb, i64 176
   %34 = load ptr, ptr %collect_fn, align 8
   %35 = load ptr, ptr %buf.i, align 8
-  %cb53 = getelementptr inbounds %struct.urlmatch_config, ptr %cb, i64 0, i32 4
+  %cb53 = getelementptr inbounds i8, ptr %cb, i64 168
   %36 = load ptr, ptr %cb53, align 8
   %call54 = call i32 %34(ptr noundef %35, ptr noundef %value, ptr noundef %ctx, ptr noundef %36) #15
   call void @strbuf_release(ptr noundef nonnull %synthkey) #15
@@ -1202,9 +1199,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pathmatch_len = getelementptr inbounds %struct.urlmatch_item, ptr %a, i64 0, i32 1
+  %pathmatch_len = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i64, ptr %pathmatch_len, align 8
-  %pathmatch_len5 = getelementptr inbounds %struct.urlmatch_item, ptr %b, i64 0, i32 1
+  %pathmatch_len5 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %pathmatch_len5, align 8
   %cmp6.not = icmp eq i64 %2, %3
   br i1 %cmp6.not, label %if.end12, label %if.then7
@@ -1215,9 +1212,9 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %user_matched = getelementptr inbounds %struct.urlmatch_item, ptr %a, i64 0, i32 2
+  %user_matched = getelementptr inbounds i8, ptr %a, i64 16
   %4 = load i8, ptr %user_matched, align 8
-  %user_matched13 = getelementptr inbounds %struct.urlmatch_item, ptr %b, i64 0, i32 2
+  %user_matched13 = getelementptr inbounds i8, ptr %b, i64 16
   %5 = load i8, ptr %user_matched13, align 8
   %cmp15.not = icmp eq i8 %4, %5
   br i1 %cmp15.not, label %return, label %if.then17
@@ -1255,7 +1252,7 @@ entry:
   br i1 %tobool.not.i, label %if.then, label %strbuf_avail.exit
 
 strbuf_avail.exit:                                ; preds = %entry
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %.neg = add i64 %1, 1
   %tobool.not = icmp eq i64 %0, %.neg
@@ -1263,7 +1260,7 @@ strbuf_avail.exit:                                ; preds = %entry
 
 if.then:                                          ; preds = %entry, %strbuf_avail.exit
   tail call void @strbuf_grow(ptr noundef nonnull %sb, i64 noundef 1) #15
-  %len.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.phi.trans.insert = getelementptr inbounds i8, ptr %sb, i64 8
   %.pre = load i64, ptr %len.phi.trans.insert, align 8
   %.pre8 = add i64 %.pre, 1
   br label %if.end
@@ -1272,9 +1269,9 @@ if.end:                                           ; preds = %if.then, %strbuf_av
   %inc.pre-phi = phi i64 [ %.pre8, %if.then ], [ %.neg, %strbuf_avail.exit ]
   %2 = phi i64 [ %.pre, %if.then ], [ %1, %strbuf_avail.exit ]
   %conv = trunc i32 %c to i8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 %inc.pre-phi, ptr %len, align 8
   %arrayidx = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 %conv, ptr %arrayidx, align 1
@@ -1317,8 +1314,8 @@ entry:
   br i1 %tobool.not1, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end33
@@ -1454,9 +1451,9 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @match_host(ptr nocapture noundef readonly %url_info, ptr nocapture noundef readonly %pattern_info) unnamed_addr #10 {
 entry:
-  %host_len = getelementptr inbounds %struct.url_info, ptr %url_info, i64 0, i32 9
+  %host_len = getelementptr inbounds i8, ptr %url_info, i64 72
   %0 = load i64, ptr %host_len, align 8
-  %host_len5 = getelementptr inbounds %struct.url_info, ptr %pattern_info, i64 0, i32 9
+  %host_len5 = getelementptr inbounds i8, ptr %pattern_info, i64 72
   %1 = load i64, ptr %host_len5, align 8
   %2 = and i64 %0, 4294967295
   %tobool41 = icmp ne i64 %2, 0
@@ -1467,11 +1464,11 @@ entry:
 
 while.body.preheader:                             ; preds = %entry
   %5 = load ptr, ptr %pattern_info, align 8
-  %host_off3 = getelementptr inbounds %struct.url_info, ptr %pattern_info, i64 0, i32 8
+  %host_off3 = getelementptr inbounds i8, ptr %pattern_info, i64 64
   %6 = load i64, ptr %host_off3, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %5, i64 %6
   %7 = load ptr, ptr %url_info, align 8
-  %host_off = getelementptr inbounds %struct.url_info, ptr %url_info, i64 0, i32 8
+  %host_off = getelementptr inbounds i8, ptr %url_info, i64 64
   %8 = load i64, ptr %host_off, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %8
   br label %while.body

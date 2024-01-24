@@ -6,14 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.trace_key = type { ptr, i32, i8 }
 %struct.ref_storage_be = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ref_iterator_vtable = type { ptr, ptr, ptr }
-%struct.debug_ref_store = type { %struct.ref_store, ptr }
-%struct.ref_store = type { ptr, ptr, ptr }
-%struct.strbuf = type { i64, i64, ptr }
-%struct.ref_transaction = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.ref_update = type { %struct.object_id, %struct.object_id, i32, ptr, i32, ptr, ptr, [0 x i8] }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.debug_ref_iterator = type { %struct.ref_iterator, ptr }
-%struct.ref_iterator = type { ptr, i8, ptr, ptr, i32 }
 %struct.debug_reflog = type { ptr, ptr, ptr }
 %struct.debug_reflog_expiry_should_prune = type { ptr, ptr, ptr, ptr }
 
@@ -81,9 +73,9 @@ if.then6:                                         ; preds = %if.end
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then6
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %call1, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %store, ptr %refs, align 8
-  %repo = getelementptr inbounds %struct.ref_store, ptr %store, i64 0, i32 1
+  %repo = getelementptr inbounds i8, ptr %store, i64 8
   %3 = load ptr, ptr %repo, align 8
   tail call void @base_ref_store_init(ptr noundef %call1, ptr noundef %3, ptr noundef %gitdir, ptr noundef nonnull %call2) #6
   br label %return
@@ -107,10 +99,10 @@ declare void @base_ref_store_init(ptr noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_init_db(ptr nocapture noundef readonly %refs, ptr noundef %err) #0 {
 entry:
-  %refs1 = getelementptr inbounds %struct.debug_ref_store, ptr %refs, i64 0, i32 1
+  %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
   %1 = load ptr, ptr %0, align 8
-  %init_db = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 2
+  %init_db = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %init_db, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %err) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -132,11 +124,11 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_transaction_prepare(ptr nocapture noundef readonly %refs, ptr noundef %transaction, ptr noundef %err) #0 {
 entry:
-  %refs1 = getelementptr inbounds %struct.debug_ref_store, ptr %refs, i64 0, i32 1
+  %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
   store ptr %0, ptr %transaction, align 8
   %1 = load ptr, ptr %0, align 8
-  %transaction_prepare = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 3
+  %transaction_prepare = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %transaction_prepare, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %transaction, ptr noundef %err) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -148,7 +140,7 @@ entry:
   br i1 %tobool.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %err, i64 16
   %4 = load ptr, ptr %buf, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 54, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.5, i32 noundef %call, ptr noundef %4) #6
   br label %do.end
@@ -162,11 +154,11 @@ define internal i32 @debug_transaction_finish(ptr nocapture noundef readonly %re
 entry:
   %o.i.i = alloca [65 x i8], align 16
   %n.i.i = alloca [65 x i8], align 16
-  %refs1 = getelementptr inbounds %struct.debug_ref_store, ptr %refs, i64 0, i32 1
+  %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
   store ptr %0, ptr %transaction, align 8
   %1 = load ptr, ptr %0, align 8
-  %transaction_finish = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 4
+  %transaction_finish = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %transaction_finish, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %transaction, ptr noundef %err) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -182,13 +174,13 @@ if.then.i:                                        ; preds = %entry
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
-  %nr.i = getelementptr inbounds %struct.ref_transaction, ptr %transaction, i64 0, i32 3
+  %nr.i = getelementptr inbounds i8, ptr %transaction, i64 24
   %4 = load i64, ptr %nr.i, align 8
   %cmp16.not.i = icmp eq i64 %4, 0
   br i1 %cmp16.not.i, label %do.body2.i, label %if.end5.i.lr.ph.i
 
 if.end5.i.lr.ph.i:                                ; preds = %do.end.i
-  %updates.i = getelementptr inbounds %struct.ref_transaction, ptr %transaction, i64 0, i32 1
+  %updates.i = getelementptr inbounds i8, ptr %transaction, i64 8
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %print_update.exit.i, %if.end5.i.lr.ph.i
@@ -196,12 +188,12 @@ if.end5.i.i:                                      ; preds = %print_update.exit.i
   %5 = load ptr, ptr %updates.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %old_oid.i = getelementptr inbounds %struct.ref_update, ptr %6, i64 0, i32 1
-  %flags.i = getelementptr inbounds %struct.ref_update, ptr %6, i64 0, i32 2
+  %old_oid.i = getelementptr inbounds i8, ptr %6, i64 36
+  %flags.i = getelementptr inbounds i8, ptr %6, i64 72
   %7 = load i32, ptr %flags.i, align 8
-  %type.i = getelementptr inbounds %struct.ref_update, ptr %6, i64 0, i32 4
+  %type.i = getelementptr inbounds i8, ptr %6, i64 88
   %8 = load i32, ptr %type.i, align 8
-  %msg.i = getelementptr inbounds %struct.ref_update, ptr %6, i64 0, i32 5
+  %msg.i = getelementptr inbounds i8, ptr %6, i64 96
   %9 = load ptr, ptr %msg.i, align 8
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %o.i.i)
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %n.i.i)
@@ -220,7 +212,7 @@ if.end5.i.i:                                      ; preds = %print_update.exit.i
   br i1 %tobool8.not.i.i, label %print_update.exit.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end5.i.i
-  %refname.i = getelementptr inbounds %struct.ref_update, ptr %6, i64 0, i32 7
+  %refname.i = getelementptr inbounds i8, ptr %6, i64 112
   %and6.i.i = and i32 %7, 15
   %and.i.i = and i32 %8, 15
   %11 = trunc i64 %indvars.iv.i to i32
@@ -265,11 +257,11 @@ do.end:                                           ; preds = %do.body2.i, %print_
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_transaction_abort(ptr nocapture noundef readonly %refs, ptr noundef %transaction, ptr noundef %err) #0 {
 entry:
-  %refs1 = getelementptr inbounds %struct.debug_ref_store, ptr %refs, i64 0, i32 1
+  %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
   store ptr %0, ptr %transaction, align 8
   %1 = load ptr, ptr %0, align 8
-  %transaction_abort = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 5
+  %transaction_abort = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %transaction_abort, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %transaction, ptr noundef %err) #6
   ret i32 %call
@@ -278,11 +270,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_initial_transaction_commit(ptr nocapture noundef readonly %refs, ptr noundef %transaction, ptr noundef %err) #0 {
 entry:
-  %refs1 = getelementptr inbounds %struct.debug_ref_store, ptr %refs, i64 0, i32 1
+  %refs1 = getelementptr inbounds i8, ptr %refs, i64 24
   %0 = load ptr, ptr %refs1, align 8
   store ptr %0, ptr %transaction, align 8
   %1 = load ptr, ptr %0, align 8
-  %initial_transaction_commit = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 6
+  %initial_transaction_commit = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %initial_transaction_commit, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %transaction, ptr noundef %err) #6
   ret i32 %call
@@ -291,10 +283,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_pack_refs(ptr nocapture noundef readonly %ref_store, ptr noundef %opts) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %pack_refs = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 7
+  %pack_refs = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %pack_refs, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %opts) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -316,10 +308,10 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_create_symref(ptr nocapture noundef readonly %ref_store, ptr noundef %ref_name, ptr noundef %target, ptr noundef %logmsg) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %create_symref = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 8
+  %create_symref = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %create_symref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %ref_name, ptr noundef %target, ptr noundef %logmsg) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -341,10 +333,10 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_rename_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %rename_ref = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 9
+  %rename_ref = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %rename_ref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -366,10 +358,10 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_copy_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %copy_ref = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 10
+  %copy_ref = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %copy_ref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %oldref, ptr noundef %newref, ptr noundef %logmsg) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -391,15 +383,15 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @debug_ref_iterator_begin(ptr nocapture noundef readonly %ref_store, ptr noundef %prefix, ptr noundef %exclude_patterns, i32 noundef %flags) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %iterator_begin = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 11
+  %iterator_begin = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %iterator_begin, align 8
   %call = tail call ptr %2(ptr noundef nonnull %0, ptr noundef %prefix, ptr noundef %exclude_patterns, i32 noundef %flags) #6
   %call2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #6
   tail call void @base_ref_iterator_init(ptr noundef %call2, ptr noundef nonnull @debug_ref_iterator_vtable, i32 noundef 1) #6
-  %iter = getelementptr inbounds %struct.debug_ref_iterator, ptr %call2, i64 0, i32 1
+  %iter = getelementptr inbounds i8, ptr %call2, i64 40
   store ptr %call, ptr %iter, align 8
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
   %tobool.not.i = icmp eq i32 %3, 0
@@ -422,14 +414,14 @@ define internal i32 @debug_read_raw_ref(ptr nocapture noundef readonly %ref_stor
 entry:
   %call = tail call ptr @null_oid() #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid, ptr noundef nonnull align 4 dereferenceable(32) %call, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %call, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %0, ptr %algo3.i, align 4
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %1 = load ptr, ptr %refs, align 8
   %2 = load ptr, ptr %1, align 8
-  %read_raw_ref = getelementptr inbounds %struct.ref_storage_be, ptr %2, i64 0, i32 12
+  %read_raw_ref = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %read_raw_ref, align 8
   %call2 = tail call i32 %3(ptr noundef nonnull %1, ptr noundef %refname, ptr noundef %oid, ptr noundef %referent, ptr noundef %type, ptr noundef %failure_errno) #6
   %cmp = icmp eq i32 %call2, 0
@@ -446,7 +438,7 @@ do.body:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %do.body
   %call5 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #6
-  %buf = getelementptr inbounds %struct.strbuf, ptr %referent, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %referent, i64 16
   %5 = load ptr, ptr %buf, align 8
   %6 = load i32, ptr %type, align 4
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 245, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.19, ptr noundef %refname, ptr noundef %call5, ptr noundef %5, i32 noundef %6, i32 noundef 0) #6
@@ -467,10 +459,10 @@ if.end12:                                         ; preds = %if.then9, %do.body6
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_read_symbolic_ref(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %referent) #0 {
 entry:
-  %refs1 = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs1 = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs1, align 8
   %1 = load ptr, ptr %0, align 8
-  %read_symbolic_ref = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 13
+  %read_symbolic_ref = getelementptr inbounds i8, ptr %1, i64 104
   %2 = load ptr, ptr %read_symbolic_ref, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef %referent) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -486,7 +478,7 @@ do.body:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end11, label %if.then4
 
 if.then4:                                         ; preds = %do.body
-  %buf = getelementptr inbounds %struct.strbuf, ptr %referent, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %referent, i64 16
   %4 = load ptr, ptr %buf, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.21, ptr noundef %refname, ptr noundef %4) #6
   br label %if.end11
@@ -505,10 +497,10 @@ if.end11:                                         ; preds = %if.then8, %do.body5
 ; Function Attrs: nounwind uwtable
 define internal ptr @debug_reflog_iterator_begin(ptr nocapture noundef readonly %ref_store) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %reflog_iterator_begin = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 14
+  %reflog_iterator_begin = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %reflog_iterator_begin, align 8
   %call = tail call ptr %2(ptr noundef nonnull %0) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -532,14 +524,14 @@ define internal i32 @debug_for_each_reflog_ent(ptr nocapture noundef readonly %r
 entry:
   %dbg = alloca %struct.debug_reflog, align 8
   store ptr %refname, ptr %dbg, align 8
-  %fn2 = getelementptr inbounds %struct.debug_reflog, ptr %dbg, i64 0, i32 1
+  %fn2 = getelementptr inbounds i8, ptr %dbg, i64 8
   store ptr %fn, ptr %fn2, align 8
-  %cb_data3 = getelementptr inbounds %struct.debug_reflog, ptr %dbg, i64 0, i32 2
+  %cb_data3 = getelementptr inbounds i8, ptr %dbg, i64 16
   store ptr %cb_data, ptr %cb_data3, align 8
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %for_each_reflog_ent = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 15
+  %for_each_reflog_ent = getelementptr inbounds i8, ptr %1, i64 120
   %2 = load ptr, ptr %for_each_reflog_ent, align 8
   %call = call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef nonnull @debug_print_reflog_ent, ptr noundef nonnull %dbg) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -563,14 +555,14 @@ define internal i32 @debug_for_each_reflog_ent_reverse(ptr nocapture noundef rea
 entry:
   %dbg = alloca %struct.debug_reflog, align 8
   store ptr %refname, ptr %dbg, align 8
-  %fn2 = getelementptr inbounds %struct.debug_reflog, ptr %dbg, i64 0, i32 1
+  %fn2 = getelementptr inbounds i8, ptr %dbg, i64 8
   store ptr %fn, ptr %fn2, align 8
-  %cb_data3 = getelementptr inbounds %struct.debug_reflog, ptr %dbg, i64 0, i32 2
+  %cb_data3 = getelementptr inbounds i8, ptr %dbg, i64 16
   store ptr %cb_data, ptr %cb_data3, align 8
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %for_each_reflog_ent_reverse = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 16
+  %for_each_reflog_ent_reverse = getelementptr inbounds i8, ptr %1, i64 128
   %2 = load ptr, ptr %for_each_reflog_ent_reverse, align 8
   %call = call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef nonnull @debug_print_reflog_ent, ptr noundef nonnull %dbg) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -592,10 +584,10 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_reflog_exists(ptr nocapture noundef readonly %ref_store, ptr noundef %refname) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %reflog_exists = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 17
+  %reflog_exists = getelementptr inbounds i8, ptr %1, i64 136
   %2 = load ptr, ptr %reflog_exists, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -617,10 +609,10 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_create_reflog(ptr nocapture noundef readonly %ref_store, ptr noundef %refname, ptr noundef %err) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %create_reflog = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 18
+  %create_reflog = getelementptr inbounds i8, ptr %1, i64 144
   %2 = load ptr, ptr %create_reflog, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, ptr noundef %err) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -642,10 +634,10 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_delete_reflog(ptr nocapture noundef readonly %ref_store, ptr noundef %refname) #0 {
 entry:
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %delete_reflog = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 19
+  %delete_reflog = getelementptr inbounds i8, ptr %1, i64 152
   %2 = load ptr, ptr %delete_reflog, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %refname) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -669,16 +661,16 @@ define internal i32 @debug_reflog_expire(ptr nocapture noundef readonly %ref_sto
 entry:
   %prune = alloca %struct.debug_reflog_expiry_should_prune, align 8
   store ptr %prepare_fn, ptr %prune, align 8
-  %should_prune = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %prune, i64 0, i32 1
+  %should_prune = getelementptr inbounds i8, ptr %prune, i64 8
   store ptr %should_prune_fn, ptr %should_prune, align 8
-  %cleanup = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %prune, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %prune, i64 16
   store ptr %cleanup_fn, ptr %cleanup, align 8
-  %cb_data = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %prune, i64 0, i32 3
+  %cb_data = getelementptr inbounds i8, ptr %prune, i64 24
   store ptr %policy_cb_data, ptr %cb_data, align 8
-  %refs = getelementptr inbounds %struct.debug_ref_store, ptr %ref_store, i64 0, i32 1
+  %refs = getelementptr inbounds i8, ptr %ref_store, i64 24
   %0 = load ptr, ptr %refs, align 8
   %1 = load ptr, ptr %0, align 8
-  %reflog_expire = getelementptr inbounds %struct.ref_storage_be, ptr %1, i64 0, i32 20
+  %reflog_expire = getelementptr inbounds i8, ptr %1, i64 160
   %2 = load ptr, ptr %reflog_expire, align 8
   %call = call i32 %2(ptr noundef nonnull %0, ptr noundef %refname, i32 noundef %flags, ptr noundef nonnull @debug_reflog_expiry_prepare, ptr noundef nonnull @debug_reflog_expiry_should_prune_fn, ptr noundef nonnull @debug_reflog_expiry_cleanup, ptr noundef nonnull %prune) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -709,7 +701,7 @@ declare void @base_ref_iterator_init(ptr noundef, ptr noundef, i32 noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_ref_iterator_advance(ptr nocapture noundef %ref_iterator) #0 {
 entry:
-  %iter = getelementptr inbounds %struct.debug_ref_iterator, ptr %ref_iterator, i64 0, i32 1
+  %iter = getelementptr inbounds i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
@@ -735,32 +727,32 @@ do.body5:                                         ; preds = %entry
 
 if.then8:                                         ; preds = %do.body5
   %4 = load ptr, ptr %iter, align 8
-  %refname = getelementptr inbounds %struct.ref_iterator, ptr %4, i64 0, i32 2
+  %refname = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %refname, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 182, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.16, ptr noundef %5) #6
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then8, %do.body5, %if.then4, %do.body
   %6 = load ptr, ptr %iter, align 8
-  %ordered = getelementptr inbounds %struct.ref_iterator, ptr %6, i64 0, i32 1
+  %ordered = getelementptr inbounds i8, ptr %6, i64 8
   %bf.load = load i8, ptr %ordered, align 8
   %bf.clear = and i8 %bf.load, 1
-  %ordered14 = getelementptr inbounds %struct.ref_iterator, ptr %ref_iterator, i64 0, i32 1
+  %ordered14 = getelementptr inbounds i8, ptr %ref_iterator, i64 8
   %bf.load15 = load i8, ptr %ordered14, align 8
   %bf.clear16 = and i8 %bf.load15, -2
   %bf.set = or disjoint i8 %bf.clear16, %bf.clear
   store i8 %bf.set, ptr %ordered14, align 8
-  %refname18 = getelementptr inbounds %struct.ref_iterator, ptr %6, i64 0, i32 2
+  %refname18 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %refname18, align 8
-  %refname20 = getelementptr inbounds %struct.ref_iterator, ptr %ref_iterator, i64 0, i32 2
+  %refname20 = getelementptr inbounds i8, ptr %ref_iterator, i64 16
   store ptr %7, ptr %refname20, align 8
-  %oid = getelementptr inbounds %struct.ref_iterator, ptr %6, i64 0, i32 3
+  %oid = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %oid, align 8
-  %oid23 = getelementptr inbounds %struct.ref_iterator, ptr %ref_iterator, i64 0, i32 3
+  %oid23 = getelementptr inbounds i8, ptr %ref_iterator, i64 24
   store ptr %8, ptr %oid23, align 8
-  %flags = getelementptr inbounds %struct.ref_iterator, ptr %6, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %6, i64 32
   %9 = load i32, ptr %flags, align 8
-  %flags26 = getelementptr inbounds %struct.ref_iterator, ptr %ref_iterator, i64 0, i32 4
+  %flags26 = getelementptr inbounds i8, ptr %ref_iterator, i64 32
   store i32 %9, ptr %flags26, align 8
   ret i32 %call
 }
@@ -768,10 +760,10 @@ if.end12:                                         ; preds = %if.then8, %do.body5
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_ref_iterator_peel(ptr nocapture noundef readonly %ref_iterator, ptr noundef %peeled) #0 {
 entry:
-  %iter = getelementptr inbounds %struct.debug_ref_iterator, ptr %ref_iterator, i64 0, i32 1
+  %iter = getelementptr inbounds i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter, align 8
   %1 = load ptr, ptr %0, align 8
-  %peel = getelementptr inbounds %struct.ref_iterator_vtable, ptr %1, i64 0, i32 1
+  %peel = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %peel, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %peeled) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -784,7 +776,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %iter, align 8
-  %refname = getelementptr inbounds %struct.ref_iterator, ptr %4, i64 0, i32 2
+  %refname = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %refname, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 197, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.17, ptr noundef %5, i32 noundef %call) #6
   br label %do.end
@@ -796,10 +788,10 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_ref_iterator_abort(ptr nocapture noundef readonly %ref_iterator) #0 {
 entry:
-  %iter = getelementptr inbounds %struct.debug_ref_iterator, ptr %ref_iterator, i64 0, i32 1
+  %iter = getelementptr inbounds i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter, align 8
   %1 = load ptr, ptr %0, align 8
-  %abort = getelementptr inbounds %struct.ref_iterator_vtable, ptr %1, i64 0, i32 2
+  %abort = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %abort, align 8
   %call = tail call i32 %2(ptr noundef nonnull %0) #6
   %3 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -848,9 +840,9 @@ if.then3:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %if.end
-  %fn = getelementptr inbounds %struct.debug_reflog, ptr %cb_data, i64 0, i32 1
+  %fn = getelementptr inbounds i8, ptr %cb_data, i64 8
   %0 = load ptr, ptr %fn, align 8
-  %cb_data7 = getelementptr inbounds %struct.debug_reflog, ptr %cb_data, i64 0, i32 2
+  %cb_data7 = getelementptr inbounds i8, ptr %cb_data, i64 16
   %1 = load ptr, ptr %cb_data7, align 8
   %call8 = call i32 %0(ptr noundef %old_oid, ptr noundef %new_oid, ptr noundef %committer, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %msg, ptr noundef %1) #6
   %2 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -894,7 +886,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   %1 = load ptr, ptr %cb_data, align 8
-  %cb_data1 = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %cb_data, i64 0, i32 3
+  %cb_data1 = getelementptr inbounds i8, ptr %cb_data, i64 24
   %2 = load ptr, ptr %cb_data1, align 8
   tail call void %1(ptr noundef %refname, ptr noundef %oid, ptr noundef %2) #6
   ret void
@@ -903,9 +895,9 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_reflog_expiry_should_prune_fn(ptr noundef %ooid, ptr noundef %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr nocapture noundef readonly %cb_data) #0 {
 entry:
-  %should_prune = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %cb_data, i64 0, i32 1
+  %should_prune = getelementptr inbounds i8, ptr %cb_data, i64 8
   %0 = load ptr, ptr %should_prune, align 8
-  %cb_data1 = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %cb_data, i64 0, i32 3
+  %cb_data1 = getelementptr inbounds i8, ptr %cb_data, i64 24
   %1 = load ptr, ptr %cb_data1, align 8
   %call = tail call i32 %0(ptr noundef %ooid, ptr noundef %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr noundef %1) #6
   %2 = load i32, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_refs, i64 0, i32 1), align 8
@@ -927,9 +919,9 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal void @debug_reflog_expiry_cleanup(ptr nocapture noundef readonly %cb_data) #0 {
 entry:
-  %cleanup = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %cb_data, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %cb_data, i64 16
   %0 = load ptr, ptr %cleanup, align 8
-  %cb_data1 = getelementptr inbounds %struct.debug_reflog_expiry_should_prune, ptr %cb_data, i64 0, i32 3
+  %cb_data1 = getelementptr inbounds i8, ptr %cb_data, i64 24
   %1 = load ptr, ptr %cb_data1, align 8
   tail call void %0(ptr noundef %1) #6
   ret void

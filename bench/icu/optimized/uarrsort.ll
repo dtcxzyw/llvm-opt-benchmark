@@ -162,11 +162,11 @@ if.else:                                          ; preds = %if.end11
 
 if.then17:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %v.i)
-  %stackArray.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %v.i, i64 0, i32 3
+  %stackArray.i.i = getelementptr inbounds i8, ptr %v.i, i64 16
   store ptr %stackArray.i.i, ptr %v.i, align 16
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %v.i, i64 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %v.i, i64 8
   store i32 7, ptr %capacity.i.i, align 8
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %v.i, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %v.i, i64 12
   store i8 0, ptr %needToRelease.i.i, align 4
   %cmp3.i = icmp ugt i32 %itemSize, 224
   br i1 %cmp3.i, label %if.then.i.i, label %for.body.lr.ph.i.i
@@ -357,11 +357,11 @@ _ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %cleanup.i, 
 
 if.else18:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %xw.i)
-  %stackArray.i.i21 = getelementptr inbounds %"class.icu_75::MaybeStackArray.0", ptr %xw.i, i64 0, i32 3
+  %stackArray.i.i21 = getelementptr inbounds i8, ptr %xw.i, i64 16
   store ptr %stackArray.i.i21, ptr %xw.i, align 16
-  %capacity.i.i22 = getelementptr inbounds %"class.icu_75::MaybeStackArray.0", ptr %xw.i, i64 0, i32 1
+  %capacity.i.i22 = getelementptr inbounds i8, ptr %xw.i, i64 8
   store i32 14, ptr %capacity.i.i22, align 8
-  %needToRelease.i.i23 = getelementptr inbounds %"class.icu_75::MaybeStackArray.0", ptr %xw.i, i64 0, i32 2
+  %needToRelease.i.i23 = getelementptr inbounds i8, ptr %xw.i, i64 12
   store i8 0, ptr %needToRelease.i.i23, align 4
   %mul.i = shl nuw nsw i32 %div1.i.i, 1
   %cmp2.i = icmp ugt i32 %itemSize, 224
@@ -440,7 +440,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -716,7 +716,7 @@ do.end73:                                         ; preds = %do.cond70, %for.inc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.0", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i

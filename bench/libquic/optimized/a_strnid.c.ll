@@ -136,18 +136,18 @@ ASN1_STRING_TABLE_get.exit:                       ; preds = %if.end4.i
 
 if.then2:                                         ; preds = %ASN1_STRING_TABLE_get.exit.thread14, %ASN1_STRING_TABLE_get.exit
   %retval.0.i17 = phi ptr [ %call.i, %ASN1_STRING_TABLE_get.exit.thread14 ], [ %call9.i, %ASN1_STRING_TABLE_get.exit ]
-  %mask3 = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i17, i64 0, i32 3
+  %mask3 = getelementptr inbounds i8, ptr %retval.0.i17, i64 24
   %3 = load i64, ptr %mask3, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i17, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %retval.0.i17, i64 32
   %4 = load i64, ptr %flags, align 8
   %and = and i64 %4, 2
   %tobool4.not = icmp eq i64 %and, 0
   %5 = load i64, ptr @global_mask, align 8
   %and6 = select i1 %tobool4.not, i64 %5, i64 -1
   %mask.0 = and i64 %and6, %3
-  %minsize = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i17, i64 0, i32 1
+  %minsize = getelementptr inbounds i8, ptr %retval.0.i17, i64 8
   %6 = load i64, ptr %minsize, align 8
-  %maxsize = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i17, i64 0, i32 2
+  %maxsize = getelementptr inbounds i8, ptr %retval.0.i17, i64 16
   %7 = load i64, ptr %maxsize, align 8
   %call8 = call i32 @ASN1_mbstring_ncopy(ptr noundef nonnull %spec.store.select, ptr noundef %in, i32 noundef %inlen, i32 noundef %inform, i64 noundef %mask.0, i64 noundef %6, i64 noundef %7) #14
   br label %if.end11
@@ -290,14 +290,14 @@ if.then9:                                         ; preds = %if.then6
 
 if.end10:                                         ; preds = %if.then6
   %or = or i64 %flags, 1
-  %flags11 = getelementptr inbounds %struct.asn1_string_table_st, ptr %call7, i64 0, i32 4
+  %flags11 = getelementptr inbounds i8, ptr %call7, i64 32
   store i64 %or, ptr %flags11, align 8
   store i32 %nid, ptr %call7, align 8
   br label %if.end17
 
 if.else:                                          ; preds = %ASN1_STRING_TABLE_get.exit.thread19, %ASN1_STRING_TABLE_get.exit
   %retval.0.i22 = phi ptr [ %call.i, %ASN1_STRING_TABLE_get.exit.thread19 ], [ %call9.i, %ASN1_STRING_TABLE_get.exit ]
-  %flags13 = getelementptr inbounds %struct.asn1_string_table_st, ptr %retval.0.i22, i64 0, i32 4
+  %flags13 = getelementptr inbounds i8, ptr %retval.0.i22, i64 32
   %4 = load i64, ptr %flags13, align 8
   %and14 = and i64 %4, 1
   %or15 = or disjoint i64 %and14, %and
@@ -311,7 +311,7 @@ if.end17:                                         ; preds = %if.else, %if.end10
   br i1 %cmp.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end17
-  %minsize19 = getelementptr inbounds %struct.asn1_string_table_st, ptr %tmp.0, i64 0, i32 1
+  %minsize19 = getelementptr inbounds i8, ptr %tmp.0, i64 8
   store i64 %minsize, ptr %minsize19, align 8
   br label %if.end20
 
@@ -320,12 +320,12 @@ if.end20:                                         ; preds = %if.then18, %if.end1
   br i1 %cmp21.not, label %if.end24, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %maxsize23 = getelementptr inbounds %struct.asn1_string_table_st, ptr %tmp.0, i64 0, i32 2
+  %maxsize23 = getelementptr inbounds i8, ptr %tmp.0, i64 16
   store i64 %maxsize, ptr %maxsize23, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.end20
-  %mask25 = getelementptr inbounds %struct.asn1_string_table_st, ptr %tmp.0, i64 0, i32 3
+  %mask25 = getelementptr inbounds i8, ptr %tmp.0, i64 24
   store i64 %mask, ptr %mask25, align 8
   br i1 %tobool5.not.not17, label %if.then27, label %return
 
@@ -380,7 +380,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @st_free(ptr nocapture noundef %tbl) #10 {
 entry:
-  %flags = getelementptr inbounds %struct.asn1_string_table_st, ptr %tbl, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %tbl, i64 32
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 1
   %tobool.not = icmp eq i64 %and, 0

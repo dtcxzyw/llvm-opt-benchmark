@@ -67,7 +67,7 @@ if.end17:                                         ; preds = %if.then2, %if.else,
   %conv41 = zext i8 %9 to i32
   %shl42 = shl nuw i32 %conv41, 24
   %or43 = or disjoint i32 %or39, %shl42
-  %arrayidx45 = getelementptr inbounds [2 x i32], ptr %ti, i64 0, i64 1
+  %arrayidx45 = getelementptr inbounds i8, ptr %ti, i64 4
   %cmp46102 = icmp sgt i64 %length, 0
   br i1 %cmp46102, label %while.body.lr.ph, label %while.end
 

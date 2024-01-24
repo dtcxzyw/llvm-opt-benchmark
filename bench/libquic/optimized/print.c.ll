@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.EVP_PKEY_PRINT_METHOD = type { i32, ptr, ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.rsa_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, i32, i32, %union.crypto_mutex_st, ptr, ptr, ptr, i32, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.RSA_additional_prime_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.dsa_st = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, i32, %struct.crypto_ex_data_st }
 
 @.str = private unnamed_addr constant [11 x i8] c"Public Key\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"Private Key\00", align 1
@@ -58,77 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_PKEY_print_public(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
-  %0 = load i32, ptr %type, align 4
-  br label %for.body.i
-
-for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.04.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
-
-for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %i.04.i
-  %1 = load i32, ptr %arrayidx.i, align 16
-  %cmp2.i = icmp eq i32 %1, %0
-  br i1 %cmp2.i, label %if.then, label %for.cond.i
-
-if.then:                                          ; preds = %for.body.i
-  %pub_print = getelementptr inbounds [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %i.04.i, i32 1
-  %2 = load ptr, ptr %pub_print, align 8
-  %call3 = tail call i32 %2(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) #5
-  br label %return
-
-if.end:                                           ; preds = %for.cond.i
-  %call.i = tail call i32 @BIO_indent(ptr noundef %out, i32 noundef %indent, i32 noundef 128) #5
-  %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str) #5
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %call3, %if.then ], [ 1, %if.end ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_PKEY_print_private(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) local_unnamed_addr #0 {
-entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
-  %0 = load i32, ptr %type, align 4
-  br label %for.body.i
-
-for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.04.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
-
-for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %i.04.i
-  %1 = load i32, ptr %arrayidx.i, align 16
-  %cmp2.i = icmp eq i32 %1, %0
-  br i1 %cmp2.i, label %if.then, label %for.cond.i
-
-if.then:                                          ; preds = %for.body.i
-  %priv_print = getelementptr inbounds [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %i.04.i, i32 2
-  %2 = load ptr, ptr %priv_print, align 16
-  %call3 = tail call i32 %2(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) #5
-  br label %return
-
-if.end:                                           ; preds = %for.cond.i
-  %call.i = tail call i32 @BIO_indent(ptr noundef %out, i32 noundef %indent, i32 noundef 128) #5
-  %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1) #5
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i32 [ %call3, %if.then ], [ 1, %if.end ]
-  ret i32 %retval.0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_PKEY_print_params(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) local_unnamed_addr #0 {
-entry:
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %pkey, i64 4
   %0 = load i32, ptr %type, align 4
   br label %for.body.i
 
@@ -145,12 +68,90 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   br i1 %cmp2.i, label %land.lhs.true, label %for.cond.i
 
 land.lhs.true:                                    ; preds = %for.body.i
-  %cmp1.not = icmp eq i64 %i.04.i, 0
+  %pub_print = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %2 = load ptr, ptr %pub_print, align 8
+  %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %param_print = getelementptr inbounds [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %i.04.i, i32 3
+  %call3 = tail call i32 %2(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) #5
+  br label %return
+
+if.end:                                           ; preds = %for.cond.i, %land.lhs.true
+  %call.i = tail call i32 @BIO_indent(ptr noundef %out, i32 noundef %indent, i32 noundef 128) #5
+  %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str) #5
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %retval.0 = phi i32 [ %call3, %if.then ], [ 1, %if.end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @EVP_PKEY_print_private(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) local_unnamed_addr #0 {
+entry:
+  %type = getelementptr inbounds i8, ptr %pkey, i64 4
+  %0 = load i32, ptr %type, align 4
+  br label %for.body.i
+
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.04.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 3
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
+
+for.body.i:                                       ; preds = %for.cond.i, %entry
+  %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %i.04.i
+  %1 = load i32, ptr %arrayidx.i, align 16
+  %cmp2.i = icmp eq i32 %1, %0
+  br i1 %cmp2.i, label %land.lhs.true, label %for.cond.i
+
+land.lhs.true:                                    ; preds = %for.body.i
+  %priv_print = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %2 = load ptr, ptr %priv_print, align 8
+  %cmp1.not = icmp eq ptr %2, null
+  br i1 %cmp1.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %land.lhs.true
+  %call3 = tail call i32 %2(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) #5
+  br label %return
+
+if.end:                                           ; preds = %for.cond.i, %land.lhs.true
+  %call.i = tail call i32 @BIO_indent(ptr noundef %out, i32 noundef %indent, i32 noundef 128) #5
+  %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1) #5
+  br label %return
+
+return:                                           ; preds = %if.end, %if.then
+  %retval.0 = phi i32 [ %call3, %if.then ], [ 1, %if.end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden i32 @EVP_PKEY_print_params(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) local_unnamed_addr #0 {
+entry:
+  %type = getelementptr inbounds i8, ptr %pkey, i64 4
+  %0 = load i32, ptr %type, align 4
+  br label %for.body.i
+
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.04.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 3
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
+
+for.body.i:                                       ; preds = %for.cond.i, %entry
+  %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds [3 x %struct.EVP_PKEY_PRINT_METHOD], ptr @kPrintMethods, i64 0, i64 %i.04.i
+  %1 = load i32, ptr %arrayidx.i, align 16
+  %cmp2.i = icmp eq i32 %1, %0
+  br i1 %cmp2.i, label %land.lhs.true, label %for.cond.i
+
+land.lhs.true:                                    ; preds = %for.body.i
+  %param_print = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %2 = load ptr, ptr %param_print, align 8
+  %cmp1.not = icmp eq ptr %2, null
+  br i1 %cmp1.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call i32 %2(ptr noundef %out, ptr noundef %pkey, i32 noundef %indent, ptr noundef %pctx) #5
   br label %return
 
@@ -167,7 +168,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_rsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 0), !range !9
   ret i32 %call
@@ -176,7 +177,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @rsa_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_rsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 1), !range !9
   ret i32 %call
@@ -185,7 +186,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 1), !range !9
   ret i32 %call
@@ -194,7 +195,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 2), !range !9
   ret i32 %call
@@ -203,7 +204,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_dsa_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 0), !range !9
   ret i32 %call
@@ -212,7 +213,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @eckey_pub_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 1), !range !9
   ret i32 %call
@@ -221,7 +222,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @eckey_priv_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 2), !range !9
   ret i32 %call
@@ -230,7 +231,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @eckey_param_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %indent, ptr nocapture readnone %ctx) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call fastcc i32 @do_EC_KEY_print(ptr noundef %bp, ptr noundef %0, i32 noundef %indent, i32 noundef 0), !range !9
   ret i32 %call
@@ -239,7 +240,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @do_rsa_print(ptr noundef %out, ptr nocapture noundef readonly %rsa, i32 noundef %off, i32 noundef %include_private) unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %update_buflen.exit, label %if.end.i
@@ -251,7 +252,7 @@ if.end.i:                                         ; preds = %entry
 
 update_buflen.exit:                               ; preds = %if.end.i, %entry
   %buf_len.0 = phi i64 [ 0, %entry ], [ %conv.i, %if.end.i ]
-  %e = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %rsa, i64 16
   %1 = load ptr, ptr %e, align 8
   %tobool.not.i77 = icmp eq ptr %1, null
   br i1 %tobool.not.i77, label %update_buflen.exit83, label %if.end.i78
@@ -268,7 +269,7 @@ update_buflen.exit83:                             ; preds = %if.end.i78, %update
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %update_buflen.exit83
-  %d = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %d = getelementptr inbounds i8, ptr %rsa, i64 24
   %2 = load ptr, ptr %d, align 8
   %tobool.not.i84 = icmp eq ptr %2, null
   br i1 %tobool.not.i84, label %update_buflen.exit90, label %if.end.i85
@@ -281,7 +282,7 @@ if.end.i85:                                       ; preds = %if.then
 
 update_buflen.exit90:                             ; preds = %if.end.i85, %if.then
   %buf_len.2 = phi i64 [ %buf_len.1, %if.then ], [ %spec.select159, %if.end.i85 ]
-  %p = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %p = getelementptr inbounds i8, ptr %rsa, i64 32
   %3 = load ptr, ptr %p, align 8
   %tobool.not.i91 = icmp eq ptr %3, null
   br i1 %tobool.not.i91, label %update_buflen.exit97, label %if.end.i92
@@ -294,7 +295,7 @@ if.end.i92:                                       ; preds = %update_buflen.exit9
 
 update_buflen.exit97:                             ; preds = %if.end.i92, %update_buflen.exit90
   %buf_len.3 = phi i64 [ %buf_len.2, %update_buflen.exit90 ], [ %spec.select160, %if.end.i92 ]
-  %q = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %rsa, i64 40
   %4 = load ptr, ptr %q, align 8
   %tobool.not.i98 = icmp eq ptr %4, null
   br i1 %tobool.not.i98, label %update_buflen.exit104, label %if.end.i99
@@ -307,7 +308,7 @@ if.end.i99:                                       ; preds = %update_buflen.exit9
 
 update_buflen.exit104:                            ; preds = %if.end.i99, %update_buflen.exit97
   %buf_len.4 = phi i64 [ %buf_len.3, %update_buflen.exit97 ], [ %spec.select161, %if.end.i99 ]
-  %dmp1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 48
   %5 = load ptr, ptr %dmp1, align 8
   %tobool.not.i105 = icmp eq ptr %5, null
   br i1 %tobool.not.i105, label %update_buflen.exit111, label %if.end.i106
@@ -320,7 +321,7 @@ if.end.i106:                                      ; preds = %update_buflen.exit1
 
 update_buflen.exit111:                            ; preds = %if.end.i106, %update_buflen.exit104
   %buf_len.5 = phi i64 [ %buf_len.4, %update_buflen.exit104 ], [ %spec.select162, %if.end.i106 ]
-  %dmq1 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 56
   %6 = load ptr, ptr %dmq1, align 8
   %tobool.not.i112 = icmp eq ptr %6, null
   br i1 %tobool.not.i112, label %update_buflen.exit118, label %if.end.i113
@@ -333,7 +334,7 @@ if.end.i113:                                      ; preds = %update_buflen.exit1
 
 update_buflen.exit118:                            ; preds = %if.end.i113, %update_buflen.exit111
   %buf_len.6 = phi i64 [ %buf_len.5, %update_buflen.exit111 ], [ %spec.select163, %if.end.i113 ]
-  %iqmp = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
   %7 = load ptr, ptr %iqmp, align 8
   %tobool.not.i119 = icmp eq ptr %7, null
   br i1 %tobool.not.i119, label %update_buflen.exit125, label %if.end.i120
@@ -346,7 +347,7 @@ if.end.i120:                                      ; preds = %update_buflen.exit1
 
 update_buflen.exit125:                            ; preds = %if.end.i120, %update_buflen.exit118
   %buf_len.7 = phi i64 [ %buf_len.6, %update_buflen.exit118 ], [ %spec.select164, %if.end.i120 ]
-  %additional_primes = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %additional_primes = getelementptr inbounds i8, ptr %rsa, i64 72
   %8 = load ptr, ptr %additional_primes, align 8
   %cmp.not = icmp eq ptr %8, null
   br i1 %cmp.not, label %if.end6, label %for.cond.preheader
@@ -373,7 +374,7 @@ if.end.i127:                                      ; preds = %for.body
 
 update_buflen.exit132:                            ; preds = %if.end.i127, %for.body
   %buf_len.9 = phi i64 [ %buf_len.8170, %for.body ], [ %spec.select165, %if.end.i127 ]
-  %exp = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %call5, i64 0, i32 1
+  %exp = getelementptr inbounds i8, ptr %call5, i64 8
   %11 = load ptr, ptr %exp, align 8
   %tobool.not.i133 = icmp eq ptr %11, null
   br i1 %tobool.not.i133, label %update_buflen.exit139, label %if.end.i134
@@ -386,7 +387,7 @@ if.end.i134:                                      ; preds = %update_buflen.exit1
 
 update_buflen.exit139:                            ; preds = %if.end.i134, %update_buflen.exit132
   %buf_len.10 = phi i64 [ %buf_len.9, %update_buflen.exit132 ], [ %spec.select166, %if.end.i134 ]
-  %coeff = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %call5, i64 0, i32 2
+  %coeff = getelementptr inbounds i8, ptr %call5, i64 16
   %12 = load ptr, ptr %coeff, align 8
   %tobool.not.i140 = icmp eq ptr %12, null
   br i1 %tobool.not.i140, label %update_buflen.exit146, label %if.end.i141
@@ -435,7 +436,7 @@ if.end20:                                         ; preds = %if.end16
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end20
-  %d22 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %d22 = getelementptr inbounds i8, ptr %rsa, i64 24
   %15 = load ptr, ptr %d22, align 8
   %tobool23.not = icmp eq ptr %15, null
   br i1 %tobool23.not, label %if.else, label %if.then24
@@ -468,49 +469,49 @@ lor.lhs.false:                                    ; preds = %if.end33
   br i1 %brmerge, label %err, label %if.then43
 
 if.then43:                                        ; preds = %lor.lhs.false
-  %d44 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 3
+  %d44 = getelementptr inbounds i8, ptr %rsa, i64 24
   %18 = load ptr, ptr %d44, align 8
   %call45 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.10, ptr noundef %18, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %err, label %lor.lhs.false47
 
 lor.lhs.false47:                                  ; preds = %if.then43
-  %p48 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 4
+  %p48 = getelementptr inbounds i8, ptr %rsa, i64 32
   %19 = load ptr, ptr %p48, align 8
   %call49 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.11, ptr noundef %19, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %err, label %lor.lhs.false51
 
 lor.lhs.false51:                                  ; preds = %lor.lhs.false47
-  %q52 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %q52 = getelementptr inbounds i8, ptr %rsa, i64 40
   %20 = load ptr, ptr %q52, align 8
   %call53 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.12, ptr noundef %20, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %err, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false51
-  %dmp156 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 6
+  %dmp156 = getelementptr inbounds i8, ptr %rsa, i64 48
   %21 = load ptr, ptr %dmp156, align 8
   %call57 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.13, ptr noundef %21, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false55
-  %dmq160 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 7
+  %dmq160 = getelementptr inbounds i8, ptr %rsa, i64 56
   %22 = load ptr, ptr %dmq160, align 8
   %call61 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.14, ptr noundef %22, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %err, label %lor.lhs.false63
 
 lor.lhs.false63:                                  ; preds = %lor.lhs.false59
-  %iqmp64 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 8
+  %iqmp64 = getelementptr inbounds i8, ptr %rsa, i64 64
   %23 = load ptr, ptr %iqmp64, align 8
   %call65 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.15, ptr noundef %23, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool66.not = icmp eq i32 %call65, 0
   br i1 %tobool66.not, label %err, label %if.end68
 
 if.end68:                                         ; preds = %lor.lhs.false63
-  %additional_primes69 = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 9
+  %additional_primes69 = getelementptr inbounds i8, ptr %rsa, i64 72
   %24 = load ptr, ptr %additional_primes69, align 8
   %cmp70.not = icmp eq ptr %24, null
   br i1 %cmp70.not, label %err, label %land.lhs.true71
@@ -555,14 +556,14 @@ lor.lhs.false93:                                  ; preds = %for.body85
   br i1 %tobool96.not, label %err, label %lor.lhs.false97
 
 lor.lhs.false97:                                  ; preds = %lor.lhs.false93
-  %exp98 = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %call88, i64 0, i32 1
+  %exp98 = getelementptr inbounds i8, ptr %call88, i64 8
   %30 = load ptr, ptr %exp98, align 8
   %call99 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.19, ptr noundef %30, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %err, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %lor.lhs.false97
-  %coeff102 = getelementptr inbounds %struct.RSA_additional_prime_st, ptr %call88, i64 0, i32 2
+  %coeff102 = getelementptr inbounds i8, ptr %call88, i64 16
   %31 = load ptr, ptr %coeff102, align 8
   %call103 = tail call fastcc i32 @bn_print(ptr noundef %out, ptr noundef nonnull @.str.20, ptr noundef %31, ptr noundef nonnull %call7, i32 noundef %off), !range !9
   %tobool104.not = icmp eq i32 %call103, 0
@@ -718,7 +719,7 @@ entry:
   br i1 %cmp, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %entry
-  %priv_key1 = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 5
+  %priv_key1 = getelementptr inbounds i8, ptr %x, i64 40
   %0 = load ptr, ptr %priv_key1, align 8
   br label %if.then3
 
@@ -728,7 +729,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end.thread, %if.end
   %priv_key.071 = phi ptr [ %0, %if.end.thread ], [ null, %if.end ]
-  %pub_key4 = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 4
+  %pub_key4 = getelementptr inbounds i8, ptr %x, i64 32
   %1 = load ptr, ptr %pub_key4, align 8
   br label %if.end5
 
@@ -738,7 +739,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   %cmp8 = icmp eq i32 %ptype, 1
   %spec.select = select i1 %cmp8, ptr @.str.32, ptr @.str.30
   %ktype.0 = select i1 %cmp, ptr @.str.31, ptr %spec.select
-  %p = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %p, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %update_buflen.exit, label %if.end.i
@@ -750,7 +751,7 @@ if.end.i:                                         ; preds = %if.end5
 
 update_buflen.exit:                               ; preds = %if.end.i, %if.end5
   %buf_len.0 = phi i64 [ 0, %if.end5 ], [ %conv.i, %if.end.i ]
-  %q = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %x, i64 16
   %3 = load ptr, ptr %q, align 8
   %tobool.not.i35 = icmp eq ptr %3, null
   br i1 %tobool.not.i35, label %update_buflen.exit41, label %if.end.i36
@@ -763,7 +764,7 @@ if.end.i36:                                       ; preds = %update_buflen.exit
 
 update_buflen.exit41:                             ; preds = %if.end.i36, %update_buflen.exit
   %buf_len.1 = phi i64 [ %buf_len.0, %update_buflen.exit ], [ %spec.select75, %if.end.i36 ]
-  %g = getelementptr inbounds %struct.dsa_st, ptr %x, i64 0, i32 3
+  %g = getelementptr inbounds i8, ptr %x, i64 24
   %4 = load ptr, ptr %g, align 8
   %tobool.not.i42 = icmp eq ptr %4, null
   br i1 %tobool.not.i42, label %update_buflen.exit48, label %if.end.i43

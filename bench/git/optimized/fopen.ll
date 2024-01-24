@@ -36,7 +36,7 @@ if.then12:                                        ; preds = %if.end8
   br label %return
 
 if.end14:                                         ; preds = %if.end8
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
   %cmp15 = icmp eq i32 %and, 16384

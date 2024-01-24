@@ -3,15 +3,6 @@ source_filename = "bench/git/original/alloc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.alloc_state = type { i32, ptr, ptr, i32, i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.parsed_object_pool = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i32, ptr }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.object = type { i32, %struct.object_id }
-%struct.object_id = type { [32 x i8], i32 }
-
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 @alloc_commit_index.parsed_commits_count = internal unnamed_addr global i32 0, align 4
 
@@ -27,13 +18,13 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @clear_alloc_state(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %slab_nr = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 3
+  %slab_nr = getelementptr inbounds i8, ptr %s, i64 24
   %0 = load i32, ptr %slab_nr, align 8
   %cmp6 = icmp sgt i32 %0, 0
   br i1 %cmp6, label %while.body.lr.ph, label %do.body
 
 while.body.lr.ph:                                 ; preds = %entry
-  %slabs = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 2
+  %slabs = getelementptr inbounds i8, ptr %s, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -50,7 +41,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %while.body, label %do.body, !llvm.loop !5
 
 do.body:                                          ; preds = %while.body, %entry
-  %slabs3 = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 2
+  %slabs3 = getelementptr inbounds i8, ptr %s, i64 16
   %5 = load ptr, ptr %slabs3, align 8
   tail call void @free(ptr noundef %5) #6
   store ptr null, ptr %slabs3, align 8
@@ -63,9 +54,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_blob_node(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %blob_state = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 3
+  %blob_state = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %blob_state, align 8
   %call = tail call fastcc ptr @alloc_node(ptr noundef %1, i64 noundef 40)
   %bf.load = load i32, ptr %call, align 4
@@ -86,17 +77,17 @@ if.then:                                          ; preds = %entry
   store i32 1024, ptr %s, align 8
   %mul = shl nuw nsw i64 %node_size, 10
   %call = tail call ptr @xmalloc(i64 noundef %mul) #6
-  %p = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %call, ptr %p, align 8
-  %slab_nr = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 3
+  %slab_nr = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load i32, ptr %slab_nr, align 8
-  %slab_alloc = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 4
+  %slab_alloc = getelementptr inbounds i8, ptr %s, i64 28
   %2 = load i32, ptr %slab_alloc, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %if.then.do.end_crit_edge, label %if.then2
 
 if.then.do.end_crit_edge:                         ; preds = %if.then
-  %slabs24.phi.trans.insert = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 2
+  %slabs24.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 16
   %.pre24 = load ptr, ptr %slabs24.phi.trans.insert, align 8
   br label %do.end
 
@@ -117,7 +108,7 @@ if.then.i:                                        ; preds = %if.then2
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then2
-  %slabs = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 2
+  %slabs = getelementptr inbounds i8, ptr %s, i64 16
   %4 = load ptr, ptr %slabs, align 8
   %mul.i = shl nuw nsw i64 %conv, 3
   %call20 = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %mul.i) #6
@@ -142,7 +133,7 @@ if.end26:                                         ; preds = %do.end, %entry
   %8 = phi i32 [ %.pre26, %do.end ], [ %0, %entry ]
   %dec = add nsw i32 %8, -1
   store i32 %dec, ptr %s, align 8
-  %p28 = getelementptr inbounds %struct.alloc_state, ptr %s, i64 0, i32 1
+  %p28 = getelementptr inbounds i8, ptr %s, i64 8
   %9 = load ptr, ptr %p28, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %node_size
   store ptr %add.ptr, ptr %p28, align 8
@@ -153,9 +144,9 @@ if.end26:                                         ; preds = %do.end, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_tree_node(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %tree_state = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 4
+  %tree_state = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %tree_state, align 8
   %call = tail call fastcc ptr @alloc_node(ptr noundef %1, i64 noundef 56)
   %bf.load = load i32, ptr %call, align 8
@@ -168,9 +159,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_tag_node(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %tag_state = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 6
+  %tag_state = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %tag_state, align 8
   %call = tail call fastcc ptr @alloc_node(ptr noundef %1, i64 noundef 64)
   %bf.load = load i32, ptr %call, align 8
@@ -183,9 +174,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_object_node(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %object_state = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 7
+  %object_state = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %object_state, align 8
   %call = tail call fastcc ptr @alloc_node(ptr noundef %1, i64 noundef 72)
   %bf.load = load i32, ptr %call, align 4
@@ -204,7 +195,7 @@ entry:
   %0 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr @alloc_commit_index.parsed_commits_count, align 4
-  %index = getelementptr inbounds %struct.commit, ptr %c, i64 0, i32 4
+  %index = getelementptr inbounds i8, ptr %c, i64 64
   store i32 %0, ptr %index, align 8
   ret void
 }
@@ -212,9 +203,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @alloc_commit_node(ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %commit_state = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 5
+  %commit_state = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %commit_state, align 8
   %call = tail call fastcc ptr @alloc_node(ptr noundef %1, i64 noundef 72)
   %bf.load.i = load i32, ptr %call, align 8
@@ -224,7 +215,7 @@ entry:
   %2 = load i32, ptr @alloc_commit_index.parsed_commits_count, align 4
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr @alloc_commit_index.parsed_commits_count, align 4
-  %index.i = getelementptr inbounds %struct.commit, ptr %call, i64 0, i32 4
+  %index.i = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %2, ptr %index.i, align 8
   ret ptr %call
 }

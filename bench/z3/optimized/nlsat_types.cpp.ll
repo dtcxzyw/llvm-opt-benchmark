@@ -4,11 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.nlsat::atom" = type { i32, i32, i32, i32 }
-%"class.nlsat::ineq_atom" = type { %"class.nlsat::atom", i32, [0 x ptr] }
 %"struct.nlsat::ineq_atom::khasher" = type { i8 }
 %"struct.nlsat::ineq_atom::chasher" = type { i8 }
-%"class.nlsat::root_atom" = type { %"class.nlsat::atom", i32, i32, ptr }
 
 $_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_RKT1_ = comdat any
 
@@ -31,23 +28,24 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %k, i32 noundef %sz, ptr nocapture noundef readonly %ps, ptr nocapture noundef readonly %is_even, i32 noundef %max_var) unnamed_addr #3 align 2 {
 entry:
   store i32 %k, ptr %this, align 8
-  %m_ref_count.i = getelementptr inbounds %"class.nlsat::atom", ptr %this, i64 0, i32 1
+  %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_ref_count.i, align 4
-  %m_bool_var.i = getelementptr inbounds %"class.nlsat::atom", ptr %this, i64 0, i32 2
+  %m_bool_var.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2147483647, ptr %m_bool_var.i, align 8
-  %m_max_var.i = getelementptr inbounds %"class.nlsat::atom", ptr %this, i64 0, i32 3
+  %m_max_var.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %max_var, ptr %m_max_var.i, align 4
-  %m_size = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %this, i64 0, i32 1
+  %m_size = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sz, ptr %m_size, align 8
   %cmp5.not = icmp eq i32 %sz, 0
-  br i1 %cmp5.not, label %for.end, label %for.body.preheader
+  br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
+  %m_ps = getelementptr inbounds i8, ptr %this, i64 24
   %wide.trip.count = zext i32 %sz to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %ps, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -57,7 +55,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv = zext nneg i8 %3 to i64
   %or = or i64 %conv, %1
   %4 = inttoptr i64 %or to ptr
-  %arrayidx6 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [0 x ptr], ptr %m_ps, i64 0, i64 %indvars.iv
   store ptr %4, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -72,7 +70,7 @@ define hidden noundef i32 @_ZNK5nlsat9ineq_atom9hash_procclEPKS0_(ptr nocapture 
 entry:
   %ref.tmp = alloca %"struct.nlsat::ineq_atom::khasher", align 1
   %ref.tmp2 = alloca %"struct.nlsat::ineq_atom::chasher", align 1
-  %m_size = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %a, i64 0, i32 1
+  %m_size = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %m_size, align 8
   %call = call noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_RKT1_(ptr noundef %a, i32 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
   ret i32 %call
@@ -82,21 +80,22 @@ entry:
 define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_RKT1_(ptr noundef %app, i32 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %khasher, ptr noundef nonnull align 1 dereferenceable(1) %chasher) local_unnamed_addr #4 comdat {
 entry:
   %0 = load i32, ptr %app, align 8
-  switch i32 %n, label %while.body.preheader [
+  switch i32 %n, label %while.body.lr.ph [
     i32 0, label %return
     i32 1, label %sw.bb1
     i32 2, label %sw.bb35
     i32 3, label %sw.bb77
   ]
 
-while.body.preheader:                             ; preds = %entry
+while.body.lr.ph:                                 ; preds = %entry
+  %m_ps.i.i390 = getelementptr inbounds i8, ptr %app, i64 24
   %1 = zext i32 %n to i64
   br label %while.body
 
 sw.bb1:                                           ; preds = %entry
   %add = add i32 %0, -1640531527
-  %arrayidx.i.i = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 0
-  %2 = load ptr, ptr %arrayidx.i.i, align 8
+  %m_ps.i.i = getelementptr inbounds i8, ptr %app, i64 24
+  %2 = load ptr, ptr %m_ps.i.i, align 8
   %3 = ptrtoint ptr %2 to i64
   %and.i.i = and i64 %3, -8
   %4 = inttoptr i64 %and.i.i to ptr
@@ -137,22 +136,22 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.bb35:                                          ; preds = %entry
-  %arrayidx.i.i373 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 0
-  %12 = load ptr, ptr %arrayidx.i.i373, align 8
+  %m_ps.i.i373 = getelementptr inbounds i8, ptr %app, i64 24
+  %12 = load ptr, ptr %m_ps.i.i373, align 8
   %13 = ptrtoint ptr %12 to i64
   %and.i.i374 = and i64 %13, -8
   %14 = inttoptr i64 %and.i.i374 to ptr
   %call2.i375 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %14)
-  %arrayidx.i.i376 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 1
-  %15 = load ptr, ptr %arrayidx.i.i376, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %app, i64 32
+  %15 = load ptr, ptr %arrayidx.i.i, align 8
   %16 = ptrtoint ptr %15 to i64
   %and.i.i377 = and i64 %16, -8
   %17 = inttoptr i64 %and.i.i377 to ptr
   %call2.i378 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %17)
   %add40 = add i32 %call2.i378, 11
   %18 = add i32 %call2.i375, %call2.i378
-  %reass.sub464 = sub i32 %0, %18
-  %sub42 = add i32 %reass.sub464, -11
+  %reass.sub470 = sub i32 %0, %18
+  %sub42 = add i32 %reass.sub470, -11
   %shr43 = lshr i32 %add40, 13
   %xor44 = xor i32 %sub42, %shr43
   %19 = add i32 %call2.i375, -1640531538
@@ -191,32 +190,32 @@ sw.bb35:                                          ; preds = %entry
   br label %return
 
 sw.bb77:                                          ; preds = %entry
-  %arrayidx.i.i379 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 0
-  %28 = load ptr, ptr %arrayidx.i.i379, align 8
+  %m_ps.i.i379 = getelementptr inbounds i8, ptr %app, i64 24
+  %28 = load ptr, ptr %m_ps.i.i379, align 8
   %29 = ptrtoint ptr %28 to i64
   %and.i.i380 = and i64 %29, -8
   %30 = inttoptr i64 %and.i.i380 to ptr
   %call2.i381 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %30)
-  %arrayidx.i.i382 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 1
-  %31 = load ptr, ptr %arrayidx.i.i382, align 8
+  %arrayidx.i.i383 = getelementptr inbounds i8, ptr %app, i64 32
+  %31 = load ptr, ptr %arrayidx.i.i383, align 8
   %32 = ptrtoint ptr %31 to i64
-  %and.i.i383 = and i64 %32, -8
-  %33 = inttoptr i64 %and.i.i383 to ptr
-  %call2.i384 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %33)
-  %arrayidx.i.i385 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 2
-  %34 = load ptr, ptr %arrayidx.i.i385, align 8
+  %and.i.i384 = and i64 %32, -8
+  %33 = inttoptr i64 %and.i.i384 to ptr
+  %call2.i385 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %33)
+  %arrayidx.i.i387 = getelementptr inbounds i8, ptr %app, i64 40
+  %34 = load ptr, ptr %arrayidx.i.i387, align 8
   %35 = ptrtoint ptr %34 to i64
-  %and.i.i386 = and i64 %35, -8
-  %36 = inttoptr i64 %and.i.i386 to ptr
-  %call2.i387 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %36)
-  %add83 = add i32 %call2.i387, 11
-  %37 = add i32 %call2.i384, %call2.i387
+  %and.i.i388 = and i64 %35, -8
+  %36 = inttoptr i64 %and.i.i388 to ptr
+  %call2.i389 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %36)
+  %add83 = add i32 %call2.i389, 11
+  %37 = add i32 %call2.i385, %call2.i389
   %reass.sub = sub i32 %call2.i381, %37
   %sub85 = add i32 %reass.sub, -11
   %shr86 = lshr i32 %add83, 13
   %xor87 = xor i32 %sub85, %shr86
-  %38 = add i32 %call2.i384, -1640531538
-  %39 = add i32 %call2.i387, %xor87
+  %38 = add i32 %call2.i385, -1640531538
+  %39 = add i32 %call2.i389, %xor87
   %sub89 = sub i32 %38, %39
   %shl90 = shl i32 %xor87, 8
   %xor91 = xor i32 %sub89, %shl90
@@ -248,9 +247,9 @@ sw.bb77:                                          ; preds = %entry
   %sub117 = sub i32 %xor107, %46
   %shr118 = lshr i32 %xor115, 15
   %xor119 = xor i32 %sub117, %shr118
-  %.neg413 = add i32 %xor111, %0
+  %.neg419 = add i32 %xor111, %0
   %47 = add i32 %xor115, %xor119
-  %sub122 = sub i32 %.neg413, %47
+  %sub122 = sub i32 %.neg419, %47
   %shr123 = lshr i32 %xor119, 13
   %xor124 = xor i32 %sub122, %shr123
   %48 = add i32 %xor119, %xor124
@@ -287,39 +286,39 @@ sw.bb77:                                          ; preds = %entry
   %xor156 = xor i32 %sub154, %shr155
   br label %return
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv = phi i64 [ %1, %while.body.preheader ], [ %62, %while.body ]
-  %c.0460 = phi i32 [ 11, %while.body.preheader ], [ %xor200, %while.body ]
-  %b.0459 = phi i32 [ -1640531527, %while.body.preheader ], [ %xor196, %while.body ]
-  %a.0458 = phi i32 [ -1640531527, %while.body.preheader ], [ %xor192, %while.body ]
+while.body:                                       ; preds = %while.body.lr.ph, %while.body
+  %indvars.iv = phi i64 [ %1, %while.body.lr.ph ], [ %62, %while.body ]
+  %c.0466 = phi i32 [ 11, %while.body.lr.ph ], [ %xor200, %while.body ]
+  %b.0465 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor196, %while.body ]
+  %a.0464 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor192, %while.body ]
   %dec = add i64 %indvars.iv, 4294967295
   %idxprom.i.i = and i64 %dec, 4294967295
-  %arrayidx.i.i388 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 %idxprom.i.i
-  %56 = load ptr, ptr %arrayidx.i.i388, align 8
+  %arrayidx.i.i391 = getelementptr inbounds [0 x ptr], ptr %m_ps.i.i390, i64 0, i64 %idxprom.i.i
+  %56 = load ptr, ptr %arrayidx.i.i391, align 8
   %57 = ptrtoint ptr %56 to i64
-  %and.i.i389 = and i64 %57, -8
-  %58 = inttoptr i64 %and.i.i389 to ptr
-  %call2.i390 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %58)
+  %and.i.i392 = and i64 %57, -8
+  %58 = inttoptr i64 %and.i.i392 to ptr
+  %call2.i393 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %58)
   %dec159 = add i64 %indvars.iv, 4294967294
-  %idxprom.i.i391 = and i64 %dec159, 4294967295
-  %arrayidx.i.i392 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 %idxprom.i.i391
-  %59 = load ptr, ptr %arrayidx.i.i392, align 8
+  %idxprom.i.i395 = and i64 %dec159, 4294967295
+  %arrayidx.i.i396 = getelementptr inbounds [0 x ptr], ptr %m_ps.i.i390, i64 0, i64 %idxprom.i.i395
+  %59 = load ptr, ptr %arrayidx.i.i396, align 8
   %60 = ptrtoint ptr %59 to i64
-  %and.i.i393 = and i64 %60, -8
-  %61 = inttoptr i64 %and.i.i393 to ptr
-  %call2.i394 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %61)
-  %add161 = add i32 %call2.i394, %b.0459
+  %and.i.i397 = and i64 %60, -8
+  %61 = inttoptr i64 %and.i.i397 to ptr
+  %call2.i398 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %61)
+  %add161 = add i32 %call2.i398, %b.0465
   %62 = add nsw i64 %indvars.iv, -3
-  %arrayidx.i.i396 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 %62
-  %63 = load ptr, ptr %arrayidx.i.i396, align 8
+  %arrayidx.i.i401 = getelementptr inbounds [0 x ptr], ptr %m_ps.i.i390, i64 0, i64 %62
+  %63 = load ptr, ptr %arrayidx.i.i401, align 8
   %64 = ptrtoint ptr %63 to i64
-  %and.i.i397 = and i64 %64, -8
-  %65 = inttoptr i64 %and.i.i397 to ptr
-  %call2.i398 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %65)
-  %add164 = add i32 %call2.i398, %c.0460
-  %.neg447 = add i32 %call2.i390, %a.0458
+  %and.i.i402 = and i64 %64, -8
+  %65 = inttoptr i64 %and.i.i402 to ptr
+  %call2.i403 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %65)
+  %add164 = add i32 %call2.i403, %c.0466
+  %.neg453 = add i32 %call2.i393, %a.0464
   %66 = add i32 %add161, %add164
-  %sub166 = sub i32 %.neg447, %66
+  %sub166 = sub i32 %.neg453, %66
   %shr167 = lshr i32 %add164, 13
   %xor168 = xor i32 %sub166, %shr167
   %67 = add i32 %add164, %xor168
@@ -365,32 +364,32 @@ while.end:                                        ; preds = %while.body
   ]
 
 sw.bb202:                                         ; preds = %while.end
-  %arrayidx.i.i399 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 1
-  %76 = load ptr, ptr %arrayidx.i.i399, align 8
+  %arrayidx.i.i405 = getelementptr inbounds i8, ptr %app, i64 32
+  %76 = load ptr, ptr %arrayidx.i.i405, align 8
   %77 = ptrtoint ptr %76 to i64
-  %and.i.i400 = and i64 %77, -8
-  %78 = inttoptr i64 %and.i.i400 to ptr
-  %call2.i401 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %78)
-  %add204 = add i32 %call2.i401, %xor196
+  %and.i.i406 = and i64 %77, -8
+  %78 = inttoptr i64 %and.i.i406 to ptr
+  %call2.i407 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %78)
+  %add204 = add i32 %call2.i407, %xor196
   br label %sw.bb205
 
 sw.bb205:                                         ; preds = %sw.bb202, %while.end
   %b.1 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
-  %arrayidx.i.i402 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %app, i64 0, i32 2, i64 0
-  %79 = load ptr, ptr %arrayidx.i.i402, align 8
+  %m_ps.i.i408 = getelementptr inbounds i8, ptr %app, i64 24
+  %79 = load ptr, ptr %m_ps.i.i408, align 8
   %80 = ptrtoint ptr %79 to i64
-  %and.i.i403 = and i64 %80, -8
-  %81 = inttoptr i64 %and.i.i403 to ptr
-  %call2.i404 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %81)
-  %add207 = add i32 %call2.i404, %xor200
+  %and.i.i409 = and i64 %80, -8
+  %81 = inttoptr i64 %and.i.i409 to ptr
+  %call2.i410 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %81)
+  %add207 = add i32 %call2.i410, %xor200
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
   %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %.neg438 = add i32 %xor192, %0
+  %.neg444 = add i32 %xor192, %0
   %82 = add i32 %b.2, %c.1
-  %sub209 = sub i32 %.neg438, %82
+  %sub209 = sub i32 %.neg444, %82
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %83 = add i32 %c.1, %xor211
@@ -435,9 +434,9 @@ return:                                           ; preds = %entry, %sw.epilog, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef readonly %a1, ptr nocapture noundef readonly %a2) local_unnamed_addr #5 align 2 {
 entry:
-  %m_size = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %a1, i64 0, i32 1
+  %m_size = getelementptr inbounds i8, ptr %a1, i64 16
   %0 = load i32, ptr %m_size, align 8
-  %m_size2 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %a2, i64 0, i32 1
+  %m_size2 = getelementptr inbounds i8, ptr %a2, i64 16
   %1 = load i32, ptr %m_size2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %return
@@ -449,18 +448,20 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
+  %m_ps = getelementptr inbounds i8, ptr %a1, i64 24
   %cmp69.not = icmp eq i32 %0, 0
-  br i1 %cmp69.not, label %return, label %for.body.preheader
+  br i1 %cmp69.not, label %return, label %for.body.lr.ph
 
-for.body.preheader:                               ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %m_ps7 = getelementptr inbounds i8, ptr %a2, i64 24
   %wide.trip.count = zext i32 %0 to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body, %for.body.preheader
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %a1, i64 0, i32 2, i64 %indvars.iv
+for.body:                                         ; preds = %for.body, %for.body.lr.ph
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [0 x ptr], ptr %m_ps, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %arrayidx9 = getelementptr inbounds %"class.nlsat::ineq_atom", ptr %a2, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx9 = getelementptr inbounds [0 x ptr], ptr %m_ps7, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx9, align 8
   %cmp10.not = icmp eq ptr %4, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -477,17 +478,17 @@ return:                                           ; preds = %for.body, %for.cond
 define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polynomialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %x, i32 noundef %i, ptr noundef %p) unnamed_addr #6 align 2 {
 entry:
   store i32 %k, ptr %this, align 8
-  %m_ref_count.i = getelementptr inbounds %"class.nlsat::atom", ptr %this, i64 0, i32 1
+  %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_ref_count.i, align 4
-  %m_bool_var.i = getelementptr inbounds %"class.nlsat::atom", ptr %this, i64 0, i32 2
+  %m_bool_var.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2147483647, ptr %m_bool_var.i, align 8
-  %m_max_var.i = getelementptr inbounds %"class.nlsat::atom", ptr %this, i64 0, i32 3
+  %m_max_var.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %x, ptr %m_max_var.i, align 4
-  %m_x = getelementptr inbounds %"class.nlsat::root_atom", ptr %this, i64 0, i32 1
+  %m_x = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %x, ptr %m_x, align 8
-  %m_i = getelementptr inbounds %"class.nlsat::root_atom", ptr %this, i64 0, i32 2
+  %m_i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %i, ptr %m_i, align 4
-  %m_p = getelementptr inbounds %"class.nlsat::root_atom", ptr %this, i64 0, i32 3
+  %m_p = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %p, ptr %m_p, align 8
   ret void
 }
@@ -495,14 +496,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK5nlsat9root_atom9hash_procclEPKS0_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef readonly %a) local_unnamed_addr #4 align 2 {
 entry:
-  %m_x = getelementptr inbounds %"class.nlsat::root_atom", ptr %a, i64 0, i32 1
+  %m_x = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %m_x, align 8
-  %m_i = getelementptr inbounds %"class.nlsat::root_atom", ptr %a, i64 0, i32 2
+  %m_i = getelementptr inbounds i8, ptr %a, i64 20
   %1 = load i32, ptr %m_i, align 4
   %shl = shl i32 %1, 2
   %2 = load i32, ptr %a, align 8
   %or = or i32 %shl, %2
-  %m_p = getelementptr inbounds %"class.nlsat::root_atom", ptr %a, i64 0, i32 3
+  %m_p = getelementptr inbounds i8, ptr %a, i64 24
   %3 = load ptr, ptr %m_p, align 8
   %call = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %3)
   %4 = add i32 %or, %call
@@ -555,25 +556,25 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_x = getelementptr inbounds %"class.nlsat::root_atom", ptr %a1, i64 0, i32 1
+  %m_x = getelementptr inbounds i8, ptr %a1, i64 16
   %2 = load i32, ptr %m_x, align 8
-  %m_x3 = getelementptr inbounds %"class.nlsat::root_atom", ptr %a2, i64 0, i32 1
+  %m_x3 = getelementptr inbounds i8, ptr %a2, i64 16
   %3 = load i32, ptr %m_x3, align 8
   %cmp4 = icmp eq i32 %2, %3
   br i1 %cmp4, label %land.lhs.true5, label %land.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %m_i = getelementptr inbounds %"class.nlsat::root_atom", ptr %a1, i64 0, i32 2
+  %m_i = getelementptr inbounds i8, ptr %a1, i64 20
   %4 = load i32, ptr %m_i, align 4
-  %m_i6 = getelementptr inbounds %"class.nlsat::root_atom", ptr %a2, i64 0, i32 2
+  %m_i6 = getelementptr inbounds i8, ptr %a2, i64 20
   %5 = load i32, ptr %m_i6, align 4
   %cmp7 = icmp eq i32 %4, %5
   br i1 %cmp7, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %m_p = getelementptr inbounds %"class.nlsat::root_atom", ptr %a1, i64 0, i32 3
+  %m_p = getelementptr inbounds i8, ptr %a1, i64 24
   %6 = load ptr, ptr %m_p, align 8
-  %m_p8 = getelementptr inbounds %"class.nlsat::root_atom", ptr %a2, i64 0, i32 3
+  %m_p8 = getelementptr inbounds i8, ptr %a2, i64 24
   %7 = load ptr, ptr %m_p8, align 8
   %cmp9 = icmp eq ptr %6, %7
   br label %land.end

@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/x509cset.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_crl_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.x509_revoked_st = type { ptr, ptr, ptr, ptr, i32, i32 }
-%struct.X509_crl_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, [20 x i8], ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_CRL_set_version(ptr noundef readonly %x, i64 noundef %version) local_unnamed_addr #0 {
 entry:
@@ -58,7 +53,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %issuer = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 2
+  %issuer = getelementptr inbounds i8, ptr %0, i64 16
   %call = tail call i32 @X509_NAME_set(ptr noundef nonnull %issuer, ptr noundef %name) #2
   br label %return
 
@@ -77,7 +72,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %x, align 8
-  %lastUpdate = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 3
+  %lastUpdate = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %lastUpdate, align 8
   %cmp1.not = icmp eq ptr %1, %tm
   br i1 %cmp1.not, label %if.end10, label %if.then2
@@ -89,11 +84,11 @@ if.then2:                                         ; preds = %if.end
 
 if.then4:                                         ; preds = %if.then2
   %2 = load ptr, ptr %x, align 8
-  %lastUpdate6 = getelementptr inbounds %struct.X509_crl_info_st, ptr %2, i64 0, i32 3
+  %lastUpdate6 = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %lastUpdate6, align 8
   tail call void @ASN1_STRING_free(ptr noundef %3) #2
   %4 = load ptr, ptr %x, align 8
-  %lastUpdate8 = getelementptr inbounds %struct.X509_crl_info_st, ptr %4, i64 0, i32 3
+  %lastUpdate8 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %call, ptr %lastUpdate8, align 8
   br label %if.end10
 
@@ -120,7 +115,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %x, align 8
-  %nextUpdate = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 4
+  %nextUpdate = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %nextUpdate, align 8
   %cmp1.not = icmp eq ptr %1, %tm
   br i1 %cmp1.not, label %if.end10, label %if.then2
@@ -132,11 +127,11 @@ if.then2:                                         ; preds = %if.end
 
 if.then4:                                         ; preds = %if.then2
   %2 = load ptr, ptr %x, align 8
-  %nextUpdate6 = getelementptr inbounds %struct.X509_crl_info_st, ptr %2, i64 0, i32 4
+  %nextUpdate6 = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %nextUpdate6, align 8
   tail call void @ASN1_STRING_free(ptr noundef %3) #2
   %4 = load ptr, ptr %x, align 8
-  %nextUpdate8 = getelementptr inbounds %struct.X509_crl_info_st, ptr %4, i64 0, i32 4
+  %nextUpdate8 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %call, ptr %nextUpdate8, align 8
   br label %if.end10
 
@@ -155,11 +150,11 @@ return:                                           ; preds = %entry, %if.end10
 define hidden noundef i32 @X509_CRL_sort(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %c, align 8
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 5
+  %revoked = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %revoked, align 8
   tail call void @sk_sort(ptr noundef %1) #2
   %2 = load ptr, ptr %c, align 8
-  %revoked27 = getelementptr inbounds %struct.X509_crl_info_st, ptr %2, i64 0, i32 5
+  %revoked27 = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %revoked27, align 8
   %call8 = tail call i64 @sk_num(ptr noundef %3) #2
   %cmp9.not = icmp eq i64 %call8, 0
@@ -168,15 +163,15 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %i.010 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %4 = load ptr, ptr %c, align 8
-  %revoked4 = getelementptr inbounds %struct.X509_crl_info_st, ptr %4, i64 0, i32 5
+  %revoked4 = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %revoked4, align 8
   %call5 = tail call ptr @sk_value(ptr noundef %5, i64 noundef %i.010) #2
   %conv = trunc i64 %i.010 to i32
-  %sequence = getelementptr inbounds %struct.x509_revoked_st, ptr %call5, i64 0, i32 5
+  %sequence = getelementptr inbounds i8, ptr %call5, i64 36
   store i32 %conv, ptr %sequence, align 4
   %inc = add nuw i64 %i.010, 1
   %6 = load ptr, ptr %c, align 8
-  %revoked2 = getelementptr inbounds %struct.X509_crl_info_st, ptr %6, i64 0, i32 5
+  %revoked2 = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load ptr, ptr %revoked2, align 8
   %call = tail call i64 @sk_num(ptr noundef %7) #2
   %cmp = icmp ult i64 %inc, %call
@@ -184,7 +179,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %8 = load ptr, ptr %c, align 8
-  %modified = getelementptr inbounds %struct.X509_crl_info_st, ptr %8, i64 0, i32 7, i32 2
+  %modified = getelementptr inbounds i8, ptr %8, i64 72
   store i32 1, ptr %modified, align 8
   ret i32 1
 }
@@ -198,7 +193,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_CRL_up_ref(ptr noundef %crl) local_unnamed_addr #0 {
 entry:
-  %references = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 3
+  %references = getelementptr inbounds i8, ptr %crl, i64 24
   tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #2
   ret void
 }
@@ -212,7 +207,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %revocationDate = getelementptr inbounds %struct.x509_revoked_st, ptr %x, i64 0, i32 1
+  %revocationDate = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %revocationDate, align 8
   %cmp1.not = icmp eq ptr %0, %tm
   br i1 %cmp1.not, label %if.end8, label %if.then2

@@ -35,7 +35,7 @@ define void @_ZN4core9panicking13panic_display17h691a2e7c56de875aE(ptr align 8 %
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
   store ptr %0, ptr %3, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h208391be79799fb4E", ptr %6, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.19069b195ce0ab45bc2704dcd6d579ab.3, i64 1, ptr nonnull align 8 %3, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %4, ptr align 8 %1) #5

@@ -3,24 +3,8 @@ source_filename = "bench/wolfssl/original/keys.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.WOLFSSL = type <{ ptr, ptr, ptr, [48 x i8], [48 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], %struct.WOLFSSL_CIPHER, ptr, %struct.Ciphers, %struct.Ciphers, %struct.Buffers, ptr, ptr, %struct.WOLFSSL_ALERT_HISTORY, %struct.WOLFSSL_ALERT, i32, i32, i32, i32, i32, i32, i32, i16, [2 x i8], i32, i8, %struct.RecordLayerHeader, %struct.MsgsReceived, %struct.ProtocolVersion, %struct.ProtocolVersion, %struct.CipherSpecs, [2 x i8], %struct.Keys, %struct.Options, ptr, i8, i8, i16, [10 x i16], i8, i8, i16, i16, [38 x i8], i32, i32, [4 x i8], ptr, i8, i8, [6 x i8], ptr, ptr, i16, i8, i8, i32, i8, [3 x i8], i32, %struct.OneTimeAuth, ptr, [8 x i8] }>
-%struct.WOLFSSL_CIPHER = type { i8, i8, ptr }
-%struct.Ciphers = type { ptr, ptr, ptr, ptr, i8, i8 }
-%struct.Buffers = type { %struct.bufferStatic, %struct.bufferStatic, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, i32, i32, i8, i8, i8, i8, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, %struct.WOLFSSL_BUFFER_INFO, ptr, ptr, ptr, i8, i32, i32, ptr, i32, ptr }
-%struct.bufferStatic = type { [5 x i8], ptr, i32, i32, i32, i8, i8 }
-%struct.WOLFSSL_BUFFER_INFO = type { ptr, i32 }
-%struct.WOLFSSL_ALERT_HISTORY = type { %struct.WOLFSSL_ALERT, %struct.WOLFSSL_ALERT }
-%struct.WOLFSSL_ALERT = type { i32, i32 }
-%struct.RecordLayerHeader = type { i8, i8, i8, [2 x i8] }
-%struct.MsgsReceived = type { i24 }
-%struct.ProtocolVersion = type { i8, i8 }
-%struct.CipherSpecs = type { i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.Keys = type { [64 x i8], [64 x i8], [32 x i8], [32 x i8], [16 x i8], [16 x i8], [8 x i8], [12 x i8], [12 x i8], i32, i32, i32, i32, i32, i32, i8, i8, i8 }
-%struct.Options = type { i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i16, i8 }
-%struct.OneTimeAuth = type { ptr, i8 }
 %struct.wc_Md5 = type { i32, i32, i32, [16 x i32], [4 x i32], ptr }
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
-%struct.Arrays = type { ptr, ptr, i32, i32, i32, [32 x i8], [32 x i8], [32 x i8], i8, [48 x i8], [48 x i8], i8 }
 
 @.str.2 = private unnamed_addr constant [4 x i8] c"CCC\00", align 1
 @.str.4 = private unnamed_addr constant [6 x i8] c"EEEEE\00", align 1
@@ -31,29 +15,29 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @SetCipherSpecs(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %options = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 47
-  %side = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 47, i32 1
+  %options = getelementptr inbounds i8, ptr %ssl, i64 1000
+  %side = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %side, align 8
   %0 = trunc i64 %bf.load to i16
   %1 = lshr i16 %0, 4
   %bf.cast = and i16 %1, 3
-  %cipherSuite0 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 47, i32 3
+  %cipherSuite0 = getelementptr inbounds i8, ptr %ssl, i64 1017
   %2 = load i8, ptr %cipherSuite0, align 1
-  %cipherSuite = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 47, i32 4
+  %cipherSuite = getelementptr inbounds i8, ptr %ssl, i64 1018
   %3 = load i8, ptr %cipherSuite, align 2
-  %specs = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44
+  %specs = getelementptr inbounds i8, ptr %ssl, i64 698
   %call = tail call i32 @GetCipherSpec(i16 noundef zeroext %bf.cast, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef nonnull %specs, ptr noundef nonnull %options), !range !4
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end48
 
 if.then:                                          ; preds = %entry
-  %version = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 42
+  %version = getelementptr inbounds i8, ptr %ssl, i64 694
   %4 = load i8, ptr %version, align 2
   %cmp4 = icmp eq i8 %4, 3
   br i1 %cmp4, label %land.lhs.true, label %if.end35
 
 land.lhs.true:                                    ; preds = %if.then
-  %minor = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 42, i32 1
+  %minor = getelementptr inbounds i8, ptr %ssl, i64 695
   %5 = load i8, ptr %minor, align 1
   %cmp8.not = icmp eq i8 %5, 0
   br i1 %cmp8.not, label %if.end35, label %if.then10
@@ -62,7 +46,7 @@ if.then10:                                        ; preds = %land.lhs.true
   %bf.load12 = load i64, ptr %side, align 8
   %bf.set = or i64 %bf.load12, 16384
   store i64 %bf.set, ptr %side, align 8
-  %hmac = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 21
+  %hmac = getelementptr inbounds i8, ptr %ssl, i64 248
   store ptr @TLS_hmac, ptr %hmac, align 8
   %cmp17.not = icmp eq i8 %5, 1
   br i1 %cmp17.not, label %if.end35, label %if.then19
@@ -85,7 +69,7 @@ if.end35:                                         ; preds = %if.then10, %if.then
   br i1 %tobool.not, label %lor.lhs.false, label %if.then42
 
 lor.lhs.false:                                    ; preds = %if.end35
-  %cipher_type = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 5
+  %cipher_type = getelementptr inbounds i8, ptr %ssl, i64 707
   %7 = load i8, ptr %cipher_type, align 1
   %cmp40.not = icmp eq i8 %7, 1
   br i1 %cmp40.not, label %if.end48, label %if.then42
@@ -130,84 +114,84 @@ if.then9:                                         ; preds = %if.end5
   ]
 
 sw.bb:                                            ; preds = %if.then9
-  %bulk_cipher_algorithm = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   %cmp11.not = icmp eq ptr %opts, null
   br i1 %cmp11.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %sw.bb
-  %oldPoly = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %oldPoly = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load = load i64, ptr %oldPoly, align 8
   %bf.set = or i64 %bf.load, 17592186044416
   store i64 %bf.set, ptr %oldPoly, align 8
   br label %if.end446
 
 sw.bb15:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm16 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm16 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm16, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   %cmp28.not = icmp eq ptr %opts, null
   br i1 %cmp28.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %sw.bb15
-  %oldPoly31 = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %oldPoly31 = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load32 = load i64, ptr %oldPoly31, align 8
   %bf.set34 = or i64 %bf.load32, 17592186044416
   store i64 %bf.set34, ptr %oldPoly31, align 8
   br label %if.end446
 
 sw.bb36:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm37 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm37 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 9, i8 2, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm37, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   %cmp49.not = icmp eq ptr %opts, null
   br i1 %cmp49.not, label %return, label %if.then51
 
 if.then51:                                        ; preds = %sw.bb36
-  %oldPoly52 = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %oldPoly52 = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load53 = load i64, ptr %oldPoly52, align 8
   %bf.set55 = or i64 %bf.load53, 17592186044416
   store i64 %bf.set55, ptr %oldPoly52, align 8
   br label %if.end446
 
 sw.bb57:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm58 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm58 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm58, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   %cmp70.not = icmp eq ptr %opts, null
   br i1 %cmp70.not, label %return, label %if.then72
 
 if.then72:                                        ; preds = %sw.bb57
-  %oldPoly73 = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %oldPoly73 = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load74 = load i64, ptr %oldPoly73, align 8
   %bf.clear75 = and i64 %bf.load74, -17592186044417
   store i64 %bf.clear75, ptr %oldPoly73, align 8
   br label %if.end446
 
 sw.bb78:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm79 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm79 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 9, i8 2, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm79, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   %cmp91.not = icmp eq ptr %opts, null
   br i1 %cmp91.not, label %return, label %if.then93
 
 if.then93:                                        ; preds = %sw.bb78
-  %oldPoly94 = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %oldPoly94 = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load95 = load i64, ptr %oldPoly94, align 8
   %bf.clear96 = and i64 %bf.load95, -17592186044417
   store i64 %bf.clear96, ptr %oldPoly94, align 8
   br label %if.end446
 
 sw.bb99:                                          ; preds = %if.then9
-  %bulk_cipher_algorithm100 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm100 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 9, i8 2, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm100, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   %cmp112.not = icmp eq ptr %opts, null
   br i1 %cmp112.not, label %return, label %if.then114
 
 if.then114:                                       ; preds = %sw.bb99
-  %oldPoly115 = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %oldPoly115 = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load116 = load i64, ptr %oldPoly115, align 8
   %bf.clear117 = and i64 %bf.load116, -17592186044417
   store i64 %bf.clear117, ptr %oldPoly115, align 8
@@ -230,105 +214,105 @@ if.then126:                                       ; preds = %if.end5
   ]
 
 sw.bb128:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm129 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm129 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm129, align 2
   store i16 16, ptr %specs, align 2
-  %iv_size138 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size138 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size138, align 2
-  %block_size139 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size139 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size139, align 2
   br label %if.end446
 
 sw.bb140:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm141 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm141 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 5, i8 7, i8 1, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm141, align 2
   store i16 32, ptr %specs, align 2
-  %iv_size150 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size150 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size150, align 2
-  %block_size151 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size151 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size151, align 2
   br label %if.end446
 
 sw.bb152:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm153 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm153 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm153, align 2
   store i16 16, ptr %specs, align 2
-  %block_size162 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size162 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size162, align 2
-  %iv_size163 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size163 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size163, align 2
   br label %if.end446
 
 sw.bb164:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm165 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm165 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm165, align 2
   store i16 32, ptr %specs, align 2
-  %block_size174 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size174 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size174, align 2
-  %iv_size175 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size175 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size175, align 2
   br label %if.end446
 
 sw.bb176:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm177 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm177 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 4, i8 7, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm177, align 2
   store <4 x i16> <i16 16, i16 4, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
 
 sw.bb189:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm190 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm190 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 5, i8 7, i8 1, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm190, align 2
   store <4 x i16> <i16 32, i16 4, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
 
 sw.bb202:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm203 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm203 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm203, align 2
   store i16 16, ptr %specs, align 2
-  %iv_size212 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size212 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size212, align 2
-  %block_size213 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size213 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size213, align 2
   br label %if.end446
 
 sw.bb214:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm215 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm215 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 5, i8 7, i8 3, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm215, align 2
   store i16 32, ptr %specs, align 2
-  %iv_size224 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size224 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size224, align 2
-  %block_size225 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size225 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size225, align 2
   br label %if.end446
 
 sw.bb226:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm227 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm227 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 3, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm227, align 2
   store i16 16, ptr %specs, align 2
-  %block_size236 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size236 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size236, align 2
-  %iv_size237 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size237 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size237, align 2
   br label %if.end446
 
 sw.bb238:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm239 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm239 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 2, i8 7, i8 3, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm239, align 2
   store i16 32, ptr %specs, align 2
-  %block_size248 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size248 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size248, align 2
-  %iv_size249 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size249 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size249, align 2
   br label %if.end446
 
 sw.bb250:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm251 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm251 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 4, i8 7, i8 3, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm251, align 2
   store <4 x i16> <i16 16, i16 4, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
 
 sw.bb263:                                         ; preds = %if.then126
-  %bulk_cipher_algorithm264 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm264 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 5, i8 7, i8 3, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm264, align 2
   store <4 x i16> <i16 32, i16 4, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
@@ -341,26 +325,26 @@ if.then284:                                       ; preds = %if.end5
   ]
 
 sw.bb286:                                         ; preds = %if.then284
-  %bulk_cipher_algorithm287 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm287 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 4, i8 0, i8 0, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm287, align 2
   store <4 x i16> <i16 16, i16 12, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
 
 sw.bb299:                                         ; preds = %if.then284
-  %bulk_cipher_algorithm300 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm300 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 5, i8 0, i8 0, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm300, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
 
 sw.bb312:                                         ; preds = %if.then284
-  %bulk_cipher_algorithm313 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm313 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 9, i8 2, i8 4, i8 0, i8 0, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm313, align 2
   store <4 x i16> <i16 32, i16 12, i16 16, i16 16>, ptr %specs, align 2
   %cmp325.not = icmp eq ptr %opts, null
   br i1 %cmp325.not, label %return, label %if.then327
 
 if.then327:                                       ; preds = %sw.bb312
-  %oldPoly328 = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %oldPoly328 = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load329 = load i64, ptr %oldPoly328, align 8
   %bf.clear330 = and i64 %bf.load329, -17592186044417
   store i64 %bf.clear330, ptr %oldPoly328, align 8
@@ -377,59 +361,59 @@ if.then366:                                       ; preds = %if.end5
   ]
 
 sw.bb368:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm369 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm369 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm369, align 2
   store i16 16, ptr %specs, align 2
-  %block_size378 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size378 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size378, align 2
-  %iv_size379 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size379 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size379, align 2
   br label %if.end446
 
 sw.bb380:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm381 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm381 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm381, align 2
   store i16 32, ptr %specs, align 2
-  %block_size390 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size390 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size390, align 2
-  %iv_size391 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size391 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size391, align 2
   br label %if.end446
 
 sw.bb392:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm393 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm393 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 2, i8 2, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm393, align 2
   store i16 16, ptr %specs, align 2
-  %block_size402 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size402 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size402, align 2
-  %iv_size403 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size403 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size403, align 2
   br label %if.end446
 
 sw.bb404:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm405 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm405 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 6, i8 1, i8 2, i8 2, i8 1, i8 20, i8 40, i8 0>, ptr %bulk_cipher_algorithm405, align 2
   store i16 32, ptr %specs, align 2
-  %block_size414 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 2
+  %block_size414 = getelementptr inbounds i8, ptr %specs, i64 4
   store i16 16, ptr %block_size414, align 2
-  %iv_size415 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 1
+  %iv_size415 = getelementptr inbounds i8, ptr %specs, i64 2
   store i16 16, ptr %iv_size415, align 2
   br label %if.end446
 
 sw.bb416:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm417 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm417 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 4, i8 2, i8 1, i8 32, i8 40, i8 0>, ptr %bulk_cipher_algorithm417, align 2
   store <4 x i16> <i16 16, i16 4, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
 
 sw.bb429:                                         ; preds = %if.then366
-  %bulk_cipher_algorithm430 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 4
+  %bulk_cipher_algorithm430 = getelementptr inbounds i8, ptr %specs, i64 8
   store <8 x i8> <i8 7, i8 2, i8 5, i8 2, i8 1, i8 48, i8 40, i8 0>, ptr %bulk_cipher_algorithm430, align 2
   store <4 x i16> <i16 32, i16 4, i16 16, i16 16>, ptr %specs, align 2
   br label %if.end446
 
 if.end446:                                        ; preds = %if.then284, %if.then327, %sw.bb299, %sw.bb286, %sw.bb263, %sw.bb250, %sw.bb238, %sw.bb226, %sw.bb214, %sw.bb202, %sw.bb189, %sw.bb176, %sw.bb164, %sw.bb152, %sw.bb140, %sw.bb128, %if.then114, %if.then93, %if.then72, %if.then51, %if.then30, %if.then13, %if.end5, %sw.bb368, %sw.bb380, %sw.bb392, %sw.bb404, %sw.bb416, %sw.bb429
-  %sig_algo447 = getelementptr inbounds %struct.CipherSpecs, ptr %specs, i64 0, i32 8
+  %sig_algo447 = getelementptr inbounds i8, ptr %specs, i64 12
   %0 = load i8, ptr %sig_algo447, align 2
   %cmp449 = icmp eq i8 %0, 0
   %cmp452 = icmp ne ptr %opts, null
@@ -437,7 +421,7 @@ if.end446:                                        ; preds = %if.then284, %if.the
   br i1 %or.cond3, label %if.then454, label %return
 
 if.then454:                                       ; preds = %if.end446
-  %peerAuthGood = getelementptr inbounds %struct.Options, ptr %opts, i64 0, i32 1
+  %peerAuthGood = getelementptr inbounds i8, ptr %opts, i64 8
   %bf.load455 = load i64, ptr %peerAuthGood, align 8
   %bf.set457 = or i64 %bf.load455, 1125899906842624
   store i64 %bf.set457, ptr %peerAuthGood, align 8
@@ -457,6 +441,7 @@ declare i32 @VerifyClientSuite(i16 noundef zeroext, i8 noundef zeroext, i8 nound
 ; Function Attrs: nounwind uwtable
 define i32 @SetKeysSide(ptr noundef %ssl, i32 noundef %side) local_unnamed_addr #0 {
 entry:
+  %keys1 = getelementptr inbounds i8, ptr %ssl, i64 716
   switch i32 %side, label %return [
     i32 1, label %sw.bb
     i32 2, label %sw.bb2
@@ -464,29 +449,29 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %encrypt = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 22
+  %encrypt = getelementptr inbounds i8, ptr %ssl, i64 256
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %decrypt = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 23
+  %decrypt = getelementptr inbounds i8, ptr %ssl, i64 296
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %encrypt4 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 22
-  %decrypt5 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 23
+  %encrypt4 = getelementptr inbounds i8, ptr %ssl, i64 256
+  %decrypt5 = getelementptr inbounds i8, ptr %ssl, i64 296
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb
   %wc_encrypt.0 = phi ptr [ %encrypt4, %sw.bb3 ], [ null, %sw.bb2 ], [ %encrypt, %sw.bb ]
   %wc_decrypt.0 = phi ptr [ %decrypt5, %sw.bb3 ], [ %decrypt, %sw.bb2 ], [ null, %sw.bb ]
-  %auth = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 74
-  %setup = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 74, i32 1
+  %auth = getelementptr inbounds i8, ptr %ssl, i64 1184
+  %setup = getelementptr inbounds i8, ptr %ssl, i64 1192
   %0 = load i8, ptr %setup, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %sw.epilog
-  %bulk_cipher_algorithm = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 4
+  %bulk_cipher_algorithm = getelementptr inbounds i8, ptr %ssl, i64 706
   %1 = load i8, ptr %bulk_cipher_algorithm, align 2
   %cmp = icmp eq i8 %1, 9
   br i1 %cmp, label %if.then, label %if.end12
@@ -507,21 +492,21 @@ SetAuthKeys.exit.thread:                          ; preds = %if.then, %land.lhs.
   br label %if.end12
 
 if.end12:                                         ; preds = %SetAuthKeys.exit.thread, %land.lhs.true, %sw.epilog
-  %specs13 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44
-  %side14 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 47, i32 1
+  %specs13 = getelementptr inbounds i8, ptr %ssl, i64 698
+  %side14 = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %side14, align 8
   %3 = trunc i64 %bf.load to i32
   %4 = lshr i32 %3, 4
   %bf.cast = and i32 %4, 3
-  %heap16 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 11
+  %heap16 = getelementptr inbounds i8, ptr %ssl, i64 168
   %5 = load ptr, ptr %heap16, align 8
-  %devId17 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 73
+  %devId17 = getelementptr inbounds i8, ptr %ssl, i64 1180
   %6 = load i32, ptr %devId17, align 4
-  %rng = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 8
+  %rng = getelementptr inbounds i8, ptr %ssl, i64 144
   %7 = load ptr, ptr %rng, align 16
   %8 = lshr i32 %3, 16
   %bf.cast22 = and i32 %8, 1
-  %bulk_cipher_algorithm.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 4
+  %bulk_cipher_algorithm.i = getelementptr inbounds i8, ptr %ssl, i64 706
   %9 = load i8, ptr %bulk_cipher_algorithm.i, align 2
   %cmp.i20 = icmp eq i8 %9, 9
   br i1 %cmp.i20, label %if.then.i, label %if.end100.i
@@ -531,7 +516,7 @@ if.then.i:                                        ; preds = %if.end12
   br i1 %tobool.not.i, label %if.end12.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %chacha.i = getelementptr inbounds %struct.Ciphers, ptr %wc_encrypt.0, i64 0, i32 3
+  %chacha.i = getelementptr inbounds i8, ptr %wc_encrypt.0, i64 24
   %10 = load ptr, ptr %chacha.i, align 8
   %cmp2.i = icmp eq ptr %10, null
   br i1 %cmp2.i, label %land.lhs.true7.i, label %if.end12.i
@@ -547,7 +532,7 @@ if.end12.i:                                       ; preds = %land.lhs.true7.i, %
   br i1 %tobool13.not.i, label %if.end28.i, label %land.lhs.true14.i
 
 land.lhs.true14.i:                                ; preds = %if.end12.i
-  %chacha15.i = getelementptr inbounds %struct.Ciphers, ptr %wc_decrypt.0, i64 0, i32 3
+  %chacha15.i = getelementptr inbounds i8, ptr %wc_decrypt.0, i64 24
   %11 = load ptr, ptr %chacha15.i, align 8
   %cmp16.i = icmp eq ptr %11, null
   br i1 %cmp16.i, label %land.lhs.true23.i, label %if.end28.i
@@ -566,14 +551,14 @@ if.then31.i:                                      ; preds = %if.end28.i
   br i1 %tobool.not.i, label %if.end43.i, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.then31.i
-  %chacha34.i = getelementptr inbounds %struct.Ciphers, ptr %wc_encrypt.0, i64 0, i32 3
+  %chacha34.i = getelementptr inbounds i8, ptr %wc_encrypt.0, i64 24
   %12 = load ptr, ptr %chacha34.i, align 8
-  %client_write_key.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 844
   %13 = load i16, ptr %specs13, align 2
   %conv35.i = zext i16 %13 to i32
   %call36.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %12, ptr noundef nonnull %client_write_key.i, i32 noundef %conv35.i) #7
-  %aead_enc_imp_IV.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 7
-  %client_write_IV.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+  %aead_enc_imp_IV.i = getelementptr inbounds i8, ptr %ssl, i64 948
+  %client_write_IV.i = getelementptr inbounds i8, ptr %ssl, i64 908
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV.i, i64 12, i1 false)
   %cmp39.not.i = icmp eq i32 %call36.i, 0
   br i1 %cmp39.not.i, label %if.end43.i, label %return
@@ -582,14 +567,14 @@ if.end43.i:                                       ; preds = %if.then33.i, %if.th
   br i1 %tobool13.not.i, label %if.end92.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %if.end43.i
-  %chacha46.i = getelementptr inbounds %struct.Ciphers, ptr %wc_decrypt.0, i64 0, i32 3
+  %chacha46.i = getelementptr inbounds i8, ptr %wc_decrypt.0, i64 24
   %14 = load ptr, ptr %chacha46.i, align 8
-  %server_write_key.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %15 = load i16, ptr %specs13, align 2
   %conv49.i = zext i16 %15 to i32
   %call50.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %14, ptr noundef nonnull %server_write_key.i, i32 noundef %conv49.i) #7
-  %aead_dec_imp_IV.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 8
-  %server_write_IV.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
+  %aead_dec_imp_IV.i = getelementptr inbounds i8, ptr %ssl, i64 960
+  %server_write_IV.i = getelementptr inbounds i8, ptr %ssl, i64 924
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV.i, ptr noundef nonnull align 4 dereferenceable(12) %server_write_IV.i, i64 12, i1 false)
   %cmp53.not.i = icmp eq i32 %call50.i, 0
   br i1 %cmp53.not.i, label %if.end92.i, label %return
@@ -598,14 +583,14 @@ if.else.i:                                        ; preds = %if.end28.i
   br i1 %tobool.not.i, label %if.end74.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.else.i
-  %chacha60.i = getelementptr inbounds %struct.Ciphers, ptr %wc_encrypt.0, i64 0, i32 3
+  %chacha60.i = getelementptr inbounds i8, ptr %wc_encrypt.0, i64 24
   %16 = load ptr, ptr %chacha60.i, align 8
-  %server_write_key61.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key61.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %17 = load i16, ptr %specs13, align 2
   %conv64.i = zext i16 %17 to i32
   %call65.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %16, ptr noundef nonnull %server_write_key61.i, i32 noundef %conv64.i) #7
-  %aead_enc_imp_IV66.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 7
-  %server_write_IV68.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
+  %aead_enc_imp_IV66.i = getelementptr inbounds i8, ptr %ssl, i64 948
+  %server_write_IV68.i = getelementptr inbounds i8, ptr %ssl, i64 924
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV66.i, ptr noundef nonnull align 4 dereferenceable(12) %server_write_IV68.i, i64 12, i1 false)
   %cmp70.not.i = icmp eq i32 %call65.i, 0
   br i1 %cmp70.not.i, label %if.end74.i, label %return
@@ -614,14 +599,14 @@ if.end74.i:                                       ; preds = %if.then59.i, %if.el
   br i1 %tobool13.not.i, label %if.end92.i, label %if.then76.i
 
 if.then76.i:                                      ; preds = %if.end74.i
-  %chacha77.i = getelementptr inbounds %struct.Ciphers, ptr %wc_decrypt.0, i64 0, i32 3
+  %chacha77.i = getelementptr inbounds i8, ptr %wc_decrypt.0, i64 24
   %18 = load ptr, ptr %chacha77.i, align 8
-  %client_write_key78.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key78.i = getelementptr inbounds i8, ptr %ssl, i64 844
   %19 = load i16, ptr %specs13, align 2
   %conv81.i = zext i16 %19 to i32
   %call82.i = tail call i32 @wc_Chacha_SetKey(ptr noundef %18, ptr noundef nonnull %client_write_key78.i, i32 noundef %conv81.i) #7
-  %aead_dec_imp_IV83.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 8
-  %client_write_IV85.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+  %aead_dec_imp_IV83.i = getelementptr inbounds i8, ptr %ssl, i64 960
+  %client_write_IV85.i = getelementptr inbounds i8, ptr %ssl, i64 908
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV83.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV85.i, i64 12, i1 false)
   %cmp87.not.i = icmp eq i32 %call82.i, 0
   br i1 %cmp87.not.i, label %if.end92.i, label %return
@@ -630,7 +615,7 @@ if.end92.i:                                       ; preds = %if.then76.i, %if.en
   br i1 %tobool.not.i, label %if.end95.i, label %if.then94.i
 
 if.then94.i:                                      ; preds = %if.end92.i
-  %setup.i22 = getelementptr inbounds %struct.Ciphers, ptr %wc_encrypt.0, i64 0, i32 5
+  %setup.i22 = getelementptr inbounds i8, ptr %wc_encrypt.0, i64 33
   store i8 1, ptr %setup.i22, align 1
   br label %if.end95.i
 
@@ -638,7 +623,7 @@ if.end95.i:                                       ; preds = %if.then94.i, %if.en
   br i1 %tobool13.not.i, label %if.end100thread-pre-split.i, label %if.then97.i
 
 if.then97.i:                                      ; preds = %if.end95.i
-  %setup98.i = getelementptr inbounds %struct.Ciphers, ptr %wc_decrypt.0, i64 0, i32 5
+  %setup98.i = getelementptr inbounds i8, ptr %wc_decrypt.0, i64 33
   store i8 1, ptr %setup98.i, align 1
   br label %if.end100thread-pre-split.i
 
@@ -728,10 +713,10 @@ if.then163.i:                                     ; preds = %if.end160.i
 
 if.then165.i:                                     ; preds = %if.then163.i
   %27 = load ptr, ptr %wc_encrypt.0, align 8
-  %client_write_key167.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key167.i = getelementptr inbounds i8, ptr %ssl, i64 844
   %28 = load i16, ptr %specs13, align 2
   %conv170.i = zext i16 %28 to i32
-  %client_write_IV171.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+  %client_write_IV171.i = getelementptr inbounds i8, ptr %ssl, i64 908
   %call173.i = tail call i32 @wc_AesSetKey(ptr noundef %27, ptr noundef nonnull %client_write_key167.i, i32 noundef %conv170.i, ptr noundef nonnull %client_write_IV171.i, i32 noundef 0) #7
   %cmp174.not.i = icmp eq i32 %call173.i, 0
   br i1 %cmp174.not.i, label %if.end178.i, label %return
@@ -741,10 +726,10 @@ if.end178.i:                                      ; preds = %if.then165.i, %if.t
 
 if.then180.i:                                     ; preds = %if.end178.i
   %29 = load ptr, ptr %wc_decrypt.0, align 8
-  %server_write_key182.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key182.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %30 = load i16, ptr %specs13, align 2
   %conv185.i = zext i16 %30 to i32
-  %server_write_IV186.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
+  %server_write_IV186.i = getelementptr inbounds i8, ptr %ssl, i64 924
   %call188.i = tail call i32 @wc_AesSetKey(ptr noundef %29, ptr noundef nonnull %server_write_key182.i, i32 noundef %conv185.i, ptr noundef nonnull %server_write_IV186.i, i32 noundef 1) #7
   %cmp189.not.i = icmp eq i32 %call188.i, 0
   br i1 %cmp189.not.i, label %if.end225.i, label %return
@@ -754,10 +739,10 @@ if.else194.i:                                     ; preds = %if.end160.i
 
 if.then196.i:                                     ; preds = %if.else194.i
   %31 = load ptr, ptr %wc_encrypt.0, align 8
-  %server_write_key198.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key198.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %32 = load i16, ptr %specs13, align 2
   %conv201.i = zext i16 %32 to i32
-  %server_write_IV202.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
+  %server_write_IV202.i = getelementptr inbounds i8, ptr %ssl, i64 924
   %call204.i = tail call i32 @wc_AesSetKey(ptr noundef %31, ptr noundef nonnull %server_write_key198.i, i32 noundef %conv201.i, ptr noundef nonnull %server_write_IV202.i, i32 noundef 0) #7
   %cmp205.not.i = icmp eq i32 %call204.i, 0
   br i1 %cmp205.not.i, label %if.end209.i, label %return
@@ -767,10 +752,10 @@ if.end209.i:                                      ; preds = %if.then196.i, %if.e
 
 if.then211.i:                                     ; preds = %if.end209.i
   %33 = load ptr, ptr %wc_decrypt.0, align 8
-  %client_write_key213.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key213.i = getelementptr inbounds i8, ptr %ssl, i64 844
   %34 = load i16, ptr %specs13, align 2
   %conv216.i = zext i16 %34 to i32
-  %client_write_IV217.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+  %client_write_IV217.i = getelementptr inbounds i8, ptr %ssl, i64 908
   %call219.i = tail call i32 @wc_AesSetKey(ptr noundef %33, ptr noundef nonnull %client_write_key213.i, i32 noundef %conv216.i, ptr noundef nonnull %client_write_IV217.i, i32 noundef 1) #7
   %cmp220.not.i = icmp eq i32 %call219.i, 0
   br i1 %cmp220.not.i, label %if.end225.i, label %return
@@ -779,7 +764,7 @@ if.end225.i:                                      ; preds = %if.then211.i, %if.e
   br i1 %tobool106.not.i, label %if.end229.i, label %if.then227.i
 
 if.then227.i:                                     ; preds = %if.end225.i
-  %setup228.i = getelementptr inbounds %struct.Ciphers, ptr %wc_encrypt.0, i64 0, i32 5
+  %setup228.i = getelementptr inbounds i8, ptr %wc_encrypt.0, i64 33
   store i8 1, ptr %setup228.i, align 1
   br label %if.end229.i
 
@@ -787,7 +772,7 @@ if.end229.i:                                      ; preds = %if.then227.i, %if.e
   br i1 %tobool123.not.i, label %if.end234.i, label %if.then231.i
 
 if.then231.i:                                     ; preds = %if.end229.i
-  %setup232.i = getelementptr inbounds %struct.Ciphers, ptr %wc_decrypt.0, i64 0, i32 5
+  %setup232.i = getelementptr inbounds i8, ptr %wc_decrypt.0, i64 33
   store i8 1, ptr %setup232.i, align 1
   br label %if.end234.i
 
@@ -873,7 +858,7 @@ if.then300.i:                                     ; preds = %if.end297.i
 
 if.then302.i:                                     ; preds = %if.then300.i
   %42 = load ptr, ptr %wc_encrypt.0, align 8
-  %client_write_key304.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key304.i = getelementptr inbounds i8, ptr %ssl, i64 844
   %43 = load i16, ptr %specs13, align 2
   %conv307.i = zext i16 %43 to i32
   %call308.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %42, ptr noundef nonnull %client_write_key304.i, i32 noundef %conv307.i) #7
@@ -881,8 +866,8 @@ if.then302.i:                                     ; preds = %if.then300.i
   br i1 %cmp309.not.i, label %if.end312.i, label %return
 
 if.end312.i:                                      ; preds = %if.then302.i
-  %aead_enc_imp_IV313.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 7
-  %client_write_IV315.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+  %aead_enc_imp_IV313.i = getelementptr inbounds i8, ptr %ssl, i64 948
+  %client_write_IV315.i = getelementptr inbounds i8, ptr %ssl, i64 908
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV313.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV315.i, i64 12, i1 false)
   %tobool317.not.i = icmp eq i32 %bf.cast22, 0
   br i1 %tobool317.not.i, label %if.then318.i, label %if.end328.i
@@ -898,25 +883,19 @@ if.end328.i:                                      ; preds = %if.then318.i, %if.e
 
 if.then330.i:                                     ; preds = %if.end328.i
   %45 = load ptr, ptr %wc_decrypt.0, align 8
-  %server_write_key332.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key332.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %46 = load i16, ptr %specs13, align 2
   %conv335.i = zext i16 %46 to i32
   %call336.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %45, ptr noundef nonnull %server_write_key332.i, i32 noundef %conv335.i) #7
   %cmp337.not.i = icmp eq i32 %call336.i, 0
-  br i1 %cmp337.not.i, label %if.end340.i, label %return
-
-if.end340.i:                                      ; preds = %if.then330.i
-  %aead_dec_imp_IV341.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 8
-  %server_write_IV343.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV341.i, ptr noundef nonnull align 4 dereferenceable(12) %server_write_IV343.i, i64 12, i1 false)
-  br label %if.end392.i
+  br i1 %cmp337.not.i, label %if.end392.sink.split.i, label %return
 
 if.else346.i:                                     ; preds = %if.end297.i
   br i1 %tobool240.not.i, label %if.end374.i, label %if.then348.i
 
 if.then348.i:                                     ; preds = %if.else346.i
   %47 = load ptr, ptr %wc_encrypt.0, align 8
-  %server_write_key350.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key350.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %48 = load i16, ptr %specs13, align 2
   %conv353.i = zext i16 %48 to i32
   %call354.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %47, ptr noundef nonnull %server_write_key350.i, i32 noundef %conv353.i) #7
@@ -924,8 +903,8 @@ if.then348.i:                                     ; preds = %if.else346.i
   br i1 %cmp355.not.i, label %if.end358.i, label %return
 
 if.end358.i:                                      ; preds = %if.then348.i
-  %aead_enc_imp_IV359.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 7
-  %server_write_IV361.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
+  %aead_enc_imp_IV359.i = getelementptr inbounds i8, ptr %ssl, i64 948
+  %server_write_IV361.i = getelementptr inbounds i8, ptr %ssl, i64 924
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV359.i, ptr noundef nonnull align 4 dereferenceable(12) %server_write_IV361.i, i64 12, i1 false)
   %tobool363.not.i = icmp eq i32 %bf.cast22, 0
   br i1 %tobool363.not.i, label %if.then364.i, label %if.end374.i
@@ -941,24 +920,25 @@ if.end374.i:                                      ; preds = %if.then364.i, %if.e
 
 if.then376.i:                                     ; preds = %if.end374.i
   %50 = load ptr, ptr %wc_decrypt.0, align 8
-  %client_write_key378.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key378.i = getelementptr inbounds i8, ptr %ssl, i64 844
   %51 = load i16, ptr %specs13, align 2
   %conv381.i = zext i16 %51 to i32
   %call382.i = tail call i32 @wc_AesGcmSetKey(ptr noundef %50, ptr noundef nonnull %client_write_key378.i, i32 noundef %conv381.i) #7
   %cmp383.not.i = icmp eq i32 %call382.i, 0
-  br i1 %cmp383.not.i, label %if.end386.i, label %return
+  br i1 %cmp383.not.i, label %if.end392.sink.split.i, label %return
 
-if.end386.i:                                      ; preds = %if.then376.i
-  %aead_dec_imp_IV387.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 8
-  %client_write_IV389.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+if.end392.sink.split.i:                           ; preds = %if.then376.i, %if.then330.i
+  %.sink.i = phi i64 [ 208, %if.then330.i ], [ 192, %if.then376.i ]
+  %aead_dec_imp_IV387.i = getelementptr inbounds i8, ptr %ssl, i64 960
+  %client_write_IV389.i = getelementptr inbounds i8, ptr %keys1, i64 %.sink.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV387.i, ptr noundef nonnull align 4 dereferenceable(12) %client_write_IV389.i, i64 12, i1 false)
   br label %if.end392.i
 
-if.end392.i:                                      ; preds = %if.end386.i, %if.end374.i, %if.end340.i, %if.end328.i
+if.end392.i:                                      ; preds = %if.end392.sink.split.i, %if.end374.i, %if.end328.i
   br i1 %tobool240.not.i, label %if.end396.i, label %if.then394.i
 
 if.then394.i:                                     ; preds = %if.end392.i
-  %setup395.i = getelementptr inbounds %struct.Ciphers, ptr %wc_encrypt.0, i64 0, i32 5
+  %setup395.i = getelementptr inbounds i8, ptr %wc_encrypt.0, i64 33
   store i8 1, ptr %setup395.i, align 1
   br label %if.end396.i
 
@@ -966,7 +946,7 @@ if.end396.i:                                      ; preds = %if.then394.i, %if.e
   br i1 %tobool258.not.i, label %if.end401.i, label %if.then398.i
 
 if.then398.i:                                     ; preds = %if.end396.i
-  %setup399.i = getelementptr inbounds %struct.Ciphers, ptr %wc_decrypt.0, i64 0, i32 5
+  %setup399.i = getelementptr inbounds i8, ptr %wc_decrypt.0, i64 33
   store i8 1, ptr %setup399.i, align 1
   br label %if.end401.i
 
@@ -975,9 +955,9 @@ if.end401.i:                                      ; preds = %if.then398.i, %if.e
   br i1 %tobool402.not.i, label %if.end404.i, label %if.then403.i
 
 if.then403.i:                                     ; preds = %if.end401.i
-  %sequence_number_hi.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 11
+  %sequence_number_hi.i = getelementptr inbounds i8, ptr %ssl, i64 980
   store i32 0, ptr %sequence_number_hi.i, align 4
-  %sequence_number_lo.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 12
+  %sequence_number_lo.i = getelementptr inbounds i8, ptr %ssl, i64 984
   store i32 0, ptr %sequence_number_lo.i, align 4
   br label %if.end404.i
 
@@ -986,9 +966,9 @@ if.end404.i:                                      ; preds = %if.then403.i, %if.e
   br i1 %tobool405.not.i, label %return, label %if.then406.i
 
 if.then406.i:                                     ; preds = %if.end404.i
-  %peer_sequence_number_hi.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 9
+  %peer_sequence_number_hi.i = getelementptr inbounds i8, ptr %ssl, i64 972
   store i32 0, ptr %peer_sequence_number_hi.i, align 4
-  %peer_sequence_number_lo.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 10
+  %peer_sequence_number_lo.i = getelementptr inbounds i8, ptr %ssl, i64 976
   store i32 0, ptr %peer_sequence_number_lo.i, align 4
   br label %return
 
@@ -1000,9 +980,9 @@ return:                                           ; preds = %if.then406.i, %if.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @StoreKeys(ptr nocapture noundef %ssl, ptr nocapture noundef readonly %keyData, i32 noundef %side) local_unnamed_addr #2 {
 entry:
-  %keys1 = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46
-  %specs = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44
-  %cipher_type = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 5
+  %keys1 = getelementptr inbounds i8, ptr %ssl, i64 716
+  %specs = getelementptr inbounds i8, ptr %ssl, i64 698
+  %cipher_type = getelementptr inbounds i8, ptr %ssl, i64 707
   %0 = load i8, ptr %cipher_type, align 1
   %cmp.not = icmp eq i8 %0, 2
   br i1 %cmp.not, label %entry.if.end16_crit_edge, label %if.then
@@ -1012,7 +992,7 @@ entry.if.end16_crit_edge:                         ; preds = %entry
   br label %if.end16
 
 if.then:                                          ; preds = %entry
-  %hash_size = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 9
+  %hash_size = getelementptr inbounds i8, ptr %ssl, i64 711
   %1 = load i8, ptr %hash_size, align 1
   %conv4 = zext i8 %1 to i32
   %and = and i32 %side, 1
@@ -1031,7 +1011,7 @@ if.end:                                           ; preds = %if.then5, %if.then
   br i1 %tobool8.not, label %if.end16, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %server_write_MAC_secret = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 1
+  %server_write_MAC_secret = getelementptr inbounds i8, ptr %ssl, i64 780
   %idxprom11 = zext nneg i32 %i.0 to i64
   %arrayidx12 = getelementptr inbounds i8, ptr %keyData, i64 %idxprom11
   %conv13 = zext i8 %1 to i64
@@ -1048,7 +1028,7 @@ if.end16:                                         ; preds = %entry.if.end16_crit
   br i1 %tobool20.not, label %if.end27, label %if.then21
 
 if.then21:                                        ; preds = %if.end16
-  %client_write_key = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key = getelementptr inbounds i8, ptr %ssl, i64 844
   %idxprom23 = zext nneg i32 %i.1 to i64
   %arrayidx24 = getelementptr inbounds i8, ptr %keyData, i64 %idxprom23
   %conv25 = zext i16 %2 to i64
@@ -1063,7 +1043,7 @@ if.end27:                                         ; preds = %if.then21, %if.end1
   br i1 %tobool29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  %server_write_key = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key = getelementptr inbounds i8, ptr %ssl, i64 876
   %idxprom32 = zext nneg i32 %i.2 to i64
   %arrayidx33 = getelementptr inbounds i8, ptr %keyData, i64 %idxprom32
   %conv34 = zext i16 %2 to i64
@@ -1073,13 +1053,13 @@ if.then30:                                        ; preds = %if.end27
 
 if.end36:                                         ; preds = %if.then30, %if.end27
   %i.3 = phi i32 [ %add35, %if.then30 ], [ %i.2, %if.end27 ]
-  %iv_size = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 1
+  %iv_size = getelementptr inbounds i8, ptr %ssl, i64 700
   %3 = load i16, ptr %iv_size, align 2
   br i1 %tobool20.not, label %if.end47, label %if.then41
 
 if.then41:                                        ; preds = %if.end36
   %conv38 = zext i16 %3 to i32
-  %client_write_IV = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+  %client_write_IV = getelementptr inbounds i8, ptr %ssl, i64 908
   %idxprom43 = zext nneg i32 %i.3 to i64
   %arrayidx44 = getelementptr inbounds i8, ptr %keyData, i64 %idxprom43
   %conv45 = zext i16 %3 to i64
@@ -1092,7 +1072,7 @@ if.end47:                                         ; preds = %if.then41, %if.end3
   br i1 %tobool29.not, label %if.end55, label %if.then50
 
 if.then50:                                        ; preds = %if.end47
-  %server_write_IV = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
+  %server_write_IV = getelementptr inbounds i8, ptr %ssl, i64 924
   %idxprom52 = zext nneg i32 %i.4 to i64
   %arrayidx53 = getelementptr inbounds i8, ptr %keyData, i64 %idxprom52
   %conv54 = zext i16 %3 to i64
@@ -1103,7 +1083,7 @@ if.end55:                                         ; preds = %if.then50, %if.end4
   br i1 %cmp.not, label %if.then61, label %if.end63
 
 if.then61:                                        ; preds = %if.end55
-  %aead_exp_IV = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 6
+  %aead_exp_IV = getelementptr inbounds i8, ptr %ssl, i64 940
   store i64 0, ptr %aead_exp_IV, align 4
   br label %if.end63
 
@@ -1126,14 +1106,14 @@ entry:
   %keyData = alloca [144 x i8], align 16
   %md5 = alloca [1 x %struct.wc_Md5], align 16
   %sha = alloca [1 x %struct.wc_Sha], align 16
-  %specs = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44
-  %hash_size = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 9
+  %specs = getelementptr inbounds i8, ptr %ssl, i64 698
+  %hash_size = getelementptr inbounds i8, ptr %ssl, i64 711
   %0 = load i8, ptr %hash_size, align 1
   %conv = zext i8 %0 to i32
   %1 = load i16, ptr %specs, align 2
   %conv2 = zext i16 %1 to i32
   %mul24 = add nuw nsw i32 %conv2, %conv
-  %iv_size = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 1
+  %iv_size = getelementptr inbounds i8, ptr %ssl, i64 700
   %2 = load i16, ptr %iv_size, align 2
   %conv5 = zext i16 %2 to i32
   %add25 = add nuw nsw i32 %mul24, %conv5
@@ -1151,9 +1131,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp13, label %if.then15, label %if.end82
 
 if.then15:                                        ; preds = %if.end
-  %arrays = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 2
+  %arrays = getelementptr inbounds i8, ptr %ssl, i64 16
   %3 = load ptr, ptr %arrays, align 16
-  %masterSecret = getelementptr inbounds %struct.Arrays, ptr %3, i64 0, i32 10
+  %masterSecret = getelementptr inbounds i8, ptr %3, i64 173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %md5Input, ptr noundef nonnull align 1 dereferenceable(48) %masterSecret, i64 48, i1 false)
   %invariant.gep = getelementptr inbounds i8, ptr %shaInput, i64 49
   %invariant.gep41 = getelementptr inbounds i8, ptr %shaInput, i64 81
@@ -1222,13 +1202,13 @@ sw.bb8.i:                                         ; preds = %for.body
 if.end24:                                         ; preds = %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
   %add.ptr = getelementptr inbounds i8, ptr %shaInput, i64 %indvars.iv.next
   %5 = load ptr, ptr %arrays, align 16
-  %masterSecret27 = getelementptr inbounds %struct.Arrays, ptr %5, i64 0, i32 10
+  %masterSecret27 = getelementptr inbounds i8, ptr %5, i64 173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %add.ptr, ptr noundef nonnull align 1 dereferenceable(48) %masterSecret27, i64 48, i1 false)
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %serverRandom = getelementptr inbounds %struct.Arrays, ptr %5, i64 0, i32 6
+  %serverRandom = getelementptr inbounds i8, ptr %5, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep, ptr noundef nonnull align 4 dereferenceable(32) %serverRandom, i64 32, i1 false)
   %gep42 = getelementptr i8, ptr %invariant.gep41, i64 %indvars.iv
-  %clientRandom = getelementptr inbounds %struct.Arrays, ptr %5, i64 0, i32 5
+  %clientRandom = getelementptr inbounds i8, ptr %5, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %gep42, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom, i64 32, i1 false)
   %cmp41 = icmp eq i32 %ret.145, 0
   br i1 %cmp41, label %if.end48, label %if.end55.thread
@@ -1272,18 +1252,18 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp76, label %if.then78, label %if.end82
 
 if.then78:                                        ; preds = %if.then15, %for.end
-  %cipher_type.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 44, i32 5
+  %cipher_type.i = getelementptr inbounds i8, ptr %ssl, i64 707
   %9 = load i8, ptr %cipher_type.i, align 1
   %cmp.not.i = icmp eq i8 %9, 2
   br i1 %cmp.not.i, label %if.end16.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then78
-  %keys1.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46
+  %keys1.i = getelementptr inbounds i8, ptr %ssl, i64 716
   %10 = load i8, ptr %hash_size, align 1
   %conv4.i = zext i8 %10 to i32
   %conv6.i = zext i8 %10 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %keys1.i, ptr nonnull align 16 %keyData, i64 %conv6.i, i1 false)
-  %server_write_MAC_secret.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 1
+  %server_write_MAC_secret.i = getelementptr inbounds i8, ptr %ssl, i64 780
   %arrayidx12.i = getelementptr inbounds i8, ptr %keyData, i64 %conv6.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_MAC_secret.i, ptr nonnull align 1 %arrayidx12.i, i64 %conv6.i, i1 false)
   %add14.i = shl nuw nsw i32 %conv4.i, 1
@@ -1293,33 +1273,33 @@ if.end16.i:                                       ; preds = %if.then78, %if.then
   %i.1.i = phi i32 [ %add14.i, %if.then.i ], [ 0, %if.then78 ]
   %11 = load i16, ptr %specs, align 2
   %conv18.i = zext i16 %11 to i32
-  %client_write_key.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 2
+  %client_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 844
   %idxprom23.i = zext nneg i32 %i.1.i to i64
   %arrayidx24.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom23.i
   %conv25.i = zext i16 %11 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_key.i, ptr nonnull align 2 %arrayidx24.i, i64 %conv25.i, i1 false)
   %add26.i = add nuw nsw i32 %i.1.i, %conv18.i
-  %server_write_key.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 3
+  %server_write_key.i = getelementptr inbounds i8, ptr %ssl, i64 876
   %idxprom32.i = zext nneg i32 %add26.i to i64
   %arrayidx33.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom32.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_key.i, ptr nonnull align 1 %arrayidx33.i, i64 %conv25.i, i1 false)
   %add35.i = add nuw nsw i32 %add26.i, %conv18.i
   %12 = load i16, ptr %iv_size, align 2
   %conv38.i = zext i16 %12 to i32
-  %client_write_IV.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 4
+  %client_write_IV.i = getelementptr inbounds i8, ptr %ssl, i64 908
   %idxprom43.i = zext nneg i32 %add35.i to i64
   %arrayidx44.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom43.i
   %conv45.i = zext i16 %12 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %client_write_IV.i, ptr nonnull align 1 %arrayidx44.i, i64 %conv45.i, i1 false)
   %add46.i = add nuw nsw i32 %add35.i, %conv38.i
-  %server_write_IV.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 5
+  %server_write_IV.i = getelementptr inbounds i8, ptr %ssl, i64 924
   %idxprom52.i = zext nneg i32 %add46.i to i64
   %arrayidx53.i = getelementptr inbounds i8, ptr %keyData, i64 %idxprom52.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %server_write_IV.i, ptr nonnull align 1 %arrayidx53.i, i64 %conv45.i, i1 false)
   br i1 %cmp.not.i, label %if.then61.i, label %if.end82
 
 if.then61.i:                                      ; preds = %if.end16.i
-  %aead_exp_IV.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 46, i32 6
+  %aead_exp_IV.i = getelementptr inbounds i8, ptr %ssl, i64 940
   store i64 0, ptr %aead_exp_IV.i, align 4
   br label %if.end82
 
@@ -1349,7 +1329,7 @@ entry:
   %md5.i = alloca [1 x %struct.wc_Md5], align 16
   %sha.i = alloca [1 x %struct.wc_Sha], align 16
   %prefix.i = alloca [9 x i8], align 2
-  %tls = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 47, i32 1
+  %tls = getelementptr inbounds i8, ptr %ssl, i64 1008
   %bf.load = load i64, ptr %tls, align 8
   %0 = and i64 %bf.load, 16384
   %tobool.not = icmp eq i64 %0, 0
@@ -1366,11 +1346,11 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %md5.i)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %sha.i)
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %prefix.i)
-  %arrays.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 2
+  %arrays.i = getelementptr inbounds i8, ptr %ssl, i64 16
   %1 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz.i = getelementptr inbounds %struct.Arrays, ptr %1, i64 0, i32 2
+  %preMasterSz.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %preMasterSz.i, align 8
-  %preMasterSecret.i = getelementptr inbounds %struct.Arrays, ptr %1, i64 0, i32 1
+  %preMasterSecret.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %preMasterSecret.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %MakeSslMasterSecret.exit, label %if.end.i
@@ -1388,7 +1368,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 if.then9.i:                                       ; preds = %if.end7.i
   %4 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret12.i = getelementptr inbounds %struct.Arrays, ptr %4, i64 0, i32 1
+  %preMasterSecret12.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %preMasterSecret12.i, align 8
   %conv.i = zext i32 %2 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %md5Input.i, ptr align 1 %5, i64 %conv.i, i1 false)
@@ -1423,19 +1403,19 @@ if.end18.i:                                       ; preds = %sw.bb2.i.i, %sw.bb1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %shaInput.i, ptr noundef nonnull align 2 dereferenceable(1) %prefix.i, i64 %indvars.iv.next.i, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %shaInput.i, i64 %indvars.iv.next.i
   %7 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret26.i = getelementptr inbounds %struct.Arrays, ptr %7, i64 0, i32 1
+  %preMasterSecret26.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %preMasterSecret26.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %8, i64 %conv.i, i1 false)
   %9 = trunc i64 %indvars.iv.next.i to i32
   %add28.i = add i32 %2, %9
   %idx.ext30.i = zext i32 %add28.i to i64
   %add.ptr31.i = getelementptr inbounds i8, ptr %shaInput.i, i64 %idx.ext30.i
-  %clientRandom.i = getelementptr inbounds %struct.Arrays, ptr %7, i64 0, i32 5
+  %clientRandom.i = getelementptr inbounds i8, ptr %7, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr31.i, ptr noundef nonnull align 4 dereferenceable(32) %clientRandom.i, i64 32, i1 false)
   %add34.i = add i32 %add28.i, 32
   %idx.ext36.i = zext i32 %add34.i to i64
   %add.ptr37.i = getelementptr inbounds i8, ptr %shaInput.i, i64 %idx.ext36.i
-  %serverRandom.i = getelementptr inbounds %struct.Arrays, ptr %7, i64 0, i32 6
+  %serverRandom.i = getelementptr inbounds i8, ptr %7, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %add.ptr37.i, ptr noundef nonnull align 4 dereferenceable(32) %serverRandom.i, i64 32, i1 false)
   %cmp41.i = icmp eq i32 %ret.192.i, 0
   br i1 %cmp41.i, label %if.end47.i, label %if.end54.thread.i
@@ -1464,8 +1444,9 @@ if.end66.i:                                       ; preds = %if.end54.i
 
 if.then69.i:                                      ; preds = %if.end66.i
   %10 = load ptr, ptr %arrays.i, align 16
+  %masterSecret.i = getelementptr inbounds i8, ptr %10, i64 173
   %11 = shl nuw nsw i64 %indvars.iv.i, 4
-  %arrayidx.i = getelementptr inbounds %struct.Arrays, ptr %10, i64 0, i32 10, i64 %11
+  %arrayidx.i = getelementptr inbounds [48 x i8], ptr %masterSecret.i, i64 0, i64 %11
   %call72.i = call i32 @wc_Md5Final(ptr noundef nonnull %md5.i, ptr noundef nonnull %arrayidx.i) #7
   br label %for.inc.i
 
@@ -1485,7 +1466,7 @@ if.end79.i:                                       ; preds = %for.end.i
 
 if.then82.i:                                      ; preds = %if.end79.i
   %12 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz.i.i = getelementptr inbounds %struct.Arrays, ptr %12, i64 0, i32 2
+  %preMasterSz.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load i32, ptr %preMasterSz.i.i, align 8
   %cmp18.i.i = icmp sgt i32 %13, 0
   br i1 %cmp18.i.i, label %for.body.preheader.i.i, label %for.end.i.i
@@ -1497,7 +1478,7 @@ for.body.preheader.i.i:                           ; preds = %if.then82.i
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %14 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret.i.i = getelementptr inbounds %struct.Arrays, ptr %14, i64 0, i32 1
+  %preMasterSecret.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %preMasterSecret.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %15, i64 %indvars.iv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
@@ -1511,9 +1492,9 @@ for.end.loopexit.i.i:                             ; preds = %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.end.loopexit.i.i, %if.then82.i
   %16 = phi ptr [ %.pre.i.i, %for.end.loopexit.i.i ], [ %12, %if.then82.i ]
-  %rng.i.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 8
+  %rng.i.i = getelementptr inbounds i8, ptr %ssl, i64 144
   %17 = load ptr, ptr %rng.i.i, align 16
-  %preMasterSecret3.i.i = getelementptr inbounds %struct.Arrays, ptr %16, i64 0, i32 1
+  %preMasterSecret3.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %preMasterSecret3.i.i, align 8
   %call.i.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %17, ptr noundef %18, i32 noundef %13) #7
   %cmp4.not.i.i = icmp eq i32 %call.i.i, 0
@@ -1529,7 +1510,7 @@ for.body7.preheader.i.i:                          ; preds = %for.cond5.preheader
 for.body7.i.i:                                    ; preds = %for.body7.i.i, %for.body7.preheader.i.i
   %indvars.iv23.i.i = phi i64 [ 0, %for.body7.preheader.i.i ], [ %indvars.iv.next24.i.i, %for.body7.i.i ]
   %19 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret9.i.i = getelementptr inbounds %struct.Arrays, ptr %19, i64 0, i32 1
+  %preMasterSecret9.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %preMasterSecret9.i.i, align 8
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %20, i64 %indvars.iv23.i.i
   store i8 0, ptr %arrayidx11.i.i, align 1
@@ -1539,7 +1520,7 @@ for.body7.i.i:                                    ; preds = %for.body7.i.i, %for
 
 for.end14.i.i:                                    ; preds = %for.body7.i.i, %for.cond5.preheader.i.i
   %21 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret16.i.i = getelementptr inbounds %struct.Arrays, ptr %21, i64 0, i32 1
+  %preMasterSecret16.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %preMasterSecret16.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
@@ -1547,7 +1528,7 @@ for.end14.i.i:                                    ; preds = %for.body7.i.i, %for
 if.else.i:                                        ; preds = %for.body.i, %if.end79.i, %for.end.i, %if.end7.i, %if.end.i
   %ret.789.i = phi i32 [ %call77.i, %if.end79.i ], [ %call6.i, %if.end7.i ], [ %ret.5.i, %for.end.i ], [ %call.i, %if.end.i ], [ -302, %for.body.i ]
   %23 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz.i38.i = getelementptr inbounds %struct.Arrays, ptr %23, i64 0, i32 2
+  %preMasterSz.i38.i = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i32, ptr %preMasterSz.i38.i, align 8
   %cmp18.i39.i = icmp sgt i32 %24, 0
   br i1 %cmp18.i39.i, label %for.body.preheader.i63.i, label %for.end.i40.i
@@ -1559,7 +1540,7 @@ for.body.preheader.i63.i:                         ; preds = %if.else.i
 for.body.i65.i:                                   ; preds = %for.body.i65.i, %for.body.preheader.i63.i
   %indvars.iv.i66.i = phi i64 [ 0, %for.body.preheader.i63.i ], [ %indvars.iv.next.i69.i, %for.body.i65.i ]
   %25 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret.i67.i = getelementptr inbounds %struct.Arrays, ptr %25, i64 0, i32 1
+  %preMasterSecret.i67.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %preMasterSecret.i67.i, align 8
   %arrayidx.i68.i = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.i66.i
   store i8 0, ptr %arrayidx.i68.i, align 1
@@ -1573,9 +1554,9 @@ for.end.loopexit.i71.i:                           ; preds = %for.body.i65.i
 
 for.end.i40.i:                                    ; preds = %for.end.loopexit.i71.i, %if.else.i
   %27 = phi ptr [ %.pre.i72.i, %for.end.loopexit.i71.i ], [ %23, %if.else.i ]
-  %rng.i41.i = getelementptr inbounds %struct.WOLFSSL, ptr %ssl, i64 0, i32 8
+  %rng.i41.i = getelementptr inbounds i8, ptr %ssl, i64 144
   %28 = load ptr, ptr %rng.i41.i, align 16
-  %preMasterSecret3.i42.i = getelementptr inbounds %struct.Arrays, ptr %27, i64 0, i32 1
+  %preMasterSecret3.i42.i = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %preMasterSecret3.i42.i, align 8
   %call.i43.i = call i32 @wc_RNG_GenerateBlock(ptr noundef %28, ptr noundef %29, i32 noundef %24) #7
   %cmp4.not.i44.i = icmp eq i32 %call.i43.i, 0
@@ -1591,7 +1572,7 @@ for.body7.preheader.i55.i:                        ; preds = %for.cond5.preheader
 for.body7.i57.i:                                  ; preds = %for.body7.i57.i, %for.body7.preheader.i55.i
   %indvars.iv23.i58.i = phi i64 [ 0, %for.body7.preheader.i55.i ], [ %indvars.iv.next24.i61.i, %for.body7.i57.i ]
   %30 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret9.i59.i = getelementptr inbounds %struct.Arrays, ptr %30, i64 0, i32 1
+  %preMasterSecret9.i59.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %preMasterSecret9.i59.i, align 8
   %arrayidx11.i60.i = getelementptr inbounds i8, ptr %31, i64 %indvars.iv23.i58.i
   store i8 0, ptr %arrayidx11.i60.i, align 1
@@ -1601,7 +1582,7 @@ for.body7.i57.i:                                  ; preds = %for.body7.i57.i, %f
 
 for.end14.i47.i:                                  ; preds = %for.body7.i57.i, %for.cond5.preheader.i46.i
   %32 = load ptr, ptr %arrays.i, align 16
-  %preMasterSecret16.i48.i = getelementptr inbounds %struct.Arrays, ptr %32, i64 0, i32 1
+  %preMasterSecret16.i48.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %preMasterSecret16.i48.i, align 8
   %tobool.not.i49.i = icmp eq ptr %33, null
   br i1 %tobool.not.i49.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
@@ -1616,10 +1597,10 @@ return.sink.split.sink.split.i:                   ; preds = %for.end14.i47.i, %f
 return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %for.end14.i47.i, %for.end14.i.i
   %.sink.i = phi ptr [ %21, %for.end14.i.i ], [ %32, %for.end14.i47.i ], [ %.pre28.i51.i, %return.sink.split.sink.split.i ]
   %retval.0.ph.i = phi i32 [ 0, %for.end14.i.i ], [ %ret.789.i, %for.end14.i47.i ], [ %retval.0.ph.ph.i, %return.sink.split.sink.split.i ]
-  %preMasterSecret20.i53.i = getelementptr inbounds %struct.Arrays, ptr %.sink.i, i64 0, i32 1
+  %preMasterSecret20.i53.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
   store ptr null, ptr %preMasterSecret20.i53.i, align 8
   %34 = load ptr, ptr %arrays.i, align 16
-  %preMasterSz22.i54.i = getelementptr inbounds %struct.Arrays, ptr %34, i64 0, i32 2
+  %preMasterSz22.i54.i = getelementptr inbounds i8, ptr %34, i64 16
   store i32 0, ptr %preMasterSz22.i54.i, align 8
   br label %MakeSslMasterSecret.exit
 

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic = private unnamed_addr constant [64 x i8] c"_Bool bitmap_test_and_clear_atomic(unsigned long *, long, long)\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @slow_bitmap_empty(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local noundef i32 @slow_bitmap_empty(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -55,7 +55,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @slow_bitmap_full(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local noundef i32 @slow_bitmap_full(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -99,7 +99,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @slow_bitmap_equal(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local noundef i32 @slow_bitmap_equal(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -322,7 +322,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp616, label %while.body, label %while.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set) #11
   unreachable
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -332,7 +332,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %2 = load i64, ptr %p.017, align 8
   %or = or i64 %2, %mask_to_set.018
   store i64 %or, ptr %p.017, align 8
-  %incdec.ptr = getelementptr i64, ptr %p.017, i64 1
+  %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
   %cmp6 = icmp ugt i64 %sub519, 63
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !14
@@ -374,7 +374,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set_atomic) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_set_atomic) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -388,7 +388,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   %3 = atomicrmw or ptr %add.ptr, i64 %shl seq_cst, align 8
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.end
@@ -426,7 +426,7 @@ if.then21:                                        ; preds = %if.end20
   br label %if.end28
 
 if.else27:                                        ; preds = %if.end20
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
   fence seq_cst
   br label %if.end28
 
@@ -457,7 +457,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_clear) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_clear) #11
   unreachable
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -467,7 +467,7 @@ while.body:                                       ; preds = %while.body.preheade
   %3 = load i64, ptr %p.017, align 8
   %and8 = and i64 %3, %mask_to_clear.018
   store i64 %and8, ptr %p.017, align 8
-  %incdec.ptr = getelementptr i64, ptr %p.017, i64 1
+  %incdec.ptr = getelementptr i8, ptr %p.017, i64 8
   %sub5 = add nsw i64 %sub519, -64
   %cmp6 = icmp ugt i64 %sub519, 63
   br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !16
@@ -507,7 +507,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 251, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 251, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -527,7 +527,7 @@ if.then8:                                         ; preds = %if.end
   %not = xor i64 %shl, -1
   %and12 = and i64 %3, %not
   store i64 %and12, ptr %add.ptr, align 8
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.end
@@ -555,7 +555,7 @@ if.then23:                                        ; preds = %while.body
 if.end24:                                         ; preds = %if.then23, %while.body
   %dirty.3 = phi i8 [ 1, %if.then23 ], [ %dirty.2, %while.body ]
   %sub25 = add nsw i64 %nr.addr.1, -64
-  %incdec.ptr26 = getelementptr i64, ptr %p.1, i64 1
+  %incdec.ptr26 = getelementptr i8, ptr %p.1, i64 8
   %cmp20.old = icmp ugt i64 %sub25, 63
   br i1 %cmp20.old, label %while.body, label %if.end27
 
@@ -600,7 +600,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -616,7 +616,7 @@ if.then8:                                         ; preds = %if.end
   %not = xor i64 %shl, -1
   %3 = atomicrmw and ptr %add.ptr, i64 %not seq_cst, align 8
   %and9 = and i64 %3, %shl
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then8, %if.end
@@ -646,7 +646,7 @@ while.end:                                        ; preds = %while.body
 if.end26:                                         ; preds = %while.end, %while.body
   %dirty.2 = phi i64 [ %or25, %while.end ], [ %dirty.1, %while.body ]
   %sub27 = add nsw i64 %nr.addr.1, -64
-  %incdec.ptr28 = getelementptr i64, ptr %p.1, i64 1
+  %incdec.ptr28 = getelementptr i8, ptr %p.1, i64 8
   %cmp17.old = icmp ugt i64 %sub27, 63
   br i1 %cmp17.old, label %while.body, label %if.end30
 
@@ -674,7 +674,7 @@ if.else41:                                        ; preds = %if.end30
   br i1 %tobool42.not, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %if.else41
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
   fence seq_cst
   br label %if.end45
 
@@ -695,8 +695,8 @@ while.end:                                        ; preds = %entry, %while.end
   %nr.addr.05 = phi i64 [ %sub, %while.end ], [ %nr, %entry ]
   %0 = atomicrmw xchg ptr %src.addr.06, i64 0 seq_cst, align 8
   store i64 %0, ptr %dst.addr.07, align 8
-  %incdec.ptr = getelementptr i64, ptr %dst.addr.07, i64 1
-  %incdec.ptr4 = getelementptr i64, ptr %src.addr.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %dst.addr.07, i64 8
+  %incdec.ptr4 = getelementptr i8, ptr %src.addr.06, i64 8
   %sub = add nsw i64 %nr.addr.05, -64
   %cmp = icmp ugt i64 %nr.addr.05, 64
   br i1 %cmp, label %while.end, label %while.end5, !llvm.loop !18
@@ -708,7 +708,7 @@ while.end5:                                       ; preds = %while.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @bitmap_find_next_zero_area(ptr noundef %map, i64 noundef %size, i64 noundef %start, i64 noundef %nr, i64 noundef %align_mask) local_unnamed_addr #2 {
 entry:
-  %call11 = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %start) #13
+  %call11 = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %start) #12
   %add12 = add i64 %call11, %align_mask
   %not = xor i64 %align_mask, -1
   %and13 = and i64 %add12, %not
@@ -718,7 +718,7 @@ entry:
 
 again:                                            ; preds = %if.end
   %add5 = add nuw i64 %call2, 1
-  %call = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %add5) #13
+  %call = tail call i64 @find_next_zero_bit(ptr noundef %map, i64 noundef %size, i64 noundef %add5) #12
   %add = add i64 %call, %align_mask
   %and = and i64 %add, %not
   %add1 = add i64 %and, %nr
@@ -728,7 +728,7 @@ again:                                            ; preds = %if.end
 if.end:                                           ; preds = %entry, %again
   %add117 = phi i64 [ %add1, %again ], [ %add114, %entry ]
   %and16 = phi i64 [ %and, %again ], [ %and13, %entry ]
-  %call2 = tail call i64 @find_next_bit(ptr noundef %map, i64 noundef %add117, i64 noundef %and16) #13
+  %call2 = tail call i64 @find_next_bit(ptr noundef %map, i64 noundef %add117, i64 noundef %and16) #12
   %cmp3 = icmp ult i64 %call2, %add117
   br i1 %cmp3, label %again, label %return
 
@@ -742,7 +742,7 @@ declare i64 @find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unn
 declare i64 @find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @slow_bitmap_intersects(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local noundef i32 @slow_bitmap_intersects(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -790,8 +790,8 @@ return:                                           ; preds = %for.body, %if.then3
   ret i32 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i64 @slow_bitmap_count_one(ptr nocapture noundef readonly %bitmap, i64 noundef %nbits) local_unnamed_addr #6 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
+define dso_local i64 @slow_bitmap_count_one(ptr nocapture noundef readonly %bitmap, i64 noundef %nbits) local_unnamed_addr #0 {
 entry:
   %div9 = lshr i64 %nbits, 6
   %cmp11.not = icmp ult i64 %nbits, 64
@@ -831,8 +831,8 @@ if.end:                                           ; preds = %if.then, %for.end
   ret i64 %result.1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @bitmap_from_le(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %nbits) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define dso_local void @bitmap_from_le(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %nbits) local_unnamed_addr #6 {
 entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
@@ -841,8 +841,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @bitmap_to_le(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %nbits) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define dso_local void @bitmap_to_le(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %nbits) local_unnamed_addr #6 {
 entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
@@ -851,8 +851,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @bitmap_copy_with_src_offset(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @bitmap_copy_with_src_offset(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #7 {
 entry:
   %div34 = lshr i64 %shift, 6
   %add.ptr = getelementptr i64, ptr %src, i64 %div34
@@ -890,12 +890,12 @@ while.body:                                       ; preds = %if.end, %while.body
   %and = and i64 %2, %notmask
   %shr = lshr i64 %and, %rem
   store i64 %shr, ptr %dst.addr.040, align 8
-  %arrayidx = getelementptr i64, ptr %src.addr.039, i64 1
+  %arrayidx = getelementptr i8, ptr %src.addr.039, i64 8
   %3 = load i64, ptr %arrayidx, align 8
   %shl3 = shl i64 %3, %sub2
   %or = or i64 %shl3, %shr
   store i64 %or, ptr %dst.addr.040, align 8
-  %incdec.ptr = getelementptr i64, ptr %dst.addr.040, i64 1
+  %incdec.ptr = getelementptr i8, ptr %dst.addr.040, i64 8
   %sub5 = add i64 %nbits.addr.038, -64
   %cmp = icmp ugt i64 %sub5, 63
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !22
@@ -915,7 +915,7 @@ if.then8:                                         ; preds = %while.end
   %sub12 = sub nsw i64 %nbits.addr.0.lcssa, %sub2
   %notmask36 = shl nsw i64 -1, %sub12
   %sub14 = xor i64 %notmask36, -1
-  %arrayidx15 = getelementptr i64, ptr %src.addr.0.lcssa, i64 1
+  %arrayidx15 = getelementptr i8, ptr %src.addr.0.lcssa, i64 8
   %5 = load i64, ptr %arrayidx15, align 8
   %and16 = and i64 %5, %sub14
   %shl18 = shl i64 %and16, %sub2
@@ -940,8 +940,8 @@ if.end27:                                         ; preds = %if.else.i, %if.then
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @bitmap_copy_with_dst_offset(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @bitmap_copy_with_dst_offset(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #7 {
 entry:
   %div37 = lshr i64 %shift, 6
   %add.ptr = getelementptr i64, ptr %dst, i64 %div37
@@ -988,9 +988,9 @@ while.body:                                       ; preds = %if.end, %while.body
   %5 = load i64, ptr %src.addr.043, align 8
   %and6 = and i64 %5, %notmask
   %shr = lshr i64 %and6, %sub
-  %arrayidx = getelementptr i64, ptr %dst.addr.044, i64 1
+  %arrayidx = getelementptr i8, ptr %dst.addr.044, i64 8
   store i64 %shr, ptr %arrayidx, align 8
-  %incdec.ptr8 = getelementptr i64, ptr %src.addr.043, i64 1
+  %incdec.ptr8 = getelementptr i8, ptr %src.addr.043, i64 8
   %sub9 = add i64 %nbits.addr.042, -64
   %cmp = icmp ugt i64 %sub9, 63
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !23
@@ -1015,7 +1015,7 @@ if.then12:                                        ; preds = %while.end
   %8 = load i64, ptr %src.addr.0.lcssa, align 8
   %and22 = and i64 %8, %shl21
   %shr24 = lshr i64 %and22, %sub
-  %arrayidx25 = getelementptr i64, ptr %dst.addr.0.lcssa, i64 1
+  %arrayidx25 = getelementptr i8, ptr %dst.addr.0.lcssa, i64 8
   store i64 %shr24, ptr %arrayidx25, align 8
   br label %if.end34
 
@@ -1038,13 +1038,13 @@ if.end34:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #9
+declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1052,14 +1052,13 @@ attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-ve
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

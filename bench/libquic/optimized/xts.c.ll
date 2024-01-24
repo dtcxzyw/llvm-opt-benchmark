@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
-%struct.EVP_AES_XTS_CTX = type { %union.anon, %union.anon, %struct.xts128_context }
-%union.anon = type { double, [240 x i8] }
-%struct.xts128_context = type { ptr, ptr, ptr, ptr }
 %union.anon.0 = type { [2 x i64] }
 
 @aes_256_xts = internal constant %struct.evp_cipher_st { i32 914, i32 1, i32 64, i32 16, i32 528, i32 4999, ptr null, ptr @aes_xts_init_key, ptr @aes_xts_cipher, ptr null, ptr @aes_xts_ctrl }, align 8
@@ -21,7 +17,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @aes_xts_init_key(ptr nocapture noundef %ctx, ptr noundef %key, ptr noundef readonly %iv, i32 noundef %enc) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   %tobool = icmp ne ptr %iv, null
   %tobool1 = icmp ne ptr %key, null
@@ -33,7 +29,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %tobool4.not = icmp eq i32 %enc, 0
-  %key_len6 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 3
+  %key_len6 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load i32, ptr %key_len6, align 8
   %mul7 = shl i32 %1, 2
   br i1 %tobool4.not, label %if.else, label %if.then5
@@ -48,18 +44,18 @@ if.else:                                          ; preds = %if.then3
 
 if.end12:                                         ; preds = %if.else, %if.then5
   %AES_encrypt.sink = phi ptr [ @AES_decrypt, %if.else ], [ @AES_encrypt, %if.then5 ]
-  %2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 512
   store ptr %AES_encrypt.sink, ptr %2, align 8
-  %key_len13 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 3
+  %key_len13 = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load i32, ptr %key_len13, align 8
   %div21 = lshr i32 %3, 1
   %idx.ext = zext nneg i32 %div21 to i64
   %add.ptr = getelementptr inbounds i8, ptr %key, i64 %idx.ext
   %mul15 = shl i32 %3, 2
-  %ks2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 1
+  %ks2 = getelementptr inbounds i8, ptr %0, i64 248
   %call16 = tail call i32 @AES_set_encrypt_key(ptr noundef nonnull %add.ptr, i32 noundef %mul15, ptr noundef nonnull %ks2) #8
-  %xts17 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2
-  %block2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 3
+  %xts17 = getelementptr inbounds i8, ptr %0, i64 496
+  %block2 = getelementptr inbounds i8, ptr %0, i64 520
   store ptr @AES_encrypt, ptr %block2, align 8
   store ptr %0, ptr %xts17, align 8
   br label %if.end20
@@ -68,10 +64,10 @@ if.end20:                                         ; preds = %if.end12, %if.end
   br i1 %tobool, label %if.then22, label %return
 
 if.then22:                                        ; preds = %if.end20
-  %ks223 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 1
-  %key2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 1
+  %ks223 = getelementptr inbounds i8, ptr %0, i64 248
+  %key2 = getelementptr inbounds i8, ptr %0, i64 504
   store ptr %ks223, ptr %key2, align 8
-  %iv25 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 7
+  %iv25 = getelementptr inbounds i8, ptr %ctx, i64 52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %iv25, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
   br label %return
 
@@ -84,15 +80,15 @@ define internal noundef i32 @aes_xts_cipher(ptr nocapture noundef readonly %ctx,
 entry:
   %tweak.i = alloca %union.anon.0, align 16
   %scratch.i = alloca %union.anon.0, align 16
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
-  %xts = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2
+  %xts = getelementptr inbounds i8, ptr %0, i64 496
   %1 = load ptr, ptr %xts, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %key2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 1
+  %key2 = getelementptr inbounds i8, ptr %0, i64 504
   %2 = load ptr, ptr %key2, align 8
   %tobool2 = icmp ne ptr %2, null
   %tobool4 = icmp ne ptr %out, null
@@ -104,13 +100,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond2.not, label %lor.lhs.false8, label %return
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 7
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 4
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 52
+  %encrypt = getelementptr inbounds i8, ptr %ctx, i64 28
   %3 = load i32, ptr %encrypt, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tweak.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %scratch.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tweak.i, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
-  %block2.i = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 3
+  %block2.i = getelementptr inbounds i8, ptr %0, i64 520
   %4 = load ptr, ptr %block2.i, align 8
   call void %4(ptr noundef nonnull %tweak.i, ptr noundef nonnull %tweak.i, ptr noundef nonnull %2) #8
   %tobool.not.i = icmp ne i32 %3, 0
@@ -123,8 +119,8 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
   br i1 %cmp648.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %lor.lhs.false8
-  %arrayidx10.i = getelementptr inbounds [2 x i64], ptr %tweak.i, i64 0, i64 1
-  %block1.i = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %tweak.i, i64 8
+  %block1.i = getelementptr inbounds i8, ptr %0, i64 512
   %5 = load <2 x i64>, ptr %tweak.i, align 16
   br label %while.body.i
 
@@ -200,7 +196,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %23 = load <2 x i64>, ptr %tweak.i, align 16
   %24 = xor <2 x i64> %23, %22
   store <2 x i64> %24, ptr %scratch.i, align 16
-  %block157.i = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 2
+  %block157.i = getelementptr inbounds i8, ptr %0, i64 512
   %25 = load ptr, ptr %block157.i, align 8
   %26 = load ptr, ptr %xts, align 8
   call void %25(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %26) #8
@@ -213,25 +209,25 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br label %CRYPTO_xts128_encrypt.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %arrayidx71.i = getelementptr inbounds [4 x i32], ptr %tweak.i, i64 0, i64 3
+  %arrayidx71.i = getelementptr inbounds i8, ptr %tweak.i, i64 12
   %30 = load i32, ptr %arrayidx71.i, align 4
   %isneg.i = icmp slt i32 %30, 0
   %and73.i = select i1 %isneg.i, i64 135, i64 0
   %31 = load i64, ptr %tweak.i, align 16
   %shl78.i = shl i64 %31, 1
   %xor80.i = xor i64 %shl78.i, %and73.i
-  %arrayidx82.i = getelementptr inbounds [2 x i64], ptr %tweak.i, i64 0, i64 1
+  %arrayidx82.i = getelementptr inbounds i8, ptr %tweak.i, i64 8
   %32 = load i64, ptr %arrayidx82.i, align 8
   %or85.i = call i64 @llvm.fshl.i64(i64 %32, i64 %31, i64 1)
   %33 = load i64, ptr %inp.addr.0.lcssa.i, align 8
   %xor89.i = xor i64 %33, %xor80.i
   store i64 %xor89.i, ptr %scratch.i, align 16
-  %arrayidx91.i = getelementptr inbounds i64, ptr %inp.addr.0.lcssa.i, i64 1
+  %arrayidx91.i = getelementptr inbounds i8, ptr %inp.addr.0.lcssa.i, i64 8
   %34 = load i64, ptr %arrayidx91.i, align 8
   %xor93.i = xor i64 %34, %or85.i
-  %arrayidx94.i = getelementptr inbounds [2 x i64], ptr %scratch.i, i64 0, i64 1
+  %arrayidx94.i = getelementptr inbounds i8, ptr %scratch.i, i64 8
   store i64 %xor93.i, ptr %arrayidx94.i, align 8
-  %block195.i = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 2
+  %block195.i = getelementptr inbounds i8, ptr %0, i64 512
   %35 = load ptr, ptr %block195.i, align 8
   %36 = load ptr, ptr %xts, align 8
   call void %35(ptr noundef nonnull %scratch.i, ptr noundef nonnull %scratch.i, ptr noundef %36) #8
@@ -297,7 +293,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @aes_xts_ctrl(ptr nocapture noundef readonly %c, i32 noundef %type, i32 %arg, ptr nocapture noundef readonly %ptr) #2 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %c, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   switch i32 %type, label %return [
     i32 8, label %if.then
@@ -305,9 +301,9 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %cipher_data1 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ptr, i64 0, i32 2
+  %cipher_data1 = getelementptr inbounds i8, ptr %ptr, i64 16
   %1 = load ptr, ptr %cipher_data1, align 8
-  %xts = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2
+  %xts = getelementptr inbounds i8, ptr %0, i64 496
   %2 = load ptr, ptr %xts, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end10, label %if.then2
@@ -317,29 +313,29 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then2
-  %xts8 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %1, i64 0, i32 2
+  %xts8 = getelementptr inbounds i8, ptr %1, i64 496
   store ptr %1, ptr %xts8, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.then
-  %key2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2, i32 1
+  %key2 = getelementptr inbounds i8, ptr %0, i64 504
   %3 = load ptr, ptr %key2, align 8
   %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %ks2 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 1
+  %ks2 = getelementptr inbounds i8, ptr %0, i64 248
   %cmp16.not = icmp eq ptr %3, %ks2
   br i1 %cmp16.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then13
-  %ks219 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %1, i64 0, i32 1
-  %key221 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %1, i64 0, i32 2, i32 1
+  %ks219 = getelementptr inbounds i8, ptr %1, i64 248
+  %key221 = getelementptr inbounds i8, ptr %1, i64 504
   store ptr %ks219, ptr %key221, align 8
   br label %return
 
 if.end26:                                         ; preds = %entry
-  %xts27 = getelementptr inbounds %struct.EVP_AES_XTS_CTX, ptr %0, i64 0, i32 2
+  %xts27 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %xts27, i8 0, i64 16, i1 false)
   br label %return
 

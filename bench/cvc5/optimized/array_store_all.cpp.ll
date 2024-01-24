@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::ArrayStoreAll" = type { %"class.std::unique_ptr", %"class.std::unique_ptr.2" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
 %"class.cvc5::internal::options::ioutils::Scope" = type <{ ptr, i8, [7 x i8], i64, i64, i8, [3 x i8], i32, i32, [4 x i8] }>
 %"struct.std::hash" = type { i8 }
 %"struct.std::hash.11" = type { i8 }
@@ -48,7 +35,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal13ArrayStoreAllC2ERKNS0_8TypeNodeERKNS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.true:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %call19 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %invoke.cont18 unwind label %lpad
@@ -346,7 +333,7 @@ invoke.cont3:                                     ; preds = %if.else.i.i, %if.th
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %other, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %other, i64 8
   %3 = load ptr, ptr %d_value.i, align 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %call6, align 8
@@ -376,7 +363,7 @@ if.then13.i.i10:                                  ; preds = %if.else.i.i8
           to label %invoke.cont10 unwind label %lpad7
 
 invoke.cont10:                                    ; preds = %if.else.i.i8, %if.then.i.i12, %if.then13.i.i10
-  %d_value = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call6, ptr %d_value, align 8
   ret void
 
@@ -417,7 +404,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal13ArrayStoreAll8getValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_value, align 8
   ret ptr %0
 }
@@ -425,7 +412,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal13ArrayStoreAllD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_value = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_value, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal12NodeTemplateILb1EEESt14default_deleteIS3_EED2Ev.exit, label %delete.notnull.i.i
@@ -561,9 +548,9 @@ if.then13.i4.i:                                   ; preds = %if.else.i.i
   br label %_ZN4cvc58internal8TypeNodeaSERKS1_.exit
 
 _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %entry, %if.then.i5.i, %if.else.i.i, %if.then13.i4.i
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %other, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %other, i64 8
   %7 = load ptr, ptr %d_value.i, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %d_value, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
@@ -632,9 +619,9 @@ entry:
   br i1 %cmp.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_value.i, align 8
-  %d_value.i2 = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i2 = getelementptr inbounds i8, ptr %asa, i64 8
   %5 = load ptr, ptr %d_value.i2, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
@@ -657,9 +644,9 @@ entry:
   br i1 %cmp.i.i, label %land.rhs.i, label %_ZNK4cvc58internal13ArrayStoreAlleqERKS1_.exit
 
 land.rhs.i:                                       ; preds = %entry
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_value.i.i, align 8
-  %d_value.i2.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i2.i = getelementptr inbounds i8, ptr %asa, i64 8
   %5 = load ptr, ptr %d_value.i2.i, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
@@ -690,9 +677,9 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp.i3, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_value.i, align 8
-  %d_value.i4 = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i4 = getelementptr inbounds i8, ptr %asa, i64 8
   %5 = load ptr, ptr %d_value.i4, align 8
   %6 = load ptr, ptr %4, align 8
   %bf.load.i5 = load i64, ptr %6, align 8
@@ -727,9 +714,9 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp.i3, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_value.i, align 8
-  %d_value.i4 = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i4 = getelementptr inbounds i8, ptr %asa, i64 8
   %5 = load ptr, ptr %d_value.i4, align 8
   %6 = load ptr, ptr %4, align 8
   %bf.load.i5 = load i64, ptr %6, align 8
@@ -764,9 +751,9 @@ lor.rhs.i:                                        ; preds = %entry
   br i1 %cmp.i3.i, label %land.rhs.i, label %_ZNK4cvc58internal13ArrayStoreAllleERKS1_.exit
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_value.i.i, align 8
-  %d_value.i4.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i4.i = getelementptr inbounds i8, ptr %asa, i64 8
   %5 = load ptr, ptr %d_value.i4.i, align 8
   %6 = load ptr, ptr %4, align 8
   %bf.load.i5.i = load i64, ptr %6, align 8
@@ -801,9 +788,9 @@ lor.rhs.i:                                        ; preds = %entry
   br i1 %cmp.i3.i, label %land.rhs.i, label %_ZNK4cvc58internal13ArrayStoreAllltERKS1_.exit
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_value.i.i, align 8
-  %d_value.i4.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i4.i = getelementptr inbounds i8, ptr %asa, i64 8
   %5 = load ptr, ptr %d_value.i4.i, align 8
   %6 = load ptr, ptr %4, align 8
   %bf.load.i5.i = load i64, ptr %6, align 8
@@ -853,7 +840,7 @@ _ZN4cvc58internallsERSoRKNS0_8TypeNodeE.exit:     ; preds = %invoke.cont.i.i
   call void @_ZN4cvc58internal7options7ioutils5ScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %scope.i.i) #16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %scope.i.i)
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.4)
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %asa, i64 8
   %3 = load ptr, ptr %d_value.i, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %call3)
@@ -872,7 +859,7 @@ entry:
   %ref.tmp3 = alloca %"struct.std::hash.11", align 1
   %0 = load ptr, ptr %asa, align 8
   %call2 = call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::ArrayStoreAll", ptr %asa, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %asa, i64 8
   %1 = load ptr, ptr %d_value.i, align 8
   %call5 = call noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb1EEEEclERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %mul = mul i64 %call5, %call2

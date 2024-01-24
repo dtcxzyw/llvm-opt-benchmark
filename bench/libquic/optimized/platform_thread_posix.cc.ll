@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.base::(anonymous namespace)::ThreadParams" = type { ptr, i8, i32 }
 %"class.base::PlatformThreadHandle" = type { i64 }
 %"class.base::debug::ScopedThreadJoinActivity" = type { %"class.base::debug::GlobalActivityTracker::ScopedThreadActivity" }
 %"class.base::debug::GlobalActivityTracker::ScopedThreadActivity" = type { %"class.base::debug::ThreadActivityTracker::ScopedActivity" }
@@ -108,7 +107,7 @@ _ZN4base9TimeDelta11FromSecondsEl.exit:           ; preds = %cond.true.i.i, %con
   store i64 %call.i.i, ptr %duration, align 8
   %call6 = call noundef i64 @_ZNK4base9TimeDelta14InMicrosecondsEv(ptr noundef nonnull align 8 dereferenceable(8) %duration)
   %mul = mul nsw i64 %call6, 1000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %sleep_time, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %sleep_time, i64 8
   store i64 %mul, ptr %tv_nsec, align 8
   %call71 = call i32 @nanosleep(ptr noundef nonnull %sleep_time, ptr noundef nonnull %remaining)
   %cmp2 = icmp eq i32 %call71, -1
@@ -197,8 +196,8 @@ if.then6:                                         ; preds = %if.end, %if.end4
 
 if.end8:                                          ; preds = %if.then6, %if.end4
   %call9 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  %joinable.i = getelementptr inbounds %"struct.base::(anonymous namespace)::ThreadParams", ptr %call9, i64 0, i32 1
-  %priority.i = getelementptr inbounds %"struct.base::(anonymous namespace)::ThreadParams", ptr %call9, i64 0, i32 2
+  %joinable.i = getelementptr inbounds i8, ptr %call9, i64 8
+  %priority.i = getelementptr inbounds i8, ptr %call9, i64 12
   store ptr %delegate, ptr %call9, align 8
   store i8 %frombool, ptr %joinable.i, align 8
   store i32 %priority, ptr %priority.i, align 4
@@ -230,7 +229,7 @@ invoke.cont33:                                    ; preds = %cond.false
           to label %invoke.cont37 unwind label %lpad25
 
 invoke.cont37:                                    ; preds = %invoke.cont33
-  %stream_.i.i = getelementptr inbounds %"class.logging::ErrnoLogMessage", ptr %ref.tmp32, i64 0, i32 2, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp32, i64 16
   %call40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.3)
           to label %cleanup.action unwind label %lpad36
 
@@ -523,7 +522,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef ptr @_ZN4base12_GLOBAL__N_110ThreadFuncEPv(ptr noundef %params) #4 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %params, align 8
-  %priority = getelementptr inbounds %"struct.base::(anonymous namespace)::ThreadParams", ptr %params, i64 0, i32 2
+  %priority = getelementptr inbounds i8, ptr %params, i64 12
   %1 = load i32, ptr %priority, align 4
   %call.i3 = invoke noundef zeroext i1 @_ZN4base8internal35SetCurrentThreadPriorityForPlatformENS_14ThreadPriorityE(i32 noundef %1)
           to label %call.i.noexc unwind label %_ZNSt10unique_ptrIN4base12_GLOBAL__N_112ThreadParamsESt14default_deleteIS2_EED2Ev.exit

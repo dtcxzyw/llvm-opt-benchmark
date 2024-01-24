@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.hermes::Pass" = type { ptr, i32, %"class.llvh::StringRef" }
-%"class.llvh::StringRef" = type { ptr, i64 }
 %"class.hermes::IRBuilder::InstructionDestroyer" = type { %"class.llvh::SmallVector.80" }
 %"class.llvh::SmallVector.80" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage.81" }
 %"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
@@ -23,105 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.hermes::IRBuilder" = type { ptr, %"class.llvh::ilist_iterator.103", ptr, %"class.llvh::SMLoc", ptr }
 %"class.llvh::ilist_iterator.103" = type { ptr }
 %"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::Module" = type <{ %"class.hermes::Value", %"class.std::shared_ptr", ptr, %"class.llvh::iplist", %"class.std::vector", %"class.llvh::DenseMap", %"class.hermes::ScopeDesc", %"class.hermes::GlobalObject", %"class.hermes::LiteralEmpty", %"class.hermes::LiteralUndefined", %"class.hermes::LiteralNull", %"class.hermes::LiteralBool", %"class.hermes::LiteralBool", %"class.hermes::EmptySentinel", %"class.llvh::FoldingSet", %"class.llvh::FoldingSet.25", %"class.llvh::FoldingSet.27", %"class.llvh::DenseMap.29", %"class.std::deque", %"class.llvh::DenseMap.35", %"class.llvh::DenseMap.29", %"class.llvh::DenseMap.38", i8, [7 x i8], %"class.std::unordered_map", %"class.std::unordered_map.46", i8, [7 x i8] }>
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"struct.llvh::SmallVectorStorage" = type { [2 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.llvh::iplist" = type { %"class.llvh::iplist_impl" }
-%"class.llvh::iplist_impl" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::GlobalObjectProperty *, std::allocator<hermes::GlobalObjectProperty *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.hermes::ScopeDesc" = type <{ %"class.hermes::Value", ptr, %"class.llvh::SmallVector.10", %"class.std::shared_ptr.16", ptr, %"class.llvh::SmallVector.19", i8, [7 x i8] }>
-%"class.llvh::SmallVector.10" = type { %"class.llvh::SmallVectorImpl.11", %"struct.llvh::SmallVectorStorage.14" }
-%"class.llvh::SmallVectorImpl.11" = type { %"class.llvh::SmallVectorTemplateBase.12" }
-%"class.llvh::SmallVectorTemplateBase.12" = type { %"class.llvh::SmallVectorTemplateCommon.13" }
-%"class.llvh::SmallVectorTemplateCommon.13" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.14" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.15"] }
-%"struct.llvh::AlignedCharArrayUnion.15" = type { %"struct.llvh::AlignedCharArray" }
-%"class.std::shared_ptr.16" = type { %"class.std::__shared_ptr.17" }
-%"class.std::__shared_ptr.17" = type { ptr, %"class.std::__shared_count" }
-%"class.llvh::SmallVector.19" = type { %"class.llvh::SmallVectorImpl.20", %"struct.llvh::SmallVectorStorage.23" }
-%"class.llvh::SmallVectorImpl.20" = type { %"class.llvh::SmallVectorTemplateBase.21" }
-%"class.llvh::SmallVectorTemplateBase.21" = type { %"class.llvh::SmallVectorTemplateCommon.22" }
-%"class.llvh::SmallVectorTemplateCommon.22" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.23" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.24"] }
-%"struct.llvh::AlignedCharArrayUnion.24" = type { %"struct.llvh::AlignedCharArray" }
-%"class.hermes::GlobalObject" = type { %"class.hermes::Literal" }
-%"class.hermes::Literal" = type { %"class.hermes::Value" }
-%"class.hermes::LiteralEmpty" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralUndefined" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralNull" = type { %"class.hermes::Literal" }
-%"class.hermes::LiteralBool" = type <{ %"class.hermes::Literal", i8, [7 x i8] }>
-%"class.hermes::EmptySentinel" = type { %"class.hermes::Value" }
-%"class.llvh::FoldingSet" = type { %"class.llvh::FoldingSetImpl" }
-%"class.llvh::FoldingSetImpl" = type { %"class.llvh::FoldingSetBase" }
-%"class.llvh::FoldingSetBase" = type { ptr, ptr, i32, i32 }
-%"class.llvh::FoldingSet.25" = type { %"class.llvh::FoldingSetImpl.26" }
-%"class.llvh::FoldingSetImpl.26" = type { %"class.llvh::FoldingSetBase" }
-%"class.llvh::FoldingSet.27" = type { %"class.llvh::FoldingSetImpl.28" }
-%"class.llvh::FoldingSetImpl.28" = type { %"class.llvh::FoldingSetBase" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl" }
-%"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl" = type { %"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<hermes::Module::CJSModule, std::allocator<hermes::Module::CJSModule>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.llvh::DenseMap.35" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.29" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.38" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map.46" = type { %"class.std::_Hashtable.47" }
-%"class.std::_Hashtable.47" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.hermes::Variable" = type <{ %"class.hermes::Value", i8, [7 x i8], %"class.hermes::Identifier", ptr, i8, [7 x i8] }>
-%"class.hermes::Identifier" = type { ptr }
-%"class.hermes::Instruction" = type <{ %"class.llvh::ilist_node_with_parent.82", %"class.hermes::Value", ptr, %"class.llvh::SmallVector.85", ptr, %"class.llvh::SMLoc", i32, [4 x i8] }>
-%"class.llvh::ilist_node_with_parent.82" = type { %"class.llvh::ilist_node.83" }
-%"class.llvh::ilist_node.83" = type { %"class.llvh::ilist_node_impl.84" }
-%"class.llvh::ilist_node_impl.84" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::SmallVector.85" = type { %"class.llvh::SmallVectorImpl.86", %"struct.llvh::SmallVectorStorage.89" }
-%"class.llvh::SmallVectorImpl.86" = type { %"class.llvh::SmallVectorTemplateBase.87" }
-%"class.llvh::SmallVectorTemplateBase.87" = type { %"class.llvh::SmallVectorTemplateCommon.88" }
-%"class.llvh::SmallVectorTemplateCommon.88" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.89" = type { [2 x %"struct.llvh::AlignedCharArrayUnion.90"] }
-%"struct.llvh::AlignedCharArrayUnion.90" = type { %"struct.llvh::AlignedCharArray.91" }
-%"struct.llvh::AlignedCharArray.91" = type { [16 x i8] }
-%"class.hermes::BasicBlock" = type { %"class.llvh::ilist_node_with_parent.92", %"class.hermes::Value", %"class.llvh::iplist.94", ptr }
-%"class.llvh::ilist_node_with_parent.92" = type { %"class.llvh::ilist_node.93" }
-%"class.llvh::ilist_node.93" = type { %"class.llvh::ilist_node_impl.73" }
-%"class.llvh::ilist_node_impl.73" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::iplist.94" = type { %"class.llvh::iplist_impl.95" }
-%"class.llvh::iplist_impl.95" = type { %"class.llvh::simple_ilist.100" }
-%"class.llvh::simple_ilist.100" = type { %"class.llvh::ilist_sentinel.102" }
-%"class.llvh::ilist_sentinel.102" = type { %"class.llvh::ilist_node_impl.84" }
-%"class.hermes::Function" = type { %"class.llvh::ilist_node_with_parent", %"class.hermes::Value", ptr, i8, ptr, %"class.llvh::iplist.64", %"class.llvh::SmallVector.74", %"class.hermes::Identifier", i32, i8, %"class.llvh::SMRange", i32, %"class.hermes::Identifier", ptr, i32, %"class.hermes::OptValue", [4 x i8], %"struct.hermes::LazySource", %"class.std::shared_ptr.16", ptr }
-%"class.llvh::ilist_node_with_parent" = type { %"class.llvh::ilist_node" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::iplist.64" = type { %"class.llvh::iplist_impl.65" }
-%"class.llvh::iplist_impl.65" = type { %"class.llvh::simple_ilist.70" }
-%"class.llvh::simple_ilist.70" = type { %"class.llvh::ilist_sentinel.72" }
-%"class.llvh::ilist_sentinel.72" = type { %"class.llvh::ilist_node_impl.73" }
-%"class.llvh::SmallVector.74" = type { %"class.llvh::SmallVectorImpl.75", %"struct.llvh::SmallVectorStorage.78" }
-%"class.llvh::SmallVectorImpl.75" = type { %"class.llvh::SmallVectorTemplateBase.76" }
-%"class.llvh::SmallVectorTemplateBase.76" = type { %"class.llvh::SmallVectorTemplateCommon.77" }
-%"class.llvh::SmallVectorTemplateCommon.77" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.78" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.79"] }
-%"struct.llvh::AlignedCharArrayUnion.79" = type { %"struct.llvh::AlignedCharArray" }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.hermes::OptValue" = type <{ i32, i8, [3 x i8] }>
-%"struct.hermes::LazySource" = type <{ i32, i32, %"class.llvh::SMRange", i8, i8, [6 x i8] }>
 
 @.str = private unnamed_addr constant [21 x i8] c"SimpleStackPromotion\00", align 1
 @_ZTVZN6hermes26createSimpleStackPromotionEvE8ThisPass = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZZN6hermes26createSimpleStackPromotionEvEN8ThisPassD2Ev, ptr @_ZZN6hermes26createSimpleStackPromotionEvEN8ThisPassD0Ev, ptr @_ZZN6hermes26createSimpleStackPromotionEvEN8ThisPass11runOnModuleEPNS_6ModuleE] }, align 8
@@ -130,11 +29,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN6hermes26createSimpleStackPromotionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIZN6hermes26createSimpleStackPromotionEvE8ThisPassSt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #8, !noalias !4
-  %kind.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 1
+  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !4
-  %name2.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2
+  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !4
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2, i32 1
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 20, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN6hermes26createSimpleStackPromotionEvE8ThisPass, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
@@ -164,23 +63,23 @@ entry:
   %builder.i.i.i = alloca %"class.hermes::IRBuilder", align 8
   %destroyer.i16.i.i = alloca %"class.hermes::IRBuilder::InstructionDestroyer", align 8
   %destroyer.i.i.i = alloca %"class.hermes::IRBuilder::InstructionDestroyer", align 8
-  %Next.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %FunctionList.i.i = getelementptr inbounds %"class.hermes::Module", ptr %M, i64 0, i32 3
+  %Next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 72
+  %FunctionList.i.i = getelementptr inbounds i8, ptr %M, i64 64
   %__begin2.sroa.0.014.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %__begin2.sroa.0.014.i, %FunctionList.i.i
   br i1 %cmp.i.not15.i, label %_ZN6hermes12_GLOBAL__N_123runSimpleStackPromotionEPNS_6ModuleE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %destroyer.i.i.i, i64 16
-  %Size.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i.i.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i.i.i, i64 0, i32 2
-  %InsertionPoint.i.i.i.i = getelementptr inbounds %"class.hermes::IRBuilder", ptr %builder.i.i.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %destroyer.i.i.i, i64 8
+  %Capacity2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %destroyer.i.i.i, i64 12
+  %InsertionPoint.i.i.i.i = getelementptr inbounds i8, ptr %builder.i.i.i, i64 8
   %add.ptr.i.i.i.i.i.i.i27.i.i = getelementptr inbounds i8, ptr %destroyer.i16.i.i, i64 16
-  %Size.i.i.i.i.i.i.i28.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i16.i.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i.i29.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i16.i.i, i64 0, i32 2
+  %Size.i.i.i.i.i.i.i28.i.i = getelementptr inbounds i8, ptr %destroyer.i16.i.i, i64 8
+  %Capacity2.i.i.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %destroyer.i16.i.i, i64 12
   %add.ptr.i.i.i.i.i.i.i61.i.i = getelementptr inbounds i8, ptr %destroyer.i50.i.i, i64 16
-  %Size.i.i.i.i.i.i.i62.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i50.i.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i.i63.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i50.i.i, i64 0, i32 2
+  %Size.i.i.i.i.i.i.i62.i.i = getelementptr inbounds i8, ptr %destroyer.i50.i.i, i64 8
+  %Capacity2.i.i.i.i.i.i.i63.i.i = getelementptr inbounds i8, ptr %destroyer.i50.i.i, i64 12
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i, %for.body.lr.ph.i
@@ -188,9 +87,9 @@ for.body.i:                                       ; preds = %_ZN6hermes12_GLOBAL
   %changed.016.i = phi i1 [ false, %for.body.lr.ph.i ], [ %or3.i, %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i ]
   %0 = getelementptr i8, ptr %__begin2.sroa.0.017.i, i64 72
   %call4.val.i = load ptr, ptr %0, align 8
-  %variables_.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call4.val.i, i64 0, i32 5
+  %variables_.i.i.i = getelementptr inbounds i8, ptr %call4.val.i, i64 152
   %1 = load ptr, ptr %variables_.i.i.i, align 8
-  %Size.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %call4.val.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i = getelementptr inbounds i8, ptr %call4.val.i, i64 160
   %2 = load i32, ptr %Size.i.i.i, align 8
   %conv.i.i.i = zext i32 %2 to i64
   %add.ptr.i40.i.i = getelementptr inbounds ptr, ptr %1, i64 %conv.i.i.i
@@ -218,7 +117,7 @@ do.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i.i.i, align 4
   %call2.i15.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   %7 = load ptr, ptr %call2.i15.i.i, align 8
-  %Size.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call2.i15.i.i, i64 0, i32 1
+  %Size.i.i.i.i = getelementptr inbounds i8, ptr %call2.i15.i.i, i64 8
   %8 = load i32, ptr %Size.i.i.i.i, align 8
   %conv.i.i.i.i = zext i32 %8 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %conv.i.i.i.i
@@ -262,7 +161,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i: ; 
   %16 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i32 %16, 1
   store i32 %add.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__begin2.011.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.011.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
@@ -278,7 +177,7 @@ for.body.i.i.i.i:                                 ; preds = %for.end.i.i.i, %for
   %__begin2.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %18, %for.end.i.i.i ]
   %19 = load ptr, ptr %__begin2.05.i.i.i.i, align 8
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %19) #10
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__begin2.05.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.end.loopexit.i.i.i.i, label %for.body.i.i.i.i
 
@@ -303,13 +202,13 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %destroyer.i.i.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i.i.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %destroyer.i16.i.i)
-  %parent.i.i.i.i = getelementptr inbounds %"class.hermes::Variable", ptr %3, i64 0, i32 4
+  %parent.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %21 = load ptr, ptr %parent.i.i.i.i, align 8
-  %function_.i.i.i.i = getelementptr inbounds %"class.hermes::ScopeDesc", ptr %21, i64 0, i32 4
+  %function_.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 144
   %22 = load ptr, ptr %function_.i.i.i.i, align 8
   %call2.i17.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   %23 = load ptr, ptr %call2.i17.i.i, align 8
-  %Size.i.i18.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call2.i17.i.i, i64 0, i32 1
+  %Size.i.i18.i.i = getelementptr inbounds i8, ptr %call2.i17.i.i, i64 8
   %24 = load i32, ptr %Size.i.i18.i.i, align 8
   %conv.i.i19.i.i = zext i32 %24 to i64
   %add.ptr.i72.i.i.i = getelementptr inbounds ptr, ptr %23, i64 %conv.i.i19.i.i
@@ -321,9 +220,9 @@ for.body.i20.i.i:                                 ; preds = %if.end.i.i, %for.in
   %hasStoreInInnerFunction.035.i.i.i = phi i8 [ %hasStoreInInnerFunction.1.i.i.i, %for.inc.i.i.i ], [ 0, %if.end.i.i ]
   %__begin2.034.i.i.i = phi ptr [ %incdec.ptr.i23.i.i, %for.inc.i.i.i ], [ %23, %if.end.i.i ]
   %25 = load ptr, ptr %__begin2.034.i.i.i, align 8
-  %Parent.i.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %25, i64 0, i32 2
+  %Parent.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 56
   %26 = load ptr, ptr %Parent.i.i.i.i, align 8
-  %Parent.i18.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %26, i64 0, i32 3
+  %Parent.i18.i.i.i = getelementptr inbounds i8, ptr %26, i64 72
   %27 = load ptr, ptr %Parent.i18.i.i.i, align 8
   %cmp7.i.i.i = icmp eq ptr %27, %22
   %add.ptr.i.i.i.i.i.i21.i.i = getelementptr inbounds i8, ptr %25, i64 16
@@ -347,7 +246,7 @@ if.else.i.i.i:                                    ; preds = %for.body.i20.i.i
 for.inc.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %hasStoreInInnerFunction.1.i.i.i = phi i8 [ %hasStoreInInnerFunction.035.i.i.i, %if.then.i.i.i ], [ %34, %if.else.i.i.i ]
   %hasLoadInOwningFunction.1.i.i.i = phi i8 [ %31, %if.then.i.i.i ], [ %hasLoadInOwningFunction.036.i.i.i, %if.else.i.i.i ]
-  %incdec.ptr.i23.i.i = getelementptr inbounds ptr, ptr %__begin2.034.i.i.i, i64 1
+  %incdec.ptr.i23.i.i = getelementptr inbounds i8, ptr %__begin2.034.i.i.i, i64 8
   %cmp.not.i24.i.i = icmp eq ptr %incdec.ptr.i23.i.i, %add.ptr.i72.i.i.i
   br i1 %cmp.not.i24.i.i, label %for.end.i25.i.i, label %for.body.i20.i.i
 
@@ -360,16 +259,16 @@ for.end.i25.i.i:                                  ; preds = %for.inc.i.i.i
   br i1 %39, label %do.end.i26.i.i, label %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i
 
 do.end.i26.i.i:                                   ; preds = %for.end.i25.i.i
-  %parent_.i.i.i.i = getelementptr inbounds %"class.hermes::Function", ptr %22, i64 0, i32 2
+  %parent_.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 56
   %40 = load ptr, ptr %parent_.i.i.i.i, align 8
   store ptr %40, ptr %builder.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i.i.i.i, i8 0, i64 32, i1 false)
-  %Next.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::Function", ptr %22, i64 0, i32 5, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Next.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 88
   %41 = load ptr, ptr %Next.i.i.i.i.i.i.i.i, align 8
-  %Next.i.i.i.i.i19.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %41, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Next.i.i.i.i.i19.i.i.i = getelementptr inbounds i8, ptr %41, i64 64
   %42 = load ptr, ptr %Next.i.i.i.i.i19.i.i.i, align 8
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i, ptr noundef nonnull %42) #10
-  %text.i.i.i.i = getelementptr inbounds %"class.hermes::Variable", ptr %3, i64 0, i32 3
+  %text.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %text.i.i.i.i, align 8
   %call34.i.i.i = call noundef ptr @_ZN6hermes9IRBuilder20createAllocStackInstENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i.i.i, ptr %retval.sroa.0.0.copyload.i.i.i.i) #10
   store ptr %add.ptr.i.i.i.i.i.i.i27.i.i, ptr %destroyer.i16.i.i, align 8
@@ -377,7 +276,7 @@ do.end.i26.i.i:                                   ; preds = %for.end.i25.i.i
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i29.i.i, align 4
   %call36.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   %43 = load ptr, ptr %call36.i.i.i, align 8
-  %Size.i20.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call36.i.i.i, i64 0, i32 1
+  %Size.i20.i.i.i = getelementptr inbounds i8, ptr %call36.i.i.i, i64 8
   %44 = load i32, ptr %Size.i20.i.i.i, align 8
   %conv.i21.i.i.i = zext i32 %44 to i64
   %add.ptr.i.i30.i.i = getelementptr inbounds ptr, ptr %43, i64 %conv.i21.i.i.i
@@ -393,9 +292,9 @@ for.body43.i.i.i:                                 ; preds = %do.end.i26.i.i, %fo
   br i1 %cmp.i.i.i.i.i.i.i23.i.i.i, label %if.then46.i.i.i, label %if.else54.i.i.i
 
 if.then46.i.i.i:                                  ; preds = %for.body43.i.i.i
-  %Parent.i24.i.i.i = getelementptr inbounds %"class.hermes::Instruction", ptr %45, i64 0, i32 2
+  %Parent.i24.i.i.i = getelementptr inbounds i8, ptr %45, i64 56
   %47 = load ptr, ptr %Parent.i24.i.i.i, align 8
-  %Parent.i25.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %47, i64 0, i32 3
+  %Parent.i25.i.i.i = getelementptr inbounds i8, ptr %47, i64 72
   %48 = load ptr, ptr %Parent.i25.i.i.i, align 8
   %cmp49.i.i.i = icmp eq ptr %48, %22
   br i1 %cmp49.i.i.i, label %if.then50.i.i.i, label %for.inc59.i.i.i
@@ -436,7 +335,7 @@ if.else54.i.i.i:                                  ; preds = %for.body43.i.i.i
   br label %for.inc59.i.i.i
 
 for.inc59.i.i.i:                                  ; preds = %if.else54.i.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i46.i.i, %if.then46.i.i.i
-  %incdec.ptr60.i.i.i = getelementptr inbounds ptr, ptr %__begin237.039.i.i.i, i64 1
+  %incdec.ptr60.i.i.i = getelementptr inbounds i8, ptr %__begin237.039.i.i.i, i64 8
   %cmp42.not.i.i.i = icmp eq ptr %incdec.ptr60.i.i.i, %add.ptr.i.i30.i.i
   br i1 %cmp42.not.i.i.i, label %for.end61.i.i.i, label %for.body43.i.i.i
 
@@ -452,7 +351,7 @@ for.body.i.i34.i.i:                               ; preds = %for.end61.i.i.i, %f
   %__begin2.05.i.i35.i.i = phi ptr [ %incdec.ptr.i.i36.i.i, %for.body.i.i34.i.i ], [ %56, %for.end61.i.i.i ]
   %58 = load ptr, ptr %__begin2.05.i.i35.i.i, align 8
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %58) #10
-  %incdec.ptr.i.i36.i.i = getelementptr inbounds ptr, ptr %__begin2.05.i.i35.i.i, i64 1
+  %incdec.ptr.i.i36.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i35.i.i, i64 8
   %cmp.not.i.i37.i.i = icmp eq ptr %incdec.ptr.i.i36.i.i, %add.ptr.i.i.i32.i.i
   br i1 %cmp.not.i.i37.i.i, label %for.end.loopexit.i.i38.i.i, label %for.body.i.i34.i.i
 
@@ -481,7 +380,7 @@ _ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i: ; preds = %if.
 if.end.i.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i
   %call1.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   %61 = load ptr, ptr %call1.i.i.i, align 8
-  %Size.i.i53.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call1.i.i.i, i64 0, i32 1
+  %Size.i.i53.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
   %62 = load i32, ptr %Size.i.i53.i.i, align 8
   %conv.i.i54.i.i = zext i32 %62 to i64
   %add.ptr.i31.i.i.i = getelementptr inbounds ptr, ptr %61, i64 %conv.i.i54.i.i
@@ -489,7 +388,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not13.i.i.i, label %do.end.i60.i.i, label %for.body.i55.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i55.i.i
-  %incdec.ptr.i58.i.i = getelementptr inbounds ptr, ptr %__begin2.014.i.i.i, i64 1
+  %incdec.ptr.i58.i.i = getelementptr inbounds i8, ptr %__begin2.014.i.i.i, i64 8
   %cmp.not.i59.i.i = icmp eq ptr %incdec.ptr.i58.i.i, %add.ptr.i31.i.i.i
   br i1 %cmp.not.i59.i.i, label %do.end.i60.i.i, label %for.body.i55.i.i
 
@@ -507,7 +406,7 @@ do.end.i60.i.i:                                   ; preds = %for.cond.i.i.i, %if
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i63.i.i, align 4
   %call8.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   %65 = load ptr, ptr %call8.i.i.i, align 8
-  %Size.i9.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call8.i.i.i, i64 0, i32 1
+  %Size.i9.i.i.i = getelementptr inbounds i8, ptr %call8.i.i.i, i64 8
   %66 = load i32, ptr %Size.i9.i.i.i, align 8
   %conv.i10.i.i.i = zext i32 %66 to i64
   %add.ptr.i.i64.i.i = getelementptr inbounds ptr, ptr %65, i64 %conv.i10.i.i.i
@@ -538,7 +437,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i68.i.i: 
   %73 = load i32, ptr %Size.i.i.i.i.i.i.i62.i.i, align 8
   %add.i.i.i71.i.i = add i32 %73, 1
   store i32 %add.i.i.i71.i.i, ptr %Size.i.i.i.i.i.i.i62.i.i, align 8
-  %incdec.ptr19.i.i.i = getelementptr inbounds ptr, ptr %__begin29.016.i.i.i, i64 1
+  %incdec.ptr19.i.i.i = getelementptr inbounds i8, ptr %__begin29.016.i.i.i, i64 8
   %cmp14.not.i.i.i = icmp eq ptr %incdec.ptr19.i.i.i, %add.ptr.i.i64.i.i
   br i1 %cmp14.not.i.i.i, label %for.end20.i.i.i, label %for.body15.i.i.i
 
@@ -554,7 +453,7 @@ for.body.i.i75.i.i:                               ; preds = %for.end20.i.i.i, %f
   %__begin2.05.i.i76.i.i = phi ptr [ %incdec.ptr.i.i77.i.i, %for.body.i.i75.i.i ], [ %75, %for.end20.i.i.i ]
   %76 = load ptr, ptr %__begin2.05.i.i76.i.i, align 8
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %76) #10
-  %incdec.ptr.i.i77.i.i = getelementptr inbounds ptr, ptr %__begin2.05.i.i76.i.i, i64 1
+  %incdec.ptr.i.i77.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i76.i.i, i64 8
   %cmp.not.i.i78.i.i = icmp eq ptr %incdec.ptr.i.i77.i.i, %add.ptr.i.i.i73.i.i
   br i1 %cmp.not.i.i78.i.i, label %for.end.loopexit.i.i79.i.i, label %for.body.i.i75.i.i
 
@@ -579,7 +478,7 @@ _ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i: ; 
 
 for.inc.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i, %_ZN6hermes12_GLOBAL__N_123tryPromoteConstVariableEPNS_8VariableE.exit.thread.i.i
   %changed.1.i.i = phi i8 [ %78, %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i ], [ 1, %_ZN6hermes12_GLOBAL__N_123tryPromoteConstVariableEPNS_8VariableE.exit.thread.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__begin2.03.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.03.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i40.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i
 
@@ -606,7 +505,7 @@ if.then25.i.i:                                    ; preds = %for.body22.i.i
 
 for.inc27.i.i:                                    ; preds = %if.then25.i.i, %for.body22.i.i
   %changed.3.i.i = phi i8 [ %changed.27.i.i, %for.body22.i.i ], [ 1, %if.then25.i.i ]
-  %incdec.ptr28.i.i = getelementptr inbounds ptr, ptr %__begin216.06.i.i, i64 1
+  %incdec.ptr28.i.i = getelementptr inbounds i8, ptr %__begin216.06.i.i, i64 8
   %cmp21.not.i.i = icmp eq ptr %incdec.ptr28.i.i, %add.ptr.i.i.i
   br i1 %cmp21.not.i.i, label %for.end29.i.i, label %for.body22.i.i
 
@@ -634,25 +533,25 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end12.i.i.i.i.i.
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i", label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 8
   %incdec.ptr.val.i.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i27.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.val.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i27.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit", label %if.end4.i.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i
-  %incdec.ptr5.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 16
   %incdec.ptr5.val.i.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr5.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i28.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr5.val.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i28.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13", label %if.end8.i.i.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i.i.i:                          ; preds = %if.end4.i.i.i.i.i.i.i.i
-  %incdec.ptr9.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 3
+  %incdec.ptr9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 24
   %incdec.ptr9.val.i.i.i.i.i.i.i.i = load ptr, ptr %incdec.ptr9.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i29.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr9.val.i.i.i.i.i.i.i.i, null
   br i1 %tobool.not.i.i29.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15", label %if.end12.i.i.i.i.i.i.i.i
 
 if.end12.i.i.i.i.i.i.i.i:                         ; preds = %if.end8.i.i.i.i.i.i.i.i
-  %incdec.ptr13.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i.i.i.i = add nsw i64 %__trip_count.045.i.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i.i = icmp sgt i64 %__trip_count.045.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !7
@@ -678,7 +577,7 @@ sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
   br i1 %tobool.not.i.i30.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i", label %if.end20.i.i.i.i.i.i.i.i
 
 if.end20.i.i.i.i.i.i.i.i:                         ; preds = %sw.bb.i.i.i.i.i.i.i.i
-  %incdec.ptr21.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr21.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, i64 8
   br label %sw.bb22.i.i.i.i.i.i.i.i
 
 sw.bb22.i.i.i.i.i.i.i.i:                          ; preds = %if.end20.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i
@@ -688,7 +587,7 @@ sw.bb22.i.i.i.i.i.i.i.i:                          ; preds = %if.end20.i.i.i.i.i.
   br i1 %tobool.not.i.i31.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i", label %if.end25.i.i.i.i.i.i.i.i
 
 if.end25.i.i.i.i.i.i.i.i:                         ; preds = %sw.bb22.i.i.i.i.i.i.i.i
-  %incdec.ptr26.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.1.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr26.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.i.i.i.i, i64 8
   br label %sw.bb27.i.i.i.i.i.i.i.i
 
 sw.bb27.i.i.i.i.i.i.i.i:                          ; preds = %if.end25.i.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i.i
@@ -698,21 +597,21 @@ sw.bb27.i.i.i.i.i.i.i.i:                          ; preds = %if.end25.i.i.i.i.i.
   br i1 %tobool.not.i.i32.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i", label %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i
 
 "_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit": ; preds = %if.end.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i"
 
 "_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13": ; preds = %if.end4.i.i.i.i.i.i.i.i
-  %incdec.ptr5.i.i.i.i.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 2
+  %incdec.ptr5.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i"
 
 "_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15": ; preds = %if.end8.i.i.i.i.i.i.i.i
-  %incdec.ptr9.i.i.i.i.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 3
+  %incdec.ptr9.i.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.044.i.i.i.i.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i"
 
 "_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i": ; preds = %for.body.i.i.i.i.i.i.i.i, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13", %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15", %sw.bb27.i.i.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i ], [ %__first.addr.1.i.i.i.i.i.i.i.i, %sw.bb22.i.i.i.i.i.i.i.i ], [ %__first.addr.2.i.i.i.i.i.i.i.i, %sw.bb27.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit" ], [ %incdec.ptr5.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit13" ], [ %incdec.ptr9.i.i.i.i.i.i.i.i.le, %"_ZSt9__find_ifIPPN6hermes8VariableEN9__gnu_cxx5__ops10_Iter_predIZNS0_12_GLOBAL__N_113runOnFunctionEPNS0_8FunctionEE3$_0EEET_SC_SC_T0_.exit.i.i.i.i.i.i.loopexit.split.loop.exit15" ], [ %__first.addr.044.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i = icmp eq ptr %retval.0.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i86.i.i
-  %__first.addr.023.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i.i.i.i.i, i64 1
+  %__first.addr.023.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i.i.i.i, i64 8
   %cmp1.not24.i.i.i.i.i.i = icmp eq ptr %__first.addr.023.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i86.i.i
   %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 true, i1 %cmp1.not24.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i, label %for.body.i.i.i.i.i.i
@@ -726,12 +625,12 @@ for.body.i.i.i.i.i.i:                             ; preds = %"_ZSt9__find_ifIPPN
 
 if.then3.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i
   store ptr %__first.addr.0.val.i.i.i.i.i.i, ptr %__result.025.i.i.i.i.i.i, align 8
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__result.025.i.i.i.i.i.i, i64 1
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.025.i.i.i.i.i.i, i64 8
   br label %for.inc.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i:                              ; preds = %if.then3.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %__result.1.i.i.i.i.i.i = phi ptr [ %__result.025.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i ]
-  %__first.addr.0.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.026.i.i.i.i.i.i, i64 1
+  %__first.addr.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.026.i.i.i.i.i.i, i64 8
   %cmp1.not.i.i.i.i.i.i = icmp eq ptr %__first.addr.0.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i86.i.i
   br i1 %cmp1.not.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIPN6hermes8VariableEE5eraseEPKS3_S6_.exit.loopexit.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !9
 
@@ -752,7 +651,7 @@ _ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i: ; preds = %_ZN4ll
   %84 = and i8 %changed.2.lcssa37.i.i, 1
   %tobool30.i.i = icmp ne i8 %84, 0
   %or3.i = or i1 %changed.016.i, %tobool30.i.i
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.017.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %FunctionList.i.i
   br i1 %cmp.i.not.i, label %_ZN6hermes12_GLOBAL__N_123runSimpleStackPromotionEPNS_6ModuleE.exit, label %for.body.i

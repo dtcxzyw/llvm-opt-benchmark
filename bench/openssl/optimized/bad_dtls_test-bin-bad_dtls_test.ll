@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.44 = private unnamed_addr constant [35 x i8] c"EVP_Cipher(enc_ctx, enc, enc, len)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_bad_dtls) #6
   ret i32 1
@@ -300,7 +300,7 @@ if.then156:                                       ; preds = %for.body
   br label %end
 
 if.end165:                                        ; preds = %for.body
-  %drop = getelementptr inbounds [35 x %struct.anon], ptr @tests, i64 0, i64 %indvars.iv, i32 1
+  %drop = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %drop, align 8
   %tobool168.not = icmp eq i32 %4, 0
   br i1 %tobool168.not, label %if.end170, label %for.inc
@@ -412,7 +412,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @SSL_get_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @validate_client_hello(ptr noundef %wbio) unnamed_addr #0 {
+define internal fastcc noundef i32 @validate_client_hello(ptr noundef %wbio) unnamed_addr #0 {
 entry:
   %data = alloca ptr, align 8
   %call = call i64 @BIO_ctrl(ptr noundef %wbio, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %data) #6
@@ -586,7 +586,7 @@ return:                                           ; preds = %lor.lhs.false75, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @send_server_hello(ptr noundef %rbio) unnamed_addr #0 {
+define internal fastcc noundef i32 @send_server_hello(ptr noundef %rbio) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) getelementptr inbounds ([95 x i8], ptr @send_server_hello.server_hello, i64 0, i64 27), ptr noundef nonnull align 16 dereferenceable(32) @server_random, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) getelementptr inbounds ([95 x i8], ptr @send_server_hello.server_hello, i64 0, i64 60), ptr noundef nonnull align 16 dereferenceable(32) @session_id, i64 32, i1 false)
@@ -606,7 +606,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @send_finished(ptr noundef %rbio) unnamed_addr #0 {
+define internal fastcc noundef i32 @send_finished(ptr noundef %rbio) unnamed_addr #0 {
 entry:
   %outlen.i1 = alloca i64, align 8
   %outlen.i = alloca i64, align 8
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.end.i60, %PACKET
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @send_record(ptr noundef %rbio, i8 noundef zeroext %type, i64 noundef %seqnr, ptr nocapture noundef readonly %msg, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef i32 @send_record(ptr noundef %rbio, i8 noundef zeroext %type, i64 noundef %seqnr, ptr nocapture noundef readonly %msg, i64 noundef %len) unnamed_addr #0 {
 entry:
   %type.addr = alloca i8, align 1
   %lenbytes = alloca [2 x i8], align 1
@@ -806,12 +806,12 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end27:                                         ; preds = %lor.lhs.false
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx28 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp29) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx28, ptr noundef nonnull align 8 dereferenceable(40) %tmp29, i64 40, i1 false)
   store i8 0, ptr %lenbytes, align 1
   %conv33 = trunc i64 %len to i8
-  %arrayidx34 = getelementptr inbounds [2 x i8], ptr %lenbytes, i64 0, i64 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %lenbytes, i64 1
   store i8 %conv33, ptr %arrayidx34, align 1
   %call35 = call i32 @EVP_MAC_init(ptr noundef %call23, ptr noundef nonnull getelementptr inbounds ([104 x i8], ptr @key_block, i64 0, i64 20), i64 noundef 20, ptr noundef nonnull %params) #6
   %tobool36.not = icmp eq i32 %call35, 0

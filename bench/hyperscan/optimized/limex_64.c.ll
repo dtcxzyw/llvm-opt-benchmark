@@ -3,19 +3,12 @@ source_filename = "bench/hyperscan/original/limex_64.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mq = type { ptr, i32, i32, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i8, ptr, ptr, [10 x %struct.mq_item] }
-%struct.mq_item = type { i32, i64, i64 }
-%struct.NFARepeatInfo = type { i32, i32, i32, i32, i32, i32 }
 %union.RepeatControl = type { %struct.RepeatRingControl }
 %struct.RepeatRingControl = type { i64, i16, i16 }
+%struct.mq_item = type { i32, i64, i64 }
 %struct.NFAAccept = type { i8, i32, i32 }
 %struct.NFAException64 = type { i64, i64, i32, i32, i8, i8 }
 %struct.NFAContext64 = type { i64, i64, i64, i64, i8, ptr, ptr, ptr, ptr, ptr, [48 x i8] }
-%struct.LimExNFA64 = type { [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [8 x i64], i32, [8 x i8], %struct.m512, %struct.m512, %struct.m512 }
-%struct.m512 = type { %struct.m256, %struct.m256 }
-%struct.m256 = type { <2 x i64>, <2 x i64> }
-%struct.NFA = type { i32, i32, i8, i8, i8, i8, %union.anon, i32, i32, i32, i32, i32, i32, i32, [20 x i8] }
-%union.anon = type { i16 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef signext i8 @nfaExecLimEx64_queueCompressState(ptr noundef %n, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #0 {
@@ -23,22 +16,22 @@ entry:
   %reachmask.i = alloca i64, align 8
   %s.i8 = alloca i64, align 8
   %mask.i = alloca i64, align 8
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state, align 8
   %cmp.i = icmp slt i64 %loc, 1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %sub.i = sub nsw i64 1, %loc
-  %hlength.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength.i = getelementptr inbounds i8, ptr %q, i64 64
   %2 = load i64, ptr %hlength.i, align 8
   %cmp1.i = icmp sgt i64 %sub.i, %2
   br i1 %cmp1.i, label %queue_prev_byte.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %history.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history.i = getelementptr inbounds i8, ptr %q, i64 56
   %3 = load ptr, ptr %history.i, align 8
   %4 = getelementptr i8, ptr %3, i64 %2
   %5 = getelementptr i8, ptr %4, i64 -1
@@ -46,7 +39,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %queue_prev_byte.exit.sink.split
 
 if.else.i:                                        ; preds = %entry
-  %buffer.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer.i = getelementptr inbounds i8, ptr %q, i64 40
   %6 = load ptr, ptr %buffer.i, align 8
   %7 = getelementptr i8, ptr %6, i64 %loc
   %arrayidx6.i = getelementptr i8, ptr %7, i64 -1
@@ -61,7 +54,7 @@ queue_prev_byte.exit.sink.split:                  ; preds = %if.end.i, %if.else.
 queue_prev_byte.exit:                             ; preds = %queue_prev_byte.exit.sink.split, %if.then.i
   %retval.i.0 = phi i64 [ 0, %if.then.i ], [ %9, %queue_prev_byte.exit.sink.split ]
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %offset = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %q, i64 32
   %10 = load i64, ptr %offset, align 8
   %add = add i64 %10, %loc
   %repeatCount.i = getelementptr inbounds i8, ptr %n, i64 364
@@ -104,7 +97,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %tobool.i29.not, label %land.lhs.true.i, label %if.end17.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %tugMaskOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i, i64 0, i32 5
+  %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 20
   %18 = load i32, ptr %tugMaskOffset.i, align 4
   %idx.ext8.i = zext i32 %18 to i64
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 %idx.ext8.i
@@ -115,7 +108,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 if.end17.i:                                       ; preds = %land.lhs.true.i, %for.body.i
   %add.ptr.i24 = getelementptr inbounds i8, ptr %add.ptr3.i, i64 24
-  %packedCtrlOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i, i64 0, i32 2
+  %packedCtrlOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 8
   %20 = load i32, ptr %packedCtrlOffset.i, align 4
   %idx.ext21.i = zext i32 %20 to i64
   %add.ptr22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext21.i
@@ -430,7 +423,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %tobool.i21.not, label %land.lhs.true.i, label %if.end17.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %tugMaskOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i, i64 0, i32 5
+  %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 20
   %30 = load i32, ptr %tugMaskOffset.i, align 4
   %idx.ext8.i = zext i32 %30 to i64
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 %idx.ext8.i
@@ -441,7 +434,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 if.end17.i:                                       ; preds = %land.lhs.true.i, %for.body.i
   %add.ptr.i19 = getelementptr inbounds i8, ptr %add.ptr3.i, i64 24
-  %packedCtrlOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i, i64 0, i32 2
+  %packedCtrlOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 8
   %32 = load i32, ptr %packedCtrlOffset.i, align 4
   %idx.ext21.i = zext i32 %32 to i64
   %add.ptr22.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext21.i
@@ -464,7 +457,7 @@ nfaExecLimEx64_Expand_Repeats.exit:               ; preds = %for.inc.i, %if.end.
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecLimEx64_queueInitState(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   store i64 0, ptr %0, align 8
   %1 = load ptr, ptr %state, align 8
@@ -652,7 +645,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %12 = load i32, ptr %arrayidx.i, align 4
   %idx.ext2.i = zext i32 %12 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext2.i
-  %packedCtrlOffset = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i, i64 0, i32 2
+  %packedCtrlOffset = getelementptr inbounds i8, ptr %add.ptr3.i, i64 8
   %13 = load i32, ptr %packedCtrlOffset, align 4
   %idx.ext8 = zext i32 %13 to i64
   %add.ptr9 = getelementptr inbounds i8, ptr %add.ptr3, i64 %idx.ext8
@@ -675,13 +668,13 @@ return:                                           ; preds = %for.body, %moNfaCom
 define hidden signext i8 @nfaExecLimEx64_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %report_current = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current = getelementptr inbounds i8, ptr %q, i64 80
   %0 = load i8, ptr %report_current, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state.i, align 8
   %2 = load i64, ptr %1, align 8
   %accept.i = getelementptr inbounds i8, ptr %n, i64 416
@@ -695,17 +688,18 @@ if.then.i:                                        ; preds = %if.then
   %4 = load i32, ptr %acceptOffset.i, align 8
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i106 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
-  %offset.i149 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i149 = getelementptr inbounds i8, ptr %q, i64 32
   %5 = load i64, ptr %offset.i149, align 8
-  %cur.i151 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i150 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i151 = getelementptr inbounds i8, ptr %q, i64 8
   %6 = load i32, ptr %cur.i151, align 8
   %idxprom.i152 = zext i32 %6 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i152, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i150, i64 0, i64 %idxprom.i152, i32 1
   %7 = load i64, ptr %location.i, align 8
   %add.i154 = add i64 %7, %5
-  %cb.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb.i = getelementptr inbounds i8, ptr %q, i64 88
   %8 = load ptr, ptr %cb.i, align 8
-  %context.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context.i = getelementptr inbounds i8, ptr %q, i64 96
   %9 = load ptr, ptr %context.i, align 8
   br label %while.cond.i.i
 
@@ -726,7 +720,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx9.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i106, i64 %11
   %12 = load i8, ptr %arrayidx9.i.i, align 4
   %tobool.i.not.i = icmp eq i8 %12, 0
-  %reports2.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i106, i64 %11, i32 1
+  %reports2.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i, i64 4
   %13 = load i32, ptr %reports2.i.i, align 4
   br i1 %tobool.i.not.i, label %if.end.i7.i, label %if.then.i10.i
 
@@ -742,7 +736,7 @@ if.end.i7.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i22.not6.i, label %limexRunAccept.exit.i, label %for.body.i24.i
 
 for.cond.i21.i:                                   ; preds = %for.body.i24.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %reports.addr.i.07.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.07.i, i64 4
   %15 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i22.not.i = icmp eq i32 %15, -1
   br i1 %cmp.i22.not.i, label %limexRunAccept.exit.i, label %for.body.i24.i, !llvm.loop !12
@@ -768,32 +762,33 @@ moNfaReportCurrent64.exit:                        ; preds = %limexRunAccept.exit
   br label %return
 
 if.end4:                                          ; preds = %if.end7.i, %entry
-  %cur = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %q, i64 8
   %17 = load i32, ptr %cur, align 8
-  %end5 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %end5 = getelementptr inbounds i8, ptr %q, i64 12
   %18 = load i32, ptr %end5, align 4
   %cmp6 = icmp eq i32 %17, %18
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %19 = load ptr, ptr %state, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 8
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %20 = load ptr, ptr %streamState, align 8
   %stateSize = getelementptr inbounds i8, ptr %n, i64 388
   %21 = load i32, ptr %stateSize, align 4
   %idx.ext = zext i32 %21 to i64
   %add.ptr11 = getelementptr inbounds i8, ptr %20, i64 %idx.ext
-  %cb = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb = getelementptr inbounds i8, ptr %q, i64 88
   %22 = load ptr, ptr %cb, align 8
-  %context = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context = getelementptr inbounds i8, ptr %q, i64 96
   %23 = load ptr, ptr %context, align 8
   %24 = load i64, ptr %19, align 8
-  %offset14 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset14 = getelementptr inbounds i8, ptr %q, i64 32
   %25 = load i64, ptr %offset14, align 8
+  %items = getelementptr inbounds i8, ptr %q, i64 104
   %idxprom = zext i32 %17 to i64
-  %location = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom, i32 1
+  %location = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom, i32 1
   %26 = load i64, ptr %location, align 8
   %add = add i64 %26, %25
   %add16 = add i64 %25, %end
@@ -805,7 +800,7 @@ if.end9:                                          ; preds = %if.end4
   br i1 %27, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end9
-  %buffer = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer = getelementptr inbounds i8, ptr %q, i64 40
   %idx.neg = sub i64 0, %25
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %n, i64 768
   %accel.i.i = getelementptr inbounds i8, ptr %n, i64 432
@@ -848,7 +843,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %ctx.sroa.30.0230 = phi i8 [ 0, %while.body.lr.ph ], [ %ctx.sroa.30.11, %nfaExecLimEx64_HandleEvent.exit ]
   %ctx.sroa.37.0229 = phi ptr [ undef, %while.body.lr.ph ], [ %ctx.sroa.37.11, %nfaExecLimEx64_HandleEvent.exit ]
   %idxprom26 = zext i32 %storemerge235 to i64
-  %location28 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom26, i32 1
+  %location28 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom26, i32 1
   %28 = load i64, ptr %location28, align 8
   %add29 = add i64 %28, %25
   %cond = tail call i64 @llvm.umin.i64(i64 %add29, i64 %add16)
@@ -1018,7 +1013,7 @@ if.then2.i402.i:                                  ; preds = %if.then.i392.i
   br i1 %cmp.i.i407.not.not892.i, label %if.end82.i.i, label %for.body.i.i416.i
 
 for.cond.i.i406.i:                                ; preds = %for.body.i.i416.i
-  %incdec.ptr.i.i420.i = getelementptr inbounds i32, ptr %reports.addr.i.i354.0893.i, i64 1
+  %incdec.ptr.i.i420.i = getelementptr inbounds i8, ptr %reports.addr.i.i354.0893.i, i64 4
   %59 = load i32, ptr %incdec.ptr.i.i420.i, align 4
   %cmp.i.i407.not.not.i = icmp eq i32 %59, -1
   br i1 %cmp.i.i407.not.not.i, label %if.end82.i.i, label %for.body.i.i416.i, !llvm.loop !12
@@ -1063,22 +1058,22 @@ do.body28.i432.i:                                 ; preds = %if.end41.i452.i, %d
   %and.i.i441.i = and i64 %61, %sub.i.i440.i
   %65 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i441.i), !range !11
   %arrayidx37.i448.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %65
-  %trigger.i723.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %65, i32 5
+  %trigger.i723.i = getelementptr inbounds i8, ptr %arrayidx37.i448.i, i64 25
   %66 = load i8, ptr %trigger.i723.i, align 1
   %cmp.i725.not.i = icmp eq i8 %66, 0
   br i1 %cmp.i725.not.i, label %if.end32.i726.i, label %if.then.i792.i
 
 if.then.i792.i:                                   ; preds = %do.body28.i432.i
-  %repeatOffset.i793.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %65, i32 3
+  %repeatOffset.i793.i = getelementptr inbounds i8, ptr %arrayidx37.i448.i, i64 20
   %67 = load i32, ptr %repeatOffset.i793.i, align 4
   %idx.ext.i794.i = zext i32 %67 to i64
   %add.ptr.i795.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i794.i
   %add.ptr.i.i796.i = getelementptr inbounds i8, ptr %add.ptr.i795.i, i64 24
-  %ctrlIndex.i798.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i795.i, i64 0, i32 1
+  %ctrlIndex.i798.i = getelementptr inbounds i8, ptr %add.ptr.i795.i, i64 4
   %68 = load i32, ptr %ctrlIndex.i798.i, align 4
   %idx.ext3.i799.i = zext i32 %68 to i64
   %add.ptr4.i800.i = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %idx.ext3.i799.i
-  %stateOffset.i802.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i795.i, i64 0, i32 3
+  %stateOffset.i802.i = getelementptr inbounds i8, ptr %add.ptr.i795.i, i64 12
   %69 = load i32, ptr %stateOffset.i802.i, align 4
   %idx.ext6.i803.i = zext i32 %69 to i64
   %add.ptr7.i804.i = getelementptr inbounds i8, ptr %add.ptr11, i64 %idx.ext6.i803.i
@@ -1216,7 +1211,7 @@ if.else24.i813.i:                                 ; preds = %repeatHasMatch.exit
 if.end32.i726.i:                                  ; preds = %if.else24.i813.i, %sw.bb6.i1043.i, %sw.bb5.i1044.i, %sw.bb4.i1045.i, %sw.bb3.i1046.i, %sw.bb2.i1047.i, %if.end.i1077.i, %sw.bb1.i1048.i, %sw.bb.i1049.i, %if.then12.i822.i, %do.body28.i432.i
   %cacheable.i379.2.i = phi i32 [ %cacheable.i379.1.i, %do.body28.i432.i ], [ 2, %if.end.i1077.i ], [ 2, %sw.bb1.i1048.i ], [ 2, %sw.bb6.i1043.i ], [ 2, %sw.bb5.i1044.i ], [ 2, %sw.bb4.i1045.i ], [ 2, %sw.bb3.i1046.i ], [ 2, %sw.bb2.i1047.i ], [ 2, %sw.bb.i1049.i ], [ 2, %if.then12.i822.i ], [ %cacheable.i379.1..i, %if.else24.i813.i ]
   %new_cache.i378.sroa.0.4.i = phi i8 [ %new_cache.i378.sroa.0.3.i, %do.body28.i432.i ], [ %new_cache.i378.sroa.0.3.i, %if.end.i1077.i ], [ %new_cache.i378.sroa.0.3.i, %sw.bb1.i1048.i ], [ %new_cache.i378.sroa.0.3.i, %sw.bb6.i1043.i ], [ %new_cache.i378.sroa.0.3.i, %sw.bb5.i1044.i ], [ %new_cache.i378.sroa.0.3.i, %sw.bb4.i1045.i ], [ %new_cache.i378.sroa.0.3.i, %sw.bb3.i1046.i ], [ %new_cache.i378.sroa.0.3.i, %sw.bb2.i1047.i ], [ %new_cache.i378.sroa.0.3.i, %sw.bb.i1049.i ], [ %new_cache.i378.sroa.0.3.i, %if.then12.i822.i ], [ %.new_cache.i378.sroa.0.3.i, %if.else24.i813.i ]
-  %reports.i727.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %65, i32 2
+  %reports.i727.i = getelementptr inbounds i8, ptr %arrayidx37.i448.i, i64 16
   %80 = load i32, ptr %reports.i727.i, align 8
   %cmp33.i728.not.i = icmp eq i32 %80, -1
   br i1 %cmp33.i728.not.i, label %if.end77.i729.i, label %if.then35.i745.i
@@ -1232,7 +1227,7 @@ if.then39.i758.i:                                 ; preds = %if.then35.i745.i
   br i1 %cmp.i.i765.not.not890.i, label %if.end53.i772.i, label %for.body.i.i786.i
 
 for.cond.i.i764.i:                                ; preds = %for.body.i.i786.i
-  %incdec.ptr.i.i790.i = getelementptr inbounds i32, ptr %reports.addr.i.i693.0891.i, i64 1
+  %incdec.ptr.i.i790.i = getelementptr inbounds i8, ptr %reports.addr.i.i693.0891.i, i64 4
   %82 = load i32, ptr %incdec.ptr.i.i790.i, align 4
   %cmp.i.i765.not.not.i = icmp eq i32 %82, -1
   br i1 %cmp.i.i765.not.not.i, label %if.end53.i772.i, label %for.body.i.i786.i, !llvm.loop !12
@@ -1264,10 +1259,10 @@ land.lhs.true71.i755.i:                           ; preds = %if.then35.i745.i
 if.end77.i729.i:                                  ; preds = %land.lhs.true71.i755.i, %if.then56.i775.i, %if.end53.i772.i, %if.end32.i726.i
   %cacheable.i379.3.i = phi i32 [ %cacheable.i379.2.i, %if.end53.i772.i ], [ %cacheable.i379.2.i, %if.end32.i726.i ], [ %spec.select.i, %land.lhs.true71.i755.i ], [ %spec.select714.i, %if.then56.i775.i ]
   %new_cache.i378.sroa.3595.4.i = phi ptr [ %new_cache.i378.sroa.3595.3.i, %if.end53.i772.i ], [ %new_cache.i378.sroa.3595.3.i, %if.end32.i726.i ], [ %new_cache.i378.sroa.3595.3.i, %land.lhs.true71.i755.i ], [ %spec.select715.i, %if.then56.i775.i ]
-  %successors.i730.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %65, i32 1
+  %successors.i730.i = getelementptr inbounds i8, ptr %arrayidx37.i448.i, i64 8
   %84 = load i64, ptr %successors.i730.i, align 8
   %or.i731.i = or i64 %84, %local_succ.i377.1.i
-  %hasSquash.i732.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %65, i32 4
+  %hasSquash.i732.i = getelementptr inbounds i8, ptr %arrayidx37.i448.i, i64 24
   %85 = load i8, ptr %hasSquash.i732.i, align 8
   switch i8 %85, label %if.end41.i452.i [
     i8 1, label %if.then86.i740.i
@@ -1452,7 +1447,7 @@ if.then2.i539.i:                                  ; preds = %if.then.i529.i
   br i1 %cmp.i.i544.not.not905.i, label %if.end82.i90.i, label %for.body.i.i553.i
 
 for.cond.i.i543.i:                                ; preds = %for.body.i.i553.i
-  %incdec.ptr.i.i557.i = getelementptr inbounds i32, ptr %reports.addr.i.i491.0906.i, i64 1
+  %incdec.ptr.i.i557.i = getelementptr inbounds i8, ptr %reports.addr.i.i491.0906.i, i64 4
   %109 = load i32, ptr %incdec.ptr.i.i557.i, align 4
   %cmp.i.i544.not.not.i = icmp eq i32 %109, -1
   br i1 %cmp.i.i544.not.not.i, label %if.end82.i90.i, label %for.body.i.i553.i, !llvm.loop !12
@@ -1497,22 +1492,22 @@ do.body28.i569.i:                                 ; preds = %if.end41.i589.i, %d
   %and.i.i578.i = and i64 %111, %sub.i.i577.i
   %115 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i578.i), !range !11
   %arrayidx37.i585.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %115
-  %trigger.i.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %115, i32 5
+  %trigger.i.i = getelementptr inbounds i8, ptr %arrayidx37.i585.i, i64 25
   %116 = load i8, ptr %trigger.i.i, align 1
   %cmp.i653.not.i = icmp eq i8 %116, 0
   br i1 %cmp.i653.not.i, label %if.end32.i654.i, label %if.then.i677.i
 
 if.then.i677.i:                                   ; preds = %do.body28.i569.i
-  %repeatOffset.i.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %115, i32 3
+  %repeatOffset.i.i = getelementptr inbounds i8, ptr %arrayidx37.i585.i, i64 20
   %117 = load i32, ptr %repeatOffset.i.i, align 4
   %idx.ext.i678.i = zext i32 %117 to i64
   %add.ptr.i679.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i678.i
   %add.ptr.i.i680.i = getelementptr inbounds i8, ptr %add.ptr.i679.i, i64 24
-  %ctrlIndex.i.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i679.i, i64 0, i32 1
+  %ctrlIndex.i.i = getelementptr inbounds i8, ptr %add.ptr.i679.i, i64 4
   %118 = load i32, ptr %ctrlIndex.i.i, align 4
   %idx.ext3.i.i = zext i32 %118 to i64
   %add.ptr4.i.i = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %idx.ext3.i.i
-  %stateOffset.i.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i679.i, i64 0, i32 3
+  %stateOffset.i.i = getelementptr inbounds i8, ptr %add.ptr.i679.i, i64 12
   %119 = load i32, ptr %stateOffset.i.i, align 4
   %idx.ext6.i.i = zext i32 %119 to i64
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %add.ptr11, i64 %idx.ext6.i.i
@@ -1650,7 +1645,7 @@ if.else24.i.i:                                    ; preds = %repeatHasMatch.exit
 if.end32.i654.i:                                  ; preds = %if.else24.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i1032.i, %if.end.i1084.i, %sw.bb1.i1033.i, %sw.bb.i1034.i, %if.then12.i.i, %do.body28.i569.i
   %cacheable.i516.2.i = phi i32 [ %cacheable.i516.1.i, %do.body28.i569.i ], [ 2, %if.end.i1084.i ], [ 2, %sw.bb1.i1033.i ], [ 2, %sw.bb6.i.i ], [ 2, %sw.bb5.i.i ], [ 2, %sw.bb4.i.i ], [ 2, %sw.bb3.i.i ], [ 2, %sw.bb2.i1032.i ], [ 2, %sw.bb.i1034.i ], [ 2, %if.then12.i.i ], [ %cacheable.i516.1..i, %if.else24.i.i ]
   %new_cache.i515.sroa.0.4.i = phi i8 [ %new_cache.i515.sroa.0.3.i, %do.body28.i569.i ], [ %new_cache.i515.sroa.0.3.i, %if.end.i1084.i ], [ %new_cache.i515.sroa.0.3.i, %sw.bb1.i1033.i ], [ %new_cache.i515.sroa.0.3.i, %sw.bb6.i.i ], [ %new_cache.i515.sroa.0.3.i, %sw.bb5.i.i ], [ %new_cache.i515.sroa.0.3.i, %sw.bb4.i.i ], [ %new_cache.i515.sroa.0.3.i, %sw.bb3.i.i ], [ %new_cache.i515.sroa.0.3.i, %sw.bb2.i1032.i ], [ %new_cache.i515.sroa.0.3.i, %sw.bb.i1034.i ], [ %new_cache.i515.sroa.0.3.i, %if.then12.i.i ], [ %.new_cache.i515.sroa.0.3.i, %if.else24.i.i ]
-  %reports.i655.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %115, i32 2
+  %reports.i655.i = getelementptr inbounds i8, ptr %arrayidx37.i585.i, i64 16
   %130 = load i32, ptr %reports.i655.i, align 8
   %cmp33.i.not.i = icmp eq i32 %130, -1
   br i1 %cmp33.i.not.i, label %if.end77.i.i, label %if.then35.i.i
@@ -1666,7 +1661,7 @@ if.then39.i.i:                                    ; preds = %if.then35.i.i
   br i1 %cmp.i.i662.not.not903.i, label %if.end53.i.i, label %for.body.i.i672.i
 
 for.cond.i.i661.i:                                ; preds = %for.body.i.i672.i
-  %incdec.ptr.i.i675.i = getelementptr inbounds i32, ptr %reports.addr.i.i636.0904.i, i64 1
+  %incdec.ptr.i.i675.i = getelementptr inbounds i8, ptr %reports.addr.i.i636.0904.i, i64 4
   %132 = load i32, ptr %incdec.ptr.i.i675.i, align 4
   %cmp.i.i662.not.not.i = icmp eq i32 %132, -1
   br i1 %cmp.i.i662.not.not.i, label %if.end53.i.i, label %for.body.i.i672.i, !llvm.loop !12
@@ -1698,10 +1693,10 @@ land.lhs.true71.i.i:                              ; preds = %if.then35.i.i
 if.end77.i.i:                                     ; preds = %land.lhs.true71.i.i, %if.then56.i668.i, %if.end53.i.i, %if.end32.i654.i
   %cacheable.i516.3.i = phi i32 [ %cacheable.i516.2.i, %if.end53.i.i ], [ %cacheable.i516.2.i, %if.end32.i654.i ], [ %spec.select701.i, %land.lhs.true71.i.i ], [ %spec.select716.i, %if.then56.i668.i ]
   %new_cache.i515.sroa.3604.4.i = phi ptr [ %new_cache.i515.sroa.3604.3.i, %if.end53.i.i ], [ %new_cache.i515.sroa.3604.3.i, %if.end32.i654.i ], [ %new_cache.i515.sroa.3604.3.i, %land.lhs.true71.i.i ], [ %spec.select717.i, %if.then56.i668.i ]
-  %successors.i.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %115, i32 1
+  %successors.i.i = getelementptr inbounds i8, ptr %arrayidx37.i585.i, i64 8
   %134 = load i64, ptr %successors.i.i, align 8
   %or.i656.i = or i64 %134, %local_succ.i514.1.i
-  %hasSquash.i.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71.i, i64 %115, i32 4
+  %hasSquash.i.i = getelementptr inbounds i8, ptr %arrayidx37.i585.i, i64 24
   %135 = load i8, ptr %hasSquash.i.i, align 8
   switch i8 %135, label %if.end41.i589.i [
     i8 1, label %if.then86.i.i
@@ -1928,7 +1923,7 @@ if.then2.i.i:                                     ; preds = %if.then.i330.i
   br i1 %cmp.i.i.not.not920.i, label %if.end137.i.i, label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %reports.addr.i.i.0921.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.0921.i, i64 4
   %159 = load i32, ptr %incdec.ptr.i.i.i, align 4
   %cmp.i.i.not.not.i = icmp eq i32 %159, -1
   br i1 %cmp.i.i.not.not.i, label %if.end137.i.i, label %for.body.i.i.i, !llvm.loop !12
@@ -1973,22 +1968,22 @@ do.body28.i.i:                                    ; preds = %if.end41.i.i, %do.b
   %and.i.i.i = and i64 %161, %sub.i.i.i
   %165 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i.i), !range !11
   %arrayidx37.i.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i.i, i64 %165
-  %trigger.i862.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i.i, i64 %165, i32 5
+  %trigger.i862.i = getelementptr inbounds i8, ptr %arrayidx37.i.i, i64 25
   %166 = load i8, ptr %trigger.i862.i, align 1
   %cmp.i864.not.i = icmp eq i8 %166, 0
   br i1 %cmp.i864.not.i, label %if.end32.i865.i, label %if.then.i931.i
 
 if.then.i931.i:                                   ; preds = %do.body28.i.i
-  %repeatOffset.i932.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i.i, i64 %165, i32 3
+  %repeatOffset.i932.i = getelementptr inbounds i8, ptr %arrayidx37.i.i, i64 20
   %167 = load i32, ptr %repeatOffset.i932.i, align 4
   %idx.ext.i933.i = zext i32 %167 to i64
   %add.ptr.i934.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i933.i
   %add.ptr.i.i935.i = getelementptr inbounds i8, ptr %add.ptr.i934.i, i64 24
-  %ctrlIndex.i937.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i934.i, i64 0, i32 1
+  %ctrlIndex.i937.i = getelementptr inbounds i8, ptr %add.ptr.i934.i, i64 4
   %168 = load i32, ptr %ctrlIndex.i937.i, align 4
   %idx.ext3.i938.i = zext i32 %168 to i64
   %add.ptr4.i939.i = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %idx.ext3.i938.i
-  %stateOffset.i941.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i934.i, i64 0, i32 3
+  %stateOffset.i941.i = getelementptr inbounds i8, ptr %add.ptr.i934.i, i64 12
   %169 = load i32, ptr %stateOffset.i941.i, align 4
   %idx.ext6.i942.i = zext i32 %169 to i64
   %add.ptr7.i943.i = getelementptr inbounds i8, ptr %add.ptr11, i64 %idx.ext6.i942.i
@@ -2126,7 +2121,7 @@ if.else24.i952.i:                                 ; preds = %repeatHasMatch.exit
 if.end32.i865.i:                                  ; preds = %if.else24.i952.i, %sw.bb6.i1059.i, %sw.bb5.i1060.i, %sw.bb4.i1061.i, %sw.bb3.i1062.i, %sw.bb2.i1063.i, %if.end.i1071.i, %sw.bb1.i1064.i, %sw.bb.i1065.i, %if.then12.i961.i, %do.body28.i.i
   %cacheable.i.2.i = phi i32 [ %cacheable.i.1.i, %do.body28.i.i ], [ 2, %if.end.i1071.i ], [ 2, %sw.bb1.i1064.i ], [ 2, %sw.bb6.i1059.i ], [ 2, %sw.bb5.i1060.i ], [ 2, %sw.bb4.i1061.i ], [ 2, %sw.bb3.i1062.i ], [ 2, %sw.bb2.i1063.i ], [ 2, %sw.bb.i1065.i ], [ 2, %if.then12.i961.i ], [ %cacheable.i.1..i, %if.else24.i952.i ]
   %new_cache.i.sroa.0.5.i = phi i8 [ %new_cache.i.sroa.0.4.i, %do.body28.i.i ], [ %new_cache.i.sroa.0.4.i, %if.end.i1071.i ], [ %new_cache.i.sroa.0.4.i, %sw.bb1.i1064.i ], [ %new_cache.i.sroa.0.4.i, %sw.bb6.i1059.i ], [ %new_cache.i.sroa.0.4.i, %sw.bb5.i1060.i ], [ %new_cache.i.sroa.0.4.i, %sw.bb4.i1061.i ], [ %new_cache.i.sroa.0.4.i, %sw.bb3.i1062.i ], [ %new_cache.i.sroa.0.4.i, %sw.bb2.i1063.i ], [ %new_cache.i.sroa.0.4.i, %sw.bb.i1065.i ], [ %new_cache.i.sroa.0.4.i, %if.then12.i961.i ], [ %.new_cache.i.sroa.0.4.i, %if.else24.i952.i ]
-  %reports.i866.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i.i, i64 %165, i32 2
+  %reports.i866.i = getelementptr inbounds i8, ptr %arrayidx37.i.i, i64 16
   %180 = load i32, ptr %reports.i866.i, align 8
   %cmp33.i867.not.i = icmp eq i32 %180, -1
   br i1 %cmp33.i867.not.i, label %if.end77.i868.i, label %if.then35.i884.i
@@ -2142,7 +2137,7 @@ if.then39.i897.i:                                 ; preds = %if.then35.i884.i
   br i1 %cmp.i.i904.not.not918.i, label %if.end53.i911.i, label %for.body.i.i925.i
 
 for.cond.i.i903.i:                                ; preds = %for.body.i.i925.i
-  %incdec.ptr.i.i929.i = getelementptr inbounds i32, ptr %reports.addr.i.i832.0919.i, i64 1
+  %incdec.ptr.i.i929.i = getelementptr inbounds i8, ptr %reports.addr.i.i832.0919.i, i64 4
   %182 = load i32, ptr %incdec.ptr.i.i929.i, align 4
   %cmp.i.i904.not.not.i = icmp eq i32 %182, -1
   br i1 %cmp.i.i904.not.not.i, label %if.end53.i911.i, label %for.body.i.i925.i, !llvm.loop !12
@@ -2174,10 +2169,10 @@ land.lhs.true71.i894.i:                           ; preds = %if.then35.i884.i
 if.end77.i868.i:                                  ; preds = %land.lhs.true71.i894.i, %if.then56.i914.i, %if.end53.i911.i, %if.end32.i865.i
   %cacheable.i.3.i = phi i32 [ %cacheable.i.2.i, %if.end53.i911.i ], [ %cacheable.i.2.i, %if.end32.i865.i ], [ %spec.select711.i, %land.lhs.true71.i894.i ], [ %spec.select718.i, %if.then56.i914.i ]
   %new_cache.i.sroa.3586.5.i = phi ptr [ %new_cache.i.sroa.3586.4.i, %if.end53.i911.i ], [ %new_cache.i.sroa.3586.4.i, %if.end32.i865.i ], [ %new_cache.i.sroa.3586.4.i, %land.lhs.true71.i894.i ], [ %spec.select719.i, %if.then56.i914.i ]
-  %successors.i869.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i.i, i64 %165, i32 1
+  %successors.i869.i = getelementptr inbounds i8, ptr %arrayidx37.i.i, i64 8
   %184 = load i64, ptr %successors.i869.i, align 8
   %or.i870.i = or i64 %184, %local_succ.i.1.i
-  %hasSquash.i871.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i.i, i64 %165, i32 4
+  %hasSquash.i871.i = getelementptr inbounds i8, ptr %arrayidx37.i.i, i64 24
   %185 = load i8, ptr %hasSquash.i871.i, align 8
   switch i8 %185, label %if.end41.i.i [
     i8 1, label %if.then86.i879.i
@@ -2270,7 +2265,7 @@ while.body.i.i.i:                                 ; preds = %if.then152.i.i, %if
   %arrayidx9.i.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr154.i.i, i64 %194
   %195 = load i8, ptr %arrayidx9.i.i.i, align 4
   %tobool.i.not.i.i = icmp eq i8 %195, 0
-  %reports2.i.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr154.i.i, i64 %194, i32 1
+  %reports2.i.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i.i, i64 4
   %196 = load i32, ptr %reports2.i.i.i, align 4
   br i1 %tobool.i.not.i.i, label %if.end.i7.i.i, label %limexRunAccept.exit.i.i
 
@@ -2282,7 +2277,7 @@ if.end.i7.i.i:                                    ; preds = %while.body.i.i.i
   br i1 %cmp.i22.not11.i.i, label %if.end25.i.i.i, label %for.body.i24.i.i
 
 for.cond.i21.i.i:                                 ; preds = %for.body.i24.i.i
-  %incdec.ptr.i.i726.i = getelementptr inbounds i32, ptr %reports.addr.i.012.i.i, i64 1
+  %incdec.ptr.i.i726.i = getelementptr inbounds i8, ptr %reports.addr.i.012.i.i, i64 4
   %198 = load i32, ptr %incdec.ptr.i.i726.i, align 4
   %cmp.i22.not.i.i = icmp eq i32 %198, -1
   br i1 %cmp.i22.not.i.i, label %if.end25.i.i.i, label %for.body.i24.i.i, !llvm.loop !12
@@ -2316,7 +2311,8 @@ scan_done:                                        ; preds = %if.end25.i.i.i, %if
   %ctx.sroa.0.2 = phi i64 [ %ctx.sroa.0.0233, %while.body ], [ %s.i.6.i, %for.end.i.i ], [ %s.i.6.i, %if.then152.i.i ], [ %s.i.6.i, %if.end25.i.i.i ]
   %201 = load i32, ptr %cur, align 8
   %idxprom51 = zext i32 %201 to i64
-  %location53 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom51, i32 1
+  %arrayidx52 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom51
+  %location53 = getelementptr inbounds i8, ptr %arrayidx52, i64 8
   %202 = load i64, ptr %location53, align 8
   %add54 = add i64 %202, %25
   %cmp55.not = icmp eq i64 %cond, %add54
@@ -2326,17 +2322,16 @@ do.end59:                                         ; preds = %scan_done
   %dec = add i32 %201, -1
   store i32 %dec, ptr %cur, align 8
   %idxprom63 = zext i32 %dec to i64
-  %arrayidx64 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom63
+  %arrayidx64 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom63
   store i32 0, ptr %arrayidx64, align 8
   %sub65 = sub i64 %cond, %25
-  %location70 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom63, i32 1
+  %location70 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom63, i32 1
   store i64 %sub65, ptr %location70, align 8
   %203 = load ptr, ptr %state, align 8
   store i64 %ctx.sroa.0.2, ptr %203, align 8
   br label %return
 
 if.end75:                                         ; preds = %scan_done
-  %arrayidx52 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom51
   %204 = load i32, ptr %arrayidx52, align 8
   switch i32 %204, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -2420,7 +2415,7 @@ if.end11.i:                                       ; preds = %for.body.i
 
 if.end17.i:                                       ; preds = %if.end11.i
   %add.ptr.i121 = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %214 = load i32, ptr %stateOffset.i, align 4
   %idx.ext20.i = zext i32 %214 to i64
   %add.ptr21.i = getelementptr inbounds i8, ptr %add.ptr11, i64 %idx.ext20.i
@@ -2473,7 +2468,7 @@ lor.lhs.false.i:                                  ; preds = %repeatLastTop.exit
   br i1 %tobool.i126.not, label %if.else.i, label %if.end43.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %tugMaskOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 5
+  %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 20
   %219 = load i32, ptr %tugMaskOffset.i, align 4
   %idx.ext33.i = zext i32 %219 to i64
   %add.ptr34.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 %idx.ext33.i
@@ -2518,10 +2513,10 @@ if.then86:                                        ; preds = %do.end79
   %dec88 = add i32 %225, -1
   store i32 %dec88, ptr %cur, align 8
   %idxprom91 = zext i32 %dec88 to i64
-  %arrayidx92 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom91
+  %arrayidx92 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom91
   store i32 0, ptr %arrayidx92, align 8
   %sub94 = sub i64 %sp.0.lcssa, %25
-  %location99 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom91, i32 1
+  %location99 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom91, i32 1
   store i64 %sub94, ptr %location99, align 8
   br label %return
 
@@ -2542,13 +2537,13 @@ entry:
   %final_look = alloca i64, align 8
   %final_look75 = alloca i64, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %report_current = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current = getelementptr inbounds i8, ptr %q, i64 80
   %0 = load i8, ptr %report_current, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state.i, align 8
   %2 = load i64, ptr %1, align 8
   %accept.i = getelementptr inbounds i8, ptr %n, i64 416
@@ -2562,17 +2557,18 @@ if.then.i:                                        ; preds = %if.then
   %4 = load i32, ptr %acceptOffset.i, align 8
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr.i163 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
-  %offset.i206 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i206 = getelementptr inbounds i8, ptr %q, i64 32
   %5 = load i64, ptr %offset.i206, align 8
-  %cur.i208 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i207 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i208 = getelementptr inbounds i8, ptr %q, i64 8
   %6 = load i32, ptr %cur.i208, align 8
   %idxprom.i209 = zext i32 %6 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i209, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i207, i64 0, i64 %idxprom.i209, i32 1
   %7 = load i64, ptr %location.i, align 8
   %add.i211 = add i64 %7, %5
-  %cb.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb.i = getelementptr inbounds i8, ptr %q, i64 88
   %8 = load ptr, ptr %cb.i, align 8
-  %context.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context.i = getelementptr inbounds i8, ptr %q, i64 96
   %9 = load ptr, ptr %context.i, align 8
   br label %while.cond.i.i
 
@@ -2593,7 +2589,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx9.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i163, i64 %11
   %12 = load i8, ptr %arrayidx9.i.i, align 4
   %tobool.i.not.i = icmp eq i8 %12, 0
-  %reports2.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i163, i64 %11, i32 1
+  %reports2.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i, i64 4
   %13 = load i32, ptr %reports2.i.i, align 4
   br i1 %tobool.i.not.i, label %if.end.i7.i, label %if.then.i10.i
 
@@ -2609,7 +2605,7 @@ if.end.i7.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i22.not6.i, label %limexRunAccept.exit.i, label %for.body.i24.i
 
 for.cond.i21.i:                                   ; preds = %for.body.i24.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %reports.addr.i.07.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.07.i, i64 4
   %15 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i22.not.i = icmp eq i32 %15, -1
   br i1 %cmp.i22.not.i, label %limexRunAccept.exit.i, label %for.body.i24.i, !llvm.loop !12
@@ -2635,42 +2631,43 @@ moNfaReportCurrent64.exit:                        ; preds = %limexRunAccept.exit
   br label %return
 
 if.end4:                                          ; preds = %if.end7.i, %entry
-  %cur = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %q, i64 8
   %17 = load i32, ptr %cur, align 8
-  %end5 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %end5 = getelementptr inbounds i8, ptr %q, i64 12
   %18 = load i32, ptr %end5, align 4
   %cmp6 = icmp eq i32 %17, %18
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %19 = load ptr, ptr %state, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 8
-  %repeat_ctrl = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
+  %repeat_ctrl = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %add.ptr.i, ptr %repeat_ctrl, align 16
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %20 = load ptr, ptr %streamState, align 8
   %stateSize = getelementptr inbounds i8, ptr %n, i64 388
   %21 = load i32, ptr %stateSize, align 4
   %idx.ext = zext i32 %21 to i64
   %add.ptr11 = getelementptr inbounds i8, ptr %20, i64 %idx.ext
-  %repeat_state = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
+  %repeat_state = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %add.ptr11, ptr %repeat_state, align 8
-  %cb = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %callback = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 8
+  %cb = getelementptr inbounds i8, ptr %q, i64 88
+  %callback = getelementptr inbounds i8, ptr %ctx, i64 64
   %22 = load <2 x ptr>, ptr %cb, align 8
   store <2 x ptr> %22, ptr %callback, align 64
-  %cached_estate = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
+  %cached_estate = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 0, ptr %cached_estate, align 16
-  %cached_br = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
+  %cached_br = getelementptr inbounds i8, ptr %ctx, i64 32
   store i8 0, ptr %cached_br, align 32
   %23 = load i64, ptr %19, align 8
   store i64 %23, ptr %ctx, align 64
-  %offset14 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset14 = getelementptr inbounds i8, ptr %q, i64 32
   %24 = load i64, ptr %offset14, align 8
   %idx.neg = sub i64 0, %24
+  %items = getelementptr inbounds i8, ptr %q, i64 104
   %idxprom = zext i32 %17 to i64
-  %location = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom, i32 1
+  %location = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom, i32 1
   %25 = load i64, ptr %location, align 8
   %add = add i64 %25, %24
   %add16 = add i64 %24, %end
@@ -2682,9 +2679,9 @@ if.end9:                                          ; preds = %if.end4
   br i1 %26, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end9
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
-  %buffer = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %history = getelementptr inbounds i8, ptr %q, i64 56
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
+  %buffer = getelementptr inbounds i8, ptr %q, i64 40
   %topOffset.i = getelementptr inbounds i8, ptr %n, i64 384
   br label %while.body
 
@@ -2692,7 +2689,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %storemerge156 = phi i32 [ %storemerge152, %while.body.lr.ph ], [ %storemerge, %nfaExecLimEx64_HandleEvent.exit ]
   %sp.0155 = phi i64 [ %add, %while.body.lr.ph ], [ %cond, %nfaExecLimEx64_HandleEvent.exit ]
   %idxprom26 = zext i32 %storemerge156 to i64
-  %location28 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom26, i32 1
+  %location28 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom26, i32 1
   %27 = load i64, ptr %location28, align 8
   %add29 = add i64 %27, %24
   %cond = tail call i64 @llvm.umin.i64(i64 %add29, i64 %add16)
@@ -2717,12 +2714,12 @@ do.end54:                                         ; preds = %do.end38
   %dec = add i32 %30, -1
   store i32 %dec, ptr %cur, align 8
   %idxprom58 = zext i32 %dec to i64
-  %arrayidx59 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom58
   store i32 0, ptr %arrayidx59, align 8
   %31 = load i64, ptr %final_look, align 8
   %add60 = sub i64 %sp.0155, %24
   %sub61 = add i64 %add60, %31
-  %location66 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom58, i32 1
+  %location66 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom58, i32 1
   store i64 %sub61, ptr %location66, align 8
   %32 = load i64, ptr %ctx, align 64
   %33 = load ptr, ptr %state, align 8
@@ -2753,12 +2750,12 @@ do.end86:                                         ; preds = %if.end74
   %dec88 = add i32 %.pre173, -1
   store i32 %dec88, ptr %cur, align 8
   %idxprom91 = zext i32 %dec88 to i64
-  %arrayidx92 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom91
+  %arrayidx92 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom91
   store i32 0, ptr %arrayidx92, align 8
   %35 = load i64, ptr %final_look75, align 8
   %add94 = sub i64 %sp.1, %24
   %sub95 = add i64 %add94, %35
-  %location100 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom91, i32 1
+  %location100 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom91, i32 1
   store i64 %sub95, ptr %location100, align 8
   %36 = load i64, ptr %ctx, align 64
   %37 = load ptr, ptr %state, align 8
@@ -2768,7 +2765,8 @@ do.end86:                                         ; preds = %if.end74
 scan_done:                                        ; preds = %if.end70.scan_done_crit_edge, %if.end74
   %38 = phi i32 [ %.pre, %if.end70.scan_done_crit_edge ], [ %.pre173, %if.end74 ]
   %idxprom106 = zext i32 %38 to i64
-  %location108 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom106, i32 1
+  %arrayidx107 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom106
+  %location108 = getelementptr inbounds i8, ptr %arrayidx107, i64 8
   %39 = load i64, ptr %location108, align 8
   %add109 = add i64 %39, %24
   %cmp110.not = icmp eq i64 %cond, %add109
@@ -2778,10 +2776,10 @@ do.end114:                                        ; preds = %scan_done
   %dec116 = add i32 %38, -1
   store i32 %dec116, ptr %cur, align 8
   %idxprom119 = zext i32 %dec116 to i64
-  %arrayidx120 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom119
+  %arrayidx120 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom119
   store i32 0, ptr %arrayidx120, align 8
   %sub122 = sub i64 %cond, %24
-  %location127 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom119, i32 1
+  %location127 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom119, i32 1
   store i64 %sub122, ptr %location127, align 8
   %40 = load i64, ptr %ctx, align 64
   %41 = load ptr, ptr %state, align 8
@@ -2789,7 +2787,6 @@ do.end114:                                        ; preds = %scan_done
   br label %return
 
 if.end132:                                        ; preds = %scan_done
-  %arrayidx107 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom106
   %42 = load i32, ptr %arrayidx107, align 8
   switch i32 %42, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -2880,7 +2877,7 @@ if.end11.i:                                       ; preds = %for.body.i
 
 if.end17.i:                                       ; preds = %if.end11.i
   %add.ptr.i178 = getelementptr inbounds %union.RepeatControl, ptr %51, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %58 = load i32, ptr %stateOffset.i, align 4
   %idx.ext20.i = zext i32 %58 to i64
   %add.ptr21.i = getelementptr inbounds i8, ptr %52, i64 %idx.ext20.i
@@ -2933,7 +2930,7 @@ lor.lhs.false.i:                                  ; preds = %repeatLastTop.exit
   br i1 %tobool.i183.not, label %if.else.i, label %if.end43.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %tugMaskOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 5
+  %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 20
   %63 = load i32, ptr %tugMaskOffset.i, align 4
   %idx.ext33.i = zext i32 %63 to i64
   %add.ptr34.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 %idx.ext33.i
@@ -2978,10 +2975,10 @@ if.then143:                                       ; preds = %do.end136
   %dec145 = add i32 %71, -1
   store i32 %dec145, ptr %cur, align 8
   %idxprom148 = zext i32 %dec145 to i64
-  %arrayidx149 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom148
+  %arrayidx149 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom148
   store i32 0, ptr %arrayidx149, align 8
   %sub151 = sub i64 %sp.0.lcssa, %24
-  %location156 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom148, i32 1
+  %location156 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom148, i32 1
   store i64 %sub151, ptr %location156, align 8
   br label %return
 
@@ -2999,26 +2996,26 @@ return:                                           ; preds = %if.end4, %if.end157
 define internal fastcc noundef signext i8 @nfaExecLimEx64_Stream_First(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset, ptr nocapture noundef writeonly %final_loc) unnamed_addr #0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %limex, i64 704
-  %accel.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 24
+  %accel.i = getelementptr inbounds i8, ptr %limex, i64 368
   %0 = load i64, ptr %accel.i, align 16
-  %accel_and_friends.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 27
+  %accel_and_friends.i = getelementptr inbounds i8, ptr %limex, i64 392
   %1 = load i64, ptr %accel_and_friends.i, align 8
-  %exceptionMask1.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 29
+  %exceptionMask1.i = getelementptr inbounds i8, ptr %limex, i64 408
   %2 = load i64, ptr %exceptionMask1.i, align 8
-  %accelTableOffset.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 3
+  %accelTableOffset.i = getelementptr inbounds i8, ptr %limex, i64 264
   %3 = load i32, ptr %accelTableOffset.i, align 8
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i
-  %accelAuxOffset.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 5
+  %accelAuxOffset.i = getelementptr inbounds i8, ptr %limex, i64 272
   %4 = load i32, ptr %accelAuxOffset.i, align 16
   %idx.ext2.i = zext i32 %4 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %limex, i64 %idx.ext2.i
-  %exceptionOffset.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 11
+  %exceptionOffset.i = getelementptr inbounds i8, ptr %limex, i64 296
   %5 = load i32, ptr %exceptionOffset.i, align 8
   %idx.ext4.i = zext i32 %5 to i64
   %add.ptr5.i = getelementptr inbounds i8, ptr %limex, i64 %idx.ext4.i
   %6 = load i64, ptr %ctx, align 64
-  %accelCount.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 2
+  %accelCount.i = getelementptr inbounds i8, ptr %limex, i64 260
   %7 = load i32, ptr %accelCount.i, align 4
   %tobool.i = icmp eq i32 %7, 0
   %cmp.i = icmp ult i64 %length, 16
@@ -3029,7 +3026,7 @@ without_accel.i:                                  ; preds = %entry, %if.then30.i
   %s.i.0 = phi i64 [ %spec.select699, %if.then30.i ], [ %6, %entry ]
   %i.i.0 = phi i64 [ %call.i, %if.then30.i ], [ 0, %entry ]
   %min_accel_offset.i.0 = phi i64 [ %min_accel_offset.i.3, %if.then30.i ], [ %length, %entry ]
-  %flags7.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 19
+  %flags7.i = getelementptr inbounds i8, ptr %limex, i64 328
   %8 = load i32, ptr %flags7.i, align 8
   %and.i = and i32 %8, 4
   %tobool8.i.not = icmp eq i32 %and.i, 0
@@ -3044,30 +3041,30 @@ if.then9.i:                                       ; preds = %without_accel.i
   br i1 %cmp.i73.not804, label %with_accel.i, label %if.end.i30.lr.ph
 
 if.end.i30.lr.ph:                                 ; preds = %if.then9.i
-  %shift.i31 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32
-  %shiftAmount.i33 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34
-  %shiftCount.i36 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 33
-  %arrayidx10.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 7
-  %arrayidx13.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 7
-  %arrayidx19.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 6
-  %arrayidx22.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 6
-  %arrayidx29.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 5
-  %arrayidx32.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 5
-  %arrayidx39.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 4
-  %arrayidx42.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 4
-  %arrayidx49.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 3
-  %arrayidx52.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 3
-  %arrayidx59.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 2
-  %arrayidx62.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 2
-  %arrayidx69.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 1
-  %arrayidx72.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 1
-  %accept.i250 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 22
-  %cached_estate.i390 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
-  %repeat_ctrl2.i797 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
-  %repeat_state5.i801 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
-  %cached_br57.i464 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
-  %cached_esucc52.i471 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 3
-  %cached_reports53.i473 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 5
+  %shift.i31 = getelementptr inbounds i8, ptr %limex, i64 432
+  %shiftAmount.i33 = getelementptr inbounds i8, ptr %limex, i64 500
+  %shiftCount.i36 = getelementptr inbounds i8, ptr %limex, i64 496
+  %arrayidx10.i = getelementptr inbounds i8, ptr %limex, i64 488
+  %arrayidx13.i = getelementptr inbounds i8, ptr %limex, i64 507
+  %arrayidx19.i = getelementptr inbounds i8, ptr %limex, i64 480
+  %arrayidx22.i = getelementptr inbounds i8, ptr %limex, i64 506
+  %arrayidx29.i = getelementptr inbounds i8, ptr %limex, i64 472
+  %arrayidx32.i = getelementptr inbounds i8, ptr %limex, i64 505
+  %arrayidx39.i = getelementptr inbounds i8, ptr %limex, i64 464
+  %arrayidx42.i = getelementptr inbounds i8, ptr %limex, i64 504
+  %arrayidx49.i = getelementptr inbounds i8, ptr %limex, i64 456
+  %arrayidx52.i = getelementptr inbounds i8, ptr %limex, i64 503
+  %arrayidx59.i = getelementptr inbounds i8, ptr %limex, i64 448
+  %arrayidx62.i = getelementptr inbounds i8, ptr %limex, i64 502
+  %arrayidx69.i = getelementptr inbounds i8, ptr %limex, i64 440
+  %arrayidx72.i = getelementptr inbounds i8, ptr %limex, i64 501
+  %accept.i250 = getelementptr inbounds i8, ptr %limex, i64 352
+  %cached_estate.i390 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %repeat_ctrl2.i797 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %repeat_state5.i801 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %cached_br57.i464 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %cached_esucc52.i471 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %cached_reports53.i473 = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %if.end.i30
 
 if.end.i30:                                       ; preds = %if.end.i30.lr.ph, %if.end82.i
@@ -3213,24 +3210,24 @@ do.body28.i432:                                   ; preds = %if.end41.i452, %do.
   %and.i.i441 = and i64 %31, %sub.i.i440
   %34 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i441), !range !11
   %arrayidx37.i448 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %34
-  %trigger.i723 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %34, i32 5
+  %trigger.i723 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 25
   %35 = load i8, ptr %trigger.i723, align 1
   %cmp.i725.not = icmp eq i8 %35, 0
   br i1 %cmp.i725.not, label %if.end32.i726, label %if.then.i792
 
 if.then.i792:                                     ; preds = %do.body28.i432
-  %repeatOffset.i793 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %34, i32 3
+  %repeatOffset.i793 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 20
   %36 = load i32, ptr %repeatOffset.i793, align 4
   %idx.ext.i794 = zext i32 %36 to i64
   %add.ptr.i795 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i794
   %add.ptr.i.i796 = getelementptr inbounds i8, ptr %add.ptr.i795, i64 24
   %37 = load ptr, ptr %repeat_ctrl2.i797, align 16
-  %ctrlIndex.i798 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i795, i64 0, i32 1
+  %ctrlIndex.i798 = getelementptr inbounds i8, ptr %add.ptr.i795, i64 4
   %38 = load i32, ptr %ctrlIndex.i798, align 4
   %idx.ext3.i799 = zext i32 %38 to i64
   %add.ptr4.i800 = getelementptr inbounds %union.RepeatControl, ptr %37, i64 %idx.ext3.i799
   %39 = load ptr, ptr %repeat_state5.i801, align 8
-  %stateOffset.i802 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i795, i64 0, i32 3
+  %stateOffset.i802 = getelementptr inbounds i8, ptr %add.ptr.i795, i64 12
   %40 = load i32, ptr %stateOffset.i802, align 4
   %idx.ext6.i803 = zext i32 %40 to i64
   %add.ptr7.i804 = getelementptr inbounds i8, ptr %39, i64 %idx.ext6.i803
@@ -3368,17 +3365,17 @@ if.else24.i813:                                   ; preds = %if.else.i808, %if.e
 if.end32.i726:                                    ; preds = %if.else24.i813, %if.then12.i822, %sw.bb.i1049, %sw.bb2.i1047, %sw.bb3.i1046, %sw.bb4.i1045, %sw.bb5.i1044, %sw.bb6.i1043, %sw.bb1.i1048, %if.end.i1077, %do.body28.i432
   %cacheable.i379.2 = phi i32 [ %cacheable.i379.1, %do.body28.i432 ], [ 2, %if.end.i1077 ], [ 2, %sw.bb1.i1048 ], [ 2, %sw.bb6.i1043 ], [ 2, %sw.bb5.i1044 ], [ 2, %sw.bb4.i1045 ], [ 2, %sw.bb3.i1046 ], [ 2, %sw.bb2.i1047 ], [ 2, %sw.bb.i1049 ], [ 2, %if.then12.i822 ], [ %cacheable.i379.1., %if.else24.i813 ]
   %new_cache.i378.sroa.0.4 = phi i8 [ %new_cache.i378.sroa.0.3, %do.body28.i432 ], [ %new_cache.i378.sroa.0.3, %if.end.i1077 ], [ %new_cache.i378.sroa.0.3, %sw.bb1.i1048 ], [ %new_cache.i378.sroa.0.3, %sw.bb6.i1043 ], [ %new_cache.i378.sroa.0.3, %sw.bb5.i1044 ], [ %new_cache.i378.sroa.0.3, %sw.bb4.i1045 ], [ %new_cache.i378.sroa.0.3, %sw.bb3.i1046 ], [ %new_cache.i378.sroa.0.3, %sw.bb2.i1047 ], [ %new_cache.i378.sroa.0.3, %sw.bb.i1049 ], [ %new_cache.i378.sroa.0.3, %if.then12.i822 ], [ %.new_cache.i378.sroa.0.3, %if.else24.i813 ]
-  %reports.i727 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %34, i32 2
+  %reports.i727 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 16
   %51 = load i32, ptr %reports.i727, align 8
   %cmp33.i728.not = icmp ne i32 %51, -1
   %brmerge.not775 = and i1 %tobool6.i248.not.not, %cmp33.i728.not
   %cmp72.i756 = icmp eq i32 %cacheable.i379.2, 1
   %or.cond691 = select i1 %brmerge.not775, i1 %cmp72.i756, i1 false
   %cacheable.i379.3 = select i1 %or.cond691, i32 0, i32 %cacheable.i379.2
-  %successors.i730 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %34, i32 1
+  %successors.i730 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 8
   %52 = load i64, ptr %successors.i730, align 8
   %or.i731 = or i64 %52, %local_succ.i377.1
-  %hasSquash.i732 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %34, i32 4
+  %hasSquash.i732 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 24
   %53 = load i8, ptr %hasSquash.i732, align 8
   switch i8 %53, label %if.end41.i452 [
     i8 1, label %if.then86.i740
@@ -3453,30 +3450,30 @@ if.else14.i:                                      ; preds = %without_accel.i
   br i1 %or.cond692806, label %with_accel.i, label %if.end.i78.lr.ph
 
 if.end.i78.lr.ph:                                 ; preds = %if.else14.i
-  %shift.i79 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32
-  %shiftAmount.i81 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34
-  %shiftCount.i85 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 33
-  %arrayidx10.i161 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 7
-  %arrayidx13.i164 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 7
-  %arrayidx19.i151 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 6
-  %arrayidx22.i154 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 6
-  %arrayidx29.i141 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 5
-  %arrayidx32.i144 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 5
-  %arrayidx39.i131 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 4
-  %arrayidx42.i134 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 4
-  %arrayidx49.i121 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 3
-  %arrayidx52.i124 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 3
-  %arrayidx59.i111 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 2
-  %arrayidx62.i114 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 2
-  %arrayidx69.i101 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 1
-  %arrayidx72.i104 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 1
-  %accept.i198 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 22
-  %cached_estate.i527 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
-  %repeat_ctrl2.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
-  %repeat_state5.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
-  %cached_br57.i601 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
-  %cached_esucc52.i608 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 3
-  %cached_reports53.i610 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 5
+  %shift.i79 = getelementptr inbounds i8, ptr %limex, i64 432
+  %shiftAmount.i81 = getelementptr inbounds i8, ptr %limex, i64 500
+  %shiftCount.i85 = getelementptr inbounds i8, ptr %limex, i64 496
+  %arrayidx10.i161 = getelementptr inbounds i8, ptr %limex, i64 488
+  %arrayidx13.i164 = getelementptr inbounds i8, ptr %limex, i64 507
+  %arrayidx19.i151 = getelementptr inbounds i8, ptr %limex, i64 480
+  %arrayidx22.i154 = getelementptr inbounds i8, ptr %limex, i64 506
+  %arrayidx29.i141 = getelementptr inbounds i8, ptr %limex, i64 472
+  %arrayidx32.i144 = getelementptr inbounds i8, ptr %limex, i64 505
+  %arrayidx39.i131 = getelementptr inbounds i8, ptr %limex, i64 464
+  %arrayidx42.i134 = getelementptr inbounds i8, ptr %limex, i64 504
+  %arrayidx49.i121 = getelementptr inbounds i8, ptr %limex, i64 456
+  %arrayidx52.i124 = getelementptr inbounds i8, ptr %limex, i64 503
+  %arrayidx59.i111 = getelementptr inbounds i8, ptr %limex, i64 448
+  %arrayidx62.i114 = getelementptr inbounds i8, ptr %limex, i64 502
+  %arrayidx69.i101 = getelementptr inbounds i8, ptr %limex, i64 440
+  %arrayidx72.i104 = getelementptr inbounds i8, ptr %limex, i64 501
+  %accept.i198 = getelementptr inbounds i8, ptr %limex, i64 352
+  %cached_estate.i527 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %repeat_ctrl2.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %repeat_state5.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %cached_br57.i601 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %cached_esucc52.i608 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %cached_reports53.i610 = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %if.end.i78
 
 if.end.i78:                                       ; preds = %if.end.i78.lr.ph, %if.end82.i90
@@ -3622,24 +3619,24 @@ do.body28.i569:                                   ; preds = %if.end41.i589, %do.
   %and.i.i578 = and i64 %79, %sub.i.i577
   %82 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i578), !range !11
   %arrayidx37.i585 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %82
-  %trigger.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %82, i32 5
+  %trigger.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 25
   %83 = load i8, ptr %trigger.i, align 1
   %cmp.i653.not = icmp eq i8 %83, 0
   br i1 %cmp.i653.not, label %if.end32.i654, label %if.then.i677
 
 if.then.i677:                                     ; preds = %do.body28.i569
-  %repeatOffset.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %82, i32 3
+  %repeatOffset.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 20
   %84 = load i32, ptr %repeatOffset.i, align 4
   %idx.ext.i678 = zext i32 %84 to i64
   %add.ptr.i679 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i678
   %add.ptr.i.i680 = getelementptr inbounds i8, ptr %add.ptr.i679, i64 24
   %85 = load ptr, ptr %repeat_ctrl2.i, align 16
-  %ctrlIndex.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i679, i64 0, i32 1
+  %ctrlIndex.i = getelementptr inbounds i8, ptr %add.ptr.i679, i64 4
   %86 = load i32, ptr %ctrlIndex.i, align 4
   %idx.ext3.i = zext i32 %86 to i64
   %add.ptr4.i = getelementptr inbounds %union.RepeatControl, ptr %85, i64 %idx.ext3.i
   %87 = load ptr, ptr %repeat_state5.i, align 8
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i679, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr.i679, i64 12
   %88 = load i32, ptr %stateOffset.i, align 4
   %idx.ext6.i = zext i32 %88 to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %87, i64 %idx.ext6.i
@@ -3777,17 +3774,17 @@ if.else24.i:                                      ; preds = %if.else.i682, %if.e
 if.end32.i654:                                    ; preds = %if.else24.i, %if.then12.i, %sw.bb.i1034, %sw.bb2.i1032, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb1.i1033, %if.end.i1084, %do.body28.i569
   %cacheable.i516.2 = phi i32 [ %cacheable.i516.1, %do.body28.i569 ], [ 2, %if.end.i1084 ], [ 2, %sw.bb1.i1033 ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 2, %sw.bb4.i ], [ 2, %sw.bb3.i ], [ 2, %sw.bb2.i1032 ], [ 2, %sw.bb.i1034 ], [ 2, %if.then12.i ], [ %cacheable.i516.1., %if.else24.i ]
   %new_cache.i515.sroa.0.4 = phi i8 [ %new_cache.i515.sroa.0.3, %do.body28.i569 ], [ %new_cache.i515.sroa.0.3, %if.end.i1084 ], [ %new_cache.i515.sroa.0.3, %sw.bb1.i1033 ], [ %new_cache.i515.sroa.0.3, %sw.bb6.i ], [ %new_cache.i515.sroa.0.3, %sw.bb5.i ], [ %new_cache.i515.sroa.0.3, %sw.bb4.i ], [ %new_cache.i515.sroa.0.3, %sw.bb3.i ], [ %new_cache.i515.sroa.0.3, %sw.bb2.i1032 ], [ %new_cache.i515.sroa.0.3, %sw.bb.i1034 ], [ %new_cache.i515.sroa.0.3, %if.then12.i ], [ %.new_cache.i515.sroa.0.3, %if.else24.i ]
-  %reports.i655 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %82, i32 2
+  %reports.i655 = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 16
   %99 = load i32, ptr %reports.i655, align 8
   %cmp33.i.not = icmp ne i32 %99, -1
   %brmerge696.not776 = and i1 %tobool6.i.not.not, %cmp33.i.not
   %cmp72.i = icmp eq i32 %cacheable.i516.2, 1
   %or.cond697 = select i1 %brmerge696.not776, i1 %cmp72.i, i1 false
   %cacheable.i516.3 = select i1 %or.cond697, i32 0, i32 %cacheable.i516.2
-  %successors.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %82, i32 1
+  %successors.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 8
   %100 = load i64, ptr %successors.i, align 8
   %or.i656 = or i64 %100, %local_succ.i514.1
-  %hasSquash.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %82, i32 4
+  %hasSquash.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 24
   %101 = load i8, ptr %hasSquash.i, align 8
   switch i8 %101, label %if.end41.i589 [
     i8 1, label %if.then86.i
@@ -3867,30 +3864,30 @@ with_accel.i:                                     ; preds = %if.end82.i, %if.end
 
 for.body.i.lr.ph:                                 ; preds = %with_accel.i
   %not.i = xor i64 %1, -1
-  %shift.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32
-  %shiftAmount.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34
-  %shiftCount.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 33
-  %arrayidx65.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 7
-  %arrayidx68.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 7
-  %arrayidx74.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 6
-  %arrayidx77.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 6
-  %arrayidx84.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 5
-  %arrayidx87.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 5
-  %arrayidx94.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 4
-  %arrayidx97.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 4
-  %arrayidx104.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 3
-  %arrayidx107.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 3
-  %arrayidx114.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 2
-  %arrayidx117.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 2
-  %arrayidx124.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 1
-  %arrayidx127.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 1
-  %accept.i309 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 22
-  %cached_estate.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
-  %repeat_ctrl2.i936 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
-  %repeat_state5.i940 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
-  %cached_br57.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
-  %cached_esucc52.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 3
-  %cached_reports53.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 5
+  %shift.i = getelementptr inbounds i8, ptr %limex, i64 432
+  %shiftAmount.i = getelementptr inbounds i8, ptr %limex, i64 500
+  %shiftCount.i = getelementptr inbounds i8, ptr %limex, i64 496
+  %arrayidx65.i = getelementptr inbounds i8, ptr %limex, i64 488
+  %arrayidx68.i = getelementptr inbounds i8, ptr %limex, i64 507
+  %arrayidx74.i = getelementptr inbounds i8, ptr %limex, i64 480
+  %arrayidx77.i = getelementptr inbounds i8, ptr %limex, i64 506
+  %arrayidx84.i = getelementptr inbounds i8, ptr %limex, i64 472
+  %arrayidx87.i = getelementptr inbounds i8, ptr %limex, i64 505
+  %arrayidx94.i = getelementptr inbounds i8, ptr %limex, i64 464
+  %arrayidx97.i = getelementptr inbounds i8, ptr %limex, i64 504
+  %arrayidx104.i = getelementptr inbounds i8, ptr %limex, i64 456
+  %arrayidx107.i = getelementptr inbounds i8, ptr %limex, i64 503
+  %arrayidx114.i = getelementptr inbounds i8, ptr %limex, i64 448
+  %arrayidx117.i = getelementptr inbounds i8, ptr %limex, i64 502
+  %arrayidx124.i = getelementptr inbounds i8, ptr %limex, i64 440
+  %arrayidx127.i = getelementptr inbounds i8, ptr %limex, i64 501
+  %accept.i309 = getelementptr inbounds i8, ptr %limex, i64 352
+  %cached_estate.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %repeat_ctrl2.i936 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %repeat_state5.i940 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %cached_br57.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %cached_esucc52.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %cached_reports53.i = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.end137.i
@@ -4061,24 +4058,24 @@ do.body28.i:                                      ; preds = %if.end41.i, %do.bod
   %and.i.i = and i64 %127, %sub.i.i
   %130 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i), !range !11
   %arrayidx37.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %130
-  %trigger.i862 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %130, i32 5
+  %trigger.i862 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 25
   %131 = load i8, ptr %trigger.i862, align 1
   %cmp.i864.not = icmp eq i8 %131, 0
   br i1 %cmp.i864.not, label %if.end32.i865, label %if.then.i931
 
 if.then.i931:                                     ; preds = %do.body28.i
-  %repeatOffset.i932 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %130, i32 3
+  %repeatOffset.i932 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 20
   %132 = load i32, ptr %repeatOffset.i932, align 4
   %idx.ext.i933 = zext i32 %132 to i64
   %add.ptr.i934 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i933
   %add.ptr.i.i935 = getelementptr inbounds i8, ptr %add.ptr.i934, i64 24
   %133 = load ptr, ptr %repeat_ctrl2.i936, align 16
-  %ctrlIndex.i937 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i934, i64 0, i32 1
+  %ctrlIndex.i937 = getelementptr inbounds i8, ptr %add.ptr.i934, i64 4
   %134 = load i32, ptr %ctrlIndex.i937, align 4
   %idx.ext3.i938 = zext i32 %134 to i64
   %add.ptr4.i939 = getelementptr inbounds %union.RepeatControl, ptr %133, i64 %idx.ext3.i938
   %135 = load ptr, ptr %repeat_state5.i940, align 8
-  %stateOffset.i941 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i934, i64 0, i32 3
+  %stateOffset.i941 = getelementptr inbounds i8, ptr %add.ptr.i934, i64 12
   %136 = load i32, ptr %stateOffset.i941, align 4
   %idx.ext6.i942 = zext i32 %136 to i64
   %add.ptr7.i943 = getelementptr inbounds i8, ptr %135, i64 %idx.ext6.i942
@@ -4216,17 +4213,17 @@ if.else24.i952:                                   ; preds = %if.else.i947, %if.e
 if.end32.i865:                                    ; preds = %if.else24.i952, %if.then12.i961, %sw.bb.i1065, %sw.bb2.i1063, %sw.bb3.i1062, %sw.bb4.i1061, %sw.bb5.i1060, %sw.bb6.i1059, %sw.bb1.i1064, %if.end.i1071, %do.body28.i
   %cacheable.i.2 = phi i32 [ %cacheable.i.1, %do.body28.i ], [ 2, %if.end.i1071 ], [ 2, %sw.bb1.i1064 ], [ 2, %sw.bb6.i1059 ], [ 2, %sw.bb5.i1060 ], [ 2, %sw.bb4.i1061 ], [ 2, %sw.bb3.i1062 ], [ 2, %sw.bb2.i1063 ], [ 2, %sw.bb.i1065 ], [ 2, %if.then12.i961 ], [ %cacheable.i.1., %if.else24.i952 ]
   %new_cache.i.sroa.0.5 = phi i8 [ %new_cache.i.sroa.0.4, %do.body28.i ], [ %new_cache.i.sroa.0.4, %if.end.i1071 ], [ %new_cache.i.sroa.0.4, %sw.bb1.i1064 ], [ %new_cache.i.sroa.0.4, %sw.bb6.i1059 ], [ %new_cache.i.sroa.0.4, %sw.bb5.i1060 ], [ %new_cache.i.sroa.0.4, %sw.bb4.i1061 ], [ %new_cache.i.sroa.0.4, %sw.bb3.i1062 ], [ %new_cache.i.sroa.0.4, %sw.bb2.i1063 ], [ %new_cache.i.sroa.0.4, %sw.bb.i1065 ], [ %new_cache.i.sroa.0.4, %if.then12.i961 ], [ %.new_cache.i.sroa.0.4, %if.else24.i952 ]
-  %reports.i866 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %130, i32 2
+  %reports.i866 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 16
   %147 = load i32, ptr %reports.i866, align 8
   %cmp33.i867.not = icmp ne i32 %147, -1
   %brmerge704.not777 = and i1 %tobool6.i307.not.not, %cmp33.i867.not
   %cmp72.i895 = icmp eq i32 %cacheable.i.2, 1
   %or.cond705 = select i1 %brmerge704.not777, i1 %cmp72.i895, i1 false
   %cacheable.i.3 = select i1 %or.cond705, i32 0, i32 %cacheable.i.2
-  %successors.i869 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %130, i32 1
+  %successors.i869 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 8
   %148 = load i64, ptr %successors.i869, align 8
   %or.i870 = or i64 %148, %local_succ.i.1
-  %hasSquash.i871 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %130, i32 4
+  %hasSquash.i871 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 24
   %149 = load i8, ptr %hasSquash.i871, align 8
   switch i8 %149, label %if.end41.i [
     i8 1, label %if.then86.i879
@@ -4298,13 +4295,13 @@ if.end137.i:                                      ; preds = %sw.epilog.i, %if.th
 for.end.i:                                        ; preds = %if.end137.i, %with_accel.i, %if.then30.i
   %s.i.6 = phi i64 [ %spec.select699, %if.then30.i ], [ %s.i.3, %with_accel.i ], [ %and142.i, %if.end137.i ]
   store i64 %s.i.6, ptr %ctx, align 64
-  %acceptCount.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 6
+  %acceptCount.i = getelementptr inbounds i8, ptr %limex, i64 276
   %155 = load i32, ptr %acceptCount.i, align 4
   %tobool151.i.not = icmp eq i32 %155, 0
   br i1 %tobool151.i.not, label %if.then176.i, label %if.then152.i
 
 if.then152.i:                                     ; preds = %for.end.i
-  %accept.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 22
+  %accept.i = getelementptr inbounds i8, ptr %limex, i64 352
   %156 = load i64, ptr %accept.i, align 32
   %and155.i = and i64 %156, %s.i.6
   %cmp156.i.not = icmp eq i64 %and155.i, 0
@@ -4325,39 +4322,40 @@ define hidden signext i8 @nfaExecLimEx64_QR(ptr noundef %n, ptr nocapture nounde
 entry:
   %ctx = alloca %struct.NFAContext64, align 64
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %cur = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i32, ptr %cur, align 8
-  %end = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %end = getelementptr inbounds i8, ptr %q, i64 12
   %1 = load i32, ptr %end, align 4
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %2 = load ptr, ptr %state, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
-  %repeat_ctrl = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
+  %repeat_ctrl = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %add.ptr.i, ptr %repeat_ctrl, align 16
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %3 = load ptr, ptr %streamState, align 8
   %stateSize = getelementptr inbounds i8, ptr %n, i64 388
   %4 = load i32, ptr %stateSize, align 4
   %idx.ext = zext i32 %4 to i64
   %add.ptr1 = getelementptr inbounds i8, ptr %3, i64 %idx.ext
-  %repeat_state = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
+  %repeat_state = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %add.ptr1, ptr %repeat_state, align 8
-  %callback = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 8
-  %cached_estate = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
+  %callback = getelementptr inbounds i8, ptr %ctx, i64 64
+  %cached_estate = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 0, ptr %cached_estate, align 16
-  %cached_br = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
+  %cached_br = getelementptr inbounds i8, ptr %ctx, i64 32
   store i8 0, ptr %cached_br, align 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %callback, i8 0, i64 16, i1 false)
   %5 = load i64, ptr %2, align 8
   store i64 %5, ptr %ctx, align 64
-  %offset3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset3 = getelementptr inbounds i8, ptr %q, i64 32
   %6 = load i64, ptr %offset3, align 8
+  %items = getelementptr inbounds i8, ptr %q, i64 104
   %idxprom = zext i32 %0 to i64
-  %location = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom, i32 1
+  %location = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom, i32 1
   %7 = load i64, ptr %location, align 8
   %add = add i64 %7, %6
   %storemerge164 = add i32 %0, 1
@@ -4366,11 +4364,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8165, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %maxWidth = getelementptr inbounds %struct.NFA, ptr %n, i64 0, i32 11
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %maxWidth = getelementptr inbounds i8, ptr %n, i64 32
+  %history = getelementptr inbounds i8, ptr %q, i64 56
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %idx.neg = sub i64 0, %6
-  %buffer = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer = getelementptr inbounds i8, ptr %q, i64 40
   %topOffset.i = getelementptr inbounds i8, ptr %n, i64 384
   br label %while.body
 
@@ -4378,7 +4376,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %storemerge167 = phi i32 [ %storemerge164, %while.body.lr.ph ], [ %storemerge, %nfaExecLimEx64_HandleEvent.exit ]
   %sp.0166 = phi i64 [ %add, %while.body.lr.ph ], [ %add14, %nfaExecLimEx64_HandleEvent.exit ]
   %idxprom11 = zext i32 %storemerge167 to i64
-  %location13 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom11, i32 1
+  %location13 = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom11, i32 1
   %8 = load i64, ptr %location13, align 8
   %add14 = add i64 %8, %6
   %9 = load i32, ptr %maxWidth, align 32
@@ -4432,7 +4430,7 @@ do.end47:                                         ; preds = %if.end41
 scan_done:                                        ; preds = %if.end41, %do.end47
   %14 = load i32, ptr %cur, align 8
   %idxprom.i = zext i32 %14 to i64
-  %arrayidx.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items, i64 0, i64 %idxprom.i
   %15 = load i32, ptr %arrayidx.i, align 8
   switch i32 %15, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -4523,7 +4521,7 @@ if.end11.i:                                       ; preds = %for.body.i
 
 if.end17.i:                                       ; preds = %if.end11.i
   %add.ptr.i78 = getelementptr inbounds %union.RepeatControl, ptr %24, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %31 = load i32, ptr %stateOffset.i, align 4
   %idx.ext20.i = zext i32 %31 to i64
   %add.ptr21.i = getelementptr inbounds i8, ptr %25, i64 %idx.ext20.i
@@ -4576,7 +4574,7 @@ lor.lhs.false.i:                                  ; preds = %repeatLastTop.exit
   br i1 %tobool.i152.not, label %if.else.i, label %if.end43.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %tugMaskOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 5
+  %tugMaskOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 20
   %36 = load i32, ptr %tugMaskOffset.i, align 4
   %idx.ext33.i = zext i32 %36 to i64
   %add.ptr34.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 %idx.ext33.i
@@ -4649,7 +4647,7 @@ for.body.i127:                                    ; preds = %for.body.i127.lr.ph
 
 if.end6.i:                                        ; preds = %for.body.i127
   %add.ptr.i138 = getelementptr inbounds %union.RepeatControl, ptr %44, i64 %indvars.iv179
-  %stateOffset.i139 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i134, i64 0, i32 3
+  %stateOffset.i139 = getelementptr inbounds i8, ptr %add.ptr3.i.i134, i64 12
   %51 = load i32, ptr %stateOffset.i139, align 4
   %idx.ext9.i = zext i32 %51 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %45, i64 %idx.ext9.i
@@ -4755,7 +4753,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %arrayidx12.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i90, i64 %62
   %63 = load i8, ptr %arrayidx12.i, align 4
   %tobool.i250.not = icmp eq i8 %63, 0
-  %reports2.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i90, i64 %62, i32 1
+  %reports2.i = getelementptr inbounds i8, ptr %arrayidx12.i, i64 4
   %64 = load i32, ptr %reports2.i, align 4
   br i1 %tobool.i250.not, label %if.end.i251, label %if.then.i256
 
@@ -4777,7 +4775,7 @@ do.body.i:                                        ; preds = %if.end6.i254, %if.e
   br i1 %cmp3.i, label %return, label %if.end6.i254
 
 if.end6.i254:                                     ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %reports1.i.0, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %reports1.i.0, i64 4
   %66 = load i32, ptr %incdec.ptr.i, align 4
   %cmp7.i.not = icmp eq i32 %66, -1
   br i1 %cmp7.i.not, label %limexAcceptHasReport.exit, label %do.body.i, !llvm.loop !25
@@ -4801,26 +4799,26 @@ return:                                           ; preds = %limexAcceptHasRepor
 define internal fastcc void @nfaExecLimEx64_Stream_Silent(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %limex, i64 704
-  %accel.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 24
+  %accel.i = getelementptr inbounds i8, ptr %limex, i64 368
   %0 = load i64, ptr %accel.i, align 16
-  %accel_and_friends.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 27
+  %accel_and_friends.i = getelementptr inbounds i8, ptr %limex, i64 392
   %1 = load i64, ptr %accel_and_friends.i, align 8
-  %exceptionMask1.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 29
+  %exceptionMask1.i = getelementptr inbounds i8, ptr %limex, i64 408
   %2 = load i64, ptr %exceptionMask1.i, align 8
-  %accelTableOffset.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 3
+  %accelTableOffset.i = getelementptr inbounds i8, ptr %limex, i64 264
   %3 = load i32, ptr %accelTableOffset.i, align 8
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i
-  %accelAuxOffset.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 5
+  %accelAuxOffset.i = getelementptr inbounds i8, ptr %limex, i64 272
   %4 = load i32, ptr %accelAuxOffset.i, align 16
   %idx.ext2.i = zext i32 %4 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %limex, i64 %idx.ext2.i
-  %exceptionOffset.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 11
+  %exceptionOffset.i = getelementptr inbounds i8, ptr %limex, i64 296
   %5 = load i32, ptr %exceptionOffset.i, align 8
   %idx.ext4.i = zext i32 %5 to i64
   %add.ptr5.i = getelementptr inbounds i8, ptr %limex, i64 %idx.ext4.i
   %6 = load i64, ptr %ctx, align 64
-  %accelCount.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 2
+  %accelCount.i = getelementptr inbounds i8, ptr %limex, i64 260
   %7 = load i32, ptr %accelCount.i, align 4
   %tobool.i = icmp eq i32 %7, 0
   %cmp.i = icmp ult i64 %length, 16
@@ -4831,7 +4829,7 @@ without_accel.i:                                  ; preds = %entry, %if.then30.i
   %s.i.0 = phi i64 [ %spec.select699, %if.then30.i ], [ %6, %entry ]
   %i.i.0 = phi i64 [ %call.i, %if.then30.i ], [ 0, %entry ]
   %min_accel_offset.i.0 = phi i64 [ %min_accel_offset.i.3, %if.then30.i ], [ %length, %entry ]
-  %flags7.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 19
+  %flags7.i = getelementptr inbounds i8, ptr %limex, i64 328
   %8 = load i32, ptr %flags7.i, align 8
   %and.i = and i32 %8, 4
   %tobool8.i.not = icmp eq i32 %and.i, 0
@@ -4846,29 +4844,29 @@ if.then9.i:                                       ; preds = %without_accel.i
   br i1 %cmp.i73.not761, label %with_accel.i, label %if.end.i30.lr.ph
 
 if.end.i30.lr.ph:                                 ; preds = %if.then9.i
-  %shift.i31 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32
-  %shiftAmount.i33 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34
-  %shiftCount.i36 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 33
-  %arrayidx10.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 7
-  %arrayidx13.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 7
-  %arrayidx19.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 6
-  %arrayidx22.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 6
-  %arrayidx29.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 5
-  %arrayidx32.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 5
-  %arrayidx39.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 4
-  %arrayidx42.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 4
-  %arrayidx49.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 3
-  %arrayidx52.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 3
-  %arrayidx59.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 2
-  %arrayidx62.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 2
-  %arrayidx69.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 1
-  %arrayidx72.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 1
-  %cached_estate.i390 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
-  %repeat_ctrl2.i797 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
-  %repeat_state5.i801 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
-  %cached_br57.i464 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
-  %cached_esucc52.i471 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 3
-  %cached_reports53.i473 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 5
+  %shift.i31 = getelementptr inbounds i8, ptr %limex, i64 432
+  %shiftAmount.i33 = getelementptr inbounds i8, ptr %limex, i64 500
+  %shiftCount.i36 = getelementptr inbounds i8, ptr %limex, i64 496
+  %arrayidx10.i = getelementptr inbounds i8, ptr %limex, i64 488
+  %arrayidx13.i = getelementptr inbounds i8, ptr %limex, i64 507
+  %arrayidx19.i = getelementptr inbounds i8, ptr %limex, i64 480
+  %arrayidx22.i = getelementptr inbounds i8, ptr %limex, i64 506
+  %arrayidx29.i = getelementptr inbounds i8, ptr %limex, i64 472
+  %arrayidx32.i = getelementptr inbounds i8, ptr %limex, i64 505
+  %arrayidx39.i = getelementptr inbounds i8, ptr %limex, i64 464
+  %arrayidx42.i = getelementptr inbounds i8, ptr %limex, i64 504
+  %arrayidx49.i = getelementptr inbounds i8, ptr %limex, i64 456
+  %arrayidx52.i = getelementptr inbounds i8, ptr %limex, i64 503
+  %arrayidx59.i = getelementptr inbounds i8, ptr %limex, i64 448
+  %arrayidx62.i = getelementptr inbounds i8, ptr %limex, i64 502
+  %arrayidx69.i = getelementptr inbounds i8, ptr %limex, i64 440
+  %arrayidx72.i = getelementptr inbounds i8, ptr %limex, i64 501
+  %cached_estate.i390 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %repeat_ctrl2.i797 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %repeat_state5.i801 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %cached_br57.i464 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %cached_esucc52.i471 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %cached_reports53.i473 = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %if.end.i30
 
 if.end.i30:                                       ; preds = %if.end.i30.lr.ph, %if.end82.i
@@ -5005,24 +5003,24 @@ do.body28.i432:                                   ; preds = %if.end41.i452, %do.
   %and.i.i441 = and i64 %30, %sub.i.i440
   %33 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i441), !range !11
   %arrayidx37.i448 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %33
-  %trigger.i723 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %33, i32 5
+  %trigger.i723 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 25
   %34 = load i8, ptr %trigger.i723, align 1
   %cmp.i725.not = icmp eq i8 %34, 0
   br i1 %cmp.i725.not, label %if.end32.i726, label %if.then.i792
 
 if.then.i792:                                     ; preds = %do.body28.i432
-  %repeatOffset.i793 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %33, i32 3
+  %repeatOffset.i793 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 20
   %35 = load i32, ptr %repeatOffset.i793, align 4
   %idx.ext.i794 = zext i32 %35 to i64
   %add.ptr.i795 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i794
   %add.ptr.i.i796 = getelementptr inbounds i8, ptr %add.ptr.i795, i64 24
   %36 = load ptr, ptr %repeat_ctrl2.i797, align 16
-  %ctrlIndex.i798 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i795, i64 0, i32 1
+  %ctrlIndex.i798 = getelementptr inbounds i8, ptr %add.ptr.i795, i64 4
   %37 = load i32, ptr %ctrlIndex.i798, align 4
   %idx.ext3.i799 = zext i32 %37 to i64
   %add.ptr4.i800 = getelementptr inbounds %union.RepeatControl, ptr %36, i64 %idx.ext3.i799
   %38 = load ptr, ptr %repeat_state5.i801, align 8
-  %stateOffset.i802 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i795, i64 0, i32 3
+  %stateOffset.i802 = getelementptr inbounds i8, ptr %add.ptr.i795, i64 12
   %39 = load i32, ptr %stateOffset.i802, align 4
   %idx.ext6.i803 = zext i32 %39 to i64
   %add.ptr7.i804 = getelementptr inbounds i8, ptr %38, i64 %idx.ext6.i803
@@ -5160,17 +5158,17 @@ if.else24.i813:                                   ; preds = %if.else.i808, %if.e
 if.end32.i726:                                    ; preds = %if.else24.i813, %if.then12.i822, %sw.bb.i1049, %sw.bb2.i1047, %sw.bb3.i1046, %sw.bb4.i1045, %sw.bb5.i1044, %sw.bb6.i1043, %sw.bb1.i1048, %if.end.i1077, %do.body28.i432
   %cacheable.i379.2 = phi i32 [ %cacheable.i379.1, %do.body28.i432 ], [ 2, %if.end.i1077 ], [ 2, %sw.bb1.i1048 ], [ 2, %sw.bb6.i1043 ], [ 2, %sw.bb5.i1044 ], [ 2, %sw.bb4.i1045 ], [ 2, %sw.bb3.i1046 ], [ 2, %sw.bb2.i1047 ], [ 2, %sw.bb.i1049 ], [ 2, %if.then12.i822 ], [ %cacheable.i379.1., %if.else24.i813 ]
   %new_cache.i378.sroa.0.4 = phi i8 [ %new_cache.i378.sroa.0.3, %do.body28.i432 ], [ %new_cache.i378.sroa.0.3, %if.end.i1077 ], [ %new_cache.i378.sroa.0.3, %sw.bb1.i1048 ], [ %new_cache.i378.sroa.0.3, %sw.bb6.i1043 ], [ %new_cache.i378.sroa.0.3, %sw.bb5.i1044 ], [ %new_cache.i378.sroa.0.3, %sw.bb4.i1045 ], [ %new_cache.i378.sroa.0.3, %sw.bb3.i1046 ], [ %new_cache.i378.sroa.0.3, %sw.bb2.i1047 ], [ %new_cache.i378.sroa.0.3, %sw.bb.i1049 ], [ %new_cache.i378.sroa.0.3, %if.then12.i822 ], [ %.new_cache.i378.sroa.0.3, %if.else24.i813 ]
-  %reports.i727 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %33, i32 2
+  %reports.i727 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 16
   %50 = load i32, ptr %reports.i727, align 8
   %cmp33.i728.not = icmp ne i32 %50, -1
   %brmerge.not745 = and i1 %tobool6.i248.not, %cmp33.i728.not
   %cmp72.i756 = icmp eq i32 %cacheable.i379.2, 1
   %or.cond691 = select i1 %brmerge.not745, i1 %cmp72.i756, i1 false
   %cacheable.i379.3 = select i1 %or.cond691, i32 0, i32 %cacheable.i379.2
-  %successors.i730 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %33, i32 1
+  %successors.i730 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 8
   %51 = load i64, ptr %successors.i730, align 8
   %or.i731 = or i64 %51, %local_succ.i377.1
-  %hasSquash.i732 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %33, i32 4
+  %hasSquash.i732 = getelementptr inbounds i8, ptr %arrayidx37.i448, i64 24
   %52 = load i8, ptr %hasSquash.i732, align 8
   switch i8 %52, label %if.end41.i452 [
     i8 1, label %if.then86.i740
@@ -5241,29 +5239,29 @@ if.else14.i:                                      ; preds = %without_accel.i
   br i1 %or.cond692763, label %with_accel.i, label %if.end.i78.lr.ph
 
 if.end.i78.lr.ph:                                 ; preds = %if.else14.i
-  %shift.i79 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32
-  %shiftAmount.i81 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34
-  %shiftCount.i85 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 33
-  %arrayidx10.i161 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 7
-  %arrayidx13.i164 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 7
-  %arrayidx19.i151 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 6
-  %arrayidx22.i154 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 6
-  %arrayidx29.i141 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 5
-  %arrayidx32.i144 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 5
-  %arrayidx39.i131 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 4
-  %arrayidx42.i134 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 4
-  %arrayidx49.i121 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 3
-  %arrayidx52.i124 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 3
-  %arrayidx59.i111 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 2
-  %arrayidx62.i114 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 2
-  %arrayidx69.i101 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 1
-  %arrayidx72.i104 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 1
-  %cached_estate.i527 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
-  %repeat_ctrl2.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
-  %repeat_state5.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
-  %cached_br57.i601 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
-  %cached_esucc52.i608 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 3
-  %cached_reports53.i610 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 5
+  %shift.i79 = getelementptr inbounds i8, ptr %limex, i64 432
+  %shiftAmount.i81 = getelementptr inbounds i8, ptr %limex, i64 500
+  %shiftCount.i85 = getelementptr inbounds i8, ptr %limex, i64 496
+  %arrayidx10.i161 = getelementptr inbounds i8, ptr %limex, i64 488
+  %arrayidx13.i164 = getelementptr inbounds i8, ptr %limex, i64 507
+  %arrayidx19.i151 = getelementptr inbounds i8, ptr %limex, i64 480
+  %arrayidx22.i154 = getelementptr inbounds i8, ptr %limex, i64 506
+  %arrayidx29.i141 = getelementptr inbounds i8, ptr %limex, i64 472
+  %arrayidx32.i144 = getelementptr inbounds i8, ptr %limex, i64 505
+  %arrayidx39.i131 = getelementptr inbounds i8, ptr %limex, i64 464
+  %arrayidx42.i134 = getelementptr inbounds i8, ptr %limex, i64 504
+  %arrayidx49.i121 = getelementptr inbounds i8, ptr %limex, i64 456
+  %arrayidx52.i124 = getelementptr inbounds i8, ptr %limex, i64 503
+  %arrayidx59.i111 = getelementptr inbounds i8, ptr %limex, i64 448
+  %arrayidx62.i114 = getelementptr inbounds i8, ptr %limex, i64 502
+  %arrayidx69.i101 = getelementptr inbounds i8, ptr %limex, i64 440
+  %arrayidx72.i104 = getelementptr inbounds i8, ptr %limex, i64 501
+  %cached_estate.i527 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %repeat_ctrl2.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %repeat_state5.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %cached_br57.i601 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %cached_esucc52.i608 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %cached_reports53.i610 = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %if.end.i78
 
 if.end.i78:                                       ; preds = %if.end.i78.lr.ph, %if.end82.i90
@@ -5400,24 +5398,24 @@ do.body28.i569:                                   ; preds = %if.end41.i589, %do.
   %and.i.i578 = and i64 %77, %sub.i.i577
   %80 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i578), !range !11
   %arrayidx37.i585 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %80
-  %trigger.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %80, i32 5
+  %trigger.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 25
   %81 = load i8, ptr %trigger.i, align 1
   %cmp.i653.not = icmp eq i8 %81, 0
   br i1 %cmp.i653.not, label %if.end32.i654, label %if.then.i677
 
 if.then.i677:                                     ; preds = %do.body28.i569
-  %repeatOffset.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %80, i32 3
+  %repeatOffset.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 20
   %82 = load i32, ptr %repeatOffset.i, align 4
   %idx.ext.i678 = zext i32 %82 to i64
   %add.ptr.i679 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i678
   %add.ptr.i.i680 = getelementptr inbounds i8, ptr %add.ptr.i679, i64 24
   %83 = load ptr, ptr %repeat_ctrl2.i, align 16
-  %ctrlIndex.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i679, i64 0, i32 1
+  %ctrlIndex.i = getelementptr inbounds i8, ptr %add.ptr.i679, i64 4
   %84 = load i32, ptr %ctrlIndex.i, align 4
   %idx.ext3.i = zext i32 %84 to i64
   %add.ptr4.i = getelementptr inbounds %union.RepeatControl, ptr %83, i64 %idx.ext3.i
   %85 = load ptr, ptr %repeat_state5.i, align 8
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i679, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr.i679, i64 12
   %86 = load i32, ptr %stateOffset.i, align 4
   %idx.ext6.i = zext i32 %86 to i64
   %add.ptr7.i = getelementptr inbounds i8, ptr %85, i64 %idx.ext6.i
@@ -5555,17 +5553,17 @@ if.else24.i:                                      ; preds = %if.else.i682, %if.e
 if.end32.i654:                                    ; preds = %if.else24.i, %if.then12.i, %sw.bb.i1034, %sw.bb2.i1032, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb1.i1033, %if.end.i1084, %do.body28.i569
   %cacheable.i516.2 = phi i32 [ %cacheable.i516.1, %do.body28.i569 ], [ 2, %if.end.i1084 ], [ 2, %sw.bb1.i1033 ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 2, %sw.bb4.i ], [ 2, %sw.bb3.i ], [ 2, %sw.bb2.i1032 ], [ 2, %sw.bb.i1034 ], [ 2, %if.then12.i ], [ %cacheable.i516.1., %if.else24.i ]
   %new_cache.i515.sroa.0.4 = phi i8 [ %new_cache.i515.sroa.0.3, %do.body28.i569 ], [ %new_cache.i515.sroa.0.3, %if.end.i1084 ], [ %new_cache.i515.sroa.0.3, %sw.bb1.i1033 ], [ %new_cache.i515.sroa.0.3, %sw.bb6.i ], [ %new_cache.i515.sroa.0.3, %sw.bb5.i ], [ %new_cache.i515.sroa.0.3, %sw.bb4.i ], [ %new_cache.i515.sroa.0.3, %sw.bb3.i ], [ %new_cache.i515.sroa.0.3, %sw.bb2.i1032 ], [ %new_cache.i515.sroa.0.3, %sw.bb.i1034 ], [ %new_cache.i515.sroa.0.3, %if.then12.i ], [ %.new_cache.i515.sroa.0.3, %if.else24.i ]
-  %reports.i655 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %80, i32 2
+  %reports.i655 = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 16
   %97 = load i32, ptr %reports.i655, align 8
   %cmp33.i.not = icmp ne i32 %97, -1
   %brmerge696.not746 = and i1 %tobool6.i.not, %cmp33.i.not
   %cmp72.i = icmp eq i32 %cacheable.i516.2, 1
   %or.cond697 = select i1 %brmerge696.not746, i1 %cmp72.i, i1 false
   %cacheable.i516.3 = select i1 %or.cond697, i32 0, i32 %cacheable.i516.2
-  %successors.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %80, i32 1
+  %successors.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 8
   %98 = load i64, ptr %successors.i, align 8
   %or.i656 = or i64 %98, %local_succ.i514.1
-  %hasSquash.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr.i71, i64 %80, i32 4
+  %hasSquash.i = getelementptr inbounds i8, ptr %arrayidx37.i585, i64 24
   %99 = load i8, ptr %hasSquash.i, align 8
   switch i8 %99, label %if.end41.i589 [
     i8 1, label %if.then86.i
@@ -5641,29 +5639,29 @@ with_accel.i:                                     ; preds = %if.end82.i, %if.end
 
 for.body.i.lr.ph:                                 ; preds = %with_accel.i
   %not.i = xor i64 %1, -1
-  %shift.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32
-  %shiftAmount.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34
-  %shiftCount.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 33
-  %arrayidx65.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 7
-  %arrayidx68.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 7
-  %arrayidx74.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 6
-  %arrayidx77.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 6
-  %arrayidx84.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 5
-  %arrayidx87.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 5
-  %arrayidx94.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 4
-  %arrayidx97.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 4
-  %arrayidx104.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 3
-  %arrayidx107.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 3
-  %arrayidx114.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 2
-  %arrayidx117.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 2
-  %arrayidx124.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 1
-  %arrayidx127.i = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 1
-  %cached_estate.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
-  %repeat_ctrl2.i936 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
-  %repeat_state5.i940 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 7
-  %cached_br57.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
-  %cached_esucc52.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 3
-  %cached_reports53.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 5
+  %shift.i = getelementptr inbounds i8, ptr %limex, i64 432
+  %shiftAmount.i = getelementptr inbounds i8, ptr %limex, i64 500
+  %shiftCount.i = getelementptr inbounds i8, ptr %limex, i64 496
+  %arrayidx65.i = getelementptr inbounds i8, ptr %limex, i64 488
+  %arrayidx68.i = getelementptr inbounds i8, ptr %limex, i64 507
+  %arrayidx74.i = getelementptr inbounds i8, ptr %limex, i64 480
+  %arrayidx77.i = getelementptr inbounds i8, ptr %limex, i64 506
+  %arrayidx84.i = getelementptr inbounds i8, ptr %limex, i64 472
+  %arrayidx87.i = getelementptr inbounds i8, ptr %limex, i64 505
+  %arrayidx94.i = getelementptr inbounds i8, ptr %limex, i64 464
+  %arrayidx97.i = getelementptr inbounds i8, ptr %limex, i64 504
+  %arrayidx104.i = getelementptr inbounds i8, ptr %limex, i64 456
+  %arrayidx107.i = getelementptr inbounds i8, ptr %limex, i64 503
+  %arrayidx114.i = getelementptr inbounds i8, ptr %limex, i64 448
+  %arrayidx117.i = getelementptr inbounds i8, ptr %limex, i64 502
+  %arrayidx124.i = getelementptr inbounds i8, ptr %limex, i64 440
+  %arrayidx127.i = getelementptr inbounds i8, ptr %limex, i64 501
+  %cached_estate.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %repeat_ctrl2.i936 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %repeat_state5.i940 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %cached_br57.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %cached_esucc52.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %cached_reports53.i = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.end137.i
@@ -5825,24 +5823,24 @@ do.body28.i:                                      ; preds = %if.end41.i, %do.bod
   %and.i.i = and i64 %124, %sub.i.i
   %127 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i), !range !11
   %arrayidx37.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %127
-  %trigger.i862 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %127, i32 5
+  %trigger.i862 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 25
   %128 = load i8, ptr %trigger.i862, align 1
   %cmp.i864.not = icmp eq i8 %128, 0
   br i1 %cmp.i864.not, label %if.end32.i865, label %if.then.i931
 
 if.then.i931:                                     ; preds = %do.body28.i
-  %repeatOffset.i932 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %127, i32 3
+  %repeatOffset.i932 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 20
   %129 = load i32, ptr %repeatOffset.i932, align 4
   %idx.ext.i933 = zext i32 %129 to i64
   %add.ptr.i934 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext.i933
   %add.ptr.i.i935 = getelementptr inbounds i8, ptr %add.ptr.i934, i64 24
   %130 = load ptr, ptr %repeat_ctrl2.i936, align 16
-  %ctrlIndex.i937 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i934, i64 0, i32 1
+  %ctrlIndex.i937 = getelementptr inbounds i8, ptr %add.ptr.i934, i64 4
   %131 = load i32, ptr %ctrlIndex.i937, align 4
   %idx.ext3.i938 = zext i32 %131 to i64
   %add.ptr4.i939 = getelementptr inbounds %union.RepeatControl, ptr %130, i64 %idx.ext3.i938
   %132 = load ptr, ptr %repeat_state5.i940, align 8
-  %stateOffset.i941 = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr.i934, i64 0, i32 3
+  %stateOffset.i941 = getelementptr inbounds i8, ptr %add.ptr.i934, i64 12
   %133 = load i32, ptr %stateOffset.i941, align 4
   %idx.ext6.i942 = zext i32 %133 to i64
   %add.ptr7.i943 = getelementptr inbounds i8, ptr %132, i64 %idx.ext6.i942
@@ -5980,17 +5978,17 @@ if.else24.i952:                                   ; preds = %if.else.i947, %if.e
 if.end32.i865:                                    ; preds = %if.else24.i952, %if.then12.i961, %sw.bb.i1065, %sw.bb2.i1063, %sw.bb3.i1062, %sw.bb4.i1061, %sw.bb5.i1060, %sw.bb6.i1059, %sw.bb1.i1064, %if.end.i1071, %do.body28.i
   %cacheable.i.2 = phi i32 [ %cacheable.i.1, %do.body28.i ], [ 2, %if.end.i1071 ], [ 2, %sw.bb1.i1064 ], [ 2, %sw.bb6.i1059 ], [ 2, %sw.bb5.i1060 ], [ 2, %sw.bb4.i1061 ], [ 2, %sw.bb3.i1062 ], [ 2, %sw.bb2.i1063 ], [ 2, %sw.bb.i1065 ], [ 2, %if.then12.i961 ], [ %cacheable.i.1., %if.else24.i952 ]
   %new_cache.i.sroa.0.5 = phi i8 [ %new_cache.i.sroa.0.4, %do.body28.i ], [ %new_cache.i.sroa.0.4, %if.end.i1071 ], [ %new_cache.i.sroa.0.4, %sw.bb1.i1064 ], [ %new_cache.i.sroa.0.4, %sw.bb6.i1059 ], [ %new_cache.i.sroa.0.4, %sw.bb5.i1060 ], [ %new_cache.i.sroa.0.4, %sw.bb4.i1061 ], [ %new_cache.i.sroa.0.4, %sw.bb3.i1062 ], [ %new_cache.i.sroa.0.4, %sw.bb2.i1063 ], [ %new_cache.i.sroa.0.4, %sw.bb.i1065 ], [ %new_cache.i.sroa.0.4, %if.then12.i961 ], [ %.new_cache.i.sroa.0.4, %if.else24.i952 ]
-  %reports.i866 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %127, i32 2
+  %reports.i866 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 16
   %144 = load i32, ptr %reports.i866, align 8
   %cmp33.i867.not = icmp ne i32 %144, -1
   %brmerge704.not747 = and i1 %tobool6.i307.not, %cmp33.i867.not
   %cmp72.i895 = icmp eq i32 %cacheable.i.2, 1
   %or.cond705 = select i1 %brmerge704.not747, i1 %cmp72.i895, i1 false
   %cacheable.i.3 = select i1 %or.cond705, i32 0, i32 %cacheable.i.2
-  %successors.i869 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %127, i32 1
+  %successors.i869 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 8
   %145 = load i64, ptr %successors.i869, align 8
   %or.i870 = or i64 %145, %local_succ.i.1
-  %hasSquash.i871 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr5.i, i64 %127, i32 4
+  %hasSquash.i871 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 24
   %146 = load i8, ptr %hasSquash.i871, align 8
   switch i8 %146, label %if.end41.i [
     i8 1, label %if.then86.i879
@@ -6109,7 +6107,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 if.end6.i16:                                      ; preds = %for.body.i
   %add.ptr.i18 = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %8 = load i32, ptr %stateOffset.i, align 4
   %idx.ext9.i = zext i32 %8 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr1, i64 %idx.ext9.i
@@ -6220,7 +6218,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx9.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i5, i64 %19
   %20 = load i8, ptr %arrayidx9.i.i, align 4
   %tobool.i.not.i = icmp eq i8 %20, 0
-  %reports2.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i5, i64 %19, i32 1
+  %reports2.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i, i64 4
   %21 = load i32, ptr %reports2.i.i, align 4
   br i1 %tobool.i.not.i, label %if.end.i7.i, label %if.then.i10.i
 
@@ -6236,7 +6234,7 @@ if.end.i7.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i22.not6.i, label %limexRunAccept.exit.i, label %for.body.i24.i
 
 for.cond.i21.i:                                   ; preds = %for.body.i24.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %reports.addr.i.07.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.07.i, i64 4
   %23 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i22.not.i = icmp eq i32 %23, -1
   br i1 %cmp.i22.not.i, label %limexRunAccept.exit.i, label %for.body.i24.i, !llvm.loop !12
@@ -6261,7 +6259,7 @@ moNfaTestEod64.exit:                              ; preds = %limexRunAccept.exit
 ; Function Attrs: nounwind uwtable
 define hidden noundef signext i8 @nfaExecLimEx64_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state.i, align 8
   %1 = load i64, ptr %0, align 8
   %accept.i = getelementptr inbounds i8, ptr %n, i64 416
@@ -6276,17 +6274,18 @@ if.then.i:                                        ; preds = %entry
   %3 = load i32, ptr %acceptOffset.i, align 8
   %idx.ext.i = zext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
-  %offset.i2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i2 = getelementptr inbounds i8, ptr %q, i64 32
   %4 = load i64, ptr %offset.i2, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %5 = load i32, ptr %cur.i, align 8
   %idxprom.i = zext i32 %5 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %6 = load i64, ptr %location.i, align 8
   %add.i = add i64 %6, %4
-  %cb.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb.i = getelementptr inbounds i8, ptr %q, i64 88
   %7 = load ptr, ptr %cb.i, align 8
-  %context.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context.i = getelementptr inbounds i8, ptr %q, i64 96
   %8 = load ptr, ptr %context.i, align 8
   br label %while.cond.i.i
 
@@ -6307,7 +6306,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx9.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i, i64 %10
   %11 = load i8, ptr %arrayidx9.i.i, align 4
   %tobool.i.not.i = icmp eq i8 %11, 0
-  %reports2.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i, i64 %10, i32 1
+  %reports2.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i, i64 4
   %12 = load i32, ptr %reports2.i.i, align 4
   br i1 %tobool.i.not.i, label %if.end.i7.i, label %if.then.i10.i
 
@@ -6323,7 +6322,7 @@ if.end.i7.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i22.not6.i, label %limexRunAccept.exit.i, label %for.body.i24.i
 
 for.cond.i21.i:                                   ; preds = %for.body.i24.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %reports.addr.i.07.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.07.i, i64 4
   %14 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i22.not.i = icmp eq i32 %14, -1
   br i1 %cmp.i22.not.i, label %limexRunAccept.exit.i, label %for.body.i24.i, !llvm.loop !12
@@ -6348,15 +6347,15 @@ moNfaReportCurrent64.exit:                        ; preds = %limexRunAccept.exit
 define hidden noundef signext i8 @nfaExecLimEx64_B_Reverse(ptr noundef %n, i64 noundef %offset, ptr nocapture noundef readonly %buf, i64 noundef %buflen, ptr nocapture noundef readonly %hbuf, i64 noundef %hlen, ptr noundef %cb, ptr noundef %context) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.NFAContext64, align 64
-  %repeat_ctrl = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 6
-  %callback = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 8
+  %repeat_ctrl = getelementptr inbounds i8, ptr %ctx, i64 48
+  %callback = getelementptr inbounds i8, ptr %ctx, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %repeat_ctrl, i8 0, i64 16, i1 false)
   store ptr %cb, ptr %callback, align 64
-  %context1 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 9
+  %context1 = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %context, ptr %context1, align 8
-  %cached_estate = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
+  %cached_estate = getelementptr inbounds i8, ptr %ctx, i64 16
   store i64 0, ptr %cached_estate, align 16
-  %cached_br = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
+  %cached_br = getelementptr inbounds i8, ptr %ctx, i64 32
   store i8 0, ptr %cached_br, align 32
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
   %init.i = getelementptr inbounds i8, ptr %n, i64 400
@@ -6426,7 +6425,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 if.end6.i32:                                      ; preds = %for.body.i
   %add.ptr.i34 = getelementptr inbounds %union.RepeatControl, ptr null, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %8 = load i32, ptr %stateOffset.i, align 4
   %idx.ext9.i = zext i32 %8 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr null, i64 %idx.ext9.i
@@ -6509,7 +6508,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx9.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i, i64 %14
   %15 = load i8, ptr %arrayidx9.i.i, align 4
   %tobool.i.not.i = icmp eq i8 %15, 0
-  %reports2.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i, i64 %14, i32 1
+  %reports2.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i, i64 4
   %16 = load i32, ptr %reports2.i.i, align 4
   br i1 %tobool.i.not.i, label %if.end.i7.i, label %if.then.i10.i
 
@@ -6525,7 +6524,7 @@ if.end.i7.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i22.not6.i, label %limexRunAccept.exit.i, label %for.body.i24.i
 
 for.cond.i21.i:                                   ; preds = %for.body.i24.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %reports.addr.i.07.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.07.i, i64 4
   %18 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i22.not.i = icmp eq i32 %18, -1
   br i1 %cmp.i22.not.i, label %limexRunAccept.exit.i, label %for.body.i24.i, !llvm.loop !12
@@ -6550,9 +6549,9 @@ if.end19:                                         ; preds = %limexRunAccept.exit
 define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %limex, i64 704
-  %exceptionMask1 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 29
+  %exceptionMask1 = getelementptr inbounds i8, ptr %limex, i64 408
   %0 = load i64, ptr %exceptionMask1, align 8
-  %exceptionOffset = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 11
+  %exceptionOffset = getelementptr inbounds i8, ptr %limex, i64 296
   %1 = load i32, ptr %exceptionOffset, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %limex, i64 %idx.ext
@@ -6562,29 +6561,29 @@ entry:
   br i1 %cmp.not255, label %for.end, label %do.end.lr.ph
 
 do.end.lr.ph:                                     ; preds = %entry
-  %shift = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32
-  %shiftAmount = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34
-  %shiftCount = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 33
-  %arrayidx10 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 7
-  %arrayidx13 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 7
-  %arrayidx19 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 6
-  %arrayidx22 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 6
-  %arrayidx29 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 5
-  %arrayidx32 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 5
-  %arrayidx39 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 4
-  %arrayidx42 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 4
-  %arrayidx49 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 3
-  %arrayidx52 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 3
-  %arrayidx59 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 2
-  %arrayidx62 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 2
-  %arrayidx69 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 32, i64 1
-  %arrayidx72 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 34, i64 1
-  %cached_estate.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 2
-  %callback.i149 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 8
-  %context.i150 = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 9
-  %cached_esucc52.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 3
-  %cached_reports53.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 5
-  %cached_br.i = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 4
+  %shift = getelementptr inbounds i8, ptr %limex, i64 432
+  %shiftAmount = getelementptr inbounds i8, ptr %limex, i64 500
+  %shiftCount = getelementptr inbounds i8, ptr %limex, i64 496
+  %arrayidx10 = getelementptr inbounds i8, ptr %limex, i64 488
+  %arrayidx13 = getelementptr inbounds i8, ptr %limex, i64 507
+  %arrayidx19 = getelementptr inbounds i8, ptr %limex, i64 480
+  %arrayidx22 = getelementptr inbounds i8, ptr %limex, i64 506
+  %arrayidx29 = getelementptr inbounds i8, ptr %limex, i64 472
+  %arrayidx32 = getelementptr inbounds i8, ptr %limex, i64 505
+  %arrayidx39 = getelementptr inbounds i8, ptr %limex, i64 464
+  %arrayidx42 = getelementptr inbounds i8, ptr %limex, i64 504
+  %arrayidx49 = getelementptr inbounds i8, ptr %limex, i64 456
+  %arrayidx52 = getelementptr inbounds i8, ptr %limex, i64 503
+  %arrayidx59 = getelementptr inbounds i8, ptr %limex, i64 448
+  %arrayidx62 = getelementptr inbounds i8, ptr %limex, i64 502
+  %arrayidx69 = getelementptr inbounds i8, ptr %limex, i64 440
+  %arrayidx72 = getelementptr inbounds i8, ptr %limex, i64 501
+  %cached_estate.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %callback.i149 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %context.i150 = getelementptr inbounds i8, ptr %ctx, i64 72
+  %cached_esucc52.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %cached_reports53.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %cached_br.i = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %do.end
 
 do.end:                                           ; preds = %do.end.lr.ph, %if.end81
@@ -6710,7 +6709,7 @@ if.then2.i:                                       ; preds = %if.then.i118
   br i1 %cmp.i.i.not.not253, label %if.end81, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %reports.addr.i.i.0254, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %reports.addr.i.i.0254, i64 4
   %26 = load i32, ptr %incdec.ptr.i.i, align 4
   %cmp.i.i.not.not = icmp eq i32 %26, -1
   br i1 %cmp.i.i.not.not, label %if.end81, label %for.body.i.i, !llvm.loop !12
@@ -6751,7 +6750,7 @@ do.body28.i:                                      ; preds = %if.end41.i, %do.bod
   %and.i.i = and i64 %28, %sub.i.i
   %31 = tail call i64 @llvm.ctpop.i64(i64 %and.i.i), !range !11
   %arrayidx37.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr, i64 %31
-  %reports.i147 = getelementptr inbounds %struct.NFAException64, ptr %add.ptr, i64 %31, i32 2
+  %reports.i147 = getelementptr inbounds i8, ptr %arrayidx37.i, i64 16
   %32 = load i32, ptr %reports.i147, align 8
   %cmp33.i.not = icmp eq i32 %32, -1
   br i1 %cmp33.i.not, label %if.end77.i, label %if.then39.i
@@ -6766,7 +6765,7 @@ if.then39.i:                                      ; preds = %do.body28.i
   br i1 %cmp.i.i152.not.not251, label %if.end53.i, label %for.body.i.i161
 
 for.cond.i.i151:                                  ; preds = %for.body.i.i161
-  %incdec.ptr.i.i164 = getelementptr inbounds i32, ptr %reports.addr.i.i128.0252, i64 1
+  %incdec.ptr.i.i164 = getelementptr inbounds i8, ptr %reports.addr.i.i128.0252, i64 4
   %36 = load i32, ptr %incdec.ptr.i.i164, align 4
   %cmp.i.i152.not.not = icmp eq i32 %36, -1
   br i1 %cmp.i.i152.not.not, label %if.end53.i, label %for.body.i.i161, !llvm.loop !12
@@ -6793,10 +6792,10 @@ if.then56.i158:                                   ; preds = %if.end53.i
 if.end77.i:                                       ; preds = %if.then56.i158, %if.end53.i, %do.body28.i
   %cacheable.i.3 = phi i32 [ 0, %if.end53.i ], [ %cacheable.i.1, %do.body28.i ], [ %spec.select, %if.then56.i158 ]
   %new_cache.i.sroa.3192.3 = phi ptr [ %new_cache.i.sroa.3192.2, %if.end53.i ], [ %new_cache.i.sroa.3192.2, %do.body28.i ], [ %spec.select216, %if.then56.i158 ]
-  %successors.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr, i64 %31, i32 1
+  %successors.i = getelementptr inbounds i8, ptr %arrayidx37.i, i64 8
   %38 = load i64, ptr %successors.i, align 8
   %or.i148 = or i64 %38, %local_succ.i.1
-  %hasSquash.i = getelementptr inbounds %struct.NFAException64, ptr %add.ptr, i64 %31, i32 4
+  %hasSquash.i = getelementptr inbounds i8, ptr %arrayidx37.i, i64 24
   %39 = load i8, ptr %hasSquash.i, align 8
   switch i8 %39, label %if.end41.i [
     i8 1, label %if.then86.i
@@ -6848,13 +6847,13 @@ if.end81:                                         ; preds = %for.cond.i.i, %if.t
 for.end:                                          ; preds = %if.end81, %entry
   %s.0.lcssa = phi i64 [ %2, %entry ], [ %and86, %if.end81 ]
   store i64 %s.0.lcssa, ptr %ctx, align 64
-  %accept = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 22
+  %accept = getelementptr inbounds i8, ptr %limex, i64 352
   %44 = load i64, ptr %accept, align 32
-  %acceptOffset = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 7
+  %acceptOffset = getelementptr inbounds i8, ptr %limex, i64 280
   %45 = load i32, ptr %acceptOffset, align 8
   %idx.ext88 = zext i32 %45 to i64
   %add.ptr89 = getelementptr inbounds i8, ptr %limex, i64 %idx.ext88
-  %acceptCount90 = getelementptr inbounds %struct.LimExNFA64, ptr %limex, i64 0, i32 6
+  %acceptCount90 = getelementptr inbounds i8, ptr %limex, i64 276
   %46 = load i32, ptr %acceptCount90, align 4
   %tobool91.not = icmp eq i32 %46, 0
   %and93 = and i64 %44, %s.0.lcssa
@@ -6863,9 +6862,9 @@ for.end:                                          ; preds = %if.end81, %entry
   br i1 %or.cond215, label %return, label %if.then99
 
 if.then99:                                        ; preds = %for.end
-  %callback = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 8
+  %callback = getelementptr inbounds i8, ptr %ctx, i64 64
   %47 = load ptr, ptr %callback, align 64
-  %context = getelementptr inbounds %struct.NFAContext64, ptr %ctx, i64 0, i32 9
+  %context = getelementptr inbounds i8, ptr %ctx, i64 72
   %48 = load ptr, ptr %context, align 8
   br label %while.cond.i.i
 
@@ -6886,7 +6885,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %arrayidx9.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr89, i64 %50
   %51 = load i8, ptr %arrayidx9.i.i, align 4
   %tobool.i.not.i = icmp eq i8 %51, 0
-  %reports2.i.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr89, i64 %50, i32 1
+  %reports2.i.i = getelementptr inbounds i8, ptr %arrayidx9.i.i, i64 4
   %52 = load i32, ptr %reports2.i.i, align 4
   br i1 %tobool.i.not.i, label %if.end.i7.i, label %if.then.i10.i
 
@@ -6902,7 +6901,7 @@ if.end.i7.i:                                      ; preds = %while.body.i.i
   br i1 %cmp.i22.not6.i, label %limexRunAccept.exit.i, label %for.body.i24.i
 
 for.cond.i21.i:                                   ; preds = %for.body.i24.i
-  %incdec.ptr.i.i223 = getelementptr inbounds i32, ptr %reports.addr.i.07.i, i64 1
+  %incdec.ptr.i.i223 = getelementptr inbounds i8, ptr %reports.addr.i.07.i, i64 4
   %54 = load i32, ptr %incdec.ptr.i.i223, align 4
   %cmp.i22.not.i = icmp eq i32 %54, -1
   br i1 %cmp.i22.not.i, label %limexRunAccept.exit.i, label %for.body.i24.i, !llvm.loop !12
@@ -6927,23 +6926,24 @@ return:                                           ; preds = %for.body.i.i, %for.
 define hidden noundef signext i8 @nfaExecLimEx64_inAccept(ptr noundef %nfa, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %streamState, align 8
   %stateSize = getelementptr inbounds i8, ptr %nfa, i64 388
   %2 = load i32, ptr %stateSize, align 4
   %idx.ext = zext i32 %2 to i64
   %add.ptr1 = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   %3 = load i64, ptr %0, align 8
-  %offset4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset4 = getelementptr inbounds i8, ptr %q, i64 32
   %4 = load i64, ptr %offset4, align 8
-  %end.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %end.i = getelementptr inbounds i8, ptr %q, i64 12
   %5 = load i32, ptr %end.i, align 4
   %sub.i = add i32 %5, -1
   %idxprom.i12 = zext i32 %sub.i to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i12, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i12, i32 1
   %6 = load i64, ptr %location.i, align 8
   %add = add i64 %4, 1
   %add6 = add i64 %add, %6
@@ -6982,7 +6982,7 @@ for.body.i25:                                     ; preds = %for.body.i25.lr.ph,
 
 if.end6.i:                                        ; preds = %for.body.i25
   %add.ptr.i28 = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %12 = load i32, ptr %stateOffset.i, align 4
   %idx.ext9.i = zext i32 %12 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr1, i64 %idx.ext9.i
@@ -7088,7 +7088,7 @@ while.body.i:                                     ; preds = %while.cond.i
   %arrayidx12.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i10, i64 %23
   %24 = load i8, ptr %arrayidx12.i, align 4
   %tobool.i76.not = icmp eq i8 %24, 0
-  %reports2.i = getelementptr inbounds %struct.NFAAccept, ptr %add.ptr.i10, i64 %23, i32 1
+  %reports2.i = getelementptr inbounds i8, ptr %arrayidx12.i, i64 4
   %25 = load i32, ptr %reports2.i, align 4
   br i1 %tobool.i76.not, label %if.end.i77, label %if.then.i82
 
@@ -7110,7 +7110,7 @@ do.body.i:                                        ; preds = %if.end6.i80, %if.en
   br i1 %cmp3.i, label %limexInAccept64.exit, label %if.end6.i80
 
 if.end6.i80:                                      ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %reports1.i.0, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %reports1.i.0, i64 4
   %27 = load i32, ptr %incdec.ptr.i, align 4
   %cmp7.i.not = icmp eq i32 %27, -1
   br i1 %cmp7.i.not, label %limexAcceptHasReport.exit, label %do.body.i, !llvm.loop !25
@@ -7129,23 +7129,24 @@ limexInAccept64.exit:                             ; preds = %limexAcceptHasRepor
 define hidden signext i8 @nfaExecLimEx64_inAnyAccept(ptr noundef %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %1 = load ptr, ptr %streamState, align 8
   %stateSize = getelementptr inbounds i8, ptr %nfa, i64 388
   %2 = load i32, ptr %stateSize, align 4
   %idx.ext = zext i32 %2 to i64
   %add.ptr1 = getelementptr inbounds i8, ptr %1, i64 %idx.ext
   %3 = load i64, ptr %0, align 8
-  %offset4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset4 = getelementptr inbounds i8, ptr %q, i64 32
   %4 = load i64, ptr %offset4, align 8
-  %end.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 2
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %end.i = getelementptr inbounds i8, ptr %q, i64 12
   %5 = load i32, ptr %end.i, align 4
   %sub.i = add i32 %5, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %6 = load i64, ptr %location.i, align 8
   %add = add i64 %4, 1
   %add6 = add i64 %add, %6
@@ -7184,7 +7185,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 if.end6.i:                                        ; preds = %for.body.i
   %add.ptr.i17 = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %12 = load i32, ptr %stateOffset.i, align 4
   %idx.ext9.i = zext i32 %12 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr1, i64 %idx.ext9.i
@@ -7279,7 +7280,7 @@ limexInAnyAccept64.exit:                          ; preds = %if.end.i, %lazyTug6
 define hidden i32 @nfaExecLimEx64_zombie_status(ptr noundef %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %nfa, i64 64
-  %state1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state1 = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state1, align 8
   %1 = load i64, ptr %0, align 8
   %zombieMask = getelementptr inbounds i8, ptr %nfa, i64 488
@@ -7290,12 +7291,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %entry
-  %offset2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset2 = getelementptr inbounds i8, ptr %q, i64 32
   %4 = load i64, ptr %offset2, align 8
   %add = add i64 %loc, 1
   %add3 = add i64 %add, %4
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %5 = load ptr, ptr %streamState, align 8
   %stateSize = getelementptr inbounds i8, ptr %nfa, i64 388
   %6 = load i32, ptr %stateSize, align 4
@@ -7323,7 +7324,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 
 if.end6.i:                                        ; preds = %for.body.i
   %add.ptr.i8 = getelementptr inbounds %union.RepeatControl, ptr %add.ptr.i, i64 %indvars.iv
-  %stateOffset.i = getelementptr inbounds %struct.NFARepeatInfo, ptr %add.ptr3.i.i, i64 0, i32 3
+  %stateOffset.i = getelementptr inbounds i8, ptr %add.ptr3.i.i, i64 12
   %10 = load i32, ptr %stateOffset.i, align 4
   %idx.ext9.i = zext i32 %10 to i64
   %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr5, i64 %idx.ext9.i

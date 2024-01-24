@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.node::tracing::TracedValue" = type <{ %"class.v8::ConvertableToTraceFormat", %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
-%"class.v8::ConvertableToTraceFormat" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -62,11 +60,11 @@ define dso_local void @_ZN4node7tracing11TracedValue6CreateEv(ptr noalias nocapt
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %call, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_.i) #10
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %call, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %first_item_.i, align 8
-  %root_is_array_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %call, i64 0, i32 3
+  %root_is_array_.i = getelementptr inbounds i8, ptr %call, i64 41
   store i8 0, ptr %root_is_array_.i, align 1
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -80,11 +78,11 @@ define dso_local void @_ZN4node7tracing11TracedValue11CreateArrayEv(ptr noalias 
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %call, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_.i) #10
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %call, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %first_item_.i, align 8
-  %root_is_array_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %call, i64 0, i32 3
+  %root_is_array_.i = getelementptr inbounds i8, ptr %call, i64 41
   store i8 1, ptr %root_is_array_.i, align 1
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -95,11 +93,11 @@ define dso_local void @_ZN4node7tracing11TracedValueC2Eb(ptr noundef nonnull ali
 entry:
   %frombool = zext i1 %root_is_array to i8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #10
-  %first_item_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %first_item_, align 8
-  %root_is_array_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 3
+  %root_is_array_ = getelementptr inbounds i8, ptr %this, i64 41
   store i8 %frombool, ptr %root_is_array_, align 1
   ret void
 }
@@ -111,7 +109,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define dso_local void @_ZN4node7tracing11TracedValue10SetIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name, i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %first_item_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -122,12 +120,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
@@ -140,7 +138,7 @@ _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.el
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue9WriteNameEPKc(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -151,12 +149,12 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_, i8 noundef signext 34) #10
   %call3 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef %name) #10
   %call5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull @.str.3) #10
@@ -284,7 +282,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN4node7tracing11TracedValue9SetDoubleEPKcd(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name, double noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %first_item_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -295,12 +293,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
@@ -379,7 +377,7 @@ return:                                           ; preds = %sw.default, %sw.bb3
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue10SetBooleanEPKcb(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name, i1 noundef zeroext %value) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -390,12 +388,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
@@ -409,7 +407,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue7SetNullEPKc(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -420,12 +418,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
@@ -437,7 +435,7 @@ _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.el
 define dso_local void @_ZN4node7tracing11TracedValue9SetStringEPKcS3_(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %first_item_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -448,12 +446,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
@@ -661,7 +659,7 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue15BeginDictionaryEPKc(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -672,12 +670,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
@@ -691,7 +689,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue10BeginArrayEPKc(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %name) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -702,12 +700,12 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %data_.i.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue9WriteNameEPKc.exit
 
 _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 34) #10
   %call3.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef %name) #10
   %call5.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, ptr noundef nonnull @.str.3) #10
@@ -720,7 +718,7 @@ _ZN4node7tracing11TracedValue9WriteNameEPKc.exit: ; preds = %if.then.i.i, %if.el
 define dso_local void @_ZN4node7tracing11TracedValue13AppendIntegerEi(ptr noundef nonnull align 8 dereferenceable(42) %this, i32 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -731,13 +729,13 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %value) #10
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   ret void
@@ -746,7 +744,7 @@ _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue10WriteCommaEv(ptr noundef nonnull align 8 dereferenceable(42) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -757,7 +755,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_, i8 noundef signext 44) #10
   br label %if.end
 
@@ -769,7 +767,7 @@ if.end:                                           ; preds = %if.else, %if.then
 define dso_local void @_ZN4node7tracing11TracedValue12AppendDoubleEd(ptr noundef nonnull align 8 dereferenceable(42) %this, double noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -780,13 +778,13 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
   call fastcc void @_ZN4node7tracing12_GLOBAL__N_115DoubleToCStringB5cxx11Ed(ptr noalias nonnull align 8 %ref.tmp, double noundef %value)
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   ret void
@@ -795,7 +793,7 @@ _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue13AppendBooleanEb(ptr noundef nonnull align 8 dereferenceable(42) %this, i1 noundef zeroext %value) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -806,13 +804,13 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
   %cond = select i1 %value, ptr @.str, ptr @.str.1
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull %cond) #10
   ret void
 }
@@ -820,7 +818,7 @@ _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue10AppendNullEv(ptr noundef nonnull align 8 dereferenceable(42) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -831,12 +829,12 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull @.str.2) #10
   ret void
 }
@@ -845,7 +843,7 @@ _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else
 define dso_local void @_ZN4node7tracing11TracedValue12AppendStringEPKc(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %value) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -856,13 +854,13 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
   call fastcc void @_ZN4node7tracing12_GLOBAL__N_112EscapeStringB5cxx11EPKc(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %value)
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %data_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
   ret void
@@ -871,7 +869,7 @@ _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue15BeginDictionaryEv(ptr noundef nonnull align 8 dereferenceable(42) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -882,12 +880,12 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_, i8 noundef signext 123) #10
   store i8 1, ptr %first_item_.i, align 8
   ret void
@@ -896,7 +894,7 @@ _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue10BeginArrayEv(ptr noundef nonnull align 8 dereferenceable(42) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %first_item_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %first_item_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -907,12 +905,12 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_.i, i8 noundef signext 44) #10
   br label %_ZN4node7tracing11TracedValue10WriteCommaEv.exit
 
 _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else.i
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_, i8 noundef signext 91) #10
   store i8 1, ptr %first_item_.i, align 8
   ret void
@@ -921,9 +919,9 @@ _ZN4node7tracing11TracedValue10WriteCommaEv.exit: ; preds = %if.then.i, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue13EndDictionaryEv(ptr noundef nonnull align 8 dereferenceable(42) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_, i8 noundef signext 125) #10
-  %first_item_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %first_item_, align 8
   ret void
 }
@@ -931,9 +929,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing11TracedValue8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(42) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %data_, i8 noundef signext 93) #10
-  %first_item_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 2
+  %first_item_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %first_item_, align 8
   ret void
 }
@@ -941,13 +939,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4node7tracing11TracedValue19AppendAsTraceFormatEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef nonnull %out) unnamed_addr #0 align 2 {
 entry:
-  %root_is_array_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 3
+  %root_is_array_ = getelementptr inbounds i8, ptr %this, i64 41
   %0 = load i8, ptr %root_is_array_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, i8 123, i8 91
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %cond) #10
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %data_) #10
   %2 = load i8, ptr %root_is_array_, align 1
   %3 = and i8 %2, 1
@@ -961,7 +959,7 @@ entry:
 define linkonce_odr dso_local void @_ZN4node7tracing11TracedValueD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data_ = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #10
   ret void
 }
@@ -970,7 +968,7 @@ entry:
 define linkonce_odr dso_local void @_ZN4node7tracing11TracedValueD0Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %data_.i = getelementptr inbounds %"class.node::tracing::TracedValue", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_.i) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void

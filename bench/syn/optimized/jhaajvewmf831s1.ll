@@ -32,14 +32,14 @@ define void @_ZN3syn8lifetime8Lifetime3new17h7740def9bf9a632aE(ptr nocapture wri
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %11 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %2, ptr %12, align 8
   %13 = tail call zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$11starts_with17hbc85684b492c7e3bE"(ptr align 1 %1, i64 %2, i32 39)
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %4
   store ptr %11, ptr %9, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hac33aaf5c662eceaE", ptr %15, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %10, ptr nonnull align 8 @anon.34aaa6b3f9059bd957605d0485a3997a.1, i64 1, ptr nonnull align 8 %9, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %10, ptr nonnull align 8 @anon.34aaa6b3f9059bd957605d0485a3997a.3) #6
@@ -65,7 +65,7 @@ define void @_ZN3syn8lifetime8Lifetime3new17h7740def9bf9a632aE(ptr nocapture wri
 
 26:                                               ; preds = %18
   store ptr %11, ptr %6, align 8
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hac33aaf5c662eceaE", ptr %27, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr nonnull align 8 @anon.34aaa6b3f9059bd957605d0485a3997a.9, i64 2, ptr nonnull align 8 %6, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.34aaa6b3f9059bd957605d0485a3997a.10) #6
@@ -78,7 +78,7 @@ define void @_ZN3syn8lifetime8Lifetime3new17h7740def9bf9a632aE(ptr nocapture wri
   %32 = extractvalue { ptr, i64 } %31, 0
   %33 = extractvalue { ptr, i64 } %31, 1
   call void @_ZN11proc_macro25Ident3new17h6262d8da01557c93E(ptr nonnull sret({ { [24 x i8], i8, [7 x i8] }, {} }) align 8 %5, ptr align 1 %32, i64 %33, i32 %3, ptr nonnull align 8 @anon.34aaa6b3f9059bd957605d0485a3997a.12)
-  %34 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %3, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   ret void
@@ -86,7 +86,7 @@ define void @_ZN3syn8lifetime8Lifetime3new17h7740def9bf9a632aE(ptr nocapture wri
 
 ; Function Attrs: nonlazybind uwtable
 define i32 @_ZN3syn8lifetime8Lifetime4span17h636e1d3328790182E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = tail call i32 @_ZN11proc_macro25Ident4span17h61432050d2e270edE(ptr align 8 %0)
   %4 = tail call { i32, i32 } @_ZN11proc_macro24Span4join17he66dba7b6ce67b7fE(ptr nonnull align 4 %2, i32 %3)
   %5 = extractvalue { i32, i32 } %4, 0
@@ -98,7 +98,7 @@ define i32 @_ZN3syn8lifetime8Lifetime4span17h636e1d3328790182E(ptr align 8 %0) u
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn8lifetime8Lifetime8set_span17he4aa6dc660673af0E(ptr align 8 %0, i32 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   tail call void @_ZN11proc_macro25Ident8set_span17hc40890a1a72f86e2E(ptr align 8 %0, i32 %1)
   ret void
@@ -126,10 +126,10 @@ define zeroext i1 @"_ZN62_$LT$syn..lifetime..Lifetime$u20$as$u20$core..fmt..Disp
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN62_$LT$syn..lifetime..Lifetime$u20$as$u20$core..clone..Clone$GT$5clone17hf841b20d9a92b68dE"(ptr nocapture writeonly sret({ { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { [24 x i8], i8, [7 x i8] }, {} }, align 8
-  %4 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8, !noundef !5
   call void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..clone..Clone$GT$5clone17ha68ef58bbfbf9cb0E"(ptr nonnull sret({ { [24 x i8], i8, [7 x i8] }, {} }) align 8 %3, ptr align 8 %1)
-  %6 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %5, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
@@ -164,7 +164,7 @@ define void @"_ZN3syn8lifetime8printing80_$LT$impl$u20$quote..to_tokens..ToToken
   %3 = alloca { i32, i32, i8, [3 x i8] }, align 4
   %4 = alloca { i32, i32, i8, [3 x i8] }, align 4
   call void @_ZN11proc_macro25Punct3new17hfbc09317808ee666E(ptr nonnull sret({ i32, i32, i8, [3 x i8] }) align 4 %4, i32 39, i1 zeroext true)
-  %5 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !noundef !5
   call void @_ZN11proc_macro25Punct8set_span17hbad995c90a878e5fE(ptr nonnull align 4 %4, i32 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false)

@@ -18,7 +18,7 @@ define void @"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..t
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { i32, i32 }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @"_ZN64_$LT$syn..token..Const$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd30ca781e6a43ca4E"(ptr nonnull align 4 %10, ptr align 8 %1)
   br label %11
 
@@ -41,7 +41,7 @@ define void @"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..t
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @"_ZN61_$LT$syn..token..Gt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h18db3d17e9971aa0E"(ptr nonnull align 4 %10, ptr align 8 %1)
   br label %11
 
@@ -64,7 +64,7 @@ define void @"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..t
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @"_ZN61_$LT$syn..token..Lt$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h0056ca0852a7b15aE"(ptr nonnull align 4 %10, ptr align 8 %1)
   br label %11
 
@@ -87,7 +87,7 @@ define void @"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..t
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { i32, i32 }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @"_ZN61_$LT$syn..token..As$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h301d70ee315ec8d2E"(ptr nonnull align 4 %10, ptr align 8 %1)
   br label %11
 
@@ -110,7 +110,7 @@ define void @"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..t
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @"_ZN63_$LT$syn..token..Semi$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h35ab3901d00fdd0bE"(ptr nonnull align 4 %10, ptr align 8 %1)
   br label %11
 
@@ -133,7 +133,7 @@ define void @"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..t
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @"_ZN61_$LT$syn..token..Eq$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3789700e9803fd82E"(ptr nonnull align 4 %10, ptr align 8 %1)
   br label %11
 
@@ -156,7 +156,7 @@ define void @"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..t
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i32], { [1 x i32] } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 4
   tail call void @"_ZN64_$LT$syn..token..Colon$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9770c2e867b1b94eE"(ptr nonnull align 4 %10, ptr align 8 %1)
   br label %11
 

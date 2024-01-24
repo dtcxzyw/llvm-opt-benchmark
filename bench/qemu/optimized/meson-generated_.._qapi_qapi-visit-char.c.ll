@@ -4,27 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.ChardevInfo = type { ptr, ptr, i8 }
-%struct.ChardevInfoList = type { ptr, ptr }
-%struct.ChardevBackendInfoList = type { ptr, ptr }
-%struct.q_obj_ringbuf_write_arg = type { ptr, ptr, i8, i32 }
-%struct.q_obj_ringbuf_read_arg = type { ptr, i64, i8, i32 }
-%struct.ChardevCommon = type { ptr, i8, i8 }
-%struct.ChardevFile = type { ptr, i8, i8, ptr, ptr, i8, i8 }
-%struct.ChardevHostdev = type { ptr, i8, i8, ptr }
-%struct.ChardevSocket = type { ptr, i8, i8, ptr, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64 }
-%struct.ChardevUdp = type { ptr, i8, i8, ptr, ptr }
-%struct.ChardevMux = type { ptr, i8, i8, ptr }
-%struct.ChardevStdio = type { ptr, i8, i8, i8, i8 }
-%struct.ChardevDBus = type { ptr, i8, i8, ptr }
-%struct.ChardevVC = type { ptr, i8, i8, i8, i64, i8, i64, i8, i64, i8, i64 }
-%struct.ChardevRingbuf = type { ptr, i8, i8, i8, i64 }
-%struct.ChardevBackend = type { i32, %union.anon }
-%union.anon = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.q_obj_chardev_add_arg = type { ptr, ptr }
-%struct.q_obj_chardev_change_arg = type { ptr, ptr }
-%struct.q_obj_VSERPORT_CHANGE_arg = type { ptr, i8 }
 
 @.str = private unnamed_addr constant [6 x i8] c"label\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"filename\00", align 1
@@ -99,12 +78,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %filename = getelementptr inbounds %struct.ChardevInfo, ptr %obj, i64 0, i32 1
+  %filename = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %filename, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %frontend_open = getelementptr inbounds %struct.ChardevInfo, ptr %obj, i64 0, i32 2
+  %frontend_open = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %frontend_open, ptr noundef %errp) #4
   br label %return
 
@@ -118,7 +97,7 @@ declare zeroext i1 @visit_type_str(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare zeroext i1 @visit_type_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -145,12 +124,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %filename.i = getelementptr inbounds %struct.ChardevInfo, ptr %0, i64 0, i32 1
+  %filename.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %filename.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_ChardevInfo_members.exit, label %out_obj.thread
 
 visit_type_ChardevInfo_members.exit:              ; preds = %if.end.i
-  %frontend_open.i = getelementptr inbounds %struct.ChardevInfo, ptr %0, i64 0, i32 2
+  %frontend_open.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %frontend_open.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -194,7 +173,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_ChardevInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -206,7 +185,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.ChardevInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_ChardevInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -257,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevBackendInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevBackendInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -310,7 +289,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevBackendInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevBackendInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevBackendInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -322,7 +301,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.ChardevBackendInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_ChardevBackendInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -372,24 +351,24 @@ entry:
 declare zeroext i1 @visit_type_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_ringbuf_write_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_ringbuf_write_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.q_obj_ringbuf_write_arg, ptr %obj, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %data, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_format = getelementptr inbounds %struct.q_obj_ringbuf_write_arg, ptr %obj, i64 0, i32 2
+  %has_format = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_format) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %format = getelementptr inbounds %struct.q_obj_ringbuf_write_arg, ptr %obj, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %format, align 4
   store i32 %0, ptr %value.i, align 4
@@ -410,24 +389,24 @@ return:                                           ; preds = %if.then5, %if.end, 
 declare zeroext i1 @visit_optional(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_ringbuf_read_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_ringbuf_read_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.q_obj_ringbuf_read_arg, ptr %obj, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_format = getelementptr inbounds %struct.q_obj_ringbuf_read_arg, ptr %obj, i64 0, i32 2
+  %has_format = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_format) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %format = getelementptr inbounds %struct.q_obj_ringbuf_read_arg, ptr %obj, i64 0, i32 3
+  %format = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %format, align 4
   store i32 %0, ptr %value.i, align 4
@@ -448,7 +427,7 @@ return:                                           ; preds = %if.then5, %if.end, 
 declare zeroext i1 @visit_type_int(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevCommon_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevCommon_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -463,12 +442,12 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %has_logappend = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend) #4
   br i1 %call6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end5
-  %logappend = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend = getelementptr inbounds i8, ptr %obj, i64 9
   %call8 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend, ptr noundef %errp) #4
   br i1 %call8, label %if.end11, label %return
 
@@ -481,7 +460,7 @@ return:                                           ; preds = %if.then7, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
@@ -518,12 +497,12 @@ if.then.i:                                        ; preds = %if.end5
   br i1 %call3.i, label %if.end5.i, label %out_obj.thread16
 
 if.end5.i:                                        ; preds = %if.then.i, %if.end5
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %0, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %out_obj
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %0, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %out_obj, label %out_obj.thread16
 
@@ -556,11 +535,11 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevCommon(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevFile_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevFile_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i = alloca i8, align 1
   %has_in = alloca i8, align 1
-  %in = getelementptr inbounds %struct.ChardevFile, ptr %obj, i64 0, i32 3
+  %in = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %in, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -578,12 +557,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -601,17 +580,17 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %out = getelementptr inbounds %struct.ChardevFile, ptr %obj, i64 0, i32 4
+  %out = getelementptr inbounds i8, ptr %obj, i64 24
   %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %out, ptr noundef %errp) #4
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %has_append = getelementptr inbounds %struct.ChardevFile, ptr %obj, i64 0, i32 5
+  %has_append = getelementptr inbounds i8, ptr %obj, i64 32
   %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %has_append) #4
   br i1 %call12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11
-  %append = getelementptr inbounds %struct.ChardevFile, ptr %obj, i64 0, i32 6
+  %append = getelementptr inbounds i8, ptr %obj, i64 33
   %call14 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %append, ptr noundef %errp) #4
   br i1 %call14, label %if.end17, label %return
 
@@ -624,7 +603,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevFile(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevFile(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -693,12 +672,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -708,7 +687,7 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %device = getelementptr inbounds %struct.ChardevHostdev, ptr %obj, i64 0, i32 3
+  %device = getelementptr inbounds i8, ptr %obj, i64 16
   %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %device, ptr noundef %errp) #4
   br label %return
 
@@ -718,7 +697,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
@@ -755,12 +734,12 @@ if.then.i.i:                                      ; preds = %if.end5
   br i1 %call3.i.i, label %if.end5.i.i, label %visit_type_ChardevHostdev_members.exit.thread
 
 if.end5.i.i:                                      ; preds = %if.then.i.i, %if.end5
-  %has_logappend.i.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 1
+  %has_logappend.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %call6.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i.i) #4
   br i1 %call6.i.i, label %if.then7.i.i, label %visit_type_ChardevHostdev_members.exit
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
-  %logappend.i.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 2
+  %logappend.i.i = getelementptr inbounds i8, ptr %0, i64 9
   %call8.i.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i.i, ptr noundef %errp) #4
   br i1 %call8.i.i, label %visit_type_ChardevHostdev_members.exit, label %visit_type_ChardevHostdev_members.exit.thread
 
@@ -770,7 +749,7 @@ visit_type_ChardevHostdev_members.exit.thread:    ; preds = %if.then.i.i, %if.th
 
 visit_type_ChardevHostdev_members.exit:           ; preds = %if.end5.i.i, %if.then7.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i.i)
-  %device.i = getelementptr inbounds %struct.ChardevHostdev, ptr %0, i64 0, i32 3
+  %device.i = getelementptr inbounds i8, ptr %0, i64 16
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %device.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -801,17 +780,17 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_ChardevHostdev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevSocket_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevSocket_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i = alloca i8, align 1
   %has_tls_creds = alloca i8, align 1
   %has_tls_authz = alloca i8, align 1
-  %tls_creds = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 4
+  %tls_creds = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load ptr, ptr %tls_creds, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_tls_creds, align 1
-  %tls_authz = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 5
+  %tls_authz = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %tls_authz, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -829,12 +808,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -844,7 +823,7 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %addr = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 3
+  %addr = getelementptr inbounds i8, ptr %obj, i64 16
   %call6 = call zeroext i1 @visit_type_SocketAddressLegacy(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %addr, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
@@ -865,72 +844,72 @@ if.then17:                                        ; preds = %if.end15
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then17, %if.end15
-  %has_server = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 6
+  %has_server = getelementptr inbounds i8, ptr %obj, i64 40
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %has_server) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %server = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 7
+  %server = getelementptr inbounds i8, ptr %obj, i64 41
   %call25 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %server, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then24, %if.end22
-  %has_wait = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 8
+  %has_wait = getelementptr inbounds i8, ptr %obj, i64 42
   %call29 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_wait) #4
   br i1 %call29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end28
-  %wait = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 9
+  %wait = getelementptr inbounds i8, ptr %obj, i64 43
   %call31 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %wait, ptr noundef %errp) #4
   br i1 %call31, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.then30, %if.end28
-  %has_nodelay = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 10
+  %has_nodelay = getelementptr inbounds i8, ptr %obj, i64 44
   %call35 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_nodelay) #4
   br i1 %call35, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %if.end34
-  %nodelay = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 11
+  %nodelay = getelementptr inbounds i8, ptr %obj, i64 45
   %call37 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %nodelay, ptr noundef %errp) #4
   br i1 %call37, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.then36, %if.end34
-  %has_telnet = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 12
+  %has_telnet = getelementptr inbounds i8, ptr %obj, i64 46
   %call41 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_telnet) #4
   br i1 %call41, label %if.then42, label %if.end46
 
 if.then42:                                        ; preds = %if.end40
-  %telnet = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 13
+  %telnet = getelementptr inbounds i8, ptr %obj, i64 47
   %call43 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %telnet, ptr noundef %errp) #4
   br i1 %call43, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.then42, %if.end40
-  %has_tn3270 = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 14
+  %has_tn3270 = getelementptr inbounds i8, ptr %obj, i64 48
   %call47 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_tn3270) #4
   br i1 %call47, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %if.end46
-  %tn3270 = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 15
+  %tn3270 = getelementptr inbounds i8, ptr %obj, i64 49
   %call49 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %tn3270, ptr noundef %errp) #4
   br i1 %call49, label %if.end52, label %return
 
 if.end52:                                         ; preds = %if.then48, %if.end46
-  %has_websocket = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 16
+  %has_websocket = getelementptr inbounds i8, ptr %obj, i64 50
   %call53 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_websocket) #4
   br i1 %call53, label %if.then54, label %if.end58
 
 if.then54:                                        ; preds = %if.end52
-  %websocket = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 17
+  %websocket = getelementptr inbounds i8, ptr %obj, i64 51
   %call55 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %websocket, ptr noundef %errp) #4
   br i1 %call55, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.then54, %if.end52
-  %has_reconnect = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 18
+  %has_reconnect = getelementptr inbounds i8, ptr %obj, i64 52
   %call59 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_reconnect) #4
   br i1 %call59, label %if.then60, label %if.end64
 
 if.then60:                                        ; preds = %if.end58
-  %reconnect = getelementptr inbounds %struct.ChardevSocket, ptr %obj, i64 0, i32 19
+  %reconnect = getelementptr inbounds i8, ptr %obj, i64 56
   %call61 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %reconnect, ptr noundef %errp) #4
   br i1 %call61, label %if.end64, label %return
 
@@ -945,7 +924,7 @@ return:                                           ; preds = %visit_type_ChardevC
 declare zeroext i1 @visit_type_SocketAddressLegacy(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevSocket(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevSocket(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -998,11 +977,11 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevSocket(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevUdp_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevUdp_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i = alloca i8, align 1
   %has_local = alloca i8, align 1
-  %local = getelementptr inbounds %struct.ChardevUdp, ptr %obj, i64 0, i32 4
+  %local = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load ptr, ptr %local, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -1020,12 +999,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -1035,7 +1014,7 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %remote = getelementptr inbounds %struct.ChardevUdp, ptr %obj, i64 0, i32 3
+  %remote = getelementptr inbounds i8, ptr %obj, i64 16
   %call2 = call zeroext i1 @visit_type_SocketAddressLegacy(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %remote, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
@@ -1056,7 +1035,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevUdp(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevUdp(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1125,12 +1104,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -1140,7 +1119,7 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %chardev = getelementptr inbounds %struct.ChardevMux, ptr %obj, i64 0, i32 3
+  %chardev = getelementptr inbounds i8, ptr %obj, i64 16
   %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev, ptr noundef %errp) #4
   br label %return
 
@@ -1150,7 +1129,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevMux(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevMux(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
@@ -1187,12 +1166,12 @@ if.then.i.i:                                      ; preds = %if.end5
   br i1 %call3.i.i, label %if.end5.i.i, label %visit_type_ChardevMux_members.exit.thread
 
 if.end5.i.i:                                      ; preds = %if.then.i.i, %if.end5
-  %has_logappend.i.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 1
+  %has_logappend.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %call6.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i.i) #4
   br i1 %call6.i.i, label %if.then7.i.i, label %visit_type_ChardevMux_members.exit
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
-  %logappend.i.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 2
+  %logappend.i.i = getelementptr inbounds i8, ptr %0, i64 9
   %call8.i.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i.i, ptr noundef %errp) #4
   br i1 %call8.i.i, label %visit_type_ChardevMux_members.exit, label %visit_type_ChardevMux_members.exit.thread
 
@@ -1202,7 +1181,7 @@ visit_type_ChardevMux_members.exit.thread:        ; preds = %if.then.i.i, %if.th
 
 visit_type_ChardevMux_members.exit:               ; preds = %if.end5.i.i, %if.then7.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i.i)
-  %chardev.i = getelementptr inbounds %struct.ChardevMux, ptr %0, i64 0, i32 3
+  %chardev.i = getelementptr inbounds i8, ptr %0, i64 16
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1233,7 +1212,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_ChardevMux(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevStdio_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevStdio_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_logfile.i)
@@ -1249,12 +1228,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -1264,12 +1243,12 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %has_signal = getelementptr inbounds %struct.ChardevStdio, ptr %obj, i64 0, i32 3
+  %has_signal = getelementptr inbounds i8, ptr %obj, i64 10
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %has_signal) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %signal = getelementptr inbounds %struct.ChardevStdio, ptr %obj, i64 0, i32 4
+  %signal = getelementptr inbounds i8, ptr %obj, i64 11
   %call3 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %signal, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -1282,7 +1261,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevStdio(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevStdio(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1351,12 +1330,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -1366,7 +1345,7 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %name = getelementptr inbounds %struct.ChardevDBus, ptr %obj, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %obj, i64 16
   %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %name, ptr noundef %errp) #4
   br label %return
 
@@ -1376,7 +1355,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevDBus(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevDBus(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
@@ -1413,12 +1392,12 @@ if.then.i.i:                                      ; preds = %if.end5
   br i1 %call3.i.i, label %if.end5.i.i, label %visit_type_ChardevDBus_members.exit.thread
 
 if.end5.i.i:                                      ; preds = %if.then.i.i, %if.end5
-  %has_logappend.i.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 1
+  %has_logappend.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %call6.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i.i) #4
   br i1 %call6.i.i, label %if.then7.i.i, label %visit_type_ChardevDBus_members.exit
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
-  %logappend.i.i = getelementptr inbounds %struct.ChardevCommon, ptr %0, i64 0, i32 2
+  %logappend.i.i = getelementptr inbounds i8, ptr %0, i64 9
   %call8.i.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i.i, ptr noundef %errp) #4
   br i1 %call8.i.i, label %visit_type_ChardevDBus_members.exit, label %visit_type_ChardevDBus_members.exit.thread
 
@@ -1428,7 +1407,7 @@ visit_type_ChardevDBus_members.exit.thread:       ; preds = %if.then.i.i, %if.th
 
 visit_type_ChardevDBus_members.exit:              ; preds = %if.end5.i.i, %if.then7.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i.i)
-  %name.i = getelementptr inbounds %struct.ChardevDBus, ptr %0, i64 0, i32 3
+  %name.i = getelementptr inbounds i8, ptr %0, i64 16
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %name.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1459,7 +1438,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_ChardevDBus(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevVC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevVC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_logfile.i)
@@ -1475,12 +1454,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -1490,42 +1469,42 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %has_width = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 3
+  %has_width = getelementptr inbounds i8, ptr %obj, i64 10
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %has_width) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %width = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 4
+  %width = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %width, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_height = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 5
+  %has_height = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %has_height) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %height = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 6
+  %height = getelementptr inbounds i8, ptr %obj, i64 32
   %call9 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %height, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_cols = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 7
+  %has_cols = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_cols) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %cols = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 8
+  %cols = getelementptr inbounds i8, ptr %obj, i64 48
   %call15 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %cols, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_rows = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 9
+  %has_rows = getelementptr inbounds i8, ptr %obj, i64 56
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %has_rows) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %rows = getelementptr inbounds %struct.ChardevVC, ptr %obj, i64 0, i32 10
+  %rows = getelementptr inbounds i8, ptr %obj, i64 64
   %call21 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %rows, ptr noundef %errp) #4
   br i1 %call21, label %if.end24, label %return
 
@@ -1538,7 +1517,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevVC(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevVC(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 72, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1591,7 +1570,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevVC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevRingbuf_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevRingbuf_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_logfile.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_logfile.i)
@@ -1607,12 +1586,12 @@ if.then.i:                                        ; preds = %entry
   br i1 %call3.i, label %if.end5.i, label %visit_type_ChardevCommon_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %entry
-  %has_logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 1
+  %has_logappend.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call6.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_logappend.i) #4
   br i1 %call6.i, label %if.then7.i, label %if.end
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %logappend.i = getelementptr inbounds %struct.ChardevCommon, ptr %obj, i64 0, i32 2
+  %logappend.i = getelementptr inbounds i8, ptr %obj, i64 9
   %call8.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %logappend.i, ptr noundef %errp) #4
   br i1 %call8.i, label %if.end, label %visit_type_ChardevCommon_members.exit.thread
 
@@ -1622,12 +1601,12 @@ visit_type_ChardevCommon_members.exit.thread:     ; preds = %if.then.i, %if.then
 
 if.end:                                           ; preds = %if.then7.i, %if.end5.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_logfile.i)
-  %has_size = getelementptr inbounds %struct.ChardevRingbuf, ptr %obj, i64 0, i32 3
+  %has_size = getelementptr inbounds i8, ptr %obj, i64 10
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_size) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %size = getelementptr inbounds %struct.ChardevRingbuf, ptr %obj, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %size, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -1640,7 +1619,7 @@ return:                                           ; preds = %visit_type_ChardevC
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1705,14 +1684,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevFileWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevFileWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevFile(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevFileWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevFileWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1735,7 +1714,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevFile(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevFile(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -1765,14 +1744,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevFileWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevHostdevWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevHostdevWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevHostdevWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevHostdevWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1795,7 +1774,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -1825,14 +1804,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevHostdevWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevSocketWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevSocketWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevSocket(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevSocketWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevSocketWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1855,7 +1834,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevSocket(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevSocket(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -1885,14 +1864,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevSocketWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevUdpWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevUdpWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevUdp(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevUdpWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevUdpWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1915,7 +1894,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevUdp(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevUdp(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -1945,14 +1924,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevUdpWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevCommonWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevCommonWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevCommonWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevCommonWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1975,7 +1954,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2005,14 +1984,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevCommonWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevMuxWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevMuxWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevMux(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevMuxWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevMuxWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2035,7 +2014,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevMux(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevMux(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2065,14 +2044,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevMuxWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevStdioWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevStdioWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevStdio(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevStdioWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevStdioWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2095,7 +2074,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevStdio(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevStdio(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2125,14 +2104,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevStdioWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevDBusWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevDBusWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevDBus(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevDBusWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevDBusWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2155,7 +2134,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevDBus(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevDBus(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2185,14 +2164,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevDBusWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevVCWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevVCWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevVC(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevVCWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevVCWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2215,7 +2194,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevVC(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevVC(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2245,14 +2224,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevVCWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevRingbufWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevRingbufWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevRingbufWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevRingbufWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2275,7 +2254,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2319,7 +2298,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevBackend_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevBackend_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
@@ -2355,98 +2334,98 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i = call zeroext i1 @visit_type_ChardevFile(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u, ptr noundef %errp)
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i = call noundef zeroext i1 @visit_type_ChardevFile(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i59 = call zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u3, ptr noundef %errp)
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i59 = call noundef zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i60 = call zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u6, ptr noundef %errp)
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i60 = call noundef zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i61 = call zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u9, ptr noundef %errp)
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i61 = call noundef zeroext i1 @visit_type_ChardevHostdev(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i62 = call zeroext i1 @visit_type_ChardevSocket(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u12, ptr noundef %errp)
+  %u12 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i62 = call noundef zeroext i1 @visit_type_ChardevSocket(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %u15 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i63 = call zeroext i1 @visit_type_ChardevUdp(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u15, ptr noundef %errp)
+  %u15 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i63 = call noundef zeroext i1 @visit_type_ChardevUdp(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u15, ptr noundef %errp)
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %u18 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i64 = call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u18, ptr noundef %errp)
+  %u18 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i64 = call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u18, ptr noundef %errp)
   br label %return
 
 sw.bb20:                                          ; preds = %if.end
-  %u21 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i65 = call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u21, ptr noundef %errp)
+  %u21 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i65 = call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u21, ptr noundef %errp)
   br label %return
 
 sw.bb23:                                          ; preds = %if.end
-  %u24 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i66 = call zeroext i1 @visit_type_ChardevMux(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u24, ptr noundef %errp)
+  %u24 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i66 = call noundef zeroext i1 @visit_type_ChardevMux(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u24, ptr noundef %errp)
   br label %return
 
 sw.bb26:                                          ; preds = %if.end
-  %u27 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i67 = call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u27, ptr noundef %errp)
+  %u27 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i67 = call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u27, ptr noundef %errp)
   br label %return
 
 sw.bb29:                                          ; preds = %if.end
-  %u30 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i68 = call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u30, ptr noundef %errp)
+  %u30 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i68 = call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u30, ptr noundef %errp)
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
-  %u33 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i69 = call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u33, ptr noundef %errp)
+  %u33 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i69 = call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u33, ptr noundef %errp)
   br label %return
 
 sw.bb35:                                          ; preds = %if.end
-  %u36 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i70 = call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u36, ptr noundef %errp)
+  %u36 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i70 = call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u36, ptr noundef %errp)
   br label %return
 
 sw.bb38:                                          ; preds = %if.end
-  %u39 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i71 = call zeroext i1 @visit_type_ChardevStdio(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u39, ptr noundef %errp)
+  %u39 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i71 = call noundef zeroext i1 @visit_type_ChardevStdio(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u39, ptr noundef %errp)
   br label %return
 
 sw.bb41:                                          ; preds = %if.end
-  %u42 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i72 = call zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u42, ptr noundef %errp)
+  %u42 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i72 = call noundef zeroext i1 @visit_type_ChardevCommon(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u42, ptr noundef %errp)
   br label %return
 
 sw.bb44:                                          ; preds = %if.end
-  %u45 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i73 = call zeroext i1 @visit_type_ChardevDBus(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u45, ptr noundef %errp)
+  %u45 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i73 = call noundef zeroext i1 @visit_type_ChardevDBus(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u45, ptr noundef %errp)
   br label %return
 
 sw.bb47:                                          ; preds = %if.end
-  %u48 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i74 = call zeroext i1 @visit_type_ChardevVC(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u48, ptr noundef %errp)
+  %u48 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i74 = call noundef zeroext i1 @visit_type_ChardevVC(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u48, ptr noundef %errp)
   br label %return
 
 sw.bb50:                                          ; preds = %if.end
-  %u51 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i75 = call zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u51, ptr noundef %errp)
+  %u51 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i75 = call noundef zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u51, ptr noundef %errp)
   br label %return
 
 sw.bb53:                                          ; preds = %if.end
-  %u54 = getelementptr inbounds %struct.ChardevBackend, ptr %obj, i64 0, i32 1
-  %call.i76 = call zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u54, ptr noundef %errp)
+  %u54 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i76 = call noundef zeroext i1 @visit_type_ChardevRingbuf(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %u54, ptr noundef %errp)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -2462,7 +2441,7 @@ return:                                           ; preds = %entry, %sw.bb53, %s
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevBackend(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevBackend(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2515,7 +2494,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevBackend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevReturn_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevReturn_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_pty = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -2538,7 +2517,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ChardevReturn(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ChardevReturn(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_pty.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -2603,13 +2582,13 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ChardevReturn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_chardev_add_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_chardev_add_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %backend = getelementptr inbounds %struct.q_obj_chardev_add_arg, ptr %obj, i64 0, i32 1
+  %backend = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_ChardevBackend(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %backend, ptr noundef %errp)
   br label %return
 
@@ -2619,13 +2598,13 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_chardev_change_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_chardev_change_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %backend = getelementptr inbounds %struct.q_obj_chardev_change_arg, ptr %obj, i64 0, i32 1
+  %backend = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_ChardevBackend(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %backend, ptr noundef %errp)
   br label %return
 
@@ -2655,7 +2634,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %open = getelementptr inbounds %struct.q_obj_VSERPORT_CHANGE_arg, ptr %obj, i64 0, i32 1
+  %open = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %open, ptr noundef %errp) #4
   br label %return
 

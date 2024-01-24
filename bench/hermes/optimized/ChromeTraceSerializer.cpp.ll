@@ -12,42 +12,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.hermes::vm::ChromeStackFrameNode" = type <{ i32, [4 x i8], %"class.llvh::Optional", %"class.std::vector", i32, [4 x i8] }>
-%"class.llvh::Optional" = type { %"struct.llvh::optional_detail::OptionalStorage" }
-%"struct.llvh::optional_detail::OptionalStorage" = type { %"struct.llvh::AlignedCharArrayUnion", i8, [7 x i8] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [24 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<hermes::vm::ChromeStackFrameNode>, std::allocator<std::shared_ptr<hermes::vm::ChromeStackFrameNode>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<hermes::vm::ChromeStackFrameNode>, std::allocator<std::shared_ptr<hermes::vm::ChromeStackFrameNode>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<hermes::vm::ChromeStackFrameNode>, std::allocator<std::shared_ptr<hermes::vm::ChromeStackFrameNode>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<hermes::vm::ChromeStackFrameNode>, std::allocator<std::shared_ptr<hermes::vm::ChromeStackFrameNode>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.hermes::vm::ChromeTraceFormat" = type { i32, [4 x i8], %"class.llvh::DenseMap", %"class.std::shared_ptr", %"class.std::vector.2" }
 %"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.std::vector.2" = type { %"struct.std::_Vector_base.3" }
 %"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<hermes::vm::ChromeSampleEvent, std::allocator<hermes::vm::ChromeSampleEvent>>::_Vector_impl" }
 %"struct.std::_Vector_base<hermes::vm::ChromeSampleEvent, std::allocator<hermes::vm::ChromeSampleEvent>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::ChromeSampleEvent, std::allocator<hermes::vm::ChromeSampleEvent>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<hermes::vm::ChromeSampleEvent, std::allocator<hermes::vm::ChromeSampleEvent>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::vm::SamplingProfiler::StackTrace" = type { i64, %"class.std::chrono::time_point", %"class.std::vector.13" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::vm::SamplingProfiler::StackFrame" = type { %union.anon, i32 }
-%union.anon = type { %"struct.hermes::vm::SamplingProfiler::JSFunctionFrameInfo" }
-%"struct.hermes::vm::SamplingProfiler::JSFunctionFrameInfo" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_deleter" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_deleter<hermes::vm::ChromeStackFrameNode *, std::default_delete<hermes::vm::ChromeStackFrameNode>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_deleter<hermes::vm::ChromeStackFrameNode *, std::default_delete<hermes::vm::ChromeStackFrameNode>, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { ptr }
-%"class.hermes::vm::ChromeSampleEvent" = type { i32, i32, i64, %"class.std::chrono::time_point", %"class.std::shared_ptr" }
 %"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { i64, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.39 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.39 = type { i64, [8 x i8] }
-%"class.hermes::vm::ChromeTraceSerializer" = type { ptr, %"class.hermes::vm::ChromeTraceFormat", %"class.std::chrono::time_point" }
 %"class.std::allocator.36" = type { i8 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -67,115 +42,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::ArrayRef.117" = type { ptr, i64 }
 %"class.hermes::OptValue" = type <{ %"struct.hermes::hbc::DebugSourceLocation", i8, [3 x i8] }>
 %"struct.hermes::hbc::DebugSourceLocation" = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%"class.hermes::vm::RuntimeModule" = type { %"class.llvh::ilist_node", ptr, %"class.std::vector.50", %"class.hermes::vm::WeakRoot", %"class.std::vector.55", %"class.std::shared_ptr.60", %"union.hermes::vm::RuntimeModuleFlags", %"class.std::__cxx11::basic_string", i32, [4 x i8], %"class.llvh::DenseMap.63", %"class.llvh::DenseMap.66" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.std::vector.50" = type { %"struct.std::_Vector_base.51" }
-%"struct.std::_Vector_base.51" = type { %"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::RootSymbolID, std::allocator<hermes::vm::RootSymbolID>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::vm::WeakRoot" = type { %"class.hermes::vm::WeakRootBase" }
-%"class.hermes::vm::WeakRootBase" = type { %"class.hermes::vm::CompressedPointer" }
-%"class.hermes::vm::CompressedPointer" = type { %"class.hermes::vm::BasedPointer" }
-%"class.hermes::vm::BasedPointer" = type { i32 }
-%"class.std::vector.55" = type { %"struct.std::_Vector_base.56" }
-%"struct.std::_Vector_base.56" = type { %"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::CodeBlock *, std::allocator<hermes::vm::CodeBlock *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.60" = type { %"class.std::__shared_ptr.61" }
-%"class.std::__shared_ptr.61" = type { ptr, %"class.std::__shared_count" }
-%"union.hermes::vm::RuntimeModuleFlags" = type { %struct.anon }
-%struct.anon = type { i8 }
-%"class.llvh::DenseMap.63" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::DenseMap.66" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.hermes::hbc::BCProviderBase" = type { ptr, %"union.hermes::hbc::BytecodeOptions", i32, i32, i32, %"class.llvh::ArrayRef.87", %"class.llvh::ArrayRef.88", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef.89", %"class.llvh::ArrayRef", %"class.llvh::ArrayRef.90", %"class.llvh::ArrayRef", i32, %"class.llvh::ArrayRef.91", %"class.llvh::ArrayRef.91", %"class.llvh::ArrayRef.91", ptr, %"class.std::__cxx11::basic_string" }
-%"union.hermes::hbc::BytecodeOptions" = type { %struct.anon.86 }
-%struct.anon.86 = type { i8 }
-%"class.llvh::ArrayRef.87" = type { ptr, i64 }
-%"class.llvh::ArrayRef.88" = type { ptr, i64 }
-%"class.llvh::ArrayRef.89" = type { ptr, i64 }
-%"class.llvh::ArrayRef.90" = type { ptr, i64 }
-%"class.llvh::ArrayRef" = type { ptr, i64 }
-%"class.llvh::ArrayRef.91" = type { ptr, i64 }
-%"class.hermes::hbc::BCProviderFromBuffer" = type { %"class.hermes::hbc::BCProviderBase", %"class.std::unique_ptr.92", ptr, ptr, ptr, %"class.llvh::ArrayRef.100", i32, [4 x i8], %"class.llvh::Optional.101", %"struct.std::atomic", %"class.std::unique_ptr.106", ptr }
-%"class.std::unique_ptr.92" = type { %"struct.std::__uniq_ptr_data.93" }
-%"struct.std::__uniq_ptr_data.93" = type { %"class.std::__uniq_ptr_impl.94" }
-%"class.std::__uniq_ptr_impl.94" = type { %"class.std::tuple.95" }
-%"class.std::tuple.95" = type { %"struct.std::_Tuple_impl.96" }
-%"struct.std::_Tuple_impl.96" = type { %"struct.std::_Head_base.99" }
-%"struct.std::_Head_base.99" = type { ptr }
-%"class.llvh::ArrayRef.100" = type { ptr, i64 }
-%"class.llvh::Optional.101" = type { %"struct.llvh::optional_detail::OptionalStorage.102" }
-%"struct.llvh::optional_detail::OptionalStorage.102" = type { %"struct.llvh::AlignedCharArrayUnion.103", i8, [7 x i8] }
-%"struct.llvh::AlignedCharArrayUnion.103" = type { %"struct.llvh::AlignedCharArray.104" }
-%"struct.llvh::AlignedCharArray.104" = type { [8 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.std::unique_ptr.106" = type { %"struct.std::__uniq_ptr_data.107" }
-%"struct.std::__uniq_ptr_data.107" = type { %"class.std::__uniq_ptr_impl.108" }
-%"class.std::__uniq_ptr_impl.108" = type { %"class.std::tuple.109" }
-%"class.std::tuple.109" = type { %"struct.std::_Tuple_impl.110" }
-%"struct.std::_Tuple_impl.110" = type { %"struct.std::_Head_base.113" }
-%"struct.std::_Head_base.113" = type { ptr }
 %"struct.hermes::hbc::SmallFuncHeader" = type { [15 x i8], %"union.hermes::hbc::FunctionHeaderFlag" }
 %"union.hermes::hbc::FunctionHeaderFlag" = type { %struct.anon.114 }
 %struct.anon.114 = type { i8 }
 %"class.hermes::StringTableEntry" = type { i32, i32 }
-%"class.hermes::hbc::DebugInfo" = type { %"class.std::vector.69", %"class.std::vector.74", %"class.llvh::SmallVector.79", i32, i32, i32, %"class.hermes::hbc::StreamVector" }
-%"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
-%"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.74" = type { %"struct.std::_Vector_base.75" }
-%"struct.std::_Vector_base.75" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::SmallVector.79" = type <{ %"class.llvh::SmallVectorImpl.80", %"struct.llvh::SmallVectorStorage.83", [4 x i8] }>
-%"class.llvh::SmallVectorImpl.80" = type { %"class.llvh::SmallVectorTemplateBase.81" }
-%"class.llvh::SmallVectorTemplateBase.81" = type { %"class.llvh::SmallVectorTemplateCommon.82" }
-%"class.llvh::SmallVectorTemplateCommon.82" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.83" = type { [1 x %"struct.llvh::AlignedCharArrayUnion.84"] }
-%"struct.llvh::AlignedCharArrayUnion.84" = type { %"struct.llvh::AlignedCharArray.85" }
-%"struct.llvh::AlignedCharArray.85" = type { [12 x i8] }
-%"class.hermes::hbc::StreamVector" = type { %"class.std::vector.74", %"class.llvh::ArrayRef" }
-%"class.hermes::vm::SamplingProfiler" = type { ptr, %"class.std::mutex", %"class.std::vector.7", i32, i32, %"struct.hermes::vm::SamplingProfiler::StackTrace", %"class.llvh::DenseMap", %"class.std::unordered_set", %"class.std::vector.24", %"class.std::vector.29", ptr }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl_data" }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
-%"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
-%"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::vm::NativeFunction" = type { %"class.hermes::vm::Callable", ptr, ptr }
-%"class.hermes::vm::Callable" = type { %"class.hermes::vm::JSObject", %"class.hermes::vm::GCPointer.121" }
-%"class.hermes::vm::JSObject" = type { %"class.hermes::vm::GCCell", %"struct.hermes::vm::ObjectFlags", %"class.hermes::vm::GCPointer", %"class.hermes::vm::GCPointer.119", %"class.hermes::vm::GCPointer.120" }
-%"class.hermes::vm::GCCell" = type { %union.anon.118 }
-%union.anon.118 = type { %"class.hermes::vm::KindAndSize" }
-%"class.hermes::vm::KindAndSize" = type { i32 }
-%"struct.hermes::vm::ObjectFlags" = type { i32 }
-%"class.hermes::vm::GCPointer" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::GCPointerBase" = type { %"class.hermes::vm::CompressedPointer" }
-%"class.hermes::vm::GCPointer.119" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::GCPointer.120" = type { %"class.hermes::vm::GCPointerBase" }
-%"class.hermes::vm::GCPointer.121" = type { %"class.hermes::vm::GCPointerBase" }
+%"class.hermes::vm::ChromeSampleEvent" = type { i32, i32, i64, %"class.std::chrono::time_point", %"class.std::shared_ptr" }
+%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
+%"class.std::chrono::duration" = type { i64 }
 %"class.llvh::raw_string_ostream" = type { %"class.llvh::raw_ostream.base", ptr }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
-%class.anon = type { ptr, ptr }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN6hermes2vm17ChromeTraceFormatD2Ev = comdat any
 
@@ -296,9 +171,9 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 define hidden void @_ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGeneratorERKNS0_16SamplingProfiler10StackFrameE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %frameIdGen, ptr noundef nonnull align 8 dereferenceable(24) %target) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
-  %children_ = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %children_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not21 = icmp eq ptr %0, %1
   br i1 %cmp.i.not21, label %for.end, label %for.body
@@ -306,22 +181,22 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__begin2.sroa.0.022 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %2 = load ptr, ptr %__begin2.sroa.0.022, align 8
-  %frameInfo_.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %2, i64 0, i32 2
+  %frameInfo_.i = getelementptr inbounds i8, ptr %2, i64 8
   %call8 = tail call noundef zeroext i1 @_ZN6hermes2vmeqERKNS0_16SamplingProfiler10StackFrameES4_(ptr noundef nonnull align 8 dereferenceable(24) %frameInfo_.i, ptr noundef nonnull align 8 dereferenceable(24) %target) #14
   br i1 %call8, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr %__begin2.sroa.0.022, align 8
   store ptr %3, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__begin2.sroa.0.022, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -337,7 +212,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__begin2.sroa.0.022, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -347,16 +222,16 @@ for.end:                                          ; preds = %for.inc, %entry
   store i32 %inc.i, ptr %frameIdGen, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15, !noalias !4
-  %frameInfo_.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i, i64 0, i32 2
+  %frameInfo_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %frameInfo_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %target, i64 24, i1 false), !noalias !4
   store i32 %8, ptr %call.i, align 8, !noalias !4
-  %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i, i64 0, i32 2, i32 0, i32 1
+  %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i8 1, ptr %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i, align 8, !noalias !4
-  %children_.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i, i64 0, i32 3
+  %children_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %children_.i.i, i8 0, i64 28, i1 false), !noalias !4
   store ptr %call.i, ptr %ref.tmp, align 8, !alias.scope !4
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %9, %10
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -364,7 +239,7 @@ for.end:                                          ; preds = %for.inc, %entry
 if.then.i:                                        ; preds = %for.end
   call void @_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %11 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i5 = getelementptr inbounds %"class.std::shared_ptr", ptr %11, i64 1
+  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %incdec.ptr.i5, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE12emplace_backIJSt10unique_ptrIS3_St14default_deleteIS3_EEEEERS4_DpOT_.exit
 
@@ -384,18 +259,18 @@ if.then.i7:                                       ; preds = %_ZNSt6vectorISt10sh
 _ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE12emplace_backIJSt10unique_ptrIS3_St14default_deleteIS3_EEEEERS4_DpOT_.exit, %if.then.i7
   store ptr null, ptr %ref.tmp, align 8
   %13 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %13, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -16
   %14 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %14, ptr %agg.result, align 8
-  %_M_refcount.i.i8 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
-  %_M_refcount3.i.i9 = getelementptr %"class.std::shared_ptr", ptr %13, i64 -1, i32 0, i32 1
+  %_M_refcount.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount3.i.i9 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %_M_refcount3.i.i9, align 8
   store ptr %15, ptr %_M_refcount.i.i8, align 8
   %cmp.not.i.i.i10 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i10, label %return, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i13 = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i13, label %if.else.i.i.i.i.i16, label %if.then.i.i.i.i.i14
@@ -424,18 +299,18 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15, !noalias !7
   store i32 1, ptr %call.i, align 8, !noalias !7
-  %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i, i64 0, i32 2, i32 0, i32 1
+  %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i8 0, ptr %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i, align 8, !noalias !7
-  %children_.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i, i64 0, i32 3
+  %children_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %children_.i.i, i8 0, i64 28, i1 false), !noalias !7
   store ptr %call.i, ptr %agg.tmp, align 8, !alias.scope !7
   store i32 %pid, ptr %agg.result, align 8
-  %threadNames_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %agg.result, i64 0, i32 2
+  %threadNames_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %threadNames_.i, i8 0, i64 20, i1 false)
   tail call void @_ZN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS6_EEE8copyFromERKSC_(ptr noundef nonnull align 8 dereferenceable(20) %threadNames_.i, ptr noundef nonnull align 8 dereferenceable(20) %threadNames)
-  %root_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %agg.result, i64 0, i32 3
+  %root_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %root_.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
-  %sampleEvents_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %agg.result, i64 0, i32 4
+  %sampleEvents_.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sampleEvents_.i, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %agg.tmp, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -448,16 +323,16 @@ if.then.i:                                        ; preds = %entry
 _ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %if.then.i
   store ptr null, ptr %agg.tmp, align 8
   %1 = load ptr, ptr %sampledStacks, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl_data", ptr %sampledStacks, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %sampledStacks, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not178 = icmp eq ptr %1, %2
   br i1 %cmp.i.not178, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %leafNode, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %agg.result, i64 0, i32 3, i32 0, i32 1
-  %_M_finish.i25 = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %agg.result, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %agg.result, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %leafNode, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_finish.i25 = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit60
@@ -471,7 +346,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -487,8 +362,8 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit: ; preds = %for.body, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %stack = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__begin2.sroa.0.0179, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__begin2.sroa.0.0179, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %stack = getelementptr inbounds i8, ptr %__begin2.sroa.0.0179, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0179, i64 24
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !10
   %9 = load ptr, ptr %stack, align 8, !noalias !15
   %cmp.i.i.i.not175 = icmp eq ptr %8, %9
@@ -497,11 +372,11 @@ _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit: ; preds = %f
 for.body9:                                        ; preds = %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit
   %__begin3.sroa.0.0177 = phi ptr [ %incdec.ptr.i.i, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit ], [ %8, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit ]
   %frameIdGen.sroa.0.1176 = phi i32 [ %frameIdGen.sroa.0.2, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit ], [ %frameIdGen.sroa.0.0180, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr %__begin3.sroa.0.0177, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0177, i64 -24
   %10 = load ptr, ptr %leafNode, align 8
-  %children_.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %10, i64 0, i32 3
+  %children_.i = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load ptr, ptr %children_.i, align 8, !noalias !18
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %10, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %10, i64 48
   %12 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !18
   %cmp.i.not21.i = icmp eq ptr %11, %12
   br i1 %cmp.i.not21.i, label %for.end.i, label %for.body.i
@@ -509,19 +384,19 @@ for.body9:                                        ; preds = %_ZNSt10shared_ptrIN
 for.body.i:                                       ; preds = %for.body9, %for.inc.i
   %__begin2.sroa.0.022.i = phi ptr [ %incdec.ptr.i.i5, %for.inc.i ], [ %11, %for.body9 ]
   %13 = load ptr, ptr %__begin2.sroa.0.022.i, align 8, !noalias !18
-  %frameInfo_.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %13, i64 0, i32 2
+  %frameInfo_.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %call8.i = call noundef zeroext i1 @_ZN6hermes2vmeqERKNS0_16SamplingProfiler10StackFrameES4_(ptr noundef nonnull align 8 dereferenceable(24) %frameInfo_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i) #14, !noalias !18
   br i1 %call8.i, label %if.then.i6, label %for.inc.i
 
 if.then.i6:                                       ; preds = %for.body.i
   %14 = load ptr, ptr %__begin2.sroa.0.022.i, align 8, !noalias !18
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__begin2.sroa.0.022.i, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022.i, i64 8
   %15 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !18
   %cmp.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGeneratorERKNS0_16SamplingProfiler10StackFrameE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i6
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -537,37 +412,37 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGeneratorERKNS0_16SamplingProfiler10StackFrameE.exit
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i5 = getelementptr inbounds %"class.std::shared_ptr", ptr %__begin2.sroa.0.022.i, i64 1
+  %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %__begin2.sroa.0.022.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i5, %12
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %for.body9
   %inc.i.i = add i32 %frameIdGen.sroa.0.1176, 1
   %call.i.i = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15, !noalias !21
-  %frameInfo_.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i.i, i64 0, i32 2
+  %frameInfo_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %frameInfo_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i, i64 24, i1 false), !noalias !21
   store i32 %frameIdGen.sroa.0.1176, ptr %call.i.i, align 8, !noalias !21
-  %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i.i, i64 0, i32 2, i32 0, i32 1
+  %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i8 1, ptr %agg.tmp1.sroa.4.0.frameInfo_.i.sroa_idx.i.i, align 8, !noalias !21
-  %children_.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %call.i.i, i64 0, i32 3
+  %children_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %children_.i.i.i, i8 0, i64 28, i1 false), !noalias !21
   %19 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !18
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %10, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %10, i64 56
   %20 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !noalias !18
   %cmp.not.i.i = icmp eq ptr %19, %20
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit.i: ; preds = %for.end.i
   store ptr %call.i.i, ptr %19, align 8, !noalias !18
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %19, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr null, ptr %_M_refcount.i, align 8, !noalias !18
   %call5.i.i.i.i73 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !18
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i73, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i73, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !18
-  %_M_weak_count.i.i.i.i.i.i74 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i73, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %call5.i.i.i.i73, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i74, align 4, !noalias !18
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i73, align 8, !noalias !18
-  %_M_impl.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i.i73, i64 0, i32 1
+  %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i73, i64 16
   store ptr %call.i.i, ptr %_M_impl.i.i.i.i.i, align 8, !noalias !18
   %21 = load ptr, ptr %_M_refcount.i, align 8, !noalias !18
   %cmp.not.i.i75 = icmp eq ptr %call5.i.i.i.i73, %21
@@ -593,7 +468,7 @@ if.end.i3.i:                                      ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp6.not.i.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end.i3.i
-  %_M_use_count.i5.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i, i64 0, i32 1
+  %_M_use_count.i5.i.i = getelementptr inbounds i8, ptr %.pr.i.i, i64 8
   %24 = load atomic i64, ptr %_M_use_count.i5.i.i acquire, align 8, !noalias !18
   %cmp.i.i.i77 = icmp eq i64 %24, 4294967297
   %25 = trunc i64 %24 to i32
@@ -601,10 +476,10 @@ if.then7.i.i:                                     ; preds = %if.end.i3.i
 
 if.then.i.i.i88:                                  ; preds = %if.then7.i.i
   store i32 0, ptr %_M_use_count.i5.i.i, align 8, !noalias !18
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !noalias !18
   %vtable.i.i.i = load ptr, ptr %.pr.i.i, align 8, !noalias !18
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %26 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !18
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i) #14, !noalias !18
   br label %if.end8.sink.split.i.i.i
@@ -630,10 +505,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i78 = load ptr, ptr %.pr.i.i, align 8, !noalias !18
-  %vfn.i.i.i.i.i79 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i78, i64 2
+  %vfn.i.i.i.i.i79 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i78, i64 16
   %29 = load ptr, ptr %vfn.i.i.i.i.i79, align 8, !noalias !18
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i) #14, !noalias !18
-  %_M_weak_count.i.i.i.i.i80 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i80 = getelementptr inbounds i8, ptr %.pr.i.i, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
   %tobool.i.i.not.i.i.i.i.i81 = icmp eq i8 %30, 0
   br i1 %tobool.i.i.not.i.i.i.i.i81, label %if.else.i.i.i.i.i.i87, label %if.then.i.i.i.i.i.i82
@@ -655,7 +530,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i84: ; preds = %if.e
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i84, %if.then.i.i.i88
   %vtable2.i.i.i.i.i = load ptr, ptr %.pr.i.i, align 8, !noalias !18
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i, align 8, !noalias !18
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i) #14, !noalias !18
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit.i
@@ -674,7 +549,7 @@ if.then.i.i31.i:                                  ; preds = %if.then.i5.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !18
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i74, align 4, !noalias !18
   %vtable.i.i33.i = load ptr, ptr %call5.i.i.i.i73, align 8, !noalias !18
-  %vfn.i.i34.i = getelementptr inbounds ptr, ptr %vtable.i.i33.i, i64 2
+  %vfn.i.i34.i = getelementptr inbounds i8, ptr %vtable.i.i33.i, i64 16
   %36 = load ptr, ptr %vfn.i.i34.i, align 8, !noalias !18
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i73) #14, !noalias !18
   br label %if.end8.sink.split.i.i26.i
@@ -700,7 +575,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12.i: ; preds = %if.else.
 
 if.then7.i.i16.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12.i
   %vtable.i.i.i.i17.i = load ptr, ptr %call5.i.i.i.i73, align 8, !noalias !18
-  %vfn.i.i.i.i18.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i17.i, i64 2
+  %vfn.i.i.i.i18.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i17.i, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i18.i, align 8, !noalias !18
   call void %39(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i73) #14, !noalias !18
   %40 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
@@ -724,14 +599,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23.i: ; preds = %if.e
 
 if.end8.sink.split.i.i26.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23.i, %if.then.i.i31.i
   %vtable2.i.i.i.i27.i = load ptr, ptr %call5.i.i.i.i73, align 8, !noalias !18
-  %vfn3.i.i.i.i28.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i27.i, i64 3
+  %vfn3.i.i.i.i28.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i27.i, i64 24
   %43 = load ptr, ptr %vfn3.i.i.i.i28.i, align 8, !noalias !18
   call void %43(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i73) #14, !noalias !18
   br label %_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit
 
 _ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23.i, %if.end8.sink.split.i.i26.i
   %44 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !18
-  %incdec.ptr.i5.i = getelementptr inbounds %"class.std::shared_ptr", ptr %44, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %44, i64 16
   store ptr %incdec.ptr.i5.i, ptr %_M_finish.i.i, align 8, !noalias !18
   br label %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit.i
 
@@ -750,7 +625,7 @@ if.then.i.i71:                                    ; preds = %if.else.i.i
 _ZNKSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
   %.sroa.speculated.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %46 = call i64 @llvm.umin.i64(i64 %add.i.i, i64 576460752303423487)
   %cond.i.i = select i1 %cmp7.i.i, i64 576460752303423487, i64 %46
@@ -766,15 +641,15 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm20ChromeStackF
   %cond.i10.i = phi ptr [ %call5.i.i.i.i, %cond.true.i.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE12_M_check_lenEmPKc.exit.i ]
   %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10.i, i64 %sub.ptr.div.i.i.i
   store ptr %call.i.i, ptr %add.ptr.i, align 8, !noalias !18
-  %_M_refcount.i89 = getelementptr inbounds %"class.std::__shared_ptr", ptr %add.ptr.i, i64 0, i32 1
+  %_M_refcount.i89 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store ptr null, ptr %_M_refcount.i89, align 8, !noalias !18
   %call5.i.i.i.i92 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !18
-  %_M_use_count.i.i.i.i.i.i93 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i92, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i93 = getelementptr inbounds i8, ptr %call5.i.i.i.i92, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i93, align 8, !noalias !18
-  %_M_weak_count.i.i.i.i.i.i94 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i92, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i94 = getelementptr inbounds i8, ptr %call5.i.i.i.i92, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i94, align 4, !noalias !18
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i92, align 8, !noalias !18
-  %_M_impl.i.i.i.i.i95 = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i.i92, i64 0, i32 1
+  %_M_impl.i.i.i.i.i95 = getelementptr inbounds i8, ptr %call5.i.i.i.i92, i64 16
   store ptr %call.i.i, ptr %_M_impl.i.i.i.i.i95, align 8, !noalias !18
   %47 = load ptr, ptr %_M_refcount.i89, align 8, !noalias !18
   %cmp.not.i.i96 = icmp eq ptr %call5.i.i.i.i92, %47
@@ -800,7 +675,7 @@ if.end.i3.i100:                                   ; preds = %if.else.i.i.i.i162,
   br i1 %cmp6.not.i.i102, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit.i113, label %if.then7.i.i103
 
 if.then7.i.i103:                                  ; preds = %if.end.i3.i100
-  %_M_use_count.i5.i.i104 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i101, i64 0, i32 1
+  %_M_use_count.i5.i.i104 = getelementptr inbounds i8, ptr %.pr.i.i101, i64 8
   %50 = load atomic i64, ptr %_M_use_count.i5.i.i104 acquire, align 8, !noalias !18
   %cmp.i.i.i105 = icmp eq i64 %50, 4294967297
   %51 = trunc i64 %50 to i32
@@ -808,10 +683,10 @@ if.then7.i.i103:                                  ; preds = %if.end.i3.i100
 
 if.then.i.i.i158:                                 ; preds = %if.then7.i.i103
   store i32 0, ptr %_M_use_count.i5.i.i104, align 8, !noalias !18
-  %_M_weak_count.i.i.i159 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i101, i64 0, i32 2
+  %_M_weak_count.i.i.i159 = getelementptr inbounds i8, ptr %.pr.i.i101, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i159, align 4, !noalias !18
   %vtable.i.i.i160 = load ptr, ptr %.pr.i.i101, align 8, !noalias !18
-  %vfn.i.i.i161 = getelementptr inbounds ptr, ptr %vtable.i.i.i160, i64 2
+  %vfn.i.i.i161 = getelementptr inbounds i8, ptr %vtable.i.i.i160, i64 16
   %52 = load ptr, ptr %vfn.i.i.i161, align 8, !noalias !18
   call void %52(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i101) #14, !noalias !18
   br label %if.end8.sink.split.i.i.i153
@@ -837,10 +712,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110: ; preds = %if.else
 
 if.then7.i.i.i143:                                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i110
   %vtable.i.i.i.i.i144 = load ptr, ptr %.pr.i.i101, align 8, !noalias !18
-  %vfn.i.i.i.i.i145 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i144, i64 2
+  %vfn.i.i.i.i.i145 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i144, i64 16
   %55 = load ptr, ptr %vfn.i.i.i.i.i145, align 8, !noalias !18
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i101) #14, !noalias !18
-  %_M_weak_count.i.i.i.i.i146 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i101, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i146 = getelementptr inbounds i8, ptr %.pr.i.i101, i64 12
   %56 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
   %tobool.i.i.not.i.i.i.i.i147 = icmp eq i8 %56, 0
   br i1 %tobool.i.i.not.i.i.i.i.i147, label %if.else.i.i.i.i.i.i156, label %if.then.i.i.i.i.i.i148
@@ -862,7 +737,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i150: ; preds = %if.
 
 if.end8.sink.split.i.i.i153:                      ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i150, %if.then.i.i.i158
   %vtable2.i.i.i.i.i154 = load ptr, ptr %.pr.i.i101, align 8, !noalias !18
-  %vfn3.i.i.i.i.i155 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i154, i64 3
+  %vfn3.i.i.i.i.i155 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i154, i64 24
   %59 = load ptr, ptr %vfn3.i.i.i.i.i155, align 8, !noalias !18
   call void %59(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i101) #14, !noalias !18
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit.i113
@@ -881,7 +756,7 @@ if.then.i.i31.i139:                               ; preds = %if.then.i5.i114
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i93, align 8, !noalias !18
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i94, align 4, !noalias !18
   %vtable.i.i33.i141 = load ptr, ptr %call5.i.i.i.i92, align 8, !noalias !18
-  %vfn.i.i34.i142 = getelementptr inbounds ptr, ptr %vtable.i.i33.i141, i64 2
+  %vfn.i.i34.i142 = getelementptr inbounds i8, ptr %vtable.i.i33.i141, i64 16
   %62 = load ptr, ptr %vfn.i.i34.i142, align 8, !noalias !18
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i92) #14, !noalias !18
   br label %if.end8.sink.split.i.i26.i134
@@ -907,7 +782,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12.i121: ; preds = %if.el
 
 if.then7.i.i16.i124:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12.i121
   %vtable.i.i.i.i17.i125 = load ptr, ptr %call5.i.i.i.i92, align 8, !noalias !18
-  %vfn.i.i.i.i18.i126 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i17.i125, i64 2
+  %vfn.i.i.i.i18.i126 = getelementptr inbounds i8, ptr %vtable.i.i.i.i17.i125, i64 16
   %65 = load ptr, ptr %vfn.i.i.i.i18.i126, align 8, !noalias !18
   call void %65(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i92) #14, !noalias !18
   %66 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
@@ -931,7 +806,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23.i131: ; preds = %i
 
 if.end8.sink.split.i.i26.i134:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23.i131, %if.then.i.i31.i139
   %vtable2.i.i.i.i27.i135 = load ptr, ptr %call5.i.i.i.i92, align 8, !noalias !18
-  %vfn3.i.i.i.i28.i136 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i27.i135, i64 3
+  %vfn3.i.i.i.i28.i136 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i27.i135, i64 24
   %69 = load ptr, ptr %vfn3.i.i.i.i28.i136, align 8, !noalias !18
   call void %69(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i92) #14, !noalias !18
   br label %_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit164
@@ -945,19 +820,19 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12__shared_ptr
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %45, %_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit164 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !24), !noalias !18
   call void @llvm.experimental.noalias.scope.decl(metadata !27), !noalias !18
-  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.06.i.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
   %70 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !27, !noalias !29
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !29
   store <2 x ptr> %70, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !24, !noalias !30
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !27, !noalias !29
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
   %cmp.not.i.i.i.i68 = icmp eq ptr %incdec.ptr.i.i.i.i, %19
   br i1 %cmp.not.i.i.i.i68, label %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i, label %for.body.i.i.i.i, !llvm.loop !31
 
 _ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21.i: ; preds = %for.body.i.i.i.i, %_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit164
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit164 ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i69 = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 16
   %tobool.not.i.i = icmp eq ptr %45, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE17_M_realloc_insertIJSt10unique_ptrIS3_St14default_deleteIS3_EEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit, label %if.then.i22.i
 
@@ -974,15 +849,15 @@ _ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE17_M_real
 
 _ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit, %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE17_M_realloc_insertIJSt10unique_ptrIS3_St14default_deleteIS3_EEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit
   %71 = phi ptr [ %incdec.ptr.i5.i, %_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFrameNodeELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E.exit ], [ %incdec.ptr.i69, %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE17_M_realloc_insertIJSt10unique_ptrIS3_St14default_deleteIS3_EEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit ]
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %71, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %71, i64 -16
   %72 = load ptr, ptr %add.ptr.i.i.i, align 8, !noalias !18
-  %_M_refcount3.i.i9.i = getelementptr %"class.std::shared_ptr", ptr %71, i64 -1, i32 0, i32 1
+  %_M_refcount3.i.i9.i = getelementptr inbounds i8, ptr %71, i64 -8
   %73 = load ptr, ptr %_M_refcount3.i.i9.i, align 8, !noalias !18
   %cmp.not.i.i.i10.i = icmp eq ptr %73, null
   br i1 %cmp.not.i.i.i10.i, label %_ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGeneratorERKNS0_16SamplingProfiler10StackFrameE.exit, label %if.then.i.i.i11.i
 
 if.then.i.i.i11.i:                                ; preds = %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit.i
-  %_M_use_count.i.i.i.i12.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %73, i64 0, i32 1
+  %_M_use_count.i.i.i.i12.i = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load i8, ptr @__libc_single_threaded, align 1, !noalias !18
   %tobool.i.not.i.i.i.i13.i = icmp eq i8 %74, 0
   br i1 %tobool.i.not.i.i.i.i13.i, label %if.else.i.i.i.i.i16.i, label %if.then.i.i.i.i.i14.i
@@ -1008,7 +883,7 @@ _ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGener
   br i1 %cmp.not.i.i.i.i8, label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit, label %if.then.i.i.i.i9
 
 if.then.i.i.i.i9:                                 ; preds = %_ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGeneratorERKNS0_16SamplingProfiler10StackFrameE.exit
-  %_M_use_count.i.i.i.i.i10 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %77, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i10 = getelementptr inbounds i8, ptr %77, i64 8
   %78 = load atomic i64, ptr %_M_use_count.i.i.i.i.i10 acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %78, 4294967297
   %79 = trunc i64 %78 to i32
@@ -1016,10 +891,10 @@ if.then.i.i.i.i9:                                 ; preds = %_ZN6hermes2vm20Chro
 
 if.then.i.i.i.i.i14:                              ; preds = %if.then.i.i.i.i9
   store i32 0, ptr %_M_use_count.i.i.i.i.i10, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %77, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %77, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %80 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(16) %77) #14
   br label %if.end8.sink.split.i.i.i.i.i
@@ -1045,10 +920,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %77, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %83 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(16) %77) #14
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %77, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 12
   %84 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %84, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1070,7 +945,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i14
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %77, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %87 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(16) %77) #14
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit
@@ -1082,11 +957,11 @@ _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit: ; preds = %if.en
 for.end:                                          ; preds = %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit
   %frameIdGen.sroa.0.1.lcssa = phi i32 [ %frameIdGen.sroa.0.0180, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit ], [ %frameIdGen.sroa.0.2, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit ]
   %88 = load ptr, ptr %leafNode, align 8
-  %hitCount_.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %88, i64 0, i32 4
+  %hitCount_.i = getelementptr inbounds i8, ptr %88, i64 64
   %89 = load i32, ptr %hitCount_.i, align 8
   %inc.i24 = add i32 %89, 1
   store i32 %inc.i24, ptr %hitCount_.i, align 8
-  %timeStamp = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__begin2.sroa.0.0179, i64 0, i32 1
+  %timeStamp = getelementptr inbounds i8, ptr %__begin2.sroa.0.0179, i64 8
   %90 = load ptr, ptr %_M_finish.i25, align 8
   %91 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i26 = icmp eq ptr %90, %91
@@ -1095,7 +970,7 @@ for.end:                                          ; preds = %_ZNSt10shared_ptrIN
 if.then.i27:                                      ; preds = %for.end
   call void @_ZNSt15__new_allocatorIN6hermes2vm17ChromeSampleEventEE9constructIS2_JRKmRKNSt6chrono10time_pointINS7_3_V212steady_clockENS7_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt10shared_ptrINS1_20ChromeStackFrameNodeEEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %sampleEvents_.i, ptr noundef %90, ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.0179, ptr noundef nonnull align 8 dereferenceable(8) %timeStamp, ptr noundef nonnull align 8 dereferenceable(16) %leafNode)
   %92 = load ptr, ptr %_M_finish.i25, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %92, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %92, i64 40
   store ptr %incdec.ptr.i, ptr %_M_finish.i25, align 8
   br label %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE12emplace_backIJRKmRKNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt10shared_ptrINS1_20ChromeStackFrameNodeEEEEERS2_DpOT_.exit
 
@@ -1109,7 +984,7 @@ _ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE12emplace_backIJRKmRKNSt6chr
   br i1 %cmp.not.i.i.i30, label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit60, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE12emplace_backIJRKmRKNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt10shared_ptrINS1_20ChromeStackFrameNodeEEEEERS2_DpOT_.exit
-  %_M_use_count.i.i.i.i32 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %93, i64 0, i32 1
+  %_M_use_count.i.i.i.i32 = getelementptr inbounds i8, ptr %93, i64 8
   %94 = load atomic i64, ptr %_M_use_count.i.i.i.i32 acquire, align 8
   %cmp.i.i.i.i33 = icmp eq i64 %94, 4294967297
   %95 = trunc i64 %94 to i32
@@ -1117,10 +992,10 @@ if.then.i.i.i31:                                  ; preds = %_ZNSt6vectorIN6herm
 
 if.then.i.i.i.i56:                                ; preds = %if.then.i.i.i31
   store i32 0, ptr %_M_use_count.i.i.i.i32, align 8
-  %_M_weak_count.i.i.i.i57 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %93, i64 0, i32 2
+  %_M_weak_count.i.i.i.i57 = getelementptr inbounds i8, ptr %93, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i57, align 4
   %vtable.i.i.i.i58 = load ptr, ptr %93, align 8
-  %vfn.i.i.i.i59 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i58, i64 2
+  %vfn.i.i.i.i59 = getelementptr inbounds i8, ptr %vtable.i.i.i.i58, i64 16
   %96 = load ptr, ptr %vfn.i.i.i.i59, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %93) #14
   br label %if.end8.sink.split.i.i.i.i51
@@ -1146,10 +1021,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38: ; preds = %if.els
 
 if.then7.i.i.i.i41:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38
   %vtable.i.i.i.i.i.i42 = load ptr, ptr %93, align 8
-  %vfn.i.i.i.i.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i42, i64 2
+  %vfn.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i42, i64 16
   %99 = load ptr, ptr %vfn.i.i.i.i.i.i43, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(16) %93) #14
-  %_M_weak_count.i.i.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %93, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %93, i64 12
   %100 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i45 = icmp eq i8 %100, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i45, label %if.else.i.i.i.i.i.i.i54, label %if.then.i.i.i.i.i.i.i46
@@ -1171,13 +1046,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48: ; preds = %if
 
 if.end8.sink.split.i.i.i.i51:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48, %if.then.i.i.i.i56
   %vtable2.i.i.i.i.i.i52 = load ptr, ptr %93, align 8
-  %vfn3.i.i.i.i.i.i53 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i52, i64 3
+  %vfn3.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i52, i64 24
   %103 = load ptr, ptr %vfn3.i.i.i.i.i.i53, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(16) %93) #14
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit60
 
 _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit60: ; preds = %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE12emplace_backIJRKmRKNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt10shared_ptrINS1_20ChromeStackFrameNodeEEEEERS2_DpOT_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48, %if.end8.sink.split.i.i.i.i51
-  %incdec.ptr.i61 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__begin2.sroa.0.0179, i64 1
+  %incdec.ptr.i61 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0179, i64 40
   %cmp.i.not = icmp eq ptr %incdec.ptr.i61, %2
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
@@ -1188,22 +1063,22 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm17ChromeTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %sampleEvents_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %this, i64 0, i32 4
+  %sampleEvents_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %sampleEvents_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN6hermes2vm17ChromeSampleEventES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyIN6hermes2vm17ChromeSampleEventEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6hermes2vm17ChromeSampleEventEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.04.i.i.i.i, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6hermes2vm17ChromeSampleEventEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -1211,10 +1086,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i
@@ -1240,10 +1115,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1265,13 +1140,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %_ZSt8_DestroyIN6hermes2vm17ChromeSampleEventEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6hermes2vm17ChromeSampleEventEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN6hermes2vm17ChromeSampleEventES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !33
 
@@ -1289,13 +1164,13 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN6he
   br label %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6hermes2vm17ChromeSampleEventES2_EvT_S4_RSaIT0_E.exit.i, %if.then.i.i.i
-  %_M_refcount.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit, label %if.then.i.i.i1
 
 if.then.i.i.i1:                                   ; preds = %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -1303,10 +1178,10 @@ if.then.i.i.i1:                                   ; preds = %_ZNSt6vectorIN6herm
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -1332,10 +1207,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1357,14 +1232,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %threadNames_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %this, i64 0, i32 2
-  %NumBuckets.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %this, i64 0, i32 2, i32 3
+  %threadNames_ = getelementptr inbounds i8, ptr %this, i64 8
+  %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %25 = load i32, ptr %NumBuckets.i.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %25, 0
   %.pre1.i = load ptr, ptr %threadNames_, align 8
@@ -1382,12 +1257,12 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
   br i1 %switch.i.i, label %if.end13.i.i, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %for.body.i.i
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %P.08.i.i, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #14
   br label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then11.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %P.08.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %P.08.i.i, i64 40
   %cmp6.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp6.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !34
 
@@ -1405,46 +1280,46 @@ _ZN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12Dens
 define hidden void @_ZN6hermes2vm21ChromeTraceSerializerC2ERKNS0_16SamplingProfilerEONS0_17ChromeTraceFormatE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(256) %sp, ptr nocapture noundef nonnull align 8 dereferenceable(72) %chromeTrace) unnamed_addr #0 align 2 {
 entry:
   store ptr %sp, ptr %this, align 8
-  %trace_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %chromeTrace, align 8
   store i32 %0, ptr %trace_, align 8
-  %threadNames_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 2
-  %threadNames_3.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2
+  %threadNames_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %threadNames_3.i = getelementptr inbounds i8, ptr %chromeTrace, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %threadNames_.i, i8 0, i64 20, i1 false)
   %1 = load ptr, ptr %threadNames_3.i, align 8
   store ptr %1, ptr %threadNames_.i, align 8
   store ptr null, ptr %threadNames_3.i, align 8
-  %NumEntries.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 2, i32 1
-  %NumEntries3.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %NumEntries3.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 16
   %2 = load i32, ptr %NumEntries.i.i.i, align 8
   %3 = load i32, ptr %NumEntries3.i.i.i, align 8
   store i32 %3, ptr %NumEntries.i.i.i, align 8
   store i32 %2, ptr %NumEntries3.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 2, i32 2
-  %NumTombstones4.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %NumTombstones4.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 20
   %4 = load i32, ptr %NumTombstones.i.i.i, align 4
   %5 = load i32, ptr %NumTombstones4.i.i.i, align 4
   store i32 %5, ptr %NumTombstones.i.i.i, align 4
   store i32 %4, ptr %NumTombstones4.i.i.i, align 4
-  %NumBuckets.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 2, i32 3
-  %NumBuckets5.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2, i32 3
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %NumBuckets5.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 24
   %6 = load i32, ptr %NumBuckets.i.i.i, align 8
   %7 = load i32, ptr %NumBuckets5.i.i.i, align 8
   store i32 %7, ptr %NumBuckets.i.i.i, align 8
   store i32 %6, ptr %NumBuckets5.i.i.i, align 8
-  %root_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 3
-  %root_4.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 3
+  %root_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %root_4.i = getelementptr inbounds i8, ptr %chromeTrace, i64 32
   %8 = load ptr, ptr %root_4.i, align 8
   store ptr %8, ptr %root_.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 40
   %9 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %9, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes2vm17ChromeTraceFormatC2EOS1_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1460,20 +1335,20 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN6hermes2vm17ChromeTraceFormatC2EOS1_.exit
 
 _ZN6hermes2vm17ChromeTraceFormatC2EOS1_.exit:     ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %sampleEvents_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 4
-  %sampleEvents_5.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 4
+  %sampleEvents_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %sampleEvents_5.i = getelementptr inbounds i8, ptr %chromeTrace, i64 48
   %13 = load ptr, ptr %sampleEvents_5.i, align 8
   store ptr %13, ptr %sampleEvents_.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 56
   %14 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
   store ptr %14, ptr %_M_finish.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 64
   %15 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   store ptr %15, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sampleEvents_5.i, i8 0, i64 24, i1 false)
-  %firstEventTimeStamp_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 2
+  %firstEventTimeStamp_ = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %firstEventTimeStamp_, align 8
   %16 = load ptr, ptr %sampleEvents_.i, align 8
   %17 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
@@ -1485,7 +1360,7 @@ cond.true:                                        ; preds = %_ZN6hermes2vm17Chro
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN6hermes2vm17ChromeTraceFormatC2EOS1_.exit
-  %timeStamp_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %16, i64 0, i32 3
+  %timeStamp_.i = getelementptr inbounds i8, ptr %16, i64 16
   %retval.sroa.0.0.copyload.i = load i64, ptr %timeStamp_.i, align 8
   br label %cond.end
 
@@ -1505,7 +1380,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer20serializeProcessNameERNS_11JSONEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %trace_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %trace_, align 8
   tail call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str, i64 4) #14
@@ -1517,7 +1392,7 @@ entry:
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.4, i64 10) #14
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.5, i64 3) #14
   tail call void @_ZN6hermes11JSONEmitter9emitValueEd(ptr noundef nonnull align 8 dereferenceable(72) %json, double noundef %conv) #14
-  %firstEventTimeStamp_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 2
+  %firstEventTimeStamp_ = getelementptr inbounds i8, ptr %this, i64 80
   %agg.tmp6.sroa.0.0.copyload = load i64, ptr %firstEventTimeStamp_, align 8
   %div.i.i.i = sdiv i64 %agg.tmp6.sroa.0.0.copyload, 1000
   call void @_ZNSt7__cxx119to_stringEl(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i64 noundef %div.i.i.i)
@@ -1562,14 +1437,14 @@ entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp28 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp34 = alloca %"class.std::__cxx11::basic_string", align 8
-  %trace_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %trace_, align 8
-  %threadNames_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 2
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %threadNames_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %NumEntries.i.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 0
   %2 = load ptr, ptr %threadNames_.i, align 8
-  %NumBuckets.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 2, i32 3
+  %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
   %idx.ext.i.i.i = zext i32 %3 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %2, i64 %idx.ext.i.i.i
@@ -1586,7 +1461,7 @@ land.rhs.i4.i9.i6.i:                              ; preds = %if.end8.i, %while.b
   br i1 %switch.i5.i11.i8.i, label %while.body.i6.i12.i12.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E5beginEv.exit
 
 while.body.i6.i12.i12.i:                          ; preds = %land.rhs.i4.i9.i6.i
-  %incdec.ptr.i.i13.i13.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %retval.sroa.0.2.i7.i, i64 1
+  %incdec.ptr.i.i13.i13.i = getelementptr inbounds i8, ptr %retval.sroa.0.2.i7.i, i64 40
   %cmp.not.i7.i14.i14.i = icmp eq ptr %incdec.ptr.i.i13.i13.i, %add.ptr.i.i.i
   br i1 %cmp.not.i7.i14.i14.i, label %for.end, label %land.rhs.i4.i9.i6.i, !llvm.loop !35
 
@@ -1597,13 +1472,13 @@ _ZNK4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traits
 
 for.body.lr.ph:                                   ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E5beginEv.exit
   %conv = uitofp i32 %0 to double
-  %firstEventTimeStamp_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 2
+  %firstEventTimeStamp_ = getelementptr inbounds i8, ptr %this, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh16DenseMapIteratorImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS6_EELb1EEppEv.exit
   %__begin2.sroa.0.084 = phi ptr [ %add.ptr.i.i.pn16.i, %for.body.lr.ph ], [ %__begin2.sroa.0.1, %_ZN4llvh16DenseMapIteratorImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS6_EELb1EEppEv.exit ]
   %5 = load i64, ptr %__begin2.sroa.0.084, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin2.sroa.0.084, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.084, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %threadName, ptr noundef nonnull align 8 dereferenceable(32) %second) #14
   call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str, i64 4) #14
@@ -1670,7 +1545,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
   call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %threadName) #14
-  %incdec.ptr3.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %__begin2.sroa.0.084, i64 1
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.084, i64 40
   %cmp.not3.i3.i = icmp eq ptr %incdec.ptr3.i, %add.ptr.i.i.i
   br i1 %cmp.not3.i3.i, label %for.end, label %land.rhs.i4.i
 
@@ -1681,7 +1556,7 @@ land.rhs.i4.i:                                    ; preds = %for.body, %while.bo
   br i1 %switch.i5.i, label %while.body.i6.i, label %_ZN4llvh16DenseMapIteratorImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS6_EELb1EEppEv.exit
 
 while.body.i6.i:                                  ; preds = %land.rhs.i4.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %__begin2.sroa.0.1, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.1, i64 40
   %cmp.not.i7.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i7.i, label %for.end, label %land.rhs.i4.i, !llvm.loop !35
 
@@ -1808,15 +1683,15 @@ entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
-  %sampleEvents_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 4
+  %sampleEvents_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %sampleEvents_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not40 = icmp eq ptr %0, %1
   br i1 %cmp.i.not40, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %trace_ = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %trace_, align 8
   %conv = uitofp i32 %2 to double
   br label %for.body
@@ -1833,7 +1708,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str, i64 4) #14
   call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.14, i64 0) #14
-  %timeStamp_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.041, i64 0, i32 3
+  %timeStamp_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 16
   %retval.sroa.0.0.copyload.i = load i64, ptr %timeStamp_.i, align 8
   %div.i.i.i = sdiv i64 %retval.sroa.0.0.copyload.i, 1000
   call void @_ZNSt7__cxx119to_stringEl(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, i64 noundef %div.i.i.i)
@@ -1844,7 +1719,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #14
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.5, i64 3) #14
   call void @_ZN6hermes11JSONEmitter9emitValueEd(ptr noundef nonnull align 8 dereferenceable(72) %json, double noundef %conv) #14
-  %tid_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.041, i64 0, i32 2
+  %tid_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 8
   %4 = load i64, ptr %tid_.i, align 8
   call void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, i64 noundef %4)
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.7, i64 3) #14
@@ -1852,7 +1727,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %call2.i.i31 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #14
   call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %call.i.i30, i64 %call2.i.i31) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22) #14
-  %weight_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.041, i64 0, i32 1
+  %weight_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 4
   %5 = load i32, ptr %weight_.i, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp25, i32 noundef %5) #14
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.15, i64 6) #14
@@ -1860,15 +1735,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %call2.i.i33 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #14
   call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %call.i.i32, i64 %call2.i.i33) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #14
-  %leafNode_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.041, i64 0, i32 4
+  %leafNode_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 24
   %6 = load ptr, ptr %leafNode_.i, align 8, !noalias !38
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.041, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 32
   %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !38
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6hermes2vm17ChromeSampleEvent11getLeafNodeEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !38
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1896,10 +1771,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i34:                                ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -1925,10 +1800,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1950,7 +1825,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i34
   %vtable2.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %22 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit
@@ -1961,7 +1836,7 @@ _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit: ; preds = %_ZNK6
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.16, i64 2) #14
   call void @_ZN6hermes11JSONEmitter9emitValueEd(ptr noundef nonnull align 8 dereferenceable(72) %json, double noundef %conv3039) #14
   call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
-  %incdec.ptr.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.041, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 40
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -2085,11 +1960,11 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS_11JSONEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
-  %root_.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 3
+  %root_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %root_.i, align 8
   %1 = load ptr, ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %1, ptr %ref.tmp, align 8
   %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %json, ptr %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx, align 8
@@ -2115,15 +1990,15 @@ entry:
   %json = alloca %"class.hermes::JSONEmitter", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %json, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %json, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %json, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %OS2.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 1
+  %OS2.i = getelementptr inbounds i8, ptr %json, i64 56
   store ptr %OS, ptr %OS2.i, align 8
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %json, i64 64
   store i8 0, ptr %pretty_.i, align 8
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %json, i64 68
   store i32 0, ptr %indent_.i, align 4
   call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.17, i64 11) #14
@@ -2138,11 +2013,11 @@ entry:
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.19, i64 11) #14
   call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %root_.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceSerializer", ptr %this, i64 0, i32 1, i32 3
+  %root_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %root_.i.i, align 8
   %1 = load ptr, ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %1, ptr %ref.tmp.i, align 8
   %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %json, ptr %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx.i, align 8
@@ -2297,52 +2172,52 @@ entry:
   %s = alloca %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %json, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %json, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %json, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %OS2.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 1
+  %OS2.i = getelementptr inbounds i8, ptr %json, i64 56
   store ptr %os, ptr %OS2.i, align 8
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %json, i64 64
   store i8 0, ptr %pretty_.i, align 8
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %json, i64 68
   store i32 0, ptr %indent_.i, align 4
   store ptr %sp, ptr %s, align 8
-  %json_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 1
+  %json_.i = getelementptr inbounds i8, ptr %s, i64 8
   store ptr %json, ptr %json_.i, align 8
-  %chromeTrace_.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2
+  %chromeTrace_.i = getelementptr inbounds i8, ptr %s, i64 16
   %0 = load i32, ptr %chromeTrace, align 8
   store i32 %0, ptr %chromeTrace_.i, align 8
-  %threadNames_.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 2
-  %threadNames_3.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2
+  %threadNames_.i.i = getelementptr inbounds i8, ptr %s, i64 24
+  %threadNames_3.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 8
   %1 = load ptr, ptr %threadNames_3.i.i, align 8
   store ptr %1, ptr %threadNames_.i.i, align 8
   store ptr null, ptr %threadNames_3.i.i, align 8
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 2, i32 1
-  %NumEntries3.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2, i32 1
-  %NumTombstones4.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2, i32 2
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 32
+  %NumEntries3.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 16
+  %NumTombstones4.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 20
   %2 = load <2 x i32>, ptr %NumEntries3.i.i.i.i, align 8
   store i32 0, ptr %NumEntries3.i.i.i.i, align 8
   store <2 x i32> %2, ptr %NumEntries.i.i.i.i, align 8
   store i32 0, ptr %NumTombstones4.i.i.i.i, align 4
-  %NumBuckets.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 2, i32 3
-  %NumBuckets5.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 2, i32 3
+  %NumBuckets.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 40
+  %NumBuckets5.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 24
   %3 = load i32, ptr %NumBuckets5.i.i.i.i, align 8
   store i32 %3, ptr %NumBuckets.i.i.i.i, align 8
   store i32 0, ptr %NumBuckets5.i.i.i.i, align 8
-  %root_.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 3
-  %root_4.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 3
+  %root_.i.i = getelementptr inbounds i8, ptr %s, i64 48
+  %root_4.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 32
   %4 = load ptr, ptr %root_4.i.i, align 8
   store ptr %4, ptr %root_.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 3, i32 0, i32 1
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 56
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 40
   %5 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   store ptr %5, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializerC2ERKNS0_16SamplingProfilerERNS_11JSONEmitterEONS0_17ChromeTraceFormatE.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2360,16 +2235,16 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZN6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializerC2ERKNS0_16SamplingProfilerERNS_11JSONEmitterEONS0_17ChromeTraceFormatE.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
   %9 = phi ptr [ %json, %entry ], [ %json, %if.then.i.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i.i ]
-  %sampleEvents_.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 4
-  %sampleEvents_5.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 4
+  %sampleEvents_.i.i = getelementptr inbounds i8, ptr %s, i64 64
+  %sampleEvents_5.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 48
   %10 = load ptr, ptr %sampleEvents_5.i.i, align 8
   store ptr %10, ptr %sampleEvents_.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 72
+  %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 56
   %11 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8
   store ptr %11, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %s, i64 0, i32 2, i32 4, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeTraceFormat", ptr %chromeTrace, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 80
+  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 64
   %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
   store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sampleEvents_5.i.i, i8 0, i64 24, i1 false)
@@ -2384,15 +2259,15 @@ for.body.i.i.preheader:                           ; preds = %_ZN6hermes2vm12_GLO
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit.i.i
   %__begin2.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit.i.i ], [ %10, %for.body.i.i.preheader ]
-  %leafNode_.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.08.i.i, i64 0, i32 4
+  %leafNode_.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i.i, i64 24
   %13 = load ptr, ptr %leafNode_.i.i.i, align 8, !noalias !43
-  %_M_refcount3.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.08.i.i, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i.i, i64 32
   %14 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !43
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK6hermes2vm17ChromeSampleEvent11getLeafNodeEv.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !43
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2420,10 +2295,10 @@ if.then.i.i.i.i.i3:                               ; preds = %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i4.i.i:                             ; preds = %if.then.i.i.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -2449,10 +2324,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %25 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %14, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 12
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -2474,7 +2349,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i4.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %29 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit.i.i
@@ -2483,7 +2358,7 @@ _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit.i.i: ; preds = %i
   %30 = phi i32 [ %18, %_ZNK6hermes2vm17ChromeSampleEvent11getLeafNodeEv.exit.i.i ], [ %19, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %19, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i ], [ %19, %if.end8.sink.split.i.i.i.i.i.i ]
   %31 = load ptr, ptr %json_.i, align 8
   call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %31, i32 noundef %30) #14
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.08.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i.i, i64 40
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %11
   br i1 %cmp.i.not.i.i, label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11emitSamplesEv.exit.i, label %for.body.i.i
 
@@ -2498,19 +2373,19 @@ _ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11emitSamplesEv.exit.i: ;
   br i1 %cmp.i.i.i.i.i, label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer14emitTimeDeltasEv.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11emitSamplesEv.exit.i
-  %timeStamp_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %call.val.i.i, i64 0, i32 3
+  %timeStamp_.i.i.i.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 16
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %timeStamp_.i.i.i.i, align 8
   br label %for.body.i4.i
 
 for.body.i4.i:                                    ; preds = %for.body.i4.i, %for.body.preheader.i.i
   %previousTimeStampMicros.sroa.0.012.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %for.body.i4.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %for.body.preheader.i.i ]
   %__begin2.sroa.0.011.i.i = phi ptr [ %incdec.ptr.i.i5.i, %for.body.i4.i ], [ %call.val.i.i, %for.body.preheader.i.i ]
-  %timeStamp_.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.011.i.i, i64 0, i32 3
+  %timeStamp_.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.011.i.i, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %timeStamp_.i.i.i, align 8
   %sub.i.i.i.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %previousTimeStampMicros.sroa.0.012.i.i
   %div.i.i.i.i.i = sdiv i64 %sub.i.i.i.i, 1000
   call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %32, i64 noundef %div.i.i.i.i.i) #14
-  %incdec.ptr.i.i5.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__begin2.sroa.0.011.i.i, i64 1
+  %incdec.ptr.i.i5.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.011.i.i, i64 40
   %cmp.i.not.i6.i = icmp eq ptr %incdec.ptr.i.i5.i, %call.val5.i.i
   br i1 %cmp.i.not.i6.i, label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer14emitTimeDeltasEv.exit.i, label %for.body.i4.i
 
@@ -2548,8 +2423,8 @@ if.end.i:                                         ; preds = %_ZNK6hermes2vm12_GL
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i.i) #14
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp9.i.i, i64 0, i32 1
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp9.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 24
   store ptr %s, ptr %ref.tmp9.i.i, align 8
   %ref.tmp10.sroa.2.0.ref.tmp9.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i, i64 8
   store ptr %35, ptr %ref.tmp10.sroa.2.0.ref.tmp9.sroa_idx.i.i, align 8
@@ -2579,7 +2454,7 @@ _ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEv.exit.i: ; pr
   br i1 %cmp.i.i.i.i11.i, label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer13emitStartTimeEv.exit.i, label %cond.false.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEv.exit.i
-  %timeStamp_.i.i.i12.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %call.val.i10.i, i64 0, i32 3
+  %timeStamp_.i.i.i12.i = getelementptr inbounds i8, ptr %call.val.i10.i, i64 16
   %retval.sroa.0.0.copyload.i.i.i13.i = load i64, ptr %timeStamp_.i.i.i12.i, align 8
   %39 = sdiv i64 %retval.sroa.0.0.copyload.i.i.i13.i, 1000
   br label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer13emitStartTimeEv.exit.i
@@ -2595,7 +2470,7 @@ _ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer13emitStartTimeEv.exit.i:
   br i1 %cmp.i.i.i.i18.i, label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9serializeEv.exit, label %cond.false.i.i19.i
 
 cond.false.i.i19.i:                               ; preds = %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer13emitStartTimeEv.exit.i
-  %timeStamp_.i.i.i20.i = getelementptr %"class.hermes::vm::ChromeSampleEvent", ptr %call.val3.i17.i, i64 -1, i32 3
+  %timeStamp_.i.i.i20.i = getelementptr inbounds i8, ptr %call.val3.i17.i, i64 -24
   %retval.sroa.0.0.copyload.i.i.i21.i = load i64, ptr %timeStamp_.i.i.i20.i, align 8
   %41 = sdiv i64 %retval.sroa.0.0.copyload.i.i.i21.i, 1000
   br label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer9serializeEv.exit
@@ -2622,7 +2497,7 @@ _ZN6hermes11JSONEmitterD2Ev.exit:                 ; preds = %_ZNK6hermes2vm12_GL
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS6_EEE8copyFromERKSC_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(20) %other) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %NumBuckets.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i.i.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   %.pre10 = load ptr, ptr %this, align 8
@@ -2640,12 +2515,12 @@ for.body.i:                                       ; preds = %if.end13.i, %for.bo
   br i1 %switch.i, label %if.end13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %for.body.i
-  %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %P.08.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %P.08.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #14
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then11.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %P.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %P.08.i, i64 40
   %cmp6.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp6.not.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit, label %for.body.i, !llvm.loop !34
 
@@ -2656,7 +2531,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit, %entry
   %2 = phi ptr [ %.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit ], [ %.pre10, %entry ]
   tail call void @_ZdlPv(ptr noundef %2) #14
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap", ptr %other, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %other, i64 16
   %3 = load i32, ptr %NumBuckets, align 8
   store i32 %3, ptr %NumBuckets.i.i.i, align 8
   %cmp.i2.not = icmp eq i32 %3, 0
@@ -2667,13 +2542,13 @@ if.then:                                          ; preds = %_ZN4llvh12DenseMapB
   %mul.i = mul nuw nsw i64 %conv.i, 40
   %call.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i) #18
   store ptr %call.i, ptr %this, align 8
-  %NumEntries.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %other, i64 0, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %4 = load i32, ptr %NumEntries.i.i.i, align 8
-  %NumEntries.i.i11.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i11.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %4, ptr %NumEntries.i.i11.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %other, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %other, i64 12
   %5 = load i32, ptr %NumTombstones.i.i.i, align 4
-  %NumTombstones.i.i12.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i12.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %5, ptr %NumTombstones.i.i12.i, align 4
   %6 = load i32, ptr %NumBuckets.i.i.i, align 8
   %cmp16.not.i = icmp eq i32 %6, 0
@@ -2694,7 +2569,7 @@ for.body.i4:                                      ; preds = %if.then, %for.inc.i
   br i1 %switch.i5, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i4
-  %second.i.i6 = getelementptr inbounds %"struct.std::pair", ptr %arrayidx10.i, i64 0, i32 1
+  %second.i.i6 = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
   %12 = load ptr, ptr %other, align 8
   %second.i14.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %12, i64 %i.017.i, i32 0, i32 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i6, ptr noundef nonnull align 8 dereferenceable(32) %second.i14.i) #14
@@ -2726,7 +2601,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN6hermes2vm20ChromeStackFra
 entry:
   %0 = load ptr, ptr %__r, align 8
   store ptr %0, ptr %this, align 8
-  %_M_refcount = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_M_refcount, align 8
   %1 = load ptr, ptr %__r, align 8
   %cmp.i = icmp eq ptr %1, null
@@ -2735,12 +2610,12 @@ entry:
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit: ; preds = %entry
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
   store ptr null, ptr %__r, align 8
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i, align 8
-  %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
   %cmp.not.i = icmp eq ptr %call5.i.i.i, %2
@@ -2766,7 +2641,7 @@ if.end.i3:                                        ; preds = %if.then.i.i.i, %if.
   br i1 %cmp6.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i3
-  %_M_use_count.i5.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 1
+  %_M_use_count.i5.i = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i5.i acquire, align 8
   %cmp.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -2774,10 +2649,10 @@ if.then7.i:                                       ; preds = %if.end.i3
 
 if.then.i.i:                                      ; preds = %if.then7.i
   store i32 0, ptr %_M_use_count.i5.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %.pr.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i, align 4
   %vtable.i.i = load ptr, ptr %.pr.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #14
   br label %if.end8.sink.split.i.i
@@ -2803,10 +2678,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %if.else.i.i8
 
 if.then7.i.i:                                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %.pr.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #14
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2828,7 +2703,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.end8.sink.split.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %if.then.i.i
   %vtable2.i.i.i.i = load ptr, ptr %.pr.i, align 8
-  %vfn3.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i, i64 3
+  %vfn3.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #14
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit
@@ -2838,7 +2713,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit: ; preds = %if
   br label %if.then.i5
 
 if.then.i5:                                       ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEaSERKS2_.exit, %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS6_EEEOSt10unique_ptrIT_T0_E.exit
-  %_M_use_count.i.i6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i6 = getelementptr inbounds i8, ptr %call5.i.i.i, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i6 acquire, align 8
   %cmp.i.i7 = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -2846,10 +2721,10 @@ if.then.i5:                                       ; preds = %_ZNSt14__shared_cou
 
 if.then.i.i31:                                    ; preds = %if.then.i5
   store i32 0, ptr %_M_use_count.i.i6, align 8
-  %_M_weak_count.i.i32 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i32 = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i32, align 4
   %vtable.i.i33 = load ptr, ptr %call5.i.i.i, align 8
-  %vfn.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i33, i64 2
+  %vfn.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i33, i64 16
   %17 = load ptr, ptr %vfn.i.i34, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i) #14
   br label %if.end8.sink.split.i.i26
@@ -2875,10 +2750,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12: ; preds = %if.else.i.
 
 if.then7.i.i16:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i12
   %vtable.i.i.i.i17 = load ptr, ptr %call5.i.i.i, align 8
-  %vfn.i.i.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i17, i64 2
+  %vfn.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i17, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i18, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i) #14
-  %_M_weak_count.i.i.i.i19 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i19 = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i20 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i20, label %if.else.i.i.i.i.i29, label %if.then.i.i.i.i.i21
@@ -2900,7 +2775,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23: ; preds = %if.els
 
 if.end8.sink.split.i.i26:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i23, %if.then.i.i31
   %vtable2.i.i.i.i27 = load ptr, ptr %call5.i.i.i, align 8
-  %vfn3.i.i.i.i28 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i27, i64 3
+  %vfn3.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i27, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i28, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i) #14
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2928,7 +2803,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8
   tail call void @_ZNKSt14default_deleteIN6hermes2vm20ChromeStackFrameNodeEEclEPS2_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, ptr noundef %0)
   ret void
@@ -2954,22 +2829,22 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %children_.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__ptr, i64 0, i32 3
+  %children_.i = getelementptr inbounds i8, ptr %__ptr, i64 40
   %0 = load ptr, ptr %children_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__ptr, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__ptr, i64 48
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEES4_EvT_S6_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %delete.notnull, %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i.i ], [ %0, %delete.notnull ]
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -2977,10 +2852,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i
@@ -3006,10 +2881,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3031,13 +2906,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEES4_EvT_S6_RSaIT0_E.exitthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !47
 
@@ -3088,7 +2963,7 @@ entry:
   %__args.addr2.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
   store ptr %parent, ptr %__args.addr2.i, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EEclES4_S5_.exit
@@ -3098,13 +2973,13 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt8functionIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EEclES4_S5_.exit: ; preds = %entry
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %callback, i64 24
   %1 = load ptr, ptr %_M_invoker.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  %children_ = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %this, i64 0, i32 3
+  %children_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %children_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not5 = icmp eq ptr %2, %3
   br i1 %cmp.i.not5, label %for.end, label %for.body
@@ -3113,7 +2988,7 @@ for.body:                                         ; preds = %_ZNKSt8functionIFvR
   %__begin2.sroa.0.06 = phi ptr [ %incdec.ptr.i, %for.body ], [ %2, %_ZNKSt8functionIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EEclES4_S5_.exit ]
   %4 = load ptr, ptr %__begin2.sroa.0.06, align 8
   call void @_ZNK6hermes2vm20ChromeStackFrameNode13dfsWalkHelperERKSt8functionIFvRKS1_PS3_EES5_(ptr noundef nonnull align 8 dereferenceable(68) %4, ptr noundef nonnull align 8 dereferenceable(32) %callback, ptr noundef nonnull %this)
-  %incdec.ptr.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__begin2.sroa.0.06, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.06, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -3160,8 +3035,8 @@ entry:
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.31, i64 12) #14
   call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %json, i32 noundef %columnNumber) #14
   call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #14
-  %children_.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %node, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %node, i64 40
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %node, i64 48
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -3187,15 +3062,15 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %2, %_ZNSt12_Vector_baseISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EEC2EmRKS5_.exit.i ]
   %3 = load ptr, ptr %__first.sroa.0.06.i.i.i.i.i, align 8
   store ptr %3, ptr %__cur.07.i.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1
-  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.sroa.0.06.i.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
+  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -3211,8 +3086,8 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
   br label %_ZSt10_ConstructISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.sroa.0.06.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN4llvh9StringRefC2EPKc.exit92, label %for.body.i.i.i.i.i, !llvm.loop !48
 
@@ -3226,7 +3101,7 @@ for.body:                                         ; preds = %_ZN4llvh9StringRefC
   %8 = load ptr, ptr %__begin3.sroa.0.059, align 8
   %9 = load i32, ptr %8, align 8
   call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %json, i32 noundef %9) #14
-  %incdec.ptr.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__begin3.sroa.0.059, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.059, i64 16
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.059, %__cur.07.i.i.i.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -3237,7 +3112,7 @@ for.end:                                          ; preds = %for.body
 if.end:                                           ; preds = %entry, %for.end
   %__cur.0.lcssa.i.i.i.i.i57 = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.end ], [ null, %entry ]
   %cond.i.i.i.i5256 = phi ptr [ %call5.i.i.i.i.i.i, %for.end ], [ null, %entry ]
-  %hitCount_.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %node, i64 0, i32 4
+  %hitCount_.i = getelementptr inbounds i8, ptr %node, i64 64
   %10 = load i32, ptr %hitCount_.i, align 8
   %cmp.not = icmp eq i32 %10, 0
   br i1 %cmp.not, label %if.end22, label %_ZN4llvh9StringRefC2EPKc.exit102
@@ -3253,13 +3128,13 @@ if.end22:                                         ; preds = %_ZN4llvh9StringRefC
 
 for.body.i.i.i.i:                                 ; preds = %if.end22, %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i ], [ %cond.i.i.i.i5256, %if.end22 ]
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %11 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -3267,10 +3142,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i44:                      ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
@@ -3296,10 +3171,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3321,13 +3196,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i44
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
   br label %_ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i43 = icmp eq ptr %incdec.ptr.i.i.i.i, %__cur.0.lcssa.i.i.i.i.i57
   br i1 %cmp.not.i.i.i.i43, label %_ZSt8_DestroyIPSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEES4_EvT_S6_RSaIT0_E.exit.i, label %for.body.i.i.i.i, !llvm.loop !47
 
@@ -3545,8 +3420,8 @@ if.else.i.i.i:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp31.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i) #14
-  %frameInfo_.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2
-  %kind.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i64 16
+  %frameInfo_.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %kind.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %1 = load i32, ptr %kind.i.i.i.i, align 8
   switch i32 %1, label %sw.default.i.i.i.i [
     i32 0, label %sw.bb.i.i.i.i
@@ -3557,21 +3432,21 @@ if.else.i.i.i:                                    ; preds = %entry
 
 sw.bb.i.i.i.i:                                    ; preds = %if.else.i.i.i
   %2 = load ptr, ptr %frameInfo_.i.i.i.i.i, align 8
-  %bcProvider_.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %2, i64 0, i32 5
+  %bcProvider_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %bcProvider_.i.i.i.i.i, align 8
-  %functionId.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i64 8
+  %functionId.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %4 = load i32, ptr %functionId.i.i.i.i, align 8
   call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr noundef %3, i32 noundef %4)
   %call4.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #14
   %call5.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i, ptr noundef nonnull @.str.35) #14
   %5 = load i32, ptr %functionId.i.i.i.i, align 8
-  %offset.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i64 12
+  %offset.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 20
   %6 = load i32, ptr %offset.i.i.i.i, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !49
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.115") align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %3, i32 noundef %5) #14, !noalias !49
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.115", ptr %ref.tmp.i.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %second.i.i.i.i.i.i, align 8, !noalias !49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !49
   %tobool.not.i.i.i.i.i = icmp eq ptr %7, null
@@ -3583,7 +3458,7 @@ land.lhs.true.i.i.i.i.i:                          ; preds = %sw.bb.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.thread.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i.i
-  %debugInfo_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %3, i64 0, i32 19
+  %debugInfo_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 240
   %9 = load ptr, ptr %debugInfo_.i.i.i.i.i.i, align 8, !noalias !49
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i.i
@@ -3597,10 +3472,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i.i
 
 _ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.thread.i.i.i.i: ; preds = %land.lhs.true.i.i.i.i.i, %sw.bb.i.i.i.i
-  %envReg.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i.i, i64 0, i32 7
+  %envReg.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i.i, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %sourceLocOpt.i.i.i.i, i8 0, i64 28, i1 false), !alias.scope !49
   store i32 -1, ptr %envReg.i.i.i.i.i.i.i, align 4, !alias.scope !49
-  %hasValue_.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::OptValue", ptr %sourceLocOpt.i.i.i.i, i64 0, i32 1
+  %hasValue_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i.i, i64 32
   store i8 0, ptr %hasValue_.i.i.i.i.i.i, align 4, !alias.scope !49
   br label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20ChromeStackFrameNodeE.exit.i.i.i
 
@@ -3608,14 +3483,14 @@ _ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj
   %11 = phi i32 [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %8, %if.then.i.i.i.i.i ]
   %12 = phi ptr [ %.pre.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %9, %if.then.i.i.i.i.i ]
   call void @_ZNK6hermes3hbc9DebugInfo21getLocationForAddressEjj(ptr nonnull sret(%"class.hermes::OptValue") align 4 %sourceLocOpt.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %12, i32 noundef %11, i32 noundef %6) #14
-  %hasValue_.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"class.hermes::OptValue", ptr %sourceLocOpt.i.i.i.i, i64 0, i32 1
+  %hasValue_.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i.i, i64 32
   %.pre.i.i.i.i = load i8, ptr %hasValue_.i.phi.trans.insert.i.i.i.i, align 4
   %13 = and i8 %.pre.i.i.i.i, 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20ChromeStackFrameNodeE.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i.i
-  %filenameId.i.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i.i, i64 0, i32 1
+  %filenameId.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i.i, i64 4
   %15 = load i32, ptr %filenameId.i.i.i.i, align 4
   %16 = load ptr, ptr %debugInfo_.i.i.i.i.i.i, align 8
   %tobool.not.i12.i.i.i.i = icmp eq ptr %16, null
@@ -3633,9 +3508,9 @@ _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit.i.i.i.i: ; preds = %if.then
   call void @_ZNK6hermes3hbc9DebugInfo15getFilenameByIDB5cxx11Ej(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp9.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %18, i32 noundef %15)
   %call11.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i.i.i) #14
-  %line.i.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i.i, i64 0, i32 3
+  %line.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i.i, i64 12
   %19 = load i32, ptr %line.i.i.i.i, align 4
-  %column.i.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i.i, i64 0, i32 4
+  %column.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i.i, i64 16
   %20 = load i32, ptr %column.i.i.i.i, align 4
   br label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20ChromeStackFrameNodeE.exit.i.i.i
 
@@ -3759,7 +3634,7 @@ _ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20Chr
   %columnNumber.0.i.i.i.i = phi i32 [ 0, %sw.bb29.i.i.i.i ], [ 0, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit36.i.i.i.i ], [ 0, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit.i.i.i.i ], [ %20, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit.i.i.i.i ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i.i ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.thread.i.i.i.i ]
   %lineNumber.0.i.i.i.i = phi i32 [ 0, %sw.bb29.i.i.i.i ], [ 0, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit36.i.i.i.i ], [ 0, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit.i.i.i.i ], [ %19, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit.i.i.i.i ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i.i ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.thread.i.i.i.i ]
   %scriptId.0.i.i.i.i = phi i32 [ 0, %sw.bb29.i.i.i.i ], [ 0, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit36.i.i.i.i ], [ 0, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit.i.i.i.i ], [ %15, %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit.i.i.i.i ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i.i ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.thread.i.i.i.i ]
-  %json_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::ProfilerProfileSerializer", ptr %call.val, i64 0, i32 1
+  %json_.i.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 8
   %26 = load ptr, ptr %json_.i.i.i.i, align 8
   call fastcc void @_ZN6hermes2vm12_GLOBAL__N_115emitProfileNodeERNS_11JSONEmitterERKNS0_20ChromeStackFrameNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSE_jj(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr noundef nonnull align 8 dereferenceable(68) %__args, ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i.i, i32 noundef %scriptId.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i, i32 noundef %lineNumber.0.i.i.i.i, i32 noundef %columnNumber.0.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %url.i.i.i.i) #14
@@ -3817,18 +3692,18 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias align 8 %agg.result, ptr noundef %bcProvider, i32 noundef %funcId) unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.36", align 1
-  %functionHeaders_.i = getelementptr inbounds %"class.hermes::hbc::BCProviderFromBuffer", ptr %bcProvider, i64 0, i32 3
+  %functionHeaders_.i = getelementptr inbounds i8, ptr %bcProvider, i64 296
   %0 = load ptr, ptr %functionHeaders_.i, align 8
   %idxprom.i = zext i32 %funcId to i64
   %arrayidx.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
-  %flags.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1
   %1 = and i8 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i8 %1, 0
   br i1 %bf.cast.not.i, label %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %bufferPtr_.i = getelementptr inbounds %"class.hermes::hbc::BCProviderFromBuffer", ptr %bcProvider, i64 0, i32 2
+  %bufferPtr_.i = getelementptr inbounds i8, ptr %bcProvider, i64 288
   %2 = load ptr, ptr %bufferPtr_.i, align 8
   %bf.load.i.i = load i120, ptr %arrayidx.i, align 1
   %sh.diff.i.i = lshr i120 %bf.load.i.i, 48
@@ -3863,10 +3738,10 @@ if.else.i:                                        ; preds = %_ZNK6hermes3hbc20BC
 _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.i2, %if.else.i
   %retval.0.i = phi i32 [ %5, %if.then.i2 ], [ %bf.cast.i, %if.else.i ]
   %vtable.i = load ptr, ptr %bcProvider, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(280) %bcProvider, i32 noundef %retval.0.i) #14
-  %stringStorage_.i.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %bcProvider, i64 0, i32 7
+  %stringStorage_.i.i = getelementptr inbounds i8, ptr %bcProvider, i64 56
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %stringStorage_.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i, null
@@ -3905,9 +3780,9 @@ entry:
   %conv = zext i32 %id to i64
   %0 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %0, i64 %conv
-  %filenameStorage_ = getelementptr inbounds %"class.hermes::hbc::DebugInfo", ptr %this, i64 0, i32 1
+  %filenameStorage_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %filenameStorage_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::hbc::DebugInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -3939,18 +3814,18 @@ _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.
 define linkonce_odr hidden void @_ZNK6hermes2vm16SamplingProfiler21getNativeFunctionNameB5cxx11ERKNS1_10StackFrameE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(24) %stackFrame) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.36", align 1
-  %kind = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr %stackFrame, i64 0, i32 1
+  %kind = getelementptr inbounds i8, ptr %stackFrame, i64 16
   %0 = load i32, ptr %kind, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %nativeFunctions_.i = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this, i64 0, i32 9
+  %nativeFunctions_.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load i64, ptr %stackFrame, align 8
   %2 = load ptr, ptr %nativeFunctions_.i, align 8
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 %1
   %3 = load ptr, ptr %add.ptr.i.i, align 8
-  %functionPtr_.i.i = getelementptr inbounds %"class.hermes::vm::NativeFunction", ptr %3, i64 0, i32 2
+  %functionPtr_.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %functionPtr_.i.i, align 8
   %call2 = tail call noundef ptr @_ZN6hermes2vm15getFunctionNameEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvRNS0_7RuntimeENS0_10NativeArgsEE(ptr noundef %4) #14
   %strcmpload = load i8, ptr %call2, align 1
@@ -3968,12 +3843,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %nativeFunctions_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this, i64 0, i32 9
+  %nativeFunctions_ = getelementptr inbounds i8, ptr %this, i64 224
   %5 = load i64, ptr %stackFrame, align 8
   %6 = load ptr, ptr %nativeFunctions_, align 8
   %add.ptr.i4 = getelementptr inbounds ptr, ptr %6, i64 %5
   %7 = load ptr, ptr %add.ptr.i4, align 8
-  %runtime_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %this, i64 0, i32 10
+  %runtime_ = getelementptr inbounds i8, ptr %this, i64 248
   %8 = load ptr, ptr %runtime_, align 8
   tail call void @_ZN6hermes2vm8JSObject15getNameIfExistsB5cxx11ERNS0_11PointerBaseE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   br label %return
@@ -4022,7 +3897,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE17_M_realloc_insertIJSt10unique_ptrIS3_St14default_deleteIS3_EEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<hermes::vm::ChromeStackFrameNode>, std::allocator<std::shared_ptr<hermes::vm::ChromeStackFrameNode>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4038,7 +3913,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 576460752303423487)
   %cond.i = select i1 %cmp7.i, i64 576460752303423487, i64 %2
@@ -4065,19 +3940,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !73, !noalias !70
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !73, !noalias !70
   store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !70, !noalias !73
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !73, !noalias !70
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %for.body.i.i.i, !llvm.loop !31
 
 _ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12
 
@@ -4086,13 +3961,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !78, !noalias !75
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !78, !noalias !75
   store <2 x ptr> %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !75, !noalias !78
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !78, !noalias !75
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, label %for.body.i.i.i12, !llvm.loop !31
 
@@ -4106,7 +3981,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt10sh
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<hermes::vm::ChromeStackFrameNode>, std::allocator<std::shared_ptr<hermes::vm::ChromeStackFrameNode>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %cond.i
@@ -4120,7 +3995,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE17_M_realloc_insertIJRKmRKNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt10shared_ptrINS1_20ChromeStackFrameNodeEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::ChromeSampleEvent, std::allocator<hermes::vm::ChromeSampleEvent>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4136,7 +4011,7 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
-  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %2 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %2
@@ -4164,21 +4039,21 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i64 24, i1 false), !alias.scope !85
-  %leafNode_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__cur.07.i.i.i, i64 0, i32 4
-  %leafNode_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.06.i.i.i, i64 0, i32 4
-  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 1
+  %leafNode_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
+  %leafNode_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %3 = load <2 x ptr>, ptr %leafNode_3.i.i.i.i.i.i.i, align 8, !alias.scope !83, !noalias !80
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !83, !noalias !80
   store <2 x ptr> %3, ptr %leafNode_.i.i.i.i.i.i.i, align 8, !alias.scope !80, !noalias !83
   store ptr null, ptr %leafNode_3.i.i.i.i.i.i.i, align 8, !alias.scope !83, !noalias !80
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !86
 
 _ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm17ChromeSampleEventESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6hermes2vm17ChromeSampleEventESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, label %for.body.i.i.i12
 
@@ -4188,15 +4063,15 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i64 24, i1 false), !alias.scope !92
-  %leafNode_.i.i.i.i.i.i.i15 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__cur.07.i.i.i13, i64 0, i32 4
-  %leafNode_3.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.06.i.i.i14, i64 0, i32 4
-  %_M_refcount4.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.06.i.i.i14, i64 0, i32 4, i32 0, i32 1
+  %leafNode_.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
+  %leafNode_3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %_M_refcount4.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %4 = load <2 x ptr>, ptr %leafNode_3.i.i.i.i.i.i.i16, align 8, !alias.scope !90, !noalias !87
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !90, !noalias !87
   store <2 x ptr> %4, ptr %leafNode_.i.i.i.i.i.i.i15, align 8, !alias.scope !87, !noalias !90
   store ptr null, ptr %leafNode_3.i.i.i.i.i.i.i16, align 8, !alias.scope !90, !noalias !87
-  %incdec.ptr.i.i.i19 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i20 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i19, %0
   br i1 %cmp.not.i.i.i21, label %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, label %for.body.i.i.i12, !llvm.loop !86
 
@@ -4210,7 +4085,7 @@ if.then.i24:                                      ; preds = %_ZNSt6vectorIN6herm
   br label %_ZNSt12_Vector_baseIN6hermes2vm17ChromeSampleEventESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6hermes2vm17ChromeSampleEventESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6hermes2vm17ChromeSampleEventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, %if.then.i24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::ChromeSampleEvent, std::allocator<hermes::vm::ChromeSampleEvent>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i22, ptr %_M_finish.i.i, align 8
   %add.ptr23 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %cond.i10, i64 %cond.i
@@ -4224,13 +4099,13 @@ entry:
   %0 = load i64, ptr %__args, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %__args1, align 8
   %1 = load ptr, ptr %__args3, align 8
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__args3, i64 0, i32 1
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZN6hermes2vm17ChromeSampleEventC2EmNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESt10shared_ptrINS0_20ChromeStackFrameNodeEE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4247,15 +4122,15 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   store i32 -1, ptr %__p, align 8
-  %weight_.i10 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 1
+  %weight_.i10 = getelementptr inbounds i8, ptr %__p, i64 4
   store i32 1, ptr %weight_.i10, align 4
-  %tid_.i11 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 2
+  %tid_.i11 = getelementptr inbounds i8, ptr %__p, i64 8
   store i64 %0, ptr %tid_.i11, align 8
-  %timeStamp_.i12 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 3
+  %timeStamp_.i12 = getelementptr inbounds i8, ptr %__p, i64 16
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %timeStamp_.i12, align 8
-  %leafNode_.i13 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 4
+  %leafNode_.i13 = getelementptr inbounds i8, ptr %__p, i64 24
   store ptr %1, ptr %leafNode_.i13, align 8
-  %_M_refcount.i.i.i14 = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i.i14 = getelementptr inbounds i8, ptr %__p, i64 32
   store ptr %2, ptr %_M_refcount.i.i.i14, align 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
@@ -4273,15 +4148,15 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZN6hermes2vm17ChromeSampleEventC2EmNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESt10shared_ptrINS0_20ChromeStackFrameNodeEE.exit: ; preds = %entry
   store i32 -1, ptr %__p, align 8
-  %weight_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 1
+  %weight_.i = getelementptr inbounds i8, ptr %__p, i64 4
   store i32 1, ptr %weight_.i, align 4
-  %tid_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 2
+  %tid_.i = getelementptr inbounds i8, ptr %__p, i64 8
   store i64 %0, ptr %tid_.i, align 8
-  %timeStamp_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 3
+  %timeStamp_.i = getelementptr inbounds i8, ptr %__p, i64 16
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %timeStamp_.i, align 8
-  %leafNode_.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 4
+  %leafNode_.i = getelementptr inbounds i8, ptr %__p, i64 24
   store ptr %1, ptr %leafNode_.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeSampleEvent", ptr %__p, i64 0, i32 4, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %__p, i64 32
   store ptr null, ptr %_M_refcount.i.i.i, align 8
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit
 
@@ -4293,10 +4168,10 @@ if.then.i.i.i3:                                   ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i8:                                 ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -4322,10 +4197,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4347,7 +4222,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i8
   %vtable2.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit
@@ -4422,7 +4297,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp61.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp65.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp66.i.i.i)
-  %0 = getelementptr inbounds %class.anon, ptr %__functor, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %__functor, i64 8
   %1 = load ptr, ptr %0, align 8
   %2 = load i32, ptr %__args, align 8
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i.i.i, i32 noundef %2) #14
@@ -4449,8 +4324,8 @@ if.then.i.i.i:                                    ; preds = %entry
 if.end.i.i.i:                                     ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %frameName.i.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %categoryName.i.i.i) #14
-  %frameInfo_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2
-  %kind.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i64 16
+  %frameInfo_.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %kind.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %7 = load i32, ptr %kind.i.i.i, align 8
   switch i32 %7, label %sw.default.i.i.i [
     i32 0, label %sw.bb.i.i.i
@@ -4461,16 +4336,16 @@ if.end.i.i.i:                                     ; preds = %entry
 
 sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   %8 = load ptr, ptr %frameInfo_.i.i.i.i, align 8
-  %bcProvider_.i.i.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeModule", ptr %8, i64 0, i32 5
+  %bcProvider_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 80
   %9 = load ptr, ptr %bcProvider_.i.i.i.i, align 8
-  %BufferMode.i.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os.i.i.i, i64 0, i32 4
+  %BufferMode.i.i.i.i.i = getelementptr inbounds i8, ptr %os.i.i.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8
-  %OutBufStart.i.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os.i.i.i, i64 0, i32 1
+  %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %os.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os.i.i.i, align 8
-  %OS.i.i.i.i = getelementptr inbounds %"class.llvh::raw_string_ostream", ptr %os.i.i.i, i64 0, i32 1
+  %OS.i.i.i.i = getelementptr inbounds i8, ptr %os.i.i.i, i64 40
   store ptr %frameName.i.i.i, ptr %OS.i.i.i.i, align 8
-  %functionId.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i64 8
+  %functionId.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %10 = load i32, ptr %functionId.i.i.i, align 8
   call fastcc void @_ZN6hermes2vm12_GLOBAL__N_117getJSFunctionNameB5cxx11EPNS_3hbc20BCProviderFromBufferEj(ptr noalias nonnull align 8 %ref.tmp7.i.i.i, ptr noundef %9, i32 noundef %10)
   %call.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i.i.i) #14
@@ -4479,12 +4354,12 @@ sw.bb.i.i.i:                                      ; preds = %if.end.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i.i.i) #14
   %call9.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %categoryName.i.i.i, ptr noundef nonnull @.str.48) #14
   %11 = load i32, ptr %functionId.i.i.i, align 8
-  %offset.i.i.i = getelementptr inbounds %"class.hermes::vm::ChromeStackFrameNode", ptr %__args, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i64 12
+  %offset.i.i.i = getelementptr inbounds i8, ptr %__args, i64 20
   %12 = load i32, ptr %offset.i.i.i, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !93
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.115") align 8 %ref.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %9, i32 noundef %11) #14, !noalias !93
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.115", ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %second.i.i.i.i.i, align 8, !noalias !93
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i), !noalias !93
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
@@ -4496,7 +4371,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %sw.bb.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.thread.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i.i
-  %debugInfo_.i.i.i.i.i = getelementptr inbounds %"class.hermes::hbc::BCProviderBase", ptr %9, i64 0, i32 19
+  %debugInfo_.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 240
   %15 = load ptr, ptr %debugInfo_.i.i.i.i.i, align 8, !noalias !93
   %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i
@@ -4510,10 +4385,10 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.i.i.i
 
 _ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit.thread.i.i.i: ; preds = %land.lhs.true.i.i.i.i, %sw.bb.i.i.i
-  %envReg.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i, i64 0, i32 7
+  %envReg.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %sourceLocOpt.i.i.i, i8 0, i64 28, i1 false), !alias.scope !93
   store i32 -1, ptr %envReg.i.i.i.i.i.i, align 4, !alias.scope !93
-  %hasValue_.i.i.i.i.i = getelementptr inbounds %"class.hermes::OptValue", ptr %sourceLocOpt.i.i.i, i64 0, i32 1
+  %hasValue_.i.i.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i, i64 32
   store i8 0, ptr %hasValue_.i.i.i.i.i, align 4, !alias.scope !93
   br label %if.else.i.i.i
 
@@ -4521,7 +4396,7 @@ _ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj
   %17 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ], [ %14, %if.then.i.i.i.i ]
   %18 = phi ptr [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %15, %if.then.i.i.i.i ]
   call void @_ZNK6hermes3hbc9DebugInfo21getLocationForAddressEjj(ptr nonnull sret(%"class.hermes::OptValue") align 4 %sourceLocOpt.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %18, i32 noundef %17, i32 noundef %12) #14
-  %hasValue_.i.phi.trans.insert.i.i.i = getelementptr inbounds %"class.hermes::OptValue", ptr %sourceLocOpt.i.i.i, i64 0, i32 1
+  %hasValue_.i.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i, i64 32
   %.pre.i.i.i = load i8, ptr %hasValue_.i.phi.trans.insert.i.i.i, align 4
   %19 = and i8 %.pre.i.i.i, 1
   %20 = icmp eq i8 %19, 0
@@ -4541,16 +4416,16 @@ if.then.i46.i.i.i:                                ; preds = %if.then12.i.i.i
 
 _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit.i.i.i: ; preds = %if.then.i46.i.i.i, %if.then12.i.i.i
   %23 = phi ptr [ %.pre.i47.i.i.i, %if.then.i46.i.i.i ], [ %21, %if.then12.i.i.i ]
-  %filenameId.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i, i64 0, i32 1
+  %filenameId.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i, i64 4
   %24 = load i32, ptr %filenameId.i.i.i, align 4
   call void @_ZNK6hermes3hbc9DebugInfo15getFilenameByIDB5cxx11Ej(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %fileNameStr.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %23, i32 noundef %24)
-  %line16.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i, i64 0, i32 3
+  %line16.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i, i64 12
   %25 = load i32, ptr %line16.i.i.i, align 4
-  %column18.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %sourceLocOpt.i.i.i, i64 0, i32 4
+  %column18.i.i.i = getelementptr inbounds i8, ptr %sourceLocOpt.i.i.i, i64 16
   %26 = load i32, ptr %column18.i.i.i, align 4
-  %OutBufEnd.i5.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os.i.i.i, i64 0, i32 2
+  %OutBufEnd.i5.i.i.i.i = getelementptr inbounds i8, ptr %os.i.i.i, i64 16
   %27 = load ptr, ptr %OutBufEnd.i5.i.i.i.i, align 8
-  %OutBufCur.i6.i.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os.i.i.i, i64 0, i32 3
+  %OutBufCur.i6.i.i.i.i = getelementptr inbounds i8, ptr %os.i.i.i, i64 24
   %28 = load ptr, ptr %OutBufCur.i6.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %27, %28
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i49.i.i.i, label %if.then4.i.i.i.i.i
@@ -4571,9 +4446,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %if.then4.i.i.i.i.i,
   %call.i50.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %fileNameStr.i.i.i) #14
   %call2.i51.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %fileNameStr.i.i.i) #14
   %call3.i52.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i.i.i.i, ptr noundef %call.i50.i.i.i, i64 noundef %call2.i51.i.i.i) #14
-  %OutBufEnd.i5.i54.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i52.i.i.i, i64 0, i32 2
+  %OutBufEnd.i5.i54.i.i.i = getelementptr inbounds i8, ptr %call3.i52.i.i.i, i64 16
   %30 = load ptr, ptr %OutBufEnd.i5.i54.i.i.i, align 8
-  %OutBufCur.i6.i55.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i52.i.i.i, i64 0, i32 3
+  %OutBufCur.i6.i55.i.i.i = getelementptr inbounds i8, ptr %call3.i52.i.i.i, i64 24
   %31 = load ptr, ptr %OutBufCur.i6.i55.i.i.i, align 8
   %cmp.i.i59.i.i.i = icmp eq ptr %30, %31
   br i1 %cmp.i.i59.i.i.i, label %if.then.i.i65.i.i.i, label %if.then4.i.i62.i.i.i
@@ -4593,9 +4468,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit67.i.i.i:         ; preds = %if.then4.i.i62.i.i.
   %phi.call.i64.i.i.i = phi ptr [ %call3.i.i66.i.i.i, %if.then.i.i65.i.i.i ], [ %call3.i52.i.i.i, %if.then4.i.i62.i.i.i ]
   %conv.i.i.i.i = zext i32 %25 to i64
   %call.i68.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i64.i.i.i, i64 noundef %conv.i.i.i.i) #14
-  %OutBufEnd.i5.i70.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i68.i.i.i, i64 0, i32 2
+  %OutBufEnd.i5.i70.i.i.i = getelementptr inbounds i8, ptr %call.i68.i.i.i, i64 16
   %33 = load ptr, ptr %OutBufEnd.i5.i70.i.i.i, align 8
-  %OutBufCur.i6.i71.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i68.i.i.i, i64 0, i32 3
+  %OutBufCur.i6.i71.i.i.i = getelementptr inbounds i8, ptr %call.i68.i.i.i, i64 24
   %34 = load ptr, ptr %OutBufCur.i6.i71.i.i.i, align 8
   %cmp.i.i75.i.i.i = icmp eq ptr %33, %34
   br i1 %cmp.i.i75.i.i.i, label %if.then.i.i81.i.i.i, label %if.then4.i.i78.i.i.i
@@ -4615,9 +4490,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit83.i.i.i:         ; preds = %if.then4.i.i78.i.i.
   %phi.call.i80.i.i.i = phi ptr [ %call3.i.i82.i.i.i, %if.then.i.i81.i.i.i ], [ %call.i68.i.i.i, %if.then4.i.i78.i.i.i ]
   %conv.i84.i.i.i = zext i32 %26 to i64
   %call.i85.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i80.i.i.i, i64 noundef %conv.i84.i.i.i) #14
-  %OutBufEnd.i5.i87.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i85.i.i.i, i64 0, i32 2
+  %OutBufEnd.i5.i87.i.i.i = getelementptr inbounds i8, ptr %call.i85.i.i.i, i64 16
   %36 = load ptr, ptr %OutBufEnd.i5.i87.i.i.i, align 8
-  %OutBufCur.i6.i88.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call.i85.i.i.i, i64 0, i32 3
+  %OutBufCur.i6.i88.i.i.i = getelementptr inbounds i8, ptr %call.i85.i.i.i, i64 24
   %37 = load ptr, ptr %OutBufCur.i6.i88.i.i.i, align 8
   %cmp.i.i92.i.i.i = icmp eq ptr %36, %37
   br i1 %cmp.i.i92.i.i.i, label %if.then.i.i98.i.i.i, label %if.then4.i.i95.i.i.i
@@ -4652,7 +4527,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit100.i.i.i:        ; preds = %if.then4.i.i95.i.i.
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i104.i.i.i), !noalias !96
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.115") align 8 %ref.tmp.i.i104.i.i.i, ptr noundef nonnull align 8 dereferenceable(376) %9, i32 noundef %41) #14, !noalias !96
-  %second.i.i105.i.i.i = getelementptr inbounds %"struct.std::pair.115", ptr %ref.tmp.i.i104.i.i.i, i64 0, i32 1
+  %second.i.i105.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i104.i.i.i, i64 16
   %42 = load ptr, ptr %second.i.i105.i.i.i, align 8, !noalias !96
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i104.i.i.i), !noalias !96
   %tobool.not.i106.i.i.i = icmp eq ptr %42, null
@@ -4677,10 +4552,10 @@ if.then.i.i113.i.i.i:                             ; preds = %if.then.i109.i.i.i
   br label %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit120.i.i.i
 
 _ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit120.thread.i.i.i: ; preds = %land.lhs.true.i107.i.i.i, %_ZN4llvh11raw_ostreamlsEPKc.exit100.i.i.i
-  %envReg.i.i.i118.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %funcStartSourceLocOpt.i.i.i, i64 0, i32 7
+  %envReg.i.i.i118.i.i.i = getelementptr inbounds i8, ptr %funcStartSourceLocOpt.i.i.i, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %funcStartSourceLocOpt.i.i.i, i8 0, i64 28, i1 false), !alias.scope !96
   store i32 -1, ptr %envReg.i.i.i118.i.i.i, align 4, !alias.scope !96
-  %hasValue_.i.i119.i.i.i = getelementptr inbounds %"class.hermes::OptValue", ptr %funcStartSourceLocOpt.i.i.i, i64 0, i32 1
+  %hasValue_.i.i119.i.i.i = getelementptr inbounds i8, ptr %funcStartSourceLocOpt.i.i.i, i64 32
   store i8 0, ptr %hasValue_.i.i119.i.i.i, align 4, !alias.scope !96
   br label %if.end49.i.i.i
 
@@ -4688,7 +4563,7 @@ _ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj
   %46 = phi i32 [ %.pre.i116.i.i.i, %if.then.i.i113.i.i.i ], [ %43, %if.then.i109.i.i.i ]
   %47 = phi ptr [ %.pre.i.i115.i.i.i, %if.then.i.i113.i.i.i ], [ %44, %if.then.i109.i.i.i ]
   call void @_ZNK6hermes3hbc9DebugInfo21getLocationForAddressEjj(ptr nonnull sret(%"class.hermes::OptValue") align 4 %funcStartSourceLocOpt.i.i.i, ptr noundef nonnull align 8 dereferenceable(136) %47, i32 noundef %46, i32 noundef 0) #14
-  %hasValue_.i121.phi.trans.insert.i.i.i = getelementptr inbounds %"class.hermes::OptValue", ptr %funcStartSourceLocOpt.i.i.i, i64 0, i32 1
+  %hasValue_.i121.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %funcStartSourceLocOpt.i.i.i, i64 32
   %.pre165.i.i.i = load i8, ptr %hasValue_.i121.phi.trans.insert.i.i.i, align 4
   %48 = and i8 %.pre165.i.i.i, 1
   %49 = icmp eq i8 %48, 0
@@ -4696,7 +4571,7 @@ _ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj
 
 if.then32.i.i.i:                                  ; preds = %_ZN6hermes2vm12_GLOBAL__N_117getSourceLocationEPNS_3hbc20BCProviderFromBufferEjj.exit120.i.i.i
   %50 = load ptr, ptr %0, align 8
-  %line36.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %funcStartSourceLocOpt.i.i.i, i64 0, i32 3
+  %line36.i.i.i = getelementptr inbounds i8, ptr %funcStartSourceLocOpt.i.i.i, i64 12
   %51 = load i32, ptr %line36.i.i.i, align 4
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp34.i.i.i, i32 noundef %51) #14
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr nonnull @.str.54, i64 8) #14
@@ -4705,7 +4580,7 @@ if.then32.i.i.i:                                  ; preds = %_ZN6hermes2vm12_GLO
   call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr %call.i.i123.i.i.i, i64 %call2.i.i124.i.i.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34.i.i.i) #14
   %52 = load ptr, ptr %0, align 8
-  %column40.i.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugSourceLocation", ptr %funcStartSourceLocOpt.i.i.i, i64 0, i32 4
+  %column40.i.i.i = getelementptr inbounds i8, ptr %funcStartSourceLocOpt.i.i.i, i64 16
   %53 = load i32, ptr %column40.i.i.i, align 4
   call void @_ZNSt7__cxx119to_stringEj(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp38.i.i.i, i32 noundef %53) #14
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %52, ptr nonnull @.str.55, i64 10) #14

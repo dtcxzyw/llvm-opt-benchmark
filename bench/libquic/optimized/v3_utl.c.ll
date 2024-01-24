@@ -3,13 +3,6 @@ source_filename = "bench/libquic/original/v3_utl.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.conf_value_st = type { ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ACCESS_DESCRIPTION_st = type { ptr, ptr }
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
 %struct.IPV6_STAT = type { [16 x i8], i32, i32, i32 }
 
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509v3/v3_utl.c\00", align 1
@@ -72,9 +65,9 @@ land.lhs.true13:                                  ; preds = %if.end11
 
 if.end17:                                         ; preds = %land.lhs.true13, %if.end11
   store ptr null, ptr %call8, align 8
-  %name18 = getelementptr inbounds %struct.conf_value_st, ptr %call8, i64 0, i32 1
+  %name18 = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %tname.0, ptr %name18, align 8
-  %value19 = getelementptr inbounds %struct.conf_value_st, ptr %call8, i64 0, i32 2
+  %value19 = getelementptr inbounds i8, ptr %call8, i64 16
   store ptr %tvalue.0, ptr %value19, align 8
   %1 = load ptr, ptr %extlist, align 8
   %call20 = tail call i64 @sk_push(ptr noundef %1, ptr noundef nonnull %call8) #19
@@ -142,7 +135,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %conf, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %conf, i64 8
   %0 = load ptr, ptr %name, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
@@ -152,7 +145,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %conf, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %conf, i64 16
   %1 = load ptr, ptr %value, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -354,7 +347,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %tobool42.not, label %return, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call38, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call38, i64 4
   %8 = load i32, ptr %type, align 4
   %or = or i32 %8, 256
   store i32 %or, ptr %type, align 4
@@ -410,7 +403,7 @@ return:                                           ; preds = %i2s_ASN1_INTEGER.ex
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @X509V3_get_value_bool(ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %asn1_bool) local_unnamed_addr #0 {
 entry:
-  %value1 = getelementptr inbounds %struct.conf_value_st, ptr %value, i64 0, i32 2
+  %value1 = getelementptr inbounds i8, ptr %value, i64 16
   %0 = load ptr, ptr %value1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %err, label %if.end
@@ -486,7 +479,7 @@ if.then35:                                        ; preds = %lor.lhs.false32, %l
 err:                                              ; preds = %lor.lhs.false32, %entry
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 120, ptr noundef nonnull @.str, i32 noundef 261) #19
   %1 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %value, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr %value1, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.13, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef %3) #19
@@ -505,7 +498,7 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @X509V3_get_value_int(ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %aint) local_unnamed_addr #0 {
 entry:
-  %value1 = getelementptr inbounds %struct.conf_value_st, ptr %value, i64 0, i32 2
+  %value1 = getelementptr inbounds i8, ptr %value, i64 16
   %0 = load ptr, ptr %value1, align 8
   %call = tail call ptr @s2i_ASN1_INTEGER(ptr poison, ptr noundef %0)
   %tobool.not = icmp eq ptr %call, null
@@ -513,7 +506,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %value, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr %value1, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.13, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef %2, ptr noundef nonnull @.str.15, ptr noundef %3) #19
@@ -1179,7 +1172,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp7.not, label %if.end9, label %for.inc
 
 if.end9:                                          ; preds = %for.body
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call6, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load ptr, ptr %d, align 8
   %call10 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %1), !range !7
   %tobool11.not = icmp eq i32 %call10, 0
@@ -1227,14 +1220,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call2, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call2, i64 8
   %1 = load ptr, ptr %location, align 8
   %2 = load i32, ptr %1, align 8
   %cmp6 = icmp eq i32 %2, 6
   br i1 %cmp6, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %if.then5
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %1, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %d, align 8
   %call9 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %3), !range !7
   %tobool10.not = icmp eq i32 %call9, 0
@@ -1269,13 +1262,13 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @append_ia5(ptr nocapture noundef %sk, ptr nocapture noundef readonly %email) unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %email, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %email, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 22
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %email, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %email, i64 8
   %1 = load ptr, ptr %data, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -1338,7 +1331,7 @@ entry:
   %call = tail call ptr @X509_REQ_get_extensions(ptr noundef %x) #19
   %call1 = tail call ptr @X509V3_get_d2i(ptr noundef %call, i32 noundef 85, ptr noundef null, ptr noundef null) #19
   %0 = load ptr, ptr %x, align 8
-  %subject = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 2
+  %subject = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %subject, align 8
   %call2 = tail call fastcc ptr @get_email(ptr noundef %1, ptr noundef %call1)
   tail call void @sk_pop_free(ptr noundef %call1, ptr noundef nonnull @GENERAL_NAME_free) #19
@@ -1450,7 +1443,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp20.not, label %if.end23, label %for.inc
 
 if.end23:                                         ; preds = %for.body
-  %cstr.0.in = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call19, i64 0, i32 1
+  %cstr.0.in = getelementptr inbounds i8, ptr %call19, i64 8
   %cstr.0 = load ptr, ptr %cstr.0.in, align 8
   %call36 = tail call fastcc i32 @do_check_string(ptr noundef %cstr.0, i32 noundef %alt_type.044.ph, ptr noundef nonnull %equal.045.ph, i32 noundef %flags.addr.148.ph, ptr noundef %chk, i64 noundef %chklen, ptr noundef %peername)
   %cmp37.not = icmp eq i32 %call36, 0
@@ -1501,7 +1494,7 @@ while.body.us:                                    ; preds = %while.cond.us
   %call62.us = call ptr @X509_NAME_get_entry(ptr noundef %call58, i32 noundef %call59.us) #19
   %call63.us = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %call62.us) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %astr.i)
-  %data.i.us = getelementptr inbounds %struct.asn1_string_st, ptr %call63.us, i64 0, i32 2
+  %data.i.us = getelementptr inbounds i8, ptr %call63.us, i64 8
   %3 = load ptr, ptr %data.i.us, align 8
   %tobool.not.i.us = icmp eq ptr %3, null
   br i1 %tobool.not.i.us, label %do_check_string.exit.us, label %lor.lhs.false.i.us
@@ -1540,7 +1533,7 @@ while.body:                                       ; preds = %while.cond
   %call62 = call ptr @X509_NAME_get_entry(ptr noundef %call58, i32 noundef %call59) #19
   %call63 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %call62) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %astr.i)
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call63, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call63, i64 8
   %7 = load ptr, ptr %data.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %do_check_string.exit, label %lor.lhs.false.i
@@ -1659,11 +1652,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %v6stat.i)
-  %total.i = getelementptr inbounds %struct.IPV6_STAT, ptr %v6stat.i, i64 0, i32 1
+  %total.i = getelementptr inbounds i8, ptr %v6stat.i, i64 16
   store i32 0, ptr %total.i, align 4
-  %zero_pos.i = getelementptr inbounds %struct.IPV6_STAT, ptr %v6stat.i, i64 0, i32 2
+  %zero_pos.i = getelementptr inbounds i8, ptr %v6stat.i, i64 20
   store i32 -1, ptr %zero_pos.i, align 4
-  %zero_cnt.i = getelementptr inbounds %struct.IPV6_STAT, ptr %v6stat.i, i64 0, i32 3
+  %zero_cnt.i = getelementptr inbounds i8, ptr %v6stat.i, i64 24
   store i32 0, ptr %zero_cnt.i, align 4
   %call.i = call i32 @CONF_parse_list(ptr noundef %ipasc, i8 noundef signext 58, i32 noundef 0, ptr noundef nonnull @ipv6_cb, ptr noundef nonnull %v6stat.i) #19
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1921,7 +1914,7 @@ for.cond:                                         ; preds = %for.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %call1 = tail call ptr @sk_value(ptr noundef %dn_sk, i64 noundef %i.019) #19
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %name, align 8
   br label %for.cond2
 
@@ -1953,7 +1946,7 @@ for.end:                                          ; preds = %for.cond2, %if.then
   %mval.0 = sext i1 %cmp21 to i32
   %type.1.idx = zext i1 %cmp21 to i64
   %type.1 = getelementptr inbounds i8, ptr %type.0, i64 %type.1.idx
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call1, i64 16
   %4 = load ptr, ptr %value, align 8
   %call27 = tail call i32 @X509_NAME_add_entry_by_txt(ptr noundef nonnull %nm, ptr noundef nonnull %type.1, i32 noundef %conv26, ptr noundef %4, i32 noundef -1, i32 noundef -1, i32 noundef %mval.0) #19
   %tobool28.not = icmp eq i32 %call27, 0
@@ -2659,7 +2652,7 @@ return:                                           ; preds = %skip_prefix.exit, %
 define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef %cmp_type, ptr nocapture noundef readonly %equal, i32 noundef %flags, ptr noundef %b, i64 noundef %blen, ptr noundef writeonly %peername) unnamed_addr #0 {
 entry:
   %astr = alloca ptr, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2674,7 +2667,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp, label %if.then2, label %if.else30
 
 if.then2:                                         ; preds = %if.end
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %2 = load i32, ptr %type, align 4
   %cmp3.not = icmp eq i32 %2, %cmp_type
   br i1 %cmp3.not, label %if.end5, label %return
@@ -2764,7 +2757,7 @@ entry:
   %a1.i = alloca i32, align 4
   %a2.i = alloca i32, align 4
   %a3.i = alloca i32, align 4
-  %total = getelementptr inbounds %struct.IPV6_STAT, ptr %usr, i64 0, i32 1
+  %total = getelementptr inbounds i8, ptr %usr, i64 16
   %0 = load i32, ptr %total, align 4
   %cmp = icmp eq i32 %0, 16
   br i1 %cmp, label %return, label %if.end
@@ -2774,7 +2767,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else13
 
 if.then2:                                         ; preds = %if.end
-  %zero_pos = getelementptr inbounds %struct.IPV6_STAT, ptr %usr, i64 0, i32 2
+  %zero_pos = getelementptr inbounds i8, ptr %usr, i64 20
   %1 = load i32, ptr %zero_pos, align 4
   %cmp3 = icmp eq i32 %1, -1
   br i1 %cmp3, label %if.then4, label %if.else
@@ -2788,7 +2781,7 @@ if.else:                                          ; preds = %if.then2
   br i1 %cmp9.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.else, %if.then4
-  %zero_cnt = getelementptr inbounds %struct.IPV6_STAT, ptr %usr, i64 0, i32 3
+  %zero_cnt = getelementptr inbounds i8, ptr %usr, i64 24
   %2 = load i32, ptr %zero_cnt, align 4
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %zero_cnt, align 4

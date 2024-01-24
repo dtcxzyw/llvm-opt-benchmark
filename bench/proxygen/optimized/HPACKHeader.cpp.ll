@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.proxygen::HPACKHeader" = type { %"class.proxygen::HPACKHeaderName", %"class.folly::basic_fbstring" }
-%"class.proxygen::HPACKHeaderName" = type { ptr }
-%"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
-%"class.folly::fbstring_core" = type { %union.anon }
-%union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
-%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -30,13 +24,13 @@ entry:
   %0 = load ptr, ptr %h, align 8
   %call1.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str)
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %h, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %h, i64 8
   %1 = load ptr, ptr %value, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %h, i64 31
   %2 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %2, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %1
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %h, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %h, i64 16
   %3 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %2 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i

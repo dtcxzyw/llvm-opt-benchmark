@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ocsp_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.ocsp_cert_id_st = type { %struct.X509_algor_st, %struct.asn1_string_st, %struct.asn1_string_st, %struct.asn1_string_st }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/ocsp/ocsp_lib.c\00", align 1
 @__func__.OCSP_cert_id_new = private unnamed_addr constant [17 x i8] c"OCSP_cert_id_new\00", align 1
 
@@ -82,7 +78,7 @@ if.end4:                                          ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end4
   %call10 = tail call ptr @ASN1_TYPE_new() #2
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %call, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call10, ptr %parameter, align 8
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %err, label %if.end13
@@ -94,14 +90,14 @@ if.end13:                                         ; preds = %if.end9
   br i1 %tobool.not, label %digerr, label %if.end17
 
 if.end17:                                         ; preds = %if.end13
-  %issuerNameHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %call, i64 0, i32 1
+  %issuerNameHash = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load i32, ptr %i, align 4
   %call19 = call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %issuerNameHash, ptr noundef nonnull %md, i32 noundef %1) #2
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %err, label %if.end22
 
 if.end22:                                         ; preds = %if.end17
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %issuerKey, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %issuerKey, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %issuerKey, align 8
   %conv = sext i32 %3 to i64
@@ -110,7 +106,7 @@ if.end22:                                         ; preds = %if.end17
   br i1 %tobool25.not, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end22
-  %issuerKeyHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %call, i64 0, i32 2
+  %issuerKeyHash = getelementptr inbounds i8, ptr %call, i64 40
   %4 = load i32, ptr %i, align 4
   %call29 = call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %issuerKeyHash, ptr noundef nonnull %md, i32 noundef %4) #2
   %tobool30.not = icmp eq i32 %call29, 0
@@ -121,7 +117,7 @@ if.end32:                                         ; preds = %if.end27
   br i1 %tobool33.not, label %return, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %serialNumber35 = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %call, i64 0, i32 3
+  %serialNumber35 = getelementptr inbounds i8, ptr %call, i64 64
   %call36 = call i32 @ASN1_STRING_copy(ptr noundef nonnull %serialNumber35, ptr noundef nonnull %serialNumber) #2
   %cmp37 = icmp eq i32 %call36, 0
   br i1 %cmp37, label %err, label %return
@@ -177,15 +173,15 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %issuerNameHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 1
-  %issuerNameHash3 = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %b, i64 0, i32 1
+  %issuerNameHash = getelementptr inbounds i8, ptr %a, i64 16
+  %issuerNameHash3 = getelementptr inbounds i8, ptr %b, i64 16
   %call4 = tail call i32 @ASN1_OCTET_STRING_cmp(ptr noundef nonnull %issuerNameHash, ptr noundef nonnull %issuerNameHash3) #2
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  %issuerKeyHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 2
-  %issuerKeyHash8 = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %b, i64 0, i32 2
+  %issuerKeyHash = getelementptr inbounds i8, ptr %a, i64 40
+  %issuerKeyHash8 = getelementptr inbounds i8, ptr %b, i64 40
   %call9 = tail call i32 @ASN1_OCTET_STRING_cmp(ptr noundef nonnull %issuerKeyHash, ptr noundef nonnull %issuerKeyHash8) #2
   br label %return
 
@@ -208,22 +204,22 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %issuerNameHash.i = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 1
-  %issuerNameHash3.i = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %b, i64 0, i32 1
+  %issuerNameHash.i = getelementptr inbounds i8, ptr %a, i64 16
+  %issuerNameHash3.i = getelementptr inbounds i8, ptr %b, i64 16
   %call4.i = tail call i32 @ASN1_OCTET_STRING_cmp(ptr noundef nonnull %issuerNameHash.i, ptr noundef nonnull %issuerNameHash3.i) #2
   %tobool5.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i, label %OCSP_id_issuer_cmp.exit, label %return
 
 OCSP_id_issuer_cmp.exit:                          ; preds = %if.end.i
-  %issuerKeyHash.i = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 2
-  %issuerKeyHash8.i = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %b, i64 0, i32 2
+  %issuerKeyHash.i = getelementptr inbounds i8, ptr %a, i64 40
+  %issuerKeyHash8.i = getelementptr inbounds i8, ptr %b, i64 40
   %call9.i = tail call i32 @ASN1_OCTET_STRING_cmp(ptr noundef nonnull %issuerKeyHash.i, ptr noundef nonnull %issuerKeyHash8.i) #2
   %tobool.not = icmp eq i32 %call9.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %OCSP_id_issuer_cmp.exit
-  %serialNumber = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 3
-  %serialNumber1 = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %b, i64 0, i32 3
+  %serialNumber = getelementptr inbounds i8, ptr %a, i64 64
+  %serialNumber1 = getelementptr inbounds i8, ptr %b, i64 64
   %call2 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %serialNumber, ptr noundef nonnull %serialNumber1) #2
   br label %return
 

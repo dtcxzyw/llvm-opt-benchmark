@@ -35,19 +35,19 @@ entry:
   %scriptRun = alloca %"class.icu_75::ScriptRun", align 8
   %0 = load i32, ptr @testLength, align 4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ScriptRunE, i64 0, inrange i32 0, i64 2), ptr %scriptRun, align 8
-  %charArray.i.i = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %scriptRun, i64 0, i32 3
+  %charArray.i.i = getelementptr inbounds i8, ptr %scriptRun, i64 16
   store ptr @testChars, ptr %charArray.i.i, align 8
-  %charStart.i.i.i = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %scriptRun, i64 0, i32 1
+  %charStart.i.i.i = getelementptr inbounds i8, ptr %scriptRun, i64 8
   store i32 0, ptr %charStart.i.i.i, align 8
-  %charLimit.i.i.i = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %scriptRun, i64 0, i32 2
+  %charLimit.i.i.i = getelementptr inbounds i8, ptr %scriptRun, i64 12
   store i32 %0, ptr %charLimit.i.i.i, align 4
-  %scriptStart.i.i.i.i = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %scriptRun, i64 0, i32 4
+  %scriptStart.i.i.i.i = getelementptr inbounds i8, ptr %scriptRun, i64 24
   store i32 0, ptr %scriptStart.i.i.i.i, align 8
-  %scriptEnd.i.i.i.i = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %scriptRun, i64 0, i32 5
+  %scriptEnd.i.i.i.i = getelementptr inbounds i8, ptr %scriptRun, i64 28
   store i32 0, ptr %scriptEnd.i.i.i.i, align 4
-  %scriptCode.i.i.i.i = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %scriptRun, i64 0, i32 6
+  %scriptCode.i.i.i.i = getelementptr inbounds i8, ptr %scriptRun, i64 32
   store i32 -1, ptr %scriptCode.i.i.i.i, align 8
-  %parenSP.i.i.i.i = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %scriptRun, i64 0, i32 8
+  %parenSP.i.i.i.i = getelementptr inbounds i8, ptr %scriptRun, i64 1060
   store i32 -1, ptr %parenSP.i.i.i.i, align 4
   br label %while.cond
 

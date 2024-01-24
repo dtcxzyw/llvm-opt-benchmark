@@ -1532,13 +1532,13 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIh
   %__begin1.0.idx15 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12 ]
   store ptr null, ptr %storage, align 8
   %0 = load ptr, ptr %__begin1.0.ptr16, align 8
-  %in_len = getelementptr inbounds %struct.ImplicitStringTest, ptr %__begin1.0.ptr16, i64 0, i32 1
+  %in_len = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 8
   %1 = load i64, ptr %in_len, align 8
   call void @CBS_init(ptr noundef nonnull %in, ptr noundef %0, i64 noundef %1)
   %call = call i32 @CBS_get_asn1_implicit_string(ptr noundef nonnull %in, ptr noundef nonnull %out, ptr noundef nonnull %storage, i32 noundef 128, i32 noundef 4)
   %2 = load ptr, ptr %storage, align 8
   %tobool = icmp ne i32 %call, 0
-  %ok2 = getelementptr inbounds %struct.ImplicitStringTest, ptr %__begin1.0.ptr16, i64 0, i32 2
+  %ok2 = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 16
   %3 = load i8, ptr %ok2, align 8
   %4 = and i8 %3, 1
   %5 = icmp eq i8 %4, 0
@@ -1572,7 +1572,7 @@ land.lhs.true:                                    ; preds = %if.end
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %land.lhs.true
-  %out_len = getelementptr inbounds %struct.ImplicitStringTest, ptr %__begin1.0.ptr16, i64 0, i32 4
+  %out_len = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 32
   %8 = load i64, ptr %out_len, align 8
   %cmp11.not = icmp eq i64 %call10, %8
   br i1 %cmp11.not, label %lor.lhs.false, label %if.then18
@@ -1582,7 +1582,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont9
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %lor.lhs.false
-  %out14 = getelementptr inbounds %struct.ImplicitStringTest, ptr %__begin1.0.ptr16, i64 0, i32 3
+  %out14 = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 24
   %9 = load ptr, ptr %out14, align 8
   %bcmp = call i32 @bcmp(ptr %call13, ptr %9, i64 %call10)
   %cmp17.not = icmp eq i32 %bcmp, 0
@@ -1633,9 +1633,9 @@ for.cond:                                         ; preds = %_ZNSt10unique_ptrIh
 for.body:                                         ; preds = %entry, %for.cond
   %i.012 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
   %arrayidx = getelementptr inbounds [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.012
-  %encoding = getelementptr inbounds [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.012, i32 1
+  %encoding = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %encoding, align 8
-  %encoding_len = getelementptr inbounds [7 x %struct.ASN1Uint64Test], ptr @_ZL16kASN1Uint64Tests, i64 0, i64 %i.012, i32 2
+  %encoding_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %encoding_len, align 8
   call void @CBS_init(ptr noundef nonnull %cbs, ptr noundef %0, i64 noundef %1)
   %call = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %cbs, ptr noundef nonnull %value)
@@ -1699,7 +1699,7 @@ for.body29:                                       ; preds = %for.cond, %for.body
   %i26.013 = phi i64 [ %inc41, %for.body29 ], [ 0, %for.cond ]
   %arrayidx31 = getelementptr inbounds [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %i26.013
   %6 = load ptr, ptr %arrayidx31, align 16
-  %encoding_len35 = getelementptr inbounds [5 x %struct.ASN1InvalidUint64Test], ptr @_ZL23kASN1InvalidUint64Tests, i64 0, i64 %i26.013, i32 1
+  %encoding_len35 = getelementptr inbounds i8, ptr %arrayidx31, i64 8
   %7 = load i64, ptr %encoding_len35, align 8
   call void @CBS_init(ptr noundef nonnull %cbs32, ptr noundef %6, i64 noundef %7)
   %call36 = call i32 @CBS_get_asn1_uint64(ptr noundef nonnull %cbs32, ptr noundef nonnull %value33)

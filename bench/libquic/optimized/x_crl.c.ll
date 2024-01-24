@@ -10,15 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.X509_crl_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_crl_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, [20 x i8], ptr, ptr, ptr }
-%struct.ISSUING_DIST_POINT_st = type { ptr, i32, i32, ptr, i32, i32 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.X509_extension_st = type { ptr, i32, ptr }
 %struct.x509_revoked_st = type { ptr, ptr, ptr, ptr, i32, i32 }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
 
 @X509_REVOKED_seq_tt = internal constant [3 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.5, ptr @ASN1_TIME_it }, %struct.ASN1_TEMPLATE_st { i64 5, i64 0, i64 16, ptr @.str.6, ptr @X509_EXTENSION_it }], align 16
 @.str = private unnamed_addr constant [13 x i8] c"X509_REVOKED\00", align 1
@@ -165,7 +157,7 @@ entry:
 define hidden noundef i32 @X509_CRL_add0_revoked(ptr nocapture noundef readonly %crl, ptr noundef %rev) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %crl, align 8
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 5
+  %revoked = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %revoked, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %lor.lhs.false
@@ -187,7 +179,7 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false
-  %modified = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 7, i32 2
+  %modified = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -216,9 +208,9 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_CRL_verify(ptr noundef %crl, ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 13
+  %meth = getelementptr inbounds i8, ptr %crl, i64 104
   %0 = load ptr, ptr %meth, align 8
-  %crl_verify = getelementptr inbounds %struct.x509_crl_method_st, ptr %0, i64 0, i32 4
+  %crl_verify = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %crl_verify, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -235,9 +227,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_CRL_get0_by_serial(ptr noundef %crl, ptr noundef %ret, ptr noundef %serial) local_unnamed_addr #0 {
 entry:
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 13
+  %meth = getelementptr inbounds i8, ptr %crl, i64 104
   %0 = load ptr, ptr %meth, align 8
-  %crl_lookup = getelementptr inbounds %struct.x509_crl_method_st, ptr %0, i64 0, i32 3
+  %crl_lookup = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %crl_lookup, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -254,9 +246,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_CRL_get0_by_cert(ptr noundef %crl, ptr noundef %ret, ptr noundef %x) local_unnamed_addr #0 {
 entry:
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 13
+  %meth = getelementptr inbounds i8, ptr %crl, i64 104
   %0 = load ptr, ptr %meth, align 8
-  %crl_lookup = getelementptr inbounds %struct.x509_crl_method_st, ptr %0, i64 0, i32 3
+  %crl_lookup = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %crl_lookup, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then
@@ -293,13 +285,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %crl_init1 = getelementptr inbounds %struct.x509_crl_method_st, ptr %call, i64 0, i32 1
+  %crl_init1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %crl_init, ptr %crl_init1, align 8
-  %crl_free2 = getelementptr inbounds %struct.x509_crl_method_st, ptr %call, i64 0, i32 2
+  %crl_free2 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %crl_free, ptr %crl_free2, align 8
-  %crl_lookup3 = getelementptr inbounds %struct.x509_crl_method_st, ptr %call, i64 0, i32 3
+  %crl_lookup3 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %crl_lookup, ptr %crl_lookup3, align 8
-  %crl_verify4 = getelementptr inbounds %struct.x509_crl_method_st, ptr %call, i64 0, i32 4
+  %crl_verify4 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %crl_verify, ptr %crl_verify4, align 8
   store i32 1, ptr %call, align 8
   br label %return
@@ -333,7 +325,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @X509_CRL_set_meth_data(ptr nocapture noundef writeonly %crl, ptr noundef %dat) local_unnamed_addr #7 {
 entry:
-  %meth_data = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 14
+  %meth_data = getelementptr inbounds i8, ptr %crl, i64 112
   store ptr %dat, ptr %meth_data, align 8
   ret void
 }
@@ -341,7 +333,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @X509_CRL_get_meth_data(ptr nocapture noundef readonly %crl) local_unnamed_addr #8 {
 entry:
-  %meth_data = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 14
+  %meth_data = getelementptr inbounds i8, ptr %crl, i64 112
   %0 = load ptr, ptr %meth_data, align 8
   ret ptr %0
 }
@@ -354,7 +346,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 5
+  %revoked = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %revoked, align 8
   %tobool1.not = icmp ne ptr %1, null
   %cond = icmp eq i32 %operation, 5
@@ -383,37 +375,37 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %flags = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 4
-  %idp_reasons = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 8
+  %flags = getelementptr inbounds i8, ptr %0, i64 28
+  %idp_reasons = getelementptr inbounds i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %flags, i8 0, i64 24, i1 false)
   store i32 32895, ptr %idp_reasons, align 4
   %1 = load ptr, ptr @default_crl_method, align 8
-  %meth = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 13
+  %meth = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %meth, align 8
-  %meth_data = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 14
+  %meth_data = getelementptr inbounds i8, ptr %0, i64 112
   store ptr null, ptr %meth_data, align 8
-  %issuers = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 12
+  %issuers = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %issuers, align 8
-  %crl_number = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 9
+  %crl_number = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %crl_number, i8 0, i64 16, i1 false)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
   %call = tail call ptr @EVP_sha1() #11
-  %sha1_hash = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 11
+  %sha1_hash = getelementptr inbounds i8, ptr %0, i64 72
   %call2 = tail call i32 @X509_CRL_digest(ptr noundef %0, ptr noundef %call, ptr noundef nonnull %sha1_hash, ptr noundef null) #11
   %call3 = tail call ptr @X509_CRL_get_ext_d2i(ptr noundef %0, i32 noundef 770, ptr noundef null, ptr noundef null) #11
-  %idp4 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 6
+  %idp4 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %call3, ptr %idp4, align 8
   %tobool.not = icmp eq ptr %call3, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb1
-  %idp_flags.i = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 7
+  %idp_flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load i32, ptr %idp_flags.i, align 8
   %or.i = or i32 %2, 1
   store i32 %or.i, ptr %idp_flags.i, align 8
-  %onlyuser.i = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %call3, i64 0, i32 1
+  %onlyuser.i = getelementptr inbounds i8, ptr %call3, i64 8
   %3 = load i32, ptr %onlyuser.i, align 8
   %cmp.i = icmp sgt i32 %3, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -426,7 +418,7 @@ if.then.i:                                        ; preds = %if.then
 if.end.i:                                         ; preds = %if.then.i, %if.then
   %4 = phi i32 [ %or2.i, %if.then.i ], [ %or.i, %if.then ]
   %idp_only.0.i = phi i32 [ 1, %if.then.i ], [ 0, %if.then ]
-  %onlyCA.i = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %call3, i64 0, i32 2
+  %onlyCA.i = getelementptr inbounds i8, ptr %call3, i64 12
   %5 = load i32, ptr %onlyCA.i, align 4
   %cmp3.i = icmp sgt i32 %5, 0
   br i1 %cmp3.i, label %if.then4.i, label %if.end8.i
@@ -440,7 +432,7 @@ if.then4.i:                                       ; preds = %if.end.i
 if.end8.i:                                        ; preds = %if.then4.i, %if.end.i
   %6 = phi i32 [ %or7.i, %if.then4.i ], [ %4, %if.end.i ]
   %idp_only.1.i = phi i32 [ %inc5.i, %if.then4.i ], [ %idp_only.0.i, %if.end.i ]
-  %onlyattr.i = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %call3, i64 0, i32 5
+  %onlyattr.i = getelementptr inbounds i8, ptr %call3, i64 28
   %7 = load i32, ptr %onlyattr.i, align 4
   %cmp9.i = icmp sgt i32 %7, 0
   %or13.i = or i32 %6, 16
@@ -458,7 +450,7 @@ if.end8.i:                                        ; preds = %if.then4.i, %if.end
   br label %12
 
 12:                                               ; preds = %11, %if.end8.i
-  %indirectCRL.i = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %call3, i64 0, i32 4
+  %indirectCRL.i = getelementptr inbounds i8, ptr %call3, i64 24
   %13 = load i32, ptr %indirectCRL.i, align 8
   %cmp20.i = icmp sgt i32 %13, 0
   br i1 %cmp20.i, label %if.then21.i, label %if.end24.i
@@ -470,7 +462,7 @@ if.then21.i:                                      ; preds = %12
 
 if.end24.i:                                       ; preds = %if.then21.i, %12
   %14 = phi i32 [ %or23.i, %if.then21.i ], [ %9, %12 ]
-  %onlysomereasons.i = getelementptr inbounds %struct.ISSUING_DIST_POINT_st, ptr %call3, i64 0, i32 3
+  %onlysomereasons.i = getelementptr inbounds i8, ptr %call3, i64 16
   %15 = load ptr, ptr %onlysomereasons.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %setup_idp.exit, label %if.then25.i
@@ -484,16 +476,16 @@ if.then25.i:                                      ; preds = %if.end24.i
   br i1 %cmp29.i, label %if.end32.i, label %if.then25.i.if.end32.if.end44_crit_edge.i_crit_edge
 
 if.then25.i.if.end32.if.end44_crit_edge.i_crit_edge: ; preds = %if.then25.i
-  %idp_reasons45.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 8
+  %idp_reasons45.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 52
   %.pre24.i.pre = load i32, ptr %idp_reasons45.phi.trans.insert.i.phi.trans.insert, align 4
   br label %if.end44.i
 
 if.end32.i:                                       ; preds = %if.then25.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %16, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %data.i, align 8
   %19 = load i8, ptr %18, align 1
   %conv.i = zext i8 %19 to i32
-  %idp_reasons.i = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 8
+  %idp_reasons.i = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %conv.i, ptr %idp_reasons.i, align 4
   %.pre.i = load ptr, ptr %onlysomereasons.i, align 8
   %.pre23.i = load i32, ptr %.pre.i, align 8
@@ -501,7 +493,7 @@ if.end32.i:                                       ; preds = %if.then25.i
   br i1 %20, label %if.then37.i, label %if.end44.i
 
 if.then37.i:                                      ; preds = %if.end32.i
-  %data39.i = getelementptr inbounds %struct.asn1_string_st, ptr %.pre.i, i64 0, i32 2
+  %data39.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %21 = load ptr, ptr %data39.i, align 8
   %arrayidx40.i = getelementptr inbounds i8, ptr %21, i64 1
   %22 = load i8, ptr %arrayidx40.i, align 1
@@ -512,7 +504,7 @@ if.then37.i:                                      ; preds = %if.end32.i
 
 if.end44.i:                                       ; preds = %if.end32.i, %if.then25.i.if.end32.if.end44_crit_edge.i_crit_edge, %if.then37.i
   %23 = phi i32 [ %or43.i, %if.then37.i ], [ %.pre24.i.pre, %if.then25.i.if.end32.if.end44_crit_edge.i_crit_edge ], [ %conv.i, %if.end32.i ]
-  %idp_reasons45.i = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 8
+  %idp_reasons45.i = getelementptr inbounds i8, ptr %0, i64 52
   %and.i = and i32 %23, 32895
   store i32 %and.i, ptr %idp_reasons45.i, align 4
   br label %setup_idp.exit
@@ -520,20 +512,20 @@ if.end44.i:                                       ; preds = %if.end32.i, %if.the
 setup_idp.exit:                                   ; preds = %if.end24.i, %if.end44.i
   %24 = load ptr, ptr %call3, align 8
   %25 = load ptr, ptr %0, align 8
-  %issuer.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %25, i64 0, i32 2
+  %issuer.i = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load ptr, ptr %issuer.i, align 8
   %call.i = tail call i32 @DIST_POINT_set_dpname(ptr noundef %24, ptr noundef %26) #11
   br label %if.end
 
 if.end:                                           ; preds = %setup_idp.exit, %sw.bb1
   %call7 = tail call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 90, ptr noundef null, ptr noundef null) #11
-  %akid8 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 5
+  %akid8 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %call7, ptr %akid8, align 8
   %call9 = tail call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 88, ptr noundef null, ptr noundef null) #11
-  %crl_number10 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 9
+  %crl_number10 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %call9, ptr %crl_number10, align 8
   %call11 = tail call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 140, ptr noundef null, ptr noundef null) #11
-  %base_crl_number12 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 10
+  %base_crl_number12 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %call11, ptr %base_crl_number12, align 8
   %tobool14.not = icmp eq ptr %call11, null
   br i1 %tobool14.not, label %if.end19, label %land.lhs.true
@@ -544,7 +536,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool16.not, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %land.lhs.true
-  %flags18 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 4
+  %flags18 = getelementptr inbounds i8, ptr %0, i64 28
   %28 = load i32, ptr %flags18, align 4
   %or = or i32 %28, 128
   store i32 %or, ptr %flags18, align 4
@@ -552,14 +544,14 @@ if.then17:                                        ; preds = %land.lhs.true
 
 if.end19:                                         ; preds = %if.then17, %land.lhs.true, %if.end
   %29 = load ptr, ptr %0, align 8
-  %extensions = getelementptr inbounds %struct.X509_crl_info_st, ptr %29, i64 0, i32 6
+  %extensions = getelementptr inbounds i8, ptr %29, i64 48
   %30 = load ptr, ptr %extensions, align 8
   %call2161 = tail call i64 @sk_num(ptr noundef %30) #11
   %cmp62.not = icmp eq i64 %call2161, 0
   br i1 %cmp62.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end19
-  %flags26 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 4
+  %flags26 = getelementptr inbounds i8, ptr %0, i64 28
   br label %for.body
 
 for.cond:                                         ; preds = %if.end28
@@ -583,7 +575,7 @@ if.then25:                                        ; preds = %for.body
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then25, %for.body
-  %critical = getelementptr inbounds %struct.X509_extension_st, ptr %call22, i64 0, i32 1
+  %critical = getelementptr inbounds i8, ptr %call22, i64 8
   %33 = load i32, ptr %critical, align 8
   %cmp29 = icmp sgt i32 %33, 0
   br i1 %cmp29, label %if.then30, label %for.cond
@@ -604,15 +596,15 @@ if.end36:                                         ; preds = %if.then30
 for.end:                                          ; preds = %for.cond, %if.end19, %if.then30, %if.then30, %if.then30, %if.end36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %j.i)
   %35 = load ptr, ptr %0, align 8
-  %revoked2.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %35, i64 0, i32 5
+  %revoked2.i = getelementptr inbounds i8, ptr %35, i64 40
   %36 = load ptr, ptr %revoked2.i, align 8
   %call30.i = tail call i64 @sk_num(ptr noundef %36) #11
   %cmp31.not.i = icmp eq i64 %call30.i, 0
   br i1 %cmp31.not.i, label %if.end43, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %issuers.i = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 12
-  %flags51.i = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 4
+  %issuers.i = getelementptr inbounds i8, ptr %0, i64 96
+  %flags51.i = getelementptr inbounds i8, ptr %0, i64 28
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc54.i, %for.body.lr.ph.i
@@ -648,7 +640,7 @@ if.end16.i:                                       ; preds = %if.then9.i, %if.the
 
 if.end22.i:                                       ; preds = %if.end16.i, %if.end.i54
   %gens.1.i = phi ptr [ %call4.i, %if.end16.i ], [ %gens.032.i, %if.end.i54 ]
-  %issuer.i55 = getelementptr inbounds %struct.x509_revoked_st, ptr %call3.i, i64 0, i32 3
+  %issuer.i55 = getelementptr inbounds i8, ptr %call3.i, i64 24
   store ptr %gens.1.i, ptr %issuer.i55, align 8
   %call23.i = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %call3.i, i32 noundef 141, ptr noundef nonnull %j.i, ptr noundef null) #11
   %tobool24.i = icmp eq ptr %call23.i, null
@@ -663,18 +655,18 @@ if.end30.i:                                       ; preds = %if.end22.i
 if.then32.i:                                      ; preds = %if.end30.i
   %call33.i = call i64 @ASN1_ENUMERATED_get(ptr noundef nonnull %call23.i) #11
   %conv.i56 = trunc i64 %call33.i to i32
-  %reason34.i = getelementptr inbounds %struct.x509_revoked_st, ptr %call3.i, i64 0, i32 4
+  %reason34.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %conv.i56, ptr %reason34.i, align 8
   call void @ASN1_ENUMERATED_free(ptr noundef nonnull %call23.i) #11
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %if.end30.i
-  %reason35.i = getelementptr inbounds %struct.x509_revoked_st, ptr %call3.i, i64 0, i32 4
+  %reason35.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 -1, ptr %reason35.i, align 8
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i, %if.then32.i
-  %extensions.i = getelementptr inbounds %struct.x509_revoked_st, ptr %call3.i, i64 0, i32 2
+  %extensions.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   %41 = load ptr, ptr %extensions.i, align 8
   %call3827.i = call i64 @sk_num(ptr noundef %41) #11
   %cmp3928.not.i = icmp eq i64 %call3827.i, 0
@@ -683,7 +675,7 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
 for.body41.i:                                     ; preds = %if.end36.i, %for.inc.i
   %k.029.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end36.i ]
   %call42.i = call ptr @sk_value(ptr noundef %41, i64 noundef %k.029.i) #11
-  %critical.i = getelementptr inbounds %struct.X509_extension_st, ptr %call42.i, i64 0, i32 1
+  %critical.i = getelementptr inbounds i8, ptr %call42.i, i64 8
   %42 = load i32, ptr %critical.i, align 8
   %cmp43.i = icmp sgt i32 %42, 0
   br i1 %cmp43.i, label %if.then45.i, label %for.inc.i
@@ -724,9 +716,9 @@ crl_set_issuers.exit:                             ; preds = %if.then9.i, %if.end
 
 if.end43:                                         ; preds = %for.inc54.i, %for.end, %return.sink.split.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %j.i)
-  %meth44 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 13
+  %meth44 = getelementptr inbounds i8, ptr %0, i64 104
   %46 = load ptr, ptr %meth44, align 8
-  %crl_init = getelementptr inbounds %struct.x509_crl_method_st, ptr %46, i64 0, i32 1
+  %crl_init = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load ptr, ptr %crl_init, align 8
   %tobool45.not = icmp eq ptr %47, null
   br i1 %tobool45.not, label %sw.epilog, label %if.then46
@@ -737,9 +729,9 @@ if.then46:                                        ; preds = %if.end43
   br i1 %cmp50, label %return, label %sw.epilog
 
 sw.bb54:                                          ; preds = %entry
-  %meth55 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 13
+  %meth55 = getelementptr inbounds i8, ptr %0, i64 104
   %48 = load ptr, ptr %meth55, align 8
-  %crl_free = getelementptr inbounds %struct.x509_crl_method_st, ptr %48, i64 0, i32 2
+  %crl_free = getelementptr inbounds i8, ptr %48, i64 16
   %49 = load ptr, ptr %crl_free, align 8
   %tobool56.not = icmp eq ptr %49, null
   br i1 %tobool56.not, label %if.end64, label %if.then57
@@ -750,7 +742,7 @@ if.then57:                                        ; preds = %sw.bb54
   br i1 %tobool61.not, label %return, label %if.end64
 
 if.end64:                                         ; preds = %if.then57, %sw.bb54
-  %akid65 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 5
+  %akid65 = getelementptr inbounds i8, ptr %0, i64 32
   %50 = load ptr, ptr %akid65, align 8
   %tobool66.not = icmp eq ptr %50, null
   br i1 %tobool66.not, label %if.end69, label %if.then67
@@ -760,7 +752,7 @@ if.then67:                                        ; preds = %if.end64
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then67, %if.end64
-  %idp70 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 6
+  %idp70 = getelementptr inbounds i8, ptr %0, i64 40
   %51 = load ptr, ptr %idp70, align 8
   %tobool71.not = icmp eq ptr %51, null
   br i1 %tobool71.not, label %if.end74, label %if.then72
@@ -770,13 +762,13 @@ if.then72:                                        ; preds = %if.end69
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then72, %if.end69
-  %crl_number75 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 9
+  %crl_number75 = getelementptr inbounds i8, ptr %0, i64 56
   %52 = load ptr, ptr %crl_number75, align 8
   tail call void @ASN1_INTEGER_free(ptr noundef %52) #11
-  %base_crl_number76 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 10
+  %base_crl_number76 = getelementptr inbounds i8, ptr %0, i64 64
   %53 = load ptr, ptr %base_crl_number76, align 8
   tail call void @ASN1_INTEGER_free(ptr noundef %53) #11
-  %issuers77 = getelementptr inbounds %struct.X509_crl_st, ptr %0, i64 0, i32 12
+  %issuers77 = getelementptr inbounds i8, ptr %0, i64 96
   %54 = load ptr, ptr %issuers77, align 8
   tail call void @sk_pop_free(ptr noundef %54, ptr noundef nonnull @GENERAL_NAMES_free) #11
   br label %sw.epilog
@@ -831,7 +823,7 @@ entry:
   store ptr %serial, ptr %rtmp, align 8
   tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @g_crl_sort_lock) #11
   %0 = load ptr, ptr %crl, align 8
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 5
+  %revoked = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %revoked, align 8
   %call = tail call i32 @sk_is_sorted(ptr noundef %1) #11
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_crl_sort_lock) #11
@@ -841,7 +833,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @g_crl_sort_lock) #11
   %2 = load ptr, ptr %crl, align 8
-  %revoked3 = getelementptr inbounds %struct.X509_crl_info_st, ptr %2, i64 0, i32 5
+  %revoked3 = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %revoked3, align 8
   %call4 = tail call i32 @sk_is_sorted(ptr noundef %3) #11
   %tobool5.not = icmp eq i32 %call4, 0
@@ -849,7 +841,7 @@ if.then:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.then
   %4 = load ptr, ptr %crl, align 8
-  %revoked8 = getelementptr inbounds %struct.X509_crl_info_st, ptr %4, i64 0, i32 5
+  %revoked8 = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %revoked8, align 8
   tail call void @sk_sort(ptr noundef %5) #11
   br label %if.end
@@ -860,7 +852,7 @@ if.end:                                           ; preds = %if.then6, %if.then
 
 if.end9:                                          ; preds = %if.end, %entry
   %6 = load ptr, ptr %crl, align 8
-  %revoked11 = getelementptr inbounds %struct.X509_crl_info_st, ptr %6, i64 0, i32 5
+  %revoked11 = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load ptr, ptr %revoked11, align 8
   %call12 = call i32 @sk_find(ptr noundef %7, ptr noundef nonnull %idx, ptr noundef nonnull %rtmp) #11
   %tobool13.not = icmp eq i32 %call12, 0
@@ -869,7 +861,7 @@ if.end9:                                          ; preds = %if.end, %entry
 for.cond.preheader:                               ; preds = %if.end9
   %8 = load i64, ptr %idx, align 8
   %9 = load ptr, ptr %crl, align 8
-  %revoked1721 = getelementptr inbounds %struct.X509_crl_info_st, ptr %9, i64 0, i32 5
+  %revoked1721 = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load ptr, ptr %revoked1721, align 8
   %call1822 = call i64 @sk_num(ptr noundef %10) #11
   %cmp23 = icmp ult i64 %8, %call1822
@@ -881,7 +873,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %11 = load ptr, ptr %crl, align 8
-  %revoked20 = getelementptr inbounds %struct.X509_crl_info_st, ptr %11, i64 0, i32 5
+  %revoked20 = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %revoked20, align 8
   %13 = load i64, ptr %idx, align 8
   %call21 = call ptr @sk_value(ptr noundef %12, i64 noundef %13) #11
@@ -891,7 +883,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool24.not, label %if.end26, label %return
 
 if.end26:                                         ; preds = %for.body
-  %issuer.i = getelementptr inbounds %struct.x509_revoked_st, ptr %call21, i64 0, i32 3
+  %issuer.i = getelementptr inbounds i8, ptr %call21, i64 24
   %15 = load ptr, ptr %issuer.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end8.i
@@ -904,7 +896,7 @@ if.end8.i:                                        ; preds = %if.end26
 
 if.then10.i:                                      ; preds = %if.end8.i
   %16 = load ptr, ptr %crl, align 8
-  %issuer12.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %16, i64 0, i32 2
+  %issuer12.i = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %issuer12.i, align 8
   br label %if.end13.i
 
@@ -923,7 +915,7 @@ for.body.i:                                       ; preds = %if.end13.i, %for.in
   br i1 %cmp18.not.i, label %if.end20.i, label %for.inc.i
 
 if.end20.i:                                       ; preds = %for.body.i
-  %d.i = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call17.i, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %call17.i, i64 8
   %20 = load ptr, ptr %d.i, align 8
   %call21.i = call i32 @X509_NAME_cmp(ptr noundef %nm.addr.0.i, ptr noundef %20) #11
   %tobool22.not.i = icmp eq i32 %call21.i, 0
@@ -938,7 +930,7 @@ for.inc.i:                                        ; preds = %if.end20.i, %for.bo
 
 crl_revoked_issuer_match.exit:                    ; preds = %if.then.i
   %22 = load ptr, ptr %crl, align 8
-  %issuer4.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %22, i64 0, i32 2
+  %issuer4.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load ptr, ptr %issuer4.i, align 8
   %call.i = call i32 @X509_NAME_cmp(ptr noundef nonnull %issuer, ptr noundef %23) #11
   %tobool5.not.i.not = icmp eq i32 %call.i, 0
@@ -953,7 +945,7 @@ if.then31:                                        ; preds = %if.then29
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %if.then29
-  %reason = getelementptr inbounds %struct.x509_revoked_st, ptr %call21, i64 0, i32 4
+  %reason = getelementptr inbounds i8, ptr %call21, i64 32
   %24 = load i32, ptr %reason, align 8
   %cmp33 = icmp eq i32 %24, 8
   %. = select i1 %cmp33, i32 2, i32 1
@@ -964,7 +956,7 @@ for.inc:                                          ; preds = %for.inc.i, %if.end1
   %inc = add i64 %25, 1
   store i64 %inc, ptr %idx, align 8
   %26 = load ptr, ptr %crl, align 8
-  %revoked17 = getelementptr inbounds %struct.X509_crl_info_st, ptr %26, i64 0, i32 5
+  %revoked17 = getelementptr inbounds i8, ptr %26, i64 40
   %27 = load ptr, ptr %revoked17, align 8
   %call18 = call i64 @sk_num(ptr noundef %27) #11
   %cmp = icmp ult i64 %inc, %call18
@@ -978,9 +970,9 @@ return:                                           ; preds = %for.body, %for.inc,
 ; Function Attrs: nounwind uwtable
 define internal i32 @def_crl_verify(ptr nocapture noundef readonly %crl, ptr noundef %r) #0 {
 entry:
-  %sig_alg = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %crl, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
-  %signature = getelementptr inbounds %struct.X509_crl_st, ptr %crl, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %crl, i64 16
   %1 = load ptr, ptr %signature, align 8
   %2 = load ptr, ptr %crl, align 8
   %call = tail call i32 @ASN1_item_verify(ptr noundef nonnull @X509_CRL_INFO_it, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %r) #11

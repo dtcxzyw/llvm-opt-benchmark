@@ -3,12 +3,10 @@ source_filename = "bench/libquic/original/location.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.tracked_objects::Location" = type { ptr, ptr, i32, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.tracked_objects::LocationSnapshot" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
@@ -37,11 +35,11 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN15tracked_objects8LocationC2EPKcS2_iPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %function_name, ptr noundef %file_name, i32 noundef %line_number, ptr noundef %program_counter) unnamed_addr #0 align 2 {
 entry:
   store ptr %function_name, ptr %this, align 8
-  %file_name_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 1
+  %file_name_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %file_name, ptr %file_name_, align 8
-  %line_number_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 2
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %line_number, ptr %line_number_, align 8
-  %program_counter_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 3
+  %program_counter_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %program_counter, ptr %program_counter_, align 8
   ret void
 }
@@ -50,11 +48,11 @@ entry:
 define dso_local void @_ZN15tracked_objects8LocationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr @.str, ptr %this, align 8
-  %file_name_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 1
+  %file_name_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr @.str, ptr %file_name_, align 8
-  %line_number_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 2
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 -1, ptr %line_number_, align 8
-  %program_counter_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 3
+  %program_counter_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %program_counter_, align 8
   ret void
 }
@@ -64,16 +62,16 @@ define dso_local void @_ZN15tracked_objects8LocationC2ERKS0_(ptr nocapture nound
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
-  %file_name_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 1
-  %file_name_3 = getelementptr inbounds %"class.tracked_objects::Location", ptr %other, i64 0, i32 1
+  %file_name_ = getelementptr inbounds i8, ptr %this, i64 8
+  %file_name_3 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load ptr, ptr %file_name_3, align 8
   store ptr %1, ptr %file_name_, align 8
-  %line_number_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 2
-  %line_number_4 = getelementptr inbounds %"class.tracked_objects::Location", ptr %other, i64 0, i32 2
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 16
+  %line_number_4 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i32, ptr %line_number_4, align 8
   store i32 %2, ptr %line_number_, align 8
-  %program_counter_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 3
-  %program_counter_5 = getelementptr inbounds %"class.tracked_objects::Location", ptr %other, i64 0, i32 3
+  %program_counter_ = getelementptr inbounds i8, ptr %this, i64 24
+  %program_counter_5 = getelementptr inbounds i8, ptr %other, i64 24
   %3 = load ptr, ptr %program_counter_5, align 8
   store ptr %3, ptr %program_counter_, align 8
   ret void
@@ -126,7 +124,7 @@ invoke.cont:                                      ; preds = %if.end.i
 
 invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %call.i8) #11
-  %file_name_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 1
+  %file_name_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %file_name_, align 8
   %call.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef %2)
           to label %invoke.cont9 unwind label %lpad8
@@ -138,7 +136,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call.i13) #11
-  %line_number_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 2
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %line_number_, align 8
   invoke void @_ZN4base11IntToStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, i32 noundef %3)
           to label %invoke.cont14 unwind label %lpad13
@@ -248,10 +246,10 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK15tracked_objects8Location5WriteEbbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i1 noundef zeroext %display_filename, i1 noundef zeroext %display_function_name, ptr noundef %output) local_unnamed_addr #2 align 2 {
 entry:
-  %file_name_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 1
+  %file_name_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_name_, align 8
   %cond = select i1 %display_filename, ptr %0, ptr @.str.4
-  %line_number_ = getelementptr inbounds %"class.tracked_objects::Location", ptr %this, i64 0, i32 2
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %line_number_, align 8
   tail call void (ptr, ptr, ...) @_ZN4base13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef %output, ptr noundef nonnull @.str.3, ptr noundef %cond, i32 noundef %1)
   br i1 %display_function_name, label %if.then, label %if.end
@@ -338,9 +336,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZN15tracked_objects16LocationSnapshotC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
-  %function_name = getelementptr inbounds %"struct.tracked_objects::LocationSnapshot", ptr %this, i64 0, i32 1
+  %function_name = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %function_name) #11
-  %line_number = getelementptr inbounds %"struct.tracked_objects::LocationSnapshot", ptr %this, i64 0, i32 2
+  %line_number = getelementptr inbounds i8, ptr %this, i64 64
   store i32 -1, ptr %line_number, align 8
   ret void
 }
@@ -353,7 +351,7 @@ define dso_local void @_ZN15tracked_objects16LocationSnapshotC2ERKNS_8LocationE(
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp5 = alloca %"class.std::allocator", align 1
-  %file_name_.i = getelementptr inbounds %"class.tracked_objects::Location", ptr %location, i64 0, i32 1
+  %file_name_.i = getelementptr inbounds i8, ptr %location, i64 8
   %0 = load ptr, ptr %file_name_.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
@@ -388,7 +386,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
-  %function_name = getelementptr inbounds %"struct.tracked_objects::LocationSnapshot", ptr %this, i64 0, i32 1
+  %function_name = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %location, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #11
   %call.i13 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %function_name)
@@ -423,8 +421,8 @@ if.end.i6:                                        ; preds = %.noexc14
 
 invoke.cont7:                                     ; preds = %if.end.i6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #11
-  %line_number = getelementptr inbounds %"struct.tracked_objects::LocationSnapshot", ptr %this, i64 0, i32 2
-  %line_number_.i = getelementptr inbounds %"class.tracked_objects::Location", ptr %location, i64 0, i32 2
+  %line_number = getelementptr inbounds i8, ptr %this, i64 64
+  %line_number_.i = getelementptr inbounds i8, ptr %location, i64 16
   %4 = load i32, ptr %line_number_.i, align 8
   store i32 %4, ptr %line_number, align 8
   ret void
@@ -458,7 +456,7 @@ eh.resume:                                        ; preds = %lpad6.body, %lpad.b
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15tracked_objects16LocationSnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #5 align 2 {
 entry:
-  %function_name = getelementptr inbounds %"struct.tracked_objects::LocationSnapshot", ptr %this, i64 0, i32 1
+  %function_name = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %function_name) #11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #11
   ret void

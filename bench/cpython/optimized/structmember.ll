@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
 %struct.PyType_Slot = type { i32, ptr }
-%struct.test_structmembers = type { %struct._object, %struct.all_structmembers }
-%struct.all_structmembers = type { i8, i8, i8, i16, i16, i32, i32, i64, i64, i64, float, double, [6 x i8], i64, i64 }
 
 @test_structmembersType_OldAPI = internal global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 1 }, ptr null }, i64 0 }, ptr @.str.1, i64 96, i64 0, ptr @test_structmembers_free, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @PyObject_GenericGetAttr, ptr @PyObject_GenericSetAttr, ptr null, i64 0, ptr @.str.2, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr @test_members, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr @test_structmembers_new, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, i8 0 }, align 8
 @.str = private unnamed_addr constant [31 x i8] c"_test_structmembersType_OldAPI\00", align 1
@@ -116,21 +114,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %structmembers = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1
+  %structmembers = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %structmembers, i8 0, i64 80, i1 false)
-  %byte_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 1
-  %ubyte_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 2
-  %short_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 3
-  %ushort_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 4
-  %int_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 5
-  %uint_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 6
-  %long_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 7
-  %ulong_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 8
-  %pyssizet_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 9
-  %float_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 10
-  %double_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 11
-  %longlong_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 13
-  %ulonglong_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 14
+  %byte_member = getelementptr inbounds i8, ptr %call, i64 17
+  %ubyte_member = getelementptr inbounds i8, ptr %call, i64 18
+  %short_member = getelementptr inbounds i8, ptr %call, i64 20
+  %ushort_member = getelementptr inbounds i8, ptr %call, i64 22
+  %int_member = getelementptr inbounds i8, ptr %call, i64 24
+  %uint_member = getelementptr inbounds i8, ptr %call, i64 28
+  %long_member = getelementptr inbounds i8, ptr %call, i64 32
+  %ulong_member = getelementptr inbounds i8, ptr %call, i64 40
+  %pyssizet_member = getelementptr inbounds i8, ptr %call, i64 48
+  %float_member = getelementptr inbounds i8, ptr %call, i64 56
+  %double_member = getelementptr inbounds i8, ptr %call, i64 64
+  %longlong_member = getelementptr inbounds i8, ptr %call, i64 80
+  %ulonglong_member = getelementptr inbounds i8, ptr %call, i64 88
   %call15 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwargs, ptr noundef nonnull @test_structmembers_new.fmt, ptr noundef nonnull @test_structmembers_new.keywords, ptr noundef nonnull %structmembers, ptr noundef nonnull %byte_member, ptr noundef nonnull %ubyte_member, ptr noundef nonnull %short_member, ptr noundef nonnull %ushort_member, ptr noundef nonnull %int_member, ptr noundef nonnull %uint_member, ptr noundef nonnull %long_member, ptr noundef nonnull %ulong_member, ptr noundef nonnull %pyssizet_member, ptr noundef nonnull %float_member, ptr noundef nonnull %double_member, ptr noundef nonnull %s, ptr noundef nonnull %string_len, ptr noundef nonnull %longlong_member, ptr noundef nonnull %ulonglong_member) #4
   %tobool.not = icmp eq i32 %call15, 0
   br i1 %tobool.not, label %if.then16, label %if.end17
@@ -183,12 +181,12 @@ Py_DECREF.exit:                                   ; preds = %if.then21, %if.then
   br label %return
 
 if.end22:                                         ; preds = %if.then19
-  %inplace_member = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 12
+  %inplace_member = getelementptr inbounds i8, ptr %call, i64 72
   %call24 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %inplace_member, ptr noundef nonnull dereferenceable(1) %2) #4
   br label %return
 
 if.else:                                          ; preds = %if.end17
-  %inplace_member26 = getelementptr inbounds %struct.test_structmembers, ptr %call, i64 0, i32 1, i32 12
+  %inplace_member26 = getelementptr inbounds i8, ptr %call, i64 72
   store i8 0, ptr %inplace_member26, align 1
   br label %return
 

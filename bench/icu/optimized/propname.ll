@@ -720,11 +720,11 @@ entry:
   %idx.ext = sext i32 %bytesTrieOffset to i64
   %add.ptr = getelementptr inbounds i8, ptr @_ZN6icu_7512PropNameData10bytesTriesE, i64 %idx.ext
   store ptr null, ptr %trie, align 8
-  %bytes_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %trie, i64 0, i32 1
+  %bytes_.i = getelementptr inbounds i8, ptr %trie, i64 8
   store ptr %add.ptr, ptr %bytes_.i, align 8
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %trie, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %trie, i64 16
   store ptr %add.ptr, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %trie, i64 0, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %trie, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   %cmp.i = icmp eq ptr %alias, null
   br i1 %cmp.i, label %cleanup, label %while.cond.preheader.i
@@ -970,21 +970,21 @@ _ZN6icu_7512PropNameData15getPropertyNameEii.exit: ; preds = %for.body.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_getPropertyEnum_75(ptr noundef %alias) local_unnamed_addr #0 {
+define noundef i32 @u_getPropertyEnum_75(ptr noundef %alias) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noundef i32 @_ZN6icu_7512PropNameData22getPropertyOrValueEnumEiPKc(i32 noundef 0, ptr noundef %alias)
   ret i32 %call.i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define ptr @u_getPropertyValueName_75(i32 noundef %property, i32 noundef %value, i32 noundef %nameChoice) local_unnamed_addr #4 {
+define noundef ptr @u_getPropertyValueName_75(i32 noundef %property, i32 noundef %value, i32 noundef %nameChoice) local_unnamed_addr #4 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_7512PropNameData20getPropertyValueNameEiii(i32 noundef %property, i32 noundef %value, i32 noundef %nameChoice)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_getPropertyValueEnum_75(i32 noundef %property, ptr noundef %alias) local_unnamed_addr #0 {
+define noundef i32 @u_getPropertyValueEnum_75(i32 noundef %property, ptr noundef %alias) local_unnamed_addr #0 {
 entry:
   br label %for.body.i.i
 
@@ -1042,14 +1042,14 @@ _ZN6icu_7512PropNameData20getPropertyValueEnumEiPKc.exit: ; preds = %for.body.i.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define ptr @uscript_getName_75(i32 noundef %scriptCode) local_unnamed_addr #4 {
+define noundef ptr @uscript_getName_75(i32 noundef %scriptCode) local_unnamed_addr #4 {
 entry:
   %call.i = tail call noundef ptr @_ZN6icu_7512PropNameData20getPropertyValueNameEiii(i32 noundef 4106, i32 noundef %scriptCode, i32 noundef 1)
   ret ptr %call.i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define ptr @uscript_getShortName_75(i32 noundef %scriptCode) local_unnamed_addr #4 {
+define noundef ptr @uscript_getShortName_75(i32 noundef %scriptCode) local_unnamed_addr #4 {
 entry:
   %call.i = tail call noundef ptr @_ZN6icu_7512PropNameData20getPropertyValueNameEiii(i32 noundef 4106, i32 noundef %scriptCode, i32 noundef 0)
   ret ptr %call.i

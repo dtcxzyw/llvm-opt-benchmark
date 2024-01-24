@@ -90,9 +90,9 @@ define void @"_ZN96_$LT$regex..regexset..bytes..SetMatches$u20$as$u20$core..iter
 
 6:                                                ; preds = %2
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %7 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %3, ptr %8, align 8
   ret void
 
@@ -118,7 +118,7 @@ define void @"_ZN100_$LT$$RF$regex..regexset..bytes..SetMatches$u20$as$u20$core.
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN101_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he536897b96d11ccdE"(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %9, %1
@@ -152,14 +152,14 @@ define { i64, i64 } @"_ZN101_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN101_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3098e1443c69b378E"(ptr sret({ i64, { i64, i64 } }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i64, i64 } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h602a9aa4cce1f03bE"(ptr sret({ i64, { i64, i64 } }) align 8 %0, ptr nonnull align 8 %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN116_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he604be640c7f4f6dE"(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %9, %1
@@ -220,15 +220,15 @@ define zeroext i1 @"_ZN69_$LT$regex..regexset..bytes..RegexSet$u20$as$u20$core..
   %3 = alloca { ptr, i64 }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { ptr, ptr }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = tail call { ptr, i64 } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b4b2f0584f23a1cE"(ptr nonnull align 8 %6)
   %.fca.0.extract = extractvalue { ptr, i64 } %7, 0
   store ptr %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %7, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   store ptr %3, ptr %4, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a83ac9887a5ef89E", ptr %8, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h4c7b5efb93374e33E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.4c7f45e11303eb46df02e878c22b11aa.4, i64 2, ptr nonnull align 8 %4, i64 1)
   %9 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %5)

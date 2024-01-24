@@ -3,18 +3,6 @@ source_filename = "bench/qemu/original/linux-user_riscv_cpu_loop.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.TaskState = type { i32, i32, i64, i64, i64, i64, i32, ptr, ptr, %struct.emulated_sigtable, [64 x %struct.emulated_sigtable], %struct.__sigset_t, %struct.__sigset_t, i32, i32, %struct.target_sigaltstack, i64 }
-%struct.emulated_sigtable = type { i32, %struct.target_siginfo }
-%struct.target_siginfo = type { i32, i32, i32, %union.anon.6 }
-%union.anon.6 = type { %struct.anon.10, [80 x i8] }
-%struct.anon.10 = type { i32, i32, i32, i64, i64 }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.target_sigaltstack = type { i64, i32, i64 }
-%struct.target_pt_regs = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.image_info = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i8, i64, i64, i64, i16, ptr, i64, i64, i64, ptr, i32 }
-
 @.str = private unnamed_addr constant [47 x i8] c"\0Aqemu: unhandled CPU exception %#x - aborting\0A\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"Incompatible ELF: RVE cpu requires RVE ABI binary\00", align 1
 
@@ -22,15 +10,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @cpu_loop(ptr noundef %env) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %pc39 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 9
-  %arrayidx = getelementptr [32 x i64], ptr %env, i64 0, i64 17
-  %elf_flags = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 28
-  %arrayidx7 = getelementptr [32 x i64], ptr %env, i64 0, i64 10
-  %arrayidx9 = getelementptr [32 x i64], ptr %env, i64 0, i64 11
-  %arrayidx11 = getelementptr [32 x i64], ptr %env, i64 0, i64 12
-  %arrayidx13 = getelementptr [32 x i64], ptr %env, i64 0, i64 13
-  %arrayidx15 = getelementptr [32 x i64], ptr %env, i64 0, i64 14
-  %arrayidx17 = getelementptr [32 x i64], ptr %env, i64 0, i64 15
+  %pc39 = getelementptr inbounds i8, ptr %env, i64 4656
+  %arrayidx = getelementptr i8, ptr %env, i64 136
+  %elf_flags = getelementptr inbounds i8, ptr %env, i64 5048
+  %arrayidx7 = getelementptr i8, ptr %env, i64 80
+  %arrayidx9 = getelementptr i8, ptr %env, i64 88
+  %arrayidx11 = getelementptr i8, ptr %env, i64 96
+  %arrayidx13 = getelementptr i8, ptr %env, i64 104
+  %arrayidx15 = getelementptr i8, ptr %env, i64 112
+  %arrayidx17 = getelementptr i8, ptr %env, i64 120
   %singlestep_enabled = getelementptr i8, ptr %env, i64 -9956
   br label %for.cond
 
@@ -152,20 +140,20 @@ define dso_local void @target_cpu_copy_regs(ptr nocapture noundef %env, ptr noca
 entry:
   %opaque = getelementptr i8, ptr %env, i64 -9552
   %0 = load ptr, ptr %opaque, align 16
-  %info1 = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 7
+  %info1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %info1, align 8
   %2 = load i64, ptr %regs, align 8
-  %pc = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 9
+  %pc = getelementptr inbounds i8, ptr %env, i64 4656
   store i64 %2, ptr %pc, align 16
-  %sp = getelementptr inbounds %struct.target_pt_regs, ptr %regs, i64 0, i32 2
+  %sp = getelementptr inbounds i8, ptr %regs, i64 16
   %3 = load i64, ptr %sp, align 8
-  %arrayidx = getelementptr [32 x i64], ptr %env, i64 0, i64 2
+  %arrayidx = getelementptr i8, ptr %env, i64 16
   store i64 %3, ptr %arrayidx, align 16
-  %elf_flags = getelementptr inbounds %struct.image_info, ptr %1, i64 0, i32 20
+  %elf_flags = getelementptr inbounds i8, ptr %1, i64 160
   %4 = load i32, ptr %elf_flags, align 8
-  %elf_flags2 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 28
+  %elf_flags2 = getelementptr inbounds i8, ptr %env, i64 5048
   store i32 %4, ptr %elf_flags2, align 8
-  %misa_ext = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 23
+  %misa_ext = getelementptr inbounds i8, ptr %env, i64 5016
   %5 = load i32, ptr %misa_ext, align 8
   %6 = and i32 %5, 16
   %tobool.not = icmp ne i32 %6, 0
@@ -180,15 +168,15 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %start_stack = getelementptr inbounds %struct.image_info, ptr %1, i64 0, i32 7
+  %start_stack = getelementptr inbounds i8, ptr %1, i64 56
   %7 = load i64, ptr %start_stack, align 8
-  %stack_base = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 5
+  %stack_base = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %7, ptr %stack_base, align 8
-  %brk = getelementptr inbounds %struct.image_info, ptr %1, i64 0, i32 6
+  %brk = getelementptr inbounds i8, ptr %1, i64 48
   %8 = load i64, ptr %brk, align 8
-  %heap_base = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 3
+  %heap_base = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %8, ptr %heap_base, align 8
-  %heap_limit = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 4
+  %heap_limit = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %heap_limit, align 8
   ret void
 }

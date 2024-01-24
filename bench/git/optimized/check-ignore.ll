@@ -15,9 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
 %struct.pathspec_item = type { ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.path_pattern = type { ptr, ptr, i32, i32, ptr, i32, i32, i32 }
-%struct.pattern_list = type { i32, i32, ptr, ptr, ptr, i32, i32, %struct.hashmap, %struct.hashmap }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 
 @check_ignore_options = internal constant [8 x %struct.option] [%struct.option { i32 8, i32 113, ptr @.str.8, ptr @quiet, ptr null, ptr @.str.9, i32 2, ptr null, i64 0, ptr null, i64 0, ptr null }, %struct.option { i32 8, i32 118, ptr @.str.10, ptr @verbose, ptr null, ptr @.str.11, i32 2, ptr null, i64 0, ptr null, i64 0, ptr null }, %struct.option { i32 1, i32 0, ptr null, ptr null, ptr null, ptr @.str.12, i32 0, ptr null, i64 0, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 0, ptr @.str.13, ptr @stdin_paths, ptr null, ptr @.str.14, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 122, ptr null, ptr @nul_term_line, ptr null, ptr @.str.15, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 110, ptr @.str.16, ptr @show_non_matching, ptr null, ptr @.str.17, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option { i32 9, i32 0, ptr @.str.18, ptr @no_index, ptr null, ptr @.str.19, i32 2, ptr null, i64 1, ptr null, i64 0, ptr null }, %struct.option zeroinitializer], align 16
 @check_ignore_usage = internal constant [3 x ptr] [ptr @.str.20, ptr @.str.21, ptr null], align 16
@@ -190,9 +187,9 @@ if.then36:                                        ; preds = %if.end34
   br i1 %cmp.not4.i, label %check_ignore_stdin_paths.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then36
-  %buf2.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %unquoted.i, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %unquoted.i, i64 0, i32 2
+  %buf2.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %len2.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9.i, %while.body.lr.ph.i
@@ -336,7 +333,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end3
-  %items = getelementptr inbounds %struct.pathspec, ptr %pathspec, i64 0, i32 4
+  %items = getelementptr inbounds i8, ptr %pathspec, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end25
@@ -360,7 +357,7 @@ if.then8:                                         ; preds = %for.body
   br i1 %or.cond, label %land.lhs.true12, label %if.end16
 
 land.lhs.true12:                                  ; preds = %if.then8
-  %flags = getelementptr inbounds %struct.path_pattern, ptr %call9, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %call9, i64 36
   %8 = load i32, ptr %flags, align 4
   %and = and i32 %8, 16
   %tobool13.not = icmp eq i32 %and, 0
@@ -388,7 +385,7 @@ if.then21:                                        ; preds = %land.lhs.true18
   br i1 %tobool.not.i, label %land.end7.i, label %land.rhs3.i
 
 land.rhs3.i:                                      ; preds = %if.then21
-  %flags.i = getelementptr inbounds %struct.path_pattern, ptr %pattern.0, i64 0, i32 6
+  %flags.i = getelementptr inbounds i8, ptr %pattern.0, i64 36
   %13 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %13, 16
   %tobool1.not.i = icmp eq i32 %and.i, 0
@@ -420,13 +417,13 @@ if.else.i:                                        ; preds = %if.then.i
 
 if.then13.i:                                      ; preds = %if.else.i
   %19 = load ptr, ptr %pattern.0, align 8
-  %src.i = getelementptr inbounds %struct.pattern_list, ptr %19, i64 0, i32 3
+  %src.i = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %src.i, align 8
   %21 = load ptr, ptr @stdout, align 8
   %call.i = call i64 @quote_c_style(ptr noundef %20, ptr noundef null, ptr noundef %21, i32 noundef 0) #10
-  %srcpos.i = getelementptr inbounds %struct.path_pattern, ptr %pattern.0, i64 0, i32 7
+  %srcpos.i = getelementptr inbounds i8, ptr %pattern.0, i64 40
   %22 = load i32, ptr %srcpos.i, align 8
-  %pattern14.i = getelementptr inbounds %struct.path_pattern, ptr %pattern.0, i64 0, i32 1
+  %pattern14.i = getelementptr inbounds i8, ptr %pattern.0, i64 8
   %23 = load ptr, ptr %pattern14.i, align 8
   %call15.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %22, ptr noundef nonnull %cond19.i, ptr noundef %23, ptr noundef nonnull %cond8.i)
   br label %if.end.i
@@ -454,11 +451,11 @@ if.else25.i:                                      ; preds = %if.else21.i
 
 if.then27.i:                                      ; preds = %if.else25.i
   %26 = load ptr, ptr %pattern.0, align 8
-  %src29.i = getelementptr inbounds %struct.pattern_list, ptr %26, i64 0, i32 3
+  %src29.i = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %src29.i, align 8
-  %srcpos30.i = getelementptr inbounds %struct.path_pattern, ptr %pattern.0, i64 0, i32 7
+  %srcpos30.i = getelementptr inbounds i8, ptr %pattern.0, i64 40
   %28 = load i32, ptr %srcpos30.i, align 8
-  %pattern31.i = getelementptr inbounds %struct.path_pattern, ptr %pattern.0, i64 0, i32 1
+  %pattern31.i = getelementptr inbounds i8, ptr %pattern.0, i64 8
   %29 = load ptr, ptr %pattern31.i, align 8
   %call32.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %27, i32 noundef 0, i32 noundef %28, i32 noundef 0, ptr noundef nonnull %cond19.i, ptr noundef %29, ptr noundef nonnull %cond8.i, i32 noundef 0, ptr noundef %12, i32 noundef 0)
   br label %if.end25

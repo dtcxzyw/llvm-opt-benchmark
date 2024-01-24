@@ -45,45 +45,45 @@ default.unreachable6:                             ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i8], i8 }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !noundef !6
   %12 = tail call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h6173c3a1900add8dE"(i8 %11)
   br label %34
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %1, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %1, i64 1
   %15 = load i8, ptr %14, align 1, !noundef !6
-  %16 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %1, i64 0, i32 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 2
   %17 = load i8, ptr %16, align 2, !noundef !6
   %18 = tail call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h87f01de9877f1a40E"(i8 %15, i8 %17)
   br label %34
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds { [1 x i8], { i8, i8, i8 } }, ptr %1, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 1
   %.sroa.01.0.copyload = load i24, ptr %20, align 1
   %21 = tail call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17hc23cdbeb31dfe6ecE"(i24 %.sroa.01.0.copyload)
   br label %34
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds { [4 x i64], { { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] } } }, ptr %1, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(288) %6, ptr noundef nonnull align 32 dereferenceable(288) %23, i64 288, i1 false)
   %24 = call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb34e1805668f180aE"(ptr nonnull align 32 %6)
   br label %34
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds { [1 x i64], { { ptr, { ptr, { { ptr, i64 }, i64 }, i64, i64 }, { ptr, [3 x i64] }, i64 }, i64, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] }, i64, i64, i64, { [256 x i8] }, i64, i64, { i32, i32, i32, i32 }, i8, [7 x i8] } } }, ptr %1, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %5, ptr noundef nonnull align 8 dereferenceable(528) %26, i64 528, i1 false)
   %27 = call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h8a23721c155c3b4bE"(ptr nonnull align 8 %5)
   br label %34
 
 28:                                               ; preds = %2
-  %29 = getelementptr inbounds { [1 x i8], { [256 x i8] } }, ptr %1, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %1, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %4, ptr noundef nonnull align 1 dereferenceable(256) %29, i64 256, i1 false)
   %30 = call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h046dbfd20fc35209E"(ptr nonnull align 1 %4)
   br label %34
 
 31:                                               ; preds = %2
-  %32 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, i8, i8, [6 x i8] } } }, ptr %1, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %33 = call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17hfb543432858f626bE"(ptr nonnull align 8 %3)
   br label %34
@@ -94,7 +94,7 @@ default.unreachable6:                             ; preds = %2
   %35 = icmp ne ptr %.sroa.0.0, null
   call void @llvm.assume(i1 %35)
   store ptr %.sroa.0.0, ptr %7, align 16
-  %36 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %36 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sroa.8.0, ptr %36, align 8
   %37 = invoke { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h10069401bbba83caE"(ptr nonnull align 8 %7)
           to label %38 unwind label %44
@@ -102,7 +102,7 @@ default.unreachable6:                             ; preds = %2
 38:                                               ; preds = %34
   %39 = extractvalue { ptr, ptr } %37, 0
   %40 = extractvalue { ptr, ptr } %37, 1
-  %41 = getelementptr inbounds ptr, ptr %40, i64 11
+  %41 = getelementptr inbounds i8, ptr %40, i64 88
   %42 = load ptr, ptr %41, align 8, !invariant.load !6, !nonnull !6
   %43 = invoke zeroext i1 %42(ptr align 1 %39)
           to label %46 unwind label %44
@@ -144,7 +144,7 @@ define hidden void @_ZN14regex_automata4util9prefilter9Prefilter4find17hcd289727
   %7 = tail call { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h10069401bbba83caE"(ptr align 8 %1)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds ptr, ptr %9, i64 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8, !invariant.load !6, !nonnull !6
   tail call void %11(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %8, ptr align 1 %2, i64 %3, i64 %4, i64 %5)
   ret void
@@ -155,7 +155,7 @@ define hidden i64 @_ZN14regex_automata4util9prefilter9Prefilter12memory_usage17h
   %2 = tail call { ptr, ptr } @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h10069401bbba83caE"(ptr align 8 %0)
   %3 = extractvalue { ptr, ptr } %2, 0
   %4 = extractvalue { ptr, ptr } %2, 1
-  %5 = getelementptr inbounds ptr, ptr %4, i64 10
+  %5 = getelementptr inbounds i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8, !invariant.load !6, !nonnull !6
   %7 = tail call i64 %6(ptr align 1 %3)
   ret i64 %7
@@ -163,7 +163,7 @@ define hidden i64 @_ZN14regex_automata4util9prefilter9Prefilter12memory_usage17h
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14regex_automata4util9prefilter9Prefilter7is_fast17hd07c86c08574f9ffE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !7, !noundef !6
   %4 = icmp ne i8 %3, 0
   ret i1 %4
@@ -174,12 +174,12 @@ define hidden void @"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as
   %3 = tail call { ptr, ptr } @"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5bb394380eeff9ddE"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i8, ptr %6, align 8, !range !7, !noundef !6
   store ptr %4, ptr %0, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %7, ptr %9, align 8
   ret void
 }
@@ -187,7 +187,7 @@ define hidden void @"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN79_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ff728edbab59fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %3, align 8
   %5 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h976633cb9325d9dfE(ptr align 8 %1, ptr nonnull align 1 @anon.b07cb27ac2fa95a5fa0e0f14feb0a053.14, i64 9, ptr nonnull align 1 @anon.b07cb27ac2fa95a5fa0e0f14feb0a053.15, i64 3, ptr align 1 %0, ptr nonnull align 8 @anon.b07cb27ac2fa95a5fa0e0f14feb0a053.16, ptr nonnull align 1 @anon.b07cb27ac2fa95a5fa0e0f14feb0a053.17, i64 7, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.b07cb27ac2fa95a5fa0e0f14feb0a053.18)
   ret i1 %5

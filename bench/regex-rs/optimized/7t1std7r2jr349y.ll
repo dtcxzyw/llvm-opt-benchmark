@@ -44,7 +44,7 @@ define hidden void @_ZN5regex5error5Error21from_meta_build_error17h1b2940a88f6a5
 
 11:                                               ; preds = %9
   %.fca.1.extract = extractvalue { i64, i64 } %6, 1
-  %12 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.fca.1.extract, ptr %12, align 8
   store ptr null, ptr %0, align 8
   br label %15
@@ -124,11 +124,11 @@ define zeroext i1 @"_ZN58_$LT$regex..error..Error$u20$as$u20$core..fmt..Display$
   br label %14
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !5
   store i64 %11, ptr %5, align 8
   store ptr %5, ptr %3, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %12, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h4c7b5efb93374e33E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.adc54d8b41b5c129c052624113adf44e.3, i64 2, ptr nonnull align 8 %3, i64 1)
   %13 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -168,7 +168,7 @@ define zeroext i1 @"_ZN56_$LT$regex..error..Error$u20$as$u20$core..fmt..Debug$GT
           to label %28 unwind label %26
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !5
   store i64 %23, ptr %4, align 8
   call void @_ZN4core3fmt9Formatter11debug_tuple17hf90c9f52dfb03f83E(ptr nonnull sret({ i64, ptr, i8, i8, [6 x i8] }) align 8 %3, ptr align 8 %1, ptr nonnull align 1 @anon.adc54d8b41b5c129c052624113adf44e.17, i64 14)
@@ -195,7 +195,7 @@ define zeroext i1 @"_ZN56_$LT$regex..error..Error$u20$as$u20$core..fmt..Debug$GT
 
 33:                                               ; preds = %32
   store ptr %13, ptr %10, align 8
-  %34 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h10d087ad125ae816E", ptr %34, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h4c7b5efb93374e33E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %11, ptr nonnull align 8 @anon.adc54d8b41b5c129c052624113adf44e.8, i64 2, ptr nonnull align 8 %10, i64 1)
           to label %35 unwind label %26
@@ -213,7 +213,7 @@ define zeroext i1 @"_ZN56_$LT$regex..error..Error$u20$as$u20$core..fmt..Debug$GT
 
 40:                                               ; preds = %39
   store ptr %14, ptr %8, align 8
-  %41 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h06d979066393beb8E", ptr %41, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h4c7b5efb93374e33E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr nonnull align 8 @anon.adc54d8b41b5c129c052624113adf44e.8, i64 2, ptr nonnull align 8 %8, i64 1)
           to label %42 unwind label %26
@@ -231,7 +231,7 @@ define zeroext i1 @"_ZN56_$LT$regex..error..Error$u20$as$u20$core..fmt..Debug$GT
 
 47:                                               ; preds = %46
   store ptr %13, ptr %6, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h10d087ad125ae816E", ptr %48, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h4c7b5efb93374e33E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr nonnull align 8 @anon.adc54d8b41b5c129c052624113adf44e.8, i64 2, ptr nonnull align 8 %6, i64 1)
           to label %49 unwind label %26

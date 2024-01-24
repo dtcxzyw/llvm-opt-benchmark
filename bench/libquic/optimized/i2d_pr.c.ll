@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/i2d_pr.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
-
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/i2d_pr.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -19,19 +16,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %pkey, align 8
   %call1 = tail call i32 @i2d_RSAPrivateKey(ptr noundef %0, ptr noundef %pp) #2
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %pkey3 = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %pkey3 = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %pkey3, align 8
   %call4 = tail call i32 @i2d_ECPrivateKey(ptr noundef %1, ptr noundef %pp) #2
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %pkey6 = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %pkey6 = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %pkey6, align 8
   %call7 = tail call i32 @i2d_DSAPrivateKey(ptr noundef %2, ptr noundef %pp) #2
   br label %return

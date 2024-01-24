@@ -22,28 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
 %"class.ue2::bitfield" = type { %"struct.std::array" }
 %"struct.std::array" = type { [4 x i64] }
-%"struct.ue2::CompileContext" = type { i8, i8, %"struct.ue2::target_t", %"struct.ue2::Grey" }
-%"struct.ue2::target_t" = type { i32, i64 }
-%"struct.ue2::Grey" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i8, [3 x i8], i32, i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [4 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [80 x i8] }
-%"struct.ue2::CastleProto" = type { %"class.std::map", %"class.std::unordered_map", i32, i32 }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::PureRepeat>, std::_Select1st<std::pair<const unsigned int, ue2::PureRepeat>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::PureRepeat>, std::_Select1st<std::pair<const unsigned int, ue2::PureRepeat>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.NFA = type { i32, i32, i8, i8, i8, i8, %union.anon.107, i32, i32, i32, i32, i32, i32, i32, [20 x i8] }
-%union.anon.107 = type { i16 }
 %"struct.ue2::PureRepeat" = type { %"class.ue2::CharReach", %"struct.ue2::DepthMinMax", %"class.ue2::flat_set" }
 %"struct.ue2::DepthMinMax" = type { %"class.ue2::depth", %"class.ue2::depth" }
 %"class.ue2::depth" = type { i32 }
@@ -58,17 +36,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.boost::container::vector_alloc_holder" = type { ptr, i64, i64 }
 %"union.boost::move_detail::aligned_struct_wrapper" = type { %"struct.boost::move_detail::aligned_struct" }
 %"struct.boost::move_detail::aligned_struct" = type { [4 x i8] }
-%"class.ue2::NGHolder" = type { ptr, %"class.ue2::ue2_graph", i32, %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::graph_detail::vertex_descriptor", %"class.ue2::graph_detail::vertex_descriptor" }
-%"class.ue2::ue2_graph" = type { %"class.boost::intrusive::list", i64, i64, i64, i64 }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_node, boost::intrusive::list_node_traits<void *>, boost::intrusive::safe_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder" = type { i64 }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.ue2::graph_detail::vertex_descriptor" = type { ptr, i64 }
-%struct.lbr_common = type { i32, i32 }
+%"struct.ue2::CastleProto" = type { %"class.std::map", %"class.std::unordered_map", i32, i32 }
+%"class.std::map" = type { %"class.std::_Rb_tree" }
+%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::PureRepeat>, std::_Select1st<std::pair<const unsigned int, ue2::PureRepeat>>, std::less<unsigned int>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, ue2::PureRepeat>, std::_Select1st<std::pair<const unsigned int, ue2::PureRepeat>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
+%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
+%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"struct.std::__detail::_Hash_node_base" = type { ptr }
+%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 
 $_ZN3ue211CastleProtoD2Ev = comdat any
 
@@ -112,7 +91,7 @@ entry:
   %ref.tmp15.sroa.6.i = alloca { i64, i64 }, align 8
   %ref.tmp23.i = alloca %"class.ue2::bytecode_ptr", align 8
   %is_reset = alloca i8, align 1
-  %allowLbr = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 8
+  %allowLbr = getelementptr inbounds i8, ptr %cc, i64 32
   %0 = load i8, ptr %allowLbr, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -135,9 +114,9 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %_M_left.i.i = getelementptr inbounds i8, ptr %proto, i64 24
   %3 = load ptr, ptr %_M_left.i.i, align 8
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 8
-  %reports = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 48
-  %m_size.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 56
+  %second = getelementptr inbounds i8, ptr %3, i64 40
+  %reports = getelementptr inbounds i8, ptr %3, i64 80
+  %m_size.i.i = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load i64, ptr %m_size.i.i, align 8
   %cmp7.not = icmp eq i64 %4, 1
   br i1 %cmp7.not, label %if.end9, label %do.end
@@ -157,8 +136,8 @@ do.end.i:                                         ; preds = %if.end9
   unreachable
 
 _ZN3ue25depthC2Ej.exit:                           ; preds = %if.end9
-  %bounds = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 40
-  %max = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 44
+  %bounds = getelementptr inbounds i8, ptr %3, i64 72
+  %max = getelementptr inbounds i8, ptr %3, i64 76
   %5 = load i32, ptr %max, align 4
   %cmp.i.i = icmp ult i32 %5, %call10
   br i1 %cmp.i.i, label %do.end15, label %if.end16
@@ -170,7 +149,7 @@ do.end15:                                         ; preds = %_ZN3ue25depthC2Ej.e
 if.end16:                                         ; preds = %do.end15, %_ZN3ue25depthC2Ej.exit
   %6 = load ptr, ptr %reports, align 8, !noalias !5
   %7 = load i32, ptr %6, align 4
-  %kind = getelementptr inbounds %"struct.ue2::CastleProto", ptr %proto, i64 0, i32 3
+  %kind = getelementptr inbounds i8, ptr %proto, i64 108
   %8 = load i32, ptr %kind, align 4
   %9 = and i32 %8, -2
   %switch.i = icmp eq i32 %9, 2
@@ -207,7 +186,7 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i, %
   br i1 %cmp4.not.i.i.i.i, label %for.cond.i.i.i.i, label %_ZN3ue2L11buildLbrDotERKNS_9CharReachERKNS_5depthES5_jbj.exit.thread.i
 
 _ZNK3ue29CharReach3allEv.exit.i.i:                ; preds = %for.cond.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 32
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %13 = load i64, ptr %incdec.ptr.i.i.i.i.i, align 8, !noalias !20
   %cmp8.i.i.i.i = icmp eq i64 %13, -1
   br i1 %cmp8.i.i.i.i, label %if.end.i.i, label %_ZN3ue2L11buildLbrDotERKNS_9CharReachERKNS_5depthES5_jbj.exit.thread.i
@@ -255,7 +234,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZNK3ue25depthcvjEv
   %15 = load ptr, ptr %nfa.i, align 8, !alias.scope !25, !noalias !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %15, i8 0, i64 %tableLen.0.i.i.i, i1 false), !noalias !12
   %16 = load ptr, ptr %nfa.i, align 8, !alias.scope !28, !noalias !12
-  %type.i.i.i = getelementptr inbounds %struct.NFA, ptr %16, i64 0, i32 2
+  %type.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   store i8 11, ptr %type.i.i.i, align 8, !noalias !12
   %cmp.not.i.i.i.i.i = icmp ult i64 %tableLen.0.i.i.i, 4294967296
   br i1 %cmp.not.i.i.i.i.i, label %_ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i.i
@@ -290,7 +269,7 @@ common.resume.i:                                  ; preds = %lpad.body.i260.i, %
 
 _ZN3ue2L10makeLbrNfaI7lbr_dotEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i: ; preds = %invoke.cont.i.i.i
   %conv.i.i.i.i.i = trunc i64 %tableLen.0.i.i.i to i32
-  %length.i.i.i = getelementptr inbounds %struct.NFA, ptr %16, i64 0, i32 1
+  %length.i.i.i = getelementptr inbounds i8, ptr %16, i64 4
   store i32 %conv.i.i.i.i.i, ptr %length.i.i.i, align 4, !noalias !12
   %19 = load ptr, ptr %nfa.i, align 8, !alias.scope !15, !noalias !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %rsi.i.i.i), !noalias !20
@@ -347,19 +326,19 @@ invoke.cont5.i.i.i:                               ; preds = %if.end.i37.i.i.i, %
   %21 = load i32, ptr %rsi.i.i.i, align 8, !noalias !20
   %stateSize8.i.i.i = getelementptr inbounds i8, ptr %19, i64 92
   store i32 %21, ptr %stateSize8.i.i.i, align 4, !noalias !12
-  %packedCtrlSize.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 1
+  %packedCtrlSize.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 4
   %22 = load i32, ptr %packedCtrlSize.i.i.i, align 4, !noalias !20
   %packedCtrlSize9.i.i.i = getelementptr inbounds i8, ptr %19, i64 88
   store i32 %22, ptr %packedCtrlSize9.i.i.i, align 4, !noalias !12
-  %horizon.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 2
+  %horizon.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 8
   %23 = load i32, ptr %horizon.i.i.i, align 8, !noalias !20
   %horizon10.i.i.i = getelementptr inbounds i8, ptr %19, i64 84
   store i32 %23, ptr %horizon10.i.i.i, align 4, !noalias !12
   %minPeriod11.i.i.i = getelementptr inbounds i8, ptr %19, i64 96
   store i32 %call10, ptr %minPeriod11.i.i.i, align 4, !noalias !12
-  %packedFieldSizes12.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 7
+  %packedFieldSizes12.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 32
   %24 = load ptr, ptr %packedFieldSizes12.i.i.i, align 8, !noalias !20
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 40
   %25 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8, !noalias !20
   %cmp.i.i.i44.i.i.i = icmp eq ptr %24, %25
   br i1 %cmp.i.i.i44.i.i.i, label %invoke.cont13.i.i.i, label %if.end.i45.i.i.i
@@ -373,15 +352,15 @@ if.end.i45.i.i.i:                                 ; preds = %invoke.cont5.i.i.i
   br label %invoke.cont13.i.i.i
 
 invoke.cont13.i.i.i:                              ; preds = %if.end.i45.i.i.i, %invoke.cont5.i.i.i
-  %patchCount.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 3
+  %patchCount.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 12
   %26 = load i32, ptr %patchCount.i.i.i, align 4, !noalias !20
   %patchCount15.i.i.i = getelementptr inbounds i8, ptr %19, i64 108
   store i32 %26, ptr %patchCount15.i.i.i, align 4, !noalias !12
-  %patchSize.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 4
+  %patchSize.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 16
   %patchSize16.i.i.i = getelementptr inbounds i8, ptr %19, i64 112
   %27 = load <2 x i32>, ptr %patchSize.i.i.i, align 8, !noalias !20
   store <2 x i32> %27, ptr %patchSize16.i.i.i, align 4, !noalias !12
-  %patchesOffset.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 6
+  %patchesOffset.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 24
   %28 = load i32, ptr %patchesOffset.i.i.i, align 8, !noalias !20
   %patchesOffset18.i.i.i = getelementptr inbounds i8, ptr %19, i64 124
   store i32 %28, ptr %patchesOffset18.i.i.i, align 4, !noalias !12
@@ -390,24 +369,24 @@ invoke.cont13.i.i.i:                              ; preds = %if.end.i45.i.i.i, %
   br i1 %cmp.i.i46.i.i.i, label %invoke.cont23.i.i.i, label %if.then.i56.invoke.i.i.i
 
 invoke.cont23.i.i.i:                              ; preds = %invoke.cont13.i.i.i
-  %nPositions.i.i.i = getelementptr inbounds %struct.NFA, ptr %19, i64 0, i32 8
+  %nPositions.i.i.i = getelementptr inbounds i8, ptr %19, i64 20
   store i32 %29, ptr %nPositions.i.i.i, align 4, !noalias !12
   %add.i.i.i = add i32 %22, %21
-  %streamStateSize.i.i.i = getelementptr inbounds %struct.NFA, ptr %19, i64 0, i32 10
+  %streamStateSize.i.i.i = getelementptr inbounds i8, ptr %19, i64 28
   store i32 %add.i.i.i, ptr %streamStateSize.i.i.i, align 4, !noalias !12
-  %scratchStateSize.i.i.i = getelementptr inbounds %struct.NFA, ptr %19, i64 0, i32 9
+  %scratchStateSize.i.i.i = getelementptr inbounds i8, ptr %19, i64 24
   store i32 24, ptr %scratchStateSize.i.i.i, align 8, !noalias !12
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %bounds, align 4, !noalias !20
   %cmp.i.i.i.i.i.i.i = icmp ult i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 2147483647
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont25.i.i.i, label %if.then.i56.invoke.i.i.i
 
 invoke.cont25.i.i.i:                              ; preds = %invoke.cont23.i.i.i
-  %minWidth.i.i.i = getelementptr inbounds %struct.NFA, ptr %19, i64 0, i32 12
+  %minWidth.i.i.i = getelementptr inbounds i8, ptr %19, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %minWidth.i.i.i, align 4, !noalias !12
   %30 = load i32, ptr %max, align 4, !noalias !20
   %cmp.i.i.i.i = icmp ult i32 %30, 2147483647
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i32 %30, i32 0
-  %maxWidth.i.i.i = getelementptr inbounds %struct.NFA, ptr %19, i64 0, i32 11
+  %maxWidth.i.i.i = getelementptr inbounds i8, ptr %19, i64 32
   store i32 %spec.select.i.i.i, ptr %maxWidth.i.i.i, align 32, !noalias !12
   br i1 %cmp.i.i.i, label %if.then.i18.i.i, label %if.end.i.i.i
 
@@ -417,7 +396,7 @@ if.then.i18.i.i:                                  ; preds = %invoke.cont25.i.i.i
   %add.i.i19.i.i = add i64 %31, 7
   %and.i.i.i.i = and i64 %add.i.i19.i.i, -8
   %32 = inttoptr i64 %and.i.i.i.i to ptr
-  %length.i20.i.i = getelementptr inbounds %struct.NFA, ptr %19, i64 0, i32 1
+  %length.i20.i.i = getelementptr inbounds i8, ptr %19, i64 4
   %33 = load i32, ptr %max, align 4, !noalias !20
   %cmp.i.i55.i.i.i = icmp ult i32 %33, 2147483647
   br i1 %cmp.i.i55.i.i.i, label %invoke.cont34.i.i.i, label %if.then.i56.invoke.i.i.i
@@ -483,9 +462,9 @@ invoke.cont47.i.i.i:                              ; preds = %invoke.cont39.i.i.i
   %add46.i.i.i = add nuw i32 %mul45.i.i.i, 56
   %length49.i.i.i = getelementptr inbounds i8, ptr %19, i64 120
   store i32 %add46.i.i.i, ptr %length49.i.i.i, align 4, !noalias !12
-  %table50.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 8
+  %table50.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 56
   %39 = load ptr, ptr %table50.i.i.i, align 8, !noalias !20
-  %_M_finish.i.i.i80.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i80.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 64
   %40 = load ptr, ptr %_M_finish.i.i.i80.i.i.i, align 8, !noalias !20
   %cmp.i.i.i81.i.i.i = icmp eq ptr %39, %40
   br i1 %cmp.i.i.i81.i.i.i, label %if.end.i.i.i, label %if.end.i82.i.i.i
@@ -508,7 +487,7 @@ lpad.body.i11.i.i:                                ; preds = %lpad.i13.i.i, %lpad
   br label %common.resume.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i82.i.i.i, %invoke.cont47.i.i.i, %invoke.cont25.i.i.i
-  %table.i.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i.i, i64 0, i32 8
+  %table.i.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 56
   %42 = load ptr, ptr %table.i.i.i.i, align 8, !noalias !20
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -622,8 +601,8 @@ invoke.cont2.i:                                   ; preds = %invoke.cont.i.i
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread.i, label %if.then.i.i.i.i.i.i
 
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.thread.i: ; preds = %invoke.cont2.i, %invoke.cont2.thread.i
-  %bytes.i418.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %nfa.i, i64 0, i32 1
-  %bytes3.i419.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %ref.tmp.i, i64 0, i32 1
+  %bytes.i418.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
+  %bytes3.i419.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i418.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i419.i, i64 16, i1 false), !noalias !12
   br label %if.end.i
 
@@ -640,8 +619,8 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.i:        ; preds = %if.then.i.i.i.i.i.i
   %.pr417.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !12
-  %bytes.i.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %nfa.i, i64 0, i32 1
-  %bytes3.i.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %ref.tmp.i, i64 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
+  %bytes3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i, i64 16, i1 false), !noalias !12
   %cmp.not.i.i.i = icmp eq ptr %.pr417.i, null
   br i1 %cmp.not.i.i.i, label %if.end.i, label %if.then.i.i41.i
@@ -740,8 +719,8 @@ invoke.cont9.i:                                   ; preds = %invoke.cont.i62.i
   br i1 %tobool.not.i.i.i.i.i74.i, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit79.thread.i, label %if.then.i.i.i.i.i75.i
 
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit79.thread.i: ; preds = %invoke.cont9.i, %invoke.cont9.thread.i
-  %bytes.i77422.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %nfa.i, i64 0, i32 1
-  %bytes3.i78423.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %ref.tmp7.i, i64 0, i32 1
+  %bytes.i77422.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
+  %bytes3.i78423.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i77422.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i78423.i, i64 16, i1 false), !noalias !12
   br label %if.end11.i
 
@@ -758,8 +737,8 @@ terminate.lpad.i.i.i.i.i76.i:                     ; preds = %if.then.i.i.i.i.i75
 
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit79.i:      ; preds = %if.then.i.i.i.i.i75.i
   %.pr421.i = load ptr, ptr %ref.tmp7.i, align 8, !noalias !12
-  %bytes.i77.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %nfa.i, i64 0, i32 1
-  %bytes3.i78.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %ref.tmp7.i, i64 0, i32 1
+  %bytes.i77.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
+  %bytes3.i78.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i77.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i78.i, i64 16, i1 false), !noalias !12
   %cmp.not.i.i80.i = icmp eq ptr %.pr421.i, null
   br i1 %cmp.not.i.i80.i, label %if.end11.i, label %if.then.i.i81.i
@@ -818,7 +797,7 @@ invoke.cont.i.i88.i:                              ; preds = %_ZNK3ue25depthcvjEv
   %72 = load ptr, ptr %nfa.i.i, align 8, !alias.scope !46, !noalias !45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %72, i8 0, i64 %tableLen.0.i.i89.i, i1 false), !noalias !45
   %73 = load ptr, ptr %nfa.i.i, align 8, !alias.scope !51, !noalias !45
-  %type.i.i90.i = getelementptr inbounds %struct.NFA, ptr %73, i64 0, i32 2
+  %type.i.i90.i = getelementptr inbounds i8, ptr %73, i64 8
   store i8 14, ptr %type.i.i90.i, align 8, !noalias !45
   %cmp.not.i.i.i.i91.i = icmp ult i64 %tableLen.0.i.i89.i, 4294967296
   br i1 %cmp.not.i.i.i.i91.i, label %_ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i92.i
@@ -853,7 +832,7 @@ common.resume.i95.i:                              ; preds = %lpad.i102.i, %lpad.
 
 _ZN3ue2L10makeLbrNfaI8lbr_shufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i: ; preds = %.noexc225.i
   %conv.i.i.i.i100.i = trunc i64 %tableLen.0.i.i89.i to i32
-  %length.i.i101.i = getelementptr inbounds %struct.NFA, ptr %73, i64 0, i32 1
+  %length.i.i101.i = getelementptr inbounds i8, ptr %73, i64 4
   store i32 %conv.i.i.i.i100.i, ptr %length.i.i101.i, align 4, !noalias !45
   %76 = load ptr, ptr %nfa.i.i, align 8, !noalias !45
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %rsi.i.i85.i), !noalias !45
@@ -910,19 +889,19 @@ invoke.cont5.i.i123.i:                            ; preds = %if.end.i37.i.i121.i
   %78 = load i32, ptr %rsi.i.i85.i, align 8, !noalias !45
   %stateSize8.i.i126.i = getelementptr inbounds i8, ptr %76, i64 132
   store i32 %78, ptr %stateSize8.i.i126.i, align 4, !noalias !45
-  %packedCtrlSize.i.i127.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 1
+  %packedCtrlSize.i.i127.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 4
   %79 = load i32, ptr %packedCtrlSize.i.i127.i, align 4, !noalias !45
   %packedCtrlSize9.i.i128.i = getelementptr inbounds i8, ptr %76, i64 128
   store i32 %79, ptr %packedCtrlSize9.i.i128.i, align 4, !noalias !45
-  %horizon.i.i129.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 2
+  %horizon.i.i129.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 8
   %80 = load i32, ptr %horizon.i.i129.i, align 8, !noalias !45
   %horizon10.i.i130.i = getelementptr inbounds i8, ptr %76, i64 124
   store i32 %80, ptr %horizon10.i.i130.i, align 4, !noalias !45
   %minPeriod11.i.i131.i = getelementptr inbounds i8, ptr %76, i64 136
   store i32 %call10, ptr %minPeriod11.i.i131.i, align 4, !noalias !45
-  %packedFieldSizes12.i.i132.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 7
+  %packedFieldSizes12.i.i132.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 32
   %81 = load ptr, ptr %packedFieldSizes12.i.i132.i, align 8, !noalias !45
-  %_M_finish.i.i.i.i.i133.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i133.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 40
   %82 = load ptr, ptr %_M_finish.i.i.i.i.i133.i, align 8, !noalias !45
   %cmp.i.i.i44.i.i134.i = icmp eq ptr %81, %82
   br i1 %cmp.i.i.i44.i.i134.i, label %invoke.cont13.i.i140.i, label %if.end.i45.i.i135.i
@@ -936,15 +915,15 @@ if.end.i45.i.i135.i:                              ; preds = %invoke.cont5.i.i123
   br label %invoke.cont13.i.i140.i
 
 invoke.cont13.i.i140.i:                           ; preds = %if.end.i45.i.i135.i, %invoke.cont5.i.i123.i
-  %patchCount.i.i141.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 3
+  %patchCount.i.i141.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 12
   %83 = load i32, ptr %patchCount.i.i141.i, align 4, !noalias !45
   %patchCount15.i.i142.i = getelementptr inbounds i8, ptr %76, i64 148
   store i32 %83, ptr %patchCount15.i.i142.i, align 4, !noalias !45
-  %patchSize.i.i143.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 4
+  %patchSize.i.i143.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 16
   %patchSize16.i.i144.i = getelementptr inbounds i8, ptr %76, i64 152
   %84 = load <2 x i32>, ptr %patchSize.i.i143.i, align 8, !noalias !45
   store <2 x i32> %84, ptr %patchSize16.i.i144.i, align 4, !noalias !45
-  %patchesOffset.i.i147.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 6
+  %patchesOffset.i.i147.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 24
   %85 = load i32, ptr %patchesOffset.i.i147.i, align 8, !noalias !45
   %patchesOffset18.i.i148.i = getelementptr inbounds i8, ptr %76, i64 164
   store i32 %85, ptr %patchesOffset18.i.i148.i, align 4, !noalias !45
@@ -953,24 +932,24 @@ invoke.cont13.i.i140.i:                           ; preds = %if.end.i45.i.i135.i
   br i1 %cmp.i.i46.i.i149.i, label %invoke.cont23.i.i150.i, label %if.then.i56.invoke.i.i113.i
 
 invoke.cont23.i.i150.i:                           ; preds = %invoke.cont13.i.i140.i
-  %nPositions.i.i151.i = getelementptr inbounds %struct.NFA, ptr %76, i64 0, i32 8
+  %nPositions.i.i151.i = getelementptr inbounds i8, ptr %76, i64 20
   store i32 %86, ptr %nPositions.i.i151.i, align 4, !noalias !45
   %add.i.i152.i = add i32 %79, %78
-  %streamStateSize.i.i153.i = getelementptr inbounds %struct.NFA, ptr %76, i64 0, i32 10
+  %streamStateSize.i.i153.i = getelementptr inbounds i8, ptr %76, i64 28
   store i32 %add.i.i152.i, ptr %streamStateSize.i.i153.i, align 4, !noalias !45
-  %scratchStateSize.i.i154.i = getelementptr inbounds %struct.NFA, ptr %76, i64 0, i32 9
+  %scratchStateSize.i.i154.i = getelementptr inbounds i8, ptr %76, i64 24
   store i32 24, ptr %scratchStateSize.i.i154.i, align 8, !noalias !45
   %agg.tmp.sroa.0.0.copyload.i.i155.i = load i32, ptr %bounds, align 4, !noalias !45
   %cmp.i.i.i.i.i.i156.i = icmp ult i32 %agg.tmp.sroa.0.0.copyload.i.i155.i, 2147483647
   br i1 %cmp.i.i.i.i.i.i156.i, label %invoke.cont25.i.i157.i, label %if.then.i56.invoke.i.i113.i
 
 invoke.cont25.i.i157.i:                           ; preds = %invoke.cont23.i.i150.i
-  %minWidth.i.i158.i = getelementptr inbounds %struct.NFA, ptr %76, i64 0, i32 12
+  %minWidth.i.i158.i = getelementptr inbounds i8, ptr %76, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload.i.i155.i, ptr %minWidth.i.i158.i, align 4, !noalias !45
   %87 = load i32, ptr %max, align 4, !noalias !45
   %cmp.i.i.i159.i = icmp ult i32 %87, 2147483647
   %spec.select.i.i160.i = select i1 %cmp.i.i.i159.i, i32 %87, i32 0
-  %maxWidth.i.i161.i = getelementptr inbounds %struct.NFA, ptr %76, i64 0, i32 11
+  %maxWidth.i.i161.i = getelementptr inbounds i8, ptr %76, i64 32
   store i32 %spec.select.i.i160.i, ptr %maxWidth.i.i161.i, align 32, !noalias !45
   br i1 %cmp.i.i87.i, label %if.then.i18.i175.i, label %if.end.i.i162.i
 
@@ -980,7 +959,7 @@ if.then.i18.i175.i:                               ; preds = %invoke.cont25.i.i15
   %add.i.i19.i177.i = add i64 %88, 7
   %and.i.i.i178.i = and i64 %add.i.i19.i177.i, -8
   %89 = inttoptr i64 %and.i.i.i178.i to ptr
-  %length.i20.i179.i = getelementptr inbounds %struct.NFA, ptr %76, i64 0, i32 1
+  %length.i20.i179.i = getelementptr inbounds i8, ptr %76, i64 4
   %90 = load i32, ptr %max, align 4, !noalias !45
   %cmp.i.i55.i.i180.i = icmp ult i32 %90, 2147483647
   br i1 %cmp.i.i55.i.i180.i, label %invoke.cont34.i.i181.i, label %if.then.i56.invoke.i.i113.i
@@ -1046,9 +1025,9 @@ invoke.cont47.i.i198.i:                           ; preds = %invoke.cont39.i.i19
   %add46.i.i200.i = add nuw i32 %mul45.i.i199.i, 56
   %length49.i.i201.i = getelementptr inbounds i8, ptr %76, i64 160
   store i32 %add46.i.i200.i, ptr %length49.i.i201.i, align 4, !noalias !45
-  %table50.i.i202.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 8
+  %table50.i.i202.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 56
   %96 = load ptr, ptr %table50.i.i202.i, align 8, !noalias !45
-  %_M_finish.i.i.i80.i.i203.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i80.i.i203.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 64
   %97 = load ptr, ptr %_M_finish.i.i.i80.i.i203.i, align 8, !noalias !45
   %cmp.i.i.i81.i.i204.i = icmp eq ptr %96, %97
   br i1 %cmp.i.i.i81.i.i204.i, label %if.end.i.i162.i, label %if.end.i82.i.i205.i
@@ -1071,7 +1050,7 @@ lpad.body.i12.i.i:                                ; preds = %lpad.i14.i.i, %lpad
   br label %common.resume.i95.i
 
 if.end.i.i162.i:                                  ; preds = %if.end.i82.i.i205.i, %invoke.cont47.i.i198.i, %invoke.cont25.i.i157.i
-  %table.i.i.i163.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i85.i, i64 0, i32 8
+  %table.i.i.i163.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 56
   %99 = load ptr, ptr %table.i.i.i163.i, align 8, !noalias !45
   %tobool.not.i.i.i.i.i.i164.i = icmp eq ptr %99, null
   br i1 %tobool.not.i.i.i.i.i.i164.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i166.i, label %if.then.i.i.i.i.i.i165.i
@@ -1122,7 +1101,7 @@ lpad.i102.i:                                      ; preds = %invoke.cont3.i.i, %
 cleanup.thread.i.i:                               ; preds = %invoke.cont4.i.i
   %103 = load i64, ptr %nfa.i.i, align 8, !noalias !45
   %104 = inttoptr i64 %103 to ptr
-  %bytes3.i.i.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %nfa.i.i, i64 0, i32 1
+  %bytes3.i.i.i = getelementptr inbounds i8, ptr %nfa.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i.i.i, i64 16, i1 false), !noalias !12
   br label %invoke.cont17.i
 
@@ -1169,7 +1148,7 @@ if.end19thread-pre-split.i:                       ; preds = %if.then.i.i.i.i.i22
 
 if.end19.i:                                       ; preds = %if.end19thread-pre-split.i, %invoke.cont17.i
   %.pr427.i = phi ptr [ %.pr427.pr.i, %if.end19thread-pre-split.i ], [ %ref.tmp15.sroa.0.0.i, %invoke.cont17.i ]
-  %bytes.i231.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %nfa.i, i64 0, i32 1
+  %bytes.i231.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i231.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15.sroa.6.i, i64 16, i1 false), !noalias !12
   %cmp.i.i.i238.not.i = icmp eq ptr %.pr427.i, null
   br i1 %cmp.i.i.i238.not.i, label %if.then22.i, label %if.end32.i
@@ -1218,7 +1197,7 @@ invoke.cont.i.i243.i:                             ; preds = %_ZNK3ue25depthcvjEv
   %111 = load ptr, ptr %ref.tmp23.i, align 8, !alias.scope !59, !noalias !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %111, i8 0, i64 %tableLen.0.i.i244.i, i1 false), !noalias !12
   %112 = load ptr, ptr %ref.tmp23.i, align 8, !alias.scope !64, !noalias !12
-  %type.i.i245.i = getelementptr inbounds %struct.NFA, ptr %112, i64 0, i32 2
+  %type.i.i245.i = getelementptr inbounds i8, ptr %112, i64 8
   store i8 15, ptr %type.i.i245.i, align 8, !noalias !12
   %cmp.not.i.i.i.i246.i = icmp ult i64 %tableLen.0.i.i244.i, 4294967296
   br i1 %cmp.not.i.i.i.i246.i, label %_ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i, label %if.then.i.i.i.i247.i
@@ -1253,7 +1232,7 @@ lpad.body.i.i250.i:                               ; preds = %lpad.i.i255.i, %lpa
 
 _ZN3ue2L10makeLbrNfaI8lbr_trufEENS_12bytecode_ptrI3NFAEE13NFAEngineType10RepeatTypeRKNS_5depthE.exit.i.i: ; preds = %.noexc396.i
   %conv.i.i.i.i257.i = trunc i64 %tableLen.0.i.i244.i to i32
-  %length.i.i258.i = getelementptr inbounds %struct.NFA, ptr %112, i64 0, i32 1
+  %length.i.i258.i = getelementptr inbounds i8, ptr %112, i64 4
   store i32 %conv.i.i.i.i257.i, ptr %length.i.i258.i, align 4, !noalias !12
   %115 = load ptr, ptr %ref.tmp23.i, align 8, !alias.scope !55, !noalias !12
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %rsi.i.i239.i), !noalias !58
@@ -1310,19 +1289,19 @@ invoke.cont5.i.i291.i:                            ; preds = %if.end.i37.i.i289.i
   %117 = load i32, ptr %rsi.i.i239.i, align 8, !noalias !58
   %stateSize8.i.i294.i = getelementptr inbounds i8, ptr %115, i64 132
   store i32 %117, ptr %stateSize8.i.i294.i, align 4, !noalias !12
-  %packedCtrlSize.i.i295.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 1
+  %packedCtrlSize.i.i295.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 4
   %118 = load i32, ptr %packedCtrlSize.i.i295.i, align 4, !noalias !58
   %packedCtrlSize9.i.i296.i = getelementptr inbounds i8, ptr %115, i64 128
   store i32 %118, ptr %packedCtrlSize9.i.i296.i, align 4, !noalias !12
-  %horizon.i.i297.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 2
+  %horizon.i.i297.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 8
   %119 = load i32, ptr %horizon.i.i297.i, align 8, !noalias !58
   %horizon10.i.i298.i = getelementptr inbounds i8, ptr %115, i64 124
   store i32 %119, ptr %horizon10.i.i298.i, align 4, !noalias !12
   %minPeriod11.i.i299.i = getelementptr inbounds i8, ptr %115, i64 136
   store i32 %call10, ptr %minPeriod11.i.i299.i, align 4, !noalias !12
-  %packedFieldSizes12.i.i300.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 7
+  %packedFieldSizes12.i.i300.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 32
   %120 = load ptr, ptr %packedFieldSizes12.i.i300.i, align 8, !noalias !58
-  %_M_finish.i.i.i.i.i301.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i301.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 40
   %121 = load ptr, ptr %_M_finish.i.i.i.i.i301.i, align 8, !noalias !58
   %cmp.i.i.i44.i.i302.i = icmp eq ptr %120, %121
   br i1 %cmp.i.i.i44.i.i302.i, label %invoke.cont13.i.i308.i, label %if.end.i45.i.i303.i
@@ -1336,15 +1315,15 @@ if.end.i45.i.i303.i:                              ; preds = %invoke.cont5.i.i291
   br label %invoke.cont13.i.i308.i
 
 invoke.cont13.i.i308.i:                           ; preds = %if.end.i45.i.i303.i, %invoke.cont5.i.i291.i
-  %patchCount.i.i309.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 3
+  %patchCount.i.i309.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 12
   %122 = load i32, ptr %patchCount.i.i309.i, align 4, !noalias !58
   %patchCount15.i.i310.i = getelementptr inbounds i8, ptr %115, i64 148
   store i32 %122, ptr %patchCount15.i.i310.i, align 4, !noalias !12
-  %patchSize.i.i311.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 4
+  %patchSize.i.i311.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 16
   %patchSize16.i.i312.i = getelementptr inbounds i8, ptr %115, i64 152
   %123 = load <2 x i32>, ptr %patchSize.i.i311.i, align 8, !noalias !58
   store <2 x i32> %123, ptr %patchSize16.i.i312.i, align 4, !noalias !12
-  %patchesOffset.i.i315.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 6
+  %patchesOffset.i.i315.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 24
   %124 = load i32, ptr %patchesOffset.i.i315.i, align 8, !noalias !58
   %patchesOffset18.i.i316.i = getelementptr inbounds i8, ptr %115, i64 164
   store i32 %124, ptr %patchesOffset18.i.i316.i, align 4, !noalias !12
@@ -1353,24 +1332,24 @@ invoke.cont13.i.i308.i:                           ; preds = %if.end.i45.i.i303.i
   br i1 %cmp.i.i46.i.i317.i, label %invoke.cont23.i.i318.i, label %if.then.i56.invoke.i.i281.i
 
 invoke.cont23.i.i318.i:                           ; preds = %invoke.cont13.i.i308.i
-  %nPositions.i.i319.i = getelementptr inbounds %struct.NFA, ptr %115, i64 0, i32 8
+  %nPositions.i.i319.i = getelementptr inbounds i8, ptr %115, i64 20
   store i32 %125, ptr %nPositions.i.i319.i, align 4, !noalias !12
   %add.i.i320.i = add i32 %118, %117
-  %streamStateSize.i.i321.i = getelementptr inbounds %struct.NFA, ptr %115, i64 0, i32 10
+  %streamStateSize.i.i321.i = getelementptr inbounds i8, ptr %115, i64 28
   store i32 %add.i.i320.i, ptr %streamStateSize.i.i321.i, align 4, !noalias !12
-  %scratchStateSize.i.i322.i = getelementptr inbounds %struct.NFA, ptr %115, i64 0, i32 9
+  %scratchStateSize.i.i322.i = getelementptr inbounds i8, ptr %115, i64 24
   store i32 24, ptr %scratchStateSize.i.i322.i, align 8, !noalias !12
   %agg.tmp.sroa.0.0.copyload.i.i323.i = load i32, ptr %bounds, align 4, !noalias !58
   %cmp.i.i.i.i.i.i324.i = icmp ult i32 %agg.tmp.sroa.0.0.copyload.i.i323.i, 2147483647
   br i1 %cmp.i.i.i.i.i.i324.i, label %invoke.cont25.i.i325.i, label %if.then.i56.invoke.i.i281.i
 
 invoke.cont25.i.i325.i:                           ; preds = %invoke.cont23.i.i318.i
-  %minWidth.i.i326.i = getelementptr inbounds %struct.NFA, ptr %115, i64 0, i32 12
+  %minWidth.i.i326.i = getelementptr inbounds i8, ptr %115, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload.i.i323.i, ptr %minWidth.i.i326.i, align 4, !noalias !12
   %126 = load i32, ptr %max, align 4, !noalias !58
   %cmp.i.i.i327.i = icmp ult i32 %126, 2147483647
   %spec.select.i.i328.i = select i1 %cmp.i.i.i327.i, i32 %126, i32 0
-  %maxWidth.i.i329.i = getelementptr inbounds %struct.NFA, ptr %115, i64 0, i32 11
+  %maxWidth.i.i329.i = getelementptr inbounds i8, ptr %115, i64 32
   store i32 %spec.select.i.i328.i, ptr %maxWidth.i.i329.i, align 32, !noalias !12
   br i1 %cmp.i.i242.i, label %if.then.i18.i345.i, label %if.end.i.i330.i
 
@@ -1380,7 +1359,7 @@ if.then.i18.i345.i:                               ; preds = %invoke.cont25.i.i32
   %add.i.i19.i347.i = add i64 %127, 7
   %and.i.i.i348.i = and i64 %add.i.i19.i347.i, -8
   %128 = inttoptr i64 %and.i.i.i348.i to ptr
-  %length.i20.i349.i = getelementptr inbounds %struct.NFA, ptr %115, i64 0, i32 1
+  %length.i20.i349.i = getelementptr inbounds i8, ptr %115, i64 4
   %129 = load i32, ptr %max, align 4, !noalias !58
   %cmp.i.i55.i.i350.i = icmp ult i32 %129, 2147483647
   br i1 %cmp.i.i55.i.i350.i, label %invoke.cont34.i.i351.i, label %if.then.i56.invoke.i.i281.i
@@ -1446,9 +1425,9 @@ invoke.cont47.i.i368.i:                           ; preds = %invoke.cont39.i.i36
   %add46.i.i370.i = add nuw i32 %mul45.i.i369.i, 56
   %length49.i.i371.i = getelementptr inbounds i8, ptr %115, i64 160
   store i32 %add46.i.i370.i, ptr %length49.i.i371.i, align 4, !noalias !12
-  %table50.i.i372.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 8
+  %table50.i.i372.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 56
   %135 = load ptr, ptr %table50.i.i372.i, align 8, !noalias !58
-  %_M_finish.i.i.i80.i.i373.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i80.i.i373.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 64
   %136 = load ptr, ptr %_M_finish.i.i.i80.i.i373.i, align 8, !noalias !58
   %cmp.i.i.i81.i.i374.i = icmp eq ptr %135, %136
   br i1 %cmp.i.i.i81.i.i374.i, label %if.end.i.i330.i, label %if.end.i82.i.i375.i
@@ -1471,7 +1450,7 @@ lpad.body.i12.i269.i:                             ; preds = %lpad.i14.i272.i, %l
   br label %lpad.body.i260.i
 
 if.end.i.i330.i:                                  ; preds = %if.end.i82.i.i375.i, %invoke.cont47.i.i368.i, %invoke.cont25.i.i325.i
-  %table.i.i.i331.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi.i.i239.i, i64 0, i32 8
+  %table.i.i.i331.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 56
   %138 = load ptr, ptr %table.i.i.i331.i, align 8, !noalias !58
   %tobool.not.i.i.i.i.i.i332.i = icmp eq ptr %138, null
   br i1 %tobool.not.i.i.i.i.i.i332.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i334.i, label %if.then.i.i.i.i.i.i333.i
@@ -1530,7 +1509,7 @@ invoke.cont25.i:                                  ; preds = %invoke.cont3.i344.i
   br i1 %tobool.not.i.i.i.i.i399.i, label %_ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit404.thread.i, label %if.then.i.i.i.i.i400.i
 
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit404.thread.i: ; preds = %invoke.cont25.i
-  %bytes3.i403431.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %ref.tmp23.i, i64 0, i32 1
+  %bytes3.i403431.i = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i231.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i403431.i, i64 16, i1 false), !noalias !12
   br label %if.end27.i
 
@@ -1547,7 +1526,7 @@ terminate.lpad.i.i.i.i.i401.i:                    ; preds = %if.then.i.i.i.i.i40
 
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit404.i:     ; preds = %if.then.i.i.i.i.i400.i
   %.pr429.i = load ptr, ptr %ref.tmp23.i, align 8, !noalias !12
-  %bytes3.i403.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %ref.tmp23.i, i64 0, i32 1
+  %bytes3.i403.i = getelementptr inbounds i8, ptr %ref.tmp23.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i231.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i403.i, i64 16, i1 false), !noalias !12
   %cmp.not.i.i405.i = icmp eq ptr %.pr429.i, null
   br i1 %cmp.not.i.i405.i, label %if.end27thread-pre-split.i, label %if.then.i.i406.i
@@ -1580,8 +1559,8 @@ if.end32.i:                                       ; preds = %if.end19.i, %if.end
   %.in.i = phi ptr [ %.pr425.i, %if.end11.i ], [ %.pre446.i, %if.end.i ], [ %.pr433.pre.i, %if.end27.i ], [ %.pr.i, %_ZN3ue2L11buildLbrDotERKNS_9CharReachERKNS_5depthES5_jbj.exit.i ], [ %.pr427.i, %if.end19.i ]
   %148 = ptrtoint ptr %.in.i to i64
   store i64 %148, ptr %agg.result, align 8, !alias.scope !12
-  %bytes.i410.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %agg.result, i64 0, i32 1
-  %bytes3.i411.i = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %nfa.i, i64 0, i32 1
+  %bytes.i410.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %bytes3.i411.i = getelementptr inbounds i8, ptr %nfa.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes.i410.i, ptr noundef nonnull align 8 dereferenceable(16) %bytes3.i411.i, i64 16, i1 false)
   br label %_ZN3ue2L12constructLBRERKNS_9CharReachERKNS_5depthES5_jbj.exit
 
@@ -1606,7 +1585,7 @@ define hidden void @_ZN3ue212constructLBRERKNS_8NGHolderERKSt6vectorIS3_INS_9Cha
 entry:
   %repeat = alloca %"struct.ue2::PureRepeat", align 8
   %proto = alloca %"struct.ue2::CastleProto", align 8
-  %allowLbr = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 8
+  %allowLbr = getelementptr inbounds i8, ptr %cc, i64 32
   %0 = load i8, ptr %allowLbr, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1618,15 +1597,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %repeat, i8 0, i64 32, i1 false)
-  %bounds.i = getelementptr inbounds %"struct.ue2::PureRepeat", ptr %repeat, i64 0, i32 1
+  %bounds.i = getelementptr inbounds i8, ptr %repeat, i64 32
   store i32 2147483647, ptr %bounds.i, align 8
-  %max.i.i = getelementptr inbounds %"struct.ue2::PureRepeat", ptr %repeat, i64 0, i32 1, i32 1
+  %max.i.i = getelementptr inbounds i8, ptr %repeat, i64 36
   store i32 0, ptr %max.i.i, align 4
-  %reports.i = getelementptr inbounds %"struct.ue2::PureRepeat", ptr %repeat, i64 0, i32 2
-  %m_storage_start.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::PureRepeat", ptr %repeat, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %reports.i = getelementptr inbounds i8, ptr %repeat, i64 40
+  %m_storage_start.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %repeat, i64 64
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i, ptr %reports.i, align 8
-  %m_size.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::PureRepeat", ptr %repeat, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %m_capacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::PureRepeat", ptr %repeat, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %m_size.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %repeat, i64 48
+  %m_capacity.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %repeat, i64 56
   store i64 2, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i, align 8
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8
   %call = invoke noundef zeroext i1 @_ZN3ue212isPureRepeatERKNS_8NGHolderERNS_10PureRepeatE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(72) %repeat)
@@ -1654,7 +1633,7 @@ do.end:                                           ; preds = %invoke.cont4
   br label %cleanup
 
 if.end8:                                          ; preds = %invoke.cont4
-  %kind = getelementptr inbounds %"class.ue2::NGHolder", ptr %g, i64 0, i32 2
+  %kind = getelementptr inbounds i8, ptr %g, i64 64
   %4 = load i32, ptr %kind, align 8
   invoke void @_ZN3ue211CastleProtoC1ENS_8nfa_kindERKNS_10PureRepeatE(ptr noundef nonnull align 8 dereferenceable(112) %proto, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(72) %repeat)
           to label %invoke.cont9 unwind label %lpad
@@ -1718,8 +1697,8 @@ declare void @_ZN3ue211CastleProtoC1ENS_8nfa_kindERKNS_10PureRepeatE(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue211CastleProtoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %report_map = getelementptr inbounds %"struct.ue2::CastleProto", ptr %this, i64 0, i32 1
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"struct.ue2::CastleProto", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %report_map = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -1750,13 +1729,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3ue28flat_setIjSt
 
 _ZNSt10_HashtableIjSt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjN3ue28flat_setIjSt4lessIjESaIjEEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i, %entry
   %4 = load ptr, ptr %report_map, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"struct.ue2::CastleProto", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %report_map, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"struct.ue2::CastleProto", ptr %this, i64 0, i32 1, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %6
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIjN3ue28flat_setIjSt4lessIjESaIjEEESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEED2Ev.exit, label %if.end.i.i.i.i
 
@@ -1817,9 +1796,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define linkonce_odr hidden void @_ZN3ue212bytecode_ptrI3NFAEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %bytes_in, i64 noundef %alignment_in) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %bytes = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %this, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %bytes_in, ptr %bytes, align 8
-  %alignment = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %this, i64 0, i32 2
+  %alignment = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %alignment_in, ptr %alignment, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %alignment_in, i64 8)
   %call6 = invoke noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef %bytes_in, i64 noundef %.sroa.speculated)
@@ -1926,7 +1905,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue215RepeatStateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %table = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %this, i64 0, i32 8
+  %table = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %table, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i
@@ -1936,7 +1915,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %packedFieldSizes = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %this, i64 0, i32 7
+  %packedFieldSizes = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %packedFieldSizes, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i2
@@ -2006,7 +1985,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 invoke.cont:                                      ; preds = %if.end
   %conv.i.i = trunc i32 %nfa_type to i8
   %3 = load ptr, ptr %agg.result, align 8
-  %type = getelementptr inbounds %struct.NFA, ptr %3, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %3, i64 8
   store i8 %conv.i.i, ptr %type, align 8
   %cmp.not.i.i3 = icmp ult i64 %tableLen.0, 4294967296
   br i1 %cmp.not.i.i3, label %invoke.cont5, label %if.then.i.i4
@@ -2033,7 +2012,7 @@ lpad.i.i6:                                        ; preds = %if.then.i.i4
 invoke.cont5:                                     ; preds = %invoke.cont
   %conv.i.i8 = trunc i64 %tableLen.0 to i32
   %6 = load ptr, ptr %agg.result, align 8
-  %length = getelementptr inbounds %struct.NFA, ptr %6, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %conv.i.i8, ptr %length, align 4
   ret void
 
@@ -2054,7 +2033,7 @@ entry:
   %rsi = alloca %"struct.ue2::RepeatStateInfo", align 8
   call void @_ZN3ue215RepeatStateInfoC1E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi, i32 noundef %rtype, ptr noundef nonnull align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod)
   store i32 12, ptr %c, align 4
-  %report1 = getelementptr inbounds %struct.lbr_common, ptr %c, i64 0, i32 1
+  %report1 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %report, ptr %report1, align 4
   %cmp.not.i.i = icmp ult i32 %rtype, 256
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -2101,19 +2080,19 @@ invoke.cont5:                                     ; preds = %if.end.i37, %invoke
   %1 = load i32, ptr %rsi, align 8
   %stateSize8 = getelementptr inbounds i8, ptr %c, i64 32
   store i32 %1, ptr %stateSize8, align 4
-  %packedCtrlSize = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 1
+  %packedCtrlSize = getelementptr inbounds i8, ptr %rsi, i64 4
   %2 = load i32, ptr %packedCtrlSize, align 4
   %packedCtrlSize9 = getelementptr inbounds i8, ptr %c, i64 28
   store i32 %2, ptr %packedCtrlSize9, align 4
-  %horizon = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 2
+  %horizon = getelementptr inbounds i8, ptr %rsi, i64 8
   %3 = load i32, ptr %horizon, align 8
   %horizon10 = getelementptr inbounds i8, ptr %c, i64 24
   store i32 %3, ptr %horizon10, align 4
   %minPeriod11 = getelementptr inbounds i8, ptr %c, i64 36
   store i32 %minPeriod, ptr %minPeriod11, align 4
-  %packedFieldSizes12 = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 7
+  %packedFieldSizes12 = getelementptr inbounds i8, ptr %rsi, i64 32
   %4 = load ptr, ptr %packedFieldSizes12, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %rsi, i64 40
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i44 = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i44, label %invoke.cont13, label %if.end.i45
@@ -2127,15 +2106,15 @@ if.end.i45:                                       ; preds = %invoke.cont5
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %if.end.i45, %invoke.cont5
-  %patchCount = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 3
+  %patchCount = getelementptr inbounds i8, ptr %rsi, i64 12
   %6 = load i32, ptr %patchCount, align 4
   %patchCount15 = getelementptr inbounds i8, ptr %c, i64 48
   store i32 %6, ptr %patchCount15, align 4
-  %patchSize = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 4
+  %patchSize = getelementptr inbounds i8, ptr %rsi, i64 16
   %patchSize16 = getelementptr inbounds i8, ptr %c, i64 52
   %7 = load <2 x i32>, ptr %patchSize, align 8
   store <2 x i32> %7, ptr %patchSize16, align 4
-  %patchesOffset = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 6
+  %patchesOffset = getelementptr inbounds i8, ptr %rsi, i64 24
   %8 = load i32, ptr %patchesOffset, align 8
   %patchesOffset18 = getelementptr inbounds i8, ptr %c, i64 64
   store i32 %8, ptr %patchesOffset18, align 4
@@ -2144,24 +2123,24 @@ invoke.cont13:                                    ; preds = %if.end.i45, %invoke
   br i1 %cmp.i.i46, label %invoke.cont23, label %if.then.i56.invoke
 
 invoke.cont23:                                    ; preds = %invoke.cont13
-  %nPositions = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 8
+  %nPositions = getelementptr inbounds i8, ptr %nfa, i64 20
   store i32 %9, ptr %nPositions, align 4
   %add = add i32 %2, %1
-  %streamStateSize = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 10
+  %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
   store i32 %add, ptr %streamStateSize, align 4
-  %scratchStateSize = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 9
+  %scratchStateSize = getelementptr inbounds i8, ptr %nfa, i64 24
   store i32 24, ptr %scratchStateSize, align 8
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %repeatMin, align 4
   %cmp.i.i.i.i = icmp ult i32 %agg.tmp.sroa.0.0.copyload, 2147483647
   br i1 %cmp.i.i.i.i, label %invoke.cont25, label %if.then.i56.invoke
 
 invoke.cont25:                                    ; preds = %invoke.cont23
-  %minWidth = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 12
+  %minWidth = getelementptr inbounds i8, ptr %nfa, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %minWidth, align 4
   %10 = load i32, ptr %repeatMax, align 4
   %cmp.i = icmp ult i32 %10, 2147483647
   %spec.select = select i1 %cmp.i, i32 %10, i32 0
-  %maxWidth = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 11
+  %maxWidth = getelementptr inbounds i8, ptr %nfa, i64 32
   store i32 %spec.select, ptr %maxWidth, align 32
   %cmp = icmp eq i32 %rtype, 5
   br i1 %cmp, label %if.then, label %if.end
@@ -2172,7 +2151,7 @@ if.then:                                          ; preds = %invoke.cont25
   %add.i = add i64 %11, 7
   %and.i = and i64 %add.i, -8
   %12 = inttoptr i64 %and.i to ptr
-  %length = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %nfa, i64 4
   %13 = load i32, ptr %repeatMax, align 4
   %cmp.i.i55 = icmp ult i32 %13, 2147483647
   br i1 %cmp.i.i55, label %invoke.cont34, label %if.then.i56.invoke
@@ -2238,9 +2217,9 @@ invoke.cont47:                                    ; preds = %invoke.cont39
   %add46 = add nuw i32 %mul45, 56
   %length49 = getelementptr inbounds i8, ptr %c, i64 60
   store i32 %add46, ptr %length49, align 4
-  %table50 = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 8
+  %table50 = getelementptr inbounds i8, ptr %rsi, i64 56
   %19 = load ptr, ptr %table50, align 8
-  %_M_finish.i.i.i80 = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i80 = getelementptr inbounds i8, ptr %rsi, i64 64
   %20 = load ptr, ptr %_M_finish.i.i.i80, align 8
   %cmp.i.i.i81 = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i81, label %if.end, label %if.end.i82
@@ -2263,7 +2242,7 @@ lpad.body:                                        ; preds = %lpad.i.i64, %lpad.i
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %if.end.i82, %invoke.cont47, %invoke.cont25
-  %table.i = getelementptr inbounds %"struct.ue2::RepeatStateInfo", ptr %rsi, i64 0, i32 8
+  %table.i = getelementptr inbounds i8, ptr %rsi, i64 56
   %22 = load ptr, ptr %table.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %if.then.i.i.i.i
@@ -2300,20 +2279,20 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit
   %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 64
+  %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 96
   %2 = load i64, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %while.body
-  %reports.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 48
+  %reports.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 80
   %3 = load ptr, ptr %reports.i.i.i.i.i.i, align 8
-  %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 72
+  %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 104
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjN3ue210PureRepeatEESt10_Select1stIS4_ESt4lessIjESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 

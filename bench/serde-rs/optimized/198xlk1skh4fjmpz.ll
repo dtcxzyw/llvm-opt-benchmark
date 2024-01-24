@@ -10,7 +10,7 @@ define hidden void @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17hf0e87582fd19f9
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h37f40dad0846e7bbE"(ptr align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadd9c9d26cd25c88E.exit", label %5
@@ -32,7 +32,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$std..panicking..begin_panic.
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hadd9c9d26cd25c88E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %8, label %5

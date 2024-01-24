@@ -252,7 +252,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ossl_seed_src_functions = external constant [0 x %struct.ossl_dispatch_st], align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_base_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
+define noundef i32 @ossl_base_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_bio_from_dispatch(ptr noundef %in) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -288,7 +288,7 @@ sw.bb5:                                           ; preds = %for.cond
 
 for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb3, %sw.bb5
   %c_get_libctx.1 = phi ptr [ %in.addr.0.val15, %sw.bb5 ], [ %c_get_libctx.0, %sw.bb3 ], [ %c_get_libctx.0, %sw.bb ], [ %c_get_libctx.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -352,13 +352,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @base_gettable_params(ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @base_gettable_params(ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @base_param_types
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @base_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal noundef i32 @base_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #4
   %cmp.not = icmp eq ptr %call, null
@@ -409,7 +409,7 @@ return:                                           ; preds = %land.lhs.true18, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal ptr @base_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #3 {
+define internal noundef ptr @base_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #3 {
 entry:
   store i32 0, ptr %no_cache, align 4
   switch i32 %operation_id, label %sw.epilog [

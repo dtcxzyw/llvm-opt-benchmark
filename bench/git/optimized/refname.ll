@@ -24,16 +24,16 @@ entry:
   store ptr %tab.coerce0, ptr %mod, align 8
   %tab.sroa.2.0.tab1.sroa_idx = getelementptr inbounds i8, ptr %mod, i64 8
   store ptr %tab.coerce1, ptr %tab.sroa.2.0.tab1.sroa_idx, align 8
-  %add = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %mod, i64 16
   %mul = shl i64 %sz, 3
   %call = tail call ptr @reftable_calloc(i64 noundef %mul) #10
   store ptr %call, ptr %add, align 8
-  %add_len = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 2
+  %add_len = getelementptr inbounds i8, ptr %mod, i64 24
   store i64 0, ptr %add_len, align 8
-  %del = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 3
+  %del = getelementptr inbounds i8, ptr %mod, i64 32
   %call3 = tail call ptr @reftable_calloc(i64 noundef %mul) #10
   store ptr %call3, ptr %del, align 8
-  %del_len = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 4
+  %del_len = getelementptr inbounds i8, ptr %mod, i64 40
   store i64 0, ptr %del_len, align 8
   %cmp9.not = icmp eq i64 %sz, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -98,21 +98,21 @@ entry:
   %arg21.i = alloca %struct.find_arg, align 8
   %slashed = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slashed, ptr noundef nonnull align 8 dereferenceable(24) @__const.modification_validate.slashed, i64 24, i1 false)
-  %add_len = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 2
+  %add_len = getelementptr inbounds i8, ptr %mod, i64 24
   %0 = load i64, ptr %add_len, align 8
   %cmp62.not = icmp eq i64 %0, 0
   br i1 %cmp62.not, label %done, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %add = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 1
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %slashed, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %slashed, i64 0, i32 2
-  %want.i = getelementptr inbounds %struct.find_arg, ptr %arg.i, i64 0, i32 1
-  %del_len.i = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 4
-  %del.i = getelementptr inbounds %struct.modification, ptr %mod, i64 0, i32 3
-  %want23.i = getelementptr inbounds %struct.find_arg, ptr %arg21.i, i64 0, i32 1
-  %want.i38 = getelementptr inbounds %struct.find_arg, ptr %arg.i33, i64 0, i32 1
-  %want14.i = getelementptr inbounds %struct.find_arg, ptr %arg12.i, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %mod, i64 16
+  %len2.i = getelementptr inbounds i8, ptr %slashed, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %slashed, i64 16
+  %want.i = getelementptr inbounds i8, ptr %arg.i, i64 8
+  %del_len.i = getelementptr inbounds i8, ptr %mod, i64 40
+  %del.i = getelementptr inbounds i8, ptr %mod, i64 32
+  %want23.i = getelementptr inbounds i8, ptr %arg21.i, i64 8
+  %want.i38 = getelementptr inbounds i8, ptr %arg.i33, i64 8
+  %want14.i = getelementptr inbounds i8, ptr %arg12.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -443,7 +443,7 @@ entry:
   %0 = load ptr, ptr %arg, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %k
   %1 = load ptr, ptr %arrayidx, align 8
-  %want = getelementptr inbounds %struct.find_arg, ptr %arg, i64 0, i32 1
+  %want = getelementptr inbounds i8, ptr %arg, i64 8
   %2 = load ptr, ptr %want, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #11
   %cmp = icmp sgt i32 %call, -1

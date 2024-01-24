@@ -3,38 +3,19 @@ source_filename = "bench/libquic/original/quic_stream_sequencer_buffer.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.net::QuicStreamSequencerBuffer::Gap" = type { i64, i64 }
-%"struct.net::QuicStreamSequencerBuffer::FrameInfo" = type { i64, %"class.net::QuicTime" }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::QuicStreamSequencerBuffer" = type { i64, i64, i64, %"class.std::__cxx11::list", i8, %"class.std::unique_ptr", i64, %"class.std::map" }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf.15" }
-%"struct.__gnu_cxx::__aligned_membuf.15" = type { [16 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::allocator.8" = type { i8 }
 %"struct.std::pair.11" = type { i64, %"struct.net::QuicStreamSequencerBuffer::FrameInfo" }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [24 x i8] }
+%"struct.net::QuicStreamSequencerBuffer::FrameInfo" = type { i64, %"class.net::QuicTime" }
+%"class.net::QuicTime" = type { i64 }
 %struct.iovec = type { ptr, i64 }
 %struct._Guard = type { ptr }
 
@@ -80,7 +61,7 @@ $_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Sele
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer3GapC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %begin_offset, i64 noundef %end_offset) unnamed_addr #0 align 2 {
 entry:
   store i64 %begin_offset, ptr %this, align 8
-  %end_offset3 = getelementptr inbounds %"struct.net::QuicStreamSequencerBuffer::Gap", ptr %this, i64 0, i32 1
+  %end_offset3 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %end_offset, ptr %end_offset3, align 8
   ret void
 }
@@ -89,7 +70,7 @@ entry:
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer9FrameInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store i64 1, ptr %this, align 8
-  %timestamp = getelementptr inbounds %"struct.net::QuicStreamSequencerBuffer::FrameInfo", ptr %this, i64 0, i32 1
+  %timestamp = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %timestamp, align 8
   ret void
 }
@@ -98,7 +79,7 @@ entry:
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer9FrameInfoC2EmNS_8QuicTimeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %length, i64 %timestamp.coerce) unnamed_addr #0 align 2 {
 entry:
   store i64 %length, ptr %this, align 8
-  %timestamp3 = getelementptr inbounds %"struct.net::QuicStreamSequencerBuffer::FrameInfo", ptr %this, i64 0, i32 1
+  %timestamp3 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timestamp.coerce, ptr %timestamp3, align 8
   ret void
 }
@@ -110,26 +91,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN3net25QuicStreamSequencerBufferC2Em(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %max_capacity_bytes) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %max_capacity_bytes, ptr %this, align 8
-  %blocks_count_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
+  %blocks_count_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv = uitofp i64 %max_capacity_bytes to double
   %div = fmul double %conv, 0x3F20000000000000
   %0 = tail call double @llvm.ceil.f64(double %div)
   %conv2 = fptoui double %0 to i64
   store i64 %conv2, ptr %blocks_count_, align 8
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %total_bytes_read_, align 8
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %gaps_, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %gaps_, ptr %gaps_, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
-  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 4
+  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr @FLAGS_quic_reduce_sequencer_buffer_memory_life_time, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   store i8 %2, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -143,15 +124,15 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %call, %cond.false ], [ null, %entry ]
   store ptr %cond, ptr %blocks_, align 8
-  %6 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %6, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %6, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %6, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   invoke void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
           to label %invoke.cont8 unwind label %lpad7
@@ -162,7 +143,7 @@ invoke.cont8:                                     ; preds = %cond.end
 lpad7:                                            ; preds = %cond.end
   %7 = landingpad { ptr, i32 }
           cleanup
-  %frame_arrival_time_map_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7
+  %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_) #19
   %8 = load ptr, ptr %blocks_, align 8
   %cmp.not.i = icmp eq ptr %8, null
@@ -204,18 +185,18 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::list", align 8
-  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 4
+  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %blocks_, align 8
   %cmp.i.i = icmp ne ptr %2, null
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i.i
   br i1 %or.cond, label %for.cond.preheader, label %if.end6
 
 for.cond.preheader:                               ; preds = %entry
-  %blocks_count_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
+  %blocks_count_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %blocks_count_, align 8
   %cmp11.not = icmp eq i64 %3, 0
   br i1 %cmp11.not, label %if.end6, label %for.body
@@ -244,25 +225,25 @@ for.inc:                                          ; preds = %for.body, %_ZN3net2
   br i1 %cmp, label %for.body, label %if.end6, !llvm.loop !7
 
 if.end6:                                          ; preds = %for.inc, %for.cond.preheader, %entry
-  %num_bytes_buffered_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 6
+  %num_bytes_buffered_ = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %num_bytes_buffered_, align 8
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %total_bytes_read_, align 8
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %ref.tmp, i64 0, i32 1
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %ref.tmp, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %ref.tmp, ptr %ref.tmp, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %ref.tmp, i64 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %call5.i.i.i.i.i.i.i2.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i.i2.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i, i64 16
   store i64 %8, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %ref.tmp7.sroa.2.0._M_storage.i.i.i.i.i.i.sroa_idx = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i.i2.i, i64 0, i32 1, i32 0, i64 8
+  %ref.tmp7.sroa.2.0._M_storage.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i, i64 24
   store i64 -1, ptr %ref.tmp7.sroa.2.0._M_storage.i.i.i.i.i.i.sroa_idx, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i.i2.i, ptr noundef nonnull %ref.tmp) #19
   %9 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %9, 1
   store i64 %add.i.i.i.i.i, ptr %_M_size.i.i.i.i.i, align 8
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %gaps_, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %10, %gaps_
   br i1 %cmp.not4.i.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -275,10 +256,10 @@ while.body.i.i.i.i:                               ; preds = %if.end6, %while.bod
   br i1 %cmp.not.i.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i, label %while.body.i.i.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %if.end6
-  %_M_prev.i.i.i.i.i4 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %gaps_, ptr %_M_prev.i.i.i.i.i4, align 8
   store ptr %gaps_, ptr %gaps_, align 8
-  %_M_size.i.i.i.i.i5 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_size.i.i.i.i.i5, align 8
   %12 = load ptr, ptr %ref.tmp, align 8
   %cmp.i.i.i.i = icmp eq ptr %12, %ref.tmp
@@ -290,7 +271,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx114listI
   store ptr %13, ptr %_M_prev.i.i.i.i.i4, align 8
   store ptr %gaps_, ptr %13, align 8
   %14 = load ptr, ptr %gaps_, align 8
-  %_M_prev9.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %14, i64 0, i32 1
+  %_M_prev9.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %gaps_, ptr %_M_prev9.i.i.i.i, align 8
   %15 = load i64, ptr %_M_size.i.i.i.i.i, align 8
   store i64 %15, ptr %_M_size.i.i.i.i.i5, align 8
@@ -301,8 +282,8 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt7__cxx114listI
 _ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit: ; preds = %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i, %if.else.i.i.i.i
   %_M_size.sink.i.i.i.i = phi ptr [ %_M_size.i.i.i.i.i, %if.else.i.i.i.i ], [ %_M_size.i.i.i.i.i5, %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EE5clearEv.exit.i.i ]
   store i64 0, ptr %_M_size.sink.i.i.i.i, align 8
-  %frame_arrival_time_map_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %16 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_, ptr noundef %16)
           to label %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -315,13 +296,13 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt7__cxx114listI
   unreachable
 
 _ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit: ; preds = %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EEaSEOS5_.exit
-  %add.ptr.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr.i.i, ptr %_M_left.i.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %_M_node_count.i.i.i, align 8
   %19 = load ptr, ptr %ref.tmp, align 8
   %cmp.not4.i.i.i6 = icmp eq ptr %19, %ref.tmp
@@ -364,8 +345,8 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %frame_arrival_time_map_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_, ptr noundef %0)
           to label %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -378,7 +359,7 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
   unreachable
 
 _ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEED2Ev.exit: ; preds = %invoke.cont
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %blocks_, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i
@@ -389,7 +370,7 @@ _ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_E
 
 _ZNSt10unique_ptrIA_PN3net25QuicStreamSequencerBuffer11BufferBlockESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEED2Ev.exit, %_ZNKSt14default_deleteIA_PN3net25QuicStreamSequencerBuffer11BufferBlockEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i
   store ptr null, ptr %blocks_, align 8
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %gaps_, align 8
   %cmp.not4.i.i.i = icmp eq ptr %4, %gaps_
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIN3net25QuicStreamSequencerBuffer3GapESaIS3_EED2Ev.exit, label %while.body.i.i.i
@@ -426,7 +407,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer11RetireBlockEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %idx) local_unnamed_addr #6 align 2 {
 entry:
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %blocks_, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idx
   %1 = load ptr, ptr %arrayidx.i, align 8
@@ -486,7 +467,7 @@ entry:
   %ref.tmp144 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp252 = alloca %"struct.std::pair.11", align 8
   store ptr %data.coerce0, ptr %data, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %data, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %data, i64 8
   store i64 %data.coerce1, ptr %0, align 8
   store i64 0, ptr %bytes_buffered, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
@@ -498,7 +479,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %if.end
@@ -508,14 +489,14 @@ while.cond:                                       ; preds = %land.rhs, %if.end
   br i1 %cmp.i.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %end_offset = getelementptr inbounds %"struct.std::_List_node", ptr %current_gap.sroa.0.0, i64 0, i32 1, i32 0, i64 8
+  %end_offset = getelementptr inbounds i8, ptr %current_gap.sroa.0.0, i64 24
   %1 = load i64, ptr %end_offset, align 8
   %cmp10.not = icmp ugt i64 %1, %starting_offset
   br i1 %cmp10.not, label %while.end, label %while.cond, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %current_gap.sroa.0.0.lcssa = phi ptr [ %gaps_, %while.cond ], [ %current_gap.sroa.0.0, %land.rhs ]
-  %_M_storage.i.i71 = getelementptr inbounds %"struct.std::_List_node", ptr %current_gap.sroa.0.0.lcssa, i64 0, i32 1
+  %_M_storage.i.i71 = getelementptr inbounds i8, ptr %current_gap.sroa.0.0.lcssa, i64 16
   %2 = load i64, ptr %_M_storage.i.i71, align 8
   %cmp13 = icmp ugt i64 %2, %starting_offset
   %add = add i64 %call, %starting_offset
@@ -672,9 +653,9 @@ invoke.cont70:                                    ; preds = %invoke.cont68
 
 for.body.i:                                       ; preds = %invoke.cont70, %invoke.cont7.i
   %__begin1.sroa.0.08.i = phi ptr [ %__begin1.sroa.0.0.i, %invoke.cont7.i ], [ %__begin1.sroa.0.06.i, %invoke.cont70 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i, i64 16
   %4 = load i64, ptr %_M_storage.i.i.i, align 8
-  %end_offset.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08.i, i64 0, i32 1, i32 0, i64 8
+  %end_offset.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i, i64 24
   %5 = load i64, ptr %end_offset.i, align 8
   invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp.i, i64 noundef %4, i64 noundef %5)
           to label %invoke.cont.i unwind label %lpad.i122
@@ -870,7 +851,7 @@ ehcleanup87:                                      ; preds = %ehcleanup86, %lpad3
   br label %eh.resume
 
 if.end89:                                         ; preds = %while.end
-  %end_offset92 = getelementptr inbounds %"struct.std::_List_node", ptr %current_gap.sroa.0.0.lcssa, i64 0, i32 1, i32 0, i64 8
+  %end_offset92 = getelementptr inbounds i8, ptr %current_gap.sroa.0.0.lcssa, i64 24
   %21 = load i64, ptr %end_offset92, align 8
   %cmp93 = icmp ugt i64 %add, %21
   br i1 %cmp93, label %if.then94, label %if.end164
@@ -1022,9 +1003,9 @@ invoke.cont143:                                   ; preds = %invoke.cont141
 
 for.body.i213:                                    ; preds = %invoke.cont143, %invoke.cont7.i223
   %__begin1.sroa.0.08.i214 = phi ptr [ %__begin1.sroa.0.0.i224, %invoke.cont7.i223 ], [ %__begin1.sroa.0.06.i211, %invoke.cont143 ]
-  %_M_storage.i.i.i215 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08.i214, i64 0, i32 1
+  %_M_storage.i.i.i215 = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i214, i64 16
   %23 = load i64, ptr %_M_storage.i.i.i215, align 8
-  %end_offset.i216 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08.i214, i64 0, i32 1, i32 0, i64 8
+  %end_offset.i216 = getelementptr inbounds i8, ptr %__begin1.sroa.0.08.i214, i64 24
   %24 = load i64, ptr %end_offset.i216, align 8
   invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp.i209, i64 noundef %23, i64 noundef %24)
           to label %invoke.cont.i220 unwind label %lpad.i217
@@ -1220,7 +1201,7 @@ ehcleanup162:                                     ; preds = %ehcleanup161, %lpad
   br label %eh.resume
 
 if.end164:                                        ; preds = %if.end89
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %40 = load i64, ptr %total_bytes_read_, align 8
   %41 = load i64, ptr %this, align 8
   %add166 = add i64 %41, %40
@@ -1239,7 +1220,7 @@ land.lhs.true174:                                 ; preds = %if.end170
   %call177 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
   %add178 = add i64 %call177, %starting_offset
   %cmp179.not = icmp ne i64 %21, %add178
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %42 = load i64, ptr %_M_size.i.i.i, align 8
   %cmp183 = icmp ugt i64 %42, 9999
   %or.cond = select i1 %cmp179.not, i1 %cmp183, i1 false
@@ -1251,9 +1232,9 @@ if.then184:                                       ; preds = %land.lhs.true174
 
 if.end186:                                        ; preds = %land.lhs.true174, %if.end170
   %call187 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
-  %blocks_count_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
-  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 4
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_count_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds i8, ptr %this, i64 48
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
   br label %if.end201
 
 if.end201:                                        ; preds = %if.end186, %if.end231
@@ -1342,14 +1323,14 @@ if.end231:                                        ; preds = %if.then227, %if.end
 if.end250:                                        ; preds = %if.end231
   store i64 %add238, ptr %bytes_buffered, align 8
   call void @_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %current_gap.sroa.0.0.lcssa, i64 noundef %starting_offset, i64 noundef %add238)
-  %frame_arrival_time_map_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7
+  %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %starting_offset, ptr %ref.tmp252, align 8, !alias.scope !41
-  %second.i.i = getelementptr inbounds %"struct.std::pair.11", ptr %ref.tmp252, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp252, i64 8
   store i64 %call, ptr %second.i.i, align 8
-  %ref.tmp253.sroa.2.0.second.i.i.sroa_idx = getelementptr inbounds %"struct.std::pair.11", ptr %ref.tmp252, i64 0, i32 1, i32 1
+  %ref.tmp253.sroa.2.0.second.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp252, i64 16
   store i64 %timestamp.coerce, ptr %ref.tmp253.sroa.2.0.second.i.i.sroa_idx, align 8
   %call256 = call { ptr, i8 } @_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE6insertIS5_ImS2_EEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueES5_ISt17_Rb_tree_iteratorIS7_EbEE4typeEOSD_(ptr noundef nonnull align 8 dereferenceable(48) %frame_arrival_time_map_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp252)
-  %num_bytes_buffered_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 6
+  %num_bytes_buffered_ = getelementptr inbounds i8, ptr %this, i64 64
   %57 = load i64, ptr %num_bytes_buffered_, align 8
   %add257 = add i64 %57, %add238
   store i64 %add257, ptr %num_bytes_buffered_, align 8
@@ -1553,17 +1534,17 @@ define dso_local void @_ZN3net25QuicStreamSequencerBuffer25ReceivedFramesDebugSt
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
-  %_M_left.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %cmp.i.not6 = icmp eq ptr %0, %add.ptr.i.i
   br i1 %cmp.i.not6, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %entry, %invoke.cont7
   %__begin1.sroa.0.07 = phi ptr [ %call.i, %invoke.cont7 ], [ %0, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.07, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 32
   %it.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i, align 8
-  %it.sroa.2.0.call5.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.07, i64 0, i32 1, i32 0, i64 8
+  %it.sroa.2.0.call5.sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 40
   %it.sroa.2.0.copyload = load i64, ptr %it.sroa.2.0.call5.sroa_idx, align 8
   %add = add i64 %it.sroa.2.0.copyload, %it.sroa.0.0.copyload
   invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %it.sroa.0.0.copyload, i64 noundef %add)
@@ -1604,16 +1585,16 @@ define dso_local void @_ZN3net25QuicStreamSequencerBuffer15GapsDebugStringB5cxx1
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
   %__begin1.sroa.0.06 = load ptr, ptr %gaps_, align 8
   %cmp.i.not7 = icmp eq ptr %__begin1.sroa.0.06, %gaps_
   br i1 %cmp.i.not7, label %nrvo.skipdtor, label %for.body
 
 for.body:                                         ; preds = %entry, %invoke.cont7
   %__begin1.sroa.0.08 = phi ptr [ %__begin1.sroa.0.0, %invoke.cont7 ], [ %__begin1.sroa.0.06, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 16
   %0 = load i64, ptr %_M_storage.i.i, align 8
-  %end_offset = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.08, i64 0, i32 1, i32 0, i64 8
+  %end_offset = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 24
   %1 = load i64, ptr %end_offset, align 8
   invoke fastcc void @_ZN3net12_GLOBAL__N_116RangeDebugStringB5cxx11Emm(ptr noalias nonnull align 8 %ref.tmp, i64 noundef %0, i64 noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -1679,7 +1660,7 @@ entry:
 define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer16GetBlockCapacityEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %block_index) local_unnamed_addr #11 align 2 {
 entry:
   %add = add i64 %block_index, 1
-  %blocks_count_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
+  %blocks_count_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %blocks_count_, align 8
   %cmp = icmp eq i64 %add, %0
   %1 = load i64, ptr %this, align 8
@@ -1696,13 +1677,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3net25QuicStreamSequencerBuffer13UpdateGapListESt14_List_iteratorINS0_3GapEEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %gap_with_new_data_written.coerce, i64 noundef %start_offset, i64 noundef %bytes_written) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %gap_with_new_data_written.coerce, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %gap_with_new_data_written.coerce, i64 16
   %0 = load i64, ptr %_M_storage.i.i, align 8
   %cmp = icmp eq i64 %0, %start_offset
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %end_offset = getelementptr inbounds %"struct.std::_List_node", ptr %gap_with_new_data_written.coerce, i64 0, i32 1, i32 0, i64 8
+  %end_offset = getelementptr inbounds i8, ptr %gap_with_new_data_written.coerce, i64 24
   %1 = load i64, ptr %end_offset, align 8
   %add = add i64 %bytes_written, %start_offset
   %cmp3 = icmp ugt i64 %1, %add
@@ -1717,7 +1698,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   br i1 %cmp9, label %land.lhs.true10, label %if.else38
 
 land.lhs.true10:                                  ; preds = %if.else
-  %end_offset12 = getelementptr inbounds %"struct.std::_List_node", ptr %gap_with_new_data_written.coerce, i64 0, i32 1, i32 0, i64 8
+  %end_offset12 = getelementptr inbounds i8, ptr %gap_with_new_data_written.coerce, i64 24
   %2 = load i64, ptr %end_offset12, align 8
   %add13 = add i64 %bytes_written, %start_offset
   %cmp14 = icmp eq i64 %2, %add13
@@ -1735,12 +1716,12 @@ if.then27:                                        ; preds = %land.lhs.true22
   %3 = load ptr, ptr %gap_with_new_data_written.coerce, align 8
   store i64 %start_offset, ptr %end_offset12, align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store i64 %add13, ptr %_M_storage.i.i.i.i, align 8
-  %ref.tmp.sroa.2.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %ref.tmp.sroa.2.0._M_storage.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   store i64 %2, ptr %ref.tmp.sroa.2.0._M_storage.i.i.i.i.sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef %3) #19
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %4, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -1750,14 +1731,14 @@ if.else38:                                        ; preds = %if.else, %land.lhs.
   br i1 %cmp, label %land.lhs.true42, label %if.end56
 
 land.lhs.true42:                                  ; preds = %if.else38
-  %end_offset44 = getelementptr inbounds %"struct.std::_List_node", ptr %gap_with_new_data_written.coerce, i64 0, i32 1, i32 0, i64 8
+  %end_offset44 = getelementptr inbounds i8, ptr %gap_with_new_data_written.coerce, i64 24
   %5 = load i64, ptr %end_offset44, align 8
   %add45 = add i64 %bytes_written, %start_offset
   %cmp46 = icmp eq i64 %5, %add45
   br i1 %cmp46, label %if.then47, label %if.end56
 
 if.then47:                                        ; preds = %land.lhs.true42
-  %_M_size.i.i.i28 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_size.i.i.i28, align 8
   %sub.i.i.i = add i64 %6, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i28, align 8
@@ -1782,13 +1763,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %.pre
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, label %while.body.i.i.i, !llvm.loop !50
@@ -1798,7 +1778,7 @@ _ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8
   %cmp.i3 = icmp ult i64 %.pre, %2
   br i1 %cmp.i3, label %if.then, label %return
@@ -1806,10 +1786,10 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25Q
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
   %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.11", ptr %__x, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
+  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %call4.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
           to label %invoke.cont3.i.i unwind label %_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE10_Auto_nodeD2Ev.exit.i.i
@@ -1827,7 +1807,7 @@ if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %6 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %5, %6
@@ -1863,37 +1843,37 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net25QuicStreamSequencerBuffer5ReadvEPK5iovecm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %dest_iov, i64 noundef %dest_count) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %gaps_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp55.not = icmp eq i64 %dest_count, 0
   br i1 %cmp55.not, label %if.end41, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %total_bytes_read_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
-  %blocks_count_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
-  %num_bytes_buffered_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 6
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_prev.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %blocks_count_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
+  %num_bytes_buffered_ = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_prev.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %bytes_read.057 = phi i64 [ 0, %land.rhs.lr.ph ], [ %bytes_read.1.lcssa, %for.inc ]
   %i.056 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc, %for.inc ]
   %0 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %0, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %2 = load i64, ptr %total_bytes_read_.i, align 8
   %cmp2.not = icmp eq i64 %1, %2
   br i1 %cmp2.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %dest_iov, i64 %i.056, i32 1
+  %arrayidx = getelementptr inbounds %struct.iovec, ptr %dest_iov, i64 %i.056
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %iov_len, align 8
   %cmp4.not50 = icmp eq i64 %3, 0
   br i1 %cmp4.not50, label %for.inc, label %land.rhs5.preheader
 
 land.rhs5.preheader:                              ; preds = %for.body
-  %arrayidx = getelementptr inbounds %struct.iovec, ptr %dest_iov, i64 %i.056
   %4 = load ptr, ptr %arrayidx, align 8
   br label %land.rhs5
 
@@ -1902,7 +1882,7 @@ land.rhs5:                                        ; preds = %land.rhs5.preheader
   %dest.052 = phi ptr [ %add.ptr31, %if.end37 ], [ %4, %land.rhs5.preheader ]
   %dest_remaining.051 = phi i64 [ %sub32, %if.end37 ], [ %3, %land.rhs5.preheader ]
   %5 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i18 = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1
+  %_M_storage.i.i.i.i18 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i64, ptr %_M_storage.i.i.i.i18, align 8
   %7 = load i64, ptr %total_bytes_read_.i, align 8
   %cmp7.not = icmp eq i64 %6, %7
@@ -1948,7 +1928,7 @@ if.then36:                                        ; preds = %if.end29
 
 _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.i: ; preds = %if.then36
   %15 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %15, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp4.i.i = icmp eq i64 %16, %add
   br i1 %cmp4.i.i, label %if.then.i, label %if.end.i
@@ -1962,7 +1942,7 @@ if.then.i:                                        ; preds = %_ZNK3net25QuicStrea
 
 if.end.i:                                         ; preds = %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.i, %if.then36
   %19 = load ptr, ptr %_M_prev.i.i.i, align 8
-  %_M_storage.i.i.i.i34 = getelementptr inbounds %"struct.std::_List_node", ptr %19, i64 0, i32 1
+  %_M_storage.i.i.i.i34 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i64, ptr %_M_storage.i.i.i.i34, align 8
   %sub.i35 = add i64 %20, -1
   %21 = load i64, ptr %this, align 8
@@ -1979,7 +1959,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.then8.i:                                       ; preds = %if.end5.i
   %22 = load ptr, ptr %gaps_.i, align 8
-  %first_gap.sroa.1.0.call10.sroa_idx.i = getelementptr inbounds %"struct.std::_List_node", ptr %22, i64 0, i32 1, i32 0, i64 8
+  %first_gap.sroa.1.0.call10.sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 24
   %first_gap.sroa.1.0.copyload.i = load i64, ptr %first_gap.sroa.1.0.call10.sroa_idx.i, align 8
   %rem.i7.i = urem i64 %first_gap.sroa.1.0.copyload.i, %21
   %div1.i8.i = lshr i64 %rem.i7.i, 13
@@ -2021,7 +2001,7 @@ for.end:                                          ; preds = %land.rhs, %for.inc
   br i1 %cmp38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %for.end
-  %total_bytes_read_40 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_40 = getelementptr inbounds i8, ptr %this, i64 16
   %25 = load i64, ptr %total_bytes_read_40, align 8
   tail call void @_ZN3net25QuicStreamSequencerBuffer21UpdateFrameArrivalMapEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %25)
   br label %if.end41
@@ -2034,11 +2014,11 @@ if.end41:                                         ; preds = %entry, %if.then39, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer13ReadableBytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %gaps_, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %_M_storage.i.i.i, align 8
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %total_bytes_read_, align 8
   %sub = sub i64 %1, %2
   ret i64 %sub
@@ -2047,7 +2027,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer15NextBlockToReadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %total_bytes_read_, align 8
   %1 = load i64, ptr %this, align 8
   %rem.i = urem i64 %0, %1
@@ -2058,7 +2038,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer10ReadOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %total_bytes_read_, align 8
   %1 = load i64, ptr %this, align 8
   %rem.i = urem i64 %0, %1
@@ -2069,23 +2049,23 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer18RetireBlockIfEmptyEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, i64 noundef %block_index) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_size.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_size.i.i.i.i, align 8
   %cmp.i = icmp eq i64 %0, 1
   br i1 %cmp.i, label %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit, label %if.end
 
 _ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit: ; preds = %entry
-  %gaps_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %_M_storage.i.i.i.i, align 8
-  %total_bytes_read_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %total_bytes_read_.i, align 8
   %cmp4.i = icmp eq i64 %2, %3
   br i1 %cmp4.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit
-  %blocks_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %blocks_.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %block_index
   %5 = load ptr, ptr %arrayidx.i.i, align 8
@@ -2093,10 +2073,10 @@ if.then:                                          ; preds = %_ZNK3net25QuicStrea
   br i1 %isnull.i, label %return.sink.split, label %return.sink.split.sink.split
 
 if.end:                                           ; preds = %entry, %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
-  %_M_prev.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_prev.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %_M_prev.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %6, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %_M_storage.i.i.i, align 8
   %sub = add i64 %7, -1
   %8 = load i64, ptr %this, align 8
@@ -2106,7 +2086,7 @@ if.end:                                           ; preds = %entry, %_ZNK3net25Q
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %total_bytes_read_.i5 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_.i5 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %total_bytes_read_.i5, align 8
   %rem.i.i = urem i64 %9, %8
   %div1.i.i = lshr i64 %rem.i.i, 13
@@ -2115,7 +2095,7 @@ if.end5:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %if.end5
   %10 = load ptr, ptr %gaps_, align 8
-  %first_gap.sroa.1.0.call10.sroa_idx = getelementptr inbounds %"struct.std::_List_node", ptr %10, i64 0, i32 1, i32 0, i64 8
+  %first_gap.sroa.1.0.call10.sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
   %first_gap.sroa.1.0.copyload = load i64, ptr %first_gap.sroa.1.0.call10.sroa_idx, align 8
   %rem.i7 = urem i64 %first_gap.sroa.1.0.copyload, %8
   %div1.i8 = lshr i64 %rem.i7, 13
@@ -2123,7 +2103,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.end5
-  %blocks_.i9 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_.i9 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load ptr, ptr %blocks_.i9, align 8
   %arrayidx.i.i10 = getelementptr inbounds ptr, ptr %11, i64 %block_index
   %12 = load ptr, ptr %arrayidx.i.i10, align 8
@@ -2151,47 +2131,46 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer21UpdateFrameArrivalMapEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %offset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %updated = alloca %"struct.std::pair.11", align 8
-  %frame_arrival_time_map_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %frame_arrival_time_map_ = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %cmp.not5.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i.i.i, label %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11upper_boundERS6_.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt i64 %1, %offset
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__x.addr.07.i.i.i, ptr %__y.addr.06.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11upper_boundERS6_.exit, label %while.body.i.i.i, !llvm.loop !53
 
 _ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11upper_boundERS6_.exit: ; preds = %while.body.i.i.i, %entry
   %__y.addr.0.lcssa.i.i.i = phi ptr [ %add.ptr.i.i.i, %entry ], [ %__y.addr.1.i.i.i, %while.body.i.i.i ]
-  %_M_left.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %_M_left.i.i, align 8
   %cmp.i.not7 = icmp eq ptr %2, %__y.addr.0.lcssa.i.i.i
   br i1 %cmp.i.not7, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11upper_boundERS6_.exit
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
-  %second.i.i = getelementptr inbounds %"struct.std::pair.11", ptr %updated, i64 0, i32 1
-  %ref.tmp11.sroa.2.0.second.i.i.sroa_idx = getelementptr inbounds %"struct.std::pair.11", ptr %updated, i64 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %second.i.i = getelementptr inbounds i8, ptr %updated, i64 8
+  %ref.tmp11.sroa.2.0.second.i.i.sroa_idx = getelementptr inbounds i8, ptr %updated, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %iter.sroa.0.08 = phi ptr [ %2, %while.body.lr.ph ], [ %call.i.i.i, %if.end ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %iter.sroa.0.08, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %iter.sroa.0.08, i64 32
   %erased.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i, align 8
-  %erased.sroa.3.0.call6.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %iter.sroa.0.08, i64 0, i32 1, i32 0, i64 8
+  %erased.sroa.3.0.call6.sroa_idx = getelementptr inbounds i8, ptr %iter.sroa.0.08, i64 40
   %erased.sroa.3.0.copyload = load i64, ptr %erased.sroa.3.0.call6.sroa_idx, align 8
-  %erased.sroa.5.0.call6.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %iter.sroa.0.08, i64 0, i32 1, i32 0, i64 16
+  %erased.sroa.5.0.call6.sroa_idx = getelementptr inbounds i8, ptr %iter.sroa.0.08, i64 48
   %erased.sroa.5.0.copyload = load i64, ptr %erased.sroa.5.0.call6.sroa_idx, align 8
   %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %iter.sroa.0.08) #22
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %iter.sroa.0.08, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #19
@@ -2222,11 +2201,11 @@ while.end:                                        ; preds = %if.end, %_ZNSt3mapI
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK3net25QuicStreamSequencerBuffer18GetReadableRegionsEP5ioveci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef writeonly %iov, i32 noundef %iov_count) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %gaps_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %0, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %_M_storage.i.i.i.i, align 8
-  %total_bytes_read_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %total_bytes_read_.i, align 8
   %cmp = icmp eq i64 %1, %2
   br i1 %cmp, label %if.then5, label %if.end19
@@ -2247,7 +2226,7 @@ if.end19:                                         ; preds = %if.end
   %rem2.i.i = and i64 %rem.i.i, 8191
   %cmp24.not = icmp ugt i64 %rem2.i.i, %rem2.i
   %or.cond = or i1 %cmp22, %cmp24.not
-  %blocks_34 = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_34 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %blocks_34, align 8
   %arrayidx.i45 = getelementptr inbounds ptr, ptr %4, i64 %div1.i.i
   %5 = load ptr, ptr %arrayidx.i45, align 8
@@ -2257,17 +2236,17 @@ if.end19:                                         ; preds = %if.end
 
 if.then25:                                        ; preds = %if.end19
   %6 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i42 = getelementptr inbounds %"struct.std::_List_node", ptr %6, i64 0, i32 1
+  %_M_storage.i.i.i.i42 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %_M_storage.i.i.i.i42, align 8
   %8 = load i64, ptr %total_bytes_read_.i, align 8
   %sub.i44 = sub i64 %7, %8
-  %iov_len32 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len32 = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %sub.i44, ptr %iov_len32, align 8
   br label %return
 
 if.end58:                                         ; preds = %if.end19
   %add.i = add nuw nsw i64 %div1.i.i, 1
-  %blocks_count_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
+  %blocks_count_.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i64, ptr %blocks_count_.i, align 8
   %cmp.i = icmp eq i64 %add.i, %9
   %10 = load i64, ptr %this, align 8
@@ -2279,7 +2258,7 @@ if.end58:                                         ; preds = %if.end19
   %rem.i.i51 = urem i64 %11, %10
   %rem2.i.i52 = and i64 %rem.i.i51, 8191
   %sub44 = sub nsw i64 %retval.0.i, %rem2.i.i52
-  %iov_len46 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len46 = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %sub44, ptr %iov_len46, align 8
   %12 = load i64, ptr %blocks_count_.i, align 8
   %rem = urem i64 %add.i, %12
@@ -2308,7 +2287,7 @@ if.end70:                                         ; preds = %if.end70.preheader,
   %cmp2.i62 = icmp eq i64 %rem.i61, 0
   %spec.store.select.i63 = select i1 %cmp2.i62, i64 8192, i64 %rem.i61
   %retval.0.i64 = select i1 %cmp.i60, i64 %spec.store.select.i63, i64 8192
-  %iov_len80 = getelementptr inbounds %struct.iovec, ptr %iov, i64 %indvars.iv, i32 1
+  %iov_len80 = getelementptr inbounds i8, ptr %arrayidx75, i64 8
   store i64 %retval.0.i64, ptr %iov_len80, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add82 = add nuw nsw i64 %div1.i.i, %indvars.iv.next
@@ -2335,7 +2314,7 @@ if.end96:                                         ; preds = %while.end.loopexit,
   %arrayidx102 = getelementptr inbounds %struct.iovec, ptr %iov, i64 %idxprom101
   store ptr %23, ptr %arrayidx102, align 8
   %add104 = add nuw nsw i64 %rem2.i, 1
-  %iov_len107 = getelementptr inbounds %struct.iovec, ptr %iov, i64 %idxprom101, i32 1
+  %iov_len107 = getelementptr inbounds i8, ptr %arrayidx102, i64 8
   store i64 %add104, ptr %iov_len107, align 8
   %inc108 = add nuw nsw i32 %iov_used.0.lcssa80, 1
   br label %return
@@ -2348,11 +2327,11 @@ return:                                           ; preds = %while.end.loopexit,
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net25QuicStreamSequencerBuffer17GetReadableRegionEP5iovecPNS_8QuicTimeE(ptr noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef writeonly %iov, ptr nocapture noundef writeonly %timestamp) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %gaps_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %0, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %_M_storage.i.i.i.i, align 8
-  %total_bytes_read_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %total_bytes_read_.i, align 8
   %cmp = icmp ne i64 %1, %2
   br i1 %cmp, label %if.end, label %if.then
@@ -2365,7 +2344,7 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr %this, align 8
   %rem.i.i = urem i64 %2, %3
   %div1.i.i = lshr i64 %rem.i.i, 13
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %blocks_, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %div1.i.i
   %5 = load ptr, ptr %arrayidx.i, align 8
@@ -2373,7 +2352,7 @@ if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %rem2.i.i
   store ptr %add.ptr, ptr %iov, align 8
   %add.i = add nuw nsw i64 %div1.i.i, 1
-  %blocks_count_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
+  %blocks_count_.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %blocks_count_.i, align 8
   %cmp.i = icmp eq i64 %add.i, %6
   %7 = load i64, ptr %this, align 8
@@ -2386,30 +2365,30 @@ if.end:                                           ; preds = %entry
   %rem2.i.i15 = and i64 %rem.i.i14, 8191
   %sub = sub nsw i64 %retval.0.i, %rem2.i.i15
   %9 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i17 = getelementptr inbounds %"struct.std::_List_node", ptr %9, i64 0, i32 1
+  %_M_storage.i.i.i.i17 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i64, ptr %_M_storage.i.i.i.i17, align 8
   %sub.i19 = sub i64 %10, %8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub.i19, i64 %sub)
-  %_M_left.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load ptr, ptr %_M_left.i.i, align 8
-  %timestamp14 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %11, i64 0, i32 1, i32 0, i64 16
+  %timestamp14 = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load i64, ptr %timestamp14, align 8
   store i64 %12, ptr %timestamp, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %cmp.i21.not38 = icmp eq ptr %11, %add.ptr.i.i
   br i1 %cmp.i21.not38, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end, %if.end31
   %region_len.040 = phi i64 [ %add, %if.end31 ], [ 0, %if.end ]
   %iter.sroa.0.039 = phi ptr [ %call.i, %if.end31 ], [ %11, %if.end ]
-  %second21 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %iter.sroa.0.039, i64 0, i32 1, i32 0, i64 8
+  %second21 = getelementptr inbounds i8, ptr %iter.sroa.0.039, i64 40
   %13 = load i64, ptr %second21, align 8
   %add = add i64 %13, %region_len.040
   %cmp22.not = icmp ugt i64 %add, %.sroa.speculated
   br i1 %cmp22.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %timestamp25 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %iter.sroa.0.039, i64 0, i32 1, i32 0, i64 16
+  %timestamp25 = getelementptr inbounds i8, ptr %iter.sroa.0.039, i64 48
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %timestamp25, align 8
   %cmp.i.i.not = icmp eq i64 %agg.tmp.sroa.0.0.copyload, %12
   br i1 %cmp.i.i.not, label %if.end31, label %for.end
@@ -2426,7 +2405,7 @@ for.end:                                          ; preds = %land.rhs, %for.body
   br i1 %cmp.i26, label %if.then50, label %lor.rhs
 
 lor.rhs:                                          ; preds = %for.end
-  %timestamp45 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %iter.sroa.0.0.lcssa, i64 0, i32 1, i32 0, i64 16
+  %timestamp45 = getelementptr inbounds i8, ptr %iter.sroa.0.0.lcssa, i64 48
   %agg.tmp42.sroa.0.0.copyload = load i64, ptr %timestamp45, align 8
   %cmp.i28 = icmp eq i64 %agg.tmp42.sroa.0.0.copyload, %12
   br i1 %cmp.i28, label %if.then50, label %if.end51
@@ -2436,7 +2415,7 @@ if.then50:                                        ; preds = %if.end31, %for.end,
 
 if.end51:                                         ; preds = %if.then50, %lor.rhs
   %region_len.1 = phi i64 [ %.sroa.speculated, %if.then50 ], [ %region_len.0.lcssa, %lor.rhs ]
-  %iov_len52 = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len52 = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %region_len.1, ptr %iov_len52, align 8
   br label %return
 
@@ -2447,11 +2426,11 @@ return:                                           ; preds = %if.end51, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net25QuicStreamSequencerBuffer12MarkConsumedEm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %bytes_used) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %gaps_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %0, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %_M_storage.i.i.i.i, align 8
-  %total_bytes_read_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %total_bytes_read_.i, align 8
   %sub.i = sub i64 %1, %2
   %3 = add i64 %bytes_used, -1
@@ -2459,11 +2438,11 @@ entry:
   br i1 %or.cond.not, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %blocks_count_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 1
-  %num_bytes_buffered_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 6
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_prev.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
-  %blocks_.i9.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_count_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %num_bytes_buffered_ = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_prev.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %blocks_.i9.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
@@ -2474,7 +2453,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %div1.i.i = lshr i64 %rem.i.i, 13
   %rem2.i.i = and i64 %rem.i.i, 8191
   %6 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i11 = getelementptr inbounds %"struct.std::_List_node", ptr %6, i64 0, i32 1
+  %_M_storage.i.i.i.i11 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i64, ptr %_M_storage.i.i.i.i11, align 8
   %sub.i13 = sub i64 %7, %4
   %add.i = add nuw nsw i64 %div1.i.i, 1
@@ -2515,7 +2494,7 @@ if.then.i:                                        ; preds = %_ZNK3net25QuicStrea
 
 if.end.i:                                         ; preds = %_ZNK3net25QuicStreamSequencerBuffer5EmptyEv.exit.i, %if.then13
   %14 = load ptr, ptr %_M_prev.i.i.i, align 8
-  %_M_storage.i.i.i.i18 = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1
+  %_M_storage.i.i.i.i18 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load i64, ptr %_M_storage.i.i.i.i18, align 8
   %sub.i19 = add i64 %15, -1
   %rem.i.i20 = urem i64 %sub.i19, %5
@@ -2530,7 +2509,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end15.i
 
 if.then8.i:                                       ; preds = %if.end5.i
-  %first_gap.sroa.1.0.call10.sroa_idx.i = getelementptr inbounds %"struct.std::_List_node", ptr %6, i64 0, i32 1, i32 0, i64 8
+  %first_gap.sroa.1.0.call10.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 24
   %first_gap.sroa.1.0.copyload.i = load i64, ptr %first_gap.sroa.1.0.call10.sroa_idx.i, align 8
   %rem.i7.i = urem i64 %first_gap.sroa.1.0.copyload.i, %5
   %div1.i8.i = lshr i64 %rem.i7.i, 13
@@ -2577,11 +2556,11 @@ return:                                           ; preds = %while.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net25QuicStreamSequencerBuffer19FlushBufferedFramesEv(ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %total_bytes_read_, align 8
-  %_M_prev.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_prev.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   store i64 %2, ptr %total_bytes_read_, align 8
   tail call void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
@@ -2593,7 +2572,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net25QuicStreamSequencerBuffer18ReleaseWholeBufferEv(ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 4
+  %reduce_sequencer_buffer_memory_life_time_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %reduce_sequencer_buffer_memory_life_time_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2601,7 +2580,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN3net25QuicStreamSequencerBuffer5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
-  %blocks_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 5
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %blocks_, align 8
   store ptr null, ptr %blocks_, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
@@ -2618,11 +2597,11 @@ return:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net25QuicStreamSequencerBuffer14HasBytesToReadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %gaps_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %gaps_.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %0, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %_M_storage.i.i.i.i, align 8
-  %total_bytes_read_.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %total_bytes_read_.i, align 8
   %cmp = icmp ne i64 %1, %2
   ret i1 %cmp
@@ -2631,7 +2610,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer13BytesConsumedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %total_bytes_read_, align 8
   ret i64 %0
 }
@@ -2639,7 +2618,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net25QuicStreamSequencerBuffer13BytesBufferedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %num_bytes_buffered_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 6
+  %num_bytes_buffered_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %num_bytes_buffered_, align 8
   ret i64 %0
 }
@@ -2647,17 +2626,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net25QuicStreamSequencerBuffer5EmptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_size.i.i.i, align 8
   %cmp = icmp eq i64 %0, 1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %gaps_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 3
+  %gaps_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %gaps_, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
-  %total_bytes_read_ = getelementptr inbounds %"class.net::QuicStreamSequencerBuffer", ptr %this, i64 0, i32 2
+  %total_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %total_bytes_read_, align 8
   %cmp4 = icmp eq i64 %2, %3
   br label %land.end
@@ -2680,13 +2659,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %.pre
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, label %while.body.i.i.i, !llvm.loop !50
@@ -2696,7 +2674,7 @@ _ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8
   %cmp.i3 = icmp ult i64 %.pre, %2
   br i1 %cmp.i3, label %if.then, label %return
@@ -2704,10 +2682,10 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN3net25Q
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
   %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN3net25QuicStreamSequencerBuffer9FrameInfoESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.11", ptr %__x, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
+  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i.i.i.i, i64 16, i1 false)
   %call4.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
           to label %invoke.cont3.i.i unwind label %_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE10_Auto_nodeD2Ev.exit.i.i
@@ -2725,7 +2703,7 @@ if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %6 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %5, %6
@@ -2771,10 +2749,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN3net25QuicStreamSequencerBuffer9FrameInfoEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #20
   %cmp.not = icmp eq ptr %1, null
@@ -2922,7 +2900,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   %3 = load i64, ptr %__k, align 8
   %cmp.i = icmp ult i64 %2, %3
@@ -2940,12 +2918,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i10, align 8
   %cmp.i.i = icmp ult i64 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !62
@@ -2962,14 +2939,14 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #22
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
-  %.pre117 = load i64, ptr %__k, align 8
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
+  %.pre115 = load i64, ptr %__k, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i64 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i64 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i64 %8, %7
@@ -2978,7 +2955,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i64, ptr %__k, align 8
   %10 = load i64, ptr %_M_storage.i.i.i11, align 8
   %cmp.i12 = icmp ult i64 %9, %10
@@ -2992,131 +2969,129 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #22
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i16, align 8
   %cmp.i17 = icmp ult i64 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i64, ptr %_M_storage.i.i.i28, align 8
   %cmp.i.i29 = icmp ult i64 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !62
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !62
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #22
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i64, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 8
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #22
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i64 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i64 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i64 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i64 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i64 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #22
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i59, i64 0, i32 1
-  %17 = load i64, ptr %_M_storage.i.i.i60, align 8
-  %cmp.i61 = icmp ult i64 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #22
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i64, ptr %_M_storage.i.i.i59, align 8
+  %cmp.i60 = icmp ult i64 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i64, ptr %_M_storage.i.i.i72, align 8
-  %cmp.i.i73 = icmp ult i64 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !62
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i64, ptr %_M_storage.i.i.i71, align 8
+  %cmp.i.i72 = icmp ult i64 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !62
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #22
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i64, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 8
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #22
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i64 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i64 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i64 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

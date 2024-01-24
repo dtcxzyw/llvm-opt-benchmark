@@ -10,24 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.3, %struct.anon.4 }
 %struct.anon.3 = type { i32, i32, i8, ptr }
 %struct.anon.4 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SiFiveSPIState = type { %struct.SysBusDevice, %struct.MemoryRegion, ptr, i32, ptr, ptr, %struct.Fifo8, %struct.Fifo8, [30 x i32] }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.Fifo8 = type { ptr, i32, i32, i32 }
 
 @sifive_spi_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1296, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @sifive_spi_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [11 x i8] c"sifive.spi\00", align 1
@@ -81,9 +63,9 @@ define internal void @sifive_spi_class_init(ptr noundef %klass, ptr nocapture re
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_spi_properties) #5
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @sifive_spi_reset, ptr %reset, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_spi_realize, ptr %realize, align 8
   ret void
 }
@@ -94,32 +76,32 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @sifive_spi_reset(ptr noundef %d) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 111, ptr noundef nonnull @__func__.sifive_spi_reset) #5
-  %regs = getelementptr inbounds %struct.SiFiveSPIState, ptr %call, i64 0, i32 8
+  %regs = getelementptr inbounds i8, ptr %call, i64 1168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %regs, i8 0, i64 120, i1 false)
-  %num_cs = getelementptr inbounds %struct.SiFiveSPIState, ptr %call, i64 0, i32 3
+  %num_cs = getelementptr inbounds i8, ptr %call, i64 1096
   %0 = load i32, ptr %num_cs, align 8
   %notmask = shl nsw i32 -1, %0
   %sub = xor i32 %notmask, -1
-  %arrayidx = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 5
+  %arrayidx = getelementptr i8, ptr %call, i64 1188
   store i32 %sub, ptr %arrayidx, align 4
   store i32 3, ptr %regs, align 16
-  %arrayidx5 = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 10
+  %arrayidx5 = getelementptr i8, ptr %call, i64 1208
   store i32 4097, ptr %arrayidx5, align 8
-  %arrayidx7 = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 11
+  %arrayidx7 = getelementptr i8, ptr %call, i64 1212
   store i32 1, ptr %arrayidx7, align 4
-  %tx_fifo.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %call, i64 0, i32 6
+  %tx_fifo.i = getelementptr inbounds i8, ptr %call, i64 1120
   tail call void @fifo8_reset(ptr noundef nonnull %tx_fifo.i) #5
-  %arrayidx.i = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 18
+  %arrayidx.i = getelementptr i8, ptr %call, i64 1240
   %1 = load i32, ptr %arrayidx.i, align 8
   %and.i = and i32 %1, 2147483647
   store i32 %and.i, ptr %arrayidx.i, align 8
-  %arrayidx2.i = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 29
+  %arrayidx2.i = getelementptr i8, ptr %call, i64 1284
   %2 = load i32, ptr %arrayidx2.i, align 4
   %and3.i = and i32 %2, -2
   store i32 %and3.i, ptr %arrayidx2.i, align 4
-  %rx_fifo.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %call, i64 0, i32 7
+  %rx_fifo.i = getelementptr inbounds i8, ptr %call, i64 1144
   tail call void @fifo8_reset(ptr noundef nonnull %rx_fifo.i) #5
-  %arrayidx.i10 = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 19
+  %arrayidx.i10 = getelementptr i8, ptr %call, i64 1244
   %3 = load i32, ptr %arrayidx.i10, align 4
   %or.i = or i32 %3, -2147483648
   store i32 %or.i, ptr %arrayidx.i10, align 4
@@ -131,8 +113,8 @@ entry:
   br i1 %cmp7.not.i, label %sifive_spi_update_cs.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %cs_lines.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %call, i64 0, i32 4
-  %arrayidx3.i = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 6
+  %cs_lines.i = getelementptr inbounds i8, ptr %call, i64 1104
+  %arrayidx3.i = getelementptr i8, ptr %call, i64 1192
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -164,7 +146,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 
 sifive_spi_update_cs.exit:                        ; preds = %for.inc.i, %entry
   %call.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %tx_fifo.i) #5
-  %arrayidx.i16 = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 20
+  %arrayidx.i16 = getelementptr i8, ptr %call, i64 1248
   %12 = load i32, ptr %arrayidx.i16, align 16
   %cmp.i17 = icmp ult i32 %call.i, %12
   %13 = load i32, ptr %arrayidx2.i, align 4
@@ -173,7 +155,7 @@ sifive_spi_update_cs.exit:                        ; preds = %for.inc.i, %entry
   %and.sink.i = or disjoint i32 %and.i19, %masksel.i
   store i32 %and.sink.i, ptr %arrayidx2.i, align 4
   %call5.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %rx_fifo.i) #5
-  %arrayidx7.i = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 21
+  %arrayidx7.i = getelementptr i8, ptr %call, i64 1252
   %14 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp ugt i32 %call5.i, %14
   %15 = load i32, ptr %arrayidx2.i, align 4
@@ -181,12 +163,12 @@ sifive_spi_update_cs.exit:                        ; preds = %for.inc.i, %entry
   %masksel11.i = select i1 %cmp8.i, i32 2, i32 0
   %and16.sink.i = or disjoint i32 %and16.i, %masksel11.i
   store i32 %and16.sink.i, ptr %arrayidx2.i, align 4
-  %arrayidx21.i = getelementptr %struct.SiFiveSPIState, ptr %call, i64 0, i32 8, i64 28
+  %arrayidx21.i = getelementptr i8, ptr %call, i64 1280
   %16 = load i32, ptr %arrayidx21.i, align 16
   %and22.i = and i32 %16, %and16.sink.i
   %tobool.not.i21 = icmp ne i32 %and22.i, 0
   %cond.i = zext i1 %tobool.not.i21 to i32
-  %irq.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %call, i64 0, i32 2
+  %irq.i = getelementptr inbounds i8, ptr %call, i64 1088
   %17 = load ptr, ptr %irq.i, align 16
   tail call void @qemu_set_irq(ptr noundef %17, i32 noundef %cond.i) #5
   ret void
@@ -198,15 +180,15 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
   %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 312, ptr noundef nonnull @__func__.sifive_spi_realize) #5
   %call2 = tail call ptr @ssi_create_bus(ptr noundef %dev, ptr noundef nonnull @.str.6) #5
-  %spi = getelementptr inbounds %struct.SiFiveSPIState, ptr %call1, i64 0, i32 5
+  %spi = getelementptr inbounds i8, ptr %call1, i64 1112
   store ptr %call2, ptr %spi, align 8
-  %irq = getelementptr inbounds %struct.SiFiveSPIState, ptr %call1, i64 0, i32 2
+  %irq = getelementptr inbounds i8, ptr %call1, i64 1088
   tail call void @sysbus_init_irq(ptr noundef %call.i, ptr noundef nonnull %irq) #5
-  %num_cs = getelementptr inbounds %struct.SiFiveSPIState, ptr %call1, i64 0, i32 3
+  %num_cs = getelementptr inbounds i8, ptr %call1, i64 1096
   %0 = load i32, ptr %num_cs, align 8
   %conv = zext i32 %0 to i64
   %call3 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 8) #6
-  %cs_lines = getelementptr inbounds %struct.SiFiveSPIState, ptr %call1, i64 0, i32 4
+  %cs_lines = getelementptr inbounds i8, ptr %call1, i64 1104
   store ptr %call3, ptr %cs_lines, align 16
   %1 = load i32, ptr %num_cs, align 8
   %cmp18.not = icmp eq i32 %1, 0
@@ -224,12 +206,12 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %entry
-  %mmio = getelementptr inbounds %struct.SiFiveSPIState, ptr %call1, i64 0, i32 1
+  %mmio = getelementptr inbounds i8, ptr %call1, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef nonnull %call1, ptr noundef nonnull @sifive_spi_ops, ptr noundef nonnull %call1, ptr noundef nonnull @.str, i64 noundef 4096) #5
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #5
-  %tx_fifo = getelementptr inbounds %struct.SiFiveSPIState, ptr %call1, i64 0, i32 6
+  %tx_fifo = getelementptr inbounds i8, ptr %call1, i64 1120
   tail call void @fifo8_create(ptr noundef nonnull %tx_fifo, i32 noundef 8) #5
-  %rx_fifo = getelementptr inbounds %struct.SiFiveSPIState, ptr %call1, i64 0, i32 7
+  %rx_fifo = getelementptr inbounds i8, ptr %call1, i64 1144
   tail call void @fifo8_create(ptr noundef nonnull %rx_fifo, i32 noundef 8) #5
   ret void
 }
@@ -284,12 +266,12 @@ if.end4:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end4
-  %tx_fifo = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 6
+  %tx_fifo = getelementptr inbounds i8, ptr %opaque, i64 1120
   %call5 = tail call zeroext i1 @fifo8_is_full(ptr noundef nonnull %tx_fifo) #5
   br i1 %call5, label %return, label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.end4
-  %rx_fifo = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 7
+  %rx_fifo = getelementptr inbounds i8, ptr %opaque, i64 1144
   %call9 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %rx_fifo) #5
   br i1 %call9, label %return, label %if.end11
 
@@ -299,26 +281,27 @@ if.end11:                                         ; preds = %sw.bb8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end4
-  %arrayidx = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 %shr
+  %regs = getelementptr inbounds i8, ptr %opaque, i64 1168
+  %arrayidx = getelementptr [30 x i32], ptr %regs, i64 0, i64 %shr
   %1 = load i32, ptr %arrayidx, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb, %sw.default, %if.end11
   %r.0 = phi i32 [ %1, %sw.default ], [ %conv14, %if.end11 ], [ 0, %sw.bb ]
-  %tx_fifo.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 6
+  %tx_fifo.i = getelementptr inbounds i8, ptr %opaque, i64 1120
   %call.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %tx_fifo.i) #5
-  %arrayidx.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 20
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 1248
   %2 = load i32, ptr %arrayidx.i, align 16
   %cmp.i10 = icmp ult i32 %call.i, %2
-  %arrayidx2.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 29
+  %arrayidx2.i = getelementptr i8, ptr %opaque, i64 1284
   %3 = load i32, ptr %arrayidx2.i, align 4
   %and.i11 = and i32 %3, -2
   %masksel.i = zext i1 %cmp.i10 to i32
   %and.sink.i = or disjoint i32 %and.i11, %masksel.i
   store i32 %and.sink.i, ptr %arrayidx2.i, align 4
-  %rx_fifo.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 7
+  %rx_fifo.i = getelementptr inbounds i8, ptr %opaque, i64 1144
   %call5.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %rx_fifo.i) #5
-  %arrayidx7.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 21
+  %arrayidx7.i = getelementptr i8, ptr %opaque, i64 1252
   %4 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp ugt i32 %call5.i, %4
   %5 = load i32, ptr %arrayidx2.i, align 4
@@ -326,12 +309,12 @@ sw.epilog:                                        ; preds = %sw.bb, %sw.default,
   %masksel11.i = select i1 %cmp8.i, i32 2, i32 0
   %and16.sink.i = or disjoint i32 %and16.i, %masksel11.i
   store i32 %and16.sink.i, ptr %arrayidx2.i, align 4
-  %arrayidx21.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 28
+  %arrayidx21.i = getelementptr i8, ptr %opaque, i64 1280
   %6 = load i32, ptr %arrayidx21.i, align 16
   %and22.i = and i32 %6, %and16.sink.i
   %tobool.not.i = icmp ne i32 %and22.i, 0
   %cond.i = zext i1 %tobool.not.i to i32
-  %irq.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 2
+  %irq.i = getelementptr inbounds i8, ptr %opaque, i64 1088
   %7 = load ptr, ptr %irq.i, align 16
   tail call void @qemu_set_irq(ptr noundef %7, i32 noundef %cond.i) #5
   %conv15 = zext i32 %r.0 to i64
@@ -395,7 +378,7 @@ if.end5:                                          ; preds = %sifive_spi_is_bad_r
   ]
 
 sw.bb:                                            ; preds = %if.end5
-  %num_cs = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 3
+  %num_cs = getelementptr inbounds i8, ptr %opaque, i64 1096
   %3 = load i32, ptr %num_cs, align 8
   %cmp.not = icmp ugt i32 %3, %conv
   br i1 %cmp.not, label %for.body.lr.ph.i, label %do.body8
@@ -411,11 +394,11 @@ if.then16:                                        ; preds = %do.body8
   br label %sw.epilog
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
-  %arrayidx = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 4
+  %arrayidx = getelementptr i8, ptr %opaque, i64 1184
   store i32 %conv, ptr %arrayidx, align 16
-  %arrayidx.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 5
-  %cs_lines.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 4
-  %arrayidx3.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 6
+  %arrayidx.i = getelementptr i8, ptr %opaque, i64 1188
+  %cs_lines.i = getelementptr inbounds i8, ptr %opaque, i64 1104
+  %arrayidx3.i = getelementptr i8, ptr %opaque, i64 1192
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -446,7 +429,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %cmp.i38, label %for.body.i, label %sw.epilog, !llvm.loop !5
 
 sw.bb20:                                          ; preds = %if.end5
-  %num_cs21 = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 3
+  %num_cs21 = getelementptr inbounds i8, ptr %opaque, i64 1096
   %11 = load i32, ptr %num_cs21, align 8
   %conv.highbits = lshr i32 %conv, %11
   %cmp22.not = icmp eq i32 %conv.highbits, 0
@@ -463,7 +446,7 @@ if.then33:                                        ; preds = %do.body25
   br label %sw.epilog
 
 if.else36:                                        ; preds = %sw.bb20
-  %arrayidx38 = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 5
+  %arrayidx38 = getelementptr i8, ptr %opaque, i64 1188
   store i32 %conv, ptr %arrayidx38, align 4
   br label %sw.epilog
 
@@ -482,16 +465,16 @@ if.then52:                                        ; preds = %do.body44
   br label %sw.epilog
 
 if.else55:                                        ; preds = %sw.bb40
-  %arrayidx57 = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 6
+  %arrayidx57 = getelementptr i8, ptr %opaque, i64 1192
   store i32 %conv, ptr %arrayidx57, align 8
-  %num_cs.i43 = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 3
+  %num_cs.i43 = getelementptr inbounds i8, ptr %opaque, i64 1096
   %14 = load i32, ptr %num_cs.i43, align 8
   %cmp7.not.i44 = icmp eq i32 %14, 0
   br i1 %cmp7.not.i44, label %sw.epilog, label %for.body.lr.ph.i45
 
 for.body.lr.ph.i45:                               ; preds = %if.else55
-  %arrayidx.i46 = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 5
-  %cs_lines.i47 = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 4
+  %arrayidx.i46 = getelementptr i8, ptr %opaque, i64 1188
+  %cs_lines.i47 = getelementptr inbounds i8, ptr %opaque, i64 1104
   br label %for.body.i49
 
 for.body.i49:                                     ; preds = %for.inc.i60, %for.body.lr.ph.i45
@@ -522,7 +505,7 @@ for.inc.i60:                                      ; preds = %if.then.i54, %for.b
   br i1 %cmp.i62, label %for.body.i49, label %sw.epilog, !llvm.loop !5
 
 sw.bb59:                                          ; preds = %if.end5
-  %tx_fifo = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 6
+  %tx_fifo = getelementptr inbounds i8, ptr %opaque, i64 1120
   %call60 = tail call zeroext i1 @fifo8_is_full(ptr noundef nonnull %tx_fifo) #5
   br i1 %call60, label %sw.epilog, label %if.then61
 
@@ -533,9 +516,9 @@ if.then61:                                        ; preds = %sw.bb59
   br i1 %call6.i, label %sw.epilog, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then61
-  %spi.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 5
-  %rx_fifo.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 7
-  %arrayidx.i64 = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 16
+  %spi.i = getelementptr inbounds i8, ptr %opaque, i64 1112
+  %rx_fifo.i = getelementptr inbounds i8, ptr %opaque, i64 1144
+  %arrayidx.i64 = getelementptr i8, ptr %opaque, i64 1232
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end8.i, %while.body.lr.ph.i
@@ -587,7 +570,8 @@ if.then90:                                        ; preds = %do.body82
   br label %sw.epilog
 
 if.else93:                                        ; preds = %sw.bb78
-  %arrayidx95 = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 %shr
+  %regs94 = getelementptr inbounds i8, ptr %opaque, i64 1168
+  %arrayidx95 = getelementptr [30 x i32], ptr %regs94, i64 0, i64 %shr
   store i32 %conv, ptr %arrayidx95, align 4
   br label %sw.epilog
 
@@ -602,25 +586,26 @@ if.then106:                                       ; preds = %do.body98
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end5
-  %arrayidx110 = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 %shr
+  %regs109 = getelementptr inbounds i8, ptr %opaque, i64 1168
+  %arrayidx110 = getelementptr [30 x i32], ptr %regs109, i64 0, i64 %shr
   store i32 %conv, ptr %arrayidx110, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end8.i, %for.inc.i60, %for.inc.i, %if.then61, %if.else55, %if.then106, %do.body98, %if.else93, %do.body82, %if.then90, %if.then74, %do.body66, %sw.bb59, %do.body44, %if.then52, %if.else36, %do.body25, %if.then33, %do.body8, %if.then16, %sw.default
-  %tx_fifo.i74 = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 6
+  %tx_fifo.i74 = getelementptr inbounds i8, ptr %opaque, i64 1120
   %call.i75 = tail call i32 @fifo8_num_used(ptr noundef nonnull %tx_fifo.i74) #5
-  %arrayidx.i76 = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 20
+  %arrayidx.i76 = getelementptr i8, ptr %opaque, i64 1248
   %26 = load i32, ptr %arrayidx.i76, align 16
   %cmp.i77 = icmp ult i32 %call.i75, %26
-  %arrayidx2.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 29
+  %arrayidx2.i = getelementptr i8, ptr %opaque, i64 1284
   %27 = load i32, ptr %arrayidx2.i, align 4
   %and.i78 = and i32 %27, -2
   %masksel.i = zext i1 %cmp.i77 to i32
   %and.sink.i = or disjoint i32 %and.i78, %masksel.i
   store i32 %and.sink.i, ptr %arrayidx2.i, align 4
-  %rx_fifo.i79 = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 7
+  %rx_fifo.i79 = getelementptr inbounds i8, ptr %opaque, i64 1144
   %call5.i80 = tail call i32 @fifo8_num_used(ptr noundef nonnull %rx_fifo.i79) #5
-  %arrayidx7.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 21
+  %arrayidx7.i = getelementptr i8, ptr %opaque, i64 1252
   %28 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp ugt i32 %call5.i80, %28
   %29 = load i32, ptr %arrayidx2.i, align 4
@@ -628,12 +613,12 @@ sw.epilog:                                        ; preds = %if.end8.i, %for.inc
   %masksel11.i = select i1 %cmp8.i, i32 2, i32 0
   %and16.sink.i = or disjoint i32 %and16.i, %masksel11.i
   store i32 %and16.sink.i, ptr %arrayidx2.i, align 4
-  %arrayidx21.i = getelementptr %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 8, i64 28
+  %arrayidx21.i = getelementptr i8, ptr %opaque, i64 1280
   %30 = load i32, ptr %arrayidx21.i, align 16
   %and22.i = and i32 %30, %and16.sink.i
   %tobool.not.i81 = icmp ne i32 %and22.i, 0
   %cond.i = zext i1 %tobool.not.i81 to i32
-  %irq.i = getelementptr inbounds %struct.SiFiveSPIState, ptr %opaque, i64 0, i32 2
+  %irq.i = getelementptr inbounds i8, ptr %opaque, i64 1088
   %31 = load ptr, ptr %irq.i, align 16
   tail call void @qemu_set_irq(ptr noundef %31, i32 noundef %cond.i) #5
   br label %return

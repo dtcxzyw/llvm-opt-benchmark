@@ -43,14 +43,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty17h01d64ec7dae07e92E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 112
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h70c777a74944867cE(ptr nonnull align 8 %9)
   %11 = sub i64 0, %10
   %12 = icmp eq i64 %8, %11
@@ -59,14 +59,14 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty17h665447fb28ca0c45E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 488
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2455834fd46a6034E(ptr nonnull align 8 %9)
   %11 = sub i64 0, %10
   %12 = icmp eq i64 %8, %11
@@ -75,14 +75,14 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty17h706c544656725787E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 488
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf1e7087f430d7bf5E(ptr nonnull align 8 %9)
   %11 = sub i64 0, %10
   %12 = icmp eq i64 %8, %11
@@ -91,14 +91,14 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty17h801d597e8bbd2461E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 336
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h77f33e222b259a8dE(ptr nonnull align 8 %9)
   %11 = sub i64 0, %10
   %12 = icmp eq i64 %8, %11
@@ -107,14 +107,14 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty17h831895fef7843340E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 112
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4b52ab6cb301ef00E(ptr nonnull align 8 %9)
   %11 = sub i64 0, %10
   %12 = icmp eq i64 %8, %11
@@ -123,14 +123,14 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty17h8a6ca29b6cb78c2eE(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 336
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8e55fe6e55df2a9cE(ptr nonnull align 8 %9)
   %11 = sub i64 0, %10
   %12 = icmp eq i64 %8, %11
@@ -139,14 +139,14 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty17hcf02eebedb401119E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 7
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h110b50313ec1d047E(ptr nonnull align 8 %9)
   %11 = sub i64 0, %10
   %12 = icmp eq i64 %8, %11
@@ -155,7 +155,7 @@ define zeroext i1 @_ZN4core4iter6traits10exact_size17ExactSizeIterator8is_empty1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h052a342c5da0aae8E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -183,7 +183,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h2441dbb8561897d6E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -211,7 +211,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h3e22b2a13bcb94c3E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -239,7 +239,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h43353d7d4c80bf55E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -267,7 +267,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h6ef1be5575fadb4bE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -295,7 +295,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h925f1d3c738e2b7cE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -323,7 +323,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17ha51a44693b08cffeE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -351,7 +351,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h0e07322d12017a57E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -381,7 +381,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h3e22b
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h1c63f4811f48c3baE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -411,7 +411,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h6ef1b
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h5278deabff4b8a3bE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -441,7 +441,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h2441d
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h5b8ecbc8aaa5dadbE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -471,7 +471,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h925f1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h7f2559cd73688605E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -501,7 +501,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h052a3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17h9b7789c38589e5fcE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -531,7 +531,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h43353
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_back17hdc616c87021e0edeE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %0, null
   br label %5
 
@@ -561,7 +561,7 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17ha51a4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h040ab8a23679f21fE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -588,7 +588,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h040ab8a23679f21
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h1883114689b6c408E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -615,7 +615,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h1883114689b6c40
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h2337906dd479b4b3E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -642,7 +642,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h2337906dd479b4b
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h271339723ee858f1E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -669,7 +669,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h271339723ee858f
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h404a91ba4280f141E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -696,7 +696,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h404a91ba4280f14
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h558fcd139b256515E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -723,7 +723,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h558fcd139b25651
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h7bd0e487364568e0E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -753,7 +753,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h06e38bec7f61a6a7
   %2 = alloca { {} }, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %14, %1
@@ -762,7 +762,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator3all17h06e38bec7f61a6a7
   %8 = call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd5499239807221c0E"(ptr nonnull align 1 %6, ptr nonnull align 8 %7)
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = getelementptr inbounds ptr, ptr %10, i64 3
+  %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !invariant.load !5, !nonnull !5
   %13 = call align 8 ptr %12(ptr align 1 %9)
   %.not.i = icmp eq ptr %13, null
@@ -792,7 +792,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h05f327637831b231E.exit: ; pred
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h018ee41f2d4e2059E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -821,7 +821,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h040ab8a23679f21fE.exit: ; p
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h183dae481134dcf5E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -850,7 +850,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h558fcd139b256515E.exit: ; p
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h1b60dd1ae247da03E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -879,7 +879,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h7bd0e487364568e0E.exit: ; p
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h365cff45d3cca692E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -908,7 +908,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h271339723ee858f1E.exit: ; p
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h8081a3ad72c39399E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -937,7 +937,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h1883114689b6c408E.exit: ; p
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h8e066564e785b8bdE(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -966,7 +966,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h404a91ba4280f141E.exit: ; p
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hc49327acd5d5e876E(ptr align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -1010,7 +1010,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator6by_ref17hd43b49db191e
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h05f327637831b231E(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %13, %1
@@ -1019,7 +1019,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h05f32763783
   %7 = call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd5499239807221c0E"(ptr nonnull align 1 %5, ptr nonnull align 8 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds ptr, ptr %9, i64 3
+  %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !invariant.load !5, !nonnull !5
   %12 = call align 8 ptr %11(ptr align 1 %8)
   %.not = icmp eq ptr %12, null
@@ -1046,9 +1046,9 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h05f32763783
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator9enumerate17h288fad7760e5bed9E(ptr nocapture writeonly sret({ { ptr, ptr }, i64 }) align 8 %0, ptr align 1 %1, ptr align 8 %2) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -1180,7 +1180,7 @@ define void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..I
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %5 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h066d0e9cd92ccf77E"(ptr nonnull align 8 %4)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17he6d10cce105d4a2cE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %5)
-  %6 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h574bd271691ae5a0E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
@@ -1191,7 +1191,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h09efbe44dea5e4d
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h887128fe84f9c100E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1201,7 +1201,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h2ccce87c276e87e
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hc7c930d2a1b664bdE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1211,7 +1211,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h712dedf2a1915ec
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hd960505526d68d2eE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1221,7 +1221,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h7ab8c60bc32f1d5
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h52ea030711f490deE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1231,7 +1231,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h7f272f53e96b94b
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17he65aac9fa74904adE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1241,7 +1241,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h97e32e0299557dd
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h8fd5951f436a5e77E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1251,7 +1251,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h9a3b6400686b742
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hdd8607e16fbfd2c3E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1261,7 +1261,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17ha3a2a9b7f49a943
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h17cd052a15720e8dE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1271,7 +1271,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17hb170ec63bfa68d7
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h6c33cac096a057d8E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1281,7 +1281,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17hb5d4b1c4c4e86e1
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h77ec829e4c7bbd58E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1291,7 +1291,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17hc9c49692237db6f
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h81a266fe908a896bE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1301,7 +1301,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17hd295d56ba123ee0
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17ha63289ab2d2983f8E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1311,7 +1311,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17hdb6efb4206ed902
   %2 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17ha2862d8378da06ebE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1323,7 +1323,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17h3a9e
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h1e22e82b9ce58329E"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1339,7 +1339,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17h40ce
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hc4008d00d9ef823eE"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1355,7 +1355,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17h7fcc
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h07f0840a9dff918fE"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1371,7 +1371,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17h9581
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he2150afa6448ff0aE"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1387,7 +1387,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17hadb6
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hdc5a20b0b369136bE"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1403,7 +1403,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17hae76
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hb974bd61f9d8999eE"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1419,7 +1419,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17he258
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h67ba521e17bac777E"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1435,7 +1435,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17heb87
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he0e808084f10f052E"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1451,7 +1451,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17hf687
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17ha43c0aae11b267d0E"(ptr nonnull align 8 %5)
   br label %7
 
@@ -1463,7 +1463,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17hf687
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h368d20787d7012d2E"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hee852c42f372a645E"(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h7ae8c91e69999622E"(ptr nonnull align 8 %3)
   %. = zext i1 %4 to i64
   %5 = add i64 %2, %.
@@ -1473,7 +1473,7 @@ define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h368d20787d7012d2
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h488f157377e6c877E"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hc079349abe56e18eE"(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h7ae8c91e69999622E"(ptr nonnull align 8 %3)
   %. = zext i1 %4 to i64
   %5 = add i64 %2, %.
@@ -1483,7 +1483,7 @@ define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h488f157377e6c877
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h686ecd6a444a3789E"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h5edc9f48dcf3f4ebE"(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hf2a362b6159abe64E"(ptr nonnull align 8 %3)
   %. = zext i1 %4 to i64
   %5 = add i64 %2, %.
@@ -1493,7 +1493,7 @@ define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17h686ecd6a444a3789
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17hb55ea175ec841f2aE"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hf48be279c1e5bccaE"(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h26685d4ae714e758E"(ptr nonnull align 8 %3)
   %. = zext i1 %4 to i64
   %5 = add i64 %2, %.
@@ -1503,7 +1503,7 @@ define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17hb55ea175ec841f2a
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3len17hdb1c02c3824dbc7eE"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h5a9426b14b77f17bE"(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h630edb0919f42297E"(ptr nonnull align 8 %3)
   %. = zext i1 %4 to i64
   %5 = add i64 %2, %.
@@ -1523,14 +1523,14 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17h1b45cb
   %8 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h940bf6767ab40d54E"(ptr align 8 %6, i64 %7)
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17he28b61e39f94b396E"(ptr nonnull align 8 %11)
   %13 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc4acffc27ebbf152E"(ptr align 8 %12)
   %14 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd805226e4c2329a7E"(ptr align 8 %13)
   store ptr %9, ptr %2, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %10, ptr %15, align 8
-  %16 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %14, ptr %16, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17hf6dc2becb11d7c1fE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %17 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1540,7 +1540,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17h1b45cb
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   store ptr %17, ptr %4, align 8
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @anon.21ee45fd481502f672d88904f8d127ed.12, ptr %.fca.1.gep, align 8
   %19 = invoke { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd5499239807221c0E"(ptr nonnull align 1 %17, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.12)
           to label %.noexc unwind label %25
@@ -1548,7 +1548,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17h1b45cb
 .noexc:                                           ; preds = %1
   %20 = extractvalue { ptr, ptr } %19, 0
   %21 = extractvalue { ptr, ptr } %19, 1
-  %22 = getelementptr inbounds ptr, ptr %21, i64 3
+  %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8, !invariant.load !5, !nonnull !5
   %24 = invoke align 8 ptr %23(ptr align 1 %20)
           to label %"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44286ef2f607fd7eE.exit" unwind label %25
@@ -1586,14 +1586,14 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h24f5399
   %8 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h940bf6767ab40d54E"(ptr align 8 %6, i64 %7)
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17he28b61e39f94b396E"(ptr nonnull align 8 %11)
   %13 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc4acffc27ebbf152E"(ptr align 8 %12)
   %14 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd805226e4c2329a7E"(ptr align 8 %13)
   store ptr %9, ptr %2, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %10, ptr %15, align 8
-  %16 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %14, ptr %16, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17hf6dc2becb11d7c1fE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %17 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1603,7 +1603,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h24f5399
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   store ptr %17, ptr %4, align 8
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @anon.21ee45fd481502f672d88904f8d127ed.12, ptr %.fca.1.gep, align 8
   %19 = invoke { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd5499239807221c0E"(ptr nonnull align 1 %17, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.12)
           to label %.noexc unwind label %25
@@ -1611,7 +1611,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h24f5399
 .noexc:                                           ; preds = %1
   %20 = extractvalue { ptr, ptr } %19, 0
   %21 = extractvalue { ptr, ptr } %19, 1
-  %22 = getelementptr inbounds ptr, ptr %21, i64 7
+  %22 = getelementptr inbounds i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8, !invariant.load !5, !nonnull !5
   %24 = invoke align 8 ptr %23(ptr align 1 %20)
           to label %"_ZN104_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6fc271bcc388f34dE.exit" unwind label %25
@@ -1649,14 +1649,14 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8last_mut17h0a1
   %8 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8iter_mut17h6051b264d647f8c6E"(ptr align 8 %6, i64 %7)
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_mut17h95af654e0f4579f8E"(ptr nonnull align 8 %11)
   %13 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h917965c07261cc4eE"(ptr align 8 %12)
   %14 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha0e9909914bd90daE"(ptr align 8 %13)
   store ptr %9, ptr %2, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %10, ptr %15, align 8
-  %16 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %14, ptr %16, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h0aa071ebb0c1449aE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %17 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1666,7 +1666,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8last_mut17h0a1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   store ptr %17, ptr %4, align 8
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @anon.21ee45fd481502f672d88904f8d127ed.17, ptr %.fca.1.gep, align 8
   %19 = invoke { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h7d1acd2f0b32813bE"(ptr nonnull align 1 %17, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.17)
           to label %.noexc unwind label %25
@@ -1674,7 +1674,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8last_mut17h0a1
 .noexc:                                           ; preds = %1
   %20 = extractvalue { ptr, ptr } %19, 0
   %21 = extractvalue { ptr, ptr } %19, 1
-  %22 = getelementptr inbounds ptr, ptr %21, i64 7
+  %22 = getelementptr inbounds i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8, !invariant.load !5, !nonnull !5
   %24 = invoke align 8 ptr %23(ptr align 1 %20)
           to label %"_ZN107_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1c925a4ebdf7a6e3E.exit" unwind label %25
@@ -1709,14 +1709,14 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h0c3f89
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h95e3500d681c79a3E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h575a9257767663dcE"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc00278ad36ab3268E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h45f6c69668585c1aE"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h95d60f25d53fc03dE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1738,14 +1738,14 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h1d7701
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h7a760bf1e1263795E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h953e3213d4fa4279E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hd791c63baaec6010E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2cd1990d3dd9cc39E"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h0c15255ac038ce6fE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1767,14 +1767,14 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha5894f
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h940bf6767ab40d54E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17he28b61e39f94b396E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc4acffc27ebbf152E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd805226e4c2329a7E"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17hf6dc2becb11d7c1fE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1796,14 +1796,14 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17hf72d29
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h430a4589b4854a7fE"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hfd3223d9e9ba4f38E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h0315aac6e0130505E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h66075882015bc589E"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h467204fb1ff51894E"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1825,14 +1825,14 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h84
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8iter_mut17h6051b264d647f8c6E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_mut17h95af654e0f4579f8E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h917965c07261cc4eE"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha0e9909914bd90daE"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h0aa071ebb0c1449aE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1854,14 +1854,14 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hbb
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8iter_mut17h3b4fb46c1dbde57bE"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_mut17h342f9319913eca56E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h809ae86123235b87E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44edec5b36f8d3aaE"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17hc22281cdc75290adE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1883,14 +1883,14 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hd6
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8iter_mut17h132961e64232dd08E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_mut17h7f291f3d467d2596E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h212b9cf809b4b4e5E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h228dc76d8c1857f0E"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17hf12e71d1d7e41357E"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -1910,14 +1910,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h1ae94660dab9a
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17ha01a1e5468d798faE"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h12c41c88d4153ed2E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hf51d6c236b95ab66E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb4341c467a71c2b8E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -1930,14 +1930,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h2458c7a9e1372
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h430a4589b4854a7fE"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hfd3223d9e9ba4f38E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h0315aac6e0130505E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h66075882015bc589E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -1950,14 +1950,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h27bdd6bcc1840
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h443364e14dfee874E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hd2678ea8e93ee49eE"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hb385477cb2768ab9E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h95c42b18dc41f886E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -1970,14 +1970,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h3267f09b944b5
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h95e3500d681c79a3E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h575a9257767663dcE"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc00278ad36ab3268E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h45f6c69668585c1aE"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -1990,14 +1990,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h347f7b5f87914
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hc70c2e33e8d9a05eE"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h5281c29f15806107E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h7f88784511e051f5E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h109b020629d749b0E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2010,14 +2010,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h5d84d1033b4ef
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h7a760bf1e1263795E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h953e3213d4fa4279E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hd791c63baaec6010E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2cd1990d3dd9cc39E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2030,14 +2030,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h6aec0855ce38c
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h940bf6767ab40d54E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17he28b61e39f94b396E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc4acffc27ebbf152E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd805226e4c2329a7E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2050,14 +2050,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h86f440bb810be
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h6d40decb4693073bE"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h610eb7c449f67a39E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hec8c4b4a4d6d4f04E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb4567f4a07387a7bE"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2070,14 +2070,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17ha6ba2c5ce47ac
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hbcfbf88a7c4fee31E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h82569a8b564335a5E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h67dd849428c1c939E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h381b1574fe2eed8cE"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2090,14 +2090,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17hdf83da21b3dfd
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h9124d574004f0bf0E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h1c95d7534be59a87E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hb58b049156da7785E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc31b230c3d350545E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2110,14 +2110,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17he67cb4cc52d28
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hf2f232daf6c32254E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17he9312b2bf676939fE"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h6c76fb27bc28ed22E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hec86265ae5b413aeE"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2130,14 +2130,14 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17hfd9d96342e119
   %6 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hafe9ca5347f5cb44E"(ptr align 8 %4, i64 %5)
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %10 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h8a976b94efa9eec0E"(ptr nonnull align 8 %9)
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc99a4f4529052681E"(ptr align 8 %10)
   %12 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he9b31621571cbf84E"(ptr align 8 %11)
   store ptr %7, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %12, ptr %14, align 8
   ret void
 }
@@ -2153,7 +2153,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10into_pairs17haad8aba
           to label %7 unwind label %18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8, !align !7, !noundef !5
   invoke void @"_ZN4core6option15Option$LT$T$GT$3map17hbbc3cc6ab3d24f3eE"(ptr nonnull sret({ i64, [12 x i64] }) align 8 %3, ptr align 8 %9)
           to label %12 unwind label %10
@@ -2169,7 +2169,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10into_pairs17haad8aba
           to label %13 unwind label %10
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds { { { { i64, [12 x i64] } } }, { ptr, i64, ptr, ptr, {}, { {} } } }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
   ret void
@@ -2187,7 +2187,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10into_pairs17haad8aba
 18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..path..PathSegment$GT$$GT$$GT$17h935fb4f19b4e4056E"(ptr nonnull align 8 %20) #17
           to label %17 unwind label %15
 }
@@ -2205,7 +2205,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10into_pairs28_$u7b$$u
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h123a053fa4e2a734E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i32, [29 x i32] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h1e22e82b9ce58329E"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h4bbe96a411ffe105E.exit" unwind label %20
 
@@ -2276,7 +2276,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h123a053
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h220fc3cbb2500da3E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hc4008d00d9ef823eE"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h655cde2a6ce39deeE.exit" unwind label %20
 
@@ -2347,7 +2347,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h220fc3c
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h273d88f1a009293cE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [39 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he2150afa6448ff0aE"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17ha4e446c2e007ffc7E.exit" unwind label %20
 
@@ -2418,7 +2418,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h273d88f
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h27f3c24a1d981f8fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [21 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hfdb7eae929afdbccE"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h2358ece24d2afb01E.exit" unwind label %20
 
@@ -2489,7 +2489,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h27f3c24
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h28660928418ca21dE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h2c3cfa239c05cf5aE"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17hfefa68592f660270E.exit" unwind label %20
 
@@ -2560,7 +2560,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h2866092
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h52606a5d74480d3aE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [59 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17ha43c0aae11b267d0E"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h8772f0cbff40c66bE.exit" unwind label %20
 
@@ -2631,7 +2631,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h52606a5
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h613a4f7675de4371E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [28 x i64] }, { i32, [1 x i32] }, { i32, [7 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 }, {} }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h67ba521e17bac777E"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h324847be8734fb05E.exit" unwind label %20
 
@@ -2702,7 +2702,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h613a4f7
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h8c9031e1e19af12fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he0e808084f10f052E"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h52cea51123f2b6f4E.exit" unwind label %20
 
@@ -2773,7 +2773,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17h8c9031e
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hca78cb6a061235f4E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [40 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hdc5a20b0b369136bE"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h9b9b3b0c5762533dE.exit" unwind label %20
 
@@ -2844,7 +2844,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hca78cb6
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hdb0542890acb57abE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [28 x i64] }, { [24 x i8], i8, [15 x i8] }, { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h07f0840a9dff918fE"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h9edfe8d3ce3f8809E.exit" unwind label %20
 
@@ -2915,7 +2915,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hdb05428
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hddcb29165b1de97cE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [6 x i64] }, { [1 x i64], i64, [21 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hd2e483e6e0bc91c8E"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h00b9b8def6a60e40E.exit" unwind label %20
 
@@ -2986,7 +2986,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hddcb291
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_value17hf5de9142be657504E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [28 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hb974bd61f9d8999eE"(ptr nonnull align 8 %5)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h5cdedd6b9cb9c8d3E.exit" unwind label %20
 
@@ -3058,7 +3058,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h4074abf
   %3 = alloca { { { i64, [21 x i64] }, { i32, [1 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h4f7e0bcd61ddc4d9E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3072,7 +3072,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h4074abf
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17h4e978aa0ed120f2eE"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %3, ptr noundef nonnull align 8 dereferenceable(240) %11, i64 240, i1 false)
-  %12 = getelementptr inbounds { { { i64, [21 x i64] }, { i32, [1 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 240
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4c5cacaa6b7aa355E"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3102,7 +3102,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h4694e8e
   %3 = alloca { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h26685d4ae714e758E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3116,7 +3116,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h4694e8e
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hf67effa4a2f975b7E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, ptr noundef nonnull align 8 dereferenceable(232) %11, i64 232, i1 false)
-  %12 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 232
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70cdc55e24b1071bE"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3146,7 +3146,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h50b7dd3
   %3 = alloca { { i64, [40 x i64] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h0e63be3cf4df664eE"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3160,7 +3160,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h50b7dd3
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hf91cba85691f39f4E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %3, ptr noundef nonnull align 8 dereferenceable(328) %11, i64 328, i1 false)
-  %12 = getelementptr inbounds { { i64, [40 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 328
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h55bdaaa9c3dec534E"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3190,7 +3190,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h66cc2aa
   %3 = alloca { { i64, [39 x i64] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hafd5e4f2048e4c96E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3204,7 +3204,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h66cc2aa
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17h23d54da71e1422c5E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %3, ptr noundef nonnull align 8 dereferenceable(320) %11, i64 320, i1 false)
-  %12 = getelementptr inbounds { { i64, [39 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 320
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hcec0c3cae4f00b1bE"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3234,7 +3234,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h87d849c
   %3 = alloca { { i64, [59 x i64] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h6adfbfddff4a8d93E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3248,7 +3248,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h87d849c
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hade1677b6a4419d5E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %3, ptr noundef nonnull align 8 dereferenceable(480) %11, i64 480, i1 false)
-  %12 = getelementptr inbounds { { i64, [59 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 480
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5aa4051d0084984dE"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3278,7 +3278,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h8e6beba
   %3 = alloca { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hf2a362b6159abe64E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3292,7 +3292,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h8e6beba
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17h050cc309ea676951E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %11, i64 104, i1 false)
-  %12 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 104
   store i64 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h05dccb7fc4d0c6baE"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3322,7 +3322,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h9900135
   %3 = alloca { { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hceb9061189304e36E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3336,7 +3336,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17h9900135
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17h3a945ff7388851d6E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
-  %12 = getelementptr inbounds { { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8187c759cdffddb0E"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3366,7 +3366,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hc3fe8d5
   %3 = alloca { { i32, [29 x i32] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h630edb0919f42297E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3380,7 +3380,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hc3fe8d5
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb60e326c158a92e5E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
-  %12 = getelementptr inbounds { { i32, [29 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 120
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h83a76142eaa79741E"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3410,7 +3410,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hc5072ab
   %3 = alloca { { { i64, [28 x i64] }, { i32, [1 x i32] }, { i32, [7 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 }, {} }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h7ae8c91e69999622E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3424,7 +3424,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hc5072ab
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hf22cde4ca9768426E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %3, ptr noundef nonnull align 8 dereferenceable(328) %11, i64 328, i1 false)
-  %12 = getelementptr inbounds { { { i64, [28 x i64] }, { i32, [1 x i32] }, { i32, [7 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 }, {} }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 328
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h783ddf3a192daac2E"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3454,7 +3454,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hdc23002
   %3 = alloca { { { i64, [6 x i64] }, { [1 x i64], i64, [21 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hcd3704cce5954173E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3468,7 +3468,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hdc23002
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17he79ac5151cf9ad1dE"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %3, ptr noundef nonnull align 8 dereferenceable(296) %11, i64 296, i1 false)
-  %12 = getelementptr inbounds { { { i64, [6 x i64] }, { [1 x i64], i64, [21 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 296
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h62a84586b122624bE"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3498,7 +3498,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hfd28cf6
   %3 = alloca { { { i64, [28 x i64] }, { [24 x i8], i8, [15 x i8] }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h6f881c7cd8ecf1e3E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3512,7 +3512,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hfd28cf6
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17h1c6a3e38ec5a5941E"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %3, ptr noundef nonnull align 8 dereferenceable(296) %11, i64 296, i1 false)
-  %12 = getelementptr inbounds { { { i64, [28 x i64] }, { [24 x i8], i8, [15 x i8] }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 296
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha9a5b77e96c9acabE"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3542,7 +3542,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hfe063c3
   %3 = alloca { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca ptr, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h52bbb1c65d709559E"(ptr nonnull align 8 %6)
   br i1 %7, label %9, label %8
 
@@ -3556,7 +3556,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hfe063c3
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hecea1d56e2ee22bdE"(ptr align 8 %10, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.29)
   store ptr %11, ptr %4, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %11, i64 176, i1 false)
-  %12 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %3, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 176
   store i32 %1, ptr %12, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h58d36963a5dc36cfE"(ptr align 8 %0, ptr nonnull align 8 %3)
           to label %15 unwind label %13
@@ -3584,7 +3584,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$10push_punct17hfe063c3
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3pop17h33222cd59b9a1d27E"(ptr sret({ i64, [13 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #5 {
   %3 = alloca { i64, [13 x i64] }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hf2a362b6159abe64E"(ptr nonnull align 8 %4)
   br i1 %5, label %7, label %6
 
@@ -3606,7 +3606,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3pop17h33222cd59b9a1d2
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h703d7505f24e9904E"(ptr nocapture writeonly sret({ i64, [13 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   store i64 3, ptr %0, align 8
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h62b7cc29e954d096E"(ptr nonnull align 8 %3)
@@ -3615,17 +3615,17 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3pop28_$u7b$$u7b$closu
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h47256a5a09140cb6E"(ptr nocapture writeonly sret({ i64, [13 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  %4 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$14trailing_punct17h5b6d55a99efb04fbE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he0e808084f10f052E"(ptr nonnull align 8 %2)
   br i1 %3, label %4, label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17heb87edecaa30d9f5E.exit"
 
@@ -3646,7 +3646,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$14trailing_punct
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$14trailing_punct17hbb9c2dac4538c61cE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hb974bd61f9d8999eE"(ptr nonnull align 8 %2)
   br i1 %3, label %4, label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17hae765a1d48ff3b38E.exit"
 
@@ -3667,7 +3667,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$14trailing_punct
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$14trailing_punct17hbfdc706ac252bbdfE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h1e22e82b9ce58329E"(ptr nonnull align 8 %2)
   br i1 %3, label %4, label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8is_empty17h3a9eb6a19bb0517dE.exit"
 
@@ -3688,84 +3688,84 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$14trailing_punct
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h00b9b8def6a60e40E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hd2e483e6e0bc91c8E"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h2358ece24d2afb01E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hfdb7eae929afdbccE"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h324847be8734fb05E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h67ba521e17bac777E"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h4bbe96a411ffe105E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h1e22e82b9ce58329E"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h52cea51123f2b6f4E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he0e808084f10f052E"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h5cdedd6b9cb9c8d3E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hb974bd61f9d8999eE"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h655cde2a6ce39deeE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hc4008d00d9ef823eE"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h8772f0cbff40c66bE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17ha43c0aae11b267d0E"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h9b9b3b0c5762533dE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hdc5a20b0b369136bE"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h9edfe8d3ce3f8809E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h07f0840a9dff918fE"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17ha4e446c2e007ffc7E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he2150afa6448ff0aE"(ptr nonnull align 8 %2)
   ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17hfefa68592f660270E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h2c3cfa239c05cf5aE"(ptr nonnull align 8 %2)
   ret i1 %3
 }
@@ -3773,7 +3773,7 @@ define zeroext i1 @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trail
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4push17h3441253714b0af67E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [21 x i64] }, { i32, [1 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 } }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h2c3cfa239c05cf5aE"(ptr nonnull align 8 %4)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17hfefa68592f660270E.exit" unwind label %11
 
@@ -3820,9 +3820,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   %10 = alloca { i64, [40 x i64] }, align 8
   %11 = alloca { { { ptr, i64 }, i64 }, ptr }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h8fd5951f436a5e77E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %11)
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %11, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   br label %14
 
 14:                                               ; preds = %34, %3
@@ -3870,7 +3870,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
           to label %26 unwind label %.loopexit7
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %10, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h695ecba6f315e180E"(ptr sret({ ptr, [3 x i64] }) align 8 %0, ptr nonnull align 8 %8, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.31)
           to label %38 unwind label %.loopexit.split-lp
@@ -3948,9 +3948,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   %10 = alloca { i64, [21 x i64] }, align 8
   %11 = alloca { { { ptr, i64 }, i64 }, ptr }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hd960505526d68d2eE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %11)
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %11, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   br label %14
 
 14:                                               ; preds = %34, %3
@@ -3998,7 +3998,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
           to label %26 unwind label %.loopexit7
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %10, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h63775ec9fba99d30E"(ptr sret({ ptr, [3 x i64] }) align 8 %0, ptr nonnull align 8 %8, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.31)
           to label %38 unwind label %.loopexit.split-lp
@@ -4076,9 +4076,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   %10 = alloca { i64, [28 x i64] }, align 8
   %11 = alloca { { { ptr, i64 }, i64 }, ptr }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h17cd052a15720e8dE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %11)
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %11, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   br label %14
 
 14:                                               ; preds = %34, %3
@@ -4126,7 +4126,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
           to label %26 unwind label %.loopexit7
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %10, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hf47ef91793a22d2cE"(ptr sret({ ptr, [3 x i64] }) align 8 %0, ptr nonnull align 8 %8, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.31)
           to label %38 unwind label %.loopexit.split-lp
@@ -4204,9 +4204,9 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
   %10 = alloca { i64, [36 x i64] }, align 8
   %11 = alloca { { { ptr, i64 }, i64 }, ptr }, align 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hdd8607e16fbfd2c3E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %11)
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %11, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   br label %14
 
 14:                                               ; preds = %34, %3
@@ -4254,7 +4254,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
           to label %26 unwind label %.loopexit7
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 } } } }, ptr %10, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hf97722e28c22900dE"(ptr sret({ ptr, [3 x i64] }) align 8 %0, ptr nonnull align 8 %8, ptr nonnull align 8 @anon.21ee45fd481502f672d88904f8d127ed.31)
           to label %38 unwind label %.loopexit.split-lp
@@ -4325,7 +4325,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_wit
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h319190420bdf6c24E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hac5d25eea56fff22E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf25b4213366b11ebE"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4337,7 +4337,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4355,7 +4355,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h36fca829c7b8781fE"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd5897eeb01dcb848E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2fb1abbbeeb146bfE"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4367,7 +4367,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4385,7 +4385,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4d7154eb250bc885E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc96ecfb1dde2fb40E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h22ac295f13d8ee74E"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4397,7 +4397,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4415,7 +4415,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5321ea8d37684bd9E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbfaf20aa4e8a2278E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7ee60477913f9685E"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4427,7 +4427,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4445,7 +4445,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68d489b9665bf5c0E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h01ec9614ddedc24aE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdd8bca295bd0385fE"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4457,7 +4457,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4475,7 +4475,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6c80dcc1e4d44324E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h212fb4bb50f28766E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h130bee993bc3acf2E"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4487,7 +4487,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4505,7 +4505,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6d029b6533394ec7E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he57569bdf162add2E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9e22cb4b99ac7e5aE"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4517,7 +4517,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4535,7 +4535,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd40a4228b7f96130E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he34ff67ec4148385E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6710e4a9d5b00806E"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4547,7 +4547,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4565,7 +4565,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8e0b13206a8db7cE"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2eb0b96bec9b8a29E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6c9c337cddf30b89E"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4577,7 +4577,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4595,7 +4595,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hdb0d99c51b463ff9E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc7358b55370ab654E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8035e8b8e99e697cE"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4607,7 +4607,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4625,7 +4625,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he72e5ecdc6e75183E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1173ce543d7cb24eE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7288cde5bb63b5efE"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4637,7 +4637,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4655,7 +4655,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17heeb1bfedb32ed3eeE"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9d0171165054c10bE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = invoke align 8 ptr @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h98c8565fb4620e46E"(ptr nonnull align 8 %4)
           to label %8 unwind label %6
 
@@ -4667,7 +4667,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %9, align 8
   ret void
 
@@ -4684,7 +4684,7 @@ define void @"_ZN79_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN138_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$syn..punctuated..Pair$LT$T$C$P$GT$$GT$$GT$6extend17h1c13e6a10093fb09E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { { { { i64, [12 x i64] } } }, { ptr, i64, ptr, ptr, {}, { {} } } }, align 8
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17he0e808084f10f052E"(ptr nonnull align 8 %4)
           to label %"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$17empty_or_trailing17h52cea51123f2b6f4E.exit" unwind label %11
 
@@ -4731,11 +4731,11 @@ define void @_ZN3syn10punctuated9do_extend17hdb07686e61ea7b32E(ptr align 8 %0, p
   %9 = alloca { i64, [13 x i64] }, align 8
   %10 = alloca { { { { i64, [12 x i64] } } }, { ptr, i64, ptr, ptr, {}, { {} } } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
-  %11 = getelementptr inbounds { { { { i64, [12 x i64] } } }, { ptr, i64, ptr, ptr, {}, { {} } } }, ptr %10, i64 0, i32 1
-  %12 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %8, i64 0, i32 1
-  %13 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %6, i64 0, i32 1
-  %14 = getelementptr inbounds { [1 x i64], { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } } }, ptr %8, i64 0, i32 1
-  %15 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %12 = getelementptr inbounds i8, ptr %8, i64 104
+  %13 = getelementptr inbounds i8, ptr %6, i64 104
+  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
   br label %.outer
 
 .outer:                                           ; preds = %42, %2
@@ -4892,7 +4892,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h7ae8c91e69999622E"(ptr nonnull align 8 %11)
           to label %13 unwind label %26
 
@@ -4958,7 +4958,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread21:                                        ; preds = %26, %25
   %.pn1025 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %27, %26 ]
-  %29 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17h4a9cdccaac2fc001E"(ptr nonnull align 8 %29) #17
           to label %28 unwind label %23
 }
@@ -4976,7 +4976,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h7ae8c91e69999622E"(ptr nonnull align 8 %11)
           to label %13 unwind label %26
 
@@ -5042,7 +5042,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread21:                                        ; preds = %26, %25
   %.pn1025 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %27, %26 ]
-  %29 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..data..Field$GT$$GT$$GT$17h4a9cdccaac2fc001E"(ptr nonnull align 8 %29) #17
           to label %28 unwind label %23
 }
@@ -5060,7 +5060,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %2
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
   %12 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h630edb0919f42297E"(ptr nonnull align 8 %11)
           to label %13 unwind label %26
 
@@ -5126,7 +5126,7 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 
 .thread21:                                        ; preds = %26, %25
   %.pn1025 = phi { ptr, i32 } [ %lpad.thr_comm, %25 ], [ %27, %26 ]
-  %29 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %1, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$syn..generics..TypeParamBound$GT$$GT$$GT$17h73485af0f7708ba6E"(ptr nonnull align 8 %29) #17
           to label %28 unwind label %23
 }
@@ -5188,14 +5188,14 @@ define { ptr, ptr } @"_ZN106_$LT$$RF$syn..punctuated..Punctuated$LT$T$C$P$GT$$u2
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h95e3500d681c79a3E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h575a9257767663dcE"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc00278ad36ab3268E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h45f6c69668585c1aE"(ptr align 8 %12)
   store ptr %8, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h95d60f25d53fc03dE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %16 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -5214,7 +5214,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2db1b15e262fbfcE"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17haf0e6f7dd751e18aE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h7587886c1c47cc66E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5224,7 +5224,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62713d18712eedf7E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17h5cec6e5239b6fbeaE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h42860a98cb2dac76E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5234,7 +5234,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9985e74149e02039E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17hb5ee3e00a776a90bE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17hefe7164defd74bd4E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5244,7 +5244,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc70c0254f98817c5E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17ha25ab042813e6d92E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h345c49f75eebb4fbE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5254,7 +5254,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf10e95a811f2507E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17he819b2a76c30e20dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17hc069e92336d79518E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5264,7 +5264,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h066d0e9cd92ccf77E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17he6d10cce105d4a2cE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h574bd271691ae5a0E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5274,7 +5274,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ac49bb16e643867E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17hd9ecc7502ee639eeE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h2fae30bc60de053dE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5284,7 +5284,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed6c4c3cfe6b378aE"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17h96c6de054c035ef0E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17hced029e383e02db4E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5294,7 +5294,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6ee8a036672be250E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17h8909b3cdcb32bc27E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h55cf87fb79c989daE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5304,7 +5304,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h29028d8d6d351f07E"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17h40948c8d90f748e0E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17hf3dc599aa5e7e042E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5314,7 +5314,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6b36e58a64f781eE"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17h4192b34e504b37eaE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17hcc2863116cfb4314E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
@@ -5324,115 +5324,115 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72cba293ed9a9ddfE"(ptr align 8 %1)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17hd4939ab1a029ab9fE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr align 8 %4)
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17hbe6527cbf68f8987E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 %5)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h021a7885d3f4d4d5E"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { i32, [29 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h15f0b0e09d7372dcE"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { { i64, [28 x i64] }, { i32, [1 x i32] }, { i32, [7 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 }, {} }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 328
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3d3b64395081bf3aE"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { { i64, [21 x i64] }, { i32, [1 x i32] }, { [24 x i8], i8, [7 x i8] }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 240
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h5ef08bbc5e1efe3dE"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { { i64, [28 x i64] }, { [24 x i8], i8, [15 x i8] }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 296
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h76d6a027c028fb94E"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { { i64, [6 x i64] }, { [1 x i64], i64, [21 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 296
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h78fa4f85abeaaa75E"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h7fc16b48622e7f0fE"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { i64, [21 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 176
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha0375c063a647179E"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 104
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17haa3b3ab91b62fa4cE"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { i64, [39 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 320
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hab96aa8be12b4283E"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { i64, [59 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 480
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hd1812431a5a4a4adE"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { i64, [40 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 328
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hdd25490aa1d7128dE"(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { { i64, [28 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   ret void
 }
@@ -5549,7 +5549,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
 define void @"_ZN98_$LT$syn..punctuated..IntoPairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5aff97fd5351cc2E"(ptr sret({ i64, [13 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #5 {
   %3 = alloca { i64, [13 x i64] }, align 8
   %4 = alloca { i64, [13 x i64] }, align 8
-  %5 = getelementptr inbounds { { { { i64, [12 x i64] } } }, { ptr, i64, ptr, ptr, {}, { {} } } }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 104
   call void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ba98adba8e299c0E"(ptr nonnull sret({ i64, [13 x i64] }) align 8 %3, ptr nonnull align 8 %5)
   call void @"_ZN4core6option15Option$LT$T$GT$3map17h2e7a5d3fbd3b9023E"(ptr nonnull sret({ i64, [13 x i64] }) align 8 %4, ptr nonnull align 8 %3)
   %6 = icmp ne ptr %1, null
@@ -5560,10 +5560,10 @@ define void @"_ZN98_$LT$syn..punctuated..IntoPairs$LT$T$C$P$GT$$u20$as$u20$core.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN98_$LT$syn..punctuated..IntoPairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8a3dc58e42fd019aE"(ptr nocapture writeonly sret({ i64, [13 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  %4 = getelementptr inbounds { { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   ret void
 }
@@ -5599,12 +5599,12 @@ define hidden { ptr, ptr } @_ZN3syn10punctuated21empty_punctuated_iter17h5b096c5
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ff1b83ec9d13018E"(ptr nocapture readonly align 8 %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
   %5 = tail call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h50d230ae6c6f1fa2E"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  %8 = getelementptr inbounds ptr, ptr %7, i64 3
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = tail call align 8 ptr %9(ptr align 1 %6)
   ret ptr %10
@@ -5613,12 +5613,12 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44286ef2f607fd7eE"(ptr nocapture readonly align 8 %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
   %5 = tail call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd5499239807221c0E"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  %8 = getelementptr inbounds ptr, ptr %7, i64 3
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = tail call align 8 ptr %9(ptr align 1 %6)
   ret ptr %10
@@ -5627,12 +5627,12 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb0ac68a9b5cf765E"(ptr nocapture readonly align 8 %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
   %5 = tail call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h17c39016352776e1E"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  %8 = getelementptr inbounds ptr, ptr %7, i64 3
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = tail call align 8 ptr %9(ptr align 1 %6)
   ret ptr %10
@@ -5641,12 +5641,12 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN104_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h6fc271bcc388f34dE"(ptr nocapture readonly align 8 %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
   %5 = tail call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd5499239807221c0E"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  %8 = getelementptr inbounds ptr, ptr %7, i64 7
+  %8 = getelementptr inbounds i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = tail call align 8 ptr %9(ptr align 1 %6)
   ret ptr %10
@@ -5656,7 +5656,7 @@ define align 8 ptr @"_ZN104_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..
 define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1086c0556c70f4e6E"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb6b36e58a64f781eE"(ptr align 8 %0)
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17ha9764296ec89f587E"(ptr align 8 %2)
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h571e95c4bdaef9c1E"(ptr align 8 %3, ptr nonnull align 8 %4)
   ret ptr %5
 }
@@ -5665,7 +5665,7 @@ define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc9153a7f1aa6476cE"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h066d0e9cd92ccf77E"(ptr align 8 %0)
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h1aef71a580442ad3E"(ptr align 8 %2)
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hba13b636b45920f0E"(ptr align 8 %3, ptr nonnull align 8 %4)
   ret ptr %5
 }
@@ -5674,7 +5674,7 @@ define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he994db0a3ed792a0E"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc70c0254f98817c5E"(ptr align 8 %0)
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hb5a23c076b22b68fE"(ptr align 8 %2)
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfad0aefe45205a62E"(ptr align 8 %3, ptr nonnull align 8 %4)
   ret ptr %5
 }
@@ -5683,7 +5683,7 @@ define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hece7a4e219e157fdE"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62713d18712eedf7E"(ptr align 8 %0)
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h152822db3dd42a19E"(ptr align 8 %2)
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3f01a751c65a4e0dE"(ptr align 8 %3, ptr nonnull align 8 %4)
   ret ptr %5
 }
@@ -5742,7 +5742,7 @@ define align 8 ptr @"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h4fe385adce907516E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0c5f086a945fc152E"(ptr nonnull align 8 %2)
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
@@ -5752,7 +5752,7 @@ define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h60c09fa3fda8d477E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heff29b60f5314340E"(ptr nonnull align 8 %2)
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
@@ -5762,7 +5762,7 @@ define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h8df044a7b59e0463E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h628e8a351160bb1eE"(ptr nonnull align 8 %2)
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
@@ -5772,7 +5772,7 @@ define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17he3447b3e712f9843E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf776de009856880E"(ptr nonnull align 8 %2)
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
@@ -5838,14 +5838,14 @@ define align 8 ptr @"_ZN115_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN111_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h4aabddaf7e721221E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 488
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hf1e7087f430d7bf5E(ptr nonnull align 8 %9)
   %11 = add i64 %8, %10
   ret i64 %11
@@ -5853,14 +5853,14 @@ define i64 @"_ZN111_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN111_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h5ec037708ac90aa9E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = lshr exact i64 %7, 7
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h110b50313ec1d047E(ptr nonnull align 8 %9)
   %11 = add i64 %8, %10
   ret i64 %11
@@ -5868,14 +5868,14 @@ define i64 @"_ZN111_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN111_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h749ef4326781e772E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 112
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h70c777a74944867cE(ptr nonnull align 8 %9)
   %11 = add i64 %8, %10
   ret i64 %11
@@ -5883,14 +5883,14 @@ define i64 @"_ZN111_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN111_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h92fa72c6bf2d524aE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 336
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8e55fe6e55df2a9cE(ptr nonnull align 8 %9)
   %11 = add i64 %8, %10
   ret i64 %11
@@ -5901,12 +5901,12 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
   %3 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h565ec4e6621919daE"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hacd7d4d23401ac3bE"(ptr nonnull align 8 %6)
   store ptr %4, ptr %0, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %9, align 8
   ret void
 }
@@ -5916,12 +5916,12 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
   %3 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2e56c60dab7869e6E"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h256daf0ee67b84f0E"(ptr nonnull align 8 %6)
   store ptr %4, ptr %0, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %9, align 8
   ret void
 }
@@ -5931,12 +5931,12 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
   %3 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h71f80f444496ca2eE"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0420eb102fd14719E"(ptr nonnull align 8 %6)
   store ptr %4, ptr %0, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %9, align 8
   ret void
 }
@@ -5946,12 +5946,12 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
   %3 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17d371f497fcc480E"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9e115e87d1428c55E"(ptr nonnull align 8 %6)
   store ptr %4, ptr %0, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %9, align 8
   ret void
 }
@@ -5963,12 +5963,12 @@ define { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$
   %4 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h71f80f444496ca2eE"(ptr align 8 %0)
   %5 = extractvalue { ptr, ptr } %4, 0
   %6 = extractvalue { ptr, ptr } %4, 1
-  %7 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0420eb102fd14719E"(ptr nonnull align 8 %7)
   store ptr %5, ptr %2, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %8, ptr %10, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h467204fb1ff51894E"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %11 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -5985,12 +5985,12 @@ define { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$
   %4 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17d371f497fcc480E"(ptr align 8 %0)
   %5 = extractvalue { ptr, ptr } %4, 0
   %6 = extractvalue { ptr, ptr } %4, 1
-  %7 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9e115e87d1428c55E"(ptr nonnull align 8 %7)
   store ptr %5, ptr %2, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %8, ptr %10, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h0c15255ac038ce6fE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %11 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -6007,12 +6007,12 @@ define { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$
   %4 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h565ec4e6621919daE"(ptr align 8 %0)
   %5 = extractvalue { ptr, ptr } %4, 0
   %6 = extractvalue { ptr, ptr } %4, 1
-  %7 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hacd7d4d23401ac3bE"(ptr nonnull align 8 %7)
   store ptr %5, ptr %2, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %8, ptr %10, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17h95d60f25d53fc03dE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %11 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -6029,12 +6029,12 @@ define { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$
   %4 = tail call { ptr, ptr } @"_ZN71_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2e56c60dab7869e6E"(ptr align 8 %0)
   %5 = extractvalue { ptr, ptr } %4, 0
   %6 = extractvalue { ptr, ptr } %4, 1
-  %7 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = tail call align 8 ptr @"_ZN70_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h256daf0ee67b84f0E"(ptr nonnull align 8 %7)
   store ptr %5, ptr %2, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %2, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %8, ptr %10, align 8
   call void @"_ZN3syn5drops15NoDrop$LT$T$GT$3new17hf6dc2becb11d7c1fE"(ptr nonnull sret({ { { { ptr, ptr }, ptr } } }) align 8 %3, ptr nonnull align 8 %2)
   %11 = call ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 24, i64 8)
@@ -6059,12 +6059,12 @@ define hidden { ptr, ptr } @_ZN3syn10punctuated25empty_punctuated_iter_mut17hb78
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef82992333040b8E"(ptr nocapture readonly align 8 %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
   %5 = tail call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h4010c99fe4da8ad0E"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  %8 = getelementptr inbounds ptr, ptr %7, i64 3
+  %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = tail call align 8 ptr %9(ptr align 1 %6)
   ret ptr %10
@@ -6073,12 +6073,12 @@ define align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN107_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h1c925a4ebdf7a6e3E"(ptr nocapture readonly align 8 %0) unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !7, !noundef !5
   %5 = tail call { ptr, ptr } @"_ZN74_$LT$syn..drops..NoDrop$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h7d1acd2f0b32813bE"(ptr nonnull align 1 %2, ptr nonnull align 8 %4)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  %8 = getelementptr inbounds ptr, ptr %7, i64 7
+  %8 = getelementptr inbounds i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   %10 = tail call align 8 ptr %9(ptr align 1 %6)
   ret ptr %10
@@ -6088,7 +6088,7 @@ define align 8 ptr @"_ZN107_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$cor
 define align 8 ptr @"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h273f35abc0d0267dE"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hda8d356bc51325c2E"(ptr align 8 %0)
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h4d25af6b4f530676E"(ptr align 8 %2)
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h16d95546e42be760E"(ptr align 8 %3, ptr nonnull align 8 %4)
   ret ptr %5
 }
@@ -6097,7 +6097,7 @@ define align 8 ptr @"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20
 define align 8 ptr @"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6d8cd6498a3d0317E"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h34827a4f79a08ac7E"(ptr align 8 %0)
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hdcd8cf07fd3c306dE"(ptr align 8 %2)
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h3c8e7da7beac05cfE"(ptr align 8 %3, ptr nonnull align 8 %4)
   ret ptr %5
 }
@@ -6106,7 +6106,7 @@ define align 8 ptr @"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20
 define align 8 ptr @"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hed7651c3d0c671d5E"(ptr align 8 %0) unnamed_addr #5 {
   %2 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdfa21d8f246f570cE"(ptr align 8 %0)
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h8bde54e388d8e01aE"(ptr align 8 %2)
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h42273419cfc2a9beE"(ptr align 8 %3, ptr nonnull align 8 %4)
   ret ptr %5
 }
@@ -6152,7 +6152,7 @@ define align 8 ptr @"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h53f3bb1f631e6cb9E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h157080bf844d90f2E"(ptr nonnull align 8 %2)
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
@@ -6162,7 +6162,7 @@ define align 8 ptr @"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h722f88aec21ce624E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbd551e7a9ba95843E"(ptr nonnull align 8 %2)
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
@@ -6172,7 +6172,7 @@ define align 8 ptr @"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha3e6b6617c69638dE"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a9bf466bec6c69fE"(ptr nonnull align 8 %2)
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
@@ -6224,14 +6224,14 @@ define align 8 ptr @"_ZN118_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN114_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17h1d3e8ababb3ba5b9E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 336
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h77f33e222b259a8dE(ptr nonnull align 8 %9)
   %11 = add i64 %8, %10
   ret i64 %11
@@ -6239,14 +6239,14 @@ define i64 @"_ZN114_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN114_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17ha54e544a555820c6E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 112
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4b52ab6cb301ef00E(ptr nonnull align 8 %9)
   %11 = add i64 %8, %10
   ret i64 %11
@@ -6254,14 +6254,14 @@ define i64 @"_ZN114_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @"_ZN114_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17he7f4ae7610300bc4E"(ptr align 8 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub nuw i64 %5, %6
   %8 = udiv exact i64 %7, 488
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h2455834fd46a6034E(ptr nonnull align 8 %9)
   %11 = add i64 %8, %10
   ret i64 %11
@@ -6270,7 +6270,7 @@ define i64 @"_ZN114_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h0a14a20073b5be50E(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6278,7 +6278,7 @@ define void @_ZN3syn10punctuated4Pair3End17h0a14a20073b5be50E(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h18a38012c715c4a7E(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6286,7 +6286,7 @@ define void @_ZN3syn10punctuated4Pair3End17h18a38012c715c4a7E(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h23d5292c3b7e5650E(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6294,7 +6294,7 @@ define void @_ZN3syn10punctuated4Pair3End17h23d5292c3b7e5650E(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h255785e4a55ad850E(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6302,7 +6302,7 @@ define void @_ZN3syn10punctuated4Pair3End17h255785e4a55ad850E(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h5a591567125ebc3fE(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6310,7 +6310,7 @@ define void @_ZN3syn10punctuated4Pair3End17h5a591567125ebc3fE(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h68b3d13ad52a775fE(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6318,14 +6318,14 @@ define void @_ZN3syn10punctuated4Pair3End17h68b3d13ad52a775fE(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h829335aa2d3c636aE(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h89b395f99dc466b9E(ptr nocapture writeonly sret({ i64, [13 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds { [1 x i64], { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   store i64 3, ptr %0, align 8
   ret void
@@ -6334,7 +6334,7 @@ define void @_ZN3syn10punctuated4Pair3End17h89b395f99dc466b9E(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17h8d71a06603c0936fE(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6342,7 +6342,7 @@ define void @_ZN3syn10punctuated4Pair3End17h8d71a06603c0936fE(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17hb2fb0a9cb74c80aeE(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6350,7 +6350,7 @@ define void @_ZN3syn10punctuated4Pair3End17hb2fb0a9cb74c80aeE(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17hcfe8236d15503f7dE(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6358,7 +6358,7 @@ define void @_ZN3syn10punctuated4Pair3End17hcfe8236d15503f7dE(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17hcff6ac26fcade93dE(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -6366,18 +6366,18 @@ define void @_ZN3syn10punctuated4Pair3End17hcff6ac26fcade93dE(ptr nocapture writ
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN3syn10punctuated4Pair3End17hd438db74a23f4b94E(ptr nocapture writeonly sret({ [1 x i64], ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$10into_value17hbfc0fb4f5ed5ffa1E"(ptr nocapture writeonly sret({ { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #7 {
   %3 = alloca { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, align 8
   %4 = load i64, ptr %1, align 8, !range !10, !noundef !5
   %.not = icmp eq i64 %4, 3
-  %5 = getelementptr inbounds { [1 x i64], { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } } }, ptr %1, i64 0, i32 1
-  %.sink = select i1 %.not, ptr %5, ptr %1
+  %.sink.idx = select i1 %.not, i64 8, i64 0
+  %.sink = getelementptr inbounds i8, ptr %1, i64 %.sink.idx
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %.sink, i64 104, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
   ret void
@@ -6406,7 +6406,7 @@ define align 8 ptr @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$5value17had5608822e58
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef align 8 ptr @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$5punct17h28e7229eb74d6f0aE"(ptr readonly align 8 %0) unnamed_addr #9 {
-  %2 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %.not = icmp eq ptr %3, null
   %. = select i1 %.not, ptr null, ptr %2
@@ -6415,7 +6415,7 @@ define noundef align 8 ptr @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$5punct17h28e7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef align 8 ptr @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$5punct17h9cbf8fa8537f6f43E"(ptr readonly align 8 %0) unnamed_addr #9 {
-  %2 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %.not = icmp eq ptr %3, null
   %. = select i1 %.not, ptr null, ptr %2
@@ -6424,7 +6424,7 @@ define noundef align 8 ptr @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$5punct17h9cbf
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef align 8 ptr @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$5punct17hcc4e48d3d5f61996E"(ptr readonly align 8 %0) unnamed_addr #9 {
-  %2 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !5
   %.not = icmp eq ptr %3, null
   %. = select i1 %.not, ptr null, ptr %2
@@ -6434,7 +6434,7 @@ define noundef align 8 ptr @"_ZN3syn10punctuated17Pair$LT$T$C$P$GT$5punct17hcc4e
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h37151f4bf006d4f9E"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #5 {
   %4 = tail call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17h5edc9f48dcf3f4ebE"(ptr align 8 %0)
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hf2a362b6159abe64E"(ptr nonnull align 8 %5)
   %..i = zext i1 %6 to i64
   %7 = add i64 %4, -1
@@ -6475,14 +6475,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h430a4589b4854a7fE"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hfd3223d9e9ba4f38E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h0315aac6e0130505E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h66075882015bc589E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h1b5b7bde517d1824E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6497,14 +6497,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h6d40decb4693073bE"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h610eb7c449f67a39E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hec8c4b4a4d6d4f04E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb4567f4a07387a7bE"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17hba1b03b309814837E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6519,14 +6519,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17ha01a1e5468d798faE"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h12c41c88d4153ed2E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hf51d6c236b95ab66E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb4341c467a71c2b8E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17hcd3699b419fc9ac7E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6541,14 +6541,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h95e3500d681c79a3E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h575a9257767663dcE"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc00278ad36ab3268E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h45f6c69668585c1aE"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h4803dba2cb444456E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6563,14 +6563,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hafe9ca5347f5cb44E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h8a976b94efa9eec0E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc99a4f4529052681E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he9b31621571cbf84E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h0f6b85bee84aa1c4E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6585,14 +6585,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h940bf6767ab40d54E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17he28b61e39f94b396E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hc4acffc27ebbf152E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd805226e4c2329a7E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17hf265ecef3a674ecaE"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6607,14 +6607,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hbcfbf88a7c4fee31E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h82569a8b564335a5E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h67dd849428c1c939E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h381b1574fe2eed8cE"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17ha76a7ddcf487a36fE"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6629,14 +6629,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17hc70c2e33e8d9a05eE"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h5281c29f15806107E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17h7f88784511e051f5E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h109b020629d749b0E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h4cc5c66a490fd678E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6651,14 +6651,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h9124d574004f0bf0E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h1c95d7534be59a87E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hb58b049156da7785E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc31b230c3d350545E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17he7e73ccce041ec30E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6673,14 +6673,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h443364e14dfee874E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17hd2678ea8e93ee49eE"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hb385477cb2768ab9E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h95c42b18dc41f886E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h396161641571f209E"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6695,14 +6695,14 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
   %7 = tail call { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h7a760bf1e1263795E"(ptr align 8 %5, i64 %6)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6as_ref17h953e3213d4fa4279E"(ptr nonnull align 8 %10)
   %12 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$3map17hd791c63baaec6010E"(ptr align 8 %11)
   %13 = tail call align 8 ptr @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2cd1990d3dd9cc39E"(ptr align 8 %12)
   store ptr %8, ptr %3, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %3, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %13, ptr %15, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h7d29fa4a082b1f8cE"(ptr align 8 %1, ptr nonnull align 8 %3)
   ret void
@@ -6710,7 +6710,7 @@ define void @"_ZN3syn10punctuated8printing97_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17h1e67a68c7b32336fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17he15d12b0a58ded64E"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6726,7 +6726,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17h3a138550051cd52fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h5d440c3135a62b0cE"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6742,7 +6742,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17h694390b525beb06cE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hce08923ec789603aE"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6758,7 +6758,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17h81baf558cba0afc0E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hc21f0936d8b78eaaE"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6774,7 +6774,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17h91f466b46ee7c261E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9181798373765427E"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6790,7 +6790,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hb42350ac6835d540E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8608d98dda664701E"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6806,7 +6806,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hc297a8cad0ea1407E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h95235275ed974179E"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6822,7 +6822,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hc72517142ce6e551E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h3bc194086459cc4aE"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6838,7 +6838,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hd123319d7096b161E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hf145f865fbab0abfE"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6854,7 +6854,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hdef85fd1bcba7f5bE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h1caf56b3ae7c3962E"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6870,7 +6870,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hea4199e7a0f084edE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha79641dd2c050706E"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -6886,7 +6886,7 @@ define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTo
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN3syn10punctuated8printing91_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..punctuated..Pair$LT$T$C$P$GT$$GT$9to_tokens17hfd48a3a7d864fce1E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %.not = icmp eq ptr %4, null
   tail call void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h1001be45d0701b79E"(ptr nonnull align 8 %0, ptr align 8 %1)
@@ -8371,7 +8371,7 @@ attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

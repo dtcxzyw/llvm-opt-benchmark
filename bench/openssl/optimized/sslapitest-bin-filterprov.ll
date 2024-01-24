@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @filter_provider_init(ptr nocapture noundef readnone %handle, ptr nocapture noundef readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
+define dso_local noundef i32 @filter_provider_init(ptr nocapture noundef readnone %handle, ptr nocapture noundef readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2040) @ourglobals, i8 0, i64 2040, i1 false)
   %call = tail call ptr @OSSL_LIB_CTX_new() #6
@@ -66,7 +66,7 @@ declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #2
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @filter_provider_set_filter(i32 noundef %operation, ptr noundef %filterstr) local_unnamed_addr #0 {
+define dso_local noundef i32 @filter_provider_set_filter(i32 noundef %operation, ptr noundef %filterstr) local_unnamed_addr #0 {
 entry:
   %no_cache = alloca i32, align 4
   store i32 0, ptr %no_cache, align 4
@@ -128,7 +128,7 @@ if.end39:                                         ; preds = %land.lhs.true33, %i
   br i1 %exitcond, label %err, label %for.end
 
 for.inc:                                          ; preds = %if.end21, %land.lhs.true33, %for.body16
-  %incdec.ptr = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algs.037, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %algs.037, i64 32
   %6 = load ptr, ptr %incdec.ptr, align 8
   %cmp15.not = icmp eq ptr %6, null
   br i1 %cmp15.not, label %err, label %for.body16, !llvm.loop !5
@@ -244,7 +244,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then:                                          ; preds = %for.body
   %3 = load i32, ptr getelementptr inbounds (%struct.filter_prov_globals_st, ptr @ourglobals, i64 0, i32 4), align 4
   store i32 %3, ptr %no_cache, align 4
-  %alg = getelementptr inbounds %struct.filter_prov_globals_st, ptr @ourglobals, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %alg = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br label %return
 
 for.end:                                          ; preds = %for.cond, %entry

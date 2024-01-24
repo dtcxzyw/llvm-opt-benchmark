@@ -15,36 +15,26 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.cvc5::internal::NodeBuilder" = type <{ %"class.cvc5::internal::expr::NodeValue", [10 x ptr], ptr, ptr, i32, [4 x i8] }>
 %"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"class.cvc5::internal::NodeTemplate.60" = type { ptr }
-%"class.cvc5::internal::theory::arith::nl::IAndUtils" = type { %"class.std::map.61", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate" }
-%"class.std::map.61" = type { %"class.std::_Rb_tree.62" }
-%"class.std::_Rb_tree.62" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>, std::_Select1st<std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>, std::_Select1st<std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.66", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.66" = type { %"struct.std::less.67" }
-%"struct.std::less.67" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::_Rb_tree_node.92" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.93" }
-%"struct.__gnu_cxx::__aligned_membuf.93" = type { [24 x i8] }
 %"class.std::tuple.101" = type { %"struct.std::_Tuple_impl.102" }
 %"struct.std::_Tuple_impl.102" = type { %"struct.std::_Head_base.103" }
 %"struct.std::_Head_base.103" = type { ptr }
 %"class.std::tuple.104" = type { i8 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [56 x i8] }
 %"class.std::map.69" = type { %"class.std::_Rb_tree.70" }
 %"class.std::_Rb_tree.70" = type { %"struct.std::_Rb_tree<std::pair<long, long>, std::pair<const std::pair<long, long>, unsigned long>, std::_Select1st<std::pair<const std::pair<long, long>, unsigned long>>, std::less<std::pair<long, long>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::pair<long, long>, std::pair<const std::pair<long, long>, unsigned long>, std::_Select1st<std::pair<const std::pair<long, long>, unsigned long>>, std::less<std::pair<long, long>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.74", %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_key_compare.74" = type { %"struct.std::less.75" }
 %"struct.std::less.75" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::tuple.108" = type { %"struct.std::_Tuple_impl.109" }
 %"struct.std::_Tuple_impl.109" = type { %"struct.std::_Head_base.110" }
 %"struct.std::_Head_base.110" = type { ptr }
 %"class.std::map.81" = type { %"class.std::_Rb_tree.82" }
 %"class.std::_Rb_tree.82" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, unsigned long>, std::_Select1st<std::pair<const unsigned long, unsigned long>>, std::less<unsigned long>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, unsigned long>, std::_Select1st<std::pair<const unsigned long, unsigned long>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.66", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare.66" = type { %"struct.std::less.67" }
+%"struct.std::less.67" = type { i8 }
 %"struct.std::pair" = type { i64, i64 }
-%"struct.std::_Rb_tree_node.94" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.95" }
-%"struct.__gnu_cxx::__aligned_membuf.95" = type { [16 x i8] }
 %"struct.std::_Rb_tree<std::pair<long, long>, std::pair<const std::pair<long, long>, unsigned long>, std::_Select1st<std::pair<const std::pair<long, long>, unsigned long>>, std::less<std::pair<long, long>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>, std::_Select1st<std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>>, std::less<unsigned long>>::_Auto_node" = type { ptr, ptr }
 
@@ -138,7 +128,7 @@ invoke.cont4.i:                                   ; preds = %invoke.cont.i
           to label %.noexc.i unwind label %lpad5.i
 
 .noexc.i:                                         ; preds = %invoke.cont4.i
-  %_mp_den.i.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %ref.tmp2.i)
           to label %.noexc3.i unwind label %lpad5.i
 
@@ -574,7 +564,7 @@ entry:
   store ptr %0, ptr %_M_right.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %d_zero = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::IAndUtils", ptr %this, i64 0, i32 1
+  %d_zero = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %1, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !13
@@ -590,9 +580,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #16
@@ -607,7 +597,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %init.check.i.i, %entry
   %4 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %4, ptr %d_zero, align 8
-  %d_one = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::IAndUtils", ptr %this, i64 0, i32 2
+  %d_one = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i12 = icmp eq i8 %5, 0
   br i1 %guard.uninitialized.i.i12, label %init.check.i.i13, label %invoke.cont3, !prof !13
@@ -623,9 +613,9 @@ init.i.i15:                                       ; preds = %init.check.i.i13
 
 invoke.cont.i.i18:                                ; preds = %init.i.i15
   store i64 1152920405095219200, ptr %call.i.i16, align 8
-  %d_kind.i.i.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i16, i64 0, i32 1
+  %d_kind.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i16, i64 8
   store i16 0, ptr %d_kind.i.i.i19, align 8
-  %d_nchildren.i.i.i20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i16, i64 0, i32 2
+  %d_nchildren.i.i.i20 = getelementptr inbounds i8, ptr %call.i.i16, i64 12
   store i32 0, ptr %d_nchildren.i.i.i20, align 4
   store ptr %call.i.i16, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #16
@@ -640,7 +630,7 @@ lpad.i.i17:                                       ; preds = %init.i.i15
 invoke.cont3:                                     ; preds = %invoke.cont.i.i18, %init.check.i.i13, %invoke.cont
   %8 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %8, ptr %d_one, align 8
-  %d_two = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::IAndUtils", ptr %this, i64 0, i32 3
+  %d_two = getelementptr inbounds i8, ptr %this, i64 64
   %9 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i23 = icmp eq i8 %9, 0
   br i1 %guard.uninitialized.i.i23, label %init.check.i.i24, label %invoke.cont5, !prof !13
@@ -656,9 +646,9 @@ init.i.i26:                                       ; preds = %init.check.i.i24
 
 invoke.cont.i.i29:                                ; preds = %init.i.i26
   store i64 1152920405095219200, ptr %call.i.i27, align 8
-  %d_kind.i.i.i30 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i27, i64 0, i32 1
+  %d_kind.i.i.i30 = getelementptr inbounds i8, ptr %call.i.i27, i64 8
   store i16 0, ptr %d_kind.i.i.i30, align 8
-  %d_nchildren.i.i.i31 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i27, i64 0, i32 2
+  %d_nchildren.i.i.i31 = getelementptr inbounds i8, ptr %call.i.i27, i64 12
   store i32 0, ptr %d_nchildren.i.i.i31, align 4
   store ptr %call.i.i27, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #16
@@ -1086,7 +1076,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1189,16 +1179,16 @@ _ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith2nl9IAndUtils18createITEFromTableENS0_12NodeTemplateILb1EEES6_jRKSt3mapISt4pairIllEmSt4lessIS9_ESaIS8_IKS9_mEEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y, i32 noundef %granularity, ptr noundef nonnull readonly align 8 dereferenceable(48) %table) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nb.i186 = alloca %"class.cvc5::internal::NodeBuilder", align 8
-  %agg.tmp.i187 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
-  %agg.tmp4.i188 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
+  %nb.i180 = alloca %"class.cvc5::internal::NodeBuilder", align 8
+  %agg.tmp.i181 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
+  %agg.tmp4.i182 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
   %agg.tmp9.i = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
-  %nb.i129 = alloca %"class.cvc5::internal::NodeBuilder", align 8
-  %agg.tmp.i130 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
-  %agg.tmp4.i131 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
-  %nb.i114 = alloca %"class.cvc5::internal::NodeBuilder", align 8
-  %agg.tmp.i115 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
-  %agg.tmp4.i116 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
+  %nb.i125 = alloca %"class.cvc5::internal::NodeBuilder", align 8
+  %agg.tmp.i126 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
+  %agg.tmp4.i127 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
+  %nb.i110 = alloca %"class.cvc5::internal::NodeBuilder", align 8
+  %agg.tmp.i111 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
+  %agg.tmp4.i112 = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
   %agg.tmp4.i = alloca %"class.cvc5::internal::NodeTemplate.60", align 8
@@ -1226,33 +1216,29 @@ entry:
 while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.i.i
   %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %0, %entry ]
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp slt i64 %1, -1
   br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
   %cmp4.i.i.i.i.i.i = icmp sgt i64 %1, -1
-  br i1 %cmp4.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i
+  br i1 %cmp4.i.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 40
   %2 = load i64, ptr %second.i.i.i.i.i.i, align 8
   %cmp6.i.i.i.i.i.i = icmp slt i64 %2, -1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i.i
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 2
-  br label %if.end.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %while.body.i.i.i.i
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 3
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.then.i.i.i.i ]
-  %__x.addr.1.in.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i, %if.else.i.i.i.i ], [ %_M_left.i.i.i.i.i, %if.then.i.i.i.i ]
-  %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
+if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %lor.rhs.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %lor.rhs.i.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i ]
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 %.sink.i.i.i.i
+  %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i, label %while.body.i.i.i.i, !llvm.loop !14
 
@@ -1261,7 +1247,7 @@ _ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i: ; p
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i.i.i = icmp sgt i64 %3, -1
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.rhs.i.i.i
@@ -1271,7 +1257,7 @@ lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i
   br i1 %cmp4.i.i.i.not, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE2atERS4_.exit
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i:       ; preds = %lor.rhs.i.i.i
-  %second5.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %4 = load i64, ptr %second5.i.i.i, align 8
   %cmp6.i.i.i = icmp sgt i64 %4, -1
   br i1 %cmp6.i.i.i, label %if.then.i, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE2atERS4_.exit
@@ -1281,7 +1267,7 @@ if.then.i:                                        ; preds = %_ZNKSt4lessISt4pair
   unreachable
 
 _ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE2atERS4_.exit: ; preds = %lor.rhs.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i
-  %second.i25 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %second.i25 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 48
   %5 = load i64, ptr %second.i25, align 8
   call void @_ZN4cvc58internal8RationalC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef %5)
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3360) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1292,8 +1278,8 @@ invoke.cont:                                      ; preds = %_ZNKSt3mapISt4pairI
           to label %for.cond.preheader unwind label %terminate.lpad.i.i
 
 for.cond.preheader:                               ; preds = %invoke.cont
-  %cmp297.not = icmp eq i64 %conv3, 0
-  br i1 %cmp297.not, label %nrvo.skipdtor, label %for.cond10.preheader
+  %cmp291.not = icmp eq i64 %conv3, 0
+  br i1 %cmp291.not, label %nrvo.skipdtor, label %for.cond10.preheader
 
 terminate.lpad.i.i:                               ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
@@ -1303,136 +1289,128 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
   unreachable
 
 for.cond10.preheader:                             ; preds = %for.cond.preheader, %for.inc113
-  %storemerge298 = phi i64 [ %inc114, %for.inc113 ], [ 0, %for.cond.preheader ]
+  %storemerge292 = phi i64 [ %inc114, %for.inc113 ], [ 0, %for.cond.preheader ]
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %for.cond10.preheader, %for.inc
-  %storemerge12295 = phi i64 [ 0, %for.cond10.preheader ], [ %inc, %for.inc ]
+  %storemerge12289 = phi i64 [ 0, %for.cond10.preheader ], [ %inc, %for.inc ]
   %8 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not6.i.i.i.i30 = icmp eq ptr %8, null
-  br i1 %cmp.not6.i.i.i.i30, label %if.then.i106.invoke, label %while.body.i.i.i.i33
+  br i1 %cmp.not6.i.i.i.i30, label %if.then.i103.invoke, label %while.body.i.i.i.i33
 
-while.body.i.i.i.i33:                             ; preds = %invoke.cont16, %if.end.i.i.i.i45
-  %__x.addr.08.i.i.i.i34 = phi ptr [ %__x.addr.1.i.i.i.i48, %if.end.i.i.i.i45 ], [ %8, %invoke.cont16 ]
-  %__y.addr.07.i.i.i.i35 = phi ptr [ %__y.addr.1.i.i.i.i46, %if.end.i.i.i.i45 ], [ %add.ptr.i.i.i.i, %invoke.cont16 ]
-  %_M_storage.i.i.i.i.i.i36 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i34, i64 0, i32 1
+while.body.i.i.i.i33:                             ; preds = %invoke.cont16, %if.end.i.i.i.i43
+  %__x.addr.08.i.i.i.i34 = phi ptr [ %__x.addr.1.i.i.i.i47, %if.end.i.i.i.i43 ], [ %8, %invoke.cont16 ]
+  %__y.addr.07.i.i.i.i35 = phi ptr [ %__y.addr.1.i.i.i.i45, %if.end.i.i.i.i43 ], [ %add.ptr.i.i.i.i, %invoke.cont16 ]
+  %_M_storage.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i34, i64 32
   %9 = load i64, ptr %_M_storage.i.i.i.i.i.i36, align 8
-  %cmp.i.i.i.i.i.i37 = icmp slt i64 %9, %storemerge298
-  br i1 %cmp.i.i.i.i.i.i37, label %if.else.i.i.i.i62, label %lor.rhs.i.i.i.i.i.i38
+  %cmp.i.i.i.i.i.i37 = icmp slt i64 %9, %storemerge292
+  br i1 %cmp.i.i.i.i.i.i37, label %if.else.i.i.i.i61, label %lor.rhs.i.i.i.i.i.i38
 
 lor.rhs.i.i.i.i.i.i38:                            ; preds = %while.body.i.i.i.i33
-  %cmp4.i.i.i.i.i.i39 = icmp slt i64 %storemerge298, %9
-  br i1 %cmp4.i.i.i.i.i.i39, label %if.then.i.i.i.i43, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40
+  %cmp4.i.i.i.i.i.i39 = icmp slt i64 %storemerge292, %9
+  br i1 %cmp4.i.i.i.i.i.i39, label %if.end.i.i.i.i43, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40: ; preds = %lor.rhs.i.i.i.i.i.i38
-  %second.i.i.i.i.i.i41 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i34, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i34, i64 40
   %10 = load i64, ptr %second.i.i.i.i.i.i41, align 8
-  %cmp6.i.i.i.i.i.i42 = icmp slt i64 %10, %storemerge12295
-  br i1 %cmp6.i.i.i.i.i.i42, label %if.else.i.i.i.i62, label %if.then.i.i.i.i43
+  %cmp6.i.i.i.i.i.i42 = icmp slt i64 %10, %storemerge12289
+  br i1 %cmp6.i.i.i.i.i.i42, label %if.else.i.i.i.i61, label %if.end.i.i.i.i43
 
-if.then.i.i.i.i43:                                ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40, %lor.rhs.i.i.i.i.i.i38
-  %_M_left.i.i.i.i.i44 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i34, i64 0, i32 2
-  br label %if.end.i.i.i.i45
+if.else.i.i.i.i61:                                ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40, %while.body.i.i.i.i33
+  br label %if.end.i.i.i.i43
 
-if.else.i.i.i.i62:                                ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40, %while.body.i.i.i.i33
-  %_M_right.i.i.i.i.i63 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i34, i64 0, i32 3
-  br label %if.end.i.i.i.i45
+if.end.i.i.i.i43:                                 ; preds = %if.else.i.i.i.i61, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40, %lor.rhs.i.i.i.i.i.i38
+  %.sink.i.i.i.i44 = phi i64 [ 24, %if.else.i.i.i.i61 ], [ 16, %lor.rhs.i.i.i.i.i.i38 ], [ 16, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40 ]
+  %__y.addr.1.i.i.i.i45 = phi ptr [ %__y.addr.07.i.i.i.i35, %if.else.i.i.i.i61 ], [ %__x.addr.08.i.i.i.i34, %lor.rhs.i.i.i.i.i.i38 ], [ %__x.addr.08.i.i.i.i34, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i40 ]
+  %_M_right.i.i.i.i.i46 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i34, i64 %.sink.i.i.i.i44
+  %__x.addr.1.i.i.i.i47 = load ptr, ptr %_M_right.i.i.i.i.i46, align 8
+  %cmp.not.i.i.i.i48 = icmp eq ptr %__x.addr.1.i.i.i.i47, null
+  br i1 %cmp.not.i.i.i.i48, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i49, label %while.body.i.i.i.i33, !llvm.loop !14
 
-if.end.i.i.i.i45:                                 ; preds = %if.else.i.i.i.i62, %if.then.i.i.i.i43
-  %__y.addr.1.i.i.i.i46 = phi ptr [ %__y.addr.07.i.i.i.i35, %if.else.i.i.i.i62 ], [ %__x.addr.08.i.i.i.i34, %if.then.i.i.i.i43 ]
-  %__x.addr.1.in.i.i.i.i47 = phi ptr [ %_M_right.i.i.i.i.i63, %if.else.i.i.i.i62 ], [ %_M_left.i.i.i.i.i44, %if.then.i.i.i.i43 ]
-  %__x.addr.1.i.i.i.i48 = load ptr, ptr %__x.addr.1.in.i.i.i.i47, align 8
-  %cmp.not.i.i.i.i49 = icmp eq ptr %__x.addr.1.i.i.i.i48, null
-  br i1 %cmp.not.i.i.i.i49, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i50, label %while.body.i.i.i.i33, !llvm.loop !14
+_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i49: ; preds = %if.end.i.i.i.i43
+  %cmp.i.i50 = icmp eq ptr %__y.addr.1.i.i.i.i45, %add.ptr.i.i.i.i
+  br i1 %cmp.i.i50, label %if.then.i103.invoke, label %lor.rhs.i51
 
-_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i50: ; preds = %if.end.i.i.i.i45
-  %cmp.i.i51 = icmp eq ptr %__y.addr.1.i.i.i.i46, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i51, label %if.then.i106.invoke, label %lor.rhs.i52
+lor.rhs.i51:                                      ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i49
+  %_M_storage.i.i.i52 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i45, i64 32
+  %11 = load i64, ptr %_M_storage.i.i.i52, align 8
+  %cmp.i.i.i53 = icmp slt i64 %storemerge292, %11
+  br i1 %cmp.i.i.i53, label %if.then.i103.invoke, label %lor.rhs.i.i.i54
 
-lor.rhs.i52:                                      ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i50
-  %_M_storage.i.i.i53 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i46, i64 0, i32 1
-  %11 = load i64, ptr %_M_storage.i.i.i53, align 8
-  %cmp.i.i.i54 = icmp slt i64 %storemerge298, %11
-  br i1 %cmp.i.i.i54, label %if.then.i106.invoke, label %lor.rhs.i.i.i55
+lor.rhs.i.i.i54:                                  ; preds = %lor.rhs.i51
+  %cmp4.i.i.i55 = icmp slt i64 %11, %storemerge292
+  br i1 %cmp4.i.i.i55, label %while.body.lr.ph.i.i.i.i74, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i56
 
-lor.rhs.i.i.i55:                                  ; preds = %lor.rhs.i52
-  %cmp4.i.i.i56 = icmp slt i64 %11, %storemerge298
-  br i1 %cmp4.i.i.i56, label %while.body.lr.ph.i.i.i.i76, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i57
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i56:     ; preds = %lor.rhs.i.i.i54
+  %second5.i.i.i57 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i45, i64 40
+  %12 = load i64, ptr %second5.i.i.i57, align 8
+  %cmp6.i.i.i58 = icmp slt i64 %storemerge12289, %12
+  br i1 %cmp6.i.i.i58, label %if.then.i103.invoke, label %while.body.lr.ph.i.i.i.i74
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i57:     ; preds = %lor.rhs.i.i.i55
-  %second5.i.i.i58 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i46, i64 0, i32 1, i32 0, i64 8
-  %12 = load i64, ptr %second5.i.i.i58, align 8
-  %cmp6.i.i.i59 = icmp slt i64 %storemerge12295, %12
-  br i1 %cmp6.i.i.i59, label %if.then.i106.invoke, label %while.body.lr.ph.i.i.i.i76
+while.body.lr.ph.i.i.i.i74:                       ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i56, %lor.rhs.i.i.i54
+  %second.i59 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i45, i64 48
+  %13 = load i64, ptr %second.i59, align 8
+  br label %while.body.i.i.i.i76
 
-while.body.lr.ph.i.i.i.i76:                       ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i57, %lor.rhs.i.i.i55
-  %second.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i46, i64 0, i32 1, i32 0, i64 16
-  %13 = load i64, ptr %second.i60, align 8
-  br label %while.body.i.i.i.i78
+while.body.i.i.i.i76:                             ; preds = %if.end.i.i.i.i86, %while.body.lr.ph.i.i.i.i74
+  %__x.addr.08.i.i.i.i77 = phi ptr [ %8, %while.body.lr.ph.i.i.i.i74 ], [ %__x.addr.1.i.i.i.i90, %if.end.i.i.i.i86 ]
+  %__y.addr.07.i.i.i.i78 = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i74 ], [ %__y.addr.1.i.i.i.i88, %if.end.i.i.i.i86 ]
+  %_M_storage.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i77, i64 32
+  %14 = load i64, ptr %_M_storage.i.i.i.i.i.i79, align 8
+  %cmp.i.i.i.i.i.i80 = icmp slt i64 %14, -1
+  br i1 %cmp.i.i.i.i.i.i80, label %if.else.i.i.i.i104, label %lor.rhs.i.i.i.i.i.i81
 
-while.body.i.i.i.i78:                             ; preds = %if.end.i.i.i.i90, %while.body.lr.ph.i.i.i.i76
-  %__x.addr.08.i.i.i.i79 = phi ptr [ %8, %while.body.lr.ph.i.i.i.i76 ], [ %__x.addr.1.i.i.i.i93, %if.end.i.i.i.i90 ]
-  %__y.addr.07.i.i.i.i80 = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i76 ], [ %__y.addr.1.i.i.i.i91, %if.end.i.i.i.i90 ]
-  %_M_storage.i.i.i.i.i.i81 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i79, i64 0, i32 1
-  %14 = load i64, ptr %_M_storage.i.i.i.i.i.i81, align 8
-  %cmp.i.i.i.i.i.i82 = icmp slt i64 %14, -1
-  br i1 %cmp.i.i.i.i.i.i82, label %if.else.i.i.i.i107, label %lor.rhs.i.i.i.i.i.i83
+lor.rhs.i.i.i.i.i.i81:                            ; preds = %while.body.i.i.i.i76
+  %cmp4.i.i.i.i.i.i82 = icmp sgt i64 %14, -1
+  br i1 %cmp4.i.i.i.i.i.i82, label %if.end.i.i.i.i86, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i83
 
-lor.rhs.i.i.i.i.i.i83:                            ; preds = %while.body.i.i.i.i78
-  %cmp4.i.i.i.i.i.i84 = icmp sgt i64 %14, -1
-  br i1 %cmp4.i.i.i.i.i.i84, label %if.then.i.i.i.i88, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i85
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i83: ; preds = %lor.rhs.i.i.i.i.i.i81
+  %second.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i77, i64 40
+  %15 = load i64, ptr %second.i.i.i.i.i.i84, align 8
+  %cmp6.i.i.i.i.i.i85 = icmp slt i64 %15, -1
+  br i1 %cmp6.i.i.i.i.i.i85, label %if.else.i.i.i.i104, label %if.end.i.i.i.i86
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i85: ; preds = %lor.rhs.i.i.i.i.i.i83
-  %second.i.i.i.i.i.i86 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i79, i64 0, i32 1, i32 0, i64 8
-  %15 = load i64, ptr %second.i.i.i.i.i.i86, align 8
-  %cmp6.i.i.i.i.i.i87 = icmp slt i64 %15, -1
-  br i1 %cmp6.i.i.i.i.i.i87, label %if.else.i.i.i.i107, label %if.then.i.i.i.i88
+if.else.i.i.i.i104:                               ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i83, %while.body.i.i.i.i76
+  br label %if.end.i.i.i.i86
 
-if.then.i.i.i.i88:                                ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i85, %lor.rhs.i.i.i.i.i.i83
-  %_M_left.i.i.i.i.i89 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i79, i64 0, i32 2
-  br label %if.end.i.i.i.i90
+if.end.i.i.i.i86:                                 ; preds = %if.else.i.i.i.i104, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i83, %lor.rhs.i.i.i.i.i.i81
+  %.sink.i.i.i.i87 = phi i64 [ 24, %if.else.i.i.i.i104 ], [ 16, %lor.rhs.i.i.i.i.i.i81 ], [ 16, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i83 ]
+  %__y.addr.1.i.i.i.i88 = phi ptr [ %__y.addr.07.i.i.i.i78, %if.else.i.i.i.i104 ], [ %__x.addr.08.i.i.i.i77, %lor.rhs.i.i.i.i.i.i81 ], [ %__x.addr.08.i.i.i.i77, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i83 ]
+  %_M_right.i.i.i.i.i89 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i77, i64 %.sink.i.i.i.i87
+  %__x.addr.1.i.i.i.i90 = load ptr, ptr %_M_right.i.i.i.i.i89, align 8
+  %cmp.not.i.i.i.i91 = icmp eq ptr %__x.addr.1.i.i.i.i90, null
+  br i1 %cmp.not.i.i.i.i91, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i92, label %while.body.i.i.i.i76, !llvm.loop !14
 
-if.else.i.i.i.i107:                               ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i85, %while.body.i.i.i.i78
-  %_M_right.i.i.i.i.i108 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i79, i64 0, i32 3
-  br label %if.end.i.i.i.i90
+_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i92: ; preds = %if.end.i.i.i.i86
+  %cmp.i.i93 = icmp eq ptr %__y.addr.1.i.i.i.i88, %add.ptr.i.i.i.i
+  br i1 %cmp.i.i93, label %if.then.i103.invoke, label %lor.rhs.i94
 
-if.end.i.i.i.i90:                                 ; preds = %if.else.i.i.i.i107, %if.then.i.i.i.i88
-  %__y.addr.1.i.i.i.i91 = phi ptr [ %__y.addr.07.i.i.i.i80, %if.else.i.i.i.i107 ], [ %__x.addr.08.i.i.i.i79, %if.then.i.i.i.i88 ]
-  %__x.addr.1.in.i.i.i.i92 = phi ptr [ %_M_right.i.i.i.i.i108, %if.else.i.i.i.i107 ], [ %_M_left.i.i.i.i.i89, %if.then.i.i.i.i88 ]
-  %__x.addr.1.i.i.i.i93 = load ptr, ptr %__x.addr.1.in.i.i.i.i92, align 8
-  %cmp.not.i.i.i.i94 = icmp eq ptr %__x.addr.1.i.i.i.i93, null
-  br i1 %cmp.not.i.i.i.i94, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i95, label %while.body.i.i.i.i78, !llvm.loop !14
+lor.rhs.i94:                                      ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i92
+  %_M_storage.i.i.i95 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i88, i64 32
+  %16 = load i64, ptr %_M_storage.i.i.i95, align 8
+  %cmp.i.i.i96 = icmp sgt i64 %16, -1
+  br i1 %cmp.i.i.i96, label %if.then.i103.invoke, label %lor.rhs.i.i.i97
 
-_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i95: ; preds = %if.end.i.i.i.i90
-  %cmp.i.i96 = icmp eq ptr %__y.addr.1.i.i.i.i91, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i96, label %if.then.i106.invoke, label %lor.rhs.i97
+lor.rhs.i.i.i97:                                  ; preds = %lor.rhs.i94
+  %cmp4.i.i.i98.not = icmp eq i64 %16, -1
+  br i1 %cmp4.i.i.i98.not, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i99, label %invoke.cont28
 
-lor.rhs.i97:                                      ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i95
-  %_M_storage.i.i.i98 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i91, i64 0, i32 1
-  %16 = load i64, ptr %_M_storage.i.i.i98, align 8
-  %cmp.i.i.i99 = icmp sgt i64 %16, -1
-  br i1 %cmp.i.i.i99, label %if.then.i106.invoke, label %lor.rhs.i.i.i100
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i99:     ; preds = %lor.rhs.i.i.i97
+  %second5.i.i.i100 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i88, i64 40
+  %17 = load i64, ptr %second5.i.i.i100, align 8
+  %cmp6.i.i.i101 = icmp sgt i64 %17, -1
+  br i1 %cmp6.i.i.i101, label %if.then.i103.invoke, label %invoke.cont28
 
-lor.rhs.i.i.i100:                                 ; preds = %lor.rhs.i97
-  %cmp4.i.i.i101.not = icmp eq i64 %16, -1
-  br i1 %cmp4.i.i.i101.not, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i102, label %invoke.cont28
-
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i102:    ; preds = %lor.rhs.i.i.i100
-  %second5.i.i.i103 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i91, i64 0, i32 1, i32 0, i64 8
-  %17 = load i64, ptr %second5.i.i.i103, align 8
-  %cmp6.i.i.i104 = icmp sgt i64 %17, -1
-  br i1 %cmp6.i.i.i104, label %if.then.i106.invoke, label %invoke.cont28
-
-if.then.i106.invoke:                              ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i95, %lor.rhs.i97, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i102, %invoke.cont16, %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i50, %lor.rhs.i52, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i57
+if.then.i103.invoke:                              ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i92, %lor.rhs.i94, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i99, %invoke.cont16, %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i49, %lor.rhs.i51, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i56
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #18
-          to label %if.then.i106.cont unwind label %lpad15
+          to label %if.then.i103.cont unwind label %lpad15
 
-if.then.i106.cont:                                ; preds = %if.then.i106.invoke
+if.then.i103.cont:                                ; preds = %if.then.i103.invoke
   unreachable
 
-invoke.cont28:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i102, %lor.rhs.i.i.i100
-  %second.i105 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i91, i64 0, i32 1, i32 0, i64 16
-  %18 = load i64, ptr %second.i105, align 8
+invoke.cont28:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i99, %lor.rhs.i.i.i97
+  %second.i102 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i88, i64 48
+  %18 = load i64, ptr %second.i102, align 8
   %cmp30 = icmp eq i64 %13, %18
   br i1 %cmp30, label %for.inc, label %if.end
 
@@ -1440,23 +1418,23 @@ lpad:                                             ; preds = %_ZNKSt3mapISt4pairI
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp)
-          to label %eh.resume unwind label %terminate.lpad.i.i111
+          to label %eh.resume unwind label %terminate.lpad.i.i107
 
-terminate.lpad.i.i111:                            ; preds = %lpad
+terminate.lpad.i.i107:                            ; preds = %lpad
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
   call void @__clang_call_terminate(ptr %21) #15
   unreachable
 
-lpad15:                                           ; preds = %if.then.i106.invoke
+lpad15:                                           ; preds = %if.then.i103.invoke
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup116
 
 if.end:                                           ; preds = %invoke.cont28
   %23 = load ptr, ptr %x, align 8
-  invoke void @_ZN4cvc58internal8RationalC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, i64 noundef %storemerge298)
+  invoke void @_ZN4cvc58internal8RationalC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39, i64 noundef %storemerge292)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %if.end
@@ -1469,14 +1447,14 @@ invoke.cont43:                                    ; preds = %invoke.cont41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i)
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %call, i32 noundef 5)
-          to label %.noexc113 unwind label %lpad46
+          to label %.noexc109 unwind label %lpad46
 
-.noexc113:                                        ; preds = %invoke.cont43
+.noexc109:                                        ; preds = %invoke.cont43
   store ptr %23, ptr %agg.tmp.i, align 8, !noalias !16
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !16
 
-invoke.cont3.i:                                   ; preds = %.noexc113
+invoke.cont3.i:                                   ; preds = %.noexc109
   store ptr %24, ptr %agg.tmp4.i, align 8, !noalias !16
   %call8.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call.i, ptr noundef nonnull %agg.tmp4.i)
           to label %invoke.cont7.i unwind label %lpad6.i, !noalias !16
@@ -1490,7 +1468,7 @@ lpad.i:                                           ; preds = %invoke.cont7.i
           cleanup
   br label %ehcleanup10.i
 
-lpad2.i:                                          ; preds = %.noexc113
+lpad2.i:                                          ; preds = %.noexc109
   %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup10.i
@@ -1512,7 +1490,7 @@ invoke.cont47:                                    ; preds = %invoke.cont7.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i)
   %28 = load ptr, ptr %ref.tmp34, align 8
   %29 = load ptr, ptr %y, align 8
-  invoke void @_ZN4cvc58internal8RationalC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57, i64 noundef %storemerge12295)
+  invoke void @_ZN4cvc58internal8RationalC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57, i64 noundef %storemerge12289)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont47
@@ -1521,165 +1499,161 @@ invoke.cont59:                                    ; preds = %invoke.cont47
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %30 = load ptr, ptr %ref.tmp56, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i114)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i115)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i116)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i114, ptr noundef nonnull %call, i32 noundef 5)
-          to label %.noexc126 unwind label %lpad64
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i110)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i111)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i112)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i110, ptr noundef nonnull %call, i32 noundef 5)
+          to label %.noexc122 unwind label %lpad64
 
-.noexc126:                                        ; preds = %invoke.cont61
-  store ptr %29, ptr %agg.tmp.i115, align 8, !noalias !19
-  %call.i117 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i114, ptr noundef nonnull %agg.tmp.i115)
-          to label %invoke.cont3.i121 unwind label %lpad2.i118, !noalias !19
+.noexc122:                                        ; preds = %invoke.cont61
+  store ptr %29, ptr %agg.tmp.i111, align 8, !noalias !19
+  %call.i113 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i110, ptr noundef nonnull %agg.tmp.i111)
+          to label %invoke.cont3.i117 unwind label %lpad2.i114, !noalias !19
 
-invoke.cont3.i121:                                ; preds = %.noexc126
-  store ptr %30, ptr %agg.tmp4.i116, align 8, !noalias !19
-  %call8.i122 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call.i117, ptr noundef nonnull %agg.tmp4.i116)
-          to label %invoke.cont7.i124 unwind label %lpad6.i123, !noalias !19
+invoke.cont3.i117:                                ; preds = %.noexc122
+  store ptr %30, ptr %agg.tmp4.i112, align 8, !noalias !19
+  %call8.i118 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call.i113, ptr noundef nonnull %agg.tmp4.i112)
+          to label %invoke.cont7.i120 unwind label %lpad6.i119, !noalias !19
 
-invoke.cont7.i124:                                ; preds = %invoke.cont3.i121
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(116) %nb.i114)
-          to label %invoke.cont65 unwind label %lpad.i125
+invoke.cont7.i120:                                ; preds = %invoke.cont3.i117
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(116) %nb.i110)
+          to label %invoke.cont65 unwind label %lpad.i121
 
-lpad.i125:                                        ; preds = %invoke.cont7.i124
+lpad.i121:                                        ; preds = %invoke.cont7.i120
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup10.i119
+  br label %ehcleanup10.i115
 
-lpad2.i118:                                       ; preds = %.noexc126
+lpad2.i114:                                       ; preds = %.noexc122
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup10.i119
+  br label %ehcleanup10.i115
 
-lpad6.i123:                                       ; preds = %invoke.cont3.i121
+lpad6.i119:                                       ; preds = %invoke.cont3.i117
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup10.i119
+  br label %ehcleanup10.i115
 
-ehcleanup10.i119:                                 ; preds = %lpad6.i123, %lpad2.i118, %lpad.i125
-  %.pn2.i120 = phi { ptr, i32 } [ %31, %lpad.i125 ], [ %33, %lpad6.i123 ], [ %32, %lpad2.i118 ]
-  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i114) #16
+ehcleanup10.i115:                                 ; preds = %lpad6.i119, %lpad2.i114, %lpad.i121
+  %.pn2.i116 = phi { ptr, i32 } [ %31, %lpad.i121 ], [ %33, %lpad6.i119 ], [ %32, %lpad2.i114 ]
+  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i110) #16
   br label %ehcleanup103
 
-invoke.cont65:                                    ; preds = %invoke.cont7.i124
-  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i114) #16
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i114)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i115)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i116)
+invoke.cont65:                                    ; preds = %invoke.cont7.i120
+  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i110) #16
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i110)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i111)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i112)
   %34 = load ptr, ptr %ref.tmp51, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i129)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i130)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i131)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i129, ptr noundef nonnull %call, i32 noundef 19)
-          to label %.noexc141 unwind label %lpad68
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i125)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i126)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i127)
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i125, ptr noundef nonnull %call, i32 noundef 19)
+          to label %.noexc137 unwind label %lpad68
 
-.noexc141:                                        ; preds = %invoke.cont65
-  store ptr %28, ptr %agg.tmp.i130, align 8, !noalias !22
-  %call.i132 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i129, ptr noundef nonnull %agg.tmp.i130)
-          to label %invoke.cont3.i136 unwind label %lpad2.i133, !noalias !22
+.noexc137:                                        ; preds = %invoke.cont65
+  store ptr %28, ptr %agg.tmp.i126, align 8, !noalias !22
+  %call.i128 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i125, ptr noundef nonnull %agg.tmp.i126)
+          to label %invoke.cont3.i132 unwind label %lpad2.i129, !noalias !22
 
-invoke.cont3.i136:                                ; preds = %.noexc141
-  store ptr %34, ptr %agg.tmp4.i131, align 8, !noalias !22
-  %call8.i137 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call.i132, ptr noundef nonnull %agg.tmp4.i131)
-          to label %invoke.cont7.i139 unwind label %lpad6.i138, !noalias !22
+invoke.cont3.i132:                                ; preds = %.noexc137
+  store ptr %34, ptr %agg.tmp4.i127, align 8, !noalias !22
+  %call8.i133 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call.i128, ptr noundef nonnull %agg.tmp4.i127)
+          to label %invoke.cont7.i135 unwind label %lpad6.i134, !noalias !22
 
-invoke.cont7.i139:                                ; preds = %invoke.cont3.i136
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(116) %nb.i129)
-          to label %invoke.cont78 unwind label %lpad.i140
+invoke.cont7.i135:                                ; preds = %invoke.cont3.i132
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(116) %nb.i125)
+          to label %invoke.cont78 unwind label %lpad.i136
 
-lpad.i140:                                        ; preds = %invoke.cont7.i139
+lpad.i136:                                        ; preds = %invoke.cont7.i135
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup10.i134
+  br label %ehcleanup10.i130
 
-lpad2.i133:                                       ; preds = %.noexc141
+lpad2.i129:                                       ; preds = %.noexc137
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup10.i134
+  br label %ehcleanup10.i130
 
-lpad6.i138:                                       ; preds = %invoke.cont3.i136
+lpad6.i134:                                       ; preds = %invoke.cont3.i132
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup10.i134
+  br label %ehcleanup10.i130
 
-ehcleanup10.i134:                                 ; preds = %lpad6.i138, %lpad2.i133, %lpad.i140
-  %.pn2.i135 = phi { ptr, i32 } [ %35, %lpad.i140 ], [ %37, %lpad6.i138 ], [ %36, %lpad2.i133 ]
-  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i129) #16
+ehcleanup10.i130:                                 ; preds = %lpad6.i134, %lpad2.i129, %lpad.i136
+  %.pn2.i131 = phi { ptr, i32 } [ %35, %lpad.i136 ], [ %37, %lpad6.i134 ], [ %36, %lpad2.i129 ]
+  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i125) #16
   br label %ehcleanup101
 
-invoke.cont78:                                    ; preds = %invoke.cont7.i139
-  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i129) #16
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i129)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i130)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i131)
+invoke.cont78:                                    ; preds = %invoke.cont7.i135
+  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i125) #16
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i125)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i126)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i127)
   %38 = load ptr, ptr %ref.tmp32, align 8
   %39 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %cmp.not6.i.i.i.i150 = icmp eq ptr %39, null
-  br i1 %cmp.not6.i.i.i.i150, label %if.then.i181, label %while.body.i.i.i.i153
+  %cmp.not6.i.i.i.i146 = icmp eq ptr %39, null
+  br i1 %cmp.not6.i.i.i.i146, label %if.then.i176, label %while.body.i.i.i.i149
 
-while.body.i.i.i.i153:                            ; preds = %invoke.cont78, %if.end.i.i.i.i165
-  %__x.addr.08.i.i.i.i154 = phi ptr [ %__x.addr.1.i.i.i.i168, %if.end.i.i.i.i165 ], [ %39, %invoke.cont78 ]
-  %__y.addr.07.i.i.i.i155 = phi ptr [ %__y.addr.1.i.i.i.i166, %if.end.i.i.i.i165 ], [ %add.ptr.i.i.i.i, %invoke.cont78 ]
-  %_M_storage.i.i.i.i.i.i156 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i154, i64 0, i32 1
-  %40 = load i64, ptr %_M_storage.i.i.i.i.i.i156, align 8
-  %cmp.i.i.i.i.i.i157 = icmp slt i64 %40, %storemerge298
-  br i1 %cmp.i.i.i.i.i.i157, label %if.else.i.i.i.i182, label %lor.rhs.i.i.i.i.i.i158
+while.body.i.i.i.i149:                            ; preds = %invoke.cont78, %if.end.i.i.i.i159
+  %__x.addr.08.i.i.i.i150 = phi ptr [ %__x.addr.1.i.i.i.i163, %if.end.i.i.i.i159 ], [ %39, %invoke.cont78 ]
+  %__y.addr.07.i.i.i.i151 = phi ptr [ %__y.addr.1.i.i.i.i161, %if.end.i.i.i.i159 ], [ %add.ptr.i.i.i.i, %invoke.cont78 ]
+  %_M_storage.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i150, i64 32
+  %40 = load i64, ptr %_M_storage.i.i.i.i.i.i152, align 8
+  %cmp.i.i.i.i.i.i153 = icmp slt i64 %40, %storemerge292
+  br i1 %cmp.i.i.i.i.i.i153, label %if.else.i.i.i.i177, label %lor.rhs.i.i.i.i.i.i154
 
-lor.rhs.i.i.i.i.i.i158:                           ; preds = %while.body.i.i.i.i153
-  %cmp4.i.i.i.i.i.i159 = icmp slt i64 %storemerge298, %40
-  br i1 %cmp4.i.i.i.i.i.i159, label %if.then.i.i.i.i163, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i160
+lor.rhs.i.i.i.i.i.i154:                           ; preds = %while.body.i.i.i.i149
+  %cmp4.i.i.i.i.i.i155 = icmp slt i64 %storemerge292, %40
+  br i1 %cmp4.i.i.i.i.i.i155, label %if.end.i.i.i.i159, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i156
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i160: ; preds = %lor.rhs.i.i.i.i.i.i158
-  %second.i.i.i.i.i.i161 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i154, i64 0, i32 1, i32 0, i64 8
-  %41 = load i64, ptr %second.i.i.i.i.i.i161, align 8
-  %cmp6.i.i.i.i.i.i162 = icmp slt i64 %41, %storemerge12295
-  br i1 %cmp6.i.i.i.i.i.i162, label %if.else.i.i.i.i182, label %if.then.i.i.i.i163
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i156: ; preds = %lor.rhs.i.i.i.i.i.i154
+  %second.i.i.i.i.i.i157 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i150, i64 40
+  %41 = load i64, ptr %second.i.i.i.i.i.i157, align 8
+  %cmp6.i.i.i.i.i.i158 = icmp slt i64 %41, %storemerge12289
+  br i1 %cmp6.i.i.i.i.i.i158, label %if.else.i.i.i.i177, label %if.end.i.i.i.i159
 
-if.then.i.i.i.i163:                               ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i160, %lor.rhs.i.i.i.i.i.i158
-  %_M_left.i.i.i.i.i164 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i154, i64 0, i32 2
-  br label %if.end.i.i.i.i165
+if.else.i.i.i.i177:                               ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i156, %while.body.i.i.i.i149
+  br label %if.end.i.i.i.i159
 
-if.else.i.i.i.i182:                               ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i160, %while.body.i.i.i.i153
-  %_M_right.i.i.i.i.i183 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i154, i64 0, i32 3
-  br label %if.end.i.i.i.i165
+if.end.i.i.i.i159:                                ; preds = %if.else.i.i.i.i177, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i156, %lor.rhs.i.i.i.i.i.i154
+  %.sink.i.i.i.i160 = phi i64 [ 24, %if.else.i.i.i.i177 ], [ 16, %lor.rhs.i.i.i.i.i.i154 ], [ 16, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i156 ]
+  %__y.addr.1.i.i.i.i161 = phi ptr [ %__y.addr.07.i.i.i.i151, %if.else.i.i.i.i177 ], [ %__x.addr.08.i.i.i.i150, %lor.rhs.i.i.i.i.i.i154 ], [ %__x.addr.08.i.i.i.i150, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i156 ]
+  %_M_right.i.i.i.i.i162 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i150, i64 %.sink.i.i.i.i160
+  %__x.addr.1.i.i.i.i163 = load ptr, ptr %_M_right.i.i.i.i.i162, align 8
+  %cmp.not.i.i.i.i164 = icmp eq ptr %__x.addr.1.i.i.i.i163, null
+  br i1 %cmp.not.i.i.i.i164, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i165, label %while.body.i.i.i.i149, !llvm.loop !14
 
-if.end.i.i.i.i165:                                ; preds = %if.else.i.i.i.i182, %if.then.i.i.i.i163
-  %__y.addr.1.i.i.i.i166 = phi ptr [ %__y.addr.07.i.i.i.i155, %if.else.i.i.i.i182 ], [ %__x.addr.08.i.i.i.i154, %if.then.i.i.i.i163 ]
-  %__x.addr.1.in.i.i.i.i167 = phi ptr [ %_M_right.i.i.i.i.i183, %if.else.i.i.i.i182 ], [ %_M_left.i.i.i.i.i164, %if.then.i.i.i.i163 ]
-  %__x.addr.1.i.i.i.i168 = load ptr, ptr %__x.addr.1.in.i.i.i.i167, align 8
-  %cmp.not.i.i.i.i169 = icmp eq ptr %__x.addr.1.i.i.i.i168, null
-  br i1 %cmp.not.i.i.i.i169, label %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i170, label %while.body.i.i.i.i153, !llvm.loop !14
+_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i165: ; preds = %if.end.i.i.i.i159
+  %cmp.i.i166 = icmp eq ptr %__y.addr.1.i.i.i.i161, %add.ptr.i.i.i.i
+  br i1 %cmp.i.i166, label %if.then.i176, label %lor.rhs.i167
 
-_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i170: ; preds = %if.end.i.i.i.i165
-  %cmp.i.i171 = icmp eq ptr %__y.addr.1.i.i.i.i166, %add.ptr.i.i.i.i
-  br i1 %cmp.i.i171, label %if.then.i181, label %lor.rhs.i172
+lor.rhs.i167:                                     ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i165
+  %_M_storage.i.i.i168 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i161, i64 32
+  %42 = load i64, ptr %_M_storage.i.i.i168, align 8
+  %cmp.i.i.i169 = icmp slt i64 %storemerge292, %42
+  br i1 %cmp.i.i.i169, label %if.then.i176, label %lor.rhs.i.i.i170
 
-lor.rhs.i172:                                     ; preds = %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i170
-  %_M_storage.i.i.i173 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i166, i64 0, i32 1
-  %42 = load i64, ptr %_M_storage.i.i.i173, align 8
-  %cmp.i.i.i174 = icmp slt i64 %storemerge298, %42
-  br i1 %cmp.i.i.i174, label %if.then.i181, label %lor.rhs.i.i.i175
+lor.rhs.i.i.i170:                                 ; preds = %lor.rhs.i167
+  %cmp4.i.i.i171 = icmp slt i64 %42, %storemerge292
+  br i1 %cmp4.i.i.i171, label %invoke.cont81, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i172
 
-lor.rhs.i.i.i175:                                 ; preds = %lor.rhs.i172
-  %cmp4.i.i.i176 = icmp slt i64 %42, %storemerge298
-  br i1 %cmp4.i.i.i176, label %invoke.cont81, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i177
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i172:    ; preds = %lor.rhs.i.i.i170
+  %second5.i.i.i173 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i161, i64 40
+  %43 = load i64, ptr %second5.i.i.i173, align 8
+  %cmp6.i.i.i174 = icmp slt i64 %storemerge12289, %43
+  br i1 %cmp6.i.i.i174, label %if.then.i176, label %invoke.cont81
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i177:    ; preds = %lor.rhs.i.i.i175
-  %second5.i.i.i178 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i166, i64 0, i32 1, i32 0, i64 8
-  %43 = load i64, ptr %second5.i.i.i178, align 8
-  %cmp6.i.i.i179 = icmp slt i64 %storemerge12295, %43
-  br i1 %cmp6.i.i.i179, label %if.then.i181, label %invoke.cont81
-
-if.then.i181:                                     ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i177, %lor.rhs.i172, %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i170, %invoke.cont78
+if.then.i176:                                     ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i172, %lor.rhs.i167, %_ZNKSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i165, %invoke.cont78
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #18
-          to label %.noexc184 unwind label %lpad77.loopexit.split-lp
+          to label %.noexc178 unwind label %lpad77.loopexit.split-lp
 
-.noexc184:                                        ; preds = %if.then.i181
+.noexc178:                                        ; preds = %if.then.i176
   unreachable
 
-invoke.cont81:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i177, %lor.rhs.i.i.i175
-  %second.i180 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i166, i64 0, i32 1, i32 0, i64 16
-  %44 = load i64, ptr %second.i180, align 8
+invoke.cont81:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i172, %lor.rhs.i.i.i170
+  %second.i175 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i161, i64 48
+  %44 = load i64, ptr %second.i175, align 8
   invoke void @_ZN4cvc58internal8RationalC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, i64 noundef %44)
           to label %invoke.cont83 unwind label %lpad77.loopexit
 
@@ -1690,75 +1664,75 @@ invoke.cont83:                                    ; preds = %invoke.cont81
 invoke.cont85:                                    ; preds = %invoke.cont83
   %45 = load ptr, ptr %ref.tmp73, align 8
   %46 = load ptr, ptr %agg.result, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i186)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i187)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i188)
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i180)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i181)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp4.i182)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp9.i)
-  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i186, ptr noundef nonnull %call, i32 noundef 23)
-          to label %.noexc196 unwind label %lpad91
+  invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i180, ptr noundef nonnull %call, i32 noundef 23)
+          to label %.noexc190 unwind label %lpad91
 
-.noexc196:                                        ; preds = %invoke.cont85
-  store ptr %38, ptr %agg.tmp.i187, align 8, !noalias !25
-  %call.i189 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i186, ptr noundef nonnull %agg.tmp.i187)
-          to label %invoke.cont3.i191 unwind label %lpad2.i190, !noalias !25
+.noexc190:                                        ; preds = %invoke.cont85
+  store ptr %38, ptr %agg.tmp.i181, align 8, !noalias !25
+  %call.i183 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i180, ptr noundef nonnull %agg.tmp.i181)
+          to label %invoke.cont3.i185 unwind label %lpad2.i184, !noalias !25
 
-invoke.cont3.i191:                                ; preds = %.noexc196
-  store ptr %45, ptr %agg.tmp4.i188, align 8, !noalias !25
-  %call8.i192 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call.i189, ptr noundef nonnull %agg.tmp4.i188)
-          to label %invoke.cont7.i194 unwind label %lpad6.i193, !noalias !25
+invoke.cont3.i185:                                ; preds = %.noexc190
+  store ptr %45, ptr %agg.tmp4.i182, align 8, !noalias !25
+  %call8.i186 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call.i183, ptr noundef nonnull %agg.tmp4.i182)
+          to label %invoke.cont7.i188 unwind label %lpad6.i187, !noalias !25
 
-invoke.cont7.i194:                                ; preds = %invoke.cont3.i191
+invoke.cont7.i188:                                ; preds = %invoke.cont3.i185
   store ptr %46, ptr %agg.tmp9.i, align 8, !noalias !25
-  %call13.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call8.i192, ptr noundef nonnull %agg.tmp9.i)
+  %call13.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call8.i186, ptr noundef nonnull %agg.tmp9.i)
           to label %invoke.cont12.i unwind label %lpad11.i, !noalias !25
 
-invoke.cont12.i:                                  ; preds = %invoke.cont7.i194
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(116) %nb.i186)
-          to label %invoke.cont92 unwind label %lpad.i195
+invoke.cont12.i:                                  ; preds = %invoke.cont7.i188
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(116) %nb.i180)
+          to label %invoke.cont92 unwind label %lpad.i189
 
-lpad.i195:                                        ; preds = %invoke.cont12.i
+lpad.i189:                                        ; preds = %invoke.cont12.i
   %47 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i
 
-lpad2.i190:                                       ; preds = %.noexc196
+lpad2.i184:                                       ; preds = %.noexc190
   %48 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i
 
-lpad6.i193:                                       ; preds = %invoke.cont3.i191
+lpad6.i187:                                       ; preds = %invoke.cont3.i185
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i
 
-lpad11.i:                                         ; preds = %invoke.cont7.i194
+lpad11.i:                                         ; preds = %invoke.cont7.i188
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup16.i
 
-ehcleanup16.i:                                    ; preds = %lpad11.i, %lpad6.i193, %lpad2.i190, %lpad.i195
-  %.pn3.i = phi { ptr, i32 } [ %47, %lpad.i195 ], [ %48, %lpad2.i190 ], [ %50, %lpad11.i ], [ %49, %lpad6.i193 ]
-  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i186) #16
+ehcleanup16.i:                                    ; preds = %lpad11.i, %lpad6.i187, %lpad2.i184, %lpad.i189
+  %.pn3.i = phi { ptr, i32 } [ %47, %lpad.i189 ], [ %48, %lpad2.i184 ], [ %50, %lpad11.i ], [ %49, %lpad6.i187 ]
+  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i180) #16
   br label %ehcleanup
 
 invoke.cont92:                                    ; preds = %invoke.cont12.i
-  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i186) #16
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i186)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i187)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i188)
+  call void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(116) %nb.i180) #16
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %nb.i180)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i181)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp4.i182)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp9.i)
   %51 = load ptr, ptr %agg.result, align 8
   %52 = load ptr, ptr %ref.tmp31, align 8
   %cmp.not.i = icmp eq ptr %51, %52
-  br i1 %cmp.not.i, label %invoke.cont94, label %if.then.i198
+  br i1 %cmp.not.i, label %invoke.cont94, label %if.then.i192
 
-if.then.i198:                                     ; preds = %invoke.cont92
+if.then.i192:                                     ; preds = %invoke.cont92
   %bf.load.i.i = load i64, ptr %51, align 8
   %53 = and i64 %bf.load.i.i, 1152920405095219200
   %cmp.not.i.i = icmp eq i64 %53, 1152920405095219200
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %if.then.i198
+if.then.i.i:                                      ; preds = %if.then.i192
   %bf.value.i.i = add i64 %bf.load.i.i, 1152920405095219200
   %bf.shl.i.i = and i64 %bf.value.i.i, 1152920405095219200
   %bf.clear7.i.i = and i64 %bf.load.i.i, -1152920405095219201
@@ -1771,15 +1745,15 @@ if.then13.i.i:                                    ; preds = %if.then.i.i
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %51)
           to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %lpad93
 
-_ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i, %if.then.i.i, %if.then.i198
+_ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %if.then13.i.i, %if.then.i.i, %if.then.i192
   %54 = load ptr, ptr %ref.tmp31, align 8
   store ptr %54, ptr %agg.result, align 8
   %bf.load.i2.i = load i64, ptr %54, align 8
   %bf.lshr.i.i = lshr i64 %bf.load.i2.i, 40
   %55 = trunc i64 %bf.lshr.i.i to i32
   %bf.cast.i.i = and i32 %55, 1048575
-  %cmp.i.i199 = icmp ult i32 %bf.cast.i.i, 1048574
-  br i1 %cmp.i.i199, label %if.then.i5.i, label %if.else.i.i
+  %cmp.i.i193 = icmp ult i32 %bf.cast.i.i, 1048574
+  br i1 %cmp.i.i193, label %if.then.i5.i, label %if.else.i.i
 
 if.then.i5.i:                                     ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i
   %bf.value.i6.i = add i64 %bf.load.i2.i, 1099511627776
@@ -1801,228 +1775,228 @@ if.then13.i4.i:                                   ; preds = %if.else.i.i
 
 invoke.cont94:                                    ; preds = %if.else.i.i, %if.then.i5.i, %invoke.cont92, %if.then13.i4.i
   %56 = load ptr, ptr %ref.tmp31, align 8
-  %bf.load.i.i202 = load i64, ptr %56, align 8
-  %57 = and i64 %bf.load.i.i202, 1152920405095219200
-  %cmp.not.i.i203 = icmp eq i64 %57, 1152920405095219200
-  br i1 %cmp.not.i.i203, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %if.then.i.i204
+  %bf.load.i.i196 = load i64, ptr %56, align 8
+  %57 = and i64 %bf.load.i.i196, 1152920405095219200
+  %cmp.not.i.i197 = icmp eq i64 %57, 1152920405095219200
+  br i1 %cmp.not.i.i197, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, label %if.then.i.i198
 
-if.then.i.i204:                                   ; preds = %invoke.cont94
-  %bf.value.i.i205 = add i64 %bf.load.i.i202, 1152920405095219200
-  %bf.shl.i.i206 = and i64 %bf.value.i.i205, 1152920405095219200
-  %bf.clear7.i.i207 = and i64 %bf.load.i.i202, -1152920405095219201
-  %bf.set.i.i208 = or disjoint i64 %bf.shl.i.i206, %bf.clear7.i.i207
-  store i64 %bf.set.i.i208, ptr %56, align 8
-  %cmp12.i.i209 = icmp eq i64 %bf.shl.i.i206, 0
-  br i1 %cmp12.i.i209, label %if.then13.i.i210, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+if.then.i.i198:                                   ; preds = %invoke.cont94
+  %bf.value.i.i199 = add i64 %bf.load.i.i196, 1152920405095219200
+  %bf.shl.i.i200 = and i64 %bf.value.i.i199, 1152920405095219200
+  %bf.clear7.i.i201 = and i64 %bf.load.i.i196, -1152920405095219201
+  %bf.set.i.i202 = or disjoint i64 %bf.shl.i.i200, %bf.clear7.i.i201
+  store i64 %bf.set.i.i202, ptr %56, align 8
+  %cmp12.i.i203 = icmp eq i64 %bf.shl.i.i200, 0
+  br i1 %cmp12.i.i203, label %if.then13.i.i204, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
 
-if.then13.i.i210:                                 ; preds = %if.then.i.i204
+if.then13.i.i204:                                 ; preds = %if.then.i.i198
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %56)
           to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then13.i.i210
+terminate.lpad.i:                                 ; preds = %if.then13.i.i204
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
   call void @__clang_call_terminate(ptr %59) #15
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont94, %if.then.i.i204, %if.then13.i.i210
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont94, %if.then.i.i198, %if.then13.i.i204
   %60 = load ptr, ptr %ref.tmp73, align 8
-  %bf.load.i.i211 = load i64, ptr %60, align 8
-  %61 = and i64 %bf.load.i.i211, 1152920405095219200
-  %cmp.not.i.i212 = icmp eq i64 %61, 1152920405095219200
-  br i1 %cmp.not.i.i212, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221, label %if.then.i.i213
+  %bf.load.i.i205 = load i64, ptr %60, align 8
+  %61 = and i64 %bf.load.i.i205, 1152920405095219200
+  %cmp.not.i.i206 = icmp eq i64 %61, 1152920405095219200
+  br i1 %cmp.not.i.i206, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit215, label %if.then.i.i207
 
-if.then.i.i213:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %bf.value.i.i214 = add i64 %bf.load.i.i211, 1152920405095219200
-  %bf.shl.i.i215 = and i64 %bf.value.i.i214, 1152920405095219200
-  %bf.clear7.i.i216 = and i64 %bf.load.i.i211, -1152920405095219201
-  %bf.set.i.i217 = or disjoint i64 %bf.shl.i.i215, %bf.clear7.i.i216
-  store i64 %bf.set.i.i217, ptr %60, align 8
-  %cmp12.i.i218 = icmp eq i64 %bf.shl.i.i215, 0
-  br i1 %cmp12.i.i218, label %if.then13.i.i219, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221
+if.then.i.i207:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %bf.value.i.i208 = add i64 %bf.load.i.i205, 1152920405095219200
+  %bf.shl.i.i209 = and i64 %bf.value.i.i208, 1152920405095219200
+  %bf.clear7.i.i210 = and i64 %bf.load.i.i205, -1152920405095219201
+  %bf.set.i.i211 = or disjoint i64 %bf.shl.i.i209, %bf.clear7.i.i210
+  store i64 %bf.set.i.i211, ptr %60, align 8
+  %cmp12.i.i212 = icmp eq i64 %bf.shl.i.i209, 0
+  br i1 %cmp12.i.i212, label %if.then13.i.i213, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit215
 
-if.then13.i.i219:                                 ; preds = %if.then.i.i213
+if.then13.i.i213:                                 ; preds = %if.then.i.i207
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %60)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221 unwind label %terminate.lpad.i220
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit215 unwind label %terminate.lpad.i214
 
-terminate.lpad.i220:                              ; preds = %if.then13.i.i219
+terminate.lpad.i214:                              ; preds = %if.then13.i.i213
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
   call void @__clang_call_terminate(ptr %63) #15
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i213, %if.then13.i.i219
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit215: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i207, %if.then13.i.i213
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp74)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit223 unwind label %terminate.lpad.i.i222
+          to label %_ZN4cvc58internal8RationalD2Ev.exit217 unwind label %terminate.lpad.i.i216
 
-terminate.lpad.i.i222:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221
+terminate.lpad.i.i216:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit215
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
   call void @__clang_call_terminate(ptr %65) #15
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit223:           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit221
+_ZN4cvc58internal8RationalD2Ev.exit217:           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit215
   %66 = load ptr, ptr %ref.tmp32, align 8
-  %bf.load.i.i224 = load i64, ptr %66, align 8
-  %67 = and i64 %bf.load.i.i224, 1152920405095219200
-  %cmp.not.i.i225 = icmp eq i64 %67, 1152920405095219200
-  br i1 %cmp.not.i.i225, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit234, label %if.then.i.i226
+  %bf.load.i.i218 = load i64, ptr %66, align 8
+  %67 = and i64 %bf.load.i.i218, 1152920405095219200
+  %cmp.not.i.i219 = icmp eq i64 %67, 1152920405095219200
+  br i1 %cmp.not.i.i219, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit228, label %if.then.i.i220
 
-if.then.i.i226:                                   ; preds = %_ZN4cvc58internal8RationalD2Ev.exit223
-  %bf.value.i.i227 = add i64 %bf.load.i.i224, 1152920405095219200
-  %bf.shl.i.i228 = and i64 %bf.value.i.i227, 1152920405095219200
-  %bf.clear7.i.i229 = and i64 %bf.load.i.i224, -1152920405095219201
-  %bf.set.i.i230 = or disjoint i64 %bf.shl.i.i228, %bf.clear7.i.i229
-  store i64 %bf.set.i.i230, ptr %66, align 8
-  %cmp12.i.i231 = icmp eq i64 %bf.shl.i.i228, 0
-  br i1 %cmp12.i.i231, label %if.then13.i.i232, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit234
+if.then.i.i220:                                   ; preds = %_ZN4cvc58internal8RationalD2Ev.exit217
+  %bf.value.i.i221 = add i64 %bf.load.i.i218, 1152920405095219200
+  %bf.shl.i.i222 = and i64 %bf.value.i.i221, 1152920405095219200
+  %bf.clear7.i.i223 = and i64 %bf.load.i.i218, -1152920405095219201
+  %bf.set.i.i224 = or disjoint i64 %bf.shl.i.i222, %bf.clear7.i.i223
+  store i64 %bf.set.i.i224, ptr %66, align 8
+  %cmp12.i.i225 = icmp eq i64 %bf.shl.i.i222, 0
+  br i1 %cmp12.i.i225, label %if.then13.i.i226, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit228
 
-if.then13.i.i232:                                 ; preds = %if.then.i.i226
+if.then13.i.i226:                                 ; preds = %if.then.i.i220
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %66)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit234 unwind label %terminate.lpad.i233
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit228 unwind label %terminate.lpad.i227
 
-terminate.lpad.i233:                              ; preds = %if.then13.i.i232
+terminate.lpad.i227:                              ; preds = %if.then13.i.i226
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
   call void @__clang_call_terminate(ptr %69) #15
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit234: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit223, %if.then.i.i226, %if.then13.i.i232
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit228: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit217, %if.then.i.i220, %if.then13.i.i226
   %70 = load ptr, ptr %ref.tmp51, align 8
-  %bf.load.i.i235 = load i64, ptr %70, align 8
-  %71 = and i64 %bf.load.i.i235, 1152920405095219200
-  %cmp.not.i.i236 = icmp eq i64 %71, 1152920405095219200
-  br i1 %cmp.not.i.i236, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245, label %if.then.i.i237
+  %bf.load.i.i229 = load i64, ptr %70, align 8
+  %71 = and i64 %bf.load.i.i229, 1152920405095219200
+  %cmp.not.i.i230 = icmp eq i64 %71, 1152920405095219200
+  br i1 %cmp.not.i.i230, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit239, label %if.then.i.i231
 
-if.then.i.i237:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit234
-  %bf.value.i.i238 = add i64 %bf.load.i.i235, 1152920405095219200
-  %bf.shl.i.i239 = and i64 %bf.value.i.i238, 1152920405095219200
-  %bf.clear7.i.i240 = and i64 %bf.load.i.i235, -1152920405095219201
-  %bf.set.i.i241 = or disjoint i64 %bf.shl.i.i239, %bf.clear7.i.i240
-  store i64 %bf.set.i.i241, ptr %70, align 8
-  %cmp12.i.i242 = icmp eq i64 %bf.shl.i.i239, 0
-  br i1 %cmp12.i.i242, label %if.then13.i.i243, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245
+if.then.i.i231:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit228
+  %bf.value.i.i232 = add i64 %bf.load.i.i229, 1152920405095219200
+  %bf.shl.i.i233 = and i64 %bf.value.i.i232, 1152920405095219200
+  %bf.clear7.i.i234 = and i64 %bf.load.i.i229, -1152920405095219201
+  %bf.set.i.i235 = or disjoint i64 %bf.shl.i.i233, %bf.clear7.i.i234
+  store i64 %bf.set.i.i235, ptr %70, align 8
+  %cmp12.i.i236 = icmp eq i64 %bf.shl.i.i233, 0
+  br i1 %cmp12.i.i236, label %if.then13.i.i237, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit239
 
-if.then13.i.i243:                                 ; preds = %if.then.i.i237
+if.then13.i.i237:                                 ; preds = %if.then.i.i231
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %70)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245 unwind label %terminate.lpad.i244
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit239 unwind label %terminate.lpad.i238
 
-terminate.lpad.i244:                              ; preds = %if.then13.i.i243
+terminate.lpad.i238:                              ; preds = %if.then13.i.i237
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
   call void @__clang_call_terminate(ptr %73) #15
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit234, %if.then.i.i237, %if.then13.i.i243
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit239: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit228, %if.then.i.i231, %if.then13.i.i237
   %74 = load ptr, ptr %ref.tmp56, align 8
-  %bf.load.i.i246 = load i64, ptr %74, align 8
-  %75 = and i64 %bf.load.i.i246, 1152920405095219200
-  %cmp.not.i.i247 = icmp eq i64 %75, 1152920405095219200
-  br i1 %cmp.not.i.i247, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit256, label %if.then.i.i248
+  %bf.load.i.i240 = load i64, ptr %74, align 8
+  %75 = and i64 %bf.load.i.i240, 1152920405095219200
+  %cmp.not.i.i241 = icmp eq i64 %75, 1152920405095219200
+  br i1 %cmp.not.i.i241, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit250, label %if.then.i.i242
 
-if.then.i.i248:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245
-  %bf.value.i.i249 = add i64 %bf.load.i.i246, 1152920405095219200
-  %bf.shl.i.i250 = and i64 %bf.value.i.i249, 1152920405095219200
-  %bf.clear7.i.i251 = and i64 %bf.load.i.i246, -1152920405095219201
-  %bf.set.i.i252 = or disjoint i64 %bf.shl.i.i250, %bf.clear7.i.i251
-  store i64 %bf.set.i.i252, ptr %74, align 8
-  %cmp12.i.i253 = icmp eq i64 %bf.shl.i.i250, 0
-  br i1 %cmp12.i.i253, label %if.then13.i.i254, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit256
+if.then.i.i242:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit239
+  %bf.value.i.i243 = add i64 %bf.load.i.i240, 1152920405095219200
+  %bf.shl.i.i244 = and i64 %bf.value.i.i243, 1152920405095219200
+  %bf.clear7.i.i245 = and i64 %bf.load.i.i240, -1152920405095219201
+  %bf.set.i.i246 = or disjoint i64 %bf.shl.i.i244, %bf.clear7.i.i245
+  store i64 %bf.set.i.i246, ptr %74, align 8
+  %cmp12.i.i247 = icmp eq i64 %bf.shl.i.i244, 0
+  br i1 %cmp12.i.i247, label %if.then13.i.i248, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit250
 
-if.then13.i.i254:                                 ; preds = %if.then.i.i248
+if.then13.i.i248:                                 ; preds = %if.then.i.i242
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %74)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit256 unwind label %terminate.lpad.i255
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit250 unwind label %terminate.lpad.i249
 
-terminate.lpad.i255:                              ; preds = %if.then13.i.i254
+terminate.lpad.i249:                              ; preds = %if.then13.i.i248
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
   call void @__clang_call_terminate(ptr %77) #15
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit256: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245, %if.then.i.i248, %if.then13.i.i254
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit250: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit239, %if.then.i.i242, %if.then13.i.i248
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp57)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit258 unwind label %terminate.lpad.i.i257
+          to label %_ZN4cvc58internal8RationalD2Ev.exit252 unwind label %terminate.lpad.i.i251
 
-terminate.lpad.i.i257:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit256
+terminate.lpad.i.i251:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit250
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
   call void @__clang_call_terminate(ptr %79) #15
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit258:           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit256
+_ZN4cvc58internal8RationalD2Ev.exit252:           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit250
   %80 = load ptr, ptr %ref.tmp34, align 8
-  %bf.load.i.i259 = load i64, ptr %80, align 8
-  %81 = and i64 %bf.load.i.i259, 1152920405095219200
-  %cmp.not.i.i260 = icmp eq i64 %81, 1152920405095219200
-  br i1 %cmp.not.i.i260, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit269, label %if.then.i.i261
+  %bf.load.i.i253 = load i64, ptr %80, align 8
+  %81 = and i64 %bf.load.i.i253, 1152920405095219200
+  %cmp.not.i.i254 = icmp eq i64 %81, 1152920405095219200
+  br i1 %cmp.not.i.i254, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit263, label %if.then.i.i255
 
-if.then.i.i261:                                   ; preds = %_ZN4cvc58internal8RationalD2Ev.exit258
-  %bf.value.i.i262 = add i64 %bf.load.i.i259, 1152920405095219200
-  %bf.shl.i.i263 = and i64 %bf.value.i.i262, 1152920405095219200
-  %bf.clear7.i.i264 = and i64 %bf.load.i.i259, -1152920405095219201
-  %bf.set.i.i265 = or disjoint i64 %bf.shl.i.i263, %bf.clear7.i.i264
-  store i64 %bf.set.i.i265, ptr %80, align 8
-  %cmp12.i.i266 = icmp eq i64 %bf.shl.i.i263, 0
-  br i1 %cmp12.i.i266, label %if.then13.i.i267, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit269
+if.then.i.i255:                                   ; preds = %_ZN4cvc58internal8RationalD2Ev.exit252
+  %bf.value.i.i256 = add i64 %bf.load.i.i253, 1152920405095219200
+  %bf.shl.i.i257 = and i64 %bf.value.i.i256, 1152920405095219200
+  %bf.clear7.i.i258 = and i64 %bf.load.i.i253, -1152920405095219201
+  %bf.set.i.i259 = or disjoint i64 %bf.shl.i.i257, %bf.clear7.i.i258
+  store i64 %bf.set.i.i259, ptr %80, align 8
+  %cmp12.i.i260 = icmp eq i64 %bf.shl.i.i257, 0
+  br i1 %cmp12.i.i260, label %if.then13.i.i261, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit263
 
-if.then13.i.i267:                                 ; preds = %if.then.i.i261
+if.then13.i.i261:                                 ; preds = %if.then.i.i255
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %80)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit269 unwind label %terminate.lpad.i268
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit263 unwind label %terminate.lpad.i262
 
-terminate.lpad.i268:                              ; preds = %if.then13.i.i267
+terminate.lpad.i262:                              ; preds = %if.then13.i.i261
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
   call void @__clang_call_terminate(ptr %83) #15
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit269: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit258, %if.then.i.i261, %if.then13.i.i267
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit263: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit252, %if.then.i.i255, %if.then13.i.i261
   %84 = load ptr, ptr %ref.tmp38, align 8
-  %bf.load.i.i270 = load i64, ptr %84, align 8
-  %85 = and i64 %bf.load.i.i270, 1152920405095219200
-  %cmp.not.i.i271 = icmp eq i64 %85, 1152920405095219200
-  br i1 %cmp.not.i.i271, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280, label %if.then.i.i272
+  %bf.load.i.i264 = load i64, ptr %84, align 8
+  %85 = and i64 %bf.load.i.i264, 1152920405095219200
+  %cmp.not.i.i265 = icmp eq i64 %85, 1152920405095219200
+  br i1 %cmp.not.i.i265, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit274, label %if.then.i.i266
 
-if.then.i.i272:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit269
-  %bf.value.i.i273 = add i64 %bf.load.i.i270, 1152920405095219200
-  %bf.shl.i.i274 = and i64 %bf.value.i.i273, 1152920405095219200
-  %bf.clear7.i.i275 = and i64 %bf.load.i.i270, -1152920405095219201
-  %bf.set.i.i276 = or disjoint i64 %bf.shl.i.i274, %bf.clear7.i.i275
-  store i64 %bf.set.i.i276, ptr %84, align 8
-  %cmp12.i.i277 = icmp eq i64 %bf.shl.i.i274, 0
-  br i1 %cmp12.i.i277, label %if.then13.i.i278, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280
+if.then.i.i266:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit263
+  %bf.value.i.i267 = add i64 %bf.load.i.i264, 1152920405095219200
+  %bf.shl.i.i268 = and i64 %bf.value.i.i267, 1152920405095219200
+  %bf.clear7.i.i269 = and i64 %bf.load.i.i264, -1152920405095219201
+  %bf.set.i.i270 = or disjoint i64 %bf.shl.i.i268, %bf.clear7.i.i269
+  store i64 %bf.set.i.i270, ptr %84, align 8
+  %cmp12.i.i271 = icmp eq i64 %bf.shl.i.i268, 0
+  br i1 %cmp12.i.i271, label %if.then13.i.i272, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit274
 
-if.then13.i.i278:                                 ; preds = %if.then.i.i272
+if.then13.i.i272:                                 ; preds = %if.then.i.i266
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %84)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280 unwind label %terminate.lpad.i279
+          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit274 unwind label %terminate.lpad.i273
 
-terminate.lpad.i279:                              ; preds = %if.then13.i.i278
+terminate.lpad.i273:                              ; preds = %if.then13.i.i272
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
   call void @__clang_call_terminate(ptr %87) #15
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit269, %if.then.i.i272, %if.then13.i.i278
+_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit274: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit263, %if.then.i.i266, %if.then13.i.i272
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp39)
-          to label %for.inc unwind label %terminate.lpad.i.i281
+          to label %for.inc unwind label %terminate.lpad.i.i275
 
-terminate.lpad.i.i281:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280
+terminate.lpad.i.i275:                            ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit274
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
   call void @__clang_call_terminate(ptr %89) #15
   unreachable
 
-for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit280, %invoke.cont28
-  %inc = add nuw i64 %storemerge12295, 1
+for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit274, %invoke.cont28
+  %inc = add nuw i64 %storemerge12289, 1
   %exitcond.not = icmp eq i64 %inc, %conv3
   br i1 %exitcond.not, label %for.inc113, label %invoke.cont16, !llvm.loop !28
 
@@ -2066,7 +2040,7 @@ lpad77.loopexit:                                  ; preds = %invoke.cont81
           cleanup
   br label %ehcleanup99
 
-lpad77.loopexit.split-lp:                         ; preds = %if.then.i181
+lpad77.loopexit.split-lp:                         ; preds = %if.then.i176
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup99
@@ -2095,9 +2069,9 @@ ehcleanup:                                        ; preds = %lpad91, %ehcleanup1
 ehcleanup98:                                      ; preds = %ehcleanup, %lpad84
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %97, %lpad84 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp74)
-          to label %ehcleanup99 unwind label %terminate.lpad.i.i283
+          to label %ehcleanup99 unwind label %terminate.lpad.i.i277
 
-terminate.lpad.i.i283:                            ; preds = %ehcleanup98
+terminate.lpad.i.i277:                            ; preds = %ehcleanup98
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
@@ -2109,22 +2083,22 @@ ehcleanup99:                                      ; preds = %lpad77.loopexit, %l
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp32) #16
   br label %ehcleanup101
 
-ehcleanup101:                                     ; preds = %lpad68, %ehcleanup10.i134, %ehcleanup99
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup99 ], [ %96, %lpad68 ], [ %.pn2.i135, %ehcleanup10.i134 ]
+ehcleanup101:                                     ; preds = %lpad68, %ehcleanup10.i130, %ehcleanup99
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup99 ], [ %96, %lpad68 ], [ %.pn2.i131, %ehcleanup10.i130 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp51) #16
   br label %ehcleanup103
 
-ehcleanup103:                                     ; preds = %lpad64, %ehcleanup10.i119, %ehcleanup101
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup101 ], [ %95, %lpad64 ], [ %.pn2.i120, %ehcleanup10.i119 ]
+ehcleanup103:                                     ; preds = %lpad64, %ehcleanup10.i115, %ehcleanup101
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup101 ], [ %95, %lpad64 ], [ %.pn2.i116, %ehcleanup10.i115 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56) #16
   br label %ehcleanup105
 
 ehcleanup105:                                     ; preds = %ehcleanup103, %lpad60
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup103 ], [ %94, %lpad60 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp57)
-          to label %ehcleanup106 unwind label %terminate.lpad.i.i285
+          to label %ehcleanup106 unwind label %terminate.lpad.i.i279
 
-terminate.lpad.i.i285:                            ; preds = %ehcleanup105
+terminate.lpad.i.i279:                            ; preds = %ehcleanup105
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
@@ -2144,9 +2118,9 @@ ehcleanup109:                                     ; preds = %lpad46, %ehcleanup1
 ehcleanup111:                                     ; preds = %ehcleanup109, %lpad42
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup109 ], [ %91, %lpad42 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp39)
-          to label %ehcleanup116 unwind label %terminate.lpad.i.i287
+          to label %ehcleanup116 unwind label %terminate.lpad.i.i281
 
-terminate.lpad.i.i287:                            ; preds = %ehcleanup111
+terminate.lpad.i.i281:                            ; preds = %ehcleanup111
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
@@ -2154,9 +2128,9 @@ terminate.lpad.i.i287:                            ; preds = %ehcleanup111
   unreachable
 
 for.inc113:                                       ; preds = %for.inc
-  %inc114 = add nuw i64 %storemerge298, 1
-  %exitcond299.not = icmp eq i64 %inc114, %conv3
-  br i1 %exitcond299.not, label %nrvo.skipdtor, label %for.cond10.preheader, !llvm.loop !29
+  %inc114 = add nuw i64 %storemerge292, 1
+  %exitcond293.not = icmp eq i64 %inc114, %conv3
+  br i1 %exitcond293.not, label %nrvo.skipdtor, label %for.cond10.preheader, !llvm.loop !29
 
 nrvo.skipdtor:                                    ; preds = %for.inc113, %for.cond.preheader
   ret void
@@ -2185,7 +2159,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -2329,13 +2303,12 @@ _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %invoke.cont
 while.body.i.i.i:                                 ; preds = %_ZN4cvc58internal8RationalD2Ev.exit, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %2, %_ZN4cvc58internal8RationalD2Ev.exit ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %_ZN4cvc58internal8RationalD2Ev.exit ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %3, %conv
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !31
@@ -2345,7 +2318,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select
   br i1 %cmp.i.i.i, label %if.then13, label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %4, %conv
   br i1 %cmp.i4.i.i, label %if.then13, label %if.end15
@@ -2392,13 +2365,12 @@ if.end15:                                         ; preds = %if.then13.if.end15_
 while.body.i.i.i.i:                               ; preds = %if.end15, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %8, %if.end15 ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i, %if.end15 ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %9 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %9, %conv
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i, !llvm.loop !31
@@ -2408,7 +2380,7 @@ _ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lowe
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %10 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i3.i = icmp ugt i64 %10, %conv
   br i1 %cmp.i3.i, label %if.then.i, label %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEEixEOm.exit
@@ -2421,7 +2393,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 
 _ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEEixEOm.exit: ; preds = %if.then.i, %lor.rhs.i
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call12.i31, %if.then.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %cmp21220.not = icmp ugt i32 %granularity.addr.1, %bvsize
@@ -3075,8 +3047,8 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup72
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory5arith2nl9IAndUtils15computeAndTableEj(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %granularity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp9.i16 = alloca %"class.std::tuple.101", align 8
-  %ref.tmp10.i17 = alloca %"class.std::tuple.104", align 1
+  %ref.tmp9.i15 = alloca %"class.std::tuple.101", align 8
+  %ref.tmp10.i16 = alloca %"class.std::tuple.104", align 1
   %table = alloca %"class.std::map.69", align 8
   %ref.tmp28 = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %table, i64 8
@@ -3092,37 +3064,37 @@ entry:
   %conv = uitofp i32 %granularity to double
   %exp2 = call double @exp2(double %conv)
   %conv2 = fptoui double %exp2 to i64
-  %cmp55.not = icmp eq i64 %conv2, 0
-  br i1 %cmp55.not, label %for.end26, label %for.cond3.preheader.lr.ph
+  %cmp51.not = icmp eq i64 %conv2, 0
+  br i1 %cmp51.not, label %for.end26, label %for.cond3.preheader.lr.ph
 
 for.cond3.preheader.lr.ph:                        ; preds = %entry
   %conv7 = zext i32 %granularity to i64
-  %cmp850.not = icmp eq i32 %granularity, 0
+  %cmp846.not = icmp eq i32 %granularity, 0
   br label %for.cond3.preheader
 
 for.cond3.preheader:                              ; preds = %for.cond3.preheader.lr.ph, %for.inc24
-  %storemerge56 = phi i64 [ 0, %for.cond3.preheader.lr.ph ], [ %inc25, %for.inc24 ]
+  %storemerge52 = phi i64 [ 0, %for.cond3.preheader.lr.ph ], [ %inc25, %for.inc24 ]
   br label %for.cond6.preheader
 
 for.cond6.preheader:                              ; preds = %for.cond3.preheader, %invoke.cont19
-  %storemerge1053 = phi i64 [ 0, %for.cond3.preheader ], [ %inc22, %invoke.cont19 ]
-  br i1 %cmp850.not, label %invoke.cont, label %for.body9
+  %storemerge1049 = phi i64 [ 0, %for.cond3.preheader ], [ %inc22, %invoke.cont19 ]
+  br i1 %cmp846.not, label %invoke.cont, label %for.body9
 
 for.body9:                                        ; preds = %for.cond6.preheader, %for.body9
-  %sum.052 = phi i64 [ %sum.1, %for.body9 ], [ 0, %for.cond6.preheader ]
-  %n.051 = phi i64 [ %inc, %for.body9 ], [ 0, %for.cond6.preheader ]
-  %1 = shl nuw i64 1, %n.051
-  %2 = and i64 %1, %storemerge56
+  %sum.048 = phi i64 [ %sum.1, %for.body9 ], [ 0, %for.cond6.preheader ]
+  %n.047 = phi i64 [ %inc, %for.body9 ], [ 0, %for.cond6.preheader ]
+  %1 = shl nuw i64 1, %n.047
+  %2 = and i64 %1, %storemerge52
   %cmp10 = icmp ne i64 %2, 0
-  %3 = and i64 %1, %storemerge1053
+  %3 = and i64 %1, %storemerge1049
   %cmp13 = icmp ne i64 %3, 0
   %4 = and i1 %cmp10, %cmp13
-  %sh_prom = trunc i64 %n.051 to i32
+  %sh_prom = trunc i64 %n.047 to i32
   %shl = shl nuw i32 1, %sh_prom
   %conv15 = sext i32 %shl to i64
   %add = select i1 %4, i64 %conv15, i64 0
-  %sum.1 = add nsw i64 %add, %sum.052
-  %inc = add nuw nsw i64 %n.051, 1
+  %sum.1 = add nsw i64 %add, %sum.048
+  %inc = add nuw nsw i64 %n.047, 1
   %exitcond.not = icmp eq i64 %inc, %conv7
   br i1 %exitcond.not, label %invoke.cont, label %for.body9, !llvm.loop !42
 
@@ -3135,33 +3107,29 @@ invoke.cont:                                      ; preds = %for.body9, %for.con
 while.body.i.i.i.i:                               ; preds = %invoke.cont, %if.end.i.i.i.i
   %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %5, %invoke.cont ]
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %0, %invoke.cont ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i = icmp slt i64 %6, %storemerge56
+  %cmp.i.i.i.i.i.i = icmp slt i64 %6, %storemerge52
   br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
-  %cmp4.i.i.i.i.i.i = icmp slt i64 %storemerge56, %6
-  br i1 %cmp4.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i
+  %cmp4.i.i.i.i.i.i = icmp slt i64 %storemerge52, %6
+  br i1 %cmp4.i.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 40
   %7 = load i64, ptr %second.i.i.i.i.i.i, align 8
-  %cmp6.i.i.i.i.i.i = icmp slt i64 %7, %storemerge1053
-  br i1 %cmp6.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i.i
-  %_M_left.i.i.i.i.i12 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 2
-  br label %if.end.i.i.i.i
+  %cmp6.i.i.i.i.i.i = icmp slt i64 %7, %storemerge1049
+  br i1 %cmp6.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %while.body.i.i.i.i
-  %_M_right.i.i.i.i.i14 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 3
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.then.i.i.i.i ]
-  %__x.addr.1.in.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i14, %if.else.i.i.i.i ], [ %_M_left.i.i.i.i.i12, %if.then.i.i.i.i ]
-  %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
+if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %lor.rhs.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %lor.rhs.i.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i ]
+  %_M_right.i.i.i.i.i12 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 %.sink.i.i.i.i
+  %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i12, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i, label %while.body.i.i.i.i, !llvm.loop !43
 
@@ -3170,32 +3138,32 @@ _ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i: ; pr
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %8 = load i64, ptr %_M_storage.i.i.i, align 8
-  %cmp.i.i.i = icmp slt i64 %storemerge56, %8
+  %cmp.i.i.i = icmp slt i64 %storemerge52, %8
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i
-  %cmp4.i.i.i = icmp slt i64 %8, %storemerge56
+  %cmp4.i.i.i = icmp slt i64 %8, %storemerge52
   br i1 %cmp4.i.i.i, label %invoke.cont19, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i:       ; preds = %lor.rhs.i.i.i
-  %second5.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %9 = load i64, ptr %second5.i.i.i, align 8
-  %cmp6.i.i.i = icmp slt i64 %storemerge1053, %9
+  %cmp6.i.i.i = icmp slt i64 %storemerge1049, %9
   br i1 %cmp6.i.i.i, label %if.then.i, label %invoke.cont19
 
 if.then.i:                                        ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i, %lor.rhs.i, %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i, %invoke.cont
   %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %0, %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i ], [ %0, %invoke.cont ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %call5.i.i.i.i.i.i43 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
+  %call5.i.i.i.i.i.i39 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then.i
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.i.i43, i64 0, i32 1
-  store i64 %storemerge56, ptr %_M_storage.i.i.i.i.i, align 8
-  %ref.tmp.sroa.2.0._M_storage.i.i.i.i.i.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.i.i43, i64 0, i32 1, i32 0, i64 8
-  store i64 %storemerge1053, ptr %ref.tmp.sroa.2.0._M_storage.i.i.i.i.i.sroa_idx, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.i.i43, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i39, i64 32
+  store i64 %storemerge52, ptr %_M_storage.i.i.i.i.i, align 8
+  %ref.tmp.sroa.2.0._M_storage.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i39, i64 40
+  store i64 %storemerge1049, ptr %ref.tmp.sroa.2.0._M_storage.i.i.i.i.i.sroa_idx, align 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i39, i64 48
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8
   %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %table, ptr %__y.addr.0.lcssa.i.i.i9.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i.i)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Auto_nodeD2Ev.exit.i
@@ -3204,36 +3172,36 @@ invoke.cont7.i:                                   ; preds = %call5.i.i.i.i.i.i.n
   %10 = extractvalue { ptr, ptr } %call8.i, 0
   %11 = extractvalue { ptr, ptr } %call8.i, 1
   %tobool.not.i = icmp eq ptr %11, null
-  br i1 %tobool.not.i, label %if.then.i7.i, label %if.then.i38
+  br i1 %tobool.not.i, label %if.then.i7.i, label %if.then.i34
 
-if.then.i38:                                      ; preds = %invoke.cont7.i
+if.then.i34:                                      ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %10, null
   %cmp2.i.i.i = icmp eq ptr %0, %11
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp2.i.i.i
-  br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i40
+  br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i36
 
-lor.rhs.i.i.i40:                                  ; preds = %if.then.i38
-  %_M_storage.i.i.i.i.i.i41 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %11, i64 0, i32 1
+lor.rhs.i.i.i36:                                  ; preds = %if.then.i34
+  %_M_storage.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
-  %13 = load i64, ptr %_M_storage.i.i.i.i.i.i41, align 8
-  %cmp.i.i.i.i.i42 = icmp slt i64 %12, %13
-  br i1 %cmp.i.i.i.i.i42, label %cleanup.thread.i, label %lor.rhs.i.i.i.i.i
+  %13 = load i64, ptr %_M_storage.i.i.i.i.i.i37, align 8
+  %cmp.i.i.i.i.i38 = icmp slt i64 %12, %13
+  br i1 %cmp.i.i.i.i.i38, label %cleanup.thread.i, label %lor.rhs.i.i.i.i.i
 
-lor.rhs.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i40
+lor.rhs.i.i.i.i.i:                                ; preds = %lor.rhs.i.i.i36
   %cmp4.i.i.i.i.i = icmp slt i64 %13, %12
   br i1 %cmp4.i.i.i.i.i, label %cleanup.thread.i, label %land.rhs.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %lor.rhs.i.i.i.i.i
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.i.i43, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i39, i64 40
   %14 = load i64, ptr %second.i.i.i.i.i, align 8
-  %second5.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %11, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %15 = load i64, ptr %second5.i.i.i.i.i, align 8
   %cmp6.i.i.i.i.i = icmp slt i64 %14, %15
   br label %cleanup.thread.i
 
-cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i.i, %lor.rhs.i.i.i40, %if.then.i38
-  %16 = phi i1 [ true, %if.then.i38 ], [ true, %lor.rhs.i.i.i40 ], [ false, %lor.rhs.i.i.i.i.i ], [ %cmp6.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %16, ptr noundef nonnull %call5.i.i.i.i.i.i43, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i, %lor.rhs.i.i.i.i.i, %lor.rhs.i.i.i36, %if.then.i34
+  %16 = phi i1 [ true, %if.then.i34 ], [ true, %lor.rhs.i.i.i36 ], [ false, %lor.rhs.i.i.i.i.i ], [ %cmp6.i.i.i.i.i, %land.rhs.i.i.i.i.i ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %16, ptr noundef nonnull %call5.i.i.i.i.i.i39, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %17 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %inc.i.i.i = add i64 %17, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8
@@ -3242,40 +3210,40 @@ cleanup.thread.i:                                 ; preds = %land.rhs.i.i.i.i.i,
 _ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Auto_nodeD2Ev.exit.i: ; preds = %call5.i.i.i.i.i.i.noexc
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i43) #19
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i39) #19
   br label %lpad.body
 
 if.then.i7.i:                                     ; preds = %invoke.cont7.i
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i43) #19
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i39) #19
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i, %lor.rhs.i.i.i, %if.then.i7.i, %cleanup.thread.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i.i.i ], [ %call5.i.i.i.i.i.i43, %cleanup.thread.i ], [ %10, %if.then.i7.i ]
-  %second.i13 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 16
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i.i.i ], [ %call5.i.i.i.i.i.i39, %cleanup.thread.i ], [ %10, %if.then.i7.i ]
+  %second.i13 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 48
   store i64 %sum.0.lcssa, ptr %second.i13, align 8
-  %inc22 = add nuw i64 %storemerge1053, 1
-  %exitcond57.not = icmp eq i64 %inc22, %conv2
-  br i1 %exitcond57.not, label %for.inc24, label %for.cond6.preheader, !llvm.loop !44
+  %inc22 = add nuw i64 %storemerge1049, 1
+  %exitcond53.not = icmp eq i64 %inc22, %conv2
+  br i1 %exitcond53.not, label %for.inc24, label %for.cond6.preheader, !llvm.loop !44
 
 lpad.loopexit:                                    ; preds = %if.then.i
-  %lpad.loopexit48 = landingpad { ptr, i32 }
+  %lpad.loopexit44 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
-lpad.loopexit.split-lp:                           ; preds = %for.end26, %if.then.i34, %invoke.cont30
-  %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
+lpad.loopexit.split-lp:                           ; preds = %for.end26, %if.then.i30, %invoke.cont30
+  %lpad.loopexit.split-lp45 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Auto_nodeD2Ev.exit.i
-  %eh.lpad-body = phi { ptr, i32 } [ %18, %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Auto_nodeD2Ev.exit.i ], [ %lpad.loopexit48, %lpad.loopexit ], [ %lpad.loopexit.split-lp49, %lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %18, %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Auto_nodeD2Ev.exit.i ], [ %lpad.loopexit44, %lpad.loopexit ], [ %lpad.loopexit.split-lp45, %lpad.loopexit.split-lp ]
   call void @_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %table) #16
   resume { ptr, i32 } %eh.lpad-body
 
 for.inc24:                                        ; preds = %invoke.cont19
-  %inc25 = add nuw i64 %storemerge56, 1
-  %exitcond58.not = icmp eq i64 %inc25, %conv2
-  br i1 %exitcond58.not, label %for.end26, label %for.cond3.preheader, !llvm.loop !45
+  %inc25 = add nuw i64 %storemerge52, 1
+  %exitcond54.not = icmp eq i64 %inc25, %conv2
+  br i1 %exitcond54.not, label %for.end26, label %for.cond3.preheader, !llvm.loop !45
 
 for.end26:                                        ; preds = %for.inc24, %entry
   invoke void @_ZN4cvc58internal6theory5arith2nl9IAndUtils15addDefaultValueERSt3mapISt4pairIllEmSt4lessIS7_ESaIS6_IKS7_mEEEm(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %table, i64 noundef %conv2)
@@ -3284,50 +3252,49 @@ for.end26:                                        ; preds = %for.inc24, %entry
 invoke.cont27:                                    ; preds = %for.end26
   %conv29 = zext i32 %granularity to i64
   store i64 %conv29, ptr %ref.tmp28, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i16)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i17)
-  %_M_parent.i.i.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load ptr, ptr %_M_parent.i.i.i.i.i18, align 8
-  %add.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i15)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i16)
+  %_M_parent.i.i.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 16
+  %19 = load ptr, ptr %_M_parent.i.i.i.i.i17, align 8
+  %add.ptr.i.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not5.i.i.i.i = icmp eq ptr %19, null
-  br i1 %cmp.not5.i.i.i.i, label %if.then.i34, label %while.body.i.i.i.i21
+  br i1 %cmp.not5.i.i.i.i, label %if.then.i30, label %while.body.i.i.i.i20
 
-while.body.i.i.i.i21:                             ; preds = %invoke.cont27, %while.body.i.i.i.i21
-  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i27, %while.body.i.i.i.i21 ], [ %19, %invoke.cont27 ]
-  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i25, %while.body.i.i.i.i21 ], [ %add.ptr.i.i.i.i19, %invoke.cont27 ]
-  %_M_storage.i.i.i.i.i.i22 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
-  %20 = load i64, ptr %_M_storage.i.i.i.i.i.i22, align 8
+while.body.i.i.i.i20:                             ; preds = %invoke.cont27, %while.body.i.i.i.i20
+  %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i23, %while.body.i.i.i.i20 ], [ %19, %invoke.cont27 ]
+  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i22, %while.body.i.i.i.i20 ], [ %add.ptr.i.i.i.i18, %invoke.cont27 ]
+  %_M_storage.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
+  %20 = load i64, ptr %_M_storage.i.i.i.i.i.i21, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %20, %conv29
-  %_M_right.i.i.i.i.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i24 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
-  %__y.addr.1.i.i.i.i25 = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i26 = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i23, ptr %_M_left.i.i.i.i.i24
-  %__x.addr.1.i.i.i.i27 = load ptr, ptr %__x.addr.1.in.i.i.i.i26, align 8
-  %cmp.not.i.i.i.i28 = icmp eq ptr %__x.addr.1.i.i.i.i27, null
-  br i1 %cmp.not.i.i.i.i28, label %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i21, !llvm.loop !31
+  %__y.addr.1.i.i.i.i22 = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
+  %__x.addr.1.i.i.i.i23 = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
+  %cmp.not.i.i.i.i24 = icmp eq ptr %__x.addr.1.i.i.i.i23, null
+  br i1 %cmp.not.i.i.i.i24, label %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i20, !llvm.loop !31
 
-_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i: ; preds = %while.body.i.i.i.i21
-  %cmp.i.i29 = icmp eq ptr %__y.addr.1.i.i.i.i25, %add.ptr.i.i.i.i19
-  br i1 %cmp.i.i29, label %if.then.i34, label %lor.rhs.i30
+_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i: ; preds = %while.body.i.i.i.i20
+  %cmp.i.i25 = icmp eq ptr %__y.addr.1.i.i.i.i22, %add.ptr.i.i.i.i18
+  br i1 %cmp.i.i25, label %if.then.i30, label %lor.rhs.i26
 
-lor.rhs.i30:                                      ; preds = %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i
-  %_M_storage.i.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i25, i64 0, i32 1
-  %21 = load i64, ptr %_M_storage.i.i.i31, align 8
+lor.rhs.i26:                                      ; preds = %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i
+  %_M_storage.i.i.i27 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i22, i64 32
+  %21 = load i64, ptr %_M_storage.i.i.i27, align 8
   %cmp.i3.i = icmp ugt i64 %21, %conv29
-  br i1 %cmp.i3.i, label %if.then.i34, label %invoke.cont30
+  br i1 %cmp.i3.i, label %if.then.i30, label %invoke.cont30
 
-if.then.i34:                                      ; preds = %lor.rhs.i30, %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i, %invoke.cont27
-  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %add.ptr.i.i.i.i19, %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i25, %lor.rhs.i30 ], [ %add.ptr.i.i.i.i19, %invoke.cont27 ]
-  store ptr %ref.tmp28, ptr %ref.tmp9.i16, align 8, !alias.scope !46
-  %call12.i36 = invoke ptr @_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESK_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i17)
+if.then.i30:                                      ; preds = %lor.rhs.i26, %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i, %invoke.cont27
+  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %add.ptr.i.i.i.i18, %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i ], [ %__y.addr.1.i.i.i.i22, %lor.rhs.i26 ], [ %add.ptr.i.i.i.i18, %invoke.cont27 ]
+  store ptr %ref.tmp28, ptr %ref.tmp9.i15, align 8, !alias.scope !46
+  %call12.i32 = invoke ptr @_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESK_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i16)
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp
 
-invoke.cont30:                                    ; preds = %lor.rhs.i30, %if.then.i34
-  %__i.sroa.0.0.i32 = phi ptr [ %__y.addr.1.i.i.i.i25, %lor.rhs.i30 ], [ %call12.i36, %if.then.i34 ]
-  %second.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i32, i64 0, i32 1, i32 0, i64 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i16)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i17)
-  %call.i37 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %second.i33, ptr noundef nonnull align 8 dereferenceable(48) %table)
+invoke.cont30:                                    ; preds = %lor.rhs.i26, %if.then.i30
+  %__i.sroa.0.0.i28 = phi ptr [ %__y.addr.1.i.i.i.i22, %lor.rhs.i26 ], [ %call12.i32, %if.then.i30 ]
+  %second.i29 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i28, i64 40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i15)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i16)
+  %call.i33 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(48) %second.i29, ptr noundef nonnull align 8 dereferenceable(48) %table)
           to label %invoke.cont32 unwind label %lpad.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -3368,13 +3335,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %conv
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !31
@@ -3384,7 +3350,7 @@ _ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select
   br i1 %cmp.i.i.i, label %if.then, label %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE4findERS9_.exit
 
 _ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE4findERS9_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %2, %conv
   br i1 %cmp.i4.i.i, label %if.then, label %if.end
@@ -3405,13 +3371,12 @@ if.end:                                           ; preds = %if.then, %_ZNSt3map
 while.body.i.i.i.i:                               ; preds = %if.end, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %3, %if.end ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i, %if.end ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %4, %conv
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i, label %while.body.i.i.i.i, !llvm.loop !31
@@ -3421,7 +3386,7 @@ _ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lowe
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEE11lower_boundERS9_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i3.i = icmp ugt i64 %5, %conv
   br i1 %cmp.i3.i, label %if.then.i, label %_ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEEixEOm.exit
@@ -3434,7 +3399,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 
 _ZNSt3mapImS_ISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEES2_ImESaIS0_IKmS7_EEEixEOm.exit: ; preds = %lor.rhs.i, %if.then.i
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %6 = load ptr, ptr %x, align 8
@@ -3883,7 +3848,7 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp3 = alloca %"class.cvc5::internal::Rational", align 8
   %call = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
-  %d_two = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::IAndUtils", ptr %this, i64 0, i32 3
+  %d_two = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_two, align 8
   call void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i32 noundef %k)
   invoke void @_ZN4cvc58internal11NodeManager10mkConstIntERKNS0_8RationalE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(3360) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
@@ -4043,27 +4008,27 @@ invoke.cont:                                      ; preds = %for.body
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !61
 
 lpad.loopexit:                                    ; preds = %for.body18, %if.then
-  %lpad.loopexit12 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %for.body7
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body
-  %lpad.loopexit17 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i
-  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit12, %lpad.loopexit ], [ %lpad.loopexit14, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %counters) #16
   resume { ptr, i32 } %lpad.phi
 
@@ -4071,16 +4036,16 @@ for.end:                                          ; preds = %invoke.cont
   %_M_left.i.i = getelementptr inbounds i8, ptr %table, i64 24
   %2 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %table, i64 8
-  %cmp.i.not21 = icmp eq ptr %2, %add.ptr.i.i
-  br i1 %cmp.i.not21, label %for.cond16.preheader, label %for.body7
+  %cmp.i.not20 = icmp eq ptr %2, %add.ptr.i.i
+  br i1 %cmp.i.not20, label %for.cond16.preheader, label %for.body7
 
 for.cond16.preheader:                             ; preds = %invoke.cont9, %for.end
   store i64 0, ptr %i15, align 8
   br label %for.body18
 
 for.body7:                                        ; preds = %for.end, %invoke.cont9
-  %__begin3.sroa.0.022 = phi ptr [ %call.i, %invoke.cont9 ], [ %2, %for.end ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__begin3.sroa.0.022, i64 0, i32 1, i32 0, i64 16
+  %__begin3.sroa.0.021 = phi ptr [ %call.i, %invoke.cont9 ], [ %2, %for.end ]
+  %second = getelementptr inbounds i8, ptr %__begin3.sroa.0.021, i64 48
   %3 = load i64, ptr %second, align 8
   store i64 %3, ptr %result, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %counters, ptr noundef nonnull align 8 dereferenceable(8) %result)
@@ -4090,19 +4055,19 @@ invoke.cont9:                                     ; preds = %for.body7
   %4 = load i64, ptr %call10, align 8
   %inc11 = add i64 %4, 1
   store i64 %inc11, ptr %call10, align 8
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.022) #20
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.021) #20
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond16.preheader, label %for.body7
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.inc24
-  %max_num_of_occ.024 = phi i64 [ 0, %for.cond16.preheader ], [ %max_num_of_occ.1, %for.inc24 ]
-  %most_common_result.023 = phi i64 [ 0, %for.cond16.preheader ], [ %most_common_result.1, %for.inc24 ]
+  %max_num_of_occ.023 = phi i64 [ 0, %for.cond16.preheader ], [ %max_num_of_occ.1, %for.inc24 ]
+  %most_common_result.022 = phi i64 [ 0, %for.cond16.preheader ], [ %most_common_result.1, %for.inc24 ]
   %call20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %counters, ptr noundef nonnull align 8 dereferenceable(8) %i15)
           to label %invoke.cont19 unwind label %lpad.loopexit
 
 invoke.cont19:                                    ; preds = %for.body18
   %5 = load i64, ptr %call20, align 8
-  %cmp21.not = icmp ult i64 %5, %max_num_of_occ.024
+  %cmp21.not = icmp ult i64 %5, %max_num_of_occ.023
   br i1 %cmp21.not, label %invoke.cont19.for.inc24_crit_edge, label %if.then
 
 invoke.cont19.for.inc24_crit_edge:                ; preds = %invoke.cont19
@@ -4120,8 +4085,8 @@ invoke.cont22:                                    ; preds = %if.then
 
 for.inc24:                                        ; preds = %invoke.cont19.for.inc24_crit_edge, %invoke.cont22
   %8 = phi i64 [ %7, %invoke.cont22 ], [ %.pre, %invoke.cont19.for.inc24_crit_edge ]
-  %most_common_result.1 = phi i64 [ %7, %invoke.cont22 ], [ %most_common_result.023, %invoke.cont19.for.inc24_crit_edge ]
-  %max_num_of_occ.1 = phi i64 [ %6, %invoke.cont22 ], [ %max_num_of_occ.024, %invoke.cont19.for.inc24_crit_edge ]
+  %most_common_result.1 = phi i64 [ %7, %invoke.cont22 ], [ %most_common_result.022, %invoke.cont19.for.inc24_crit_edge ]
+  %max_num_of_occ.1 = phi i64 [ %6, %invoke.cont22 ], [ %max_num_of_occ.023, %invoke.cont19.for.inc24_crit_edge ]
   %inc25 = add i64 %8, 1
   store i64 %inc25, ptr %i15, align 8
   %cmp17.not = icmp ugt i64 %inc25, %num_of_values
@@ -4139,33 +4104,29 @@ invoke.cont30:                                    ; preds = %for.inc24
 while.body.i.i.i.i:                               ; preds = %invoke.cont30, %if.end.i.i.i.i
   %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %9, %invoke.cont30 ]
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i, %invoke.cont30 ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %10 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp slt i64 %10, -1
   br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i
   %cmp4.i.i.i.i.i.i = icmp sgt i64 %10, -1
-  br i1 %cmp4.i.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i
+  br i1 %cmp4.i.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i: ; preds = %lor.rhs.i.i.i.i.i.i
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 40
   %11 = load i64, ptr %second.i.i.i.i.i.i, align 8
   %cmp6.i.i.i.i.i.i = icmp slt i64 %11, -1
-  br i1 %cmp6.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i.i
-  %_M_left.i.i.i.i.i6 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 2
-  br label %if.end.i.i.i.i
+  br i1 %cmp6.i.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %while.body.i.i.i.i
-  %_M_right.i.i.i.i.i8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 3
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.then.i.i.i.i ]
-  %__x.addr.1.in.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i8, %if.else.i.i.i.i ], [ %_M_left.i.i.i.i.i6, %if.then.i.i.i.i ]
-  %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
+if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %lor.rhs.i.i.i.i.i.i ], [ 16, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %lor.rhs.i.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i.i.i.i ]
+  %_M_right.i.i.i.i.i6 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 %.sink.i.i.i.i
+  %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i6, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i, label %while.body.i.i.i.i, !llvm.loop !43
 
@@ -4174,7 +4135,7 @@ _ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i: ; pr
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i.i.i = icmp sgt i64 %12, -1
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.rhs.i.i.i
@@ -4184,7 +4145,7 @@ lor.rhs.i.i.i:                                    ; preds = %lor.rhs.i
   br i1 %cmp4.i.i.i.not, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i, label %invoke.cont33
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i:       ; preds = %lor.rhs.i.i.i
-  %second5.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %13 = load i64, ptr %second5.i.i.i, align 8
   %cmp6.i.i.i = icmp sgt i64 %13, -1
   br i1 %cmp6.i.i.i, label %if.then.i, label %invoke.cont33
@@ -4192,12 +4153,12 @@ _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i:       ; preds = %lor.rhs.i.i.i
 if.then.i:                                        ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i, %lor.rhs.i, %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i, %invoke.cont30
   %__y.addr.0.lcssa.i.i.i9.i = phi ptr [ %add.ptr.i.i, %_ZNSt3mapISt4pairIllEmSt4lessIS1_ESaIS0_IKS1_mEEE11lower_boundERS4_.exit.i ], [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i ], [ %add.ptr.i.i, %invoke.cont30 ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
   store ptr %ref.tmp, ptr %ref.tmp9.i, align 8, !alias.scope !63
-  %call12.i9 = invoke ptr @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %table, ptr %__y.addr.0.lcssa.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i8 = invoke ptr @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %table, ptr %__y.addr.0.lcssa.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %invoke.cont33 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont33:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i, %lor.rhs.i.i.i, %if.then.i
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i.i.i ], [ %call12.i9, %if.then.i ]
-  %second.i7 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 16
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i.i.i ], [ %call12.i8, %if.then.i ]
+  %second.i7 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   store i64 %most_common_result.1, ptr %second.i7, align 8
@@ -4248,13 +4209,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %.pre
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit, label %while.body.i.i.i, !llvm.loop !66
@@ -4264,7 +4224,7 @@ _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit: ; preds = %while
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8
   %cmp.i3 = icmp ult i64 %.pre, %2
   br i1 %cmp.i3, label %if.then, label %if.end
@@ -4272,9 +4232,9 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImmSt4less
 if.then:                                          ; preds = %entry, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit, %lor.rhs
   %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE11lower_boundERS3_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
-  %_M_storage.i.i.i.i.i4 = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i4, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i64 0, ptr %second.i.i.i.i.i.i.i.i, align 8
   %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS2_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i4)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE10_Auto_nodeD2Ev.exit.i
@@ -4292,7 +4252,7 @@ if.then.i:                                        ; preds = %invoke.cont7.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i.i.i4, align 8
   %6 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i6 = icmp ult i64 %5, %6
@@ -4319,7 +4279,7 @@ if.then.i7.i:                                     ; preds = %invoke.cont7.i
 
 if.end:                                           ; preds = %if.then.i7.i, %cleanup.thread.i, %lor.rhs
   %__i.sroa.0.0 = phi ptr [ %__y.addr.1.i.i.i, %lor.rhs ], [ %call5.i.i.i.i.i.i, %cleanup.thread.i ], [ %3, %if.then.i7.i ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %__i.sroa.0.0, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__i.sroa.0.0, i64 40
   ret ptr %second
 }
 
@@ -4357,7 +4317,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds %struct.__mpq_struct, ptr %this, i64 0, i32 1
+  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -4448,7 +4408,7 @@ entry:
   %call = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   call void @_ZNK4cvc58internal6theory5arith2nl9IAndUtils6twoToKEj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %k)
   %0 = load ptr, ptr %ref.tmp, align 8
-  %d_one = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::IAndUtils", ptr %this, i64 0, i32 2
+  %d_one = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %d_one, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -4577,13 +4537,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
   %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 8
-  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 24
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 40
+  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 56
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i, ptr noundef %2)
           to label %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -4618,19 +4578,19 @@ if.then:                                          ; preds = %entry
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i, align 8
   store ptr %0, ptr %__roan, align 8
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<std::pair<long, long>, std::pair<const std::pair<long, long>, unsigned long>, std::_Select1st<std::pair<const std::pair<long, long>, unsigned long>>, std::less<std::pair<long, long>>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %__roan, i64 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i.i, align 8
   store ptr %1, ptr %_M_nodes.i, align 8
-  %_M_t.i = getelementptr inbounds %"struct.std::_Rb_tree<std::pair<long, long>, std::pair<const std::pair<long, long>, unsigned long>, std::_Select1st<std::pair<const std::pair<long, long>, unsigned long>>, std::less<std::pair<long, long>>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 2
+  %_M_t.i = getelementptr inbounds i8, ptr %__roan, i64 16
   store ptr %this, ptr %_M_t.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end12.sink.split.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %_M_parent.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_left.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE20_Reuse_or_alloc_nodeC2ERS9_.exit, label %if.end12.sink.split.i
@@ -4659,7 +4619,7 @@ if.then6:                                         ; preds = %_ZNSt8_Rb_treeISt4p
 
 while.cond.i.i.i:                                 ; preds = %if.then6, %while.cond.i.i.i
   %__x.addr.0.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %call3.i9, %if.then6 ]
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %while.cond.i.i.i, !llvm.loop !71
@@ -4670,7 +4630,7 @@ _ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_S_
 
 while.cond.i.i4.i:                                ; preds = %while.cond.i.i4.i, %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i
   %__x.addr.0.i.i5.i = phi ptr [ %call3.i9, %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i ], [ %5, %while.cond.i.i4.i ]
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i5.i, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i, i64 24
   %5 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.not.i.i6.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i6.i, label %invoke.cont, label %while.cond.i.i4.i, !llvm.loop !72
@@ -4711,7 +4671,7 @@ if.end9:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<std::pair<long, long>, std::pair<const std::pair<long, long>, unsigned long>, std::_Select1st<std::pair<const std::pair<long, long>, unsigned long>>, std::less<std::pair<long, long>>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_t, align 8
   %1 = load ptr, ptr %this, align 8
   invoke void @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
@@ -4731,20 +4691,20 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE7_M_copyILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_nodes.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree<std::pair<long, long>, std::pair<const std::pair<long, long>, unsigned long>, std::_Select1st<std::pair<const std::pair<long, long>, unsigned long>>, std::less<std::pair<long, long>>>::_Reuse_or_alloc_node", ptr %__node_gen, i64 0, i32 1
+  %_M_nodes.i.i.i = getelementptr inbounds i8, ptr %__node_gen, i64 8
   %0 = load ptr, ptr %_M_nodes.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %_M_parent.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   store ptr %1, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i.i.i, label %if.else37.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, %0
   br i1 %cmp.i.i.i, label %if.then10.i.i.i, label %if.else.i.i.i
@@ -4752,7 +4712,7 @@ if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
 if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
   store ptr null, ptr %_M_right.i.i.i, align 8
   %3 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8
   %tobool14.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool14.not.i.i.i, label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_.exit, label %while.cond.i.i.i
@@ -4760,13 +4720,13 @@ if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
 while.cond.i.i.i:                                 ; preds = %if.then10.i.i.i, %while.cond.i.i.i
   %storemerge.i.i.i = phi ptr [ %5, %while.cond.i.i.i ], [ %4, %if.then10.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 3
+  %_M_right20.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 24
   %5 = load ptr, ptr %_M_right20.i.i.i, align 8
   %tobool21.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool21.not.i.i.i, label %while.end.i.i.i, label %while.cond.i.i.i, !llvm.loop !73
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
-  %_M_left26.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 2
+  %_M_left26.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 16
   %6 = load ptr, ptr %_M_left26.i.i.i, align 8
   %tobool27.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool27.not.i.i.i, label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_.exit, label %if.then28.i.i.i
@@ -4776,7 +4736,7 @@ if.then28.i.i.i:                                  ; preds = %while.end.i.i.i
   br label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then8.i.i.i
-  %_M_left35.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left35.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %_M_left35.i.i.i, align 8
   br label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_.exit
 
@@ -4790,16 +4750,16 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_.exit: ; preds = %if.then10.i.i.i, %while.end.i.i.i, %if.then28.i.i.i, %if.else.i.i.i, %if.else37.i.i.i, %if.end.i.i
   %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %if.then28.i.i.i ], [ %0, %while.end.i.i.i ], [ %0, %if.else37.i.i.i ], [ %0, %if.else.i.i.i ], [ %0, %if.then10.i.i.i ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x, i64 0, i32 1
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i, i64 24, i1 false)
   %7 = load i32, ptr %__x, align 8
   store i32 %7, ptr %call5.i.i.i.i.sink.i.i, align 8
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %8 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4809,7 +4769,7 @@ if.then:                                          ; preds = %_ZNSt8_Rb_treeISt4p
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -4835,7 +4795,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE13_M_clone_nodeILb0ENS9_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_RT0_.exit
-  %__x.addr.0.in58 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in58 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.059 = load ptr, ptr %__x.addr.0.in58, align 8
   %cmp.not60 = icmp eq ptr %__x.addr.059, null
   br i1 %cmp.not60, label %try.cont, label %while.body
@@ -4848,14 +4808,14 @@ while.body:                                       ; preds = %if.end, %if.end16
   br i1 %tobool.not.i.i.i25, label %if.end.i.i50, label %if.end.i.i.i26
 
 if.end.i.i.i26:                                   ; preds = %while.body
-  %_M_parent.i.i.i27 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %11, i64 0, i32 1
+  %_M_parent.i.i.i27 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_parent.i.i.i27, align 8
   store ptr %12, ptr %_M_nodes.i.i.i, align 8
   %tobool7.not.i.i.i28 = icmp eq ptr %12, null
   br i1 %tobool7.not.i.i.i28, label %if.else37.i.i.i49, label %if.then8.i.i.i29
 
 if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
-  %_M_right.i.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 3
+  %_M_right.i.i.i30 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %_M_right.i.i.i30, align 8
   %cmp.i.i.i31 = icmp eq ptr %13, %11
   br i1 %cmp.i.i.i31, label %if.then10.i.i.i38, label %if.else.i.i.i32
@@ -4863,7 +4823,7 @@ if.then8.i.i.i29:                                 ; preds = %if.end.i.i.i26
 if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
   store ptr null, ptr %_M_right.i.i.i30, align 8
   %14 = load ptr, ptr %_M_nodes.i.i.i, align 8
-  %_M_left.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %14, i64 0, i32 2
+  %_M_left.i.i.i39 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %_M_left.i.i.i39, align 8
   %tobool14.not.i.i.i40 = icmp eq ptr %15, null
   br i1 %tobool14.not.i.i.i40, label %invoke.cont6, label %while.cond.i.i.i41
@@ -4871,13 +4831,13 @@ if.then10.i.i.i38:                                ; preds = %if.then8.i.i.i29
 while.cond.i.i.i41:                               ; preds = %if.then10.i.i.i38, %while.cond.i.i.i41
   %storemerge.i.i.i42 = phi ptr [ %16, %while.cond.i.i.i41 ], [ %15, %if.then10.i.i.i38 ]
   store ptr %storemerge.i.i.i42, ptr %_M_nodes.i.i.i, align 8
-  %_M_right20.i.i.i43 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 3
+  %_M_right20.i.i.i43 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 24
   %16 = load ptr, ptr %_M_right20.i.i.i43, align 8
   %tobool21.not.i.i.i44 = icmp eq ptr %16, null
   br i1 %tobool21.not.i.i.i44, label %while.end.i.i.i45, label %while.cond.i.i.i41, !llvm.loop !73
 
 while.end.i.i.i45:                                ; preds = %while.cond.i.i.i41
-  %_M_left26.i.i.i46 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i42, i64 0, i32 2
+  %_M_left26.i.i.i46 = getelementptr inbounds i8, ptr %storemerge.i.i.i42, i64 16
   %17 = load ptr, ptr %_M_left26.i.i.i46, align 8
   %tobool27.not.i.i.i47 = icmp eq ptr %17, null
   br i1 %tobool27.not.i.i.i47, label %invoke.cont6, label %if.then28.i.i.i48
@@ -4887,7 +4847,7 @@ if.then28.i.i.i48:                                ; preds = %while.end.i.i.i45
   br label %invoke.cont6
 
 if.else.i.i.i32:                                  ; preds = %if.then8.i.i.i29
-  %_M_left35.i.i.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %12, i64 0, i32 2
+  %_M_left35.i.i.i33 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr null, ptr %_M_left35.i.i.i33, align 8
   br label %invoke.cont6
 
@@ -4901,18 +4861,18 @@ if.end.i.i50:                                     ; preds = %while.body
 
 invoke.cont6:                                     ; preds = %if.else37.i.i.i49, %if.else.i.i.i32, %if.then28.i.i.i48, %while.end.i.i.i45, %if.then10.i.i.i38, %if.end.i.i50
   %call5.i.i.i.i.sink.i.i34 = phi ptr [ %11, %if.then28.i.i.i48 ], [ %11, %while.end.i.i.i45 ], [ %11, %if.else37.i.i.i49 ], [ %11, %if.else.i.i.i32 ], [ %11, %if.then10.i.i.i38 ], [ %call5.i.i.i.i.i.i5152, %if.end.i.i50 ]
-  %_M_storage.i.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.addr.062, i64 0, i32 1
-  %_M_storage.i.i.i.i.i36 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_storage.i.i35 = getelementptr inbounds i8, ptr %__x.addr.062, i64 32
+  %_M_storage.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i36, ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i35, i64 24, i1 false)
   %18 = load i32, ptr %__x.addr.062, align 8
   store i32 %18, ptr %call5.i.i.i.i.sink.i.i34, align 8
-  %_M_left.i37 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 2
+  %_M_left.i37 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i37, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.061, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.061, i64 16
   store ptr %call5.i.i.i.i.sink.i.i34, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 1
+  %_M_parent8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 8
   store ptr %__p.addr.061, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 3
+  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.062, i64 24
   %19 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %19, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -4922,12 +4882,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i34, i64 0, i32 3
+  %_M_right15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i34, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.062, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.062, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !74
@@ -4963,10 +4923,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null
@@ -4994,10 +4954,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null
@@ -5028,21 +4988,21 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESa
 invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>, std::_Select1st<std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>>, std::less<unsigned long>>::_Auto_node", align 8
   store ptr %this, ptr %__z, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>, std::_Select1st<std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>>, std::less<unsigned long>>::_Auto_node", ptr %__z, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load i64, ptr %1, align 8
   store i64 %2, ptr %_M_storage.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %3 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
-  %_M_left.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
+  %3 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
+  %_M_left.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %3, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 40
+  %_M_right.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 72
   store ptr %3, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 48
+  %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 80
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i)
@@ -5062,7 +5022,7 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %5, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %7 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %6, %7
@@ -5084,7 +5044,7 @@ lpad:                                             ; preds = %invoke.cont
   resume { ptr, i32 } %10
 
 if.then.i:                                        ; preds = %invoke.cont7
-  %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 24
+  %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
   %11 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i.i.i, ptr noundef %11)
           to label %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
@@ -5121,7 +5081,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   %3 = load i64, ptr %__k, align 8
   %cmp.i = icmp ult i64 %2, %3
@@ -5139,12 +5099,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i10, align 8
   %cmp.i.i = icmp ult i64 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !77
@@ -5161,14 +5120,14 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #20
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
-  %.pre117 = load i64, ptr %__k, align 8
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
+  %.pre115 = load i64, ptr %__k, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i64 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i64 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i64 %8, %7
@@ -5177,7 +5136,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i64, ptr %__k, align 8
   %10 = load i64, ptr %_M_storage.i.i.i11, align 8
   %cmp.i12 = icmp ult i64 %9, %10
@@ -5191,131 +5150,129 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i16, align 8
   %cmp.i17 = icmp ult i64 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i64, ptr %_M_storage.i.i.i28, align 8
   %cmp.i.i29 = icmp ult i64 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !77
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !77
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #20
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i64, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 8
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #20
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i64 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i64 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i64 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i64 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i64 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i59, i64 0, i32 1
-  %17 = load i64, ptr %_M_storage.i.i.i60, align 8
-  %cmp.i61 = icmp ult i64 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i64, ptr %_M_storage.i.i.i59, align 8
+  %cmp.i60 = icmp ult i64 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i64, ptr %_M_storage.i.i.i72, align 8
-  %cmp.i.i73 = icmp ult i64 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !77
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i64, ptr %_M_storage.i.i.i71, align 8
+  %cmp.i.i72 = icmp ult i64 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !77
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #20
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i64, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 8
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #20
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i64 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i64 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i64 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5324,14 +5281,14 @@ return:                                           ; preds = %if.end12.i80, %if.t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>, std::_Select1st<std::pair<const unsigned long, std::map<std::pair<long, long>, unsigned long>>>, std::less<unsigned long>>::_Auto_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 8
-  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 24
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i, ptr noundef %1)
           to label %_ZNSt8_Rb_treeImSt4pairIKmSt3mapIS0_IllEmSt4lessIS3_ESaIS0_IKS3_mEEEESt10_Select1stISA_ES4_ImESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -5367,11 +5324,11 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 define linkonce_odr ptr @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   store i64 0, ptr %second.i.i.i.i.i.i.i, align 8
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(16) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %_ZNSt8_Rb_treeISt4pairIllES0_IKS1_mESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE10_Auto_nodeD2Ev.exit
@@ -5390,7 +5347,7 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %3, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %5 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %4, %5
@@ -5401,9 +5358,9 @@ lor.rhs.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   br i1 %cmp4.i.i.i.i, label %cleanup.thread, label %land.rhs.i.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %lor.rhs.i.i.i.i
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
   %6 = load i64, ptr %second.i.i.i.i, align 8
-  %second5.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %3, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %7 = load i64, ptr %second5.i.i.i.i, align 8
   %cmp6.i.i.i.i = icmp slt i64 %6, %7
   br label %cleanup.thread
@@ -5448,7 +5405,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   %3 = load i64, ptr %__k, align 8
   %cmp.i.i = icmp slt i64 %2, %3
@@ -5459,9 +5416,9 @@ lor.rhs.i.i:                                      ; preds = %land.lhs.true
   br i1 %cmp4.i.i, label %if.else, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit:         ; preds = %lor.rhs.i.i
-  %second.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %second.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i64, ptr %second.i.i, align 8
-  %second5.i.i = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
+  %second5.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %5 = load i64, ptr %second5.i.i, align 8
   %cmp6.i.i = icmp slt i64 %4, %5
   br i1 %cmp6.i.i, label %return, label %if.else
@@ -5474,13 +5431,13 @@ if.else:                                          ; preds = %lor.rhs.i.i, %_ZNKS
 
 while.body.lr.ph.i:                               ; preds = %if.else
   %6 = load i64, ptr %__k, align 8
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %7 = load i64, ptr %second.i.i.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.lr.ph.i
   %__x.028.i = phi ptr [ %__x.026.i, %while.body.lr.ph.i ], [ %__x.028.i.be, %while.body.i.backedge ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.028.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.028.i, i64 32
   %8 = load i64, ptr %_M_storage.i.i.i10, align 8
   %cmp.i.i.i = icmp slt i64 %6, %8
   br i1 %cmp.i.i.i, label %cond.end.i, label %lor.rhs.i.i.i
@@ -5490,26 +5447,26 @@ lor.rhs.i.i.i:                                    ; preds = %while.body.i
   br i1 %cmp4.i.i.i, label %cond.end.i.thread, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i:       ; preds = %lor.rhs.i.i.i
-  %second5.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.028.i, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i.i = getelementptr inbounds i8, ptr %__x.028.i, i64 40
   %9 = load i64, ptr %second5.i.i.i, align 8
   %cmp6.i.i.i = icmp slt i64 %7, %9
   br i1 %cmp6.i.i.i, label %cond.end.i, label %cond.end.i.thread
 
-cond.end.i:                                       ; preds = %while.body.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i, i64 0, i32 2
-  %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
+cond.end.i:                                       ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i, %while.body.i
+  %_M_right.i.i = getelementptr inbounds i8, ptr %__x.028.i, i64 16
+  %__x.0.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %if.then.i, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %cond.end.i, %cond.end.i.thread
-  %__x.028.i.be = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.0.i171, %cond.end.i.thread ]
+  %__x.028.i.be = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.0.i168, %cond.end.i.thread ]
   br label %while.body.i, !llvm.loop !78
 
 cond.end.i.thread:                                ; preds = %lor.rhs.i.i.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i, i64 0, i32 3
-  %__x.0.i171 = load ptr, ptr %_M_right.i.i, align 8
-  %cmp.not.i172 = icmp eq ptr %__x.0.i171, null
-  br i1 %cmp.not.i172, label %if.end12.i, label %while.body.i.backedge
+  %_M_right.i.i167 = getelementptr inbounds i8, ptr %__x.028.i, i64 24
+  %__x.0.i168 = load ptr, ptr %_M_right.i.i167, align 8
+  %cmp.not.i169 = icmp eq ptr %__x.0.i168, null
+  br i1 %cmp.not.i169, label %if.end12.i, label %while.body.i.backedge
 
 if.then.i:                                        ; preds = %cond.end.i, %if.else
   %__y.0.lcssa33.i = phi ptr [ %__position.coerce, %if.else ], [ %__x.028.i, %cond.end.i ]
@@ -5520,14 +5477,14 @@ if.then.i:                                        ; preds = %cond.end.i, %if.els
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i) #20
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call.i.i, i64 0, i32 1
-  %.pre192 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
-  %.pre193 = load i64, ptr %__k, align 8
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre191 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
+  %.pre192 = load i64, ptr %__k, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %cond.end.i.thread, %if.else.i
-  %11 = phi i64 [ %.pre193, %if.else.i ], [ %6, %cond.end.i.thread ]
-  %12 = phi i64 [ %.pre192, %if.else.i ], [ %8, %cond.end.i.thread ]
+  %11 = phi i64 [ %.pre192, %if.else.i ], [ %6, %cond.end.i.thread ]
+  %12 = phi i64 [ %.pre191, %if.else.i ], [ %8, %cond.end.i.thread ]
   %__y.0.lcssa32.i = phi ptr [ %__y.0.lcssa33.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %cmp.i.i4.i = icmp slt i64 %12, %11
@@ -5538,9 +5495,9 @@ lor.rhs.i.i5.i:                                   ; preds = %if.end12.i
   br i1 %cmp4.i.i6.i, label %if.end18.i, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i:     ; preds = %lor.rhs.i.i5.i
-  %second.i.i8.i = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__j.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i8.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 40
   %13 = load i64, ptr %second.i.i8.i, align 8
-  %second5.i.i9.i = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
+  %second5.i.i9.i = getelementptr inbounds i8, ptr %__k, i64 8
   %14 = load i64, ptr %second5.i.i9.i, align 8
   %cmp6.i.i10.i = icmp slt i64 %13, %14
   br i1 %cmp6.i.i10.i, label %return, label %if.end18.i
@@ -5549,7 +5506,7 @@ if.end18.i:                                       ; preds = %_ZNKSt4lessISt4pair
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i12 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i12 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %15 = load i64, ptr %__k, align 8
   %16 = load i64, ptr %_M_storage.i.i.i12, align 8
   %cmp.i.i13 = icmp slt i64 %15, %16
@@ -5560,12 +5517,12 @@ lor.rhs.i.i14:                                    ; preds = %if.else12
   br i1 %cmp4.i.i15, label %if.then50, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit20
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit20:       ; preds = %lor.rhs.i.i14
-  %second.i.i17 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
+  %second.i.i17 = getelementptr inbounds i8, ptr %__k, i64 8
   %17 = load i64, ptr %second.i.i17, align 8
-  %second5.i.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i18 = getelementptr inbounds i8, ptr %__position.coerce, i64 40
   %18 = load i64, ptr %second5.i.i18, align 8
   %cmp6.i.i19 = icmp slt i64 %17, %18
-  br i1 %cmp6.i.i19, label %if.then18, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit91
+  br i1 %cmp6.i.i19, label %if.then18, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit89
 
 if.then18:                                        ; preds = %if.else12, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit20
   %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -5575,7 +5532,7 @@ if.then18:                                        ; preds = %if.else12, %_ZNKSt4
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i24 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i24 = getelementptr inbounds i8, ptr %call.i, i64 32
   %20 = load i64, ptr %_M_storage.i.i.i24, align 8
   %cmp.i.i25 = icmp slt i64 %20, %15
   br i1 %cmp.i.i25, label %if.then32, label %lor.rhs.i.i26
@@ -5585,19 +5542,19 @@ lor.rhs.i.i26:                                    ; preds = %if.else25
   br i1 %cmp4.i.i27, label %if.else42, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit32
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit32:       ; preds = %lor.rhs.i.i26
-  %second.i.i29 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i29 = getelementptr inbounds i8, ptr %call.i, i64 40
   %21 = load i64, ptr %second.i.i29, align 8
-  %second5.i.i30 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
+  %second5.i.i30 = getelementptr inbounds i8, ptr %__k, i64 8
   %22 = load i64, ptr %second5.i.i30, align 8
   %cmp6.i.i31 = icmp slt i64 %21, %22
   br i1 %cmp6.i.i31, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit32
-  %_M_right.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i33 = getelementptr inbounds i8, ptr %call.i, i64 24
   %23 = load ptr, ptr %_M_right.i33, align 8
   %cmp35 = icmp eq ptr %23, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select182 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select181 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %lor.rhs.i.i26, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit32
@@ -5607,58 +5564,58 @@ if.else42:                                        ; preds = %lor.rhs.i.i26, %_ZN
   br i1 %cmp.not27.i39, label %if.then.i74, label %while.body.lr.ph.i40
 
 while.body.lr.ph.i40:                             ; preds = %if.else42
-  %second.i.i.i41 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
+  %second.i.i.i41 = getelementptr inbounds i8, ptr %__k, i64 8
   %24 = load i64, ptr %second.i.i.i41, align 8
   br label %while.body.i42
 
 while.body.i42:                                   ; preds = %while.body.i42.backedge, %while.body.lr.ph.i40
   %__x.028.i43 = phi ptr [ %__x.026.i38, %while.body.lr.ph.i40 ], [ %__x.028.i43.be, %while.body.i42.backedge ]
-  %_M_storage.i.i.i44 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.028.i43, i64 0, i32 1
+  %_M_storage.i.i.i44 = getelementptr inbounds i8, ptr %__x.028.i43, i64 32
   %25 = load i64, ptr %_M_storage.i.i.i44, align 8
   %cmp.i.i.i45 = icmp slt i64 %15, %25
-  br i1 %cmp.i.i.i45, label %cond.end.i53, label %lor.rhs.i.i.i46
+  br i1 %cmp.i.i.i45, label %cond.end.i52, label %lor.rhs.i.i.i46
 
 lor.rhs.i.i.i46:                                  ; preds = %while.body.i42
   %cmp4.i.i.i47 = icmp slt i64 %25, %15
-  br i1 %cmp4.i.i.i47, label %cond.end.i53.thread, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i48
+  br i1 %cmp4.i.i.i47, label %cond.end.i52.thread, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i48
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i48:     ; preds = %lor.rhs.i.i.i46
-  %second5.i.i.i49 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.028.i43, i64 0, i32 1, i32 0, i64 8
+  %second5.i.i.i49 = getelementptr inbounds i8, ptr %__x.028.i43, i64 40
   %26 = load i64, ptr %second5.i.i.i49, align 8
   %cmp6.i.i.i50 = icmp slt i64 %24, %26
-  br i1 %cmp6.i.i.i50, label %cond.end.i53, label %cond.end.i53.thread
+  br i1 %cmp6.i.i.i50, label %cond.end.i52, label %cond.end.i52.thread
 
-cond.end.i53:                                     ; preds = %while.body.i42, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i48
-  %_M_left.i.i81 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i43, i64 0, i32 2
-  %__x.0.i55 = load ptr, ptr %_M_left.i.i81, align 8
+cond.end.i52:                                     ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i48, %while.body.i42
+  %_M_right.i.i54 = getelementptr inbounds i8, ptr %__x.028.i43, i64 16
+  %__x.0.i55 = load ptr, ptr %_M_right.i.i54, align 8
   %cmp.not.i56 = icmp eq ptr %__x.0.i55, null
   br i1 %cmp.not.i56, label %if.then.i74, label %while.body.i42.backedge
 
-while.body.i42.backedge:                          ; preds = %cond.end.i53, %cond.end.i53.thread
-  %__x.028.i43.be = phi ptr [ %__x.0.i55, %cond.end.i53 ], [ %__x.0.i55176, %cond.end.i53.thread ]
+while.body.i42.backedge:                          ; preds = %cond.end.i52, %cond.end.i52.thread
+  %__x.028.i43.be = phi ptr [ %__x.0.i55, %cond.end.i52 ], [ %__x.0.i55174, %cond.end.i52.thread ]
   br label %while.body.i42, !llvm.loop !78
 
-cond.end.i53.thread:                              ; preds = %lor.rhs.i.i.i46, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i48
-  %_M_right.i.i52 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i43, i64 0, i32 3
-  %__x.0.i55176 = load ptr, ptr %_M_right.i.i52, align 8
-  %cmp.not.i56177 = icmp eq ptr %__x.0.i55176, null
-  br i1 %cmp.not.i56177, label %if.end12.i58, label %while.body.i42.backedge
+cond.end.i52.thread:                              ; preds = %lor.rhs.i.i.i46, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i48
+  %_M_right.i.i54173 = getelementptr inbounds i8, ptr %__x.028.i43, i64 24
+  %__x.0.i55174 = load ptr, ptr %_M_right.i.i54173, align 8
+  %cmp.not.i56175 = icmp eq ptr %__x.0.i55174, null
+  br i1 %cmp.not.i56175, label %if.end12.i58, label %while.body.i42.backedge
 
-if.then.i74:                                      ; preds = %cond.end.i53, %if.else42
-  %__y.0.lcssa33.i75 = phi ptr [ %add.ptr.i, %if.else42 ], [ %__x.028.i43, %cond.end.i53 ]
+if.then.i74:                                      ; preds = %cond.end.i52, %if.else42
+  %__y.0.lcssa33.i75 = phi ptr [ %add.ptr.i, %if.else42 ], [ %__x.028.i43, %cond.end.i52 ]
   %cmp.i.i77 = icmp eq ptr %__y.0.lcssa33.i75, %19
   br i1 %cmp.i.i77, label %return, label %if.else.i78
 
 if.else.i78:                                      ; preds = %if.then.i74
   %call.i.i79 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i75) #20
-  %_M_storage.i.i.i.i61.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call.i.i79, i64 0, i32 1
-  %.pre191 = load i64, ptr %_M_storage.i.i.i.i61.phi.trans.insert, align 8
+  %_M_storage.i.i.i.i61.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i79, i64 32
+  %.pre190 = load i64, ptr %_M_storage.i.i.i.i61.phi.trans.insert, align 8
   br label %if.end12.i58
 
-if.end12.i58:                                     ; preds = %cond.end.i53.thread, %if.else.i78
-  %27 = phi i64 [ %.pre191, %if.else.i78 ], [ %25, %cond.end.i53.thread ]
-  %__y.0.lcssa32.i59 = phi ptr [ %__y.0.lcssa33.i75, %if.else.i78 ], [ %__x.028.i43, %cond.end.i53.thread ]
-  %__j.sroa.0.0.i60 = phi ptr [ %call.i.i79, %if.else.i78 ], [ %__x.028.i43, %cond.end.i53.thread ]
+if.end12.i58:                                     ; preds = %cond.end.i52.thread, %if.else.i78
+  %27 = phi i64 [ %.pre190, %if.else.i78 ], [ %25, %cond.end.i52.thread ]
+  %__y.0.lcssa32.i59 = phi ptr [ %__y.0.lcssa33.i75, %if.else.i78 ], [ %__x.028.i43, %cond.end.i52.thread ]
+  %__j.sroa.0.0.i60 = phi ptr [ %call.i.i79, %if.else.i78 ], [ %__x.028.i43, %cond.end.i52.thread ]
   %cmp.i.i4.i62 = icmp slt i64 %27, %15
   br i1 %cmp.i.i4.i62, label %return, label %lor.rhs.i.i5.i63
 
@@ -5667,9 +5624,9 @@ lor.rhs.i.i5.i63:                                 ; preds = %if.end12.i58
   br i1 %cmp4.i.i6.i64, label %if.end18.i69, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65
 
 _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65:   ; preds = %lor.rhs.i.i5.i63
-  %second.i.i8.i66 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__j.sroa.0.0.i60, i64 0, i32 1, i32 0, i64 8
+  %second.i.i8.i66 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i60, i64 40
   %28 = load i64, ptr %second.i.i8.i66, align 8
-  %second5.i.i9.i67 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
+  %second5.i.i9.i67 = getelementptr inbounds i8, ptr %__k, i64 8
   %29 = load i64, ptr %second5.i.i9.i67, align 8
   %cmp6.i.i10.i68 = icmp slt i64 %28, %29
   br i1 %cmp6.i.i10.i68, label %return, label %if.end18.i69
@@ -5677,129 +5634,129 @@ _ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65:   ; preds = %lor.rhs.i.i5.i63
 if.end18.i69:                                     ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65, %lor.rhs.i.i5.i63
   br label %return
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit91:       ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit20
-  %second.i.i88 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 8
-  %30 = load i64, ptr %second.i.i88, align 8
-  %second5.i.i89 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
-  %31 = load i64, ptr %second5.i.i89, align 8
-  %cmp6.i.i90 = icmp slt i64 %30, %31
-  br i1 %cmp6.i.i90, label %if.then50, label %return
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit89:       ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit20
+  %second.i.i86 = getelementptr inbounds i8, ptr %__position.coerce, i64 40
+  %30 = load i64, ptr %second.i.i86, align 8
+  %second5.i.i87 = getelementptr inbounds i8, ptr %__k, i64 8
+  %31 = load i64, ptr %second5.i.i87, align 8
+  %cmp6.i.i88 = icmp slt i64 %30, %31
+  br i1 %cmp6.i.i88, label %if.then50, label %return
 
-if.then50:                                        ; preds = %lor.rhs.i.i14, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit91
-  %_M_right.i92 = getelementptr inbounds i8, ptr %this, i64 32
-  %32 = load ptr, ptr %_M_right.i92, align 8
+if.then50:                                        ; preds = %lor.rhs.i.i14, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit89
+  %_M_right.i90 = getelementptr inbounds i8, ptr %this, i64 32
+  %32 = load ptr, ptr %_M_right.i90, align 8
   %cmp53 = icmp eq ptr %32, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i95 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i96 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call.i95, i64 0, i32 1
-  %33 = load i64, ptr %_M_storage.i.i.i96, align 8
-  %cmp.i.i97 = icmp slt i64 %15, %33
-  br i1 %cmp.i.i97, label %if.then64, label %lor.rhs.i.i98
+  %call.i93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
+  %_M_storage.i.i.i94 = getelementptr inbounds i8, ptr %call.i93, i64 32
+  %33 = load i64, ptr %_M_storage.i.i.i94, align 8
+  %cmp.i.i95 = icmp slt i64 %15, %33
+  br i1 %cmp.i.i95, label %if.then64, label %lor.rhs.i.i96
 
-lor.rhs.i.i98:                                    ; preds = %if.else57
-  %cmp4.i.i99 = icmp slt i64 %33, %15
-  br i1 %cmp4.i.i99, label %if.else74, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit104
+lor.rhs.i.i96:                                    ; preds = %if.else57
+  %cmp4.i.i97 = icmp slt i64 %33, %15
+  br i1 %cmp4.i.i97, label %if.else74, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit102
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit104:      ; preds = %lor.rhs.i.i98
-  %second.i.i101 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
-  %34 = load i64, ptr %second.i.i101, align 8
-  %second5.i.i102 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call.i95, i64 0, i32 1, i32 0, i64 8
-  %35 = load i64, ptr %second5.i.i102, align 8
-  %cmp6.i.i103 = icmp slt i64 %34, %35
-  br i1 %cmp6.i.i103, label %if.then64, label %if.else74
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit102:      ; preds = %lor.rhs.i.i96
+  %second.i.i99 = getelementptr inbounds i8, ptr %__k, i64 8
+  %34 = load i64, ptr %second.i.i99, align 8
+  %second5.i.i100 = getelementptr inbounds i8, ptr %call.i93, i64 40
+  %35 = load i64, ptr %second5.i.i100, align 8
+  %cmp6.i.i101 = icmp slt i64 %34, %35
+  br i1 %cmp6.i.i101, label %if.then64, label %if.else74
 
-if.then64:                                        ; preds = %if.else57, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit104
-  %_M_right.i105 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %36 = load ptr, ptr %_M_right.i105, align 8
+if.then64:                                        ; preds = %if.else57, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit102
+  %_M_right.i103 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %36 = load ptr, ptr %_M_right.i103, align 8
   %cmp67 = icmp eq ptr %36, null
-  %spec.select183 = select i1 %cmp67, ptr null, ptr %call.i95
-  %spec.select184 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i95
+  %spec.select182 = select i1 %cmp67, ptr null, ptr %call.i93
+  %spec.select183 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i93
   br label %return
 
-if.else74:                                        ; preds = %lor.rhs.i.i98, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit104
-  %_M_parent.i.i.i108 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.026.i110 = load ptr, ptr %_M_parent.i.i.i108, align 8
-  %cmp.not27.i111 = icmp eq ptr %__x.026.i110, null
-  br i1 %cmp.not27.i111, label %if.then.i146, label %while.body.lr.ph.i112
+if.else74:                                        ; preds = %lor.rhs.i.i96, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit102
+  %_M_parent.i.i.i106 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.026.i108 = load ptr, ptr %_M_parent.i.i.i106, align 8
+  %cmp.not27.i109 = icmp eq ptr %__x.026.i108, null
+  br i1 %cmp.not27.i109, label %if.then.i144, label %while.body.lr.ph.i110
 
-while.body.lr.ph.i112:                            ; preds = %if.else74
-  %second.i.i.i113 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
-  %37 = load i64, ptr %second.i.i.i113, align 8
-  br label %while.body.i114
+while.body.lr.ph.i110:                            ; preds = %if.else74
+  %second.i.i.i111 = getelementptr inbounds i8, ptr %__k, i64 8
+  %37 = load i64, ptr %second.i.i.i111, align 8
+  br label %while.body.i112
 
-while.body.i114:                                  ; preds = %while.body.i114.backedge, %while.body.lr.ph.i112
-  %__x.028.i115 = phi ptr [ %__x.026.i110, %while.body.lr.ph.i112 ], [ %__x.028.i115.be, %while.body.i114.backedge ]
-  %_M_storage.i.i.i116 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.028.i115, i64 0, i32 1
-  %38 = load i64, ptr %_M_storage.i.i.i116, align 8
-  %cmp.i.i.i117 = icmp slt i64 %15, %38
-  br i1 %cmp.i.i.i117, label %cond.end.i125, label %lor.rhs.i.i.i118
+while.body.i112:                                  ; preds = %while.body.i112.backedge, %while.body.lr.ph.i110
+  %__x.028.i113 = phi ptr [ %__x.026.i108, %while.body.lr.ph.i110 ], [ %__x.028.i113.be, %while.body.i112.backedge ]
+  %_M_storage.i.i.i114 = getelementptr inbounds i8, ptr %__x.028.i113, i64 32
+  %38 = load i64, ptr %_M_storage.i.i.i114, align 8
+  %cmp.i.i.i115 = icmp slt i64 %15, %38
+  br i1 %cmp.i.i.i115, label %cond.end.i122, label %lor.rhs.i.i.i116
 
-lor.rhs.i.i.i118:                                 ; preds = %while.body.i114
-  %cmp4.i.i.i119 = icmp slt i64 %38, %15
-  br i1 %cmp4.i.i.i119, label %cond.end.i125.thread, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i120
+lor.rhs.i.i.i116:                                 ; preds = %while.body.i112
+  %cmp4.i.i.i117 = icmp slt i64 %38, %15
+  br i1 %cmp4.i.i.i117, label %cond.end.i122.thread, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i118
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i120:    ; preds = %lor.rhs.i.i.i118
-  %second5.i.i.i121 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__x.028.i115, i64 0, i32 1, i32 0, i64 8
-  %39 = load i64, ptr %second5.i.i.i121, align 8
-  %cmp6.i.i.i122 = icmp slt i64 %37, %39
-  br i1 %cmp6.i.i.i122, label %cond.end.i125, label %cond.end.i125.thread
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i118:    ; preds = %lor.rhs.i.i.i116
+  %second5.i.i.i119 = getelementptr inbounds i8, ptr %__x.028.i113, i64 40
+  %39 = load i64, ptr %second5.i.i.i119, align 8
+  %cmp6.i.i.i120 = icmp slt i64 %37, %39
+  br i1 %cmp6.i.i.i120, label %cond.end.i122, label %cond.end.i122.thread
 
-cond.end.i125:                                    ; preds = %while.body.i114, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i120
-  %_M_left.i.i153 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i115, i64 0, i32 2
-  %__x.0.i127 = load ptr, ptr %_M_left.i.i153, align 8
-  %cmp.not.i128 = icmp eq ptr %__x.0.i127, null
-  br i1 %cmp.not.i128, label %if.then.i146, label %while.body.i114.backedge
+cond.end.i122:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i118, %while.body.i112
+  %_M_right.i.i124 = getelementptr inbounds i8, ptr %__x.028.i113, i64 16
+  %__x.0.i125 = load ptr, ptr %_M_right.i.i124, align 8
+  %cmp.not.i126 = icmp eq ptr %__x.0.i125, null
+  br i1 %cmp.not.i126, label %if.then.i144, label %while.body.i112.backedge
 
-while.body.i114.backedge:                         ; preds = %cond.end.i125, %cond.end.i125.thread
-  %__x.028.i115.be = phi ptr [ %__x.0.i127, %cond.end.i125 ], [ %__x.0.i127180, %cond.end.i125.thread ]
-  br label %while.body.i114, !llvm.loop !78
+while.body.i112.backedge:                         ; preds = %cond.end.i122, %cond.end.i122.thread
+  %__x.028.i113.be = phi ptr [ %__x.0.i125, %cond.end.i122 ], [ %__x.0.i125179, %cond.end.i122.thread ]
+  br label %while.body.i112, !llvm.loop !78
 
-cond.end.i125.thread:                             ; preds = %lor.rhs.i.i.i118, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i120
-  %_M_right.i.i124 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.028.i115, i64 0, i32 3
-  %__x.0.i127180 = load ptr, ptr %_M_right.i.i124, align 8
-  %cmp.not.i128181 = icmp eq ptr %__x.0.i127180, null
-  br i1 %cmp.not.i128181, label %if.end12.i130, label %while.body.i114.backedge
+cond.end.i122.thread:                             ; preds = %lor.rhs.i.i.i116, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit.i118
+  %_M_right.i.i124178 = getelementptr inbounds i8, ptr %__x.028.i113, i64 24
+  %__x.0.i125179 = load ptr, ptr %_M_right.i.i124178, align 8
+  %cmp.not.i126180 = icmp eq ptr %__x.0.i125179, null
+  br i1 %cmp.not.i126180, label %if.end12.i128, label %while.body.i112.backedge
 
-if.then.i146:                                     ; preds = %cond.end.i125, %if.else74
-  %__y.0.lcssa33.i147 = phi ptr [ %add.ptr.i, %if.else74 ], [ %__x.028.i115, %cond.end.i125 ]
-  %_M_left.i3.i148 = getelementptr inbounds i8, ptr %this, i64 24
-  %40 = load ptr, ptr %_M_left.i3.i148, align 8
-  %cmp.i.i149 = icmp eq ptr %__y.0.lcssa33.i147, %40
-  br i1 %cmp.i.i149, label %return, label %if.else.i150
+if.then.i144:                                     ; preds = %cond.end.i122, %if.else74
+  %__y.0.lcssa33.i145 = phi ptr [ %add.ptr.i, %if.else74 ], [ %__x.028.i113, %cond.end.i122 ]
+  %_M_left.i3.i146 = getelementptr inbounds i8, ptr %this, i64 24
+  %40 = load ptr, ptr %_M_left.i3.i146, align 8
+  %cmp.i.i147 = icmp eq ptr %__y.0.lcssa33.i145, %40
+  br i1 %cmp.i.i147, label %return, label %if.else.i148
 
-if.else.i150:                                     ; preds = %if.then.i146
-  %call.i.i151 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i147) #20
-  %_M_storage.i.i.i.i133.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %call.i.i151, i64 0, i32 1
-  %.pre = load i64, ptr %_M_storage.i.i.i.i133.phi.trans.insert, align 8
-  br label %if.end12.i130
+if.else.i148:                                     ; preds = %if.then.i144
+  %call.i.i149 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa33.i145) #20
+  %_M_storage.i.i.i.i131.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i149, i64 32
+  %.pre = load i64, ptr %_M_storage.i.i.i.i131.phi.trans.insert, align 8
+  br label %if.end12.i128
 
-if.end12.i130:                                    ; preds = %cond.end.i125.thread, %if.else.i150
-  %41 = phi i64 [ %.pre, %if.else.i150 ], [ %38, %cond.end.i125.thread ]
-  %__y.0.lcssa32.i131 = phi ptr [ %__y.0.lcssa33.i147, %if.else.i150 ], [ %__x.028.i115, %cond.end.i125.thread ]
-  %__j.sroa.0.0.i132 = phi ptr [ %call.i.i151, %if.else.i150 ], [ %__x.028.i115, %cond.end.i125.thread ]
-  %cmp.i.i4.i134 = icmp slt i64 %41, %15
-  br i1 %cmp.i.i4.i134, label %return, label %lor.rhs.i.i5.i135
+if.end12.i128:                                    ; preds = %cond.end.i122.thread, %if.else.i148
+  %41 = phi i64 [ %.pre, %if.else.i148 ], [ %38, %cond.end.i122.thread ]
+  %__y.0.lcssa32.i129 = phi ptr [ %__y.0.lcssa33.i145, %if.else.i148 ], [ %__x.028.i113, %cond.end.i122.thread ]
+  %__j.sroa.0.0.i130 = phi ptr [ %call.i.i149, %if.else.i148 ], [ %__x.028.i113, %cond.end.i122.thread ]
+  %cmp.i.i4.i132 = icmp slt i64 %41, %15
+  br i1 %cmp.i.i4.i132, label %return, label %lor.rhs.i.i5.i133
 
-lor.rhs.i.i5.i135:                                ; preds = %if.end12.i130
-  %cmp4.i.i6.i136 = icmp slt i64 %15, %41
-  br i1 %cmp4.i.i6.i136, label %if.end18.i141, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i137
+lor.rhs.i.i5.i133:                                ; preds = %if.end12.i128
+  %cmp4.i.i6.i134 = icmp slt i64 %15, %41
+  br i1 %cmp4.i.i6.i134, label %if.end18.i139, label %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i135
 
-_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i137:  ; preds = %lor.rhs.i.i5.i135
-  %second.i.i8.i138 = getelementptr inbounds %"struct.std::_Rb_tree_node.92", ptr %__j.sroa.0.0.i132, i64 0, i32 1, i32 0, i64 8
-  %42 = load i64, ptr %second.i.i8.i138, align 8
-  %second5.i.i9.i139 = getelementptr inbounds %"struct.std::pair", ptr %__k, i64 0, i32 1
-  %43 = load i64, ptr %second5.i.i9.i139, align 8
-  %cmp6.i.i10.i140 = icmp slt i64 %42, %43
-  br i1 %cmp6.i.i10.i140, label %return, label %if.end18.i141
+_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i135:  ; preds = %lor.rhs.i.i5.i133
+  %second.i.i8.i136 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i130, i64 40
+  %42 = load i64, ptr %second.i.i8.i136, align 8
+  %second5.i.i9.i137 = getelementptr inbounds i8, ptr %__k, i64 8
+  %43 = load i64, ptr %second5.i.i9.i137, align 8
+  %cmp6.i.i10.i138 = icmp slt i64 %42, %43
+  br i1 %cmp6.i.i10.i138, label %return, label %if.end18.i139
 
-if.end18.i141:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i137, %lor.rhs.i.i5.i135
+if.end18.i139:                                    ; preds = %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i135, %lor.rhs.i.i5.i133
   br label %return
 
-return:                                           ; preds = %if.end18.i141, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i137, %if.end12.i130, %if.then.i146, %if.end18.i69, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65, %if.end12.i58, %if.then.i74, %if.end18.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i, %if.end12.i, %if.then.i, %if.then64, %if.then32, %land.lhs.true, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit91, %if.then50, %if.then18, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit
-  %retval.sroa.0.0 = phi ptr [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit91 ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select183, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i60, %if.end18.i69 ], [ null, %if.then.i74 ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65 ], [ null, %if.end12.i58 ], [ %__j.sroa.0.0.i132, %if.end18.i141 ], [ null, %if.then.i146 ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i137 ], [ null, %if.end12.i130 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit91 ], [ %1, %land.lhs.true ], [ %spec.select182, %if.then32 ], [ %spec.select184, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa33.i, %if.then.i ], [ %__y.0.lcssa32.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa32.i, %if.end12.i ], [ null, %if.end18.i69 ], [ %19, %if.then.i74 ], [ %__y.0.lcssa32.i59, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65 ], [ %__y.0.lcssa32.i59, %if.end12.i58 ], [ null, %if.end18.i141 ], [ %__y.0.lcssa33.i147, %if.then.i146 ], [ %__y.0.lcssa32.i131, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i137 ], [ %__y.0.lcssa32.i131, %if.end12.i130 ]
+return:                                           ; preds = %if.end18.i139, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i135, %if.end12.i128, %if.then.i144, %if.end18.i69, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65, %if.end12.i58, %if.then.i74, %if.end18.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i, %if.end12.i, %if.then.i, %if.then64, %if.then32, %land.lhs.true, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit89, %if.then50, %if.then18, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit
+  %retval.sroa.0.0 = phi ptr [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit89 ], [ null, %land.lhs.true ], [ %spec.select, %if.then32 ], [ %spec.select182, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i ], [ null, %if.end12.i ], [ %__j.sroa.0.0.i60, %if.end18.i69 ], [ null, %if.then.i74 ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65 ], [ null, %if.end12.i58 ], [ %__j.sroa.0.0.i130, %if.end18.i139 ], [ null, %if.then.i144 ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i135 ], [ null, %if.end12.i128 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit89 ], [ %1, %land.lhs.true ], [ %spec.select181, %if.then32 ], [ %spec.select183, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa33.i, %if.then.i ], [ %__y.0.lcssa32.i, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i ], [ %__y.0.lcssa32.i, %if.end12.i ], [ null, %if.end18.i69 ], [ %19, %if.then.i74 ], [ %__y.0.lcssa32.i59, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i65 ], [ %__y.0.lcssa32.i59, %if.end12.i58 ], [ null, %if.end18.i139 ], [ %__y.0.lcssa33.i145, %if.then.i144 ], [ %__y.0.lcssa32.i129, %_ZNKSt4lessISt4pairIllEEclERKS1_S4_.exit11.i135 ], [ %__y.0.lcssa32.i129, %if.end12.i128 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -5821,7 +5778,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   %3 = load i64, ptr %__k, align 8
   %cmp.i = icmp ult i64 %2, %3
@@ -5839,12 +5796,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i10, align 8
   %cmp.i.i = icmp ult i64 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !79
@@ -5861,14 +5817,14 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #20
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
-  %.pre117 = load i64, ptr %__k, align 8
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
+  %.pre115 = load i64, ptr %__k, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i64 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i64 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i64 %8, %7
@@ -5877,7 +5833,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i64, ptr %__k, align 8
   %10 = load i64, ptr %_M_storage.i.i.i11, align 8
   %cmp.i12 = icmp ult i64 %9, %10
@@ -5891,131 +5847,129 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i16, align 8
   %cmp.i17 = icmp ult i64 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i64, ptr %_M_storage.i.i.i28, align 8
   %cmp.i.i29 = icmp ult i64 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !79
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !79
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #20
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i64, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 8
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #20
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i64 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i64 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i64 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i64 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i64 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %call.i59, i64 0, i32 1
-  %17 = load i64, ptr %_M_storage.i.i.i60, align 8
-  %cmp.i61 = icmp ult i64 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #20
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i64, ptr %_M_storage.i.i.i59, align 8
+  %cmp.i60 = icmp ult i64 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i64, ptr %_M_storage.i.i.i72, align 8
-  %cmp.i.i73 = icmp ult i64 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !79
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i64, ptr %_M_storage.i.i.i71, align 8
+  %cmp.i.i72 = icmp ult i64 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !79
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #20
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.94", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i64, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 8
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #20
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i64 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i64 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i64 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

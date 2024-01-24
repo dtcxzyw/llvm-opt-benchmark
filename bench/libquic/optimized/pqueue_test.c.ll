@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/pqueue_test.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._pitem = type { [8 x i8], ptr, ptr }
-
 @__const.fixed_random.ordering = private unnamed_addr constant [10 x i32] [i32 9, i32 6, i32 3, i32 4, i32 0, i32 2, i32 7, i32 1, i32 8, i32 5], align 16
 @str = private unnamed_addr constant [5 x i8] c"PASS\00", align 1
 
@@ -80,7 +78,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false17.i
   br i1 %cmp.i3, label %fixed_random.exit.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false
-  %arrayidx2.i = getelementptr inbounds [8 x i8], ptr %priority.i1, i64 0, i64 7
+  %arrayidx2.i = getelementptr inbounds i8, ptr %priority.i1, i64 7
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i4
@@ -143,9 +141,9 @@ while.body.i:                                     ; preds = %if.end40.i, %if.end
   br i1 %cmp48.i, label %if.end, label %if.end51.i
 
 if.end51.i:                                       ; preds = %while.body.i
-  %data.i6 = getelementptr inbounds %struct._pitem, ptr %curr.0.i, i64 0, i32 1
+  %data.i6 = getelementptr inbounds i8, ptr %curr.0.i, i64 8
   %2 = load ptr, ptr %data.i6, align 8
-  %data52.i = getelementptr inbounds %struct._pitem, ptr %call47.i, i64 0, i32 1
+  %data52.i = getelementptr inbounds i8, ptr %call47.i, i64 8
   %3 = load ptr, ptr %data52.i, align 8
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr %3, align 4

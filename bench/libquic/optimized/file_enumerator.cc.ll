@@ -3,24 +3,10 @@ source_filename = "bench/libquic/original/file_enumerator.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::FileEnumerator::FileInfo" = type { %struct.stat, %"class.base::FilePath" }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%"class.base::FilePath" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.base::FileEnumerator" = type { %"class.std::vector", i64, %"class.base::FilePath", i8, i32, %"class.std::__cxx11::basic_string", %"class.std::stack" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::stack" = type { %"class.std::deque" }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<base::FilePath, std::allocator<base::FilePath>>::_Deque_impl" }
-%"struct.std::_Deque_base<base::FilePath, std::allocator<base::FilePath>>::_Deque_impl" = type { %"struct.std::_Deque_base<base::FilePath, std::allocator<base::FilePath>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<base::FilePath, std::allocator<base::FilePath>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
+%"class.base::FilePath" = type { %"class.std::__cxx11::basic_string" }
 
 @.str = private unnamed_addr constant [2 x i8] c".\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"..\00", align 1
@@ -30,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base14FileEnumerator8FileInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 {
 entry:
-  %filename_ = getelementptr inbounds %"class.base::FileEnumerator::FileInfo", ptr %this, i64 0, i32 1
+  %filename_ = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_) #4
   ret void
 }
@@ -59,7 +45,7 @@ lor.rhs:                                          ; preds = %invoke.cont2
   br i1 %cmp.i2, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %file_type_ = getelementptr inbounds %"class.base::FileEnumerator", ptr %this, i64 0, i32 4
+  %file_type_ = getelementptr inbounds i8, ptr %this, i64 68
   %0 = load i32, ptr %file_type_, align 4
   %and = and i32 %0, 4
   %tobool.not = icmp eq i32 %and, 0

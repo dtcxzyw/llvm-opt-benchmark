@@ -18,11 +18,11 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN57_$LT$usize$u20$as$u20$s
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
   store ptr %0, ptr %3, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hc1a8b644385902c5E", ptr %7, align 8
-  %8 = getelementptr inbounds [2 x { ptr, ptr }], ptr %3, i64 0, i64 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds [2 x { ptr, ptr }], ptr %3, i64 0, i64 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %9, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h68cb99eea9c8258bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.d9b4ed4c8e66caed11e1966186c4b289.2, i64 2, ptr nonnull align 8 %3, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.d9b4ed4c8e66caed11e1966186c4b289.4) #5

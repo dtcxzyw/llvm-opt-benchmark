@@ -15,10 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator" = type { i8 }
-%"struct.ue2::ParseMode" = type { i8, i8, i8, i8, i8, i8 }
-%"class.ue2::LocatedParseError" = type <{ %"class.ue2::ParseError", i8, [7 x i8] }>
-%"class.ue2::ParseError" = type { %"class.ue2::CompileError" }
-%"class.ue2::CompileError" = type { ptr, %"class.std::__cxx11::basic_string", i8, i32 }
 %struct._Guard = type { ptr }
 
 $_ZN3ue217LocatedParseErrorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
@@ -250,8 +246,8 @@ if.end106:                                        ; preds = %_eof_trans
 while.body117.lr.ph:                              ; preds = %if.end106
   %conv113 = sext i8 %15 to i32
   %add.ptr125 = getelementptr inbounds i8, ptr %p.1, i64 1
-  %ucp = getelementptr inbounds %"struct.ue2::ParseMode", ptr %mode, i64 0, i32 4
-  %utf8 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %mode, i64 0, i32 5
+  %ucp = getelementptr inbounds i8, ptr %mode, i64 4
+  %utf8 = getelementptr inbounds i8, ptr %mode, i64 5
   br label %while.body117
 
 while.body117:                                    ; preds = %while.body117.lr.ph, %sw.epilog190
@@ -635,9 +631,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #6
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %finalized = getelementptr inbounds %"class.ue2::LocatedParseError", ptr %this, i64 0, i32 1
+  %finalized = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %finalized, align 8
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %this, i64 0, i32 1
+  %reason = getelementptr inbounds i8, ptr %this, i64 8
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason, ptr noundef nonnull align 8 dereferenceable(32) %why) #6
   ret void
 

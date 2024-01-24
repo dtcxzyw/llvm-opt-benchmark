@@ -53,7 +53,7 @@ define dso_local noundef zeroext i1 @_ZN3net13NullDecrypter6SetKeyEN4base16Basic
 entry:
   %key = alloca %"class.base::BasicStringPiece", align 8
   store ptr %key.coerce0, ptr %key, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %key, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %key, i64 8
   store i64 %key.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
   ret i1 %call
@@ -66,7 +66,7 @@ define dso_local noundef zeroext i1 @_ZN3net13NullDecrypter14SetNoncePrefixEN4ba
 entry:
   %nonce_prefix = alloca %"class.base::BasicStringPiece", align 8
   store ptr %nonce_prefix.coerce0, ptr %nonce_prefix, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %nonce_prefix, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %nonce_prefix, i64 8
   store i64 %nonce_prefix.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce_prefix)
   ret i1 %call
@@ -81,7 +81,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 29, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 
@@ -119,7 +119,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 34, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 
@@ -173,7 +173,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
   %call7 = call { ptr, i64 } @_ZN3net14QuicDataReader20ReadRemainingPayloadB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader)
   %4 = extractvalue { ptr, i64 } %call7, 0
   store ptr %4, ptr %plaintext, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %plaintext, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %plaintext, i64 8
   %6 = extractvalue { ptr, i64 } %call7, 1
   store i64 %6, ptr %5, align 8
   %call9 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %plaintext)
@@ -186,7 +186,7 @@ if.then10:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then10
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp14, ptr noundef nonnull @.str, i32 noundef 54, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp14, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %call20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %cleanup.action unwind label %lpad16
 
@@ -207,10 +207,10 @@ if.end25:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data1.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data2.i)
   store ptr %associated_data.coerce0, ptr %data1.i, align 8, !noalias !5
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %data1.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %data1.i, i64 8
   store i64 %associated_data.coerce1, ptr %8, align 8, !noalias !5
   store ptr %agg.tmp27.sroa.0.0.copyload, ptr %data2.i, align 8, !noalias !5
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %data2.i, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %data2.i, i64 8
   store i64 %agg.tmp27.sroa.2.0.copyload, ptr %9, align 8, !noalias !5
   %call.i5 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data1.i)
   %call2.i7 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %data1.i)
@@ -219,7 +219,7 @@ if.end25:                                         ; preds = %if.end
   %call4.i9 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %data2.i)
   %conv5.i = trunc i64 %call4.i9 to i32
   call void @_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i(ptr nonnull sret(%"class.net::uint128") align 8 %ref.tmp26, ptr noundef %call.i5, i32 noundef %conv.i, ptr noundef %call3.i8, i32 noundef %conv5.i)
-  %hi_2.i.i = getelementptr inbounds %"class.net::uint128", ptr %ref.tmp26, i64 0, i32 1
+  %hi_2.i.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %10 = load i64, ptr %hi_2.i.i, align 8, !alias.scope !5
   %and.i.i = and i64 %10, 4294967295
   store i64 %and.i.i, ptr %hi_2.i.i, align 8, !alias.scope !5
@@ -266,7 +266,7 @@ lor.lhs.false:                                    ; preds = %entry
 _ZN3net7uint128pLERKS0_.exit:                     ; preds = %lor.lhs.false
   %0 = load i32, ptr %hi, align 4
   %conv.i = zext i32 %0 to i64
-  %hi_3.i = getelementptr inbounds %"class.net::uint128", ptr %hash, i64 0, i32 1
+  %hi_3.i = getelementptr inbounds i8, ptr %hash, i64 8
   %1 = load i64, ptr %lo, align 8
   store i64 %conv.i, ptr %hi_3.i, align 8
   store i64 %1, ptr %hash, align 8
@@ -285,10 +285,10 @@ entry:
   %data1 = alloca %"class.base::BasicStringPiece", align 8
   %data2 = alloca %"class.base::BasicStringPiece", align 8
   store ptr %data1.coerce0, ptr %data1, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %data1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %data1, i64 8
   store i64 %data1.coerce1, ptr %0, align 8
   store ptr %data2.coerce0, ptr %data2, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %data2, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %data2, i64 8
   store i64 %data2.coerce1, ptr %1, align 8
   %call = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data1)
   %call2 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %data1)
@@ -297,7 +297,7 @@ entry:
   %call4 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %data2)
   %conv5 = trunc i64 %call4 to i32
   call void @_ZN3net9QuicUtils18FNV1a_128_Hash_TwoEPKciS2_i(ptr sret(%"class.net::uint128") align 8 %agg.result, ptr noundef %call, i32 noundef %conv, ptr noundef %call3, i32 noundef %conv5)
-  %hi_2.i = getelementptr inbounds %"class.net::uint128", ptr %agg.result, i64 0, i32 1
+  %hi_2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %2 = load i64, ptr %hi_2.i, align 8
   %and.i = and i64 %2, 4294967295
   store i64 %and.i, ptr %hi_2.i, align 8
@@ -314,7 +314,7 @@ entry:
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %retval)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -329,7 +329,7 @@ entry:
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %retval)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert

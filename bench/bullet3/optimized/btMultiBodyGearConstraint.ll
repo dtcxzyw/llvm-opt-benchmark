@@ -3,29 +3,13 @@ source_filename = "bench/bullet3/original/btMultiBodyGearConstraint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btMultiBodyGearConstraint = type { %class.btMultiBodyConstraint, ptr, ptr, %class.btVector3, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, float, i32, float, float }
-%class.btMultiBodyConstraint = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i32, float, %class.btAlignedObjectArray }
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btVector3 = type { [4 x float] }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btMultiBody = type { ptr, ptr, ptr, %class.btVector3, %class.btVector3, %class.btQuaternion, %class.btQuaternion, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8], %class.btAlignedObjectArray.0, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.8, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, i8, i8, i8, i8, i8, float, float, float, ptr, i32, i32, i32, float, float, i8, float, float, i8, i8, i32, i32, i8, i8, i8, i8 }
-%class.btQuaternion = type { %class.btQuadWord }
-%class.btQuadWord = type { [4 x float] }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
 %struct.btMultibodyLink = type { float, %class.btVector3, i32, %class.btQuaternion, %class.btVector3, %class.btVector3, %struct.btSpatialMotionVector, %struct.btSpatialMotionVector, [6 x %struct.btSpatialMotionVector], i32, i32, %class.btQuaternion, %class.btVector3, %class.btQuaternion, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [7 x float], [7 x float], [6 x float], ptr, i32, i32, i32, i32, ptr, %class.btTransform, ptr, ptr, ptr, float, float, float, float, float, float }
 %struct.btSpatialMotionVector = type { %class.btVector3, %class.btVector3 }
+%class.btQuaternion = type { %class.btQuadWord }
+%class.btQuadWord = type { [4 x float] }
+%class.btVector3 = type { [4 x float] }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.12, i32, %class.btVector3, [4 x i8] }>
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
+%class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %struct.btMultiBodySolverConstraint = type <{ i32, i32, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, float, float, float, float, [4 x i8], %union.anon.20, i32, i32, i32, [4 x i8], ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
 %union.anon.20 = type { ptr }
 
@@ -62,11 +46,11 @@ define dso_local void @_ZN25btMultiBodyGearConstraintC2EP11btMultiBodyiS1_iRK9bt
 invoke.cont4:
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %bodyA, ptr noundef %bodyB, i32 noundef %linkA, i32 noundef %linkB, i32 noundef 1, i1 noundef zeroext false, i32 noundef 5)
   store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV25btMultiBodyGearConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_gearRatio = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 7
+  %m_gearRatio = getelementptr inbounds i8, ptr %this, i64 240
   store float 1.000000e+00, ptr %m_gearRatio, align 8
-  %m_gearAuxLink = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 8
+  %m_gearAuxLink = getelementptr inbounds i8, ptr %this, i64 244
   store i32 -1, ptr %m_gearAuxLink, align 4
-  %m_erp = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 9
+  %m_erp = getelementptr inbounds i8, ptr %this, i64 248
   store <2 x float> zeroinitializer, ptr %m_erp, align 8
   ret void
 }
@@ -82,9 +66,9 @@ declare void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 derefer
 define dso_local void @_ZN25btMultiBodyGearConstraint16finalizeMultiDofEv(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN21btMultiBodyConstraint25allocateJacobiansMultiDofEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
-  %m_jacSizeBoth = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 8
+  %m_jacSizeBoth = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %m_jacSizeBoth, align 4
-  %m_numDofsFinalized = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 11
+  %m_numDofsFinalized = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %0, ptr %m_numDofsFinalized, align 8
   ret void
 }
@@ -119,25 +103,25 @@ _ZN21btMultiBodyConstraintdlEPv.exit:             ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK25btMultiBodyGearConstraint12getIslandIdAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 1
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_bodyA, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_linkA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 3
+  %m_linkA = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %m_linkA, align 8
   %cmp = icmp slt i32 %1, 0
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %m_baseCollider.i = getelementptr inbounds %class.btMultiBody, ptr %0, i64 0, i32 1
+  %m_baseCollider.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %m_baseCollider.i, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %if.then
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %0, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = zext nneg i32 %1 to i64
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %3, i64 %idxprom.i.i, i32 22
@@ -147,7 +131,7 @@ if.else:                                          ; preds = %if.then
 
 return.sink.split:                                ; preds = %if.else, %if.then2
   %.sink = phi ptr [ %2, %if.then2 ], [ %4, %if.else ]
-  %m_islandTag1.i6 = getelementptr inbounds %class.btCollisionObject, ptr %.sink, i64 0, i32 13
+  %m_islandTag1.i6 = getelementptr inbounds i8, ptr %.sink, i64 228
   %5 = load i32, ptr %m_islandTag1.i6, align 4
   br label %return
 
@@ -159,25 +143,25 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK25btMultiBodyGearConstraint12getIslandIdBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_bodyB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 2
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_bodyB, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_linkB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 4
+  %m_linkB = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %m_linkB, align 4
   %cmp = icmp slt i32 %1, 0
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %m_baseCollider.i = getelementptr inbounds %class.btMultiBody, ptr %0, i64 0, i32 1
+  %m_baseCollider.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %m_baseCollider.i, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %if.then
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %0, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = zext nneg i32 %1 to i64
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %3, i64 %idxprom.i.i, i32 22
@@ -187,7 +171,7 @@ if.else:                                          ; preds = %if.then
 
 return.sink.split:                                ; preds = %if.else, %if.then2
   %.sink = phi ptr [ %2, %if.then2 ], [ %4, %if.else ]
-  %m_islandTag1.i6 = getelementptr inbounds %class.btCollisionObject, ptr %.sink, i64 0, i32 13
+  %m_islandTag1.i6 = getelementptr inbounds i8, ptr %.sink, i64 228
   %5 = load i32, ptr %m_islandTag1.i6, align 4
   br label %return
 
@@ -202,16 +186,16 @@ entry:
   %retval.i72 = alloca %class.btQuaternion, align 8
   %retval.i = alloca %class.btQuaternion, align 8
   %dummy = alloca %class.btVector3, align 4
-  %m_numDofsFinalized = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 11
+  %m_numDofsFinalized = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %m_numDofsFinalized, align 8
-  %m_jacSizeBoth = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 8
+  %m_jacSizeBoth = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %m_jacSizeBoth, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(256) %this)
   %.pre = load i32, ptr %m_numDofsFinalized, align 8
@@ -220,45 +204,45 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end6, label %for.end
 
 if.end6:                                          ; preds = %entry, %if.end
-  %m_maxAppliedImpulse = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 12
+  %m_maxAppliedImpulse = getelementptr inbounds i8, ptr %this, i64 60
   %3 = load float, ptr %m_maxAppliedImpulse, align 4
   %cmp7 = fcmp oeq float %3, 0.000000e+00
   br i1 %cmp7, label %for.end, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %m_bodyA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 1
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_bodyA, align 8
-  %m_linkA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 3
+  %m_linkA = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %4, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %4, i64 192
   %6 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %5 to i64
   %m_dofOffset = getelementptr inbounds %struct.btMultibodyLink, ptr %6, i64 %idxprom.i.i, i32 9
   %7 = load i32, ptr %m_dofOffset, align 8
   %add10 = add nsw i32 %7, 6
-  %m_bodyB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 2
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %m_bodyB, align 8
-  %m_linkB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 4
+  %m_linkB = getelementptr inbounds i8, ptr %this, i64 28
   %9 = load i32, ptr %m_linkB, align 4
-  %m_data.i.i24 = getelementptr inbounds %class.btMultiBody, ptr %8, i64 0, i32 14, i32 5
+  %m_data.i.i24 = getelementptr inbounds i8, ptr %8, i64 192
   %10 = load ptr, ptr %m_data.i.i24, align 8
   %idxprom.i.i25 = sext i32 %9 to i64
   %m_dofOffset12 = getelementptr inbounds %struct.btMultibodyLink, ptr %10, i64 %idxprom.i.i25, i32 9
   %11 = load i32, ptr %m_dofOffset12, align 8
   %add14 = add nsw i32 %11, 6
-  %m_numRows.i = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 6
+  %m_numRows.i = getelementptr inbounds i8, ptr %this, i64 36
   %12 = load i32, ptr %m_numRows.i, align 4
-  %m_data.i.i27 = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 13, i32 5
+  %m_data.i.i27 = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load ptr, ptr %m_data.i.i27, align 8
   %idxprom.i.i28 = sext i32 %12 to i64
   %arrayidx.i.i29 = getelementptr inbounds float, ptr %13, i64 %idxprom.i.i28
   %idxprom = zext i32 %add10 to i64
   %arrayidx = getelementptr inbounds float, ptr %arrayidx.i.i29, i64 %idxprom
   store float 1.000000e+00, ptr %arrayidx, align 4
-  %m_gearRatio = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 7
+  %m_gearRatio = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load float, ptr %m_gearRatio, align 8
   %15 = load i32, ptr %m_numRows.i, align 4
-  %m_jacSizeA.i = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 7
+  %m_jacSizeA.i = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load i32, ptr %m_jacSizeA.i, align 8
   %add2.i = add nsw i32 %16, %15
   %17 = load ptr, ptr %m_data.i.i27, align 8
@@ -273,15 +257,15 @@ if.end9:                                          ; preds = %if.end6
   br i1 %cmp22111, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end9
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 2
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 3
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 5
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 6
-  %m_gearAuxLink = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 8
-  %m_erp = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 9
-  %m_relativePositionTarget = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 10
-  %.fca.1.gep.i75 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i72, i64 0, i32 1
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %m_size.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 4
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 8
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 16
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 24
+  %m_gearAuxLink = getelementptr inbounds i8, ptr %this, i64 244
+  %m_erp = getelementptr inbounds i8, ptr %this, i64 248
+  %m_relativePositionTarget = getelementptr inbounds i8, ptr %this, i64 252
+  %.fca.1.gep.i75 = getelementptr inbounds i8, ptr %retval.i72, i64 8
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -429,16 +413,17 @@ if.end69:                                         ; preds = %if.end58, %if.end41
   %52 = load float, ptr %m_maxAppliedImpulse, align 4
   %fneg73 = fneg float %52
   %call75 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef %arrayidx.i.i40, ptr noundef %arrayidx.i.i49, ptr noundef nonnull align 4 dereferenceable(16) %dummy, ptr noundef nonnull align 4 dereferenceable(16) %dummy, ptr noundef nonnull align 4 dereferenceable(16) %dummy, ptr noundef nonnull align 4 dereferenceable(16) %dummy, float noundef %posError.1, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %fneg73, float noundef %52, i1 noundef zeroext false, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef %auxVel.0, float noundef 0.000000e+00, float noundef 1.000000e+00)
-  %m_orgConstraint = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 31
+  %m_orgConstraint = getelementptr inbounds i8, ptr %arrayidx.i, i64 208
   store ptr %this, ptr %m_orgConstraint, align 8
-  %m_orgDofIndex = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 32
+  %m_orgDofIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 216
   store i32 %row.0112, ptr %m_orgDofIndex, align 8
   %53 = load ptr, ptr %m_bodyA, align 8
   %54 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i50 = getelementptr inbounds %class.btMultiBody, ptr %53, i64 0, i32 14, i32 5
+  %m_data.i.i50 = getelementptr inbounds i8, ptr %53, i64 192
   %55 = load ptr, ptr %m_data.i.i50, align 8
   %idxprom.i.i51 = sext i32 %54 to i64
-  %m_jointType = getelementptr inbounds %struct.btMultibodyLink, ptr %55, i64 %idxprom.i.i51, i32 26
+  %arrayidx.i.i52 = getelementptr inbounds %struct.btMultibodyLink, ptr %55, i64 %idxprom.i.i51
+  %m_jointType = getelementptr inbounds i8, ptr %arrayidx.i.i52, i64 564
   %56 = load i32, ptr %m_jointType, align 4
   switch i32 %56, label %for.inc [
     i32 0, label %sw.bb
@@ -446,13 +431,13 @@ if.end69:                                         ; preds = %if.end58, %if.end41
   ]
 
 sw.bb:                                            ; preds = %if.end69
-  %m_contactNormal1 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 5
+  %m_contactNormal1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal1, i8 0, i64 16, i1 false)
-  %m_contactNormal2 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 7
+  %m_contactNormal2 = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_contactNormal2, i8 0, i64 16, i1 false)
   %57 = load ptr, ptr %m_bodyA, align 8
   %58 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i53 = getelementptr inbounds %class.btMultiBody, ptr %57, i64 0, i32 14, i32 5
+  %m_data.i.i53 = getelementptr inbounds i8, ptr %57, i64 192
   %59 = load ptr, ptr %m_data.i.i53, align 8
   %idxprom.i.i54 = sext i32 %58 to i64
   %m_cachedWorldTransform = getelementptr inbounds %struct.btMultibodyLink, ptr %59, i64 %idxprom.i.i54, i32 28
@@ -463,13 +448,13 @@ sw.bb:                                            ; preds = %if.end69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   %60 = load ptr, ptr %m_bodyA, align 8
   %61 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i56 = getelementptr inbounds %class.btMultiBody, ptr %60, i64 0, i32 14, i32 5
+  %m_data.i.i56 = getelementptr inbounds i8, ptr %60, i64 192
   %62 = load ptr, ptr %m_data.i.i56, align 8
   %idxprom.i.i57 = sext i32 %61 to i64
   %m_axes = getelementptr inbounds %struct.btMultibodyLink, ptr %62, i64 %idxprom.i.i57, i32 8
   %ref.tmp79.sroa.3.12.vec.extract = extractelement <2 x float> %.fca.1.load.i, i64 1
   %63 = shufflevector <2 x float> %.fca.0.load.i, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %arrayidx.i24.i.i = getelementptr inbounds [4 x float], ptr %m_axes, i64 0, i64 2
+  %arrayidx.i24.i.i = getelementptr inbounds i8, ptr %m_axes, i64 8
   %64 = load float, ptr %arrayidx.i24.i.i, align 4
   %ref.tmp79.sroa.3.8.vec.extract = extractelement <2 x float> %.fca.1.load.i, i64 0
   %65 = extractelement <2 x float> %.fca.0.load.i, i64 0
@@ -514,22 +499,22 @@ sw.bb:                                            ; preds = %if.end69
   %100 = call float @llvm.fmuladd.f32(float %71, float %65, float %99)
   %101 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %100, i64 0
-  %m_relpos1CrossNormal = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 4
+  %m_relpos1CrossNormal = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store <2 x float> %101, ptr %m_relpos1CrossNormal, align 8
-  %revoluteAxisInWorld.sroa.4.0.m_relpos1CrossNormal.sroa_idx = getelementptr inbounds i8, ptr %m_relpos1CrossNormal, i64 8
+  %revoluteAxisInWorld.sroa.4.0.m_relpos1CrossNormal.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %revoluteAxisInWorld.sroa.4.0.m_relpos1CrossNormal.sroa_idx, align 8
   %fneg8.i = fneg float %100
   %102 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %103 = fneg <2 x float> %102
   %retval.sroa.3.12.vec.insert.i66 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i, i64 0
-  %m_relpos2CrossNormal = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 6
+  %m_relpos2CrossNormal = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   store <2 x float> %103, ptr %m_relpos2CrossNormal, align 8
-  %ref.tmp91.sroa.2.0.m_relpos2CrossNormal.sroa_idx = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 6, i32 0, i64 2
+  %ref.tmp91.sroa.2.0.m_relpos2CrossNormal.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i66, ptr %ref.tmp91.sroa.2.0.m_relpos2CrossNormal.sroa_idx, align 8
   br label %for.inc
 
 sw.bb94:                                          ; preds = %if.end69
-  %m_cachedWorldTransform99 = getelementptr inbounds %struct.btMultibodyLink, ptr %55, i64 %idxprom.i.i51, i32 28
+  %m_cachedWorldTransform99 = getelementptr inbounds i8, ptr %arrayidx.i.i52, i64 576
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i72)
   call void @_ZNK11btMatrix3x311getRotationER12btQuaternion(ptr noundef nonnull align 4 dereferenceable(48) %m_cachedWorldTransform99, ptr noundef nonnull align 4 dereferenceable(16) %retval.i72)
   %.fca.0.load.i73 = load <2 x float>, ptr %retval.i72, align 8
@@ -537,13 +522,13 @@ sw.bb94:                                          ; preds = %if.end69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i72)
   %104 = load ptr, ptr %m_bodyA, align 8
   %105 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i78 = getelementptr inbounds %class.btMultiBody, ptr %104, i64 0, i32 14, i32 5
+  %m_data.i.i78 = getelementptr inbounds i8, ptr %104, i64 192
   %106 = load ptr, ptr %m_data.i.i78, align 8
   %idxprom.i.i79 = sext i32 %105 to i64
   %m_bottomVec = getelementptr inbounds %struct.btMultibodyLink, ptr %106, i64 %idxprom.i.i79, i32 8, i64 0, i32 1
   %ref.tmp95.sroa.3.12.vec.extract = extractelement <2 x float> %.fca.1.load.i76, i64 1
   %107 = shufflevector <2 x float> %.fca.0.load.i73, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %arrayidx.i24.i.i83 = getelementptr inbounds [4 x float], ptr %m_bottomVec, i64 0, i64 2
+  %arrayidx.i24.i.i83 = getelementptr inbounds i8, ptr %m_bottomVec, i64 8
   %108 = load float, ptr %arrayidx.i24.i.i83, align 4
   %ref.tmp95.sroa.3.8.vec.extract = extractelement <2 x float> %.fca.1.load.i76, i64 0
   %109 = extractelement <2 x float> %.fca.0.load.i73, i64 0
@@ -588,21 +573,21 @@ sw.bb94:                                          ; preds = %if.end69
   %144 = call float @llvm.fmuladd.f32(float %115, float %109, float %143)
   %145 = shufflevector <2 x float> %139, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %retval.sroa.3.12.vec.insert.i98 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %144, i64 0
-  %m_contactNormal1110 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 5
+  %m_contactNormal1110 = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   store <2 x float> %145, ptr %m_contactNormal1110, align 8
-  %prismaticAxisInWorld.sroa.4.0.m_contactNormal1110.sroa_idx = getelementptr inbounds i8, ptr %m_contactNormal1110, i64 8
+  %prismaticAxisInWorld.sroa.4.0.m_contactNormal1110.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i98, ptr %prismaticAxisInWorld.sroa.4.0.m_contactNormal1110.sroa_idx, align 8
   %fneg8.i105 = fneg float %144
   %146 = shufflevector <2 x float> %139, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %147 = fneg <2 x float> %146
   %retval.sroa.3.12.vec.insert.i108 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i105, i64 0
-  %m_contactNormal2114 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 7
+  %m_contactNormal2114 = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   store <2 x float> %147, ptr %m_contactNormal2114, align 8
-  %ref.tmp111.sroa.2.0.m_contactNormal2114.sroa_idx = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 7, i32 0, i64 2
+  %ref.tmp111.sroa.2.0.m_contactNormal2114.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store <2 x float> %retval.sroa.3.12.vec.insert.i108, ptr %ref.tmp111.sroa.2.0.m_contactNormal2114.sroa_idx, align 8
-  %m_relpos1CrossNormal115 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 4
+  %m_relpos1CrossNormal115 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_relpos1CrossNormal115, i8 0, i64 16, i1 false)
-  %m_relpos2CrossNormal116 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %27, i64 %idxprom.i, i32 6
+  %m_relpos2CrossNormal116 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_relpos2CrossNormal116, i8 0, i64 16, i1 false)
   br label %for.inc
 
@@ -627,13 +612,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint11setFrameInBERK11btMatrix3x3(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 4 dereferenceable(48) %frameInB) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_frameInB = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 6
+  %m_frameInB = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_frameInB, ptr noundef nonnull align 4 dereferenceable(16) %frameInB, i64 16, i1 false)
-  %arrayidx5.i = getelementptr inbounds [3 x %class.btVector3], ptr %frameInB, i64 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 6, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %frameInB, i64 16
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx7.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i, i64 16, i1 false)
-  %arrayidx9.i = getelementptr inbounds [3 x %class.btVector3], ptr %frameInB, i64 0, i64 2
-  %arrayidx11.i = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 6, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %frameInB, i64 32
+  %arrayidx11.i = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11.i, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
   ret void
 }
@@ -641,7 +626,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint11setPivotInBERK9btVector3(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 4 dereferenceable(16) %pivotInB) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_pivotInB = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 4
+  %m_pivotInB = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_pivotInB, ptr noundef nonnull align 4 dereferenceable(16) %pivotInB, i64 16, i1 false)
   ret void
 }
@@ -655,7 +640,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint12setGearRatioEf(ptr noundef nonnull align 8 dereferenceable(256) %this, float noundef %gearRatio) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_gearRatio = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 7
+  %m_gearRatio = getelementptr inbounds i8, ptr %this, i64 240
   store float %gearRatio, ptr %m_gearRatio, align 8
   ret void
 }
@@ -663,7 +648,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint14setGearAuxLinkEi(ptr noundef nonnull align 8 dereferenceable(256) %this, i32 noundef %gearAuxLink) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_gearAuxLink = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 8
+  %m_gearAuxLink = getelementptr inbounds i8, ptr %this, i64 244
   store i32 %gearAuxLink, ptr %m_gearAuxLink, align 4
   ret void
 }
@@ -671,7 +656,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint25setRelativePositionTargetEf(ptr noundef nonnull align 8 dereferenceable(256) %this, float noundef %relPosTarget) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_relativePositionTarget = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 10
+  %m_relativePositionTarget = getelementptr inbounds i8, ptr %this, i64 252
   store float %relPosTarget, ptr %m_relativePositionTarget, align 4
   ret void
 }
@@ -679,7 +664,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25btMultiBodyGearConstraint6setErpEf(ptr noundef nonnull align 8 dereferenceable(256) %this, float noundef %erp) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_erp = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this, i64 0, i32 9
+  %m_erp = getelementptr inbounds i8, ptr %this, i64 248
   store float %erp, ptr %m_erp, align 8
   ret void
 }
@@ -705,33 +690,33 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
 entry:
   %temp = alloca [4 x float], align 16
   %0 = load float, ptr %this, align 4
-  %arrayidx.i = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %arrayidx.i, align 4
   %add = fadd float %0, %1
-  %arrayidx.i30 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load float, ptr %arrayidx.i30, align 4
   %add8 = fadd float %add, %2
   %cmp = fcmp ogt float %add8, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx6 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 2
-  %arrayidx3 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %add9 = fadd float %add8, 1.000000e+00
   %call.i = tail call noundef float @sqrtf(float noundef %add9) #13
   %div = fdiv float 5.000000e-01, %call.i
-  %arrayidx.i31 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i31 = getelementptr inbounds i8, ptr %this, i64 36
   %3 = load float, ptr %arrayidx.i31, align 4
-  %arrayidx.i32 = getelementptr inbounds [3 x %class.btVector3], ptr %this, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load float, ptr %arrayidx.i32, align 4
   %sub = fsub float %3, %4
-  %arrayidx.i33 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 2
+  %arrayidx.i33 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load <4 x float>, ptr %arrayidx.i33, align 4
   %6 = shufflevector <4 x float> %5, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %7 = load <4 x float>, ptr %arrayidx6, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %9 = load float, ptr %arrayidx3, align 4
-  %arrayidx.i34 = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
+  %arrayidx.i34 = getelementptr inbounds i8, ptr %this, i64 4
   %10 = load float, ptr %arrayidx.i34, align 4
   %11 = insertelement <2 x float> %6, float %9, i64 1
   %12 = insertelement <2 x float> %8, float %10, i64 1
@@ -784,7 +769,7 @@ if.else:                                          ; preds = %entry
   %26 = load float, ptr %arrayidx101, align 4
   %sub102 = fsub float %25, %26
   %mul103 = fmul float %div89, %sub102
-  %arrayidx104 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 3
+  %arrayidx104 = getelementptr inbounds i8, ptr %temp, i64 12
   store float %mul103, ptr %arrayidx104, align 4
   %arrayidx110 = getelementptr inbounds float, ptr %arrayidx72, i64 %idxprom
   %27 = load float, ptr %arrayidx110, align 4

@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/algorithm.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/algorithm.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -13,7 +11,7 @@ entry:
   %pad_mode = alloca i32, align 4
   %sign_nid = alloca i32, align 4
   %call = tail call ptr @EVP_MD_CTX_md(ptr noundef %ctx) #2
-  %pctx = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 2
+  %pctx = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx, align 8
   %call1 = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %0) #2
   %cmp = icmp eq ptr %call, null

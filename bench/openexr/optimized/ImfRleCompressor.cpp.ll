@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::RleCompressor" = type { %"class.Imf_3_2::Compressor", i32, ptr, ptr }
-%"class.Imf_3_2::Compressor" = type { ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -36,10 +34,10 @@ define hidden void @_ZN7Imf_3_213RleCompressorC2ERKNS_6HeaderEm(ptr noundef nonn
 entry:
   tail call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %hdr)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213RleCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 1
+  %_maxScanLineSize = getelementptr inbounds i8, ptr %this, i64 16
   %conv = trunc i64 %maxScanLineSize to i32
   store i32 %conv, ptr %_maxScanLineSize, align 8
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 2
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %cmp = icmp ugt i64 %maxScanLineSize, 2147483647
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_tmpBuffer, i8 0, i64 16, i1 false)
   br i1 %cmp, label %if.then, label %if.end
@@ -76,7 +74,7 @@ invoke.cont4:                                     ; preds = %if.end
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont4
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call10, ptr %_outBuffer, align 8
   ret void
 
@@ -114,7 +112,7 @@ declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenc
 define hidden void @_ZN7Imf_3_213RleCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213RleCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 2
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -124,7 +122,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_outBuffer, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -145,7 +143,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 define hidden void @_ZN7Imf_3_213RleCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213RleCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_tmpBuffer.i = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 2
+  %_tmpBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_tmpBuffer.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -155,7 +153,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %entry
-  %_outBuffer.i = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_outBuffer.i, align 8
   %isnull2.i = icmp eq ptr %1, null
   br i1 %isnull2.i, label %_ZN7Imf_3_213RleCompressorD2Ev.exit, label %delete.notnull3.i
@@ -186,13 +184,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_outBuffer, align 8
   store ptr %0, ptr %outPtr, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 2
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %idx.ext3 = sext i32 %inSize to i64
   %add.ptr4 = getelementptr inbounds i8, ptr %inPtr, i64 %idx.ext3
   %cmp516 = icmp sgt i32 %inSize, 0
@@ -248,7 +246,7 @@ while.body22:                                     ; preds = %while.body22.prehea
   br i1 %cmp21, label %while.body22, label %while.end31, !llvm.loop !6
 
 while.end31:                                      ; preds = %while.body22, %if.end, %while.end
-  %_outBuffer32 = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer32 = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load ptr, ptr %_outBuffer32, align 8
   store ptr %6, ptr %outPtr, align 8
   %7 = load ptr, ptr %_tmpBuffer, align 8
@@ -269,13 +267,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 32
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 1
+  %_maxScanLineSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %_maxScanLineSize, align 8
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 2
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_tmpBuffer, align 8
   %call = tail call noundef i32 @_ZN7Imf_3_213rleUncompressEiiPKaPc(i32 noundef %inSize, i32 noundef %0, ptr noundef %inPtr, ptr noundef %1)
   %cmp2 = icmp eq i32 %call, 0
@@ -325,7 +323,7 @@ while.end.loopexit:                               ; preds = %while.body
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end4
   %6 = phi ptr [ %.pre23, %while.end.loopexit ], [ %3, %if.end4 ]
-  %_outBuffer18 = getelementptr inbounds %"class.Imf_3_2::RleCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer18 = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %_outBuffer18, align 8
   %add.ptr21 = getelementptr inbounds i8, ptr %7, i64 %idx.ext
   %cmp2419 = icmp sgt i32 %call, 0

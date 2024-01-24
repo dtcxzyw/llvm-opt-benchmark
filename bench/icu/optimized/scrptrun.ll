@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/scrptrun.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::ScriptRun" = type { %"class.icu_75::UObject", i32, i32, ptr, i32, i32, i32, [128 x %"struct.icu_75::ParenStackEntry"], i32 }
-%"class.icu_75::UObject" = type { ptr }
 %"struct.icu_75::ParenStackEntry" = type { i32, i32 }
 
 @_ZN6icu_759ScriptRun9fgClassIDE = dso_local local_unnamed_addr constant i8 0, align 1
@@ -102,22 +100,23 @@ entry:
 define dso_local noundef signext i8 @_ZN6icu_759ScriptRun4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(1064) %this) local_unnamed_addr #2 align 2 {
 entry:
   %error = alloca i32, align 4
-  %parenSP = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 8
+  %parenSP = getelementptr inbounds i8, ptr %this, i64 1060
   %0 = load i32, ptr %parenSP, align 4
   store i32 0, ptr %error, align 4
-  %scriptEnd = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 5
+  %scriptEnd = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %scriptEnd, align 4
-  %charLimit = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 2
+  %charLimit = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %charLimit, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %scriptCode = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 6
+  %scriptCode = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %scriptCode, align 8
-  %scriptStart = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 4
+  %scriptStart = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %1, ptr %scriptStart, align 8
-  %charArray = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 3
+  %charArray = getelementptr inbounds i8, ptr %this, i64 16
+  %parenStack57 = getelementptr inbounds i8, ptr %this, i64 36
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -199,12 +198,12 @@ if.then40:                                        ; preds = %if.then38
   %inc = add nsw i32 %15, 1
   store i32 %inc, ptr %parenSP, align 4
   %idxprom42 = sext i32 %inc to i64
-  %arrayidx43 = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 7, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds [128 x %"struct.icu_75::ParenStackEntry"], ptr %parenStack57, i64 0, i64 %idxprom42
   store i32 %spec.store.select.i, ptr %arrayidx43, align 4
   %16 = load i32, ptr %scriptCode, align 8
   %17 = load i32, ptr %parenSP, align 4
   %idxprom48 = sext i32 %17 to i64
-  %scriptCode50 = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 7, i64 %idxprom48, i32 1
+  %scriptCode50 = getelementptr inbounds [128 x %"struct.icu_75::ParenStackEntry"], ptr %parenStack57, i64 0, i64 %idxprom48, i32 1
   store i32 %16, ptr %scriptCode50, align 8
   br label %if.end81
 
@@ -219,7 +218,7 @@ if.then53:                                        ; preds = %if.else
 land.rhs:                                         ; preds = %if.then53, %while.body
   %18 = phi i32 [ %15, %if.then53 ], [ %sub64, %while.body ]
   %idxprom59 = zext nneg i32 %18 to i64
-  %arrayidx60 = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 7, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds [128 x %"struct.icu_75::ParenStackEntry"], ptr %parenStack57, i64 0, i64 %idxprom59
   %19 = load i32, ptr %arrayidx60, align 4
   %cmp62.not = icmp eq i32 %19, %and54
   br i1 %cmp62.not, label %if.then72, label %while.body
@@ -236,7 +235,7 @@ while.end:                                        ; preds = %while.body
 
 if.then72:                                        ; preds = %land.rhs
   %spec.select29 = call i32 @llvm.smin.i32(i32 %18, i32 %startSP.035)
-  %scriptCode77 = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 7, i64 %idxprom59, i32 1
+  %scriptCode77 = getelementptr inbounds [128 x %"struct.icu_75::ParenStackEntry"], ptr %parenStack57, i64 0, i64 %idxprom59, i32 1
   %20 = load i32, ptr %scriptCode77, align 8
   br label %if.end81
 
@@ -270,7 +269,7 @@ while.body94.preheader:                           ; preds = %if.then89
 while.body94:                                     ; preds = %while.body94.preheader, %while.body94
   %indvars.iv = phi i64 [ %25, %while.body94.preheader ], [ %indvars.iv.next, %while.body94 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %scriptCode100 = getelementptr inbounds %"class.icu_75::ScriptRun", ptr %this, i64 0, i32 7, i64 %indvars.iv.next, i32 1
+  %scriptCode100 = getelementptr inbounds [128 x %"struct.icu_75::ParenStackEntry"], ptr %parenStack57, i64 0, i64 %indvars.iv.next, i32 1
   store i32 %21, ptr %scriptCode100, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end102, label %while.body94, !llvm.loop !8

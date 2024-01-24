@@ -3,33 +3,11 @@ source_filename = "bench/folly/original/AtFork.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::AtForkList" = type { %"class.std::mutex", %"class.std::__cxx11::list", %"class.std::map" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<folly::AtForkList::Task, std::allocator<folly::AtForkList::Task>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<folly::AtForkList::Task, std::allocator<folly::AtForkList::Task>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<const void *, std::pair<const void *const, std::_List_iterator<folly::AtForkList::Task>>, std::_Select1st<std::pair<const void *const, std::_List_iterator<folly::AtForkList::Task>>>, std::less<const void *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<const void *, std::pair<const void *const, std::_List_iterator<folly::AtForkList::Task>>, std::_Select1st<std::pair<const void *const, std::_List_iterator<folly::AtForkList::Task>>>, std::less<const void *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [208 x i8] }
 %"struct.folly::AtForkList::Task" = type { ptr, [8 x i8], %"class.folly::Function", %"class.folly::Function.3", %"class.folly::Function.3" }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %"class.folly::Function.3" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"struct.std::_List_iterator" = type { ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.5" }
-%"struct.__gnu_cxx::__aligned_membuf.5" = type { [16 x i8] }
 %"class.std::invalid_argument" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -109,7 +87,7 @@ entry:
   br i1 %tobool.not.i, label %while.cond.preheader, label %if.then.i
 
 while.cond.preheader:                             ; preds = %entry
-  %tasks = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 1
+  %tasks = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %tasks, align 8, !tbaa !7, !noalias !12
   %cmp.i.i.i.not6279 = icmp eq ptr %tasks, %0
   br i1 %cmp.i.i.i.not6279, label %return, label %invoke.cont4
@@ -124,16 +102,16 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4:                                     ; preds = %while.cond.preheader, %invoke.cont4.backedge
   %1 = phi ptr [ %.be, %invoke.cont4.backedge ], [ %0, %while.cond.preheader ]
   %task.sroa.0.063 = phi ptr [ %task.sroa.0.063.be, %invoke.cont4.backedge ], [ %tasks, %while.cond.preheader ]
-  %_M_prev.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %task.sroa.0.063, i64 0, i32 1
+  %_M_prev.i.i = getelementptr inbounds i8, ptr %task.sroa.0.063, i64 8
   %2 = load ptr, ptr %_M_prev.i.i, align 8, !tbaa !13
-  %exec_.i = getelementptr inbounds %"struct.std::_List_node", ptr %2, i64 0, i32 1, i32 0, i64 72
+  %exec_.i = getelementptr inbounds i8, ptr %2, i64 88
   %3 = load ptr, ptr %exec_.i, align 8, !tbaa !14
   %cmp.i.not = icmp eq ptr %3, null
   br i1 %cmp.i.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %invoke.cont4
-  %prepare = getelementptr inbounds %"struct.std::_List_node", ptr %2, i64 0, i32 1, i32 0, i64 16
-  %call_.i = getelementptr inbounds %"struct.std::_List_node", ptr %2, i64 0, i32 1, i32 0, i64 64
+  %prepare = getelementptr inbounds i8, ptr %2, i64 32
+  %call_.i = getelementptr inbounds i8, ptr %2, i64 80
   %4 = load ptr, ptr %call_.i, align 16, !tbaa !16
   %call.i43 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 16 dereferenceable(48) %prepare)
           to label %invoke.cont7 unwind label %terminate.lpad.loopexit.split-lp.loopexit
@@ -162,16 +140,16 @@ invoke.cont21.preheader:                          ; preds = %for.end
 
 invoke.cont25:                                    ; preds = %invoke.cont21.preheader, %if.end30
   %untask.sroa.0.066 = phi ptr [ %10, %if.end30 ], [ %tasks, %invoke.cont21.preheader ]
-  %_M_prev.i.i48 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %untask.sroa.0.066, i64 0, i32 1
+  %_M_prev.i.i48 = getelementptr inbounds i8, ptr %untask.sroa.0.066, i64 8
   %7 = load ptr, ptr %_M_prev.i.i48, align 8, !tbaa !13
-  %exec_.i50 = getelementptr inbounds %"struct.std::_List_node", ptr %7, i64 0, i32 1, i32 0, i64 136
+  %exec_.i50 = getelementptr inbounds i8, ptr %7, i64 152
   %8 = load ptr, ptr %exec_.i50, align 8, !tbaa !17
   %cmp.i51.not = icmp eq ptr %8, null
   br i1 %cmp.i51.not, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %invoke.cont25
-  %parent = getelementptr inbounds %"struct.std::_List_node", ptr %7, i64 0, i32 1, i32 0, i64 80
-  %call_.i52 = getelementptr inbounds %"struct.std::_List_node", ptr %7, i64 0, i32 1, i32 0, i64 128
+  %parent = getelementptr inbounds i8, ptr %7, i64 96
+  %call_.i52 = getelementptr inbounds i8, ptr %7, i64 144
   %9 = load ptr, ptr %call_.i52, align 16, !tbaa !19
   invoke void %9(ptr noundef nonnull align 16 dereferenceable(48) %parent)
           to label %if.then28.if.end30_crit_edge unwind label %terminate.lpad.loopexit
@@ -255,21 +233,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly10AtForkList6parentEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tasks = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 1
+  %tasks = getelementptr inbounds i8, ptr %this, i64 40
   %__begin1.sroa.0.014 = load ptr, ptr %tasks, align 8, !tbaa !7
   %cmp.i.not15 = icmp eq ptr %__begin1.sroa.0.014, %tasks
   br i1 %cmp.i.not15, label %invoke.cont8, label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
   %__begin1.sroa.0.016 = phi ptr [ %__begin1.sroa.0.0, %if.end ], [ %__begin1.sroa.0.014, %entry ]
-  %exec_.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016, i64 0, i32 1, i32 0, i64 136
+  %exec_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 152
   %0 = load ptr, ptr %exec_.i, align 8, !tbaa !17
   %cmp.i11.not = icmp eq ptr %0, null
   br i1 %cmp.i11.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %parent = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016, i64 0, i32 1, i32 0, i64 80
-  %call_.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016, i64 0, i32 1, i32 0, i64 128
+  %parent = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 96
+  %call_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 144
   %1 = load ptr, ptr %call_.i, align 16, !tbaa !19
   invoke void %1(ptr noundef nonnull align 16 dereferenceable(48) %parent)
           to label %if.end unwind label %terminate.lpad
@@ -297,21 +275,21 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly10AtForkList5childEv(ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tasks = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 1
+  %tasks = getelementptr inbounds i8, ptr %this, i64 40
   %__begin1.sroa.0.014 = load ptr, ptr %tasks, align 8, !tbaa !7
   %cmp.i.not15 = icmp eq ptr %__begin1.sroa.0.014, %tasks
   br i1 %cmp.i.not15, label %invoke.cont8, label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
   %__begin1.sroa.0.016 = phi ptr [ %__begin1.sroa.0.0, %if.end ], [ %__begin1.sroa.0.014, %entry ]
-  %exec_.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016, i64 0, i32 1, i32 0, i64 200
+  %exec_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 216
   %0 = load ptr, ptr %exec_.i, align 8, !tbaa !17
   %cmp.i11.not = icmp eq ptr %0, null
   br i1 %cmp.i11.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %child = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016, i64 0, i32 1, i32 0, i64 144
-  %call_.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016, i64 0, i32 1, i32 0, i64 192
+  %child = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 160
+  %call_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 208
   %1 = load ptr, ptr %call_.i, align 16, !tbaa !19
   invoke void %1(ptr noundef nonnull align 16 dereferenceable(48) %child)
           to label %if.end unwind label %terminate.lpad
@@ -353,22 +331,21 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %_M_parent.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !24
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp.not9.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not9.i.i.i, label %if.end, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %land.lhs.true, %while.body.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %land.lhs.true ]
   %__y.addr.010.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !23
   %cmp.i.i.i.i = icmp ult ptr %1, %handle
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.010.i.i.i, ptr %__x.addr.011.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.i.i.i.v = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 %__x.addr.1.in.i.i.i.v
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !23
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, label %while.body.i.i.i, !llvm.loop !29
@@ -378,7 +355,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt1
   br i1 %cmp.i.i.i, label %if.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
-  %_M_storage.i.i.i14.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i14.i.i, align 8, !tbaa !23
   %cmp.i15.i.i.not = icmp ugt ptr %2, %handle
   br i1 %cmp.i15.i.i.not, label %if.end, label %if.then
@@ -398,14 +375,14 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %invoke.cont, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %land.lhs.true, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %task) #21
   store ptr %handle, ptr %task, align 16, !tbaa !30
-  %prepare5 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 2
+  %prepare5 = getelementptr inbounds i8, ptr %task, i64 16
   store ptr null, ptr %prepare5, align 16, !tbaa !32
-  %call_.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 2, i32 1
-  %call_2.i = getelementptr inbounds %"class.folly::Function", ptr %prepare, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %task, i64 64
+  %call_2.i = getelementptr inbounds i8, ptr %prepare, i64 48
   %4 = load ptr, ptr %call_2.i, align 16, !tbaa !16
   store ptr %4, ptr %call_.i, align 16, !tbaa !16
-  %exec_.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 2, i32 2
-  %exec_3.i = getelementptr inbounds %"class.folly::Function", ptr %prepare, i64 0, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %task, i64 72
+  %exec_3.i = getelementptr inbounds i8, ptr %prepare, i64 56
   %5 = load ptr, ptr %exec_3.i, align 8, !tbaa !14
   store ptr %5, ptr %exec_.i, align 8, !tbaa !14
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFbvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !16
@@ -418,14 +395,14 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_ZN5folly8FunctionIFbvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFbvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %if.end
-  %parent6 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 3
+  %parent6 = getelementptr inbounds i8, ptr %task, i64 80
   store ptr null, ptr %parent6, align 16, !tbaa !32
-  %call_.i30 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 3, i32 1
-  %call_2.i31 = getelementptr inbounds %"class.folly::Function.3", ptr %parent, i64 0, i32 1
+  %call_.i30 = getelementptr inbounds i8, ptr %task, i64 128
+  %call_2.i31 = getelementptr inbounds i8, ptr %parent, i64 48
   %6 = load ptr, ptr %call_2.i31, align 16, !tbaa !19
   store ptr %6, ptr %call_.i30, align 16, !tbaa !19
-  %exec_.i32 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 3, i32 2
-  %exec_3.i33 = getelementptr inbounds %"class.folly::Function.3", ptr %parent, i64 0, i32 2
+  %exec_.i32 = getelementptr inbounds i8, ptr %task, i64 136
+  %exec_3.i33 = getelementptr inbounds i8, ptr %parent, i64 56
   %7 = load ptr, ptr %exec_3.i33, align 8, !tbaa !17
   store ptr %7, ptr %exec_.i32, align 8, !tbaa !17
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i31, align 16, !tbaa !19
@@ -438,14 +415,14 @@ if.end.i.i35:                                     ; preds = %_ZN5folly8FunctionI
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i35, %_ZN5folly8FunctionIFbvEEC2EOS2_.exit
-  %child7 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 4
+  %child7 = getelementptr inbounds i8, ptr %task, i64 144
   store ptr null, ptr %child7, align 16, !tbaa !32
-  %call_.i37 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 4, i32 1
-  %call_2.i38 = getelementptr inbounds %"class.folly::Function.3", ptr %child, i64 0, i32 1
+  %call_.i37 = getelementptr inbounds i8, ptr %task, i64 192
+  %call_2.i38 = getelementptr inbounds i8, ptr %child, i64 48
   %8 = load ptr, ptr %call_2.i38, align 16, !tbaa !19
   store ptr %8, ptr %call_.i37, align 16, !tbaa !19
-  %exec_.i39 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %task, i64 0, i32 4, i32 2
-  %exec_3.i40 = getelementptr inbounds %"class.folly::Function.3", ptr %child, i64 0, i32 2
+  %exec_.i39 = getelementptr inbounds i8, ptr %task, i64 200
+  %exec_3.i40 = getelementptr inbounds i8, ptr %child, i64 56
   %9 = load ptr, ptr %exec_3.i40, align 8, !tbaa !17
   store ptr %9, ptr %exec_.i39, align 8, !tbaa !17
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i38, align 16, !tbaa !19
@@ -459,7 +436,7 @@ if.end.i.i42:                                     ; preds = %_ZN5folly8FunctionI
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit44:           ; preds = %if.end.i.i42, %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %inserted) #21
-  %tasks = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 1
+  %tasks = getelementptr inbounds i8, ptr %this, i64 40
   %call.i45 = invoke ptr @_ZNSt7__cxx114listIN5folly10AtForkList4TaskESaIS3_EE7emplaceIJS3_EEESt14_List_iteratorIS3_ESt20_List_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %tasks, ptr nonnull %tasks, ptr noundef nonnull align 16 dereferenceable(208) %task)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -468,7 +445,7 @@ invoke.cont12:                                    ; preds = %_ZN5folly8FunctionI
   br i1 %tobool.not, label %if.end21, label %if.then16
 
 if.then16:                                        ; preds = %invoke.cont12
-  %index17 = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2
+  %index17 = getelementptr inbounds i8, ptr %this, i64 64
   %call20 = invoke { ptr, i8 } @_ZNSt3mapIPKvSt14_List_iteratorIN5folly10AtForkList4TaskEESt4lessIS1_ESaISt4pairIKS1_S6_EEE7emplaceIJRS1_RS6_EEES9_ISt17_Rb_tree_iteratorISB_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %index17, ptr noundef nonnull align 8 dereferenceable(8) %handle.addr, ptr noundef nonnull align 8 dereferenceable(8) %inserted)
           to label %if.end21 unwind label %lpad18
 
@@ -541,13 +518,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.010.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !23
   %cmp.i.i.i.i = icmp ult ptr %1, %.pre
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.010.i.i.i, ptr %__x.addr.011.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.i.i.i.v = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 %__x.addr.1.in.i.i.i.v
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !23
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapIPKvSt14_List_iteratorIN5folly10AtForkList4TaskEESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit, label %while.body.i.i.i, !llvm.loop !33
@@ -557,7 +533,7 @@ _ZNSt3mapIPKvSt14_List_iteratorIN5folly10AtForkList4TaskEESt4lessIS1_ESaISt4pair
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapIPKvSt14_List_iteratorIN5folly10AtForkList4TaskEESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i, align 8, !tbaa !34
   %cmp.i28 = icmp ult ptr %.pre, %2
   br i1 %cmp.i28, label %if.then, label %cleanup
@@ -565,9 +541,9 @@ lor.rhs:                                          ; preds = %_ZNSt3mapIPKvSt14_L
 if.then:                                          ; preds = %lor.rhs, %_ZNSt3mapIPKvSt14_List_iteratorIN5folly10AtForkList4TaskEESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit, %entry
   %__y.addr.0.lcssa.i.i.i36 = phi ptr [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %_ZNSt3mapIPKvSt14_List_iteratorIN5folly10AtForkList4TaskEESt4lessIS1_ESaISt4pairIKS1_S6_EEE11lower_boundERSA_.exit ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store ptr %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8, !tbaa !34
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   %3 = load i64, ptr %__args1, align 8, !tbaa !23
   store i64 %3, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !23
   %call6.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS9_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i36, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
@@ -587,7 +563,7 @@ if.then.i.i:                                      ; preds = %invoke.cont5.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
   %6 = load ptr, ptr %_M_storage.i.i.i.i.i.i, align 8, !tbaa !23
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %5, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i, align 8, !tbaa !23
   %cmp.i.i.i.i.i = icmp ult ptr %6, %7
   br label %cleanup.thread.i.i
@@ -622,35 +598,35 @@ cleanup:                                          ; preds = %if.then.i21.i.i, %c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10AtForkList4TaskD2Ev(ptr noundef nonnull align 16 dereferenceable(208) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  %exec_.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %this, i64 0, i32 4, i32 2
+  %exec_.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %exec_.i.i, align 8, !tbaa !17
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %child = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %this, i64 0, i32 4
+  %child = getelementptr inbounds i8, ptr %this, i64 144
   %call.i.i = tail call noundef i64 %0(i32 noundef 1, ptr noundef nonnull %child, ptr noundef null) #21
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
 _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i, %entry
-  %exec_.i.i2 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %this, i64 0, i32 3, i32 2
+  %exec_.i.i2 = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %exec_.i.i2, align 8, !tbaa !17
   %tobool.not.i.i3 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i3, label %_ZN5folly8FunctionIFvvEED2Ev.exit6, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit
-  %parent = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %this, i64 0, i32 3
+  %parent = getelementptr inbounds i8, ptr %this, i64 80
   %call.i.i5 = tail call noundef i64 %1(i32 noundef 1, ptr noundef nonnull %parent, ptr noundef null) #21
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit6
 
 _ZN5folly8FunctionIFvvEED2Ev.exit6:               ; preds = %if.end.i.i4, %_ZN5folly8FunctionIFvvEED2Ev.exit
-  %exec_.i.i7 = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %this, i64 0, i32 2, i32 2
+  %exec_.i.i7 = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %exec_.i.i7, align 8, !tbaa !14
   %tobool.not.i.i8 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i8, label %_ZN5folly8FunctionIFbvEED2Ev.exit, label %if.end.i.i9
 
 if.end.i.i9:                                      ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit6
-  %prepare = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %this, i64 0, i32 2
+  %prepare = getelementptr inbounds i8, ptr %this, i64 16
   %call.i.i10 = tail call noundef i64 %2(i32 noundef 1, ptr noundef nonnull %prepare, ptr noundef null) #21
   br label %_ZN5folly8FunctionIFbvEED2Ev.exit
 
@@ -760,17 +736,17 @@ entry:
 define linkonce_odr ptr @_ZNSt7__cxx114listIN5folly10AtForkList4TaskESaIS3_EE7emplaceIJS3_EEESt14_List_iteratorIS3_ESt20_List_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 16 dereferenceable(208) %__args) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
   %0 = load ptr, ptr %__args, align 16, !tbaa !30
   store ptr %0, ptr %_M_storage.i.i, align 16, !tbaa !30
-  %prepare.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %prepare.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 32
   store ptr null, ptr %prepare.i.i.i.i, align 16, !tbaa !32
-  %call_.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 64
-  %call_2.i.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 80
+  %call_2.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 64
   %1 = load ptr, ptr %call_2.i.i.i.i.i, align 16, !tbaa !16
   store ptr %1, ptr %call_.i.i.i.i.i, align 16, !tbaa !16
-  %exec_.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 72
-  %exec_3.i.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 88
+  %exec_3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 72
   %2 = load ptr, ptr %exec_3.i.i.i.i.i, align 8, !tbaa !14
   store ptr %2, ptr %exec_.i.i.i.i.i, align 8, !tbaa !14
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFbvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i.i, align 16, !tbaa !16
@@ -779,19 +755,19 @@ entry:
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5folly8FunctionIFbvEEC2EOS2_.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %entry
-  %prepare3.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 2
+  %prepare3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %call.i.i.i.i.i.i = tail call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %prepare3.i.i.i.i, ptr noundef nonnull %prepare.i.i.i.i) #21
   br label %_ZN5folly8FunctionIFbvEEC2EOS2_.exit.i.i.i.i
 
 _ZN5folly8FunctionIFbvEEC2EOS2_.exit.i.i.i.i:     ; preds = %if.end.i.i.i.i.i.i, %entry
-  %parent.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 80
+  %parent.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 96
   store ptr null, ptr %parent.i.i.i.i, align 16, !tbaa !32
-  %call_.i9.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 128
-  %call_2.i10.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 3, i32 1
+  %call_.i9.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 144
+  %call_2.i10.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 128
   %3 = load ptr, ptr %call_2.i10.i.i.i.i, align 16, !tbaa !19
   store ptr %3, ptr %call_.i9.i.i.i.i, align 16, !tbaa !19
-  %exec_.i11.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 136
-  %exec_3.i12.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 3, i32 2
+  %exec_.i11.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 152
+  %exec_3.i12.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 136
   %4 = load ptr, ptr %exec_3.i12.i.i.i.i, align 8, !tbaa !17
   store ptr %4, ptr %exec_.i11.i.i.i.i, align 8, !tbaa !17
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i10.i.i.i.i, align 16, !tbaa !19
@@ -800,19 +776,19 @@ _ZN5folly8FunctionIFbvEEC2EOS2_.exit.i.i.i.i:     ; preds = %if.end.i.i.i.i.i.i,
   br i1 %tobool.not.i.i13.i.i.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i, label %if.end.i.i14.i.i.i.i
 
 if.end.i.i14.i.i.i.i:                             ; preds = %_ZN5folly8FunctionIFbvEEC2EOS2_.exit.i.i.i.i
-  %parent4.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 3
+  %parent4.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
   %call.i.i15.i.i.i.i = tail call noundef i64 %4(i32 noundef 0, ptr noundef nonnull %parent4.i.i.i.i, ptr noundef nonnull %parent.i.i.i.i) #21
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i:     ; preds = %if.end.i.i14.i.i.i.i, %_ZN5folly8FunctionIFbvEEC2EOS2_.exit.i.i.i.i
-  %child.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 144
+  %child.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 160
   store ptr null, ptr %child.i.i.i.i, align 16, !tbaa !32
-  %call_.i16.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 192
-  %call_2.i17.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 4, i32 1
+  %call_.i16.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 208
+  %call_2.i17.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 192
   %5 = load ptr, ptr %call_2.i17.i.i.i.i, align 16, !tbaa !19
   store ptr %5, ptr %call_.i16.i.i.i.i, align 16, !tbaa !19
-  %exec_.i18.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i, i64 0, i32 1, i32 0, i64 200
-  %exec_3.i19.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 4, i32 2
+  %exec_.i18.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 216
+  %exec_3.i19.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 200
   %6 = load ptr, ptr %exec_3.i19.i.i.i.i, align 8, !tbaa !17
   store ptr %6, ptr %exec_.i18.i.i.i.i, align 8, !tbaa !17
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i17.i.i.i.i, align 16, !tbaa !19
@@ -821,13 +797,13 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i:     ; preds = %if.end.i.i14.i.i.i.
   br i1 %tobool.not.i.i20.i.i.i.i, label %_ZNSt7__cxx114listIN5folly10AtForkList4TaskESaIS3_EE14_M_create_nodeIJS3_EEEPSt10_List_nodeIS3_EDpOT_.exit, label %if.end.i.i21.i.i.i.i
 
 if.end.i.i21.i.i.i.i:                             ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i
-  %child5.i.i.i.i = getelementptr inbounds %"struct.folly::AtForkList::Task", ptr %__args, i64 0, i32 4
+  %child5.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 144
   %call.i.i22.i.i.i.i = tail call noundef i64 %6(i32 noundef 0, ptr noundef nonnull %child5.i.i.i.i, ptr noundef nonnull %child.i.i.i.i) #21
   br label %_ZNSt7__cxx114listIN5folly10AtForkList4TaskESaIS3_EE14_M_create_nodeIJS3_EEEPSt10_List_nodeIS3_EDpOT_.exit
 
 _ZNSt7__cxx114listIN5folly10AtForkList4TaskESaIS3_EE14_M_create_nodeIJS3_EEEPSt10_List_nodeIS3_EDpOT_.exit: ; preds = %if.end.i.i21.i.i.i.i, %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i.i.i
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i, ptr noundef %__position.coerce) #21
-  %_M_size.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %this, i64 0, i32 1
+  %_M_size.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %_M_size.i, align 8, !tbaa !40
   %add.i = add i64 %7, 1
   store i64 %add.i, ptr %_M_size.i, align 8, !tbaa !40
@@ -859,7 +835,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8, !tbaa !23
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !23
   %3 = load ptr, ptr %__k, align 8, !tbaa !23
   %cmp.i = icmp ult ptr %2, %3
@@ -877,12 +853,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.044.i = phi ptr [ %__x.042.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i90 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.044.i, i64 0, i32 1
+  %_M_storage.i.i.i90 = getelementptr inbounds i8, ptr %__x.044.i, i64 32
   %5 = load ptr, ptr %_M_storage.i.i.i90, align 8, !tbaa !23
   %cmp.i.i = icmp ult ptr %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.i.v = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.044.i, i64 %cond.in.i.v
   %__x.0.i = load ptr, ptr %cond.in.i, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !44
@@ -899,7 +874,7 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa48.i) #27
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre196 = load ptr, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8, !tbaa !23
   %.pre197 = load ptr, ptr %__k, align 8, !tbaa !23
   br label %if.end12.i
@@ -916,7 +891,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
 
 if.else12:                                        ; preds = %entry
   %9 = load ptr, ptr %__k, align 8, !tbaa !23
-  %_M_storage.i.i.i91 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i91 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %10 = load ptr, ptr %_M_storage.i.i.i91, align 8, !tbaa !23
   %cmp.i92 = icmp ult ptr %9, %10
   br i1 %cmp.i92, label %if.then18, label %if.else44
@@ -929,13 +904,13 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
-  %_M_storage.i.i.i96 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i96 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load ptr, ptr %_M_storage.i.i.i96, align 8, !tbaa !23
   %cmp.i97 = icmp ult ptr %12, %9
   br i1 %cmp.i97, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i98 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i98 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i98, align 8, !tbaa !46
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
@@ -950,12 +925,11 @@ if.else42:                                        ; preds = %if.else25
 
 while.body.i106:                                  ; preds = %if.else42, %while.body.i106
   %__x.044.i107 = phi ptr [ %__x.0.i113, %while.body.i106 ], [ %__x.042.i103, %if.else42 ]
-  %_M_storage.i.i.i108 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.044.i107, i64 0, i32 1
+  %_M_storage.i.i.i108 = getelementptr inbounds i8, ptr %__x.044.i107, i64 32
   %14 = load ptr, ptr %_M_storage.i.i.i108, align 8, !tbaa !23
   %cmp.i.i109 = icmp ult ptr %9, %14
-  %_M_left.i.i110 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i107, i64 0, i32 2
-  %_M_right.i.i111 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i107, i64 0, i32 3
-  %cond.in.i112 = select i1 %cmp.i.i109, ptr %_M_left.i.i110, ptr %_M_right.i.i111
+  %cond.in.i112.v = select i1 %cmp.i.i109, i64 16, i64 24
+  %cond.in.i112 = getelementptr inbounds i8, ptr %__x.044.i107, i64 %cond.in.i112.v
   %__x.0.i113 = load ptr, ptr %cond.in.i112, align 8, !tbaa !23
   %cmp.not.i114 = icmp eq ptr %__x.0.i113, null
   br i1 %cmp.not.i114, label %while.end.i115, label %while.body.i106, !llvm.loop !47
@@ -970,7 +944,7 @@ if.then.i127:                                     ; preds = %while.end.i115, %if
 
 if.else.i131:                                     ; preds = %if.then.i127
   %call.i.i132 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa48.i128) #27
-  %_M_storage.i.i.i.i119.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i132, i64 0, i32 1
+  %_M_storage.i.i.i.i119.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i132, i64 32
   %.pre195 = load ptr, ptr %_M_storage.i.i.i.i119.phi.trans.insert, align 8, !tbaa !23
   br label %if.end12.i116
 
@@ -995,13 +969,13 @@ if.then50:                                        ; preds = %if.else44
 
 if.else57:                                        ; preds = %if.then50
   %call.i139 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #27
-  %_M_storage.i.i.i140 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i139, i64 0, i32 1
+  %_M_storage.i.i.i140 = getelementptr inbounds i8, ptr %call.i139, i64 32
   %17 = load ptr, ptr %_M_storage.i.i.i140, align 8, !tbaa !23
   %cmp.i141 = icmp ult ptr %9, %17
   br i1 %cmp.i141, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i142 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
+  %_M_right.i142 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
   %18 = load ptr, ptr %_M_right.i142, align 8, !tbaa !46
   %cmp67 = icmp eq ptr %18, null
   %spec.select193 = select i1 %cmp67, ptr null, ptr %call.i139
@@ -1016,12 +990,11 @@ if.else74:                                        ; preds = %if.else57
 
 while.body.i150:                                  ; preds = %if.else74, %while.body.i150
   %__x.044.i151 = phi ptr [ %__x.0.i157, %while.body.i150 ], [ %__x.042.i147, %if.else74 ]
-  %_M_storage.i.i.i152 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.044.i151, i64 0, i32 1
+  %_M_storage.i.i.i152 = getelementptr inbounds i8, ptr %__x.044.i151, i64 32
   %19 = load ptr, ptr %_M_storage.i.i.i152, align 8, !tbaa !23
   %cmp.i.i153 = icmp ult ptr %9, %19
-  %_M_left.i.i154 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i151, i64 0, i32 2
-  %_M_right.i.i155 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.044.i151, i64 0, i32 3
-  %cond.in.i156 = select i1 %cmp.i.i153, ptr %_M_left.i.i154, ptr %_M_right.i.i155
+  %cond.in.i156.v = select i1 %cmp.i.i153, i64 16, i64 24
+  %cond.in.i156 = getelementptr inbounds i8, ptr %__x.044.i151, i64 %cond.in.i156.v
   %__x.0.i157 = load ptr, ptr %cond.in.i156, align 8, !tbaa !23
   %cmp.not.i158 = icmp eq ptr %__x.0.i157, null
   br i1 %cmp.not.i158, label %while.end.i159, label %while.body.i150, !llvm.loop !48
@@ -1038,7 +1011,7 @@ if.then.i171:                                     ; preds = %while.end.i159, %if
 
 if.else.i175:                                     ; preds = %if.then.i171
   %call.i.i176 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa48.i172) #27
-  %_M_storage.i.i.i.i163.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i176, i64 0, i32 1
+  %_M_storage.i.i.i.i163.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i176, i64 32
   %.pre = load ptr, ptr %_M_storage.i.i.i.i163.phi.trans.insert, align 8, !tbaa !23
   br label %if.end12.i160
 
@@ -1084,22 +1057,21 @@ if.then.i.i.i:                                    ; preds = %if.end
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %if.end
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !24
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp.not9.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not9.i.i.i, label %if.then6, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %while.body.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %__y.addr.010.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !23
   %cmp.i.i.i.i = icmp ult ptr %1, %handle
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.010.i.i.i, ptr %__x.addr.011.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.i.i.i.v = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 %__x.addr.1.in.i.i.i.v
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !23
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i, label %while.body.i.i.i, !llvm.loop !49
@@ -1109,7 +1081,7 @@ _ZNSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10
   br i1 %cmp.i.i.i, label %if.then6, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS3_.exit.i.i
-  %_M_storage.i.i.i14.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i14.i.i, align 8, !tbaa !23
   %cmp.i15.i.i = icmp ugt ptr %2, %handle
   br i1 %cmp.i15.i.i, label %if.then6, label %invoke.cont13
@@ -1128,49 +1100,49 @@ lpad:                                             ; preds = %if.then6
   resume { ptr, i32 } %3
 
 invoke.cont13:                                    ; preds = %invoke.cont
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %4 = load i64, ptr %second, align 8, !tbaa !23
   %5 = inttoptr i64 %4 to ptr
   %call.i4.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %__y.addr.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
   tail call void @_ZdlPv(ptr noundef nonnull %call.i4.i.i) #26
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !37
   %dec.i.i.i = add i64 %6, -1
   store i64 %dec.i.i.i, ptr %_M_node_count.i.i.i, align 8, !tbaa !37
-  %_M_size.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %_M_size.i.i.i, align 8, !tbaa !40
   %sub.i.i.i = add i64 %7, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8, !tbaa !40
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %exec_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1, i32 0, i64 200
+  %exec_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 216
   %8 = load ptr, ptr %exec_.i.i.i.i.i.i.i, align 8, !tbaa !17
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %invoke.cont13
-  %child.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1, i32 0, i64 144
+  %child.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 160
   %call.i.i.i.i.i.i.i = tail call noundef i64 %8(i32 noundef 1, ptr noundef nonnull %child.i.i.i.i.i, ptr noundef null) #21
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i:      ; preds = %if.end.i.i.i.i.i.i.i, %invoke.cont13
-  %exec_.i.i2.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1, i32 0, i64 136
+  %exec_.i.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 152
   %9 = load ptr, ptr %exec_.i.i2.i.i.i.i.i, align 8, !tbaa !17
   %tobool.not.i.i3.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i3.i.i.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i.i.i.i, label %if.end.i.i4.i.i.i.i.i
 
 if.end.i.i4.i.i.i.i.i:                            ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i
-  %parent.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1, i32 0, i64 80
+  %parent.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 96
   %call.i.i5.i.i.i.i.i = tail call noundef i64 %9(i32 noundef 1, ptr noundef nonnull %parent.i.i.i.i.i, ptr noundef null) #21
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i.i.i.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit6.i.i.i.i.i:     ; preds = %if.end.i.i4.i.i.i.i.i, %_ZN5folly8FunctionIFvvEED2Ev.exit.i.i.i.i.i
-  %exec_.i.i7.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1, i32 0, i64 72
+  %exec_.i.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %10 = load ptr, ptr %exec_.i.i7.i.i.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i8.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i8.i.i.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.end.i.i9.i.i.i.i.i
 
 if.end.i.i9.i.i.i.i.i:                            ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit6.i.i.i.i.i
-  %prepare.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %5, i64 0, i32 1, i32 0, i64 16
+  %prepare.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %call.i.i10.i.i.i.i.i = tail call noundef i64 %10(i32 noundef 1, ptr noundef nonnull %prepare.i.i.i.i.i, ptr noundef null) #21
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -1247,22 +1219,21 @@ if.then.i.i.i:                                    ; preds = %if.end
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %if.end
-  %_M_parent.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !24
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %cmp.not9.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not9.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, %while.body.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
   %__y.addr.010.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 32
   %1 = load ptr, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !23
   %cmp.i.i.i.i = icmp ult ptr %1, %handle
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.010.i.i.i, ptr %__x.addr.011.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.i.i.i.v = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 %__x.addr.1.in.i.i.i.v
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !23
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, label %while.body.i.i.i, !llvm.loop !50
@@ -1272,7 +1243,7 @@ _ZNKSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt1
   br i1 %cmp.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_St14_List_iteratorIN5folly10AtForkList4TaskEEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
-  %_M_storage.i.i.i14.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i14.i.i, align 8, !tbaa !23
   %cmp.i15.i.i = icmp ugt ptr %2, %handle
   %spec.select.i.i = select i1 %cmp.i15.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
@@ -1343,19 +1314,19 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  %tasks.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %tasks.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call, i8 0, i64 80, i1 false)
   store ptr %tasks.i, ptr %_M_prev.i.i.i.i.i.i, align 8, !tbaa !13
   store ptr %tasks.i, ptr %tasks.i, align 8, !tbaa !7
-  %2 = getelementptr inbounds %"class.folly::AtForkList", ptr %call, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !24
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %2, ptr %_M_left.i.i.i.i.i.i, align 8, !tbaa !45
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %2, ptr %_M_right.i.i.i.i.i.i, align 8, !tbaa !52
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8, !tbaa !37
   store ptr %call, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance) #21
@@ -1410,19 +1381,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %tasks.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %tasks.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   store ptr %tasks.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
   store ptr %tasks.i.i, ptr %tasks.i.i, align 8, !tbaa !7
-  %4 = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !24
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %4, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !45
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %4, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !52
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !37
   store ptr %call.i, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance) #21
@@ -1441,7 +1412,7 @@ _ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit: ; preds = %invoke.cont.
   br i1 %tobool.not.i.i, label %while.cond.preheader.i, label %if.then.i.i
 
 while.cond.preheader.i:                           ; preds = %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit
-  %tasks.i = getelementptr inbounds %"class.folly::AtForkList", ptr %6, i64 0, i32 1
+  %tasks.i = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load ptr, ptr %tasks.i, align 8, !tbaa !7, !noalias !12
   %cmp.i.i.i.not62.i4 = icmp eq ptr %tasks.i, %7
   br i1 %cmp.i.i.i.not62.i4, label %if.end, label %invoke.cont4.i
@@ -1456,16 +1427,16 @@ if.then.i.i:                                      ; preds = %_ZN5folly12_GLOBAL_
 invoke.cont4.i:                                   ; preds = %while.cond.preheader.i, %invoke.cont4.i.backedge
   %8 = phi ptr [ %.be, %invoke.cont4.i.backedge ], [ %7, %while.cond.preheader.i ]
   %task.sroa.0.063.i = phi ptr [ %task.sroa.0.063.i.be, %invoke.cont4.i.backedge ], [ %tasks.i, %while.cond.preheader.i ]
-  %_M_prev.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %task.sroa.0.063.i, i64 0, i32 1
+  %_M_prev.i.i.i = getelementptr inbounds i8, ptr %task.sroa.0.063.i, i64 8
   %9 = load ptr, ptr %_M_prev.i.i.i, align 8, !tbaa !13
-  %exec_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %9, i64 0, i32 1, i32 0, i64 72
+  %exec_.i.i = getelementptr inbounds i8, ptr %9, i64 88
   %10 = load ptr, ptr %exec_.i.i, align 8, !tbaa !14
   %cmp.i.not.i = icmp eq ptr %10, null
   br i1 %cmp.i.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont4.i
-  %prepare.i = getelementptr inbounds %"struct.std::_List_node", ptr %9, i64 0, i32 1, i32 0, i64 16
-  %call_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %9, i64 0, i32 1, i32 0, i64 64
+  %prepare.i = getelementptr inbounds i8, ptr %9, i64 32
+  %call_.i.i = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load ptr, ptr %call_.i.i, align 16, !tbaa !16
   %call.i43.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 16 dereferenceable(48) %prepare.i)
           to label %invoke.cont7.i unwind label %terminate.lpad.loopexit.split-lp.loopexit.i
@@ -1494,16 +1465,16 @@ invoke.cont21.preheader.i:                        ; preds = %for.end.i
 
 invoke.cont25.i:                                  ; preds = %invoke.cont21.preheader.i, %if.end30.i
   %untask.sroa.0.066.i = phi ptr [ %17, %if.end30.i ], [ %tasks.i, %invoke.cont21.preheader.i ]
-  %_M_prev.i.i48.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %untask.sroa.0.066.i, i64 0, i32 1
+  %_M_prev.i.i48.i = getelementptr inbounds i8, ptr %untask.sroa.0.066.i, i64 8
   %14 = load ptr, ptr %_M_prev.i.i48.i, align 8, !tbaa !13
-  %exec_.i50.i = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1, i32 0, i64 136
+  %exec_.i50.i = getelementptr inbounds i8, ptr %14, i64 152
   %15 = load ptr, ptr %exec_.i50.i, align 8, !tbaa !17
   %cmp.i51.not.i = icmp eq ptr %15, null
   br i1 %cmp.i51.not.i, label %if.end30.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %invoke.cont25.i
-  %parent.i = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1, i32 0, i64 80
-  %call_.i52.i = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1, i32 0, i64 128
+  %parent.i = getelementptr inbounds i8, ptr %14, i64 96
+  %call_.i52.i = getelementptr inbounds i8, ptr %14, i64 144
   %16 = load ptr, ptr %call_.i52.i, align 16, !tbaa !19
   invoke void %16(ptr noundef nonnull align 16 dereferenceable(48) %parent.i)
           to label %if.then28.if.end30_crit_edge.i unwind label %terminate.lpad.loopexit.i
@@ -1579,19 +1550,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %tasks.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %tasks.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   store ptr %tasks.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
   store ptr %tasks.i.i, ptr %tasks.i.i, align 8, !tbaa !7
-  %4 = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !24
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %4, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !45
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %4, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !52
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !37
   store ptr %call.i, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance) #21
@@ -1605,21 +1576,21 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit: ; preds = %invoke.cont.i, %init.check.i, %if.then
   %6 = load ptr, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
-  %tasks.i = getelementptr inbounds %"class.folly::AtForkList", ptr %6, i64 0, i32 1
+  %tasks.i = getelementptr inbounds i8, ptr %6, i64 40
   %__begin1.sroa.0.014.i = load ptr, ptr %tasks.i, align 8, !tbaa !7
   %cmp.i.not15.i = icmp eq ptr %__begin1.sroa.0.014.i, %tasks.i
   br i1 %cmp.i.not15.i, label %_ZN5folly10AtForkList6parentEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit, %if.end.i
   %__begin1.sroa.0.016.i = phi ptr [ %__begin1.sroa.0.0.i, %if.end.i ], [ %__begin1.sroa.0.014.i, %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit ]
-  %exec_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 136
+  %exec_.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 152
   %7 = load ptr, ptr %exec_.i.i, align 8, !tbaa !17
   %cmp.i11.not.i = icmp eq ptr %7, null
   br i1 %cmp.i11.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %parent.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 80
-  %call_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 128
+  %parent.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 96
+  %call_.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 144
   %8 = load ptr, ptr %call_.i.i, align 16, !tbaa !19
   invoke void %8(ptr noundef nonnull align 16 dereferenceable(48) %parent.i)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -1667,19 +1638,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %tasks.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %tasks.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   store ptr %tasks.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
   store ptr %tasks.i.i, ptr %tasks.i.i, align 8, !tbaa !7
-  %4 = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !24
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %4, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !45
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %4, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !52
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !37
   store ptr %call.i, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance) #21
@@ -1693,21 +1664,21 @@ lpad.i:                                           ; preds = %init.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %init.check.i, %if.then
   %6 = load ptr, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
-  %tasks.i = getelementptr inbounds %"class.folly::AtForkList", ptr %6, i64 0, i32 1
+  %tasks.i = getelementptr inbounds i8, ptr %6, i64 40
   %__begin1.sroa.0.014.i = load ptr, ptr %tasks.i, align 8, !tbaa !7
   %cmp.i.not15.i = icmp eq ptr %__begin1.sroa.0.014.i, %tasks.i
   br i1 %cmp.i.not15.i, label %_ZN5folly10AtForkList5childEv.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont, %if.end.i
   %__begin1.sroa.0.016.i = phi ptr [ %__begin1.sroa.0.0.i, %if.end.i ], [ %__begin1.sroa.0.014.i, %invoke.cont ]
-  %exec_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 200
+  %exec_.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 216
   %7 = load ptr, ptr %exec_.i.i, align 8, !tbaa !17
   %cmp.i11.not.i = icmp eq ptr %7, null
   br i1 %cmp.i11.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %child.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 144
-  %call_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 192
+  %child.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 160
+  %call_.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 208
   %8 = load ptr, ptr %call_.i.i, align 16, !tbaa !19
   invoke void %8(ptr noundef nonnull align 16 dereferenceable(48) %child.i)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -1781,8 +1752,8 @@ define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !38
-  %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
-  %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %0, i64 0, i32 1
+  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !58
   ret void
 }
@@ -1800,22 +1771,22 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #21
   %vtable.i = load ptr, ptr %__ec.coerce1, align 8, !tbaa !38, !noalias !61
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %0 = load ptr, ptr %vfn.i, align 8, !noalias !61
   call void %0(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %__ec.coerce1, i32 noundef %__ec.coerce0)
   %call3.i.i.i15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.3, i64 noundef 2)
           to label %call3.i.i.i.noexc unwind label %lpad
 
 call3.i.i.i.noexc:                                ; preds = %entry
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store ptr %1, ptr %ref.tmp2, align 8, !tbaa !64, !alias.scope !66
   %2 = load ptr, ptr %call3.i.i.i15, align 8, !tbaa !69
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 16
   %cmp.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !71
   %cmp3.i.i.i = icmp ult i64 %4, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1827,14 +1798,14 @@ if.else.i.i:                                      ; preds = %call3.i.i.i.noexc
   store ptr %2, ptr %ref.tmp2, align 8, !tbaa !69, !alias.scope !66
   %5 = load i64, ptr %3, align 8, !tbaa !32
   store i64 %5, ptr %1, align 8, !tbaa !32, !alias.scope !66
-  %_M_string_length.i32.i.phi.trans.insert.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 1
+  %_M_string_length.i32.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
   %.pre.i = load i64, ptr %_M_string_length.i32.i.phi.trans.insert.i, align 8, !tbaa !71
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i
   %6 = phi i64 [ %4, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
-  %_M_string_length.i32.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i15, i64 0, i32 1
-  %_M_string_length.i33.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 1
+  %_M_string_length.i32.i.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
+  %_M_string_length.i33.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 %6, ptr %_M_string_length.i33.i.i, align 8, !tbaa !71, !alias.scope !66
   store ptr %3, ptr %call3.i.i.i15, align 8, !tbaa !69
   store i64 0, ptr %_M_string_length.i32.i.i, align 8, !tbaa !71
@@ -1845,15 +1816,15 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %7, ptr %ref.tmp, align 8, !tbaa !64, !alias.scope !72
   %8 = load ptr, ptr %call3.i.i.i28, align 8, !tbaa !69
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 16
   %cmp.i.i.i17 = icmp eq ptr %8, %9
   br i1 %cmp.i.i.i17, label %if.then.i.i23, label %if.else.i.i18
 
 if.then.i.i23:                                    ; preds = %call3.i.i.i.noexc27
-  %_M_string_length.i.i.i24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 1
+  %_M_string_length.i.i.i24 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
   %10 = load i64, ptr %_M_string_length.i.i.i24, align 8, !tbaa !71
   %cmp3.i.i.i25 = icmp ult i64 %10, 16
   call void @llvm.assume(i1 %cmp3.i.i.i25)
@@ -1865,14 +1836,14 @@ if.else.i.i18:                                    ; preds = %call3.i.i.i.noexc27
   store ptr %8, ptr %ref.tmp, align 8, !tbaa !69, !alias.scope !72
   %11 = load i64, ptr %9, align 8, !tbaa !32
   store i64 %11, ptr %7, align 8, !tbaa !32, !alias.scope !72
-  %_M_string_length.i32.i.phi.trans.insert.i19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 1
+  %_M_string_length.i32.i.phi.trans.insert.i19 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
   %.pre.i20 = load i64, ptr %_M_string_length.i32.i.phi.trans.insert.i19, align 8, !tbaa !71
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.else.i.i18, %if.then.i.i23
   %12 = phi i64 [ %10, %if.then.i.i23 ], [ %.pre.i20, %if.else.i.i18 ]
-  %_M_string_length.i32.i.i21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i28, i64 0, i32 1
-  %_M_string_length.i33.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i32.i.i21 = getelementptr inbounds i8, ptr %call3.i.i.i28, i64 8
+  %_M_string_length.i33.i.i22 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %12, ptr %_M_string_length.i33.i.i22, align 8, !tbaa !71, !alias.scope !72
   store ptr %9, ptr %call3.i.i.i28, align 8, !tbaa !69
   store i64 0, ptr %_M_string_length.i32.i.i21, align 8, !tbaa !71
@@ -1912,12 +1883,12 @@ if.then.i.i35:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %if.then.i.i35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36
   %17 = load ptr, ptr %ref.tmp3, align 8, !tbaa !69
-  %18 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %cmp.i.i.i40 = icmp eq ptr %17, %18
   br i1 %cmp.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %if.then.i.i41
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
-  %_M_string_length.i.i.i43 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
+  %_M_string_length.i.i.i43 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %19 = load i64, ptr %_M_string_length.i.i.i43, align 8, !tbaa !71
   %cmp3.i.i.i44 = icmp ult i64 %19, 16
   call void @llvm.assume(i1 %cmp3.i.i.i44)
@@ -1932,9 +1903,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !38
-  %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
+  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa.struct !58
-  %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1, i32 1
+  %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %__ec.coerce1, ptr %__ec.sroa.364.0._M_code.sroa_idx, align 8, !tbaa.struct !75
   ret void
 
@@ -1984,12 +1955,12 @@ if.then.i.i53:                                    ; preds = %ehcleanup
 ehcleanup8:                                       ; preds = %if.then.i.i53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54, %lpad
   %.pn.pn = phi { ptr, i32 } [ %20, %lpad ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i54 ], [ %.pn, %if.then.i.i53 ]
   %27 = load ptr, ptr %ref.tmp3, align 8, !tbaa !69
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %cmp.i.i.i58 = icmp eq ptr %27, %28
   br i1 %cmp.i.i.i58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60, label %if.then.i.i59
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60: ; preds = %ehcleanup8
-  %_M_string_length.i.i.i61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
+  %_M_string_length.i.i.i61 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %29 = load i64, ptr %_M_string_length.i.i.i61, align 8, !tbaa !71
   %cmp3.i.i.i62 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i62)
@@ -2068,19 +2039,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %tasks.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %tasks.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   store ptr %tasks.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
   store ptr %tasks.i.i, ptr %tasks.i.i, align 8, !tbaa !7
-  %5 = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !24
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %5, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !45
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %5, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !52
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !37
   store ptr %call.i, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance) #21
@@ -2095,12 +2066,12 @@ lpad.i:                                           ; preds = %init.i
 _ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit: ; preds = %invoke.cont.i, %init.check.i, %_ZN5folly6AtFork4initEv.exit
   %7 = load ptr, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   store ptr null, ptr %agg.tmp, align 16, !tbaa !32
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %call_2.i = getelementptr inbounds %"class.folly::Function", ptr %prepare, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %call_2.i = getelementptr inbounds i8, ptr %prepare, i64 48
   %8 = load ptr, ptr %call_2.i, align 16, !tbaa !16
   store ptr %8, ptr %call_.i, align 16, !tbaa !16
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
-  %exec_3.i = getelementptr inbounds %"class.folly::Function", ptr %prepare, i64 0, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
+  %exec_3.i = getelementptr inbounds i8, ptr %prepare, i64 56
   %9 = load ptr, ptr %exec_3.i, align 8, !tbaa !14
   store ptr %9, ptr %exec_.i, align 8, !tbaa !14
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFbvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !16
@@ -2114,12 +2085,12 @@ if.end.i.i:                                       ; preds = %_ZN5folly12_GLOBAL_
 
 _ZN5folly8FunctionIFbvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit
   store ptr null, ptr %agg.tmp1, align 16, !tbaa !32
-  %call_.i6 = getelementptr inbounds %"class.folly::Function.3", ptr %agg.tmp1, i64 0, i32 1
-  %call_2.i7 = getelementptr inbounds %"class.folly::Function.3", ptr %parent, i64 0, i32 1
+  %call_.i6 = getelementptr inbounds i8, ptr %agg.tmp1, i64 48
+  %call_2.i7 = getelementptr inbounds i8, ptr %parent, i64 48
   %10 = load ptr, ptr %call_2.i7, align 16, !tbaa !19
   store ptr %10, ptr %call_.i6, align 16, !tbaa !19
-  %exec_.i8 = getelementptr inbounds %"class.folly::Function.3", ptr %agg.tmp1, i64 0, i32 2
-  %exec_3.i9 = getelementptr inbounds %"class.folly::Function.3", ptr %parent, i64 0, i32 2
+  %exec_.i8 = getelementptr inbounds i8, ptr %agg.tmp1, i64 56
+  %exec_3.i9 = getelementptr inbounds i8, ptr %parent, i64 56
   %11 = load ptr, ptr %exec_3.i9, align 8, !tbaa !17
   store ptr %11, ptr %exec_.i8, align 8, !tbaa !17
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i7, align 16, !tbaa !19
@@ -2133,12 +2104,12 @@ if.end.i.i11:                                     ; preds = %_ZN5folly8FunctionI
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i11, %_ZN5folly8FunctionIFbvEEC2EOS2_.exit
   store ptr null, ptr %agg.tmp2, align 16, !tbaa !32
-  %call_.i13 = getelementptr inbounds %"class.folly::Function.3", ptr %agg.tmp2, i64 0, i32 1
-  %call_2.i14 = getelementptr inbounds %"class.folly::Function.3", ptr %child, i64 0, i32 1
+  %call_.i13 = getelementptr inbounds i8, ptr %agg.tmp2, i64 48
+  %call_2.i14 = getelementptr inbounds i8, ptr %child, i64 48
   %12 = load ptr, ptr %call_2.i14, align 16, !tbaa !19
   store ptr %12, ptr %call_.i13, align 16, !tbaa !19
-  %exec_.i15 = getelementptr inbounds %"class.folly::Function.3", ptr %agg.tmp2, i64 0, i32 2
-  %exec_3.i16 = getelementptr inbounds %"class.folly::Function.3", ptr %child, i64 0, i32 2
+  %exec_.i15 = getelementptr inbounds i8, ptr %agg.tmp2, i64 56
+  %exec_3.i16 = getelementptr inbounds i8, ptr %child, i64 56
   %13 = load ptr, ptr %exec_3.i16, align 8, !tbaa !17
   store ptr %13, ptr %exec_.i15, align 8, !tbaa !17
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i14, align 16, !tbaa !19
@@ -2231,19 +2202,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %tasks.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %tasks.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   store ptr %tasks.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
   store ptr %tasks.i.i, ptr %tasks.i.i, align 8, !tbaa !7
-  %2 = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !24
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %2, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !45
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %2, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !52
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !37
   store ptr %call.i, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance) #21
@@ -2288,19 +2259,19 @@ init.i:                                           ; preds = %init.check.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %init.i
-  %tasks.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %tasks.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call.i, i8 0, i64 80, i1 false)
   store ptr %tasks.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
   store ptr %tasks.i.i, ptr %tasks.i.i, align 8, !tbaa !7
-  %4 = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8, !tbaa !24
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %4, ptr %_M_left.i.i.i.i.i.i.i, align 8, !tbaa !45
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %4, ptr %_M_right.i.i.i.i.i.i.i, align 8, !tbaa !52
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AtForkList", ptr %call.i, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8, !tbaa !37
   store ptr %call.i, ptr @_ZZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance, align 8, !tbaa !23
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly12_GLOBAL__N_119AtForkListSingleton3getEvE8instance) #21
@@ -2323,7 +2294,7 @@ _ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit: ; preds = %invoke.cont.
   br i1 %tobool.not.i.i, label %while.cond.preheader.i, label %if.then.i.i
 
 while.cond.preheader.i:                           ; preds = %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit
-  %tasks.i = getelementptr inbounds %"class.folly::AtForkList", ptr %6, i64 0, i32 1
+  %tasks.i = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load ptr, ptr %tasks.i, align 8, !tbaa !7, !noalias !12
   %cmp.i.i.i.not62.i36 = icmp eq ptr %tasks.i, %7
   br i1 %cmp.i.i.i.not62.i36, label %_ZN5folly10AtForkList7prepareEv.exit, label %invoke.cont4.i
@@ -2338,16 +2309,16 @@ if.then.i.i:                                      ; preds = %_ZN5folly12_GLOBAL_
 invoke.cont4.i:                                   ; preds = %while.cond.preheader.i, %invoke.cont4.i.backedge
   %8 = phi ptr [ %.be, %invoke.cont4.i.backedge ], [ %7, %while.cond.preheader.i ]
   %task.sroa.0.063.i = phi ptr [ %task.sroa.0.063.i.be, %invoke.cont4.i.backedge ], [ %tasks.i, %while.cond.preheader.i ]
-  %_M_prev.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %task.sroa.0.063.i, i64 0, i32 1
+  %_M_prev.i.i.i = getelementptr inbounds i8, ptr %task.sroa.0.063.i, i64 8
   %9 = load ptr, ptr %_M_prev.i.i.i, align 8, !tbaa !13
-  %exec_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %9, i64 0, i32 1, i32 0, i64 72
+  %exec_.i.i = getelementptr inbounds i8, ptr %9, i64 88
   %10 = load ptr, ptr %exec_.i.i, align 8, !tbaa !14
   %cmp.i.not.i = icmp eq ptr %10, null
   br i1 %cmp.i.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont4.i
-  %prepare.i = getelementptr inbounds %"struct.std::_List_node", ptr %9, i64 0, i32 1, i32 0, i64 16
-  %call_.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %9, i64 0, i32 1, i32 0, i64 64
+  %prepare.i = getelementptr inbounds i8, ptr %9, i64 32
+  %call_.i.i = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load ptr, ptr %call_.i.i, align 16, !tbaa !16
   %call.i43.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 16 dereferenceable(48) %prepare.i)
           to label %invoke.cont7.i unwind label %terminate.lpad.loopexit.split-lp.loopexit.i
@@ -2376,16 +2347,16 @@ invoke.cont21.preheader.i:                        ; preds = %for.end.i
 
 invoke.cont25.i:                                  ; preds = %invoke.cont21.preheader.i, %if.end30.i
   %untask.sroa.0.066.i = phi ptr [ %17, %if.end30.i ], [ %tasks.i, %invoke.cont21.preheader.i ]
-  %_M_prev.i.i48.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %untask.sroa.0.066.i, i64 0, i32 1
+  %_M_prev.i.i48.i = getelementptr inbounds i8, ptr %untask.sroa.0.066.i, i64 8
   %14 = load ptr, ptr %_M_prev.i.i48.i, align 8, !tbaa !13
-  %exec_.i50.i = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1, i32 0, i64 136
+  %exec_.i50.i = getelementptr inbounds i8, ptr %14, i64 152
   %15 = load ptr, ptr %exec_.i50.i, align 8, !tbaa !17
   %cmp.i51.not.i = icmp eq ptr %15, null
   br i1 %cmp.i51.not.i, label %if.end30.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %invoke.cont25.i
-  %parent.i = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1, i32 0, i64 80
-  %call_.i52.i = getelementptr inbounds %"struct.std::_List_node", ptr %14, i64 0, i32 1, i32 0, i64 128
+  %parent.i = getelementptr inbounds i8, ptr %14, i64 96
+  %call_.i52.i = getelementptr inbounds i8, ptr %14, i64 144
   %16 = load ptr, ptr %call_.i52.i, align 16, !tbaa !19
   invoke void %16(ptr noundef nonnull align 16 dereferenceable(48) %parent.i)
           to label %if.then28.if.end30_crit_edge.i unwind label %terminate.lpad.loopexit.i
@@ -2452,14 +2423,14 @@ cond.true:                                        ; preds = %invoke.cont
 
 for.body.i:                                       ; preds = %cond.true, %if.end.i
   %__begin1.sroa.0.016.i = phi ptr [ %__begin1.sroa.0.0.i, %if.end.i ], [ %__begin1.sroa.0.014.i19, %cond.true ]
-  %exec_.i.i11 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 136
+  %exec_.i.i11 = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 152
   %21 = load ptr, ptr %exec_.i.i11, align 8, !tbaa !17
   %cmp.i11.not.i = icmp eq ptr %21, null
   br i1 %cmp.i11.not.i, label %if.end.i, label %if.then.i12
 
 if.then.i12:                                      ; preds = %for.body.i
-  %parent.i13 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 80
-  %call_.i.i14 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i, i64 0, i32 1, i32 0, i64 128
+  %parent.i13 = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 96
+  %call_.i.i14 = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i, i64 144
   %22 = load ptr, ptr %call_.i.i14, align 16, !tbaa !19
   invoke void %22(ptr noundef nonnull align 16 dereferenceable(48) %parent.i13)
           to label %if.end.i unwind label %terminate.lpad.i15
@@ -2485,14 +2456,14 @@ cond.false:                                       ; preds = %invoke.cont
 
 for.body.i21:                                     ; preds = %cond.false, %if.end.i28
   %__begin1.sroa.0.016.i22 = phi ptr [ %__begin1.sroa.0.0.i29, %if.end.i28 ], [ %__begin1.sroa.0.014.i19, %cond.false ]
-  %exec_.i.i23 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i22, i64 0, i32 1, i32 0, i64 200
+  %exec_.i.i23 = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i22, i64 216
   %25 = load ptr, ptr %exec_.i.i23, align 8, !tbaa !17
   %cmp.i11.not.i24 = icmp eq ptr %25, null
   br i1 %cmp.i11.not.i24, label %if.end.i28, label %if.then.i25
 
 if.then.i25:                                      ; preds = %for.body.i21
-  %child.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i22, i64 0, i32 1, i32 0, i64 144
-  %call_.i.i26 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin1.sroa.0.016.i22, i64 0, i32 1, i32 0, i64 192
+  %child.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i22, i64 160
+  %call_.i.i26 = getelementptr inbounds i8, ptr %__begin1.sroa.0.016.i22, i64 208
   %26 = load ptr, ptr %call_.i.i26, align 16, !tbaa !19
   invoke void %26(ptr noundef nonnull align 16 dereferenceable(48) %child.i)
           to label %if.end.i28 unwind label %terminate.lpad.i27

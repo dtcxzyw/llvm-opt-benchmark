@@ -4,16 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_TLC_st = type { i8, i32, i64, i32, i32, i32 }
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.ASN1_AUX_st = type { ptr, i32, i32, ptr, i32 }
-%struct.ASN1_EXTERN_FUNCS_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ASN1_COMPAT_FUNCS_st = type { ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.buf_mem_st = type { i64, ptr, i64 }
-%struct.ASN1_PRIMITIVE_FUNCS_st = type { ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @tag2bit = internal unnamed_addr constant [32 x i64] [i64 0, i64 0, i64 0, i64 1024, i64 512, i64 0, i64 0, i64 4096, i64 4096, i64 4096, i64 4096, i64 4096, i64 8192, i64 4096, i64 4096, i64 4096, i64 65536, i64 0, i64 1, i64 2, i64 4, i64 8, i64 16, i64 16384, i64 32768, i64 32, i64 64, i64 128, i64 256, i64 4096, i64 2048, i64 4096], align 16
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/tasn_dec.c\00", align 1
@@ -70,7 +62,7 @@ entry:
   %cst = alloca i8, align 1
   %otag = alloca i32, align 4
   store i64 %len, ptr %len.addr, align 8
-  %funcs = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   store ptr null, ptr %p, align 8
   %and = and i32 %aclass, 1024
@@ -82,7 +74,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %asn1_cb2 = getelementptr inbounds %struct.ASN1_AUX_st, ptr %0, i64 0, i32 3
+  %asn1_cb2 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %asn1_cb2, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.else, label %if.end6
@@ -104,7 +96,7 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   ]
 
 sw.bb:                                            ; preds = %if.end6
-  %templates = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
+  %templates = getelementptr inbounds i8, ptr %it, i64 16
   %3 = load ptr, ptr %templates, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %if.end15, label %if.then8
@@ -164,7 +156,7 @@ if.end.i:                                         ; preds = %if.end29
 
 ASN1_tag2bit.exit:                                ; preds = %if.end29, %if.end.i
   %retval.0.i = phi i64 [ %7, %if.end.i ], [ 0, %if.end29 ]
-  %utype = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype = getelementptr inbounds i8, ptr %it, i64 8
   %8 = load i64, ptr %utype, align 8
   %and31 = and i64 %8, %retval.0.i
   %tobool32.not = icmp eq i64 %and31, 0
@@ -184,7 +176,7 @@ if.end37:                                         ; preds = %ASN1_tag2bit.exit
   br label %return
 
 sw.bb39:                                          ; preds = %if.end6
-  %asn1_ex_d2i = getelementptr inbounds %struct.ASN1_EXTERN_FUNCS_st, ptr %0, i64 0, i32 4
+  %asn1_ex_d2i = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load ptr, ptr %asn1_ex_d2i, align 8
   %call41 = tail call i32 %10(ptr noundef nonnull %pval, ptr noundef %in, i64 noundef %len, ptr noundef nonnull %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #7
   br label %return
@@ -200,7 +192,7 @@ if.then45:                                        ; preds = %sw.bb42
   br i1 %cmp46, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %if.then45
-  %utype49 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype49 = getelementptr inbounds i8, ptr %it, i64 8
   %12 = load i64, ptr %utype49, align 8
   %conv50 = trunc i64 %12 to i32
   br label %if.end52
@@ -222,7 +214,7 @@ if.end61:                                         ; preds = %if.end52, %sw.bb42
   br i1 %cmp62.not, label %if.end74.thread, label %if.then64
 
 if.end74.thread:                                  ; preds = %if.end61
-  %asn1_d2i186 = getelementptr inbounds %struct.ASN1_COMPAT_FUNCS_st, ptr %0, i64 0, i32 2
+  %asn1_d2i186 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %asn1_d2i186, align 8
   %14 = load i64, ptr %len.addr, align 8
   %call75187 = tail call ptr %13(ptr noundef nonnull %pval, ptr noundef %in, i64 noundef %14) #7
@@ -242,12 +234,12 @@ if.then78:                                        ; preds = %if.then64
   %17 = load i8, ptr %16, align 1
   %18 = load i8, ptr %15, align 1
   %19 = and i8 %18, 32
-  %utype72 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype72 = getelementptr inbounds i8, ptr %it, i64 8
   %20 = load i64, ptr %utype72, align 8
   %21 = trunc i64 %20 to i8
   %conv73 = or i8 %19, %21
   store i8 %conv73, ptr %16, align 1
-  %asn1_d2i = getelementptr inbounds %struct.ASN1_COMPAT_FUNCS_st, ptr %0, i64 0, i32 2
+  %asn1_d2i = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load ptr, ptr %asn1_d2i, align 8
   %23 = load i64, ptr %len.addr, align 8
   %call75 = tail call ptr %22(ptr noundef nonnull %pval, ptr noundef nonnull %in, i64 noundef %23) #7
@@ -284,13 +276,13 @@ if.then91:                                        ; preds = %if.end89
 
 land.lhs.true95:                                  ; preds = %if.then91
   %conv96 = zext nneg i32 %call92 to i64
-  %tcount = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 3
+  %tcount = getelementptr inbounds i8, ptr %it, i64 24
   %25 = load i64, ptr %tcount, align 8
   %cmp97 = icmp sgt i64 %25, %conv96
   br i1 %cmp97, label %if.then99, label %if.end109
 
 if.then99:                                        ; preds = %land.lhs.true95
-  %templates100 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
+  %templates100 = getelementptr inbounds i8, ptr %it, i64 16
   %26 = load ptr, ptr %templates100, align 8
   %add.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %26, i64 %conv96
   %call101 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef %add.ptr) #7
@@ -310,13 +302,13 @@ if.then107:                                       ; preds = %if.else104
 if.end109:                                        ; preds = %if.else104, %if.then91, %land.lhs.true95, %if.then99
   %27 = load ptr, ptr %in, align 8
   store ptr %27, ptr %p, align 8
-  %tcount112 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 3
+  %tcount112 = getelementptr inbounds i8, ptr %it, i64 24
   %28 = load i64, ptr %tcount112, align 8
   %cmp113221 = icmp sgt i64 %28, 0
   br i1 %cmp113221, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end109
-  %templates110 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
+  %templates110 = getelementptr inbounds i8, ptr %it, i64 16
   %29 = load ptr, ptr %templates110, align 8
   br label %for.body
 
@@ -341,7 +333,7 @@ if.end124:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
-  %incdec.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt.0223, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tt.0223, i64 40
   %31 = load i64, ptr %tcount112, align 8
   %cmp113 = icmp sgt i64 %31, %indvars.iv.next248
   br i1 %cmp113, label %for.body, label %for.end.loopexit, !llvm.loop !8
@@ -405,7 +397,7 @@ if.end154:                                        ; preds = %sw.bb141
   br i1 %tobool1.not, label %if.else160, label %land.lhs.true156
 
 land.lhs.true156:                                 ; preds = %if.end154
-  %flags = getelementptr inbounds %struct.ASN1_AUX_st, ptr %0, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load i32, ptr %flags, align 8
   %and157 = and i32 %35, 4
   %tobool158.not = icmp eq i32 %and157, 0
@@ -459,9 +451,9 @@ land.lhs.true172:                                 ; preds = %if.end170
   br i1 %tobool174.not, label %auxerr, label %if.end176
 
 if.end176:                                        ; preds = %land.lhs.true172, %if.end170
-  %templates177 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 2
+  %templates177 = getelementptr inbounds i8, ptr %it, i64 16
   %41 = load ptr, ptr %templates177, align 8
-  %tcount180 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 3
+  %tcount180 = getelementptr inbounds i8, ptr %it, i64 24
   %42 = load i64, ptr %tcount180, align 8
   %cmp181207 = icmp sgt i64 %42, 0
   br i1 %cmp181207, label %for.body183, label %for.end250thread-pre-split
@@ -485,7 +477,7 @@ if.then187:                                       ; preds = %for.body183
 for.inc191:                                       ; preds = %for.body183, %if.then187
   %45 = phi i64 [ %43, %for.body183 ], [ %.pre, %if.then187 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr193 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt.1209, i64 1
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %tt.1209, i64 40
   %cmp181 = icmp sgt i64 %45, %indvars.iv.next
   br i1 %cmp181, label %for.body183, label %for.end194, !llvm.loop !10
 
@@ -580,7 +572,7 @@ if.end242:                                        ; preds = %if.end233
 
 for.inc247:                                       ; preds = %if.end242, %if.then240
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  %incdec.ptr249 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt.2212, i64 1
+  %incdec.ptr249 = getelementptr inbounds i8, ptr %tt.2212, i64 40
   %57 = load i64, ptr %tcount180, align 8
   %cmp199 = icmp sgt i64 %57, %indvars.iv.next241
   br i1 %cmp199, label %for.body201, label %for.end250thread-pre-split.loopexit, !llvm.loop !11
@@ -667,7 +659,7 @@ if.end273:                                        ; preds = %for.body268
 if.then277:                                       ; preds = %if.end273
   %call279 = call ptr @asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef nonnull %call270) #7
   call void @ASN1_template_free(ptr noundef %call279, ptr noundef nonnull %call270) #7
-  %incdec.ptr283 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt.3220, i64 1
+  %incdec.ptr283 = getelementptr inbounds i8, ptr %tt.3220, i64 40
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %65 = load i64, ptr %tcount180, align 8
   %cmp266 = icmp sgt i64 %65, %indvars.iv.next244
@@ -719,15 +711,15 @@ if.end303:                                        ; preds = %if.then302, %err
   br i1 %tobool304.not, label %if.else306, label %if.then305
 
 if.then305:                                       ; preds = %if.end303
-  %field_name = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %errtt.0, i64 0, i32 3
+  %field_name = getelementptr inbounds i8, ptr %errtt.0, i64 24
   %69 = load ptr, ptr %field_name, align 8
-  %sname = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 6
+  %sname = getelementptr inbounds i8, ptr %it, i64 48
   %70 = load ptr, ptr %sname, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %69, ptr noundef nonnull @.str.2, ptr noundef %70) #7
   br label %return
 
 if.else306:                                       ; preds = %if.end303
-  %sname307 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 6
+  %sname307 = getelementptr inbounds i8, ptr %it, i64 48
   %71 = load ptr, ptr %sname307, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %71) #7
   br label %return
@@ -767,7 +759,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   %and = and i32 %conv, 192
-  %tag = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %tt, i64 8
   %2 = load i64, ptr %tag, align 8
   %conv5 = trunc i64 %2 to i32
   %call = call fastcc i32 @asn1_check_tlen(ptr noundef nonnull %len, ptr noundef null, ptr noundef null, ptr noundef nonnull %exp_eoc, ptr noundef nonnull %cst, ptr noundef nonnull %p, i64 noundef %inlen, i32 noundef %conv5, i32 noundef %and, i8 noundef signext %opt, ptr noundef %ctx), !range !7
@@ -885,7 +877,7 @@ entry:
   br i1 %cmp, label %if.end5.thread, label %if.end5
 
 if.end5:                                          ; preds = %entry
-  %utype3 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype3 = getelementptr inbounds i8, ptr %it, i64 8
   %1 = load i64, ptr %utype3, align 8
   %conv4 = trunc i64 %1 to i32
   store i32 %conv4, ptr %utype, align 4
@@ -1148,7 +1140,7 @@ if.then94:                                        ; preds = %if.end90
   br label %err
 
 if.end95:                                         ; preds = %if.end90
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 0, ptr %arrayidx, align 1
@@ -1180,7 +1172,7 @@ err:                                              ; preds = %if.then12.i, %if.th
   %ret.0 = phi i32 [ 1, %if.end105 ], [ 0, %if.end100 ], [ 0, %if.then94 ], [ 0, %if.end86 ], [ 0, %if.then20.i ], [ 0, %if.then12.i ]
   %30 = load i8, ptr %free_cont, align 1
   %tobool107 = icmp ne i8 %30, 0
-  %data108 = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 1
+  %data108 = getelementptr inbounds i8, ptr %buf, i64 8
   %31 = load ptr, ptr %data108, align 8
   %tobool109 = icmp ne ptr %31, null
   %or.cond6 = select i1 %tobool107, i1 %tobool109, i1 false
@@ -1213,18 +1205,18 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.then6, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ret = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 1
+  %ret = getelementptr inbounds i8, ptr %ctx, i64 4
   %2 = load i32, ptr %ret, align 4
-  %plen2 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 2
+  %plen2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load i64, ptr %plen2, align 8
   store i64 %3, ptr %plen, align 8
-  %pclass3 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 4
+  %pclass3 = getelementptr inbounds i8, ptr %ctx, i64 20
   %4 = load i32, ptr %pclass3, align 4
   store i32 %4, ptr %pclass, align 4
-  %ptag4 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 3
+  %ptag4 = getelementptr inbounds i8, ptr %ctx, i64 16
   %5 = load i32, ptr %ptag4, align 8
   store i32 %5, ptr %ptag, align 4
-  %hdrlen = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 5
+  %hdrlen = getelementptr inbounds i8, ptr %ctx, i64 24
   %6 = load i32, ptr %hdrlen, align 8
   %idx.ext = sext i32 %6 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -1233,23 +1225,23 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then6:                                         ; preds = %land.lhs.true
   %call = call i32 @ASN1_get_object(ptr noundef nonnull %p, ptr noundef nonnull %plen, ptr noundef nonnull %ptag, ptr noundef nonnull %pclass, i64 noundef %len) #7
-  %ret7 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 1
+  %ret7 = getelementptr inbounds i8, ptr %ctx, i64 4
   store i32 %call, ptr %ret7, align 4
   %7 = load i64, ptr %plen, align 8
-  %plen8 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 2
+  %plen8 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 %7, ptr %plen8, align 8
   %8 = load i32, ptr %pclass, align 4
-  %pclass9 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 4
+  %pclass9 = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 %8, ptr %pclass9, align 4
   %9 = load i32, ptr %ptag, align 4
-  %ptag10 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 3
+  %ptag10 = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %9, ptr %ptag10, align 8
   %10 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv11 = trunc i64 %sub.ptr.sub to i32
-  %hdrlen12 = getelementptr inbounds %struct.ASN1_TLC_st, ptr %ctx, i64 0, i32 5
+  %hdrlen12 = getelementptr inbounds i8, ptr %ctx, i64 24
   store i32 %conv11, ptr %hdrlen12, align 8
   store i8 1, ptr %ctx, align 8
   %and = and i32 %call, 129
@@ -1418,13 +1410,13 @@ define hidden i32 @asn1_ex_c2i(ptr noundef %pval, ptr noundef %cont, i32 noundef
 entry:
   %cont.addr = alloca ptr, align 8
   store ptr %cont, ptr %cont.addr, align 8
-  %funcs = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %prim_c2i = getelementptr inbounds %struct.ASN1_PRIMITIVE_FUNCS_st, ptr %0, i64 0, i32 5
+  %prim_c2i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %prim_c2i, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %if.then
@@ -1434,7 +1426,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %utype3 = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype3 = getelementptr inbounds i8, ptr %it, i64 8
   %2 = load i64, ptr %utype3, align 8
   %cmp = icmp eq i64 %2, -4
   br i1 %cmp, label %if.then4, label %if.end15
@@ -1468,7 +1460,7 @@ if.then13:                                        ; preds = %if.end11
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end11
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %typ.0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %typ.0, i64 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %if.end
@@ -1534,7 +1526,7 @@ sw.bb37:                                          ; preds = %if.end15, %if.end15
 
 if.end42:                                         ; preds = %sw.bb37
   %6 = load ptr, ptr %pval.addr.0, align 8
-  %type43 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 1
+  %type43 = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %type43, align 4
   %and = and i32 %7, 256
   %or = or i32 %and, %utype
@@ -1578,7 +1570,7 @@ if.end65:                                         ; preds = %if.then61
   br label %if.end68
 
 if.else66:                                        ; preds = %if.end59
-  %type67 = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 1
+  %type67 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %utype, ptr %type67, align 4
   br label %if.end68
 
@@ -1589,7 +1581,7 @@ if.end68:                                         ; preds = %if.else66, %if.end6
   br i1 %tobool69.not, label %if.else76, label %if.then70
 
 if.then70:                                        ; preds = %if.end68
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %stmp.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %stmp.0, i64 8
   %10 = load ptr, ptr %data, align 8
   %tobool71.not = icmp eq ptr %10, null
   br i1 %tobool71.not, label %if.end74, label %if.then72
@@ -1624,7 +1616,7 @@ sw.epilog:                                        ; preds = %if.end42, %if.end23
   br i1 %or.cond, label %if.then86, label %return
 
 if.then86:                                        ; preds = %sw.epilog
-  %value87 = getelementptr inbounds %struct.asn1_type_st, ptr %typ.1, i64 0, i32 1
+  %value87 = getelementptr inbounds i8, ptr %typ.1, i64 8
   store ptr null, ptr %value87, align 8
   br label %return
 
@@ -1687,7 +1679,7 @@ if.then4:                                         ; preds = %entry
   br i1 %tobool64.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.then4
-  %tag = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %tt, i64 8
   %2 = load i64, ptr %tag, align 8
   %conv8 = trunc i64 %2 to i32
   br label %if.end14
@@ -1722,7 +1714,7 @@ while.cond.preheader:                             ; preds = %if.end21
   br i1 %cmp27.not47, label %if.end30thread-pre-split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %item = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 4
+  %item = getelementptr inbounds i8, ptr %tt, i64 32
   br label %while.body
 
 if.then23:                                        ; preds = %if.end21
@@ -1749,7 +1741,7 @@ if.end30:                                         ; preds = %if.end30thread-pre-
   br i1 %tobool31.not, label %if.then32, label %while.cond34.preheader
 
 while.cond34.preheader:                           ; preds = %if.end30
-  %item45 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 4
+  %item45 = getelementptr inbounds i8, ptr %tt, i64 32
   br label %while.cond34
 
 if.then32:                                        ; preds = %if.end30
@@ -1827,12 +1819,12 @@ if.then60:                                        ; preds = %while.end58
   br label %err
 
 if.else62:                                        ; preds = %entry
-  %item79 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 4
+  %item79 = getelementptr inbounds i8, ptr %tt, i64 32
   %16 = load ptr, ptr %item79, align 8
   br i1 %tobool64.not, label %if.else78, label %if.then65
 
 if.then65:                                        ; preds = %if.else62
-  %tag67 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 1
+  %tag67 = getelementptr inbounds i8, ptr %tt, i64 8
   %17 = load i64, ptr %tag67, align 8
   %conv68 = trunc i64 %17 to i32
   %call69 = call i32 @ASN1_item_ex_d2i(ptr noundef %val, ptr noundef nonnull %p, i64 noundef %len, ptr noundef %16, i32 noundef %conv68, i32 noundef %and, i8 noundef signext %opt, ptr noundef %ctx)
@@ -1906,7 +1898,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %cmp16 = icmp sgt i32 %depth, 4
   %add = add nuw nsw i32 %depth, 1
   %tobool.not.i16 = icmp eq ptr %buf, null
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %buf, i64 8
   br label %while.body
 
 if.then:                                          ; preds = %entry

@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/t_crl.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_crl_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, [20 x i8], ptr, ptr, ptr }
-%struct.X509_crl_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.x509_revoked_st = type { ptr, ptr, ptr, ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/t_crl.c\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"Certificate Revocation List (CRL):\0A\00", align 1
 @.str.2 = private unnamed_addr constant [24 x i8] c"%8sVersion %lu (0x%lx)\0A\00", align 1
@@ -64,23 +59,23 @@ entry:
   %call1 = tail call i64 @ASN1_INTEGER_get(ptr noundef %1) #3
   %add = add nsw i64 %call1, 1
   %call2 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %add, i64 noundef %call1) #3
-  %sig_alg = getelementptr inbounds %struct.X509_crl_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %sig_alg, align 8
   %call3 = tail call i32 @X509_signature_print(ptr noundef %out, ptr noundef %2, ptr noundef null) #3
   %3 = load ptr, ptr %x, align 8
-  %issuer = getelementptr inbounds %struct.X509_crl_info_st, ptr %3, i64 0, i32 2
+  %issuer = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %issuer, align 8
   %call5 = tail call ptr @X509_NAME_oneline(ptr noundef %4, ptr noundef null, i32 noundef 0) #3
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.3, ptr noundef %call5) #3
   tail call void @free(ptr noundef %call5) #3
   %call7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3) #3
   %5 = load ptr, ptr %x, align 8
-  %lastUpdate = getelementptr inbounds %struct.X509_crl_info_st, ptr %5, i64 0, i32 3
+  %lastUpdate = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %lastUpdate, align 8
   %call9 = tail call i32 @ASN1_TIME_print(ptr noundef %out, ptr noundef %6) #3
   %call10 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3) #3
   %7 = load ptr, ptr %x, align 8
-  %nextUpdate = getelementptr inbounds %struct.X509_crl_info_st, ptr %7, i64 0, i32 4
+  %nextUpdate = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %nextUpdate, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -96,11 +91,11 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.8) #3
   %9 = load ptr, ptr %x, align 8
-  %extensions = getelementptr inbounds %struct.X509_crl_info_st, ptr %9, i64 0, i32 6
+  %extensions = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load ptr, ptr %extensions, align 8
   %call18 = tail call i32 @X509V3_extensions_print(ptr noundef %out, ptr noundef nonnull @.str.9, ptr noundef %10, i64 noundef 0, i32 noundef 8) #3
   %11 = load ptr, ptr %x, align 8
-  %revoked = getelementptr inbounds %struct.X509_crl_info_st, ptr %11, i64 0, i32 5
+  %revoked = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %revoked, align 8
   %call20 = tail call i64 @sk_num(ptr noundef %12) #3
   %cmp.not = icmp eq i64 %call20, 0
@@ -117,11 +112,11 @@ for.body:                                         ; preds = %if.end, %for.body
   %13 = load ptr, ptr %call28, align 8
   %call30 = tail call i32 @i2a_ASN1_INTEGER(ptr noundef %out, ptr noundef %13) #3
   %call31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.13) #3
-  %revocationDate = getelementptr inbounds %struct.x509_revoked_st, ptr %call28, i64 0, i32 1
+  %revocationDate = getelementptr inbounds i8, ptr %call28, i64 8
   %14 = load ptr, ptr %revocationDate, align 8
   %call32 = tail call i32 @ASN1_TIME_print(ptr noundef %out, ptr noundef %14) #3
   %call33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.8) #3
-  %extensions34 = getelementptr inbounds %struct.x509_revoked_st, ptr %call28, i64 0, i32 2
+  %extensions34 = getelementptr inbounds i8, ptr %call28, i64 16
   %15 = load ptr, ptr %extensions34, align 8
   %call35 = tail call i32 @X509V3_extensions_print(ptr noundef %out, ptr noundef nonnull @.str.14, ptr noundef %15, i64 noundef 0, i32 noundef 8) #3
   %inc = add nuw i64 %i.039, 1
@@ -131,7 +126,7 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body, %if.end
   %16 = load ptr, ptr %sig_alg, align 8
-  %signature = getelementptr inbounds %struct.X509_crl_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %17 = load ptr, ptr %signature, align 8
   %call37 = tail call i32 @X509_signature_print(ptr noundef %out, ptr noundef %16, ptr noundef %17) #3
   ret i32 1

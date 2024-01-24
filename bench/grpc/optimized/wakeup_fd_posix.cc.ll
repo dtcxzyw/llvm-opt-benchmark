@@ -63,7 +63,7 @@ entry:
 define void @_Z29grpc_wakeup_fd_consume_wakeupP14grpc_wakeup_fd(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %fd_info) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @_ZL16wakeup_fd_vtable, align 8
-  %consume = getelementptr inbounds %struct.grpc_wakeup_fd_vtable, ptr %0, i64 0, i32 1
+  %consume = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %consume, align 8
   tail call void %1(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %fd_info)
   ret void
@@ -73,7 +73,7 @@ entry:
 define void @_Z21grpc_wakeup_fd_wakeupP14grpc_wakeup_fd(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %fd_info) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @_ZL16wakeup_fd_vtable, align 8
-  %wakeup = getelementptr inbounds %struct.grpc_wakeup_fd_vtable, ptr %0, i64 0, i32 2
+  %wakeup = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %wakeup, align 8
   tail call void %1(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %fd_info)
   ret void
@@ -83,7 +83,7 @@ entry:
 define void @_Z22grpc_wakeup_fd_destroyP14grpc_wakeup_fd(ptr noundef %fd_info) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @_ZL16wakeup_fd_vtable, align 8
-  %destroy = getelementptr inbounds %struct.grpc_wakeup_fd_vtable, ptr %0, i64 0, i32 3
+  %destroy = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %destroy, align 8
   tail call void %1(ptr noundef %fd_info)
   ret void

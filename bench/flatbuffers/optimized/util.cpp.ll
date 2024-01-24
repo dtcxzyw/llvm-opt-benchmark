@@ -103,7 +103,7 @@ entry:
   %file_info = alloca %struct.stat, align 8
   %call = call i32 @stat(ptr noundef %name, ptr noundef nonnull %file_info) #16
   %cmp.not = icmp eq i32 %call, 0
-  %st_mode = getelementptr inbounds %struct.stat, ptr %file_info, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %file_info, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 16384
   %cmp1 = icmp ne i32 %and, 0
@@ -134,7 +134,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %file_info.i)
   %call.i = call i32 @stat(ptr noundef %name, ptr noundef nonnull %file_info.i) #16
   %cmp.not.i = icmp eq i32 %call.i, 0
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %file_info.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %file_info.i, i64 24
   %0 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %0, 16384
   %cmp1.i = icmp ne i32 %and.i, 0
@@ -1435,8 +1435,8 @@ for.inc.i33:                                      ; preds = %cond.true51.invoke.
   br i1 %cmp.i36, label %for.body.i25, label %return, !llvm.loop !18
 
 sw.bb11:                                          ; preds = %sw.epilog
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %25 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %25, align 8
   store ptr @_ZN11flatbuffers11CharToUpperEc, ptr %agg.tmp, align 8
@@ -1480,8 +1480,8 @@ terminate.lpad.i.i51:                             ; preds = %if.then.i.i49
   unreachable
 
 sw.bb14:                                          ; preds = %sw.epilog
-  %_M_manager.i.i54 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp15, i64 0, i32 1
-  %_M_invoker.i55 = getelementptr inbounds %"class.std::function", ptr %agg.tmp15, i64 0, i32 1
+  %_M_manager.i.i54 = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
+  %_M_invoker.i55 = getelementptr inbounds i8, ptr %agg.tmp15, i64 24
   %33 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   store i64 0, ptr %33, align 8
   store ptr @_ZN11flatbuffers11CharToLowerEc, ptr %agg.tmp15, align 8
@@ -1806,8 +1806,8 @@ entry:
   br i1 %cmp8.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %transform, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %transform, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %transform, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %transform, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

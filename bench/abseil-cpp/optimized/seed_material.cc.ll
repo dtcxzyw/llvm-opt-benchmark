@@ -111,12 +111,12 @@ for.body6:                                        ; preds = %for.body, %for.body
   %shr.i11 = lshr i32 %sub.i, 16
   %xor.i12 = xor i32 %shr.i11, %sub.i
   store i32 %xor.i12, ptr %__begin3.019, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %__begin3.019, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.019, i64 4
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i9
   br i1 %cmp5.not, label %for.cond4.for.inc9_crit_edge, label %for.body6
 
 for.cond4.for.inc9_crit_edge:                     ; preds = %for.body6
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %__begin2.022, i64 1
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %__begin2.022, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr10, %add.ptr.i
   br i1 %cmp.not, label %for.end11, label %for.body
 

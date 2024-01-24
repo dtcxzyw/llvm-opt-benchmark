@@ -6,15 +6,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.icu_75::ResourceBundle" = type { %"class.icu_75::UObject", ptr, ptr }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
+%"class.icu_75::ResourceBundle" = type { %"class.icu_75::UObject", ptr, ptr }
 %struct.UResourceBundle = type { ptr, ptr, ptr, ptr, ptr, [64 x i8], i32, i32, i8, i8, i32, i32, i32, i32 }
+%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -48,19 +48,19 @@ entry:
 define void @_ZN6icu_7514ResourceBundleC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 2
+  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fLocale, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %call, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %fullName.i, align 8
   %call5 = invoke ptr @ures_open_75(ptr noundef null, ptr noundef %0, ptr noundef nonnull %err)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call5, ptr %fResource, align 8
   ret void
 
@@ -85,10 +85,10 @@ define void @_ZN6icu_7514ResourceBundleC2ERKS0_(ptr noundef nonnull align 8 dere
 entry:
   %status = alloca i32, align 4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 2
+  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fLocale, align 8
   store i32 0, ptr %status, align 4
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %other, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -105,7 +105,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink = phi ptr [ %call, %if.then ], [ null, %entry ]
-  %fResource4 = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource4 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %.sink, ptr %fResource4, align 8
   ret void
 }
@@ -116,7 +116,7 @@ declare ptr @ures_copyResb_75(ptr noundef, ptr noundef, ptr noundef) local_unnam
 define void @_ZN6icu_7514ResourceBundleC2EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %res, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 2
+  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fLocale, align 8
   %tobool.not = icmp eq ptr %res, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -133,7 +133,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink = phi ptr [ %call, %if.then ], [ null, %entry ]
-  %fResource2 = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource2 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %.sink, ptr %fResource2, align 8
   ret void
 }
@@ -142,15 +142,15 @@ if.end:                                           ; preds = %entry, %if.then
 define void @_ZN6icu_7514ResourceBundleC2EPKcRKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %err) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 2
+  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %fLocale, align 8
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %locale, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %locale, i64 40
   %0 = load ptr, ptr %fullName.i, align 8
   %call3 = invoke ptr @ures_open_75(ptr noundef %path, ptr noundef %0, ptr noundef nonnull %err)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call3, ptr %fResource, align 8
   ret void
 
@@ -169,7 +169,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.end6, label %if.then3
@@ -180,14 +180,14 @@ if.then3:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %if.end
-  %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 2
+  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fLocale, align 8
   %cmp7.not = icmp eq ptr %1, null
   br i1 %cmp7.not, label %if.end11, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end6
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %1) #6
   store ptr null, ptr %fLocale, align 8
@@ -195,7 +195,7 @@ delete.notnull:                                   ; preds = %if.end6
 
 if.end11:                                         ; preds = %delete.notnull, %if.end6
   store i32 0, ptr %status, align 4
-  %fResource12 = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %other, i64 0, i32 1
+  %fResource12 = getelementptr inbounds i8, ptr %other, i64 8
   %3 = load ptr, ptr %fResource12, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end17, label %if.then13
@@ -219,7 +219,7 @@ declare void @ures_close_75(ptr noundef) local_unnamed_addr #2
 define void @_ZN6icu_7514ResourceBundleD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7514ResourceBundleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -229,14 +229,14 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 2
+  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fLocale, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end6, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %1) #6
   br label %if.end6
@@ -305,7 +305,7 @@ entry:
   %len = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store i32 0, ptr %len, align 4
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getString_75(ptr noundef %0, ptr noundef nonnull %len, ptr noundef nonnull %status)
   store ptr %call, ptr %agg.tmp, align 8
@@ -333,7 +333,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7514ResourceBundle9getBinaryERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %len, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call ptr @ures_getBinary_75(ptr noundef %0, ptr noundef nonnull %len, ptr noundef nonnull %status)
   ret ptr %call
@@ -344,7 +344,7 @@ declare ptr @ures_getBinary_75(ptr noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7514ResourceBundle12getIntVectorERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %len, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call ptr @ures_getIntVector_75(ptr noundef %0, ptr noundef nonnull %len, ptr noundef nonnull %status)
   ret ptr %call
@@ -355,7 +355,7 @@ declare ptr @ures_getIntVector_75(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7514ResourceBundle7getUIntER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call i32 @ures_getUInt_75(ptr noundef %0, ptr noundef nonnull %status)
   ret i32 %call
@@ -366,7 +366,7 @@ declare i32 @ures_getUInt_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7514ResourceBundle6getIntER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call i32 @ures_getInt_75(ptr noundef %0, ptr noundef nonnull %status)
   ret i32 %call
@@ -377,7 +377,7 @@ declare i32 @ures_getInt_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7514ResourceBundle7getNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call ptr @ures_getName_75(ptr noundef %0)
   ret ptr %call
@@ -388,7 +388,7 @@ declare ptr @ures_getName_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7514ResourceBundle6getKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call ptr @ures_getKey_75(ptr noundef %0)
   ret ptr %call
@@ -399,7 +399,7 @@ declare ptr @ures_getKey_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7514ResourceBundle7getTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call i32 @ures_getType_75(ptr noundef %0)
   ret i32 %call
@@ -410,7 +410,7 @@ declare i32 @ures_getType_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7514ResourceBundle7getSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call i32 @ures_getSize_75(ptr noundef %0)
   ret i32 %call
@@ -421,7 +421,7 @@ declare i32 @ures_getSize_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7514ResourceBundle7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call signext i8 @ures_hasNext_75(ptr noundef %0)
   ret i8 %call
@@ -432,7 +432,7 @@ declare signext i8 @ures_hasNext_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7514ResourceBundle13resetIteratorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   tail call void @ures_resetIterator_75(ptr noundef %0)
   ret void
@@ -445,7 +445,7 @@ define void @_ZN6icu_7514ResourceBundle7getNextER10UErrorCode(ptr noalias sret(%
 entry:
   %r = alloca %struct.UResourceBundle, align 8
   call void @ures_initStackObject_75(ptr noundef nonnull %r)
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getNextResource_75(ptr noundef %0, ptr noundef nonnull %r, ptr noundef nonnull %status)
   call void @_ZN6icu_7514ResourceBundleC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull %r, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -477,7 +477,7 @@ entry:
   %len = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store i32 0, ptr %len, align 4
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getNextString_75(ptr noundef %0, ptr noundef nonnull %len, ptr noundef null, ptr noundef nonnull %status)
   store ptr %call, ptr %agg.tmp, align 8
@@ -506,7 +506,7 @@ entry:
   %len = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store i32 0, ptr %len, align 4
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getNextString_75(ptr noundef %0, ptr noundef nonnull %len, ptr noundef %key, ptr noundef nonnull %status)
   store ptr %call, ptr %agg.tmp, align 8
@@ -532,7 +532,7 @@ define void @_ZNK6icu_7514ResourceBundle3getEiR10UErrorCode(ptr noalias sret(%"c
 entry:
   %r = alloca %struct.UResourceBundle, align 8
   call void @ures_initStackObject_75(ptr noundef nonnull %r)
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getByIndex_75(ptr noundef %0, i32 noundef %indexR, ptr noundef nonnull %r, ptr noundef nonnull %status)
   call void @_ZN6icu_7514ResourceBundleC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull %r, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -562,7 +562,7 @@ entry:
   %len = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store i32 0, ptr %len, align 4
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getStringByIndex_75(ptr noundef %0, i32 noundef %indexS, ptr noundef nonnull %len, ptr noundef nonnull %status)
   store ptr %call, ptr %agg.tmp, align 8
@@ -590,7 +590,7 @@ define void @_ZNK6icu_7514ResourceBundle3getEPKcR10UErrorCode(ptr noalias sret(%
 entry:
   %r = alloca %struct.UResourceBundle, align 8
   call void @ures_initStackObject_75(ptr noundef nonnull %r)
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getByKey_75(ptr noundef %0, ptr noundef %key, ptr noundef nonnull %r, ptr noundef nonnull %status)
   call void @_ZN6icu_7514ResourceBundleC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull %r, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -619,7 +619,7 @@ define void @_ZN6icu_7514ResourceBundle15getWithFallbackEPKcR10UErrorCode(ptr no
 entry:
   %r = alloca %struct.UResourceBundle, align 8
   call void @ures_initStackObject_75(ptr noundef nonnull %r)
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getByKeyWithFallback_75(ptr noundef %0, ptr noundef %key, ptr noundef nonnull %r, ptr noundef nonnull %status)
   call void @_ZN6icu_7514ResourceBundleC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull %r, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -649,7 +649,7 @@ entry:
   %len = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store i32 0, ptr %len, align 4
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = call ptr @ures_getStringByKey_75(ptr noundef %0, ptr noundef %key, ptr noundef nonnull %len, ptr noundef nonnull %status)
   store ptr %call, ptr %agg.tmp, align 8
@@ -675,7 +675,7 @@ declare ptr @ures_getStringByKey_75(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7514ResourceBundle16getVersionNumberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call ptr @ures_getVersionNumberInternal_75(ptr noundef %0)
   ret ptr %call
@@ -686,7 +686,7 @@ declare ptr @ures_getVersionNumberInternal_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7514ResourceBundle10getVersionEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %versionInfo) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   tail call void @ures_getVersion_75(ptr noundef %0, ptr noundef %versionInfo)
   ret void
@@ -699,14 +699,14 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZNK6icu_7514ResourceBu
 entry:
   %status = alloca i32, align 4
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7514ResourceBundle9getLocaleEvE11gLocaleLock)
-  %fLocale = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 2
+  %fLocale = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fLocale, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %status, align 4
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fResource, align 8
   %call = invoke ptr @ures_getLocaleInternal_75(ptr noundef %1, ptr noundef nonnull %status)
           to label %invoke.cont unwind label %lpad
@@ -778,7 +778,7 @@ declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7514ResourceBundle9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr noalias sret(%"class.icu_75::Locale") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fResource = getelementptr inbounds %"class.icu_75::ResourceBundle", ptr %this, i64 0, i32 1
+  %fResource = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fResource, align 8
   %call = tail call ptr @ures_getLocaleByType_75(ptr noundef %0, i32 noundef %type, ptr noundef nonnull %status)
   tail call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %agg.result, ptr noundef %call, ptr noundef null, ptr noundef null, ptr noundef null)

@@ -3,13 +3,11 @@ source_filename = "bench/libsodium/original/libavx2_la-blake2b-compress-avx2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.blake2b_state = type <{ [8 x i64], [2 x i64], [2 x i64], [256 x i8], i64, i8 }>
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @_sodium_blake2b_compress_avx2(ptr nocapture noundef %S, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
 entry:
   %0 = load <4 x i64>, ptr %S, align 1
-  %arrayidx2 = getelementptr [8 x i64], ptr %S, i64 0, i64 4
+  %arrayidx2 = getelementptr i8, ptr %S, i64 32
   %1 = load <4 x i64>, ptr %arrayidx2, align 1
   %2 = load <2 x i64>, ptr %block, align 1
   %shuffle.i980 = shufflevector <2 x i64> %2, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
@@ -34,7 +32,7 @@ entry:
   %add.ptr24 = getelementptr i8, ptr %block, i64 112
   %9 = load <2 x i64>, ptr %add.ptr24, align 1
   %shuffle.i = shufflevector <2 x i64> %9, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %t = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t = getelementptr inbounds i8, ptr %S, i64 64
   %10 = load <4 x i64>, ptr %t, align 1
   %shuffle.i1385 = shufflevector <4 x i64> %shuffle.i980, <4 x i64> %shuffle.i978, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %shuffle.i1382 = shufflevector <4 x i64> %shuffle.i976, <4 x i64> %shuffle.i974, <4 x i32> <i32 0, i32 4, i32 2, i32 6>

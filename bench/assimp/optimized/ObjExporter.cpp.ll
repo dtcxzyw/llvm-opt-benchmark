@@ -48,32 +48,24 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator.0" = type { i8 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
 %"struct.Assimp::ObjExporter::vertexData" = type { %class.aiVector3t, %struct.aiColor3D }
 %class.aiVector3t = type { float, float, float }
 %struct.aiColor3D = type { float, float, float }
-%"struct.std::_Rb_tree_node" = type <{ %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf", [4 x i8] }>
-%"struct.__gnu_cxx::__aligned_membuf" = type { [28 x i8] }
-%"struct.std::_Rb_tree_node.51" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.52" }
-%"struct.__gnu_cxx::__aligned_membuf.52" = type { [16 x i8] }
-%"struct.Assimp::ObjExporter::MeshInstance" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.39" }
-%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
-%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%class.aiColor4t = type { float, float, float, float }
+%struct.aiString = type { i32, [1024 x i8] }
 %"struct.Assimp::ObjExporter::Face" = type { i8, %"class.std::vector.45" }
 %"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
 %"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl" }
 %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Assimp::ObjExporter::FaceVertex" = type { i32, i32, i32 }
-%class.aiColor4t = type { float, float, float, float }
-%struct.aiNode = type { %struct.aiString, %class.aiMatrix4x4t, ptr, i32, ptr, i32, ptr, ptr }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
 %struct.aiFace = type { i32, ptr }
+%"struct.Assimp::ObjExporter::FaceVertex" = type { i32, i32, i32 }
 %struct._Guard = type { ptr }
+%"struct.Assimp::ObjExporter::MeshInstance" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.39" }
+%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
+%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl" }
+%"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -229,7 +221,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %call, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont
-  %mOutputMat = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %exporter, i64 0, i32 1
+  %mOutputMat = getelementptr inbounds i8, ptr %exporter, i64 376
   %vtable1 = load ptr, ptr %mOutputMat, align 8
   %vbase.offset.ptr2 = getelementptr i8, ptr %vtable1, i64 -24
   %vbase.offset3 = load i64, ptr %vbase.offset.ptr2, align 8
@@ -296,7 +288,7 @@ cleanup.action:                                   ; preds = %ehcleanup15.thread,
 
 if.end:                                           ; preds = %invoke.cont5
   %vtable17 = load ptr, ptr %pIOSystem, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable17, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable17, i64 32
   %5 = load ptr, ptr %vfn, align 8
   %call19 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %pIOSystem, ptr noundef %pFile, ptr noundef nonnull @.str.1)
           to label %invoke.cont18 unwind label %lpad
@@ -366,7 +358,7 @@ invoke.cont45:                                    ; preds = %if.end40
 invoke.cont50:                                    ; preds = %invoke.cont45
   %9 = extractvalue { i64, i64 } %call51, 0
   %vtable54 = load ptr, ptr %call19, align 8
-  %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 3
+  %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 24
   %10 = load ptr, ptr %vfn55, align 8
   %call57 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %call19, ptr noundef %call46, i64 noundef %9, i64 noundef 1)
           to label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit unwind label %lpad49
@@ -374,7 +366,7 @@ invoke.cont50:                                    ; preds = %invoke.cont45
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #20
   %vtable.i.i = load ptr, ptr %call19, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %call19) #20
   invoke void @_ZN6Assimp11ObjExporter22GetMaterialLibFileNameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(1120) %exporter)
@@ -403,7 +395,7 @@ invoke.cont66:                                    ; preds = %.noexc
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61) #20
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #20
   %vtable.i = load ptr, ptr %pIOSystem, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %13 = load ptr, ptr %vfn.i, align 8
   %call3.i22 = invoke noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(32) %pIOSystem, ptr noundef %call.i, ptr noundef %call2.i)
           to label %invoke.cont68 unwind label %lpad67
@@ -447,7 +439,7 @@ lpad49:                                           ; preds = %invoke.cont50, %inv
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i28: ; preds = %lpad44, %lpad49
   %.pn10.pn.pn = phi { ptr, i32 } [ %15, %lpad49 ], [ %14, %lpad44 ]
   %vtable.i.i29 = load ptr, ptr %call19, align 8
-  %vfn.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i29, i64 1
+  %vfn.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i29, i64 8
   %16 = load ptr, ptr %vfn.i.i30, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %call19) #20
   br label %ehcleanup111
@@ -505,7 +497,7 @@ invoke.cont96:                                    ; preds = %if.end91
 invoke.cont101:                                   ; preds = %invoke.cont96
   %22 = extractvalue { i64, i64 } %call102, 0
   %vtable105 = load ptr, ptr %call3.i22, align 8
-  %vfn106 = getelementptr inbounds ptr, ptr %vtable105, i64 3
+  %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 24
   %23 = load ptr, ptr %vfn106, align 8
   %call108 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %call3.i22, ptr noundef %call97, i64 noundef %22, i64 noundef 1)
           to label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit36 unwind label %lpad100
@@ -513,7 +505,7 @@ invoke.cont101:                                   ; preds = %invoke.cont96
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit36: ; preds = %invoke.cont101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93) #20
   %vtable.i.i34 = load ptr, ptr %call3.i22, align 8
-  %vfn.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i34, i64 1
+  %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 8
   %24 = load ptr, ptr %vfn.i.i35, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call3.i22) #20
   call void @_ZN6Assimp11ObjExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %exporter) #20
@@ -533,7 +525,7 @@ lpad100:                                          ; preds = %invoke.cont101, %in
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i38: ; preds = %lpad95, %lpad100
   %.pn6.pn.pn = phi { ptr, i32 } [ %26, %lpad100 ], [ %25, %lpad95 ]
   %vtable.i.i39 = load ptr, ptr %call3.i22, align 8
-  %vfn.i.i40 = getelementptr inbounds ptr, ptr %vtable.i.i39, i64 1
+  %vfn.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i39, i64 8
   %27 = load ptr, ptr %vfn.i.i40, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %call3.i22) #20
   br label %ehcleanup111
@@ -635,7 +627,7 @@ declare { i64, i64 } @_ZNSo5tellpEv(ptr noundef nonnull align 8 dereferenceable(
 define hidden void @_ZN6Assimp11ObjExporter22GetMaterialLibFileNameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1120) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %filename = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %this, i64 752
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 46, i64 noundef -1) #20
   %cmp.not = icmp eq i64 %call, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -698,7 +690,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %call, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %invoke.cont
-  %mOutputMat = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %exporter, i64 0, i32 1
+  %mOutputMat = getelementptr inbounds i8, ptr %exporter, i64 376
   %vtable1 = load ptr, ptr %mOutputMat, align 8
   %vbase.offset.ptr2 = getelementptr i8, ptr %vtable1, i64 -24
   %vbase.offset3 = load i64, ptr %vbase.offset.ptr2, align 8
@@ -765,7 +757,7 @@ cleanup.action:                                   ; preds = %ehcleanup15.thread,
 
 if.end:                                           ; preds = %invoke.cont5
   %vtable17 = load ptr, ptr %pIOSystem, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable17, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable17, i64 32
   %5 = load ptr, ptr %vfn, align 8
   %call19 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %pIOSystem, ptr noundef %pFile, ptr noundef nonnull @.str.1)
           to label %invoke.cont18 unwind label %lpad
@@ -835,7 +827,7 @@ invoke.cont45:                                    ; preds = %if.end40
 invoke.cont50:                                    ; preds = %invoke.cont45
   %9 = extractvalue { i64, i64 } %call51, 0
   %vtable54 = load ptr, ptr %call19, align 8
-  %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 3
+  %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 24
   %10 = load ptr, ptr %vfn55, align 8
   %call57 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %call19, ptr noundef %call46, i64 noundef %9, i64 noundef 1)
           to label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit unwind label %lpad49
@@ -843,7 +835,7 @@ invoke.cont50:                                    ; preds = %invoke.cont45
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #20
   %vtable.i.i = load ptr, ptr %call19, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %call19) #20
   call void @_ZN6Assimp11ObjExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %exporter) #20
@@ -863,7 +855,7 @@ lpad49:                                           ; preds = %invoke.cont50, %inv
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i15: ; preds = %lpad44, %lpad49
   %.pn.pn.pn = phi { ptr, i32 } [ %13, %lpad49 ], [ %12, %lpad44 ]
   %vtable.i.i16 = load ptr, ptr %call19, align 8
-  %vfn.i.i17 = getelementptr inbounds ptr, ptr %vtable.i.i16, i64 1
+  %vfn.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i16, i64 8
   %14 = load ptr, ptr %vfn.i.i17, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %call19) #20
   br label %ehcleanup60
@@ -889,12 +881,12 @@ entry:
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
   %agg.tmp.ensured26 = alloca %"class.std::locale", align 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %this)
-  %mOutputMat = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 1
+  %mOutputMat = getelementptr inbounds i8, ptr %this, i64 376
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %mOutputMat)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %filename = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %this, i64 752
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   %call.i7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %filename)
           to label %call.i.noexc unwind label %lpad2
@@ -928,50 +920,50 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont3:                                     ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
-  %pScene4 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 3
+  %pScene4 = getelementptr inbounds i8, ptr %this, i64 784
   store ptr %pScene, ptr %pScene4, align 8
-  %vn = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 4
-  %vt = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 5
-  %vc = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 6
-  %vp = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 7
-  %mVnMap = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9
+  %vn = getelementptr inbounds i8, ptr %this, i64 792
+  %vt = getelementptr inbounds i8, ptr %this, i64 816
+  %vc = getelementptr inbounds i8, ptr %this, i64 840
+  %vp = getelementptr inbounds i8, ptr %this, i64 864
+  %mVnMap = getelementptr inbounds i8, ptr %this, i64 896
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %vn, i8 0, i64 97, i1 false)
   store i32 1, ptr %mVnMap, align 8
-  %1 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 912
   store i32 0, ptr %1, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 920
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 928
   store ptr %1, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 936
   store ptr %1, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 944
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %mVtMap = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10
+  %mVtMap = getelementptr inbounds i8, ptr %this, i64 952
   store i32 1, ptr %mVtMap, align 8
-  %2 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 968
   store i32 0, ptr %2, align 8
-  %_M_parent.i.i.i.i.i.i8 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 976
   store ptr null, ptr %_M_parent.i.i.i.i.i.i8, align 8
-  %_M_left.i.i.i.i.i.i9 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 984
   store ptr %2, ptr %_M_left.i.i.i.i.i.i9, align 8
-  %_M_right.i.i.i.i.i.i10 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 992
   store ptr %2, ptr %_M_right.i.i.i.i.i.i10, align 8
-  %_M_node_count.i.i.i.i.i.i11 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 1000
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i11, align 8
-  %mVpMap = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11
+  %mVpMap = getelementptr inbounds i8, ptr %this, i64 1008
   store i32 1, ptr %mVpMap, align 8
-  %3 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 1024
   store i32 0, ptr %3, align 8
-  %_M_parent.i.i.i.i.i.i12 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 1032
   store ptr null, ptr %_M_parent.i.i.i.i.i.i12, align 8
-  %_M_left.i.i.i.i.i.i13 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 1040
   store ptr %3, ptr %_M_left.i.i.i.i.i.i13, align 8
-  %_M_right.i.i.i.i.i.i14 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 1048
   store ptr %3, ptr %_M_right.i.i.i.i.i.i14, align 8
-  %_M_node_count.i.i.i.i.i.i15 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 1
-  %mMeshes = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12
-  %endl = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 13
+  %_M_node_count.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 1056
+  %mMeshes = getelementptr inbounds i8, ptr %this, i64 1064
+  %endl = getelementptr inbounds i8, ptr %this, i64 1088
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_node_count.i.i.i.i.i.i15, i8 0, i64 32, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #20
   %call.i21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %endl)
@@ -1010,7 +1002,7 @@ invoke.cont19:                                    ; preds = %invoke.cont16
   %vbase.offset.ptr22 = getelementptr i8, ptr %vtable21, i64 -24
   %vbase.offset23 = load i64, ptr %vbase.offset.ptr22, align 8
   %add.ptr24 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset23
-  %_M_precision.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr24, i64 0, i32 1
+  %_M_precision.i = getelementptr inbounds i8, ptr %add.ptr24, i64 8
   store i64 9, ptr %_M_precision.i, align 8
   %vtable28 = load ptr, ptr %mOutputMat, align 8
   %vbase.offset.ptr29 = getelementptr i8, ptr %vtable28, i64 -24
@@ -1025,7 +1017,7 @@ invoke.cont32:                                    ; preds = %invoke.cont19
   %vbase.offset.ptr35 = getelementptr i8, ptr %vtable34, i64 -24
   %vbase.offset36 = load i64, ptr %vbase.offset.ptr35, align 8
   %add.ptr37 = getelementptr inbounds i8, ptr %mOutputMat, i64 %vbase.offset36
-  %_M_precision.i25 = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr37, i64 0, i32 1
+  %_M_precision.i25 = getelementptr inbounds i8, ptr %add.ptr37, i64 8
   store i64 9, ptr %_M_precision.i25, align 8
   invoke void @_ZN6Assimp11ObjExporter17WriteGeometryFileEb(ptr noundef nonnull align 8 dereferenceable(1120) %this, i1 noundef zeroext %noMtl)
           to label %invoke.cont40 unwind label %lpad18
@@ -1194,7 +1186,7 @@ _ZN6Assimp11ObjExporter18GetMaterialLibNameB5cxx11Ev.exit: ; preds = %if.then.i,
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp11ObjExporter18GetMaterialLibNameB5cxx11Ev.exit
-  %endl = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 13
+  %endl = getelementptr inbounds i8, ptr %this, i64 1088
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull align 8 dereferenceable(32) %endl)
           to label %invoke.cont4 unwind label %lpad
 
@@ -1213,27 +1205,27 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 
 if.end:                                           ; preds = %invoke.cont7, %entry
   store float 1.000000e+00, ptr %mBase, align 4
-  %a2.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mBase, i64 0, i32 1
-  %b2.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mBase, i64 0, i32 5
+  %a2.i = getelementptr inbounds i8, ptr %mBase, i64 4
+  %b2.i = getelementptr inbounds i8, ptr %mBase, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %a2.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %b2.i, align 4
-  %b3.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mBase, i64 0, i32 6
-  %c3.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mBase, i64 0, i32 10
+  %b3.i = getelementptr inbounds i8, ptr %mBase, i64 24
+  %c3.i = getelementptr inbounds i8, ptr %mBase, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %b3.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %c3.i, align 4
-  %c4.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mBase, i64 0, i32 11
-  %d4.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mBase, i64 0, i32 15
+  %c4.i = getelementptr inbounds i8, ptr %mBase, i64 44
+  %d4.i = getelementptr inbounds i8, ptr %mBase, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %c4.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %d4.i, align 4
-  %pScene = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 3
+  %pScene = getelementptr inbounds i8, ptr %this, i64 784
   %2 = load ptr, ptr %pScene, align 8
-  %mRootNode = getelementptr inbounds %struct.aiScene, ptr %2, i64 0, i32 1
+  %mRootNode = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mRootNode, align 8
   call void @_ZN6Assimp11ObjExporter7AddNodeEPK6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(1120) %this, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(64) %mBase)
-  %vp = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 7
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 1
+  %vp = getelementptr inbounds i8, ptr %this, i64 864
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 1056
   %4 = load i64, ptr %_M_node_count.i.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 872
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %6 = load ptr, ptr %vp, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
@@ -1262,40 +1254,40 @@ invoke.cont.i.i.i:                                ; preds = %if.then5.i.i
   br label %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i: ; preds = %invoke.cont.i.i.i, %if.then5.i.i, %if.else.i.i, %if.then.i.i
-  %_M_left.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 1040
   %7 = load ptr, ptr %_M_left.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 1024
   %cmp.i2.not8.i = icmp eq ptr %7, %add.ptr.i.i.i
   br i1 %cmp.i2.not8.i, label %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getKeysERSt6vectorIS2_SaIS2_EE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i, %for.body.i
   %it.sroa.0.09.i = phi ptr [ %call.i.i, %for.body.i ], [ %7, %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.09.i, i64 0, i32 1
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.09.i, i64 0, i32 1, i32 0, i64 24
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i, i64 32
+  %second.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i, i64 56
   %8 = load i32, ptr %second.i, align 4
   %9 = load ptr, ptr %vp, align 8
   %10 = sext i32 %8 to i64
   %11 = getelementptr %"struct.Assimp::ObjExporter::vertexData", ptr %9, i64 %10
-  %add.ptr.i4.i = getelementptr %"struct.Assimp::ObjExporter::vertexData", ptr %11, i64 -1
+  %add.ptr.i4.i = getelementptr i8, ptr %11, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i4.i, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i, i64 12, i1 false)
-  %vc.i.i = getelementptr %"struct.Assimp::ObjExporter::vertexData", ptr %11, i64 -1, i32 1
-  %vc3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.09.i, i64 0, i32 1, i32 0, i64 12
+  %vc.i.i = getelementptr i8, ptr %11, i64 -12
+  %vc3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i, i64 44
   %12 = load float, ptr %vc3.i.i, align 4
   store float %12, ptr %vc.i.i, align 4
-  %g.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.09.i, i64 0, i32 1, i32 0, i64 16
+  %g.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i, i64 48
   %13 = load float, ptr %g.i.i.i, align 4
-  %g3.i.i.i = getelementptr %"struct.Assimp::ObjExporter::vertexData", ptr %11, i64 -1, i32 1, i32 1
+  %g3.i.i.i = getelementptr i8, ptr %11, i64 -8
   store float %13, ptr %g3.i.i.i, align 4
-  %b.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.09.i, i64 0, i32 1, i32 0, i64 20
+  %b.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i, i64 52
   %14 = load float, ptr %b.i.i.i, align 4
-  %b4.i.i.i = getelementptr %"struct.Assimp::ObjExporter::vertexData", ptr %11, i64 -1, i32 1, i32 2
+  %b4.i.i.i = getelementptr i8, ptr %11, i64 -4
   store float %14, ptr %b4.i.i.i, align 4
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.09.i) #23
   %cmp.i2.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i2.not.i, label %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getKeysERSt6vectorIS2_SaIS2_EE.exit, label %for.body.i, !llvm.loop !7
 
 _ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getKeysERSt6vectorIS2_SaIS2_EE.exit: ; preds = %for.body.i, %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE6resizeEm.exit.i
-  %useVc = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 8
+  %useVc = getelementptr inbounds i8, ptr %this, i64 888
   %15 = load i8, ptr %useVc, align 8
   %16 = and i8 %15, 1
   %tobool9.not = icmp eq i8 %16, 0
@@ -1307,7 +1299,7 @@ _ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getK
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call12, i64 noundef %sub.ptr.div.i)
-  %endl17 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 13
+  %endl17 = getelementptr inbounds i8, ptr %this, i64 1088
   br i1 %tobool9.not, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEE7getKeysERSt6vectorIS2_SaIS2_EE.exit
@@ -1324,15 +1316,15 @@ for.body:                                         ; preds = %if.then10, %for.bod
   %21 = load float, ptr %__begin2.sroa.0.0112, align 4
   %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call26, float noundef %21)
   %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call28, ptr noundef nonnull @.str.16)
-  %y = getelementptr inbounds %class.aiVector3t, ptr %__begin2.sroa.0.0112, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %__begin2.sroa.0.0112, i64 4
   %22 = load float, ptr %y, align 4
   %call31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call29, float noundef %22)
   %call32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call31, ptr noundef nonnull @.str.16)
-  %z = getelementptr inbounds %class.aiVector3t, ptr %__begin2.sroa.0.0112, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %__begin2.sroa.0.0112, i64 8
   %23 = load float, ptr %z, align 4
   %call34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call32, float noundef %23)
   %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call34, ptr noundef nonnull align 8 dereferenceable(32) %endl17)
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__begin2.sroa.0.0112, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0112, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %20
   br i1 %cmp.i.not, label %if.end85, label %for.body
 
@@ -1350,52 +1342,52 @@ for.body56:                                       ; preds = %if.else, %for.body5
   %26 = load float, ptr %__begin248.sroa.0.0110, align 4
   %call63 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call60, float noundef %26)
   %call64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call63, ptr noundef nonnull @.str.16)
-  %y66 = getelementptr inbounds %class.aiVector3t, ptr %__begin248.sroa.0.0110, i64 0, i32 1
+  %y66 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 4
   %27 = load float, ptr %y66, align 4
   %call67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call64, float noundef %27)
   %call68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call67, ptr noundef nonnull @.str.16)
-  %z70 = getelementptr inbounds %class.aiVector3t, ptr %__begin248.sroa.0.0110, i64 0, i32 2
+  %z70 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 8
   %28 = load float, ptr %z70, align 4
   %call71 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call68, float noundef %28)
   %call72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call71, ptr noundef nonnull @.str.16)
-  %vc = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__begin248.sroa.0.0110, i64 0, i32 1
+  %vc = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 12
   %29 = load float, ptr %vc, align 4
   %call73 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call72, float noundef %29)
   %call74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call73, ptr noundef nonnull @.str.16)
-  %g = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__begin248.sroa.0.0110, i64 0, i32 1, i32 1
+  %g = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 16
   %30 = load float, ptr %g, align 4
   %call76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call74, float noundef %30)
   %call77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call76, ptr noundef nonnull @.str.16)
-  %b = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__begin248.sroa.0.0110, i64 0, i32 1, i32 2
+  %b = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 20
   %31 = load float, ptr %b, align 4
   %call79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call77, float noundef %31)
   %call81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call79, ptr noundef nonnull align 8 dereferenceable(32) %endl17)
-  %incdec.ptr.i42 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__begin248.sroa.0.0110, i64 1
+  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %__begin248.sroa.0.0110, i64 24
   %cmp.i41.not = icmp eq ptr %incdec.ptr.i42, %25
   br i1 %cmp.i41.not, label %if.end85, label %for.body56
 
 if.end85:                                         ; preds = %for.body56, %for.body, %if.else, %if.then10
-  %endl87 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 13
+  %endl87 = getelementptr inbounds i8, ptr %this, i64 1088
   %call88 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %vt = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 5
-  %_M_node_count.i.i.i43 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 1
+  %vt = getelementptr inbounds i8, ptr %this, i64 816
+  %_M_node_count.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 1000
   %32 = load i64, ptr %_M_node_count.i.i.i43, align 8
   call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %vt, i64 noundef %32)
-  %_M_left.i.i.i44 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 984
   %33 = load ptr, ptr %_M_left.i.i.i44, align 8
-  %add.ptr.i.i.i45 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 968
   %cmp.i.not6.i = icmp eq ptr %33, %add.ptr.i.i.i45
   br i1 %cmp.i.not6.i, label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit, label %for.body.i46
 
 for.body.i46:                                     ; preds = %if.end85, %for.body.i46
   %it.sroa.0.07.i = phi ptr [ %call.i.i50, %for.body.i46 ], [ %33, %if.end85 ]
-  %_M_storage.i.i.i47 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %it.sroa.0.07.i, i64 0, i32 1
-  %second.i48 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %it.sroa.0.07.i, i64 0, i32 1, i32 0, i64 12
+  %_M_storage.i.i.i47 = getelementptr inbounds i8, ptr %it.sroa.0.07.i, i64 32
+  %second.i48 = getelementptr inbounds i8, ptr %it.sroa.0.07.i, i64 44
   %34 = load i32, ptr %second.i48, align 4
   %35 = load ptr, ptr %vt, align 8
   %36 = sext i32 %34 to i64
   %37 = getelementptr %class.aiVector3t, ptr %35, i64 %36
-  %add.ptr.i.i49 = getelementptr %class.aiVector3t, ptr %37, i64 -1
+  %add.ptr.i.i49 = getelementptr i8, ptr %37, i64 -12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i47, i64 12, i1 false)
   %call.i.i50 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.07.i) #23
   %cmp.i.not.i = icmp eq ptr %call.i.i50, %add.ptr.i.i.i45
@@ -1403,7 +1395,7 @@ for.body.i46:                                     ; preds = %if.end85, %for.body
 
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit: ; preds = %for.body.i46, %if.end85
   %call90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.41)
-  %_M_finish.i51 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i51 = getelementptr inbounds i8, ptr %this, i64 824
   %38 = load ptr, ptr %_M_finish.i51, align 8
   %39 = load ptr, ptr %vt, align 8
   %sub.ptr.lhs.cast.i52 = ptrtoint ptr %38 to i64
@@ -1424,39 +1416,39 @@ for.body104:                                      ; preds = %_ZN6Assimp11ObjExpo
   %42 = load float, ptr %__begin1.sroa.0.0114, align 4
   %call110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call108, float noundef %42)
   %call111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call110, ptr noundef nonnull @.str.16)
-  %y112 = getelementptr inbounds %class.aiVector3t, ptr %__begin1.sroa.0.0114, i64 0, i32 1
+  %y112 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0114, i64 4
   %43 = load float, ptr %y112, align 4
   %call113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call111, float noundef %43)
   %call114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call113, ptr noundef nonnull @.str.16)
-  %z115 = getelementptr inbounds %class.aiVector3t, ptr %__begin1.sroa.0.0114, i64 0, i32 2
+  %z115 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0114, i64 8
   %44 = load float, ptr %z115, align 4
   %call116 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call114, float noundef %44)
   %call118 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call116, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %incdec.ptr.i58 = getelementptr inbounds %class.aiVector3t, ptr %__begin1.sroa.0.0114, i64 1
+  %incdec.ptr.i58 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0114, i64 12
   %cmp.i57.not = icmp eq ptr %incdec.ptr.i58, %41
   br i1 %cmp.i57.not, label %for.end121, label %for.body104
 
 for.end121:                                       ; preds = %for.body104, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit
   %call124 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %vn = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 4
-  %_M_node_count.i.i.i59 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 1
+  %vn = getelementptr inbounds i8, ptr %this, i64 792
+  %_M_node_count.i.i.i59 = getelementptr inbounds i8, ptr %this, i64 944
   %45 = load i64, ptr %_M_node_count.i.i.i59, align 8
   call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %vn, i64 noundef %45)
-  %_M_left.i.i.i60 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 928
   %46 = load ptr, ptr %_M_left.i.i.i60, align 8
-  %add.ptr.i.i.i61 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 912
   %cmp.i.not6.i62 = icmp eq ptr %46, %add.ptr.i.i.i61
   br i1 %cmp.i.not6.i62, label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70, label %for.body.i63
 
 for.body.i63:                                     ; preds = %for.end121, %for.body.i63
   %it.sroa.0.07.i64 = phi ptr [ %call.i.i68, %for.body.i63 ], [ %46, %for.end121 ]
-  %_M_storage.i.i.i65 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %it.sroa.0.07.i64, i64 0, i32 1
-  %second.i66 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %it.sroa.0.07.i64, i64 0, i32 1, i32 0, i64 12
+  %_M_storage.i.i.i65 = getelementptr inbounds i8, ptr %it.sroa.0.07.i64, i64 32
+  %second.i66 = getelementptr inbounds i8, ptr %it.sroa.0.07.i64, i64 44
   %47 = load i32, ptr %second.i66, align 4
   %48 = load ptr, ptr %vn, align 8
   %49 = sext i32 %47 to i64
   %50 = getelementptr %class.aiVector3t, ptr %48, i64 %49
-  %add.ptr.i.i67 = getelementptr %class.aiVector3t, ptr %50, i64 -1
+  %add.ptr.i.i67 = getelementptr i8, ptr %50, i64 -12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i67, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i65, i64 12, i1 false)
   %call.i.i68 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.07.i64) #23
   %cmp.i.not.i69 = icmp eq ptr %call.i.i68, %add.ptr.i.i.i61
@@ -1464,7 +1456,7 @@ for.body.i63:                                     ; preds = %for.end121, %for.bo
 
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70: ; preds = %for.body.i63, %for.end121
   %call126 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.41)
-  %_M_finish.i71 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i71 = getelementptr inbounds i8, ptr %this, i64 800
   %51 = load ptr, ptr %_M_finish.i71, align 8
   %52 = load ptr, ptr %vn, align 8
   %sub.ptr.lhs.cast.i72 = ptrtoint ptr %51 to i64
@@ -1485,23 +1477,23 @@ for.body143:                                      ; preds = %_ZN6Assimp11ObjExpo
   %55 = load float, ptr %__begin1135.sroa.0.0116, align 4
   %call149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call147, float noundef %55)
   %call150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call149, ptr noundef nonnull @.str.16)
-  %y151 = getelementptr inbounds %class.aiVector3t, ptr %__begin1135.sroa.0.0116, i64 0, i32 1
+  %y151 = getelementptr inbounds i8, ptr %__begin1135.sroa.0.0116, i64 4
   %56 = load float, ptr %y151, align 4
   %call152 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call150, float noundef %56)
   %call153 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call152, ptr noundef nonnull @.str.16)
-  %z154 = getelementptr inbounds %class.aiVector3t, ptr %__begin1135.sroa.0.0116, i64 0, i32 2
+  %z154 = getelementptr inbounds i8, ptr %__begin1135.sroa.0.0116, i64 8
   %57 = load float, ptr %z154, align 4
   %call155 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call153, float noundef %57)
   %call157 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call155, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %incdec.ptr.i78 = getelementptr inbounds %class.aiVector3t, ptr %__begin1135.sroa.0.0116, i64 1
+  %incdec.ptr.i78 = getelementptr inbounds i8, ptr %__begin1135.sroa.0.0116, i64 12
   %cmp.i77.not = icmp eq ptr %incdec.ptr.i78, %54
   br i1 %cmp.i77.not, label %for.end160, label %for.body143
 
 for.end160:                                       ; preds = %for.body143, %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEE7getKeysERSt6vectorIS3_SaIS3_EE.exit70
   %call163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %mMeshes = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12
+  %mMeshes = getelementptr inbounds i8, ptr %this, i64 1064
   %58 = load ptr, ptr %mMeshes, align 8
-  %_M_finish.i79 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i79 = getelementptr inbounds i8, ptr %this, i64 1072
   %59 = load ptr, ptr %_M_finish.i79, align 8
   %cmp.i80.not121 = icmp eq ptr %58, %59
   br i1 %cmp.i80.not121, label %for.end273, label %for.body173
@@ -1511,8 +1503,8 @@ for.body173:                                      ; preds = %for.end160, %for.en
   %call176 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.49)
   %call177 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call176, ptr noundef nonnull align 8 dereferenceable(32) %__begin1165.sroa.0.0122)
   %call178 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call177, ptr noundef nonnull @.str.50)
-  %faces = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__begin1165.sroa.0.0122, i64 0, i32 2
-  %_M_finish.i81 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__begin1165.sroa.0.0122, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %faces = getelementptr inbounds i8, ptr %__begin1165.sroa.0.0122, i64 64
+  %_M_finish.i81 = getelementptr inbounds i8, ptr %__begin1165.sroa.0.0122, i64 72
   %60 = load ptr, ptr %_M_finish.i81, align 8
   %61 = load ptr, ptr %faces, align 8
   %sub.ptr.lhs.cast.i82 = ptrtoint ptr %60 to i64
@@ -1536,7 +1528,7 @@ if.end193:                                        ; preds = %if.then186, %for.bo
 
 if.then195:                                       ; preds = %if.end193
   %call197 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.53)
-  %matname = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__begin1165.sroa.0.0122, i64 0, i32 1
+  %matname = getelementptr inbounds i8, ptr %__begin1165.sroa.0.0122, i64 32
   %call198 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call197, ptr noundef nonnull align 8 dereferenceable(32) %matname)
   %call200 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call198, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
   br label %if.end201
@@ -1552,9 +1544,9 @@ for.body212:                                      ; preds = %if.end201, %for.end
   %64 = load i8, ptr %__begin2204.sroa.0.0120, align 8
   %call215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %this, i8 noundef signext %64)
   %call216 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call215, i8 noundef signext 32)
-  %indices = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__begin2204.sroa.0.0120, i64 0, i32 1
+  %indices = getelementptr inbounds i8, ptr %__begin2204.sroa.0.0120, i64 8
   %65 = load ptr, ptr %indices, align 8
-  %_M_finish.i88 = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__begin2204.sroa.0.0120, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i88 = getelementptr inbounds i8, ptr %__begin2204.sroa.0.0120, i64 16
   %66 = load ptr, ptr %_M_finish.i88, align 8
   %cmp.i89.not117 = icmp eq ptr %65, %66
   br i1 %cmp.i89.not117, label %for.end261, label %for.body223
@@ -1569,7 +1561,7 @@ for.body223:                                      ; preds = %for.body212, %for.i
   br i1 %cmp.not, label %for.inc259, label %if.then230
 
 if.then230:                                       ; preds = %for.body223
-  %vt231 = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %__begin3.sroa.0.0118, i64 0, i32 2
+  %vt231 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0118, i64 8
   %69 = load i32, ptr %vt231, align 4
   %tobool232.not = icmp ne i32 %69, 0
   %cmp235 = icmp eq i8 %68, 102
@@ -1592,7 +1584,7 @@ if.end246:                                        ; preds = %if.then230, %if.the
   br i1 %cmp249, label %land.lhs.true, label %for.inc259
 
 land.lhs.true:                                    ; preds = %if.end246
-  %vn250 = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %__begin3.sroa.0.0118, i64 0, i32 1
+  %vn250 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0118, i64 4
   %71 = load i32, ptr %vn250, align 4
   %tobool251.not = icmp eq i32 %71, 0
   br i1 %tobool251.not, label %for.inc259, label %if.then252
@@ -1604,19 +1596,19 @@ if.then252:                                       ; preds = %land.lhs.true
   br label %for.inc259
 
 for.inc259:                                       ; preds = %for.body223, %if.then252, %land.lhs.true, %if.end246
-  %incdec.ptr.i90 = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %__begin3.sroa.0.0118, i64 1
+  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0118, i64 12
   %cmp.i89.not = icmp eq ptr %incdec.ptr.i90, %66
   br i1 %cmp.i89.not, label %for.end261, label %for.body223
 
 for.end261:                                       ; preds = %for.inc259, %for.body212
   %call264 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %incdec.ptr.i91 = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__begin2204.sroa.0.0120, i64 1
+  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %__begin2204.sroa.0.0120, i64 32
   %cmp.i87.not = icmp eq ptr %incdec.ptr.i91, %63
   br i1 %cmp.i87.not, label %for.end267, label %for.body212
 
 for.end267:                                       ; preds = %for.end261, %if.end201
   %call270 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %endl87)
-  %incdec.ptr.i92 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__begin1165.sroa.0.0122, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %__begin1165.sroa.0.0122, i64 88
   %cmp.i80.not = icmp eq ptr %incdec.ptr.i92, %59
   br i1 %cmp.i80.not, label %for.end273, label %for.body173
 
@@ -1631,26 +1623,26 @@ entry:
   %c = alloca %class.aiColor4t, align 4
   %o = alloca float, align 4
   %s = alloca %struct.aiString, align 4
-  %mOutputMat = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 1
+  %mOutputMat = getelementptr inbounds i8, ptr %this, i64 376
   tail call void @_ZN6Assimp11ObjExporter11WriteHeaderERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1120) %this, ptr noundef nonnull align 8 dereferenceable(112) %mOutputMat)
-  %pScene = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 3
+  %pScene = getelementptr inbounds i8, ptr %this, i64 784
   %0 = load ptr, ptr %pScene, align 8
-  %mNumMaterials31 = getelementptr inbounds %struct.aiScene, ptr %0, i64 0, i32 4
+  %mNumMaterials31 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i32, ptr %mNumMaterials31, align 8
   %cmp32.not = icmp eq i32 %1, 0
   br i1 %cmp32.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %endl = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 13
-  %g = getelementptr inbounds %class.aiColor4t, ptr %c, i64 0, i32 1
-  %b = getelementptr inbounds %class.aiColor4t, ptr %c, i64 0, i32 2
-  %data.i = getelementptr inbounds %struct.aiString, ptr %s, i64 0, i32 1
+  %endl = getelementptr inbounds i8, ptr %this, i64 1088
+  %g = getelementptr inbounds i8, ptr %c, i64 4
+  %b = getelementptr inbounds i8, ptr %c, i64 8
+  %data.i = getelementptr inbounds i8, ptr %s, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end186
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end186 ]
   %2 = phi ptr [ %0, %for.body.lr.ph ], [ %26, %if.end186 ]
-  %mMaterials = getelementptr inbounds %struct.aiScene, ptr %2, i64 0, i32 5
+  %mMaterials = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %mMaterials, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
@@ -1885,7 +1877,7 @@ if.end186:                                        ; preds = %if.then171, %lor.lh
   %call189 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %mOutputMat, ptr noundef nonnull align 8 dereferenceable(32) %endl)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %pScene, align 8
-  %mNumMaterials = getelementptr inbounds %struct.aiScene, ptr %26, i64 0, i32 4
+  %mNumMaterials = getelementptr inbounds i8, ptr %26, i64 32
   %27 = load i32, ptr %mNumMaterials, align 8
   %28 = zext i32 %27 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %28
@@ -1899,23 +1891,23 @@ for.end:                                          ; preds = %if.end186, %entry
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::MeshInstance, std::allocator<Assimp::ObjExporter::MeshInstance>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %faces.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %faces.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 64
   %2 = load ptr, ptr %faces.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 72
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i, %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i ]
-  %indices.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %indices.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %indices.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1925,7 +1917,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.
   br label %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !11
 
@@ -1943,10 +1935,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i
-  %matname.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %matname.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matname.i.i.i.i.i) #20
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #20
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 88
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !12
 
@@ -1970,8 +1962,8 @@ _ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EED2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %vecMap = getelementptr inbounds %"class.Assimp::ObjExporter::indexMap.21", ptr %this, i64 0, i32 1
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter::indexMap.21", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %vecMap = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %vecMap, ptr noundef %0)
           to label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1990,8 +1982,8 @@ _ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %vecMap = getelementptr inbounds %"class.Assimp::ObjExporter::indexMap", ptr %this, i64 0, i32 1
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter::indexMap", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %vecMap = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %vecMap, ptr noundef %0)
           to label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2013,27 +2005,27 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp11ObjExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %endl = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 13
+  %endl = getelementptr inbounds i8, ptr %this, i64 1088
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %endl) #20
-  %mMeshes = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12
+  %mMeshes = getelementptr inbounds i8, ptr %this, i64 1064
   %0 = load ptr, ptr %mMeshes, align 8
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 1072
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
-  %faces.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2
+  %faces.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %2 = load ptr, ptr %faces.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 72
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i, %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i ]
-  %indices.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %indices.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %indices.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2043,7 +2035,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %for.body.i.i.i.i.i.
   br label %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !11
 
@@ -2061,10 +2053,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp11ObjExporter12MeshInstanceEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
-  %matname.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %matname.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matname.i.i.i.i.i.i) #20
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #20
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 88
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !12
 
@@ -2082,8 +2074,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %vecMap.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %vecMap.i = getelementptr inbounds i8, ptr %this, i64 1016
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1032
   %7 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i, ptr noundef %7)
           to label %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEED2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -2096,8 +2088,8 @@ terminate.lpad.i.i.i:                             ; preds = %_ZNSt6vectorIN6Assi
   unreachable
 
 _ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEED2Ev.exit: ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EED2Ev.exit
-  %vecMap.i1 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1
-  %_M_parent.i.i.i.i.i2 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %vecMap.i1 = getelementptr inbounds i8, ptr %this, i64 960
+  %_M_parent.i.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 976
   %10 = load ptr, ptr %_M_parent.i.i.i.i.i2, align 8
   invoke void @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i1, ptr noundef %10)
           to label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEED2Ev.exit unwind label %terminate.lpad.i.i.i3
@@ -2110,8 +2102,8 @@ terminate.lpad.i.i.i3:                            ; preds = %_ZN6Assimp11ObjExpo
   unreachable
 
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEED2Ev.exit: ; preds = %_ZN6Assimp11ObjExporter8indexMapINS0_10vertexDataENS0_17vertexDataCompareEED2Ev.exit
-  %vecMap.i4 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1
-  %_M_parent.i.i.i.i.i5 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %vecMap.i4 = getelementptr inbounds i8, ptr %this, i64 904
+  %_M_parent.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 920
   %13 = load ptr, ptr %_M_parent.i.i.i.i.i5, align 8
   invoke void @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i4, ptr noundef %13)
           to label %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEED2Ev.exit7 unwind label %terminate.lpad.i.i.i6
@@ -2124,7 +2116,7 @@ terminate.lpad.i.i.i6:                            ; preds = %_ZN6Assimp11ObjExpo
   unreachable
 
 _ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEED2Ev.exit7: ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEED2Ev.exit
-  %vp = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 7
+  %vp = getelementptr inbounds i8, ptr %this, i64 864
   %16 = load ptr, ptr %vp, align 8
   %tobool.not.i.i.i9 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i9, label %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EED2Ev.exit, label %if.then.i.i.i10
@@ -2134,7 +2126,7 @@ if.then.i.i.i10:                                  ; preds = %_ZN6Assimp11ObjExpo
   br label %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EED2Ev.exit: ; preds = %_ZN6Assimp11ObjExporter8indexMapI10aiVector3tIfENS0_15aiVectorCompareEED2Ev.exit7, %if.then.i.i.i10
-  %vc = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 6
+  %vc = getelementptr inbounds i8, ptr %this, i64 840
   %17 = load ptr, ptr %vc, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i12, label %_ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit, label %if.then.i.i.i13
@@ -2144,7 +2136,7 @@ if.then.i.i.i13:                                  ; preds = %_ZNSt6vectorIN6Assi
   br label %_ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit:      ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EED2Ev.exit, %if.then.i.i.i13
-  %vt = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 5
+  %vt = getelementptr inbounds i8, ptr %this, i64 816
   %18 = load ptr, ptr %vt, align 8
   %tobool.not.i.i.i15 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i15, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, label %if.then.i.i.i16
@@ -2154,7 +2146,7 @@ if.then.i.i.i16:                                  ; preds = %_ZNSt6vectorI9aiCol
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EED2Ev.exit, %if.then.i.i.i16
-  %vn = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 4
+  %vn = getelementptr inbounds i8, ptr %this, i64 792
   %19 = load ptr, ptr %vn, align 8
   %tobool.not.i.i.i18 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i18, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit20, label %if.then.i.i.i19
@@ -2164,9 +2156,9 @@ if.then.i.i.i19:                                  ; preds = %_ZNSt6vectorI10aiVe
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit20
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit20:  ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, %if.then.i.i.i19
-  %filename = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %this, i64 752
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #20
-  %mOutputMat = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 1
+  %mOutputMat = getelementptr inbounds i8, ptr %this, i64 376
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %mOutputMat) #20
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #20
   ret void
@@ -2215,7 +2207,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12fin
 define hidden void @_ZN6Assimp11ObjExporter11WriteHeaderERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1120) %this, ptr noundef nonnull align 8 dereferenceable(112) %out) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %endl = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 13
+  %endl = getelementptr inbounds i8, ptr %this, i64 1088
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(32) %endl)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.9)
   %call4 = tail call i32 @aiGetVersionMajor()
@@ -2254,9 +2246,9 @@ entry:
   %number = alloca [13 x i8], align 1
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator.0", align 1
-  %pScene = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 3
+  %pScene = getelementptr inbounds i8, ptr %this, i64 784
   %0 = load ptr, ptr %pScene, align 8
-  %mMaterials = getelementptr inbounds %struct.aiScene, ptr %0, i64 0, i32 5
+  %mMaterials = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %mMaterials, align 8
   %idxprom = zext i32 %index to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
@@ -2286,7 +2278,7 @@ init.end:                                         ; preds = %init, %init.check, 
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %s, align 4
-  %data.i = getelementptr inbounds %struct.aiString, ptr %s, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %s, i64 4
   store i8 0, ptr %data.i, align 4
   %call.i = call noundef i32 @aiGetMaterialString(ptr noundef nonnull %2, ptr noundef nonnull @.str.11, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %s)
   %cmp2 = icmp eq i32 %call.i, 0
@@ -2431,41 +2423,41 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 define hidden void @_ZN6Assimp11ObjExporter7AddNodeEPK6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(1120) %this, ptr noundef %nd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %mParent) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 16
-  %mTransformation = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 1
+  %mTransformation = getelementptr inbounds i8, ptr %nd, i64 1028
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(64) %mParent, i64 64, i1 false)
   %0 = load <4 x float>, ptr %ref.tmp, align 16
-  %b1.i = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 1, i32 4
-  %a2.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 1
+  %b1.i = getelementptr inbounds i8, ptr %nd, i64 1044
+  %a2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %1 = load <4 x float>, ptr %a2.i, align 4
-  %c1.i = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 1, i32 8
-  %a3.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 2
+  %c1.i = getelementptr inbounds i8, ptr %nd, i64 1060
+  %a3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load <4 x float>, ptr %a3.i, align 8
-  %d1.i = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 1, i32 12
-  %a4.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 3
+  %d1.i = getelementptr inbounds i8, ptr %nd, i64 1076
+  %a4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %3 = load <4 x float>, ptr %a4.i, align 4
-  %b123.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 4
+  %b123.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load <4 x float>, ptr %b123.i, align 16
-  %b225.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 5
+  %b225.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
   %5 = load <4 x float>, ptr %b225.i, align 4
-  %b328.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 6
+  %b328.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %6 = load <4 x float>, ptr %b328.i, align 8
-  %b430.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 7
+  %b430.i = getelementptr inbounds i8, ptr %ref.tmp, i64 28
   %7 = load <4 x float>, ptr %b430.i, align 4
-  %c159.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 8
+  %c159.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %8 = load <4 x float>, ptr %c159.i, align 16
-  %c261.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 9
+  %c261.i = getelementptr inbounds i8, ptr %ref.tmp, i64 36
   %9 = load <4 x float>, ptr %c261.i, align 4
-  %c364.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 10
+  %c364.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %10 = load <4 x float>, ptr %c364.i, align 8
-  %c466.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 11
+  %c466.i = getelementptr inbounds i8, ptr %ref.tmp, i64 44
   %11 = load <4 x float>, ptr %c466.i, align 4
-  %d195.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 12
+  %d195.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   %12 = load <4 x float>, ptr %d195.i, align 16
-  %d297.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 13
+  %d297.i = getelementptr inbounds i8, ptr %ref.tmp, i64 52
   %13 = load float, ptr %d297.i, align 4
-  %d3100.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 14
+  %d3100.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   %14 = load float, ptr %d3100.i, align 8
-  %d4102.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %ref.tmp, i64 0, i32 15
+  %d4102.i = getelementptr inbounds i8, ptr %ref.tmp, i64 60
   %15 = load float, ptr %d4102.i, align 4
   %16 = load <4 x float>, ptr %mTransformation, align 4
   %17 = load <4 x float>, ptr %b1.i, align 4
@@ -2510,30 +2502,30 @@ entry:
   %53 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> zeroinitializer
   %54 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %25, <4 x float> %53, <4 x float> %51)
   store <4 x float> %54, ptr %d195.i, align 16
-  %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 5
+  %mNumMeshes = getelementptr inbounds i8, ptr %nd, i64 1120
   %55 = load i32, ptr %mNumMeshes, align 8
   %cmp17.not = icmp eq i32 %55, 0
   br i1 %cmp17.not, label %for.cond22.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %pScene = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 3
-  %mMeshes2 = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 6
+  %pScene = getelementptr inbounds i8, ptr %this, i64 784
+  %mMeshes2 = getelementptr inbounds i8, ptr %nd, i64 1128
   br label %for.body
 
 for.cond22.preheader:                             ; preds = %for.inc, %entry
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %nd, i64 1104
   %56 = load i32, ptr %mNumChildren, align 8
   %cmp2319.not = icmp eq i32 %56, 0
   br i1 %cmp2319.not, label %for.end29, label %for.body24.lr.ph
 
 for.body24.lr.ph:                                 ; preds = %for.cond22.preheader
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %nd, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %nd, i64 1112
   br label %for.body24
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %57 = load ptr, ptr %pScene, align 8
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %57, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %57, i64 24
   %58 = load ptr, ptr %mMeshes, align 8
   %59 = load ptr, ptr %mMeshes2, align 8
   %arrayidx = getelementptr inbounds i32, ptr %59, i64 %indvars.iv
@@ -2545,7 +2537,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp5.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %mName = getelementptr inbounds %struct.aiMesh, ptr %61, i64 0, i32 14
+  %mName = getelementptr inbounds i8, ptr %61, i64 236
   call void @_ZN6Assimp11ObjExporter7AddMeshERK8aiStringPK6aiMeshRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(1120) %this, ptr noundef nonnull align 4 dereferenceable(1028) %mName, ptr noundef nonnull %61, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp)
   br label %for.inc
 
@@ -2587,9 +2579,9 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.0", align 1
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 1072
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 1080
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2597,36 +2589,36 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
-  %matname.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %0, i64 0, i32 1
+  %matname.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matname.i.i.i.i) #20
-  %faces.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %0, i64 0, i32 2
+  %faces.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %faces.i.i.i.i, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 if.else.i:                                        ; preds = %entry
-  %mMeshes = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 12
+  %mMeshes = getelementptr inbounds i8, ptr %this, i64 1064
   tail call void @_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mMeshes, ptr %0)
   %.pre = load ptr, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %if.then.i, %if.else.i
   %3 = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %.pre, %if.else.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %3, i64 -1
-  %mColors = getelementptr inbounds %struct.aiMesh, ptr %m, i64 0, i32 7
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -88
+  %mColors = getelementptr inbounds i8, ptr %m, i64 48
   %4 = load ptr, ptr %mColors, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %useVc = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 8
+  %useVc = getelementptr inbounds i8, ptr %this, i64 888
   store i8 1, ptr %useVc, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  %data = getelementptr inbounds %struct.aiString, ptr %name, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %name, i64 4
   %5 = load i32, ptr %name, align 4
   %conv = zext i32 %5 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #20
@@ -2637,17 +2629,17 @@ invoke.cont:                                      ; preds = %if.end
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #20
-  %mMaterialIndex = getelementptr inbounds %struct.aiMesh, ptr %m, i64 0, i32 13
+  %mMaterialIndex = getelementptr inbounds i8, ptr %m, i64 232
   %6 = load i32, ptr %mMaterialIndex, align 8
   call void @_ZN6Assimp11ObjExporter15GetMaterialNameB5cxx11Ej(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(1120) %this, i32 noundef %6)
-  %matname = getelementptr %"struct.Assimp::ObjExporter::MeshInstance", ptr %3, i64 -1, i32 1
+  %matname = getelementptr inbounds i8, ptr %3, i64 -56
   %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %matname, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
-  %faces = getelementptr %"struct.Assimp::ObjExporter::MeshInstance", ptr %3, i64 -1, i32 2
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %m, i64 0, i32 2
+  %faces = getelementptr inbounds i8, ptr %3, i64 -24
+  %mNumFaces = getelementptr inbounds i8, ptr %m, i64 8
   %7 = load i32, ptr %mNumFaces, align 8
   %conv9 = zext i32 %7 to i64
-  %_M_finish.i.i46 = getelementptr %"struct.Assimp::ObjExporter::MeshInstance", ptr %3, i64 -1, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i46 = getelementptr inbounds i8, ptr %3, i64 -16
   %8 = load ptr, ptr %_M_finish.i.i46, align 8
   %9 = load ptr, ptr %faces, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
@@ -2673,7 +2665,7 @@ if.then5.i:                                       ; preds = %if.else.i47
 
 for.body.i.i.i.i.i:                               ; preds = %if.then5.i, %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i ], [ %add.ptr.i, %if.then5.i ]
-  %indices.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %indices.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %10 = load ptr, ptr %indices.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -2683,7 +2675,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
   br label %_ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp11ObjExporter4FaceEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %8
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !11
 
@@ -2693,64 +2685,64 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN6Ass
 
 _ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE6resizeEm.exit: ; preds = %if.then.i48, %if.else.i47, %if.then5.i, %invoke.cont.i.i
   %11 = load i32, ptr %mNumFaces, align 8
-  %cmp11561.not = icmp eq i32 %11, 0
-  br i1 %cmp11561.not, label %for.end90, label %for.body.lr.ph
+  %cmp11550.not = icmp eq i32 %11, 0
+  br i1 %cmp11550.not, label %for.end90, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE6resizeEm.exit
-  %mFaces = getelementptr inbounds %struct.aiMesh, ptr %m, i64 0, i32 10
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %m, i64 0, i32 3
-  %a2.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 1
-  %a3.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 2
-  %a4.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 3
-  %b1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 4
-  %b2.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 5
-  %b3.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 6
-  %b4.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 7
-  %c1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 8
-  %c2.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 9
-  %c3.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 10
-  %c4.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %mat, i64 0, i32 11
-  %mVpMap = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11
-  %vecMap.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1
-  %_M_parent.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i225 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1
-  %_M_node_count.i.i.i491 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 11, i32 1, i32 0, i32 0, i32 1, i32 1
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %m, i64 0, i32 4
-  %mVnMap = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9
-  %vecMap.i91 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 0, i32 1, i32 1
-  %mTextureCoords = getelementptr inbounds %struct.aiMesh, ptr %m, i64 0, i32 8
-  %mVtMap = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10
-  %vecMap.i102 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1
-  %_M_parent.i.i.i.i.i103 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i104 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1
-  %_M_node_count.i.i.i466 = getelementptr inbounds %"class.Assimp::ObjExporter", ptr %this, i64 0, i32 10, i32 1, i32 0, i32 0, i32 1, i32 1
+  %mFaces = getelementptr inbounds i8, ptr %m, i64 208
+  %mVertices = getelementptr inbounds i8, ptr %m, i64 16
+  %a2.i = getelementptr inbounds i8, ptr %mat, i64 4
+  %a3.i = getelementptr inbounds i8, ptr %mat, i64 8
+  %a4.i = getelementptr inbounds i8, ptr %mat, i64 12
+  %b1.i = getelementptr inbounds i8, ptr %mat, i64 16
+  %b2.i = getelementptr inbounds i8, ptr %mat, i64 20
+  %b3.i = getelementptr inbounds i8, ptr %mat, i64 24
+  %b4.i = getelementptr inbounds i8, ptr %mat, i64 28
+  %c1.i = getelementptr inbounds i8, ptr %mat, i64 32
+  %c2.i = getelementptr inbounds i8, ptr %mat, i64 36
+  %c3.i = getelementptr inbounds i8, ptr %mat, i64 40
+  %c4.i = getelementptr inbounds i8, ptr %mat, i64 44
+  %mVpMap = getelementptr inbounds i8, ptr %this, i64 1008
+  %vecMap.i = getelementptr inbounds i8, ptr %this, i64 1016
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 1032
+  %add.ptr.i.i219 = getelementptr inbounds i8, ptr %this, i64 1024
+  %_M_node_count.i.i.i480 = getelementptr inbounds i8, ptr %this, i64 1056
+  %mNormals = getelementptr inbounds i8, ptr %m, i64 24
+  %mVnMap = getelementptr inbounds i8, ptr %this, i64 896
+  %vecMap.i91 = getelementptr inbounds i8, ptr %this, i64 904
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 920
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 912
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 944
+  %mTextureCoords = getelementptr inbounds i8, ptr %m, i64 112
+  %mVtMap = getelementptr inbounds i8, ptr %this, i64 952
+  %vecMap.i102 = getelementptr inbounds i8, ptr %this, i64 960
+  %_M_parent.i.i.i.i.i103 = getelementptr inbounds i8, ptr %this, i64 976
+  %add.ptr.i.i.i.i104 = getelementptr inbounds i8, ptr %this, i64 968
+  %_M_node_count.i.i.i455 = getelementptr inbounds i8, ptr %this, i64 1000
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc88
-  %indvars.iv564 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next565, %for.inc88 ]
+  %indvars.iv553 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next554, %for.inc88 ]
   %12 = load ptr, ptr %mFaces, align 8
-  %arrayidx12 = getelementptr inbounds %struct.aiFace, ptr %12, i64 %indvars.iv564
+  %arrayidx12 = getelementptr inbounds %struct.aiFace, ptr %12, i64 %indvars.iv553
   %13 = load ptr, ptr %faces, align 8
-  %add.ptr.i49 = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %13, i64 %indvars.iv564
+  %add.ptr.i49 = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %13, i64 %indvars.iv553
   %14 = load i32, ptr %arrayidx12, align 8
   %switch.selectcmp = icmp eq i32 %14, 2
   %switch.select = select i1 %switch.selectcmp, i8 108, i8 102
-  %switch.selectcmp587 = icmp eq i32 %14, 1
-  %switch.select588 = select i1 %switch.selectcmp587, i8 112, i8 %switch.select
-  store i8 %switch.select588, ptr %add.ptr.i49, align 8
-  %indices = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %13, i64 %indvars.iv564, i32 1
+  %switch.selectcmp576 = icmp eq i32 %14, 1
+  %switch.select577 = select i1 %switch.selectcmp576, i8 112, i8 %switch.select
+  store i8 %switch.select577, ptr %add.ptr.i49, align 8
+  %indices = getelementptr inbounds i8, ptr %add.ptr.i49, i64 8
   %15 = load i32, ptr %arrayidx12, align 8
   %conv20 = zext i32 %15 to i64
   call void @_ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %indices, i64 noundef %conv20)
   %16 = load i32, ptr %arrayidx12, align 8
-  %cmp23559.not = icmp eq i32 %16, 0
-  br i1 %cmp23559.not, label %for.inc88, label %for.body24.lr.ph
+  %cmp23548.not = icmp eq i32 %16, 0
+  br i1 %cmp23548.not, label %for.inc88, label %for.body24.lr.ph
 
-common.resume:                                    ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i442, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i505, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i, %lpad
-  %common.resume.op = phi { ptr, i32 } [ %17, %lpad ], [ %113, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i ], [ %164, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i505 ], [ %228, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i ], [ %265, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i442 ]
+common.resume:                                    ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i431, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i494, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i, %lpad
+  %common.resume.op = phi { ptr, i32 } [ %17, %lpad ], [ %113, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i ], [ %164, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i494 ], [ %228, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i ], [ %265, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i431 ]
   resume { ptr, i32 } %common.resume.op
 
 lpad:                                             ; preds = %if.end
@@ -2760,7 +2752,7 @@ lpad:                                             ; preds = %if.end
   br label %common.resume
 
 for.body24.lr.ph:                                 ; preds = %for.body
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %12, i64 %indvars.iv564, i32 1
+  %mIndices = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.inc
@@ -2776,11 +2768,11 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   %23 = load float, ptr %arrayidx28, align 4
   %24 = load <4 x float>, ptr %a2.i, align 4
   %25 = shufflevector <4 x float> %24, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %y.i = getelementptr inbounds %class.aiVector3t, ptr %20, i64 %idxprom27, i32 1
+  %y.i = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   %26 = load float, ptr %y.i, align 4
   %27 = load <4 x float>, ptr %a3.i, align 4
   %28 = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %z.i = getelementptr inbounds %class.aiVector3t, ptr %20, i64 %idxprom27, i32 2
+  %z.i = getelementptr inbounds i8, ptr %arrayidx28, i64 8
   %29 = load float, ptr %z.i, align 4
   %30 = load <4 x float>, ptr %a4.i, align 4
   %31 = shufflevector <4 x float> %30, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -2832,831 +2824,815 @@ while.body.i.i.preheader:                         ; preds = %if.then33
 
 if.end.i.thread:                                  ; preds = %if.then33
   %63 = load i32, ptr %mVpMap, align 8
-  %inc.i556 = add nsw i32 %63, 1
-  store i32 %inc.i556, ptr %mVpMap, align 8
-  br label %if.then.i222
+  %inc.i545 = add nsw i32 %63, 1
+  store i32 %inc.i545, ptr %mVpMap, align 8
+  br label %if.then.i217
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end.i.i231
-  %__x.addr.08.i.i = phi ptr [ %__x.addr.1.i.i, %if.end.i.i231 ], [ %58, %while.body.i.i.preheader ]
-  %__y.addr.07.i.i = phi ptr [ %__y.addr.1.i.i, %if.end.i.i231 ], [ %add.ptr.i.i225, %while.body.i.i.preheader ]
-  %_M_storage.i.i.i.i226 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i, i64 0, i32 1
-  %64 = load float, ptr %_M_storage.i.i.i.i226, align 4
-  %cmp.i.i.i227 = fcmp olt float %64, %59
-  br i1 %cmp.i.i.i227, label %if.else.i.i, label %if.end.i.i.i228
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end.i.i224
+  %__x.addr.08.i.i = phi ptr [ %__x.addr.1.i.i, %if.end.i.i224 ], [ %58, %while.body.i.i.preheader ]
+  %__y.addr.07.i.i = phi ptr [ %__y.addr.1.i.i, %if.end.i.i224 ], [ %add.ptr.i.i219, %while.body.i.i.preheader ]
+  %_M_storage.i.i.i.i220 = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 32
+  %64 = load float, ptr %_M_storage.i.i.i.i220, align 4
+  %cmp.i.i.i221 = fcmp olt float %64, %59
+  br i1 %cmp.i.i.i221, label %if.else.i.i, label %if.end.i.i.i222
 
-if.end.i.i.i228:                                  ; preds = %while.body.i.i
+if.end.i.i.i222:                                  ; preds = %while.body.i.i
   %cmp8.i.i.i = fcmp ogt float %64, %59
-  br i1 %cmp8.i.i.i, label %if.then.i.i230, label %if.end10.i.i.i
+  br i1 %cmp8.i.i.i, label %if.end.i.i224, label %if.end10.i.i.i
 
-if.end10.i.i.i:                                   ; preds = %if.end.i.i.i228
-  %y.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i, i64 0, i32 1, i32 0, i64 4
+if.end10.i.i.i:                                   ; preds = %if.end.i.i.i222
+  %y.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 36
   %65 = load float, ptr %y.i.i.i, align 4
-  %cmp14.i.i.i229 = fcmp olt float %65, %60
-  br i1 %cmp14.i.i.i229, label %if.else.i.i, label %if.end16.i.i.i
+  %cmp14.i.i.i223 = fcmp olt float %65, %60
+  br i1 %cmp14.i.i.i223, label %if.else.i.i, label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
   %cmp21.i.i.i = fcmp ogt float %65, %60
-  br i1 %cmp21.i.i.i, label %if.then.i.i230, label %if.end23.i.i.i
+  br i1 %cmp21.i.i.i, label %if.end.i.i224, label %if.end23.i.i.i
 
 if.end23.i.i.i:                                   ; preds = %if.end16.i.i.i
-  %z.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i, i64 0, i32 1, i32 0, i64 8
+  %z.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 40
   %66 = load float, ptr %z.i.i.i, align 4
   %cmp27.i.i.i = fcmp olt float %66, %add13.i
   br i1 %cmp27.i.i.i, label %if.else.i.i, label %if.end29.i.i.i
 
 if.end29.i.i.i:                                   ; preds = %if.end23.i.i.i
   %cmp34.i.i.i = fcmp ogt float %66, %add13.i
-  br i1 %cmp34.i.i.i, label %if.then.i.i230, label %if.end36.i.i.i
+  br i1 %cmp34.i.i.i, label %if.end.i.i224, label %if.end36.i.i.i
 
 if.end36.i.i.i:                                   ; preds = %if.end29.i.i.i
-  %vc.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i, i64 0, i32 1, i32 0, i64 12
+  %vc.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 44
   %67 = load float, ptr %vc.i.i.i, align 4
   %cmp39.i.i.i = fcmp olt float %67, %61
   br i1 %cmp39.i.i.i, label %if.else.i.i, label %if.end41.i.i.i
 
 if.end41.i.i.i:                                   ; preds = %if.end36.i.i.i
   %cmp46.i.i.i = fcmp ogt float %67, %61
-  br i1 %cmp46.i.i.i, label %if.then.i.i230, label %if.end48.i.i.i
+  br i1 %cmp46.i.i.i, label %if.end.i.i224, label %if.end48.i.i.i
 
 if.end48.i.i.i:                                   ; preds = %if.end41.i.i.i
-  %g.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i, i64 0, i32 1, i32 0, i64 16
+  %g.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 48
   %68 = load float, ptr %g.i.i.i, align 4
   %cmp52.i.i.i = fcmp olt float %68, %62
   br i1 %cmp52.i.i.i, label %if.else.i.i, label %if.end54.i.i.i
 
 if.end54.i.i.i:                                   ; preds = %if.end48.i.i.i
   %cmp59.i.i.i = fcmp ogt float %68, %62
-  br i1 %cmp59.i.i.i, label %if.then.i.i230, label %if.end61.i.i.i
+  br i1 %cmp59.i.i.i, label %if.end.i.i224, label %if.end61.i.i.i
 
 if.end61.i.i.i:                                   ; preds = %if.end54.i.i.i
-  %b63.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i, i64 0, i32 1, i32 0, i64 20
+  %b63.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 52
   %69 = load float, ptr %b63.i.i.i, align 4
   %cmp66.i.i.i = fcmp olt float %69, %col4.sroa.3.0.copyload
-  br i1 %cmp66.i.i.i, label %if.else.i.i, label %if.then.i.i230
-
-if.then.i.i230:                                   ; preds = %if.end61.i.i.i, %if.end54.i.i.i, %if.end41.i.i.i, %if.end29.i.i.i, %if.end16.i.i.i, %if.end.i.i.i228
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i, i64 0, i32 2
-  br label %if.end.i.i231
+  br i1 %cmp66.i.i.i, label %if.else.i.i, label %if.end.i.i224
 
 if.else.i.i:                                      ; preds = %if.end61.i.i.i, %if.end48.i.i.i, %if.end36.i.i.i, %if.end23.i.i.i, %if.end10.i.i.i, %while.body.i.i
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i, i64 0, i32 3
-  br label %if.end.i.i231
+  br label %if.end.i.i224
 
-if.end.i.i231:                                    ; preds = %if.else.i.i, %if.then.i.i230
-  %__y.addr.1.i.i = phi ptr [ %__y.addr.07.i.i, %if.else.i.i ], [ %__x.addr.08.i.i, %if.then.i.i230 ]
-  %__x.addr.1.in.i.i = phi ptr [ %_M_right.i.i.i, %if.else.i.i ], [ %_M_left.i.i.i, %if.then.i.i230 ]
-  %__x.addr.1.i.i = load ptr, ptr %__x.addr.1.in.i.i, align 8
+if.end.i.i224:                                    ; preds = %if.else.i.i, %if.end61.i.i.i, %if.end54.i.i.i, %if.end41.i.i.i, %if.end29.i.i.i, %if.end16.i.i.i, %if.end.i.i.i222
+  %.sink.i.i = phi i64 [ 24, %if.else.i.i ], [ 16, %if.end61.i.i.i ], [ 16, %if.end54.i.i.i ], [ 16, %if.end41.i.i.i ], [ 16, %if.end29.i.i.i ], [ 16, %if.end16.i.i.i ], [ 16, %if.end.i.i.i222 ]
+  %__y.addr.1.i.i = phi ptr [ %__y.addr.07.i.i, %if.else.i.i ], [ %__x.addr.08.i.i, %if.end61.i.i.i ], [ %__x.addr.08.i.i, %if.end54.i.i.i ], [ %__x.addr.08.i.i, %if.end41.i.i.i ], [ %__x.addr.08.i.i, %if.end29.i.i.i ], [ %__x.addr.08.i.i, %if.end16.i.i.i ], [ %__x.addr.08.i.i, %if.end.i.i.i222 ]
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 %.sink.i.i
+  %__x.addr.1.i.i = load ptr, ptr %_M_right.i.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %__x.addr.1.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i, label %while.body.i.i, !llvm.loop !17
 
-_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i: ; preds = %if.end.i.i231
-  %cmp.i.i232 = icmp eq ptr %__y.addr.1.i.i, %add.ptr.i.i225
-  br i1 %cmp.i.i232, label %if.end.i, label %lor.lhs.false.i
+_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i: ; preds = %if.end.i.i224
+  %cmp.i.i225 = icmp eq ptr %__y.addr.1.i.i, %add.ptr.i.i219
+  br i1 %cmp.i.i225, label %if.end.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i
-  %_M_storage.i.i.i3.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 32
   %70 = load float, ptr %_M_storage.i.i.i3.i, align 4
   %cmp.i4.i = fcmp olt float %59, %70
   br i1 %cmp.i4.i, label %if.end.i, label %if.end.i5.i
 
 if.end.i5.i:                                      ; preds = %lor.lhs.false.i
-  %cmp8.i.i233 = fcmp ogt float %59, %70
-  br i1 %cmp8.i.i233, label %if.then.i51, label %if.end10.i.i234
+  %cmp8.i.i226 = fcmp ogt float %59, %70
+  br i1 %cmp8.i.i226, label %if.then.i51, label %if.end10.i.i227
 
-if.end10.i.i234:                                  ; preds = %if.end.i5.i
-  %y13.i.i235 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1, i32 0, i64 4
-  %71 = load float, ptr %y13.i.i235, align 4
+if.end10.i.i227:                                  ; preds = %if.end.i5.i
+  %y13.i.i228 = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 36
+  %71 = load float, ptr %y13.i.i228, align 4
   %72 = extractelement <2 x float> %49, i64 1
-  %cmp14.i.i236 = fcmp olt float %72, %71
-  br i1 %cmp14.i.i236, label %if.end.i, label %if.end16.i.i237
+  %cmp14.i.i229 = fcmp olt float %72, %71
+  br i1 %cmp14.i.i229, label %if.end.i, label %if.end16.i.i230
 
-if.end16.i.i237:                                  ; preds = %if.end10.i.i234
-  %cmp21.i.i238 = fcmp ogt float %72, %71
-  br i1 %cmp21.i.i238, label %if.then.i51, label %if.end23.i.i239
+if.end16.i.i230:                                  ; preds = %if.end10.i.i227
+  %cmp21.i.i231 = fcmp ogt float %72, %71
+  br i1 %cmp21.i.i231, label %if.then.i51, label %if.end23.i.i232
 
-if.end23.i.i239:                                  ; preds = %if.end16.i.i237
-  %z26.i.i240 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1, i32 0, i64 8
-  %73 = load float, ptr %z26.i.i240, align 4
-  %cmp27.i.i241 = fcmp olt float %add13.i, %73
-  br i1 %cmp27.i.i241, label %if.end.i, label %if.end29.i.i242
+if.end23.i.i232:                                  ; preds = %if.end16.i.i230
+  %z26.i.i233 = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 40
+  %73 = load float, ptr %z26.i.i233, align 4
+  %cmp27.i.i234 = fcmp olt float %add13.i, %73
+  br i1 %cmp27.i.i234, label %if.end.i, label %if.end29.i.i235
 
-if.end29.i.i242:                                  ; preds = %if.end23.i.i239
-  %cmp34.i.i243 = fcmp ogt float %add13.i, %73
-  br i1 %cmp34.i.i243, label %if.then.i51, label %if.end36.i.i244
+if.end29.i.i235:                                  ; preds = %if.end23.i.i232
+  %cmp34.i.i236 = fcmp ogt float %add13.i, %73
+  br i1 %cmp34.i.i236, label %if.then.i51, label %if.end36.i.i237
 
-if.end36.i.i244:                                  ; preds = %if.end29.i.i242
-  %vc37.i.i245 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1, i32 0, i64 12
-  %74 = load float, ptr %vc37.i.i245, align 4
+if.end36.i.i237:                                  ; preds = %if.end29.i.i235
+  %vc37.i.i238 = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 44
+  %74 = load float, ptr %vc37.i.i238, align 4
   %75 = extractelement <2 x float> %57, i64 0
-  %cmp39.i.i246 = fcmp olt float %75, %74
-  br i1 %cmp39.i.i246, label %if.end.i, label %if.end41.i.i247
+  %cmp39.i.i239 = fcmp olt float %75, %74
+  br i1 %cmp39.i.i239, label %if.end.i, label %if.end41.i.i240
 
-if.end41.i.i247:                                  ; preds = %if.end36.i.i244
-  %cmp46.i.i248 = fcmp ogt float %75, %74
-  br i1 %cmp46.i.i248, label %if.then.i51, label %if.end48.i.i249
+if.end41.i.i240:                                  ; preds = %if.end36.i.i237
+  %cmp46.i.i241 = fcmp ogt float %75, %74
+  br i1 %cmp46.i.i241, label %if.then.i51, label %if.end48.i.i242
 
-if.end48.i.i249:                                  ; preds = %if.end41.i.i247
-  %g51.i.i250 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1, i32 0, i64 16
-  %76 = load float, ptr %g51.i.i250, align 4
+if.end48.i.i242:                                  ; preds = %if.end41.i.i240
+  %g51.i.i243 = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 48
+  %76 = load float, ptr %g51.i.i243, align 4
   %77 = extractelement <2 x float> %57, i64 1
-  %cmp52.i.i251 = fcmp olt float %77, %76
-  br i1 %cmp52.i.i251, label %if.end.i, label %if.end54.i.i252
+  %cmp52.i.i244 = fcmp olt float %77, %76
+  br i1 %cmp52.i.i244, label %if.end.i, label %if.end54.i.i245
 
-if.end54.i.i252:                                  ; preds = %if.end48.i.i249
-  %cmp59.i.i253 = fcmp ogt float %77, %76
-  br i1 %cmp59.i.i253, label %if.then.i51, label %if.end61.i.i254
+if.end54.i.i245:                                  ; preds = %if.end48.i.i242
+  %cmp59.i.i246 = fcmp ogt float %77, %76
+  br i1 %cmp59.i.i246, label %if.then.i51, label %if.end61.i.i247
 
-if.end61.i.i254:                                  ; preds = %if.end54.i.i252
-  %b65.i.i255 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1, i32 0, i64 20
-  %78 = load float, ptr %b65.i.i255, align 4
-  %cmp66.i.i256 = fcmp olt float %col4.sroa.3.0.copyload, %78
-  br i1 %cmp66.i.i256, label %if.end.i, label %if.then.i51
+if.end61.i.i247:                                  ; preds = %if.end54.i.i245
+  %b65.i.i248 = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 52
+  %78 = load float, ptr %b65.i.i248, align 4
+  %cmp66.i.i249 = fcmp olt float %col4.sroa.3.0.copyload, %78
+  br i1 %cmp66.i.i249, label %if.end.i, label %if.then.i51
 
-if.then.i51:                                      ; preds = %if.end54.i.i252, %if.end41.i.i247, %if.end29.i.i242, %if.end16.i.i237, %if.end.i5.i, %if.end61.i.i254
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1, i32 0, i64 24
+if.then.i51:                                      ; preds = %if.end54.i.i245, %if.end41.i.i240, %if.end29.i.i235, %if.end16.i.i230, %if.end.i5.i, %if.end61.i.i247
+  %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 56
   %79 = load i32, ptr %second.i, align 4
   br label %if.end53
 
-if.end.i:                                         ; preds = %lor.lhs.false.i, %if.end10.i.i234, %if.end23.i.i239, %if.end36.i.i244, %if.end48.i.i249, %if.end61.i.i254, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i
+if.end.i:                                         ; preds = %lor.lhs.false.i, %if.end10.i.i227, %if.end23.i.i232, %if.end36.i.i237, %if.end48.i.i242, %if.end61.i.i247, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i
   %80 = load i32, ptr %mVpMap, align 8
   %inc.i = add nsw i32 %80, 1
   store i32 %inc.i, ptr %mVpMap, align 8
   %81 = extractelement <2 x float> %57, i64 0
   %82 = extractelement <2 x float> %57, i64 1
   %83 = extractelement <2 x float> %49, i64 1
-  br label %while.body.i.i.i.i206
+  br label %while.body.i.i.i.i202
 
-while.body.i.i.i.i206:                            ; preds = %if.end.i.i.i.i215, %if.end.i
-  %__x.addr.08.i.i.i.i = phi ptr [ %58, %if.end.i ], [ %__x.addr.1.i.i.i.i218, %if.end.i.i.i.i215 ]
-  %__y.addr.07.i.i.i.i = phi ptr [ %add.ptr.i.i225, %if.end.i ], [ %__y.addr.1.i.i.i.i216, %if.end.i.i.i.i215 ]
-  %_M_storage.i.i.i.i.i.i207 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1
-  %84 = load float, ptr %_M_storage.i.i.i.i.i.i207, align 4
-  %cmp.i.i.i.i.i208 = fcmp olt float %84, %59
-  br i1 %cmp.i.i.i.i.i208, label %if.else.i.i.i.i223, label %if.end.i.i.i.i.i209
+while.body.i.i.i.i202:                            ; preds = %if.end.i.i.i.i209, %if.end.i
+  %__x.addr.08.i.i.i.i = phi ptr [ %58, %if.end.i ], [ %__x.addr.1.i.i.i.i213, %if.end.i.i.i.i209 ]
+  %__y.addr.07.i.i.i.i = phi ptr [ %add.ptr.i.i219, %if.end.i ], [ %__y.addr.1.i.i.i.i211, %if.end.i.i.i.i209 ]
+  %_M_storage.i.i.i.i.i.i203 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
+  %84 = load float, ptr %_M_storage.i.i.i.i.i.i203, align 4
+  %cmp.i.i.i.i.i204 = fcmp olt float %84, %59
+  br i1 %cmp.i.i.i.i.i204, label %if.else.i.i.i.i218, label %if.end.i.i.i.i.i205
 
-if.end.i.i.i.i.i209:                              ; preds = %while.body.i.i.i.i206
+if.end.i.i.i.i.i205:                              ; preds = %while.body.i.i.i.i202
   %cmp8.i.i.i.i.i = fcmp ogt float %84, %59
-  br i1 %cmp8.i.i.i.i.i, label %if.then.i.i.i.i213, label %if.end10.i.i.i.i.i
+  br i1 %cmp8.i.i.i.i.i, label %if.end.i.i.i.i209, label %if.end10.i.i.i.i.i
 
-if.end10.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i209
-  %y.i.i.i.i.i210 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 4
-  %85 = load float, ptr %y.i.i.i.i.i210, align 4
-  %cmp14.i.i.i.i.i211 = fcmp olt float %85, %83
-  br i1 %cmp14.i.i.i.i.i211, label %if.else.i.i.i.i223, label %if.end16.i.i.i.i.i
+if.end10.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i205
+  %y.i.i.i.i.i206 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 36
+  %85 = load float, ptr %y.i.i.i.i.i206, align 4
+  %cmp14.i.i.i.i.i207 = fcmp olt float %85, %83
+  br i1 %cmp14.i.i.i.i.i207, label %if.else.i.i.i.i218, label %if.end16.i.i.i.i.i
 
 if.end16.i.i.i.i.i:                               ; preds = %if.end10.i.i.i.i.i
   %cmp21.i.i.i.i.i = fcmp ogt float %85, %83
-  br i1 %cmp21.i.i.i.i.i, label %if.then.i.i.i.i213, label %if.end23.i.i.i.i.i
+  br i1 %cmp21.i.i.i.i.i, label %if.end.i.i.i.i209, label %if.end23.i.i.i.i.i
 
 if.end23.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i.i
-  %z.i.i.i.i.i212 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %86 = load float, ptr %z.i.i.i.i.i212, align 4
+  %z.i.i.i.i.i208 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 40
+  %86 = load float, ptr %z.i.i.i.i.i208, align 4
   %cmp27.i.i.i.i.i = fcmp olt float %86, %add13.i
-  br i1 %cmp27.i.i.i.i.i, label %if.else.i.i.i.i223, label %if.end29.i.i.i.i.i
+  br i1 %cmp27.i.i.i.i.i, label %if.else.i.i.i.i218, label %if.end29.i.i.i.i.i
 
 if.end29.i.i.i.i.i:                               ; preds = %if.end23.i.i.i.i.i
   %cmp34.i.i.i.i.i = fcmp ogt float %86, %add13.i
-  br i1 %cmp34.i.i.i.i.i, label %if.then.i.i.i.i213, label %if.end36.i.i.i.i.i
+  br i1 %cmp34.i.i.i.i.i, label %if.end.i.i.i.i209, label %if.end36.i.i.i.i.i
 
 if.end36.i.i.i.i.i:                               ; preds = %if.end29.i.i.i.i.i
-  %vc.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 12
+  %vc.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 44
   %87 = load float, ptr %vc.i.i.i.i.i, align 4
   %cmp39.i.i.i.i.i = fcmp olt float %87, %81
-  br i1 %cmp39.i.i.i.i.i, label %if.else.i.i.i.i223, label %if.end41.i.i.i.i.i
+  br i1 %cmp39.i.i.i.i.i, label %if.else.i.i.i.i218, label %if.end41.i.i.i.i.i
 
 if.end41.i.i.i.i.i:                               ; preds = %if.end36.i.i.i.i.i
   %cmp46.i.i.i.i.i = fcmp ogt float %87, %81
-  br i1 %cmp46.i.i.i.i.i, label %if.then.i.i.i.i213, label %if.end48.i.i.i.i.i
+  br i1 %cmp46.i.i.i.i.i, label %if.end.i.i.i.i209, label %if.end48.i.i.i.i.i
 
 if.end48.i.i.i.i.i:                               ; preds = %if.end41.i.i.i.i.i
-  %g.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %g.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 48
   %88 = load float, ptr %g.i.i.i.i.i, align 4
   %cmp52.i.i.i.i.i = fcmp olt float %88, %82
-  br i1 %cmp52.i.i.i.i.i, label %if.else.i.i.i.i223, label %if.end54.i.i.i.i.i
+  br i1 %cmp52.i.i.i.i.i, label %if.else.i.i.i.i218, label %if.end54.i.i.i.i.i
 
 if.end54.i.i.i.i.i:                               ; preds = %if.end48.i.i.i.i.i
   %cmp59.i.i.i.i.i = fcmp ogt float %88, %82
-  br i1 %cmp59.i.i.i.i.i, label %if.then.i.i.i.i213, label %if.end61.i.i.i.i.i
+  br i1 %cmp59.i.i.i.i.i, label %if.end.i.i.i.i209, label %if.end61.i.i.i.i.i
 
 if.end61.i.i.i.i.i:                               ; preds = %if.end54.i.i.i.i.i
-  %b63.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1, i32 0, i64 20
+  %b63.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 52
   %89 = load float, ptr %b63.i.i.i.i.i, align 4
   %cmp66.i.i.i.i.i = fcmp olt float %89, %col4.sroa.3.0.copyload
-  br i1 %cmp66.i.i.i.i.i, label %if.else.i.i.i.i223, label %if.then.i.i.i.i213
+  br i1 %cmp66.i.i.i.i.i, label %if.else.i.i.i.i218, label %if.end.i.i.i.i209
 
-if.then.i.i.i.i213:                               ; preds = %if.end61.i.i.i.i.i, %if.end54.i.i.i.i.i, %if.end41.i.i.i.i.i, %if.end29.i.i.i.i.i, %if.end16.i.i.i.i.i, %if.end.i.i.i.i.i209
-  %_M_left.i.i.i.i.i214 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 2
-  br label %if.end.i.i.i.i215
+if.else.i.i.i.i218:                               ; preds = %if.end61.i.i.i.i.i, %if.end48.i.i.i.i.i, %if.end36.i.i.i.i.i, %if.end23.i.i.i.i.i, %if.end10.i.i.i.i.i, %while.body.i.i.i.i202
+  br label %if.end.i.i.i.i209
 
-if.else.i.i.i.i223:                               ; preds = %if.end61.i.i.i.i.i, %if.end48.i.i.i.i.i, %if.end36.i.i.i.i.i, %if.end23.i.i.i.i.i, %if.end10.i.i.i.i.i, %while.body.i.i.i.i206
-  %_M_right.i.i.i.i.i224 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 3
-  br label %if.end.i.i.i.i215
+if.end.i.i.i.i209:                                ; preds = %if.else.i.i.i.i218, %if.end61.i.i.i.i.i, %if.end54.i.i.i.i.i, %if.end41.i.i.i.i.i, %if.end29.i.i.i.i.i, %if.end16.i.i.i.i.i, %if.end.i.i.i.i.i205
+  %.sink.i.i.i.i210 = phi i64 [ 24, %if.else.i.i.i.i218 ], [ 16, %if.end61.i.i.i.i.i ], [ 16, %if.end54.i.i.i.i.i ], [ 16, %if.end41.i.i.i.i.i ], [ 16, %if.end29.i.i.i.i.i ], [ 16, %if.end16.i.i.i.i.i ], [ 16, %if.end.i.i.i.i.i205 ]
+  %__y.addr.1.i.i.i.i211 = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i218 ], [ %__x.addr.08.i.i.i.i, %if.end61.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.end54.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.end41.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.end29.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.end16.i.i.i.i.i ], [ %__x.addr.08.i.i.i.i, %if.end.i.i.i.i.i205 ]
+  %_M_right.i.i.i.i.i212 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 %.sink.i.i.i.i210
+  %__x.addr.1.i.i.i.i213 = load ptr, ptr %_M_right.i.i.i.i.i212, align 8
+  %cmp.not.i.i.i.i214 = icmp eq ptr %__x.addr.1.i.i.i.i213, null
+  br i1 %cmp.not.i.i.i.i214, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i, label %while.body.i.i.i.i202, !llvm.loop !17
 
-if.end.i.i.i.i215:                                ; preds = %if.else.i.i.i.i223, %if.then.i.i.i.i213
-  %__y.addr.1.i.i.i.i216 = phi ptr [ %__y.addr.07.i.i.i.i, %if.else.i.i.i.i223 ], [ %__x.addr.08.i.i.i.i, %if.then.i.i.i.i213 ]
-  %__x.addr.1.in.i.i.i.i217 = phi ptr [ %_M_right.i.i.i.i.i224, %if.else.i.i.i.i223 ], [ %_M_left.i.i.i.i.i214, %if.then.i.i.i.i213 ]
-  %__x.addr.1.i.i.i.i218 = load ptr, ptr %__x.addr.1.in.i.i.i.i217, align 8
-  %cmp.not.i.i.i.i219 = icmp eq ptr %__x.addr.1.i.i.i.i218, null
-  br i1 %cmp.not.i.i.i.i219, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i, label %while.body.i.i.i.i206, !llvm.loop !17
-
-_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i: ; preds = %if.end.i.i.i.i215
-  %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i216, %add.ptr.i.i225
-  br i1 %cmp.i.i, label %if.then.i222, label %lor.rhs.i
+_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i: ; preds = %if.end.i.i.i.i209
+  %cmp.i.i = icmp eq ptr %__y.addr.1.i.i.i.i211, %add.ptr.i.i219
+  br i1 %cmp.i.i, label %if.then.i217, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i216, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i211, i64 32
   %90 = load float, ptr %_M_storage.i.i.i, align 4
   %cmp.i3.i = fcmp olt float %59, %90
-  br i1 %cmp.i3.i, label %if.then.i222, label %if.end.i.i
+  br i1 %cmp.i3.i, label %if.then.i217, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %lor.rhs.i
   %cmp8.i.i = fcmp ogt float %59, %90
   br i1 %cmp8.i.i, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.end.i.i
-  %y13.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i216, i64 0, i32 1, i32 0, i64 4
+  %y13.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i211, i64 36
   %91 = load float, ptr %y13.i.i, align 4
   %cmp14.i.i = fcmp olt float %83, %91
-  br i1 %cmp14.i.i, label %if.then.i222, label %if.end16.i.i
+  br i1 %cmp14.i.i, label %if.then.i217, label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.end10.i.i
   %cmp21.i.i = fcmp ogt float %83, %91
   br i1 %cmp21.i.i, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %if.end16.i.i
-  %z26.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i216, i64 0, i32 1, i32 0, i64 8
+  %z26.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i211, i64 40
   %92 = load float, ptr %z26.i.i, align 4
   %cmp27.i.i = fcmp olt float %add13.i, %92
-  br i1 %cmp27.i.i, label %if.then.i222, label %if.end29.i.i
+  br i1 %cmp27.i.i, label %if.then.i217, label %if.end29.i.i
 
 if.end29.i.i:                                     ; preds = %if.end23.i.i
   %cmp34.i.i = fcmp ogt float %add13.i, %92
   br i1 %cmp34.i.i, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, label %if.end36.i.i
 
 if.end36.i.i:                                     ; preds = %if.end29.i.i
-  %vc37.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i216, i64 0, i32 1, i32 0, i64 12
+  %vc37.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i211, i64 44
   %93 = load float, ptr %vc37.i.i, align 4
   %cmp39.i.i = fcmp olt float %81, %93
-  br i1 %cmp39.i.i, label %if.then.i222, label %if.end41.i.i
+  br i1 %cmp39.i.i, label %if.then.i217, label %if.end41.i.i
 
 if.end41.i.i:                                     ; preds = %if.end36.i.i
   %cmp46.i.i = fcmp ogt float %81, %93
   br i1 %cmp46.i.i, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, label %if.end48.i.i
 
 if.end48.i.i:                                     ; preds = %if.end41.i.i
-  %g51.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i216, i64 0, i32 1, i32 0, i64 16
+  %g51.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i211, i64 48
   %94 = load float, ptr %g51.i.i, align 4
   %cmp52.i.i = fcmp olt float %82, %94
-  br i1 %cmp52.i.i, label %if.then.i222, label %if.end54.i.i
+  br i1 %cmp52.i.i, label %if.then.i217, label %if.end54.i.i
 
 if.end54.i.i:                                     ; preds = %if.end48.i.i
   %cmp59.i.i = fcmp ogt float %82, %94
   br i1 %cmp59.i.i, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, label %if.end61.i.i
 
 if.end61.i.i:                                     ; preds = %if.end54.i.i
-  %b65.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i216, i64 0, i32 1, i32 0, i64 20
+  %b65.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i211, i64 52
   %95 = load float, ptr %b65.i.i, align 4
   %cmp66.i.i = fcmp olt float %col4.sroa.3.0.copyload, %95
-  br i1 %cmp66.i.i, label %if.then.i222, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit
+  br i1 %cmp66.i.i, label %if.then.i217, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit
 
-if.then.i222:                                     ; preds = %if.end.i.thread, %if.end61.i.i, %if.end48.i.i, %if.end36.i.i, %if.end23.i.i, %if.end10.i.i, %lor.rhs.i, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i
+if.then.i217:                                     ; preds = %if.end.i.thread, %if.end61.i.i, %if.end48.i.i, %if.end36.i.i, %if.end23.i.i, %if.end10.i.i, %lor.rhs.i, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i
   %96 = phi i32 [ %80, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i ], [ %80, %lor.rhs.i ], [ %80, %if.end10.i.i ], [ %80, %if.end23.i.i ], [ %80, %if.end36.i.i ], [ %80, %if.end48.i.i ], [ %80, %if.end61.i.i ], [ %63, %if.end.i.thread ]
-  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %add.ptr.i.i225, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i ], [ %__y.addr.1.i.i.i.i216, %lor.rhs.i ], [ %__y.addr.1.i.i.i.i216, %if.end10.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end23.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end36.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end48.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end61.i.i ], [ %add.ptr.i.i225, %if.end.i.thread ]
-  %call5.i.i.i.i.i.i471 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
-  %_M_storage.i.i.i.i.i472 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1
-  store <2 x float> %49, ptr %_M_storage.i.i.i.i.i472, align 4
-  %ref.tmp38.sroa.6.0._M_storage.i.i.i.i.i472.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1, i32 0, i64 8
-  store float %add13.i, ptr %ref.tmp38.sroa.6.0._M_storage.i.i.i.i.i472.sroa_idx, align 4
-  %vc.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1, i32 0, i64 12
-  %g.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1, i32 0, i64 16
+  %__y.addr.0.lcssa.i.i.i10.i = phi ptr [ %add.ptr.i.i219, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i ], [ %__y.addr.1.i.i.i.i211, %lor.rhs.i ], [ %__y.addr.1.i.i.i.i211, %if.end10.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end23.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end36.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end48.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end61.i.i ], [ %add.ptr.i.i219, %if.end.i.thread ]
+  %call5.i.i.i.i.i.i460 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
+  %_M_storage.i.i.i.i.i461 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 32
+  store <2 x float> %49, ptr %_M_storage.i.i.i.i.i461, align 4
+  %ref.tmp38.sroa.6.0._M_storage.i.i.i.i.i461.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 40
+  store float %add13.i, ptr %ref.tmp38.sroa.6.0._M_storage.i.i.i.i.i461.sroa_idx, align 4
+  %vc.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 44
+  %g.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 48
   store <2 x float> %57, ptr %vc.i.i.i.i.i.i.i.i.i, align 4
-  %b.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1, i32 0, i64 20
+  %b.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 52
   store float %col4.sroa.3.0.copyload, ptr %b.i.i.i.i.i.i.i.i.i.i, align 4
-  %second.i.i.i.i.i.i.i.i473 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1, i32 0, i64 24
-  store i32 0, ptr %second.i.i.i.i.i.i.i.i473, align 4
-  %call8.i474 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 4 dereferenceable(24) %_M_storage.i.i.i.i.i472)
-          to label %invoke.cont7.i475 unwind label %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i
+  %second.i.i.i.i.i.i.i.i462 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 56
+  store i32 0, ptr %second.i.i.i.i.i.i.i.i462, align 4
+  %call8.i463 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i, ptr %__y.addr.0.lcssa.i.i.i10.i, ptr noundef nonnull align 4 dereferenceable(24) %_M_storage.i.i.i.i.i461)
+          to label %invoke.cont7.i464 unwind label %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i
 
-invoke.cont7.i475:                                ; preds = %if.then.i222
-  %97 = extractvalue { ptr, ptr } %call8.i474, 0
-  %98 = extractvalue { ptr, ptr } %call8.i474, 1
-  %tobool.not.i476 = icmp eq ptr %98, null
-  br i1 %tobool.not.i476, label %if.then.i7.i494, label %if.then.i477
+invoke.cont7.i464:                                ; preds = %if.then.i217
+  %97 = extractvalue { ptr, ptr } %call8.i463, 0
+  %98 = extractvalue { ptr, ptr } %call8.i463, 1
+  %tobool.not.i465 = icmp eq ptr %98, null
+  br i1 %tobool.not.i465, label %if.then.i7.i483, label %if.then.i466
 
-if.then.i477:                                     ; preds = %invoke.cont7.i475
-  %cmp.not.i.i.i478 = icmp ne ptr %97, null
-  %cmp2.i.i.i480 = icmp eq ptr %add.ptr.i.i225, %98
-  %or.cond.i.i.i481 = select i1 %cmp.not.i.i.i478, i1 true, i1 %cmp2.i.i.i480
-  br i1 %or.cond.i.i.i481, label %cleanup.thread.i490, label %lor.rhs.i.i.i482
+if.then.i466:                                     ; preds = %invoke.cont7.i464
+  %cmp.not.i.i.i467 = icmp ne ptr %97, null
+  %cmp2.i.i.i469 = icmp eq ptr %add.ptr.i.i219, %98
+  %or.cond.i.i.i470 = select i1 %cmp.not.i.i.i467, i1 true, i1 %cmp2.i.i.i469
+  br i1 %or.cond.i.i.i470, label %cleanup.thread.i479, label %lor.rhs.i.i.i471
 
-lor.rhs.i.i.i482:                                 ; preds = %if.then.i477
-  %_M_storage.i.i.i.i.i.i483 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %98, i64 0, i32 1
-  %99 = load float, ptr %_M_storage.i.i.i.i.i472, align 4
-  %100 = load float, ptr %_M_storage.i.i.i.i.i.i483, align 4
-  %cmp.i.i.i.i484 = fcmp olt float %99, %100
-  br i1 %cmp.i.i.i.i484, label %cleanup.thread.i490, label %if.end.i.i.i.i485
+lor.rhs.i.i.i471:                                 ; preds = %if.then.i466
+  %_M_storage.i.i.i.i.i.i472 = getelementptr inbounds i8, ptr %98, i64 32
+  %99 = load float, ptr %_M_storage.i.i.i.i.i461, align 4
+  %100 = load float, ptr %_M_storage.i.i.i.i.i.i472, align 4
+  %cmp.i.i.i.i473 = fcmp olt float %99, %100
+  br i1 %cmp.i.i.i.i473, label %cleanup.thread.i479, label %if.end.i.i.i.i474
 
-if.end.i.i.i.i485:                                ; preds = %lor.rhs.i.i.i482
+if.end.i.i.i.i474:                                ; preds = %lor.rhs.i.i.i471
   %cmp8.i.i.i.i = fcmp ogt float %99, %100
-  br i1 %cmp8.i.i.i.i, label %cleanup.thread.i490, label %if.end10.i.i.i.i
+  br i1 %cmp8.i.i.i.i, label %cleanup.thread.i479, label %if.end10.i.i.i.i
 
-if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i485
-  %y.i.i.i.i486 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1, i32 0, i64 4
-  %101 = load float, ptr %y.i.i.i.i486, align 4
-  %y13.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %98, i64 0, i32 1, i32 0, i64 4
+if.end10.i.i.i.i:                                 ; preds = %if.end.i.i.i.i474
+  %y.i.i.i.i475 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 36
+  %101 = load float, ptr %y.i.i.i.i475, align 4
+  %y13.i.i.i.i = getelementptr inbounds i8, ptr %98, i64 36
   %102 = load float, ptr %y13.i.i.i.i, align 4
-  %cmp14.i.i.i.i487 = fcmp olt float %101, %102
-  br i1 %cmp14.i.i.i.i487, label %cleanup.thread.i490, label %if.end16.i.i.i.i488
+  %cmp14.i.i.i.i476 = fcmp olt float %101, %102
+  br i1 %cmp14.i.i.i.i476, label %cleanup.thread.i479, label %if.end16.i.i.i.i477
 
-if.end16.i.i.i.i488:                              ; preds = %if.end10.i.i.i.i
+if.end16.i.i.i.i477:                              ; preds = %if.end10.i.i.i.i
   %cmp21.i.i.i.i = fcmp ogt float %101, %102
-  br i1 %cmp21.i.i.i.i, label %cleanup.thread.i490, label %if.end23.i.i.i.i
+  br i1 %cmp21.i.i.i.i, label %cleanup.thread.i479, label %if.end23.i.i.i.i
 
-if.end23.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i488
-  %z.i.i.i.i489 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i471, i64 0, i32 1, i32 0, i64 8
-  %103 = load float, ptr %z.i.i.i.i489, align 4
-  %z26.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %98, i64 0, i32 1, i32 0, i64 8
+if.end23.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i477
+  %z.i.i.i.i478 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i460, i64 40
+  %103 = load float, ptr %z.i.i.i.i478, align 4
+  %z26.i.i.i.i = getelementptr inbounds i8, ptr %98, i64 40
   %104 = load float, ptr %z26.i.i.i.i, align 4
   %cmp27.i.i.i.i = fcmp olt float %103, %104
-  br i1 %cmp27.i.i.i.i, label %cleanup.thread.i490, label %if.end29.i.i.i.i
+  br i1 %cmp27.i.i.i.i, label %cleanup.thread.i479, label %if.end29.i.i.i.i
 
 if.end29.i.i.i.i:                                 ; preds = %if.end23.i.i.i.i
   %cmp34.i.i.i.i = fcmp ogt float %103, %104
-  br i1 %cmp34.i.i.i.i, label %cleanup.thread.i490, label %if.end36.i.i.i.i
+  br i1 %cmp34.i.i.i.i, label %cleanup.thread.i479, label %if.end36.i.i.i.i
 
 if.end36.i.i.i.i:                                 ; preds = %if.end29.i.i.i.i
   %105 = load float, ptr %vc.i.i.i.i.i.i.i.i.i, align 4
-  %vc37.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %98, i64 0, i32 1, i32 0, i64 12
+  %vc37.i.i.i.i = getelementptr inbounds i8, ptr %98, i64 44
   %106 = load float, ptr %vc37.i.i.i.i, align 4
   %cmp39.i.i.i.i = fcmp olt float %105, %106
-  br i1 %cmp39.i.i.i.i, label %cleanup.thread.i490, label %if.end41.i.i.i.i
+  br i1 %cmp39.i.i.i.i, label %cleanup.thread.i479, label %if.end41.i.i.i.i
 
 if.end41.i.i.i.i:                                 ; preds = %if.end36.i.i.i.i
   %cmp46.i.i.i.i = fcmp ogt float %105, %106
-  br i1 %cmp46.i.i.i.i, label %cleanup.thread.i490, label %if.end48.i.i.i.i
+  br i1 %cmp46.i.i.i.i, label %cleanup.thread.i479, label %if.end48.i.i.i.i
 
 if.end48.i.i.i.i:                                 ; preds = %if.end41.i.i.i.i
   %107 = load float, ptr %g.i.i.i.i.i.i.i.i.i.i, align 4
-  %g51.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %98, i64 0, i32 1, i32 0, i64 16
+  %g51.i.i.i.i = getelementptr inbounds i8, ptr %98, i64 48
   %108 = load float, ptr %g51.i.i.i.i, align 4
   %cmp52.i.i.i.i = fcmp olt float %107, %108
-  br i1 %cmp52.i.i.i.i, label %cleanup.thread.i490, label %if.end54.i.i.i.i
+  br i1 %cmp52.i.i.i.i, label %cleanup.thread.i479, label %if.end54.i.i.i.i
 
 if.end54.i.i.i.i:                                 ; preds = %if.end48.i.i.i.i
   %cmp59.i.i.i.i = fcmp ogt float %107, %108
-  br i1 %cmp59.i.i.i.i, label %cleanup.thread.i490, label %if.end61.i.i.i.i
+  br i1 %cmp59.i.i.i.i, label %cleanup.thread.i479, label %if.end61.i.i.i.i
 
 if.end61.i.i.i.i:                                 ; preds = %if.end54.i.i.i.i
   %109 = load float, ptr %b.i.i.i.i.i.i.i.i.i.i, align 4
-  %b65.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %98, i64 0, i32 1, i32 0, i64 20
+  %b65.i.i.i.i = getelementptr inbounds i8, ptr %98, i64 52
   %110 = load float, ptr %b65.i.i.i.i, align 4
   %cmp66.i.i.i.i = fcmp olt float %109, %110
-  br i1 %cmp66.i.i.i.i, label %cleanup.thread.i490, label %if.end68.i.i.i.i
+  br i1 %cmp66.i.i.i.i, label %cleanup.thread.i479, label %if.end68.i.i.i.i
 
 if.end68.i.i.i.i:                                 ; preds = %if.end61.i.i.i.i
-  br label %cleanup.thread.i490
+  br label %cleanup.thread.i479
 
-cleanup.thread.i490:                              ; preds = %if.end68.i.i.i.i, %if.end61.i.i.i.i, %if.end54.i.i.i.i, %if.end48.i.i.i.i, %if.end41.i.i.i.i, %if.end36.i.i.i.i, %if.end29.i.i.i.i, %if.end23.i.i.i.i, %if.end16.i.i.i.i488, %if.end10.i.i.i.i, %if.end.i.i.i.i485, %lor.rhs.i.i.i482, %if.then.i477
-  %111 = phi i1 [ true, %if.then.i477 ], [ true, %lor.rhs.i.i.i482 ], [ false, %if.end.i.i.i.i485 ], [ true, %if.end10.i.i.i.i ], [ false, %if.end16.i.i.i.i488 ], [ true, %if.end23.i.i.i.i ], [ false, %if.end29.i.i.i.i ], [ true, %if.end36.i.i.i.i ], [ false, %if.end41.i.i.i.i ], [ true, %if.end48.i.i.i.i ], [ false, %if.end54.i.i.i.i ], [ true, %if.end61.i.i.i.i ], [ false, %if.end68.i.i.i.i ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %111, ptr noundef nonnull %call5.i.i.i.i.i.i471, ptr noundef nonnull %98, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i225) #20
-  %112 = load i64, ptr %_M_node_count.i.i.i491, align 8
-  %inc.i.i.i492 = add i64 %112, 1
-  store i64 %inc.i.i.i492, ptr %_M_node_count.i.i.i491, align 8
+cleanup.thread.i479:                              ; preds = %if.end68.i.i.i.i, %if.end61.i.i.i.i, %if.end54.i.i.i.i, %if.end48.i.i.i.i, %if.end41.i.i.i.i, %if.end36.i.i.i.i, %if.end29.i.i.i.i, %if.end23.i.i.i.i, %if.end16.i.i.i.i477, %if.end10.i.i.i.i, %if.end.i.i.i.i474, %lor.rhs.i.i.i471, %if.then.i466
+  %111 = phi i1 [ true, %if.then.i466 ], [ true, %lor.rhs.i.i.i471 ], [ false, %if.end.i.i.i.i474 ], [ true, %if.end10.i.i.i.i ], [ false, %if.end16.i.i.i.i477 ], [ true, %if.end23.i.i.i.i ], [ false, %if.end29.i.i.i.i ], [ true, %if.end36.i.i.i.i ], [ false, %if.end41.i.i.i.i ], [ true, %if.end48.i.i.i.i ], [ false, %if.end54.i.i.i.i ], [ true, %if.end61.i.i.i.i ], [ false, %if.end68.i.i.i.i ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %111, ptr noundef nonnull %call5.i.i.i.i.i.i460, ptr noundef nonnull %98, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i219) #20
+  %112 = load i64, ptr %_M_node_count.i.i.i480, align 8
+  %inc.i.i.i481 = add i64 %112, 1
+  store i64 %inc.i.i.i481, ptr %_M_node_count.i.i.i480, align 8
   br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit
 
-_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i: ; preds = %if.then.i222
+_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i: ; preds = %if.then.i217
   %113 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i471) #22
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i460) #22
   br label %common.resume
 
-if.then.i7.i494:                                  ; preds = %invoke.cont7.i475
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i471) #22
+if.then.i7.i483:                                  ; preds = %invoke.cont7.i464
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i460) #22
   br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit
 
-_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit: ; preds = %if.then.i7.i494, %cleanup.thread.i490, %if.end.i.i, %if.end16.i.i, %if.end29.i.i, %if.end41.i.i, %if.end54.i.i, %if.end61.i.i
-  %114 = phi i32 [ %80, %if.end.i.i ], [ %80, %if.end16.i.i ], [ %80, %if.end29.i.i ], [ %80, %if.end41.i.i ], [ %80, %if.end54.i.i ], [ %80, %if.end61.i.i ], [ %96, %cleanup.thread.i490 ], [ %96, %if.then.i7.i494 ]
-  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i216, %if.end.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end16.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end29.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end41.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end54.i.i ], [ %__y.addr.1.i.i.i.i216, %if.end61.i.i ], [ %call5.i.i.i.i.i.i471, %cleanup.thread.i490 ], [ %97, %if.then.i7.i494 ]
-  %second.i221 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 24
-  store i32 %114, ptr %second.i221, align 4
+_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit: ; preds = %if.then.i7.i483, %cleanup.thread.i479, %if.end.i.i, %if.end16.i.i, %if.end29.i.i, %if.end41.i.i, %if.end54.i.i, %if.end61.i.i
+  %114 = phi i32 [ %80, %if.end.i.i ], [ %80, %if.end16.i.i ], [ %80, %if.end29.i.i ], [ %80, %if.end41.i.i ], [ %80, %if.end54.i.i ], [ %80, %if.end61.i.i ], [ %96, %cleanup.thread.i479 ], [ %96, %if.then.i7.i483 ]
+  %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i211, %if.end.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end16.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end29.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end41.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end54.i.i ], [ %__y.addr.1.i.i.i.i211, %if.end61.i.i ], [ %call5.i.i.i.i.i.i460, %cleanup.thread.i479 ], [ %97, %if.then.i7.i483 ]
+  %second.i216 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 56
+  store i32 %114, ptr %second.i216, align 4
   br label %if.end53
 
 if.else:                                          ; preds = %for.body24
   %115 = load ptr, ptr %_M_parent.i.i.i, align 8
-  %cmp.not6.i.i346 = icmp eq ptr %115, null
-  br i1 %cmp.not6.i.i346, label %if.end.i62.thread, label %while.body.i.i353.preheader
+  %cmp.not6.i.i337 = icmp eq ptr %115, null
+  br i1 %cmp.not6.i.i337, label %if.end.i62.thread, label %while.body.i.i344.preheader
 
-while.body.i.i353.preheader:                      ; preds = %if.else
+while.body.i.i344.preheader:                      ; preds = %if.else
   %116 = extractelement <2 x float> %49, i64 0
   %117 = extractelement <2 x float> %49, i64 1
-  br label %while.body.i.i353
+  br label %while.body.i.i344
 
 if.end.i62.thread:                                ; preds = %if.else
   %118 = load i32, ptr %mVpMap, align 8
-  %inc.i63557 = add nsw i32 %118, 1
-  store i32 %inc.i63557, ptr %mVpMap, align 8
-  br label %if.then.i338
+  %inc.i63546 = add nsw i32 %118, 1
+  store i32 %inc.i63546, ptr %mVpMap, align 8
+  br label %if.then.i330
 
-while.body.i.i353:                                ; preds = %while.body.i.i353.preheader, %if.end.i.i385
-  %__x.addr.08.i.i354 = phi ptr [ %__x.addr.1.i.i388, %if.end.i.i385 ], [ %115, %while.body.i.i353.preheader ]
-  %__y.addr.07.i.i355 = phi ptr [ %__y.addr.1.i.i386, %if.end.i.i385 ], [ %add.ptr.i.i225, %while.body.i.i353.preheader ]
-  %_M_storage.i.i.i.i356 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i354, i64 0, i32 1
-  %119 = load float, ptr %_M_storage.i.i.i.i356, align 4
-  %cmp.i.i.i357 = fcmp olt float %119, %116
-  br i1 %cmp.i.i.i357, label %if.else.i.i422, label %if.end.i.i.i358
+while.body.i.i344:                                ; preds = %while.body.i.i344.preheader, %if.end.i.i374
+  %__x.addr.08.i.i345 = phi ptr [ %__x.addr.1.i.i378, %if.end.i.i374 ], [ %115, %while.body.i.i344.preheader ]
+  %__y.addr.07.i.i346 = phi ptr [ %__y.addr.1.i.i376, %if.end.i.i374 ], [ %add.ptr.i.i219, %while.body.i.i344.preheader ]
+  %_M_storage.i.i.i.i347 = getelementptr inbounds i8, ptr %__x.addr.08.i.i345, i64 32
+  %119 = load float, ptr %_M_storage.i.i.i.i347, align 4
+  %cmp.i.i.i348 = fcmp olt float %119, %116
+  br i1 %cmp.i.i.i348, label %if.else.i.i412, label %if.end.i.i.i349
 
-if.end.i.i.i358:                                  ; preds = %while.body.i.i353
-  %cmp8.i.i.i359 = fcmp ogt float %119, %116
-  br i1 %cmp8.i.i.i359, label %if.then.i.i383, label %if.end10.i.i.i360
+if.end.i.i.i349:                                  ; preds = %while.body.i.i344
+  %cmp8.i.i.i350 = fcmp ogt float %119, %116
+  br i1 %cmp8.i.i.i350, label %if.end.i.i374, label %if.end10.i.i.i351
 
-if.end10.i.i.i360:                                ; preds = %if.end.i.i.i358
-  %y.i.i.i361 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i354, i64 0, i32 1, i32 0, i64 4
-  %120 = load float, ptr %y.i.i.i361, align 4
-  %cmp14.i.i.i362 = fcmp olt float %120, %117
-  br i1 %cmp14.i.i.i362, label %if.else.i.i422, label %if.end16.i.i.i363
+if.end10.i.i.i351:                                ; preds = %if.end.i.i.i349
+  %y.i.i.i352 = getelementptr inbounds i8, ptr %__x.addr.08.i.i345, i64 36
+  %120 = load float, ptr %y.i.i.i352, align 4
+  %cmp14.i.i.i353 = fcmp olt float %120, %117
+  br i1 %cmp14.i.i.i353, label %if.else.i.i412, label %if.end16.i.i.i354
 
-if.end16.i.i.i363:                                ; preds = %if.end10.i.i.i360
-  %cmp21.i.i.i364 = fcmp ogt float %120, %117
-  br i1 %cmp21.i.i.i364, label %if.then.i.i383, label %if.end23.i.i.i365
+if.end16.i.i.i354:                                ; preds = %if.end10.i.i.i351
+  %cmp21.i.i.i355 = fcmp ogt float %120, %117
+  br i1 %cmp21.i.i.i355, label %if.end.i.i374, label %if.end23.i.i.i356
 
-if.end23.i.i.i365:                                ; preds = %if.end16.i.i.i363
-  %z.i.i.i366 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i354, i64 0, i32 1, i32 0, i64 8
-  %121 = load float, ptr %z.i.i.i366, align 4
-  %cmp27.i.i.i367 = fcmp olt float %121, %add13.i
-  br i1 %cmp27.i.i.i367, label %if.else.i.i422, label %if.end29.i.i.i368
+if.end23.i.i.i356:                                ; preds = %if.end16.i.i.i354
+  %z.i.i.i357 = getelementptr inbounds i8, ptr %__x.addr.08.i.i345, i64 40
+  %121 = load float, ptr %z.i.i.i357, align 4
+  %cmp27.i.i.i358 = fcmp olt float %121, %add13.i
+  br i1 %cmp27.i.i.i358, label %if.else.i.i412, label %if.end29.i.i.i359
 
-if.end29.i.i.i368:                                ; preds = %if.end23.i.i.i365
-  %cmp34.i.i.i369 = fcmp ogt float %121, %add13.i
-  br i1 %cmp34.i.i.i369, label %if.then.i.i383, label %if.end36.i.i.i370
+if.end29.i.i.i359:                                ; preds = %if.end23.i.i.i356
+  %cmp34.i.i.i360 = fcmp ogt float %121, %add13.i
+  br i1 %cmp34.i.i.i360, label %if.end.i.i374, label %if.end36.i.i.i361
 
-if.end36.i.i.i370:                                ; preds = %if.end29.i.i.i368
-  %vc.i.i.i371 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i354, i64 0, i32 1, i32 0, i64 12
-  %122 = load float, ptr %vc.i.i.i371, align 4
-  %cmp39.i.i.i372 = fcmp olt float %122, 0.000000e+00
-  br i1 %cmp39.i.i.i372, label %if.else.i.i422, label %if.end41.i.i.i373
+if.end36.i.i.i361:                                ; preds = %if.end29.i.i.i359
+  %vc.i.i.i362 = getelementptr inbounds i8, ptr %__x.addr.08.i.i345, i64 44
+  %122 = load float, ptr %vc.i.i.i362, align 4
+  %cmp39.i.i.i363 = fcmp olt float %122, 0.000000e+00
+  br i1 %cmp39.i.i.i363, label %if.else.i.i412, label %if.end41.i.i.i364
 
-if.end41.i.i.i373:                                ; preds = %if.end36.i.i.i370
-  %cmp46.i.i.i374 = fcmp ogt float %122, 0.000000e+00
-  br i1 %cmp46.i.i.i374, label %if.then.i.i383, label %if.end48.i.i.i375
+if.end41.i.i.i364:                                ; preds = %if.end36.i.i.i361
+  %cmp46.i.i.i365 = fcmp ogt float %122, 0.000000e+00
+  br i1 %cmp46.i.i.i365, label %if.end.i.i374, label %if.end48.i.i.i366
 
-if.end48.i.i.i375:                                ; preds = %if.end41.i.i.i373
-  %g.i.i.i376 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i354, i64 0, i32 1, i32 0, i64 16
-  %123 = load float, ptr %g.i.i.i376, align 4
-  %cmp52.i.i.i377 = fcmp olt float %123, 0.000000e+00
-  br i1 %cmp52.i.i.i377, label %if.else.i.i422, label %if.end54.i.i.i378
+if.end48.i.i.i366:                                ; preds = %if.end41.i.i.i364
+  %g.i.i.i367 = getelementptr inbounds i8, ptr %__x.addr.08.i.i345, i64 48
+  %123 = load float, ptr %g.i.i.i367, align 4
+  %cmp52.i.i.i368 = fcmp olt float %123, 0.000000e+00
+  br i1 %cmp52.i.i.i368, label %if.else.i.i412, label %if.end54.i.i.i369
 
-if.end54.i.i.i378:                                ; preds = %if.end48.i.i.i375
-  %cmp59.i.i.i379 = fcmp ogt float %123, 0.000000e+00
-  br i1 %cmp59.i.i.i379, label %if.then.i.i383, label %if.end61.i.i.i380
+if.end54.i.i.i369:                                ; preds = %if.end48.i.i.i366
+  %cmp59.i.i.i370 = fcmp ogt float %123, 0.000000e+00
+  br i1 %cmp59.i.i.i370, label %if.end.i.i374, label %if.end61.i.i.i371
 
-if.end61.i.i.i380:                                ; preds = %if.end54.i.i.i378
-  %b63.i.i.i381 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i354, i64 0, i32 1, i32 0, i64 20
-  %124 = load float, ptr %b63.i.i.i381, align 4
-  %cmp66.i.i.i382 = fcmp olt float %124, 0.000000e+00
-  br i1 %cmp66.i.i.i382, label %if.else.i.i422, label %if.then.i.i383
+if.end61.i.i.i371:                                ; preds = %if.end54.i.i.i369
+  %b63.i.i.i372 = getelementptr inbounds i8, ptr %__x.addr.08.i.i345, i64 52
+  %124 = load float, ptr %b63.i.i.i372, align 4
+  %cmp66.i.i.i373 = fcmp olt float %124, 0.000000e+00
+  br i1 %cmp66.i.i.i373, label %if.else.i.i412, label %if.end.i.i374
 
-if.then.i.i383:                                   ; preds = %if.end61.i.i.i380, %if.end54.i.i.i378, %if.end41.i.i.i373, %if.end29.i.i.i368, %if.end16.i.i.i363, %if.end.i.i.i358
-  %_M_left.i.i.i384 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i354, i64 0, i32 2
-  br label %if.end.i.i385
+if.else.i.i412:                                   ; preds = %if.end61.i.i.i371, %if.end48.i.i.i366, %if.end36.i.i.i361, %if.end23.i.i.i356, %if.end10.i.i.i351, %while.body.i.i344
+  br label %if.end.i.i374
 
-if.else.i.i422:                                   ; preds = %if.end61.i.i.i380, %if.end48.i.i.i375, %if.end36.i.i.i370, %if.end23.i.i.i365, %if.end10.i.i.i360, %while.body.i.i353
-  %_M_right.i.i.i423 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i354, i64 0, i32 3
-  br label %if.end.i.i385
+if.end.i.i374:                                    ; preds = %if.else.i.i412, %if.end61.i.i.i371, %if.end54.i.i.i369, %if.end41.i.i.i364, %if.end29.i.i.i359, %if.end16.i.i.i354, %if.end.i.i.i349
+  %.sink.i.i375 = phi i64 [ 24, %if.else.i.i412 ], [ 16, %if.end61.i.i.i371 ], [ 16, %if.end54.i.i.i369 ], [ 16, %if.end41.i.i.i364 ], [ 16, %if.end29.i.i.i359 ], [ 16, %if.end16.i.i.i354 ], [ 16, %if.end.i.i.i349 ]
+  %__y.addr.1.i.i376 = phi ptr [ %__y.addr.07.i.i346, %if.else.i.i412 ], [ %__x.addr.08.i.i345, %if.end61.i.i.i371 ], [ %__x.addr.08.i.i345, %if.end54.i.i.i369 ], [ %__x.addr.08.i.i345, %if.end41.i.i.i364 ], [ %__x.addr.08.i.i345, %if.end29.i.i.i359 ], [ %__x.addr.08.i.i345, %if.end16.i.i.i354 ], [ %__x.addr.08.i.i345, %if.end.i.i.i349 ]
+  %_M_right.i.i.i377 = getelementptr inbounds i8, ptr %__x.addr.08.i.i345, i64 %.sink.i.i375
+  %__x.addr.1.i.i378 = load ptr, ptr %_M_right.i.i.i377, align 8
+  %cmp.not.i.i379 = icmp eq ptr %__x.addr.1.i.i378, null
+  br i1 %cmp.not.i.i379, label %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i380, label %while.body.i.i344, !llvm.loop !17
 
-if.end.i.i385:                                    ; preds = %if.else.i.i422, %if.then.i.i383
-  %__y.addr.1.i.i386 = phi ptr [ %__y.addr.07.i.i355, %if.else.i.i422 ], [ %__x.addr.08.i.i354, %if.then.i.i383 ]
-  %__x.addr.1.in.i.i387 = phi ptr [ %_M_right.i.i.i423, %if.else.i.i422 ], [ %_M_left.i.i.i384, %if.then.i.i383 ]
-  %__x.addr.1.i.i388 = load ptr, ptr %__x.addr.1.in.i.i387, align 8
-  %cmp.not.i.i389 = icmp eq ptr %__x.addr.1.i.i388, null
-  br i1 %cmp.not.i.i389, label %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i390, label %while.body.i.i353, !llvm.loop !17
+_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i380: ; preds = %if.end.i.i374
+  %cmp.i.i381 = icmp eq ptr %__y.addr.1.i.i376, %add.ptr.i.i219
+  br i1 %cmp.i.i381, label %if.end.i62, label %lor.lhs.false.i382
 
-_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i390: ; preds = %if.end.i.i385
-  %cmp.i.i391 = icmp eq ptr %__y.addr.1.i.i386, %add.ptr.i.i225
-  br i1 %cmp.i.i391, label %if.end.i62, label %lor.lhs.false.i392
+lor.lhs.false.i382:                               ; preds = %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i380
+  %_M_storage.i.i.i3.i383 = getelementptr inbounds i8, ptr %__y.addr.1.i.i376, i64 32
+  %125 = load float, ptr %_M_storage.i.i.i3.i383, align 4
+  %cmp.i4.i384 = fcmp olt float %116, %125
+  br i1 %cmp.i4.i384, label %if.end.i62, label %if.end.i5.i385
 
-lor.lhs.false.i392:                               ; preds = %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i390
-  %_M_storage.i.i.i3.i393 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i386, i64 0, i32 1
-  %125 = load float, ptr %_M_storage.i.i.i3.i393, align 4
-  %cmp.i4.i394 = fcmp olt float %116, %125
-  br i1 %cmp.i4.i394, label %if.end.i62, label %if.end.i5.i395
+if.end.i5.i385:                                   ; preds = %lor.lhs.false.i382
+  %cmp8.i.i386 = fcmp ogt float %116, %125
+  br i1 %cmp8.i.i386, label %if.then.i59, label %if.end10.i.i387
 
-if.end.i5.i395:                                   ; preds = %lor.lhs.false.i392
-  %cmp8.i.i396 = fcmp ogt float %116, %125
-  br i1 %cmp8.i.i396, label %if.then.i59, label %if.end10.i.i397
-
-if.end10.i.i397:                                  ; preds = %if.end.i5.i395
-  %y13.i.i398 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i386, i64 0, i32 1, i32 0, i64 4
-  %126 = load float, ptr %y13.i.i398, align 4
+if.end10.i.i387:                                  ; preds = %if.end.i5.i385
+  %y13.i.i388 = getelementptr inbounds i8, ptr %__y.addr.1.i.i376, i64 36
+  %126 = load float, ptr %y13.i.i388, align 4
   %127 = extractelement <2 x float> %49, i64 1
-  %cmp14.i.i399 = fcmp olt float %127, %126
-  br i1 %cmp14.i.i399, label %if.end.i62, label %if.end16.i.i400
+  %cmp14.i.i389 = fcmp olt float %127, %126
+  br i1 %cmp14.i.i389, label %if.end.i62, label %if.end16.i.i390
 
-if.end16.i.i400:                                  ; preds = %if.end10.i.i397
-  %cmp21.i.i401 = fcmp ogt float %127, %126
-  br i1 %cmp21.i.i401, label %if.then.i59, label %if.end23.i.i402
+if.end16.i.i390:                                  ; preds = %if.end10.i.i387
+  %cmp21.i.i391 = fcmp ogt float %127, %126
+  br i1 %cmp21.i.i391, label %if.then.i59, label %if.end23.i.i392
 
-if.end23.i.i402:                                  ; preds = %if.end16.i.i400
-  %z26.i.i403 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i386, i64 0, i32 1, i32 0, i64 8
-  %128 = load float, ptr %z26.i.i403, align 4
-  %cmp27.i.i404 = fcmp olt float %add13.i, %128
-  br i1 %cmp27.i.i404, label %if.end.i62, label %if.end29.i.i405
+if.end23.i.i392:                                  ; preds = %if.end16.i.i390
+  %z26.i.i393 = getelementptr inbounds i8, ptr %__y.addr.1.i.i376, i64 40
+  %128 = load float, ptr %z26.i.i393, align 4
+  %cmp27.i.i394 = fcmp olt float %add13.i, %128
+  br i1 %cmp27.i.i394, label %if.end.i62, label %if.end29.i.i395
 
-if.end29.i.i405:                                  ; preds = %if.end23.i.i402
-  %cmp34.i.i406 = fcmp ogt float %add13.i, %128
-  br i1 %cmp34.i.i406, label %if.then.i59, label %if.end36.i.i407
+if.end29.i.i395:                                  ; preds = %if.end23.i.i392
+  %cmp34.i.i396 = fcmp ogt float %add13.i, %128
+  br i1 %cmp34.i.i396, label %if.then.i59, label %if.end36.i.i397
 
-if.end36.i.i407:                                  ; preds = %if.end29.i.i405
-  %vc37.i.i408 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i386, i64 0, i32 1, i32 0, i64 12
-  %129 = load float, ptr %vc37.i.i408, align 4
-  %cmp39.i.i409 = fcmp ogt float %129, 0.000000e+00
-  br i1 %cmp39.i.i409, label %if.end.i62, label %if.end41.i.i410
+if.end36.i.i397:                                  ; preds = %if.end29.i.i395
+  %vc37.i.i398 = getelementptr inbounds i8, ptr %__y.addr.1.i.i376, i64 44
+  %129 = load float, ptr %vc37.i.i398, align 4
+  %cmp39.i.i399 = fcmp ogt float %129, 0.000000e+00
+  br i1 %cmp39.i.i399, label %if.end.i62, label %if.end41.i.i400
 
-if.end41.i.i410:                                  ; preds = %if.end36.i.i407
-  %cmp46.i.i411 = fcmp olt float %129, 0.000000e+00
-  br i1 %cmp46.i.i411, label %if.then.i59, label %if.end48.i.i412
+if.end41.i.i400:                                  ; preds = %if.end36.i.i397
+  %cmp46.i.i401 = fcmp olt float %129, 0.000000e+00
+  br i1 %cmp46.i.i401, label %if.then.i59, label %if.end48.i.i402
 
-if.end48.i.i412:                                  ; preds = %if.end41.i.i410
-  %g51.i.i413 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i386, i64 0, i32 1, i32 0, i64 16
-  %130 = load float, ptr %g51.i.i413, align 4
-  %cmp52.i.i414 = fcmp ogt float %130, 0.000000e+00
-  br i1 %cmp52.i.i414, label %if.end.i62, label %if.end54.i.i415
+if.end48.i.i402:                                  ; preds = %if.end41.i.i400
+  %g51.i.i403 = getelementptr inbounds i8, ptr %__y.addr.1.i.i376, i64 48
+  %130 = load float, ptr %g51.i.i403, align 4
+  %cmp52.i.i404 = fcmp ogt float %130, 0.000000e+00
+  br i1 %cmp52.i.i404, label %if.end.i62, label %if.end54.i.i405
 
-if.end54.i.i415:                                  ; preds = %if.end48.i.i412
-  %cmp59.i.i416 = fcmp olt float %130, 0.000000e+00
-  br i1 %cmp59.i.i416, label %if.then.i59, label %if.end61.i.i417
+if.end54.i.i405:                                  ; preds = %if.end48.i.i402
+  %cmp59.i.i406 = fcmp olt float %130, 0.000000e+00
+  br i1 %cmp59.i.i406, label %if.then.i59, label %if.end61.i.i407
 
-if.end61.i.i417:                                  ; preds = %if.end54.i.i415
-  %b65.i.i418 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i386, i64 0, i32 1, i32 0, i64 20
-  %131 = load float, ptr %b65.i.i418, align 4
-  %cmp66.i.i419 = fcmp ogt float %131, 0.000000e+00
-  br i1 %cmp66.i.i419, label %if.end.i62, label %if.then.i59
+if.end61.i.i407:                                  ; preds = %if.end54.i.i405
+  %b65.i.i408 = getelementptr inbounds i8, ptr %__y.addr.1.i.i376, i64 52
+  %131 = load float, ptr %b65.i.i408, align 4
+  %cmp66.i.i409 = fcmp ogt float %131, 0.000000e+00
+  br i1 %cmp66.i.i409, label %if.end.i62, label %if.then.i59
 
-if.then.i59:                                      ; preds = %if.end54.i.i415, %if.end41.i.i410, %if.end29.i.i405, %if.end16.i.i400, %if.end.i5.i395, %if.end61.i.i417
-  %second.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i386, i64 0, i32 1, i32 0, i64 24
+if.then.i59:                                      ; preds = %if.end54.i.i405, %if.end41.i.i400, %if.end29.i.i395, %if.end16.i.i390, %if.end.i5.i385, %if.end61.i.i407
+  %second.i60 = getelementptr inbounds i8, ptr %__y.addr.1.i.i376, i64 56
   %132 = load i32, ptr %second.i60, align 4
   br label %if.end53
 
-if.end.i62:                                       ; preds = %lor.lhs.false.i392, %if.end10.i.i397, %if.end23.i.i402, %if.end36.i.i407, %if.end48.i.i412, %if.end61.i.i417, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i390
+if.end.i62:                                       ; preds = %lor.lhs.false.i382, %if.end10.i.i387, %if.end23.i.i392, %if.end36.i.i397, %if.end48.i.i402, %if.end61.i.i407, %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS4_.exit.i380
   %133 = load i32, ptr %mVpMap, align 8
   %inc.i63 = add nsw i32 %133, 1
   store i32 %inc.i63, ptr %mVpMap, align 8
   %134 = extractelement <2 x float> %49, i64 1
-  br label %while.body.i.i.i.i268
+  br label %while.body.i.i.i.i261
 
-while.body.i.i.i.i268:                            ; preds = %if.end.i.i.i.i300, %if.end.i62
-  %__x.addr.08.i.i.i.i269 = phi ptr [ %115, %if.end.i62 ], [ %__x.addr.1.i.i.i.i303, %if.end.i.i.i.i300 ]
-  %__y.addr.07.i.i.i.i270 = phi ptr [ %add.ptr.i.i225, %if.end.i62 ], [ %__y.addr.1.i.i.i.i301, %if.end.i.i.i.i300 ]
-  %_M_storage.i.i.i.i.i.i271 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 1
-  %135 = load float, ptr %_M_storage.i.i.i.i.i.i271, align 4
-  %cmp.i.i.i.i.i272 = fcmp olt float %135, %116
-  br i1 %cmp.i.i.i.i.i272, label %if.else.i.i.i.i341, label %if.end.i.i.i.i.i273
+while.body.i.i.i.i261:                            ; preds = %if.end.i.i.i.i291, %if.end.i62
+  %__x.addr.08.i.i.i.i262 = phi ptr [ %115, %if.end.i62 ], [ %__x.addr.1.i.i.i.i295, %if.end.i.i.i.i291 ]
+  %__y.addr.07.i.i.i.i263 = phi ptr [ %add.ptr.i.i219, %if.end.i62 ], [ %__y.addr.1.i.i.i.i293, %if.end.i.i.i.i291 ]
+  %_M_storage.i.i.i.i.i.i264 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i262, i64 32
+  %135 = load float, ptr %_M_storage.i.i.i.i.i.i264, align 4
+  %cmp.i.i.i.i.i265 = fcmp olt float %135, %116
+  br i1 %cmp.i.i.i.i.i265, label %if.else.i.i.i.i333, label %if.end.i.i.i.i.i266
 
-if.end.i.i.i.i.i273:                              ; preds = %while.body.i.i.i.i268
-  %cmp8.i.i.i.i.i274 = fcmp ogt float %135, %116
-  br i1 %cmp8.i.i.i.i.i274, label %if.then.i.i.i.i298, label %if.end10.i.i.i.i.i275
+if.end.i.i.i.i.i266:                              ; preds = %while.body.i.i.i.i261
+  %cmp8.i.i.i.i.i267 = fcmp ogt float %135, %116
+  br i1 %cmp8.i.i.i.i.i267, label %if.end.i.i.i.i291, label %if.end10.i.i.i.i.i268
 
-if.end10.i.i.i.i.i275:                            ; preds = %if.end.i.i.i.i.i273
-  %y.i.i.i.i.i276 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 1, i32 0, i64 4
-  %136 = load float, ptr %y.i.i.i.i.i276, align 4
-  %cmp14.i.i.i.i.i277 = fcmp olt float %136, %134
-  br i1 %cmp14.i.i.i.i.i277, label %if.else.i.i.i.i341, label %if.end16.i.i.i.i.i278
+if.end10.i.i.i.i.i268:                            ; preds = %if.end.i.i.i.i.i266
+  %y.i.i.i.i.i269 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i262, i64 36
+  %136 = load float, ptr %y.i.i.i.i.i269, align 4
+  %cmp14.i.i.i.i.i270 = fcmp olt float %136, %134
+  br i1 %cmp14.i.i.i.i.i270, label %if.else.i.i.i.i333, label %if.end16.i.i.i.i.i271
 
-if.end16.i.i.i.i.i278:                            ; preds = %if.end10.i.i.i.i.i275
-  %cmp21.i.i.i.i.i279 = fcmp ogt float %136, %134
-  br i1 %cmp21.i.i.i.i.i279, label %if.then.i.i.i.i298, label %if.end23.i.i.i.i.i280
+if.end16.i.i.i.i.i271:                            ; preds = %if.end10.i.i.i.i.i268
+  %cmp21.i.i.i.i.i272 = fcmp ogt float %136, %134
+  br i1 %cmp21.i.i.i.i.i272, label %if.end.i.i.i.i291, label %if.end23.i.i.i.i.i273
 
-if.end23.i.i.i.i.i280:                            ; preds = %if.end16.i.i.i.i.i278
-  %z.i.i.i.i.i281 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 1, i32 0, i64 8
-  %137 = load float, ptr %z.i.i.i.i.i281, align 4
-  %cmp27.i.i.i.i.i282 = fcmp olt float %137, %add13.i
-  br i1 %cmp27.i.i.i.i.i282, label %if.else.i.i.i.i341, label %if.end29.i.i.i.i.i283
+if.end23.i.i.i.i.i273:                            ; preds = %if.end16.i.i.i.i.i271
+  %z.i.i.i.i.i274 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i262, i64 40
+  %137 = load float, ptr %z.i.i.i.i.i274, align 4
+  %cmp27.i.i.i.i.i275 = fcmp olt float %137, %add13.i
+  br i1 %cmp27.i.i.i.i.i275, label %if.else.i.i.i.i333, label %if.end29.i.i.i.i.i276
 
-if.end29.i.i.i.i.i283:                            ; preds = %if.end23.i.i.i.i.i280
-  %cmp34.i.i.i.i.i284 = fcmp ogt float %137, %add13.i
-  br i1 %cmp34.i.i.i.i.i284, label %if.then.i.i.i.i298, label %if.end36.i.i.i.i.i285
+if.end29.i.i.i.i.i276:                            ; preds = %if.end23.i.i.i.i.i273
+  %cmp34.i.i.i.i.i277 = fcmp ogt float %137, %add13.i
+  br i1 %cmp34.i.i.i.i.i277, label %if.end.i.i.i.i291, label %if.end36.i.i.i.i.i278
 
-if.end36.i.i.i.i.i285:                            ; preds = %if.end29.i.i.i.i.i283
-  %vc.i.i.i.i.i286 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 1, i32 0, i64 12
-  %138 = load float, ptr %vc.i.i.i.i.i286, align 4
-  %cmp39.i.i.i.i.i287 = fcmp olt float %138, 0.000000e+00
-  br i1 %cmp39.i.i.i.i.i287, label %if.else.i.i.i.i341, label %if.end41.i.i.i.i.i288
+if.end36.i.i.i.i.i278:                            ; preds = %if.end29.i.i.i.i.i276
+  %vc.i.i.i.i.i279 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i262, i64 44
+  %138 = load float, ptr %vc.i.i.i.i.i279, align 4
+  %cmp39.i.i.i.i.i280 = fcmp olt float %138, 0.000000e+00
+  br i1 %cmp39.i.i.i.i.i280, label %if.else.i.i.i.i333, label %if.end41.i.i.i.i.i281
 
-if.end41.i.i.i.i.i288:                            ; preds = %if.end36.i.i.i.i.i285
-  %cmp46.i.i.i.i.i289 = fcmp ogt float %138, 0.000000e+00
-  br i1 %cmp46.i.i.i.i.i289, label %if.then.i.i.i.i298, label %if.end48.i.i.i.i.i290
+if.end41.i.i.i.i.i281:                            ; preds = %if.end36.i.i.i.i.i278
+  %cmp46.i.i.i.i.i282 = fcmp ogt float %138, 0.000000e+00
+  br i1 %cmp46.i.i.i.i.i282, label %if.end.i.i.i.i291, label %if.end48.i.i.i.i.i283
 
-if.end48.i.i.i.i.i290:                            ; preds = %if.end41.i.i.i.i.i288
-  %g.i.i.i.i.i291 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 1, i32 0, i64 16
-  %139 = load float, ptr %g.i.i.i.i.i291, align 4
-  %cmp52.i.i.i.i.i292 = fcmp olt float %139, 0.000000e+00
-  br i1 %cmp52.i.i.i.i.i292, label %if.else.i.i.i.i341, label %if.end54.i.i.i.i.i293
+if.end48.i.i.i.i.i283:                            ; preds = %if.end41.i.i.i.i.i281
+  %g.i.i.i.i.i284 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i262, i64 48
+  %139 = load float, ptr %g.i.i.i.i.i284, align 4
+  %cmp52.i.i.i.i.i285 = fcmp olt float %139, 0.000000e+00
+  br i1 %cmp52.i.i.i.i.i285, label %if.else.i.i.i.i333, label %if.end54.i.i.i.i.i286
 
-if.end54.i.i.i.i.i293:                            ; preds = %if.end48.i.i.i.i.i290
-  %cmp59.i.i.i.i.i294 = fcmp ogt float %139, 0.000000e+00
-  br i1 %cmp59.i.i.i.i.i294, label %if.then.i.i.i.i298, label %if.end61.i.i.i.i.i295
+if.end54.i.i.i.i.i286:                            ; preds = %if.end48.i.i.i.i.i283
+  %cmp59.i.i.i.i.i287 = fcmp ogt float %139, 0.000000e+00
+  br i1 %cmp59.i.i.i.i.i287, label %if.end.i.i.i.i291, label %if.end61.i.i.i.i.i288
 
-if.end61.i.i.i.i.i295:                            ; preds = %if.end54.i.i.i.i.i293
-  %b63.i.i.i.i.i296 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 1, i32 0, i64 20
-  %140 = load float, ptr %b63.i.i.i.i.i296, align 4
-  %cmp66.i.i.i.i.i297 = fcmp olt float %140, 0.000000e+00
-  br i1 %cmp66.i.i.i.i.i297, label %if.else.i.i.i.i341, label %if.then.i.i.i.i298
+if.end61.i.i.i.i.i288:                            ; preds = %if.end54.i.i.i.i.i286
+  %b63.i.i.i.i.i289 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i262, i64 52
+  %140 = load float, ptr %b63.i.i.i.i.i289, align 4
+  %cmp66.i.i.i.i.i290 = fcmp olt float %140, 0.000000e+00
+  br i1 %cmp66.i.i.i.i.i290, label %if.else.i.i.i.i333, label %if.end.i.i.i.i291
 
-if.then.i.i.i.i298:                               ; preds = %if.end61.i.i.i.i.i295, %if.end54.i.i.i.i.i293, %if.end41.i.i.i.i.i288, %if.end29.i.i.i.i.i283, %if.end16.i.i.i.i.i278, %if.end.i.i.i.i.i273
-  %_M_left.i.i.i.i.i299 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 2
-  br label %if.end.i.i.i.i300
+if.else.i.i.i.i333:                               ; preds = %if.end61.i.i.i.i.i288, %if.end48.i.i.i.i.i283, %if.end36.i.i.i.i.i278, %if.end23.i.i.i.i.i273, %if.end10.i.i.i.i.i268, %while.body.i.i.i.i261
+  br label %if.end.i.i.i.i291
 
-if.else.i.i.i.i341:                               ; preds = %if.end61.i.i.i.i.i295, %if.end48.i.i.i.i.i290, %if.end36.i.i.i.i.i285, %if.end23.i.i.i.i.i280, %if.end10.i.i.i.i.i275, %while.body.i.i.i.i268
-  %_M_right.i.i.i.i.i342 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i269, i64 0, i32 3
-  br label %if.end.i.i.i.i300
+if.end.i.i.i.i291:                                ; preds = %if.else.i.i.i.i333, %if.end61.i.i.i.i.i288, %if.end54.i.i.i.i.i286, %if.end41.i.i.i.i.i281, %if.end29.i.i.i.i.i276, %if.end16.i.i.i.i.i271, %if.end.i.i.i.i.i266
+  %.sink.i.i.i.i292 = phi i64 [ 24, %if.else.i.i.i.i333 ], [ 16, %if.end61.i.i.i.i.i288 ], [ 16, %if.end54.i.i.i.i.i286 ], [ 16, %if.end41.i.i.i.i.i281 ], [ 16, %if.end29.i.i.i.i.i276 ], [ 16, %if.end16.i.i.i.i.i271 ], [ 16, %if.end.i.i.i.i.i266 ]
+  %__y.addr.1.i.i.i.i293 = phi ptr [ %__y.addr.07.i.i.i.i263, %if.else.i.i.i.i333 ], [ %__x.addr.08.i.i.i.i262, %if.end61.i.i.i.i.i288 ], [ %__x.addr.08.i.i.i.i262, %if.end54.i.i.i.i.i286 ], [ %__x.addr.08.i.i.i.i262, %if.end41.i.i.i.i.i281 ], [ %__x.addr.08.i.i.i.i262, %if.end29.i.i.i.i.i276 ], [ %__x.addr.08.i.i.i.i262, %if.end16.i.i.i.i.i271 ], [ %__x.addr.08.i.i.i.i262, %if.end.i.i.i.i.i266 ]
+  %_M_right.i.i.i.i.i294 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i262, i64 %.sink.i.i.i.i292
+  %__x.addr.1.i.i.i.i295 = load ptr, ptr %_M_right.i.i.i.i.i294, align 8
+  %cmp.not.i.i.i.i296 = icmp eq ptr %__x.addr.1.i.i.i.i295, null
+  br i1 %cmp.not.i.i.i.i296, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i297, label %while.body.i.i.i.i261, !llvm.loop !17
 
-if.end.i.i.i.i300:                                ; preds = %if.else.i.i.i.i341, %if.then.i.i.i.i298
-  %__y.addr.1.i.i.i.i301 = phi ptr [ %__y.addr.07.i.i.i.i270, %if.else.i.i.i.i341 ], [ %__x.addr.08.i.i.i.i269, %if.then.i.i.i.i298 ]
-  %__x.addr.1.in.i.i.i.i302 = phi ptr [ %_M_right.i.i.i.i.i342, %if.else.i.i.i.i341 ], [ %_M_left.i.i.i.i.i299, %if.then.i.i.i.i298 ]
-  %__x.addr.1.i.i.i.i303 = load ptr, ptr %__x.addr.1.in.i.i.i.i302, align 8
-  %cmp.not.i.i.i.i304 = icmp eq ptr %__x.addr.1.i.i.i.i303, null
-  br i1 %cmp.not.i.i.i.i304, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i305, label %while.body.i.i.i.i268, !llvm.loop !17
+_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i297: ; preds = %if.end.i.i.i.i291
+  %cmp.i.i298 = icmp eq ptr %__y.addr.1.i.i.i.i293, %add.ptr.i.i219
+  br i1 %cmp.i.i298, label %if.then.i330, label %lor.rhs.i299
 
-_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i305: ; preds = %if.end.i.i.i.i300
-  %cmp.i.i306 = icmp eq ptr %__y.addr.1.i.i.i.i301, %add.ptr.i.i225
-  br i1 %cmp.i.i306, label %if.then.i338, label %lor.rhs.i307
+lor.rhs.i299:                                     ; preds = %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i297
+  %_M_storage.i.i.i300 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i293, i64 32
+  %141 = load float, ptr %_M_storage.i.i.i300, align 4
+  %cmp.i3.i301 = fcmp olt float %116, %141
+  br i1 %cmp.i3.i301, label %if.then.i330, label %if.end.i.i302
 
-lor.rhs.i307:                                     ; preds = %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i305
-  %_M_storage.i.i.i308 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i301, i64 0, i32 1
-  %141 = load float, ptr %_M_storage.i.i.i308, align 4
-  %cmp.i3.i309 = fcmp olt float %116, %141
-  br i1 %cmp.i3.i309, label %if.then.i338, label %if.end.i.i310
+if.end.i.i302:                                    ; preds = %lor.rhs.i299
+  %cmp8.i.i303 = fcmp ogt float %116, %141
+  br i1 %cmp8.i.i303, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334, label %if.end10.i.i304
 
-if.end.i.i310:                                    ; preds = %lor.rhs.i307
-  %cmp8.i.i311 = fcmp ogt float %116, %141
-  br i1 %cmp8.i.i311, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343, label %if.end10.i.i312
+if.end10.i.i304:                                  ; preds = %if.end.i.i302
+  %y13.i.i305 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i293, i64 36
+  %142 = load float, ptr %y13.i.i305, align 4
+  %cmp14.i.i306 = fcmp olt float %134, %142
+  br i1 %cmp14.i.i306, label %if.then.i330, label %if.end16.i.i307
 
-if.end10.i.i312:                                  ; preds = %if.end.i.i310
-  %y13.i.i313 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i301, i64 0, i32 1, i32 0, i64 4
-  %142 = load float, ptr %y13.i.i313, align 4
-  %cmp14.i.i314 = fcmp olt float %134, %142
-  br i1 %cmp14.i.i314, label %if.then.i338, label %if.end16.i.i315
+if.end16.i.i307:                                  ; preds = %if.end10.i.i304
+  %cmp21.i.i308 = fcmp ogt float %134, %142
+  br i1 %cmp21.i.i308, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334, label %if.end23.i.i309
 
-if.end16.i.i315:                                  ; preds = %if.end10.i.i312
-  %cmp21.i.i316 = fcmp ogt float %134, %142
-  br i1 %cmp21.i.i316, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343, label %if.end23.i.i317
+if.end23.i.i309:                                  ; preds = %if.end16.i.i307
+  %z26.i.i310 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i293, i64 40
+  %143 = load float, ptr %z26.i.i310, align 4
+  %cmp27.i.i311 = fcmp olt float %add13.i, %143
+  br i1 %cmp27.i.i311, label %if.then.i330, label %if.end29.i.i312
 
-if.end23.i.i317:                                  ; preds = %if.end16.i.i315
-  %z26.i.i318 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i301, i64 0, i32 1, i32 0, i64 8
-  %143 = load float, ptr %z26.i.i318, align 4
-  %cmp27.i.i319 = fcmp olt float %add13.i, %143
-  br i1 %cmp27.i.i319, label %if.then.i338, label %if.end29.i.i320
+if.end29.i.i312:                                  ; preds = %if.end23.i.i309
+  %cmp34.i.i313 = fcmp ogt float %add13.i, %143
+  br i1 %cmp34.i.i313, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334, label %if.end36.i.i314
 
-if.end29.i.i320:                                  ; preds = %if.end23.i.i317
-  %cmp34.i.i321 = fcmp ogt float %add13.i, %143
-  br i1 %cmp34.i.i321, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343, label %if.end36.i.i322
+if.end36.i.i314:                                  ; preds = %if.end29.i.i312
+  %vc37.i.i315 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i293, i64 44
+  %144 = load float, ptr %vc37.i.i315, align 4
+  %cmp39.i.i316 = fcmp ogt float %144, 0.000000e+00
+  br i1 %cmp39.i.i316, label %if.then.i330, label %if.end41.i.i317
 
-if.end36.i.i322:                                  ; preds = %if.end29.i.i320
-  %vc37.i.i323 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i301, i64 0, i32 1, i32 0, i64 12
-  %144 = load float, ptr %vc37.i.i323, align 4
-  %cmp39.i.i324 = fcmp ogt float %144, 0.000000e+00
-  br i1 %cmp39.i.i324, label %if.then.i338, label %if.end41.i.i325
+if.end41.i.i317:                                  ; preds = %if.end36.i.i314
+  %cmp46.i.i318 = fcmp olt float %144, 0.000000e+00
+  br i1 %cmp46.i.i318, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334, label %if.end48.i.i319
 
-if.end41.i.i325:                                  ; preds = %if.end36.i.i322
-  %cmp46.i.i326 = fcmp olt float %144, 0.000000e+00
-  br i1 %cmp46.i.i326, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343, label %if.end48.i.i327
+if.end48.i.i319:                                  ; preds = %if.end41.i.i317
+  %g51.i.i320 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i293, i64 48
+  %145 = load float, ptr %g51.i.i320, align 4
+  %cmp52.i.i321 = fcmp ogt float %145, 0.000000e+00
+  br i1 %cmp52.i.i321, label %if.then.i330, label %if.end54.i.i322
 
-if.end48.i.i327:                                  ; preds = %if.end41.i.i325
-  %g51.i.i328 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i301, i64 0, i32 1, i32 0, i64 16
-  %145 = load float, ptr %g51.i.i328, align 4
-  %cmp52.i.i329 = fcmp ogt float %145, 0.000000e+00
-  br i1 %cmp52.i.i329, label %if.then.i338, label %if.end54.i.i330
+if.end54.i.i322:                                  ; preds = %if.end48.i.i319
+  %cmp59.i.i323 = fcmp olt float %145, 0.000000e+00
+  br i1 %cmp59.i.i323, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334, label %if.end61.i.i324
 
-if.end54.i.i330:                                  ; preds = %if.end48.i.i327
-  %cmp59.i.i331 = fcmp olt float %145, 0.000000e+00
-  br i1 %cmp59.i.i331, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343, label %if.end61.i.i332
+if.end61.i.i324:                                  ; preds = %if.end54.i.i322
+  %b65.i.i325 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i293, i64 52
+  %146 = load float, ptr %b65.i.i325, align 4
+  %cmp66.i.i326 = fcmp ogt float %146, 0.000000e+00
+  br i1 %cmp66.i.i326, label %if.then.i330, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334
 
-if.end61.i.i332:                                  ; preds = %if.end54.i.i330
-  %b65.i.i333 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i301, i64 0, i32 1, i32 0, i64 20
-  %146 = load float, ptr %b65.i.i333, align 4
-  %cmp66.i.i334 = fcmp ogt float %146, 0.000000e+00
-  br i1 %cmp66.i.i334, label %if.then.i338, label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343
+if.then.i330:                                     ; preds = %if.end.i62.thread, %if.end61.i.i324, %if.end48.i.i319, %if.end36.i.i314, %if.end23.i.i309, %if.end10.i.i304, %lor.rhs.i299, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i297
+  %147 = phi i32 [ %133, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i297 ], [ %133, %lor.rhs.i299 ], [ %133, %if.end10.i.i304 ], [ %133, %if.end23.i.i309 ], [ %133, %if.end36.i.i314 ], [ %133, %if.end48.i.i319 ], [ %133, %if.end61.i.i324 ], [ %118, %if.end.i62.thread ]
+  %__y.addr.0.lcssa.i.i.i10.i331 = phi ptr [ %add.ptr.i.i219, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i297 ], [ %__y.addr.1.i.i.i.i293, %lor.rhs.i299 ], [ %__y.addr.1.i.i.i.i293, %if.end10.i.i304 ], [ %__y.addr.1.i.i.i.i293, %if.end23.i.i309 ], [ %__y.addr.1.i.i.i.i293, %if.end36.i.i314 ], [ %__y.addr.1.i.i.i.i293, %if.end48.i.i319 ], [ %__y.addr.1.i.i.i.i293, %if.end61.i.i324 ], [ %add.ptr.i.i219, %if.end.i62.thread ]
+  %call5.i.i.i.i.i.i484 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
+  %_M_storage.i.i.i.i.i485 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i484, i64 32
+  store <2 x float> %49, ptr %_M_storage.i.i.i.i.i485, align 4
+  %ref.tmp45.sroa.6.0._M_storage.i.i.i.i.i485.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i484, i64 40
+  store float %add13.i, ptr %ref.tmp45.sroa.6.0._M_storage.i.i.i.i.i485.sroa_idx, align 4
+  %vc.i.i.i.i.i.i.i.i.i486 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i484, i64 44
+  %g.i.i.i.i.i.i.i.i.i.i488 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i484, i64 48
+  %b.i.i.i.i.i.i.i.i.i.i490 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i484, i64 52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %vc.i.i.i.i.i.i.i.i.i486, i8 0, i64 16, i1 false)
+  %call8.i493 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i, ptr %__y.addr.0.lcssa.i.i.i10.i331, ptr noundef nonnull align 4 dereferenceable(24) %_M_storage.i.i.i.i.i485)
+          to label %invoke.cont7.i495 unwind label %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i494
 
-if.then.i338:                                     ; preds = %if.end.i62.thread, %if.end61.i.i332, %if.end48.i.i327, %if.end36.i.i322, %if.end23.i.i317, %if.end10.i.i312, %lor.rhs.i307, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i305
-  %147 = phi i32 [ %133, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i305 ], [ %133, %lor.rhs.i307 ], [ %133, %if.end10.i.i312 ], [ %133, %if.end23.i.i317 ], [ %133, %if.end36.i.i322 ], [ %133, %if.end48.i.i327 ], [ %133, %if.end61.i.i332 ], [ %118, %if.end.i62.thread ]
-  %__y.addr.0.lcssa.i.i.i10.i339 = phi ptr [ %add.ptr.i.i225, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEE11lower_boundERS5_.exit.i305 ], [ %__y.addr.1.i.i.i.i301, %lor.rhs.i307 ], [ %__y.addr.1.i.i.i.i301, %if.end10.i.i312 ], [ %__y.addr.1.i.i.i.i301, %if.end23.i.i317 ], [ %__y.addr.1.i.i.i.i301, %if.end36.i.i322 ], [ %__y.addr.1.i.i.i.i301, %if.end48.i.i327 ], [ %__y.addr.1.i.i.i.i301, %if.end61.i.i332 ], [ %add.ptr.i.i225, %if.end.i62.thread ]
-  %call5.i.i.i.i.i.i495 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
-  %_M_storage.i.i.i.i.i496 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i495, i64 0, i32 1
-  store <2 x float> %49, ptr %_M_storage.i.i.i.i.i496, align 4
-  %ref.tmp45.sroa.6.0._M_storage.i.i.i.i.i496.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i495, i64 0, i32 1, i32 0, i64 8
-  store float %add13.i, ptr %ref.tmp45.sroa.6.0._M_storage.i.i.i.i.i496.sroa_idx, align 4
-  %vc.i.i.i.i.i.i.i.i.i497 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i495, i64 0, i32 1, i32 0, i64 12
-  %g.i.i.i.i.i.i.i.i.i.i499 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i495, i64 0, i32 1, i32 0, i64 16
-  %b.i.i.i.i.i.i.i.i.i.i501 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i495, i64 0, i32 1, i32 0, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %vc.i.i.i.i.i.i.i.i.i497, i8 0, i64 16, i1 false)
-  %call8.i504 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i, ptr %__y.addr.0.lcssa.i.i.i10.i339, ptr noundef nonnull align 4 dereferenceable(24) %_M_storage.i.i.i.i.i496)
-          to label %invoke.cont7.i506 unwind label %_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i505
+invoke.cont7.i495:                                ; preds = %if.then.i330
+  %148 = extractvalue { ptr, ptr } %call8.i493, 0
+  %149 = extractvalue { ptr, ptr } %call8.i493, 1
+  %tobool.not.i496 = icmp eq ptr %149, null
+  br i1 %tobool.not.i496, label %if.then.i7.i537, label %if.then.i497
 
-invoke.cont7.i506:                                ; preds = %if.then.i338
-  %148 = extractvalue { ptr, ptr } %call8.i504, 0
-  %149 = extractvalue { ptr, ptr } %call8.i504, 1
-  %tobool.not.i507 = icmp eq ptr %149, null
-  br i1 %tobool.not.i507, label %if.then.i7.i548, label %if.then.i508
+if.then.i497:                                     ; preds = %invoke.cont7.i495
+  %cmp.not.i.i.i498 = icmp ne ptr %148, null
+  %cmp2.i.i.i500 = icmp eq ptr %add.ptr.i.i219, %149
+  %or.cond.i.i.i501 = select i1 %cmp.not.i.i.i498, i1 true, i1 %cmp2.i.i.i500
+  br i1 %or.cond.i.i.i501, label %cleanup.thread.i533, label %lor.rhs.i.i.i502
 
-if.then.i508:                                     ; preds = %invoke.cont7.i506
-  %cmp.not.i.i.i509 = icmp ne ptr %148, null
-  %cmp2.i.i.i511 = icmp eq ptr %add.ptr.i.i225, %149
-  %or.cond.i.i.i512 = select i1 %cmp.not.i.i.i509, i1 true, i1 %cmp2.i.i.i511
-  br i1 %or.cond.i.i.i512, label %cleanup.thread.i544, label %lor.rhs.i.i.i513
+lor.rhs.i.i.i502:                                 ; preds = %if.then.i497
+  %_M_storage.i.i.i.i.i.i503 = getelementptr inbounds i8, ptr %149, i64 32
+  %150 = load float, ptr %_M_storage.i.i.i.i.i485, align 4
+  %151 = load float, ptr %_M_storage.i.i.i.i.i.i503, align 4
+  %cmp.i.i.i.i504 = fcmp olt float %150, %151
+  br i1 %cmp.i.i.i.i504, label %cleanup.thread.i533, label %if.end.i.i.i.i505
 
-lor.rhs.i.i.i513:                                 ; preds = %if.then.i508
-  %_M_storage.i.i.i.i.i.i514 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %149, i64 0, i32 1
-  %150 = load float, ptr %_M_storage.i.i.i.i.i496, align 4
-  %151 = load float, ptr %_M_storage.i.i.i.i.i.i514, align 4
-  %cmp.i.i.i.i515 = fcmp olt float %150, %151
-  br i1 %cmp.i.i.i.i515, label %cleanup.thread.i544, label %if.end.i.i.i.i516
+if.end.i.i.i.i505:                                ; preds = %lor.rhs.i.i.i502
+  %cmp8.i.i.i.i506 = fcmp ogt float %150, %151
+  br i1 %cmp8.i.i.i.i506, label %cleanup.thread.i533, label %if.end10.i.i.i.i507
 
-if.end.i.i.i.i516:                                ; preds = %lor.rhs.i.i.i513
-  %cmp8.i.i.i.i517 = fcmp ogt float %150, %151
-  br i1 %cmp8.i.i.i.i517, label %cleanup.thread.i544, label %if.end10.i.i.i.i518
+if.end10.i.i.i.i507:                              ; preds = %if.end.i.i.i.i505
+  %y.i.i.i.i508 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i484, i64 36
+  %152 = load float, ptr %y.i.i.i.i508, align 4
+  %y13.i.i.i.i509 = getelementptr inbounds i8, ptr %149, i64 36
+  %153 = load float, ptr %y13.i.i.i.i509, align 4
+  %cmp14.i.i.i.i510 = fcmp olt float %152, %153
+  br i1 %cmp14.i.i.i.i510, label %cleanup.thread.i533, label %if.end16.i.i.i.i511
 
-if.end10.i.i.i.i518:                              ; preds = %if.end.i.i.i.i516
-  %y.i.i.i.i519 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i495, i64 0, i32 1, i32 0, i64 4
-  %152 = load float, ptr %y.i.i.i.i519, align 4
-  %y13.i.i.i.i520 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %149, i64 0, i32 1, i32 0, i64 4
-  %153 = load float, ptr %y13.i.i.i.i520, align 4
-  %cmp14.i.i.i.i521 = fcmp olt float %152, %153
-  br i1 %cmp14.i.i.i.i521, label %cleanup.thread.i544, label %if.end16.i.i.i.i522
+if.end16.i.i.i.i511:                              ; preds = %if.end10.i.i.i.i507
+  %cmp21.i.i.i.i512 = fcmp ogt float %152, %153
+  br i1 %cmp21.i.i.i.i512, label %cleanup.thread.i533, label %if.end23.i.i.i.i513
 
-if.end16.i.i.i.i522:                              ; preds = %if.end10.i.i.i.i518
-  %cmp21.i.i.i.i523 = fcmp ogt float %152, %153
-  br i1 %cmp21.i.i.i.i523, label %cleanup.thread.i544, label %if.end23.i.i.i.i524
+if.end23.i.i.i.i513:                              ; preds = %if.end16.i.i.i.i511
+  %z.i.i.i.i514 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i484, i64 40
+  %154 = load float, ptr %z.i.i.i.i514, align 4
+  %z26.i.i.i.i515 = getelementptr inbounds i8, ptr %149, i64 40
+  %155 = load float, ptr %z26.i.i.i.i515, align 4
+  %cmp27.i.i.i.i516 = fcmp olt float %154, %155
+  br i1 %cmp27.i.i.i.i516, label %cleanup.thread.i533, label %if.end29.i.i.i.i517
 
-if.end23.i.i.i.i524:                              ; preds = %if.end16.i.i.i.i522
-  %z.i.i.i.i525 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i495, i64 0, i32 1, i32 0, i64 8
-  %154 = load float, ptr %z.i.i.i.i525, align 4
-  %z26.i.i.i.i526 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %149, i64 0, i32 1, i32 0, i64 8
-  %155 = load float, ptr %z26.i.i.i.i526, align 4
-  %cmp27.i.i.i.i527 = fcmp olt float %154, %155
-  br i1 %cmp27.i.i.i.i527, label %cleanup.thread.i544, label %if.end29.i.i.i.i528
+if.end29.i.i.i.i517:                              ; preds = %if.end23.i.i.i.i513
+  %cmp34.i.i.i.i518 = fcmp ogt float %154, %155
+  br i1 %cmp34.i.i.i.i518, label %cleanup.thread.i533, label %if.end36.i.i.i.i519
 
-if.end29.i.i.i.i528:                              ; preds = %if.end23.i.i.i.i524
-  %cmp34.i.i.i.i529 = fcmp ogt float %154, %155
-  br i1 %cmp34.i.i.i.i529, label %cleanup.thread.i544, label %if.end36.i.i.i.i530
+if.end36.i.i.i.i519:                              ; preds = %if.end29.i.i.i.i517
+  %156 = load float, ptr %vc.i.i.i.i.i.i.i.i.i486, align 4
+  %vc37.i.i.i.i520 = getelementptr inbounds i8, ptr %149, i64 44
+  %157 = load float, ptr %vc37.i.i.i.i520, align 4
+  %cmp39.i.i.i.i521 = fcmp olt float %156, %157
+  br i1 %cmp39.i.i.i.i521, label %cleanup.thread.i533, label %if.end41.i.i.i.i522
 
-if.end36.i.i.i.i530:                              ; preds = %if.end29.i.i.i.i528
-  %156 = load float, ptr %vc.i.i.i.i.i.i.i.i.i497, align 4
-  %vc37.i.i.i.i531 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %149, i64 0, i32 1, i32 0, i64 12
-  %157 = load float, ptr %vc37.i.i.i.i531, align 4
-  %cmp39.i.i.i.i532 = fcmp olt float %156, %157
-  br i1 %cmp39.i.i.i.i532, label %cleanup.thread.i544, label %if.end41.i.i.i.i533
+if.end41.i.i.i.i522:                              ; preds = %if.end36.i.i.i.i519
+  %cmp46.i.i.i.i523 = fcmp ogt float %156, %157
+  br i1 %cmp46.i.i.i.i523, label %cleanup.thread.i533, label %if.end48.i.i.i.i524
 
-if.end41.i.i.i.i533:                              ; preds = %if.end36.i.i.i.i530
-  %cmp46.i.i.i.i534 = fcmp ogt float %156, %157
-  br i1 %cmp46.i.i.i.i534, label %cleanup.thread.i544, label %if.end48.i.i.i.i535
+if.end48.i.i.i.i524:                              ; preds = %if.end41.i.i.i.i522
+  %158 = load float, ptr %g.i.i.i.i.i.i.i.i.i.i488, align 4
+  %g51.i.i.i.i525 = getelementptr inbounds i8, ptr %149, i64 48
+  %159 = load float, ptr %g51.i.i.i.i525, align 4
+  %cmp52.i.i.i.i526 = fcmp olt float %158, %159
+  br i1 %cmp52.i.i.i.i526, label %cleanup.thread.i533, label %if.end54.i.i.i.i527
 
-if.end48.i.i.i.i535:                              ; preds = %if.end41.i.i.i.i533
-  %158 = load float, ptr %g.i.i.i.i.i.i.i.i.i.i499, align 4
-  %g51.i.i.i.i536 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %149, i64 0, i32 1, i32 0, i64 16
-  %159 = load float, ptr %g51.i.i.i.i536, align 4
-  %cmp52.i.i.i.i537 = fcmp olt float %158, %159
-  br i1 %cmp52.i.i.i.i537, label %cleanup.thread.i544, label %if.end54.i.i.i.i538
+if.end54.i.i.i.i527:                              ; preds = %if.end48.i.i.i.i524
+  %cmp59.i.i.i.i528 = fcmp ogt float %158, %159
+  br i1 %cmp59.i.i.i.i528, label %cleanup.thread.i533, label %if.end61.i.i.i.i529
 
-if.end54.i.i.i.i538:                              ; preds = %if.end48.i.i.i.i535
-  %cmp59.i.i.i.i539 = fcmp ogt float %158, %159
-  br i1 %cmp59.i.i.i.i539, label %cleanup.thread.i544, label %if.end61.i.i.i.i540
+if.end61.i.i.i.i529:                              ; preds = %if.end54.i.i.i.i527
+  %160 = load float, ptr %b.i.i.i.i.i.i.i.i.i.i490, align 4
+  %b65.i.i.i.i530 = getelementptr inbounds i8, ptr %149, i64 52
+  %161 = load float, ptr %b65.i.i.i.i530, align 4
+  %cmp66.i.i.i.i531 = fcmp olt float %160, %161
+  br i1 %cmp66.i.i.i.i531, label %cleanup.thread.i533, label %if.end68.i.i.i.i532
 
-if.end61.i.i.i.i540:                              ; preds = %if.end54.i.i.i.i538
-  %160 = load float, ptr %b.i.i.i.i.i.i.i.i.i.i501, align 4
-  %b65.i.i.i.i541 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %149, i64 0, i32 1, i32 0, i64 20
-  %161 = load float, ptr %b65.i.i.i.i541, align 4
-  %cmp66.i.i.i.i542 = fcmp olt float %160, %161
-  br i1 %cmp66.i.i.i.i542, label %cleanup.thread.i544, label %if.end68.i.i.i.i543
+if.end68.i.i.i.i532:                              ; preds = %if.end61.i.i.i.i529
+  br label %cleanup.thread.i533
 
-if.end68.i.i.i.i543:                              ; preds = %if.end61.i.i.i.i540
-  br label %cleanup.thread.i544
+cleanup.thread.i533:                              ; preds = %if.end68.i.i.i.i532, %if.end61.i.i.i.i529, %if.end54.i.i.i.i527, %if.end48.i.i.i.i524, %if.end41.i.i.i.i522, %if.end36.i.i.i.i519, %if.end29.i.i.i.i517, %if.end23.i.i.i.i513, %if.end16.i.i.i.i511, %if.end10.i.i.i.i507, %if.end.i.i.i.i505, %lor.rhs.i.i.i502, %if.then.i497
+  %162 = phi i1 [ true, %if.then.i497 ], [ true, %lor.rhs.i.i.i502 ], [ false, %if.end.i.i.i.i505 ], [ true, %if.end10.i.i.i.i507 ], [ false, %if.end16.i.i.i.i511 ], [ true, %if.end23.i.i.i.i513 ], [ false, %if.end29.i.i.i.i517 ], [ true, %if.end36.i.i.i.i519 ], [ false, %if.end41.i.i.i.i522 ], [ true, %if.end48.i.i.i.i524 ], [ false, %if.end54.i.i.i.i527 ], [ true, %if.end61.i.i.i.i529 ], [ false, %if.end68.i.i.i.i532 ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %162, ptr noundef nonnull %call5.i.i.i.i.i.i484, ptr noundef nonnull %149, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i219) #20
+  %163 = load i64, ptr %_M_node_count.i.i.i480, align 8
+  %inc.i.i.i535 = add i64 %163, 1
+  store i64 %inc.i.i.i535, ptr %_M_node_count.i.i.i480, align 8
+  br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334
 
-cleanup.thread.i544:                              ; preds = %if.end68.i.i.i.i543, %if.end61.i.i.i.i540, %if.end54.i.i.i.i538, %if.end48.i.i.i.i535, %if.end41.i.i.i.i533, %if.end36.i.i.i.i530, %if.end29.i.i.i.i528, %if.end23.i.i.i.i524, %if.end16.i.i.i.i522, %if.end10.i.i.i.i518, %if.end.i.i.i.i516, %lor.rhs.i.i.i513, %if.then.i508
-  %162 = phi i1 [ true, %if.then.i508 ], [ true, %lor.rhs.i.i.i513 ], [ false, %if.end.i.i.i.i516 ], [ true, %if.end10.i.i.i.i518 ], [ false, %if.end16.i.i.i.i522 ], [ true, %if.end23.i.i.i.i524 ], [ false, %if.end29.i.i.i.i528 ], [ true, %if.end36.i.i.i.i530 ], [ false, %if.end41.i.i.i.i533 ], [ true, %if.end48.i.i.i.i535 ], [ false, %if.end54.i.i.i.i538 ], [ true, %if.end61.i.i.i.i540 ], [ false, %if.end68.i.i.i.i543 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %162, ptr noundef nonnull %call5.i.i.i.i.i.i495, ptr noundef nonnull %149, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i225) #20
-  %163 = load i64, ptr %_M_node_count.i.i.i491, align 8
-  %inc.i.i.i546 = add i64 %163, 1
-  store i64 %inc.i.i.i546, ptr %_M_node_count.i.i.i491, align 8
-  br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343
-
-_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i505: ; preds = %if.then.i338
+_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE10_Auto_nodeD2Ev.exit.i494: ; preds = %if.then.i330
   %164 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i495) #22
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i484) #22
   br label %common.resume
 
-if.then.i7.i548:                                  ; preds = %invoke.cont7.i506
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i495) #22
-  br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343
+if.then.i7.i537:                                  ; preds = %invoke.cont7.i495
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i484) #22
+  br label %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334
 
-_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343: ; preds = %if.then.i7.i548, %cleanup.thread.i544, %if.end.i.i310, %if.end16.i.i315, %if.end29.i.i320, %if.end41.i.i325, %if.end54.i.i330, %if.end61.i.i332
-  %165 = phi i32 [ %133, %if.end.i.i310 ], [ %133, %if.end16.i.i315 ], [ %133, %if.end29.i.i320 ], [ %133, %if.end41.i.i325 ], [ %133, %if.end54.i.i330 ], [ %133, %if.end61.i.i332 ], [ %147, %cleanup.thread.i544 ], [ %147, %if.then.i7.i548 ]
-  %__i.sroa.0.0.i336 = phi ptr [ %__y.addr.1.i.i.i.i301, %if.end.i.i310 ], [ %__y.addr.1.i.i.i.i301, %if.end16.i.i315 ], [ %__y.addr.1.i.i.i.i301, %if.end29.i.i320 ], [ %__y.addr.1.i.i.i.i301, %if.end41.i.i325 ], [ %__y.addr.1.i.i.i.i301, %if.end54.i.i330 ], [ %__y.addr.1.i.i.i.i301, %if.end61.i.i332 ], [ %call5.i.i.i.i.i.i495, %cleanup.thread.i544 ], [ %148, %if.then.i7.i548 ]
-  %second.i337 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i336, i64 0, i32 1, i32 0, i64 24
-  store i32 %165, ptr %second.i337, align 4
+_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334: ; preds = %if.then.i7.i537, %cleanup.thread.i533, %if.end.i.i302, %if.end16.i.i307, %if.end29.i.i312, %if.end41.i.i317, %if.end54.i.i322, %if.end61.i.i324
+  %165 = phi i32 [ %133, %if.end.i.i302 ], [ %133, %if.end16.i.i307 ], [ %133, %if.end29.i.i312 ], [ %133, %if.end41.i.i317 ], [ %133, %if.end54.i.i322 ], [ %133, %if.end61.i.i324 ], [ %147, %cleanup.thread.i533 ], [ %147, %if.then.i7.i537 ]
+  %__i.sroa.0.0.i328 = phi ptr [ %__y.addr.1.i.i.i.i293, %if.end.i.i302 ], [ %__y.addr.1.i.i.i.i293, %if.end16.i.i307 ], [ %__y.addr.1.i.i.i.i293, %if.end29.i.i312 ], [ %__y.addr.1.i.i.i.i293, %if.end41.i.i317 ], [ %__y.addr.1.i.i.i.i293, %if.end54.i.i322 ], [ %__y.addr.1.i.i.i.i293, %if.end61.i.i324 ], [ %call5.i.i.i.i.i.i484, %cleanup.thread.i533 ], [ %148, %if.then.i7.i537 ]
+  %second.i329 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i328, i64 56
+  store i32 %165, ptr %second.i329, align 4
   br label %if.end53
 
-if.end53:                                         ; preds = %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343, %if.then.i59, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, %if.then.i51
-  %retval.0.i61.sink = phi i32 [ %79, %if.then.i51 ], [ %114, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit ], [ %132, %if.then.i59 ], [ %165, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit343 ]
+if.end53:                                         ; preds = %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334, %if.then.i59, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit, %if.then.i51
+  %retval.0.i61.sink = phi i32 [ %79, %if.then.i51 ], [ %114, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit ], [ %132, %if.then.i59 ], [ %165, %_ZNSt3mapIN6Assimp11ObjExporter10vertexDataEiNS1_17vertexDataCompareESaISt4pairIKS2_iEEEixERS5_.exit334 ]
   %166 = load ptr, ptr %indices, align 8
   %add.ptr.i66 = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %166, i64 %indvars.iv
   store i32 %retval.0.i61.sink, ptr %add.ptr.i66, align 4
@@ -3679,9 +3655,9 @@ if.then54:                                        ; preds = %if.end53
   %179 = load float, ptr %c3.i, align 4
   %arrayidx58 = getelementptr inbounds %class.aiVector3t, ptr %167, i64 %idxprom27
   %180 = load float, ptr %arrayidx58, align 4
-  %y.i76 = getelementptr inbounds %class.aiVector3t, ptr %167, i64 %idxprom27, i32 1
+  %y.i76 = getelementptr inbounds i8, ptr %arrayidx58, i64 4
   %181 = load float, ptr %y.i76, align 4
-  %z.i79 = getelementptr inbounds %class.aiVector3t, ptr %167, i64 %idxprom27, i32 2
+  %z.i79 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
   %182 = load float, ptr %z.i79, align 4
   %183 = insertelement <2 x float> %171, float %175, i64 1
   %184 = insertelement <2 x float> poison, float %181, i64 0
@@ -3716,43 +3692,39 @@ if.end.thread.i:                                  ; preds = %if.then54
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end.i.i.i.i
   %__x.addr.011.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %197, %while.body.i.i.i.i.preheader ]
   %__y.addr.010.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %if.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %while.body.i.i.i.i.preheader ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 32
   %201 = load float, ptr %_M_storage.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = fcmp olt float %201, %198
   br i1 %cmp.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i
   %cmp5.i.i.i.i.i = fcmp ogt float %201, %198
-  br i1 %cmp5.i.i.i.i.i, label %if.then.i.i.i.i, label %if.end7.i.i.i.i.i
+  br i1 %cmp5.i.i.i.i.i, label %if.end.i.i.i.i, label %if.end7.i.i.i.i.i
 
 if.end7.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
-  %y.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %y.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 36
   %202 = load float, ptr %y.i.i.i.i.i, align 4
   %cmp9.i.i.i.i.i = fcmp olt float %202, %199
   br i1 %cmp9.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end11.i.i.i.i.i
 
 if.end11.i.i.i.i.i:                               ; preds = %if.end7.i.i.i.i.i
   %cmp14.i.i.i.i.i = fcmp ogt float %202, %199
-  br i1 %cmp14.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i
+  br i1 %cmp14.i.i.i.i.i, label %if.end.i.i.i.i, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i: ; preds = %if.end11.i.i.i.i.i
-  %z.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %z.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 40
   %203 = load float, ptr %z.i.i.i.i.i, align 4
   %cmp18.i.i.i.i.i = fcmp olt float %203, %196
-  br i1 %cmp18.i.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i, %if.end11.i.i.i.i.i, %if.end.i.i.i.i.i
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 2
-  br label %if.end.i.i.i.i
+  br i1 %cmp18.i.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i, %if.end7.i.i.i.i.i, %while.body.i.i.i.i
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 3
   br label %if.end.i.i.i.i
 
-if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %if.then.i.i.i.i ]
-  %__x.addr.1.in.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i, %if.else.i.i.i.i ], [ %_M_left.i.i.i.i.i, %if.then.i.i.i.i ]
-  %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
+if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i, %if.end11.i.i.i.i.i, %if.end.i.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i ], [ 16, %if.end11.i.i.i.i.i ], [ 16, %if.end.i.i.i.i.i ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i ]
+  %__y.addr.1.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i, %if.else.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %if.end11.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %if.end.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i ]
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 %.sink.i.i.i.i
+  %__x.addr.1.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !18
 
@@ -3761,7 +3733,7 @@ _ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExpo
   br i1 %cmp.i.i.i.i, label %if.end.i92, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i
-  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %204 = load float, ptr %_M_storage.i.i.i3.i.i.i, align 4
   %cmp.i4.i.i.i = fcmp olt float %198, %204
   br i1 %cmp.i4.i.i.i, label %if.end.i92, label %if.end.i5.i.i.i
@@ -3771,7 +3743,7 @@ if.end.i5.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp5.i.i.i.i, label %if.then.i96, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %if.end.i5.i.i.i
-  %y8.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %y8.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 36
   %205 = load float, ptr %y8.i.i.i.i, align 4
   %206 = extractelement <2 x float> %194, i64 1
   %cmp9.i.i.i.i = fcmp olt float %206, %205
@@ -3782,13 +3754,13 @@ if.end11.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
   br i1 %cmp14.i.i.i.i, label %if.then.i96, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i: ; preds = %if.end11.i.i.i.i
-  %z17.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %z17.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %207 = load float, ptr %z17.i.i.i.i, align 4
   %cmp18.i.i.i.i = fcmp uge float %196, %207
   br i1 %cmp18.i.i.i.i, label %if.then.i96, label %if.end.i92
 
 if.then.i96:                                      ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i, %if.end11.i.i.i.i, %if.end.i5.i.i.i
-  %second.i97 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 12
+  %second.i97 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 44
   %208 = load i32, ptr %second.i97, align 4
   br label %if.end70
 
@@ -3802,43 +3774,39 @@ if.end.i92:                                       ; preds = %_ZNK6Assimp11ObjExp
 while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i2.i, %if.end.i92
   %__x.addr.011.i.i.i.i.i = phi ptr [ %197, %if.end.i92 ], [ %__x.addr.1.i.i.i.i.i, %if.end.i.i.i.i2.i ]
   %__y.addr.010.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i92 ], [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i.i2.i ]
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 32
   %211 = load float, ptr %_M_storage.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i = fcmp olt float %211, %198
   br i1 %cmp.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i
   %cmp5.i.i.i.i.i.i = fcmp ogt float %211, %198
-  br i1 %cmp5.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end7.i.i.i.i.i.i
+  br i1 %cmp5.i.i.i.i.i.i, label %if.end.i.i.i.i2.i, label %if.end7.i.i.i.i.i.i
 
 if.end7.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
-  %y.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %y.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 36
   %212 = load float, ptr %y.i.i.i.i.i.i, align 4
   %cmp9.i.i.i.i.i.i = fcmp olt float %212, %210
   br i1 %cmp9.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end11.i.i.i.i.i.i
 
 if.end11.i.i.i.i.i.i:                             ; preds = %if.end7.i.i.i.i.i.i
   %cmp14.i.i.i.i.i.i = fcmp ogt float %212, %210
-  br i1 %cmp14.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i
+  br i1 %cmp14.i.i.i.i.i.i, label %if.end.i.i.i.i2.i, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i: ; preds = %if.end11.i.i.i.i.i.i
-  %z.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %z.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 40
   %213 = load float, ptr %z.i.i.i.i.i.i, align 4
   %cmp18.i.i.i.i.i.i = fcmp olt float %213, %196
-  br i1 %cmp18.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i, %if.end11.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i.i, i64 0, i32 2
-  br label %if.end.i.i.i.i2.i
+  br i1 %cmp18.i.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i2.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i, %if.end7.i.i.i.i.i.i, %while.body.i.i.i.i.i
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i.i, i64 0, i32 3
   br label %if.end.i.i.i.i2.i
 
-if.end.i.i.i.i2.i:                                ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__y.addr.1.i.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %__x.addr.1.in.i.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %_M_left.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %__x.addr.1.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i, align 8
+if.end.i.i.i.i2.i:                                ; preds = %if.else.i.i.i.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i, %if.end11.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
+  %.sink.i.i.i.i.i = phi i64 [ 24, %if.else.i.i.i.i.i ], [ 16, %if.end11.i.i.i.i.i.i ], [ 16, %if.end.i.i.i.i.i.i ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i ]
+  %__y.addr.1.i.i.i.i.i = phi ptr [ %__y.addr.010.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i.i, %if.end11.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i.i, %if.end.i.i.i.i.i.i ], [ %__x.addr.011.i.i.i.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i ]
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i, i64 %.sink.i.i.i.i.i
+  %__x.addr.1.i.i.i.i.i = load ptr, ptr %_M_right.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i94 = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i94, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i, label %while.body.i.i.i.i.i, !llvm.loop !18
 
@@ -3847,7 +3815,7 @@ _ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_
   br i1 %cmp.i.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 32
   %214 = load float, ptr %_M_storage.i.i.i.i, align 4
   %cmp.i3.i.i = fcmp olt float %198, %214
   br i1 %cmp.i3.i.i, label %if.then.i.i, label %if.end.i.i.i
@@ -3857,7 +3825,7 @@ if.end.i.i.i:                                     ; preds = %lor.rhs.i.i
   br i1 %cmp5.i.i.i, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end.i.i.i
-  %y8.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %y8.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 36
   %215 = load float, ptr %y8.i.i.i, align 4
   %cmp9.i.i.i = fcmp olt float %210, %215
   br i1 %cmp9.i.i.i, label %if.then.i.i, label %if.end11.i.i.i
@@ -3867,7 +3835,7 @@ if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   br i1 %cmp14.i.i.i, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i: ; preds = %if.end11.i.i.i
-  %z17.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %z17.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i, i64 40
   %216 = load float, ptr %z17.i.i.i, align 4
   %cmp18.i.i.i = fcmp olt float %196, %216
   br i1 %cmp18.i.i.i, label %if.then.i.i, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i
@@ -3876,11 +3844,11 @@ if.then.i.i:                                      ; preds = %_ZNK6Assimp11ObjExp
   %217 = phi i32 [ %209, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i ], [ %209, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i ], [ %209, %lor.rhs.i.i ], [ %209, %if.end7.i.i.i ], [ %200, %if.end.thread.i ]
   %__y.addr.0.lcssa.i.i.i10.i.i = phi ptr [ %add.ptr.i.i.i.i, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.end7.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.thread.i ]
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   store <2 x float> %194, ptr %_M_storage.i.i.i.i.i, align 4
-  %norm.sroa.4.0._M_storage.i.i.i.i.i.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %norm.sroa.4.0._M_storage.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
   store float %196, ptr %norm.sroa.4.0._M_storage.i.i.i.i.i.sroa_idx, align 4
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 12
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 44
   store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 4
   %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i91, ptr %__y.addr.0.lcssa.i.i.i10.i.i, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i.i)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i
@@ -3889,47 +3857,47 @@ invoke.cont7.i:                                   ; preds = %if.then.i.i
   %218 = extractvalue { ptr, ptr } %call8.i, 0
   %219 = extractvalue { ptr, ptr } %call8.i, 1
   %tobool.not.i = icmp eq ptr %219, null
-  br i1 %tobool.not.i, label %if.then.i7.i, label %if.then.i425
+  br i1 %tobool.not.i, label %if.then.i7.i, label %if.then.i414
 
-if.then.i425:                                     ; preds = %invoke.cont7.i
+if.then.i414:                                     ; preds = %invoke.cont7.i
   %cmp.not.i.i.i = icmp ne ptr %218, null
   %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %219
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i, i1 true, i1 %cmp2.i.i.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
-lor.rhs.i.i.i:                                    ; preds = %if.then.i425
-  %_M_storage.i.i.i.i.i.i427 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %219, i64 0, i32 1
+lor.rhs.i.i.i:                                    ; preds = %if.then.i414
+  %_M_storage.i.i.i.i.i.i416 = getelementptr inbounds i8, ptr %219, i64 32
   %220 = load float, ptr %_M_storage.i.i.i.i.i, align 4
-  %221 = load float, ptr %_M_storage.i.i.i.i.i.i427, align 4
-  %cmp.i.i.i.i428 = fcmp olt float %220, %221
-  br i1 %cmp.i.i.i.i428, label %cleanup.thread.i, label %if.end.i.i.i.i429
+  %221 = load float, ptr %_M_storage.i.i.i.i.i.i416, align 4
+  %cmp.i.i.i.i417 = fcmp olt float %220, %221
+  br i1 %cmp.i.i.i.i417, label %cleanup.thread.i, label %if.end.i.i.i.i418
 
-if.end.i.i.i.i429:                                ; preds = %lor.rhs.i.i.i
-  %cmp5.i.i.i.i430 = fcmp ogt float %220, %221
-  br i1 %cmp5.i.i.i.i430, label %cleanup.thread.i, label %if.end7.i.i.i.i431
+if.end.i.i.i.i418:                                ; preds = %lor.rhs.i.i.i
+  %cmp5.i.i.i.i419 = fcmp ogt float %220, %221
+  br i1 %cmp5.i.i.i.i419, label %cleanup.thread.i, label %if.end7.i.i.i.i420
 
-if.end7.i.i.i.i431:                               ; preds = %if.end.i.i.i.i429
-  %y.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+if.end7.i.i.i.i420:                               ; preds = %if.end.i.i.i.i418
+  %y.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 36
   %222 = load float, ptr %y.i.i.i.i, align 4
-  %y8.i.i.i.i432 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %219, i64 0, i32 1, i32 0, i64 4
-  %223 = load float, ptr %y8.i.i.i.i432, align 4
-  %cmp9.i.i.i.i433 = fcmp olt float %222, %223
-  br i1 %cmp9.i.i.i.i433, label %cleanup.thread.i, label %if.end11.i.i.i.i434
+  %y8.i.i.i.i421 = getelementptr inbounds i8, ptr %219, i64 36
+  %223 = load float, ptr %y8.i.i.i.i421, align 4
+  %cmp9.i.i.i.i422 = fcmp olt float %222, %223
+  br i1 %cmp9.i.i.i.i422, label %cleanup.thread.i, label %if.end11.i.i.i.i423
 
-if.end11.i.i.i.i434:                              ; preds = %if.end7.i.i.i.i431
-  %cmp14.i.i.i.i435 = fcmp ogt float %222, %223
-  br i1 %cmp14.i.i.i.i435, label %cleanup.thread.i, label %if.end16.i.i.i.i
+if.end11.i.i.i.i423:                              ; preds = %if.end7.i.i.i.i420
+  %cmp14.i.i.i.i424 = fcmp ogt float %222, %223
+  br i1 %cmp14.i.i.i.i424, label %cleanup.thread.i, label %if.end16.i.i.i.i
 
-if.end16.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i434
-  %z.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+if.end16.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i423
+  %z.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
   %224 = load float, ptr %z.i.i.i.i, align 4
-  %z17.i.i.i.i436 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %219, i64 0, i32 1, i32 0, i64 8
-  %225 = load float, ptr %z17.i.i.i.i436, align 4
-  %cmp18.i.i.i.i437 = fcmp olt float %224, %225
+  %z17.i.i.i.i425 = getelementptr inbounds i8, ptr %219, i64 40
+  %225 = load float, ptr %z17.i.i.i.i425, align 4
+  %cmp18.i.i.i.i426 = fcmp olt float %224, %225
   br label %cleanup.thread.i
 
-cleanup.thread.i:                                 ; preds = %if.end16.i.i.i.i, %if.end11.i.i.i.i434, %if.end7.i.i.i.i431, %if.end.i.i.i.i429, %lor.rhs.i.i.i, %if.then.i425
-  %226 = phi i1 [ true, %if.then.i425 ], [ true, %lor.rhs.i.i.i ], [ false, %if.end.i.i.i.i429 ], [ true, %if.end7.i.i.i.i431 ], [ false, %if.end11.i.i.i.i434 ], [ %cmp18.i.i.i.i437, %if.end16.i.i.i.i ]
+cleanup.thread.i:                                 ; preds = %if.end16.i.i.i.i, %if.end11.i.i.i.i423, %if.end7.i.i.i.i420, %if.end.i.i.i.i418, %lor.rhs.i.i.i, %if.then.i414
+  %226 = phi i1 [ true, %if.then.i414 ], [ true, %lor.rhs.i.i.i ], [ false, %if.end.i.i.i.i418 ], [ true, %if.end7.i.i.i.i420 ], [ false, %if.end11.i.i.i.i423 ], [ %cmp18.i.i.i.i426, %if.end16.i.i.i.i ]
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %226, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %219, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #20
   %227 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %227, 1
@@ -3949,15 +3917,15 @@ if.then.i7.i:                                     ; preds = %invoke.cont7.i
 _ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i: ; preds = %if.then.i7.i, %cleanup.thread.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i, %if.end11.i.i.i, %if.end.i.i.i
   %229 = phi i32 [ %209, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i ], [ %209, %if.end.i.i.i ], [ %209, %if.end11.i.i.i ], [ %217, %cleanup.thread.i ], [ %217, %if.then.i7.i ]
   %__i.sroa.0.0.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.end.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %if.end11.i.i.i ], [ %call5.i.i.i.i.i.i, %cleanup.thread.i ], [ %218, %if.then.i7.i ]
-  %second.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__i.sroa.0.0.i.i, i64 0, i32 1, i32 0, i64 12
+  %second.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i, i64 44
   store i32 %229, ptr %second.i.i, align 4
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end53, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i, %if.then.i96
-  %.sink584 = phi i32 [ %208, %if.then.i96 ], [ %229, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i ], [ 0, %if.end53 ]
+  %.sink573 = phi i32 [ %208, %if.then.i96 ], [ %229, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i ], [ 0, %if.end53 ]
   %230 = load ptr, ptr %indices, align 8
   %vn69 = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %230, i64 %indvars.iv, i32 1
-  store i32 %.sink584, ptr %vn69, align 4
+  store i32 %.sink573, ptr %vn69, align 4
   %231 = load ptr, ptr %mTextureCoords, align 8
   %tobool72.not = icmp eq ptr %231, null
   br i1 %tobool72.not, label %for.inc, label %if.then73
@@ -3966,266 +3934,258 @@ if.then73:                                        ; preds = %if.end70
   %arrayidx77 = getelementptr inbounds %class.aiVector3t, ptr %231, i64 %idxprom27
   %232 = load ptr, ptr %_M_parent.i.i.i.i.i103, align 8
   %cmp.not9.i.i.i.i105 = icmp eq ptr %232, null
-  br i1 %cmp.not9.i.i.i.i105, label %if.end.thread.i198, label %while.body.lr.ph.i.i.i.i106
+  br i1 %cmp.not9.i.i.i.i105, label %if.end.thread.i194, label %while.body.lr.ph.i.i.i.i106
 
-if.end.thread.i198:                               ; preds = %if.then73
+if.end.thread.i194:                               ; preds = %if.then73
   %233 = load i32, ptr %mVtMap, align 8
-  %inc6.i199 = add nsw i32 %233, 1
-  store i32 %inc6.i199, ptr %mVtMap, align 8
-  br label %if.then.i.i189
+  %inc6.i195 = add nsw i32 %233, 1
+  store i32 %inc6.i195, ptr %mVtMap, align 8
+  br label %if.then.i.i187
 
 while.body.lr.ph.i.i.i.i106:                      ; preds = %if.then73
   %234 = load float, ptr %arrayidx77, align 4
-  %y8.i.i.i.i.i107 = getelementptr inbounds %class.aiVector3t, ptr %231, i64 %idxprom27, i32 1
+  %y8.i.i.i.i.i107 = getelementptr inbounds i8, ptr %arrayidx77, i64 4
   %235 = load float, ptr %y8.i.i.i.i.i107, align 4
-  %z17.i.i.i.i.i108 = getelementptr inbounds %class.aiVector3t, ptr %231, i64 %idxprom27, i32 2
+  %z17.i.i.i.i.i108 = getelementptr inbounds i8, ptr %arrayidx77, i64 8
   %236 = load float, ptr %z17.i.i.i.i.i108, align 4
   br label %while.body.i.i.i.i109
 
-while.body.i.i.i.i109:                            ; preds = %if.end.i.i.i.i126, %while.body.lr.ph.i.i.i.i106
-  %__x.addr.011.i.i.i.i110 = phi ptr [ %232, %while.body.lr.ph.i.i.i.i106 ], [ %__x.addr.1.i.i.i.i129, %if.end.i.i.i.i126 ]
-  %__y.addr.010.i.i.i.i111 = phi ptr [ %add.ptr.i.i.i.i104, %while.body.lr.ph.i.i.i.i106 ], [ %__y.addr.1.i.i.i.i127, %if.end.i.i.i.i126 ]
-  %_M_storage.i.i.i.i.i.i112 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i110, i64 0, i32 1
+while.body.i.i.i.i109:                            ; preds = %if.end.i.i.i.i124, %while.body.lr.ph.i.i.i.i106
+  %__x.addr.011.i.i.i.i110 = phi ptr [ %232, %while.body.lr.ph.i.i.i.i106 ], [ %__x.addr.1.i.i.i.i128, %if.end.i.i.i.i124 ]
+  %__y.addr.010.i.i.i.i111 = phi ptr [ %add.ptr.i.i.i.i104, %while.body.lr.ph.i.i.i.i106 ], [ %__y.addr.1.i.i.i.i126, %if.end.i.i.i.i124 ]
+  %_M_storage.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i110, i64 32
   %237 = load float, ptr %_M_storage.i.i.i.i.i.i112, align 4
   %cmp.i.i.i.i.i113 = fcmp olt float %237, %234
-  br i1 %cmp.i.i.i.i.i113, label %if.else.i.i.i.i196, label %if.end.i.i.i.i.i114
+  br i1 %cmp.i.i.i.i.i113, label %if.else.i.i.i.i193, label %if.end.i.i.i.i.i114
 
 if.end.i.i.i.i.i114:                              ; preds = %while.body.i.i.i.i109
   %cmp5.i.i.i.i.i115 = fcmp ogt float %237, %234
-  br i1 %cmp5.i.i.i.i.i115, label %if.then.i.i.i.i124, label %if.end7.i.i.i.i.i116
+  br i1 %cmp5.i.i.i.i.i115, label %if.end.i.i.i.i124, label %if.end7.i.i.i.i.i116
 
 if.end7.i.i.i.i.i116:                             ; preds = %if.end.i.i.i.i.i114
-  %y.i.i.i.i.i117 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i110, i64 0, i32 1, i32 0, i64 4
+  %y.i.i.i.i.i117 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i110, i64 36
   %238 = load float, ptr %y.i.i.i.i.i117, align 4
   %cmp9.i.i.i.i.i118 = fcmp olt float %238, %235
-  br i1 %cmp9.i.i.i.i.i118, label %if.else.i.i.i.i196, label %if.end11.i.i.i.i.i119
+  br i1 %cmp9.i.i.i.i.i118, label %if.else.i.i.i.i193, label %if.end11.i.i.i.i.i119
 
 if.end11.i.i.i.i.i119:                            ; preds = %if.end7.i.i.i.i.i116
   %cmp14.i.i.i.i.i120 = fcmp ogt float %238, %235
-  br i1 %cmp14.i.i.i.i.i120, label %if.then.i.i.i.i124, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121
+  br i1 %cmp14.i.i.i.i.i120, label %if.end.i.i.i.i124, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121: ; preds = %if.end11.i.i.i.i.i119
-  %z.i.i.i.i.i122 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i110, i64 0, i32 1, i32 0, i64 8
+  %z.i.i.i.i.i122 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i110, i64 40
   %239 = load float, ptr %z.i.i.i.i.i122, align 4
   %cmp18.i.i.i.i.i123 = fcmp olt float %239, %236
-  br i1 %cmp18.i.i.i.i.i123, label %if.else.i.i.i.i196, label %if.then.i.i.i.i124
+  br i1 %cmp18.i.i.i.i.i123, label %if.else.i.i.i.i193, label %if.end.i.i.i.i124
 
-if.then.i.i.i.i124:                               ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121, %if.end11.i.i.i.i.i119, %if.end.i.i.i.i.i114
-  %_M_left.i.i.i.i.i125 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i110, i64 0, i32 2
-  br label %if.end.i.i.i.i126
+if.else.i.i.i.i193:                               ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121, %if.end7.i.i.i.i.i116, %while.body.i.i.i.i109
+  br label %if.end.i.i.i.i124
 
-if.else.i.i.i.i196:                               ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121, %if.end7.i.i.i.i.i116, %while.body.i.i.i.i109
-  %_M_right.i.i.i.i.i197 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i110, i64 0, i32 3
-  br label %if.end.i.i.i.i126
+if.end.i.i.i.i124:                                ; preds = %if.else.i.i.i.i193, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121, %if.end11.i.i.i.i.i119, %if.end.i.i.i.i.i114
+  %.sink.i.i.i.i125 = phi i64 [ 24, %if.else.i.i.i.i193 ], [ 16, %if.end11.i.i.i.i.i119 ], [ 16, %if.end.i.i.i.i.i114 ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121 ]
+  %__y.addr.1.i.i.i.i126 = phi ptr [ %__y.addr.010.i.i.i.i111, %if.else.i.i.i.i193 ], [ %__x.addr.011.i.i.i.i110, %if.end11.i.i.i.i.i119 ], [ %__x.addr.011.i.i.i.i110, %if.end.i.i.i.i.i114 ], [ %__x.addr.011.i.i.i.i110, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i121 ]
+  %_M_right.i.i.i.i.i127 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i110, i64 %.sink.i.i.i.i125
+  %__x.addr.1.i.i.i.i128 = load ptr, ptr %_M_right.i.i.i.i.i127, align 8
+  %cmp.not.i.i.i.i129 = icmp eq ptr %__x.addr.1.i.i.i.i128, null
+  br i1 %cmp.not.i.i.i.i129, label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i130, label %while.body.i.i.i.i109, !llvm.loop !18
 
-if.end.i.i.i.i126:                                ; preds = %if.else.i.i.i.i196, %if.then.i.i.i.i124
-  %__y.addr.1.i.i.i.i127 = phi ptr [ %__y.addr.010.i.i.i.i111, %if.else.i.i.i.i196 ], [ %__x.addr.011.i.i.i.i110, %if.then.i.i.i.i124 ]
-  %__x.addr.1.in.i.i.i.i128 = phi ptr [ %_M_right.i.i.i.i.i197, %if.else.i.i.i.i196 ], [ %_M_left.i.i.i.i.i125, %if.then.i.i.i.i124 ]
-  %__x.addr.1.i.i.i.i129 = load ptr, ptr %__x.addr.1.in.i.i.i.i128, align 8
-  %cmp.not.i.i.i.i130 = icmp eq ptr %__x.addr.1.i.i.i.i129, null
-  br i1 %cmp.not.i.i.i.i130, label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i131, label %while.body.i.i.i.i109, !llvm.loop !18
+_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i130: ; preds = %if.end.i.i.i.i124
+  %cmp.i.i.i.i131 = icmp eq ptr %__y.addr.1.i.i.i.i126, %add.ptr.i.i.i.i104
+  br i1 %cmp.i.i.i.i131, label %if.end.i145, label %lor.lhs.false.i.i.i132
 
-_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i131: ; preds = %if.end.i.i.i.i126
-  %cmp.i.i.i.i132 = icmp eq ptr %__y.addr.1.i.i.i.i127, %add.ptr.i.i.i.i104
-  br i1 %cmp.i.i.i.i132, label %if.end.i146, label %lor.lhs.false.i.i.i133
+lor.lhs.false.i.i.i132:                           ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i130
+  %_M_storage.i.i.i3.i.i.i133 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i126, i64 32
+  %240 = load float, ptr %_M_storage.i.i.i3.i.i.i133, align 4
+  %cmp.i4.i.i.i134 = fcmp olt float %234, %240
+  br i1 %cmp.i4.i.i.i134, label %if.end.i145, label %if.end.i5.i.i.i135
 
-lor.lhs.false.i.i.i133:                           ; preds = %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i131
-  %_M_storage.i.i.i3.i.i.i134 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i127, i64 0, i32 1
-  %240 = load float, ptr %_M_storage.i.i.i3.i.i.i134, align 4
-  %cmp.i4.i.i.i135 = fcmp olt float %234, %240
-  br i1 %cmp.i4.i.i.i135, label %if.end.i146, label %if.end.i5.i.i.i136
+if.end.i5.i.i.i135:                               ; preds = %lor.lhs.false.i.i.i132
+  %cmp5.i.i.i.i136 = fcmp ogt float %234, %240
+  br i1 %cmp5.i.i.i.i136, label %if.then.i191, label %if.end7.i.i.i.i137
 
-if.end.i5.i.i.i136:                               ; preds = %lor.lhs.false.i.i.i133
-  %cmp5.i.i.i.i137 = fcmp ogt float %234, %240
-  br i1 %cmp5.i.i.i.i137, label %if.then.i194, label %if.end7.i.i.i.i138
+if.end7.i.i.i.i137:                               ; preds = %if.end.i5.i.i.i135
+  %y8.i.i.i.i138 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i126, i64 36
+  %241 = load float, ptr %y8.i.i.i.i138, align 4
+  %cmp9.i.i.i.i139 = fcmp olt float %235, %241
+  br i1 %cmp9.i.i.i.i139, label %if.end.i145, label %if.end11.i.i.i.i140
 
-if.end7.i.i.i.i138:                               ; preds = %if.end.i5.i.i.i136
-  %y8.i.i.i.i139 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i127, i64 0, i32 1, i32 0, i64 4
-  %241 = load float, ptr %y8.i.i.i.i139, align 4
-  %cmp9.i.i.i.i140 = fcmp olt float %235, %241
-  br i1 %cmp9.i.i.i.i140, label %if.end.i146, label %if.end11.i.i.i.i141
+if.end11.i.i.i.i140:                              ; preds = %if.end7.i.i.i.i137
+  %cmp14.i.i.i.i141 = fcmp ogt float %235, %241
+  br i1 %cmp14.i.i.i.i141, label %if.then.i191, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i142
 
-if.end11.i.i.i.i141:                              ; preds = %if.end7.i.i.i.i138
-  %cmp14.i.i.i.i142 = fcmp ogt float %235, %241
-  br i1 %cmp14.i.i.i.i142, label %if.then.i194, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i143
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i142: ; preds = %if.end11.i.i.i.i140
+  %z17.i.i.i.i143 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i126, i64 40
+  %242 = load float, ptr %z17.i.i.i.i143, align 4
+  %cmp18.i.i.i.i144 = fcmp uge float %236, %242
+  br i1 %cmp18.i.i.i.i144, label %if.then.i191, label %if.end.i145
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i143: ; preds = %if.end11.i.i.i.i141
-  %z17.i.i.i.i144 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i127, i64 0, i32 1, i32 0, i64 8
-  %242 = load float, ptr %z17.i.i.i.i144, align 4
-  %cmp18.i.i.i.i145 = fcmp uge float %236, %242
-  br i1 %cmp18.i.i.i.i145, label %if.then.i194, label %if.end.i146
-
-if.then.i194:                                     ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i143, %if.end11.i.i.i.i141, %if.end.i5.i.i.i136
-  %second.i195 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i127, i64 0, i32 1, i32 0, i64 12
-  %243 = load i32, ptr %second.i195, align 4
+if.then.i191:                                     ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i142, %if.end11.i.i.i.i140, %if.end.i5.i.i.i135
+  %second.i192 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i126, i64 44
+  %243 = load i32, ptr %second.i192, align 4
   br label %for.inc
 
-if.end.i146:                                      ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i143, %if.end7.i.i.i.i138, %lor.lhs.false.i.i.i133, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i131
+if.end.i145:                                      ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i142, %if.end7.i.i.i.i137, %lor.lhs.false.i.i.i132, %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS3_.exit.i.i.i130
   %244 = load i32, ptr %mVtMap, align 8
-  %inc.i147 = add nsw i32 %244, 1
-  store i32 %inc.i147, ptr %mVtMap, align 8
+  %inc.i146 = add nsw i32 %244, 1
+  store i32 %inc.i146, ptr %mVtMap, align 8
   %245 = load float, ptr %arrayidx77, align 4
   %246 = load float, ptr %y8.i.i.i.i.i107, align 4
   %247 = load float, ptr %z17.i.i.i.i.i108, align 4
-  br label %while.body.i.i.i.i.i148
+  br label %while.body.i.i.i.i.i147
 
-while.body.i.i.i.i.i148:                          ; preds = %if.end.i.i.i.i2.i165, %if.end.i146
-  %__x.addr.011.i.i.i.i.i149 = phi ptr [ %232, %if.end.i146 ], [ %__x.addr.1.i.i.i.i.i168, %if.end.i.i.i.i2.i165 ]
-  %__y.addr.010.i.i.i.i.i150 = phi ptr [ %add.ptr.i.i.i.i104, %if.end.i146 ], [ %__y.addr.1.i.i.i.i.i166, %if.end.i.i.i.i2.i165 ]
-  %_M_storage.i.i.i.i.i.i.i151 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i.i149, i64 0, i32 1
-  %248 = load float, ptr %_M_storage.i.i.i.i.i.i.i151, align 4
-  %cmp.i.i.i.i.i.i152 = fcmp olt float %248, %245
-  br i1 %cmp.i.i.i.i.i.i152, label %if.else.i.i.i.i.i192, label %if.end.i.i.i.i.i.i153
+while.body.i.i.i.i.i147:                          ; preds = %if.end.i.i.i.i2.i162, %if.end.i145
+  %__x.addr.011.i.i.i.i.i148 = phi ptr [ %232, %if.end.i145 ], [ %__x.addr.1.i.i.i.i.i166, %if.end.i.i.i.i2.i162 ]
+  %__y.addr.010.i.i.i.i.i149 = phi ptr [ %add.ptr.i.i.i.i104, %if.end.i145 ], [ %__y.addr.1.i.i.i.i.i164, %if.end.i.i.i.i2.i162 ]
+  %_M_storage.i.i.i.i.i.i.i150 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i148, i64 32
+  %248 = load float, ptr %_M_storage.i.i.i.i.i.i.i150, align 4
+  %cmp.i.i.i.i.i.i151 = fcmp olt float %248, %245
+  br i1 %cmp.i.i.i.i.i.i151, label %if.else.i.i.i.i.i190, label %if.end.i.i.i.i.i.i152
 
-if.end.i.i.i.i.i.i153:                            ; preds = %while.body.i.i.i.i.i148
-  %cmp5.i.i.i.i.i.i154 = fcmp ogt float %248, %245
-  br i1 %cmp5.i.i.i.i.i.i154, label %if.then.i.i.i.i.i163, label %if.end7.i.i.i.i.i.i155
+if.end.i.i.i.i.i.i152:                            ; preds = %while.body.i.i.i.i.i147
+  %cmp5.i.i.i.i.i.i153 = fcmp ogt float %248, %245
+  br i1 %cmp5.i.i.i.i.i.i153, label %if.end.i.i.i.i2.i162, label %if.end7.i.i.i.i.i.i154
 
-if.end7.i.i.i.i.i.i155:                           ; preds = %if.end.i.i.i.i.i.i153
-  %y.i.i.i.i.i.i156 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i.i149, i64 0, i32 1, i32 0, i64 4
-  %249 = load float, ptr %y.i.i.i.i.i.i156, align 4
-  %cmp9.i.i.i.i.i.i157 = fcmp olt float %249, %246
-  br i1 %cmp9.i.i.i.i.i.i157, label %if.else.i.i.i.i.i192, label %if.end11.i.i.i.i.i.i158
+if.end7.i.i.i.i.i.i154:                           ; preds = %if.end.i.i.i.i.i.i152
+  %y.i.i.i.i.i.i155 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i148, i64 36
+  %249 = load float, ptr %y.i.i.i.i.i.i155, align 4
+  %cmp9.i.i.i.i.i.i156 = fcmp olt float %249, %246
+  br i1 %cmp9.i.i.i.i.i.i156, label %if.else.i.i.i.i.i190, label %if.end11.i.i.i.i.i.i157
 
-if.end11.i.i.i.i.i.i158:                          ; preds = %if.end7.i.i.i.i.i.i155
-  %cmp14.i.i.i.i.i.i159 = fcmp ogt float %249, %246
-  br i1 %cmp14.i.i.i.i.i.i159, label %if.then.i.i.i.i.i163, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i160
+if.end11.i.i.i.i.i.i157:                          ; preds = %if.end7.i.i.i.i.i.i154
+  %cmp14.i.i.i.i.i.i158 = fcmp ogt float %249, %246
+  br i1 %cmp14.i.i.i.i.i.i158, label %if.end.i.i.i.i2.i162, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i159
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i160: ; preds = %if.end11.i.i.i.i.i.i158
-  %z.i.i.i.i.i.i161 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.addr.011.i.i.i.i.i149, i64 0, i32 1, i32 0, i64 8
-  %250 = load float, ptr %z.i.i.i.i.i.i161, align 4
-  %cmp18.i.i.i.i.i.i162 = fcmp olt float %250, %247
-  br i1 %cmp18.i.i.i.i.i.i162, label %if.else.i.i.i.i.i192, label %if.then.i.i.i.i.i163
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i159: ; preds = %if.end11.i.i.i.i.i.i157
+  %z.i.i.i.i.i.i160 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i148, i64 40
+  %250 = load float, ptr %z.i.i.i.i.i.i160, align 4
+  %cmp18.i.i.i.i.i.i161 = fcmp olt float %250, %247
+  br i1 %cmp18.i.i.i.i.i.i161, label %if.else.i.i.i.i.i190, label %if.end.i.i.i.i2.i162
 
-if.then.i.i.i.i.i163:                             ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i160, %if.end11.i.i.i.i.i.i158, %if.end.i.i.i.i.i.i153
-  %_M_left.i.i.i.i.i.i164 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i.i149, i64 0, i32 2
-  br label %if.end.i.i.i.i2.i165
+if.else.i.i.i.i.i190:                             ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i159, %if.end7.i.i.i.i.i.i154, %while.body.i.i.i.i.i147
+  br label %if.end.i.i.i.i2.i162
 
-if.else.i.i.i.i.i192:                             ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i160, %if.end7.i.i.i.i.i.i155, %while.body.i.i.i.i.i148
-  %_M_right.i.i.i.i.i.i193 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i.i149, i64 0, i32 3
-  br label %if.end.i.i.i.i2.i165
+if.end.i.i.i.i2.i162:                             ; preds = %if.else.i.i.i.i.i190, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i159, %if.end11.i.i.i.i.i.i157, %if.end.i.i.i.i.i.i152
+  %.sink.i.i.i.i.i163 = phi i64 [ 24, %if.else.i.i.i.i.i190 ], [ 16, %if.end11.i.i.i.i.i.i157 ], [ 16, %if.end.i.i.i.i.i.i152 ], [ 16, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i159 ]
+  %__y.addr.1.i.i.i.i.i164 = phi ptr [ %__y.addr.010.i.i.i.i.i149, %if.else.i.i.i.i.i190 ], [ %__x.addr.011.i.i.i.i.i148, %if.end11.i.i.i.i.i.i157 ], [ %__x.addr.011.i.i.i.i.i148, %if.end.i.i.i.i.i.i152 ], [ %__x.addr.011.i.i.i.i.i148, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i.i.i.i159 ]
+  %_M_right.i.i.i.i.i.i165 = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i.i148, i64 %.sink.i.i.i.i.i163
+  %__x.addr.1.i.i.i.i.i166 = load ptr, ptr %_M_right.i.i.i.i.i.i165, align 8
+  %cmp.not.i.i.i.i.i167 = icmp eq ptr %__x.addr.1.i.i.i.i.i166, null
+  br i1 %cmp.not.i.i.i.i.i167, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i168, label %while.body.i.i.i.i.i147, !llvm.loop !18
 
-if.end.i.i.i.i2.i165:                             ; preds = %if.else.i.i.i.i.i192, %if.then.i.i.i.i.i163
-  %__y.addr.1.i.i.i.i.i166 = phi ptr [ %__y.addr.010.i.i.i.i.i150, %if.else.i.i.i.i.i192 ], [ %__x.addr.011.i.i.i.i.i149, %if.then.i.i.i.i.i163 ]
-  %__x.addr.1.in.i.i.i.i.i167 = phi ptr [ %_M_right.i.i.i.i.i.i193, %if.else.i.i.i.i.i192 ], [ %_M_left.i.i.i.i.i.i164, %if.then.i.i.i.i.i163 ]
-  %__x.addr.1.i.i.i.i.i168 = load ptr, ptr %__x.addr.1.in.i.i.i.i.i167, align 8
-  %cmp.not.i.i.i.i.i169 = icmp eq ptr %__x.addr.1.i.i.i.i.i168, null
-  br i1 %cmp.not.i.i.i.i.i169, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i170, label %while.body.i.i.i.i.i148, !llvm.loop !18
+_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i168: ; preds = %if.end.i.i.i.i2.i162
+  %cmp.i.i.i169 = icmp eq ptr %__y.addr.1.i.i.i.i.i164, %add.ptr.i.i.i.i104
+  br i1 %cmp.i.i.i169, label %if.then.i.i187, label %lor.rhs.i.i170
 
-_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i170: ; preds = %if.end.i.i.i.i2.i165
-  %cmp.i.i.i171 = icmp eq ptr %__y.addr.1.i.i.i.i.i166, %add.ptr.i.i.i.i104
-  br i1 %cmp.i.i.i171, label %if.then.i.i189, label %lor.rhs.i.i172
+lor.rhs.i.i170:                                   ; preds = %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i168
+  %_M_storage.i.i.i.i171 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i164, i64 32
+  %251 = load float, ptr %_M_storage.i.i.i.i171, align 4
+  %cmp.i3.i.i172 = fcmp olt float %245, %251
+  br i1 %cmp.i3.i.i172, label %if.then.i.i187, label %if.end.i.i.i173
 
-lor.rhs.i.i172:                                   ; preds = %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i170
-  %_M_storage.i.i.i.i173 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i.i166, i64 0, i32 1
-  %251 = load float, ptr %_M_storage.i.i.i.i173, align 4
-  %cmp.i3.i.i174 = fcmp olt float %245, %251
-  br i1 %cmp.i3.i.i174, label %if.then.i.i189, label %if.end.i.i.i175
+if.end.i.i.i173:                                  ; preds = %lor.rhs.i.i170
+  %cmp5.i.i.i174 = fcmp ogt float %245, %251
+  br i1 %cmp5.i.i.i174, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183, label %if.end7.i.i.i175
 
-if.end.i.i.i175:                                  ; preds = %lor.rhs.i.i172
-  %cmp5.i.i.i176 = fcmp ogt float %245, %251
-  br i1 %cmp5.i.i.i176, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185, label %if.end7.i.i.i177
+if.end7.i.i.i175:                                 ; preds = %if.end.i.i.i173
+  %y8.i.i.i176 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i164, i64 36
+  %252 = load float, ptr %y8.i.i.i176, align 4
+  %cmp9.i.i.i177 = fcmp olt float %246, %252
+  br i1 %cmp9.i.i.i177, label %if.then.i.i187, label %if.end11.i.i.i178
 
-if.end7.i.i.i177:                                 ; preds = %if.end.i.i.i175
-  %y8.i.i.i178 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i.i166, i64 0, i32 1, i32 0, i64 4
-  %252 = load float, ptr %y8.i.i.i178, align 4
-  %cmp9.i.i.i179 = fcmp olt float %246, %252
-  br i1 %cmp9.i.i.i179, label %if.then.i.i189, label %if.end11.i.i.i180
+if.end11.i.i.i178:                                ; preds = %if.end7.i.i.i175
+  %cmp14.i.i.i179 = fcmp ogt float %246, %252
+  br i1 %cmp14.i.i.i179, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180
 
-if.end11.i.i.i180:                                ; preds = %if.end7.i.i.i177
-  %cmp14.i.i.i181 = fcmp ogt float %246, %252
-  br i1 %cmp14.i.i.i181, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180: ; preds = %if.end11.i.i.i178
+  %z17.i.i.i181 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i164, i64 40
+  %253 = load float, ptr %z17.i.i.i181, align 4
+  %cmp18.i.i.i182 = fcmp olt float %247, %253
+  br i1 %cmp18.i.i.i182, label %if.then.i.i187, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182: ; preds = %if.end11.i.i.i180
-  %z17.i.i.i183 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__y.addr.1.i.i.i.i.i166, i64 0, i32 1, i32 0, i64 8
-  %253 = load float, ptr %z17.i.i.i183, align 4
-  %cmp18.i.i.i184 = fcmp olt float %247, %253
-  br i1 %cmp18.i.i.i184, label %if.then.i.i189, label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185
+if.then.i.i187:                                   ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180, %if.end7.i.i.i175, %lor.rhs.i.i170, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i168, %if.end.thread.i194
+  %254 = phi i32 [ %244, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i168 ], [ %244, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180 ], [ %244, %lor.rhs.i.i170 ], [ %244, %if.end7.i.i.i175 ], [ %233, %if.end.thread.i194 ]
+  %__y.addr.0.lcssa.i.i.i10.i.i188 = phi ptr [ %add.ptr.i.i.i.i104, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i168 ], [ %__y.addr.1.i.i.i.i.i164, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180 ], [ %__y.addr.1.i.i.i.i.i164, %lor.rhs.i.i170 ], [ %__y.addr.1.i.i.i.i.i164, %if.end7.i.i.i175 ], [ %add.ptr.i.i.i.i104, %if.end.thread.i194 ]
+  %call5.i.i.i.i.i.i427 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
+  %_M_storage.i.i.i.i.i428 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i427, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i.i428, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx77, i64 12, i1 false)
+  %second.i.i.i.i.i.i.i.i429 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i427, i64 44
+  store i32 0, ptr %second.i.i.i.i.i.i.i.i429, align 4
+  %call8.i430 = invoke { ptr, ptr } @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i102, ptr %__y.addr.0.lcssa.i.i.i10.i.i188, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i.i428)
+          to label %invoke.cont7.i432 unwind label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i431
 
-if.then.i.i189:                                   ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182, %if.end7.i.i.i177, %lor.rhs.i.i172, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i170, %if.end.thread.i198
-  %254 = phi i32 [ %244, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i170 ], [ %244, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182 ], [ %244, %lor.rhs.i.i172 ], [ %244, %if.end7.i.i.i177 ], [ %233, %if.end.thread.i198 ]
-  %__y.addr.0.lcssa.i.i.i10.i.i190 = phi ptr [ %add.ptr.i.i.i.i104, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEE11lower_boundERS6_.exit.i.i170 ], [ %__y.addr.1.i.i.i.i.i166, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182 ], [ %__y.addr.1.i.i.i.i.i166, %lor.rhs.i.i172 ], [ %__y.addr.1.i.i.i.i.i166, %if.end7.i.i.i177 ], [ %add.ptr.i.i.i.i104, %if.end.thread.i198 ]
-  %call5.i.i.i.i.i.i438 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #25
-  %_M_storage.i.i.i.i.i439 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i438, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i.i439, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx77, i64 12, i1 false)
-  %second.i.i.i.i.i.i.i.i440 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i438, i64 0, i32 1, i32 0, i64 12
-  store i32 0, ptr %second.i.i.i.i.i.i.i.i440, align 4
-  %call8.i441 = invoke { ptr, ptr } @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %vecMap.i102, ptr %__y.addr.0.lcssa.i.i.i10.i.i190, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i.i439)
-          to label %invoke.cont7.i443 unwind label %_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i442
+invoke.cont7.i432:                                ; preds = %if.then.i.i187
+  %255 = extractvalue { ptr, ptr } %call8.i430, 0
+  %256 = extractvalue { ptr, ptr } %call8.i430, 1
+  %tobool.not.i433 = icmp eq ptr %256, null
+  br i1 %tobool.not.i433, label %if.then.i7.i458, label %if.then.i434
 
-invoke.cont7.i443:                                ; preds = %if.then.i.i189
-  %255 = extractvalue { ptr, ptr } %call8.i441, 0
-  %256 = extractvalue { ptr, ptr } %call8.i441, 1
-  %tobool.not.i444 = icmp eq ptr %256, null
-  br i1 %tobool.not.i444, label %if.then.i7.i469, label %if.then.i445
+if.then.i434:                                     ; preds = %invoke.cont7.i432
+  %cmp.not.i.i.i435 = icmp ne ptr %255, null
+  %cmp2.i.i.i437 = icmp eq ptr %add.ptr.i.i.i.i104, %256
+  %or.cond.i.i.i438 = select i1 %cmp.not.i.i.i435, i1 true, i1 %cmp2.i.i.i437
+  br i1 %or.cond.i.i.i438, label %cleanup.thread.i454, label %lor.rhs.i.i.i439
 
-if.then.i445:                                     ; preds = %invoke.cont7.i443
-  %cmp.not.i.i.i446 = icmp ne ptr %255, null
-  %cmp2.i.i.i448 = icmp eq ptr %add.ptr.i.i.i.i104, %256
-  %or.cond.i.i.i449 = select i1 %cmp.not.i.i.i446, i1 true, i1 %cmp2.i.i.i448
-  br i1 %or.cond.i.i.i449, label %cleanup.thread.i465, label %lor.rhs.i.i.i450
+lor.rhs.i.i.i439:                                 ; preds = %if.then.i434
+  %_M_storage.i.i.i.i.i.i440 = getelementptr inbounds i8, ptr %256, i64 32
+  %257 = load float, ptr %_M_storage.i.i.i.i.i428, align 4
+  %258 = load float, ptr %_M_storage.i.i.i.i.i.i440, align 4
+  %cmp.i.i.i.i441 = fcmp olt float %257, %258
+  br i1 %cmp.i.i.i.i441, label %cleanup.thread.i454, label %if.end.i.i.i.i442
 
-lor.rhs.i.i.i450:                                 ; preds = %if.then.i445
-  %_M_storage.i.i.i.i.i.i451 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %256, i64 0, i32 1
-  %257 = load float, ptr %_M_storage.i.i.i.i.i439, align 4
-  %258 = load float, ptr %_M_storage.i.i.i.i.i.i451, align 4
-  %cmp.i.i.i.i452 = fcmp olt float %257, %258
-  br i1 %cmp.i.i.i.i452, label %cleanup.thread.i465, label %if.end.i.i.i.i453
+if.end.i.i.i.i442:                                ; preds = %lor.rhs.i.i.i439
+  %cmp5.i.i.i.i443 = fcmp ogt float %257, %258
+  br i1 %cmp5.i.i.i.i443, label %cleanup.thread.i454, label %if.end7.i.i.i.i444
 
-if.end.i.i.i.i453:                                ; preds = %lor.rhs.i.i.i450
-  %cmp5.i.i.i.i454 = fcmp ogt float %257, %258
-  br i1 %cmp5.i.i.i.i454, label %cleanup.thread.i465, label %if.end7.i.i.i.i455
+if.end7.i.i.i.i444:                               ; preds = %if.end.i.i.i.i442
+  %y.i.i.i.i445 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i427, i64 36
+  %259 = load float, ptr %y.i.i.i.i445, align 4
+  %y8.i.i.i.i446 = getelementptr inbounds i8, ptr %256, i64 36
+  %260 = load float, ptr %y8.i.i.i.i446, align 4
+  %cmp9.i.i.i.i447 = fcmp olt float %259, %260
+  br i1 %cmp9.i.i.i.i447, label %cleanup.thread.i454, label %if.end11.i.i.i.i448
 
-if.end7.i.i.i.i455:                               ; preds = %if.end.i.i.i.i453
-  %y.i.i.i.i456 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i438, i64 0, i32 1, i32 0, i64 4
-  %259 = load float, ptr %y.i.i.i.i456, align 4
-  %y8.i.i.i.i457 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %256, i64 0, i32 1, i32 0, i64 4
-  %260 = load float, ptr %y8.i.i.i.i457, align 4
-  %cmp9.i.i.i.i458 = fcmp olt float %259, %260
-  br i1 %cmp9.i.i.i.i458, label %cleanup.thread.i465, label %if.end11.i.i.i.i459
+if.end11.i.i.i.i448:                              ; preds = %if.end7.i.i.i.i444
+  %cmp14.i.i.i.i449 = fcmp ogt float %259, %260
+  br i1 %cmp14.i.i.i.i449, label %cleanup.thread.i454, label %if.end16.i.i.i.i450
 
-if.end11.i.i.i.i459:                              ; preds = %if.end7.i.i.i.i455
-  %cmp14.i.i.i.i460 = fcmp ogt float %259, %260
-  br i1 %cmp14.i.i.i.i460, label %cleanup.thread.i465, label %if.end16.i.i.i.i461
+if.end16.i.i.i.i450:                              ; preds = %if.end11.i.i.i.i448
+  %z.i.i.i.i451 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i427, i64 40
+  %261 = load float, ptr %z.i.i.i.i451, align 4
+  %z17.i.i.i.i452 = getelementptr inbounds i8, ptr %256, i64 40
+  %262 = load float, ptr %z17.i.i.i.i452, align 4
+  %cmp18.i.i.i.i453 = fcmp olt float %261, %262
+  br label %cleanup.thread.i454
 
-if.end16.i.i.i.i461:                              ; preds = %if.end11.i.i.i.i459
-  %z.i.i.i.i462 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call5.i.i.i.i.i.i438, i64 0, i32 1, i32 0, i64 8
-  %261 = load float, ptr %z.i.i.i.i462, align 4
-  %z17.i.i.i.i463 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %256, i64 0, i32 1, i32 0, i64 8
-  %262 = load float, ptr %z17.i.i.i.i463, align 4
-  %cmp18.i.i.i.i464 = fcmp olt float %261, %262
-  br label %cleanup.thread.i465
+cleanup.thread.i454:                              ; preds = %if.end16.i.i.i.i450, %if.end11.i.i.i.i448, %if.end7.i.i.i.i444, %if.end.i.i.i.i442, %lor.rhs.i.i.i439, %if.then.i434
+  %263 = phi i1 [ true, %if.then.i434 ], [ true, %lor.rhs.i.i.i439 ], [ false, %if.end.i.i.i.i442 ], [ true, %if.end7.i.i.i.i444 ], [ false, %if.end11.i.i.i.i448 ], [ %cmp18.i.i.i.i453, %if.end16.i.i.i.i450 ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %263, ptr noundef nonnull %call5.i.i.i.i.i.i427, ptr noundef nonnull %256, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i104) #20
+  %264 = load i64, ptr %_M_node_count.i.i.i455, align 8
+  %inc.i.i.i456 = add i64 %264, 1
+  store i64 %inc.i.i.i456, ptr %_M_node_count.i.i.i455, align 8
+  br label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183
 
-cleanup.thread.i465:                              ; preds = %if.end16.i.i.i.i461, %if.end11.i.i.i.i459, %if.end7.i.i.i.i455, %if.end.i.i.i.i453, %lor.rhs.i.i.i450, %if.then.i445
-  %263 = phi i1 [ true, %if.then.i445 ], [ true, %lor.rhs.i.i.i450 ], [ false, %if.end.i.i.i.i453 ], [ true, %if.end7.i.i.i.i455 ], [ false, %if.end11.i.i.i.i459 ], [ %cmp18.i.i.i.i464, %if.end16.i.i.i.i461 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %263, ptr noundef nonnull %call5.i.i.i.i.i.i438, ptr noundef nonnull %256, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i104) #20
-  %264 = load i64, ptr %_M_node_count.i.i.i466, align 8
-  %inc.i.i.i467 = add i64 %264, 1
-  store i64 %inc.i.i.i467, ptr %_M_node_count.i.i.i466, align 8
-  br label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185
-
-_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i442: ; preds = %if.then.i.i189
+_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE10_Auto_nodeD2Ev.exit.i431: ; preds = %if.then.i.i187
   %265 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i438) #22
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i427) #22
   br label %common.resume
 
-if.then.i7.i469:                                  ; preds = %invoke.cont7.i443
-  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i438) #22
-  br label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185
+if.then.i7.i458:                                  ; preds = %invoke.cont7.i432
+  call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i427) #22
+  br label %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183
 
-_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185: ; preds = %if.then.i7.i469, %cleanup.thread.i465, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182, %if.end11.i.i.i180, %if.end.i.i.i175
-  %266 = phi i32 [ %244, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182 ], [ %244, %if.end.i.i.i175 ], [ %244, %if.end11.i.i.i180 ], [ %254, %cleanup.thread.i465 ], [ %254, %if.then.i7.i469 ]
-  %__i.sroa.0.0.i.i186 = phi ptr [ %__y.addr.1.i.i.i.i.i166, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i182 ], [ %__y.addr.1.i.i.i.i.i166, %if.end.i.i.i175 ], [ %__y.addr.1.i.i.i.i.i166, %if.end11.i.i.i180 ], [ %call5.i.i.i.i.i.i438, %cleanup.thread.i465 ], [ %255, %if.then.i7.i469 ]
-  %second.i.i187 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__i.sroa.0.0.i.i186, i64 0, i32 1, i32 0, i64 12
-  store i32 %266, ptr %second.i.i187, align 4
+_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183: ; preds = %if.then.i7.i458, %cleanup.thread.i454, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180, %if.end11.i.i.i178, %if.end.i.i.i173
+  %266 = phi i32 [ %244, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180 ], [ %244, %if.end.i.i.i173 ], [ %244, %if.end11.i.i.i178 ], [ %254, %cleanup.thread.i454 ], [ %254, %if.then.i7.i458 ]
+  %__i.sroa.0.0.i.i184 = phi ptr [ %__y.addr.1.i.i.i.i.i164, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i.i180 ], [ %__y.addr.1.i.i.i.i.i164, %if.end.i.i.i173 ], [ %__y.addr.1.i.i.i.i.i164, %if.end11.i.i.i178 ], [ %call5.i.i.i.i.i.i427, %cleanup.thread.i454 ], [ %255, %if.then.i7.i458 ]
+  %second.i.i185 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i.i184, i64 44
+  store i32 %266, ptr %second.i.i185, align 4
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end70, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185, %if.then.i194
-  %retval.0.i188.sink = phi i32 [ %243, %if.then.i194 ], [ %266, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i185 ], [ 0, %if.end70 ]
+for.inc:                                          ; preds = %if.end70, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183, %if.then.i191
+  %retval.0.i186.sink = phi i32 [ %243, %if.then.i191 ], [ %266, %_ZNSt3mapI10aiVector3tIfEiN6Assimp11ObjExporter15aiVectorCompareESaISt4pairIKS1_iEEEixERS6_.exit.i183 ], [ 0, %if.end70 ]
   %267 = load ptr, ptr %indices, align 8
   %vt = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %267, i64 %indvars.iv, i32 2
-  store i32 %retval.0.i188.sink, ptr %vt, align 4
+  store i32 %retval.0.i186.sink, ptr %vt, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %268 = load i32, ptr %arrayidx12, align 8
   %269 = zext i32 %268 to i64
@@ -4233,10 +4193,10 @@ for.inc:                                          ; preds = %if.end70, %_ZNSt3ma
   br i1 %cmp23, label %for.body24, label %for.inc88, !llvm.loop !19
 
 for.inc88:                                        ; preds = %for.inc, %for.body
-  %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
+  %indvars.iv.next554 = add nuw nsw i64 %indvars.iv553, 1
   %270 = load i32, ptr %mNumFaces, align 8
   %271 = zext i32 %270 to i64
-  %cmp11 = icmp ult i64 %indvars.iv.next565, %271
+  %cmp11 = icmp ult i64 %indvars.iv.next554, %271
   br i1 %cmp11, label %for.body, label %for.end90, !llvm.loop !20
 
 for.end90:                                        ; preds = %for.inc88, %_ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE6resizeEm.exit
@@ -4249,7 +4209,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -4261,7 +4221,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::FaceVertex, std::allocator<Assimp::ObjExporter::FaceVertex>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -4305,8 +4265,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Ass
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i, i64 12, i1 false), !alias.scope !21
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::FaceVertex", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 12
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN6Assimp11ObjExporter10FaceVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %for.body.i.i.i.i, !llvm.loop !25
 
@@ -4357,10 +4317,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN6Assimp11ObjExporter10vertexDataESt4pairIKS2_iESt10_Select1stIS5_ENS1_17vertexDataCompareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #22
   %cmp.not = icmp eq ptr %1, null
@@ -4392,10 +4352,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeI10aiVector3tIfESt4pairIKS1_iESt10_Select1stIS4_EN6Assimp11ObjExporter15aiVectorCompareESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #22
   %cmp.not = icmp eq ptr %1, null
@@ -4593,14 +4553,14 @@ entry:
   br i1 %cmp.not, label %if.end52, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::vertexData, std::allocator<Assimp::ObjExporter::vertexData>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::vertexData, std::allocator<Assimp::ObjExporter::vertexData>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -4644,20 +4604,20 @@ for.inc.i.i.i.i.i:                                ; preds = %_ZNKSt6vectorIN6Ass
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %1, %_ZNKSt6vectorIN6Assimp11ObjExporter10vertexDataESaIS2_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.09.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.08.i.i.i.i.i, i64 12, i1 false)
-  %vc.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1
-  %vc3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 1
+  %vc.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 12
+  %vc3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 12
   %6 = load float, ptr %vc3.i.i.i.i.i.i.i, align 4
   store float %6, ptr %vc.i.i.i.i.i.i.i, align 4
-  %g.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1, i32 1
-  %g3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 1, i32 1
+  %g.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 16
+  %g3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 16
   %7 = load float, ptr %g3.i.i.i.i.i.i.i.i, align 4
   store float %7, ptr %g.i.i.i.i.i.i.i.i, align 4
-  %b.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__cur.09.i.i.i.i.i, i64 0, i32 1, i32 2
-  %b4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__first.addr.08.i.i.i.i.i, i64 0, i32 1, i32 2
+  %b.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 20
+  %b4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 20
   %8 = load float, ptr %b4.i.i.i.i.i.i.i.i, align 4
   store float %8, ptr %b.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__first.addr.08.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__cur.09.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %try.cont, label %for.inc.i.i.i.i.i, !llvm.loop !28
 
@@ -4687,7 +4647,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -4699,7 +4659,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -4743,8 +4703,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI10aiV
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i, i64 12, i1 false), !alias.scope !29
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 12
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !33
 
@@ -4784,7 +4744,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::MeshInstance, std::allocator<Assimp::ObjExporter::MeshInstance>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4820,9 +4780,9 @@ _ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_M_allocateEm.
   %add.ptr = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr, i8 0, i64 88, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #20
-  %matname.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
+  %matname.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matname.i.i.i) #20
-  %faces.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
+  %faces.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %faces.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -4833,28 +4793,28 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #20
-  %matname.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %matname3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %matname.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %matname3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %matname.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %matname3.i.i.i.i.i.i.i) #20
-  %faces.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %faces4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %faces.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
+  %faces4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
   %3 = load <2 x ptr>, ptr %faces4.i.i.i.i.i.i.i, align 8, !alias.scope !37, !noalias !34
   store <2 x ptr> %3, ptr %faces.i.i.i.i.i.i.i, align 8, !alias.scope !34, !noalias !37
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 80
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !37, !noalias !34
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !34, !noalias !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %faces4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !37, !noalias !34
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matname3.i.i.i.i.i.i.i) #20
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #20
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 88
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 88
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !39
 
 _ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 88
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, label %for.body.i.i.i12
 
@@ -4864,22 +4824,22 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #20
-  %matname.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %matname3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %matname.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
+  %matname3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %matname.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %matname3.i.i.i.i.i.i.i16) #20
-  %faces.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %faces4.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %faces.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 64
+  %faces4.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 64
   %5 = load <2 x ptr>, ptr %faces4.i.i.i.i.i.i.i18, align 8, !alias.scope !43, !noalias !40
   store <2 x ptr> %5, ptr %faces.i.i.i.i.i.i.i17, align 8, !alias.scope !40, !noalias !43
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i13, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i14, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 80
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 80
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i22, align 8, !alias.scope !43, !noalias !40
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !40, !noalias !43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %faces4.i.i.i.i.i.i.i18, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matname3.i.i.i.i.i.i.i16) #20
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #20
-  %incdec.ptr.i.i.i23 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i24 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 88
+  %incdec.ptr1.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 88
   %cmp.not.i.i.i25 = icmp eq ptr %incdec.ptr.i.i.i23, %0
   br i1 %cmp.not.i.i.i25, label %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, label %for.body.i.i.i12, !llvm.loop !39
 
@@ -4893,7 +4853,7 @@ if.then.i28:                                      ; preds = %_ZNSt6vectorIN6Assi
   br label %_ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp11ObjExporter12MeshInstanceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, %if.then.i28
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::MeshInstance, std::allocator<Assimp::ObjExporter::MeshInstance>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i26, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.Assimp::ObjExporter::MeshInstance", ptr %cond.i10, i64 %cond.i
@@ -4908,14 +4868,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::ObjExporter::Face, std::allocator<Assimp::ObjExporter::Face>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -4962,17 +4922,17 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN6Ass
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %6 = load i8, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !48, !noalias !45
   store i8 %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !45, !noalias !48
-  %indices.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %indices3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %indices.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %indices3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %7 = load <2 x ptr>, ptr %indices3.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
   store <2 x ptr> %7, ptr %indices.i.i.i.i.i.i.i, align 8, !alias.scope !45, !noalias !48
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !48, !noalias !45
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !45, !noalias !48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %indices3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !48, !noalias !45
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::ObjExporter::Face", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp11ObjExporter4FaceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !50
 
@@ -5015,7 +4975,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load float, ptr %_M_storage.i.i.i, align 4
   %3 = load float, ptr %__k, align 4
   %cmp.i = fcmp olt float %2, %3
@@ -5026,9 +4986,9 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp8.i, label %if.else, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %y.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 4
+  %y.i = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load float, ptr %y.i, align 4
-  %y13.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y13.i = getelementptr inbounds i8, ptr %__k, i64 4
   %5 = load float, ptr %y13.i, align 4
   %cmp14.i = fcmp olt float %4, %5
   br i1 %cmp14.i, label %return, label %if.end16.i
@@ -5038,9 +4998,9 @@ if.end16.i:                                       ; preds = %if.end10.i
   br i1 %cmp21.i, label %if.else, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end16.i
-  %z.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %z.i = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load float, ptr %z.i, align 4
-  %z26.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z26.i = getelementptr inbounds i8, ptr %__k, i64 8
   %7 = load float, ptr %z26.i, align 4
   %cmp27.i = fcmp olt float %6, %7
   br i1 %cmp27.i, label %return, label %if.end29.i
@@ -5050,9 +5010,9 @@ if.end29.i:                                       ; preds = %if.end23.i
   br i1 %cmp34.i, label %if.else, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end29.i
-  %vc.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 12
+  %vc.i = getelementptr inbounds i8, ptr %1, i64 44
   %8 = load float, ptr %vc.i, align 4
-  %vc37.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1
+  %vc37.i = getelementptr inbounds i8, ptr %__k, i64 12
   %9 = load float, ptr %vc37.i, align 4
   %cmp39.i = fcmp olt float %8, %9
   br i1 %cmp39.i, label %return, label %if.end41.i
@@ -5062,9 +5022,9 @@ if.end41.i:                                       ; preds = %if.end36.i
   br i1 %cmp46.i, label %if.else, label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.end41.i
-  %g.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 16
+  %g.i = getelementptr inbounds i8, ptr %1, i64 48
   %10 = load float, ptr %g.i, align 4
-  %g51.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 1
+  %g51.i = getelementptr inbounds i8, ptr %__k, i64 16
   %11 = load float, ptr %g51.i, align 4
   %cmp52.i = fcmp olt float %10, %11
   br i1 %cmp52.i, label %return, label %if.end54.i
@@ -5074,9 +5034,9 @@ if.end54.i:                                       ; preds = %if.end48.i
   br i1 %cmp59.i, label %if.else, label %if.end61.i
 
 if.end61.i:                                       ; preds = %if.end54.i
-  %b63.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 20
+  %b63.i = getelementptr inbounds i8, ptr %1, i64 52
   %12 = load float, ptr %b63.i, align 4
-  %b65.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 2
+  %b65.i = getelementptr inbounds i8, ptr %__k, i64 20
   %13 = load float, ptr %b65.i, align 4
   %cmp66.i = fcmp olt float %12, %13
   br i1 %cmp66.i, label %return, label %if.else
@@ -5088,7 +5048,7 @@ if.else:                                          ; preds = %if.end61.i, %if.end
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %16 = load float, ptr %__k, align 4
   %17 = load float, ptr %_M_storage.i.i.i10, align 4
   %cmp.i11 = fcmp olt float %16, %17
@@ -5099,9 +5059,9 @@ if.end.i12:                                       ; preds = %if.else12
   br i1 %cmp8.i13, label %if.then50, label %if.end10.i14
 
 if.end10.i14:                                     ; preds = %if.end.i12
-  %y.i15 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y.i15 = getelementptr inbounds i8, ptr %__k, i64 4
   %18 = load float, ptr %y.i15, align 4
-  %y13.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 4
+  %y13.i16 = getelementptr inbounds i8, ptr %__position.coerce, i64 36
   %19 = load float, ptr %y13.i16, align 4
   %cmp14.i17 = fcmp olt float %18, %19
   br i1 %cmp14.i17, label %if.then18, label %if.end16.i18
@@ -5111,9 +5071,9 @@ if.end16.i18:                                     ; preds = %if.end10.i14
   br i1 %cmp21.i19, label %if.end10.i90, label %if.end23.i20
 
 if.end23.i20:                                     ; preds = %if.end16.i18
-  %z.i21 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z.i21 = getelementptr inbounds i8, ptr %__k, i64 8
   %20 = load float, ptr %z.i21, align 4
-  %z26.i22 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 8
+  %z26.i22 = getelementptr inbounds i8, ptr %__position.coerce, i64 40
   %21 = load float, ptr %z26.i22, align 4
   %cmp27.i23 = fcmp olt float %20, %21
   br i1 %cmp27.i23, label %if.then18, label %if.end29.i24
@@ -5123,9 +5083,9 @@ if.end29.i24:                                     ; preds = %if.end23.i20
   br i1 %cmp34.i25, label %if.end10.i90, label %if.end36.i26
 
 if.end36.i26:                                     ; preds = %if.end29.i24
-  %vc.i27 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1
+  %vc.i27 = getelementptr inbounds i8, ptr %__k, i64 12
   %22 = load float, ptr %vc.i27, align 4
-  %vc37.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 12
+  %vc37.i28 = getelementptr inbounds i8, ptr %__position.coerce, i64 44
   %23 = load float, ptr %vc37.i28, align 4
   %cmp39.i29 = fcmp olt float %22, %23
   br i1 %cmp39.i29, label %if.then18, label %if.end41.i30
@@ -5135,9 +5095,9 @@ if.end41.i30:                                     ; preds = %if.end36.i26
   br i1 %cmp46.i31, label %if.end10.i90, label %if.end48.i32
 
 if.end48.i32:                                     ; preds = %if.end41.i30
-  %g.i33 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 1
+  %g.i33 = getelementptr inbounds i8, ptr %__k, i64 16
   %24 = load float, ptr %g.i33, align 4
-  %g51.i34 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 16
+  %g51.i34 = getelementptr inbounds i8, ptr %__position.coerce, i64 48
   %25 = load float, ptr %g51.i34, align 4
   %cmp52.i35 = fcmp olt float %24, %25
   br i1 %cmp52.i35, label %if.then18, label %if.end54.i36
@@ -5147,9 +5107,9 @@ if.end54.i36:                                     ; preds = %if.end48.i32
   br i1 %cmp59.i37, label %if.end10.i90, label %if.end61.i38
 
 if.end61.i38:                                     ; preds = %if.end54.i36
-  %b63.i39 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 2
+  %b63.i39 = getelementptr inbounds i8, ptr %__k, i64 20
   %26 = load float, ptr %b63.i39, align 4
-  %b65.i40 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 20
+  %b65.i40 = getelementptr inbounds i8, ptr %__position.coerce, i64 52
   %27 = load float, ptr %b65.i40, align 4
   %cmp66.i41 = fcmp olt float %26, %27
   br i1 %cmp66.i41, label %if.then18, label %if.end10.i90
@@ -5162,7 +5122,7 @@ if.then18:                                        ; preds = %if.else12, %if.end1
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
-  %_M_storage.i.i.i48 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i48 = getelementptr inbounds i8, ptr %call.i, i64 32
   %29 = load float, ptr %_M_storage.i.i.i48, align 4
   %cmp.i49 = fcmp olt float %29, %16
   br i1 %cmp.i49, label %if.then32, label %if.end.i50
@@ -5172,9 +5132,9 @@ if.end.i50:                                       ; preds = %if.else25
   br i1 %cmp8.i51, label %if.else42, label %if.end10.i52
 
 if.end10.i52:                                     ; preds = %if.end.i50
-  %y.i53 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1, i32 0, i64 4
+  %y.i53 = getelementptr inbounds i8, ptr %call.i, i64 36
   %30 = load float, ptr %y.i53, align 4
-  %y13.i54 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y13.i54 = getelementptr inbounds i8, ptr %__k, i64 4
   %31 = load float, ptr %y13.i54, align 4
   %cmp14.i55 = fcmp olt float %30, %31
   br i1 %cmp14.i55, label %if.then32, label %if.end16.i56
@@ -5184,9 +5144,9 @@ if.end16.i56:                                     ; preds = %if.end10.i52
   br i1 %cmp21.i57, label %if.else42, label %if.end23.i58
 
 if.end23.i58:                                     ; preds = %if.end16.i56
-  %z.i59 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1, i32 0, i64 8
+  %z.i59 = getelementptr inbounds i8, ptr %call.i, i64 40
   %32 = load float, ptr %z.i59, align 4
-  %z26.i60 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z26.i60 = getelementptr inbounds i8, ptr %__k, i64 8
   %33 = load float, ptr %z26.i60, align 4
   %cmp27.i61 = fcmp olt float %32, %33
   br i1 %cmp27.i61, label %if.then32, label %if.end29.i62
@@ -5196,9 +5156,9 @@ if.end29.i62:                                     ; preds = %if.end23.i58
   br i1 %cmp34.i63, label %if.else42, label %if.end36.i64
 
 if.end36.i64:                                     ; preds = %if.end29.i62
-  %vc.i65 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1, i32 0, i64 12
+  %vc.i65 = getelementptr inbounds i8, ptr %call.i, i64 44
   %34 = load float, ptr %vc.i65, align 4
-  %vc37.i66 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1
+  %vc37.i66 = getelementptr inbounds i8, ptr %__k, i64 12
   %35 = load float, ptr %vc37.i66, align 4
   %cmp39.i67 = fcmp olt float %34, %35
   br i1 %cmp39.i67, label %if.then32, label %if.end41.i68
@@ -5208,9 +5168,9 @@ if.end41.i68:                                     ; preds = %if.end36.i64
   br i1 %cmp46.i69, label %if.else42, label %if.end48.i70
 
 if.end48.i70:                                     ; preds = %if.end41.i68
-  %g.i71 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1, i32 0, i64 16
+  %g.i71 = getelementptr inbounds i8, ptr %call.i, i64 48
   %36 = load float, ptr %g.i71, align 4
-  %g51.i72 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 1
+  %g51.i72 = getelementptr inbounds i8, ptr %__k, i64 16
   %37 = load float, ptr %g51.i72, align 4
   %cmp52.i73 = fcmp olt float %36, %37
   br i1 %cmp52.i73, label %if.then32, label %if.end54.i74
@@ -5220,15 +5180,15 @@ if.end54.i74:                                     ; preds = %if.end48.i70
   br i1 %cmp59.i75, label %if.else42, label %if.end61.i76
 
 if.end61.i76:                                     ; preds = %if.end54.i74
-  %b63.i77 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1, i32 0, i64 20
+  %b63.i77 = getelementptr inbounds i8, ptr %call.i, i64 52
   %38 = load float, ptr %b63.i77, align 4
-  %b65.i78 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 2
+  %b65.i78 = getelementptr inbounds i8, ptr %__k, i64 20
   %39 = load float, ptr %b65.i78, align 4
   %cmp66.i79 = fcmp olt float %38, %39
   br i1 %cmp66.i79, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25, %if.end10.i52, %if.end23.i58, %if.end36.i64, %if.end48.i70, %if.end61.i76
-  %_M_right.i83 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i83 = getelementptr inbounds i8, ptr %call.i, i64 24
   %40 = load ptr, ptr %_M_right.i83, align 8
   %cmp35 = icmp eq ptr %40, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
@@ -5242,9 +5202,9 @@ if.else42:                                        ; preds = %if.end61.i76, %if.e
   br label %return
 
 if.end10.i90:                                     ; preds = %if.end61.i38, %if.end54.i36, %if.end41.i30, %if.end29.i24, %if.end16.i18
-  %y.i91 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 4
+  %y.i91 = getelementptr inbounds i8, ptr %__position.coerce, i64 36
   %43 = load float, ptr %y.i91, align 4
-  %y13.i92 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y13.i92 = getelementptr inbounds i8, ptr %__k, i64 4
   %44 = load float, ptr %y13.i92, align 4
   %cmp14.i93 = fcmp olt float %43, %44
   br i1 %cmp14.i93, label %if.then50, label %if.end16.i94
@@ -5254,9 +5214,9 @@ if.end16.i94:                                     ; preds = %if.end10.i90
   br i1 %cmp21.i95, label %return, label %if.end23.i96
 
 if.end23.i96:                                     ; preds = %if.end16.i94
-  %z.i97 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 8
+  %z.i97 = getelementptr inbounds i8, ptr %__position.coerce, i64 40
   %45 = load float, ptr %z.i97, align 4
-  %z26.i98 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z26.i98 = getelementptr inbounds i8, ptr %__k, i64 8
   %46 = load float, ptr %z26.i98, align 4
   %cmp27.i99 = fcmp olt float %45, %46
   br i1 %cmp27.i99, label %if.then50, label %if.end29.i100
@@ -5266,9 +5226,9 @@ if.end29.i100:                                    ; preds = %if.end23.i96
   br i1 %cmp34.i101, label %return, label %if.end36.i102
 
 if.end36.i102:                                    ; preds = %if.end29.i100
-  %vc.i103 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 12
+  %vc.i103 = getelementptr inbounds i8, ptr %__position.coerce, i64 44
   %47 = load float, ptr %vc.i103, align 4
-  %vc37.i104 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1
+  %vc37.i104 = getelementptr inbounds i8, ptr %__k, i64 12
   %48 = load float, ptr %vc37.i104, align 4
   %cmp39.i105 = fcmp olt float %47, %48
   br i1 %cmp39.i105, label %if.then50, label %if.end41.i106
@@ -5278,9 +5238,9 @@ if.end41.i106:                                    ; preds = %if.end36.i102
   br i1 %cmp46.i107, label %return, label %if.end48.i108
 
 if.end48.i108:                                    ; preds = %if.end41.i106
-  %g.i109 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 16
+  %g.i109 = getelementptr inbounds i8, ptr %__position.coerce, i64 48
   %49 = load float, ptr %g.i109, align 4
-  %g51.i110 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 1
+  %g51.i110 = getelementptr inbounds i8, ptr %__k, i64 16
   %50 = load float, ptr %g51.i110, align 4
   %cmp52.i111 = fcmp olt float %49, %50
   br i1 %cmp52.i111, label %if.then50, label %if.end54.i112
@@ -5290,9 +5250,9 @@ if.end54.i112:                                    ; preds = %if.end48.i108
   br i1 %cmp59.i113, label %return, label %if.end61.i114
 
 if.end61.i114:                                    ; preds = %if.end54.i112
-  %b63.i115 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 20
+  %b63.i115 = getelementptr inbounds i8, ptr %__position.coerce, i64 52
   %51 = load float, ptr %b63.i115, align 4
-  %b65.i116 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 2
+  %b65.i116 = getelementptr inbounds i8, ptr %__k, i64 20
   %52 = load float, ptr %b65.i116, align 4
   %cmp66.i117 = fcmp olt float %51, %52
   br i1 %cmp66.i117, label %if.then50, label %return
@@ -5305,7 +5265,7 @@ if.then50:                                        ; preds = %if.end.i12, %if.end
 
 if.else57:                                        ; preds = %if.then50
   %call.i124 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
-  %_M_storage.i.i.i125 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i124, i64 0, i32 1
+  %_M_storage.i.i.i125 = getelementptr inbounds i8, ptr %call.i124, i64 32
   %54 = load float, ptr %_M_storage.i.i.i125, align 4
   %cmp.i126 = fcmp olt float %16, %54
   br i1 %cmp.i126, label %if.then64, label %if.end.i127
@@ -5315,9 +5275,9 @@ if.end.i127:                                      ; preds = %if.else57
   br i1 %cmp8.i128, label %if.else74, label %if.end10.i129
 
 if.end10.i129:                                    ; preds = %if.end.i127
-  %y.i130 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y.i130 = getelementptr inbounds i8, ptr %__k, i64 4
   %55 = load float, ptr %y.i130, align 4
-  %y13.i131 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i124, i64 0, i32 1, i32 0, i64 4
+  %y13.i131 = getelementptr inbounds i8, ptr %call.i124, i64 36
   %56 = load float, ptr %y13.i131, align 4
   %cmp14.i132 = fcmp olt float %55, %56
   br i1 %cmp14.i132, label %if.then64, label %if.end16.i133
@@ -5327,9 +5287,9 @@ if.end16.i133:                                    ; preds = %if.end10.i129
   br i1 %cmp21.i134, label %if.else74, label %if.end23.i135
 
 if.end23.i135:                                    ; preds = %if.end16.i133
-  %z.i136 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z.i136 = getelementptr inbounds i8, ptr %__k, i64 8
   %57 = load float, ptr %z.i136, align 4
-  %z26.i137 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i124, i64 0, i32 1, i32 0, i64 8
+  %z26.i137 = getelementptr inbounds i8, ptr %call.i124, i64 40
   %58 = load float, ptr %z26.i137, align 4
   %cmp27.i138 = fcmp olt float %57, %58
   br i1 %cmp27.i138, label %if.then64, label %if.end29.i139
@@ -5339,9 +5299,9 @@ if.end29.i139:                                    ; preds = %if.end23.i135
   br i1 %cmp34.i140, label %if.else74, label %if.end36.i141
 
 if.end36.i141:                                    ; preds = %if.end29.i139
-  %vc.i142 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1
+  %vc.i142 = getelementptr inbounds i8, ptr %__k, i64 12
   %59 = load float, ptr %vc.i142, align 4
-  %vc37.i143 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i124, i64 0, i32 1, i32 0, i64 12
+  %vc37.i143 = getelementptr inbounds i8, ptr %call.i124, i64 44
   %60 = load float, ptr %vc37.i143, align 4
   %cmp39.i144 = fcmp olt float %59, %60
   br i1 %cmp39.i144, label %if.then64, label %if.end41.i145
@@ -5351,9 +5311,9 @@ if.end41.i145:                                    ; preds = %if.end36.i141
   br i1 %cmp46.i146, label %if.else74, label %if.end48.i147
 
 if.end48.i147:                                    ; preds = %if.end41.i145
-  %g.i148 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 1
+  %g.i148 = getelementptr inbounds i8, ptr %__k, i64 16
   %61 = load float, ptr %g.i148, align 4
-  %g51.i149 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i124, i64 0, i32 1, i32 0, i64 16
+  %g51.i149 = getelementptr inbounds i8, ptr %call.i124, i64 48
   %62 = load float, ptr %g51.i149, align 4
   %cmp52.i150 = fcmp olt float %61, %62
   br i1 %cmp52.i150, label %if.then64, label %if.end54.i151
@@ -5363,15 +5323,15 @@ if.end54.i151:                                    ; preds = %if.end48.i147
   br i1 %cmp59.i152, label %if.else74, label %if.end61.i153
 
 if.end61.i153:                                    ; preds = %if.end54.i151
-  %b63.i154 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 2
+  %b63.i154 = getelementptr inbounds i8, ptr %__k, i64 20
   %63 = load float, ptr %b63.i154, align 4
-  %b65.i155 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i124, i64 0, i32 1, i32 0, i64 20
+  %b65.i155 = getelementptr inbounds i8, ptr %call.i124, i64 52
   %64 = load float, ptr %b65.i155, align 4
   %cmp66.i156 = fcmp olt float %63, %64
   br i1 %cmp66.i156, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57, %if.end10.i129, %if.end23.i135, %if.end36.i141, %if.end48.i147, %if.end61.i153
-  %_M_right.i160 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
+  %_M_right.i160 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
   %65 = load ptr, ptr %_M_right.i160, align 8
   %cmp67 = icmp eq ptr %65, null
   %spec.select183 = select i1 %cmp67, ptr null, ptr %call.i124
@@ -5403,87 +5363,83 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %0 = load float, ptr %__k, align 4
-  %y.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %__k, i64 4
   %1 = load float, ptr %y.i, align 4
-  %z.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %__k, i64 8
   %2 = load float, ptr %z.i, align 4
-  %vc.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1
+  %vc.i = getelementptr inbounds i8, ptr %__k, i64 12
   %3 = load float, ptr %vc.i, align 4
-  %g.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 1
+  %g.i = getelementptr inbounds i8, ptr %__k, i64 16
   %4 = load float, ptr %g.i, align 4
-  %b63.i = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 2
+  %b63.i = getelementptr inbounds i8, ptr %__k, i64 20
   %5 = load float, ptr %b63.i, align 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cond.end
   %__x.057 = phi ptr [ %__x.055, %while.body.lr.ph ], [ %__x.0, %cond.end ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.057, i64 32
   %6 = load float, ptr %_M_storage.i.i, align 4
   %cmp.i = fcmp olt float %0, %6
-  br i1 %cmp.i, label %cond.true, label %if.end.i
+  br i1 %cmp.i, label %cond.end, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
   %cmp8.i = fcmp ogt float %0, %6
   br i1 %cmp8.i, label %cond.false, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %y13.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057, i64 0, i32 1, i32 0, i64 4
+  %y13.i = getelementptr inbounds i8, ptr %__x.057, i64 36
   %7 = load float, ptr %y13.i, align 4
   %cmp14.i = fcmp olt float %1, %7
-  br i1 %cmp14.i, label %cond.true, label %if.end16.i
+  br i1 %cmp14.i, label %cond.end, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end10.i
   %cmp21.i = fcmp ogt float %1, %7
   br i1 %cmp21.i, label %cond.false, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end16.i
-  %z26.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057, i64 0, i32 1, i32 0, i64 8
+  %z26.i = getelementptr inbounds i8, ptr %__x.057, i64 40
   %8 = load float, ptr %z26.i, align 4
   %cmp27.i = fcmp olt float %2, %8
-  br i1 %cmp27.i, label %cond.true, label %if.end29.i
+  br i1 %cmp27.i, label %cond.end, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end23.i
   %cmp34.i = fcmp ogt float %2, %8
   br i1 %cmp34.i, label %cond.false, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end29.i
-  %vc37.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057, i64 0, i32 1, i32 0, i64 12
+  %vc37.i = getelementptr inbounds i8, ptr %__x.057, i64 44
   %9 = load float, ptr %vc37.i, align 4
   %cmp39.i = fcmp olt float %3, %9
-  br i1 %cmp39.i, label %cond.true, label %if.end41.i
+  br i1 %cmp39.i, label %cond.end, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end36.i
   %cmp46.i = fcmp ogt float %3, %9
   br i1 %cmp46.i, label %cond.false, label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.end41.i
-  %g51.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057, i64 0, i32 1, i32 0, i64 16
+  %g51.i = getelementptr inbounds i8, ptr %__x.057, i64 48
   %10 = load float, ptr %g51.i, align 4
   %cmp52.i = fcmp olt float %4, %10
-  br i1 %cmp52.i, label %cond.true, label %if.end54.i
+  br i1 %cmp52.i, label %cond.end, label %if.end54.i
 
 if.end54.i:                                       ; preds = %if.end48.i
   %cmp59.i = fcmp ogt float %4, %10
   br i1 %cmp59.i, label %cond.false, label %if.end61.i
 
 if.end61.i:                                       ; preds = %if.end54.i
-  %b65.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.057, i64 0, i32 1, i32 0, i64 20
+  %b65.i = getelementptr inbounds i8, ptr %__x.057, i64 52
   %11 = load float, ptr %b65.i, align 4
   %cmp66.i = fcmp olt float %5, %11
-  br i1 %cmp66.i, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %while.body, %if.end10.i, %if.end23.i, %if.end36.i, %if.end48.i, %if.end61.i
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.057, i64 0, i32 2
-  br label %cond.end
+  br i1 %cmp66.i, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end61.i, %if.end54.i, %if.end41.i, %if.end29.i, %if.end16.i, %if.end.i
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.057, i64 0, i32 3
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %retval.0.i52 = phi i1 [ true, %cond.true ], [ false, %cond.false ]
-  %cond.in = phi ptr [ %_M_left.i, %cond.true ], [ %_M_right.i, %cond.false ]
-  %__x.0 = load ptr, ptr %cond.in, align 8
+cond.end:                                         ; preds = %if.end61.i, %if.end48.i, %if.end36.i, %if.end23.i, %if.end10.i, %while.body, %cond.false
+  %.sink = phi i64 [ 24, %cond.false ], [ 16, %while.body ], [ 16, %if.end10.i ], [ 16, %if.end23.i ], [ 16, %if.end36.i ], [ 16, %if.end48.i ], [ 16, %if.end61.i ]
+  %retval.0.i52 = phi i1 [ false, %cond.false ], [ true, %while.body ], [ true, %if.end10.i ], [ true, %if.end23.i ], [ true, %if.end36.i ], [ true, %if.end48.i ], [ true, %if.end61.i ]
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.057, i64 %.sink
+  %__x.0 = load ptr, ptr %_M_right.i, align 8
   %cmp.not = icmp eq ptr %__x.0, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !51
 
@@ -5504,7 +5460,7 @@ if.else:                                          ; preds = %if.then
 if.end12:                                         ; preds = %if.else, %while.end
   %__y.0.lcssa61 = phi ptr [ %__y.0.lcssa62, %if.else ], [ %__x.057, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.057, %while.end ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 32
   %13 = load float, ptr %_M_storage.i.i.i, align 4
   %14 = load float, ptr %__k, align 4
   %cmp.i5 = fcmp olt float %13, %14
@@ -5515,9 +5471,9 @@ if.end.i6:                                        ; preds = %if.end12
   br i1 %cmp8.i7, label %return, label %if.end10.i8
 
 if.end10.i8:                                      ; preds = %if.end.i6
-  %y.i9 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0, i64 0, i32 1, i32 0, i64 4
+  %y.i9 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 36
   %15 = load float, ptr %y.i9, align 4
-  %y13.i10 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y13.i10 = getelementptr inbounds i8, ptr %__k, i64 4
   %16 = load float, ptr %y13.i10, align 4
   %cmp14.i11 = fcmp olt float %15, %16
   br i1 %cmp14.i11, label %return, label %if.end16.i12
@@ -5527,9 +5483,9 @@ if.end16.i12:                                     ; preds = %if.end10.i8
   br i1 %cmp21.i13, label %return, label %if.end23.i14
 
 if.end23.i14:                                     ; preds = %if.end16.i12
-  %z.i15 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0, i64 0, i32 1, i32 0, i64 8
+  %z.i15 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 40
   %17 = load float, ptr %z.i15, align 4
-  %z26.i16 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z26.i16 = getelementptr inbounds i8, ptr %__k, i64 8
   %18 = load float, ptr %z26.i16, align 4
   %cmp27.i17 = fcmp olt float %17, %18
   br i1 %cmp27.i17, label %return, label %if.end29.i18
@@ -5539,9 +5495,9 @@ if.end29.i18:                                     ; preds = %if.end23.i14
   br i1 %cmp34.i19, label %return, label %if.end36.i20
 
 if.end36.i20:                                     ; preds = %if.end29.i18
-  %vc.i21 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0, i64 0, i32 1, i32 0, i64 12
+  %vc.i21 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 44
   %19 = load float, ptr %vc.i21, align 4
-  %vc37.i22 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1
+  %vc37.i22 = getelementptr inbounds i8, ptr %__k, i64 12
   %20 = load float, ptr %vc37.i22, align 4
   %cmp39.i23 = fcmp olt float %19, %20
   br i1 %cmp39.i23, label %return, label %if.end41.i24
@@ -5551,9 +5507,9 @@ if.end41.i24:                                     ; preds = %if.end36.i20
   br i1 %cmp46.i25, label %return, label %if.end48.i26
 
 if.end48.i26:                                     ; preds = %if.end41.i24
-  %g.i27 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0, i64 0, i32 1, i32 0, i64 16
+  %g.i27 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 48
   %21 = load float, ptr %g.i27, align 4
-  %g51.i28 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 1
+  %g51.i28 = getelementptr inbounds i8, ptr %__k, i64 16
   %22 = load float, ptr %g51.i28, align 4
   %cmp52.i29 = fcmp olt float %21, %22
   br i1 %cmp52.i29, label %return, label %if.end54.i30
@@ -5563,9 +5519,9 @@ if.end54.i30:                                     ; preds = %if.end48.i26
   br i1 %cmp59.i31, label %return, label %if.end61.i32
 
 if.end61.i32:                                     ; preds = %if.end54.i30
-  %b63.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__j.sroa.0.0, i64 0, i32 1, i32 0, i64 20
+  %b63.i33 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 52
   %23 = load float, ptr %b63.i33, align 4
-  %b65.i34 = getelementptr inbounds %"struct.Assimp::ObjExporter::vertexData", ptr %__k, i64 0, i32 1, i32 2
+  %b65.i34 = getelementptr inbounds i8, ptr %__k, i64 20
   %24 = load float, ptr %b65.i34, align 4
   %cmp66.i35 = fcmp olt float %23, %24
   br i1 %cmp66.i35, label %return, label %if.end68.i36
@@ -5603,7 +5559,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load float, ptr %_M_storage.i.i.i, align 4
   %3 = load float, ptr %__k, align 4
   %cmp.i = fcmp olt float %2, %3
@@ -5614,9 +5570,9 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp5.i, label %if.else, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %y.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %1, i64 0, i32 1, i32 0, i64 4
+  %y.i = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load float, ptr %y.i, align 4
-  %y8.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y8.i = getelementptr inbounds i8, ptr %__k, i64 4
   %5 = load float, ptr %y8.i, align 4
   %cmp9.i = fcmp olt float %4, %5
   br i1 %cmp9.i, label %return, label %if.end11.i
@@ -5626,9 +5582,9 @@ if.end11.i:                                       ; preds = %if.end7.i
   br i1 %cmp14.i, label %if.else, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit: ; preds = %if.end11.i
-  %z.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %z.i = getelementptr inbounds i8, ptr %1, i64 40
   %6 = load float, ptr %z.i, align 4
-  %z17.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z17.i = getelementptr inbounds i8, ptr %__k, i64 8
   %7 = load float, ptr %z17.i, align 4
   %cmp18.i = fcmp olt float %6, %7
   br i1 %cmp18.i, label %return, label %if.else
@@ -5641,15 +5597,15 @@ if.else:                                          ; preds = %if.end11.i, %if.end
 
 while.body.lr.ph.i:                               ; preds = %if.else
   %8 = load float, ptr %__k, align 4
-  %y.i.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %__k, i64 4
   %9 = load float, ptr %y.i.i, align 4
-  %z.i.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %__k, i64 8
   %10 = load float, ptr %z.i.i, align 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.lr.ph.i
   %__x.045.i = phi ptr [ %__x.043.i, %while.body.lr.ph.i ], [ %__x.045.i.be, %while.body.i.backedge ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.045.i, i64 32
   %11 = load float, ptr %_M_storage.i.i.i10, align 4
   %cmp.i.i = fcmp olt float %8, %11
   br i1 %cmp.i.i, label %cond.end.i, label %if.end.i.i
@@ -5659,7 +5615,7 @@ if.end.i.i:                                       ; preds = %while.body.i
   br i1 %cmp5.i.i, label %cond.end.i.thread, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
-  %y8.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i, i64 0, i32 1, i32 0, i64 4
+  %y8.i.i = getelementptr inbounds i8, ptr %__x.045.i, i64 36
   %12 = load float, ptr %y8.i.i, align 4
   %cmp9.i.i = fcmp olt float %9, %12
   br i1 %cmp9.i.i, label %cond.end.i, label %if.end11.i.i
@@ -5669,26 +5625,26 @@ if.end11.i.i:                                     ; preds = %if.end7.i.i
   br i1 %cmp14.i.i, label %cond.end.i.thread, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i: ; preds = %if.end11.i.i
-  %z17.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i, i64 0, i32 1, i32 0, i64 8
+  %z17.i.i = getelementptr inbounds i8, ptr %__x.045.i, i64 40
   %13 = load float, ptr %z17.i.i, align 4
   %cmp18.i.i = fcmp olt float %10, %13
   br i1 %cmp18.i.i, label %cond.end.i, label %cond.end.i.thread
 
-cond.end.i:                                       ; preds = %while.body.i, %if.end7.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.045.i, i64 0, i32 2
-  %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
+cond.end.i:                                       ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i, %if.end7.i.i, %while.body.i
+  %_M_right.i.i = getelementptr inbounds i8, ptr %__x.045.i, i64 16
+  %__x.0.i = load ptr, ptr %_M_right.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %if.then.i, label %while.body.i.backedge
 
 while.body.i.backedge:                            ; preds = %cond.end.i, %cond.end.i.thread
-  %__x.045.i.be = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.0.i228, %cond.end.i.thread ]
+  %__x.045.i.be = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.0.i225, %cond.end.i.thread ]
   br label %while.body.i, !llvm.loop !52
 
 cond.end.i.thread:                                ; preds = %if.end.i.i, %if.end11.i.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.045.i, i64 0, i32 3
-  %__x.0.i228 = load ptr, ptr %_M_right.i.i, align 8
-  %cmp.not.i229 = icmp eq ptr %__x.0.i228, null
-  br i1 %cmp.not.i229, label %if.end12.i, label %while.body.i.backedge
+  %_M_right.i.i224 = getelementptr inbounds i8, ptr %__x.045.i, i64 24
+  %__x.0.i225 = load ptr, ptr %_M_right.i.i224, align 8
+  %cmp.not.i226 = icmp eq ptr %__x.0.i225, null
+  br i1 %cmp.not.i226, label %if.end12.i, label %while.body.i.backedge
 
 if.then.i:                                        ; preds = %cond.end.i, %if.else
   %__y.0.lcssa50.i = phi ptr [ %__position.coerce, %if.else ], [ %__x.045.i, %cond.end.i ]
@@ -5699,14 +5655,14 @@ if.then.i:                                        ; preds = %cond.end.i, %if.els
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa50.i) #23
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i.i, i64 0, i32 1
-  %.pre269 = load float, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
-  %.pre270 = load float, ptr %__k, align 4
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre268 = load float, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
+  %.pre269 = load float, ptr %__k, align 4
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %cond.end.i.thread, %if.else.i
-  %15 = phi float [ %.pre270, %if.else.i ], [ %8, %cond.end.i.thread ]
-  %16 = phi float [ %.pre269, %if.else.i ], [ %11, %cond.end.i.thread ]
+  %15 = phi float [ %.pre269, %if.else.i ], [ %8, %cond.end.i.thread ]
+  %16 = phi float [ %.pre268, %if.else.i ], [ %11, %cond.end.i.thread ]
   %__y.0.lcssa49.i = phi ptr [ %__y.0.lcssa50.i, %if.else.i ], [ %__x.045.i, %cond.end.i.thread ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.045.i, %cond.end.i.thread ]
   %cmp.i5.i = fcmp olt float %16, %15
@@ -5717,9 +5673,9 @@ if.end.i6.i:                                      ; preds = %if.end12.i
   br i1 %cmp5.i7.i, label %if.end18.i, label %if.end7.i8.i
 
 if.end7.i8.i:                                     ; preds = %if.end.i6.i
-  %y.i9.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__j.sroa.0.0.i, i64 0, i32 1, i32 0, i64 4
+  %y.i9.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 36
   %17 = load float, ptr %y.i9.i, align 4
-  %y8.i10.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y8.i10.i = getelementptr inbounds i8, ptr %__k, i64 4
   %18 = load float, ptr %y8.i10.i, align 4
   %cmp9.i11.i = fcmp olt float %17, %18
   br i1 %cmp9.i11.i, label %return, label %if.end11.i12.i
@@ -5729,9 +5685,9 @@ if.end11.i12.i:                                   ; preds = %if.end7.i8.i
   br i1 %cmp14.i13.i, label %if.end18.i, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i: ; preds = %if.end11.i12.i
-  %z.i15.i = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__j.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %z.i15.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 40
   %19 = load float, ptr %z.i15.i, align 4
-  %z17.i16.i = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z17.i16.i = getelementptr inbounds i8, ptr %__k, i64 8
   %20 = load float, ptr %z17.i16.i, align 4
   %cmp18.i17.i = fcmp olt float %19, %20
   br i1 %cmp18.i17.i, label %return, label %if.end18.i
@@ -5740,7 +5696,7 @@ if.end18.i:                                       ; preds = %_ZNK6Assimp11ObjExp
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %21 = load float, ptr %__k, align 4
   %22 = load float, ptr %_M_storage.i.i.i11, align 4
   %cmp.i12 = fcmp olt float %21, %22
@@ -5751,24 +5707,24 @@ if.end.i13:                                       ; preds = %if.else12
   br i1 %cmp5.i14, label %if.then50, label %if.end7.i15
 
 if.end7.i15:                                      ; preds = %if.end.i13
-  %y.i16 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y.i16 = getelementptr inbounds i8, ptr %__k, i64 4
   %23 = load float, ptr %y.i16, align 4
-  %y8.i17 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 4
+  %y8.i17 = getelementptr inbounds i8, ptr %__position.coerce, i64 36
   %24 = load float, ptr %y8.i17, align 4
   %cmp9.i18 = fcmp olt float %23, %24
   br i1 %cmp9.i18, label %if.then18, label %if.end11.i19
 
 if.end11.i19:                                     ; preds = %if.end7.i15
   %cmp14.i20 = fcmp ogt float %23, %24
-  br i1 %cmp14.i20, label %if.end7.i113, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit26
+  br i1 %cmp14.i20, label %if.end7.i111, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit26
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit26: ; preds = %if.end11.i19
-  %z.i22 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z.i22 = getelementptr inbounds i8, ptr %__k, i64 8
   %25 = load float, ptr %z.i22, align 4
-  %z17.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 8
+  %z17.i23 = getelementptr inbounds i8, ptr %__position.coerce, i64 40
   %26 = load float, ptr %z17.i23, align 4
   %cmp18.i24 = fcmp olt float %25, %26
-  br i1 %cmp18.i24, label %if.then18, label %if.end7.i113
+  br i1 %cmp18.i24, label %if.then18, label %if.end7.i111
 
 if.then18:                                        ; preds = %if.end7.i15, %if.else12, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit26
   %_M_left.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -5778,7 +5734,7 @@ if.then18:                                        ; preds = %if.end7.i15, %if.el
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
-  %_M_storage.i.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i30 = getelementptr inbounds i8, ptr %call.i, i64 32
   %28 = load float, ptr %_M_storage.i.i.i30, align 4
   %cmp.i31 = fcmp olt float %28, %21
   br i1 %cmp.i31, label %if.then32, label %if.end.i32
@@ -5788,9 +5744,9 @@ if.end.i32:                                       ; preds = %if.else25
   br i1 %cmp5.i33, label %if.else42, label %if.end7.i34
 
 if.end7.i34:                                      ; preds = %if.end.i32
-  %y.i35 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i, i64 0, i32 1, i32 0, i64 4
+  %y.i35 = getelementptr inbounds i8, ptr %call.i, i64 36
   %29 = load float, ptr %y.i35, align 4
-  %y8.i36 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y8.i36 = getelementptr inbounds i8, ptr %__k, i64 4
   %30 = load float, ptr %y8.i36, align 4
   %cmp9.i37 = fcmp olt float %29, %30
   br i1 %cmp9.i37, label %if.then32, label %if.end11.i38
@@ -5800,19 +5756,19 @@ if.end11.i38:                                     ; preds = %if.end7.i34
   br i1 %cmp14.i39, label %if.else42, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit45
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit45: ; preds = %if.end11.i38
-  %z.i41 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i, i64 0, i32 1, i32 0, i64 8
+  %z.i41 = getelementptr inbounds i8, ptr %call.i, i64 40
   %31 = load float, ptr %z.i41, align 4
-  %z17.i42 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z17.i42 = getelementptr inbounds i8, ptr %__k, i64 8
   %32 = load float, ptr %z17.i42, align 4
   %cmp18.i43 = fcmp olt float %31, %32
   br i1 %cmp18.i43, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.end7.i34, %if.else25, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit45
-  %_M_right.i46 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i46 = getelementptr inbounds i8, ptr %call.i, i64 24
   %33 = load ptr, ptr %_M_right.i46, align 8
   %cmp35 = icmp eq ptr %33, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select259 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select258 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.end11.i38, %if.end.i32, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit45
@@ -5822,70 +5778,70 @@ if.else42:                                        ; preds = %if.end11.i38, %if.e
   br i1 %cmp.not44.i52, label %if.then.i100, label %while.body.lr.ph.i53
 
 while.body.lr.ph.i53:                             ; preds = %if.else42
-  %y.i.i54 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y.i.i54 = getelementptr inbounds i8, ptr %__k, i64 4
   %34 = load float, ptr %y.i.i54, align 4
-  %z.i.i55 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z.i.i55 = getelementptr inbounds i8, ptr %__k, i64 8
   %35 = load float, ptr %z.i.i55, align 4
   br label %while.body.i56
 
 while.body.i56:                                   ; preds = %while.body.i56.backedge, %while.body.lr.ph.i53
   %__x.045.i57 = phi ptr [ %__x.043.i51, %while.body.lr.ph.i53 ], [ %__x.045.i57.be, %while.body.i56.backedge ]
-  %_M_storage.i.i.i58 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i57, i64 0, i32 1
+  %_M_storage.i.i.i58 = getelementptr inbounds i8, ptr %__x.045.i57, i64 32
   %36 = load float, ptr %_M_storage.i.i.i58, align 4
   %cmp.i.i59 = fcmp olt float %21, %36
-  br i1 %cmp.i.i59, label %cond.end.i72, label %if.end.i.i60
+  br i1 %cmp.i.i59, label %cond.end.i71, label %if.end.i.i60
 
 if.end.i.i60:                                     ; preds = %while.body.i56
   %cmp5.i.i61 = fcmp ogt float %21, %36
-  br i1 %cmp5.i.i61, label %cond.end.i72.thread, label %if.end7.i.i62
+  br i1 %cmp5.i.i61, label %cond.end.i71.thread, label %if.end7.i.i62
 
 if.end7.i.i62:                                    ; preds = %if.end.i.i60
-  %y8.i.i63 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i57, i64 0, i32 1, i32 0, i64 4
+  %y8.i.i63 = getelementptr inbounds i8, ptr %__x.045.i57, i64 36
   %37 = load float, ptr %y8.i.i63, align 4
   %cmp9.i.i64 = fcmp olt float %34, %37
-  br i1 %cmp9.i.i64, label %cond.end.i72, label %if.end11.i.i65
+  br i1 %cmp9.i.i64, label %cond.end.i71, label %if.end11.i.i65
 
 if.end11.i.i65:                                   ; preds = %if.end7.i.i62
   %cmp14.i.i66 = fcmp ogt float %34, %37
-  br i1 %cmp14.i.i66, label %cond.end.i72.thread, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i67
+  br i1 %cmp14.i.i66, label %cond.end.i71.thread, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i67
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i67: ; preds = %if.end11.i.i65
-  %z17.i.i68 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i57, i64 0, i32 1, i32 0, i64 8
+  %z17.i.i68 = getelementptr inbounds i8, ptr %__x.045.i57, i64 40
   %38 = load float, ptr %z17.i.i68, align 4
   %cmp18.i.i69 = fcmp olt float %35, %38
-  br i1 %cmp18.i.i69, label %cond.end.i72, label %cond.end.i72.thread
+  br i1 %cmp18.i.i69, label %cond.end.i71, label %cond.end.i71.thread
 
-cond.end.i72:                                     ; preds = %while.body.i56, %if.end7.i.i62, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i67
-  %_M_left.i.i107 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.045.i57, i64 0, i32 2
-  %__x.0.i75 = load ptr, ptr %_M_left.i.i107, align 8
+cond.end.i71:                                     ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i67, %if.end7.i.i62, %while.body.i56
+  %_M_right.i.i74 = getelementptr inbounds i8, ptr %__x.045.i57, i64 16
+  %__x.0.i75 = load ptr, ptr %_M_right.i.i74, align 8
   %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
   br i1 %cmp.not.i76, label %if.then.i100, label %while.body.i56.backedge
 
-while.body.i56.backedge:                          ; preds = %cond.end.i72, %cond.end.i72.thread
-  %__x.045.i57.be = phi ptr [ %__x.0.i75, %cond.end.i72 ], [ %__x.0.i75242, %cond.end.i72.thread ]
+while.body.i56.backedge:                          ; preds = %cond.end.i71, %cond.end.i71.thread
+  %__x.045.i57.be = phi ptr [ %__x.0.i75, %cond.end.i71 ], [ %__x.0.i75240, %cond.end.i71.thread ]
   br label %while.body.i56, !llvm.loop !52
 
-cond.end.i72.thread:                              ; preds = %if.end.i.i60, %if.end11.i.i65, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i67
-  %_M_right.i.i71 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.045.i57, i64 0, i32 3
-  %__x.0.i75242 = load ptr, ptr %_M_right.i.i71, align 8
-  %cmp.not.i76243 = icmp eq ptr %__x.0.i75242, null
-  br i1 %cmp.not.i76243, label %if.end12.i78, label %while.body.i56.backedge
+cond.end.i71.thread:                              ; preds = %if.end.i.i60, %if.end11.i.i65, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i67
+  %_M_right.i.i74239 = getelementptr inbounds i8, ptr %__x.045.i57, i64 24
+  %__x.0.i75240 = load ptr, ptr %_M_right.i.i74239, align 8
+  %cmp.not.i76241 = icmp eq ptr %__x.0.i75240, null
+  br i1 %cmp.not.i76241, label %if.end12.i78, label %while.body.i56.backedge
 
-if.then.i100:                                     ; preds = %cond.end.i72, %if.else42
-  %__y.0.lcssa50.i101 = phi ptr [ %add.ptr.i, %if.else42 ], [ %__x.045.i57, %cond.end.i72 ]
+if.then.i100:                                     ; preds = %cond.end.i71, %if.else42
+  %__y.0.lcssa50.i101 = phi ptr [ %add.ptr.i, %if.else42 ], [ %__x.045.i57, %cond.end.i71 ]
   %cmp.i4.i103 = icmp eq ptr %__y.0.lcssa50.i101, %27
   br i1 %cmp.i4.i103, label %return, label %if.else.i104
 
 if.else.i104:                                     ; preds = %if.then.i100
   %call.i.i105 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa50.i101) #23
-  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i.i105, i64 0, i32 1
-  %.pre268 = load float, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i105, i64 32
+  %.pre267 = load float, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
   br label %if.end12.i78
 
-if.end12.i78:                                     ; preds = %cond.end.i72.thread, %if.else.i104
-  %39 = phi float [ %.pre268, %if.else.i104 ], [ %36, %cond.end.i72.thread ]
-  %__y.0.lcssa49.i79 = phi ptr [ %__y.0.lcssa50.i101, %if.else.i104 ], [ %__x.045.i57, %cond.end.i72.thread ]
-  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i105, %if.else.i104 ], [ %__x.045.i57, %cond.end.i72.thread ]
+if.end12.i78:                                     ; preds = %cond.end.i71.thread, %if.else.i104
+  %39 = phi float [ %.pre267, %if.else.i104 ], [ %36, %cond.end.i71.thread ]
+  %__y.0.lcssa49.i79 = phi ptr [ %__y.0.lcssa50.i101, %if.else.i104 ], [ %__x.045.i57, %cond.end.i71.thread ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i105, %if.else.i104 ], [ %__x.045.i57, %cond.end.i71.thread ]
   %cmp.i5.i82 = fcmp olt float %39, %21
   br i1 %cmp.i5.i82, label %return, label %if.end.i6.i83
 
@@ -5894,9 +5850,9 @@ if.end.i6.i83:                                    ; preds = %if.end12.i78
   br i1 %cmp5.i7.i84, label %if.end18.i95, label %if.end7.i8.i85
 
 if.end7.i8.i85:                                   ; preds = %if.end.i6.i83
-  %y.i9.i86 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__j.sroa.0.0.i80, i64 0, i32 1, i32 0, i64 4
+  %y.i9.i86 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i80, i64 36
   %40 = load float, ptr %y.i9.i86, align 4
-  %y8.i10.i87 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
+  %y8.i10.i87 = getelementptr inbounds i8, ptr %__k, i64 4
   %41 = load float, ptr %y8.i10.i87, align 4
   %cmp9.i11.i88 = fcmp olt float %40, %41
   br i1 %cmp9.i11.i88, label %return, label %if.end11.i12.i89
@@ -5906,9 +5862,9 @@ if.end11.i12.i89:                                 ; preds = %if.end7.i8.i85
   br i1 %cmp14.i13.i90, label %if.end18.i95, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91
 
 _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91: ; preds = %if.end11.i12.i89
-  %z.i15.i92 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__j.sroa.0.0.i80, i64 0, i32 1, i32 0, i64 8
+  %z.i15.i92 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i80, i64 40
   %42 = load float, ptr %z.i15.i92, align 4
-  %z17.i16.i93 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
+  %z17.i16.i93 = getelementptr inbounds i8, ptr %__k, i64 8
   %43 = load float, ptr %z17.i16.i93, align 4
   %cmp18.i17.i94 = fcmp olt float %42, %43
   br i1 %cmp18.i17.i94, label %return, label %if.end18.i95
@@ -5916,177 +5872,177 @@ _ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91: ; p
 if.end18.i95:                                     ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91, %if.end11.i12.i89, %if.end.i6.i83
   br label %return
 
-if.end7.i113:                                     ; preds = %if.end11.i19, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit26
-  %y.i114 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 4
-  %44 = load float, ptr %y.i114, align 4
-  %y8.i115 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
-  %45 = load float, ptr %y8.i115, align 4
-  %cmp9.i116 = fcmp olt float %44, %45
-  br i1 %cmp9.i116, label %if.then50, label %if.end11.i117
+if.end7.i111:                                     ; preds = %if.end11.i19, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit26
+  %y.i112 = getelementptr inbounds i8, ptr %__position.coerce, i64 36
+  %44 = load float, ptr %y.i112, align 4
+  %y8.i113 = getelementptr inbounds i8, ptr %__k, i64 4
+  %45 = load float, ptr %y8.i113, align 4
+  %cmp9.i114 = fcmp olt float %44, %45
+  br i1 %cmp9.i114, label %if.then50, label %if.end11.i115
 
-if.end11.i117:                                    ; preds = %if.end7.i113
-  %cmp14.i118 = fcmp ogt float %44, %45
-  br i1 %cmp14.i118, label %return, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit124
+if.end11.i115:                                    ; preds = %if.end7.i111
+  %cmp14.i116 = fcmp ogt float %44, %45
+  br i1 %cmp14.i116, label %return, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit122
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit124: ; preds = %if.end11.i117
-  %z.i120 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 8
-  %46 = load float, ptr %z.i120, align 4
-  %z17.i121 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
-  %47 = load float, ptr %z17.i121, align 4
-  %cmp18.i122 = fcmp olt float %46, %47
-  br i1 %cmp18.i122, label %if.then50, label %return
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit122: ; preds = %if.end11.i115
+  %z.i118 = getelementptr inbounds i8, ptr %__position.coerce, i64 40
+  %46 = load float, ptr %z.i118, align 4
+  %z17.i119 = getelementptr inbounds i8, ptr %__k, i64 8
+  %47 = load float, ptr %z17.i119, align 4
+  %cmp18.i120 = fcmp olt float %46, %47
+  br i1 %cmp18.i120, label %if.then50, label %return
 
-if.then50:                                        ; preds = %if.end.i13, %if.end7.i113, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit124
-  %_M_right.i125 = getelementptr inbounds i8, ptr %this, i64 32
-  %48 = load ptr, ptr %_M_right.i125, align 8
+if.then50:                                        ; preds = %if.end.i13, %if.end7.i111, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit122
+  %_M_right.i123 = getelementptr inbounds i8, ptr %this, i64 32
+  %48 = load ptr, ptr %_M_right.i123, align 8
   %cmp53 = icmp eq ptr %48, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i128 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
-  %_M_storage.i.i.i129 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i128, i64 0, i32 1
-  %49 = load float, ptr %_M_storage.i.i.i129, align 4
-  %cmp.i130 = fcmp olt float %21, %49
-  br i1 %cmp.i130, label %if.then64, label %if.end.i131
+  %call.i126 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
+  %_M_storage.i.i.i127 = getelementptr inbounds i8, ptr %call.i126, i64 32
+  %49 = load float, ptr %_M_storage.i.i.i127, align 4
+  %cmp.i128 = fcmp olt float %21, %49
+  br i1 %cmp.i128, label %if.then64, label %if.end.i129
 
-if.end.i131:                                      ; preds = %if.else57
-  %cmp5.i132 = fcmp ogt float %21, %49
-  br i1 %cmp5.i132, label %if.else74, label %if.end7.i133
+if.end.i129:                                      ; preds = %if.else57
+  %cmp5.i130 = fcmp ogt float %21, %49
+  br i1 %cmp5.i130, label %if.else74, label %if.end7.i131
 
-if.end7.i133:                                     ; preds = %if.end.i131
-  %y.i134 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
-  %50 = load float, ptr %y.i134, align 4
-  %y8.i135 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i128, i64 0, i32 1, i32 0, i64 4
-  %51 = load float, ptr %y8.i135, align 4
-  %cmp9.i136 = fcmp olt float %50, %51
-  br i1 %cmp9.i136, label %if.then64, label %if.end11.i137
+if.end7.i131:                                     ; preds = %if.end.i129
+  %y.i132 = getelementptr inbounds i8, ptr %__k, i64 4
+  %50 = load float, ptr %y.i132, align 4
+  %y8.i133 = getelementptr inbounds i8, ptr %call.i126, i64 36
+  %51 = load float, ptr %y8.i133, align 4
+  %cmp9.i134 = fcmp olt float %50, %51
+  br i1 %cmp9.i134, label %if.then64, label %if.end11.i135
 
-if.end11.i137:                                    ; preds = %if.end7.i133
-  %cmp14.i138 = fcmp ogt float %50, %51
-  br i1 %cmp14.i138, label %if.else74, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit144
+if.end11.i135:                                    ; preds = %if.end7.i131
+  %cmp14.i136 = fcmp ogt float %50, %51
+  br i1 %cmp14.i136, label %if.else74, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit142
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit144: ; preds = %if.end11.i137
-  %z.i140 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
-  %52 = load float, ptr %z.i140, align 4
-  %z17.i141 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i128, i64 0, i32 1, i32 0, i64 8
-  %53 = load float, ptr %z17.i141, align 4
-  %cmp18.i142 = fcmp olt float %52, %53
-  br i1 %cmp18.i142, label %if.then64, label %if.else74
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit142: ; preds = %if.end11.i135
+  %z.i138 = getelementptr inbounds i8, ptr %__k, i64 8
+  %52 = load float, ptr %z.i138, align 4
+  %z17.i139 = getelementptr inbounds i8, ptr %call.i126, i64 40
+  %53 = load float, ptr %z17.i139, align 4
+  %cmp18.i140 = fcmp olt float %52, %53
+  br i1 %cmp18.i140, label %if.then64, label %if.else74
 
-if.then64:                                        ; preds = %if.end7.i133, %if.else57, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit144
-  %_M_right.i145 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %54 = load ptr, ptr %_M_right.i145, align 8
+if.then64:                                        ; preds = %if.end7.i131, %if.else57, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit142
+  %_M_right.i143 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %54 = load ptr, ptr %_M_right.i143, align 8
   %cmp67 = icmp eq ptr %54, null
-  %spec.select260 = select i1 %cmp67, ptr null, ptr %call.i128
-  %spec.select261 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i128
+  %spec.select259 = select i1 %cmp67, ptr null, ptr %call.i126
+  %spec.select260 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i126
   br label %return
 
-if.else74:                                        ; preds = %if.end11.i137, %if.end.i131, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit144
-  %_M_parent.i.i.i148 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.043.i150 = load ptr, ptr %_M_parent.i.i.i148, align 8
-  %cmp.not44.i151 = icmp eq ptr %__x.043.i150, null
-  br i1 %cmp.not44.i151, label %if.then.i199, label %while.body.lr.ph.i152
+if.else74:                                        ; preds = %if.end11.i135, %if.end.i129, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit142
+  %_M_parent.i.i.i146 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.043.i148 = load ptr, ptr %_M_parent.i.i.i146, align 8
+  %cmp.not44.i149 = icmp eq ptr %__x.043.i148, null
+  br i1 %cmp.not44.i149, label %if.then.i197, label %while.body.lr.ph.i150
 
-while.body.lr.ph.i152:                            ; preds = %if.else74
-  %y.i.i153 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
-  %55 = load float, ptr %y.i.i153, align 4
-  %z.i.i154 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
-  %56 = load float, ptr %z.i.i154, align 4
-  br label %while.body.i155
+while.body.lr.ph.i150:                            ; preds = %if.else74
+  %y.i.i151 = getelementptr inbounds i8, ptr %__k, i64 4
+  %55 = load float, ptr %y.i.i151, align 4
+  %z.i.i152 = getelementptr inbounds i8, ptr %__k, i64 8
+  %56 = load float, ptr %z.i.i152, align 4
+  br label %while.body.i153
 
-while.body.i155:                                  ; preds = %while.body.i155.backedge, %while.body.lr.ph.i152
-  %__x.045.i156 = phi ptr [ %__x.043.i150, %while.body.lr.ph.i152 ], [ %__x.045.i156.be, %while.body.i155.backedge ]
-  %_M_storage.i.i.i157 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i156, i64 0, i32 1
-  %57 = load float, ptr %_M_storage.i.i.i157, align 4
-  %cmp.i.i158 = fcmp olt float %21, %57
-  br i1 %cmp.i.i158, label %cond.end.i171, label %if.end.i.i159
+while.body.i153:                                  ; preds = %while.body.i153.backedge, %while.body.lr.ph.i150
+  %__x.045.i154 = phi ptr [ %__x.043.i148, %while.body.lr.ph.i150 ], [ %__x.045.i154.be, %while.body.i153.backedge ]
+  %_M_storage.i.i.i155 = getelementptr inbounds i8, ptr %__x.045.i154, i64 32
+  %57 = load float, ptr %_M_storage.i.i.i155, align 4
+  %cmp.i.i156 = fcmp olt float %21, %57
+  br i1 %cmp.i.i156, label %cond.end.i168, label %if.end.i.i157
 
-if.end.i.i159:                                    ; preds = %while.body.i155
-  %cmp5.i.i160 = fcmp ogt float %21, %57
-  br i1 %cmp5.i.i160, label %cond.end.i171.thread, label %if.end7.i.i161
+if.end.i.i157:                                    ; preds = %while.body.i153
+  %cmp5.i.i158 = fcmp ogt float %21, %57
+  br i1 %cmp5.i.i158, label %cond.end.i168.thread, label %if.end7.i.i159
 
-if.end7.i.i161:                                   ; preds = %if.end.i.i159
-  %y8.i.i162 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i156, i64 0, i32 1, i32 0, i64 4
-  %58 = load float, ptr %y8.i.i162, align 4
-  %cmp9.i.i163 = fcmp olt float %55, %58
-  br i1 %cmp9.i.i163, label %cond.end.i171, label %if.end11.i.i164
+if.end7.i.i159:                                   ; preds = %if.end.i.i157
+  %y8.i.i160 = getelementptr inbounds i8, ptr %__x.045.i154, i64 36
+  %58 = load float, ptr %y8.i.i160, align 4
+  %cmp9.i.i161 = fcmp olt float %55, %58
+  br i1 %cmp9.i.i161, label %cond.end.i168, label %if.end11.i.i162
 
-if.end11.i.i164:                                  ; preds = %if.end7.i.i161
-  %cmp14.i.i165 = fcmp ogt float %55, %58
-  br i1 %cmp14.i.i165, label %cond.end.i171.thread, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i166
+if.end11.i.i162:                                  ; preds = %if.end7.i.i159
+  %cmp14.i.i163 = fcmp ogt float %55, %58
+  br i1 %cmp14.i.i163, label %cond.end.i168.thread, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i164
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i166: ; preds = %if.end11.i.i164
-  %z17.i.i167 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__x.045.i156, i64 0, i32 1, i32 0, i64 8
-  %59 = load float, ptr %z17.i.i167, align 4
-  %cmp18.i.i168 = fcmp olt float %56, %59
-  br i1 %cmp18.i.i168, label %cond.end.i171, label %cond.end.i171.thread
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i164: ; preds = %if.end11.i.i162
+  %z17.i.i165 = getelementptr inbounds i8, ptr %__x.045.i154, i64 40
+  %59 = load float, ptr %z17.i.i165, align 4
+  %cmp18.i.i166 = fcmp olt float %56, %59
+  br i1 %cmp18.i.i166, label %cond.end.i168, label %cond.end.i168.thread
 
-cond.end.i171:                                    ; preds = %while.body.i155, %if.end7.i.i161, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i166
-  %_M_left.i.i206 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.045.i156, i64 0, i32 2
-  %__x.0.i174 = load ptr, ptr %_M_left.i.i206, align 8
-  %cmp.not.i175 = icmp eq ptr %__x.0.i174, null
-  br i1 %cmp.not.i175, label %if.then.i199, label %while.body.i155.backedge
+cond.end.i168:                                    ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i164, %if.end7.i.i159, %while.body.i153
+  %_M_right.i.i171 = getelementptr inbounds i8, ptr %__x.045.i154, i64 16
+  %__x.0.i172 = load ptr, ptr %_M_right.i.i171, align 8
+  %cmp.not.i173 = icmp eq ptr %__x.0.i172, null
+  br i1 %cmp.not.i173, label %if.then.i197, label %while.body.i153.backedge
 
-while.body.i155.backedge:                         ; preds = %cond.end.i171, %cond.end.i171.thread
-  %__x.045.i156.be = phi ptr [ %__x.0.i174, %cond.end.i171 ], [ %__x.0.i174255, %cond.end.i171.thread ]
-  br label %while.body.i155, !llvm.loop !52
+while.body.i153.backedge:                         ; preds = %cond.end.i168, %cond.end.i168.thread
+  %__x.045.i154.be = phi ptr [ %__x.0.i172, %cond.end.i168 ], [ %__x.0.i172254, %cond.end.i168.thread ]
+  br label %while.body.i153, !llvm.loop !52
 
-cond.end.i171.thread:                             ; preds = %if.end.i.i159, %if.end11.i.i164, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i166
-  %_M_right.i.i170 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.045.i156, i64 0, i32 3
-  %__x.0.i174255 = load ptr, ptr %_M_right.i.i170, align 8
-  %cmp.not.i175256 = icmp eq ptr %__x.0.i174255, null
-  br i1 %cmp.not.i175256, label %if.end12.i177, label %while.body.i155.backedge
+cond.end.i168.thread:                             ; preds = %if.end.i.i157, %if.end11.i.i162, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit.i164
+  %_M_right.i.i171253 = getelementptr inbounds i8, ptr %__x.045.i154, i64 24
+  %__x.0.i172254 = load ptr, ptr %_M_right.i.i171253, align 8
+  %cmp.not.i173255 = icmp eq ptr %__x.0.i172254, null
+  br i1 %cmp.not.i173255, label %if.end12.i175, label %while.body.i153.backedge
 
-if.then.i199:                                     ; preds = %cond.end.i171, %if.else74
-  %__y.0.lcssa50.i200 = phi ptr [ %add.ptr.i, %if.else74 ], [ %__x.045.i156, %cond.end.i171 ]
-  %_M_left.i3.i201 = getelementptr inbounds i8, ptr %this, i64 24
-  %60 = load ptr, ptr %_M_left.i3.i201, align 8
-  %cmp.i4.i202 = icmp eq ptr %__y.0.lcssa50.i200, %60
-  br i1 %cmp.i4.i202, label %return, label %if.else.i203
+if.then.i197:                                     ; preds = %cond.end.i168, %if.else74
+  %__y.0.lcssa50.i198 = phi ptr [ %add.ptr.i, %if.else74 ], [ %__x.045.i154, %cond.end.i168 ]
+  %_M_left.i3.i199 = getelementptr inbounds i8, ptr %this, i64 24
+  %60 = load ptr, ptr %_M_left.i3.i199, align 8
+  %cmp.i4.i200 = icmp eq ptr %__y.0.lcssa50.i198, %60
+  br i1 %cmp.i4.i200, label %return, label %if.else.i201
 
-if.else.i203:                                     ; preds = %if.then.i199
-  %call.i.i204 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa50.i200) #23
-  %_M_storage.i.i.i.i180.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %call.i.i204, i64 0, i32 1
-  %.pre = load float, ptr %_M_storage.i.i.i.i180.phi.trans.insert, align 4
-  br label %if.end12.i177
+if.else.i201:                                     ; preds = %if.then.i197
+  %call.i.i202 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa50.i198) #23
+  %_M_storage.i.i.i.i178.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i202, i64 32
+  %.pre = load float, ptr %_M_storage.i.i.i.i178.phi.trans.insert, align 4
+  br label %if.end12.i175
 
-if.end12.i177:                                    ; preds = %cond.end.i171.thread, %if.else.i203
-  %61 = phi float [ %.pre, %if.else.i203 ], [ %57, %cond.end.i171.thread ]
-  %__y.0.lcssa49.i178 = phi ptr [ %__y.0.lcssa50.i200, %if.else.i203 ], [ %__x.045.i156, %cond.end.i171.thread ]
-  %__j.sroa.0.0.i179 = phi ptr [ %call.i.i204, %if.else.i203 ], [ %__x.045.i156, %cond.end.i171.thread ]
-  %cmp.i5.i181 = fcmp olt float %61, %21
-  br i1 %cmp.i5.i181, label %return, label %if.end.i6.i182
+if.end12.i175:                                    ; preds = %cond.end.i168.thread, %if.else.i201
+  %61 = phi float [ %.pre, %if.else.i201 ], [ %57, %cond.end.i168.thread ]
+  %__y.0.lcssa49.i176 = phi ptr [ %__y.0.lcssa50.i198, %if.else.i201 ], [ %__x.045.i154, %cond.end.i168.thread ]
+  %__j.sroa.0.0.i177 = phi ptr [ %call.i.i202, %if.else.i201 ], [ %__x.045.i154, %cond.end.i168.thread ]
+  %cmp.i5.i179 = fcmp olt float %61, %21
+  br i1 %cmp.i5.i179, label %return, label %if.end.i6.i180
 
-if.end.i6.i182:                                   ; preds = %if.end12.i177
-  %cmp5.i7.i183 = fcmp ogt float %61, %21
-  br i1 %cmp5.i7.i183, label %if.end18.i194, label %if.end7.i8.i184
+if.end.i6.i180:                                   ; preds = %if.end12.i175
+  %cmp5.i7.i181 = fcmp ogt float %61, %21
+  br i1 %cmp5.i7.i181, label %if.end18.i192, label %if.end7.i8.i182
 
-if.end7.i8.i184:                                  ; preds = %if.end.i6.i182
-  %y.i9.i185 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__j.sroa.0.0.i179, i64 0, i32 1, i32 0, i64 4
-  %62 = load float, ptr %y.i9.i185, align 4
-  %y8.i10.i186 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 1
-  %63 = load float, ptr %y8.i10.i186, align 4
-  %cmp9.i11.i187 = fcmp olt float %62, %63
-  br i1 %cmp9.i11.i187, label %return, label %if.end11.i12.i188
+if.end7.i8.i182:                                  ; preds = %if.end.i6.i180
+  %y.i9.i183 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i177, i64 36
+  %62 = load float, ptr %y.i9.i183, align 4
+  %y8.i10.i184 = getelementptr inbounds i8, ptr %__k, i64 4
+  %63 = load float, ptr %y8.i10.i184, align 4
+  %cmp9.i11.i185 = fcmp olt float %62, %63
+  br i1 %cmp9.i11.i185, label %return, label %if.end11.i12.i186
 
-if.end11.i12.i188:                                ; preds = %if.end7.i8.i184
-  %cmp14.i13.i189 = fcmp ogt float %62, %63
-  br i1 %cmp14.i13.i189, label %if.end18.i194, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i190
+if.end11.i12.i186:                                ; preds = %if.end7.i8.i182
+  %cmp14.i13.i187 = fcmp ogt float %62, %63
+  br i1 %cmp14.i13.i187, label %if.end18.i192, label %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i188
 
-_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i190: ; preds = %if.end11.i12.i188
-  %z.i15.i191 = getelementptr inbounds %"struct.std::_Rb_tree_node.51", ptr %__j.sroa.0.0.i179, i64 0, i32 1, i32 0, i64 8
-  %64 = load float, ptr %z.i15.i191, align 4
-  %z17.i16.i192 = getelementptr inbounds %class.aiVector3t, ptr %__k, i64 0, i32 2
-  %65 = load float, ptr %z17.i16.i192, align 4
-  %cmp18.i17.i193 = fcmp olt float %64, %65
-  br i1 %cmp18.i17.i193, label %return, label %if.end18.i194
+_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i188: ; preds = %if.end11.i12.i186
+  %z.i15.i189 = getelementptr inbounds i8, ptr %__j.sroa.0.0.i177, i64 40
+  %64 = load float, ptr %z.i15.i189, align 4
+  %z17.i16.i190 = getelementptr inbounds i8, ptr %__k, i64 8
+  %65 = load float, ptr %z17.i16.i190, align 4
+  %cmp18.i17.i191 = fcmp olt float %64, %65
+  br i1 %cmp18.i17.i191, label %return, label %if.end18.i192
 
-if.end18.i194:                                    ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i190, %if.end11.i12.i188, %if.end.i6.i182
+if.end18.i192:                                    ; preds = %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i188, %if.end11.i12.i186, %if.end.i6.i180
   br label %return
 
-return:                                           ; preds = %if.end18.i194, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i190, %if.end7.i8.i184, %if.end12.i177, %if.then.i199, %if.end18.i95, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91, %if.end7.i8.i85, %if.end12.i78, %if.then.i100, %if.end18.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i, %if.end7.i8.i, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.end11.i117, %if.end7.i, %land.lhs.true, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit124, %if.then50, %if.then18, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit
-  %retval.sroa.0.0 = phi ptr [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit124 ], [ null, %land.lhs.true ], [ null, %if.end7.i ], [ %__position.coerce, %if.end11.i117 ], [ %spec.select, %if.then32 ], [ %spec.select260, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i ], [ null, %if.end12.i ], [ null, %if.end7.i8.i ], [ %__j.sroa.0.0.i80, %if.end18.i95 ], [ null, %if.then.i100 ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91 ], [ null, %if.end12.i78 ], [ null, %if.end7.i8.i85 ], [ %__j.sroa.0.0.i179, %if.end18.i194 ], [ null, %if.then.i199 ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i190 ], [ null, %if.end12.i177 ], [ null, %if.end7.i8.i184 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit124 ], [ %1, %land.lhs.true ], [ %1, %if.end7.i ], [ null, %if.end11.i117 ], [ %spec.select259, %if.then32 ], [ %spec.select261, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa50.i, %if.then.i ], [ %__y.0.lcssa49.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i ], [ %__y.0.lcssa49.i, %if.end12.i ], [ %__y.0.lcssa49.i, %if.end7.i8.i ], [ null, %if.end18.i95 ], [ %27, %if.then.i100 ], [ %__y.0.lcssa49.i79, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91 ], [ %__y.0.lcssa49.i79, %if.end12.i78 ], [ %__y.0.lcssa49.i79, %if.end7.i8.i85 ], [ null, %if.end18.i194 ], [ %__y.0.lcssa50.i200, %if.then.i199 ], [ %__y.0.lcssa49.i178, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i190 ], [ %__y.0.lcssa49.i178, %if.end12.i177 ], [ %__y.0.lcssa49.i178, %if.end7.i8.i184 ]
+return:                                           ; preds = %if.end18.i192, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i188, %if.end7.i8.i182, %if.end12.i175, %if.then.i197, %if.end18.i95, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91, %if.end7.i8.i85, %if.end12.i78, %if.then.i100, %if.end18.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i, %if.end7.i8.i, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.end11.i115, %if.end7.i, %land.lhs.true, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit122, %if.then50, %if.then18, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit
+  %retval.sroa.0.0 = phi ptr [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit122 ], [ null, %land.lhs.true ], [ null, %if.end7.i ], [ %__position.coerce, %if.end11.i115 ], [ %spec.select, %if.then32 ], [ %spec.select259, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i ], [ null, %if.end12.i ], [ null, %if.end7.i8.i ], [ %__j.sroa.0.0.i80, %if.end18.i95 ], [ null, %if.then.i100 ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91 ], [ null, %if.end12.i78 ], [ null, %if.end7.i8.i85 ], [ %__j.sroa.0.0.i177, %if.end18.i192 ], [ null, %if.then.i197 ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i188 ], [ null, %if.end12.i175 ], [ null, %if.end7.i8.i182 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit122 ], [ %1, %land.lhs.true ], [ %1, %if.end7.i ], [ null, %if.end11.i115 ], [ %spec.select258, %if.then32 ], [ %spec.select260, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa50.i, %if.then.i ], [ %__y.0.lcssa49.i, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i ], [ %__y.0.lcssa49.i, %if.end12.i ], [ %__y.0.lcssa49.i, %if.end7.i8.i ], [ null, %if.end18.i95 ], [ %27, %if.then.i100 ], [ %__y.0.lcssa49.i79, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i91 ], [ %__y.0.lcssa49.i79, %if.end12.i78 ], [ %__y.0.lcssa49.i79, %if.end7.i8.i85 ], [ null, %if.end18.i192 ], [ %__y.0.lcssa50.i198, %if.then.i197 ], [ %__y.0.lcssa49.i176, %_ZNK6Assimp11ObjExporter15aiVectorCompareclERK10aiVector3tIfES5_.exit19.i188 ], [ %__y.0.lcssa49.i176, %if.end12.i175 ], [ %__y.0.lcssa49.i176, %if.end7.i8.i182 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -72,7 +72,8 @@ for.cond.outer:                                   ; preds = %for.cond1.if.then_c
 
 if.else:                                          ; preds = %land.rhs
   %idxprom5 = and i64 %indvars.iv, 4294967295
-  %to = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5, i32 1
+  %arrayidx6 = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5
+  %to = getelementptr inbounds i8, ptr %arrayidx6, i64 4
   %4 = load i32, ptr %to, align 4
   %cmp7 = icmp eq i32 %4, %2
   br i1 %cmp7, label %if.then12, label %monotonic_fail9.i
@@ -86,7 +87,7 @@ for.cond.backedge:                                ; preds = %monotonic_fail9.i, 
   br label %for.cond, !llvm.loop !5
 
 if.then12:                                        ; preds = %monotonic_fail9.i, %if.else
-  %done = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5, i32 2
+  %done = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %7 = load i8, ptr %done, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -96,7 +97,7 @@ if.then15:                                        ; preds = %if.then12
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN4absl13base_internal24SpinLockSuggestedDelayNSEi(i32 noundef %loop) local_unnamed_addr #2 {
 entry:
   %0 = load atomic i64, ptr @_ZN4absl13base_internalL10delay_randE.0 monotonic, align 8
@@ -123,7 +124,7 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind willreturn memory(none) }

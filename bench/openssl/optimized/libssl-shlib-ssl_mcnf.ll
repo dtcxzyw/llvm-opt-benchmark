@@ -3,17 +3,6 @@ source_filename = "bench/openssl/original/libssl-shlib-ssl_mcnf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.ssl_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, %struct.OSSL_TIME, ptr, ptr, ptr, %struct.anon, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, i32, i64, [32 x i8], ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, ptr, ptr, ptr, %struct.anon.0, ptr, ptr, ptr, ptr, %struct.srp_ctx_st, %struct.dane_ctx_st, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, ptr, ptr, [14 x i32], [24 x ptr], [14 x ptr], [14 x i64], i64, ptr, ptr, ptr, i64, i64, ptr, i64, i64, i32, i32, i32, i32, ptr, i64, ptr, i64 }
-%struct.OSSL_TIME = type { i64 }
-%struct.anon = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.anon.0 = type { ptr, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, i32, i8, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.dane_ctx_st = type { ptr, ptr, i8, i64 }
-%struct.ssl_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [26 x i8] c"../openssl/ssl/ssl_mcnf.c\00", align 1
 @__func__.ssl_do_config = private unnamed_addr constant [14 x i8] c"ssl_do_config\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"system_default\00", align 1
@@ -90,15 +79,15 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp, label %if.else, label %if.then21
 
 if.then21:                                        ; preds = %if.end16
-  %method = getelementptr inbounds %struct.ssl_st, ptr %s, i64 0, i32 3
+  %method = getelementptr inbounds i8, ptr %s, i64 24
   %2 = load ptr, ptr %method, align 8
   call void @SSL_CONF_CTX_set_ssl(ptr noundef nonnull %call13, ptr noundef nonnull %s) #3
-  %ctx22 = getelementptr inbounds %struct.ssl_st, ptr %s, i64 0, i32 1
+  %ctx22 = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load ptr, ptr %ctx22, align 8
   br label %if.end26
 
 if.else:                                          ; preds = %if.end16
-  %method24 = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 1
+  %method24 = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %method24, align 8
   call void @SSL_CONF_CTX_set_ssl_ctx(ptr noundef nonnull %call13, ptr noundef %ctx) #3
   br label %if.end26
@@ -107,12 +96,12 @@ if.end26:                                         ; preds = %if.else, %if.then21
   %meth.0 = phi ptr [ %2, %if.then21 ], [ %4, %if.else ]
   %libctx.0.in = phi ptr [ %3, %if.then21 ], [ %ctx, %if.else ]
   %libctx.0 = load ptr, ptr %libctx.0.in, align 8
-  %ssl_accept = getelementptr inbounds %struct.ssl_method_st, ptr %meth.0, i64 0, i32 9
+  %ssl_accept = getelementptr inbounds i8, ptr %meth.0, i64 64
   %5 = load ptr, ptr %ssl_accept, align 8
   %cmp27.not = icmp eq ptr %5, @ssl_undefined_function
   %or29 = or disjoint i32 %spec.select, 8
   %spec.select25 = select i1 %cmp27.not, i32 %spec.select, i32 %or29
-  %ssl_connect = getelementptr inbounds %struct.ssl_method_st, ptr %meth.0, i64 0, i32 10
+  %ssl_connect = getelementptr inbounds i8, ptr %meth.0, i64 72
   %6 = load ptr, ptr %ssl_connect, align 8
   %cmp31.not = icmp eq ptr %6, @ssl_undefined_function
   %or33 = or disjoint i32 %spec.select25, 4

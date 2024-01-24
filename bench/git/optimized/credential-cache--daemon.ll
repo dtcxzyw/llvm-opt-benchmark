@@ -81,15 +81,15 @@ entry:
   store i32 0, ptr %debug, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %options, i8 0, i64 176, i1 false)
   store i32 9, ptr %options, align 16
-  %long_name = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %options, i64 16
   store ptr %debug, ptr %value, align 16
-  %help = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %options, i64 32
   store ptr @.str.2, ptr %help, align 16
-  %flags = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %options, i64 40
   store i32 2, ptr %flags, align 8
-  %defval = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 8
+  %defval = getelementptr inbounds i8, ptr %options, i64 56
   store i64 1, ptr %defval, align 8
   %call = call i32 @git_config_get_bool(ptr noundef nonnull @.str.3, ptr noundef nonnull %ignore_sighup) #15
   %call7 = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %options, ptr noundef nonnull @cmd_credential_cache_daemon.usage, i32 noundef 0) #15
@@ -119,7 +119,7 @@ if.end12:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end12
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
   %1 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %1, 63
   %tobool3.not.i = icmp eq i32 %and.i, 0
@@ -192,11 +192,11 @@ if.then6.i:                                       ; preds = %if.then3.i
   unreachable
 
 if.end8.i10:                                      ; preds = %if.then3.i, %if.end.i
-  %events.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i, i64 0, i32 1
-  %revents.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i, i64 0, i32 2
-  %buf.i.i.i = getelementptr inbounds %struct.strbuf, ptr %action.i.i.i, i64 0, i32 2
-  %username42.i.i.i = getelementptr inbounds %struct.credential, ptr %c.i.i.i, i64 0, i32 3
-  %password44.i.i.i = getelementptr inbounds %struct.credential, ptr %c.i.i.i, i64 0, i32 4
+  %events.i.i = getelementptr inbounds i8, ptr %pfd.i.i, i64 4
+  %revents.i.i = getelementptr inbounds i8, ptr %pfd.i.i, i64 6
+  %buf.i.i.i = getelementptr inbounds i8, ptr %action.i.i.i, i64 16
+  %username42.i.i.i = getelementptr inbounds i8, ptr %c.i.i.i, i64 72
+  %password44.i.i.i = getelementptr inbounds i8, ptr %c.i.i.i, i64 80
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %serve_cache_loop.exit.i, %if.end8.i10
@@ -430,13 +430,13 @@ lookup_credential.exit.i.i.i:                     ; preds = %for.body.i.i.i.i
   br i1 %tobool4.not.i.i.i, label %serve_one_client.exit.i.i, label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %lookup_credential.exit.i.i.i
-  %username.i.i.i = getelementptr inbounds %struct.credential, ptr %arrayidx2.i.i.i.i, i64 0, i32 3
+  %username.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i.i.i, i64 72
   %35 = load ptr, ptr %username.i.i.i, align 8
   %call6.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call26.i.i, ptr noundef nonnull @.str.18, ptr noundef %35)
-  %password.i.i.i = getelementptr inbounds %struct.credential, ptr %arrayidx2.i.i.i.i, i64 0, i32 4
+  %password.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i.i.i, i64 80
   %36 = load ptr, ptr %password.i.i.i, align 8
   %call8.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call26.i.i, ptr noundef nonnull @.str.19, ptr noundef %36)
-  %password_expiry_utc.i.i.i = getelementptr inbounds %struct.credential, ptr %arrayidx2.i.i.i.i, i64 0, i32 9
+  %password_expiry_utc.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i.i.i, i64 120
   %37 = load i64, ptr %password_expiry_utc.i.i.i, align 8
   %cmp10.not.i.i.i = icmp eq i64 %37, -1
   br i1 %cmp10.not.i.i.i, label %if.end.i14.i.i, label %if.then11.i.i.i
@@ -446,7 +446,7 @@ if.then11.i.i.i:                                  ; preds = %if.then5.i.i.i
   br label %if.end.i14.i.i
 
 if.end.i14.i.i:                                   ; preds = %if.then11.i.i.i, %if.then5.i.i.i
-  %oauth_refresh_token.i.i.i = getelementptr inbounds %struct.credential, ptr %arrayidx2.i.i.i.i, i64 0, i32 8
+  %oauth_refresh_token.i.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i.i.i, i64 112
   %38 = load ptr, ptr %oauth_refresh_token.i.i.i, align 8
   %tobool16.not.i.i.i = icmp eq ptr %38, null
   br i1 %tobool16.not.i.i.i, label %serve_one_client.exit.i.i, label %if.then17.i.i.i
@@ -484,7 +484,7 @@ for.body.i15.i.i.i:                               ; preds = %if.then33.i.i.i, %f
   br i1 %tobool.not.i19.i.i.i, label %for.inc.i.i.i.i, label %if.then.i20.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %for.body.i15.i.i.i
-  %expiration.i.i.i.i = getelementptr inbounds %struct.credential_cache_entry, ptr %40, i64 %indvars.iv.i16.i.i.i, i32 1
+  %expiration.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i17.i.i.i, i64 128
   store i64 0, ptr %expiration.i.i.i.i, align 8
   br label %for.inc.i.i.i.i
 
@@ -534,7 +534,7 @@ for.body.i24.i.i.i:                               ; preds = %if.else47.i.i.i, %f
   br i1 %tobool.not.i28.i.i.i, label %for.inc.i31.i.i.i, label %if.then.i29.i.i.i
 
 if.then.i29.i.i.i:                                ; preds = %for.body.i24.i.i.i
-  %expiration.i30.i.i.i = getelementptr inbounds %struct.credential_cache_entry, ptr %46, i64 %indvars.iv.i25.i.i.i, i32 1
+  %expiration.i30.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i26.i.i.i, i64 128
   store i64 0, ptr %expiration.i30.i.i.i, align 8
   br label %for.inc.i31.i.i.i
 
@@ -594,7 +594,7 @@ cache_credential.exit.i.i.i:                      ; preds = %st_mult.exit.i.i.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i.i.i.i)
   %conv12.i.i.i.i = zext nneg i32 %call10.i.i.i.i to i64
   %add13.i.i.i.i = add nsw i64 %55, %conv12.i.i.i.i
-  %expiration.i39.i.i.i = getelementptr inbounds %struct.credential_cache_entry, ptr %54, i64 %idxprom.i.i.i.i, i32 1
+  %expiration.i39.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i37.i.i.i, i64 128
   store i64 %add13.i.i.i.i, ptr %expiration.i39.i.i.i, align 8
   br label %serve_one_client.exit.i.i
 

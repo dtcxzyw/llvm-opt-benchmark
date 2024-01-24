@@ -3,14 +3,6 @@ source_filename = "bench/folly/original/ShutdownSocketSet.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::ShutdownSocketSet" = type { i64, %"class.std::unique_ptr", %"class.folly::File" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.folly::File" = type <{ i32, i8, [3 x i8] }>
 %"class.std::bad_alloc" = type { %"class.std::exception" }
 %"class.std::exception" = type { ptr }
 %"struct.folly::NetworkSocket" = type { i32 }
@@ -25,9 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.linger = type { i32, i32 }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::locale" = type { ptr }
 
 $_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_ = comdat any
 
@@ -58,7 +47,7 @@ entry:
   %0 = tail call i64 @llvm.umin.i64(i64 %capacity, i64 2147483647)
   %cond5.i.i = select i1 %cmp.i.i, i64 0, i64 %0
   store i64 %cond5.i.i, ptr %this, align 8, !tbaa !7
-  %data_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noalias ptr @calloc(i64 noundef %cond5.i.i, i64 noundef 1) #11
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN5folly13checkedCallocEmm.exit
@@ -69,7 +58,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN5folly13checkedCallocEmm.exit:                 ; preds = %entry
   store ptr %call.i, ptr %data_, align 8, !tbaa !22
-  %nullFile_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 2
+  %nullFile_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN5folly4FileC1EPKcij(ptr noundef nonnull align 4 dereferenceable(5) %nullFile_, ptr noundef nonnull @.str, i32 noundef 2, i32 noundef 438)
           to label %invoke.cont unwind label %lpad
 
@@ -158,7 +147,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %1, i64 %spec.select.i
   %2 = cmpxchg ptr %arrayidx.i, i8 0, i8 1 monotonic monotonic, align 1
@@ -254,11 +243,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %1, i64 %spec.select.i
   %2 = load atomic i8, ptr %arrayidx.i monotonic, align 1
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %__ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %__ts.i, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %_ZN5folly6detail19relaxed_atomic_baseIhE21compare_exchange_weakERhh.exit, %if.end
@@ -355,7 +344,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %cleanup.sink.split
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %1, i64 %spec.select.i
   %2 = load atomic i8, ptr %arrayidx.i monotonic, align 1
@@ -462,13 +451,13 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp.not.not.i, label %if.end7.i, label %cleanup81
 
 if.end7.i:                                        ; preds = %if.then.i, %if.then
-  %nullFile_.i = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 2
+  %nullFile_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %nullFile_.i, align 8, !tbaa !33
   %call10.i = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %2, i32 noundef %fd.coerce)
   br label %cleanup81
 
 if.end:                                           ; preds = %entry
-  %data_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %data_, align 8, !tbaa !22
   %arrayidx.i = getelementptr inbounds %"struct.folly::relaxed_atomic", ptr %3, i64 %spec.select.i
   %4 = cmpxchg ptr %arrayidx.i, i8 1, i8 2 monotonic monotonic, align 1
@@ -490,7 +479,7 @@ if.then.i93:                                      ; preds = %if.end17
   br i1 %cmp.not.not.i95, label %if.end7.i90, label %_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit96
 
 if.end7.i90:                                      ; preds = %if.then.i93, %if.end17
-  %nullFile_.i91 = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 2
+  %nullFile_.i91 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i32, ptr %nullFile_.i91, align 8, !tbaa !33
   %call10.i92 = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %7, i32 noundef %fd.coerce)
   br label %_ZN5folly17ShutdownSocketSet10doShutdownENS_13NetworkSocketEb.exit96
@@ -628,7 +617,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.then, %entry
-  %nullFile_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 2
+  %nullFile_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %nullFile_, align 8, !tbaa !33
   %call10 = call noundef i32 @_ZN5folly9dup2NoIntEii(i32 noundef %1, i32 noundef %fd.coerce)
   br label %return
@@ -660,7 +649,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
   %vbase.offset.ptr.i.i.i = getelementptr i8, ptr %vtable.i.i.i, i64 -24
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call2, i64 %vbase.offset.i.i.i
-  %_M_width.i.i.i.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i.i.i, i64 0, i32 2
+  %_M_width.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
   %2 = load i64, ptr %_M_width.i.i.i.i, align 8, !tbaa !43
   %cmp.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -703,7 +692,7 @@ entry:
   br i1 %cmp9.not, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %data_ = getelementptr inbounds %"class.folly::ShutdownSocketSet", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end, %entry

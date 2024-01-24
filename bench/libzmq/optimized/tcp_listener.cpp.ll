@@ -3,61 +3,17 @@ source_filename = "bench/libzmq/original/tcp_listener.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.zmq::tcp_listener_t" = type <{ %"class.zmq::stream_listener_base_t", %"class.zmq::tcp_address_t", [4 x i8] }>
-%"class.zmq::stream_listener_base_t" = type { %"class.zmq::own_t.base", %"class.zmq::io_object_t", i32, ptr, ptr, %"class.std::__cxx11::basic_string" }
-%"class.zmq::own_t.base" = type <{ %"class.zmq::object_t.base", [4 x i8], %"struct.zmq::options_t", i8, [7 x i8], %"class.zmq::atomic_counter_t", i64, ptr, %"class.std::set.28", i32 }>
-%"class.zmq::object_t.base" = type <{ ptr, ptr, i32 }>
-%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.6", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
-%"struct.zmq::atomic_value_t" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::set.6" = type { %"class.std::_Rb_tree.7" }
-%"class.std::_Rb_tree.7" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.11", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.11" = type { %"struct.std::less.12" }
-%"struct.std::less.12" = type { i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree.14" }
-%"class.std::_Rb_tree.14" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.18", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.18" = type { %"struct.std::less.19" }
-%"struct.std::less.19" = type { i8 }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.zmq::atomic_counter_t" = type { %"struct.std::atomic.26", [4 x i8] }
-%"struct.std::atomic.26" = type { %"struct.std::__atomic_base.27" }
-%"struct.std::__atomic_base.27" = type { i32 }
-%"class.std::set.28" = type { %"class.std::_Rb_tree.29" }
-%"class.std::_Rb_tree.29" = type { %"struct.std::_Rb_tree<zmq::own_t *, zmq::own_t *, std::_Identity<zmq::own_t *>, std::less<zmq::own_t *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<zmq::own_t *, zmq::own_t *, std::_Identity<zmq::own_t *>, std::less<zmq::own_t *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.33", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.33" = type { %"struct.std::less.34" }
-%"struct.std::less.34" = type { i8 }
-%"class.zmq::io_object_t" = type { %"struct.zmq::i_poll_events", ptr }
-%"struct.zmq::i_poll_events" = type { ptr }
+%"struct.zmq::endpoint_uri_pair_t" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.zmq::tcp_address_t" = type <{ %"union.zmq::ip_addr_t", %"union.zmq::ip_addr_t", i8, [3 x i8] }>
+%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
+%"class.zmq::tcp_address_mask_t" = type { %"union.zmq::ip_addr_t", i32 }
 %"union.zmq::ip_addr_t" = type { %struct.sockaddr_in6 }
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon.36 }
 %union.anon.36 = type { [4 x i32] }
-%"struct.zmq::endpoint_uri_pair_t" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.zmq::own_t" = type <{ %"class.zmq::object_t.base", [4 x i8], %"struct.zmq::options_t", i8, [7 x i8], %"class.zmq::atomic_counter_t", i64, ptr, %"class.std::set.28", i32, [4 x i8] }>
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%"class.zmq::tcp_address_mask_t" = type { %"union.zmq::ip_addr_t", i32 }
+%"class.zmq::tcp_address_t" = type <{ %"union.zmq::ip_addr_t", %"union.zmq::ip_addr_t", i8, [3 x i8] }>
 
 $_ZN3zmq14tcp_listener_tD2Ev = comdat any
 
@@ -87,7 +43,7 @@ entry:
   store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq14tcp_listener_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
   store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq14tcp_listener_tE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %_address = getelementptr inbounds %"class.zmq::tcp_listener_t", ptr %this, i64 0, i32 1
+  %_address = getelementptr inbounds i8, ptr %this, i64 1520
   invoke void @_ZN3zmq13tcp_address_tC1Ev(ptr noundef nonnull align 4 dereferenceable(57) %_address)
           to label %invoke.cont unwind label %lpad
 
@@ -114,17 +70,17 @@ declare void @_ZN3zmq22stream_listener_base_tD2Ev(ptr noundef nonnull align 8 de
 define void @_ZN3zmq14tcp_listener_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1584) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %ref.tmp, i64 0, i32 1
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %ref.tmp15 = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %ref.tmp15.sroa.gep = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %ref.tmp15, i64 0, i32 1
+  %ref.tmp15.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp15, i64 32
   %call = tail call noundef i32 @_ZN3zmq14tcp_listener_t6acceptEv(ptr noundef nonnull align 8 dereferenceable(1584) %this)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_socket = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 4
+  %_socket = getelementptr inbounds i8, ptr %this, i64 1480
   %0 = load ptr, ptr %_socket, align 8
-  %_endpoint = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 5
+  %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
   %call2 = invoke i32 @zmq_errno()
           to label %invoke.cont unwind label %lpad
@@ -134,7 +90,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %remote.i = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %ref.tmp, i64 0, i32 1
+  %remote.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   br label %return
@@ -146,17 +102,17 @@ lpad:                                             ; preds = %invoke.cont, %if.th
 
 if.end:                                           ; preds = %entry
   %call4 = tail call noundef i32 @_ZN3zmq15tune_tcp_socketEi(i32 noundef %call)
-  %tcp_keepalive = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 34
+  %tcp_keepalive = getelementptr inbounds i8, ptr %this, i64 496
   %2 = load i32, ptr %tcp_keepalive, align 8
-  %tcp_keepalive_cnt = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 35
+  %tcp_keepalive_cnt = getelementptr inbounds i8, ptr %this, i64 500
   %3 = load i32, ptr %tcp_keepalive_cnt, align 4
-  %tcp_keepalive_idle = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 36
+  %tcp_keepalive_idle = getelementptr inbounds i8, ptr %this, i64 504
   %4 = load i32, ptr %tcp_keepalive_idle, align 8
-  %tcp_keepalive_intvl = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 37
+  %tcp_keepalive_intvl = getelementptr inbounds i8, ptr %this, i64 508
   %5 = load i32, ptr %tcp_keepalive_intvl, align 4
   %call8 = tail call noundef i32 @_ZN3zmq19tune_tcp_keepalivesEiiiii(i32 noundef %call, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %or = or i32 %call8, %call4
-  %tcp_maxrt = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 16
+  %tcp_maxrt = getelementptr inbounds i8, ptr %this, i64 344
   %6 = load i32, ptr %tcp_maxrt, align 8
   %call10 = tail call noundef i32 @_ZN3zmq14tune_tcp_maxrtEii(i32 noundef %call, i32 noundef %6)
   %or11 = or i32 %or, %call10
@@ -164,9 +120,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp12.not, label %if.end21, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %_socket14 = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 4
+  %_socket14 = getelementptr inbounds i8, ptr %this, i64 1480
   %7 = load ptr, ptr %_socket14, align 8
-  %_endpoint16 = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 5
+  %_endpoint16 = getelementptr inbounds i8, ptr %this, i64 1488
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint16)
   %call19 = invoke i32 @zmq_errno()
           to label %invoke.cont18 unwind label %lpad17
@@ -176,7 +132,7 @@ invoke.cont18:                                    ; preds = %if.then13
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  %remote.i9 = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %ref.tmp15, i64 0, i32 1
+  %remote.i9 = getelementptr inbounds i8, ptr %ref.tmp15, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i9) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #11
   br label %return
@@ -207,7 +163,7 @@ define noundef i32 @_ZN3zmq14tcp_listener_t6acceptEv(ptr nocapture noundef nonnu
 entry:
   %ss = alloca %struct.sockaddr_storage, align 8
   %ss_len = alloca i32, align 4
-  %_s = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 2
+  %_s = getelementptr inbounds i8, ptr %this, i64 1464
   %0 = load i32, ptr %_s, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.then, label %do.end
@@ -254,9 +210,9 @@ lor.rhs:                                          ; preds = %do.body7
 
 if.end40:                                         ; preds = %do.end
   call void @_ZN3zmq26make_socket_noninheritableEi(i32 noundef %call4)
-  %tcp_accept_filters = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 38
+  %tcp_accept_filters = getelementptr inbounds i8, ptr %this, i64 512
   %7 = load ptr, ptr %tcp_accept_filters, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 38, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 520
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i, label %if.end67, label %for.body.preheader
@@ -319,7 +275,7 @@ if.then76:                                        ; preds = %if.then70
   br label %return
 
 if.end84:                                         ; preds = %if.end67
-  %tos = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 11
+  %tos = getelementptr inbounds i8, ptr %this, i64 324
   %17 = load i32, ptr %tos, align 4
   %cmp86.not = icmp eq i32 %17, 0
   br i1 %cmp86.not, label %if.end90, label %if.then87
@@ -329,7 +285,7 @@ if.then87:                                        ; preds = %if.end84
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then87, %if.end84
-  %priority = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 12
+  %priority = getelementptr inbounds i8, ptr %this, i64 328
   %18 = load i32, ptr %priority, align 8
   %cmp92.not = icmp eq i32 %18, 0
   br i1 %cmp92.not, label %return, label %if.then93
@@ -402,10 +358,10 @@ _ZN3zmq15get_socket_nameINS_13tcp_address_tEEENSt7__cxx1112basic_stringIcSt11cha
 define noundef i32 @_ZN3zmq14tcp_listener_t13create_socketEPKc(ptr noundef nonnull align 8 dereferenceable(1584) %this, ptr noundef %addr_) local_unnamed_addr #0 align 2 {
 entry:
   %flag = alloca i32, align 4
-  %options = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2
-  %_address = getelementptr inbounds %"class.zmq::tcp_listener_t", ptr %this, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %_address = getelementptr inbounds i8, ptr %this, i64 1520
   %call = tail call noundef i32 @_ZN3zmq15tcp_open_socketEPKcRKNS_9options_tEbbPNS_13tcp_address_tE(ptr noundef %addr_, ptr noundef nonnull align 8 dereferenceable(1336) %options, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %_address)
-  %_s = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 2
+  %_s = getelementptr inbounds i8, ptr %this, i64 1464
   store i32 %call, ptr %_s, align 8
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
@@ -439,7 +395,7 @@ do.end:                                           ; preds = %if.end, %if.then7
 
 if.end21:                                         ; preds = %do.end
   %5 = load i32, ptr %_s, align 8
-  %backlog = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 20
+  %backlog = getelementptr inbounds i8, ptr %this, i64 360
   %6 = load i32, ptr %backlog, align 8
   %call24 = call i32 @listen(i32 noundef %5, i32 noundef %6) #11
   %cmp25.not = icmp eq i32 %call24, 0
@@ -497,13 +453,13 @@ entry:
   %addr.i.i = alloca %"class.zmq::tcp_address_t", align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"struct.zmq::endpoint_uri_pair_t", align 8
-  %use_fd = getelementptr inbounds %"class.zmq::own_t", ptr %this, i64 0, i32 2, i32 62
+  %use_fd = getelementptr inbounds i8, ptr %this, i64 980
   %0 = load i32, ptr %use_fd, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_s = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 2
+  %_s = getelementptr inbounds i8, ptr %this, i64 1464
   store i32 %0, ptr %_s, align 8
   br label %if.end6
 
@@ -513,13 +469,13 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %return, label %if.else.if.end6_crit_edge
 
 if.else.if.end6_crit_edge:                        ; preds = %if.else
-  %_s7.phi.trans.insert = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 2
+  %_s7.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 1464
   %.pre = load i32, ptr %_s7.phi.trans.insert, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.else.if.end6_crit_edge, %if.then
   %1 = phi i32 [ %.pre, %if.else.if.end6_crit_edge ], [ %0, %if.then ]
-  %_s7 = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 2
+  %_s7 = getelementptr inbounds i8, ptr %this, i64 1464
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ss.i.i), !noalias !10
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %addr.i.i), !noalias !10
   %call.i.i = call noundef i32 @_ZN3zmq18get_socket_addressEiNS_12socket_end_tEP16sockaddr_storage(i32 noundef %1, i32 noundef 0, ptr noundef nonnull %ss.i.i), !noalias !13
@@ -550,10 +506,10 @@ lpad.i.i:                                         ; preds = %if.end.i.i
 _ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit: ; preds = %if.then.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ss.i.i), !noalias !10
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %addr.i.i), !noalias !10
-  %_endpoint = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 5
+  %_endpoint = getelementptr inbounds i8, ptr %this, i64 1488
   %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_endpoint, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
-  %_socket = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this, i64 0, i32 4
+  %_socket = getelementptr inbounds i8, ptr %this, i64 1480
   %3 = load ptr, ptr %_socket, align 8
   call void @_ZN3zmq35make_unconnected_bind_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %_endpoint)
   %4 = load i32, ptr %_s7, align 8
@@ -561,7 +517,7 @@ _ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit: ; pre
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit
-  %remote.i = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %ref.tmp9, i64 0, i32 1
+  %remote.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #11
   br label %return
@@ -569,7 +525,7 @@ invoke.cont:                                      ; preds = %_ZNK3zmq14tcp_liste
 lpad:                                             ; preds = %_ZNK3zmq14tcp_listener_t15get_socket_nameB5cxx11EiNS_12socket_end_tE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  %remote.i1 = getelementptr inbounds %"struct.zmq::endpoint_uri_pair_t", ptr %ref.tmp9, i64 0, i32 1
+  %remote.i1 = getelementptr inbounds i8, ptr %ref.tmp9, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote.i1) #11
   br label %common.resume
 

@@ -10,7 +10,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -32,14 +32,14 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], [1 x { ptr, i64 }] }, ptr %3, i64 0, i32 1
-  %7 = getelementptr inbounds { { [1 x { [2 x i64] }], { i64, i64 } }, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds { [1 x i64], { i64, [1 x { ptr, i64 }] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %10, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, [1 x { ptr, i64 }] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %.critedge
 
@@ -56,7 +56,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -78,19 +78,19 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !align !7
-  %10 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %11, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.32.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 1
+  %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %7, ptr %.sroa.32.0..sroa_idx, align 8
   br label %14
 
@@ -107,7 +107,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -129,19 +129,19 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !align !7
-  %10 = getelementptr inbounds { { [1 x { ptr, i64 }], { i64, i64 } }, i64 }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %11, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.32.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 1
+  %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %7, ptr %.sroa.32.0..sroa_idx, align 8
   br label %14
 
@@ -158,7 +158,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -178,7 +178,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -200,15 +200,15 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i32], { i32, i8, i8, [2 x i8] } }, ptr %3, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 4
   %.sroa.06.0.copyload = load i64, ptr %6, align 4
-  %7 = getelementptr inbounds { { { { { ptr, ptr }, i64 }, {} }, {} }, i64 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds { [1 x i64], { i64, { i32, i8, i8, [2 x i8] } } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %10, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { i32, i8, i8, [2 x i8] } } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.06.0.copyload, ptr %.sroa.2.0..sroa_idx, align 8
   br label %11
 
@@ -225,7 +225,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -245,7 +245,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -265,7 +265,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -285,7 +285,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -307,13 +307,13 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 
 4:                                                ; preds = %2
   %.fca.1.extract = extractvalue { i64, ptr } %3, 1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %6, ptr %8, align 8
-  %9 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %0, i64 0, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.fca.1.extract, ptr %9, align 8
   br label %10
 
@@ -353,23 +353,18 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 
 5:                                                ; preds = %2
   %.fca.1.extract = extractvalue { ptr, ptr } %3, 1
-  %6 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8
   store i64 %7, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.fca.0.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.fca.1.extract, ptr %.sroa.35.0..sroa_idx, align 8
-  br label %11
+  br label %9
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %10, align 8
-  br label %11
-
-11:                                               ; preds = %5, %9
+9:                                                ; preds = %2, %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.fca.0.extract, ptr %10, align 8
   ret void
 }
 
@@ -380,7 +375,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -400,7 +395,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -420,7 +415,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -440,7 +435,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -460,7 +455,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -480,7 +475,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -503,23 +498,18 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 5:                                                ; preds = %2
   %.sroa.215.0.extract.shift = lshr i32 %3, 8
   %.sroa.215.0.extract.trunc = trunc i32 %.sroa.215.0.extract.shift to i24
-  %6 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8
   store i64 %7, ptr %0, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sroa.014.0.extract.trunc, ptr %.sroa.28.0..sroa_idx, align 8
   %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   store i24 %.sroa.215.0.extract.trunc, ptr %.sroa.28.sroa.2.0..sroa.28.0..sroa_idx.sroa_idx, align 1
-  br label %11
+  br label %9
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [8 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
-  store i8 2, ptr %10, align 8
-  br label %11
-
-11:                                               ; preds = %5, %9
+9:                                                ; preds = %2, %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i8 %.sroa.014.0.extract.trunc, ptr %10, align 8
   ret void
 }
 
@@ -532,19 +522,19 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !align !7
-  %10 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %11, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.32.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 1
+  %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %7, ptr %.sroa.32.0..sroa_idx, align 8
   br label %14
 
@@ -561,7 +551,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -583,14 +573,14 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { i8, i8, [6 x i8], i64 } }, ptr %3, i64 0, i32 1
-  %7 = getelementptr inbounds { { { i64, [2 x i64] }, { { ptr, ptr }, i64 } }, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 48
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds { [1 x i64], { i64, { i8, i8, [6 x i8], i64 } } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %10, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { i64, { i8, i8, [6 x i8], i64 } } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %.critedge
 
@@ -607,7 +597,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -629,30 +619,25 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 
 5:                                                ; preds = %2
   %.fca.1.extract = extractvalue { ptr, i64 } %3, 1
-  %6 = getelementptr inbounds { { { ptr, i64 }, { ptr, ptr }, { ptr, i64 } }, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8
   store i64 %7, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.fca.0.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.fca.1.extract, ptr %.sroa.35.0..sroa_idx, align 8
-  br label %11
+  br label %9
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %10, align 8
-  br label %11
-
-11:                                               ; preds = %5, %9
+9:                                                ; preds = %2, %5
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.fca.0.extract, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17h23fbb343d81aff62E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %5 = tail call i64 @"_ZN112_$LT$regex_automata..util..captures..GroupInfoPatternNames$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hbae2be823e307efcE"(ptr nonnull %2, ptr %4)
   ret i64 %5
@@ -660,7 +645,7 @@ define i64 @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2b16cdfdd04b5c04E"(ptr align 8 %0, ptr align 1 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5c0ec7cfea137d6aE(ptr align 8 %0, ptr nonnull align 1 %1, ptr nonnull align 8 %3)
@@ -669,7 +654,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h1b69cbb604e581baE"(ptr align 8 %0, ptr align 4 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !9, !noundef !5
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = icmp ne ptr %1, null
@@ -701,13 +686,13 @@ define { i64, ptr } @"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
   %7 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
-  %11 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !5
   %13 = add i64 %10, %12
   br label %14
@@ -721,7 +706,7 @@ define { i64, ptr } @"_ZN125_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator4find17hdb705c15242e2ac4E(ptr align 8 %0, ptr align 1 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = tail call { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5c0ec7cfea137d6aE(ptr align 8 %0, ptr nonnull align 1 %1, ptr nonnull align 8 %3)

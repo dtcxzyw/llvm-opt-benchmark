@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
 
 @test_get_options.options = internal constant [14 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 1, i32 45, ptr @.str.15 }, %struct.options_st { ptr @.str.16, i32 2, i32 60, ptr @.str.17 }, %struct.options_st { ptr @.str.18, i32 3, i32 60, ptr @.str.19 }, %struct.options_st { ptr @.str.20, i32 4, i32 60, ptr @.str.21 }, %struct.options_st { ptr @.str.22, i32 5, i32 115, ptr @.str.23 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -371,13 +365,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.290 = private unnamed_addr constant [8 x i8] c"RSA-PSS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %DSA_params = alloca [3 x %struct.ossl_param_st], align 16
   %EC_params = alloca [2 x %struct.ossl_param_st], align 16
@@ -1024,194 +1018,194 @@ declare ptr @load_pkey_pem(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DH_via_DER() #1 {
+define internal noundef i32 @test_unprotected_DH_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DH_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_DH_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_DH_via_DER() #1 {
+define internal noundef i32 @test_protected_DH_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_DH_via_PEM() #1 {
+define internal noundef i32 @test_protected_DH_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_DH_via_DER() #1 {
+define internal noundef i32 @test_public_DH_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_DH_via_PEM() #1 {
+define internal noundef i32 @test_public_DH_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_DH_via_DER() #1 {
+define internal noundef i32 @test_params_DH_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_DH_via_PEM() #1 {
+define internal noundef i32 @test_params_DH_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DH, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.45, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DHX_via_DER() #1 {
+define internal noundef i32 @test_unprotected_DHX_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DHX_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_DHX_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_DHX_via_DER() #1 {
+define internal noundef i32 @test_protected_DHX_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_DHX_via_PEM() #1 {
+define internal noundef i32 @test_protected_DHX_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_DHX_via_DER() #1 {
+define internal noundef i32 @test_public_DHX_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_DHX_via_PEM() #1 {
+define internal noundef i32 @test_public_DHX_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_DHX_via_DER() #1 {
+define internal noundef i32 @test_params_DHX_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_DHX_via_PEM() #1 {
+define internal noundef i32 @test_params_DHX_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DHX, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.48, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DSA_via_DER() #1 {
+define internal noundef i32 @test_unprotected_DSA_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DSA_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_DSA_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_DSA_via_DER() #1 {
+define internal noundef i32 @test_protected_DSA_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_DSA_via_PEM() #1 {
+define internal noundef i32 @test_protected_DSA_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_DSA_via_DER() #1 {
+define internal noundef i32 @test_public_DSA_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_DSA_via_PEM() #1 {
+define internal noundef i32 @test_public_DSA_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_DSA_via_DER() #1 {
+define internal noundef i32 @test_params_DSA_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_DSA_via_PEM() #1 {
+define internal noundef i32 @test_params_DSA_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -1260,26 +1254,26 @@ test_protected_via_legacy_PEM.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DSA_via_MSBLOB() #1 {
+define internal noundef i32 @test_unprotected_DSA_via_MSBLOB() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 685, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 685, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_DSA_via_MSBLOB() #1 {
+define internal noundef i32 @test_public_DSA_via_MSBLOB() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 870, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 6, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 870, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 6, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_DSA_via_PVK() #1 {
+define internal noundef i32 @test_unprotected_DSA_via_PVK() #1 {
 entry:
   %0 = load ptr, ptr @key_DSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 706, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.285, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_PVK, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_PVK, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 706, ptr noundef nonnull @.str.52, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.285, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_PVK, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_PVK, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -1307,66 +1301,66 @@ test_protected_via_PVK.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_EC_via_DER() #1 {
+define internal noundef i32 @test_unprotected_EC_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_EC_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_EC_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_EC_via_DER() #1 {
+define internal noundef i32 @test_protected_EC_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_EC_via_PEM() #1 {
+define internal noundef i32 @test_protected_EC_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_EC_via_DER() #1 {
+define internal noundef i32 @test_public_EC_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_EC_via_PEM() #1 {
+define internal noundef i32 @test_public_EC_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_EC_via_DER() #1 {
+define internal noundef i32 @test_params_EC_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 628, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_params_EC_via_PEM() #1 {
+define internal noundef i32 @test_params_EC_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_EC, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 637, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 4, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -1415,50 +1409,50 @@ test_protected_via_legacy_PEM.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitPrimeNamedCurve_via_DER() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitPrimeNamedCurve_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitPrimeNamedCurve_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitPrimeNamedCurve_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitPrimeNamedCurve_via_DER() #1 {
+define internal noundef i32 @test_protected_ECExplicitPrimeNamedCurve_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitPrimeNamedCurve_via_PEM() #1 {
+define internal noundef i32 @test_protected_ECExplicitPrimeNamedCurve_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitPrimeNamedCurve_via_DER() #1 {
+define internal noundef i32 @test_public_ECExplicitPrimeNamedCurve_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitPrimeNamedCurve_via_PEM() #1 {
+define internal noundef i32 @test_public_ECExplicitPrimeNamedCurve_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -1507,50 +1501,50 @@ test_protected_via_legacy_PEM.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitPrime2G_via_DER() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitPrime2G_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrime2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitPrime2G_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitPrime2G_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrime2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitPrime2G_via_DER() #1 {
+define internal noundef i32 @test_protected_ECExplicitPrime2G_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrime2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitPrime2G_via_PEM() #1 {
+define internal noundef i32 @test_protected_ECExplicitPrime2G_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrime2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitPrime2G_via_DER() #1 {
+define internal noundef i32 @test_public_ECExplicitPrime2G_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrime2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitPrime2G_via_PEM() #1 {
+define internal noundef i32 @test_public_ECExplicitPrime2G_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitPrime2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %call.i
 }
 
@@ -1599,50 +1593,50 @@ test_protected_via_legacy_PEM.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitTriNamedCurve_via_DER() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitTriNamedCurve_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitTriNamedCurve_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitTriNamedCurve_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitTriNamedCurve_via_DER() #1 {
+define internal noundef i32 @test_protected_ECExplicitTriNamedCurve_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitTriNamedCurve_via_PEM() #1 {
+define internal noundef i32 @test_protected_ECExplicitTriNamedCurve_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitTriNamedCurve_via_DER() #1 {
+define internal noundef i32 @test_public_ECExplicitTriNamedCurve_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitTriNamedCurve_via_PEM() #1 {
+define internal noundef i32 @test_public_ECExplicitTriNamedCurve_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -1691,50 +1685,50 @@ test_protected_via_legacy_PEM.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitTri2G_via_DER() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitTri2G_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTri2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ECExplicitTri2G_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_ECExplicitTri2G_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTri2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitTri2G_via_DER() #1 {
+define internal noundef i32 @test_protected_ECExplicitTri2G_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTri2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ECExplicitTri2G_via_PEM() #1 {
+define internal noundef i32 @test_protected_ECExplicitTri2G_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTri2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitTri2G_via_DER() #1 {
+define internal noundef i32 @test_public_ECExplicitTri2G_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTri2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ECExplicitTri2G_via_PEM() #1 {
+define internal noundef i32 @test_public_ECExplicitTri2G_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ECExplicitTri2G, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.56, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %call.i
 }
 
@@ -1783,242 +1777,242 @@ test_protected_via_legacy_PEM.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ED25519_via_DER() #1 {
+define internal noundef i32 @test_unprotected_ED25519_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ED25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ED25519_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_ED25519_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ED25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ED25519_via_DER() #1 {
+define internal noundef i32 @test_protected_ED25519_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ED25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ED25519_via_PEM() #1 {
+define internal noundef i32 @test_protected_ED25519_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ED25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ED25519_via_DER() #1 {
+define internal noundef i32 @test_public_ED25519_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ED25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ED25519_via_PEM() #1 {
+define internal noundef i32 @test_public_ED25519_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ED25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.67, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ED448_via_DER() #1 {
+define internal noundef i32 @test_unprotected_ED448_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ED448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_ED448_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_ED448_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ED448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ED448_via_DER() #1 {
+define internal noundef i32 @test_protected_ED448_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ED448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_ED448_via_PEM() #1 {
+define internal noundef i32 @test_protected_ED448_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ED448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ED448_via_DER() #1 {
+define internal noundef i32 @test_public_ED448_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_ED448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_ED448_via_PEM() #1 {
+define internal noundef i32 @test_public_ED448_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_ED448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.69, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_X25519_via_DER() #1 {
+define internal noundef i32 @test_unprotected_X25519_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_X25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_X25519_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_X25519_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_X25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_X25519_via_DER() #1 {
+define internal noundef i32 @test_protected_X25519_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_X25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_X25519_via_PEM() #1 {
+define internal noundef i32 @test_protected_X25519_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_X25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_X25519_via_DER() #1 {
+define internal noundef i32 @test_public_X25519_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_X25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_X25519_via_PEM() #1 {
+define internal noundef i32 @test_public_X25519_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_X25519, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.71, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_X448_via_DER() #1 {
+define internal noundef i32 @test_unprotected_X448_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_X448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_X448_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_X448_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_X448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_X448_via_DER() #1 {
+define internal noundef i32 @test_protected_X448_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_X448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_X448_via_PEM() #1 {
+define internal noundef i32 @test_protected_X448_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_X448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_X448_via_DER() #1 {
+define internal noundef i32 @test_public_X448_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_X448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_X448_via_PEM() #1 {
+define internal noundef i32 @test_public_X448_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_X448, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.73, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_RSA_via_DER() #1 {
+define internal noundef i32 @test_unprotected_RSA_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_RSA_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_RSA_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_RSA_via_DER() #1 {
+define internal noundef i32 @test_protected_RSA_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_RSA_via_PEM() #1 {
+define internal noundef i32 @test_protected_RSA_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_RSA_via_DER() #1 {
+define internal noundef i32 @test_public_RSA_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_RSA_via_PEM() #1 {
+define internal noundef i32 @test_public_RSA_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -2067,74 +2061,74 @@ test_protected_via_legacy_PEM.exit:               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_RSA_PSS_via_DER() #1 {
+define internal noundef i32 @test_unprotected_RSA_PSS_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA_PSS, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 555, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_RSA_PSS_via_PEM() #1 {
+define internal noundef i32 @test_unprotected_RSA_PSS_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA_PSS, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 577, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 135, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.226, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_RSA_PSS_via_DER() #1 {
+define internal noundef i32 @test_protected_RSA_PSS_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA_PSS, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 732, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_protected_RSA_PSS_via_PEM() #1 {
+define internal noundef i32 @test_protected_RSA_PSS_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA_PSS, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 755, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.268, ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_RSA_PSS_via_DER() #1 {
+define internal noundef i32 @test_public_RSA_PSS_via_DER() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA_PSS, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 825, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_RSA_PSS_via_PEM() #1 {
+define internal noundef i32 @test_public_RSA_PSS_via_PEM() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA_PSS, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 847, ptr noundef nonnull @.str.290, ptr noundef %0, i32 noundef 134, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.272, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_RSA_via_MSBLOB() #1 {
+define internal noundef i32 @test_unprotected_RSA_via_MSBLOB() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 685, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 685, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_public_RSA_via_MSBLOB() #1 {
+define internal noundef i32 @test_public_RSA_via_MSBLOB() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 870, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 6, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 870, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 6, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_unprotected_RSA_via_PVK() #1 {
+define internal noundef i32 @test_unprotected_RSA_via_PVK() #1 {
 entry:
   %0 = load ptr, ptr @key_RSA, align 8
-  %call.i = tail call fastcc i32 @test_encode_decode(i32 noundef 706, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.285, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_PVK, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_PVK, ptr noundef nonnull @dump_der, i32 noundef 0)
+  %call.i = tail call fastcc noundef i32 @test_encode_decode(i32 noundef 706, ptr noundef nonnull @.str.289, ptr noundef %0, i32 noundef 7, ptr noundef nonnull @.str.285, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_PVK, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_PVK, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %call.i
 }
 
@@ -2540,7 +2534,7 @@ declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #3
 declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_encode_decode(i32 noundef %line, ptr noundef %type, ptr noundef %pkey, i32 noundef %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher, ptr nocapture noundef readonly %encode_cb, ptr nocapture noundef readonly %test_cb, ptr nocapture noundef readonly %check_cb, ptr nocapture noundef readonly %dump_cb, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_encode_decode(i32 noundef %line, ptr noundef %type, ptr noundef %pkey, i32 noundef %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher, ptr nocapture noundef readonly %encode_cb, ptr nocapture noundef readonly %test_cb, ptr nocapture noundef readonly %check_cb, ptr nocapture noundef readonly %dump_cb, i32 noundef %flags) unnamed_addr #1 {
 entry:
   %encoded = alloca ptr, align 8
   %encoded_len = alloca i64, align 8
@@ -2718,7 +2712,7 @@ if.end115:                                        ; preds = %land.lhs.true94, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
+define internal noundef i32 @encode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr noundef %output_type, ptr noundef %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -2783,7 +2777,7 @@ lor.lhs.false31:                                  ; preds = %lor.lhs.false25
 
 lor.lhs.false39:                                  ; preds = %lor.lhs.false31
   %0 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %encoded, align 8
   %call40 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %1) #7
@@ -2812,7 +2806,7 @@ end:                                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %object, ptr noundef %encoded, i64 noundef %encoded_len, ptr noundef %input_type, ptr noundef %structure_type, ptr noundef %keytype, i32 noundef %selection, ptr noundef %pass) unnamed_addr #1 {
+define internal fastcc noundef i32 @decode_EVP_PKEY_prov(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %object, ptr noundef %encoded, i64 noundef %encoded_len, ptr noundef %input_type, ptr noundef %structure_type, ptr noundef %keytype, i32 noundef %selection, ptr noundef %pass) unnamed_addr #1 {
 entry:
   %testpkey = alloca ptr, align 8
   store ptr null, ptr %testpkey, align 8
@@ -2968,7 +2962,7 @@ if.end:                                           ; preds = %if.then13, %if.then
   br label %land.end
 
 land.rhs:                                         ; preds = %if.then5
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %call2, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %call2, i64 96
   %3 = load ptr, ptr %keymgmt, align 8
   %cmp16 = icmp ne ptr %3, null
   %conv17 = zext i1 %cmp16 to i32
@@ -3195,7 +3189,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @check_params_DER(ptr nocapture readnone %file, i32 %line, ptr nocapture noundef readonly %type, ptr noundef %data, i64 noundef %data_len) #1 {
+define internal noundef i32 @check_params_DER(ptr nocapture readnone %file, i32 %line, ptr nocapture noundef readonly %type, ptr noundef %data, i64 noundef %data_len) #1 {
 entry:
   %datap = alloca ptr, align 8
   store ptr %data, ptr %datap, align 8
@@ -3258,7 +3252,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
+define internal noundef i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr noundef %pass, ptr noundef %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -3303,7 +3297,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false15
   %1 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %encoded, align 8
   %call24 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %2) #7
@@ -3388,7 +3382,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr nocapture readnone %pass, ptr nocapture readnone %pcipher) #1 {
+define internal noundef i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr nocapture readnone %pass, ptr nocapture readnone %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -3425,7 +3419,7 @@ if.end14:                                         ; preds = %if.else, %if.then3
 
 lor.lhs.false:                                    ; preds = %if.end14
   %0 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %encoded, align 8
   %call21 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %1) #7
@@ -3484,7 +3478,7 @@ entry:
 declare ptr @b2i_PublicKey(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @encode_EVP_PKEY_PVK(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr noundef %pass, ptr nocapture readnone %pcipher) #1 {
+define internal noundef i32 @encode_EVP_PKEY_PVK(ptr noundef %file, i32 noundef %line, ptr nocapture noundef writeonly %encoded, ptr nocapture noundef writeonly %encoded_len, ptr noundef %object, i32 noundef %selection, ptr nocapture readnone %output_type, ptr nocapture readnone %output_structure, ptr noundef %pass, ptr nocapture readnone %pcipher) #1 {
 entry:
   %mem_buf = alloca ptr, align 8
   store ptr null, ptr %mem_buf, align 8
@@ -3519,7 +3513,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false13
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false17
   %1 = load ptr, ptr %mem_buf, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %encoded, align 8
   %call26 = call i32 @test_ptr(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @.str.248, ptr noundef %2) #7

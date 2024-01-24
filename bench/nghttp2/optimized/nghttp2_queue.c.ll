@@ -3,9 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_queue.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.nghttp2_queue_cell = type { ptr, ptr }
-%struct.nghttp2_queue = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [6 x i8] c"front\00", align 1
 @.str.1 = private unnamed_addr constant [113 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/nghttp2_queue.c\00", align 1
 @__PRETTY_FUNCTION__.nghttp2_queue_pop = private unnamed_addr constant [40 x i8] c"void nghttp2_queue_pop(nghttp2_queue *)\00", align 1
@@ -34,7 +31,7 @@ if.else:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.else, %while.body
   %p.05 = phi ptr [ %1, %while.body ], [ %0, %if.else ]
-  %next2 = getelementptr inbounds %struct.nghttp2_queue_cell, ptr %p.05, i64 0, i32 1
+  %next2 = getelementptr inbounds i8, ptr %p.05, i64 8
   %1 = load ptr, ptr %next2, align 8
   tail call void @free(ptr noundef nonnull %p.05) #8
   %tobool1.not = icmp eq ptr %1, null
@@ -56,12 +53,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %data, ptr %call, align 8
-  %next = getelementptr inbounds %struct.nghttp2_queue_cell, ptr %call, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %next, align 8
-  %back = getelementptr inbounds %struct.nghttp2_queue, ptr %queue, i64 0, i32 1
+  %back = getelementptr inbounds i8, ptr %queue, i64 8
   %0 = load ptr, ptr %back, align 8
   %tobool2.not = icmp eq ptr %0, null
-  %next5 = getelementptr inbounds %struct.nghttp2_queue_cell, ptr %0, i64 0, i32 1
+  %next5 = getelementptr inbounds i8, ptr %0, i64 8
   %next5.sink = select i1 %tobool2.not, ptr %back, ptr %next5
   %back.sink = select i1 %tobool2.not, ptr %queue, ptr %back
   store ptr %call, ptr %next5.sink, align 8
@@ -88,10 +85,10 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %next = getelementptr inbounds %struct.nghttp2_queue_cell, ptr %0, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next, align 8
   store ptr %1, ptr %queue, align 8
-  %back = getelementptr inbounds %struct.nghttp2_queue, ptr %queue, i64 0, i32 1
+  %back = getelementptr inbounds i8, ptr %queue, i64 8
   %2 = load ptr, ptr %back, align 8
   %cmp = icmp eq ptr %0, %2
   br i1 %cmp, label %if.then3, label %if.end5
@@ -127,7 +124,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define hidden ptr @nghttp2_queue_back(ptr nocapture noundef readonly %queue) local_unnamed_addr #1 {
 entry:
-  %back = getelementptr inbounds %struct.nghttp2_queue, ptr %queue, i64 0, i32 1
+  %back = getelementptr inbounds i8, ptr %queue, i64 8
   %0 = load ptr, ptr %back, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-stack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.stack_st = type { i32, ptr, i32, i32, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/stack/stack.c\00", align 1
 @__func__.OPENSSL_sk_reserve = private unnamed_addr constant [19 x i8] c"OPENSSL_sk_reserve\00", align 1
 @__func__.OPENSSL_sk_insert = private unnamed_addr constant [18 x i8] c"OPENSSL_sk_insert\00", align 1
@@ -15,13 +13,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @OPENSSL_sk_set_cmp_func(ptr nocapture noundef %sk, ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %comp = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %sk, i64 24
   %0 = load ptr, ptr %comp, align 8
   %cmp.not = icmp eq ptr %0, %c
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %sk, i64 16
   store i32 0, ptr %sorted, align 8
   br label %if.end
 
@@ -43,9 +41,9 @@ if.end:                                           ; preds = %entry
 
 if.end3.thread:                                   ; preds = %if.end
   store i32 0, ptr %call, align 8
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %sorted, align 8
-  %comp = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %comp, align 8
   br label %if.then7
 
@@ -56,19 +54,19 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end3.thread, %lor.lhs.false
-  %data = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %data, align 8
-  %num_alloc = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 3
+  %num_alloc = getelementptr inbounds i8, ptr %call, i64 20
   store i32 0, ptr %num_alloc, align 4
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %num_alloc9 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 3
+  %num_alloc9 = getelementptr inbounds i8, ptr %sk, i64 20
   %1 = load i32, ptr %num_alloc9, align 4
   %conv = sext i32 %1 to i64
   %mul = shl nsw i64 %conv, 3
   %call10 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 71) #16
-  %data11 = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 1
+  %data11 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call10, ptr %data11, align 8
   %cmp13 = icmp eq ptr %call10, null
   br i1 %cmp13, label %OPENSSL_sk_free.exit, label %if.end16
@@ -79,7 +77,7 @@ OPENSSL_sk_free.exit:                             ; preds = %if.end8
   br label %return
 
 if.end16:                                         ; preds = %if.end8
-  %data18 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data18 = getelementptr inbounds i8, ptr %sk, i64 8
   %2 = load ptr, ptr %data18, align 8
   %3 = load i32, ptr %sk, align 8
   %conv20 = sext i32 %3 to i64
@@ -104,7 +102,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %st, i64 8
   %0 = load ptr, ptr %data, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 447) #16
   tail call void @CRYPTO_free(ptr noundef nonnull %st, ptr noundef nonnull @.str, i32 noundef 448) #16
@@ -127,9 +125,9 @@ if.end:                                           ; preds = %entry
 
 if.end3.thread:                                   ; preds = %if.end
   store i32 0, ptr %call, align 8
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %sorted, align 8
-  %comp = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %comp, align 8
   br label %if.then7
 
@@ -140,20 +138,20 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end3.thread, %lor.lhs.false
-  %data = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %data, align 8
-  %num_alloc = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 3
+  %num_alloc = getelementptr inbounds i8, ptr %call, i64 20
   store i32 0, ptr %num_alloc, align 4
   br label %return
 
 if.end8:                                          ; preds = %lor.lhs.false
   %spec.select = tail call i32 @llvm.smax.i32(i32 %0, i32 4)
-  %num_alloc12 = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 3
+  %num_alloc12 = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %spec.select, ptr %num_alloc12, align 4
   %conv = zext nneg i32 %spec.select to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call14 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 109) #16
-  %data15 = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 1
+  %data15 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call14, ptr %data15, align 8
   %cmp17 = icmp eq ptr %call14, null
   br i1 %cmp17, label %if.end.i, label %for.cond.preheader
@@ -164,7 +162,7 @@ for.cond.preheader:                               ; preds = %if.end8
   br i1 %cmp2234, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data24 = getelementptr inbounds %struct.stack_st, ptr %sk, i64 0, i32 1
+  %data24 = getelementptr inbounds i8, ptr %sk, i64 8
   %2 = zext nneg i32 %1 to i64
   br label %for.body
 
@@ -229,7 +227,7 @@ entry:
   br i1 %cmp.i, label %OPENSSL_sk_new_reserve.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %comp.i = getelementptr inbounds %struct.stack_st, ptr %call.i, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %comp.i, align 8
   br label %OPENSSL_sk_new_reserve.exit
 
@@ -245,7 +243,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %comp = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %c, ptr %comp, align 8
   %cmp1 = icmp slt i32 %n, 1
   br i1 %cmp1, label %return, label %if.end3
@@ -256,7 +254,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool.not, label %OPENSSL_sk_free.exit, label %return
 
 OPENSSL_sk_free.exit:                             ; preds = %if.end3
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %call, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %data.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 447) #16
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 448) #16
@@ -275,7 +273,7 @@ entry:
   br i1 %cmp.i, label %OPENSSL_sk_new_reserve.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %comp.i = getelementptr inbounds %struct.stack_st, ptr %call.i, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %c, ptr %comp.i, align 8
   br label %OPENSSL_sk_new_reserve.exit
 
@@ -300,7 +298,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %add = add nsw i32 %0, %n
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %add, i32 4)
-  %data = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then6, label %if.end13
@@ -314,13 +312,13 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp8, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then6
-  %num_alloc12 = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 3
+  %num_alloc12 = getelementptr inbounds i8, ptr %st, i64 20
   store i32 %spec.store.select, ptr %num_alloc12, align 4
   br label %return
 
 if.end13:                                         ; preds = %if.end
   %tobool.not = icmp eq i32 %exact, 0
-  %num_alloc15 = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 3
+  %num_alloc15 = getelementptr inbounds i8, ptr %st, i64 20
   %2 = load i32, ptr %num_alloc15, align 4
   br i1 %tobool.not, label %if.then14, label %if.else
 
@@ -331,7 +329,7 @@ if.then14:                                        ; preds = %if.end13
 while.cond.i:                                     ; preds = %if.then14, %safe_muldiv_int.exit.i
   %current.addr.0.i = phi i32 [ %retval.0.i.i, %safe_muldiv_int.exit.i ], [ %2, %if.then14 ]
   %cmp.i = icmp slt i32 %current.addr.0.i, %spec.store.select
-  br i1 %cmp.i, label %if.end.i, label %if.end31
+  br i1 %cmp.i, label %if.end.i, label %compute_growth.exit
 
 if.end.i:                                         ; preds = %while.cond.i
   %3 = add i32 %current.addr.0.i, -268435456
@@ -375,7 +373,11 @@ safe_muldiv_int.exit.i:                           ; preds = %if.then.i44.i.i, %i
   %cmp2.not.i = icmp eq i32 %err.3.i, 0
   br i1 %cmp2.not.i, label %while.cond.i, label %if.then24, !llvm.loop !8
 
-if.then24:                                        ; preds = %if.end5.i.i, %safe_muldiv_int.exit.i
+compute_growth.exit:                              ; preds = %while.cond.i
+  %cmp22 = icmp eq i32 %current.addr.0.i, 0
+  br i1 %cmp22, label %if.then24, label %if.end31
+
+if.then24:                                        ; preds = %if.end5.i.i, %safe_muldiv_int.exit.i, %compute_growth.exit
   tail call void @ERR_new() #16
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.sk_reserve) #16
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 15, i32 noundef 114, ptr noundef null) #16
@@ -385,8 +387,8 @@ if.else:                                          ; preds = %if.end13
   %cmp27 = icmp eq i32 %spec.store.select, %2
   br i1 %cmp27, label %return, label %if.end31
 
-if.end31:                                         ; preds = %while.cond.i, %if.else
-  %num_alloc.0 = phi i32 [ %spec.store.select, %if.else ], [ %current.addr.0.i, %while.cond.i ]
+if.end31:                                         ; preds = %if.else, %compute_growth.exit
+  %num_alloc.0 = phi i32 [ %spec.store.select, %if.else ], [ %current.addr.0.i, %compute_growth.exit ]
   %conv33 = sext i32 %num_alloc.0 to i64
   %mul34 = shl nsw i64 %conv33, 3
   %call35 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %1, i64 noundef %mul34, ptr noundef nonnull @.str, i32 noundef 217) #16
@@ -395,7 +397,7 @@ if.end31:                                         ; preds = %while.cond.i, %if.e
 
 if.end39:                                         ; preds = %if.end31
   store ptr %call35, ptr %data, align 8
-  %num_alloc41 = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 3
+  %num_alloc41 = getelementptr inbounds i8, ptr %st, i64 20
   store i32 %num_alloc.0, ptr %num_alloc41, align 4
   br label %return
 
@@ -468,7 +470,7 @@ if.end5:                                          ; preds = %if.end3
   %cmp7 = icmp sle i32 %1, %loc
   %cmp8 = icmp slt i32 %loc, 0
   %or.cond = or i1 %cmp8, %cmp7
-  %data10 = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data10 = getelementptr inbounds i8, ptr %st, i64 8
   %2 = load ptr, ptr %data10, align 8
   br i1 %or.cond, label %if.then9, label %if.else
 
@@ -480,7 +482,7 @@ if.then9:                                         ; preds = %if.end5
 if.else:                                          ; preds = %if.end5
   %3 = zext nneg i32 %loc to i64
   %4 = getelementptr ptr, ptr %2, i64 %3
-  %arrayidx14 = getelementptr ptr, ptr %4, i64 1
+  %arrayidx14 = getelementptr i8, ptr %4, i64 8
   %sub = sub nsw i32 %1, %loc
   %conv = sext i32 %sub to i64
   %mul = shl nsw i64 %conv, 3
@@ -495,7 +497,7 @@ if.end22:                                         ; preds = %if.else, %if.then9
   %6 = load i32, ptr %st, align 8
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %st, align 8
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %st, i64 16
   store i32 0, ptr %sorted, align 8
   br label %return
 
@@ -519,7 +521,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp110, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -541,7 +543,7 @@ if.then3:                                         ; preds = %for.body
   br i1 %cmp.not.i, label %internal_delete.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  %arrayidx6.i = getelementptr ptr, ptr %arrayidx.i, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx.i, i64 8
   %5 = xor i32 %3, -1
   %sub9.i = add nsw i32 %0, %5
   %conv.i = sext i32 %sub9.i to i64
@@ -580,7 +582,7 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %idxprom.i = zext nneg i32 %loc to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
@@ -590,7 +592,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   br i1 %cmp.not.i, label %internal_delete.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %arrayidx6.i = getelementptr ptr, ptr %arrayidx.i, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx.i, i64 8
   %3 = xor i32 %loc, -1
   %sub9.i = add nsw i32 %0, %3
   %conv.i = sext i32 %sub9.i to i64
@@ -625,7 +627,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp1.i, label %internal_find.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %comp.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %st, i64 24
   %1 = load ptr, ptr %comp.i, align 8
   %cmp5.i = icmp eq ptr %1, null
   br i1 %cmp5.i, label %for.cond.preheader.i, label %if.end13.i
@@ -635,7 +637,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   br i1 %cmp864.i, label %for.body.lr.ph.i, label %internal_find.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %data9.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data9.i = getelementptr inbounds i8, ptr %st, i64 8
   %2 = load ptr, ptr %data9.i, align 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
@@ -661,7 +663,7 @@ if.end13.i:                                       ; preds = %if.end.i
   br i1 %cmp14.i, label %internal_find.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %sorted.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted.i = getelementptr inbounds i8, ptr %st, i64 16
   %5 = load i32, ptr %sorted.i, align 8
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %for.cond18.preheader.i, label %if.end40.i
@@ -671,7 +673,7 @@ for.cond18.preheader.i:                           ; preds = %if.end16.i
   br i1 %cmp2059.i, label %for.body21.lr.ph.i, label %internal_find.exit
 
 for.body21.lr.ph.i:                               ; preds = %for.cond18.preheader.i
-  %data23.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data23.i = getelementptr inbounds i8, ptr %st, i64 8
   br label %for.body21.us.i
 
 for.body21.us.i:                                  ; preds = %for.inc34.us.i, %for.body21.lr.ph.i
@@ -691,7 +693,7 @@ for.inc34.us.i:                                   ; preds = %for.body21.us.i
   br i1 %cmp20.us.i, label %for.body21.us.i, label %internal_find.exit, !llvm.loop !11
 
 if.end40.i:                                       ; preds = %if.end16.i
-  %data44.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data44.i = getelementptr inbounds i8, ptr %st, i64 8
   %10 = load ptr, ptr %data44.i, align 8
   %call47.i = call ptr @ossl_bsearch(ptr noundef nonnull %data.addr.i, ptr noundef %10, i32 noundef %0, i32 noundef 8, ptr noundef nonnull %1, i32 noundef 2) #16
   %cmp65.i = icmp eq ptr %call47.i, null
@@ -731,7 +733,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp1.i, label %internal_find.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %comp.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %st, i64 24
   %1 = load ptr, ptr %comp.i, align 8
   %cmp5.i = icmp eq ptr %1, null
   br i1 %cmp5.i, label %for.cond.preheader.i, label %if.end13.i
@@ -741,7 +743,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   br i1 %cmp864.i, label %for.body.lr.ph.i, label %internal_find.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %data9.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data9.i = getelementptr inbounds i8, ptr %st, i64 8
   %2 = load ptr, ptr %data9.i, align 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
@@ -767,7 +769,7 @@ if.end13.i:                                       ; preds = %if.end.i
   br i1 %cmp14.i, label %internal_find.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %sorted.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted.i = getelementptr inbounds i8, ptr %st, i64 16
   %5 = load i32, ptr %sorted.i, align 8
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %for.cond18.preheader.i, label %if.end40.i
@@ -777,7 +779,7 @@ for.cond18.preheader.i:                           ; preds = %if.end16.i
   br i1 %cmp2059.i, label %for.body21.lr.ph.i, label %internal_find.exit
 
 for.body21.lr.ph.i:                               ; preds = %for.cond18.preheader.i
-  %data23.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data23.i = getelementptr inbounds i8, ptr %st, i64 8
   br label %for.body21.us.i
 
 for.body21.us.i:                                  ; preds = %for.inc34.us.i, %for.body21.lr.ph.i
@@ -797,7 +799,7 @@ for.inc34.us.i:                                   ; preds = %for.body21.us.i
   br i1 %cmp20.us.i, label %for.body21.us.i, label %internal_find.exit, !llvm.loop !11
 
 if.end40.i:                                       ; preds = %if.end16.i
-  %data44.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data44.i = getelementptr inbounds i8, ptr %st, i64 8
   %10 = load ptr, ptr %data44.i, align 8
   %call47.i = call ptr @ossl_bsearch(ptr noundef nonnull %data.addr.i, ptr noundef %10, i32 noundef %0, i32 noundef 8, ptr noundef nonnull %1, i32 noundef 1) #16
   %cmp65.i = icmp eq ptr %call47.i, null
@@ -838,7 +840,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %cmp2.i = icmp eq ptr %pnum, null
-  %comp.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %st, i64 24
   %1 = load ptr, ptr %comp.i, align 8
   %cmp5.i = icmp eq ptr %1, null
   br i1 %cmp5.i, label %for.cond.preheader.i, label %if.end13.i
@@ -848,7 +850,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   br i1 %cmp864.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %data9.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data9.i = getelementptr inbounds i8, ptr %st, i64 8
   %2 = load ptr, ptr %data9.i, align 8
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
@@ -885,7 +887,7 @@ if.end13.i:                                       ; preds = %if.end.i
   br i1 %cmp14.i, label %internal_find.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %sorted.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted.i = getelementptr inbounds i8, ptr %st, i64 16
   %5 = load i32, ptr %sorted.i, align 8
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %for.cond18.preheader.i, label %if.end40.i
@@ -895,7 +897,7 @@ for.cond18.preheader.i:                           ; preds = %if.end16.i
   br i1 %cmp2059.i, label %for.body21.lr.ph.i, label %for.end36.i
 
 for.body21.lr.ph.i:                               ; preds = %for.cond18.preheader.i
-  %data23.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data23.i = getelementptr inbounds i8, ptr %st, i64 8
   br i1 %cmp2.i, label %for.body21.us.i, label %for.body21.i
 
 for.body21.us.i:                                  ; preds = %for.body21.lr.ph.i, %for.inc34.us.i
@@ -952,7 +954,7 @@ if.then38.else.i:                                 ; preds = %for.end36.i
   br label %internal_find.exit
 
 if.end40.i:                                       ; preds = %if.end16.i
-  %data44.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data44.i = getelementptr inbounds i8, ptr %st, i64 8
   %15 = load ptr, ptr %data44.i, align 8
   %call47.i = call ptr @ossl_bsearch(ptr noundef nonnull %data.addr.i, ptr noundef %15, i32 noundef %0, i32 noundef 8, ptr noundef nonnull %1, i32 noundef 2) #16
   br i1 %cmp2.i, label %if.end64.i, label %if.then49.cont.i
@@ -981,7 +983,7 @@ if.end61.cont.i:                                  ; preds = %while.body.i
   %.else.val47.i = load i32, ptr %pnum, align 4
   %inc62.i = add nsw i32 %.else.val47.i, 1
   store i32 %inc62.i, ptr %pnum, align 4
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %p.058.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.058.i, i64 8
   %19 = load ptr, ptr %data44.i, align 8
   %20 = load i32, ptr %st, align 8
   %idx.ext54.i = sext i32 %20 to i64
@@ -1043,7 +1045,7 @@ if.end5.i:                                        ; preds = %if.end3.i
   %cmp7.i = icmp sle i32 %1, %0
   %cmp8.i = icmp slt i32 %0, 0
   %or.cond.i = or i1 %cmp8.i, %cmp7.i
-  %data10.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data10.i = getelementptr inbounds i8, ptr %st, i64 8
   %2 = load ptr, ptr %data10.i, align 8
   br i1 %or.cond.i, label %if.then9.i, label %if.else.i
 
@@ -1055,7 +1057,7 @@ if.then9.i:                                       ; preds = %if.end5.i
 if.else.i:                                        ; preds = %if.end5.i
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr ptr, ptr %2, i64 %3
-  %arrayidx14.i = getelementptr ptr, ptr %4, i64 1
+  %arrayidx14.i = getelementptr i8, ptr %4, i64 8
   %sub.i = sub nsw i32 %1, %0
   %conv.i = sext i32 %sub.i to i64
   %mul.i = shl nsw i64 %conv.i, 3
@@ -1070,7 +1072,7 @@ if.end22.i:                                       ; preds = %if.else.i, %if.then
   %6 = load i32, ptr %st, align 8
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %st, align 8
-  %sorted.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted.i = getelementptr inbounds i8, ptr %st, i64 16
   store i32 0, ptr %sorted.i, align 8
   br label %return
 
@@ -1098,7 +1100,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %2 = load ptr, ptr %1, align 8
   %sub.i = add nsw i32 %0, -1
@@ -1106,7 +1108,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.not.i, label %internal_delete.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %arrayidx6.i = getelementptr ptr, ptr %1, i64 1
+  %arrayidx6.i = getelementptr i8, ptr %1, i64 8
   %conv.i = sext i32 %sub.i to i64
   %mul.i = shl nsw i64 %conv.i, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1, ptr align 8 %arrayidx6.i, i64 %mul.i, i1 false)
@@ -1137,7 +1139,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 internal_delete.exit:                             ; preds = %lor.lhs.false
   %sub = add nsw i32 %0, -1
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %idxprom.i = sext i32 %sub to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %idxprom.i
@@ -1162,7 +1164,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data, align 8
   %conv = sext i32 %0 to i64
   %mul = shl nsw i64 %conv, 3
@@ -1189,7 +1191,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp18, label %for.body.lr.ph, label %OPENSSL_sk_free.exit
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %st, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1214,7 +1216,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
   br i1 %cmp1, label %for.body, label %OPENSSL_sk_free.exit, !llvm.loop !13
 
 OPENSSL_sk_free.exit:                             ; preds = %for.inc, %for.cond.preheader
-  %data.i = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %st, i64 8
   %6 = load ptr, ptr %data.i, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 447) #16
   tail call void @CRYPTO_free(ptr noundef nonnull %st, ptr noundef nonnull @.str, i32 noundef 448) #16
@@ -1255,7 +1257,7 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %cmp3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %data = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data, align 8
   %idxprom = zext nneg i32 %i to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
@@ -1295,12 +1297,12 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %data5 = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data5 = getelementptr inbounds i8, ptr %st, i64 8
   %1 = load ptr, ptr %data5, align 8
   %idxprom = zext nneg i32 %i to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
   store ptr %data, ptr %arrayidx, align 8
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %st, i64 16
   store i32 0, ptr %sorted, align 8
   %2 = load ptr, ptr %data5, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %2, i64 %idxprom
@@ -1319,13 +1321,13 @@ entry:
   br i1 %cmp.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %st, i64 16
   %0 = load i32, ptr %sorted, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %land.lhs.true1, label %if.end8
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  %comp = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 4
+  %comp = getelementptr inbounds i8, ptr %st, i64 24
   %1 = load ptr, ptr %comp, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end8, label %if.then
@@ -1336,7 +1338,7 @@ if.then:                                          ; preds = %land.lhs.true1
   br i1 %cmp3, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %data = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %st, i64 8
   %3 = load ptr, ptr %data, align 8
   %conv = zext nneg i32 %2 to i64
   tail call void @qsort(ptr noundef %3, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull %1) #16
@@ -1360,7 +1362,7 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %sorted = getelementptr inbounds %struct.stack_st, ptr %st, i64 0, i32 2
+  %sorted = getelementptr inbounds i8, ptr %st, i64 16
   %0 = load i32, ptr %sorted, align 8
   br label %cond.end
 

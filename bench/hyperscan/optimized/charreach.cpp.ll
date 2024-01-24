@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %s) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %s, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %s, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp.i.not10 = icmp eq i64 %1, 0
@@ -371,19 +371,19 @@ entry:
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.i.i:                                      ; preds = %entry
-  %arrayidx.i.i.1.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 1
+  %arrayidx.i.i.1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %arrayidx.i.i.1.i.i, align 8
   %cmp4.not.1.i.i = icmp eq i64 %1, 0
   br i1 %cmp4.not.1.i.i, label %for.inc.1.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.1.i.i:                                    ; preds = %for.inc.i.i
-  %arrayidx.i.i.2.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 2
+  %arrayidx.i.i.2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %arrayidx.i.i.2.i.i, align 8
   %cmp4.not.2.i.i = icmp eq i64 %2, 0
   br i1 %cmp4.not.2.i.i, label %for.inc.2.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.2.i.i:                                    ; preds = %for.inc.1.i.i
-  %arrayidx.i.i.3.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 3
+  %arrayidx.i.i.3.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %arrayidx.i.i.3.i.i, align 8
   %cmp4.not.3.i.i = icmp eq i64 %3, 0
   br i1 %cmp4.not.3.i.i, label %cleanup, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -403,7 +403,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.2.i.i, %for
 
 if.end.i.i.lr.ph:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %add.i.i = or disjoint i64 %4, %i.011.lcssa.i.i
-  %arrayidx.i.i37.i.i.2 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 3
+  %arrayidx.i.i37.i.i.2 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %arrayidx.i.i37.i.i.2, align 8
   %.fr = freeze i64 %6
   %tobool17.not.i.i.2 = icmp eq i64 %.fr, 0
@@ -545,9 +545,9 @@ cleanup:                                          ; preds = %for.cond.i.i, %for.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue29CharReach9to_stringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8
   store i8 0, ptr %0, align 8
   %1 = load i64, ptr %this, align 8
@@ -555,19 +555,19 @@ entry:
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.i.i:                                      ; preds = %entry
-  %arrayidx.i.i.1.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 1
+  %arrayidx.i.i.1.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %arrayidx.i.i.1.i.i, align 8
   %cmp4.not.1.i.i = icmp eq i64 %2, 0
   br i1 %cmp4.not.1.i.i, label %for.inc.1.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.1.i.i:                                    ; preds = %for.inc.i.i
-  %arrayidx.i.i.2.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 2
+  %arrayidx.i.i.2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %arrayidx.i.i.2.i.i, align 8
   %cmp4.not.2.i.i = icmp eq i64 %3, 0
   br i1 %cmp4.not.2.i.i, label %for.inc.2.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.2.i.i:                                    ; preds = %for.inc.1.i.i
-  %arrayidx.i.i.3.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 3
+  %arrayidx.i.i.3.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %arrayidx.i.i.3.i.i, align 8
   %cmp4.not.3.i.i = icmp eq i64 %4, 0
   br i1 %cmp4.not.3.i.i, label %nrvo.skipdtor, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -577,7 +577,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.2.i.i, %for
   %.lcssa.i.i = phi i64 [ %1, %entry ], [ %2, %for.inc.i.i ], [ %3, %for.inc.1.i.i ], [ %4, %for.inc.2.i.i ]
   %5 = tail call noundef i64 @llvm.cttz.i64(i64 %.lcssa.i.i, i1 true), !range !5
   %add.i.i = or disjoint i64 %5, %i.011.lcssa.i.i
-  %arrayidx.i.i37.i.i.2 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 3
+  %arrayidx.i.i37.i.i.2 = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 lpad:                                             ; preds = %if.then.i.i13
@@ -716,13 +716,13 @@ entry:
   %ref.tmp.sroa.12.0.copyload = load i64, ptr %ref.tmp.sroa.12.0.a.sroa_idx, align 8
   %0 = load i64, ptr %b, align 8, !noalias !10
   %and.i.i = and i64 %0, %ref.tmp.sroa.0.0.copyload
-  %arrayidx.i.i54.i.i = getelementptr inbounds [4 x i64], ptr %b, i64 0, i64 1
+  %arrayidx.i.i54.i.i = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %arrayidx.i.i54.i.i, align 8, !noalias !10
   %and10.i.i = and i64 %1, %ref.tmp.sroa.6.0.copyload
-  %arrayidx.i.i56.i.i = getelementptr inbounds [4 x i64], ptr %b, i64 0, i64 2
+  %arrayidx.i.i56.i.i = getelementptr inbounds i8, ptr %b, i64 16
   %2 = load i64, ptr %arrayidx.i.i56.i.i, align 8, !noalias !10
   %and17.i.i = and i64 %2, %ref.tmp.sroa.9.0.copyload
-  %arrayidx.i.i58.i.i = getelementptr inbounds [4 x i64], ptr %b, i64 0, i64 3
+  %arrayidx.i.i58.i.i = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load i64, ptr %arrayidx.i.i58.i.i, align 8, !noalias !10
   %and24.i.i = and i64 %3, %ref.tmp.sroa.12.0.copyload
   %cmp3.not.i.i.i = icmp ne i64 %and.i.i, 0
@@ -746,8 +746,8 @@ entry:
   %1 = load <2 x i64>, ptr %ref.tmp.i, align 16, !alias.scope !13
   %2 = and <2 x i64> %1, %0
   store <2 x i64> %2, ptr %ref.tmp.i, align 16, !alias.scope !13
-  %arrayidx.i.i56.i.i.i = getelementptr inbounds [4 x i64], ptr %small, i64 0, i64 2
-  %arrayidx.i.i57.i.i.i = getelementptr inbounds [4 x i64], ptr %ref.tmp.i, i64 0, i64 2
+  %arrayidx.i.i56.i.i.i = getelementptr inbounds i8, ptr %small, i64 16
+  %arrayidx.i.i57.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %3 = load <2 x i64>, ptr %arrayidx.i.i56.i.i.i, align 8, !noalias !13
   %4 = load <2 x i64>, ptr %arrayidx.i.i57.i.i.i, align 16, !alias.scope !13
   %5 = and <2 x i64> %4, %3
@@ -769,8 +769,8 @@ entry:
   %1 = load <2 x i64>, ptr %ref.tmp, align 16, !alias.scope !16
   %2 = and <2 x i64> %1, %0
   store <2 x i64> %2, ptr %ref.tmp, align 16, !alias.scope !16
-  %arrayidx.i.i56.i.i = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 2
-  %arrayidx.i.i57.i.i = getelementptr inbounds [4 x i64], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx.i.i56.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i.i57.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load <2 x i64>, ptr %arrayidx.i.i56.i.i, align 8, !noalias !16
   %4 = load <2 x i64>, ptr %arrayidx.i.i57.i.i, align 16, !alias.scope !16
   %5 = and <2 x i64> %4, %3
@@ -874,19 +874,19 @@ entry:
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.i.i:                                      ; preds = %entry
-  %arrayidx.i.i.1.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 1
+  %arrayidx.i.i.1.i.i = getelementptr inbounds i8, ptr %cr, i64 8
   %1 = load i64, ptr %arrayidx.i.i.1.i.i, align 8
   %cmp4.not.1.i.i = icmp eq i64 %1, 0
   br i1 %cmp4.not.1.i.i, label %for.inc.1.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.1.i.i:                                    ; preds = %for.inc.i.i
-  %arrayidx.i.i.2.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 2
+  %arrayidx.i.i.2.i.i = getelementptr inbounds i8, ptr %cr, i64 16
   %2 = load i64, ptr %arrayidx.i.i.2.i.i, align 8
   %cmp4.not.2.i.i = icmp eq i64 %2, 0
   br i1 %cmp4.not.2.i.i, label %for.inc.2.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.2.i.i:                                    ; preds = %for.inc.1.i.i
-  %arrayidx.i.i.3.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 3
+  %arrayidx.i.i.3.i.i = getelementptr inbounds i8, ptr %cr, i64 24
   %3 = load i64, ptr %arrayidx.i.i.3.i.i, align 8
   %cmp4.not.3.i.i = icmp eq i64 %3, 0
   br i1 %cmp4.not.3.i.i, label %for.cond.cleanup, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -896,7 +896,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.2.i.i, %for
   %.lcssa.i.i = phi i64 [ %0, %entry ], [ %1, %for.inc.i.i ], [ %2, %for.inc.1.i.i ], [ %3, %for.inc.2.i.i ]
   %4 = tail call noundef i64 @llvm.cttz.i64(i64 %.lcssa.i.i, i1 true), !range !5
   %add.i.i = or disjoint i64 %4, %i.011.lcssa.i.i
-  %arrayidx.i.i37.i.i.2 = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 3
+  %arrayidx.i.i37.i.i.2 = getelementptr inbounds i8, ptr %cr, i64 24
   br label %if.end.i.i
 
 for.cond.cleanup:                                 ; preds = %for.cond.i.i.2, %for.cond.i.i.1, %for.cond.i.i, %for.inc.2.i.i
@@ -981,19 +981,19 @@ entry:
   br i1 %cmp4.not.i.i, label %for.inc.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.i.i:                                      ; preds = %entry
-  %arrayidx.i.i.1.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 1
+  %arrayidx.i.i.1.i.i = getelementptr inbounds i8, ptr %cr, i64 8
   %1 = load i64, ptr %arrayidx.i.i.1.i.i, align 8
   %cmp4.not.1.i.i = icmp eq i64 %1, 0
   br i1 %cmp4.not.1.i.i, label %for.inc.1.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.1.i.i:                                    ; preds = %for.inc.i.i
-  %arrayidx.i.i.2.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 2
+  %arrayidx.i.i.2.i.i = getelementptr inbounds i8, ptr %cr, i64 16
   %2 = load i64, ptr %arrayidx.i.i.2.i.i, align 8
   %cmp4.not.2.i.i = icmp eq i64 %2, 0
   br i1 %cmp4.not.2.i.i, label %for.inc.2.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 for.inc.2.i.i:                                    ; preds = %for.inc.1.i.i
-  %arrayidx.i.i.3.i.i = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 3
+  %arrayidx.i.i.3.i.i = getelementptr inbounds i8, ptr %cr, i64 24
   %3 = load i64, ptr %arrayidx.i.i.3.i.i, align 8
   %cmp4.not.3.i.i = icmp eq i64 %3, 0
   br i1 %cmp4.not.3.i.i, label %for.cond.cleanup, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -1003,7 +1003,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %for.inc.2.i.i, %for
   %.lcssa.i.i = phi i64 [ %0, %entry ], [ %1, %for.inc.i.i ], [ %2, %for.inc.1.i.i ], [ %3, %for.inc.2.i.i ]
   %4 = tail call noundef i64 @llvm.cttz.i64(i64 %.lcssa.i.i, i1 true), !range !5
   %add.i.i = or disjoint i64 %4, %i.011.lcssa.i.i
-  %arrayidx.i.i37.i.i.2 = getelementptr inbounds [4 x i64], ptr %cr, i64 0, i64 3
+  %arrayidx.i.i37.i.i.2 = getelementptr inbounds i8, ptr %cr, i64 24
   %5 = load i64, ptr %arrayidx.i.i37.i.i.2, align 8
   %.fr = freeze i64 %5
   %tobool17.not.i.i.2 = icmp eq i64 %.fr, 0

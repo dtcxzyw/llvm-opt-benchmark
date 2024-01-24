@@ -12,12 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.absl::LogEntry" = type { %"class.std::basic_string_view", %"class.std::basic_string_view", i32, i8, i32, i32, %"class.absl::Time", i32, %"class.absl::Span", i64, %"class.std::basic_string_view", %"class.std::__cxx11::basic_string" }
-%"class.absl::Time" = type { %"class.absl::Duration" }
-%"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
-%"class.absl::Duration::HiRep" = type { i32, i32 }
-%"class.absl::Span" = type { ptr, i64 }
-%"class.std::basic_string_view" = type { i64, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -88,20 +82,20 @@ if.end:                                           ; preds = %if.then, %entry
   %retval.sroa.2.0.full_filename_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.full_filename_.sroa_idx.i, align 8
   call void @_ZN4absl10CHexEscapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %source_filename, i64 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i)
-  %base_filename_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 1
+  %base_filename_.i = getelementptr inbounds i8, ptr %entry1, i64 16
   %retval.sroa.0.0.copyload.i12 = load i64, ptr %base_filename_.i, align 8
-  %retval.sroa.2.0.base_filename_.sroa_idx.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.base_filename_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 24
   %retval.sroa.2.0.copyload.i13 = load ptr, ptr %retval.sroa.2.0.base_filename_.sroa_idx.i, align 8
   invoke void @_ZN4absl10CHexEscapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %source_basename, i64 %retval.sroa.0.0.copyload.i12, ptr %retval.sroa.2.0.copyload.i13)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.end
-  %text_message_with_prefix_and_newline_and_nul_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 8
+  %text_message_with_prefix_and_newline_and_nul_.i = getelementptr inbounds i8, ptr %entry1, i64 64
   %0 = load ptr, ptr %text_message_with_prefix_and_newline_and_nul_.i, align 8
-  %prefix_len_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 9
+  %prefix_len_.i = getelementptr inbounds i8, ptr %entry1, i64 80
   %1 = load i64, ptr %prefix_len_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
-  %len_.i.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 8, i32 1
+  %len_.i.i = getelementptr inbounds i8, ptr %entry1, i64 72
   %2 = load i64, ptr %len_.i.i, align 8
   %reass.sub = sub i64 %2, %1
   %sub5.i = add i64 %reass.sub, -2
@@ -109,9 +103,9 @@ invoke.cont9:                                     ; preds = %if.end
           to label %invoke.cont14 unwind label %lpad11
 
 invoke.cont14:                                    ; preds = %invoke.cont9
-  %encoding_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 10
+  %encoding_.i = getelementptr inbounds i8, ptr %entry1, i64 88
   %retval.sroa.0.0.copyload.i18 = load i64, ptr %encoding_.i, align 8
-  %retval.sroa.2.0.encoding_.sroa_idx.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 10, i32 1
+  %retval.sroa.2.0.encoding_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 96
   %retval.sroa.2.0.copyload.i19 = load ptr, ptr %retval.sroa.2.0.encoding_.sroa_idx.i, align 8
   invoke void @_ZN4absl10CHexEscapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %encoded_message, i64 %retval.sroa.0.0.copyload.i18, ptr %retval.sroa.2.0.copyload.i19)
           to label %invoke.cont19 unwind label %lpad16
@@ -150,7 +144,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %invoke.cont35 unwind label %lpad20
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  %line_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 2
+  %line_.i = getelementptr inbounds i8, ptr %entry1, i64 32
   %3 = load i32, ptr %line_.i, align 8
   %call40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call36, i32 noundef %3)
           to label %invoke.cont39 unwind label %lpad20
@@ -164,7 +158,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %invoke.cont43 unwind label %lpad20
 
 invoke.cont43:                                    ; preds = %invoke.cont41
-  %prefix_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 3
+  %prefix_.i = getelementptr inbounds i8, ptr %entry1, i64 36
   %4 = load i8, ptr %prefix_.i, align 4
   %5 = and i8 %4, 1
   %tobool.i.not = icmp eq i8 %5, 0
@@ -177,7 +171,7 @@ invoke.cont47:                                    ; preds = %invoke.cont43
           to label %invoke.cont49 unwind label %lpad20
 
 invoke.cont49:                                    ; preds = %invoke.cont47
-  %severity_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 4
+  %severity_.i = getelementptr inbounds i8, ptr %entry1, i64 40
   %6 = load i32, ptr %severity_.i, align 8
   %call54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(8) %call50, i32 noundef %6)
           to label %invoke.cont53 unwind label %lpad20
@@ -191,9 +185,9 @@ invoke.cont55:                                    ; preds = %invoke.cont53
           to label %invoke.cont57 unwind label %lpad20
 
 invoke.cont57:                                    ; preds = %invoke.cont55
-  %timestamp_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 6
+  %timestamp_.i = getelementptr inbounds i8, ptr %entry1, i64 48
   %retval.sroa.0.0.copyload.i22 = load i64, ptr %timestamp_.i, align 8
-  %retval.sroa.2.0.timestamp_.sroa_idx.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 6, i32 0, i32 1
+  %retval.sroa.2.0.timestamp_.sroa_idx.i = getelementptr inbounds i8, ptr %entry1, i64 56
   %retval.sroa.2.0.copyload.i23 = load i32, ptr %retval.sroa.2.0.timestamp_.sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN4absl10FormatTimeB5cxx11ENS_4TimeE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i64 %retval.sroa.0.0.copyload.i22, i32 %retval.sroa.2.0.copyload.i23) #8
@@ -229,7 +223,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
           to label %invoke.cont72 unwind label %lpad20
 
 invoke.cont72:                                    ; preds = %invoke.cont70
-  %verbose_level_.i = getelementptr inbounds %"class.absl::LogEntry", ptr %entry1, i64 0, i32 5
+  %verbose_level_.i = getelementptr inbounds i8, ptr %entry1, i64 44
   %8 = load i32, ptr %verbose_level_.i, align 4
   %call77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call73, i32 noundef %8)
           to label %invoke.cont76 unwind label %lpad20

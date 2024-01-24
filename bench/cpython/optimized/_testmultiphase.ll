@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct.ExampleObject = type { %struct._object, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 
 @main_def = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.2, ptr @.str.3, i64 0, ptr @testexport_methods, ptr @main_slots, ptr null, ptr null, ptr null }, align 8
 @def_nonmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.22, ptr @.str.23, i64 0, ptr null, ptr @slots_create_nonmodule, ptr null, ptr null, ptr null }, align 8
@@ -252,19 +250,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @PyInit__testmultiphase_export_uninitialized() local_unnamed_addr #2 {
+define noundef nonnull ptr @PyInit__testmultiphase_export_uninitialized() local_unnamed_addr #2 {
 entry:
   ret ptr @uninitialized_def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias ptr @PyInit__testmultiphase_export_null() local_unnamed_addr #2 {
+define noalias noundef ptr @PyInit__testmultiphase_export_null() local_unnamed_addr #2 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @PyInit__testmultiphase_export_raise() local_unnamed_addr #0 {
+define noalias noundef ptr @PyInit__testmultiphase_export_raise() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str) #3
@@ -483,7 +481,7 @@ declare i32 @PyState_AddModule(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyState_RemoveModule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @execfunc(ptr noundef %m) #0 {
+define internal noundef i32 @execfunc(ptr noundef %m) #0 {
 entry:
   store ptr @PyUnicode_Type, ptr getelementptr inbounds ([2 x %struct.PyType_Slot], ptr @Str_Type_slots, i64 0, i64 0, i32 1), align 8
   %call = tail call ptr @PyType_FromSpec(ptr noundef nonnull @Example_Type_spec) #3
@@ -534,7 +532,7 @@ declare i32 @PyModule_AddStringConstant(ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define internal void @Example_finalize(ptr nocapture noundef %self) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -563,7 +561,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @Example_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -584,7 +582,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @Example_getattro(ptr noundef %self, ptr noundef %name) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end8, label %if.then
@@ -621,7 +619,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 ; Function Attrs: nounwind uwtable
 define internal i32 @Example_setattr(ptr nocapture noundef %self, ptr noundef %name, ptr noundef %v) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -825,13 +823,13 @@ entry:
 declare ptr @PyModule_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias ptr @createfunc_null(ptr nocapture readnone %spec, ptr nocapture readnone %def) #2 {
+define internal noalias noundef ptr @createfunc_null(ptr nocapture readnone %spec, ptr nocapture readnone %def) #2 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @createfunc_raise(ptr nocapture readnone %spec, ptr nocapture readnone %def) #0 {
+define internal noalias noundef ptr @createfunc_raise(ptr nocapture readnone %spec, ptr nocapture readnone %def) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.49) #3
@@ -848,13 +846,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @execfunc_err(ptr nocapture readnone %mod) #2 {
+define internal noundef i32 @execfunc_err(ptr nocapture readnone %mod) #2 {
 entry:
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @execfunc_raise(ptr nocapture readnone %spec) #0 {
+define internal noundef i32 @execfunc_raise(ptr nocapture readnone %spec) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.58) #3
@@ -862,7 +860,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @execfunc_unreported_exception(ptr nocapture readnone %mod) #0 {
+define internal noundef i32 @execfunc_unreported_exception(ptr nocapture readnone %mod) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_SystemError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.58) #3
@@ -924,7 +922,7 @@ return:                                           ; preds = %if.end.i.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @_testmultiphase_StateAccessType_getmodulebydef_bad_def(ptr nocapture noundef readonly %self, ptr nocapture readnone %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noalias noundef ptr @_testmultiphase_StateAccessType_getmodulebydef_bad_def(ptr nocapture noundef readonly %self, ptr nocapture readnone %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -968,7 +966,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testmultiphase_StateAccessType_increment_count_clinic(ptr nocapture readnone %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_testmultiphase_StateAccessType_increment_count_clinic(ptr nocapture readnone %self, ptr noundef %cls, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -1019,7 +1017,7 @@ skip_optional_pos:                                ; preds = %if.then16, %land.lh
 
 if.end31:                                         ; preds = %if.end14, %skip_optional_pos
   %n.037 = phi i32 [ %call18, %skip_optional_pos ], [ 1, %if.end14 ]
-  %arrayidx32 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx32 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx32, align 8
   %call33 = call i32 @PyObject_IsTrue(ptr noundef %5) #3
   %cmp34 = icmp slt i32 %call33, 0
@@ -1043,7 +1041,7 @@ exit:                                             ; preds = %if.end31, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_StateAccessType_increment_count_noclinic(ptr nocapture readnone %self, ptr noundef %defining_class, ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr noundef readonly %kwnames) #0 {
+define internal noundef ptr @_StateAccessType_increment_count_noclinic(ptr nocapture readnone %self, ptr noundef %defining_class, ptr nocapture noundef readonly %args, i64 noundef %nargs, ptr noundef readonly %kwnames) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1085,7 +1083,7 @@ if.then15:                                        ; preds = %land.lhs.true11
   br i1 %cmp17, label %if.then22, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.then15
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %kwnames, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %kwnames, i64 24
   %5 = load ptr, ptr %ob_item, align 8
   %call20 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %5, ptr noundef nonnull @.str.75) #3
   %tobool21.not = icmp eq i32 %call20, 0

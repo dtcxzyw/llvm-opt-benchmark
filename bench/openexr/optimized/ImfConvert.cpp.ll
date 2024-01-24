@@ -50,7 +50,7 @@ return:                                           ; preds = %if.end, %entry, %lo
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZN7Imf_3_211floatToUintEf(float noundef %f) local_unnamed_addr #4 {
 entry:
   %0 = bitcast float %f to i32
@@ -81,7 +81,7 @@ define i16 @_ZN7Imf_3_210uintToHalfEj(i32 noundef %ui) local_unnamed_addr #3 per
 entry:
   %conv = uitofp i32 %ui to float
   %0 = load ptr, ptr @imath_half_to_float_table, align 8
-  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 31743
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 126972
   %1 = load float, ptr %arrayidx.i.i, align 4
   %cmp = fcmp olt float %1, %conv
   br i1 %cmp, label %return, label %if.end
@@ -158,8 +158,8 @@ return:                                           ; preds = %if.end20.i.i, %if.t
   ret i16 %retval.sroa.0.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i16 @_ZN7Imf_3_211floatToHalfEf(float noundef %f) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define i16 @_ZN7Imf_3_211floatToHalfEf(float noundef %f) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = bitcast float %f to i32
   %and.i = and i32 %0, 2139095040
@@ -168,13 +168,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @imath_half_to_float_table, align 8
-  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %1, i64 31743
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 126972
   %2 = load float, ptr %arrayidx.i.i, align 4
   %cmp = fcmp olt float %2, %f
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %arrayidx.i.i5 = getelementptr inbounds %union.imath_half_uif, ptr %1, i64 64511
+  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %1, i64 258044
   %3 = load float, ptr %arrayidx.i.i5, align 4
   %cmp10 = fcmp ogt float %3, %f
   br i1 %cmp10, label %return, label %if.end15
@@ -263,25 +263,24 @@ return:                                           ; preds = %if.then55.i.i, %lor
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ImfConvert.cpp() #6 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ImfConvert.cpp() #5 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #7
+declare float @llvm.fabs.f32(float) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

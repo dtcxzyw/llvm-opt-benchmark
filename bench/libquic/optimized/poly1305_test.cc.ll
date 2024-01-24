@@ -36,7 +36,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call noundef i32 @_Z12FileTestMainPFbP8FileTestPvES1_PKc(ptr noundef nonnull @_ZL12TestPoly1305P8FileTestPv, ptr noundef null, ptr noundef %2)
   br label %return
@@ -168,7 +168,7 @@ ehcleanup45:                                      ; preds = %ehcleanup44, %lpad
   br label %ehcleanup97
 
 if.end:                                           ; preds = %cleanup.done26.thread
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %key, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %key, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %key, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
@@ -178,7 +178,7 @@ if.end:                                           ; preds = %cleanup.done26.thre
   br i1 %cmp.not, label %lor.lhs.false47, label %if.then50.invoke
 
 lor.lhs.false47:                                  ; preds = %if.end
-  %_M_finish.i24 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %mac, i64 0, i32 1
+  %_M_finish.i24 = getelementptr inbounds i8, ptr %mac, i64 8
   %8 = load ptr, ptr %_M_finish.i24, align 8
   %9 = load ptr, ptr %mac, align 8
   %sub.ptr.lhs.cast.i25 = ptrtoint ptr %8 to i64
@@ -208,7 +208,7 @@ if.end53:                                         ; preds = %lor.lhs.false47
 
 invoke.cont55:                                    ; preds = %if.end53
   %11 = load ptr, ptr %in, align 8
-  %_M_finish.i28 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i28 = getelementptr inbounds i8, ptr %in, i64 8
   %12 = load ptr, ptr %_M_finish.i28, align 8
   %sub.ptr.lhs.cast.i29 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i30 = ptrtoint ptr %11 to i64
@@ -409,7 +409,7 @@ entry:
   %state = alloca [512 x i8], align 16
   %out = alloca [16 x i8], align 16
   call void @CRYPTO_poly1305_init(ptr noundef nonnull %state, ptr noundef %key.0.val)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %in, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %in, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %in, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -471,7 +471,7 @@ for.end:                                          ; preds = %if.end21, %if.end9,
   call void @CRYPTO_poly1305_update(ptr noundef nonnull %state, ptr noundef %add.ptr28, i64 noundef %sub)
   call void @CRYPTO_poly1305_finish(ptr noundef nonnull %state, ptr noundef nonnull %out)
   %11 = load ptr, ptr %mac, align 8
-  %_M_finish.i43 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %mac, i64 0, i32 1
+  %_M_finish.i43 = getelementptr inbounds i8, ptr %mac, i64 8
   %12 = load ptr, ptr %_M_finish.i43, align 8
   %sub.ptr.lhs.cast.i44 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i45 = ptrtoint ptr %11 to i64

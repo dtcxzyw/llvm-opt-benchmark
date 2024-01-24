@@ -96,24 +96,24 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.50 = private unnamed_addr constant [13 x i8] c"<fuzz input>\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @__lsan_is_turned_off() local_unnamed_addr #0 {
+define hidden noundef i32 @__lsan_is_turned_off() local_unnamed_addr #0 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @LLVMFuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #1 {
+define hidden noundef i32 @LLVMFuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #1 {
 entry:
   %config = alloca %struct.PyConfig, align 8
   %status = alloca %struct.PyStatus, align 8
   %tmp = alloca %struct.PyStatus, align 8
   %tmp1 = alloca %struct.PyStatus, align 8
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #8
-  %install_signal_handlers = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 4
+  %install_signal_handlers = getelementptr inbounds i8, ptr %config, i64 16
   store i32 0, ptr %install_signal_handlers, align 8
-  %int_max_str_digits = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 42
+  %int_max_str_digits = getelementptr inbounds i8, ptr %config, i64 264
   store i32 8086, ptr %int_max_str_digits, align 8
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   %0 = load ptr, ptr %argv, align 8
   %1 = load ptr, ptr %0, align 8
   call void @PyConfig_SetBytesString(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef %1) #8
@@ -156,7 +156,7 @@ declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #2
 declare void @Py_ExitStatusException(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @LLVMFuzzerTestOneInput(ptr noundef %data, i64 noundef %size) local_unnamed_addr #1 {
+define hidden noundef i32 @LLVMFuzzerTestOneInput(ptr noundef %data, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %call.i147 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %data, i64 noundef %size) #8
   %cmp.i148 = icmp eq ptr %call.i147, null

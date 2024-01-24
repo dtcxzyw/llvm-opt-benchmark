@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/thread_collision_warner.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::ThreadCollisionWarner" = type { i32, i32, ptr }
-
 $_ZN4base14DCheckAsserterD2Ev = comdat any
 
 $_ZN4base14DCheckAsserterD0Ev = comdat any
@@ -39,16 +37,16 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %asserter_ = getelementptr inbounds %"class.base::ThreadCollisionWarner", ptr %this, i64 0, i32 2
+  %asserter_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %asserter_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %counter_ = getelementptr inbounds %"class.base::ThreadCollisionWarner", ptr %this, i64 0, i32 1
+  %counter_ = getelementptr inbounds i8, ptr %this, i64 4
   %4 = atomicrmw volatile add ptr %counter_, i32 1 monotonic, align 4
   ret void
 }
@@ -62,16 +60,16 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %asserter_ = getelementptr inbounds %"class.base::ThreadCollisionWarner", ptr %this, i64 0, i32 2
+  %asserter_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %asserter_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %counter_ = getelementptr inbounds %"class.base::ThreadCollisionWarner", ptr %this, i64 0, i32 1
+  %counter_ = getelementptr inbounds i8, ptr %this, i64 4
   %3 = atomicrmw volatile add ptr %counter_, i32 1 monotonic, align 4
   ret void
 }
@@ -79,7 +77,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_ZN4base21ThreadCollisionWarner5LeaveEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %counter_ = getelementptr inbounds %"class.base::ThreadCollisionWarner", ptr %this, i64 0, i32 1
+  %counter_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = atomicrmw volatile add ptr %counter_, i32 -1 seq_cst, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end

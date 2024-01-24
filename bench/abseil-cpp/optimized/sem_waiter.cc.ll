@@ -3,10 +3,6 @@ source_filename = "bench/abseil-cpp/original/sem_waiter.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::synchronization_internal::SemWaiter" = type <{ %union.sem_t, %"struct.std::atomic", [4 x i8] }>
-%union.sem_t = type { i64, [24 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
 %"class.absl::synchronization_internal::KernelTimeout" = type { i64 }
 %struct.timespec = type { i64, i64 }
 
@@ -21,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl24synchronization_internal9SemWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #0 align 2 {
 entry:
-  %wakeups_ = getelementptr inbounds %"class.absl::synchronization_internal::SemWaiter", ptr %this, i64 0, i32 1
+  %wakeups_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %wakeups_, align 8
   %call = tail call i32 @sem_init(ptr noundef nonnull %this, i32 noundef 0, i32 noundef 0) #5
   %cmp.not = icmp eq i32 %call, 0
@@ -60,7 +56,7 @@ if.then:                                          ; preds = %entry
   %call2 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout25MakeClockAbsoluteTimespecEi(ptr noundef nonnull align 8 dereferenceable(8) %t, i32 noundef 1)
   %0 = extractvalue { i64, i64 } %call2, 0
   store i64 %0, ptr %abs_clock_timeout, align 8
-  %1 = getelementptr inbounds { i64, i64 }, ptr %abs_clock_timeout, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %abs_clock_timeout, i64 8
   %2 = extractvalue { i64, i64 } %call2, 1
   store i64 %2, ptr %1, align 8
   %call3 = call i32 @sem_clockwait(ptr noundef nonnull %this, i32 noundef 1, ptr noundef nonnull %abs_clock_timeout)
@@ -70,7 +66,7 @@ if.end:                                           ; preds = %entry
   %call4 = call { i64, i64 } @_ZNK4absl24synchronization_internal13KernelTimeout15MakeAbsTimespecEv(ptr noundef nonnull align 8 dereferenceable(8) %t)
   %3 = extractvalue { i64, i64 } %call4, 0
   store i64 %3, ptr %abs_timeout, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %abs_timeout, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %abs_timeout, i64 8
   %5 = extractvalue { i64, i64 } %call4, 1
   store i64 %5, ptr %4, align 8
   %call6 = call i32 @sem_timedwait(ptr noundef nonnull %this, ptr noundef nonnull %abs_timeout)
@@ -96,10 +92,10 @@ entry:
   %abs_clock_timeout.i = alloca %struct.timespec, align 8
   %abs_timeout.i = alloca %struct.timespec, align 8
   %t.coerce.fr = freeze i64 %t.coerce
-  %wakeups_ = getelementptr inbounds %"class.absl::synchronization_internal::SemWaiter", ptr %this, i64 0, i32 1
+  %wakeups_ = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i.not = icmp eq i64 %t.coerce.fr, -1
-  %0 = getelementptr inbounds { i64, i64 }, ptr %abs_clock_timeout.i, i64 0, i32 1
-  %1 = getelementptr inbounds { i64, i64 }, ptr %abs_timeout.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %abs_clock_timeout.i, i64 8
+  %1 = getelementptr inbounds i8, ptr %abs_timeout.i, i64 8
   br i1 %cmp.i.not, label %while.body.us, label %entry.split
 
 while.body.us:                                    ; preds = %entry, %while.end43.split.us.us
@@ -318,7 +314,7 @@ declare i32 @sem_wait(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl24synchronization_internal9SemWaiter4PostEv(ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %wakeups_ = getelementptr inbounds %"class.absl::synchronization_internal::SemWaiter", ptr %this, i64 0, i32 1
+  %wakeups_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = atomicrmw add ptr %wakeups_, i32 1 release, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end

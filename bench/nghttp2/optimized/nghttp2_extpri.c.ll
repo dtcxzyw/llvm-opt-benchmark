@@ -3,12 +3,10 @@ source_filename = "bench/nghttp2/original/nghttp2_extpri.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.nghttp2_extpri = type { i32, i32 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i8 @nghttp2_extpri_to_uint8(ptr nocapture noundef readonly %extpri) local_unnamed_addr #0 {
 entry:
-  %inc = getelementptr inbounds %struct.nghttp2_extpri, ptr %extpri, i64 0, i32 1
+  %inc = getelementptr inbounds i8, ptr %extpri, i64 4
   %0 = load i32, ptr %inc, align 4
   %shl = shl i32 %0, 7
   %1 = load i32, ptr %extpri, align 4
@@ -25,7 +23,7 @@ entry:
   store i32 %and, ptr %extpri, align 4
   %u8extpri.lobit = lshr i8 %u8extpri, 7
   %conv3 = zext nneg i8 %u8extpri.lobit to i32
-  %inc = getelementptr inbounds %struct.nghttp2_extpri, ptr %extpri, i64 0, i32 1
+  %inc = getelementptr inbounds i8, ptr %extpri, i64 4
   store i32 %conv3, ptr %inc, align 4
   ret void
 }

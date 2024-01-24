@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.opts_multi_pack_index = type { ptr, ptr, ptr, i64, i32, i32 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.object_directory = type { ptr, [8 x i32], ptr, i32, i32, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"repack\00", align 1
@@ -63,61 +59,61 @@ entry:
   %builtin_multi_pack_index_options = alloca [5 x %struct.option], align 16
   store ptr null, ptr %fn, align 8
   store i32 4, ptr %builtin_multi_pack_index_options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 4
   store i32 0, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 16
   store ptr %fn, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 0, i32 4
-  %callback = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 0, i32 7
-  %subcommand_fn = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 0, i32 11
+  %argh = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 24
+  %callback = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 48
+  %subcommand_fn = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %argh, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %callback, i8 0, i64 32, i1 false)
   store ptr @cmd_multi_pack_index_repack, ptr %subcommand_fn, align 16
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 88
   store i32 4, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 1, i32 1
+  %short_name2 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 92
   store i32 0, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 1, i32 2
+  %long_name3 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 96
   store ptr @.str.1, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 1, i32 3
+  %value4 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 104
   store ptr %fn, ptr %value4, align 8
-  %argh5 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 1, i32 4
-  %callback8 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 1, i32 7
-  %subcommand_fn12 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 1, i32 11
+  %argh5 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 112
+  %callback8 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 136
+  %subcommand_fn12 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %argh5, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback8, i8 0, i64 32, i1 false)
   store ptr @cmd_multi_pack_index_write, ptr %subcommand_fn12, align 8
-  %arrayinit.element13 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 2
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 176
   store i32 4, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 2, i32 1
+  %short_name15 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 180
   store i32 0, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 2, i32 2
+  %long_name16 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 184
   store ptr @.str.2, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 2, i32 3
+  %value17 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 192
   store ptr %fn, ptr %value17, align 16
-  %argh18 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 2, i32 4
-  %callback21 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 2, i32 7
-  %subcommand_fn25 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 2, i32 11
+  %argh18 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 200
+  %callback21 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 224
+  %subcommand_fn25 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %argh18, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %callback21, i8 0, i64 32, i1 false)
   store ptr @cmd_multi_pack_index_verify, ptr %subcommand_fn25, align 16
-  %arrayinit.element26 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 3
+  %arrayinit.element26 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 264
   store i32 4, ptr %arrayinit.element26, align 8
-  %short_name28 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 3, i32 1
+  %short_name28 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 268
   store i32 0, ptr %short_name28, align 4
-  %long_name29 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 3, i32 2
+  %long_name29 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 272
   store ptr @.str.3, ptr %long_name29, align 16
-  %value30 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 3, i32 3
+  %value30 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 280
   store ptr %fn, ptr %value30, align 8
-  %argh31 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 3, i32 4
-  %callback34 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 3, i32 7
-  %subcommand_fn38 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 3, i32 11
+  %argh31 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 288
+  %callback34 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 312
+  %subcommand_fn38 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %argh31, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback34, i8 0, i64 32, i1 false)
   store ptr @cmd_multi_pack_index_expire, ptr %subcommand_fn38, align 8
-  %arrayinit.element39 = getelementptr inbounds %struct.option, ptr %builtin_multi_pack_index_options, i64 4
+  %arrayinit.element39 = getelementptr inbounds i8, ptr %builtin_multi_pack_index_options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %arrayinit.element39, i8 0, i64 88, i1 false)
   %call = call ptr @parse_options_concat(ptr noundef nonnull %builtin_multi_pack_index_options, ptr noundef nonnull @common_opts) #9
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #9
@@ -126,7 +122,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %objects = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %objects, align 8
   %tobool52.not = icmp eq ptr %1, null
   br i1 %tobool52.not, label %if.end, label %land.lhs.true53
@@ -137,7 +133,7 @@ land.lhs.true53:                                  ; preds = %land.lhs.true
   br i1 %tobool55.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true53
-  %path = getelementptr inbounds %struct.object_directory, ptr %2, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %path, align 8
   %call58 = call ptr @xstrdup(ptr noundef %3) #9
   store ptr %call58, ptr @opts, align 8
@@ -227,7 +223,7 @@ do.body:                                          ; preds = %if.end
 
 if.then8:                                         ; preds = %do.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %packs, i8 0, i64 40, i1 false)
-  %4 = getelementptr inbounds %struct.string_list, ptr %packs, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %packs, i64 24
   store i8 1, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.read_packs_from_stdin.buf, i64 24, i1 false)
@@ -237,7 +233,7 @@ if.then8:                                         ; preds = %do.body
   br i1 %cmp.not4.i, label %read_packs_from_stdin.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then8
-  %buf1.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf1.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -432,7 +428,7 @@ declare i32 @expire_midx_packs(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @parse_object_dir(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
-  %value1 = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value1 = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value1, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %1) #9

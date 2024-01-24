@@ -266,7 +266,7 @@ define zeroext i1 @"_ZN60_$LT$syn..token..Underscore$u20$as$u20$syn..token..Toke
   %5 = alloca { { [24 x i8], i8, [7 x i8] }, {} }, align 8
   %6 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %6, ptr %0, ptr %1)
-  %7 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8, !range !6, !noundef !5
   %.not = icmp eq i8 %8, 3
   br i1 %.not, label %11, label %9
@@ -698,9 +698,9 @@ define void @"_ZN58_$LT$syn..token..Abstract$u20$as$u20$syn..parse..Parse$GT$5pa
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -756,9 +756,9 @@ define void @"_ZN52_$LT$syn..token..As$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -814,9 +814,9 @@ define void @"_ZN55_$LT$syn..token..Async$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -872,9 +872,9 @@ define void @"_ZN54_$LT$syn..token..Auto$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -930,9 +930,9 @@ define void @"_ZN55_$LT$syn..token..Await$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -988,9 +988,9 @@ define void @"_ZN56_$LT$syn..token..Become$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1046,9 +1046,9 @@ define void @"_ZN53_$LT$syn..token..Box$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1104,9 +1104,9 @@ define void @"_ZN55_$LT$syn..token..Break$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1162,9 +1162,9 @@ define void @"_ZN55_$LT$syn..token..Const$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1220,9 +1220,9 @@ define void @"_ZN58_$LT$syn..token..Continue$u20$as$u20$syn..parse..Parse$GT$5pa
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1278,9 +1278,9 @@ define void @"_ZN55_$LT$syn..token..Crate$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1336,9 +1336,9 @@ define void @"_ZN57_$LT$syn..token..Default$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1394,9 +1394,9 @@ define void @"_ZN52_$LT$syn..token..Do$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1452,9 +1452,9 @@ define void @"_ZN53_$LT$syn..token..Dyn$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1510,9 +1510,9 @@ define void @"_ZN54_$LT$syn..token..Else$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1568,9 +1568,9 @@ define void @"_ZN54_$LT$syn..token..Enum$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1626,9 +1626,9 @@ define void @"_ZN56_$LT$syn..token..Extern$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1684,9 +1684,9 @@ define void @"_ZN55_$LT$syn..token..Final$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1742,9 +1742,9 @@ define void @"_ZN52_$LT$syn..token..Fn$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1800,9 +1800,9 @@ define void @"_ZN53_$LT$syn..token..For$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1858,9 +1858,9 @@ define void @"_ZN52_$LT$syn..token..If$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1916,9 +1916,9 @@ define void @"_ZN54_$LT$syn..token..Impl$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -1974,9 +1974,9 @@ define void @"_ZN52_$LT$syn..token..In$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2032,9 +2032,9 @@ define void @"_ZN53_$LT$syn..token..Let$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2090,9 +2090,9 @@ define void @"_ZN54_$LT$syn..token..Loop$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2148,9 +2148,9 @@ define void @"_ZN55_$LT$syn..token..Macro$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2206,9 +2206,9 @@ define void @"_ZN55_$LT$syn..token..Match$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2264,9 +2264,9 @@ define void @"_ZN53_$LT$syn..token..Mod$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2322,9 +2322,9 @@ define void @"_ZN54_$LT$syn..token..Move$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2380,9 +2380,9 @@ define void @"_ZN53_$LT$syn..token..Mut$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2438,9 +2438,9 @@ define void @"_ZN58_$LT$syn..token..Override$u20$as$u20$syn..parse..Parse$GT$5pa
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2496,9 +2496,9 @@ define void @"_ZN54_$LT$syn..token..Priv$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2554,9 +2554,9 @@ define void @"_ZN53_$LT$syn..token..Pub$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2612,9 +2612,9 @@ define void @"_ZN53_$LT$syn..token..Ref$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2670,9 +2670,9 @@ define void @"_ZN56_$LT$syn..token..Return$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2728,9 +2728,9 @@ define void @"_ZN58_$LT$syn..token..SelfType$u20$as$u20$syn..parse..Parse$GT$5pa
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2786,9 +2786,9 @@ define void @"_ZN59_$LT$syn..token..SelfValue$u20$as$u20$syn..parse..Parse$GT$5p
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2844,9 +2844,9 @@ define void @"_ZN56_$LT$syn..token..Static$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2902,9 +2902,9 @@ define void @"_ZN56_$LT$syn..token..Struct$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -2960,9 +2960,9 @@ define void @"_ZN55_$LT$syn..token..Super$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3018,9 +3018,9 @@ define void @"_ZN55_$LT$syn..token..Trait$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3076,9 +3076,9 @@ define void @"_ZN53_$LT$syn..token..Try$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3134,9 +3134,9 @@ define void @"_ZN54_$LT$syn..token..Type$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3192,9 +3192,9 @@ define void @"_ZN56_$LT$syn..token..Typeof$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3250,9 +3250,9 @@ define void @"_ZN55_$LT$syn..token..Union$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3308,9 +3308,9 @@ define void @"_ZN56_$LT$syn..token..Unsafe$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3366,9 +3366,9 @@ define void @"_ZN57_$LT$syn..token..Unsized$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3424,9 +3424,9 @@ define void @"_ZN53_$LT$syn..token..Use$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3482,9 +3482,9 @@ define void @"_ZN57_$LT$syn..token..Virtual$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3540,9 +3540,9 @@ define void @"_ZN55_$LT$syn..token..Where$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3598,9 +3598,9 @@ define void @"_ZN55_$LT$syn..token..While$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3656,9 +3656,9 @@ define void @"_ZN55_$LT$syn..token..Yield$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], i32 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8, !noundef !5
-  %11 = getelementptr inbounds { [2 x i32], i32 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %10, ptr %11, align 8
   store ptr null, ptr %0, align 8
   br label %13
@@ -3701,9 +3701,9 @@ define void @"_ZN53_$LT$syn..token..And$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -3746,9 +3746,9 @@ define void @"_ZN56_$LT$syn..token..AndAnd$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -3791,9 +3791,9 @@ define void @"_ZN55_$LT$syn..token..AndEq$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -3836,9 +3836,9 @@ define void @"_ZN52_$LT$syn..token..At$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -3881,9 +3881,9 @@ define void @"_ZN55_$LT$syn..token..Caret$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -3926,9 +3926,9 @@ define void @"_ZN57_$LT$syn..token..CaretEq$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -3971,9 +3971,9 @@ define void @"_ZN55_$LT$syn..token..Colon$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4016,9 +4016,9 @@ define void @"_ZN55_$LT$syn..token..Comma$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4061,9 +4061,9 @@ define void @"_ZN56_$LT$syn..token..Dollar$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4106,9 +4106,9 @@ define void @"_ZN53_$LT$syn..token..Dot$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4151,9 +4151,9 @@ define void @"_ZN56_$LT$syn..token..DotDot$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4196,8 +4196,8 @@ define void @"_ZN59_$LT$syn..token..DotDotDot$u20$as$u20$syn..parse..Parse$GT$5p
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [3 x i32] }, ptr %5, i64 0, i32 1
-  %10 = getelementptr inbounds { [2 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false)
   store ptr null, ptr %0, align 8
   br label %12
@@ -4240,8 +4240,8 @@ define void @"_ZN58_$LT$syn..token..DotDotEq$u20$as$u20$syn..parse..Parse$GT$5pa
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [3 x i32] }, ptr %5, i64 0, i32 1
-  %10 = getelementptr inbounds { [2 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false)
   store ptr null, ptr %0, align 8
   br label %12
@@ -4284,9 +4284,9 @@ define void @"_ZN52_$LT$syn..token..Eq$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4329,9 +4329,9 @@ define void @"_ZN54_$LT$syn..token..EqEq$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4374,9 +4374,9 @@ define void @"_ZN58_$LT$syn..token..FatArrow$u20$as$u20$syn..parse..Parse$GT$5pa
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4419,9 +4419,9 @@ define void @"_ZN52_$LT$syn..token..Ge$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4464,9 +4464,9 @@ define void @"_ZN52_$LT$syn..token..Gt$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4509,9 +4509,9 @@ define void @"_ZN56_$LT$syn..token..LArrow$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4554,9 +4554,9 @@ define void @"_ZN52_$LT$syn..token..Le$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4599,9 +4599,9 @@ define void @"_ZN52_$LT$syn..token..Lt$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4644,9 +4644,9 @@ define void @"_ZN55_$LT$syn..token..Minus$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4689,9 +4689,9 @@ define void @"_ZN57_$LT$syn..token..MinusEq$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4734,9 +4734,9 @@ define void @"_ZN52_$LT$syn..token..Ne$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4779,9 +4779,9 @@ define void @"_ZN53_$LT$syn..token..Not$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4824,9 +4824,9 @@ define void @"_ZN52_$LT$syn..token..Or$u20$as$u20$syn..parse..Parse$GT$5parse17h
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4869,9 +4869,9 @@ define void @"_ZN54_$LT$syn..token..OrEq$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4914,9 +4914,9 @@ define void @"_ZN54_$LT$syn..token..OrOr$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -4959,9 +4959,9 @@ define void @"_ZN57_$LT$syn..token..PathSep$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5004,9 +5004,9 @@ define void @"_ZN57_$LT$syn..token..Percent$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5049,9 +5049,9 @@ define void @"_ZN59_$LT$syn..token..PercentEq$u20$as$u20$syn..parse..Parse$GT$5p
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5094,9 +5094,9 @@ define void @"_ZN54_$LT$syn..token..Plus$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5139,9 +5139,9 @@ define void @"_ZN56_$LT$syn..token..PlusEq$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5184,9 +5184,9 @@ define void @"_ZN55_$LT$syn..token..Pound$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5229,9 +5229,9 @@ define void @"_ZN58_$LT$syn..token..Question$u20$as$u20$syn..parse..Parse$GT$5pa
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5274,9 +5274,9 @@ define void @"_ZN56_$LT$syn..token..RArrow$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5319,9 +5319,9 @@ define void @"_ZN54_$LT$syn..token..Semi$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5364,9 +5364,9 @@ define void @"_ZN53_$LT$syn..token..Shl$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5409,8 +5409,8 @@ define void @"_ZN55_$LT$syn..token..ShlEq$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [3 x i32] }, ptr %5, i64 0, i32 1
-  %10 = getelementptr inbounds { [2 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false)
   store ptr null, ptr %0, align 8
   br label %12
@@ -5453,9 +5453,9 @@ define void @"_ZN53_$LT$syn..token..Shr$u20$as$u20$syn..parse..Parse$GT$5parse17
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5498,8 +5498,8 @@ define void @"_ZN55_$LT$syn..token..ShrEq$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [3 x i32] }, ptr %5, i64 0, i32 1
-  %10 = getelementptr inbounds { [2 x i32], { [3 x i32] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %9, i64 12, i1 false)
   store ptr null, ptr %0, align 8
   br label %12
@@ -5542,9 +5542,9 @@ define void @"_ZN55_$LT$syn..token..Slash$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5587,9 +5587,9 @@ define void @"_ZN57_$LT$syn..token..SlashEq$u20$as$u20$syn..parse..Parse$GT$5par
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5632,9 +5632,9 @@ define void @"_ZN54_$LT$syn..token..Star$u20$as$u20$syn..parse..Parse$GT$5parse1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5677,9 +5677,9 @@ define void @"_ZN56_$LT$syn..token..StarEq$u20$as$u20$syn..parse..Parse$GT$5pars
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [2 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [2 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12
@@ -5722,9 +5722,9 @@ define void @"_ZN55_$LT$syn..token..Tilde$u20$as$u20$syn..parse..Parse$GT$5parse
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [2 x i32], [1 x i32] }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.02.0.copyload = load i32, ptr %9, align 8
-  %10 = getelementptr inbounds { [2 x i32], { [1 x i32] } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.02.0.copyload, ptr %10, align 8
   store ptr null, ptr %0, align 8
   br label %12

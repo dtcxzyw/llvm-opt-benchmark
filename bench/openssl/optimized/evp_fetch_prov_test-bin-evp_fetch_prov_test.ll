@@ -86,13 +86,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.69 = private unnamed_addr constant [26 x i8] c"EVP_CIPHER_up_ref(cipher)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -202,7 +202,7 @@ if.then.i:                                        ; preds = %land.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.end
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
@@ -226,7 +226,7 @@ unload_providers.exit:                            ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_MD_fetch_by_name() #1 {
+define internal noundef i32 @test_explicit_EVP_MD_fetch_by_name() #1 {
 entry:
   %call = tail call fastcc i32 @test_explicit_EVP_MD_fetch(ptr noundef nonnull @.str.38), !range !7
   ret i32 %call
@@ -235,7 +235,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_MD_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
+define internal noundef i32 @test_explicit_EVP_MD_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
 entry:
   %obj = alloca ptr, align 8
   %id = alloca [50 x i8], align 16
@@ -328,7 +328,7 @@ if.then.i:                                        ; preds = %land.end
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.end
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %1 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
@@ -352,14 +352,14 @@ unload_providers.exit:                            ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_CIPHER_fetch_by_name() #1 {
+define internal noundef i32 @test_explicit_EVP_CIPHER_fetch_by_name() #1 {
 entry:
   %call = tail call fastcc i32 @test_explicit_EVP_CIPHER_fetch(ptr noundef nonnull @.str.68), !range !7
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_explicit_EVP_CIPHER_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
+define internal noundef i32 @test_explicit_EVP_CIPHER_fetch_by_X509_ALGOR(i32 noundef %idx) #1 {
 entry:
   %obj = alloca ptr, align 8
   %id = alloca [50 x i8], align 16
@@ -425,7 +425,7 @@ return:                                           ; preds = %make_algor.exit.thr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_providers(ptr nocapture noundef writeonly %libctx, ptr nocapture noundef writeonly %prov) unnamed_addr #1 {
+define internal fastcc noundef i32 @load_providers(ptr nocapture noundef writeonly %libctx, ptr nocapture noundef writeonly %prov) unnamed_addr #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #7
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.32, i32 noundef 86, ptr noundef nonnull @.str.33, ptr noundef %call) #7
@@ -619,7 +619,7 @@ declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #2
 declare void @OPENSSL_thread_stop_ex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_explicit_EVP_MD_fetch(ptr noundef %id) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_explicit_EVP_MD_fetch(ptr noundef %id) unnamed_addr #1 {
 entry:
   %ctx = alloca ptr, align 8
   %prov = alloca [2 x ptr], align 16
@@ -682,7 +682,7 @@ if.then.i:                                        ; preds = %err
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %err
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %3 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i
@@ -841,7 +841,7 @@ declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_explicit_EVP_CIPHER_fetch(ptr noundef %id) unnamed_addr #1 {
+define internal fastcc noundef i32 @test_explicit_EVP_CIPHER_fetch(ptr noundef %id) unnamed_addr #1 {
 entry:
   %ctx = alloca ptr, align 8
   %prov = alloca [2 x ptr], align 16
@@ -904,7 +904,7 @@ if.then.i:                                        ; preds = %err
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %err
-  %arrayidx2.i = getelementptr inbounds ptr, ptr %prov, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %prov, i64 8
   %3 = load ptr, ptr %arrayidx2.i, align 8
   %cmp3.not.i = icmp eq ptr %3, null
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then4.i

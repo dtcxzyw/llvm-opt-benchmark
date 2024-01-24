@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [40 x i8] c"Unable to initialize hash algorithm: %s\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong memory(read) uwtable
-define dso_local i32 @qcrypto_hash_supports(i32 noundef %alg) local_unnamed_addr #0 {
+define dso_local noundef i32 @qcrypto_hash_supports(i32 noundef %alg) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %alg, 6
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -54,7 +54,7 @@ return:                                           ; preds = %for.body, %for.cond
 declare ptr @gnutls_digest_list() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @qcrypto_gnutls_hash_bytesv(i32 noundef %alg, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture noundef %result, ptr nocapture noundef %resultlen, ptr noundef %errp) #2 {
+define internal noundef i32 @qcrypto_gnutls_hash_bytesv(i32 noundef %alg, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture noundef %result, ptr nocapture noundef %resultlen, ptr noundef %errp) #2 {
 entry:
   %hash = alloca ptr, align 8
   %cmp.i = icmp ugt i32 %alg, 6
@@ -130,7 +130,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %5 = load ptr, ptr %hash, align 8
   %arrayidx22 = getelementptr %struct.iovec, ptr %iov, i64 %conv1823
   %6 = load ptr, ptr %arrayidx22, align 8
-  %iov_len = getelementptr %struct.iovec, ptr %iov, i64 %conv1823, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx22, i64 8
   %7 = load i64, ptr %iov_len, align 8
   %call25 = call i32 @gnutls_hash(ptr noundef %5, ptr noundef %6, i64 noundef %7) #7
   %inc = add i32 %i.022, 1

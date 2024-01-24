@@ -184,7 +184,7 @@ lpad2:                                            ; preds = %if.then16, %if.then
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %lpad2
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3) #9
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit

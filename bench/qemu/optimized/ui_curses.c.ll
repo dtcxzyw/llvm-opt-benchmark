@@ -11,12 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__sigset_t = type { [16 x i64] }
 %struct.__mbstate_t = type { i32, %union.anon.0 }
 %union.anon.0 = type { i32 }
-%struct.DisplayOptions = type { i32, i8, i8, i8, i8, i8, i8, i8, i32, %union.anon }
-%union.anon = type { %struct.DisplayDBus }
-%struct.DisplayDBus = type { ptr, ptr, i8, i8, ptr }
 %struct.cchar_t = type { i32, [5 x i32], i32 }
-%struct.DisplayChangeListener = type { i64, ptr, ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.winsize = type { i16, i16, i16, i16 }
 
 @qemu_display_curses = internal global %struct.QemuDisplay { i32 2, ptr null, ptr @curses_display_init, ptr null }, align 8
@@ -362,7 +357,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull @.str.1) #12
-  %u = getelementptr inbounds %struct.DisplayOptions, ptr %opts, i64 0, i32 9
+  %u = getelementptr inbounds i8, ptr %opts, i64 16
   %2 = load ptr, ptr %u, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
@@ -476,7 +471,7 @@ if.then15.i.i:                                    ; preds = %if.end12.i.i
   unreachable
 
 for.cond23.preheader.i.i:                         ; preds = %for.body.i.i
-  %arrayidx15.i.i.i = getelementptr inbounds [2 x i32], ptr %wch.i.i.i, i64 0, i64 1
+  %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %wch.i.i.i, i64 4
   br label %for.body26.i.i
 
 for.body.i.i:                                     ; preds = %if.end12.i.i, %for.body.i.i
@@ -665,7 +660,7 @@ sw.bb.i.i:                                        ; preds = %get_ucs.exit.i.i
   %36 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx48.i.i = getelementptr %struct.cchar_t, ptr %36, i64 %indvars.iv71.i.i
   %37 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx49.i.i = getelementptr %struct.cchar_t, ptr %37, i64 125
+  %arrayidx49.i.i = getelementptr i8, ptr %37, i64 3500
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx48.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx49.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -673,7 +668,7 @@ sw.bb50.i.i:                                      ; preds = %get_ucs.exit.i.i
   %38 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx52.i.i = getelementptr %struct.cchar_t, ptr %38, i64 %indvars.iv71.i.i
   %39 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx53.i.i = getelementptr %struct.cchar_t, ptr %39, i64 104
+  %arrayidx53.i.i = getelementptr i8, ptr %39, i64 2912
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx52.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx53.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -681,7 +676,7 @@ sw.bb54.i.i:                                      ; preds = %get_ucs.exit.i.i
   %40 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx56.i.i = getelementptr %struct.cchar_t, ptr %40, i64 %indvars.iv71.i.i
   %41 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx57.i.i = getelementptr %struct.cchar_t, ptr %41, i64 97
+  %arrayidx57.i.i = getelementptr i8, ptr %41, i64 2716
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx56.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx57.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -689,7 +684,7 @@ sw.bb58.i.i:                                      ; preds = %get_ucs.exit.i.i
   %42 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx60.i.i = getelementptr %struct.cchar_t, ptr %42, i64 %indvars.iv71.i.i
   %43 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx61.i.i = getelementptr %struct.cchar_t, ptr %43, i64 120
+  %arrayidx61.i.i = getelementptr i8, ptr %43, i64 3360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx60.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx61.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -697,7 +692,7 @@ sw.bb62.i.i:                                      ; preds = %get_ucs.exit.i.i
   %44 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx64.i.i = getelementptr %struct.cchar_t, ptr %44, i64 %indvars.iv71.i.i
   %45 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx65.i.i = getelementptr %struct.cchar_t, ptr %45, i64 117
+  %arrayidx65.i.i = getelementptr i8, ptr %45, i64 3276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx64.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx65.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -705,7 +700,7 @@ sw.bb66.i.i:                                      ; preds = %get_ucs.exit.i.i
   %46 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx68.i.i = getelementptr %struct.cchar_t, ptr %46, i64 %indvars.iv71.i.i
   %47 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx69.i.i = getelementptr %struct.cchar_t, ptr %47, i64 107
+  %arrayidx69.i.i = getelementptr i8, ptr %47, i64 2996
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx68.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx69.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -713,7 +708,7 @@ sw.bb70.i.i:                                      ; preds = %get_ucs.exit.i.i
   %48 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx72.i.i = getelementptr %struct.cchar_t, ptr %48, i64 %indvars.iv71.i.i
   %49 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx73.i.i = getelementptr %struct.cchar_t, ptr %49, i64 109
+  %arrayidx73.i.i = getelementptr i8, ptr %49, i64 3052
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx72.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx73.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -721,7 +716,7 @@ sw.bb74.i.i:                                      ; preds = %get_ucs.exit.i.i
   %50 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx76.i.i = getelementptr %struct.cchar_t, ptr %50, i64 %indvars.iv71.i.i
   %51 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx77.i.i = getelementptr %struct.cchar_t, ptr %51, i64 118
+  %arrayidx77.i.i = getelementptr i8, ptr %51, i64 3304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx76.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx77.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -729,7 +724,7 @@ sw.bb78.i.i:                                      ; preds = %get_ucs.exit.i.i
   %52 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx80.i.i = getelementptr %struct.cchar_t, ptr %52, i64 %indvars.iv71.i.i
   %53 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx81.i.i = getelementptr %struct.cchar_t, ptr %53, i64 119
+  %arrayidx81.i.i = getelementptr i8, ptr %53, i64 3332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx80.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx81.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -737,7 +732,7 @@ sw.bb82.i.i:                                      ; preds = %get_ucs.exit.i.i
   %54 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx84.i.i = getelementptr %struct.cchar_t, ptr %54, i64 %indvars.iv71.i.i
   %55 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx85.i.i = getelementptr %struct.cchar_t, ptr %55, i64 116
+  %arrayidx85.i.i = getelementptr i8, ptr %55, i64 3248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx84.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx85.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -745,7 +740,7 @@ sw.bb86.i.i:                                      ; preds = %get_ucs.exit.i.i
   %56 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx88.i.i = getelementptr %struct.cchar_t, ptr %56, i64 %indvars.iv71.i.i
   %57 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx89.i.i = getelementptr %struct.cchar_t, ptr %57, i64 113
+  %arrayidx89.i.i = getelementptr i8, ptr %57, i64 3164
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx88.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx89.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -753,7 +748,7 @@ sw.bb90.i.i:                                      ; preds = %get_ucs.exit.i.i
   %58 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx92.i.i = getelementptr %struct.cchar_t, ptr %58, i64 %indvars.iv71.i.i
   %59 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx93.i.i = getelementptr %struct.cchar_t, ptr %59, i64 110
+  %arrayidx93.i.i = getelementptr i8, ptr %59, i64 3080
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx92.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx93.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -761,7 +756,7 @@ sw.bb94.i.i:                                      ; preds = %get_ucs.exit.i.i
   %60 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx96.i.i = getelementptr %struct.cchar_t, ptr %60, i64 %indvars.iv71.i.i
   %61 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx97.i.i = getelementptr %struct.cchar_t, ptr %61, i64 105
+  %arrayidx97.i.i = getelementptr i8, ptr %61, i64 2940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx96.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx97.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -769,7 +764,7 @@ sw.bb98.i.i:                                      ; preds = %get_ucs.exit.i.i
   %62 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx100.i.i = getelementptr %struct.cchar_t, ptr %62, i64 %indvars.iv71.i.i
   %63 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx101.i.i = getelementptr %struct.cchar_t, ptr %63, i64 124
+  %arrayidx101.i.i = getelementptr i8, ptr %63, i64 3472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx100.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx101.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -777,7 +772,7 @@ sw.bb102.i.i:                                     ; preds = %get_ucs.exit.i.i
   %64 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx104.i.i = getelementptr %struct.cchar_t, ptr %64, i64 %indvars.iv71.i.i
   %65 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx105.i.i = getelementptr %struct.cchar_t, ptr %65, i64 106
+  %arrayidx105.i.i = getelementptr i8, ptr %65, i64 2968
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx104.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx105.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -785,7 +780,7 @@ sw.bb106.i.i:                                     ; preds = %get_ucs.exit.i.i
   %66 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx108.i.i = getelementptr %struct.cchar_t, ptr %66, i64 %indvars.iv71.i.i
   %67 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx109.i.i = getelementptr %struct.cchar_t, ptr %67, i64 108
+  %arrayidx109.i.i = getelementptr i8, ptr %67, i64 3024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx108.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx109.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -793,7 +788,7 @@ sw.bb110.i.i:                                     ; preds = %get_ucs.exit.i.i
   %68 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx112.i.i = getelementptr %struct.cchar_t, ptr %68, i64 %indvars.iv71.i.i
   %69 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx113.i.i = getelementptr %struct.cchar_t, ptr %69, i64 48
+  %arrayidx113.i.i = getelementptr i8, ptr %69, i64 1344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx112.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx113.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -801,7 +796,7 @@ sw.bb114.i.i:                                     ; preds = %get_ucs.exit.i.i
   %70 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx116.i.i = getelementptr %struct.cchar_t, ptr %70, i64 %indvars.iv71.i.i
   %71 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx117.i.i = getelementptr %struct.cchar_t, ptr %71, i64 123
+  %arrayidx117.i.i = getelementptr i8, ptr %71, i64 3444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx116.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx117.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -809,7 +804,7 @@ sw.bb118.i.i:                                     ; preds = %get_ucs.exit.i.i
   %72 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx120.i.i = getelementptr %struct.cchar_t, ptr %72, i64 %indvars.iv71.i.i
   %73 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx121.i.i = getelementptr %struct.cchar_t, ptr %73, i64 103
+  %arrayidx121.i.i = getelementptr i8, ptr %73, i64 2884
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx120.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx121.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -817,7 +812,7 @@ sw.bb122.i.i:                                     ; preds = %get_ucs.exit.i.i
   %74 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx124.i.i = getelementptr %struct.cchar_t, ptr %74, i64 %indvars.iv71.i.i
   %75 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx125.i.i = getelementptr %struct.cchar_t, ptr %75, i64 122
+  %arrayidx125.i.i = getelementptr i8, ptr %75, i64 3416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx124.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx125.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -825,7 +820,7 @@ sw.bb126.i.i:                                     ; preds = %get_ucs.exit.i.i
   %76 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx128.i.i = getelementptr %struct.cchar_t, ptr %76, i64 %indvars.iv71.i.i
   %77 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx129.i.i = getelementptr %struct.cchar_t, ptr %77, i64 121
+  %arrayidx129.i.i = getelementptr i8, ptr %77, i64 3388
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx128.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx129.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -833,7 +828,7 @@ sw.bb130.i.i:                                     ; preds = %get_ucs.exit.i.i
   %78 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx132.i.i = getelementptr %struct.cchar_t, ptr %78, i64 %indvars.iv71.i.i
   %79 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx133.i.i = getelementptr %struct.cchar_t, ptr %79, i64 102
+  %arrayidx133.i.i = getelementptr i8, ptr %79, i64 2856
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx132.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx133.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -841,7 +836,7 @@ sw.bb134.i.i:                                     ; preds = %get_ucs.exit.i.i
   %80 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx136.i.i = getelementptr %struct.cchar_t, ptr %80, i64 %indvars.iv71.i.i
   %81 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx137.i.i = getelementptr %struct.cchar_t, ptr %81, i64 126
+  %arrayidx137.i.i = getelementptr i8, ptr %81, i64 3528
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx136.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx137.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -849,7 +844,7 @@ sw.bb138.i.i:                                     ; preds = %get_ucs.exit.i.i
   %82 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx140.i.i = getelementptr %struct.cchar_t, ptr %82, i64 %indvars.iv71.i.i
   %83 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx141.i.i = getelementptr %struct.cchar_t, ptr %83, i64 96
+  %arrayidx141.i.i = getelementptr i8, ptr %83, i64 2688
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx140.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx141.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -857,7 +852,7 @@ sw.bb142.i.i:                                     ; preds = %get_ucs.exit.i.i
   %84 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx144.i.i = getelementptr %struct.cchar_t, ptr %84, i64 %indvars.iv71.i.i
   %85 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx145.i.i = getelementptr %struct.cchar_t, ptr %85, i64 43
+  %arrayidx145.i.i = getelementptr i8, ptr %85, i64 1204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx144.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx145.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -865,7 +860,7 @@ sw.bb146.i.i:                                     ; preds = %get_ucs.exit.i.i
   %86 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx148.i.i = getelementptr %struct.cchar_t, ptr %86, i64 %indvars.iv71.i.i
   %87 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx149.i.i = getelementptr %struct.cchar_t, ptr %87, i64 44
+  %arrayidx149.i.i = getelementptr i8, ptr %87, i64 1232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx148.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx149.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -873,7 +868,7 @@ sw.bb150.i.i:                                     ; preds = %get_ucs.exit.i.i
   %88 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx152.i.i = getelementptr %struct.cchar_t, ptr %88, i64 %indvars.iv71.i.i
   %89 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx153.i.i = getelementptr %struct.cchar_t, ptr %89, i64 45
+  %arrayidx153.i.i = getelementptr i8, ptr %89, i64 1260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx152.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx153.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -881,7 +876,7 @@ sw.bb154.i.i:                                     ; preds = %get_ucs.exit.i.i
   %90 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx156.i.i = getelementptr %struct.cchar_t, ptr %90, i64 %indvars.iv71.i.i
   %91 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx157.i.i = getelementptr %struct.cchar_t, ptr %91, i64 46
+  %arrayidx157.i.i = getelementptr i8, ptr %91, i64 1288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx156.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx157.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -889,7 +884,7 @@ sw.bb158.i.i:                                     ; preds = %get_ucs.exit.i.i
   %92 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx160.i.i = getelementptr %struct.cchar_t, ptr %92, i64 %indvars.iv71.i.i
   %93 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx161.i.i = getelementptr %struct.cchar_t, ptr %93, i64 111
+  %arrayidx161.i.i = getelementptr i8, ptr %93, i64 3108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx160.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx161.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -897,7 +892,7 @@ sw.bb162.i.i:                                     ; preds = %get_ucs.exit.i.i
   %94 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx164.i.i = getelementptr %struct.cchar_t, ptr %94, i64 %indvars.iv71.i.i
   %95 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx165.i.i = getelementptr %struct.cchar_t, ptr %95, i64 112
+  %arrayidx165.i.i = getelementptr i8, ptr %95, i64 3136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx164.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx165.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -905,7 +900,7 @@ sw.bb166.i.i:                                     ; preds = %get_ucs.exit.i.i
   %96 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx168.i.i = getelementptr %struct.cchar_t, ptr %96, i64 %indvars.iv71.i.i
   %97 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx169.i.i = getelementptr %struct.cchar_t, ptr %97, i64 114
+  %arrayidx169.i.i = getelementptr i8, ptr %97, i64 3192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx168.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx169.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -913,7 +908,7 @@ sw.bb170.i.i:                                     ; preds = %get_ucs.exit.i.i
   %98 = load ptr, ptr @vga_to_curses, align 8
   %arrayidx172.i.i = getelementptr %struct.cchar_t, ptr %98, i64 %indvars.iv71.i.i
   %99 = load ptr, ptr @_nc_wacs, align 8
-  %arrayidx173.i.i = getelementptr %struct.cchar_t, ptr %99, i64 115
+  %arrayidx173.i.i = getelementptr i8, ptr %99, i64 3220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %arrayidx172.i.i, ptr noundef nonnull align 4 dereferenceable(28) %arrayidx173.i.i, i64 28, i1 false)
   br label %for.inc174.i.i
 
@@ -949,7 +944,7 @@ curses_keyboard_setup.exit:                       ; preds = %curses_setup.exit, 
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %winch.i)
   %call11 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #15
   store ptr %call11, ptr @dcl, align 8
-  %ops = getelementptr inbounds %struct.DisplayChangeListener, ptr %call11, i64 0, i32 1
+  %ops = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr @dcl_ops, ptr %ops, align 8
   call void @register_displaychangelistener(ptr noundef %call11) #12
   store i1 true, ptr @invalidate, align 4
@@ -1073,7 +1068,7 @@ if.then10:                                        ; preds = %if.end
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr inbounds [2 x i32], ptr %wch, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %wch, i64 4
   store i32 0, ptr %arrayidx16, align 4
   %7 = load ptr, ptr @vga_to_curses, align 8
   %idxprom = zext i8 %fch to i64
@@ -1136,7 +1131,7 @@ if.end.i:                                         ; preds = %entry
 curses_winch_check.exit.thread:                   ; preds = %if.end.i
   %1 = load i16, ptr %ws.i, align 2
   %conv.i = zext i16 %1 to i32
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %ws.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
   %2 = load i16, ptr %ws_col.i, align 2
   %conv3.i = zext i16 %2 to i32
   %call4.i = call i32 @resize_term(i32 noundef %conv.i, i32 noundef %conv3.i) #12
@@ -1565,7 +1560,7 @@ for.cond2.preheader.lr.ph:                        ; preds = %entry
   %mul = mul i32 %2, %y
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %1, i64 %idx.ext
-  %arrayidx24 = getelementptr inbounds [5 x i32], ptr %wch, i64 0, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %wch, i64 4
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %for.cond2.preheader.lr.ph, %for.inc33

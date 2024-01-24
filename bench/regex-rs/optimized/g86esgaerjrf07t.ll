@@ -45,7 +45,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state5State18iter_nfa_
   %.fca.0.extract = extractvalue { ptr, i64 } %5, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %5, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
@@ -424,7 +424,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state4Repr22iter_match
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !5
   %12 = tail call i64 @_ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17hafcfec48e9d5c790E(ptr nonnull align 8 %0)
   %13 = tail call { ptr, i64 } @"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17hdc5f6d3186aa7762E"(ptr nonnull align 1 %9, i64 %11, i64 13, i64 %12, ptr nonnull align 8 @anon.6114a372218daab6ffd752f35d48dbb4.4)
@@ -470,7 +470,7 @@ define hidden void @_ZN14regex_automata4util11determinize5state4Repr22iter_match
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h09f1d853daab783bE(ptr align 8 %0, ptr align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = tail call i64 @_ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17hafcfec48e9d5c790E(ptr nonnull align 8 %0)
   %7 = tail call { ptr, i64 } @"_ZN4core5slice5index74_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$$u5b$T$u5d$$GT$5index17hf54d9d82d97cdc59E"(ptr nonnull align 1 %3, i64 %5, i64 %6, ptr nonnull align 8 @anon.6114a372218daab6ffd752f35d48dbb4.7)

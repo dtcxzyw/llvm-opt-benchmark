@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl" }
 %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl" = type { %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
@@ -104,7 +103,7 @@ entry:
   %ref.tmp102 = alloca %struct.Source, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sources, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %args, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %args, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not215 = icmp eq ptr %0, %1
   br i1 %cmp.i.not215, label %for.cond84.preheader, label %while.body
@@ -127,7 +126,7 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp.not, label %if.end, label %while.end
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.0216, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0216, i64 32
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0216, ptr noundef nonnull @.str) #18
   %cmp.i32 = icmp eq i32 %call.i, 0
   br i1 %cmp.i32, label %while.end, label %if.end11
@@ -144,11 +143,11 @@ if.end11:                                         ; preds = %if.end
 
 if.then14:                                        ; preds = %if.end11
   store i8 1, ptr %ref.tmp15, align 8
-  %filename_.i = getelementptr inbounds %struct.Source, ptr %ref.tmp15, i64 0, i32 1
+  %filename_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #18
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %sources, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %sources, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %sources, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %sources, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -157,10 +156,10 @@ if.then.i.i:                                      ; preds = %if.then14
   %6 = load i8, ptr %ref.tmp15, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %4, align 8
-  %filename_.i.i.i.i.i = getelementptr inbounds %struct.Source, ptr %4, i64 0, i32 1
+  %filename_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i) #18
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %struct.Source, ptr %8, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont18
 
@@ -316,9 +315,9 @@ for.cond84.preheader:                             ; preds = %entry, %while.end
   br i1 %cmp.i52.not244, label %for.end99, label %for.body89.lr.ph
 
 for.body89.lr.ph:                                 ; preds = %for.cond84.preheader
-  %filename_.i53 = getelementptr inbounds %struct.Source, ptr %ref.tmp90, i64 0, i32 1
-  %_M_finish.i.i55 = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %sources, i64 0, i32 1
-  %_M_end_of_storage.i.i56 = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %sources, i64 0, i32 2
+  %filename_.i53 = getelementptr inbounds i8, ptr %ref.tmp90, i64 8
+  %_M_finish.i.i55 = getelementptr inbounds i8, ptr %sources, i64 8
+  %_M_end_of_storage.i.i56 = getelementptr inbounds i8, ptr %sources, i64 16
   br label %for.body89
 
 if.then80:                                        ; preds = %while.end
@@ -342,10 +341,10 @@ if.then.i.i58:                                    ; preds = %invoke.cont92
   %24 = load i8, ptr %ref.tmp90, align 8
   %25 = and i8 %24, 1
   store i8 %25, ptr %22, align 8
-  %filename_.i.i.i.i.i59 = getelementptr inbounds %struct.Source, ptr %22, i64 0, i32 1
+  %filename_.i.i.i.i.i59 = getelementptr inbounds i8, ptr %22, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i59, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i53) #18
   %26 = load ptr, ptr %_M_finish.i.i55, align 8
-  %incdec.ptr.i.i61 = getelementptr inbounds %struct.Source, ptr %26, i64 1
+  %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %26, i64 40
   store ptr %incdec.ptr.i.i61, ptr %_M_finish.i.i55, align 8
   br label %invoke.cont94
 
@@ -355,7 +354,7 @@ if.else.i.i62:                                    ; preds = %invoke.cont92
 
 invoke.cont94:                                    ; preds = %if.then.i.i58, %if.else.i.i62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i53) #18
-  %incdec.ptr.i66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %it.sroa.0.2245, i64 1
+  %incdec.ptr.i66 = getelementptr inbounds i8, ptr %it.sroa.0.2245, i64 32
   %27 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i52.not = icmp eq ptr %incdec.ptr.i66, %27
   br i1 %cmp.i52.not, label %for.end99, label %for.body89, !llvm.loop !10
@@ -368,17 +367,17 @@ lpad93:                                           ; preds = %if.else.i.i62
 
 for.end99:                                        ; preds = %invoke.cont94, %for.cond84.preheader
   %29 = load ptr, ptr %sources, align 8
-  %_M_finish.i.i68 = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %sources, i64 0, i32 1
+  %_M_finish.i.i68 = getelementptr inbounds i8, ptr %sources, i64 8
   %30 = load ptr, ptr %_M_finish.i.i68, align 8
   %cmp.i.i = icmp eq ptr %29, %30
   br i1 %cmp.i.i, label %if.then101, label %if.end106
 
 if.then101:                                       ; preds = %for.end99
   store i8 1, ptr %ref.tmp102, align 8
-  %filename_.i69 = getelementptr inbounds %struct.Source, ptr %ref.tmp102, i64 0, i32 1
+  %filename_.i69 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i69) #18
   %31 = load ptr, ptr %_M_finish.i.i68, align 8
-  %_M_end_of_storage.i.i71 = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %sources, i64 0, i32 2
+  %_M_end_of_storage.i.i71 = getelementptr inbounds i8, ptr %sources, i64 16
   %32 = load ptr, ptr %_M_end_of_storage.i.i71, align 8
   %cmp.not.i.i72 = icmp eq ptr %31, %32
   br i1 %cmp.not.i.i72, label %if.else.i.i77, label %if.then.i.i73
@@ -387,10 +386,10 @@ if.then.i.i73:                                    ; preds = %if.then101
   %33 = load i8, ptr %ref.tmp102, align 8
   %34 = and i8 %33, 1
   store i8 %34, ptr %31, align 8
-  %filename_.i.i.i.i.i74 = getelementptr inbounds %struct.Source, ptr %31, i64 0, i32 1
+  %filename_.i.i.i.i.i74 = getelementptr inbounds i8, ptr %31, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i74, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i69) #18
   %35 = load ptr, ptr %_M_finish.i.i68, align 8
-  %incdec.ptr.i.i76 = getelementptr inbounds %struct.Source, ptr %35, i64 1
+  %incdec.ptr.i.i76 = getelementptr inbounds i8, ptr %35, i64 40
   store ptr %incdec.ptr.i.i76, ptr %_M_finish.i.i68, align 8
   br label %invoke.cont105
 
@@ -418,9 +417,9 @@ if.then108:                                       ; preds = %if.end106
   br i1 %cmp.i88.not250, label %cleanup, label %for.body115.lr.ph
 
 for.body115.lr.ph:                                ; preds = %if.then108
-  %filename_.i39.i = getelementptr inbounds %struct.Source, ptr %target_source.i, i64 0, i32 1
-  %filename_.i44.i = getelementptr inbounds %struct.Source, ptr %ref.tmp94.i, i64 0, i32 1
-  %filename_.i40.i = getelementptr inbounds %struct.Source, ptr %ref.tmp89.i, i64 0, i32 1
+  %filename_.i39.i = getelementptr inbounds i8, ptr %target_source.i, i64 8
+  %filename_.i44.i = getelementptr inbounds i8, ptr %ref.tmp94.i, i64 8
+  %filename_.i40.i = getelementptr inbounds i8, ptr %ref.tmp89.i, i64 8
   %39 = and i8 %check_args.sroa.3.0196334, 1
   %tobool111.not.i = icmp eq i8 %39, 0
   %40 = and i8 %check_args.sroa.0.0200333, 1
@@ -460,7 +459,7 @@ lpad.i:                                           ; preds = %if.end13.i, %if.the
   br label %ehcleanup161.i
 
 if.else.i:                                        ; preds = %for.body115
-  %filename_.i.i = getelementptr inbounds %struct.Source, ptr %__begin2.sroa.0.0247, i64 0, i32 1
+  %filename_.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0247, i64 8
   %call4.i = invoke fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %fd.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i)
           to label %invoke.cont3.i unwind label %lpad.i
 
@@ -497,7 +496,7 @@ if.end25.lr.ph.lr.ph.lr.ph.i:                     ; preds = %invoke.cont14.i
   %add46.i = or disjoint i64 %mul.i, 1
   %arrayidx47.i = getelementptr inbounds [4228 x i8], ptr %line.i, i64 0, i64 %add46.i
   %arrayidx81.i = getelementptr inbounds [4228 x i8], ptr %line.i, i64 0, i64 %add.i
-  %filename_.i38.i = getelementptr inbounds %struct.Source, ptr %__begin2.sroa.0.0247, i64 0, i32 1
+  %filename_.i38.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0247, i64 8
   br label %if.end25.lr.ph.lr.ph.i
 
 if.end25.lr.ph.lr.ph.i:                           ; preds = %if.end63.i, %if.end25.lr.ph.lr.ph.lr.ph.i
@@ -782,7 +781,7 @@ if.then146.i:                                     ; preds = %if.end144.i
   br i1 %tobool.i52.not.i, label %cond.false150.i, label %cond.end154.i
 
 cond.false150.i:                                  ; preds = %if.then146.i
-  %filename_.i53.i = getelementptr inbounds %struct.Source, ptr %__begin2.sroa.0.0247, i64 0, i32 1
+  %filename_.i53.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0247, i64 8
   %call153.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i53.i) #18
   br label %cond.end154.i
 
@@ -829,7 +828,7 @@ invoke.cont117:                                   ; preds = %if.then.i55.i, %cle
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp103.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp105.i)
   %tobool122 = select i1 %retval.068.i, i1 %ok.0248, i1 false
-  %incdec.ptr.i86 = getelementptr inbounds %struct.Source, ptr %__begin2.sroa.0.0247, i64 1
+  %incdec.ptr.i86 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0247, i64 40
   %cmp.i83.not = icmp eq ptr %incdec.ptr.i86, %38
   br i1 %cmp.i83.not, label %cleanup, label %for.body115
 
@@ -861,7 +860,7 @@ if.end.i92:                                       ; preds = %invoke.cont.i
   br i1 %tobool.i.not.i93, label %cond.false.i97, label %cond.end.i94
 
 cond.false.i97:                                   ; preds = %if.end.i92
-  %filename_.i.i98 = getelementptr inbounds %struct.Source, ptr %__begin2128.sroa.0.0251, i64 0, i32 1
+  %filename_.i.i98 = getelementptr inbounds i8, ptr %__begin2128.sroa.0.0251, i64 8
   %call4.i99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i98) #18
   br label %cond.end.i94
 
@@ -874,23 +873,23 @@ invoke.cont139:                                   ; preds = %cond.end.i94, %invo
   %tobool145 = phi i1 [ %ok.1252, %cond.end.i94 ], [ false, %invoke.cont.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hex_digest.i) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hex_digest.i)
-  %incdec.ptr.i102 = getelementptr inbounds %struct.Source, ptr %__begin2128.sroa.0.0251, i64 1
+  %incdec.ptr.i102 = getelementptr inbounds i8, ptr %__begin2128.sroa.0.0251, i64 40
   %cmp.i88.not = icmp eq ptr %incdec.ptr.i102, %38
   br i1 %cmp.i88.not, label %cleanup, label %for.body136
 
 cleanup:                                          ; preds = %invoke.cont117, %invoke.cont139, %if.else126, %if.then108, %if.then80, %if.else67, %sw.default
   %retval.0 = phi i1 [ false, %if.then80 ], [ false, %sw.default ], [ false, %if.else67 ], [ true, %if.else126 ], [ true, %if.then108 ], [ %tobool145, %invoke.cont139 ], [ %tobool122, %invoke.cont117 ]
   %71 = load ptr, ptr %sources, align 8
-  %_M_finish.i103 = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %sources, i64 0, i32 1
+  %_M_finish.i103 = getelementptr inbounds i8, ptr %sources, i64 8
   %72 = load ptr, ptr %_M_finish.i103, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %71, %72
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i104, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %71, %cleanup ]
-  %filename_.i.i.i.i.i.i = getelementptr inbounds %struct.Source, ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %filename_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i.i) #18
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %struct.Source, ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %72
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !12
 
@@ -989,16 +988,16 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define linkonce_odr hidden void @_ZNSt6vectorI6SourceSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
-  %filename_.i.i.i.i.i = getelementptr inbounds %struct.Source, ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %filename_.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i) #18
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.Source, ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !12
 
@@ -1025,7 +1024,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorI6SourceSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1062,8 +1061,8 @@ _ZNSt12_Vector_baseI6SourceSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vecto
   %3 = load i8, ptr %__args, align 8
   %4 = and i8 %3, 1
   store i8 %4, ptr %add.ptr, align 8
-  %filename_.i.i.i = getelementptr inbounds %struct.Source, ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  %filename_3.i.i.i = getelementptr inbounds %struct.Source, ptr %__args, i64 0, i32 1
+  %filename_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %filename_3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i) #18
   %cmp.not5.i.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorI6SourceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i.i
@@ -1076,18 +1075,18 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i8, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !16, !noalias !13
   %6 = and i8 %5, 1
   store i8 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !13, !noalias !16
-  %filename_.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.Source, ptr %__cur.07.i.i.i.i, i64 0, i32 1
-  %filename_3.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.Source, ptr %__first.addr.06.i.i.i.i, i64 0, i32 1
+  %filename_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
+  %filename_3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i.i.i.i.i.i) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i.i.i.i.i.i) #18
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %struct.Source, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %struct.Source, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 40
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI6SourceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorI6SourceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseI6SourceSaIS0_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseI6SourceSaIS0_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %struct.Source, ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 40
   %cmp.not5.i.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i11, label %_ZNSt6vectorI6SourceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, label %for.body.i.i.i.i12
 
@@ -1099,12 +1098,12 @@ for.body.i.i.i.i12:                               ; preds = %_ZNSt6vectorI6Sourc
   %7 = load i8, ptr %__first.addr.06.i.i.i.i14, align 8, !alias.scope !22, !noalias !19
   %8 = and i8 %7, 1
   store i8 %8, ptr %__cur.07.i.i.i.i13, align 8, !alias.scope !19, !noalias !22
-  %filename_.i.i.i.i.i.i.i.i15 = getelementptr inbounds %struct.Source, ptr %__cur.07.i.i.i.i13, i64 0, i32 1
-  %filename_3.i.i.i.i.i.i.i.i16 = getelementptr inbounds %struct.Source, ptr %__first.addr.06.i.i.i.i14, i64 0, i32 1
+  %filename_.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 8
+  %filename_3.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i.i.i.i.i.i.i.i15, ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i.i.i.i.i.i16) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename_3.i.i.i.i.i.i.i.i16) #18
-  %incdec.ptr.i.i.i.i17 = getelementptr inbounds %struct.Source, ptr %__first.addr.06.i.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i.i18 = getelementptr inbounds %struct.Source, ptr %__cur.07.i.i.i.i13, i64 1
+  %incdec.ptr.i.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i13, i64 40
   %cmp.not.i.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i.i17, %0
   br i1 %cmp.not.i.i.i.i19, label %_ZNSt6vectorI6SourceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, label %for.body.i.i.i.i12, !llvm.loop !18
 
@@ -1118,7 +1117,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorI6Sourc
   br label %_ZNSt12_Vector_baseI6SourceSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI6SourceSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI6SourceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Source, std::allocator<Source>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %struct.Source, ptr %cond.i10, i64 %cond.i
@@ -1194,7 +1193,7 @@ if.then7:                                         ; preds = %if.end
   br label %if.then.i
 
 if.end12:                                         ; preds = %if.end
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %4 = load i32, ptr %st_mode, align 8
   %and = and i32 %4, 61440
   %cmp13 = icmp eq i32 %and, 32768
@@ -1276,7 +1275,7 @@ if.then:                                          ; preds = %entry
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  %filename_.i = getelementptr inbounds %struct.Source, ptr %source, i64 0, i32 1
+  %filename_.i = getelementptr inbounds i8, ptr %source, i64 8
   %call2 = invoke fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %fd, ptr noundef nonnull align 8 dereferenceable(32) %filename_.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1367,7 +1366,7 @@ if.then25:                                        ; preds = %if.else23, %land.rh
   br i1 %tobool.i15.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.then25
-  %filename_.i16 = getelementptr inbounds %struct.Source, ptr %source, i64 0, i32 1
+  %filename_.i16 = getelementptr inbounds i8, ptr %source, i64 8
   %call28 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename_.i16) #18
   br label %cond.end
 

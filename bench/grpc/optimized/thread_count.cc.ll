@@ -7,11 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.absl::lts_20230802::Time" = type { %"class.absl::lts_20230802::Duration" }
 %"class.absl::lts_20230802::Duration" = type { %"class.absl::lts_20230802::Duration::HiRep", i32 }
 %"class.absl::lts_20230802::Duration::HiRep" = type { i32, i32 }
-%"class.grpc_event_engine::experimental::LivingThreadCount" = type { %"class.absl::lts_20230802::Mutex", %"class.absl::lts_20230802::CondVar", i64 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.absl::lts_20230802::CondVar" = type { %"struct.std::atomic" }
 
 $__clang_call_terminate = comdat any
 
@@ -85,8 +80,8 @@ entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %lhs.i, align 8
   %retval.sroa.2.0.copyload.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i)
-  %living_count_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::LivingThreadCount", ptr %this, i64 0, i32 2
-  %cv_ = getelementptr inbounds %"class.grpc_event_engine::experimental::LivingThreadCount", ptr %this, i64 0, i32 1
+  %living_count_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
   %add18.i.i = add i32 %retval.sroa.2.0.copyload.i, 1
   %cmp12.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, -9223372036854775808
   br label %do.body

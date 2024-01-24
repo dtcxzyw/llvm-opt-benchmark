@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.POLICY_MAPPING_st = type { ptr, ptr }
-%struct.conf_value_st = type { ptr, ptr, ptr }
 
 @POLICY_MAPPINGS_it = hidden constant %struct.ASN1_ITEM_st { i8 0, i64 -1, ptr @POLICY_MAPPINGS_item_tt, i64 0, ptr null, i64 0, ptr @.str.1 }, align 8
 @v3_policy_mappings = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 747, i32 0, ptr @POLICY_MAPPINGS_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_POLICY_MAPPINGS, ptr @v2i_POLICY_MAPPINGS, ptr null, ptr null, ptr null }, align 8
@@ -40,7 +38,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call1 = call ptr @sk_value(ptr noundef %a, i64 noundef %i.07) #2
   %0 = load ptr, ptr %call1, align 8
   %call2 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %obj_tmp1, i32 noundef 80, ptr noundef %0) #2
-  %subjectDomainPolicy = getelementptr inbounds %struct.POLICY_MAPPING_st, ptr %call1, i64 0, i32 1
+  %subjectDomainPolicy = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %subjectDomainPolicy, align 8
   %call4 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %obj_tmp2, i32 noundef 80, ptr noundef %1) #2
   %call7 = call i32 @X509V3_add_value(ptr noundef nonnull %obj_tmp1, ptr noundef nonnull %obj_tmp2, ptr noundef nonnull %ext_list.addr) #2
@@ -77,13 +75,13 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end24
   %i.030 = phi i64 [ %inc, %if.end24 ], [ 0, %for.cond.preheader ]
   %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.030) #2
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call2, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call2, i64 8
   %1 = load ptr, ptr %name, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.then5, label %if.end8
@@ -92,7 +90,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %for
   tail call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @POLICY_MAPPING_free) #2
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str.4, i32 noundef 131) #2
   %2 = load ptr, ptr %call2, align 8
-  %name6 = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name6 = getelementptr inbounds i8, ptr %call2, i64 8
   %3 = load ptr, ptr %name6, align 8
   %4 = load ptr, ptr %value, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef nonnull @.str.7, ptr noundef %4) #2
@@ -108,7 +106,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   br i1 %or.cond, label %if.end20, label %if.then16
 
 if.then16:                                        ; preds = %if.end8
-  %name.le = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name.le = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @POLICY_MAPPING_free) #2
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str.4, i32 noundef 139) #2
   %6 = load ptr, ptr %call2, align 8
@@ -129,7 +127,7 @@ if.then23:                                        ; preds = %if.end20
 
 if.end24:                                         ; preds = %if.end20
   store ptr %call10, ptr %call.i, align 8
-  %subjectDomainPolicy = getelementptr inbounds %struct.POLICY_MAPPING_st, ptr %call.i, i64 0, i32 1
+  %subjectDomainPolicy = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call12, ptr %subjectDomainPolicy, align 8
   %call25 = tail call i64 @sk_push(ptr noundef nonnull %call, ptr noundef nonnull %call.i) #2
   %inc = add nuw i64 %i.030, 1

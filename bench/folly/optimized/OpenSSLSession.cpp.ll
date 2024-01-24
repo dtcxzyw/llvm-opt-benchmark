@@ -13,16 +13,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic.7" = type { %"struct.std::__atomic_base.8" }
 %"struct.std::__atomic_base.8" = type { ptr }
 %"struct.folly::SharedMutexImpl<false>::WaitForever" = type { i8 }
-%"class.folly::ssl::detail::OpenSSLSession" = type { %"class.folly::ssl::SSLSession", %"struct.folly::Synchronized" }
-%"class.folly::ssl::SSLSession" = type { ptr }
-%"struct.folly::Synchronized" = type <{ %"class.std::unique_ptr", %"class.folly::SharedMutexImpl", [4 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
 %"class.folly::LockedPtr.6" = type { %"class.std::shared_lock" }
 %"class.std::shared_lock" = type <{ ptr, %"struct.folly::SharedMutexToken", [4 x i8] }>
 %"struct.folly::SharedMutexToken" = type { i16, i16 }
@@ -67,8 +63,8 @@ entry:
   %state.i.i.i.i.i = alloca i32, align 4
   %state.i.i.i.i.i.i.i = alloca i32, align 4
   %ctx.i.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  %activeSession_ = getelementptr inbounds %"class.folly::ssl::detail::OpenSSLSession", ptr %this, i64 0, i32 1
-  %mutex_.i.i.i = getelementptr inbounds %"class.folly::ssl::detail::OpenSSLSession", ptr %this, i64 0, i32 1, i32 1
+  %activeSession_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #9, !noalias !7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #9, !noalias !7
   %0 = load atomic i32, ptr %mutex_.i.i.i acquire, align 8, !noalias !7
@@ -586,11 +582,11 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #9, !noalias !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %mutex_.i.i.i = getelementptr inbounds %"class.folly::ssl::detail::OpenSSLSession", ptr %this, i64 0, i32 1, i32 1
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !tbaa !33, !alias.scope !30, !noalias !27
-  %token_.i3.i.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %ref.tmp.i, i64 0, i32 1
+  %token_.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i16 0, ptr %token_.i3.i.i.i, align 8, !tbaa !38, !alias.scope !30, !noalias !27
-  %slot_.i.i4.i.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %ref.tmp.i, i64 0, i32 1, i32 1
+  %slot_.i.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 10
   store i16 0, ptr %slot_.i.i4.i.i.i, align 2, !tbaa !39, !alias.scope !30, !noalias !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i.i.i.i.i.i) #9, !noalias !40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i.i.i.i.i) #9, !noalias !40
@@ -730,7 +726,7 @@ lpad.i:                                           ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt10unique_ptrI14ssl_session_stNS_23static_function_deleterIS3_XadL_Z16SSL_SESSION_freeEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSD_22SynchronizedMutexLevelE2ELNSD_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %token_.i.i = getelementptr inbounds %"class.std::shared_lock", ptr %this, i64 0, i32 1
+  %token_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i16, ptr %token_.i.i, align 8, !tbaa !38
   %cmp.i.i.not.i = icmp eq i16 %0, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolicyDefaultEEEED2Ev.exit, label %if.then.i
@@ -954,7 +950,7 @@ if.end72.thread:                                  ; preds = %seqcst_fail50.i142
 if.then77:                                        ; preds = %if.end72
   store i16 3, ptr %token, align 2, !tbaa !38
   %conv79 = trunc i32 %slot.2.ph to i16
-  %slot_ = getelementptr inbounds %"struct.folly::SharedMutexToken", ptr %token, i64 0, i32 1
+  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
   store i16 %conv79, ptr %slot_, align 2, !tbaa !39
   br label %cleanup99
 

@@ -6,20 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.trace_key = type { ptr, i32, i8 }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
-%struct.index_state = type { ptr, i32, i32, i32, i32, ptr, ptr, ptr, %struct.cache_time, i8, i32, %struct.hashmap, %struct.hashmap, %struct.object_id, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.cache_time = type { i32, i32 }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.object_id = type { [32 x i8], i32 }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.lazy_dir_thread_data = type { i64, ptr, ptr, i32, i32 }
-%struct.lazy_name_thread_data = type { i64, ptr, ptr }
 %struct.lazy_entry = type { ptr, i32, i32 }
 %struct.dir_entry = type { %struct.hashmap_entry, ptr, i32, i32, [0 x i8] }
 %struct.hashmap_entry = type { ptr, i32 }
-%struct.cache_entry = type { %struct.hashmap_entry, %struct.stat_data, i32, i32, i32, i32, i32, %struct.object_id, [0 x i8] }
-%struct.stat_data = type { %struct.cache_time, %struct.cache_time, i32, i32, i32, i32, i32 }
 
 @lazy_nr_dir_threads = internal unnamed_addr global i32 0, align 4
 @lazy_try_threaded = internal unnamed_addr global i32 1, align 4
@@ -58,7 +51,7 @@ entry:
 define internal fastcc void @lazy_init_name_hash(ptr noundef %istate) unnamed_addr #0 {
 entry:
   %iter.i = alloca %struct.hashmap_iter, align 8
-  %name_hash_initialized = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 9
+  %name_hash_initialized = getelementptr inbounds i8, ptr %istate, i64 56
   %bf.load = load i8, ptr %name_hash_initialized, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -66,15 +59,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @trace_performance_enter() #13
-  %repo = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 19
+  %repo = getelementptr inbounds i8, ptr %istate, i64 240
   %0 = load ptr, ptr %repo, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 591, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %0) #13
-  %name_hash = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 11
-  %cache_nr = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 2
+  %name_hash = getelementptr inbounds i8, ptr %istate, i64 64
+  %cache_nr = getelementptr inbounds i8, ptr %istate, i64 12
   %1 = load i32, ptr %cache_nr, align 4
   %conv = zext i32 %1 to i64
   tail call void @hashmap_init(ptr noundef nonnull %name_hash, ptr noundef nonnull @cache_entry_cmp, ptr noundef null, i64 noundef %conv) #13
-  %dir_hash = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12
+  %dir_hash = getelementptr inbounds i8, ptr %istate, i64 112
   %2 = load i32, ptr %cache_nr, align 4
   %conv2 = zext i32 %2 to i64
   tail call void @hashmap_init(ptr noundef nonnull %dir_hash, ptr noundef nonnull @dir_entry_cmp, ptr noundef null, i64 noundef %conv2) #13
@@ -109,7 +102,7 @@ if.then5:                                         ; preds = %if.end3.i
   %div.i = udiv i32 %.pre48, 2000
   %nr_cpus.0.i = select i1 %cmp10.i, i32 %div.i, i32 %call.i
   store i32 %nr_cpus.0.i, ptr @lazy_nr_dir_threads, align 4
-  %do_count_items.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12, i32 7
+  %do_count_items.i = getelementptr inbounds i8, ptr %istate, i64 152
   %bf.load.i = load i8, ptr %do_count_items.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %do_count_items.i, align 8
@@ -155,16 +148,16 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %k_start.047.i = phi i32 [ %spec.select.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %add.ptr.i = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %call3.i, i64 %indvars.iv.i
-  %istate6.i = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %call3.i, i64 %indvars.iv.i, i32 1
+  %istate6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store ptr %istate, ptr %istate6.i, align 8
-  %lazy_entries7.i = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %call3.i, i64 %indvars.iv.i, i32 2
+  %lazy_entries7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   store ptr %call.i18, ptr %lazy_entries7.i, align 8
-  %k_start8.i = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %call3.i, i64 %indvars.iv.i, i32 3
+  %k_start8.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   store i32 %k_start.047.i, ptr %k_start8.i, align 8
   %add9.i = add nsw i32 %k_start.047.i, %div.i19
   %12 = load i32, ptr %cache_nr, align 4
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %add9.i, i32 %12)
-  %k_end.i = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %call3.i, i64 %indvars.iv.i, i32 4
+  %k_end.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
   store i32 %spec.select.i, ptr %k_end.i, align 4
   %call14.i = tail call i32 @pthread_create(ptr noundef %add.ptr.i, ptr noundef null, ptr noundef nonnull @lazy_dir_thread_proc, ptr noundef %add.ptr.i) #13
   %tobool.not.i20 = icmp eq i32 %call14.i, 0
@@ -196,9 +189,9 @@ if.then29.i:                                      ; preds = %for.body22.i
   unreachable
 
 for.end33.i:                                      ; preds = %for.cond19.i, %for.cond19.preheader.i, %for.cond.preheader.i
-  %istate34.i = getelementptr inbounds %struct.lazy_name_thread_data, ptr %call4.i, i64 0, i32 1
+  %istate34.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   store ptr %istate, ptr %istate34.i, align 8
-  %lazy_entries35.i = getelementptr inbounds %struct.lazy_name_thread_data, ptr %call4.i, i64 0, i32 2
+  %lazy_entries35.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   store ptr %call.i18, ptr %lazy_entries35.i, align 8
   %call37.i = tail call i32 @pthread_create(ptr noundef %call4.i, ptr noundef null, ptr noundef nonnull @lazy_name_thread_proc, ptr noundef %call4.i) #13
   %tobool38.not.i = icmp eq i32 %call37.i, 0
@@ -224,7 +217,7 @@ for.body.i35.i:                                   ; preds = %if.end42.i, %for.in
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i35.i
-  %nr.i.i = getelementptr inbounds %struct.dir_entry, ptr %18, i64 0, i32 2
+  %nr.i.i = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load i32, ptr %nr.i.i, align 8
   %inc.i.i = add nsw i32 %19, 1
   store i32 %inc.i.i, ptr %nr.i.i, align 8
@@ -286,7 +279,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %bf.load3.i = load i8, ptr %do_count_items.i, align 8
   %bf.set.i = or i8 %bf.load3.i, 1
   store i8 %bf.set.i, ptr %do_count_items.i, align 8
-  %private_size.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12, i32 3
+  %private_size.i = getelementptr inbounds i8, ptr %istate, i64 136
   store i32 %n.0.i, ptr %private_size.i, align 8
   br label %hashmap_enable_item_counting.exit
 
@@ -299,7 +292,7 @@ for.body:                                         ; preds = %lookup_lazy_params.
   %25 = load ptr, ptr %istate, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
   %26 = load ptr, ptr %arrayidx, align 8
-  %ce_flags.i = getelementptr inbounds %struct.cache_entry, ptr %26, i64 0, i32 3
+  %ce_flags.i = getelementptr inbounds i8, ptr %26, i64 56
   %27 = load i32, ptr %ce_flags.i, align 8
   %and.i = and i32 %27, 1048576
   %tobool.not.i28 = icmp eq i32 %and.i, 0
@@ -308,18 +301,18 @@ for.body:                                         ; preds = %lookup_lazy_params.
 if.end.i29:                                       ; preds = %for.body
   %or.i = or disjoint i32 %27, 1048576
   store i32 %or.i, ptr %ce_flags.i, align 8
-  %ce_mode.i = getelementptr inbounds %struct.cache_entry, ptr %26, i64 0, i32 2
+  %ce_mode.i = getelementptr inbounds i8, ptr %26, i64 52
   %28 = load i32, ptr %ce_mode.i, align 4
   %cmp.i30 = icmp eq i32 %28, 16384
   br i1 %cmp.i30, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i29
-  %name.i = getelementptr inbounds %struct.cache_entry, ptr %26, i64 0, i32 8
-  %ce_namelen.i = getelementptr inbounds %struct.cache_entry, ptr %26, i64 0, i32 5
+  %name.i = getelementptr inbounds i8, ptr %26, i64 108
+  %ce_namelen.i = getelementptr inbounds i8, ptr %26, i64 64
   %29 = load i32, ptr %ce_namelen.i, align 8
   %conv.i31 = zext i32 %29 to i64
   %call.i32 = tail call i32 @memihash(ptr noundef nonnull %name.i, i64 noundef %conv.i31) #13
-  %hash1.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %26, i64 0, i32 1
+  %hash1.i.i = getelementptr inbounds i8, ptr %26, i64 8
   store i32 %call.i32, ptr %hash1.i.i, align 8
   store ptr null, ptr %26, align 8
   tail call void @hashmap_add(ptr noundef nonnull %name_hash, ptr noundef nonnull %26) #13
@@ -331,7 +324,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %tobool5.not.i, label %hash_index_entry.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %ce_namelen.i.i = getelementptr inbounds %struct.cache_entry, ptr %26, i64 0, i32 5
+  %ce_namelen.i.i = getelementptr inbounds i8, ptr %26, i64 64
   %31 = load i32, ptr %ce_namelen.i.i, align 8
   %call.i.i33 = tail call fastcc ptr @hash_dir_entry(ptr noundef nonnull %istate, ptr noundef nonnull %26, i32 noundef %31)
   %tobool.not4.i.i = icmp eq ptr %call.i.i33, null
@@ -339,7 +332,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 land.rhs.i.i:                                     ; preds = %if.then6.i, %while.body.i.i
   %dir.05.i.i = phi ptr [ %33, %while.body.i.i ], [ %call.i.i33, %if.then6.i ]
-  %nr.i.i34 = getelementptr inbounds %struct.dir_entry, ptr %dir.05.i.i, i64 0, i32 2
+  %nr.i.i34 = getelementptr inbounds i8, ptr %dir.05.i.i, i64 24
   %32 = load i32, ptr %nr.i.i34, align 8
   %inc.i.i35 = add nsw i32 %32, 1
   store i32 %inc.i.i35, ptr %nr.i.i34, align 8
@@ -347,7 +340,7 @@ land.rhs.i.i:                                     ; preds = %if.then6.i, %while.
   br i1 %tobool1.not.i.i, label %while.body.i.i, label %hash_index_entry.exit
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %parent.i.i = getelementptr inbounds %struct.dir_entry, ptr %dir.05.i.i, i64 0, i32 1
+  %parent.i.i = getelementptr inbounds i8, ptr %dir.05.i.i, i64 16
   %33 = load ptr, ptr %parent.i.i, align 8
   %tobool.not.i.i36 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i36, label %hash_index_entry.exit, label %land.rhs.i.i, !llvm.loop !12
@@ -385,14 +378,14 @@ do.end:                                           ; preds = %if.end10, %if.then1
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_name_hash(ptr noundef %istate, ptr noundef %ce) local_unnamed_addr #0 {
 entry:
-  %name_hash_initialized = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 9
+  %name_hash_initialized = getelementptr inbounds i8, ptr %istate, i64 56
   %bf.load = load i8, ptr %name_hash_initialized, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ce_flags.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 3
+  %ce_flags.i = getelementptr inbounds i8, ptr %ce, i64 56
   %0 = load i32, ptr %ce_flags.i, align 8
   %and.i = and i32 %0, 1048576
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -401,21 +394,21 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   %or.i = or disjoint i32 %0, 1048576
   store i32 %or.i, ptr %ce_flags.i, align 8
-  %ce_mode.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 2
+  %ce_mode.i = getelementptr inbounds i8, ptr %ce, i64 52
   %1 = load i32, ptr %ce_mode.i, align 4
   %cmp.i = icmp eq i32 %1, 16384
   br i1 %cmp.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %name.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 8
-  %ce_namelen.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 5
+  %name.i = getelementptr inbounds i8, ptr %ce, i64 108
+  %ce_namelen.i = getelementptr inbounds i8, ptr %ce, i64 64
   %2 = load i32, ptr %ce_namelen.i, align 8
   %conv.i = zext i32 %2 to i64
   %call.i = tail call i32 @memihash(ptr noundef nonnull %name.i, i64 noundef %conv.i) #13
-  %hash1.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %ce, i64 0, i32 1
+  %hash1.i.i = getelementptr inbounds i8, ptr %ce, i64 8
   store i32 %call.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %ce, align 8
-  %name_hash.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 11
+  %name_hash.i = getelementptr inbounds i8, ptr %istate, i64 64
   tail call void @hashmap_add(ptr noundef nonnull %name_hash.i, ptr noundef nonnull %ce) #13
   br label %if.end4.i
 
@@ -425,7 +418,7 @@ if.end4.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %tobool5.not.i, label %if.end, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %ce_namelen.i.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 5
+  %ce_namelen.i.i = getelementptr inbounds i8, ptr %ce, i64 64
   %4 = load i32, ptr %ce_namelen.i.i, align 8
   %call.i.i = tail call fastcc ptr @hash_dir_entry(ptr noundef nonnull %istate, ptr noundef nonnull %ce, i32 noundef %4)
   %tobool.not4.i.i = icmp eq ptr %call.i.i, null
@@ -433,7 +426,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 land.rhs.i.i:                                     ; preds = %if.then6.i, %while.body.i.i
   %dir.05.i.i = phi ptr [ %6, %while.body.i.i ], [ %call.i.i, %if.then6.i ]
-  %nr.i.i = getelementptr inbounds %struct.dir_entry, ptr %dir.05.i.i, i64 0, i32 2
+  %nr.i.i = getelementptr inbounds i8, ptr %dir.05.i.i, i64 24
   %5 = load i32, ptr %nr.i.i, align 8
   %inc.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i, ptr %nr.i.i, align 8
@@ -441,7 +434,7 @@ land.rhs.i.i:                                     ; preds = %if.then6.i, %while.
   br i1 %tobool1.not.i.i, label %while.body.i.i, label %if.end
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %parent.i.i = getelementptr inbounds %struct.dir_entry, ptr %dir.05.i.i, i64 0, i32 1
+  %parent.i.i = getelementptr inbounds i8, ptr %dir.05.i.i, i64 16
   %6 = load ptr, ptr %parent.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.end, label %land.rhs.i.i, !llvm.loop !12
@@ -453,14 +446,14 @@ if.end:                                           ; preds = %while.body.i.i, %la
 ; Function Attrs: nounwind uwtable
 define dso_local void @remove_name_hash(ptr noundef %istate, ptr noundef %ce) local_unnamed_addr #0 {
 entry:
-  %name_hash_initialized = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 9
+  %name_hash_initialized = getelementptr inbounds i8, ptr %istate, i64 56
   %bf.load = load i8, ptr %name_hash_initialized, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 3
+  %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
   %0 = load i32, ptr %ce_flags, align 8
   %and = and i32 %0, 1048576
   %tobool1.not = icmp eq i32 %and, 0
@@ -469,26 +462,26 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %and3 = and i32 %0, -1048577
   store i32 %and3, ptr %ce_flags, align 8
-  %name_hash = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 11
+  %name_hash = getelementptr inbounds i8, ptr %istate, i64 64
   %call = tail call ptr @hashmap_remove(ptr noundef nonnull %name_hash, ptr noundef nonnull %ce, ptr noundef nonnull %ce) #13
   %1 = load i32, ptr @ignore_case, align 4
   %tobool4.not = icmp eq i32 %1, 0
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %ce_namelen.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 5
+  %ce_namelen.i = getelementptr inbounds i8, ptr %ce, i64 64
   %2 = load i32, ptr %ce_namelen.i, align 8
   %call.i = tail call fastcc ptr @hash_dir_entry(ptr noundef nonnull %istate, ptr noundef nonnull %ce, i32 noundef %2)
   %tobool.not7.i = icmp eq ptr %call.i, null
   br i1 %tobool.not7.i, label %if.end6, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.then5
-  %dir_hash.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12
+  %dir_hash.i = getelementptr inbounds i8, ptr %istate, i64 112
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
   %dir.08.i = phi ptr [ %call.i, %land.rhs.lr.ph.i ], [ %4, %while.body.i ]
-  %nr.i = getelementptr inbounds %struct.dir_entry, ptr %dir.08.i, i64 0, i32 2
+  %nr.i = getelementptr inbounds i8, ptr %dir.08.i, i64 24
   %3 = load i32, ptr %nr.i, align 8
   %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %nr.i, align 8
@@ -496,7 +489,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %tobool1.not.i, label %while.body.i, label %if.end6
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %parent2.i = getelementptr inbounds %struct.dir_entry, ptr %dir.08.i, i64 0, i32 1
+  %parent2.i = getelementptr inbounds i8, ptr %dir.08.i, i64 16
   %4 = load ptr, ptr %parent2.i, align 8
   %call3.i = tail call ptr @hashmap_remove(ptr noundef nonnull %dir_hash.i, ptr noundef nonnull %dir.08.i, ptr noundef null) #13
   tail call void @free(ptr noundef nonnull %dir.08.i) #13
@@ -519,19 +512,19 @@ entry:
   %conv.i = zext i32 %namelen to i64
   %call.i = tail call i32 @memihash(ptr noundef %name, i64 noundef %conv.i) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key.i.i)
-  %hash1.i.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %key.i.i, i64 0, i32 1
+  %hash1.i.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 %call.i, ptr %hash1.i.i.i, align 8
   store ptr null, ptr %key.i.i, align 8
-  %namelen1.i.i = getelementptr inbounds %struct.dir_entry, ptr %key.i.i, i64 0, i32 3
+  %namelen1.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 28
   store i32 %namelen, ptr %namelen1.i.i, align 4
-  %dir_hash.i.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12
+  %dir_hash.i.i = getelementptr inbounds i8, ptr %istate, i64 112
   %call.i.i = call ptr @hashmap_get(ptr noundef nonnull %dir_hash.i.i, ptr noundef nonnull %key.i.i, ptr noundef %name) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i.i)
   %tobool.not = icmp eq ptr %call.i.i, null
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %nr = getelementptr inbounds %struct.dir_entry, ptr %call.i.i, i64 0, i32 2
+  %nr = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %0 = load i32, ptr %nr, align 8
   %tobool1 = icmp ne i32 %0, 0
   %1 = zext i1 %tobool1 to i32
@@ -557,9 +550,9 @@ entry:
 
 while.cond1.preheader.lr.ph:                      ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %name to i64
-  %hash1.i.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %key.i.i, i64 0, i32 1
-  %namelen1.i.i = getelementptr inbounds %struct.dir_entry, ptr %key.i.i, i64 0, i32 3
-  %dir_hash.i.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12
+  %hash1.i.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
+  %namelen1.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 28
+  %dir_hash.i.i = getelementptr inbounds i8, ptr %istate, i64 112
   br label %while.cond1.preheader
 
 while.cond1.preheader:                            ; preds = %while.cond1.preheader.lr.ph, %if.end22
@@ -597,7 +590,7 @@ if.then:                                          ; preds = %while.cond1
   br i1 %tobool11.not, label %if.end22, label %if.then12
 
 if.then12:                                        ; preds = %if.then
-  %name13 = getelementptr inbounds %struct.dir_entry, ptr %call.i.i, i64 0, i32 4
+  %name13 = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %sub.ptr.lhs.cast14 = ptrtoint ptr %startPtr.023 to i64
   %sub.ptr.sub16 = sub i64 %sub.ptr.lhs.cast14, %sub.ptr.rhs.cast
   %add.ptr = getelementptr inbounds i8, ptr %name13, i64 %sub.ptr.sub16
@@ -631,9 +624,9 @@ entry:
   %call = tail call i32 @memihash(ptr noundef %name, i64 noundef %conv) #13
   tail call fastcc void @lazy_init_name_hash(ptr noundef %istate)
   tail call void @expand_to_path(ptr noundef %istate, ptr noundef %name, i64 noundef %conv, i32 noundef %icase) #13
-  %name_hash = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 11
+  %name_hash = getelementptr inbounds i8, ptr %istate, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
-  %hash1.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %key.i, i64 0, i32 1
+  %hash1.i.i = getelementptr inbounds i8, ptr %key.i, i64 8
   store i32 %call, ptr %hash1.i.i, align 8
   store ptr null, ptr %key.i, align 8
   %call.i = call ptr @hashmap_get(ptr noundef nonnull %name_hash, ptr noundef nonnull %key.i, ptr noundef null) #13
@@ -647,13 +640,13 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %ce.018.us = phi ptr [ %call7.us, %for.inc.us ], [ %call.i, %for.body.lr.ph ]
-  %ce_namelen.i.us = getelementptr inbounds %struct.cache_entry, ptr %ce.018.us, i64 0, i32 5
+  %ce_namelen.i.us = getelementptr inbounds i8, ptr %ce.018.us, i64 64
   %0 = load i32, ptr %ce_namelen.i.us, align 8
   %cmp.i.us = icmp eq i32 %0, %namelen
   br i1 %cmp.i.us, label %land.lhs.true.i.us, label %for.inc.us
 
 land.lhs.true.i.us:                               ; preds = %for.body.us
-  %name1.i.us = getelementptr inbounds %struct.cache_entry, ptr %ce.018.us, i64 0, i32 8
+  %name1.i.us = getelementptr inbounds i8, ptr %ce.018.us, i64 108
   %bcmp.i.us = call i32 @bcmp(ptr %name, ptr nonnull %name1.i.us, i64 %conv)
   %tobool.not.i.us = icmp eq i32 %bcmp.i.us, 0
   br i1 %tobool.not.i.us, label %return, label %for.inc.us
@@ -669,7 +662,7 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
 
 for.body.us22:                                    ; preds = %for.body.lr.ph.split, %for.inc.us31
   %ce.018.us23 = phi ptr [ %call7.us32, %for.inc.us31 ], [ %call.i, %for.body.lr.ph.split ]
-  %ce_namelen.i.us24 = getelementptr inbounds %struct.cache_entry, ptr %ce.018.us23, i64 0, i32 5
+  %ce_namelen.i.us24 = getelementptr inbounds i8, ptr %ce.018.us23, i64 64
   %1 = load i32, ptr %ce_namelen.i.us24, align 8
   %cmp.i.us25 = icmp eq i32 %1, 0
   br i1 %cmp.i.us25, label %return, label %for.inc.us31
@@ -681,13 +674,13 @@ for.inc.us31:                                     ; preds = %for.body.us22
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
   %ce.018 = phi ptr [ %call7, %for.inc ], [ %call.i, %for.body.lr.ph.split ]
-  %ce_namelen.i = getelementptr inbounds %struct.cache_entry, ptr %ce.018, i64 0, i32 5
+  %ce_namelen.i = getelementptr inbounds i8, ptr %ce.018, i64 64
   %2 = load i32, ptr %ce_namelen.i, align 8
   %cmp.i = icmp eq i32 %2, %namelen
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %name1.i = getelementptr inbounds %struct.cache_entry, ptr %ce.018, i64 0, i32 8
+  %name1.i = getelementptr inbounds i8, ptr %ce.018, i64 108
   %bcmp.i = call i32 @bcmp(ptr %name, ptr nonnull %name1.i, i64 %conv)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i, label %return, label %while.body.i.i
@@ -745,7 +738,7 @@ declare ptr @hashmap_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_name_hash(ptr noundef %istate) local_unnamed_addr #0 {
 entry:
-  %name_hash_initialized = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 9
+  %name_hash_initialized = getelementptr inbounds i8, ptr %istate, i64 56
   %bf.load = load i8, ptr %name_hash_initialized, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -754,9 +747,9 @@ entry:
 if.end:                                           ; preds = %entry
   %bf.clear3 = and i8 %bf.load, -2
   store i8 %bf.clear3, ptr %name_hash_initialized, align 8
-  %name_hash = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 11
+  %name_hash = getelementptr inbounds i8, ptr %istate, i64 64
   tail call void @hashmap_clear_(ptr noundef nonnull %name_hash, i64 noundef -1) #13
-  %dir_hash = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12
+  %dir_hash = getelementptr inbounds i8, ptr %istate, i64 112
   tail call void @hashmap_clear_(ptr noundef nonnull %dir_hash, i64 noundef 0) #13
   br label %return
 
@@ -785,17 +778,17 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal i32 @dir_entry_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %keydata) #5 {
 entry:
-  %namelen = getelementptr inbounds %struct.dir_entry, ptr %eptr, i64 0, i32 3
+  %namelen = getelementptr inbounds i8, ptr %eptr, i64 28
   %0 = load i32, ptr %namelen, align 4
-  %namelen2 = getelementptr inbounds %struct.dir_entry, ptr %entry_or_key, i64 0, i32 3
+  %namelen2 = getelementptr inbounds i8, ptr %entry_or_key, i64 28
   %1 = load i32, ptr %namelen2, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %name3 = getelementptr inbounds %struct.dir_entry, ptr %eptr, i64 0, i32 4
+  %name3 = getelementptr inbounds i8, ptr %eptr, i64 32
   %tobool.not = icmp eq ptr %keydata, null
-  %name4 = getelementptr inbounds %struct.dir_entry, ptr %entry_or_key, i64 0, i32 4
+  %name4 = getelementptr inbounds i8, ptr %entry_or_key, i64 32
   %cond = select i1 %tobool.not, ptr %name4, ptr %keydata
   %conv = zext i32 %0 to i64
   %call = tail call i32 @strncasecmp(ptr noundef nonnull %name3, ptr noundef nonnull %cond, i64 noundef %conv) #15
@@ -829,13 +822,13 @@ define internal noalias noundef ptr @lazy_dir_thread_proc(ptr nocapture noundef 
 entry:
   %prefix = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prefix, ptr noundef nonnull align 8 dereferenceable(24) @__const.lazy_dir_thread_proc.prefix, i64 24, i1 false)
-  %istate = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %_data, i64 0, i32 1
+  %istate = getelementptr inbounds i8, ptr %_data, i64 8
   %0 = load ptr, ptr %istate, align 8
-  %k_start = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %_data, i64 0, i32 3
+  %k_start = getelementptr inbounds i8, ptr %_data, i64 24
   %1 = load i32, ptr %k_start, align 8
-  %k_end = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %_data, i64 0, i32 4
+  %k_end = getelementptr inbounds i8, ptr %_data, i64 28
   %2 = load i32, ptr %k_end, align 4
-  %lazy_entries = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %_data, i64 0, i32 2
+  %lazy_entries = getelementptr inbounds i8, ptr %_data, i64 16
   %3 = load ptr, ptr %lazy_entries, align 8
   %call = call fastcc i32 @handle_range_1(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %prefix, ptr noundef %3)
   call void @strbuf_release(ptr noundef nonnull %prefix) #13
@@ -874,15 +867,15 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @lazy_name_thread_proc(ptr nocapture noundef readonly %_data) #0 {
 entry:
-  %istate = getelementptr inbounds %struct.lazy_name_thread_data, ptr %_data, i64 0, i32 1
+  %istate = getelementptr inbounds i8, ptr %_data, i64 8
   %0 = load ptr, ptr %istate, align 8
-  %cache_nr9 = getelementptr inbounds %struct.index_state, ptr %0, i64 0, i32 2
+  %cache_nr9 = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %cache_nr9, align 4
   %cmp10.not = icmp eq i32 %1, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %lazy_entries = getelementptr inbounds %struct.lazy_name_thread_data, ptr %_data, i64 0, i32 2
+  %lazy_entries = getelementptr inbounds i8, ptr %_data, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -891,22 +884,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %2, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %4, i64 0, i32 3
+  %ce_flags = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load i32, ptr %ce_flags, align 8
   %or = or i32 %5, 1048576
   store i32 %or, ptr %ce_flags, align 8
   %6 = load ptr, ptr %lazy_entries, align 8
   %hash_name = getelementptr inbounds %struct.lazy_entry, ptr %6, i64 %indvars.iv, i32 2
   %7 = load i32, ptr %hash_name, align 4
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %4, i64 0, i32 1
+  %hash1.i = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %7, ptr %hash1.i, align 8
   store ptr null, ptr %4, align 8
   %8 = load ptr, ptr %istate, align 8
-  %name_hash = getelementptr inbounds %struct.index_state, ptr %8, i64 0, i32 11
+  %name_hash = getelementptr inbounds i8, ptr %8, i64 64
   tail call void @hashmap_add(ptr noundef nonnull %name_hash, ptr noundef nonnull %4) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load ptr, ptr %istate, align 8
-  %cache_nr = getelementptr inbounds %struct.index_state, ptr %9, i64 0, i32 2
+  %cache_nr = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %cache_nr, align 4
   %11 = zext i32 %10 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %11
@@ -925,20 +918,20 @@ declare i32 @init_recursive_mutex(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @handle_range_1(ptr noundef %istate, i32 noundef %k_start, i32 noundef %k_end, ptr noundef %parent, ptr noundef %prefix, ptr noundef %lazy_entries) unnamed_addr #0 {
 entry:
   %key.i.i = alloca %struct.dir_entry, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %prefix, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %prefix, i64 8
   %cmp113 = icmp slt i32 %k_start, %k_end
   br i1 %cmp113, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %0 = load i64, ptr %len, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %prefix, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %prefix, i64 16
   %tobool.not.i94 = icmp eq ptr %parent, null
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %parent, i64 0, i32 1
-  %namelen.i = getelementptr inbounds %struct.dir_entry, ptr %parent, i64 0, i32 3
-  %dir_hash.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12
-  %hash1.i.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %key.i.i, i64 0, i32 1
-  %namelen1.i.i = getelementptr inbounds %struct.dir_entry, ptr %key.i.i, i64 0, i32 3
-  %nr.i = getelementptr inbounds %struct.dir_entry, ptr %parent, i64 0, i32 2
+  %hash1.i = getelementptr inbounds i8, ptr %parent, i64 8
+  %namelen.i = getelementptr inbounds i8, ptr %parent, i64 28
+  %dir_hash.i = getelementptr inbounds i8, ptr %istate, i64 112
+  %hash1.i.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
+  %namelen1.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 28
+  %nr.i = getelementptr inbounds i8, ptr %parent, i64 24
   %1 = sext i32 %k_end to i64
   %sext50 = shl i64 %0, 32
   %conv18 = ashr exact i64 %sext50, 32
@@ -955,14 +948,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %name3 = getelementptr inbounds %struct.cache_entry, ptr %3, i64 0, i32 8
+  %name3 = getelementptr inbounds i8, ptr %3, i64 108
   %5 = load ptr, ptr %buf, align 8
   %call = call i32 @strncmp(ptr noundef nonnull %name3, ptr noundef %5, i64 noundef %4) #15
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %if.end, label %while.end
 
 if.end:                                           ; preds = %land.lhs.true, %while.body
-  %name6 = getelementptr inbounds %struct.cache_entry, ptr %3, i64 0, i32 8
+  %name6 = getelementptr inbounds i8, ptr %3, i64 108
   %add.ptr = getelementptr inbounds i8, ptr %name6, i64 %4
   %call9 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 47) #15
   %tobool10.not = icmp eq ptr %call9, null
@@ -1033,17 +1026,17 @@ if.then.i35.i:                                    ; preds = %st_add.exit.i
 st_add.exit36.i:                                  ; preds = %st_add.exit.i
   %add.i34.i = add nuw i64 %14, 33
   %call16.i = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i34.i) #13
-  %name.i100 = getelementptr inbounds %struct.dir_entry, ptr %call16.i, i64 0, i32 4
+  %name.i100 = getelementptr inbounds i8, ptr %call16.i, i64 32
   %15 = load ptr, ptr %buf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name.i100, ptr align 1 %15, i64 %14, i1 false)
-  %hash1.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %call16.i, i64 0, i32 1
+  %hash1.i.i = getelementptr inbounds i8, ptr %call16.i, i64 8
   store i32 %hash.0.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %call16.i, align 8
   %16 = load i64, ptr %len, align 8
   %conv20.i = trunc i64 %16 to i32
-  %namelen21.i = getelementptr inbounds %struct.dir_entry, ptr %call16.i, i64 0, i32 3
+  %namelen21.i = getelementptr inbounds i8, ptr %call16.i, i64 28
   store i32 %conv20.i, ptr %namelen21.i, align 4
-  %parent22.i = getelementptr inbounds %struct.dir_entry, ptr %call16.i, i64 0, i32 1
+  %parent22.i = getelementptr inbounds i8, ptr %call16.i, i64 16
   store ptr %parent, ptr %parent22.i, align 8
   call void @hashmap_add(ptr noundef nonnull %dir_hash.i, ptr noundef nonnull %call16.i) #13
   br i1 %tobool.not.i94, label %hash_dir_entry_with_parent_and_prefix.exit, label %if.then26.i
@@ -1106,7 +1099,7 @@ if.else.i:                                        ; preds = %strbuf_addch.exit93
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %28, i64 %idxprom.i
   %29 = load ptr, ptr %arrayidx.i, align 8
-  %name.i = getelementptr inbounds %struct.cache_entry, ptr %29, i64 0, i32 8
+  %name.i = getelementptr inbounds i8, ptr %29, i64 108
   %30 = load ptr, ptr %buf, align 8
   %31 = load i64, ptr %len, align 8
   %call4.i = call i32 @strncmp(ptr noundef nonnull %name.i, ptr noundef %30, i64 noundef %31) #15
@@ -1115,9 +1108,9 @@ if.else.i:                                        ; preds = %strbuf_addch.exit93
 
 if.else9.i:                                       ; preds = %if.else.i
   %32 = getelementptr ptr, ptr %28, i64 %1
-  %arrayidx12.i = getelementptr ptr, ptr %32, i64 -1
+  %arrayidx12.i = getelementptr i8, ptr %32, i64 -8
   %33 = load ptr, ptr %arrayidx12.i, align 8
-  %name13.i = getelementptr inbounds %struct.cache_entry, ptr %33, i64 0, i32 8
+  %name13.i = getelementptr inbounds i8, ptr %33, i64 108
   %call17.i = call i32 @strncmp(ptr noundef nonnull %name13.i, ptr noundef %30, i64 noundef %31) #15
   %cmp18.i = icmp eq i32 %call17.i, 0
   br i1 %cmp18.i, label %handle_range_dir.exit, label %while.body.i
@@ -1131,7 +1124,7 @@ while.body.i:                                     ; preds = %if.else9.i, %if.end
   %idxprom28.i = sext i32 %add25.i to i64
   %arrayidx29.i = getelementptr inbounds ptr, ptr %28, i64 %idxprom28.i
   %34 = load ptr, ptr %arrayidx29.i, align 8
-  %name30.i = getelementptr inbounds %struct.cache_entry, ptr %34, i64 0, i32 8
+  %name30.i = getelementptr inbounds i8, ptr %34, i64 108
   %call34.i = call i32 @strncmp(ptr noundef nonnull %name30.i, ptr noundef %30, i64 noundef %31) #15
   %cmp35.i = icmp eq i32 %call34.i, 0
   br i1 %cmp35.i, label %if.then37.i, label %if.else39.i
@@ -1270,24 +1263,24 @@ if.then27:                                        ; preds = %if.end23
   %48 = load i32, ptr %namelen.i, align 4
   %idx.ext = zext i32 %48 to i64
   %add.ptr30 = getelementptr inbounds i8, ptr %name6, i64 %idx.ext
-  %ce_namelen = getelementptr inbounds %struct.cache_entry, ptr %3, i64 0, i32 5
+  %ce_namelen = getelementptr inbounds i8, ptr %3, i64 64
   %49 = load i32, ptr %ce_namelen, align 8
   %sub = sub i32 %49, %48
   %conv32 = zext i32 %sub to i64
   %call33 = call i32 @memihash_cont(i32 noundef %47, ptr noundef nonnull %add.ptr30, i64 noundef %conv32) #13
-  %hash_name = getelementptr inbounds %struct.lazy_entry, ptr %lazy_entries, i64 %idxprom, i32 2
+  %hash_name = getelementptr inbounds i8, ptr %arrayidx25, i64 12
   store i32 %call33, ptr %hash_name, align 4
   %50 = load i32, ptr %hash1.i, align 8
-  %hash_dir = getelementptr inbounds %struct.lazy_entry, ptr %lazy_entries, i64 %idxprom, i32 1
+  %hash_dir = getelementptr inbounds i8, ptr %arrayidx25, i64 8
   store i32 %50, ptr %hash_dir, align 8
   br label %if.end48
 
 if.else:                                          ; preds = %if.end23
-  %ce_namelen42 = getelementptr inbounds %struct.cache_entry, ptr %3, i64 0, i32 5
+  %ce_namelen42 = getelementptr inbounds i8, ptr %3, i64 64
   %51 = load i32, ptr %ce_namelen42, align 8
   %conv43 = zext i32 %51 to i64
   %call44 = call i32 @memihash(ptr noundef nonnull %name6, i64 noundef %conv43) #13
-  %hash_name47 = getelementptr inbounds %struct.lazy_entry, ptr %lazy_entries, i64 %idxprom, i32 2
+  %hash_name47 = getelementptr inbounds i8, ptr %arrayidx25, i64 12
   store i32 %call44, ptr %hash_name47, align 4
   br label %if.end48
 
@@ -1344,6 +1337,7 @@ declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @hash_dir_entry(ptr noundef %istate, ptr noundef %ce, i32 noundef %namelen) unnamed_addr #0 {
 entry:
   %key.i.i = alloca %struct.dir_entry, align 8
+  %name = getelementptr inbounds i8, ptr %ce, i64 108
   %0 = zext i32 %namelen to i64
   br label %while.cond
 
@@ -1355,24 +1349,23 @@ while.cond:                                       ; preds = %land.rhs, %entry
 
 land.rhs:                                         ; preds = %while.cond
   %2 = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 8, i64 %2
+  %arrayidx = getelementptr inbounds [0 x i8], ptr %name, i64 0, i64 %2
   %3 = load i8, ptr %arrayidx, align 1
   %cmp.i.not = icmp eq i8 %3, 47
   br i1 %cmp.i.not, label %if.end, label %while.cond, !llvm.loop !22
 
 if.end:                                           ; preds = %land.rhs
   %dec3 = add nsw i32 %1, -1
-  %name4 = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 8
   %conv.i23 = zext nneg i32 %dec3 to i64
-  %call.i = tail call i32 @memihash(ptr noundef nonnull %name4, i64 noundef %conv.i23) #13
+  %call.i = tail call i32 @memihash(ptr noundef nonnull %name, i64 noundef %conv.i23) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key.i.i)
-  %hash1.i.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %key.i.i, i64 0, i32 1
+  %hash1.i.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
   store i32 %call.i, ptr %hash1.i.i.i, align 8
   store ptr null, ptr %key.i.i, align 8
-  %namelen1.i.i = getelementptr inbounds %struct.dir_entry, ptr %key.i.i, i64 0, i32 3
+  %namelen1.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 28
   store i32 %dec3, ptr %namelen1.i.i, align 4
-  %dir_hash.i.i = getelementptr inbounds %struct.index_state, ptr %istate, i64 0, i32 12
-  %call.i.i = call ptr @hashmap_get(ptr noundef nonnull %dir_hash.i.i, ptr noundef nonnull %key.i.i, ptr noundef nonnull %name4) #13
+  %dir_hash.i.i = getelementptr inbounds i8, ptr %istate, i64 112
+  %call.i.i = call ptr @hashmap_get(ptr noundef nonnull %dir_hash.i.i, ptr noundef nonnull %key.i.i, ptr noundef nonnull %name) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %key.i.i)
   %tobool6.not = icmp eq ptr %call.i.i, null
   br i1 %tobool6.not, label %do.body, label %return
@@ -1380,17 +1373,17 @@ if.end:                                           ; preds = %land.rhs
 do.body:                                          ; preds = %if.end
   %add.i25 = add nuw nsw i64 %conv.i23, 33
   %call11 = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i25) #13
-  %name12 = getelementptr inbounds %struct.dir_entry, ptr %call11, i64 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name12, ptr nonnull align 4 %name4, i64 %conv.i23, i1 false)
-  %call19 = call i32 @memihash(ptr noundef nonnull %name4, i64 noundef %conv.i23) #13
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %call11, i64 0, i32 1
+  %name12 = getelementptr inbounds i8, ptr %call11, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name12, ptr nonnull align 4 %name, i64 %conv.i23, i1 false)
+  %call19 = call i32 @memihash(ptr noundef nonnull %name, i64 noundef %conv.i23) #13
+  %hash1.i = getelementptr inbounds i8, ptr %call11, i64 8
   store i32 %call19, ptr %hash1.i, align 8
   store ptr null, ptr %call11, align 8
-  %namelen20 = getelementptr inbounds %struct.dir_entry, ptr %call11, i64 0, i32 3
+  %namelen20 = getelementptr inbounds i8, ptr %call11, i64 28
   store i32 %dec3, ptr %namelen20, align 4
   call void @hashmap_add(ptr noundef nonnull %dir_hash.i.i, ptr noundef nonnull %call11) #13
   %call22 = call fastcc ptr @hash_dir_entry(ptr noundef %istate, ptr noundef nonnull %ce, i32 noundef %dec3)
-  %parent = getelementptr inbounds %struct.dir_entry, ptr %call11, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call11, i64 16
   store ptr %call22, ptr %parent, align 8
   br label %return
 

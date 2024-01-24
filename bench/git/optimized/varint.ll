@@ -48,7 +48,7 @@ entry:
   %varint = alloca [16 x i8], align 16
   %0 = trunc i64 %value to i8
   %conv = and i8 %0, 127
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %varint, i64 0, i64 15
+  %arrayidx = getelementptr inbounds i8, ptr %varint, i64 15
   store i8 %conv, ptr %arrayidx, align 1
   %tobool.not8 = icmp ult i64 %value, 128
   br i1 %tobool.not8, label %while.end, label %while.body

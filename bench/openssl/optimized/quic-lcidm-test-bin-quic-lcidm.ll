@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   tail call void @FuzzerSetRand() #3
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 258, ptr noundef null) #3
@@ -26,7 +26,7 @@ declare i32 @OPENSSL_init_ssl(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef readonly %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %seq_num_out = alloca i64, align 8
   %arg_cid = alloca %struct.quic_conn_id_st, align 1
@@ -59,7 +59,7 @@ while.cond.preheader:                             ; preds = %if.end4
   br i1 %cmp11.not407, label %err, label %if.end16.lr.ph
 
 if.end16.lr.ph:                                   ; preds = %while.cond.preheader
-  %id.i253 = getelementptr inbounds %struct.quic_conn_id_st, ptr %arg_cid, i64 0, i32 1
+  %id.i253 = getelementptr inbounds i8, ptr %arg_cid, i64 1
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.lr.ph, %sw.epilog

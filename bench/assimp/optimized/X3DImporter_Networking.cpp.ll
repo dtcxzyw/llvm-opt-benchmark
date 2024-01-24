@@ -16,19 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::allocator.3" = type { i8 }
-%"struct.pugi::xml_node_struct" = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.pugi::xml_attribute_struct" = type { i64, ptr, ptr, ptr, ptr }
-%"class.Assimp::X3DImporter" = type { %"class.Assimp::BaseImporter", %"class.std::__cxx11::list.9", ptr, ptr, ptr }
-%"class.Assimp::BaseImporter" = type { ptr, double, double, %"class.std::__cxx11::basic_string", %"class.std::__exception_ptr::exception_ptr", ptr }
-%"class.std::__exception_ptr::exception_ptr" = type { ptr }
-%"class.std::__cxx11::list.9" = type { %"class.std::__cxx11::_List_base.10" }
-%"class.std::__cxx11::_List_base.10" = type { %"struct.std::__cxx11::_List_base<X3DNodeElementBase *, std::allocator<X3DNodeElementBase *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<X3DNodeElementBase *, std::allocator<X3DNodeElementBase *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%struct.X3DNodeElementBase = type <{ ptr, ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::list.9", i32, [4 x i8] }>
-%"struct.std::_List_node.15" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf.16" }
-%"struct.__gnu_cxx::__aligned_membuf.16" = type { [32 x i8] }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -109,9 +96,9 @@ $_ZTV17DeadlyImportError = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4pugi14xpath_node_setD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_begin = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 2
+  %_begin = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
-  %_storage = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 1
+  %_storage = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %0, %_storage
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -188,24 +175,24 @@ entry:
   %ref.tmp64 = alloca %"class.std::allocator.3", align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %def) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %use) #17
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %url, i64 0, i32 1
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %url, i64 8
   store ptr %url, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %url, ptr %url, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %url, i64 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %url, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %0 = load ptr, ptr %node, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont4, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %first_attribute.i.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %0, i64 0, i32 7
+  %first_attribute.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %i.06.i.i = load ptr, ptr %first_attribute.i.i, align 8
   %tobool3.not7.i.i = icmp eq ptr %i.06.i.i, null
   br i1 %tobool3.not7.i.i, label %if.end.i.i24, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
   %i.08.i.i = phi ptr [ %i.0.i.i, %for.inc.i.i ], [ %i.06.i.i, %if.end.i.i ]
-  %name.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %i.08.i.i, i64 8
   %1 = load ptr, ptr %name.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %1, null
   br i1 %tobool4.not.i.i, label %for.inc.i.i, label %land.lhs.true.i.i
@@ -216,13 +203,13 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   br i1 %cmp.i.i.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
-  %next_attribute.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i, i64 0, i32 4
+  %next_attribute.i.i = getelementptr inbounds i8, ptr %i.08.i.i, i64 32
   %i.0.i.i = load ptr, ptr %next_attribute.i.i, align 8
   %tobool3.not.i.i = icmp eq ptr %i.0.i.i, null
   br i1 %tobool3.not.i.i, label %invoke.cont, label %for.body.i.i, !llvm.loop !4
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %land.lhs.true.i.i
-  %value3.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i, i64 0, i32 2
+  %value3.i.i = getelementptr inbounds i8, ptr %i.08.i.i, i64 16
   %2 = load ptr, ptr %value3.i.i, align 8
   %tobool4.not.i4.i = icmp eq ptr %2, null
   %cond.i.i = select i1 %tobool4.not.i4.i, ptr @.str.10, ptr %2
@@ -240,14 +227,14 @@ invoke.cont:                                      ; preds = %for.inc.i.i, %_ZNK4
 
 if.end.i.i24:                                     ; preds = %if.end.i.i, %invoke.cont
   %.pr81 = phi ptr [ %.pr, %invoke.cont ], [ %0, %if.end.i.i ]
-  %first_attribute.i.i25 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %.pr81, i64 0, i32 7
+  %first_attribute.i.i25 = getelementptr inbounds i8, ptr %.pr81, i64 56
   %i.06.i.i26 = load ptr, ptr %first_attribute.i.i25, align 8
   %tobool3.not7.i.i27 = icmp eq ptr %i.06.i.i26, null
   br i1 %tobool3.not7.i.i27, label %if.end.i.i48, label %for.body.i.i28
 
 for.body.i.i28:                                   ; preds = %if.end.i.i24, %for.inc.i.i35
   %i.08.i.i29 = phi ptr [ %i.0.i.i37, %for.inc.i.i35 ], [ %i.06.i.i26, %if.end.i.i24 ]
-  %name.i.i30 = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i29, i64 0, i32 1
+  %name.i.i30 = getelementptr inbounds i8, ptr %i.08.i.i29, i64 8
   %3 = load ptr, ptr %name.i.i30, align 8
   %tobool4.not.i.i31 = icmp eq ptr %3, null
   br i1 %tobool4.not.i.i31, label %for.inc.i.i35, label %land.lhs.true.i.i32
@@ -258,13 +245,13 @@ land.lhs.true.i.i32:                              ; preds = %for.body.i.i28
   br i1 %cmp.i.i.i34, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i40, label %for.inc.i.i35
 
 for.inc.i.i35:                                    ; preds = %land.lhs.true.i.i32, %for.body.i.i28
-  %next_attribute.i.i36 = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i29, i64 0, i32 4
+  %next_attribute.i.i36 = getelementptr inbounds i8, ptr %i.08.i.i29, i64 32
   %i.0.i.i37 = load ptr, ptr %next_attribute.i.i36, align 8
   %tobool3.not.i.i38 = icmp eq ptr %i.0.i.i37, null
   br i1 %tobool3.not.i.i38, label %do.end, label %for.body.i.i28, !llvm.loop !4
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i40:  ; preds = %land.lhs.true.i.i32
-  %value3.i.i41 = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i29, i64 0, i32 2
+  %value3.i.i41 = getelementptr inbounds i8, ptr %i.08.i.i29, i64 16
   %4 = load ptr, ptr %value3.i.i41, align 8
   %tobool4.not.i4.i42 = icmp eq ptr %4, null
   %cond.i.i43 = select i1 %tobool4.not.i4.i42, ptr @.str.10, ptr %4
@@ -282,14 +269,14 @@ do.end:                                           ; preds = %for.inc.i.i35, %_ZN
 
 if.end.i.i48:                                     ; preds = %if.end.i.i24, %do.end
   %.pr6984 = phi ptr [ %.pr69, %do.end ], [ %.pr81, %if.end.i.i24 ]
-  %first_attribute.i.i49 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %.pr6984, i64 0, i32 7
+  %first_attribute.i.i49 = getelementptr inbounds i8, ptr %.pr6984, i64 56
   %i.06.i.i50 = load ptr, ptr %first_attribute.i.i49, align 8
   %tobool3.not7.i.i51 = icmp eq ptr %i.06.i.i50, null
   br i1 %tobool3.not7.i.i51, label %invoke.cont4, label %for.body.i.i52
 
 for.body.i.i52:                                   ; preds = %if.end.i.i48, %for.inc.i.i59
   %i.08.i.i53 = phi ptr [ %i.0.i.i61, %for.inc.i.i59 ], [ %i.06.i.i50, %if.end.i.i48 ]
-  %name.i.i54 = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i53, i64 0, i32 1
+  %name.i.i54 = getelementptr inbounds i8, ptr %i.08.i.i53, i64 8
   %5 = load ptr, ptr %name.i.i54, align 8
   %tobool4.not.i.i55 = icmp eq ptr %5, null
   br i1 %tobool4.not.i.i55, label %for.inc.i.i59, label %land.lhs.true.i.i56
@@ -300,13 +287,13 @@ land.lhs.true.i.i56:                              ; preds = %for.body.i.i52
   br i1 %cmp.i.i.i58, label %if.end.i3.i, label %for.inc.i.i59
 
 for.inc.i.i59:                                    ; preds = %land.lhs.true.i.i56, %for.body.i.i52
-  %next_attribute.i.i60 = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i53, i64 0, i32 4
+  %next_attribute.i.i60 = getelementptr inbounds i8, ptr %i.08.i.i53, i64 32
   %i.0.i.i61 = load ptr, ptr %next_attribute.i.i60, align 8
   %tobool3.not.i.i62 = icmp eq ptr %i.0.i.i61, null
   br i1 %tobool3.not.i.i62, label %invoke.cont4, label %for.body.i.i52, !llvm.loop !4
 
 if.end.i3.i:                                      ; preds = %land.lhs.true.i.i56
-  %value4.i.i = getelementptr inbounds %"struct.pugi::xml_attribute_struct", ptr %i.08.i.i53, i64 0, i32 2
+  %value4.i.i = getelementptr inbounds i8, ptr %i.08.i.i53, i64 16
   %6 = load ptr, ptr %value4.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %6, null
   br i1 %tobool5.not.i.i, label %invoke.cont4, label %cond.true.i.i
@@ -351,9 +338,9 @@ invoke.cont11:                                    ; preds = %if.else
   br i1 %call12, label %if.end, label %if.then13
 
 if.then13:                                        ; preds = %invoke.cont11
-  %mNodeElementCur = getelementptr inbounds %"class.Assimp::X3DImporter", ptr %this, i64 0, i32 2
+  %mNodeElementCur = getelementptr inbounds i8, ptr %this, i64 96
   %9 = load ptr, ptr %mNodeElementCur, align 8
-  %ID = getelementptr inbounds %struct.X3DNodeElementBase, ptr %9, i64 0, i32 2
+  %ID = getelementptr inbounds i8, ptr %9, i64 16
   %call15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ID, ptr noundef nonnull align 8 dereferenceable(32) %def)
           to label %if.end unwind label %lpad
 
@@ -364,10 +351,10 @@ if.end:                                           ; preds = %if.then13, %invoke.
   br i1 %or.cond, label %if.end58, label %if.then17
 
 if.then17:                                        ; preds = %if.end
-  %mpIOHandler = getelementptr inbounds %"class.Assimp::X3DImporter", ptr %this, i64 0, i32 4
+  %mpIOHandler = getelementptr inbounds i8, ptr %this, i64 112
   %11 = load ptr, ptr %mpIOHandler, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %12 = load ptr, ptr %vfn, align 8
   %call19 = invoke noundef nonnull align 8 dereferenceable(32) ptr %12(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %invoke.cont18 unwind label %lpad
@@ -378,7 +365,7 @@ invoke.cont18:                                    ; preds = %if.then17
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont18
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node.15", ptr %13, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %call.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %full_path, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i)
           to label %for.cond unwind label %lpad.i
 
@@ -444,7 +431,7 @@ cond.false:                                       ; preds = %for.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %vtable46 = load ptr, ptr %15, align 8
-  %vfn47 = getelementptr inbounds ptr, ptr %vtable46, i64 7
+  %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 56
   %16 = load ptr, ptr %vfn47, align 8
   %call50 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont49 unwind label %lpad48
@@ -458,7 +445,7 @@ invoke.cont49:                                    ; preds = %cond.end
 invoke.cont52:                                    ; preds = %invoke.cont49
   %18 = load ptr, ptr %mpIOHandler, align 8
   %vtable54 = load ptr, ptr %18, align 8
-  %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 10
+  %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 80
   %19 = load ptr, ptr %vfn55, align 8
   %call57 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %invoke.cont56 unwind label %lpad29.loopexit.split-lp
@@ -486,7 +473,7 @@ invoke.cont59:                                    ; preds = %if.end58
   br i1 %call60, label %if.end71, label %if.then61
 
 if.then61:                                        ; preds = %invoke.cont59
-  %mNodeElementCur62 = getelementptr inbounds %"class.Assimp::X3DImporter", ptr %this, i64 0, i32 2
+  %mNodeElementCur62 = getelementptr inbounds i8, ptr %this, i64 96
   %21 = load ptr, ptr %mNodeElementCur62, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64) #17
   %call.i6365 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63)
@@ -543,7 +530,7 @@ if.end73:                                         ; preds = %if.then, %if.end71
 while.body.i.i.i:                                 ; preds = %if.end73, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %26, %while.body.i.i.i ], [ %25, %if.end73 ]
   %26 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node.15", ptr %__cur.05.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i) #17
   call void @_ZdlPv(ptr noundef %__cur.05.i.i.i) #19
   %cmp.not.i.i.i = icmp eq ptr %26, %url
@@ -589,7 +576,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %_ZNK4pugi8xml_node4nameEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %name3.i = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %0, i64 0, i32 1
+  %name3.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %name3.i, align 8
   %tobool4.not.i = icmp eq ptr %1, null
   %cond.i = select i1 %tobool4.not.i, ptr @.str.10, ptr %1
@@ -629,7 +616,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool.not.i8, label %_ZNK4pugi8xml_node4nameEv.exit14, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.then7
-  %name3.i10 = getelementptr inbounds %"struct.pugi::xml_node_struct", ptr %4, i64 0, i32 1
+  %name3.i10 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %name3.i10, align 8
   %tobool4.not.i11 = icmp eq ptr %5, null
   %cond.i12 = select i1 %tobool4.not.i11, ptr @.str.10, ptr %5
@@ -660,15 +647,15 @@ lpad13:                                           ; preds = %invoke.cont12
   br label %eh.resume
 
 if.end17:                                         ; preds = %if.end
-  %mNodeElementCur = getelementptr inbounds %"class.Assimp::X3DImporter", ptr %this, i64 0, i32 2
+  %mNodeElementCur = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load ptr, ptr %mNodeElementCur, align 8
-  %Children = getelementptr inbounds %struct.X3DNodeElementBase, ptr %8, i64 0, i32 3
+  %Children = getelementptr inbounds i8, ptr %8, i64 48
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %pNE.addr, align 8
   store ptr %9, ptr %_M_storage.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %Children) #17
-  %_M_size.i.i.i = getelementptr inbounds %struct.X3DNodeElementBase, ptr %8, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %8, i64 64
   %10 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %10, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -717,7 +704,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node.15", ptr %__cur.05.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #17
   tail call void @_ZdlPv(ptr noundef %__cur.05.i.i) #19
   %cmp.not.i.i = icmp eq ptr %1, %this

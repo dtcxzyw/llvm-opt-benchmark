@@ -3,15 +3,11 @@ source_filename = "bench/git/original/fetch-negotiator.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @fetch_negotiator_init(ptr noundef %r, ptr noundef %negotiator) local_unnamed_addr #0 {
 entry:
   tail call void @prepare_repo_settings(ptr noundef %r) #2
-  %fetch_negotiation_algorithm = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 16
+  %fetch_negotiation_algorithm = getelementptr inbounds i8, ptr %r, i64 216
   %0 = load i32, ptr %fetch_negotiation_algorithm, align 8
   switch i32 %0, label %sw.epilog [
     i32 1, label %sw.bb

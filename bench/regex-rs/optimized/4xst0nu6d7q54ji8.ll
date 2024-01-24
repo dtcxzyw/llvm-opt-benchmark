@@ -11,19 +11,19 @@ define hidden { i32, i32 } @_ZN6memchr6memmem8searcher14PrefilterState3new17h62a
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN73_$LT$memchr..memmem..searcher..Searcher$u20$as$u20$core..clone..Clone$GT$5clone17h1eeb847bdc1465deE"(ptr nocapture writeonly sret({ { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }) align 32 %0, ptr align 32 %1) unnamed_addr #1 {
   %.sroa.0 = alloca [28 x i64], align 32
-  %3 = getelementptr inbounds { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, ptr %1, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %1, i64 232
   %4 = tail call ptr @_ZN4core5clone5Clone5clone17h846e917271c11587E(ptr nonnull align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(224) %.sroa.0, ptr noundef nonnull align 32 dereferenceable(224) %1, i64 224, i1 false)
-  %5 = getelementptr inbounds { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 224
   %6 = tail call { i32, i32 } @"_ZN75_$LT$memchr..arch..all..rabinkarp..Finder$u20$as$u20$core..clone..Clone$GT$5clone17h218b275cd7936cf5E"(ptr nonnull align 4 %5)
   %7 = extractvalue { i32, i32 } %6, 0
   %8 = extractvalue { i32, i32 } %6, 1
-  %9 = getelementptr inbounds { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 232
   store ptr %4, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(224) %0, ptr noundef nonnull align 32 dereferenceable(224) %.sroa.0, i64 224, i1 false)
-  %10 = getelementptr inbounds { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 224
   store i32 %7, ptr %10, align 32
-  %11 = getelementptr inbounds { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 228
   store i32 %8, ptr %11, align 4
   ret void
 }

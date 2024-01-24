@@ -204,7 +204,7 @@ return:                                           ; preds = %cond.end18, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @clear_dict_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id) #0 {
+define internal noundef ptr @clear_dict_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %watcher_id) #6
   %conv = trunc i64 %call to i32
@@ -274,7 +274,7 @@ land.lhs.true4:                                   ; preds = %if.end
 
 exit.sink.split:                                  ; preds = %land.lhs.true4, %if.end
   %call2.sink = phi i32 [ %call2, %if.end ], [ -1, %land.lhs.true4 ]
-  %arrayidx95 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx95 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx95, align 8
   %call.i = tail call i32 @PyDict_Watch(i32 noundef %call2.sink, ptr noundef %1) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -310,7 +310,7 @@ land.lhs.true4:                                   ; preds = %if.end
 
 exit.sink.split:                                  ; preds = %land.lhs.true4, %if.end
   %call2.sink = phi i32 [ %call2, %if.end ], [ -1, %land.lhs.true4 ]
-  %arrayidx95 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx95 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx95, align 8
   %call.i = tail call i32 @PyDict_Unwatch(i32 noundef %call2.sink, ptr noundef %1) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -411,7 +411,7 @@ return:                                           ; preds = %cond.end18, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @clear_type_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id) #0 {
+define internal noundef ptr @clear_type_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %watcher_id) #6
   %conv = trunc i64 %call to i32
@@ -481,7 +481,7 @@ land.lhs.true4:                                   ; preds = %if.end
 
 exit.sink.split:                                  ; preds = %land.lhs.true4, %if.end
   %call2.sink = phi i32 [ %call2, %if.end ], [ -1, %land.lhs.true4 ]
-  %arrayidx95 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx95 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx95, align 8
   %call.i = tail call i32 @PyType_Watch(i32 noundef %call2.sink, ptr noundef %1) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -517,7 +517,7 @@ land.lhs.true4:                                   ; preds = %if.end
 
 exit.sink.split:                                  ; preds = %land.lhs.true4, %if.end
   %call2.sink = phi i32 [ %call2, %if.end ], [ -1, %land.lhs.true4 ]
-  %arrayidx95 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx95 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx95, align 8
   %call.i = tail call i32 @PyType_Unwatch(i32 noundef %call2.sink, ptr noundef %1) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -617,7 +617,7 @@ return:                                           ; preds = %if.end14, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @clear_code_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id) #0 {
+define internal noundef ptr @clear_code_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id) #0 {
 entry:
   %0 = getelementptr i8, ptr %watcher_id, i64 8
   %watcher_id.val = load ptr, ptr %0, align 8
@@ -864,7 +864,7 @@ return:                                           ; preds = %_Py_NewRef.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @clear_func_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id_obj) #0 {
+define internal noundef ptr @clear_func_watcher(ptr nocapture readnone %self, ptr noundef %watcher_id_obj) #0 {
 entry:
   %call = tail call i64 @PyLong_AsLong(ptr noundef %watcher_id_obj) #6
   %0 = add i64 %call, -2147483648
@@ -943,7 +943,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %arrayidx2 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx2, align 8
   %call.i = tail call i32 @PyFunction_SetDefaults(ptr noundef %0, ptr noundef %1) #6
   %cmp.i = icmp slt i32 %call.i, 0
@@ -968,7 +968,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %0 = load ptr, ptr %args, align 8
-  %arrayidx2 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx2 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx2, align 8
   %call.i = tail call i32 @PyFunction_SetKwDefaults(ptr noundef %0, ptr noundef %1) #6
   %cmp.i = icmp slt i32 %call.i, 0
@@ -1094,7 +1094,7 @@ return:                                           ; preds = %Py_DECREF.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dict_watch_callback_error(i32 %event, ptr nocapture readnone %dict, ptr nocapture readnone %key, ptr nocapture readnone %new_value) #0 {
+define internal noundef i32 @dict_watch_callback_error(i32 %event, ptr nocapture readnone %dict, ptr nocapture readnone %key, ptr nocapture readnone %new_value) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.29) #6
@@ -1102,7 +1102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dict_watch_callback(i32 noundef %event, ptr nocapture readnone %dict, ptr noundef %key, ptr noundef %new_value) #0 {
+define internal noundef i32 @dict_watch_callback(i32 noundef %event, ptr nocapture readnone %dict, ptr noundef %key, ptr noundef %new_value) #0 {
 entry:
   switch i32 %event, label %sw.default [
     i32 4, label %sw.bb
@@ -1225,7 +1225,7 @@ declare i32 @PyDict_Unwatch(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyType_AddWatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @type_modified_callback_wrap(ptr noundef %type) #0 {
+define internal noundef i32 @type_modified_callback_wrap(ptr noundef %type) #0 {
 entry:
   %0 = load ptr, ptr @g_type_modified_events, align 8
   %1 = getelementptr i8, ptr %0, i64 8
@@ -1300,7 +1300,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @type_modified_callback_error(ptr nocapture readnone %type) #0 {
+define internal noundef i32 @type_modified_callback_error(ptr nocapture readnone %type) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.29) #6
@@ -1338,7 +1338,7 @@ declare i32 @PyType_Unwatch(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyCode_AddWatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @first_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
+define internal noundef i32 @first_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
 entry:
   switch i32 %event, label %handle_code_object_event.exit [
     i32 0, label %return.sink.split.i
@@ -1361,7 +1361,7 @@ handle_code_object_event.exit:                    ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @second_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
+define internal noundef i32 @second_code_object_callback(i32 noundef %event, ptr nocapture readnone %co) #3 {
 entry:
   switch i32 %event, label %handle_code_object_event.exit [
     i32 0, label %return.sink.split.i
@@ -1373,7 +1373,7 @@ if.then2.i:                                       ; preds = %entry
 
 return.sink.split.i:                              ; preds = %if.then2.i, %entry
   %num_code_object_destroyed_events.sink.i = phi ptr [ @num_code_object_destroyed_events, %if.then2.i ], [ @num_code_object_created_events, %entry ]
-  %arrayidx4.i = getelementptr [2 x i32], ptr %num_code_object_destroyed_events.sink.i, i64 0, i64 1
+  %arrayidx4.i = getelementptr i8, ptr %num_code_object_destroyed_events.sink.i, i64 4
   %0 = load i32, ptr %arrayidx4.i, align 4
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %arrayidx4.i, align 4
@@ -1385,7 +1385,7 @@ handle_code_object_event.exit:                    ; preds = %entry, %return.sink
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @error_code_event_handler(i32 %event, ptr nocapture readnone %co) #0 {
+define internal noundef i32 @error_code_event_handler(i32 %event, ptr nocapture readnone %co) #0 {
 entry:
   %0 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.29) #6
@@ -1397,7 +1397,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @PyCode_ClearWatcher(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @noop_code_event_handler(i32 %event, ptr nocapture readnone %co) #4 {
+define internal noundef i32 @noop_code_event_handler(i32 %event, ptr nocapture readnone %co) #4 {
 entry:
   ret i32 0
 }
@@ -1411,7 +1411,7 @@ declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 declare i32 @PyFunction_AddWatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @first_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
+define internal noundef i32 @first_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
 entry:
   %0 = load ptr, ptr @pyfunc_watchers, align 16
   %call = tail call fastcc i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %event, ptr noundef %func, ptr noundef %new_value), !range !12
@@ -1419,7 +1419,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @second_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
+define internal noundef i32 @second_func_watcher_callback(i32 noundef %event, ptr noundef %func, ptr noundef %new_value) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @pyfunc_watchers, i64 0, i64 1), align 8
   %call = tail call fastcc i32 @call_pyfunc_watcher(ptr noundef %0, i32 noundef %event, ptr noundef %func, ptr noundef %new_value), !range !12
@@ -1427,7 +1427,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @call_pyfunc_watcher(ptr noundef %watcher, i32 noundef %event, ptr noundef %func, ptr noundef %new_value) unnamed_addr #0 {
+define internal fastcc noundef i32 @call_pyfunc_watcher(ptr noundef %watcher, i32 noundef %event, ptr noundef %func, ptr noundef %new_value) unnamed_addr #0 {
 entry:
   %stack.i = alloca [1 x ptr], align 8
   %stack = alloca [3 x ptr], align 16
@@ -1552,9 +1552,9 @@ if.end.i75:                                       ; preds = %if.else
 if.end14:                                         ; preds = %if.end.i75, %if.else, %get_id.exit
   %func_or_id.0 = phi ptr [ %call9.i, %get_id.exit ], [ %func, %if.else ], [ %func, %if.end.i75 ]
   store ptr %call, ptr %stack, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %stack, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %func_or_id.0, ptr %arrayinit.element, align 8
-  %arrayinit.element15 = getelementptr inbounds ptr, ptr %stack, i64 2
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %stack, i64 16
   store ptr %spec.store.select, ptr %arrayinit.element15, align 16
   %call16 = call ptr @PyObject_Vectorcall(ptr noundef %watcher, ptr noundef nonnull %stack, i64 noundef 3, ptr noundef null) #6
   %cmp17 = icmp eq ptr %call16, null
@@ -1645,7 +1645,7 @@ declare i32 @PyFunction_SetDefaults(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @PyFunction_SetKwDefaults(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @noop_func_event_handler(i32 %event, ptr nocapture readnone %func, ptr nocapture readnone %new_value) #4 {
+define internal noundef i32 @noop_func_event_handler(i32 %event, ptr nocapture readnone %func, ptr nocapture readnone %new_value) #4 {
 entry:
   ret i32 0
 }

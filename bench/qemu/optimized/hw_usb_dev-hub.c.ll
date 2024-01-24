@@ -17,33 +17,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.USBHubState = type { %struct.USBDevice, ptr, i32, i8, ptr, [8 x %struct.USBHubPort] }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon.0 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
 %struct.USBHubPort = type { %struct.USBPort, i16, i16 }
 %struct.USBPort = type { ptr, i32, i32, [16 x i8], ptr, ptr, i32, %union.anon.1 }
 %union.anon.1 = type { %struct.QTailQLink }
+%struct.QTailQLink = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.5, %union.anon.6 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.2 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
 
 @hub_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 6528, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @usb_hub_class_initfn, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"usb-hub\00", align 1
@@ -160,29 +138,29 @@ define internal void @usb_hub_class_initfn(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #8
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i12, i64 176
   store ptr @usb_hub_realize, ptr %realize, align 8
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i12, i64 280
   store ptr @.str.2, ptr %product_desc, align 8
-  %usb_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 15
+  %usb_desc = getelementptr inbounds i8, ptr %call.i12, i64 288
   store ptr @desc_hub, ptr %usb_desc, align 8
-  %find_device = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 3
+  %find_device = getelementptr inbounds i8, ptr %call.i12, i64 192
   store ptr @usb_hub_find_device, ptr %find_device, align 8
-  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 6
+  %handle_reset = getelementptr inbounds i8, ptr %call.i12, i64 216
   store ptr @usb_hub_handle_reset, ptr %handle_reset, align 8
-  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 7
+  %handle_control = getelementptr inbounds i8, ptr %call.i12, i64 224
   store ptr @usb_hub_handle_control, ptr %handle_control, align 8
-  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 8
+  %handle_data = getelementptr inbounds i8, ptr %call.i12, i64 232
   store ptr @usb_hub_handle_data, ptr %handle_data, align 8
-  %unrealize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i12, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i12, i64 184
   store ptr @usb_hub_unrealize, ptr %unrealize, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %categories, align 8
-  %fw_name = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 2
+  %fw_name = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @.str.3, ptr %fw_name, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_hub, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @usb_hub_properties) #8
   ret void
@@ -192,7 +170,7 @@ entry:
 define internal void @usb_hub_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 55, ptr noundef nonnull @__func__.USB_HUB) #8
-  %num_ports = getelementptr inbounds %struct.USBHubState, ptr %call.i, i64 0, i32 2
+  %num_ports = getelementptr inbounds i8, ptr %call.i, i64 5872
   %0 = load i32, ptr %num_ports, align 8
   %1 = add i32 %0, -9
   %or.cond = icmp ult i32 %1, -8
@@ -203,9 +181,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %port4 = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 1
+  %port4 = getelementptr inbounds i8, ptr %dev, i64 160
   %2 = load ptr, ptr %port4, align 8
-  %hubcount = getelementptr inbounds %struct.USBPort, ptr %2, i64 0, i32 2
+  %hubcount = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %hubcount, align 4
   %cmp5 = icmp eq i32 %3, 5
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -219,23 +197,24 @@ if.end7:                                          ; preds = %if.end
   tail call void @usb_desc_init(ptr noundef nonnull %dev) #8
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #9
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @usb_hub_port_update_timer, ptr noundef nonnull %call.i) #8
-  %port_timer = getelementptr inbounds %struct.USBHubState, ptr %call.i, i64 0, i32 4
+  %port_timer = getelementptr inbounds i8, ptr %call.i, i64 5880
   store ptr %call.i.i.i, ptr %port_timer, align 8
   %call9 = tail call ptr @usb_ep_get(ptr noundef nonnull %dev, i32 noundef 105, i32 noundef 1) #8
-  %intr = getelementptr inbounds %struct.USBHubState, ptr %call.i, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %call.i, i64 5864
   store ptr %call9, ptr %intr, align 8
   %4 = load i32, ptr %num_ports, align 8
   %cmp1122.not = icmp eq i32 %4, 0
   br i1 %cmp1122.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end7
+  %ports = getelementptr inbounds i8, ptr %call.i, i64 5888
   %5 = getelementptr i8, ptr %dev, i64 88
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.023 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %idxprom = sext i32 %i.023 to i64
-  %arrayidx = getelementptr %struct.USBHubState, ptr %call.i, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
   %dev.val = load ptr, ptr %5, align 8
   tail call void @usb_register_port(ptr noundef %dev.val, ptr noundef %arrayidx, ptr noundef nonnull %call.i, i32 noundef %i.023, ptr noundef nonnull @usb_hub_port_ops, i32 noundef 3) #8
   %6 = load ptr, ptr %port4, align 8
@@ -257,23 +236,27 @@ return:                                           ; preds = %for.end, %if.then6,
 define internal ptr @usb_hub_find_device(ptr noundef %dev, i8 noundef zeroext %addr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 55, ptr noundef nonnull @__func__.USB_HUB) #8
-  %num_ports = getelementptr inbounds %struct.USBHubState, ptr %call.i, i64 0, i32 2
+  %num_ports = getelementptr inbounds i8, ptr %call.i, i64 5872
   %0 = load i32, ptr %num_ports, align 8
   %cmp6.not = icmp eq i32 %0, 0
-  br i1 %cmp6.not, label %return, label %for.body
+  br i1 %cmp6.not, label %return, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi i32 [ %4, %for.inc ], [ %0, %entry ]
-  %i.07 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
+for.body.lr.ph:                                   ; preds = %entry
+  %ports = getelementptr inbounds i8, ptr %call.i, i64 5888
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %1 = phi i32 [ %0, %for.body.lr.ph ], [ %4, %for.inc ]
+  %i.07 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %idxprom = sext i32 %i.07 to i64
-  %wPortStatus = getelementptr %struct.USBHubState, ptr %call.i, i64 0, i32 5, i64 %idxprom, i32 1
+  %arrayidx = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
+  %wPortStatus = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %2 = load i16, ptr %wPortStatus, align 8
   %3 = and i16 %2, 2
   %tobool.not = icmp eq i16 %3, 0
   br i1 %tobool.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %arrayidx = getelementptr %struct.USBHubState, ptr %call.i, i64 0, i32 5, i64 %idxprom
   %call2 = tail call ptr @usb_find_device(ptr noundef %arrayidx, i8 noundef zeroext %addr) #8
   %cmp3.not = icmp eq ptr %call2, null
   br i1 %cmp3.not, label %if.end.for.inc_crit_edge, label %return
@@ -298,7 +281,7 @@ define internal void @usb_hub_handle_reset(ptr noundef %dev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 55, ptr noundef nonnull @__func__.USB_HUB) #8
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %call.i, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %call.i, i64 224
   %0 = load i8, ptr %addr, align 8
   %conv = zext i8 %0 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -325,7 +308,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv) #8
   br label %trace_usb_hub_reset.exit
@@ -336,29 +319,29 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_usb_hub_reset.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %num_ports = getelementptr inbounds %struct.USBHubState, ptr %call.i, i64 0, i32 2
+  %num_ports = getelementptr inbounds i8, ptr %call.i, i64 5872
   %8 = load i32, ptr %num_ports, align 8
   %cmp9.not = icmp eq i32 %8, 0
-  br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
+  br i1 %cmp9.not, label %for.end, label %usb_hub_port_set.exit.lr.ph
 
-for.body.lr.ph:                                   ; preds = %trace_usb_hub_reset.exit
-  %ports = getelementptr inbounds %struct.USBHubState, ptr %call.i, i64 0, i32 5
-  br label %for.body
+usb_hub_port_set.exit.lr.ph:                      ; preds = %trace_usb_hub_reset.exit
+  %ports = getelementptr inbounds i8, ptr %call.i, i64 5888
+  br label %usb_hub_port_set.exit
 
-for.body:                                         ; preds = %for.body.lr.ph, %usb_hub_port_update.exit
-  %i.010 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %usb_hub_port_update.exit ]
+usb_hub_port_set.exit:                            ; preds = %usb_hub_port_set.exit.lr.ph, %usb_hub_port_update.exit
+  %i.010 = phi i32 [ 0, %usb_hub_port_set.exit.lr.ph ], [ %inc, %usb_hub_port_update.exit ]
   %idx.ext = sext i32 %i.010 to i64
   %add.ptr = getelementptr %struct.USBHubPort, ptr %ports, i64 %idx.ext
-  %wPortStatus = getelementptr %struct.USBHubPort, ptr %ports, i64 %idx.ext, i32 1
-  %wPortChange = getelementptr %struct.USBHubPort, ptr %ports, i64 %idx.ext, i32 2
+  %wPortStatus = getelementptr inbounds i8, ptr %add.ptr, i64 72
+  %wPortChange = getelementptr inbounds i8, ptr %add.ptr, i64 74
   store i16 0, ptr %wPortChange, align 2
   store i16 256, ptr %wPortStatus, align 8
   %9 = load ptr, ptr %add.ptr, align 8
   %tobool.not.i8 = icmp eq ptr %9, null
   br i1 %tobool.not.i8, label %usb_hub_port_update.exit, label %land.lhs.true.i
 
-land.lhs.true.i:                                  ; preds = %for.body
-  %attached.i = getelementptr inbounds %struct.USBDevice, ptr %9, i64 0, i32 13
+land.lhs.true.i:                                  ; preds = %usb_hub_port_set.exit
+  %attached.i = getelementptr inbounds i8, ptr %9, i64 264
   %10 = load i8, ptr %attached.i, align 8
   %11 = and i8 %10, 1
   %tobool4.not.i = icmp eq i8 %11, 0
@@ -367,7 +350,7 @@ land.lhs.true.i:                                  ; preds = %for.body
 usb_hub_port_set.exit.i:                          ; preds = %land.lhs.true.i
   store i16 257, ptr %wPortStatus, align 8
   store i16 1, ptr %wPortChange, align 2
-  %speed.i = getelementptr inbounds %struct.USBDevice, ptr %9, i64 0, i32 8
+  %speed.i = getelementptr inbounds i8, ptr %9, i64 216
   %12 = load i32, ptr %speed.i, align 8
   %cmp.i = icmp eq i32 %12, 0
   br i1 %cmp.i, label %if.end10.sink.split.i, label %usb_hub_port_update.exit
@@ -376,10 +359,10 @@ if.end10.sink.split.i:                            ; preds = %usb_hub_port_set.ex
   store i16 769, ptr %wPortStatus, align 8
   br label %usb_hub_port_update.exit
 
-usb_hub_port_update.exit:                         ; preds = %usb_hub_port_set.exit.i, %for.body, %land.lhs.true.i, %if.end10.sink.split.i
+usb_hub_port_update.exit:                         ; preds = %usb_hub_port_set.exit.i, %usb_hub_port_set.exit, %land.lhs.true.i, %if.end10.sink.split.i
   %inc = add nuw i32 %i.010, 1
   %cmp = icmp ult i32 %inc, %8
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %usb_hub_port_set.exit, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %usb_hub_port_update.exit, %trace_usb_hub_reset.exit
   ret void
@@ -392,7 +375,7 @@ entry:
   %_now.i.i110 = alloca %struct.timeval, align 8
   %_now.i.i96 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %dev, i64 224
   %0 = load i8, ptr %addr, align 8
   %conv = zext i8 %0 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -419,7 +402,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length) #8
   br label %trace_usb_hub_control.exit
@@ -453,26 +436,28 @@ sw.bb:                                            ; preds = %if.end
   br i1 %or.cond, label %fail, label %sw.epilog194
 
 sw.bb9:                                           ; preds = %if.end
-  %actual_length = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
   store i32 0, ptr %data, align 1
   store i32 4, ptr %actual_length, align 8
   br label %sw.epilog194
 
 sw.bb13:                                          ; preds = %if.end
   %sub = add i32 %index, -1
-  %num_ports = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 2
+  %num_ports = getelementptr inbounds i8, ptr %dev, i64 5872
   %8 = load i32, ptr %num_ports, align 8
   %cmp14.not = icmp ult i32 %sub, %8
   br i1 %cmp14.not, label %if.end17, label %fail
 
 if.end17:                                         ; preds = %sw.bb13
+  %ports = getelementptr inbounds i8, ptr %dev, i64 5888
   %idxprom = zext i32 %sub to i64
+  %arrayidx18 = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
   %9 = load i8, ptr %addr, align 8
   %conv21 = zext i8 %9 to i32
-  %wPortStatus = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom, i32 1
+  %wPortStatus = getelementptr inbounds i8, ptr %arrayidx18, i64 72
   %10 = load i16, ptr %wPortStatus, align 8
   %conv22 = zext i16 %10 to i32
-  %wPortChange = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange = getelementptr inbounds i8, ptr %arrayidx18, i64 74
   %11 = load i16, ptr %wPortChange, align 2
   %conv23 = zext i16 %11 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i96)
@@ -499,7 +484,7 @@ if.then8.i.i105:                                  ; preds = %if.then.i.i103
   %call9.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i96, ptr noundef null) #8
   %call10.i.i107 = tail call i32 @qemu_get_thread_id() #8
   %17 = load i64, ptr %_now.i.i96, align 8
-  %tv_usec.i.i108 = getelementptr inbounds %struct.timeval, ptr %_now.i.i96, i64 0, i32 1
+  %tv_usec.i.i108 = getelementptr inbounds i8, ptr %_now.i.i96, i64 8
   %18 = load i64, ptr %tv_usec.i.i108, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i107, i64 noundef %17, i64 noundef %18, i32 noundef %conv21, i32 noundef %index, i32 noundef %conv22, i32 noundef %conv23) #8
   br label %trace_usb_hub_get_port_status.exit
@@ -527,7 +512,7 @@ trace_usb_hub_get_port_status.exit:               ; preds = %if.end17, %land.lhs
   %conv37 = trunc i16 %24 to i8
   %arrayidx38 = getelementptr i8, ptr %data, i64 3
   store i8 %conv37, ptr %arrayidx38, align 1
-  %actual_length39 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length39 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 4, ptr %actual_length39, align 8
   br label %sw.epilog194
 
@@ -578,7 +563,7 @@ if.then8.i.i119:                                  ; preds = %if.then.i.i117
   %call9.i.i120 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i110, ptr noundef null) #8
   %call10.i.i121 = tail call i32 @qemu_get_thread_id() #8
   %34 = load i64, ptr %_now.i.i110, align 8
-  %tv_usec.i.i122 = getelementptr inbounds %struct.timeval, ptr %_now.i.i110, i64 0, i32 1
+  %tv_usec.i.i122 = getelementptr inbounds i8, ptr %_now.i.i110, i64 8
   %35 = load i64, ptr %tv_usec.i.i122, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i121, i64 noundef %34, i64 noundef %35, i32 noundef %conv54, i32 noundef %index, ptr noundef %retval.0.i) #8
   br label %trace_usb_hub_set_port_feature.exit
@@ -589,14 +574,15 @@ if.else.i.i123:                                   ; preds = %if.then.i.i117
 
 trace_usb_hub_set_port_feature.exit:              ; preds = %feature_name.exit, %land.lhs.true5.i.i114, %if.then8.i.i119, %if.else.i.i123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i110)
-  %num_ports56 = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 2
+  %num_ports56 = getelementptr inbounds i8, ptr %dev, i64 5872
   %36 = load i32, ptr %num_ports56, align 8
   %cmp57.not = icmp ult i32 %sub50, %36
   br i1 %cmp57.not, label %if.end60, label %fail
 
 if.end60:                                         ; preds = %trace_usb_hub_set_port_feature.exit
+  %ports61 = getelementptr inbounds i8, ptr %dev, i64 5888
   %idxprom62 = zext i32 %sub50 to i64
-  %arrayidx63 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom62
+  %arrayidx63 = getelementptr [8 x %struct.USBHubPort], ptr %ports61, i64 0, i64 %idxprom62
   %37 = load ptr, ptr %arrayidx63, align 8
   switch i32 %value, label %fail [
     i32 2, label %sw.bb66
@@ -605,14 +591,14 @@ if.end60:                                         ; preds = %trace_usb_hub_set_p
   ]
 
 sw.bb66:                                          ; preds = %if.end60
-  %wPortStatus67 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom62, i32 1
+  %wPortStatus67 = getelementptr inbounds i8, ptr %arrayidx63, i64 72
   %38 = load i16, ptr %wPortStatus67, align 8
   %39 = or i16 %38, 4
   store i16 %39, ptr %wPortStatus67, align 8
   br label %sw.epilog194
 
 sw.bb70:                                          ; preds = %if.end60
-  %wPortStatus.i = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom62, i32 1
+  %wPortStatus.i = getelementptr inbounds i8, ptr %arrayidx63, i64 72
   %40 = load i16, ptr %wPortStatus.i, align 8
   %and5.i = and i16 %40, 16
   %tobool.not.i = icmp eq i16 %and5.i, 0
@@ -620,7 +606,7 @@ sw.bb70:                                          ; preds = %if.end60
 
 if.end.i125:                                      ; preds = %sw.bb70
   %or.i = or disjoint i16 %40, 16
-  %wPortChange.i.i = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom62, i32 2
+  %wPortChange.i.i = getelementptr inbounds i8, ptr %arrayidx63, i64 74
   %41 = load i16, ptr %wPortChange.i.i, align 2
   %or2.i.i = or i16 %41, 16
   store i16 %or2.i.i, ptr %wPortChange.i.i, align 2
@@ -630,7 +616,7 @@ usb_hub_port_clear.exit:                          ; preds = %sw.bb70, %if.end.i1
   %42 = phi i16 [ %40, %sw.bb70 ], [ %or.i, %if.end.i125 ]
   %and5.i130 = and i16 %42, -17
   store i16 %and5.i130, ptr %wPortStatus.i, align 8
-  %wPortChange.i.i132 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom62, i32 2
+  %wPortChange.i.i132 = getelementptr inbounds i8, ptr %arrayidx63, i64 74
   %43 = load i16, ptr %wPortChange.i.i132, align 2
   %or2.i.i133 = or i16 %43, 16
   store i16 %or2.i.i133, ptr %wPortChange.i.i132, align 2
@@ -638,7 +624,7 @@ usb_hub_port_clear.exit:                          ; preds = %sw.bb70, %if.end.i1
   br i1 %tobool.not, label %if.end78, label %land.lhs.true73
 
 land.lhs.true73:                                  ; preds = %usb_hub_port_clear.exit
-  %attached = getelementptr inbounds %struct.USBDevice, ptr %37, i64 0, i32 13
+  %attached = getelementptr inbounds i8, ptr %37, i64 264
   %44 = load i8, ptr %attached, align 8
   %45 = and i8 %44, 1
   %tobool74.not = icmp eq i8 %45, 0
@@ -654,20 +640,20 @@ if.then76:                                        ; preds = %land.lhs.true73
 if.end.i139:                                      ; preds = %if.then76
   %or.i140 = or disjoint i16 %46, 2
   store i16 %or.i140, ptr %wPortStatus.i, align 8
-  %wPortChange.i.i142 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom62, i32 2
+  %wPortChange.i.i142 = getelementptr inbounds i8, ptr %arrayidx63, i64 74
   %47 = load i16, ptr %wPortChange.i.i142, align 2
   %or2.i.i143 = or i16 %47, 2
   store i16 %or2.i.i143, ptr %wPortChange.i.i142, align 2
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end.i139, %if.then76, %land.lhs.true73, %usb_hub_port_clear.exit
-  %intr = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %dev, i64 5864
   %48 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %48, i32 noundef 0) #8
   br label %sw.epilog194
 
 sw.bb79:                                          ; preds = %if.end60
-  %port_power = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 3
+  %port_power = getelementptr inbounds i8, ptr %dev, i64 5876
   %49 = load i8, ptr %port_power, align 4
   %50 = and i8 %49, 1
   %tobool80.not = icmp eq i8 %50, 0
@@ -675,7 +661,7 @@ sw.bb79:                                          ; preds = %if.end60
 
 if.then81:                                        ; preds = %sw.bb79
   %call82 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #8
-  %wPortStatus.i145 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom62, i32 1
+  %wPortStatus.i145 = getelementptr inbounds i8, ptr %arrayidx63, i64 72
   %51 = load i16, ptr %wPortStatus.i145, align 8
   %and5.i146 = and i16 %51, 256
   %tobool.not.i147 = icmp eq i16 %and5.i146, 0
@@ -687,7 +673,7 @@ if.end.i149:                                      ; preds = %if.then81
   br label %usb_hub_port_set.exit151
 
 usb_hub_port_set.exit151:                         ; preds = %if.then81, %if.end.i149
-  %port_timer = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 4
+  %port_timer = getelementptr inbounds i8, ptr %dev, i64 5880
   %52 = load ptr, ptr %port_timer, align 8
   %add = add i64 %call82, 5000000
   tail call void @timer_mod(ptr noundef %52, i64 noundef %add) #8
@@ -736,7 +722,7 @@ if.then8.i.i169:                                  ; preds = %if.then.i.i167
   %call9.i.i170 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i160, ptr noundef null) #8
   %call10.i.i171 = tail call i32 @qemu_get_thread_id() #8
   %62 = load i64, ptr %_now.i.i160, align 8
-  %tv_usec.i.i172 = getelementptr inbounds %struct.timeval, ptr %_now.i.i160, i64 0, i32 1
+  %tv_usec.i.i172 = getelementptr inbounds i8, ptr %_now.i.i160, i64 8
   %63 = load i64, ptr %tv_usec.i.i172, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i171, i64 noundef %62, i64 noundef %63, i32 noundef %conv91, i32 noundef %index, ptr noundef %retval.0.i158) #8
   br label %trace_usb_hub_clear_port_feature.exit
@@ -747,13 +733,15 @@ if.else.i.i173:                                   ; preds = %if.then.i.i167
 
 trace_usb_hub_clear_port_feature.exit:            ; preds = %feature_name.exit159, %land.lhs.true5.i.i164, %if.then8.i.i169, %if.else.i.i173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i160)
-  %num_ports93 = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 2
+  %num_ports93 = getelementptr inbounds i8, ptr %dev, i64 5872
   %64 = load i32, ptr %num_ports93, align 8
   %cmp94.not = icmp ult i32 %sub87, %64
   br i1 %cmp94.not, label %if.end97, label %fail
 
 if.end97:                                         ; preds = %trace_usb_hub_clear_port_feature.exit
+  %ports98 = getelementptr inbounds i8, ptr %dev, i64 5888
   %idxprom99 = zext i32 %sub87 to i64
+  %arrayidx100 = getelementptr [8 x %struct.USBHubPort], ptr %ports98, i64 0, i64 %idxprom99
   switch i32 %value, label %fail [
     i32 1, label %sw.bb101
     i32 17, label %sw.bb105
@@ -766,21 +754,21 @@ if.end97:                                         ; preds = %trace_usb_hub_clear
   ]
 
 sw.bb101:                                         ; preds = %if.end97
-  %wPortStatus102 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 1
+  %wPortStatus102 = getelementptr inbounds i8, ptr %arrayidx100, i64 72
   %65 = load i16, ptr %wPortStatus102, align 8
   %66 = and i16 %65, -3
   store i16 %66, ptr %wPortStatus102, align 8
   br label %sw.epilog194
 
 sw.bb105:                                         ; preds = %if.end97
-  %wPortChange106 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
+  %wPortChange106 = getelementptr inbounds i8, ptr %arrayidx100, i64 74
   %67 = load i16, ptr %wPortChange106, align 2
   %68 = and i16 %67, -3
   store i16 %68, ptr %wPortChange106, align 2
   br label %sw.epilog194
 
 sw.bb110:                                         ; preds = %if.end97
-  %wPortStatus.i174 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 1
+  %wPortStatus.i174 = getelementptr inbounds i8, ptr %arrayidx100, i64 72
   %69 = load i16, ptr %wPortStatus.i174, align 8
   %and6.i175 = and i16 %69, 4
   %tobool.not.i176 = icmp eq i16 %and6.i175, 0
@@ -789,49 +777,49 @@ sw.bb110:                                         ; preds = %if.end97
 if.end.i177:                                      ; preds = %sw.bb110
   %and5.i178 = and i16 %69, -5
   store i16 %and5.i178, ptr %wPortStatus.i174, align 8
-  %wPortChange.i.i180 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
+  %wPortChange.i.i180 = getelementptr inbounds i8, ptr %arrayidx100, i64 74
   %70 = load i16, ptr %wPortChange.i.i180, align 2
   %or2.i.i181 = or i16 %70, 4
   store i16 %or2.i.i181, ptr %wPortChange.i.i180, align 2
   br label %sw.epilog194
 
 sw.bb112:                                         ; preds = %if.end97
-  %wPortChange113 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
+  %wPortChange113 = getelementptr inbounds i8, ptr %arrayidx100, i64 74
   %71 = load i16, ptr %wPortChange113, align 2
   %72 = and i16 %71, -5
   store i16 %72, ptr %wPortChange113, align 2
   br label %sw.epilog194
 
 sw.bb117:                                         ; preds = %if.end97
-  %wPortChange118 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
+  %wPortChange118 = getelementptr inbounds i8, ptr %arrayidx100, i64 74
   %73 = load i16, ptr %wPortChange118, align 2
   %74 = and i16 %73, -2
   store i16 %74, ptr %wPortChange118, align 2
   br label %sw.epilog194
 
 sw.bb122:                                         ; preds = %if.end97
-  %wPortChange123 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
+  %wPortChange123 = getelementptr inbounds i8, ptr %arrayidx100, i64 74
   %75 = load i16, ptr %wPortChange123, align 2
   %76 = and i16 %75, -9
   store i16 %76, ptr %wPortChange123, align 2
   br label %sw.epilog194
 
 sw.bb127:                                         ; preds = %if.end97
-  %wPortChange128 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
+  %wPortChange128 = getelementptr inbounds i8, ptr %arrayidx100, i64 74
   %77 = load i16, ptr %wPortChange128, align 2
   %78 = and i16 %77, -17
   store i16 %78, ptr %wPortChange128, align 2
   br label %sw.epilog194
 
 sw.bb132:                                         ; preds = %if.end97
-  %port_power133 = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 3
+  %port_power133 = getelementptr inbounds i8, ptr %dev, i64 5876
   %79 = load i8, ptr %port_power133, align 4
   %80 = and i8 %79, 1
   %tobool134.not = icmp eq i8 %80, 0
   br i1 %tobool134.not, label %fail, label %if.then135
 
 if.then135:                                       ; preds = %sw.bb132
-  %wPortStatus.i184 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 1
+  %wPortStatus.i184 = getelementptr inbounds i8, ptr %arrayidx100, i64 72
   %81 = load i16, ptr %wPortStatus.i184, align 8
   %and6.i192 = and i16 %81, 1
   %.v = xor i16 %and6.i192, -257
@@ -854,18 +842,18 @@ if.then135:                                       ; preds = %sw.bb132
   br label %86
 
 86:                                               ; preds = %if.then135, %85
-  %wPortChange140 = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom99, i32 2
+  %wPortChange140 = getelementptr inbounds i8, ptr %arrayidx100, i64 74
   store i16 0, ptr %wPortChange140, align 2
   br label %fail
 
 sw.bb144:                                         ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %data, ptr noundef nonnull align 1 dereferenceable(7) @qemu_hub_hub_descriptor, i64 7, i1 false)
-  %num_ports146 = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 2
+  %num_ports146 = getelementptr inbounds i8, ptr %dev, i64 5872
   %87 = load i32, ptr %num_ports146, align 8
   %conv147 = trunc i32 %87 to i8
   %arrayidx148 = getelementptr i8, ptr %data, i64 2
   store i8 %conv147, ptr %arrayidx148, align 1
-  %port_power149 = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 3
+  %port_power149 = getelementptr inbounds i8, ptr %dev, i64 5876
   %88 = load i8, ptr %port_power149, align 4
   %89 = and i8 %88, 1
   %tobool150.not = icmp eq i8 %89, 0
@@ -922,14 +910,14 @@ for.body179.preheader:                            ; preds = %for.end
 for.end185:                                       ; preds = %for.body179.preheader, %for.end
   %var_hub_size.1.lcssa = phi i32 [ %var_hub_size.0.lcssa, %for.end ], [ %105, %for.body179.preheader ]
   %add187 = add nsw i32 %var_hub_size.1.lcssa, 7
-  %actual_length189 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length189 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %add187, ptr %actual_length189, align 8
   %conv191 = trunc i32 %add187 to i8
   store i8 %conv191, ptr %data, align 1
   br label %sw.epilog194
 
 fail:                                             ; preds = %if.end, %if.end97, %86, %sw.bb132, %trace_usb_hub_clear_port_feature.exit, %if.end60, %trace_usb_hub_set_port_feature.exit, %sw.bb40, %sw.bb13, %sw.bb
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog194
 
@@ -947,15 +935,15 @@ entry:
   br i1 %cond, label %sw.bb, label %fail
 
 sw.bb:                                            ; preds = %entry
-  %ep = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep = getelementptr inbounds i8, ptr %p, i64 16
   %1 = load ptr, ptr %ep, align 8
   %2 = load i8, ptr %1, align 8
   %cmp = icmp eq i8 %2, 1
   br i1 %cmp, label %if.then, label %fail
 
 if.then:                                          ; preds = %sw.bb
-  %num_ports = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 2
-  %size = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %num_ports = getelementptr inbounds i8, ptr %dev, i64 5872
+  %size = getelementptr inbounds i8, ptr %p, i64 64
   %3 = load i64, ptr %size, align 8
   %cmp3 = icmp eq i64 %3, 1
   %.pre = load i32, ptr %num_ports, align 8
@@ -969,20 +957,24 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp9, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.else
-  %status12 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status12 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -4, ptr %status12, align 4
   br label %sw.epilog
 
 if.end13:                                         ; preds = %if.then, %if.else
   %n.0 = phi i32 [ %div23, %if.else ], [ 1, %if.then ]
   %cmp1524.not = icmp eq i32 %.pre, 0
-  br i1 %cmp1524.not, label %if.else36, label %for.body
+  br i1 %cmp1524.not, label %if.else36, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.end13, %for.body
-  %i.026 = phi i32 [ %add18, %for.body ], [ 0, %if.end13 ]
-  %status.025 = phi i32 [ %status.1, %for.body ], [ 0, %if.end13 ]
+for.body.lr.ph:                                   ; preds = %if.end13
+  %ports = getelementptr inbounds i8, ptr %dev, i64 5888
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.026 = phi i32 [ 0, %for.body.lr.ph ], [ %add18, %for.body ]
+  %status.025 = phi i32 [ 0, %for.body.lr.ph ], [ %status.1, %for.body ]
   %idxprom = sext i32 %i.026 to i64
-  %wPortChange = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom, i32 2
   %4 = load i16, ptr %wPortChange, align 2
   %tobool.not = icmp eq i16 %4, 0
   %add18 = add nuw i32 %i.026, 1
@@ -997,7 +989,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp20.not, label %if.else36, label %if.then22
 
 if.then22:                                        ; preds = %for.end
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %dev, i64 224
   %5 = load i8, ptr %addr, align 8
   %conv24 = zext i8 %5 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1024,7 +1016,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv24, i32 noundef %status.1) #8
   br label %trace_usb_hub_status_report.exit
@@ -1060,12 +1052,12 @@ for.end34:                                        ; preds = %for.body28, %trace_
   br label %sw.epilog
 
 if.else36:                                        ; preds = %if.end13, %for.end
-  %status37 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status37 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status37, align 4
   br label %sw.epilog
 
 fail:                                             ; preds = %entry, %sw.bb
-  %status42 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status42 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status42, align 4
   br label %sw.epilog
 
@@ -1076,20 +1068,21 @@ sw.epilog:                                        ; preds = %if.else36, %for.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_hub_unrealize(ptr noundef %dev) #0 {
 entry:
-  %num_ports = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 2
+  %num_ports = getelementptr inbounds i8, ptr %dev, i64 5872
   %0 = load i32, ptr %num_ports, align 8
   %cmp6.not = icmp eq i32 %0, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %1 = getelementptr i8, ptr %dev, i64 88
+  %ports = getelementptr inbounds i8, ptr %dev, i64 5888
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.07 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %dev.val = load ptr, ptr %1, align 8
   %idxprom = sext i32 %i.07 to i64
-  %arrayidx = getelementptr %struct.USBHubState, ptr %dev, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
   tail call void @usb_unregister_port(ptr noundef %dev.val, ptr noundef %arrayidx) #8
   %inc = add nuw i32 %i.07, 1
   %2 = load i32, ptr %num_ports, align 8
@@ -1097,7 +1090,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
-  %port_timer = getelementptr inbounds %struct.USBHubState, ptr %dev, i64 0, i32 4
+  %port_timer = getelementptr inbounds i8, ptr %dev, i64 5880
   %3 = load ptr, ptr %port_timer, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -1124,29 +1117,33 @@ declare void @usb_desc_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_hub_port_update_timer(ptr nocapture noundef %opaque) #0 {
 entry:
-  %num_ports = getelementptr inbounds %struct.USBHubState, ptr %opaque, i64 0, i32 2
+  %num_ports = getelementptr inbounds i8, ptr %opaque, i64 5872
   %0 = load i32, ptr %num_ports, align 8
   %cmp7.not = icmp eq i32 %0, 0
-  br i1 %cmp7.not, label %if.end, label %for.body
+  br i1 %cmp7.not, label %if.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %usb_hub_port_update.exit
-  %i.09 = phi i32 [ %inc, %usb_hub_port_update.exit ], [ 0, %entry ]
-  %notify.08 = phi i1 [ %or6, %usb_hub_port_update.exit ], [ false, %entry ]
+for.body.lr.ph:                                   ; preds = %entry
+  %ports = getelementptr inbounds i8, ptr %opaque, i64 5888
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %usb_hub_port_update.exit
+  %i.09 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %usb_hub_port_update.exit ]
+  %notify.08 = phi i1 [ false, %for.body.lr.ph ], [ %or6, %usb_hub_port_update.exit ]
   %idxprom = sext i32 %i.09 to i64
-  %arrayidx = getelementptr %struct.USBHubState, ptr %opaque, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %usb_hub_port_update.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %attached.i = getelementptr inbounds %struct.USBDevice, ptr %1, i64 0, i32 13
+  %attached.i = getelementptr inbounds i8, ptr %1, i64 264
   %2 = load i8, ptr %attached.i, align 8
   %3 = and i8 %2, 1
   %tobool4.not.i = icmp eq i8 %3, 0
   br i1 %tobool4.not.i, label %usb_hub_port_update.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %wPortStatus.i.i = getelementptr %struct.USBHubState, ptr %opaque, i64 0, i32 5, i64 %idxprom, i32 1
+  %wPortStatus.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %4 = load i16, ptr %wPortStatus.i.i, align 8
   %and5.i.i = and i16 %4, 1
   %tobool.not.i.i = icmp eq i16 %and5.i.i, 0
@@ -1155,7 +1152,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.end.i.i:                                       ; preds = %if.then.i
   %or.i.i = or disjoint i16 %4, 1
   store i16 %or.i.i, ptr %wPortStatus.i.i, align 8
-  %wPortChange.i.i.i = getelementptr %struct.USBHubState, ptr %opaque, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 74
   %5 = load i16, ptr %wPortChange.i.i.i, align 2
   %or2.i.i.i = or i16 %5, 1
   store i16 %or2.i.i.i, ptr %wPortChange.i.i.i, align 2
@@ -1163,7 +1160,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 usb_hub_port_set.exit.i:                          ; preds = %if.end.i.i, %if.then.i
   %6 = phi i16 [ %4, %if.then.i ], [ %or.i.i, %if.end.i.i ]
-  %speed.i = getelementptr inbounds %struct.USBDevice, ptr %1, i64 0, i32 8
+  %speed.i = getelementptr inbounds i8, ptr %1, i64 216
   %7 = load i32, ptr %speed.i, align 8
   %cmp.i = icmp eq i32 %7, 0
   %and5.i7.i = and i16 %6, 512
@@ -1200,7 +1197,7 @@ for.end:                                          ; preds = %usb_hub_port_update
   br i1 %or6, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %intr = getelementptr inbounds %struct.USBHubState, ptr %opaque, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %opaque, i64 5864
   %8 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %8, i32 noundef 0) #8
   br label %if.end
@@ -1228,13 +1225,14 @@ declare void @usb_wakeup(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal void @usb_hub_attach(ptr nocapture noundef readonly %port1) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds %struct.USBPort, ptr %port1, i64 0, i32 5
+  %opaque = getelementptr inbounds i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %index = getelementptr inbounds %struct.USBPort, ptr %port1, i64 0, i32 6
+  %ports = getelementptr inbounds i8, ptr %0, i64 5888
+  %index = getelementptr inbounds i8, ptr %port1, i64 48
   %1 = load i32, ptr %index, align 8
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %0, i64 0, i32 10
+  %arrayidx = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
+  %addr = getelementptr inbounds i8, ptr %0, i64 224
   %2 = load i8, ptr %addr, align 8
   %conv = zext i8 %2 to i32
   %add = add i32 %1, 1
@@ -1262,7 +1260,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv, i32 noundef %add) #8
   br label %trace_usb_hub_attach.exit
@@ -1278,14 +1276,14 @@ trace_usb_hub_attach.exit:                        ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not.i, label %usb_hub_port_update.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %trace_usb_hub_attach.exit
-  %attached.i = getelementptr inbounds %struct.USBDevice, ptr %10, i64 0, i32 13
+  %attached.i = getelementptr inbounds i8, ptr %10, i64 264
   %11 = load i8, ptr %attached.i, align 8
   %12 = and i8 %11, 1
   %tobool4.not.i = icmp eq i8 %12, 0
   br i1 %tobool4.not.i, label %usb_hub_port_update.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %wPortStatus.i.i = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 1
+  %wPortStatus.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %13 = load i16, ptr %wPortStatus.i.i, align 8
   %and5.i.i = and i16 %13, 1
   %tobool.not.i.i = icmp eq i16 %and5.i.i, 0
@@ -1294,7 +1292,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 if.end.i.i:                                       ; preds = %if.then.i
   %or.i.i = or disjoint i16 %13, 1
   store i16 %or.i.i, ptr %wPortStatus.i.i, align 8
-  %wPortChange.i.i.i = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 74
   %14 = load i16, ptr %wPortChange.i.i.i, align 2
   %or2.i.i.i = or i16 %14, 1
   store i16 %or2.i.i.i, ptr %wPortChange.i.i.i, align 2
@@ -1302,7 +1300,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 usb_hub_port_set.exit.i:                          ; preds = %if.end.i.i, %if.then.i
   %15 = phi i16 [ %13, %if.then.i ], [ %or.i.i, %if.end.i.i ]
-  %speed.i = getelementptr inbounds %struct.USBDevice, ptr %10, i64 0, i32 8
+  %speed.i = getelementptr inbounds i8, ptr %10, i64 216
   %16 = load i32, ptr %speed.i, align 8
   %cmp.i = icmp eq i32 %16, 0
   %and5.i7.i = and i16 %15, 512
@@ -1329,7 +1327,7 @@ if.end10.sink.split.i:                            ; preds = %if.end.i15.i, %if.e
   br label %usb_hub_port_update.exit
 
 usb_hub_port_update.exit:                         ; preds = %trace_usb_hub_attach.exit, %land.lhs.true.i, %if.then7.i, %if.else.i, %if.end10.sink.split.i
-  %intr = getelementptr inbounds %struct.USBHubState, ptr %0, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %0, i64 5864
   %17 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %17, i32 noundef 0) #8
   ret void
@@ -1339,12 +1337,14 @@ usb_hub_port_update.exit:                         ; preds = %trace_usb_hub_attac
 define internal void @usb_hub_detach(ptr nocapture noundef readonly %port1) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds %struct.USBPort, ptr %port1, i64 0, i32 5
+  %opaque = getelementptr inbounds i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %index = getelementptr inbounds %struct.USBPort, ptr %port1, i64 0, i32 6
+  %ports = getelementptr inbounds i8, ptr %0, i64 5888
+  %index = getelementptr inbounds i8, ptr %port1, i64 48
   %1 = load i32, ptr %index, align 8
   %idxprom = sext i32 %1 to i64
-  %addr = getelementptr inbounds %struct.USBDevice, ptr %0, i64 0, i32 10
+  %arrayidx = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
+  %addr = getelementptr inbounds i8, ptr %0, i64 224
   %2 = load i8, ptr %addr, align 8
   %conv = zext i8 %2 to i32
   %add = add i32 %1, 1
@@ -1372,7 +1372,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv, i32 noundef %add) #8
   br label %trace_usb_hub_detach.exit
@@ -1383,18 +1383,18 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_usb_hub_detach.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %intr = getelementptr inbounds %struct.USBHubState, ptr %0, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %0, i64 5864
   %10 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %10, i32 noundef 0) #8
-  %port3 = getelementptr inbounds %struct.USBDevice, ptr %0, i64 0, i32 1
+  %port3 = getelementptr inbounds i8, ptr %0, i64 160
   %11 = load ptr, ptr %port3, align 8
-  %ops = getelementptr inbounds %struct.USBPort, ptr %11, i64 0, i32 4
+  %ops = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %ops, align 8
-  %child_detach = getelementptr inbounds %struct.USBPortOps, ptr %12, i64 0, i32 2
+  %child_detach = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %child_detach, align 8
   %14 = load ptr, ptr %port1, align 8
   tail call void %13(ptr noundef %11, ptr noundef %14) #8
-  %wPortStatus.i = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 1
+  %wPortStatus.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %15 = load i16, ptr %wPortStatus.i, align 8
   %and6.i = and i16 %15, 1
   %tobool.not.i = icmp eq i16 %and6.i, 0
@@ -1403,7 +1403,7 @@ trace_usb_hub_detach.exit:                        ; preds = %entry, %land.lhs.tr
 if.end.i:                                         ; preds = %trace_usb_hub_detach.exit
   %and5.i = and i16 %15, -2
   store i16 %and5.i, ptr %wPortStatus.i, align 8
-  %wPortChange.i.i = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 74
   %16 = load i16, ptr %wPortChange.i.i, align 2
   %or2.i.i = or i16 %16, 1
   store i16 %or2.i.i, ptr %wPortChange.i.i, align 2
@@ -1418,7 +1418,7 @@ usb_hub_port_clear.exit:                          ; preds = %trace_usb_hub_detac
 if.end.i15:                                       ; preds = %usb_hub_port_clear.exit
   %and5.i16 = and i16 %17, -3
   store i16 %and5.i16, ptr %wPortStatus.i, align 8
-  %wPortChange.i.i18 = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange.i.i18 = getelementptr inbounds i8, ptr %arrayidx, i64 74
   %18 = load i16, ptr %wPortChange.i.i18, align 2
   %or2.i.i19 = or i16 %18, 2
   store i16 %or2.i.i19, ptr %wPortChange.i.i18, align 2
@@ -1433,7 +1433,7 @@ usb_hub_port_clear.exit21:                        ; preds = %usb_hub_port_clear.
 if.end.i25:                                       ; preds = %usb_hub_port_clear.exit21
   %and5.i26 = and i16 %19, -5
   store i16 %and5.i26, ptr %wPortStatus.i, align 8
-  %wPortChange.i.i28 = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange.i.i28 = getelementptr inbounds i8, ptr %arrayidx, i64 74
   %20 = load i16, ptr %wPortChange.i.i28, align 2
   %or2.i.i29 = or i16 %20, 4
   store i16 %or2.i.i29, ptr %wPortChange.i.i28, align 2
@@ -1448,13 +1448,13 @@ usb_hub_port_clear.exit31:                        ; preds = %usb_hub_port_clear.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_hub_child_detach(ptr nocapture noundef readonly %port1, ptr noundef %child) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.USBPort, ptr %port1, i64 0, i32 5
+  %opaque = getelementptr inbounds i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %port = getelementptr inbounds %struct.USBDevice, ptr %0, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %port, align 8
-  %ops = getelementptr inbounds %struct.USBPort, ptr %1, i64 0, i32 4
+  %ops = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %ops, align 8
-  %child_detach = getelementptr inbounds %struct.USBPortOps, ptr %2, i64 0, i32 2
+  %child_detach = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %child_detach, align 8
   tail call void %3(ptr noundef %1, ptr noundef %child) #8
   ret void
@@ -1463,12 +1463,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_hub_wakeup(ptr nocapture noundef readonly %port1) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.USBPort, ptr %port1, i64 0, i32 5
+  %opaque = getelementptr inbounds i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %index = getelementptr inbounds %struct.USBPort, ptr %port1, i64 0, i32 6
+  %ports = getelementptr inbounds i8, ptr %0, i64 5888
+  %index = getelementptr inbounds i8, ptr %port1, i64 48
   %1 = load i32, ptr %index, align 8
   %idxprom = sext i32 %1 to i64
-  %wPortStatus.i = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 1
+  %arrayidx = getelementptr [8 x %struct.USBHubPort], ptr %ports, i64 0, i64 %idxprom
+  %wPortStatus.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %2 = load i16, ptr %wPortStatus.i, align 8
   %and6.i = and i16 %2, 4
   %tobool.not.i = icmp eq i16 %and6.i, 0
@@ -1477,11 +1479,11 @@ entry:
 if.then:                                          ; preds = %entry
   %and5.i = and i16 %2, -5
   store i16 %and5.i, ptr %wPortStatus.i, align 8
-  %wPortChange.i.i = getelementptr %struct.USBHubState, ptr %0, i64 0, i32 5, i64 %idxprom, i32 2
+  %wPortChange.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 74
   %3 = load i16, ptr %wPortChange.i.i, align 2
   %or2.i.i = or i16 %3, 4
   store i16 %or2.i.i, ptr %wPortChange.i.i, align 2
-  %intr = getelementptr inbounds %struct.USBHubState, ptr %0, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %0, i64 5864
   %4 = load ptr, ptr %intr, align 8
   tail call void @usb_wakeup(ptr noundef %4, i32 noundef 0) #8
   br label %if.end
@@ -1493,13 +1495,13 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_hub_complete(ptr nocapture noundef readonly %port, ptr noundef %packet) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.USBPort, ptr %port, i64 0, i32 5
+  %opaque = getelementptr inbounds i8, ptr %port, i64 40
   %0 = load ptr, ptr %opaque, align 8
-  %port1 = getelementptr inbounds %struct.USBDevice, ptr %0, i64 0, i32 1
+  %port1 = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %port1, align 8
-  %ops = getelementptr inbounds %struct.USBPort, ptr %1, i64 0, i32 4
+  %ops = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %ops, align 8
-  %complete = getelementptr inbounds %struct.USBPortOps, ptr %2, i64 0, i32 4
+  %complete = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %complete, align 8
   tail call void %3(ptr noundef %1, ptr noundef %packet) #8
   ret void
@@ -1536,7 +1538,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @usb_hub_port_timer_needed(ptr nocapture noundef readonly %opaque) #5 {
 entry:
-  %port_power = getelementptr inbounds %struct.USBHubState, ptr %opaque, i64 0, i32 3
+  %port_power = getelementptr inbounds i8, ptr %opaque, i64 5876
   %0 = load i8, ptr %port_power, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0

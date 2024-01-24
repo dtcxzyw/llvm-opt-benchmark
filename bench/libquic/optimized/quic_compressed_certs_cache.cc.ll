@@ -9,23 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.base::MRUCacheBase" = type { ptr, %"class.std::__cxx11::list", %"class.std::map", i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>, std::allocator<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>, std::allocator<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::_List_iterator<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>>>, std::_Select1st<std::pair<const unsigned long, std::_List_iterator<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>>>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::_List_iterator<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>>>, std::_Select1st<std::pair<const unsigned long, std::_List_iterator<std::pair<unsigned long, net::QuicCompressedCertsCache::CachedCerts>>>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf.11" }
-%"struct.__gnu_cxx::__aligned_membuf.11" = type { [112 x i8] }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [16 x i8] }
 %"struct.std::pair" = type { i64, %"class.net::QuicCompressedCertsCache::CachedCerts" }
 %"struct.std::pair.14" = type { i64, %"struct.std::_List_iterator" }
 %"struct.std::_List_iterator" = type { ptr }
@@ -110,9 +93,9 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit
 
 _ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit: ; preds = %entry, %if.then.i
-  %client_common_set_hashes3 = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %this, i64 0, i32 1
+  %client_common_set_hashes3 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %client_common_set_hashes, ptr %client_common_set_hashes3, align 8
-  %client_cached_cert_hashes4 = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %this, i64 0, i32 2
+  %client_cached_cert_hashes4 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %client_cached_cert_hashes, ptr %client_cached_cert_hashes4, align 8
   ret void
 }
@@ -134,7 +117,7 @@ if.then.i:                                        ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   br label %_ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit
@@ -147,11 +130,11 @@ _ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit: ; preds = %entry, %if.th
 define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %client_common_set_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 1
+  %client_common_set_hashes_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_) #13
-  %client_cached_cert_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 2
+  %client_cached_cert_hashes_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_) #13
-  %compressed_cert_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 3
+  %compressed_cert_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_) #13
   ret void
 }
@@ -175,21 +158,21 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit
 
 _ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit: ; preds = %entry, %if.then.i
-  %client_common_set_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 1
-  %client_common_set_hashes = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 1
+  %client_common_set_hashes_ = getelementptr inbounds i8, ptr %this, i64 8
+  %client_common_set_hashes = getelementptr inbounds i8, ptr %uncompressed_certs, i64 8
   %2 = load ptr, ptr %client_common_set_hashes, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit
-  %client_cached_cert_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 2
-  %client_cached_cert_hashes = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 2
+  %client_cached_cert_hashes_ = getelementptr inbounds i8, ptr %this, i64 40
+  %client_cached_cert_hashes = getelementptr inbounds i8, ptr %uncompressed_certs, i64 16
   %3 = load ptr, ptr %client_cached_cert_hashes, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %compressed_cert_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 3
+  %compressed_cert_ = getelementptr inbounds i8, ptr %this, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_, ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -233,7 +216,7 @@ if.then.i6:                                       ; preds = %ehcleanup6
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i6
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(40) %7) #13
   br label %_ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit
@@ -265,20 +248,20 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit
 
 _ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit: ; preds = %entry, %if.then.i
-  %client_common_set_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 1
-  %client_common_set_hashes_3 = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %other, i64 0, i32 1
+  %client_common_set_hashes_ = getelementptr inbounds i8, ptr %this, i64 8
+  %client_common_set_hashes_3 = getelementptr inbounds i8, ptr %other, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_, ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN13scoped_refptrIN3net11ProofSource5ChainEEC2ERKS3_.exit
-  %client_cached_cert_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 2
-  %client_cached_cert_hashes_4 = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %other, i64 0, i32 2
+  %client_cached_cert_hashes_ = getelementptr inbounds i8, ptr %this, i64 40
+  %client_cached_cert_hashes_4 = getelementptr inbounds i8, ptr %other, i64 40
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_, ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %compressed_cert_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 3
-  %compressed_cert_7 = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %other, i64 0, i32 3
+  %compressed_cert_ = getelementptr inbounds i8, ptr %this, i64 72
+  %compressed_cert_7 = getelementptr inbounds i8, ptr %other, i64 72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_, ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_7)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -322,7 +305,7 @@ if.then.i7:                                       ; preds = %ehcleanup10
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i7
   %vtable.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   br label %_ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit
@@ -334,11 +317,11 @@ _ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit: ; preds = %ehcleanup10, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %compressed_cert_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 3
+  %compressed_cert_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_) #13
-  %client_cached_cert_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 2
+  %client_cached_cert_hashes_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_) #13
-  %client_common_set_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 1
+  %client_common_set_hashes_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_) #13
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -354,7 +337,7 @@ if.then.i:                                        ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   br label %_ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit
@@ -366,8 +349,8 @@ _ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit: ; preds = %entry, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK3net24QuicCompressedCertsCache11CachedCerts24MatchesUncompressedCertsERKNS0_17UncompressedCertsE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %uncompressed_certs) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %client_common_set_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 1
-  %client_common_set_hashes = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 1
+  %client_common_set_hashes_ = getelementptr inbounds i8, ptr %this, i64 8
+  %client_common_set_hashes = getelementptr inbounds i8, ptr %uncompressed_certs, i64 8
   %0 = load ptr, ptr %client_common_set_hashes, align 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_) #13
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
@@ -387,8 +370,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %1, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %land.rhs.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %client_cached_cert_hashes_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 2
-  %client_cached_cert_hashes = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 2
+  %client_cached_cert_hashes_ = getelementptr inbounds i8, ptr %this, i64 40
+  %client_cached_cert_hashes = getelementptr inbounds i8, ptr %uncompressed_certs, i64 16
   %2 = load ptr, ptr %client_cached_cert_hashes, align 8
   %call.i3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_) #13
   %call1.i4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
@@ -421,30 +404,30 @@ land.end:                                         ; preds = %land.lhs.true, %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK3net24QuicCompressedCertsCache11CachedCerts15compressed_certB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %compressed_cert_ = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %this, i64 0, i32 3
+  %compressed_cert_ = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %compressed_cert_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net24QuicCompressedCertsCacheC2El(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %max_num_certs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ordering_.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1
-  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ordering_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %ordering_.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8
   store ptr %ordering_.i.i, ptr %ordering_.i.i, align 8
-  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %_M_size.i.i.i.i.i.i.i, align 8
-  %0 = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  %max_size_.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 3
+  %max_size_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %max_num_certs, ptr %max_size_.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base8MRUCacheImN3net24QuicCompressedCertsCache11CachedCertsEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
@@ -461,8 +444,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE5ClearEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %index_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %index_, ptr noundef %0)
           to label %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -475,15 +458,15 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE5clearEv.exit: ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
-  %_M_left.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr.i.i, ptr %_M_left.i.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %_M_node_count.i.i.i, align 8
-  %ordering_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1
+  %ordering_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %ordering_, align 8
   %cmp.not4.i.i = icmp eq ptr %3, %ordering_
   br i1 %cmp.not4.i.i, label %_ZNSt7__cxx114listISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEESaIS5_EE5clearEv.exit, label %while.body.i.i
@@ -491,12 +474,12 @@ _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCe
 while.body.i.i:                                   ; preds = %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE5clearEv.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i
   %__cur.05.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i ], [ %3, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE5clearEv.exit ]
   %4 = load ptr, ptr %__cur.05.i.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1, i32 0, i64 8
-  %compressed_cert_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1, i32 0, i64 80
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 24
+  %compressed_cert_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_.i.i.i.i.i.i) #13
-  %client_cached_cert_hashes_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1, i32 0, i64 48
+  %client_cached_cert_hashes_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_.i.i.i.i.i.i) #13
-  %client_common_set_hashes_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1, i32 0, i64 16
+  %client_common_set_hashes_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_.i.i.i.i.i.i) #13
   %5 = load ptr, ptr %second.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -512,7 +495,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i
@@ -523,10 +506,10 @@ _ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCac
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx114listISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEESaIS5_EE5clearEv.exit, label %while.body.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEESaIS5_EE5clearEv.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE5clearEv.exit
-  %_M_prev.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %ordering_, ptr %_M_prev.i.i.i, align 8
   store ptr %ordering_, ptr %ordering_, align 8
-  %_M_size.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %_M_size.i.i.i, align 8
   ret void
 }
@@ -566,27 +549,26 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit
 
 _ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit: ; preds = %entry, %if.then.i.i
-  %client_common_set_hashes3.i = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 1
+  %client_common_set_hashes3.i = getelementptr inbounds i8, ptr %uncompressed_certs, i64 8
   store ptr %client_common_set_hashes, ptr %client_common_set_hashes3.i, align 8
-  %client_cached_cert_hashes4.i = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 2
+  %client_cached_cert_hashes4.i = getelementptr inbounds i8, ptr %uncompressed_certs, i64 16
   store ptr %client_cached_cert_hashes, ptr %client_cached_cert_hashes4.i, align 8
   %call = call noundef i64 @_ZN3net24QuicCompressedCertsCache28ComputeUncompressedCertsHashERKNS0_17UncompressedCertsE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %uncompressed_certs)
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %cmp.not5.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i.i.i, label %cleanup, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %2, %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %3, %call
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !7
@@ -596,16 +578,16 @@ _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCach
   br i1 %cmp.i.i.i.i, label %cleanup, label %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.i
 
 _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.i: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp ult i64 %call, %4
   br i1 %cmp.i4.i.i.i, label %cleanup, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit.i
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 40
   %5 = load i64, ptr %second.i, align 8
   %6 = inttoptr i64 %5 to ptr
-  %ordering_.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1
+  %ordering_.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %ordering_.i, align 8
   %8 = load ptr, ptr %6, align 8
   %cmp.i.i.i1.i = icmp eq ptr %7, %6
@@ -624,9 +606,9 @@ invoke.cont2:                                     ; preds = %if.end8.i.i.i, %if.
   br i1 %cmp.i.not, label %cleanup, label %if.then
 
 if.then:                                          ; preds = %invoke.cont2
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 24
   %call11 = call noundef zeroext i1 @_ZNK3net24QuicCompressedCertsCache11CachedCerts24MatchesUncompressedCertsERKNS0_17UncompressedCertsE(ptr noundef nonnull align 8 dereferenceable(104) %second, ptr noundef nonnull align 8 dereferenceable(24) %uncompressed_certs)
-  %compressed_cert_.i = getelementptr inbounds %"struct.std::_List_node", ptr %retval.sroa.0.0.i, i64 0, i32 1, i32 0, i64 80
+  %compressed_cert_.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i, i64 96
   %spec.select = select i1 %call11, ptr %compressed_cert_.i, ptr null
   %.pre = load ptr, ptr %uncompressed_certs, align 8
   br label %cleanup
@@ -647,7 +629,7 @@ if.then.i.i8:                                     ; preds = %cleanup
 
 delete.notnull.i.i.i.i12:                         ; preds = %if.then.i.i8
   %vtable.i.i.i.i13 = load ptr, ptr %9, align 8
-  %vfn.i.i.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i13, i64 1
+  %vfn.i.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i.i13, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i14, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(40) %9) #13
   br label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit15
@@ -659,7 +641,7 @@ _ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit15: ; preds = %clea
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZN3net24QuicCompressedCertsCache28ComputeUncompressedCertsHashERKNS0_17UncompressedCertsE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %uncompressed_certs) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %client_common_set_hashes = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 1
+  %client_common_set_hashes = getelementptr inbounds i8, ptr %uncompressed_certs, i64 8
   %0 = load ptr, ptr %client_common_set_hashes, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #13
@@ -674,7 +656,7 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit: ; preds = %entry
-  %client_cached_cert_hashes = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 2
+  %client_cached_cert_hashes = getelementptr inbounds i8, ptr %uncompressed_certs, i64 16
   %3 = load ptr, ptr %client_cached_cert_hashes, align 8
   %call.i3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   %call2.i4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
@@ -725,9 +707,9 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit
 
 _ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_.exit: ; preds = %entry, %if.then.i.i
-  %client_common_set_hashes3.i = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 1
+  %client_common_set_hashes3.i = getelementptr inbounds i8, ptr %uncompressed_certs, i64 8
   store ptr %client_common_set_hashes, ptr %client_common_set_hashes3.i, align 8
-  %client_cached_cert_hashes4.i = getelementptr inbounds %"struct.net::QuicCompressedCertsCache::UncompressedCerts", ptr %uncompressed_certs, i64 0, i32 2
+  %client_cached_cert_hashes4.i = getelementptr inbounds i8, ptr %uncompressed_certs, i64 16
   store ptr %client_cached_cert_hashes, ptr %client_cached_cert_hashes4.i, align 8
   %call = call noundef i64 @_ZN3net24QuicCompressedCertsCache28ComputeUncompressedCertsHashERKNS0_17UncompressedCertsE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(24) %uncompressed_certs)
   store i64 %call, ptr %key, align 8
@@ -739,11 +721,11 @@ invoke.cont2:                                     ; preds = %_ZN3net24QuicCompre
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %compressed_cert_.i = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %ref.tmp, i64 0, i32 3
+  %compressed_cert_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_.i) #13
-  %client_cached_cert_hashes_.i = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %ref.tmp, i64 0, i32 2
+  %client_cached_cert_hashes_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_.i) #13
-  %client_common_set_hashes_.i = getelementptr inbounds %"class.net::QuicCompressedCertsCache::CachedCerts", ptr %ref.tmp, i64 0, i32 1
+  %client_common_set_hashes_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_.i) #13
   %2 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i2 = icmp eq ptr %2, null
@@ -759,7 +741,7 @@ if.then.i.i3:                                     ; preds = %invoke.cont4
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i3
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   br label %_ZN3net24QuicCompressedCertsCache11CachedCertsD2Ev.exit
@@ -777,7 +759,7 @@ if.then.i.i6:                                     ; preds = %_ZN3net24QuicCompre
 
 delete.notnull.i.i.i.i10:                         ; preds = %if.then.i.i6
   %vtable.i.i.i.i11 = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i11, i64 1
+  %vfn.i.i.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i.i11, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i12, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   br label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit
@@ -810,7 +792,7 @@ if.then.i.i14:                                    ; preds = %ehcleanup
 
 delete.notnull.i.i.i.i18:                         ; preds = %if.then.i.i14
   %vtable.i.i.i.i19 = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i19, i64 1
+  %vfn.i.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i.i19, i64 8
   %10 = load ptr, ptr %vfn.i.i.i.i20, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   br label %_ZN3net24QuicCompressedCertsCache17UncompressedCertsD2Ev.exit21
@@ -824,9 +806,9 @@ define linkonce_odr dso_local ptr @_ZN4base12MRUCacheBaseImN3net24QuicCompressed
 entry:
   %ref.tmp13 = alloca %"struct.std::pair", align 8
   %ref.tmp15 = alloca %"struct.std::pair.14", align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %cmp.not5.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i.i.i, label %if.else, label %while.body.lr.ph.i.i.i
 
@@ -837,13 +819,12 @@ while.body.lr.ph.i.i.i:                           ; preds = %entry
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.lr.ph.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %0, %while.body.lr.ph.i.i.i ], [ %__x.addr.1.i.i.i, %while.body.i.i.i ]
   %__y.addr.06.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.body.lr.ph.i.i.i ], [ %__y.addr.1.i.i.i, %while.body.i.i.i ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %2, %1
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
@@ -853,32 +834,32 @@ _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCach
   br i1 %cmp.i.i.i, label %if.else, label %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit
 
 _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ult i64 %1, %3
   br i1 %cmp.i4.i.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %second, align 8
   %call8 = tail call ptr @_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE5EraseESt14_List_iteratorISt4pairImS3_EE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr %agg.tmp.sroa.0.0.copyload)
   br label %if.end12
 
 if.else:                                          ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE4findERS9_.exit
-  %max_size_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 3
+  %max_size_ = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load i64, ptr %max_size_, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.else
   %sub = add i64 %4, -1
-  %_M_node_count.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %cmp2.i = icmp ugt i64 %5, %sub
   br i1 %cmp2.i, label %for.body.lr.ph.i, label %if.end12
 
 for.body.lr.ph.i:                                 ; preds = %if.then10
-  %_M_prev.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_prev.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -890,20 +871,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i3, label %for.body.i, label %if.end12, !llvm.loop !11
 
 if.end12:                                         ; preds = %for.body.i, %if.then10, %if.else, %if.then
-  %ordering_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1
+  %ordering_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %key, align 8
   store i64 %7, ptr %ref.tmp13, align 8
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp13, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   call void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %second.i, ptr noundef nonnull align 8 dereferenceable(104) %payload)
   %8 = load ptr, ptr %ordering_, align 8
   %call5.i.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #16
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.end12
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i4, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i4, i64 16
   %9 = load i64, ptr %ref.tmp13, align 8
   store i64 %9, ptr %_M_storage.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i4, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i4, i64 24
   invoke void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %second.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %second.i)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEED2Ev.exit9.i.i.i
 
@@ -915,15 +896,15 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCach
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i.i.i.noexc
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i4, ptr noundef %8) #13
-  %_M_size.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %11, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
-  %compressed_cert_.i.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp13, i64 0, i32 1, i32 3
+  %compressed_cert_.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_.i.i) #13
-  %client_cached_cert_hashes_.i.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp13, i64 0, i32 1, i32 2
+  %client_cached_cert_hashes_.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_.i.i) #13
-  %client_common_set_hashes_.i.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp13, i64 0, i32 1, i32 1
+  %client_common_set_hashes_.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_.i.i) #13
   %12 = load ptr, ptr %second.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
@@ -939,17 +920,17 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %12) #13
   br label %_ZNSt4pairImN3net24QuicCompressedCertsCache11CachedCertsEED2Ev.exit
 
 _ZNSt4pairImN3net24QuicCompressedCertsCache11CachedCertsEED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i.i, %delete.notnull.i.i.i.i.i
-  %index_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load ptr, ptr %ordering_, align 8
   %16 = load i64, ptr %key, align 8
   store i64 %16, ptr %ref.tmp15, align 8
-  %17 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp15, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store ptr %15, ptr %17, align 8
   %call21 = call { ptr, i8 } @_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE6insertIS1_ImS6_EEENSt9enable_ifIXsr16is_constructibleISA_T_EE5valueES1_ISt17_Rb_tree_iteratorISA_EbEE4typeEOSG_(ptr noundef nonnull align 8 dereferenceable(48) %index_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15)
   %18 = load ptr, ptr %ordering_, align 8
@@ -969,7 +950,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZN3net24QuicCompressedCertsCache7MaxSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %max_size_.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 3
+  %max_size_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %max_size_.i, align 8
   ret i64 %0
 }
@@ -977,7 +958,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZN3net24QuicCompressedCertsCache4SizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %_M_node_count.i.i.i, align 8
   ret i64 %0
 }
@@ -1005,8 +986,8 @@ entry:
 define linkonce_odr dso_local void @_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %index_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %index_, ptr noundef %0)
           to label %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1019,7 +1000,7 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEED2Ev.exit: ; preds = %entry
-  %ordering_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1
+  %ordering_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %ordering_, align 8
   %cmp.not4.i.i.i = icmp eq ptr %3, %ordering_
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEESaIS5_EED2Ev.exit, label %while.body.i.i.i
@@ -1027,12 +1008,12 @@ _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCe
 while.body.i.i.i:                                 ; preds = %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEED2Ev.exit, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i.i
   %__cur.05.i.i.i = phi ptr [ %4, %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i.i ], [ %3, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEED2Ev.exit ]
   %4 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %compressed_cert_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1, i32 0, i64 80
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 24
+  %compressed_cert_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_.i.i.i.i.i.i.i) #13
-  %client_cached_cert_hashes_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1, i32 0, i64 48
+  %client_cached_cert_hashes_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_.i.i.i.i.i.i.i) #13
-  %client_common_set_hashes_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %client_common_set_hashes_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_.i.i.i.i.i.i.i) #13
   %5 = load ptr, ptr %second.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -1048,7 +1029,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.body.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(40) %5) #13
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEEEE7destroyIS5_EEvRS7_PT_.exit.i.i.i
@@ -1078,10 +1059,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #15
   %cmp.not = icmp eq ptr %1, null
@@ -1097,12 +1078,12 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt4pairImN3net24QuicCompressedCertsCache11CachedCertsEED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair", ptr %this, i64 0, i32 1
-  %compressed_cert_.i = getelementptr inbounds %"struct.std::pair", ptr %this, i64 0, i32 1, i32 3
+  %second = getelementptr inbounds i8, ptr %this, i64 8
+  %compressed_cert_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_.i) #13
-  %client_cached_cert_hashes_.i = getelementptr inbounds %"struct.std::pair", ptr %this, i64 0, i32 1, i32 2
+  %client_cached_cert_hashes_.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_.i) #13
-  %client_common_set_hashes_.i = getelementptr inbounds %"struct.std::pair", ptr %this, i64 0, i32 1, i32 1
+  %client_common_set_hashes_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_.i) #13
   %0 = load ptr, ptr %second, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -1118,7 +1099,7 @@ if.then.i.i:                                      ; preds = %entry
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
   br label %_ZN3net24QuicCompressedCertsCache11CachedCertsD2Ev.exit
@@ -1133,21 +1114,21 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessImENS_19MRUCacheStandardMapEE5EraseESt14_List_iteratorISt4pairImS3_EE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr %pos.coerce) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %index_ = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 2
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %pos.coerce, i64 0, i32 1
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %pos.coerce, i64 16
   %call.i = tail call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %index_, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i)
   %0 = load ptr, ptr %pos.coerce, align 8
-  %_M_size.i.i.i = getelementptr inbounds %"class.base::MRUCacheBase", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %_M_size.i.i.i, align 8
   %sub.i.i.i = add i64 %1, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %pos.coerce) #13
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %pos.coerce, i64 0, i32 1, i32 0, i64 8
-  %compressed_cert_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %pos.coerce, i64 0, i32 1, i32 0, i64 80
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %pos.coerce, i64 24
+  %compressed_cert_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pos.coerce, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert_.i.i.i.i.i.i) #13
-  %client_cached_cert_hashes_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %pos.coerce, i64 0, i32 1, i32 0, i64 48
+  %client_cached_cert_hashes_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pos.coerce, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_cached_cert_hashes_.i.i.i.i.i.i) #13
-  %client_common_set_hashes_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %pos.coerce, i64 0, i32 1, i32 0, i64 16
+  %client_common_set_hashes_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %pos.coerce, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %client_common_set_hashes_.i.i.i.i.i.i) #13
   %2 = load ptr, ptr %second.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -1163,7 +1144,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %entry
 
 delete.notnull.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(40) %2) #13
   br label %_ZNSt7__cxx114listISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEESaIS5_EE5eraseESt20_List_const_iteratorIS5_E.exit
@@ -1186,13 +1167,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %.pre
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE11lower_boundERS9_.exit, label %while.body.i.i.i, !llvm.loop !7
@@ -1202,7 +1182,7 @@ _ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCe
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE11lower_boundERS9_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8
   %cmp.i3 = icmp ult i64 %.pre, %2
   br i1 %cmp.i3, label %if.then, label %return
@@ -1210,10 +1190,10 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImSt14_Lis
 if.then:                                          ; preds = %entry, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE11lower_boundERS9_.exit, %lor.rhs
   %__y.addr.0.lcssa.i.i.i10 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImSt14_List_iteratorISt4pairImN3net24QuicCompressedCertsCache11CachedCertsEEESt4lessImESaIS1_IKmS6_EEE11lower_boundERS9_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.14", ptr %__x, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
+  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 8
   %3 = load i64, ptr %second3.i.i.i.i.i.i.i.i, align 8
   store i64 %3, ptr %second.i.i.i.i.i.i.i.i, align 8
   %call4.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i10, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
@@ -1232,7 +1212,7 @@ if.then.i.i:                                      ; preds = %invoke.cont3.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %5, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %7 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %6, %7
@@ -1270,81 +1250,76 @@ define linkonce_odr dso_local noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_i
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.039.i = load ptr, ptr %_M_parent.i.i.i, align 8
-  %cmp.not40.i = icmp eq ptr %__x.039.i, null
-  br i1 %cmp.not40.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %while.body.lr.ph.i
+  %__x.038.i = load ptr, ptr %_M_parent.i.i.i, align 8
+  %cmp.not39.i = icmp eq ptr %__x.038.i, null
+  br i1 %cmp.not39.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %0 = load i64, ptr %__x, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end19.i, %while.body.lr.ph.i
-  %__x.042.i = phi ptr [ %__x.039.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
-  %__y.041.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.042.i, i64 0, i32 1
+  %__x.041.i = phi ptr [ %__x.038.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
+  %__y.040.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %1, %0
-  br i1 %cmp.i.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %while.body.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
-  br label %if.end19.i
+  br i1 %cmp.i.i, label %if.end19.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
   %cmp.i18.i = icmp ult i64 %0, %1
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 2
   br i1 %cmp.i18.i, label %if.end19.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else.i
-  %2 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_right.i20.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
+  %_M_left.i19.i = getelementptr inbounds i8, ptr %__x.041.i, i64 16
+  %2 = load ptr, ptr %_M_left.i19.i, align 8
+  %_M_right.i20.i = getelementptr inbounds i8, ptr %__x.041.i, i64 24
   %3 = load ptr, ptr %_M_right.i20.i, align 8
   %cmp.not5.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.else12.i, %while.body.i.i
   %__x.addr.07.i.i = phi ptr [ %__x.addr.1.i.i, %while.body.i.i ], [ %2, %if.else12.i ]
-  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.042.i, %if.else12.i ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i, i64 0, i32 1
+  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.041.i, %if.else12.i ]
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %4, %0
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 3
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 2
   %__y.addr.1.i.i = select i1 %cmp.i.i.i, ptr %__y.addr.06.i.i, ptr %__x.addr.07.i.i
-  %__x.addr.1.in.i.i = select i1 %cmp.i.i.i, ptr %_M_right.i.i.i, ptr %_M_left.i.i.i
+  %__x.addr.1.in.v.i.i = select i1 %cmp.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 %__x.addr.1.in.v.i.i
   %__x.addr.1.i.i = load ptr, ptr %__x.addr.1.in.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %__x.addr.1.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i, label %while.body.i.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i: ; preds = %while.body.i.i, %if.else12.i
-  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.042.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
+  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.041.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
   %cmp.not5.i21.i = icmp eq ptr %3, null
   br i1 %cmp.not5.i21.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %while.body.i23.i
 
 while.body.i23.i:                                 ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i, %while.body.i23.i
-  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i32.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
-  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.041.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
-  %_M_storage.i.i.i26.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i24.i, i64 0, i32 1
+  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i31.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
+  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
+  %_M_storage.i.i.i26.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i26.i, align 8
   %cmp.i.i27.i = icmp ult i64 %0, %5
-  %_M_left.i.i28.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 2
-  %_M_right.i.i29.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 3
-  %__y.addr.1.i30.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
-  %__x.addr.1.in.i31.i = select i1 %cmp.i.i27.i, ptr %_M_left.i.i28.i, ptr %_M_right.i.i29.i
-  %__x.addr.1.i32.i = load ptr, ptr %__x.addr.1.in.i31.i, align 8
-  %cmp.not.i33.i = icmp eq ptr %__x.addr.1.i32.i, null
-  br i1 %cmp.not.i33.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %while.body.i23.i, !llvm.loop !13
+  %__y.addr.1.i28.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
+  %__x.addr.1.in.v.i29.i = select i1 %cmp.i.i27.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 %__x.addr.1.in.v.i29.i
+  %__x.addr.1.i31.i = load ptr, ptr %__x.addr.1.in.i30.i, align 8
+  %cmp.not.i32.i = icmp eq ptr %__x.addr.1.i31.i, null
+  br i1 %cmp.not.i32.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %while.body.i23.i, !llvm.loop !13
 
-if.end19.i:                                       ; preds = %if.else.i, %if.then.i
-  %__y.1.i = phi ptr [ %__y.041.i, %if.then.i ], [ %__x.042.i, %if.else.i ]
-  %__x.1.in.i = phi ptr [ %_M_right.i.i, %if.then.i ], [ %_M_left.i.i, %if.else.i ]
-  %__x.0.i = load ptr, ptr %__x.1.in.i, align 8
+if.end19.i:                                       ; preds = %if.else.i, %while.body.i
+  %.sink.i = phi i64 [ 24, %while.body.i ], [ 16, %if.else.i ]
+  %__y.1.i = phi ptr [ %__y.040.i, %while.body.i ], [ %__x.041.i, %if.else.i ]
+  %_M_left.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 %.sink.i
+  %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit, label %while.body.i, !llvm.loop !14
 
 _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i
   %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.041.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1352,24 +1327,24 @@ _ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCach
   %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
   %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
   %or.cond.i = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
-  br i1 %or.cond.i, label %if.then.i7, label %if.else.i4
+  br i1 %or.cond.i, label %if.then.i, label %if.else.i4
 
-if.then.i7:                                       ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.039.i)
+if.then.i:                                        ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE11equal_rangeERS1_.exit
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.038.i)
           to label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5clearEv.exit.i unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %if.then.i7
+terminate.lpad.i.i:                               ; preds = %if.then.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   tail call void @__clang_call_terminate(ptr %9) #14
   unreachable
 
-_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5clearEv.exit.i: ; preds = %if.then.i7
+_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE5clearEv.exit.i: ; preds = %if.then.i
   store ptr null, ptr %_M_parent.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_left.i.i1, align 8
-  %_M_right.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i8, align 8
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i, align 8
   br label %_ZNSt8_Rb_treeImSt4pairIKmSt14_List_iteratorIS0_ImN3net24QuicCompressedCertsCache11CachedCertsEEEESt10_Select1stIS8_ESt4lessImESaIS8_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS8_ESG_.exit
 
@@ -1425,7 +1400,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   %3 = load i64, ptr %__k, align 8
   %cmp.i = icmp ult i64 %2, %3
@@ -1443,12 +1418,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i10, align 8
   %cmp.i.i = icmp ult i64 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !16
@@ -1465,14 +1439,14 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #17
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
-  %.pre117 = load i64, ptr %__k, align 8
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
+  %.pre115 = load i64, ptr %__k, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i64 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i64 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i64 %8, %7
@@ -1481,7 +1455,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i64, ptr %__k, align 8
   %10 = load i64, ptr %_M_storage.i.i.i11, align 8
   %cmp.i12 = icmp ult i64 %9, %10
@@ -1495,131 +1469,129 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #17
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i16, align 8
   %cmp.i17 = icmp ult i64 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i64, ptr %_M_storage.i.i.i28, align 8
   %cmp.i.i29 = icmp ult i64 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !16
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !16
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #17
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i64, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 8
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #17
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i64 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i64 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i64 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i64 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i64 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #17
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i59, i64 0, i32 1
-  %17 = load i64, ptr %_M_storage.i.i.i60, align 8
-  %cmp.i61 = icmp ult i64 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #17
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i64, ptr %_M_storage.i.i.i59, align 8
+  %cmp.i60 = icmp ult i64 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i64, ptr %_M_storage.i.i.i72, align 8
-  %cmp.i.i73 = icmp ult i64 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !16
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i64, ptr %_M_storage.i.i.i71, align 8
+  %cmp.i.i72 = icmp ult i64 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !16
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #17
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i64, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 8
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #17
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i64 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i64 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i64 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

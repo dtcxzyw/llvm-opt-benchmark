@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::Char16Ptr" = type { ptr }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @unumsys_open_75(ptr noundef %locale, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @unumsys_open_75(ptr noundef %locale, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
   call void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp, ptr noundef %locale, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -40,7 +40,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @unumsys_openByName_75(ptr noundef %name, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @unumsys_openByName_75(ptr noundef %name, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -65,7 +65,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %unumsys, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(86) %unumsys) #4
   br label %delete.end
@@ -87,7 +87,7 @@ declare ptr @uenum_openFromStringEnumeration_75(ptr noundef, ptr noundef) local_
 declare noundef ptr @_ZN6icu_7515NumberingSystem17getAvailableNamesER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @unumsys_getName_75(ptr noundef nonnull %unumsys) local_unnamed_addr #0 {
+define noundef ptr @unumsys_getName_75(ptr noundef nonnull %unumsys) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7515NumberingSystem7getNameEv(ptr noundef nonnull align 8 dereferenceable(86) %unumsys)
   ret ptr %call
@@ -96,7 +96,7 @@ entry:
 declare noundef ptr @_ZNK6icu_7515NumberingSystem7getNameEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unumsys_getRadix_75(ptr noundef nonnull %unumsys) local_unnamed_addr #0 {
+define noundef i32 @unumsys_getRadix_75(ptr noundef nonnull %unumsys) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7515NumberingSystem8getRadixEv(ptr noundef nonnull align 8 dereferenceable(86) %unumsys)
   ret i32 %call
@@ -105,7 +105,7 @@ entry:
 declare noundef i32 @_ZNK6icu_7515NumberingSystem8getRadixEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @unumsys_isAlgorithmic_75(ptr noundef nonnull %unumsys) local_unnamed_addr #0 {
+define noundef signext i8 @unumsys_isAlgorithmic_75(ptr noundef nonnull %unumsys) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_7515NumberingSystem13isAlgorithmicEv(ptr noundef nonnull align 8 dereferenceable(86) %unumsys)
   ret i8 %call
@@ -114,7 +114,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7515NumberingSystem13isAlgorithmicEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @unumsys_getDescription_75(ptr noundef %unumsys, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @unumsys_getDescription_75(ptr noundef %unumsys, ptr noundef %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %descrip = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
@@ -124,7 +124,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %unumsys, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %descrip, ptr noundef nonnull align 8 dereferenceable(86) %unumsys)
   store ptr %result, ptr %agg.tmp, align 8

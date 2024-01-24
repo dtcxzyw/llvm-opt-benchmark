@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/lhash.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lhash_st = type { i64, ptr, i64, i32, ptr, ptr }
-%struct.lhash_item_st = type { ptr, ptr, i32 }
-
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
 define hidden noalias noundef ptr @lh_new(ptr noundef %hash, ptr noundef %comp) local_unnamed_addr #0 {
 entry:
@@ -14,10 +11,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %num_buckets = getelementptr inbounds %struct.lhash_st, ptr %calloc17, i64 0, i32 2
+  %num_buckets = getelementptr inbounds i8, ptr %calloc17, i64 16
   store i64 16, ptr %num_buckets, align 8
   %calloc = tail call dereferenceable_or_null(128) ptr @calloc(i64 1, i64 128)
-  %buckets = getelementptr inbounds %struct.lhash_st, ptr %calloc17, i64 0, i32 1
+  %buckets = getelementptr inbounds i8, ptr %calloc17, i64 8
   store ptr %calloc, ptr %buckets, align 8
   %cmp4 = icmp eq ptr %calloc, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -27,7 +24,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %comp10 = getelementptr inbounds %struct.lhash_st, ptr %calloc17, i64 0, i32 4
+  %comp10 = getelementptr inbounds i8, ptr %calloc17, i64 32
   %0 = insertelement <2 x ptr> poison, ptr %comp, i64 0
   %1 = insertelement <2 x ptr> %0, ptr %hash, i64 1
   %2 = icmp eq <2 x ptr> %1, zeroinitializer
@@ -101,13 +98,13 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %num_buckets = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %num_buckets = getelementptr inbounds i8, ptr %lh, i64 16
   %0 = load i64, ptr %num_buckets, align 8
   %cmp111.not = icmp eq i64 %0, 0
   br i1 %cmp111.not, label %for.end7, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %buckets = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets = getelementptr inbounds i8, ptr %lh, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc6
@@ -121,7 +118,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body4:                                        ; preds = %for.body, %for.body4
   %n.010 = phi ptr [ %4, %for.body4 ], [ %3, %for.body ]
-  %next5 = getelementptr inbounds %struct.lhash_item_st, ptr %n.010, i64 0, i32 1
+  %next5 = getelementptr inbounds i8, ptr %n.010, i64 8
   %4 = load ptr, ptr %next5, align 8
   tail call void @free(ptr noundef nonnull %n.010) #9
   %cmp3.not = icmp eq ptr %4, null
@@ -138,7 +135,7 @@ for.inc6:                                         ; preds = %for.inc6.loopexit, 
   br i1 %cmp1, label %for.body, label %for.end7, !llvm.loop !10
 
 for.end7:                                         ; preds = %for.inc6, %for.cond.preheader
-  %buckets8 = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets8 = getelementptr inbounds i8, ptr %lh, i64 8
   %6 = load ptr, ptr %buckets8, align 8
   tail call void @free(ptr noundef %6) #9
   tail call void @free(ptr noundef nonnull %lh) #9
@@ -158,17 +155,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lh_retrieve(ptr nocapture noundef readonly %lh, ptr noundef %data) local_unnamed_addr #5 {
 entry:
-  %hash1.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 5
+  %hash1.i = getelementptr inbounds i8, ptr %lh, i64 40
   %0 = load ptr, ptr %hash1.i, align 8
   %call.i = tail call i32 %0(ptr noundef %data) #9
-  %buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets.i = getelementptr inbounds i8, ptr %lh, i64 8
   %1 = load ptr, ptr %buckets.i, align 8
   %conv.i = zext i32 %call.i to i64
-  %num_buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %num_buckets.i = getelementptr inbounds i8, ptr %lh, i64 16
   %2 = load i64, ptr %num_buckets.i, align 8
   %rem.i = urem i64 %conv.i, %2
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %rem.i
-  %comp.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %lh, i64 32
   %cur.011.i = load ptr, ptr %arrayidx.i, align 8
   %cmp2.not12.i = icmp eq ptr %cur.011.i, null
   br i1 %cmp2.not12.i, label %return, label %for.body.i.preheader
@@ -182,7 +179,7 @@ for.body.i.preheader:                             ; preds = %entry
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %cur.014.i7 = phi ptr [ %cur.0.i, %for.body.i ], [ %cur.011.i, %for.body.i.preheader ]
-  %next.i = getelementptr inbounds %struct.lhash_item_st, ptr %cur.014.i7, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %cur.014.i7, i64 8
   %cur.0.i = load ptr, ptr %next.i, align 8
   %cmp2.not.i = icmp eq ptr %cur.0.i, null
   br i1 %cmp2.not.i, label %return, label %for.body.i, !llvm.loop !11
@@ -195,7 +192,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp6.i, label %get_next_ptr_and_hash.exit.loopexit, label %for.cond.i, !llvm.loop !11
 
 get_next_ptr_and_hash.exit.loopexit:              ; preds = %for.body.i
-  %next.i.le = getelementptr inbounds %struct.lhash_item_st, ptr %cur.014.i7, i64 0, i32 1
+  %next.i.le = getelementptr inbounds i8, ptr %cur.014.i7, i64 8
   br label %get_next_ptr_and_hash.exit
 
 get_next_ptr_and_hash.exit:                       ; preds = %get_next_ptr_and_hash.exit.loopexit, %for.body.i.preheader
@@ -217,17 +214,17 @@ return:                                           ; preds = %for.cond.i, %entry,
 define hidden noundef i32 @lh_insert(ptr nocapture noundef %lh, ptr nocapture noundef writeonly %old_data, ptr noundef %data) local_unnamed_addr #5 {
 entry:
   store ptr null, ptr %old_data, align 8
-  %hash1.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 5
+  %hash1.i = getelementptr inbounds i8, ptr %lh, i64 40
   %0 = load ptr, ptr %hash1.i, align 8
   %call.i = tail call i32 %0(ptr noundef %data) #9
-  %buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets.i = getelementptr inbounds i8, ptr %lh, i64 8
   %1 = load ptr, ptr %buckets.i, align 8
   %conv.i = zext i32 %call.i to i64
-  %num_buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %num_buckets.i = getelementptr inbounds i8, ptr %lh, i64 16
   %2 = load i64, ptr %num_buckets.i, align 8
   %rem.i = urem i64 %conv.i, %2
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %rem.i
-  %comp.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %lh, i64 32
   %cur.011.i = load ptr, ptr %arrayidx.i, align 8
   %cmp2.not12.i = icmp eq ptr %cur.011.i, null
   br i1 %cmp2.not12.i, label %if.end, label %for.body.i.preheader
@@ -241,7 +238,7 @@ for.body.i.preheader:                             ; preds = %entry
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %cur.014.i19 = phi ptr [ %cur.0.i, %for.body.i ], [ %cur.011.i, %for.body.i.preheader ]
-  %next.i = getelementptr inbounds %struct.lhash_item_st, ptr %cur.014.i19, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %cur.014.i19, i64 8
   %cur.0.i = load ptr, ptr %next.i, align 8
   %cmp2.not.i = icmp eq ptr %cur.0.i, null
   br i1 %cmp2.not.i, label %if.end.loopexit, label %for.body.i, !llvm.loop !11
@@ -254,7 +251,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp6.i, label %get_next_ptr_and_hash.exit.loopexit, label %for.cond.i, !llvm.loop !11
 
 get_next_ptr_and_hash.exit.loopexit:              ; preds = %for.body.i
-  %next.i.le = getelementptr inbounds %struct.lhash_item_st, ptr %cur.014.i19, i64 0, i32 1
+  %next.i.le = getelementptr inbounds i8, ptr %cur.014.i19, i64 8
   br label %get_next_ptr_and_hash.exit
 
 get_next_ptr_and_hash.exit:                       ; preds = %get_next_ptr_and_hash.exit.loopexit, %for.body.i.preheader
@@ -271,7 +268,7 @@ if.then:                                          ; preds = %get_next_ptr_and_ha
   br label %return
 
 if.end.loopexit:                                  ; preds = %for.cond.i
-  %next.i.le22 = getelementptr inbounds %struct.lhash_item_st, ptr %cur.014.i19, i64 0, i32 1
+  %next.i.le22 = getelementptr inbounds i8, ptr %cur.014.i19, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %entry, %get_next_ptr_and_hash.exit
@@ -282,9 +279,9 @@ if.end:                                           ; preds = %if.end.loopexit, %e
 
 if.end6:                                          ; preds = %if.end
   store ptr %data, ptr %call3, align 8
-  %hash8 = getelementptr inbounds %struct.lhash_item_st, ptr %call3, i64 0, i32 2
+  %hash8 = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 %call.i, ptr %hash8, align 8
-  %next = getelementptr inbounds %struct.lhash_item_st, ptr %call3, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr null, ptr %next, align 8
   store ptr %call3, ptr %ret.0.lcssa.i15, align 8
   %9 = load i64, ptr %lh, align 8
@@ -301,14 +298,14 @@ return:                                           ; preds = %if.end, %if.end6, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lh_maybe_resize(ptr nocapture noundef %lh) unnamed_addr #5 {
 entry:
-  %callback_depth = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %callback_depth = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %callback_depth, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.end19
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %lh, align 8
-  %num_buckets = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %num_buckets = getelementptr inbounds i8, ptr %lh, i64 16
   %2 = load i64, ptr %num_buckets, align 8
   %div = udiv i64 %1, %2
   %cmp1 = icmp ugt i64 %div, 2
@@ -330,7 +327,7 @@ if.end.i:                                         ; preds = %if.then6
   br i1 %cmp1.i, label %if.end19, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets.i = getelementptr inbounds i8, ptr %lh, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc12.i, %for.body.lr.ph.i
@@ -344,11 +341,11 @@ for.body.i:                                       ; preds = %for.inc12.i, %for.b
 
 for.body7.i:                                      ; preds = %for.body.i, %for.body7.i
   %cur.023.i = phi ptr [ %7, %for.body7.i ], [ %5, %for.body.i ]
-  %hash.i = getelementptr inbounds %struct.lhash_item_st, ptr %cur.023.i, i64 0, i32 2
+  %hash.i = getelementptr inbounds i8, ptr %cur.023.i, i64 16
   %6 = load i32, ptr %hash.i, align 8
   %conv.i = zext i32 %6 to i64
   %rem.i = urem i64 %conv.i, %mul
-  %next8.i = getelementptr inbounds %struct.lhash_item_st, ptr %cur.023.i, i64 0, i32 1
+  %next8.i = getelementptr inbounds i8, ptr %cur.023.i, i64 8
   %7 = load ptr, ptr %next8.i, align 8
   %arrayidx9.i = getelementptr inbounds ptr, ptr %calloc.i, i64 %rem.i
   %8 = load ptr, ptr %arrayidx9.i, align 8
@@ -393,7 +390,7 @@ if.end.i14:                                       ; preds = %if.then11
   br i1 %cmp1.i17, label %if.end19, label %for.body.lr.ph.i21
 
 for.body.lr.ph.i21:                               ; preds = %if.end.i14
-  %buckets.i22 = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets.i22 = getelementptr inbounds i8, ptr %lh, i64 8
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %for.inc12.i37, %for.body.lr.ph.i21
@@ -407,11 +404,11 @@ for.body.i23:                                     ; preds = %for.inc12.i37, %for
 
 for.body7.i27:                                    ; preds = %for.body.i23, %for.body7.i27
   %cur.023.i28 = phi ptr [ %15, %for.body7.i27 ], [ %13, %for.body.i23 ]
-  %hash.i29 = getelementptr inbounds %struct.lhash_item_st, ptr %cur.023.i28, i64 0, i32 2
+  %hash.i29 = getelementptr inbounds i8, ptr %cur.023.i28, i64 16
   %14 = load i32, ptr %hash.i29, align 8
   %conv.i30 = zext i32 %14 to i64
   %rem.i31 = urem i64 %conv.i30, %spec.store.select
-  %next8.i32 = getelementptr inbounds %struct.lhash_item_st, ptr %cur.023.i28, i64 0, i32 1
+  %next8.i32 = getelementptr inbounds i8, ptr %cur.023.i28, i64 8
   %15 = load ptr, ptr %next8.i32, align 8
   %arrayidx9.i33 = getelementptr inbounds ptr, ptr %calloc.i16, i64 %rem.i31
   %16 = load ptr, ptr %arrayidx9.i33, align 8
@@ -444,17 +441,17 @@ if.end19:                                         ; preds = %for.end13.i40, %if.
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lh_delete(ptr nocapture noundef %lh, ptr noundef %data) local_unnamed_addr #5 {
 entry:
-  %hash1.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 5
+  %hash1.i = getelementptr inbounds i8, ptr %lh, i64 40
   %0 = load ptr, ptr %hash1.i, align 8
   %call.i = tail call i32 %0(ptr noundef %data) #9
-  %buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets.i = getelementptr inbounds i8, ptr %lh, i64 8
   %1 = load ptr, ptr %buckets.i, align 8
   %conv.i = zext i32 %call.i to i64
-  %num_buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %num_buckets.i = getelementptr inbounds i8, ptr %lh, i64 16
   %2 = load i64, ptr %num_buckets.i, align 8
   %rem.i = urem i64 %conv.i, %2
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %rem.i
-  %comp.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %comp.i = getelementptr inbounds i8, ptr %lh, i64 32
   %cur.011.i = load ptr, ptr %arrayidx.i, align 8
   %cmp2.not12.i = icmp eq ptr %cur.011.i, null
   br i1 %cmp2.not12.i, label %return, label %for.body.i.preheader
@@ -468,7 +465,7 @@ for.body.i.preheader:                             ; preds = %entry
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %cur.014.i12 = phi ptr [ %cur.0.i, %for.body.i ], [ %cur.011.i, %for.body.i.preheader ]
-  %next.i = getelementptr inbounds %struct.lhash_item_st, ptr %cur.014.i12, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %cur.014.i12, i64 8
   %cur.0.i = load ptr, ptr %next.i, align 8
   %cmp2.not.i = icmp eq ptr %cur.0.i, null
   br i1 %cmp2.not.i, label %return, label %for.body.i, !llvm.loop !11
@@ -481,7 +478,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp6.i, label %get_next_ptr_and_hash.exit.loopexit, label %for.cond.i, !llvm.loop !11
 
 get_next_ptr_and_hash.exit.loopexit:              ; preds = %for.body.i
-  %next.i.le = getelementptr inbounds %struct.lhash_item_st, ptr %cur.014.i12, i64 0, i32 1
+  %next.i.le = getelementptr inbounds i8, ptr %cur.014.i12, i64 8
   br label %get_next_ptr_and_hash.exit
 
 get_next_ptr_and_hash.exit:                       ; preds = %get_next_ptr_and_hash.exit.loopexit, %for.body.i.preheader
@@ -491,7 +488,7 @@ get_next_ptr_and_hash.exit:                       ; preds = %get_next_ptr_and_ha
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %get_next_ptr_and_hash.exit
-  %next = getelementptr inbounds %struct.lhash_item_st, ptr %.pr, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %.pr, i64 8
   %7 = load ptr, ptr %next, align 8
   store ptr %7, ptr %ret.013.i.lcssa, align 8
   %8 = load ptr, ptr %.pr, align 8
@@ -514,7 +511,7 @@ entry:
   br i1 %cmp.i, label %lh_doall_internal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %callback_depth.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %callback_depth.i = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %callback_depth.i, align 8
   %cmp1.not.i = icmp eq i32 %0, -1
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
@@ -526,13 +523,13 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
   %1 = phi i32 [ %inc.i, %if.then2.i ], [ -1, %if.end.i ]
-  %num_buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %num_buckets.i = getelementptr inbounds i8, ptr %lh, i64 16
   %2 = load i64, ptr %num_buckets.i, align 8
   %cmp517.not.i = icmp eq i64 %2, 0
   br i1 %cmp517.not.i, label %for.end15.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end4.i
-  %buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets.i = getelementptr inbounds i8, ptr %lh, i64 8
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.inc13.us.i, %for.body.lr.ph.i
@@ -556,7 +553,7 @@ for.inc13.us.i:                                   ; preds = %for.inc13.us.loopex
 
 for.body8.us.us.i:                                ; preds = %for.body.us.i, %for.body8.us.us.i
   %cur.016.us.us.i = phi ptr [ %7, %for.body8.us.us.i ], [ %5, %for.body.us.i ]
-  %next9.us.us.i = getelementptr inbounds %struct.lhash_item_st, ptr %cur.016.us.us.i, i64 0, i32 1
+  %next9.us.us.i = getelementptr inbounds i8, ptr %cur.016.us.us.i, i64 8
   %7 = load ptr, ptr %next9.us.us.i, align 8
   %8 = load ptr, ptr %cur.016.us.us.i, align 8
   tail call void %func(ptr noundef %8) #9
@@ -592,7 +589,7 @@ entry:
   br i1 %cmp.i, label %lh_doall_internal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %callback_depth.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %callback_depth.i = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %callback_depth.i, align 8
   %cmp1.not.i = icmp eq i32 %0, -1
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
@@ -604,13 +601,13 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
   %1 = phi i32 [ %inc.i, %if.then2.i ], [ -1, %if.end.i ]
-  %num_buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %num_buckets.i = getelementptr inbounds i8, ptr %lh, i64 16
   %2 = load i64, ptr %num_buckets.i, align 8
   %cmp517.not.i = icmp eq i64 %2, 0
   br i1 %cmp517.not.i, label %for.end15.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end4.i
-  %buckets.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %buckets.i = getelementptr inbounds i8, ptr %lh, i64 8
   %tobool.not.i = icmp eq ptr %func, null
   br i1 %tobool.not.i, label %for.end15.i, label %for.body.i
 
@@ -625,7 +622,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 
 for.body8.i:                                      ; preds = %for.body.i, %for.body8.i
   %cur.016.i = phi ptr [ %6, %for.body8.i ], [ %5, %for.body.i ]
-  %next9.i = getelementptr inbounds %struct.lhash_item_st, ptr %cur.016.i, i64 0, i32 1
+  %next9.i = getelementptr inbounds i8, ptr %cur.016.i, i64 8
   %6 = load ptr, ptr %next9.i, align 8
   %7 = load ptr, ptr %cur.016.i, align 8
   tail call void %func(ptr noundef %7, ptr noundef %arg) #9

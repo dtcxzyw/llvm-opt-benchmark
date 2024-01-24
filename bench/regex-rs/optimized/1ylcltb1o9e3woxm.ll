@@ -22,11 +22,11 @@ define void @"_ZN4core4iter8adapters7step_by15StepBy$LT$I$GT$3new17h29523bf30fd7
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = add i64 %3, -1
   store i64 %9, ptr %0, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds { { i64, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %11, ptr %13, align 8
-  %14 = getelementptr inbounds { { i64, i64 }, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %14, align 8
   ret void
 }

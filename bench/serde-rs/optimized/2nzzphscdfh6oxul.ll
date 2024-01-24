@@ -32,11 +32,11 @@ define void @_ZN22serde_derive_internals9internals8receiver16replace_receiver17h
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, align 8
-  %18 = getelementptr inbounds { { i64, [8 x i64] }, { { i32, [1 x i32] }, { i32, [1 x i32] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [4 x i64] } }, { i32, [7 x i32] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 3
+  %18 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds { { i64, [8 x i64] }, { { i32, [1 x i32] }, { i32, [1 x i32] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [4 x i64] } }, { i32, [7 x i32] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 72
   call void @_ZN3syn8generics8Generics14split_for_impl17h166076a67b92e55bE(ptr nonnull sret({ ptr, ptr, ptr }) align 8 %14, ptr nonnull align 8 %19)
-  %20 = getelementptr inbounds { ptr, ptr, ptr }, ptr %14, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %14, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !align !6, !noundef !5
   store ptr %21, ptr %15, align 8
   call void @_ZN11proc_macro211TokenStream3new17h05000d58b5843a57E(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %12)
@@ -61,7 +61,7 @@ define void @_ZN22serde_derive_internals9internals8receiver16replace_receiver17h
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %26 = getelementptr inbounds { { i64, [8 x i64] }, { { i32, [1 x i32] }, { i32, [1 x i32] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [4 x i64] } }, { i32, [7 x i32] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1, i32 2
+  %26 = getelementptr inbounds i8, ptr %0, i64 88
   %27 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7af021fa32d304efE"(ptr nonnull align 8 %26)
           to label %.noexc unwind label %120
 
@@ -69,10 +69,10 @@ define void @_ZN22serde_derive_internals9internals8receiver16replace_receiver17h
   %28 = extractvalue { ptr, ptr } %27, 0
   %29 = extractvalue { ptr, ptr } %27, 1
   store ptr %28, ptr %10, align 8
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
-  %32 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   br label %.backedge20.i
 
 .backedge20.i:                                    ; preds = %.backedge20.i.backedge, %.noexc
@@ -98,7 +98,7 @@ define void @_ZN22serde_derive_internals9internals8receiver16replace_receiver17h
           to label %.noexc2 unwind label %120
 
 .noexc2:                                          ; preds = %39
-  %40 = getelementptr inbounds { { i64, [8 x i64] }, { { i32, [1 x i32] }, { i32, [1 x i32] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [4 x i64] } }, { i32, [7 x i32] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1, i32 3
+  %40 = getelementptr inbounds i8, ptr %0, i64 120
   %41 = load ptr, ptr %40, align 8, !noundef !5
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %122, label %44
@@ -116,10 +116,10 @@ define void @_ZN22serde_derive_internals9internals8receiver16replace_receiver17h
   %46 = extractvalue { ptr, ptr } %45, 0
   %47 = extractvalue { ptr, ptr } %45, 1
   store ptr %46, ptr %8, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %49 = getelementptr inbounds i8, ptr %7, i64 8
+  %50 = getelementptr inbounds i8, ptr %6, i64 8
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.noexc3
@@ -154,7 +154,7 @@ define void @_ZN22serde_derive_internals9internals8receiver16replace_receiver17h
           to label %62 unwind label %53
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds { { i64, [28 x i64] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [5 x i64] }, { [1 x i32] }, [1 x i32] }, ptr %51, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %51, i64 232
   %64 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3e8ddacd78d0f498E"(ptr nonnull align 8 %63)
           to label %65 unwind label %53
 
@@ -196,7 +196,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_para
   br i1 %.not.i.i, label %76, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_param_bound_mut17h9fc1942825cc5c1cE.exit.i.backedge
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds { { i32, [3 x i32] }, { i32, [1 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { ptr, [5 x i64] } }, ptr %68, i64 0, i32 2
+  %77 = getelementptr inbounds i8, ptr %68, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %78 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %77)
           to label %.noexc.i unwind label %69
@@ -250,7 +250,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_para
   unreachable
 
 92:                                               ; preds = %42
-  %93 = getelementptr inbounds { [1 x i64], { { i64, [28 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, ptr } } }, ptr %33, i64 0, i32 1, i32 5
+  %93 = getelementptr inbounds i8, ptr %33, i64 312
   %94 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3e8ddacd78d0f498E"(ptr nonnull align 8 %93)
           to label %95 unwind label %35
 
@@ -292,7 +292,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_para
   br i1 %.not.i13.i, label %106, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_param_bound_mut17h9fc1942825cc5c1cE.exit19.i.backedge
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds { { i32, [3 x i32] }, { i32, [1 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { ptr, [5 x i64] } }, ptr %98, i64 0, i32 2
+  %107 = getelementptr inbounds i8, ptr %98, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %108 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %107)
           to label %.noexc15.i unwind label %99
@@ -379,12 +379,12 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_para
   %131 = extractvalue { ptr, ptr } %130, 0
   %132 = extractvalue { ptr, ptr } %130, 1
   store ptr %131, ptr %4, align 8
-  %133 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %133 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %132, ptr %133, align 8
   br label %141
 
 134:                                              ; preds = %122
-  %135 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, i32, { { { [2 x i32], i32 }, {} } } } }, ptr %0, i64 0, i32 1
+  %135 = getelementptr inbounds i8, ptr %0, i64 8
   %136 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h76c19c2247109b1dE"(ptr nonnull align 8 %135)
           to label %.noexc7 unwind label %120
 
@@ -392,9 +392,9 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_para
   %137 = extractvalue { ptr, ptr } %136, 0
   %138 = extractvalue { ptr, ptr } %136, 1
   store ptr %137, ptr %3, align 8
-  %139 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %139 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %138, ptr %139, align 8
-  %140 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %140 = getelementptr inbounds i8, ptr %2, i64 8
   br label %151
 
 141:                                              ; preds = %148, %.noexc6
@@ -524,13 +524,13 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
   %25 = alloca { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, align 8
   %26 = alloca { i64, [28 x i64] }, align 8
   %27 = alloca ptr, align 8
-  %28 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, ptr %2, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %2, i64 32
   %29 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17ha288d8b11452da60E"(ptr nonnull align 4 %28)
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %3
   %31 = tail call align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h530c1ebdadf8f5c3E"(ptr align 8 %2, i64 0, ptr nonnull align 8 @anon.948a726ca07de851f17e518b91a5c90f.2)
-  %32 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %31, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %31, i64 72
   %33 = tail call zeroext i1 @_ZN4core3cmp9PartialEq2ne17h652b238641be89b2E(ptr nonnull align 8 %32, ptr nonnull align 8 @anon.948a726ca07de851f17e518b91a5c90f.4)
   br i1 %33, label %34, label %35
 
@@ -551,7 +551,7 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16)
   %39 = tail call align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h530c1ebdadf8f5c3E"(ptr align 8 %2, i64 0, ptr nonnull align 8 @anon.948a726ca07de851f17e518b91a5c90f.8)
-  %40 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %39, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %39, i64 72
   %41 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %40)
   %.val.i = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
@@ -564,7 +564,7 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  %42 = getelementptr inbounds { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %16, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %42, i64 48, i1 false)
   invoke void @_ZN4core3mem7replace17h3982e76fa7284845E(ptr nonnull sret({ { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }) align 8 %15, ptr align 8 %2, ptr nonnull align 8 %14)
           to label %46 unwind label %44
@@ -597,7 +597,7 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
   %50 = extractvalue { ptr, ptr } %47, 0
   %51 = extractvalue { ptr, ptr } %47, 1
   store ptr %50, ptr %13, align 8
-  %52 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %51, ptr %52, align 8
   br label %.backedge.i
 
@@ -658,8 +658,8 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
           to label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver17self_to_expr_path17hc52e1990f1922f80E.exit unwind label %44
 
 72:                                               ; preds = %59
-  %73 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { [1 x i32] }, { [1 x i32] }, { i32, [2 x i32] }, [1 x i32] } }, ptr %53, i64 0, i32 1
-  %74 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { [1 x i32] }, { [1 x i32] }, { i32, [2 x i32] }, [1 x i32] } }, ptr %53, i64 0, i32 1, i32 3
+  %73 = getelementptr inbounds i8, ptr %53, i64 8
+  %74 = getelementptr inbounds i8, ptr %53, i64 48
   %75 = invoke zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17hf7dffbfcefca31c1E"(ptr nonnull align 4 %74)
           to label %76 unwind label %54
 
@@ -679,7 +679,7 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
 
 82:                                               ; preds = %80
   store i32 1, ptr %74, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { [1 x i32] }, { [1 x i32] }, { i32, [2 x i32] }, [1 x i32] } }, ptr %53, i64 0, i32 1, i32 3, i32 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 52
   store i64 %81, ptr %.sroa.2.0..sroa_idx.i, align 4
   br label %.backedge.i.backedge
 
@@ -714,7 +714,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver17self_to_expr_pa
 
 85:                                               ; preds = %35
   %86 = tail call align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h530c1ebdadf8f5c3E"(ptr align 8 %2, i64 0, ptr nonnull align 8 @anon.948a726ca07de851f17e518b91a5c90f.5)
-  %87 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %86, i64 0, i32 1
+  %87 = getelementptr inbounds i8, ptr %86, i64 72
   %88 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %87)
   %89 = tail call i32 @_ZN3syn5token2Lt17h8d007d9eb373bbe6E(i32 %88)
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
@@ -728,7 +728,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver17self_to_expr_pa
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %90 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %26, i64 0, i32 1
+  %90 = getelementptr inbounds i8, ptr %26, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %90, ptr noundef nonnull align 8 dereferenceable(80) %25, i64 80, i1 false)
   store i64 10, ptr %26, align 8
   %91 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hac259f5820dba925E(i64 232, i64 8)
@@ -794,7 +794,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver17self_to_expr_pa
   %106 = load ptr, ptr %105, align 8, !nonnull !5, !align !18, !noundef !5
   %.sroa.023.0.copyload = load i64, ptr %106, align 4
   store i32 1, ptr %28, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, ptr %2, i64 0, i32 1, i32 1
+  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 36
   store i64 %.sroa.023.0.copyload, ptr %.sroa.222.0..sroa_idx, align 4
   call void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h2735087fb45d4c44E"(ptr nonnull sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %20)
   call void @_ZN4core3mem7replace17h2ee8c3cdb71c1f90E(ptr nonnull sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %21, ptr align 8 %2, ptr nonnull align 8 %20)
@@ -841,7 +841,7 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %1, i64 8
   %20 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h90ff0c43c5f9d18fE"(ptr nonnull align 8 %19)
   br i1 %20, label %181, label %158
 
@@ -875,88 +875,88 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
   unreachable
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds { [1 x i64], { { i64, [21 x i64] }, ptr, { { { [2 x i32], i32 }, {} } }, { [1 x i32] } } }, ptr %1, i64 0, i32 1
-  %28 = getelementptr inbounds { [1 x i64], { { i64, [21 x i64] }, ptr, { { { [2 x i32], i32 }, {} } }, { [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 184
   %29 = load ptr, ptr %28, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %29)
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %27)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_impl17h055437f4dcfcc201E.exit
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds { { i64, [2 x i64] }, { i32, i32 }, { i32, [21 x i32] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [5 x i64] }, { ptr, [1 x i64] }, i32, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 3
+  %31 = getelementptr inbounds i8, ptr %1, i64 120
   %32 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h18908859516429b4E"(ptr nonnull align 8 %31)
   %33 = extractvalue { ptr, ptr } %32, 0
   %34 = extractvalue { ptr, ptr } %32, 1
   store ptr %33, ptr %13, align 8
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %34, ptr %35, align 8
   br label %74
 
 36:                                               ; preds = %21
-  %37 = getelementptr inbounds { [1 x i64], { ptr, i32 } }, ptr %1, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %38)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_impl17h055437f4dcfcc201E.exit
 
 39:                                               ; preds = %21
-  %40 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, i32, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
   %41 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3e8ddacd78d0f498E"(ptr nonnull align 8 %40)
   %42 = extractvalue { ptr, ptr } %41, 0
   %43 = extractvalue { ptr, ptr } %41, 1
   store ptr %42, ptr %12, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %12, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_param_bound_mut17h9fc1942825cc5c1cE.exit8
 
 46:                                               ; preds = %21
-  %47 = getelementptr inbounds { [1 x i64], { ptr, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %48)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_impl17h055437f4dcfcc201E.exit
 
 49:                                               ; preds = %21
-  %50 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %1, i64 8
   %51 = load i32, ptr %50, align 8, !range !20, !noundef !5
   %.not.i = icmp eq i32 %51, 2
   br i1 %.not.i, label %113, label %110
 
 52:                                               ; preds = %21
-  %53 = getelementptr inbounds { [1 x i64], { { i32, i32 }, { i32, i32 }, ptr, { [1 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1, i32 2
+  %53 = getelementptr inbounds i8, ptr %1, i64 24
   %54 = load ptr, ptr %53, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %54)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_impl17h055437f4dcfcc201E.exit
 
 55:                                               ; preds = %21
-  %56 = getelementptr inbounds { [1 x i64], { { i32, i32 }, { [24 x i8], i8, [15 x i8] }, ptr, { [1 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1, i32 2
+  %56 = getelementptr inbounds i8, ptr %1, i64 56
   %57 = load ptr, ptr %56, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %57)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_impl17h055437f4dcfcc201E.exit
 
 58:                                               ; preds = %21
-  %59 = getelementptr inbounds { [1 x i64], { ptr, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %60)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_impl17h055437f4dcfcc201E.exit
 
 61:                                               ; preds = %21
-  %62 = getelementptr inbounds { [1 x i64], { { i32, i32 }, { { { ptr, i64 }, i64 }, ptr } } }, ptr %1, i64 0, i32 1, i32 1
+  %62 = getelementptr inbounds i8, ptr %1, i64 16
   %63 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3e8ddacd78d0f498E"(ptr nonnull align 8 %62)
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
   store ptr %64, ptr %11, align 8
-  %66 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %6, i64 8
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_param_bound_mut17h9fc1942825cc5c1cE.exit
 
 68:                                               ; preds = %21
-  %69 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %69 = getelementptr inbounds i8, ptr %1, i64 8
   %70 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6f2b2d587afa932eE"(ptr nonnull align 8 %69)
   %71 = extractvalue { ptr, ptr } %70, 0
   %72 = extractvalue { ptr, ptr } %70, 1
   store ptr %71, ptr %10, align 8
-  %73 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %73 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %72, ptr %73, align 8
   br label %150
 
@@ -976,7 +976,7 @@ define internal fastcc void @_ZN22serde_derive_internals9internals8receiver15Rep
 
 80:                                               ; preds = %78
   call void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..BareFnArg$GT$$GT$17h13e6c978e0e10d47E"(ptr nonnull align 8 %13)
-  %81 = getelementptr inbounds { { i64, [2 x i64] }, { i32, i32 }, { i32, [21 x i32] }, { { { ptr, i64 }, i64 }, ptr }, { ptr, [5 x i64] }, { ptr, [1 x i64] }, i32, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 5
+  %81 = getelementptr inbounds i8, ptr %1, i64 200
   %82 = load ptr, ptr %81, align 8, !noundef !5
   %83 = icmp eq ptr %82, null
   br i1 %83, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_impl17h055437f4dcfcc201E.exit, label %84
@@ -1030,7 +1030,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_para
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_param_bound_mut17h9fc1942825cc5c1cE.exit8
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds { { i32, [3 x i32] }, { i32, [1 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { ptr, [5 x i64] } }, ptr %88, i64 0, i32 2
+  %97 = getelementptr inbounds i8, ptr %88, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %98 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %97)
           to label %.noexc4 unwind label %89
@@ -1075,19 +1075,19 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_path_mut1
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_param_bound_mut17h9fc1942825cc5c1cE.exit8.backedge
 
 110:                                              ; preds = %49
-  %111 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 0, i32 1, i64 1
+  %111 = getelementptr inbounds i8, ptr %1, i64 16
   %112 = load ptr, ptr %111, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %112)
   br label %113
 
 113:                                              ; preds = %110, %49
-  %114 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %114 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %115 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %114)
   %116 = extractvalue { ptr, ptr } %115, 0
   %117 = extractvalue { ptr, ptr } %115, 1
   store ptr %116, ptr %5, align 8
-  %118 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %118 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %117, ptr %118, align 8
   br label %119
 
@@ -1151,7 +1151,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_para
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver26visit_type_param_bound_mut17h9fc1942825cc5c1cE.exit
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds { { i32, [3 x i32] }, { i32, [1 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { ptr, [5 x i64] } }, ptr %128, i64 0, i32 2
+  %137 = getelementptr inbounds i8, ptr %128, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %138 = invoke { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %137)
           to label %.noexc unwind label %129
@@ -1229,7 +1229,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_mut_
   br i1 %159, label %160, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_path_mut17h687a72a4cd75d344E.exit
 
 160:                                              ; preds = %158
-  %161 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %161 = getelementptr inbounds i8, ptr %1, i64 40
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver13self_to_qself17h64ad55469dcd1d27E(ptr align 8 %0, ptr nonnull align 8 %19, ptr nonnull align 8 %161)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_path_mut17h687a72a4cd75d344E.exit
 
@@ -1239,19 +1239,19 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_path
   br i1 %.not.i9, label %166, label %163
 
 163:                                              ; preds = %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_path_mut17h687a72a4cd75d344E.exit
-  %164 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 0, i32 1, i64 1
+  %164 = getelementptr inbounds i8, ptr %1, i64 16
   %165 = load ptr, ptr %164, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %165)
   br label %166
 
 166:                                              ; preds = %163, %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_type_path_mut17h687a72a4cd75d344E.exit
-  %167 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %167 = getelementptr inbounds i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %168 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %167)
   %169 = extractvalue { ptr, ptr } %168, 0
   %170 = extractvalue { ptr, ptr } %168, 1
   store ptr %169, ptr %3, align 8
-  %171 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %171 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %170, ptr %171, align 8
   br label %172
 
@@ -1285,13 +1285,13 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_type_path
   br label %188
 
 181:                                              ; preds = %18
-  %182 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %182 = getelementptr inbounds i8, ptr %1, i64 40
   %183 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hb57892c0706fe75fE(ptr nonnull align 8 %182, ptr nonnull align 1 @anon.948a726ca07de851f17e518b91a5c90f.3, i64 4)
   br i1 %183, label %184, label %158
 
 184:                                              ; preds = %181
   %185 = tail call align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h530c1ebdadf8f5c3E"(ptr nonnull align 8 %182, i64 0, ptr nonnull align 8 @anon.948a726ca07de851f17e518b91a5c90f.9)
-  %186 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %185, i64 0, i32 1
+  %186 = getelementptr inbounds i8, ptr %185, i64 72
   %187 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %186)
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7)
@@ -1343,22 +1343,22 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver21visit_return_ty
   ret void
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { [1 x i32] }, { [1 x i32] }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha9d821b4bb6b807dE"(ptr nonnull align 8 %8)
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
   store ptr %10, ptr %4, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   br label %.backedge
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { ptr, [1 x i64] }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6f2b2d587afa932eE"(ptr nonnull align 8 %14)
   %16 = extractvalue { ptr, ptr } %15, 0
   %17 = extractvalue { ptr, ptr } %15, 1
   store ptr %16, ptr %3, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %17, ptr %18, align 8
   br label %36
 
@@ -1395,7 +1395,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver21visit_return_ty
   ]
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds { [1 x i64], { i64, [28 x i64] } }, ptr %19, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %19, i64 8
   br label %.invoke
 
 .invoke:                                          ; preds = %25, %30
@@ -1432,7 +1432,7 @@ _ZN22serde_derive_internals9internals8receiver15ReplaceReceiver21visit_return_ty
 
 42:                                               ; preds = %40
   call void @"_ZN4core3ptr66drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..Type$GT$$GT$17h504a91148191ad76E"(ptr nonnull align 8 %3)
-  %43 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { ptr, [1 x i64] }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %1, i64 0, i32 1, i32 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 40
   %44 = load ptr, ptr %43, align 8, !noundef !5
   %45 = icmp eq ptr %44, null
   br i1 %45, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver21visit_return_type_mut17h0dea08b3646820f5E.exit, label %46
@@ -1459,158 +1459,148 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i64 4, label %6
     i64 7, label %10
     i64 8, label %18
-    i64 12, label %23
-    i64 16, label %25
-    i64 24, label %29
-    i64 25, label %31
-    i64 34, label %55
+    i64 12, label %tailrecurse.backedge
+    i64 16, label %23
+    i64 24, label %tailrecurse.backedge
+    i64 25, label %26
+    i64 34, label %50
   ]
 
-common.ret21:                                     ; preds = %63, %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_expr_path_mut_impl17h7e495c2fd4a640a8E.exit, %tailrecurse, %18
+common.ret21:                                     ; preds = %57, %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_expr_path_mut_impl17h7e495c2fd4a640a8E.exit, %tailrecurse, %18
   ret void
 
 6:                                                ; preds = %tailrecurse
-  %7 = getelementptr inbounds { [1 x i64], { { i32, [3 x i32] }, { { ptr, i64 }, i64 }, ptr, ptr } }, ptr %.tr2, i64 0, i32 1, i32 2
+  %7 = getelementptr inbounds i8, ptr %.tr2, i64 48
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %8)
-  %9 = getelementptr inbounds { [1 x i64], { { i32, [3 x i32] }, { { ptr, i64 }, i64 }, ptr, ptr } }, ptr %.tr2, i64 0, i32 1, i32 3
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %6, %23, %25, %29, %55
-  %.tr2.be.in = phi ptr [ %9, %6 ], [ %24, %23 ], [ %28, %25 ], [ %30, %29 ], [ %56, %55 ]
-  %.tr2.be = load ptr, ptr %.tr2.be.in, align 8, !nonnull !5, !align !6, !noundef !5
+tailrecurse.backedge:                             ; preds = %tailrecurse, %tailrecurse, %6, %23, %50
+  %.sink = phi i64 [ 56, %6 ], [ 40, %23 ], [ 40, %50 ], [ 32, %tailrecurse ], [ 32, %tailrecurse ]
+  %9 = getelementptr inbounds i8, ptr %.tr2, i64 %.sink
+  %.tr2.be = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
   br label %tailrecurse
 
 10:                                               ; preds = %tailrecurse
-  %11 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, { { { ptr, i64 }, i64 }, ptr }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %.tr2, i64 32
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %12)
-  %13 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, { { { ptr, i64 }, i64 }, ptr }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 2
+  %13 = getelementptr inbounds i8, ptr %.tr2, i64 40
   %14 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h8fd455e6a800c59cE"(ptr nonnull align 8 %13)
   %15 = extractvalue { ptr, ptr } %14, 0
   %16 = extractvalue { ptr, ptr } %14, 1
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  br label %57
+  br label %51
 
 18:                                               ; preds = %tailrecurse
-  %19 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, ptr, i32, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 1
+  %19 = getelementptr inbounds i8, ptr %.tr2, i64 32
   %20 = load ptr, ptr %19, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %20)
-  %21 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, ptr, i32, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 2
+  %21 = getelementptr inbounds i8, ptr %.tr2, i64 40
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !6, !noundef !5
   tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %22)
   br label %common.ret21
 
 23:                                               ; preds = %tailrecurse
-  %24 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, { [24 x i8], i8, [7 x i8] }, { [1 x i32] }, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 1
+  %24 = getelementptr inbounds i8, ptr %.tr2, i64 32
+  %25 = load ptr, ptr %24, align 8, !nonnull !5, !align !6, !noundef !5
+  tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %25)
   br label %tailrecurse.backedge
 
-25:                                               ; preds = %tailrecurse
-  %26 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, ptr, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 1
-  %27 = load ptr, ptr %26, align 8, !nonnull !5, !align !6, !noundef !5
-  tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %27)
-  %28 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, ptr, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 2
-  br label %tailrecurse.backedge
+26:                                               ; preds = %tailrecurse
+  %27 = getelementptr inbounds i8, ptr %.tr2, i64 8
+  %28 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h90ff0c43c5f9d18fE"(ptr nonnull align 8 %27)
+  br i1 %28, label %29, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit
 
-29:                                               ; preds = %tailrecurse
-  %30 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, ptr, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %.tr2, i64 0, i32 1, i32 1
-  br label %tailrecurse.backedge
-
-31:                                               ; preds = %tailrecurse
-  %32 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %.tr2, i64 0, i32 1
-  %33 = tail call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_none17h90ff0c43c5f9d18fE"(ptr nonnull align 8 %32)
-  br i1 %33, label %34, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit
-
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %.tr2, i64 0, i32 1, i32 2
-  tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver13self_to_qself17h64ad55469dcd1d27E(ptr align 8 %0, ptr nonnull align 8 %32, ptr nonnull align 8 %35)
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds i8, ptr %.tr2, i64 64
+  tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver13self_to_qself17h64ad55469dcd1d27E(ptr align 8 %0, ptr nonnull align 8 %27, ptr nonnull align 8 %30)
   br label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit
 
-_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit: ; preds = %31, %34
-  %36 = load i32, ptr %32, align 8, !range !20, !noundef !5
-  %.not.i = icmp eq i32 %36, 2
-  br i1 %.not.i, label %40, label %37
+_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit: ; preds = %26, %29
+  %31 = load i32, ptr %27, align 8, !range !20, !noundef !5
+  %.not.i = icmp eq i32 %31, 2
+  br i1 %.not.i, label %35, label %32
 
-37:                                               ; preds = %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit
-  %38 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %.tr2, i64 0, i32 1, i32 0, i32 1, i64 1
-  %39 = load ptr, ptr %38, align 8, !nonnull !5, !align !6, !noundef !5
-  tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %39)
-  br label %40
+32:                                               ; preds = %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit
+  %33 = getelementptr inbounds i8, ptr %.tr2, i64 16
+  %34 = load ptr, ptr %33, align 8, !nonnull !5, !align !6, !noundef !5
+  tail call fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_type_mut17h7e840bb0a4608412E(ptr align 8 %0, ptr nonnull align 8 %34)
+  br label %35
 
-40:                                               ; preds = %37, %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit
-  %41 = getelementptr inbounds { [1 x i64], { { i32, [7 x i32] }, { { ptr, i64 }, i64 }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %.tr2, i64 0, i32 1, i32 2
+35:                                               ; preds = %32, %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver19visit_expr_path_mut17hd098a87c2451d91eE.exit
+  %36 = getelementptr inbounds i8, ptr %.tr2, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %42 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %41)
-  %43 = extractvalue { ptr, ptr } %42, 0
-  %44 = extractvalue { ptr, ptr } %42, 1
-  store ptr %43, ptr %3, align 8
-  %45 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
-  store ptr %44, ptr %45, align 8
-  br label %46
+  %37 = tail call { ptr, ptr } @"_ZN114_$LT$$RF$mut$u20$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd095b995bc899fb9E"(ptr nonnull align 8 %36)
+  %38 = extractvalue { ptr, ptr } %37, 0
+  %39 = extractvalue { ptr, ptr } %37, 1
+  store ptr %38, ptr %3, align 8
+  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %39, ptr %40, align 8
+  br label %41
 
-46:                                               ; preds = %52, %40
-  %47 = invoke align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c523ccec5c9b1b6E"(ptr nonnull align 8 %3)
-          to label %50 unwind label %48
+41:                                               ; preds = %47, %35
+  %42 = invoke align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c523ccec5c9b1b6E"(ptr nonnull align 8 %3)
+          to label %45 unwind label %43
 
-48:                                               ; preds = %52, %46
-  %49 = landingpad { ptr, i32 }
+43:                                               ; preds = %47, %41
+  %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17hbb1aa108f38c32cbE"(ptr nonnull align 8 %3) #5
-          to label %common.resume unwind label %53
+          to label %common.resume unwind label %48
 
-50:                                               ; preds = %46
-  %51 = icmp eq ptr %47, null
-  br i1 %51, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_expr_path_mut_impl17h7e495c2fd4a640a8E.exit, label %52
+45:                                               ; preds = %41
+  %46 = icmp eq ptr %42, null
+  br i1 %46, label %_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_expr_path_mut_impl17h7e495c2fd4a640a8E.exit, label %47
 
-52:                                               ; preds = %50
-  invoke fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_path_arguments_mut17h26bc2d36f5eadab6E(ptr align 8 %0, ptr nonnull align 8 %47)
-          to label %46 unwind label %48
+47:                                               ; preds = %45
+  invoke fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_path_arguments_mut17h26bc2d36f5eadab6E(ptr align 8 %0, ptr nonnull align 8 %42)
+          to label %41 unwind label %43
 
-53:                                               ; preds = %48
-  %54 = landingpad { ptr, i32 }
+48:                                               ; preds = %43
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6
   unreachable
 
-common.resume:                                    ; preds = %59, %48
-  %common.resume.op = phi { ptr, i32 } [ %49, %48 ], [ %60, %59 ]
+common.resume:                                    ; preds = %53, %43
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_expr_path_mut_impl17h7e495c2fd4a640a8E.exit: ; preds = %50
+_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver24visit_expr_path_mut_impl17h7e495c2fd4a640a8E.exit: ; preds = %45
   call void @"_ZN4core3ptr75drop_in_place$LT$syn..punctuated..IterMut$LT$syn..path..PathSegment$GT$$GT$17hbb1aa108f38c32cbE"(ptr nonnull align 8 %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %common.ret21
 
-55:                                               ; preds = %tailrecurse
-  %56 = getelementptr inbounds { [1 x i64], { { i32, [1 x i32] }, { { ptr, i64 }, i64 }, ptr } }, ptr %.tr2, i64 0, i32 1, i32 2
+50:                                               ; preds = %tailrecurse
   br label %tailrecurse.backedge
 
-57:                                               ; preds = %64, %10
-  %58 = invoke align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15f3f33f931535f6E"(ptr nonnull align 8 %4)
-          to label %61 unwind label %59
+51:                                               ; preds = %58, %10
+  %52 = invoke align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15f3f33f931535f6E"(ptr nonnull align 8 %4)
+          to label %55 unwind label %53
 
-59:                                               ; preds = %64, %57
-  %60 = landingpad { ptr, i32 }
+53:                                               ; preds = %58, %51
+  %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$syn..punctuated..IterMut$LT$syn..expr..Expr$GT$$GT$17hb8a6351078b7a68cE"(ptr nonnull align 8 %4) #5
-          to label %common.resume unwind label %65
+          to label %common.resume unwind label %59
 
-61:                                               ; preds = %57
-  %62 = icmp eq ptr %58, null
-  br i1 %62, label %63, label %64
+55:                                               ; preds = %51
+  %56 = icmp eq ptr %52, null
+  br i1 %56, label %57, label %58
 
-63:                                               ; preds = %61
+57:                                               ; preds = %55
   call void @"_ZN4core3ptr68drop_in_place$LT$syn..punctuated..IterMut$LT$syn..expr..Expr$GT$$GT$17hb8a6351078b7a68cE"(ptr nonnull align 8 %4)
   br label %common.ret21
 
-64:                                               ; preds = %61
-  invoke fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %58)
-          to label %57 unwind label %59
+58:                                               ; preds = %55
+  invoke fastcc void @_ZN22serde_derive_internals9internals8receiver15ReplaceReceiver14visit_expr_mut17h85f33adb960f75ecE(ptr align 8 %0, ptr nonnull align 8 %52)
+          to label %51 unwind label %53
 
-65:                                               ; preds = %59
-  %66 = landingpad { ptr, i32 }
+59:                                               ; preds = %53
+  %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #6
   unreachable

@@ -13,23 +13,23 @@ entry:
   %stream = alloca %struct.z_stream_s, align 8
   store ptr %source, ptr %stream, align 8
   %conv = trunc i64 %sourceLen to i32
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %stream, i64 8
   store i32 %conv, ptr %avail_in, align 8
   %cmp.not = icmp ult i64 %sourceLen, 4294967296
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %stream, i64 24
   store ptr %dest, ptr %next_out, align 8
   %0 = load i64, ptr %destLen, align 8
   %conv4 = trunc i64 %0 to i32
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %stream, i64 32
   store i32 %conv4, ptr %avail_out, align 8
   %cmp7.not = icmp ult i64 %0, 4294967296
   br i1 %cmp7.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end
-  %zalloc = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 8
+  %zalloc = getelementptr inbounds i8, ptr %stream, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %zalloc, i8 0, i64 16, i1 false)
   %call = call i32 @MOZ_Z_inflateInit_(ptr noundef nonnull %stream, ptr noundef nonnull @.str, i32 noundef 120) #3
   %cmp11.not = icmp eq i32 %call, 0
@@ -54,7 +54,7 @@ lor.lhs.false:                                    ; preds = %if.then18
   br label %return
 
 if.end29:                                         ; preds = %if.end14
-  %total_out = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 5
+  %total_out = getelementptr inbounds i8, ptr %stream, i64 40
   %2 = load i64, ptr %total_out, align 8
   store i64 %2, ptr %destLen, align 8
   %call30 = call i32 @MOZ_Z_inflateEnd(ptr noundef nonnull %stream) #3

@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/v3_prn.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.conf_value_st = type { ptr, ptr, ptr }
-%struct.X509_extension_st = type { ptr, i32, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [4 x i8] c"%*s\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"<EMPTY>\0A\00", align 1
@@ -73,10 +68,10 @@ if.then16.us:                                     ; preds = %for.body.us
 
 if.end19.us:                                      ; preds = %if.then16.us, %for.body.us
   %call20.us = tail call ptr @sk_value(ptr noundef nonnull %val, i64 noundef %i.026.us) #3
-  %name.us = getelementptr inbounds %struct.conf_value_st, ptr %call20.us, i64 0, i32 1
+  %name.us = getelementptr inbounds i8, ptr %call20.us, i64 8
   %0 = load ptr, ptr %name.us, align 8
   %tobool21.not.us = icmp eq ptr %0, null
-  %value.us = getelementptr inbounds %struct.conf_value_st, ptr %call20.us, i64 0, i32 2
+  %value.us = getelementptr inbounds i8, ptr %call20.us, i64 16
   %1 = load ptr, ptr %value.us, align 8
   br i1 %tobool21.not.us, label %if.then22.us, label %if.else24.us
 
@@ -106,10 +101,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.026 = phi i64 [ %inc, %if.end35 ], [ 0, %for.body.preheader ]
   %call14 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str, i32 noundef %indent, ptr noundef nonnull @.str.1) #3
   %call20 = tail call ptr @sk_value(ptr noundef nonnull %val, i64 noundef %i.026) #3
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call20, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call20, i64 8
   %2 = load ptr, ptr %name, align 8
   %tobool21.not = icmp eq ptr %2, null
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call20, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call20, i64 16
   %3 = load ptr, ptr %value, align 8
   br i1 %tobool21.not, label %if.then22, label %if.else24
 
@@ -171,9 +166,9 @@ sw.bb1.i:                                         ; preds = %if.then
   br label %return
 
 sw.bb3.i:                                         ; preds = %if.then
-  %value.i = getelementptr inbounds %struct.X509_extension_st, ptr %ext, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %ext, i64 16
   %1 = load ptr, ptr %value.i, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data.i, align 8
   %3 = load i32, ptr %1, align 8
   %conv.i = sext i32 %3 to i64
@@ -181,9 +176,9 @@ sw.bb3.i:                                         ; preds = %if.then
   br label %return
 
 sw.bb6.i:                                         ; preds = %if.then
-  %value7.i = getelementptr inbounds %struct.X509_extension_st, ptr %ext, i64 0, i32 2
+  %value7.i = getelementptr inbounds i8, ptr %ext, i64 16
   %4 = load ptr, ptr %value7.i, align 8
-  %data8.i = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data8.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data8.i, align 8
   %6 = load i32, ptr %4, align 8
   %conv11.i = sext i32 %6 to i64
@@ -194,12 +189,12 @@ sw.default.i:                                     ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %value2 = getelementptr inbounds %struct.X509_extension_st, ptr %ext, i64 0, i32 2
+  %value2 = getelementptr inbounds i8, ptr %ext, i64 16
   %7 = load ptr, ptr %value2, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %7, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data, align 8
   store ptr %8, ptr %p, align 8
-  %it = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 2
+  %it = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %it, align 8
   %tobool3.not = icmp eq ptr %9, null
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -211,7 +206,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %d2i = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 5
+  %d2i = getelementptr inbounds i8, ptr %call, i64 32
   %11 = load ptr, ptr %d2i, align 8
   %12 = load i32, ptr %7, align 8
   %conv10 = sext i32 %12 to i64
@@ -239,7 +234,7 @@ sw.bb1.i54:                                       ; preds = %if.then14
 
 sw.bb3.i49:                                       ; preds = %if.then14
   %14 = load ptr, ptr %value2, align 8
-  %data.i51 = getelementptr inbounds %struct.asn1_string_st, ptr %14, i64 0, i32 2
+  %data.i51 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %data.i51, align 8
   %16 = load i32, ptr %14, align 8
   %conv.i52 = sext i32 %16 to i64
@@ -248,7 +243,7 @@ sw.bb3.i49:                                       ; preds = %if.then14
 
 sw.bb6.i43:                                       ; preds = %if.then14
   %17 = load ptr, ptr %value2, align 8
-  %data8.i45 = getelementptr inbounds %struct.asn1_string_st, ptr %17, i64 0, i32 2
+  %data8.i45 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %data8.i45, align 8
   %19 = load i32, ptr %17, align 8
   %conv11.i46 = sext i32 %19 to i64
@@ -259,7 +254,7 @@ sw.default.i55:                                   ; preds = %if.then14
   br label %return
 
 if.end16:                                         ; preds = %if.end12
-  %i2s = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 7
+  %i2s = getelementptr inbounds i8, ptr %call, i64 48
   %20 = load ptr, ptr %i2s, align 8
   %tobool17.not = icmp eq ptr %20, null
   br i1 %tobool17.not, label %if.else25, label %if.then18
@@ -270,7 +265,7 @@ if.then18:                                        ; preds = %if.end16
   br i1 %tobool21.not, label %err.thread, label %if.then46
 
 if.else25:                                        ; preds = %if.end16
-  %i2v = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 9
+  %i2v = getelementptr inbounds i8, ptr %call, i64 64
   %21 = load ptr, ptr %i2v, align 8
   %tobool26.not = icmp eq ptr %21, null
   br i1 %tobool26.not, label %if.else33, label %if.then27
@@ -281,14 +276,14 @@ if.then27:                                        ; preds = %if.else25
   br i1 %tobool30.not, label %err.thread, label %if.end32
 
 if.end32:                                         ; preds = %if.then27
-  %ext_flags = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 1
+  %ext_flags = getelementptr inbounds i8, ptr %call, i64 4
   %22 = load i32, ptr %ext_flags, align 4
   %and = and i32 %22, 4
   call void @X509V3_EXT_val_prn(ptr noundef %out, ptr noundef nonnull %call29, i32 noundef %indent, i32 noundef %and)
   br label %err.thread
 
 if.else33:                                        ; preds = %if.else25
-  %i2r = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 11
+  %i2r = getelementptr inbounds i8, ptr %call, i64 80
   %23 = load ptr, ptr %i2r, align 8
   %tobool34.not = icmp eq ptr %23, null
   br i1 %tobool34.not, label %err.thread, label %if.then35
@@ -322,7 +317,7 @@ if.then50:                                        ; preds = %if.end47
   br label %return
 
 if.else52:                                        ; preds = %if.end47
-  %ext_free = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 4
+  %ext_free = getelementptr inbounds i8, ptr %call, i64 24
   %25 = load ptr, ptr %ext_free, align 8
   call void %25(ptr noundef nonnull %ext_str.0) #3
   br label %return
@@ -397,7 +392,7 @@ if.end19.us:                                      ; preds = %for.body.us
 
 if.then23.us:                                     ; preds = %if.end19.us
   %call25.us = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str, i32 noundef %add20, ptr noundef nonnull @.str.1) #3
-  %value.us = getelementptr inbounds %struct.X509_extension_st, ptr %call6.us, i64 0, i32 2
+  %value.us = getelementptr inbounds i8, ptr %call6.us, i64 16
   %0 = load ptr, ptr %value.us, align 8
   %call26.us = tail call i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef %0) #3
   br label %if.end27.us
@@ -437,7 +432,7 @@ if.end19:                                         ; preds = %if.end11
 
 if.then23:                                        ; preds = %if.end19
   %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str, i32 noundef %add20, ptr noundef nonnull @.str.1) #3
-  %value = getelementptr inbounds %struct.X509_extension_st, ptr %call6, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %1 = load ptr, ptr %value, align 8
   %call26 = tail call i32 @ASN1_STRING_print(ptr noundef %bp, ptr noundef %1) #3
   br label %if.end27

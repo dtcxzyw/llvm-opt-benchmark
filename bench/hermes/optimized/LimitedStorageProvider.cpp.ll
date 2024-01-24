@@ -7,14 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %"struct.llvh::AlignedCharArrayUnion.0" }
 %"struct.llvh::AlignedCharArrayUnion.0" = type { %"struct.llvh::AlignedCharArray.1" }
 %"struct.llvh::AlignedCharArray.1" = type { [16 x i8] }
-%"class.hermes::vm::LimitedStorageProvider" = type { %"class.hermes::vm::StorageProvider", %"class.std::unique_ptr", i64 }
-%"class.hermes::vm::StorageProvider" = type { ptr, i64, i64, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.3" }
-%"struct.std::_Head_base.3" = type { ptr }
 
 $_ZN6hermes2vm22LimitedStorageProviderD2Ev = comdat any
 
@@ -25,7 +17,7 @@ $_ZN6hermes2vm22LimitedStorageProviderD0Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm22LimitedStorageProvider14newStorageImplEPKc(ptr noalias sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %name) unnamed_addr #0 align 2 {
 entry:
-  %limit_ = getelementptr inbounds %"class.hermes::vm::LimitedStorageProvider", ptr %this, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %limit_, align 8
   %cmp = icmp ult i64 %0, 4194304
   br i1 %cmp, label %if.then, label %if.end
@@ -34,7 +26,7 @@ if.then:                                          ; preds = %entry
   %call2 = tail call { i32, ptr } @_ZN6hermes15make_error_codeENS_8OOMErrorE(i32 noundef 6) #4
   %1 = extractvalue { i32, ptr } %call2, 0
   %2 = extractvalue { i32, ptr } %call2, 1
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -46,7 +38,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %sub = add i64 %0, -4194304
   store i64 %sub, ptr %limit_, align 8
-  %delegate_ = getelementptr inbounds %"class.hermes::vm::LimitedStorageProvider", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %delegate_, align 8
   tail call void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %name) #4
   br label %return
@@ -66,10 +58,10 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %delegate_ = getelementptr inbounds %"class.hermes::vm::LimitedStorageProvider", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %delegate_, align 8
   tail call void @_ZN6hermes2vm15StorageProvider13deleteStorageEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %storage) #4
-  %limit_ = getelementptr inbounds %"class.hermes::vm::LimitedStorageProvider", ptr %this, i64 0, i32 2
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %limit_, align 8
   %add = add i64 %1, 4194304
   store i64 %add, ptr %limit_, align 8
@@ -84,14 +76,14 @@ declare void @_ZN6hermes2vm15StorageProvider13deleteStorageEPv(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm22LimitedStorageProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %delegate_ = getelementptr inbounds %"class.hermes::vm::LimitedStorageProvider", ptr %this, i64 0, i32 1
+  %delegate_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %delegate_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6hermes2vm15StorageProviderESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN6hermes2vm15StorageProviderEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN6hermes2vm15StorageProviderEEclEPS2_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #4
   br label %_ZNSt10unique_ptrIN6hermes2vm15StorageProviderESt14default_deleteIS2_EED2Ev.exit
@@ -105,14 +97,14 @@ _ZNSt10unique_ptrIN6hermes2vm15StorageProviderESt14default_deleteIS2_EED2Ev.exit
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm22LimitedStorageProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %delegate_.i = getelementptr inbounds %"class.hermes::vm::LimitedStorageProvider", ptr %this, i64 0, i32 1
+  %delegate_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %delegate_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN6hermes2vm22LimitedStorageProviderD2Ev.exit, label %_ZNKSt14default_deleteIN6hermes2vm15StorageProviderEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN6hermes2vm15StorageProviderEEclEPS2_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #4
   br label %_ZN6hermes2vm22LimitedStorageProviderD2Ev.exit

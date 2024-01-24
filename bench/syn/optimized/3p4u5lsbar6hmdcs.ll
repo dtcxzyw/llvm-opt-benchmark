@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN4core4cell13Cell$LT$T$GT$3get17hc68bfdd03eff6af9E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %6 = insertvalue { ptr, ptr } %5, ptr %4, 1
@@ -33,7 +33,7 @@ define void @"_ZN4core4cell13Cell$LT$T$GT$3new17h7e7a7350b9b87ac9E"(ptr nocaptur
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN4core4cell13Cell$LT$T$GT$3set17h7a06326a81de4801E"(ptr nocapture writeonly align 8 %0, ptr %1, ptr %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %0, align 8
   store ptr %2, ptr %4, align 8
   ret void
@@ -83,7 +83,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$10borrow_mut17h109e2c55e162
 
 5:                                                ; preds = %2
   store i64 -1, ptr %0, align 8
-  %6 = getelementptr inbounds { i64, { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %0, 1
   ret { ptr, ptr } %8
@@ -107,7 +107,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$10try_borrow17hbe07235acaf5
 6:                                                ; preds = %1, %4
   %.0 = phi ptr [ %0, %4 ], [ null, %1 ]
   %7 = icmp eq ptr %.0, null
-  %8 = getelementptr inbounds { i64, { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0 = select i1 %7, ptr null, ptr %8
   %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %.0, 1
@@ -127,7 +127,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$14try_borrow_mut17ha5b1a6f8
 5:                                                ; preds = %1, %4
   %.0 = phi ptr [ %0, %4 ], [ null, %1 ]
   %6 = icmp eq ptr %.0, null
-  %7 = getelementptr inbounds { i64, { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0 = select i1 %6, ptr null, ptr %7
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.0, 1
@@ -139,7 +139,7 @@ define void @"_ZN4core4cell16RefCell$LT$T$GT$3new17h59579ccffdebd67fE"(ptr nocap
   %.sroa.0 = alloca { { ptr, i64 }, i64 }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 0, ptr %0, align 8
-  %3 = getelementptr inbounds { i64, { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   ret void
 }
@@ -153,7 +153,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$6borrow17h728d2ce2e73ead3bE
 5:                                                ; preds = %2
   %6 = add nuw nsw i64 %3, 1
   store i64 %6, ptr %0, align 8
-  %7 = getelementptr inbounds { i64, { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = insertvalue { ptr, ptr } poison, ptr %7, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %0, 1
   ret { ptr, ptr } %9
@@ -166,7 +166,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$6borrow17h728d2ce2e73ead3bE
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN64_$LT$core..cell..Cell$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha0e5a3ce85173bfeE"(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %5 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %6 = insertvalue { ptr, ptr } %5, ptr %4, 1

@@ -15,7 +15,7 @@ define hidden { i64, i64 } @"_ZN146_$LT$core..ops..range..Range$LT$usize$GT$$u20
   %4 = alloca { i64, { i64, i64 } }, align 8
   %5 = alloca { i64, i64 }, align 8
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1, ptr %6, align 8
   call void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h602a9aa4cce1f03bE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %4, ptr nonnull align 8 %5)
   %7 = load i64, ptr %4, align 8, !noundef !5

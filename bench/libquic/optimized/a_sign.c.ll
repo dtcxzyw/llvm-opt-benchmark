@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/a_sign.c\00", align 1
 
@@ -43,7 +42,7 @@ entry:
   %outl = alloca i64, align 8
   store ptr null, ptr %buf_in, align 8
   store i64 0, ptr %outl, align 8
-  %pctx = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 2
+  %pctx = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx, align 8
   %call = tail call ptr @EVP_PKEY_CTX_get0_pkey(ptr noundef %0) #4
   %tobool.not = icmp eq ptr %algor1, null
@@ -98,7 +97,7 @@ if.then25:                                        ; preds = %lor.lhs.false22, %i
   br label %err
 
 if.end26:                                         ; preds = %lor.lhs.false22
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %signature, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp27.not = icmp eq ptr %2, null
   br i1 %cmp27.not, label %if.end31, label %if.then29
@@ -112,7 +111,7 @@ if.end31:                                         ; preds = %if.then29, %if.end2
   %3 = load i64, ptr %outl, align 8
   %conv33 = trunc i64 %3 to i32
   store i32 %conv33, ptr %signature, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %signature, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %signature, i64 16
   %4 = load i64, ptr %flags, align 8
   %and = and i64 %4, -16
   %or = or disjoint i64 %and, 8

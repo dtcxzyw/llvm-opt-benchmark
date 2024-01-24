@@ -62,13 +62,13 @@ git_user_agent.exit:                              ; preds = %if.then, %if.then.i
   %call.i5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef nonnull %2, i64 noundef %call.i5) #6
   call void @strbuf_trim(ptr noundef nonnull %buf) #6
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %3 = load i64, ptr %len, align 8
   %cmp6.not = icmp eq i64 %3, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %git_user_agent.exit
-  %buf2 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf2 = getelementptr inbounds i8, ptr %buf, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -93,7 +93,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %git_user_agent.exit
-  %buf16 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf16 = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load ptr, ptr %buf16, align 8
   store ptr %9, ptr @git_user_agent_sanitized.agent, align 8
   br label %if.end17

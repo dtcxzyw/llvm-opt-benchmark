@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.arrow::Status" = type { ptr }
-%"struct.std::pair" = type { i32, ptr }
-%"struct.arrow::Status::State" = type { i8, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.arrow::util::detail::StringStreamWrapper" = type { %"class.std::unique_ptr.5", ptr }
 %"class.std::unique_ptr.5" = type { %"struct.std::__uniq_ptr_data.6" }
 %"struct.std::__uniq_ptr_data.6" = type { %"class.std::__uniq_ptr_impl.7" }
@@ -20,6 +11,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.8" = type { %"struct.std::_Tuple_impl.9" }
 %"struct.std::_Tuple_impl.9" = type { %"struct.std::_Head_base.12" }
 %"struct.std::_Head_base.12" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 
 $_ZN5arrow8internal10unpack1_64EPKhPm = comdat any
 
@@ -339,7 +333,7 @@ call3.i.i.noexc:                                  ; preds = %_ZNK5arrow8internal
 
 if.then.i:                                        ; preds = %call3.i.i.noexc, %call7.i.i.noexc, %call5.i.i.noexc, %init.end.i.i
   %7 = load i32, ptr %__begin0.sroa.0.09.i.ptr, align 8
-  %second.i5.i = getelementptr inbounds %"struct.std::pair", ptr %__begin0.sroa.0.09.i.ptr, i64 0, i32 1
+  %second.i5.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.09.i.ptr, i64 8
   %8 = load ptr, ptr %second.i5.i, align 8
   br label %for.inc.i
 
@@ -1347,97 +1341,97 @@ for.body379.i:                                    ; preds = %for.body379.i, %for
   %and.i.i = and i64 %ret.0.copyload.i.i.i, 4294967295
   store i64 %and.i.i, ptr %add.ptr382.i, align 8
   %shr.i.i = lshr i64 %ret.0.copyload.i.i.i, 32
-  %arrayidx47.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 1
+  %arrayidx47.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 8
   store i64 %shr.i.i, ptr %arrayidx47.i.i, align 8
   %and48.i.i = and i64 %ret.0.copyload.i96.i.i, 4294967295
-  %arrayidx49.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 2
+  %arrayidx49.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 16
   store i64 %and48.i.i, ptr %arrayidx49.i.i, align 8
   %shr50.i.i = lshr i64 %ret.0.copyload.i96.i.i, 32
-  %arrayidx51.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 3
+  %arrayidx51.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 24
   store i64 %shr50.i.i, ptr %arrayidx51.i.i, align 8
   %and52.i.i = and i64 %ret.0.copyload.i97.i.i, 4294967295
-  %arrayidx53.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 4
+  %arrayidx53.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 32
   store i64 %and52.i.i, ptr %arrayidx53.i.i, align 8
   %shr54.i.i = lshr i64 %ret.0.copyload.i97.i.i, 32
-  %arrayidx55.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 5
+  %arrayidx55.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 40
   store i64 %shr54.i.i, ptr %arrayidx55.i.i, align 8
   %and56.i.i = and i64 %ret.0.copyload.i98.i.i, 4294967295
-  %arrayidx57.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 6
+  %arrayidx57.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 48
   store i64 %and56.i.i, ptr %arrayidx57.i.i, align 8
   %shr58.i.i = lshr i64 %ret.0.copyload.i98.i.i, 32
-  %arrayidx59.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 7
+  %arrayidx59.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 56
   store i64 %shr58.i.i, ptr %arrayidx59.i.i, align 8
   %and60.i.i = and i64 %ret.0.copyload.i99.i.i, 4294967295
-  %arrayidx61.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 8
+  %arrayidx61.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 64
   store i64 %and60.i.i, ptr %arrayidx61.i.i, align 8
   %shr62.i.i = lshr i64 %ret.0.copyload.i99.i.i, 32
-  %arrayidx63.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 9
+  %arrayidx63.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 72
   store i64 %shr62.i.i, ptr %arrayidx63.i.i, align 8
   %and64.i.i = and i64 %ret.0.copyload.i100.i.i, 4294967295
-  %arrayidx65.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 10
+  %arrayidx65.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 80
   store i64 %and64.i.i, ptr %arrayidx65.i.i, align 8
   %shr66.i.i = lshr i64 %ret.0.copyload.i100.i.i, 32
-  %arrayidx67.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 11
+  %arrayidx67.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 88
   store i64 %shr66.i.i, ptr %arrayidx67.i.i, align 8
   %and68.i.i = and i64 %ret.0.copyload.i101.i.i, 4294967295
-  %arrayidx69.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 12
+  %arrayidx69.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 96
   store i64 %and68.i.i, ptr %arrayidx69.i.i, align 8
   %shr70.i.i = lshr i64 %ret.0.copyload.i101.i.i, 32
-  %arrayidx71.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 13
+  %arrayidx71.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 104
   store i64 %shr70.i.i, ptr %arrayidx71.i.i, align 8
   %and72.i.i = and i64 %ret.0.copyload.i102.i.i, 4294967295
-  %arrayidx73.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 14
+  %arrayidx73.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 112
   store i64 %and72.i.i, ptr %arrayidx73.i.i, align 8
   %shr74.i.i = lshr i64 %ret.0.copyload.i102.i.i, 32
-  %arrayidx75.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 15
+  %arrayidx75.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 120
   store i64 %shr74.i.i, ptr %arrayidx75.i.i, align 8
   %and76.i.i = and i64 %ret.0.copyload.i103.i.i, 4294967295
-  %arrayidx77.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 16
+  %arrayidx77.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 128
   store i64 %and76.i.i, ptr %arrayidx77.i.i, align 8
   %shr78.i.i = lshr i64 %ret.0.copyload.i103.i.i, 32
-  %arrayidx79.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 17
+  %arrayidx79.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 136
   store i64 %shr78.i.i, ptr %arrayidx79.i.i, align 8
   %and80.i.i = and i64 %ret.0.copyload.i104.i.i, 4294967295
-  %arrayidx81.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 18
+  %arrayidx81.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 144
   store i64 %and80.i.i, ptr %arrayidx81.i.i, align 8
   %shr82.i.i = lshr i64 %ret.0.copyload.i104.i.i, 32
-  %arrayidx83.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 19
+  %arrayidx83.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 152
   store i64 %shr82.i.i, ptr %arrayidx83.i.i, align 8
   %and84.i.i = and i64 %ret.0.copyload.i105.i.i, 4294967295
-  %arrayidx85.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 20
+  %arrayidx85.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 160
   store i64 %and84.i.i, ptr %arrayidx85.i.i, align 8
   %shr86.i.i = lshr i64 %ret.0.copyload.i105.i.i, 32
-  %arrayidx87.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 21
+  %arrayidx87.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 168
   store i64 %shr86.i.i, ptr %arrayidx87.i.i, align 8
   %and88.i.i = and i64 %ret.0.copyload.i106.i.i, 4294967295
-  %arrayidx89.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 22
+  %arrayidx89.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 176
   store i64 %and88.i.i, ptr %arrayidx89.i.i, align 8
   %shr90.i.i = lshr i64 %ret.0.copyload.i106.i.i, 32
-  %arrayidx91.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 23
+  %arrayidx91.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 184
   store i64 %shr90.i.i, ptr %arrayidx91.i.i, align 8
   %and92.i.i = and i64 %ret.0.copyload.i107.i.i, 4294967295
-  %arrayidx93.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 24
+  %arrayidx93.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 192
   store i64 %and92.i.i, ptr %arrayidx93.i.i, align 8
   %shr94.i.i = lshr i64 %ret.0.copyload.i107.i.i, 32
-  %arrayidx95.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 25
+  %arrayidx95.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 200
   store i64 %shr94.i.i, ptr %arrayidx95.i.i, align 8
   %and96.i.i = and i64 %ret.0.copyload.i108.i.i, 4294967295
-  %arrayidx97.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 26
+  %arrayidx97.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 208
   store i64 %and96.i.i, ptr %arrayidx97.i.i, align 8
   %shr98.i.i = lshr i64 %ret.0.copyload.i108.i.i, 32
-  %arrayidx99.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 27
+  %arrayidx99.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 216
   store i64 %shr98.i.i, ptr %arrayidx99.i.i, align 8
   %and100.i.i = and i64 %ret.0.copyload.i109.i.i, 4294967295
-  %arrayidx101.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 28
+  %arrayidx101.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 224
   store i64 %and100.i.i, ptr %arrayidx101.i.i, align 8
   %shr102.i.i = lshr i64 %ret.0.copyload.i109.i.i, 32
-  %arrayidx103.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 29
+  %arrayidx103.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 232
   store i64 %shr102.i.i, ptr %arrayidx103.i.i, align 8
   %and104.i.i = and i64 %ret.0.copyload.i110.i.i, 4294967295
-  %arrayidx105.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 30
+  %arrayidx105.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 240
   store i64 %and104.i.i, ptr %arrayidx105.i.i, align 8
   %shr106.i.i = lshr i64 %ret.0.copyload.i110.i.i, 32
-  %arrayidx107.i.i = getelementptr inbounds i64, ptr %add.ptr382.i, i64 31
+  %arrayidx107.i.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 248
   store i64 %shr106.i.i, ptr %arrayidx107.i.i, align 8
   %indvars.iv.next860.i = add nuw nsw i64 %indvars.iv859.i, 1
   %exitcond864.not.i = icmp eq i64 %indvars.iv.next860.i, %wide.trip.count863.i
@@ -1775,35 +1769,35 @@ for.body763.i:                                    ; preds = %for.body763.i, %for
   %add.ptr88.i.i = getelementptr inbounds i8, ptr %in.addr.64414.i, i64 240
   %add.ptr94.i.i = getelementptr inbounds i8, ptr %in.addr.64414.i, i64 256
   %68 = load <2 x i64>, ptr %in.addr.64414.i, align 1
-  %arrayidx96.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 2
+  %arrayidx96.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 16
   %69 = load <2 x i64>, ptr %add.ptr4.i327.i, align 1
-  %arrayidx98.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 4
+  %arrayidx98.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 32
   %70 = load <2 x i64>, ptr %add.ptr10.i329.i, align 1
-  %arrayidx100.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 6
+  %arrayidx100.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 48
   %71 = load <2 x i64>, ptr %add.ptr16.i331.i, align 1
-  %arrayidx102.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 8
+  %arrayidx102.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 64
   %72 = load <2 x i64>, ptr %add.ptr22.i333.i, align 1
-  %arrayidx104.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 10
+  %arrayidx104.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 80
   %73 = load <2 x i64>, ptr %add.ptr28.i335.i, align 1
-  %arrayidx106.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 12
+  %arrayidx106.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 96
   %74 = load <2 x i64>, ptr %add.ptr34.i337.i, align 1
-  %arrayidx108.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 14
+  %arrayidx108.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 112
   %75 = load <2 x i64>, ptr %add.ptr40.i339.i, align 1
-  %arrayidx110.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 16
+  %arrayidx110.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 128
   %76 = load <2 x i64>, ptr %add.ptr46.i341.i, align 1
-  %arrayidx112.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 18
+  %arrayidx112.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 144
   %77 = load <2 x i64>, ptr %add.ptr52.i.i, align 1
-  %arrayidx114.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 20
+  %arrayidx114.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 160
   %78 = load <2 x i64>, ptr %add.ptr58.i.i, align 1
-  %arrayidx116.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 22
+  %arrayidx116.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 176
   %79 = load <2 x i64>, ptr %add.ptr64.i.i, align 1
-  %arrayidx118.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 24
+  %arrayidx118.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 192
   %80 = load <2 x i64>, ptr %add.ptr70.i.i, align 1
-  %arrayidx120.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 26
+  %arrayidx120.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 208
   %81 = load <2 x i64>, ptr %add.ptr76.i.i, align 1
-  %arrayidx122.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 28
+  %arrayidx122.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 224
   %82 = load <2 x i64>, ptr %add.ptr82.i.i, align 1
-  %arrayidx124.i.i = getelementptr inbounds i64, ptr %add.ptr766.i, i64 30
+  %arrayidx124.i.i = getelementptr inbounds i8, ptr %add.ptr766.i, i64 240
   %83 = load <2 x i64>, ptr %add.ptr88.i.i, align 1
   store <2 x i64> %68, ptr %add.ptr766.i, align 8
   store <2 x i64> %69, ptr %arrayidx96.i.i, align 8
@@ -1840,126 +1834,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %conv, 1
   %and2 = and i64 %shr, 1
-  %arrayidx3 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and2, ptr %arrayidx3, align 8
   %shr4 = lshr i64 %conv, 2
   %and5 = and i64 %shr4, 1
-  %arrayidx6 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and5, ptr %arrayidx6, align 8
   %shr7 = lshr i64 %conv, 3
   %and8 = and i64 %shr7, 1
-  %arrayidx9 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and8, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %conv, 4
   %and11 = and i64 %shr10, 1
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %conv, 5
   %and14 = and i64 %shr13, 1
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %conv, 6
   %and17 = and i64 %shr16, 1
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %conv, 7
   %and20 = and i64 %shr19, 1
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %conv, 8
   %and23 = and i64 %shr22, 1
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %conv, 9
   %and26 = and i64 %shr25, 1
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %conv, 10
   %and29 = and i64 %shr28, 1
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %conv, 11
   %and32 = and i64 %shr31, 1
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %conv, 12
   %and35 = and i64 %shr34, 1
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %conv, 13
   %and38 = and i64 %shr37, 1
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %conv, 14
   %and41 = and i64 %shr40, 1
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %conv, 15
   %and44 = and i64 %shr43, 1
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %conv, 16
   %and47 = and i64 %shr46, 1
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %conv, 17
   %and50 = and i64 %shr49, 1
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %conv, 18
   %and53 = and i64 %shr52, 1
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and53, ptr %arrayidx54, align 8
   %shr55 = lshr i64 %conv, 19
   %and56 = and i64 %shr55, 1
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %conv, 20
   %and59 = and i64 %shr58, 1
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and59, ptr %arrayidx60, align 8
   %shr61 = lshr i64 %conv, 21
   %and62 = and i64 %shr61, 1
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and62, ptr %arrayidx63, align 8
   %shr64 = lshr i64 %conv, 22
   %and65 = and i64 %shr64, 1
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and65, ptr %arrayidx66, align 8
   %shr67 = lshr i64 %conv, 23
   %and68 = and i64 %shr67, 1
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %conv, 24
   %and71 = and i64 %shr70, 1
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %conv, 25
   %and74 = and i64 %shr73, 1
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %conv, 26
   %and77 = and i64 %shr76, 1
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and77, ptr %arrayidx78, align 8
   %shr79 = lshr i64 %conv, 27
   %and80 = and i64 %shr79, 1
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %conv, 28
   %and83 = and i64 %shr82, 1
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %conv, 29
   %and86 = and i64 %shr85, 1
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and86, ptr %arrayidx87, align 8
   %shr88 = lshr i64 %conv, 30
   %and89 = and i64 %shr88, 1
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and89, ptr %arrayidx90, align 8
   %shr91 = lshr i64 %conv, 31
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr91, ptr %arrayidx93, align 8
   ret ptr %add.ptr
 }
@@ -1973,126 +1967,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 2
   %and2 = and i64 %shr, 3
-  %arrayidx3 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and2, ptr %arrayidx3, align 8
   %shr4 = lshr i64 %ret.0.copyload.i, 4
   %and5 = and i64 %shr4, 3
-  %arrayidx6 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and5, ptr %arrayidx6, align 8
   %shr7 = lshr i64 %ret.0.copyload.i, 6
   %and8 = and i64 %shr7, 3
-  %arrayidx9 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and8, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %ret.0.copyload.i, 8
   %and11 = and i64 %shr10, 3
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %ret.0.copyload.i, 10
   %and14 = and i64 %shr13, 3
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 12
   %and17 = and i64 %shr16, 3
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 14
   %and20 = and i64 %shr19, 3
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 16
   %and23 = and i64 %shr22, 3
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 18
   %and26 = and i64 %shr25, 3
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 20
   %and29 = and i64 %shr28, 3
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 22
   %and32 = and i64 %shr31, 3
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i, 24
   %and35 = and i64 %shr34, 3
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i, 26
   %and38 = and i64 %shr37, 3
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i, 28
   %and41 = and i64 %shr40, 3
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i, 30
   %and44 = and i64 %shr43, 3
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i, 32
   %and47 = and i64 %shr46, 3
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i, 34
   %and50 = and i64 %shr49, 3
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i, 36
   %and53 = and i64 %shr52, 3
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and53, ptr %arrayidx54, align 8
   %shr55 = lshr i64 %ret.0.copyload.i, 38
   %and56 = and i64 %shr55, 3
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %ret.0.copyload.i, 40
   %and59 = and i64 %shr58, 3
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and59, ptr %arrayidx60, align 8
   %shr61 = lshr i64 %ret.0.copyload.i, 42
   %and62 = and i64 %shr61, 3
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and62, ptr %arrayidx63, align 8
   %shr64 = lshr i64 %ret.0.copyload.i, 44
   %and65 = and i64 %shr64, 3
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and65, ptr %arrayidx66, align 8
   %shr67 = lshr i64 %ret.0.copyload.i, 46
   %and68 = and i64 %shr67, 3
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %ret.0.copyload.i, 48
   %and71 = and i64 %shr70, 3
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i, 50
   %and74 = and i64 %shr73, 3
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i, 52
   %and77 = and i64 %shr76, 3
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and77, ptr %arrayidx78, align 8
   %shr79 = lshr i64 %ret.0.copyload.i, 54
   %and80 = and i64 %shr79, 3
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %ret.0.copyload.i, 56
   %and83 = and i64 %shr82, 3
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %ret.0.copyload.i, 58
   %and86 = and i64 %shr85, 3
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and86, ptr %arrayidx87, align 8
   %shr88 = lshr i64 %ret.0.copyload.i, 60
   %and89 = and i64 %shr88, 3
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and89, ptr %arrayidx90, align 8
   %shr91 = lshr i64 %ret.0.copyload.i, 62
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr91, ptr %arrayidx92, align 8
   ret ptr %add.ptr
 }
@@ -2109,126 +2103,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 3
   %and5 = and i64 %shr, 7
-  %arrayidx6 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and5, ptr %arrayidx6, align 8
   %shr7 = lshr i64 %ret.0.copyload.i, 6
   %and8 = and i64 %shr7, 7
-  %arrayidx9 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and8, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %ret.0.copyload.i, 9
   %and11 = and i64 %shr10, 7
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %ret.0.copyload.i, 12
   %and14 = and i64 %shr13, 7
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 15
   %and17 = and i64 %shr16, 7
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 18
   %and20 = and i64 %shr19, 7
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 21
   %and23 = and i64 %shr22, 7
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 24
   %and26 = and i64 %shr25, 7
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 27
   %and29 = and i64 %shr28, 7
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 30
   %and32 = and i64 %shr31, 7
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i, 33
   %and35 = and i64 %shr34, 7
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i, 36
   %and38 = and i64 %shr37, 7
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i, 39
   %and41 = and i64 %shr40, 7
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i, 42
   %and44 = and i64 %shr43, 7
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i, 45
   %and47 = and i64 %shr46, 7
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i, 48
   %and50 = and i64 %shr49, 7
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i, 51
   %and53 = and i64 %shr52, 7
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and53, ptr %arrayidx54, align 8
   %shr55 = lshr i64 %ret.0.copyload.i, 54
   %and56 = and i64 %shr55, 7
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %ret.0.copyload.i, 57
   %and59 = and i64 %shr58, 7
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and59, ptr %arrayidx60, align 8
   %shr61 = lshr i64 %ret.0.copyload.i, 60
   %and62 = and i64 %shr61, 7
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and62, ptr %arrayidx63, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i, i64 1)
   %and65 = and i64 %or, 7
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and65, ptr %arrayidx66, align 8
   %shr67 = lshr i64 %conv, 2
   %and68 = and i64 %shr67, 7
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %conv, 5
   %and71 = and i64 %shr70, 7
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %conv, 8
   %and74 = and i64 %shr73, 7
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %conv, 11
   %and77 = and i64 %shr76, 7
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and77, ptr %arrayidx78, align 8
   %shr79 = lshr i64 %conv, 14
   %and80 = and i64 %shr79, 7
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %conv, 17
   %and83 = and i64 %shr82, 7
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %conv, 20
   %and86 = and i64 %shr85, 7
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and86, ptr %arrayidx87, align 8
   %shr88 = lshr i64 %conv, 23
   %and89 = and i64 %shr88, 7
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and89, ptr %arrayidx90, align 8
   %shr91 = lshr i64 %conv, 26
   %and92 = and i64 %shr91, 7
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and92, ptr %arrayidx93, align 8
   %shr94 = lshr i64 %conv, 29
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr94, ptr %arrayidx96, align 8
   ret ptr %add.ptr4
 }
@@ -2244,124 +2238,124 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 4
   %and5 = and i64 %shr, 15
-  %arrayidx6 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and5, ptr %arrayidx6, align 8
   %shr7 = lshr i64 %ret.0.copyload.i, 8
   %and8 = and i64 %shr7, 15
-  %arrayidx9 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and8, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %ret.0.copyload.i, 12
   %and11 = and i64 %shr10, 15
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %ret.0.copyload.i, 16
   %and14 = and i64 %shr13, 15
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 20
   %and17 = and i64 %shr16, 15
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 24
   %and20 = and i64 %shr19, 15
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 28
   %and23 = and i64 %shr22, 15
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 32
   %and26 = and i64 %shr25, 15
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 36
   %and29 = and i64 %shr28, 15
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 40
   %and32 = and i64 %shr31, 15
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i, 44
   %and35 = and i64 %shr34, 15
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i, 48
   %and38 = and i64 %shr37, 15
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i, 52
   %and41 = and i64 %shr40, 15
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i, 56
   %and44 = and i64 %shr43, 15
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i, 60
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %shr46, ptr %arrayidx47, align 8
   %and48 = and i64 %ret.0.copyload.i68, 15
-  %arrayidx49 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx49 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and48, ptr %arrayidx49, align 8
   %shr50 = lshr i64 %ret.0.copyload.i68, 4
   %and51 = and i64 %shr50, 15
-  %arrayidx52 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx52 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and51, ptr %arrayidx52, align 8
   %shr53 = lshr i64 %ret.0.copyload.i68, 8
   %and54 = and i64 %shr53, 15
-  %arrayidx55 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx55 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and54, ptr %arrayidx55, align 8
   %shr56 = lshr i64 %ret.0.copyload.i68, 12
   %and57 = and i64 %shr56, 15
-  %arrayidx58 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx58 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and57, ptr %arrayidx58, align 8
   %shr59 = lshr i64 %ret.0.copyload.i68, 16
   %and60 = and i64 %shr59, 15
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i68, 20
   %and63 = and i64 %shr62, 15
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i68, 24
   %and66 = and i64 %shr65, 15
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i68, 28
   %and69 = and i64 %shr68, 15
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and69, ptr %arrayidx70, align 8
   %shr71 = lshr i64 %ret.0.copyload.i68, 32
   %and72 = and i64 %shr71, 15
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and72, ptr %arrayidx73, align 8
   %shr74 = lshr i64 %ret.0.copyload.i68, 36
   %and75 = and i64 %shr74, 15
-  %arrayidx76 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx76 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and75, ptr %arrayidx76, align 8
   %shr77 = lshr i64 %ret.0.copyload.i68, 40
   %and78 = and i64 %shr77, 15
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and78, ptr %arrayidx79, align 8
   %shr80 = lshr i64 %ret.0.copyload.i68, 44
   %and81 = and i64 %shr80, 15
-  %arrayidx82 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx82 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and81, ptr %arrayidx82, align 8
   %shr83 = lshr i64 %ret.0.copyload.i68, 48
   %and84 = and i64 %shr83, 15
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and84, ptr %arrayidx85, align 8
   %shr86 = lshr i64 %ret.0.copyload.i68, 52
   %and87 = and i64 %shr86, 15
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and87, ptr %arrayidx88, align 8
   %shr89 = lshr i64 %ret.0.copyload.i68, 56
   %and90 = and i64 %shr89, 15
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i68, 60
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr92, ptr %arrayidx93, align 8
   ret ptr %add.ptr4
 }
@@ -2380,126 +2374,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 5
   %and8 = and i64 %shr, 31
-  %arrayidx9 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and8, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %ret.0.copyload.i, 10
   %and11 = and i64 %shr10, 31
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %ret.0.copyload.i, 15
   %and14 = and i64 %shr13, 31
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 20
   %and17 = and i64 %shr16, 31
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 25
   %and20 = and i64 %shr19, 31
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 30
   %and23 = and i64 %shr22, 31
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 35
   %and26 = and i64 %shr25, 31
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 40
   %and29 = and i64 %shr28, 31
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 45
   %and32 = and i64 %shr31, 31
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i, 50
   %and35 = and i64 %shr34, 31
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i, 55
   %and38 = and i64 %shr37, 31
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and38, ptr %arrayidx39, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i72, i64 %ret.0.copyload.i, i64 4)
   %and41 = and i64 %or, 31
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i72, 1
   %and44 = and i64 %shr43, 31
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i72, 6
   %and47 = and i64 %shr46, 31
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i72, 11
   %and50 = and i64 %shr49, 31
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i72, 16
   %and53 = and i64 %shr52, 31
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and53, ptr %arrayidx54, align 8
   %shr55 = lshr i64 %ret.0.copyload.i72, 21
   %and56 = and i64 %shr55, 31
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %ret.0.copyload.i72, 26
   %and59 = and i64 %shr58, 31
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and59, ptr %arrayidx60, align 8
   %shr61 = lshr i64 %ret.0.copyload.i72, 31
   %and62 = and i64 %shr61, 31
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and62, ptr %arrayidx63, align 8
   %shr64 = lshr i64 %ret.0.copyload.i72, 36
   %and65 = and i64 %shr64, 31
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and65, ptr %arrayidx66, align 8
   %shr67 = lshr i64 %ret.0.copyload.i72, 41
   %and68 = and i64 %shr67, 31
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %ret.0.copyload.i72, 46
   %and71 = and i64 %shr70, 31
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i72, 51
   %and74 = and i64 %shr73, 31
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i72, 56
   %and77 = and i64 %shr76, 31
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and77, ptr %arrayidx78, align 8
   %or81 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i72, i64 3)
   %and82 = and i64 %or81, 31
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %conv, 2
   %and85 = and i64 %shr84, 31
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %conv, 7
   %and88 = and i64 %shr87, 31
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and88, ptr %arrayidx89, align 8
   %shr90 = lshr i64 %conv, 12
   %and91 = and i64 %shr90, 31
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and91, ptr %arrayidx92, align 8
   %shr93 = lshr i64 %conv, 17
   %and94 = and i64 %shr93, 31
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and94, ptr %arrayidx95, align 8
   %shr96 = lshr i64 %conv, 22
   %and97 = and i64 %shr96, 31
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and97, ptr %arrayidx98, align 8
   %shr99 = lshr i64 %conv, 27
-  %arrayidx101 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx101 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr99, ptr %arrayidx101, align 8
   ret ptr %add.ptr7
 }
@@ -2517,126 +2511,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 6
   %and8 = and i64 %shr, 63
-  %arrayidx9 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and8, ptr %arrayidx9, align 8
   %shr10 = lshr i64 %ret.0.copyload.i, 12
   %and11 = and i64 %shr10, 63
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %ret.0.copyload.i, 18
   %and14 = and i64 %shr13, 63
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 24
   %and17 = and i64 %shr16, 63
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 30
   %and20 = and i64 %shr19, 63
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 36
   %and23 = and i64 %shr22, 63
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 42
   %and26 = and i64 %shr25, 63
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 48
   %and29 = and i64 %shr28, 63
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 54
   %and32 = and i64 %shr31, 63
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and32, ptr %arrayidx33, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i72, i64 %ret.0.copyload.i, i64 4)
   %and35 = and i64 %or, 63
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i72, 2
   %and38 = and i64 %shr37, 63
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i72, 8
   %and41 = and i64 %shr40, 63
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i72, 14
   %and44 = and i64 %shr43, 63
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i72, 20
   %and47 = and i64 %shr46, 63
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i72, 26
   %and50 = and i64 %shr49, 63
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i72, 32
   %and53 = and i64 %shr52, 63
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and53, ptr %arrayidx54, align 8
   %shr55 = lshr i64 %ret.0.copyload.i72, 38
   %and56 = and i64 %shr55, 63
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %ret.0.copyload.i72, 44
   %and59 = and i64 %shr58, 63
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and59, ptr %arrayidx60, align 8
   %shr61 = lshr i64 %ret.0.copyload.i72, 50
   %and62 = and i64 %shr61, 63
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and62, ptr %arrayidx63, align 8
   %shr64 = lshr i64 %ret.0.copyload.i72, 56
   %and65 = and i64 %shr64, 63
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and65, ptr %arrayidx66, align 8
   %or69 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i73, i64 %ret.0.copyload.i72, i64 2)
   %and70 = and i64 %or69, 63
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and70, ptr %arrayidx71, align 8
   %shr72 = lshr i64 %ret.0.copyload.i73, 4
   %and73 = and i64 %shr72, 63
-  %arrayidx74 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx74 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and73, ptr %arrayidx74, align 8
   %shr75 = lshr i64 %ret.0.copyload.i73, 10
   %and76 = and i64 %shr75, 63
-  %arrayidx77 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx77 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and76, ptr %arrayidx77, align 8
   %shr78 = lshr i64 %ret.0.copyload.i73, 16
   %and79 = and i64 %shr78, 63
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i73, 22
   %and82 = and i64 %shr81, 63
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i73, 28
   %and85 = and i64 %shr84, 63
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %ret.0.copyload.i73, 34
   %and88 = and i64 %shr87, 63
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and88, ptr %arrayidx89, align 8
   %shr90 = lshr i64 %ret.0.copyload.i73, 40
   %and91 = and i64 %shr90, 63
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and91, ptr %arrayidx92, align 8
   %shr93 = lshr i64 %ret.0.copyload.i73, 46
   %and94 = and i64 %shr93, 63
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and94, ptr %arrayidx95, align 8
   %shr96 = lshr i64 %ret.0.copyload.i73, 52
   %and97 = and i64 %shr96, 63
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and97, ptr %arrayidx98, align 8
   %shr99 = lshr i64 %ret.0.copyload.i73, 58
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr99, ptr %arrayidx100, align 8
   ret ptr %add.ptr7
 }
@@ -2657,126 +2651,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 7
   %and11 = and i64 %shr, 127
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %ret.0.copyload.i, 14
   %and14 = and i64 %shr13, 127
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 21
   %and17 = and i64 %shr16, 127
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 28
   %and20 = and i64 %shr19, 127
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 35
   %and23 = and i64 %shr22, 127
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 42
   %and26 = and i64 %shr25, 127
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 49
   %and29 = and i64 %shr28, 127
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 56
   %and32 = and i64 %shr31, 127
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and32, ptr %arrayidx33, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i75, i64 %ret.0.copyload.i, i64 1)
   %and35 = and i64 %or, 127
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i75, 6
   %and38 = and i64 %shr37, 127
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i75, 13
   %and41 = and i64 %shr40, 127
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i75, 20
   %and44 = and i64 %shr43, 127
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i75, 27
   %and47 = and i64 %shr46, 127
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i75, 34
   %and50 = and i64 %shr49, 127
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i75, 41
   %and53 = and i64 %shr52, 127
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and53, ptr %arrayidx54, align 8
   %shr55 = lshr i64 %ret.0.copyload.i75, 48
   %and56 = and i64 %shr55, 127
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %ret.0.copyload.i75, 55
   %and59 = and i64 %shr58, 127
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and59, ptr %arrayidx60, align 8
   %or63 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i76, i64 %ret.0.copyload.i75, i64 2)
   %and64 = and i64 %or63, 127
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and64, ptr %arrayidx65, align 8
   %shr66 = lshr i64 %ret.0.copyload.i76, 5
   %and67 = and i64 %shr66, 127
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and67, ptr %arrayidx68, align 8
   %shr69 = lshr i64 %ret.0.copyload.i76, 12
   %and70 = and i64 %shr69, 127
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and70, ptr %arrayidx71, align 8
   %shr72 = lshr i64 %ret.0.copyload.i76, 19
   %and73 = and i64 %shr72, 127
-  %arrayidx74 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx74 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and73, ptr %arrayidx74, align 8
   %shr75 = lshr i64 %ret.0.copyload.i76, 26
   %and76 = and i64 %shr75, 127
-  %arrayidx77 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx77 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and76, ptr %arrayidx77, align 8
   %shr78 = lshr i64 %ret.0.copyload.i76, 33
   %and79 = and i64 %shr78, 127
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i76, 40
   %and82 = and i64 %shr81, 127
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i76, 47
   %and85 = and i64 %shr84, 127
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %ret.0.copyload.i76, 54
   %and88 = and i64 %shr87, 127
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and88, ptr %arrayidx89, align 8
   %or92 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i76, i64 3)
   %and93 = and i64 %or92, 127
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and93, ptr %arrayidx94, align 8
   %shr95 = lshr i64 %conv, 4
   %and96 = and i64 %shr95, 127
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and96, ptr %arrayidx97, align 8
   %shr98 = lshr i64 %conv, 11
   %and99 = and i64 %shr98, 127
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and99, ptr %arrayidx100, align 8
   %shr101 = lshr i64 %conv, 18
   %and102 = and i64 %shr101, 127
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and102, ptr %arrayidx103, align 8
   %shr104 = lshr i64 %conv, 25
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr104, ptr %arrayidx106, align 8
   ret ptr %add.ptr10
 }
@@ -2796,120 +2790,120 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 8
   %and11 = and i64 %shr, 255
-  %arrayidx12 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and11, ptr %arrayidx12, align 8
   %shr13 = lshr i64 %ret.0.copyload.i, 16
   %and14 = and i64 %shr13, 255
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 24
   %and17 = and i64 %shr16, 255
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 32
   %and20 = and i64 %shr19, 255
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 40
   %and23 = and i64 %shr22, 255
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 48
   %and26 = and i64 %shr25, 255
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 56
-  %arrayidx29 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx29 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %shr28, ptr %arrayidx29, align 8
   %and30 = and i64 %ret.0.copyload.i72, 255
-  %arrayidx31 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx31 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and30, ptr %arrayidx31, align 8
   %shr32 = lshr i64 %ret.0.copyload.i72, 8
   %and33 = and i64 %shr32, 255
-  %arrayidx34 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx34 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and33, ptr %arrayidx34, align 8
   %shr35 = lshr i64 %ret.0.copyload.i72, 16
   %and36 = and i64 %shr35, 255
-  %arrayidx37 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx37 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and36, ptr %arrayidx37, align 8
   %shr38 = lshr i64 %ret.0.copyload.i72, 24
   %and39 = and i64 %shr38, 255
-  %arrayidx40 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx40 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and39, ptr %arrayidx40, align 8
   %shr41 = lshr i64 %ret.0.copyload.i72, 32
   %and42 = and i64 %shr41, 255
-  %arrayidx43 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx43 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and42, ptr %arrayidx43, align 8
   %shr44 = lshr i64 %ret.0.copyload.i72, 40
   %and45 = and i64 %shr44, 255
-  %arrayidx46 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx46 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and45, ptr %arrayidx46, align 8
   %shr47 = lshr i64 %ret.0.copyload.i72, 48
   %and48 = and i64 %shr47, 255
-  %arrayidx49 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx49 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and48, ptr %arrayidx49, align 8
   %shr50 = lshr i64 %ret.0.copyload.i72, 56
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %shr50, ptr %arrayidx51, align 8
   %and52 = and i64 %ret.0.copyload.i73, 255
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i73, 8
   %and55 = and i64 %shr54, 255
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i73, 16
   %and58 = and i64 %shr57, 255
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and58, ptr %arrayidx59, align 8
   %shr60 = lshr i64 %ret.0.copyload.i73, 24
   %and61 = and i64 %shr60, 255
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and61, ptr %arrayidx62, align 8
   %shr63 = lshr i64 %ret.0.copyload.i73, 32
   %and64 = and i64 %shr63, 255
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and64, ptr %arrayidx65, align 8
   %shr66 = lshr i64 %ret.0.copyload.i73, 40
   %and67 = and i64 %shr66, 255
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and67, ptr %arrayidx68, align 8
   %shr69 = lshr i64 %ret.0.copyload.i73, 48
   %and70 = and i64 %shr69, 255
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and70, ptr %arrayidx71, align 8
   %shr72 = lshr i64 %ret.0.copyload.i73, 56
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %shr72, ptr %arrayidx73, align 8
   %and74 = and i64 %ret.0.copyload.i74, 255
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i74, 8
   %and77 = and i64 %shr76, 255
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and77, ptr %arrayidx78, align 8
   %shr79 = lshr i64 %ret.0.copyload.i74, 16
   %and80 = and i64 %shr79, 255
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %ret.0.copyload.i74, 24
   %and83 = and i64 %shr82, 255
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %ret.0.copyload.i74, 32
   %and86 = and i64 %shr85, 255
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and86, ptr %arrayidx87, align 8
   %shr88 = lshr i64 %ret.0.copyload.i74, 40
   %and89 = and i64 %shr88, 255
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and89, ptr %arrayidx90, align 8
   %shr91 = lshr i64 %ret.0.copyload.i74, 48
   %and92 = and i64 %shr91, 255
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and92, ptr %arrayidx93, align 8
   %shr94 = lshr i64 %ret.0.copyload.i74, 56
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr94, ptr %arrayidx95, align 8
   ret ptr %add.ptr10
 }
@@ -2932,126 +2926,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 9
   %and14 = and i64 %shr, 511
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 18
   %and17 = and i64 %shr16, 511
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 27
   %and20 = and i64 %shr19, 511
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 36
   %and23 = and i64 %shr22, 511
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 45
   %and26 = and i64 %shr25, 511
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 54
   %and29 = and i64 %shr28, 511
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and29, ptr %arrayidx30, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i78, i64 %ret.0.copyload.i, i64 1)
   %and32 = and i64 %or, 511
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i78, 8
   %and35 = and i64 %shr34, 511
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i78, 17
   %and38 = and i64 %shr37, 511
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i78, 26
   %and41 = and i64 %shr40, 511
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i78, 35
   %and44 = and i64 %shr43, 511
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i78, 44
   %and47 = and i64 %shr46, 511
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i78, 53
   %and50 = and i64 %shr49, 511
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and50, ptr %arrayidx51, align 8
   %or54 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i79, i64 %ret.0.copyload.i78, i64 2)
   %and55 = and i64 %or54, 511
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i79, 7
   %and58 = and i64 %shr57, 511
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and58, ptr %arrayidx59, align 8
   %shr60 = lshr i64 %ret.0.copyload.i79, 16
   %and61 = and i64 %shr60, 511
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and61, ptr %arrayidx62, align 8
   %shr63 = lshr i64 %ret.0.copyload.i79, 25
   %and64 = and i64 %shr63, 511
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and64, ptr %arrayidx65, align 8
   %shr66 = lshr i64 %ret.0.copyload.i79, 34
   %and67 = and i64 %shr66, 511
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and67, ptr %arrayidx68, align 8
   %shr69 = lshr i64 %ret.0.copyload.i79, 43
   %and70 = and i64 %shr69, 511
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and70, ptr %arrayidx71, align 8
   %shr72 = lshr i64 %ret.0.copyload.i79, 52
   %and73 = and i64 %shr72, 511
-  %arrayidx74 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx74 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and73, ptr %arrayidx74, align 8
   %or77 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i80, i64 %ret.0.copyload.i79, i64 3)
   %and78 = and i64 %or77, 511
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and78, ptr %arrayidx79, align 8
   %shr80 = lshr i64 %ret.0.copyload.i80, 6
   %and81 = and i64 %shr80, 511
-  %arrayidx82 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx82 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and81, ptr %arrayidx82, align 8
   %shr83 = lshr i64 %ret.0.copyload.i80, 15
   %and84 = and i64 %shr83, 511
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and84, ptr %arrayidx85, align 8
   %shr86 = lshr i64 %ret.0.copyload.i80, 24
   %and87 = and i64 %shr86, 511
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and87, ptr %arrayidx88, align 8
   %shr89 = lshr i64 %ret.0.copyload.i80, 33
   %and90 = and i64 %shr89, 511
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i80, 42
   %and93 = and i64 %shr92, 511
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and93, ptr %arrayidx94, align 8
   %shr95 = lshr i64 %ret.0.copyload.i80, 51
   %and96 = and i64 %shr95, 511
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and96, ptr %arrayidx97, align 8
   %or100 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i80, i64 4)
   %and101 = and i64 %or100, 511
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and101, ptr %arrayidx102, align 8
   %shr103 = lshr i64 %conv, 5
   %and104 = and i64 %shr103, 511
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and104, ptr %arrayidx105, align 8
   %shr106 = lshr i64 %conv, 14
   %and107 = and i64 %shr106, 511
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and107, ptr %arrayidx108, align 8
   %shr109 = lshr i64 %conv, 23
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr109, ptr %arrayidx111, align 8
   ret ptr %add.ptr13
 }
@@ -3073,126 +3067,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 10
   %and14 = and i64 %shr, 1023
-  %arrayidx15 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and14, ptr %arrayidx15, align 8
   %shr16 = lshr i64 %ret.0.copyload.i, 20
   %and17 = and i64 %shr16, 1023
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 30
   %and20 = and i64 %shr19, 1023
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 40
   %and23 = and i64 %shr22, 1023
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 50
   %and26 = and i64 %shr25, 1023
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and26, ptr %arrayidx27, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i78, i64 %ret.0.copyload.i, i64 4)
   %and29 = and i64 %or, 1023
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i78, 6
   %and32 = and i64 %shr31, 1023
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i78, 16
   %and35 = and i64 %shr34, 1023
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i78, 26
   %and38 = and i64 %shr37, 1023
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i78, 36
   %and41 = and i64 %shr40, 1023
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i78, 46
   %and44 = and i64 %shr43, 1023
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and44, ptr %arrayidx45, align 8
   %or48 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i79, i64 %ret.0.copyload.i78, i64 8)
   %and49 = and i64 %or48, 1023
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i79, 2
   %and52 = and i64 %shr51, 1023
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i79, 12
   %and55 = and i64 %shr54, 1023
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i79, 22
   %and58 = and i64 %shr57, 1023
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and58, ptr %arrayidx59, align 8
   %shr60 = lshr i64 %ret.0.copyload.i79, 32
   %and61 = and i64 %shr60, 1023
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and61, ptr %arrayidx62, align 8
   %shr63 = lshr i64 %ret.0.copyload.i79, 42
   %and64 = and i64 %shr63, 1023
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and64, ptr %arrayidx65, align 8
   %shr66 = lshr i64 %ret.0.copyload.i79, 52
   %and67 = and i64 %shr66, 1023
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and67, ptr %arrayidx68, align 8
   %or71 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i80, i64 %ret.0.copyload.i79, i64 2)
   %and72 = and i64 %or71, 1023
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and72, ptr %arrayidx73, align 8
   %shr74 = lshr i64 %ret.0.copyload.i80, 8
   %and75 = and i64 %shr74, 1023
-  %arrayidx76 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx76 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and75, ptr %arrayidx76, align 8
   %shr77 = lshr i64 %ret.0.copyload.i80, 18
   %and78 = and i64 %shr77, 1023
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and78, ptr %arrayidx79, align 8
   %shr80 = lshr i64 %ret.0.copyload.i80, 28
   %and81 = and i64 %shr80, 1023
-  %arrayidx82 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx82 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and81, ptr %arrayidx82, align 8
   %shr83 = lshr i64 %ret.0.copyload.i80, 38
   %and84 = and i64 %shr83, 1023
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and84, ptr %arrayidx85, align 8
   %shr86 = lshr i64 %ret.0.copyload.i80, 48
   %and87 = and i64 %shr86, 1023
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and87, ptr %arrayidx88, align 8
   %or91 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i81, i64 %ret.0.copyload.i80, i64 6)
   %and92 = and i64 %or91, 1023
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and92, ptr %arrayidx93, align 8
   %shr94 = lshr i64 %ret.0.copyload.i81, 4
   %and95 = and i64 %shr94, 1023
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and95, ptr %arrayidx96, align 8
   %shr97 = lshr i64 %ret.0.copyload.i81, 14
   %and98 = and i64 %shr97, 1023
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i81, 24
   %and101 = and i64 %shr100, 1023
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and101, ptr %arrayidx102, align 8
   %shr103 = lshr i64 %ret.0.copyload.i81, 34
   %and104 = and i64 %shr103, 1023
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and104, ptr %arrayidx105, align 8
   %shr106 = lshr i64 %ret.0.copyload.i81, 44
   %and107 = and i64 %shr106, 1023
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and107, ptr %arrayidx108, align 8
   %shr109 = lshr i64 %ret.0.copyload.i81, 54
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr109, ptr %arrayidx110, align 8
   ret ptr %add.ptr13
 }
@@ -3217,126 +3211,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 11
   %and17 = and i64 %shr, 2047
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 22
   %and20 = and i64 %shr19, 2047
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 33
   %and23 = and i64 %shr22, 2047
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 44
   %and26 = and i64 %shr25, 2047
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and26, ptr %arrayidx27, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i81, i64 %ret.0.copyload.i, i64 9)
   %and29 = and i64 %or, 2047
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i81, 2
   %and32 = and i64 %shr31, 2047
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i81, 13
   %and35 = and i64 %shr34, 2047
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i81, 24
   %and38 = and i64 %shr37, 2047
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i81, 35
   %and41 = and i64 %shr40, 2047
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i81, 46
   %and44 = and i64 %shr43, 2047
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and44, ptr %arrayidx45, align 8
   %or48 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i82, i64 %ret.0.copyload.i81, i64 7)
   %and49 = and i64 %or48, 2047
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i82, 4
   %and52 = and i64 %shr51, 2047
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i82, 15
   %and55 = and i64 %shr54, 2047
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i82, 26
   %and58 = and i64 %shr57, 2047
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and58, ptr %arrayidx59, align 8
   %shr60 = lshr i64 %ret.0.copyload.i82, 37
   %and61 = and i64 %shr60, 2047
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and61, ptr %arrayidx62, align 8
   %shr63 = lshr i64 %ret.0.copyload.i82, 48
   %and64 = and i64 %shr63, 2047
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and64, ptr %arrayidx65, align 8
   %or68 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i83, i64 %ret.0.copyload.i82, i64 5)
   %and69 = and i64 %or68, 2047
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and69, ptr %arrayidx70, align 8
   %shr71 = lshr i64 %ret.0.copyload.i83, 6
   %and72 = and i64 %shr71, 2047
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and72, ptr %arrayidx73, align 8
   %shr74 = lshr i64 %ret.0.copyload.i83, 17
   %and75 = and i64 %shr74, 2047
-  %arrayidx76 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx76 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and75, ptr %arrayidx76, align 8
   %shr77 = lshr i64 %ret.0.copyload.i83, 28
   %and78 = and i64 %shr77, 2047
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and78, ptr %arrayidx79, align 8
   %shr80 = lshr i64 %ret.0.copyload.i83, 39
   %and81 = and i64 %shr80, 2047
-  %arrayidx82 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx82 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and81, ptr %arrayidx82, align 8
   %shr83 = lshr i64 %ret.0.copyload.i83, 50
   %and84 = and i64 %shr83, 2047
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and84, ptr %arrayidx85, align 8
   %or88 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i84, i64 %ret.0.copyload.i83, i64 3)
   %and89 = and i64 %or88, 2047
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and89, ptr %arrayidx90, align 8
   %shr91 = lshr i64 %ret.0.copyload.i84, 8
   %and92 = and i64 %shr91, 2047
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and92, ptr %arrayidx93, align 8
   %shr94 = lshr i64 %ret.0.copyload.i84, 19
   %and95 = and i64 %shr94, 2047
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and95, ptr %arrayidx96, align 8
   %shr97 = lshr i64 %ret.0.copyload.i84, 30
   %and98 = and i64 %shr97, 2047
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i84, 41
   %and101 = and i64 %shr100, 2047
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and101, ptr %arrayidx102, align 8
   %shr103 = lshr i64 %ret.0.copyload.i84, 52
   %and104 = and i64 %shr103, 2047
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and104, ptr %arrayidx105, align 8
   %or108 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i84, i64 1)
   %and109 = and i64 %or108, 2047
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and109, ptr %arrayidx110, align 8
   %shr111 = lshr i64 %conv, 10
   %and112 = and i64 %shr111, 2047
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and112, ptr %arrayidx113, align 8
   %shr114 = lshr i64 %conv, 21
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr114, ptr %arrayidx116, align 8
   ret ptr %add.ptr16
 }
@@ -3360,124 +3354,124 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 12
   %and17 = and i64 %shr, 4095
-  %arrayidx18 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and17, ptr %arrayidx18, align 8
   %shr19 = lshr i64 %ret.0.copyload.i, 24
   %and20 = and i64 %shr19, 4095
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 36
   %and23 = and i64 %shr22, 4095
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 48
   %and26 = and i64 %shr25, 4095
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and26, ptr %arrayidx27, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i80, i64 %ret.0.copyload.i, i64 4)
   %and29 = and i64 %or, 4095
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i80, 8
   %and32 = and i64 %shr31, 4095
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i80, 20
   %and35 = and i64 %shr34, 4095
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i80, 32
   %and38 = and i64 %shr37, 4095
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i80, 44
   %and41 = and i64 %shr40, 4095
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i81, i64 %ret.0.copyload.i80, i64 8)
   %and46 = and i64 %or45, 4095
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i81, 4
   %and49 = and i64 %shr48, 4095
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i81, 16
   %and52 = and i64 %shr51, 4095
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i81, 28
   %and55 = and i64 %shr54, 4095
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i81, 40
   %and58 = and i64 %shr57, 4095
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and58, ptr %arrayidx59, align 8
   %shr60 = lshr i64 %ret.0.copyload.i81, 52
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %shr60, ptr %arrayidx61, align 8
   %and62 = and i64 %ret.0.copyload.i82, 4095
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and62, ptr %arrayidx63, align 8
   %shr64 = lshr i64 %ret.0.copyload.i82, 12
   %and65 = and i64 %shr64, 4095
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and65, ptr %arrayidx66, align 8
   %shr67 = lshr i64 %ret.0.copyload.i82, 24
   %and68 = and i64 %shr67, 4095
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %ret.0.copyload.i82, 36
   %and71 = and i64 %shr70, 4095
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i82, 48
   %and74 = and i64 %shr73, 4095
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i83, i64 %ret.0.copyload.i82, i64 4)
   %and79 = and i64 %or78, 4095
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i83, 8
   %and82 = and i64 %shr81, 4095
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i83, 20
   %and85 = and i64 %shr84, 4095
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %ret.0.copyload.i83, 32
   %and88 = and i64 %shr87, 4095
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and88, ptr %arrayidx89, align 8
   %shr90 = lshr i64 %ret.0.copyload.i83, 44
   %and91 = and i64 %shr90, 4095
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and91, ptr %arrayidx92, align 8
   %or95 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i84, i64 %ret.0.copyload.i83, i64 8)
   %and96 = and i64 %or95, 4095
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and96, ptr %arrayidx97, align 8
   %shr98 = lshr i64 %ret.0.copyload.i84, 4
   %and99 = and i64 %shr98, 4095
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and99, ptr %arrayidx100, align 8
   %shr101 = lshr i64 %ret.0.copyload.i84, 16
   %and102 = and i64 %shr101, 4095
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and102, ptr %arrayidx103, align 8
   %shr104 = lshr i64 %ret.0.copyload.i84, 28
   %and105 = and i64 %shr104, 4095
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and105, ptr %arrayidx106, align 8
   %shr107 = lshr i64 %ret.0.copyload.i84, 40
   %and108 = and i64 %shr107, 4095
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and108, ptr %arrayidx109, align 8
   %shr110 = lshr i64 %ret.0.copyload.i84, 52
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr110, ptr %arrayidx111, align 8
   ret ptr %add.ptr16
 }
@@ -3504,126 +3498,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 13
   %and20 = and i64 %shr, 8191
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 26
   %and23 = and i64 %shr22, 8191
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 39
   %and26 = and i64 %shr25, 8191
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and26, ptr %arrayidx27, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i84, i64 %ret.0.copyload.i, i64 12)
   %and29 = and i64 %or, 8191
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i84, 1
   %and32 = and i64 %shr31, 8191
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i84, 14
   %and35 = and i64 %shr34, 8191
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i84, 27
   %and38 = and i64 %shr37, 8191
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i84, 40
   %and41 = and i64 %shr40, 8191
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i85, i64 %ret.0.copyload.i84, i64 11)
   %and46 = and i64 %or45, 8191
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i85, 2
   %and49 = and i64 %shr48, 8191
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i85, 15
   %and52 = and i64 %shr51, 8191
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i85, 28
   %and55 = and i64 %shr54, 8191
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i85, 41
   %and58 = and i64 %shr57, 8191
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and58, ptr %arrayidx59, align 8
   %or62 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i86, i64 %ret.0.copyload.i85, i64 10)
   %and63 = and i64 %or62, 8191
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i86, 3
   %and66 = and i64 %shr65, 8191
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i86, 16
   %and69 = and i64 %shr68, 8191
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and69, ptr %arrayidx70, align 8
   %shr71 = lshr i64 %ret.0.copyload.i86, 29
   %and72 = and i64 %shr71, 8191
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and72, ptr %arrayidx73, align 8
   %shr74 = lshr i64 %ret.0.copyload.i86, 42
   %and75 = and i64 %shr74, 8191
-  %arrayidx76 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx76 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and75, ptr %arrayidx76, align 8
   %or79 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i87, i64 %ret.0.copyload.i86, i64 9)
   %and80 = and i64 %or79, 8191
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %ret.0.copyload.i87, 4
   %and83 = and i64 %shr82, 8191
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %ret.0.copyload.i87, 17
   %and86 = and i64 %shr85, 8191
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and86, ptr %arrayidx87, align 8
   %shr88 = lshr i64 %ret.0.copyload.i87, 30
   %and89 = and i64 %shr88, 8191
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and89, ptr %arrayidx90, align 8
   %shr91 = lshr i64 %ret.0.copyload.i87, 43
   %and92 = and i64 %shr91, 8191
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and92, ptr %arrayidx93, align 8
   %or96 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i88, i64 %ret.0.copyload.i87, i64 8)
   %and97 = and i64 %or96, 8191
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and97, ptr %arrayidx98, align 8
   %shr99 = lshr i64 %ret.0.copyload.i88, 5
   %and100 = and i64 %shr99, 8191
-  %arrayidx101 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx101 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and100, ptr %arrayidx101, align 8
   %shr102 = lshr i64 %ret.0.copyload.i88, 18
   %and103 = and i64 %shr102, 8191
-  %arrayidx104 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx104 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and103, ptr %arrayidx104, align 8
   %shr105 = lshr i64 %ret.0.copyload.i88, 31
   %and106 = and i64 %shr105, 8191
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and106, ptr %arrayidx107, align 8
   %shr108 = lshr i64 %ret.0.copyload.i88, 44
   %and109 = and i64 %shr108, 8191
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and109, ptr %arrayidx110, align 8
   %or113 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i88, i64 7)
   %and114 = and i64 %or113, 8191
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and114, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %conv, 6
   %and117 = and i64 %shr116, 8191
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and117, ptr %arrayidx118, align 8
   %shr119 = lshr i64 %conv, 19
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr119, ptr %arrayidx121, align 8
   ret ptr %add.ptr19
 }
@@ -3649,126 +3643,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 14
   %and20 = and i64 %shr, 16383
-  %arrayidx21 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and20, ptr %arrayidx21, align 8
   %shr22 = lshr i64 %ret.0.copyload.i, 28
   %and23 = and i64 %shr22, 16383
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 42
   %and26 = and i64 %shr25, 16383
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and26, ptr %arrayidx27, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i84, i64 %ret.0.copyload.i, i64 8)
   %and29 = and i64 %or, 16383
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i84, 6
   %and32 = and i64 %shr31, 16383
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i84, 20
   %and35 = and i64 %shr34, 16383
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i84, 34
   %and38 = and i64 %shr37, 16383
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i84, 48
   %and41 = and i64 %shr40, 16383
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i85, i64 %ret.0.copyload.i84, i64 2)
   %and46 = and i64 %or45, 16383
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i85, 12
   %and49 = and i64 %shr48, 16383
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i85, 26
   %and52 = and i64 %shr51, 16383
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i85, 40
   %and55 = and i64 %shr54, 16383
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i86, i64 %ret.0.copyload.i85, i64 10)
   %and60 = and i64 %or59, 16383
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i86, 4
   %and63 = and i64 %shr62, 16383
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i86, 18
   %and66 = and i64 %shr65, 16383
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i86, 32
   %and69 = and i64 %shr68, 16383
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and69, ptr %arrayidx70, align 8
   %shr71 = lshr i64 %ret.0.copyload.i86, 46
   %and72 = and i64 %shr71, 16383
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and72, ptr %arrayidx73, align 8
   %or76 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i87, i64 %ret.0.copyload.i86, i64 4)
   %and77 = and i64 %or76, 16383
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and77, ptr %arrayidx78, align 8
   %shr79 = lshr i64 %ret.0.copyload.i87, 10
   %and80 = and i64 %shr79, 16383
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %ret.0.copyload.i87, 24
   %and83 = and i64 %shr82, 16383
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %ret.0.copyload.i87, 38
   %and86 = and i64 %shr85, 16383
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and86, ptr %arrayidx87, align 8
   %or90 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i88, i64 %ret.0.copyload.i87, i64 12)
   %and91 = and i64 %or90, 16383
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and91, ptr %arrayidx92, align 8
   %shr93 = lshr i64 %ret.0.copyload.i88, 2
   %and94 = and i64 %shr93, 16383
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and94, ptr %arrayidx95, align 8
   %shr96 = lshr i64 %ret.0.copyload.i88, 16
   %and97 = and i64 %shr96, 16383
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and97, ptr %arrayidx98, align 8
   %shr99 = lshr i64 %ret.0.copyload.i88, 30
   %and100 = and i64 %shr99, 16383
-  %arrayidx101 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx101 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and100, ptr %arrayidx101, align 8
   %shr102 = lshr i64 %ret.0.copyload.i88, 44
   %and103 = and i64 %shr102, 16383
-  %arrayidx104 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx104 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and103, ptr %arrayidx104, align 8
   %or107 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i89, i64 %ret.0.copyload.i88, i64 6)
   %and108 = and i64 %or107, 16383
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and108, ptr %arrayidx109, align 8
   %shr110 = lshr i64 %ret.0.copyload.i89, 8
   %and111 = and i64 %shr110, 16383
-  %arrayidx112 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx112 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and111, ptr %arrayidx112, align 8
   %shr113 = lshr i64 %ret.0.copyload.i89, 22
   %and114 = and i64 %shr113, 16383
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and114, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %ret.0.copyload.i89, 36
   %and117 = and i64 %shr116, 16383
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and117, ptr %arrayidx118, align 8
   %shr119 = lshr i64 %ret.0.copyload.i89, 50
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr119, ptr %arrayidx120, align 8
   ret ptr %add.ptr19
 }
@@ -3797,126 +3791,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 15
   %and23 = and i64 %shr, 32767
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 30
   %and26 = and i64 %shr25, 32767
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 45
   %and29 = and i64 %shr28, 32767
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and29, ptr %arrayidx30, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i87, i64 %ret.0.copyload.i, i64 4)
   %and32 = and i64 %or, 32767
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i87, 11
   %and35 = and i64 %shr34, 32767
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i87, 26
   %and38 = and i64 %shr37, 32767
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i87, 41
   %and41 = and i64 %shr40, 32767
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i88, i64 %ret.0.copyload.i87, i64 8)
   %and46 = and i64 %or45, 32767
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i88, 7
   %and49 = and i64 %shr48, 32767
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i88, 22
   %and52 = and i64 %shr51, 32767
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i88, 37
   %and55 = and i64 %shr54, 32767
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i89, i64 %ret.0.copyload.i88, i64 12)
   %and60 = and i64 %or59, 32767
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i89, 3
   %and63 = and i64 %shr62, 32767
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i89, 18
   %and66 = and i64 %shr65, 32767
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i89, 33
   %and69 = and i64 %shr68, 32767
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and69, ptr %arrayidx70, align 8
   %shr71 = lshr i64 %ret.0.copyload.i89, 48
   %and72 = and i64 %shr71, 32767
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and72, ptr %arrayidx73, align 8
   %or76 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i90, i64 %ret.0.copyload.i89, i64 1)
   %and77 = and i64 %or76, 32767
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and77, ptr %arrayidx78, align 8
   %shr79 = lshr i64 %ret.0.copyload.i90, 14
   %and80 = and i64 %shr79, 32767
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %ret.0.copyload.i90, 29
   %and83 = and i64 %shr82, 32767
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %ret.0.copyload.i90, 44
   %and86 = and i64 %shr85, 32767
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and86, ptr %arrayidx87, align 8
   %or90 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i91, i64 %ret.0.copyload.i90, i64 5)
   %and91 = and i64 %or90, 32767
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and91, ptr %arrayidx92, align 8
   %shr93 = lshr i64 %ret.0.copyload.i91, 10
   %and94 = and i64 %shr93, 32767
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and94, ptr %arrayidx95, align 8
   %shr96 = lshr i64 %ret.0.copyload.i91, 25
   %and97 = and i64 %shr96, 32767
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and97, ptr %arrayidx98, align 8
   %shr99 = lshr i64 %ret.0.copyload.i91, 40
   %and100 = and i64 %shr99, 32767
-  %arrayidx101 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx101 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and100, ptr %arrayidx101, align 8
   %or104 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i92, i64 %ret.0.copyload.i91, i64 9)
   %and105 = and i64 %or104, 32767
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and105, ptr %arrayidx106, align 8
   %shr107 = lshr i64 %ret.0.copyload.i92, 6
   %and108 = and i64 %shr107, 32767
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and108, ptr %arrayidx109, align 8
   %shr110 = lshr i64 %ret.0.copyload.i92, 21
   %and111 = and i64 %shr110, 32767
-  %arrayidx112 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx112 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and111, ptr %arrayidx112, align 8
   %shr113 = lshr i64 %ret.0.copyload.i92, 36
   %and114 = and i64 %shr113, 32767
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and114, ptr %arrayidx115, align 8
   %or118 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i92, i64 13)
   %and119 = and i64 %or118, 32767
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and119, ptr %arrayidx120, align 8
   %shr121 = lshr i64 %conv, 2
   %and122 = and i64 %shr121, 32767
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and122, ptr %arrayidx123, align 8
   %shr124 = lshr i64 %conv, 17
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr124, ptr %arrayidx126, align 8
   ret ptr %add.ptr22
 }
@@ -3944,112 +3938,112 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 16
   %and23 = and i64 %shr, 65535
-  %arrayidx24 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and23, ptr %arrayidx24, align 8
   %shr25 = lshr i64 %ret.0.copyload.i, 32
   %and26 = and i64 %shr25, 65535
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 48
-  %arrayidx29 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx29 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %shr28, ptr %arrayidx29, align 8
   %and30 = and i64 %ret.0.copyload.i80, 65535
-  %arrayidx31 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx31 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and30, ptr %arrayidx31, align 8
   %shr32 = lshr i64 %ret.0.copyload.i80, 16
   %and33 = and i64 %shr32, 65535
-  %arrayidx34 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx34 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and33, ptr %arrayidx34, align 8
   %shr35 = lshr i64 %ret.0.copyload.i80, 32
   %and36 = and i64 %shr35, 65535
-  %arrayidx37 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx37 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and36, ptr %arrayidx37, align 8
   %shr38 = lshr i64 %ret.0.copyload.i80, 48
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %shr38, ptr %arrayidx39, align 8
   %and40 = and i64 %ret.0.copyload.i81, 65535
-  %arrayidx41 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx41 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and40, ptr %arrayidx41, align 8
   %shr42 = lshr i64 %ret.0.copyload.i81, 16
   %and43 = and i64 %shr42, 65535
-  %arrayidx44 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx44 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and43, ptr %arrayidx44, align 8
   %shr45 = lshr i64 %ret.0.copyload.i81, 32
   %and46 = and i64 %shr45, 65535
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i81, 48
-  %arrayidx49 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx49 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %shr48, ptr %arrayidx49, align 8
   %and50 = and i64 %ret.0.copyload.i82, 65535
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i82, 16
   %and53 = and i64 %shr52, 65535
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and53, ptr %arrayidx54, align 8
   %shr55 = lshr i64 %ret.0.copyload.i82, 32
   %and56 = and i64 %shr55, 65535
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %ret.0.copyload.i82, 48
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %shr58, ptr %arrayidx59, align 8
   %and60 = and i64 %ret.0.copyload.i83, 65535
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i83, 16
   %and63 = and i64 %shr62, 65535
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i83, 32
   %and66 = and i64 %shr65, 65535
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i83, 48
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %shr68, ptr %arrayidx69, align 8
   %and70 = and i64 %ret.0.copyload.i84, 65535
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and70, ptr %arrayidx71, align 8
   %shr72 = lshr i64 %ret.0.copyload.i84, 16
   %and73 = and i64 %shr72, 65535
-  %arrayidx74 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx74 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and73, ptr %arrayidx74, align 8
   %shr75 = lshr i64 %ret.0.copyload.i84, 32
   %and76 = and i64 %shr75, 65535
-  %arrayidx77 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx77 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and76, ptr %arrayidx77, align 8
   %shr78 = lshr i64 %ret.0.copyload.i84, 48
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %shr78, ptr %arrayidx79, align 8
   %and80 = and i64 %ret.0.copyload.i85, 65535
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and80, ptr %arrayidx81, align 8
   %shr82 = lshr i64 %ret.0.copyload.i85, 16
   %and83 = and i64 %shr82, 65535
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and83, ptr %arrayidx84, align 8
   %shr85 = lshr i64 %ret.0.copyload.i85, 32
   %and86 = and i64 %shr85, 65535
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and86, ptr %arrayidx87, align 8
   %shr88 = lshr i64 %ret.0.copyload.i85, 48
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %shr88, ptr %arrayidx89, align 8
   %and90 = and i64 %ret.0.copyload.i86, 65535
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i86, 16
   %and93 = and i64 %shr92, 65535
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and93, ptr %arrayidx94, align 8
   %shr95 = lshr i64 %ret.0.copyload.i86, 32
   %and96 = and i64 %shr95, 65535
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and96, ptr %arrayidx97, align 8
   %shr98 = lshr i64 %ret.0.copyload.i86, 48
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr98, ptr %arrayidx99, align 8
   ret ptr %add.ptr22
 }
@@ -4080,126 +4074,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 17
   %and26 = and i64 %shr, 131071
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 34
   %and29 = and i64 %shr28, 131071
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and29, ptr %arrayidx30, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i90, i64 %ret.0.copyload.i, i64 13)
   %and32 = and i64 %or, 131071
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i90, 4
   %and35 = and i64 %shr34, 131071
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i90, 21
   %and38 = and i64 %shr37, 131071
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i90, 38
   %and41 = and i64 %shr40, 131071
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i91, i64 %ret.0.copyload.i90, i64 9)
   %and46 = and i64 %or45, 131071
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i91, 8
   %and49 = and i64 %shr48, 131071
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i91, 25
   %and52 = and i64 %shr51, 131071
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i91, 42
   %and55 = and i64 %shr54, 131071
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i92, i64 %ret.0.copyload.i91, i64 5)
   %and60 = and i64 %or59, 131071
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i92, 12
   %and63 = and i64 %shr62, 131071
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i92, 29
   %and66 = and i64 %shr65, 131071
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i92, 46
   %and69 = and i64 %shr68, 131071
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and69, ptr %arrayidx70, align 8
   %or73 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i93, i64 %ret.0.copyload.i92, i64 1)
   %and74 = and i64 %or73, 131071
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i93, 16
   %and77 = and i64 %shr76, 131071
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and77, ptr %arrayidx78, align 8
   %shr79 = lshr i64 %ret.0.copyload.i93, 33
   %and80 = and i64 %shr79, 131071
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and80, ptr %arrayidx81, align 8
   %or84 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i94, i64 %ret.0.copyload.i93, i64 14)
   %and85 = and i64 %or84, 131071
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %ret.0.copyload.i94, 3
   %and88 = and i64 %shr87, 131071
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and88, ptr %arrayidx89, align 8
   %shr90 = lshr i64 %ret.0.copyload.i94, 20
   %and91 = and i64 %shr90, 131071
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and91, ptr %arrayidx92, align 8
   %shr93 = lshr i64 %ret.0.copyload.i94, 37
   %and94 = and i64 %shr93, 131071
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and94, ptr %arrayidx95, align 8
   %or98 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i95, i64 %ret.0.copyload.i94, i64 10)
   %and99 = and i64 %or98, 131071
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and99, ptr %arrayidx100, align 8
   %shr101 = lshr i64 %ret.0.copyload.i95, 7
   %and102 = and i64 %shr101, 131071
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and102, ptr %arrayidx103, align 8
   %shr104 = lshr i64 %ret.0.copyload.i95, 24
   %and105 = and i64 %shr104, 131071
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and105, ptr %arrayidx106, align 8
   %shr107 = lshr i64 %ret.0.copyload.i95, 41
   %and108 = and i64 %shr107, 131071
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and108, ptr %arrayidx109, align 8
   %or112 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i96, i64 %ret.0.copyload.i95, i64 6)
   %and113 = and i64 %or112, 131071
-  %arrayidx114 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx114 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and113, ptr %arrayidx114, align 8
   %shr115 = lshr i64 %ret.0.copyload.i96, 11
   %and116 = and i64 %shr115, 131071
-  %arrayidx117 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx117 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and116, ptr %arrayidx117, align 8
   %shr118 = lshr i64 %ret.0.copyload.i96, 28
   %and119 = and i64 %shr118, 131071
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and119, ptr %arrayidx120, align 8
   %shr121 = lshr i64 %ret.0.copyload.i96, 45
   %and122 = and i64 %shr121, 131071
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and122, ptr %arrayidx123, align 8
   %or126 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i96, i64 2)
   %and127 = and i64 %or126, 131071
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and127, ptr %arrayidx128, align 8
   %shr129 = lshr i64 %conv, 15
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr129, ptr %arrayidx131, align 8
   ret ptr %add.ptr25
 }
@@ -4229,126 +4223,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 18
   %and26 = and i64 %shr, 262143
-  %arrayidx27 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and26, ptr %arrayidx27, align 8
   %shr28 = lshr i64 %ret.0.copyload.i, 36
   %and29 = and i64 %shr28, 262143
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and29, ptr %arrayidx30, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i90, i64 %ret.0.copyload.i, i64 10)
   %and32 = and i64 %or, 262143
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i90, 8
   %and35 = and i64 %shr34, 262143
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i90, 26
   %and38 = and i64 %shr37, 262143
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i90, 44
   %and41 = and i64 %shr40, 262143
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i91, i64 %ret.0.copyload.i90, i64 2)
   %and46 = and i64 %or45, 262143
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i91, 16
   %and49 = and i64 %shr48, 262143
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i91, 34
   %and52 = and i64 %shr51, 262143
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and52, ptr %arrayidx53, align 8
   %or56 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i92, i64 %ret.0.copyload.i91, i64 12)
   %and57 = and i64 %or56, 262143
-  %arrayidx58 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx58 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and57, ptr %arrayidx58, align 8
   %shr59 = lshr i64 %ret.0.copyload.i92, 6
   %and60 = and i64 %shr59, 262143
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i92, 24
   %and63 = and i64 %shr62, 262143
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i92, 42
   %and66 = and i64 %shr65, 262143
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i93, i64 %ret.0.copyload.i92, i64 4)
   %and71 = and i64 %or70, 262143
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i93, 14
   %and74 = and i64 %shr73, 262143
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i93, 32
   %and77 = and i64 %shr76, 262143
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and77, ptr %arrayidx78, align 8
   %or81 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i94, i64 %ret.0.copyload.i93, i64 14)
   %and82 = and i64 %or81, 262143
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i94, 4
   %and85 = and i64 %shr84, 262143
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %ret.0.copyload.i94, 22
   %and88 = and i64 %shr87, 262143
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and88, ptr %arrayidx89, align 8
   %shr90 = lshr i64 %ret.0.copyload.i94, 40
   %and91 = and i64 %shr90, 262143
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and91, ptr %arrayidx92, align 8
   %or95 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i95, i64 %ret.0.copyload.i94, i64 6)
   %and96 = and i64 %or95, 262143
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and96, ptr %arrayidx97, align 8
   %shr98 = lshr i64 %ret.0.copyload.i95, 12
   %and99 = and i64 %shr98, 262143
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and99, ptr %arrayidx100, align 8
   %shr101 = lshr i64 %ret.0.copyload.i95, 30
   %and102 = and i64 %shr101, 262143
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and102, ptr %arrayidx103, align 8
   %or106 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i96, i64 %ret.0.copyload.i95, i64 16)
   %and107 = and i64 %or106, 262143
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and107, ptr %arrayidx108, align 8
   %shr109 = lshr i64 %ret.0.copyload.i96, 2
   %and110 = and i64 %shr109, 262143
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and110, ptr %arrayidx111, align 8
   %shr112 = lshr i64 %ret.0.copyload.i96, 20
   %and113 = and i64 %shr112, 262143
-  %arrayidx114 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx114 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and113, ptr %arrayidx114, align 8
   %shr115 = lshr i64 %ret.0.copyload.i96, 38
   %and116 = and i64 %shr115, 262143
-  %arrayidx117 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx117 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and116, ptr %arrayidx117, align 8
   %or120 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i97, i64 %ret.0.copyload.i96, i64 8)
   %and121 = and i64 %or120, 262143
-  %arrayidx122 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx122 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and121, ptr %arrayidx122, align 8
   %shr123 = lshr i64 %ret.0.copyload.i97, 10
   %and124 = and i64 %shr123, 262143
-  %arrayidx125 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx125 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and124, ptr %arrayidx125, align 8
   %shr126 = lshr i64 %ret.0.copyload.i97, 28
   %and127 = and i64 %shr126, 262143
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and127, ptr %arrayidx128, align 8
   %shr129 = lshr i64 %ret.0.copyload.i97, 46
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr129, ptr %arrayidx130, align 8
   ret ptr %add.ptr25
 }
@@ -4381,126 +4375,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 19
   %and29 = and i64 %shr, 524287
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 38
   %and32 = and i64 %shr31, 524287
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and32, ptr %arrayidx33, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i93, i64 %ret.0.copyload.i, i64 7)
   %and35 = and i64 %or, 524287
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i93, 12
   %and38 = and i64 %shr37, 524287
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i93, 31
   %and41 = and i64 %shr40, 524287
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i94, i64 %ret.0.copyload.i93, i64 14)
   %and46 = and i64 %or45, 524287
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i94, 5
   %and49 = and i64 %shr48, 524287
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i94, 24
   %and52 = and i64 %shr51, 524287
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i94, 43
   %and55 = and i64 %shr54, 524287
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i95, i64 %ret.0.copyload.i94, i64 2)
   %and60 = and i64 %or59, 524287
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i95, 17
   %and63 = and i64 %shr62, 524287
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i95, 36
   %and66 = and i64 %shr65, 524287
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i96, i64 %ret.0.copyload.i95, i64 9)
   %and71 = and i64 %or70, 524287
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i96, 10
   %and74 = and i64 %shr73, 524287
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i96, 29
   %and77 = and i64 %shr76, 524287
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and77, ptr %arrayidx78, align 8
   %or81 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i97, i64 %ret.0.copyload.i96, i64 16)
   %and82 = and i64 %or81, 524287
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i97, 3
   %and85 = and i64 %shr84, 524287
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %ret.0.copyload.i97, 22
   %and88 = and i64 %shr87, 524287
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and88, ptr %arrayidx89, align 8
   %shr90 = lshr i64 %ret.0.copyload.i97, 41
   %and91 = and i64 %shr90, 524287
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and91, ptr %arrayidx92, align 8
   %or95 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i98, i64 %ret.0.copyload.i97, i64 4)
   %and96 = and i64 %or95, 524287
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and96, ptr %arrayidx97, align 8
   %shr98 = lshr i64 %ret.0.copyload.i98, 15
   %and99 = and i64 %shr98, 524287
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and99, ptr %arrayidx100, align 8
   %shr101 = lshr i64 %ret.0.copyload.i98, 34
   %and102 = and i64 %shr101, 524287
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and102, ptr %arrayidx103, align 8
   %or106 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i99, i64 %ret.0.copyload.i98, i64 11)
   %and107 = and i64 %or106, 524287
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and107, ptr %arrayidx108, align 8
   %shr109 = lshr i64 %ret.0.copyload.i99, 8
   %and110 = and i64 %shr109, 524287
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and110, ptr %arrayidx111, align 8
   %shr112 = lshr i64 %ret.0.copyload.i99, 27
   %and113 = and i64 %shr112, 524287
-  %arrayidx114 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx114 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and113, ptr %arrayidx114, align 8
   %or117 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i100, i64 %ret.0.copyload.i99, i64 18)
   %and118 = and i64 %or117, 524287
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and118, ptr %arrayidx119, align 8
   %shr120 = lshr i64 %ret.0.copyload.i100, 1
   %and121 = and i64 %shr120, 524287
-  %arrayidx122 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx122 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and121, ptr %arrayidx122, align 8
   %shr123 = lshr i64 %ret.0.copyload.i100, 20
   %and124 = and i64 %shr123, 524287
-  %arrayidx125 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx125 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and124, ptr %arrayidx125, align 8
   %shr126 = lshr i64 %ret.0.copyload.i100, 39
   %and127 = and i64 %shr126, 524287
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and127, ptr %arrayidx128, align 8
   %or131 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i100, i64 6)
   %and132 = and i64 %or131, 524287
-  %arrayidx133 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx133 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and132, ptr %arrayidx133, align 8
   %shr134 = lshr i64 %conv, 13
-  %arrayidx136 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx136 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr134, ptr %arrayidx136, align 8
   ret ptr %add.ptr28
 }
@@ -4532,124 +4526,124 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 20
   %and29 = and i64 %shr, 1048575
-  %arrayidx30 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and29, ptr %arrayidx30, align 8
   %shr31 = lshr i64 %ret.0.copyload.i, 40
   %and32 = and i64 %shr31, 1048575
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and32, ptr %arrayidx33, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i92, i64 %ret.0.copyload.i, i64 4)
   %and35 = and i64 %or, 1048575
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i92, 16
   %and38 = and i64 %shr37, 1048575
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i92, 36
   %and41 = and i64 %shr40, 1048575
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i93, i64 %ret.0.copyload.i92, i64 8)
   %and46 = and i64 %or45, 1048575
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i93, 12
   %and49 = and i64 %shr48, 1048575
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i93, 32
   %and52 = and i64 %shr51, 1048575
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and52, ptr %arrayidx53, align 8
   %or56 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i94, i64 %ret.0.copyload.i93, i64 12)
   %and57 = and i64 %or56, 1048575
-  %arrayidx58 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx58 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and57, ptr %arrayidx58, align 8
   %shr59 = lshr i64 %ret.0.copyload.i94, 8
   %and60 = and i64 %shr59, 1048575
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i94, 28
   %and63 = and i64 %shr62, 1048575
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and63, ptr %arrayidx64, align 8
   %or67 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i95, i64 %ret.0.copyload.i94, i64 16)
   %and68 = and i64 %or67, 1048575
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %ret.0.copyload.i95, 4
   %and71 = and i64 %shr70, 1048575
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i95, 24
   %and74 = and i64 %shr73, 1048575
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i95, 44
-  %arrayidx77 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx77 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %shr76, ptr %arrayidx77, align 8
   %and78 = and i64 %ret.0.copyload.i96, 1048575
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and78, ptr %arrayidx79, align 8
   %shr80 = lshr i64 %ret.0.copyload.i96, 20
   %and81 = and i64 %shr80, 1048575
-  %arrayidx82 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx82 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and81, ptr %arrayidx82, align 8
   %shr83 = lshr i64 %ret.0.copyload.i96, 40
   %and84 = and i64 %shr83, 1048575
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and84, ptr %arrayidx85, align 8
   %or88 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i97, i64 %ret.0.copyload.i96, i64 4)
   %and89 = and i64 %or88, 1048575
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and89, ptr %arrayidx90, align 8
   %shr91 = lshr i64 %ret.0.copyload.i97, 16
   %and92 = and i64 %shr91, 1048575
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and92, ptr %arrayidx93, align 8
   %shr94 = lshr i64 %ret.0.copyload.i97, 36
   %and95 = and i64 %shr94, 1048575
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and95, ptr %arrayidx96, align 8
   %or99 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i98, i64 %ret.0.copyload.i97, i64 8)
   %and100 = and i64 %or99, 1048575
-  %arrayidx101 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx101 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and100, ptr %arrayidx101, align 8
   %shr102 = lshr i64 %ret.0.copyload.i98, 12
   %and103 = and i64 %shr102, 1048575
-  %arrayidx104 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx104 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and103, ptr %arrayidx104, align 8
   %shr105 = lshr i64 %ret.0.copyload.i98, 32
   %and106 = and i64 %shr105, 1048575
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and106, ptr %arrayidx107, align 8
   %or110 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i99, i64 %ret.0.copyload.i98, i64 12)
   %and111 = and i64 %or110, 1048575
-  %arrayidx112 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx112 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and111, ptr %arrayidx112, align 8
   %shr113 = lshr i64 %ret.0.copyload.i99, 8
   %and114 = and i64 %shr113, 1048575
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and114, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %ret.0.copyload.i99, 28
   %and117 = and i64 %shr116, 1048575
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and117, ptr %arrayidx118, align 8
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i100, i64 %ret.0.copyload.i99, i64 16)
   %and122 = and i64 %or121, 1048575
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and122, ptr %arrayidx123, align 8
   %shr124 = lshr i64 %ret.0.copyload.i100, 4
   %and125 = and i64 %shr124, 1048575
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and125, ptr %arrayidx126, align 8
   %shr127 = lshr i64 %ret.0.copyload.i100, 24
   %and128 = and i64 %shr127, 1048575
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and128, ptr %arrayidx129, align 8
   %shr130 = lshr i64 %ret.0.copyload.i100, 44
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr130, ptr %arrayidx131, align 8
   ret ptr %add.ptr28
 }
@@ -4684,126 +4678,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 21
   %and32 = and i64 %shr, 2097151
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and32, ptr %arrayidx33, align 8
   %shr34 = lshr i64 %ret.0.copyload.i, 42
   %and35 = and i64 %shr34, 2097151
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and35, ptr %arrayidx36, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i96, i64 %ret.0.copyload.i, i64 1)
   %and38 = and i64 %or, 2097151
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i96, 20
   %and41 = and i64 %shr40, 2097151
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i96, 41
   %and44 = and i64 %shr43, 2097151
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and44, ptr %arrayidx45, align 8
   %or48 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i97, i64 %ret.0.copyload.i96, i64 2)
   %and49 = and i64 %or48, 2097151
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i97, 19
   %and52 = and i64 %shr51, 2097151
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i97, 40
   %and55 = and i64 %shr54, 2097151
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i98, i64 %ret.0.copyload.i97, i64 3)
   %and60 = and i64 %or59, 2097151
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i98, 18
   %and63 = and i64 %shr62, 2097151
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i98, 39
   %and66 = and i64 %shr65, 2097151
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i99, i64 %ret.0.copyload.i98, i64 4)
   %and71 = and i64 %or70, 2097151
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i99, 17
   %and74 = and i64 %shr73, 2097151
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i99, 38
   %and77 = and i64 %shr76, 2097151
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and77, ptr %arrayidx78, align 8
   %or81 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i100, i64 %ret.0.copyload.i99, i64 5)
   %and82 = and i64 %or81, 2097151
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i100, 16
   %and85 = and i64 %shr84, 2097151
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and85, ptr %arrayidx86, align 8
   %shr87 = lshr i64 %ret.0.copyload.i100, 37
   %and88 = and i64 %shr87, 2097151
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and88, ptr %arrayidx89, align 8
   %or92 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i101, i64 %ret.0.copyload.i100, i64 6)
   %and93 = and i64 %or92, 2097151
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and93, ptr %arrayidx94, align 8
   %shr95 = lshr i64 %ret.0.copyload.i101, 15
   %and96 = and i64 %shr95, 2097151
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and96, ptr %arrayidx97, align 8
   %shr98 = lshr i64 %ret.0.copyload.i101, 36
   %and99 = and i64 %shr98, 2097151
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and99, ptr %arrayidx100, align 8
   %or103 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i102, i64 %ret.0.copyload.i101, i64 7)
   %and104 = and i64 %or103, 2097151
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and104, ptr %arrayidx105, align 8
   %shr106 = lshr i64 %ret.0.copyload.i102, 14
   %and107 = and i64 %shr106, 2097151
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and107, ptr %arrayidx108, align 8
   %shr109 = lshr i64 %ret.0.copyload.i102, 35
   %and110 = and i64 %shr109, 2097151
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and110, ptr %arrayidx111, align 8
   %or114 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i103, i64 %ret.0.copyload.i102, i64 8)
   %and115 = and i64 %or114, 2097151
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and115, ptr %arrayidx116, align 8
   %shr117 = lshr i64 %ret.0.copyload.i103, 13
   %and118 = and i64 %shr117, 2097151
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and118, ptr %arrayidx119, align 8
   %shr120 = lshr i64 %ret.0.copyload.i103, 34
   %and121 = and i64 %shr120, 2097151
-  %arrayidx122 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx122 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and121, ptr %arrayidx122, align 8
   %or125 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i104, i64 %ret.0.copyload.i103, i64 9)
   %and126 = and i64 %or125, 2097151
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and126, ptr %arrayidx127, align 8
   %shr128 = lshr i64 %ret.0.copyload.i104, 12
   %and129 = and i64 %shr128, 2097151
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and129, ptr %arrayidx130, align 8
   %shr131 = lshr i64 %ret.0.copyload.i104, 33
   %and132 = and i64 %shr131, 2097151
-  %arrayidx133 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx133 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and132, ptr %arrayidx133, align 8
   %or136 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i104, i64 10)
   %and137 = and i64 %or136, 2097151
-  %arrayidx138 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx138 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and137, ptr %arrayidx138, align 8
   %shr139 = lshr i64 %conv, 11
-  %arrayidx141 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx141 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr139, ptr %arrayidx141, align 8
   ret ptr %add.ptr31
 }
@@ -4837,126 +4831,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 22
   %and32 = and i64 %shr, 4194303
-  %arrayidx33 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and32, ptr %arrayidx33, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i96, i64 %ret.0.copyload.i, i64 20)
   %and35 = and i64 %or, 4194303
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and35, ptr %arrayidx36, align 8
   %shr37 = lshr i64 %ret.0.copyload.i96, 2
   %and38 = and i64 %shr37, 4194303
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i96, 24
   %and41 = and i64 %shr40, 4194303
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and41, ptr %arrayidx42, align 8
   %or45 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i97, i64 %ret.0.copyload.i96, i64 18)
   %and46 = and i64 %or45, 4194303
-  %arrayidx47 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and46, ptr %arrayidx47, align 8
   %shr48 = lshr i64 %ret.0.copyload.i97, 4
   %and49 = and i64 %shr48, 4194303
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i97, 26
   %and52 = and i64 %shr51, 4194303
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and52, ptr %arrayidx53, align 8
   %or56 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i98, i64 %ret.0.copyload.i97, i64 16)
   %and57 = and i64 %or56, 4194303
-  %arrayidx58 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx58 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and57, ptr %arrayidx58, align 8
   %shr59 = lshr i64 %ret.0.copyload.i98, 6
   %and60 = and i64 %shr59, 4194303
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i98, 28
   %and63 = and i64 %shr62, 4194303
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and63, ptr %arrayidx64, align 8
   %or67 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i99, i64 %ret.0.copyload.i98, i64 14)
   %and68 = and i64 %or67, 4194303
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %ret.0.copyload.i99, 8
   %and71 = and i64 %shr70, 4194303
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i99, 30
   %and74 = and i64 %shr73, 4194303
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i100, i64 %ret.0.copyload.i99, i64 12)
   %and79 = and i64 %or78, 4194303
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i100, 10
   %and82 = and i64 %shr81, 4194303
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i100, 32
   %and85 = and i64 %shr84, 4194303
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i101, i64 %ret.0.copyload.i100, i64 10)
   %and90 = and i64 %or89, 4194303
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i101, 12
   %and93 = and i64 %shr92, 4194303
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and93, ptr %arrayidx94, align 8
   %shr95 = lshr i64 %ret.0.copyload.i101, 34
   %and96 = and i64 %shr95, 4194303
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and96, ptr %arrayidx97, align 8
   %or100 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i102, i64 %ret.0.copyload.i101, i64 8)
   %and101 = and i64 %or100, 4194303
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and101, ptr %arrayidx102, align 8
   %shr103 = lshr i64 %ret.0.copyload.i102, 14
   %and104 = and i64 %shr103, 4194303
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and104, ptr %arrayidx105, align 8
   %shr106 = lshr i64 %ret.0.copyload.i102, 36
   %and107 = and i64 %shr106, 4194303
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and107, ptr %arrayidx108, align 8
   %or111 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i103, i64 %ret.0.copyload.i102, i64 6)
   %and112 = and i64 %or111, 4194303
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and112, ptr %arrayidx113, align 8
   %shr114 = lshr i64 %ret.0.copyload.i103, 16
   %and115 = and i64 %shr114, 4194303
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and115, ptr %arrayidx116, align 8
   %shr117 = lshr i64 %ret.0.copyload.i103, 38
   %and118 = and i64 %shr117, 4194303
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and118, ptr %arrayidx119, align 8
   %or122 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i104, i64 %ret.0.copyload.i103, i64 4)
   %and123 = and i64 %or122, 4194303
-  %arrayidx124 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx124 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and123, ptr %arrayidx124, align 8
   %shr125 = lshr i64 %ret.0.copyload.i104, 18
   %and126 = and i64 %shr125, 4194303
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and126, ptr %arrayidx127, align 8
   %shr128 = lshr i64 %ret.0.copyload.i104, 40
   %and129 = and i64 %shr128, 4194303
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and129, ptr %arrayidx130, align 8
   %or133 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i105, i64 %ret.0.copyload.i104, i64 2)
   %and134 = and i64 %or133, 4194303
-  %arrayidx135 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx135 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and134, ptr %arrayidx135, align 8
   %shr136 = lshr i64 %ret.0.copyload.i105, 20
   %and137 = and i64 %shr136, 4194303
-  %arrayidx138 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx138 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and137, ptr %arrayidx138, align 8
   %shr139 = lshr i64 %ret.0.copyload.i105, 42
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr139, ptr %arrayidx140, align 8
   ret ptr %add.ptr31
 }
@@ -4993,126 +4987,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 23
   %and35 = and i64 %shr, 8388607
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and35, ptr %arrayidx36, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i99, i64 %ret.0.copyload.i, i64 18)
   %and38 = and i64 %or, 8388607
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i99, 5
   %and41 = and i64 %shr40, 8388607
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i99, 28
   %and44 = and i64 %shr43, 8388607
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and44, ptr %arrayidx45, align 8
   %or48 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i100, i64 %ret.0.copyload.i99, i64 13)
   %and49 = and i64 %or48, 8388607
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i100, 10
   %and52 = and i64 %shr51, 8388607
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i100, 33
   %and55 = and i64 %shr54, 8388607
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i101, i64 %ret.0.copyload.i100, i64 8)
   %and60 = and i64 %or59, 8388607
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i101, 15
   %and63 = and i64 %shr62, 8388607
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i101, 38
   %and66 = and i64 %shr65, 8388607
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i102, i64 %ret.0.copyload.i101, i64 3)
   %and71 = and i64 %or70, 8388607
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i102, 20
   %and74 = and i64 %shr73, 8388607
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i103, i64 %ret.0.copyload.i102, i64 21)
   %and79 = and i64 %or78, 8388607
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i103, 2
   %and82 = and i64 %shr81, 8388607
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i103, 25
   %and85 = and i64 %shr84, 8388607
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i104, i64 %ret.0.copyload.i103, i64 16)
   %and90 = and i64 %or89, 8388607
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i104, 7
   %and93 = and i64 %shr92, 8388607
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and93, ptr %arrayidx94, align 8
   %shr95 = lshr i64 %ret.0.copyload.i104, 30
   %and96 = and i64 %shr95, 8388607
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and96, ptr %arrayidx97, align 8
   %or100 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i105, i64 %ret.0.copyload.i104, i64 11)
   %and101 = and i64 %or100, 8388607
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and101, ptr %arrayidx102, align 8
   %shr103 = lshr i64 %ret.0.copyload.i105, 12
   %and104 = and i64 %shr103, 8388607
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and104, ptr %arrayidx105, align 8
   %shr106 = lshr i64 %ret.0.copyload.i105, 35
   %and107 = and i64 %shr106, 8388607
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and107, ptr %arrayidx108, align 8
   %or111 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i106, i64 %ret.0.copyload.i105, i64 6)
   %and112 = and i64 %or111, 8388607
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and112, ptr %arrayidx113, align 8
   %shr114 = lshr i64 %ret.0.copyload.i106, 17
   %and115 = and i64 %shr114, 8388607
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and115, ptr %arrayidx116, align 8
   %shr117 = lshr i64 %ret.0.copyload.i106, 40
   %and118 = and i64 %shr117, 8388607
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and118, ptr %arrayidx119, align 8
   %or122 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i107, i64 %ret.0.copyload.i106, i64 1)
   %and123 = and i64 %or122, 8388607
-  %arrayidx124 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx124 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and123, ptr %arrayidx124, align 8
   %shr125 = lshr i64 %ret.0.copyload.i107, 22
   %and126 = and i64 %shr125, 8388607
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and126, ptr %arrayidx127, align 8
   %or130 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i108, i64 %ret.0.copyload.i107, i64 19)
   %and131 = and i64 %or130, 8388607
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and131, ptr %arrayidx132, align 8
   %shr133 = lshr i64 %ret.0.copyload.i108, 4
   %and134 = and i64 %shr133, 8388607
-  %arrayidx135 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx135 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and134, ptr %arrayidx135, align 8
   %shr136 = lshr i64 %ret.0.copyload.i108, 27
   %and137 = and i64 %shr136, 8388607
-  %arrayidx138 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx138 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and137, ptr %arrayidx138, align 8
   %or141 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i108, i64 14)
   %and142 = and i64 %or141, 8388607
-  %arrayidx143 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and142, ptr %arrayidx143, align 8
   %shr144 = lshr i64 %conv, 9
-  %arrayidx146 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx146 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr144, ptr %arrayidx146, align 8
   ret ptr %add.ptr34
 }
@@ -5148,120 +5142,120 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 24
   %and35 = and i64 %shr, 16777215
-  %arrayidx36 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and35, ptr %arrayidx36, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i96, i64 %ret.0.copyload.i, i64 16)
   %and38 = and i64 %or, 16777215
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and38, ptr %arrayidx39, align 8
   %shr40 = lshr i64 %ret.0.copyload.i96, 8
   %and41 = and i64 %shr40, 16777215
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i96, 32
   %and44 = and i64 %shr43, 16777215
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and44, ptr %arrayidx45, align 8
   %or48 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i97, i64 %ret.0.copyload.i96, i64 8)
   %and49 = and i64 %or48, 16777215
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i97, 16
   %and52 = and i64 %shr51, 16777215
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i97, 40
-  %arrayidx55 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx55 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %shr54, ptr %arrayidx55, align 8
   %and56 = and i64 %ret.0.copyload.i98, 16777215
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and56, ptr %arrayidx57, align 8
   %shr58 = lshr i64 %ret.0.copyload.i98, 24
   %and59 = and i64 %shr58, 16777215
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and59, ptr %arrayidx60, align 8
   %or63 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i99, i64 %ret.0.copyload.i98, i64 16)
   %and64 = and i64 %or63, 16777215
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and64, ptr %arrayidx65, align 8
   %shr66 = lshr i64 %ret.0.copyload.i99, 8
   %and67 = and i64 %shr66, 16777215
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and67, ptr %arrayidx68, align 8
   %shr69 = lshr i64 %ret.0.copyload.i99, 32
   %and70 = and i64 %shr69, 16777215
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and70, ptr %arrayidx71, align 8
   %or74 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i100, i64 %ret.0.copyload.i99, i64 8)
   %and75 = and i64 %or74, 16777215
-  %arrayidx76 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx76 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and75, ptr %arrayidx76, align 8
   %shr77 = lshr i64 %ret.0.copyload.i100, 16
   %and78 = and i64 %shr77, 16777215
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and78, ptr %arrayidx79, align 8
   %shr80 = lshr i64 %ret.0.copyload.i100, 40
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %shr80, ptr %arrayidx81, align 8
   %and82 = and i64 %ret.0.copyload.i101, 16777215
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i101, 24
   %and85 = and i64 %shr84, 16777215
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i102, i64 %ret.0.copyload.i101, i64 16)
   %and90 = and i64 %or89, 16777215
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i102, 8
   %and93 = and i64 %shr92, 16777215
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and93, ptr %arrayidx94, align 8
   %shr95 = lshr i64 %ret.0.copyload.i102, 32
   %and96 = and i64 %shr95, 16777215
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and96, ptr %arrayidx97, align 8
   %or100 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i103, i64 %ret.0.copyload.i102, i64 8)
   %and101 = and i64 %or100, 16777215
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and101, ptr %arrayidx102, align 8
   %shr103 = lshr i64 %ret.0.copyload.i103, 16
   %and104 = and i64 %shr103, 16777215
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and104, ptr %arrayidx105, align 8
   %shr106 = lshr i64 %ret.0.copyload.i103, 40
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %shr106, ptr %arrayidx107, align 8
   %and108 = and i64 %ret.0.copyload.i104, 16777215
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and108, ptr %arrayidx109, align 8
   %shr110 = lshr i64 %ret.0.copyload.i104, 24
   %and111 = and i64 %shr110, 16777215
-  %arrayidx112 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx112 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and111, ptr %arrayidx112, align 8
   %or115 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i105, i64 %ret.0.copyload.i104, i64 16)
   %and116 = and i64 %or115, 16777215
-  %arrayidx117 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx117 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and116, ptr %arrayidx117, align 8
   %shr118 = lshr i64 %ret.0.copyload.i105, 8
   %and119 = and i64 %shr118, 16777215
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and119, ptr %arrayidx120, align 8
   %shr121 = lshr i64 %ret.0.copyload.i105, 32
   %and122 = and i64 %shr121, 16777215
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and122, ptr %arrayidx123, align 8
   %or126 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i106, i64 %ret.0.copyload.i105, i64 8)
   %and127 = and i64 %or126, 16777215
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and127, ptr %arrayidx128, align 8
   %shr129 = lshr i64 %ret.0.copyload.i106, 16
   %and130 = and i64 %shr129, 16777215
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and130, ptr %arrayidx131, align 8
   %shr132 = lshr i64 %ret.0.copyload.i106, 40
-  %arrayidx133 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx133 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr132, ptr %arrayidx133, align 8
   ret ptr %add.ptr34
 }
@@ -5300,126 +5294,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 25
   %and38 = and i64 %shr, 33554431
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and38, ptr %arrayidx39, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i102, i64 %ret.0.copyload.i, i64 14)
   %and41 = and i64 %or, 33554431
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i102, 11
   %and44 = and i64 %shr43, 33554431
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i102, 36
   %and47 = and i64 %shr46, 33554431
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and47, ptr %arrayidx48, align 8
   %or51 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i103, i64 %ret.0.copyload.i102, i64 3)
   %and52 = and i64 %or51, 33554431
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i103, 22
   %and55 = and i64 %shr54, 33554431
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i104, i64 %ret.0.copyload.i103, i64 17)
   %and60 = and i64 %or59, 33554431
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i104, 8
   %and63 = and i64 %shr62, 33554431
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i104, 33
   %and66 = and i64 %shr65, 33554431
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i105, i64 %ret.0.copyload.i104, i64 6)
   %and71 = and i64 %or70, 33554431
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i105, 19
   %and74 = and i64 %shr73, 33554431
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i106, i64 %ret.0.copyload.i105, i64 20)
   %and79 = and i64 %or78, 33554431
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i106, 5
   %and82 = and i64 %shr81, 33554431
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i106, 30
   %and85 = and i64 %shr84, 33554431
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i107, i64 %ret.0.copyload.i106, i64 9)
   %and90 = and i64 %or89, 33554431
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i107, 16
   %and93 = and i64 %shr92, 33554431
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and93, ptr %arrayidx94, align 8
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i108, i64 %ret.0.copyload.i107, i64 23)
   %and98 = and i64 %or97, 33554431
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i108, 2
   %and101 = and i64 %shr100, 33554431
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and101, ptr %arrayidx102, align 8
   %shr103 = lshr i64 %ret.0.copyload.i108, 27
   %and104 = and i64 %shr103, 33554431
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and104, ptr %arrayidx105, align 8
   %or108 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i109, i64 %ret.0.copyload.i108, i64 12)
   %and109 = and i64 %or108, 33554431
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and109, ptr %arrayidx110, align 8
   %shr111 = lshr i64 %ret.0.copyload.i109, 13
   %and112 = and i64 %shr111, 33554431
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and112, ptr %arrayidx113, align 8
   %shr114 = lshr i64 %ret.0.copyload.i109, 38
   %and115 = and i64 %shr114, 33554431
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and115, ptr %arrayidx116, align 8
   %or119 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i110, i64 %ret.0.copyload.i109, i64 1)
   %and120 = and i64 %or119, 33554431
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and120, ptr %arrayidx121, align 8
   %shr122 = lshr i64 %ret.0.copyload.i110, 24
   %and123 = and i64 %shr122, 33554431
-  %arrayidx124 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx124 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and123, ptr %arrayidx124, align 8
   %or127 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i111, i64 %ret.0.copyload.i110, i64 15)
   %and128 = and i64 %or127, 33554431
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and128, ptr %arrayidx129, align 8
   %shr130 = lshr i64 %ret.0.copyload.i111, 10
   %and131 = and i64 %shr130, 33554431
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and131, ptr %arrayidx132, align 8
   %shr133 = lshr i64 %ret.0.copyload.i111, 35
   %and134 = and i64 %shr133, 33554431
-  %arrayidx135 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx135 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and134, ptr %arrayidx135, align 8
   %or138 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i112, i64 %ret.0.copyload.i111, i64 4)
   %and139 = and i64 %or138, 33554431
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and139, ptr %arrayidx140, align 8
   %shr141 = lshr i64 %ret.0.copyload.i112, 21
   %and142 = and i64 %shr141, 33554431
-  %arrayidx143 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and142, ptr %arrayidx143, align 8
   %or146 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i112, i64 18)
   %and147 = and i64 %or146, 33554431
-  %arrayidx148 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx148 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and147, ptr %arrayidx148, align 8
   %shr149 = lshr i64 %conv, 7
-  %arrayidx151 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx151 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr149, ptr %arrayidx151, align 8
   ret ptr %add.ptr37
 }
@@ -5457,126 +5451,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 26
   %and38 = and i64 %shr, 67108863
-  %arrayidx39 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx39 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and38, ptr %arrayidx39, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i102, i64 %ret.0.copyload.i, i64 12)
   %and41 = and i64 %or, 67108863
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and41, ptr %arrayidx42, align 8
   %shr43 = lshr i64 %ret.0.copyload.i102, 14
   %and44 = and i64 %shr43, 67108863
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and44, ptr %arrayidx45, align 8
   %or48 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i103, i64 %ret.0.copyload.i102, i64 24)
   %and49 = and i64 %or48, 67108863
-  %arrayidx50 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx50 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and49, ptr %arrayidx50, align 8
   %shr51 = lshr i64 %ret.0.copyload.i103, 2
   %and52 = and i64 %shr51, 67108863
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i103, 28
   %and55 = and i64 %shr54, 67108863
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i104, i64 %ret.0.copyload.i103, i64 10)
   %and60 = and i64 %or59, 67108863
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i104, 16
   %and63 = and i64 %shr62, 67108863
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and63, ptr %arrayidx64, align 8
   %or67 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i105, i64 %ret.0.copyload.i104, i64 22)
   %and68 = and i64 %or67, 67108863
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and68, ptr %arrayidx69, align 8
   %shr70 = lshr i64 %ret.0.copyload.i105, 4
   %and71 = and i64 %shr70, 67108863
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i105, 30
   %and74 = and i64 %shr73, 67108863
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i106, i64 %ret.0.copyload.i105, i64 8)
   %and79 = and i64 %or78, 67108863
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i106, 18
   %and82 = and i64 %shr81, 67108863
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and82, ptr %arrayidx83, align 8
   %or86 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i107, i64 %ret.0.copyload.i106, i64 20)
   %and87 = and i64 %or86, 67108863
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and87, ptr %arrayidx88, align 8
   %shr89 = lshr i64 %ret.0.copyload.i107, 6
   %and90 = and i64 %shr89, 67108863
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i107, 32
   %and93 = and i64 %shr92, 67108863
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and93, ptr %arrayidx94, align 8
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i108, i64 %ret.0.copyload.i107, i64 6)
   %and98 = and i64 %or97, 67108863
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i108, 20
   %and101 = and i64 %shr100, 67108863
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and101, ptr %arrayidx102, align 8
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i109, i64 %ret.0.copyload.i108, i64 18)
   %and106 = and i64 %or105, 67108863
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and106, ptr %arrayidx107, align 8
   %shr108 = lshr i64 %ret.0.copyload.i109, 8
   %and109 = and i64 %shr108, 67108863
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and109, ptr %arrayidx110, align 8
   %shr111 = lshr i64 %ret.0.copyload.i109, 34
   %and112 = and i64 %shr111, 67108863
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and112, ptr %arrayidx113, align 8
   %or116 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i110, i64 %ret.0.copyload.i109, i64 4)
   %and117 = and i64 %or116, 67108863
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and117, ptr %arrayidx118, align 8
   %shr119 = lshr i64 %ret.0.copyload.i110, 22
   %and120 = and i64 %shr119, 67108863
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and120, ptr %arrayidx121, align 8
   %or124 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i111, i64 %ret.0.copyload.i110, i64 16)
   %and125 = and i64 %or124, 67108863
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and125, ptr %arrayidx126, align 8
   %shr127 = lshr i64 %ret.0.copyload.i111, 10
   %and128 = and i64 %shr127, 67108863
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and128, ptr %arrayidx129, align 8
   %shr130 = lshr i64 %ret.0.copyload.i111, 36
   %and131 = and i64 %shr130, 67108863
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and131, ptr %arrayidx132, align 8
   %or135 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i112, i64 %ret.0.copyload.i111, i64 2)
   %and136 = and i64 %or135, 67108863
-  %arrayidx137 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx137 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and136, ptr %arrayidx137, align 8
   %shr138 = lshr i64 %ret.0.copyload.i112, 24
   %and139 = and i64 %shr138, 67108863
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and139, ptr %arrayidx140, align 8
   %or143 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i113, i64 %ret.0.copyload.i112, i64 14)
   %and144 = and i64 %or143, 67108863
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and144, ptr %arrayidx145, align 8
   %shr146 = lshr i64 %ret.0.copyload.i113, 12
   %and147 = and i64 %shr146, 67108863
-  %arrayidx148 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx148 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and147, ptr %arrayidx148, align 8
   %shr149 = lshr i64 %ret.0.copyload.i113, 38
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr149, ptr %arrayidx150, align 8
   ret ptr %add.ptr37
 }
@@ -5617,126 +5611,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 27
   %and41 = and i64 %shr, 134217727
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and41, ptr %arrayidx42, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i105, i64 %ret.0.copyload.i, i64 10)
   %and44 = and i64 %or, 134217727
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i105, 17
   %and47 = and i64 %shr46, 134217727
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and47, ptr %arrayidx48, align 8
   %or51 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i106, i64 %ret.0.copyload.i105, i64 20)
   %and52 = and i64 %or51, 134217727
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i106, 7
   %and55 = and i64 %shr54, 134217727
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i106, 34
   %and58 = and i64 %shr57, 134217727
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and58, ptr %arrayidx59, align 8
   %or62 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i107, i64 %ret.0.copyload.i106, i64 3)
   %and63 = and i64 %or62, 134217727
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i107, 24
   %and66 = and i64 %shr65, 134217727
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i108, i64 %ret.0.copyload.i107, i64 13)
   %and71 = and i64 %or70, 134217727
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i108, 14
   %and74 = and i64 %shr73, 134217727
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i109, i64 %ret.0.copyload.i108, i64 23)
   %and79 = and i64 %or78, 134217727
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i109, 4
   %and82 = and i64 %shr81, 134217727
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i109, 31
   %and85 = and i64 %shr84, 134217727
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i110, i64 %ret.0.copyload.i109, i64 6)
   %and90 = and i64 %or89, 134217727
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i110, 21
   %and93 = and i64 %shr92, 134217727
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and93, ptr %arrayidx94, align 8
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i111, i64 %ret.0.copyload.i110, i64 16)
   %and98 = and i64 %or97, 134217727
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i111, 11
   %and101 = and i64 %shr100, 134217727
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and101, ptr %arrayidx102, align 8
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i112, i64 %ret.0.copyload.i111, i64 26)
   %and106 = and i64 %or105, 134217727
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and106, ptr %arrayidx107, align 8
   %shr108 = lshr i64 %ret.0.copyload.i112, 1
   %and109 = and i64 %shr108, 134217727
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and109, ptr %arrayidx110, align 8
   %shr111 = lshr i64 %ret.0.copyload.i112, 28
   %and112 = and i64 %shr111, 134217727
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and112, ptr %arrayidx113, align 8
   %or116 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i113, i64 %ret.0.copyload.i112, i64 9)
   %and117 = and i64 %or116, 134217727
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and117, ptr %arrayidx118, align 8
   %shr119 = lshr i64 %ret.0.copyload.i113, 18
   %and120 = and i64 %shr119, 134217727
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and120, ptr %arrayidx121, align 8
   %or124 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i114, i64 %ret.0.copyload.i113, i64 19)
   %and125 = and i64 %or124, 134217727
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and125, ptr %arrayidx126, align 8
   %shr127 = lshr i64 %ret.0.copyload.i114, 8
   %and128 = and i64 %shr127, 134217727
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and128, ptr %arrayidx129, align 8
   %shr130 = lshr i64 %ret.0.copyload.i114, 35
   %and131 = and i64 %shr130, 134217727
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and131, ptr %arrayidx132, align 8
   %or135 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i115, i64 %ret.0.copyload.i114, i64 2)
   %and136 = and i64 %or135, 134217727
-  %arrayidx137 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx137 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and136, ptr %arrayidx137, align 8
   %shr138 = lshr i64 %ret.0.copyload.i115, 25
   %and139 = and i64 %shr138, 134217727
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and139, ptr %arrayidx140, align 8
   %or143 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i115, i64 12)
   %and144 = and i64 %or143, 134217727
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and144, ptr %arrayidx145, align 8
   %shr146 = lshr i64 %ret.0.copyload.i116, 15
   %and147 = and i64 %shr146, 134217727
-  %arrayidx148 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx148 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and147, ptr %arrayidx148, align 8
   %or151 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i116, i64 22)
   %and152 = and i64 %or151, 134217727
-  %arrayidx153 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx153 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and152, ptr %arrayidx153, align 8
   %shr154 = lshr i64 %conv, 5
-  %arrayidx156 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx156 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr154, ptr %arrayidx156, align 8
   ret ptr %add.ptr40
 }
@@ -5776,124 +5770,124 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 28
   %and41 = and i64 %shr, 268435455
-  %arrayidx42 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and41, ptr %arrayidx42, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i104, i64 %ret.0.copyload.i, i64 8)
   %and44 = and i64 %or, 268435455
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and44, ptr %arrayidx45, align 8
   %shr46 = lshr i64 %ret.0.copyload.i104, 20
   %and47 = and i64 %shr46, 268435455
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and47, ptr %arrayidx48, align 8
   %or51 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i105, i64 %ret.0.copyload.i104, i64 16)
   %and52 = and i64 %or51, 268435455
-  %arrayidx53 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and52, ptr %arrayidx53, align 8
   %shr54 = lshr i64 %ret.0.copyload.i105, 12
   %and55 = and i64 %shr54, 268435455
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and55, ptr %arrayidx56, align 8
   %or59 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i106, i64 %ret.0.copyload.i105, i64 24)
   %and60 = and i64 %or59, 268435455
-  %arrayidx61 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx61 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and60, ptr %arrayidx61, align 8
   %shr62 = lshr i64 %ret.0.copyload.i106, 4
   %and63 = and i64 %shr62, 268435455
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i106, 32
   %and66 = and i64 %shr65, 268435455
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i107, i64 %ret.0.copyload.i106, i64 4)
   %and71 = and i64 %or70, 268435455
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i107, 24
   %and74 = and i64 %shr73, 268435455
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i108, i64 %ret.0.copyload.i107, i64 12)
   %and79 = and i64 %or78, 268435455
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i108, 16
   %and82 = and i64 %shr81, 268435455
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and82, ptr %arrayidx83, align 8
   %or86 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i109, i64 %ret.0.copyload.i108, i64 20)
   %and87 = and i64 %or86, 268435455
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and87, ptr %arrayidx88, align 8
   %shr89 = lshr i64 %ret.0.copyload.i109, 8
   %and90 = and i64 %shr89, 268435455
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i109, 36
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %shr92, ptr %arrayidx93, align 8
   %and94 = and i64 %ret.0.copyload.i110, 268435455
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and94, ptr %arrayidx95, align 8
   %shr96 = lshr i64 %ret.0.copyload.i110, 28
   %and97 = and i64 %shr96, 268435455
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and97, ptr %arrayidx98, align 8
   %or101 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i111, i64 %ret.0.copyload.i110, i64 8)
   %and102 = and i64 %or101, 268435455
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and102, ptr %arrayidx103, align 8
   %shr104 = lshr i64 %ret.0.copyload.i111, 20
   %and105 = and i64 %shr104, 268435455
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and105, ptr %arrayidx106, align 8
   %or109 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i112, i64 %ret.0.copyload.i111, i64 16)
   %and110 = and i64 %or109, 268435455
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and110, ptr %arrayidx111, align 8
   %shr112 = lshr i64 %ret.0.copyload.i112, 12
   %and113 = and i64 %shr112, 268435455
-  %arrayidx114 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx114 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and113, ptr %arrayidx114, align 8
   %or117 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i113, i64 %ret.0.copyload.i112, i64 24)
   %and118 = and i64 %or117, 268435455
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and118, ptr %arrayidx119, align 8
   %shr120 = lshr i64 %ret.0.copyload.i113, 4
   %and121 = and i64 %shr120, 268435455
-  %arrayidx122 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx122 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and121, ptr %arrayidx122, align 8
   %shr123 = lshr i64 %ret.0.copyload.i113, 32
   %and124 = and i64 %shr123, 268435455
-  %arrayidx125 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx125 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and124, ptr %arrayidx125, align 8
   %or128 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i114, i64 %ret.0.copyload.i113, i64 4)
   %and129 = and i64 %or128, 268435455
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and129, ptr %arrayidx130, align 8
   %shr131 = lshr i64 %ret.0.copyload.i114, 24
   %and132 = and i64 %shr131, 268435455
-  %arrayidx133 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx133 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and132, ptr %arrayidx133, align 8
   %or136 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i115, i64 %ret.0.copyload.i114, i64 12)
   %and137 = and i64 %or136, 268435455
-  %arrayidx138 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx138 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and137, ptr %arrayidx138, align 8
   %shr139 = lshr i64 %ret.0.copyload.i115, 16
   %and140 = and i64 %shr139, 268435455
-  %arrayidx141 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx141 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and140, ptr %arrayidx141, align 8
   %or144 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i115, i64 20)
   %and145 = and i64 %or144, 268435455
-  %arrayidx146 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx146 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and145, ptr %arrayidx146, align 8
   %shr147 = lshr i64 %ret.0.copyload.i116, 8
   %and148 = and i64 %shr147, 268435455
-  %arrayidx149 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx149 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and148, ptr %arrayidx149, align 8
   %shr150 = lshr i64 %ret.0.copyload.i116, 36
-  %arrayidx151 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx151 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr150, ptr %arrayidx151, align 8
   ret ptr %add.ptr40
 }
@@ -5936,126 +5930,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 29
   %and44 = and i64 %shr, 536870911
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and44, ptr %arrayidx45, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i108, i64 %ret.0.copyload.i, i64 6)
   %and47 = and i64 %or, 536870911
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i108, 23
   %and50 = and i64 %shr49, 536870911
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and50, ptr %arrayidx51, align 8
   %or54 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i109, i64 %ret.0.copyload.i108, i64 12)
   %and55 = and i64 %or54, 536870911
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i109, 17
   %and58 = and i64 %shr57, 536870911
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and58, ptr %arrayidx59, align 8
   %or62 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i110, i64 %ret.0.copyload.i109, i64 18)
   %and63 = and i64 %or62, 536870911
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i110, 11
   %and66 = and i64 %shr65, 536870911
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i111, i64 %ret.0.copyload.i110, i64 24)
   %and71 = and i64 %or70, 536870911
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i111, 5
   %and74 = and i64 %shr73, 536870911
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i111, 34
   %and77 = and i64 %shr76, 536870911
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and77, ptr %arrayidx78, align 8
   %or81 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i112, i64 %ret.0.copyload.i111, i64 1)
   %and82 = and i64 %or81, 536870911
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i112, 28
   %and85 = and i64 %shr84, 536870911
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i113, i64 %ret.0.copyload.i112, i64 7)
   %and90 = and i64 %or89, 536870911
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i113, 22
   %and93 = and i64 %shr92, 536870911
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and93, ptr %arrayidx94, align 8
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i114, i64 %ret.0.copyload.i113, i64 13)
   %and98 = and i64 %or97, 536870911
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i114, 16
   %and101 = and i64 %shr100, 536870911
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and101, ptr %arrayidx102, align 8
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i115, i64 %ret.0.copyload.i114, i64 19)
   %and106 = and i64 %or105, 536870911
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and106, ptr %arrayidx107, align 8
   %shr108 = lshr i64 %ret.0.copyload.i115, 10
   %and109 = and i64 %shr108, 536870911
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and109, ptr %arrayidx110, align 8
   %or113 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i115, i64 25)
   %and114 = and i64 %or113, 536870911
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and114, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %ret.0.copyload.i116, 4
   %and117 = and i64 %shr116, 536870911
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and117, ptr %arrayidx118, align 8
   %shr119 = lshr i64 %ret.0.copyload.i116, 33
   %and120 = and i64 %shr119, 536870911
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and120, ptr %arrayidx121, align 8
   %or124 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i117, i64 %ret.0.copyload.i116, i64 2)
   %and125 = and i64 %or124, 536870911
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and125, ptr %arrayidx126, align 8
   %shr127 = lshr i64 %ret.0.copyload.i117, 27
   %and128 = and i64 %shr127, 536870911
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and128, ptr %arrayidx129, align 8
   %or132 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i118, i64 %ret.0.copyload.i117, i64 8)
   %and133 = and i64 %or132, 536870911
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and133, ptr %arrayidx134, align 8
   %shr135 = lshr i64 %ret.0.copyload.i118, 21
   %and136 = and i64 %shr135, 536870911
-  %arrayidx137 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx137 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and136, ptr %arrayidx137, align 8
   %or140 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i119, i64 %ret.0.copyload.i118, i64 14)
   %and141 = and i64 %or140, 536870911
-  %arrayidx142 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx142 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and141, ptr %arrayidx142, align 8
   %shr143 = lshr i64 %ret.0.copyload.i119, 15
   %and144 = and i64 %shr143, 536870911
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and144, ptr %arrayidx145, align 8
   %or148 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i119, i64 20)
   %and149 = and i64 %or148, 536870911
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and149, ptr %arrayidx150, align 8
   %shr151 = lshr i64 %ret.0.copyload.i120, 9
   %and152 = and i64 %shr151, 536870911
-  %arrayidx153 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx153 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and152, ptr %arrayidx153, align 8
   %or156 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i120, i64 26)
   %and157 = and i64 %or156, 536870911
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and157, ptr %arrayidx158, align 8
   %shr159 = lshr i64 %conv, 3
-  %arrayidx161 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx161 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr159, ptr %arrayidx161, align 8
   ret ptr %add.ptr43
 }
@@ -6097,126 +6091,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 30
   %and44 = and i64 %shr, 1073741823
-  %arrayidx45 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx45 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and44, ptr %arrayidx45, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i108, i64 %ret.0.copyload.i, i64 4)
   %and47 = and i64 %or, 1073741823
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and47, ptr %arrayidx48, align 8
   %shr49 = lshr i64 %ret.0.copyload.i108, 26
   %and50 = and i64 %shr49, 1073741823
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and50, ptr %arrayidx51, align 8
   %or54 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i109, i64 %ret.0.copyload.i108, i64 8)
   %and55 = and i64 %or54, 1073741823
-  %arrayidx56 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx56 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and55, ptr %arrayidx56, align 8
   %shr57 = lshr i64 %ret.0.copyload.i109, 22
   %and58 = and i64 %shr57, 1073741823
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and58, ptr %arrayidx59, align 8
   %or62 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i110, i64 %ret.0.copyload.i109, i64 12)
   %and63 = and i64 %or62, 1073741823
-  %arrayidx64 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx64 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and63, ptr %arrayidx64, align 8
   %shr65 = lshr i64 %ret.0.copyload.i110, 18
   %and66 = and i64 %shr65, 1073741823
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and66, ptr %arrayidx67, align 8
   %or70 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i111, i64 %ret.0.copyload.i110, i64 16)
   %and71 = and i64 %or70, 1073741823
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and71, ptr %arrayidx72, align 8
   %shr73 = lshr i64 %ret.0.copyload.i111, 14
   %and74 = and i64 %shr73, 1073741823
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and74, ptr %arrayidx75, align 8
   %or78 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i112, i64 %ret.0.copyload.i111, i64 20)
   %and79 = and i64 %or78, 1073741823
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and79, ptr %arrayidx80, align 8
   %shr81 = lshr i64 %ret.0.copyload.i112, 10
   %and82 = and i64 %shr81, 1073741823
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and82, ptr %arrayidx83, align 8
   %or86 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i113, i64 %ret.0.copyload.i112, i64 24)
   %and87 = and i64 %or86, 1073741823
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and87, ptr %arrayidx88, align 8
   %shr89 = lshr i64 %ret.0.copyload.i113, 6
   %and90 = and i64 %shr89, 1073741823
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and90, ptr %arrayidx91, align 8
   %or94 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i114, i64 %ret.0.copyload.i113, i64 28)
   %and95 = and i64 %or94, 1073741823
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and95, ptr %arrayidx96, align 8
   %shr97 = lshr i64 %ret.0.copyload.i114, 2
   %and98 = and i64 %shr97, 1073741823
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i114, 32
   %and101 = and i64 %shr100, 1073741823
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and101, ptr %arrayidx102, align 8
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i115, i64 %ret.0.copyload.i114, i64 2)
   %and106 = and i64 %or105, 1073741823
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and106, ptr %arrayidx107, align 8
   %shr108 = lshr i64 %ret.0.copyload.i115, 28
   %and109 = and i64 %shr108, 1073741823
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and109, ptr %arrayidx110, align 8
   %or113 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i115, i64 6)
   %and114 = and i64 %or113, 1073741823
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and114, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %ret.0.copyload.i116, 24
   %and117 = and i64 %shr116, 1073741823
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and117, ptr %arrayidx118, align 8
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i117, i64 %ret.0.copyload.i116, i64 10)
   %and122 = and i64 %or121, 1073741823
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and122, ptr %arrayidx123, align 8
   %shr124 = lshr i64 %ret.0.copyload.i117, 20
   %and125 = and i64 %shr124, 1073741823
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and125, ptr %arrayidx126, align 8
   %or129 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i118, i64 %ret.0.copyload.i117, i64 14)
   %and130 = and i64 %or129, 1073741823
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and130, ptr %arrayidx131, align 8
   %shr132 = lshr i64 %ret.0.copyload.i118, 16
   %and133 = and i64 %shr132, 1073741823
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and133, ptr %arrayidx134, align 8
   %or137 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i119, i64 %ret.0.copyload.i118, i64 18)
   %and138 = and i64 %or137, 1073741823
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and138, ptr %arrayidx139, align 8
   %shr140 = lshr i64 %ret.0.copyload.i119, 12
   %and141 = and i64 %shr140, 1073741823
-  %arrayidx142 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx142 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and141, ptr %arrayidx142, align 8
   %or145 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i119, i64 22)
   %and146 = and i64 %or145, 1073741823
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and146, ptr %arrayidx147, align 8
   %shr148 = lshr i64 %ret.0.copyload.i120, 8
   %and149 = and i64 %shr148, 1073741823
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and149, ptr %arrayidx150, align 8
   %or153 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i121, i64 %ret.0.copyload.i120, i64 26)
   %and154 = and i64 %or153, 1073741823
-  %arrayidx155 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx155 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and154, ptr %arrayidx155, align 8
   %shr156 = lshr i64 %ret.0.copyload.i121, 4
   %and157 = and i64 %shr156, 1073741823
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and157, ptr %arrayidx158, align 8
   %shr159 = lshr i64 %ret.0.copyload.i121, 34
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr159, ptr %arrayidx160, align 8
   ret ptr %add.ptr43
 }
@@ -6261,126 +6255,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %shr = lshr i64 %ret.0.copyload.i, 31
   %and47 = and i64 %shr, 2147483647
-  %arrayidx48 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx48 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and47, ptr %arrayidx48, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i111, i64 %ret.0.copyload.i, i64 2)
   %and50 = and i64 %or, 2147483647
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i111, 29
   %and53 = and i64 %shr52, 2147483647
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and53, ptr %arrayidx54, align 8
   %or57 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i112, i64 %ret.0.copyload.i111, i64 4)
   %and58 = and i64 %or57, 2147483647
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and58, ptr %arrayidx59, align 8
   %shr60 = lshr i64 %ret.0.copyload.i112, 27
   %and61 = and i64 %shr60, 2147483647
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and61, ptr %arrayidx62, align 8
   %or65 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i113, i64 %ret.0.copyload.i112, i64 6)
   %and66 = and i64 %or65, 2147483647
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i113, 25
   %and69 = and i64 %shr68, 2147483647
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and69, ptr %arrayidx70, align 8
   %or73 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i114, i64 %ret.0.copyload.i113, i64 8)
   %and74 = and i64 %or73, 2147483647
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i114, 23
   %and77 = and i64 %shr76, 2147483647
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and77, ptr %arrayidx78, align 8
   %or81 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i115, i64 %ret.0.copyload.i114, i64 10)
   %and82 = and i64 %or81, 2147483647
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i115, 21
   %and85 = and i64 %shr84, 2147483647
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i115, i64 12)
   %and90 = and i64 %or89, 2147483647
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i116, 19
   %and93 = and i64 %shr92, 2147483647
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and93, ptr %arrayidx94, align 8
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i117, i64 %ret.0.copyload.i116, i64 14)
   %and98 = and i64 %or97, 2147483647
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i117, 17
   %and101 = and i64 %shr100, 2147483647
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and101, ptr %arrayidx102, align 8
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i118, i64 %ret.0.copyload.i117, i64 16)
   %and106 = and i64 %or105, 2147483647
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and106, ptr %arrayidx107, align 8
   %shr108 = lshr i64 %ret.0.copyload.i118, 15
   %and109 = and i64 %shr108, 2147483647
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and109, ptr %arrayidx110, align 8
   %or113 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i119, i64 %ret.0.copyload.i118, i64 18)
   %and114 = and i64 %or113, 2147483647
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and114, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %ret.0.copyload.i119, 13
   %and117 = and i64 %shr116, 2147483647
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and117, ptr %arrayidx118, align 8
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i119, i64 20)
   %and122 = and i64 %or121, 2147483647
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and122, ptr %arrayidx123, align 8
   %shr124 = lshr i64 %ret.0.copyload.i120, 11
   %and125 = and i64 %shr124, 2147483647
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and125, ptr %arrayidx126, align 8
   %or129 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i121, i64 %ret.0.copyload.i120, i64 22)
   %and130 = and i64 %or129, 2147483647
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and130, ptr %arrayidx131, align 8
   %shr132 = lshr i64 %ret.0.copyload.i121, 9
   %and133 = and i64 %shr132, 2147483647
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and133, ptr %arrayidx134, align 8
   %or137 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i122, i64 %ret.0.copyload.i121, i64 24)
   %and138 = and i64 %or137, 2147483647
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and138, ptr %arrayidx139, align 8
   %shr140 = lshr i64 %ret.0.copyload.i122, 7
   %and141 = and i64 %shr140, 2147483647
-  %arrayidx142 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx142 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and141, ptr %arrayidx142, align 8
   %or145 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i123, i64 %ret.0.copyload.i122, i64 26)
   %and146 = and i64 %or145, 2147483647
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and146, ptr %arrayidx147, align 8
   %shr148 = lshr i64 %ret.0.copyload.i123, 5
   %and149 = and i64 %shr148, 2147483647
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and149, ptr %arrayidx150, align 8
   %or153 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i124, i64 %ret.0.copyload.i123, i64 28)
   %and154 = and i64 %or153, 2147483647
-  %arrayidx155 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx155 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and154, ptr %arrayidx155, align 8
   %shr156 = lshr i64 %ret.0.copyload.i124, 3
   %and157 = and i64 %shr156, 2147483647
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and157, ptr %arrayidx158, align 8
   %or161 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i124, i64 30)
   %and162 = and i64 %or161, 2147483647
-  %arrayidx163 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx163 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and162, ptr %arrayidx163, align 8
   %shr164 = lshr i64 %conv, 1
-  %arrayidx166 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx166 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr164, ptr %arrayidx166, align 8
   ret ptr %add.ptr46
 }
@@ -6427,126 +6421,126 @@ entry:
   store i64 %and, ptr %out, align 8
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i114, i64 %ret.0.copyload.i, i64 31)
   %and50 = and i64 %or, 8589934591
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %and50, ptr %arrayidx51, align 8
   %shr52 = lshr i64 %ret.0.copyload.i114, 2
   %and53 = and i64 %shr52, 8589934591
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %and53, ptr %arrayidx54, align 8
   %or57 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i115, i64 %ret.0.copyload.i114, i64 29)
   %and58 = and i64 %or57, 8589934591
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %and58, ptr %arrayidx59, align 8
   %shr60 = lshr i64 %ret.0.copyload.i115, 4
   %and61 = and i64 %shr60, 8589934591
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 32
   store i64 %and61, ptr %arrayidx62, align 8
   %or65 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i115, i64 27)
   %and66 = and i64 %or65, 8589934591
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 40
   store i64 %and66, ptr %arrayidx67, align 8
   %shr68 = lshr i64 %ret.0.copyload.i116, 6
   %and69 = and i64 %shr68, 8589934591
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 48
   store i64 %and69, ptr %arrayidx70, align 8
   %or73 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i117, i64 %ret.0.copyload.i116, i64 25)
   %and74 = and i64 %or73, 8589934591
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 56
   store i64 %and74, ptr %arrayidx75, align 8
   %shr76 = lshr i64 %ret.0.copyload.i117, 8
   %and77 = and i64 %shr76, 8589934591
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 64
   store i64 %and77, ptr %arrayidx78, align 8
   %or81 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i118, i64 %ret.0.copyload.i117, i64 23)
   %and82 = and i64 %or81, 8589934591
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 72
   store i64 %and82, ptr %arrayidx83, align 8
   %shr84 = lshr i64 %ret.0.copyload.i118, 10
   %and85 = and i64 %shr84, 8589934591
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 80
   store i64 %and85, ptr %arrayidx86, align 8
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i119, i64 %ret.0.copyload.i118, i64 21)
   %and90 = and i64 %or89, 8589934591
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 88
   store i64 %and90, ptr %arrayidx91, align 8
   %shr92 = lshr i64 %ret.0.copyload.i119, 12
   %and93 = and i64 %shr92, 8589934591
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 96
   store i64 %and93, ptr %arrayidx94, align 8
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i119, i64 19)
   %and98 = and i64 %or97, 8589934591
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 104
   store i64 %and98, ptr %arrayidx99, align 8
   %shr100 = lshr i64 %ret.0.copyload.i120, 14
   %and101 = and i64 %shr100, 8589934591
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 112
   store i64 %and101, ptr %arrayidx102, align 8
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i121, i64 %ret.0.copyload.i120, i64 17)
   %and106 = and i64 %or105, 8589934591
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 120
   store i64 %and106, ptr %arrayidx107, align 8
   %shr108 = lshr i64 %ret.0.copyload.i121, 16
   %and109 = and i64 %shr108, 8589934591
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 128
   store i64 %and109, ptr %arrayidx110, align 8
   %or113 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i122, i64 %ret.0.copyload.i121, i64 15)
   %and114 = and i64 %or113, 8589934591
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and114, ptr %arrayidx115, align 8
   %shr116 = lshr i64 %ret.0.copyload.i122, 18
   %and117 = and i64 %shr116, 8589934591
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and117, ptr %arrayidx118, align 8
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i123, i64 %ret.0.copyload.i122, i64 13)
   %and122 = and i64 %or121, 8589934591
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and122, ptr %arrayidx123, align 8
   %shr124 = lshr i64 %ret.0.copyload.i123, 20
   %and125 = and i64 %shr124, 8589934591
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and125, ptr %arrayidx126, align 8
   %or129 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i124, i64 %ret.0.copyload.i123, i64 11)
   %and130 = and i64 %or129, 8589934591
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and130, ptr %arrayidx131, align 8
   %shr132 = lshr i64 %ret.0.copyload.i124, 22
   %and133 = and i64 %shr132, 8589934591
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and133, ptr %arrayidx134, align 8
   %or137 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i125, i64 %ret.0.copyload.i124, i64 9)
   %and138 = and i64 %or137, 8589934591
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and138, ptr %arrayidx139, align 8
   %shr140 = lshr i64 %ret.0.copyload.i125, 24
   %and141 = and i64 %shr140, 8589934591
-  %arrayidx142 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx142 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and141, ptr %arrayidx142, align 8
   %or145 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i126, i64 %ret.0.copyload.i125, i64 7)
   %and146 = and i64 %or145, 8589934591
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and146, ptr %arrayidx147, align 8
   %shr148 = lshr i64 %ret.0.copyload.i126, 26
   %and149 = and i64 %shr148, 8589934591
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and149, ptr %arrayidx150, align 8
   %or153 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i127, i64 %ret.0.copyload.i126, i64 5)
   %and154 = and i64 %or153, 8589934591
-  %arrayidx155 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx155 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and154, ptr %arrayidx155, align 8
   %shr156 = lshr i64 %ret.0.copyload.i127, 28
   %and157 = and i64 %shr156, 8589934591
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and157, ptr %arrayidx158, align 8
   %or161 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i128, i64 %ret.0.copyload.i127, i64 3)
   %and162 = and i64 %or161, 8589934591
-  %arrayidx163 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx163 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and162, ptr %arrayidx163, align 8
   %shr164 = lshr i64 %ret.0.copyload.i128, 30
   %and165 = and i64 %shr164, 8589934591
-  %arrayidx166 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx166 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and165, ptr %arrayidx166, align 8
   %or169 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i128, i64 1)
-  %arrayidx171 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx171 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or169, ptr %arrayidx171, align 8
   ret ptr %add.ptr49
 }
@@ -6588,47 +6582,47 @@ entry:
   %and = and i64 %ret.0.copyload.i, 17179869183
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i114, i64 %ret.0.copyload.i, i64 30)
   %and50 = and i64 %or, 17179869183
-  %arrayidx51 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx51 = getelementptr inbounds i8, ptr %out, i64 8
   %shr52 = lshr i64 %ret.0.copyload.i114, 4
   %and53 = and i64 %shr52, 17179869183
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 16
   %or57 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i115, i64 %ret.0.copyload.i114, i64 26)
   %and58 = and i64 %or57, 17179869183
-  %arrayidx59 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx59 = getelementptr inbounds i8, ptr %out, i64 24
   %shr60 = lshr i64 %ret.0.copyload.i115, 8
   %and61 = and i64 %shr60, 17179869183
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 32
   %or65 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i115, i64 22)
   %and66 = and i64 %or65, 17179869183
-  %arrayidx67 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx67 = getelementptr inbounds i8, ptr %out, i64 40
   %shr68 = lshr i64 %ret.0.copyload.i116, 12
   %and69 = and i64 %shr68, 17179869183
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 48
   %or73 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i117, i64 %ret.0.copyload.i116, i64 18)
   %and74 = and i64 %or73, 17179869183
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 56
   %shr76 = lshr i64 %ret.0.copyload.i117, 16
   %and77 = and i64 %shr76, 17179869183
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 64
   %or81 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i118, i64 %ret.0.copyload.i117, i64 14)
   %and82 = and i64 %or81, 17179869183
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 72
   %shr84 = lshr i64 %ret.0.copyload.i118, 20
   %and85 = and i64 %shr84, 17179869183
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 80
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i119, i64 %ret.0.copyload.i118, i64 10)
   %and90 = and i64 %or89, 17179869183
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 88
   %shr92 = lshr i64 %ret.0.copyload.i119, 24
   %and93 = and i64 %shr92, 17179869183
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 96
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i119, i64 6)
   %and98 = and i64 %or97, 17179869183
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 104
   %shr100 = lshr i64 %ret.0.copyload.i120, 28
   %and101 = and i64 %shr100, 17179869183
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 14
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 112
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 120
   %0 = load <2 x i64>, ptr %add.ptr22, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and50, ptr %arrayidx51, align 8
@@ -6653,62 +6647,62 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr113 = lshr i64 %5, 2
   %and114 = and i64 %shr113, 17179869183
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 136
   store i64 %and114, ptr %arrayidx115, align 8
   %or118 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i123, i64 %5, i64 28)
   %and119 = and i64 %or118, 17179869183
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 144
   store i64 %and119, ptr %arrayidx120, align 8
   %shr121 = lshr i64 %ret.0.copyload.i123, 6
   %and122 = and i64 %shr121, 17179869183
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 152
   store i64 %and122, ptr %arrayidx123, align 8
   %or126 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i124, i64 %ret.0.copyload.i123, i64 24)
   %and127 = and i64 %or126, 17179869183
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 160
   store i64 %and127, ptr %arrayidx128, align 8
   %shr129 = lshr i64 %ret.0.copyload.i124, 10
   %and130 = and i64 %shr129, 17179869183
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 168
   store i64 %and130, ptr %arrayidx131, align 8
   %or134 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i125, i64 %ret.0.copyload.i124, i64 20)
   %and135 = and i64 %or134, 17179869183
-  %arrayidx136 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx136 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and135, ptr %arrayidx136, align 8
   %shr137 = lshr i64 %ret.0.copyload.i125, 14
   %and138 = and i64 %shr137, 17179869183
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and138, ptr %arrayidx139, align 8
   %or142 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i126, i64 %ret.0.copyload.i125, i64 16)
   %and143 = and i64 %or142, 17179869183
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and143, ptr %arrayidx144, align 8
   %shr145 = lshr i64 %ret.0.copyload.i126, 18
   %and146 = and i64 %shr145, 17179869183
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and146, ptr %arrayidx147, align 8
   %or150 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i127, i64 %ret.0.copyload.i126, i64 12)
   %and151 = and i64 %or150, 17179869183
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and151, ptr %arrayidx152, align 8
   %shr153 = lshr i64 %ret.0.copyload.i127, 22
   %and154 = and i64 %shr153, 17179869183
-  %arrayidx155 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx155 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and154, ptr %arrayidx155, align 8
   %or158 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i128, i64 %ret.0.copyload.i127, i64 8)
   %and159 = and i64 %or158, 17179869183
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and159, ptr %arrayidx160, align 8
   %shr161 = lshr i64 %ret.0.copyload.i128, 26
   %and162 = and i64 %shr161, 17179869183
-  %arrayidx163 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx163 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and162, ptr %arrayidx163, align 8
   %or166 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i129, i64 %ret.0.copyload.i128, i64 4)
   %and167 = and i64 %or166, 17179869183
-  %arrayidx168 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx168 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and167, ptr %arrayidx168, align 8
   %shr169 = lshr i64 %ret.0.copyload.i129, 30
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr169, ptr %arrayidx170, align 8
   ret ptr %add.ptr49
 }
@@ -6750,29 +6744,29 @@ entry:
   %and = and i64 %ret.0.copyload.i, 34359738367
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i117, i64 %ret.0.copyload.i, i64 29)
   %and53 = and i64 %or, 34359738367
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 8
   %shr55 = lshr i64 %ret.0.copyload.i117, 6
   %and56 = and i64 %shr55, 34359738367
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 16
   %or60 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i118, i64 %ret.0.copyload.i117, i64 23)
   %and61 = and i64 %or60, 34359738367
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 24
   %shr63 = lshr i64 %ret.0.copyload.i118, 12
   %and64 = and i64 %shr63, 34359738367
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 32
   %or68 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i119, i64 %ret.0.copyload.i118, i64 17)
   %and69 = and i64 %or68, 34359738367
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 40
   %shr71 = lshr i64 %ret.0.copyload.i119, 18
   %and72 = and i64 %shr71, 34359738367
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 48
   %or76 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i119, i64 11)
   %and77 = and i64 %or76, 34359738367
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 56
   %shr79 = lshr i64 %ret.0.copyload.i120, 24
   %and80 = and i64 %shr79, 34359738367
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 8
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 64
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 72
   %0 = load <2 x i64>, ptr %add.ptr13, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i120, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -6781,32 +6775,32 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr92 = lshr i64 %5, 1
   %and93 = and i64 %shr92, 34359738367
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 88
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i123, i64 %5, i64 28)
   %and98 = and i64 %or97, 34359738367
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 96
   %shr100 = lshr i64 %ret.0.copyload.i123, 7
   %and101 = and i64 %shr100, 34359738367
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 104
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i124, i64 %ret.0.copyload.i123, i64 22)
   %and106 = and i64 %or105, 34359738367
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 112
   %shr108 = lshr i64 %ret.0.copyload.i124, 13
   %and109 = and i64 %shr108, 34359738367
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 120
   %or113 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i125, i64 %ret.0.copyload.i124, i64 16)
   %and114 = and i64 %or113, 34359738367
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 128
   %shr116 = lshr i64 %ret.0.copyload.i125, 19
   %and117 = and i64 %shr116, 34359738367
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 136
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i126, i64 %ret.0.copyload.i125, i64 10)
   %and122 = and i64 %or121, 34359738367
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 144
   %shr124 = lshr i64 %ret.0.copyload.i126, 25
   %and125 = and i64 %shr124, 34359738367
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 19
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 152
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 160
   %6 = load <2 x i64>, ptr %add.ptr31, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and53, ptr %arrayidx54, align 8
@@ -6835,42 +6829,42 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr137 = lshr i64 %11, 2
   %and138 = and i64 %shr137, 34359738367
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 176
   store i64 %and138, ptr %arrayidx139, align 8
   %or142 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i129, i64 %11, i64 27)
   %and143 = and i64 %or142, 34359738367
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 184
   store i64 %and143, ptr %arrayidx144, align 8
   %shr145 = lshr i64 %ret.0.copyload.i129, 8
   %and146 = and i64 %shr145, 34359738367
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 192
   store i64 %and146, ptr %arrayidx147, align 8
   %or150 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i130, i64 %ret.0.copyload.i129, i64 21)
   %and151 = and i64 %or150, 34359738367
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and151, ptr %arrayidx152, align 8
   %shr153 = lshr i64 %ret.0.copyload.i130, 14
   %and154 = and i64 %shr153, 34359738367
-  %arrayidx155 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx155 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and154, ptr %arrayidx155, align 8
   %or158 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i131, i64 %ret.0.copyload.i130, i64 15)
   %and159 = and i64 %or158, 34359738367
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and159, ptr %arrayidx160, align 8
   %shr161 = lshr i64 %ret.0.copyload.i131, 20
   %and162 = and i64 %shr161, 34359738367
-  %arrayidx163 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx163 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and162, ptr %arrayidx163, align 8
   %or166 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i132, i64 %ret.0.copyload.i131, i64 9)
   %and167 = and i64 %or166, 34359738367
-  %arrayidx168 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx168 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and167, ptr %arrayidx168, align 8
   %shr169 = lshr i64 %ret.0.copyload.i132, 26
   %and170 = and i64 %shr169, 34359738367
-  %arrayidx171 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx171 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and170, ptr %arrayidx171, align 8
   %or174 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i132, i64 3)
-  %arrayidx176 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx176 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or174, ptr %arrayidx176, align 8
   ret ptr %add.ptr52
 }
@@ -6911,23 +6905,23 @@ entry:
   %and = and i64 %ret.0.copyload.i, 68719476735
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i116, i64 %ret.0.copyload.i, i64 28)
   %and53 = and i64 %or, 68719476735
-  %arrayidx54 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %out, i64 8
   %shr55 = lshr i64 %ret.0.copyload.i116, 8
   %and56 = and i64 %shr55, 68719476735
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 16
   %or60 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i117, i64 %ret.0.copyload.i116, i64 20)
   %and61 = and i64 %or60, 68719476735
-  %arrayidx62 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx62 = getelementptr inbounds i8, ptr %out, i64 24
   %shr63 = lshr i64 %ret.0.copyload.i117, 16
   %and64 = and i64 %shr63, 68719476735
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 32
   %or68 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i118, i64 %ret.0.copyload.i117, i64 12)
   %and69 = and i64 %or68, 68719476735
-  %arrayidx70 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx70 = getelementptr inbounds i8, ptr %out, i64 40
   %shr71 = lshr i64 %ret.0.copyload.i118, 24
   %and72 = and i64 %shr71, 68719476735
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 6
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 48
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 56
   %0 = load <2 x i64>, ptr %add.ptr10, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i118, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -6936,45 +6930,45 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr84 = lshr i64 %5, 4
   %and85 = and i64 %shr84, 68719476735
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 72
   %or89 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i121, i64 %5, i64 24)
   %and90 = and i64 %or89, 68719476735
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 80
   %shr92 = lshr i64 %ret.0.copyload.i121, 12
   %and93 = and i64 %shr92, 68719476735
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 88
   %or97 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i122, i64 %ret.0.copyload.i121, i64 16)
   %and98 = and i64 %or97, 68719476735
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 96
   %shr100 = lshr i64 %ret.0.copyload.i122, 20
   %and101 = and i64 %shr100, 68719476735
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 104
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i123, i64 %ret.0.copyload.i122, i64 8)
   %and106 = and i64 %or105, 68719476735
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 112
   %shr108 = lshr i64 %ret.0.copyload.i123, 28
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 120
   %and110 = and i64 %ret.0.copyload.i124, 68719476735
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 128
   %or114 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i125, i64 %ret.0.copyload.i124, i64 28)
   %and115 = and i64 %or114, 68719476735
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 136
   %shr117 = lshr i64 %ret.0.copyload.i125, 8
   %and118 = and i64 %shr117, 68719476735
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 144
   %or122 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i126, i64 %ret.0.copyload.i125, i64 20)
   %and123 = and i64 %or122, 68719476735
-  %arrayidx124 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx124 = getelementptr inbounds i8, ptr %out, i64 152
   %shr125 = lshr i64 %ret.0.copyload.i126, 16
   %and126 = and i64 %shr125, 68719476735
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 160
   %or130 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i127, i64 %ret.0.copyload.i126, i64 12)
   %and131 = and i64 %or130, 68719476735
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 168
   %shr133 = lshr i64 %ret.0.copyload.i127, 24
   %and134 = and i64 %shr133, 68719476735
-  %arrayidx135 = getelementptr inbounds i64, ptr %out, i64 22
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx135 = getelementptr inbounds i8, ptr %out, i64 176
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 184
   %6 = load <2 x i64>, ptr %add.ptr37, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and53, ptr %arrayidx54, align 8
@@ -7006,30 +7000,30 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr146 = lshr i64 %11, 4
   %and147 = and i64 %shr146, 68719476735
-  %arrayidx148 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx148 = getelementptr inbounds i8, ptr %out, i64 200
   store i64 %and147, ptr %arrayidx148, align 8
   %or151 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i130, i64 %11, i64 24)
   %and152 = and i64 %or151, 68719476735
-  %arrayidx153 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx153 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and152, ptr %arrayidx153, align 8
   %shr154 = lshr i64 %ret.0.copyload.i130, 12
   %and155 = and i64 %shr154, 68719476735
-  %arrayidx156 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx156 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and155, ptr %arrayidx156, align 8
   %or159 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i131, i64 %ret.0.copyload.i130, i64 16)
   %and160 = and i64 %or159, 68719476735
-  %arrayidx161 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx161 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and160, ptr %arrayidx161, align 8
   %shr162 = lshr i64 %ret.0.copyload.i131, 20
   %and163 = and i64 %shr162, 68719476735
-  %arrayidx164 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx164 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and163, ptr %arrayidx164, align 8
   %or167 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i132, i64 %ret.0.copyload.i131, i64 8)
   %and168 = and i64 %or167, 68719476735
-  %arrayidx169 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx169 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and168, ptr %arrayidx169, align 8
   %shr170 = lshr i64 %ret.0.copyload.i132, 28
-  %arrayidx171 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx171 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr170, ptr %arrayidx171, align 8
   ret ptr %add.ptr52
 }
@@ -7067,17 +7061,17 @@ entry:
   %and = and i64 %ret.0.copyload.i, 137438953471
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i, i64 27)
   %and56 = and i64 %or, 137438953471
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 8
   %shr58 = lshr i64 %ret.0.copyload.i120, 10
   %and59 = and i64 %shr58, 137438953471
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 16
   %or63 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i121, i64 %ret.0.copyload.i120, i64 17)
   %and64 = and i64 %or63, 137438953471
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 24
   %shr66 = lshr i64 %ret.0.copyload.i121, 20
   %and67 = and i64 %shr66, 137438953471
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 4
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 32
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 40
   %0 = load <2 x i64>, ptr %add.ptr7, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i121, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -7086,20 +7080,20 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr79 = lshr i64 %5, 3
   %and80 = and i64 %shr79, 137438953471
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 56
   %or84 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i124, i64 %5, i64 24)
   %and85 = and i64 %or84, 137438953471
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 64
   %shr87 = lshr i64 %ret.0.copyload.i124, 13
   %and88 = and i64 %shr87, 137438953471
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 72
   %or92 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i125, i64 %ret.0.copyload.i124, i64 14)
   %and93 = and i64 %or92, 137438953471
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 80
   %shr95 = lshr i64 %ret.0.copyload.i125, 23
   %and96 = and i64 %shr95, 137438953471
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 11
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 88
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 96
   %6 = load <2 x i64>, ptr %add.ptr19, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i125, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -7108,20 +7102,20 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr108 = lshr i64 %11, 6
   %and109 = and i64 %shr108, 137438953471
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 112
   %or113 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i128, i64 %11, i64 21)
   %and114 = and i64 %or113, 137438953471
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 120
   %shr116 = lshr i64 %ret.0.copyload.i128, 16
   %and117 = and i64 %shr116, 137438953471
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 128
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i129, i64 %ret.0.copyload.i128, i64 11)
   %and122 = and i64 %or121, 137438953471
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 136
   %shr124 = lshr i64 %ret.0.copyload.i129, 26
   %and125 = and i64 %shr124, 137438953471
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 18
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 144
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 152
   %12 = load <2 x i64>, ptr %add.ptr31, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i129, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -7130,14 +7124,14 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr137 = lshr i64 %17, 9
   %and138 = and i64 %shr137, 137438953471
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 168
   %or142 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i132, i64 %17, i64 18)
   %and143 = and i64 %or142, 137438953471
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 176
   %shr145 = lshr i64 %ret.0.copyload.i132, 19
   %and146 = and i64 %shr145, 137438953471
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 23
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 184
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 192
   %18 = load <2 x i64>, ptr %add.ptr40, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and56, ptr %arrayidx57, align 8
@@ -7168,26 +7162,26 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr158 = lshr i64 %23, 2
   %and159 = and i64 %shr158, 137438953471
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 208
   store i64 %and159, ptr %arrayidx160, align 8
   %or163 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i135, i64 %23, i64 25)
   %and164 = and i64 %or163, 137438953471
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and164, ptr %arrayidx165, align 8
   %shr166 = lshr i64 %ret.0.copyload.i135, 12
   %and167 = and i64 %shr166, 137438953471
-  %arrayidx168 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx168 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and167, ptr %arrayidx168, align 8
   %or171 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i136, i64 %ret.0.copyload.i135, i64 15)
   %and172 = and i64 %or171, 137438953471
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and172, ptr %arrayidx173, align 8
   %shr174 = lshr i64 %ret.0.copyload.i136, 22
   %and175 = and i64 %shr174, 137438953471
-  %arrayidx176 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx176 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and175, ptr %arrayidx176, align 8
   %or179 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i136, i64 5)
-  %arrayidx181 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx181 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or179, ptr %arrayidx181, align 8
   ret ptr %add.ptr55
 }
@@ -7221,17 +7215,17 @@ entry:
   %and = and i64 %ret.0.copyload.i, 274877906943
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i, i64 26)
   %and56 = and i64 %or, 274877906943
-  %arrayidx57 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx57 = getelementptr inbounds i8, ptr %out, i64 8
   %shr58 = lshr i64 %ret.0.copyload.i120, 12
   %and59 = and i64 %shr58, 274877906943
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 16
   %or63 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i121, i64 %ret.0.copyload.i120, i64 14)
   %and64 = and i64 %or63, 274877906943
-  %arrayidx65 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx65 = getelementptr inbounds i8, ptr %out, i64 24
   %shr66 = lshr i64 %ret.0.copyload.i121, 24
   %and67 = and i64 %shr66, 274877906943
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 4
-  %arrayidx73 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 32
+  %arrayidx73 = getelementptr inbounds i8, ptr %out, i64 40
   %0 = load <2 x i64>, ptr %add.ptr7, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i121, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -7240,14 +7234,14 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr79 = lshr i64 %5, 10
   %and80 = and i64 %shr79, 274877906943
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 56
   %or84 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i124, i64 %5, i64 16)
   %and85 = and i64 %or84, 274877906943
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 64
   %shr87 = lshr i64 %ret.0.copyload.i124, 22
   %and88 = and i64 %shr87, 274877906943
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 9
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 72
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 80
   %6 = load <2 x i64>, ptr %add.ptr16, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i124, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -7256,14 +7250,14 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr100 = lshr i64 %11, 8
   %and101 = and i64 %shr100, 274877906943
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 96
   %or105 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i127, i64 %11, i64 18)
   %and106 = and i64 %or105, 274877906943
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 104
   %shr108 = lshr i64 %ret.0.copyload.i127, 20
   %and109 = and i64 %shr108, 274877906943
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 14
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 112
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 120
   %12 = load <2 x i64>, ptr %add.ptr25, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i127, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -7272,14 +7266,14 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr121 = lshr i64 %17, 6
   %and122 = and i64 %shr121, 274877906943
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 136
   %or126 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i130, i64 %17, i64 20)
   %and127 = and i64 %or126, 274877906943
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 144
   %shr129 = lshr i64 %ret.0.copyload.i130, 18
   %and130 = and i64 %shr129, 274877906943
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 19
-  %arrayidx136 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 152
+  %arrayidx136 = getelementptr inbounds i8, ptr %out, i64 160
   %18 = load <2 x i64>, ptr %add.ptr34, align 1
   %19 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i130, i64 0
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -7288,14 +7282,14 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr142 = lshr i64 %23, 4
   %and143 = and i64 %shr142, 274877906943
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 176
   %or147 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i133, i64 %23, i64 22)
   %and148 = and i64 %or147, 274877906943
-  %arrayidx149 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx149 = getelementptr inbounds i8, ptr %out, i64 184
   %shr150 = lshr i64 %ret.0.copyload.i133, 16
   %and151 = and i64 %shr150, 274877906943
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 24
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 192
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 200
   %24 = load <2 x i64>, ptr %add.ptr43, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and56, ptr %arrayidx57, align 8
@@ -7326,22 +7320,22 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr163 = lshr i64 %29, 2
   %and164 = and i64 %shr163, 274877906943
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 216
   store i64 %and164, ptr %arrayidx165, align 8
   %or168 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i136, i64 %29, i64 24)
   %and169 = and i64 %or168, 274877906943
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and169, ptr %arrayidx170, align 8
   %shr171 = lshr i64 %ret.0.copyload.i136, 14
   %and172 = and i64 %shr171, 274877906943
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and172, ptr %arrayidx173, align 8
   %or176 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i137, i64 %ret.0.copyload.i136, i64 12)
   %and177 = and i64 %or176, 274877906943
-  %arrayidx178 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx178 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and177, ptr %arrayidx178, align 8
   %shr179 = lshr i64 %ret.0.copyload.i137, 26
-  %arrayidx180 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx180 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr179, ptr %arrayidx180, align 8
   ret ptr %add.ptr55
 }
@@ -7375,11 +7369,11 @@ entry:
   %and = and i64 %ret.0.copyload.i, 549755813887
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i123, i64 %ret.0.copyload.i, i64 25)
   %and59 = and i64 %or, 549755813887
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 8
   %shr61 = lshr i64 %ret.0.copyload.i123, 14
   %and62 = and i64 %shr61, 549755813887
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 2
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 16
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 24
   %0 = load <2 x i64>, ptr %add.ptr4, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i123, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -7388,14 +7382,14 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr74 = lshr i64 %5, 3
   %and75 = and i64 %shr74, 549755813887
-  %arrayidx76 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx76 = getelementptr inbounds i8, ptr %out, i64 40
   %or79 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i126, i64 %5, i64 22)
   %and80 = and i64 %or79, 549755813887
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 48
   %shr82 = lshr i64 %ret.0.copyload.i126, 17
   %and83 = and i64 %shr82, 549755813887
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 7
-  %arrayidx89 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 56
+  %arrayidx89 = getelementptr inbounds i8, ptr %out, i64 64
   %6 = load <2 x i64>, ptr %add.ptr13, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i126, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -7404,14 +7398,14 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr95 = lshr i64 %11, 6
   %and96 = and i64 %shr95, 549755813887
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 80
   %or100 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i129, i64 %11, i64 19)
   %and101 = and i64 %or100, 549755813887
-  %arrayidx102 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx102 = getelementptr inbounds i8, ptr %out, i64 88
   %shr103 = lshr i64 %ret.0.copyload.i129, 20
   %and104 = and i64 %shr103, 549755813887
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 12
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 96
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 104
   %12 = load <2 x i64>, ptr %add.ptr22, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i129, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -7420,14 +7414,14 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr116 = lshr i64 %17, 9
   %and117 = and i64 %shr116, 549755813887
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 120
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i132, i64 %17, i64 16)
   %and122 = and i64 %or121, 549755813887
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 128
   %shr124 = lshr i64 %ret.0.copyload.i132, 23
   %and125 = and i64 %shr124, 549755813887
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 17
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 136
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 144
   %18 = load <2 x i64>, ptr %add.ptr31, align 1
   %19 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i132, i64 0
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -7436,8 +7430,8 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr137 = lshr i64 %23, 12
   %and138 = and i64 %shr137, 549755813887
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 20
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 160
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 168
   %24 = load <2 x i64>, ptr %add.ptr37, align 1
   %25 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -7446,14 +7440,14 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr150 = lshr i64 %29, 1
   %and151 = and i64 %shr150, 549755813887
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 184
   %or155 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i137, i64 %29, i64 24)
   %and156 = and i64 %or155, 549755813887
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 192
   %shr158 = lshr i64 %ret.0.copyload.i137, 15
   %and159 = and i64 %shr158, 549755813887
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 25
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 200
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 208
   %30 = load <2 x i64>, ptr %add.ptr46, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and59, ptr %arrayidx60, align 8
@@ -7484,18 +7478,18 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %shr171 = lshr i64 %35, 4
   %and172 = and i64 %shr171, 549755813887
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and172, ptr %arrayidx173, align 8
   %or176 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i140, i64 %35, i64 21)
   %and177 = and i64 %or176, 549755813887
-  %arrayidx178 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx178 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and177, ptr %arrayidx178, align 8
   %shr179 = lshr i64 %ret.0.copyload.i140, 18
   %and180 = and i64 %shr179, 549755813887
-  %arrayidx181 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx181 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and180, ptr %arrayidx181, align 8
   %or184 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i140, i64 7)
-  %arrayidx186 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx186 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or184, ptr %arrayidx186, align 8
   ret ptr %add.ptr58
 }
@@ -7534,11 +7528,11 @@ entry:
   %and = and i64 %ret.0.copyload.i, 1099511627775
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i120, i64 %ret.0.copyload.i, i64 24)
   %and59 = and i64 %or, 1099511627775
-  %arrayidx60 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx60 = getelementptr inbounds i8, ptr %out, i64 8
   %shr61 = lshr i64 %ret.0.copyload.i120, 16
   %and62 = and i64 %shr61, 1099511627775
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 2
-  %arrayidx68 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 16
+  %arrayidx68 = getelementptr inbounds i8, ptr %out, i64 24
   %0 = load <2 x i64>, ptr %add.ptr4, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i120, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -7547,21 +7541,21 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr74 = lshr i64 %5, 8
   %and75 = and i64 %shr74, 1099511627775
-  %arrayidx76 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx76 = getelementptr inbounds i8, ptr %out, i64 40
   %or79 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i123, i64 %5, i64 16)
   %and80 = and i64 %or79, 1099511627775
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 48
   %shr82 = lshr i64 %ret.0.copyload.i123, 24
-  %arrayidx83 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx83 = getelementptr inbounds i8, ptr %out, i64 56
   %and84 = and i64 %ret.0.copyload.i124, 1099511627775
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 64
   %or88 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i125, i64 %ret.0.copyload.i124, i64 24)
   %and89 = and i64 %or88, 1099511627775
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 72
   %shr91 = lshr i64 %ret.0.copyload.i125, 16
   %and92 = and i64 %shr91, 1099511627775
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 10
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 80
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 88
   %6 = load <2 x i64>, ptr %add.ptr19, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i125, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -7570,21 +7564,21 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr104 = lshr i64 %11, 8
   %and105 = and i64 %shr104, 1099511627775
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 104
   %or109 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i128, i64 %11, i64 16)
   %and110 = and i64 %or109, 1099511627775
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 112
   %shr112 = lshr i64 %ret.0.copyload.i128, 24
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 120
   %and114 = and i64 %ret.0.copyload.i129, 1099511627775
-  %arrayidx115 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx115 = getelementptr inbounds i8, ptr %out, i64 128
   %or118 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i130, i64 %ret.0.copyload.i129, i64 24)
   %and119 = and i64 %or118, 1099511627775
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 136
   %shr121 = lshr i64 %ret.0.copyload.i130, 16
   %and122 = and i64 %shr121, 1099511627775
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 18
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 144
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 152
   %12 = load <2 x i64>, ptr %add.ptr34, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i130, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -7593,21 +7587,21 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr134 = lshr i64 %17, 8
   %and135 = and i64 %shr134, 1099511627775
-  %arrayidx136 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx136 = getelementptr inbounds i8, ptr %out, i64 168
   %or139 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i133, i64 %17, i64 16)
   %and140 = and i64 %or139, 1099511627775
-  %arrayidx141 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx141 = getelementptr inbounds i8, ptr %out, i64 176
   %shr142 = lshr i64 %ret.0.copyload.i133, 24
-  %arrayidx143 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 184
   %and144 = and i64 %ret.0.copyload.i134, 1099511627775
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 192
   %or148 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i135, i64 %ret.0.copyload.i134, i64 24)
   %and149 = and i64 %or148, 1099511627775
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 200
   %shr151 = lshr i64 %ret.0.copyload.i135, 16
   %and152 = and i64 %shr151, 1099511627775
-  %arrayidx153 = getelementptr inbounds i64, ptr %out, i64 26
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx153 = getelementptr inbounds i8, ptr %out, i64 208
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 216
   %18 = load <2 x i64>, ptr %add.ptr49, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and59, ptr %arrayidx60, align 8
@@ -7641,14 +7635,14 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr164 = lshr i64 %23, 8
   %and165 = and i64 %shr164, 1099511627775
-  %arrayidx166 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx166 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and165, ptr %arrayidx166, align 8
   %or169 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i138, i64 %23, i64 16)
   %and170 = and i64 %or169, 1099511627775
-  %arrayidx171 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx171 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and170, ptr %arrayidx171, align 8
   %shr172 = lshr i64 %ret.0.copyload.i138, 24
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr172, ptr %arrayidx173, align 8
   ret ptr %add.ptr58
 }
@@ -7678,11 +7672,11 @@ entry:
   %and = and i64 %ret.0.copyload.i, 2199023255551
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i126, i64 %ret.0.copyload.i, i64 23)
   %and62 = and i64 %or, 2199023255551
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 8
   %shr64 = lshr i64 %ret.0.copyload.i126, 18
   %and65 = and i64 %shr64, 2199023255551
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 2
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 16
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 24
   %0 = load <2 x i64>, ptr %add.ptr4, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i126, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -7691,8 +7685,8 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr77 = lshr i64 %5, 13
   %and78 = and i64 %shr77, 2199023255551
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 5
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 40
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 48
   %6 = load <2 x i64>, ptr %add.ptr10, align 1
   %7 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -7701,8 +7695,8 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr90 = lshr i64 %11, 8
   %and91 = and i64 %shr90, 2199023255551
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 8
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 64
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 72
   %12 = load <2 x i64>, ptr %add.ptr16, align 1
   %13 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -7711,14 +7705,14 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr103 = lshr i64 %17, 3
   %and104 = and i64 %shr103, 2199023255551
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 88
   %or108 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i133, i64 %17, i64 20)
   %and109 = and i64 %or108, 2199023255551
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 96
   %shr111 = lshr i64 %ret.0.copyload.i133, 21
   %and112 = and i64 %shr111, 2199023255551
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 13
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 104
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 112
   %18 = load <2 x i64>, ptr %add.ptr25, align 1
   %19 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i133, i64 0
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -7727,8 +7721,8 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr124 = lshr i64 %23, 16
   %and125 = and i64 %shr124, 2199023255551
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 16
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 128
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 136
   %24 = load <2 x i64>, ptr %add.ptr31, align 1
   %25 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -7737,8 +7731,8 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr137 = lshr i64 %29, 11
   %and138 = and i64 %shr137, 2199023255551
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 19
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 152
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 160
   %30 = load <2 x i64>, ptr %add.ptr37, align 1
   %31 = shufflevector <2 x i64> %24, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -7747,8 +7741,8 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %shr150 = lshr i64 %35, 6
   %and151 = and i64 %shr150, 2199023255551
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 22
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 176
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 184
   %36 = load <2 x i64>, ptr %add.ptr43, align 1
   %37 = shufflevector <2 x i64> %30, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -7757,14 +7751,14 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %shr163 = lshr i64 %41, 1
   %and164 = and i64 %shr163, 2199023255551
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 200
   %or168 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i142, i64 %41, i64 22)
   %and169 = and i64 %or168, 2199023255551
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 208
   %shr171 = lshr i64 %ret.0.copyload.i142, 19
   %and172 = and i64 %shr171, 2199023255551
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 27
-  %arrayidx178 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 216
+  %arrayidx178 = getelementptr inbounds i8, ptr %out, i64 224
   %42 = load <2 x i64>, ptr %add.ptr52, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and62, ptr %arrayidx63, align 8
@@ -7795,10 +7789,10 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %shr184 = lshr i64 %47, 14
   %and185 = and i64 %shr184, 2199023255551
-  %arrayidx186 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx186 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and185, ptr %arrayidx186, align 8
   %or189 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %47, i64 9)
-  %arrayidx191 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx191 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or189, ptr %arrayidx191, align 8
   ret ptr %add.ptr61
 }
@@ -7824,11 +7818,11 @@ entry:
   %and = and i64 %ret.0.copyload.i, 4398046511103
   %or = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i126, i64 %ret.0.copyload.i, i64 22)
   %and62 = and i64 %or, 4398046511103
-  %arrayidx63 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx63 = getelementptr inbounds i8, ptr %out, i64 8
   %shr64 = lshr i64 %ret.0.copyload.i126, 20
   %and65 = and i64 %shr64, 4398046511103
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 2
-  %arrayidx71 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 16
+  %arrayidx71 = getelementptr inbounds i8, ptr %out, i64 24
   %0 = load <2 x i64>, ptr %add.ptr4, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i126, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -7837,8 +7831,8 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr77 = lshr i64 %5, 18
   %and78 = and i64 %shr77, 4398046511103
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 5
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 40
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 48
   %6 = load <2 x i64>, ptr %add.ptr10, align 1
   %7 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -7847,8 +7841,8 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr90 = lshr i64 %11, 16
   %and91 = and i64 %shr90, 4398046511103
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 8
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 64
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 72
   %12 = load <2 x i64>, ptr %add.ptr16, align 1
   %13 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -7857,8 +7851,8 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr103 = lshr i64 %17, 14
   %and104 = and i64 %shr103, 4398046511103
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 11
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 88
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 96
   %18 = load <2 x i64>, ptr %add.ptr22, align 1
   %19 = shufflevector <2 x i64> %12, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -7867,8 +7861,8 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr116 = lshr i64 %23, 12
   %and117 = and i64 %shr116, 4398046511103
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 14
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 112
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 120
   %24 = load <2 x i64>, ptr %add.ptr28, align 1
   %25 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -7877,8 +7871,8 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr129 = lshr i64 %29, 10
   %and130 = and i64 %shr129, 4398046511103
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 17
-  %arrayidx136 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 136
+  %arrayidx136 = getelementptr inbounds i8, ptr %out, i64 144
   %30 = load <2 x i64>, ptr %add.ptr34, align 1
   %31 = shufflevector <2 x i64> %24, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -7887,8 +7881,8 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %shr142 = lshr i64 %35, 8
   %and143 = and i64 %shr142, 4398046511103
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 20
-  %arrayidx149 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 160
+  %arrayidx149 = getelementptr inbounds i8, ptr %out, i64 168
   %36 = load <2 x i64>, ptr %add.ptr40, align 1
   %37 = shufflevector <2 x i64> %30, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -7897,8 +7891,8 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %shr155 = lshr i64 %41, 6
   %and156 = and i64 %shr155, 4398046511103
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 23
-  %arrayidx162 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 184
+  %arrayidx162 = getelementptr inbounds i8, ptr %out, i64 192
   %42 = load <2 x i64>, ptr %add.ptr46, align 1
   %43 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
@@ -7907,8 +7901,8 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %shr168 = lshr i64 %47, 4
   %and169 = and i64 %shr168, 4398046511103
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 26
-  %arrayidx175 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 208
+  %arrayidx175 = getelementptr inbounds i8, ptr %out, i64 216
   %48 = load <2 x i64>, ptr %add.ptr52, align 1
   store i64 %and, ptr %out, align 8
   store i64 %and62, ptr %arrayidx63, align 8
@@ -7937,14 +7931,14 @@ entry:
   %53 = extractelement <2 x i64> %48, i64 1
   %shr181 = lshr i64 %53, 2
   %and182 = and i64 %shr181, 4398046511103
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and182, ptr %arrayidx183, align 8
   %or186 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i145, i64 %53, i64 20)
   %and187 = and i64 %or186, 4398046511103
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and187, ptr %arrayidx188, align 8
   %shr189 = lshr i64 %ret.0.copyload.i145, 22
-  %arrayidx190 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx190 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr189, ptr %arrayidx190, align 8
   ret ptr %add.ptr61
 }
@@ -7968,7 +7962,7 @@ entry:
   %conv = zext i32 %ret.0.copyload.i149 to i64
   %add.ptr64 = getelementptr inbounds i8, ptr %in, i64 172
   %and = and i64 %ret.0.copyload.i, 8796093022207
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -7977,8 +7971,8 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr72 = lshr i64 %5, 1
   %and73 = and i64 %shr72, 8796093022207
-  %arrayidx74 = getelementptr inbounds i64, ptr %out, i64 3
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx74 = getelementptr inbounds i8, ptr %out, i64 24
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 32
   %6 = load <2 x i64>, ptr %add.ptr7, align 1
   %7 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -7987,8 +7981,8 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr85 = lshr i64 %11, 2
   %and86 = and i64 %shr85, 8796093022207
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 6
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 48
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 56
   %12 = load <2 x i64>, ptr %add.ptr13, align 1
   %13 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -7997,8 +7991,8 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr98 = lshr i64 %17, 3
   %and99 = and i64 %shr98, 8796093022207
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 9
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 72
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 80
   %18 = load <2 x i64>, ptr %add.ptr19, align 1
   %19 = shufflevector <2 x i64> %12, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -8007,8 +8001,8 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr111 = lshr i64 %23, 4
   %and112 = and i64 %shr111, 8796093022207
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 12
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 96
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 104
   %24 = load <2 x i64>, ptr %add.ptr25, align 1
   %25 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -8017,8 +8011,8 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr124 = lshr i64 %29, 5
   %and125 = and i64 %shr124, 8796093022207
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 15
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 120
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 128
   %30 = load <2 x i64>, ptr %add.ptr31, align 1
   %31 = shufflevector <2 x i64> %24, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -8027,8 +8021,8 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %shr137 = lshr i64 %35, 6
   %and138 = and i64 %shr137, 8796093022207
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 18
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 144
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 152
   %36 = load <2 x i64>, ptr %add.ptr37, align 1
   %37 = shufflevector <2 x i64> %30, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -8037,8 +8031,8 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %shr150 = lshr i64 %41, 7
   %and151 = and i64 %shr150, 8796093022207
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 21
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 168
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 176
   %42 = load <2 x i64>, ptr %add.ptr43, align 1
   %43 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
@@ -8047,8 +8041,8 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %shr163 = lshr i64 %47, 8
   %and164 = and i64 %shr163, 8796093022207
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 24
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 192
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 200
   %48 = load <2 x i64>, ptr %add.ptr49, align 1
   %49 = shufflevector <2 x i64> %42, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %50 = shufflevector <2 x i64> %49, <2 x i64> %48, <2 x i32> <i32 0, i32 2>
@@ -8057,8 +8051,8 @@ entry:
   %53 = extractelement <2 x i64> %48, i64 1
   %shr176 = lshr i64 %53, 9
   %and177 = and i64 %shr176, 8796093022207
-  %arrayidx178 = getelementptr inbounds i64, ptr %out, i64 27
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx178 = getelementptr inbounds i8, ptr %out, i64 216
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 224
   %54 = load <2 x i64>, ptr %add.ptr55, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx66, align 8
@@ -8087,10 +8081,10 @@ entry:
   %59 = extractelement <2 x i64> %54, i64 1
   %shr189 = lshr i64 %59, 10
   %and190 = and i64 %shr189, 8796093022207
-  %arrayidx191 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx191 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and190, ptr %arrayidx191, align 8
   %or194 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %59, i64 11)
-  %arrayidx196 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx196 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or194, ptr %arrayidx196, align 8
   ret ptr %add.ptr64
 }
@@ -8113,7 +8107,7 @@ entry:
   %add.ptr58 = getelementptr inbounds i8, ptr %in, i64 160
   %add.ptr64 = getelementptr inbounds i8, ptr %in, i64 176
   %and = and i64 %ret.0.copyload.i, 17592186044415
-  %arrayidx66 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -8122,8 +8116,8 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr72 = lshr i64 %5, 4
   %and73 = and i64 %shr72, 17592186044415
-  %arrayidx74 = getelementptr inbounds i64, ptr %out, i64 3
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx74 = getelementptr inbounds i8, ptr %out, i64 24
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 32
   %6 = load <2 x i64>, ptr %add.ptr7, align 1
   %7 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -8132,8 +8126,8 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr85 = lshr i64 %11, 8
   %and86 = and i64 %shr85, 17592186044415
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 6
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 48
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 56
   %12 = load <2 x i64>, ptr %add.ptr13, align 1
   %13 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -8142,8 +8136,8 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr98 = lshr i64 %17, 12
   %and99 = and i64 %shr98, 17592186044415
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 9
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 72
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 80
   %18 = load <2 x i64>, ptr %add.ptr19, align 1
   %19 = shufflevector <2 x i64> %12, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -8152,8 +8146,8 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr111 = lshr i64 %23, 16
   %and112 = and i64 %shr111, 17592186044415
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 12
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 96
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 104
   %24 = load <2 x i64>, ptr %add.ptr25, align 1
   %25 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -8161,10 +8155,10 @@ entry:
   %28 = and <2 x i64> %27, <i64 17592186044415, i64 17592186044415>
   %29 = extractelement <2 x i64> %24, i64 1
   %shr124 = lshr i64 %29, 20
-  %arrayidx125 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx125 = getelementptr inbounds i8, ptr %out, i64 120
   %and126 = and i64 %ret.0.copyload.i138, 17592186044415
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 16
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 128
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 136
   %30 = load <2 x i64>, ptr %add.ptr34, align 1
   %31 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i138, i64 0
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -8173,8 +8167,8 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %shr138 = lshr i64 %35, 4
   %and139 = and i64 %shr138, 17592186044415
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 19
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 152
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 160
   %36 = load <2 x i64>, ptr %add.ptr40, align 1
   %37 = shufflevector <2 x i64> %30, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -8183,8 +8177,8 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %shr151 = lshr i64 %41, 8
   %and152 = and i64 %shr151, 17592186044415
-  %arrayidx153 = getelementptr inbounds i64, ptr %out, i64 22
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx153 = getelementptr inbounds i8, ptr %out, i64 176
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 184
   %42 = load <2 x i64>, ptr %add.ptr46, align 1
   %43 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
@@ -8193,8 +8187,8 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %shr164 = lshr i64 %47, 12
   %and165 = and i64 %shr164, 17592186044415
-  %arrayidx166 = getelementptr inbounds i64, ptr %out, i64 25
-  %arrayidx171 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx166 = getelementptr inbounds i8, ptr %out, i64 200
+  %arrayidx171 = getelementptr inbounds i8, ptr %out, i64 208
   %48 = load <2 x i64>, ptr %add.ptr52, align 1
   %49 = shufflevector <2 x i64> %42, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %50 = shufflevector <2 x i64> %49, <2 x i64> %48, <2 x i32> <i32 0, i32 2>
@@ -8203,8 +8197,8 @@ entry:
   %53 = extractelement <2 x i64> %48, i64 1
   %shr177 = lshr i64 %53, 16
   %and178 = and i64 %shr177, 17592186044415
-  %arrayidx179 = getelementptr inbounds i64, ptr %out, i64 28
-  %arrayidx184 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx179 = getelementptr inbounds i8, ptr %out, i64 224
+  %arrayidx184 = getelementptr inbounds i8, ptr %out, i64 232
   %54 = load <2 x i64>, ptr %add.ptr58, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx66, align 8
@@ -8233,7 +8227,7 @@ entry:
   store <2 x i64> %58, ptr %arrayidx184, align 8
   %59 = extractelement <2 x i64> %54, i64 1
   %shr190 = lshr i64 %59, 20
-  %arrayidx191 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx191 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr190, ptr %arrayidx191, align 8
   ret ptr %add.ptr64
 }
@@ -8262,7 +8256,7 @@ entry:
   %conv = zext i32 %ret.0.copyload.i153 to i64
   %add.ptr67 = getelementptr inbounds i8, ptr %in, i64 180
   %and = and i64 %ret.0.copyload.i, 35184372088831
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -8271,8 +8265,8 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr75 = lshr i64 %5, 7
   %and76 = and i64 %shr75, 35184372088831
-  %arrayidx77 = getelementptr inbounds i64, ptr %out, i64 3
-  %arrayidx82 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx77 = getelementptr inbounds i8, ptr %out, i64 24
+  %arrayidx82 = getelementptr inbounds i8, ptr %out, i64 32
   %6 = load <2 x i64>, ptr %add.ptr7, align 1
   %7 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -8281,8 +8275,8 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %shr88 = lshr i64 %11, 14
   %and89 = and i64 %shr88, 35184372088831
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 6
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 48
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 56
   %12 = load <2 x i64>, ptr %add.ptr13, align 1
   %13 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -8291,11 +8285,11 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %or103 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i138, i64 %17, i64 43)
   %and104 = and i64 %or103, 35184372088831
-  %arrayidx105 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx105 = getelementptr inbounds i8, ptr %out, i64 72
   %shr106 = lshr i64 %ret.0.copyload.i138, 2
   %and107 = and i64 %shr106, 35184372088831
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 10
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 80
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 88
   %18 = load <2 x i64>, ptr %add.ptr22, align 1
   %19 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i138, i64 0
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -8304,8 +8298,8 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %shr119 = lshr i64 %23, 9
   %and120 = and i64 %shr119, 35184372088831
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 13
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 104
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 112
   %24 = load <2 x i64>, ptr %add.ptr28, align 1
   %25 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -8314,8 +8308,8 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr132 = lshr i64 %29, 16
   %and133 = and i64 %shr132, 35184372088831
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 16
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 128
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 136
   %30 = load <2 x i64>, ptr %add.ptr34, align 1
   %31 = shufflevector <2 x i64> %24, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -8324,11 +8318,11 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %or147 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i145, i64 %35, i64 41)
   %and148 = and i64 %or147, 35184372088831
-  %arrayidx149 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx149 = getelementptr inbounds i8, ptr %out, i64 152
   %shr150 = lshr i64 %ret.0.copyload.i145, 4
   %and151 = and i64 %shr150, 35184372088831
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 20
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 160
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 168
   %36 = load <2 x i64>, ptr %add.ptr43, align 1
   %37 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i145, i64 0
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -8337,8 +8331,8 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %shr163 = lshr i64 %41, 11
   %and164 = and i64 %shr163, 35184372088831
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 23
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 184
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 192
   %42 = load <2 x i64>, ptr %add.ptr49, align 1
   %43 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
@@ -8347,8 +8341,8 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %shr176 = lshr i64 %47, 18
   %and177 = and i64 %shr176, 35184372088831
-  %arrayidx178 = getelementptr inbounds i64, ptr %out, i64 26
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx178 = getelementptr inbounds i8, ptr %out, i64 208
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 216
   %48 = load <2 x i64>, ptr %add.ptr55, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx69, align 8
@@ -8377,14 +8371,14 @@ entry:
   %53 = extractelement <2 x i64> %48, i64 1
   %or191 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i152, i64 %53, i64 39)
   %and192 = and i64 %or191, 35184372088831
-  %arrayidx193 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx193 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and192, ptr %arrayidx193, align 8
   %shr194 = lshr i64 %ret.0.copyload.i152, 6
   %and195 = and i64 %shr194, 35184372088831
-  %arrayidx196 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx196 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and195, ptr %arrayidx196, align 8
   %or199 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i152, i64 13)
-  %arrayidx201 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx201 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or199, ptr %arrayidx201, align 8
   ret ptr %add.ptr67
 }
@@ -8412,7 +8406,7 @@ entry:
   %add.ptr61 = getelementptr inbounds i8, ptr %in, i64 168
   %add.ptr67 = getelementptr inbounds i8, ptr %in, i64 184
   %and = and i64 %ret.0.copyload.i, 70368744177663
-  %arrayidx69 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx69 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -8421,8 +8415,8 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr75 = lshr i64 %5, 10
   %and76 = and i64 %shr75, 70368744177663
-  %arrayidx77 = getelementptr inbounds i64, ptr %out, i64 3
-  %arrayidx82 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx77 = getelementptr inbounds i8, ptr %out, i64 24
+  %arrayidx82 = getelementptr inbounds i8, ptr %out, i64 32
   %6 = load <2 x i64>, ptr %add.ptr7, align 1
   %7 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -8431,11 +8425,11 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %or90 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i136, i64 %11, i64 44)
   %and91 = and i64 %or90, 70368744177663
-  %arrayidx92 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx92 = getelementptr inbounds i8, ptr %out, i64 48
   %shr93 = lshr i64 %ret.0.copyload.i136, 2
   %and94 = and i64 %shr93, 70368744177663
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 7
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 56
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 64
   %12 = load <2 x i64>, ptr %add.ptr16, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i136, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -8444,8 +8438,8 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %shr106 = lshr i64 %17, 12
   %and107 = and i64 %shr106, 70368744177663
-  %arrayidx108 = getelementptr inbounds i64, ptr %out, i64 10
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx108 = getelementptr inbounds i8, ptr %out, i64 80
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 88
   %18 = load <2 x i64>, ptr %add.ptr22, align 1
   %19 = shufflevector <2 x i64> %12, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -8454,11 +8448,11 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %or121 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i141, i64 %23, i64 42)
   %and122 = and i64 %or121, 70368744177663
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 104
   %shr124 = lshr i64 %ret.0.copyload.i141, 4
   %and125 = and i64 %shr124, 70368744177663
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 14
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 112
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 120
   %24 = load <2 x i64>, ptr %add.ptr31, align 1
   %25 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i141, i64 0
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -8467,8 +8461,8 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr137 = lshr i64 %29, 14
   %and138 = and i64 %shr137, 70368744177663
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 17
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 136
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 144
   %30 = load <2 x i64>, ptr %add.ptr37, align 1
   %31 = shufflevector <2 x i64> %24, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -8477,11 +8471,11 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %or152 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i146, i64 %35, i64 40)
   %and153 = and i64 %or152, 70368744177663
-  %arrayidx154 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx154 = getelementptr inbounds i8, ptr %out, i64 160
   %shr155 = lshr i64 %ret.0.copyload.i146, 6
   %and156 = and i64 %shr155, 70368744177663
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 21
-  %arrayidx162 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 168
+  %arrayidx162 = getelementptr inbounds i8, ptr %out, i64 176
   %36 = load <2 x i64>, ptr %add.ptr46, align 1
   %37 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i146, i64 0
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -8490,8 +8484,8 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %shr168 = lshr i64 %41, 16
   %and169 = and i64 %shr168, 70368744177663
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 24
-  %arrayidx175 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 192
+  %arrayidx175 = getelementptr inbounds i8, ptr %out, i64 200
   %42 = load <2 x i64>, ptr %add.ptr52, align 1
   %43 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
@@ -8500,11 +8494,11 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %or183 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i151, i64 %47, i64 38)
   %and184 = and i64 %or183, 70368744177663
-  %arrayidx185 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx185 = getelementptr inbounds i8, ptr %out, i64 216
   %shr186 = lshr i64 %ret.0.copyload.i151, 8
   %and187 = and i64 %shr186, 70368744177663
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 28
-  %arrayidx193 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 224
+  %arrayidx193 = getelementptr inbounds i8, ptr %out, i64 232
   %48 = load <2 x i64>, ptr %add.ptr61, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx69, align 8
@@ -8534,7 +8528,7 @@ entry:
   store <2 x i64> %52, ptr %arrayidx193, align 8
   %53 = extractelement <2 x i64> %48, i64 1
   %shr199 = lshr i64 %53, 18
-  %arrayidx200 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx200 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr199, ptr %arrayidx200, align 8
   ret ptr %add.ptr67
 }
@@ -8568,7 +8562,7 @@ entry:
   %conv = zext i32 %ret.0.copyload.i157 to i64
   %add.ptr70 = getelementptr inbounds i8, ptr %in, i64 188
   %and = and i64 %ret.0.copyload.i, 140737488355327
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -8577,8 +8571,8 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %shr78 = lshr i64 %5, 13
   %and79 = and i64 %shr78, 140737488355327
-  %arrayidx80 = getelementptr inbounds i64, ptr %out, i64 3
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 4
+  %arrayidx80 = getelementptr inbounds i8, ptr %out, i64 24
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 32
   %6 = load <2 x i64>, ptr %add.ptr7, align 1
   %7 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -8587,11 +8581,11 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %or93 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i139, i64 %11, i64 38)
   %and94 = and i64 %or93, 140737488355327
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 48
   %shr96 = lshr i64 %ret.0.copyload.i139, 9
   %and97 = and i64 %shr96, 140737488355327
-  %arrayidx98 = getelementptr inbounds i64, ptr %out, i64 7
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx98 = getelementptr inbounds i8, ptr %out, i64 56
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 64
   %12 = load <2 x i64>, ptr %add.ptr16, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i139, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -8600,11 +8594,11 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %or111 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i142, i64 %17, i64 42)
   %and112 = and i64 %or111, 140737488355327
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 80
   %shr114 = lshr i64 %ret.0.copyload.i142, 5
   %and115 = and i64 %shr114, 140737488355327
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 11
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 88
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 96
   %18 = load <2 x i64>, ptr %add.ptr25, align 1
   %19 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i142, i64 0
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -8613,11 +8607,11 @@ entry:
   %23 = extractelement <2 x i64> %18, i64 1
   %or129 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i145, i64 %23, i64 46)
   %and130 = and i64 %or129, 140737488355327
-  %arrayidx131 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx131 = getelementptr inbounds i8, ptr %out, i64 112
   %shr132 = lshr i64 %ret.0.copyload.i145, 1
   %and133 = and i64 %shr132, 140737488355327
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 15
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 120
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 128
   %24 = load <2 x i64>, ptr %add.ptr34, align 1
   %25 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i145, i64 0
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -8626,8 +8620,8 @@ entry:
   %29 = extractelement <2 x i64> %24, i64 1
   %shr145 = lshr i64 %29, 14
   %and146 = and i64 %shr145, 140737488355327
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 18
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 144
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 152
   %30 = load <2 x i64>, ptr %add.ptr40, align 1
   %31 = shufflevector <2 x i64> %24, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -8636,11 +8630,11 @@ entry:
   %35 = extractelement <2 x i64> %30, i64 1
   %or160 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i150, i64 %35, i64 37)
   %and161 = and i64 %or160, 140737488355327
-  %arrayidx162 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx162 = getelementptr inbounds i8, ptr %out, i64 168
   %shr163 = lshr i64 %ret.0.copyload.i150, 10
   %and164 = and i64 %shr163, 140737488355327
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 22
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 176
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 184
   %36 = load <2 x i64>, ptr %add.ptr49, align 1
   %37 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i150, i64 0
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -8649,11 +8643,11 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %or178 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i153, i64 %41, i64 41)
   %and179 = and i64 %or178, 140737488355327
-  %arrayidx180 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx180 = getelementptr inbounds i8, ptr %out, i64 200
   %shr181 = lshr i64 %ret.0.copyload.i153, 6
   %and182 = and i64 %shr181, 140737488355327
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 26
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 208
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 216
   %42 = load <2 x i64>, ptr %add.ptr58, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx72, align 8
@@ -8683,14 +8677,14 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %or196 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i156, i64 %47, i64 45)
   %and197 = and i64 %or196, 140737488355327
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and197, ptr %arrayidx198, align 8
   %shr199 = lshr i64 %ret.0.copyload.i156, 2
   %and200 = and i64 %shr199, 140737488355327
-  %arrayidx201 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx201 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and200, ptr %arrayidx201, align 8
   %or204 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i156, i64 15)
-  %arrayidx206 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx206 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or204, ptr %arrayidx206, align 8
   ret ptr %add.ptr70
 }
@@ -8723,7 +8717,7 @@ entry:
   %add.ptr64 = getelementptr inbounds i8, ptr %in, i64 176
   %add.ptr70 = getelementptr inbounds i8, ptr %in, i64 192
   %and = and i64 %ret.0.copyload.i, 281474976710655
-  %arrayidx72 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -8731,10 +8725,10 @@ entry:
   %4 = and <2 x i64> %3, <i64 281474976710655, i64 281474976710655>
   %5 = extractelement <2 x i64> %0, i64 1
   %shr78 = lshr i64 %5, 16
-  %arrayidx79 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx79 = getelementptr inbounds i8, ptr %out, i64 24
   %and80 = and i64 %ret.0.copyload.i130, 281474976710655
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 4
-  %arrayidx86 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 32
+  %arrayidx86 = getelementptr inbounds i8, ptr %out, i64 40
   %6 = load <2 x i64>, ptr %add.ptr10, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i130, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -8742,10 +8736,10 @@ entry:
   %10 = and <2 x i64> %9, <i64 281474976710655, i64 281474976710655>
   %11 = extractelement <2 x i64> %6, i64 1
   %shr92 = lshr i64 %11, 16
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 56
   %and94 = and i64 %ret.0.copyload.i133, 281474976710655
-  %arrayidx95 = getelementptr inbounds i64, ptr %out, i64 8
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx95 = getelementptr inbounds i8, ptr %out, i64 64
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 72
   %12 = load <2 x i64>, ptr %add.ptr19, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i133, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -8753,10 +8747,10 @@ entry:
   %16 = and <2 x i64> %15, <i64 281474976710655, i64 281474976710655>
   %17 = extractelement <2 x i64> %12, i64 1
   %shr106 = lshr i64 %17, 16
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 88
   %and108 = and i64 %ret.0.copyload.i136, 281474976710655
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 12
-  %arrayidx114 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 96
+  %arrayidx114 = getelementptr inbounds i8, ptr %out, i64 104
   %18 = load <2 x i64>, ptr %add.ptr28, align 1
   %19 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i136, i64 0
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
@@ -8764,10 +8758,10 @@ entry:
   %22 = and <2 x i64> %21, <i64 281474976710655, i64 281474976710655>
   %23 = extractelement <2 x i64> %18, i64 1
   %shr120 = lshr i64 %23, 16
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 120
   %and122 = and i64 %ret.0.copyload.i139, 281474976710655
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 16
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 128
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 136
   %24 = load <2 x i64>, ptr %add.ptr37, align 1
   %25 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i139, i64 0
   %26 = shufflevector <2 x i64> %25, <2 x i64> %24, <2 x i32> <i32 0, i32 2>
@@ -8775,10 +8769,10 @@ entry:
   %28 = and <2 x i64> %27, <i64 281474976710655, i64 281474976710655>
   %29 = extractelement <2 x i64> %24, i64 1
   %shr134 = lshr i64 %29, 16
-  %arrayidx135 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx135 = getelementptr inbounds i8, ptr %out, i64 152
   %and136 = and i64 %ret.0.copyload.i142, 281474976710655
-  %arrayidx137 = getelementptr inbounds i64, ptr %out, i64 20
-  %arrayidx142 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx137 = getelementptr inbounds i8, ptr %out, i64 160
+  %arrayidx142 = getelementptr inbounds i8, ptr %out, i64 168
   %30 = load <2 x i64>, ptr %add.ptr46, align 1
   %31 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i142, i64 0
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -8786,10 +8780,10 @@ entry:
   %34 = and <2 x i64> %33, <i64 281474976710655, i64 281474976710655>
   %35 = extractelement <2 x i64> %30, i64 1
   %shr148 = lshr i64 %35, 16
-  %arrayidx149 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx149 = getelementptr inbounds i8, ptr %out, i64 184
   %and150 = and i64 %ret.0.copyload.i145, 281474976710655
-  %arrayidx151 = getelementptr inbounds i64, ptr %out, i64 24
-  %arrayidx156 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx151 = getelementptr inbounds i8, ptr %out, i64 192
+  %arrayidx156 = getelementptr inbounds i8, ptr %out, i64 200
   %36 = load <2 x i64>, ptr %add.ptr55, align 1
   %37 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i145, i64 0
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -8797,10 +8791,10 @@ entry:
   %40 = and <2 x i64> %39, <i64 281474976710655, i64 281474976710655>
   %41 = extractelement <2 x i64> %36, i64 1
   %shr162 = lshr i64 %41, 16
-  %arrayidx163 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx163 = getelementptr inbounds i8, ptr %out, i64 216
   %and164 = and i64 %ret.0.copyload.i148, 281474976710655
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 28
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 224
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 232
   %42 = load <2 x i64>, ptr %add.ptr64, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx72, align 8
@@ -8831,7 +8825,7 @@ entry:
   store <2 x i64> %46, ptr %arrayidx170, align 8
   %47 = extractelement <2 x i64> %42, i64 1
   %shr176 = lshr i64 %47, 16
-  %arrayidx177 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx177 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr176, ptr %arrayidx177, align 8
   ret ptr %add.ptr70
 }
@@ -8867,7 +8861,7 @@ entry:
   %conv = zext i32 %ret.0.copyload.i161 to i64
   %add.ptr73 = getelementptr inbounds i8, ptr %in, i64 196
   %and = and i64 %ret.0.copyload.i, 562949953421311
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -8876,11 +8870,11 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %or83 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i140, i64 %5, i64 45)
   %and84 = and i64 %or83, 562949953421311
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 24
   %shr86 = lshr i64 %ret.0.copyload.i140, 4
   %and87 = and i64 %shr86, 562949953421311
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 4
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 32
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 40
   %6 = load <2 x i64>, ptr %add.ptr10, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i140, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
@@ -8889,11 +8883,11 @@ entry:
   %11 = extractelement <2 x i64> %6, i64 1
   %or101 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i143, i64 %11, i64 41)
   %and102 = and i64 %or101, 562949953421311
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 56
   %shr104 = lshr i64 %ret.0.copyload.i143, 8
   %and105 = and i64 %shr104, 562949953421311
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 8
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 64
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 72
   %12 = load <2 x i64>, ptr %add.ptr19, align 1
   %13 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i143, i64 0
   %14 = shufflevector <2 x i64> %13, <2 x i64> %12, <2 x i32> <i32 0, i32 2>
@@ -8902,17 +8896,17 @@ entry:
   %17 = extractelement <2 x i64> %12, i64 1
   %or119 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i146, i64 %17, i64 37)
   %and120 = and i64 %or119, 562949953421311
-  %arrayidx121 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx121 = getelementptr inbounds i8, ptr %out, i64 88
   %shr122 = lshr i64 %ret.0.copyload.i146, 12
   %and123 = and i64 %shr122, 562949953421311
-  %arrayidx124 = getelementptr inbounds i64, ptr %out, i64 12
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx124 = getelementptr inbounds i8, ptr %out, i64 96
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 104
   %18 = load <2 x i64>, ptr %add.ptr28, align 1
   %19 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i146, i64 0
   %20 = shufflevector <2 x i64> %19, <2 x i64> %18, <2 x i32> <i32 0, i32 2>
   %21 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %18, <2 x i64> %20, <2 x i64> <i64 3, i64 18>)
   %22 = and <2 x i64> %21, <i64 562949953421311, i64 562949953421311>
-  %arrayidx139 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx139 = getelementptr inbounds i8, ptr %out, i64 120
   %23 = load <2 x i64>, ptr %add.ptr34, align 1
   %24 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %25 = shufflevector <2 x i64> %24, <2 x i64> %23, <2 x i32> <i32 0, i32 2>
@@ -8921,8 +8915,8 @@ entry:
   %28 = extractelement <2 x i64> %23, i64 1
   %shr145 = lshr i64 %28, 1
   %and146 = and i64 %shr145, 562949953421311
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 17
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 136
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 144
   %29 = load <2 x i64>, ptr %add.ptr40, align 1
   %30 = shufflevector <2 x i64> %23, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %31 = shufflevector <2 x i64> %30, <2 x i64> %29, <2 x i32> <i32 0, i32 2>
@@ -8931,11 +8925,11 @@ entry:
   %34 = extractelement <2 x i64> %29, i64 1
   %or160 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i153, i64 %34, i64 44)
   %and161 = and i64 %or160, 562949953421311
-  %arrayidx162 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx162 = getelementptr inbounds i8, ptr %out, i64 160
   %shr163 = lshr i64 %ret.0.copyload.i153, 5
   %and164 = and i64 %shr163, 562949953421311
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 21
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 168
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 176
   %35 = load <2 x i64>, ptr %add.ptr49, align 1
   %36 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i153, i64 0
   %37 = shufflevector <2 x i64> %36, <2 x i64> %35, <2 x i32> <i32 0, i32 2>
@@ -8944,11 +8938,11 @@ entry:
   %40 = extractelement <2 x i64> %35, i64 1
   %or178 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i156, i64 %40, i64 40)
   %and179 = and i64 %or178, 562949953421311
-  %arrayidx180 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx180 = getelementptr inbounds i8, ptr %out, i64 192
   %shr181 = lshr i64 %ret.0.copyload.i156, 9
   %and182 = and i64 %shr181, 562949953421311
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 25
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 200
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 208
   %41 = load <2 x i64>, ptr %add.ptr58, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx75, align 8
@@ -8977,18 +8971,18 @@ entry:
   %46 = extractelement <2 x i64> %41, i64 1
   %or196 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i159, i64 %46, i64 36)
   %and197 = and i64 %or196, 562949953421311
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and197, ptr %arrayidx198, align 8
   %shr199 = lshr i64 %ret.0.copyload.i159, 13
   %and200 = and i64 %shr199, 562949953421311
-  %arrayidx201 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx201 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and200, ptr %arrayidx201, align 8
   %or204 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i160, i64 %ret.0.copyload.i159, i64 2)
   %and205 = and i64 %or204, 562949953421311
-  %arrayidx206 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx206 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and205, ptr %arrayidx206, align 8
   %or209 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i160, i64 17)
-  %arrayidx211 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or209, ptr %arrayidx211, align 8
   ret ptr %add.ptr73
 }
@@ -9017,7 +9011,7 @@ entry:
   %ret.0.copyload.i161 = load i64, ptr %add.ptr70, align 1
   %add.ptr73 = getelementptr inbounds i8, ptr %in, i64 200
   %and = and i64 %ret.0.copyload.i, 1125899906842623
-  %arrayidx75 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx75 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -9026,17 +9020,17 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %or83 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i140, i64 %5, i64 42)
   %and84 = and i64 %or83, 1125899906842623
-  %arrayidx85 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx85 = getelementptr inbounds i8, ptr %out, i64 24
   %shr86 = lshr i64 %ret.0.copyload.i140, 8
   %and87 = and i64 %shr86, 1125899906842623
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 4
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 32
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 40
   %6 = load <2 x i64>, ptr %add.ptr10, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i140, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
   %9 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %6, <2 x i64> %8, <2 x i64> <i64 6, i64 20>)
   %10 = and <2 x i64> %9, <i64 1125899906842623, i64 1125899906842623>
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 56
   %11 = load <2 x i64>, ptr %add.ptr16, align 1
   %12 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %13 = shufflevector <2 x i64> %12, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
@@ -9045,8 +9039,8 @@ entry:
   %16 = extractelement <2 x i64> %11, i64 1
   %shr109 = lshr i64 %16, 2
   %and110 = and i64 %shr109, 1125899906842623
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 9
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 72
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 80
   %17 = load <2 x i64>, ptr %add.ptr22, align 1
   %18 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %19 = shufflevector <2 x i64> %18, <2 x i64> %17, <2 x i32> <i32 0, i32 2>
@@ -9055,17 +9049,17 @@ entry:
   %22 = extractelement <2 x i64> %17, i64 1
   %or124 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i147, i64 %22, i64 40)
   %and125 = and i64 %or124, 1125899906842623
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 96
   %shr127 = lshr i64 %ret.0.copyload.i147, 10
   %and128 = and i64 %shr127, 1125899906842623
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 13
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 104
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 112
   %23 = load <2 x i64>, ptr %add.ptr31, align 1
   %24 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i147, i64 0
   %25 = shufflevector <2 x i64> %24, <2 x i64> %23, <2 x i32> <i32 0, i32 2>
   %26 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %23, <2 x i64> %25, <2 x i64> <i64 4, i64 18>)
   %27 = and <2 x i64> %26, <i64 1125899906842623, i64 1125899906842623>
-  %arrayidx144 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx144 = getelementptr inbounds i8, ptr %out, i64 128
   %28 = load <2 x i64>, ptr %add.ptr37, align 1
   %29 = shufflevector <2 x i64> %23, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %30 = shufflevector <2 x i64> %29, <2 x i64> %28, <2 x i32> <i32 0, i32 2>
@@ -9074,8 +9068,8 @@ entry:
   %33 = extractelement <2 x i64> %28, i64 1
   %shr150 = lshr i64 %33, 4
   %and151 = and i64 %shr150, 1125899906842623
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 18
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 144
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 152
   %34 = load <2 x i64>, ptr %add.ptr43, align 1
   %35 = shufflevector <2 x i64> %28, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %36 = shufflevector <2 x i64> %35, <2 x i64> %34, <2 x i32> <i32 0, i32 2>
@@ -9084,17 +9078,17 @@ entry:
   %39 = extractelement <2 x i64> %34, i64 1
   %or165 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i154, i64 %39, i64 38)
   %and166 = and i64 %or165, 1125899906842623
-  %arrayidx167 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx167 = getelementptr inbounds i8, ptr %out, i64 168
   %shr168 = lshr i64 %ret.0.copyload.i154, 12
   %and169 = and i64 %shr168, 1125899906842623
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 22
-  %arrayidx175 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 176
+  %arrayidx175 = getelementptr inbounds i8, ptr %out, i64 184
   %40 = load <2 x i64>, ptr %add.ptr52, align 1
   %41 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i154, i64 0
   %42 = shufflevector <2 x i64> %41, <2 x i64> %40, <2 x i32> <i32 0, i32 2>
   %43 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %40, <2 x i64> %42, <2 x i64> <i64 2, i64 16>)
   %44 = and <2 x i64> %43, <i64 1125899906842623, i64 1125899906842623>
-  %arrayidx185 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx185 = getelementptr inbounds i8, ptr %out, i64 200
   %45 = load <2 x i64>, ptr %add.ptr58, align 1
   %46 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %47 = shufflevector <2 x i64> %46, <2 x i64> %45, <2 x i32> <i32 0, i32 2>
@@ -9103,8 +9097,8 @@ entry:
   %50 = extractelement <2 x i64> %45, i64 1
   %shr191 = lshr i64 %50, 6
   %and192 = and i64 %shr191, 1125899906842623
-  %arrayidx193 = getelementptr inbounds i64, ptr %out, i64 27
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx193 = getelementptr inbounds i8, ptr %out, i64 216
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 224
   %51 = load <2 x i64>, ptr %add.ptr64, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx75, align 8
@@ -9133,10 +9127,10 @@ entry:
   %56 = extractelement <2 x i64> %51, i64 1
   %or206 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i161, i64 %56, i64 36)
   %and207 = and i64 %or206, 1125899906842623
-  %arrayidx208 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx208 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and207, ptr %arrayidx208, align 8
   %shr209 = lshr i64 %ret.0.copyload.i161, 14
-  %arrayidx210 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx210 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr209, ptr %arrayidx210, align 8
   ret ptr %add.ptr73
 }
@@ -9165,7 +9159,7 @@ entry:
   %conv = zext i32 %ret.0.copyload.i165 to i64
   %add.ptr76 = getelementptr inbounds i8, ptr %in, i64 204
   %and = and i64 %ret.0.copyload.i, 2251799813685247
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
@@ -9174,17 +9168,17 @@ entry:
   %5 = extractelement <2 x i64> %0, i64 1
   %or86 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i143, i64 %5, i64 39)
   %and87 = and i64 %or86, 2251799813685247
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 24
   %shr89 = lshr i64 %ret.0.copyload.i143, 12
   %and90 = and i64 %shr89, 2251799813685247
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 4
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 32
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 40
   %6 = load <2 x i64>, ptr %add.ptr10, align 1
   %7 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i143, i64 0
   %8 = shufflevector <2 x i64> %7, <2 x i64> %6, <2 x i32> <i32 0, i32 2>
   %9 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %6, <2 x i64> %8, <2 x i64> <i64 1, i64 14>)
   %10 = and <2 x i64> %9, <i64 2251799813685247, i64 2251799813685247>
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 56
   %11 = load <2 x i64>, ptr %add.ptr16, align 1
   %12 = shufflevector <2 x i64> %6, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %13 = shufflevector <2 x i64> %12, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
@@ -9193,14 +9187,14 @@ entry:
   %16 = extractelement <2 x i64> %11, i64 1
   %shr112 = lshr i64 %16, 11
   %and113 = and i64 %shr112, 2251799813685247
-  %arrayidx114 = getelementptr inbounds i64, ptr %out, i64 9
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx114 = getelementptr inbounds i8, ptr %out, i64 72
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 80
   %17 = load <2 x i64>, ptr %add.ptr22, align 1
   %18 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %19 = shufflevector <2 x i64> %18, <2 x i64> %17, <2 x i32> <i32 0, i32 2>
   %20 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %17, <2 x i64> %19, <2 x i64> <i64 2, i64 15>)
   %21 = and <2 x i64> %20, <i64 2251799813685247, i64 2251799813685247>
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 96
   %22 = load <2 x i64>, ptr %add.ptr28, align 1
   %23 = shufflevector <2 x i64> %17, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %24 = shufflevector <2 x i64> %23, <2 x i64> %22, <2 x i32> <i32 0, i32 2>
@@ -9209,14 +9203,14 @@ entry:
   %27 = extractelement <2 x i64> %22, i64 1
   %shr135 = lshr i64 %27, 10
   %and136 = and i64 %shr135, 2251799813685247
-  %arrayidx137 = getelementptr inbounds i64, ptr %out, i64 14
-  %arrayidx142 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx137 = getelementptr inbounds i8, ptr %out, i64 112
+  %arrayidx142 = getelementptr inbounds i8, ptr %out, i64 120
   %28 = load <2 x i64>, ptr %add.ptr34, align 1
   %29 = shufflevector <2 x i64> %22, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %30 = shufflevector <2 x i64> %29, <2 x i64> %28, <2 x i32> <i32 0, i32 2>
   %31 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %28, <2 x i64> %30, <2 x i64> <i64 3, i64 16>)
   %32 = and <2 x i64> %31, <i64 2251799813685247, i64 2251799813685247>
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 136
   %33 = load <2 x i64>, ptr %add.ptr40, align 1
   %34 = shufflevector <2 x i64> %28, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %35 = shufflevector <2 x i64> %34, <2 x i64> %33, <2 x i32> <i32 0, i32 2>
@@ -9225,14 +9219,14 @@ entry:
   %38 = extractelement <2 x i64> %33, i64 1
   %shr158 = lshr i64 %38, 9
   %and159 = and i64 %shr158, 2251799813685247
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 19
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 152
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 160
   %39 = load <2 x i64>, ptr %add.ptr46, align 1
   %40 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %41 = shufflevector <2 x i64> %40, <2 x i64> %39, <2 x i32> <i32 0, i32 2>
   %42 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %39, <2 x i64> %41, <2 x i64> <i64 4, i64 17>)
   %43 = and <2 x i64> %42, <i64 2251799813685247, i64 2251799813685247>
-  %arrayidx175 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx175 = getelementptr inbounds i8, ptr %out, i64 176
   %44 = load <2 x i64>, ptr %add.ptr52, align 1
   %45 = shufflevector <2 x i64> %39, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %46 = shufflevector <2 x i64> %45, <2 x i64> %44, <2 x i32> <i32 0, i32 2>
@@ -9241,14 +9235,14 @@ entry:
   %49 = extractelement <2 x i64> %44, i64 1
   %shr181 = lshr i64 %49, 8
   %and182 = and i64 %shr181, 2251799813685247
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 24
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 192
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 200
   %50 = load <2 x i64>, ptr %add.ptr58, align 1
   %51 = shufflevector <2 x i64> %44, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %52 = shufflevector <2 x i64> %51, <2 x i64> %50, <2 x i32> <i32 0, i32 2>
   %53 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %50, <2 x i64> %52, <2 x i64> <i64 5, i64 18>)
   %54 = and <2 x i64> %53, <i64 2251799813685247, i64 2251799813685247>
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 216
   %55 = load <2 x i64>, ptr %add.ptr64, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx78, align 8
@@ -9275,14 +9269,14 @@ entry:
   %60 = extractelement <2 x i64> %55, i64 1
   %shr204 = lshr i64 %60, 7
   %and205 = and i64 %shr204, 2251799813685247
-  %arrayidx206 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx206 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and205, ptr %arrayidx206, align 8
   %or209 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i164, i64 %60, i64 6)
   %and210 = and i64 %or209, 2251799813685247
-  %arrayidx211 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and210, ptr %arrayidx211, align 8
   %or214 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i164, i64 19)
-  %arrayidx216 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx216 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or214, ptr %arrayidx216, align 8
   ret ptr %add.ptr76
 }
@@ -9307,13 +9301,13 @@ entry:
   %add.ptr70 = getelementptr inbounds i8, ptr %in, i64 192
   %add.ptr76 = getelementptr inbounds i8, ptr %in, i64 208
   %and = and i64 %ret.0.copyload.i, 4503599627370495
-  %arrayidx78 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx78 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 12, i64 24>)
   %4 = and <2 x i64> %3, <i64 4503599627370495, i64 4503599627370495>
-  %arrayidx88 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
@@ -9322,14 +9316,14 @@ entry:
   %10 = extractelement <2 x i64> %5, i64 1
   %shr94 = lshr i64 %10, 4
   %and95 = and i64 %shr94, 4503599627370495
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 5
-  %arrayidx101 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 40
+  %arrayidx101 = getelementptr inbounds i8, ptr %out, i64 48
   %11 = load <2 x i64>, ptr %add.ptr13, align 1
   %12 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %13 = shufflevector <2 x i64> %12, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
   %14 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %11, <2 x i64> %13, <2 x i64> <i64 8, i64 20>)
   %15 = and <2 x i64> %14, <i64 4503599627370495, i64 4503599627370495>
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 64
   %16 = load <2 x i64>, ptr %add.ptr19, align 1
   %17 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %18 = shufflevector <2 x i64> %17, <2 x i64> %16, <2 x i32> <i32 0, i32 2>
@@ -9338,14 +9332,14 @@ entry:
   %21 = extractelement <2 x i64> %16, i64 1
   %shr117 = lshr i64 %21, 8
   %and118 = and i64 %shr117, 4503599627370495
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 10
-  %arrayidx124 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 80
+  %arrayidx124 = getelementptr inbounds i8, ptr %out, i64 88
   %22 = load <2 x i64>, ptr %add.ptr25, align 1
   %23 = shufflevector <2 x i64> %16, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %24 = shufflevector <2 x i64> %23, <2 x i64> %22, <2 x i32> <i32 0, i32 2>
   %25 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %22, <2 x i64> %24, <2 x i64> <i64 4, i64 16>)
   %26 = and <2 x i64> %25, <i64 4503599627370495, i64 4503599627370495>
-  %arrayidx134 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx134 = getelementptr inbounds i8, ptr %out, i64 104
   %27 = load <2 x i64>, ptr %add.ptr31, align 1
   %28 = shufflevector <2 x i64> %22, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %29 = shufflevector <2 x i64> %28, <2 x i64> %27, <2 x i32> <i32 0, i32 2>
@@ -9353,16 +9347,16 @@ entry:
   %31 = and <2 x i64> %30, <i64 4503599627370495, i64 4503599627370495>
   %32 = extractelement <2 x i64> %27, i64 1
   %shr140 = lshr i64 %32, 12
-  %arrayidx141 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx141 = getelementptr inbounds i8, ptr %out, i64 120
   %and142 = and i64 %ret.0.copyload.i152, 4503599627370495
-  %arrayidx143 = getelementptr inbounds i64, ptr %out, i64 16
-  %arrayidx148 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 128
+  %arrayidx148 = getelementptr inbounds i8, ptr %out, i64 136
   %33 = load <2 x i64>, ptr %add.ptr40, align 1
   %34 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i152, i64 0
   %35 = shufflevector <2 x i64> %34, <2 x i64> %33, <2 x i32> <i32 0, i32 2>
   %36 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %33, <2 x i64> %35, <2 x i64> <i64 12, i64 24>)
   %37 = and <2 x i64> %36, <i64 4503599627370495, i64 4503599627370495>
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 152
   %38 = load <2 x i64>, ptr %add.ptr46, align 1
   %39 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %40 = shufflevector <2 x i64> %39, <2 x i64> %38, <2 x i32> <i32 0, i32 2>
@@ -9371,14 +9365,14 @@ entry:
   %43 = extractelement <2 x i64> %38, i64 1
   %shr164 = lshr i64 %43, 4
   %and165 = and i64 %shr164, 4503599627370495
-  %arrayidx166 = getelementptr inbounds i64, ptr %out, i64 21
-  %arrayidx171 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx166 = getelementptr inbounds i8, ptr %out, i64 168
+  %arrayidx171 = getelementptr inbounds i8, ptr %out, i64 176
   %44 = load <2 x i64>, ptr %add.ptr52, align 1
   %45 = shufflevector <2 x i64> %38, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %46 = shufflevector <2 x i64> %45, <2 x i64> %44, <2 x i32> <i32 0, i32 2>
   %47 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %44, <2 x i64> %46, <2 x i64> <i64 8, i64 20>)
   %48 = and <2 x i64> %47, <i64 4503599627370495, i64 4503599627370495>
-  %arrayidx181 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx181 = getelementptr inbounds i8, ptr %out, i64 192
   %49 = load <2 x i64>, ptr %add.ptr58, align 1
   %50 = shufflevector <2 x i64> %44, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %51 = shufflevector <2 x i64> %50, <2 x i64> %49, <2 x i32> <i32 0, i32 2>
@@ -9387,14 +9381,14 @@ entry:
   %54 = extractelement <2 x i64> %49, i64 1
   %shr187 = lshr i64 %54, 8
   %and188 = and i64 %shr187, 4503599627370495
-  %arrayidx189 = getelementptr inbounds i64, ptr %out, i64 26
-  %arrayidx194 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx189 = getelementptr inbounds i8, ptr %out, i64 208
+  %arrayidx194 = getelementptr inbounds i8, ptr %out, i64 216
   %55 = load <2 x i64>, ptr %add.ptr64, align 1
   %56 = shufflevector <2 x i64> %49, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %57 = shufflevector <2 x i64> %56, <2 x i64> %55, <2 x i32> <i32 0, i32 2>
   %58 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %55, <2 x i64> %57, <2 x i64> <i64 4, i64 16>)
   %59 = and <2 x i64> %58, <i64 4503599627370495, i64 4503599627370495>
-  %arrayidx204 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx204 = getelementptr inbounds i8, ptr %out, i64 232
   %60 = load <2 x i64>, ptr %add.ptr70, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx78, align 8
@@ -9421,7 +9415,7 @@ entry:
   store <2 x i64> %64, ptr %arrayidx204, align 8
   %65 = extractelement <2 x i64> %60, i64 1
   %shr210 = lshr i64 %65, 12
-  %arrayidx211 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr210, ptr %arrayidx211, align 8
   ret ptr %add.ptr76
 }
@@ -9455,13 +9449,13 @@ entry:
   %conv = zext i32 %ret.0.copyload.i169 to i64
   %add.ptr79 = getelementptr inbounds i8, ptr %in, i64 212
   %and = and i64 %ret.0.copyload.i, 9007199254740991
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 11, i64 22>)
   %4 = and <2 x i64> %3, <i64 9007199254740991, i64 9007199254740991>
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
@@ -9470,14 +9464,14 @@ entry:
   %10 = extractelement <2 x i64> %5, i64 1
   %shr97 = lshr i64 %10, 9
   %and98 = and i64 %shr97, 9007199254740991
-  %arrayidx99 = getelementptr inbounds i64, ptr %out, i64 5
-  %arrayidx104 = getelementptr inbounds i64, ptr %out, i64 6
+  %arrayidx99 = getelementptr inbounds i8, ptr %out, i64 40
+  %arrayidx104 = getelementptr inbounds i8, ptr %out, i64 48
   %11 = load <2 x i64>, ptr %add.ptr13, align 1
   %12 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %13 = shufflevector <2 x i64> %12, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
   %14 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %11, <2 x i64> %13, <2 x i64> <i64 2, i64 13>)
   %15 = and <2 x i64> %14, <i64 9007199254740991, i64 9007199254740991>
-  %arrayidx114 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx114 = getelementptr inbounds i8, ptr %out, i64 64
   %16 = load <2 x i64>, ptr %add.ptr19, align 1
   %17 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %18 = shufflevector <2 x i64> %17, <2 x i64> %16, <2 x i32> <i32 0, i32 2>
@@ -9486,17 +9480,17 @@ entry:
   %21 = extractelement <2 x i64> %16, i64 1
   %or122 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i152, i64 %21, i64 46)
   %and123 = and i64 %or122, 9007199254740991
-  %arrayidx124 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx124 = getelementptr inbounds i8, ptr %out, i64 80
   %shr125 = lshr i64 %ret.0.copyload.i152, 7
   %and126 = and i64 %shr125, 9007199254740991
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 11
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 88
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 96
   %22 = load <2 x i64>, ptr %add.ptr28, align 1
   %23 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i152, i64 0
   %24 = shufflevector <2 x i64> %23, <2 x i64> %22, <2 x i32> <i32 0, i32 2>
   %25 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %22, <2 x i64> %24, <2 x i64> <i64 4, i64 15>)
   %26 = and <2 x i64> %25, <i64 9007199254740991, i64 9007199254740991>
-  %arrayidx142 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx142 = getelementptr inbounds i8, ptr %out, i64 112
   %27 = load <2 x i64>, ptr %add.ptr34, align 1
   %28 = shufflevector <2 x i64> %22, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %29 = shufflevector <2 x i64> %28, <2 x i64> %27, <2 x i32> <i32 0, i32 2>
@@ -9505,17 +9499,17 @@ entry:
   %32 = extractelement <2 x i64> %27, i64 1
   %or150 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i157, i64 %32, i64 48)
   %and151 = and i64 %or150, 9007199254740991
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 128
   %shr153 = lshr i64 %ret.0.copyload.i157, 5
   %and154 = and i64 %shr153, 9007199254740991
-  %arrayidx155 = getelementptr inbounds i64, ptr %out, i64 17
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 18
+  %arrayidx155 = getelementptr inbounds i8, ptr %out, i64 136
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 144
   %33 = load <2 x i64>, ptr %add.ptr43, align 1
   %34 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i157, i64 0
   %35 = shufflevector <2 x i64> %34, <2 x i64> %33, <2 x i32> <i32 0, i32 2>
   %36 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %33, <2 x i64> %35, <2 x i64> <i64 6, i64 17>)
   %37 = and <2 x i64> %36, <i64 9007199254740991, i64 9007199254740991>
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 160
   %38 = load <2 x i64>, ptr %add.ptr49, align 1
   %39 = shufflevector <2 x i64> %33, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %40 = shufflevector <2 x i64> %39, <2 x i64> %38, <2 x i32> <i32 0, i32 2>
@@ -9524,17 +9518,17 @@ entry:
   %43 = extractelement <2 x i64> %38, i64 1
   %or178 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i162, i64 %43, i64 50)
   %and179 = and i64 %or178, 9007199254740991
-  %arrayidx180 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx180 = getelementptr inbounds i8, ptr %out, i64 176
   %shr181 = lshr i64 %ret.0.copyload.i162, 3
   %and182 = and i64 %shr181, 9007199254740991
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 23
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 184
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 192
   %44 = load <2 x i64>, ptr %add.ptr58, align 1
   %45 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i162, i64 0
   %46 = shufflevector <2 x i64> %45, <2 x i64> %44, <2 x i32> <i32 0, i32 2>
   %47 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %44, <2 x i64> %46, <2 x i64> <i64 8, i64 19>)
   %48 = and <2 x i64> %47, <i64 9007199254740991, i64 9007199254740991>
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 208
   %49 = load <2 x i64>, ptr %add.ptr64, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx81, align 8
@@ -9561,18 +9555,18 @@ entry:
   %54 = extractelement <2 x i64> %49, i64 1
   %or206 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i167, i64 %54, i64 52)
   %and207 = and i64 %or206, 9007199254740991
-  %arrayidx208 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx208 = getelementptr inbounds i8, ptr %out, i64 224
   store i64 %and207, ptr %arrayidx208, align 8
   %shr209 = lshr i64 %ret.0.copyload.i167, 1
   %and210 = and i64 %shr209, 9007199254740991
-  %arrayidx211 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 232
   store i64 %and210, ptr %arrayidx211, align 8
   %or214 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i168, i64 %ret.0.copyload.i167, i64 10)
   %and215 = and i64 %or214, 9007199254740991
-  %arrayidx216 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx216 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and215, ptr %arrayidx216, align 8
   %or219 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i168, i64 21)
-  %arrayidx221 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx221 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or219, ptr %arrayidx221, align 8
   ret ptr %add.ptr79
 }
@@ -9602,13 +9596,13 @@ entry:
   %ret.0.copyload.i169 = load i64, ptr %add.ptr76, align 1
   %add.ptr79 = getelementptr inbounds i8, ptr %in, i64 216
   %and = and i64 %ret.0.copyload.i, 18014398509481983
-  %arrayidx81 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx81 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 10, i64 20>)
   %4 = and <2 x i64> %3, <i64 18014398509481983, i64 18014398509481983>
-  %arrayidx91 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx91 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
@@ -9617,17 +9611,17 @@ entry:
   %10 = extractelement <2 x i64> %5, i64 1
   %or99 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i148, i64 %10, i64 50)
   %and100 = and i64 %or99, 18014398509481983
-  %arrayidx101 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx101 = getelementptr inbounds i8, ptr %out, i64 40
   %shr102 = lshr i64 %ret.0.copyload.i148, 4
   %and103 = and i64 %shr102, 18014398509481983
-  %arrayidx104 = getelementptr inbounds i64, ptr %out, i64 6
-  %arrayidx109 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx104 = getelementptr inbounds i8, ptr %out, i64 48
+  %arrayidx109 = getelementptr inbounds i8, ptr %out, i64 56
   %11 = load <2 x i64>, ptr %add.ptr16, align 1
   %12 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i148, i64 0
   %13 = shufflevector <2 x i64> %12, <2 x i64> %11, <2 x i32> <i32 0, i32 2>
   %14 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %11, <2 x i64> %13, <2 x i64> <i64 6, i64 16>)
   %15 = and <2 x i64> %14, <i64 18014398509481983, i64 18014398509481983>
-  %arrayidx119 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx119 = getelementptr inbounds i8, ptr %out, i64 72
   %16 = load <2 x i64>, ptr %add.ptr22, align 1
   %17 = shufflevector <2 x i64> %11, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %18 = shufflevector <2 x i64> %17, <2 x i64> %16, <2 x i32> <i32 0, i32 2>
@@ -9636,23 +9630,23 @@ entry:
   %21 = extractelement <2 x i64> %16, i64 1
   %or127 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i153, i64 %21, i64 46)
   %and128 = and i64 %or127, 18014398509481983
-  %arrayidx129 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx129 = getelementptr inbounds i8, ptr %out, i64 88
   %shr130 = lshr i64 %ret.0.copyload.i153, 8
   %and131 = and i64 %shr130, 18014398509481983
-  %arrayidx132 = getelementptr inbounds i64, ptr %out, i64 12
-  %arrayidx137 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx132 = getelementptr inbounds i8, ptr %out, i64 96
+  %arrayidx137 = getelementptr inbounds i8, ptr %out, i64 104
   %22 = load <2 x i64>, ptr %add.ptr31, align 1
   %23 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i153, i64 0
   %24 = shufflevector <2 x i64> %23, <2 x i64> %22, <2 x i32> <i32 0, i32 2>
   %25 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %22, <2 x i64> %24, <2 x i64> <i64 2, i64 12>)
   %26 = and <2 x i64> %25, <i64 18014398509481983, i64 18014398509481983>
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 120
   %27 = load <2 x i64>, ptr %add.ptr37, align 1
   %28 = shufflevector <2 x i64> %22, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %29 = shufflevector <2 x i64> %28, <2 x i64> %27, <2 x i32> <i32 0, i32 2>
   %30 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %27, <2 x i64> %29, <2 x i64> <i64 22, i64 32>)
   %31 = and <2 x i64> %30, <i64 18014398509481983, i64 18014398509481983>
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 136
   %32 = load <2 x i64>, ptr %add.ptr43, align 1
   %33 = shufflevector <2 x i64> %27, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %34 = shufflevector <2 x i64> %33, <2 x i64> %32, <2 x i32> <i32 0, i32 2>
@@ -9661,14 +9655,14 @@ entry:
   %37 = extractelement <2 x i64> %32, i64 1
   %shr163 = lshr i64 %37, 2
   %and164 = and i64 %shr163, 18014398509481983
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 19
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 20
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 152
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 160
   %38 = load <2 x i64>, ptr %add.ptr49, align 1
   %39 = shufflevector <2 x i64> %32, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %40 = shufflevector <2 x i64> %39, <2 x i64> %38, <2 x i32> <i32 0, i32 2>
   %41 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %38, <2 x i64> %40, <2 x i64> <i64 8, i64 18>)
   %42 = and <2 x i64> %41, <i64 18014398509481983, i64 18014398509481983>
-  %arrayidx180 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx180 = getelementptr inbounds i8, ptr %out, i64 176
   %43 = load <2 x i64>, ptr %add.ptr55, align 1
   %44 = shufflevector <2 x i64> %38, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %45 = shufflevector <2 x i64> %44, <2 x i64> %43, <2 x i32> <i32 0, i32 2>
@@ -9677,17 +9671,17 @@ entry:
   %48 = extractelement <2 x i64> %43, i64 1
   %or188 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i164, i64 %48, i64 48)
   %and189 = and i64 %or188, 18014398509481983
-  %arrayidx190 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx190 = getelementptr inbounds i8, ptr %out, i64 192
   %shr191 = lshr i64 %ret.0.copyload.i164, 6
   %and192 = and i64 %shr191, 18014398509481983
-  %arrayidx193 = getelementptr inbounds i64, ptr %out, i64 25
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx193 = getelementptr inbounds i8, ptr %out, i64 200
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 208
   %49 = load <2 x i64>, ptr %add.ptr64, align 1
   %50 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i164, i64 0
   %51 = shufflevector <2 x i64> %50, <2 x i64> %49, <2 x i32> <i32 0, i32 2>
   %52 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %49, <2 x i64> %51, <2 x i64> <i64 4, i64 14>)
   %53 = and <2 x i64> %52, <i64 18014398509481983, i64 18014398509481983>
-  %arrayidx208 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx208 = getelementptr inbounds i8, ptr %out, i64 224
   %54 = load <2 x i64>, ptr %add.ptr70, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx81, align 8
@@ -9715,10 +9709,10 @@ entry:
   %59 = extractelement <2 x i64> %54, i64 1
   %or216 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i169, i64 %59, i64 44)
   %and217 = and i64 %or216, 18014398509481983
-  %arrayidx218 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx218 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and217, ptr %arrayidx218, align 8
   %shr219 = lshr i64 %ret.0.copyload.i169, 10
-  %arrayidx220 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx220 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr219, ptr %arrayidx220, align 8
   ret ptr %add.ptr79
 }
@@ -9745,19 +9739,19 @@ entry:
   %conv = zext i32 %ret.0.copyload.i173 to i64
   %add.ptr82 = getelementptr inbounds i8, ptr %in, i64 220
   %and = and i64 %ret.0.copyload.i, 36028797018963967
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 9, i64 18>)
   %4 = and <2 x i64> %3, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 27, i64 36>)
   %9 = and <2 x i64> %8, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx104 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx104 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
@@ -9766,20 +9760,20 @@ entry:
   %15 = extractelement <2 x i64> %10, i64 1
   %shr110 = lshr i64 %15, 1
   %and111 = and i64 %shr110, 36028797018963967
-  %arrayidx112 = getelementptr inbounds i64, ptr %out, i64 7
-  %arrayidx117 = getelementptr inbounds i64, ptr %out, i64 8
+  %arrayidx112 = getelementptr inbounds i8, ptr %out, i64 56
+  %arrayidx117 = getelementptr inbounds i8, ptr %out, i64 64
   %16 = load <2 x i64>, ptr %add.ptr19, align 1
   %17 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %18 = shufflevector <2 x i64> %17, <2 x i64> %16, <2 x i32> <i32 0, i32 2>
   %19 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %16, <2 x i64> %18, <2 x i64> <i64 8, i64 17>)
   %20 = and <2 x i64> %19, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 80
   %21 = load <2 x i64>, ptr %add.ptr25, align 1
   %22 = shufflevector <2 x i64> %16, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %23 = shufflevector <2 x i64> %22, <2 x i64> %21, <2 x i32> <i32 0, i32 2>
   %24 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %21, <2 x i64> %23, <2 x i64> <i64 26, i64 35>)
   %25 = and <2 x i64> %24, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx137 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx137 = getelementptr inbounds i8, ptr %out, i64 96
   %26 = load <2 x i64>, ptr %add.ptr31, align 1
   %27 = shufflevector <2 x i64> %21, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %28 = shufflevector <2 x i64> %27, <2 x i64> %26, <2 x i32> <i32 0, i32 2>
@@ -9788,20 +9782,20 @@ entry:
   %31 = extractelement <2 x i64> %26, i64 1
   %shr143 = lshr i64 %31, 2
   %and144 = and i64 %shr143, 36028797018963967
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 14
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 112
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 120
   %32 = load <2 x i64>, ptr %add.ptr37, align 1
   %33 = shufflevector <2 x i64> %26, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %34 = shufflevector <2 x i64> %33, <2 x i64> %32, <2 x i32> <i32 0, i32 2>
   %35 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %32, <2 x i64> %34, <2 x i64> <i64 7, i64 16>)
   %36 = and <2 x i64> %35, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 136
   %37 = load <2 x i64>, ptr %add.ptr43, align 1
   %38 = shufflevector <2 x i64> %32, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %39 = shufflevector <2 x i64> %38, <2 x i64> %37, <2 x i32> <i32 0, i32 2>
   %40 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %37, <2 x i64> %39, <2 x i64> <i64 25, i64 34>)
   %41 = and <2 x i64> %40, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx170 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx170 = getelementptr inbounds i8, ptr %out, i64 152
   %42 = load <2 x i64>, ptr %add.ptr49, align 1
   %43 = shufflevector <2 x i64> %37, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
@@ -9810,20 +9804,20 @@ entry:
   %47 = extractelement <2 x i64> %42, i64 1
   %shr176 = lshr i64 %47, 3
   %and177 = and i64 %shr176, 36028797018963967
-  %arrayidx178 = getelementptr inbounds i64, ptr %out, i64 21
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx178 = getelementptr inbounds i8, ptr %out, i64 168
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 176
   %48 = load <2 x i64>, ptr %add.ptr55, align 1
   %49 = shufflevector <2 x i64> %42, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %50 = shufflevector <2 x i64> %49, <2 x i64> %48, <2 x i32> <i32 0, i32 2>
   %51 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %48, <2 x i64> %50, <2 x i64> <i64 6, i64 15>)
   %52 = and <2 x i64> %51, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx193 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx193 = getelementptr inbounds i8, ptr %out, i64 192
   %53 = load <2 x i64>, ptr %add.ptr61, align 1
   %54 = shufflevector <2 x i64> %48, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %55 = shufflevector <2 x i64> %54, <2 x i64> %53, <2 x i32> <i32 0, i32 2>
   %56 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %53, <2 x i64> %55, <2 x i64> <i64 24, i64 33>)
   %57 = and <2 x i64> %56, <i64 36028797018963967, i64 36028797018963967>
-  %arrayidx203 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx203 = getelementptr inbounds i8, ptr %out, i64 208
   %58 = load <2 x i64>, ptr %add.ptr67, align 1
   %59 = shufflevector <2 x i64> %53, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %60 = shufflevector <2 x i64> %59, <2 x i64> %58, <2 x i32> <i32 0, i32 2>
@@ -9832,8 +9826,8 @@ entry:
   %63 = extractelement <2 x i64> %58, i64 1
   %shr209 = lshr i64 %63, 4
   %and210 = and i64 %shr209, 36028797018963967
-  %arrayidx211 = getelementptr inbounds i64, ptr %out, i64 28
-  %arrayidx216 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 224
+  %arrayidx216 = getelementptr inbounds i8, ptr %out, i64 232
   %64 = load <2 x i64>, ptr %add.ptr73, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx84, align 8
@@ -9859,7 +9853,7 @@ entry:
   store <2 x i64> %68, ptr %arrayidx216, align 8
   %69 = extractelement <2 x i64> %64, i64 1
   %or224 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %69, i64 23)
-  %arrayidx226 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx226 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or224, ptr %arrayidx226, align 8
   ret ptr %add.ptr82
 }
@@ -9888,19 +9882,19 @@ entry:
   %add.ptr76 = getelementptr inbounds i8, ptr %in, i64 208
   %add.ptr82 = getelementptr inbounds i8, ptr %in, i64 224
   %and = and i64 %ret.0.copyload.i, 72057594037927935
-  %arrayidx84 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx84 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 8, i64 16>)
   %4 = and <2 x i64> %3, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx94 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx94 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 24, i64 32>)
   %9 = and <2 x i64> %8, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx104 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx104 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
@@ -9908,22 +9902,22 @@ entry:
   %14 = and <2 x i64> %13, <i64 72057594037927935, i64 72057594037927935>
   %15 = extractelement <2 x i64> %10, i64 1
   %shr110 = lshr i64 %15, 8
-  %arrayidx111 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx111 = getelementptr inbounds i8, ptr %out, i64 56
   %and112 = and i64 %ret.0.copyload.i150, 72057594037927935
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 8
-  %arrayidx118 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 64
+  %arrayidx118 = getelementptr inbounds i8, ptr %out, i64 72
   %16 = load <2 x i64>, ptr %add.ptr22, align 1
   %17 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i150, i64 0
   %18 = shufflevector <2 x i64> %17, <2 x i64> %16, <2 x i32> <i32 0, i32 2>
   %19 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %16, <2 x i64> %18, <2 x i64> <i64 8, i64 16>)
   %20 = and <2 x i64> %19, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx128 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx128 = getelementptr inbounds i8, ptr %out, i64 88
   %21 = load <2 x i64>, ptr %add.ptr28, align 1
   %22 = shufflevector <2 x i64> %16, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %23 = shufflevector <2 x i64> %22, <2 x i64> %21, <2 x i32> <i32 0, i32 2>
   %24 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %21, <2 x i64> %23, <2 x i64> <i64 24, i64 32>)
   %25 = and <2 x i64> %24, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx138 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx138 = getelementptr inbounds i8, ptr %out, i64 104
   %26 = load <2 x i64>, ptr %add.ptr34, align 1
   %27 = shufflevector <2 x i64> %21, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %28 = shufflevector <2 x i64> %27, <2 x i64> %26, <2 x i32> <i32 0, i32 2>
@@ -9931,22 +9925,22 @@ entry:
   %30 = and <2 x i64> %29, <i64 72057594037927935, i64 72057594037927935>
   %31 = extractelement <2 x i64> %26, i64 1
   %shr144 = lshr i64 %31, 8
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 120
   %and146 = and i64 %ret.0.copyload.i157, 72057594037927935
-  %arrayidx147 = getelementptr inbounds i64, ptr %out, i64 16
-  %arrayidx152 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx147 = getelementptr inbounds i8, ptr %out, i64 128
+  %arrayidx152 = getelementptr inbounds i8, ptr %out, i64 136
   %32 = load <2 x i64>, ptr %add.ptr43, align 1
   %33 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i157, i64 0
   %34 = shufflevector <2 x i64> %33, <2 x i64> %32, <2 x i32> <i32 0, i32 2>
   %35 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %32, <2 x i64> %34, <2 x i64> <i64 8, i64 16>)
   %36 = and <2 x i64> %35, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx162 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx162 = getelementptr inbounds i8, ptr %out, i64 152
   %37 = load <2 x i64>, ptr %add.ptr49, align 1
   %38 = shufflevector <2 x i64> %32, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %39 = shufflevector <2 x i64> %38, <2 x i64> %37, <2 x i32> <i32 0, i32 2>
   %40 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %37, <2 x i64> %39, <2 x i64> <i64 24, i64 32>)
   %41 = and <2 x i64> %40, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx172 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx172 = getelementptr inbounds i8, ptr %out, i64 168
   %42 = load <2 x i64>, ptr %add.ptr55, align 1
   %43 = shufflevector <2 x i64> %37, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
@@ -9954,22 +9948,22 @@ entry:
   %46 = and <2 x i64> %45, <i64 72057594037927935, i64 72057594037927935>
   %47 = extractelement <2 x i64> %42, i64 1
   %shr178 = lshr i64 %47, 8
-  %arrayidx179 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx179 = getelementptr inbounds i8, ptr %out, i64 184
   %and180 = and i64 %ret.0.copyload.i164, 72057594037927935
-  %arrayidx181 = getelementptr inbounds i64, ptr %out, i64 24
-  %arrayidx186 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx181 = getelementptr inbounds i8, ptr %out, i64 192
+  %arrayidx186 = getelementptr inbounds i8, ptr %out, i64 200
   %48 = load <2 x i64>, ptr %add.ptr64, align 1
   %49 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i164, i64 0
   %50 = shufflevector <2 x i64> %49, <2 x i64> %48, <2 x i32> <i32 0, i32 2>
   %51 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %48, <2 x i64> %50, <2 x i64> <i64 8, i64 16>)
   %52 = and <2 x i64> %51, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx196 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx196 = getelementptr inbounds i8, ptr %out, i64 216
   %53 = load <2 x i64>, ptr %add.ptr70, align 1
   %54 = shufflevector <2 x i64> %48, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %55 = shufflevector <2 x i64> %54, <2 x i64> %53, <2 x i32> <i32 0, i32 2>
   %56 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %53, <2 x i64> %55, <2 x i64> <i64 24, i64 32>)
   %57 = and <2 x i64> %56, <i64 72057594037927935, i64 72057594037927935>
-  %arrayidx206 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx206 = getelementptr inbounds i8, ptr %out, i64 232
   %58 = load <2 x i64>, ptr %add.ptr76, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx84, align 8
@@ -9996,7 +9990,7 @@ entry:
   store <2 x i64> %62, ptr %arrayidx206, align 8
   %63 = extractelement <2 x i64> %58, i64 1
   %shr212 = lshr i64 %63, 8
-  %arrayidx213 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx213 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr212, ptr %arrayidx213, align 8
   ret ptr %add.ptr82
 }
@@ -10025,25 +10019,25 @@ entry:
   %conv = zext i32 %ret.0.copyload.i177 to i64
   %add.ptr85 = getelementptr inbounds i8, ptr %in, i64 228
   %and = and i64 %ret.0.copyload.i, 144115188075855871
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 7, i64 14>)
   %4 = and <2 x i64> %3, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 21, i64 28>)
   %9 = and <2 x i64> %8, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %13 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %10, <2 x i64> %12, <2 x i64> <i64 35, i64 42>)
   %14 = and <2 x i64> %13, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx117 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx117 = getelementptr inbounds i8, ptr %out, i64 56
   %15 = load <2 x i64>, ptr %add.ptr19, align 1
   %16 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %17 = shufflevector <2 x i64> %16, <2 x i64> %15, <2 x i32> <i32 0, i32 2>
@@ -10052,26 +10046,26 @@ entry:
   %20 = extractelement <2 x i64> %15, i64 1
   %shr123 = lshr i64 %20, 1
   %and124 = and i64 %shr123, 144115188075855871
-  %arrayidx125 = getelementptr inbounds i64, ptr %out, i64 9
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 10
+  %arrayidx125 = getelementptr inbounds i8, ptr %out, i64 72
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 80
   %21 = load <2 x i64>, ptr %add.ptr25, align 1
   %22 = shufflevector <2 x i64> %15, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %23 = shufflevector <2 x i64> %22, <2 x i64> %21, <2 x i32> <i32 0, i32 2>
   %24 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %21, <2 x i64> %23, <2 x i64> <i64 6, i64 13>)
   %25 = and <2 x i64> %24, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 12
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 96
   %26 = load <2 x i64>, ptr %add.ptr31, align 1
   %27 = shufflevector <2 x i64> %21, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %28 = shufflevector <2 x i64> %27, <2 x i64> %26, <2 x i32> <i32 0, i32 2>
   %29 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %26, <2 x i64> %28, <2 x i64> <i64 20, i64 27>)
   %30 = and <2 x i64> %29, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 14
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 112
   %31 = load <2 x i64>, ptr %add.ptr37, align 1
   %32 = shufflevector <2 x i64> %26, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %33 = shufflevector <2 x i64> %32, <2 x i64> %31, <2 x i32> <i32 0, i32 2>
   %34 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %31, <2 x i64> %33, <2 x i64> <i64 34, i64 41>)
   %35 = and <2 x i64> %34, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx160 = getelementptr inbounds i64, ptr %out, i64 16
+  %arrayidx160 = getelementptr inbounds i8, ptr %out, i64 128
   %36 = load <2 x i64>, ptr %add.ptr43, align 1
   %37 = shufflevector <2 x i64> %31, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
@@ -10080,26 +10074,26 @@ entry:
   %41 = extractelement <2 x i64> %36, i64 1
   %shr166 = lshr i64 %41, 2
   %and167 = and i64 %shr166, 144115188075855871
-  %arrayidx168 = getelementptr inbounds i64, ptr %out, i64 18
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx168 = getelementptr inbounds i8, ptr %out, i64 144
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 152
   %42 = load <2 x i64>, ptr %add.ptr49, align 1
   %43 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %44 = shufflevector <2 x i64> %43, <2 x i64> %42, <2 x i32> <i32 0, i32 2>
   %45 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %42, <2 x i64> %44, <2 x i64> <i64 5, i64 12>)
   %46 = and <2 x i64> %45, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 168
   %47 = load <2 x i64>, ptr %add.ptr55, align 1
   %48 = shufflevector <2 x i64> %42, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %49 = shufflevector <2 x i64> %48, <2 x i64> %47, <2 x i32> <i32 0, i32 2>
   %50 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %47, <2 x i64> %49, <2 x i64> <i64 19, i64 26>)
   %51 = and <2 x i64> %50, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx193 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx193 = getelementptr inbounds i8, ptr %out, i64 184
   %52 = load <2 x i64>, ptr %add.ptr61, align 1
   %53 = shufflevector <2 x i64> %47, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %54 = shufflevector <2 x i64> %53, <2 x i64> %52, <2 x i32> <i32 0, i32 2>
   %55 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %52, <2 x i64> %54, <2 x i64> <i64 33, i64 40>)
   %56 = and <2 x i64> %55, <i64 144115188075855871, i64 144115188075855871>
-  %arrayidx203 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx203 = getelementptr inbounds i8, ptr %out, i64 200
   %57 = load <2 x i64>, ptr %add.ptr67, align 1
   %58 = shufflevector <2 x i64> %52, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %59 = shufflevector <2 x i64> %58, <2 x i64> %57, <2 x i32> <i32 0, i32 2>
@@ -10108,8 +10102,8 @@ entry:
   %62 = extractelement <2 x i64> %57, i64 1
   %shr209 = lshr i64 %62, 3
   %and210 = and i64 %shr209, 144115188075855871
-  %arrayidx211 = getelementptr inbounds i64, ptr %out, i64 27
-  %arrayidx216 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 216
+  %arrayidx216 = getelementptr inbounds i8, ptr %out, i64 224
   %63 = load <2 x i64>, ptr %add.ptr73, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx87, align 8
@@ -10135,10 +10129,10 @@ entry:
   %68 = extractelement <2 x i64> %63, i64 1
   %or224 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i176, i64 %68, i64 18)
   %and225 = and i64 %or224, 144115188075855871
-  %arrayidx226 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx226 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and225, ptr %arrayidx226, align 8
   %or229 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i176, i64 25)
-  %arrayidx231 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx231 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or229, ptr %arrayidx231, align 8
   ret ptr %add.ptr85
 }
@@ -10166,25 +10160,25 @@ entry:
   %ret.0.copyload.i177 = load i64, ptr %add.ptr82, align 1
   %add.ptr85 = getelementptr inbounds i8, ptr %in, i64 232
   %and = and i64 %ret.0.copyload.i, 288230376151711743
-  %arrayidx87 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx87 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 6, i64 12>)
   %4 = and <2 x i64> %3, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx97 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx97 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 18, i64 24>)
   %9 = and <2 x i64> %8, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx107 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx107 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %13 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %10, <2 x i64> %12, <2 x i64> <i64 30, i64 36>)
   %14 = and <2 x i64> %13, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx117 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx117 = getelementptr inbounds i8, ptr %out, i64 56
   %15 = load <2 x i64>, ptr %add.ptr19, align 1
   %16 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %17 = shufflevector <2 x i64> %16, <2 x i64> %15, <2 x i32> <i32 0, i32 2>
@@ -10193,35 +10187,35 @@ entry:
   %20 = extractelement <2 x i64> %15, i64 1
   %or125 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i158, i64 %20, i64 54)
   %and126 = and i64 %or125, 288230376151711743
-  %arrayidx127 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx127 = getelementptr inbounds i8, ptr %out, i64 72
   %shr128 = lshr i64 %ret.0.copyload.i158, 4
   %and129 = and i64 %shr128, 288230376151711743
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 10
-  %arrayidx135 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 80
+  %arrayidx135 = getelementptr inbounds i8, ptr %out, i64 88
   %21 = load <2 x i64>, ptr %add.ptr28, align 1
   %22 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i158, i64 0
   %23 = shufflevector <2 x i64> %22, <2 x i64> %21, <2 x i32> <i32 0, i32 2>
   %24 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %21, <2 x i64> %23, <2 x i64> <i64 2, i64 8>)
   %25 = and <2 x i64> %24, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx145 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx145 = getelementptr inbounds i8, ptr %out, i64 104
   %26 = load <2 x i64>, ptr %add.ptr34, align 1
   %27 = shufflevector <2 x i64> %21, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %28 = shufflevector <2 x i64> %27, <2 x i64> %26, <2 x i32> <i32 0, i32 2>
   %29 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %26, <2 x i64> %28, <2 x i64> <i64 14, i64 20>)
   %30 = and <2 x i64> %29, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx155 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx155 = getelementptr inbounds i8, ptr %out, i64 120
   %31 = load <2 x i64>, ptr %add.ptr40, align 1
   %32 = shufflevector <2 x i64> %26, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %33 = shufflevector <2 x i64> %32, <2 x i64> %31, <2 x i32> <i32 0, i32 2>
   %34 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %31, <2 x i64> %33, <2 x i64> <i64 26, i64 32>)
   %35 = and <2 x i64> %34, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx165 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx165 = getelementptr inbounds i8, ptr %out, i64 136
   %36 = load <2 x i64>, ptr %add.ptr46, align 1
   %37 = shufflevector <2 x i64> %31, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
   %39 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %36, <2 x i64> %38, <2 x i64> <i64 38, i64 44>)
   %40 = and <2 x i64> %39, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx175 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx175 = getelementptr inbounds i8, ptr %out, i64 152
   %41 = load <2 x i64>, ptr %add.ptr52, align 1
   %42 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %43 = shufflevector <2 x i64> %42, <2 x i64> %41, <2 x i32> <i32 0, i32 2>
@@ -10230,26 +10224,26 @@ entry:
   %46 = extractelement <2 x i64> %41, i64 1
   %shr181 = lshr i64 %46, 2
   %and182 = and i64 %shr181, 288230376151711743
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 21
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 168
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 176
   %47 = load <2 x i64>, ptr %add.ptr58, align 1
   %48 = shufflevector <2 x i64> %41, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %49 = shufflevector <2 x i64> %48, <2 x i64> %47, <2 x i32> <i32 0, i32 2>
   %50 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %47, <2 x i64> %49, <2 x i64> <i64 4, i64 10>)
   %51 = and <2 x i64> %50, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 192
   %52 = load <2 x i64>, ptr %add.ptr64, align 1
   %53 = shufflevector <2 x i64> %47, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %54 = shufflevector <2 x i64> %53, <2 x i64> %52, <2 x i32> <i32 0, i32 2>
   %55 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %52, <2 x i64> %54, <2 x i64> <i64 16, i64 22>)
   %56 = and <2 x i64> %55, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx208 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx208 = getelementptr inbounds i8, ptr %out, i64 208
   %57 = load <2 x i64>, ptr %add.ptr70, align 1
   %58 = shufflevector <2 x i64> %52, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %59 = shufflevector <2 x i64> %58, <2 x i64> %57, <2 x i32> <i32 0, i32 2>
   %60 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %57, <2 x i64> %59, <2 x i64> <i64 28, i64 34>)
   %61 = and <2 x i64> %60, <i64 288230376151711743, i64 288230376151711743>
-  %arrayidx218 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx218 = getelementptr inbounds i8, ptr %out, i64 224
   %62 = load <2 x i64>, ptr %add.ptr76, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx87, align 8
@@ -10275,10 +10269,10 @@ entry:
   %67 = extractelement <2 x i64> %62, i64 1
   %or226 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i177, i64 %67, i64 52)
   %and227 = and i64 %or226, 288230376151711743
-  %arrayidx228 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx228 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and227, ptr %arrayidx228, align 8
   %shr229 = lshr i64 %ret.0.copyload.i177, 6
-  %arrayidx230 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx230 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr229, ptr %arrayidx230, align 8
   ret ptr %add.ptr85
 }
@@ -10309,31 +10303,31 @@ entry:
   %conv = zext i32 %ret.0.copyload.i181 to i64
   %add.ptr88 = getelementptr inbounds i8, ptr %in, i64 236
   %and = and i64 %ret.0.copyload.i, 576460752303423487
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 5, i64 10>)
   %4 = and <2 x i64> %3, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 15, i64 20>)
   %9 = and <2 x i64> %8, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %13 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %10, <2 x i64> %12, <2 x i64> <i64 25, i64 30>)
   %14 = and <2 x i64> %13, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 56
   %15 = load <2 x i64>, ptr %add.ptr19, align 1
   %16 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %17 = shufflevector <2 x i64> %16, <2 x i64> %15, <2 x i32> <i32 0, i32 2>
   %18 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %15, <2 x i64> %17, <2 x i64> <i64 35, i64 40>)
   %19 = and <2 x i64> %18, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 72
   %20 = load <2 x i64>, ptr %add.ptr25, align 1
   %21 = shufflevector <2 x i64> %15, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %22 = shufflevector <2 x i64> %21, <2 x i64> %20, <2 x i32> <i32 0, i32 2>
@@ -10342,41 +10336,41 @@ entry:
   %25 = extractelement <2 x i64> %20, i64 1
   %or138 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i163, i64 %25, i64 55)
   %and139 = and i64 %or138, 576460752303423487
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 88
   %shr141 = lshr i64 %ret.0.copyload.i163, 4
   %and142 = and i64 %shr141, 576460752303423487
-  %arrayidx143 = getelementptr inbounds i64, ptr %out, i64 12
-  %arrayidx148 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 96
+  %arrayidx148 = getelementptr inbounds i8, ptr %out, i64 104
   %26 = load <2 x i64>, ptr %add.ptr34, align 1
   %27 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i163, i64 0
   %28 = shufflevector <2 x i64> %27, <2 x i64> %26, <2 x i32> <i32 0, i32 2>
   %29 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %26, <2 x i64> %28, <2 x i64> <i64 1, i64 6>)
   %30 = and <2 x i64> %29, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx158 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx158 = getelementptr inbounds i8, ptr %out, i64 120
   %31 = load <2 x i64>, ptr %add.ptr40, align 1
   %32 = shufflevector <2 x i64> %26, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %33 = shufflevector <2 x i64> %32, <2 x i64> %31, <2 x i32> <i32 0, i32 2>
   %34 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %31, <2 x i64> %33, <2 x i64> <i64 11, i64 16>)
   %35 = and <2 x i64> %34, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx168 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx168 = getelementptr inbounds i8, ptr %out, i64 136
   %36 = load <2 x i64>, ptr %add.ptr46, align 1
   %37 = shufflevector <2 x i64> %31, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
   %39 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %36, <2 x i64> %38, <2 x i64> <i64 21, i64 26>)
   %40 = and <2 x i64> %39, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx178 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx178 = getelementptr inbounds i8, ptr %out, i64 152
   %41 = load <2 x i64>, ptr %add.ptr52, align 1
   %42 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %43 = shufflevector <2 x i64> %42, <2 x i64> %41, <2 x i32> <i32 0, i32 2>
   %44 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %41, <2 x i64> %43, <2 x i64> <i64 31, i64 36>)
   %45 = and <2 x i64> %44, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx188 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx188 = getelementptr inbounds i8, ptr %out, i64 168
   %46 = load <2 x i64>, ptr %add.ptr58, align 1
   %47 = shufflevector <2 x i64> %41, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %48 = shufflevector <2 x i64> %47, <2 x i64> %46, <2 x i32> <i32 0, i32 2>
   %49 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %46, <2 x i64> %48, <2 x i64> <i64 41, i64 46>)
   %50 = and <2 x i64> %49, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx198 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx198 = getelementptr inbounds i8, ptr %out, i64 184
   %51 = load <2 x i64>, ptr %add.ptr64, align 1
   %52 = shufflevector <2 x i64> %46, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %53 = shufflevector <2 x i64> %52, <2 x i64> %51, <2 x i32> <i32 0, i32 2>
@@ -10385,14 +10379,14 @@ entry:
   %56 = extractelement <2 x i64> %51, i64 1
   %shr204 = lshr i64 %56, 3
   %and205 = and i64 %shr204, 576460752303423487
-  %arrayidx206 = getelementptr inbounds i64, ptr %out, i64 25
-  %arrayidx211 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx206 = getelementptr inbounds i8, ptr %out, i64 200
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 208
   %57 = load <2 x i64>, ptr %add.ptr70, align 1
   %58 = shufflevector <2 x i64> %51, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %59 = shufflevector <2 x i64> %58, <2 x i64> %57, <2 x i32> <i32 0, i32 2>
   %60 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %57, <2 x i64> %59, <2 x i64> <i64 2, i64 7>)
   %61 = and <2 x i64> %60, <i64 576460752303423487, i64 576460752303423487>
-  %arrayidx221 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx221 = getelementptr inbounds i8, ptr %out, i64 224
   %62 = load <2 x i64>, ptr %add.ptr76, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx90, align 8
@@ -10418,10 +10412,10 @@ entry:
   %67 = extractelement <2 x i64> %62, i64 1
   %or229 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i180, i64 %67, i64 22)
   %and230 = and i64 %or229, 576460752303423487
-  %arrayidx231 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx231 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and230, ptr %arrayidx231, align 8
   %or234 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i180, i64 27)
-  %arrayidx236 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx236 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or234, ptr %arrayidx236, align 8
   ret ptr %add.ptr88
 }
@@ -10448,43 +10442,43 @@ entry:
   %add.ptr82 = getelementptr inbounds i8, ptr %in, i64 224
   %add.ptr88 = getelementptr inbounds i8, ptr %in, i64 240
   %and = and i64 %ret.0.copyload.i, 1152921504606846975
-  %arrayidx90 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx90 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 4, i64 8>)
   %4 = and <2 x i64> %3, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx100 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx100 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 12, i64 16>)
   %9 = and <2 x i64> %8, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx110 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx110 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %13 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %10, <2 x i64> %12, <2 x i64> <i64 20, i64 24>)
   %14 = and <2 x i64> %13, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx120 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx120 = getelementptr inbounds i8, ptr %out, i64 56
   %15 = load <2 x i64>, ptr %add.ptr19, align 1
   %16 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %17 = shufflevector <2 x i64> %16, <2 x i64> %15, <2 x i32> <i32 0, i32 2>
   %18 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %15, <2 x i64> %17, <2 x i64> <i64 28, i64 32>)
   %19 = and <2 x i64> %18, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx130 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx130 = getelementptr inbounds i8, ptr %out, i64 72
   %20 = load <2 x i64>, ptr %add.ptr25, align 1
   %21 = shufflevector <2 x i64> %15, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %22 = shufflevector <2 x i64> %21, <2 x i64> %20, <2 x i32> <i32 0, i32 2>
   %23 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %20, <2 x i64> %22, <2 x i64> <i64 36, i64 40>)
   %24 = and <2 x i64> %23, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx140 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx140 = getelementptr inbounds i8, ptr %out, i64 88
   %25 = load <2 x i64>, ptr %add.ptr31, align 1
   %26 = shufflevector <2 x i64> %20, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %27 = shufflevector <2 x i64> %26, <2 x i64> %25, <2 x i32> <i32 0, i32 2>
   %28 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %25, <2 x i64> %27, <2 x i64> <i64 44, i64 48>)
   %29 = and <2 x i64> %28, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx150 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx150 = getelementptr inbounds i8, ptr %out, i64 104
   %30 = load <2 x i64>, ptr %add.ptr37, align 1
   %31 = shufflevector <2 x i64> %25, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
@@ -10492,46 +10486,46 @@ entry:
   %34 = and <2 x i64> %33, <i64 1152921504606846975, i64 1152921504606846975>
   %35 = extractelement <2 x i64> %30, i64 1
   %shr156 = lshr i64 %35, 4
-  %arrayidx157 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx157 = getelementptr inbounds i8, ptr %out, i64 120
   %and158 = and i64 %ret.0.copyload.i166, 1152921504606846975
-  %arrayidx159 = getelementptr inbounds i64, ptr %out, i64 16
-  %arrayidx164 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx159 = getelementptr inbounds i8, ptr %out, i64 128
+  %arrayidx164 = getelementptr inbounds i8, ptr %out, i64 136
   %36 = load <2 x i64>, ptr %add.ptr46, align 1
   %37 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i166, i64 0
   %38 = shufflevector <2 x i64> %37, <2 x i64> %36, <2 x i32> <i32 0, i32 2>
   %39 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %36, <2 x i64> %38, <2 x i64> <i64 4, i64 8>)
   %40 = and <2 x i64> %39, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx174 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx174 = getelementptr inbounds i8, ptr %out, i64 152
   %41 = load <2 x i64>, ptr %add.ptr52, align 1
   %42 = shufflevector <2 x i64> %36, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %43 = shufflevector <2 x i64> %42, <2 x i64> %41, <2 x i32> <i32 0, i32 2>
   %44 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %41, <2 x i64> %43, <2 x i64> <i64 12, i64 16>)
   %45 = and <2 x i64> %44, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx184 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx184 = getelementptr inbounds i8, ptr %out, i64 168
   %46 = load <2 x i64>, ptr %add.ptr58, align 1
   %47 = shufflevector <2 x i64> %41, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %48 = shufflevector <2 x i64> %47, <2 x i64> %46, <2 x i32> <i32 0, i32 2>
   %49 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %46, <2 x i64> %48, <2 x i64> <i64 20, i64 24>)
   %50 = and <2 x i64> %49, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx194 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx194 = getelementptr inbounds i8, ptr %out, i64 184
   %51 = load <2 x i64>, ptr %add.ptr64, align 1
   %52 = shufflevector <2 x i64> %46, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %53 = shufflevector <2 x i64> %52, <2 x i64> %51, <2 x i32> <i32 0, i32 2>
   %54 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %51, <2 x i64> %53, <2 x i64> <i64 28, i64 32>)
   %55 = and <2 x i64> %54, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx204 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx204 = getelementptr inbounds i8, ptr %out, i64 200
   %56 = load <2 x i64>, ptr %add.ptr70, align 1
   %57 = shufflevector <2 x i64> %51, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %58 = shufflevector <2 x i64> %57, <2 x i64> %56, <2 x i32> <i32 0, i32 2>
   %59 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %56, <2 x i64> %58, <2 x i64> <i64 36, i64 40>)
   %60 = and <2 x i64> %59, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx214 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx214 = getelementptr inbounds i8, ptr %out, i64 216
   %61 = load <2 x i64>, ptr %add.ptr76, align 1
   %62 = shufflevector <2 x i64> %56, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %63 = shufflevector <2 x i64> %62, <2 x i64> %61, <2 x i32> <i32 0, i32 2>
   %64 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %61, <2 x i64> %63, <2 x i64> <i64 44, i64 48>)
   %65 = and <2 x i64> %64, <i64 1152921504606846975, i64 1152921504606846975>
-  %arrayidx224 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx224 = getelementptr inbounds i8, ptr %out, i64 232
   %66 = load <2 x i64>, ptr %add.ptr82, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx90, align 8
@@ -10556,7 +10550,7 @@ entry:
   store <2 x i64> %70, ptr %arrayidx224, align 8
   %71 = extractelement <2 x i64> %66, i64 1
   %shr230 = lshr i64 %71, 4
-  %arrayidx231 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx231 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr230, ptr %arrayidx231, align 8
   ret ptr %add.ptr88
 }
@@ -10586,61 +10580,61 @@ entry:
   %conv = zext i32 %ret.0.copyload.i185 to i64
   %add.ptr91 = getelementptr inbounds i8, ptr %in, i64 244
   %and = and i64 %ret.0.copyload.i, 2305843009213693951
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 3, i64 6>)
   %4 = and <2 x i64> %3, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 9, i64 12>)
   %9 = and <2 x i64> %8, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %13 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %10, <2 x i64> %12, <2 x i64> <i64 15, i64 18>)
   %14 = and <2 x i64> %13, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 56
   %15 = load <2 x i64>, ptr %add.ptr19, align 1
   %16 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %17 = shufflevector <2 x i64> %16, <2 x i64> %15, <2 x i32> <i32 0, i32 2>
   %18 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %15, <2 x i64> %17, <2 x i64> <i64 21, i64 24>)
   %19 = and <2 x i64> %18, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx133 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx133 = getelementptr inbounds i8, ptr %out, i64 72
   %20 = load <2 x i64>, ptr %add.ptr25, align 1
   %21 = shufflevector <2 x i64> %15, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %22 = shufflevector <2 x i64> %21, <2 x i64> %20, <2 x i32> <i32 0, i32 2>
   %23 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %20, <2 x i64> %22, <2 x i64> <i64 27, i64 30>)
   %24 = and <2 x i64> %23, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx143 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 88
   %25 = load <2 x i64>, ptr %add.ptr31, align 1
   %26 = shufflevector <2 x i64> %20, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %27 = shufflevector <2 x i64> %26, <2 x i64> %25, <2 x i32> <i32 0, i32 2>
   %28 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %25, <2 x i64> %27, <2 x i64> <i64 33, i64 36>)
   %29 = and <2 x i64> %28, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx153 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx153 = getelementptr inbounds i8, ptr %out, i64 104
   %30 = load <2 x i64>, ptr %add.ptr37, align 1
   %31 = shufflevector <2 x i64> %25, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
   %33 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %30, <2 x i64> %32, <2 x i64> <i64 39, i64 42>)
   %34 = and <2 x i64> %33, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx163 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx163 = getelementptr inbounds i8, ptr %out, i64 120
   %35 = load <2 x i64>, ptr %add.ptr43, align 1
   %36 = shufflevector <2 x i64> %30, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %37 = shufflevector <2 x i64> %36, <2 x i64> %35, <2 x i32> <i32 0, i32 2>
   %38 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %35, <2 x i64> %37, <2 x i64> <i64 45, i64 48>)
   %39 = and <2 x i64> %38, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 136
   %40 = load <2 x i64>, ptr %add.ptr49, align 1
   %41 = shufflevector <2 x i64> %35, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %42 = shufflevector <2 x i64> %41, <2 x i64> %40, <2 x i32> <i32 0, i32 2>
   %43 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %40, <2 x i64> %42, <2 x i64> <i64 51, i64 54>)
   %44 = and <2 x i64> %43, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 152
   %45 = load <2 x i64>, ptr %add.ptr55, align 1
   %46 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %47 = shufflevector <2 x i64> %46, <2 x i64> %45, <2 x i32> <i32 0, i32 2>
@@ -10649,26 +10643,26 @@ entry:
   %50 = extractelement <2 x i64> %45, i64 1
   %shr189 = lshr i64 %50, 1
   %and190 = and i64 %shr189, 2305843009213693951
-  %arrayidx191 = getelementptr inbounds i64, ptr %out, i64 21
-  %arrayidx196 = getelementptr inbounds i64, ptr %out, i64 22
+  %arrayidx191 = getelementptr inbounds i8, ptr %out, i64 168
+  %arrayidx196 = getelementptr inbounds i8, ptr %out, i64 176
   %51 = load <2 x i64>, ptr %add.ptr61, align 1
   %52 = shufflevector <2 x i64> %45, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %53 = shufflevector <2 x i64> %52, <2 x i64> %51, <2 x i32> <i32 0, i32 2>
   %54 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %51, <2 x i64> %53, <2 x i64> <i64 2, i64 5>)
   %55 = and <2 x i64> %54, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx206 = getelementptr inbounds i64, ptr %out, i64 24
+  %arrayidx206 = getelementptr inbounds i8, ptr %out, i64 192
   %56 = load <2 x i64>, ptr %add.ptr67, align 1
   %57 = shufflevector <2 x i64> %51, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %58 = shufflevector <2 x i64> %57, <2 x i64> %56, <2 x i32> <i32 0, i32 2>
   %59 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %56, <2 x i64> %58, <2 x i64> <i64 8, i64 11>)
   %60 = and <2 x i64> %59, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx216 = getelementptr inbounds i64, ptr %out, i64 26
+  %arrayidx216 = getelementptr inbounds i8, ptr %out, i64 208
   %61 = load <2 x i64>, ptr %add.ptr73, align 1
   %62 = shufflevector <2 x i64> %56, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %63 = shufflevector <2 x i64> %62, <2 x i64> %61, <2 x i32> <i32 0, i32 2>
   %64 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %61, <2 x i64> %63, <2 x i64> <i64 14, i64 17>)
   %65 = and <2 x i64> %64, <i64 2305843009213693951, i64 2305843009213693951>
-  %arrayidx226 = getelementptr inbounds i64, ptr %out, i64 28
+  %arrayidx226 = getelementptr inbounds i8, ptr %out, i64 224
   %66 = load <2 x i64>, ptr %add.ptr79, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx93, align 8
@@ -10693,10 +10687,10 @@ entry:
   %71 = extractelement <2 x i64> %66, i64 1
   %or234 = tail call i64 @llvm.fshl.i64(i64 %ret.0.copyload.i184, i64 %71, i64 26)
   %and235 = and i64 %or234, 2305843009213693951
-  %arrayidx236 = getelementptr inbounds i64, ptr %out, i64 30
+  %arrayidx236 = getelementptr inbounds i8, ptr %out, i64 240
   store i64 %and235, ptr %arrayidx236, align 8
   %or239 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %ret.0.copyload.i184, i64 29)
-  %arrayidx241 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx241 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or239, ptr %arrayidx241, align 8
   ret ptr %add.ptr91
 }
@@ -10722,91 +10716,91 @@ entry:
   %add.ptr85 = getelementptr inbounds i8, ptr %in, i64 232
   %add.ptr91 = getelementptr inbounds i8, ptr %in, i64 248
   %and = and i64 %ret.0.copyload.i, 4611686018427387903
-  %arrayidx93 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx93 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 2, i64 4>)
   %4 = and <2 x i64> %3, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx103 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx103 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 6, i64 8>)
   %9 = and <2 x i64> %8, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx113 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx113 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %13 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %10, <2 x i64> %12, <2 x i64> <i64 10, i64 12>)
   %14 = and <2 x i64> %13, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx123 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx123 = getelementptr inbounds i8, ptr %out, i64 56
   %15 = load <2 x i64>, ptr %add.ptr19, align 1
   %16 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %17 = shufflevector <2 x i64> %16, <2 x i64> %15, <2 x i32> <i32 0, i32 2>
   %18 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %15, <2 x i64> %17, <2 x i64> <i64 14, i64 16>)
   %19 = and <2 x i64> %18, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx133 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx133 = getelementptr inbounds i8, ptr %out, i64 72
   %20 = load <2 x i64>, ptr %add.ptr25, align 1
   %21 = shufflevector <2 x i64> %15, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %22 = shufflevector <2 x i64> %21, <2 x i64> %20, <2 x i32> <i32 0, i32 2>
   %23 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %20, <2 x i64> %22, <2 x i64> <i64 18, i64 20>)
   %24 = and <2 x i64> %23, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx143 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 88
   %25 = load <2 x i64>, ptr %add.ptr31, align 1
   %26 = shufflevector <2 x i64> %20, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %27 = shufflevector <2 x i64> %26, <2 x i64> %25, <2 x i32> <i32 0, i32 2>
   %28 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %25, <2 x i64> %27, <2 x i64> <i64 22, i64 24>)
   %29 = and <2 x i64> %28, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx153 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx153 = getelementptr inbounds i8, ptr %out, i64 104
   %30 = load <2 x i64>, ptr %add.ptr37, align 1
   %31 = shufflevector <2 x i64> %25, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
   %33 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %30, <2 x i64> %32, <2 x i64> <i64 26, i64 28>)
   %34 = and <2 x i64> %33, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx163 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx163 = getelementptr inbounds i8, ptr %out, i64 120
   %35 = load <2 x i64>, ptr %add.ptr43, align 1
   %36 = shufflevector <2 x i64> %30, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %37 = shufflevector <2 x i64> %36, <2 x i64> %35, <2 x i32> <i32 0, i32 2>
   %38 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %35, <2 x i64> %37, <2 x i64> <i64 30, i64 32>)
   %39 = and <2 x i64> %38, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx173 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx173 = getelementptr inbounds i8, ptr %out, i64 136
   %40 = load <2 x i64>, ptr %add.ptr49, align 1
   %41 = shufflevector <2 x i64> %35, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %42 = shufflevector <2 x i64> %41, <2 x i64> %40, <2 x i32> <i32 0, i32 2>
   %43 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %40, <2 x i64> %42, <2 x i64> <i64 34, i64 36>)
   %44 = and <2 x i64> %43, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx183 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx183 = getelementptr inbounds i8, ptr %out, i64 152
   %45 = load <2 x i64>, ptr %add.ptr55, align 1
   %46 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %47 = shufflevector <2 x i64> %46, <2 x i64> %45, <2 x i32> <i32 0, i32 2>
   %48 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %45, <2 x i64> %47, <2 x i64> <i64 38, i64 40>)
   %49 = and <2 x i64> %48, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx193 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx193 = getelementptr inbounds i8, ptr %out, i64 168
   %50 = load <2 x i64>, ptr %add.ptr61, align 1
   %51 = shufflevector <2 x i64> %45, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %52 = shufflevector <2 x i64> %51, <2 x i64> %50, <2 x i32> <i32 0, i32 2>
   %53 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %50, <2 x i64> %52, <2 x i64> <i64 42, i64 44>)
   %54 = and <2 x i64> %53, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx203 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx203 = getelementptr inbounds i8, ptr %out, i64 184
   %55 = load <2 x i64>, ptr %add.ptr67, align 1
   %56 = shufflevector <2 x i64> %50, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %57 = shufflevector <2 x i64> %56, <2 x i64> %55, <2 x i32> <i32 0, i32 2>
   %58 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %55, <2 x i64> %57, <2 x i64> <i64 46, i64 48>)
   %59 = and <2 x i64> %58, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx213 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx213 = getelementptr inbounds i8, ptr %out, i64 200
   %60 = load <2 x i64>, ptr %add.ptr73, align 1
   %61 = shufflevector <2 x i64> %55, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %62 = shufflevector <2 x i64> %61, <2 x i64> %60, <2 x i32> <i32 0, i32 2>
   %63 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %60, <2 x i64> %62, <2 x i64> <i64 50, i64 52>)
   %64 = and <2 x i64> %63, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx223 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx223 = getelementptr inbounds i8, ptr %out, i64 216
   %65 = load <2 x i64>, ptr %add.ptr79, align 1
   %66 = shufflevector <2 x i64> %60, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %67 = shufflevector <2 x i64> %66, <2 x i64> %65, <2 x i32> <i32 0, i32 2>
   %68 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %65, <2 x i64> %67, <2 x i64> <i64 54, i64 56>)
   %69 = and <2 x i64> %68, <i64 4611686018427387903, i64 4611686018427387903>
-  %arrayidx233 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx233 = getelementptr inbounds i8, ptr %out, i64 232
   %70 = load <2 x i64>, ptr %add.ptr85, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx93, align 8
@@ -10830,7 +10824,7 @@ entry:
   store <2 x i64> %74, ptr %arrayidx233, align 8
   %75 = extractelement <2 x i64> %70, i64 1
   %shr239 = lshr i64 %75, 2
-  %arrayidx240 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx240 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %shr239, ptr %arrayidx240, align 8
   ret ptr %add.ptr91
 }
@@ -10859,91 +10853,91 @@ entry:
   %conv = zext i32 %ret.0.copyload.i189 to i64
   %add.ptr94 = getelementptr inbounds i8, ptr %in, i64 252
   %and = and i64 %ret.0.copyload.i, 9223372036854775807
-  %arrayidx96 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx96 = getelementptr inbounds i8, ptr %out, i64 8
   %0 = load <2 x i64>, ptr %add.ptr, align 1
   %1 = insertelement <2 x i64> poison, i64 %ret.0.copyload.i, i64 0
   %2 = shufflevector <2 x i64> %1, <2 x i64> %0, <2 x i32> <i32 0, i32 2>
   %3 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %0, <2 x i64> %2, <2 x i64> <i64 1, i64 2>)
   %4 = and <2 x i64> %3, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx106 = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx106 = getelementptr inbounds i8, ptr %out, i64 24
   %5 = load <2 x i64>, ptr %add.ptr7, align 1
   %6 = shufflevector <2 x i64> %0, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %7 = shufflevector <2 x i64> %6, <2 x i64> %5, <2 x i32> <i32 0, i32 2>
   %8 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %5, <2 x i64> %7, <2 x i64> <i64 3, i64 4>)
   %9 = and <2 x i64> %8, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx116 = getelementptr inbounds i64, ptr %out, i64 5
+  %arrayidx116 = getelementptr inbounds i8, ptr %out, i64 40
   %10 = load <2 x i64>, ptr %add.ptr13, align 1
   %11 = shufflevector <2 x i64> %5, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %12 = shufflevector <2 x i64> %11, <2 x i64> %10, <2 x i32> <i32 0, i32 2>
   %13 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %10, <2 x i64> %12, <2 x i64> <i64 5, i64 6>)
   %14 = and <2 x i64> %13, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx126 = getelementptr inbounds i64, ptr %out, i64 7
+  %arrayidx126 = getelementptr inbounds i8, ptr %out, i64 56
   %15 = load <2 x i64>, ptr %add.ptr19, align 1
   %16 = shufflevector <2 x i64> %10, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %17 = shufflevector <2 x i64> %16, <2 x i64> %15, <2 x i32> <i32 0, i32 2>
   %18 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %15, <2 x i64> %17, <2 x i64> <i64 7, i64 8>)
   %19 = and <2 x i64> %18, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx136 = getelementptr inbounds i64, ptr %out, i64 9
+  %arrayidx136 = getelementptr inbounds i8, ptr %out, i64 72
   %20 = load <2 x i64>, ptr %add.ptr25, align 1
   %21 = shufflevector <2 x i64> %15, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %22 = shufflevector <2 x i64> %21, <2 x i64> %20, <2 x i32> <i32 0, i32 2>
   %23 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %20, <2 x i64> %22, <2 x i64> <i64 9, i64 10>)
   %24 = and <2 x i64> %23, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx146 = getelementptr inbounds i64, ptr %out, i64 11
+  %arrayidx146 = getelementptr inbounds i8, ptr %out, i64 88
   %25 = load <2 x i64>, ptr %add.ptr31, align 1
   %26 = shufflevector <2 x i64> %20, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %27 = shufflevector <2 x i64> %26, <2 x i64> %25, <2 x i32> <i32 0, i32 2>
   %28 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %25, <2 x i64> %27, <2 x i64> <i64 11, i64 12>)
   %29 = and <2 x i64> %28, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx156 = getelementptr inbounds i64, ptr %out, i64 13
+  %arrayidx156 = getelementptr inbounds i8, ptr %out, i64 104
   %30 = load <2 x i64>, ptr %add.ptr37, align 1
   %31 = shufflevector <2 x i64> %25, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %32 = shufflevector <2 x i64> %31, <2 x i64> %30, <2 x i32> <i32 0, i32 2>
   %33 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %30, <2 x i64> %32, <2 x i64> <i64 13, i64 14>)
   %34 = and <2 x i64> %33, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx166 = getelementptr inbounds i64, ptr %out, i64 15
+  %arrayidx166 = getelementptr inbounds i8, ptr %out, i64 120
   %35 = load <2 x i64>, ptr %add.ptr43, align 1
   %36 = shufflevector <2 x i64> %30, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %37 = shufflevector <2 x i64> %36, <2 x i64> %35, <2 x i32> <i32 0, i32 2>
   %38 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %35, <2 x i64> %37, <2 x i64> <i64 15, i64 16>)
   %39 = and <2 x i64> %38, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx176 = getelementptr inbounds i64, ptr %out, i64 17
+  %arrayidx176 = getelementptr inbounds i8, ptr %out, i64 136
   %40 = load <2 x i64>, ptr %add.ptr49, align 1
   %41 = shufflevector <2 x i64> %35, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %42 = shufflevector <2 x i64> %41, <2 x i64> %40, <2 x i32> <i32 0, i32 2>
   %43 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %40, <2 x i64> %42, <2 x i64> <i64 17, i64 18>)
   %44 = and <2 x i64> %43, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx186 = getelementptr inbounds i64, ptr %out, i64 19
+  %arrayidx186 = getelementptr inbounds i8, ptr %out, i64 152
   %45 = load <2 x i64>, ptr %add.ptr55, align 1
   %46 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %47 = shufflevector <2 x i64> %46, <2 x i64> %45, <2 x i32> <i32 0, i32 2>
   %48 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %45, <2 x i64> %47, <2 x i64> <i64 19, i64 20>)
   %49 = and <2 x i64> %48, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx196 = getelementptr inbounds i64, ptr %out, i64 21
+  %arrayidx196 = getelementptr inbounds i8, ptr %out, i64 168
   %50 = load <2 x i64>, ptr %add.ptr61, align 1
   %51 = shufflevector <2 x i64> %45, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %52 = shufflevector <2 x i64> %51, <2 x i64> %50, <2 x i32> <i32 0, i32 2>
   %53 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %50, <2 x i64> %52, <2 x i64> <i64 21, i64 22>)
   %54 = and <2 x i64> %53, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx206 = getelementptr inbounds i64, ptr %out, i64 23
+  %arrayidx206 = getelementptr inbounds i8, ptr %out, i64 184
   %55 = load <2 x i64>, ptr %add.ptr67, align 1
   %56 = shufflevector <2 x i64> %50, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %57 = shufflevector <2 x i64> %56, <2 x i64> %55, <2 x i32> <i32 0, i32 2>
   %58 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %55, <2 x i64> %57, <2 x i64> <i64 23, i64 24>)
   %59 = and <2 x i64> %58, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx216 = getelementptr inbounds i64, ptr %out, i64 25
+  %arrayidx216 = getelementptr inbounds i8, ptr %out, i64 200
   %60 = load <2 x i64>, ptr %add.ptr73, align 1
   %61 = shufflevector <2 x i64> %55, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %62 = shufflevector <2 x i64> %61, <2 x i64> %60, <2 x i32> <i32 0, i32 2>
   %63 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %60, <2 x i64> %62, <2 x i64> <i64 25, i64 26>)
   %64 = and <2 x i64> %63, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx226 = getelementptr inbounds i64, ptr %out, i64 27
+  %arrayidx226 = getelementptr inbounds i8, ptr %out, i64 216
   %65 = load <2 x i64>, ptr %add.ptr79, align 1
   %66 = shufflevector <2 x i64> %60, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %67 = shufflevector <2 x i64> %66, <2 x i64> %65, <2 x i32> <i32 0, i32 2>
   %68 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %65, <2 x i64> %67, <2 x i64> <i64 27, i64 28>)
   %69 = and <2 x i64> %68, <i64 9223372036854775807, i64 9223372036854775807>
-  %arrayidx236 = getelementptr inbounds i64, ptr %out, i64 29
+  %arrayidx236 = getelementptr inbounds i8, ptr %out, i64 232
   %70 = load <2 x i64>, ptr %add.ptr85, align 1
   store i64 %and, ptr %out, align 8
   store <2 x i64> %4, ptr %arrayidx96, align 8
@@ -10967,7 +10961,7 @@ entry:
   store <2 x i64> %74, ptr %arrayidx236, align 8
   %75 = extractelement <2 x i64> %70, i64 1
   %or244 = tail call i64 @llvm.fshl.i64(i64 %conv, i64 %75, i64 31)
-  %arrayidx246 = getelementptr inbounds i64, ptr %out, i64 31
+  %arrayidx246 = getelementptr inbounds i8, ptr %out, i64 248
   store i64 %or244, ptr %arrayidx246, align 8
   ret ptr %add.ptr94
 }
@@ -10983,13 +10977,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5arrow6Status11DeleteStateEv.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -10997,10 +10991,10 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -11026,10 +11020,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -11051,13 +11045,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   br label %_ZN5arrow6Status11DeleteStateEv.exit
 
 _ZN5arrow6Status11DeleteStateEv.exit:             ; preds = %delete.notnull.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  %msg.i.i = getelementptr inbounds %"struct.arrow::Status::State", ptr %0, i64 0, i32 1
+  %msg.i.i = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   store ptr null, ptr %this, align 8
@@ -11078,7 +11072,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !73
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !73
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !73
@@ -11597,130 +11591,130 @@ for.body187:                                      ; preds = %for.body187.prehead
   %ret.0.copyload.i.i = load i32, ptr %in.addr.16266, align 4
   %rem.i = and i32 %ret.0.copyload.i.i, 65535
   store i32 %rem.i, ptr %add.ptr190, align 4
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %add.ptr190, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr190, i64 4
   %shr2.i = lshr i32 %ret.0.copyload.i.i, 16
   store i32 %shr2.i, ptr %incdec.ptr.i, align 4
-  %incdec.ptr3.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 1
+  %incdec.ptr3.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 4
   %ret.0.copyload.i143.i = load i32, ptr %incdec.ptr3.i, align 4
-  %incdec.ptr6.i = getelementptr inbounds i32, ptr %add.ptr190, i64 2
+  %incdec.ptr6.i = getelementptr inbounds i8, ptr %add.ptr190, i64 8
   %rem8.i = and i32 %ret.0.copyload.i143.i, 65535
   store i32 %rem8.i, ptr %incdec.ptr6.i, align 4
-  %incdec.ptr9.i = getelementptr inbounds i32, ptr %add.ptr190, i64 3
+  %incdec.ptr9.i = getelementptr inbounds i8, ptr %add.ptr190, i64 12
   %shr10.i = lshr i32 %ret.0.copyload.i143.i, 16
   store i32 %shr10.i, ptr %incdec.ptr9.i, align 4
-  %incdec.ptr11.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 2
+  %incdec.ptr11.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 8
   %ret.0.copyload.i144.i = load i32, ptr %incdec.ptr11.i, align 4
-  %incdec.ptr14.i = getelementptr inbounds i32, ptr %add.ptr190, i64 4
+  %incdec.ptr14.i = getelementptr inbounds i8, ptr %add.ptr190, i64 16
   %rem16.i = and i32 %ret.0.copyload.i144.i, 65535
   store i32 %rem16.i, ptr %incdec.ptr14.i, align 4
-  %incdec.ptr17.i = getelementptr inbounds i32, ptr %add.ptr190, i64 5
+  %incdec.ptr17.i = getelementptr inbounds i8, ptr %add.ptr190, i64 20
   %shr18.i = lshr i32 %ret.0.copyload.i144.i, 16
   store i32 %shr18.i, ptr %incdec.ptr17.i, align 4
-  %incdec.ptr19.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 3
+  %incdec.ptr19.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 12
   %ret.0.copyload.i145.i = load i32, ptr %incdec.ptr19.i, align 4
-  %incdec.ptr22.i = getelementptr inbounds i32, ptr %add.ptr190, i64 6
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %add.ptr190, i64 24
   %rem24.i = and i32 %ret.0.copyload.i145.i, 65535
   store i32 %rem24.i, ptr %incdec.ptr22.i, align 4
-  %incdec.ptr25.i = getelementptr inbounds i32, ptr %add.ptr190, i64 7
+  %incdec.ptr25.i = getelementptr inbounds i8, ptr %add.ptr190, i64 28
   %shr26.i = lshr i32 %ret.0.copyload.i145.i, 16
   store i32 %shr26.i, ptr %incdec.ptr25.i, align 4
-  %incdec.ptr27.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 4
+  %incdec.ptr27.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 16
   %ret.0.copyload.i146.i = load i32, ptr %incdec.ptr27.i, align 4
-  %incdec.ptr30.i = getelementptr inbounds i32, ptr %add.ptr190, i64 8
+  %incdec.ptr30.i = getelementptr inbounds i8, ptr %add.ptr190, i64 32
   %rem32.i = and i32 %ret.0.copyload.i146.i, 65535
   store i32 %rem32.i, ptr %incdec.ptr30.i, align 4
-  %incdec.ptr33.i = getelementptr inbounds i32, ptr %add.ptr190, i64 9
+  %incdec.ptr33.i = getelementptr inbounds i8, ptr %add.ptr190, i64 36
   %shr34.i = lshr i32 %ret.0.copyload.i146.i, 16
   store i32 %shr34.i, ptr %incdec.ptr33.i, align 4
-  %incdec.ptr35.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 5
+  %incdec.ptr35.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 20
   %ret.0.copyload.i147.i = load i32, ptr %incdec.ptr35.i, align 4
-  %incdec.ptr38.i = getelementptr inbounds i32, ptr %add.ptr190, i64 10
+  %incdec.ptr38.i = getelementptr inbounds i8, ptr %add.ptr190, i64 40
   %rem40.i = and i32 %ret.0.copyload.i147.i, 65535
   store i32 %rem40.i, ptr %incdec.ptr38.i, align 4
-  %incdec.ptr41.i = getelementptr inbounds i32, ptr %add.ptr190, i64 11
+  %incdec.ptr41.i = getelementptr inbounds i8, ptr %add.ptr190, i64 44
   %shr42.i = lshr i32 %ret.0.copyload.i147.i, 16
   store i32 %shr42.i, ptr %incdec.ptr41.i, align 4
-  %incdec.ptr43.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 6
+  %incdec.ptr43.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 24
   %ret.0.copyload.i148.i = load i32, ptr %incdec.ptr43.i, align 4
-  %incdec.ptr46.i = getelementptr inbounds i32, ptr %add.ptr190, i64 12
+  %incdec.ptr46.i = getelementptr inbounds i8, ptr %add.ptr190, i64 48
   %rem48.i = and i32 %ret.0.copyload.i148.i, 65535
   store i32 %rem48.i, ptr %incdec.ptr46.i, align 4
-  %incdec.ptr49.i = getelementptr inbounds i32, ptr %add.ptr190, i64 13
+  %incdec.ptr49.i = getelementptr inbounds i8, ptr %add.ptr190, i64 52
   %shr50.i = lshr i32 %ret.0.copyload.i148.i, 16
   store i32 %shr50.i, ptr %incdec.ptr49.i, align 4
-  %incdec.ptr51.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 7
+  %incdec.ptr51.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 28
   %ret.0.copyload.i149.i = load i32, ptr %incdec.ptr51.i, align 4
-  %incdec.ptr54.i = getelementptr inbounds i32, ptr %add.ptr190, i64 14
+  %incdec.ptr54.i = getelementptr inbounds i8, ptr %add.ptr190, i64 56
   %rem56.i = and i32 %ret.0.copyload.i149.i, 65535
   store i32 %rem56.i, ptr %incdec.ptr54.i, align 4
-  %incdec.ptr57.i = getelementptr inbounds i32, ptr %add.ptr190, i64 15
+  %incdec.ptr57.i = getelementptr inbounds i8, ptr %add.ptr190, i64 60
   %shr58.i = lshr i32 %ret.0.copyload.i149.i, 16
   store i32 %shr58.i, ptr %incdec.ptr57.i, align 4
-  %incdec.ptr59.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 8
+  %incdec.ptr59.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 32
   %ret.0.copyload.i150.i = load i32, ptr %incdec.ptr59.i, align 4
-  %incdec.ptr62.i = getelementptr inbounds i32, ptr %add.ptr190, i64 16
+  %incdec.ptr62.i = getelementptr inbounds i8, ptr %add.ptr190, i64 64
   %rem64.i = and i32 %ret.0.copyload.i150.i, 65535
   store i32 %rem64.i, ptr %incdec.ptr62.i, align 4
-  %incdec.ptr65.i = getelementptr inbounds i32, ptr %add.ptr190, i64 17
+  %incdec.ptr65.i = getelementptr inbounds i8, ptr %add.ptr190, i64 68
   %shr66.i = lshr i32 %ret.0.copyload.i150.i, 16
   store i32 %shr66.i, ptr %incdec.ptr65.i, align 4
-  %incdec.ptr67.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 9
+  %incdec.ptr67.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 36
   %ret.0.copyload.i151.i = load i32, ptr %incdec.ptr67.i, align 4
-  %incdec.ptr70.i = getelementptr inbounds i32, ptr %add.ptr190, i64 18
+  %incdec.ptr70.i = getelementptr inbounds i8, ptr %add.ptr190, i64 72
   %rem72.i = and i32 %ret.0.copyload.i151.i, 65535
   store i32 %rem72.i, ptr %incdec.ptr70.i, align 4
-  %incdec.ptr73.i = getelementptr inbounds i32, ptr %add.ptr190, i64 19
+  %incdec.ptr73.i = getelementptr inbounds i8, ptr %add.ptr190, i64 76
   %shr74.i = lshr i32 %ret.0.copyload.i151.i, 16
   store i32 %shr74.i, ptr %incdec.ptr73.i, align 4
-  %incdec.ptr75.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 10
+  %incdec.ptr75.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 40
   %ret.0.copyload.i152.i = load i32, ptr %incdec.ptr75.i, align 4
-  %incdec.ptr78.i = getelementptr inbounds i32, ptr %add.ptr190, i64 20
+  %incdec.ptr78.i = getelementptr inbounds i8, ptr %add.ptr190, i64 80
   %rem80.i = and i32 %ret.0.copyload.i152.i, 65535
   store i32 %rem80.i, ptr %incdec.ptr78.i, align 4
-  %incdec.ptr81.i = getelementptr inbounds i32, ptr %add.ptr190, i64 21
+  %incdec.ptr81.i = getelementptr inbounds i8, ptr %add.ptr190, i64 84
   %shr82.i = lshr i32 %ret.0.copyload.i152.i, 16
   store i32 %shr82.i, ptr %incdec.ptr81.i, align 4
-  %incdec.ptr83.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 11
+  %incdec.ptr83.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 44
   %ret.0.copyload.i153.i = load i32, ptr %incdec.ptr83.i, align 4
-  %incdec.ptr86.i = getelementptr inbounds i32, ptr %add.ptr190, i64 22
+  %incdec.ptr86.i = getelementptr inbounds i8, ptr %add.ptr190, i64 88
   %rem88.i = and i32 %ret.0.copyload.i153.i, 65535
   store i32 %rem88.i, ptr %incdec.ptr86.i, align 4
-  %incdec.ptr89.i = getelementptr inbounds i32, ptr %add.ptr190, i64 23
+  %incdec.ptr89.i = getelementptr inbounds i8, ptr %add.ptr190, i64 92
   %shr90.i = lshr i32 %ret.0.copyload.i153.i, 16
   store i32 %shr90.i, ptr %incdec.ptr89.i, align 4
-  %incdec.ptr91.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 12
+  %incdec.ptr91.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 48
   %ret.0.copyload.i154.i = load i32, ptr %incdec.ptr91.i, align 4
-  %incdec.ptr94.i = getelementptr inbounds i32, ptr %add.ptr190, i64 24
+  %incdec.ptr94.i = getelementptr inbounds i8, ptr %add.ptr190, i64 96
   %rem96.i = and i32 %ret.0.copyload.i154.i, 65535
   store i32 %rem96.i, ptr %incdec.ptr94.i, align 4
-  %incdec.ptr97.i = getelementptr inbounds i32, ptr %add.ptr190, i64 25
+  %incdec.ptr97.i = getelementptr inbounds i8, ptr %add.ptr190, i64 100
   %shr98.i = lshr i32 %ret.0.copyload.i154.i, 16
   store i32 %shr98.i, ptr %incdec.ptr97.i, align 4
-  %incdec.ptr99.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 13
+  %incdec.ptr99.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 52
   %ret.0.copyload.i155.i = load i32, ptr %incdec.ptr99.i, align 4
-  %incdec.ptr102.i = getelementptr inbounds i32, ptr %add.ptr190, i64 26
+  %incdec.ptr102.i = getelementptr inbounds i8, ptr %add.ptr190, i64 104
   %rem104.i = and i32 %ret.0.copyload.i155.i, 65535
   store i32 %rem104.i, ptr %incdec.ptr102.i, align 4
-  %incdec.ptr105.i = getelementptr inbounds i32, ptr %add.ptr190, i64 27
+  %incdec.ptr105.i = getelementptr inbounds i8, ptr %add.ptr190, i64 108
   %shr106.i = lshr i32 %ret.0.copyload.i155.i, 16
   store i32 %shr106.i, ptr %incdec.ptr105.i, align 4
-  %incdec.ptr107.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 14
+  %incdec.ptr107.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 56
   %ret.0.copyload.i156.i = load i32, ptr %incdec.ptr107.i, align 4
-  %incdec.ptr110.i = getelementptr inbounds i32, ptr %add.ptr190, i64 28
+  %incdec.ptr110.i = getelementptr inbounds i8, ptr %add.ptr190, i64 112
   %rem112.i = and i32 %ret.0.copyload.i156.i, 65535
   store i32 %rem112.i, ptr %incdec.ptr110.i, align 4
-  %incdec.ptr113.i = getelementptr inbounds i32, ptr %add.ptr190, i64 29
+  %incdec.ptr113.i = getelementptr inbounds i8, ptr %add.ptr190, i64 116
   %shr114.i = lshr i32 %ret.0.copyload.i156.i, 16
   store i32 %shr114.i, ptr %incdec.ptr113.i, align 4
-  %incdec.ptr115.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 15
+  %incdec.ptr115.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 60
   %ret.0.copyload.i157.i = load i32, ptr %incdec.ptr115.i, align 4
-  %incdec.ptr118.i = getelementptr inbounds i32, ptr %add.ptr190, i64 30
+  %incdec.ptr118.i = getelementptr inbounds i8, ptr %add.ptr190, i64 120
   %rem120.i = and i32 %ret.0.copyload.i157.i, 65535
   store i32 %rem120.i, ptr %incdec.ptr118.i, align 4
-  %incdec.ptr121.i = getelementptr inbounds i32, ptr %add.ptr190, i64 31
+  %incdec.ptr121.i = getelementptr inbounds i8, ptr %add.ptr190, i64 124
   %shr122.i = lshr i32 %ret.0.copyload.i157.i, 16
   store i32 %shr122.i, ptr %incdec.ptr121.i, align 4
-  %incdec.ptr123.i = getelementptr inbounds i32, ptr %in.addr.16266, i64 16
+  %incdec.ptr123.i = getelementptr inbounds i8, ptr %in.addr.16266, i64 64
   %indvars.iv.next440 = add nuw nsw i64 %indvars.iv439, 1
   %exitcond444.not = icmp eq i64 %indvars.iv.next440, %wide.trip.count443
   br i1 %exitcond444.not, label %sw.epilog, label %for.body187, !llvm.loop !91
@@ -11882,131 +11876,131 @@ for.body379:                                      ; preds = %for.body379.prehead
   %add.ptr382 = getelementptr inbounds i32, ptr %out, i64 %35
   %ret.0.copyload.i.i165 = load i32, ptr %in.addr.32218, align 4
   store i32 %ret.0.copyload.i.i165, ptr %add.ptr382, align 4
-  %incdec.ptr.i166 = getelementptr inbounds i32, ptr %in.addr.32218, i64 1
+  %incdec.ptr.i166 = getelementptr inbounds i8, ptr %in.addr.32218, i64 4
   %ret.0.copyload.i191.i = load i32, ptr %incdec.ptr.i166, align 4
-  %incdec.ptr4.i = getelementptr inbounds i32, ptr %add.ptr382, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %add.ptr382, i64 4
   store i32 %ret.0.copyload.i191.i, ptr %incdec.ptr4.i, align 4
-  %incdec.ptr6.i167 = getelementptr inbounds i32, ptr %in.addr.32218, i64 2
+  %incdec.ptr6.i167 = getelementptr inbounds i8, ptr %in.addr.32218, i64 8
   %ret.0.copyload.i192.i = load i32, ptr %incdec.ptr6.i167, align 4
-  %incdec.ptr9.i168 = getelementptr inbounds i32, ptr %add.ptr382, i64 2
+  %incdec.ptr9.i168 = getelementptr inbounds i8, ptr %add.ptr382, i64 8
   store i32 %ret.0.copyload.i192.i, ptr %incdec.ptr9.i168, align 4
-  %incdec.ptr11.i169 = getelementptr inbounds i32, ptr %in.addr.32218, i64 3
+  %incdec.ptr11.i169 = getelementptr inbounds i8, ptr %in.addr.32218, i64 12
   %ret.0.copyload.i193.i = load i32, ptr %incdec.ptr11.i169, align 4
-  %incdec.ptr14.i170 = getelementptr inbounds i32, ptr %add.ptr382, i64 3
+  %incdec.ptr14.i170 = getelementptr inbounds i8, ptr %add.ptr382, i64 12
   store i32 %ret.0.copyload.i193.i, ptr %incdec.ptr14.i170, align 4
-  %incdec.ptr16.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 4
+  %incdec.ptr16.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 16
   %ret.0.copyload.i194.i = load i32, ptr %incdec.ptr16.i, align 4
-  %incdec.ptr19.i171 = getelementptr inbounds i32, ptr %add.ptr382, i64 4
+  %incdec.ptr19.i171 = getelementptr inbounds i8, ptr %add.ptr382, i64 16
   store i32 %ret.0.copyload.i194.i, ptr %incdec.ptr19.i171, align 4
-  %incdec.ptr21.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 5
+  %incdec.ptr21.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 20
   %ret.0.copyload.i195.i = load i32, ptr %incdec.ptr21.i, align 4
-  %incdec.ptr24.i = getelementptr inbounds i32, ptr %add.ptr382, i64 5
+  %incdec.ptr24.i = getelementptr inbounds i8, ptr %add.ptr382, i64 20
   store i32 %ret.0.copyload.i195.i, ptr %incdec.ptr24.i, align 4
-  %incdec.ptr26.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 6
+  %incdec.ptr26.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 24
   %ret.0.copyload.i196.i = load i32, ptr %incdec.ptr26.i, align 4
-  %incdec.ptr29.i = getelementptr inbounds i32, ptr %add.ptr382, i64 6
+  %incdec.ptr29.i = getelementptr inbounds i8, ptr %add.ptr382, i64 24
   store i32 %ret.0.copyload.i196.i, ptr %incdec.ptr29.i, align 4
-  %incdec.ptr31.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 7
+  %incdec.ptr31.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 28
   %ret.0.copyload.i197.i = load i32, ptr %incdec.ptr31.i, align 4
-  %incdec.ptr34.i = getelementptr inbounds i32, ptr %add.ptr382, i64 7
+  %incdec.ptr34.i = getelementptr inbounds i8, ptr %add.ptr382, i64 28
   store i32 %ret.0.copyload.i197.i, ptr %incdec.ptr34.i, align 4
-  %incdec.ptr36.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 8
+  %incdec.ptr36.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 32
   %ret.0.copyload.i198.i = load i32, ptr %incdec.ptr36.i, align 4
-  %incdec.ptr39.i = getelementptr inbounds i32, ptr %add.ptr382, i64 8
+  %incdec.ptr39.i = getelementptr inbounds i8, ptr %add.ptr382, i64 32
   store i32 %ret.0.copyload.i198.i, ptr %incdec.ptr39.i, align 4
-  %incdec.ptr41.i172 = getelementptr inbounds i32, ptr %in.addr.32218, i64 9
+  %incdec.ptr41.i172 = getelementptr inbounds i8, ptr %in.addr.32218, i64 36
   %ret.0.copyload.i199.i = load i32, ptr %incdec.ptr41.i172, align 4
-  %incdec.ptr44.i = getelementptr inbounds i32, ptr %add.ptr382, i64 9
+  %incdec.ptr44.i = getelementptr inbounds i8, ptr %add.ptr382, i64 36
   store i32 %ret.0.copyload.i199.i, ptr %incdec.ptr44.i, align 4
-  %incdec.ptr46.i173 = getelementptr inbounds i32, ptr %in.addr.32218, i64 10
+  %incdec.ptr46.i173 = getelementptr inbounds i8, ptr %in.addr.32218, i64 40
   %ret.0.copyload.i200.i = load i32, ptr %incdec.ptr46.i173, align 4
-  %incdec.ptr49.i174 = getelementptr inbounds i32, ptr %add.ptr382, i64 10
+  %incdec.ptr49.i174 = getelementptr inbounds i8, ptr %add.ptr382, i64 40
   store i32 %ret.0.copyload.i200.i, ptr %incdec.ptr49.i174, align 4
-  %incdec.ptr51.i175 = getelementptr inbounds i32, ptr %in.addr.32218, i64 11
+  %incdec.ptr51.i175 = getelementptr inbounds i8, ptr %in.addr.32218, i64 44
   %ret.0.copyload.i201.i = load i32, ptr %incdec.ptr51.i175, align 4
-  %incdec.ptr54.i176 = getelementptr inbounds i32, ptr %add.ptr382, i64 11
+  %incdec.ptr54.i176 = getelementptr inbounds i8, ptr %add.ptr382, i64 44
   store i32 %ret.0.copyload.i201.i, ptr %incdec.ptr54.i176, align 4
-  %incdec.ptr56.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 12
+  %incdec.ptr56.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 48
   %ret.0.copyload.i202.i = load i32, ptr %incdec.ptr56.i, align 4
-  %incdec.ptr59.i177 = getelementptr inbounds i32, ptr %add.ptr382, i64 12
+  %incdec.ptr59.i177 = getelementptr inbounds i8, ptr %add.ptr382, i64 48
   store i32 %ret.0.copyload.i202.i, ptr %incdec.ptr59.i177, align 4
-  %incdec.ptr61.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 13
+  %incdec.ptr61.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 52
   %ret.0.copyload.i203.i = load i32, ptr %incdec.ptr61.i, align 4
-  %incdec.ptr64.i = getelementptr inbounds i32, ptr %add.ptr382, i64 13
+  %incdec.ptr64.i = getelementptr inbounds i8, ptr %add.ptr382, i64 52
   store i32 %ret.0.copyload.i203.i, ptr %incdec.ptr64.i, align 4
-  %incdec.ptr66.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 14
+  %incdec.ptr66.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 56
   %ret.0.copyload.i204.i = load i32, ptr %incdec.ptr66.i, align 4
-  %incdec.ptr69.i = getelementptr inbounds i32, ptr %add.ptr382, i64 14
+  %incdec.ptr69.i = getelementptr inbounds i8, ptr %add.ptr382, i64 56
   store i32 %ret.0.copyload.i204.i, ptr %incdec.ptr69.i, align 4
-  %incdec.ptr71.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 15
+  %incdec.ptr71.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 60
   %ret.0.copyload.i205.i = load i32, ptr %incdec.ptr71.i, align 4
-  %incdec.ptr74.i = getelementptr inbounds i32, ptr %add.ptr382, i64 15
+  %incdec.ptr74.i = getelementptr inbounds i8, ptr %add.ptr382, i64 60
   store i32 %ret.0.copyload.i205.i, ptr %incdec.ptr74.i, align 4
-  %incdec.ptr76.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 16
+  %incdec.ptr76.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 64
   %ret.0.copyload.i206.i = load i32, ptr %incdec.ptr76.i, align 4
-  %incdec.ptr79.i = getelementptr inbounds i32, ptr %add.ptr382, i64 16
+  %incdec.ptr79.i = getelementptr inbounds i8, ptr %add.ptr382, i64 64
   store i32 %ret.0.copyload.i206.i, ptr %incdec.ptr79.i, align 4
-  %incdec.ptr81.i178 = getelementptr inbounds i32, ptr %in.addr.32218, i64 17
+  %incdec.ptr81.i178 = getelementptr inbounds i8, ptr %in.addr.32218, i64 68
   %ret.0.copyload.i207.i = load i32, ptr %incdec.ptr81.i178, align 4
-  %incdec.ptr84.i = getelementptr inbounds i32, ptr %add.ptr382, i64 17
+  %incdec.ptr84.i = getelementptr inbounds i8, ptr %add.ptr382, i64 68
   store i32 %ret.0.copyload.i207.i, ptr %incdec.ptr84.i, align 4
-  %incdec.ptr86.i179 = getelementptr inbounds i32, ptr %in.addr.32218, i64 18
+  %incdec.ptr86.i179 = getelementptr inbounds i8, ptr %in.addr.32218, i64 72
   %ret.0.copyload.i208.i = load i32, ptr %incdec.ptr86.i179, align 4
-  %incdec.ptr89.i180 = getelementptr inbounds i32, ptr %add.ptr382, i64 18
+  %incdec.ptr89.i180 = getelementptr inbounds i8, ptr %add.ptr382, i64 72
   store i32 %ret.0.copyload.i208.i, ptr %incdec.ptr89.i180, align 4
-  %incdec.ptr91.i181 = getelementptr inbounds i32, ptr %in.addr.32218, i64 19
+  %incdec.ptr91.i181 = getelementptr inbounds i8, ptr %in.addr.32218, i64 76
   %ret.0.copyload.i209.i = load i32, ptr %incdec.ptr91.i181, align 4
-  %incdec.ptr94.i182 = getelementptr inbounds i32, ptr %add.ptr382, i64 19
+  %incdec.ptr94.i182 = getelementptr inbounds i8, ptr %add.ptr382, i64 76
   store i32 %ret.0.copyload.i209.i, ptr %incdec.ptr94.i182, align 4
-  %incdec.ptr96.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 20
+  %incdec.ptr96.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 80
   %ret.0.copyload.i210.i = load i32, ptr %incdec.ptr96.i, align 4
-  %incdec.ptr99.i183 = getelementptr inbounds i32, ptr %add.ptr382, i64 20
+  %incdec.ptr99.i183 = getelementptr inbounds i8, ptr %add.ptr382, i64 80
   store i32 %ret.0.copyload.i210.i, ptr %incdec.ptr99.i183, align 4
-  %incdec.ptr101.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 21
+  %incdec.ptr101.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 84
   %ret.0.copyload.i211.i = load i32, ptr %incdec.ptr101.i, align 4
-  %incdec.ptr104.i = getelementptr inbounds i32, ptr %add.ptr382, i64 21
+  %incdec.ptr104.i = getelementptr inbounds i8, ptr %add.ptr382, i64 84
   store i32 %ret.0.copyload.i211.i, ptr %incdec.ptr104.i, align 4
-  %incdec.ptr106.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 22
+  %incdec.ptr106.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 88
   %ret.0.copyload.i212.i = load i32, ptr %incdec.ptr106.i, align 4
-  %incdec.ptr109.i = getelementptr inbounds i32, ptr %add.ptr382, i64 22
+  %incdec.ptr109.i = getelementptr inbounds i8, ptr %add.ptr382, i64 88
   store i32 %ret.0.copyload.i212.i, ptr %incdec.ptr109.i, align 4
-  %incdec.ptr111.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 23
+  %incdec.ptr111.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 92
   %ret.0.copyload.i213.i = load i32, ptr %incdec.ptr111.i, align 4
-  %incdec.ptr114.i = getelementptr inbounds i32, ptr %add.ptr382, i64 23
+  %incdec.ptr114.i = getelementptr inbounds i8, ptr %add.ptr382, i64 92
   store i32 %ret.0.copyload.i213.i, ptr %incdec.ptr114.i, align 4
-  %incdec.ptr116.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 24
+  %incdec.ptr116.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 96
   %ret.0.copyload.i214.i = load i32, ptr %incdec.ptr116.i, align 4
-  %incdec.ptr119.i = getelementptr inbounds i32, ptr %add.ptr382, i64 24
+  %incdec.ptr119.i = getelementptr inbounds i8, ptr %add.ptr382, i64 96
   store i32 %ret.0.copyload.i214.i, ptr %incdec.ptr119.i, align 4
-  %incdec.ptr121.i184 = getelementptr inbounds i32, ptr %in.addr.32218, i64 25
+  %incdec.ptr121.i184 = getelementptr inbounds i8, ptr %in.addr.32218, i64 100
   %ret.0.copyload.i215.i = load i32, ptr %incdec.ptr121.i184, align 4
-  %incdec.ptr124.i = getelementptr inbounds i32, ptr %add.ptr382, i64 25
+  %incdec.ptr124.i = getelementptr inbounds i8, ptr %add.ptr382, i64 100
   store i32 %ret.0.copyload.i215.i, ptr %incdec.ptr124.i, align 4
-  %incdec.ptr126.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 26
+  %incdec.ptr126.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 104
   %ret.0.copyload.i216.i = load i32, ptr %incdec.ptr126.i, align 4
-  %incdec.ptr129.i = getelementptr inbounds i32, ptr %add.ptr382, i64 26
+  %incdec.ptr129.i = getelementptr inbounds i8, ptr %add.ptr382, i64 104
   store i32 %ret.0.copyload.i216.i, ptr %incdec.ptr129.i, align 4
-  %incdec.ptr131.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 27
+  %incdec.ptr131.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 108
   %ret.0.copyload.i217.i = load i32, ptr %incdec.ptr131.i, align 4
-  %incdec.ptr134.i = getelementptr inbounds i32, ptr %add.ptr382, i64 27
+  %incdec.ptr134.i = getelementptr inbounds i8, ptr %add.ptr382, i64 108
   store i32 %ret.0.copyload.i217.i, ptr %incdec.ptr134.i, align 4
-  %incdec.ptr136.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 28
+  %incdec.ptr136.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 112
   %ret.0.copyload.i218.i = load i32, ptr %incdec.ptr136.i, align 4
-  %incdec.ptr139.i = getelementptr inbounds i32, ptr %add.ptr382, i64 28
+  %incdec.ptr139.i = getelementptr inbounds i8, ptr %add.ptr382, i64 112
   store i32 %ret.0.copyload.i218.i, ptr %incdec.ptr139.i, align 4
-  %incdec.ptr141.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 29
+  %incdec.ptr141.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 116
   %ret.0.copyload.i219.i = load i32, ptr %incdec.ptr141.i, align 4
-  %incdec.ptr144.i = getelementptr inbounds i32, ptr %add.ptr382, i64 29
+  %incdec.ptr144.i = getelementptr inbounds i8, ptr %add.ptr382, i64 116
   store i32 %ret.0.copyload.i219.i, ptr %incdec.ptr144.i, align 4
-  %incdec.ptr146.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 30
+  %incdec.ptr146.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 120
   %ret.0.copyload.i220.i = load i32, ptr %incdec.ptr146.i, align 4
-  %incdec.ptr149.i = getelementptr inbounds i32, ptr %add.ptr382, i64 30
+  %incdec.ptr149.i = getelementptr inbounds i8, ptr %add.ptr382, i64 120
   store i32 %ret.0.copyload.i220.i, ptr %incdec.ptr149.i, align 4
-  %incdec.ptr151.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 31
+  %incdec.ptr151.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 124
   %ret.0.copyload.i221.i = load i32, ptr %incdec.ptr151.i, align 4
-  %incdec.ptr154.i = getelementptr inbounds i32, ptr %add.ptr382, i64 31
+  %incdec.ptr154.i = getelementptr inbounds i8, ptr %add.ptr382, i64 124
   store i32 %ret.0.copyload.i221.i, ptr %incdec.ptr154.i, align 4
-  %incdec.ptr156.i = getelementptr inbounds i32, ptr %in.addr.32218, i64 32
+  %incdec.ptr156.i = getelementptr inbounds i8, ptr %in.addr.32218, i64 128
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %sw.epilog, label %for.body379, !llvm.loop !107
@@ -12033,118 +12027,118 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %shr8, i64 3
   %4 = and <4 x i32> %3, <i32 1, i32 1, i32 1, i32 1>
   store <4 x i32> %4, ptr %out, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 16
   %shr11 = lshr i32 %ret.0.copyload.i, 4
   %and12 = and i32 %shr11, 1
   store i32 %and12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 20
   %shr14 = lshr i32 %ret.0.copyload.i, 5
   %and15 = and i32 %shr14, 1
   store i32 %and15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 24
   %shr17 = lshr i32 %ret.0.copyload.i, 6
   %and18 = and i32 %shr17, 1
   store i32 %and18, ptr %incdec.ptr16, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 28
   %shr20 = lshr i32 %ret.0.copyload.i, 7
   %and21 = and i32 %shr20, 1
   store i32 %and21, ptr %incdec.ptr19, align 4
-  %incdec.ptr22 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out, i64 32
   %shr23 = lshr i32 %ret.0.copyload.i, 8
   %and24 = and i32 %shr23, 1
   store i32 %and24, ptr %incdec.ptr22, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %out, i64 36
   %shr26 = lshr i32 %ret.0.copyload.i, 9
   %and27 = and i32 %shr26, 1
   store i32 %and27, ptr %incdec.ptr25, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %out, i64 40
   %shr29 = lshr i32 %ret.0.copyload.i, 10
   %and30 = and i32 %shr29, 1
   store i32 %and30, ptr %incdec.ptr28, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 44
   %shr32 = lshr i32 %ret.0.copyload.i, 11
   %and33 = and i32 %shr32, 1
   store i32 %and33, ptr %incdec.ptr31, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 48
   %shr35 = lshr i32 %ret.0.copyload.i, 12
   %and36 = and i32 %shr35, 1
   store i32 %and36, ptr %incdec.ptr34, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 52
   %shr38 = lshr i32 %ret.0.copyload.i, 13
   %and39 = and i32 %shr38, 1
   store i32 %and39, ptr %incdec.ptr37, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %out, i64 56
   %shr41 = lshr i32 %ret.0.copyload.i, 14
   %and42 = and i32 %shr41, 1
   store i32 %and42, ptr %incdec.ptr40, align 4
-  %incdec.ptr43 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %out, i64 60
   %shr44 = lshr i32 %ret.0.copyload.i, 15
   %and45 = and i32 %shr44, 1
   store i32 %and45, ptr %incdec.ptr43, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %out, i64 64
   %shr47 = lshr i32 %ret.0.copyload.i, 16
   %and48 = and i32 %shr47, 1
   store i32 %and48, ptr %incdec.ptr46, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %out, i64 68
   %shr50 = lshr i32 %ret.0.copyload.i, 17
   %and51 = and i32 %shr50, 1
   store i32 %and51, ptr %incdec.ptr49, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %out, i64 72
   %shr53 = lshr i32 %ret.0.copyload.i, 18
   %and54 = and i32 %shr53, 1
   store i32 %and54, ptr %incdec.ptr52, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 76
   %shr56 = lshr i32 %ret.0.copyload.i, 19
   %and57 = and i32 %shr56, 1
   store i32 %and57, ptr %incdec.ptr55, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out, i64 80
   %shr59 = lshr i32 %ret.0.copyload.i, 20
   %and60 = and i32 %shr59, 1
   store i32 %and60, ptr %incdec.ptr58, align 4
-  %incdec.ptr61 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %out, i64 84
   %shr62 = lshr i32 %ret.0.copyload.i, 21
   %and63 = and i32 %shr62, 1
   store i32 %and63, ptr %incdec.ptr61, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %out, i64 88
   %shr65 = lshr i32 %ret.0.copyload.i, 22
   %and66 = and i32 %shr65, 1
   store i32 %and66, ptr %incdec.ptr64, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %out, i64 92
   %shr68 = lshr i32 %ret.0.copyload.i, 23
   %and69 = and i32 %shr68, 1
   store i32 %and69, ptr %incdec.ptr67, align 4
-  %incdec.ptr70 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %out, i64 96
   %shr71 = lshr i32 %ret.0.copyload.i, 24
   %and72 = and i32 %shr71, 1
   store i32 %and72, ptr %incdec.ptr70, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %out, i64 100
   %shr74 = lshr i32 %ret.0.copyload.i, 25
   %and75 = and i32 %shr74, 1
   store i32 %and75, ptr %incdec.ptr73, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %out, i64 104
   %shr77 = lshr i32 %ret.0.copyload.i, 26
   %and78 = and i32 %shr77, 1
   store i32 %and78, ptr %incdec.ptr76, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 108
   %shr80 = lshr i32 %ret.0.copyload.i, 27
   %and81 = and i32 %shr80, 1
   store i32 %and81, ptr %incdec.ptr79, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 112
   %shr83 = lshr i32 %ret.0.copyload.i, 28
   %and84 = and i32 %shr83, 1
   store i32 %and84, ptr %incdec.ptr82, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 116
   %shr86 = lshr i32 %ret.0.copyload.i, 29
   %and87 = and i32 %shr86, 1
   store i32 %and87, ptr %incdec.ptr85, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 120
   %shr89 = lshr i32 %ret.0.copyload.i, 30
   %and90 = and i32 %shr89, 1
   store i32 %and90, ptr %incdec.ptr88, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %out, i64 124
   %shr92 = lshr i32 %ret.0.copyload.i, 31
   store i32 %shr92, ptr %incdec.ptr91, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %in, i64 4
   ret ptr %incdec.ptr93
 }
 
@@ -12161,56 +12155,56 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %shr8, i64 3
   %4 = and <4 x i32> %3, <i32 3, i32 3, i32 3, i32 3>
   store <4 x i32> %4, ptr %out, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 16
   %shr11 = lshr i32 %ret.0.copyload.i, 8
   %rem12 = and i32 %shr11, 3
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 20
   %shr14 = lshr i32 %ret.0.copyload.i, 10
   %rem15 = and i32 %shr14, 3
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 24
   %shr17 = lshr i32 %ret.0.copyload.i, 12
   %rem18 = and i32 %shr17, 3
   store i32 %rem18, ptr %incdec.ptr16, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 28
   %shr20 = lshr i32 %ret.0.copyload.i, 14
   %rem21 = and i32 %shr20, 3
   store i32 %rem21, ptr %incdec.ptr19, align 4
-  %incdec.ptr22 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out, i64 32
   %shr23 = lshr i32 %ret.0.copyload.i, 16
   %rem24 = and i32 %shr23, 3
   store i32 %rem24, ptr %incdec.ptr22, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %out, i64 36
   %shr26 = lshr i32 %ret.0.copyload.i, 18
   %rem27 = and i32 %shr26, 3
   store i32 %rem27, ptr %incdec.ptr25, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %out, i64 40
   %shr29 = lshr i32 %ret.0.copyload.i, 20
   %rem30 = and i32 %shr29, 3
   store i32 %rem30, ptr %incdec.ptr28, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 44
   %shr32 = lshr i32 %ret.0.copyload.i, 22
   %rem33 = and i32 %shr32, 3
   store i32 %rem33, ptr %incdec.ptr31, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 48
   %shr35 = lshr i32 %ret.0.copyload.i, 24
   %rem36 = and i32 %shr35, 3
   store i32 %rem36, ptr %incdec.ptr34, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 52
   %shr38 = lshr i32 %ret.0.copyload.i, 26
   %rem39 = and i32 %shr38, 3
   store i32 %rem39, ptr %incdec.ptr37, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %out, i64 56
   %shr41 = lshr i32 %ret.0.copyload.i, 28
   %rem42 = and i32 %shr41, 3
   store i32 %rem42, ptr %incdec.ptr40, align 4
-  %incdec.ptr43 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %out, i64 60
   %shr44 = lshr i32 %ret.0.copyload.i, 30
   store i32 %shr44, ptr %incdec.ptr43, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i101 = load i32, ptr %incdec.ptr45, align 4
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %out, i64 64
   %shr52 = lshr i32 %ret.0.copyload.i101, 2
   %shr55 = lshr i32 %ret.0.copyload.i101, 4
   %shr58 = lshr i32 %ret.0.copyload.i101, 6
@@ -12220,54 +12214,54 @@ entry:
   %8 = insertelement <4 x i32> %7, i32 %shr58, i64 3
   %9 = and <4 x i32> %8, <i32 3, i32 3, i32 3, i32 3>
   store <4 x i32> %9, ptr %incdec.ptr48, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %out, i64 80
   %shr61 = lshr i32 %ret.0.copyload.i101, 8
   %rem62 = and i32 %shr61, 3
   store i32 %rem62, ptr %incdec.ptr60, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 84
   %shr64 = lshr i32 %ret.0.copyload.i101, 10
   %rem65 = and i32 %shr64, 3
   store i32 %rem65, ptr %incdec.ptr63, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %out, i64 88
   %shr67 = lshr i32 %ret.0.copyload.i101, 12
   %rem68 = and i32 %shr67, 3
   store i32 %rem68, ptr %incdec.ptr66, align 4
-  %incdec.ptr69 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %out, i64 92
   %shr70 = lshr i32 %ret.0.copyload.i101, 14
   %rem71 = and i32 %shr70, 3
   store i32 %rem71, ptr %incdec.ptr69, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %out, i64 96
   %shr73 = lshr i32 %ret.0.copyload.i101, 16
   %rem74 = and i32 %shr73, 3
   store i32 %rem74, ptr %incdec.ptr72, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %out, i64 100
   %shr76 = lshr i32 %ret.0.copyload.i101, 18
   %rem77 = and i32 %shr76, 3
   store i32 %rem77, ptr %incdec.ptr75, align 4
-  %incdec.ptr78 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr78 = getelementptr inbounds i8, ptr %out, i64 104
   %shr79 = lshr i32 %ret.0.copyload.i101, 20
   %rem80 = and i32 %shr79, 3
   store i32 %rem80, ptr %incdec.ptr78, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %out, i64 108
   %shr82 = lshr i32 %ret.0.copyload.i101, 22
   %rem83 = and i32 %shr82, 3
   store i32 %rem83, ptr %incdec.ptr81, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %out, i64 112
   %shr85 = lshr i32 %ret.0.copyload.i101, 24
   %rem86 = and i32 %shr85, 3
   store i32 %rem86, ptr %incdec.ptr84, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %out, i64 116
   %shr88 = lshr i32 %ret.0.copyload.i101, 26
   %rem89 = and i32 %shr88, 3
   store i32 %rem89, ptr %incdec.ptr87, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %out, i64 120
   %shr91 = lshr i32 %ret.0.copyload.i101, 28
   %rem92 = and i32 %shr91, 3
   store i32 %rem92, ptr %incdec.ptr90, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %out, i64 124
   %shr94 = lshr i32 %ret.0.copyload.i101, 30
   store i32 %shr94, ptr %incdec.ptr93, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %in, i64 8
   ret ptr %incdec.ptr95
 }
 
@@ -12284,128 +12278,128 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %shr8, i64 3
   %4 = and <4 x i32> %3, <i32 7, i32 7, i32 7, i32 7>
   store <4 x i32> %4, ptr %out, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 16
   %shr11 = lshr i32 %ret.0.copyload.i, 12
   %rem12 = and i32 %shr11, 7
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 20
   %shr14 = lshr i32 %ret.0.copyload.i, 15
   %rem15 = and i32 %shr14, 7
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 24
   %shr17 = lshr i32 %ret.0.copyload.i, 18
   %rem18 = and i32 %shr17, 7
   store i32 %rem18, ptr %incdec.ptr16, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 28
   %shr20 = lshr i32 %ret.0.copyload.i, 21
   %rem21 = and i32 %shr20, 7
   store i32 %rem21, ptr %incdec.ptr19, align 4
-  %incdec.ptr22 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out, i64 32
   %shr23 = lshr i32 %ret.0.copyload.i, 24
   %rem24 = and i32 %shr23, 7
   store i32 %rem24, ptr %incdec.ptr22, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %out, i64 36
   %shr26 = lshr i32 %ret.0.copyload.i, 27
   %rem27 = and i32 %shr26, 7
   store i32 %rem27, ptr %incdec.ptr25, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %out, i64 40
   %shr29 = lshr i32 %ret.0.copyload.i, 30
   store i32 %shr29, ptr %incdec.ptr28, align 4
-  %incdec.ptr30 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i108 = load i32, ptr %incdec.ptr30, align 4
   %rem33 = shl i32 %ret.0.copyload.i108, 2
   %shl = and i32 %rem33, 4
   %or = or disjoint i32 %shl, %shr29
   store i32 %or, ptr %incdec.ptr28, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 44
   %shr35 = lshr i32 %ret.0.copyload.i108, 1
   %rem36 = and i32 %shr35, 7
   store i32 %rem36, ptr %incdec.ptr34, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 48
   %shr38 = lshr i32 %ret.0.copyload.i108, 4
   %rem39 = and i32 %shr38, 7
   store i32 %rem39, ptr %incdec.ptr37, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %out, i64 52
   %shr41 = lshr i32 %ret.0.copyload.i108, 7
   %rem42 = and i32 %shr41, 7
   store i32 %rem42, ptr %incdec.ptr40, align 4
-  %incdec.ptr43 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %out, i64 56
   %shr44 = lshr i32 %ret.0.copyload.i108, 10
   %rem45 = and i32 %shr44, 7
   store i32 %rem45, ptr %incdec.ptr43, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %out, i64 60
   %shr47 = lshr i32 %ret.0.copyload.i108, 13
   %rem48 = and i32 %shr47, 7
   store i32 %rem48, ptr %incdec.ptr46, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %out, i64 64
   %shr50 = lshr i32 %ret.0.copyload.i108, 16
   %rem51 = and i32 %shr50, 7
   store i32 %rem51, ptr %incdec.ptr49, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %out, i64 68
   %shr53 = lshr i32 %ret.0.copyload.i108, 19
   %rem54 = and i32 %shr53, 7
   store i32 %rem54, ptr %incdec.ptr52, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 72
   %shr56 = lshr i32 %ret.0.copyload.i108, 22
   %rem57 = and i32 %shr56, 7
   store i32 %rem57, ptr %incdec.ptr55, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out, i64 76
   %shr59 = lshr i32 %ret.0.copyload.i108, 25
   %rem60 = and i32 %shr59, 7
   store i32 %rem60, ptr %incdec.ptr58, align 4
-  %incdec.ptr61 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %out, i64 80
   %shr62 = lshr i32 %ret.0.copyload.i108, 28
   %rem63 = and i32 %shr62, 7
   store i32 %rem63, ptr %incdec.ptr61, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %out, i64 84
   %shr65 = lshr i32 %ret.0.copyload.i108, 31
   store i32 %shr65, ptr %incdec.ptr64, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i109 = load i32, ptr %incdec.ptr66, align 4
   %rem69 = shl i32 %ret.0.copyload.i109, 1
   %shl70 = and i32 %rem69, 6
   %or71 = or disjoint i32 %shl70, %shr65
   store i32 %or71, ptr %incdec.ptr64, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %out, i64 88
   %shr73 = lshr i32 %ret.0.copyload.i109, 2
   %rem74 = and i32 %shr73, 7
   store i32 %rem74, ptr %incdec.ptr72, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %out, i64 92
   %shr76 = lshr i32 %ret.0.copyload.i109, 5
   %rem77 = and i32 %shr76, 7
   store i32 %rem77, ptr %incdec.ptr75, align 4
-  %incdec.ptr78 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr78 = getelementptr inbounds i8, ptr %out, i64 96
   %shr79 = lshr i32 %ret.0.copyload.i109, 8
   %rem80 = and i32 %shr79, 7
   store i32 %rem80, ptr %incdec.ptr78, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %out, i64 100
   %shr82 = lshr i32 %ret.0.copyload.i109, 11
   %rem83 = and i32 %shr82, 7
   store i32 %rem83, ptr %incdec.ptr81, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %out, i64 104
   %shr85 = lshr i32 %ret.0.copyload.i109, 14
   %rem86 = and i32 %shr85, 7
   store i32 %rem86, ptr %incdec.ptr84, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %out, i64 108
   %shr88 = lshr i32 %ret.0.copyload.i109, 17
   %rem89 = and i32 %shr88, 7
   store i32 %rem89, ptr %incdec.ptr87, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %out, i64 112
   %shr91 = lshr i32 %ret.0.copyload.i109, 20
   %rem92 = and i32 %shr91, 7
   store i32 %rem92, ptr %incdec.ptr90, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %out, i64 116
   %shr94 = lshr i32 %ret.0.copyload.i109, 23
   %rem95 = and i32 %shr94, 7
   store i32 %rem95, ptr %incdec.ptr93, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %out, i64 120
   %shr97 = lshr i32 %ret.0.copyload.i109, 26
   %rem98 = and i32 %shr97, 7
   store i32 %rem98, ptr %incdec.ptr96, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 124
   %shr100 = lshr i32 %ret.0.copyload.i109, 29
   store i32 %shr100, ptr %incdec.ptr99, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %in, i64 12
   ret ptr %incdec.ptr101
 }
 
@@ -12422,24 +12416,24 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %shr8, i64 3
   %4 = and <4 x i32> %3, <i32 15, i32 15, i32 15, i32 15>
   store <4 x i32> %4, ptr %out, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 16
   %shr11 = lshr i32 %ret.0.copyload.i, 16
   %rem12 = and i32 %shr11, 15
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 20
   %shr14 = lshr i32 %ret.0.copyload.i, 20
   %rem15 = and i32 %shr14, 15
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 24
   %shr17 = lshr i32 %ret.0.copyload.i, 24
   %rem18 = and i32 %shr17, 15
   store i32 %rem18, ptr %incdec.ptr16, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 28
   %shr20 = lshr i32 %ret.0.copyload.i, 28
   store i32 %shr20, ptr %incdec.ptr19, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i107 = load i32, ptr %incdec.ptr21, align 4
-  %incdec.ptr24 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %out, i64 32
   %shr28 = lshr i32 %ret.0.copyload.i107, 4
   %shr31 = lshr i32 %ret.0.copyload.i107, 8
   %shr34 = lshr i32 %ret.0.copyload.i107, 12
@@ -12449,24 +12443,24 @@ entry:
   %8 = insertelement <4 x i32> %7, i32 %shr34, i64 3
   %9 = and <4 x i32> %8, <i32 15, i32 15, i32 15, i32 15>
   store <4 x i32> %9, ptr %incdec.ptr24, align 4
-  %incdec.ptr36 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %out, i64 48
   %shr37 = lshr i32 %ret.0.copyload.i107, 16
   %rem38 = and i32 %shr37, 15
   store i32 %rem38, ptr %incdec.ptr36, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 52
   %shr40 = lshr i32 %ret.0.copyload.i107, 20
   %rem41 = and i32 %shr40, 15
   store i32 %rem41, ptr %incdec.ptr39, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 56
   %shr43 = lshr i32 %ret.0.copyload.i107, 24
   %rem44 = and i32 %shr43, 15
   store i32 %rem44, ptr %incdec.ptr42, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 60
   %shr46 = lshr i32 %ret.0.copyload.i107, 28
   store i32 %shr46, ptr %incdec.ptr45, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i108 = load i32, ptr %incdec.ptr47, align 4
-  %incdec.ptr50 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %out, i64 64
   %shr54 = lshr i32 %ret.0.copyload.i108, 4
   %shr57 = lshr i32 %ret.0.copyload.i108, 8
   %shr60 = lshr i32 %ret.0.copyload.i108, 12
@@ -12476,24 +12470,24 @@ entry:
   %13 = insertelement <4 x i32> %12, i32 %shr60, i64 3
   %14 = and <4 x i32> %13, <i32 15, i32 15, i32 15, i32 15>
   store <4 x i32> %14, ptr %incdec.ptr50, align 4
-  %incdec.ptr62 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %out, i64 80
   %shr63 = lshr i32 %ret.0.copyload.i108, 16
   %rem64 = and i32 %shr63, 15
   store i32 %rem64, ptr %incdec.ptr62, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %out, i64 84
   %shr66 = lshr i32 %ret.0.copyload.i108, 20
   %rem67 = and i32 %shr66, 15
   store i32 %rem67, ptr %incdec.ptr65, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %out, i64 88
   %shr69 = lshr i32 %ret.0.copyload.i108, 24
   %rem70 = and i32 %shr69, 15
   store i32 %rem70, ptr %incdec.ptr68, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 92
   %shr72 = lshr i32 %ret.0.copyload.i108, 28
   store i32 %shr72, ptr %incdec.ptr71, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i109 = load i32, ptr %incdec.ptr73, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %out, i64 96
   %shr80 = lshr i32 %ret.0.copyload.i109, 4
   %shr83 = lshr i32 %ret.0.copyload.i109, 8
   %shr86 = lshr i32 %ret.0.copyload.i109, 12
@@ -12503,22 +12497,22 @@ entry:
   %18 = insertelement <4 x i32> %17, i32 %shr86, i64 3
   %19 = and <4 x i32> %18, <i32 15, i32 15, i32 15, i32 15>
   store <4 x i32> %19, ptr %incdec.ptr76, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 112
   %shr89 = lshr i32 %ret.0.copyload.i109, 16
   %rem90 = and i32 %shr89, 15
   store i32 %rem90, ptr %incdec.ptr88, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %out, i64 116
   %shr92 = lshr i32 %ret.0.copyload.i109, 20
   %rem93 = and i32 %shr92, 15
   store i32 %rem93, ptr %incdec.ptr91, align 4
-  %incdec.ptr94 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr94 = getelementptr inbounds i8, ptr %out, i64 120
   %shr95 = lshr i32 %ret.0.copyload.i109, 24
   %rem96 = and i32 %shr95, 15
   store i32 %rem96, ptr %incdec.ptr94, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %out, i64 124
   %shr98 = lshr i32 %ret.0.copyload.i109, 28
   store i32 %shr98, ptr %incdec.ptr97, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %in, i64 16
   ret ptr %incdec.ptr99
 }
 
@@ -12535,138 +12529,138 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %shr8, i64 3
   %4 = and <4 x i32> %3, <i32 31, i32 31, i32 31, i32 31>
   store <4 x i32> %4, ptr %out, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 16
   %shr11 = lshr i32 %ret.0.copyload.i, 20
   %rem12 = and i32 %shr11, 31
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 20
   %shr14 = lshr i32 %ret.0.copyload.i, 25
   %rem15 = and i32 %shr14, 31
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 24
   %shr17 = lshr i32 %ret.0.copyload.i, 30
   store i32 %shr17, ptr %incdec.ptr16, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i118 = load i32, ptr %incdec.ptr18, align 4
   %rem21 = shl i32 %ret.0.copyload.i118, 2
   %shl = and i32 %rem21, 28
   %or = or disjoint i32 %shl, %shr17
   store i32 %or, ptr %incdec.ptr16, align 4
-  %incdec.ptr22 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out, i64 28
   %shr23 = lshr i32 %ret.0.copyload.i118, 3
   %rem24 = and i32 %shr23, 31
   store i32 %rem24, ptr %incdec.ptr22, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %out, i64 32
   %shr26 = lshr i32 %ret.0.copyload.i118, 8
   %rem27 = and i32 %shr26, 31
   store i32 %rem27, ptr %incdec.ptr25, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %out, i64 36
   %shr29 = lshr i32 %ret.0.copyload.i118, 13
   %rem30 = and i32 %shr29, 31
   store i32 %rem30, ptr %incdec.ptr28, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 40
   %shr32 = lshr i32 %ret.0.copyload.i118, 18
   %rem33 = and i32 %shr32, 31
   store i32 %rem33, ptr %incdec.ptr31, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 44
   %shr35 = lshr i32 %ret.0.copyload.i118, 23
   %rem36 = and i32 %shr35, 31
   store i32 %rem36, ptr %incdec.ptr34, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 48
   %shr38 = lshr i32 %ret.0.copyload.i118, 28
   store i32 %shr38, ptr %incdec.ptr37, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i119 = load i32, ptr %incdec.ptr39, align 4
   %rem42 = shl i32 %ret.0.copyload.i119, 4
   %shl43 = and i32 %rem42, 16
   %or44 = or disjoint i32 %shl43, %shr38
   store i32 %or44, ptr %incdec.ptr37, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 52
   %shr46 = lshr i32 %ret.0.copyload.i119, 1
   %rem47 = and i32 %shr46, 31
   store i32 %rem47, ptr %incdec.ptr45, align 4
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %out, i64 56
   %shr49 = lshr i32 %ret.0.copyload.i119, 6
   %rem50 = and i32 %shr49, 31
   store i32 %rem50, ptr %incdec.ptr48, align 4
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %out, i64 60
   %shr52 = lshr i32 %ret.0.copyload.i119, 11
   %rem53 = and i32 %shr52, 31
   store i32 %rem53, ptr %incdec.ptr51, align 4
-  %incdec.ptr54 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %out, i64 64
   %shr55 = lshr i32 %ret.0.copyload.i119, 16
   %rem56 = and i32 %shr55, 31
   store i32 %rem56, ptr %incdec.ptr54, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %out, i64 68
   %shr58 = lshr i32 %ret.0.copyload.i119, 21
   %rem59 = and i32 %shr58, 31
   store i32 %rem59, ptr %incdec.ptr57, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %out, i64 72
   %shr61 = lshr i32 %ret.0.copyload.i119, 26
   %rem62 = and i32 %shr61, 31
   store i32 %rem62, ptr %incdec.ptr60, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 76
   %shr64 = lshr i32 %ret.0.copyload.i119, 31
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i120 = load i32, ptr %incdec.ptr65, align 4
   %rem68 = shl i32 %ret.0.copyload.i120, 1
   %shl69 = and i32 %rem68, 30
   %or70 = or disjoint i32 %shl69, %shr64
   store i32 %or70, ptr %incdec.ptr63, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 80
   %shr72 = lshr i32 %ret.0.copyload.i120, 4
   %rem73 = and i32 %shr72, 31
   store i32 %rem73, ptr %incdec.ptr71, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %out, i64 84
   %shr75 = lshr i32 %ret.0.copyload.i120, 9
   %rem76 = and i32 %shr75, 31
   store i32 %rem76, ptr %incdec.ptr74, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %out, i64 88
   %shr78 = lshr i32 %ret.0.copyload.i120, 14
   %rem79 = and i32 %shr78, 31
   store i32 %rem79, ptr %incdec.ptr77, align 4
-  %incdec.ptr80 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %out, i64 92
   %shr81 = lshr i32 %ret.0.copyload.i120, 19
   %rem82 = and i32 %shr81, 31
   store i32 %rem82, ptr %incdec.ptr80, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %out, i64 96
   %shr84 = lshr i32 %ret.0.copyload.i120, 24
   %rem85 = and i32 %shr84, 31
   store i32 %rem85, ptr %incdec.ptr83, align 4
-  %incdec.ptr86 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %out, i64 100
   %shr87 = lshr i32 %ret.0.copyload.i120, 29
   store i32 %shr87, ptr %incdec.ptr86, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i121 = load i32, ptr %incdec.ptr88, align 4
   %rem91 = shl i32 %ret.0.copyload.i121, 3
   %shl92 = and i32 %rem91, 24
   %or93 = or disjoint i32 %shl92, %shr87
   store i32 %or93, ptr %incdec.ptr86, align 4
-  %incdec.ptr94 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr94 = getelementptr inbounds i8, ptr %out, i64 104
   %shr95 = lshr i32 %ret.0.copyload.i121, 2
   %rem96 = and i32 %shr95, 31
   store i32 %rem96, ptr %incdec.ptr94, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %out, i64 108
   %shr98 = lshr i32 %ret.0.copyload.i121, 7
   %rem99 = and i32 %shr98, 31
   store i32 %rem99, ptr %incdec.ptr97, align 4
-  %incdec.ptr100 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %out, i64 112
   %shr101 = lshr i32 %ret.0.copyload.i121, 12
   %rem102 = and i32 %shr101, 31
   store i32 %rem102, ptr %incdec.ptr100, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %out, i64 116
   %shr104 = lshr i32 %ret.0.copyload.i121, 17
   %rem105 = and i32 %shr104, 31
   store i32 %rem105, ptr %incdec.ptr103, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %out, i64 120
   %shr107 = lshr i32 %ret.0.copyload.i121, 22
   %rem108 = and i32 %shr107, 31
   store i32 %rem108, ptr %incdec.ptr106, align 4
-  %incdec.ptr109 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr109 = getelementptr inbounds i8, ptr %out, i64 124
   %shr110 = lshr i32 %ret.0.copyload.i121, 27
   store i32 %shr110, ptr %incdec.ptr109, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %in, i64 20
   ret ptr %incdec.ptr111
 }
 
@@ -12683,66 +12677,66 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %shr8, i64 3
   %4 = and <4 x i32> %3, <i32 63, i32 63, i32 63, i32 63>
   store <4 x i32> %4, ptr %out, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 16
   %shr11 = lshr i32 %ret.0.copyload.i, 24
   %rem12 = and i32 %shr11, 63
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 20
   %shr14 = lshr i32 %ret.0.copyload.i, 30
   store i32 %shr14, ptr %incdec.ptr13, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i121 = load i32, ptr %incdec.ptr15, align 4
   %rem18 = shl i32 %ret.0.copyload.i121, 2
   %shl = and i32 %rem18, 60
   %or = or disjoint i32 %shl, %shr14
   store i32 %or, ptr %incdec.ptr13, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 24
   %shr20 = lshr i32 %ret.0.copyload.i121, 4
   %rem21 = and i32 %shr20, 63
   store i32 %rem21, ptr %incdec.ptr19, align 4
-  %incdec.ptr22 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out, i64 28
   %shr23 = lshr i32 %ret.0.copyload.i121, 10
   %rem24 = and i32 %shr23, 63
   store i32 %rem24, ptr %incdec.ptr22, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %out, i64 32
   %shr26 = lshr i32 %ret.0.copyload.i121, 16
   %rem27 = and i32 %shr26, 63
   store i32 %rem27, ptr %incdec.ptr25, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %out, i64 36
   %shr29 = lshr i32 %ret.0.copyload.i121, 22
   %rem30 = and i32 %shr29, 63
   store i32 %rem30, ptr %incdec.ptr28, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 40
   %shr32 = lshr i32 %ret.0.copyload.i121, 28
   store i32 %shr32, ptr %incdec.ptr31, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i122 = load i32, ptr %incdec.ptr33, align 4
   %rem36 = shl i32 %ret.0.copyload.i122, 4
   %shl37 = and i32 %rem36, 48
   %or38 = or disjoint i32 %shl37, %shr32
   store i32 %or38, ptr %incdec.ptr31, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 44
   %shr40 = lshr i32 %ret.0.copyload.i122, 2
   %rem41 = and i32 %shr40, 63
   store i32 %rem41, ptr %incdec.ptr39, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 48
   %shr43 = lshr i32 %ret.0.copyload.i122, 8
   %rem44 = and i32 %shr43, 63
   store i32 %rem44, ptr %incdec.ptr42, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 52
   %shr46 = lshr i32 %ret.0.copyload.i122, 14
   %rem47 = and i32 %shr46, 63
   store i32 %rem47, ptr %incdec.ptr45, align 4
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %out, i64 56
   %shr49 = lshr i32 %ret.0.copyload.i122, 20
   %rem50 = and i32 %shr49, 63
   store i32 %rem50, ptr %incdec.ptr48, align 4
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %out, i64 60
   %shr52 = lshr i32 %ret.0.copyload.i122, 26
   store i32 %shr52, ptr %incdec.ptr51, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i123 = load i32, ptr %incdec.ptr53, align 4
-  %incdec.ptr56 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %out, i64 64
   %shr60 = lshr i32 %ret.0.copyload.i123, 6
   %shr63 = lshr i32 %ret.0.copyload.i123, 12
   %shr66 = lshr i32 %ret.0.copyload.i123, 18
@@ -12752,64 +12746,64 @@ entry:
   %8 = insertelement <4 x i32> %7, i32 %shr66, i64 3
   %9 = and <4 x i32> %8, <i32 63, i32 63, i32 63, i32 63>
   store <4 x i32> %9, ptr %incdec.ptr56, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %out, i64 80
   %shr69 = lshr i32 %ret.0.copyload.i123, 24
   %rem70 = and i32 %shr69, 63
   store i32 %rem70, ptr %incdec.ptr68, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 84
   %shr72 = lshr i32 %ret.0.copyload.i123, 30
   store i32 %shr72, ptr %incdec.ptr71, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i124 = load i32, ptr %incdec.ptr73, align 4
   %rem76 = shl i32 %ret.0.copyload.i124, 2
   %shl77 = and i32 %rem76, 60
   %or78 = or disjoint i32 %shl77, %shr72
   store i32 %or78, ptr %incdec.ptr71, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 88
   %shr80 = lshr i32 %ret.0.copyload.i124, 4
   %rem81 = and i32 %shr80, 63
   store i32 %rem81, ptr %incdec.ptr79, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 92
   %shr83 = lshr i32 %ret.0.copyload.i124, 10
   %rem84 = and i32 %shr83, 63
   store i32 %rem84, ptr %incdec.ptr82, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 96
   %shr86 = lshr i32 %ret.0.copyload.i124, 16
   %rem87 = and i32 %shr86, 63
   store i32 %rem87, ptr %incdec.ptr85, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 100
   %shr89 = lshr i32 %ret.0.copyload.i124, 22
   %rem90 = and i32 %shr89, 63
   store i32 %rem90, ptr %incdec.ptr88, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %out, i64 104
   %shr92 = lshr i32 %ret.0.copyload.i124, 28
   store i32 %shr92, ptr %incdec.ptr91, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i125 = load i32, ptr %incdec.ptr93, align 4
   %rem96 = shl i32 %ret.0.copyload.i125, 4
   %shl97 = and i32 %rem96, 48
   %or98 = or disjoint i32 %shl97, %shr92
   store i32 %or98, ptr %incdec.ptr91, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 108
   %shr100 = lshr i32 %ret.0.copyload.i125, 2
   %rem101 = and i32 %shr100, 63
   store i32 %rem101, ptr %incdec.ptr99, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %out, i64 112
   %shr103 = lshr i32 %ret.0.copyload.i125, 8
   %rem104 = and i32 %shr103, 63
   store i32 %rem104, ptr %incdec.ptr102, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %out, i64 116
   %shr106 = lshr i32 %ret.0.copyload.i125, 14
   %rem107 = and i32 %shr106, 63
   store i32 %rem107, ptr %incdec.ptr105, align 4
-  %incdec.ptr108 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %out, i64 120
   %shr109 = lshr i32 %ret.0.copyload.i125, 20
   %rem110 = and i32 %shr109, 63
   store i32 %rem110, ptr %incdec.ptr108, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 124
   %shr112 = lshr i32 %ret.0.copyload.i125, 26
   store i32 %shr112, ptr %incdec.ptr111, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %in, i64 24
   ret ptr %incdec.ptr113
 }
 
@@ -12826,148 +12820,148 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %shr8, i64 3
   %4 = and <4 x i32> %3, <i32 127, i32 127, i32 127, i32 127>
   store <4 x i32> %4, ptr %out, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 16
   %shr11 = lshr i32 %ret.0.copyload.i, 28
   store i32 %shr11, ptr %incdec.ptr10, align 4
-  %incdec.ptr12 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i128 = load i32, ptr %incdec.ptr12, align 4
   %rem15 = shl i32 %ret.0.copyload.i128, 4
   %shl = and i32 %rem15, 112
   %or = or disjoint i32 %shl, %shr11
   store i32 %or, ptr %incdec.ptr10, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 20
   %shr17 = lshr i32 %ret.0.copyload.i128, 3
   %rem18 = and i32 %shr17, 127
   store i32 %rem18, ptr %incdec.ptr16, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 24
   %shr20 = lshr i32 %ret.0.copyload.i128, 10
   %rem21 = and i32 %shr20, 127
   store i32 %rem21, ptr %incdec.ptr19, align 4
-  %incdec.ptr22 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out, i64 28
   %shr23 = lshr i32 %ret.0.copyload.i128, 17
   %rem24 = and i32 %shr23, 127
   store i32 %rem24, ptr %incdec.ptr22, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %out, i64 32
   %shr26 = lshr i32 %ret.0.copyload.i128, 24
   %rem27 = and i32 %shr26, 127
   store i32 %rem27, ptr %incdec.ptr25, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %out, i64 36
   %shr29 = lshr i32 %ret.0.copyload.i128, 31
   store i32 %shr29, ptr %incdec.ptr28, align 4
-  %incdec.ptr30 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i129 = load i32, ptr %incdec.ptr30, align 4
   %rem33 = shl i32 %ret.0.copyload.i129, 1
   %shl34 = and i32 %rem33, 126
   %or35 = or disjoint i32 %shl34, %shr29
   store i32 %or35, ptr %incdec.ptr28, align 4
-  %incdec.ptr36 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %out, i64 40
   %shr37 = lshr i32 %ret.0.copyload.i129, 6
   %rem38 = and i32 %shr37, 127
   store i32 %rem38, ptr %incdec.ptr36, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 44
   %shr40 = lshr i32 %ret.0.copyload.i129, 13
   %rem41 = and i32 %shr40, 127
   store i32 %rem41, ptr %incdec.ptr39, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 48
   %shr43 = lshr i32 %ret.0.copyload.i129, 20
   %rem44 = and i32 %shr43, 127
   store i32 %rem44, ptr %incdec.ptr42, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 52
   %shr46 = lshr i32 %ret.0.copyload.i129, 27
   store i32 %shr46, ptr %incdec.ptr45, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i130 = load i32, ptr %incdec.ptr47, align 4
   %rem50 = shl i32 %ret.0.copyload.i130, 5
   %shl51 = and i32 %rem50, 96
   %or52 = or disjoint i32 %shl51, %shr46
   store i32 %or52, ptr %incdec.ptr45, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %out, i64 56
   %shr54 = lshr i32 %ret.0.copyload.i130, 2
   %rem55 = and i32 %shr54, 127
   store i32 %rem55, ptr %incdec.ptr53, align 4
-  %incdec.ptr56 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %out, i64 60
   %shr57 = lshr i32 %ret.0.copyload.i130, 9
   %rem58 = and i32 %shr57, 127
   store i32 %rem58, ptr %incdec.ptr56, align 4
-  %incdec.ptr59 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %out, i64 64
   %shr60 = lshr i32 %ret.0.copyload.i130, 16
   %rem61 = and i32 %shr60, 127
   store i32 %rem61, ptr %incdec.ptr59, align 4
-  %incdec.ptr62 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %out, i64 68
   %shr63 = lshr i32 %ret.0.copyload.i130, 23
   %rem64 = and i32 %shr63, 127
   store i32 %rem64, ptr %incdec.ptr62, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %out, i64 72
   %shr66 = lshr i32 %ret.0.copyload.i130, 30
   store i32 %shr66, ptr %incdec.ptr65, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i131 = load i32, ptr %incdec.ptr67, align 4
   %rem70 = shl i32 %ret.0.copyload.i131, 2
   %shl71 = and i32 %rem70, 124
   %or72 = or disjoint i32 %shl71, %shr66
   store i32 %or72, ptr %incdec.ptr65, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %out, i64 76
   %shr74 = lshr i32 %ret.0.copyload.i131, 5
   %rem75 = and i32 %shr74, 127
   store i32 %rem75, ptr %incdec.ptr73, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %out, i64 80
   %shr77 = lshr i32 %ret.0.copyload.i131, 12
   %rem78 = and i32 %shr77, 127
   store i32 %rem78, ptr %incdec.ptr76, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 84
   %shr80 = lshr i32 %ret.0.copyload.i131, 19
   %rem81 = and i32 %shr80, 127
   store i32 %rem81, ptr %incdec.ptr79, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 88
   %shr83 = lshr i32 %ret.0.copyload.i131, 26
   store i32 %shr83, ptr %incdec.ptr82, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i132 = load i32, ptr %incdec.ptr84, align 4
   %rem87 = shl i32 %ret.0.copyload.i132, 6
   %shl88 = and i32 %rem87, 64
   %or89 = or disjoint i32 %shl88, %shr83
   store i32 %or89, ptr %incdec.ptr82, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %out, i64 92
   %shr91 = lshr i32 %ret.0.copyload.i132, 1
   %rem92 = and i32 %shr91, 127
   store i32 %rem92, ptr %incdec.ptr90, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %out, i64 96
   %shr94 = lshr i32 %ret.0.copyload.i132, 8
   %rem95 = and i32 %shr94, 127
   store i32 %rem95, ptr %incdec.ptr93, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %out, i64 100
   %shr97 = lshr i32 %ret.0.copyload.i132, 15
   %rem98 = and i32 %shr97, 127
   store i32 %rem98, ptr %incdec.ptr96, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 104
   %shr100 = lshr i32 %ret.0.copyload.i132, 22
   %rem101 = and i32 %shr100, 127
   store i32 %rem101, ptr %incdec.ptr99, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %out, i64 108
   %shr103 = lshr i32 %ret.0.copyload.i132, 29
   store i32 %shr103, ptr %incdec.ptr102, align 4
-  %incdec.ptr104 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i133 = load i32, ptr %incdec.ptr104, align 4
   %rem107 = shl i32 %ret.0.copyload.i133, 3
   %shl108 = and i32 %rem107, 120
   %or109 = or disjoint i32 %shl108, %shr103
   store i32 %or109, ptr %incdec.ptr102, align 4
-  %incdec.ptr110 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %out, i64 112
   %shr111 = lshr i32 %ret.0.copyload.i133, 4
   %rem112 = and i32 %shr111, 127
   store i32 %rem112, ptr %incdec.ptr110, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %out, i64 116
   %shr114 = lshr i32 %ret.0.copyload.i133, 11
   %rem115 = and i32 %shr114, 127
   store i32 %rem115, ptr %incdec.ptr113, align 4
-  %incdec.ptr116 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %out, i64 120
   %shr117 = lshr i32 %ret.0.copyload.i133, 18
   %rem118 = and i32 %shr117, 127
   store i32 %rem118, ptr %incdec.ptr116, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %out, i64 124
   %shr120 = lshr i32 %ret.0.copyload.i133, 25
   store i32 %shr120, ptr %incdec.ptr119, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %in, i64 28
   ret ptr %incdec.ptr121
 }
 
@@ -12977,130 +12971,130 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 255
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 8
   %rem3 = and i32 %shr2, 255
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 16
   %rem6 = and i32 %shr5, 255
   store i32 %rem6, ptr %incdec.ptr4, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 12
   %shr8 = lshr i32 %ret.0.copyload.i, 24
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i119 = load i32, ptr %incdec.ptr9, align 4
-  %incdec.ptr12 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %out, i64 16
   %rem14 = and i32 %ret.0.copyload.i119, 255
   store i32 %rem14, ptr %incdec.ptr12, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 20
   %shr16 = lshr i32 %ret.0.copyload.i119, 8
   %rem17 = and i32 %shr16, 255
   store i32 %rem17, ptr %incdec.ptr15, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 24
   %shr19 = lshr i32 %ret.0.copyload.i119, 16
   %rem20 = and i32 %shr19, 255
   store i32 %rem20, ptr %incdec.ptr18, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %out, i64 28
   %shr22 = lshr i32 %ret.0.copyload.i119, 24
   store i32 %shr22, ptr %incdec.ptr21, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i120 = load i32, ptr %incdec.ptr23, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %out, i64 32
   %rem28 = and i32 %ret.0.copyload.i120, 255
   store i32 %rem28, ptr %incdec.ptr26, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %out, i64 36
   %shr30 = lshr i32 %ret.0.copyload.i120, 8
   %rem31 = and i32 %shr30, 255
   store i32 %rem31, ptr %incdec.ptr29, align 4
-  %incdec.ptr32 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %out, i64 40
   %shr33 = lshr i32 %ret.0.copyload.i120, 16
   %rem34 = and i32 %shr33, 255
   store i32 %rem34, ptr %incdec.ptr32, align 4
-  %incdec.ptr35 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %out, i64 44
   %shr36 = lshr i32 %ret.0.copyload.i120, 24
   store i32 %shr36, ptr %incdec.ptr35, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i121 = load i32, ptr %incdec.ptr37, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %out, i64 48
   %rem42 = and i32 %ret.0.copyload.i121, 255
   store i32 %rem42, ptr %incdec.ptr40, align 4
-  %incdec.ptr43 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %out, i64 52
   %shr44 = lshr i32 %ret.0.copyload.i121, 8
   %rem45 = and i32 %shr44, 255
   store i32 %rem45, ptr %incdec.ptr43, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %out, i64 56
   %shr47 = lshr i32 %ret.0.copyload.i121, 16
   %rem48 = and i32 %shr47, 255
   store i32 %rem48, ptr %incdec.ptr46, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %out, i64 60
   %shr50 = lshr i32 %ret.0.copyload.i121, 24
   store i32 %shr50, ptr %incdec.ptr49, align 4
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i122 = load i32, ptr %incdec.ptr51, align 4
-  %incdec.ptr54 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %out, i64 64
   %rem56 = and i32 %ret.0.copyload.i122, 255
   store i32 %rem56, ptr %incdec.ptr54, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %out, i64 68
   %shr58 = lshr i32 %ret.0.copyload.i122, 8
   %rem59 = and i32 %shr58, 255
   store i32 %rem59, ptr %incdec.ptr57, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %out, i64 72
   %shr61 = lshr i32 %ret.0.copyload.i122, 16
   %rem62 = and i32 %shr61, 255
   store i32 %rem62, ptr %incdec.ptr60, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 76
   %shr64 = lshr i32 %ret.0.copyload.i122, 24
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i123 = load i32, ptr %incdec.ptr65, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %out, i64 80
   %rem70 = and i32 %ret.0.copyload.i123, 255
   store i32 %rem70, ptr %incdec.ptr68, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 84
   %shr72 = lshr i32 %ret.0.copyload.i123, 8
   %rem73 = and i32 %shr72, 255
   store i32 %rem73, ptr %incdec.ptr71, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %out, i64 88
   %shr75 = lshr i32 %ret.0.copyload.i123, 16
   %rem76 = and i32 %shr75, 255
   store i32 %rem76, ptr %incdec.ptr74, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %out, i64 92
   %shr78 = lshr i32 %ret.0.copyload.i123, 24
   store i32 %shr78, ptr %incdec.ptr77, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i124 = load i32, ptr %incdec.ptr79, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 96
   %rem84 = and i32 %ret.0.copyload.i124, 255
   store i32 %rem84, ptr %incdec.ptr82, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 100
   %shr86 = lshr i32 %ret.0.copyload.i124, 8
   %rem87 = and i32 %shr86, 255
   store i32 %rem87, ptr %incdec.ptr85, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 104
   %shr89 = lshr i32 %ret.0.copyload.i124, 16
   %rem90 = and i32 %shr89, 255
   store i32 %rem90, ptr %incdec.ptr88, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %out, i64 108
   %shr92 = lshr i32 %ret.0.copyload.i124, 24
   store i32 %shr92, ptr %incdec.ptr91, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i125 = load i32, ptr %incdec.ptr93, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %out, i64 112
   %rem98 = and i32 %ret.0.copyload.i125, 255
   store i32 %rem98, ptr %incdec.ptr96, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 116
   %shr100 = lshr i32 %ret.0.copyload.i125, 8
   %rem101 = and i32 %shr100, 255
   store i32 %rem101, ptr %incdec.ptr99, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %out, i64 120
   %shr103 = lshr i32 %ret.0.copyload.i125, 16
   %rem104 = and i32 %shr103, 255
   store i32 %rem104, ptr %incdec.ptr102, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %out, i64 124
   %shr106 = lshr i32 %ret.0.copyload.i125, 24
   store i32 %shr106, ptr %incdec.ptr105, align 4
-  %incdec.ptr107 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr107 = getelementptr inbounds i8, ptr %in, i64 32
   ret ptr %incdec.ptr107
 }
 
@@ -13110,170 +13104,170 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 511
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 9
   %rem3 = and i32 %shr2, 511
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 18
   %rem6 = and i32 %shr5, 511
   store i32 %rem6, ptr %incdec.ptr4, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 12
   %shr8 = lshr i32 %ret.0.copyload.i, 27
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i138 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i138, 5
   %shl = and i32 %rem12, 480
   %or = or disjoint i32 %shl, %shr8
   store i32 %or, ptr %incdec.ptr7, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 16
   %shr14 = lshr i32 %ret.0.copyload.i138, 4
   %rem15 = and i32 %shr14, 511
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 20
   %shr17 = lshr i32 %ret.0.copyload.i138, 13
   %rem18 = and i32 %shr17, 511
   store i32 %rem18, ptr %incdec.ptr16, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 24
   %shr20 = lshr i32 %ret.0.copyload.i138, 22
   %rem21 = and i32 %shr20, 511
   store i32 %rem21, ptr %incdec.ptr19, align 4
-  %incdec.ptr22 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %out, i64 28
   %shr23 = lshr i32 %ret.0.copyload.i138, 31
   store i32 %shr23, ptr %incdec.ptr22, align 4
-  %incdec.ptr24 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i139 = load i32, ptr %incdec.ptr24, align 4
   %rem27 = shl i32 %ret.0.copyload.i139, 1
   %shl28 = and i32 %rem27, 510
   %or29 = or disjoint i32 %shl28, %shr23
   store i32 %or29, ptr %incdec.ptr22, align 4
-  %incdec.ptr30 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %out, i64 32
   %shr31 = lshr i32 %ret.0.copyload.i139, 8
   %rem32 = and i32 %shr31, 511
   store i32 %rem32, ptr %incdec.ptr30, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %out, i64 36
   %shr34 = lshr i32 %ret.0.copyload.i139, 17
   %rem35 = and i32 %shr34, 511
   store i32 %rem35, ptr %incdec.ptr33, align 4
-  %incdec.ptr36 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %out, i64 40
   %shr37 = lshr i32 %ret.0.copyload.i139, 26
   store i32 %shr37, ptr %incdec.ptr36, align 4
-  %incdec.ptr38 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i140 = load i32, ptr %incdec.ptr38, align 4
   %rem41 = shl i32 %ret.0.copyload.i140, 6
   %shl42 = and i32 %rem41, 448
   %or43 = or disjoint i32 %shl42, %shr37
   store i32 %or43, ptr %incdec.ptr36, align 4
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %out, i64 44
   %shr45 = lshr i32 %ret.0.copyload.i140, 3
   %rem46 = and i32 %shr45, 511
   store i32 %rem46, ptr %incdec.ptr44, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %out, i64 48
   %shr48 = lshr i32 %ret.0.copyload.i140, 12
   %rem49 = and i32 %shr48, 511
   store i32 %rem49, ptr %incdec.ptr47, align 4
-  %incdec.ptr50 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %out, i64 52
   %shr51 = lshr i32 %ret.0.copyload.i140, 21
   %rem52 = and i32 %shr51, 511
   store i32 %rem52, ptr %incdec.ptr50, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %out, i64 56
   %shr54 = lshr i32 %ret.0.copyload.i140, 30
   store i32 %shr54, ptr %incdec.ptr53, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i141 = load i32, ptr %incdec.ptr55, align 4
   %rem58 = shl i32 %ret.0.copyload.i141, 2
   %shl59 = and i32 %rem58, 508
   %or60 = or disjoint i32 %shl59, %shr54
   store i32 %or60, ptr %incdec.ptr53, align 4
-  %incdec.ptr61 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %out, i64 60
   %shr62 = lshr i32 %ret.0.copyload.i141, 7
   %rem63 = and i32 %shr62, 511
   store i32 %rem63, ptr %incdec.ptr61, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %out, i64 64
   %shr65 = lshr i32 %ret.0.copyload.i141, 16
   %rem66 = and i32 %shr65, 511
   store i32 %rem66, ptr %incdec.ptr64, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %out, i64 68
   %shr68 = lshr i32 %ret.0.copyload.i141, 25
   store i32 %shr68, ptr %incdec.ptr67, align 4
-  %incdec.ptr69 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i142 = load i32, ptr %incdec.ptr69, align 4
   %rem72 = shl i32 %ret.0.copyload.i142, 7
   %shl73 = and i32 %rem72, 384
   %or74 = or disjoint i32 %shl73, %shr68
   store i32 %or74, ptr %incdec.ptr67, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %out, i64 72
   %shr76 = lshr i32 %ret.0.copyload.i142, 2
   %rem77 = and i32 %shr76, 511
   store i32 %rem77, ptr %incdec.ptr75, align 4
-  %incdec.ptr78 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr78 = getelementptr inbounds i8, ptr %out, i64 76
   %shr79 = lshr i32 %ret.0.copyload.i142, 11
   %rem80 = and i32 %shr79, 511
   store i32 %rem80, ptr %incdec.ptr78, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %out, i64 80
   %shr82 = lshr i32 %ret.0.copyload.i142, 20
   %rem83 = and i32 %shr82, 511
   store i32 %rem83, ptr %incdec.ptr81, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %out, i64 84
   %shr85 = lshr i32 %ret.0.copyload.i142, 29
   store i32 %shr85, ptr %incdec.ptr84, align 4
-  %incdec.ptr86 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i143 = load i32, ptr %incdec.ptr86, align 4
   %rem89 = shl i32 %ret.0.copyload.i143, 3
   %shl90 = and i32 %rem89, 504
   %or91 = or disjoint i32 %shl90, %shr85
   store i32 %or91, ptr %incdec.ptr84, align 4
-  %incdec.ptr92 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %out, i64 88
   %shr93 = lshr i32 %ret.0.copyload.i143, 6
   %rem94 = and i32 %shr93, 511
   store i32 %rem94, ptr %incdec.ptr92, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %out, i64 92
   %shr96 = lshr i32 %ret.0.copyload.i143, 15
   %rem97 = and i32 %shr96, 511
   store i32 %rem97, ptr %incdec.ptr95, align 4
-  %incdec.ptr98 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr98 = getelementptr inbounds i8, ptr %out, i64 96
   %shr99 = lshr i32 %ret.0.copyload.i143, 24
   store i32 %shr99, ptr %incdec.ptr98, align 4
-  %incdec.ptr100 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i144 = load i32, ptr %incdec.ptr100, align 4
   %rem103 = shl i32 %ret.0.copyload.i144, 8
   %shl104 = and i32 %rem103, 256
   %or105 = or disjoint i32 %shl104, %shr99
   store i32 %or105, ptr %incdec.ptr98, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %out, i64 100
   %shr107 = lshr i32 %ret.0.copyload.i144, 1
   %rem108 = and i32 %shr107, 511
   store i32 %rem108, ptr %incdec.ptr106, align 4
-  %incdec.ptr109 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr109 = getelementptr inbounds i8, ptr %out, i64 104
   %shr110 = lshr i32 %ret.0.copyload.i144, 10
   %rem111 = and i32 %shr110, 511
   store i32 %rem111, ptr %incdec.ptr109, align 4
-  %incdec.ptr112 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %out, i64 108
   %shr113 = lshr i32 %ret.0.copyload.i144, 19
   %rem114 = and i32 %shr113, 511
   store i32 %rem114, ptr %incdec.ptr112, align 4
-  %incdec.ptr115 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr115 = getelementptr inbounds i8, ptr %out, i64 112
   %shr116 = lshr i32 %ret.0.copyload.i144, 28
   store i32 %shr116, ptr %incdec.ptr115, align 4
-  %incdec.ptr117 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i145 = load i32, ptr %incdec.ptr117, align 4
   %rem120 = shl i32 %ret.0.copyload.i145, 4
   %shl121 = and i32 %rem120, 496
   %or122 = or disjoint i32 %shl121, %shr116
   store i32 %or122, ptr %incdec.ptr115, align 4
-  %incdec.ptr123 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr123 = getelementptr inbounds i8, ptr %out, i64 116
   %shr124 = lshr i32 %ret.0.copyload.i145, 5
   %rem125 = and i32 %shr124, 511
   store i32 %rem125, ptr %incdec.ptr123, align 4
-  %incdec.ptr126 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %out, i64 120
   %shr127 = lshr i32 %ret.0.copyload.i145, 14
   %rem128 = and i32 %shr127, 511
   store i32 %rem128, ptr %incdec.ptr126, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %out, i64 124
   %shr130 = lshr i32 %ret.0.copyload.i145, 23
   store i32 %shr130, ptr %incdec.ptr129, align 4
-  %incdec.ptr131 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %in, i64 36
   ret ptr %incdec.ptr131
 }
 
@@ -13283,170 +13277,170 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 1023
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 10
   %rem3 = and i32 %shr2, 1023
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 20
   %rem6 = and i32 %shr5, 1023
   store i32 %rem6, ptr %incdec.ptr4, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 12
   %shr8 = lshr i32 %ret.0.copyload.i, 30
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i141 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i141, 2
   %shl = and i32 %rem12, 1020
   %or = or disjoint i32 %shl, %shr8
   store i32 %or, ptr %incdec.ptr7, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 16
   %shr14 = lshr i32 %ret.0.copyload.i141, 8
   %rem15 = and i32 %shr14, 1023
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 20
   %shr17 = lshr i32 %ret.0.copyload.i141, 18
   %rem18 = and i32 %shr17, 1023
   store i32 %rem18, ptr %incdec.ptr16, align 4
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %out, i64 24
   %shr20 = lshr i32 %ret.0.copyload.i141, 28
   store i32 %shr20, ptr %incdec.ptr19, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i142 = load i32, ptr %incdec.ptr21, align 4
   %rem24 = shl i32 %ret.0.copyload.i142, 4
   %shl25 = and i32 %rem24, 1008
   %or26 = or disjoint i32 %shl25, %shr20
   store i32 %or26, ptr %incdec.ptr19, align 4
-  %incdec.ptr27 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %out, i64 28
   %shr28 = lshr i32 %ret.0.copyload.i142, 6
   %rem29 = and i32 %shr28, 1023
   store i32 %rem29, ptr %incdec.ptr27, align 4
-  %incdec.ptr30 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %out, i64 32
   %shr31 = lshr i32 %ret.0.copyload.i142, 16
   %rem32 = and i32 %shr31, 1023
   store i32 %rem32, ptr %incdec.ptr30, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %out, i64 36
   %shr34 = lshr i32 %ret.0.copyload.i142, 26
   store i32 %shr34, ptr %incdec.ptr33, align 4
-  %incdec.ptr35 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i143 = load i32, ptr %incdec.ptr35, align 4
   %rem38 = shl i32 %ret.0.copyload.i143, 6
   %shl39 = and i32 %rem38, 960
   %or40 = or disjoint i32 %shl39, %shr34
   store i32 %or40, ptr %incdec.ptr33, align 4
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %out, i64 40
   %shr42 = lshr i32 %ret.0.copyload.i143, 4
   %rem43 = and i32 %shr42, 1023
   store i32 %rem43, ptr %incdec.ptr41, align 4
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %out, i64 44
   %shr45 = lshr i32 %ret.0.copyload.i143, 14
   %rem46 = and i32 %shr45, 1023
   store i32 %rem46, ptr %incdec.ptr44, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %out, i64 48
   %shr48 = lshr i32 %ret.0.copyload.i143, 24
   store i32 %shr48, ptr %incdec.ptr47, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i144 = load i32, ptr %incdec.ptr49, align 4
   %rem52 = shl i32 %ret.0.copyload.i144, 8
   %shl53 = and i32 %rem52, 768
   %or54 = or disjoint i32 %shl53, %shr48
   store i32 %or54, ptr %incdec.ptr47, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 52
   %shr56 = lshr i32 %ret.0.copyload.i144, 2
   %rem57 = and i32 %shr56, 1023
   store i32 %rem57, ptr %incdec.ptr55, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out, i64 56
   %shr59 = lshr i32 %ret.0.copyload.i144, 12
   %rem60 = and i32 %shr59, 1023
   store i32 %rem60, ptr %incdec.ptr58, align 4
-  %incdec.ptr61 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %out, i64 60
   %shr62 = lshr i32 %ret.0.copyload.i144, 22
   store i32 %shr62, ptr %incdec.ptr61, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i145 = load i32, ptr %incdec.ptr63, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %out, i64 64
   %rem68 = and i32 %ret.0.copyload.i145, 1023
   store i32 %rem68, ptr %incdec.ptr66, align 4
-  %incdec.ptr69 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %out, i64 68
   %shr70 = lshr i32 %ret.0.copyload.i145, 10
   %rem71 = and i32 %shr70, 1023
   store i32 %rem71, ptr %incdec.ptr69, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %out, i64 72
   %shr73 = lshr i32 %ret.0.copyload.i145, 20
   %rem74 = and i32 %shr73, 1023
   store i32 %rem74, ptr %incdec.ptr72, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %out, i64 76
   %shr76 = lshr i32 %ret.0.copyload.i145, 30
   store i32 %shr76, ptr %incdec.ptr75, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i146 = load i32, ptr %incdec.ptr77, align 4
   %rem80 = shl i32 %ret.0.copyload.i146, 2
   %shl81 = and i32 %rem80, 1020
   %or82 = or disjoint i32 %shl81, %shr76
   store i32 %or82, ptr %incdec.ptr75, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %out, i64 80
   %shr84 = lshr i32 %ret.0.copyload.i146, 8
   %rem85 = and i32 %shr84, 1023
   store i32 %rem85, ptr %incdec.ptr83, align 4
-  %incdec.ptr86 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %out, i64 84
   %shr87 = lshr i32 %ret.0.copyload.i146, 18
   %rem88 = and i32 %shr87, 1023
   store i32 %rem88, ptr %incdec.ptr86, align 4
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %out, i64 88
   %shr90 = lshr i32 %ret.0.copyload.i146, 28
   store i32 %shr90, ptr %incdec.ptr89, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i147 = load i32, ptr %incdec.ptr91, align 4
   %rem94 = shl i32 %ret.0.copyload.i147, 4
   %shl95 = and i32 %rem94, 1008
   %or96 = or disjoint i32 %shl95, %shr90
   store i32 %or96, ptr %incdec.ptr89, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %out, i64 92
   %shr98 = lshr i32 %ret.0.copyload.i147, 6
   %rem99 = and i32 %shr98, 1023
   store i32 %rem99, ptr %incdec.ptr97, align 4
-  %incdec.ptr100 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %out, i64 96
   %shr101 = lshr i32 %ret.0.copyload.i147, 16
   %rem102 = and i32 %shr101, 1023
   store i32 %rem102, ptr %incdec.ptr100, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %out, i64 100
   %shr104 = lshr i32 %ret.0.copyload.i147, 26
   store i32 %shr104, ptr %incdec.ptr103, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i148 = load i32, ptr %incdec.ptr105, align 4
   %rem108 = shl i32 %ret.0.copyload.i148, 6
   %shl109 = and i32 %rem108, 960
   %or110 = or disjoint i32 %shl109, %shr104
   store i32 %or110, ptr %incdec.ptr103, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 104
   %shr112 = lshr i32 %ret.0.copyload.i148, 4
   %rem113 = and i32 %shr112, 1023
   store i32 %rem113, ptr %incdec.ptr111, align 4
-  %incdec.ptr114 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %out, i64 108
   %shr115 = lshr i32 %ret.0.copyload.i148, 14
   %rem116 = and i32 %shr115, 1023
   store i32 %rem116, ptr %incdec.ptr114, align 4
-  %incdec.ptr117 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %out, i64 112
   %shr118 = lshr i32 %ret.0.copyload.i148, 24
   store i32 %shr118, ptr %incdec.ptr117, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i149 = load i32, ptr %incdec.ptr119, align 4
   %rem122 = shl i32 %ret.0.copyload.i149, 8
   %shl123 = and i32 %rem122, 768
   %or124 = or disjoint i32 %shl123, %shr118
   store i32 %or124, ptr %incdec.ptr117, align 4
-  %incdec.ptr125 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %out, i64 116
   %shr126 = lshr i32 %ret.0.copyload.i149, 2
   %rem127 = and i32 %shr126, 1023
   store i32 %rem127, ptr %incdec.ptr125, align 4
-  %incdec.ptr128 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr128 = getelementptr inbounds i8, ptr %out, i64 120
   %shr129 = lshr i32 %ret.0.copyload.i149, 12
   %rem130 = and i32 %shr129, 1023
   store i32 %rem130, ptr %incdec.ptr128, align 4
-  %incdec.ptr131 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %out, i64 124
   %shr132 = lshr i32 %ret.0.copyload.i149, 22
   store i32 %shr132, ptr %incdec.ptr131, align 4
-  %incdec.ptr133 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr133 = getelementptr inbounds i8, ptr %in, i64 40
   ret ptr %incdec.ptr133
 }
 
@@ -13456,180 +13450,180 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 2047
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 11
   %rem3 = and i32 %shr2, 2047
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 22
   store i32 %shr5, ptr %incdec.ptr4, align 4
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i148 = load i32, ptr %incdec.ptr6, align 4
   %rem9 = shl i32 %ret.0.copyload.i148, 10
   %shl = and i32 %rem9, 1024
   %or = or disjoint i32 %shl, %shr5
   store i32 %or, ptr %incdec.ptr4, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i148, 1
   %rem12 = and i32 %shr11, 2047
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 16
   %shr14 = lshr i32 %ret.0.copyload.i148, 12
   %rem15 = and i32 %shr14, 2047
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 20
   %shr17 = lshr i32 %ret.0.copyload.i148, 23
   store i32 %shr17, ptr %incdec.ptr16, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i149 = load i32, ptr %incdec.ptr18, align 4
   %rem21 = shl i32 %ret.0.copyload.i149, 9
   %shl22 = and i32 %rem21, 1536
   %or23 = or disjoint i32 %shl22, %shr17
   store i32 %or23, ptr %incdec.ptr16, align 4
-  %incdec.ptr24 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %out, i64 24
   %shr25 = lshr i32 %ret.0.copyload.i149, 2
   %rem26 = and i32 %shr25, 2047
   store i32 %rem26, ptr %incdec.ptr24, align 4
-  %incdec.ptr27 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %out, i64 28
   %shr28 = lshr i32 %ret.0.copyload.i149, 13
   %rem29 = and i32 %shr28, 2047
   store i32 %rem29, ptr %incdec.ptr27, align 4
-  %incdec.ptr30 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %out, i64 32
   %shr31 = lshr i32 %ret.0.copyload.i149, 24
   store i32 %shr31, ptr %incdec.ptr30, align 4
-  %incdec.ptr32 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i150 = load i32, ptr %incdec.ptr32, align 4
   %rem35 = shl i32 %ret.0.copyload.i150, 8
   %shl36 = and i32 %rem35, 1792
   %or37 = or disjoint i32 %shl36, %shr31
   store i32 %or37, ptr %incdec.ptr30, align 4
-  %incdec.ptr38 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %out, i64 36
   %shr39 = lshr i32 %ret.0.copyload.i150, 3
   %rem40 = and i32 %shr39, 2047
   store i32 %rem40, ptr %incdec.ptr38, align 4
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %out, i64 40
   %shr42 = lshr i32 %ret.0.copyload.i150, 14
   %rem43 = and i32 %shr42, 2047
   store i32 %rem43, ptr %incdec.ptr41, align 4
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %out, i64 44
   %shr45 = lshr i32 %ret.0.copyload.i150, 25
   store i32 %shr45, ptr %incdec.ptr44, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i151 = load i32, ptr %incdec.ptr46, align 4
   %rem49 = shl i32 %ret.0.copyload.i151, 7
   %shl50 = and i32 %rem49, 1920
   %or51 = or disjoint i32 %shl50, %shr45
   store i32 %or51, ptr %incdec.ptr44, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %out, i64 48
   %shr53 = lshr i32 %ret.0.copyload.i151, 4
   %rem54 = and i32 %shr53, 2047
   store i32 %rem54, ptr %incdec.ptr52, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 52
   %shr56 = lshr i32 %ret.0.copyload.i151, 15
   %rem57 = and i32 %shr56, 2047
   store i32 %rem57, ptr %incdec.ptr55, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out, i64 56
   %shr59 = lshr i32 %ret.0.copyload.i151, 26
   store i32 %shr59, ptr %incdec.ptr58, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i152 = load i32, ptr %incdec.ptr60, align 4
   %rem63 = shl i32 %ret.0.copyload.i152, 6
   %shl64 = and i32 %rem63, 1984
   %or65 = or disjoint i32 %shl64, %shr59
   store i32 %or65, ptr %incdec.ptr58, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %out, i64 60
   %shr67 = lshr i32 %ret.0.copyload.i152, 5
   %rem68 = and i32 %shr67, 2047
   store i32 %rem68, ptr %incdec.ptr66, align 4
-  %incdec.ptr69 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %out, i64 64
   %shr70 = lshr i32 %ret.0.copyload.i152, 16
   %rem71 = and i32 %shr70, 2047
   store i32 %rem71, ptr %incdec.ptr69, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %out, i64 68
   %shr73 = lshr i32 %ret.0.copyload.i152, 27
   store i32 %shr73, ptr %incdec.ptr72, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i153 = load i32, ptr %incdec.ptr74, align 4
   %rem77 = shl i32 %ret.0.copyload.i153, 5
   %shl78 = and i32 %rem77, 2016
   %or79 = or disjoint i32 %shl78, %shr73
   store i32 %or79, ptr %incdec.ptr72, align 4
-  %incdec.ptr80 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %out, i64 72
   %shr81 = lshr i32 %ret.0.copyload.i153, 6
   %rem82 = and i32 %shr81, 2047
   store i32 %rem82, ptr %incdec.ptr80, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %out, i64 76
   %shr84 = lshr i32 %ret.0.copyload.i153, 17
   %rem85 = and i32 %shr84, 2047
   store i32 %rem85, ptr %incdec.ptr83, align 4
-  %incdec.ptr86 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %out, i64 80
   %shr87 = lshr i32 %ret.0.copyload.i153, 28
   store i32 %shr87, ptr %incdec.ptr86, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i154 = load i32, ptr %incdec.ptr88, align 4
   %rem91 = shl i32 %ret.0.copyload.i154, 4
   %shl92 = and i32 %rem91, 2032
   %or93 = or disjoint i32 %shl92, %shr87
   store i32 %or93, ptr %incdec.ptr86, align 4
-  %incdec.ptr94 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr94 = getelementptr inbounds i8, ptr %out, i64 84
   %shr95 = lshr i32 %ret.0.copyload.i154, 7
   %rem96 = and i32 %shr95, 2047
   store i32 %rem96, ptr %incdec.ptr94, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %out, i64 88
   %shr98 = lshr i32 %ret.0.copyload.i154, 18
   %rem99 = and i32 %shr98, 2047
   store i32 %rem99, ptr %incdec.ptr97, align 4
-  %incdec.ptr100 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %out, i64 92
   %shr101 = lshr i32 %ret.0.copyload.i154, 29
   store i32 %shr101, ptr %incdec.ptr100, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i155 = load i32, ptr %incdec.ptr102, align 4
   %rem105 = shl i32 %ret.0.copyload.i155, 3
   %shl106 = and i32 %rem105, 2040
   %or107 = or disjoint i32 %shl106, %shr101
   store i32 %or107, ptr %incdec.ptr100, align 4
-  %incdec.ptr108 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %out, i64 96
   %shr109 = lshr i32 %ret.0.copyload.i155, 8
   %rem110 = and i32 %shr109, 2047
   store i32 %rem110, ptr %incdec.ptr108, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 100
   %shr112 = lshr i32 %ret.0.copyload.i155, 19
   %rem113 = and i32 %shr112, 2047
   store i32 %rem113, ptr %incdec.ptr111, align 4
-  %incdec.ptr114 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %out, i64 104
   %shr115 = lshr i32 %ret.0.copyload.i155, 30
   store i32 %shr115, ptr %incdec.ptr114, align 4
-  %incdec.ptr116 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i156 = load i32, ptr %incdec.ptr116, align 4
   %rem119 = shl i32 %ret.0.copyload.i156, 2
   %shl120 = and i32 %rem119, 2044
   %or121 = or disjoint i32 %shl120, %shr115
   store i32 %or121, ptr %incdec.ptr114, align 4
-  %incdec.ptr122 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr122 = getelementptr inbounds i8, ptr %out, i64 108
   %shr123 = lshr i32 %ret.0.copyload.i156, 9
   %rem124 = and i32 %shr123, 2047
   store i32 %rem124, ptr %incdec.ptr122, align 4
-  %incdec.ptr125 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %out, i64 112
   %shr126 = lshr i32 %ret.0.copyload.i156, 20
   %rem127 = and i32 %shr126, 2047
   store i32 %rem127, ptr %incdec.ptr125, align 4
-  %incdec.ptr128 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr128 = getelementptr inbounds i8, ptr %out, i64 116
   %shr129 = lshr i32 %ret.0.copyload.i156, 31
   store i32 %shr129, ptr %incdec.ptr128, align 4
-  %incdec.ptr130 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i157 = load i32, ptr %incdec.ptr130, align 4
   %rem133 = shl i32 %ret.0.copyload.i157, 1
   %shl134 = and i32 %rem133, 2046
   %or135 = or disjoint i32 %shl134, %shr129
   store i32 %or135, ptr %incdec.ptr128, align 4
-  %incdec.ptr136 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr136 = getelementptr inbounds i8, ptr %out, i64 120
   %shr137 = lshr i32 %ret.0.copyload.i157, 10
   %rem138 = and i32 %shr137, 2047
   store i32 %rem138, ptr %incdec.ptr136, align 4
-  %incdec.ptr139 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %out, i64 124
   %shr140 = lshr i32 %ret.0.copyload.i157, 21
   store i32 %shr140, ptr %incdec.ptr139, align 4
-  %incdec.ptr141 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %in, i64 44
   ret ptr %incdec.ptr141
 }
 
@@ -13639,170 +13633,170 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 4095
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 12
   %rem3 = and i32 %shr2, 4095
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 24
   store i32 %shr5, ptr %incdec.ptr4, align 4
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i147 = load i32, ptr %incdec.ptr6, align 4
   %rem9 = shl i32 %ret.0.copyload.i147, 8
   %shl = and i32 %rem9, 3840
   %or = or disjoint i32 %shl, %shr5
   store i32 %or, ptr %incdec.ptr4, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i147, 4
   %rem12 = and i32 %shr11, 4095
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 16
   %shr14 = lshr i32 %ret.0.copyload.i147, 16
   %rem15 = and i32 %shr14, 4095
   store i32 %rem15, ptr %incdec.ptr13, align 4
-  %incdec.ptr16 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr16 = getelementptr inbounds i8, ptr %out, i64 20
   %shr17 = lshr i32 %ret.0.copyload.i147, 28
   store i32 %shr17, ptr %incdec.ptr16, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i148 = load i32, ptr %incdec.ptr18, align 4
   %rem21 = shl i32 %ret.0.copyload.i148, 4
   %shl22 = and i32 %rem21, 4080
   %or23 = or disjoint i32 %shl22, %shr17
   store i32 %or23, ptr %incdec.ptr16, align 4
-  %incdec.ptr24 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %out, i64 24
   %shr25 = lshr i32 %ret.0.copyload.i148, 8
   %rem26 = and i32 %shr25, 4095
   store i32 %rem26, ptr %incdec.ptr24, align 4
-  %incdec.ptr27 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %out, i64 28
   %shr28 = lshr i32 %ret.0.copyload.i148, 20
   store i32 %shr28, ptr %incdec.ptr27, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i149 = load i32, ptr %incdec.ptr29, align 4
-  %incdec.ptr32 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %out, i64 32
   %rem34 = and i32 %ret.0.copyload.i149, 4095
   store i32 %rem34, ptr %incdec.ptr32, align 4
-  %incdec.ptr35 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %out, i64 36
   %shr36 = lshr i32 %ret.0.copyload.i149, 12
   %rem37 = and i32 %shr36, 4095
   store i32 %rem37, ptr %incdec.ptr35, align 4
-  %incdec.ptr38 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %out, i64 40
   %shr39 = lshr i32 %ret.0.copyload.i149, 24
   store i32 %shr39, ptr %incdec.ptr38, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i150 = load i32, ptr %incdec.ptr40, align 4
   %rem43 = shl i32 %ret.0.copyload.i150, 8
   %shl44 = and i32 %rem43, 3840
   %or45 = or disjoint i32 %shl44, %shr39
   store i32 %or45, ptr %incdec.ptr38, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %out, i64 44
   %shr47 = lshr i32 %ret.0.copyload.i150, 4
   %rem48 = and i32 %shr47, 4095
   store i32 %rem48, ptr %incdec.ptr46, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %out, i64 48
   %shr50 = lshr i32 %ret.0.copyload.i150, 16
   %rem51 = and i32 %shr50, 4095
   store i32 %rem51, ptr %incdec.ptr49, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %out, i64 52
   %shr53 = lshr i32 %ret.0.copyload.i150, 28
   store i32 %shr53, ptr %incdec.ptr52, align 4
-  %incdec.ptr54 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i151 = load i32, ptr %incdec.ptr54, align 4
   %rem57 = shl i32 %ret.0.copyload.i151, 4
   %shl58 = and i32 %rem57, 4080
   %or59 = or disjoint i32 %shl58, %shr53
   store i32 %or59, ptr %incdec.ptr52, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %out, i64 56
   %shr61 = lshr i32 %ret.0.copyload.i151, 8
   %rem62 = and i32 %shr61, 4095
   store i32 %rem62, ptr %incdec.ptr60, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 60
   %shr64 = lshr i32 %ret.0.copyload.i151, 20
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i152 = load i32, ptr %incdec.ptr65, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %out, i64 64
   %rem70 = and i32 %ret.0.copyload.i152, 4095
   store i32 %rem70, ptr %incdec.ptr68, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 68
   %shr72 = lshr i32 %ret.0.copyload.i152, 12
   %rem73 = and i32 %shr72, 4095
   store i32 %rem73, ptr %incdec.ptr71, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %out, i64 72
   %shr75 = lshr i32 %ret.0.copyload.i152, 24
   store i32 %shr75, ptr %incdec.ptr74, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i153 = load i32, ptr %incdec.ptr76, align 4
   %rem79 = shl i32 %ret.0.copyload.i153, 8
   %shl80 = and i32 %rem79, 3840
   %or81 = or disjoint i32 %shl80, %shr75
   store i32 %or81, ptr %incdec.ptr74, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 76
   %shr83 = lshr i32 %ret.0.copyload.i153, 4
   %rem84 = and i32 %shr83, 4095
   store i32 %rem84, ptr %incdec.ptr82, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 80
   %shr86 = lshr i32 %ret.0.copyload.i153, 16
   %rem87 = and i32 %shr86, 4095
   store i32 %rem87, ptr %incdec.ptr85, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 84
   %shr89 = lshr i32 %ret.0.copyload.i153, 28
   store i32 %shr89, ptr %incdec.ptr88, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i154 = load i32, ptr %incdec.ptr90, align 4
   %rem93 = shl i32 %ret.0.copyload.i154, 4
   %shl94 = and i32 %rem93, 4080
   %or95 = or disjoint i32 %shl94, %shr89
   store i32 %or95, ptr %incdec.ptr88, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %out, i64 88
   %shr97 = lshr i32 %ret.0.copyload.i154, 8
   %rem98 = and i32 %shr97, 4095
   store i32 %rem98, ptr %incdec.ptr96, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 92
   %shr100 = lshr i32 %ret.0.copyload.i154, 20
   store i32 %shr100, ptr %incdec.ptr99, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i155 = load i32, ptr %incdec.ptr101, align 4
-  %incdec.ptr104 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %out, i64 96
   %rem106 = and i32 %ret.0.copyload.i155, 4095
   store i32 %rem106, ptr %incdec.ptr104, align 4
-  %incdec.ptr107 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr107 = getelementptr inbounds i8, ptr %out, i64 100
   %shr108 = lshr i32 %ret.0.copyload.i155, 12
   %rem109 = and i32 %shr108, 4095
   store i32 %rem109, ptr %incdec.ptr107, align 4
-  %incdec.ptr110 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %out, i64 104
   %shr111 = lshr i32 %ret.0.copyload.i155, 24
   store i32 %shr111, ptr %incdec.ptr110, align 4
-  %incdec.ptr112 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i156 = load i32, ptr %incdec.ptr112, align 4
   %rem115 = shl i32 %ret.0.copyload.i156, 8
   %shl116 = and i32 %rem115, 3840
   %or117 = or disjoint i32 %shl116, %shr111
   store i32 %or117, ptr %incdec.ptr110, align 4
-  %incdec.ptr118 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr118 = getelementptr inbounds i8, ptr %out, i64 108
   %shr119 = lshr i32 %ret.0.copyload.i156, 4
   %rem120 = and i32 %shr119, 4095
   store i32 %rem120, ptr %incdec.ptr118, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %out, i64 112
   %shr122 = lshr i32 %ret.0.copyload.i156, 16
   %rem123 = and i32 %shr122, 4095
   store i32 %rem123, ptr %incdec.ptr121, align 4
-  %incdec.ptr124 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr124 = getelementptr inbounds i8, ptr %out, i64 116
   %shr125 = lshr i32 %ret.0.copyload.i156, 28
   store i32 %shr125, ptr %incdec.ptr124, align 4
-  %incdec.ptr126 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i157 = load i32, ptr %incdec.ptr126, align 4
   %rem129 = shl i32 %ret.0.copyload.i157, 4
   %shl130 = and i32 %rem129, 4080
   %or131 = or disjoint i32 %shl130, %shr125
   store i32 %or131, ptr %incdec.ptr124, align 4
-  %incdec.ptr132 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %out, i64 120
   %shr133 = lshr i32 %ret.0.copyload.i157, 8
   %rem134 = and i32 %shr133, 4095
   store i32 %rem134, ptr %incdec.ptr132, align 4
-  %incdec.ptr135 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %out, i64 124
   %shr136 = lshr i32 %ret.0.copyload.i157, 20
   store i32 %shr136, ptr %incdec.ptr135, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %in, i64 48
   ret ptr %incdec.ptr137
 }
 
@@ -13812,190 +13806,190 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 8191
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 13
   %rem3 = and i32 %shr2, 8191
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 26
   store i32 %shr5, ptr %incdec.ptr4, align 4
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i158 = load i32, ptr %incdec.ptr6, align 4
   %rem9 = shl i32 %ret.0.copyload.i158, 6
   %shl = and i32 %rem9, 8128
   %or = or disjoint i32 %shl, %shr5
   store i32 %or, ptr %incdec.ptr4, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i158, 7
   %rem12 = and i32 %shr11, 8191
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 16
   %shr14 = lshr i32 %ret.0.copyload.i158, 20
   store i32 %shr14, ptr %incdec.ptr13, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i159 = load i32, ptr %incdec.ptr15, align 4
   %rem18 = shl i32 %ret.0.copyload.i159, 12
   %shl19 = and i32 %rem18, 4096
   %or20 = or disjoint i32 %shl19, %shr14
   store i32 %or20, ptr %incdec.ptr13, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %out, i64 20
   %shr22 = lshr i32 %ret.0.copyload.i159, 1
   %rem23 = and i32 %shr22, 8191
   store i32 %rem23, ptr %incdec.ptr21, align 4
-  %incdec.ptr24 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %out, i64 24
   %shr25 = lshr i32 %ret.0.copyload.i159, 14
   %rem26 = and i32 %shr25, 8191
   store i32 %rem26, ptr %incdec.ptr24, align 4
-  %incdec.ptr27 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %out, i64 28
   %shr28 = lshr i32 %ret.0.copyload.i159, 27
   store i32 %shr28, ptr %incdec.ptr27, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i160 = load i32, ptr %incdec.ptr29, align 4
   %rem32 = shl i32 %ret.0.copyload.i160, 5
   %shl33 = and i32 %rem32, 8160
   %or34 = or disjoint i32 %shl33, %shr28
   store i32 %or34, ptr %incdec.ptr27, align 4
-  %incdec.ptr35 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %out, i64 32
   %shr36 = lshr i32 %ret.0.copyload.i160, 8
   %rem37 = and i32 %shr36, 8191
   store i32 %rem37, ptr %incdec.ptr35, align 4
-  %incdec.ptr38 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %out, i64 36
   %shr39 = lshr i32 %ret.0.copyload.i160, 21
   store i32 %shr39, ptr %incdec.ptr38, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i161 = load i32, ptr %incdec.ptr40, align 4
   %rem43 = shl i32 %ret.0.copyload.i161, 11
   %shl44 = and i32 %rem43, 6144
   %or45 = or disjoint i32 %shl44, %shr39
   store i32 %or45, ptr %incdec.ptr38, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %out, i64 40
   %shr47 = lshr i32 %ret.0.copyload.i161, 2
   %rem48 = and i32 %shr47, 8191
   store i32 %rem48, ptr %incdec.ptr46, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %out, i64 44
   %shr50 = lshr i32 %ret.0.copyload.i161, 15
   %rem51 = and i32 %shr50, 8191
   store i32 %rem51, ptr %incdec.ptr49, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %out, i64 48
   %shr53 = lshr i32 %ret.0.copyload.i161, 28
   store i32 %shr53, ptr %incdec.ptr52, align 4
-  %incdec.ptr54 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i162 = load i32, ptr %incdec.ptr54, align 4
   %rem57 = shl i32 %ret.0.copyload.i162, 4
   %shl58 = and i32 %rem57, 8176
   %or59 = or disjoint i32 %shl58, %shr53
   store i32 %or59, ptr %incdec.ptr52, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %out, i64 52
   %shr61 = lshr i32 %ret.0.copyload.i162, 9
   %rem62 = and i32 %shr61, 8191
   store i32 %rem62, ptr %incdec.ptr60, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 56
   %shr64 = lshr i32 %ret.0.copyload.i162, 22
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i163 = load i32, ptr %incdec.ptr65, align 4
   %rem68 = shl i32 %ret.0.copyload.i163, 10
   %shl69 = and i32 %rem68, 7168
   %or70 = or disjoint i32 %shl69, %shr64
   store i32 %or70, ptr %incdec.ptr63, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 60
   %shr72 = lshr i32 %ret.0.copyload.i163, 3
   %rem73 = and i32 %shr72, 8191
   store i32 %rem73, ptr %incdec.ptr71, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %out, i64 64
   %shr75 = lshr i32 %ret.0.copyload.i163, 16
   %rem76 = and i32 %shr75, 8191
   store i32 %rem76, ptr %incdec.ptr74, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %out, i64 68
   %shr78 = lshr i32 %ret.0.copyload.i163, 29
   store i32 %shr78, ptr %incdec.ptr77, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i164 = load i32, ptr %incdec.ptr79, align 4
   %rem82 = shl i32 %ret.0.copyload.i164, 3
   %shl83 = and i32 %rem82, 8184
   %or84 = or disjoint i32 %shl83, %shr78
   store i32 %or84, ptr %incdec.ptr77, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 72
   %shr86 = lshr i32 %ret.0.copyload.i164, 10
   %rem87 = and i32 %shr86, 8191
   store i32 %rem87, ptr %incdec.ptr85, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 76
   %shr89 = lshr i32 %ret.0.copyload.i164, 23
   store i32 %shr89, ptr %incdec.ptr88, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i165 = load i32, ptr %incdec.ptr90, align 4
   %rem93 = shl i32 %ret.0.copyload.i165, 9
   %shl94 = and i32 %rem93, 7680
   %or95 = or disjoint i32 %shl94, %shr89
   store i32 %or95, ptr %incdec.ptr88, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %out, i64 80
   %shr97 = lshr i32 %ret.0.copyload.i165, 4
   %rem98 = and i32 %shr97, 8191
   store i32 %rem98, ptr %incdec.ptr96, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 84
   %shr100 = lshr i32 %ret.0.copyload.i165, 17
   %rem101 = and i32 %shr100, 8191
   store i32 %rem101, ptr %incdec.ptr99, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %out, i64 88
   %shr103 = lshr i32 %ret.0.copyload.i165, 30
   store i32 %shr103, ptr %incdec.ptr102, align 4
-  %incdec.ptr104 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i166 = load i32, ptr %incdec.ptr104, align 4
   %rem107 = shl i32 %ret.0.copyload.i166, 2
   %shl108 = and i32 %rem107, 8188
   %or109 = or disjoint i32 %shl108, %shr103
   store i32 %or109, ptr %incdec.ptr102, align 4
-  %incdec.ptr110 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %out, i64 92
   %shr111 = lshr i32 %ret.0.copyload.i166, 11
   %rem112 = and i32 %shr111, 8191
   store i32 %rem112, ptr %incdec.ptr110, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %out, i64 96
   %shr114 = lshr i32 %ret.0.copyload.i166, 24
   store i32 %shr114, ptr %incdec.ptr113, align 4
-  %incdec.ptr115 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr115 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i167 = load i32, ptr %incdec.ptr115, align 4
   %rem118 = shl i32 %ret.0.copyload.i167, 8
   %shl119 = and i32 %rem118, 7936
   %or120 = or disjoint i32 %shl119, %shr114
   store i32 %or120, ptr %incdec.ptr113, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %out, i64 100
   %shr122 = lshr i32 %ret.0.copyload.i167, 5
   %rem123 = and i32 %shr122, 8191
   store i32 %rem123, ptr %incdec.ptr121, align 4
-  %incdec.ptr124 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr124 = getelementptr inbounds i8, ptr %out, i64 104
   %shr125 = lshr i32 %ret.0.copyload.i167, 18
   %rem126 = and i32 %shr125, 8191
   store i32 %rem126, ptr %incdec.ptr124, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %out, i64 108
   %shr128 = lshr i32 %ret.0.copyload.i167, 31
   store i32 %shr128, ptr %incdec.ptr127, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i168 = load i32, ptr %incdec.ptr129, align 4
   %rem132 = shl i32 %ret.0.copyload.i168, 1
   %shl133 = and i32 %rem132, 8190
   %or134 = or disjoint i32 %shl133, %shr128
   store i32 %or134, ptr %incdec.ptr127, align 4
-  %incdec.ptr135 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %out, i64 112
   %shr136 = lshr i32 %ret.0.copyload.i168, 12
   %rem137 = and i32 %shr136, 8191
   store i32 %rem137, ptr %incdec.ptr135, align 4
-  %incdec.ptr138 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr138 = getelementptr inbounds i8, ptr %out, i64 116
   %shr139 = lshr i32 %ret.0.copyload.i168, 25
   store i32 %shr139, ptr %incdec.ptr138, align 4
-  %incdec.ptr140 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr140 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i169 = load i32, ptr %incdec.ptr140, align 4
   %rem143 = shl i32 %ret.0.copyload.i169, 7
   %shl144 = and i32 %rem143, 8064
   %or145 = or disjoint i32 %shl144, %shr139
   store i32 %or145, ptr %incdec.ptr138, align 4
-  %incdec.ptr146 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr146 = getelementptr inbounds i8, ptr %out, i64 120
   %shr147 = lshr i32 %ret.0.copyload.i169, 6
   %rem148 = and i32 %shr147, 8191
   store i32 %rem148, ptr %incdec.ptr146, align 4
-  %incdec.ptr149 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr149 = getelementptr inbounds i8, ptr %out, i64 124
   %shr150 = lshr i32 %ret.0.copyload.i169, 19
   store i32 %shr150, ptr %incdec.ptr149, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %in, i64 52
   ret ptr %incdec.ptr151
 }
 
@@ -14005,190 +13999,190 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 16383
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 14
   %rem3 = and i32 %shr2, 16383
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 28
   store i32 %shr5, ptr %incdec.ptr4, align 4
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i161 = load i32, ptr %incdec.ptr6, align 4
   %rem9 = shl i32 %ret.0.copyload.i161, 4
   %shl = and i32 %rem9, 16368
   %or = or disjoint i32 %shl, %shr5
   store i32 %or, ptr %incdec.ptr4, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i161, 10
   %rem12 = and i32 %shr11, 16383
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 16
   %shr14 = lshr i32 %ret.0.copyload.i161, 24
   store i32 %shr14, ptr %incdec.ptr13, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i162 = load i32, ptr %incdec.ptr15, align 4
   %rem18 = shl i32 %ret.0.copyload.i162, 8
   %shl19 = and i32 %rem18, 16128
   %or20 = or disjoint i32 %shl19, %shr14
   store i32 %or20, ptr %incdec.ptr13, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %out, i64 20
   %shr22 = lshr i32 %ret.0.copyload.i162, 6
   %rem23 = and i32 %shr22, 16383
   store i32 %rem23, ptr %incdec.ptr21, align 4
-  %incdec.ptr24 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %out, i64 24
   %shr25 = lshr i32 %ret.0.copyload.i162, 20
   store i32 %shr25, ptr %incdec.ptr24, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i163 = load i32, ptr %incdec.ptr26, align 4
   %rem29 = shl i32 %ret.0.copyload.i163, 12
   %shl30 = and i32 %rem29, 12288
   %or31 = or disjoint i32 %shl30, %shr25
   store i32 %or31, ptr %incdec.ptr24, align 4
-  %incdec.ptr32 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %out, i64 28
   %shr33 = lshr i32 %ret.0.copyload.i163, 2
   %rem34 = and i32 %shr33, 16383
   store i32 %rem34, ptr %incdec.ptr32, align 4
-  %incdec.ptr35 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %out, i64 32
   %shr36 = lshr i32 %ret.0.copyload.i163, 16
   %rem37 = and i32 %shr36, 16383
   store i32 %rem37, ptr %incdec.ptr35, align 4
-  %incdec.ptr38 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %out, i64 36
   %shr39 = lshr i32 %ret.0.copyload.i163, 30
   store i32 %shr39, ptr %incdec.ptr38, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i164 = load i32, ptr %incdec.ptr40, align 4
   %rem43 = shl i32 %ret.0.copyload.i164, 2
   %shl44 = and i32 %rem43, 16380
   %or45 = or disjoint i32 %shl44, %shr39
   store i32 %or45, ptr %incdec.ptr38, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %out, i64 40
   %shr47 = lshr i32 %ret.0.copyload.i164, 12
   %rem48 = and i32 %shr47, 16383
   store i32 %rem48, ptr %incdec.ptr46, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %out, i64 44
   %shr50 = lshr i32 %ret.0.copyload.i164, 26
   store i32 %shr50, ptr %incdec.ptr49, align 4
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i165 = load i32, ptr %incdec.ptr51, align 4
   %rem54 = shl i32 %ret.0.copyload.i165, 6
   %shl55 = and i32 %rem54, 16320
   %or56 = or disjoint i32 %shl55, %shr50
   store i32 %or56, ptr %incdec.ptr49, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %out, i64 48
   %shr58 = lshr i32 %ret.0.copyload.i165, 8
   %rem59 = and i32 %shr58, 16383
   store i32 %rem59, ptr %incdec.ptr57, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %out, i64 52
   %shr61 = lshr i32 %ret.0.copyload.i165, 22
   store i32 %shr61, ptr %incdec.ptr60, align 4
-  %incdec.ptr62 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i166 = load i32, ptr %incdec.ptr62, align 4
   %rem65 = shl i32 %ret.0.copyload.i166, 10
   %shl66 = and i32 %rem65, 15360
   %or67 = or disjoint i32 %shl66, %shr61
   store i32 %or67, ptr %incdec.ptr60, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %out, i64 56
   %shr69 = lshr i32 %ret.0.copyload.i166, 4
   %rem70 = and i32 %shr69, 16383
   store i32 %rem70, ptr %incdec.ptr68, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 60
   %shr72 = lshr i32 %ret.0.copyload.i166, 18
   store i32 %shr72, ptr %incdec.ptr71, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i167 = load i32, ptr %incdec.ptr73, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %out, i64 64
   %rem78 = and i32 %ret.0.copyload.i167, 16383
   store i32 %rem78, ptr %incdec.ptr76, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 68
   %shr80 = lshr i32 %ret.0.copyload.i167, 14
   %rem81 = and i32 %shr80, 16383
   store i32 %rem81, ptr %incdec.ptr79, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 72
   %shr83 = lshr i32 %ret.0.copyload.i167, 28
   store i32 %shr83, ptr %incdec.ptr82, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i168 = load i32, ptr %incdec.ptr84, align 4
   %rem87 = shl i32 %ret.0.copyload.i168, 4
   %shl88 = and i32 %rem87, 16368
   %or89 = or disjoint i32 %shl88, %shr83
   store i32 %or89, ptr %incdec.ptr82, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %out, i64 76
   %shr91 = lshr i32 %ret.0.copyload.i168, 10
   %rem92 = and i32 %shr91, 16383
   store i32 %rem92, ptr %incdec.ptr90, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %out, i64 80
   %shr94 = lshr i32 %ret.0.copyload.i168, 24
   store i32 %shr94, ptr %incdec.ptr93, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i169 = load i32, ptr %incdec.ptr95, align 4
   %rem98 = shl i32 %ret.0.copyload.i169, 8
   %shl99 = and i32 %rem98, 16128
   %or100 = or disjoint i32 %shl99, %shr94
   store i32 %or100, ptr %incdec.ptr93, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %out, i64 84
   %shr102 = lshr i32 %ret.0.copyload.i169, 6
   %rem103 = and i32 %shr102, 16383
   store i32 %rem103, ptr %incdec.ptr101, align 4
-  %incdec.ptr104 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %out, i64 88
   %shr105 = lshr i32 %ret.0.copyload.i169, 20
   store i32 %shr105, ptr %incdec.ptr104, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i170 = load i32, ptr %incdec.ptr106, align 4
   %rem109 = shl i32 %ret.0.copyload.i170, 12
   %shl110 = and i32 %rem109, 12288
   %or111 = or disjoint i32 %shl110, %shr105
   store i32 %or111, ptr %incdec.ptr104, align 4
-  %incdec.ptr112 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %out, i64 92
   %shr113 = lshr i32 %ret.0.copyload.i170, 2
   %rem114 = and i32 %shr113, 16383
   store i32 %rem114, ptr %incdec.ptr112, align 4
-  %incdec.ptr115 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr115 = getelementptr inbounds i8, ptr %out, i64 96
   %shr116 = lshr i32 %ret.0.copyload.i170, 16
   %rem117 = and i32 %shr116, 16383
   store i32 %rem117, ptr %incdec.ptr115, align 4
-  %incdec.ptr118 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr118 = getelementptr inbounds i8, ptr %out, i64 100
   %shr119 = lshr i32 %ret.0.copyload.i170, 30
   store i32 %shr119, ptr %incdec.ptr118, align 4
-  %incdec.ptr120 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr120 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i171 = load i32, ptr %incdec.ptr120, align 4
   %rem123 = shl i32 %ret.0.copyload.i171, 2
   %shl124 = and i32 %rem123, 16380
   %or125 = or disjoint i32 %shl124, %shr119
   store i32 %or125, ptr %incdec.ptr118, align 4
-  %incdec.ptr126 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %out, i64 104
   %shr127 = lshr i32 %ret.0.copyload.i171, 12
   %rem128 = and i32 %shr127, 16383
   store i32 %rem128, ptr %incdec.ptr126, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %out, i64 108
   %shr130 = lshr i32 %ret.0.copyload.i171, 26
   store i32 %shr130, ptr %incdec.ptr129, align 4
-  %incdec.ptr131 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i172 = load i32, ptr %incdec.ptr131, align 4
   %rem134 = shl i32 %ret.0.copyload.i172, 6
   %shl135 = and i32 %rem134, 16320
   %or136 = or disjoint i32 %shl135, %shr130
   store i32 %or136, ptr %incdec.ptr129, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %out, i64 112
   %shr138 = lshr i32 %ret.0.copyload.i172, 8
   %rem139 = and i32 %shr138, 16383
   store i32 %rem139, ptr %incdec.ptr137, align 4
-  %incdec.ptr140 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr140 = getelementptr inbounds i8, ptr %out, i64 116
   %shr141 = lshr i32 %ret.0.copyload.i172, 22
   store i32 %shr141, ptr %incdec.ptr140, align 4
-  %incdec.ptr142 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr142 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i173 = load i32, ptr %incdec.ptr142, align 4
   %rem145 = shl i32 %ret.0.copyload.i173, 10
   %shl146 = and i32 %rem145, 15360
   %or147 = or disjoint i32 %shl146, %shr141
   store i32 %or147, ptr %incdec.ptr140, align 4
-  %incdec.ptr148 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr148 = getelementptr inbounds i8, ptr %out, i64 120
   %shr149 = lshr i32 %ret.0.copyload.i173, 4
   %rem150 = and i32 %shr149, 16383
   store i32 %rem150, ptr %incdec.ptr148, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %out, i64 124
   %shr152 = lshr i32 %ret.0.copyload.i173, 18
   store i32 %shr152, ptr %incdec.ptr151, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %in, i64 56
   ret ptr %incdec.ptr153
 }
 
@@ -14198,200 +14192,200 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 32767
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 15
   %rem3 = and i32 %shr2, 32767
   store i32 %rem3, ptr %incdec.ptr, align 4
-  %incdec.ptr4 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out, i64 8
   %shr5 = lshr i32 %ret.0.copyload.i, 30
   store i32 %shr5, ptr %incdec.ptr4, align 4
-  %incdec.ptr6 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i168 = load i32, ptr %incdec.ptr6, align 4
   %rem9 = shl i32 %ret.0.copyload.i168, 2
   %shl = and i32 %rem9, 32764
   %or = or disjoint i32 %shl, %shr5
   store i32 %or, ptr %incdec.ptr4, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i168, 13
   %rem12 = and i32 %shr11, 32767
   store i32 %rem12, ptr %incdec.ptr10, align 4
-  %incdec.ptr13 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %out, i64 16
   %shr14 = lshr i32 %ret.0.copyload.i168, 28
   store i32 %shr14, ptr %incdec.ptr13, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i169 = load i32, ptr %incdec.ptr15, align 4
   %rem18 = shl i32 %ret.0.copyload.i169, 4
   %shl19 = and i32 %rem18, 32752
   %or20 = or disjoint i32 %shl19, %shr14
   store i32 %or20, ptr %incdec.ptr13, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %out, i64 20
   %shr22 = lshr i32 %ret.0.copyload.i169, 11
   %rem23 = and i32 %shr22, 32767
   store i32 %rem23, ptr %incdec.ptr21, align 4
-  %incdec.ptr24 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %out, i64 24
   %shr25 = lshr i32 %ret.0.copyload.i169, 26
   store i32 %shr25, ptr %incdec.ptr24, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i170 = load i32, ptr %incdec.ptr26, align 4
   %rem29 = shl i32 %ret.0.copyload.i170, 6
   %shl30 = and i32 %rem29, 32704
   %or31 = or disjoint i32 %shl30, %shr25
   store i32 %or31, ptr %incdec.ptr24, align 4
-  %incdec.ptr32 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %out, i64 28
   %shr33 = lshr i32 %ret.0.copyload.i170, 9
   %rem34 = and i32 %shr33, 32767
   store i32 %rem34, ptr %incdec.ptr32, align 4
-  %incdec.ptr35 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %out, i64 32
   %shr36 = lshr i32 %ret.0.copyload.i170, 24
   store i32 %shr36, ptr %incdec.ptr35, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i171 = load i32, ptr %incdec.ptr37, align 4
   %rem40 = shl i32 %ret.0.copyload.i171, 8
   %shl41 = and i32 %rem40, 32512
   %or42 = or disjoint i32 %shl41, %shr36
   store i32 %or42, ptr %incdec.ptr35, align 4
-  %incdec.ptr43 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %out, i64 36
   %shr44 = lshr i32 %ret.0.copyload.i171, 7
   %rem45 = and i32 %shr44, 32767
   store i32 %rem45, ptr %incdec.ptr43, align 4
-  %incdec.ptr46 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %out, i64 40
   %shr47 = lshr i32 %ret.0.copyload.i171, 22
   store i32 %shr47, ptr %incdec.ptr46, align 4
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i172 = load i32, ptr %incdec.ptr48, align 4
   %rem51 = shl i32 %ret.0.copyload.i172, 10
   %shl52 = and i32 %rem51, 31744
   %or53 = or disjoint i32 %shl52, %shr47
   store i32 %or53, ptr %incdec.ptr46, align 4
-  %incdec.ptr54 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %out, i64 44
   %shr55 = lshr i32 %ret.0.copyload.i172, 5
   %rem56 = and i32 %shr55, 32767
   store i32 %rem56, ptr %incdec.ptr54, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %out, i64 48
   %shr58 = lshr i32 %ret.0.copyload.i172, 20
   store i32 %shr58, ptr %incdec.ptr57, align 4
-  %incdec.ptr59 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i173 = load i32, ptr %incdec.ptr59, align 4
   %rem62 = shl i32 %ret.0.copyload.i173, 12
   %shl63 = and i32 %rem62, 28672
   %or64 = or disjoint i32 %shl63, %shr58
   store i32 %or64, ptr %incdec.ptr57, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %out, i64 52
   %shr66 = lshr i32 %ret.0.copyload.i173, 3
   %rem67 = and i32 %shr66, 32767
   store i32 %rem67, ptr %incdec.ptr65, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %out, i64 56
   %shr69 = lshr i32 %ret.0.copyload.i173, 18
   store i32 %shr69, ptr %incdec.ptr68, align 4
-  %incdec.ptr70 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i174 = load i32, ptr %incdec.ptr70, align 4
   %rem73 = shl i32 %ret.0.copyload.i174, 14
   %shl74 = and i32 %rem73, 16384
   %or75 = or disjoint i32 %shl74, %shr69
   store i32 %or75, ptr %incdec.ptr68, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %out, i64 60
   %shr77 = lshr i32 %ret.0.copyload.i174, 1
   %rem78 = and i32 %shr77, 32767
   store i32 %rem78, ptr %incdec.ptr76, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 64
   %shr80 = lshr i32 %ret.0.copyload.i174, 16
   %rem81 = and i32 %shr80, 32767
   store i32 %rem81, ptr %incdec.ptr79, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 68
   %shr83 = lshr i32 %ret.0.copyload.i174, 31
   store i32 %shr83, ptr %incdec.ptr82, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i175 = load i32, ptr %incdec.ptr84, align 4
   %rem87 = shl i32 %ret.0.copyload.i175, 1
   %shl88 = and i32 %rem87, 32766
   %or89 = or disjoint i32 %shl88, %shr83
   store i32 %or89, ptr %incdec.ptr82, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %out, i64 72
   %shr91 = lshr i32 %ret.0.copyload.i175, 14
   %rem92 = and i32 %shr91, 32767
   store i32 %rem92, ptr %incdec.ptr90, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %out, i64 76
   %shr94 = lshr i32 %ret.0.copyload.i175, 29
   store i32 %shr94, ptr %incdec.ptr93, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i176 = load i32, ptr %incdec.ptr95, align 4
   %rem98 = shl i32 %ret.0.copyload.i176, 3
   %shl99 = and i32 %rem98, 32760
   %or100 = or disjoint i32 %shl99, %shr94
   store i32 %or100, ptr %incdec.ptr93, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %out, i64 80
   %shr102 = lshr i32 %ret.0.copyload.i176, 12
   %rem103 = and i32 %shr102, 32767
   store i32 %rem103, ptr %incdec.ptr101, align 4
-  %incdec.ptr104 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %out, i64 84
   %shr105 = lshr i32 %ret.0.copyload.i176, 27
   store i32 %shr105, ptr %incdec.ptr104, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i177 = load i32, ptr %incdec.ptr106, align 4
   %rem109 = shl i32 %ret.0.copyload.i177, 5
   %shl110 = and i32 %rem109, 32736
   %or111 = or disjoint i32 %shl110, %shr105
   store i32 %or111, ptr %incdec.ptr104, align 4
-  %incdec.ptr112 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %out, i64 88
   %shr113 = lshr i32 %ret.0.copyload.i177, 10
   %rem114 = and i32 %shr113, 32767
   store i32 %rem114, ptr %incdec.ptr112, align 4
-  %incdec.ptr115 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr115 = getelementptr inbounds i8, ptr %out, i64 92
   %shr116 = lshr i32 %ret.0.copyload.i177, 25
   store i32 %shr116, ptr %incdec.ptr115, align 4
-  %incdec.ptr117 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i178 = load i32, ptr %incdec.ptr117, align 4
   %rem120 = shl i32 %ret.0.copyload.i178, 7
   %shl121 = and i32 %rem120, 32640
   %or122 = or disjoint i32 %shl121, %shr116
   store i32 %or122, ptr %incdec.ptr115, align 4
-  %incdec.ptr123 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr123 = getelementptr inbounds i8, ptr %out, i64 96
   %shr124 = lshr i32 %ret.0.copyload.i178, 8
   %rem125 = and i32 %shr124, 32767
   store i32 %rem125, ptr %incdec.ptr123, align 4
-  %incdec.ptr126 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %out, i64 100
   %shr127 = lshr i32 %ret.0.copyload.i178, 23
   store i32 %shr127, ptr %incdec.ptr126, align 4
-  %incdec.ptr128 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr128 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i179 = load i32, ptr %incdec.ptr128, align 4
   %rem131 = shl i32 %ret.0.copyload.i179, 9
   %shl132 = and i32 %rem131, 32256
   %or133 = or disjoint i32 %shl132, %shr127
   store i32 %or133, ptr %incdec.ptr126, align 4
-  %incdec.ptr134 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr134 = getelementptr inbounds i8, ptr %out, i64 104
   %shr135 = lshr i32 %ret.0.copyload.i179, 6
   %rem136 = and i32 %shr135, 32767
   store i32 %rem136, ptr %incdec.ptr134, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %out, i64 108
   %shr138 = lshr i32 %ret.0.copyload.i179, 21
   store i32 %shr138, ptr %incdec.ptr137, align 4
-  %incdec.ptr139 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i180 = load i32, ptr %incdec.ptr139, align 4
   %rem142 = shl i32 %ret.0.copyload.i180, 11
   %shl143 = and i32 %rem142, 30720
   %or144 = or disjoint i32 %shl143, %shr138
   store i32 %or144, ptr %incdec.ptr137, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %out, i64 112
   %shr146 = lshr i32 %ret.0.copyload.i180, 4
   %rem147 = and i32 %shr146, 32767
   store i32 %rem147, ptr %incdec.ptr145, align 4
-  %incdec.ptr148 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr148 = getelementptr inbounds i8, ptr %out, i64 116
   %shr149 = lshr i32 %ret.0.copyload.i180, 19
   store i32 %shr149, ptr %incdec.ptr148, align 4
-  %incdec.ptr150 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr150 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i181 = load i32, ptr %incdec.ptr150, align 4
   %rem153 = shl i32 %ret.0.copyload.i181, 13
   %shl154 = and i32 %rem153, 24576
   %or155 = or disjoint i32 %shl154, %shr149
   store i32 %or155, ptr %incdec.ptr148, align 4
-  %incdec.ptr156 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr156 = getelementptr inbounds i8, ptr %out, i64 120
   %shr157 = lshr i32 %ret.0.copyload.i181, 2
   %rem158 = and i32 %shr157, 32767
   store i32 %rem158, ptr %incdec.ptr156, align 4
-  %incdec.ptr159 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %out, i64 124
   %shr160 = lshr i32 %ret.0.copyload.i181, 17
   store i32 %shr160, ptr %incdec.ptr159, align 4
-  %incdec.ptr161 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr161 = getelementptr inbounds i8, ptr %in, i64 60
   ret ptr %incdec.ptr161
 }
 
@@ -14401,210 +14395,210 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 131071
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 17
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i178 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i178, 15
   %shl = and i32 %rem6, 98304
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i178, 2
   %rem9 = and i32 %shr8, 131071
   store i32 %rem9, ptr %incdec.ptr7, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i178, 19
   store i32 %shr11, ptr %incdec.ptr10, align 4
-  %incdec.ptr12 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i179 = load i32, ptr %incdec.ptr12, align 4
   %rem15 = shl i32 %ret.0.copyload.i179, 13
   %shl16 = and i32 %rem15, 122880
   %or17 = or disjoint i32 %shl16, %shr11
   store i32 %or17, ptr %incdec.ptr10, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 16
   %shr19 = lshr i32 %ret.0.copyload.i179, 4
   %rem20 = and i32 %shr19, 131071
   store i32 %rem20, ptr %incdec.ptr18, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %out, i64 20
   %shr22 = lshr i32 %ret.0.copyload.i179, 21
   store i32 %shr22, ptr %incdec.ptr21, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i180 = load i32, ptr %incdec.ptr23, align 4
   %rem26 = shl i32 %ret.0.copyload.i180, 11
   %shl27 = and i32 %rem26, 129024
   %or28 = or disjoint i32 %shl27, %shr22
   store i32 %or28, ptr %incdec.ptr21, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %out, i64 24
   %shr30 = lshr i32 %ret.0.copyload.i180, 6
   %rem31 = and i32 %shr30, 131071
   store i32 %rem31, ptr %incdec.ptr29, align 4
-  %incdec.ptr32 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %out, i64 28
   %shr33 = lshr i32 %ret.0.copyload.i180, 23
   store i32 %shr33, ptr %incdec.ptr32, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i181 = load i32, ptr %incdec.ptr34, align 4
   %rem37 = shl i32 %ret.0.copyload.i181, 9
   %shl38 = and i32 %rem37, 130560
   %or39 = or disjoint i32 %shl38, %shr33
   store i32 %or39, ptr %incdec.ptr32, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %out, i64 32
   %shr41 = lshr i32 %ret.0.copyload.i181, 8
   %rem42 = and i32 %shr41, 131071
   store i32 %rem42, ptr %incdec.ptr40, align 4
-  %incdec.ptr43 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %out, i64 36
   %shr44 = lshr i32 %ret.0.copyload.i181, 25
   store i32 %shr44, ptr %incdec.ptr43, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i182 = load i32, ptr %incdec.ptr45, align 4
   %rem48 = shl i32 %ret.0.copyload.i182, 7
   %shl49 = and i32 %rem48, 130944
   %or50 = or disjoint i32 %shl49, %shr44
   store i32 %or50, ptr %incdec.ptr43, align 4
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %out, i64 40
   %shr52 = lshr i32 %ret.0.copyload.i182, 10
   %rem53 = and i32 %shr52, 131071
   store i32 %rem53, ptr %incdec.ptr51, align 4
-  %incdec.ptr54 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %out, i64 44
   %shr55 = lshr i32 %ret.0.copyload.i182, 27
   store i32 %shr55, ptr %incdec.ptr54, align 4
-  %incdec.ptr56 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i183 = load i32, ptr %incdec.ptr56, align 4
   %rem59 = shl i32 %ret.0.copyload.i183, 5
   %shl60 = and i32 %rem59, 131040
   %or61 = or disjoint i32 %shl60, %shr55
   store i32 %or61, ptr %incdec.ptr54, align 4
-  %incdec.ptr62 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %out, i64 48
   %shr63 = lshr i32 %ret.0.copyload.i183, 12
   %rem64 = and i32 %shr63, 131071
   store i32 %rem64, ptr %incdec.ptr62, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %out, i64 52
   %shr66 = lshr i32 %ret.0.copyload.i183, 29
   store i32 %shr66, ptr %incdec.ptr65, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i184 = load i32, ptr %incdec.ptr67, align 4
   %rem70 = shl i32 %ret.0.copyload.i184, 3
   %shl71 = and i32 %rem70, 131064
   %or72 = or disjoint i32 %shl71, %shr66
   store i32 %or72, ptr %incdec.ptr65, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %out, i64 56
   %shr74 = lshr i32 %ret.0.copyload.i184, 14
   %rem75 = and i32 %shr74, 131071
   store i32 %rem75, ptr %incdec.ptr73, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %out, i64 60
   %shr77 = lshr i32 %ret.0.copyload.i184, 31
   store i32 %shr77, ptr %incdec.ptr76, align 4
-  %incdec.ptr78 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr78 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i185 = load i32, ptr %incdec.ptr78, align 4
   %rem81 = shl i32 %ret.0.copyload.i185, 1
   %shl82 = and i32 %rem81, 131070
   %or83 = or disjoint i32 %shl82, %shr77
   store i32 %or83, ptr %incdec.ptr76, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %out, i64 64
   %shr85 = lshr i32 %ret.0.copyload.i185, 16
   store i32 %shr85, ptr %incdec.ptr84, align 4
-  %incdec.ptr86 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i186 = load i32, ptr %incdec.ptr86, align 4
   %rem89 = shl i32 %ret.0.copyload.i186, 16
   %shl90 = and i32 %rem89, 65536
   %or91 = or disjoint i32 %shl90, %shr85
   store i32 %or91, ptr %incdec.ptr84, align 4
-  %incdec.ptr92 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %out, i64 68
   %shr93 = lshr i32 %ret.0.copyload.i186, 1
   %rem94 = and i32 %shr93, 131071
   store i32 %rem94, ptr %incdec.ptr92, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %out, i64 72
   %shr96 = lshr i32 %ret.0.copyload.i186, 18
   store i32 %shr96, ptr %incdec.ptr95, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i187 = load i32, ptr %incdec.ptr97, align 4
   %rem100 = shl i32 %ret.0.copyload.i187, 14
   %shl101 = and i32 %rem100, 114688
   %or102 = or disjoint i32 %shl101, %shr96
   store i32 %or102, ptr %incdec.ptr95, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %out, i64 76
   %shr104 = lshr i32 %ret.0.copyload.i187, 3
   %rem105 = and i32 %shr104, 131071
   store i32 %rem105, ptr %incdec.ptr103, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %out, i64 80
   %shr107 = lshr i32 %ret.0.copyload.i187, 20
   store i32 %shr107, ptr %incdec.ptr106, align 4
-  %incdec.ptr108 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i188 = load i32, ptr %incdec.ptr108, align 4
   %rem111 = shl i32 %ret.0.copyload.i188, 12
   %shl112 = and i32 %rem111, 126976
   %or113 = or disjoint i32 %shl112, %shr107
   store i32 %or113, ptr %incdec.ptr106, align 4
-  %incdec.ptr114 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %out, i64 84
   %shr115 = lshr i32 %ret.0.copyload.i188, 5
   %rem116 = and i32 %shr115, 131071
   store i32 %rem116, ptr %incdec.ptr114, align 4
-  %incdec.ptr117 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %out, i64 88
   %shr118 = lshr i32 %ret.0.copyload.i188, 22
   store i32 %shr118, ptr %incdec.ptr117, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i189 = load i32, ptr %incdec.ptr119, align 4
   %rem122 = shl i32 %ret.0.copyload.i189, 10
   %shl123 = and i32 %rem122, 130048
   %or124 = or disjoint i32 %shl123, %shr118
   store i32 %or124, ptr %incdec.ptr117, align 4
-  %incdec.ptr125 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %out, i64 92
   %shr126 = lshr i32 %ret.0.copyload.i189, 7
   %rem127 = and i32 %shr126, 131071
   store i32 %rem127, ptr %incdec.ptr125, align 4
-  %incdec.ptr128 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr128 = getelementptr inbounds i8, ptr %out, i64 96
   %shr129 = lshr i32 %ret.0.copyload.i189, 24
   store i32 %shr129, ptr %incdec.ptr128, align 4
-  %incdec.ptr130 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i190 = load i32, ptr %incdec.ptr130, align 4
   %rem133 = shl i32 %ret.0.copyload.i190, 8
   %shl134 = and i32 %rem133, 130816
   %or135 = or disjoint i32 %shl134, %shr129
   store i32 %or135, ptr %incdec.ptr128, align 4
-  %incdec.ptr136 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr136 = getelementptr inbounds i8, ptr %out, i64 100
   %shr137 = lshr i32 %ret.0.copyload.i190, 9
   %rem138 = and i32 %shr137, 131071
   store i32 %rem138, ptr %incdec.ptr136, align 4
-  %incdec.ptr139 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %out, i64 104
   %shr140 = lshr i32 %ret.0.copyload.i190, 26
   store i32 %shr140, ptr %incdec.ptr139, align 4
-  %incdec.ptr141 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i191 = load i32, ptr %incdec.ptr141, align 4
   %rem144 = shl i32 %ret.0.copyload.i191, 6
   %shl145 = and i32 %rem144, 131008
   %or146 = or disjoint i32 %shl145, %shr140
   store i32 %or146, ptr %incdec.ptr139, align 4
-  %incdec.ptr147 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %out, i64 108
   %shr148 = lshr i32 %ret.0.copyload.i191, 11
   %rem149 = and i32 %shr148, 131071
   store i32 %rem149, ptr %incdec.ptr147, align 4
-  %incdec.ptr150 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr150 = getelementptr inbounds i8, ptr %out, i64 112
   %shr151 = lshr i32 %ret.0.copyload.i191, 28
   store i32 %shr151, ptr %incdec.ptr150, align 4
-  %incdec.ptr152 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr152 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i192 = load i32, ptr %incdec.ptr152, align 4
   %rem155 = shl i32 %ret.0.copyload.i192, 4
   %shl156 = and i32 %rem155, 131056
   %or157 = or disjoint i32 %shl156, %shr151
   store i32 %or157, ptr %incdec.ptr150, align 4
-  %incdec.ptr158 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr158 = getelementptr inbounds i8, ptr %out, i64 116
   %shr159 = lshr i32 %ret.0.copyload.i192, 13
   %rem160 = and i32 %shr159, 131071
   store i32 %rem160, ptr %incdec.ptr158, align 4
-  %incdec.ptr161 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr161 = getelementptr inbounds i8, ptr %out, i64 120
   %shr162 = lshr i32 %ret.0.copyload.i192, 30
   store i32 %shr162, ptr %incdec.ptr161, align 4
-  %incdec.ptr163 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr163 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i193 = load i32, ptr %incdec.ptr163, align 4
   %rem166 = shl i32 %ret.0.copyload.i193, 2
   %shl167 = and i32 %rem166, 131068
   %or168 = or disjoint i32 %shl167, %shr162
   store i32 %or168, ptr %incdec.ptr161, align 4
-  %incdec.ptr169 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr169 = getelementptr inbounds i8, ptr %out, i64 124
   %shr170 = lshr i32 %ret.0.copyload.i193, 15
   store i32 %shr170, ptr %incdec.ptr169, align 4
-  %incdec.ptr171 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr171 = getelementptr inbounds i8, ptr %in, i64 68
   ret ptr %incdec.ptr171
 }
 
@@ -14614,210 +14608,210 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 262143
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 18
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i181 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i181, 14
   %shl = and i32 %rem6, 245760
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i181, 4
   %rem9 = and i32 %shr8, 262143
   store i32 %rem9, ptr %incdec.ptr7, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i181, 22
   store i32 %shr11, ptr %incdec.ptr10, align 4
-  %incdec.ptr12 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i182 = load i32, ptr %incdec.ptr12, align 4
   %rem15 = shl i32 %ret.0.copyload.i182, 10
   %shl16 = and i32 %rem15, 261120
   %or17 = or disjoint i32 %shl16, %shr11
   store i32 %or17, ptr %incdec.ptr10, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 16
   %shr19 = lshr i32 %ret.0.copyload.i182, 8
   %rem20 = and i32 %shr19, 262143
   store i32 %rem20, ptr %incdec.ptr18, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %out, i64 20
   %shr22 = lshr i32 %ret.0.copyload.i182, 26
   store i32 %shr22, ptr %incdec.ptr21, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i183 = load i32, ptr %incdec.ptr23, align 4
   %rem26 = shl i32 %ret.0.copyload.i183, 6
   %shl27 = and i32 %rem26, 262080
   %or28 = or disjoint i32 %shl27, %shr22
   store i32 %or28, ptr %incdec.ptr21, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %out, i64 24
   %shr30 = lshr i32 %ret.0.copyload.i183, 12
   %rem31 = and i32 %shr30, 262143
   store i32 %rem31, ptr %incdec.ptr29, align 4
-  %incdec.ptr32 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %out, i64 28
   %shr33 = lshr i32 %ret.0.copyload.i183, 30
   store i32 %shr33, ptr %incdec.ptr32, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i184 = load i32, ptr %incdec.ptr34, align 4
   %rem37 = shl i32 %ret.0.copyload.i184, 2
   %shl38 = and i32 %rem37, 262140
   %or39 = or disjoint i32 %shl38, %shr33
   store i32 %or39, ptr %incdec.ptr32, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %out, i64 32
   %shr41 = lshr i32 %ret.0.copyload.i184, 16
   store i32 %shr41, ptr %incdec.ptr40, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i185 = load i32, ptr %incdec.ptr42, align 4
   %rem45 = shl i32 %ret.0.copyload.i185, 16
   %shl46 = and i32 %rem45, 196608
   %or47 = or disjoint i32 %shl46, %shr41
   store i32 %or47, ptr %incdec.ptr40, align 4
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %out, i64 36
   %shr49 = lshr i32 %ret.0.copyload.i185, 2
   %rem50 = and i32 %shr49, 262143
   store i32 %rem50, ptr %incdec.ptr48, align 4
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %out, i64 40
   %shr52 = lshr i32 %ret.0.copyload.i185, 20
   store i32 %shr52, ptr %incdec.ptr51, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i186 = load i32, ptr %incdec.ptr53, align 4
   %rem56 = shl i32 %ret.0.copyload.i186, 12
   %shl57 = and i32 %rem56, 258048
   %or58 = or disjoint i32 %shl57, %shr52
   store i32 %or58, ptr %incdec.ptr51, align 4
-  %incdec.ptr59 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %out, i64 44
   %shr60 = lshr i32 %ret.0.copyload.i186, 6
   %rem61 = and i32 %shr60, 262143
   store i32 %rem61, ptr %incdec.ptr59, align 4
-  %incdec.ptr62 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr62 = getelementptr inbounds i8, ptr %out, i64 48
   %shr63 = lshr i32 %ret.0.copyload.i186, 24
   store i32 %shr63, ptr %incdec.ptr62, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i187 = load i32, ptr %incdec.ptr64, align 4
   %rem67 = shl i32 %ret.0.copyload.i187, 8
   %shl68 = and i32 %rem67, 261888
   %or69 = or disjoint i32 %shl68, %shr63
   store i32 %or69, ptr %incdec.ptr62, align 4
-  %incdec.ptr70 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %out, i64 52
   %shr71 = lshr i32 %ret.0.copyload.i187, 10
   %rem72 = and i32 %shr71, 262143
   store i32 %rem72, ptr %incdec.ptr70, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %out, i64 56
   %shr74 = lshr i32 %ret.0.copyload.i187, 28
   store i32 %shr74, ptr %incdec.ptr73, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i188 = load i32, ptr %incdec.ptr75, align 4
   %rem78 = shl i32 %ret.0.copyload.i188, 4
   %shl79 = and i32 %rem78, 262128
   %or80 = or disjoint i32 %shl79, %shr74
   store i32 %or80, ptr %incdec.ptr73, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %out, i64 60
   %shr82 = lshr i32 %ret.0.copyload.i188, 14
   store i32 %shr82, ptr %incdec.ptr81, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i189 = load i32, ptr %incdec.ptr83, align 4
-  %incdec.ptr86 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %out, i64 64
   %rem88 = and i32 %ret.0.copyload.i189, 262143
   store i32 %rem88, ptr %incdec.ptr86, align 4
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %out, i64 68
   %shr90 = lshr i32 %ret.0.copyload.i189, 18
   store i32 %shr90, ptr %incdec.ptr89, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i190 = load i32, ptr %incdec.ptr91, align 4
   %rem94 = shl i32 %ret.0.copyload.i190, 14
   %shl95 = and i32 %rem94, 245760
   %or96 = or disjoint i32 %shl95, %shr90
   store i32 %or96, ptr %incdec.ptr89, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %out, i64 72
   %shr98 = lshr i32 %ret.0.copyload.i190, 4
   %rem99 = and i32 %shr98, 262143
   store i32 %rem99, ptr %incdec.ptr97, align 4
-  %incdec.ptr100 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %out, i64 76
   %shr101 = lshr i32 %ret.0.copyload.i190, 22
   store i32 %shr101, ptr %incdec.ptr100, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i191 = load i32, ptr %incdec.ptr102, align 4
   %rem105 = shl i32 %ret.0.copyload.i191, 10
   %shl106 = and i32 %rem105, 261120
   %or107 = or disjoint i32 %shl106, %shr101
   store i32 %or107, ptr %incdec.ptr100, align 4
-  %incdec.ptr108 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %out, i64 80
   %shr109 = lshr i32 %ret.0.copyload.i191, 8
   %rem110 = and i32 %shr109, 262143
   store i32 %rem110, ptr %incdec.ptr108, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 84
   %shr112 = lshr i32 %ret.0.copyload.i191, 26
   store i32 %shr112, ptr %incdec.ptr111, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i192 = load i32, ptr %incdec.ptr113, align 4
   %rem116 = shl i32 %ret.0.copyload.i192, 6
   %shl117 = and i32 %rem116, 262080
   %or118 = or disjoint i32 %shl117, %shr112
   store i32 %or118, ptr %incdec.ptr111, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %out, i64 88
   %shr120 = lshr i32 %ret.0.copyload.i192, 12
   %rem121 = and i32 %shr120, 262143
   store i32 %rem121, ptr %incdec.ptr119, align 4
-  %incdec.ptr122 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr122 = getelementptr inbounds i8, ptr %out, i64 92
   %shr123 = lshr i32 %ret.0.copyload.i192, 30
   store i32 %shr123, ptr %incdec.ptr122, align 4
-  %incdec.ptr124 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr124 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i193 = load i32, ptr %incdec.ptr124, align 4
   %rem127 = shl i32 %ret.0.copyload.i193, 2
   %shl128 = and i32 %rem127, 262140
   %or129 = or disjoint i32 %shl128, %shr123
   store i32 %or129, ptr %incdec.ptr122, align 4
-  %incdec.ptr130 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %out, i64 96
   %shr131 = lshr i32 %ret.0.copyload.i193, 16
   store i32 %shr131, ptr %incdec.ptr130, align 4
-  %incdec.ptr132 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i194 = load i32, ptr %incdec.ptr132, align 4
   %rem135 = shl i32 %ret.0.copyload.i194, 16
   %shl136 = and i32 %rem135, 196608
   %or137 = or disjoint i32 %shl136, %shr131
   store i32 %or137, ptr %incdec.ptr130, align 4
-  %incdec.ptr138 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr138 = getelementptr inbounds i8, ptr %out, i64 100
   %shr139 = lshr i32 %ret.0.copyload.i194, 2
   %rem140 = and i32 %shr139, 262143
   store i32 %rem140, ptr %incdec.ptr138, align 4
-  %incdec.ptr141 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %out, i64 104
   %shr142 = lshr i32 %ret.0.copyload.i194, 20
   store i32 %shr142, ptr %incdec.ptr141, align 4
-  %incdec.ptr143 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i195 = load i32, ptr %incdec.ptr143, align 4
   %rem146 = shl i32 %ret.0.copyload.i195, 12
   %shl147 = and i32 %rem146, 258048
   %or148 = or disjoint i32 %shl147, %shr142
   store i32 %or148, ptr %incdec.ptr141, align 4
-  %incdec.ptr149 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr149 = getelementptr inbounds i8, ptr %out, i64 108
   %shr150 = lshr i32 %ret.0.copyload.i195, 6
   %rem151 = and i32 %shr150, 262143
   store i32 %rem151, ptr %incdec.ptr149, align 4
-  %incdec.ptr152 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr152 = getelementptr inbounds i8, ptr %out, i64 112
   %shr153 = lshr i32 %ret.0.copyload.i195, 24
   store i32 %shr153, ptr %incdec.ptr152, align 4
-  %incdec.ptr154 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr154 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i196 = load i32, ptr %incdec.ptr154, align 4
   %rem157 = shl i32 %ret.0.copyload.i196, 8
   %shl158 = and i32 %rem157, 261888
   %or159 = or disjoint i32 %shl158, %shr153
   store i32 %or159, ptr %incdec.ptr152, align 4
-  %incdec.ptr160 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr160 = getelementptr inbounds i8, ptr %out, i64 116
   %shr161 = lshr i32 %ret.0.copyload.i196, 10
   %rem162 = and i32 %shr161, 262143
   store i32 %rem162, ptr %incdec.ptr160, align 4
-  %incdec.ptr163 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr163 = getelementptr inbounds i8, ptr %out, i64 120
   %shr164 = lshr i32 %ret.0.copyload.i196, 28
   store i32 %shr164, ptr %incdec.ptr163, align 4
-  %incdec.ptr165 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr165 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i197 = load i32, ptr %incdec.ptr165, align 4
   %rem168 = shl i32 %ret.0.copyload.i197, 4
   %shl169 = and i32 %rem168, 262128
   %or170 = or disjoint i32 %shl169, %shr164
   store i32 %or170, ptr %incdec.ptr163, align 4
-  %incdec.ptr171 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr171 = getelementptr inbounds i8, ptr %out, i64 124
   %shr172 = lshr i32 %ret.0.copyload.i197, 14
   store i32 %shr172, ptr %incdec.ptr171, align 4
-  %incdec.ptr173 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr173 = getelementptr inbounds i8, ptr %in, i64 72
   ret ptr %incdec.ptr173
 }
 
@@ -14827,220 +14821,220 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 524287
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 19
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i188 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i188, 13
   %shl = and i32 %rem6, 516096
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i188, 6
   %rem9 = and i32 %shr8, 524287
   store i32 %rem9, ptr %incdec.ptr7, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i188, 25
   store i32 %shr11, ptr %incdec.ptr10, align 4
-  %incdec.ptr12 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i189 = load i32, ptr %incdec.ptr12, align 4
   %rem15 = shl i32 %ret.0.copyload.i189, 7
   %shl16 = and i32 %rem15, 524160
   %or17 = or disjoint i32 %shl16, %shr11
   store i32 %or17, ptr %incdec.ptr10, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 16
   %shr19 = lshr i32 %ret.0.copyload.i189, 12
   %rem20 = and i32 %shr19, 524287
   store i32 %rem20, ptr %incdec.ptr18, align 4
-  %incdec.ptr21 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr21 = getelementptr inbounds i8, ptr %out, i64 20
   %shr22 = lshr i32 %ret.0.copyload.i189, 31
   store i32 %shr22, ptr %incdec.ptr21, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i190 = load i32, ptr %incdec.ptr23, align 4
   %rem26 = shl i32 %ret.0.copyload.i190, 1
   %shl27 = and i32 %rem26, 524286
   %or28 = or disjoint i32 %shl27, %shr22
   store i32 %or28, ptr %incdec.ptr21, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %out, i64 24
   %shr30 = lshr i32 %ret.0.copyload.i190, 18
   store i32 %shr30, ptr %incdec.ptr29, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i191 = load i32, ptr %incdec.ptr31, align 4
   %rem34 = shl i32 %ret.0.copyload.i191, 14
   %shl35 = and i32 %rem34, 507904
   %or36 = or disjoint i32 %shl35, %shr30
   store i32 %or36, ptr %incdec.ptr29, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 28
   %shr38 = lshr i32 %ret.0.copyload.i191, 5
   %rem39 = and i32 %shr38, 524287
   store i32 %rem39, ptr %incdec.ptr37, align 4
-  %incdec.ptr40 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %out, i64 32
   %shr41 = lshr i32 %ret.0.copyload.i191, 24
   store i32 %shr41, ptr %incdec.ptr40, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i192 = load i32, ptr %incdec.ptr42, align 4
   %rem45 = shl i32 %ret.0.copyload.i192, 8
   %shl46 = and i32 %rem45, 524032
   %or47 = or disjoint i32 %shl46, %shr41
   store i32 %or47, ptr %incdec.ptr40, align 4
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %out, i64 36
   %shr49 = lshr i32 %ret.0.copyload.i192, 11
   %rem50 = and i32 %shr49, 524287
   store i32 %rem50, ptr %incdec.ptr48, align 4
-  %incdec.ptr51 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %out, i64 40
   %shr52 = lshr i32 %ret.0.copyload.i192, 30
   store i32 %shr52, ptr %incdec.ptr51, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i193 = load i32, ptr %incdec.ptr53, align 4
   %rem56 = shl i32 %ret.0.copyload.i193, 2
   %shl57 = and i32 %rem56, 524284
   %or58 = or disjoint i32 %shl57, %shr52
   store i32 %or58, ptr %incdec.ptr51, align 4
-  %incdec.ptr59 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %out, i64 44
   %shr60 = lshr i32 %ret.0.copyload.i193, 17
   store i32 %shr60, ptr %incdec.ptr59, align 4
-  %incdec.ptr61 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i194 = load i32, ptr %incdec.ptr61, align 4
   %rem64 = shl i32 %ret.0.copyload.i194, 15
   %shl65 = and i32 %rem64, 491520
   %or66 = or disjoint i32 %shl65, %shr60
   store i32 %or66, ptr %incdec.ptr59, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %out, i64 48
   %shr68 = lshr i32 %ret.0.copyload.i194, 4
   %rem69 = and i32 %shr68, 524287
   store i32 %rem69, ptr %incdec.ptr67, align 4
-  %incdec.ptr70 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %out, i64 52
   %shr71 = lshr i32 %ret.0.copyload.i194, 23
   store i32 %shr71, ptr %incdec.ptr70, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i195 = load i32, ptr %incdec.ptr72, align 4
   %rem75 = shl i32 %ret.0.copyload.i195, 9
   %shl76 = and i32 %rem75, 523776
   %or77 = or disjoint i32 %shl76, %shr71
   store i32 %or77, ptr %incdec.ptr70, align 4
-  %incdec.ptr78 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr78 = getelementptr inbounds i8, ptr %out, i64 56
   %shr79 = lshr i32 %ret.0.copyload.i195, 10
   %rem80 = and i32 %shr79, 524287
   store i32 %rem80, ptr %incdec.ptr78, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %out, i64 60
   %shr82 = lshr i32 %ret.0.copyload.i195, 29
   store i32 %shr82, ptr %incdec.ptr81, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i196 = load i32, ptr %incdec.ptr83, align 4
   %rem86 = shl i32 %ret.0.copyload.i196, 3
   %shl87 = and i32 %rem86, 524280
   %or88 = or disjoint i32 %shl87, %shr82
   store i32 %or88, ptr %incdec.ptr81, align 4
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %out, i64 64
   %shr90 = lshr i32 %ret.0.copyload.i196, 16
   store i32 %shr90, ptr %incdec.ptr89, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i197 = load i32, ptr %incdec.ptr91, align 4
   %rem94 = shl i32 %ret.0.copyload.i197, 16
   %shl95 = and i32 %rem94, 458752
   %or96 = or disjoint i32 %shl95, %shr90
   store i32 %or96, ptr %incdec.ptr89, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %out, i64 68
   %shr98 = lshr i32 %ret.0.copyload.i197, 3
   %rem99 = and i32 %shr98, 524287
   store i32 %rem99, ptr %incdec.ptr97, align 4
-  %incdec.ptr100 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %out, i64 72
   %shr101 = lshr i32 %ret.0.copyload.i197, 22
   store i32 %shr101, ptr %incdec.ptr100, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i198 = load i32, ptr %incdec.ptr102, align 4
   %rem105 = shl i32 %ret.0.copyload.i198, 10
   %shl106 = and i32 %rem105, 523264
   %or107 = or disjoint i32 %shl106, %shr101
   store i32 %or107, ptr %incdec.ptr100, align 4
-  %incdec.ptr108 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %out, i64 76
   %shr109 = lshr i32 %ret.0.copyload.i198, 9
   %rem110 = and i32 %shr109, 524287
   store i32 %rem110, ptr %incdec.ptr108, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 80
   %shr112 = lshr i32 %ret.0.copyload.i198, 28
   store i32 %shr112, ptr %incdec.ptr111, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i199 = load i32, ptr %incdec.ptr113, align 4
   %rem116 = shl i32 %ret.0.copyload.i199, 4
   %shl117 = and i32 %rem116, 524272
   %or118 = or disjoint i32 %shl117, %shr112
   store i32 %or118, ptr %incdec.ptr111, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %out, i64 84
   %shr120 = lshr i32 %ret.0.copyload.i199, 15
   store i32 %shr120, ptr %incdec.ptr119, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i200 = load i32, ptr %incdec.ptr121, align 4
   %rem124 = shl i32 %ret.0.copyload.i200, 17
   %shl125 = and i32 %rem124, 393216
   %or126 = or disjoint i32 %shl125, %shr120
   store i32 %or126, ptr %incdec.ptr119, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %out, i64 88
   %shr128 = lshr i32 %ret.0.copyload.i200, 2
   %rem129 = and i32 %shr128, 524287
   store i32 %rem129, ptr %incdec.ptr127, align 4
-  %incdec.ptr130 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %out, i64 92
   %shr131 = lshr i32 %ret.0.copyload.i200, 21
   store i32 %shr131, ptr %incdec.ptr130, align 4
-  %incdec.ptr132 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i201 = load i32, ptr %incdec.ptr132, align 4
   %rem135 = shl i32 %ret.0.copyload.i201, 11
   %shl136 = and i32 %rem135, 522240
   %or137 = or disjoint i32 %shl136, %shr131
   store i32 %or137, ptr %incdec.ptr130, align 4
-  %incdec.ptr138 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr138 = getelementptr inbounds i8, ptr %out, i64 96
   %shr139 = lshr i32 %ret.0.copyload.i201, 8
   %rem140 = and i32 %shr139, 524287
   store i32 %rem140, ptr %incdec.ptr138, align 4
-  %incdec.ptr141 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %out, i64 100
   %shr142 = lshr i32 %ret.0.copyload.i201, 27
   store i32 %shr142, ptr %incdec.ptr141, align 4
-  %incdec.ptr143 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i202 = load i32, ptr %incdec.ptr143, align 4
   %rem146 = shl i32 %ret.0.copyload.i202, 5
   %shl147 = and i32 %rem146, 524256
   %or148 = or disjoint i32 %shl147, %shr142
   store i32 %or148, ptr %incdec.ptr141, align 4
-  %incdec.ptr149 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr149 = getelementptr inbounds i8, ptr %out, i64 104
   %shr150 = lshr i32 %ret.0.copyload.i202, 14
   store i32 %shr150, ptr %incdec.ptr149, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i203 = load i32, ptr %incdec.ptr151, align 4
   %rem154 = shl i32 %ret.0.copyload.i203, 18
   %shl155 = and i32 %rem154, 262144
   %or156 = or disjoint i32 %shl155, %shr150
   store i32 %or156, ptr %incdec.ptr149, align 4
-  %incdec.ptr157 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr157 = getelementptr inbounds i8, ptr %out, i64 108
   %shr158 = lshr i32 %ret.0.copyload.i203, 1
   %rem159 = and i32 %shr158, 524287
   store i32 %rem159, ptr %incdec.ptr157, align 4
-  %incdec.ptr160 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr160 = getelementptr inbounds i8, ptr %out, i64 112
   %shr161 = lshr i32 %ret.0.copyload.i203, 20
   store i32 %shr161, ptr %incdec.ptr160, align 4
-  %incdec.ptr162 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i204 = load i32, ptr %incdec.ptr162, align 4
   %rem165 = shl i32 %ret.0.copyload.i204, 12
   %shl166 = and i32 %rem165, 520192
   %or167 = or disjoint i32 %shl166, %shr161
   store i32 %or167, ptr %incdec.ptr160, align 4
-  %incdec.ptr168 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %out, i64 116
   %shr169 = lshr i32 %ret.0.copyload.i204, 7
   %rem170 = and i32 %shr169, 524287
   store i32 %rem170, ptr %incdec.ptr168, align 4
-  %incdec.ptr171 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr171 = getelementptr inbounds i8, ptr %out, i64 120
   %shr172 = lshr i32 %ret.0.copyload.i204, 26
   store i32 %shr172, ptr %incdec.ptr171, align 4
-  %incdec.ptr173 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr173 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i205 = load i32, ptr %incdec.ptr173, align 4
   %rem176 = shl i32 %ret.0.copyload.i205, 6
   %shl177 = and i32 %rem176, 524224
   %or178 = or disjoint i32 %shl177, %shr172
   store i32 %or178, ptr %incdec.ptr171, align 4
-  %incdec.ptr179 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr179 = getelementptr inbounds i8, ptr %out, i64 124
   %shr180 = lshr i32 %ret.0.copyload.i205, 13
   store i32 %shr180, ptr %incdec.ptr179, align 4
-  %incdec.ptr181 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr181 = getelementptr inbounds i8, ptr %in, i64 76
   ret ptr %incdec.ptr181
 }
 
@@ -15050,210 +15044,210 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 1048575
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 20
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i187 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i187, 12
   %shl = and i32 %rem6, 1044480
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i187, 8
   %rem9 = and i32 %shr8, 1048575
   store i32 %rem9, ptr %incdec.ptr7, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i187, 28
   store i32 %shr11, ptr %incdec.ptr10, align 4
-  %incdec.ptr12 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i188 = load i32, ptr %incdec.ptr12, align 4
   %rem15 = shl i32 %ret.0.copyload.i188, 4
   %shl16 = and i32 %rem15, 1048560
   %or17 = or disjoint i32 %shl16, %shr11
   store i32 %or17, ptr %incdec.ptr10, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 16
   %shr19 = lshr i32 %ret.0.copyload.i188, 16
   store i32 %shr19, ptr %incdec.ptr18, align 4
-  %incdec.ptr20 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i189 = load i32, ptr %incdec.ptr20, align 4
   %rem23 = shl i32 %ret.0.copyload.i189, 16
   %shl24 = and i32 %rem23, 983040
   %or25 = or disjoint i32 %shl24, %shr19
   store i32 %or25, ptr %incdec.ptr18, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %out, i64 20
   %shr27 = lshr i32 %ret.0.copyload.i189, 4
   %rem28 = and i32 %shr27, 1048575
   store i32 %rem28, ptr %incdec.ptr26, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %out, i64 24
   %shr30 = lshr i32 %ret.0.copyload.i189, 24
   store i32 %shr30, ptr %incdec.ptr29, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i190 = load i32, ptr %incdec.ptr31, align 4
   %rem34 = shl i32 %ret.0.copyload.i190, 8
   %shl35 = and i32 %rem34, 1048320
   %or36 = or disjoint i32 %shl35, %shr30
   store i32 %or36, ptr %incdec.ptr29, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 28
   %shr38 = lshr i32 %ret.0.copyload.i190, 12
   store i32 %shr38, ptr %incdec.ptr37, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i191 = load i32, ptr %incdec.ptr39, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 32
   %rem44 = and i32 %ret.0.copyload.i191, 1048575
   store i32 %rem44, ptr %incdec.ptr42, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 36
   %shr46 = lshr i32 %ret.0.copyload.i191, 20
   store i32 %shr46, ptr %incdec.ptr45, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i192 = load i32, ptr %incdec.ptr47, align 4
   %rem50 = shl i32 %ret.0.copyload.i192, 12
   %shl51 = and i32 %rem50, 1044480
   %or52 = or disjoint i32 %shl51, %shr46
   store i32 %or52, ptr %incdec.ptr45, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %out, i64 40
   %shr54 = lshr i32 %ret.0.copyload.i192, 8
   %rem55 = and i32 %shr54, 1048575
   store i32 %rem55, ptr %incdec.ptr53, align 4
-  %incdec.ptr56 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %out, i64 44
   %shr57 = lshr i32 %ret.0.copyload.i192, 28
   store i32 %shr57, ptr %incdec.ptr56, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i193 = load i32, ptr %incdec.ptr58, align 4
   %rem61 = shl i32 %ret.0.copyload.i193, 4
   %shl62 = and i32 %rem61, 1048560
   %or63 = or disjoint i32 %shl62, %shr57
   store i32 %or63, ptr %incdec.ptr56, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %out, i64 48
   %shr65 = lshr i32 %ret.0.copyload.i193, 16
   store i32 %shr65, ptr %incdec.ptr64, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i194 = load i32, ptr %incdec.ptr66, align 4
   %rem69 = shl i32 %ret.0.copyload.i194, 16
   %shl70 = and i32 %rem69, 983040
   %or71 = or disjoint i32 %shl70, %shr65
   store i32 %or71, ptr %incdec.ptr64, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %out, i64 52
   %shr73 = lshr i32 %ret.0.copyload.i194, 4
   %rem74 = and i32 %shr73, 1048575
   store i32 %rem74, ptr %incdec.ptr72, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %out, i64 56
   %shr76 = lshr i32 %ret.0.copyload.i194, 24
   store i32 %shr76, ptr %incdec.ptr75, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i195 = load i32, ptr %incdec.ptr77, align 4
   %rem80 = shl i32 %ret.0.copyload.i195, 8
   %shl81 = and i32 %rem80, 1048320
   %or82 = or disjoint i32 %shl81, %shr76
   store i32 %or82, ptr %incdec.ptr75, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %out, i64 60
   %shr84 = lshr i32 %ret.0.copyload.i195, 12
   store i32 %shr84, ptr %incdec.ptr83, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i196 = load i32, ptr %incdec.ptr85, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 64
   %rem90 = and i32 %ret.0.copyload.i196, 1048575
   store i32 %rem90, ptr %incdec.ptr88, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %out, i64 68
   %shr92 = lshr i32 %ret.0.copyload.i196, 20
   store i32 %shr92, ptr %incdec.ptr91, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i197 = load i32, ptr %incdec.ptr93, align 4
   %rem96 = shl i32 %ret.0.copyload.i197, 12
   %shl97 = and i32 %rem96, 1044480
   %or98 = or disjoint i32 %shl97, %shr92
   store i32 %or98, ptr %incdec.ptr91, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 72
   %shr100 = lshr i32 %ret.0.copyload.i197, 8
   %rem101 = and i32 %shr100, 1048575
   store i32 %rem101, ptr %incdec.ptr99, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %out, i64 76
   %shr103 = lshr i32 %ret.0.copyload.i197, 28
   store i32 %shr103, ptr %incdec.ptr102, align 4
-  %incdec.ptr104 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i198 = load i32, ptr %incdec.ptr104, align 4
   %rem107 = shl i32 %ret.0.copyload.i198, 4
   %shl108 = and i32 %rem107, 1048560
   %or109 = or disjoint i32 %shl108, %shr103
   store i32 %or109, ptr %incdec.ptr102, align 4
-  %incdec.ptr110 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %out, i64 80
   %shr111 = lshr i32 %ret.0.copyload.i198, 16
   store i32 %shr111, ptr %incdec.ptr110, align 4
-  %incdec.ptr112 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i199 = load i32, ptr %incdec.ptr112, align 4
   %rem115 = shl i32 %ret.0.copyload.i199, 16
   %shl116 = and i32 %rem115, 983040
   %or117 = or disjoint i32 %shl116, %shr111
   store i32 %or117, ptr %incdec.ptr110, align 4
-  %incdec.ptr118 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr118 = getelementptr inbounds i8, ptr %out, i64 84
   %shr119 = lshr i32 %ret.0.copyload.i199, 4
   %rem120 = and i32 %shr119, 1048575
   store i32 %rem120, ptr %incdec.ptr118, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %out, i64 88
   %shr122 = lshr i32 %ret.0.copyload.i199, 24
   store i32 %shr122, ptr %incdec.ptr121, align 4
-  %incdec.ptr123 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr123 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i200 = load i32, ptr %incdec.ptr123, align 4
   %rem126 = shl i32 %ret.0.copyload.i200, 8
   %shl127 = and i32 %rem126, 1048320
   %or128 = or disjoint i32 %shl127, %shr122
   store i32 %or128, ptr %incdec.ptr121, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %out, i64 92
   %shr130 = lshr i32 %ret.0.copyload.i200, 12
   store i32 %shr130, ptr %incdec.ptr129, align 4
-  %incdec.ptr131 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i201 = load i32, ptr %incdec.ptr131, align 4
-  %incdec.ptr134 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr134 = getelementptr inbounds i8, ptr %out, i64 96
   %rem136 = and i32 %ret.0.copyload.i201, 1048575
   store i32 %rem136, ptr %incdec.ptr134, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %out, i64 100
   %shr138 = lshr i32 %ret.0.copyload.i201, 20
   store i32 %shr138, ptr %incdec.ptr137, align 4
-  %incdec.ptr139 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i202 = load i32, ptr %incdec.ptr139, align 4
   %rem142 = shl i32 %ret.0.copyload.i202, 12
   %shl143 = and i32 %rem142, 1044480
   %or144 = or disjoint i32 %shl143, %shr138
   store i32 %or144, ptr %incdec.ptr137, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %out, i64 104
   %shr146 = lshr i32 %ret.0.copyload.i202, 8
   %rem147 = and i32 %shr146, 1048575
   store i32 %rem147, ptr %incdec.ptr145, align 4
-  %incdec.ptr148 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr148 = getelementptr inbounds i8, ptr %out, i64 108
   %shr149 = lshr i32 %ret.0.copyload.i202, 28
   store i32 %shr149, ptr %incdec.ptr148, align 4
-  %incdec.ptr150 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr150 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i203 = load i32, ptr %incdec.ptr150, align 4
   %rem153 = shl i32 %ret.0.copyload.i203, 4
   %shl154 = and i32 %rem153, 1048560
   %or155 = or disjoint i32 %shl154, %shr149
   store i32 %or155, ptr %incdec.ptr148, align 4
-  %incdec.ptr156 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr156 = getelementptr inbounds i8, ptr %out, i64 112
   %shr157 = lshr i32 %ret.0.copyload.i203, 16
   store i32 %shr157, ptr %incdec.ptr156, align 4
-  %incdec.ptr158 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr158 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i204 = load i32, ptr %incdec.ptr158, align 4
   %rem161 = shl i32 %ret.0.copyload.i204, 16
   %shl162 = and i32 %rem161, 983040
   %or163 = or disjoint i32 %shl162, %shr157
   store i32 %or163, ptr %incdec.ptr156, align 4
-  %incdec.ptr164 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr164 = getelementptr inbounds i8, ptr %out, i64 116
   %shr165 = lshr i32 %ret.0.copyload.i204, 4
   %rem166 = and i32 %shr165, 1048575
   store i32 %rem166, ptr %incdec.ptr164, align 4
-  %incdec.ptr167 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr167 = getelementptr inbounds i8, ptr %out, i64 120
   %shr168 = lshr i32 %ret.0.copyload.i204, 24
   store i32 %shr168, ptr %incdec.ptr167, align 4
-  %incdec.ptr169 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr169 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i205 = load i32, ptr %incdec.ptr169, align 4
   %rem172 = shl i32 %ret.0.copyload.i205, 8
   %shl173 = and i32 %rem172, 1048320
   %or174 = or disjoint i32 %shl173, %shr168
   store i32 %or174, ptr %incdec.ptr167, align 4
-  %incdec.ptr175 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr175 = getelementptr inbounds i8, ptr %out, i64 124
   %shr176 = lshr i32 %ret.0.copyload.i205, 12
   store i32 %shr176, ptr %incdec.ptr175, align 4
-  %incdec.ptr177 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %in, i64 80
   ret ptr %incdec.ptr177
 }
 
@@ -15263,230 +15257,230 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 2097151
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 21
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i198 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i198, 11
   %shl = and i32 %rem6, 2095104
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i198, 10
   %rem9 = and i32 %shr8, 2097151
   store i32 %rem9, ptr %incdec.ptr7, align 4
-  %incdec.ptr10 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %out, i64 12
   %shr11 = lshr i32 %ret.0.copyload.i198, 31
   store i32 %shr11, ptr %incdec.ptr10, align 4
-  %incdec.ptr12 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i199 = load i32, ptr %incdec.ptr12, align 4
   %rem15 = shl i32 %ret.0.copyload.i199, 1
   %shl16 = and i32 %rem15, 2097150
   %or17 = or disjoint i32 %shl16, %shr11
   store i32 %or17, ptr %incdec.ptr10, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 16
   %shr19 = lshr i32 %ret.0.copyload.i199, 20
   store i32 %shr19, ptr %incdec.ptr18, align 4
-  %incdec.ptr20 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i200 = load i32, ptr %incdec.ptr20, align 4
   %rem23 = shl i32 %ret.0.copyload.i200, 12
   %shl24 = and i32 %rem23, 2093056
   %or25 = or disjoint i32 %shl24, %shr19
   store i32 %or25, ptr %incdec.ptr18, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %out, i64 20
   %shr27 = lshr i32 %ret.0.copyload.i200, 9
   %rem28 = and i32 %shr27, 2097151
   store i32 %rem28, ptr %incdec.ptr26, align 4
-  %incdec.ptr29 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %out, i64 24
   %shr30 = lshr i32 %ret.0.copyload.i200, 30
   store i32 %shr30, ptr %incdec.ptr29, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i201 = load i32, ptr %incdec.ptr31, align 4
   %rem34 = shl i32 %ret.0.copyload.i201, 2
   %shl35 = and i32 %rem34, 2097148
   %or36 = or disjoint i32 %shl35, %shr30
   store i32 %or36, ptr %incdec.ptr29, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 28
   %shr38 = lshr i32 %ret.0.copyload.i201, 19
   store i32 %shr38, ptr %incdec.ptr37, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i202 = load i32, ptr %incdec.ptr39, align 4
   %rem42 = shl i32 %ret.0.copyload.i202, 13
   %shl43 = and i32 %rem42, 2088960
   %or44 = or disjoint i32 %shl43, %shr38
   store i32 %or44, ptr %incdec.ptr37, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 32
   %shr46 = lshr i32 %ret.0.copyload.i202, 8
   %rem47 = and i32 %shr46, 2097151
   store i32 %rem47, ptr %incdec.ptr45, align 4
-  %incdec.ptr48 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %out, i64 36
   %shr49 = lshr i32 %ret.0.copyload.i202, 29
   store i32 %shr49, ptr %incdec.ptr48, align 4
-  %incdec.ptr50 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i203 = load i32, ptr %incdec.ptr50, align 4
   %rem53 = shl i32 %ret.0.copyload.i203, 3
   %shl54 = and i32 %rem53, 2097144
   %or55 = or disjoint i32 %shl54, %shr49
   store i32 %or55, ptr %incdec.ptr48, align 4
-  %incdec.ptr56 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %out, i64 40
   %shr57 = lshr i32 %ret.0.copyload.i203, 18
   store i32 %shr57, ptr %incdec.ptr56, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i204 = load i32, ptr %incdec.ptr58, align 4
   %rem61 = shl i32 %ret.0.copyload.i204, 14
   %shl62 = and i32 %rem61, 2080768
   %or63 = or disjoint i32 %shl62, %shr57
   store i32 %or63, ptr %incdec.ptr56, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %out, i64 44
   %shr65 = lshr i32 %ret.0.copyload.i204, 7
   %rem66 = and i32 %shr65, 2097151
   store i32 %rem66, ptr %incdec.ptr64, align 4
-  %incdec.ptr67 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %out, i64 48
   %shr68 = lshr i32 %ret.0.copyload.i204, 28
   store i32 %shr68, ptr %incdec.ptr67, align 4
-  %incdec.ptr69 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i205 = load i32, ptr %incdec.ptr69, align 4
   %rem72 = shl i32 %ret.0.copyload.i205, 4
   %shl73 = and i32 %rem72, 2097136
   %or74 = or disjoint i32 %shl73, %shr68
   store i32 %or74, ptr %incdec.ptr67, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %out, i64 52
   %shr76 = lshr i32 %ret.0.copyload.i205, 17
   store i32 %shr76, ptr %incdec.ptr75, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i206 = load i32, ptr %incdec.ptr77, align 4
   %rem80 = shl i32 %ret.0.copyload.i206, 15
   %shl81 = and i32 %rem80, 2064384
   %or82 = or disjoint i32 %shl81, %shr76
   store i32 %or82, ptr %incdec.ptr75, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %out, i64 56
   %shr84 = lshr i32 %ret.0.copyload.i206, 6
   %rem85 = and i32 %shr84, 2097151
   store i32 %rem85, ptr %incdec.ptr83, align 4
-  %incdec.ptr86 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr86 = getelementptr inbounds i8, ptr %out, i64 60
   %shr87 = lshr i32 %ret.0.copyload.i206, 27
   store i32 %shr87, ptr %incdec.ptr86, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i207 = load i32, ptr %incdec.ptr88, align 4
   %rem91 = shl i32 %ret.0.copyload.i207, 5
   %shl92 = and i32 %rem91, 2097120
   %or93 = or disjoint i32 %shl92, %shr87
   store i32 %or93, ptr %incdec.ptr86, align 4
-  %incdec.ptr94 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr94 = getelementptr inbounds i8, ptr %out, i64 64
   %shr95 = lshr i32 %ret.0.copyload.i207, 16
   store i32 %shr95, ptr %incdec.ptr94, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i208 = load i32, ptr %incdec.ptr96, align 4
   %rem99 = shl i32 %ret.0.copyload.i208, 16
   %shl100 = and i32 %rem99, 2031616
   %or101 = or disjoint i32 %shl100, %shr95
   store i32 %or101, ptr %incdec.ptr94, align 4
-  %incdec.ptr102 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr102 = getelementptr inbounds i8, ptr %out, i64 68
   %shr103 = lshr i32 %ret.0.copyload.i208, 5
   %rem104 = and i32 %shr103, 2097151
   store i32 %rem104, ptr %incdec.ptr102, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %out, i64 72
   %shr106 = lshr i32 %ret.0.copyload.i208, 26
   store i32 %shr106, ptr %incdec.ptr105, align 4
-  %incdec.ptr107 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr107 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i209 = load i32, ptr %incdec.ptr107, align 4
   %rem110 = shl i32 %ret.0.copyload.i209, 6
   %shl111 = and i32 %rem110, 2097088
   %or112 = or disjoint i32 %shl111, %shr106
   store i32 %or112, ptr %incdec.ptr105, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %out, i64 76
   %shr114 = lshr i32 %ret.0.copyload.i209, 15
   store i32 %shr114, ptr %incdec.ptr113, align 4
-  %incdec.ptr115 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr115 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i210 = load i32, ptr %incdec.ptr115, align 4
   %rem118 = shl i32 %ret.0.copyload.i210, 17
   %shl119 = and i32 %rem118, 1966080
   %or120 = or disjoint i32 %shl119, %shr114
   store i32 %or120, ptr %incdec.ptr113, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %out, i64 80
   %shr122 = lshr i32 %ret.0.copyload.i210, 4
   %rem123 = and i32 %shr122, 2097151
   store i32 %rem123, ptr %incdec.ptr121, align 4
-  %incdec.ptr124 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr124 = getelementptr inbounds i8, ptr %out, i64 84
   %shr125 = lshr i32 %ret.0.copyload.i210, 25
   store i32 %shr125, ptr %incdec.ptr124, align 4
-  %incdec.ptr126 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i211 = load i32, ptr %incdec.ptr126, align 4
   %rem129 = shl i32 %ret.0.copyload.i211, 7
   %shl130 = and i32 %rem129, 2097024
   %or131 = or disjoint i32 %shl130, %shr125
   store i32 %or131, ptr %incdec.ptr124, align 4
-  %incdec.ptr132 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %out, i64 88
   %shr133 = lshr i32 %ret.0.copyload.i211, 14
   store i32 %shr133, ptr %incdec.ptr132, align 4
-  %incdec.ptr134 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr134 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i212 = load i32, ptr %incdec.ptr134, align 4
   %rem137 = shl i32 %ret.0.copyload.i212, 18
   %shl138 = and i32 %rem137, 1835008
   %or139 = or disjoint i32 %shl138, %shr133
   store i32 %or139, ptr %incdec.ptr132, align 4
-  %incdec.ptr140 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr140 = getelementptr inbounds i8, ptr %out, i64 92
   %shr141 = lshr i32 %ret.0.copyload.i212, 3
   %rem142 = and i32 %shr141, 2097151
   store i32 %rem142, ptr %incdec.ptr140, align 4
-  %incdec.ptr143 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %out, i64 96
   %shr144 = lshr i32 %ret.0.copyload.i212, 24
   store i32 %shr144, ptr %incdec.ptr143, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i213 = load i32, ptr %incdec.ptr145, align 4
   %rem148 = shl i32 %ret.0.copyload.i213, 8
   %shl149 = and i32 %rem148, 2096896
   %or150 = or disjoint i32 %shl149, %shr144
   store i32 %or150, ptr %incdec.ptr143, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %out, i64 100
   %shr152 = lshr i32 %ret.0.copyload.i213, 13
   store i32 %shr152, ptr %incdec.ptr151, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i214 = load i32, ptr %incdec.ptr153, align 4
   %rem156 = shl i32 %ret.0.copyload.i214, 19
   %shl157 = and i32 %rem156, 1572864
   %or158 = or disjoint i32 %shl157, %shr152
   store i32 %or158, ptr %incdec.ptr151, align 4
-  %incdec.ptr159 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %out, i64 104
   %shr160 = lshr i32 %ret.0.copyload.i214, 2
   %rem161 = and i32 %shr160, 2097151
   store i32 %rem161, ptr %incdec.ptr159, align 4
-  %incdec.ptr162 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %out, i64 108
   %shr163 = lshr i32 %ret.0.copyload.i214, 23
   store i32 %shr163, ptr %incdec.ptr162, align 4
-  %incdec.ptr164 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr164 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i215 = load i32, ptr %incdec.ptr164, align 4
   %rem167 = shl i32 %ret.0.copyload.i215, 9
   %shl168 = and i32 %rem167, 2096640
   %or169 = or disjoint i32 %shl168, %shr163
   store i32 %or169, ptr %incdec.ptr162, align 4
-  %incdec.ptr170 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr170 = getelementptr inbounds i8, ptr %out, i64 112
   %shr171 = lshr i32 %ret.0.copyload.i215, 12
   store i32 %shr171, ptr %incdec.ptr170, align 4
-  %incdec.ptr172 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr172 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i216 = load i32, ptr %incdec.ptr172, align 4
   %rem175 = shl i32 %ret.0.copyload.i216, 20
   %shl176 = and i32 %rem175, 1048576
   %or177 = or disjoint i32 %shl176, %shr171
   store i32 %or177, ptr %incdec.ptr170, align 4
-  %incdec.ptr178 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr178 = getelementptr inbounds i8, ptr %out, i64 116
   %shr179 = lshr i32 %ret.0.copyload.i216, 1
   %rem180 = and i32 %shr179, 2097151
   store i32 %rem180, ptr %incdec.ptr178, align 4
-  %incdec.ptr181 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr181 = getelementptr inbounds i8, ptr %out, i64 120
   %shr182 = lshr i32 %ret.0.copyload.i216, 22
   store i32 %shr182, ptr %incdec.ptr181, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i217 = load i32, ptr %incdec.ptr183, align 4
   %rem186 = shl i32 %ret.0.copyload.i217, 10
   %shl187 = and i32 %rem186, 2096128
   %or188 = or disjoint i32 %shl187, %shr182
   store i32 %or188, ptr %incdec.ptr181, align 4
-  %incdec.ptr189 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr189 = getelementptr inbounds i8, ptr %out, i64 124
   %shr190 = lshr i32 %ret.0.copyload.i217, 11
   store i32 %shr190, ptr %incdec.ptr189, align 4
-  %incdec.ptr191 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %in, i64 84
   ret ptr %incdec.ptr191
 }
 
@@ -15496,230 +15490,230 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 4194303
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 22
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i201 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i201, 10
   %shl = and i32 %rem6, 4193280
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i201, 12
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i202 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i202, 20
   %shl13 = and i32 %rem12, 3145728
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i202, 2
   %rem17 = and i32 %shr16, 4194303
   store i32 %rem17, ptr %incdec.ptr15, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 16
   %shr19 = lshr i32 %ret.0.copyload.i202, 24
   store i32 %shr19, ptr %incdec.ptr18, align 4
-  %incdec.ptr20 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i203 = load i32, ptr %incdec.ptr20, align 4
   %rem23 = shl i32 %ret.0.copyload.i203, 8
   %shl24 = and i32 %rem23, 4194048
   %or25 = or disjoint i32 %shl24, %shr19
   store i32 %or25, ptr %incdec.ptr18, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %out, i64 20
   %shr27 = lshr i32 %ret.0.copyload.i203, 14
   store i32 %shr27, ptr %incdec.ptr26, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i204 = load i32, ptr %incdec.ptr28, align 4
   %rem31 = shl i32 %ret.0.copyload.i204, 18
   %shl32 = and i32 %rem31, 3932160
   %or33 = or disjoint i32 %shl32, %shr27
   store i32 %or33, ptr %incdec.ptr26, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 24
   %shr35 = lshr i32 %ret.0.copyload.i204, 4
   %rem36 = and i32 %shr35, 4194303
   store i32 %rem36, ptr %incdec.ptr34, align 4
-  %incdec.ptr37 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %out, i64 28
   %shr38 = lshr i32 %ret.0.copyload.i204, 26
   store i32 %shr38, ptr %incdec.ptr37, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i205 = load i32, ptr %incdec.ptr39, align 4
   %rem42 = shl i32 %ret.0.copyload.i205, 6
   %shl43 = and i32 %rem42, 4194240
   %or44 = or disjoint i32 %shl43, %shr38
   store i32 %or44, ptr %incdec.ptr37, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 32
   %shr46 = lshr i32 %ret.0.copyload.i205, 16
   store i32 %shr46, ptr %incdec.ptr45, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i206 = load i32, ptr %incdec.ptr47, align 4
   %rem50 = shl i32 %ret.0.copyload.i206, 16
   %shl51 = and i32 %rem50, 4128768
   %or52 = or disjoint i32 %shl51, %shr46
   store i32 %or52, ptr %incdec.ptr45, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %out, i64 36
   %shr54 = lshr i32 %ret.0.copyload.i206, 6
   %rem55 = and i32 %shr54, 4194303
   store i32 %rem55, ptr %incdec.ptr53, align 4
-  %incdec.ptr56 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %out, i64 40
   %shr57 = lshr i32 %ret.0.copyload.i206, 28
   store i32 %shr57, ptr %incdec.ptr56, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i207 = load i32, ptr %incdec.ptr58, align 4
   %rem61 = shl i32 %ret.0.copyload.i207, 4
   %shl62 = and i32 %rem61, 4194288
   %or63 = or disjoint i32 %shl62, %shr57
   store i32 %or63, ptr %incdec.ptr56, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %out, i64 44
   %shr65 = lshr i32 %ret.0.copyload.i207, 18
   store i32 %shr65, ptr %incdec.ptr64, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i208 = load i32, ptr %incdec.ptr66, align 4
   %rem69 = shl i32 %ret.0.copyload.i208, 14
   %shl70 = and i32 %rem69, 4177920
   %or71 = or disjoint i32 %shl70, %shr65
   store i32 %or71, ptr %incdec.ptr64, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %out, i64 48
   %shr73 = lshr i32 %ret.0.copyload.i208, 8
   %rem74 = and i32 %shr73, 4194303
   store i32 %rem74, ptr %incdec.ptr72, align 4
-  %incdec.ptr75 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %out, i64 52
   %shr76 = lshr i32 %ret.0.copyload.i208, 30
   store i32 %shr76, ptr %incdec.ptr75, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i209 = load i32, ptr %incdec.ptr77, align 4
   %rem80 = shl i32 %ret.0.copyload.i209, 2
   %shl81 = and i32 %rem80, 4194300
   %or82 = or disjoint i32 %shl81, %shr76
   store i32 %or82, ptr %incdec.ptr75, align 4
-  %incdec.ptr83 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %out, i64 56
   %shr84 = lshr i32 %ret.0.copyload.i209, 20
   store i32 %shr84, ptr %incdec.ptr83, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i210 = load i32, ptr %incdec.ptr85, align 4
   %rem88 = shl i32 %ret.0.copyload.i210, 12
   %shl89 = and i32 %rem88, 4190208
   %or90 = or disjoint i32 %shl89, %shr84
   store i32 %or90, ptr %incdec.ptr83, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %out, i64 60
   %shr92 = lshr i32 %ret.0.copyload.i210, 10
   store i32 %shr92, ptr %incdec.ptr91, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i211 = load i32, ptr %incdec.ptr93, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %out, i64 64
   %rem98 = and i32 %ret.0.copyload.i211, 4194303
   store i32 %rem98, ptr %incdec.ptr96, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 68
   %shr100 = lshr i32 %ret.0.copyload.i211, 22
   store i32 %shr100, ptr %incdec.ptr99, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i212 = load i32, ptr %incdec.ptr101, align 4
   %rem104 = shl i32 %ret.0.copyload.i212, 10
   %shl105 = and i32 %rem104, 4193280
   %or106 = or disjoint i32 %shl105, %shr100
   store i32 %or106, ptr %incdec.ptr99, align 4
-  %incdec.ptr107 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr107 = getelementptr inbounds i8, ptr %out, i64 72
   %shr108 = lshr i32 %ret.0.copyload.i212, 12
   store i32 %shr108, ptr %incdec.ptr107, align 4
-  %incdec.ptr109 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr109 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i213 = load i32, ptr %incdec.ptr109, align 4
   %rem112 = shl i32 %ret.0.copyload.i213, 20
   %shl113 = and i32 %rem112, 3145728
   %or114 = or disjoint i32 %shl113, %shr108
   store i32 %or114, ptr %incdec.ptr107, align 4
-  %incdec.ptr115 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr115 = getelementptr inbounds i8, ptr %out, i64 76
   %shr116 = lshr i32 %ret.0.copyload.i213, 2
   %rem117 = and i32 %shr116, 4194303
   store i32 %rem117, ptr %incdec.ptr115, align 4
-  %incdec.ptr118 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr118 = getelementptr inbounds i8, ptr %out, i64 80
   %shr119 = lshr i32 %ret.0.copyload.i213, 24
   store i32 %shr119, ptr %incdec.ptr118, align 4
-  %incdec.ptr120 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr120 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i214 = load i32, ptr %incdec.ptr120, align 4
   %rem123 = shl i32 %ret.0.copyload.i214, 8
   %shl124 = and i32 %rem123, 4194048
   %or125 = or disjoint i32 %shl124, %shr119
   store i32 %or125, ptr %incdec.ptr118, align 4
-  %incdec.ptr126 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %out, i64 84
   %shr127 = lshr i32 %ret.0.copyload.i214, 14
   store i32 %shr127, ptr %incdec.ptr126, align 4
-  %incdec.ptr128 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr128 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i215 = load i32, ptr %incdec.ptr128, align 4
   %rem131 = shl i32 %ret.0.copyload.i215, 18
   %shl132 = and i32 %rem131, 3932160
   %or133 = or disjoint i32 %shl132, %shr127
   store i32 %or133, ptr %incdec.ptr126, align 4
-  %incdec.ptr134 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr134 = getelementptr inbounds i8, ptr %out, i64 88
   %shr135 = lshr i32 %ret.0.copyload.i215, 4
   %rem136 = and i32 %shr135, 4194303
   store i32 %rem136, ptr %incdec.ptr134, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %out, i64 92
   %shr138 = lshr i32 %ret.0.copyload.i215, 26
   store i32 %shr138, ptr %incdec.ptr137, align 4
-  %incdec.ptr139 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i216 = load i32, ptr %incdec.ptr139, align 4
   %rem142 = shl i32 %ret.0.copyload.i216, 6
   %shl143 = and i32 %rem142, 4194240
   %or144 = or disjoint i32 %shl143, %shr138
   store i32 %or144, ptr %incdec.ptr137, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %out, i64 96
   %shr146 = lshr i32 %ret.0.copyload.i216, 16
   store i32 %shr146, ptr %incdec.ptr145, align 4
-  %incdec.ptr147 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i217 = load i32, ptr %incdec.ptr147, align 4
   %rem150 = shl i32 %ret.0.copyload.i217, 16
   %shl151 = and i32 %rem150, 4128768
   %or152 = or disjoint i32 %shl151, %shr146
   store i32 %or152, ptr %incdec.ptr145, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %out, i64 100
   %shr154 = lshr i32 %ret.0.copyload.i217, 6
   %rem155 = and i32 %shr154, 4194303
   store i32 %rem155, ptr %incdec.ptr153, align 4
-  %incdec.ptr156 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr156 = getelementptr inbounds i8, ptr %out, i64 104
   %shr157 = lshr i32 %ret.0.copyload.i217, 28
   store i32 %shr157, ptr %incdec.ptr156, align 4
-  %incdec.ptr158 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr158 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i218 = load i32, ptr %incdec.ptr158, align 4
   %rem161 = shl i32 %ret.0.copyload.i218, 4
   %shl162 = and i32 %rem161, 4194288
   %or163 = or disjoint i32 %shl162, %shr157
   store i32 %or163, ptr %incdec.ptr156, align 4
-  %incdec.ptr164 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr164 = getelementptr inbounds i8, ptr %out, i64 108
   %shr165 = lshr i32 %ret.0.copyload.i218, 18
   store i32 %shr165, ptr %incdec.ptr164, align 4
-  %incdec.ptr166 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr166 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i219 = load i32, ptr %incdec.ptr166, align 4
   %rem169 = shl i32 %ret.0.copyload.i219, 14
   %shl170 = and i32 %rem169, 4177920
   %or171 = or disjoint i32 %shl170, %shr165
   store i32 %or171, ptr %incdec.ptr164, align 4
-  %incdec.ptr172 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr172 = getelementptr inbounds i8, ptr %out, i64 112
   %shr173 = lshr i32 %ret.0.copyload.i219, 8
   %rem174 = and i32 %shr173, 4194303
   store i32 %rem174, ptr %incdec.ptr172, align 4
-  %incdec.ptr175 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr175 = getelementptr inbounds i8, ptr %out, i64 116
   %shr176 = lshr i32 %ret.0.copyload.i219, 30
   store i32 %shr176, ptr %incdec.ptr175, align 4
-  %incdec.ptr177 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i220 = load i32, ptr %incdec.ptr177, align 4
   %rem180 = shl i32 %ret.0.copyload.i220, 2
   %shl181 = and i32 %rem180, 4194300
   %or182 = or disjoint i32 %shl181, %shr176
   store i32 %or182, ptr %incdec.ptr175, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %out, i64 120
   %shr184 = lshr i32 %ret.0.copyload.i220, 20
   store i32 %shr184, ptr %incdec.ptr183, align 4
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i221 = load i32, ptr %incdec.ptr185, align 4
   %rem188 = shl i32 %ret.0.copyload.i221, 12
   %shl189 = and i32 %rem188, 4190208
   %or190 = or disjoint i32 %shl189, %shr184
   store i32 %or190, ptr %incdec.ptr183, align 4
-  %incdec.ptr191 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %out, i64 124
   %shr192 = lshr i32 %ret.0.copyload.i221, 10
   store i32 %shr192, ptr %incdec.ptr191, align 4
-  %incdec.ptr193 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %in, i64 88
   ret ptr %incdec.ptr193
 }
 
@@ -15729,240 +15723,240 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 8388607
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 23
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i208 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i208, 9
   %shl = and i32 %rem6, 8388096
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i208, 14
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i209 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i209, 18
   %shl13 = and i32 %rem12, 8126464
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i209, 5
   %rem17 = and i32 %shr16, 8388607
   store i32 %rem17, ptr %incdec.ptr15, align 4
-  %incdec.ptr18 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %out, i64 16
   %shr19 = lshr i32 %ret.0.copyload.i209, 28
   store i32 %shr19, ptr %incdec.ptr18, align 4
-  %incdec.ptr20 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i210 = load i32, ptr %incdec.ptr20, align 4
   %rem23 = shl i32 %ret.0.copyload.i210, 4
   %shl24 = and i32 %rem23, 8388592
   %or25 = or disjoint i32 %shl24, %shr19
   store i32 %or25, ptr %incdec.ptr18, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %out, i64 20
   %shr27 = lshr i32 %ret.0.copyload.i210, 19
   store i32 %shr27, ptr %incdec.ptr26, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i211 = load i32, ptr %incdec.ptr28, align 4
   %rem31 = shl i32 %ret.0.copyload.i211, 13
   %shl32 = and i32 %rem31, 8380416
   %or33 = or disjoint i32 %shl32, %shr27
   store i32 %or33, ptr %incdec.ptr26, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 24
   %shr35 = lshr i32 %ret.0.copyload.i211, 10
   store i32 %shr35, ptr %incdec.ptr34, align 4
-  %incdec.ptr36 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i212 = load i32, ptr %incdec.ptr36, align 4
   %rem39 = shl i32 %ret.0.copyload.i212, 22
   %shl40 = and i32 %rem39, 4194304
   %or41 = or disjoint i32 %shl40, %shr35
   store i32 %or41, ptr %incdec.ptr34, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 28
   %shr43 = lshr i32 %ret.0.copyload.i212, 1
   %rem44 = and i32 %shr43, 8388607
   store i32 %rem44, ptr %incdec.ptr42, align 4
-  %incdec.ptr45 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %out, i64 32
   %shr46 = lshr i32 %ret.0.copyload.i212, 24
   store i32 %shr46, ptr %incdec.ptr45, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i213 = load i32, ptr %incdec.ptr47, align 4
   %rem50 = shl i32 %ret.0.copyload.i213, 8
   %shl51 = and i32 %rem50, 8388352
   %or52 = or disjoint i32 %shl51, %shr46
   store i32 %or52, ptr %incdec.ptr45, align 4
-  %incdec.ptr53 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %out, i64 36
   %shr54 = lshr i32 %ret.0.copyload.i213, 15
   store i32 %shr54, ptr %incdec.ptr53, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i214 = load i32, ptr %incdec.ptr55, align 4
   %rem58 = shl i32 %ret.0.copyload.i214, 17
   %shl59 = and i32 %rem58, 8257536
   %or60 = or disjoint i32 %shl59, %shr54
   store i32 %or60, ptr %incdec.ptr53, align 4
-  %incdec.ptr61 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %out, i64 40
   %shr62 = lshr i32 %ret.0.copyload.i214, 6
   %rem63 = and i32 %shr62, 8388607
   store i32 %rem63, ptr %incdec.ptr61, align 4
-  %incdec.ptr64 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr64 = getelementptr inbounds i8, ptr %out, i64 44
   %shr65 = lshr i32 %ret.0.copyload.i214, 29
   store i32 %shr65, ptr %incdec.ptr64, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i215 = load i32, ptr %incdec.ptr66, align 4
   %rem69 = shl i32 %ret.0.copyload.i215, 3
   %shl70 = and i32 %rem69, 8388600
   %or71 = or disjoint i32 %shl70, %shr65
   store i32 %or71, ptr %incdec.ptr64, align 4
-  %incdec.ptr72 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %out, i64 48
   %shr73 = lshr i32 %ret.0.copyload.i215, 20
   store i32 %shr73, ptr %incdec.ptr72, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i216 = load i32, ptr %incdec.ptr74, align 4
   %rem77 = shl i32 %ret.0.copyload.i216, 12
   %shl78 = and i32 %rem77, 8384512
   %or79 = or disjoint i32 %shl78, %shr73
   store i32 %or79, ptr %incdec.ptr72, align 4
-  %incdec.ptr80 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %out, i64 52
   %shr81 = lshr i32 %ret.0.copyload.i216, 11
   store i32 %shr81, ptr %incdec.ptr80, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i217 = load i32, ptr %incdec.ptr82, align 4
   %rem85 = shl i32 %ret.0.copyload.i217, 21
   %shl86 = and i32 %rem85, 6291456
   %or87 = or disjoint i32 %shl86, %shr81
   store i32 %or87, ptr %incdec.ptr80, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 56
   %shr89 = lshr i32 %ret.0.copyload.i217, 2
   %rem90 = and i32 %shr89, 8388607
   store i32 %rem90, ptr %incdec.ptr88, align 4
-  %incdec.ptr91 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %out, i64 60
   %shr92 = lshr i32 %ret.0.copyload.i217, 25
   store i32 %shr92, ptr %incdec.ptr91, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i218 = load i32, ptr %incdec.ptr93, align 4
   %rem96 = shl i32 %ret.0.copyload.i218, 7
   %shl97 = and i32 %rem96, 8388480
   %or98 = or disjoint i32 %shl97, %shr92
   store i32 %or98, ptr %incdec.ptr91, align 4
-  %incdec.ptr99 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %out, i64 64
   %shr100 = lshr i32 %ret.0.copyload.i218, 16
   store i32 %shr100, ptr %incdec.ptr99, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i219 = load i32, ptr %incdec.ptr101, align 4
   %rem104 = shl i32 %ret.0.copyload.i219, 16
   %shl105 = and i32 %rem104, 8323072
   %or106 = or disjoint i32 %shl105, %shr100
   store i32 %or106, ptr %incdec.ptr99, align 4
-  %incdec.ptr107 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr107 = getelementptr inbounds i8, ptr %out, i64 68
   %shr108 = lshr i32 %ret.0.copyload.i219, 7
   %rem109 = and i32 %shr108, 8388607
   store i32 %rem109, ptr %incdec.ptr107, align 4
-  %incdec.ptr110 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr110 = getelementptr inbounds i8, ptr %out, i64 72
   %shr111 = lshr i32 %ret.0.copyload.i219, 30
   store i32 %shr111, ptr %incdec.ptr110, align 4
-  %incdec.ptr112 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i220 = load i32, ptr %incdec.ptr112, align 4
   %rem115 = shl i32 %ret.0.copyload.i220, 2
   %shl116 = and i32 %rem115, 8388604
   %or117 = or disjoint i32 %shl116, %shr111
   store i32 %or117, ptr %incdec.ptr110, align 4
-  %incdec.ptr118 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr118 = getelementptr inbounds i8, ptr %out, i64 76
   %shr119 = lshr i32 %ret.0.copyload.i220, 21
   store i32 %shr119, ptr %incdec.ptr118, align 4
-  %incdec.ptr120 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr120 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i221 = load i32, ptr %incdec.ptr120, align 4
   %rem123 = shl i32 %ret.0.copyload.i221, 11
   %shl124 = and i32 %rem123, 8386560
   %or125 = or disjoint i32 %shl124, %shr119
   store i32 %or125, ptr %incdec.ptr118, align 4
-  %incdec.ptr126 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %out, i64 80
   %shr127 = lshr i32 %ret.0.copyload.i221, 12
   store i32 %shr127, ptr %incdec.ptr126, align 4
-  %incdec.ptr128 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr128 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i222 = load i32, ptr %incdec.ptr128, align 4
   %rem131 = shl i32 %ret.0.copyload.i222, 20
   %shl132 = and i32 %rem131, 7340032
   %or133 = or disjoint i32 %shl132, %shr127
   store i32 %or133, ptr %incdec.ptr126, align 4
-  %incdec.ptr134 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr134 = getelementptr inbounds i8, ptr %out, i64 84
   %shr135 = lshr i32 %ret.0.copyload.i222, 3
   %rem136 = and i32 %shr135, 8388607
   store i32 %rem136, ptr %incdec.ptr134, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %out, i64 88
   %shr138 = lshr i32 %ret.0.copyload.i222, 26
   store i32 %shr138, ptr %incdec.ptr137, align 4
-  %incdec.ptr139 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i223 = load i32, ptr %incdec.ptr139, align 4
   %rem142 = shl i32 %ret.0.copyload.i223, 6
   %shl143 = and i32 %rem142, 8388544
   %or144 = or disjoint i32 %shl143, %shr138
   store i32 %or144, ptr %incdec.ptr137, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %out, i64 92
   %shr146 = lshr i32 %ret.0.copyload.i223, 17
   store i32 %shr146, ptr %incdec.ptr145, align 4
-  %incdec.ptr147 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i224 = load i32, ptr %incdec.ptr147, align 4
   %rem150 = shl i32 %ret.0.copyload.i224, 15
   %shl151 = and i32 %rem150, 8355840
   %or152 = or disjoint i32 %shl151, %shr146
   store i32 %or152, ptr %incdec.ptr145, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %out, i64 96
   %shr154 = lshr i32 %ret.0.copyload.i224, 8
   %rem155 = and i32 %shr154, 8388607
   store i32 %rem155, ptr %incdec.ptr153, align 4
-  %incdec.ptr156 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr156 = getelementptr inbounds i8, ptr %out, i64 100
   %shr157 = lshr i32 %ret.0.copyload.i224, 31
   store i32 %shr157, ptr %incdec.ptr156, align 4
-  %incdec.ptr158 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr158 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i225 = load i32, ptr %incdec.ptr158, align 4
   %rem161 = shl i32 %ret.0.copyload.i225, 1
   %shl162 = and i32 %rem161, 8388606
   %or163 = or disjoint i32 %shl162, %shr157
   store i32 %or163, ptr %incdec.ptr156, align 4
-  %incdec.ptr164 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr164 = getelementptr inbounds i8, ptr %out, i64 104
   %shr165 = lshr i32 %ret.0.copyload.i225, 22
   store i32 %shr165, ptr %incdec.ptr164, align 4
-  %incdec.ptr166 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr166 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i226 = load i32, ptr %incdec.ptr166, align 4
   %rem169 = shl i32 %ret.0.copyload.i226, 10
   %shl170 = and i32 %rem169, 8387584
   %or171 = or disjoint i32 %shl170, %shr165
   store i32 %or171, ptr %incdec.ptr164, align 4
-  %incdec.ptr172 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr172 = getelementptr inbounds i8, ptr %out, i64 108
   %shr173 = lshr i32 %ret.0.copyload.i226, 13
   store i32 %shr173, ptr %incdec.ptr172, align 4
-  %incdec.ptr174 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr174 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i227 = load i32, ptr %incdec.ptr174, align 4
   %rem177 = shl i32 %ret.0.copyload.i227, 19
   %shl178 = and i32 %rem177, 7864320
   %or179 = or disjoint i32 %shl178, %shr173
   store i32 %or179, ptr %incdec.ptr172, align 4
-  %incdec.ptr180 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr180 = getelementptr inbounds i8, ptr %out, i64 112
   %shr181 = lshr i32 %ret.0.copyload.i227, 4
   %rem182 = and i32 %shr181, 8388607
   store i32 %rem182, ptr %incdec.ptr180, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %out, i64 116
   %shr184 = lshr i32 %ret.0.copyload.i227, 27
   store i32 %shr184, ptr %incdec.ptr183, align 4
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i228 = load i32, ptr %incdec.ptr185, align 4
   %rem188 = shl i32 %ret.0.copyload.i228, 5
   %shl189 = and i32 %rem188, 8388576
   %or190 = or disjoint i32 %shl189, %shr184
   store i32 %or190, ptr %incdec.ptr183, align 4
-  %incdec.ptr191 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %out, i64 120
   %shr192 = lshr i32 %ret.0.copyload.i228, 18
   store i32 %shr192, ptr %incdec.ptr191, align 4
-  %incdec.ptr193 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i229 = load i32, ptr %incdec.ptr193, align 4
   %rem196 = shl i32 %ret.0.copyload.i229, 14
   %shl197 = and i32 %rem196, 8372224
   %or198 = or disjoint i32 %shl197, %shr192
   store i32 %or198, ptr %incdec.ptr191, align 4
-  %incdec.ptr199 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr199 = getelementptr inbounds i8, ptr %out, i64 124
   %shr200 = lshr i32 %ret.0.copyload.i229, 9
   store i32 %shr200, ptr %incdec.ptr199, align 4
-  %incdec.ptr201 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr201 = getelementptr inbounds i8, ptr %in, i64 92
   ret ptr %incdec.ptr201
 }
 
@@ -15972,210 +15966,210 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 16777215
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 24
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i199 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i199, 8
   %shl = and i32 %rem6, 16776960
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i199, 16
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i200 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i200, 16
   %shl13 = and i32 %rem12, 16711680
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i200, 8
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i201 = load i32, ptr %incdec.ptr17, align 4
-  %incdec.ptr20 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %out, i64 16
   %rem22 = and i32 %ret.0.copyload.i201, 16777215
   store i32 %rem22, ptr %incdec.ptr20, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 20
   %shr24 = lshr i32 %ret.0.copyload.i201, 24
   store i32 %shr24, ptr %incdec.ptr23, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i202 = load i32, ptr %incdec.ptr25, align 4
   %rem28 = shl i32 %ret.0.copyload.i202, 8
   %shl29 = and i32 %rem28, 16776960
   %or30 = or disjoint i32 %shl29, %shr24
   store i32 %or30, ptr %incdec.ptr23, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 24
   %shr32 = lshr i32 %ret.0.copyload.i202, 16
   store i32 %shr32, ptr %incdec.ptr31, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i203 = load i32, ptr %incdec.ptr33, align 4
   %rem36 = shl i32 %ret.0.copyload.i203, 16
   %shl37 = and i32 %rem36, 16711680
   %or38 = or disjoint i32 %shl37, %shr32
   store i32 %or38, ptr %incdec.ptr31, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 28
   %shr40 = lshr i32 %ret.0.copyload.i203, 8
   store i32 %shr40, ptr %incdec.ptr39, align 4
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i204 = load i32, ptr %incdec.ptr41, align 4
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %out, i64 32
   %rem46 = and i32 %ret.0.copyload.i204, 16777215
   store i32 %rem46, ptr %incdec.ptr44, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %out, i64 36
   %shr48 = lshr i32 %ret.0.copyload.i204, 24
   store i32 %shr48, ptr %incdec.ptr47, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i205 = load i32, ptr %incdec.ptr49, align 4
   %rem52 = shl i32 %ret.0.copyload.i205, 8
   %shl53 = and i32 %rem52, 16776960
   %or54 = or disjoint i32 %shl53, %shr48
   store i32 %or54, ptr %incdec.ptr47, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 40
   %shr56 = lshr i32 %ret.0.copyload.i205, 16
   store i32 %shr56, ptr %incdec.ptr55, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i206 = load i32, ptr %incdec.ptr57, align 4
   %rem60 = shl i32 %ret.0.copyload.i206, 16
   %shl61 = and i32 %rem60, 16711680
   %or62 = or disjoint i32 %shl61, %shr56
   store i32 %or62, ptr %incdec.ptr55, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 44
   %shr64 = lshr i32 %ret.0.copyload.i206, 8
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i207 = load i32, ptr %incdec.ptr65, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %out, i64 48
   %rem70 = and i32 %ret.0.copyload.i207, 16777215
   store i32 %rem70, ptr %incdec.ptr68, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 52
   %shr72 = lshr i32 %ret.0.copyload.i207, 24
   store i32 %shr72, ptr %incdec.ptr71, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i208 = load i32, ptr %incdec.ptr73, align 4
   %rem76 = shl i32 %ret.0.copyload.i208, 8
   %shl77 = and i32 %rem76, 16776960
   %or78 = or disjoint i32 %shl77, %shr72
   store i32 %or78, ptr %incdec.ptr71, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 56
   %shr80 = lshr i32 %ret.0.copyload.i208, 16
   store i32 %shr80, ptr %incdec.ptr79, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i209 = load i32, ptr %incdec.ptr81, align 4
   %rem84 = shl i32 %ret.0.copyload.i209, 16
   %shl85 = and i32 %rem84, 16711680
   %or86 = or disjoint i32 %shl85, %shr80
   store i32 %or86, ptr %incdec.ptr79, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %out, i64 60
   %shr88 = lshr i32 %ret.0.copyload.i209, 8
   store i32 %shr88, ptr %incdec.ptr87, align 4
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i210 = load i32, ptr %incdec.ptr89, align 4
-  %incdec.ptr92 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %out, i64 64
   %rem94 = and i32 %ret.0.copyload.i210, 16777215
   store i32 %rem94, ptr %incdec.ptr92, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %out, i64 68
   %shr96 = lshr i32 %ret.0.copyload.i210, 24
   store i32 %shr96, ptr %incdec.ptr95, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i211 = load i32, ptr %incdec.ptr97, align 4
   %rem100 = shl i32 %ret.0.copyload.i211, 8
   %shl101 = and i32 %rem100, 16776960
   %or102 = or disjoint i32 %shl101, %shr96
   store i32 %or102, ptr %incdec.ptr95, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %out, i64 72
   %shr104 = lshr i32 %ret.0.copyload.i211, 16
   store i32 %shr104, ptr %incdec.ptr103, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i212 = load i32, ptr %incdec.ptr105, align 4
   %rem108 = shl i32 %ret.0.copyload.i212, 16
   %shl109 = and i32 %rem108, 16711680
   %or110 = or disjoint i32 %shl109, %shr104
   store i32 %or110, ptr %incdec.ptr103, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 76
   %shr112 = lshr i32 %ret.0.copyload.i212, 8
   store i32 %shr112, ptr %incdec.ptr111, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i213 = load i32, ptr %incdec.ptr113, align 4
-  %incdec.ptr116 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %out, i64 80
   %rem118 = and i32 %ret.0.copyload.i213, 16777215
   store i32 %rem118, ptr %incdec.ptr116, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %out, i64 84
   %shr120 = lshr i32 %ret.0.copyload.i213, 24
   store i32 %shr120, ptr %incdec.ptr119, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i214 = load i32, ptr %incdec.ptr121, align 4
   %rem124 = shl i32 %ret.0.copyload.i214, 8
   %shl125 = and i32 %rem124, 16776960
   %or126 = or disjoint i32 %shl125, %shr120
   store i32 %or126, ptr %incdec.ptr119, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %out, i64 88
   %shr128 = lshr i32 %ret.0.copyload.i214, 16
   store i32 %shr128, ptr %incdec.ptr127, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i215 = load i32, ptr %incdec.ptr129, align 4
   %rem132 = shl i32 %ret.0.copyload.i215, 16
   %shl133 = and i32 %rem132, 16711680
   %or134 = or disjoint i32 %shl133, %shr128
   store i32 %or134, ptr %incdec.ptr127, align 4
-  %incdec.ptr135 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %out, i64 92
   %shr136 = lshr i32 %ret.0.copyload.i215, 8
   store i32 %shr136, ptr %incdec.ptr135, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i216 = load i32, ptr %incdec.ptr137, align 4
-  %incdec.ptr140 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr140 = getelementptr inbounds i8, ptr %out, i64 96
   %rem142 = and i32 %ret.0.copyload.i216, 16777215
   store i32 %rem142, ptr %incdec.ptr140, align 4
-  %incdec.ptr143 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %out, i64 100
   %shr144 = lshr i32 %ret.0.copyload.i216, 24
   store i32 %shr144, ptr %incdec.ptr143, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i217 = load i32, ptr %incdec.ptr145, align 4
   %rem148 = shl i32 %ret.0.copyload.i217, 8
   %shl149 = and i32 %rem148, 16776960
   %or150 = or disjoint i32 %shl149, %shr144
   store i32 %or150, ptr %incdec.ptr143, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %out, i64 104
   %shr152 = lshr i32 %ret.0.copyload.i217, 16
   store i32 %shr152, ptr %incdec.ptr151, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i218 = load i32, ptr %incdec.ptr153, align 4
   %rem156 = shl i32 %ret.0.copyload.i218, 16
   %shl157 = and i32 %rem156, 16711680
   %or158 = or disjoint i32 %shl157, %shr152
   store i32 %or158, ptr %incdec.ptr151, align 4
-  %incdec.ptr159 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %out, i64 108
   %shr160 = lshr i32 %ret.0.copyload.i218, 8
   store i32 %shr160, ptr %incdec.ptr159, align 4
-  %incdec.ptr161 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr161 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i219 = load i32, ptr %incdec.ptr161, align 4
-  %incdec.ptr164 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr164 = getelementptr inbounds i8, ptr %out, i64 112
   %rem166 = and i32 %ret.0.copyload.i219, 16777215
   store i32 %rem166, ptr %incdec.ptr164, align 4
-  %incdec.ptr167 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr167 = getelementptr inbounds i8, ptr %out, i64 116
   %shr168 = lshr i32 %ret.0.copyload.i219, 24
   store i32 %shr168, ptr %incdec.ptr167, align 4
-  %incdec.ptr169 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr169 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i220 = load i32, ptr %incdec.ptr169, align 4
   %rem172 = shl i32 %ret.0.copyload.i220, 8
   %shl173 = and i32 %rem172, 16776960
   %or174 = or disjoint i32 %shl173, %shr168
   store i32 %or174, ptr %incdec.ptr167, align 4
-  %incdec.ptr175 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr175 = getelementptr inbounds i8, ptr %out, i64 120
   %shr176 = lshr i32 %ret.0.copyload.i220, 16
   store i32 %shr176, ptr %incdec.ptr175, align 4
-  %incdec.ptr177 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i221 = load i32, ptr %incdec.ptr177, align 4
   %rem180 = shl i32 %ret.0.copyload.i221, 16
   %shl181 = and i32 %rem180, 16711680
   %or182 = or disjoint i32 %shl181, %shr176
   store i32 %or182, ptr %incdec.ptr175, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %out, i64 124
   %shr184 = lshr i32 %ret.0.copyload.i221, 8
   store i32 %shr184, ptr %incdec.ptr183, align 4
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %in, i64 96
   ret ptr %incdec.ptr185
 }
 
@@ -16185,250 +16179,250 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 33554431
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 25
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i218 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i218, 7
   %shl = and i32 %rem6, 33554304
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i218, 18
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i219 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i219, 14
   %shl13 = and i32 %rem12, 33538048
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i219, 11
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i220 = load i32, ptr %incdec.ptr17, align 4
   %rem20 = shl i32 %ret.0.copyload.i220, 21
   %shl21 = and i32 %rem20, 31457280
   %or22 = or disjoint i32 %shl21, %shr16
   store i32 %or22, ptr %incdec.ptr15, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 16
   %shr24 = lshr i32 %ret.0.copyload.i220, 4
   %rem25 = and i32 %shr24, 33554431
   store i32 %rem25, ptr %incdec.ptr23, align 4
-  %incdec.ptr26 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %out, i64 20
   %shr27 = lshr i32 %ret.0.copyload.i220, 29
   store i32 %shr27, ptr %incdec.ptr26, align 4
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i221 = load i32, ptr %incdec.ptr28, align 4
   %rem31 = shl i32 %ret.0.copyload.i221, 3
   %shl32 = and i32 %rem31, 33554424
   %or33 = or disjoint i32 %shl32, %shr27
   store i32 %or33, ptr %incdec.ptr26, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 24
   %shr35 = lshr i32 %ret.0.copyload.i221, 22
   store i32 %shr35, ptr %incdec.ptr34, align 4
-  %incdec.ptr36 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i222 = load i32, ptr %incdec.ptr36, align 4
   %rem39 = shl i32 %ret.0.copyload.i222, 10
   %shl40 = and i32 %rem39, 33553408
   %or41 = or disjoint i32 %shl40, %shr35
   store i32 %or41, ptr %incdec.ptr34, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 28
   %shr43 = lshr i32 %ret.0.copyload.i222, 15
   store i32 %shr43, ptr %incdec.ptr42, align 4
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i223 = load i32, ptr %incdec.ptr44, align 4
   %rem47 = shl i32 %ret.0.copyload.i223, 17
   %shl48 = and i32 %rem47, 33423360
   %or49 = or disjoint i32 %shl48, %shr43
   store i32 %or49, ptr %incdec.ptr42, align 4
-  %incdec.ptr50 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %out, i64 32
   %shr51 = lshr i32 %ret.0.copyload.i223, 8
   store i32 %shr51, ptr %incdec.ptr50, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i224 = load i32, ptr %incdec.ptr52, align 4
   %rem55 = shl i32 %ret.0.copyload.i224, 24
   %shl56 = and i32 %rem55, 16777216
   %or57 = or disjoint i32 %shl56, %shr51
   store i32 %or57, ptr %incdec.ptr50, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out, i64 36
   %shr59 = lshr i32 %ret.0.copyload.i224, 1
   %rem60 = and i32 %shr59, 33554431
   store i32 %rem60, ptr %incdec.ptr58, align 4
-  %incdec.ptr61 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %out, i64 40
   %shr62 = lshr i32 %ret.0.copyload.i224, 26
   store i32 %shr62, ptr %incdec.ptr61, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i225 = load i32, ptr %incdec.ptr63, align 4
   %rem66 = shl i32 %ret.0.copyload.i225, 6
   %shl67 = and i32 %rem66, 33554368
   %or68 = or disjoint i32 %shl67, %shr62
   store i32 %or68, ptr %incdec.ptr61, align 4
-  %incdec.ptr69 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %out, i64 44
   %shr70 = lshr i32 %ret.0.copyload.i225, 19
   store i32 %shr70, ptr %incdec.ptr69, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i226 = load i32, ptr %incdec.ptr71, align 4
   %rem74 = shl i32 %ret.0.copyload.i226, 13
   %shl75 = and i32 %rem74, 33546240
   %or76 = or disjoint i32 %shl75, %shr70
   store i32 %or76, ptr %incdec.ptr69, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %out, i64 48
   %shr78 = lshr i32 %ret.0.copyload.i226, 12
   store i32 %shr78, ptr %incdec.ptr77, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i227 = load i32, ptr %incdec.ptr79, align 4
   %rem82 = shl i32 %ret.0.copyload.i227, 20
   %shl83 = and i32 %rem82, 32505856
   %or84 = or disjoint i32 %shl83, %shr78
   store i32 %or84, ptr %incdec.ptr77, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 52
   %shr86 = lshr i32 %ret.0.copyload.i227, 5
   %rem87 = and i32 %shr86, 33554431
   store i32 %rem87, ptr %incdec.ptr85, align 4
-  %incdec.ptr88 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %out, i64 56
   %shr89 = lshr i32 %ret.0.copyload.i227, 30
   store i32 %shr89, ptr %incdec.ptr88, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i228 = load i32, ptr %incdec.ptr90, align 4
   %rem93 = shl i32 %ret.0.copyload.i228, 2
   %shl94 = and i32 %rem93, 33554428
   %or95 = or disjoint i32 %shl94, %shr89
   store i32 %or95, ptr %incdec.ptr88, align 4
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %out, i64 60
   %shr97 = lshr i32 %ret.0.copyload.i228, 23
   store i32 %shr97, ptr %incdec.ptr96, align 4
-  %incdec.ptr98 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr98 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i229 = load i32, ptr %incdec.ptr98, align 4
   %rem101 = shl i32 %ret.0.copyload.i229, 9
   %shl102 = and i32 %rem101, 33553920
   %or103 = or disjoint i32 %shl102, %shr97
   store i32 %or103, ptr %incdec.ptr96, align 4
-  %incdec.ptr104 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %out, i64 64
   %shr105 = lshr i32 %ret.0.copyload.i229, 16
   store i32 %shr105, ptr %incdec.ptr104, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i230 = load i32, ptr %incdec.ptr106, align 4
   %rem109 = shl i32 %ret.0.copyload.i230, 16
   %shl110 = and i32 %rem109, 33488896
   %or111 = or disjoint i32 %shl110, %shr105
   store i32 %or111, ptr %incdec.ptr104, align 4
-  %incdec.ptr112 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr112 = getelementptr inbounds i8, ptr %out, i64 68
   %shr113 = lshr i32 %ret.0.copyload.i230, 9
   store i32 %shr113, ptr %incdec.ptr112, align 4
-  %incdec.ptr114 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i231 = load i32, ptr %incdec.ptr114, align 4
   %rem117 = shl i32 %ret.0.copyload.i231, 23
   %shl118 = and i32 %rem117, 25165824
   %or119 = or disjoint i32 %shl118, %shr113
   store i32 %or119, ptr %incdec.ptr112, align 4
-  %incdec.ptr120 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr120 = getelementptr inbounds i8, ptr %out, i64 72
   %shr121 = lshr i32 %ret.0.copyload.i231, 2
   %rem122 = and i32 %shr121, 33554431
   store i32 %rem122, ptr %incdec.ptr120, align 4
-  %incdec.ptr123 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr123 = getelementptr inbounds i8, ptr %out, i64 76
   %shr124 = lshr i32 %ret.0.copyload.i231, 27
   store i32 %shr124, ptr %incdec.ptr123, align 4
-  %incdec.ptr125 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i232 = load i32, ptr %incdec.ptr125, align 4
   %rem128 = shl i32 %ret.0.copyload.i232, 5
   %shl129 = and i32 %rem128, 33554400
   %or130 = or disjoint i32 %shl129, %shr124
   store i32 %or130, ptr %incdec.ptr123, align 4
-  %incdec.ptr131 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %out, i64 80
   %shr132 = lshr i32 %ret.0.copyload.i232, 20
   store i32 %shr132, ptr %incdec.ptr131, align 4
-  %incdec.ptr133 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr133 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i233 = load i32, ptr %incdec.ptr133, align 4
   %rem136 = shl i32 %ret.0.copyload.i233, 12
   %shl137 = and i32 %rem136, 33550336
   %or138 = or disjoint i32 %shl137, %shr132
   store i32 %or138, ptr %incdec.ptr131, align 4
-  %incdec.ptr139 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %out, i64 84
   %shr140 = lshr i32 %ret.0.copyload.i233, 13
   store i32 %shr140, ptr %incdec.ptr139, align 4
-  %incdec.ptr141 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i234 = load i32, ptr %incdec.ptr141, align 4
   %rem144 = shl i32 %ret.0.copyload.i234, 19
   %shl145 = and i32 %rem144, 33030144
   %or146 = or disjoint i32 %shl145, %shr140
   store i32 %or146, ptr %incdec.ptr139, align 4
-  %incdec.ptr147 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %out, i64 88
   %shr148 = lshr i32 %ret.0.copyload.i234, 6
   %rem149 = and i32 %shr148, 33554431
   store i32 %rem149, ptr %incdec.ptr147, align 4
-  %incdec.ptr150 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr150 = getelementptr inbounds i8, ptr %out, i64 92
   %shr151 = lshr i32 %ret.0.copyload.i234, 31
   store i32 %shr151, ptr %incdec.ptr150, align 4
-  %incdec.ptr152 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr152 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i235 = load i32, ptr %incdec.ptr152, align 4
   %rem155 = shl i32 %ret.0.copyload.i235, 1
   %shl156 = and i32 %rem155, 33554430
   %or157 = or disjoint i32 %shl156, %shr151
   store i32 %or157, ptr %incdec.ptr150, align 4
-  %incdec.ptr158 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr158 = getelementptr inbounds i8, ptr %out, i64 96
   %shr159 = lshr i32 %ret.0.copyload.i235, 24
   store i32 %shr159, ptr %incdec.ptr158, align 4
-  %incdec.ptr160 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr160 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i236 = load i32, ptr %incdec.ptr160, align 4
   %rem163 = shl i32 %ret.0.copyload.i236, 8
   %shl164 = and i32 %rem163, 33554176
   %or165 = or disjoint i32 %shl164, %shr159
   store i32 %or165, ptr %incdec.ptr158, align 4
-  %incdec.ptr166 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr166 = getelementptr inbounds i8, ptr %out, i64 100
   %shr167 = lshr i32 %ret.0.copyload.i236, 17
   store i32 %shr167, ptr %incdec.ptr166, align 4
-  %incdec.ptr168 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i237 = load i32, ptr %incdec.ptr168, align 4
   %rem171 = shl i32 %ret.0.copyload.i237, 15
   %shl172 = and i32 %rem171, 33521664
   %or173 = or disjoint i32 %shl172, %shr167
   store i32 %or173, ptr %incdec.ptr166, align 4
-  %incdec.ptr174 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr174 = getelementptr inbounds i8, ptr %out, i64 104
   %shr175 = lshr i32 %ret.0.copyload.i237, 10
   store i32 %shr175, ptr %incdec.ptr174, align 4
-  %incdec.ptr176 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr176 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i238 = load i32, ptr %incdec.ptr176, align 4
   %rem179 = shl i32 %ret.0.copyload.i238, 22
   %shl180 = and i32 %rem179, 29360128
   %or181 = or disjoint i32 %shl180, %shr175
   store i32 %or181, ptr %incdec.ptr174, align 4
-  %incdec.ptr182 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr182 = getelementptr inbounds i8, ptr %out, i64 108
   %shr183 = lshr i32 %ret.0.copyload.i238, 3
   %rem184 = and i32 %shr183, 33554431
   store i32 %rem184, ptr %incdec.ptr182, align 4
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %out, i64 112
   %shr186 = lshr i32 %ret.0.copyload.i238, 28
   store i32 %shr186, ptr %incdec.ptr185, align 4
-  %incdec.ptr187 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr187 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i239 = load i32, ptr %incdec.ptr187, align 4
   %rem190 = shl i32 %ret.0.copyload.i239, 4
   %shl191 = and i32 %rem190, 33554416
   %or192 = or disjoint i32 %shl191, %shr186
   store i32 %or192, ptr %incdec.ptr185, align 4
-  %incdec.ptr193 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %out, i64 116
   %shr194 = lshr i32 %ret.0.copyload.i239, 21
   store i32 %shr194, ptr %incdec.ptr193, align 4
-  %incdec.ptr195 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr195 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i240 = load i32, ptr %incdec.ptr195, align 4
   %rem198 = shl i32 %ret.0.copyload.i240, 11
   %shl199 = and i32 %rem198, 33552384
   %or200 = or disjoint i32 %shl199, %shr194
   store i32 %or200, ptr %incdec.ptr193, align 4
-  %incdec.ptr201 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr201 = getelementptr inbounds i8, ptr %out, i64 120
   %shr202 = lshr i32 %ret.0.copyload.i240, 14
   store i32 %shr202, ptr %incdec.ptr201, align 4
-  %incdec.ptr203 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr203 = getelementptr inbounds i8, ptr %in, i64 96
   %ret.0.copyload.i241 = load i32, ptr %incdec.ptr203, align 4
   %rem206 = shl i32 %ret.0.copyload.i241, 18
   %shl207 = and i32 %rem206, 33292288
   %or208 = or disjoint i32 %shl207, %shr202
   store i32 %or208, ptr %incdec.ptr201, align 4
-  %incdec.ptr209 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr209 = getelementptr inbounds i8, ptr %out, i64 124
   %shr210 = lshr i32 %ret.0.copyload.i241, 7
   store i32 %shr210, ptr %incdec.ptr209, align 4
-  %incdec.ptr211 = getelementptr inbounds i32, ptr %in, i64 25
+  %incdec.ptr211 = getelementptr inbounds i8, ptr %in, i64 100
   ret ptr %incdec.ptr211
 }
 
@@ -16438,250 +16432,250 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 67108863
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 26
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i221 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i221, 6
   %shl = and i32 %rem6, 67108800
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i221, 20
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i222 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i222, 12
   %shl13 = and i32 %rem12, 67104768
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i222, 14
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i223 = load i32, ptr %incdec.ptr17, align 4
   %rem20 = shl i32 %ret.0.copyload.i223, 18
   %shl21 = and i32 %rem20, 66846720
   %or22 = or disjoint i32 %shl21, %shr16
   store i32 %or22, ptr %incdec.ptr15, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 16
   %shr24 = lshr i32 %ret.0.copyload.i223, 8
   store i32 %shr24, ptr %incdec.ptr23, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i224 = load i32, ptr %incdec.ptr25, align 4
   %rem28 = shl i32 %ret.0.copyload.i224, 24
   %shl29 = and i32 %rem28, 50331648
   %or30 = or disjoint i32 %shl29, %shr24
   store i32 %or30, ptr %incdec.ptr23, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 20
   %shr32 = lshr i32 %ret.0.copyload.i224, 2
   %rem33 = and i32 %shr32, 67108863
   store i32 %rem33, ptr %incdec.ptr31, align 4
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %out, i64 24
   %shr35 = lshr i32 %ret.0.copyload.i224, 28
   store i32 %shr35, ptr %incdec.ptr34, align 4
-  %incdec.ptr36 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i225 = load i32, ptr %incdec.ptr36, align 4
   %rem39 = shl i32 %ret.0.copyload.i225, 4
   %shl40 = and i32 %rem39, 67108848
   %or41 = or disjoint i32 %shl40, %shr35
   store i32 %or41, ptr %incdec.ptr34, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 28
   %shr43 = lshr i32 %ret.0.copyload.i225, 22
   store i32 %shr43, ptr %incdec.ptr42, align 4
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i226 = load i32, ptr %incdec.ptr44, align 4
   %rem47 = shl i32 %ret.0.copyload.i226, 10
   %shl48 = and i32 %rem47, 67107840
   %or49 = or disjoint i32 %shl48, %shr43
   store i32 %or49, ptr %incdec.ptr42, align 4
-  %incdec.ptr50 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %out, i64 32
   %shr51 = lshr i32 %ret.0.copyload.i226, 16
   store i32 %shr51, ptr %incdec.ptr50, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i227 = load i32, ptr %incdec.ptr52, align 4
   %rem55 = shl i32 %ret.0.copyload.i227, 16
   %shl56 = and i32 %rem55, 67043328
   %or57 = or disjoint i32 %shl56, %shr51
   store i32 %or57, ptr %incdec.ptr50, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out, i64 36
   %shr59 = lshr i32 %ret.0.copyload.i227, 10
   store i32 %shr59, ptr %incdec.ptr58, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i228 = load i32, ptr %incdec.ptr60, align 4
   %rem63 = shl i32 %ret.0.copyload.i228, 22
   %shl64 = and i32 %rem63, 62914560
   %or65 = or disjoint i32 %shl64, %shr59
   store i32 %or65, ptr %incdec.ptr58, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %out, i64 40
   %shr67 = lshr i32 %ret.0.copyload.i228, 4
   %rem68 = and i32 %shr67, 67108863
   store i32 %rem68, ptr %incdec.ptr66, align 4
-  %incdec.ptr69 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %out, i64 44
   %shr70 = lshr i32 %ret.0.copyload.i228, 30
   store i32 %shr70, ptr %incdec.ptr69, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i229 = load i32, ptr %incdec.ptr71, align 4
   %rem74 = shl i32 %ret.0.copyload.i229, 2
   %shl75 = and i32 %rem74, 67108860
   %or76 = or disjoint i32 %shl75, %shr70
   store i32 %or76, ptr %incdec.ptr69, align 4
-  %incdec.ptr77 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %out, i64 48
   %shr78 = lshr i32 %ret.0.copyload.i229, 24
   store i32 %shr78, ptr %incdec.ptr77, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i230 = load i32, ptr %incdec.ptr79, align 4
   %rem82 = shl i32 %ret.0.copyload.i230, 8
   %shl83 = and i32 %rem82, 67108608
   %or84 = or disjoint i32 %shl83, %shr78
   store i32 %or84, ptr %incdec.ptr77, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 52
   %shr86 = lshr i32 %ret.0.copyload.i230, 18
   store i32 %shr86, ptr %incdec.ptr85, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i231 = load i32, ptr %incdec.ptr87, align 4
   %rem90 = shl i32 %ret.0.copyload.i231, 14
   %shl91 = and i32 %rem90, 67092480
   %or92 = or disjoint i32 %shl91, %shr86
   store i32 %or92, ptr %incdec.ptr85, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %out, i64 56
   %shr94 = lshr i32 %ret.0.copyload.i231, 12
   store i32 %shr94, ptr %incdec.ptr93, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i232 = load i32, ptr %incdec.ptr95, align 4
   %rem98 = shl i32 %ret.0.copyload.i232, 20
   %shl99 = and i32 %rem98, 66060288
   %or100 = or disjoint i32 %shl99, %shr94
   store i32 %or100, ptr %incdec.ptr93, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %out, i64 60
   %shr102 = lshr i32 %ret.0.copyload.i232, 6
   store i32 %shr102, ptr %incdec.ptr101, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i233 = load i32, ptr %incdec.ptr103, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %out, i64 64
   %rem108 = and i32 %ret.0.copyload.i233, 67108863
   store i32 %rem108, ptr %incdec.ptr106, align 4
-  %incdec.ptr109 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr109 = getelementptr inbounds i8, ptr %out, i64 68
   %shr110 = lshr i32 %ret.0.copyload.i233, 26
   store i32 %shr110, ptr %incdec.ptr109, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i234 = load i32, ptr %incdec.ptr111, align 4
   %rem114 = shl i32 %ret.0.copyload.i234, 6
   %shl115 = and i32 %rem114, 67108800
   %or116 = or disjoint i32 %shl115, %shr110
   store i32 %or116, ptr %incdec.ptr109, align 4
-  %incdec.ptr117 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %out, i64 72
   %shr118 = lshr i32 %ret.0.copyload.i234, 20
   store i32 %shr118, ptr %incdec.ptr117, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i235 = load i32, ptr %incdec.ptr119, align 4
   %rem122 = shl i32 %ret.0.copyload.i235, 12
   %shl123 = and i32 %rem122, 67104768
   %or124 = or disjoint i32 %shl123, %shr118
   store i32 %or124, ptr %incdec.ptr117, align 4
-  %incdec.ptr125 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %out, i64 76
   %shr126 = lshr i32 %ret.0.copyload.i235, 14
   store i32 %shr126, ptr %incdec.ptr125, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i236 = load i32, ptr %incdec.ptr127, align 4
   %rem130 = shl i32 %ret.0.copyload.i236, 18
   %shl131 = and i32 %rem130, 66846720
   %or132 = or disjoint i32 %shl131, %shr126
   store i32 %or132, ptr %incdec.ptr125, align 4
-  %incdec.ptr133 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr133 = getelementptr inbounds i8, ptr %out, i64 80
   %shr134 = lshr i32 %ret.0.copyload.i236, 8
   store i32 %shr134, ptr %incdec.ptr133, align 4
-  %incdec.ptr135 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i237 = load i32, ptr %incdec.ptr135, align 4
   %rem138 = shl i32 %ret.0.copyload.i237, 24
   %shl139 = and i32 %rem138, 50331648
   %or140 = or disjoint i32 %shl139, %shr134
   store i32 %or140, ptr %incdec.ptr133, align 4
-  %incdec.ptr141 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %out, i64 84
   %shr142 = lshr i32 %ret.0.copyload.i237, 2
   %rem143 = and i32 %shr142, 67108863
   store i32 %rem143, ptr %incdec.ptr141, align 4
-  %incdec.ptr144 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr144 = getelementptr inbounds i8, ptr %out, i64 88
   %shr145 = lshr i32 %ret.0.copyload.i237, 28
   store i32 %shr145, ptr %incdec.ptr144, align 4
-  %incdec.ptr146 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr146 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i238 = load i32, ptr %incdec.ptr146, align 4
   %rem149 = shl i32 %ret.0.copyload.i238, 4
   %shl150 = and i32 %rem149, 67108848
   %or151 = or disjoint i32 %shl150, %shr145
   store i32 %or151, ptr %incdec.ptr144, align 4
-  %incdec.ptr152 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr152 = getelementptr inbounds i8, ptr %out, i64 92
   %shr153 = lshr i32 %ret.0.copyload.i238, 22
   store i32 %shr153, ptr %incdec.ptr152, align 4
-  %incdec.ptr154 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr154 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i239 = load i32, ptr %incdec.ptr154, align 4
   %rem157 = shl i32 %ret.0.copyload.i239, 10
   %shl158 = and i32 %rem157, 67107840
   %or159 = or disjoint i32 %shl158, %shr153
   store i32 %or159, ptr %incdec.ptr152, align 4
-  %incdec.ptr160 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr160 = getelementptr inbounds i8, ptr %out, i64 96
   %shr161 = lshr i32 %ret.0.copyload.i239, 16
   store i32 %shr161, ptr %incdec.ptr160, align 4
-  %incdec.ptr162 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i240 = load i32, ptr %incdec.ptr162, align 4
   %rem165 = shl i32 %ret.0.copyload.i240, 16
   %shl166 = and i32 %rem165, 67043328
   %or167 = or disjoint i32 %shl166, %shr161
   store i32 %or167, ptr %incdec.ptr160, align 4
-  %incdec.ptr168 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %out, i64 100
   %shr169 = lshr i32 %ret.0.copyload.i240, 10
   store i32 %shr169, ptr %incdec.ptr168, align 4
-  %incdec.ptr170 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr170 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i241 = load i32, ptr %incdec.ptr170, align 4
   %rem173 = shl i32 %ret.0.copyload.i241, 22
   %shl174 = and i32 %rem173, 62914560
   %or175 = or disjoint i32 %shl174, %shr169
   store i32 %or175, ptr %incdec.ptr168, align 4
-  %incdec.ptr176 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr176 = getelementptr inbounds i8, ptr %out, i64 104
   %shr177 = lshr i32 %ret.0.copyload.i241, 4
   %rem178 = and i32 %shr177, 67108863
   store i32 %rem178, ptr %incdec.ptr176, align 4
-  %incdec.ptr179 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr179 = getelementptr inbounds i8, ptr %out, i64 108
   %shr180 = lshr i32 %ret.0.copyload.i241, 30
   store i32 %shr180, ptr %incdec.ptr179, align 4
-  %incdec.ptr181 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr181 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i242 = load i32, ptr %incdec.ptr181, align 4
   %rem184 = shl i32 %ret.0.copyload.i242, 2
   %shl185 = and i32 %rem184, 67108860
   %or186 = or disjoint i32 %shl185, %shr180
   store i32 %or186, ptr %incdec.ptr179, align 4
-  %incdec.ptr187 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr187 = getelementptr inbounds i8, ptr %out, i64 112
   %shr188 = lshr i32 %ret.0.copyload.i242, 24
   store i32 %shr188, ptr %incdec.ptr187, align 4
-  %incdec.ptr189 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr189 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i243 = load i32, ptr %incdec.ptr189, align 4
   %rem192 = shl i32 %ret.0.copyload.i243, 8
   %shl193 = and i32 %rem192, 67108608
   %or194 = or disjoint i32 %shl193, %shr188
   store i32 %or194, ptr %incdec.ptr187, align 4
-  %incdec.ptr195 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr195 = getelementptr inbounds i8, ptr %out, i64 116
   %shr196 = lshr i32 %ret.0.copyload.i243, 18
   store i32 %shr196, ptr %incdec.ptr195, align 4
-  %incdec.ptr197 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr197 = getelementptr inbounds i8, ptr %in, i64 96
   %ret.0.copyload.i244 = load i32, ptr %incdec.ptr197, align 4
   %rem200 = shl i32 %ret.0.copyload.i244, 14
   %shl201 = and i32 %rem200, 67092480
   %or202 = or disjoint i32 %shl201, %shr196
   store i32 %or202, ptr %incdec.ptr195, align 4
-  %incdec.ptr203 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr203 = getelementptr inbounds i8, ptr %out, i64 120
   %shr204 = lshr i32 %ret.0.copyload.i244, 12
   store i32 %shr204, ptr %incdec.ptr203, align 4
-  %incdec.ptr205 = getelementptr inbounds i32, ptr %in, i64 25
+  %incdec.ptr205 = getelementptr inbounds i8, ptr %in, i64 100
   %ret.0.copyload.i245 = load i32, ptr %incdec.ptr205, align 4
   %rem208 = shl i32 %ret.0.copyload.i245, 20
   %shl209 = and i32 %rem208, 66060288
   %or210 = or disjoint i32 %shl209, %shr204
   store i32 %or210, ptr %incdec.ptr203, align 4
-  %incdec.ptr211 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr211 = getelementptr inbounds i8, ptr %out, i64 124
   %shr212 = lshr i32 %ret.0.copyload.i245, 6
   store i32 %shr212, ptr %incdec.ptr211, align 4
-  %incdec.ptr213 = getelementptr inbounds i32, ptr %in, i64 26
+  %incdec.ptr213 = getelementptr inbounds i8, ptr %in, i64 104
   ret ptr %incdec.ptr213
 }
 
@@ -16691,260 +16685,260 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 134217727
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 27
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i228 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i228, 5
   %shl = and i32 %rem6, 134217696
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i228, 22
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i229 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i229, 10
   %shl13 = and i32 %rem12, 134216704
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i229, 17
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i230 = load i32, ptr %incdec.ptr17, align 4
   %rem20 = shl i32 %ret.0.copyload.i230, 15
   %shl21 = and i32 %rem20, 134184960
   %or22 = or disjoint i32 %shl21, %shr16
   store i32 %or22, ptr %incdec.ptr15, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 16
   %shr24 = lshr i32 %ret.0.copyload.i230, 12
   store i32 %shr24, ptr %incdec.ptr23, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i231 = load i32, ptr %incdec.ptr25, align 4
   %rem28 = shl i32 %ret.0.copyload.i231, 20
   %shl29 = and i32 %rem28, 133169152
   %or30 = or disjoint i32 %shl29, %shr24
   store i32 %or30, ptr %incdec.ptr23, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 20
   %shr32 = lshr i32 %ret.0.copyload.i231, 7
   store i32 %shr32, ptr %incdec.ptr31, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i232 = load i32, ptr %incdec.ptr33, align 4
   %rem36 = shl i32 %ret.0.copyload.i232, 25
   %shl37 = and i32 %rem36, 100663296
   %or38 = or disjoint i32 %shl37, %shr32
   store i32 %or38, ptr %incdec.ptr31, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 24
   %shr40 = lshr i32 %ret.0.copyload.i232, 2
   %rem41 = and i32 %shr40, 134217727
   store i32 %rem41, ptr %incdec.ptr39, align 4
-  %incdec.ptr42 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %out, i64 28
   %shr43 = lshr i32 %ret.0.copyload.i232, 29
   store i32 %shr43, ptr %incdec.ptr42, align 4
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i233 = load i32, ptr %incdec.ptr44, align 4
   %rem47 = shl i32 %ret.0.copyload.i233, 3
   %shl48 = and i32 %rem47, 134217720
   %or49 = or disjoint i32 %shl48, %shr43
   store i32 %or49, ptr %incdec.ptr42, align 4
-  %incdec.ptr50 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %out, i64 32
   %shr51 = lshr i32 %ret.0.copyload.i233, 24
   store i32 %shr51, ptr %incdec.ptr50, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i234 = load i32, ptr %incdec.ptr52, align 4
   %rem55 = shl i32 %ret.0.copyload.i234, 8
   %shl56 = and i32 %rem55, 134217472
   %or57 = or disjoint i32 %shl56, %shr51
   store i32 %or57, ptr %incdec.ptr50, align 4
-  %incdec.ptr58 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out, i64 36
   %shr59 = lshr i32 %ret.0.copyload.i234, 19
   store i32 %shr59, ptr %incdec.ptr58, align 4
-  %incdec.ptr60 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr60 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i235 = load i32, ptr %incdec.ptr60, align 4
   %rem63 = shl i32 %ret.0.copyload.i235, 13
   %shl64 = and i32 %rem63, 134209536
   %or65 = or disjoint i32 %shl64, %shr59
   store i32 %or65, ptr %incdec.ptr58, align 4
-  %incdec.ptr66 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %out, i64 40
   %shr67 = lshr i32 %ret.0.copyload.i235, 14
   store i32 %shr67, ptr %incdec.ptr66, align 4
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i236 = load i32, ptr %incdec.ptr68, align 4
   %rem71 = shl i32 %ret.0.copyload.i236, 18
   %shl72 = and i32 %rem71, 133955584
   %or73 = or disjoint i32 %shl72, %shr67
   store i32 %or73, ptr %incdec.ptr66, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %out, i64 44
   %shr75 = lshr i32 %ret.0.copyload.i236, 9
   store i32 %shr75, ptr %incdec.ptr74, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i237 = load i32, ptr %incdec.ptr76, align 4
   %rem79 = shl i32 %ret.0.copyload.i237, 23
   %shl80 = and i32 %rem79, 125829120
   %or81 = or disjoint i32 %shl80, %shr75
   store i32 %or81, ptr %incdec.ptr74, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 48
   %shr83 = lshr i32 %ret.0.copyload.i237, 4
   %rem84 = and i32 %shr83, 134217727
   store i32 %rem84, ptr %incdec.ptr82, align 4
-  %incdec.ptr85 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr85 = getelementptr inbounds i8, ptr %out, i64 52
   %shr86 = lshr i32 %ret.0.copyload.i237, 31
   store i32 %shr86, ptr %incdec.ptr85, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i238 = load i32, ptr %incdec.ptr87, align 4
   %rem90 = shl i32 %ret.0.copyload.i238, 1
   %shl91 = and i32 %rem90, 134217726
   %or92 = or disjoint i32 %shl91, %shr86
   store i32 %or92, ptr %incdec.ptr85, align 4
-  %incdec.ptr93 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr93 = getelementptr inbounds i8, ptr %out, i64 56
   %shr94 = lshr i32 %ret.0.copyload.i238, 26
   store i32 %shr94, ptr %incdec.ptr93, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i239 = load i32, ptr %incdec.ptr95, align 4
   %rem98 = shl i32 %ret.0.copyload.i239, 6
   %shl99 = and i32 %rem98, 134217664
   %or100 = or disjoint i32 %shl99, %shr94
   store i32 %or100, ptr %incdec.ptr93, align 4
-  %incdec.ptr101 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr101 = getelementptr inbounds i8, ptr %out, i64 60
   %shr102 = lshr i32 %ret.0.copyload.i239, 21
   store i32 %shr102, ptr %incdec.ptr101, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i240 = load i32, ptr %incdec.ptr103, align 4
   %rem106 = shl i32 %ret.0.copyload.i240, 11
   %shl107 = and i32 %rem106, 134215680
   %or108 = or disjoint i32 %shl107, %shr102
   store i32 %or108, ptr %incdec.ptr101, align 4
-  %incdec.ptr109 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr109 = getelementptr inbounds i8, ptr %out, i64 64
   %shr110 = lshr i32 %ret.0.copyload.i240, 16
   store i32 %shr110, ptr %incdec.ptr109, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i241 = load i32, ptr %incdec.ptr111, align 4
   %rem114 = shl i32 %ret.0.copyload.i241, 16
   %shl115 = and i32 %rem114, 134152192
   %or116 = or disjoint i32 %shl115, %shr110
   store i32 %or116, ptr %incdec.ptr109, align 4
-  %incdec.ptr117 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %out, i64 68
   %shr118 = lshr i32 %ret.0.copyload.i241, 11
   store i32 %shr118, ptr %incdec.ptr117, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i242 = load i32, ptr %incdec.ptr119, align 4
   %rem122 = shl i32 %ret.0.copyload.i242, 21
   %shl123 = and i32 %rem122, 132120576
   %or124 = or disjoint i32 %shl123, %shr118
   store i32 %or124, ptr %incdec.ptr117, align 4
-  %incdec.ptr125 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %out, i64 72
   %shr126 = lshr i32 %ret.0.copyload.i242, 6
   store i32 %shr126, ptr %incdec.ptr125, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i243 = load i32, ptr %incdec.ptr127, align 4
   %rem130 = shl i32 %ret.0.copyload.i243, 26
   %shl131 = and i32 %rem130, 67108864
   %or132 = or disjoint i32 %shl131, %shr126
   store i32 %or132, ptr %incdec.ptr125, align 4
-  %incdec.ptr133 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr133 = getelementptr inbounds i8, ptr %out, i64 76
   %shr134 = lshr i32 %ret.0.copyload.i243, 1
   %rem135 = and i32 %shr134, 134217727
   store i32 %rem135, ptr %incdec.ptr133, align 4
-  %incdec.ptr136 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr136 = getelementptr inbounds i8, ptr %out, i64 80
   %shr137 = lshr i32 %ret.0.copyload.i243, 28
   store i32 %shr137, ptr %incdec.ptr136, align 4
-  %incdec.ptr138 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr138 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i244 = load i32, ptr %incdec.ptr138, align 4
   %rem141 = shl i32 %ret.0.copyload.i244, 4
   %shl142 = and i32 %rem141, 134217712
   %or143 = or disjoint i32 %shl142, %shr137
   store i32 %or143, ptr %incdec.ptr136, align 4
-  %incdec.ptr144 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr144 = getelementptr inbounds i8, ptr %out, i64 84
   %shr145 = lshr i32 %ret.0.copyload.i244, 23
   store i32 %shr145, ptr %incdec.ptr144, align 4
-  %incdec.ptr146 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr146 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i245 = load i32, ptr %incdec.ptr146, align 4
   %rem149 = shl i32 %ret.0.copyload.i245, 9
   %shl150 = and i32 %rem149, 134217216
   %or151 = or disjoint i32 %shl150, %shr145
   store i32 %or151, ptr %incdec.ptr144, align 4
-  %incdec.ptr152 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr152 = getelementptr inbounds i8, ptr %out, i64 88
   %shr153 = lshr i32 %ret.0.copyload.i245, 18
   store i32 %shr153, ptr %incdec.ptr152, align 4
-  %incdec.ptr154 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr154 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i246 = load i32, ptr %incdec.ptr154, align 4
   %rem157 = shl i32 %ret.0.copyload.i246, 14
   %shl158 = and i32 %rem157, 134201344
   %or159 = or disjoint i32 %shl158, %shr153
   store i32 %or159, ptr %incdec.ptr152, align 4
-  %incdec.ptr160 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr160 = getelementptr inbounds i8, ptr %out, i64 92
   %shr161 = lshr i32 %ret.0.copyload.i246, 13
   store i32 %shr161, ptr %incdec.ptr160, align 4
-  %incdec.ptr162 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i247 = load i32, ptr %incdec.ptr162, align 4
   %rem165 = shl i32 %ret.0.copyload.i247, 19
   %shl166 = and i32 %rem165, 133693440
   %or167 = or disjoint i32 %shl166, %shr161
   store i32 %or167, ptr %incdec.ptr160, align 4
-  %incdec.ptr168 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %out, i64 96
   %shr169 = lshr i32 %ret.0.copyload.i247, 8
   store i32 %shr169, ptr %incdec.ptr168, align 4
-  %incdec.ptr170 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr170 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i248 = load i32, ptr %incdec.ptr170, align 4
   %rem173 = shl i32 %ret.0.copyload.i248, 24
   %shl174 = and i32 %rem173, 117440512
   %or175 = or disjoint i32 %shl174, %shr169
   store i32 %or175, ptr %incdec.ptr168, align 4
-  %incdec.ptr176 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr176 = getelementptr inbounds i8, ptr %out, i64 100
   %shr177 = lshr i32 %ret.0.copyload.i248, 3
   %rem178 = and i32 %shr177, 134217727
   store i32 %rem178, ptr %incdec.ptr176, align 4
-  %incdec.ptr179 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr179 = getelementptr inbounds i8, ptr %out, i64 104
   %shr180 = lshr i32 %ret.0.copyload.i248, 30
   store i32 %shr180, ptr %incdec.ptr179, align 4
-  %incdec.ptr181 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr181 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i249 = load i32, ptr %incdec.ptr181, align 4
   %rem184 = shl i32 %ret.0.copyload.i249, 2
   %shl185 = and i32 %rem184, 134217724
   %or186 = or disjoint i32 %shl185, %shr180
   store i32 %or186, ptr %incdec.ptr179, align 4
-  %incdec.ptr187 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr187 = getelementptr inbounds i8, ptr %out, i64 108
   %shr188 = lshr i32 %ret.0.copyload.i249, 25
   store i32 %shr188, ptr %incdec.ptr187, align 4
-  %incdec.ptr189 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr189 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i250 = load i32, ptr %incdec.ptr189, align 4
   %rem192 = shl i32 %ret.0.copyload.i250, 7
   %shl193 = and i32 %rem192, 134217600
   %or194 = or disjoint i32 %shl193, %shr188
   store i32 %or194, ptr %incdec.ptr187, align 4
-  %incdec.ptr195 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr195 = getelementptr inbounds i8, ptr %out, i64 112
   %shr196 = lshr i32 %ret.0.copyload.i250, 20
   store i32 %shr196, ptr %incdec.ptr195, align 4
-  %incdec.ptr197 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr197 = getelementptr inbounds i8, ptr %in, i64 96
   %ret.0.copyload.i251 = load i32, ptr %incdec.ptr197, align 4
   %rem200 = shl i32 %ret.0.copyload.i251, 12
   %shl201 = and i32 %rem200, 134213632
   %or202 = or disjoint i32 %shl201, %shr196
   store i32 %or202, ptr %incdec.ptr195, align 4
-  %incdec.ptr203 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr203 = getelementptr inbounds i8, ptr %out, i64 116
   %shr204 = lshr i32 %ret.0.copyload.i251, 15
   store i32 %shr204, ptr %incdec.ptr203, align 4
-  %incdec.ptr205 = getelementptr inbounds i32, ptr %in, i64 25
+  %incdec.ptr205 = getelementptr inbounds i8, ptr %in, i64 100
   %ret.0.copyload.i252 = load i32, ptr %incdec.ptr205, align 4
   %rem208 = shl i32 %ret.0.copyload.i252, 17
   %shl209 = and i32 %rem208, 134086656
   %or210 = or disjoint i32 %shl209, %shr204
   store i32 %or210, ptr %incdec.ptr203, align 4
-  %incdec.ptr211 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr211 = getelementptr inbounds i8, ptr %out, i64 120
   %shr212 = lshr i32 %ret.0.copyload.i252, 10
   store i32 %shr212, ptr %incdec.ptr211, align 4
-  %incdec.ptr213 = getelementptr inbounds i32, ptr %in, i64 26
+  %incdec.ptr213 = getelementptr inbounds i8, ptr %in, i64 104
   %ret.0.copyload.i253 = load i32, ptr %incdec.ptr213, align 4
   %rem216 = shl i32 %ret.0.copyload.i253, 22
   %shl217 = and i32 %rem216, 130023424
   %or218 = or disjoint i32 %shl217, %shr212
   store i32 %or218, ptr %incdec.ptr211, align 4
-  %incdec.ptr219 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr219 = getelementptr inbounds i8, ptr %out, i64 124
   %shr220 = lshr i32 %ret.0.copyload.i253, 5
   store i32 %shr220, ptr %incdec.ptr219, align 4
-  %incdec.ptr221 = getelementptr inbounds i32, ptr %in, i64 27
+  %incdec.ptr221 = getelementptr inbounds i8, ptr %in, i64 108
   ret ptr %incdec.ptr221
 }
 
@@ -16954,250 +16948,250 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 268435455
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 28
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i227 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i227, 4
   %shl = and i32 %rem6, 268435440
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i227, 24
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i228 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i228, 8
   %shl13 = and i32 %rem12, 268435200
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i228, 20
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i229 = load i32, ptr %incdec.ptr17, align 4
   %rem20 = shl i32 %ret.0.copyload.i229, 12
   %shl21 = and i32 %rem20, 268431360
   %or22 = or disjoint i32 %shl21, %shr16
   store i32 %or22, ptr %incdec.ptr15, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 16
   %shr24 = lshr i32 %ret.0.copyload.i229, 16
   store i32 %shr24, ptr %incdec.ptr23, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i230 = load i32, ptr %incdec.ptr25, align 4
   %rem28 = shl i32 %ret.0.copyload.i230, 16
   %shl29 = and i32 %rem28, 268369920
   %or30 = or disjoint i32 %shl29, %shr24
   store i32 %or30, ptr %incdec.ptr23, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 20
   %shr32 = lshr i32 %ret.0.copyload.i230, 12
   store i32 %shr32, ptr %incdec.ptr31, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i231 = load i32, ptr %incdec.ptr33, align 4
   %rem36 = shl i32 %ret.0.copyload.i231, 20
   %shl37 = and i32 %rem36, 267386880
   %or38 = or disjoint i32 %shl37, %shr32
   store i32 %or38, ptr %incdec.ptr31, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 24
   %shr40 = lshr i32 %ret.0.copyload.i231, 8
   store i32 %shr40, ptr %incdec.ptr39, align 4
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i232 = load i32, ptr %incdec.ptr41, align 4
   %rem44 = shl i32 %ret.0.copyload.i232, 24
   %shl45 = and i32 %rem44, 251658240
   %or46 = or disjoint i32 %shl45, %shr40
   store i32 %or46, ptr %incdec.ptr39, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %out, i64 28
   %shr48 = lshr i32 %ret.0.copyload.i232, 4
   store i32 %shr48, ptr %incdec.ptr47, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i233 = load i32, ptr %incdec.ptr49, align 4
-  %incdec.ptr52 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %out, i64 32
   %rem54 = and i32 %ret.0.copyload.i233, 268435455
   store i32 %rem54, ptr %incdec.ptr52, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 36
   %shr56 = lshr i32 %ret.0.copyload.i233, 28
   store i32 %shr56, ptr %incdec.ptr55, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i234 = load i32, ptr %incdec.ptr57, align 4
   %rem60 = shl i32 %ret.0.copyload.i234, 4
   %shl61 = and i32 %rem60, 268435440
   %or62 = or disjoint i32 %shl61, %shr56
   store i32 %or62, ptr %incdec.ptr55, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 40
   %shr64 = lshr i32 %ret.0.copyload.i234, 24
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i235 = load i32, ptr %incdec.ptr65, align 4
   %rem68 = shl i32 %ret.0.copyload.i235, 8
   %shl69 = and i32 %rem68, 268435200
   %or70 = or disjoint i32 %shl69, %shr64
   store i32 %or70, ptr %incdec.ptr63, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 44
   %shr72 = lshr i32 %ret.0.copyload.i235, 20
   store i32 %shr72, ptr %incdec.ptr71, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i236 = load i32, ptr %incdec.ptr73, align 4
   %rem76 = shl i32 %ret.0.copyload.i236, 12
   %shl77 = and i32 %rem76, 268431360
   %or78 = or disjoint i32 %shl77, %shr72
   store i32 %or78, ptr %incdec.ptr71, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 48
   %shr80 = lshr i32 %ret.0.copyload.i236, 16
   store i32 %shr80, ptr %incdec.ptr79, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i237 = load i32, ptr %incdec.ptr81, align 4
   %rem84 = shl i32 %ret.0.copyload.i237, 16
   %shl85 = and i32 %rem84, 268369920
   %or86 = or disjoint i32 %shl85, %shr80
   store i32 %or86, ptr %incdec.ptr79, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %out, i64 52
   %shr88 = lshr i32 %ret.0.copyload.i237, 12
   store i32 %shr88, ptr %incdec.ptr87, align 4
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i238 = load i32, ptr %incdec.ptr89, align 4
   %rem92 = shl i32 %ret.0.copyload.i238, 20
   %shl93 = and i32 %rem92, 267386880
   %or94 = or disjoint i32 %shl93, %shr88
   store i32 %or94, ptr %incdec.ptr87, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %out, i64 56
   %shr96 = lshr i32 %ret.0.copyload.i238, 8
   store i32 %shr96, ptr %incdec.ptr95, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i239 = load i32, ptr %incdec.ptr97, align 4
   %rem100 = shl i32 %ret.0.copyload.i239, 24
   %shl101 = and i32 %rem100, 251658240
   %or102 = or disjoint i32 %shl101, %shr96
   store i32 %or102, ptr %incdec.ptr95, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %out, i64 60
   %shr104 = lshr i32 %ret.0.copyload.i239, 4
   store i32 %shr104, ptr %incdec.ptr103, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i240 = load i32, ptr %incdec.ptr105, align 4
-  %incdec.ptr108 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %out, i64 64
   %rem110 = and i32 %ret.0.copyload.i240, 268435455
   store i32 %rem110, ptr %incdec.ptr108, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 68
   %shr112 = lshr i32 %ret.0.copyload.i240, 28
   store i32 %shr112, ptr %incdec.ptr111, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i241 = load i32, ptr %incdec.ptr113, align 4
   %rem116 = shl i32 %ret.0.copyload.i241, 4
   %shl117 = and i32 %rem116, 268435440
   %or118 = or disjoint i32 %shl117, %shr112
   store i32 %or118, ptr %incdec.ptr111, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %out, i64 72
   %shr120 = lshr i32 %ret.0.copyload.i241, 24
   store i32 %shr120, ptr %incdec.ptr119, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i242 = load i32, ptr %incdec.ptr121, align 4
   %rem124 = shl i32 %ret.0.copyload.i242, 8
   %shl125 = and i32 %rem124, 268435200
   %or126 = or disjoint i32 %shl125, %shr120
   store i32 %or126, ptr %incdec.ptr119, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %out, i64 76
   %shr128 = lshr i32 %ret.0.copyload.i242, 20
   store i32 %shr128, ptr %incdec.ptr127, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i243 = load i32, ptr %incdec.ptr129, align 4
   %rem132 = shl i32 %ret.0.copyload.i243, 12
   %shl133 = and i32 %rem132, 268431360
   %or134 = or disjoint i32 %shl133, %shr128
   store i32 %or134, ptr %incdec.ptr127, align 4
-  %incdec.ptr135 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %out, i64 80
   %shr136 = lshr i32 %ret.0.copyload.i243, 16
   store i32 %shr136, ptr %incdec.ptr135, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i244 = load i32, ptr %incdec.ptr137, align 4
   %rem140 = shl i32 %ret.0.copyload.i244, 16
   %shl141 = and i32 %rem140, 268369920
   %or142 = or disjoint i32 %shl141, %shr136
   store i32 %or142, ptr %incdec.ptr135, align 4
-  %incdec.ptr143 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %out, i64 84
   %shr144 = lshr i32 %ret.0.copyload.i244, 12
   store i32 %shr144, ptr %incdec.ptr143, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i245 = load i32, ptr %incdec.ptr145, align 4
   %rem148 = shl i32 %ret.0.copyload.i245, 20
   %shl149 = and i32 %rem148, 267386880
   %or150 = or disjoint i32 %shl149, %shr144
   store i32 %or150, ptr %incdec.ptr143, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %out, i64 88
   %shr152 = lshr i32 %ret.0.copyload.i245, 8
   store i32 %shr152, ptr %incdec.ptr151, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i246 = load i32, ptr %incdec.ptr153, align 4
   %rem156 = shl i32 %ret.0.copyload.i246, 24
   %shl157 = and i32 %rem156, 251658240
   %or158 = or disjoint i32 %shl157, %shr152
   store i32 %or158, ptr %incdec.ptr151, align 4
-  %incdec.ptr159 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %out, i64 92
   %shr160 = lshr i32 %ret.0.copyload.i246, 4
   store i32 %shr160, ptr %incdec.ptr159, align 4
-  %incdec.ptr161 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr161 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i247 = load i32, ptr %incdec.ptr161, align 4
-  %incdec.ptr164 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr164 = getelementptr inbounds i8, ptr %out, i64 96
   %rem166 = and i32 %ret.0.copyload.i247, 268435455
   store i32 %rem166, ptr %incdec.ptr164, align 4
-  %incdec.ptr167 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr167 = getelementptr inbounds i8, ptr %out, i64 100
   %shr168 = lshr i32 %ret.0.copyload.i247, 28
   store i32 %shr168, ptr %incdec.ptr167, align 4
-  %incdec.ptr169 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr169 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i248 = load i32, ptr %incdec.ptr169, align 4
   %rem172 = shl i32 %ret.0.copyload.i248, 4
   %shl173 = and i32 %rem172, 268435440
   %or174 = or disjoint i32 %shl173, %shr168
   store i32 %or174, ptr %incdec.ptr167, align 4
-  %incdec.ptr175 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr175 = getelementptr inbounds i8, ptr %out, i64 104
   %shr176 = lshr i32 %ret.0.copyload.i248, 24
   store i32 %shr176, ptr %incdec.ptr175, align 4
-  %incdec.ptr177 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i249 = load i32, ptr %incdec.ptr177, align 4
   %rem180 = shl i32 %ret.0.copyload.i249, 8
   %shl181 = and i32 %rem180, 268435200
   %or182 = or disjoint i32 %shl181, %shr176
   store i32 %or182, ptr %incdec.ptr175, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %out, i64 108
   %shr184 = lshr i32 %ret.0.copyload.i249, 20
   store i32 %shr184, ptr %incdec.ptr183, align 4
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %in, i64 96
   %ret.0.copyload.i250 = load i32, ptr %incdec.ptr185, align 4
   %rem188 = shl i32 %ret.0.copyload.i250, 12
   %shl189 = and i32 %rem188, 268431360
   %or190 = or disjoint i32 %shl189, %shr184
   store i32 %or190, ptr %incdec.ptr183, align 4
-  %incdec.ptr191 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %out, i64 112
   %shr192 = lshr i32 %ret.0.copyload.i250, 16
   store i32 %shr192, ptr %incdec.ptr191, align 4
-  %incdec.ptr193 = getelementptr inbounds i32, ptr %in, i64 25
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %in, i64 100
   %ret.0.copyload.i251 = load i32, ptr %incdec.ptr193, align 4
   %rem196 = shl i32 %ret.0.copyload.i251, 16
   %shl197 = and i32 %rem196, 268369920
   %or198 = or disjoint i32 %shl197, %shr192
   store i32 %or198, ptr %incdec.ptr191, align 4
-  %incdec.ptr199 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr199 = getelementptr inbounds i8, ptr %out, i64 116
   %shr200 = lshr i32 %ret.0.copyload.i251, 12
   store i32 %shr200, ptr %incdec.ptr199, align 4
-  %incdec.ptr201 = getelementptr inbounds i32, ptr %in, i64 26
+  %incdec.ptr201 = getelementptr inbounds i8, ptr %in, i64 104
   %ret.0.copyload.i252 = load i32, ptr %incdec.ptr201, align 4
   %rem204 = shl i32 %ret.0.copyload.i252, 20
   %shl205 = and i32 %rem204, 267386880
   %or206 = or disjoint i32 %shl205, %shr200
   store i32 %or206, ptr %incdec.ptr199, align 4
-  %incdec.ptr207 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr207 = getelementptr inbounds i8, ptr %out, i64 120
   %shr208 = lshr i32 %ret.0.copyload.i252, 8
   store i32 %shr208, ptr %incdec.ptr207, align 4
-  %incdec.ptr209 = getelementptr inbounds i32, ptr %in, i64 27
+  %incdec.ptr209 = getelementptr inbounds i8, ptr %in, i64 108
   %ret.0.copyload.i253 = load i32, ptr %incdec.ptr209, align 4
   %rem212 = shl i32 %ret.0.copyload.i253, 24
   %shl213 = and i32 %rem212, 251658240
   %or214 = or disjoint i32 %shl213, %shr208
   store i32 %or214, ptr %incdec.ptr207, align 4
-  %incdec.ptr215 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr215 = getelementptr inbounds i8, ptr %out, i64 124
   %shr216 = lshr i32 %ret.0.copyload.i253, 4
   store i32 %shr216, ptr %incdec.ptr215, align 4
-  %incdec.ptr217 = getelementptr inbounds i32, ptr %in, i64 28
+  %incdec.ptr217 = getelementptr inbounds i8, ptr %in, i64 112
   ret ptr %incdec.ptr217
 }
 
@@ -17207,270 +17201,270 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 536870911
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 29
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i238 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i238, 3
   %shl = and i32 %rem6, 536870904
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i238, 26
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i239 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i239, 6
   %shl13 = and i32 %rem12, 536870848
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i239, 23
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i240 = load i32, ptr %incdec.ptr17, align 4
   %rem20 = shl i32 %ret.0.copyload.i240, 9
   %shl21 = and i32 %rem20, 536870400
   %or22 = or disjoint i32 %shl21, %shr16
   store i32 %or22, ptr %incdec.ptr15, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 16
   %shr24 = lshr i32 %ret.0.copyload.i240, 20
   store i32 %shr24, ptr %incdec.ptr23, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i241 = load i32, ptr %incdec.ptr25, align 4
   %rem28 = shl i32 %ret.0.copyload.i241, 12
   %shl29 = and i32 %rem28, 536866816
   %or30 = or disjoint i32 %shl29, %shr24
   store i32 %or30, ptr %incdec.ptr23, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 20
   %shr32 = lshr i32 %ret.0.copyload.i241, 17
   store i32 %shr32, ptr %incdec.ptr31, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i242 = load i32, ptr %incdec.ptr33, align 4
   %rem36 = shl i32 %ret.0.copyload.i242, 15
   %shl37 = and i32 %rem36, 536838144
   %or38 = or disjoint i32 %shl37, %shr32
   store i32 %or38, ptr %incdec.ptr31, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 24
   %shr40 = lshr i32 %ret.0.copyload.i242, 14
   store i32 %shr40, ptr %incdec.ptr39, align 4
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i243 = load i32, ptr %incdec.ptr41, align 4
   %rem44 = shl i32 %ret.0.copyload.i243, 18
   %shl45 = and i32 %rem44, 536608768
   %or46 = or disjoint i32 %shl45, %shr40
   store i32 %or46, ptr %incdec.ptr39, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %out, i64 28
   %shr48 = lshr i32 %ret.0.copyload.i243, 11
   store i32 %shr48, ptr %incdec.ptr47, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i244 = load i32, ptr %incdec.ptr49, align 4
   %rem52 = shl i32 %ret.0.copyload.i244, 21
   %shl53 = and i32 %rem52, 534773760
   %or54 = or disjoint i32 %shl53, %shr48
   store i32 %or54, ptr %incdec.ptr47, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 32
   %shr56 = lshr i32 %ret.0.copyload.i244, 8
   store i32 %shr56, ptr %incdec.ptr55, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i245 = load i32, ptr %incdec.ptr57, align 4
   %rem60 = shl i32 %ret.0.copyload.i245, 24
   %shl61 = and i32 %rem60, 520093696
   %or62 = or disjoint i32 %shl61, %shr56
   store i32 %or62, ptr %incdec.ptr55, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 36
   %shr64 = lshr i32 %ret.0.copyload.i245, 5
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i246 = load i32, ptr %incdec.ptr65, align 4
   %rem68 = shl i32 %ret.0.copyload.i246, 27
   %shl69 = and i32 %rem68, 402653184
   %or70 = or disjoint i32 %shl69, %shr64
   store i32 %or70, ptr %incdec.ptr63, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 40
   %shr72 = lshr i32 %ret.0.copyload.i246, 2
   %rem73 = and i32 %shr72, 536870911
   store i32 %rem73, ptr %incdec.ptr71, align 4
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %out, i64 44
   %shr75 = lshr i32 %ret.0.copyload.i246, 31
   store i32 %shr75, ptr %incdec.ptr74, align 4
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i247 = load i32, ptr %incdec.ptr76, align 4
   %rem79 = shl i32 %ret.0.copyload.i247, 1
   %shl80 = and i32 %rem79, 536870910
   %or81 = or disjoint i32 %shl80, %shr75
   store i32 %or81, ptr %incdec.ptr74, align 4
-  %incdec.ptr82 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr82 = getelementptr inbounds i8, ptr %out, i64 48
   %shr83 = lshr i32 %ret.0.copyload.i247, 28
   store i32 %shr83, ptr %incdec.ptr82, align 4
-  %incdec.ptr84 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i248 = load i32, ptr %incdec.ptr84, align 4
   %rem87 = shl i32 %ret.0.copyload.i248, 4
   %shl88 = and i32 %rem87, 536870896
   %or89 = or disjoint i32 %shl88, %shr83
   store i32 %or89, ptr %incdec.ptr82, align 4
-  %incdec.ptr90 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %out, i64 52
   %shr91 = lshr i32 %ret.0.copyload.i248, 25
   store i32 %shr91, ptr %incdec.ptr90, align 4
-  %incdec.ptr92 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i249 = load i32, ptr %incdec.ptr92, align 4
   %rem95 = shl i32 %ret.0.copyload.i249, 7
   %shl96 = and i32 %rem95, 536870784
   %or97 = or disjoint i32 %shl96, %shr91
   store i32 %or97, ptr %incdec.ptr90, align 4
-  %incdec.ptr98 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr98 = getelementptr inbounds i8, ptr %out, i64 56
   %shr99 = lshr i32 %ret.0.copyload.i249, 22
   store i32 %shr99, ptr %incdec.ptr98, align 4
-  %incdec.ptr100 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i250 = load i32, ptr %incdec.ptr100, align 4
   %rem103 = shl i32 %ret.0.copyload.i250, 10
   %shl104 = and i32 %rem103, 536869888
   %or105 = or disjoint i32 %shl104, %shr99
   store i32 %or105, ptr %incdec.ptr98, align 4
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %out, i64 60
   %shr107 = lshr i32 %ret.0.copyload.i250, 19
   store i32 %shr107, ptr %incdec.ptr106, align 4
-  %incdec.ptr108 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr108 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i251 = load i32, ptr %incdec.ptr108, align 4
   %rem111 = shl i32 %ret.0.copyload.i251, 13
   %shl112 = and i32 %rem111, 536862720
   %or113 = or disjoint i32 %shl112, %shr107
   store i32 %or113, ptr %incdec.ptr106, align 4
-  %incdec.ptr114 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %out, i64 64
   %shr115 = lshr i32 %ret.0.copyload.i251, 16
   store i32 %shr115, ptr %incdec.ptr114, align 4
-  %incdec.ptr116 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i252 = load i32, ptr %incdec.ptr116, align 4
   %rem119 = shl i32 %ret.0.copyload.i252, 16
   %shl120 = and i32 %rem119, 536805376
   %or121 = or disjoint i32 %shl120, %shr115
   store i32 %or121, ptr %incdec.ptr114, align 4
-  %incdec.ptr122 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr122 = getelementptr inbounds i8, ptr %out, i64 68
   %shr123 = lshr i32 %ret.0.copyload.i252, 13
   store i32 %shr123, ptr %incdec.ptr122, align 4
-  %incdec.ptr124 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr124 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i253 = load i32, ptr %incdec.ptr124, align 4
   %rem127 = shl i32 %ret.0.copyload.i253, 19
   %shl128 = and i32 %rem127, 536346624
   %or129 = or disjoint i32 %shl128, %shr123
   store i32 %or129, ptr %incdec.ptr122, align 4
-  %incdec.ptr130 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %out, i64 72
   %shr131 = lshr i32 %ret.0.copyload.i253, 10
   store i32 %shr131, ptr %incdec.ptr130, align 4
-  %incdec.ptr132 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i254 = load i32, ptr %incdec.ptr132, align 4
   %rem135 = shl i32 %ret.0.copyload.i254, 22
   %shl136 = and i32 %rem135, 532676608
   %or137 = or disjoint i32 %shl136, %shr131
   store i32 %or137, ptr %incdec.ptr130, align 4
-  %incdec.ptr138 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr138 = getelementptr inbounds i8, ptr %out, i64 76
   %shr139 = lshr i32 %ret.0.copyload.i254, 7
   store i32 %shr139, ptr %incdec.ptr138, align 4
-  %incdec.ptr140 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr140 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i255 = load i32, ptr %incdec.ptr140, align 4
   %rem143 = shl i32 %ret.0.copyload.i255, 25
   %shl144 = and i32 %rem143, 503316480
   %or145 = or disjoint i32 %shl144, %shr139
   store i32 %or145, ptr %incdec.ptr138, align 4
-  %incdec.ptr146 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr146 = getelementptr inbounds i8, ptr %out, i64 80
   %shr147 = lshr i32 %ret.0.copyload.i255, 4
   store i32 %shr147, ptr %incdec.ptr146, align 4
-  %incdec.ptr148 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr148 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i256 = load i32, ptr %incdec.ptr148, align 4
   %rem151 = shl i32 %ret.0.copyload.i256, 28
   %shl152 = and i32 %rem151, 268435456
   %or153 = or disjoint i32 %shl152, %shr147
   store i32 %or153, ptr %incdec.ptr146, align 4
-  %incdec.ptr154 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr154 = getelementptr inbounds i8, ptr %out, i64 84
   %shr155 = lshr i32 %ret.0.copyload.i256, 1
   %rem156 = and i32 %shr155, 536870911
   store i32 %rem156, ptr %incdec.ptr154, align 4
-  %incdec.ptr157 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr157 = getelementptr inbounds i8, ptr %out, i64 88
   %shr158 = lshr i32 %ret.0.copyload.i256, 30
   store i32 %shr158, ptr %incdec.ptr157, align 4
-  %incdec.ptr159 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i257 = load i32, ptr %incdec.ptr159, align 4
   %rem162 = shl i32 %ret.0.copyload.i257, 2
   %shl163 = and i32 %rem162, 536870908
   %or164 = or disjoint i32 %shl163, %shr158
   store i32 %or164, ptr %incdec.ptr157, align 4
-  %incdec.ptr165 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr165 = getelementptr inbounds i8, ptr %out, i64 92
   %shr166 = lshr i32 %ret.0.copyload.i257, 27
   store i32 %shr166, ptr %incdec.ptr165, align 4
-  %incdec.ptr167 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr167 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i258 = load i32, ptr %incdec.ptr167, align 4
   %rem170 = shl i32 %ret.0.copyload.i258, 5
   %shl171 = and i32 %rem170, 536870880
   %or172 = or disjoint i32 %shl171, %shr166
   store i32 %or172, ptr %incdec.ptr165, align 4
-  %incdec.ptr173 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr173 = getelementptr inbounds i8, ptr %out, i64 96
   %shr174 = lshr i32 %ret.0.copyload.i258, 24
   store i32 %shr174, ptr %incdec.ptr173, align 4
-  %incdec.ptr175 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr175 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i259 = load i32, ptr %incdec.ptr175, align 4
   %rem178 = shl i32 %ret.0.copyload.i259, 8
   %shl179 = and i32 %rem178, 536870656
   %or180 = or disjoint i32 %shl179, %shr174
   store i32 %or180, ptr %incdec.ptr173, align 4
-  %incdec.ptr181 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr181 = getelementptr inbounds i8, ptr %out, i64 100
   %shr182 = lshr i32 %ret.0.copyload.i259, 21
   store i32 %shr182, ptr %incdec.ptr181, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i260 = load i32, ptr %incdec.ptr183, align 4
   %rem186 = shl i32 %ret.0.copyload.i260, 11
   %shl187 = and i32 %rem186, 536868864
   %or188 = or disjoint i32 %shl187, %shr182
   store i32 %or188, ptr %incdec.ptr181, align 4
-  %incdec.ptr189 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr189 = getelementptr inbounds i8, ptr %out, i64 104
   %shr190 = lshr i32 %ret.0.copyload.i260, 18
   store i32 %shr190, ptr %incdec.ptr189, align 4
-  %incdec.ptr191 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %in, i64 96
   %ret.0.copyload.i261 = load i32, ptr %incdec.ptr191, align 4
   %rem194 = shl i32 %ret.0.copyload.i261, 14
   %shl195 = and i32 %rem194, 536854528
   %or196 = or disjoint i32 %shl195, %shr190
   store i32 %or196, ptr %incdec.ptr189, align 4
-  %incdec.ptr197 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr197 = getelementptr inbounds i8, ptr %out, i64 108
   %shr198 = lshr i32 %ret.0.copyload.i261, 15
   store i32 %shr198, ptr %incdec.ptr197, align 4
-  %incdec.ptr199 = getelementptr inbounds i32, ptr %in, i64 25
+  %incdec.ptr199 = getelementptr inbounds i8, ptr %in, i64 100
   %ret.0.copyload.i262 = load i32, ptr %incdec.ptr199, align 4
   %rem202 = shl i32 %ret.0.copyload.i262, 17
   %shl203 = and i32 %rem202, 536739840
   %or204 = or disjoint i32 %shl203, %shr198
   store i32 %or204, ptr %incdec.ptr197, align 4
-  %incdec.ptr205 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr205 = getelementptr inbounds i8, ptr %out, i64 112
   %shr206 = lshr i32 %ret.0.copyload.i262, 12
   store i32 %shr206, ptr %incdec.ptr205, align 4
-  %incdec.ptr207 = getelementptr inbounds i32, ptr %in, i64 26
+  %incdec.ptr207 = getelementptr inbounds i8, ptr %in, i64 104
   %ret.0.copyload.i263 = load i32, ptr %incdec.ptr207, align 4
   %rem210 = shl i32 %ret.0.copyload.i263, 20
   %shl211 = and i32 %rem210, 535822336
   %or212 = or disjoint i32 %shl211, %shr206
   store i32 %or212, ptr %incdec.ptr205, align 4
-  %incdec.ptr213 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr213 = getelementptr inbounds i8, ptr %out, i64 116
   %shr214 = lshr i32 %ret.0.copyload.i263, 9
   store i32 %shr214, ptr %incdec.ptr213, align 4
-  %incdec.ptr215 = getelementptr inbounds i32, ptr %in, i64 27
+  %incdec.ptr215 = getelementptr inbounds i8, ptr %in, i64 108
   %ret.0.copyload.i264 = load i32, ptr %incdec.ptr215, align 4
   %rem218 = shl i32 %ret.0.copyload.i264, 23
   %shl219 = and i32 %rem218, 528482304
   %or220 = or disjoint i32 %shl219, %shr214
   store i32 %or220, ptr %incdec.ptr213, align 4
-  %incdec.ptr221 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr221 = getelementptr inbounds i8, ptr %out, i64 120
   %shr222 = lshr i32 %ret.0.copyload.i264, 6
   store i32 %shr222, ptr %incdec.ptr221, align 4
-  %incdec.ptr223 = getelementptr inbounds i32, ptr %in, i64 28
+  %incdec.ptr223 = getelementptr inbounds i8, ptr %in, i64 112
   %ret.0.copyload.i265 = load i32, ptr %incdec.ptr223, align 4
   %rem226 = shl i32 %ret.0.copyload.i265, 26
   %shl227 = and i32 %rem226, 469762048
   %or228 = or disjoint i32 %shl227, %shr222
   store i32 %or228, ptr %incdec.ptr221, align 4
-  %incdec.ptr229 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr229 = getelementptr inbounds i8, ptr %out, i64 124
   %shr230 = lshr i32 %ret.0.copyload.i265, 3
   store i32 %shr230, ptr %incdec.ptr229, align 4
-  %incdec.ptr231 = getelementptr inbounds i32, ptr %in, i64 29
+  %incdec.ptr231 = getelementptr inbounds i8, ptr %in, i64 116
   ret ptr %incdec.ptr231
 }
 
@@ -17480,270 +17474,270 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 1073741823
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 30
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i241 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i241, 2
   %shl = and i32 %rem6, 1073741820
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i241, 28
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i242 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i242, 4
   %shl13 = and i32 %rem12, 1073741808
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i242, 26
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i243 = load i32, ptr %incdec.ptr17, align 4
   %rem20 = shl i32 %ret.0.copyload.i243, 6
   %shl21 = and i32 %rem20, 1073741760
   %or22 = or disjoint i32 %shl21, %shr16
   store i32 %or22, ptr %incdec.ptr15, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 16
   %shr24 = lshr i32 %ret.0.copyload.i243, 24
   store i32 %shr24, ptr %incdec.ptr23, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i244 = load i32, ptr %incdec.ptr25, align 4
   %rem28 = shl i32 %ret.0.copyload.i244, 8
   %shl29 = and i32 %rem28, 1073741568
   %or30 = or disjoint i32 %shl29, %shr24
   store i32 %or30, ptr %incdec.ptr23, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 20
   %shr32 = lshr i32 %ret.0.copyload.i244, 22
   store i32 %shr32, ptr %incdec.ptr31, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i245 = load i32, ptr %incdec.ptr33, align 4
   %rem36 = shl i32 %ret.0.copyload.i245, 10
   %shl37 = and i32 %rem36, 1073740800
   %or38 = or disjoint i32 %shl37, %shr32
   store i32 %or38, ptr %incdec.ptr31, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 24
   %shr40 = lshr i32 %ret.0.copyload.i245, 20
   store i32 %shr40, ptr %incdec.ptr39, align 4
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i246 = load i32, ptr %incdec.ptr41, align 4
   %rem44 = shl i32 %ret.0.copyload.i246, 12
   %shl45 = and i32 %rem44, 1073737728
   %or46 = or disjoint i32 %shl45, %shr40
   store i32 %or46, ptr %incdec.ptr39, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %out, i64 28
   %shr48 = lshr i32 %ret.0.copyload.i246, 18
   store i32 %shr48, ptr %incdec.ptr47, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i247 = load i32, ptr %incdec.ptr49, align 4
   %rem52 = shl i32 %ret.0.copyload.i247, 14
   %shl53 = and i32 %rem52, 1073725440
   %or54 = or disjoint i32 %shl53, %shr48
   store i32 %or54, ptr %incdec.ptr47, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 32
   %shr56 = lshr i32 %ret.0.copyload.i247, 16
   store i32 %shr56, ptr %incdec.ptr55, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i248 = load i32, ptr %incdec.ptr57, align 4
   %rem60 = shl i32 %ret.0.copyload.i248, 16
   %shl61 = and i32 %rem60, 1073676288
   %or62 = or disjoint i32 %shl61, %shr56
   store i32 %or62, ptr %incdec.ptr55, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 36
   %shr64 = lshr i32 %ret.0.copyload.i248, 14
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i249 = load i32, ptr %incdec.ptr65, align 4
   %rem68 = shl i32 %ret.0.copyload.i249, 18
   %shl69 = and i32 %rem68, 1073479680
   %or70 = or disjoint i32 %shl69, %shr64
   store i32 %or70, ptr %incdec.ptr63, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 40
   %shr72 = lshr i32 %ret.0.copyload.i249, 12
   store i32 %shr72, ptr %incdec.ptr71, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i250 = load i32, ptr %incdec.ptr73, align 4
   %rem76 = shl i32 %ret.0.copyload.i250, 20
   %shl77 = and i32 %rem76, 1072693248
   %or78 = or disjoint i32 %shl77, %shr72
   store i32 %or78, ptr %incdec.ptr71, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 44
   %shr80 = lshr i32 %ret.0.copyload.i250, 10
   store i32 %shr80, ptr %incdec.ptr79, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i251 = load i32, ptr %incdec.ptr81, align 4
   %rem84 = shl i32 %ret.0.copyload.i251, 22
   %shl85 = and i32 %rem84, 1069547520
   %or86 = or disjoint i32 %shl85, %shr80
   store i32 %or86, ptr %incdec.ptr79, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %out, i64 48
   %shr88 = lshr i32 %ret.0.copyload.i251, 8
   store i32 %shr88, ptr %incdec.ptr87, align 4
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i252 = load i32, ptr %incdec.ptr89, align 4
   %rem92 = shl i32 %ret.0.copyload.i252, 24
   %shl93 = and i32 %rem92, 1056964608
   %or94 = or disjoint i32 %shl93, %shr88
   store i32 %or94, ptr %incdec.ptr87, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %out, i64 52
   %shr96 = lshr i32 %ret.0.copyload.i252, 6
   store i32 %shr96, ptr %incdec.ptr95, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i253 = load i32, ptr %incdec.ptr97, align 4
   %rem100 = shl i32 %ret.0.copyload.i253, 26
   %shl101 = and i32 %rem100, 1006632960
   %or102 = or disjoint i32 %shl101, %shr96
   store i32 %or102, ptr %incdec.ptr95, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %out, i64 56
   %shr104 = lshr i32 %ret.0.copyload.i253, 4
   store i32 %shr104, ptr %incdec.ptr103, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i254 = load i32, ptr %incdec.ptr105, align 4
   %rem108 = shl i32 %ret.0.copyload.i254, 28
   %shl109 = and i32 %rem108, 805306368
   %or110 = or disjoint i32 %shl109, %shr104
   store i32 %or110, ptr %incdec.ptr103, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 60
   %shr112 = lshr i32 %ret.0.copyload.i254, 2
   store i32 %shr112, ptr %incdec.ptr111, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i255 = load i32, ptr %incdec.ptr113, align 4
-  %incdec.ptr116 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %out, i64 64
   %rem118 = and i32 %ret.0.copyload.i255, 1073741823
   store i32 %rem118, ptr %incdec.ptr116, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %out, i64 68
   %shr120 = lshr i32 %ret.0.copyload.i255, 30
   store i32 %shr120, ptr %incdec.ptr119, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i256 = load i32, ptr %incdec.ptr121, align 4
   %rem124 = shl i32 %ret.0.copyload.i256, 2
   %shl125 = and i32 %rem124, 1073741820
   %or126 = or disjoint i32 %shl125, %shr120
   store i32 %or126, ptr %incdec.ptr119, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %out, i64 72
   %shr128 = lshr i32 %ret.0.copyload.i256, 28
   store i32 %shr128, ptr %incdec.ptr127, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i257 = load i32, ptr %incdec.ptr129, align 4
   %rem132 = shl i32 %ret.0.copyload.i257, 4
   %shl133 = and i32 %rem132, 1073741808
   %or134 = or disjoint i32 %shl133, %shr128
   store i32 %or134, ptr %incdec.ptr127, align 4
-  %incdec.ptr135 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %out, i64 76
   %shr136 = lshr i32 %ret.0.copyload.i257, 26
   store i32 %shr136, ptr %incdec.ptr135, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i258 = load i32, ptr %incdec.ptr137, align 4
   %rem140 = shl i32 %ret.0.copyload.i258, 6
   %shl141 = and i32 %rem140, 1073741760
   %or142 = or disjoint i32 %shl141, %shr136
   store i32 %or142, ptr %incdec.ptr135, align 4
-  %incdec.ptr143 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %out, i64 80
   %shr144 = lshr i32 %ret.0.copyload.i258, 24
   store i32 %shr144, ptr %incdec.ptr143, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i259 = load i32, ptr %incdec.ptr145, align 4
   %rem148 = shl i32 %ret.0.copyload.i259, 8
   %shl149 = and i32 %rem148, 1073741568
   %or150 = or disjoint i32 %shl149, %shr144
   store i32 %or150, ptr %incdec.ptr143, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %out, i64 84
   %shr152 = lshr i32 %ret.0.copyload.i259, 22
   store i32 %shr152, ptr %incdec.ptr151, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i260 = load i32, ptr %incdec.ptr153, align 4
   %rem156 = shl i32 %ret.0.copyload.i260, 10
   %shl157 = and i32 %rem156, 1073740800
   %or158 = or disjoint i32 %shl157, %shr152
   store i32 %or158, ptr %incdec.ptr151, align 4
-  %incdec.ptr159 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %out, i64 88
   %shr160 = lshr i32 %ret.0.copyload.i260, 20
   store i32 %shr160, ptr %incdec.ptr159, align 4
-  %incdec.ptr161 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr161 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i261 = load i32, ptr %incdec.ptr161, align 4
   %rem164 = shl i32 %ret.0.copyload.i261, 12
   %shl165 = and i32 %rem164, 1073737728
   %or166 = or disjoint i32 %shl165, %shr160
   store i32 %or166, ptr %incdec.ptr159, align 4
-  %incdec.ptr167 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr167 = getelementptr inbounds i8, ptr %out, i64 92
   %shr168 = lshr i32 %ret.0.copyload.i261, 18
   store i32 %shr168, ptr %incdec.ptr167, align 4
-  %incdec.ptr169 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr169 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i262 = load i32, ptr %incdec.ptr169, align 4
   %rem172 = shl i32 %ret.0.copyload.i262, 14
   %shl173 = and i32 %rem172, 1073725440
   %or174 = or disjoint i32 %shl173, %shr168
   store i32 %or174, ptr %incdec.ptr167, align 4
-  %incdec.ptr175 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr175 = getelementptr inbounds i8, ptr %out, i64 96
   %shr176 = lshr i32 %ret.0.copyload.i262, 16
   store i32 %shr176, ptr %incdec.ptr175, align 4
-  %incdec.ptr177 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i263 = load i32, ptr %incdec.ptr177, align 4
   %rem180 = shl i32 %ret.0.copyload.i263, 16
   %shl181 = and i32 %rem180, 1073676288
   %or182 = or disjoint i32 %shl181, %shr176
   store i32 %or182, ptr %incdec.ptr175, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %out, i64 100
   %shr184 = lshr i32 %ret.0.copyload.i263, 14
   store i32 %shr184, ptr %incdec.ptr183, align 4
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %in, i64 96
   %ret.0.copyload.i264 = load i32, ptr %incdec.ptr185, align 4
   %rem188 = shl i32 %ret.0.copyload.i264, 18
   %shl189 = and i32 %rem188, 1073479680
   %or190 = or disjoint i32 %shl189, %shr184
   store i32 %or190, ptr %incdec.ptr183, align 4
-  %incdec.ptr191 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %out, i64 104
   %shr192 = lshr i32 %ret.0.copyload.i264, 12
   store i32 %shr192, ptr %incdec.ptr191, align 4
-  %incdec.ptr193 = getelementptr inbounds i32, ptr %in, i64 25
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %in, i64 100
   %ret.0.copyload.i265 = load i32, ptr %incdec.ptr193, align 4
   %rem196 = shl i32 %ret.0.copyload.i265, 20
   %shl197 = and i32 %rem196, 1072693248
   %or198 = or disjoint i32 %shl197, %shr192
   store i32 %or198, ptr %incdec.ptr191, align 4
-  %incdec.ptr199 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr199 = getelementptr inbounds i8, ptr %out, i64 108
   %shr200 = lshr i32 %ret.0.copyload.i265, 10
   store i32 %shr200, ptr %incdec.ptr199, align 4
-  %incdec.ptr201 = getelementptr inbounds i32, ptr %in, i64 26
+  %incdec.ptr201 = getelementptr inbounds i8, ptr %in, i64 104
   %ret.0.copyload.i266 = load i32, ptr %incdec.ptr201, align 4
   %rem204 = shl i32 %ret.0.copyload.i266, 22
   %shl205 = and i32 %rem204, 1069547520
   %or206 = or disjoint i32 %shl205, %shr200
   store i32 %or206, ptr %incdec.ptr199, align 4
-  %incdec.ptr207 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr207 = getelementptr inbounds i8, ptr %out, i64 112
   %shr208 = lshr i32 %ret.0.copyload.i266, 8
   store i32 %shr208, ptr %incdec.ptr207, align 4
-  %incdec.ptr209 = getelementptr inbounds i32, ptr %in, i64 27
+  %incdec.ptr209 = getelementptr inbounds i8, ptr %in, i64 108
   %ret.0.copyload.i267 = load i32, ptr %incdec.ptr209, align 4
   %rem212 = shl i32 %ret.0.copyload.i267, 24
   %shl213 = and i32 %rem212, 1056964608
   %or214 = or disjoint i32 %shl213, %shr208
   store i32 %or214, ptr %incdec.ptr207, align 4
-  %incdec.ptr215 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr215 = getelementptr inbounds i8, ptr %out, i64 116
   %shr216 = lshr i32 %ret.0.copyload.i267, 6
   store i32 %shr216, ptr %incdec.ptr215, align 4
-  %incdec.ptr217 = getelementptr inbounds i32, ptr %in, i64 28
+  %incdec.ptr217 = getelementptr inbounds i8, ptr %in, i64 112
   %ret.0.copyload.i268 = load i32, ptr %incdec.ptr217, align 4
   %rem220 = shl i32 %ret.0.copyload.i268, 26
   %shl221 = and i32 %rem220, 1006632960
   %or222 = or disjoint i32 %shl221, %shr216
   store i32 %or222, ptr %incdec.ptr215, align 4
-  %incdec.ptr223 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr223 = getelementptr inbounds i8, ptr %out, i64 120
   %shr224 = lshr i32 %ret.0.copyload.i268, 4
   store i32 %shr224, ptr %incdec.ptr223, align 4
-  %incdec.ptr225 = getelementptr inbounds i32, ptr %in, i64 29
+  %incdec.ptr225 = getelementptr inbounds i8, ptr %in, i64 116
   %ret.0.copyload.i269 = load i32, ptr %incdec.ptr225, align 4
   %rem228 = shl i32 %ret.0.copyload.i269, 28
   %shl229 = and i32 %rem228, 805306368
   %or230 = or disjoint i32 %shl229, %shr224
   store i32 %or230, ptr %incdec.ptr223, align 4
-  %incdec.ptr231 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr231 = getelementptr inbounds i8, ptr %out, i64 124
   %shr232 = lshr i32 %ret.0.copyload.i269, 2
   store i32 %shr232, ptr %incdec.ptr231, align 4
-  %incdec.ptr233 = getelementptr inbounds i32, ptr %in, i64 30
+  %incdec.ptr233 = getelementptr inbounds i8, ptr %in, i64 120
   ret ptr %incdec.ptr233
 }
 
@@ -17753,280 +17747,280 @@ entry:
   %ret.0.copyload.i = load i32, ptr %in, align 4
   %rem = and i32 %ret.0.copyload.i, 2147483647
   store i32 %rem, ptr %out, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %out, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out, i64 4
   %shr2 = lshr i32 %ret.0.copyload.i, 31
   store i32 %shr2, ptr %incdec.ptr, align 4
-  %incdec.ptr3 = getelementptr inbounds i32, ptr %in, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in, i64 4
   %ret.0.copyload.i248 = load i32, ptr %incdec.ptr3, align 4
   %rem6 = shl i32 %ret.0.copyload.i248, 1
   %shl = and i32 %rem6, 2147483646
   %or = or disjoint i32 %shl, %shr2
   store i32 %or, ptr %incdec.ptr, align 4
-  %incdec.ptr7 = getelementptr inbounds i32, ptr %out, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %out, i64 8
   %shr8 = lshr i32 %ret.0.copyload.i248, 30
   store i32 %shr8, ptr %incdec.ptr7, align 4
-  %incdec.ptr9 = getelementptr inbounds i32, ptr %in, i64 2
+  %incdec.ptr9 = getelementptr inbounds i8, ptr %in, i64 8
   %ret.0.copyload.i249 = load i32, ptr %incdec.ptr9, align 4
   %rem12 = shl i32 %ret.0.copyload.i249, 2
   %shl13 = and i32 %rem12, 2147483644
   %or14 = or disjoint i32 %shl13, %shr8
   store i32 %or14, ptr %incdec.ptr7, align 4
-  %incdec.ptr15 = getelementptr inbounds i32, ptr %out, i64 3
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %out, i64 12
   %shr16 = lshr i32 %ret.0.copyload.i249, 29
   store i32 %shr16, ptr %incdec.ptr15, align 4
-  %incdec.ptr17 = getelementptr inbounds i32, ptr %in, i64 3
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %in, i64 12
   %ret.0.copyload.i250 = load i32, ptr %incdec.ptr17, align 4
   %rem20 = shl i32 %ret.0.copyload.i250, 3
   %shl21 = and i32 %rem20, 2147483640
   %or22 = or disjoint i32 %shl21, %shr16
   store i32 %or22, ptr %incdec.ptr15, align 4
-  %incdec.ptr23 = getelementptr inbounds i32, ptr %out, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %out, i64 16
   %shr24 = lshr i32 %ret.0.copyload.i250, 28
   store i32 %shr24, ptr %incdec.ptr23, align 4
-  %incdec.ptr25 = getelementptr inbounds i32, ptr %in, i64 4
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %in, i64 16
   %ret.0.copyload.i251 = load i32, ptr %incdec.ptr25, align 4
   %rem28 = shl i32 %ret.0.copyload.i251, 4
   %shl29 = and i32 %rem28, 2147483632
   %or30 = or disjoint i32 %shl29, %shr24
   store i32 %or30, ptr %incdec.ptr23, align 4
-  %incdec.ptr31 = getelementptr inbounds i32, ptr %out, i64 5
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out, i64 20
   %shr32 = lshr i32 %ret.0.copyload.i251, 27
   store i32 %shr32, ptr %incdec.ptr31, align 4
-  %incdec.ptr33 = getelementptr inbounds i32, ptr %in, i64 5
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %in, i64 20
   %ret.0.copyload.i252 = load i32, ptr %incdec.ptr33, align 4
   %rem36 = shl i32 %ret.0.copyload.i252, 5
   %shl37 = and i32 %rem36, 2147483616
   %or38 = or disjoint i32 %shl37, %shr32
   store i32 %or38, ptr %incdec.ptr31, align 4
-  %incdec.ptr39 = getelementptr inbounds i32, ptr %out, i64 6
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %out, i64 24
   %shr40 = lshr i32 %ret.0.copyload.i252, 26
   store i32 %shr40, ptr %incdec.ptr39, align 4
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %in, i64 6
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %in, i64 24
   %ret.0.copyload.i253 = load i32, ptr %incdec.ptr41, align 4
   %rem44 = shl i32 %ret.0.copyload.i253, 6
   %shl45 = and i32 %rem44, 2147483584
   %or46 = or disjoint i32 %shl45, %shr40
   store i32 %or46, ptr %incdec.ptr39, align 4
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %out, i64 7
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %out, i64 28
   %shr48 = lshr i32 %ret.0.copyload.i253, 25
   store i32 %shr48, ptr %incdec.ptr47, align 4
-  %incdec.ptr49 = getelementptr inbounds i32, ptr %in, i64 7
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %in, i64 28
   %ret.0.copyload.i254 = load i32, ptr %incdec.ptr49, align 4
   %rem52 = shl i32 %ret.0.copyload.i254, 7
   %shl53 = and i32 %rem52, 2147483520
   %or54 = or disjoint i32 %shl53, %shr48
   store i32 %or54, ptr %incdec.ptr47, align 4
-  %incdec.ptr55 = getelementptr inbounds i32, ptr %out, i64 8
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %out, i64 32
   %shr56 = lshr i32 %ret.0.copyload.i254, 24
   store i32 %shr56, ptr %incdec.ptr55, align 4
-  %incdec.ptr57 = getelementptr inbounds i32, ptr %in, i64 8
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %in, i64 32
   %ret.0.copyload.i255 = load i32, ptr %incdec.ptr57, align 4
   %rem60 = shl i32 %ret.0.copyload.i255, 8
   %shl61 = and i32 %rem60, 2147483392
   %or62 = or disjoint i32 %shl61, %shr56
   store i32 %or62, ptr %incdec.ptr55, align 4
-  %incdec.ptr63 = getelementptr inbounds i32, ptr %out, i64 9
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %out, i64 36
   %shr64 = lshr i32 %ret.0.copyload.i255, 23
   store i32 %shr64, ptr %incdec.ptr63, align 4
-  %incdec.ptr65 = getelementptr inbounds i32, ptr %in, i64 9
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %in, i64 36
   %ret.0.copyload.i256 = load i32, ptr %incdec.ptr65, align 4
   %rem68 = shl i32 %ret.0.copyload.i256, 9
   %shl69 = and i32 %rem68, 2147483136
   %or70 = or disjoint i32 %shl69, %shr64
   store i32 %or70, ptr %incdec.ptr63, align 4
-  %incdec.ptr71 = getelementptr inbounds i32, ptr %out, i64 10
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %out, i64 40
   %shr72 = lshr i32 %ret.0.copyload.i256, 22
   store i32 %shr72, ptr %incdec.ptr71, align 4
-  %incdec.ptr73 = getelementptr inbounds i32, ptr %in, i64 10
+  %incdec.ptr73 = getelementptr inbounds i8, ptr %in, i64 40
   %ret.0.copyload.i257 = load i32, ptr %incdec.ptr73, align 4
   %rem76 = shl i32 %ret.0.copyload.i257, 10
   %shl77 = and i32 %rem76, 2147482624
   %or78 = or disjoint i32 %shl77, %shr72
   store i32 %or78, ptr %incdec.ptr71, align 4
-  %incdec.ptr79 = getelementptr inbounds i32, ptr %out, i64 11
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %out, i64 44
   %shr80 = lshr i32 %ret.0.copyload.i257, 21
   store i32 %shr80, ptr %incdec.ptr79, align 4
-  %incdec.ptr81 = getelementptr inbounds i32, ptr %in, i64 11
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %in, i64 44
   %ret.0.copyload.i258 = load i32, ptr %incdec.ptr81, align 4
   %rem84 = shl i32 %ret.0.copyload.i258, 11
   %shl85 = and i32 %rem84, 2147481600
   %or86 = or disjoint i32 %shl85, %shr80
   store i32 %or86, ptr %incdec.ptr79, align 4
-  %incdec.ptr87 = getelementptr inbounds i32, ptr %out, i64 12
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %out, i64 48
   %shr88 = lshr i32 %ret.0.copyload.i258, 20
   store i32 %shr88, ptr %incdec.ptr87, align 4
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %in, i64 12
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %in, i64 48
   %ret.0.copyload.i259 = load i32, ptr %incdec.ptr89, align 4
   %rem92 = shl i32 %ret.0.copyload.i259, 12
   %shl93 = and i32 %rem92, 2147479552
   %or94 = or disjoint i32 %shl93, %shr88
   store i32 %or94, ptr %incdec.ptr87, align 4
-  %incdec.ptr95 = getelementptr inbounds i32, ptr %out, i64 13
+  %incdec.ptr95 = getelementptr inbounds i8, ptr %out, i64 52
   %shr96 = lshr i32 %ret.0.copyload.i259, 19
   store i32 %shr96, ptr %incdec.ptr95, align 4
-  %incdec.ptr97 = getelementptr inbounds i32, ptr %in, i64 13
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %in, i64 52
   %ret.0.copyload.i260 = load i32, ptr %incdec.ptr97, align 4
   %rem100 = shl i32 %ret.0.copyload.i260, 13
   %shl101 = and i32 %rem100, 2147475456
   %or102 = or disjoint i32 %shl101, %shr96
   store i32 %or102, ptr %incdec.ptr95, align 4
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %out, i64 14
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %out, i64 56
   %shr104 = lshr i32 %ret.0.copyload.i260, 18
   store i32 %shr104, ptr %incdec.ptr103, align 4
-  %incdec.ptr105 = getelementptr inbounds i32, ptr %in, i64 14
+  %incdec.ptr105 = getelementptr inbounds i8, ptr %in, i64 56
   %ret.0.copyload.i261 = load i32, ptr %incdec.ptr105, align 4
   %rem108 = shl i32 %ret.0.copyload.i261, 14
   %shl109 = and i32 %rem108, 2147467264
   %or110 = or disjoint i32 %shl109, %shr104
   store i32 %or110, ptr %incdec.ptr103, align 4
-  %incdec.ptr111 = getelementptr inbounds i32, ptr %out, i64 15
+  %incdec.ptr111 = getelementptr inbounds i8, ptr %out, i64 60
   %shr112 = lshr i32 %ret.0.copyload.i261, 17
   store i32 %shr112, ptr %incdec.ptr111, align 4
-  %incdec.ptr113 = getelementptr inbounds i32, ptr %in, i64 15
+  %incdec.ptr113 = getelementptr inbounds i8, ptr %in, i64 60
   %ret.0.copyload.i262 = load i32, ptr %incdec.ptr113, align 4
   %rem116 = shl i32 %ret.0.copyload.i262, 15
   %shl117 = and i32 %rem116, 2147450880
   %or118 = or disjoint i32 %shl117, %shr112
   store i32 %or118, ptr %incdec.ptr111, align 4
-  %incdec.ptr119 = getelementptr inbounds i32, ptr %out, i64 16
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %out, i64 64
   %shr120 = lshr i32 %ret.0.copyload.i262, 16
   store i32 %shr120, ptr %incdec.ptr119, align 4
-  %incdec.ptr121 = getelementptr inbounds i32, ptr %in, i64 16
+  %incdec.ptr121 = getelementptr inbounds i8, ptr %in, i64 64
   %ret.0.copyload.i263 = load i32, ptr %incdec.ptr121, align 4
   %rem124 = shl i32 %ret.0.copyload.i263, 16
   %shl125 = and i32 %rem124, 2147418112
   %or126 = or disjoint i32 %shl125, %shr120
   store i32 %or126, ptr %incdec.ptr119, align 4
-  %incdec.ptr127 = getelementptr inbounds i32, ptr %out, i64 17
+  %incdec.ptr127 = getelementptr inbounds i8, ptr %out, i64 68
   %shr128 = lshr i32 %ret.0.copyload.i263, 15
   store i32 %shr128, ptr %incdec.ptr127, align 4
-  %incdec.ptr129 = getelementptr inbounds i32, ptr %in, i64 17
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %in, i64 68
   %ret.0.copyload.i264 = load i32, ptr %incdec.ptr129, align 4
   %rem132 = shl i32 %ret.0.copyload.i264, 17
   %shl133 = and i32 %rem132, 2147352576
   %or134 = or disjoint i32 %shl133, %shr128
   store i32 %or134, ptr %incdec.ptr127, align 4
-  %incdec.ptr135 = getelementptr inbounds i32, ptr %out, i64 18
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %out, i64 72
   %shr136 = lshr i32 %ret.0.copyload.i264, 14
   store i32 %shr136, ptr %incdec.ptr135, align 4
-  %incdec.ptr137 = getelementptr inbounds i32, ptr %in, i64 18
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %in, i64 72
   %ret.0.copyload.i265 = load i32, ptr %incdec.ptr137, align 4
   %rem140 = shl i32 %ret.0.copyload.i265, 18
   %shl141 = and i32 %rem140, 2147221504
   %or142 = or disjoint i32 %shl141, %shr136
   store i32 %or142, ptr %incdec.ptr135, align 4
-  %incdec.ptr143 = getelementptr inbounds i32, ptr %out, i64 19
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %out, i64 76
   %shr144 = lshr i32 %ret.0.copyload.i265, 13
   store i32 %shr144, ptr %incdec.ptr143, align 4
-  %incdec.ptr145 = getelementptr inbounds i32, ptr %in, i64 19
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %in, i64 76
   %ret.0.copyload.i266 = load i32, ptr %incdec.ptr145, align 4
   %rem148 = shl i32 %ret.0.copyload.i266, 19
   %shl149 = and i32 %rem148, 2146959360
   %or150 = or disjoint i32 %shl149, %shr144
   store i32 %or150, ptr %incdec.ptr143, align 4
-  %incdec.ptr151 = getelementptr inbounds i32, ptr %out, i64 20
+  %incdec.ptr151 = getelementptr inbounds i8, ptr %out, i64 80
   %shr152 = lshr i32 %ret.0.copyload.i266, 12
   store i32 %shr152, ptr %incdec.ptr151, align 4
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %in, i64 20
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %in, i64 80
   %ret.0.copyload.i267 = load i32, ptr %incdec.ptr153, align 4
   %rem156 = shl i32 %ret.0.copyload.i267, 20
   %shl157 = and i32 %rem156, 2146435072
   %or158 = or disjoint i32 %shl157, %shr152
   store i32 %or158, ptr %incdec.ptr151, align 4
-  %incdec.ptr159 = getelementptr inbounds i32, ptr %out, i64 21
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %out, i64 84
   %shr160 = lshr i32 %ret.0.copyload.i267, 11
   store i32 %shr160, ptr %incdec.ptr159, align 4
-  %incdec.ptr161 = getelementptr inbounds i32, ptr %in, i64 21
+  %incdec.ptr161 = getelementptr inbounds i8, ptr %in, i64 84
   %ret.0.copyload.i268 = load i32, ptr %incdec.ptr161, align 4
   %rem164 = shl i32 %ret.0.copyload.i268, 21
   %shl165 = and i32 %rem164, 2145386496
   %or166 = or disjoint i32 %shl165, %shr160
   store i32 %or166, ptr %incdec.ptr159, align 4
-  %incdec.ptr167 = getelementptr inbounds i32, ptr %out, i64 22
+  %incdec.ptr167 = getelementptr inbounds i8, ptr %out, i64 88
   %shr168 = lshr i32 %ret.0.copyload.i268, 10
   store i32 %shr168, ptr %incdec.ptr167, align 4
-  %incdec.ptr169 = getelementptr inbounds i32, ptr %in, i64 22
+  %incdec.ptr169 = getelementptr inbounds i8, ptr %in, i64 88
   %ret.0.copyload.i269 = load i32, ptr %incdec.ptr169, align 4
   %rem172 = shl i32 %ret.0.copyload.i269, 22
   %shl173 = and i32 %rem172, 2143289344
   %or174 = or disjoint i32 %shl173, %shr168
   store i32 %or174, ptr %incdec.ptr167, align 4
-  %incdec.ptr175 = getelementptr inbounds i32, ptr %out, i64 23
+  %incdec.ptr175 = getelementptr inbounds i8, ptr %out, i64 92
   %shr176 = lshr i32 %ret.0.copyload.i269, 9
   store i32 %shr176, ptr %incdec.ptr175, align 4
-  %incdec.ptr177 = getelementptr inbounds i32, ptr %in, i64 23
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %in, i64 92
   %ret.0.copyload.i270 = load i32, ptr %incdec.ptr177, align 4
   %rem180 = shl i32 %ret.0.copyload.i270, 23
   %shl181 = and i32 %rem180, 2139095040
   %or182 = or disjoint i32 %shl181, %shr176
   store i32 %or182, ptr %incdec.ptr175, align 4
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %out, i64 24
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %out, i64 96
   %shr184 = lshr i32 %ret.0.copyload.i270, 8
   store i32 %shr184, ptr %incdec.ptr183, align 4
-  %incdec.ptr185 = getelementptr inbounds i32, ptr %in, i64 24
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %in, i64 96
   %ret.0.copyload.i271 = load i32, ptr %incdec.ptr185, align 4
   %rem188 = shl i32 %ret.0.copyload.i271, 24
   %shl189 = and i32 %rem188, 2130706432
   %or190 = or disjoint i32 %shl189, %shr184
   store i32 %or190, ptr %incdec.ptr183, align 4
-  %incdec.ptr191 = getelementptr inbounds i32, ptr %out, i64 25
+  %incdec.ptr191 = getelementptr inbounds i8, ptr %out, i64 100
   %shr192 = lshr i32 %ret.0.copyload.i271, 7
   store i32 %shr192, ptr %incdec.ptr191, align 4
-  %incdec.ptr193 = getelementptr inbounds i32, ptr %in, i64 25
+  %incdec.ptr193 = getelementptr inbounds i8, ptr %in, i64 100
   %ret.0.copyload.i272 = load i32, ptr %incdec.ptr193, align 4
   %rem196 = shl i32 %ret.0.copyload.i272, 25
   %shl197 = and i32 %rem196, 2113929216
   %or198 = or disjoint i32 %shl197, %shr192
   store i32 %or198, ptr %incdec.ptr191, align 4
-  %incdec.ptr199 = getelementptr inbounds i32, ptr %out, i64 26
+  %incdec.ptr199 = getelementptr inbounds i8, ptr %out, i64 104
   %shr200 = lshr i32 %ret.0.copyload.i272, 6
   store i32 %shr200, ptr %incdec.ptr199, align 4
-  %incdec.ptr201 = getelementptr inbounds i32, ptr %in, i64 26
+  %incdec.ptr201 = getelementptr inbounds i8, ptr %in, i64 104
   %ret.0.copyload.i273 = load i32, ptr %incdec.ptr201, align 4
   %rem204 = shl i32 %ret.0.copyload.i273, 26
   %shl205 = and i32 %rem204, 2080374784
   %or206 = or disjoint i32 %shl205, %shr200
   store i32 %or206, ptr %incdec.ptr199, align 4
-  %incdec.ptr207 = getelementptr inbounds i32, ptr %out, i64 27
+  %incdec.ptr207 = getelementptr inbounds i8, ptr %out, i64 108
   %shr208 = lshr i32 %ret.0.copyload.i273, 5
   store i32 %shr208, ptr %incdec.ptr207, align 4
-  %incdec.ptr209 = getelementptr inbounds i32, ptr %in, i64 27
+  %incdec.ptr209 = getelementptr inbounds i8, ptr %in, i64 108
   %ret.0.copyload.i274 = load i32, ptr %incdec.ptr209, align 4
   %rem212 = shl i32 %ret.0.copyload.i274, 27
   %shl213 = and i32 %rem212, 2013265920
   %or214 = or disjoint i32 %shl213, %shr208
   store i32 %or214, ptr %incdec.ptr207, align 4
-  %incdec.ptr215 = getelementptr inbounds i32, ptr %out, i64 28
+  %incdec.ptr215 = getelementptr inbounds i8, ptr %out, i64 112
   %shr216 = lshr i32 %ret.0.copyload.i274, 4
   store i32 %shr216, ptr %incdec.ptr215, align 4
-  %incdec.ptr217 = getelementptr inbounds i32, ptr %in, i64 28
+  %incdec.ptr217 = getelementptr inbounds i8, ptr %in, i64 112
   %ret.0.copyload.i275 = load i32, ptr %incdec.ptr217, align 4
   %rem220 = shl i32 %ret.0.copyload.i275, 28
   %shl221 = and i32 %rem220, 1879048192
   %or222 = or disjoint i32 %shl221, %shr216
   store i32 %or222, ptr %incdec.ptr215, align 4
-  %incdec.ptr223 = getelementptr inbounds i32, ptr %out, i64 29
+  %incdec.ptr223 = getelementptr inbounds i8, ptr %out, i64 116
   %shr224 = lshr i32 %ret.0.copyload.i275, 3
   store i32 %shr224, ptr %incdec.ptr223, align 4
-  %incdec.ptr225 = getelementptr inbounds i32, ptr %in, i64 29
+  %incdec.ptr225 = getelementptr inbounds i8, ptr %in, i64 116
   %ret.0.copyload.i276 = load i32, ptr %incdec.ptr225, align 4
   %rem228 = shl i32 %ret.0.copyload.i276, 29
   %shl229 = and i32 %rem228, 1610612736
   %or230 = or disjoint i32 %shl229, %shr224
   store i32 %or230, ptr %incdec.ptr223, align 4
-  %incdec.ptr231 = getelementptr inbounds i32, ptr %out, i64 30
+  %incdec.ptr231 = getelementptr inbounds i8, ptr %out, i64 120
   %shr232 = lshr i32 %ret.0.copyload.i276, 2
   store i32 %shr232, ptr %incdec.ptr231, align 4
-  %incdec.ptr233 = getelementptr inbounds i32, ptr %in, i64 30
+  %incdec.ptr233 = getelementptr inbounds i8, ptr %in, i64 120
   %ret.0.copyload.i277 = load i32, ptr %incdec.ptr233, align 4
   %rem236 = shl i32 %ret.0.copyload.i277, 30
   %shl237 = and i32 %rem236, 1073741824
   %or238 = or disjoint i32 %shl237, %shr232
   store i32 %or238, ptr %incdec.ptr231, align 4
-  %incdec.ptr239 = getelementptr inbounds i32, ptr %out, i64 31
+  %incdec.ptr239 = getelementptr inbounds i8, ptr %out, i64 124
   %shr240 = lshr i32 %ret.0.copyload.i277, 1
   store i32 %shr240, ptr %incdec.ptr239, align 4
-  %incdec.ptr241 = getelementptr inbounds i32, ptr %in, i64 31
+  %incdec.ptr241 = getelementptr inbounds i8, ptr %in, i64 124
   ret ptr %incdec.ptr241
 }
 

@@ -57,7 +57,7 @@ declare i32 @BIO_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @llvm.va_end(ptr) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [4096 x i8], align 16
   %bytes_in.i = alloca i64, align 8
@@ -348,7 +348,7 @@ while.body5.i:                                    ; preds = %while.cond3.prehead
   %43 = load ptr, ptr @chain, align 8
   %44 = load i64, ptr @amount, align 8
   %45 = getelementptr ptr, ptr %43, i64 %44
-  %arrayidx.i = getelementptr ptr, ptr %45, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %45, i64 -8
   %46 = load ptr, ptr %arrayidx.i, align 8
   %call7.i = call i32 @BIO_write_ex(ptr noundef %46, ptr noundef nonnull %buf.i, i64 noundef %42, ptr noundef nonnull %bytes.i) #7
   %tobool8.not.i = icmp eq i32 %call7.i, 0
@@ -377,7 +377,7 @@ land.end:                                         ; preds = %setup.exit.thread, 
 if.then.i5:                                       ; preds = %land.end
   %50 = load i64, ptr @amount, align 8
   %51 = getelementptr ptr, ptr %49, i64 %50
-  %arrayidx.i6 = getelementptr ptr, ptr %51, i64 -1
+  %arrayidx.i6 = getelementptr i8, ptr %51, i64 -8
   %52 = load ptr, ptr %arrayidx.i6, align 8
   call void @BIO_free_all(ptr noundef %52) #7
   %53 = load ptr, ptr @chain, align 8

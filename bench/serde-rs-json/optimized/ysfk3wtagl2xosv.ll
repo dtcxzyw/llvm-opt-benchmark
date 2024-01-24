@@ -8,7 +8,7 @@ define hidden void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$ser
   %4 = alloca { { i64, [1 x i64] } }, align 8
   %5 = load i8, ptr %2, align 1, !noundef !5
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3c11b037f515643aE"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %4, i8 %5)
-  %6 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void

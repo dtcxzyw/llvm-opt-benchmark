@@ -334,7 +334,7 @@ if.end:                                           ; preds = %entry
   %conv11 = or disjoint i16 %2, -9216
   %call12 = tail call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef 0)
   %3 = getelementptr i16, ptr %call12, i64 %call
-  %arrayidx14 = getelementptr i16, ptr %3, i64 1
+  %arrayidx14 = getelementptr i8, ptr %3, i64 2
   store i16 %conv11, ptr %arrayidx14, align 2
   br label %return
 

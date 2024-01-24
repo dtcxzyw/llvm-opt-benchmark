@@ -70,7 +70,7 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN7btClockaSERKS_(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %other) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
@@ -92,9 +92,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub = sub nsw i64 %0, %2
   %mul = mul nsw i64 %sub, 1000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %currentTime, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %currentTime, i64 8
   %3 = load i64, ptr %tv_usec, align 8
-  %tv_usec5 = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5, align 8
   %sub6 = sub nsw i64 %3, %4
   %div = sdiv i64 %sub6, 1000
@@ -112,9 +112,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub = sub nsw i64 %0, %2
   %mul = mul nsw i64 %sub, 1000000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %currentTime, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %currentTime, i64 8
   %3 = load i64, ptr %tv_usec, align 8
-  %tv_usec5 = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5, align 8
   %sub6 = sub i64 %3, %4
   %add = add nsw i64 %sub6, %mul
@@ -131,9 +131,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub = sub nsw i64 %0, %2
   %conv = sitofp i64 %sub to double
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %currentTime, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %currentTime, i64 8
   %3 = load i64, ptr %tv_usec, align 8
-  %tv_usec5 = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5, align 8
   %sub6 = sub nsw i64 %3, %4
   %mul7 = mul nsw i64 %sub6, 1000
@@ -157,9 +157,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %sub.i = sub nsw i64 %0, %2
   %mul.i = mul nsw i64 %sub.i, 1000000
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %currentTime.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %currentTime.i, i64 8
   %3 = load i64, ptr %tv_usec.i, align 8
-  %tv_usec5.i = getelementptr inbounds %struct.timeval, ptr %1, i64 0, i32 1
+  %tv_usec5.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %tv_usec5.i, align 8
   %sub6.i = sub i64 %3, %4
   %add.i = add nsw i64 %sub6.i, %mul.i
@@ -181,7 +181,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_Z33btQuickprofGetCurrentThreadIndex2v() local_unnamed_addr #6 {
 entry:
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZ33btQuickprofGetCurrentThreadIndex2vE12sThreadIndex)
@@ -299,7 +299,7 @@ attributes #2 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "mi
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

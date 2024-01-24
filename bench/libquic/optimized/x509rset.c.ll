@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/x509rset.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_REQ_set_version(ptr noundef readonly %x, i64 noundef %version) local_unnamed_addr #0 {
 entry:
@@ -14,7 +11,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %x, align 8
-  %version1 = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 1
+  %version1 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %version1, align 8
   %call = tail call i32 @ASN1_INTEGER_set(ptr noundef %1, i64 noundef %version) #2
   br label %return
@@ -38,7 +35,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %subject = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 2
+  %subject = getelementptr inbounds i8, ptr %0, i64 32
   %call = tail call i32 @X509_NAME_set(ptr noundef nonnull %subject, ptr noundef %name) #2
   br label %return
 
@@ -61,7 +58,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pubkey = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 40
   %call = tail call i32 @X509_PUBKEY_set(ptr noundef nonnull %pubkey, ptr noundef %pkey) #2
   br label %return
 

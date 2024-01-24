@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0d9095e3cc187571E(ptr align 8 %0, ptr align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = tail call { i64, i64 } @"_ZN93_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51f4f474a00702a8E"(ptr align 8 %0)
   %.fca.0.extract3 = extractvalue { i64, i64 } %6, 0
@@ -33,7 +33,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0d9095e3cc187571E
 define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9c6efdbe041e3420E(ptr align 8 %0, ptr align 8 %1, ptr align 4 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = tail call { i64, i64 } @"_ZN93_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h51f4f474a00702a8E"(ptr align 8 %0)
   %.fca.0.extract3 = extractvalue { i64, i64 } %6, 0

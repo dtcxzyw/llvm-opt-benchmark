@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/check.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dh_st = type { ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @DH_check_pub_key(ptr nocapture noundef readonly %dh, ptr noundef %pub_key, ptr nocapture noundef %ret) local_unnamed_addr #0 {
 entry:
@@ -60,7 +56,7 @@ if.then19:                                        ; preds = %if.end16
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %if.end16
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 7
+  %q = getelementptr inbounds i8, ptr %dh, i64 104
   %3 = load ptr, ptr %q, align 8
   %cmp22.not = icmp eq ptr %3, null
   br i1 %cmp22.not, label %err, label %if.then23
@@ -135,10 +131,10 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then109, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 7
+  %q = getelementptr inbounds i8, ptr %dh, i64 104
   %0 = load ptr, ptr %q, align 8
   %tobool.not = icmp eq ptr %0, null
-  %g59 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 1
+  %g59 = getelementptr inbounds i8, ptr %dh, i64 8
   %1 = load ptr, ptr %g59, align 8
   br i1 %tobool.not, label %if.else58, label %if.then9
 
@@ -205,7 +201,7 @@ if.then48:                                        ; preds = %if.end45
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.end45
-  %j = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 8
+  %j = getelementptr inbounds i8, ptr %dh, i64 112
   %13 = load ptr, ptr %j, align 8
   %tobool51.not = icmp eq ptr %13, null
   br i1 %tobool51.not, label %if.end86, label %land.lhs.true

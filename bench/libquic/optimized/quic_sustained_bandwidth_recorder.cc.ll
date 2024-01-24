@@ -3,11 +3,9 @@ source_filename = "bench/libquic/original/quic_sustained_bandwidth_recorder.cc.l
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicSustainedBandwidthRecorder" = type { i8, i8, i8, %"class.net::QuicBandwidth", %"class.net::QuicBandwidth", i64, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
-%"class.net::QuicTime" = type { i64 }
 %"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
 %"class.base::TimeDelta" = type { i64 }
+%"class.net::QuicBandwidth" = type { i64 }
 %"class.net::QuicWallTime" = type { i64 }
 
 @_ZN3net30QuicSustainedBandwidthRecorderC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net30QuicSustainedBandwidthRecorderC2Ev
@@ -16,17 +14,17 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net30QuicSustainedBandwidthRecorderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %is_recording_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 1
+  %is_recording_ = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %is_recording_, align 1
-  %bandwidth_estimate_recorded_during_slow_start_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 2
+  %bandwidth_estimate_recorded_during_slow_start_ = getelementptr inbounds i8, ptr %this, i64 2
   store i8 0, ptr %bandwidth_estimate_recorded_during_slow_start_, align 2
-  %bandwidth_estimate_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 3
+  %bandwidth_estimate_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i64 @_ZN3net13QuicBandwidth4ZeroEv()
   store i64 %call, ptr %bandwidth_estimate_, align 8
-  %max_bandwidth_estimate_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 4
+  %max_bandwidth_estimate_ = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = tail call i64 @_ZN3net13QuicBandwidth4ZeroEv()
   store i64 %call2, ptr %max_bandwidth_estimate_, align 8
-  %max_bandwidth_timestamp_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 5
+  %max_bandwidth_timestamp_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %max_bandwidth_timestamp_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -41,7 +39,7 @@ entry:
   %wall_time = alloca %"class.net::QuicWallTime", align 8
   store i64 %wall_time.coerce, ptr %wall_time, align 8
   %frombool3 = zext i1 %in_slow_start to i8
-  %is_recording_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 1
+  %is_recording_ = getelementptr inbounds i8, ptr %this, i64 1
   br i1 %in_recovery, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -52,7 +50,7 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %is_recording_, align 1
   %1 = and i8 %0, 1
   %tobool6.not = icmp eq i8 %1, 0
-  %start_time_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 6
+  %start_time_ = getelementptr inbounds i8, ptr %this, i64 32
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
@@ -71,14 +69,14 @@ if.end9:                                          ; preds = %if.end
 
 if.then19:                                        ; preds = %if.end9
   store i8 1, ptr %this, align 8
-  %bandwidth_estimate_recorded_during_slow_start_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 2
+  %bandwidth_estimate_recorded_during_slow_start_ = getelementptr inbounds i8, ptr %this, i64 2
   store i8 %frombool3, ptr %bandwidth_estimate_recorded_during_slow_start_, align 2
-  %bandwidth_estimate_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 3
+  %bandwidth_estimate_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %bandwidth.coerce, ptr %bandwidth_estimate_, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %if.end9
-  %max_bandwidth_estimate_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 4
+  %max_bandwidth_estimate_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp24.sroa.0.0.copyload = load i64, ptr %max_bandwidth_estimate_, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lhs.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rhs.i.i)
@@ -94,7 +92,7 @@ if.end22:                                         ; preds = %if.then19, %if.end9
 if.then28:                                        ; preds = %if.end22
   store i64 %bandwidth.coerce, ptr %max_bandwidth_estimate_, align 8
   %call30 = call noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull align 8 dereferenceable(8) %wall_time)
-  %max_bandwidth_timestamp_ = getelementptr inbounds %"class.net::QuicSustainedBandwidthRecorder", ptr %this, i64 0, i32 5
+  %max_bandwidth_timestamp_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %call30, ptr %max_bandwidth_timestamp_, align 8
   br label %if.end31
 

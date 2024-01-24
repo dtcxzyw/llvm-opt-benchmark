@@ -14,18 +14,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
+%struct.string_list_item = type { ptr, ptr }
+%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
+%struct.timespec = type { i64, i64 }
 %struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
 %struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.string_list_item = type { ptr, ptr }
-%struct.index_state = type { ptr, i32, i32, i32, i32, ptr, ptr, ptr, %struct.cache_time, i8, i32, %struct.hashmap, %struct.hashmap, %struct.object_id, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.cache_entry = type { %struct.hashmap_entry, %struct.stat_data, i32, i32, i32, i32, i32, %struct.object_id, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.resolve_undo_info = type { [3 x i32], [3 x %struct.object_id] }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%struct.dir_entry = type { i32, [0 x i8] }
 
 @line_terminator = internal global i32 10, align 4
 @.str = private unnamed_addr constant [38 x i8] c"separate paths with the NUL character\00", align 1
@@ -199,562 +193,562 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %dir, i8 0, i64 312, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %exclude_list, i8 0, i64 40, i1 false)
   store i32 9, ptr %builtin_ls_files_options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 4
   store i32 122, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 8
   store ptr null, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 16
   store ptr @line_terminator, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 32
   store ptr @.str, ptr %help, align 16
-  %flags = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 0, i32 7
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1
+  %callback = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 48
+  %arrayinit.element = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 1
+  %short_name2 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 92
   store i32 116, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 2
+  %long_name3 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 96
   store ptr null, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 3
+  %value4 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 104
   store ptr %show_tag, ptr %value4, align 8
-  %argh5 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 4
+  %argh5 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 112
   store ptr null, ptr %argh5, align 16
-  %help6 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 5
+  %help6 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 120
   store ptr @.str.1, ptr %help6, align 8
-  %flags7 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 6
+  %flags7 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 128
   store i32 2, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 7
+  %callback8 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 136
   store ptr null, ptr %callback8, align 8
-  %defval9 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 8
+  %defval9 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 144
   store i64 1, ptr %defval9, align 16
-  %ll_callback10 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 1, i32 9
-  %arrayinit.element13 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2
+  %ll_callback10 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 152
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback10, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 1
+  %short_name15 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 180
   store i32 118, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 2
+  %long_name16 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 184
   store ptr null, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 3
+  %value17 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 192
   store ptr @show_valid_bit, ptr %value17, align 16
-  %argh18 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 4
+  %argh18 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 200
   store ptr null, ptr %argh18, align 8
-  %help19 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 5
+  %help19 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 208
   store ptr @.str.2, ptr %help19, align 16
-  %flags20 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 6
+  %flags20 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 216
   store i32 2, ptr %flags20, align 8
-  %callback21 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 7
+  %callback21 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 224
   store ptr null, ptr %callback21, align 16
-  %defval22 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 8
+  %defval22 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 232
   store i64 1, ptr %defval22, align 8
-  %ll_callback23 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 2, i32 9
-  %arrayinit.element26 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3
+  %ll_callback23 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 240
+  %arrayinit.element26 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback23, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element26, align 8
-  %short_name28 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 1
+  %short_name28 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 268
   store i32 102, ptr %short_name28, align 4
-  %long_name29 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 2
+  %long_name29 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 272
   store ptr null, ptr %long_name29, align 16
-  %value30 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 3
+  %value30 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 280
   store ptr @show_fsmonitor_bit, ptr %value30, align 8
-  %argh31 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 4
+  %argh31 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 288
   store ptr null, ptr %argh31, align 16
-  %help32 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 5
+  %help32 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 296
   store ptr @.str.3, ptr %help32, align 8
-  %flags33 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 6
+  %flags33 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 304
   store i32 2, ptr %flags33, align 16
-  %callback34 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 7
+  %callback34 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 312
   store ptr null, ptr %callback34, align 8
-  %defval35 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 8
+  %defval35 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 320
   store i64 1, ptr %defval35, align 16
-  %ll_callback36 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 3, i32 9
-  %arrayinit.element39 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4
+  %ll_callback36 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 328
+  %arrayinit.element39 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback36, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element39, align 16
-  %short_name41 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 1
+  %short_name41 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 356
   store i32 99, ptr %short_name41, align 4
-  %long_name42 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 2
+  %long_name42 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 360
   store ptr @.str.4, ptr %long_name42, align 8
-  %value43 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 3
+  %value43 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 368
   store ptr @show_cached, ptr %value43, align 16
-  %argh44 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 4
+  %argh44 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 376
   store ptr null, ptr %argh44, align 8
-  %help45 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 5
+  %help45 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 384
   store ptr @.str.5, ptr %help45, align 16
-  %flags46 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 6
+  %flags46 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 392
   store i32 2, ptr %flags46, align 8
-  %callback47 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 7
+  %callback47 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 400
   store ptr null, ptr %callback47, align 16
-  %defval48 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 8
+  %defval48 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 408
   store i64 1, ptr %defval48, align 8
-  %ll_callback49 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 4, i32 9
-  %arrayinit.element52 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5
+  %ll_callback49 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 416
+  %arrayinit.element52 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback49, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element52, align 8
-  %short_name54 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 1
+  %short_name54 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 444
   store i32 100, ptr %short_name54, align 4
-  %long_name55 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 2
+  %long_name55 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 448
   store ptr @.str.6, ptr %long_name55, align 16
-  %value56 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 3
+  %value56 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 456
   store ptr @show_deleted, ptr %value56, align 8
-  %argh57 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 4
+  %argh57 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 464
   store ptr null, ptr %argh57, align 16
-  %help58 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 5
+  %help58 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 472
   store ptr @.str.7, ptr %help58, align 8
-  %flags59 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 6
+  %flags59 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 480
   store i32 2, ptr %flags59, align 16
-  %callback60 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 7
+  %callback60 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 488
   store ptr null, ptr %callback60, align 8
-  %defval61 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 8
+  %defval61 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 496
   store i64 1, ptr %defval61, align 16
-  %ll_callback62 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 5, i32 9
-  %arrayinit.element65 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6
+  %ll_callback62 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 504
+  %arrayinit.element65 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback62, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element65, align 16
-  %short_name67 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 1
+  %short_name67 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 532
   store i32 109, ptr %short_name67, align 4
-  %long_name68 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 2
+  %long_name68 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 536
   store ptr @.str.8, ptr %long_name68, align 8
-  %value69 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 3
+  %value69 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 544
   store ptr @show_modified, ptr %value69, align 16
-  %argh70 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 4
+  %argh70 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 552
   store ptr null, ptr %argh70, align 8
-  %help71 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 5
+  %help71 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 560
   store ptr @.str.9, ptr %help71, align 16
-  %flags72 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 6
+  %flags72 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 568
   store i32 2, ptr %flags72, align 8
-  %callback73 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 7
+  %callback73 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 576
   store ptr null, ptr %callback73, align 16
-  %defval74 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 8
+  %defval74 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 584
   store i64 1, ptr %defval74, align 8
-  %ll_callback75 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 6, i32 9
-  %arrayinit.element78 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7
+  %ll_callback75 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 592
+  %arrayinit.element78 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback75, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element78, align 8
-  %short_name80 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 1
+  %short_name80 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 620
   store i32 111, ptr %short_name80, align 4
-  %long_name81 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 2
+  %long_name81 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 624
   store ptr @.str.10, ptr %long_name81, align 16
-  %value82 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 3
+  %value82 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 632
   store ptr @show_others, ptr %value82, align 8
-  %argh83 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 4
+  %argh83 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 640
   store ptr null, ptr %argh83, align 16
-  %help84 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 5
+  %help84 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 648
   store ptr @.str.11, ptr %help84, align 8
-  %flags85 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 6
+  %flags85 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 656
   store i32 2, ptr %flags85, align 16
-  %callback86 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 7
+  %callback86 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 664
   store ptr null, ptr %callback86, align 8
-  %defval87 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 8
+  %defval87 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 672
   store i64 1, ptr %defval87, align 16
-  %ll_callback88 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 7, i32 9
-  %arrayinit.element91 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8
+  %ll_callback88 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 680
+  %arrayinit.element91 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 704
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback88, i8 0, i64 24, i1 false)
   store i32 5, ptr %arrayinit.element91, align 16
-  %short_name93 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 1
+  %short_name93 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 708
   store i32 105, ptr %short_name93, align 4
-  %long_name94 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 2
+  %long_name94 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 712
   store ptr @.str.12, ptr %long_name94, align 8
-  %value95 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 3
+  %value95 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 720
   store ptr %dir, ptr %value95, align 16
-  %argh97 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 4
+  %argh97 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 728
   store ptr null, ptr %argh97, align 8
-  %help98 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 5
+  %help98 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 736
   store ptr @.str.13, ptr %help98, align 16
-  %flags99 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 6
+  %flags99 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 744
   store i32 2, ptr %flags99, align 8
-  %callback100 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 7
+  %callback100 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 752
   store ptr null, ptr %callback100, align 16
-  %defval101 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 8
+  %defval101 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 760
   store i64 1, ptr %defval101, align 8
-  %ll_callback102 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 8, i32 9
-  %arrayinit.element105 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9
+  %ll_callback102 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 768
+  %arrayinit.element105 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback102, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element105, align 8
-  %short_name107 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 1
+  %short_name107 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 796
   store i32 115, ptr %short_name107, align 4
-  %long_name108 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 2
+  %long_name108 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 800
   store ptr @.str.14, ptr %long_name108, align 16
-  %value109 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 3
+  %value109 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 808
   store ptr @show_stage, ptr %value109, align 8
-  %argh110 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 4
+  %argh110 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 816
   store ptr null, ptr %argh110, align 16
-  %help111 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 5
+  %help111 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 824
   store ptr @.str.15, ptr %help111, align 8
-  %flags112 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 6
+  %flags112 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 832
   store i32 2, ptr %flags112, align 16
-  %callback113 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 7
+  %callback113 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 840
   store ptr null, ptr %callback113, align 8
-  %defval114 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 8
+  %defval114 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 848
   store i64 1, ptr %defval114, align 16
-  %ll_callback115 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 9, i32 9
-  %arrayinit.element118 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10
+  %ll_callback115 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 856
+  %arrayinit.element118 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 880
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback115, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element118, align 16
-  %short_name120 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 1
+  %short_name120 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 884
   store i32 107, ptr %short_name120, align 4
-  %long_name121 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 2
+  %long_name121 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 888
   store ptr @.str.16, ptr %long_name121, align 8
-  %value122 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 3
+  %value122 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 896
   store ptr @show_killed, ptr %value122, align 16
-  %argh123 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 4
+  %argh123 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 904
   store ptr null, ptr %argh123, align 8
-  %help124 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 5
+  %help124 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 912
   store ptr @.str.17, ptr %help124, align 16
-  %flags125 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 6
+  %flags125 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 920
   store i32 2, ptr %flags125, align 8
-  %callback126 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 7
+  %callback126 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 928
   store ptr null, ptr %callback126, align 16
-  %defval127 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 8
+  %defval127 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 936
   store i64 1, ptr %defval127, align 8
-  %ll_callback128 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 10, i32 9
-  %arrayinit.element131 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11
+  %ll_callback128 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 944
+  %arrayinit.element131 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 968
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback128, i8 0, i64 24, i1 false)
   store i32 5, ptr %arrayinit.element131, align 8
-  %short_name133 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 1
+  %short_name133 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 972
   store i32 0, ptr %short_name133, align 4
-  %long_name134 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 2
+  %long_name134 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 976
   store ptr @.str.18, ptr %long_name134, align 16
-  %value135 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 3
+  %value135 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 984
   store ptr %dir, ptr %value135, align 8
-  %argh137 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 4
+  %argh137 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 992
   store ptr null, ptr %argh137, align 16
-  %help138 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 5
+  %help138 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1000
   store ptr @.str.19, ptr %help138, align 8
-  %flags139 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 6
+  %flags139 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1008
   store i32 2, ptr %flags139, align 16
-  %callback140 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 7
+  %callback140 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1016
   store ptr null, ptr %callback140, align 8
-  %defval141 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 8
+  %defval141 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1024
   store i64 2, ptr %defval141, align 16
-  %ll_callback142 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 11, i32 9
-  %arrayinit.element145 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12
+  %ll_callback142 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1032
+  %arrayinit.element145 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1056
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback142, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element145, align 16
-  %short_name147 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 1
+  %short_name147 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1060
   store i32 0, ptr %short_name147, align 4
-  %long_name148 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 2
+  %long_name148 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1064
   store ptr @.str.20, ptr %long_name148, align 8
-  %value149 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 3
+  %value149 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1072
   store ptr @show_eol, ptr %value149, align 16
-  %argh150 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 4
+  %argh150 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1080
   store ptr null, ptr %argh150, align 8
-  %help151 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 5
+  %help151 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1088
   store ptr @.str.21, ptr %help151, align 16
-  %flags152 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 6
+  %flags152 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1096
   store i32 2, ptr %flags152, align 8
-  %callback153 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 7
+  %callback153 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1104
   store ptr null, ptr %callback153, align 16
-  %defval154 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 8
+  %defval154 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1112
   store i64 1, ptr %defval154, align 8
-  %ll_callback155 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 12, i32 9
-  %arrayinit.element158 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13
+  %ll_callback155 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1120
+  %arrayinit.element158 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback155, i8 0, i64 24, i1 false)
   store i32 6, ptr %arrayinit.element158, align 8
-  %short_name160 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 1
+  %short_name160 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1148
   store i32 0, ptr %short_name160, align 4
-  %long_name161 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 2
+  %long_name161 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1152
   store ptr @.str.22, ptr %long_name161, align 16
-  %value162 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 3
+  %value162 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1160
   store ptr %dir, ptr %value162, align 8
-  %argh164 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 4
+  %argh164 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1168
   store ptr null, ptr %argh164, align 16
-  %help165 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 5
+  %help165 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1176
   store ptr @.str.23, ptr %help165, align 8
-  %flags166 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 6
+  %flags166 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1184
   store i32 2, ptr %flags166, align 16
-  %callback167 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 7
+  %callback167 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1192
   store ptr null, ptr %callback167, align 8
-  %defval168 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 8
+  %defval168 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1200
   store i64 4, ptr %defval168, align 16
-  %ll_callback169 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 13, i32 9
-  %arrayinit.element172 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14
+  %ll_callback169 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1208
+  %arrayinit.element172 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback169, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element172, align 16
-  %short_name174 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 1
+  %short_name174 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1236
   store i32 117, ptr %short_name174, align 4
-  %long_name175 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 2
+  %long_name175 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1240
   store ptr @.str.24, ptr %long_name175, align 8
-  %value176 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 3
+  %value176 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1248
   store ptr @show_unmerged, ptr %value176, align 16
-  %argh177 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 4
+  %argh177 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1256
   store ptr null, ptr %argh177, align 8
-  %help178 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 5
+  %help178 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1264
   store ptr @.str.25, ptr %help178, align 16
-  %flags179 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 6
+  %flags179 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1272
   store i32 2, ptr %flags179, align 8
-  %callback180 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 7
+  %callback180 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1280
   store ptr null, ptr %callback180, align 16
-  %defval181 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 8
+  %defval181 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1288
   store i64 1, ptr %defval181, align 8
-  %ll_callback182 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 14, i32 9
-  %arrayinit.element185 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15
+  %ll_callback182 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1296
+  %arrayinit.element185 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback182, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element185, align 8
-  %short_name187 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 1
+  %short_name187 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1324
   store i32 0, ptr %short_name187, align 4
-  %long_name188 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 2
+  %long_name188 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1328
   store ptr @.str.26, ptr %long_name188, align 16
-  %value189 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 3
+  %value189 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1336
   store ptr @show_resolve_undo, ptr %value189, align 8
-  %argh190 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 4
+  %argh190 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1344
   store ptr null, ptr %argh190, align 16
-  %help191 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 5
+  %help191 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1352
   store ptr @.str.27, ptr %help191, align 8
-  %flags192 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 6
+  %flags192 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1360
   store i32 2, ptr %flags192, align 16
-  %callback193 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 7
+  %callback193 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1368
   store ptr null, ptr %callback193, align 8
-  %defval194 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 8
+  %defval194 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1376
   store i64 1, ptr %defval194, align 16
-  %ll_callback195 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 15, i32 9
-  %arrayinit.element198 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16
+  %ll_callback195 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1384
+  %arrayinit.element198 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback195, i8 0, i64 24, i1 false)
   store i32 13, ptr %arrayinit.element198, align 16
-  %short_name200 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 1
+  %short_name200 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1412
   store i32 120, ptr %short_name200, align 4
-  %long_name201 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 2
+  %long_name201 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1416
   store ptr @.str.28, ptr %long_name201, align 8
-  %value202 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 3
+  %value202 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1424
   store ptr %exclude_list, ptr %value202, align 16
-  %argh203 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 4
+  %argh203 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1432
   store ptr @.str.29, ptr %argh203, align 8
-  %help204 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 5
+  %help204 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1440
   store ptr @.str.30, ptr %help204, align 16
-  %flags205 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 6
+  %flags205 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1448
   store i32 4, ptr %flags205, align 8
-  %callback206 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 7
+  %callback206 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1456
   store ptr @option_parse_exclude, ptr %callback206, align 16
-  %defval207 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 16, i32 8
-  %arrayinit.element211 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17
+  %defval207 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1464
+  %arrayinit.element211 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1496
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %defval207, i8 0, i64 32, i1 false)
   store i32 13, ptr %arrayinit.element211, align 8
-  %short_name213 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 1
+  %short_name213 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1500
   store i32 88, ptr %short_name213, align 4
-  %long_name214 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 2
+  %long_name214 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1504
   store ptr @.str.31, ptr %long_name214, align 16
-  %value215 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 3
+  %value215 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1512
   store ptr %dir, ptr %value215, align 8
-  %argh216 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 4
+  %argh216 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1520
   store ptr @.str.32, ptr %argh216, align 16
-  %help217 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 5
+  %help217 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1528
   store ptr @.str.33, ptr %help217, align 8
-  %flags218 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 6
+  %flags218 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1536
   store i32 4, ptr %flags218, align 16
-  %callback219 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 7
+  %callback219 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1544
   store ptr @option_parse_exclude_from, ptr %callback219, align 8
-  %defval220 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 17, i32 8
-  %arrayinit.element224 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18
+  %defval220 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1552
+  %arrayinit.element224 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1584
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %defval220, i8 0, i64 32, i1 false)
   store i32 10, ptr %arrayinit.element224, align 16
-  %short_name226 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18, i32 1
+  %short_name226 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1588
   store i32 0, ptr %short_name226, align 4
-  %long_name227 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18, i32 2
+  %long_name227 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1592
   store ptr @.str.34, ptr %long_name227, align 8
-  %value228 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18, i32 3
-  %exclude_per_dir = getelementptr inbounds %struct.dir_struct, ptr %dir, i64 0, i32 6
+  %value228 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1600
+  %exclude_per_dir = getelementptr inbounds i8, ptr %dir, i64 40
   store ptr %exclude_per_dir, ptr %value228, align 16
-  %argh229 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18, i32 4
+  %argh229 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1608
   store ptr @.str.32, ptr %argh229, align 8
-  %help230 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18, i32 5
+  %help230 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1616
   store ptr @.str.35, ptr %help230, align 16
-  %flags231 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18, i32 6
+  %flags231 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1624
   store i32 0, ptr %flags231, align 8
-  %callback232 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 18, i32 7
-  %arrayinit.element237 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19
+  %callback232 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1632
+  %arrayinit.element237 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1672
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback232, i8 0, i64 40, i1 false)
   store i32 13, ptr %arrayinit.element237, align 8
-  %short_name239 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 1
+  %short_name239 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1676
   store i32 0, ptr %short_name239, align 4
-  %long_name240 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 2
+  %long_name240 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1680
   store ptr @.str.36, ptr %long_name240, align 16
-  %value241 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 3
+  %value241 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1688
   store ptr %dir, ptr %value241, align 8
-  %argh242 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 4
+  %argh242 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1696
   store ptr null, ptr %argh242, align 16
-  %help243 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 5
+  %help243 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1704
   store ptr @.str.37, ptr %help243, align 8
-  %flags244 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 6
+  %flags244 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1712
   store i32 6, ptr %flags244, align 16
-  %callback245 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 7
+  %callback245 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1720
   store ptr @option_parse_exclude_standard, ptr %callback245, align 8
-  %defval246 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 19, i32 8
-  %arrayinit.element250 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20
+  %defval246 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1728
+  %arrayinit.element250 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %defval246, i8 0, i64 32, i1 false)
   store i32 9, ptr %arrayinit.element250, align 16
-  %short_name252 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20, i32 1
+  %short_name252 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1764
   store i32 0, ptr %short_name252, align 4
-  %long_name253 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20, i32 2
+  %long_name253 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1768
   store ptr @.str.38, ptr %long_name253, align 8
-  %value254 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20, i32 3
+  %value254 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1776
   store ptr @prefix_len, ptr %value254, align 16
-  %argh255 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20, i32 4
+  %argh255 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1784
   store ptr null, ptr %argh255, align 8
-  %help256 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20, i32 5
+  %help256 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1792
   store ptr @.str.39, ptr %help256, align 16
-  %flags257 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20, i32 6
+  %flags257 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1800
   store i32 6, ptr %flags257, align 8
-  %callback258 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 20, i32 7
-  %arrayinit.element263 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21
+  %callback258 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1808
+  %arrayinit.element263 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback258, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element263, align 8
-  %short_name265 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 1
+  %short_name265 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1852
   store i32 0, ptr %short_name265, align 4
-  %long_name266 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 2
+  %long_name266 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1856
   store ptr @.str.40, ptr %long_name266, align 16
-  %value267 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 3
+  %value267 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1864
   store ptr @recurse_submodules, ptr %value267, align 8
-  %argh268 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 4
+  %argh268 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1872
   store ptr null, ptr %argh268, align 16
-  %help269 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 5
+  %help269 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1880
   store ptr @.str.41, ptr %help269, align 8
-  %flags270 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 6
+  %flags270 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1888
   store i32 2, ptr %flags270, align 16
-  %callback271 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 7
+  %callback271 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1896
   store ptr null, ptr %callback271, align 8
-  %defval272 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 8
+  %defval272 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1904
   store i64 1, ptr %defval272, align 16
-  %ll_callback273 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 21, i32 9
-  %arrayinit.element276 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22
+  %ll_callback273 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1912
+  %arrayinit.element276 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1936
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback273, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element276, align 16
-  %short_name278 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 1
+  %short_name278 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1940
   store i32 0, ptr %short_name278, align 4
-  %long_name279 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 2
+  %long_name279 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1944
   store ptr @.str.42, ptr %long_name279, align 8
-  %value280 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 3
+  %value280 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1952
   store ptr @error_unmatch, ptr %value280, align 16
-  %argh281 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 4
+  %argh281 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1960
   store ptr null, ptr %argh281, align 8
-  %help282 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 5
+  %help282 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1968
   store ptr @.str.43, ptr %help282, align 16
-  %flags283 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 6
+  %flags283 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1976
   store i32 2, ptr %flags283, align 8
-  %callback284 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 7
+  %callback284 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1984
   store ptr null, ptr %callback284, align 16
-  %defval285 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 8
+  %defval285 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1992
   store i64 1, ptr %defval285, align 8
-  %ll_callback286 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 22, i32 9
-  %arrayinit.element289 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23
+  %ll_callback286 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2000
+  %arrayinit.element289 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2024
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback286, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element289, align 8
-  %short_name291 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23, i32 1
+  %short_name291 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2028
   store i32 0, ptr %short_name291, align 4
-  %long_name292 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23, i32 2
+  %long_name292 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2032
   store ptr @.str.44, ptr %long_name292, align 16
-  %value293 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23, i32 3
+  %value293 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2040
   store ptr @with_tree, ptr %value293, align 8
-  %argh294 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23, i32 4
+  %argh294 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2048
   store ptr @.str.45, ptr %argh294, align 16
-  %help295 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23, i32 5
+  %help295 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2056
   store ptr @.str.46, ptr %help295, align 8
-  %flags296 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23, i32 6
+  %flags296 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2064
   store i32 0, ptr %flags296, align 16
-  %callback297 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 23, i32 7
-  %arrayinit.element302 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24
+  %callback297 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2072
+  %arrayinit.element302 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback297, i8 0, i64 40, i1 false)
   store i32 13, ptr %arrayinit.element302, align 16
-  %short_name304 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 1
+  %short_name304 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2116
   store i32 0, ptr %short_name304, align 4
-  %long_name305 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 2
+  %long_name305 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2120
   store ptr @.str.47, ptr %long_name305, align 8
-  %value306 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 3
+  %value306 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2128
   store ptr @abbrev, ptr %value306, align 16
-  %argh307 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 4
+  %argh307 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2136
   store ptr @.str.48, ptr %argh307, align 8
-  %help308 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 5
+  %help308 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2144
   store ptr @.str.49, ptr %help308, align 16
-  %flags309 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 6
+  %flags309 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2152
   store i32 1, ptr %flags309, align 8
-  %callback310 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 7
+  %callback310 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2160
   store ptr @parse_opt_abbrev_cb, ptr %callback310, align 16
-  %defval311 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 24, i32 8
-  %arrayinit.element315 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25
+  %defval311 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2168
+  %arrayinit.element315 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %defval311, i8 0, i64 32, i1 false)
   store i32 9, ptr %arrayinit.element315, align 8
-  %short_name317 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 1
+  %short_name317 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2204
   store i32 0, ptr %short_name317, align 4
-  %long_name318 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 2
+  %long_name318 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2208
   store ptr @.str.50, ptr %long_name318, align 16
-  %value319 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 3
+  %value319 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2216
   store ptr @debug_mode, ptr %value319, align 8
-  %argh320 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 4
+  %argh320 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2224
   store ptr null, ptr %argh320, align 16
-  %help321 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 5
+  %help321 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2232
   store ptr @.str.51, ptr %help321, align 8
-  %flags322 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 6
+  %flags322 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2240
   store i32 2, ptr %flags322, align 16
-  %callback323 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 7
+  %callback323 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2248
   store ptr null, ptr %callback323, align 8
-  %defval324 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 8
+  %defval324 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2256
   store i64 1, ptr %defval324, align 16
-  %ll_callback325 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 25, i32 9
-  %arrayinit.element328 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26
+  %ll_callback325 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2264
+  %arrayinit.element328 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback325, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element328, align 16
-  %short_name330 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 1
+  %short_name330 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2292
   store i32 0, ptr %short_name330, align 4
-  %long_name331 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 2
+  %long_name331 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2296
   store ptr @.str.52, ptr %long_name331, align 8
-  %value332 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 3
+  %value332 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2304
   store ptr @skipping_duplicates, ptr %value332, align 16
-  %argh333 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 4
+  %argh333 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2312
   store ptr null, ptr %argh333, align 8
-  %help334 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 5
+  %help334 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2320
   store ptr @.str.53, ptr %help334, align 16
-  %flags335 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 6
+  %flags335 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2328
   store i32 2, ptr %flags335, align 8
-  %callback336 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 7
+  %callback336 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2336
   store ptr null, ptr %callback336, align 16
-  %defval337 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 8
+  %defval337 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2344
   store i64 1, ptr %defval337, align 8
-  %ll_callback338 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 26, i32 9
-  %arrayinit.element341 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27
+  %ll_callback338 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2352
+  %arrayinit.element341 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2376
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback338, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element341, align 8
-  %short_name343 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 1
+  %short_name343 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2380
   store i32 0, ptr %short_name343, align 4
-  %long_name344 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 2
+  %long_name344 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2384
   store ptr @.str.54, ptr %long_name344, align 16
-  %value345 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 3
+  %value345 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2392
   store ptr @show_sparse_dirs, ptr %value345, align 8
-  %argh346 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 4
+  %argh346 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2400
   store ptr null, ptr %argh346, align 16
-  %help347 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 5
+  %help347 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2408
   store ptr @.str.55, ptr %help347, align 8
-  %flags348 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 6
+  %flags348 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2416
   store i32 2, ptr %flags348, align 16
-  %callback349 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 7
+  %callback349 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2424
   store ptr null, ptr %callback349, align 8
-  %defval350 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 8
+  %defval350 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2432
   store i64 1, ptr %defval350, align 16
-  %ll_callback351 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 27, i32 9
-  %arrayinit.element354 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28
+  %ll_callback351 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2440
+  %arrayinit.element354 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2464
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback351, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element354, align 16
-  %short_name356 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28, i32 1
+  %short_name356 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2468
   store i32 0, ptr %short_name356, align 4
-  %long_name357 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28, i32 2
+  %long_name357 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2472
   store ptr @.str.56, ptr %long_name357, align 8
-  %value358 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28, i32 3
+  %value358 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2480
   store ptr @format, ptr %value358, align 16
-  %argh359 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28, i32 4
+  %argh359 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2488
   store ptr @.str.56, ptr %argh359, align 8
-  %help360 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28, i32 5
+  %help360 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2496
   store ptr @.str.57, ptr %help360, align 16
-  %flags361 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28, i32 6
+  %flags361 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2504
   store i32 4, ptr %flags361, align 8
-  %callback362 = getelementptr inbounds %struct.option, ptr %builtin_ls_files_options, i64 28, i32 7
+  %callback362 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2512
   %cmp = icmp eq i32 %argc, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %callback362, i8 0, i64 128, i1 false)
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.58) #13
   %tobool.not = icmp eq i32 %call, 0
@@ -768,7 +762,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %1 = load ptr, ptr @the_repository, align 8
   call void @prepare_repo_settings(ptr noundef %1) #15
   %2 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 10, i32 6
+  %command_requires_full_index = getelementptr inbounds i8, ptr %2, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   store ptr %cmd_prefix, ptr @prefix, align 8
   %tobool380.not = icmp eq ptr %cmd_prefix, null
@@ -795,7 +789,7 @@ if.end388:                                        ; preds = %if.end383
   %4 = load ptr, ptr @prefix, align 8
   %call390 = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %4, ptr noundef nonnull %builtin_ls_files_options, ptr noundef nonnull @ls_files_usage, i32 noundef 0) #15
   %call391 = call ptr @add_pattern_list(ptr noundef nonnull %dir, i32 noundef 0, ptr noundef nonnull @.str.60) #15
-  %nr = getelementptr inbounds %struct.string_list, ptr %exclude_list, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %exclude_list, i64 8
   %5 = load i64, ptr %nr, align 8
   %cmp39369.not = icmp eq i64 %5, 0
   br i1 %cmp39369.not, label %for.end, label %for.body
@@ -1002,10 +996,10 @@ lor.lhs.false.i:                                  ; preds = %if.end476
   %spec.select.i = add nsw i32 %dec.i, %conv.i
   store i32 %spec.select.i, ptr @max_prefix_len, align 4
   %38 = load ptr, ptr @the_repository, align 8
-  %index = getelementptr inbounds %struct.repository, ptr %38, i64 0, i32 13
+  %index = getelementptr inbounds i8, ptr %38, i64 240
   %39 = load ptr, ptr %index, align 8
   %conv478 = sext i32 %spec.select.i to i64
-  %cache_nr.i = getelementptr inbounds %struct.index_state, ptr %39, i64 0, i32 2
+  %cache_nr.i = getelementptr inbounds i8, ptr %39, i64 12
   %40 = load i32, ptr %cache_nr.i, align 4
   %tobool1.not.i = icmp eq i32 %40, 0
   br i1 %tobool1.not.i, label %prune_index.exit, label %if.end.i41
@@ -1031,7 +1025,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %idxprom.i44 = sext i32 %add.i to i64
   %arrayidx.i45 = getelementptr inbounds ptr, ptr %42, i64 %idxprom.i44
   %43 = load ptr, ptr %arrayidx.i45, align 8
-  %name.i = getelementptr inbounds %struct.cache_entry, ptr %43, i64 0, i32 8
+  %name.i = getelementptr inbounds i8, ptr %43, i64 108
   %call10.i = call i32 @strncmp(ptr noundef nonnull %name.i, ptr noundef nonnull %call475, i64 noundef %conv478) #13
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   %add13.i = add nsw i32 %add.i, 1
@@ -1140,7 +1134,7 @@ if.then522:                                       ; preds = %if.then518
 
 if.end524:                                        ; preds = %if.then518
   %57 = load ptr, ptr @the_repository, align 8
-  %index525 = getelementptr inbounds %struct.repository, ptr %57, i64 0, i32 13
+  %index525 = getelementptr inbounds i8, ptr %57, i64 240
   %58 = load ptr, ptr %index525, align 8
   call void @overlay_tree_on_index(ptr noundef %58, ptr noundef nonnull %56, ptr noundef %max_prefix.06168) #15
   br label %if.end526
@@ -1154,9 +1148,9 @@ if.end526:                                        ; preds = %if.end524, %if.end5
 
 if.then528:                                       ; preds = %if.end526
   %61 = load ptr, ptr @the_repository, align 8
-  %index529 = getelementptr inbounds %struct.repository, ptr %61, i64 0, i32 13
+  %index529 = getelementptr inbounds i8, ptr %61, i64 240
   %62 = load ptr, ptr %index529, align 8
-  %resolve_undo.i = getelementptr inbounds %struct.index_state, ptr %62, i64 0, i32 5
+  %resolve_undo.i = getelementptr inbounds i8, ptr %62, i64 24
   %63 = load ptr, ptr %resolve_undo.i, align 8
   %tobool.not.i46 = icmp eq ptr %63, null
   br i1 %tobool.not.i46, label %if.end530, label %if.end.i47
@@ -1167,7 +1161,7 @@ if.end.i47:                                       ; preds = %if.then528
   br i1 %tobool2.not22.i, label %if.end530, label %land.rhs.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %if.end.i47
-  %nr.i72 = getelementptr inbounds %struct.string_list, ptr %63, i64 0, i32 1
+  %nr.i72 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load i64, ptr %nr.i72, align 8
   %cmp.i4974 = icmp sgt i64 %65, 0
   br i1 %cmp.i4974, label %for.body.i, label %if.end530
@@ -1175,7 +1169,7 @@ land.rhs.i.preheader:                             ; preds = %if.end.i47
 for.body.i:                                       ; preds = %land.rhs.i.preheader, %for.inc28.i
   %item.023.i75 = phi ptr [ %incdec.ptr.i, %for.inc28.i ], [ %64, %land.rhs.i.preheader ]
   %66 = load ptr, ptr %item.023.i75, align 8
-  %util.i = getelementptr inbounds %struct.string_list_item, ptr %item.023.i75, i64 0, i32 1
+  %util.i = getelementptr inbounds i8, ptr %item.023.i75, i64 8
   %67 = load ptr, ptr %util.i, align 8
   %call.i50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #13
   %conv.i51 = trunc i64 %call.i50 to i32
@@ -1187,10 +1181,14 @@ if.end9.i:                                        ; preds = %for.body.i
   %69 = load ptr, ptr @ps_matched, align 8
   %call10.i52 = call i32 @match_pathspec(ptr noundef nonnull %62, ptr noundef nonnull @pathspec, ptr noundef %66, i32 noundef %conv.i51, i32 noundef %68, ptr noundef %69, i32 noundef 0) #15
   %tobool11.not.i53 = icmp eq i32 %call10.i52, 0
-  br i1 %tobool11.not.i53, label %for.inc28.i, label %for.body17.i
+  br i1 %tobool11.not.i53, label %for.inc28.i, label %for.cond14.preheader.i
 
-for.body17.i:                                     ; preds = %if.end9.i, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.pre-phi.i, %for.inc.i ], [ 0, %if.end9.i ]
+for.cond14.preheader.i:                           ; preds = %if.end9.i
+  %oid.i = getelementptr inbounds i8, ptr %67, i64 12
+  br label %for.body17.i
+
+for.body17.i:                                     ; preds = %for.inc.i, %for.cond14.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond14.preheader.i ], [ %indvars.iv.next.pre-phi.i, %for.inc.i ]
   %arrayidx.i54 = getelementptr inbounds [3 x i32], ptr %67, i64 0, i64 %indvars.iv.i
   %70 = load i32, ptr %arrayidx.i54, align 4
   %tobool18.not.i = icmp eq i32 %70, 0
@@ -1203,7 +1201,7 @@ for.body17.for.inc_crit_edge.i:                   ; preds = %for.body17.i
 if.end20.i:                                       ; preds = %for.body17.i
   %71 = load ptr, ptr @tag_resolve_undo, align 8
   %72 = load ptr, ptr @the_repository, align 8
-  %arrayidx25.i = getelementptr inbounds %struct.resolve_undo_info, ptr %67, i64 0, i32 1, i64 %indvars.iv.i
+  %arrayidx25.i = getelementptr inbounds [3 x %struct.object_id], ptr %oid.i, i64 0, i64 %indvars.iv.i
   %73 = load i32, ptr @abbrev, align 4
   %call26.i = call ptr @repo_find_unique_abbrev(ptr noundef %72, ptr noundef nonnull %arrayidx25.i, i32 noundef %73) #15
   %74 = add nuw nsw i64 %indvars.iv.i, 1
@@ -1224,10 +1222,10 @@ for.inc.i:                                        ; preds = %if.end20.i, %for.bo
   br i1 %exitcond.not.i, label %for.inc28.i, label %for.body17.i, !llvm.loop !8
 
 for.inc28.i:                                      ; preds = %for.inc.i, %if.end9.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %item.023.i75, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %item.023.i75, i64 16
   %80 = load ptr, ptr %resolve_undo.i, align 8
   %81 = load ptr, ptr %80, align 8
-  %nr.i = getelementptr inbounds %struct.string_list, ptr %80, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %80, i64 8
   %82 = load i64, ptr %nr.i, align 8
   %add.ptr.i48 = getelementptr inbounds %struct.string_list_item, ptr %81, i64 %82
   %cmp.i49 = icmp ult ptr %incdec.ptr.i, %add.ptr.i48
@@ -1270,7 +1268,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   store i1 true, ptr @exc_given, align 4
   %call = tail call ptr @string_list_append(ptr noundef %0, ptr noundef %arg) #15
@@ -1288,7 +1286,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   store i1 true, ptr @exc_given, align 4
   tail call void @add_patterns_from_file(ptr noundef %0, ptr noundef %arg) #15
@@ -1298,7 +1296,7 @@ do.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @option_parse_exclude_standard(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
 entry:
-  %value = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.body1, label %if.then
@@ -1409,7 +1407,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %index = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 13
+  %index = getelementptr inbounds i8, ptr %repo, i64 240
   %3 = load ptr, ptr %index, align 8
   %call = tail call i32 @fill_directory(ptr noundef %dir, ptr noundef %3, ptr noundef nonnull @pathspec) #15
   %4 = load i32, ptr @show_others, align 4
@@ -1418,13 +1416,13 @@ if.end:                                           ; preds = %if.then3, %if.then
 
 if.then5:                                         ; preds = %if.end
   %5 = load ptr, ptr %index, align 8
-  %nr.i = getelementptr inbounds %struct.dir_struct, ptr %dir, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %dir, i64 4
   %6 = load i32, ptr %nr.i, align 4
   %cmp7.i = icmp sgt i32 %6, 0
   br i1 %cmp7.i, label %for.body.lr.ph.i, label %if.end7
 
 for.body.lr.ph.i:                                 ; preds = %if.then5
-  %entries.i = getelementptr inbounds %struct.dir_struct, ptr %dir, i64 0, i32 3
+  %entries.i = getelementptr inbounds i8, ptr %dir, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -1432,7 +1430,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %7 = load ptr, ptr %entries.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %name.i = getelementptr inbounds %struct.dir_entry, ptr %8, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %8, i64 4
   %9 = load i32, ptr %8, align 4
   %call.i = tail call i32 @index_name_is_other(ptr noundef %5, ptr noundef nonnull %name.i, i32 noundef %9) #15
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1457,14 +1455,14 @@ if.end7:                                          ; preds = %for.inc.i, %if.then
 
 if.then9:                                         ; preds = %if.end7
   %14 = load ptr, ptr %index, align 8
-  %nr.i48 = getelementptr inbounds %struct.dir_struct, ptr %dir, i64 0, i32 1
+  %nr.i48 = getelementptr inbounds i8, ptr %dir, i64 4
   %15 = load i32, ptr %nr.i48, align 4
   %cmp47.i = icmp sgt i32 %15, 0
   br i1 %cmp47.i, label %for.body.lr.ph.i49, label %if.end12
 
 for.body.lr.ph.i49:                               ; preds = %if.then9
-  %entries.i50 = getelementptr inbounds %struct.dir_struct, ptr %dir, i64 0, i32 3
-  %cache_nr.i = getelementptr inbounds %struct.index_state, ptr %14, i64 0, i32 2
+  %entries.i50 = getelementptr inbounds i8, ptr %dir, i64 16
+  %cache_nr.i = getelementptr inbounds i8, ptr %14, i64 12
   br label %for.body.i51
 
 for.body.i51:                                     ; preds = %for.inc79.i, %for.body.lr.ph.i49
@@ -1472,7 +1470,7 @@ for.body.i51:                                     ; preds = %for.inc79.i, %for.b
   %16 = load ptr, ptr %entries.i50, align 8
   %arrayidx.i52 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv57.i
   %17 = load ptr, ptr %arrayidx.i52, align 8
-  %name.i53 = getelementptr inbounds %struct.dir_entry, ptr %17, i64 0, i32 1
+  %name.i53 = getelementptr inbounds i8, ptr %17, i64 4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %name.i53 to i64
   %18 = load i32, ptr %17, align 4
   %cmp543.not.i = icmp eq i32 %18, 0
@@ -1523,7 +1521,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %indvars.iv.i58 = phi i64 [ %23, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i59, %while.body.i ]
   %arrayidx22.i = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.i58
   %24 = load ptr, ptr %arrayidx22.i, align 8
-  %ce_flags.i = getelementptr inbounds %struct.cache_entry, ptr %24, i64 0, i32 3
+  %ce_flags.i = getelementptr inbounds i8, ptr %24, i64 56
   %25 = load i32, ptr %ce_flags.i, align 8
   %26 = and i32 %25, 12288
   %tobool23.not.i = icmp eq i32 %26, 0
@@ -1539,21 +1537,21 @@ if.end28.i:                                       ; preds = %land.rhs.i
   %idxprom30.i = and i64 %indvars.iv.i58, 4294967295
   %arrayidx31.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom30.i
   %27 = load ptr, ptr %arrayidx31.i, align 8
-  %ce_namelen.i = getelementptr inbounds %struct.cache_entry, ptr %27, i64 0, i32 5
+  %ce_namelen.i = getelementptr inbounds i8, ptr %27, i64 64
   %28 = load i32, ptr %ce_namelen.i, align 8
   %29 = load i32, ptr %17, align 4
   %cmp33.i = icmp ult i32 %29, %28
   br i1 %cmp33.i, label %land.lhs.true.i, label %for.inc79.i
 
 land.lhs.true.i:                                  ; preds = %if.end28.i
-  %name38.i = getelementptr inbounds %struct.cache_entry, ptr %27, i64 0, i32 8
+  %name38.i = getelementptr inbounds i8, ptr %27, i64 108
   %conv43.i = zext i32 %29 to i64
   %call44.i = tail call i32 @strncmp(ptr noundef nonnull %name38.i, ptr noundef nonnull %name.i53, i64 noundef %conv43.i) #13
   %tobool45.not.i = icmp eq i32 %call44.i, 0
   br i1 %tobool45.not.i, label %land.lhs.true46.i, label %for.inc79.i
 
 land.lhs.true46.i:                                ; preds = %land.lhs.true.i
-  %arrayidx53.i = getelementptr inbounds %struct.cache_entry, ptr %27, i64 0, i32 8, i64 %conv43.i
+  %arrayidx53.i = getelementptr inbounds [0 x i8], ptr %name38.i, i64 0, i64 %conv43.i
   %30 = load i8, ptr %arrayidx53.i, align 1
   %cmp55.not.i = icmp eq i8 %30, 47
   br i1 %cmp55.not.i, label %if.then74.i, label %for.inc79.i
@@ -1602,23 +1600,23 @@ if.end21:                                         ; preds = %if.end12
   br i1 %tobool22.not, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end21
-  %index24 = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 13
+  %index24 = getelementptr inbounds i8, ptr %repo, i64 240
   %41 = load ptr, ptr %index24, align 8
   tail call void @ensure_full_index(ptr noundef %41) #15
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end21
-  %index26 = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 13
+  %index26 = getelementptr inbounds i8, ptr %repo, i64 240
   %42 = load ptr, ptr %index26, align 8
-  %cache_nr77 = getelementptr inbounds %struct.index_state, ptr %42, i64 0, i32 2
+  %cache_nr77 = getelementptr inbounds i8, ptr %42, i64 12
   %43 = load i32, ptr %cache_nr77, align 4
   %cmp78.not = icmp eq i32 %43, 0
   br i1 %cmp78.not, label %for.end129, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end25
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %fullname, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %fullname, i64 0, i32 2
-  %submodule_prefix.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 9
+  %len2.i.i = getelementptr inbounds i8, ptr %fullname, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %fullname, i64 16
+  %submodule_prefix.i = getelementptr inbounds i8, ptr %repo, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc127
@@ -1648,7 +1646,7 @@ if.then.i61:                                      ; preds = %strbuf_setlen.exit.
   br label %construct_fullname.exit
 
 construct_fullname.exit:                          ; preds = %strbuf_setlen.exit.i, %if.then.i61
-  %name.i63 = getelementptr inbounds %struct.cache_entry, ptr %46, i64 0, i32 8
+  %name.i63 = getelementptr inbounds i8, ptr %46, i64 108
   %call.i4.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i63) #13
   call void @strbuf_add(ptr noundef nonnull %fullname, ptr noundef nonnull %name.i63, i64 noundef %call.i4.i) #15
   %49 = load i32, ptr %dir, align 8
@@ -1684,7 +1682,7 @@ ce_excluded.exit:                                 ; preds = %land.lhs.true, %swi
   br i1 %tobool32.not, label %for.inc127, label %if.end34
 
 if.end34:                                         ; preds = %ce_excluded.exit, %construct_fullname.exit
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %46, i64 0, i32 3
+  %ce_flags = getelementptr inbounds i8, ptr %46, i64 56
   %58 = load i32, ptr %ce_flags, align 8
   %and35 = and i32 %58, 65536
   %tobool36.not = icmp eq i32 %and35, 0
@@ -1802,7 +1800,7 @@ if.then105:                                       ; preds = %if.end97, %lor.lhs.
 skip_to_next_name:                                ; preds = %if.then105, %if.then92, %cond.end59
   %84 = load ptr, ptr %index26, align 8
   %85 = load ptr, ptr %84, align 8
-  %cache_nr116 = getelementptr inbounds %struct.index_state, ptr %84, i64 0, i32 2
+  %cache_nr116 = getelementptr inbounds i8, ptr %84, i64 12
   %86 = load i32, ptr %cache_nr116, align 4
   %87 = add nuw i32 %i.079, 1
   %umax = call i32 @llvm.umax.i32(i32 %86, i32 %87)
@@ -1819,7 +1817,7 @@ for.cond114:                                      ; preds = %for.body118, %skip_
 for.body118:                                      ; preds = %for.cond114
   %arrayidx120 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv.next
   %90 = load ptr, ptr %arrayidx120, align 8
-  %name121 = getelementptr inbounds %struct.cache_entry, ptr %90, i64 0, i32 8
+  %name121 = getelementptr inbounds i8, ptr %90, i64 108
   %call123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i63, ptr noundef nonnull dereferenceable(1) %name121) #13
   %tobool124.not = icmp eq i32 %call123, 0
   br i1 %tobool124.not, label %for.cond114, label %for.inc127.loopexit.split.loop.exit, !llvm.loop !14
@@ -1832,7 +1830,7 @@ for.inc127:                                       ; preds = %for.cond114, %for.i
   %i.1 = phi i32 [ %i.079, %if.end34 ], [ %i.079, %if.end69 ], [ %i.079, %if.then105 ], [ %i.079, %lor.lhs.false101 ], [ %i.079, %if.end97 ], [ %i.079, %if.end64 ], [ %i.079, %ce_excluded.exit ], [ %i.079, %if.end97.thread ], [ %91, %for.inc127.loopexit.split.loop.exit ], [ %88, %for.cond114 ]
   %inc128 = add nuw nsw i32 %i.1, 1
   %92 = load ptr, ptr %index26, align 8
-  %cache_nr = getelementptr inbounds %struct.index_state, ptr %92, i64 0, i32 2
+  %cache_nr = getelementptr inbounds i8, ptr %92, i64 12
   %93 = load i32, ptr %cache_nr, align 4
   %cmp = icmp ult i32 %inc128, %93
   br i1 %cmp, label %for.body, label %for.end129, !llvm.loop !15
@@ -1907,14 +1905,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %ce_mode = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 2
+  %ce_mode = getelementptr inbounds i8, ptr %ce, i64 52
   %2 = load i32, ptr %ce_mode, align 4
   %and = and i32 %2, 61440
   %cmp2 = icmp eq i32 %and, 57344
   br i1 %cmp2, label %land.lhs.true4, label %if.else
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %name = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 8
+  %name = getelementptr inbounds i8, ptr %ce, i64 108
   %call5 = tail call i32 @is_submodule_active(ptr noundef %repo, ptr noundef nonnull %name) #15
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %land.lhs.true4.if.else_crit_edge, label %if.then7
@@ -1950,12 +1948,12 @@ show_submodule.exit:                              ; preds = %if.then7, %if.end4.
 
 if.else:                                          ; preds = %land.lhs.true4.if.else_crit_edge, %land.lhs.true, %if.end
   %3 = phi i32 [ %.pre, %land.lhs.true4.if.else_crit_edge ], [ %0, %land.lhs.true ], [ %0, %if.end ]
-  %index = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 13
+  %index = getelementptr inbounds i8, ptr %repo, i64 240
   %4 = load ptr, ptr %index, align 8
   %call10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fullname) #13
   %conv11 = trunc i64 %call10 to i32
   %5 = load ptr, ptr @ps_matched, align 8
-  %ce_mode12 = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 2
+  %ce_mode12 = getelementptr inbounds i8, ptr %ce, i64 52
   %6 = load i32, ptr %ce_mode12, align 4
   %and13 = and i32 %6, 61440
   %cmp14 = icmp eq i32 %and13, 16384
@@ -1982,12 +1980,12 @@ if.then24:                                        ; preds = %if.then22
   br i1 %tobool.not177.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then24
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
-  %name.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 8
-  %ce_flags.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 3
-  %oid36.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 7
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 2
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
+  %name.i = getelementptr inbounds i8, ptr %ce, i64 108
+  %ce_flags.i = getelementptr inbounds i8, ptr %ce, i64 56
+  %oid36.i = getelementptr inbounds i8, ptr %ce, i64 72
+  %len.i.i.i = getelementptr inbounds i8, ptr %sb.i, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end86.i, %while.body.lr.ph.i
@@ -2434,7 +2432,7 @@ while.end.i:                                      ; preds = %if.end86.i, %if.the
   br i1 %tobool.not.i.i144.i, label %if.then.i155.i, label %strbuf_avail.exit.i145.i
 
 strbuf_avail.exit.i145.i:                         ; preds = %while.end.i
-  %len.i.i146.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 1
+  %len.i.i146.i = getelementptr inbounds i8, ptr %sb.i, i64 8
   %61 = load i64, ptr %len.i.i146.i, align 8
   %.neg.i147.i = add i64 %61, 1
   %tobool.not.i148.i = icmp eq i64 %60, %.neg.i147.i
@@ -2442,7 +2440,7 @@ strbuf_avail.exit.i145.i:                         ; preds = %while.end.i
 
 if.then.i155.i:                                   ; preds = %strbuf_avail.exit.i145.i, %while.end.i
   call void @strbuf_grow(ptr noundef nonnull %sb.i, i64 noundef 1) #15
-  %len.phi.trans.insert.i156.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 1
+  %len.phi.trans.insert.i156.i = getelementptr inbounds i8, ptr %sb.i, i64 8
   %.pre.i157.i = load i64, ptr %len.phi.trans.insert.i156.i, align 8
   %.pre8.i158.i = add i64 %.pre.i157.i, 1
   br label %show_ce_fmt.exit
@@ -2451,9 +2449,9 @@ show_ce_fmt.exit:                                 ; preds = %strbuf_avail.exit.i
   %inc.pre-phi.i150.i = phi i64 [ %.pre8.i158.i, %if.then.i155.i ], [ %.neg.i147.i, %strbuf_avail.exit.i145.i ]
   %62 = phi i64 [ %.pre.i157.i, %if.then.i155.i ], [ %61, %strbuf_avail.exit.i145.i ]
   %conv.i.i = trunc i32 %59 to i8
-  %buf.i151.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 2
+  %buf.i151.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %63 = load ptr, ptr %buf.i151.i, align 8
-  %len.i152.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 1
+  %len.i152.i = getelementptr inbounds i8, ptr %sb.i, i64 8
   store i64 %inc.pre-phi.i150.i, ptr %len.i152.i, align 8
   %arrayidx.i153.i = getelementptr inbounds i8, ptr %63, i64 %62
   store i8 %conv.i.i, ptr %arrayidx.i153.i, align 1
@@ -2487,7 +2485,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i29
   br i1 %tobool3.not.i30, label %lor.lhs.false.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true2.i
-  %ce_flags.i31 = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 3
+  %ce_flags.i31 = getelementptr inbounds i8, ptr %ce, i64 56
   %71 = load i32, ptr %ce_flags.i31, align 8
   %and.i32 = and i32 %71, 32768
   %tobool5.not.i = icmp eq i32 %and.i32, 0
@@ -2499,7 +2497,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true4.i, %
   br i1 %tobool6.not.i, label %get_tag.exit, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %lor.lhs.false.i
-  %ce_flags8.i = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 3
+  %ce_flags8.i = getelementptr inbounds i8, ptr %ce, i64 56
   %73 = load i32, ptr %ce_flags8.i, align 8
   %and9.i = and i32 %73, 2097152
   %tobool10.not.i = icmp eq i32 %and9.i, 0
@@ -2549,10 +2547,10 @@ if.then28:                                        ; preds = %get_tag.exit
 
 if.else30:                                        ; preds = %get_tag.exit
   %80 = load i32, ptr %ce_mode12, align 4
-  %oid = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 7
+  %oid = getelementptr inbounds i8, ptr %ce, i64 72
   %81 = load i32, ptr @abbrev, align 4
   %call32 = tail call ptr @repo_find_unique_abbrev(ptr noundef nonnull %repo, ptr noundef nonnull %oid, i32 noundef %81) #15
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 3
+  %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
   %82 = load i32, ptr %ce_flags, align 8
   %and33 = lshr i32 %82, 12
   %shr = and i32 %and33, 3
@@ -2574,7 +2572,7 @@ land.lhs.true.i42:                                ; preds = %if.end35
   br i1 %cmp.i44, label %if.then2.i, label %if.end.i45
 
 if.then2.i:                                       ; preds = %land.lhs.true.i42
-  %name.i48 = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 8
+  %name.i48 = getelementptr inbounds i8, ptr %ce, i64 108
   %call3.i = tail call ptr @get_cached_convert_stats_ascii(ptr noundef %83, ptr noundef nonnull %name.i48) #15
   br label %if.end.i45
 
@@ -2585,7 +2583,7 @@ if.end.i45:                                       ; preds = %if.then2.i, %land.l
   br i1 %tobool5.not.i46, label %land.lhs.true6.i, label %if.end11.i
 
 land.lhs.true6.i:                                 ; preds = %if.end.i45
-  %st_mode.i47 = getelementptr inbounds %struct.stat, ptr %st.i37, i64 0, i32 3
+  %st_mode.i47 = getelementptr inbounds i8, ptr %st.i37, i64 24
   %86 = load i32, ptr %st_mode.i47, align 8
   %and7.i = and i32 %86, 61440
   %cmp8.i = icmp eq i32 %and7.i, 32768
@@ -2653,9 +2651,10 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %dir_path_match.exit, label %land.end.i
 
 land.end.i:                                       ; preds = %if.then2
+  %name.i = getelementptr inbounds i8, ptr %ent, i64 4
   %sub.i = add i32 %1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.dir_entry, ptr %ent, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [0 x i8], ptr %name.i, i64 0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %3, 47
   %sub6.i = sext i1 %cmp.i to i32
@@ -2666,14 +2665,14 @@ land.end.i:                                       ; preds = %if.then2
 dir_path_match.exit:                              ; preds = %if.then2, %land.end.i
   %land.ext.i = phi i32 [ 0, %if.then2 ], [ %4, %land.end.i ]
   %cond.i = phi i32 [ 0, %if.then2 ], [ %spec.select1.i, %land.end.i ]
-  %name8.i = getelementptr inbounds %struct.dir_entry, ptr %ent, i64 0, i32 1
+  %name8.i = getelementptr inbounds i8, ptr %ent, i64 4
   %call.i = tail call i32 @match_pathspec(ptr noundef %istate, ptr noundef nonnull @pathspec, ptr noundef nonnull %name8.i, i32 noundef %cond.i, i32 noundef %0, ptr noundef nonnull %2, i32 noundef %land.ext.i) #15
   br label %if.end3
 
 if.end3:                                          ; preds = %dir_path_match.exit, %if.end
   %5 = load ptr, ptr @stdout, align 8
   %call4 = tail call i32 @fputs(ptr noundef %tag, ptr noundef %5)
-  %name = getelementptr inbounds %struct.dir_entry, ptr %ent, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %ent, i64 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   %6 = load i32, ptr @show_eol, align 4
   %tobool.not.i7 = icmp eq i32 %6, 0
@@ -2686,7 +2685,7 @@ if.then.i:                                        ; preds = %if.end3
   br i1 %tobool5.not.i, label %land.lhs.true6.i, label %if.end11.i
 
 land.lhs.true6.i:                                 ; preds = %if.then.i
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
   %7 = load i32, ptr %st_mode.i, align 8
   %and7.i = and i32 %7, 61440
   %cmp8.i = icmp eq i32 %and7.i, 32768
@@ -2746,29 +2745,29 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ce_stat_data = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1
+  %ce_stat_data = getelementptr inbounds i8, ptr %ce, i64 16
   %1 = load i32, ptr %ce_stat_data, align 4
-  %nsec = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 0, i32 1
+  %nsec = getelementptr inbounds i8, ptr %ce, i64 20
   %2 = load i32, ptr %nsec, align 4
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, i32 noundef %1, i32 noundef %2)
-  %sd_mtime = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 1
+  %sd_mtime = getelementptr inbounds i8, ptr %ce, i64 24
   %3 = load i32, ptr %sd_mtime, align 4
-  %nsec4 = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 1, i32 1
+  %nsec4 = getelementptr inbounds i8, ptr %ce, i64 28
   %4 = load i32, ptr %nsec4, align 4
   %call5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %3, i32 noundef %4)
-  %sd_dev = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 2
+  %sd_dev = getelementptr inbounds i8, ptr %ce, i64 32
   %5 = load i32, ptr %sd_dev, align 4
-  %sd_ino = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 3
+  %sd_ino = getelementptr inbounds i8, ptr %ce, i64 36
   %6 = load i32, ptr %sd_ino, align 4
   %call6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, i32 noundef %5, i32 noundef %6)
-  %sd_uid = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 4
+  %sd_uid = getelementptr inbounds i8, ptr %ce, i64 40
   %7 = load i32, ptr %sd_uid, align 4
-  %sd_gid = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 5
+  %sd_gid = getelementptr inbounds i8, ptr %ce, i64 44
   %8 = load i32, ptr %sd_gid, align 4
   %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.116, i32 noundef %7, i32 noundef %8)
-  %sd_size = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 1, i32 6
+  %sd_size = getelementptr inbounds i8, ptr %ce, i64 48
   %9 = load i32, ptr %sd_size, align 4
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %ce, i64 0, i32 3
+  %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
   %10 = load i32, ptr %ce_flags, align 8
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.117, i32 noundef %9, i32 noundef %10)
   br label %if.end

@@ -20,18 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
-%"struct.folly::parking_lot_detail::Bucket" = type { %"class.std::mutex", ptr, ptr, %"struct.std::atomic" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.folly::parking_lot_detail::WaitNodeBase" = type { i64, i64, ptr, ptr, i8, %"class.std::mutex", %"class.std::condition_variable" }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 
 $_ZNK5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxycvbEv = comdat any
 
@@ -67,7 +55,7 @@ $_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE8try_lockEv
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxycvbEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %expected_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %this, i64 0, i32 1
+  %expected_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %expected_, align 8, !tbaa !7
   %tobool = icmp ne i64 %0, 0
   ret i1 %tobool
@@ -79,17 +67,17 @@ entry:
   %frombool = zext i1 %timedWaiter to i8
   %frombool1 = zext i1 %combined to i8
   store ptr %next, ptr %this, align 8, !tbaa !14
-  %expected_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %this, i64 0, i32 1
+  %expected_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %expected, ptr %expected_, align 8, !tbaa !7
-  %timedWaiters_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %this, i64 0, i32 2
+  %timedWaiters_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %timedWaiters_, align 8, !tbaa !15
-  %combined_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %this, i64 0, i32 3
+  %combined_ = getelementptr inbounds i8, ptr %this, i64 17
   store i8 %frombool1, ptr %combined_, align 1, !tbaa !16
-  %waker_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %this, i64 0, i32 4
+  %waker_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %waker, ptr %waker_, align 8, !tbaa !17
-  %waiters_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %this, i64 0, i32 5
+  %waiters_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %waiters, ptr %waiters_, align 8, !tbaa !18
-  %ready_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %this, i64 0, i32 6
+  %ready_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %ready, ptr %ready_, align 8, !tbaa !19
   ret void
 }
@@ -126,18 +114,18 @@ entry:
   %2 = xor i8 %0, 1
   %cond.i = zext nneg i8 %2 to i64
   tail call void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE26DistributedMutexStateProxyC1EPNS1_6WaiterIS3_EEmbbmS8_S8_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef null, i64 noundef %cond.i, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef 0, ptr noundef null, ptr noundef null)
-  %expected_.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %agg.result, i64 0, i32 1
+  %expected_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %3 = load i64, ptr %expected_.i, align 8, !tbaa !7
   %tobool.i.not = icmp eq i64 %3, 0
   br i1 %tobool.i.not, label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader, label %cleanup107
 
 _ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader: ; preds = %entry
-  %futex_.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %state, i64 0, i32 1
+  %futex_.i = getelementptr inbounds i8, ptr %state, i64 128
   %4 = ptrtoint ptr %state to i64
-  %5 = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %state, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %state, i64 144
   %or = or disjoint i64 %4, 1
-  %next_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %state, i64 0, i32 2
-  %sleeper_.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %state, i64 0, i32 3, i32 0, i32 1, i32 0, i64 8
+  %next_ = getelementptr inbounds i8, ptr %state, i64 136
+  %sleeper_.i.i = getelementptr inbounds i8, ptr %state, i64 160
   br label %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
 _ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit: ; preds = %cleanup84, %_ZN5folly6detail17distributed_mutex6WaiterISt6atomicE10initializeEmNS0_17InlineFunctionRefIFvvELm48EEE.exit.preheader
@@ -189,7 +177,7 @@ while.body19.i.i.preheader:                       ; preds = %if.then.i125
   br i1 %tobool.not.i.i.i.peel, label %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i.peel, label %if.then.i.i.i.peel
 
 if.then.i.i.i.peel:                               ; preds = %while.body19.i.i.preheader
-  %sleeper_.i.i.i.peel = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %nextSleeper.0, i64 0, i32 3, i32 0, i32 1, i32 0, i64 8
+  %sleeper_.i.i.i.peel = getelementptr inbounds i8, ptr %nextSleeper.0, i64 160
   store atomic i32 2, ptr %sleeper_.i.i.i.peel release, align 4
   %call.i.i.i.i.peel = call noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %sleeper_.i.i.i.peel, i32 noundef 1, i32 noundef -1)
   br label %_ZN5folly6detail17distributed_mutex11doFutexWakeINS1_6WaiterISt6atomicEEEEvPT_.exit.i.i.peel
@@ -224,7 +212,7 @@ if.end68:                                         ; preds = %_ZN5folly6detail17d
   %and18.i126 = select i1 %cmp69, i64 0, i64 %13
   %14 = inttoptr i64 %and18.i126 to ptr
   %tobool81 = icmp ne i8 %timedWaiter.1, 0
-  %waiters_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %state, i64 0, i32 3, i32 0, i32 1
+  %waiters_ = getelementptr inbounds i8, ptr %state, i64 152
   %15 = load i64, ptr %waiters_, align 8, !tbaa !35
   %and18.i127 = and i64 %15, -2
   %16 = inttoptr i64 %and18.i127 to ptr
@@ -285,8 +273,8 @@ entry:
   %cond = select i1 %cmp.not, i64 9, i64 1
   %0 = tail call noundef i64 @llvm.x86.rdtsc()
   %add = add nsw i64 %0, 40000
-  %futex_17.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %waiter, i64 0, i32 1
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %__ts.i, i64 0, i32 1
+  %futex_17.i = getelementptr inbounds i8, ptr %waiter, i64 128
+  %tv_nsec.i = getelementptr inbounds i8, ptr %__ts.i, i64 8
   br i1 %cmp.not, label %for.cond, label %entry.split.us
 
 entry.split.us:                                   ; preds = %entry
@@ -457,12 +445,12 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %proxy, ptr noundef nonnull align 8 dereferenceable(48) %proxy_, i64 48, i1 false), !tbaa.struct !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %SCOPE_EXIT_STATE4) #9
   store i8 0, ptr %SCOPE_EXIT_STATE4, align 8, !tbaa !46, !alias.scope !48
-  %function_.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE4, i64 0, i32 1
+  %function_.i.i.i = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE4, i64 8
   store ptr %proxy, ptr %function_.i.i.i, align 8, !tbaa.struct !51
-  %ref.tmp53.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE4, i64 0, i32 1, i32 1
+  %ref.tmp53.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE4, i64 16
   store ptr %this, ptr %ref.tmp53.sroa.4.0.function_.i.i.i.sroa_idx, align 8, !tbaa.struct !52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sleepers) #9
-  %waiters_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %proxy, i64 0, i32 5
+  %waiters_ = getelementptr inbounds i8, ptr %proxy, i64 32
   %0 = load ptr, ptr %waiters_, align 8, !tbaa !18
   store ptr %0, ptr %sleepers, align 8, !tbaa !43
   %1 = load ptr, ptr %proxy, align 8, !tbaa !14
@@ -470,12 +458,12 @@ entry:
   br i1 %tobool54.not, label %entry.if.end60_crit_edge, label %if.then
 
 entry.if.end60_crit_edge:                         ; preds = %entry
-  %expected_.i.phi.trans.insert = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %proxy, i64 0, i32 1
+  %expected_.i.phi.trans.insert = getelementptr inbounds i8, ptr %proxy, i64 8
   %.pre164 = load i64, ptr %expected_.i.phi.trans.insert, align 8, !tbaa !7
   br label %if.end60
 
 if.then:                                          ; preds = %entry
-  %waker_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %proxy, i64 0, i32 4
+  %waker_ = getelementptr inbounds i8, ptr %proxy, i64 24
   %2 = load i64, ptr %waker_, align 8, !tbaa !17
   %call58 = invoke noundef zeroext i1 @_ZN5folly6detail17distributed_mutex4wakeINS1_6WaiterISt6atomicEEEEbbRT_mRPS6_m(i1 noundef zeroext true, ptr noundef nonnull align 128 dereferenceable(320) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %sleepers, i64 noundef 0)
           to label %invoke.cont57 unwind label %lpad56
@@ -489,7 +477,7 @@ lpad56:                                           ; preds = %if.then
   br label %ehcleanup130
 
 if.end:                                           ; preds = %invoke.cont57
-  %expected_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %proxy, i64 0, i32 1
+  %expected_ = getelementptr inbounds i8, ptr %proxy, i64 8
   store i64 1, ptr %expected_, align 8, !tbaa !7
   %.pre = load ptr, ptr %sleepers, align 8, !tbaa !43
   br label %if.end60
@@ -497,13 +485,13 @@ if.end:                                           ; preds = %invoke.cont57
 if.end60:                                         ; preds = %if.end, %entry.if.end60_crit_edge
   %4 = phi i64 [ 1, %if.end ], [ %.pre164, %entry.if.end60_crit_edge ]
   %5 = phi ptr [ %.pre, %if.end ], [ %0, %entry.if.end60_crit_edge ]
-  %expected_.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %proxy, i64 0, i32 1
+  %expected_.i = getelementptr inbounds i8, ptr %proxy, i64 8
   %6 = cmpxchg ptr %this, i64 %4, i64 0 release monotonic, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   br i1 %7, label %if.then.i, label %if.end.lr.ph.i.lr.ph
 
 if.end.lr.ph.i.lr.ph:                             ; preds = %if.end60
-  %timedWaiters_.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %proxy, i64 0, i32 2
+  %timedWaiters_.i = getelementptr inbounds i8, ptr %proxy, i64 16
   br label %if.end.lr.ph.i
 
 for.cond:                                         ; preds = %cleanup
@@ -526,7 +514,7 @@ if.then.i:                                        ; preds = %for.cond, %if.then2
   br i1 %tobool.not.i.i, label %cleanup129, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %sleeper_.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %14, i64 0, i32 3, i32 0, i32 1, i32 0, i64 8
+  %sleeper_.i.i = getelementptr inbounds i8, ptr %14, i64 160
   store atomic i32 2, ptr %sleeper_.i.i release, align 4
   %call.i.i.i147 = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %sleeper_.i.i, i32 noundef 1, i32 noundef -1)
           to label %cleanup129 unwind label %lpad61
@@ -587,19 +575,19 @@ cleanup129:                                       ; preds = %cleanup, %if.then.i
 if.then.i152:                                     ; preds = %cleanup129
   %26 = load ptr, ptr %ref.tmp53.sroa.4.0.function_.i.i.i.sroa_idx, align 8, !tbaa !58
   %27 = load ptr, ptr %function_.i.i.i, align 8, !tbaa !60
-  %ready_.i.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %27, i64 0, i32 6
+  %ready_.i.i.i = getelementptr inbounds i8, ptr %27, i64 40
   %28 = load ptr, ptr %ready_.i.i.i, align 8, !tbaa !19
   %tobool.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i152
-  %sleeper_.i.i.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %28, i64 0, i32 3, i32 0, i32 1, i32 0, i64 8
+  %sleeper_.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 160
   store atomic i32 2, ptr %sleeper_.i.i.i.i release, align 4
   %call.i.i3.i.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %sleeper_.i.i.i.i, i32 noundef 1, i32 noundef -1)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i.i, %if.then.i152
-  %timedWaiters_.i.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %27, i64 0, i32 2
+  %timedWaiters_.i.i.i = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i8, ptr %timedWaiters_.i.i.i, align 8, !tbaa !15, !range !56, !noundef !57
   %tobool.not.i.i.i = icmp eq i8 %29, 0
   br i1 %tobool.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS0_17distributed_mutex16DistributedMutexISt6atomicLb1EE6unlockERKNS5_26DistributedMutexStateProxyEEUlvE_Lb1EED2Ev.exit, label %if.then.i4.i.i.i, !prof !28
@@ -642,21 +630,21 @@ entry:
   %task = alloca %"class.folly::detail::InlineFunctionRef", align 8
   %ref.tmp7 = alloca %"class.google::LogMessageFatal", align 8
   %cmp.i = icmp ult i64 %iter, 3
-  %storage_.i = getelementptr inbounds %"class.folly::detail::InlineFunctionRef", ptr %agg.tmp.i43, i64 0, i32 1
+  %storage_.i = getelementptr inbounds i8, ptr %agg.tmp.i43, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %cleanup.done17, %entry
   %current.0110 = phi ptr [ %waiter, %entry ], [ %21, %cleanup.done17 ]
-  %futex_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 1
+  %futex_ = getelementptr inbounds i8, ptr %current.0110, i64 128
   %0 = load atomic i64, ptr %futex_ acquire, align 8
-  %next_ = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 2
+  %next_ = getelementptr inbounds i8, ptr %current.0110, i64 136
   %1 = load atomic i64, ptr %next_ monotonic, align 8
   %and.i.i = and i64 %0, 254
   %2 = icmp eq i64 %and.i.i, 8
   br i1 %2, label %if.then.i53, label %if.end.i52
 
 if.then.i53:                                      ; preds = %while.body
-  %3 = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3
+  %3 = getelementptr inbounds i8, ptr %current.0110, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %task, ptr noundef nonnull align 16 dereferenceable(48) %3, i64 48, i1 false), !tbaa.struct !61
   br label %_ZN5folly6detail17distributed_mutex8loadTaskINS1_6WaiterISt6atomicEEEENS0_17InlineFunctionRefIFvvELm48EEEPT_m.exit
 
@@ -699,7 +687,7 @@ invoke.cont3.i:                                   ; preds = %if.then.i
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = call ptr @__cxa_begin_catch(ptr %9) #9
-  %11 = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3
+  %11 = getelementptr inbounds i8, ptr %current.0110, i64 144
   call void @_ZSt17current_exceptionv(ptr nonnull sret(%"class.std::__exception_ptr::exception_ptr") align 8 %11) #9
   store atomic i64 10, ptr %futex_ release, align 8
   call void @__cxa_end_catch()
@@ -736,12 +724,12 @@ land.lhs.true.i.thread:                           ; preds = %if.end.i
   br i1 %cmp.i6274, label %cond.false.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i, %land.lhs.true.i.thread
-  %14 = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3
+  %14 = getelementptr inbounds i8, ptr %current.0110, i64 144
   store i64 %waker, ptr %14, align 16, !tbaa !67
-  %waiters_.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3, i32 0, i32 1
+  %waiters_.i = getelementptr inbounds i8, ptr %current.0110, i64 152
   %storage.sroa.0.0.copyload.i = load i64, ptr %sleepers, align 8
   store i64 %storage.sroa.0.0.copyload.i, ptr %waiters_.i, align 8, !tbaa !71
-  %sleeper_.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3, i32 0, i32 1, i32 0, i64 8
+  %sleeper_.i = getelementptr inbounds i8, ptr %current.0110, i64 160
   store i32 0, ptr %sleeper_.i, align 4, !tbaa !72
   store atomic i64 2, ptr %futex_ release, align 8
   br label %cleanup27
@@ -775,12 +763,12 @@ while.end87.i:                                    ; preds = %cleanup.done20.i
   br label %_ZN5folly6detail17distributed_mutex7tryWakeINS1_6WaiterISt6atomicEEEEmbPT_mmmRS7_mNS0_17InlineFunctionRefIFvvELm48EEE.exit
 
 while.end122.i:                                   ; preds = %cleanup.done20.i, %land.lhs.true.i
-  %17 = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3
+  %17 = getelementptr inbounds i8, ptr %current.0110, i64 144
   store i64 %waker, ptr %17, align 16, !tbaa !35
   %storage.sroa.0.0.copyload.i67 = load i64, ptr %sleepers, align 8
-  %waiters_125.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3, i32 0, i32 1
+  %waiters_125.i = getelementptr inbounds i8, ptr %current.0110, i64 152
   store i64 %storage.sroa.0.0.copyload.i67, ptr %waiters_125.i, align 8, !tbaa !35
-  %sleeper_126.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %current.0110, i64 0, i32 3, i32 0, i32 1, i32 0, i64 8
+  %sleeper_126.i = getelementptr inbounds i8, ptr %current.0110, i64 160
   %18 = atomicrmw xchg ptr %sleeper_126.i, i32 5 acq_rel, align 4
   %cmp.not.i = icmp eq i32 %18, 5
   br i1 %cmp.not.i, label %if.end129.i, label %cleanup27
@@ -843,17 +831,17 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %function_.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1
-  %1 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 1
+  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %1, align 8, !tbaa !58
   %3 = load ptr, ptr %function_.i, align 8, !tbaa !60
-  %ready_.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %3, i64 0, i32 6
+  %ready_.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %ready_.i.i, align 8, !tbaa !19
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %invoke.cont.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %sleeper_.i.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::Waiter", ptr %4, i64 0, i32 3, i32 0, i32 1, i32 0, i64 8
+  %sleeper_.i.i.i = getelementptr inbounds i8, ptr %4, i64 160
   store atomic i32 2, ptr %sleeper_.i.i.i release, align 4
   %call.i.i3.i.i = invoke noundef i32 @_ZN5folly6detail13futexWakeImplEPKSt6atomicIjEij(ptr noundef nonnull %sleeper_.i.i.i, i32 noundef 1, i32 noundef -1)
           to label %if.then.i.invoke.cont_crit_edge.i.i unwind label %terminate.lpad.i.i
@@ -864,7 +852,7 @@ if.then.i.invoke.cont_crit_edge.i.i:              ; preds = %if.then.i.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.invoke.cont_crit_edge.i.i, %if.then
   %5 = phi ptr [ %.pre.i.i, %if.then.i.invoke.cont_crit_edge.i.i ], [ %3, %if.then ]
-  %timedWaiters_.i.i = getelementptr inbounds %"class.folly::detail::distributed_mutex::DistributedMutex<>::DistributedMutexStateProxy", ptr %5, i64 0, i32 2
+  %timedWaiters_.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i8, ptr %timedWaiters_.i.i, align 8, !tbaa !15, !range !56, !noundef !57
   %tobool.not.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i, label %if.end, label %if.then.i4.i.i, !prof !28
@@ -912,7 +900,7 @@ entry:
   %add14.i = mul i64 %xor12.i, 2147483649
   %call2 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN5folly18parking_lot_detail6Bucket9bucketForEm(i64 noundef %add14.i)
   fence seq_cst
-  %count_ = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call2, i64 0, i32 3
+  %count_ = getelementptr inbounds i8, ptr %call2, i64 56
   %1 = load atomic i64, ptr %count_ seq_cst, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %cleanup29, label %if.end
@@ -927,7 +915,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %if.end
-  %head_ = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call2, i64 0, i32 1
+  %head_ = getelementptr inbounds i8, ptr %call2, i64 40
   %2 = load ptr, ptr %head_, align 8, !tbaa !74
   %cmp4.not56 = icmp eq ptr %2, null
   br i1 %cmp4.not56, label %cleanup25, label %for.body.lr.ph
@@ -938,21 +926,21 @@ for.body.lr.ph:                                   ; preds = %_ZNSt10lock_guardIS
 
 for.body:                                         ; preds = %if.end21, %for.body.lr.ph
   %iter.057 = phi ptr [ %2, %for.body.lr.ph ], [ %4, %if.end21 ]
-  %next_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.057, i64 0, i32 2
+  %next_ = getelementptr inbounds i8, ptr %iter.057, i64 16
   %4 = load ptr, ptr %next_, align 8, !tbaa !79
   %5 = load i64, ptr %iter.057, align 8, !tbaa !83
   %cmp5 = icmp eq i64 %5, %add14.i
   br i1 %cmp5, label %land.lhs.true, label %if.end21
 
 land.lhs.true:                                    ; preds = %for.body
-  %lotid_ = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.057, i64 0, i32 1
+  %lotid_ = getelementptr inbounds i8, ptr %iter.057, i64 8
   %6 = load i64, ptr %lotid_, align 8, !tbaa !84
   %cmp7 = icmp eq i64 %6, %3
   br i1 %cmp7, label %if.then12, label %if.end21
 
 if.then12:                                        ; preds = %land.lhs.true
   %cmp.i = icmp eq ptr %2, %iter.057
-  %tail_.i = getelementptr inbounds %"struct.folly::parking_lot_detail::Bucket", ptr %call2, i64 0, i32 2
+  %tail_.i = getelementptr inbounds i8, ptr %call2, i64 48
   %7 = load ptr, ptr %tail_.i, align 8, !tbaa !85
   %cmp2.i = icmp eq ptr %7, %iter.057
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else18.i
@@ -966,31 +954,31 @@ do.end6.i:                                        ; preds = %land.lhs.true.i
 
 do.end15.i:                                       ; preds = %land.lhs.true.i
   store ptr %4, ptr %head_, align 8, !tbaa !74
-  %prev_.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %4, i64 0, i32 3
+  %prev_.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr null, ptr %prev_.i, align 8, !tbaa !86
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit
 
 if.else18.i:                                      ; preds = %if.then12
-  %prev_26.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.057, i64 0, i32 3
+  %prev_26.i = getelementptr inbounds i8, ptr %iter.057, i64 24
   %8 = load ptr, ptr %prev_26.i, align 8, !tbaa !86
   br i1 %cmp2.i, label %do.end25.i, label %do.end34.i
 
 do.end25.i:                                       ; preds = %if.else18.i
   store ptr %8, ptr %tail_.i, align 8, !tbaa !85
-  %next_29.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %8, i64 0, i32 2
+  %next_29.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr null, ptr %next_29.i, align 8, !tbaa !79
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit
 
 do.end34.i:                                       ; preds = %if.else18.i
-  %prev_37.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %4, i64 0, i32 3
+  %prev_37.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %8, ptr %prev_37.i, align 8, !tbaa !86
-  %next_40.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %8, i64 0, i32 2
+  %next_40.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %4, ptr %next_40.i, align 8, !tbaa !79
   br label %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit
 
 _ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit: ; preds = %do.end34.i, %do.end25.i, %do.end15.i, %do.end6.i
   %9 = atomicrmw sub ptr %count_, i64 1 monotonic, align 8
-  %mutex_.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.057, i64 0, i32 5
+  %mutex_.i = getelementptr inbounds i8, ptr %iter.057, i64 40
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_.i) #9
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end15, label %if.then.i.i.i
@@ -1009,9 +997,9 @@ lpad:                                             ; preds = %if.then.i.i.i
   resume { ptr, i32 } %10
 
 if.end15:                                         ; preds = %_ZN5folly18parking_lot_detail6Bucket5eraseEPNS0_12WaitNodeBaseE.exit
-  %signaled_.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.057, i64 0, i32 4
+  %signaled_.i = getelementptr inbounds i8, ptr %iter.057, i64 32
   store i8 1, ptr %signaled_.i, align 8, !tbaa !87
-  %cond_.i = getelementptr inbounds %"struct.folly::parking_lot_detail::WaitNodeBase", ptr %iter.057, i64 0, i32 6
+  %cond_.i = getelementptr inbounds i8, ptr %iter.057, i64 80
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cond_.i) #9
   %call1.i.i.i2.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_.i) #9
   br label %cleanup25, !llvm.loop !88

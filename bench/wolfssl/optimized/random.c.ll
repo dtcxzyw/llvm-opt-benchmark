@@ -3,10 +3,8 @@ source_filename = "bench/wolfssl/original/random.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.WC_RNG = type { %struct.OS_Seed, ptr, ptr, i8 }
-%struct.OS_Seed = type { i32 }
-%struct.DRBG_internal = type { i32, [55 x i8], [55 x i8], ptr }
 %struct.wc_Sha256 = type { [8 x i32], [16 x i32], i32, i32, i32, ptr, [8 x i8] }
+%struct.DRBG_internal = type { i32, [55 x i8], [55 x i8], ptr }
 
 @seedA_data = constant [48 x i8] c"c63w\E4\1E\86F\8D\EB\0A\B4\A8\EDh?j\13NG\E0\14\C7\00EN\81\E9SX\A5i\80\8A\A3\8F*r\A6#Y\91Z\9F\8A\04\CAh", align 16
 @reseedSeedA_data = constant [32 x i8] c"\E6+\8A\8E\E8\F1A\B6\98\05f\E3\BF\E3\C0I\03\DA\D4\AC,\DF\9F\22\80\01\0Ag9\BC\83\D3", align 16
@@ -26,7 +24,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %drbg = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 2
+  %drbg = getelementptr inbounds i8, ptr %rng, i64 16
   %0 = load ptr, ptr %drbg, align 8
   call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %newV.i)
   %cmp.i = icmp eq ptr %0, null
@@ -34,7 +32,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %newV.i, i8 0, i64 55, i1 false)
-  %V.i = getelementptr inbounds %struct.DRBG_internal, ptr %0, i64 0, i32 1
+  %V.i = getelementptr inbounds i8, ptr %0, i64 4
   %call.i = call fastcc i32 @Hash_df(ptr noundef nonnull %0, ptr noundef nonnull %newV.i, i8 noundef zeroext 1, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef nonnull %seed, i32 noundef %seedSz)
   %cmp3.i = icmp eq i32 %call.i, 0
   br i1 %cmp3.i, label %if.then4.i, label %Hash_DRBG_Reseed.exit
@@ -46,7 +44,7 @@ if.then4.i:                                       ; preds = %if.end.i
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then4.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %newV.i, %if.then4.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ 55, %if.then4.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -62,7 +60,7 @@ while.body12.i.i:                                 ; preds = %for.body.i.i, %whil
   br i1 %tobool11.not.i.i, label %if.end13.i, label %while.body12.i.i, !llvm.loop !6
 
 if.end13.i:                                       ; preds = %while.body12.i.i
-  %C.i = getelementptr inbounds %struct.DRBG_internal, ptr %0, i64 0, i32 2
+  %C.i = getelementptr inbounds i8, ptr %0, i64 59
   %call12.i = tail call fastcc i32 @Hash_df(ptr noundef nonnull %0, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp14.i = icmp eq i32 %call12.i, 0
   br i1 %cmp14.i, label %if.then15.i, label %Hash_DRBG_Reseed.exit
@@ -90,7 +88,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %newV, i8 0, i64 55, i1 false)
-  %V = getelementptr inbounds %struct.DRBG_internal, ptr %drbg, i64 0, i32 1
+  %V = getelementptr inbounds i8, ptr %drbg, i64 4
   %call = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg, ptr noundef nonnull %newV, i8 noundef zeroext 1, ptr noundef nonnull %V, i32 noundef 55, ptr noundef %seed, i32 noundef %seedSz)
   %cmp3 = icmp eq i32 %call, 0
   br i1 %cmp3, label %if.then4, label %return
@@ -102,7 +100,7 @@ if.then4:                                         ; preds = %if.end
 for.body.i:                                       ; preds = %if.then4, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %newV, %if.then4 ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 55, %if.then4 ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -118,7 +116,7 @@ while.body12.i:                                   ; preds = %for.body.i, %while.
   br i1 %tobool11.not.i, label %if.end13, label %while.body12.i, !llvm.loop !6
 
 if.end13:                                         ; preds = %while.body12.i
-  %C = getelementptr inbounds %struct.DRBG_internal, ptr %drbg, i64 0, i32 2
+  %C = getelementptr inbounds i8, ptr %drbg, i64 59
   %call12 = tail call fastcc i32 @Hash_df(ptr noundef nonnull %drbg, ptr noundef nonnull %C, i8 noundef zeroext 0, ptr noundef nonnull %V, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp14 = icmp eq i32 %call12, 0
   br i1 %cmp14, label %if.then15, label %return
@@ -227,11 +225,11 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %heap5 = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 1
+  %heap5 = getelementptr inbounds i8, ptr %rng, i64 8
   store ptr %heap, ptr %heap5, align 8
-  %drbg = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 2
+  %drbg = getelementptr inbounds i8, ptr %rng, i64 16
   store ptr null, ptr %drbg, align 8
-  %status = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 3
+  %status = getelementptr inbounds i8, ptr %rng, i64 24
   store i8 0, ptr %status, align 8
   %cmp6 = icmp eq i32 %nonceSz, 0
   %spec.select = select i1 %cmp6, i32 52, i32 36
@@ -355,15 +353,15 @@ if.then31:                                        ; preds = %if.end29
   %add.ptr = getelementptr inbounds i8, ptr %seed, i64 4
   %8 = load ptr, ptr %heap5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 120, i1 false)
-  %heap1.i = getelementptr inbounds %struct.DRBG_internal, ptr %7, i64 0, i32 3
+  %heap1.i = getelementptr inbounds i8, ptr %7, i64 120
   store ptr %8, ptr %heap1.i, align 8
-  %V.i = getelementptr inbounds %struct.DRBG_internal, ptr %7, i64 0, i32 1
+  %V.i = getelementptr inbounds i8, ptr %7, i64 4
   %call.i39 = call fastcc i32 @Hash_df(ptr noundef %7, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %add.ptr, i32 noundef %sub.i, ptr noundef %nonce, i32 noundef %nonceSz)
   %cmp.i40 = icmp eq i32 %call.i39, 0
   br i1 %cmp.i40, label %land.lhs.true.i, label %if.then38
 
 land.lhs.true.i:                                  ; preds = %if.then31
-  %C.i = getelementptr inbounds %struct.DRBG_internal, ptr %7, i64 0, i32 2
+  %C.i = getelementptr inbounds i8, ptr %7, i64 59
   %call5.i = call fastcc i32 @Hash_df(ptr noundef nonnull %7, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %if.end36, label %if.then38
@@ -397,7 +395,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %seed, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i46, %for.body.i ], [ %spec.select, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i46 = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i46, 7
@@ -448,7 +446,7 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %drbg.i = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 2
+  %drbg.i = getelementptr inbounds i8, ptr %rng, i64 16
   %0 = load ptr, ptr %drbg.i, align 8
   %cmp1.not.i = icmp eq ptr %0, null
   br i1 %cmp1.not.i, label %wc_FreeRng.exit, label %if.then2.i
@@ -482,7 +480,7 @@ while.cond9.preheader.i.i.i:                      ; preds = %for.body.i.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader, %for.body.i.i.i
   %w.017.i.i.i = phi ptr [ %incdec.ptr7.i.i.i, %for.body.i.i.i ], [ %w.017.i.i.i.ph, %for.body.i.i.i.preheader ]
   %len.addr.016.i.i.i = phi i32 [ %sub8.i.i.i, %for.body.i.i.i ], [ %sub3.i.i.i, %for.body.i.i.i.preheader ]
-  %incdec.ptr7.i.i.i = getelementptr inbounds i64, ptr %w.017.i.i.i, i64 1
+  %incdec.ptr7.i.i.i = getelementptr inbounds i8, ptr %w.017.i.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i.i, align 8
   %sub8.i.i.i = add nsw i32 %len.addr.016.i.i.i, -8
   %cmp5.i.i.i = icmp ugt i32 %sub8.i.i.i, 7
@@ -511,7 +509,7 @@ if.end9.i:                                        ; preds = %if.then8.i, %ForceZ
   br label %wc_FreeRng.exit
 
 wc_FreeRng.exit:                                  ; preds = %if.end.i, %if.end9.i
-  %status.i = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 3
+  %status.i = getelementptr inbounds i8, ptr %rng, i64 24
   store i8 0, ptr %status.i, align 8
   %5 = ptrtoint ptr %rng to i64
   %6 = trunc i64 %5 to i32
@@ -541,7 +539,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %w.017.i.ph, %for.body.i.preheader ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.body.i.preheader ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -571,7 +569,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %drbg = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 2
+  %drbg = getelementptr inbounds i8, ptr %rng, i64 16
   %0 = load ptr, ptr %drbg, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end11, label %if.then2
@@ -605,7 +603,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %w.017.i.i.ph, %for.body.i.i.preheader ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.body.i.i.preheader ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -651,7 +649,7 @@ if.end9:                                          ; preds = %if.then8, %Hash_DRB
 
 if.end11:                                         ; preds = %if.end9, %if.end
   %ret.1 = phi i32 [ %spec.select, %if.end9 ], [ 0, %if.end ]
-  %status = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 3
+  %status = getelementptr inbounds i8, ptr %rng, i64 24
   store i8 0, ptr %status, align 8
   br label %return
 
@@ -694,7 +692,7 @@ while.cond9.preheader:                            ; preds = %for.body, %for.cond
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %w.017 = phi ptr [ %incdec.ptr7, %for.body ], [ %z.0.lcssa, %for.cond.preheader ]
   %len.addr.016 = phi i32 [ %sub8, %for.body ], [ %sub3, %for.cond.preheader ]
-  %incdec.ptr7 = getelementptr inbounds i64, ptr %w.017, i64 1
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %w.017, i64 8
   store volatile i64 0, ptr %w.017, align 8
   %sub8 = add i32 %len.addr.016, -8
   %cmp5 = icmp ugt i32 %sub8, 7
@@ -760,20 +758,20 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %status = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 3
+  %status = getelementptr inbounds i8, ptr %rng, i64 24
   %0 = load i8, ptr %status, align 8
   %cmp10.not = icmp eq i8 %0, 1
   br i1 %cmp10.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end8
-  %drbg = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 2
+  %drbg = getelementptr inbounds i8, ptr %rng, i64 16
   %1 = load ptr, ptr %drbg, align 8
   %call = tail call fastcc i32 @Hash_DRBG_Generate(ptr noundef %1, ptr noundef nonnull %output, i32 noundef %sz), !range !14
   %cmp14 = icmp eq i32 %call, 2
   br i1 %cmp14, label %if.then16, label %if.end51
 
 if.then16:                                        ; preds = %if.end13
-  %heap = getelementptr inbounds %struct.WC_RNG, ptr %rng, i64 0, i32 1
+  %heap = getelementptr inbounds i8, ptr %rng, i64 8
   %2 = load ptr, ptr %heap, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %check.i)
   %call.i = call i32 @wc_RNG_HealthTest_ex(i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedA_data, i32 noundef 48, ptr noundef nonnull @reseedSeedA_data, i32 noundef 32, ptr noundef nonnull %check.i, i32 noundef 128, ptr noundef %2, i32 poison), !range !10
@@ -872,7 +870,7 @@ if.end:                                           ; preds = %entry
 if.else:                                          ; preds = %if.end
   store i8 3, ptr %type, align 1
   store i32 %0, ptr %reseedCtr, align 4
-  %V = getelementptr inbounds %struct.DRBG_internal, ptr %drbg, i64 0, i32 1
+  %V = getelementptr inbounds i8, ptr %drbg, i64 4
   call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %data.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sha.i)
@@ -959,7 +957,7 @@ for.cond.preheader.i.i:                           ; preds = %for.inc.i, %if.end1
 for.body.i16.i:                                   ; preds = %for.body.i16.i, %for.cond.preheader.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i16.i ], [ %data.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i16.i ], [ 55, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -1040,7 +1038,7 @@ for.body23.i:                                     ; preds = %for.body.i16, %for.
   br i1 %cmp21.not.i, label %array_add.exit, label %for.body23.i, !llvm.loop !19
 
 array_add.exit:                                   ; preds = %for.body23.i
-  %C = getelementptr inbounds %struct.DRBG_internal, ptr %drbg, i64 0, i32 2
+  %C = getelementptr inbounds i8, ptr %drbg, i64 59
   br label %for.body.i19
 
 for.body.i19:                                     ; preds = %for.body.i19, %array_add.exit
@@ -1117,7 +1115,7 @@ for.cond.preheader.i:                             ; preds = %Hash_gen.exit, %if.
 for.body.i75:                                     ; preds = %for.cond.preheader.i, %for.body.i75
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i75 ], [ %digest, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i75 ], [ 32, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i76.not = icmp eq i32 %sub8.i, 0
@@ -1300,15 +1298,15 @@ if.end5:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %drbg_var, i8 0, i64 120, i1 false)
-  %heap1.i = getelementptr inbounds %struct.DRBG_internal, ptr %drbg_var, i64 0, i32 3
+  %heap1.i = getelementptr inbounds i8, ptr %drbg_var, i64 120
   store ptr %heap, ptr %heap1.i, align 8
-  %V.i = getelementptr inbounds %struct.DRBG_internal, ptr %drbg_var, i64 0, i32 1
+  %V.i = getelementptr inbounds i8, ptr %drbg_var, i64 4
   %call.i = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %V.i, i8 noundef zeroext 4, ptr noundef nonnull %seedA, i32 noundef %seedASz, ptr noundef %nonce, i32 noundef %nonceSz)
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %for.cond.preheader.i.i
 
 land.lhs.true.i:                                  ; preds = %if.end8
-  %C.i = getelementptr inbounds %struct.DRBG_internal, ptr %drbg_var, i64 0, i32 2
+  %C.i = getelementptr inbounds i8, ptr %drbg_var, i64 59
   %call5.i = call fastcc i32 @Hash_df(ptr noundef nonnull %drbg_var, ptr noundef nonnull %C.i, i8 noundef zeroext 0, ptr noundef nonnull %V.i, i32 noundef 55, ptr noundef null, i32 noundef 0)
   %cmp6.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.i, label %if.end11, label %for.cond.preheader.i.i
@@ -1331,7 +1329,7 @@ if.then4.i:                                       ; preds = %if.then12
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then4.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %newV.i, %if.then4.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ 55, %if.then4.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add nsw i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -1378,7 +1376,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end17, %if.end21
 for.body.i.i18:                                   ; preds = %for.body.i.i18, %for.cond.preheader.i.i
   %w.017.i.i19 = phi ptr [ %incdec.ptr7.i.i21, %for.body.i.i18 ], [ %drbg_var, %for.cond.preheader.i.i ]
   %len.addr.016.i.i20 = phi i32 [ %sub8.i.i22, %for.body.i.i18 ], [ 128, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i21 = getelementptr inbounds i64, ptr %w.017.i.i19, i64 1
+  %incdec.ptr7.i.i21 = getelementptr inbounds i8, ptr %w.017.i.i19, i64 8
   store volatile i64 0, ptr %w.017.i.i19, align 8
   %sub8.i.i22 = add nsw i32 %len.addr.016.i.i20, -8
   %cmp5.i.i23.not = icmp eq i32 %sub8.i.i22, 0
@@ -1521,7 +1519,7 @@ for.cond.preheader.i:                             ; preds = %for.inc, %for.body
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %digest, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 32, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0

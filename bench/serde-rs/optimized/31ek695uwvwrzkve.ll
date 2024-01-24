@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn4attr8MetaList15parse_args_with17h2824393d6747fb17E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, [3 x i64] }, {} }, align 8
-  %5 = getelementptr inbounds { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %5)
   %7 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %6)
   call void @"_ZN63_$LT$proc_macro2..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hde22650be6ae89dfE"(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %4, ptr align 8 %1)
@@ -28,7 +28,7 @@ define void @_ZN3syn4attr8MetaList15parse_args_with17h2824393d6747fb17E(ptr sret
 define void @_ZN3syn4attr8MetaList15parse_args_with17h2e8e3baf69d705d2E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, [3 x i64] }, {} }, align 8
   %5 = alloca { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } }, align 8
-  %6 = getelementptr inbounds { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %6)
   %8 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
@@ -41,7 +41,7 @@ define void @_ZN3syn4attr8MetaList15parse_args_with17h2e8e3baf69d705d2E(ptr sret
 define void @_ZN3syn4attr8MetaList15parse_args_with17h53c923a8ebc4722aE(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, [3 x i64] }, {} }, align 8
   %5 = alloca { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } }, align 8
-  %6 = getelementptr inbounds { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %6)
   %8 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %5, ptr noundef nonnull align 8 dereferenceable(192) %2, i64 192, i1 false)
@@ -54,7 +54,7 @@ define void @_ZN3syn4attr8MetaList15parse_args_with17h53c923a8ebc4722aE(ptr sret
 define void @_ZN3syn4attr8MetaList15parse_args_with17h7eff98cb64e2033cE(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, [3 x i64] }, {} }, align 8
   %5 = alloca { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } }, align 8
-  %6 = getelementptr inbounds { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %6)
   %8 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 128, i1 false)
@@ -91,24 +91,24 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17hf762f849f129dd91E"(ptr nonnull align 8 %21)
   %23 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %22, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.1)
-  %24 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %23, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %23, i64 72
   %25 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %24)
   %26 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h757dccf150b878c4E"(ptr nonnull align 8 %21)
   %27 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %26, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.2)
-  %28 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %27, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %27, i64 72
   %29 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %28)
-  %30 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %30, ptr %12, align 8
   store ptr %21, ptr %11, align 8
   store ptr %12, ptr %13, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %31, align 8
-  %32 = getelementptr inbounds [2 x { ptr, ptr }], ptr %13, i64 0, i64 1
+  %32 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %11, ptr %32, align 8
-  %33 = getelementptr inbounds [2 x { ptr, ptr }], ptr %13, i64 0, i64 1, i32 1
+  %33 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %33, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %14, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.6, i64 3, ptr nonnull align 8 %13, i64 2)
   call void @_ZN5alloc3fmt6format17h33baad1a8d99d4edE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %15, ptr nonnull align 8 %14)
@@ -117,11 +117,11 @@ default.unreachable:                              ; preds = %3
   br label %48
 
 34:                                               ; preds = %3
-  %35 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %5, ptr noundef nonnull align 8 dereferenceable(192) %2, i64 192, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %36 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %36 = getelementptr inbounds i8, ptr %1, i64 40
   %37 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %36)
   %38 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %37)
   call void @"_ZN63_$LT$proc_macro2..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hde22650be6ae89dfE"(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %4, ptr nonnull align 8 %35)
@@ -131,19 +131,19 @@ default.unreachable:                              ; preds = %3
   br label %48
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %1, i64 224
   %41 = tail call align 4 ptr @"_ZN58_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf8e7e93e816178beE"(ptr nonnull align 4 %40)
   %42 = load i32, ptr %41, align 4, !noundef !6
-  %43 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %43, ptr %7, align 8
-  %44 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %1, i64 176
   store ptr %44, ptr %6, align 8
   store ptr %7, ptr %8, align 8
-  %45 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %45, align 8
-  %46 = getelementptr inbounds [2 x { ptr, ptr }], ptr %8, i64 0, i64 1
+  %46 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %6, ptr %46, align 8
-  %47 = getelementptr inbounds [2 x { ptr, ptr }], ptr %8, i64 0, i64 1, i32 1
+  %47 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %47, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.8, i64 3, ptr nonnull align 8 %8, i64 2)
   call void @_ZN3syn5error5Error3new17h9ae593ce0dbb485cE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %10, i32 %42, ptr nonnull align 8 %9)
@@ -182,24 +182,24 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17hf762f849f129dd91E"(ptr nonnull align 8 %21)
   %23 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %22, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.1)
-  %24 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %23, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %23, i64 72
   %25 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %24)
   %26 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h757dccf150b878c4E"(ptr nonnull align 8 %21)
   %27 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %26, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.2)
-  %28 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %27, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %27, i64 72
   %29 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %28)
-  %30 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %30, ptr %12, align 8
   store ptr %21, ptr %11, align 8
   store ptr %12, ptr %13, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %31, align 8
-  %32 = getelementptr inbounds [2 x { ptr, ptr }], ptr %13, i64 0, i64 1
+  %32 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %11, ptr %32, align 8
-  %33 = getelementptr inbounds [2 x { ptr, ptr }], ptr %13, i64 0, i64 1, i32 1
+  %33 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %33, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %14, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.6, i64 3, ptr nonnull align 8 %13, i64 2)
   call void @_ZN5alloc3fmt6format17h33baad1a8d99d4edE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %15, ptr nonnull align 8 %14)
@@ -208,11 +208,11 @@ default.unreachable:                              ; preds = %3
   br label %48
 
 34:                                               ; preds = %3
-  %35 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %36 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %36 = getelementptr inbounds i8, ptr %1, i64 40
   %37 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %36)
   %38 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %37)
   call void @"_ZN63_$LT$proc_macro2..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hde22650be6ae89dfE"(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %4, ptr nonnull align 8 %35)
@@ -222,19 +222,19 @@ default.unreachable:                              ; preds = %3
   br label %48
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %1, i64 224
   %41 = tail call align 4 ptr @"_ZN58_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf8e7e93e816178beE"(ptr nonnull align 4 %40)
   %42 = load i32, ptr %41, align 4, !noundef !6
-  %43 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %43, ptr %7, align 8
-  %44 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %1, i64 176
   store ptr %44, ptr %6, align 8
   store ptr %7, ptr %8, align 8
-  %45 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %45, align 8
-  %46 = getelementptr inbounds [2 x { ptr, ptr }], ptr %8, i64 0, i64 1
+  %46 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %6, ptr %46, align 8
-  %47 = getelementptr inbounds [2 x { ptr, ptr }], ptr %8, i64 0, i64 1, i32 1
+  %47 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %47, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.8, i64 3, ptr nonnull align 8 %8, i64 2)
   call void @_ZN3syn5error5Error3new17h9ae593ce0dbb485cE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %10, i32 %42, ptr nonnull align 8 %9)
@@ -272,24 +272,24 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
   %21 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17hf762f849f129dd91E"(ptr nonnull align 8 %20)
   %22 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %21, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.1)
-  %23 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %22, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %22, i64 72
   %24 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %23)
   %25 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h757dccf150b878c4E"(ptr nonnull align 8 %20)
   %26 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %25, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.2)
-  %27 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %26, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %26, i64 72
   %28 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %27)
-  %29 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %29, ptr %11, align 8
   store ptr %20, ptr %10, align 8
   store ptr %11, ptr %12, align 8
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %12, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %30, align 8
-  %31 = getelementptr inbounds [2 x { ptr, ptr }], ptr %12, i64 0, i64 1
+  %31 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %10, ptr %31, align 8
-  %32 = getelementptr inbounds [2 x { ptr, ptr }], ptr %12, i64 0, i64 1, i32 1
+  %32 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %32, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %13, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.6, i64 3, ptr nonnull align 8 %12, i64 2)
   call void @_ZN5alloc3fmt6format17h33baad1a8d99d4edE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %14, ptr nonnull align 8 %13)
@@ -298,9 +298,9 @@ default.unreachable:                              ; preds = %3
   br label %47
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %35 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 40
   %36 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %35)
   %37 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %36)
   call void @"_ZN63_$LT$proc_macro2..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hde22650be6ae89dfE"(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %4, ptr nonnull align 8 %34)
@@ -309,19 +309,19 @@ default.unreachable:                              ; preds = %3
   br label %47
 
 38:                                               ; preds = %3
-  %39 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 2
+  %39 = getelementptr inbounds i8, ptr %1, i64 224
   %40 = tail call align 4 ptr @"_ZN58_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf8e7e93e816178beE"(ptr nonnull align 4 %39)
   %41 = load i32, ptr %40, align 4, !noundef !6
-  %42 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %42, ptr %6, align 8
-  %43 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 176
   store ptr %43, ptr %5, align 8
   store ptr %6, ptr %7, align 8
-  %44 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %44, align 8
-  %45 = getelementptr inbounds [2 x { ptr, ptr }], ptr %7, i64 0, i64 1
+  %45 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %5, ptr %45, align 8
-  %46 = getelementptr inbounds [2 x { ptr, ptr }], ptr %7, i64 0, i64 1, i32 1
+  %46 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %46, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %8, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.8, i64 3, ptr nonnull align 8 %7, i64 2)
   call void @_ZN3syn5error5Error3new17h9ae593ce0dbb485cE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %9, i32 %41, ptr nonnull align 8 %8)
@@ -360,24 +360,24 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17hf762f849f129dd91E"(ptr nonnull align 8 %21)
   %23 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %22, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.1)
-  %24 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %23, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %23, i64 72
   %25 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %24)
   %26 = tail call align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4last17h757dccf150b878c4E"(ptr nonnull align 8 %21)
   %27 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17hb4a130bb0ffc7505E"(ptr align 8 %26, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.2)
-  %28 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %27, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %27, i64 72
   %29 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %28)
-  %30 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %30, ptr %12, align 8
   store ptr %21, ptr %11, align 8
   store ptr %12, ptr %13, align 8
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %31, align 8
-  %32 = getelementptr inbounds [2 x { ptr, ptr }], ptr %13, i64 0, i64 1
+  %32 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr %11, ptr %32, align 8
-  %33 = getelementptr inbounds [2 x { ptr, ptr }], ptr %13, i64 0, i64 1, i32 1
+  %33 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %33, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %14, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.6, i64 3, ptr nonnull align 8 %13, i64 2)
   call void @_ZN5alloc3fmt6format17h33baad1a8d99d4edE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %15, ptr nonnull align 8 %14)
@@ -386,11 +386,11 @@ default.unreachable:                              ; preds = %3
   br label %48
 
 34:                                               ; preds = %3
-  %35 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %36 = getelementptr inbounds { [1 x i64], { { { ptr, [3 x i64] }, {} }, { i32, [3 x i32] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } } }, ptr %1, i64 0, i32 1, i32 1
+  %36 = getelementptr inbounds i8, ptr %1, i64 40
   %37 = tail call align 4 ptr @_ZN3syn3mac14MacroDelimiter4span17hc0c52779a066c4afE(ptr nonnull align 4 %36)
   %38 = tail call i32 @_ZN11proc_macro25extra9DelimSpan5close17ha02bd042cb1963b7E(ptr align 4 %37)
   call void @"_ZN63_$LT$proc_macro2..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17hde22650be6ae89dfE"(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %4, ptr nonnull align 8 %35)
@@ -400,19 +400,19 @@ default.unreachable:                              ; preds = %3
   br label %48
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %1, i64 224
   %41 = tail call align 4 ptr @"_ZN58_$LT$syn..token..Eq$u20$as$u20$core..ops..deref..Deref$GT$5deref17hf8e7e93e816178beE"(ptr nonnull align 4 %40)
   %42 = load i32, ptr %41, align 4, !noundef !6
-  %43 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, {} } } }, ptr %1, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %43, ptr %7, align 8
-  %44 = getelementptr inbounds { { i64, [21 x i64] }, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, { [1 x i32] }, [1 x i32] }, ptr %1, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %1, i64 176
   store ptr %44, ptr %6, align 8
   store ptr %7, ptr %8, align 8
-  %45 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN75_$LT$syn..attr..parsing..DisplayAttrStyle$u20$as$u20$core..fmt..Display$GT$3fmt17h688463e628b100fbE", ptr %45, align 8
-  %46 = getelementptr inbounds [2 x { ptr, ptr }], ptr %8, i64 0, i64 1
+  %46 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %6, ptr %46, align 8
-  %47 = getelementptr inbounds [2 x { ptr, ptr }], ptr %8, i64 0, i64 1, i32 1
+  %47 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr @"_ZN70_$LT$syn..attr..parsing..DisplayPath$u20$as$u20$core..fmt..Display$GT$3fmt17h9178e33c6f8ccef2E", ptr %47, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr nonnull align 8 @anon.62be3784999497e44417294d54231f3c.8, i64 3, ptr nonnull align 8 %8, i64 2)
   call void @_ZN3syn5error5Error3new17h9ae593ce0dbb485cE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %10, i32 %42, ptr nonnull align 8 %9)

@@ -8,18 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.grpc_core::URI" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map", %"class.std::vector", %"class.std::__cxx11::basic_string" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.grpc_core::DebugLocation" = type { i8 }
@@ -27,21 +15,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.sockaddr_un = type { i16, [108 x i8] }
-%struct.grpc_resolved_address = type { [128 x i8], i32 }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::allocator" = type { i8 }
-%struct.sockaddr_vm = type { i16, i16, i32, i32, i8, [3 x i8] }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.11 }
-%union.anon.11 = type { [4 x i32] }
 %"class.absl::lts_20230802::StatusOr" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData.base", [4 x i8] }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData.base" = type <{ %union.anon.12, %union.anon.13 }>
 %union.anon.12 = type { %"class.absl::lts_20230802::Status" }
 %union.anon.13 = type { %struct.grpc_resolved_address }
-%"class.absl::lts_20230802::internal_statusor::StatusOrData" = type <{ %union.anon.12, %union.anon.13, [4 x i8] }>
+%struct.grpc_resolved_address = type { [128 x i8], i32 }
 
 $_ZN4absl12lts_202308026StatusD2Ev = comdat any
 
@@ -107,7 +87,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 invoke.cont:                                      ; preds = %entry
-  %path_.i = getelementptr inbounds %"class.grpc_core::URI", ptr %uri, i64 0, i32 2
+  %path_.i = getelementptr inbounds i8, ptr %uri, i64 64
   %call5 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i) #18
   %0 = extractvalue { i64, ptr } %call5, 0
   %1 = extractvalue { i64, ptr } %call5, 1
@@ -184,18 +164,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 36, ptr %ref.tmp1, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr @.str.6, ptr %0, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp2, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %call.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef 107, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   store i64 11, ptr %ref.tmp3, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.7, ptr %1, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3)
   %call4 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
@@ -207,7 +187,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont8:                                     ; preds = %if.then
   %4 = load ptr, ptr %agg.tmp6, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp6, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp6, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -231,7 +211,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -261,18 +241,18 @@ lpad7:                                            ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   store i16 1, ptr %resolved_addr, align 2
+  %sun_path = getelementptr inbounds i8, ptr %resolved_addr, i64 2
   %cmp.i5.i = icmp eq i64 %path.coerce0, 0
   br i1 %cmp.i5.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %sun_path = getelementptr inbounds %struct.sockaddr_un, ptr %resolved_addr, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %sun_path, ptr align 1 %path.coerce1, i64 %path.coerce0, i1 false)
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit: ; preds = %if.end, %if.end.i.i
-  %arrayidx = getelementptr inbounds %struct.sockaddr_un, ptr %resolved_addr, i64 0, i32 1, i64 %path.coerce0
+  %arrayidx = getelementptr inbounds [108 x i8], ptr %sun_path, i64 0, i64 %path.coerce0
   store i8 0, ptr %arrayidx, align 1
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %resolved_addr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %resolved_addr, i64 128
   store i32 110, ptr %len, align 4
   store i64 0, ptr %agg.result, align 8, !alias.scope !6
   br label %return
@@ -329,7 +309,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 invoke.cont:                                      ; preds = %entry
-  %path_.i = getelementptr inbounds %"class.grpc_core::URI", ptr %uri, i64 0, i32 2
+  %path_.i = getelementptr inbounds i8, ptr %uri, i64 64
   %call5 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i) #18
   %0 = extractvalue { i64, ptr } %call5, 0
   %1 = extractvalue { i64, ptr } %call5, 1
@@ -401,18 +381,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 36, ptr %ref.tmp1, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp1, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr @.str.6, ptr %0, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp2, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   %call.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef 107, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp2, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   store i64 11, ptr %ref.tmp3, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.7, ptr %1, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3)
   %call4 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
@@ -424,7 +404,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont8:                                     ; preds = %if.then
   %4 = load ptr, ptr %agg.tmp6, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp6, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp6, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -448,7 +428,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -478,20 +458,20 @@ lpad7:                                            ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   store i16 1, ptr %resolved_addr, align 2
-  %sun_path = getelementptr inbounds %struct.sockaddr_un, ptr %resolved_addr, i64 0, i32 1
+  %sun_path = getelementptr inbounds i8, ptr %resolved_addr, i64 2
   store i8 0, ptr %sun_path, align 2
   %cmp.i5.i = icmp eq i64 %path.coerce0, 0
   br i1 %cmp.i5.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end
-  %add.ptr = getelementptr inbounds %struct.sockaddr_un, ptr %resolved_addr, i64 0, i32 1, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %resolved_addr, i64 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %path.coerce1, i64 %path.coerce0, i1 false)
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit: ; preds = %if.end, %if.end.i.i
   %11 = trunc i64 %path.coerce0 to i32
   %conv = add nuw nsw i32 %11, 3
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %resolved_addr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %resolved_addr, i64 128
   store i32 %conv, ptr %len, align 4
   store i64 0, ptr %agg.result, align 8, !alias.scope !9
   br label %return
@@ -511,7 +491,7 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sr
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -535,7 +515,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !4
 
@@ -571,7 +551,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 invoke.cont:                                      ; preds = %entry
-  %path_.i = getelementptr inbounds %"class.grpc_core::URI", ptr %uri, i64 0, i32 2
+  %path_.i = getelementptr inbounds i8, ptr %uri, i64 64
   %call5 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i) #18
   %0 = extractvalue { i64, ptr } %call5, 0
   %1 = extractvalue { i64, ptr } %call5, 1
@@ -648,7 +628,7 @@ entry:
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #18
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %s, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -657,20 +637,20 @@ invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #18
-  %svm_cid = getelementptr inbounds %struct.sockaddr_vm, ptr %resolved_addr, i64 0, i32 3
-  %svm_port = getelementptr inbounds %struct.sockaddr_vm, ptr %resolved_addr, i64 0, i32 2
+  %svm_cid = getelementptr inbounds i8, ptr %resolved_addr, i64 8
+  %svm_port = getelementptr inbounds i8, ptr %resolved_addr, i64 4
   %call1 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call, ptr noundef nonnull @.str.10, ptr noundef nonnull %svm_cid, ptr noundef nonnull %svm_port) #18
   %cmp.not = icmp eq i32 %call1, 2
   br i1 %cmp.not, label %if.end, label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont
   store i64 32, ptr %ref.tmp3, align 8
-  %5 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.11, ptr %5, align 8
   %call.i7 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #18
   %6 = extractvalue { i64, ptr } %call.i7, 0
   store i64 %6, ptr %ref.tmp6, align 8
-  %7 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %8 = extractvalue { i64, ptr } %call.i7, 1
   store ptr %8, ptr %7, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6)
@@ -686,7 +666,7 @@ invoke.cont8:                                     ; preds = %invoke.cont5
 
 invoke.cont15:                                    ; preds = %invoke.cont8
   %11 = load ptr, ptr %agg.tmp13, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp13, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %12 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -710,7 +690,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -750,7 +730,7 @@ lpad14:                                           ; preds = %invoke.cont8
   br label %ehcleanup17
 
 if.end:                                           ; preds = %invoke.cont
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %resolved_addr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %resolved_addr, i64 128
   store i32 16, ptr %len, align 4
   store i64 0, ptr %agg.result, align 8, !alias.scope !12
   br label %cleanup
@@ -808,7 +788,7 @@ if.then1:                                         ; preds = %if.then
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #18
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
@@ -847,11 +827,11 @@ ehcleanup:                                        ; preds = %lpad6, %lpad3
 
 if.end8:                                          ; preds = %invoke.cont
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 128, i1 false)
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %addr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %addr, i64 128
   store i32 16, ptr %len, align 4
   store i16 2, ptr %addr, align 4
   %call10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #18
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %addr, i64 4
   %call12 = invoke noundef i32 @_Z14grpc_inet_ptoniPKcPv(i32 noundef 2, ptr noundef %call10, ptr noundef nonnull %sin_addr)
           to label %invoke.cont11 unwind label %lpad
 
@@ -901,7 +881,7 @@ if.end39:                                         ; preds = %if.end26
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %if.end39
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 1
+  %sin_port = getelementptr inbounds i8, ptr %addr, i64 2
   store i16 %call41, ptr %sin_port, align 2
   br label %cleanup
 
@@ -946,7 +926,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %path_.i = getelementptr inbounds %"class.grpc_core::URI", ptr %uri, i64 0, i32 2
+  %path_.i = getelementptr inbounds i8, ptr %uri, i64 64
   %call6 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i) #18
   %0 = extractvalue { i64, ptr } %call6, 0
   %1 = extractvalue { i64, ptr } %call6, 1
@@ -1004,7 +984,7 @@ if.then1:                                         ; preds = %if.then
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #18
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
@@ -1043,7 +1023,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad3
 
 if.end8:                                          ; preds = %invoke.cont
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %addr, i8 0, i64 128, i1 false)
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %addr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %addr, i64 128
   store i32 28, ptr %len, align 4
   store i16 10, ptr %addr, align 4
   %call10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #18
@@ -1088,7 +1068,7 @@ if.end27:                                         ; preds = %do.end
   %call30 = call ptr @strncpy(ptr noundef nonnull %host_without_scope, ptr noundef %call29, i64 noundef %sub.ptr.sub) #18
   %arrayidx = getelementptr inbounds [47 x i8], ptr %host_without_scope, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %addr, i64 8
   %call33 = invoke noundef i32 @_Z14grpc_inet_ptoniPKcPv(i32 noundef 10, ptr noundef nonnull %host_without_scope, ptr noundef nonnull %sin6_addr)
           to label %invoke.cont32 unwind label %lpad
 
@@ -1133,12 +1113,12 @@ if.then52.invoke:                                 ; preds = %invoke.cont49, %if.
 
 if.end56:                                         ; preds = %invoke.cont44.if.end56_crit_edge, %invoke.cont49
   %12 = phi i32 [ %.pre, %invoke.cont44.if.end56_crit_edge ], [ %call50, %invoke.cont49 ]
-  %sin6_scope_id57 = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 4
+  %sin6_scope_id57 = getelementptr inbounds i8, ptr %addr, i64 24
   store i32 %12, ptr %sin6_scope_id57, align 4
   br label %if.end70
 
 if.else:                                          ; preds = %invoke.cont12
-  %sin6_addr59 = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 3
+  %sin6_addr59 = getelementptr inbounds i8, ptr %addr, i64 8
   %call61 = invoke noundef i32 @_Z14grpc_inet_ptoniPKcPv(i32 noundef 10, ptr noundef %call58, ptr noundef nonnull %sin6_addr59)
           to label %invoke.cont60 unwind label %lpad
 
@@ -1188,7 +1168,7 @@ if.end90:                                         ; preds = %if.end77
           to label %invoke.cont91 unwind label %lpad
 
 invoke.cont91:                                    ; preds = %if.end90
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 1
+  %sin6_port = getelementptr inbounds i8, ptr %addr, i64 2
   store i16 %call92, ptr %sin6_port, align 2
   br label %cleanup
 
@@ -1233,7 +1213,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %path_.i = getelementptr inbounds %"class.grpc_core::URI", ptr %uri, i64 0, i32 2
+  %path_.i = getelementptr inbounds i8, ptr %uri, i64 64
   %call6 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i) #18
   %0 = extractvalue { i64, ptr } %call6, 0
   %1 = extractvalue { i64, ptr } %call6, 1
@@ -1306,7 +1286,7 @@ if.then.i:                                        ; preds = %if.then15
   br label %return
 
 if.end.i:                                         ; preds = %if.then15
-  %path_.i.i = getelementptr inbounds %"class.grpc_core::URI", ptr %uri, i64 0, i32 2
+  %path_.i.i = getelementptr inbounds i8, ptr %uri, i64 64
   %call6.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i.i) #18
   %0 = extractvalue { i64, ptr } %call6.i, 0
   %1 = extractvalue { i64, ptr } %call6.i, 1
@@ -1345,7 +1325,7 @@ if.then.i25:                                      ; preds = %if.then20
   br label %return
 
 if.end.i28:                                       ; preds = %if.then20
-  %path_.i.i29 = getelementptr inbounds %"class.grpc_core::URI", ptr %uri, i64 0, i32 2
+  %path_.i.i29 = getelementptr inbounds i8, ptr %uri, i64 64
   %call6.i30 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %path_.i.i29) #18
   %2 = extractvalue { i64, ptr } %call6.i30, 0
   %3 = extractvalue { i64, ptr } %call6.i30, 1
@@ -1428,7 +1408,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store i64 24, ptr %ref.tmp5, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp5, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr @.str.31, ptr %0, align 8
   store i64 %address_and_port.coerce0, ptr %ref.tmp6, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
@@ -1490,7 +1470,7 @@ ehcleanup:                                        ; preds = %lpad.i.i, %lpad
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %8 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %8, ptr noundef nonnull align 4 dereferenceable(132) %out, i64 132, i1 false)
   store i64 0, ptr %agg.result, align 8
   br label %return

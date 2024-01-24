@@ -3,27 +3,10 @@ source_filename = "bench/redis/original/bin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bin_s = type { %struct.malloc_mutex_s, %struct.bin_stats_s, ptr, %struct.edata_heap_t, %struct.edata_list_active_t }
-%struct.malloc_mutex_s = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %struct.mutex_prof_data_t, %union.pthread_mutex_t, %struct.atomic_b_t }
-%struct.mutex_prof_data_t = type { %struct.nstime_t, %struct.nstime_t, i64, i64, i32, %struct.atomic_u32_t, i64, ptr, i64 }
-%struct.nstime_t = type { i64 }
-%struct.atomic_u32_t = type { i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.atomic_b_t = type { i8 }
-%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.edata_list_active_t = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr }
-
 @.str = private unnamed_addr constant [4 x i8] c"bin\00", align 1
 
-; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
-define hidden zeroext i1 @bin_update_shard_size(ptr nocapture noundef writeonly %bin_shard_sizes, i64 noundef %start_size, i64 noundef %end_size, i64 noundef %nshards) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
+define hidden noundef zeroext i1 @bin_update_shard_size(ptr nocapture noundef writeonly %bin_shard_sizes, i64 noundef %start_size, i64 noundef %end_size, i64 noundef %nshards) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %nshards, -65
   %or.cond = icmp ult i64 %0, -64
@@ -106,7 +89,7 @@ return:                                           ; preds = %for.body, %sz_size2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @bin_shard_sizes_boot(ptr nocapture noundef writeonly %bin_shard_sizes) local_unnamed_addr #1 {
+define hidden void @bin_shard_sizes_boot(ptr nocapture noundef writeonly %bin_shard_sizes) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -123,19 +106,19 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @bin_init(ptr noundef %bin) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @bin_init(ptr noundef %bin) local_unnamed_addr #1 {
 entry:
-  %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef %bin, ptr noundef nonnull @.str, i32 noundef 4096, i32 noundef 0) #7
+  %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef %bin, ptr noundef nonnull @.str, i32 noundef 4096, i32 noundef 0) #6
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %slabcur = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 2
+  %slabcur = getelementptr inbounds i8, ptr %bin, i64 192
   store ptr null, ptr %slabcur, align 8
-  %slabs_nonfull = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 3
-  tail call void @edata_heap_new(ptr noundef nonnull %slabs_nonfull) #7
-  %slabs_full = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 4
+  %slabs_nonfull = getelementptr inbounds i8, ptr %bin, i64 200
+  tail call void @edata_heap_new(ptr noundef nonnull %slabs_nonfull) #6
+  %slabs_full = getelementptr inbounds i8, ptr %bin, i64 216
   store ptr null, ptr %slabs_full, align 8
-  %stats = getelementptr inbounds %struct.bin_s, ptr %bin, i64 0, i32 1
+  %stats = getelementptr inbounds i8, ptr %bin, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %stats, i8 0, i64 80, i1 false)
   br label %return
 
@@ -143,57 +126,56 @@ return:                                           ; preds = %entry, %if.end
   ret i1 %call
 }
 
-declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @edata_heap_new(ptr noundef) local_unnamed_addr #3
+declare void @edata_heap_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bin_prefork(ptr noundef %tsdn, ptr noundef %bin) local_unnamed_addr #2 {
+define hidden void @bin_prefork(ptr noundef %tsdn, ptr noundef %bin) local_unnamed_addr #1 {
 entry:
-  tail call void @malloc_mutex_prefork(ptr noundef %tsdn, ptr noundef %bin) #7
+  tail call void @malloc_mutex_prefork(ptr noundef %tsdn, ptr noundef %bin) #6
   ret void
 }
 
-declare void @malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bin_postfork_parent(ptr noundef %tsdn, ptr noundef %bin) local_unnamed_addr #2 {
+define hidden void @bin_postfork_parent(ptr noundef %tsdn, ptr noundef %bin) local_unnamed_addr #1 {
 entry:
-  tail call void @malloc_mutex_postfork_parent(ptr noundef %tsdn, ptr noundef %bin) #7
+  tail call void @malloc_mutex_postfork_parent(ptr noundef %tsdn, ptr noundef %bin) #6
   ret void
 }
 
-declare void @malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @malloc_mutex_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @bin_postfork_child(ptr noundef %tsdn, ptr noundef %bin) local_unnamed_addr #2 {
+define hidden void @bin_postfork_child(ptr noundef %tsdn, ptr noundef %bin) local_unnamed_addr #1 {
 entry:
-  tail call void @malloc_mutex_postfork_child(ptr noundef %tsdn, ptr noundef %bin) #7
+  tail call void @malloc_mutex_postfork_child(ptr noundef %tsdn, ptr noundef %bin) #6
   ret void
 }
 
-declare void @malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @malloc_mutex_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #6
+declare i32 @llvm.usub.sat.i32(i32, i32) #5
 
-attributes #0 = { nofree nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

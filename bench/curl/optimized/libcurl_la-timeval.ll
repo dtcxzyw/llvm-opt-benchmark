@@ -16,7 +16,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %tsnow, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %tsnow, i64 8
   %0 = load i64, ptr %tv_nsec, align 8
   %div = sdiv i64 %0, 1000
   br label %if.end19
@@ -27,14 +27,14 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then5, label %if.else12
 
 if.then5:                                         ; preds = %if.else
-  %tv_nsec8 = getelementptr inbounds %struct.timespec, ptr %tsnow, i64 0, i32 1
+  %tv_nsec8 = getelementptr inbounds i8, ptr %tsnow, i64 8
   %1 = load i64, ptr %tv_nsec8, align 8
   %div9 = sdiv i64 %1, 1000
   br label %if.end19
 
 if.else12:                                        ; preds = %if.else
   %call13 = call i32 @gettimeofday(ptr noundef nonnull %now, ptr noundef null) #4
-  %tv_usec16 = getelementptr inbounds %struct.timeval, ptr %now, i64 0, i32 1
+  %tv_usec16 = getelementptr inbounds i8, ptr %now, i64 8
   %2 = load i64, ptr %tv_usec16, align 8
   br label %if.end19
 

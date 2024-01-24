@@ -8,57 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.euf::plugin" = type { ptr, ptr }
-%"class.euf::arith_plugin" = type { %"class.euf::plugin", %class.arith_util, %class.svector, %"class.euf::ac_plugin", %"class.euf::ac_plugin" }
-%class.arith_util = type { ptr, ptr }
-%class.svector = type { %class.vector }
-%class.vector = type { ptr }
-%"class.euf::ac_plugin" = type { %"class.euf::plugin", i32, i32, ptr, %class.vector.0, %class.ptr_vector, %class.svector.2, %class.vector.4, %class.svector.5, %class.stacked_dependency_manager, %class.tracked_uint_set, %class.tracked_uint_set, i64, %"struct.euf::ac_plugin::monomial_hash", %"struct.euf::ac_plugin::monomial_eq", %class.map, %class.svector.13, %class.ptr_vector, %class.svector.15, %class.svector.17, %class.svector.19, %"class.std::function", %class.ptr_vector.21, %class.ptr_vector, %class.ptr_vector, %class.ptr_vector, %class.ptr_vector, %"struct.euf::ac_plugin::ref_counts", %"struct.euf::ac_plugin::ref_counts", %"struct.euf::ac_plugin::ref_counts", %"struct.euf::ac_plugin::ref_counts", %"struct.euf::ac_plugin::ref_counts", %"struct.euf::ac_plugin::ref_counts", %class.svector.11, %class.svector.2 }
-%class.vector.0 = type { ptr }
-%class.vector.4 = type { ptr }
-%class.svector.5 = type { %class.vector.6 }
-%class.vector.6 = type { ptr }
-%class.stacked_dependency_manager = type { %"class.stacked_dependency_manager<euf::justification>::config::value_manager", %"class.stacked_dependency_manager<euf::justification>::config::allocator", %class.dependency_manager }
-%"class.stacked_dependency_manager<euf::justification>::config::value_manager" = type { i8 }
-%"class.stacked_dependency_manager<euf::justification>::config::allocator" = type { ptr }
-%class.dependency_manager = type { ptr, ptr, %class.ptr_vector.7 }
-%class.ptr_vector.7 = type { %class.vector.8 }
-%class.vector.8 = type { ptr }
-%class.tracked_uint_set = type { %class.svector.9, %class.svector.11 }
-%class.svector.9 = type { %class.vector.10 }
-%class.vector.10 = type { ptr }
-%"struct.euf::ac_plugin::monomial_hash" = type { ptr }
-%"struct.euf::ac_plugin::monomial_eq" = type { ptr }
-%class.map = type { %class.table2map }
-%class.table2map = type { %class.core_hashtable }
-%class.core_hashtable = type <{ %"struct.table2map<default_map_entry<unsigned int, euf::ac_plugin::shared>, euf::ac_plugin::monomial_hash, euf::ac_plugin::monomial_eq>::entry_hash_proc", %"struct.table2map<default_map_entry<unsigned int, euf::ac_plugin::shared>, euf::ac_plugin::monomial_hash, euf::ac_plugin::monomial_eq>::entry_eq_proc", ptr, i32, i32, i32, [4 x i8] }>
-%"struct.table2map<default_map_entry<unsigned int, euf::ac_plugin::shared>, euf::ac_plugin::monomial_hash, euf::ac_plugin::monomial_eq>::entry_hash_proc" = type { %"struct.euf::ac_plugin::monomial_hash" }
-%"struct.table2map<default_map_entry<unsigned int, euf::ac_plugin::shared>, euf::ac_plugin::monomial_hash, euf::ac_plugin::monomial_eq>::entry_eq_proc" = type { %"struct.euf::ac_plugin::monomial_eq" }
-%class.svector.13 = type { %class.vector.14 }
-%class.vector.14 = type { ptr }
-%class.svector.15 = type { %class.vector.16 }
-%class.vector.16 = type { ptr }
-%class.svector.17 = type { %class.vector.18 }
-%class.vector.18 = type { ptr }
-%class.svector.19 = type { %class.vector.20 }
-%class.vector.20 = type { ptr }
-%class.ptr_vector.21 = type { %class.vector.22 }
-%class.vector.22 = type { ptr }
-%class.ptr_vector = type { %class.vector.1 }
-%class.vector.1 = type { ptr }
-%"struct.euf::ac_plugin::ref_counts" = type { %class.svector.11, %class.svector.11 }
-%class.svector.11 = type { %class.vector.12 }
-%class.vector.12 = type { ptr }
-%class.svector.2 = type { %class.vector.3 }
-%class.vector.3 = type { ptr }
-%"struct.euf::ac_plugin::monomial_t" = type { %class.ptr_vector, %"struct.euf::ac_plugin::bloom" }
-%"struct.euf::ac_plugin::bloom" = type { i64, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.94 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.94 = type { i64, [8 x i8] }
 %"class.std::allocator.91" = type { i8 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN3euf9ac_pluginD2Ev = comdat any
@@ -130,17 +83,17 @@ entry:
   %ref.tmp.i.i38 = alloca %"class.std::function", align 8
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8
-  %g2.i = getelementptr inbounds %"class.euf::plugin", ptr %this, i64 0, i32 1
+  %g2.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %g, ptr %g2.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3euf12arith_pluginE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %a = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 1
+  %a = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %g, align 8
   tail call void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(976) %0)
-  %m_undo = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 2
+  %m_undo = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %m_undo, align 8
-  %m_add = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3
+  %m_add = getelementptr inbounds i8, ptr %this, i64 40
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call6 = invoke noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(904) %this)
           to label %invoke.cont5 unwind label %lpad4
@@ -151,22 +104,22 @@ invoke.cont5:                                     ; preds = %entry
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %vtable8 = load ptr, ptr %this, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 2
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 16
   %2 = load ptr, ptr %vfn9, align 8
   %call12 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(904) %this)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont7
-  %m_mul = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4
+  %m_mul = getelementptr inbounds i8, ptr %this, i64 472
   invoke void @_ZN3euf9ac_pluginC1ERNS_6egraphEjj(ptr noundef nonnull align 8 dereferenceable(432) %m_mul, ptr noundef nonnull align 8 dereferenceable(536) %g, i32 noundef %call12, i32 noundef 9)
           to label %if.then.i.i.i unwind label %lpad10
 
 if.then.i.i.i:                                    ; preds = %invoke.cont11
   %3 = ptrtoint ptr %this to i64
-  %m_undo_notify.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3, i32 21
+  %m_undo_notify.i = getelementptr inbounds i8, ptr %this, i64 288
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i, i64 0, i32 1
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i, align 8
@@ -175,11 +128,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
-  %_M_manager3.i.i.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3, i32 21, i32 0, i32 1
+  %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %5 = load ptr, ptr %_M_manager3.i.i.i, align 8
   store ptr %5, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
-  %_M_invoker4.i2.i.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3, i32 21, i32 1
+  %_M_invoker4.i2.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %6 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
   store ptr %6, ptr %_M_invoker.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i, align 8
@@ -206,10 +159,10 @@ invoke.cont18:                                    ; preds = %if.then.i.i5.i.i
   br label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %invoke.cont18, %invoke.cont18.thread
-  %m_undo_notify.i39 = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4, i32 21
+  %m_undo_notify.i39 = getelementptr inbounds i8, ptr %this, i64 720
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i38)
-  %_M_manager.i.i.i.i40 = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp.i.i38, i64 0, i32 1
-  %_M_invoker.i.i.i41 = getelementptr inbounds %"class.std::function", ptr %ref.tmp.i.i38, i64 0, i32 1
+  %_M_manager.i.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 16
+  %_M_invoker.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 24
   %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i38, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   store i64 %3, ptr %ref.tmp.i.i38, align 8
@@ -218,11 +171,11 @@ if.then.i.i14:                                    ; preds = %invoke.cont18, %inv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i39, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i39, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i37, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i37)
-  %_M_manager3.i.i.i55 = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4, i32 21, i32 0, i32 1
+  %_M_manager3.i.i.i55 = getelementptr inbounds i8, ptr %this, i64 736
   %10 = load ptr, ptr %_M_manager3.i.i.i55, align 8
   store ptr %10, ptr %_M_manager.i.i.i.i40, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i55, align 8
-  %_M_invoker4.i2.i.i56 = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4, i32 21, i32 1
+  %_M_invoker4.i2.i.i56 = getelementptr inbounds i8, ptr %this, i64 744
   %11 = load ptr, ptr %_M_invoker4.i2.i.i56, align 8
   store ptr %11, ptr %_M_invoker.i.i.i41, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i56, align 8
@@ -278,13 +231,13 @@ declare void @_ZN3euf9ac_pluginC1ERNS_6egraphEjj(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN3euf9ac_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3euf9ac_pluginE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_eq_seen = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 34
+  %m_eq_seen = getelementptr inbounds i8, ptr %this, i64 424
   %0 = load ptr, ptr %m_eq_seen, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIbjED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN7svectorIbjED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -296,13 +249,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorIbjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
-  %m_eq_occurs = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 33
+  %m_eq_occurs = getelementptr inbounds i8, ptr %this, i64 416
   %3 = load ptr, ptr %m_eq_occurs, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZN7svectorIbjED2Ev.exit
-  %add.ptr.i.i.i.i3 = getelementptr inbounds i32, ptr %3, i64 -2
+  %add.ptr.i.i.i.i3 = getelementptr inbounds i8, ptr %3, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3)
           to label %_ZN7svectorIjjED2Ev.exit unwind label %terminate.lpad.i.i4
 
@@ -314,14 +267,14 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN7svectorIbjED2Ev.exit, %if.then.i.i.i2
-  %m_m_counts = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 32
-  %counts.i = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 32, i32 1
+  %m_m_counts = getelementptr inbounds i8, ptr %this, i64 400
+  %counts.i = getelementptr inbounds i8, ptr %this, i64 408
   %6 = load ptr, ptr %counts.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7svectorIjjED2Ev.exit
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %6, i64 -2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %_ZN7svectorIjjED2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -338,7 +291,7 @@ _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %_
   br i1 %tobool.not.i.i.i1.i, label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZN7svectorIjjED2Ev.exit.i
-  %add.ptr.i.i.i.i3.i = getelementptr inbounds i32, ptr %9, i64 -2
+  %add.ptr.i.i.i.i3.i = getelementptr inbounds i8, ptr %9, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i)
           to label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit unwind label %terminate.lpad.i.i4.i
 
@@ -350,14 +303,14 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   unreachable
 
 _ZN3euf9ac_plugin10ref_countsD2Ev.exit:           ; preds = %_ZN7svectorIjjED2Ev.exit.i, %if.then.i.i.i2.i
-  %m_eq_counts = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 31
-  %counts.i5 = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 31, i32 1
+  %m_eq_counts = getelementptr inbounds i8, ptr %this, i64 384
+  %counts.i5 = getelementptr inbounds i8, ptr %this, i64 392
   %12 = load ptr, ptr %counts.i5, align 8
   %tobool.not.i.i.i.i6 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i6, label %_ZN7svectorIjjED2Ev.exit.i10, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZN3euf9ac_plugin10ref_countsD2Ev.exit
-  %add.ptr.i.i.i.i.i8 = getelementptr inbounds i32, ptr %12, i64 -2
+  %add.ptr.i.i.i.i.i8 = getelementptr inbounds i8, ptr %12, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i8)
           to label %_ZN7svectorIjjED2Ev.exit.i10 unwind label %terminate.lpad.i.i.i9
 
@@ -374,7 +327,7 @@ _ZN7svectorIjjED2Ev.exit.i10:                     ; preds = %if.then.i.i.i.i7, %
   br i1 %tobool.not.i.i.i1.i11, label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit15, label %if.then.i.i.i2.i12
 
 if.then.i.i.i2.i12:                               ; preds = %_ZN7svectorIjjED2Ev.exit.i10
-  %add.ptr.i.i.i.i3.i13 = getelementptr inbounds i32, ptr %15, i64 -2
+  %add.ptr.i.i.i.i3.i13 = getelementptr inbounds i8, ptr %15, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i13)
           to label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit15 unwind label %terminate.lpad.i.i4.i14
 
@@ -386,14 +339,14 @@ terminate.lpad.i.i4.i14:                          ; preds = %if.then.i.i.i2.i12
   unreachable
 
 _ZN3euf9ac_plugin10ref_countsD2Ev.exit15:         ; preds = %_ZN7svectorIjjED2Ev.exit.i10, %if.then.i.i.i2.i12
-  %m_dst_r_counts = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 30
-  %counts.i16 = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 30, i32 1
+  %m_dst_r_counts = getelementptr inbounds i8, ptr %this, i64 368
+  %counts.i16 = getelementptr inbounds i8, ptr %this, i64 376
   %18 = load ptr, ptr %counts.i16, align 8
   %tobool.not.i.i.i.i17 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i17, label %_ZN7svectorIjjED2Ev.exit.i21, label %if.then.i.i.i.i18
 
 if.then.i.i.i.i18:                                ; preds = %_ZN3euf9ac_plugin10ref_countsD2Ev.exit15
-  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i32, ptr %18, i64 -2
+  %add.ptr.i.i.i.i.i19 = getelementptr inbounds i8, ptr %18, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i19)
           to label %_ZN7svectorIjjED2Ev.exit.i21 unwind label %terminate.lpad.i.i.i20
 
@@ -410,7 +363,7 @@ _ZN7svectorIjjED2Ev.exit.i21:                     ; preds = %if.then.i.i.i.i18, 
   br i1 %tobool.not.i.i.i1.i22, label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit26, label %if.then.i.i.i2.i23
 
 if.then.i.i.i2.i23:                               ; preds = %_ZN7svectorIjjED2Ev.exit.i21
-  %add.ptr.i.i.i.i3.i24 = getelementptr inbounds i32, ptr %21, i64 -2
+  %add.ptr.i.i.i.i3.i24 = getelementptr inbounds i8, ptr %21, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i24)
           to label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit26 unwind label %terminate.lpad.i.i4.i25
 
@@ -422,14 +375,14 @@ terminate.lpad.i.i4.i25:                          ; preds = %if.then.i.i.i2.i23
   unreachable
 
 _ZN3euf9ac_plugin10ref_countsD2Ev.exit26:         ; preds = %_ZN7svectorIjjED2Ev.exit.i21, %if.then.i.i.i2.i23
-  %m_src_r_counts = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 29
-  %counts.i27 = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 29, i32 1
+  %m_src_r_counts = getelementptr inbounds i8, ptr %this, i64 352
+  %counts.i27 = getelementptr inbounds i8, ptr %this, i64 360
   %24 = load ptr, ptr %counts.i27, align 8
   %tobool.not.i.i.i.i28 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i28, label %_ZN7svectorIjjED2Ev.exit.i32, label %if.then.i.i.i.i29
 
 if.then.i.i.i.i29:                                ; preds = %_ZN3euf9ac_plugin10ref_countsD2Ev.exit26
-  %add.ptr.i.i.i.i.i30 = getelementptr inbounds i32, ptr %24, i64 -2
+  %add.ptr.i.i.i.i.i30 = getelementptr inbounds i8, ptr %24, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i30)
           to label %_ZN7svectorIjjED2Ev.exit.i32 unwind label %terminate.lpad.i.i.i31
 
@@ -446,7 +399,7 @@ _ZN7svectorIjjED2Ev.exit.i32:                     ; preds = %if.then.i.i.i.i29, 
   br i1 %tobool.not.i.i.i1.i33, label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit37, label %if.then.i.i.i2.i34
 
 if.then.i.i.i2.i34:                               ; preds = %_ZN7svectorIjjED2Ev.exit.i32
-  %add.ptr.i.i.i.i3.i35 = getelementptr inbounds i32, ptr %27, i64 -2
+  %add.ptr.i.i.i.i3.i35 = getelementptr inbounds i8, ptr %27, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i35)
           to label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit37 unwind label %terminate.lpad.i.i4.i36
 
@@ -458,14 +411,14 @@ terminate.lpad.i.i4.i36:                          ; preds = %if.then.i.i.i2.i34
   unreachable
 
 _ZN3euf9ac_plugin10ref_countsD2Ev.exit37:         ; preds = %_ZN7svectorIjjED2Ev.exit.i32, %if.then.i.i.i2.i34
-  %m_dst_l_counts = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 28
-  %counts.i38 = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 28, i32 1
+  %m_dst_l_counts = getelementptr inbounds i8, ptr %this, i64 336
+  %counts.i38 = getelementptr inbounds i8, ptr %this, i64 344
   %30 = load ptr, ptr %counts.i38, align 8
   %tobool.not.i.i.i.i39 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i39, label %_ZN7svectorIjjED2Ev.exit.i43, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZN3euf9ac_plugin10ref_countsD2Ev.exit37
-  %add.ptr.i.i.i.i.i41 = getelementptr inbounds i32, ptr %30, i64 -2
+  %add.ptr.i.i.i.i.i41 = getelementptr inbounds i8, ptr %30, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i41)
           to label %_ZN7svectorIjjED2Ev.exit.i43 unwind label %terminate.lpad.i.i.i42
 
@@ -482,7 +435,7 @@ _ZN7svectorIjjED2Ev.exit.i43:                     ; preds = %if.then.i.i.i.i40, 
   br i1 %tobool.not.i.i.i1.i44, label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit48, label %if.then.i.i.i2.i45
 
 if.then.i.i.i2.i45:                               ; preds = %_ZN7svectorIjjED2Ev.exit.i43
-  %add.ptr.i.i.i.i3.i46 = getelementptr inbounds i32, ptr %33, i64 -2
+  %add.ptr.i.i.i.i3.i46 = getelementptr inbounds i8, ptr %33, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i46)
           to label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit48 unwind label %terminate.lpad.i.i4.i47
 
@@ -494,14 +447,14 @@ terminate.lpad.i.i4.i47:                          ; preds = %if.then.i.i.i2.i45
   unreachable
 
 _ZN3euf9ac_plugin10ref_countsD2Ev.exit48:         ; preds = %_ZN7svectorIjjED2Ev.exit.i43, %if.then.i.i.i2.i45
-  %m_src_l_counts = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 27
-  %counts.i49 = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 27, i32 1
+  %m_src_l_counts = getelementptr inbounds i8, ptr %this, i64 320
+  %counts.i49 = getelementptr inbounds i8, ptr %this, i64 328
   %36 = load ptr, ptr %counts.i49, align 8
   %tobool.not.i.i.i.i50 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i.i50, label %_ZN7svectorIjjED2Ev.exit.i54, label %if.then.i.i.i.i51
 
 if.then.i.i.i.i51:                                ; preds = %_ZN3euf9ac_plugin10ref_countsD2Ev.exit48
-  %add.ptr.i.i.i.i.i52 = getelementptr inbounds i32, ptr %36, i64 -2
+  %add.ptr.i.i.i.i.i52 = getelementptr inbounds i8, ptr %36, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i52)
           to label %_ZN7svectorIjjED2Ev.exit.i54 unwind label %terminate.lpad.i.i.i53
 
@@ -518,7 +471,7 @@ _ZN7svectorIjjED2Ev.exit.i54:                     ; preds = %if.then.i.i.i.i51, 
   br i1 %tobool.not.i.i.i1.i55, label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit59, label %if.then.i.i.i2.i56
 
 if.then.i.i.i2.i56:                               ; preds = %_ZN7svectorIjjED2Ev.exit.i54
-  %add.ptr.i.i.i.i3.i57 = getelementptr inbounds i32, ptr %39, i64 -2
+  %add.ptr.i.i.i.i3.i57 = getelementptr inbounds i8, ptr %39, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i57)
           to label %_ZN3euf9ac_plugin10ref_countsD2Ev.exit59 unwind label %terminate.lpad.i.i4.i58
 
@@ -530,13 +483,13 @@ terminate.lpad.i.i4.i58:                          ; preds = %if.then.i.i.i2.i56
   unreachable
 
 _ZN3euf9ac_plugin10ref_countsD2Ev.exit59:         ; preds = %_ZN7svectorIjjED2Ev.exit.i54, %if.then.i.i.i2.i56
-  %m_dst_l = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 26
+  %m_dst_l = getelementptr inbounds i8, ptr %this, i64 312
   %42 = load ptr, ptr %m_dst_l, align 8
   %tobool.not.i.i.i60 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i60, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %_ZN3euf9ac_plugin10ref_countsD2Ev.exit59
-  %add.ptr.i.i.i.i62 = getelementptr inbounds i32, ptr %42, i64 -2
+  %add.ptr.i.i.i.i62 = getelementptr inbounds i8, ptr %42, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i62)
           to label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit unwind label %terminate.lpad.i.i63
 
@@ -548,13 +501,13 @@ terminate.lpad.i.i63:                             ; preds = %if.then.i.i.i61
   unreachable
 
 _ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit:  ; preds = %_ZN3euf9ac_plugin10ref_countsD2Ev.exit59, %if.then.i.i.i61
-  %m_dst_r = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 25
+  %m_dst_r = getelementptr inbounds i8, ptr %this, i64 304
   %45 = load ptr, ptr %m_dst_r, align 8
   %tobool.not.i.i.i64 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i.i64, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit68, label %if.then.i.i.i65
 
 if.then.i.i.i65:                                  ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit
-  %add.ptr.i.i.i.i66 = getelementptr inbounds i32, ptr %45, i64 -2
+  %add.ptr.i.i.i.i66 = getelementptr inbounds i8, ptr %45, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i66)
           to label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit68 unwind label %terminate.lpad.i.i67
 
@@ -566,13 +519,13 @@ terminate.lpad.i.i67:                             ; preds = %if.then.i.i.i65
   unreachable
 
 _ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit68: ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit, %if.then.i.i.i65
-  %m_src_l = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 24
+  %m_src_l = getelementptr inbounds i8, ptr %this, i64 296
   %48 = load ptr, ptr %m_src_l, align 8
   %tobool.not.i.i.i69 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i69, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit73, label %if.then.i.i.i70
 
 if.then.i.i.i70:                                  ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit68
-  %add.ptr.i.i.i.i71 = getelementptr inbounds i32, ptr %48, i64 -2
+  %add.ptr.i.i.i.i71 = getelementptr inbounds i8, ptr %48, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i71)
           to label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit73 unwind label %terminate.lpad.i.i72
 
@@ -584,13 +537,13 @@ terminate.lpad.i.i72:                             ; preds = %if.then.i.i.i70
   unreachable
 
 _ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit73: ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit68, %if.then.i.i.i70
-  %m_src_r = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 23
+  %m_src_r = getelementptr inbounds i8, ptr %this, i64 288
   %51 = load ptr, ptr %m_src_r, align 8
   %tobool.not.i.i.i74 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i74, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit78, label %if.then.i.i.i75
 
 if.then.i.i.i75:                                  ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit73
-  %add.ptr.i.i.i.i76 = getelementptr inbounds i32, ptr %51, i64 -2
+  %add.ptr.i.i.i.i76 = getelementptr inbounds i8, ptr %51, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i76)
           to label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit78 unwind label %terminate.lpad.i.i77
 
@@ -602,13 +555,13 @@ terminate.lpad.i.i77:                             ; preds = %if.then.i.i.i75
   unreachable
 
 _ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit78: ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit73, %if.then.i.i.i75
-  %m_todo = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 22
+  %m_todo = getelementptr inbounds i8, ptr %this, i64 280
   %54 = load ptr, ptr %m_todo, align 8
   %tobool.not.i.i.i79 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i.i79, label %_ZN10ptr_vectorIN3euf5enodeEED2Ev.exit, label %if.then.i.i.i80
 
 if.then.i.i.i80:                                  ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit78
-  %add.ptr.i.i.i.i81 = getelementptr inbounds i32, ptr %54, i64 -2
+  %add.ptr.i.i.i.i81 = getelementptr inbounds i8, ptr %54, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i81)
           to label %_ZN10ptr_vectorIN3euf5enodeEED2Ev.exit unwind label %terminate.lpad.i.i82
 
@@ -620,13 +573,13 @@ terminate.lpad.i.i82:                             ; preds = %if.then.i.i.i80
   unreachable
 
 _ZN10ptr_vectorIN3euf5enodeEED2Ev.exit:           ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit78, %if.then.i.i.i80
-  %_M_manager.i.i = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %57 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %57, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN10ptr_vectorIN3euf5enodeEED2Ev.exit
-  %m_undo_notify = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 21
+  %m_undo_notify = getelementptr inbounds i8, ptr %this, i64 248
   %call.i.i = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i83
 
@@ -638,13 +591,13 @@ terminate.lpad.i.i83:                             ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZN10ptr_vectorIN3euf5enodeEED2Ev.exit, %if.then.i.i
-  %m_update_eq_trail = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 20
+  %m_update_eq_trail = getelementptr inbounds i8, ptr %this, i64 240
   %60 = load ptr, ptr %m_update_eq_trail, align 8
   %tobool.not.i.i.i84 = icmp eq ptr %60, null
   br i1 %tobool.not.i.i.i84, label %_ZN7svectorISt4pairIjN3euf9ac_plugin2eqEEjED2Ev.exit, label %if.then.i.i.i85
 
 if.then.i.i.i85:                                  ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %add.ptr.i.i.i.i86 = getelementptr inbounds i32, ptr %60, i64 -2
+  %add.ptr.i.i.i.i86 = getelementptr inbounds i8, ptr %60, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i86)
           to label %_ZN7svectorISt4pairIjN3euf9ac_plugin2eqEEjED2Ev.exit unwind label %terminate.lpad.i.i87
 
@@ -656,13 +609,13 @@ terminate.lpad.i.i87:                             ; preds = %if.then.i.i.i85
   unreachable
 
 _ZN7svectorISt4pairIjN3euf9ac_plugin2eqEEjED2Ev.exit: ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %if.then.i.i.i85
-  %m_merge_trail = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 19
+  %m_merge_trail = getelementptr inbounds i8, ptr %this, i64 232
   %63 = load ptr, ptr %m_merge_trail, align 8
   %tobool.not.i.i.i88 = icmp eq ptr %63, null
   br i1 %tobool.not.i.i.i88, label %_ZN7svectorISt5tupleIJPN3euf9ac_plugin4nodeEjjEEjED2Ev.exit, label %if.then.i.i.i89
 
 if.then.i.i.i89:                                  ; preds = %_ZN7svectorISt4pairIjN3euf9ac_plugin2eqEEjED2Ev.exit
-  %add.ptr.i.i.i.i90 = getelementptr inbounds i32, ptr %63, i64 -2
+  %add.ptr.i.i.i.i90 = getelementptr inbounds i8, ptr %63, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i90)
           to label %_ZN7svectorISt5tupleIJPN3euf9ac_plugin4nodeEjjEEjED2Ev.exit unwind label %terminate.lpad.i.i91
 
@@ -674,13 +627,13 @@ terminate.lpad.i.i91:                             ; preds = %if.then.i.i.i89
   unreachable
 
 _ZN7svectorISt5tupleIJPN3euf9ac_plugin4nodeEjjEEjED2Ev.exit: ; preds = %_ZN7svectorISt4pairIjN3euf9ac_plugin2eqEEjED2Ev.exit, %if.then.i.i.i89
-  %m_update_shared_trail = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 18
+  %m_update_shared_trail = getelementptr inbounds i8, ptr %this, i64 224
   %66 = load ptr, ptr %m_update_shared_trail, align 8
   %tobool.not.i.i.i92 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i.i92, label %_ZN7svectorISt4pairIjN3euf9ac_plugin6sharedEEjED2Ev.exit, label %if.then.i.i.i93
 
 if.then.i.i.i93:                                  ; preds = %_ZN7svectorISt5tupleIJPN3euf9ac_plugin4nodeEjjEEjED2Ev.exit
-  %add.ptr.i.i.i.i94 = getelementptr inbounds i32, ptr %66, i64 -2
+  %add.ptr.i.i.i.i94 = getelementptr inbounds i8, ptr %66, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i94)
           to label %_ZN7svectorISt4pairIjN3euf9ac_plugin6sharedEEjED2Ev.exit unwind label %terminate.lpad.i.i95
 
@@ -692,13 +645,13 @@ terminate.lpad.i.i95:                             ; preds = %if.then.i.i.i93
   unreachable
 
 _ZN7svectorISt4pairIjN3euf9ac_plugin6sharedEEjED2Ev.exit: ; preds = %_ZN7svectorISt5tupleIJPN3euf9ac_plugin4nodeEjjEEjED2Ev.exit, %if.then.i.i.i93
-  %m_node_trail = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 17
+  %m_node_trail = getelementptr inbounds i8, ptr %this, i64 216
   %69 = load ptr, ptr %m_node_trail, align 8
   %tobool.not.i.i.i96 = icmp eq ptr %69, null
   br i1 %tobool.not.i.i.i96, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit100, label %if.then.i.i.i97
 
 if.then.i.i.i97:                                  ; preds = %_ZN7svectorISt4pairIjN3euf9ac_plugin6sharedEEjED2Ev.exit
-  %add.ptr.i.i.i.i98 = getelementptr inbounds i32, ptr %69, i64 -2
+  %add.ptr.i.i.i.i98 = getelementptr inbounds i8, ptr %69, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i98)
           to label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit100 unwind label %terminate.lpad.i.i99
 
@@ -710,13 +663,13 @@ terminate.lpad.i.i99:                             ; preds = %if.then.i.i.i97
   unreachable
 
 _ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit100: ; preds = %_ZN7svectorISt4pairIjN3euf9ac_plugin6sharedEEjED2Ev.exit, %if.then.i.i.i97
-  %m_undo = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 16
+  %m_undo = getelementptr inbounds i8, ptr %this, i64 208
   %72 = load ptr, ptr %m_undo, align 8
   %tobool.not.i.i.i101 = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i101, label %_ZN7svectorIN3euf9ac_plugin9undo_kindEjED2Ev.exit, label %if.then.i.i.i102
 
 if.then.i.i.i102:                                 ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit100
-  %add.ptr.i.i.i.i103 = getelementptr inbounds i32, ptr %72, i64 -2
+  %add.ptr.i.i.i.i103 = getelementptr inbounds i8, ptr %72, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i103)
           to label %_ZN7svectorIN3euf9ac_plugin9undo_kindEjED2Ev.exit unwind label %terminate.lpad.i.i104
 
@@ -728,7 +681,7 @@ terminate.lpad.i.i104:                            ; preds = %if.then.i.i.i102
   unreachable
 
 _ZN7svectorIN3euf9ac_plugin9undo_kindEjED2Ev.exit: ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit100, %if.then.i.i.i102
-  %m_table.i.i.i.i = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 15, i32 0, i32 0, i32 2
+  %m_table.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %75 = load ptr, ptr %m_table.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %75, null
   br i1 %cmp.i.i.i.i.i, label %_ZN3mapIjN3euf9ac_plugin6sharedENS1_13monomial_hashENS1_11monomial_eqEED2Ev.exit, label %for.cond.preheader.i.i.i.i.i
@@ -746,14 +699,14 @@ terminate.lpad.i.i.i105:                          ; preds = %for.cond.preheader.
 
 _ZN3mapIjN3euf9ac_plugin6sharedENS1_13monomial_hashENS1_11monomial_eqEED2Ev.exit: ; preds = %_ZN7svectorIN3euf9ac_plugin9undo_kindEjED2Ev.exit, %for.cond.preheader.i.i.i.i.i
   store ptr null, ptr %m_table.i.i.i.i, align 8
-  %m_shared_todo = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 11
-  %m_set.i = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 11, i32 1
+  %m_shared_todo = getelementptr inbounds i8, ptr %this, i64 128
+  %m_set.i = getelementptr inbounds i8, ptr %this, i64 136
   %78 = load ptr, ptr %m_set.i, align 8
   %tobool.not.i.i.i.i106 = icmp eq ptr %78, null
   br i1 %tobool.not.i.i.i.i106, label %_ZN7svectorIjjED2Ev.exit.i110, label %if.then.i.i.i.i107
 
 if.then.i.i.i.i107:                               ; preds = %_ZN3mapIjN3euf9ac_plugin6sharedENS1_13monomial_hashENS1_11monomial_eqEED2Ev.exit
-  %add.ptr.i.i.i.i.i108 = getelementptr inbounds i32, ptr %78, i64 -2
+  %add.ptr.i.i.i.i.i108 = getelementptr inbounds i8, ptr %78, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i108)
           to label %_ZN7svectorIjjED2Ev.exit.i110 unwind label %terminate.lpad.i.i.i109
 
@@ -770,7 +723,7 @@ _ZN7svectorIjjED2Ev.exit.i110:                    ; preds = %if.then.i.i.i.i107,
   br i1 %tobool.not.i.i.i1.i111, label %_ZN16tracked_uint_setD2Ev.exit, label %if.then.i.i.i2.i112
 
 if.then.i.i.i2.i112:                              ; preds = %_ZN7svectorIjjED2Ev.exit.i110
-  %add.ptr.i.i.i.i3.i113 = getelementptr inbounds i32, ptr %81, i64 -2
+  %add.ptr.i.i.i.i3.i113 = getelementptr inbounds i8, ptr %81, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i113)
           to label %_ZN16tracked_uint_setD2Ev.exit unwind label %terminate.lpad.i.i4.i114
 
@@ -782,14 +735,14 @@ terminate.lpad.i.i4.i114:                         ; preds = %if.then.i.i.i2.i112
   unreachable
 
 _ZN16tracked_uint_setD2Ev.exit:                   ; preds = %_ZN7svectorIjjED2Ev.exit.i110, %if.then.i.i.i2.i112
-  %m_to_simplify_todo = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 10
-  %m_set.i115 = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 10, i32 1
+  %m_to_simplify_todo = getelementptr inbounds i8, ptr %this, i64 112
+  %m_set.i115 = getelementptr inbounds i8, ptr %this, i64 120
   %84 = load ptr, ptr %m_set.i115, align 8
   %tobool.not.i.i.i.i116 = icmp eq ptr %84, null
   br i1 %tobool.not.i.i.i.i116, label %_ZN7svectorIjjED2Ev.exit.i120, label %if.then.i.i.i.i117
 
 if.then.i.i.i.i117:                               ; preds = %_ZN16tracked_uint_setD2Ev.exit
-  %add.ptr.i.i.i.i.i118 = getelementptr inbounds i32, ptr %84, i64 -2
+  %add.ptr.i.i.i.i.i118 = getelementptr inbounds i8, ptr %84, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i118)
           to label %_ZN7svectorIjjED2Ev.exit.i120 unwind label %terminate.lpad.i.i.i119
 
@@ -806,7 +759,7 @@ _ZN7svectorIjjED2Ev.exit.i120:                    ; preds = %if.then.i.i.i.i117,
   br i1 %tobool.not.i.i.i1.i121, label %_ZN16tracked_uint_setD2Ev.exit125, label %if.then.i.i.i2.i122
 
 if.then.i.i.i2.i122:                              ; preds = %_ZN7svectorIjjED2Ev.exit.i120
-  %add.ptr.i.i.i.i3.i123 = getelementptr inbounds i32, ptr %87, i64 -2
+  %add.ptr.i.i.i.i3.i123 = getelementptr inbounds i8, ptr %87, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i3.i123)
           to label %_ZN16tracked_uint_setD2Ev.exit125 unwind label %terminate.lpad.i.i4.i124
 
@@ -818,13 +771,13 @@ terminate.lpad.i.i4.i124:                         ; preds = %if.then.i.i.i2.i122
   unreachable
 
 _ZN16tracked_uint_setD2Ev.exit125:                ; preds = %_ZN7svectorIjjED2Ev.exit.i120, %if.then.i.i.i2.i122
-  %m_todo.i.i = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 9, i32 2, i32 2
+  %m_todo.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %90 = load ptr, ptr %m_todo.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %90, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN26stacked_dependency_managerIN3euf13justificationEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN16tracked_uint_setD2Ev.exit125
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %90, i64 -2
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %90, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i)
           to label %_ZN26stacked_dependency_managerIN3euf13justificationEED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -836,13 +789,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN26stacked_dependency_managerIN3euf13justificationEED2Ev.exit: ; preds = %_ZN16tracked_uint_setD2Ev.exit125, %if.then.i.i.i.i.i
-  %m_shared = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 8
+  %m_shared = getelementptr inbounds i8, ptr %this, i64 64
   %93 = load ptr, ptr %m_shared, align 8
   %tobool.not.i.i.i126 = icmp eq ptr %93, null
   br i1 %tobool.not.i.i.i126, label %_ZN7svectorIN3euf9ac_plugin6sharedEjED2Ev.exit, label %if.then.i.i.i127
 
 if.then.i.i.i127:                                 ; preds = %_ZN26stacked_dependency_managerIN3euf13justificationEED2Ev.exit
-  %add.ptr.i.i.i.i128 = getelementptr inbounds i32, ptr %93, i64 -2
+  %add.ptr.i.i.i.i128 = getelementptr inbounds i8, ptr %93, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i128)
           to label %_ZN7svectorIN3euf9ac_plugin6sharedEjED2Ev.exit unwind label %terminate.lpad.i.i129
 
@@ -854,13 +807,13 @@ terminate.lpad.i.i129:                            ; preds = %if.then.i.i.i127
   unreachable
 
 _ZN7svectorIN3euf9ac_plugin6sharedEjED2Ev.exit:   ; preds = %_ZN26stacked_dependency_managerIN3euf13justificationEED2Ev.exit, %if.then.i.i.i127
-  %m_monomials = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 7
+  %m_monomials = getelementptr inbounds i8, ptr %this, i64 56
   %96 = load ptr, ptr %m_monomials, align 8
   %tobool.not.i.i130 = icmp eq ptr %96, null
   br i1 %tobool.not.i.i130, label %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjED2Ev.exit, label %_ZNK6vectorIN3euf9ac_plugin10monomial_tELb1EjE4sizeEv.exit.i.i.i
 
 _ZNK6vectorIN3euf9ac_plugin10monomial_tELb1EjE4sizeEv.exit.i.i.i: ; preds = %_ZN7svectorIN3euf9ac_plugin6sharedEjED2Ev.exit
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %96, i64 -1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %96, i64 -4
   %97 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.not5.i.i.i.i.i.i = icmp eq i32 %97, 0
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE16destroy_elementsEv.exit.i.i, label %for.body.i.i.i.i.i.i
@@ -873,7 +826,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorIN3euf9a
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3euf9ac_plugin10monomial_tEEvPT_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %98, i64 -2
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %98, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i)
           to label %_ZSt8_DestroyIN3euf9ac_plugin10monomial_tEEvPT_.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i
 
@@ -885,7 +838,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN3euf9ac_plugin10monomial_tEEvPT_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.euf::ac_plugin::monomial_t", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 24
   %dec.i.i.i.i.i.i = add i32 %__count.addr.07.i.i.i.i.i.i, -1
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE16destroy_elementsEv.exit.loopexit.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
@@ -896,7 +849,7 @@ _ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE16destroy_elementsEv.exit.loopexit.
 
 _ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE16destroy_elementsEv.exit.i.i: ; preds = %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE16destroy_elementsEv.exit.loopexit.i.i, %_ZNK6vectorIN3euf9ac_plugin10monomial_tELb1EjE4sizeEv.exit.i.i.i
   %101 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE16destroy_elementsEv.exit.loopexit.i.i ], [ %96, %_ZNK6vectorIN3euf9ac_plugin10monomial_tELb1EjE4sizeEv.exit.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %101, i64 -2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %101, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
           to label %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjED2Ev.exit unwind label %terminate.lpad.i
 
@@ -908,13 +861,13 @@ terminate.lpad.i:                                 ; preds = %_ZN6vectorIN3euf9ac
   unreachable
 
 _ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjED2Ev.exit: ; preds = %_ZN7svectorIN3euf9ac_plugin6sharedEjED2Ev.exit, %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE16destroy_elementsEv.exit.i.i
-  %m_shared_nodes = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 6
+  %m_shared_nodes = getelementptr inbounds i8, ptr %this, i64 48
   %104 = load ptr, ptr %m_shared_nodes, align 8
   %tobool.not.i.i.i131 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i.i131, label %_ZN7svectorIbjED2Ev.exit135, label %if.then.i.i.i132
 
 if.then.i.i.i132:                                 ; preds = %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjED2Ev.exit
-  %add.ptr.i.i.i.i133 = getelementptr inbounds i32, ptr %104, i64 -2
+  %add.ptr.i.i.i.i133 = getelementptr inbounds i8, ptr %104, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i133)
           to label %_ZN7svectorIbjED2Ev.exit135 unwind label %terminate.lpad.i.i134
 
@@ -926,13 +879,13 @@ terminate.lpad.i.i134:                            ; preds = %if.then.i.i.i132
   unreachable
 
 _ZN7svectorIbjED2Ev.exit135:                      ; preds = %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjED2Ev.exit, %if.then.i.i.i132
-  %m_nodes = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 5
+  %m_nodes = getelementptr inbounds i8, ptr %this, i64 40
   %107 = load ptr, ptr %m_nodes, align 8
   %tobool.not.i.i.i136 = icmp eq ptr %107, null
   br i1 %tobool.not.i.i.i136, label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit140, label %if.then.i.i.i137
 
 if.then.i.i.i137:                                 ; preds = %_ZN7svectorIbjED2Ev.exit135
-  %add.ptr.i.i.i.i138 = getelementptr inbounds i32, ptr %107, i64 -2
+  %add.ptr.i.i.i.i138 = getelementptr inbounds i8, ptr %107, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i138)
           to label %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit140 unwind label %terminate.lpad.i.i139
 
@@ -944,13 +897,13 @@ terminate.lpad.i.i139:                            ; preds = %if.then.i.i.i137
   unreachable
 
 _ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit140: ; preds = %_ZN7svectorIbjED2Ev.exit135, %if.then.i.i.i137
-  %m_eqs = getelementptr inbounds %"class.euf::ac_plugin", ptr %this, i64 0, i32 4
+  %m_eqs = getelementptr inbounds i8, ptr %this, i64 32
   %110 = load ptr, ptr %m_eqs, align 8
   %tobool.not.i.i141 = icmp eq ptr %110, null
   br i1 %tobool.not.i.i141, label %_ZN6vectorIN3euf9ac_plugin2eqELb1EjED2Ev.exit, label %if.then.i.i142
 
 if.then.i.i142:                                   ; preds = %_ZN10ptr_vectorIN3euf9ac_plugin4nodeEED2Ev.exit140
-  %add.ptr.i.i.i143 = getelementptr inbounds i32, ptr %110, i64 -2
+  %add.ptr.i.i.i143 = getelementptr inbounds i8, ptr %110, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i143)
           to label %_ZN6vectorIN3euf9ac_plugin2eqELb1EjED2Ev.exit unwind label %terminate.lpad.i144
 
@@ -973,7 +926,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
           to label %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjED2Ev.exit unwind label %terminate.lpad.i
 
@@ -997,9 +950,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3euf12arith_plugin8merge_ehEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(904) %this, ptr noundef %n1, ptr noundef %n2) unnamed_addr #3 align 2 {
 entry:
-  %m_add = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3
+  %m_add = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3euf9ac_plugin8merge_ehEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(432) %m_add, ptr noundef %n1, ptr noundef %n2)
-  %m_mul = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4
+  %m_mul = getelementptr inbounds i8, ptr %this, i64 472
   tail call void @_ZN3euf9ac_plugin8merge_ehEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(432) %m_mul, ptr noundef %n1, ptr noundef %n2)
   ret void
 }
@@ -1009,9 +962,9 @@ declare void @_ZN3euf9ac_plugin8merge_ehEPNS_5enodeES2_(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3euf12arith_plugin9propagateEv(ptr noundef nonnull align 8 dereferenceable(904) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_add = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3
+  %m_add = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3euf9ac_plugin9propagateEv(ptr noundef nonnull align 8 dereferenceable(432) %m_add)
-  %m_mul = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4
+  %m_mul = getelementptr inbounds i8, ptr %this, i64 472
   tail call void @_ZN3euf9ac_plugin9propagateEv(ptr noundef nonnull align 8 dereferenceable(432) %m_mul)
   ret void
 }
@@ -1021,7 +974,7 @@ declare void @_ZN3euf9ac_plugin9propagateEv(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3euf12arith_plugin4undoEv(ptr noundef nonnull align 8 dereferenceable(904) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_undo = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 2
+  %m_undo = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_undo, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %entry._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge, label %if.end.i.i
@@ -1032,7 +985,7 @@ entry._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge: ; pred
   br label %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = add i32 %1, -1
   %3 = zext i32 %2 to i64
@@ -1043,19 +996,14 @@ _ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit: ; preds = %entry._ZN6v
   %retval.0.i.i = phi i64 [ 4294967295, %entry._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge ], [ %3, %if.end.i.i ]
   %arrayidx.i1.i = getelementptr inbounds i32, ptr %0, i64 %retval.0.i.i
   %4 = load i32, ptr %arrayidx.i1.i, align 4
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   store i32 %dec.i.pre-phi, ptr %arrayidx.i, align 4
   switch i32 %4, label %sw.default [
-    i32 0, label %sw.bb
+    i32 0, label %sw.epilog
     i32 1, label %sw.bb3
   ]
 
-sw.bb:                                            ; preds = %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit
-  %m_add = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3
-  br label %sw.epilog
-
 sw.bb3:                                           ; preds = %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit
-  %m_mul = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit
@@ -1063,9 +1011,10 @@ sw.default:                                       ; preds = %_ZN6vectorIN3euf12a
   tail call void @exit(i32 noundef 114) #16
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb3, %sw.bb
-  %m_mul.sink = phi ptr [ %m_mul, %sw.bb3 ], [ %m_add, %sw.bb ]
-  tail call void @_ZN3euf9ac_plugin4undoEv(ptr noundef nonnull align 8 dereferenceable(432) %m_mul.sink)
+sw.epilog:                                        ; preds = %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit, %sw.bb3
+  %.sink = phi i64 [ 472, %sw.bb3 ], [ 40, %_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit ]
+  %m_mul = getelementptr inbounds i8, ptr %this, i64 %.sink
+  tail call void @_ZN3euf9ac_plugin4undoEv(ptr noundef nonnull align 8 dereferenceable(432) %m_mul)
   ret void
 }
 
@@ -1080,10 +1029,10 @@ declare void @exit(i32 noundef) local_unnamed_addr #6
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf12arith_plugin7displayERSo(ptr noundef nonnull align 8 dereferenceable(904) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
-  %m_add = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3
+  %m_add = getelementptr inbounds i8, ptr %this, i64 40
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin7displayERSo(ptr noundef nonnull align 8 dereferenceable(432) %m_add, ptr noundef nonnull align 8 dereferenceable(8) %out)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
-  %m_mul = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4
+  %m_mul = getelementptr inbounds i8, ptr %this, i64 472
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin7displayERSo(ptr noundef nonnull align 8 dereferenceable(432) %m_mul, ptr noundef nonnull align 8 dereferenceable(8) %out)
   ret ptr %out
 }
@@ -1096,17 +1045,17 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3euf9ac_plugin7displ
 define linkonce_odr hidden void @_ZN3euf12arith_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3euf12arith_pluginE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_mul = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4
+  %m_mul = getelementptr inbounds i8, ptr %this, i64 472
   tail call void @_ZN3euf9ac_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %m_mul) #17
-  %m_add = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3
+  %m_add = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3euf9ac_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %m_add) #17
-  %m_undo = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 2
+  %m_undo = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_undo, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIN3euf12arith_plugin6undo_tEjED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %_ZN7svectorIN3euf12arith_plugin6undo_tEjED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1125,17 +1074,17 @@ _ZN7svectorIN3euf12arith_plugin6undo_tEjED2Ev.exit: ; preds = %entry, %if.then.i
 define linkonce_odr hidden void @_ZN3euf12arith_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(904) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3euf12arith_pluginE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_mul.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 4
+  %m_mul.i = getelementptr inbounds i8, ptr %this, i64 472
   tail call void @_ZN3euf9ac_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %m_mul.i) #17
-  %m_add.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 3
+  %m_add.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3euf9ac_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %m_add.i) #17
-  %m_undo.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %this, i64 0, i32 2
+  %m_undo.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_undo.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3euf12arith_pluginD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
           to label %_ZN3euf12arith_pluginD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1189,15 +1138,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define internal void @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
-  %m_undo.i.i.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %call.val, i64 0, i32 2
+  %m_undo.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 32
   %0 = load ptr, ptr %m_undo.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %entry
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %arrayidx4.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %2 = load i32, ptr %arrayidx4.i.i.i.i, align 4
   %cmp5.i.i.i.i = icmp eq i32 %1, %2
   br i1 %cmp5.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3euf12arith_pluginC1ERNS0_6egraphEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
@@ -1205,7 +1154,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i.i, %entry
   tail call void @_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_undo.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %m_undo.i.i.i, align 8
-  %arrayidx8.phi.trans.insert.i.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 -4
   %.pre1.i.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i.i, align 4
   br label %"_ZSt10__invoke_rIvRZN3euf12arith_pluginC1ERNS0_6egraphEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
@@ -1216,7 +1165,7 @@ if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i.i.i.i
   store i32 0, ptr %add.ptr.i.i.i.i, align 4
   %5 = load ptr, ptr %m_undo.i.i.i, align 8
-  %arrayidx10.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 -1
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx10.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %6, 1
   store i32 %inc.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 4
@@ -1261,14 +1210,14 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i32, ptr %call, i64 2
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i32, ptr %arrayidx, align 4
   %mul9 = mul i32 %1, 3
   %add10 = add i32 %mul9, 1
@@ -1292,7 +1241,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
           to label %unreachable unwind label %ehcleanup
@@ -1314,7 +1263,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i32, ptr %call25, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -1372,7 +1321,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #17
   ret void
 }
@@ -1498,15 +1447,15 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 define internal void @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_6egraphEE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
-  %m_undo.i.i.i = getelementptr inbounds %"class.euf::arith_plugin", ptr %call.val, i64 0, i32 2
+  %m_undo.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 32
   %0 = load ptr, ptr %m_undo.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %entry
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %arrayidx4.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 -2
+  %arrayidx4.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %2 = load i32, ptr %arrayidx4.i.i.i.i, align 4
   %cmp5.i.i.i.i = icmp eq i32 %1, %2
   br i1 %cmp5.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3euf12arith_pluginC1ERNS0_6egraphEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
@@ -1514,7 +1463,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %entry
 if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i.i, %entry
   tail call void @_ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_undo.i.i.i)
   %.pre.i.i.i.i = load ptr, ptr %m_undo.i.i.i, align 8
-  %arrayidx8.phi.trans.insert.i.i.i.i = getelementptr inbounds i32, ptr %.pre.i.i.i.i, i64 -1
+  %arrayidx8.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 -4
   %.pre1.i.i.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i.i, align 4
   br label %"_ZSt10__invoke_rIvRZN3euf12arith_pluginC1ERNS0_6egraphEE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit"
 
@@ -1525,7 +1474,7 @@ if.then.i.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i.i.i.i
   store i32 1, ptr %add.ptr.i.i.i.i, align 4
   %5 = load ptr, ptr %m_undo.i.i.i, align 8
-  %arrayidx10.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 -1
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx10.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %6, 1
   store i32 %inc.i.i.i.i, ptr %arrayidx10.i.i.i.i, align 4

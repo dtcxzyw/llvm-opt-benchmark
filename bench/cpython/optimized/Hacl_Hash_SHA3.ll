@@ -91,7 +91,7 @@ for.end:                                          ; preds = %Hacl_Impl_SHA3_abso
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Impl_SHA3_absorb_inner(i32 noundef %rateInBytes, ptr nocapture noundef readonly %block, ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %block.i = alloca [200 x i8], align 16
@@ -302,7 +302,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Impl_SHA3_loadState(i32 noundef %rateInBytes, ptr nocapture noundef readonly %input, ptr nocapture noundef %s) local_unnamed_addr #1 {
 entry:
   %block = alloca [200 x i8], align 16
@@ -332,33 +332,33 @@ for.end:                                          ; preds = %for.body
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Impl_SHA3_state_permute(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %arrayidx3 = getelementptr i64, ptr %s, i64 5
-  %arrayidx6 = getelementptr i64, ptr %s, i64 10
-  %arrayidx9 = getelementptr i64, ptr %s, i64 15
-  %arrayidx12 = getelementptr i64, ptr %s, i64 20
-  %arrayidx21 = getelementptr i64, ptr %s, i64 1
-  %arrayidx24 = getelementptr i64, ptr %s, i64 6
-  %arrayidx27 = getelementptr i64, ptr %s, i64 11
-  %arrayidx30 = getelementptr i64, ptr %s, i64 16
-  %arrayidx33 = getelementptr i64, ptr %s, i64 21
-  %arrayidx43 = getelementptr i64, ptr %s, i64 2
-  %arrayidx46 = getelementptr i64, ptr %s, i64 7
-  %arrayidx49 = getelementptr i64, ptr %s, i64 12
-  %arrayidx52 = getelementptr i64, ptr %s, i64 17
-  %arrayidx55 = getelementptr i64, ptr %s, i64 22
-  %arrayidx65 = getelementptr i64, ptr %s, i64 3
-  %arrayidx68 = getelementptr i64, ptr %s, i64 8
-  %arrayidx71 = getelementptr i64, ptr %s, i64 13
-  %arrayidx74 = getelementptr i64, ptr %s, i64 18
-  %arrayidx77 = getelementptr i64, ptr %s, i64 23
-  %arrayidx87 = getelementptr i64, ptr %s, i64 4
-  %arrayidx90 = getelementptr i64, ptr %s, i64 9
-  %arrayidx93 = getelementptr i64, ptr %s, i64 14
-  %arrayidx96 = getelementptr i64, ptr %s, i64 19
-  %arrayidx99 = getelementptr i64, ptr %s, i64 24
+  %arrayidx3 = getelementptr i8, ptr %s, i64 40
+  %arrayidx6 = getelementptr i8, ptr %s, i64 80
+  %arrayidx9 = getelementptr i8, ptr %s, i64 120
+  %arrayidx12 = getelementptr i8, ptr %s, i64 160
+  %arrayidx21 = getelementptr i8, ptr %s, i64 8
+  %arrayidx24 = getelementptr i8, ptr %s, i64 48
+  %arrayidx27 = getelementptr i8, ptr %s, i64 88
+  %arrayidx30 = getelementptr i8, ptr %s, i64 128
+  %arrayidx33 = getelementptr i8, ptr %s, i64 168
+  %arrayidx43 = getelementptr i8, ptr %s, i64 16
+  %arrayidx46 = getelementptr i8, ptr %s, i64 56
+  %arrayidx49 = getelementptr i8, ptr %s, i64 96
+  %arrayidx52 = getelementptr i8, ptr %s, i64 136
+  %arrayidx55 = getelementptr i8, ptr %s, i64 176
+  %arrayidx65 = getelementptr i8, ptr %s, i64 24
+  %arrayidx68 = getelementptr i8, ptr %s, i64 64
+  %arrayidx71 = getelementptr i8, ptr %s, i64 104
+  %arrayidx74 = getelementptr i8, ptr %s, i64 144
+  %arrayidx77 = getelementptr i8, ptr %s, i64 184
+  %arrayidx87 = getelementptr i8, ptr %s, i64 32
+  %arrayidx90 = getelementptr i8, ptr %s, i64 72
+  %arrayidx93 = getelementptr i8, ptr %s, i64 112
+  %arrayidx96 = getelementptr i8, ptr %s, i64 152
+  %arrayidx99 = getelementptr i8, ptr %s, i64 192
   %.pre = load i64, ptr %s, align 8
   %.pre501 = load i64, ptr %arrayidx3, align 8
   %.pre502 = load i64, ptr %arrayidx6, align 8
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @Hacl_Streaming_Keccak_malloc(i8 noundef zeroext %a) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @Hacl_Streaming_Keccak_malloc(i8 noundef zeroext %a) local_unnamed_addr #0 {
 entry:
   %a.off = add i8 %a, -8
   %switch = icmp ult i8 %a.off, 6
@@ -723,7 +723,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @Hacl_Streaming_Keccak_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @Hacl_Streaming_Keccak_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #0 {
 entry:
   %scrut0.sroa.0.0.copyload = load i64, ptr %s0, align 8
   %scrut0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
@@ -801,7 +801,7 @@ block_len.exit31:                                 ; preds = %block_len.exit22.th
   ret ptr %call21
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @Hacl_Streaming_Keccak_reset(ptr nocapture noundef %s) local_unnamed_addr #10 {
 entry:
   %scrut.sroa.0.0.copyload = load i64, ptr %s, align 8
@@ -819,7 +819,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @Hacl_Streaming_Keccak_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #0 {
+define hidden noundef zeroext i8 @Hacl_Streaming_Keccak_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %block.i.i.i469 = alloca [200 x i8], align 16
   %block.i.i.i381 = alloca [200 x i8], align 16
@@ -1745,7 +1745,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @Hacl_Streaming_Keccak_finish(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst) local_unnamed_addr #0 {
+define hidden noundef zeroext i8 @Hacl_Streaming_Keccak_finish(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
   %0 = and i8 %scrut.sroa.0.0.copyload.i, -2
@@ -2076,7 +2076,7 @@ return:                                           ; preds = %Hacl_Impl_SHA3_sque
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @Hacl_Streaming_Keccak_squeeze(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst, i32 noundef %l) local_unnamed_addr #0 {
+define hidden noundef zeroext i8 @Hacl_Streaming_Keccak_squeeze(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst, i32 noundef %l) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
   %0 = and i8 %scrut.sroa.0.0.copyload.i, -2
@@ -2097,7 +2097,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Hacl_Streaming_Keccak_block_len(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define hidden noundef i32 @Hacl_Streaming_Keccak_block_len(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
   %switch.tableidx = add i8 %scrut.sroa.0.0.copyload.i, -8
@@ -2118,7 +2118,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Hacl_Streaming_Keccak_hash_len(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define hidden noundef i32 @Hacl_Streaming_Keccak_hash_len(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
   %switch.tableidx = add i8 %scrut.sroa.0.0.copyload.i, -8
@@ -2147,14 +2147,14 @@ entry:
   ret i1 %1
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA3_shake128_hacl(i32 noundef %inputByteLen, ptr nocapture noundef readonly %input, i32 noundef %outputByteLen, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   tail call void @Hacl_Impl_SHA3_keccak(i32 noundef 1344, i32 poison, i32 noundef %inputByteLen, ptr noundef %input, i8 noundef zeroext 31, i32 noundef %outputByteLen, ptr noundef %output)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Impl_SHA3_keccak(i32 noundef %rate, i32 %capacity, i32 noundef %inputByteLen, ptr nocapture noundef readonly %input, i8 noundef zeroext %delimitedSuffix, i32 noundef %outputByteLen, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   %block.i12.i = alloca [200 x i8], align 16
@@ -2330,42 +2330,42 @@ Hacl_Impl_SHA3_squeeze.exit:                      ; preds = %for.body.i6, %absor
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA3_shake256_hacl(i32 noundef %inputByteLen, ptr nocapture noundef readonly %input, i32 noundef %outputByteLen, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   tail call void @Hacl_Impl_SHA3_keccak(i32 noundef 1088, i32 poison, i32 noundef %inputByteLen, ptr noundef %input, i8 noundef zeroext 31, i32 noundef %outputByteLen, ptr noundef %output)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA3_sha3_224(i32 noundef %inputByteLen, ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   tail call void @Hacl_Impl_SHA3_keccak(i32 noundef 1152, i32 poison, i32 noundef %inputByteLen, ptr noundef %input, i8 noundef zeroext 6, i32 noundef 28, ptr noundef %output)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA3_sha3_256(i32 noundef %inputByteLen, ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   tail call void @Hacl_Impl_SHA3_keccak(i32 noundef 1088, i32 poison, i32 noundef %inputByteLen, ptr noundef %input, i8 noundef zeroext 6, i32 noundef 32, ptr noundef %output)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA3_sha3_384(i32 noundef %inputByteLen, ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   tail call void @Hacl_Impl_SHA3_keccak(i32 noundef 832, i32 poison, i32 noundef %inputByteLen, ptr noundef %input, i8 noundef zeroext 6, i32 noundef 48, ptr noundef %output)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_SHA3_sha3_512(i32 noundef %inputByteLen, ptr nocapture noundef readonly %input, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   tail call void @Hacl_Impl_SHA3_keccak(i32 noundef 576, i32 poison, i32 noundef %inputByteLen, ptr noundef %input, i8 noundef zeroext 6, i32 noundef 64, ptr noundef %output)
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Impl_SHA3_squeeze(ptr noundef %s, i32 noundef %rateInBytes, i32 noundef %outputByteLen, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   %block.i12 = alloca [200 x i8], align 16
@@ -2424,7 +2424,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2433,7 +2433,7 @@ attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -58,9 +58,9 @@ define zeroext i1 @_ZN12regex_syntax3hir7visitor11HeapVisitor5visit17h7c4ff16f11
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %16 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %9, i64 0, i32 1
-  %17 = getelementptr inbounds { [1 x i64], i64, [3 x i64] }, ptr %7, i64 0, i32 1
-  %18 = getelementptr inbounds { ptr, { i64, [3 x i64] } }, ptr %4, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.backedge

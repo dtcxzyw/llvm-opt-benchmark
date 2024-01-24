@@ -46,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.2 = private unnamed_addr constant [8 x i8] c"skipped\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkXenClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local noundef i32 @checkXenClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf.i = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
@@ -96,7 +96,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #2
 declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkOvercommit(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local noundef i32 @checkOvercommit(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -137,7 +137,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @checkTHPEnabled(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local noundef i32 @checkTHPEnabled(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4)
@@ -169,7 +169,7 @@ return:                                           ; preds = %if.end, %if.end4, %
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @checkClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
+define internal noundef i32 @checkClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
 entry:
   %buf.i6 = alloca [256 x i8], align 16
   %buf.i = alloca [256 x i8], align 16
@@ -188,7 +188,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %0 = load i64, ptr %ts, align 8
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %1 = load i64, ptr %tv_nsec, align 8
   %div.neg = sdiv i64 %1, -1000
   %div6 = udiv i64 5000000, %call
@@ -216,23 +216,23 @@ while.end:                                        ; preds = %if.end10
   br i1 %cmp20.not, label %if.end22, label %return
 
 if.end22:                                         ; preds = %while.end
-  %ru_stime = getelementptr inbounds %struct.rusage, ptr %ru_end, i64 0, i32 1
+  %ru_stime = getelementptr inbounds i8, ptr %ru_end, i64 16
   %4 = load i64, ptr %ru_stime, align 8
-  %tv_usec = getelementptr inbounds %struct.rusage, ptr %ru_end, i64 0, i32 1, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %ru_end, i64 24
   %5 = load i64, ptr %tv_usec, align 8
-  %ru_stime27 = getelementptr inbounds %struct.rusage, ptr %ru_start, i64 0, i32 1
+  %ru_stime27 = getelementptr inbounds i8, ptr %ru_start, i64 16
   %6 = load i64, ptr %ru_stime27, align 8
-  %tv_usec31 = getelementptr inbounds %struct.rusage, ptr %ru_start, i64 0, i32 1, i32 1
+  %tv_usec31 = getelementptr inbounds i8, ptr %ru_start, i64 24
   %7 = load i64, ptr %tv_usec31, align 8
   %reass.add23 = sub i64 %4, %6
   %reass.mul24 = mul i64 %reass.add23, 1000000
   %add26 = sub i64 %5, %7
   %sub33 = add i64 %add26, %reass.mul24
   %8 = load i64, ptr %ru_end, align 8
-  %tv_usec37 = getelementptr inbounds %struct.timeval, ptr %ru_end, i64 0, i32 1
+  %tv_usec37 = getelementptr inbounds i8, ptr %ru_end, i64 8
   %9 = load i64, ptr %tv_usec37, align 8
   %10 = load i64, ptr %ru_start, align 8
-  %tv_usec43 = getelementptr inbounds %struct.timeval, ptr %ru_start, i64 0, i32 1
+  %tv_usec43 = getelementptr inbounds i8, ptr %ru_start, i64 8
   %11 = load i64, ptr %tv_usec43, align 8
   %mul46 = mul nsw i64 %sub33, 10
   %reass.add20 = sub i64 %8, %10
@@ -337,8 +337,8 @@ if.else7:                                         ; preds = %while.body
 
 if.end10:                                         ; preds = %if.then5, %if.else7, %if.then
   %ret.1 = phi i32 [ %ret.09, %if.then ], [ %ret.09, %if.then5 ], [ 0, %if.else7 ]
-  %incdec.ptr = getelementptr inbounds %struct.check, ptr %cur_check.010, i64 1
-  %check_fn = getelementptr inbounds %struct.check, ptr %cur_check.010, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur_check.010, i64 16
+  %check_fn = getelementptr inbounds i8, ptr %cur_check.010, i64 24
   %5 = load ptr, ptr %check_fn, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5

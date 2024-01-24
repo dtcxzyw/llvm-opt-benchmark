@@ -3,20 +3,6 @@ source_filename = "bench/hyperscan/original/som_runtime.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.hs_scratch = type { i32, i8, i32, i32, i32, i32, i32, %struct.RoseContext, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.catchup_pq, %struct.core_info, %struct.match_deduper, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i8 }
-%struct.RoseContext = type { i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, ptr, i64, ptr, i64 }
-%struct.catchup_pq = type { ptr, i32 }
-%struct.core_info = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i64, i8 }
-%struct.match_deduper = type { [2 x ptr], [2 x ptr], [2 x ptr], i32, i32, i64, i8 }
-%struct.RoseEngine = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, i32, %struct.RoseStateOffsets, %struct.RoseBoundaryReports, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatter_full_plan }
-%struct.RoseStateOffsets = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.RoseBoundaryReports = type { i32, i32, i32 }
-%struct.scatter_full_plan = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.som_operation = type { i8, i32, %union.anon }
-%union.anon = type { i64 }
-%struct.NFA = type { i32, i32, i8, i8, i8, i8, %union.anon.2, i32, i32, i32, i32, i32, i32, i32, [20 x i8] }
-%union.anon.2 = type { i16 }
-
 @mmbit_maxlevel_direct_lut = external local_unnamed_addr constant [32 x i8], align 16
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
 
@@ -27,29 +13,29 @@ entry:
   %from_offset.i445 = alloca i64, align 8
   %from_offset.i = alloca i64, align 8
   %from_offset = alloca i64, align 8
-  %rose1 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %rose1 = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose1, align 8
-  %somLocationCount = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 20
+  %somLocationCount = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %somLocationCount, align 8
-  %state = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 3
+  %state = getelementptr inbounds i8, ptr %scratch, i64 256
   %2 = load ptr, ptr %state, align 8
-  %somValid = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 18
+  %somValid = getelementptr inbounds i8, ptr %0, i64 356
   %3 = load i32, ptr %somValid, align 4
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
-  %somWritable = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 19
+  %somWritable = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load i32, ptr %somWritable, align 4
   %idx.ext4 = zext i32 %4 to i64
   %add.ptr5 = getelementptr inbounds i8, ptr %2, i64 %idx.ext4
-  %som_set_now6 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 24
+  %som_set_now6 = getelementptr inbounds i8, ptr %scratch, i64 440
   %5 = load ptr, ptr %som_set_now6, align 8
-  %som_attempted_set7 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 25
+  %som_attempted_set7 = getelementptr inbounds i8, ptr %scratch, i64 448
   %6 = load ptr, ptr %som_attempted_set7, align 64
-  %som_store8 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 22
+  %som_store8 = getelementptr inbounds i8, ptr %scratch, i64 424
   %7 = load ptr, ptr %som_store8, align 8
-  %som_attempted_store = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 23
+  %som_attempted_store = getelementptr inbounds i8, ptr %scratch, i64 432
   %8 = load ptr, ptr %som_attempted_store, align 16
-  %som_set_now_offset = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 26
+  %som_set_now_offset = getelementptr inbounds i8, ptr %scratch, i64 456
   %9 = load i64, ptr %som_set_now_offset, align 8
   %cmp.not = icmp eq i64 %9, %to_offset
   br i1 %cmp.not, label %if.end, label %do.end10
@@ -75,7 +61,7 @@ if.end:                                           ; preds = %do.end10, %entry
   ]
 
 do.end13:                                         ; preds = %if.end
-  %onmatch = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch = getelementptr inbounds i8, ptr %ri, i64 4
   %11 = load i32, ptr %onmatch, align 4
   %cmp.i765 = icmp ult i32 %1, 257
   br i1 %cmp.i765, label %mmbit_set_i.exit721.thread, label %if.else.i717
@@ -90,7 +76,7 @@ mmbit_set_i.exit721.thread:                       ; preds = %do.end13
   %13 = trunc i32 %shl.i887 to i8
   %conv7.i899 = or i8 %12, %13
   store i8 %conv7.i899, ptr %add.ptr.i885, align 1
-  %aux.i2111088 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i2111088 = getelementptr inbounds i8, ptr %ri, i64 8
   %14 = load i64, ptr %aux.i2111088, align 8
   %sub.i2121089 = sub i64 %to_offset, %14
   %15 = load i32, ptr %onmatch, align 4
@@ -181,7 +167,7 @@ if.end.i1403:                                     ; preds = %do.body.i1390
   br i1 %cmp17.i1405.not, label %mmbit_set_i.exit721, label %do.body.i1390, !llvm.loop !8
 
 mmbit_set_i.exit721:                              ; preds = %if.end.i1403, %while.body.i1416, %if.then.i1407
-  %aux.i211 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i211 = getelementptr inbounds i8, ptr %ri, i64 8
   %31 = load i64, ptr %aux.i211, align 8
   %sub.i212 = sub i64 %to_offset, %31
   %32 = load i32, ptr %onmatch, align 4
@@ -265,7 +251,7 @@ if.else.i219:                                     ; preds = %if.end.i1661, %mmbi
   br label %return
 
 do.end16:                                         ; preds = %if.end
-  %onmatch17 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch17 = getelementptr inbounds i8, ptr %ri, i64 4
   %44 = load i32, ptr %onmatch17, align 4
   %cmp.i771 = icmp ult i32 %1, 257
   br i1 %cmp.i771, label %mmbit_set_i.exit699, label %if.else.i695
@@ -393,7 +379,7 @@ mmbit_isset.exit4117:                             ; preds = %mmbit_set_i.exit699
   br i1 %tobool2.i250.not, label %return, label %if.then19.thread
 
 if.then19.thread:                                 ; preds = %mmbit_set_i.exit699, %mmbit_isset.exit4117
-  %aux.i1831111 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i1831111 = getelementptr inbounds i8, ptr %ri, i64 8
   %71 = load i64, ptr %aux.i1831111, align 8
   %sub.i1841112 = sub i64 %to_offset, %71
   %72 = load i32, ptr %onmatch17, align 4
@@ -413,7 +399,7 @@ if.then19.thread:                                 ; preds = %mmbit_set_i.exit699
   br i1 %tobool.i1046.not, label %if.then.i188, label %if.else.i191
 
 if.then19:                                        ; preds = %if.end.i4601, %while.body.i1502, %if.then.i1493
-  %aux.i183 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i183 = getelementptr inbounds i8, ptr %ri, i64 8
   %75 = load i64, ptr %aux.i183, align 8
   %sub.i184 = sub i64 %to_offset, %75
   %76 = load i32, ptr %onmatch17, align 4
@@ -497,7 +483,7 @@ if.else.i191:                                     ; preds = %if.end.i1704, %if.t
   br label %return
 
 sw.bb21:                                          ; preds = %if.end
-  %onmatch22 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch22 = getelementptr inbounds i8, ptr %ri, i64 4
   %88 = load i32, ptr %onmatch22, align 4
   %cmp.i780 = icmp ult i32 %1, 257
   br i1 %cmp.i780, label %mmbit_set_i.exit666, label %if.else.i662
@@ -661,7 +647,7 @@ mmbit_isset.exit4173:                             ; preds = %mmbit_isset.exit415
   br i1 %tobool5.i309.not, label %do.end29.thread, label %if.then27.thread
 
 do.end29.thread:                                  ; preds = %mmbit_isset.exit4173
-  %aux1157 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux1157 = getelementptr inbounds i8, ptr %ri, i64 8
   %126 = load i64, ptr %aux1157, align 8
   %sub1158 = sub i64 %to_offset, %126
   %add.ptr.i1193 = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i994
@@ -675,7 +661,7 @@ do.end29.thread:                                  ; preds = %mmbit_isset.exit417
   br i1 %tobool.i1200.not, label %if.then32, label %if.else33
 
 if.then27.thread:                                 ; preds = %mmbit_isset.exit4159, %mmbit_set_i.exit666, %mmbit_isset.exit4173
-  %aux.i1143 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i1143 = getelementptr inbounds i8, ptr %ri, i64 8
   %128 = load i64, ptr %aux.i1143, align 8
   %sub.i1144 = sub i64 %to_offset, %128
   %129 = load i32, ptr %onmatch22, align 4
@@ -695,7 +681,7 @@ if.then27.thread:                                 ; preds = %mmbit_isset.exit415
   br i1 %tobool.i1068.not, label %if.then.i, label %if.else.i
 
 if.then27:                                        ; preds = %if.end.i4487, %if.end.i4449, %while.body.i1631, %if.then.i1622
-  %aux.i = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i = getelementptr inbounds i8, ptr %ri, i64 8
   %132 = load i64, ptr %aux.i, align 8
   %sub.i = sub i64 %to_offset, %132
   %133 = load i32, ptr %onmatch22, align 4
@@ -867,7 +853,7 @@ if.end6.i.thread:                                 ; preds = %if.end.i5127, %if.e
   br label %return
 
 do.end29:                                         ; preds = %do.body.i4437
-  %aux = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux = getelementptr inbounds i8, ptr %ri, i64 8
   %166 = load i64, ptr %aux, align 8
   %sub = sub i64 %to_offset, %166
   br label %do.body.i1992
@@ -949,7 +935,7 @@ if.else33:                                        ; preds = %if.end.i2005, %do.e
   br label %return
 
 do.end48:                                         ; preds = %if.end
-  %onmatch49 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch49 = getelementptr inbounds i8, ptr %ri, i64 4
   %178 = load i32, ptr %onmatch49, align 4
   %cmp.i762 = icmp ult i32 %1, 257
   br i1 %cmp.i762, label %if.then.i730, label %if.else.i728
@@ -1041,7 +1027,7 @@ mmbit_set_i.exit732:                              ; preds = %if.end.i1360, %whil
   %194 = getelementptr i8, ptr %ri, i64 8
   %ri.val = load i64, ptr %194, align 8
   %195 = load ptr, ptr %rose1, align 8
-  %somRevOffsetOffset.i.i = getelementptr inbounds %struct.RoseEngine, ptr %195, i64 0, i32 87
+  %somRevOffsetOffset.i.i = getelementptr inbounds i8, ptr %195, i64 428
   %196 = load i32, ptr %somRevOffsetOffset.i.i, align 4
   %idx.ext.i.i = zext i32 %196 to i64
   %add.ptr.i.i1023 = getelementptr inbounds i8, ptr %195, i64 %idx.ext.i.i
@@ -1050,20 +1036,20 @@ mmbit_set_i.exit732:                              ; preds = %if.end.i1360, %whil
   %197 = load i32, ptr %arrayidx.i.i1025, align 4
   %idx.ext1.i.i = zext i32 %197 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %195, i64 %idx.ext1.i.i
-  %buf_offset.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 11
+  %buf_offset.i = getelementptr inbounds i8, ptr %scratch, i64 320
   %198 = load i64, ptr %buf_offset.i, align 8
   %sub.i1026 = sub i64 %to_offset, %198
-  %hlen.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 10
+  %hlen.i = getelementptr inbounds i8, ptr %scratch, i64 312
   %199 = load i64, ptr %hlen.i, align 8
-  %buf5.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 7
+  %buf5.i = getelementptr inbounds i8, ptr %scratch, i64 288
   %200 = load ptr, ptr %buf5.i, align 8
-  %hbuf6.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 9
+  %hbuf6.i = getelementptr inbounds i8, ptr %scratch, i64 304
   %201 = load ptr, ptr %hbuf6.i, align 8
   %tobool.not.i = icmp eq i64 %199, 0
   br i1 %tobool.not.i, label %runRevNfa.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %mmbit_set_i.exit732
-  %maxWidth.i = getelementptr inbounds %struct.NFA, ptr %add.ptr2.i.i, i64 0, i32 11
+  %maxWidth.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 32
   %202 = load i32, ptr %maxWidth.i, align 32
   %conv7.i1027 = zext i32 %202 to i64
   %cmp.i1028 = icmp ult i64 %sub.i1026, %conv7.i1027
@@ -1191,7 +1177,7 @@ if.else.i487:                                     ; preds = %if.end.i2134, %mmbi
   br label %return
 
 do.end53:                                         ; preds = %if.end
-  %onmatch54 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch54 = getelementptr inbounds i8, ptr %ri, i64 4
   %222 = load i32, ptr %onmatch54, align 4
   %cmp.i768 = icmp ult i32 %1, 257
   br i1 %cmp.i768, label %mmbit_set_i.exit710, label %if.else.i706
@@ -1322,7 +1308,7 @@ if.then57:                                        ; preds = %if.end.i4639, %whil
   %249 = getelementptr i8, ptr %ri, i64 8
   %ri.val1020 = load i64, ptr %249, align 8
   %250 = load ptr, ptr %rose1, align 8
-  %somRevOffsetOffset.i.i1032 = getelementptr inbounds %struct.RoseEngine, ptr %250, i64 0, i32 87
+  %somRevOffsetOffset.i.i1032 = getelementptr inbounds i8, ptr %250, i64 428
   %251 = load i32, ptr %somRevOffsetOffset.i.i1032, align 4
   %idx.ext.i.i1033 = zext i32 %251 to i64
   %add.ptr.i.i1034 = getelementptr inbounds i8, ptr %250, i64 %idx.ext.i.i1033
@@ -1331,20 +1317,20 @@ if.then57:                                        ; preds = %if.end.i4639, %whil
   %252 = load i32, ptr %arrayidx.i.i1036, align 4
   %idx.ext1.i.i1037 = zext i32 %252 to i64
   %add.ptr2.i.i1038 = getelementptr inbounds i8, ptr %250, i64 %idx.ext1.i.i1037
-  %buf_offset.i1039 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 11
+  %buf_offset.i1039 = getelementptr inbounds i8, ptr %scratch, i64 320
   %253 = load i64, ptr %buf_offset.i1039, align 8
   %sub.i1040 = sub i64 %to_offset, %253
-  %hlen.i1041 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 10
+  %hlen.i1041 = getelementptr inbounds i8, ptr %scratch, i64 312
   %254 = load i64, ptr %hlen.i1041, align 8
-  %buf5.i1042 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 7
+  %buf5.i1042 = getelementptr inbounds i8, ptr %scratch, i64 288
   %255 = load ptr, ptr %buf5.i1042, align 8
-  %hbuf6.i1043 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 9
+  %hbuf6.i1043 = getelementptr inbounds i8, ptr %scratch, i64 304
   %256 = load ptr, ptr %hbuf6.i1043, align 8
   %tobool.not.i1044 = icmp eq i64 %254, 0
   br i1 %tobool.not.i1044, label %runRevNfa.exit1058, label %land.lhs.true.i1045
 
 land.lhs.true.i1045:                              ; preds = %if.then57
-  %maxWidth.i1046 = getelementptr inbounds %struct.NFA, ptr %add.ptr2.i.i1038, i64 0, i32 11
+  %maxWidth.i1046 = getelementptr inbounds i8, ptr %add.ptr2.i.i1038, i64 32
   %257 = load i32, ptr %maxWidth.i1046, align 32
   %conv7.i1047 = zext i32 %257 to i64
   %cmp.i1048 = icmp ult i64 %sub.i1040, %conv7.i1047
@@ -1472,7 +1458,7 @@ if.else.i453:                                     ; preds = %if.end.i2091, %mmbi
   br label %return
 
 sw.bb59:                                          ; preds = %if.end
-  %onmatch61 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch61 = getelementptr inbounds i8, ptr %ri, i64 4
   %277 = load i32, ptr %onmatch61, align 4
   %cmp.i777 = icmp ult i32 %1, 257
   br i1 %cmp.i777, label %mmbit_set_i.exit677, label %if.else.i673
@@ -1654,7 +1640,7 @@ if.then66:                                        ; preds = %if.end.i4525, %if.e
   %317 = getelementptr i8, ptr %ri, i64 8
   %ri.val1021 = load i64, ptr %317, align 8
   %318 = load ptr, ptr %rose1, align 8
-  %somRevOffsetOffset.i.i1060 = getelementptr inbounds %struct.RoseEngine, ptr %318, i64 0, i32 87
+  %somRevOffsetOffset.i.i1060 = getelementptr inbounds i8, ptr %318, i64 428
   %319 = load i32, ptr %somRevOffsetOffset.i.i1060, align 4
   %idx.ext.i.i1061 = zext i32 %319 to i64
   %add.ptr.i.i1062 = getelementptr inbounds i8, ptr %318, i64 %idx.ext.i.i1061
@@ -1663,20 +1649,20 @@ if.then66:                                        ; preds = %if.end.i4525, %if.e
   %320 = load i32, ptr %arrayidx.i.i1064, align 4
   %idx.ext1.i.i1065 = zext i32 %320 to i64
   %add.ptr2.i.i1066 = getelementptr inbounds i8, ptr %318, i64 %idx.ext1.i.i1065
-  %buf_offset.i1067 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 11
+  %buf_offset.i1067 = getelementptr inbounds i8, ptr %scratch, i64 320
   %321 = load i64, ptr %buf_offset.i1067, align 8
   %sub.i1068 = sub i64 %to_offset, %321
-  %hlen.i1069 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 10
+  %hlen.i1069 = getelementptr inbounds i8, ptr %scratch, i64 312
   %322 = load i64, ptr %hlen.i1069, align 8
-  %buf5.i1070 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 7
+  %buf5.i1070 = getelementptr inbounds i8, ptr %scratch, i64 288
   %323 = load ptr, ptr %buf5.i1070, align 8
-  %hbuf6.i1071 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 9
+  %hbuf6.i1071 = getelementptr inbounds i8, ptr %scratch, i64 304
   %324 = load ptr, ptr %hbuf6.i1071, align 8
   %tobool.not.i1072 = icmp eq i64 %322, 0
   br i1 %tobool.not.i1072, label %runRevNfa.exit1087, label %land.lhs.true.i1073
 
 land.lhs.true.i1073:                              ; preds = %if.then66
-  %maxWidth.i1074 = getelementptr inbounds %struct.NFA, ptr %add.ptr2.i.i1066, i64 0, i32 11
+  %maxWidth.i1074 = getelementptr inbounds i8, ptr %add.ptr2.i.i1066, i64 32
   %325 = load i32, ptr %maxWidth.i1074, align 32
   %conv7.i1076 = zext i32 %325 to i64
   %cmp.i1077 = icmp ult i64 %sub.i1068, %conv7.i1076
@@ -1975,9 +1961,9 @@ if.else75:                                        ; preds = %if.end.i1962, %do.e
   br label %return
 
 sw.bb92:                                          ; preds = %if.end
-  %aux93 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux93 = getelementptr inbounds i8, ptr %ri, i64 8
   %380 = load i64, ptr %aux93, align 8
-  %onmatch95 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch95 = getelementptr inbounds i8, ptr %ri, i64 4
   %381 = load i32, ptr %onmatch95, align 4
   %cmp.i759 = icmp ult i32 %1, 257
   br i1 %cmp.i759, label %mmbit_set_i.exit743.thread, label %if.else.i739
@@ -2143,9 +2129,9 @@ mmbit_set_i.exit589:                              ; preds = %if.end.i1919, %whil
   br label %return
 
 sw.bb104:                                         ; preds = %if.end
-  %aux106 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux106 = getelementptr inbounds i8, ptr %ri, i64 8
   %409 = load i64, ptr %aux106, align 8
-  %onmatch109 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch109 = getelementptr inbounds i8, ptr %ri, i64 4
   %410 = load i32, ptr %onmatch109, align 4
   %cmp.i774 = icmp ult i32 %1, 257
   br i1 %cmp.i774, label %mmbit_set_i.exit688, label %if.else.i684
@@ -2536,7 +2522,7 @@ mmbit_set_i.exit611:                              ; preds = %if.end.i1833, %whil
   br label %return
 
 sw.bb133:                                         ; preds = %if.end
-  %onmatch135 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch135 = getelementptr inbounds i8, ptr %ri, i64 4
   %490 = load i32, ptr %onmatch135, align 4
   %cmp.i.i = icmp ult i32 %1, 257
   br i1 %cmp.i.i, label %mmbit_isset.exit, label %if.else.i4074
@@ -2782,9 +2768,9 @@ return:                                           ; preds = %if.end.i4715, %if.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @runRevNfa(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef %from_offset) unnamed_addr #0 {
 entry:
-  %rose = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %rose = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose, align 8
-  %somRevOffsetOffset.i = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 87
+  %somRevOffsetOffset.i = getelementptr inbounds i8, ptr %0, i64 428
   %1 = load i32, ptr %somRevOffsetOffset.i, align 4
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
@@ -2793,20 +2779,20 @@ entry:
   %2 = load i32, ptr %arrayidx.i, align 4
   %idx.ext1.i = zext i32 %2 to i64
   %add.ptr2.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext1.i
-  %buf_offset = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 11
+  %buf_offset = getelementptr inbounds i8, ptr %scratch, i64 320
   %3 = load i64, ptr %buf_offset, align 8
   %sub = sub i64 %to_offset, %3
-  %hlen = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 10
+  %hlen = getelementptr inbounds i8, ptr %scratch, i64 312
   %4 = load i64, ptr %hlen, align 8
-  %buf5 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 7
+  %buf5 = getelementptr inbounds i8, ptr %scratch, i64 288
   %5 = load ptr, ptr %buf5, align 8
-  %hbuf6 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 9
+  %hbuf6 = getelementptr inbounds i8, ptr %scratch, i64 304
   %6 = load ptr, ptr %hbuf6, align 8
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %do.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %maxWidth = getelementptr inbounds %struct.NFA, ptr %add.ptr2.i, i64 0, i32 11
+  %maxWidth = getelementptr inbounds i8, ptr %add.ptr2.i, i64 32
   %7 = load i32, ptr %maxWidth, align 32
   %conv7 = zext i32 %7 to i64
   %cmp = icmp ult i64 %sub, %conv7
@@ -2843,20 +2829,20 @@ entry:
   ]
 
 do.end:                                           ; preds = %entry
-  %aux = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load i64, ptr %aux, align 8
   %sub = sub i64 %to_offset, %1
   br label %return
 
 do.end4:                                          ; preds = %entry
-  %aux5 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux5 = getelementptr inbounds i8, ptr %ri, i64 8
   %2 = load i64, ptr %aux5, align 8
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %som_store7 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 22
+  %som_store7 = getelementptr inbounds i8, ptr %scratch, i64 424
   %3 = load ptr, ptr %som_store7, align 8
-  %aux8 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux8 = getelementptr inbounds i8, ptr %ri, i64 8
   %4 = load i64, ptr %aux8, align 8
   %idxprom = and i64 %4, 4294967295
   %arrayidx = getelementptr inbounds i64, ptr %3, i64 %idxprom
@@ -2866,9 +2852,9 @@ sw.bb6:                                           ; preds = %entry
 do.end14:                                         ; preds = %entry
   %6 = getelementptr i8, ptr %ri, i64 8
   %ri.val = load i64, ptr %6, align 8
-  %rose.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %rose.i = getelementptr inbounds i8, ptr %scratch, i64 248
   %7 = load ptr, ptr %rose.i, align 8
-  %somRevOffsetOffset.i.i = getelementptr inbounds %struct.RoseEngine, ptr %7, i64 0, i32 87
+  %somRevOffsetOffset.i.i = getelementptr inbounds i8, ptr %7, i64 428
   %8 = load i32, ptr %somRevOffsetOffset.i.i, align 4
   %idx.ext.i.i = zext i32 %8 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %idx.ext.i.i
@@ -2877,20 +2863,20 @@ do.end14:                                         ; preds = %entry
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %idx.ext1.i.i = zext i32 %9 to i64
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %7, i64 %idx.ext1.i.i
-  %buf_offset.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 11
+  %buf_offset.i = getelementptr inbounds i8, ptr %scratch, i64 320
   %10 = load i64, ptr %buf_offset.i, align 8
   %sub.i = sub i64 %to_offset, %10
-  %hlen.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 10
+  %hlen.i = getelementptr inbounds i8, ptr %scratch, i64 312
   %11 = load i64, ptr %hlen.i, align 8
-  %buf5.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 7
+  %buf5.i = getelementptr inbounds i8, ptr %scratch, i64 288
   %12 = load ptr, ptr %buf5.i, align 8
-  %hbuf6.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 9
+  %hbuf6.i = getelementptr inbounds i8, ptr %scratch, i64 304
   %13 = load ptr, ptr %hbuf6.i, align 8
   %tobool.not.i = icmp eq i64 %11, 0
   br i1 %tobool.not.i, label %runRevNfa.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.end14
-  %maxWidth.i = getelementptr inbounds %struct.NFA, ptr %add.ptr2.i.i, i64 0, i32 11
+  %maxWidth.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 32
   %14 = load i32, ptr %maxWidth.i, align 32
   %conv7.i = zext i32 %14 to i64
   %cmp.i = icmp ult i64 %sub.i, %conv7.i
@@ -2922,29 +2908,29 @@ return:                                           ; preds = %entry, %runRevNfa.e
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @setSomFromSomAware(ptr nocapture noundef %scratch, ptr nocapture noundef readonly %ri, i64 noundef %from_offset, i64 noundef %to_offset) local_unnamed_addr #1 {
 entry:
-  %rose1 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %rose1 = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose1, align 8
-  %somLocationCount = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 20
+  %somLocationCount = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %somLocationCount, align 8
-  %state = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 3
+  %state = getelementptr inbounds i8, ptr %scratch, i64 256
   %2 = load ptr, ptr %state, align 8
-  %somValid = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 18
+  %somValid = getelementptr inbounds i8, ptr %0, i64 356
   %3 = load i32, ptr %somValid, align 4
   %idx.ext = zext i32 %3 to i64
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
-  %somWritable = getelementptr inbounds %struct.RoseEngine, ptr %0, i64 0, i32 75, i32 19
+  %somWritable = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load i32, ptr %somWritable, align 4
   %idx.ext4 = zext i32 %4 to i64
   %add.ptr5 = getelementptr inbounds i8, ptr %2, i64 %idx.ext4
-  %som_set_now6 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 24
+  %som_set_now6 = getelementptr inbounds i8, ptr %scratch, i64 440
   %5 = load ptr, ptr %som_set_now6, align 8
-  %som_attempted_set7 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 25
+  %som_attempted_set7 = getelementptr inbounds i8, ptr %scratch, i64 448
   %6 = load ptr, ptr %som_attempted_set7, align 64
-  %som_store8 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 22
+  %som_store8 = getelementptr inbounds i8, ptr %scratch, i64 424
   %7 = load ptr, ptr %som_store8, align 8
-  %som_attempted_store = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 23
+  %som_attempted_store = getelementptr inbounds i8, ptr %scratch, i64 432
   %8 = load ptr, ptr %som_attempted_store, align 16
-  %som_set_now_offset = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 26
+  %som_set_now_offset = getelementptr inbounds i8, ptr %scratch, i64 456
   %9 = load i64, ptr %som_set_now_offset, align 8
   %cmp.not = icmp eq i64 %9, %to_offset
   br i1 %cmp.not, label %if.end, label %do.end
@@ -2958,7 +2944,7 @@ do.end:                                           ; preds = %entry
 if.end:                                           ; preds = %do.end, %entry
   %10 = load i8, ptr %ri, align 8
   %cmp10 = icmp eq i8 %10, 14
-  %onmatch = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 1
+  %onmatch = getelementptr inbounds i8, ptr %ri, i64 4
   %11 = load i32, ptr %onmatch, align 4
   %cmp.i164 = icmp ult i32 %1, 257
   br i1 %cmp10, label %do.end14, label %do.end16
@@ -2976,7 +2962,7 @@ mmbit_set_i.exit162.thread:                       ; preds = %do.end14
   %13 = trunc i32 %shl.i to i8
   %conv7.i = or i8 %12, %13
   store i8 %conv7.i, ptr %add.ptr.i, align 1
-  %aux.i53256 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i53256 = getelementptr inbounds i8, ptr %ri, i64 8
   %14 = load i64, ptr %aux.i53256, align 8
   %sub.i54257 = sub i64 %from_offset, %14
   %15 = load i32, ptr %onmatch, align 4
@@ -3067,7 +3053,7 @@ if.end.i:                                         ; preds = %do.body.i
   br i1 %cmp17.i.not, label %mmbit_set_i.exit162, label %do.body.i, !llvm.loop !8
 
 mmbit_set_i.exit162:                              ; preds = %if.end.i, %while.body.i, %if.then.i290
-  %aux.i53 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i53 = getelementptr inbounds i8, ptr %ri, i64 8
   %31 = load i64, ptr %aux.i53, align 8
   %sub.i54 = sub i64 %from_offset, %31
   %32 = load i32, ptr %onmatch, align 4
@@ -3329,7 +3315,7 @@ do.end23.thread:                                  ; preds = %mmbit_isset.exit930
   br i1 %tobool.i268.not, label %if.then28, label %if.else29
 
 if.then19.thread:                                 ; preds = %mmbit_isset.exit, %mmbit_set_i.exit151, %mmbit_isset.exit930
-  %aux.i288 = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i288 = getelementptr inbounds i8, ptr %ri, i64 8
   %84 = load i64, ptr %aux.i288, align 8
   %sub.i289 = sub i64 %from_offset, %84
   %85 = load i32, ptr %onmatch, align 4
@@ -3349,7 +3335,7 @@ if.then19.thread:                                 ; preds = %mmbit_isset.exit, %
   br i1 %tobool.i246.not, label %if.then.i, label %if.else.i
 
 if.then19:                                        ; preds = %if.end.i1012, %if.end.i975, %while.body.i331, %if.then.i322
-  %aux.i = getelementptr inbounds %struct.som_operation, ptr %ri, i64 0, i32 2
+  %aux.i = getelementptr inbounds i8, ptr %ri, i64 8
   %88 = load i64, ptr %aux.i, align 8
   %sub.i = sub i64 %from_offset, %88
   %89 = load i32, ptr %onmatch, align 4
@@ -3602,19 +3588,19 @@ if.end42:                                         ; preds = %do.body.i1116, %if.
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @flushStoredSomMatches_i(ptr nocapture noundef %scratch, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %current_report_offset = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 5
+  %current_report_offset = getelementptr inbounds i8, ptr %scratch, i64 392
   %0 = load i64, ptr %current_report_offset, align 8
   %cmp = icmp eq i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %som_log = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 1
+  %som_log = getelementptr inbounds i8, ptr %scratch, i64 352
   %1 = load ptr, ptr %som_log, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  %arrayidx4 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %scratch, i64 360
   %2 = load ptr, ptr %arrayidx4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  %som_log_dirty = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 6
+  %som_log_dirty = getelementptr inbounds i8, ptr %scratch, i64 400
   store i8 0, ptr %som_log_dirty, align 16
   br label %return
 
@@ -3624,18 +3610,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
+  %som_log11 = getelementptr inbounds i8, ptr %scratch, i64 352
   %rem = and i64 %offset, 1
-  %arrayidx12 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 1, i64 %rem
+  %arrayidx12 = getelementptr inbounds [2 x ptr], ptr %som_log11, i64 0, i64 %rem
   %3 = load ptr, ptr %arrayidx12, align 8
-  %arrayidx15 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 2, i64 %rem
+  %som_start_log = getelementptr inbounds i8, ptr %scratch, i64 368
+  %arrayidx15 = getelementptr inbounds [2 x ptr], ptr %som_start_log, i64 0, i64 %rem
   %4 = load ptr, ptr %arrayidx15, align 8
   %sub = add i64 %0, -1
-  %core_info.i105 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17
-  %rose1.i106 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %core_info.i105 = getelementptr inbounds i8, ptr %scratch, i64 232
+  %rose1.i106 = getelementptr inbounds i8, ptr %scratch, i64 248
   %5 = load ptr, ptr %rose1.i106, align 8
-  %dkeyCount2.i107 = getelementptr inbounds %struct.RoseEngine, ptr %5, i64 0, i32 17
+  %dkeyCount2.i107 = getelementptr inbounds i8, ptr %5, i64 44
   %6 = load i32, ptr %dkeyCount2.i107, align 4
-  %invDkeyOffset.i108 = getelementptr inbounds %struct.RoseEngine, ptr %5, i64 0, i32 19
+  %invDkeyOffset.i108 = getelementptr inbounds i8, ptr %5, i64 52
   %7 = load i32, ptr %invDkeyOffset.i108, align 4
   %idx.ext.i109 = zext i32 %7 to i64
   %add.ptr.i110 = getelementptr inbounds i8, ptr %5, i64 %idx.ext.i109
@@ -3859,7 +3847,7 @@ for.body.i115.lr.ph:                              ; preds = %if.then94.i337, %if
   %retval.i226.0714 = phi i32 [ %retval.i226.0, %mmbit_iterate.exit245 ], [ %add96.i339, %if.then94.i337 ], [ %cast.i2076, %if.then6.i402 ]
   %invariant.gep657 = getelementptr i8, ptr %3, i64 -8
   %invariant.gep655 = getelementptr i8, ptr %3, i64 -4
-  %userCallback.i120 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 1
+  %userCallback.i120 = getelementptr inbounds i8, ptr %scratch, i64 240
   %sub.i255 = add i32 %6, -1
   %cmp.i.i258 = icmp ult i32 %6, 257
   %28 = tail call i32 @llvm.ctlz.i32(i32 %sub.i255, i1 true), !range !5
@@ -3896,7 +3884,7 @@ for.body.i115:                                    ; preds = %for.body.i115.lr.ph
   br i1 %tobool.i122.not, label %if.end.i123, label %if.then.i125
 
 if.then.i125:                                     ; preds = %for.body.i115
-  %status.i126 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 12
+  %status.i126 = getelementptr inbounds i8, ptr %scratch, i64 328
   %35 = load i8, ptr %status.i126, align 8
   %36 = or i8 %35, 1
   store i8 %36, ptr %status.i126, align 8
@@ -4191,7 +4179,7 @@ for.end.i114:                                     ; preds = %if.end19.i961, %for
 
 clearSomLog.exit130:                              ; preds = %for.end.i114, %if.then.i125
   %retval.i91.0 = phi i32 [ 1, %if.then.i125 ], [ 0, %for.end.i114 ]
-  %som_log_dirty19 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 6
+  %som_log_dirty19 = getelementptr inbounds i8, ptr %scratch, i64 400
   %60 = load i8, ptr %som_log_dirty19, align 16
   %61 = lshr i8 %60, 1
   store i8 %61, ptr %som_log_dirty19, align 16
@@ -4199,22 +4187,24 @@ clearSomLog.exit130:                              ; preds = %for.end.i114, %if.t
 
 if.else:                                          ; preds = %if.end
   %sub23 = add i64 %0, -1
+  %som_log27 = getelementptr inbounds i8, ptr %scratch, i64 352
   %rem28 = and i64 %sub23, 1
-  %arrayidx29 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 1, i64 %rem28
+  %arrayidx29 = getelementptr inbounds [2 x ptr], ptr %som_log27, i64 0, i64 %rem28
   %62 = load ptr, ptr %arrayidx29, align 8
-  %arrayidx33 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 2, i64 %rem28
+  %som_start_log31 = getelementptr inbounds i8, ptr %scratch, i64 368
+  %arrayidx33 = getelementptr inbounds [2 x ptr], ptr %som_start_log31, i64 0, i64 %rem28
   %63 = load ptr, ptr %arrayidx33, align 8
   %rem36 = and i64 %0, 1
-  %arrayidx37 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 1, i64 %rem36
+  %arrayidx37 = getelementptr inbounds [2 x ptr], ptr %som_log27, i64 0, i64 %rem36
   %64 = load ptr, ptr %arrayidx37, align 8
-  %arrayidx41 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 2, i64 %rem36
+  %arrayidx41 = getelementptr inbounds [2 x ptr], ptr %som_start_log31, i64 0, i64 %rem36
   %65 = load ptr, ptr %arrayidx41, align 8
-  %core_info.i64 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17
-  %rose1.i65 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 2
+  %core_info.i64 = getelementptr inbounds i8, ptr %scratch, i64 232
+  %rose1.i65 = getelementptr inbounds i8, ptr %scratch, i64 248
   %66 = load ptr, ptr %rose1.i65, align 8
-  %dkeyCount2.i66 = getelementptr inbounds %struct.RoseEngine, ptr %66, i64 0, i32 17
+  %dkeyCount2.i66 = getelementptr inbounds i8, ptr %66, i64 44
   %67 = load i32, ptr %dkeyCount2.i66, align 4
-  %invDkeyOffset.i67 = getelementptr inbounds %struct.RoseEngine, ptr %66, i64 0, i32 19
+  %invDkeyOffset.i67 = getelementptr inbounds i8, ptr %66, i64 52
   %68 = load i32, ptr %invDkeyOffset.i67, align 4
   %idx.ext.i68 = zext i32 %68 to i64
   %add.ptr.i69 = getelementptr inbounds i8, ptr %66, i64 %idx.ext.i68
@@ -4438,7 +4428,7 @@ for.body.i74.lr.ph:                               ; preds = %if.then94.i587, %if
   %retval.i184.0723 = phi i32 [ %retval.i184.0, %mmbit_iterate.exit203 ], [ %add96.i589, %if.then94.i587 ], [ %cast.i2092, %if.then6.i652 ]
   %invariant.gep631 = getelementptr i8, ptr %62, i64 -8
   %invariant.gep = getelementptr i8, ptr %62, i64 -4
-  %userCallback.i79 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 1
+  %userCallback.i79 = getelementptr inbounds i8, ptr %scratch, i64 240
   %sub.i213 = add i32 %67, -1
   %cmp.i.i216 = icmp ult i32 %67, 257
   %89 = tail call i32 @llvm.ctlz.i32(i32 %sub.i213, i1 true), !range !5
@@ -4758,7 +4748,7 @@ mmbit_iterate.exit224:                            ; preds = %if.then11.i1052, %i
   br i1 %cmp.i72.not, label %lor.rhs, label %for.body.i74, !llvm.loop !12
 
 clearSomLog.exit89:                               ; preds = %for.body.i74
-  %status.i85 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 12
+  %status.i85 = getelementptr inbounds i8, ptr %scratch, i64 328
   %119 = load i8, ptr %status.i85, align 8
   %120 = or i8 %119, 1
   store i8 %120, ptr %status.i85, align 8
@@ -4767,9 +4757,9 @@ clearSomLog.exit89:                               ; preds = %for.body.i74
 lor.rhs:                                          ; preds = %if.end19.i1095, %for.end.i438, %mmbit_get_flat_block.exit1645, %if.else.i509, %if.then4.i529, %if.end.i82, %mmbit_iterate.exit224, %if.end19.i1028, %for.end.i563, %mmbit_get_flat_block.exit1546, %if.end.i649, %if.else, %mmbit_iterate.exit203
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   %121 = load ptr, ptr %rose1.i65, align 8
-  %dkeyCount2.i = getelementptr inbounds %struct.RoseEngine, ptr %121, i64 0, i32 17
+  %dkeyCount2.i = getelementptr inbounds i8, ptr %121, i64 44
   %122 = load i32, ptr %dkeyCount2.i, align 4
-  %invDkeyOffset.i = getelementptr inbounds %struct.RoseEngine, ptr %121, i64 0, i32 19
+  %invDkeyOffset.i = getelementptr inbounds i8, ptr %121, i64 52
   %123 = load i32, ptr %invDkeyOffset.i, align 4
   %idx.ext.i = zext i32 %123 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %121, i64 %idx.ext.i
@@ -4993,7 +4983,7 @@ for.body.i.lr.ph:                                 ; preds = %if.then94.i837, %if
   %retval.i153.0732 = phi i32 [ %retval.i153.0, %mmbit_iterate.exit ], [ %add96.i839, %if.then94.i837 ], [ %cast.i2108, %if.then6.i902 ]
   %invariant.gep643 = getelementptr i8, ptr %64, i64 -8
   %invariant.gep641 = getelementptr i8, ptr %64, i64 -4
-  %userCallback.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 1
+  %userCallback.i = getelementptr inbounds i8, ptr %scratch, i64 240
   %sub.i171 = add i32 %122, -1
   %cmp.i.i174 = icmp ult i32 %122, 257
   %144 = tail call i32 @llvm.ctlz.i32(i32 %sub.i171, i1 true), !range !5
@@ -5030,7 +5020,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %tobool.i.not, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %status.i = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 17, i32 12
+  %status.i = getelementptr inbounds i8, ptr %scratch, i64 328
   %151 = load i8, ptr %status.i, align 8
   %152 = or i8 %151, 1
   store i8 %152, ptr %status.i, align 8
@@ -5325,7 +5315,7 @@ for.end.i:                                        ; preds = %if.end19.i1229, %fo
 
 lor.end:                                          ; preds = %if.then.i, %for.end.i, %clearSomLog.exit89
   %lor.ext = phi i32 [ 1, %clearSomLog.exit89 ], [ 0, %for.end.i ], [ 1, %if.then.i ]
-  %som_log_dirty46 = getelementptr inbounds %struct.hs_scratch, ptr %scratch, i64 0, i32 18, i32 6
+  %som_log_dirty46 = getelementptr inbounds i8, ptr %scratch, i64 400
   store i8 0, ptr %som_log_dirty46, align 16
   br label %return
 

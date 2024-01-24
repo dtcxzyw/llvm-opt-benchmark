@@ -3,9 +3,7 @@ source_filename = "bench/git/original/bitmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bitmap = type { ptr, i64 }
 %struct.ewah_iterator = type { ptr, i64, i64, i64, i64, i64, i64, i32 }
-%struct.ewah_bitmap = type { ptr, i64, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
@@ -15,7 +13,7 @@ entry:
   %call = tail call ptr @xmalloc(i64 noundef 16) #12
   %call1 = tail call ptr @xcalloc(i64 noundef %word_alloc, i64 noundef 8) #12
   store ptr %call1, ptr %call, align 8
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %call, i64 0, i32 1
+  %word_alloc2 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %word_alloc, ptr %word_alloc2, align 8
   ret ptr %call
 }
@@ -30,7 +28,7 @@ entry:
   %call.i = tail call ptr @xmalloc(i64 noundef 16) #12
   %call1.i = tail call ptr @xcalloc(i64 noundef 32, i64 noundef 8) #12
   store ptr %call1.i, ptr %call.i, align 8
-  %word_alloc2.i = getelementptr inbounds %struct.bitmap, ptr %call.i, i64 0, i32 1
+  %word_alloc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 32, ptr %word_alloc2.i, align 8
   ret ptr %call.i
 }
@@ -38,12 +36,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bitmap_dup(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %src, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %word_alloc, align 8
   %call.i = tail call ptr @xmalloc(i64 noundef 16) #12
   %call1.i = tail call ptr @xcalloc(i64 noundef %0, i64 noundef 8) #12
   store ptr %call1.i, ptr %call.i, align 8
-  %word_alloc2.i = getelementptr inbounds %struct.bitmap, ptr %call.i, i64 0, i32 1
+  %word_alloc2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %0, ptr %word_alloc2.i, align 8
   %1 = load ptr, ptr %src, align 8
   %2 = load i64, ptr %word_alloc, align 8
@@ -71,7 +69,7 @@ copy_array.exit:                                  ; preds = %entry, %st_mult.exi
 define dso_local void @bitmap_set(ptr nocapture noundef %self, i64 noundef %pos) local_unnamed_addr #0 {
 entry:
   %div4 = lshr i64 %pos, 6
-  %word_alloc1.i = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc1.i = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc1.i, align 8
   %cmp.i.not = icmp ugt i64 %0, %div4
   br i1 %cmp.i.not, label %entry.do.end_crit_edge.i, label %if.then.i
@@ -115,7 +113,7 @@ bitmap_grow.exit:                                 ; preds = %entry.do.end_crit_e
 define dso_local void @bitmap_unset(ptr nocapture noundef readonly %self, i64 noundef %pos) local_unnamed_addr #2 {
 entry:
   %div4 = lshr i64 %pos, 6
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
   %cmp = icmp ult i64 %div4, %0
   br i1 %cmp, label %if.then, label %if.end
@@ -139,7 +137,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local i32 @bitmap_get(ptr nocapture noundef readonly %self, i64 noundef %pos) local_unnamed_addr #3 {
 entry:
   %div4 = lshr i64 %pos, 6
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
   %cmp = icmp ult i64 %div4, %0
   br i1 %cmp, label %land.rhs, label %land.end
@@ -164,7 +162,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 define dso_local ptr @bitmap_to_ewah(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ewah_new() #12
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %bitmap, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %bitmap, i64 8
   %0 = load i64, ptr %word_alloc, align 8
   %cmp13.not = icmp eq i64 %0, 0
   br i1 %cmp13.not, label %for.end, label %for.body.preheader
@@ -240,7 +238,7 @@ entry:
   %call.i.i = tail call ptr @xmalloc(i64 noundef 16) #12
   %call1.i.i = tail call ptr @xcalloc(i64 noundef 32, i64 noundef 8) #12
   store ptr %call1.i.i, ptr %call.i.i, align 8
-  %word_alloc2.i.i = getelementptr inbounds %struct.bitmap, ptr %call.i.i, i64 0, i32 1
+  %word_alloc2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 32, ptr %word_alloc2.i.i, align 8
   call void @ewah_iterator_init(ptr noundef nonnull %it, ptr noundef %ewah) #12
   %call117 = call i32 @ewah_iterator_next(ptr noundef nonnull %blowup, ptr noundef nonnull %it) #12
@@ -302,9 +300,9 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @bitmap_and_not(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other) local_unnamed_addr #4 {
 entry:
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %other, i64 0, i32 1
+  %word_alloc1 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i64, ptr %word_alloc1, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %cmp49.not = icmp eq i64 %., 0
@@ -332,9 +330,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @bitmap_or(ptr nocapture noundef %self, ptr nocapture noundef readonly %other) local_unnamed_addr #0 {
 entry:
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %other, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i64, ptr %word_alloc, align 8
-  %word_alloc1.i = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc1.i = getelementptr inbounds i8, ptr %self, i64 8
   %1 = load i64, ptr %word_alloc1.i, align 8
   %cmp.i = icmp ult i64 %1, %0
   br i1 %cmp.i, label %if.then.i, label %entry.do.end_crit_edge.i
@@ -399,9 +397,9 @@ define dso_local void @bitmap_or_ewah(ptr nocapture noundef %self, ptr noundef %
 entry:
   %it = alloca %struct.ewah_iterator, align 8
   %word = alloca i64, align 8
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
-  %bit_size = getelementptr inbounds %struct.ewah_bitmap, ptr %other, i64 0, i32 3
+  %bit_size = getelementptr inbounds i8, ptr %other, i64 24
   %1 = load i64, ptr %bit_size, align 8
   %div12 = lshr i64 %1, 6
   %cmp.not = icmp ugt i64 %0, %div12
@@ -450,7 +448,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @bitmap_popcount(ptr nocapture noundef readonly %self) local_unnamed_addr #6 {
 entry:
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
   %cmp5.not = icmp eq i64 %0, 0
   br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
@@ -491,7 +489,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @bitmap_is_empty(ptr nocapture noundef readonly %self) local_unnamed_addr #6 {
 entry:
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
   %cmp4.not = icmp eq i64 %0, 0
   br i1 %cmp4.not, label %return, label %for.body.lr.ph
@@ -520,14 +518,14 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @bitmap_equals(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other) local_unnamed_addr #6 {
 entry:
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %other, i64 0, i32 1
+  %word_alloc1 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i64, ptr %word_alloc1, align 8
   %cmp = icmp ult i64 %0, %1
   %other.self = select i1 %cmp, ptr %other, ptr %self
   %self.other = select i1 %cmp, ptr %self, ptr %other
-  %word_alloc2 = getelementptr inbounds %struct.bitmap, ptr %self.other, i64 0, i32 1
+  %word_alloc2 = getelementptr inbounds i8, ptr %self.other, i64 8
   %2 = load i64, ptr %word_alloc2, align 8
   %cmp316.not = icmp eq i64 %2, 0
   br i1 %cmp316.not, label %for.cond9.preheader, label %for.body.lr.ph
@@ -538,7 +536,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.cond9.preheader:                              ; preds = %for.inc, %entry
-  %word_alloc10 = getelementptr inbounds %struct.bitmap, ptr %other.self, i64 0, i32 1
+  %word_alloc10 = getelementptr inbounds i8, ptr %other.self, i64 8
   %5 = load i64, ptr %word_alloc10, align 8
   %cmp1118 = icmp ult i64 %2, %5
   br i1 %cmp1118, label %for.body12.lr.ph, label %return
@@ -581,9 +579,9 @@ return:                                           ; preds = %for.body, %for.body
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @bitmap_is_subset(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other) local_unnamed_addr #6 {
 entry:
-  %word_alloc = getelementptr inbounds %struct.bitmap, ptr %self, i64 0, i32 1
+  %word_alloc = getelementptr inbounds i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
-  %word_alloc1 = getelementptr inbounds %struct.bitmap, ptr %other, i64 0, i32 1
+  %word_alloc1 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i64, ptr %word_alloc1, align 8
   %cmp = icmp ult i64 %0, %1
   br i1 %cmp, label %if.end7, label %for.cond.preheader

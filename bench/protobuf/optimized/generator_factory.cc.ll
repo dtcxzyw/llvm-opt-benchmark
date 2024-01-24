@@ -4,34 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.google::protobuf::compiler::java::ImmutableGeneratorFactory" = type { %"class.google::protobuf::compiler::java::GeneratorFactory", ptr }
-%"class.google::protobuf::compiler::java::GeneratorFactory" = type { ptr }
-%"class.google::protobuf::compiler::java::Context" = type { %"class.std::unique_ptr", %"class.absl::lts_20230802::flat_hash_map", %"class.absl::lts_20230802::flat_hash_map.9", %"struct.google::protobuf::compiler::java::Options" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.absl::lts_20230802::flat_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map" }
-%"class.absl::lts_20230802::container_internal::raw_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20230802::container_internal::CommonFields" }
-%"class.absl::lts_20230802::container_internal::CommonFields" = type { ptr, ptr, i64, %"class.absl::lts_20230802::container_internal::CompressedTuple.2" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.2" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.3" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.3" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.4" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.4" = type { i64 }
-%"class.absl::lts_20230802::flat_hash_map.9" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map.10" }
-%"class.absl::lts_20230802::container_internal::raw_hash_map.10" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set.11" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set.11" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple.12" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.12" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.13" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.13" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"struct.google::protobuf::compiler::java::Options" = type <{ i8, i8, i8, i8, i8, i8, [2 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -84,7 +56,7 @@ declare void @llvm.trap() #6
 define hidden void @_ZN6google8protobuf8compiler4java25ImmutableGeneratorFactoryC2EPNS2_7ContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %context) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf8compiler4java25ImmutableGeneratorFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %context_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableGeneratorFactory", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %context, ptr %context_, align 8
   ret void
 }
@@ -108,9 +80,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewMessageGeneratorEPKNS0_10DescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %context_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableGeneratorFactory", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
-  %enforce_lite.i = getelementptr inbounds %"class.google::protobuf::compiler::java::Context", ptr %0, i64 0, i32 3, i32 3
+  %enforce_lite.i = getelementptr inbounds i8, ptr %0, i64 75
   %1 = load i8, ptr %enforce_lite.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -156,9 +128,9 @@ declare void @_ZN6google8protobuf8compiler4java29ImmutableMessageLiteGeneratorC1
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory21NewExtensionGeneratorEPKNS0_15FieldDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %context_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableGeneratorFactory", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
-  %enforce_lite.i = getelementptr inbounds %"class.google::protobuf::compiler::java::Context", ptr %0, i64 0, i32 3, i32 3
+  %enforce_lite.i = getelementptr inbounds i8, ptr %0, i64 75
   %1 = load i8, ptr %enforce_lite.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -200,7 +172,7 @@ declare void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGenerator
 define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewServiceGeneratorEPKNS0_17ServiceDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  %context_ = getelementptr inbounds %"class.google::protobuf::compiler::java::ImmutableGeneratorFactory", ptr %this, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
   invoke void @_ZN6google8protobuf8compiler4java25ImmutableServiceGeneratorC1EPKNS0_17ServiceDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %descriptor, ptr noundef %0)
           to label %invoke.cont unwind label %lpad

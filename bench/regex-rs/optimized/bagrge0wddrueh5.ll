@@ -41,7 +41,7 @@ define void @_ZN14regex_automata4util5empty11skip_splits17h137ab7f4c830f365E(ptr
   %.fca.0.extract = extractvalue { i32, i32 } %12, 0
   store i32 %.fca.0.extract, ptr %11, align 4
   %.fca.1.extract = extractvalue { i32, i32 } %12, 1
-  %.fca.1.gep = getelementptr inbounds { i32, i32 }, ptr %11, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 4
   %13 = call zeroext i1 @_ZN14regex_automata4util6search8Anchored11is_anchored17hdf456228c0d9cbabE(ptr nonnull align 4 %11)
   br i1 %13, label %24, label %14
@@ -151,7 +151,7 @@ define void @_ZN14regex_automata4util5empty11skip_splits17h3bcf005ff2a00f9dE(ptr
   %.fca.0.extract = extractvalue { i32, i32 } %12, 0
   store i32 %.fca.0.extract, ptr %11, align 4
   %.fca.1.extract = extractvalue { i32, i32 } %12, 1
-  %.fca.1.gep = getelementptr inbounds { i32, i32 }, ptr %11, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 4
   %13 = call zeroext i1 @_ZN14regex_automata4util6search8Anchored11is_anchored17hdf456228c0d9cbabE(ptr nonnull align 4 %11)
   br i1 %13, label %24, label %14
@@ -259,13 +259,13 @@ define void @_ZN14regex_automata4util5empty11skip_splits17hb8ad295084983b6dE(ptr
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca { ptr, ptr }, align 8
   store ptr %6, ptr %13, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %7, ptr %14, align 8
   %15 = tail call { i32, i32 } @_ZN14regex_automata4util6search5Input12get_anchored17h7eac29f50a61aaafE(ptr align 8 %2)
   %.fca.0.extract = extractvalue { i32, i32 } %15, 0
   store i32 %.fca.0.extract, ptr %12, align 4
   %.fca.1.extract = extractvalue { i32, i32 } %15, 1
-  %.fca.1.gep = getelementptr inbounds { i32, i32 }, ptr %12, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 4
   %16 = call zeroext i1 @_ZN14regex_automata4util6search8Anchored11is_anchored17hdf456228c0d9cbabE(ptr nonnull align 4 %12)
   br i1 %16, label %27, label %17
@@ -373,13 +373,13 @@ define void @_ZN14regex_automata4util5empty11skip_splits17hb9cdb384e1366cd4E(ptr
   %12 = alloca { i32, i32 }, align 4
   %13 = alloca { ptr, ptr }, align 8
   store ptr %6, ptr %13, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %7, ptr %14, align 8
   %15 = tail call { i32, i32 } @_ZN14regex_automata4util6search5Input12get_anchored17h7eac29f50a61aaafE(ptr align 8 %2)
   %.fca.0.extract = extractvalue { i32, i32 } %15, 0
   store i32 %.fca.0.extract, ptr %12, align 4
   %.fca.1.extract = extractvalue { i32, i32 } %15, 1
-  %.fca.1.gep = getelementptr inbounds { i32, i32 }, ptr %12, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %12, i64 4
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 4
   %16 = call zeroext i1 @_ZN14regex_automata4util6search8Anchored11is_anchored17hdf456228c0d9cbabE(ptr nonnull align 4 %12)
   br i1 %16, label %27, label %17

@@ -45,8 +45,8 @@ cond.end:                                         ; preds = %if.end
 
 while.cond.preheader:                             ; preds = %cond.end.thread, %cond.end
   %cond19 = phi i64 [ %conv, %cond.end.thread ], [ %call, %cond.end ]
-  %arrayidx49 = getelementptr inbounds [3 x i8], ptr %out, i64 0, i64 1
-  %arrayidx53 = getelementptr inbounds [3 x i8], ptr %out, i64 0, i64 2
+  %arrayidx49 = getelementptr inbounds i8, ptr %out, i64 1
+  %arrayidx53 = getelementptr inbounds i8, ptr %out, i64 2
   br label %while.body
 
 if.then2:                                         ; preds = %cond.end

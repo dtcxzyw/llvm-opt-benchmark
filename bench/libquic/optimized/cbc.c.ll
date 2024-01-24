@@ -101,8 +101,8 @@ while.cond8.preheader:                            ; preds = %entry
   br i1 %cmp373, label %while.body10.preheader, label %while.cond28
 
 while.body10.preheader:                           ; preds = %while.cond8.preheader
-  %arrayidx16.c = getelementptr inbounds [2 x i64], ptr %tmp, i64 0, i64 1
-  %arrayidx17.c = getelementptr inbounds i64, ptr %ivec, i64 1
+  %arrayidx16.c = getelementptr inbounds i8, ptr %tmp, i64 8
+  %arrayidx17.c = getelementptr inbounds i8, ptr %ivec, i64 8
   br label %while.body10
 
 while.cond.preheader:                             ; preds = %entry
@@ -118,9 +118,9 @@ while.body:                                       ; preds = %while.cond.preheade
   %3 = load i64, ptr %out.addr.076, align 8
   %xor = xor i64 %3, %2
   store i64 %xor, ptr %out.addr.076, align 8
-  %arrayidx.c = getelementptr inbounds i64, ptr %iv.074, i64 1
+  %arrayidx.c = getelementptr inbounds i8, ptr %iv.074, i64 8
   %4 = load i64, ptr %arrayidx.c, align 8
-  %arrayidx5.c = getelementptr inbounds i64, ptr %out.addr.076, i64 1
+  %arrayidx5.c = getelementptr inbounds i8, ptr %out.addr.076, i64 8
   %5 = load i64, ptr %arrayidx5.c, align 8
   %xor.c = xor i64 %5, %4
   store i64 %xor.c, ptr %arrayidx5.c, align 8
@@ -149,12 +149,12 @@ while.body10:                                     ; preds = %while.body10.prehea
   %xor18 = xor i64 %8, %7
   store i64 %xor18, ptr %out.addr.168, align 8
   store i64 %6, ptr %ivec, align 8
-  %arrayidx15.c = getelementptr inbounds i64, ptr %in.addr.169, i64 1
+  %arrayidx15.c = getelementptr inbounds i8, ptr %in.addr.169, i64 8
   %9 = load i64, ptr %arrayidx15.c, align 8
   %10 = load i64, ptr %arrayidx16.c, align 8
   %11 = load i64, ptr %arrayidx17.c, align 8
   %xor18.c = xor i64 %11, %10
-  %arrayidx19.c = getelementptr inbounds i64, ptr %out.addr.168, i64 1
+  %arrayidx19.c = getelementptr inbounds i8, ptr %out.addr.168, i64 8
   store i64 %xor18.c, ptr %arrayidx19.c, align 8
   store i64 %9, ptr %arrayidx17.c, align 8
   %sub24 = add i64 %len.addr.167, -16

@@ -16,32 +16,32 @@ define void @_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE(ptr sret({ i64, 
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, i64 %1, i64 %2)
   %8 = load i64, ptr %6, align 8, !range !5, !noundef !6
   %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %6, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !range !7
-  %12 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load i64, ptr %12, align 8
   br i1 %9, label %14, label %18
 
 14:                                               ; preds = %5
   store i64 %11, ptr %7, align 8
-  %15 = getelementptr inbounds { i64, i64 }, ptr %7, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %13, ptr %15, align 8
-  %16 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %3, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8, !range !7, !noundef !6
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %27, label %21
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %11, ptr %19, align 8
-  %20 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %13, ptr %20, align 8
   store i64 1, ptr %0, align 8
   br label %30
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %3, align 8, !nonnull !6, !noundef !6
-  %23 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %3, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %3, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !6
   %25 = icmp eq i64 %17, %11
   call void @llvm.assume(i1 %25)
@@ -73,7 +73,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec11finish_grow28_$u7b$$u7b$closure$u7d$$u7
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = load i64, ptr %0, align 8, !range !8, !noundef !6
-  %4 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = insertvalue { i64, i64 } poison, i64 %3, 0
   %7 = insertvalue { i64, i64 } %6, i64 %5, 1
@@ -404,676 +404,572 @@ define { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hde9a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00368fc17b5dab3aE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 160
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 160
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01614b2c599aec1eE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 40
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 40
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01d6482a5bc606eaE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 56
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 56
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h04b16698a38f9a95E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 72
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 72
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16cbfe4ccb5354afE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 4
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 4
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h19c18f58b44fae89E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 80
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 80
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1f746af15fc7631aE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 3
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 3
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ce89c7503e662fE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %10
-
-8:                                                ; preds = %2
-  %9 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %9, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %7, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %10
+  br label %8
 
-10:                                               ; preds = %8, %6
+8:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 1, %6 ], [ 0, %2 ]
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h37d77af9dde22fcfE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 48
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 48
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4301c567a8b9aaf8E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 5
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 5
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h551e390bb063c662E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 3
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 4, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 3
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 4, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7bcfae54fea5795fE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 224
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 224
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h81e66697bbdc7f59E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 288
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 288
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83d356328de0870aE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 2
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 4, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 2
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 4, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hab164fd6dd7dd017E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 3
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 4, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 3
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 4, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb77135fbaaaeff31E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 1
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 1, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 1
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 1, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc569568bc329843aE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 4
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 4
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcdf2bd96332bc4d5E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 24
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 24
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hce1c59131cdd495eE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 24
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 24
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd2cb86c2d778527cE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = shl nuw i64 %4, 3
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = shl nuw i64 %4, 3
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb8471bf0ea9b795E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 160
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 160
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heba411b04988d6a3E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 48
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 48
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf289061194d1d748E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 40
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 40
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf46b719142fb3cf4E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 48
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 48
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfb8900afce32c6fdE"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 24
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 24
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hff796fe0ac0bac65E"(ptr nocapture writeonly sret({ [1 x i64], i64, [1 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %8
+  br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [1 x i64], i64, [1 x i64] }, ptr %0, i64 0, i32 1
-  store i64 0, ptr %7, align 8
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = mul nuw i64 %4, 48
-  %10 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
-  store ptr %10, ptr %0, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 8, ptr %.sroa.22.0..sroa_idx, align 8
+  %7 = mul nuw i64 %4, 48
+  %8 = load ptr, ptr %1, align 8, !nonnull !6, !noundef !6
+  store ptr %8, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  store i64 %7, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %9
 
-11:                                               ; preds = %8, %6
+9:                                                ; preds = %2, %6
+  %.sink = phi i64 [ 8, %6 ], [ 0, %2 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink, ptr %10, align 8
   ret void
 }
 
@@ -1088,7 +984,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1106,24 +1002,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hce1c59131cdd495eE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hce1c59131cdd495eE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hce1c59131cdd495eE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1135,9 +1031,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1153,8 +1049,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1184,7 +1080,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1202,24 +1098,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb8471bf0ea9b795E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb8471bf0ea9b795E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heb8471bf0ea9b795E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1231,9 +1127,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1249,8 +1145,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1280,7 +1176,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1298,24 +1194,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16cbfe4ccb5354afE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16cbfe4ccb5354afE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h16cbfe4ccb5354afE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1327,9 +1223,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1345,8 +1241,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1376,7 +1272,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1394,24 +1290,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf289061194d1d748E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf289061194d1d748E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf289061194d1d748E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1423,9 +1319,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1441,8 +1337,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1472,7 +1368,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1490,24 +1386,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf46b719142fb3cf4E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf46b719142fb3cf4E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf46b719142fb3cf4E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1519,9 +1415,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1537,8 +1433,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1568,7 +1464,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1586,24 +1482,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc569568bc329843aE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc569568bc329843aE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hc569568bc329843aE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1615,9 +1511,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1633,8 +1529,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1664,7 +1560,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1682,24 +1578,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h19c18f58b44fae89E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h19c18f58b44fae89E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h19c18f58b44fae89E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1711,9 +1607,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1729,8 +1625,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1760,7 +1656,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1778,24 +1674,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd2cb86c2d778527cE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd2cb86c2d778527cE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd2cb86c2d778527cE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1807,9 +1703,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1825,8 +1721,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1856,7 +1752,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1874,24 +1770,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hff796fe0ac0bac65E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hff796fe0ac0bac65E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hff796fe0ac0bac65E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1903,9 +1799,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -1921,8 +1817,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -1952,7 +1848,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -1970,24 +1866,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4301c567a8b9aaf8E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4301c567a8b9aaf8E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4301c567a8b9aaf8E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -1999,9 +1895,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2017,8 +1913,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2048,7 +1944,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2066,24 +1962,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1f746af15fc7631aE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1f746af15fc7631aE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1f746af15fc7631aE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2095,9 +1991,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2113,8 +2009,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2144,7 +2040,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2162,24 +2058,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h81e66697bbdc7f59E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h81e66697bbdc7f59E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h81e66697bbdc7f59E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2191,9 +2087,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2209,8 +2105,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2240,7 +2136,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2258,24 +2154,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfb8900afce32c6fdE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfb8900afce32c6fdE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hfb8900afce32c6fdE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2287,9 +2183,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2305,8 +2201,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2336,7 +2232,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2354,24 +2250,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00368fc17b5dab3aE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00368fc17b5dab3aE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h00368fc17b5dab3aE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2383,9 +2279,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2401,8 +2297,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2432,7 +2328,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2450,24 +2346,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heba411b04988d6a3E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heba411b04988d6a3E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17heba411b04988d6a3E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2479,9 +2375,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2497,8 +2393,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2528,7 +2424,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2546,24 +2442,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83d356328de0870aE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83d356328de0870aE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 4, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 4, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h83d356328de0870aE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2575,9 +2471,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2593,8 +2489,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2624,7 +2520,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2642,24 +2538,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h37d77af9dde22fcfE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h37d77af9dde22fcfE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h37d77af9dde22fcfE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2671,9 +2567,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2689,8 +2585,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2720,7 +2616,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2738,24 +2634,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcdf2bd96332bc4d5E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcdf2bd96332bc4d5E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcdf2bd96332bc4d5E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2767,9 +2663,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2785,8 +2681,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -2816,7 +2712,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he
   br i1 %9, label %45, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2833,23 +2729,23 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ce89c7503e662fE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ce89c7503e662fE.exit": ; preds = %10, %21
-  %.sroa.2.0 = phi i64 [ 1, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %22, %21 ], [ undef, %10 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %22, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 1, %21 ]
   %23 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %24 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %25 = icmp eq i64 %24, 0
-  %26 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
   %27 = load i64, ptr %26, align 8, !range !7
-  %28 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %28 = getelementptr inbounds i8, ptr %4, i64 16
   %29 = load i64, ptr %28, align 8
   br i1 %25, label %30, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 30:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ce89c7503e662fE.exit"
   store i64 %27, ptr %5, align 8
-  %31 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %29, ptr %31, align 8
   br i1 %20, label %36, label %32
 
@@ -2861,9 +2757,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 32:                                               ; preds = %30
   %33 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %33)
-  %34 = icmp eq i64 %.sroa.2.0, %27
+  %34 = icmp eq i64 %.sink.i, %27
   call void @llvm.assume(i1 %34)
-  %35 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %23, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %19, i64 %.sroa.2.0, i64 %29)
+  %35 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %23, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %19, i64 %.sink.i, i64 %29)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 36:                                               ; preds = %30
@@ -2879,8 +2775,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %32, %36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %38 = icmp eq i64 %.pr, 0
-  %39 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds i8, ptr %6, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = load i64, ptr %39, align 8
   br i1 %38, label %43, label %45
@@ -2910,7 +2806,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -2928,24 +2824,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h551e390bb063c662E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h551e390bb063c662E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 4, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 4, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h551e390bb063c662E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -2957,9 +2853,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -2975,8 +2871,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -3006,7 +2902,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -3024,24 +2920,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7bcfae54fea5795fE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7bcfae54fea5795fE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7bcfae54fea5795fE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -3053,9 +2949,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -3071,8 +2967,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -3102,7 +2998,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -3120,24 +3016,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb77135fbaaaeff31E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb77135fbaaaeff31E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 1, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 1, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb77135fbaaaeff31E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -3149,9 +3045,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -3167,8 +3063,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -3198,7 +3094,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -3216,24 +3112,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hab164fd6dd7dd017E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hab164fd6dd7dd017E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 4, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 4, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hab164fd6dd7dd017E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -3245,9 +3141,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -3263,8 +3159,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -3294,7 +3190,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -3312,24 +3208,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01614b2c599aec1eE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01614b2c599aec1eE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01614b2c599aec1eE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -3341,9 +3237,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -3359,8 +3255,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -3390,7 +3286,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -3408,24 +3304,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01d6482a5bc606eaE.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01d6482a5bc606eaE.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h01d6482a5bc606eaE.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -3437,9 +3333,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -3455,8 +3351,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -3486,7 +3382,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br i1 %9, label %46, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !6
   %13 = shl i64 %12, 1
   %14 = tail call i64 @_ZN4core3cmp6max_by17h2dbd4e30110dec2dE(i64 %13, i64 %8)
@@ -3504,24 +3400,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h04b16698a38f9a95E.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h04b16698a38f9a95E.exit": ; preds = %10, %21
-  %.sroa.5.0 = phi i64 [ %22, %21 ], [ undef, %10 ]
-  %.sroa.2.0 = phi i64 [ 8, %21 ], [ 0, %10 ]
-  %.sroa.0.039 = phi ptr [ %23, %21 ], [ undef, %10 ]
+  %.sroa.4.040 = phi i64 [ undef, %10 ], [ %22, %21 ]
+  %.sroa.0.039 = phi ptr [ undef, %10 ], [ %23, %21 ]
+  %.sink.i = phi i64 [ 0, %10 ], [ 8, %21 ]
   %24 = getelementptr i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha36d3075b9fc8405E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, i64 %17, i64 %18)
   %25 = load i64, ptr %4, align 8, !range !5, !noundef !6
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8, !range !7
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %29 = getelementptr inbounds i8, ptr %4, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %26, label %31, label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread
 
 31:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h04b16698a38f9a95E.exit"
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds { i64, i64 }, ptr %5, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %30, ptr %32, align 8
   br i1 %20, label %37, label %33
 
@@ -3533,9 +3429,9 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit.thread: ; preds = %"_ZN5
 33:                                               ; preds = %31
   %34 = icmp ne ptr %.sroa.0.039, null
   call void @llvm.assume(i1 %34)
-  %35 = icmp eq i64 %.sroa.2.0, %28
+  %35 = icmp eq i64 %.sink.i, %28
   call void @llvm.assume(i1 %35)
-  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sroa.2.0, i64 %.sroa.5.0, i64 %.sroa.2.0, i64 %30)
+  %36 = call { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17hc6380afc71029322E"(ptr align 1 %24, ptr nonnull %.sroa.0.039, i64 %.sink.i, i64 %.sroa.4.040, i64 %.sink.i, i64 %30)
   br label %_ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit
 
 37:                                               ; preds = %31
@@ -3551,8 +3447,8 @@ _ZN5alloc7raw_vec11finish_grow17hdf320538abc967fdE.exit: ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %39 = icmp eq i64 %.pr, 0
-  %40 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1
-  %41 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   br i1 %39, label %44, label %46
@@ -3783,20 +3679,20 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h1bae221f1b
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !6
   %.not = icmp ult i64 %7, %1
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %2
   store ptr @anon.5e89c4f3437f9939e430a86cfc034609.1, ptr %5, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %5, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %5, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr @anon.5e89c4f3437f9939e430a86cfc034609.2, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %5, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 0, ptr %12, align 8
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.5e89c4f3437f9939e430a86cfc034609.4) #11
   unreachable
@@ -3816,7 +3712,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h1bae221f1b
   br label %32
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds { i64, i64 }, ptr %4, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %21, align 8
   store i64 1, ptr %4, align 8
   %22 = getelementptr i8, ptr %0, i64 16
@@ -3826,8 +3722,8 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink17h1bae221f1b
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h6ffdeca99072f390E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr %24, i64 %25, ptr nonnull align 8 %4)
   %26 = load i64, ptr %3, align 8, !range !5, !noundef !6
   %27 = icmp eq i64 %26, 0
-  %28 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1
-  %29 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = load i64, ptr %28, align 8
   br i1 %27, label %33, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ce89c7503e662fE.exit.thread"
@@ -3855,7 +3751,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$6shrink28_$u7b$$u7b$
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = load i64, ptr %0, align 8, !range !8, !noundef !6
-  %4 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = insertvalue { i64, i64 } poison, i64 %3, 0
   %7 = insertvalue { i64, i64 } %6, i64 %5, 1

@@ -3,25 +3,10 @@ source_filename = "bench/folly/original/AsyncTimeout.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::AsyncTimeout" = type { ptr, %"class.folly::EventBaseEvent", ptr, %"class.std::shared_ptr" }
-%"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, ptr, %union.anon.2, i16, i16, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%"struct.folly::EventCallback" = type { i32, %union.anon.7 }
-%union.anon.7 = type { ptr }
+%"class.folly::RequestContextScopeGuard" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.folly::RequestContextScopeGuard" = type { %"class.std::shared_ptr" }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
 
@@ -58,12 +43,12 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %timeoutManager) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12AsyncTimeoutE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %event_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1
-  %evb_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 1
+  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %timeoutManager, ptr %timeoutManager_, align 8, !tbaa !10
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_, i8 0, i64 16, i1 false)
   invoke void @event_set(ptr noundef nonnull %event_, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @_ZN5folly12AsyncTimeout16libeventCallbackEisPv, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -75,7 +60,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %this, i32 noundef 1)
           to label %invoke.cont6 unwind label %lpad
@@ -95,17 +80,17 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 define void @_ZN5folly12AsyncTimeout16libeventCallbackEisPv(i32 %fd, i16 signext %events, ptr noundef %arg) #1 align 2 {
 entry:
   %rctx = alloca %"class.folly::RequestContextScopeGuard", align 8
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %arg, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %arg, i64 176
   %0 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rctx) #12
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %arg, i64 0, i32 3
+  %context_ = getelementptr inbounds i8, ptr %arg, i64 184
   call void @_ZN5folly14RequestContext10setContextERKSt10shared_ptrIS0_E(ptr nonnull sret(%"class.std::shared_ptr") align 8 %rctx, ptr noundef nonnull align 8 dereferenceable(16) %context_)
   %vtable1 = load ptr, ptr %arg, align 8, !tbaa !7
-  %vfn2 = getelementptr inbounds ptr, ptr %vtable1, i64 2
+  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 16
   %2 = load ptr, ptr %vfn2, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(200) %arg) #12
   call void @_ZN5folly24RequestContextScopeGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %rctx) #12
@@ -120,13 +105,13 @@ declare void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %userData_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 2
+  %userData_ = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %userData_, align 8, !tbaa !27
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %freeFn_ = getelementptr inbounds %"class.folly::EventBaseEvent", ptr %this, i64 0, i32 3
+  %freeFn_ = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load ptr, ptr %freeFn_, align 8, !tbaa !28
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -166,10 +151,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !7
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #12
-  %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
+  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !29
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
@@ -191,7 +176,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !7
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
@@ -207,12 +192,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define void @_ZN5folly12AsyncTimeoutC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %eventBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12AsyncTimeoutE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %event_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1
-  %evb_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 1
+  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %eventBase, ptr %timeoutManager_, align 8, !tbaa !10
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_, i8 0, i64 16, i1 false)
   invoke void @event_set(ptr noundef nonnull %event_, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @_ZN5folly12AsyncTimeout16libeventCallbackEisPv, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -228,7 +213,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 if.then:                                          ; preds = %invoke.cont4
   %0 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %this, i32 noundef 1)
           to label %if.end unwind label %lpad
@@ -248,12 +233,12 @@ if.end:                                           ; preds = %if.then, %invoke.co
 define void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerENS1_12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %timeoutManager, i32 noundef %internal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12AsyncTimeoutE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %event_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1
-  %evb_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 1
+  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %timeoutManager, ptr %timeoutManager_, align 8, !tbaa !10
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_, i8 0, i64 16, i1 false)
   invoke void @event_set(ptr noundef nonnull %event_, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @_ZN5folly12AsyncTimeout16libeventCallbackEisPv, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -265,7 +250,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %this, i32 noundef %internal)
           to label %invoke.cont6 unwind label %lpad
@@ -285,12 +270,12 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 define void @_ZN5folly12AsyncTimeoutC2EPNS_9EventBaseENS_14TimeoutManager12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %eventBase, i32 noundef %internal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12AsyncTimeoutE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %event_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1
-  %evb_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 1
+  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %eventBase, ptr %timeoutManager_, align 8, !tbaa !10
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_, i8 0, i64 16, i1 false)
   invoke void @event_set(ptr noundef nonnull %event_, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @_ZN5folly12AsyncTimeout16libeventCallbackEisPv, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -302,7 +287,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %this, i32 noundef %internal)
           to label %invoke.cont6 unwind label %lpad
@@ -322,10 +307,10 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 define void @_ZN5folly12AsyncTimeoutC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12AsyncTimeoutE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %event_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1
-  %evb_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 1
+  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %timeoutManager_, i8 0, i64 24, i1 false)
   invoke void @event_set(ptr noundef nonnull %event_, i32 noundef -1, i16 noundef signext 1, ptr noundef nonnull @_ZN5folly12AsyncTimeout16libeventCallbackEisPv, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -340,7 +325,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 lpad:                                             ; preds = %invoke.cont, %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %context_) #12
   tail call void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %event_) #12
   resume { ptr, i32 } %0
@@ -350,32 +335,32 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define void @_ZN5folly12AsyncTimeoutD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12AsyncTimeoutE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %evcb_flags.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i.i, align 8, !tbaa !31
   %1 = and i16 %0, 15
   %tobool.i.i.i.not.i = icmp eq i16 %1, 0
   br i1 %tobool.i.i.i.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %timeoutManager_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_.i = getelementptr inbounds i8, ptr %this, i64 176
   %2 = load ptr, ptr %timeoutManager_.i, align 8, !tbaa !10
   %vtable.i = load ptr, ptr %2, align 8, !tbaa !7
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %this)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then.i
-  %context_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
+  %context_.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr null, ptr %context_.i, align 8, !tbaa !32
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !33
   store ptr null, ptr %_M_refcount3.i.i.i, align 8, !tbaa !33
   %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -383,14 +368,14 @@ if.then.i.i.i.i:                                  ; preds = %.noexc
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !36
   %vtable.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !7
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %vtable3.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !7
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   br label %invoke.cont
@@ -419,13 +404,13 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i, %.noexc, %entry
-  %_M_refcount.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 192
   %11 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !33
   %cmp.not.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -433,14 +418,14 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !36
   %vtable.i.i.i = load ptr, ptr %11, align 8, !tbaa !7
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
   %vtable3.i.i.i = load ptr, ptr %11, align 8, !tbaa !7
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %15 = load ptr, ptr %vfn4.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %11) #12
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -469,13 +454,13 @@ if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont
-  %userData_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 2
+  %userData_.i = getelementptr inbounds i8, ptr %this, i64 144
   %18 = load ptr, ptr %userData_.i, align 8, !tbaa !27
   %tobool.not.i = icmp eq ptr %18, null
   br i1 %tobool.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %freeFn_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 3
+  %freeFn_.i = getelementptr inbounds i8, ptr %this, i64 152
   %19 = load ptr, ptr %freeFn_.i, align 8, !tbaa !28
   %tobool2.not.i = icmp eq ptr %19, null
   br i1 %tobool2.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %if.then.i3
@@ -505,29 +490,29 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12AsyncTimeout13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %evcb_flags.i.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !31
   %1 = and i16 %0, 15
   %tobool.i.i.i.not = icmp eq i16 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   %2 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %2, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %this)
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
   store ptr null, ptr %context_, align 8, !tbaa !32
-  %_M_refcount3.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !33
   store ptr null, ptr %_M_refcount3.i.i, align 8, !tbaa !33
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -535,14 +520,14 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !36
   %vtable.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !7
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   %vtable3.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !7
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i, i64 3
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn4.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   br label %if.end
@@ -580,8 +565,8 @@ declare void @llvm.trap() #6
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(200) %this, i64 %timeout.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load <2 x ptr>, ptr %rctx, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rctx, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !33
@@ -590,7 +575,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -598,14 +583,14 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !36
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !7
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   %vtable3.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !7
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit
@@ -634,10 +619,10 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit
 
 _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit: ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %8, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %9 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %this, i64 %timeout.coerce)
   ret i1 %call3
@@ -646,13 +631,13 @@ _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit: ; preds = %if.then7.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !33
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i acquire, align 8
   %cmp.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -660,14 +645,14 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !36
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 3
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -702,8 +687,8 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5folly12AsyncTimeout22scheduleTimeoutHighResENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(200) %this, i64 %timeout.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %context_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %this, i64 184
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load <2 x ptr>, ptr %rctx, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rctx, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !33
@@ -712,7 +697,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -720,14 +705,14 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !36
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !7
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   %vtable3.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !7
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit
@@ -756,10 +741,10 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit
 
 _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit: ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %8, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %9 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %this, i64 %timeout.coerce)
   ret i1 %call3
@@ -768,8 +753,8 @@ _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit: ; preds = %if.then7.i.i
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5folly12AsyncTimeout15scheduleTimeoutEjOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %milliseconds, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %context_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %context_.i = getelementptr inbounds i8, ptr %this, i64 184
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load <2 x ptr>, ptr %rctx, align 8, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rctx, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !33
@@ -778,7 +763,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEOSt10shared_ptrINS_14RequestContextEE.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -786,14 +771,14 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !36
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !7
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   %vtable3.i.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !7
-  %vfn4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #12
   br label %_ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEOSt10shared_ptrINS_14RequestContextEE.exit
@@ -823,10 +808,10 @@ if.then7.i.i.i.i.i.i:                             ; preds = %invoke.cont.i.i.i.i
 
 _ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEOSt10shared_ptrINS_14RequestContextEE.exit: ; preds = %if.then7.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %entry
   %conv.i = zext i32 %milliseconds to i64
-  %timeoutManager_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_.i = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %timeoutManager_.i, align 8, !tbaa !10
   %vtable.i = load ptr, ptr %8, align 8, !tbaa !7
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %9 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %this, i64 %conv.i)
   ret i1 %call3.i
@@ -835,7 +820,7 @@ _ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl100
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK5folly12AsyncTimeout11isScheduledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %evcb_flags.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i, align 8, !tbaa !31
   %1 = and i16 %0, 15
   %tobool.i.i = icmp ne i16 %1, 0
@@ -845,10 +830,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12AsyncTimeout20attachTimeoutManagerEPNS_14TimeoutManagerENS1_12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %timeoutManager, i32 noundef %internal) local_unnamed_addr #1 align 2 {
 entry:
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %timeoutManager, ptr %timeoutManager_, align 8, !tbaa !10
   %vtable = load ptr, ptr %timeoutManager, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %timeoutManager, ptr noundef nonnull %this, i32 noundef %internal)
   ret void
@@ -857,10 +842,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12AsyncTimeout15attachEventBaseEPNS_9EventBaseENS_14TimeoutManager12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %eventBase, i32 noundef %internal) local_unnamed_addr #1 align 2 {
 entry:
-  %timeoutManager_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_.i = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %eventBase, ptr %timeoutManager_.i, align 8, !tbaa !10
   %vtable.i = load ptr, ptr %eventBase, align 8, !tbaa !7
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %eventBase, ptr noundef nonnull %this, i32 noundef %internal)
   ret void
@@ -870,7 +855,7 @@ entry:
 define void @_ZN5folly12AsyncTimeout20detachTimeoutManagerEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
-  %evcb_flags.i.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !31
   %1 = and i16 %0, 15
   %tobool.i.i.i.not = icmp eq i16 %1, 0
@@ -897,14 +882,14 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   unreachable
 
 if.end:                                           ; preds = %entry
-  %timeoutManager_ = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %timeoutManager_, align 8, !tbaa !10
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   %vtable = load ptr, ptr %3, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %this)
   store ptr null, ptr %timeoutManager_, align 8, !tbaa !10
@@ -928,7 +913,7 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 define void @_ZN5folly12AsyncTimeout15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.google::LogMessageFatal", align 8
-  %evcb_flags.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %evcb_flags.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i.i, align 8, !tbaa !31
   %1 = and i16 %0, 15
   %tobool.i.i.i.not.i = icmp eq i16 %1, 0
@@ -955,14 +940,14 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %timeoutManager_.i = getelementptr inbounds %"class.folly::AsyncTimeout", ptr %this, i64 0, i32 2
+  %timeoutManager_.i = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load ptr, ptr %timeoutManager_.i, align 8, !tbaa !10
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZN5folly12AsyncTimeout20detachTimeoutManagerEv.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %vtable.i = load ptr, ptr %3, align 8, !tbaa !7
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %this)
   store ptr null, ptr %timeoutManager_.i, align 8, !tbaa !10
@@ -980,13 +965,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.ensured, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !33
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -994,14 +979,14 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !34
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !36
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   %vtable3.i.i.i = load ptr, ptr %0, align 8, !tbaa !7
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1030,13 +1015,13 @@ if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont
-  %_M_refcount.i3 = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i3 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %_M_refcount.i3, align 8, !tbaa !33
   %cmp.not.i.i4 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i4, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %_M_use_count.i.i.i6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i6 acquire, align 8
   %cmp.i.i.i7 = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -1044,14 +1029,14 @@ if.then.i.i5:                                     ; preds = %_ZNSt12__shared_ptr
 
 if.then.i.i.i17:                                  ; preds = %if.then.i.i5
   store i32 0, ptr %_M_use_count.i.i.i6, align 8, !tbaa !34
-  %_M_weak_count.i.i.i18 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i18 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i18, align 4, !tbaa !36
   %vtable.i.i.i19 = load ptr, ptr %7, align 8, !tbaa !7
-  %vfn.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i19, i64 2
+  %vfn.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i19, i64 16
   %10 = load ptr, ptr %vfn.i.i.i20, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   %vtable3.i.i.i21 = load ptr, ptr %7, align 8, !tbaa !7
-  %vfn4.i.i.i22 = getelementptr inbounds ptr, ptr %vtable3.i.i.i21, i64 3
+  %vfn4.i.i.i22 = getelementptr inbounds i8, ptr %vtable3.i.i.i21, i64 24
   %11 = load ptr, ptr %vfn4.i.i.i22, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23

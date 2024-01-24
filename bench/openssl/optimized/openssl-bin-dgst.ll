@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.doall_dgst_digests = type { ptr, i32 }
-%struct.obj_name_st = type { i32, i32, ptr, ptr }
 
 @OPT_HELP_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [31 x i8] c"Usage: %s [options] [file...]\0A\00", align 1
@@ -247,7 +246,7 @@ sw.bb8:                                           ; preds = %while.cond
   %call9 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.69) #6
   %4 = load ptr, ptr @bio_out, align 8
   store ptr %4, ptr %dec, align 8
-  %n = getelementptr inbounds %struct.doall_dgst_digests, ptr %dec, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %dec, i64 8
   store i32 0, ptr %n, align 8
   call void @OBJ_NAME_do_all_sorted(i32 noundef 1, ptr noundef nonnull @show_digests, ptr noundef nonnull %dec) #6
   %5 = load ptr, ptr @bio_out, align 8
@@ -882,7 +881,7 @@ declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal void @show_digests(ptr nocapture noundef readonly %name, ptr nocapture noundef %arg) #0 {
 entry:
-  %name1 = getelementptr inbounds %struct.obj_name_st, ptr %name, i64 0, i32 2
+  %name1 = getelementptr inbounds i8, ptr %name, i64 8
   %0 = load ptr, ptr %name1, align 8
   %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.109) #7
   %cmp.not = icmp eq ptr %call, null
@@ -922,7 +921,7 @@ if.end23:                                         ; preds = %if.then16, %if.end9
   %7 = load ptr, ptr %arg, align 8
   %8 = load ptr, ptr %name1, align 8
   %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.111, ptr noundef %8) #6
-  %n = getelementptr inbounds %struct.doall_dgst_digests, ptr %arg, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %arg, i64 8
   %9 = load i32, ptr %n, align 8
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %n, align 8

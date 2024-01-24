@@ -45,7 +45,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   %.fca.0.extract = extractvalue { ptr, ptr } %27, 0
   store ptr %.fca.0.extract, ptr %13, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %27, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %28 = call { i32, i32 } @_ZN14regex_automata4util5start6Config12get_anchored17h48f8a6e1550a20e3E(ptr nonnull align 4 %14)
   %29 = extractvalue { i32, i32 } %28, 0
@@ -58,7 +58,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %4
-  %35 = getelementptr inbounds { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, ptr %1, i64 0, i32 5
+  %35 = getelementptr inbounds i8, ptr %1, i64 656
   %36 = call zeroext i1 @"_ZN4core5array8equality103_$LT$impl$u20$core..cmp..PartialEq$LT$$u5b$B$u3b$$u20$N$u5d$$GT$$u20$for$u20$$u5b$A$u3b$$u20$N$u5d$$GT$2eq17h3284708965ba1dcaE"(ptr nonnull align 8 %35, ptr nonnull align 8 @anon.2debb99be5e9ccf7a93ba02b1903d415.17)
   br i1 %36, label %74, label %72
 
@@ -89,7 +89,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
 47:                                               ; preds = %37, %58, %40
   %.073 = phi i64 [ %65, %58 ], [ %42, %40 ], [ %38, %37 ]
   %48 = load ptr, ptr %.fca.1.gep, align 8, !nonnull !5, !align !6, !noundef !5
-  %49 = getelementptr inbounds { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, ptr %48, i64 0, i32 3
+  %49 = getelementptr inbounds i8, ptr %48, i64 72
   %50 = call align 4 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5dc90babbff467cfE"(ptr nonnull align 8 %49, i64 %.073, ptr nonnull align 8 @anon.2debb99be5e9ccf7a93ba02b1903d415.2)
   %51 = load i32, ptr %50, align 4, !noundef !5
   br label %68
@@ -138,7 +138,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   br i1 %73, label %79, label %74
 
 74:                                               ; preds = %72, %34
-  %75 = getelementptr inbounds { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, ptr %1, i64 0, i32 1
+  %75 = getelementptr inbounds i8, ptr %1, i64 120
   %76 = zext i8 %.fca.1.extract16 to i64
   %77 = getelementptr inbounds [256 x i8], ptr %75, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1, !range !7, !noundef !5
@@ -172,7 +172,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   %.fca.0.extract30 = extractvalue { ptr, ptr } %88, 0
   store ptr %.fca.0.extract30, ptr %11, align 8
   %.fca.1.extract32 = extractvalue { ptr, ptr } %88, 1
-  %.fca.1.gep33 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %.fca.1.gep33 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %.fca.1.extract32, ptr %.fca.1.gep33, align 8
   %89 = call i64 @_ZN14regex_automata6hybrid3dfa4Lazy17cache_start_group17h9ceaf8a9482745fcE(ptr nonnull align 8 %11, i32 %29, i32 %30, i8 %.074)
   %.sroa.241.0.extract.shift = lshr i64 %89, 32
@@ -195,7 +195,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   br i1 %93, label %94, label %101
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds { [1 x i32], i32 }, ptr %25, i64 0, i32 1
+  %95 = getelementptr inbounds i8, ptr %25, i64 4
   %96 = load i32, ptr %95, align 4, !noundef !5
   store i32 %96, ptr %26, align 4
   %97 = call i64 @_ZN14regex_automata4util6search5Input5start17h51900e9e0de9a3ecE(ptr nonnull align 8 %3)
@@ -205,11 +205,11 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   br i1 %99, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %94
-  %100 = getelementptr inbounds { [1 x i32], i32 }, ptr %22, i64 0, i32 1
+  %100 = getelementptr inbounds i8, ptr %22, i64 4
   br label %164
 
 101:                                              ; preds = %90
-  %102 = getelementptr inbounds { [1 x i64], ptr }, ptr %25, i64 0, i32 1
+  %102 = getelementptr inbounds i8, ptr %25, i64 8
   %103 = load ptr, ptr %102, align 8, !nonnull !5, !align !6, !noundef !5
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4e83cac4a90882c4E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %103, ptr nonnull align 8 @anon.2debb99be5e9ccf7a93ba02b1903d415.12)
   br label %173
@@ -222,7 +222,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   %.fca.0.extract56 = extractvalue { i64, i64 } %104, 0
   store i64 %.fca.0.extract56, ptr %9, align 8
   %.fca.1.extract58 = extractvalue { i64, i64 } %104, 1
-  %.fca.1.gep59 = getelementptr inbounds { i64, i64 }, ptr %9, i64 0, i32 1
+  %.fca.1.gep59 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %.fca.1.extract58, ptr %.fca.1.gep59, align 8
   %105 = call { ptr, i64 } @_ZN14regex_automata4util6search5Input8haystack17h1fa4792146150365E(ptr nonnull align 8 %3)
   %106 = extractvalue { ptr, i64 } %105, 0
@@ -255,14 +255,14 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   br i1 %124, label %141, label %145
 
 125:                                              ; preds = %110
-  %126 = getelementptr inbounds { [1 x i32], i32 }, ptr %6, i64 0, i32 1
+  %126 = getelementptr inbounds i8, ptr %6, i64 4
   %127 = load i32, ptr %126, align 4, !noundef !5
   store i32 %127, ptr %26, align 4
   %128 = call zeroext i1 @_ZN14regex_automata6hybrid2id11LazyStateID8is_match17h8ddb56eb462053bcE(ptr nonnull align 4 %26)
   br i1 %128, label %133, label %161
 
 129:                                              ; preds = %110
-  %130 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %130 = getelementptr inbounds i8, ptr %6, i64 8
   %131 = load ptr, ptr %130, align 8, !nonnull !5, !align !6, !noundef !5
   %132 = call align 8 ptr @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h579d3c843eca5befE"(ptr nonnull align 8 %131, ptr nonnull align 8 @anon.2debb99be5e9ccf7a93ba02b1903d415.15)
   br label %161
@@ -278,14 +278,14 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   br label %161
 
 141:                                              ; preds = %117
-  %142 = getelementptr inbounds { [1 x i32], i32 }, ptr %8, i64 0, i32 1
+  %142 = getelementptr inbounds i8, ptr %8, i64 4
   %143 = load i32, ptr %142, align 4, !noundef !5
   store i32 %143, ptr %26, align 4
   %144 = call zeroext i1 @_ZN14regex_automata6hybrid2id11LazyStateID8is_match17h8ddb56eb462053bcE(ptr nonnull align 4 %26)
   br i1 %144, label %151, label %149
 
 145:                                              ; preds = %117
-  %146 = getelementptr inbounds { [1 x i64], ptr }, ptr %8, i64 0, i32 1
+  %146 = getelementptr inbounds i8, ptr %8, i64 8
   %147 = load ptr, ptr %146, align 8, !nonnull !5, !align !6, !noundef !5
   %148 = call align 8 ptr @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h579d3c843eca5befE"(ptr nonnull align 8 %147, ptr nonnull align 8 @anon.2debb99be5e9ccf7a93ba02b1903d415.16)
   br label %161
@@ -370,7 +370,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   br i1 %186, label %195, label %190
 
 187:                                              ; preds = %174
-  %188 = getelementptr inbounds { [1 x i64], ptr }, ptr %22, i64 0, i32 1
+  %188 = getelementptr inbounds i8, ptr %22, i64 8
   %189 = load ptr, ptr %188, align 8, !nonnull !5, !align !6, !noundef !5
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4e83cac4a90882c4E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %189, ptr nonnull align 8 @anon.2debb99be5e9ccf7a93ba02b1903d415.11)
   br label %173
@@ -432,7 +432,7 @@ define void @_ZN14regex_automata4meta6stopat26hybrid_try_search_half_fwd17h00cfc
   %219 = load i8, ptr %218, align 1, !noundef !5
   %220 = call align 8 ptr @_ZN14regex_automata4util6search10MatchError4quit17h2195fc27f1e4b164E(i8 %219, i64 %214)
   %221 = call i64 @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hec6fc5bc577c20dcE"(ptr align 8 %220)
-  %222 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
+  %222 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %221, ptr %222, align 8
   store i64 2, ptr %0, align 8
   br label %173

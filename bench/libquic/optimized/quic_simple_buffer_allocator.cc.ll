@@ -29,7 +29,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 define dso_local noundef ptr @_ZN3net21SimpleBufferAllocator3NewEmb(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %size, i1 zeroext %0) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %size)
   ret ptr %call

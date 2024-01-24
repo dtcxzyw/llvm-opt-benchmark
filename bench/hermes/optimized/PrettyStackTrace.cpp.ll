@@ -3,20 +3,7 @@ source_filename = "bench/hermes/original/PrettyStackTrace.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::PrettyStackTraceString" = type { %"class.llvh::PrettyStackTraceEntry", ptr }
-%"class.llvh::PrettyStackTraceEntry" = type { ptr, ptr }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"class.llvh::PrettyStackTraceFormat" = type { %"class.llvh::PrettyStackTraceEntry", %"class.llvh::SmallVector" }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [32 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [1 x i8] }
-%"class.llvh::PrettyStackTraceProgram" = type { %"class.llvh::PrettyStackTraceEntry", i32, ptr }
 
 $_ZN4llvh22PrettyStackTraceStringD2Ev = comdat any
 
@@ -66,16 +53,16 @@ declare void @llvm.trap() #3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh22PrettyStackTraceString5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
 entry:
-  %Str = getelementptr inbounds %"class.llvh::PrettyStackTraceString", ptr %this, i64 0, i32 1
+  %Str = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str, align 8
   %tobool.i.not.i = icmp eq ptr %0, null
   br i1 %tobool.i.not.i, label %_ZN4llvh11raw_ostreamlsEPKc.exit, label %cond.true.i.split.i
 
 cond.true.i.split.i:                              ; preds = %entry
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -100,9 +87,9 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %entry, %if.then.i.i, %if.end.i.i, %if.then4.i.i
   %phi.call.i = phi ptr [ %call3.i.i, %if.then.i.i ], [ %OS, %if.then4.i.i ], [ %OS, %if.end.i.i ], [ %OS, %entry ]
-  %OutBufEnd.i5.i3 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i, i64 0, i32 2
+  %OutBufEnd.i5.i3 = getelementptr inbounds i8, ptr %phi.call.i, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i3, align 8
-  %OutBufCur.i6.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i, i64 0, i32 3
+  %OutBufCur.i6.i4 = getelementptr inbounds i8, ptr %phi.call.i, i64 24
   %5 = load ptr, ptr %OutBufCur.i6.i4, align 8
   %cmp.i.i8 = icmp eq ptr %4, %5
   br i1 %cmp.i.i8, label %if.then.i.i14, label %if.then4.i.i11
@@ -127,12 +114,12 @@ define hidden void @_ZN4llvh22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull 
 entry:
   %AP = alloca [1 x %struct.__va_list_tag], align 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Str = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1, i32 1
+  %Str = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i.i.i.i.i, ptr %Str, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
   call void @llvm.va_start(ptr nonnull %AP)
   %call = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %Format, ptr noundef nonnull %AP) #15
@@ -201,15 +188,15 @@ declare void @llvm.va_end(ptr) #5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh22PrettyStackTraceFormat5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
 entry:
-  %Str = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1
+  %Str = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef %0, i64 noundef %conv.i.i) #15
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   %2 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %3 = load ptr, ptr %OutBufCur.i6.i, align 8
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
@@ -232,9 +219,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh23PrettyStackTraceProgram5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
 entry:
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %OS, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %OS, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
@@ -254,13 +241,13 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %ArgC = getelementptr inbounds %"class.llvh::PrettyStackTraceProgram", ptr %this, i64 0, i32 1
+  %ArgC = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %ArgC, align 8
   %cmp.not29 = icmp eq i32 %3, 0
   br i1 %cmp.not29, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %ArgV = getelementptr inbounds %"class.llvh::PrettyStackTraceProgram", ptr %this, i64 0, i32 2
+  %ArgV = getelementptr inbounds i8, ptr %this, i64 24
   %4 = zext i32 %3 to i64
   br label %for.body
 
@@ -299,9 +286,9 @@ if.then4.i.i14:                                   ; preds = %if.end.i.i12
 
 _ZN4llvh11raw_ostreamlsEPKc.exit19:               ; preds = %for.body, %if.then.i.i17, %if.end.i.i12, %if.then4.i.i14
   %phi.call.i16 = phi ptr [ %call3.i.i18, %if.then.i.i17 ], [ %OS, %if.then4.i.i14 ], [ %OS, %if.end.i.i12 ], [ %OS, %for.body ]
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i16, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %phi.call.i16, i64 24
   %10 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %phi.call.i16, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %phi.call.i16, i64 16
   %11 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %10, %11
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -397,9 +384,9 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr hidden void @_ZN4llvh22PrettyStackTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Str = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1
+  %Str = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIcLj32EED2Ev.exit, label %if.then.i.i
 
@@ -415,9 +402,9 @@ _ZN4llvh11SmallVectorIcLj32EED2Ev.exit:           ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN4llvh22PrettyStackTraceFormatD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Str.i = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1
+  %Str.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::PrettyStackTraceFormat", ptr %this, i64 0, i32 1, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i.i.i.i = icmp eq ptr %0, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh22PrettyStackTraceFormatD2Ev.exit, label %if.then.i.i.i
 

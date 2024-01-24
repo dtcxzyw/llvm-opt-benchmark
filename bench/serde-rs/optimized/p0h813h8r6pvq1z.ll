@@ -11,7 +11,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$10borrow_mut17h5250cca5f550
 
 5:                                                ; preds = %2
   store i64 -1, ptr %0, align 8
-  %6 = getelementptr inbounds { i64, { { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %0, 1
   ret { ptr, ptr } %8
@@ -35,7 +35,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$10try_borrow17h4ae6a72e0736
 6:                                                ; preds = %1, %4
   %.0 = phi ptr [ %0, %4 ], [ null, %1 ]
   %7 = icmp eq ptr %.0, null
-  %8 = getelementptr inbounds { i64, { { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0 = select i1 %7, ptr null, ptr %8
   %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %.0, 1
@@ -55,7 +55,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$14try_borrow_mut17h5c5a1397
 5:                                                ; preds = %1, %4
   %.0 = phi ptr [ %0, %4 ], [ null, %1 ]
   %6 = icmp eq ptr %.0, null
-  %7 = getelementptr inbounds { i64, { { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.0.0 = select i1 %6, ptr null, ptr %7
   %8 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %.0, 1
@@ -67,7 +67,7 @@ define void @"_ZN4core4cell16RefCell$LT$T$GT$3new17h3316d3931afd5d7cE"(ptr nocap
   %.sroa.0 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 0, ptr %0, align 8
-  %3 = getelementptr inbounds { i64, { { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   ret void
 }
@@ -81,7 +81,7 @@ define { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$6borrow17h6cc0155aae878755E
 5:                                                ; preds = %2
   %6 = add nuw nsw i64 %3, 1
   store i64 %6, ptr %0, align 8
-  %7 = getelementptr inbounds { i64, { { ptr, [2 x i64] } } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = insertvalue { ptr, ptr } poison, ptr %7, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %0, 1
   ret { ptr, ptr } %9

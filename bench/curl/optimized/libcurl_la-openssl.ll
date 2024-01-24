@@ -5,68 +5,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.Curl_ssl = type { %struct.curl_ssl_backend, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.curl_ssl_backend = type { i32, ptr }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 %struct.anon = type { ptr, ptr }
-%struct.curl_blob = type { ptr, i64, i32 }
 %struct.in6_addr = type { %union.anon.1 }
 %union.anon.1 = type { [4 x i32] }
-%struct.ssl_peer = type { ptr, ptr, ptr, i8 }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon.2, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ConnectBits = type { i32 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon.2 = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon.3 }
-%union.anon.3 = type { ptr }
-%struct.Curl_multi = type { i32, ptr, ptr, i32, i32, %struct.Curl_llist, %struct.Curl_llist, %struct.Curl_llist, ptr, ptr, ptr, ptr, %struct.Curl_hash, %struct.PslCache, ptr, ptr, %struct.Curl_hash, %struct.conncache, i64, i64, ptr, ptr, %struct.curltime, [2 x i32], i32, i32, i8, i8 }
-%struct.PslCache = type { ptr, i64, i8 }
-%struct.Curl_hash = type { ptr, ptr, ptr, ptr, i32, i64 }
-%struct.conncache = type { %struct.Curl_hash, i64, i64, i64, %struct.curltime, ptr }
-%struct.multi_ssl_backend_data = type { ptr, ptr, %struct.curltime }
-%struct.Curl_cftype = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.X509_info_st = type { ptr, ptr, ptr, %struct.evp_cipher_info_st, i32, ptr }
-%struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-%struct.Curl_cfilter = type { ptr, ptr, ptr, ptr, i32, i8 }
-%struct.ssl_connect_data = type { i32, i32, %struct.ssl_peer, ptr, ptr, %struct.cf_call_data, %struct.curltime, i32, i8 }
-%struct.cf_call_data = type { ptr }
-%struct.ossl_ssl_backend_data = type { ptr, ptr, ptr, ptr, i32, i8 }
 %struct.alpn_proto_buf = type { [33 x i8], i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"Subject\00", align 1
@@ -363,7 +304,7 @@ for.cond.preheader:                               ; preds = %if.end6
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool141.not = icmp eq ptr %data, null
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end204
@@ -389,7 +330,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %call43 = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull @.str.3, ptr noundef %2, i64 noundef %call42) #13
   %call44 = call i64 @BIO_ctrl(ptr noundef %call8, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   %call51 = call ptr @X509_get_serialNumber(ptr noundef %call13) #13
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call51, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call51, i64 4
   %3 = load i32, ptr %type, align 4
   %cmp52 = icmp eq i32 %3, 258
   br i1 %cmp52, label %if.then54, label %if.end56
@@ -404,7 +345,7 @@ if.end56:                                         ; preds = %if.then54, %for.bod
   br i1 %cmp58223, label %for.body60.lr.ph, label %do.body64
 
 for.body60.lr.ph:                                 ; preds = %if.end56
-  %data61 = getelementptr inbounds %struct.asn1_string_st, ptr %call51, i64 0, i32 2
+  %data61 = getelementptr inbounds i8, ptr %call51, i64 8
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.body60
@@ -498,7 +439,7 @@ if.then15.i:                                      ; preds = %if.end10.i
 if.end18.i:                                       ; preds = %if.then15.i, %if.end10.i
   %call19.i = call i64 @BIO_ctrl(ptr noundef nonnull %call8.i, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %biomem.i) #13
   %15 = load ptr, ptr %biomem.i, align 8
-  %data21.i = getelementptr inbounds %struct.buf_mem_st, ptr %15, i64 0, i32 1
+  %data21.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %data21.i, align 8
   %17 = load i64, ptr %15, align 8
   %call22.i = call i32 @Curl_ssl_push_certinfo_len(ptr noundef %data, i32 noundef %i.0228, ptr noundef nonnull %namebuf.i, ptr noundef %16, i64 noundef %17) #13
@@ -806,7 +747,7 @@ for.cond180.preheader:                            ; preds = %if.end177
 for.body184:                                      ; preds = %for.cond180.preheader, %for.body184
   %indvars.iv231 = phi i64 [ %indvars.iv.next232, %for.body184 ], [ 0, %for.cond180.preheader ]
   %49 = phi ptr [ %52, %for.body184 ], [ %47, %for.cond180.preheader ]
-  %data185 = getelementptr inbounds %struct.asn1_string_st, ptr %49, i64 0, i32 2
+  %data185 = getelementptr inbounds i8, ptr %49, i64 8
   %50 = load ptr, ptr %data185, align 8
   %arrayidx187 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv231
   %51 = load i8, ptr %arrayidx187, align 1
@@ -1180,7 +1121,7 @@ ossl_strerror.exit174:                            ; preds = %if.end.i157, %if.th
   br label %return
 
 sw.bb37:                                          ; preds = %if.end
-  %engine = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 27
+  %engine = getelementptr inbounds i8, ptr %data, i64 3672
   %6 = load ptr, ptr %engine, align 8
   %tobool38.not = icmp eq ptr %6, null
   br i1 %tobool38.not, label %if.then39, label %if.then51
@@ -1207,7 +1148,7 @@ if.end47:                                         ; preds = %is_pkcs11_uri.exit,
 if.then51:                                        ; preds = %sw.bb37, %if.end47
   %7 = phi ptr [ %.pr, %if.end47 ], [ %6, %sw.bb37 ]
   store ptr %cert_file, ptr %params, align 8
-  %cert = getelementptr inbounds %struct.anon, ptr %params, i64 0, i32 1
+  %cert = getelementptr inbounds i8, ptr %params, i64 8
   store ptr null, ptr %cert, align 8
   %call54 = tail call i32 @ENGINE_ctrl(ptr noundef nonnull %7, i32 noundef 13, i64 noundef 0, ptr noundef nonnull @.str.41, ptr noundef null) #13
   %tobool55.not = icmp eq i32 %call54, 0
@@ -1264,7 +1205,7 @@ sw.bb81:                                          ; preds = %if.end
 
 if.then83:                                        ; preds = %sw.bb81
   %11 = load ptr, ptr %cert_blob, align 8
-  %len = getelementptr inbounds %struct.curl_blob, ptr %cert_blob, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %cert_blob, i64 8
   %12 = load i64, ptr %len, align 8
   %conv = trunc i64 %12 to i32
   %call85 = tail call ptr @BIO_new_mem_buf(ptr noundef %11, i32 noundef %conv) #13
@@ -1559,7 +1500,7 @@ if.then184:                                       ; preds = %cond.true176, %cond
 
 sw.bb196:                                         ; preds = %if.end8.i209, %if.end169
   %key_file.addr.0272 = phi ptr [ %cert_file, %if.end169 ], [ %key_file, %if.end8.i209 ]
-  %engine198 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 27
+  %engine198 = getelementptr inbounds i8, ptr %data, i64 3672
   %27 = load ptr, ptr %engine198, align 8
   %tobool199.not = icmp eq ptr %27, null
   br i1 %tobool199.not, label %if.then200, label %if.then213
@@ -1702,14 +1643,14 @@ entry:
   %peer_CN = alloca ptr, align 8
   %0 = load ptr, ptr %peer, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %is_ip_address = getelementptr inbounds %struct.ssl_peer, ptr %peer, i64 0, i32 3
+  %is_ip_address = getelementptr inbounds i8, ptr %peer, i64 24
   %bf.load = load i8, ptr %is_ip_address, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bits = getelementptr inbounds %struct.connectdata, ptr %conn, i64 0, i32 27
+  %bits = getelementptr inbounds i8, ptr %conn, i64 704
   %bf.load1 = load i32, ptr %bits, align 8
   %1 = and i32 %bf.load1, 2048
   %tobool3.not = icmp eq i32 %1, 0
@@ -1747,8 +1688,8 @@ if.then16:                                        ; preds = %if.end13
 
 for.body.lr.ph:                                   ; preds = %if.then16
   %tobool52.not = icmp eq ptr %data, null
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
-  %dispname60 = getelementptr inbounds %struct.ssl_peer, ptr %peer, i64 0, i32 1
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
+  %dispname60 = getelementptr inbounds i8, ptr %peer, i64 8
   %tobool.not.i = icmp ne ptr %data, null
   switch i32 %target.0.fr, label %for.body [
     i32 2, label %for.body.us
@@ -1771,7 +1712,7 @@ if.end29.us:                                      ; preds = %for.body.us
   br label %for.inc.us
 
 if.then32.us:                                     ; preds = %for.body.us
-  %d.us = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call21.us, i64 0, i32 1
+  %d.us = getelementptr inbounds i8, ptr %call21.us, i64 8
   %4 = load ptr, ptr %d.us, align 8
   %call33.us = call ptr @ASN1_STRING_get0_data(ptr noundef %4) #13
   %5 = load ptr, ptr %d.us, align 8
@@ -1829,7 +1770,7 @@ if.end29.fold.split.us104:                        ; preds = %for.body.us96
   br label %for.inc.us114
 
 if.then32.us109:                                  ; preds = %for.body.us96
-  %d.us110 = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call21.us102, i64 0, i32 1
+  %d.us110 = getelementptr inbounds i8, ptr %call21.us102, i64 8
   %12 = load ptr, ptr %d.us110, align 8
   %call33.us111 = call ptr @ASN1_STRING_get0_data(ptr noundef %12) #13
   %13 = load ptr, ptr %d.us110, align 8
@@ -1888,7 +1829,7 @@ if.end29:                                         ; preds = %for.body, %if.end29
   br i1 %cmp31, label %if.then32, label %for.inc
 
 if.then32:                                        ; preds = %if.end29
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call21, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call21, i64 8
   %17 = load ptr, ptr %d, align 8
   %call33 = call ptr @ASN1_STRING_get0_data(ptr noundef %17) #13
   %18 = load ptr, ptr %d, align 8
@@ -1931,20 +1872,20 @@ do.body80:                                        ; preds = %if.else73
   br i1 %tobool81.not, label %do.end93, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %do.body80
-  %verbose84 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose84 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load85 = load i64, ptr %verbose84, align 2
   %23 = and i64 %bf.load85, 536870912
   %tobool89.not = icmp eq i64 %23, 0
   br i1 %tobool89.not, label %do.end93, label %if.then90
 
 if.then90:                                        ; preds = %land.lhs.true82
-  %dispname91 = getelementptr inbounds %struct.ssl_peer, ptr %peer, i64 0, i32 1
+  %dispname91 = getelementptr inbounds i8, ptr %peer, i64 8
   %24 = load ptr, ptr %dispname91, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.28, ptr noundef %24) #13
   br label %do.end93
 
 do.end93:                                         ; preds = %do.body80, %land.lhs.true82, %if.then90
-  %dispname94 = getelementptr inbounds %struct.ssl_peer, ptr %peer, i64 0, i32 1
+  %dispname94 = getelementptr inbounds i8, ptr %peer, i64 8
   %25 = load ptr, ptr %dispname94, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.29, ptr noundef %25) #13
   br label %if.end173
@@ -2032,7 +1973,7 @@ if.else146:                                       ; preds = %if.else143
 
 if.then150:                                       ; preds = %if.else146
   %28 = load ptr, ptr %peer_CN, align 8
-  %dispname151 = getelementptr inbounds %struct.ssl_peer, ptr %peer, i64 0, i32 1
+  %dispname151 = getelementptr inbounds i8, ptr %peer, i64 8
   %29 = load ptr, ptr %dispname151, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.33, ptr noundef %28, ptr noundef %29) #13
   br label %if.end168
@@ -2042,7 +1983,7 @@ do.body153:                                       ; preds = %if.else146
   br i1 %tobool154.not, label %if.end168, label %land.lhs.true155
 
 land.lhs.true155:                                 ; preds = %do.body153
-  %verbose157 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose157 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load158 = load i64, ptr %verbose157, align 2
   %30 = and i64 %bf.load158, 536870912
   %tobool162.not = icmp eq i64 %30, 0
@@ -2110,13 +2051,13 @@ define hidden noundef i32 @Curl_ssl_setup_x509_store(ptr noundef %cf, ptr nounde
 entry:
   %call = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %cf) #13
   %call1 = tail call ptr @Curl_ssl_cf_get_config(ptr noundef %cf, ptr noundef %data) #13
-  %ca_cache_timeout = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 71, i32 1
+  %ca_cache_timeout = getelementptr inbounds i8, ptr %data, i64 1720
   %0 = load i32, ptr %ca_cache_timeout, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %verifypeer = getelementptr inbounds %struct.ssl_primary_config, ptr %call, i64 0, i32 17
+  %verifypeer = getelementptr inbounds i8, ptr %call, i64 121
   %bf.load = load i8, ptr %verifypeer, align 1
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -2128,19 +2069,19 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %tobool3.not, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %ca_info_blob = getelementptr inbounds %struct.ssl_primary_config, ptr %call, i64 0, i32 9
+  %ca_info_blob = getelementptr inbounds i8, ptr %call, i64 72
   %2 = load ptr, ptr %ca_info_blob, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %CRLfile = getelementptr inbounds %struct.ssl_primary_config, ptr %call1, i64 0, i32 7
+  %CRLfile = getelementptr inbounds i8, ptr %call1, i64 56
   %3 = load ptr, ptr %CRLfile, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %native_ca_store = getelementptr inbounds %struct.ssl_config_data, ptr %call1, i64 0, i32 9
+  %native_ca_store = getelementptr inbounds i8, ptr %call1, i64 192
   %bf.load8 = load i8, ptr %native_ca_store, align 8
   %4 = and i8 %bf.load8, 64
   %tobool11.not = icmp eq i8 %4, 0
@@ -2148,26 +2089,26 @@ land.rhs:                                         ; preds = %land.lhs.true6
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true6, %land.lhs.true4, %land.lhs.true2, %land.lhs.true, %entry
   %5 = phi i1 [ false, %land.lhs.true6 ], [ false, %land.lhs.true4 ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true ], [ false, %entry ], [ %tobool11.not, %land.rhs ]
-  %multi_easy.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 13
+  %multi_easy.i = getelementptr inbounds i8, ptr %data, i64 200
   %6 = load ptr, ptr %multi_easy.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %cond.end.i, label %land.lhs.true.i
 
 cond.end.i:                                       ; preds = %land.end
-  %multi2.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 12
+  %multi2.i = getelementptr inbounds i8, ptr %data, i64 192
   %7 = load ptr, ptr %multi2.i, align 8
   %tobool3.not.i = icmp eq ptr %7, null
   br i1 %tobool3.not.i, label %if.else, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %cond.end.i, %land.end
   %cond15.i = phi ptr [ %7, %cond.end.i ], [ %6, %land.end ]
-  %ssl_backend_data.i = getelementptr inbounds %struct.Curl_multi, ptr %cond15.i, i64 0, i32 15
+  %ssl_backend_data.i = getelementptr inbounds i8, ptr %cond15.i, i64 240
   %8 = load ptr, ptr %ssl_backend_data.i, align 8
   %tobool4.not.i = icmp eq ptr %8, null
   br i1 %tobool4.not.i, label %if.else, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %store7.i = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %8, i64 0, i32 1
+  %store7.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %store7.i, align 8
   %tobool8.not.i = icmp eq ptr %9, null
   br i1 %tobool8.not.i, label %if.else, label %land.lhs.true9.i
@@ -2176,9 +2117,9 @@ land.lhs.true9.i:                                 ; preds = %land.lhs.true5.i
   %call.i.i = tail call { i64, i32 } @Curl_now() #13
   %10 = extractvalue { i64, i32 } %call.i.i, 0
   %11 = extractvalue { i64, i32 } %call.i.i, 1
-  %time.i.i = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %8, i64 0, i32 2
+  %time.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i64, ptr %time.i.i, align 8
-  %13 = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %8, i64 0, i32 2, i32 1
+  %13 = getelementptr inbounds i8, ptr %8, i64 24
   %14 = load i32, ptr %13, align 8
   %call1.i.i = tail call i64 @Curl_timediff(i64 %10, i32 %11, i64 %12, i32 %14) #13
   %15 = load i32, ptr %ca_cache_timeout, align 8
@@ -2194,7 +2135,7 @@ land.lhs.true11.i:                                ; preds = %land.lhs.true9.i
   %call.i10.i = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %cf) #13
   %17 = load ptr, ptr %16, align 8
   %tobool.not.i.i = icmp eq ptr %17, null
-  %CAfile4.phi.trans.insert.i.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i10.i, i64 0, i32 1
+  %CAfile4.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i10.i, i64 8
   %.pre.i.i = load ptr, ptr %CAfile4.phi.trans.insert.i.i, align 8
   %cmp.i12.not.i = icmp eq ptr %.pre.i.i, null
   br i1 %tobool.not.i.i, label %cached_x509_store_different.exit.i, label %lor.lhs.false.i.i
@@ -2212,7 +2153,7 @@ cached_x509_store_different.exit.i:               ; preds = %land.lhs.true11.i
 
 get_cached_x509_store.exit:                       ; preds = %if.end.i.i, %cached_x509_store_different.exit.i
   %18 = load ptr, ptr %ssl_backend_data.i, align 8
-  %store15.i = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %18, i64 0, i32 1
+  %store15.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %store15.i, align 8
   %tobool13.not = icmp ne ptr %19, null
   %brmerge.not = select i1 %tobool13.not, i1 %5, i1 false
@@ -2231,26 +2172,26 @@ if.else:                                          ; preds = %lor.lhs.false.i.i, 
   %call19 = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %ssl_ctx) #13
   %call.i = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %cf) #13
   %call1.i = tail call ptr @Curl_ssl_cf_get_config(ptr noundef %cf, ptr noundef nonnull %data) #13
-  %ca_info_blob2.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 9
+  %ca_info_blob2.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %20 = load ptr, ptr %ca_info_blob2.i, align 8
   %tobool.i = icmp ne ptr %20, null
   br i1 %tobool.i, label %land.lhs.true.i22, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.else
-  %CAfile.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 1
+  %CAfile.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %21 = load ptr, ptr %CAfile.i, align 8
   br label %land.lhs.true.i22
 
 land.lhs.true.i22:                                ; preds = %if.else, %cond.false.i
   %cond.i = phi ptr [ %21, %cond.false.i ], [ null, %if.else ]
   %22 = load ptr, ptr %call.i, align 8
-  %CRLfile.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call1.i, i64 0, i32 7
+  %CRLfile.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   %23 = load ptr, ptr %CRLfile.i, align 8
-  %verifypeer3.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 17
+  %verifypeer3.i = getelementptr inbounds i8, ptr %call.i, i64 121
   %bf.load.i = load i8, ptr %verifypeer3.i, align 1
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool4.not.i21 = icmp eq i8 %bf.clear.i, 0
-  %verbose.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load6.i = load i64, ptr %verbose.i, align 2
   %24 = and i64 %bf.load6.i, 536870912
   %tobool9.i = icmp ne i64 %24, 0
@@ -2260,7 +2201,7 @@ land.lhs.true.i22:                                ; preds = %if.else, %cond.fals
 
 land.lhs.true12.i:                                ; preds = %land.lhs.true.i22
   %25 = load ptr, ptr %cf, align 8
-  %log_level.i = getelementptr inbounds %struct.Curl_cftype, ptr %25, i64 0, i32 2
+  %log_level.i = getelementptr inbounds i8, ptr %25, i64 12
   %26 = load i32, ptr %log_level.i, align 4
   %cmp.i = icmp sgt i32 %26, 0
   br i1 %cmp.i, label %if.then.i28, label %do.end.i
@@ -2283,7 +2224,7 @@ if.then24.i:                                      ; preds = %if.end22.i
   br i1 %tobool.i, label %if.then26.i, label %if.end44.i
 
 if.then26.i:                                      ; preds = %if.then24.i
-  %len.i.i = getelementptr inbounds %struct.curl_blob, ptr %20, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %27 = load i64, ptr %len.i.i, align 8
   %cmp.i.i23 = icmp ugt i64 %27, 2147483647
   br i1 %cmp.i.i23, label %if.then29.i, label %if.end.i.i24
@@ -2328,7 +2269,7 @@ if.then20.i.i:                                    ; preds = %if.then16.i.i
 
 if.end22.i.i:                                     ; preds = %if.then20.i.i, %for.body.i.i
   %count.1.i.i = phi i32 [ %inc.i.i, %if.then20.i.i ], [ %count.022.i.i, %for.body.i.i ]
-  %crl.i.i = getelementptr inbounds %struct.X509_info_st, ptr %call14.i.i, i64 0, i32 1
+  %crl.i.i = getelementptr inbounds i8, ptr %call14.i.i, i64 8
   %30 = load ptr, ptr %crl.i.i, align 8
   %tobool23.not.i.i = icmp eq ptr %30, null
   br i1 %tobool23.not.i.i, label %for.inc.i.i, label %if.then24.i.i
@@ -2497,7 +2438,7 @@ if.end173.i:                                      ; preds = %if.then170.i, %land
 
 if.then175.i:                                     ; preds = %if.end173.i
   %call176.i = tail call i32 @X509_STORE_set_flags(ptr noundef nonnull %call19, i64 noundef 32768) #13
-  %no_partialchain.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 9
+  %no_partialchain.i = getelementptr inbounds i8, ptr %call1.i, i64 192
   %bf.load177.i = load i8, ptr %no_partialchain.i, align 8
   %40 = and i8 %bf.load177.i, 16
   %tobool181.i = icmp ne i8 %40, 0
@@ -2518,14 +2459,14 @@ if.then24:                                        ; preds = %populate_x509_store
   br i1 %tobool.not.i31, label %cond.end.i34, label %if.end.i
 
 cond.end.i34:                                     ; preds = %if.then24
-  %multi2.i35 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 12
+  %multi2.i35 = getelementptr inbounds i8, ptr %data, i64 192
   %42 = load ptr, ptr %multi2.i35, align 8
   %tobool3.not.i36 = icmp eq ptr %42, null
   br i1 %tobool3.not.i36, label %if.end25, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i34, %if.then24
   %cond20.i = phi ptr [ %42, %cond.end.i34 ], [ %41, %if.then24 ]
-  %ssl_backend_data.i32 = getelementptr inbounds %struct.Curl_multi, ptr %cond20.i, i64 0, i32 15
+  %ssl_backend_data.i32 = getelementptr inbounds i8, ptr %cond20.i, i64 240
   %43 = load ptr, ptr %ssl_backend_data.i32, align 8
   %tobool4.not.i33 = icmp eq ptr %43, null
   br i1 %tobool4.not.i33, label %if.then5.i, label %if.end12.i
@@ -2544,7 +2485,7 @@ if.end12.i:                                       ; preds = %if.then5.i, %if.end
   br i1 %tobool15.not.i, label %if.end25, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end12.i
-  %CAfile17.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i29, i64 0, i32 1
+  %CAfile17.i = getelementptr inbounds i8, ptr %call.i29, i64 8
   %46 = load ptr, ptr %CAfile17.i, align 8
   %tobool18.not.i = icmp eq ptr %46, null
   br i1 %tobool18.not.i, label %if.end25.i, label %if.then19.i
@@ -2561,7 +2502,7 @@ if.then23.i:                                      ; preds = %if.then19.i
 
 if.end25.i:                                       ; preds = %if.then19.i, %if.then16.i
   %CAfile.0.i = phi ptr [ %call21.i, %if.then19.i ], [ null, %if.then16.i ]
-  %store26.i = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %45, i64 0, i32 1
+  %store26.i = getelementptr inbounds i8, ptr %45, i64 8
   %48 = load ptr, ptr %store26.i, align 8
   %tobool27.not.i = icmp eq ptr %48, null
   br i1 %tobool27.not.i, label %if.end31.i, label %if.then28.i
@@ -2574,12 +2515,12 @@ if.then28.i:                                      ; preds = %if.end25.i
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then28.i, %if.end25.i
-  %time.i = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %45, i64 0, i32 2
+  %time.i = getelementptr inbounds i8, ptr %45, i64 16
   %call32.i = tail call { i64, i32 } @Curl_now() #13
   %51 = extractvalue { i64, i32 } %call32.i, 0
   %52 = extractvalue { i64, i32 } %call32.i, 1
   store i64 %51, ptr %time.i, align 8
-  %tmp.sroa.2.0.time.sroa_idx.i = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %45, i64 0, i32 2, i32 1
+  %tmp.sroa.2.0.time.sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 24
   store i32 %52, ptr %tmp.sroa.2.0.time.sroa_idx.i, align 8
   store ptr %call19, ptr %store26.i, align 8
   store ptr %CAfile.0.i, ptr %45, align 8
@@ -2630,29 +2571,29 @@ declare i32 @Curl_none_check_cxn(ptr noundef, ptr noundef) #1
 define internal i32 @ossl_shutdown(ptr noundef %cf, ptr noundef %data) #0 {
 entry:
   %buf = alloca [256 x i8], align 16
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %backend2 = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 4
+  %backend2 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %backend2, align 8
-  %ftp_ccc = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 83
+  %ftp_ccc = getelementptr inbounds i8, ptr %data, i64 1778
   %2 = load i8, ptr %ftp_ccc, align 2
   %cmp = icmp eq i8 %2, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %handle = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %handle, align 8
   %call = tail call i32 @SSL_shutdown(ptr noundef %3) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %handle4 = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 1
+  %handle4 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %handle4, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end108, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %verbose30 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose30 = getelementptr inbounds i8, ptr %data, i64 2706
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end51
@@ -2821,11 +2762,11 @@ if.end108:                                        ; preds = %if.end105, %if.end
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @ossl_data_pending(ptr nocapture noundef readonly %cf, ptr nocapture readnone %data) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %backend1 = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 4
+  %backend1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %backend1, align 8
-  %handle = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %handle, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -2850,13 +2791,13 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %multi.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 12
+  %multi.i = getelementptr inbounds i8, ptr %data, i64 192
   %0 = load ptr, ptr %multi.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %ssl_seeded.i = getelementptr inbounds %struct.Curl_multi, ptr %0, i64 0, i32 27
+  %ssl_seeded.i = getelementptr inbounds i8, ptr %0, i64 457
   %bf.load.i = load i8, ptr %ssl_seeded.i, align 1
   %1 = and i8 %bf.load.i, 8
   %tobool2.not.i = icmp eq i8 %1, 0
@@ -2873,7 +2814,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool5.not.i, label %if.end6, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then3.i
-  %ssl_seeded8.i = getelementptr inbounds %struct.Curl_multi, ptr %2, i64 0, i32 27
+  %ssl_seeded8.i = getelementptr inbounds i8, ptr %2, i64 457
   %bf.load9.i = load i8, ptr %ssl_seeded8.i, align 1
   %bf.set.i = or i8 %bf.load9.i, 8
   store i8 %bf.set.i, ptr %ssl_seeded8.i, align 1
@@ -2926,11 +2867,11 @@ declare void @Curl_ssl_adjust_pollset(ptr noundef, ptr noundef, ptr noundef) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @ossl_get_internals(ptr nocapture noundef readonly %connssl, i32 noundef %info) #6 {
 entry:
-  %backend1 = getelementptr inbounds %struct.ssl_connect_data, ptr %connssl, i64 0, i32 4
+  %backend1 = getelementptr inbounds i8, ptr %connssl, i64 48
   %0 = load ptr, ptr %backend1, align 8
   %cmp = icmp eq i32 %info, 4194347
-  %handle = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %0, i64 0, i32 1
-  %cond.in = select i1 %cmp, ptr %0, ptr %handle
+  %cond.in.idx = select i1 %cmp, i64 0, i64 8
+  %cond.in = getelementptr inbounds i8, ptr %0, i64 %cond.in.idx
   %cond = load ptr, ptr %cond.in, align 8
   ret ptr %cond
 }
@@ -2939,23 +2880,23 @@ entry:
 define internal void @ossl_close(ptr noundef %cf, ptr noundef %data) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %backend1 = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 4
+  %backend1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %backend1, align 8
-  %handle = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %handle, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end117, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %cf, i64 8
   %3 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end114, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %3, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %3, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool4.not = icmp eq i8 %bf.clear, 0
@@ -2974,7 +2915,7 @@ do.body10:                                        ; preds = %if.then5
   br i1 %tobool11.not, label %if.end112, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %do.body10
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load13 = load i64, ptr %verbose, align 2
   %5 = and i64 %bf.load13, 536870912
   %tobool16.not = icmp eq i64 %5, 0
@@ -2982,7 +2923,7 @@ land.lhs.true12:                                  ; preds = %do.body10
 
 land.lhs.true19:                                  ; preds = %land.lhs.true12
   %6 = load ptr, ptr %cf, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %6, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %log_level, align 4
   %cmp20 = icmp sgt i32 %7, 0
   br i1 %cmp20, label %if.then21, label %if.end112
@@ -3008,7 +2949,7 @@ do.body28:                                        ; preds = %if.else, %if.else
   br i1 %tobool29.not, label %if.end112, label %land.lhs.true30
 
 land.lhs.true30:                                  ; preds = %do.body28
-  %verbose32 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose32 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load33 = load i64, ptr %verbose32, align 2
   %10 = and i64 %bf.load33, 536870912
   %tobool37.not = icmp eq i64 %10, 0
@@ -3016,7 +2957,7 @@ land.lhs.true30:                                  ; preds = %do.body28
 
 land.lhs.true40:                                  ; preds = %land.lhs.true30
   %11 = load ptr, ptr %cf, align 8
-  %log_level42 = getelementptr inbounds %struct.Curl_cftype, ptr %11, i64 0, i32 2
+  %log_level42 = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i32, ptr %log_level42, align 4
   %cmp43 = icmp sgt i32 %12, 0
   br i1 %cmp43, label %if.then44, label %if.end112
@@ -3030,7 +2971,7 @@ do.body48:                                        ; preds = %if.else
   br i1 %tobool49.not, label %if.end112, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %do.body48
-  %verbose52 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose52 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load53 = load i64, ptr %verbose52, align 2
   %13 = and i64 %bf.load53, 536870912
   %tobool57.not = icmp eq i64 %13, 0
@@ -3038,7 +2979,7 @@ land.lhs.true50:                                  ; preds = %do.body48
 
 land.lhs.true60:                                  ; preds = %land.lhs.true50
   %14 = load ptr, ptr %cf, align 8
-  %log_level62 = getelementptr inbounds %struct.Curl_cftype, ptr %14, i64 0, i32 2
+  %log_level62 = getelementptr inbounds i8, ptr %14, i64 12
   %15 = load i32, ptr %log_level62, align 4
   %cmp63 = icmp sgt i32 %15, 0
   br i1 %cmp63, label %if.then64, label %if.end112
@@ -3052,7 +2993,7 @@ do.body68:                                        ; preds = %if.else
   br i1 %tobool69.not, label %if.end112, label %land.lhs.true70
 
 land.lhs.true70:                                  ; preds = %do.body68
-  %verbose72 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose72 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load73 = load i64, ptr %verbose72, align 2
   %16 = and i64 %bf.load73, 536870912
   %tobool77.not = icmp eq i64 %16, 0
@@ -3060,7 +3001,7 @@ land.lhs.true70:                                  ; preds = %do.body68
 
 land.lhs.true80:                                  ; preds = %land.lhs.true70
   %17 = load ptr, ptr %cf, align 8
-  %log_level82 = getelementptr inbounds %struct.Curl_cftype, ptr %17, i64 0, i32 2
+  %log_level82 = getelementptr inbounds i8, ptr %17, i64 12
   %18 = load i32, ptr %log_level82, align 4
   %cmp83 = icmp sgt i32 %18, 0
   br i1 %cmp83, label %if.then84, label %if.end112
@@ -3075,7 +3016,7 @@ sw.default:                                       ; preds = %if.else
   br i1 %tobool89.not, label %if.end112, label %land.lhs.true90
 
 land.lhs.true90:                                  ; preds = %sw.default
-  %verbose92 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose92 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load93 = load i64, ptr %verbose92, align 2
   %19 = and i64 %bf.load93, 536870912
   %tobool97.not = icmp eq i64 %19, 0
@@ -3083,7 +3024,7 @@ land.lhs.true90:                                  ; preds = %sw.default
 
 land.lhs.true100:                                 ; preds = %land.lhs.true90
   %20 = load ptr, ptr %cf, align 8
-  %log_level102 = getelementptr inbounds %struct.Curl_cftype, ptr %20, i64 0, i32 2
+  %log_level102 = getelementptr inbounds i8, ptr %20, i64 12
   %21 = load i32, ptr %log_level102, align 4
   %cmp103 = icmp sgt i32 %21, 0
   br i1 %cmp103, label %if.then104, label %if.end112
@@ -3128,12 +3069,12 @@ if.end117:                                        ; preds = %if.end114, %entry
 if.then120:                                       ; preds = %if.end117
   call void @SSL_CTX_free(ptr noundef nonnull %25) #13
   store ptr null, ptr %1, align 8
-  %x509_store_setup = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 5
+  %x509_store_setup = getelementptr inbounds i8, ptr %1, i64 36
   store i8 0, ptr %x509_store_setup, align 4
   br label %if.end123
 
 if.end123:                                        ; preds = %if.then120, %if.end117
-  %bio_method = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 3
+  %bio_method = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load ptr, ptr %bio_method, align 8
   %tobool124.not = icmp eq ptr %26, null
   br i1 %tobool124.not, label %if.end128, label %if.then125
@@ -3150,7 +3091,7 @@ if.end128:                                        ; preds = %if.then125, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_close_all(ptr nocapture noundef %data) #0 {
 entry:
-  %engine = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 27
+  %engine = getelementptr inbounds i8, ptr %data, i64 3672
   %0 = load ptr, ptr %engine, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3186,7 +3127,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %engine1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 27
+  %engine1 = getelementptr inbounds i8, ptr %data, i64 3672
   %0 = load ptr, ptr %engine1, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.end12, label %if.then3
@@ -3258,7 +3199,7 @@ return:                                           ; preds = %if.end19, %ossl_str
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ossl_set_engine_default(ptr noundef %data) #0 {
 entry:
-  %engine = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 27
+  %engine = getelementptr inbounds i8, ptr %data, i64 3672
   %0 = load ptr, ptr %engine, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -3269,7 +3210,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %1 = and i64 %bf.load, 536870912
   %tobool5.not = icmp eq i64 %1, 0
@@ -3356,7 +3297,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_free_multi_ssl_backend_data(ptr noundef %mbackend) #0 {
 entry:
-  %store = getelementptr inbounds %struct.multi_ssl_backend_data, ptr %mbackend, i64 0, i32 1
+  %store = getelementptr inbounds i8, ptr %mbackend, i64 8
   %0 = load ptr, ptr %store, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3378,16 +3319,16 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i64 @ossl_recv(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %buffersize, ptr nocapture noundef writeonly %curlcode) #0 {
 entry:
   %error_buffer = alloca [256 x i8], align 16
-  %conn1 = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn1 = getelementptr inbounds i8, ptr %cf, i64 24
   %0 = load ptr, ptr %conn1, align 8
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %1 = load ptr, ptr %ctx, align 8
-  %backend2 = getelementptr inbounds %struct.ssl_connect_data, ptr %1, i64 0, i32 4
+  %backend2 = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %backend2, align 8
   tail call void @ERR_clear_error() #13
   %cond18 = tail call i64 @llvm.umin.i64(i64 %buffersize, i64 2147483647)
   %cond = trunc i64 %cond18 to i32
-  %handle = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %2, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %handle, align 8
   %call = tail call i32 @SSL_read(ptr noundef %3, ptr noundef %buf, i32 noundef %cond) #13
   %conv3 = sext i32 %call to i64
@@ -3405,7 +3346,7 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb9:                                           ; preds = %if.then
-  %sockindex = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 4
+  %sockindex = getelementptr inbounds i8, ptr %cf, i64 32
   %5 = load i32, ptr %sockindex, align 8
   %cmp10 = icmp eq i32 %5, 0
   br i1 %cmp10, label %if.then12, label %out
@@ -3419,7 +3360,7 @@ sw.bb13:                                          ; preds = %if.then, %if.then
   br label %out
 
 sw.default:                                       ; preds = %if.then
-  %io_result = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %2, i64 0, i32 4
+  %io_result = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %io_result, align 8
   %cmp14 = icmp eq i32 %6, 81
   br i1 %cmp14, label %if.then16, label %if.end17
@@ -3473,14 +3414,14 @@ out:                                              ; preds = %entry, %if.end17, %
 define internal i64 @ossl_send(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %mem, i64 noundef %len, ptr nocapture noundef writeonly %curlcode) #0 {
 entry:
   %error_buffer = alloca [256 x i8], align 16
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %backend1 = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 4
+  %backend1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %backend1, align 8
   tail call void @ERR_clear_error() #13
   %cond19 = tail call i64 @llvm.umin.i64(i64 %len, i64 2147483647)
   %cond = trunc i64 %cond19 to i32
-  %handle = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 1
+  %handle = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %handle, align 8
   %call = tail call i32 @SSL_write(ptr noundef %2, ptr noundef %mem, i32 noundef %cond) #13
   %cmp2 = icmp slt i32 %call, 1
@@ -3510,7 +3451,7 @@ sw.bb:                                            ; preds = %if.then, %if.then
 sw.bb6:                                           ; preds = %if.then
   %call7 = tail call ptr @__errno_location() #15
   %4 = load i32, ptr %call7, align 4
-  %io_result = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 4
+  %io_result = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %io_result, align 8
   %cmp8 = icmp eq i32 %5, 81
   br i1 %cmp8, label %if.then10, label %if.end
@@ -4023,7 +3964,7 @@ entry:
   %ssl_sessionid.i = alloca ptr, align 8
   %error_buffer.i = alloca [256 x i8], align 16
   %proto.i = alloca %struct.alpn_proto_buf, align 4
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %call = tail call i32 @Curl_conn_cf_get_socket(ptr noundef %cf, ptr noundef %data) #13
   %1 = load i32, ptr %0, align 8
@@ -4035,7 +3976,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %connecting_state = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 1
+  %connecting_state = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %connecting_state, align 4
   %cmp1 = icmp eq i32 %2, 0
   br i1 %cmp1, label %if.then2, label %if.end10
@@ -4057,26 +3998,26 @@ if.end6:                                          ; preds = %if.then2
   store ptr null, ptr %ssl_sessionid.i, align 8
   %call.i = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %cf) #13
   %call1.i = tail call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %cf, ptr noundef %data) #13
-  %version.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 16
+  %version.i = getelementptr inbounds i8, ptr %call.i, i64 120
   %4 = load i8, ptr %version.i, align 8
-  %clientcert.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call1.i, i64 0, i32 3
+  %clientcert.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %5 = load ptr, ptr %clientcert.i, align 8
-  %cert_blob.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call1.i, i64 0, i32 8
+  %cert_blob.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   %6 = load ptr, ptr %cert_blob.i, align 8
-  %cert_type.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 4
+  %cert_type.i = getelementptr inbounds i8, ptr %call1.i, i64 152
   %7 = load ptr, ptr %cert_type.i, align 8
-  %verifypeer3.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 17
+  %verifypeer3.i = getelementptr inbounds i8, ptr %call.i, i64 121
   %bf.load.i = load i8, ptr %verifypeer3.i, align 1
   %bf.clear.i = and i8 %bf.load.i, 1
-  %backend4.i = getelementptr inbounds %struct.ssl_connect_data, ptr %3, i64 0, i32 4
+  %backend4.i = getelementptr inbounds i8, ptr %3, i64 48
   %8 = load ptr, ptr %backend4.i, align 8
-  %multi.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 12
+  %multi.i.i = getelementptr inbounds i8, ptr %data, i64 192
   %9 = load ptr, ptr %multi.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end6
-  %ssl_seeded.i.i = getelementptr inbounds %struct.Curl_multi, ptr %9, i64 0, i32 27
+  %ssl_seeded.i.i = getelementptr inbounds i8, ptr %9, i64 457
   %bf.load.i.i = load i8, ptr %ssl_seeded.i.i, align 1
   %10 = and i8 %bf.load.i.i, 8
   %tobool2.not.i.i = icmp eq i8 %10, 0
@@ -4093,7 +4034,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   br i1 %tobool5.not.i.i, label %if.end.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then3.i.i
-  %ssl_seeded8.i.i = getelementptr inbounds %struct.Curl_multi, ptr %11, i64 0, i32 27
+  %ssl_seeded8.i.i = getelementptr inbounds i8, ptr %11, i64 457
   %bf.load9.i.i = load i8, ptr %ssl_seeded8.i.i, align 1
   %bf.set.i.i = or i8 %bf.load9.i.i, 8
   store i8 %bf.set.i.i, ptr %ssl_seeded8.i.i, align 1
@@ -4104,7 +4045,7 @@ ossl_seed.exit.i:                                 ; preds = %if.end.i.i
   br label %ossl_connect_step1.exit.thread
 
 if.end.i:                                         ; preds = %if.then6.i.i, %if.then3.i.i, %land.lhs.true.i.i
-  %certverifyresult.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 1
+  %certverifyresult.i = getelementptr inbounds i8, ptr %call1.i, i64 128
   store i64 1, ptr %certverifyresult.i, align 8
   switch i8 %4, label %sw.default.i [
     i8 0, label %sw.bb.i
@@ -4189,13 +4130,13 @@ ossl_strerror.exit.i:                             ; preds = %if.then9.i.i, %if.t
 
 if.end23.i:                                       ; preds = %if.end15.i
   %call25.i = tail call i64 @SSL_CTX_ctrl(ptr noundef nonnull %call16.i, i32 noundef 33, i64 noundef 16, ptr noundef null) #13
-  %fdebug.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 23
+  %fdebug.i = getelementptr inbounds i8, ptr %data, i64 576
   %14 = load ptr, ptr %fdebug.i, align 8
   %tobool26.not.i = icmp eq ptr %14, null
   br i1 %tobool26.not.i, label %if.end36.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end23.i
-  %verbose.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load28.i = load i64, ptr %verbose.i, align 2
   %15 = and i64 %bf.load28.i, 536870912
   %tobool31.not.i = icmp eq i64 %15, 0
@@ -4209,7 +4150,7 @@ if.then32.i:                                      ; preds = %land.lhs.true.i
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.then32.i, %land.lhs.true.i, %if.end23.i
-  %enable_beast.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 9
+  %enable_beast.i = getelementptr inbounds i8, ptr %call1.i, i64 192
   %bf.load38.i = load i8, ptr %enable_beast.i, align 8
   %18 = and i8 %bf.load38.i, 4
   %tobool42.not.i = icmp eq i8 %18, 0
@@ -4228,7 +4169,7 @@ if.end36.i:                                       ; preds = %if.then32.i, %land.
 sw.bb47.i:                                        ; preds = %if.end36.i, %if.end36.i, %if.end36.i, %if.end36.i, %if.end36.i, %if.end36.i
   %19 = load ptr, ptr %8, align 8
   %call.i.i = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %cf) #13
-  %version.i.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i.i, i64 0, i32 16
+  %version.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 120
   %20 = load i8, ptr %version.i.i, align 8
   switch i8 %20, label %if.then.fold.split.i.i [
     i8 1, label %if.then.i176.i
@@ -4258,7 +4199,7 @@ if.then.i176.i:                                   ; preds = %if.then.fold.split.
   br i1 %tobool.not.i177.i, label %ossl_connect_step1.exit.thread, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then.i176.i, %sw.bb47.i
-  %version_max.i.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i.i, i64 0, i32 15
+  %version_max.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 116
   %21 = load i32, ptr %version_max.i.i, align 4
   %conv8.i.i = zext i32 %21 to i64
   %22 = tail call i64 @llvm.fshl.i64(i64 %conv8.i.i, i64 %conv8.i.i, i64 48)
@@ -4277,7 +4218,7 @@ sw.default55.i:                                   ; preds = %if.end36.i
 sw.epilog56.i:                                    ; preds = %if.end7.i.i
   %25 = load ptr, ptr %8, align 8
   %call58.i = tail call i64 @SSL_CTX_set_options(ptr noundef %25, i64 noundef %spec.select.i) #13
-  %alpn.i = getelementptr inbounds %struct.ssl_connect_data, ptr %3, i64 0, i32 3
+  %alpn.i = getelementptr inbounds i8, ptr %3, i64 40
   %26 = load ptr, ptr %alpn.i, align 8
   %tobool59.not.i = icmp eq ptr %26, null
   br i1 %tobool59.not.i, label %if.end88.i, label %if.then60.i
@@ -4289,7 +4230,7 @@ if.then60.i:                                      ; preds = %sw.epilog56.i
 
 lor.lhs.false.i:                                  ; preds = %if.then60.i
   %27 = load ptr, ptr %8, align 8
-  %len.i = getelementptr inbounds %struct.alpn_proto_buf, ptr %proto.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %proto.i, i64 36
   %28 = load i32, ptr %len.i, align 4
   %call67.i = call i32 @SSL_CTX_set_alpn_protos(ptr noundef %27, ptr noundef nonnull %proto.i, i32 noundef %28) #13
   %tobool68.not.i = icmp eq i32 %call67.i, 0
@@ -4302,7 +4243,7 @@ if.then69.i:                                      ; preds = %lor.lhs.false.i, %i
 land.lhs.true75.i:                                ; preds = %lor.lhs.false.i
   %29 = load ptr, ptr %alpn.i, align 8
   %call72.i = call i32 @Curl_alpn_to_proto_str(ptr noundef nonnull %proto.i, ptr noundef %29) #13
-  %verbose77.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose77.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load78.i = load i64, ptr %verbose77.i, align 2
   %30 = and i64 %bf.load78.i, 536870912
   %tobool82.not.i = icmp eq i64 %30, 0
@@ -4322,20 +4263,20 @@ if.end88.i:                                       ; preds = %if.then83.i, %land.
 
 land.lhs.true96.i:                                ; preds = %if.end88.i
   %31 = load ptr, ptr %8, align 8
-  %key.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 5
+  %key.i = getelementptr inbounds i8, ptr %call1.i, i64 160
   %32 = load ptr, ptr %key.i, align 8
-  %key_blob.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 6
+  %key_blob.i = getelementptr inbounds i8, ptr %call1.i, i64 168
   %33 = load ptr, ptr %key_blob.i, align 8
-  %key_type.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 7
+  %key_type.i = getelementptr inbounds i8, ptr %call1.i, i64 176
   %34 = load ptr, ptr %key_type.i, align 8
-  %key_passwd.i = getelementptr inbounds %struct.ssl_config_data, ptr %call1.i, i64 0, i32 8
+  %key_passwd.i = getelementptr inbounds i8, ptr %call1.i, i64 184
   %35 = load ptr, ptr %key_passwd.i, align 8
   %call98.i = call fastcc i32 @cert_stuff(ptr noundef nonnull %data, ptr noundef %31, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35), !range !9
   %tobool99.not.not.i = icmp eq i32 %call98.i, 0
   br i1 %tobool99.not.not.i, label %ossl_connect_step1.exit.thread, label %if.end105.i
 
 if.end105.i:                                      ; preds = %land.lhs.true96.i, %if.end88.i
-  %cipher_list.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 4
+  %cipher_list.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %36 = load ptr, ptr %cipher_list.i, align 8
   %tobool106.not.i = icmp eq ptr %36, null
   br i1 %tobool106.not.i, label %if.end129.i, label %if.then110.i
@@ -4351,7 +4292,7 @@ if.then114.i:                                     ; preds = %if.then110.i
   br label %ossl_connect_step1.exit.thread
 
 land.lhs.true118.i:                               ; preds = %if.then110.i
-  %verbose120.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose120.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load121.i = load i64, ptr %verbose120.i, align 2
   %38 = and i64 %bf.load121.i, 536870912
   %tobool125.not.i = icmp eq i64 %38, 0
@@ -4362,7 +4303,7 @@ if.then126.i:                                     ; preds = %land.lhs.true118.i
   br label %if.end129.i
 
 if.end129.i:                                      ; preds = %if.then126.i, %land.lhs.true118.i, %if.end105.i
-  %cipher_list13.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 5
+  %cipher_list13.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %39 = load ptr, ptr %cipher_list13.i, align 8
   %tobool130.not.i = icmp eq ptr %39, null
   br i1 %tobool130.not.i, label %if.end150.i, label %if.then131.i
@@ -4378,7 +4319,7 @@ if.then135.i:                                     ; preds = %if.then131.i
   br label %ossl_connect_step1.exit.thread
 
 land.lhs.true139.i:                               ; preds = %if.then131.i
-  %verbose141.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose141.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load142.i = load i64, ptr %verbose141.i, align 2
   %41 = and i64 %bf.load142.i, 536870912
   %tobool146.not.i = icmp eq i64 %41, 0
@@ -4391,7 +4332,7 @@ if.then147.i:                                     ; preds = %land.lhs.true139.i
 if.end150.i:                                      ; preds = %if.then147.i, %land.lhs.true139.i, %if.end129.i
   %42 = load ptr, ptr %8, align 8
   call void @SSL_CTX_set_post_handshake_auth(ptr noundef %42, i32 noundef 1) #13
-  %curves152.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i, i64 0, i32 13
+  %curves152.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %43 = load ptr, ptr %curves152.i, align 8
   %tobool153.not.i = icmp eq ptr %43, null
   br i1 %tobool153.not.i, label %if.end160.i, label %if.then154.i
@@ -4407,7 +4348,7 @@ if.then158.i:                                     ; preds = %if.then154.i
   br label %ossl_connect_step1.exit.thread
 
 if.end160.i:                                      ; preds = %if.then154.i, %if.end150.i
-  %username.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call1.i, i64 0, i32 11
+  %username.i = getelementptr inbounds i8, ptr %call1.i, i64 88
   %45 = load ptr, ptr %username.i, align 8
   %tobool162.not.i = icmp eq ptr %45, null
   br i1 %tobool162.not.i, label %if.end215.i, label %land.lhs.true163.i
@@ -4418,9 +4359,9 @@ land.lhs.true163.i:                               ; preds = %if.end160.i
 
 land.lhs.true172.i:                               ; preds = %land.lhs.true163.i
   %46 = load ptr, ptr %username.i, align 8
-  %password.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call1.i, i64 0, i32 12
+  %password.i = getelementptr inbounds i8, ptr %call1.i, i64 96
   %47 = load ptr, ptr %password.i, align 8
-  %verbose174.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose174.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load175.i = load i64, ptr %verbose174.i, align 2
   %48 = and i64 %bf.load175.i, 536870912
   %tobool179.not.i = icmp eq i64 %48, 0
@@ -4492,13 +4433,13 @@ if.end222.i:                                      ; preds = %if.then220.i, %if.e
   %call224.i = call i64 @SSL_CTX_ctrl(ptr noundef %56, i32 noundef 44, i64 noundef 769, ptr noundef null) #13
   %57 = load ptr, ptr %8, align 8
   call void @SSL_CTX_sess_set_new_cb(ptr noundef %57, ptr noundef nonnull @ossl_new_session_cb) #13
-  %fsslctx.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 64, i32 2
+  %fsslctx.i = getelementptr inbounds i8, ptr %data, i64 1432
   %58 = load ptr, ptr %fsslctx.i, align 8
   %tobool227.not.i = icmp eq ptr %58, null
   br i1 %tobool227.not.i, label %if.end248.i, label %if.then228.i
 
 if.then228.i:                                     ; preds = %if.end222.i
-  %x509_store_setup.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %8, i64 0, i32 5
+  %x509_store_setup.i = getelementptr inbounds i8, ptr %8, i64 36
   %59 = load i8, ptr %x509_store_setup.i, align 4
   %60 = and i8 %59, 1
   %tobool229.not.i = icmp eq i8 %60, 0
@@ -4518,7 +4459,7 @@ if.end237.i:                                      ; preds = %if.end235.i, %if.th
   call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext true) #13
   %62 = load ptr, ptr %fsslctx.i, align 8
   %63 = load ptr, ptr %8, align 8
-  %fsslctxp.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 64, i32 3
+  %fsslctxp.i = getelementptr inbounds i8, ptr %data, i64 1440
   %64 = load ptr, ptr %fsslctxp.i, align 8
   %call244.i = call i32 %62(ptr noundef nonnull %data, ptr noundef %63, ptr noundef %64) #13
   call void @Curl_set_in_callback(ptr noundef nonnull %data, i1 noundef zeroext false) #13
@@ -4530,7 +4471,7 @@ if.then246.i:                                     ; preds = %if.end237.i
   br label %ossl_connect_step1.exit.thread
 
 if.end248.i:                                      ; preds = %if.end237.i, %if.end222.i
-  %handle.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %8, i64 0, i32 1
+  %handle.i = getelementptr inbounds i8, ptr %8, i64 8
   %65 = load ptr, ptr %handle.i, align 8
   %tobool249.not.i = icmp eq ptr %65, null
   br i1 %tobool249.not.i, label %if.end252.i, label %if.then250.i
@@ -4565,9 +4506,9 @@ if.then267.i:                                     ; preds = %if.end259.i
 if.end270.i:                                      ; preds = %if.then267.i, %if.end259.i
   %69 = load ptr, ptr %handle.i, align 8
   call void @SSL_set_connect_state(ptr noundef %69) #13
-  %server_cert.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %8, i64 0, i32 2
+  %server_cert.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr null, ptr %server_cert.i, align 8
-  %sni.i = getelementptr inbounds %struct.ssl_connect_data, ptr %3, i64 0, i32 2, i32 2
+  %sni.i = getelementptr inbounds i8, ptr %3, i64 24
   %70 = load ptr, ptr %sni.i, align 8
   %tobool272.not.i = icmp eq ptr %70, null
   br i1 %tobool272.not.i, label %if.end281.i, label %if.then273.i
@@ -4585,11 +4526,11 @@ if.then279.i:                                     ; preds = %if.then273.i
 if.end281.i:                                      ; preds = %if.then273.i, %if.end270.i
   %72 = load ptr, ptr %handle.i, align 8
   %call283.i = call i32 @SSL_set_ex_data(ptr noundef %72, i32 noundef 0, ptr noundef nonnull %cf) #13
-  %reused_session.i = getelementptr inbounds %struct.ssl_connect_data, ptr %3, i64 0, i32 8
+  %reused_session.i = getelementptr inbounds i8, ptr %3, i64 84
   %bf.load284.i = load i8, ptr %reused_session.i, align 4
   %bf.clear285.i = and i8 %bf.load284.i, -3
   store i8 %bf.clear285.i, ptr %reused_session.i, align 4
-  %sessionid.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call1.i, i64 0, i32 17
+  %sessionid.i = getelementptr inbounds i8, ptr %call1.i, i64 121
   %bf.load287.i = load i8, ptr %sessionid.i, align 1
   %73 = and i8 %bf.load287.i, 8
   %tobool291.not.i = icmp eq i8 %73, 0
@@ -4615,7 +4556,7 @@ if.then298.i:                                     ; preds = %if.then294.i
   br label %ossl_connect_step1.exit.thread
 
 land.lhs.true305.i:                               ; preds = %if.then294.i
-  %verbose307.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose307.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load308.i = load i64, ptr %verbose307.i, align 2
   %76 = and i64 %bf.load308.i, 536870912
   %tobool312.not.i = icmp eq i64 %76, 0
@@ -4637,7 +4578,7 @@ if.end320.i:                                      ; preds = %do.end315.i, %if.th
 
 if.end321.i:                                      ; preds = %if.end320.i, %if.end281.i
   %call322.i = call fastcc ptr @ossl_bio_cf_method_create()
-  %bio_method.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %8, i64 0, i32 3
+  %bio_method.i = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %call322.i, ptr %bio_method.i, align 8
   %tobool324.not.i = icmp eq ptr %call322.i, null
   br i1 %tobool324.not.i, label %ossl_connect_step1.exit.thread, label %if.end326.i
@@ -4661,7 +4602,7 @@ ossl_connect_step1.exit:                          ; preds = %if.end326.i
   call void @SSL_set0_rbio(ptr noundef %77, ptr noundef nonnull %call328.i) #13
   %78 = load ptr, ptr %handle.i, align 8
   call void @SSL_set0_wbio(ptr noundef %78, ptr noundef nonnull %call328.i) #13
-  %connecting_state.i = getelementptr inbounds %struct.ssl_connect_data, ptr %3, i64 0, i32 1
+  %connecting_state.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 1, ptr %connecting_state.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ssl_sessionid.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %error_buffer.i)
@@ -4670,7 +4611,7 @@ ossl_connect_step1.exit:                          ; preds = %if.end326.i
 
 if.end10:                                         ; preds = %ossl_connect_step1.exit, %if.end
   %tobool88.not.i = icmp eq ptr %data, null
-  %verbose.i54 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i54 = getelementptr inbounds i8, ptr %data, i64 2706
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end10
@@ -4730,14 +4671,14 @@ if.end45:                                         ; preds = %land.lhs.true, %if.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %neg_protocol.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i43)
   %83 = load ptr, ptr %ctx, align 8
-  %backend1.i = getelementptr inbounds %struct.ssl_connect_data, ptr %83, i64 0, i32 4
+  %backend1.i = getelementptr inbounds i8, ptr %83, i64 48
   %84 = load ptr, ptr %backend1.i, align 8
   %call.i45 = call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %cf, ptr noundef %data) #13
   call void @ERR_clear_error() #13
-  %handle.i46 = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %84, i64 0, i32 1
+  %handle.i46 = getelementptr inbounds i8, ptr %84, i64 8
   %85 = load ptr, ptr %handle.i46, align 8
   %call4.i = call i32 @SSL_connect(ptr noundef %85) #13
-  %x509_store_setup.i47 = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %84, i64 0, i32 5
+  %x509_store_setup.i47 = getelementptr inbounds i8, ptr %84, i64 36
   %86 = load i8, ptr %x509_store_setup.i47, align 4
   %87 = and i8 %86, 1
   %tobool.not.i = icmp eq i8 %87, 0
@@ -4777,14 +4718,14 @@ if.then26.i:                                      ; preds = %if.then11.i
   br label %ossl_connect_step2.exit.thread.sink.split
 
 if.end28.i:                                       ; preds = %if.then11.i
-  %io_result.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %84, i64 0, i32 4
+  %io_result.i = getelementptr inbounds i8, ptr %84, i64 32
   %90 = load i32, ptr %io_result.i, align 8
   %cmp29.i = icmp eq i32 %90, 81
   br i1 %cmp29.i, label %ossl_connect_step2.exit.thread, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end28.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %error_buffer.i42, i8 0, i64 256, i1 false)
-  %connecting_state32.i = getelementptr inbounds %struct.ssl_connect_data, ptr %83, i64 0, i32 1
+  %connecting_state32.i = getelementptr inbounds i8, ptr %83, i64 4
   store i32 1, ptr %connecting_state32.i, align 4
   %call33.i = call i64 @ERR_get_error() #13
   %and.i.i = and i64 %call33.i, 2147483648
@@ -4810,7 +4751,7 @@ if.then39.i:                                      ; preds = %land.lhs.true.i52, 
   br i1 %cmp42.not.i, label %if.else46.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.then39.i
-  %certverifyresult.i53 = getelementptr inbounds %struct.ssl_config_data, ptr %call.i45, i64 0, i32 1
+  %certverifyresult.i53 = getelementptr inbounds i8, ptr %call.i45, i64 128
   store i64 %call41.i, ptr %certverifyresult.i53, align 8
   %call44.i = call ptr @X509_verify_cert_error_string(i64 noundef %call41.i) #13
   %call45.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %error_buffer.i42, i64 noundef 256, ptr noundef nonnull @.str.177, ptr noundef %call44.i) #13
@@ -4886,9 +4827,9 @@ cond.false.i:                                     ; preds = %if.end73.i, %if.the
 
 cond.end.i:                                       ; preds = %cond.false.i, %if.end73.i
   %cond.i50 = phi ptr [ %call76.i, %cond.false.i ], [ %extramsg.i, %if.end73.i ]
-  %peer.i = getelementptr inbounds %struct.ssl_connect_data, ptr %83, i64 0, i32 2
+  %peer.i = getelementptr inbounds i8, ptr %83, i64 8
   %96 = load ptr, ptr %peer.i, align 8
-  %port.i = getelementptr inbounds %struct.ssl_connect_data, ptr %83, i64 0, i32 7
+  %port.i = getelementptr inbounds i8, ptr %83, i64 80
   %97 = load i32, ptr %port.i, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.179, ptr noundef nonnull %cond.i50, ptr noundef %96, i32 noundef %97) #13
   br label %ossl_connect_step2.exit.thread89
@@ -4900,7 +4841,7 @@ if.end77.i:                                       ; preds = %ossl_strerror.exit,
 
 if.else79.i:                                      ; preds = %if.end10.i
   store i32 0, ptr %psigtype_nid.i, align 4
-  %connecting_state80.i = getelementptr inbounds %struct.ssl_connect_data, ptr %83, i64 0, i32 1
+  %connecting_state80.i = getelementptr inbounds i8, ptr %83, i64 4
   store i32 4, ptr %connecting_state80.i, align 4
   %98 = load ptr, ptr %handle.i46, align 8
   %call82.i = call i32 @SSL_get_peer_signature_type_nid(ptr noundef %98, ptr noundef nonnull %psigtype_nid.i) #13
@@ -4931,14 +4872,14 @@ if.then91.i:                                      ; preds = %land.lhs.true89.i
   br label %do.end104.i
 
 do.end104.i:                                      ; preds = %if.then91.i, %land.lhs.true89.i, %if.else79.i
-  %alpn.i56 = getelementptr inbounds %struct.ssl_connect_data, ptr %83, i64 0, i32 3
+  %alpn.i56 = getelementptr inbounds i8, ptr %83, i64 40
   %105 = load ptr, ptr %alpn.i56, align 8
   %tobool105.not.i = icmp eq ptr %105, null
   br i1 %tobool105.not.i, label %ossl_connect_step2.exit.thread, label %ossl_connect_step2.exit
 
 ossl_connect_step2.exit.thread.sink.split:        ; preds = %if.then11.i, %if.then26.i, %if.then22.i, %if.then18.i
   %.sink = phi i32 [ 3, %if.then18.i ], [ 1, %if.then22.i ], [ 1, %if.then26.i ], [ %call13.i, %if.then11.i ]
-  %connecting_state.i49 = getelementptr inbounds %struct.ssl_connect_data, ptr %83, i64 0, i32 1
+  %connecting_state.i49 = getelementptr inbounds i8, ptr %83, i64 4
   store i32 %.sink, ptr %connecting_state.i49, align 4
   br label %ossl_connect_step2.exit.thread
 
@@ -4989,14 +4930,14 @@ while.cond.backedge:                              ; preds = %land.lhs.true50, %l
 if.then63:                                        ; preds = %while.cond
   %110 = load ptr, ptr %ctx, align 8
   %call.i59 = call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %cf) #13
-  %verifypeer.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call.i59, i64 0, i32 17
+  %verifypeer.i = getelementptr inbounds i8, ptr %call.i59, i64 121
   %bf.load.i60 = load i8, ptr %verifypeer.i, align 1
   %111 = and i8 %bf.load.i60, 3
   %.not.i = icmp eq i8 %111, 0
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %error_buffer.i.i)
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i.i)
-  %conn1.i.i = getelementptr inbounds %struct.Curl_cfilter, ptr %cf, i64 0, i32 3
+  %conn1.i.i = getelementptr inbounds i8, ptr %cf, i64 24
   %112 = load ptr, ptr %conn1.i.i, align 8
   %113 = load ptr, ptr %ctx, align 8
   %call.i.i61 = call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %cf, ptr noundef %data) #13
@@ -5004,7 +4945,7 @@ if.then63:                                        ; preds = %while.cond
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %error_buffer.i.i, i8 0, i64 256, i1 false)
   %call3.i.i = call ptr @BIO_s_mem() #13
   %call4.i.i = call ptr @BIO_new(ptr noundef %call3.i.i) #13
-  %backend5.i.i = getelementptr inbounds %struct.ssl_connect_data, ptr %113, i64 0, i32 4
+  %backend5.i.i = getelementptr inbounds i8, ptr %113, i64 48
   %114 = load ptr, ptr %backend5.i.i, align 8
   %tobool.not.i.i62 = icmp eq ptr %call4.i.i, null
   br i1 %tobool.not.i.i62, label %if.then.i.i76, label %if.end.i.i63
@@ -5052,23 +4993,23 @@ ossl_strerror.exit.i.i:                           ; preds = %if.then9.i.i.i, %if
   br label %servercert.exit.thread.i
 
 if.end.i.i63:                                     ; preds = %if.then63
-  %certinfo.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 64, i32 9
+  %certinfo.i.i = getelementptr inbounds i8, ptr %data, i64 1488
   %bf.load.i.i64 = load i8, ptr %certinfo.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i64, 1
   %tobool8.not.i.i = icmp eq i8 %bf.clear.i.i, 0
   br i1 %tobool8.not.i.i, label %if.end11.i.i, label %if.then9.i.i65
 
 if.then9.i.i65:                                   ; preds = %if.end.i.i63
-  %handle.i.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %114, i64 0, i32 1
+  %handle.i.i = getelementptr inbounds i8, ptr %114, i64 8
   %116 = load ptr, ptr %handle.i.i, align 8
   %call10.i.i66 = call i32 @Curl_ossl_certchain(ptr noundef nonnull %data, ptr noundef %116)
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then9.i.i65, %if.end.i.i63
-  %handle12.i.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %114, i64 0, i32 1
+  %handle12.i.i = getelementptr inbounds i8, ptr %114, i64 8
   %117 = load ptr, ptr %handle12.i.i, align 8
   %call13.i.i = call ptr @SSL_get1_peer_certificate(ptr noundef %117) #13
-  %server_cert.i.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %114, i64 0, i32 2
+  %server_cert.i.i = getelementptr inbounds i8, ptr %114, i64 16
   store ptr %call13.i.i, ptr %server_cert.i.i, align 8
   %tobool15.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool15.not.i.i, label %if.then16.i.i, label %land.lhs.true.i.i67
@@ -5115,7 +5056,7 @@ if.end.i131.i.i:                                  ; preds = %do.end32.i.i
   %120 = load ptr, ptr %biomem.i.i.i, align 8
   %121 = load i64, ptr %120, align 8
   %..i.i.i = call i64 @llvm.umin.i64(i64 %121, i64 2047)
-  %data.i.i.i = getelementptr inbounds %struct.buf_mem_st, ptr %120, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %120, i64 8
   %122 = load ptr, ptr %data.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i.i, ptr align 1 %122, i64 %..i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %..i.i.i
@@ -5175,14 +5116,14 @@ if.then86.i.i:                                    ; preds = %land.lhs.true78.i.i
 do.end89.i.i:                                     ; preds = %if.then86.i.i, %land.lhs.true78.i.i
   %call90.i.i = call i64 @BIO_ctrl(ptr noundef nonnull %call4.i.i, i32 noundef 1, i64 noundef 0, ptr noundef null) #13
   %call92.i.i = call i32 @BIO_free(ptr noundef nonnull %call4.i.i) #13
-  %verifyhost.i.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call2.i.i, i64 0, i32 17
+  %verifyhost.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 121
   %bf.load93.i.i = load i8, ptr %verifyhost.i.i, align 1
   %130 = and i8 %bf.load93.i.i, 2
   %tobool97.not.i.i = icmp eq i8 %130, 0
   br i1 %tobool97.not.i.i, label %if.end106.i.i, label %if.then98.i.i
 
 if.then98.i.i:                                    ; preds = %do.end89.i.i
-  %peer.i.i = getelementptr inbounds %struct.ssl_connect_data, ptr %113, i64 0, i32 2
+  %peer.i.i = getelementptr inbounds i8, ptr %113, i64 8
   %131 = load ptr, ptr %server_cert.i.i, align 8
   %call100.i.i = call i32 @Curl_ossl_verifyhost(ptr noundef nonnull %data, ptr noundef %112, ptr noundef nonnull %peer.i.i, ptr noundef %131), !range !19
   %tobool101.not.i.i = icmp eq i32 %call100.i.i, 0
@@ -5213,7 +5154,7 @@ x509_name_oneline.exit147.i.i:                    ; preds = %if.end106.i.i
   %134 = load ptr, ptr %biomem.i133.i.i, align 8
   %135 = load i64, ptr %134, align 8
   %..i140.i.i = call i64 @llvm.umin.i64(i64 %135, i64 2047)
-  %data.i141.i.i = getelementptr inbounds %struct.buf_mem_st, ptr %134, i64 0, i32 1
+  %data.i141.i.i = getelementptr inbounds i8, ptr %134, i64 8
   %136 = load ptr, ptr %data.i141.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buffer.i.i, ptr align 1 %136, i64 %..i140.i.i, i1 false)
   %arrayidx.i142.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %..i140.i.i
@@ -5241,10 +5182,10 @@ if.then126.i.i:                                   ; preds = %land.lhs.true118.i.
   br label %do.end129.i.i
 
 do.end129.i.i:                                    ; preds = %if.then126.i.i, %land.lhs.true118.i.i
-  %issuercert.i.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call2.i.i, i64 0, i32 2
+  %issuercert.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 16
   %138 = load ptr, ptr %issuercert.i.i, align 8
   %tobool130.not.i.i = icmp eq ptr %138, null
-  %issuercert_blob.i.i = getelementptr inbounds %struct.ssl_primary_config, ptr %call2.i.i, i64 0, i32 10
+  %issuercert_blob.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 80
   %139 = load ptr, ptr %issuercert_blob.i.i, align 8
   %tobool131.not.i.i = icmp eq ptr %139, null
   br i1 %tobool130.not.i.i, label %lor.lhs.false.i.i, label %if.then132.i.i
@@ -5257,7 +5198,7 @@ if.then132.i.i:                                   ; preds = %do.end129.i.i
 
 if.then135.i.i:                                   ; preds = %if.then132.i.i, %lor.lhs.false.i.i
   %140 = load ptr, ptr %139, align 8
-  %len139.i.i = getelementptr inbounds %struct.curl_blob, ptr %139, i64 0, i32 1
+  %len139.i.i = getelementptr inbounds i8, ptr %139, i64 8
   %141 = load i64, ptr %len139.i.i, align 8
   %conv140.i.i = trunc i64 %141 to i32
   %call141.i.i = call ptr @BIO_new_mem_buf(ptr noundef %140, i32 noundef %conv140.i.i) #13
@@ -5409,7 +5350,7 @@ do.end212.i.i:                                    ; preds = %if.then209.i.i, %la
 if.end214.i.i:                                    ; preds = %do.end212.i.i, %lor.lhs.false.i.i
   %155 = load ptr, ptr %handle12.i.i, align 8
   %call216.i.i = call i64 @SSL_get_verify_result(ptr noundef %155) #13
-  %certverifyresult.i.i = getelementptr inbounds %struct.ssl_config_data, ptr %call.i.i61, i64 0, i32 1
+  %certverifyresult.i.i = getelementptr inbounds i8, ptr %call.i.i61, i64 128
   store i64 %call216.i.i, ptr %certverifyresult.i.i, align 8
   %cmp217.not.i.i = icmp eq i64 %call216.i.i, 0
   br i1 %cmp217.not.i.i, label %land.lhs.true248.i.i, label %if.then219.i.i
@@ -5524,7 +5465,7 @@ infof_certstack.exit.i.i:                         ; preds = %for.inc.i.i.i, %if.
   br i1 %tobool266.not.i.i, label %if.end280.i.i, label %land.lhs.true267.i.i
 
 land.lhs.true267.i.i:                             ; preds = %infof_certstack.exit.i.i
-  %reused_session.i.i = getelementptr inbounds %struct.ssl_connect_data, ptr %113, i64 0, i32 8
+  %reused_session.i.i = getelementptr inbounds i8, ptr %113, i64 84
   %bf.load268.i.i = load i8, ptr %reused_session.i.i, align 4
   %163 = and i8 %bf.load268.i.i, 2
   %tobool272.not.i.i = icmp eq i8 %163, 0
@@ -5541,7 +5482,7 @@ if.then273.i.i:                                   ; preds = %land.lhs.true267.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rev.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %thisupd.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nextupd.i.i.i)
-  %handle.i.i.i = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %cf.val.val.i.i, i64 0, i32 1
+  %handle.i.i.i = getelementptr inbounds i8, ptr %cf.val.val.i.i, i64 8
   %165 = load ptr, ptr %handle.i.i.i, align 8
   %call.i178.i.i = call i64 @SSL_ctrl(ptr noundef %165, i32 noundef 70, i64 noundef 0, ptr noundef nonnull %status.i.i.i) #13
   %166 = load ptr, ptr %status.i.i.i, align 8
@@ -5736,9 +5677,8 @@ if.end280.i.i:                                    ; preds = %verifystatus.exit.i
   %result.2.i.i = phi i32 [ %result.1.i.i, %land.lhs.true267.i.i ], [ 0, %verifystatus.exit.i.i ], [ %result.1.i.i, %infof_certstack.exit.i.i ]
   %spec.select.i.i = select i1 %.not.i, i32 0, i32 %result.2.i.i
   %call284.i.i = call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef %cf) #13
-  %arrayidx.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 31
-  %arrayidx291.i.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 30
-  %cond293.in.i.i = select i1 %call284.i.i, ptr %arrayidx.i.i, ptr %arrayidx291.i.i
+  %cond293.in.v.i.i = select i1 %call284.i.i, i64 2064, i64 2056
+  %cond293.in.i.i = getelementptr inbounds i8, ptr %data, i64 %cond293.in.v.i.i
   %cond293.i.i = load ptr, ptr %cond293.in.i.i, align 8
   store ptr %cond293.i.i, ptr %ptr.i.i, align 8
   %tobool294.i.i = icmp eq i32 %spec.select.i.i, 0
@@ -5791,7 +5731,7 @@ ossl_pkp_pin_peer_pubkey.exit.thread.i.i:         ; preds = %if.end6.i.i.i, %do.
   br label %if.then301.i.i
 
 ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %if.end10.i.i.i
-  %call23.i.i.i = call i32 @Curl_pin_peer_pubkey(ptr noundef %data, ptr noundef nonnull %cond293.i.i, ptr noundef nonnull %call7.i194.i.i, i64 noundef %conv.i193.i.i) #13
+  %call23.i.i.i = call i32 @Curl_pin_peer_pubkey(ptr noundef nonnull %data, ptr noundef nonnull %cond293.i.i, ptr noundef nonnull %call7.i194.i.i, i64 noundef %conv.i193.i.i) #13
   %183 = load ptr, ptr @Curl_cfree, align 8
   call void %183(ptr noundef nonnull %call7.i194.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i)
@@ -5800,7 +5740,7 @@ ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %if.end10.i.i.i
 
 if.then301.i.i:                                   ; preds = %ossl_pkp_pin_peer_pubkey.exit.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i
   %retval.0.i197206.i.i = phi i32 [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i ], [ %call23.i.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i ]
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.200) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.200) #13
   br label %if.end303.i.i
 
 if.end303.i.i:                                    ; preds = %if.then301.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i, %if.end280.i.i
@@ -5808,7 +5748,7 @@ if.end303.i.i:                                    ; preds = %if.then301.i.i, %os
   %184 = load ptr, ptr %server_cert.i.i, align 8
   call void @X509_free(ptr noundef %184) #13
   store ptr null, ptr %server_cert.i.i, align 8
-  %connecting_state.i.i = getelementptr inbounds %struct.ssl_connect_data, ptr %113, i64 0, i32 1
+  %connecting_state.i.i = getelementptr inbounds i8, ptr %113, i64 4
   store i32 5, ptr %connecting_state.i.i, align 4
   br label %servercert.exit.i
 
@@ -5828,7 +5768,7 @@ servercert.exit.i:                                ; preds = %if.end303.i.i, %if.
   br i1 %tobool6.not.i, label %ossl_connect_step3.exit, label %return
 
 ossl_connect_step3.exit:                          ; preds = %servercert.exit.thread8.i, %servercert.exit.i
-  %connecting_state.i73 = getelementptr inbounds %struct.ssl_connect_data, ptr %110, i64 0, i32 1
+  %connecting_state.i73 = getelementptr inbounds i8, ptr %110, i64 4
   store i32 5, ptr %connecting_state.i73, align 4
   %.pr = load i32, ptr %connecting_state, align 4
   br label %if.end68
@@ -5870,15 +5810,15 @@ entry:
   br i1 %tobool.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %userp, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %userp, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %call_data = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 5
+  %call_data = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %call_data, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.true
-  %fdebug = getelementptr inbounds %struct.Curl_easy, ptr %1, i64 0, i32 17, i32 23
+  %fdebug = getelementptr inbounds i8, ptr %1, i64 576
   %2 = load ptr, ptr %fdebug, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
@@ -6123,13 +6063,13 @@ entry:
   br i1 %tobool.not, label %return, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %call, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %return, label %cond.end11
 
 cond.end11:                                       ; preds = %cond.end
-  %call_data = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 5
+  %call_data = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %call_data, align 8
   %tobool14.not = icmp eq ptr %1, null
   br i1 %tobool14.not, label %return, label %if.end
@@ -6137,7 +6077,7 @@ cond.end11:                                       ; preds = %cond.end
 if.end:                                           ; preds = %cond.end11
   %call15 = tail call zeroext i1 @Curl_ssl_cf_is_proxy(ptr noundef nonnull %call) #13
   %call16 = tail call ptr @Curl_ssl_cf_get_config(ptr noundef nonnull %call, ptr noundef nonnull %1) #13
-  %sessionid = getelementptr inbounds %struct.ssl_primary_config, ptr %call16, i64 0, i32 17
+  %sessionid = getelementptr inbounds i8, ptr %call16, i64 121
   %bf.load = load i8, ptr %sessionid, align 1
   %2 = and i8 %bf.load, 8
   %tobool17.not = icmp eq i8 %2, 0
@@ -6157,7 +6097,7 @@ if.end23:                                         ; preds = %if.then18
   br i1 %or.cond22, label %if.end36, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end23
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %1, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %1, i64 2706
   %bf.load28 = load i64, ptr %verbose, align 2
   %4 = and i64 %bf.load28, 536870912
   %tobool32.not = icmp eq i64 %4, 0
@@ -6267,14 +6207,14 @@ define internal i32 @ossl_bio_cf_out_write(ptr noundef %bio, ptr noundef %buf, i
 cond.end:
   %result = alloca i32, align 4
   %call = tail call ptr @BIO_get_data(ptr noundef %bio) #13
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %call, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %backend1 = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 4
+  %backend1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %backend1, align 8
-  %call_data = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 5
+  %call_data = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %call_data, align 8
   store i32 55, ptr %result, align 4
-  %next = getelementptr inbounds %struct.Curl_cfilter, ptr %call, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %next, align 8
   %conv = sext i32 %blen to i64
   %call4 = call i64 @Curl_conn_cf_send(ptr noundef %3, ptr noundef %2, ptr noundef %buf, i64 noundef %conv, ptr noundef nonnull %result) #13
@@ -6282,7 +6222,7 @@ cond.end:
   br i1 %tobool6.not, label %do.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %2, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %2, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %4 = and i64 %bf.load, 536870912
   %tobool7.not = icmp eq i64 %4, 0
@@ -6290,7 +6230,7 @@ land.lhs.true:                                    ; preds = %cond.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true
   %5 = load ptr, ptr %call, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %5, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %5, i64 12
   %6 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %6, 0
   br i1 %cmp, label %if.then, label %do.end13
@@ -6304,7 +6244,7 @@ if.then:                                          ; preds = %land.lhs.true10
 do.end13:                                         ; preds = %cond.end, %land.lhs.true, %land.lhs.true10, %if.then
   call void @BIO_clear_flags(ptr noundef %bio, i32 noundef 15) #13
   %8 = load i32, ptr %result, align 4
-  %io_result = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 4
+  %io_result = getelementptr inbounds i8, ptr %1, i64 32
   store i32 %8, ptr %io_result, align 8
   %cmp14 = icmp slt i64 %call4, 0
   %cmp17 = icmp eq i32 %8, 81
@@ -6327,18 +6267,18 @@ define internal i32 @ossl_bio_cf_in_read(ptr noundef %bio, ptr noundef %buf, i32
 cond.end:
   %result = alloca i32, align 4
   %call = tail call ptr @BIO_get_data(ptr noundef %bio) #13
-  %ctx = getelementptr inbounds %struct.Curl_cfilter, ptr %call, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %ctx, align 8
-  %backend1 = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 4
+  %backend1 = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %backend1, align 8
-  %call_data = getelementptr inbounds %struct.ssl_connect_data, ptr %0, i64 0, i32 5
+  %call_data = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load ptr, ptr %call_data, align 8
   store i32 56, ptr %result, align 4
   %tobool4.not = icmp eq ptr %buf, null
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
-  %next = getelementptr inbounds %struct.Curl_cfilter, ptr %call, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %next, align 8
   %conv = sext i32 %blen to i64
   %call5 = call i64 @Curl_conn_cf_recv(ptr noundef %3, ptr noundef %2, ptr noundef nonnull %buf, i64 noundef %conv, ptr noundef nonnull %result) #13
@@ -6346,7 +6286,7 @@ if.end:                                           ; preds = %cond.end
   br i1 %tobool7.not, label %do.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %2, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %2, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %4 = and i64 %bf.load, 536870912
   %tobool8.not = icmp eq i64 %4, 0
@@ -6354,7 +6294,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %5 = load ptr, ptr %call, align 8
-  %log_level = getelementptr inbounds %struct.Curl_cftype, ptr %5, i64 0, i32 2
+  %log_level = getelementptr inbounds i8, ptr %5, i64 12
   %6 = load i32, ptr %log_level, align 4
   %cmp = icmp sgt i32 %6, 0
   br i1 %cmp, label %if.then13, label %do.end16
@@ -6368,7 +6308,7 @@ if.then13:                                        ; preds = %land.lhs.true11
 do.end16:                                         ; preds = %if.end, %land.lhs.true, %land.lhs.true11, %if.then13
   call void @BIO_clear_flags(ptr noundef %bio, i32 noundef 15) #13
   %8 = load i32, ptr %result, align 4
-  %io_result = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 4
+  %io_result = getelementptr inbounds i8, ptr %1, i64 32
   store i32 %8, ptr %io_result, align 8
   %cmp17 = icmp slt i64 %call5, 0
   %cmp20 = icmp eq i32 %8, 81
@@ -6380,7 +6320,7 @@ if.then22:                                        ; preds = %do.end16
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %do.end16
-  %x509_store_setup = getelementptr inbounds %struct.ossl_ssl_backend_data, ptr %1, i64 0, i32 5
+  %x509_store_setup = getelementptr inbounds i8, ptr %1, i64 36
   %9 = load i8, ptr %x509_store_setup, align 4
   %10 = and i8 %9, 1
   %tobool25.not = icmp eq i8 %10, 0
@@ -6434,13 +6374,13 @@ sw.bb2:                                           ; preds = %entry
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %next = getelementptr inbounds %struct.Curl_cfilter, ptr %call, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %sw.bb6
-  %connected = getelementptr inbounds %struct.Curl_cfilter, ptr %0, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %0, i64 36
   %bf.load = load i8, ptr %connected, align 4
   %bf.clear = and i8 %bf.load, 1
   %1 = xor i8 %bf.clear, 1

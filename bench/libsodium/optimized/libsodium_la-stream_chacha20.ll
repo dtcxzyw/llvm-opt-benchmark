@@ -62,7 +62,7 @@ declare void @sodium_misuse() local_unnamed_addr #2
 define i32 @crypto_stream_chacha20_xor_ic(ptr noundef nonnull %c, ptr noundef nonnull %m, i64 noundef %mlen, ptr noundef nonnull %n, i64 noundef %ic, ptr noundef nonnull %k) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %stream_xor_ic = getelementptr inbounds %struct.crypto_stream_chacha20_implementation, ptr %0, i64 0, i32 2
+  %stream_xor_ic = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %stream_xor_ic, align 8
   %call = tail call i32 %1(ptr noundef nonnull %c, ptr noundef nonnull %m, i64 noundef %mlen, ptr noundef nonnull %n, i64 noundef %ic, ptr noundef nonnull %k) #4
   ret i32 %call
@@ -72,7 +72,7 @@ entry:
 define i32 @crypto_stream_chacha20_xor(ptr noundef nonnull %c, ptr noundef nonnull %m, i64 noundef %mlen, ptr noundef nonnull %n, ptr noundef nonnull %k) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %stream_xor_ic = getelementptr inbounds %struct.crypto_stream_chacha20_implementation, ptr %0, i64 0, i32 2
+  %stream_xor_ic = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %stream_xor_ic, align 8
   %call = tail call i32 %1(ptr noundef nonnull %c, ptr noundef nonnull %m, i64 noundef %mlen, ptr noundef nonnull %n, i64 noundef 0, ptr noundef nonnull %k) #4
   ret i32 %call
@@ -82,7 +82,7 @@ entry:
 define hidden i32 @crypto_stream_chacha20_ietf_ext(ptr noundef %c, i64 noundef %clen, ptr noundef %n, ptr noundef %k) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %stream_ietf_ext = getelementptr inbounds %struct.crypto_stream_chacha20_implementation, ptr %0, i64 0, i32 1
+  %stream_ietf_ext = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %stream_ietf_ext, align 8
   %call = tail call i32 %1(ptr noundef %c, i64 noundef %clen, ptr noundef %n, ptr noundef %k) #4
   ret i32 %call
@@ -92,7 +92,7 @@ entry:
 define hidden i32 @crypto_stream_chacha20_ietf_ext_xor_ic(ptr noundef %c, ptr noundef %m, i64 noundef %mlen, ptr noundef %n, i32 noundef %ic, ptr noundef %k) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @implementation, align 8
-  %stream_ietf_ext_xor_ic = getelementptr inbounds %struct.crypto_stream_chacha20_implementation, ptr %0, i64 0, i32 3
+  %stream_ietf_ext_xor_ic = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %stream_ietf_ext_xor_ic, align 8
   %call = tail call i32 %1(ptr noundef %c, ptr noundef %m, i64 noundef %mlen, ptr noundef %n, i32 noundef %ic, ptr noundef %k) #4
   ret i32 %call
@@ -110,7 +110,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @implementation, align 8
-  %stream_ietf_ext.i = getelementptr inbounds %struct.crypto_stream_chacha20_implementation, ptr %0, i64 0, i32 1
+  %stream_ietf_ext.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %stream_ietf_ext.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %c, i64 noundef %clen, ptr noundef nonnull %n, ptr noundef nonnull %k) #4
   ret i32 %call.i
@@ -132,7 +132,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @implementation, align 8
-  %stream_ietf_ext_xor_ic.i = getelementptr inbounds %struct.crypto_stream_chacha20_implementation, ptr %0, i64 0, i32 3
+  %stream_ietf_ext_xor_ic.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %stream_ietf_ext_xor_ic.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %c, ptr noundef nonnull %m, i64 noundef %mlen, ptr noundef nonnull %n, i32 noundef %ic, ptr noundef nonnull %k) #4
   ret i32 %call.i
@@ -150,7 +150,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @implementation, align 8
-  %stream_ietf_ext_xor_ic.i = getelementptr inbounds %struct.crypto_stream_chacha20_implementation, ptr %0, i64 0, i32 3
+  %stream_ietf_ext_xor_ic.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %stream_ietf_ext_xor_ic.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %c, ptr noundef nonnull %m, i64 noundef %mlen, ptr noundef nonnull %n, i32 noundef 0, ptr noundef nonnull %k) #4
   ret i32 %call.i

@@ -4,26 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"class.zmq::io_thread_t" = type { %"class.zmq::object_t.base", %"struct.zmq::i_poll_events", %"class.zmq::mailbox_t", ptr, ptr }
-%"class.zmq::object_t.base" = type <{ ptr, ptr, i32 }>
-%"struct.zmq::i_poll_events" = type { ptr }
-%"class.zmq::mailbox_t" = type <{ %"class.zmq::i_mailbox", %"class.zmq::ypipe_t", %"class.zmq::signaler_t", [4 x i8], %"class.zmq::mutex_t", i8, [7 x i8] }>
-%"class.zmq::i_mailbox" = type { ptr }
-%"class.zmq::ypipe_t" = type { %"class.zmq::ypipe_base_t", %"class.zmq::yqueue_t", ptr, ptr, ptr, %"class.zmq::atomic_ptr_t.0" }
-%"class.zmq::ypipe_base_t" = type { ptr }
-%"class.zmq::yqueue_t" = type { ptr, i32, ptr, i32, ptr, i32, %"class.zmq::atomic_ptr_t" }
-%"class.zmq::atomic_ptr_t" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
-%"class.zmq::atomic_ptr_t.0" = type { %"struct.std::atomic.1" }
-%"struct.std::atomic.1" = type { %"struct.std::__atomic_base.2" }
-%"struct.std::__atomic_base.2" = type { ptr }
-%"class.zmq::signaler_t" = type { i32, i32, i32 }
-%"class.zmq::mutex_t" = type <{ %union.pthread_mutex_t, %union.pthread_mutexattr_t, [4 x i8] }>
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_mutexattr_t = type { i32 }
 %"struct.zmq::command_t" = type { ptr, i32, %"union.zmq::command_t::args_t", [24 x i8] }
 %"union.zmq::command_t::args_t" = type { %struct.anon.66 }
 %struct.anon.66 = type { i64, ptr, ptr }
@@ -62,12 +42,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr getelementptr inbounds ({ [28 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq11io_thread_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [28 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq11io_thread_tE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  %_mailbox = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 2
+  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN3zmq9mailbox_tC1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_mailbox_handle = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 3
+  %_mailbox_handle = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %_mailbox_handle, align 8
   %call = tail call noalias noundef dereferenceable_or_null(224) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %new.isnull = icmp eq ptr %call, null
@@ -78,12 +58,12 @@ new.notnull:                                      ; preds = %invoke.cont
           to label %new.cont unwind label %lpad2
 
 new.cont:                                         ; preds = %new.notnull
-  %_poller = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 4
+  %_poller = getelementptr inbounds i8, ptr %this, i64 216
   store ptr %call, ptr %_poller, align 8
   br label %do.end
 
 if.then:                                          ; preds = %invoke.cont
-  %_poller4 = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 4
+  %_poller4 = getelementptr inbounds i8, ptr %this, i64 216
   store ptr null, ptr %_poller4, align 8
   %1 = load ptr, ptr @stderr, align 8
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 17) #13
@@ -183,7 +163,7 @@ declare void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq11io_thread_tD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #6 align 2 {
 entry:
-  %_poller = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 4
+  %_poller = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -195,7 +175,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_poller, align 8
-  %_mailbox = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 2
+  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN3zmq9mailbox_tD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox) #15
   tail call void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #15
   ret void
@@ -240,7 +220,7 @@ entry:
   %call = tail call noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr noundef nonnull align 8 dereferenceable(20) %this)
   %sub2 = add i32 %call, -2
   %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %sub2) #15
-  %_poller = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 4
+  %_poller = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   call void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %name)
   ret void
@@ -268,14 +248,14 @@ declare void @_ZN3zmq8object_t9send_stopEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN3zmq11io_thread_t11get_mailboxEv(ptr noundef nonnull readnone align 8 dereferenceable(224) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_mailbox = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 2
+  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
   ret ptr %_mailbox
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3zmq11io_thread_t8get_loadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 4
+  %_poller = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   %call = tail call noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   ret i32 %call
@@ -287,7 +267,7 @@ declare noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr noundef nonnull alig
 define void @_ZN3zmq11io_thread_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
 entry:
   %cmd = alloca %"struct.zmq::command_t", align 64
-  %_mailbox = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 2
+  %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -389,7 +369,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK3zmq11io_thread_t10get_pollerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_poller = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 4
+  %_poller = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %do.end
@@ -411,7 +391,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq11io_thread_t12process_stopEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
 entry:
-  %_mailbox_handle = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 3
+  %_mailbox_handle = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %_mailbox_handle, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %do.end
@@ -427,7 +407,7 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   %3 = phi ptr [ %0, %entry ], [ %.pre, %if.then ]
-  %_poller = getelementptr inbounds %"class.zmq::io_thread_t", ptr %this, i64 0, i32 4
+  %_poller = getelementptr inbounds i8, ptr %this, i64 216
   %4 = load ptr, ptr %_poller, align 8
   tail call void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef %3)
   %5 = load ptr, ptr %_poller, align 8

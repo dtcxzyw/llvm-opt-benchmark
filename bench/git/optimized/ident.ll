@@ -86,7 +86,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.then.i, label %if.then.xgetpwuid_self.exit_crit_edge
 
 if.then.xgetpwuid_self.exit_crit_edge:            ; preds = %if.then
-  %pw_gecos.i.phi.trans.insert = getelementptr inbounds %struct.passwd, ptr %call2.i, i64 0, i32 4
+  %pw_gecos.i.phi.trans.insert = getelementptr inbounds i8, ptr %call2.i, i64 24
   %.pre = load ptr, ptr %pw_gecos.i.phi.trans.insert, align 8
   br label %xgetpwuid_self.exit
 
@@ -359,7 +359,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
   br i1 %tobool1.not.i.i.i, label %canonical_name.exit.thread3.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i.i
-  %ai_canonname.i.i.i = getelementptr inbounds %struct.addrinfo, ptr %11, i64 0, i32 6
+  %ai_canonname.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %ai_canonname.i.i.i, align 8
   %tobool2.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool2.not.i.i.i, label %canonical_name.exit.thread3.i.i, label %land.lhs.true3.i.i.i
@@ -450,7 +450,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %5, label %for.body, label %return, !llvm.loop !7
 
 if.end9:                                          ; preds = %for.body
-  %mail_begin = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 2
+  %mail_begin = getelementptr inbounds i8, ptr %split, i64 16
   store ptr %add.ptr5, ptr %mail_begin, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %cp.081, i64 -1
   %cmp13.not83 = icmp ult ptr %add.ptr11, %line
@@ -477,7 +477,7 @@ for.end24:                                        ; preds = %for.body15
 
 if.end30:                                         ; preds = %for.inc22, %if.end9, %for.end24
   %add.ptr20.sink = phi ptr [ %add.ptr20, %for.end24 ], [ %line, %if.end9 ], [ %line, %for.inc22 ]
-  %name_end = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 1
+  %name_end = getelementptr inbounds i8, ptr %split, i64 8
   store ptr %add.ptr20.sink, ptr %name_end, align 8
   %cmp3585 = icmp ult ptr %add.ptr5, %add.ptr
   br i1 %cmp3585, label %for.body37, label %return
@@ -494,7 +494,7 @@ for.inc43:                                        ; preds = %for.body37
   br i1 %cmp35, label %for.body37, label %return, !llvm.loop !9
 
 for.cond53.preheader:                             ; preds = %for.body37
-  %mail_end = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 3
+  %mail_end = getelementptr inbounds i8, ptr %split, i64 24
   store ptr %cp.286, ptr %mail_end, align 8
   br label %for.cond53
 
@@ -521,7 +521,7 @@ land.rhs67:                                       ; preds = %for.cond62
   br i1 %cmp72.not, label %if.end84, label %for.cond62, !llvm.loop !11
 
 if.end84:                                         ; preds = %land.rhs67
-  %date_begin = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 4
+  %date_begin = getelementptr inbounds i8, ptr %split, i64 32
   store ptr %cp.4, ptr %date_begin, align 8
   %call = tail call i64 @strspn(ptr noundef nonnull %cp.4, ptr noundef nonnull @.str.1) #19
   %tobool85.not = icmp eq i64 %call, 0
@@ -529,7 +529,7 @@ if.end84:                                         ; preds = %land.rhs67
 
 if.end87:                                         ; preds = %if.end84
   %add.ptr89 = getelementptr inbounds i8, ptr %cp.4, i64 %call
-  %date_end = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 5
+  %date_end = getelementptr inbounds i8, ptr %split, i64 40
   store ptr %add.ptr89, ptr %date_end, align 8
   %cmp9487 = icmp ult ptr %add.ptr89, %add.ptr
   br i1 %cmp9487, label %land.rhs96, label %person_only
@@ -556,7 +556,7 @@ lor.lhs.false:                                    ; preds = %land.rhs96
   ]
 
 if.end119:                                        ; preds = %lor.lhs.false, %lor.lhs.false
-  %tz_begin = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 6
+  %tz_begin = getelementptr inbounds i8, ptr %split, i64 48
   store ptr %cp.588, ptr %tz_begin, align 8
   %add.ptr120 = getelementptr inbounds i8, ptr %cp.588, i64 1
   %call121 = tail call i64 @strspn(ptr noundef nonnull %add.ptr120, ptr noundef nonnull @.str.1) #19
@@ -565,12 +565,12 @@ if.end119:                                        ; preds = %lor.lhs.false, %lor
 
 if.end124:                                        ; preds = %if.end119
   %add.ptr127 = getelementptr inbounds i8, ptr %add.ptr120, i64 %call121
-  %tz_end = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 7
+  %tz_end = getelementptr inbounds i8, ptr %split, i64 56
   store ptr %add.ptr127, ptr %tz_end, align 8
   br label %return
 
 person_only:                                      ; preds = %for.cond62, %for.inc105, %if.end87, %lor.lhs.false, %if.end119, %if.end84
-  %date_begin128 = getelementptr inbounds %struct.ident_split, ptr %split, i64 0, i32 4
+  %date_begin128 = getelementptr inbounds i8, ptr %split, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %date_begin128, i8 0, i64 32, i1 false)
   br label %return
 
@@ -598,12 +598,12 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
-  %mail_begin.i = getelementptr inbounds %struct.ident_split, ptr %ident.i, i64 0, i32 2
-  %mail_end.i = getelementptr inbounds %struct.ident_split, ptr %ident.i, i64 0, i32 3
-  %name_end.i = getelementptr inbounds %struct.ident_split, ptr %ident.i, i64 0, i32 1
-  %buf21.i = getelementptr inbounds %struct.strbuf, ptr %namemail.i, i64 0, i32 2
-  %len22.i = getelementptr inbounds %struct.strbuf, ptr %namemail.i, i64 0, i32 1
+  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
+  %mail_begin.i = getelementptr inbounds i8, ptr %ident.i, i64 16
+  %mail_end.i = getelementptr inbounds i8, ptr %ident.i, i64 24
+  %name_end.i = getelementptr inbounds i8, ptr %ident.i, i64 8
+  %buf21.i = getelementptr inbounds i8, ptr %namemail.i, i64 16
+  %len22.i = getelementptr inbounds i8, ptr %namemail.i, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
@@ -943,9 +943,9 @@ if.then88:                                        ; preds = %for.inc.i
 
 if.end91:                                         ; preds = %switch.early.test.i.i, %if.then.i, %if.end81.if.end83.thread_crit_edge, %if.end83, %if.end35
   %name.addr.3 = phi ptr [ %name.addr.1, %if.end83 ], [ %name, %if.end35 ], [ %.pre, %if.end81.if.end83.thread_crit_edge ], [ @.str.17, %if.then.i ], [ %name.addr.1, %switch.early.test.i.i ]
-  %len2.i = getelementptr inbounds [2 x %struct.strbuf], ptr @fmt_ident.ident_pool, i64 0, i64 %idxprom, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds [2 x %struct.strbuf], ptr @fmt_ident.ident_pool, i64 0, i64 %idxprom, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %14 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %14, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -1199,8 +1199,8 @@ while.end11.thread:                               ; preds = %if.end10, %while.en
 
 for.body.lr.ph:                                   ; preds = %switch.early.test.i18
   tail call void @strbuf_grow(ptr noundef %sb, i64 noundef %len.031) #18
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
-  %len16 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
+  %len16 = getelementptr inbounds i8, ptr %sb, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1229,9 +1229,9 @@ for.inc:                                          ; preds = %for.body, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %while.end11.thread
-  %buf19 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf19 = getelementptr inbounds i8, ptr %sb, i64 16
   %7 = load ptr, ptr %buf19, align 8
-  %len20 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len20 = getelementptr inbounds i8, ptr %sb, i64 8
   %8 = load i64, ptr %len20, align 8
   %arrayidx21 = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx21, align 1
@@ -1658,13 +1658,13 @@ set_env_if.exit29:                                ; preds = %set_env_if.exit20, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @ident_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #10 {
 entry:
-  %mail_begin = getelementptr inbounds %struct.ident_split, ptr %a, i64 0, i32 2
+  %mail_begin = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %mail_begin, align 8
-  %mail_end = getelementptr inbounds %struct.ident_split, ptr %a, i64 0, i32 3
+  %mail_end = getelementptr inbounds i8, ptr %a, i64 24
   %1 = load ptr, ptr %mail_end, align 8
-  %mail_begin1 = getelementptr inbounds %struct.ident_split, ptr %b, i64 0, i32 2
+  %mail_begin1 = getelementptr inbounds i8, ptr %b, i64 16
   %2 = load ptr, ptr %mail_begin1, align 8
-  %mail_end2 = getelementptr inbounds %struct.ident_split, ptr %b, i64 0, i32 3
+  %mail_end2 = getelementptr inbounds i8, ptr %b, i64 24
   %3 = load ptr, ptr %mail_end2, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -1685,10 +1685,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %a, align 8
-  %name_end = getelementptr inbounds %struct.ident_split, ptr %a, i64 0, i32 1
+  %name_end = getelementptr inbounds i8, ptr %a, i64 8
   %5 = load ptr, ptr %name_end, align 8
   %6 = load ptr, ptr %b, align 8
-  %name_end4 = getelementptr inbounds %struct.ident_split, ptr %b, i64 0, i32 1
+  %name_end4 = getelementptr inbounds i8, ptr %b, i64 8
   %7 = load ptr, ptr %name_end4, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i9 = ptrtoint ptr %4 to i64

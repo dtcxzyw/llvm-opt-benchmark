@@ -4,10 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.mailmap_entry = type { ptr, ptr, %struct.string_list }
 %struct.string_list_item = type { ptr, ptr }
-%struct.mailmap_info = type { ptr, ptr }
 
 @git_mailmap_blob = dso_local local_unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [14 x i8] c"HEAD:.mailmap\00", align 1
@@ -27,11 +24,11 @@ entry:
   %oid.i = alloca %struct.object_id, align 4
   %size.i = alloca i64, align 8
   %type.i = alloca i32, align 4
-  %strdup_strings = getelementptr inbounds %struct.string_list, ptr %map, i64 0, i32 3
+  %strdup_strings = getelementptr inbounds i8, ptr %map, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
-  %cmp = getelementptr inbounds %struct.string_list, ptr %map, i64 0, i32 4
+  %cmp = getelementptr inbounds i8, ptr %map, i64 32
   store ptr @namemap_cmp, ptr %cmp, align 8
   %0 = load ptr, ptr @git_mailmap_blob, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -221,7 +218,7 @@ return:                                           ; preds = %if.then5, %entry, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @clear_mailmap(ptr noundef %map) local_unnamed_addr #0 {
 entry:
-  %strdup_strings = getelementptr inbounds %struct.string_list, ptr %map, i64 0, i32 3
+  %strdup_strings = getelementptr inbounds i8, ptr %map, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
@@ -236,11 +233,11 @@ define internal void @free_mailmap_entry(ptr noundef %p, ptr nocapture readnone 
 entry:
   %0 = load ptr, ptr %p, align 8
   tail call void @free(ptr noundef %0) #11
-  %email = getelementptr inbounds %struct.mailmap_entry, ptr %p, i64 0, i32 1
+  %email = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load ptr, ptr %email, align 8
   tail call void @free(ptr noundef %1) #11
-  %namemap = getelementptr inbounds %struct.mailmap_entry, ptr %p, i64 0, i32 2
-  %strdup_strings = getelementptr inbounds %struct.mailmap_entry, ptr %p, i64 0, i32 2, i32 3
+  %namemap = getelementptr inbounds i8, ptr %p, i64 16
+  %strdup_strings = getelementptr inbounds i8, ptr %p, i64 40
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
@@ -277,7 +274,7 @@ if.end7.i:                                        ; preds = %if.else.i, %if.then
   br i1 %cmp821.not.i, label %return, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end7.i
-  %nr.i = getelementptr inbounds %struct.string_list, ptr %map, i64 0, i32 1
+  %nr.i = getelementptr inbounds i8, ptr %map, i64 8
   %4 = load i64, ptr %nr.i, align 8
   %5 = zext nneg i32 %i.0.i to i64
   %6 = add nsw i64 %5, -1
@@ -320,15 +317,15 @@ lookup_prefix.exit:                               ; preds = %if.then.i
 
 if.then:                                          ; preds = %land.lhs.true.i, %lookup_prefix.exit
   %retval.0.i57 = phi ptr [ %arrayidx2.i, %lookup_prefix.exit ], [ %arrayidx14.i, %land.lhs.true.i ]
-  %util = getelementptr inbounds %struct.string_list_item, ptr %retval.0.i57, i64 0, i32 1
+  %util = getelementptr inbounds i8, ptr %retval.0.i57, i64 8
   %11 = load ptr, ptr %util, align 8
-  %nr = getelementptr inbounds %struct.mailmap_entry, ptr %11, i64 0, i32 2, i32 1
+  %nr = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load i64, ptr %nr, align 8
   %tobool1.not = icmp eq i64 %12, 0
   br i1 %tobool1.not, label %if.then10, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %namemap = getelementptr inbounds %struct.mailmap_entry, ptr %11, i64 0, i32 2
+  %namemap = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %name, align 8
   %14 = load i64, ptr %namelen, align 8
   %call.i18 = tail call i32 @string_list_find_insert_index(ptr noundef nonnull %namemap, ptr noundef %13, i32 noundef 1) #11
@@ -401,7 +398,7 @@ if.end8:                                          ; preds = %if.end33.i39, %land
   br i1 %tobool9.not, label %return, label %if.end8.if.then10_crit_edge
 
 if.end8.if.then10_crit_edge:                      ; preds = %if.end8
-  %util11.phi.trans.insert = getelementptr inbounds %struct.string_list_item, ptr %spec.select, i64 0, i32 1
+  %util11.phi.trans.insert = getelementptr inbounds i8, ptr %spec.select, i64 8
   %.pre = load ptr, ptr %util11.phi.trans.insert, align 8
   br label %if.then10
 
@@ -409,7 +406,7 @@ if.then10:                                        ; preds = %if.end8.if.then10_c
   %24 = phi ptr [ %.pre, %if.end8.if.then10_crit_edge ], [ %11, %if.then ]
   %25 = load ptr, ptr %24, align 8
   %cmp = icmp eq ptr %25, null
-  %email13 = getelementptr inbounds %struct.mailmap_info, ptr %24, i64 0, i32 1
+  %email13 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %email13, align 8
   %cmp14 = icmp eq ptr %26, null
   br i1 %cmp, label %land.lhs.true, label %if.end16
@@ -570,18 +567,18 @@ if.then6:                                         ; preds = %while.end27.i22, %i
   %tobool.not.i34 = icmp eq ptr %email2.151, null
   %spec.select.i = select i1 %tobool.not.i34, ptr %add.ptr.i, ptr %email2.151
   %call.i35 = tail call ptr @string_list_insert(ptr noundef %map, ptr noundef nonnull %spec.select.i) #11
-  %util.i = getelementptr inbounds %struct.string_list_item, ptr %call.i35, i64 0, i32 1
+  %util.i = getelementptr inbounds i8, ptr %call.i35, i64 8
   %16 = load ptr, ptr %util.i, align 8
   %tobool1.not.i = icmp eq ptr %16, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.end7.i
 
 if.else.i:                                        ; preds = %if.then6
   %call4.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #11
-  %strdup_strings.i = getelementptr inbounds %struct.mailmap_entry, ptr %call4.i, i64 0, i32 2, i32 3
+  %strdup_strings.i = getelementptr inbounds i8, ptr %call4.i, i64 40
   %bf.load.i = load i8, ptr %strdup_strings.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %strdup_strings.i, align 8
-  %cmp.i36 = getelementptr inbounds %struct.mailmap_entry, ptr %call4.i, i64 0, i32 2, i32 4
+  %cmp.i36 = getelementptr inbounds i8, ptr %call4.i, i64 48
   store ptr @namemap_cmp, ptr %cmp.i36, align 8
   store ptr %call4.i, ptr %util.i, align 8
   br label %if.end7.i
@@ -605,7 +602,7 @@ if.end14.i:                                       ; preds = %if.then11.i, %if.th
   br i1 %tobool.not.i34, label %if.end7, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end14.i
-  %email.i = getelementptr inbounds %struct.mailmap_entry, ptr %me.0.i, i64 0, i32 1
+  %email.i = getelementptr inbounds i8, ptr %me.0.i, i64 8
   %18 = load ptr, ptr %email.i, align 8
   tail call void @free(ptr noundef %18) #11
   %call17.i = tail call ptr @xstrdup(ptr noundef nonnull %add.ptr.i) #11
@@ -631,11 +628,11 @@ cond.true.i21.i:                                  ; preds = %xstrdup_or_null.exi
 
 xstrdup_or_null.exit24.i:                         ; preds = %cond.true.i21.i, %xstrdup_or_null.exit.i
   %cond.i23.i = phi ptr [ %call.i22.i, %cond.true.i21.i ], [ null, %xstrdup_or_null.exit.i ]
-  %email25.i = getelementptr inbounds %struct.mailmap_info, ptr %call21.i, i64 0, i32 1
+  %email25.i = getelementptr inbounds i8, ptr %call21.i, i64 8
   store ptr %cond.i23.i, ptr %email25.i, align 8
-  %namemap26.i = getelementptr inbounds %struct.mailmap_entry, ptr %me.0.i, i64 0, i32 2
+  %namemap26.i = getelementptr inbounds i8, ptr %me.0.i, i64 16
   %call27.i = tail call ptr @string_list_insert(ptr noundef nonnull %namemap26.i, ptr noundef nonnull %name2.150) #11
-  %util28.i = getelementptr inbounds %struct.string_list_item, ptr %call27.i, i64 0, i32 1
+  %util28.i = getelementptr inbounds i8, ptr %call27.i, i64 8
   store ptr %call21.i, ptr %util28.i, align 8
   br label %if.end7
 
@@ -672,7 +669,7 @@ define internal void @free_mailmap_info(ptr nocapture noundef %p, ptr nocapture 
 entry:
   %0 = load ptr, ptr %p, align 8
   tail call void @free(ptr noundef %0) #11
-  %email = getelementptr inbounds %struct.mailmap_info, ptr %p, i64 0, i32 1
+  %email = getelementptr inbounds i8, ptr %p, i64 8
   %1 = load ptr, ptr %email, align 8
   tail call void @free(ptr noundef %1) #11
   tail call void @free(ptr noundef %p) #11

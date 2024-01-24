@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
 %struct.test_data = type { ptr, ptr, ptr, i64, %struct.PyEvent }
 %struct.PyEvent = type { i8 }
 
@@ -44,7 +40,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_critical_sections(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
+define internal noundef nonnull ptr @test_critical_sections(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
   %call = tail call ptr @PyDict_New() #3
   %cmp.not = icmp eq ptr %call, null
@@ -65,7 +61,7 @@ cond.false4:                                      ; preds = %cond.end
 
 cond.end5:                                        ; preds = %cond.end
   %call6 = tail call ptr @PyThreadState_Get() #3
-  %critical_section = getelementptr inbounds %struct._ts, ptr %call6, i64 0, i32 25
+  %critical_section = getelementptr inbounds i8, ptr %call6, i64 176
   %0 = load i64, ptr %critical_section, align 8
   %cmp7 = icmp eq i64 %0, 0
   br i1 %cmp7, label %cond.end10, label %cond.false9
@@ -111,7 +107,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit19, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_critical_sections_nest(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
+define internal noundef nonnull ptr @test_critical_sections_nest(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
   %call = tail call ptr @PyDict_New() #3
   %cmp.not = icmp eq ptr %call, null
@@ -167,7 +163,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit14, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_critical_sections_suspend(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
+define internal noundef nonnull ptr @test_critical_sections_suspend(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
   %call = tail call ptr @PyDict_New() #3
   %cmp.not = icmp eq ptr %call, null
@@ -200,20 +196,20 @@ Py_DECREF.exit:                                   ; preds = %cond.end, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_critical_sections_threads(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
+define internal noundef nonnull ptr @test_critical_sections_threads(ptr nocapture readnone %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
   %test_data = alloca %struct.test_data, align 8
   %call = tail call ptr @PyDict_New() #3
   store ptr %call, ptr %test_data, align 8
-  %obj2 = getelementptr inbounds %struct.test_data, ptr %test_data, i64 0, i32 1
+  %obj2 = getelementptr inbounds i8, ptr %test_data, i64 8
   %call1 = tail call ptr @PyDict_New() #3
   store ptr %call1, ptr %obj2, align 8
-  %obj3 = getelementptr inbounds %struct.test_data, ptr %test_data, i64 0, i32 2
+  %obj3 = getelementptr inbounds i8, ptr %test_data, i64 16
   %call2 = tail call ptr @PyDict_New() #3
   store ptr %call2, ptr %obj3, align 8
-  %countdown = getelementptr inbounds %struct.test_data, ptr %test_data, i64 0, i32 3
+  %countdown = getelementptr inbounds i8, ptr %test_data, i64 24
   store i64 4, ptr %countdown, align 8
-  %done_event = getelementptr inbounds %struct.test_data, ptr %test_data, i64 0, i32 4
+  %done_event = getelementptr inbounds i8, ptr %test_data, i64 32
   store i8 0, ptr %done_event, align 8
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -332,13 +328,13 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   tail call void @PyGILState_Release(i32 noundef %call) #3
-  %countdown = getelementptr inbounds %struct.test_data, ptr %arg, i64 0, i32 3
+  %countdown = getelementptr inbounds i8, ptr %arg, i64 24
   %0 = atomicrmw add ptr %countdown, i64 -1 seq_cst, align 8
   %cmp3 = icmp eq i64 %0, 1
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %done_event = getelementptr inbounds %struct.test_data, ptr %arg, i64 0, i32 4
+  %done_event = getelementptr inbounds i8, ptr %arg, i64 32
   tail call void @_PyEvent_Notify(ptr noundef nonnull %done_event) #3
   br label %if.end
 

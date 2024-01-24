@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.X509_extension_st = type { ptr, i32, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @ext_list = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509v3/v3_lib.c\00", align 1
@@ -50,7 +48,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 83) #10
-  %ext_flags.i = getelementptr inbounds %struct.v3_ext_method, ptr %ext, i64 0, i32 1
+  %ext_flags.i = getelementptr inbounds i8, ptr %ext, i64 4
   %1 = load i32, ptr %ext_flags.i, align 4
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -64,7 +62,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then4:                                         ; preds = %if.end
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 88) #10
-  %ext_flags.i3 = getelementptr inbounds %struct.v3_ext_method, ptr %ext, i64 0, i32 1
+  %ext_flags.i3 = getelementptr inbounds i8, ptr %ext, i64 4
   %3 = load i32, ptr %ext_flags.i3, align 4
   %and.i4 = and i32 %3, 1
   %tobool.not.i5 = icmp eq i32 %and.i4, 0
@@ -97,7 +95,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @ext_list_free(ptr nocapture noundef %ext) #3 {
 entry:
-  %ext_flags = getelementptr inbounds %struct.v3_ext_method, ptr %ext, i64 0, i32 1
+  %ext_flags = getelementptr inbounds i8, ptr %ext, i64 4
   %0 = load i32, ptr %ext_flags, align 4
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -288,7 +286,7 @@ if.then:                                          ; preds = %X509V3_EXT_get_nid.
   br label %return
 
 if.end:                                           ; preds = %X509V3_EXT_get_nid.exit
-  %it = getelementptr inbounds %struct.v3_ext_method, ptr %retval.0.i, i64 0, i32 2
+  %it = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %4 = load ptr, ptr %it, align 8
   %cmp1.not = icmp eq ptr %4, null
   br i1 %cmp1.not, label %if.else, label %if.then2
@@ -298,7 +296,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %ext_free = getelementptr inbounds %struct.v3_ext_method, ptr %retval.0.i, i64 0, i32 4
+  %ext_free = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %5 = load ptr, ptr %ext_free, align 8
   %cmp4.not = icmp eq ptr %5, null
   br i1 %cmp4.not, label %if.else7, label %if.then5
@@ -326,7 +324,7 @@ entry:
   br i1 %cmp.not3, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds %struct.v3_ext_method, ptr %extlist.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %extlist.addr.04, i64 104
   %1 = load i32, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
@@ -411,7 +409,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call1, ptr noundef nonnull align 8 dereferenceable(104) %retval.0.i, i64 104, i1 false)
   store i32 %nid_to, ptr %call1, align 8
-  %ext_flags = getelementptr inbounds %struct.v3_ext_method, ptr %call1, i64 0, i32 1
+  %ext_flags = getelementptr inbounds i8, ptr %call1, i64 4
   %4 = load i32, ptr %ext_flags, align 4
   %or = or i32 %4, 1
   store i32 %or, ptr %ext_flags, align 4
@@ -507,12 +505,12 @@ X509V3_EXT_get.exit:                              ; preds = %if.then1.i.i, %if.e
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %X509V3_EXT_get.exit
-  %value = getelementptr inbounds %struct.X509_extension_st, ptr %ext, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %ext, i64 16
   %5 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %5, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %data, align 8
   store ptr %6, ptr %p, align 8
-  %it = getelementptr inbounds %struct.v3_ext_method, ptr %retval.0.i.i, i64 0, i32 2
+  %it = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %7 = load ptr, ptr %it, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %if.end6, label %if.then2
@@ -524,7 +522,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %d2i = getelementptr inbounds %struct.v3_ext_method, ptr %retval.0.i.i, i64 0, i32 5
+  %d2i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
   %9 = load ptr, ptr %d2i, align 8
   %10 = load i32, ptr %5, align 8
   %conv9 = sext i32 %10 to i64

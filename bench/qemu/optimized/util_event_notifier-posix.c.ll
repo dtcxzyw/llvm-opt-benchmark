@@ -3,17 +3,15 @@ source_filename = "bench/qemu/original/util_event_notifier-posix.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.EventNotifier = type { i32, i32, i8 }
-
 @event_notifier_set.value = internal constant i64 1, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @event_notifier_init_fd(ptr nocapture noundef writeonly %e, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   store i32 %fd, ptr %e, align 4
-  %wfd = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 1
+  %wfd = getelementptr inbounds i8, ptr %e, i64 4
   store i32 %fd, ptr %wfd, align 4
-  %initialized = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 2
+  %initialized = getelementptr inbounds i8, ptr %e, i64 8
   store i8 1, ptr %initialized, align 4
   ret void
 }
@@ -27,7 +25,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %wfd = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 1
+  %wfd = getelementptr inbounds i8, ptr %e, i64 4
   store i32 %call, ptr %wfd, align 4
   store i32 %call, ptr %e, align 4
   br label %if.end27
@@ -59,7 +57,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %tobool11.not, label %fail, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
-  %arrayidx16 = getelementptr inbounds [2 x i32], ptr %fds, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %fds, i64 4
   %3 = load i32, ptr %arrayidx16, align 4
   %call17 = call i32 @g_unix_set_fd_nonblocking(i32 noundef %3, i32 noundef 1, ptr noundef null) #8
   %tobool18.not = icmp eq i32 %call17, 0
@@ -71,13 +69,13 @@ if.end22:                                         ; preds = %if.end15
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end22, %if.then
-  %initialized = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 2
+  %initialized = getelementptr inbounds i8, ptr %e, i64 8
   store i8 1, ptr %initialized, align 4
   %tobool28.not = icmp eq i32 %active, 0
   br i1 %tobool28.not, label %return, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %if.end27
-  %wfd.i = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 1
+  %wfd.i = getelementptr inbounds i8, ptr %e, i64 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %do.body.preheader.i
@@ -97,7 +95,7 @@ fail:                                             ; preds = %if.end15, %if.end9
   %ret.0 = sub i32 0, %.pn
   %7 = load i32, ptr %fds, align 8
   %call33 = call i32 @close(i32 noundef %7) #8
-  %arrayidx34 = getelementptr inbounds [2 x i32], ptr %fds, i64 0, i64 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %fds, i64 4
   %8 = load i32, ptr %arrayidx34, align 4
   %call35 = call i32 @close(i32 noundef %8) #8
   br label %return
@@ -120,14 +118,14 @@ declare i32 @g_unix_set_fd_nonblocking(i32 noundef, i32 noundef, ptr noundef) lo
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local i32 @event_notifier_set(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
 entry:
-  %initialized = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 2
+  %initialized = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
-  %wfd = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 1
+  %wfd = getelementptr inbounds i8, ptr %e, i64 4
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -158,7 +156,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @event_notifier_cleanup(ptr nocapture noundef %e) local_unnamed_addr #1 {
 entry:
-  %initialized = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 2
+  %initialized = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -166,7 +164,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %e, align 4
-  %wfd = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 1
+  %wfd = getelementptr inbounds i8, ptr %e, i64 4
   %3 = load i32, ptr %wfd, align 4
   %cmp.not = icmp eq i32 %2, %3
   br i1 %cmp.not, label %if.end3, label %if.then1
@@ -198,7 +196,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @event_notifier_get_wfd(ptr nocapture noundef readonly %e) local_unnamed_addr #6 {
 entry:
-  %wfd = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 1
+  %wfd = getelementptr inbounds i8, ptr %e, i64 4
   %0 = load i32, ptr %wfd, align 4
   ret i32 %0
 }
@@ -210,7 +208,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 define dso_local i32 @event_notifier_test_and_clear(ptr nocapture noundef readonly %e) local_unnamed_addr #5 {
 entry:
   %buffer = alloca [512 x i8], align 16
-  %initialized = getelementptr inbounds %struct.EventNotifier, ptr %e, i64 0, i32 2
+  %initialized = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i8, ptr %initialized, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0

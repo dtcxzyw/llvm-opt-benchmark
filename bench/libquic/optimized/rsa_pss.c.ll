@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.rsa_pss_params_st = type { ptr, ptr, ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @RSA_PSS_PARAMS_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 145, i64 0, i64 0, ptr @.str.14, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 145, i64 1, i64 8, ptr @.str.15, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 145, i64 2, i64 16, ptr @.str.16, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 145, i64 3, i64 24, ptr @.str.17, ptr @ASN1_INTEGER_it }], align 16
 @.str = private unnamed_addr constant [15 x i8] c"RSA_PSS_PARAMS\00", align 1
@@ -79,7 +73,7 @@ entry:
   %mgf1md = alloca ptr, align 8
   %saltlen = alloca i32, align 4
   %os = alloca ptr, align 8
-  %pctx = getelementptr inbounds %struct.env_md_ctx_st, ptr %ctx, i64 0, i32 2
+  %pctx = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pctx, align 8
   %call = call i32 @EVP_PKEY_CTX_get_signature_md(ptr noundef %0, ptr noundef nonnull %sigmd) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -146,7 +140,7 @@ if.end32:                                         ; preds = %if.end28
 
 if.then35:                                        ; preds = %if.end32
   %call36 = call ptr @ASN1_INTEGER_new() #3
-  %saltLength = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i, i64 0, i32 2
+  %saltLength = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call36, ptr %saltLength, align 8
   %tobool38.not = icmp eq ptr %call36, null
   br i1 %tobool38.not, label %err, label %lor.lhs.false39
@@ -175,7 +169,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %if.end4.i, %if.end46
-  %maskGenAlgorithm = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i, i64 0, i32 1
+  %maskGenAlgorithm = getelementptr inbounds i8, ptr %call.i, i64 8
   %13 = load ptr, ptr %mgf1md, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stmp.i)
   store ptr null, ptr %stmp.i, align 8
@@ -288,7 +282,7 @@ entry:
   %p.i = alloca ptr, align 8
   %pkctx = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %sigalg, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %sigalg, i64 8
   %0 = load ptr, ptr %parameter.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then, label %lor.lhs.false.i
@@ -299,9 +293,9 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i, label %if.then
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %0, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %value.i, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data.i, align 8
   store ptr %3, ptr %p.i, align 8
   %4 = load i32, ptr %2, align 8
@@ -311,7 +305,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp6.i, label %if.then, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %maskGenAlgorithm.i = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i.i, i64 0, i32 1
+  %maskGenAlgorithm.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %5 = load ptr, ptr %maskGenAlgorithm.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i.i)
   %cmp.i.i = icmp eq ptr %5, null
@@ -323,7 +317,7 @@ if.end.thread:                                    ; preds = %if.end9.i
   br label %if.then.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end9.i
-  %parameter.i.i = getelementptr inbounds %struct.X509_algor_st, ptr %5, i64 0, i32 1
+  %parameter.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %parameter.i.i, align 8
   %cmp1.i.i = icmp eq ptr %6, null
   br i1 %cmp1.i.i, label %if.end, label %lor.lhs.false2.i.i
@@ -341,9 +335,9 @@ lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false2.i.i
   br i1 %cmp6.not.i.i, label %if.end.i.i, label %if.end
 
 if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i
-  %value.i.i = getelementptr inbounds %struct.asn1_type_st, ptr %8, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %value.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data.i.i, align 8
   store ptr %11, ptr %p.i.i, align 8
   %12 = load i32, ptr %10, align 8
@@ -420,7 +414,7 @@ rsa_algor_to_md.exit:                             ; preds = %if.then.i20, %if.en
   br i1 %or.cond, label %err, label %if.end6
 
 if.end6:                                          ; preds = %rsa_algor_to_md.exit
-  %saltLength = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i.i, i64 0, i32 2
+  %saltLength = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %17 = load ptr, ptr %saltLength, align 8
   %cmp7.not = icmp eq ptr %17, null
   br i1 %cmp7.not, label %if.end15, label %if.then8
@@ -437,7 +431,7 @@ if.then13:                                        ; preds = %if.then8
 
 if.end15:                                         ; preds = %if.then8, %if.end6
   %saltlen.0 = phi i32 [ %conv, %if.then8 ], [ 20, %if.end6 ]
-  %trailerField = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i.i, i64 0, i32 3
+  %trailerField = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %18 = load ptr, ptr %trailerField, align 8
   %cmp16.not = icmp eq ptr %18, null
   br i1 %cmp16.not, label %if.end23, label %land.lhs.true
@@ -504,7 +498,7 @@ entry:
   %p.i.i = alloca ptr, align 8
   %p.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %sigalg, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %sigalg, i64 8
   %0 = load ptr, ptr %parameter.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then, label %lor.lhs.false.i
@@ -515,9 +509,9 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.not.i, label %if.end.i, label %if.then
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %0, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %value.i, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data.i, align 8
   store ptr %3, ptr %p.i, align 8
   %4 = load i32, ptr %2, align 8
@@ -527,14 +521,14 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp6.i, label %if.then, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
-  %maskGenAlgorithm.i = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i.i, i64 0, i32 1
+  %maskGenAlgorithm.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %5 = load ptr, ptr %maskGenAlgorithm.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i.i)
   %cmp.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i, label %if.end3, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end9.i
-  %parameter.i.i = getelementptr inbounds %struct.X509_algor_st, ptr %5, i64 0, i32 1
+  %parameter.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %parameter.i.i, align 8
   %cmp1.i.i = icmp eq ptr %6, null
   br i1 %cmp1.i.i, label %if.end3, label %lor.lhs.false2.i.i
@@ -552,9 +546,9 @@ lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false2.i.i
   br i1 %cmp6.not.i.i, label %if.end.i.i, label %if.end3
 
 if.end.i.i:                                       ; preds = %lor.lhs.false4.i.i
-  %value.i.i = getelementptr inbounds %struct.asn1_type_st, ptr %8, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %value.i.i, align 8
-  %data.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %data.i.i, align 8
   store ptr %11, ptr %p.i.i, align 8
   %12 = load i32, ptr %10, align 8
@@ -666,7 +660,7 @@ lor.lhs.false68:                                  ; preds = %if.end64
   br i1 %cmp70, label %err, label %if.end72
 
 if.end72:                                         ; preds = %lor.lhs.false68
-  %saltLength = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i.i, i64 0, i32 2
+  %saltLength = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %18 = load ptr, ptr %saltLength, align 8
   %tobool73.not = icmp eq ptr %18, null
   br i1 %tobool73.not, label %if.else80, label %if.then74
@@ -693,7 +687,7 @@ lor.lhs.false89:                                  ; preds = %if.end85
   br i1 %cmp91, label %err, label %if.end93
 
 if.end93:                                         ; preds = %lor.lhs.false89
-  %trailerField = getelementptr inbounds %struct.rsa_pss_params_st, ptr %call.i.i, i64 0, i32 3
+  %trailerField = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %19 = load ptr, ptr %trailerField, align 8
   %tobool94.not = icmp eq ptr %19, null
   br i1 %tobool94.not, label %if.else101, label %if.then95

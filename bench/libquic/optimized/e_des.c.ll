@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
-%struct.DES_cblock_st = type { [8 x i8] }
-%struct.DES_ks = type { [16 x [2 x i32]] }
 
 @des_cbc = internal constant %struct.evp_cipher_st { i32 31, i32 8, i32 8, i32 8, i32 128, i32 2, ptr null, ptr @des_init_key, ptr @des_cbc_cipher, ptr null, ptr null }, align 8
 @des_ecb = internal constant %struct.evp_cipher_st { i32 29, i32 8, i32 8, i32 0, i32 128, i32 1, ptr null, ptr @des_init_key, ptr @des_ecb_cipher, ptr null, ptr null }, align 8
@@ -47,7 +44,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @des_init_key(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   tail call void @DES_set_key(ptr noundef %key, ptr noundef %0) #3
   ret i32 1
@@ -56,10 +53,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @des_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %in_len) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 7
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 4
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 52
+  %encrypt = getelementptr inbounds i8, ptr %ctx, i64 28
   %1 = load i32, ptr %encrypt, align 4
   tail call void @DES_ncbc_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %in_len, ptr noundef %0, ptr noundef nonnull %iv, i32 noundef %1) #3
   ret i32 1
@@ -73,7 +70,7 @@ declare void @DES_ncbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 define internal noundef i32 @des_ecb_cipher(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %in_len) #1 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %block_size = getelementptr inbounds %struct.evp_cipher_st, ptr %0, i64 0, i32 1
+  %block_size = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %block_size, align 4
   %conv = zext i32 %1 to i64
   %cmp = icmp ugt i64 %conv, %in_len
@@ -81,9 +78,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = sub i64 %in_len, %conv
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %cipher_data, align 8
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 4
+  %encrypt = getelementptr inbounds i8, ptr %ctx, i64 28
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -93,7 +90,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %3 = load i32, ptr %encrypt, align 4
   tail call void @DES_ecb_encrypt(ptr noundef %add.ptr, ptr noundef %add.ptr7, ptr noundef %2, i32 noundef %3) #3
   %4 = load ptr, ptr %ctx, align 8
-  %block_size9 = getelementptr inbounds %struct.evp_cipher_st, ptr %4, i64 0, i32 1
+  %block_size9 = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %block_size9, align 4
   %conv10 = zext i32 %5 to i64
   %add = add i64 %i.010, %conv10
@@ -109,14 +106,14 @@ declare void @DES_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @des_ede3_init_key(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   tail call void @DES_set_key(ptr noundef %key, ptr noundef %0) #3
-  %arrayidx2 = getelementptr inbounds %struct.DES_cblock_st, ptr %key, i64 1
-  %arrayidx4 = getelementptr inbounds [3 x %struct.DES_ks], ptr %0, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %key, i64 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @DES_set_key(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx4) #3
-  %arrayidx5 = getelementptr inbounds %struct.DES_cblock_st, ptr %key, i64 2
-  %arrayidx7 = getelementptr inbounds [3 x %struct.DES_ks], ptr %0, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %key, i64 16
+  %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @DES_set_key(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %arrayidx7) #3
   ret i32 1
 }
@@ -124,12 +121,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @des_ede3_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %in_len) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
-  %arrayidx2 = getelementptr inbounds [3 x %struct.DES_ks], ptr %0, i64 0, i64 1
-  %arrayidx4 = getelementptr inbounds [3 x %struct.DES_ks], ptr %0, i64 0, i64 2
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 7
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 128
+  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 256
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 52
+  %encrypt = getelementptr inbounds i8, ptr %ctx, i64 28
   %1 = load i32, ptr %encrypt, align 4
   tail call void @DES_ede3_cbc_encrypt(ptr noundef %in, ptr noundef %out, i64 noundef %in_len, ptr noundef %0, ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx4, ptr noundef nonnull %iv, i32 noundef %1) #3
   ret i32 1
@@ -140,13 +137,13 @@ declare void @DES_ede3_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @des_ede_init_key(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   tail call void @DES_set_key(ptr noundef %key, ptr noundef %0) #3
-  %arrayidx2 = getelementptr inbounds %struct.DES_cblock_st, ptr %key, i64 1
-  %arrayidx4 = getelementptr inbounds [3 x %struct.DES_ks], ptr %0, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %key, i64 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @DES_set_key(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx4) #3
-  %arrayidx7 = getelementptr inbounds [3 x %struct.DES_ks], ptr %0, i64 0, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 256
   tail call void @DES_set_key(ptr noundef %key, ptr noundef nonnull %arrayidx7) #3
   ret i32 1
 }
@@ -155,7 +152,7 @@ entry:
 define internal noundef i32 @des_ede_ecb_cipher(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %in_len) #1 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %block_size = getelementptr inbounds %struct.evp_cipher_st, ptr %0, i64 0, i32 1
+  %block_size = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %block_size, align 4
   %conv = zext i32 %1 to i64
   %cmp = icmp ugt i64 %conv, %in_len
@@ -163,11 +160,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %sub = sub i64 %in_len, %conv
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %cipher_data, align 8
-  %arrayidx9 = getelementptr inbounds [3 x %struct.DES_ks], ptr %2, i64 0, i64 1
-  %arrayidx11 = getelementptr inbounds [3 x %struct.DES_ks], ptr %2, i64 0, i64 2
-  %encrypt = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 4
+  %arrayidx9 = getelementptr inbounds i8, ptr %2, i64 128
+  %arrayidx11 = getelementptr inbounds i8, ptr %2, i64 256
+  %encrypt = getelementptr inbounds i8, ptr %ctx, i64 28
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -177,7 +174,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %3 = load i32, ptr %encrypt, align 4
   tail call void @DES_ecb3_encrypt(ptr noundef %add.ptr, ptr noundef %add.ptr7, ptr noundef %2, ptr noundef nonnull %arrayidx9, ptr noundef nonnull %arrayidx11, i32 noundef %3) #3
   %4 = load ptr, ptr %ctx, align 8
-  %block_size13 = getelementptr inbounds %struct.evp_cipher_st, ptr %4, i64 0, i32 1
+  %block_size13 = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %block_size13, align 4
   %conv14 = zext i32 %5 to i64
   %add = add i64 %i.012, %conv14

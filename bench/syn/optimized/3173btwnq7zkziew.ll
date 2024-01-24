@@ -74,7 +74,7 @@ _ZN3syn3lit5value4byte17h218c6c4f5d11be4aE.exit:  ; preds = %3
   br i1 %.not35, label %_ZN3syn3lit5value4byte17h218c6c4f5d11be4aE.exit17, label %7
 
 7:                                                ; preds = %_ZN3syn3lit5value4byte17h218c6c4f5d11be4aE.exit
-  %8 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1, !noundef !5
   br label %_ZN3syn3lit5value4byte17h218c6c4f5d11be4aE.exit17
 
@@ -144,9 +144,9 @@ _ZN3syn3lit5value4byte17h218c6c4f5d11be4aE.exit17: ; preds = %_ZN3syn3lit5value4
   %34 = extractvalue { ptr, i64 } %33, 0
   %35 = extractvalue { ptr, i64 } %33, 1
   store i8 %32, ptr %0, align 8
-  %36 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %0, i64 0, i32 2, i32 1
+  %37 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %35, ptr %37, align 8
   ret void
 }
@@ -174,7 +174,7 @@ _ZN3syn3lit5value4byte17h0a3118a22133a4efE.exit:  ; preds = %3, %8
 
 14:                                               ; preds = %_ZN3syn3lit5value4byte17h0a3118a22133a4efE.exit
   %15 = extractvalue { ptr, i64 } %11, 0
-  %16 = getelementptr inbounds [0 x i8], ptr %15, i64 0, i64 1
+  %16 = getelementptr inbounds i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1, !noundef !5
   br label %_ZN3syn3lit5value4byte17h0a3118a22133a4efE.exit17
 
@@ -244,9 +244,9 @@ _ZN3syn3lit5value4byte17h0a3118a22133a4efE.exit17: ; preds = %_ZN3syn3lit5value4
   %43 = extractvalue { ptr, i64 } %42, 0
   %44 = extractvalue { ptr, i64 } %42, 1
   store i8 %41, ptr %0, align 8
-  %45 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %43, ptr %45, align 8
-  %46 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %0, i64 0, i32 2, i32 1
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %44, ptr %46, align 8
   ret void
 }

@@ -3,10 +3,6 @@ source_filename = "bench/box2d/original/b2_world_callbacks.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b2Fixture = type { float, ptr, ptr, ptr, float, float, float, ptr, i32, %struct.b2Filter, i8, %struct.b2FixtureUserData }
-%struct.b2Filter = type { i16, i16, i16 }
-%struct.b2FixtureUserData = type { i64 }
-
 $_ZN15b2ContactFilterD2Ev = comdat any
 
 $_ZN15b2ContactFilterD0Ev = comdat any
@@ -19,9 +15,9 @@ $_ZN15b2ContactFilterD0Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN15b2ContactFilter13ShouldCollideEP9b2FixtureS1_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %fixtureA, ptr nocapture noundef readonly %fixtureB) unnamed_addr #0 align 2 {
 entry:
-  %groupIndex = getelementptr inbounds %class.b2Fixture, ptr %fixtureA, i64 0, i32 9, i32 2
+  %groupIndex = getelementptr inbounds i8, ptr %fixtureA, i64 64
   %0 = load i16, ptr %groupIndex, align 2
-  %groupIndex3 = getelementptr inbounds %class.b2Fixture, ptr %fixtureB, i64 0, i32 9, i32 2
+  %groupIndex3 = getelementptr inbounds i8, ptr %fixtureB, i64 64
   %1 = load i16, ptr %groupIndex3, align 2
   %cmp = icmp ne i16 %0, %1
   %cmp7.not = icmp eq i16 %0, 0
@@ -33,15 +29,15 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %m_filter.i9 = getelementptr inbounds %class.b2Fixture, ptr %fixtureB, i64 0, i32 9
-  %m_filter.i = getelementptr inbounds %class.b2Fixture, ptr %fixtureA, i64 0, i32 9
-  %maskBits = getelementptr inbounds %class.b2Fixture, ptr %fixtureA, i64 0, i32 9, i32 1
+  %m_filter.i9 = getelementptr inbounds i8, ptr %fixtureB, i64 60
+  %m_filter.i = getelementptr inbounds i8, ptr %fixtureA, i64 60
+  %maskBits = getelementptr inbounds i8, ptr %fixtureA, i64 62
   %2 = load i16, ptr %maskBits, align 2
   %3 = load i16, ptr %m_filter.i9, align 2
   %and7 = and i16 %3, %2
   %cmp13.not = icmp ne i16 %and7, 0
   %4 = load i16, ptr %m_filter.i, align 2
-  %maskBits16 = getelementptr inbounds %class.b2Fixture, ptr %fixtureB, i64 0, i32 9, i32 1
+  %maskBits16 = getelementptr inbounds i8, ptr %fixtureB, i64 62
   %5 = load i16, ptr %maskBits16, align 2
   %and188 = and i16 %5, %4
   %cmp19 = icmp ne i16 %and188, 0

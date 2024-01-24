@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.smt_params_helper = type { ptr, %class.params_ref }
 %class.params_ref = type { ptr }
-%struct.theory_array_params = type <{ i8, i8, [2 x i8], i32, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i32, i8, [3 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -37,14 +36,14 @@ define hidden void @_ZN19theory_array_params11updt_paramsERK10params_ref(ptr noc
 entry:
   %p = alloca %struct.smt_params_helper, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.smt_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.9)
   %0 = load ptr, ptr %p, align 8
   %call.i2 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.10, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_array_weak = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 4
+  %m_array_weak = getelementptr inbounds i8, ptr %this, i64 8
   %frombool = zext i1 %call.i2 to i8
   store i8 %frombool, ptr %m_array_weak, align 4
   %1 = load ptr, ptr %p, align 8
@@ -52,7 +51,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_array_extensional = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 5
+  %m_array_extensional = getelementptr inbounds i8, ptr %this, i64 9
   %frombool4 = zext i1 %call.i4 to i8
   store i8 %frombool4, ptr %m_array_extensional, align 1
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #5
@@ -71,59 +70,59 @@ declare i32 @__gxx_personality_v0(...)
 define hidden void @_ZNK19theory_array_params7displayERSo(ptr nocapture noundef nonnull readonly align 4 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
-  %m_array_mode = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 3
+  %m_array_mode = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_array_mode, align 4
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call2, i8 noundef signext 10)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
-  %m_array_weak = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 4
+  %m_array_weak = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %m_array_weak, align 4
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call4, i1 noundef zeroext %tobool)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call5, i8 noundef signext 10)
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
-  %m_array_extensional = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 5
+  %m_array_extensional = getelementptr inbounds i8, ptr %this, i64 9
   %3 = load i8, ptr %m_array_extensional, align 1
   %4 = and i8 %3, 1
   %tobool8 = icmp ne i8 %4, 0
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call7, i1 noundef zeroext %tobool8)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call9, i8 noundef signext 10)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
-  %m_array_laziness = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 7
+  %m_array_laziness = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i32, ptr %m_array_laziness, align 4
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call11, i32 noundef %5)
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call12, i8 noundef signext 10)
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
-  %m_array_delay_exp_axiom = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 8
+  %m_array_delay_exp_axiom = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i8, ptr %m_array_delay_exp_axiom, align 4
   %7 = and i8 %6, 1
   %tobool15 = icmp ne i8 %7, 0
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call14, i1 noundef zeroext %tobool15)
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call16, i8 noundef signext 10)
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
-  %m_array_cg = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 9
+  %m_array_cg = getelementptr inbounds i8, ptr %this, i64 17
   %8 = load i8, ptr %m_array_cg, align 1
   %9 = and i8 %8, 1
   %tobool19 = icmp ne i8 %9, 0
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call18, i1 noundef zeroext %tobool19)
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call20, i8 noundef signext 10)
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
-  %m_array_always_prop_upward = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 10
+  %m_array_always_prop_upward = getelementptr inbounds i8, ptr %this, i64 18
   %10 = load i8, ptr %m_array_always_prop_upward, align 2
   %11 = and i8 %10, 1
   %tobool23 = icmp ne i8 %11, 0
   %call24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call22, i1 noundef zeroext %tobool23)
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call24, i8 noundef signext 10)
   %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.7)
-  %m_array_lazy_ieq = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 11
+  %m_array_lazy_ieq = getelementptr inbounds i8, ptr %this, i64 19
   %12 = load i8, ptr %m_array_lazy_ieq, align 1
   %13 = and i8 %12, 1
   %tobool27 = icmp ne i8 %13, 0
   %call28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call26, i1 noundef zeroext %tobool27)
   %call29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call28, i8 noundef signext 10)
   %call30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %m_array_lazy_ieq_delay = getelementptr inbounds %struct.theory_array_params, ptr %this, i64 0, i32 12
+  %m_array_lazy_ieq_delay = getelementptr inbounds i8, ptr %this, i64 20
   %14 = load i32, ptr %m_array_lazy_ieq_delay, align 4
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call30, i32 noundef %14)
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call31, i8 noundef signext 10)

@@ -3,15 +3,10 @@ source_filename = "bench/grpc/original/message_compress.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.grpc_slice_buffer = type { ptr, ptr, i64, i64, i64, [7 x %struct.grpc_slice] }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined" = type { i8, [23 x i8] }
 
 @.str = private unnamed_addr constant [132 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/compression/message_compress.cc\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"invalid compression algorithm %d\00", align 1
@@ -47,13 +42,13 @@ _ZL14compress_inner26grpc_compression_algorithmP17grpc_slice_bufferS1_.exit: ; p
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry, %sw.epilog.i, %_ZL14compress_inner26grpc_compression_algorithmP17grpc_slice_bufferS1_.exit
-  %count.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %input, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %input, i64 16
   %0 = load i64, ptr %count.i, align 8
   %cmp4.not.i = icmp eq i64 %0, 0
   br i1 %cmp4.not.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %slices.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %input, i64 0, i32 1
+  %slices.i = getelementptr inbounds i8, ptr %input, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i, %for.body.lr.ph.i
@@ -90,13 +85,13 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %count.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %input, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %input, i64 16
   %0 = load i64, ptr %count.i, align 8
   %cmp4.not.i = icmp eq i64 %0, 0
   br i1 %cmp4.not.i, label %return, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
-  %slices.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %input, i64 0, i32 1
+  %slices.i = getelementptr inbounds i8, ptr %input, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN9grpc_core9CSliceRefERK10grpc_sliceNS_13DebugLocationE.exit.i, %for.body.lr.ph.i
@@ -139,14 +134,14 @@ return:                                           ; preds = %_ZN9grpc_core9CSlic
 define internal fastcc noundef i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
-  %count = getelementptr inbounds %struct.grpc_slice_buffer, ptr %output, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %output, i64 16
   %0 = load i64, ptr %count, align 8
-  %length = getelementptr inbounds %struct.grpc_slice_buffer, ptr %output, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %output, i64 32
   %1 = load i64, ptr %length, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %zs, i8 0, i64 112, i1 false)
-  %zalloc = getelementptr inbounds %struct.z_stream_s, ptr %zs, i64 0, i32 8
+  %zalloc = getelementptr inbounds i8, ptr %zs, i64 64
   store ptr @_ZL10zalloc_gprPvjj, ptr %zalloc, align 8
-  %zfree = getelementptr inbounds %struct.z_stream_s, ptr %zs, i64 0, i32 9
+  %zfree = getelementptr inbounds i8, ptr %zs, i64 72
   store ptr @_ZL9zfree_gprPvS_, ptr %zfree, align 8
   %tobool.not = icmp eq i32 %gzip, 0
   %or = select i1 %tobool.not, i32 15, i32 31
@@ -169,7 +164,7 @@ for.cond.preheader:                               ; preds = %do.end
   br i1 %cmp512, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %slices = getelementptr inbounds %struct.grpc_slice_buffer, ptr %output, i64 0, i32 1
+  %slices = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -186,7 +181,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %4, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %6(ptr noundef nonnull %4)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -213,14 +208,14 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 define internal fastcc noundef i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
-  %count = getelementptr inbounds %struct.grpc_slice_buffer, ptr %output, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %output, i64 16
   %0 = load i64, ptr %count, align 8
-  %length = getelementptr inbounds %struct.grpc_slice_buffer, ptr %output, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %output, i64 32
   %1 = load i64, ptr %length, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %zs, i8 0, i64 112, i1 false)
-  %zalloc = getelementptr inbounds %struct.z_stream_s, ptr %zs, i64 0, i32 8
+  %zalloc = getelementptr inbounds i8, ptr %zs, i64 64
   store ptr @_ZL10zalloc_gprPvjj, ptr %zalloc, align 8
-  %zfree = getelementptr inbounds %struct.z_stream_s, ptr %zs, i64 0, i32 9
+  %zfree = getelementptr inbounds i8, ptr %zs, i64 72
   store ptr @_ZL9zfree_gprPvS_, ptr %zfree, align 8
   %tobool.not = icmp eq i32 %gzip, 0
   %or = select i1 %tobool.not, i32 15, i32 31
@@ -239,7 +234,7 @@ do.end:                                           ; preds = %entry
 
 land.rhs:                                         ; preds = %do.end
   %2 = load i64, ptr %length, align 8
-  %length4 = getelementptr inbounds %struct.grpc_slice_buffer, ptr %input, i64 0, i32 4
+  %length4 = getelementptr inbounds i8, ptr %input, i64 32
   %3 = load i64, ptr %length4, align 8
   %cmp5 = icmp ult i64 %2, %3
   br i1 %cmp5, label %if.end12, label %for.cond.preheader
@@ -250,7 +245,7 @@ for.cond.preheader:                               ; preds = %land.rhs, %do.end
   br i1 %cmp914, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %slices = getelementptr inbounds %struct.grpc_slice_buffer, ptr %output, i64 0, i32 1
+  %slices = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -267,7 +262,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %6, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %8(ptr noundef nonnull %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -321,7 +316,7 @@ entry:
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %outbuf, i64 noundef 1024)
   %0 = load ptr, ptr %outbuf, align 8
   %tobool.not = icmp ne ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %outbuf, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %outbuf, i64 8
   %1 = load i64, ptr %data, align 8
   %cmp36 = icmp ugt i64 %1, 4294967295
   %cmp.not = select i1 %tobool.not, i1 %cmp36, i1 false
@@ -335,23 +330,23 @@ do.end:                                           ; preds = %entry
   %conv12 = and i64 %1, 255
   %cond14 = select i1 %tobool.not, i64 %1, i64 %conv12
   %conv15 = trunc i64 %cond14 to i32
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %zs, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %zs, i64 32
   store i32 %conv15, ptr %avail_out, align 8
   %tobool17.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %outbuf, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %outbuf, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %bytes22 = getelementptr inbounds i8, ptr %outbuf, i64 9
   %cond24 = select i1 %tobool17.not, ptr %bytes22, ptr %2
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %zs, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %zs, i64 24
   store ptr %cond24, ptr %next_out, align 8
-  %count = getelementptr inbounds %struct.grpc_slice_buffer, ptr %input, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %input, i64 16
   %3 = load i64, ptr %count, align 8
   %cmp2545.not = icmp eq i64 %3, 0
   br i1 %cmp2545.not, label %do.body150, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
-  %slices = getelementptr inbounds %struct.grpc_slice_buffer, ptr %input, i64 0, i32 1
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %zs, i64 0, i32 1
+  %slices = getelementptr inbounds i8, ptr %input, i64 8
+  %avail_in = getelementptr inbounds i8, ptr %zs, i64 8
   br label %for.body
 
 for.cond:                                         ; preds = %do.end142
@@ -372,7 +367,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %6, i64 %i.047
   %7 = load ptr, ptr %arrayidx, align 8
   %tobool32.not = icmp eq ptr %7, null
-  %data64 = getelementptr inbounds %struct.grpc_slice, ptr %6, i64 %i.047, i32 1
+  %data64 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br i1 %tobool32.not, label %cond.false61, label %cond.end44
 
 cond.end44:                                       ; preds = %for.body
@@ -400,13 +395,12 @@ cond.end67:                                       ; preds = %cond.end44, %cond.f
   br i1 %tobool73.not, label %cond.false79, label %cond.true74
 
 cond.true74:                                      ; preds = %cond.end67
-  %bytes78 = getelementptr inbounds %struct.grpc_slice, ptr %10, i64 %i.047, i32 1, i32 0, i32 1
+  %bytes78 = getelementptr inbounds i8, ptr %arrayidx71, i64 16
   %12 = load ptr, ptr %bytes78, align 8
   br label %cond.end85
 
 cond.false79:                                     ; preds = %cond.end67
-  %data82 = getelementptr inbounds %struct.grpc_slice, ptr %10, i64 %i.047, i32 1
-  %bytes83 = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data82, i64 0, i32 1
+  %bytes83 = getelementptr inbounds i8, ptr %arrayidx71, i64 9
   br label %cond.end85
 
 cond.end85:                                       ; preds = %cond.false79, %cond.true74
@@ -507,7 +501,7 @@ if.then.i:                                        ; preds = %error
   br i1 %cmp.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %23, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %25(ptr noundef nonnull %23)
   br label %return

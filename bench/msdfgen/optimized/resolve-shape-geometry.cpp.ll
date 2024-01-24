@@ -3,16 +3,9 @@ source_filename = "bench/msdfgen/original/resolve-shape-geometry.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.msdfgen::Vector2" = type { double, double }
-%"class.msdfgen::EdgeHolder" = type { ptr }
-%"class.msdfgen::Contour" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
 %"class.SkPath::Iter" = type <{ ptr, ptr, ptr, ptr, %struct.SkPoint, %struct.SkPoint, i8, i8, i8, [5 x i8] }>
 %struct.SkPoint = type { float, float }
+%"class.msdfgen::EdgeHolder" = type { ptr }
 %class.SkPath = type <{ %class.sk_sp, i32, %"struct.std::atomic", %"struct.std::atomic", i8, i8 }>
 %class.sk_sp = type { ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
@@ -42,7 +35,7 @@ entry:
 define dso_local void @_ZN7msdfgen15shapeToSkiaPathER6SkPathRKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(15) %skPath, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %shape, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not54 = icmp eq ptr %0, %1
   br i1 %cmp.i.not54, label %for.end68, label %for.body
@@ -50,7 +43,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc66
   %contour.sroa.0.055 = phi ptr [ %incdec.ptr.i43, %for.inc66 ], [ %0, %entry ]
   %2 = load ptr, ptr %contour.sroa.0.055, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.055, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.055, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %for.inc66, label %if.then
@@ -58,7 +51,7 @@ for.body:                                         ; preds = %entry, %for.inc66
 if.then:                                          ; preds = %for.body
   %call11 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %vtable = load ptr, ptr %call11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %4 = load ptr, ptr %vfn, align 8
   %call12 = tail call { double, double } %4(ptr noundef nonnull align 8 dereferenceable(12) %call11, double noundef 0.000000e+00)
   %5 = extractvalue { double, double } %call12, 0
@@ -75,12 +68,12 @@ for.body26:                                       ; preds = %if.then, %for.inc
   %edge.sroa.0.053 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %7, %if.then ]
   %call28 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.053)
   %vtable29 = load ptr, ptr %call28, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 4
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 32
   %9 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(12) %call28)
   %call33 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.053)
   %vtable34 = load ptr, ptr %call33, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 3
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 24
   %10 = load ptr, ptr %vfn35, align 8
   %call36 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(12) %call33)
   switch i32 %call36, label %for.inc [
@@ -90,9 +83,9 @@ for.body26:                                       ; preds = %if.then, %for.inc
   ]
 
 sw.bb:                                            ; preds = %for.body26
-  %arrayidx = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %call31, i64 16
   %agg.tmp38.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp38.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 1, i32 1
+  %agg.tmp38.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call31, i64 24
   %agg.tmp38.sroa.2.0.copyload = load double, ptr %agg.tmp38.sroa.2.0.arrayidx.sroa_idx, align 8
   %conv.i12 = fptrunc double %agg.tmp38.sroa.0.0.copyload to float
   %conv1.i13 = fptrunc double %agg.tmp38.sroa.2.0.copyload to float
@@ -100,15 +93,15 @@ sw.bb:                                            ; preds = %for.body26
   br label %for.inc
 
 sw.bb41:                                          ; preds = %for.body26
-  %arrayidx44 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 1
+  %arrayidx44 = getelementptr inbounds i8, ptr %call31, i64 16
   %agg.tmp43.sroa.0.0.copyload = load double, ptr %arrayidx44, align 8
-  %agg.tmp43.sroa.2.0.arrayidx44.sroa_idx = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 1, i32 1
+  %agg.tmp43.sroa.2.0.arrayidx44.sroa_idx = getelementptr inbounds i8, ptr %call31, i64 24
   %agg.tmp43.sroa.2.0.copyload = load double, ptr %agg.tmp43.sroa.2.0.arrayidx44.sroa_idx, align 8
   %conv.i18 = fptrunc double %agg.tmp43.sroa.0.0.copyload to float
   %conv1.i19 = fptrunc double %agg.tmp43.sroa.2.0.copyload to float
-  %arrayidx48 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 2
+  %arrayidx48 = getelementptr inbounds i8, ptr %call31, i64 32
   %agg.tmp47.sroa.0.0.copyload = load double, ptr %arrayidx48, align 8
-  %agg.tmp47.sroa.2.0.arrayidx48.sroa_idx = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 2, i32 1
+  %agg.tmp47.sroa.2.0.arrayidx48.sroa_idx = getelementptr inbounds i8, ptr %call31, i64 40
   %agg.tmp47.sroa.2.0.copyload = load double, ptr %agg.tmp47.sroa.2.0.arrayidx48.sroa_idx, align 8
   %conv.i22 = fptrunc double %agg.tmp47.sroa.0.0.copyload to float
   %conv1.i23 = fptrunc double %agg.tmp47.sroa.2.0.copyload to float
@@ -116,21 +109,21 @@ sw.bb41:                                          ; preds = %for.body26
   br label %for.inc
 
 sw.bb51:                                          ; preds = %for.body26
-  %arrayidx54 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %call31, i64 16
   %agg.tmp53.sroa.0.0.copyload = load double, ptr %arrayidx54, align 8
-  %agg.tmp53.sroa.2.0.arrayidx54.sroa_idx = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 1, i32 1
+  %agg.tmp53.sroa.2.0.arrayidx54.sroa_idx = getelementptr inbounds i8, ptr %call31, i64 24
   %agg.tmp53.sroa.2.0.copyload = load double, ptr %agg.tmp53.sroa.2.0.arrayidx54.sroa_idx, align 8
   %conv.i28 = fptrunc double %agg.tmp53.sroa.0.0.copyload to float
   %conv1.i29 = fptrunc double %agg.tmp53.sroa.2.0.copyload to float
-  %arrayidx58 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 2
+  %arrayidx58 = getelementptr inbounds i8, ptr %call31, i64 32
   %agg.tmp57.sroa.0.0.copyload = load double, ptr %arrayidx58, align 8
-  %agg.tmp57.sroa.2.0.arrayidx58.sroa_idx = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 2, i32 1
+  %agg.tmp57.sroa.2.0.arrayidx58.sroa_idx = getelementptr inbounds i8, ptr %call31, i64 40
   %agg.tmp57.sroa.2.0.copyload = load double, ptr %agg.tmp57.sroa.2.0.arrayidx58.sroa_idx, align 8
   %conv.i32 = fptrunc double %agg.tmp57.sroa.0.0.copyload to float
   %conv1.i33 = fptrunc double %agg.tmp57.sroa.2.0.copyload to float
-  %arrayidx62 = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 3
+  %arrayidx62 = getelementptr inbounds i8, ptr %call31, i64 48
   %agg.tmp61.sroa.0.0.copyload = load double, ptr %arrayidx62, align 8
-  %agg.tmp61.sroa.2.0.arrayidx62.sroa_idx = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %call31, i64 3, i32 1
+  %agg.tmp61.sroa.2.0.arrayidx62.sroa_idx = getelementptr inbounds i8, ptr %call31, i64 56
   %agg.tmp61.sroa.2.0.copyload = load double, ptr %agg.tmp61.sroa.2.0.arrayidx62.sroa_idx, align 8
   %conv.i36 = fptrunc double %agg.tmp61.sroa.0.0.copyload to float
   %conv1.i37 = fptrunc double %agg.tmp61.sroa.2.0.copyload to float
@@ -138,13 +131,13 @@ sw.bb51:                                          ; preds = %for.body26
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body26, %sw.bb, %sw.bb41, %sw.bb51
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.053, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.053, i64 8
   %11 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i11.not = icmp eq ptr %incdec.ptr.i, %11
   br i1 %cmp.i11.not, label %for.inc66, label %for.body26, !llvm.loop !5
 
 for.inc66:                                        ; preds = %for.inc, %if.then, %for.body
-  %incdec.ptr.i43 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.055, i64 1
+  %incdec.ptr.i43 = getelementptr inbounds i8, ptr %contour.sroa.0.055, i64 24
   %12 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i43, %12
   br i1 %cmp.i.not, label %for.end68, label %for.body, !llvm.loop !7
@@ -167,7 +160,7 @@ entry:
   %ref.tmp54 = alloca %"class.msdfgen::EdgeHolder", align 8
   %ref.tmp69 = alloca %"class.msdfgen::EdgeHolder", align 8
   %0 = load ptr, ptr %shape, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %shape, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %shape, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit, label %for.body.i.i.i.i.i
@@ -175,7 +168,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i ], [ %0, %entry ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
@@ -183,7 +176,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #6
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
@@ -201,7 +194,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !9
 
@@ -212,19 +205,19 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msd
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   call void @_ZN6SkPath4IterC1ERKS_b(ptr noundef nonnull align 8 dereferenceable(51) %pathIterator, ptr noundef nonnull align 8 dereferenceable(15) %skPath, i1 noundef zeroext true)
-  %arrayidx49 = getelementptr inbounds [4 x %struct.SkPoint], ptr %edgePoints, i64 0, i64 1
-  %arrayidx50 = getelementptr inbounds [4 x %struct.SkPoint], ptr %edgePoints, i64 0, i64 2
-  %fConicWeights.i = getelementptr inbounds %"class.SkPath::Iter", ptr %pathIterator, i64 0, i32 3
-  %arrayidx61 = getelementptr inbounds [5 x %struct.SkPoint], ptr %quadPoints, i64 0, i64 1
-  %arrayidx65 = getelementptr inbounds [5 x %struct.SkPoint], ptr %quadPoints, i64 0, i64 2
-  %arrayidx76 = getelementptr inbounds [5 x %struct.SkPoint], ptr %quadPoints, i64 0, i64 3
-  %arrayidx80 = getelementptr inbounds [5 x %struct.SkPoint], ptr %quadPoints, i64 0, i64 4
-  %arrayidx43 = getelementptr inbounds [4 x %struct.SkPoint], ptr %edgePoints, i64 0, i64 3
+  %arrayidx49 = getelementptr inbounds i8, ptr %edgePoints, i64 8
+  %arrayidx50 = getelementptr inbounds i8, ptr %edgePoints, i64 16
+  %fConicWeights.i = getelementptr inbounds i8, ptr %pathIterator, i64 24
+  %arrayidx61 = getelementptr inbounds i8, ptr %quadPoints, i64 8
+  %arrayidx65 = getelementptr inbounds i8, ptr %quadPoints, i64 16
+  %arrayidx76 = getelementptr inbounds i8, ptr %quadPoints, i64 24
+  %arrayidx80 = getelementptr inbounds i8, ptr %quadPoints, i64 32
+  %arrayidx43 = getelementptr inbounds i8, ptr %edgePoints, i64 24
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.then, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
   %contour.0.ph = phi ptr [ %call3, %if.then ], [ %call, %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit ]
-  %_M_finish.i.i11 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.0.ph, i64 0, i32 1
+  %_M_finish.i.i11 = getelementptr inbounds i8, ptr %contour.0.ph, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
@@ -403,17 +396,17 @@ lpad82:                                           ; preds = %invoke.cont68
 
 for.end:                                          ; preds = %for.cond
   %14 = load ptr, ptr %contour.0.ph, align 8
-  %_M_finish.i.i100 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.0.ph, i64 0, i32 1
+  %_M_finish.i.i100 = getelementptr inbounds i8, ptr %contour.0.ph, i64 8
   %15 = load ptr, ptr %_M_finish.i.i100, align 8
   %cmp.i.i101 = icmp eq ptr %14, %15
   br i1 %cmp.i.i101, label %if.then87, label %if.end89
 
 if.then87:                                        ; preds = %for.end
   %16 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %16, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 -24
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   %17 = load ptr, ptr %incdec.ptr.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr %"class.msdfgen::Contour", ptr %16, i64 -1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
   %18 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %17, %18
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
@@ -421,7 +414,7 @@ if.then87:                                        ; preds = %for.end
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then87, %for.body.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %17, %if.then87 ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i) #6
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %18
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !8
 

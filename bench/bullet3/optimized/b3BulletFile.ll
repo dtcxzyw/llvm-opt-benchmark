@@ -3,21 +3,6 @@ source_filename = "bench/bullet3/original/b3BulletFile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.bParse::b3BulletFile" = type { %"class.bParse::bFile.base", ptr, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.8 }
-%"class.bParse::bFile.base" = type <{ ptr, [7 x i8], i8, ptr, i32, i32, %class.b3HashMap, i32, [4 x i8], ptr, ptr, %class.b3AlignedObjectArray.8, %class.b3AlignedObjectArray.8, %class.b3AlignedObjectArray.12, %class.b3HashMap.16, %class.b3HashMap, i32 }>
-%class.b3AlignedObjectArray.12 = type <{ %class.b3AlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.13 = type { i8 }
-%class.b3HashMap.16 = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.12, %class.b3AlignedObjectArray.4 }
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
-%class.b3AlignedObjectArray.4 = type <{ %class.b3AlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.5 = type { i8 }
-%class.b3HashMap = type { %class.b3AlignedObjectArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.0, %class.b3AlignedObjectArray.4 }
-%class.b3AlignedObjectArray.0 = type <{ %class.b3AlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.1 = type { i8 }
-%class.b3AlignedObjectArray.8 = type <{ %class.b3AlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.9 = type { i8 }
-%"class.bParse::bFile" = type <{ ptr, [7 x i8], i8, ptr, i32, i32, %class.b3HashMap, i32, [4 x i8], ptr, ptr, %class.b3AlignedObjectArray.8, %class.b3AlignedObjectArray.8, %class.b3AlignedObjectArray.12, %class.b3HashMap.16, %class.b3HashMap, i32, [4 x i8] }>
 %"class.bParse::bChunkInd" = type { i32, i32, ptr, i32, i32 }
 %class.b3HashPtr = type { %union.anon }
 %union.anon = type { ptr }
@@ -72,77 +57,77 @@ define dso_local void @_ZN6bParse12b3BulletFileC2Ev(ptr noundef nonnull align 8 
 invoke.cont17:
   tail call void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 576
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 568
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 556
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 560
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i11 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i11 = getelementptr inbounds i8, ptr %this, i64 608
   store i8 1, ptr %m_ownsMemory.i.i11, align 8
-  %m_data.i.i12 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i12 = getelementptr inbounds i8, ptr %this, i64 600
   store ptr null, ptr %m_data.i.i12, align 8
-  %m_size.i.i13 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i13 = getelementptr inbounds i8, ptr %this, i64 588
   store i32 0, ptr %m_size.i.i13, align 4
-  %m_capacity.i.i14 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i14 = getelementptr inbounds i8, ptr %this, i64 592
   store i32 0, ptr %m_capacity.i.i14, align 8
-  %m_ownsMemory.i.i15 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i15 = getelementptr inbounds i8, ptr %this, i64 640
   store i8 1, ptr %m_ownsMemory.i.i15, align 8
-  %m_data.i.i16 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i16 = getelementptr inbounds i8, ptr %this, i64 632
   store ptr null, ptr %m_data.i.i16, align 8
-  %m_size.i.i17 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 2
+  %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 620
   store i32 0, ptr %m_size.i.i17, align 4
-  %m_capacity.i.i18 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i18 = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %m_capacity.i.i18, align 8
-  %m_ownsMemory.i.i19 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i19 = getelementptr inbounds i8, ptr %this, i64 672
   store i8 1, ptr %m_ownsMemory.i.i19, align 8
-  %m_data.i.i20 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 5
+  %m_data.i.i20 = getelementptr inbounds i8, ptr %this, i64 664
   store ptr null, ptr %m_data.i.i20, align 8
-  %m_size.i.i21 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 2
+  %m_size.i.i21 = getelementptr inbounds i8, ptr %this, i64 652
   store i32 0, ptr %m_size.i.i21, align 4
-  %m_capacity.i.i22 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 3
+  %m_capacity.i.i22 = getelementptr inbounds i8, ptr %this, i64 656
   store i32 0, ptr %m_capacity.i.i22, align 8
-  %m_ownsMemory.i.i23 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i23 = getelementptr inbounds i8, ptr %this, i64 704
   store i8 1, ptr %m_ownsMemory.i.i23, align 8
-  %m_data.i.i24 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i24 = getelementptr inbounds i8, ptr %this, i64 696
   store ptr null, ptr %m_data.i.i24, align 8
-  %m_size.i.i25 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 2
+  %m_size.i.i25 = getelementptr inbounds i8, ptr %this, i64 684
   store i32 0, ptr %m_size.i.i25, align 4
-  %m_capacity.i.i26 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i26 = getelementptr inbounds i8, ptr %this, i64 688
   store i32 0, ptr %m_capacity.i.i26, align 8
-  %m_ownsMemory.i.i27 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i27 = getelementptr inbounds i8, ptr %this, i64 736
   store i8 1, ptr %m_ownsMemory.i.i27, align 8
-  %m_data.i.i28 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i28 = getelementptr inbounds i8, ptr %this, i64 728
   store ptr null, ptr %m_data.i.i28, align 8
-  %m_size.i.i29 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 2
+  %m_size.i.i29 = getelementptr inbounds i8, ptr %this, i64 716
   store i32 0, ptr %m_size.i.i29, align 4
-  %m_capacity.i.i30 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i30 = getelementptr inbounds i8, ptr %this, i64 720
   store i32 0, ptr %m_capacity.i.i30, align 8
-  %m_ownsMemory.i.i31 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i31 = getelementptr inbounds i8, ptr %this, i64 768
   store i8 1, ptr %m_ownsMemory.i.i31, align 8
-  %m_data.i.i32 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i32 = getelementptr inbounds i8, ptr %this, i64 760
   store ptr null, ptr %m_data.i.i32, align 8
-  %m_size.i.i33 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i33 = getelementptr inbounds i8, ptr %this, i64 748
   store i32 0, ptr %m_size.i.i33, align 4
-  %m_capacity.i.i34 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i34 = getelementptr inbounds i8, ptr %this, i64 752
   store i32 0, ptr %m_capacity.i.i34, align 8
-  %m_ownsMemory.i.i35 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i35 = getelementptr inbounds i8, ptr %this, i64 800
   store i8 1, ptr %m_ownsMemory.i.i35, align 8
-  %m_data.i.i36 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i36 = getelementptr inbounds i8, ptr %this, i64 792
   store ptr null, ptr %m_data.i.i36, align 8
-  %m_size.i.i37 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 2
+  %m_size.i.i37 = getelementptr inbounds i8, ptr %this, i64 780
   store i32 0, ptr %m_size.i.i37, align 4
-  %m_capacity.i.i38 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i38 = getelementptr inbounds i8, ptr %this, i64 784
   store i32 0, ptr %m_capacity.i.i38, align 8
-  %m_ownsMemory.i.i39 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i39 = getelementptr inbounds i8, ptr %this, i64 832
   store i8 1, ptr %m_ownsMemory.i.i39, align 8
-  %m_data.i.i40 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i40 = getelementptr inbounds i8, ptr %this, i64 824
   store ptr null, ptr %m_data.i.i40, align 8
-  %m_size.i.i41 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 2
+  %m_size.i.i41 = getelementptr inbounds i8, ptr %this, i64 812
   store i32 0, ptr %m_size.i.i41, align 4
-  %m_capacity.i.i42 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i42 = getelementptr inbounds i8, ptr %this, i64 816
   store i32 0, ptr %m_capacity.i.i42, align 8
   %call = invoke noalias noundef nonnull dereferenceable(424) ptr @_Znwm(i64 noundef 424) #11
           to label %invoke.cont19 unwind label %lpad18
@@ -152,9 +137,9 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %call, ptr %mMemoryDNA, align 8
-  %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 1
+  %m_DnaCopy = getelementptr inbounds i8, ptr %this, i64 544
   store ptr null, ptr %m_DnaCopy, align 8
   %0 = load i32, ptr @b3s_bulletDNAlen64, align 4
   %conv = sext i32 %0 to i64
@@ -188,15 +173,15 @@ lpad20:                                           ; preds = %invoke.cont19
 
 ehcleanup:                                        ; preds = %lpad20, %lpad18
   %.pn = phi { ptr, i32 } [ %5, %lpad18 ], [ %6, %lpad20 ]
-  %m_dataBlocks = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10
-  %m_dynamicsWorldInfo = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9
-  %m_triangleInfoMaps = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8
-  %m_bvhs = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7
-  %m_constraints = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6
-  %m_collisionShapes = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5
-  %m_collisionObjects = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4
-  %m_rigidBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3
-  %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2
+  %m_dataBlocks = getelementptr inbounds i8, ptr %this, i64 808
+  %m_dynamicsWorldInfo = getelementptr inbounds i8, ptr %this, i64 776
+  %m_triangleInfoMaps = getelementptr inbounds i8, ptr %this, i64 744
+  %m_bvhs = getelementptr inbounds i8, ptr %this, i64 712
+  %m_constraints = getelementptr inbounds i8, ptr %this, i64 680
+  %m_collisionShapes = getelementptr inbounds i8, ptr %this, i64 648
+  %m_collisionObjects = getelementptr inbounds i8, ptr %this, i64 616
+  %m_rigidBodies = getelementptr inbounds i8, ptr %this, i64 584
+  %m_softBodies = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dataBlocks) #13
   tail call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_dynamicsWorldInfo) #13
   tail call void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_triangleInfoMaps) #13
@@ -232,13 +217,13 @@ declare void @_ZN6bParse4bDNA4initEPcib(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -249,12 +234,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -269,13 +254,13 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -286,12 +271,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -311,79 +296,79 @@ define dso_local void @_ZN6bParse12b3BulletFileC2EPKc(ptr noundef nonnull align 
 invoke.cont17:
   tail call void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %fileName, ptr noundef nonnull @.str.1)
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 576
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 568
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 556
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 560
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i9 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i9 = getelementptr inbounds i8, ptr %this, i64 608
   store i8 1, ptr %m_ownsMemory.i.i9, align 8
-  %m_data.i.i10 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i10 = getelementptr inbounds i8, ptr %this, i64 600
   store ptr null, ptr %m_data.i.i10, align 8
-  %m_size.i.i11 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i11 = getelementptr inbounds i8, ptr %this, i64 588
   store i32 0, ptr %m_size.i.i11, align 4
-  %m_capacity.i.i12 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i12 = getelementptr inbounds i8, ptr %this, i64 592
   store i32 0, ptr %m_capacity.i.i12, align 8
-  %m_ownsMemory.i.i13 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i13 = getelementptr inbounds i8, ptr %this, i64 640
   store i8 1, ptr %m_ownsMemory.i.i13, align 8
-  %m_data.i.i14 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i14 = getelementptr inbounds i8, ptr %this, i64 632
   store ptr null, ptr %m_data.i.i14, align 8
-  %m_size.i.i15 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 2
+  %m_size.i.i15 = getelementptr inbounds i8, ptr %this, i64 620
   store i32 0, ptr %m_size.i.i15, align 4
-  %m_capacity.i.i16 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i16 = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %m_capacity.i.i16, align 8
-  %m_ownsMemory.i.i17 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i17 = getelementptr inbounds i8, ptr %this, i64 672
   store i8 1, ptr %m_ownsMemory.i.i17, align 8
-  %m_data.i.i18 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 5
+  %m_data.i.i18 = getelementptr inbounds i8, ptr %this, i64 664
   store ptr null, ptr %m_data.i.i18, align 8
-  %m_size.i.i19 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 2
+  %m_size.i.i19 = getelementptr inbounds i8, ptr %this, i64 652
   store i32 0, ptr %m_size.i.i19, align 4
-  %m_capacity.i.i20 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 3
+  %m_capacity.i.i20 = getelementptr inbounds i8, ptr %this, i64 656
   store i32 0, ptr %m_capacity.i.i20, align 8
-  %m_ownsMemory.i.i21 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i21 = getelementptr inbounds i8, ptr %this, i64 704
   store i8 1, ptr %m_ownsMemory.i.i21, align 8
-  %m_data.i.i22 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i22 = getelementptr inbounds i8, ptr %this, i64 696
   store ptr null, ptr %m_data.i.i22, align 8
-  %m_size.i.i23 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 2
+  %m_size.i.i23 = getelementptr inbounds i8, ptr %this, i64 684
   store i32 0, ptr %m_size.i.i23, align 4
-  %m_capacity.i.i24 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i24 = getelementptr inbounds i8, ptr %this, i64 688
   store i32 0, ptr %m_capacity.i.i24, align 8
-  %m_ownsMemory.i.i25 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i25 = getelementptr inbounds i8, ptr %this, i64 736
   store i8 1, ptr %m_ownsMemory.i.i25, align 8
-  %m_data.i.i26 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i26 = getelementptr inbounds i8, ptr %this, i64 728
   store ptr null, ptr %m_data.i.i26, align 8
-  %m_size.i.i27 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 2
+  %m_size.i.i27 = getelementptr inbounds i8, ptr %this, i64 716
   store i32 0, ptr %m_size.i.i27, align 4
-  %m_capacity.i.i28 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i28 = getelementptr inbounds i8, ptr %this, i64 720
   store i32 0, ptr %m_capacity.i.i28, align 8
-  %m_ownsMemory.i.i29 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i29 = getelementptr inbounds i8, ptr %this, i64 768
   store i8 1, ptr %m_ownsMemory.i.i29, align 8
-  %m_data.i.i30 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i30 = getelementptr inbounds i8, ptr %this, i64 760
   store ptr null, ptr %m_data.i.i30, align 8
-  %m_size.i.i31 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i31 = getelementptr inbounds i8, ptr %this, i64 748
   store i32 0, ptr %m_size.i.i31, align 4
-  %m_capacity.i.i32 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i32 = getelementptr inbounds i8, ptr %this, i64 752
   store i32 0, ptr %m_capacity.i.i32, align 8
-  %m_ownsMemory.i.i33 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i33 = getelementptr inbounds i8, ptr %this, i64 800
   store i8 1, ptr %m_ownsMemory.i.i33, align 8
-  %m_data.i.i34 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i34 = getelementptr inbounds i8, ptr %this, i64 792
   store ptr null, ptr %m_data.i.i34, align 8
-  %m_size.i.i35 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 2
+  %m_size.i.i35 = getelementptr inbounds i8, ptr %this, i64 780
   store i32 0, ptr %m_size.i.i35, align 4
-  %m_capacity.i.i36 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i36 = getelementptr inbounds i8, ptr %this, i64 784
   store i32 0, ptr %m_capacity.i.i36, align 8
-  %m_ownsMemory.i.i37 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i37 = getelementptr inbounds i8, ptr %this, i64 832
   store i8 1, ptr %m_ownsMemory.i.i37, align 8
-  %m_data.i.i38 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i38 = getelementptr inbounds i8, ptr %this, i64 824
   store ptr null, ptr %m_data.i.i38, align 8
-  %m_size.i.i39 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 2
+  %m_size.i.i39 = getelementptr inbounds i8, ptr %this, i64 812
   store i32 0, ptr %m_size.i.i39, align 4
-  %m_capacity.i.i40 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i40 = getelementptr inbounds i8, ptr %this, i64 816
   store i32 0, ptr %m_capacity.i.i40, align 8
-  %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 1
+  %m_DnaCopy = getelementptr inbounds i8, ptr %this, i64 544
   store ptr null, ptr %m_DnaCopy, align 8
   ret void
 }
@@ -393,79 +378,79 @@ define dso_local void @_ZN6bParse12b3BulletFileC2EPci(ptr noundef nonnull align 
 invoke.cont17:
   tail call void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %memoryBuffer, i32 noundef %len, ptr noundef nonnull @.str.1)
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 576
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 568
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 556
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 560
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i9 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i9 = getelementptr inbounds i8, ptr %this, i64 608
   store i8 1, ptr %m_ownsMemory.i.i9, align 8
-  %m_data.i.i10 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i10 = getelementptr inbounds i8, ptr %this, i64 600
   store ptr null, ptr %m_data.i.i10, align 8
-  %m_size.i.i11 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i11 = getelementptr inbounds i8, ptr %this, i64 588
   store i32 0, ptr %m_size.i.i11, align 4
-  %m_capacity.i.i12 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i12 = getelementptr inbounds i8, ptr %this, i64 592
   store i32 0, ptr %m_capacity.i.i12, align 8
-  %m_ownsMemory.i.i13 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i13 = getelementptr inbounds i8, ptr %this, i64 640
   store i8 1, ptr %m_ownsMemory.i.i13, align 8
-  %m_data.i.i14 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i14 = getelementptr inbounds i8, ptr %this, i64 632
   store ptr null, ptr %m_data.i.i14, align 8
-  %m_size.i.i15 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 2
+  %m_size.i.i15 = getelementptr inbounds i8, ptr %this, i64 620
   store i32 0, ptr %m_size.i.i15, align 4
-  %m_capacity.i.i16 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i16 = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %m_capacity.i.i16, align 8
-  %m_ownsMemory.i.i17 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i17 = getelementptr inbounds i8, ptr %this, i64 672
   store i8 1, ptr %m_ownsMemory.i.i17, align 8
-  %m_data.i.i18 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 5
+  %m_data.i.i18 = getelementptr inbounds i8, ptr %this, i64 664
   store ptr null, ptr %m_data.i.i18, align 8
-  %m_size.i.i19 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 2
+  %m_size.i.i19 = getelementptr inbounds i8, ptr %this, i64 652
   store i32 0, ptr %m_size.i.i19, align 4
-  %m_capacity.i.i20 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 3
+  %m_capacity.i.i20 = getelementptr inbounds i8, ptr %this, i64 656
   store i32 0, ptr %m_capacity.i.i20, align 8
-  %m_ownsMemory.i.i21 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i21 = getelementptr inbounds i8, ptr %this, i64 704
   store i8 1, ptr %m_ownsMemory.i.i21, align 8
-  %m_data.i.i22 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i22 = getelementptr inbounds i8, ptr %this, i64 696
   store ptr null, ptr %m_data.i.i22, align 8
-  %m_size.i.i23 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 2
+  %m_size.i.i23 = getelementptr inbounds i8, ptr %this, i64 684
   store i32 0, ptr %m_size.i.i23, align 4
-  %m_capacity.i.i24 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i24 = getelementptr inbounds i8, ptr %this, i64 688
   store i32 0, ptr %m_capacity.i.i24, align 8
-  %m_ownsMemory.i.i25 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i25 = getelementptr inbounds i8, ptr %this, i64 736
   store i8 1, ptr %m_ownsMemory.i.i25, align 8
-  %m_data.i.i26 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i26 = getelementptr inbounds i8, ptr %this, i64 728
   store ptr null, ptr %m_data.i.i26, align 8
-  %m_size.i.i27 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 2
+  %m_size.i.i27 = getelementptr inbounds i8, ptr %this, i64 716
   store i32 0, ptr %m_size.i.i27, align 4
-  %m_capacity.i.i28 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i28 = getelementptr inbounds i8, ptr %this, i64 720
   store i32 0, ptr %m_capacity.i.i28, align 8
-  %m_ownsMemory.i.i29 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i29 = getelementptr inbounds i8, ptr %this, i64 768
   store i8 1, ptr %m_ownsMemory.i.i29, align 8
-  %m_data.i.i30 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i30 = getelementptr inbounds i8, ptr %this, i64 760
   store ptr null, ptr %m_data.i.i30, align 8
-  %m_size.i.i31 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i31 = getelementptr inbounds i8, ptr %this, i64 748
   store i32 0, ptr %m_size.i.i31, align 4
-  %m_capacity.i.i32 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i32 = getelementptr inbounds i8, ptr %this, i64 752
   store i32 0, ptr %m_capacity.i.i32, align 8
-  %m_ownsMemory.i.i33 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i33 = getelementptr inbounds i8, ptr %this, i64 800
   store i8 1, ptr %m_ownsMemory.i.i33, align 8
-  %m_data.i.i34 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i34 = getelementptr inbounds i8, ptr %this, i64 792
   store ptr null, ptr %m_data.i.i34, align 8
-  %m_size.i.i35 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 2
+  %m_size.i.i35 = getelementptr inbounds i8, ptr %this, i64 780
   store i32 0, ptr %m_size.i.i35, align 4
-  %m_capacity.i.i36 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i36 = getelementptr inbounds i8, ptr %this, i64 784
   store i32 0, ptr %m_capacity.i.i36, align 8
-  %m_ownsMemory.i.i37 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i37 = getelementptr inbounds i8, ptr %this, i64 832
   store i8 1, ptr %m_ownsMemory.i.i37, align 8
-  %m_data.i.i38 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i38 = getelementptr inbounds i8, ptr %this, i64 824
   store ptr null, ptr %m_data.i.i38, align 8
-  %m_size.i.i39 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 2
+  %m_size.i.i39 = getelementptr inbounds i8, ptr %this, i64 812
   store i32 0, ptr %m_size.i.i39, align 4
-  %m_capacity.i.i40 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i40 = getelementptr inbounds i8, ptr %this, i64 816
   store i32 0, ptr %m_capacity.i.i40, align 8
-  %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 1
+  %m_DnaCopy = getelementptr inbounds i8, ptr %this, i64 544
   store ptr null, ptr %m_DnaCopy, align 8
   ret void
 }
@@ -476,7 +461,7 @@ declare void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferencea
 define dso_local void @_ZN6bParse12b3BulletFileD2Ev(ptr noundef nonnull align 8 dereferenceable(840) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 1
+  %m_DnaCopy = getelementptr inbounds i8, ptr %this, i64 544
   %0 = load ptr, ptr %m_DnaCopy, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -486,13 +471,13 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_size.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 812
   %1 = load i32, ptr %m_size.i, align 4
   %tobool4.not91 = icmp eq i32 %1, 0
   br i1 %tobool4.not91, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %m_data.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 824
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %delete.end
@@ -500,7 +485,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %3 = load ptr, ptr %m_data.i, align 8
   %4 = sext i32 %2 to i64
   %5 = getelementptr ptr, ptr %3, i64 %4
-  %arrayidx.i = getelementptr ptr, ptr %5, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %5, i64 -8
   %6 = load ptr, ptr %arrayidx.i, align 8
   %isnull = icmp eq ptr %6, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -518,13 +503,13 @@ delete.end:                                       ; preds = %delete.notnull, %wh
   br i1 %tobool4.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %delete.end, %if.end
-  %m_data.i.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 824
   %8 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayIPcED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end
-  %m_ownsMemory.i.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 832
   %9 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %10 = and i8 %9, 1
   %tobool2.not.i.i.i = icmp eq i8 %10, 0
@@ -542,19 +527,19 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIPcED2Ev.exit:           ; preds = %while.end, %if.then.i.i.i, %if.then3.i.i.i
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 6
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 832
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 816
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i4 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 5
+  %m_data.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 792
   %13 = load ptr, ptr %m_data.i.i.i4, align 8
   %tobool.not.i.i.i5 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i5, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZN20b3AlignedObjectArrayIPcED2Ev.exit
-  %m_ownsMemory.i.i.i7 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 6
+  %m_ownsMemory.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 800
   %14 = load i8, ptr %m_ownsMemory.i.i.i7, align 8
   %15 = and i8 %14, 1
   %tobool2.not.i.i.i8 = icmp eq i8 %15, 0
@@ -572,20 +557,20 @@ terminate.lpad.i10:                               ; preds = %if.then3.i.i.i9
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayIPcED2Ev.exit, %if.then.i.i.i6, %if.then3.i.i.i9
-  %m_size.i.i.i11 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 2
-  %m_ownsMemory.i1.i.i12 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 6
+  %m_size.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 780
+  %m_ownsMemory.i1.i.i12 = getelementptr inbounds i8, ptr %this, i64 800
   store i8 1, ptr %m_ownsMemory.i1.i.i12, align 8
   store ptr null, ptr %m_data.i.i.i4, align 8
   store i32 0, ptr %m_size.i.i.i11, align 4
-  %m_capacity.i.i.i13 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 3
+  %m_capacity.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 784
   store i32 0, ptr %m_capacity.i.i.i13, align 8
-  %m_data.i.i.i14 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 760
   %18 = load ptr, ptr %m_data.i.i.i14, align 8
   %tobool.not.i.i.i15 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i15, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit24, label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit
-  %m_ownsMemory.i.i.i17 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 768
   %19 = load i8, ptr %m_ownsMemory.i.i.i17, align 8
   %20 = and i8 %19, 1
   %tobool2.not.i.i.i18 = icmp eq i8 %20, 0
@@ -603,20 +588,20 @@ terminate.lpad.i20:                               ; preds = %if.then3.i.i.i19
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit24: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit, %if.then.i.i.i16, %if.then3.i.i.i19
-  %m_size.i.i.i21 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 2
-  %m_ownsMemory.i1.i.i22 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 6
+  %m_size.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 748
+  %m_ownsMemory.i1.i.i22 = getelementptr inbounds i8, ptr %this, i64 768
   store i8 1, ptr %m_ownsMemory.i1.i.i22, align 8
   store ptr null, ptr %m_data.i.i.i14, align 8
   store i32 0, ptr %m_size.i.i.i21, align 4
-  %m_capacity.i.i.i23 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 752
   store i32 0, ptr %m_capacity.i.i.i23, align 8
-  %m_data.i.i.i25 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 728
   %23 = load ptr, ptr %m_data.i.i.i25, align 8
   %tobool.not.i.i.i26 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i26, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit35, label %if.then.i.i.i27
 
 if.then.i.i.i27:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit24
-  %m_ownsMemory.i.i.i28 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 736
   %24 = load i8, ptr %m_ownsMemory.i.i.i28, align 8
   %25 = and i8 %24, 1
   %tobool2.not.i.i.i29 = icmp eq i8 %25, 0
@@ -634,20 +619,20 @@ terminate.lpad.i31:                               ; preds = %if.then3.i.i.i30
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit35: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit24, %if.then.i.i.i27, %if.then3.i.i.i30
-  %m_size.i.i.i32 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 2
-  %m_ownsMemory.i1.i.i33 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 6
+  %m_size.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 716
+  %m_ownsMemory.i1.i.i33 = getelementptr inbounds i8, ptr %this, i64 736
   store i8 1, ptr %m_ownsMemory.i1.i.i33, align 8
   store ptr null, ptr %m_data.i.i.i25, align 8
   store i32 0, ptr %m_size.i.i.i32, align 4
-  %m_capacity.i.i.i34 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 720
   store i32 0, ptr %m_capacity.i.i.i34, align 8
-  %m_data.i.i.i36 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 696
   %28 = load ptr, ptr %m_data.i.i.i36, align 8
   %tobool.not.i.i.i37 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i37, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit46, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit35
-  %m_ownsMemory.i.i.i39 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 704
   %29 = load i8, ptr %m_ownsMemory.i.i.i39, align 8
   %30 = and i8 %29, 1
   %tobool2.not.i.i.i40 = icmp eq i8 %30, 0
@@ -665,20 +650,20 @@ terminate.lpad.i42:                               ; preds = %if.then3.i.i.i41
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit46: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit35, %if.then.i.i.i38, %if.then3.i.i.i41
-  %m_size.i.i.i43 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 2
-  %m_ownsMemory.i1.i.i44 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 6
+  %m_size.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 684
+  %m_ownsMemory.i1.i.i44 = getelementptr inbounds i8, ptr %this, i64 704
   store i8 1, ptr %m_ownsMemory.i1.i.i44, align 8
   store ptr null, ptr %m_data.i.i.i36, align 8
   store i32 0, ptr %m_size.i.i.i43, align 4
-  %m_capacity.i.i.i45 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 688
   store i32 0, ptr %m_capacity.i.i.i45, align 8
-  %m_data.i.i.i47 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 5
+  %m_data.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 664
   %33 = load ptr, ptr %m_data.i.i.i47, align 8
   %tobool.not.i.i.i48 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i48, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit57, label %if.then.i.i.i49
 
 if.then.i.i.i49:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit46
-  %m_ownsMemory.i.i.i50 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i.i50 = getelementptr inbounds i8, ptr %this, i64 672
   %34 = load i8, ptr %m_ownsMemory.i.i.i50, align 8
   %35 = and i8 %34, 1
   %tobool2.not.i.i.i51 = icmp eq i8 %35, 0
@@ -696,20 +681,20 @@ terminate.lpad.i53:                               ; preds = %if.then3.i.i.i52
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit57: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit46, %if.then.i.i.i49, %if.then3.i.i.i52
-  %m_size.i.i.i54 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 2
-  %m_ownsMemory.i1.i.i55 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 6
+  %m_size.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 652
+  %m_ownsMemory.i1.i.i55 = getelementptr inbounds i8, ptr %this, i64 672
   store i8 1, ptr %m_ownsMemory.i1.i.i55, align 8
   store ptr null, ptr %m_data.i.i.i47, align 8
   store i32 0, ptr %m_size.i.i.i54, align 4
-  %m_capacity.i.i.i56 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 3
+  %m_capacity.i.i.i56 = getelementptr inbounds i8, ptr %this, i64 656
   store i32 0, ptr %m_capacity.i.i.i56, align 8
-  %m_data.i.i.i58 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 5
+  %m_data.i.i.i58 = getelementptr inbounds i8, ptr %this, i64 632
   %38 = load ptr, ptr %m_data.i.i.i58, align 8
   %tobool.not.i.i.i59 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i59, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit68, label %if.then.i.i.i60
 
 if.then.i.i.i60:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit57
-  %m_ownsMemory.i.i.i61 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 640
   %39 = load i8, ptr %m_ownsMemory.i.i.i61, align 8
   %40 = and i8 %39, 1
   %tobool2.not.i.i.i62 = icmp eq i8 %40, 0
@@ -727,20 +712,20 @@ terminate.lpad.i64:                               ; preds = %if.then3.i.i.i63
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit68: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit57, %if.then.i.i.i60, %if.then3.i.i.i63
-  %m_size.i.i.i65 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 2
-  %m_ownsMemory.i1.i.i66 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 6
+  %m_size.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 620
+  %m_ownsMemory.i1.i.i66 = getelementptr inbounds i8, ptr %this, i64 640
   store i8 1, ptr %m_ownsMemory.i1.i.i66, align 8
   store ptr null, ptr %m_data.i.i.i58, align 8
   store i32 0, ptr %m_size.i.i.i65, align 4
-  %m_capacity.i.i.i67 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 3
+  %m_capacity.i.i.i67 = getelementptr inbounds i8, ptr %this, i64 624
   store i32 0, ptr %m_capacity.i.i.i67, align 8
-  %m_data.i.i.i69 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i.i69 = getelementptr inbounds i8, ptr %this, i64 600
   %43 = load ptr, ptr %m_data.i.i.i69, align 8
   %tobool.not.i.i.i70 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i70, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit79, label %if.then.i.i.i71
 
 if.then.i.i.i71:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit68
-  %m_ownsMemory.i.i.i72 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 608
   %44 = load i8, ptr %m_ownsMemory.i.i.i72, align 8
   %45 = and i8 %44, 1
   %tobool2.not.i.i.i73 = icmp eq i8 %45, 0
@@ -758,20 +743,20 @@ terminate.lpad.i75:                               ; preds = %if.then3.i.i.i74
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit79: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit68, %if.then.i.i.i71, %if.then3.i.i.i74
-  %m_size.i.i.i76 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 2
-  %m_ownsMemory.i1.i.i77 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 6
+  %m_size.i.i.i76 = getelementptr inbounds i8, ptr %this, i64 588
+  %m_ownsMemory.i1.i.i77 = getelementptr inbounds i8, ptr %this, i64 608
   store i8 1, ptr %m_ownsMemory.i1.i.i77, align 8
   store ptr null, ptr %m_data.i.i.i69, align 8
   store i32 0, ptr %m_size.i.i.i76, align 4
-  %m_capacity.i.i.i78 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i78 = getelementptr inbounds i8, ptr %this, i64 592
   store i32 0, ptr %m_capacity.i.i.i78, align 8
-  %m_data.i.i.i80 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i.i80 = getelementptr inbounds i8, ptr %this, i64 568
   %48 = load ptr, ptr %m_data.i.i.i80, align 8
   %tobool.not.i.i.i81 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i81, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit90, label %if.then.i.i.i82
 
 if.then.i.i.i82:                                  ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit79
-  %m_ownsMemory.i.i.i83 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i83 = getelementptr inbounds i8, ptr %this, i64 576
   %49 = load i8, ptr %m_ownsMemory.i.i.i83, align 8
   %50 = and i8 %49, 1
   %tobool2.not.i.i.i84 = icmp eq i8 %50, 0
@@ -789,12 +774,12 @@ terminate.lpad.i86:                               ; preds = %if.then3.i.i.i85
   unreachable
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit90: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEED2Ev.exit79, %if.then.i.i.i82, %if.then3.i.i.i85
-  %m_size.i.i.i87 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i.i88 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i.i87 = getelementptr inbounds i8, ptr %this, i64 556
+  %m_ownsMemory.i1.i.i88 = getelementptr inbounds i8, ptr %this, i64 576
   store i8 1, ptr %m_ownsMemory.i1.i.i88, align 8
   store ptr null, ptr %m_data.i.i.i80, align 8
   store i32 0, ptr %m_size.i.i.i87, align 4
-  %m_capacity.i.i.i89 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i89 = getelementptr inbounds i8, ptr %this, i64 560
   store i32 0, ptr %m_capacity.i.i.i89, align 8
   tail call void @_ZN6bParse5bFileD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) #13
   ret void
@@ -840,13 +825,13 @@ entry:
   %ref.tmp27 = alloca ptr, align 8
   %ref.tmp70 = alloca %class.b3HashPtr, align 8
   %ref.tmp72 = alloca ptr, align 8
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %mFlags, align 8
   %and = and i32 %0, 128
   %cmp.not = icmp eq i32 %and, 0
-  %mDataStart = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 7
+  %mDataStart = getelementptr inbounds i8, ptr %this, i64 160
   store i32 12, ptr %mDataStart, align 8
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mFileBuffer, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %dataChunk, align 8
@@ -866,46 +851,46 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp7.old.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 3
-  %mLibPointers69 = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6
-  %oldPtr71 = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 2
-  %m_chunkPtrPtrMap = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 14
-  %m_size.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 3
-  %m_chunks = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
-  %m_size.i.i18 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 2
-  %m_capacity.i.i19 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 3
-  %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2
-  %m_data.i21 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 2, i32 5
-  %m_size.i.i30 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 2
-  %m_capacity.i.i31 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 3
-  %m_rigidBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3
-  %m_data.i33 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 3, i32 5
-  %m_size.i.i43 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 2
-  %m_capacity.i.i44 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 3
-  %m_dynamicsWorldInfo = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9
-  %m_data.i46 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 9, i32 5
-  %m_size.i.i56 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 2
-  %m_capacity.i.i57 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 3
-  %m_constraints = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6
-  %m_data.i59 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 6, i32 5
-  %m_size.i.i69 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 2
-  %m_capacity.i.i70 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 3
-  %m_bvhs = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7
-  %m_data.i72 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 7, i32 5
-  %m_size.i.i82 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 2
-  %m_capacity.i.i83 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 3
-  %m_triangleInfoMaps = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8
-  %m_data.i85 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 8, i32 5
-  %m_size.i.i95 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 2
-  %m_capacity.i.i96 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 3
-  %m_collisionObjects = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4
-  %m_data.i98 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 4, i32 5
-  %m_size.i.i108 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 2
-  %m_capacity.i.i109 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 3
-  %m_collisionShapes = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5
-  %m_data.i111 = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 5, i32 5
+  %dna_nr = getelementptr inbounds i8, ptr %dataChunk, i64 16
+  %mLibPointers69 = getelementptr inbounds i8, ptr %this, i64 32
+  %oldPtr71 = getelementptr inbounds i8, ptr %dataChunk, i64 8
+  %m_chunkPtrPtrMap = getelementptr inbounds i8, ptr %this, i64 280
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 252
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 256
+  %m_chunks = getelementptr inbounds i8, ptr %this, i64 248
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
+  %m_size.i.i18 = getelementptr inbounds i8, ptr %this, i64 556
+  %m_capacity.i.i19 = getelementptr inbounds i8, ptr %this, i64 560
+  %m_softBodies = getelementptr inbounds i8, ptr %this, i64 552
+  %m_data.i21 = getelementptr inbounds i8, ptr %this, i64 568
+  %m_size.i.i30 = getelementptr inbounds i8, ptr %this, i64 588
+  %m_capacity.i.i31 = getelementptr inbounds i8, ptr %this, i64 592
+  %m_rigidBodies = getelementptr inbounds i8, ptr %this, i64 584
+  %m_data.i33 = getelementptr inbounds i8, ptr %this, i64 600
+  %m_size.i.i43 = getelementptr inbounds i8, ptr %this, i64 780
+  %m_capacity.i.i44 = getelementptr inbounds i8, ptr %this, i64 784
+  %m_dynamicsWorldInfo = getelementptr inbounds i8, ptr %this, i64 776
+  %m_data.i46 = getelementptr inbounds i8, ptr %this, i64 792
+  %m_size.i.i56 = getelementptr inbounds i8, ptr %this, i64 684
+  %m_capacity.i.i57 = getelementptr inbounds i8, ptr %this, i64 688
+  %m_constraints = getelementptr inbounds i8, ptr %this, i64 680
+  %m_data.i59 = getelementptr inbounds i8, ptr %this, i64 696
+  %m_size.i.i69 = getelementptr inbounds i8, ptr %this, i64 716
+  %m_capacity.i.i70 = getelementptr inbounds i8, ptr %this, i64 720
+  %m_bvhs = getelementptr inbounds i8, ptr %this, i64 712
+  %m_data.i72 = getelementptr inbounds i8, ptr %this, i64 728
+  %m_size.i.i82 = getelementptr inbounds i8, ptr %this, i64 748
+  %m_capacity.i.i83 = getelementptr inbounds i8, ptr %this, i64 752
+  %m_triangleInfoMaps = getelementptr inbounds i8, ptr %this, i64 744
+  %m_data.i85 = getelementptr inbounds i8, ptr %this, i64 760
+  %m_size.i.i95 = getelementptr inbounds i8, ptr %this, i64 620
+  %m_capacity.i.i96 = getelementptr inbounds i8, ptr %this, i64 624
+  %m_collisionObjects = getelementptr inbounds i8, ptr %this, i64 616
+  %m_data.i98 = getelementptr inbounds i8, ptr %this, i64 632
+  %m_size.i.i108 = getelementptr inbounds i8, ptr %this, i64 652
+  %m_capacity.i.i109 = getelementptr inbounds i8, ptr %this, i64 656
+  %m_collisionShapes = getelementptr inbounds i8, ptr %this, i64 648
+  %m_data.i111 = getelementptr inbounds i8, ptr %this, i64 664
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end85
@@ -1261,7 +1246,7 @@ declare noundef ptr @_ZN6bParse5bFile10readStructEPcRNS_9bChunkIndE(ptr noundef 
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE6insertERKS0_RKS2_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 8 dereferenceable(24) %value) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load i32, ptr %key, align 8
-  %arrayidx2.i = getelementptr inbounds [2 x i32], ptr %key, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %key, i64 4
   %1 = load i32, ptr %arrayidx2.i, align 4
   %add.i = add nsw i32 %1, %0
   %shl.i = shl i32 %add.i, 15
@@ -1277,18 +1262,18 @@ entry:
   %add10.i = add nsw i32 %xor7.i, %not9.i
   %shr11.i = ashr i32 %add10.i, 16
   %xor12.i = xor i32 %shr11.i, %add10.i
-  %m_valueArray = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2
-  %m_capacity.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 3
+  %m_valueArray = getelementptr inbounds i8, ptr %this, i64 64
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i32, ptr %m_capacity.i, align 8
   %sub.i = add nsw i32 %2, -1
   %and.i = and i32 %xor12.i, %sub.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %m_size.i.i, align 4
   %cmp.not.i = icmp ult i32 %and.i, %3
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %and.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i
@@ -1297,10 +1282,10 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp6.not13.i, label %if.end, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end.i
-  %m_data.i6.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i6.i = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load ptr, ptr %m_data.i6.i, align 8
   %6 = load ptr, ptr %key, align 8
-  %m_data.i9.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i9.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %m_data.i9.i, align 8
   br label %land.rhs.i
 
@@ -1319,14 +1304,14 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp6.not.i, label %if.end, label %land.rhs.i, !llvm.loop !8
 
 if.then:                                          ; preds = %land.rhs.i
-  %m_data.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 80
   %9 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.bParse::bChunkInd", ptr %9, i64 %idxprom.i7.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(24) %value, i64 24, i1 false)
   br label %return
 
 if.end:                                           ; preds = %while.body.i, %entry, %if.end.i
-  %m_size.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 68
   %10 = load i32, ptr %m_size.i, align 4
   %cmp.i = icmp eq i32 %10, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit
@@ -1341,7 +1326,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit: ; preds = %if.end, %if.then.i
   %11 = phi i32 [ %.pre.i, %if.then.i ], [ %10, %if.end ]
-  %m_data.i13 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load ptr, ptr %m_data.i13, align 8
   %idxprom.i14 = sext i32 %11 to i64
   %arrayidx.i15 = getelementptr inbounds %"class.bParse::bChunkInd", ptr %12, i64 %idxprom.i14
@@ -1349,15 +1334,15 @@ _ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit: ; preds = %
   %13 = load i32, ptr %m_size.i, align 4
   %inc.i = add nsw i32 %13, 1
   store i32 %inc.i, ptr %m_size.i, align 4
-  %m_size.i.i16 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i16 = getelementptr inbounds i8, ptr %this, i64 100
   %14 = load i32, ptr %m_size.i.i16, align 4
-  %m_capacity.i.i17 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i17 = getelementptr inbounds i8, ptr %this, i64 104
   %15 = load i32, ptr %m_capacity.i.i17, align 8
   %cmp.i18 = icmp eq i32 %14, %15
   br i1 %cmp.i18, label %if.then.i24, label %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit
 
 if.then.i24:                                      ; preds = %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit
-  %m_keyArray = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3
+  %m_keyArray = getelementptr inbounds i8, ptr %this, i64 96
   %tobool.not.i.i25 = icmp eq i32 %14, 0
   %mul.i.i26 = shl nsw i32 %14, 1
   %cond.i.i27 = select i1 %tobool.not.i.i25, i32 1, i32 %mul.i.i26
@@ -1367,7 +1352,7 @@ if.then.i24:                                      ; preds = %_ZN20b3AlignedObjec
 
 _ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit, %if.then.i24
   %16 = phi i32 [ %.pre.i28, %if.then.i24 ], [ %14, %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit ]
-  %m_data.i20 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 112
   %17 = load ptr, ptr %m_data.i20, align 8
   %idxprom.i21 = sext i32 %16 to i64
   %arrayidx.i22 = getelementptr inbounds %class.b3HashPtr, ptr %17, i64 %idxprom.i21
@@ -1405,12 +1390,12 @@ if.then14:                                        ; preds = %_ZN20b3AlignedObjec
 
 if.end20:                                         ; preds = %if.then14, %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit
   %hash.0 = phi i32 [ %and19, %if.then14 ], [ %and.i, %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit ]
-  %m_data.i46 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i46 = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load ptr, ptr %m_data.i46, align 8
   %idxprom.i47 = sext i32 %hash.0 to i64
   %arrayidx.i48 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i47
   %25 = load i32, ptr %arrayidx.i48, align 4
-  %m_data.i49 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i49 = getelementptr inbounds i8, ptr %this, i64 48
   %26 = load ptr, ptr %m_data.i49, align 8
   %idxprom.i50 = sext i32 %10 to i64
   %arrayidx.i51 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i50
@@ -1428,7 +1413,7 @@ return:                                           ; preds = %if.end20, %if.then
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE6insertERKS0_RKS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load i32, ptr %key, align 8
-  %arrayidx2.i = getelementptr inbounds [2 x i32], ptr %key, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %key, i64 4
   %1 = load i32, ptr %arrayidx2.i, align 4
   %add.i = add nsw i32 %1, %0
   %shl.i = shl i32 %add.i, 15
@@ -1444,18 +1429,18 @@ entry:
   %add10.i = add nsw i32 %xor7.i, %not9.i
   %shr11.i = ashr i32 %add10.i, 16
   %xor12.i = xor i32 %shr11.i, %add10.i
-  %m_valueArray = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2
-  %m_capacity.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 3
+  %m_valueArray = getelementptr inbounds i8, ptr %this, i64 64
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i32, ptr %m_capacity.i, align 8
   %sub.i = add nsw i32 %2, -1
   %and.i = and i32 %xor12.i, %sub.i
-  %m_size.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %m_size.i.i, align 4
   %cmp.not.i = icmp ult i32 %and.i, %3
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %and.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i
@@ -1464,10 +1449,10 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp6.not13.i, label %if.end, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end.i
-  %m_data.i6.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i6.i = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load ptr, ptr %m_data.i6.i, align 8
   %6 = load ptr, ptr %key, align 8
-  %m_data.i9.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i9.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %m_data.i9.i, align 8
   br label %land.rhs.i
 
@@ -1487,14 +1472,14 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 if.then:                                          ; preds = %land.rhs.i
   %9 = load ptr, ptr %value, align 8
-  %m_data.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i7.i
   store ptr %9, ptr %arrayidx.i, align 8
   br label %return
 
 if.end:                                           ; preds = %while.body.i, %entry, %if.end.i
-  %m_size.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 68
   %11 = load i32, ptr %m_size.i, align 4
   %cmp.i = icmp eq i32 %11, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit
@@ -1509,7 +1494,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit: ; preds = %if.end, %if.then.i
   %12 = phi i32 [ %.pre.i, %if.then.i ], [ %11, %if.end ]
-  %m_data.i13 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i13 = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load ptr, ptr %m_data.i13, align 8
   %idxprom.i14 = sext i32 %12 to i64
   %arrayidx.i15 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i14
@@ -1518,15 +1503,15 @@ _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit: ; pre
   %15 = load i32, ptr %m_size.i, align 4
   %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr %m_size.i, align 4
-  %m_size.i.i16 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i16 = getelementptr inbounds i8, ptr %this, i64 100
   %16 = load i32, ptr %m_size.i.i16, align 4
-  %m_capacity.i.i17 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i17 = getelementptr inbounds i8, ptr %this, i64 104
   %17 = load i32, ptr %m_capacity.i.i17, align 8
   %cmp.i18 = icmp eq i32 %16, %17
   br i1 %cmp.i18, label %if.then.i24, label %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit
 
 if.then.i24:                                      ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit
-  %m_keyArray = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3
+  %m_keyArray = getelementptr inbounds i8, ptr %this, i64 96
   %tobool.not.i.i25 = icmp eq i32 %16, 0
   %mul.i.i26 = shl nsw i32 %16, 1
   %cond.i.i27 = select i1 %tobool.not.i.i25, i32 1, i32 %mul.i.i26
@@ -1536,7 +1521,7 @@ if.then.i24:                                      ; preds = %_ZN20b3AlignedObjec
 
 _ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit, %if.then.i24
   %18 = phi i32 [ %.pre.i28, %if.then.i24 ], [ %16, %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE9push_backERKS2_.exit ]
-  %m_data.i20 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 112
   %19 = load ptr, ptr %m_data.i20, align 8
   %idxprom.i21 = sext i32 %18 to i64
   %arrayidx.i22 = getelementptr inbounds %class.b3HashPtr, ptr %19, i64 %idxprom.i21
@@ -1574,12 +1559,12 @@ if.then14:                                        ; preds = %_ZN20b3AlignedObjec
 
 if.end20:                                         ; preds = %if.then14, %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit
   %hash.0 = phi i32 [ %and19, %if.then14 ], [ %and.i, %_ZN20b3AlignedObjectArrayI9b3HashPtrE9push_backERKS0_.exit ]
-  %m_data.i46 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i46 = getelementptr inbounds i8, ptr %this, i64 16
   %26 = load ptr, ptr %m_data.i46, align 8
   %idxprom.i47 = sext i32 %hash.0 to i64
   %arrayidx.i48 = getelementptr inbounds i32, ptr %26, i64 %idxprom.i47
   %27 = load i32, ptr %arrayidx.i48, align 4
-  %m_data.i49 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i49 = getelementptr inbounds i8, ptr %this, i64 48
   %28 = load ptr, ptr %m_data.i49, align 8
   %idxprom.i50 = sext i32 %11 to i64
   %arrayidx.i51 = getelementptr inbounds i32, ptr %28, i64 %idxprom.i50
@@ -1599,15 +1584,15 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse12b3BulletFile12addDataBlockEPc(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef %dataBlock) unnamed_addr #0 align 2 {
 entry:
-  %m_size.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 812
   %0 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 816
   %1 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_dataBlocks = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10
+  %m_dataBlocks = getelementptr inbounds i8, ptr %this, i64 808
   %tobool.not.i.i = icmp eq i32 %0, 0
   %mul.i.i = shl nsw i32 %0, 1
   %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
@@ -1617,7 +1602,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN20b3AlignedObjectArrayIPcE9push_backERKS0_.exit: ; preds = %entry, %if.then.i
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
-  %m_data.i = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 10, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 824
   %3 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %idxprom.i
@@ -1633,14 +1618,14 @@ define dso_local void @_ZN6bParse12b3BulletFile8writeDNAEP8_IO_FILE(ptr nocaptur
 entry:
   %dataChunk = alloca %"class.bParse::bChunkInd", align 8
   store i32 826363460, ptr %dataChunk, align 8
-  %dna_nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 3
+  %dna_nr = getelementptr inbounds i8, ptr %dataChunk, i64 16
   store i32 0, ptr %dna_nr, align 8
-  %nr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %dataChunk, i64 20
   store i32 1, ptr %nr, align 4
   %0 = load i32, ptr @b3s_bulletDNAlen64, align 4
-  %len = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %dataChunk, i64 4
   store i32 %0, ptr %len, align 4
-  %oldPtr = getelementptr inbounds %"class.bParse::bChunkInd", ptr %dataChunk, i64 0, i32 2
+  %oldPtr = getelementptr inbounds i8, ptr %dataChunk, i64 8
   store ptr @b3s_bulletDNAstr64, ptr %oldPtr, align 8
   %call = call i64 @fwrite(ptr noundef nonnull %dataChunk, i64 noundef 24, i64 noundef 1, ptr noundef %fp)
   %1 = load i32, ptr @b3s_bulletDNAlen64, align 4
@@ -1655,7 +1640,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse12b3BulletFile5parseEi(ptr noundef nonnull align 8 dereferenceable(840) %this, i32 noundef %verboseMode) unnamed_addr #0 align 2 {
 entry:
-  %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this, i64 0, i32 1
+  %m_DnaCopy = getelementptr inbounds i8, ptr %this, i64 544
   %0 = load ptr, ptr %m_DnaCopy, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -1675,11 +1660,11 @@ if.end:                                           ; preds = %delete.notnull, %en
   %3 = load ptr, ptr %m_DnaCopy, align 8
   %4 = load i32, ptr @b3s_bulletDNAlen64, align 4
   tail call void @_ZN6bParse5bFile13parseInternalEiPci(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %verboseMode, ptr noundef %3, i32 noundef %4)
-  %mFlags = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 16
+  %mFlags = getelementptr inbounds i8, ptr %this, i64 536
   %5 = load i32, ptr %mFlags, align 8
   %and = and i32 %5, -5
   store i32 %and, ptr %mFlags, align 8
-  %mFileBuffer = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 3
+  %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %mFileBuffer, align 8
   %arrayidx9 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 118, ptr %arrayidx9, align 1
@@ -1697,19 +1682,19 @@ entry:
   br i1 %tobool.not, label %if.else17, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_headerString = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 1
+  %m_headerString = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %header, ptr noundef nonnull align 8 dereferenceable(7) %m_headerString, i64 7, i1 false)
-  %arrayidx5 = getelementptr inbounds [12 x i8], ptr %header, i64 0, i64 7
+  %arrayidx5 = getelementptr inbounds i8, ptr %header, i64 7
   store <4 x i8> <i8 95, i8 86, i8 50, i8 55>, ptr %arrayidx5, align 1
-  %arrayidx10 = getelementptr inbounds [12 x i8], ptr %header, i64 0, i64 11
+  %arrayidx10 = getelementptr inbounds i8, ptr %header, i64 11
   store i8 53, ptr %arrayidx10, align 1
   %call12 = call i64 @fwrite(ptr noundef nonnull %header, i64 noundef 12, i64 noundef 1, ptr noundef nonnull %call)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef nonnull %call, i1 noundef zeroext %fixupPointers)
   %vtable14 = load ptr, ptr %this, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 8
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 64
   %1 = load ptr, ptr %vfn15, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull %call)
   %call16 = tail call i32 @fclose(ptr noundef nonnull %call)
@@ -1735,7 +1720,7 @@ define dso_local void @_ZN6bParse12b3BulletFile9addStructEPKcPviS3_i(ptr noundef
 entry:
   %ref.tmp = alloca %class.b3HashPtr, align 8
   %ref.tmp12 = alloca ptr, align 8
-  %mMemoryDNA = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 10
+  %mMemoryDNA = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %mMemoryDNA, align 8
   %call = tail call noundef i32 @_ZN6bParse4bDNA14getReverseTypeEPKc(ptr noundef nonnull align 8 dereferenceable(420) %0, ptr noundef %structType)
   %1 = load ptr, ptr %mMemoryDNA, align 8
@@ -1744,19 +1729,19 @@ entry:
   %3 = load i16, ptr %call7, align 2
   %conv = sext i16 %3 to i32
   %call9 = tail call noundef signext i16 @_ZN6bParse4bDNA9getLengthEi(ptr noundef nonnull align 8 dereferenceable(420) %2, i32 noundef %conv)
-  %mLibPointers = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 6
+  %mLibPointers = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %oldPtr, ptr %ref.tmp, align 8
   store ptr %data, ptr %ref.tmp12, align 8
   call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE6insertERKS0_RKS3_(ptr noundef nonnull align 8 dereferenceable(128) %mLibPointers, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp12)
-  %m_size.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 252
   %4 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %5 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %4, %5
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_chunks = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13
+  %m_chunks = getelementptr inbounds i8, ptr %this, i64 248
   %tobool.not.i.i = icmp eq i32 %4, 0
   %mul.i.i = shl nsw i32 %4, 1
   %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
@@ -1766,7 +1751,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE9push_backERKS1_.exit: ; preds = %entry, %if.then.i
   %6 = phi i32 [ %.pre.i, %if.then.i ], [ %4, %entry ]
-  %m_data.i = getelementptr inbounds %"class.bParse::bFile", ptr %this, i64 0, i32 13, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 264
   %7 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %6 to i64
   %arrayidx.i = getelementptr inbounds %"class.bParse::bChunkInd", ptr %7, i64 %idxprom.i
@@ -1798,7 +1783,7 @@ declare void @_ZN6bParse5bFile11writeChunksEP8_IO_FILEb(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -1815,13 +1800,13 @@ _ZN20b3AlignedObjectArrayIPcE8allocateEi.exit:    ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIPcE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -1839,20 +1824,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayIPcE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.7)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIPcE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIPcE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -1863,7 +1848,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIPcE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIPcE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -1878,16 +1863,16 @@ declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unname
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEE10growTablesERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i32, ptr %m_capacity.i, align 8
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %m_size.i, align 4
   %cmp = icmp slt i32 %2, %1
   br i1 %cmp, label %for.body9.lr.ph.i, label %if.end
 
 for.body9.lr.ph.i:                                ; preds = %entry
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %1)
-  %m_data10.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data10.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = sext i32 %2 to i64
   %wide.trip.count.i = sext i32 %1 to i64
   br label %for.body9.i
@@ -1903,15 +1888,15 @@ for.body9.i:                                      ; preds = %for.body9.i, %for.b
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %1, ptr %m_size.i, align 4
-  %m_size.i.i17 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %m_size.i.i17, align 4
   %cmp4.i18 = icmp slt i32 %5, %1
   br i1 %cmp4.i18, label %for.body9.lr.ph.i19, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
 
 for.body9.lr.ph.i19:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
-  %m_next = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_next, i32 noundef %1)
-  %m_data10.i20 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 5
+  %m_data10.i20 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = sext i32 %5 to i64
   br label %for.body9.i23
 
@@ -1937,7 +1922,7 @@ for.cond10.preheader:                             ; preds = %for.body
   br i1 %cmp745, label %for.body12.lr.ph, label %for.cond18.preheader
 
 for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
-  %m_data.i29 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i29 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count55 = zext nneg i32 %1 to i64
   br label %for.body12
 
@@ -1955,8 +1940,8 @@ for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b
   br i1 %cmp1949, label %for.body20.lr.ph, label %if.end
 
 for.body20.lr.ph:                                 ; preds = %for.cond18.preheader
-  %m_data.i32 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 3, i32 5
-  %m_data.i39 = getelementptr inbounds %class.b3HashMap.16, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i32 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_data.i39 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count60 = zext nneg i32 %2 to i64
   br label %for.body20
 
@@ -1974,7 +1959,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %10 = load ptr, ptr %m_data.i32, align 8
   %arrayidx.i34 = getelementptr inbounds %class.b3HashPtr, ptr %10, i64 %indvars.iv57
   %11 = load i32, ptr %arrayidx.i34, align 8
-  %arrayidx2.i = getelementptr inbounds [2 x i32], ptr %arrayidx.i34, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %arrayidx.i34, i64 4
   %12 = load i32, ptr %arrayidx2.i, align 4
   %add.i = add nsw i32 %12, %11
   %shl.i = shl i32 %add.i, 15
@@ -2015,7 +2000,7 @@ if.end:                                           ; preds = %for.body20, %for.co
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI9b3HashPtrE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2032,13 +2017,13 @@ _ZN20b3AlignedObjectArrayI9b3HashPtrE8allocateEi.exit: ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayI9b3HashPtrE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2056,20 +2041,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI9b3HashPtrE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.7)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI9b3HashPtrE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayI9b3HashPtrE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -2080,7 +2065,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayI9b3HashPtrE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayI9b3HashPtrE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -2093,7 +2078,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2110,13 +2095,13 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit:     ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2134,20 +2119,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.7)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -2158,7 +2143,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit:  ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -2171,16 +2156,16 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEE10growTablesERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i32, ptr %m_capacity.i, align 8
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %m_size.i, align 4
   %cmp = icmp slt i32 %2, %1
   br i1 %cmp, label %for.body9.lr.ph.i, label %if.end
 
 for.body9.lr.ph.i:                                ; preds = %entry
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %1)
-  %m_data10.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data10.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = sext i32 %2 to i64
   %wide.trip.count.i = sext i32 %1 to i64
   br label %for.body9.i
@@ -2196,15 +2181,15 @@ for.body9.i:                                      ; preds = %for.body9.i, %for.b
 
 _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %for.body9.i
   store i32 %1, ptr %m_size.i, align 4
-  %m_size.i.i17 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %m_size.i.i17, align 4
   %cmp4.i18 = icmp slt i32 %5, %1
   br i1 %cmp4.i18, label %for.body9.lr.ph.i19, label %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit28
 
 for.body9.lr.ph.i19:                              ; preds = %_ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit
-  %m_next = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1
+  %m_next = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_next, i32 noundef %1)
-  %m_data10.i20 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data10.i20 = getelementptr inbounds i8, ptr %this, i64 48
   %6 = sext i32 %5 to i64
   br label %for.body9.i23
 
@@ -2230,7 +2215,7 @@ for.cond10.preheader:                             ; preds = %for.body
   br i1 %cmp745, label %for.body12.lr.ph, label %for.cond18.preheader
 
 for.body12.lr.ph:                                 ; preds = %for.cond10.preheader
-  %m_data.i29 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i29 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count55 = zext nneg i32 %1 to i64
   br label %for.body12
 
@@ -2248,8 +2233,8 @@ for.cond18.preheader:                             ; preds = %for.body12, %_ZN20b
   br i1 %cmp1949, label %for.body20.lr.ph, label %if.end
 
 for.body20.lr.ph:                                 ; preds = %for.cond18.preheader
-  %m_data.i32 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 3, i32 5
-  %m_data.i39 = getelementptr inbounds %class.b3HashMap, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i32 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_data.i39 = getelementptr inbounds i8, ptr %this, i64 48
   %wide.trip.count60 = zext nneg i32 %2 to i64
   br label %for.body20
 
@@ -2267,7 +2252,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %10 = load ptr, ptr %m_data.i32, align 8
   %arrayidx.i34 = getelementptr inbounds %class.b3HashPtr, ptr %10, i64 %indvars.iv57
   %11 = load i32, ptr %arrayidx.i34, align 8
-  %arrayidx2.i = getelementptr inbounds [2 x i32], ptr %arrayidx.i34, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %arrayidx.i34, i64 4
   %12 = load i32, ptr %arrayidx2.i, align 4
   %add.i = add nsw i32 %12, %11
   %shl.i = shl i32 %add.i, 15
@@ -2308,7 +2293,7 @@ if.end:                                           ; preds = %for.body20, %for.co
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2325,13 +2310,13 @@ _ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE8allocateEi.exit: ; preds = %if.th
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIN6bParse9bChunkIndEE4copyEiiPS1_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2348,20 +2333,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIN6bParse9bChunkIndEE4copyEiiPS1_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.7)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIN6bParse9bChunkIndEE4copyEiiPS1_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIN6bParse9bChunkIndEE4copyEiiPS1_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIN6bParse9bChunkIndEE4copyEiiPS1_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %3, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
@@ -2372,7 +2357,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -2385,7 +2370,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -2402,13 +2387,13 @@ _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE8allocateEi.exit: ; preds = 
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -2426,20 +2411,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.7)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIPN6bParse13bStructHandleEE4copyEiiPS2_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -2450,7 +2435,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8

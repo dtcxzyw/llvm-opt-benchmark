@@ -69,7 +69,7 @@ for.body:                                         ; preds = %if.end, %for.body
 
 for.end:                                          ; preds = %for.body, %if.end
   %call15 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %state, ptr noundef nonnull %pad, i64 noundef 128) #5
-  %octx = getelementptr inbounds %struct.crypto_auth_hmacsha512_state, ptr %state, i64 0, i32 1
+  %octx = getelementptr inbounds i8, ptr %state, i64 208
   %call16 = call i32 @crypto_hash_sha512_init(ptr noundef nonnull %octx) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %pad, i8 92, i64 128, i1 false)
   br i1 %cmp921.not, label %for.end30, label %for.body21
@@ -116,7 +116,7 @@ define noundef i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %state, ptr
 entry:
   %ihash = alloca [64 x i8], align 16
   %call = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %state, ptr noundef nonnull %ihash) #5
-  %octx = getelementptr inbounds %struct.crypto_auth_hmacsha512_state, ptr %state, i64 0, i32 1
+  %octx = getelementptr inbounds i8, ptr %state, i64 208
   %call2 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %octx, ptr noundef nonnull %ihash, i64 noundef 64) #5
   %call4 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %octx, ptr noundef nonnull %out) #5
   call void @sodium_memzero(ptr noundef nonnull %ihash, i64 noundef 64) #5
@@ -132,7 +132,7 @@ entry:
   %call.i = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %state, ptr noundef %in, i64 noundef %inlen) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ihash.i)
   %call.i1 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %state, ptr noundef nonnull %ihash.i) #5
-  %octx.i = getelementptr inbounds %struct.crypto_auth_hmacsha512_state, ptr %state, i64 0, i32 1
+  %octx.i = getelementptr inbounds i8, ptr %state, i64 208
   %call2.i = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %octx.i, ptr noundef nonnull %ihash.i, i64 noundef 64) #5
   %call4.i = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %octx.i, ptr noundef nonnull %out) #5
   call void @sodium_memzero(ptr noundef nonnull %ihash.i, i64 noundef 64) #5
@@ -151,7 +151,7 @@ entry:
   %call.i.i = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %state.i, ptr noundef %in, i64 noundef %inlen) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ihash.i.i)
   %call.i1.i = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %state.i, ptr noundef nonnull %ihash.i.i) #5
-  %octx.i.i = getelementptr inbounds %struct.crypto_auth_hmacsha512_state, ptr %state.i, i64 0, i32 1
+  %octx.i.i = getelementptr inbounds i8, ptr %state.i, i64 208
   %call2.i.i = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %octx.i.i, ptr noundef nonnull %ihash.i.i, i64 noundef 64) #5
   %call4.i.i = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %octx.i.i, ptr noundef nonnull %correct) #5
   call void @sodium_memzero(ptr noundef nonnull %ihash.i.i, i64 noundef 64) #5

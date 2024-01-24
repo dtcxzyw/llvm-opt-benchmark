@@ -18,9 +18,9 @@ define hidden void @"_ZN3syn6thread20ThreadBound$LT$T$GT$3new17hfa7b0b60a668376a
           to label %14 unwind label %12
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds { i64, { i32, i32 } }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds { i64, { i32, i32 } }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %2, ptr %11, align 4
   store i64 %6, ptr %0, align 8
   call void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h40ba6eb39d48468bE"(ptr nonnull align 8 %4)
@@ -58,7 +58,7 @@ define align 4 ptr @"_ZN3syn6thread20ThreadBound$LT$T$GT$3get17hecda6a1c654d270c
 
 10:                                               ; preds = %8
   call void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h40ba6eb39d48468bE"(ptr nonnull align 8 %2)
-  %11 = getelementptr inbounds { i64, { i32, i32 } }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %9, ptr %11, ptr null
   ret ptr %.0
 

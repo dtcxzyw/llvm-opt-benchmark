@@ -6,58 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.NICInfo = type { %struct.MACAddr, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct.MACAddr = type { [6 x i8] }
-%struct.MicrochipPFSoCState = type { %struct.DeviceState, %struct.CPUClusterState, %struct.CPUClusterState, %struct.RISCVHartArrayState, %struct.RISCVHartArrayState, ptr, %struct.MchpPfSoCDdrSgmiiPhyState, %struct.MchpPfSoCDdrCfgState, %struct.MchpPfSoCIoscbState, ptr, ptr, ptr, ptr, ptr, %struct.MchpPfSoCSysregState, %struct.SiFivePDMAState, %struct.CadenceGEMState, %struct.CadenceGEMState, %struct.CadenceSDHCIState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.CPUClusterState = type { %struct.DeviceState, i32 }
-%struct.RISCVHartArrayState = type { %struct.SysBusDevice, i32, i32, ptr, i64, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.anon = type { i64, ptr }
-%struct.MchpPfSoCDdrSgmiiPhyState = type { %struct.SysBusDevice, %struct.MemoryRegion }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.MchpPfSoCDdrCfgState = type { %struct.SysBusDevice, %struct.MemoryRegion }
-%struct.MchpPfSoCIoscbState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr }
-%struct.MchpPfSoCSysregState = type { %struct.SysBusDevice, %struct.MemoryRegion, ptr }
-%struct.SiFivePDMAState = type { %struct.SysBusDevice, %struct.MemoryRegion, [8 x ptr], [4 x %struct.sifive_pdma_chan] }
-%struct.sifive_pdma_chan = type { i32, i32, i64, i64, i64, i32, i64, i64, i64, i32 }
-%struct.CadenceGEMState = type { %struct.SysBusDevice, %struct.MemoryRegion, ptr, %struct.AddressSpace, ptr, %struct.NICConf, [8 x ptr], i8, i8, i8, i32, i16, [512 x i32], [512 x i32], [512 x i32], [512 x i32], [512 x i32], i8, [32 x i16], i8, [8 x i32], [8 x i32], i8, [16383 x i8], [16383 x i8], [8 x [6 x i32]], [4 x i8] }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.2, %union.anon.3 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.CadenceSDHCIState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, ptr, [64 x i32], %struct.SDHCIState }
-%struct.SDHCIState = type { %union.anon.4, %struct.SDBus, %struct.MemoryRegion, %struct.AddressSpace, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i16, i32, i16, i16, [4 x i32], i32, i8, i8, i8, i8, i16, i8, i8, i16, i16, i16, i16, i16, i16, i16, i16, i64, i16, i64, i64, i16, ptr, i32, i16, i8, i8, i8, i32, i8, i8, i8, i8 }
-%union.anon.4 = type { %struct.PCIDevice }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.SDBus = type { %struct.BusState }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.MicrochipIcicleKitState = type { %struct.MachineState, %struct.MicrochipPFSoCState }
 
 @microchip_pfsoc_soc_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 123280, i64 0, ptr @microchip_pfsoc_soc_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @microchip_pfsoc_soc_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"microchip.pfsoc\00", align 1
@@ -200,11 +148,11 @@ entry:
   %call = tail call ptr @qdev_get_machine() #4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #4
   %call2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 149, ptr noundef nonnull @__func__.microchip_pfsoc_soc_instance_init) #4
-  %e_cluster = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 1
+  %e_cluster = getelementptr inbounds i8, ptr %call2, i64 160
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull %e_cluster, i64 noundef 168, ptr noundef nonnull @.str.4) #4
   %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %e_cluster, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i34, ptr noundef nonnull @.str.5, i32 noundef 0) #4
-  %e_cpus = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 3
+  %e_cpus = getelementptr inbounds i8, ptr %call2, i64 496
   tail call void @object_initialize_child_internal(ptr noundef nonnull %e_cluster, ptr noundef nonnull @.str.6, ptr noundef nonnull %e_cpus, i64 noundef 848, ptr noundef nonnull @.str.7) #4
   %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %e_cpus, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i35, ptr noundef nonnull @.str.8, i32 noundef 1) #4
@@ -214,14 +162,14 @@ entry:
   tail call void @qdev_prop_set_string(ptr noundef %call.i37, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #4
   %call.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %e_cpus, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   tail call void @qdev_prop_set_uint64(ptr noundef %call.i38, ptr noundef nonnull @.str.12, i64 noundef 539099136) #4
-  %u_cluster = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 2
+  %u_cluster = getelementptr inbounds i8, ptr %call2, i64 328
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.13, ptr noundef nonnull %u_cluster, i64 noundef 168, ptr noundef nonnull @.str.4) #4
   %call.i39 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %u_cluster, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i39, ptr noundef nonnull @.str.5, i32 noundef 1) #4
-  %u_cpus = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 4
+  %u_cpus = getelementptr inbounds i8, ptr %call2, i64 1344
   tail call void @object_initialize_child_internal(ptr noundef nonnull %u_cluster, ptr noundef nonnull @.str.14, ptr noundef nonnull %u_cpus, i64 noundef 848, ptr noundef nonnull @.str.7) #4
   %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %u_cpus, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
-  %smp = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 29
+  %smp = getelementptr inbounds i8, ptr %call.i, i64 288
   %0 = load i32, ptr %smp, align 8
   %sub = add i32 %0, -1
   tail call void @qdev_prop_set_uint32(ptr noundef %call.i40, ptr noundef nonnull @.str.8, i32 noundef %sub) #4
@@ -231,21 +179,21 @@ entry:
   tail call void @qdev_prop_set_string(ptr noundef %call.i42, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.15) #4
   %call.i43 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %u_cpus, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   tail call void @qdev_prop_set_uint64(ptr noundef %call.i43, ptr noundef nonnull @.str.12, i64 noundef 539099136) #4
-  %dma = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 15
+  %dma = getelementptr inbounds i8, ptr %call2, i64 11264
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.16, ptr noundef nonnull %dma, i64 noundef 1440, ptr noundef nonnull @.str.17) #4
-  %sysreg = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 14
+  %sysreg = getelementptr inbounds i8, ptr %call2, i64 10160
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.18, ptr noundef nonnull %sysreg, i64 noundef 1104, ptr noundef nonnull @.str.19) #4
-  %ddr_sgmii_phy = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 6
+  %ddr_sgmii_phy = getelementptr inbounds i8, ptr %call2, i64 2208
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.20, ptr noundef nonnull %ddr_sgmii_phy, i64 noundef 1088, ptr noundef nonnull @.str.21) #4
-  %ddr_cfg = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 7
+  %ddr_cfg = getelementptr inbounds i8, ptr %call2, i64 3296
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.22, ptr noundef nonnull %ddr_cfg, i64 noundef 1088, ptr noundef nonnull @.str.23) #4
-  %gem0 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 16
+  %gem0 = getelementptr inbounds i8, ptr %call2, i64 12704
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.24, ptr noundef nonnull %gem0, i64 noundef 52832, ptr noundef nonnull @.str.25) #4
-  %gem1 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 17
+  %gem1 = getelementptr inbounds i8, ptr %call2, i64 65536
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.26, ptr noundef nonnull %gem1, i64 noundef 52832, ptr noundef nonnull @.str.25) #4
-  %sdhci = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 18
+  %sdhci = getelementptr inbounds i8, ptr %call2, i64 118368
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.27, ptr noundef nonnull %sdhci, i64 noundef 4912, ptr noundef nonnull @.str.28) #4
-  %ioscb = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 8
+  %ioscb = getelementptr inbounds i8, ptr %call2, i64 4384
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.29, ptr noundef nonnull %ioscb, i64 noundef 5728, ptr noundef nonnull @.str.30) #4
   ret void
 }
@@ -254,9 +202,9 @@ entry:
 define internal void @microchip_pfsoc_soc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @microchip_pfsoc_soc_realize, ptr %realize, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
 }
@@ -285,16 +233,16 @@ entry:
   %call6 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #5
   %call7 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #5
   %call8 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #5
-  %e_cpus = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 3
+  %e_cpus = getelementptr inbounds i8, ptr %call2, i64 496
   %call.i168 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %e_cpus, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call10 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i168, ptr noundef nonnull @error_abort) #4
-  %u_cpus = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 4
+  %u_cpus = getelementptr inbounds i8, ptr %call2, i64 1344
   %call.i169 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %u_cpus, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call12 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i169, ptr noundef nonnull @error_abort) #4
-  %e_cluster = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 1
+  %e_cluster = getelementptr inbounds i8, ptr %call2, i64 160
   %call.i170 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %e_cluster, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call14 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i170, ptr noundef null, ptr noundef nonnull @error_abort) #4
-  %u_cluster = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 2
+  %u_cluster = getelementptr inbounds i8, ptr %call2, i64 328
   %call.i171 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %u_cluster, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call16 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i171, ptr noundef null, ptr noundef nonnull @error_abort) #4
   tail call void @memory_region_init_ram(ptr noundef %call4, ptr noundef null, ptr noundef nonnull @.str.34, i64 noundef 256, ptr noundef nonnull @error_fatal) #4
@@ -336,7 +284,7 @@ entry:
   %call2.i187 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i.i186, ptr noundef nonnull @error_fatal) #4
   %call.i4.i188 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i185, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_mmio_map_overlap(ptr noundef %call.i4.i188, i32 noundef 0, i64 noundef 24133632, i32 noundef -1000) #4
-  %smp = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 29
+  %smp = getelementptr inbounds i8, ptr %call.i, i64 288
   %0 = load i32, ptr %smp, align 8
   %call44 = tail call ptr @riscv_aclint_swi_create(i64 noundef 33554432, i32 noundef 0, i32 noundef %0, i1 noundef zeroext false) #4
   %1 = load i32, ptr %smp, align 8
@@ -354,10 +302,10 @@ entry:
   %call60 = tail call ptr @riscv_plic_hart_config_string(i32 noundef %2) #4
   %3 = load i32, ptr %smp, align 8
   %call67 = tail call ptr @sifive_plic_create(i64 noundef 201326592, ptr noundef %call60, i32 noundef %3, i32 noundef 0, i32 noundef 187, i32 noundef 7, i32 noundef 0, i32 noundef 4096, i32 noundef 8192, i32 noundef 128, i32 noundef 2097152, i32 noundef 4096, i32 noundef 67108864) #4
-  %plic = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 5
+  %plic = getelementptr inbounds i8, ptr %call2, i64 2192
   store ptr %call67, ptr %plic, align 16
   tail call void @g_free(ptr noundef %call60) #4
-  %dma = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 15
+  %dma = getelementptr inbounds i8, ptr %call2, i64 11264
   %call.i193 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dma, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call69 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i193, ptr noundef %errp) #4
   %call.i194 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dma, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
@@ -377,7 +325,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %sysreg = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 14
+  %sysreg = getelementptr inbounds i8, ptr %call2, i64 10160
   %call.i197 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %sysreg, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call82 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i197, ptr noundef %errp) #4
   %call.i198 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %sysreg, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
@@ -408,17 +356,17 @@ for.end:                                          ; preds = %for.body
   %call2.i211 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i.i210, ptr noundef nonnull @error_fatal) #4
   %call.i4.i212 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i209, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_mmio_map_overlap(ptr noundef %call.i4.i212, i32 noundef 0, i64 noundef 536895488, i32 noundef -1000) #4
-  %ddr_sgmii_phy = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 6
+  %ddr_sgmii_phy = getelementptr inbounds i8, ptr %call2, i64 2208
   %call.i213 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %ddr_sgmii_phy, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call105 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i213, ptr noundef %errp) #4
   %call.i214 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %ddr_sgmii_phy, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_mmio_map(ptr noundef %call.i214, i32 noundef 0, i64 noundef 536899584) #4
-  %ddr_cfg = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 7
+  %ddr_cfg = getelementptr inbounds i8, ptr %call2, i64 3296
   %call.i215 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %ddr_cfg, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call111 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i215, ptr noundef %errp) #4
   %call.i216 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %ddr_cfg, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_mmio_map(ptr noundef %call.i216, i32 noundef 0, i64 noundef 537395200) #4
-  %sdhci = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 18
+  %sdhci = getelementptr inbounds i8, ptr %call2, i64 118368
   %call.i217 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %sdhci, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call117 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i217, ptr noundef %errp) #4
   %call.i218 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %sdhci, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
@@ -433,35 +381,35 @@ for.end:                                          ; preds = %for.body
   %call131 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i221, i32 noundef 90) #4
   %call132 = tail call ptr @serial_hd(i32 noundef 0) #4
   %call133 = tail call ptr @mchp_pfsoc_mmuart_create(ptr noundef %call3, i64 noundef 536870912, ptr noundef %call131, ptr noundef %call132) #4
-  %serial0 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 9
+  %serial0 = getelementptr inbounds i8, ptr %call2, i64 10112
   store ptr %call133, ptr %serial0, align 16
   %8 = load ptr, ptr %plic, align 16
   %call.i222 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call138 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i222, i32 noundef 91) #4
   %call139 = tail call ptr @serial_hd(i32 noundef 1) #4
   %call140 = tail call ptr @mchp_pfsoc_mmuart_create(ptr noundef %call3, i64 noundef 537919488, ptr noundef %call138, ptr noundef %call139) #4
-  %serial1 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 10
+  %serial1 = getelementptr inbounds i8, ptr %call2, i64 10120
   store ptr %call140, ptr %serial1, align 8
   %9 = load ptr, ptr %plic, align 16
   %call.i223 = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call145 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i223, i32 noundef 92) #4
   %call146 = tail call ptr @serial_hd(i32 noundef 2) #4
   %call147 = tail call ptr @mchp_pfsoc_mmuart_create(ptr noundef %call3, i64 noundef 537927680, ptr noundef %call145, ptr noundef %call146) #4
-  %serial2 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 11
+  %serial2 = getelementptr inbounds i8, ptr %call2, i64 10128
   store ptr %call147, ptr %serial2, align 16
   %10 = load ptr, ptr %plic, align 16
   %call.i224 = tail call ptr @object_dynamic_cast_assert(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call152 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i224, i32 noundef 93) #4
   %call153 = tail call ptr @serial_hd(i32 noundef 3) #4
   %call154 = tail call ptr @mchp_pfsoc_mmuart_create(ptr noundef %call3, i64 noundef 537935872, ptr noundef %call152, ptr noundef %call153) #4
-  %serial3 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 12
+  %serial3 = getelementptr inbounds i8, ptr %call2, i64 10136
   store ptr %call154, ptr %serial3, align 8
   %11 = load ptr, ptr %plic, align 16
   %call.i225 = tail call ptr @object_dynamic_cast_assert(ptr noundef %11, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call159 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i225, i32 noundef 94) #4
   %call160 = tail call ptr @serial_hd(i32 noundef 4) #4
   %call161 = tail call ptr @mchp_pfsoc_mmuart_create(ptr noundef %call3, i64 noundef 537944064, ptr noundef %call159, ptr noundef %call160) #4
-  %serial4 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 13
+  %serial4 = getelementptr inbounds i8, ptr %call2, i64 10144
   store ptr %call161, ptr %serial4, align 16
   %call.i226 = tail call ptr @qdev_new(ptr noundef nonnull @.str.70) #4
   tail call void @qdev_prop_set_string(ptr noundef %call.i226, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.46) #4
@@ -553,7 +501,7 @@ for.end:                                          ; preds = %for.body
 
 if.then:                                          ; preds = %for.end
   tail call void @qemu_check_nic_model(ptr noundef nonnull @nd_table, ptr noundef nonnull @.str.25) #4
-  %gem0 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 16
+  %gem0 = getelementptr inbounds i8, ptr %call2, i64 12704
   %call.i274 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gem0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   tail call void @qdev_set_nic_properties(ptr noundef %call.i274, ptr noundef nonnull @nd_table) #4
   br label %if.end
@@ -565,13 +513,13 @@ if.end:                                           ; preds = %if.then, %for.end
 
 if.then213:                                       ; preds = %if.end
   tail call void @qemu_check_nic_model(ptr noundef nonnull getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 1), ptr noundef nonnull @.str.25) #4
-  %gem1 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 17
+  %gem1 = getelementptr inbounds i8, ptr %call2, i64 65536
   %call.i275 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gem1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   tail call void @qdev_set_nic_properties(ptr noundef %call.i275, ptr noundef nonnull getelementptr inbounds ([8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 1)) #4
   br label %if.end215
 
 if.end215:                                        ; preds = %if.then213, %if.end
-  %gem0216 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 16
+  %gem0216 = getelementptr inbounds i8, ptr %call2, i64 12704
   %call217 = tail call zeroext i1 @object_property_set_int(ptr noundef nonnull %gem0216, ptr noundef nonnull @.str.58, i64 noundef 17236236, ptr noundef %errp) #4
   %call219 = tail call zeroext i1 @object_property_set_int(ptr noundef nonnull %gem0216, ptr noundef nonnull @.str.59, i64 noundef 8, ptr noundef %errp) #4
   %call.i276 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gem0216, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
@@ -583,7 +531,7 @@ if.end215:                                        ; preds = %if.then213, %if.end
   %call.i279 = tail call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call231 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i279, i32 noundef 64) #4
   tail call void @sysbus_connect_irq(ptr noundef %call.i278, i32 noundef 0, ptr noundef %call231) #4
-  %gem1232 = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 17
+  %gem1232 = getelementptr inbounds i8, ptr %call2, i64 65536
   %call233 = tail call zeroext i1 @object_property_set_int(ptr noundef nonnull %gem1232, ptr noundef nonnull @.str.58, i64 noundef 17236236, ptr noundef %errp) #4
   %call235 = tail call zeroext i1 @object_property_set_int(ptr noundef nonnull %gem1232, ptr noundef nonnull @.str.59, i64 noundef 9, ptr noundef %errp) #4
   %call.i280 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %gem1232, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
@@ -618,7 +566,7 @@ if.end215:                                        ; preds = %if.then213, %if.end
   tail call void @sysbus_mmio_map_overlap(ptr noundef %call.i4.i295, i32 noundef 0, i64 noundef 538058752, i32 noundef -1000) #4
   tail call void @memory_region_init_rom(ptr noundef %call7, ptr noundef %dev, ptr noundef nonnull @.str.63, i64 noundef 131072, ptr noundef nonnull @error_fatal) #4
   tail call void @memory_region_add_subregion(ptr noundef %call3, i64 noundef 539099136, ptr noundef %call7) #4
-  %ioscb = getelementptr inbounds %struct.MicrochipPFSoCState, ptr %call2, i64 0, i32 8
+  %ioscb = getelementptr inbounds i8, ptr %call2, i64 4384
   %call.i296 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %ioscb, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   %call265 = tail call zeroext i1 @sysbus_realize(ptr noundef %call.i296, ptr noundef %errp) #4
   %call.i297 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %ioscb, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
@@ -707,19 +655,19 @@ declare void @sysbus_mmio_map_overlap(ptr noundef, i32 noundef, i64 noundef, i32
 define internal void @microchip_icicle_kit_machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #4
-  %desc = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 4
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @.str.74, ptr %desc, align 8
-  %init = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @microchip_icicle_kit_machine_init, ptr %init, align 8
-  %max_cpus = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 12
+  %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 176
   store i32 5, ptr %max_cpus, align 8
-  %min_cpus = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 13
+  %min_cpus = getelementptr inbounds i8, ptr %call.i, i64 180
   store i32 2, ptr %min_cpus, align 4
-  %default_cpus = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 14
+  %default_cpus = getelementptr inbounds i8, ptr %call.i, i64 184
   store i32 2, ptr %default_cpus, align 8
-  %default_ram_id = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 43
+  %default_ram_id = getelementptr inbounds i8, ptr %call.i, i64 304
   store ptr @.str.75, ptr %default_ram_id, align 8
-  %default_ram_size = getelementptr inbounds %struct.MachineClass, ptr %call.i, i64 0, i32 23
+  %default_ram_size = getelementptr inbounds i8, ptr %call.i, i64 240
   store i64 1611661312, ptr %default_ram_size, align 8
   ret void
 }
@@ -737,9 +685,9 @@ entry:
   %call5 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #5
   %call6 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #5
   %call7 = tail call ptr @drive_get(i32 noundef 6, i32 noundef 0, i32 noundef 0) #4
-  %ram_size = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 19
+  %ram_size = getelementptr inbounds i8, ptr %machine, i64 144
   %0 = load i64, ptr %ram_size, align 8
-  %default_ram_size = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 23
+  %default_ram_size = getelementptr inbounds i8, ptr %call1.i, i64 240
   %1 = load i64, ptr %default_ram_size, align 8
   %cmp = icmp ult i64 %0, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -752,13 +700,13 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %soc = getelementptr inbounds %struct.MicrochipIcicleKitState, ptr %call1, i64 0, i32 1
+  %soc = getelementptr inbounds i8, ptr %call1, i64 352
   tail call void @object_initialize_child_internal(ptr noundef nonnull %machine, ptr noundef nonnull @.str.77, ptr noundef nonnull %soc, i64 noundef 123280, ptr noundef nonnull @.str) #4
   %call.i53 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %soc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
   %call12 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i53, ptr noundef null, ptr noundef nonnull @error_fatal) #4
   %2 = load i64, ptr %ram_size, align 8
   %sub = add i64 %2, -1073741824
-  %ram = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 16
+  %ram = getelementptr inbounds i8, ptr %machine, i64 120
   %3 = load ptr, ptr %ram, align 8
   tail call void @memory_region_init_alias(ptr noundef %call3, ptr noundef null, ptr noundef nonnull @.str.78, ptr noundef %3, i64 noundef 0, i64 noundef 1073741824) #4
   %4 = load ptr, ptr %ram, align 8
@@ -776,26 +724,26 @@ if.then22:                                        ; preds = %if.end
   %call25 = tail call ptr @qdev_new(ptr noundef nonnull @.str.82) #4
   %call26 = tail call ptr @blk_by_legacy_dinfo(ptr noundef nonnull %call7) #4
   %call27 = tail call zeroext i1 @qdev_prop_set_drive_err(ptr noundef %call25, ptr noundef nonnull @.str.83, ptr noundef %call26, ptr noundef nonnull @error_fatal) #4
-  %bus = getelementptr inbounds %struct.MicrochipIcicleKitState, ptr %call1, i64 0, i32 1, i32 18, i32 3
+  %bus = getelementptr inbounds i8, ptr %call1, i64 120080
   %5 = load ptr, ptr %bus, align 16
   %call28 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call25, ptr noundef %5, ptr noundef nonnull @error_fatal) #4
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then22, %if.end
-  %kernel_filename = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 23
+  %kernel_filename = getelementptr inbounds i8, ptr %machine, i64 240
   %6 = load ptr, ptr %kernel_filename, align 8
   %tobool30.not = icmp eq ptr %6, null
   br i1 %tobool30.not, label %if.end41.thread61, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end29
-  %dtb = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 2
+  %dtb = getelementptr inbounds i8, ptr %machine, i64 48
   %7 = load ptr, ptr %dtb, align 8
   %tobool31.not = icmp eq ptr %7, null
   br i1 %tobool31.not, label %if.end41.thread61, label %if.then32
 
 if.then32:                                        ; preds = %land.lhs.true
   %call34 = call ptr @load_device_tree(ptr noundef nonnull %7, ptr noundef nonnull %fdt_size) #4
-  %fdt = getelementptr inbounds %struct.MachineState, ptr %machine, i64 0, i32 1
+  %fdt = getelementptr inbounds i8, ptr %machine, i64 40
   store ptr %call34, ptr %fdt, align 8
   %tobool36.not = icmp eq ptr %call34, null
   br i1 %tobool36.not, label %if.then37, label %if.then47
@@ -811,7 +759,7 @@ if.end41.thread61:                                ; preds = %land.lhs.true, %if.
 
 if.then47:                                        ; preds = %if.then32
   %call45 = call i64 @riscv_find_and_load_firmware(ptr noundef nonnull %machine, ptr noundef nonnull @.str.85, i64 noundef 2147483648, ptr noundef null) #4
-  %u_cpus = getelementptr inbounds %struct.MicrochipIcicleKitState, ptr %call1, i64 0, i32 1, i32 4
+  %u_cpus = getelementptr inbounds i8, ptr %call1, i64 1696
   %call49 = call i64 @riscv_calc_kernel_start_addr(ptr noundef nonnull %u_cpus, i64 noundef %call45) #4
   %call52 = call i64 @riscv_load_kernel(ptr noundef nonnull %machine, ptr noundef nonnull %u_cpus, i64 noundef %call49, i1 noundef zeroext true, ptr noundef null) #4
   %call57 = call i64 @riscv_compute_fdt_addr(i64 noundef 2147483648, i64 noundef 1073741824, ptr noundef nonnull %machine) #4

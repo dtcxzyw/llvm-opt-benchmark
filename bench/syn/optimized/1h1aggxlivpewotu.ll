@@ -40,7 +40,7 @@ define void @"_ZN80_$LT$syn..parse..ParseBuffer$u20$as$u20$syn..parse..discourag
   call void @_ZN3syn5parse16inner_unexpected17h3cc2020e3c0cc374E(ptr nonnull sret({ ptr, { i32, i32 } }) align 8 %9, ptr align 8 %0)
   %21 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   store ptr %21, ptr %10, align 8
-  %22 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %9, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %9, i64 8
   %23 = load i32, ptr %22, align 8, !range !6, !noundef !5
   invoke void @_ZN3syn5parse16inner_unexpected17h3cc2020e3c0cc374E(ptr nonnull sret({ ptr, { i32, i32 } }) align 8 %7, ptr align 8 %1)
           to label %27 unwind label %25
@@ -60,9 +60,9 @@ define void @"_ZN80_$LT$syn..parse..ParseBuffer$u20$as$u20$syn..parse..discourag
 27:                                               ; preds = %20
   %28 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   store ptr %28, ptr %8, align 8
-  %29 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %7, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
   %30 = load i32, ptr %29, align 8, !range !6, !noundef !5
-  %31 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %7, i64 0, i32 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %7, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = invoke zeroext i1 @"_ZN5alloc2rc15Rc$LT$T$C$A$GT$6ptr_eq17h069a92b9b9680090E"(ptr nonnull align 8 %10, ptr nonnull align 8 %8)
           to label %36 unwind label %34
@@ -96,16 +96,16 @@ define void @"_ZN80_$LT$syn..parse..ParseBuffer$u20$as$u20$syn..parse..discourag
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { i64, i64, { { { i32, [3 x i32] } } } }, ptr %45, i64 0, i32 2
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %48 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %47, ptr %48, align 8
   store i32 2, ptr %5, align 8
   invoke void @"_ZN4core4cell13Cell$LT$T$GT$3set17hc36c44bf78cc90acE"(ptr nonnull align 8 %46, ptr nonnull align 8 %5)
           to label %49 unwind label %34
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %1, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %3, align 8
   invoke void @"_ZN4core4cell13Cell$LT$T$GT$3new17h7e7a7350b9b87ac9E"(ptr nonnull sret({ { { i32, [3 x i32] } } }) align 8 %4, ptr nonnull align 8 %3)
           to label %51 unwind label %34
@@ -120,8 +120,8 @@ define void @"_ZN80_$LT$syn..parse..ParseBuffer$u20$as$u20$syn..parse..discourag
 
 54:                                               ; preds = %43
   %55 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i64, i64, { { { i32, [3 x i32] } } } }, ptr %55, i64 0, i32 2
-  %57 = getelementptr inbounds { [1 x i32], i32 }, ptr %6, i64 0, i32 1
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %32, ptr %57, align 4
   store i32 1, ptr %6, align 8
   invoke void @"_ZN4core4cell13Cell$LT$T$GT$3set17hc36c44bf78cc90acE"(ptr nonnull align 8 %56, ptr nonnull align 8 %6)
@@ -258,12 +258,12 @@ define void @_ZN3syn5parse16new_parse_buffer17h22efa7344f7de8f5E(ptr nocapture w
   %9 = tail call ptr @"_ZN4core4cell13Cell$LT$T$GT$3new17h5bf1aec4fac61cf6E"(ptr nonnull %4)
   %10 = extractvalue { ptr, ptr } %7, 1
   %11 = extractvalue { ptr, ptr } %7, 0
-  %12 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %1, ptr %12, align 8
   store ptr %11, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %9, ptr %14, align 8
   ret void
 
@@ -302,16 +302,16 @@ default.unreachable1:                             ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds { [1 x i32], i32 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !noundef !5
-  %7 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
   br label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], ptr }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = tail call ptr @"_ZN65_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h068db82fb087a232E"(ptr nonnull align 8 %9)
-  %11 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -324,16 +324,16 @@ default.unreachable1:                             ; preds = %2
 define hidden void @_ZN3syn5parse16inner_unexpected17h3cc2020e3c0cc374E(ptr nocapture writeonly sret({ ptr, { i32, i32 } }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i32, [3 x i32] }, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = tail call ptr @_ZN3syn5parse10cell_clone17hc558a83b6e519bc9E(ptr nonnull align 8 %5)
   %7 = tail call ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17h936676f20c8425f3E"(ptr %6, ptr nonnull align 8 @anon.8dcd8138f97690015654e99b469f163c.5)
-  %8 = getelementptr inbounds { [1 x i64], ptr }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   br label %9
 
 9:                                                ; preds = %24, %2
   %storemerge = phi ptr [ %7, %2 ], [ %25, %24 ]
   store ptr %storemerge, ptr %4, align 8
-  %10 = getelementptr inbounds { i64, i64, { { { i32, [3 x i32] } } } }, ptr %storemerge, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %storemerge, i64 16
   invoke void @_ZN3syn5parse10cell_clone17h5d2ba2e0d1b2b482E(ptr nonnull sret({ i32, [3 x i32] }) align 8 %3, ptr nonnull align 8 %10)
           to label %13 unwind label %11
 
@@ -356,18 +356,18 @@ default.unreachable5:                             ; preds = %13
 15:                                               ; preds = %13
   %16 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %17, align 8
   br label %26
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds { [1 x i32], i32 }, ptr %3, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %3, i64 4
   %20 = load i32, ptr %19, align 4, !noundef !5
   %21 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   store ptr %21, ptr %0, align 8
-  %22 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %0, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %22, align 8
-  %23 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %0, i64 0, i32 1, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %20, ptr %23, align 4
   br label %26
 
@@ -402,7 +402,7 @@ default.unreachable5:                             ; preds = %13
 
 ; Function Attrs: nonlazybind uwtable
 define hidden ptr @_ZN3syn5parse14get_unexpected17h8d177bb21077a99dE(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call ptr @_ZN3syn5parse10cell_clone17hc558a83b6e519bc9E(ptr nonnull align 8 %2)
   %4 = tail call ptr @"_ZN4core6option15Option$LT$T$GT$6unwrap17h936676f20c8425f3E"(ptr %3, ptr nonnull align 8 @anon.8dcd8138f97690015654e99b469f163c.5)
   ret ptr %4
@@ -415,10 +415,10 @@ define { i32, i32 } @_ZN3syn5parse33span_of_unexpected_ignoring_nones17h710acb0a
   br i1 %4, label %21, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %3, i64 0, i32 1
-  %6 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %3, i64 0, i32 1, i32 0, i32 1
-  %7 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %3, i64 0, i32 1, i32 3
-  %8 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %3, i64 0, i32 1, i32 3, i32 1
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds i8, ptr %3, i64 48
   br label %9
 
 9:                                                ; preds = %.preheader, %11
@@ -473,9 +473,9 @@ define zeroext i1 @_ZN3syn5parse11ParseBuffer5peek25peek217hfaf050f0594a76ddE(pt
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %5, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %11, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %5, i64 0, i32 1, i32 0, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN3syn6buffer6Cursor4skip17h86224de4f32a3b69E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %4, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
   %12 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h57e9d5363bc73c43E"(ptr nonnull align 8 %4, i1 zeroext false, ptr %1)
@@ -510,9 +510,9 @@ define zeroext i1 @_ZN3syn5parse11ParseBuffer5peek35peek317h37716c87ec5d7875E(pt
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %7, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %7, i64 0, i32 1, i32 0, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN3syn6buffer6Cursor4skip17h86224de4f32a3b69E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
   call void @"_ZN4core6option15Option$LT$T$GT$8and_then17h273301aba42d1c5cE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, ptr nonnull align 8 %5)
@@ -544,7 +544,7 @@ define zeroext i1 @_ZN3syn5parse11ParseBuffer8is_empty17h77408ea2c00567fdE(ptr a
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn5parse11ParseBuffer10lookahead117h0ee2f0cf23d892d5E(ptr sret({ { i64, { { { ptr, i64 }, i64 } } }, { ptr, ptr }, i32, [1 x i32] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %1, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !noundef !5
   %5 = tail call { ptr, ptr } @"_ZN4core4cell13Cell$LT$T$GT$3get17hc68bfdd03eff6af9E"(ptr align 8 %1)
   %6 = extractvalue { ptr, ptr } %5, 0
@@ -557,7 +557,7 @@ define void @_ZN3syn5parse11ParseBuffer10lookahead117h0ee2f0cf23d892d5E(ptr sret
 define void @_ZN3syn5parse11ParseBuffer4fork17h0fcfdddf11c9f50dE(ptr nocapture writeonly sret({ { ptr, ptr }, ptr, i32, {}, [4 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { i32, [3 x i32] }, align 8
   %4 = alloca { { { i32, [3 x i32] } } }, align 8
-  %5 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %1, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8, !noundef !5
   %7 = tail call { ptr, ptr } @"_ZN64_$LT$core..cell..Cell$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha0e5a3ce85173bfeE"(ptr align 8 %1)
   %8 = extractvalue { ptr, ptr } %7, 0
@@ -566,12 +566,12 @@ define void @_ZN3syn5parse11ParseBuffer4fork17h0fcfdddf11c9f50dE(ptr nocapture w
   call void @"_ZN4core4cell13Cell$LT$T$GT$3new17h7e7a7350b9b87ac9E"(ptr nonnull sret({ { { i32, [3 x i32] } } }) align 8 %4, ptr nonnull align 8 %3)
   %10 = call ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h04d713e18db64d18E"(ptr nonnull align 8 %4)
   %11 = call ptr @"_ZN4core4cell13Cell$LT$T$GT$3new17h5bf1aec4fac61cf6E"(ptr %10)
-  %12 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %6, ptr %12, align 8
   store ptr %8, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %11, ptr %14, align 8
   ret void
 }
@@ -589,7 +589,7 @@ define i32 @_ZN3syn5parse11ParseBuffer4span17h404423151e3d4b60E(ptr align 8 %0) 
   br label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !5
   br label %11
 
@@ -609,7 +609,7 @@ define void @_ZN3syn5parse11ParseBuffer16check_unexpected17hc4b60cce56abe76bE(pt
   %3 = alloca { { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { ptr, { i32, i32 } }, align 8
   call void @_ZN3syn5parse16inner_unexpected17h3cc2020e3c0cc374E(ptr nonnull sret({ ptr, { i32, i32 } }) align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8, !range !6, !noundef !5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
@@ -619,7 +619,7 @@ define void @_ZN3syn5parse11ParseBuffer16check_unexpected17hc4b60cce56abe76bE(pt
   br label %12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { ptr, { i32, i32 } }, ptr %4, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 12
   %11 = load i32, ptr %10, align 4, !noundef !5
   invoke void @_ZN3syn5error5Error3new17h314b779131f59f5fE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %3, i32 %11, ptr nonnull align 1 @anon.8dcd8138f97690015654e99b469f163c.6, i64 16)
           to label %15 unwind label %13
@@ -684,12 +684,12 @@ _ZN3syn5parse16new_parse_buffer17h22efa7344f7de8f5E.exit: ; preds = %2
   %17 = call ptr @"_ZN4core4cell13Cell$LT$T$GT$3new17h5bf1aec4fac61cf6E"(ptr nonnull %10)
   %18 = extractvalue { ptr, ptr } %11, 1
   %19 = extractvalue { ptr, ptr } %11, 0
-  %20 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %6, ptr %20, align 8
   store ptr %19, ptr %0, align 8
-  %21 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %18, ptr %21, align 8
-  %22 = getelementptr inbounds { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, ptr %0, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %17, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void

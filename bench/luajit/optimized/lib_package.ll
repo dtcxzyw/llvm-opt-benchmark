@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.luaL_Reg = type { ptr, ptr }
 %struct.luaL_Buffer = type { ptr, i32, ptr, [8192 x i8] }
 %struct.lua_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32 }
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.MRef = type { i64 }
-%struct.GCRef = type { i64 }
-%union.TValue = type { i64 }
 
 @.str = private unnamed_addr constant [9 x i8] c"_LOADLIB\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"__gc\00", align 1
@@ -68,7 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.53 = private unnamed_addr constant [25 x i8] c"module '%s' not found:%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_package(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_package(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @luaL_newmetatable(ptr noundef %L, ptr noundef nonnull @.str) #7
   %call1 = tail call ptr @lj_lib_pushcc(ptr noundef %L, ptr noundef nonnull @lj_cf_package_unloadlib, i32 noundef 1, i32 noundef 0) #7
@@ -146,7 +142,7 @@ declare i32 @luaL_newmetatable(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare hidden ptr @lj_lib_pushcc(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_unloadlib(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_unloadlib(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str) #7
   %0 = load ptr, ptr %call, align 8
@@ -190,7 +186,7 @@ declare ptr @luaL_checkudata(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_loadlib(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_loadlib(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #7
@@ -212,7 +208,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_searchpath(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_searchpath(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   %call1 = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 2, ptr noundef null) #7
@@ -233,7 +229,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_seeall(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_seeall(ptr noundef %L) #0 {
 entry:
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #7
   %call = tail call i32 @lua_getmetatable(ptr noundef %L, i32 noundef 1) #7
@@ -523,7 +519,7 @@ declare i32 @lua_getmetatable(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @lua_setmetatable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_loader_preload(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_loader_preload(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10001, ptr noundef nonnull @.str.16) #7
@@ -567,7 +563,7 @@ if.end14:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_loader_lua(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_loader_lua(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10001, ptr noundef nonnull @.str.5) #7
@@ -605,7 +601,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_loader_c(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_loader_c(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10001, ptr noundef nonnull @.str.8) #7
@@ -643,7 +639,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_loader_croot(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_loader_croot(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #8
@@ -705,13 +701,13 @@ declare i32 @luaL_loadfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_module(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_module(ptr noundef %L) #0 {
 entry:
   %ar.i = alloca %struct.lua_Debug, align 8
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %base = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %base = getelementptr inbounds i8, ptr %L, i64 32
   %1 = load ptr, ptr %base, align 8
   tail call void @luaL_pushmodule(ptr noundef %L, ptr noundef %call, i32 noundef 1) #7
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.45) #7
@@ -784,7 +780,7 @@ dooptions.exit:                                   ; preds = %for.body.i, %setfen
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lj_cf_package_require(ptr noundef %L) #0 {
+define internal noundef i32 @lj_cf_package_require(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef null) #7
   tail call void @lua_settop(ptr noundef %L, i32 noundef 1) #7
@@ -795,9 +791,9 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr, align 8
   %cmp = icmp eq i64 %1, -9223372036854775693
   br i1 %cmp, label %if.then2, label %return
@@ -857,9 +853,9 @@ for.inc:                                          ; preds = %if.else22, %if.then
   br label %for.cond
 
 for.end:                                          ; preds = %if.end15
-  %top25 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top25 = getelementptr inbounds i8, ptr %L, i64 40
   %2 = load ptr, ptr %top25, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr, ptr %top25, align 8
   store i64 -9223372036854775693, ptr %2, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef 2, ptr noundef %call) #7
@@ -876,7 +872,7 @@ if.then28:                                        ; preds = %for.end
 if.end29:                                         ; preds = %if.then28, %for.end
   tail call void @lua_getfield(ptr noundef nonnull %L, i32 noundef 2, ptr noundef %call) #7
   %3 = load ptr, ptr %top25, align 8
-  %add.ptr31 = getelementptr inbounds %union.TValue, ptr %3, i64 -1
+  %add.ptr31 = getelementptr inbounds i8, ptr %3, i64 -8
   %4 = load i64, ptr %add.ptr31, align 8
   %cmp32 = icmp eq i64 %4, -9223372036854775693
   br i1 %cmp32, label %if.then33, label %return

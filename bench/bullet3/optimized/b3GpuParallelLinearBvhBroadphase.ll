@@ -3,20 +3,6 @@ source_filename = "bench/bullet3/original/b3GpuParallelLinearBvhBroadphase.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b3GpuParallelLinearBvhBroadphase = type { %class.b3GpuBroadphaseInterface, %class.b3GpuParallelLinearBvh, %class.b3OpenCLArray.8, %class.b3OpenCLArray.0, %class.b3OpenCLArray, %class.b3OpenCLArray, %class.b3AlignedObjectArray, %class.b3AlignedObjectArray.10, %class.b3AlignedObjectArray.10 }
-%class.b3GpuBroadphaseInterface = type { ptr }
-%class.b3GpuParallelLinearBvh = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %class.b3RadixSort32CL, %class.b3OpenCLArray, %class.b3OpenCLArray, %class.b3OpenCLArray, %class.b3OpenCLArray.0, %class.b3OpenCLArray.2, %class.b3OpenCLArray.2, %class.b3OpenCLArray, %class.b3OpenCLArray.4, %class.b3OpenCLArray, %class.b3OpenCLArray, %class.b3OpenCLArray, %class.b3OpenCLArray.6, %class.b3OpenCLArray.0, %class.b3OpenCLArray.0, %class.b3OpenCLArray.0 }
-%class.b3RadixSort32CL = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%class.b3OpenCLArray.2 = type <{ ptr, i64, i64, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%class.b3OpenCLArray.4 = type <{ ptr, i64, i64, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%class.b3OpenCLArray.6 = type <{ ptr, i64, i64, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%class.b3OpenCLArray.8 = type <{ ptr, i64, i64, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%class.b3OpenCLArray.0 = type <{ ptr, i64, i64, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%class.b3OpenCLArray = type <{ ptr, i64, i64, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%class.b3AlignedObjectArray = type <{ %class.b3AlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator = type { i8 }
-%class.b3AlignedObjectArray.10 = type <{ %class.b3AlignedAllocator.11, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.b3AlignedAllocator.11 = type { i8 }
 %struct.b3SapAabb = type { %struct.b3Aabb }
 %struct.b3Aabb = type { %union.anon, %union.anon.15 }
 %union.anon = type { [4 x float] }
@@ -121,79 +107,79 @@ $_ZTI13b3OpenCLArrayIiE = comdat any
 define dso_local void @_ZN32b3GpuParallelLinearBvhBroadphaseC2EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(1424) %this, ptr noundef %context, ptr noundef %device, ptr noundef %queue) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV32b3GpuParallelLinearBvhBroadphase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_plbvh = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 1
+  %m_plbvh = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN22b3GpuParallelLinearBvhC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(1096) %m_plbvh, ptr noundef %context, ptr noundef %device, ptr noundef %queue)
-  %m_overlappingPairsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2
+  %m_overlappingPairsGpu = getelementptr inbounds i8, ptr %this, i64 1104
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 0, inrange i32 0, i64 2), ptr %m_overlappingPairsGpu, align 8
-  %m_size.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 1
-  %m_clContext.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 4
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 1112
+  %m_clContext.i = getelementptr inbounds i8, ptr %this, i64 1136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
   store ptr %context, ptr %m_clContext.i, align 8
-  %m_commandQueue.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 5
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 1144
   store ptr %queue, ptr %m_commandQueue.i, align 8
-  %m_ownsMemory.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 1152
   store i8 1, ptr %m_ownsMemory.i, align 8
-  %m_allowGrowingCapacity.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 7
+  %m_allowGrowingCapacity.i = getelementptr inbounds i8, ptr %this, i64 1153
   store i8 1, ptr %m_allowGrowingCapacity.i, align 1
-  %m_aabbsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3
+  %m_aabbsGpu = getelementptr inbounds i8, ptr %this, i64 1160
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 0, inrange i32 0, i64 2), ptr %m_aabbsGpu, align 8
-  %m_size.i16 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 1
-  %m_clContext.i17 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 4
+  %m_size.i16 = getelementptr inbounds i8, ptr %this, i64 1168
+  %m_clContext.i17 = getelementptr inbounds i8, ptr %this, i64 1192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i16, i8 0, i64 24, i1 false)
   store ptr %context, ptr %m_clContext.i17, align 8
-  %m_commandQueue.i18 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 5
+  %m_commandQueue.i18 = getelementptr inbounds i8, ptr %this, i64 1200
   store ptr %queue, ptr %m_commandQueue.i18, align 8
-  %m_ownsMemory.i19 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i19 = getelementptr inbounds i8, ptr %this, i64 1208
   store i8 1, ptr %m_ownsMemory.i19, align 8
-  %m_allowGrowingCapacity.i20 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 7
+  %m_allowGrowingCapacity.i20 = getelementptr inbounds i8, ptr %this, i64 1209
   store i8 1, ptr %m_allowGrowingCapacity.i20, align 1
-  %m_smallAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4
+  %m_smallAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1216
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, inrange i32 0, i64 2), ptr %m_smallAabbsMappingGpu, align 8
-  %m_size.i21 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 1
-  %m_clContext.i22 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 4
+  %m_size.i21 = getelementptr inbounds i8, ptr %this, i64 1224
+  %m_clContext.i22 = getelementptr inbounds i8, ptr %this, i64 1248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i21, i8 0, i64 24, i1 false)
   store ptr %context, ptr %m_clContext.i22, align 8
-  %m_commandQueue.i23 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 5
+  %m_commandQueue.i23 = getelementptr inbounds i8, ptr %this, i64 1256
   store ptr %queue, ptr %m_commandQueue.i23, align 8
-  %m_ownsMemory.i24 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i24 = getelementptr inbounds i8, ptr %this, i64 1264
   store i8 1, ptr %m_ownsMemory.i24, align 8
-  %m_allowGrowingCapacity.i25 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 7
+  %m_allowGrowingCapacity.i25 = getelementptr inbounds i8, ptr %this, i64 1265
   store i8 1, ptr %m_allowGrowingCapacity.i25, align 1
-  %m_largeAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5
+  %m_largeAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1272
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, inrange i32 0, i64 2), ptr %m_largeAabbsMappingGpu, align 8
-  %m_size.i26 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 1
-  %m_clContext.i27 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 4
+  %m_size.i26 = getelementptr inbounds i8, ptr %this, i64 1280
+  %m_clContext.i27 = getelementptr inbounds i8, ptr %this, i64 1304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i26, i8 0, i64 24, i1 false)
   store ptr %context, ptr %m_clContext.i27, align 8
-  %m_commandQueue.i28 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 5
+  %m_commandQueue.i28 = getelementptr inbounds i8, ptr %this, i64 1312
   store ptr %queue, ptr %m_commandQueue.i28, align 8
-  %m_ownsMemory.i29 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i29 = getelementptr inbounds i8, ptr %this, i64 1320
   store i8 1, ptr %m_ownsMemory.i29, align 8
-  %m_allowGrowingCapacity.i30 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 7
+  %m_allowGrowingCapacity.i30 = getelementptr inbounds i8, ptr %this, i64 1321
   store i8 1, ptr %m_allowGrowingCapacity.i30, align 1
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 1352
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 1344
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 1332
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 1336
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_ownsMemory.i.i31 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i31 = getelementptr inbounds i8, ptr %this, i64 1384
   store i8 1, ptr %m_ownsMemory.i.i31, align 8
-  %m_data.i.i32 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i32 = getelementptr inbounds i8, ptr %this, i64 1376
   store ptr null, ptr %m_data.i.i32, align 8
-  %m_size.i.i33 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 2
+  %m_size.i.i33 = getelementptr inbounds i8, ptr %this, i64 1364
   store i32 0, ptr %m_size.i.i33, align 4
-  %m_capacity.i.i34 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i34 = getelementptr inbounds i8, ptr %this, i64 1368
   store i32 0, ptr %m_capacity.i.i34, align 8
-  %m_ownsMemory.i.i35 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i35 = getelementptr inbounds i8, ptr %this, i64 1416
   store i8 1, ptr %m_ownsMemory.i.i35, align 8
-  %m_data.i.i36 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i36 = getelementptr inbounds i8, ptr %this, i64 1408
   store ptr null, ptr %m_data.i.i36, align 8
-  %m_size.i.i37 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i37 = getelementptr inbounds i8, ptr %this, i64 1396
   store i32 0, ptr %m_size.i.i37, align 4
-  %m_capacity.i.i38 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i38 = getelementptr inbounds i8, ptr %this, i64 1400
   store i32 0, ptr %m_capacity.i.i38, align 8
   ret void
 }
@@ -206,13 +192,13 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_clBuffer.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_ownsMemory.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i = icmp eq i8 %2, 0
@@ -224,7 +210,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
-  %m_size = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 1
+  %m_size = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size, i8 0, i64 24, i1 false)
   ret void
 
@@ -240,13 +226,13 @@ terminate.lpad:                                   ; preds = %if.then.i
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3SapAabbED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_clBuffer.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_ownsMemory.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i = icmp eq i8 %2, 0
@@ -258,7 +244,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
-  %m_size = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 1
+  %m_size = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size, i8 0, i64 24, i1 false)
   ret void
 
@@ -274,13 +260,13 @@ terminate.lpad:                                   ; preds = %if.then.i
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_clBuffer.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_ownsMemory.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i = icmp eq i8 %2, 0
@@ -292,7 +278,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %land.lhs.true.i, %entry, %if.then.i
-  %m_size = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 1
+  %m_size = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size, i8 0, i64 24, i1 false)
   ret void
 
@@ -312,20 +298,20 @@ define dso_local void @_ZN32b3GpuParallelLinearBvhBroadphase11createProxyERK9b3V
 entry:
   %aabb.sroa.0 = alloca [3 x float], align 16
   %aabb.sroa.3 = alloca [3 x float], align 16
-  %m_aabbsCpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6
-  %m_size.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 2
+  %m_aabbsCpu = getelementptr inbounds i8, ptr %this, i64 1328
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 1332
   %0 = load i32, ptr %m_size.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %aabb.sroa.0, ptr noundef nonnull align 16 dereferenceable(12) %aabbMin, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %aabb.sroa.3, ptr noundef nonnull align 16 dereferenceable(12) %aabbMax, i64 12, i1 false)
-  %m_size.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 1364
   %1 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 1368
   %2 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_smallAabbsMappingCpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7
+  %m_smallAabbsMappingCpu = getelementptr inbounds i8, ptr %this, i64 1360
   %tobool.not.i.i = icmp eq i32 %1, 0
   %mul.i.i = shl nsw i32 %1, 1
   %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
@@ -335,7 +321,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i
   %3 = phi i32 [ %.pre.i, %if.then.i ], [ %1, %entry ]
-  %m_data.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 1376
   %4 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %3 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i
@@ -344,7 +330,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
   %6 = load i32, ptr %m_size.i, align 4
-  %m_capacity.i.i2 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i2 = getelementptr inbounds i8, ptr %this, i64 1336
   %7 = load i32, ptr %m_capacity.i.i2, align 8
   %cmp.i3 = icmp eq i32 %6, %7
   br i1 %cmp.i3, label %if.then.i8, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE9push_backERKS0_.exit
@@ -359,7 +345,7 @@ if.then.i8:                                       ; preds = %_ZN20b3AlignedObjec
 
 _ZN20b3AlignedObjectArrayI9b3SapAabbE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit, %if.then.i8
   %8 = phi i32 [ %.pre.i12, %if.then.i8 ], [ %6, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit ]
-  %m_data.i4 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i4 = getelementptr inbounds i8, ptr %this, i64 1344
   %9 = load ptr, ptr %m_data.i4, align 8
   %idxprom.i5 = sext i32 %8 to i64
   %arrayidx.i6 = getelementptr inbounds %struct.b3SapAabb, ptr %9, i64 %idxprom.i5
@@ -384,20 +370,20 @@ define dso_local void @_ZN32b3GpuParallelLinearBvhBroadphase16createLargeProxyER
 entry:
   %aabb.sroa.0 = alloca [3 x float], align 16
   %aabb.sroa.3 = alloca [3 x float], align 16
-  %m_aabbsCpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6
-  %m_size.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 2
+  %m_aabbsCpu = getelementptr inbounds i8, ptr %this, i64 1328
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 1332
   %0 = load i32, ptr %m_size.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %aabb.sroa.0, ptr noundef nonnull align 16 dereferenceable(12) %aabbMin, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %aabb.sroa.3, ptr noundef nonnull align 16 dereferenceable(12) %aabbMax, i64 12, i1 false)
-  %m_size.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 1396
   %1 = load i32, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 1400
   %2 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_largeAabbsMappingCpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8
+  %m_largeAabbsMappingCpu = getelementptr inbounds i8, ptr %this, i64 1392
   %tobool.not.i.i = icmp eq i32 %1, 0
   %mul.i.i = shl nsw i32 %1, 1
   %cond.i.i = select i1 %tobool.not.i.i, i32 1, i32 %mul.i.i
@@ -407,7 +393,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i
   %3 = phi i32 [ %.pre.i, %if.then.i ], [ %1, %entry ]
-  %m_data.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 1408
   %4 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %3 to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i
@@ -416,7 +402,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %entry, %if.then.i
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
   %6 = load i32, ptr %m_size.i, align 4
-  %m_capacity.i.i2 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i2 = getelementptr inbounds i8, ptr %this, i64 1336
   %7 = load i32, ptr %m_capacity.i.i2, align 8
   %cmp.i3 = icmp eq i32 %6, %7
   br i1 %cmp.i3, label %if.then.i8, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE9push_backERKS0_.exit
@@ -431,7 +417,7 @@ if.then.i8:                                       ; preds = %_ZN20b3AlignedObjec
 
 _ZN20b3AlignedObjectArrayI9b3SapAabbE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit, %if.then.i8
   %8 = phi i32 [ %.pre.i12, %if.then.i8 ], [ %6, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit ]
-  %m_data.i4 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i4 = getelementptr inbounds i8, ptr %this, i64 1344
   %9 = load ptr, ptr %m_data.i4, align 8
   %idxprom.i5 = sext i32 %8 to i64
   %arrayidx.i6 = getelementptr inbounds %struct.b3SapAabb, ptr %9, i64 %idxprom.i5
@@ -451,14 +437,14 @@ _ZN20b3AlignedObjectArrayI9b3SapAabbE9push_backERKS0_.exit: ; preds = %_ZN20b3Al
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN32b3GpuParallelLinearBvhBroadphase25calculateOverlappingPairsEi(ptr noundef nonnull align 8 dereferenceable(1424) %this, i32 noundef %maxPairs) unnamed_addr #0 align 2 {
 entry:
-  %m_plbvh = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 1
-  %m_aabbsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3
-  %m_smallAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4
-  %m_largeAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5
+  %m_plbvh = getelementptr inbounds i8, ptr %this, i64 8
+  %m_aabbsGpu = getelementptr inbounds i8, ptr %this, i64 1160
+  %m_smallAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1216
+  %m_largeAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1272
   tail call void @_ZN22b3GpuParallelLinearBvh5buildERK13b3OpenCLArrayI9b3SapAabbERKS0_IiES7_(ptr noundef nonnull align 8 dereferenceable(1096) %m_plbvh, ptr noundef nonnull align 8 dereferenceable(50) %m_aabbsGpu, ptr noundef nonnull align 8 dereferenceable(50) %m_smallAabbsMappingGpu, ptr noundef nonnull align 8 dereferenceable(50) %m_largeAabbsMappingGpu)
-  %m_overlappingPairsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2
+  %m_overlappingPairsGpu = getelementptr inbounds i8, ptr %this, i64 1104
   %conv = sext i32 %maxPairs to i64
-  %m_size.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 1
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 1112
   %0 = load i64, ptr %m_size.i.i, align 8
   %cmp3.i = icmp ult i64 %0, %conv
   br i1 %cmp3.i, label %if.end7.i, label %_ZN13b3OpenCLArrayI6b3Int4E6resizeEmb.exit
@@ -488,16 +474,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN32b3GpuParallelLinearBvhBroadphase15writeAabbsToGpuEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 1332
   %0 = load i32, ptr %m_size.i.i, align 4
   %conv.i = sext i32 %0 to i64
-  %m_size.i.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 1
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 1168
   %1 = load i64, ptr %m_size.i.i.i, align 8
   %cmp3.i.i = icmp ult i64 %1, %conv.i
   br i1 %cmp3.i.i, label %if.end7.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit.i
 
 if.end7.i.i:                                      ; preds = %entry
-  %m_aabbsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3
+  %m_aabbsGpu = getelementptr inbounds i8, ptr %this, i64 1160
   %call5.i.i = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %m_aabbsGpu, i64 noundef %conv.i, i1 noundef zeroext false)
   %spec.select.i.i = select i1 %call5.i.i, i64 %conv.i, i64 0
   br label %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit.i
@@ -509,13 +495,13 @@ _ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit.i:  ; preds = %if.end7.i.i, %entry
   br i1 %tobool3.not.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit.i
-  %m_data.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 1344
   %2 = load ptr, ptr %m_data.i.i, align 8
   %mul.i.i = shl nsw i64 %conv.i, 5
   %3 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 5
+  %m_commandQueue.i.i = getelementptr inbounds i8, ptr %this, i64 1200
   %4 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %m_clBuffer.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 3
+  %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 1184
   %5 = load ptr, ptr %m_clBuffer.i.i, align 8
   %call.i.i = tail call i32 %3(ptr noundef %4, ptr noundef %5, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i, ptr noundef %2, i32 noundef 0, ptr noundef null, ptr noundef null)
   %6 = load ptr, ptr @__clewFinish, align 8
@@ -524,16 +510,16 @@ if.then.i.i:                                      ; preds = %_ZN13b3OpenCLArrayI
   br label %_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
 
 _ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit: ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE6resizeEmb.exit.i, %if.then.i.i
-  %m_size.i.i1 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 2
+  %m_size.i.i1 = getelementptr inbounds i8, ptr %this, i64 1364
   %8 = load i32, ptr %m_size.i.i1, align 4
   %conv.i2 = sext i32 %8 to i64
-  %m_size.i.i.i3 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 1
+  %m_size.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 1224
   %9 = load i64, ptr %m_size.i.i.i3, align 8
   %cmp3.i.i4 = icmp ult i64 %9, %conv.i2
   br i1 %cmp3.i.i4, label %if.end7.i.i14, label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i
 
 if.end7.i.i14:                                    ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE12copyFromHostERK20b3AlignedObjectArrayIS0_Eb.exit
-  %m_smallAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4
+  %m_smallAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1216
   %call5.i.i15 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %m_smallAabbsMappingGpu, i64 noundef %conv.i2, i1 noundef zeroext false)
   %spec.select.i.i16 = select i1 %call5.i.i15, i64 %conv.i2, i64 0
   br label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i
@@ -545,13 +531,13 @@ _ZN13b3OpenCLArrayIiE6resizeEmb.exit.i:           ; preds = %if.end7.i.i14, %_ZN
   br i1 %tobool3.not.i6, label %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i
-  %m_data.i.i8 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i8 = getelementptr inbounds i8, ptr %this, i64 1376
   %10 = load ptr, ptr %m_data.i.i8, align 8
   %mul.i.i9 = shl nsw i64 %conv.i2, 2
   %11 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i10 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 5
+  %m_commandQueue.i.i10 = getelementptr inbounds i8, ptr %this, i64 1256
   %12 = load ptr, ptr %m_commandQueue.i.i10, align 8
-  %m_clBuffer.i.i11 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 3
+  %m_clBuffer.i.i11 = getelementptr inbounds i8, ptr %this, i64 1240
   %13 = load ptr, ptr %m_clBuffer.i.i11, align 8
   %call.i.i12 = tail call i32 %11(ptr noundef %12, ptr noundef %13, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i9, ptr noundef %10, i32 noundef 0, ptr noundef null, ptr noundef null)
   %14 = load ptr, ptr @__clewFinish, align 8
@@ -560,16 +546,16 @@ if.then.i.i7:                                     ; preds = %_ZN13b3OpenCLArrayI
   br label %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit
 
 _ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit: ; preds = %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i, %if.then.i.i7
-  %m_size.i.i17 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 2
+  %m_size.i.i17 = getelementptr inbounds i8, ptr %this, i64 1396
   %16 = load i32, ptr %m_size.i.i17, align 4
   %conv.i18 = sext i32 %16 to i64
-  %m_size.i.i.i19 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 1
+  %m_size.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 1280
   %17 = load i64, ptr %m_size.i.i.i19, align 8
   %cmp3.i.i20 = icmp ult i64 %17, %conv.i18
   br i1 %cmp3.i.i20, label %if.end7.i.i31, label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i21
 
 if.end7.i.i31:                                    ; preds = %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit
-  %m_largeAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5
+  %m_largeAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1272
   %call5.i.i32 = tail call noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %m_largeAabbsMappingGpu, i64 noundef %conv.i18, i1 noundef zeroext false)
   %spec.select.i.i33 = select i1 %call5.i.i32, i64 %conv.i18, i64 0
   br label %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i21
@@ -581,13 +567,13 @@ _ZN13b3OpenCLArrayIiE6resizeEmb.exit.i21:         ; preds = %if.end7.i.i31, %_ZN
   br i1 %tobool3.not.i23, label %_ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit34, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %_ZN13b3OpenCLArrayIiE6resizeEmb.exit.i21
-  %m_data.i.i25 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i25 = getelementptr inbounds i8, ptr %this, i64 1408
   %18 = load ptr, ptr %m_data.i.i25, align 8
   %mul.i.i26 = shl nsw i64 %conv.i18, 2
   %19 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8
-  %m_commandQueue.i.i27 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 5
+  %m_commandQueue.i.i27 = getelementptr inbounds i8, ptr %this, i64 1312
   %20 = load ptr, ptr %m_commandQueue.i.i27, align 8
-  %m_clBuffer.i.i28 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 3
+  %m_clBuffer.i.i28 = getelementptr inbounds i8, ptr %this, i64 1296
   %21 = load ptr, ptr %m_clBuffer.i.i28, align 8
   %call.i.i29 = tail call i32 %19(ptr noundef %20, ptr noundef %21, i32 noundef 0, i64 noundef 0, i64 noundef %mul.i.i26, ptr noundef %18, i32 noundef 0, ptr noundef null, ptr noundef null)
   %22 = load ptr, ptr @__clewFinish, align 8
@@ -603,13 +589,13 @@ _ZN13b3OpenCLArrayIiE12copyFromHostERK20b3AlignedObjectArrayIiEb.exit34: ; preds
 define linkonce_odr dso_local void @_ZN32b3GpuParallelLinearBvhBroadphaseD2Ev(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV32b3GpuParallelLinearBvhBroadphase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 1408
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 1416
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -627,20 +613,20 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 1396
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 1416
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 8, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 1400
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %m_data.i.i.i1 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 5
+  %m_data.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 1376
   %5 = load ptr, ptr %m_data.i.i.i1, align 8
   %tobool.not.i.i.i2 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i2, label %_ZN20b3AlignedObjectArrayIiED2Ev.exit11, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit
-  %m_ownsMemory.i.i.i4 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 6
+  %m_ownsMemory.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 1384
   %6 = load i8, ptr %m_ownsMemory.i.i.i4, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i.i5 = icmp eq i8 %7, 0
@@ -658,20 +644,20 @@ terminate.lpad.i7:                                ; preds = %if.then3.i.i.i6
   unreachable
 
 _ZN20b3AlignedObjectArrayIiED2Ev.exit11:          ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit, %if.then.i.i.i3, %if.then3.i.i.i6
-  %m_size.i.i.i8 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 2
-  %m_ownsMemory.i1.i.i9 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 6
+  %m_size.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 1364
+  %m_ownsMemory.i1.i.i9 = getelementptr inbounds i8, ptr %this, i64 1384
   store i8 1, ptr %m_ownsMemory.i1.i.i9, align 8
   store ptr null, ptr %m_data.i.i.i1, align 8
   store i32 0, ptr %m_size.i.i.i8, align 4
-  %m_capacity.i.i.i10 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 7, i32 3
+  %m_capacity.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 1368
   store i32 0, ptr %m_capacity.i.i.i10, align 8
-  %m_data.i.i.i12 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 5
+  %m_data.i.i.i12 = getelementptr inbounds i8, ptr %this, i64 1344
   %10 = load ptr, ptr %m_data.i.i.i12, align 8
   %tobool.not.i.i.i13 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i13, label %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit11
-  %m_ownsMemory.i.i.i15 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 6
+  %m_ownsMemory.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 1352
   %11 = load i8, ptr %m_ownsMemory.i.i.i15, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i.i.i16 = icmp eq i8 %12, 0
@@ -689,22 +675,22 @@ terminate.lpad.i18:                               ; preds = %if.then3.i.i.i17
   unreachable
 
 _ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit:   ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit11, %if.then.i.i.i14, %if.then3.i.i.i17
-  %m_size.i.i.i19 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 2
-  %m_ownsMemory.i1.i.i20 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 6
+  %m_size.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 1332
+  %m_ownsMemory.i1.i.i20 = getelementptr inbounds i8, ptr %this, i64 1352
   store i8 1, ptr %m_ownsMemory.i1.i.i20, align 8
   store ptr null, ptr %m_data.i.i.i12, align 8
   store i32 0, ptr %m_size.i.i.i19, align 4
-  %m_capacity.i.i.i21 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6, i32 3
+  %m_capacity.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 1336
   store i32 0, ptr %m_capacity.i.i.i21, align 8
-  %m_largeAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5
+  %m_largeAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1272
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, inrange i32 0, i64 2), ptr %m_largeAabbsMappingGpu, align 8
-  %m_clBuffer.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 3
+  %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 1296
   %15 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayIiED2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 1320
   %16 = load i8, ptr %m_ownsMemory.i.i, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i = icmp eq i8 %17, 0
@@ -723,17 +709,17 @@ terminate.lpad.i22:                               ; preds = %if.then.i.i
   unreachable
 
 _ZN13b3OpenCLArrayIiED2Ev.exit:                   ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit, %land.lhs.true.i.i, %if.then.i.i
-  %m_size.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 1280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
-  %m_smallAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4
+  %m_smallAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1216
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, inrange i32 0, i64 2), ptr %m_smallAabbsMappingGpu, align 8
-  %m_clBuffer.i.i23 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 3
+  %m_clBuffer.i.i23 = getelementptr inbounds i8, ptr %this, i64 1240
   %21 = load ptr, ptr %m_clBuffer.i.i23, align 8
   %tobool.not.i.i24 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i24, label %_ZN13b3OpenCLArrayIiED2Ev.exit32, label %land.lhs.true.i.i25
 
 land.lhs.true.i.i25:                              ; preds = %_ZN13b3OpenCLArrayIiED2Ev.exit
-  %m_ownsMemory.i.i26 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 6
+  %m_ownsMemory.i.i26 = getelementptr inbounds i8, ptr %this, i64 1264
   %22 = load i8, ptr %m_ownsMemory.i.i26, align 8
   %23 = and i8 %22, 1
   %tobool2.not.i.i27 = icmp eq i8 %23, 0
@@ -752,17 +738,17 @@ terminate.lpad.i30:                               ; preds = %if.then.i.i28
   unreachable
 
 _ZN13b3OpenCLArrayIiED2Ev.exit32:                 ; preds = %_ZN13b3OpenCLArrayIiED2Ev.exit, %land.lhs.true.i.i25, %if.then.i.i28
-  %m_size.i31 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4, i32 1
+  %m_size.i31 = getelementptr inbounds i8, ptr %this, i64 1224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i31, i8 0, i64 24, i1 false)
-  %m_aabbsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3
+  %m_aabbsGpu = getelementptr inbounds i8, ptr %this, i64 1160
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 0, inrange i32 0, i64 2), ptr %m_aabbsGpu, align 8
-  %m_clBuffer.i.i33 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 3
+  %m_clBuffer.i.i33 = getelementptr inbounds i8, ptr %this, i64 1184
   %27 = load ptr, ptr %m_clBuffer.i.i33, align 8
   %tobool.not.i.i34 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i34, label %_ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit, label %land.lhs.true.i.i35
 
 land.lhs.true.i.i35:                              ; preds = %_ZN13b3OpenCLArrayIiED2Ev.exit32
-  %m_ownsMemory.i.i36 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i36 = getelementptr inbounds i8, ptr %this, i64 1208
   %28 = load i8, ptr %m_ownsMemory.i.i36, align 8
   %29 = and i8 %28, 1
   %tobool2.not.i.i37 = icmp eq i8 %29, 0
@@ -781,17 +767,17 @@ terminate.lpad.i40:                               ; preds = %if.then.i.i38
   unreachable
 
 _ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit:          ; preds = %_ZN13b3OpenCLArrayIiED2Ev.exit32, %land.lhs.true.i.i35, %if.then.i.i38
-  %m_size.i41 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 1
+  %m_size.i41 = getelementptr inbounds i8, ptr %this, i64 1168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i41, i8 0, i64 24, i1 false)
-  %m_overlappingPairsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2
+  %m_overlappingPairsGpu = getelementptr inbounds i8, ptr %this, i64 1104
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 0, inrange i32 0, i64 2), ptr %m_overlappingPairsGpu, align 8
-  %m_clBuffer.i.i42 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 3
+  %m_clBuffer.i.i42 = getelementptr inbounds i8, ptr %this, i64 1128
   %33 = load ptr, ptr %m_clBuffer.i.i42, align 8
   %tobool.not.i.i43 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i43, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit, label %land.lhs.true.i.i44
 
 land.lhs.true.i.i44:                              ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit
-  %m_ownsMemory.i.i45 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i45 = getelementptr inbounds i8, ptr %this, i64 1152
   %34 = load i8, ptr %m_ownsMemory.i.i45, align 8
   %35 = and i8 %34, 1
   %tobool2.not.i.i46 = icmp eq i8 %35, 0
@@ -810,9 +796,9 @@ terminate.lpad.i49:                               ; preds = %if.then.i.i47
   unreachable
 
 _ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit:             ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit, %land.lhs.true.i.i44, %if.then.i.i47
-  %m_size.i50 = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 1
+  %m_size.i50 = getelementptr inbounds i8, ptr %this, i64 1112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i50, i8 0, i64 24, i1 false)
-  %m_plbvh = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 1
+  %m_plbvh = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN22b3GpuParallelLinearBvhD1Ev(ptr noundef nonnull align 8 dereferenceable(1096) %m_plbvh) #10
   ret void
 }
@@ -828,7 +814,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN32b3GpuParallelLinearBvhBroadphase15getAabbBufferWSEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_clBuffer.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 1184
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   ret ptr %0
 }
@@ -836,7 +822,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN32b3GpuParallelLinearBvhBroadphase13getNumOverlapEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 1112
   %0 = load i64, ptr %m_size.i, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -845,7 +831,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN32b3GpuParallelLinearBvhBroadphase24getOverlappingPairBufferEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_clBuffer.i = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 1128
   %0 = load ptr, ptr %m_clBuffer.i, align 8
   ret ptr %0
 }
@@ -853,35 +839,35 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN32b3GpuParallelLinearBvhBroadphase14getAllAabbsGPUEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_aabbsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 3
+  %m_aabbsGpu = getelementptr inbounds i8, ptr %this, i64 1160
   ret ptr %m_aabbsGpu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(25) ptr @_ZN32b3GpuParallelLinearBvhBroadphase14getAllAabbsCPUEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_aabbsCpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 6
+  %m_aabbsCpu = getelementptr inbounds i8, ptr %this, i64 1328
   ret ptr %m_aabbsCpu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN32b3GpuParallelLinearBvhBroadphase22getOverlappingPairsGPUEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_overlappingPairsGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 2
+  %m_overlappingPairsGpu = getelementptr inbounds i8, ptr %this, i64 1104
   ret ptr %m_overlappingPairsGpu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN32b3GpuParallelLinearBvhBroadphase22getSmallAabbIndicesGPUEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_smallAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 4
+  %m_smallAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1216
   ret ptr %m_smallAabbsMappingGpu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(50) ptr @_ZN32b3GpuParallelLinearBvhBroadphase22getLargeAabbIndicesGPUEv(ptr noundef nonnull align 8 dereferenceable(1424) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_largeAabbsMappingGpu = getelementptr inbounds %class.b3GpuParallelLinearBvhBroadphase, ptr %this, i64 0, i32 5
+  %m_largeAabbsMappingGpu = getelementptr inbounds i8, ptr %this, i64 1272
   ret ptr %m_largeAabbsMappingGpu
 }
 
@@ -903,13 +889,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI6b3Int4ED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI6b3Int4E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_clBuffer.i.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 3
+  %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -936,13 +922,13 @@ _ZN13b3OpenCLArrayI6b3Int4ED2Ev.exit:             ; preds = %entry, %land.lhs.tr
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3SapAabbED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayI9b3SapAabbE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_clBuffer.i.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 3
+  %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -969,13 +955,13 @@ _ZN13b3OpenCLArrayI9b3SapAabbED2Ev.exit:          ; preds = %entry, %land.lhs.tr
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIiED0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13b3OpenCLArrayIiE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_clBuffer.i.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 3
+  %m_clBuffer.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_clBuffer.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN13b3OpenCLArrayIiED2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -1004,13 +990,13 @@ declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI6b3Int4E7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %_Count, i1 noundef zeroext %copyOldContents) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ciErrNum = alloca i32, align 4
-  %m_capacity.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 2
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %m_capacity.i, align 8
   %cmp = icmp ult i64 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
-  %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 7
+  %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1019,7 +1005,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 4
   %3 = load ptr, ptr @__clewCreateBuffer, align 8
-  %m_clContext = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 4
+  %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %m_clContext, align 8
   %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
   %5 = load i32, ptr %ciErrNum, align 4
@@ -1035,16 +1021,16 @@ if.end:                                           ; preds = %if.then2
   br i1 %copyOldContents, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end
-  %m_size.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %m_size.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
   %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
-  %m_commandQueue.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 5
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %m_commandQueue.i, align 8
-  %m_clBuffer.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %m_clBuffer.i, align 8
   %mul3.i = shl i64 %6, 4
   %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
@@ -1052,13 +1038,13 @@ if.end.i:                                         ; preds = %if.then9
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
-  %m_clBuffer.i5 = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 3
+  %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %m_clBuffer.i5, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
-  %m_ownsMemory.i = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %m_ownsMemory.i, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i = icmp eq i8 %12, 0
@@ -1075,13 +1061,13 @@ _ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit:   ; preds = %if.end12, %land.lhs
   br label %if.end14
 
 if.else:                                          ; preds = %if.then
-  %m_clBuffer.i9 = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 3
+  %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %m_clBuffer.i9, align 8
   %tobool.not.i10 = icmp eq ptr %14, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
-  %m_ownsMemory.i12 = getelementptr inbounds %class.b3OpenCLArray.8, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load i8, ptr %m_ownsMemory.i12, align 8
   %16 = and i8 %15, 1
   %tobool2.not.i13 = icmp eq i8 %16, 0
@@ -1107,13 +1093,13 @@ declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unname
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayI9b3SapAabbE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %_Count, i1 noundef zeroext %copyOldContents) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ciErrNum = alloca i32, align 4
-  %m_capacity.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 2
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %m_capacity.i, align 8
   %cmp = icmp ult i64 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
-  %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 7
+  %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1122,7 +1108,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 5
   %3 = load ptr, ptr @__clewCreateBuffer, align 8
-  %m_clContext = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 4
+  %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %m_clContext, align 8
   %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
   %5 = load i32, ptr %ciErrNum, align 4
@@ -1138,16 +1124,16 @@ if.end:                                           ; preds = %if.then2
   br i1 %copyOldContents, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end
-  %m_size.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %m_size.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
   %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
-  %m_commandQueue.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 5
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %m_commandQueue.i, align 8
-  %m_clBuffer.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %m_clBuffer.i, align 8
   %mul3.i = shl i64 %6, 5
   %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
@@ -1155,13 +1141,13 @@ if.end.i:                                         ; preds = %if.then9
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
-  %m_clBuffer.i5 = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 3
+  %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %m_clBuffer.i5, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
-  %m_ownsMemory.i = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %m_ownsMemory.i, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i = icmp eq i8 %12, 0
@@ -1178,13 +1164,13 @@ _ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit: ; preds = %if.end12, %land.lh
   br label %if.end14
 
 if.else:                                          ; preds = %if.then
-  %m_clBuffer.i9 = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 3
+  %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %m_clBuffer.i9, align 8
   %tobool.not.i10 = icmp eq ptr %14, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
-  %m_ownsMemory.i12 = getelementptr inbounds %class.b3OpenCLArray.0, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load i8, ptr %m_ownsMemory.i12, align 8
   %16 = and i8 %15, 1
   %tobool2.not.i13 = icmp eq i8 %16, 0
@@ -1208,13 +1194,13 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 define linkonce_odr dso_local noundef zeroext i1 @_ZN13b3OpenCLArrayIiE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(50) %this, i64 noundef %_Count, i1 noundef zeroext %copyOldContents) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ciErrNum = alloca i32, align 4
-  %m_capacity.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 2
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %m_capacity.i, align 8
   %cmp = icmp ult i64 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
-  %m_allowGrowingCapacity = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 7
+  %m_allowGrowingCapacity = getelementptr inbounds i8, ptr %this, i64 49
   %1 = load i8, ptr %m_allowGrowingCapacity, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -1223,7 +1209,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %mul = shl i64 %_Count, 2
   %3 = load ptr, ptr @__clewCreateBuffer, align 8
-  %m_clContext = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 4
+  %m_clContext = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %m_clContext, align 8
   %call3 = call ptr %3(ptr noundef %4, i64 noundef 1, i64 noundef %mul, ptr noundef null, ptr noundef nonnull %ciErrNum)
   %5 = load i32, ptr %ciErrNum, align 4
@@ -1239,16 +1225,16 @@ if.end:                                           ; preds = %if.then2
   br i1 %copyOldContents, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end
-  %m_size.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %m_size.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
   %7 = load ptr, ptr @__clewEnqueueCopyBuffer, align 8
-  %m_commandQueue.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 5
+  %m_commandQueue.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load ptr, ptr %m_commandQueue.i, align 8
-  %m_clBuffer.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 3
+  %m_clBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %m_clBuffer.i, align 8
   %mul3.i = shl i64 %6, 2
   %call.i = call i32 %7(ptr noundef %8, ptr noundef %9, ptr noundef %call3, i64 noundef 0, i64 noundef 0, i64 noundef %mul3.i, i32 noundef 0, ptr noundef null, ptr noundef null)
@@ -1256,13 +1242,13 @@ if.end.i:                                         ; preds = %if.then9
 
 if.end12:                                         ; preds = %if.end.i, %if.then9, %if.end.thread, %if.end
   %_Count.addr.023 = phi i64 [ 0, %if.end.thread ], [ %_Count, %if.end ], [ %_Count, %if.then9 ], [ %_Count, %if.end.i ]
-  %m_clBuffer.i5 = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 3
+  %m_clBuffer.i5 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %m_clBuffer.i5, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end12
-  %m_ownsMemory.i = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %m_ownsMemory.i, align 8
   %12 = and i8 %11, 1
   %tobool2.not.i = icmp eq i8 %12, 0
@@ -1279,13 +1265,13 @@ _ZN13b3OpenCLArrayIiE10deallocateEv.exit:         ; preds = %if.end12, %land.lhs
   br label %if.end14
 
 if.else:                                          ; preds = %if.then
-  %m_clBuffer.i9 = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 3
+  %m_clBuffer.i9 = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %m_clBuffer.i9, align 8
   %tobool.not.i10 = icmp eq ptr %14, null
   br i1 %tobool.not.i10, label %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18, label %land.lhs.true.i11
 
 land.lhs.true.i11:                                ; preds = %if.else
-  %m_ownsMemory.i12 = getelementptr inbounds %class.b3OpenCLArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i12 = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load i8, ptr %m_ownsMemory.i12, align 8
   %16 = and i8 %15, 1
   %tobool2.not.i13 = icmp eq i8 %16, 0
@@ -1308,7 +1294,7 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIiE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray.10, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -1325,13 +1311,13 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit:     ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray.10, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray.10, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -1349,20 +1335,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18:   ; preds = %if.then, %_ZN20b3AlignedObjectArrayIiE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.4)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray.10, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray.10, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %4, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray.10, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i8, ptr %m_ownsMemory.i, align 8
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -1373,7 +1359,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit:  ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray.10, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8
@@ -1388,7 +1374,7 @@ declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %_Count) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %m_capacity.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp slt i32 %0, %_Count
   br i1 %cmp, label %if.then, label %if.end7
@@ -1405,13 +1391,13 @@ _ZN20b3AlignedObjectArrayI9b3SapAabbE8allocateEi.exit: ; preds = %if.then
   br i1 %cmp3, label %_ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit18, label %if.then.split
 
 if.then.split:                                    ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbE8allocateEi.exit
-  %m_size.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_size.i, align 4
   %cmp4.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.then.split
-  %m_data.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
@@ -1428,20 +1414,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit18: ; preds = %if.then, %_ZN20b3AlignedObjectArrayI9b3SapAabbE8allocateEi.exit
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 301)
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.4)
-  %m_size = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %m_size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %for.body.i, %if.then.split, %_ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit18
   %retval.0.i25 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit18 ], [ %call.i.i, %if.then.split ], [ %call.i.i, %for.body.i ]
   %_Count.addr.0 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit18 ], [ %_Count, %if.then.split ], [ %_Count, %for.body.i ]
-  %m_data.i20 = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i20 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_data.i20, align 8
   %tobool.not.i21 = icmp eq ptr %3, null
   br i1 %tobool.not.i21, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %m_ownsMemory.i = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i8, ptr %m_ownsMemory.i, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i = icmp eq i8 %5, 0
@@ -1452,7 +1438,7 @@ if.then3.i:                                       ; preds = %if.then.i22
   br label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit
 
 _ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit: ; preds = %if.then.i22, %if.then3.i, %if.end
-  %m_ownsMemory = getelementptr inbounds %class.b3AlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory, align 8
   store ptr %retval.0.i25, ptr %m_data.i20, align 8
   store i32 %_Count.addr.0, ptr %m_capacity.i, align 8

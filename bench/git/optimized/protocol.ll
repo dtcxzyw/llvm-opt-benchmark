@@ -102,7 +102,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %list, i8 0, i64 40, i1 false)
-  %0 = getelementptr inbounds %struct.string_list, ptr %list, i64 0, i32 3
+  %0 = getelementptr inbounds i8, ptr %list, i64 24
   store i8 1, ptr %0, align 8
   %call1 = call i32 @string_list_split(ptr noundef nonnull %list, ptr noundef nonnull %call, i32 noundef 58, i32 noundef -1) #7
   %1 = load ptr, ptr %list, align 8
@@ -110,7 +110,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not13, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then
-  %nr = getelementptr inbounds %struct.string_list, ptr %list, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %list, i64 8
   %2 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %2
   %cmp18 = icmp sgt i64 %2, 0
@@ -161,7 +161,7 @@ parse_protocol_version.exit:                      ; preds = %if.then5, %if.else.
 
 for.inc:                                          ; preds = %do.cond.i, %parse_protocol_version.exit
   %version.1 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.01519, %do.cond.i ]
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %item.01420, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.01420, i64 16
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end
 

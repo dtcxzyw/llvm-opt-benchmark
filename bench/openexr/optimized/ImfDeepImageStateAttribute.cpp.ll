@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::TypedAttribute" = type <{ %"class.Imf_3_2::Attribute", i32, [4 x i8] }>
-%"class.Imf_3_2::Attribute" = type { ptr }
 
 $_ZN7Imf_3_214TypedAttributeINS_14DeepImageStateEEC5ERKS1_ = comdat any
 
@@ -67,7 +65,7 @@ define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_14DeepImageStateEEC2ERKS1_(
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_14DeepImageStateEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %value, align 4
   store i32 %0, ptr %_value, align 8
   ret void
@@ -99,14 +97,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_214TypedAttributeINS_14DeepImageStateEE5valueEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_214TypedAttributeINS_14DeepImageStateEE5valueEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_value
 }
 
@@ -183,9 +181,9 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   br label %common.resume
 
 _ZN7Imf_3_214TypedAttributeINS_14DeepImageStateEE13copyValueFromERKNS_9AttributeE.exit: ; preds = %invoke.cont
-  %_value.i.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1
+  %_value.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %_value.i.i, align 4
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %call, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %2, ptr %_value.i, align 8
   ret ptr %call
 
@@ -344,13 +342,13 @@ declare void @_ZN7Imf_3_29Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 define void @_ZNK7Imf_3_214TypedAttributeINS_14DeepImageStateEE12writeValueToERNS_7OStreamEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %v.addr.i = alloca i8, align 1
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %_value, align 8
   %conv = trunc i32 %0 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i)
   store i8 %conv, ptr %v.addr.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %v.addr.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i)
@@ -362,12 +360,12 @@ define void @_ZN7Imf_3_214TypedAttributeINS_14DeepImageStateEE13readValueFromERN
 entry:
   %tmp = alloca i8, align 1
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %tmp, i32 noundef 1)
   %1 = load i8, ptr %tmp, align 1
   %conv = zext i8 %1 to i32
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %conv, ptr %_value, align 8
   ret void
 }
@@ -395,9 +393,9 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_14DeepImageStateEE4castERKNS_9AttributeE.exit: ; preds = %entry
-  %_value.i = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %0, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %_value.i, align 4
-  %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this, i64 0, i32 1
+  %_value = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %_value, align 8
   ret void
 }

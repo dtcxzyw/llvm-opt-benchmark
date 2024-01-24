@@ -24,10 +24,10 @@ define hidden void @"_ZN3syn3mac15parse_delimiter28_$u7b$$u7b$closure$u7d$$u7d$1
   %16 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %17 = tail call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %1)
   %18 = load ptr, ptr %17, align 8, !noundef !5
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %17, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !noundef !5
   call void @_ZN3syn6buffer6Cursor10token_tree17h3cf253f14e70ebbbE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %16, ptr %18, ptr %20)
-  %21 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %16, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %16, i64 24
   %22 = load i8, ptr %21, align 8, !range !6, !noundef !5
   %cond.not = icmp eq i8 %22, 3
   br i1 %cond.not, label %24, label %23
@@ -38,7 +38,7 @@ define hidden void @"_ZN3syn3mac15parse_delimiter28_$u7b$$u7b$closure$u7d$$u7d$1
           to label %52 unwind label %40
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, { ptr, ptr } }, ptr %16, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %16, i64 32
   %26 = load <2 x ptr>, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   invoke void @_ZN11proc_macro25Group10delim_span17ha3beaf41eb716510E(ptr nonnull sret({ { [2 x i32], i32 }, {} }) align 4 %14, ptr nonnull align 8 %15)
@@ -124,7 +124,7 @@ default.unreachable16:                            ; preds = %31
   ]
 
 44:                                               ; preds = %35
-  %45 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i32 3, ptr %0, align 8
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17ha84f28feccc559d5E"(ptr nonnull align 8 %15)
@@ -151,7 +151,7 @@ default.unreachable16:                            ; preds = %31
   unreachable
 
 52:                                               ; preds = %23
-  %53 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   store i32 3, ptr %0, align 8
   br label %42

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.grpc_core::Timeout" = type <{ i16, i8, i8 }>
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
@@ -25,14 +24,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %duration.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %call1 = tail call i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %duration.coerce)
   ret i32 %call1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef %millis) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %millis, 1
@@ -202,7 +201,7 @@ entry:
   %other.sroa.2.0.extract.trunc = trunc i32 %other.sroa.2.0.extract.shift to i8
   %0 = load i16, ptr %this, align 2
   %conv.i = zext i16 %0 to i64
-  %unit_.i = getelementptr inbounds %"class.grpc_core::Timeout", ptr %this, i64 0, i32 1
+  %unit_.i = getelementptr inbounds i8, ptr %this, i64 2
   %1 = load i8, ptr %unit_.i, align 2
   switch i8 %1, label %do.body.i [
     i8 0, label %_ZNK9grpc_core7Timeout10AsDurationEv.exit
@@ -349,7 +348,7 @@ define i64 @_ZNK9grpc_core7Timeout10AsDurationEv(ptr nocapture noundef nonnull r
 entry:
   %0 = load i16, ptr %this, align 2
   %conv = zext i16 %0 to i64
-  %unit_ = getelementptr inbounds %"class.grpc_core::Timeout", ptr %this, i64 0, i32 1
+  %unit_ = getelementptr inbounds i8, ptr %this, i64 2
   %1 = load i8, ptr %unit_, align 2
   switch i8 %1, label %do.body [
     i8 0, label %return
@@ -435,7 +434,7 @@ if.else5:                                         ; preds = %if.else
 
 if.else9:                                         ; preds = %if.else5
   %cmp11 = icmp ugt i16 %0, 9
-  br i1 %cmp11, label %sw.bb39, label %sw.epilog
+  br i1 %cmp11, label %sw.bb39, label %sw.bb48
 
 sw.bb:                                            ; preds = %entry
   %div = udiv i16 %0, 10000
@@ -478,16 +477,16 @@ sw.bb39:                                          ; preds = %if.else9, %sw.bb30
   store i8 %conv43, ptr %p.2, align 1
   %7 = urem i8 %div41.lhs.trunc, 10
   %.zext = zext nneg i8 %7 to i16
-  br label %sw.epilog
+  br label %sw.bb48
 
-sw.epilog:                                        ; preds = %sw.bb39, %if.else9
+sw.bb48:                                          ; preds = %if.else9, %sw.bb39
   %p.3 = phi ptr [ %incdec.ptr44, %sw.bb39 ], [ %buf, %if.else9 ]
   %n.3 = phi i16 [ %.zext, %sw.bb39 ], [ %0, %if.else9 ]
   %conv49 = trunc i16 %n.3 to i8
   %add50 = add nuw nsw i8 %conv49, 48
   %incdec.ptr52 = getelementptr inbounds i8, ptr %p.3, i64 1
   store i8 %add50, ptr %p.3, align 1
-  %unit_ = getelementptr inbounds %"class.grpc_core::Timeout", ptr %this, i64 0, i32 1
+  %unit_ = getelementptr inbounds i8, ptr %this, i64 2
   %8 = load i8, ptr %unit_, align 2
   switch i8 %8, label %sw.epilog75 [
     i8 0, label %sw.bb53
@@ -503,69 +502,69 @@ sw.epilog:                                        ; preds = %sw.bb39, %if.else9
     i8 10, label %sw.bb73
   ]
 
-sw.bb53:                                          ; preds = %sw.epilog
+sw.bb53:                                          ; preds = %sw.bb48
   %incdec.ptr54 = getelementptr inbounds i8, ptr %p.3, i64 2
   store i8 110, ptr %incdec.ptr52, align 1
   br label %sw.epilog75
 
-sw.bb55:                                          ; preds = %sw.epilog
+sw.bb55:                                          ; preds = %sw.bb48
   %incdec.ptr56 = getelementptr inbounds i8, ptr %p.3, i64 2
   store i8 48, ptr %incdec.ptr52, align 1
   br label %sw.bb57
 
-sw.bb57:                                          ; preds = %sw.bb55, %sw.epilog
-  %p.5 = phi ptr [ %incdec.ptr52, %sw.epilog ], [ %incdec.ptr56, %sw.bb55 ]
+sw.bb57:                                          ; preds = %sw.bb55, %sw.bb48
+  %p.5 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr56, %sw.bb55 ]
   %incdec.ptr58 = getelementptr inbounds i8, ptr %p.5, i64 1
   store i8 48, ptr %p.5, align 1
   br label %sw.bb59
 
-sw.bb59:                                          ; preds = %sw.bb57, %sw.epilog
-  %p.6 = phi ptr [ %incdec.ptr52, %sw.epilog ], [ %incdec.ptr58, %sw.bb57 ]
+sw.bb59:                                          ; preds = %sw.bb57, %sw.bb48
+  %p.6 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr58, %sw.bb57 ]
   %incdec.ptr60 = getelementptr inbounds i8, ptr %p.6, i64 1
   store i8 109, ptr %p.6, align 1
   br label %sw.epilog75
 
-sw.bb61:                                          ; preds = %sw.epilog
+sw.bb61:                                          ; preds = %sw.bb48
   %incdec.ptr62 = getelementptr inbounds i8, ptr %p.3, i64 2
   store i8 48, ptr %incdec.ptr52, align 1
   br label %sw.bb63
 
-sw.bb63:                                          ; preds = %sw.bb61, %sw.epilog
-  %p.7 = phi ptr [ %incdec.ptr52, %sw.epilog ], [ %incdec.ptr62, %sw.bb61 ]
+sw.bb63:                                          ; preds = %sw.bb61, %sw.bb48
+  %p.7 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr62, %sw.bb61 ]
   %incdec.ptr64 = getelementptr inbounds i8, ptr %p.7, i64 1
   store i8 48, ptr %p.7, align 1
   br label %sw.bb65
 
-sw.bb65:                                          ; preds = %sw.bb63, %sw.epilog
-  %p.8 = phi ptr [ %incdec.ptr52, %sw.epilog ], [ %incdec.ptr64, %sw.bb63 ]
+sw.bb65:                                          ; preds = %sw.bb63, %sw.bb48
+  %p.8 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr64, %sw.bb63 ]
   %incdec.ptr66 = getelementptr inbounds i8, ptr %p.8, i64 1
   store i8 83, ptr %p.8, align 1
   br label %sw.epilog75
 
-sw.bb67:                                          ; preds = %sw.epilog
+sw.bb67:                                          ; preds = %sw.bb48
   %incdec.ptr68 = getelementptr inbounds i8, ptr %p.3, i64 2
   store i8 48, ptr %incdec.ptr52, align 1
   br label %sw.bb69
 
-sw.bb69:                                          ; preds = %sw.bb67, %sw.epilog
-  %p.9 = phi ptr [ %incdec.ptr52, %sw.epilog ], [ %incdec.ptr68, %sw.bb67 ]
+sw.bb69:                                          ; preds = %sw.bb67, %sw.bb48
+  %p.9 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr68, %sw.bb67 ]
   %incdec.ptr70 = getelementptr inbounds i8, ptr %p.9, i64 1
   store i8 48, ptr %p.9, align 1
   br label %sw.bb71
 
-sw.bb71:                                          ; preds = %sw.bb69, %sw.epilog
-  %p.10 = phi ptr [ %incdec.ptr52, %sw.epilog ], [ %incdec.ptr70, %sw.bb69 ]
+sw.bb71:                                          ; preds = %sw.bb69, %sw.bb48
+  %p.10 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr70, %sw.bb69 ]
   %incdec.ptr72 = getelementptr inbounds i8, ptr %p.10, i64 1
   store i8 77, ptr %p.10, align 1
   br label %sw.epilog75
 
-sw.bb73:                                          ; preds = %sw.epilog
+sw.bb73:                                          ; preds = %sw.bb48
   %incdec.ptr74 = getelementptr inbounds i8, ptr %p.3, i64 2
   store i8 72, ptr %incdec.ptr52, align 1
   br label %sw.epilog75
 
-sw.epilog75:                                      ; preds = %sw.bb73, %sw.bb71, %sw.bb65, %sw.bb59, %sw.bb53, %sw.epilog
-  %p.11 = phi ptr [ %incdec.ptr52, %sw.epilog ], [ %incdec.ptr74, %sw.bb73 ], [ %incdec.ptr72, %sw.bb71 ], [ %incdec.ptr66, %sw.bb65 ], [ %incdec.ptr60, %sw.bb59 ], [ %incdec.ptr54, %sw.bb53 ]
+sw.epilog75:                                      ; preds = %sw.bb73, %sw.bb71, %sw.bb65, %sw.bb59, %sw.bb53, %sw.bb48
+  %p.11 = phi ptr [ %incdec.ptr52, %sw.bb48 ], [ %incdec.ptr74, %sw.bb73 ], [ %incdec.ptr72, %sw.bb71 ], [ %incdec.ptr66, %sw.bb65 ], [ %incdec.ptr60, %sw.bb59 ], [ %incdec.ptr54, %sw.bb53 ]
   %sub.ptr.lhs.cast = ptrtoint ptr %p.11 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -576,7 +575,7 @@ sw.epilog75:                                      ; preds = %sw.bb73, %sw.bb71, 
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 noundef %seconds) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %seconds, 1000
@@ -693,7 +692,7 @@ return:                                           ; preds = %if.end23.i, %if.the
   ret i32 %retval.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @_ZN9grpc_core7Timeout11FromMinutesEl(i64 noundef %minutes) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i64 %minutes, 1000
@@ -753,7 +752,7 @@ return:                                           ; preds = %if.then4, %if.end23
   ret i32 %retval.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @_ZN9grpc_core7Timeout9FromHoursEl(i64 noundef %hours) local_unnamed_addr #3 align 2 {
 entry:
   %spec.select3 = tail call i64 @llvm.smin.i64(i64 %hours, i64 27000)
@@ -768,11 +767,11 @@ define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull
 entry:
   %0 = load ptr, ptr %text, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %text, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %text, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes5.i = getelementptr inbounds i8, ptr %text, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %1
-  %data11.i = getelementptr inbounds %struct.grpc_slice, ptr %text, i64 0, i32 1
+  %data11.i = getelementptr inbounds i8, ptr %text, i64 8
   %2 = load i64, ptr %data11.i, align 8
   %conv.i = and i64 %2, 255
   %cond17.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -942,7 +941,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

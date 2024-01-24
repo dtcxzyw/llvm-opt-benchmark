@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTVN6icu_7513UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_openBinary_75(ptr noundef %bin, i32 noundef %length, ptr noundef %base, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ucol_openBinary_75(ptr noundef %bin, i32 noundef %length, ptr noundef %base, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -79,7 +79,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 declare void @_ZN6icu_7517RuleBasedCollatorD1Ev(ptr noundef nonnull align 8 dereferenceable(272)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_cloneBinary_75(ptr noundef %coll, ptr noundef %buffer, i32 noundef %capacity, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_cloneBinary_75(ptr noundef %coll, ptr noundef %buffer, i32 noundef %capacity, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -108,7 +108,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare noundef i32 @_ZNK6icu_7517RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_safeClone_75(ptr noundef %coll, ptr nocapture noundef readnone %0, ptr noundef %pBufferSize, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_safeClone_75(ptr noundef %coll, ptr nocapture noundef readnone %0, ptr noundef %pBufferSize, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -134,7 +134,7 @@ if.then5:                                         ; preds = %if.end3
 
 if.end9:                                          ; preds = %if.then5, %if.end3
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %coll)
   %cmp12 = icmp eq ptr %call11, null
@@ -154,7 +154,7 @@ return:                                           ; preds = %if.end9, %return.si
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_clone_75(ptr noundef %coll, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_clone_75(ptr noundef %coll, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %status, null
   br i1 %cmp.i, label %ucol_safeClone_75.exit, label %lor.lhs.false.i
@@ -170,7 +170,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   %call11.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %coll)
   %cmp12.i = icmp eq ptr %call11.i, null
@@ -194,7 +194,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll) #10
   br label %if.end
@@ -386,17 +386,17 @@ return:                                           ; preds = %lor.lhs.false21, %l
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_getSortKey_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %result, i32 noundef %resultLength) local_unnamed_addr #0 {
+define noundef i32 @ucol_getSortKey_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %result, i32 noundef %resultLength) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 34
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %result, i32 noundef %resultLength)
   ret i32 %call1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_nextSortKeyPart_75(ptr noundef %coll, ptr noundef %iter, ptr noundef %state, ptr noundef %dest, i32 noundef %count, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_nextSortKeyPart_75(ptr noundef %coll, ptr noundef %iter, ptr noundef %state, ptr noundef %dest, i32 noundef %count, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -408,7 +408,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %iter, ptr noundef %state, ptr noundef %dest, i32 noundef %count, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -418,7 +418,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i32 @ucol_getBound_75(ptr noundef readonly %source, i32 noundef %sourceLength, i32 noundef %boundType, i32 noundef %noOfLevels, ptr noundef writeonly %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %status, null
@@ -529,7 +529,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 25
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %group, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   br label %return
@@ -539,17 +539,17 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_getMaxVariable_75(ptr noundef %coll) local_unnamed_addr #0 {
+define noundef i32 @ucol_getMaxVariable_75(ptr noundef %coll) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll)
   ret i32 %call1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_setVariableTop_75(ptr noundef %coll, ptr noundef %varTop, i32 noundef %len, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_setVariableTop_75(ptr noundef %coll, ptr noundef %varTop, i32 noundef %len, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -559,7 +559,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 27
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %varTop, i32 noundef %len, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -570,7 +570,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_getVariableTop_75(ptr noundef %coll, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_getVariableTop_75(ptr noundef %coll, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -580,7 +580,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -601,7 +601,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %varTop, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -621,7 +621,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %attr, i32 noundef %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -631,7 +631,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_getAttribute_75(ptr noundef %coll, i32 noundef %attr, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_getAttribute_75(ptr noundef %coll, i32 noundef %attr, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -641,7 +641,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef %attr, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -661,7 +661,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 23
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 184
   %0 = load ptr, ptr %vfn.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef 5, i32 noundef %strength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %ucol_setAttribute_75.exit
@@ -671,7 +671,7 @@ ucol_setAttribute_75.exit:                        ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_getStrength_75(ptr noundef %coll) local_unnamed_addr #0 {
+define noundef i32 @ucol_getStrength_75(ptr noundef %coll) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -680,7 +680,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 192
   %0 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %ucol_getAttribute_75.exit
@@ -691,7 +691,7 @@ ucol_getAttribute_75.exit:                        ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_getReorderCodes_75(ptr noundef %coll, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_getReorderCodes_75(ptr noundef %coll, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -699,7 +699,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -718,7 +718,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %reorderCodes, i32 noundef %reorderCodesLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -728,7 +728,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_getEquivalentReorderCodes_75(i32 noundef %reorderCode, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @ucol_getEquivalentReorderCodes_75(i32 noundef %reorderCode, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i32 @_ZN6icu_758Collator25getEquivalentReorderCodesEiPiiR10UErrorCode(i32 noundef %reorderCode, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   ret i32 %call
@@ -740,14 +740,14 @@ declare noundef i32 @_ZN6icu_758Collator25getEquivalentReorderCodesEiPiiR10UErro
 define void @ucol_getVersion_75(ptr noundef %coll, ptr noundef %versionInfo) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %versionInfo)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_strcollIter_75(ptr noundef %coll, ptr noundef %sIter, ptr noundef %tIter, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_strcollIter_75(ptr noundef %coll, ptr noundef %sIter, ptr noundef %tIter, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %status, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -771,7 +771,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull align 8 dereferenceable(112) %sIter, ptr noundef nonnull align 8 dereferenceable(112) %tIter, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -782,19 +782,19 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_strcoll_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
+define noundef i32 @ucol_strcoll_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call1 = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret i32 %call1
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucol_strcollUTF8_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @ucol_strcollUTF8_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -802,7 +802,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
@@ -813,13 +813,13 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucol_greater_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
+define noundef signext i8 @ucol_greater_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
 entry:
   %status.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %0 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
@@ -829,13 +829,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucol_greaterOrEqual_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
+define noundef signext i8 @ucol_greaterOrEqual_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
 entry:
   %status.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %0 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
@@ -845,13 +845,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucol_equal_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
+define noundef signext i8 @ucol_equal_75(ptr noundef %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength) local_unnamed_addr #0 {
 entry:
   %status.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   store i32 0, ptr %status.i, align 4
   %vtable.i = load ptr, ptr %coll, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %0 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %target, i32 noundef %targetLength, ptr noundef nonnull align 4 dereferenceable(4) %status.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
@@ -869,17 +869,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull %v)
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %v, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %v, i64 1
   %1 = load i8, ptr %arrayidx, align 1
   %2 = lshr i8 %1, 3
   store i8 %2, ptr %info, align 1
   %3 = and i8 %1, 7
   %arrayidx6 = getelementptr inbounds i8, ptr %info, i64 1
   store i8 %3, ptr %arrayidx6, align 1
-  %arrayidx7 = getelementptr inbounds [4 x i8], ptr %v, i64 0, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %v, i64 2
   %4 = load i8, ptr %arrayidx7, align 1
   %5 = lshr i8 %4, 6
   %arrayidx11 = getelementptr inbounds i8, ptr %info, i64 2
@@ -903,12 +903,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7517RuleBasedCollator8getRulesEv(ptr noundef nonnull align 8 dereferenceable(272) %1)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i = sext i16 %3 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call2, i64 12
   %4 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %4, i32 %shr.i.i
   store i32 %cond.i, ptr %length, align 4
@@ -928,7 +928,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %return
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call2, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %call2, i64 24
   %6 = load ptr, ptr %fArray.i, align 8
   br label %return
 
@@ -950,7 +950,7 @@ entry:
   %errorCode = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %rules, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rules, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %rules, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = icmp ne ptr %coll, null
   tail call void @llvm.assume(i1 %0)
@@ -996,7 +996,7 @@ if.else:                                          ; preds = %if.end
   %cmp.i.i = icmp slt i16 %6, 0
   %7 = ashr i16 %6, 5
   %shr.i.i = sext i16 %7 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %rules, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %rules, i64 12
   %8 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %8, i32 %shr.i.i
   br label %cleanup
@@ -1020,7 +1020,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UError
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_getLocale_75(ptr noundef %coll, i32 noundef %type, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_getLocale_75(ptr noundef %coll, i32 noundef %type, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1047,7 +1047,7 @@ ucol_getLocaleByType_75.exit:                     ; preds = %entry, %if.then3.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_getLocaleByType_75(ptr noundef %coll, i32 noundef %type, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_getLocaleByType_75(ptr noundef %coll, i32 noundef %type, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1076,7 +1076,7 @@ return:                                           ; preds = %if.then3, %if.else,
 declare noundef ptr @_ZNK6icu_7517RuleBasedCollator19internalGetLocaleIDE18ULocDataLocaleTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_getTailoredSet_75(ptr noundef %coll, ptr noundef %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_getTailoredSet_75(ptr noundef %coll, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1084,7 +1084,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %coll, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %coll, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
@@ -1109,14 +1109,14 @@ return:                                           ; preds = %if.end, %if.then5, 
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @ucol_equals_75(ptr noundef %source, ptr noundef %target) local_unnamed_addr #0 {
+define noundef signext i8 @ucol_equals_75(ptr noundef %source, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %source, %target
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %vtable = load ptr, ptr %source, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %source, ptr noundef nonnull align 8 dereferenceable(8) %target)
   %1 = zext i1 %call2 to i8
@@ -1144,7 +1144,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nofree nounwind memory(read) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

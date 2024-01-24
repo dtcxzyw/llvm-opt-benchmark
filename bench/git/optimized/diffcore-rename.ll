@@ -7,29 +7,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
-%struct.strmap_entry = type { %struct.hashmap_entry, ptr, ptr }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.diff_filespec = type { %struct.object_id, ptr, ptr, ptr, i64, i32, i32, i16, i16, ptr }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.diff_filepair = type { ptr, ptr, i16, i8, i8 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.strintmap = type { %struct.strmap, i32 }
 %struct.strmap = type { %struct.hashmap, ptr, i8 }
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 %struct.diff_populate_filespec_options = type { i8, ptr, ptr }
 %struct.basename_prefetch_options = type { ptr, ptr, ptr, ptr, ptr }
+%struct.hashmap_entry = type { ptr, i32 }
 %struct.mem_pool = type { ptr, i64, i64 }
 %struct.dir_rename_info = type { %struct.strintmap, %struct.strmap, ptr, ptr, i32 }
 %struct.inexact_prefetch_options = type { ptr, i32 }
-%struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, i64, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
-%struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.diff_rename_dst = type { ptr, ptr, i32 }
 %struct.diff_rename_src = type { ptr, i16 }
-%struct.file_similarity = type { %struct.hashmap_entry, i32, ptr }
 %struct.diff_score = type { i32, i32, i16, i16 }
 %struct.string_list_item = type { ptr, ptr }
 %struct.oid_array = type { ptr, i64, i64, i32 }
@@ -79,7 +68,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %entry1.04 = phi ptr [ %call3, %for.body ], [ %call.i, %entry ]
-  %value = getelementptr inbounds %struct.strmap_entry, ptr %entry1.04, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %entry1.04, i64 24
   %0 = load ptr, ptr %value, align 8
   call void @strmap_clear(ptr noundef %0, i32 noundef 0) #14
   %call3 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter) #14
@@ -107,7 +96,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %p, align 8
-  %count.i = getelementptr inbounds %struct.diff_filespec, ptr %0, i64 0, i32 5
+  %count.i = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i32, ptr %count.i, align 8
   %dec.i = add nsw i32 %1, -1
   store i32 %dec.i, ptr %count.i, align 8
@@ -119,9 +108,9 @@ if.then.i:                                        ; preds = %if.end
   br label %free_filespec_data.exit
 
 free_filespec_data.exit:                          ; preds = %if.end, %if.then.i
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %p, i64 0, i32 1
+  %two = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load ptr, ptr %two, align 8
-  %count.i3 = getelementptr inbounds %struct.diff_filespec, ptr %2, i64 0, i32 5
+  %count.i3 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i32, ptr %count.i3, align 8
   %dec.i4 = add nsw i32 %3, -1
   store i32 %dec.i4, ptr %count.i3, align 8
@@ -141,8 +130,8 @@ declare void @diff_free_filepair(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @diffcore_rename_extended(ptr nocapture noundef %options, ptr noundef readnone %pool, ptr noundef %relevant_sources, ptr noundef %dirs_removed, ptr noundef %dir_rename_count, ptr noundef %cached_pairs) local_unnamed_addr #0 {
 entry:
-  %iter.i.i339 = alloca %struct.hashmap_iter, align 8
-  %iter.i340 = alloca %struct.hashmap_iter, align 8
+  %iter.i.i340 = alloca %struct.hashmap_iter, align 8
+  %iter.i341 = alloca %struct.hashmap_iter, align 8
   %to_remove.i = alloca %struct.string_list, align 8
   %iter.i.i221 = alloca %struct.hashmap_iter, align 8
   %iter.i222 = alloca %struct.hashmap_iter, align 8
@@ -160,19 +149,19 @@ entry:
   %info = alloca %struct.dir_rename_info, align 8
   %dpf_options = alloca %struct.diff_populate_filespec_options, align 8
   %prefetch_options = alloca %struct.inexact_prefetch_options, align 8
-  %detect_rename1 = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 21
+  %detect_rename1 = getelementptr inbounds i8, ptr %options, i64 268
   %0 = load i32, ptr %detect_rename1, align 4
-  %rename_score = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 26
+  %rename_score = getelementptr inbounds i8, ptr %options, i64 288
   %1 = load i32, ptr %rename_score, align 8
   store ptr null, ptr %progress, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dpf_options, i8 0, i64 24, i1 false)
-  %repo2 = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 72
+  %repo2 = getelementptr inbounds i8, ptr %options, i64 576
   %2 = load ptr, ptr %repo2, align 8
   store ptr %2, ptr %prefetch_options, align 8
-  %skip_unmodified3 = getelementptr inbounds %struct.inexact_prefetch_options, ptr %prefetch_options, i64 0, i32 1
+  %skip_unmodified3 = getelementptr inbounds i8, ptr %prefetch_options, i64 8
   store i32 0, ptr %skip_unmodified3, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 1405, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %2) #14
-  %setup = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 4
+  %setup = getelementptr inbounds i8, ptr %info, i64 152
   store i32 0, ptr %setup, align 8
   %cmp = icmp eq i32 %0, 2
   %conv = zext i1 %cmp to i32
@@ -186,7 +175,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.end.thread
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  %tobool9447 = icmp ne ptr %relevant_sources, null
+  %tobool9448 = icmp ne ptr %relevant_sources, null
   br label %if.end11
 
 if.then:                                          ; preds = %land.lhs.true
@@ -203,16 +192,16 @@ if.then10:                                        ; preds = %if.end
   unreachable
 
 if.end11:                                         ; preds = %if.end.thread, %if.end
-  %tobool9449 = phi i1 [ %tobool9447, %if.end.thread ], [ %tobool9, %if.end ]
+  %tobool9450 = phi i1 [ %tobool9448, %if.end.thread ], [ %tobool9, %if.end ]
   %tobool12.not = icmp eq i32 %1, 0
   %spec.store.select = select i1 %tobool12.not, i32 30000, i32 %1
   %3 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
-  %cmp15399 = icmp sgt i32 %3, 0
-  br i1 %cmp15399, label %for.body.lr.ph, label %for.end
+  %cmp15400 = icmp sgt i32 %3, 0
+  br i1 %cmp15400, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end11
-  %rename_empty52 = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 14, i32 8
-  %single_follow = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 9
+  %rename_empty52 = getelementptr inbounds i8, ptr %options, i64 136
+  %single_follow = getelementptr inbounds i8, ptr %options, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -221,15 +210,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   %6 = load ptr, ptr %5, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %6, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load i16, ptr %mode, align 8
   %cmp18.not = icmp eq i16 %7, 0
   br i1 %cmp18.not, label %if.then20, label %if.else50
 
 if.then20:                                        ; preds = %for.body
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %5, i64 0, i32 1
+  %two = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %two, align 8
-  %mode21 = getelementptr inbounds %struct.diff_filespec, ptr %8, i64 0, i32 7
+  %mode21 = getelementptr inbounds i8, ptr %8, i64 80
   %9 = load i16, ptr %mode21, align 8
   %cmp23.not = icmp eq i16 %9, 0
   br i1 %cmp23.not, label %for.inc, label %if.else
@@ -240,7 +229,7 @@ if.else:                                          ; preds = %if.then20
   br i1 %tobool26.not, label %if.else32, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.else
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %8, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %8, i64 40
   %11 = load ptr, ptr %path, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %11) #16
   %tobool30.not = icmp eq i32 %call, 0
@@ -253,11 +242,11 @@ if.else32:                                        ; preds = %land.lhs.true27, %i
 
 land.lhs.true34:                                  ; preds = %if.else32
   %13 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %13, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %13, i64 256
   %14 = load ptr, ptr %hash_algo.i, align 8
-  %empty_blob.i = getelementptr inbounds %struct.git_hash_algo, ptr %14, i64 0, i32 11
+  %empty_blob.i = getelementptr inbounds i8, ptr %14, i64 88
   %15 = load ptr, ptr %empty_blob.i, align 8
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %8, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %8, i64 32
   %16 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %16, 0
   %idxprom.i.i = sext i32 %16 to i64
@@ -336,11 +325,11 @@ if.else50:                                        ; preds = %for.body
 
 land.lhs.true54:                                  ; preds = %if.else50
   %25 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i152 = getelementptr inbounds %struct.repository, ptr %25, i64 0, i32 15
+  %hash_algo.i152 = getelementptr inbounds i8, ptr %25, i64 256
   %26 = load ptr, ptr %hash_algo.i152, align 8
-  %empty_blob.i153 = getelementptr inbounds %struct.git_hash_algo, ptr %26, i64 0, i32 11
+  %empty_blob.i153 = getelementptr inbounds i8, ptr %26, i64 88
   %27 = load ptr, ptr %empty_blob.i153, align 8
-  %algo.i.i154 = getelementptr inbounds %struct.object_id, ptr %6, i64 0, i32 1
+  %algo.i.i154 = getelementptr inbounds i8, ptr %6, i64 32
   %28 = load i32, ptr %algo.i.i154, align 4
   %tobool.not.i.i155 = icmp eq i32 %28, 0
   %idxprom.i.i156 = sext i32 %28 to i64
@@ -365,16 +354,16 @@ is_empty_blob_oid.exit168:                        ; preds = %if.then.i.i.i166, %
   br i1 %retval.0.in.i.i.i164.not, label %for.inc, label %if.else60
 
 if.else60:                                        ; preds = %is_empty_blob_oid.exit168, %if.else50
-  %is_unmerged = getelementptr inbounds %struct.diff_filepair, ptr %5, i64 0, i32 4
+  %is_unmerged = getelementptr inbounds i8, ptr %5, i64 19
   %bf.load = load i8, ptr %is_unmerged, align 1
   %30 = and i8 %bf.load, 4
   %tobool61.not = icmp eq i8 %30, 0
   br i1 %tobool61.not, label %land.lhs.true62, label %if.else78
 
 land.lhs.true62:                                  ; preds = %if.else60
-  %two63 = getelementptr inbounds %struct.diff_filepair, ptr %5, i64 0, i32 1
+  %two63 = getelementptr inbounds i8, ptr %5, i64 8
   %31 = load ptr, ptr %two63, align 8
-  %mode64 = getelementptr inbounds %struct.diff_filespec, ptr %31, i64 0, i32 7
+  %mode64 = getelementptr inbounds i8, ptr %31, i64 80
   %32 = load i16, ptr %mode64, align 8
   %cmp66.not = icmp eq i16 %32, 0
   br i1 %cmp66.not, label %if.then68, label %if.else78
@@ -385,13 +374,13 @@ if.then68:                                        ; preds = %land.lhs.true62
   br i1 %tobool72.not, label %if.end77, label %land.lhs.true73
 
 land.lhs.true73:                                  ; preds = %if.then68
-  %score = getelementptr inbounds %struct.diff_filepair, ptr %5, i64 0, i32 2
+  %score = getelementptr inbounds i8, ptr %5, i64 16
   %33 = load i16, ptr %score, align 8
   %tobool74.not = icmp eq i16 %33, 0
   br i1 %tobool74.not, label %if.then75, label %if.end77
 
 if.then75:                                        ; preds = %land.lhs.true73
-  %rename_used = getelementptr inbounds %struct.diff_filespec, ptr %6, i64 0, i32 6
+  %rename_used = getelementptr inbounds i8, ptr %6, i64 76
   %34 = load i32, ptr %rename_used, align 4
   %inc = add nsw i32 %34, 1
   store i32 %inc, ptr %rename_used, align 4
@@ -405,7 +394,7 @@ if.else78:                                        ; preds = %land.lhs.true62, %i
   br i1 %cmp, label %if.then80, label %for.inc
 
 if.then80:                                        ; preds = %if.else78
-  %rename_used82 = getelementptr inbounds %struct.diff_filespec, ptr %6, i64 0, i32 6
+  %rename_used82 = getelementptr inbounds i8, ptr %6, i64 76
   %35 = load i32, ptr %rename_used82, align 4
   %inc83 = add nsw i32 %35, 1
   store i32 %inc83, ptr %rename_used82, align 4
@@ -451,7 +440,7 @@ for.cond2.preheader.i:                            ; preds = %insert_file_table.e
   br i1 %cmp331.i, label %for.body5.lr.ph.i, label %find_exact_renames.exit
 
 for.body5.lr.ph.i:                                ; preds = %for.cond2.preheader.i
-  %hash1.i.i.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %key.i.i.i, i64 0, i32 1
+  %hash1.i.i.i.i = getelementptr inbounds i8, ptr %key.i.i.i, i64 8
   br label %for.body5.i
 
 for.body.i:                                       ; preds = %insert_file_table.exit.i, %for.body.lr.ph.i
@@ -463,12 +452,12 @@ for.body.i:                                       ; preds = %insert_file_table.e
   %48 = load ptr, ptr %arrayidx.i173, align 8
   %49 = load ptr, ptr %48, align 8
   %call.i.i = call ptr @mem_pool_alloc(ptr noundef nonnull %local_pool, i64 noundef 32) #14
-  %index2.i.i = getelementptr inbounds %struct.file_similarity, ptr %call.i.i, i64 0, i32 1
+  %index2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %50 = trunc i64 %indvars.iv.next.i to i32
   store i32 %50, ptr %index2.i.i, align 8
-  %filespec3.i.i = getelementptr inbounds %struct.file_similarity, ptr %call.i.i, i64 0, i32 2
+  %filespec3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %49, ptr %filespec3.i.i, align 8
-  %oid_valid.i.i.i = getelementptr inbounds %struct.diff_filespec, ptr %49, i64 0, i32 8
+  %oid_valid.i.i.i = getelementptr inbounds i8, ptr %49, i64 82
   %bf.load.i.i.i = load i16, ptr %oid_valid.i.i.i, align 2
   %bf.clear.i.i.i = and i16 %bf.load.i.i.i, 1
   %tobool.not.i.i.i = icmp eq i16 %bf.clear.i.i.i, 0
@@ -480,11 +469,11 @@ if.then.i.i.i175:                                 ; preds = %for.body.i
   br i1 %tobool1.not.i.i.i, label %if.end.i.i.i176, label %insert_file_table.exit.i
 
 if.end.i.i.i176:                                  ; preds = %if.then.i.i.i175
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %46, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %46, i64 256
   %51 = load ptr, ptr %hash_algo.i.i.i, align 8
-  %data.i.i.i = getelementptr inbounds %struct.diff_filespec, ptr %49, i64 0, i32 2
+  %data.i.i.i = getelementptr inbounds i8, ptr %49, i64 48
   %52 = load ptr, ptr %data.i.i.i, align 8
-  %size.i.i.i = getelementptr inbounds %struct.diff_filespec, ptr %49, i64 0, i32 4
+  %size.i.i.i = getelementptr inbounds i8, ptr %49, i64 64
   %53 = load i64, ptr %size.i.i.i, align 8
   call void @hash_object_file(ptr noundef %51, ptr noundef %52, i64 noundef %53, i32 noundef 3, ptr noundef nonnull %49) #14
   br label %if.end3.i.i.i
@@ -495,7 +484,7 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i176, %f
 
 insert_file_table.exit.i:                         ; preds = %if.end3.i.i.i, %if.then.i.i.i175
   %retval.0.i.i.i174 = phi i32 [ %filespec.val.i.i.i, %if.end3.i.i.i ], [ 0, %if.then.i.i.i175 ]
-  %hash1.i.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %call.i.i, i64 0, i32 1
+  %hash1.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 %retval.0.i.i.i174, ptr %hash1.i.i.i, align 8
   store ptr null, ptr %call.i.i, align 8
   call void @hashmap_add(ptr noundef nonnull %file_table.i, ptr noundef nonnull %call.i.i) #14
@@ -508,10 +497,10 @@ for.body5.i:                                      ; preds = %find_identical_file
   %54 = load ptr, ptr @rename_dst, align 8
   %arrayidx.i.i170 = getelementptr inbounds %struct.diff_rename_dst, ptr %54, i64 %indvars.iv40.i
   %55 = load ptr, ptr %arrayidx.i.i170, align 8
-  %two.i.i = getelementptr inbounds %struct.diff_filepair, ptr %55, i64 0, i32 1
+  %two.i.i = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load ptr, ptr %two.i.i, align 8
   %57 = load ptr, ptr %repo2, align 8
-  %oid_valid.i.i9.i = getelementptr inbounds %struct.diff_filespec, ptr %56, i64 0, i32 8
+  %oid_valid.i.i9.i = getelementptr inbounds i8, ptr %56, i64 82
   %bf.load.i.i10.i = load i16, ptr %oid_valid.i.i9.i, align 2
   %bf.clear.i.i11.i = and i16 %bf.load.i.i10.i, 1
   %tobool.not.i.i12.i = icmp eq i16 %bf.clear.i.i11.i, 0
@@ -523,11 +512,11 @@ if.then.i.i16.i:                                  ; preds = %for.body5.i
   br i1 %tobool1.not.i.i18.i, label %if.end.i.i19.i, label %hash_filespec.exit.i.i
 
 if.end.i.i19.i:                                   ; preds = %if.then.i.i16.i
-  %hash_algo.i.i20.i = getelementptr inbounds %struct.repository, ptr %57, i64 0, i32 15
+  %hash_algo.i.i20.i = getelementptr inbounds i8, ptr %57, i64 256
   %58 = load ptr, ptr %hash_algo.i.i20.i, align 8
-  %data.i.i21.i = getelementptr inbounds %struct.diff_filespec, ptr %56, i64 0, i32 2
+  %data.i.i21.i = getelementptr inbounds i8, ptr %56, i64 48
   %59 = load ptr, ptr %data.i.i21.i, align 8
-  %size.i.i22.i = getelementptr inbounds %struct.diff_filespec, ptr %56, i64 0, i32 4
+  %size.i.i22.i = getelementptr inbounds i8, ptr %56, i64 64
   %60 = load i64, ptr %size.i.i22.i, align 8
   call void @hash_object_file(ptr noundef %58, ptr noundef %59, i64 noundef %60, i32 noundef 3, ptr noundef nonnull %56) #14
   br label %if.end3.i.i13.i
@@ -547,7 +536,7 @@ hash_filespec.exit.i.i:                           ; preds = %if.end3.i.i13.i, %i
   br i1 %tobool.not44.i.i, label %find_identical_files.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %hash_filespec.exit.i.i
-  %mode8.i.i = getelementptr inbounds %struct.diff_filespec, ptr %56, i64 0, i32 7
+  %mode8.i.i = getelementptr inbounds i8, ptr %56, i64 80
   %61 = getelementptr i8, ptr %56, i64 40
   br label %for.body.i.i
 
@@ -556,16 +545,16 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %best_score.047.i.i = phi i32 [ -1, %for.body.lr.ph.i.i ], [ %best_score.2.i.i, %for.inc.i.i ]
   %i.046.i.i = phi i32 [ 100, %for.body.lr.ph.i.i ], [ %i.1.i.i, %for.inc.i.i ]
   %best.045.i.i = phi ptr [ null, %for.body.lr.ph.i.i ], [ %best.2.i.i, %for.inc.i.i ]
-  %filespec.i.i = getelementptr inbounds %struct.file_similarity, ptr %p1.048.i.i, i64 0, i32 2
+  %filespec.i.i = getelementptr inbounds i8, ptr %p1.048.i.i, i64 24
   %62 = load ptr, ptr %filespec.i.i, align 8
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %62, i64 0, i32 1
+  %algo.i.i.i = getelementptr inbounds i8, ptr %62, i64 32
   %63 = load i32, ptr %algo.i.i.i, align 4
   %tobool.not.i23.i.i = icmp eq i32 %63, 0
   br i1 %tobool.not.i23.i.i, label %if.then.i25.i.i, label %if.else.i.i.i
 
 if.then.i25.i.i:                                  ; preds = %for.body.i.i
   %64 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i26.i.i = getelementptr inbounds %struct.repository, ptr %64, i64 0, i32 15
+  %hash_algo.i26.i.i = getelementptr inbounds i8, ptr %64, i64 256
   %65 = load ptr, ptr %hash_algo.i26.i.i, align 8
   br label %if.end.i24.i.i
 
@@ -595,7 +584,7 @@ oideq.exit.i.i:                                   ; preds = %if.end.i.i.i.i, %if
   br i1 %retval.0.in.i.i.not.i.i, label %if.end.i.i, label %for.inc.i.i
 
 if.end.i.i:                                       ; preds = %oideq.exit.i.i
-  %mode.i.i = getelementptr inbounds %struct.diff_filespec, ptr %62, i64 0, i32 7
+  %mode.i.i = getelementptr inbounds i8, ptr %62, i64 80
   %67 = load i16, ptr %mode.i.i, align 8
   %68 = and i16 %67, -4096
   %cmp.i.i = icmp eq i16 %68, -32768
@@ -608,7 +597,7 @@ if.end.i.i:                                       ; preds = %oideq.exit.i.i
   br i1 %or.cond64.i.i, label %if.end22.i.i, label %for.inc.i.i
 
 if.end22.i.i:                                     ; preds = %if.end.i.i
-  %rename_used.i.i = getelementptr inbounds %struct.diff_filespec, ptr %62, i64 0, i32 6
+  %rename_used.i.i = getelementptr inbounds i8, ptr %62, i64 76
   %70 = load i32, ptr %rename_used.i.i, align 4
   %tobool23.not.i.i = icmp eq i32 %70, 0
   %lnot.ext.i.i = zext i1 %tobool23.not.i.i to i32
@@ -648,8 +637,8 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %79 = load i8, ptr %arrayidx9.i.i.i, align 1
   %cmp.not.i.i.i = icmp eq i8 %78, %79
   %cmp14.i.i.i = icmp ne i8 %78, 47
-  %or.cond478.not = and i1 %cmp14.i.i.i, %cmp.not.i.i.i
-  br i1 %or.cond478.not, label %while.cond.i.i.i, label %basename_same.exit.i.i, !llvm.loop !9
+  %or.cond479.not = and i1 %cmp14.i.i.i, %cmp.not.i.i.i
+  br i1 %or.cond479.not, label %while.cond.i.i.i, label %basename_same.exit.i.i, !llvm.loop !9
 
 while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   br i1 %75, label %lor.lhs.false.i.i.i, label %land.rhs25.i.i.i
@@ -708,13 +697,13 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %if.en
   br i1 %tobool45.not.i.i, label %find_identical_files.exit.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %for.end.i.i
-  %index.i.i = getelementptr inbounds %struct.file_similarity, ptr %best.3.i.i, i64 0, i32 1
+  %index.i.i = getelementptr inbounds i8, ptr %best.3.i.i, i64 16
   %86 = load i32, ptr %index.i.i, align 8
   %idxprom.i31.i.i = sext i32 %86 to i64
   %87 = load ptr, ptr @rename_dst, align 8
   %arrayidx2.i.i.i = getelementptr inbounds %struct.diff_rename_dst, ptr %87, i64 %indvars.iv40.i
   %88 = load ptr, ptr %arrayidx2.i.i.i, align 8
-  %renamed_pair.i.i.i = getelementptr inbounds %struct.diff_filepair, ptr %88, i64 0, i32 4
+  %renamed_pair.i.i.i = getelementptr inbounds i8, ptr %88, i64 19
   %bf.load.i32.i.i = load i8, ptr %renamed_pair.i.i.i, align 1
   %89 = and i8 %bf.load.i32.i.i, 2
   %tobool.not.i33.i.i = icmp eq i8 %89, 0
@@ -729,12 +718,12 @@ if.end.i35.i.i:                                   ; preds = %if.then46.i.i
   %arrayidx.i36.i.i = getelementptr inbounds %struct.diff_rename_src, ptr %90, i64 %idxprom.i31.i.i
   %91 = load ptr, ptr %arrayidx.i36.i.i, align 8
   %92 = load ptr, ptr %91, align 8
-  %rename_used.i.i.i = getelementptr inbounds %struct.diff_filespec, ptr %92, i64 0, i32 6
+  %rename_used.i.i.i = getelementptr inbounds i8, ptr %92, i64 76
   %93 = load i32, ptr %rename_used.i.i.i, align 4
   %inc.i.i.i = add nsw i32 %93, 1
   store i32 %inc.i.i.i, ptr %rename_used.i.i.i, align 4
   %94 = load ptr, ptr %91, align 8
-  %count.i.i.i = getelementptr inbounds %struct.diff_filespec, ptr %94, i64 0, i32 5
+  %count.i.i.i = getelementptr inbounds i8, ptr %94, i64 72
   %95 = load i32, ptr %count.i.i.i, align 8
   %inc5.i.i.i = add nsw i32 %95, 1
   store i32 %inc5.i.i.i, ptr %count.i.i.i, align 8
@@ -748,11 +737,11 @@ if.end.i35.i.i:                                   ; preds = %if.then46.i.i
   %bf.load14.i.i.i = load i8, ptr %renamed_pair.i.i.i, align 1
   %bf.set.i.i.i = or i8 %bf.load14.i.i.i, 2
   store i8 %bf.set.i.i.i, ptr %renamed_pair.i.i.i, align 1
-  %path.i.i.i = getelementptr inbounds %struct.diff_filespec, ptr %97, i64 0, i32 1
+  %path.i.i.i = getelementptr inbounds i8, ptr %97, i64 40
   %98 = load ptr, ptr %path.i.i.i, align 8
-  %two.i.i.i = getelementptr inbounds %struct.diff_filepair, ptr %88, i64 0, i32 1
+  %two.i.i.i = getelementptr inbounds i8, ptr %88, i64 8
   %99 = load ptr, ptr %two.i.i.i, align 8
-  %path17.i.i.i = getelementptr inbounds %struct.diff_filespec, ptr %99, i64 0, i32 1
+  %path17.i.i.i = getelementptr inbounds i8, ptr %99, i64 40
   %100 = load ptr, ptr %path17.i.i.i, align 8
   %call.i37.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %100) #16
   %tobool18.not.i.i.i = icmp eq i32 %call.i37.i.i, 0
@@ -765,7 +754,7 @@ if.then19.i.i.i:                                  ; preds = %if.end.i35.i.i
 
 record_rename_pair.exit.i.i:                      ; preds = %if.then19.i.i.i, %if.end.i35.i.i
   %conv.sink.i.i.i = phi i16 [ %101, %if.then19.i.i.i ], [ -5536, %if.end.i35.i.i ]
-  %102 = getelementptr inbounds %struct.diff_filepair, ptr %88, i64 0, i32 2
+  %102 = getelementptr inbounds i8, ptr %88, i64 16
   store i16 %conv.sink.i.i.i, ptr %102, align 8
   br label %find_identical_files.exit.i
 
@@ -842,7 +831,7 @@ for.body.us.us.i:                                 ; preds = %for.body.us.us.i.pr
   %arrayidx.us.us.i = getelementptr inbounds %struct.diff_rename_src, ptr %112, i64 %indvars.iv53.i
   %113 = load ptr, ptr %arrayidx.us.us.i, align 8
   %114 = load ptr, ptr %113, align 8
-  %rename_used.us.us.i = getelementptr inbounds %struct.diff_filespec, ptr %114, i64 0, i32 6
+  %rename_used.us.us.i = getelementptr inbounds i8, ptr %114, i64 76
   %115 = load i32, ptr %rename_used.us.us.i, align 4
   %tobool8.not.us.us.i = icmp eq i32 %115, 0
   br i1 %tobool8.not.us.us.i, label %if.end10.us.us.i, label %for.inc.us.us.i
@@ -879,7 +868,7 @@ remove_unneeded_paths_from_src.exit:              ; preds = %if.end117, %for.end
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 1513, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, ptr noundef %118) #14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i)
   %tobool.i = icmp ne ptr %dirs_removed, null
-  %or.cond.i = or i1 %tobool9449, %tobool.i
+  %or.cond.i = or i1 %tobool9450, %tobool.i
   br i1 %or.cond.i, label %if.end.i, label %if.then.i179
 
 if.then.i179:                                     ; preds = %remove_unneeded_paths_from_src.exit
@@ -888,7 +877,7 @@ if.then.i179:                                     ; preds = %remove_unneeded_pat
 
 if.end.i:                                         ; preds = %remove_unneeded_paths_from_src.exit
   store i32 1, ptr %setup, align 8
-  %dir_rename_count4.i = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 2
+  %dir_rename_count4.i = getelementptr inbounds i8, ptr %info, i64 136
   store ptr %dir_rename_count, ptr %dir_rename_count4.i, align 8
   %tobool6.not.i180 = icmp eq ptr %dir_rename_count, null
   br i1 %tobool6.not.i180, label %if.then7.i, label %if.end10.i
@@ -901,13 +890,13 @@ if.then7.i:                                       ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.then7.i, %if.end.i
   call void @strmap_init_with_options(ptr noundef nonnull %info, ptr noundef null, i32 noundef 0) #14
-  %default_value2.i.i = getelementptr inbounds %struct.strintmap, ptr %info, i64 0, i32 1
+  %default_value2.i.i = getelementptr inbounds i8, ptr %info, i64 64
   store i32 -1, ptr %default_value2.i.i, align 8
-  %dir_rename_guess.i = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 1
+  %dir_rename_guess.i = getelementptr inbounds i8, ptr %info, i64 72
   call void @strmap_init_with_options(ptr noundef nonnull %dir_rename_guess.i, ptr noundef null, i32 noundef 0) #14
-  %relevant_source_dirs.i = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 3
+  %relevant_source_dirs.i = getelementptr inbounds i8, ptr %info, i64 144
   store ptr null, ptr %relevant_source_dirs.i, align 8
-  %or.cond1.i181 = and i1 %tobool9449, %tobool.not
+  %or.cond1.i181 = and i1 %tobool9450, %tobool.not
   br i1 %or.cond1.i181, label %if.else.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end10.i
@@ -918,7 +907,7 @@ if.else.i:                                        ; preds = %if.end10.i
   %call15.i = call ptr @xmalloc(i64 noundef 72) #14
   store ptr %call15.i, ptr %relevant_source_dirs.i, align 8
   call void @strmap_init(ptr noundef %call15.i) #14
-  %default_value2.i43.i = getelementptr inbounds %struct.strintmap, ptr %call15.i, i64 0, i32 1
+  %default_value2.i43.i = getelementptr inbounds i8, ptr %call15.i, i64 64
   store i32 0, ptr %default_value2.i43.i, align 8
   call void @hashmap_iter_init(ptr noundef nonnull %relevant_sources, ptr noundef nonnull %iter.i) #14
   %call.i.i192 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i) #14
@@ -927,7 +916,7 @@ if.else.i:                                        ; preds = %if.end10.i
 
 for.body.i193:                                    ; preds = %if.else.i, %get_dirname.exit.i
   %entry1.052.i = phi ptr [ %call30.i, %get_dirname.exit.i ], [ %call.i.i192, %if.else.i ]
-  %key.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.052.i, i64 0, i32 1
+  %key.i = getelementptr inbounds i8, ptr %entry1.052.i, i64 16
   %119 = load ptr, ptr %key.i, align 8
   %call.i44.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %119, i32 noundef 47) #16
   %tobool.not.i.i194 = icmp eq ptr %call.i44.i, null
@@ -962,16 +951,16 @@ for.body34.i:                                     ; preds = %if.end32.i, %for.in
   %indvars.iv.i187 = phi i64 [ %indvars.iv.next.i190, %for.inc50.i ], [ 0, %if.end32.i ]
   %122 = load ptr, ptr @rename_dst, align 8
   %arrayidx.i188 = getelementptr inbounds %struct.diff_rename_dst, ptr %122, i64 %indvars.iv.i187
-  %is_rename.i189 = getelementptr inbounds %struct.diff_rename_dst, ptr %122, i64 %indvars.iv.i187, i32 2
+  %is_rename.i189 = getelementptr inbounds i8, ptr %arrayidx.i188, i64 16
   %123 = load i32, ptr %is_rename.i189, align 8
   %tobool35.not.i = icmp eq i32 %123, 0
   %124 = load ptr, ptr %arrayidx.i188, align 8
   br i1 %tobool35.not.i, label %if.then36.i, label %if.end40.i
 
 if.then36.i:                                      ; preds = %for.body34.i
-  %two.i = getelementptr inbounds %struct.diff_filepair, ptr %124, i64 0, i32 1
+  %two.i = getelementptr inbounds i8, ptr %124, i64 8
   %125 = load ptr, ptr %two.i, align 8
-  %path.i = getelementptr inbounds %struct.diff_filespec, ptr %125, i64 0, i32 1
+  %path.i = getelementptr inbounds i8, ptr %125, i64 40
   %126 = load ptr, ptr %path.i, align 8
   %127 = inttoptr i64 %indvars.iv.i187 to ptr
   %call.i47.i = call ptr @strmap_put(ptr noundef nonnull %info, ptr noundef %126, ptr noundef %127) #14
@@ -979,11 +968,11 @@ if.then36.i:                                      ; preds = %for.body34.i
 
 if.end40.i:                                       ; preds = %for.body34.i
   %128 = load ptr, ptr %124, align 8
-  %path44.i = getelementptr inbounds %struct.diff_filespec, ptr %128, i64 0, i32 1
+  %path44.i = getelementptr inbounds i8, ptr %128, i64 40
   %129 = load ptr, ptr %path44.i, align 8
-  %two48.i = getelementptr inbounds %struct.diff_filepair, ptr %124, i64 0, i32 1
+  %two48.i = getelementptr inbounds i8, ptr %124, i64 8
   %130 = load ptr, ptr %two48.i, align 8
-  %path49.i = getelementptr inbounds %struct.diff_filespec, ptr %130, i64 0, i32 1
+  %path49.i = getelementptr inbounds i8, ptr %130, i64 40
   %131 = load ptr, ptr %path49.i, align 8
   call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %129, ptr noundef %131)
   br label %for.inc50.i
@@ -1003,13 +992,13 @@ for.end51.i:                                      ; preds = %for.inc50.i, %if.en
 
 for.body57.i:                                     ; preds = %for.end51.i, %for.inc62.i
   %entry1.156.i = phi ptr [ %call63.i, %for.inc62.i ], [ %call.i48.i, %for.end51.i ]
-  %value.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.156.i, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %entry1.156.i, i64 24
   %134 = load ptr, ptr %value.i, align 8
   %tobool59.not.i = icmp eq ptr %134, null
   br i1 %tobool59.not.i, label %for.inc62.i, label %if.end61.i
 
 if.end61.i:                                       ; preds = %for.body57.i
-  %key58.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.156.i, i64 0, i32 1
+  %key58.i = getelementptr inbounds i8, ptr %entry1.156.i, i64 16
   %135 = load ptr, ptr %key58.i, align 8
   call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %135, ptr noundef nonnull %134)
   br label %for.inc62.i
@@ -1028,7 +1017,7 @@ for.end65.i:                                      ; preds = %for.inc62.i, %for.e
 
 for.body72.i:                                     ; preds = %for.end65.i, %get_highest_rename_path.exit.i
   %entry1.258.i = phi ptr [ %call80.i, %get_highest_rename_path.exit.i ], [ %call.i49.i, %for.end65.i ]
-  %value73.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.258.i, i64 0, i32 2
+  %value73.i = getelementptr inbounds i8, ptr %entry1.258.i, i64 24
   %137 = load ptr, ptr %value73.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i.i)
   call void @hashmap_iter_init(ptr noundef %137, ptr noundef nonnull %iter.i.i) #14
@@ -1040,7 +1029,7 @@ for.body.i.i183:                                  ; preds = %for.body72.i, %for.
   %highest_count.07.i.i = phi i32 [ %highest_count.1.i.i, %for.inc.i.i185 ], [ 0, %for.body72.i ]
   %highest_destination_dir.06.i.i = phi ptr [ %highest_destination_dir.1.i.i, %for.inc.i.i185 ], [ null, %for.body72.i ]
   %entry1.05.i.i = phi ptr [ %call6.i.i, %for.inc.i.i185 ], [ %call.i.i.i182, %for.body72.i ]
-  %value.i.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.05.i.i, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %entry1.05.i.i, i64 24
   %138 = load ptr, ptr %value.i.i, align 8
   %139 = ptrtoint ptr %138 to i64
   %conv.i.i = sext i32 %highest_count.07.i.i to i64
@@ -1048,7 +1037,7 @@ for.body.i.i183:                                  ; preds = %for.body72.i, %for.
   br i1 %cmp.i.i184, label %if.then.i.i186, label %for.inc.i.i185
 
 if.then.i.i186:                                   ; preds = %for.body.i.i183
-  %key.i.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.05.i.i, i64 0, i32 1
+  %key.i.i = getelementptr inbounds i8, ptr %entry1.05.i.i, i64 16
   %140 = load ptr, ptr %key.i.i, align 8
   %conv5.i.i = trunc i64 %139 to i32
   br label %for.inc.i.i185
@@ -1064,7 +1053,7 @@ get_highest_rename_path.exit.i:                   ; preds = %for.inc.i.i185, %fo
   %highest_destination_dir.0.lcssa.i.i = phi ptr [ null, %for.body72.i ], [ %highest_destination_dir.1.i.i, %for.inc.i.i185 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i.i)
   %call75.i = call ptr @xstrdup(ptr noundef %highest_destination_dir.0.lcssa.i.i) #14
-  %key77.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.258.i, i64 0, i32 1
+  %key77.i = getelementptr inbounds i8, ptr %entry1.258.i, i64 16
   %141 = load ptr, ptr %key77.i, align 8
   %call78.i = call ptr @strmap_put(ptr noundef nonnull %dir_rename_guess.i, ptr noundef %141, ptr noundef %call75.i) #14
   %call80.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i) #14
@@ -1084,28 +1073,28 @@ initialize_dir_rename_info.exit:                  ; preds = %get_highest_rename_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dpf_options.i, i8 0, i64 24, i1 false)
   %144 = load ptr, ptr %repo2, align 8
   store ptr %144, ptr %prefetch_options.i, align 8
-  %relevant_sources2.i = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options.i, i64 0, i32 1
+  %relevant_sources2.i = getelementptr inbounds i8, ptr %prefetch_options.i, i64 8
   store ptr %relevant_sources, ptr %relevant_sources2.i, align 8
-  %sources3.i = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options.i, i64 0, i32 2
+  %sources3.i = getelementptr inbounds i8, ptr %prefetch_options.i, i64 16
   store ptr %sources.i, ptr %sources3.i, align 8
-  %dests4.i = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options.i, i64 0, i32 3
+  %dests4.i = getelementptr inbounds i8, ptr %prefetch_options.i, i64 24
   store ptr %dests.i, ptr %dests4.i, align 8
-  %info5.i = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options.i, i64 0, i32 4
+  %info5.i = getelementptr inbounds i8, ptr %prefetch_options.i, i64 32
   store ptr %info, ptr %info5.i, align 8
   call void @strmap_init_with_options(ptr noundef nonnull %sources.i, ptr noundef null, i32 noundef 0) #14
-  %default_value2.i.i195 = getelementptr inbounds %struct.strintmap, ptr %sources.i, i64 0, i32 1
+  %default_value2.i.i195 = getelementptr inbounds i8, ptr %sources.i, i64 64
   store i32 -1, ptr %default_value2.i.i195, align 8
   call void @strmap_init_with_options(ptr noundef nonnull %dests.i, ptr noundef null, i32 noundef 0) #14
-  %default_value2.i40.i = getelementptr inbounds %struct.strintmap, ptr %dests.i, i64 0, i32 1
+  %default_value2.i40.i = getelementptr inbounds i8, ptr %dests.i, i64 64
   store i32 -1, ptr %default_value2.i40.i, align 8
   %145 = load i32, ptr @rename_src_nr, align 4
-  %cmp80.i = icmp sgt i32 %145, 0
-  br i1 %cmp80.i, label %for.body.i210, label %for.cond7.preheader.i
+  %cmp79.i = icmp sgt i32 %145, 0
+  br i1 %cmp79.i, label %for.body.i210, label %for.cond7.preheader.i
 
 for.cond7.preheader.i:                            ; preds = %for.inc.i, %initialize_dir_rename_info.exit
   %146 = load i32, ptr @rename_dst_nr, align 4
-  %cmp882.i = icmp sgt i32 %146, 0
-  br i1 %cmp882.i, label %for.body10.i, label %for.end31.i
+  %cmp881.i = icmp sgt i32 %146, 0
+  br i1 %cmp881.i, label %for.body10.i, label %for.end31.i
 
 for.body.i210:                                    ; preds = %initialize_dir_rename_info.exit, %for.inc.i
   %indvars.iv.i211 = phi i64 [ %indvars.iv.next.i218, %for.inc.i ], [ 0, %initialize_dir_rename_info.exit ]
@@ -1113,7 +1102,7 @@ for.body.i210:                                    ; preds = %initialize_dir_rena
   %arrayidx.i212 = getelementptr inbounds %struct.diff_rename_src, ptr %147, i64 %indvars.iv.i211
   %148 = load ptr, ptr %arrayidx.i212, align 8
   %149 = load ptr, ptr %148, align 8
-  %path.i213 = getelementptr inbounds %struct.diff_filespec, ptr %149, i64 0, i32 1
+  %path.i213 = getelementptr inbounds i8, ptr %149, i64 40
   %150 = load ptr, ptr %path.i213, align 8
   %call.i.i214 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %150, i32 noundef 47) #16
   %tobool.not.i.i215 = icmp eq ptr %call.i.i214, null
@@ -1140,19 +1129,19 @@ for.inc.i:                                        ; preds = %if.else.i220, %if.t
   br i1 %cmp.i219, label %for.body.i210, label %for.cond7.preheader.i, !llvm.loop !18
 
 for.body10.i:                                     ; preds = %for.cond7.preheader.i, %for.inc29.i
-  %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %for.inc29.i ], [ 0, %for.cond7.preheader.i ]
+  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %for.inc29.i ], [ 0, %for.cond7.preheader.i ]
   %154 = load ptr, ptr @rename_dst, align 8
-  %is_rename.i205 = getelementptr inbounds %struct.diff_rename_dst, ptr %154, i64 %indvars.iv88.i, i32 2
+  %arrayidx13.i = getelementptr inbounds %struct.diff_rename_dst, ptr %154, i64 %indvars.iv87.i
+  %is_rename.i205 = getelementptr inbounds i8, ptr %arrayidx13.i, i64 16
   %155 = load i32, ptr %is_rename.i205, align 8
   %tobool19.not.i = icmp eq i32 %155, 0
   br i1 %tobool19.not.i, label %if.end21.i, label %for.inc29.i
 
 if.end21.i:                                       ; preds = %for.body10.i
-  %arrayidx13.i = getelementptr inbounds %struct.diff_rename_dst, ptr %154, i64 %indvars.iv88.i
   %156 = load ptr, ptr %arrayidx13.i, align 8
-  %two.i206 = getelementptr inbounds %struct.diff_filepair, ptr %156, i64 0, i32 1
+  %two.i206 = getelementptr inbounds i8, ptr %156, i64 8
   %157 = load ptr, ptr %two.i206, align 8
-  %path15.i = getelementptr inbounds %struct.diff_filespec, ptr %157, i64 0, i32 1
+  %path15.i = getelementptr inbounds i8, ptr %157, i64 40
   %158 = load ptr, ptr %path15.i, align 8
   %call.i44.i207 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %158, i32 noundef 47) #16
   %tobool.not.i45.i = icmp eq ptr %call.i44.i207, null
@@ -1167,15 +1156,15 @@ if.then25.i:                                      ; preds = %if.end21.i
   br label %for.inc29.i
 
 if.else26.i:                                      ; preds = %if.end21.i
-  %159 = inttoptr i64 %indvars.iv88.i to ptr
+  %159 = inttoptr i64 %indvars.iv87.i to ptr
   %call.i50.i = call ptr @strmap_put(ptr noundef nonnull %dests.i, ptr noundef %cond.i47.i, ptr noundef %159) #14
   br label %for.inc29.i
 
 for.inc29.i:                                      ; preds = %if.else26.i, %if.then25.i, %for.body10.i
-  %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %160 = load i32, ptr @rename_dst_nr, align 4
   %161 = sext i32 %160 to i64
-  %cmp8.i = icmp slt i64 %indvars.iv.next89.i, %161
+  %cmp8.i = icmp slt i64 %indvars.iv.next88.i, %161
   br i1 %cmp8.i, label %for.body10.i, label %for.end31.i, !llvm.loop !19
 
 for.end31.i:                                      ; preds = %for.inc29.i, %for.cond7.preheader.i
@@ -1190,29 +1179,29 @@ land.lhs.true.i:                                  ; preds = %for.end31.i
   br i1 %tobool36.not.i, label %if.end38.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %land.lhs.true.i
-  %missing_object_cb.i = getelementptr inbounds %struct.diff_populate_filespec_options, ptr %dpf_options.i, i64 0, i32 1
+  %missing_object_cb.i = getelementptr inbounds i8, ptr %dpf_options.i, i64 8
   store ptr @basename_prefetch, ptr %missing_object_cb.i, align 8
-  %missing_object_data.i = getelementptr inbounds %struct.diff_populate_filespec_options, ptr %dpf_options.i, i64 0, i32 2
+  %missing_object_data.i = getelementptr inbounds i8, ptr %dpf_options.i, i64 16
   store ptr %prefetch_options.i, ptr %missing_object_data.i, align 8
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then37.i, %land.lhs.true.i, %for.end31.i
   %164 = load i32, ptr @rename_src_nr, align 4
-  %cmp4084.i = icmp sgt i32 %164, 0
-  br i1 %cmp4084.i, label %for.body42.lr.ph.i, label %find_basename_matches.exit
+  %cmp4083.i = icmp sgt i32 %164, 0
+  br i1 %cmp4083.i, label %for.body42.lr.ph.i, label %find_basename_matches.exit
 
 for.body42.lr.ph.i:                               ; preds = %if.end38.i
   %tobool50.not.i = icmp eq ptr %relevant_sources, null
   br label %for.body42.i
 
 for.body42.i:                                     ; preds = %for.inc102.i, %for.body42.lr.ph.i
-  %indvars.iv91.i = phi i64 [ 0, %for.body42.lr.ph.i ], [ %indvars.iv.next92.i, %for.inc102.i ]
-  %renames.085.i = phi i32 [ 0, %for.body42.lr.ph.i ], [ %renames.1.i, %for.inc102.i ]
+  %indvars.iv90.i = phi i64 [ 0, %for.body42.lr.ph.i ], [ %indvars.iv.next91.i, %for.inc102.i ]
+  %renames.084.i = phi i32 [ 0, %for.body42.lr.ph.i ], [ %renames.1.i, %for.inc102.i ]
   %165 = load ptr, ptr @rename_src, align 8
-  %arrayidx45.i = getelementptr inbounds %struct.diff_rename_src, ptr %165, i64 %indvars.iv91.i
+  %arrayidx45.i = getelementptr inbounds %struct.diff_rename_src, ptr %165, i64 %indvars.iv90.i
   %166 = load ptr, ptr %arrayidx45.i, align 8
   %167 = load ptr, ptr %166, align 8
-  %path48.i = getelementptr inbounds %struct.diff_filespec, ptr %167, i64 0, i32 1
+  %path48.i = getelementptr inbounds i8, ptr %167, i64 40
   %168 = load ptr, ptr %path48.i, align 8
   br i1 %tobool50.not.i, label %if.end55.i, label %land.lhs.true51.i
 
@@ -1235,7 +1224,7 @@ if.then.i.i204:                                   ; preds = %if.end55.i
   br label %strintmap_get.exit.i
 
 if.end.i.i197:                                    ; preds = %if.end55.i
-  %value.i.i198 = getelementptr inbounds %struct.strmap_entry, ptr %call.i56.i, i64 0, i32 2
+  %value.i.i198 = getelementptr inbounds i8, ptr %call.i56.i, i64 24
   %170 = load ptr, ptr %value.i.i198, align 8
   %171 = ptrtoint ptr %170 to i64
   %conv.i.i199 = trunc i64 %171 to i32
@@ -1258,7 +1247,7 @@ if.then.i65.i:                                    ; preds = %if.then61.i
   br label %strintmap_get.exit67.i
 
 if.end.i61.i:                                     ; preds = %if.then61.i
-  %value.i62.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i59.i, i64 0, i32 2
+  %value.i62.i = getelementptr inbounds i8, ptr %call.i59.i, i64 24
   %173 = load ptr, ptr %value.i62.i, align 8
   %174 = ptrtoint ptr %173 to i64
   %conv.i63.i = trunc i64 %174 to i32
@@ -1277,23 +1266,23 @@ if.end74.i:                                       ; preds = %strintmap_get.exit6
   br i1 %cmp75.i, label %for.inc102.i, label %if.end78.i
 
 if.end78.i:                                       ; preds = %if.end74.i, %strintmap_get.exit67.i
-  %dst_index.078.in.i = phi i32 [ %call72.i, %if.end74.i ], [ %retval.0.i64.i, %strintmap_get.exit67.i ]
-  %src_index.077.i = phi i64 [ %indvars.iv91.i, %if.end74.i ], [ %conv58.i, %strintmap_get.exit67.i ]
-  %dst_index.078.i = sext i32 %dst_index.078.in.i to i64
+  %dst_index.0.in77.i = phi i32 [ %call72.i, %if.end74.i ], [ %retval.0.i64.i, %strintmap_get.exit67.i ]
+  %src_index.076.i = phi i64 [ %indvars.iv90.i, %if.end74.i ], [ %conv58.i, %strintmap_get.exit67.i ]
+  %dst_index.0.i = sext i32 %dst_index.0.in77.i to i64
   %175 = load ptr, ptr @rename_dst, align 8
-  %is_rename80.i = getelementptr inbounds %struct.diff_rename_dst, ptr %175, i64 %dst_index.078.i, i32 2
+  %arrayidx79.i = getelementptr inbounds %struct.diff_rename_dst, ptr %175, i64 %dst_index.0.i
+  %is_rename80.i = getelementptr inbounds i8, ptr %arrayidx79.i, i64 16
   %176 = load i32, ptr %is_rename80.i, align 8
   %tobool81.not.i = icmp eq i32 %176, 0
   br i1 %tobool81.not.i, label %if.end83.i, label %for.inc102.i
 
 if.end83.i:                                       ; preds = %if.end78.i
-  %arrayidx79.i = getelementptr inbounds %struct.diff_rename_dst, ptr %175, i64 %dst_index.078.i
   %177 = load ptr, ptr @rename_src, align 8
-  %arrayidx84.i = getelementptr inbounds %struct.diff_rename_src, ptr %177, i64 %src_index.077.i
+  %arrayidx84.i = getelementptr inbounds %struct.diff_rename_src, ptr %177, i64 %src_index.076.i
   %178 = load ptr, ptr %arrayidx84.i, align 8
   %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %arrayidx79.i, align 8
-  %two89.i = getelementptr inbounds %struct.diff_filepair, ptr %180, i64 0, i32 1
+  %two89.i = getelementptr inbounds i8, ptr %180, i64 8
   %181 = load ptr, ptr %two89.i, align 8
   %182 = load ptr, ptr %repo2, align 8
   %call91.i = call fastcc i32 @estimate_similarity(ptr noundef %182, ptr noundef %179, ptr noundef %181, i32 noundef %add, ptr noundef nonnull %dpf_options.i)
@@ -1302,9 +1291,9 @@ if.end83.i:                                       ; preds = %if.end78.i
 
 if.end95.i:                                       ; preds = %if.end83.i
   %183 = load ptr, ptr @rename_dst, align 8
-  %arrayidx2.i.i = getelementptr inbounds %struct.diff_rename_dst, ptr %183, i64 %dst_index.078.i
+  %arrayidx2.i.i = getelementptr inbounds %struct.diff_rename_dst, ptr %183, i64 %dst_index.0.i
   %184 = load ptr, ptr %arrayidx2.i.i, align 8
-  %renamed_pair.i.i = getelementptr inbounds %struct.diff_filepair, ptr %184, i64 0, i32 4
+  %renamed_pair.i.i = getelementptr inbounds i8, ptr %184, i64 19
   %bf.load.i.i = load i8, ptr %renamed_pair.i.i, align 1
   %185 = and i8 %bf.load.i.i, 2
   %tobool.not.i68.i = icmp eq i8 %185, 0
@@ -1316,40 +1305,40 @@ if.then.i69.i:                                    ; preds = %if.end95.i
 
 if.end.i70.i:                                     ; preds = %if.end95.i
   %186 = load ptr, ptr @rename_src, align 8
-  %arrayidx.i.i201 = getelementptr inbounds %struct.diff_rename_src, ptr %186, i64 %src_index.077.i
+  %arrayidx.i.i201 = getelementptr inbounds %struct.diff_rename_src, ptr %186, i64 %src_index.076.i
   %187 = load ptr, ptr %arrayidx.i.i201, align 8
   %188 = load ptr, ptr %187, align 8
-  %rename_used.i.i202 = getelementptr inbounds %struct.diff_filespec, ptr %188, i64 0, i32 6
+  %rename_used.i.i202 = getelementptr inbounds i8, ptr %188, i64 76
   %189 = load i32, ptr %rename_used.i.i202, align 4
   %inc.i.i = add nsw i32 %189, 1
   store i32 %inc.i.i, ptr %rename_used.i.i202, align 4
   %190 = load ptr, ptr %187, align 8
-  %count.i.i = getelementptr inbounds %struct.diff_filespec, ptr %190, i64 0, i32 5
+  %count.i.i = getelementptr inbounds i8, ptr %190, i64 72
   %191 = load i32, ptr %count.i.i, align 8
   %inc5.i.i = add nsw i32 %191, 1
   store i32 %inc5.i.i, ptr %count.i.i, align 8
   %192 = load ptr, ptr %184, align 8
-  %filespec_to_free.i.i = getelementptr inbounds %struct.diff_rename_dst, ptr %183, i64 %dst_index.078.i, i32 1
+  %filespec_to_free.i.i = getelementptr inbounds %struct.diff_rename_dst, ptr %183, i64 %dst_index.0.i, i32 1
   store ptr %192, ptr %filespec_to_free.i.i, align 8
-  %is_rename.i.i = getelementptr inbounds %struct.diff_rename_dst, ptr %183, i64 %dst_index.078.i, i32 2
+  %is_rename.i.i = getelementptr inbounds %struct.diff_rename_dst, ptr %183, i64 %dst_index.0.i, i32 2
   store i32 1, ptr %is_rename.i.i, align 8
   %193 = load ptr, ptr %187, align 8
   store ptr %193, ptr %184, align 8
   %bf.load14.i.i = load i8, ptr %renamed_pair.i.i, align 1
   %bf.set.i.i = or i8 %bf.load14.i.i, 2
   store i8 %bf.set.i.i, ptr %renamed_pair.i.i, align 1
-  %path.i.i = getelementptr inbounds %struct.diff_filespec, ptr %193, i64 0, i32 1
+  %path.i.i = getelementptr inbounds i8, ptr %193, i64 40
   %194 = load ptr, ptr %path.i.i, align 8
-  %two.i.i203 = getelementptr inbounds %struct.diff_filepair, ptr %184, i64 0, i32 1
+  %two.i.i203 = getelementptr inbounds i8, ptr %184, i64 8
   %195 = load ptr, ptr %two.i.i203, align 8
-  %path17.i.i = getelementptr inbounds %struct.diff_filespec, ptr %195, i64 0, i32 1
+  %path17.i.i = getelementptr inbounds i8, ptr %195, i64 40
   %196 = load ptr, ptr %path17.i.i, align 8
   %call.i71.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %194, ptr noundef nonnull dereferenceable(1) %196) #16
   %tobool18.not.i.i = icmp eq i32 %call.i71.i, 0
   br i1 %tobool18.not.i.i, label %if.then19.i.i, label %if.else.i.i
 
 if.then19.i.i:                                    ; preds = %if.end.i70.i
-  %score22.i.i = getelementptr inbounds %struct.diff_rename_src, ptr %186, i64 %src_index.077.i, i32 1
+  %score22.i.i = getelementptr inbounds %struct.diff_rename_src, ptr %186, i64 %src_index.076.i, i32 1
   %197 = load i16, ptr %score22.i.i, align 8
   br label %record_rename_pair.exit.i
 
@@ -1359,12 +1348,12 @@ if.else.i.i:                                      ; preds = %if.end.i70.i
 
 record_rename_pair.exit.i:                        ; preds = %if.else.i.i, %if.then19.i.i
   %conv.sink.i.i = phi i16 [ %197, %if.then19.i.i ], [ %conv.i72.i, %if.else.i.i ]
-  %198 = getelementptr inbounds %struct.diff_filepair, ptr %184, i64 0, i32 2
+  %198 = getelementptr inbounds i8, ptr %184, i64 16
   store i16 %conv.sink.i.i, ptr %198, align 8
-  %inc98.i = add nsw i32 %renames.085.i, 1
-  %path99.i = getelementptr inbounds %struct.diff_filespec, ptr %179, i64 0, i32 1
+  %inc98.i = add nsw i32 %renames.084.i, 1
+  %path99.i = getelementptr inbounds i8, ptr %179, i64 40
   %199 = load ptr, ptr %path99.i, align 8
-  %path100.i = getelementptr inbounds %struct.diff_filespec, ptr %181, i64 0, i32 1
+  %path100.i = getelementptr inbounds i8, ptr %181, i64 40
   %200 = load ptr, ptr %path100.i, align 8
   call fastcc void @update_dir_rename_counts(ptr noundef nonnull %info, ptr noundef %dirs_removed, ptr noundef %199, ptr noundef %200)
   call void @diff_free_filespec_blob(ptr noundef %179) #14
@@ -1372,11 +1361,11 @@ record_rename_pair.exit.i:                        ; preds = %if.else.i.i, %if.th
   br label %for.inc102.i
 
 for.inc102.i:                                     ; preds = %record_rename_pair.exit.i, %if.end83.i, %if.end78.i, %if.end74.i, %strintmap_get.exit.i, %land.lhs.true51.i
-  %renames.1.i = phi i32 [ %renames.085.i, %if.end74.i ], [ %renames.085.i, %if.end78.i ], [ %renames.085.i, %if.end83.i ], [ %inc98.i, %record_rename_pair.exit.i ], [ %renames.085.i, %strintmap_get.exit.i ], [ %renames.085.i, %land.lhs.true51.i ]
-  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
+  %renames.1.i = phi i32 [ %renames.084.i, %if.end74.i ], [ %renames.084.i, %if.end78.i ], [ %renames.084.i, %if.end83.i ], [ %inc98.i, %record_rename_pair.exit.i ], [ %renames.084.i, %strintmap_get.exit.i ], [ %renames.084.i, %land.lhs.true51.i ]
+  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %201 = load i32, ptr @rename_src_nr, align 4
   %202 = sext i32 %201 to i64
-  %cmp40.i = icmp slt i64 %indvars.iv.next92.i, %202
+  %cmp40.i = icmp slt i64 %indvars.iv.next91.i, %202
   br i1 %cmp40.i, label %for.body42.i, label %find_basename_matches.exit, !llvm.loop !20
 
 find_basename_matches.exit:                       ; preds = %for.inc102.i, %if.end38.i
@@ -1407,8 +1396,8 @@ for.cond.preheader.i226:                          ; preds = %find_basename_match
   br i1 %cmp119.i, label %for.body.lr.ph.i236, label %for.end.i227
 
 for.body.lr.ph.i236:                              ; preds = %for.cond.preheader.i226
-  %default_value.i.i = getelementptr inbounds %struct.strintmap, ptr %dirs_removed, i64 0, i32 1
-  %dir_rename_count.i.i = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 2
+  %default_value.i.i = getelementptr inbounds i8, ptr %dirs_removed, i64 64
+  %dir_rename_count.i.i = getelementptr inbounds i8, ptr %info, i64 136
   br label %for.body.i237
 
 for.body.i237:                                    ; preds = %while.end.i, %for.body.lr.ph.i236
@@ -1417,7 +1406,7 @@ for.body.i237:                                    ; preds = %while.end.i, %for.b
   %arrayidx.i239 = getelementptr inbounds %struct.diff_rename_src, ptr %207, i64 %indvars.iv.i238
   %208 = load ptr, ptr %arrayidx.i239, align 8
   %209 = load ptr, ptr %208, align 8
-  %path.i240 = getelementptr inbounds %struct.diff_filespec, ptr %209, i64 0, i32 1
+  %path.i240 = getelementptr inbounds i8, ptr %209, i64 40
   %210 = load ptr, ptr %path.i240, align 8
   %call.i.i241 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %210, i32 noundef 47) #16
   %tobool.not.i.i242 = icmp eq ptr %call.i.i241, null
@@ -1451,7 +1440,7 @@ if.then.i.i259:                                   ; preds = %land.rhs.i
   br label %strintmap_get.exit.i253
 
 if.end.i.i250:                                    ; preds = %land.rhs.i
-  %value.i.i251 = getelementptr inbounds %struct.strmap_entry, ptr %call.i34.i, i64 0, i32 2
+  %value.i.i251 = getelementptr inbounds i8, ptr %call.i34.i, i64 24
   %213 = load ptr, ptr %value.i.i251, align 8
   %214 = ptrtoint ptr %213 to i64
   %conv.i.i252 = trunc i64 %214 to i32
@@ -1469,14 +1458,14 @@ while.body.i:                                     ; preds = %strintmap_get.exit.
   br i1 %tobool.not.i37.i, label %if.else.i.i258, label %if.then.i38.i
 
 if.then.i38.i:                                    ; preds = %while.body.i
-  %value.i39.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i36.i, i64 0, i32 2
+  %value.i39.i = getelementptr inbounds i8, ptr %call.i36.i, i64 24
   %216 = load ptr, ptr %value.i39.i, align 8
   br label %increment_count.exit.i
 
 if.else.i.i258:                                   ; preds = %while.body.i
   %call1.i41.i = call ptr @xmalloc(i64 noundef 72) #14
   call void @strmap_init_with_options(ptr noundef %call1.i41.i, ptr noundef null, i32 noundef 1) #14
-  %default_value2.i.i.i = getelementptr inbounds %struct.strintmap, ptr %call1.i41.i, i64 0, i32 1
+  %default_value2.i.i.i = getelementptr inbounds i8, ptr %call1.i41.i, i64 64
   store i32 0, ptr %default_value2.i.i.i, align 8
   %217 = load ptr, ptr %dir_rename_count.i.i, align 8
   %call3.i.i = call ptr @strmap_put(ptr noundef %217, ptr noundef nonnull %old_dir.0117.i, ptr noundef %call1.i41.i) #14
@@ -1517,7 +1506,7 @@ while.end.i:                                      ; preds = %get_dirname.exit52.
   br i1 %cmp.i257, label %for.body.i237, label %for.end.i227, !llvm.loop !22
 
 for.end.i227:                                     ; preds = %while.end.i, %for.cond.preheader.i226
-  %dir_rename_count.i = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 2
+  %dir_rename_count.i = getelementptr inbounds i8, ptr %info, i64 136
   %221 = load ptr, ptr %dir_rename_count.i, align 8
   call void @hashmap_iter_init(ptr noundef %221, ptr noundef nonnull %iter.i222) #14
   %call.i53.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i222) #14
@@ -1525,7 +1514,7 @@ for.end.i227:                                     ; preds = %while.end.i, %for.c
   br i1 %tobool16.not121.i, label %for.cond30.preheader.i, label %for.body17.lr.ph.i
 
 for.body17.lr.ph.i:                               ; preds = %for.end.i227
-  %default_value.i61.i = getelementptr inbounds %struct.strintmap, ptr %dirs_removed, i64 0, i32 1
+  %default_value.i61.i = getelementptr inbounds i8, ptr %dirs_removed, i64 64
   br label %for.body17.i
 
 for.cond30.preheader.i:                           ; preds = %for.inc26.i, %for.end.i227
@@ -1534,15 +1523,15 @@ for.cond30.preheader.i:                           ; preds = %for.inc26.i, %for.e
   br i1 %cmp31123.i, label %for.body33.lr.ph.i, label %for.end76.i
 
 for.body33.lr.ph.i:                               ; preds = %for.cond30.preheader.i
-  %default_value.i76.i = getelementptr inbounds %struct.strintmap, ptr %relevant_sources, i64 0, i32 1
-  %default_value.i96.i = getelementptr inbounds %struct.strintmap, ptr %dirs_removed, i64 0, i32 1
+  %default_value.i76.i = getelementptr inbounds i8, ptr %relevant_sources, i64 64
+  %default_value.i96.i = getelementptr inbounds i8, ptr %dirs_removed, i64 64
   br label %for.body33.i
 
 for.body17.i:                                     ; preds = %for.inc26.i, %for.body17.lr.ph.i
   %entry1.0122.i = phi ptr [ %call.i53.i, %for.body17.lr.ph.i ], [ %call27.i, %for.inc26.i ]
-  %value.i228 = getelementptr inbounds %struct.strmap_entry, ptr %entry1.0122.i, i64 0, i32 2
+  %value.i228 = getelementptr inbounds i8, ptr %entry1.0122.i, i64 24
   %223 = load ptr, ptr %value.i228, align 8
-  %key.i229 = getelementptr inbounds %struct.strmap_entry, ptr %entry1.0122.i, i64 0, i32 1
+  %key.i229 = getelementptr inbounds i8, ptr %entry1.0122.i, i64 16
   %224 = load ptr, ptr %key.i229, align 8
   %call.i54.i = call ptr @strmap_get_entry(ptr noundef %dirs_removed, ptr noundef %224) #14
   %tobool.not.i55.i = icmp eq ptr %call.i54.i, null
@@ -1553,7 +1542,7 @@ if.then.i60.i:                                    ; preds = %for.body17.i
   br label %strintmap_get.exit62.i
 
 if.end.i56.i:                                     ; preds = %for.body17.i
-  %value.i57.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i54.i, i64 0, i32 2
+  %value.i57.i = getelementptr inbounds i8, ptr %call.i54.i, i64 24
   %226 = load ptr, ptr %value.i57.i, align 8
   %227 = ptrtoint ptr %226 to i64
   %conv.i58.i = trunc i64 %227 to i32
@@ -1580,9 +1569,9 @@ for.body.i.i233:                                  ; preds = %land.lhs.true.i231,
   %first.013.i.i = phi i32 [ %first.1.i.i, %for.inc.i.i235 ], [ 0, %land.lhs.true.i231 ]
   %unknown.012.i.i = phi i32 [ %unknown.1.i.i, %for.inc.i.i235 ], [ 0, %land.lhs.true.i231 ]
   %second.011.i.i = phi i32 [ %second.1.i.i, %for.inc.i.i235 ], [ 0, %land.lhs.true.i231 ]
-  %key.i.i234 = getelementptr inbounds %struct.strmap_entry, ptr %entry1.014.i.i, i64 0, i32 1
+  %key.i.i234 = getelementptr inbounds i8, ptr %entry1.014.i.i, i64 16
   %228 = load ptr, ptr %key.i.i234, align 8
-  %value.i63.i = getelementptr inbounds %struct.strmap_entry, ptr %entry1.014.i.i, i64 0, i32 2
+  %value.i63.i = getelementptr inbounds i8, ptr %entry1.014.i.i, i64 24
   %229 = load ptr, ptr %value.i63.i, align 8
   %230 = ptrtoint ptr %229 to i64
   %call4.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %228, ptr noundef nonnull dereferenceable(2) @.str.18) #16
@@ -1640,7 +1629,7 @@ for.body33.i:                                     ; preds = %for.inc74.i, %for.b
   %arrayidx36.i = getelementptr inbounds %struct.diff_rename_src, ptr %233, i64 %indvars.iv129.i
   %234 = load ptr, ptr %arrayidx36.i, align 8
   %235 = load ptr, ptr %234, align 8
-  %path39.i = getelementptr inbounds %struct.diff_filespec, ptr %235, i64 0, i32 1
+  %path39.i = getelementptr inbounds i8, ptr %235, i64 40
   %236 = load ptr, ptr %path39.i, align 8
   %call.i69.i = call ptr @strmap_get_entry(ptr noundef %relevant_sources, ptr noundef %236) #14
   %tobool.not.i70.i = icmp eq ptr %call.i69.i, null
@@ -1651,7 +1640,7 @@ if.then.i75.i:                                    ; preds = %for.body33.i
   br label %strintmap_get.exit77.i
 
 if.end.i71.i:                                     ; preds = %for.body33.i
-  %value.i72.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i69.i, i64 0, i32 2
+  %value.i72.i = getelementptr inbounds i8, ptr %call.i69.i, i64 24
   %238 = load ptr, ptr %value.i72.i, align 8
   %239 = ptrtoint ptr %238 to i64
   %conv.i73.i = trunc i64 %239 to i32
@@ -1694,7 +1683,7 @@ if.then.i95.i:                                    ; preds = %while.body47.i
   br label %strintmap_get.exit97.i
 
 if.end.i91.i:                                     ; preds = %while.body47.i
-  %value.i92.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i89.i, i64 0, i32 2
+  %value.i92.i = getelementptr inbounds i8, ptr %call.i89.i, i64 24
   %242 = load ptr, ptr %value.i92.i, align 8
   %243 = ptrtoint ptr %242 to i64
   %conv.i93.i = trunc i64 %243 to i32
@@ -1784,9 +1773,9 @@ if.end130:                                        ; preds = %handle_early_known_
   br i1 %or.cond4, label %if.end136, label %cleanup
 
 if.end136:                                        ; preds = %if.end130
-  %rename_limit1.i = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 27
+  %rename_limit1.i = getelementptr inbounds i8, ptr %options, i64 292
   %252 = load i32, ptr %rename_limit1.i, align 4
-  %needed_rename_limit.i = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 28
+  %needed_rename_limit.i = getelementptr inbounds i8, ptr %options, i64 296
   store i32 0, ptr %needed_rename_limit.i, align 8
   %cmp.i262 = icmp slt i32 %252, 1
   br i1 %cmp.i262, label %sw.epilog, label %land.lhs.true.i.i266
@@ -1812,7 +1801,7 @@ st_mult.exit23.i:                                 ; preds = %land.lhs.true.i.i26
 if.end9.i:                                        ; preds = %st_mult.exit23.i
   %cond.i = call i32 @llvm.smax.i32(i32 %251, i32 %sub131)
   store i32 %cond.i, ptr %needed_rename_limit.i, align 8
-  %find_copies_harder.i = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 14, i32 6
+  %find_copies_harder.i = getelementptr inbounds i8, ptr %options, i64 128
   %253 = load i32, ptr %find_copies_harder.i, align 8
   %tobool.not.i269 = icmp eq i32 %253, 0
   br i1 %tobool.not.i269, label %cleanup, label %for.cond.preheader.i270
@@ -1859,7 +1848,7 @@ st_mult.exit37.i:                                 ; preds = %land.lhs.true.i25.i
   br i1 %cmp28.not.i, label %cleanup, label %sw.bb138
 
 sw.bb138:                                         ; preds = %st_mult.exit37.i
-  %degraded_cc_to_c = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 29
+  %degraded_cc_to_c = getelementptr inbounds i8, ptr %options, i64 300
   store i32 1, ptr %degraded_cc_to_c, align 4
   br label %sw.epilog
 
@@ -1868,7 +1857,7 @@ sw.epilog:                                        ; preds = %st_mult.exit23.i, %
   %skip_unmodified.0 = phi i32 [ 1, %sw.bb138 ], [ 0, %if.end136 ], [ 0, %st_mult.exit23.i ]
   %257 = load ptr, ptr %repo2, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 1565, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12, ptr noundef %257) #14
-  %show_rename_progress = getelementptr inbounds %struct.diff_options, ptr %options, i64 0, i32 30
+  %show_rename_progress = getelementptr inbounds i8, ptr %options, i64 304
   %258 = load i32, ptr %show_rename_progress, align 8
   %tobool140.not = icmp eq i32 %258, 0
   br i1 %tobool140.not, label %if.end147, label %if.then141
@@ -1904,9 +1893,9 @@ land.lhs.true152:                                 ; preds = %if.end147
   br i1 %tobool154.not, label %if.end156, label %if.then155
 
 if.then155:                                       ; preds = %land.lhs.true152
-  %missing_object_cb = getelementptr inbounds %struct.diff_populate_filespec_options, ptr %dpf_options, i64 0, i32 1
+  %missing_object_cb = getelementptr inbounds i8, ptr %dpf_options, i64 8
   store ptr @inexact_prefetch, ptr %missing_object_cb, align 8
-  %missing_object_data = getelementptr inbounds %struct.diff_populate_filespec_options, ptr %dpf_options, i64 0, i32 2
+  %missing_object_data = getelementptr inbounds i8, ptr %dpf_options, i64 16
   store ptr %prefetch_options, ptr %missing_object_data, align 8
   br label %if.end156
 
@@ -1923,56 +1912,56 @@ st_mult.exit:                                     ; preds = %if.end156
   %mul.i284 = shl nuw nsw i64 %conv157, 2
   %call159 = call ptr @xcalloc(i64 noundef %mul.i284, i64 noundef 12) #14
   %262 = load i32, ptr @rename_dst_nr, align 4
-  %cmp161405 = icmp sgt i32 %262, 0
-  br i1 %cmp161405, label %for.body163.lr.ph, label %for.end220
+  %cmp161406 = icmp sgt i32 %262, 0
+  br i1 %cmp161406, label %for.body163.lr.ph, label %for.end220
 
 for.body163.lr.ph:                                ; preds = %st_mult.exit
   %conv216 = sext i32 %251 to i64
-  %.pre444 = load ptr, ptr @rename_dst, align 8
+  %.pre445 = load ptr, ptr @rename_dst, align 8
   br label %for.body163
 
 for.body163:                                      ; preds = %for.body163.lr.ph, %for.inc218
   %263 = phi i32 [ %262, %for.body163.lr.ph ], [ %304, %for.inc218 ]
-  %264 = phi ptr [ %.pre444, %for.body163.lr.ph ], [ %305, %for.inc218 ]
-  %indvars.iv434 = phi i64 [ 0, %for.body163.lr.ph ], [ %indvars.iv.next435, %for.inc218 ]
-  %dst_cnt.0406 = phi i32 [ 0, %for.body163.lr.ph ], [ %dst_cnt.1, %for.inc218 ]
-  %arrayidx166 = getelementptr inbounds %struct.diff_rename_dst, ptr %264, i64 %indvars.iv434
+  %264 = phi ptr [ %.pre445, %for.body163.lr.ph ], [ %305, %for.inc218 ]
+  %indvars.iv435 = phi i64 [ 0, %for.body163.lr.ph ], [ %indvars.iv.next436, %for.inc218 ]
+  %dst_cnt.0407 = phi i32 [ 0, %for.body163.lr.ph ], [ %dst_cnt.1, %for.inc218 ]
+  %arrayidx166 = getelementptr inbounds %struct.diff_rename_dst, ptr %264, i64 %indvars.iv435
   %265 = load ptr, ptr %arrayidx166, align 8
-  %two168 = getelementptr inbounds %struct.diff_filepair, ptr %265, i64 0, i32 1
+  %two168 = getelementptr inbounds i8, ptr %265, i64 8
   %266 = load ptr, ptr %two168, align 8
-  %is_rename = getelementptr inbounds %struct.diff_rename_dst, ptr %264, i64 %indvars.iv434, i32 2
+  %is_rename = getelementptr inbounds i8, ptr %arrayidx166, i64 16
   %267 = load i32, ptr %is_rename, align 8
   %tobool171.not = icmp eq i32 %267, 0
   br i1 %tobool171.not, label %if.end173, label %for.inc218
 
 if.end173:                                        ; preds = %for.body163
-  %mul174 = shl nsw i32 %dst_cnt.0406, 2
+  %mul174 = shl nsw i32 %dst_cnt.0407, 2
   %idxprom175 = sext i32 %mul174 to i64
   %arrayidx176 = getelementptr inbounds %struct.diff_score, ptr %call159, i64 %idxprom175
   br label %for.body180
 
 for.cond186.preheader:                            ; preds = %for.body180
   %268 = load i32, ptr @rename_src_nr, align 4
-  %cmp187402 = icmp sgt i32 %268, 0
-  br i1 %cmp187402, label %for.body189.lr.ph, label %for.end213
+  %cmp187403 = icmp sgt i32 %268, 0
+  br i1 %cmp187403, label %for.body189.lr.ph, label %for.end213
 
 for.body189.lr.ph:                                ; preds = %for.cond186.preheader
   %269 = getelementptr i8, ptr %266, i64 40
-  %270 = trunc i64 %indvars.iv434 to i32
+  %270 = trunc i64 %indvars.iv435 to i32
   br label %for.body189
 
 for.body180:                                      ; preds = %if.end173, %for.body180
-  %indvars.iv428 = phi i64 [ 0, %if.end173 ], [ %indvars.iv.next429, %for.body180 ]
-  %dst = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %indvars.iv428, i32 1
+  %indvars.iv429 = phi i64 [ 0, %if.end173 ], [ %indvars.iv.next430, %for.body180 ]
+  %dst = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %indvars.iv429, i32 1
   store i32 -1, ptr %dst, align 4
-  %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next429, 4
+  %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next430, 4
   br i1 %exitcond.not, label %for.cond186.preheader, label %for.body180, !llvm.loop !27
 
 for.body189:                                      ; preds = %for.body189.lr.ph, %for.inc211
-  %indvars.iv431 = phi i64 [ 0, %for.body189.lr.ph ], [ %indvars.iv.next432, %for.inc211 ]
+  %indvars.iv432 = phi i64 [ 0, %for.body189.lr.ph ], [ %indvars.iv.next433, %for.inc211 ]
   %271 = load ptr, ptr @rename_src, align 8
-  %arrayidx192 = getelementptr inbounds %struct.diff_rename_src, ptr %271, i64 %indvars.iv431
+  %arrayidx192 = getelementptr inbounds %struct.diff_rename_src, ptr %271, i64 %indvars.iv432
   %272 = load ptr, ptr %arrayidx192, align 8
   %273 = load ptr, ptr %272, align 8
   br i1 %tobool195.not, label %if.end203, label %land.lhs.true196
@@ -2014,8 +2003,8 @@ while.body.i290:                                  ; preds = %while.cond.i
   %282 = load i8, ptr %arrayidx9.i, align 1
   %cmp.not.i293 = icmp eq i8 %281, %282
   %cmp14.i295 = icmp ne i8 %281, 47
-  %or.cond479.not = and i1 %cmp14.i295, %cmp.not.i293
-  br i1 %or.cond479.not, label %while.cond.i, label %basename_same.exit, !llvm.loop !9
+  %or.cond480.not = and i1 %cmp14.i295, %cmp.not.i293
+  br i1 %or.cond480.not, label %while.cond.i, label %basename_same.exit, !llvm.loop !9
 
 while.end.i288:                                   ; preds = %while.cond.i
   br i1 %278, label %lor.lhs.false.i, label %land.rhs25.i
@@ -2047,38 +2036,40 @@ basename_same.exit:                               ; preds = %while.body.i290, %l
   br label %for.body.i296
 
 for.body.i296:                                    ; preds = %score_compare.exit.thread.i, %basename_same.exit
-  %indvars.iv.i297 = phi i64 [ 1, %basename_same.exit ], [ %indvars.iv.next.i304, %score_compare.exit.thread.i ]
+  %indvars.iv.i297 = phi i64 [ 1, %basename_same.exit ], [ %indvars.iv.next.i305, %score_compare.exit.thread.i ]
   %worst.040.i = phi i32 [ 0, %basename_same.exit ], [ %296, %score_compare.exit.thread.i ]
+  %arrayidx.i298 = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %indvars.iv.i297
   %idxprom1.i = sext i32 %worst.040.i to i64
-  %dst.i.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %indvars.iv.i297, i32 1
+  %arrayidx2.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom1.i
+  %dst.i.i = getelementptr inbounds i8, ptr %arrayidx.i298, i64 4
   %289 = load i32, ptr %dst.i.i, align 4
-  %cmp.i.i298 = icmp slt i32 %289, 0
-  %dst1.i.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom1.i, i32 1
+  %cmp.i.i299 = icmp slt i32 %289, 0
+  %dst1.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 4
   %290 = load i32, ptr %dst1.i.i, align 4
-  br i1 %cmp.i.i298, label %if.then.i.i307, label %if.else.i.i299
+  br i1 %cmp.i.i299, label %if.then.i.i308, label %if.else.i.i300
 
-if.then.i.i307:                                   ; preds = %for.body.i296
+if.then.i.i308:                                   ; preds = %for.body.i296
   %cmp2.i.i = icmp sgt i32 %290, -1
-  %conv.i.i308 = zext i1 %cmp2.i.i to i32
+  %conv.i.i309 = zext i1 %cmp2.i.i to i32
   br label %score_compare.exit.i
 
-if.else.i.i299:                                   ; preds = %for.body.i296
+if.else.i.i300:                                   ; preds = %for.body.i296
   %cmp4.i.i = icmp slt i32 %290, 0
   br i1 %cmp4.i.i, label %score_compare.exit.thread.i, label %if.end7.i.i
 
-if.end7.i.i:                                      ; preds = %if.else.i.i299
-  %score.i.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %indvars.iv.i297, i32 2
+if.end7.i.i:                                      ; preds = %if.else.i.i300
+  %score.i.i = getelementptr inbounds i8, ptr %arrayidx.i298, i64 8
   %291 = load i16, ptr %score.i.i, align 4
-  %score9.i.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom1.i, i32 2
+  %score9.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 8
   %292 = load i16, ptr %score9.i.i, align 4
-  %cmp11.i.i300 = icmp eq i16 %291, %292
-  br i1 %cmp11.i.i300, label %if.then13.i.i, label %if.end17.i.i
+  %cmp11.i.i301 = icmp eq i16 %291, %292
+  br i1 %cmp11.i.i301, label %if.then13.i.i, label %if.end17.i.i
 
 if.then13.i.i:                                    ; preds = %if.end7.i.i
-  %name_score.i.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom1.i, i32 3
+  %name_score.i.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 10
   %293 = load i16, ptr %name_score.i.i, align 2
   %conv14.i.i = sext i16 %293 to i32
-  %name_score15.i.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %indvars.iv.i297, i32 3
+  %name_score15.i.i = getelementptr inbounds i8, ptr %arrayidx.i298, i64 10
   %294 = load i16, ptr %name_score15.i.i, align 2
   %conv16.i.i = sext i16 %294 to i32
   %sub.i.i = sub nsw i32 %conv14.i.i, %conv16.i.i
@@ -2090,38 +2081,38 @@ if.end17.i.i:                                     ; preds = %if.end7.i.i
   %sub22.i.i = sub nsw i32 %conv10.i.i, %conv8.i.i
   br label %score_compare.exit.i
 
-score_compare.exit.i:                             ; preds = %if.end17.i.i, %if.then13.i.i, %if.then.i.i307
-  %retval.0.i.i301 = phi i32 [ %conv.i.i308, %if.then.i.i307 ], [ %sub.i.i, %if.then13.i.i ], [ %sub22.i.i, %if.end17.i.i ]
-  %retval.0.i.fr.i = freeze i32 %retval.0.i.i301
-  %cmp3.i302 = icmp sgt i32 %retval.0.i.fr.i, 0
+score_compare.exit.i:                             ; preds = %if.end17.i.i, %if.then13.i.i, %if.then.i.i308
+  %retval.0.i.i302 = phi i32 [ %conv.i.i309, %if.then.i.i308 ], [ %sub.i.i, %if.then13.i.i ], [ %sub22.i.i, %if.end17.i.i ]
+  %retval.0.i.fr.i = freeze i32 %retval.0.i.i302
+  %cmp3.i303 = icmp sgt i32 %retval.0.i.fr.i, 0
   %295 = trunc i64 %indvars.iv.i297 to i32
-  %spec.select.i303 = select i1 %cmp3.i302, i32 %295, i32 %worst.040.i
+  %spec.select.i304 = select i1 %cmp3.i303, i32 %295, i32 %worst.040.i
   br label %score_compare.exit.thread.i
 
-score_compare.exit.thread.i:                      ; preds = %score_compare.exit.i, %if.else.i.i299
-  %296 = phi i32 [ %worst.040.i, %if.else.i.i299 ], [ %spec.select.i303, %score_compare.exit.i ]
-  %indvars.iv.next.i304 = add nuw nsw i64 %indvars.iv.i297, 1
-  %exitcond.not.i305 = icmp eq i64 %indvars.iv.next.i304, 4
-  br i1 %exitcond.not.i305, label %for.end.i306, label %for.body.i296, !llvm.loop !28
+score_compare.exit.thread.i:                      ; preds = %score_compare.exit.i, %if.else.i.i300
+  %296 = phi i32 [ %worst.040.i, %if.else.i.i300 ], [ %spec.select.i304, %score_compare.exit.i ]
+  %indvars.iv.next.i305 = add nuw nsw i64 %indvars.iv.i297, 1
+  %exitcond.not.i306 = icmp eq i64 %indvars.iv.next.i305, 4
+  br i1 %exitcond.not.i306, label %for.end.i307, label %for.body.i296, !llvm.loop !28
 
-for.end.i306:                                     ; preds = %score_compare.exit.thread.i
+for.end.i307:                                     ; preds = %score_compare.exit.thread.i
   %conv209 = zext i1 %retval.0.shrunk.i to i16
   %idxprom4.i = sext i32 %296 to i64
   %arrayidx5.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom4.i
-  %dst.i10.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom4.i, i32 1
+  %dst.i10.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 4
   %297 = load i32, ptr %dst.i10.i, align 4
   %cmp.i11.i = icmp slt i32 %297, 0
   br i1 %cmp.i11.i, label %if.then8.i, label %if.end7.i15.i
 
-if.end7.i15.i:                                    ; preds = %for.end.i306
-  %score.i16.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom4.i, i32 2
+if.end7.i15.i:                                    ; preds = %for.end.i307
+  %score.i16.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 8
   %298 = load i16, ptr %score.i16.i, align 4
   %cmp11.i18.i = icmp eq i16 %298, %conv206
   br i1 %cmp11.i18.i, label %if.then13.i24.i, label %if.end17.i19.i
 
 if.then13.i24.i:                                  ; preds = %if.end7.i15.i
   %conv14.i26.i = zext i1 %retval.0.shrunk.i to i32
-  %name_score15.i27.i = getelementptr inbounds %struct.diff_score, ptr %arrayidx176, i64 %idxprom4.i, i32 3
+  %name_score15.i27.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 10
   %299 = load i16, ptr %name_score15.i27.i, align 2
   %conv16.i28.i = sext i16 %299 to i32
   %sub.i29.i = sub nsw i32 %conv14.i26.i, %conv16.i28.i
@@ -2138,11 +2129,10 @@ score_compare.exit33.i:                           ; preds = %if.end17.i19.i, %if
   %cmp7.i = icmp sgt i32 %retval.0.i23.i, 0
   br i1 %cmp7.i, label %if.then8.i, label %record_if_better.exit
 
-if.then8.i:                                       ; preds = %for.end.i306, %score_compare.exit33.i
-  %300 = trunc i64 %indvars.iv431 to i32
+if.then8.i:                                       ; preds = %for.end.i307, %score_compare.exit33.i
+  %300 = trunc i64 %indvars.iv432 to i32
   store i32 %300, ptr %arrayidx5.i, align 4
-  %this_src.sroa.2.0.arrayidx5.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx5.i, i64 4
-  store i32 %270, ptr %this_src.sroa.2.0.arrayidx5.i.sroa_idx, align 4
+  store i32 %270, ptr %dst.i10.i, align 4
   %this_src.sroa.4.0.arrayidx5.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx5.i, i64 8
   store i16 %conv206, ptr %this_src.sroa.4.0.arrayidx5.i.sroa_idx, align 4
   %this_src.sroa.6.0.arrayidx5.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx5.i, i64 10
@@ -2155,29 +2145,29 @@ record_if_better.exit:                            ; preds = %score_compare.exit3
   br label %for.inc211
 
 for.inc211:                                       ; preds = %land.lhs.true196, %record_if_better.exit
-  %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
+  %indvars.iv.next433 = add nuw nsw i64 %indvars.iv432, 1
   %301 = load i32, ptr @rename_src_nr, align 4
   %302 = sext i32 %301 to i64
-  %cmp187 = icmp slt i64 %indvars.iv.next432, %302
+  %cmp187 = icmp slt i64 %indvars.iv.next433, %302
   br i1 %cmp187, label %for.body189, label %for.end213, !llvm.loop !29
 
 for.end213:                                       ; preds = %for.inc211, %for.cond186.preheader
-  %inc214 = add nsw i32 %dst_cnt.0406, 1
+  %inc214 = add nsw i32 %dst_cnt.0407, 1
   %303 = load ptr, ptr %progress, align 8
   %conv215 = sext i32 %inc214 to i64
   %mul217 = mul nsw i64 %conv215, %conv216
   call void @display_progress(ptr noundef %303, i64 noundef %mul217) #14
-  %.pre443 = load ptr, ptr @rename_dst, align 8
-  %.pre445 = load i32, ptr @rename_dst_nr, align 4
+  %.pre444 = load ptr, ptr @rename_dst, align 8
+  %.pre446 = load i32, ptr @rename_dst_nr, align 4
   br label %for.inc218
 
 for.inc218:                                       ; preds = %for.body163, %for.end213
-  %304 = phi i32 [ %263, %for.body163 ], [ %.pre445, %for.end213 ]
-  %305 = phi ptr [ %264, %for.body163 ], [ %.pre443, %for.end213 ]
-  %dst_cnt.1 = phi i32 [ %dst_cnt.0406, %for.body163 ], [ %inc214, %for.end213 ]
-  %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
+  %304 = phi i32 [ %263, %for.body163 ], [ %.pre446, %for.end213 ]
+  %305 = phi ptr [ %264, %for.body163 ], [ %.pre444, %for.end213 ]
+  %dst_cnt.1 = phi i32 [ %dst_cnt.0407, %for.body163 ], [ %inc214, %for.end213 ]
+  %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %306 = sext i32 %304 to i64
-  %cmp161 = icmp slt i64 %indvars.iv.next435, %306
+  %cmp161 = icmp slt i64 %indvars.iv.next436, %306
   br i1 %cmp161, label %for.body163, label %for.end220, !llvm.loop !30
 
 for.end220:                                       ; preds = %for.inc218, %st_mult.exit
@@ -2187,12 +2177,12 @@ for.end220:                                       ; preds = %for.inc218, %st_mul
   br i1 %tobool1.not.i.i, label %stop_progress.exit, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %for.end220
-  %call.i.i309 = call ptr @gettext(ptr noundef nonnull @.str.20) #14
+  %call.i.i310 = call ptr @gettext(ptr noundef nonnull @.str.20) #14
   br label %stop_progress.exit
 
 stop_progress.exit:                               ; preds = %for.end220, %if.end3.i.i
-  %retval.0.i.i310 = phi ptr [ %call.i.i309, %if.end3.i.i ], [ @.str.20, %for.end220 ]
-  call void @stop_progress_msg(ptr noundef nonnull %progress, ptr noundef %retval.0.i.i310) #14
+  %retval.0.i.i311 = phi ptr [ %call.i.i310, %if.end3.i.i ], [ @.str.20, %for.end220 ]
+  call void @stop_progress_msg(ptr noundef nonnull %progress, ptr noundef %retval.0.i.i311) #14
   %mul221 = shl nsw i32 %dst_cnt.0.lcssa, 2
   %conv222 = sext i32 %mul221 to i64
   call void @git_stable_qsort(ptr noundef %call159, i64 noundef %conv222, i64 noundef 12, ptr noundef nonnull @score_compare) #14
@@ -2214,19 +2204,19 @@ cleanup:                                          ; preds = %st_mult.exit37.i, %
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 1637, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, ptr noundef %309) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq, i8 0, i64 16, i1 false)
   %310 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
-  %cmp236409 = icmp sgt i32 %310, 0
-  br i1 %cmp236409, label %for.body238.lr.ph, label %do.end333
+  %cmp236410 = icmp sgt i32 %310, 0
+  br i1 %cmp236410, label %for.body238.lr.ph, label %do.end333
 
 for.body238.lr.ph:                                ; preds = %cleanup
-  %tobool.not.i324 = icmp eq ptr %pool, null
+  %tobool.not.i325 = icmp eq ptr %pool, null
   br label %for.body238
 
 for.body238:                                      ; preds = %for.body238.lr.ph, %for.inc329
-  %indvars.iv437 = phi i64 [ 0, %for.body238.lr.ph ], [ %indvars.iv.next438, %for.inc329 ]
+  %indvars.iv438 = phi i64 [ 0, %for.body238.lr.ph ], [ %indvars.iv.next439, %for.inc329 ]
   %311 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx242 = getelementptr inbounds ptr, ptr %311, i64 %indvars.iv437
+  %arrayidx242 = getelementptr inbounds ptr, ptr %311, i64 %indvars.iv438
   %312 = load ptr, ptr %arrayidx242, align 8
-  %is_unmerged243 = getelementptr inbounds %struct.diff_filepair, ptr %312, i64 0, i32 4
+  %is_unmerged243 = getelementptr inbounds i8, ptr %312, i64 19
   %bf.load244 = load i8, ptr %is_unmerged243, align 1
   %313 = and i8 %bf.load244, 4
   %tobool248.not = icmp eq i8 %313, 0
@@ -2238,12 +2228,12 @@ if.then249:                                       ; preds = %for.body238
 
 if.else250:                                       ; preds = %for.body238
   %314 = load ptr, ptr %312, align 8
-  %mode252 = getelementptr inbounds %struct.diff_filespec, ptr %314, i64 0, i32 7
+  %mode252 = getelementptr inbounds i8, ptr %314, i64 80
   %315 = load i16, ptr %mode252, align 8
   %cmp254.not = icmp eq i16 %315, 0
-  %two257 = getelementptr inbounds %struct.diff_filepair, ptr %312, i64 0, i32 1
+  %two257 = getelementptr inbounds i8, ptr %312, i64 8
   %316 = load ptr, ptr %two257, align 8
-  %mode258 = getelementptr inbounds %struct.diff_filespec, ptr %316, i64 0, i32 7
+  %mode258 = getelementptr inbounds i8, ptr %316, i64 80
   %317 = load i16, ptr %mode258, align 8
   %cmp260.not = icmp eq i16 %317, 0
   br i1 %cmp254.not, label %land.lhs.true256, label %land.lhs.true269
@@ -2265,50 +2255,50 @@ land.lhs.true290:                                 ; preds = %land.lhs.true269
 
 if.then297:                                       ; preds = %land.lhs.true290
   %318 = load ptr, ptr @break_idx, align 8
-  %tobool.not.i311 = icmp eq ptr %318, null
-  br i1 %tobool.not.i311, label %if.then301, label %cond.true.i
+  %tobool.not.i312 = icmp eq ptr %318, null
+  br i1 %tobool.not.i312, label %if.then301, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then297
-  %path.i312 = getelementptr inbounds %struct.diff_filespec, ptr %314, i64 0, i32 1
-  %319 = load ptr, ptr %path.i312, align 8
-  %call.i.i313 = call ptr @strmap_get_entry(ptr noundef nonnull %318, ptr noundef %319) #14
-  %tobool.not.i.i314 = icmp eq ptr %call.i.i313, null
-  br i1 %tobool.not.i.i314, label %if.then.i.i322, label %if.end.i.i315
+  %path.i313 = getelementptr inbounds i8, ptr %314, i64 40
+  %319 = load ptr, ptr %path.i313, align 8
+  %call.i.i314 = call ptr @strmap_get_entry(ptr noundef nonnull %318, ptr noundef %319) #14
+  %tobool.not.i.i315 = icmp eq ptr %call.i.i314, null
+  br i1 %tobool.not.i.i315, label %if.then.i.i323, label %if.end.i.i316
 
-if.then.i.i322:                                   ; preds = %cond.true.i
-  %default_value.i.i323 = getelementptr inbounds %struct.strintmap, ptr %318, i64 0, i32 1
-  %320 = load i32, ptr %default_value.i.i323, align 8
+if.then.i.i323:                                   ; preds = %cond.true.i
+  %default_value.i.i324 = getelementptr inbounds i8, ptr %318, i64 64
+  %320 = load i32, ptr %default_value.i.i324, align 8
   br label %cond.end.i
 
-if.end.i.i315:                                    ; preds = %cond.true.i
-  %value.i.i316 = getelementptr inbounds %struct.strmap_entry, ptr %call.i.i313, i64 0, i32 2
-  %321 = load ptr, ptr %value.i.i316, align 8
+if.end.i.i316:                                    ; preds = %cond.true.i
+  %value.i.i317 = getelementptr inbounds i8, ptr %call.i.i314, i64 24
+  %321 = load ptr, ptr %value.i.i317, align 8
   %322 = ptrtoint ptr %321 to i64
-  %conv.i.i317 = trunc i64 %322 to i32
+  %conv.i.i318 = trunc i64 %322 to i32
   br label %cond.end.i
 
-cond.end.i:                                       ; preds = %if.end.i.i315, %if.then.i.i322
-  %cond.i318 = phi i32 [ %conv.i.i317, %if.end.i.i315 ], [ %320, %if.then.i.i322 ]
-  %cond.fr7.i = freeze i32 %cond.i318
-  %cmp.i319 = icmp eq i32 %cond.fr7.i, -1
+cond.end.i:                                       ; preds = %if.end.i.i316, %if.then.i.i323
+  %cond.i319 = phi i32 [ %conv.i.i318, %if.end.i.i316 ], [ %320, %if.then.i.i323 ]
+  %cond.fr7.i = freeze i32 %cond.i319
+  %cmp.i320 = icmp eq i32 %cond.fr7.i, -1
   %323 = load ptr, ptr @rename_dst, align 8
   %tobool300.not = icmp eq ptr %323, null
-  %or.cond384 = select i1 %cmp.i319, i1 true, i1 %tobool300.not
-  br i1 %or.cond384, label %if.then301, label %if.end302
+  %or.cond385 = select i1 %cmp.i320, i1 true, i1 %tobool300.not
+  br i1 %or.cond385, label %if.then301, label %if.end302
 
 if.then301:                                       ; preds = %cond.end.i, %if.then297
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 1671, ptr noundef nonnull @.str.15) #15
   unreachable
 
 if.end302:                                        ; preds = %cond.end.i
-  %idxprom.i320 = sext i32 %cond.fr7.i to i64
-  %is_rename303 = getelementptr inbounds %struct.diff_rename_dst, ptr %323, i64 %idxprom.i320, i32 2
+  %idxprom.i321 = sext i32 %cond.fr7.i to i64
+  %is_rename303 = getelementptr inbounds %struct.diff_rename_dst, ptr %323, i64 %idxprom.i321, i32 2
   %324 = load i32, ptr %is_rename303, align 8
   %tobool304.not = icmp eq i32 %324, 0
   br i1 %tobool304.not, label %if.then315, label %if.then327
 
 if.else307:                                       ; preds = %land.lhs.true290
-  %rename_used309 = getelementptr inbounds %struct.diff_filespec, ptr %314, i64 0, i32 6
+  %rename_used309 = getelementptr inbounds i8, ptr %314, i64 76
   %325 = load i32, ptr %rename_used309, align 4
   %tobool310.not = icmp eq i32 %325, 0
   br i1 %tobool310.not, label %if.then315, label %if.then327
@@ -2327,29 +2317,29 @@ if.then320:                                       ; preds = %if.else317
   br label %for.inc329
 
 if.then327:                                       ; preds = %if.else317, %if.else307, %if.end302
-  br i1 %tobool.not.i324, label %if.then.i331, label %if.end.i325
+  br i1 %tobool.not.i325, label %if.then.i332, label %if.end.i326
 
-if.then.i331:                                     ; preds = %if.then327
+if.then.i332:                                     ; preds = %if.then327
   call void @diff_free_filepair(ptr noundef nonnull %312) #14
   br label %for.inc329
 
-if.end.i325:                                      ; preds = %if.then327
+if.end.i326:                                      ; preds = %if.then327
   %326 = load ptr, ptr %312, align 8
-  %count.i.i326 = getelementptr inbounds %struct.diff_filespec, ptr %326, i64 0, i32 5
-  %327 = load i32, ptr %count.i.i326, align 8
-  %dec.i.i327 = add nsw i32 %327, -1
-  store i32 %dec.i.i327, ptr %count.i.i326, align 8
-  %tobool.not.i.i328 = icmp eq i32 %dec.i.i327, 0
-  br i1 %tobool.not.i.i328, label %if.then.i.i330, label %free_filespec_data.exit.i
+  %count.i.i327 = getelementptr inbounds i8, ptr %326, i64 72
+  %327 = load i32, ptr %count.i.i327, align 8
+  %dec.i.i328 = add nsw i32 %327, -1
+  store i32 %dec.i.i328, ptr %count.i.i327, align 8
+  %tobool.not.i.i329 = icmp eq i32 %dec.i.i328, 0
+  br i1 %tobool.not.i.i329, label %if.then.i.i331, label %free_filespec_data.exit.i
 
-if.then.i.i330:                                   ; preds = %if.end.i325
+if.then.i.i331:                                   ; preds = %if.end.i326
   call void @diff_free_filespec_data(ptr noundef nonnull %326) #14
   br label %free_filespec_data.exit.i
 
-free_filespec_data.exit.i:                        ; preds = %if.then.i.i330, %if.end.i325
-  %two.i329 = getelementptr inbounds %struct.diff_filepair, ptr %312, i64 0, i32 1
-  %328 = load ptr, ptr %two.i329, align 8
-  %count.i3.i = getelementptr inbounds %struct.diff_filespec, ptr %328, i64 0, i32 5
+free_filespec_data.exit.i:                        ; preds = %if.then.i.i331, %if.end.i326
+  %two.i330 = getelementptr inbounds i8, ptr %312, i64 8
+  %328 = load ptr, ptr %two.i330, align 8
+  %count.i3.i = getelementptr inbounds i8, ptr %328, i64 72
   %329 = load i32, ptr %count.i3.i, align 8
   %dec.i4.i = add nsw i32 %329, -1
   store i32 %dec.i4.i, ptr %count.i3.i, align 8
@@ -2360,11 +2350,11 @@ if.then.i6.i:                                     ; preds = %free_filespec_data.
   call void @diff_free_filespec_data(ptr noundef nonnull %328) #14
   br label %for.inc329
 
-for.inc329:                                       ; preds = %if.then262, %if.then315, %if.then320, %if.then249, %if.then.i6.i, %free_filespec_data.exit.i, %if.then.i331
-  %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
+for.inc329:                                       ; preds = %if.then262, %if.then315, %if.then320, %if.then249, %if.then.i6.i, %free_filespec_data.exit.i, %if.then.i332
+  %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %330 = load i32, ptr getelementptr inbounds (%struct.diff_queue_struct, ptr @diff_queued_diff, i64 0, i32 2), align 4
   %331 = sext i32 %330 to i64
-  %cmp236 = icmp slt i64 %indvars.iv.next438, %331
+  %cmp236 = icmp slt i64 %indvars.iv.next439, %331
   br i1 %cmp236, label %for.body238, label %do.end333, !llvm.loop !31
 
 do.end333:                                        ; preds = %for.inc329, %cleanup
@@ -2372,184 +2362,184 @@ do.end333:                                        ; preds = %for.inc329, %cleanu
   call void @free(ptr noundef %332) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %outq, i64 16, i1 false)
   %333 = load i32, ptr @rename_dst_nr, align 4
-  %cmp338411 = icmp sgt i32 %333, 0
-  br i1 %cmp338411, label %for.body340.lr.ph, label %for.end351
+  %cmp338412 = icmp sgt i32 %333, 0
+  br i1 %cmp338412, label %for.body340.lr.ph, label %for.end351
 
 for.body340.lr.ph:                                ; preds = %do.end333
-  %tobool.not.i332 = icmp eq ptr %pool, null
+  %tobool.not.i333 = icmp eq ptr %pool, null
   br label %for.body340
 
 for.body340:                                      ; preds = %for.body340.lr.ph, %for.inc349
-  %indvars.iv440 = phi i64 [ 0, %for.body340.lr.ph ], [ %indvars.iv.next441, %for.inc349 ]
+  %indvars.iv441 = phi i64 [ 0, %for.body340.lr.ph ], [ %indvars.iv.next442, %for.inc349 ]
   %334 = load ptr, ptr @rename_dst, align 8
-  %filespec_to_free = getelementptr inbounds %struct.diff_rename_dst, ptr %334, i64 %indvars.iv440, i32 1
+  %filespec_to_free = getelementptr inbounds %struct.diff_rename_dst, ptr %334, i64 %indvars.iv441, i32 1
   %335 = load ptr, ptr %filespec_to_free, align 8
   %tobool343.not = icmp eq ptr %335, null
   br i1 %tobool343.not, label %for.inc349, label %if.then344
 
 if.then344:                                       ; preds = %for.body340
-  br i1 %tobool.not.i332, label %if.then.i338, label %if.end.i333
+  br i1 %tobool.not.i333, label %if.then.i339, label %if.end.i334
 
-if.then.i338:                                     ; preds = %if.then344
+if.then.i339:                                     ; preds = %if.then344
   call void @free_filespec(ptr noundef nonnull %335) #14
   br label %for.inc349
 
-if.end.i333:                                      ; preds = %if.then344
-  %count.i.i334 = getelementptr inbounds %struct.diff_filespec, ptr %335, i64 0, i32 5
-  %336 = load i32, ptr %count.i.i334, align 8
-  %dec.i.i335 = add nsw i32 %336, -1
-  store i32 %dec.i.i335, ptr %count.i.i334, align 8
-  %tobool.not.i.i336 = icmp eq i32 %dec.i.i335, 0
-  br i1 %tobool.not.i.i336, label %if.then.i.i337, label %for.inc349
+if.end.i334:                                      ; preds = %if.then344
+  %count.i.i335 = getelementptr inbounds i8, ptr %335, i64 72
+  %336 = load i32, ptr %count.i.i335, align 8
+  %dec.i.i336 = add nsw i32 %336, -1
+  store i32 %dec.i.i336, ptr %count.i.i335, align 8
+  %tobool.not.i.i337 = icmp eq i32 %dec.i.i336, 0
+  br i1 %tobool.not.i.i337, label %if.then.i.i338, label %for.inc349
 
-if.then.i.i337:                                   ; preds = %if.end.i333
+if.then.i.i338:                                   ; preds = %if.end.i334
   call void @diff_free_filespec_data(ptr noundef nonnull %335) #14
   br label %for.inc349
 
-for.inc349:                                       ; preds = %if.then.i.i337, %if.end.i333, %if.then.i338, %for.body340
-  %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
+for.inc349:                                       ; preds = %if.then.i.i338, %if.end.i334, %if.then.i339, %for.body340
+  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
   %337 = load i32, ptr @rename_dst_nr, align 4
   %338 = sext i32 %337 to i64
-  %cmp338 = icmp slt i64 %indvars.iv.next441, %338
+  %cmp338 = icmp slt i64 %indvars.iv.next442, %338
   br i1 %cmp338, label %for.body340, label %for.end351, !llvm.loop !32
 
 for.end351:                                       ; preds = %for.inc349, %do.end333
   %cmp352.not = icmp eq ptr %dir_rename_count, null
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i340)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i341)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %to_remove.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %to_remove.i, i8 0, i64 40, i1 false)
   %339 = load i32, ptr %setup, align 8
-  %tobool.not.i341 = icmp eq i32 %339, 0
-  br i1 %tobool.not.i341, label %cleanup_dir_rename_info.exit, label %if.end.i342
+  %tobool.not.i342 = icmp eq i32 %339, 0
+  br i1 %tobool.not.i342, label %cleanup_dir_rename_info.exit, label %if.end.i343
 
-if.end.i342:                                      ; preds = %for.end351
+if.end.i343:                                      ; preds = %for.end351
   call void @strmap_clear(ptr noundef nonnull %info, i32 noundef 0) #14
-  %dir_rename_guess.i343 = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 1
-  call void @strmap_clear(ptr noundef nonnull %dir_rename_guess.i343, i32 noundef 1) #14
-  %relevant_source_dirs.i344 = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 3
-  %340 = load ptr, ptr %relevant_source_dirs.i344, align 8
+  %dir_rename_guess.i344 = getelementptr inbounds i8, ptr %info, i64 72
+  call void @strmap_clear(ptr noundef nonnull %dir_rename_guess.i344, i32 noundef 1) #14
+  %relevant_source_dirs.i345 = getelementptr inbounds i8, ptr %info, i64 144
+  %340 = load ptr, ptr %relevant_source_dirs.i345, align 8
   %tobool2.not.i = icmp eq ptr %340, null
-  %cmp.not.i345 = icmp eq ptr %340, %dirs_removed
-  %or.cond.i346 = or i1 %tobool2.not.i, %cmp.not.i345
-  br i1 %or.cond.i346, label %if.end8.i, label %if.then4.i
+  %cmp.not.i346 = icmp eq ptr %340, %dirs_removed
+  %or.cond.i347 = or i1 %tobool2.not.i, %cmp.not.i346
+  br i1 %or.cond.i347, label %if.end8.i, label %if.then4.i
 
-if.then4.i:                                       ; preds = %if.end.i342
+if.then4.i:                                       ; preds = %if.end.i343
   call void @strmap_clear(ptr noundef nonnull %340, i32 noundef 0) #14
-  %341 = load ptr, ptr %relevant_source_dirs.i344, align 8
+  %341 = load ptr, ptr %relevant_source_dirs.i345, align 8
   call void @free(ptr noundef %341) #14
-  store ptr null, ptr %relevant_source_dirs.i344, align 8
+  store ptr null, ptr %relevant_source_dirs.i345, align 8
   br label %if.end8.i
 
-if.end8.i:                                        ; preds = %if.then4.i, %if.end.i342
-  %dir_rename_count.i347 = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 2
-  %342 = load ptr, ptr %dir_rename_count.i347, align 8
+if.end8.i:                                        ; preds = %if.then4.i, %if.end.i343
+  %dir_rename_count.i348 = getelementptr inbounds i8, ptr %info, i64 136
+  %342 = load ptr, ptr %dir_rename_count.i348, align 8
   br i1 %cmp352.not, label %if.then10.i, label %if.end16.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i.i339)
-  call void @hashmap_iter_init(ptr noundef %342, ptr noundef nonnull %iter.i.i339) #14
-  %call.i.i.i368 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i339) #14
-  %tobool.not3.i.i = icmp eq ptr %call.i.i.i368, null
-  br i1 %tobool.not3.i.i, label %partial_clear_dir_rename_count.exit.i, label %for.body.i.i369
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i.i340)
+  call void @hashmap_iter_init(ptr noundef %342, ptr noundef nonnull %iter.i.i340) #14
+  %call.i.i.i369 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i340) #14
+  %tobool.not3.i.i = icmp eq ptr %call.i.i.i369, null
+  br i1 %tobool.not3.i.i, label %partial_clear_dir_rename_count.exit.i, label %for.body.i.i370
 
-for.body.i.i369:                                  ; preds = %if.then10.i, %for.body.i.i369
-  %entry1.04.i.i = phi ptr [ %call3.i.i371, %for.body.i.i369 ], [ %call.i.i.i368, %if.then10.i ]
-  %value.i.i370 = getelementptr inbounds %struct.strmap_entry, ptr %entry1.04.i.i, i64 0, i32 2
-  %343 = load ptr, ptr %value.i.i370, align 8
+for.body.i.i370:                                  ; preds = %if.then10.i, %for.body.i.i370
+  %entry1.04.i.i = phi ptr [ %call3.i.i372, %for.body.i.i370 ], [ %call.i.i.i369, %if.then10.i ]
+  %value.i.i371 = getelementptr inbounds i8, ptr %entry1.04.i.i, i64 24
+  %343 = load ptr, ptr %value.i.i371, align 8
   call void @strmap_clear(ptr noundef %343, i32 noundef 0) #14
-  %call3.i.i371 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i339) #14
-  %tobool.not.i.i372 = icmp eq ptr %call3.i.i371, null
-  br i1 %tobool.not.i.i372, label %partial_clear_dir_rename_count.exit.i, label %for.body.i.i369, !llvm.loop !5
+  %call3.i.i372 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i340) #14
+  %tobool.not.i.i373 = icmp eq ptr %call3.i.i372, null
+  br i1 %tobool.not.i.i373, label %partial_clear_dir_rename_count.exit.i, label %for.body.i.i370, !llvm.loop !5
 
-partial_clear_dir_rename_count.exit.i:            ; preds = %for.body.i.i369, %if.then10.i
+partial_clear_dir_rename_count.exit.i:            ; preds = %for.body.i.i370, %if.then10.i
   call void @strmap_partial_clear(ptr noundef %342, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i.i339)
-  %344 = load ptr, ptr %dir_rename_count.i347, align 8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i.i340)
+  %344 = load ptr, ptr %dir_rename_count.i348, align 8
   call void @strmap_clear(ptr noundef %344, i32 noundef 1) #14
-  %345 = load ptr, ptr %dir_rename_count.i347, align 8
+  %345 = load ptr, ptr %dir_rename_count.i348, align 8
   call void @free(ptr noundef %345) #14
-  store ptr null, ptr %dir_rename_count.i347, align 8
+  store ptr null, ptr %dir_rename_count.i348, align 8
   br label %cleanup_dir_rename_info.exit
 
 if.end16.i:                                       ; preds = %if.end8.i
-  call void @hashmap_iter_init(ptr noundef %342, ptr noundef nonnull %iter.i340) #14
-  %call.i.i348 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i340) #14
-  %tobool19.not26.i = icmp eq ptr %call.i.i348, null
-  br i1 %tobool19.not26.i, label %for.end37.i, label %for.body.lr.ph.i349
+  call void @hashmap_iter_init(ptr noundef %342, ptr noundef nonnull %iter.i341) #14
+  %call.i.i349 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i341) #14
+  %tobool19.not26.i = icmp eq ptr %call.i.i349, null
+  br i1 %tobool19.not26.i, label %for.end37.i, label %for.body.lr.ph.i350
 
-for.body.lr.ph.i349:                              ; preds = %if.end16.i
-  %default_value.i.i350 = getelementptr inbounds %struct.strintmap, ptr %dirs_removed, i64 0, i32 1
-  br label %for.body.i351
+for.body.lr.ph.i350:                              ; preds = %if.end16.i
+  %default_value.i.i351 = getelementptr inbounds i8, ptr %dirs_removed, i64 64
+  br label %for.body.i352
 
-for.cond31.preheader.i:                           ; preds = %for.inc.i359
-  %nr.phi.trans.insert.i = getelementptr inbounds %struct.string_list, ptr %to_remove.i, i64 0, i32 1
-  %.pre.i361 = load i64, ptr %nr.phi.trans.insert.i, align 8
-  %346 = icmp eq i64 %.pre.i361, 0
-  br i1 %346, label %for.end37.i, label %for.body34.i362
+for.cond31.preheader.i:                           ; preds = %for.inc.i360
+  %nr.phi.trans.insert.i = getelementptr inbounds i8, ptr %to_remove.i, i64 8
+  %.pre.i362 = load i64, ptr %nr.phi.trans.insert.i, align 8
+  %346 = icmp eq i64 %.pre.i362, 0
+  br i1 %346, label %for.end37.i, label %for.body34.i363
 
-for.body.i351:                                    ; preds = %for.inc.i359, %for.body.lr.ph.i349
-  %entry1.027.i = phi ptr [ %call.i.i348, %for.body.lr.ph.i349 ], [ %call29.i, %for.inc.i359 ]
-  %key.i352 = getelementptr inbounds %struct.strmap_entry, ptr %entry1.027.i, i64 0, i32 1
-  %347 = load ptr, ptr %key.i352, align 8
-  %value.i353 = getelementptr inbounds %struct.strmap_entry, ptr %entry1.027.i, i64 0, i32 2
-  %348 = load ptr, ptr %value.i353, align 8
+for.body.i352:                                    ; preds = %for.inc.i360, %for.body.lr.ph.i350
+  %entry1.027.i = phi ptr [ %call.i.i349, %for.body.lr.ph.i350 ], [ %call29.i, %for.inc.i360 ]
+  %key.i353 = getelementptr inbounds i8, ptr %entry1.027.i, i64 16
+  %347 = load ptr, ptr %key.i353, align 8
+  %value.i354 = getelementptr inbounds i8, ptr %entry1.027.i, i64 24
+  %348 = load ptr, ptr %value.i354, align 8
   %call.i22.i = call ptr @strmap_get_entry(ptr noundef %dirs_removed, ptr noundef %347) #14
   %tobool.not.i23.i = icmp eq ptr %call.i22.i, null
-  br i1 %tobool.not.i23.i, label %if.then.i.i367, label %if.end.i.i354
+  br i1 %tobool.not.i23.i, label %if.then.i.i368, label %if.end.i.i355
 
-if.then.i.i367:                                   ; preds = %for.body.i351
-  %349 = load i32, ptr %default_value.i.i350, align 8
-  br label %strintmap_get.exit.i356
+if.then.i.i368:                                   ; preds = %for.body.i352
+  %349 = load i32, ptr %default_value.i.i351, align 8
+  br label %strintmap_get.exit.i357
 
-if.end.i.i354:                                    ; preds = %for.body.i351
-  %value.i24.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i22.i, i64 0, i32 2
+if.end.i.i355:                                    ; preds = %for.body.i352
+  %value.i24.i = getelementptr inbounds i8, ptr %call.i22.i, i64 24
   %350 = load ptr, ptr %value.i24.i, align 8
   %351 = ptrtoint ptr %350 to i64
-  %conv.i.i355 = trunc i64 %351 to i32
-  br label %strintmap_get.exit.i356
+  %conv.i.i356 = trunc i64 %351 to i32
+  br label %strintmap_get.exit.i357
 
-strintmap_get.exit.i356:                          ; preds = %if.end.i.i354, %if.then.i.i367
-  %retval.0.i.i357 = phi i32 [ %conv.i.i355, %if.end.i.i354 ], [ %349, %if.then.i.i367 ]
-  %tobool21.not.i358 = icmp eq i32 %retval.0.i.i357, 0
-  br i1 %tobool21.not.i358, label %if.then22.i, label %if.end24.i
+strintmap_get.exit.i357:                          ; preds = %if.end.i.i355, %if.then.i.i368
+  %retval.0.i.i358 = phi i32 [ %conv.i.i356, %if.end.i.i355 ], [ %349, %if.then.i.i368 ]
+  %tobool21.not.i359 = icmp eq i32 %retval.0.i.i358, 0
+  br i1 %tobool21.not.i359, label %if.then22.i, label %if.end24.i
 
-if.then22.i:                                      ; preds = %strintmap_get.exit.i356
+if.then22.i:                                      ; preds = %strintmap_get.exit.i357
   %call23.i = call ptr @string_list_append(ptr noundef nonnull %to_remove.i, ptr noundef %347) #14
   call void @strmap_clear(ptr noundef %348, i32 noundef 0) #14
-  br label %for.inc.i359
+  br label %for.inc.i360
 
-if.end24.i:                                       ; preds = %strintmap_get.exit.i356
+if.end24.i:                                       ; preds = %strintmap_get.exit.i357
   %call.i25.i = call i32 @strmap_contains(ptr noundef %348, ptr noundef nonnull @.str.18) #14
   %tobool26.not.i = icmp eq i32 %call.i25.i, 0
-  br i1 %tobool26.not.i, label %for.inc.i359, label %if.then27.i
+  br i1 %tobool26.not.i, label %for.inc.i360, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end24.i
   call void @strmap_remove(ptr noundef %348, ptr noundef nonnull @.str.18, i32 noundef 0) #14
-  br label %for.inc.i359
+  br label %for.inc.i360
 
-for.inc.i359:                                     ; preds = %if.then27.i, %if.end24.i, %if.then22.i
-  %call29.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i340) #14
-  %tobool19.not.i360 = icmp eq ptr %call29.i, null
-  br i1 %tobool19.not.i360, label %for.cond31.preheader.i, label %for.body.i351, !llvm.loop !33
+for.inc.i360:                                     ; preds = %if.then27.i, %if.end24.i, %if.then22.i
+  %call29.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i341) #14
+  %tobool19.not.i361 = icmp eq ptr %call29.i, null
+  br i1 %tobool19.not.i361, label %for.cond31.preheader.i, label %for.body.i352, !llvm.loop !33
 
-for.body34.i362:                                  ; preds = %for.cond31.preheader.i, %for.body34.i362
-  %indvars.iv.i363 = phi i64 [ %indvars.iv.next.i365, %for.body34.i362 ], [ 0, %for.cond31.preheader.i ]
-  %352 = load ptr, ptr %dir_rename_count.i347, align 8
+for.body34.i363:                                  ; preds = %for.cond31.preheader.i, %for.body34.i363
+  %indvars.iv.i364 = phi i64 [ %indvars.iv.next.i366, %for.body34.i363 ], [ 0, %for.cond31.preheader.i ]
+  %352 = load ptr, ptr %dir_rename_count.i348, align 8
   %353 = load ptr, ptr %to_remove.i, align 8
-  %arrayidx.i364 = getelementptr inbounds %struct.string_list_item, ptr %353, i64 %indvars.iv.i363
-  %354 = load ptr, ptr %arrayidx.i364, align 8
+  %arrayidx.i365 = getelementptr inbounds %struct.string_list_item, ptr %353, i64 %indvars.iv.i364
+  %354 = load ptr, ptr %arrayidx.i365, align 8
   call void @strmap_remove(ptr noundef %352, ptr noundef %354, i32 noundef 1) #14
-  %indvars.iv.next.i365 = add nuw i64 %indvars.iv.i363, 1
+  %indvars.iv.next.i366 = add nuw i64 %indvars.iv.i364, 1
   %355 = load i64, ptr %nr.phi.trans.insert.i, align 8
-  %cmp32.i366 = icmp ugt i64 %355, %indvars.iv.next.i365
-  br i1 %cmp32.i366, label %for.body34.i362, label %for.end37.i, !llvm.loop !34
+  %cmp32.i367 = icmp ugt i64 %355, %indvars.iv.next.i366
+  br i1 %cmp32.i367, label %for.body34.i363, label %for.end37.i, !llvm.loop !34
 
-for.end37.i:                                      ; preds = %for.body34.i362, %for.cond31.preheader.i, %if.end16.i
+for.end37.i:                                      ; preds = %for.body34.i363, %for.cond31.preheader.i, %if.end16.i
   call void @string_list_clear(ptr noundef nonnull %to_remove.i, i32 noundef 0) #14
   br label %cleanup_dir_rename_info.exit
 
 cleanup_dir_rename_info.exit:                     ; preds = %for.end351, %partial_clear_dir_rename_count.exit.i, %for.end37.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i340)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i341)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %to_remove.i)
   %356 = load ptr, ptr @rename_dst, align 8
   call void @free(ptr noundef %356) #14
@@ -2592,7 +2582,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @register_rename_src(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %broken_pair = getelementptr inbounds %struct.diff_filepair, ptr %p, i64 0, i32 4
+  %broken_pair = getelementptr inbounds i8, ptr %p, i64 19
   %bf.load = load i8, ptr %broken_pair, align 1
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -2607,7 +2597,7 @@ if.then2:                                         ; preds = %if.then
   %call = tail call ptr @xmalloc(i64 noundef 72) #14
   store ptr %call, ptr @break_idx, align 8
   tail call void @strmap_init_with_options(ptr noundef %call, ptr noundef null, i32 noundef 0) #14
-  %default_value2.i = getelementptr inbounds %struct.strintmap, ptr %call, i64 0, i32 1
+  %default_value2.i = getelementptr inbounds i8, ptr %call, i64 64
   store i32 -1, ptr %default_value2.i, align 8
   %.pre = load ptr, ptr @break_idx, align 8
   br label %if.end
@@ -2615,7 +2605,7 @@ if.then2:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then2, %if.then
   %1 = phi ptr [ %.pre, %if.then2 ], [ %0, %if.then ]
   %2 = load ptr, ptr %p, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %2, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %path, align 8
   %4 = load i32, ptr @rename_dst_nr, align 4
   %conv = sext i32 %4 to i64
@@ -2663,7 +2653,7 @@ do.end:                                           ; preds = %do.body.do.end_crit
   %idxprom = sext i32 %10 to i64
   %arrayidx = getelementptr inbounds %struct.diff_rename_src, ptr %11, i64 %idxprom
   store ptr %p, ptr %arrayidx, align 8
-  %score = getelementptr inbounds %struct.diff_filepair, ptr %p, i64 0, i32 2
+  %score = getelementptr inbounds i8, ptr %p, i64 16
   %12 = load i16, ptr %score, align 8
   %score23 = getelementptr inbounds %struct.diff_rename_src, ptr %11, i64 %idxprom, i32 1
   store i16 %12, ptr %score23, align 8
@@ -2709,7 +2699,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %arrayidx.us.us = getelementptr inbounds %struct.diff_rename_src, ptr %2, i64 %indvars.iv53
   %3 = load ptr, ptr %arrayidx.us.us, align 8
   %4 = load ptr, ptr %3, align 8
-  %rename_used.us.us = getelementptr inbounds %struct.diff_filespec, ptr %4, i64 0, i32 6
+  %rename_used.us.us = getelementptr inbounds i8, ptr %4, i64 76
   %5 = load i32, ptr %rename_used.us.us, align 4
   %tobool8.not.us.us = icmp eq i32 %5, 0
   br i1 %tobool8.not.us.us, label %if.end10.us.us, label %for.inc.us.us
@@ -2748,13 +2738,13 @@ for.body.us17:                                    ; preds = %for.body.us17.prehe
   %arrayidx.us21 = getelementptr inbounds %struct.diff_rename_src, ptr %7, i64 %indvars.iv45
   %8 = load ptr, ptr %arrayidx.us21, align 8
   %9 = load ptr, ptr %8, align 8
-  %rename_used.us23 = getelementptr inbounds %struct.diff_filespec, ptr %9, i64 0, i32 6
+  %rename_used.us23 = getelementptr inbounds i8, ptr %9, i64 76
   %10 = load i32, ptr %rename_used.us23, align 4
   %tobool8.not.us24 = icmp eq i32 %10, 0
   br i1 %tobool8.not.us24, label %if.end10.us25, label %for.inc.us34
 
 if.end10.us25:                                    ; preds = %for.body.us17
-  %path.us = getelementptr inbounds %struct.diff_filespec, ptr %9, i64 0, i32 1
+  %path.us = getelementptr inbounds i8, ptr %9, i64 40
   %11 = load ptr, ptr %path.us, align 8
   %call.i.us = tail call i32 @strmap_contains(ptr noundef nonnull %interesting, ptr noundef %11) #14
   %tobool13.not.us = icmp eq i32 %call.i.us, 0
@@ -2792,7 +2782,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %arrayidx = getelementptr inbounds %struct.diff_rename_src, ptr %16, i64 %indvars.iv
   %17 = load ptr, ptr %arrayidx, align 8
   %18 = load ptr, ptr %17, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %18, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %18, i64 40
   %19 = load ptr, ptr %path, align 8
   %call.i = tail call i32 @strmap_contains(ptr noundef nonnull %interesting, ptr noundef %19) #14
   %tobool13.not = icmp eq i32 %call.i, 0
@@ -2860,7 +2850,7 @@ for.cond4.preheader:                              ; preds = %for.inc, %entry
   br i1 %cmp513, label %for.body6.lr.ph, label %for.end20
 
 for.body6.lr.ph:                                  ; preds = %for.cond4.preheader
-  %skip_unmodified = getelementptr inbounds %struct.inexact_prefetch_options, ptr %prefetch_options, i64 0, i32 1
+  %skip_unmodified = getelementptr inbounds i8, ptr %prefetch_options, i64 8
   br label %for.body6
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -2869,7 +2859,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.diff_rename_dst, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %renamed_pair = getelementptr inbounds %struct.diff_filepair, ptr %4, i64 0, i32 4
+  %renamed_pair = getelementptr inbounds i8, ptr %4, i64 19
   %bf.load = load i8, ptr %renamed_pair, align 1
   %5 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %5, 0
@@ -2877,7 +2867,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.end:                                           ; preds = %for.body
   %6 = load ptr, ptr %prefetch_options, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %4, i64 0, i32 1
+  %two = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load ptr, ptr %two, align 8
   call void @diff_add_if_missing(ptr noundef %6, ptr noundef nonnull %to_fetch, ptr noundef %7) #14
   %.pre = load ptr, ptr @rename_dst, align 8
@@ -2925,7 +2915,7 @@ for.inc18:                                        ; preds = %land.lhs.true, %if.
 for.end20:                                        ; preds = %for.inc18, %for.cond4.preheader
   %20 = load ptr, ptr %prefetch_options, align 8
   %21 = load ptr, ptr %to_fetch, align 8
-  %nr = getelementptr inbounds %struct.oid_array, ptr %to_fetch, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %to_fetch, i64 8
   %22 = load i64, ptr %nr, align 8
   %conv = trunc i64 %22 to i32
   call void @promisor_remote_get_direct(ptr noundef %20, ptr noundef %21, i32 noundef %conv) #14
@@ -2942,14 +2932,14 @@ define internal fastcc i32 @estimate_similarity(ptr noundef %r, ptr noundef %src
 entry:
   %src_copied = alloca i64, align 8
   %literal_added = alloca i64, align 8
-  %mode = getelementptr inbounds %struct.diff_filespec, ptr %src, i64 0, i32 7
+  %mode = getelementptr inbounds i8, ptr %src, i64 80
   %0 = load i16, ptr %mode, align 8
   %1 = and i16 %0, -4096
   %cmp = icmp eq i16 %1, -32768
   br i1 %cmp, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %mode2 = getelementptr inbounds %struct.diff_filespec, ptr %dst, i64 0, i32 7
+  %mode2 = getelementptr inbounds i8, ptr %dst, i64 80
   %2 = load i16, ptr %mode2, align 8
   %3 = and i16 %2, -4096
   %cmp5 = icmp eq i16 %3, -32768
@@ -2959,7 +2949,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %bf.load = load i8, ptr %dpf_opt, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %dpf_opt, align 8
-  %cnt_data = getelementptr inbounds %struct.diff_filespec, ptr %src, i64 0, i32 3
+  %cnt_data = getelementptr inbounds i8, ptr %src, i64 56
   %4 = load ptr, ptr %cnt_data, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %land.lhs.true, label %if.end9
@@ -2970,7 +2960,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool7.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end
-  %cnt_data10 = getelementptr inbounds %struct.diff_filespec, ptr %dst, i64 0, i32 3
+  %cnt_data10 = getelementptr inbounds i8, ptr %dst, i64 56
   %5 = load ptr, ptr %cnt_data10, align 8
   %tobool11.not = icmp eq ptr %5, null
   br i1 %tobool11.not, label %land.lhs.true12, label %if.end16
@@ -2981,9 +2971,9 @@ land.lhs.true12:                                  ; preds = %if.end9
   br i1 %tobool14.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %land.lhs.true12, %if.end9
-  %size = getelementptr inbounds %struct.diff_filespec, ptr %src, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %src, i64 64
   %6 = load i64, ptr %size, align 8
-  %size17 = getelementptr inbounds %struct.diff_filespec, ptr %dst, i64 0, i32 4
+  %size17 = getelementptr inbounds i8, ptr %dst, i64 64
   %7 = load i64, ptr %size17, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %6, i64 %7)
   %cond31 = tail call i64 @llvm.umin.i64(i64 %6, i64 %7)
@@ -3052,10 +3042,10 @@ declare void @git_stable_qsort(ptr noundef, i64 noundef, i64 noundef, ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @score_compare(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #7 {
 entry:
-  %dst = getelementptr inbounds %struct.diff_score, ptr %a_, i64 0, i32 1
+  %dst = getelementptr inbounds i8, ptr %a_, i64 4
   %0 = load i32, ptr %dst, align 4
   %cmp = icmp slt i32 %0, 0
-  %dst1 = getelementptr inbounds %struct.diff_score, ptr %b_, i64 0, i32 1
+  %dst1 = getelementptr inbounds i8, ptr %b_, i64 4
   %1 = load i32, ptr %dst1, align 4
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3069,18 +3059,18 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.else
-  %score = getelementptr inbounds %struct.diff_score, ptr %a_, i64 0, i32 2
+  %score = getelementptr inbounds i8, ptr %a_, i64 8
   %2 = load i16, ptr %score, align 4
-  %score9 = getelementptr inbounds %struct.diff_score, ptr %b_, i64 0, i32 2
+  %score9 = getelementptr inbounds i8, ptr %b_, i64 8
   %3 = load i16, ptr %score9, align 4
   %cmp11 = icmp eq i16 %2, %3
   br i1 %cmp11, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end7
-  %name_score = getelementptr inbounds %struct.diff_score, ptr %b_, i64 0, i32 3
+  %name_score = getelementptr inbounds i8, ptr %b_, i64 10
   %4 = load i16, ptr %name_score, align 2
   %conv14 = sext i16 %4 to i32
-  %name_score15 = getelementptr inbounds %struct.diff_score, ptr %a_, i64 0, i32 3
+  %name_score15 = getelementptr inbounds i8, ptr %a_, i64 10
   %5 = load i16, ptr %name_score15, align 2
   %conv16 = sext i16 %5 to i32
   %sub = sub nsw i32 %conv14, %conv16
@@ -3114,13 +3104,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %count.023 = phi i32 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.diff_score, ptr %mx, i64 %indvars.iv
-  %dst1 = getelementptr inbounds %struct.diff_score, ptr %mx, i64 %indvars.iv, i32 1
+  %dst1 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %0 = load i32, ptr %dst1, align 4
   %cmp2 = icmp slt i32 %0, 0
   br i1 %cmp2, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %score = getelementptr inbounds %struct.diff_score, ptr %mx, i64 %indvars.iv, i32 2
+  %score = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i16, ptr %score, align 4
   %conv = zext i16 %1 to i32
   %cmp5 = icmp slt i32 %conv, %minimum_score
@@ -3148,7 +3138,7 @@ land.lhs.true:                                    ; preds = %if.end13
   %arrayidx18 = getelementptr inbounds %struct.diff_rename_src, ptr %4, i64 %idxprom17
   %5 = load ptr, ptr %arrayidx18, align 8
   %6 = load ptr, ptr %5, align 8
-  %rename_used = getelementptr inbounds %struct.diff_filespec, ptr %6, i64 0, i32 6
+  %rename_used = getelementptr inbounds i8, ptr %6, i64 76
   %7 = load i32, ptr %rename_used, align 4
   %tobool19.not = icmp eq i32 %7, 0
   br i1 %tobool19.not, label %if.end21, label %for.inc
@@ -3157,7 +3147,7 @@ if.end21:                                         ; preds = %if.end13.if.end21_c
   %idxprom.i.pre-phi = phi i64 [ %.pre27, %if.end13.if.end21_crit_edge ], [ %idxprom17, %land.lhs.true ]
   %arrayidx2.i = getelementptr inbounds %struct.diff_rename_dst, ptr %2, i64 %idxprom10
   %8 = load ptr, ptr %arrayidx2.i, align 8
-  %renamed_pair.i = getelementptr inbounds %struct.diff_filepair, ptr %8, i64 0, i32 4
+  %renamed_pair.i = getelementptr inbounds i8, ptr %8, i64 19
   %bf.load.i = load i8, ptr %renamed_pair.i, align 1
   %9 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %9, 0
@@ -3172,12 +3162,12 @@ if.end.i:                                         ; preds = %if.end21
   %arrayidx.i = getelementptr inbounds %struct.diff_rename_src, ptr %10, i64 %idxprom.i.pre-phi
   %11 = load ptr, ptr %arrayidx.i, align 8
   %12 = load ptr, ptr %11, align 8
-  %rename_used.i = getelementptr inbounds %struct.diff_filespec, ptr %12, i64 0, i32 6
+  %rename_used.i = getelementptr inbounds i8, ptr %12, i64 76
   %13 = load i32, ptr %rename_used.i, align 4
   %inc.i = add nsw i32 %13, 1
   store i32 %inc.i, ptr %rename_used.i, align 4
   %14 = load ptr, ptr %11, align 8
-  %count.i = getelementptr inbounds %struct.diff_filespec, ptr %14, i64 0, i32 5
+  %count.i = getelementptr inbounds i8, ptr %14, i64 72
   %15 = load i32, ptr %count.i, align 8
   %inc5.i = add nsw i32 %15, 1
   store i32 %inc5.i, ptr %count.i, align 8
@@ -3190,11 +3180,11 @@ if.end.i:                                         ; preds = %if.end21
   %bf.load14.i = load i8, ptr %renamed_pair.i, align 1
   %bf.set.i = or i8 %bf.load14.i, 2
   store i8 %bf.set.i, ptr %renamed_pair.i, align 1
-  %path.i = getelementptr inbounds %struct.diff_filespec, ptr %17, i64 0, i32 1
+  %path.i = getelementptr inbounds i8, ptr %17, i64 40
   %18 = load ptr, ptr %path.i, align 8
-  %two.i = getelementptr inbounds %struct.diff_filepair, ptr %8, i64 0, i32 1
+  %two.i = getelementptr inbounds i8, ptr %8, i64 8
   %19 = load ptr, ptr %two.i, align 8
-  %path17.i = getelementptr inbounds %struct.diff_filespec, ptr %19, i64 0, i32 1
+  %path17.i = getelementptr inbounds i8, ptr %19, i64 40
   %20 = load ptr, ptr %path17.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #16
   %tobool18.not.i = icmp eq i32 %call.i, 0
@@ -3207,7 +3197,7 @@ if.then19.i:                                      ; preds = %if.end.i
 
 record_rename_pair.exit:                          ; preds = %if.end.i, %if.then19.i
   %conv.sink.i = phi i16 [ %21, %if.then19.i ], [ %1, %if.end.i ]
-  %22 = getelementptr inbounds %struct.diff_filepair, ptr %8, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %8, i64 16
   store i16 %conv.sink.i, ptr %22, align 8
   %inc = add nsw i32 %count.023, 1
   %23 = load i32, ptr %arrayidx, align 4
@@ -3215,15 +3205,15 @@ record_rename_pair.exit:                          ; preds = %if.end.i, %if.then1
   %arrayidx36 = getelementptr inbounds %struct.diff_rename_src, ptr %10, i64 %idxprom35
   %24 = load ptr, ptr %arrayidx36, align 8
   %25 = load ptr, ptr %24, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %25, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %25, i64 40
   %26 = load ptr, ptr %path, align 8
   %27 = load i32, ptr %dst1, align 4
   %idxprom42 = sext i32 %27 to i64
   %arrayidx43 = getelementptr inbounds %struct.diff_rename_dst, ptr %2, i64 %idxprom42
   %28 = load ptr, ptr %arrayidx43, align 8
-  %two = getelementptr inbounds %struct.diff_filepair, ptr %28, i64 0, i32 1
+  %two = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %two, align 8
-  %path45 = getelementptr inbounds %struct.diff_filespec, ptr %29, i64 0, i32 1
+  %path45 = getelementptr inbounds i8, ptr %29, i64 40
   %30 = load ptr, ptr %path45, align 8
   tail call fastcc void @update_dir_rename_counts(ptr noundef %info, ptr noundef %dirs_removed, ptr noundef %26, ptr noundef %30)
   br label %for.inc
@@ -3294,7 +3284,7 @@ declare void @strmap_init(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @update_dir_rename_counts(ptr nocapture noundef readonly %info, ptr noundef %dirs_removed, ptr noundef %oldname, ptr noundef %newname) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %newname, align 1
-  %setup = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 4
+  %setup = getelementptr inbounds i8, ptr %info, i64 152
   %1 = load i32, ptr %setup, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -3302,11 +3292,11 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call ptr @xstrdup(ptr noundef %oldname) #14
   %call1 = tail call ptr @xstrdup(ptr noundef nonnull %newname) #14
-  %relevant_source_dirs = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 3
+  %relevant_source_dirs = getelementptr inbounds i8, ptr %info, i64 144
   %invariant.gep = getelementptr i8, ptr %call1, i64 1
   %tobool29.not = icmp eq ptr %dirs_removed, null
-  %default_value.i = getelementptr inbounds %struct.strintmap, ptr %dirs_removed, i64 0, i32 1
-  %dir_rename_count.i = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 2
+  %default_value.i = getelementptr inbounds i8, ptr %dirs_removed, i64 64
+  %dir_rename_count.i = getelementptr inbounds i8, ptr %info, i64 136
   br label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false44, %if.end
@@ -3370,7 +3360,7 @@ if.then.i:                                        ; preds = %if.then30
   br label %if.end32
 
 if.end.i:                                         ; preds = %if.then30
-  %value.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i28, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call.i28, i64 24
   %6 = load ptr, ptr %value.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i = trunc i64 %7 to i32
@@ -3389,14 +3379,14 @@ if.then37:                                        ; preds = %if.end32
   br i1 %tobool.not.i31, label %if.else.i, label %if.then.i32
 
 if.then.i32:                                      ; preds = %if.then37
-  %value.i33 = getelementptr inbounds %struct.strmap_entry, ptr %call.i30, i64 0, i32 2
+  %value.i33 = getelementptr inbounds i8, ptr %call.i30, i64 24
   %9 = load ptr, ptr %value.i33, align 8
   br label %increment_count.exit
 
 if.else.i:                                        ; preds = %if.then37
   %call1.i = tail call ptr @xmalloc(i64 noundef 72) #14
   tail call void @strmap_init_with_options(ptr noundef %call1.i, ptr noundef null, i32 noundef 1) #14
-  %default_value2.i.i = getelementptr inbounds %struct.strintmap, ptr %call1.i, i64 0, i32 1
+  %default_value2.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   store i32 0, ptr %default_value2.i.i, align 8
   %10 = load ptr, ptr %dir_rename_count.i, align 8
   %call3.i = tail call ptr @strmap_put(ptr noundef %10, ptr noundef %call, ptr noundef %call1.i) #14
@@ -3445,13 +3435,13 @@ declare void @strintmap_incr(ptr noundef, ptr noundef, i64 noundef) local_unname
 define internal void @basename_prefetch(ptr nocapture noundef readonly %prefetch_options) #0 {
 entry:
   %to_fetch = alloca %struct.oid_array, align 8
-  %relevant_sources1 = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options, i64 0, i32 1
+  %relevant_sources1 = getelementptr inbounds i8, ptr %prefetch_options, i64 8
   %0 = load ptr, ptr %relevant_sources1, align 8
-  %sources2 = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options, i64 0, i32 2
+  %sources2 = getelementptr inbounds i8, ptr %prefetch_options, i64 16
   %1 = load ptr, ptr %sources2, align 8
-  %dests3 = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options, i64 0, i32 3
+  %dests3 = getelementptr inbounds i8, ptr %prefetch_options, i64 24
   %2 = load ptr, ptr %dests3, align 8
-  %info4 = getelementptr inbounds %struct.basename_prefetch_options, ptr %prefetch_options, i64 0, i32 4
+  %info4 = getelementptr inbounds i8, ptr %prefetch_options, i64 32
   %3 = load ptr, ptr %info4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %to_fetch, i8 0, i64 32, i1 false)
   %4 = load i32, ptr @rename_src_nr, align 4
@@ -3460,8 +3450,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %tobool.not = icmp eq ptr %0, null
-  %default_value.i = getelementptr inbounds %struct.strintmap, ptr %1, i64 0, i32 1
-  %default_value.i31 = getelementptr inbounds %struct.strintmap, ptr %2, i64 0, i32 1
+  %default_value.i = getelementptr inbounds i8, ptr %1, i64 64
+  %default_value.i31 = getelementptr inbounds i8, ptr %2, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3470,7 +3460,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds %struct.diff_rename_src, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %7 = load ptr, ptr %6, align 8
-  %path = getelementptr inbounds %struct.diff_filespec, ptr %7, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load ptr, ptr %path, align 8
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
@@ -3493,7 +3483,7 @@ if.then.i:                                        ; preds = %if.end
   br label %strintmap_get.exit
 
 if.end.i:                                         ; preds = %if.end
-  %value.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i21, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call.i21, i64 24
   %10 = load ptr, ptr %value.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %conv.i = trunc i64 %11 to i32
@@ -3516,7 +3506,7 @@ if.then.i30:                                      ; preds = %if.then10
   br label %strintmap_get.exit32
 
 if.end.i26:                                       ; preds = %if.then10
-  %value.i27 = getelementptr inbounds %struct.strmap_entry, ptr %call.i24, i64 0, i32 2
+  %value.i27 = getelementptr inbounds i8, ptr %call.i24, i64 24
   %13 = load ptr, ptr %value.i27, align 8
   %14 = ptrtoint ptr %13 to i64
   %conv.i28 = trunc i64 %14 to i32
@@ -3539,19 +3529,19 @@ if.end26:                                         ; preds = %strintmap_get.exit3
   %src_index.036 = phi i64 [ %indvars.iv, %if.end22 ], [ %conv, %strintmap_get.exit32 ]
   %dst_index.0 = sext i32 %dst_index.0.in37 to i64
   %15 = load ptr, ptr @rename_dst, align 8
-  %is_rename = getelementptr inbounds %struct.diff_rename_dst, ptr %15, i64 %dst_index.0, i32 2
+  %arrayidx27 = getelementptr inbounds %struct.diff_rename_dst, ptr %15, i64 %dst_index.0
+  %is_rename = getelementptr inbounds i8, ptr %arrayidx27, i64 16
   %16 = load i32, ptr %is_rename, align 8
   %tobool28.not = icmp eq i32 %16, 0
   br i1 %tobool28.not, label %if.end30, label %for.inc
 
 if.end30:                                         ; preds = %if.end26
-  %arrayidx27 = getelementptr inbounds %struct.diff_rename_dst, ptr %15, i64 %dst_index.0
   %17 = load ptr, ptr @rename_src, align 8
   %arrayidx31 = getelementptr inbounds %struct.diff_rename_src, ptr %17, i64 %src_index.036
   %18 = load ptr, ptr %arrayidx31, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %arrayidx27, align 8
-  %two36 = getelementptr inbounds %struct.diff_filepair, ptr %20, i64 0, i32 1
+  %two36 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %two36, align 8
   %22 = load ptr, ptr %prefetch_options, align 8
   call void @diff_add_if_missing(ptr noundef %22, ptr noundef nonnull %to_fetch, ptr noundef %21) #14
@@ -3568,7 +3558,7 @@ for.inc:                                          ; preds = %strintmap_get.exit,
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre = load ptr, ptr %to_fetch, align 8
-  %nr.phi.trans.insert = getelementptr inbounds %struct.oid_array, ptr %to_fetch, i64 0, i32 1
+  %nr.phi.trans.insert = getelementptr inbounds i8, ptr %to_fetch, i64 8
   %.pre41 = load i64, ptr %nr.phi.trans.insert, align 8
   %26 = trunc i64 %.pre41 to i32
   br label %for.end
@@ -3587,7 +3577,7 @@ define internal fastcc i32 @idx_possible_rename(ptr noundef %filename, ptr nound
 entry:
   %new_path = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_path, ptr noundef nonnull align 8 dereferenceable(24) @__const.idx_possible_rename.new_path, i64 24, i1 false)
-  %setup = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 4
+  %setup = getelementptr inbounds i8, ptr %info, i64 152
   %0 = load i32, ptr %setup, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -3610,7 +3600,7 @@ cond.false.i:                                     ; preds = %if.end
 
 get_dirname.exit:                                 ; preds = %cond.true.i, %cond.false.i
   %cond.i = phi ptr [ %call1.i, %cond.true.i ], [ %call2.i, %cond.false.i ]
-  %dir_rename_guess = getelementptr inbounds %struct.dir_rename_info, ptr %info, i64 0, i32 1
+  %dir_rename_guess = getelementptr inbounds i8, ptr %info, i64 72
   %call1 = tail call ptr @strmap_get(ptr noundef nonnull %dir_rename_guess, ptr noundef %cond.i) #14
   tail call void @free(ptr noundef %cond.i) #14
   %tobool2.not = icmp eq ptr %call1, null
@@ -3624,7 +3614,7 @@ if.end4:                                          ; preds = %get_dirname.exit
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.end4
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %new_path, i64 8
   %2 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %2, 1
   %tobool.not.i7 = icmp eq i64 %1, %.neg.i
@@ -3632,7 +3622,7 @@ strbuf_avail.exit.i:                              ; preds = %if.end4
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.end4
   call void @strbuf_grow(ptr noundef nonnull %new_path, i64 noundef 1) #14
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %new_path, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -3640,9 +3630,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %3 = phi i64 [ %.pre.i, %if.then.i ], [ %2, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %new_path, i64 16
   %4 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %new_path, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %new_path, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 47, ptr %arrayidx.i, align 1
@@ -3662,12 +3652,12 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br i1 %tobool.not.i13, label %if.then.i14, label %if.end.i
 
 if.then.i14:                                      ; preds = %strbuf_addch.exit
-  %default_value.i = getelementptr inbounds %struct.strintmap, ptr %info, i64 0, i32 1
+  %default_value.i = getelementptr inbounds i8, ptr %info, i64 64
   %8 = load i32, ptr %default_value.i, align 8
   br label %strintmap_get.exit
 
 if.end.i:                                         ; preds = %strbuf_addch.exit
-  %value.i = getelementptr inbounds %struct.strmap_entry, ptr %call.i12, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call.i12, i64 24
   %9 = load ptr, ptr %value.i, align 8
   %10 = ptrtoint ptr %9 to i64
   %conv.i = trunc i64 %10 to i32

@@ -15,13 +15,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @BIGNUM_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @BIGNUM_it() local_unnamed_addr #0 {
 entry:
   ret ptr @BIGNUM_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @CBIGNUM_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @CBIGNUM_it() local_unnamed_addr #0 {
 entry:
   ret ptr @CBIGNUM_it.local_it
 }
@@ -44,7 +44,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %1 = load i64, ptr %size, align 8
   %and = and i64 %1, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -67,7 +67,7 @@ return:                                           ; preds = %entry, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bn_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal noundef i32 @bn_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %cmp = icmp eq ptr %0, null
@@ -91,7 +91,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3
-  %size.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size.i = getelementptr inbounds i8, ptr %it, i64 40
   %3 = load i64, ptr %size.i, align 8
   %and.i = and i64 %3, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bn_secure_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal noundef i32 @bn_secure_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %cmp = icmp eq ptr %0, null
@@ -224,7 +224,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %size.i.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size.i.i = getelementptr inbounds i8, ptr %it, i64 40
   %3 = load i64, ptr %size.i.i, align 8
   %and.i.i = and i64 %3, 1
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0

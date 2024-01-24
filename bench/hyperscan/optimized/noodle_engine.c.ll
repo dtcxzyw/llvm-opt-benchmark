@@ -3,8 +3,6 @@ source_filename = "bench/hyperscan/original/noodle_engine.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.noodTable = type { i32, i64, i64, i8, i8, i8, i8, i8, i8 }
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @noodExec(ptr noundef readonly %n, ptr noundef %buf, i64 noundef %len, i64 noundef %start, ptr nocapture noundef readonly %cb, ptr noundef %scratch) local_unnamed_addr #0 {
 entry:
@@ -13,24 +11,24 @@ entry:
   %v.i211 = alloca <2 x i64>, align 16
   %v.i = alloca <2 x i64>, align 16
   %0 = load i32, ptr %n, align 8
-  %nocase = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 5
+  %nocase = getelementptr inbounds i8, ptr %n, i64 26
   %1 = load i8, ptr %nocase, align 2
   %tobool = icmp ne i8 %1, 0
   %sub.i = sub i64 %len, %start
-  %msk_len.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 3
+  %msk_len.i = getelementptr inbounds i8, ptr %n, i64 24
   %2 = load i8, ptr %msk_len.i, align 8
   %conv.i = zext i8 %2 to i64
   %cmp.i = icmp ult i64 %sub.i, %conv.i
   br i1 %cmp.i, label %scan.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %single = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 6
+  %single = getelementptr inbounds i8, ptr %n, i64 27
   %3 = load i8, ptr %single, align 1
   %tobool.i.not = icmp eq i8 %3, 0
   br i1 %tobool.i.not, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %key0.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 7
+  %key0.i = getelementptr inbounds i8, ptr %n, i64 28
   %4 = load i8, ptr %key0.i, align 4
   %5 = add i8 %4, -65
   %6 = icmp ult i8 %5, 26
@@ -75,9 +73,9 @@ if.end.i189:                                      ; preds = %if.then.i158
   br i1 %tobool9.i.not1568, label %scan.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %if.end.i189
-  %key_offset.i1781 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1795 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1797 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1781 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1795 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1797 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %while.cond.i.backedge
@@ -207,9 +205,9 @@ if.then9.i155:                                    ; preds = %if.end.i119
 
 while.body.i287.lr.ph:                            ; preds = %if.then9.i155
   %33 = zext i16 %32 to i32
-  %key_offset.i1579 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1593 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1595 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1579 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1593 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1595 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i287
 
 while.body.i287:                                  ; preds = %while.body.i287.lr.ph, %while.cond.i282.backedge
@@ -353,9 +351,9 @@ if.then22.i149:                                   ; preds = %if.end12.i122
   br i1 %tobool11.i333.not.not1554, label %if.end29.i132, label %while.body.i338.lr.ph
 
 while.body.i338.lr.ph:                            ; preds = %if.then22.i149
-  %key_offset.i1478 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1492 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1494 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1478 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1492 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1494 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i338
 
 while.body.i338:                                  ; preds = %while.body.i338.lr.ph, %while.cond.i332.backedge
@@ -481,9 +479,9 @@ if.then35.i143:                                   ; preds = %if.end29.i132
 
 cond.true.i.lr.ph:                                ; preds = %if.then35.i143
   %add.ptr.i598 = getelementptr inbounds i8, ptr %buf, i64 %sub15.i126
-  %key_offset.i973 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i987 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i989 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i973 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i987 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i989 = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.true.i
 
 cond.true.i:                                      ; preds = %cond.true.i.lr.ph, %while.end.i607
@@ -644,9 +642,9 @@ if.end48.i139:                                    ; preds = %if.end44.i137
   br i1 %tobool11.i390.not1560, label %scan.exit, label %while.body.i395.lr.ph
 
 while.body.i395.lr.ph:                            ; preds = %if.end48.i139
-  %key_offset.i1377 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1391 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1393 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1377 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1391 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1393 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i395
 
 while.body.i395:                                  ; preds = %while.body.i395.lr.ph, %while.cond.i389.backedge
@@ -790,9 +788,9 @@ if.end.i222:                                      ; preds = %if.then.i90
   br i1 %tobool9.i233.not1550, label %scan.exit, label %while.body.i238.lr.ph
 
 while.body.i238.lr.ph:                            ; preds = %if.end.i222
-  %key_offset.i1680 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1694 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1696 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1680 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1694 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1696 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i238
 
 while.body.i238:                                  ; preds = %while.body.i238.lr.ph, %while.cond.i232.backedge
@@ -921,9 +919,9 @@ if.end.i435:                                      ; preds = %if.end.i89
 
 while.body.i452.lr.ph:                            ; preds = %if.end.i435
   %132 = zext i16 %131 to i32
-  %key_offset.i1276 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1290 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1292 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1276 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1290 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1292 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i452
 
 while.body.i452:                                  ; preds = %while.body.i452.lr.ph, %while.cond.i446.backedge
@@ -1066,9 +1064,9 @@ if.end.i492:                                      ; preds = %if.end12.i
   br i1 %tobool11.i504.not.not1537, label %if.end29.i, label %while.body.i509.lr.ph
 
 while.body.i509.lr.ph:                            ; preds = %if.end.i492
-  %key_offset.i1175 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1189 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1191 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1175 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1189 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1191 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i509
 
 while.body.i509:                                  ; preds = %while.body.i509.lr.ph, %while.cond.i503.backedge
@@ -1194,9 +1192,9 @@ if.then35.i:                                      ; preds = %if.end29.i
 
 cond.false.i641.lr.ph:                            ; preds = %if.then35.i
   %add.ptr.i634 = getelementptr inbounds i8, ptr %buf, i64 %sub15.i
-  %key_offset.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.false.i641
 
 cond.false.i641:                                  ; preds = %cond.false.i641.lr.ph, %while.end.i653
@@ -1355,9 +1353,9 @@ if.end.i549:                                      ; preds = %if.end44.i
   br i1 %tobool11.i561.not1543, label %scan.exit, label %while.body.i566.lr.ph
 
 while.body.i566.lr.ph:                            ; preds = %if.end.i549
-  %key_offset.i1074 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1088 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1090 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1074 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1088 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1090 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i566
 
 while.body.i566:                                  ; preds = %while.body.i566.lr.ph, %while.cond.i560.backedge
@@ -1473,14 +1471,14 @@ while.cond.i560.backedge:                         ; preds = %match.i1093, %parti
   br i1 %tobool11.i561.not, label %scan.exit, label %while.body.i566, !llvm.loop !8
 
 if.else.i:                                        ; preds = %if.end.i
-  %key_offset.i2060 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
+  %key_offset.i2060 = getelementptr inbounds i8, ptr %n, i64 25
   %207 = load i8, ptr %key_offset.i2060, align 1
   %conv.i2061 = zext i8 %207 to i64
   %sub.i2062 = sub i64 %len, %conv.i2061
   %add.i2063 = add i64 %sub.i2062, 2
   %add2.i2066 = add i64 %conv.i, %start
   %sub5.i2069 = sub i64 %add2.i2066, %conv.i2061
-  %key0.i2086 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 7
+  %key0.i2086 = getelementptr inbounds i8, ptr %n, i64 28
   %208 = load i8, ptr %key0.i2086, align 4
   br i1 %tobool, label %if.then.i28, label %if.else.i27
 
@@ -1488,7 +1486,7 @@ if.then.i28:                                      ; preds = %if.else.i
   %209 = and i8 %208, -33
   %vecinit.i117.i2097 = insertelement <16 x i8> poison, i8 %209, i64 0
   %vecinit15.i132.i2112 = shufflevector <16 x i8> %vecinit.i117.i2097, <16 x i8> poison, <16 x i32> zeroinitializer
-  %key1.i2113 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 8
+  %key1.i2113 = getelementptr inbounds i8, ptr %n, i64 29
   %210 = load i8, ptr %key1.i2113, align 1
   %211 = and i8 %210, -33
   %vecinit.i150.i2124 = insertelement <16 x i8> poison, i8 %211, i64 0
@@ -1524,8 +1522,8 @@ if.end.i2221:                                     ; preds = %if.then.i2185
 
 while.body.i2232.lr.ph:                           ; preds = %if.end.i2221
   %add.i2237 = add i64 %sub5.i2069, -1
-  %msk.i.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2232
 
 while.body.i2232:                                 ; preds = %while.body.i2232.lr.ph, %while.cond.i2227.backedge
@@ -1658,8 +1656,8 @@ if.then16.i2182:                                  ; preds = %if.end.i2142
 while.body.i2486.lr.ph:                           ; preds = %if.then16.i2182
   %241 = zext i16 %240 to i32
   %add.i2492 = add i64 %sub5.i2069, -1
-  %msk.i.i2511 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i2513 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i2511 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i2513 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2486
 
 while.body.i2486:                                 ; preds = %while.body.i2486.lr.ph, %while.cond.i2482.backedge
@@ -1807,8 +1805,8 @@ if.then30.i2176:                                  ; preds = %if.end19.i2145
 
 while.body.i2662.lr.ph:                           ; preds = %if.then30.i2176
   %add.i2669 = add i64 %sub5.i2069, -1
-  %msk.i.i2688 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i2690 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i2688 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i2690 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2662
 
 while.body.i2662:                                 ; preds = %while.body.i2662.lr.ph, %while.cond.i2656.backedge
@@ -1936,8 +1934,8 @@ if.then49.i2169:                                  ; preds = %if.end43.i2158
 cond.true.i3652.lr.ph:                            ; preds = %if.then49.i2169
   %add.ptr.i3534 = getelementptr inbounds i8, ptr %buf, i64 %sub22.i2149
   %sub.ptr.sub.i3559 = xor i64 %260, -1
-  %msk.i.i3580 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3582 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3580 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3582 = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.true.i3652
 
 cond.true.i3652:                                  ; preds = %cond.true.i3652.lr.ph, %while.end.i3553
@@ -2108,8 +2106,8 @@ if.end62.i2165:                                   ; preds = %if.end58.i2163
 
 while.body.i2843.lr.ph:                           ; preds = %if.end62.i2165
   %add.i2850 = add i64 %sub.i2062, -15
-  %msk.i.i2869 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i2871 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i2869 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i2871 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2843
 
 while.body.i2843:                                 ; preds = %while.body.i2843.lr.ph, %while.cond.i2837.backedge
@@ -2224,7 +2222,7 @@ while.cond.i2837.backedge:                        ; preds = %match.i.i2874, %par
 if.else.i27:                                      ; preds = %if.else.i
   %vecinit.i117.i = insertelement <16 x i8> poison, i8 %208, i64 0
   %vecinit15.i132.i = shufflevector <16 x i8> %vecinit.i117.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %key1.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 8
+  %key1.i = getelementptr inbounds i8, ptr %n, i64 29
   %334 = load i8, ptr %key1.i, align 1
   %vecinit.i150.i = insertelement <16 x i8> poison, i8 %334, i64 0
   %vecinit15.i165.i = shufflevector <16 x i8> %vecinit.i150.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -2258,8 +2256,8 @@ if.end.i2303:                                     ; preds = %if.then.i1970
 
 while.body.i2323.lr.ph:                           ; preds = %if.end.i2303
   %add.i2330 = add i64 %sub5.i2069, -1
-  %msk.i.i2349 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i2351 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i2349 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i2351 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2323
 
 while.body.i2323:                                 ; preds = %while.body.i2323.lr.ph, %while.cond.i2317.backedge
@@ -2391,8 +2389,8 @@ if.end.i3003:                                     ; preds = %if.end.i1964
 while.body.i3024.lr.ph:                           ; preds = %if.end.i3003
   %362 = zext i16 %361 to i32
   %add.i3031 = add i64 %sub5.i2069, -1
-  %msk.i.i3050 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3052 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3050 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3052 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i3024
 
 while.body.i3024:                                 ; preds = %while.body.i3024.lr.ph, %while.cond.i3018.backedge
@@ -2539,8 +2537,8 @@ if.end.i3184:                                     ; preds = %if.end19.i
 
 while.body.i3205.lr.ph:                           ; preds = %if.end.i3184
   %add.i3212 = add i64 %sub5.i2069, -1
-  %msk.i.i3231 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3233 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3231 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3233 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i3205
 
 while.body.i3205:                                 ; preds = %while.body.i3205.lr.ph, %while.cond.i3199.backedge
@@ -2668,8 +2666,8 @@ if.then49.i:                                      ; preds = %if.end43.i1966
 cond.false.i3718.lr.ph:                           ; preds = %if.then49.i
   %add.ptr.i3711 = getelementptr inbounds i8, ptr %buf, i64 %sub22.i
   %sub.ptr.sub.i3740 = xor i64 %381, -1
-  %msk.i.i3761 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3763 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3761 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3763 = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.false.i3718
 
 cond.false.i3718:                                 ; preds = %cond.false.i3718.lr.ph, %while.end.i3733
@@ -2838,8 +2836,8 @@ if.end.i3365:                                     ; preds = %if.end58.i
 
 while.body.i3386.lr.ph:                           ; preds = %if.end.i3365
   %add.i3393 = add i64 %sub.i2062, -15
-  %msk.i.i3412 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3414 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3412 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3414 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i3386
 
 while.body.i3386:                                 ; preds = %while.body.i3386.lr.ph, %while.cond.i3380.backedge
@@ -2965,7 +2963,7 @@ entry:
   %v.i = alloca <2 x i64>, align 16
   %temp_buf = alloca [16 x i8], align 16
   %add = add i64 %len, %hlen
-  %msk_len = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 3
+  %msk_len = getelementptr inbounds i8, ptr %n, i64 24
   %0 = load i8, ptr %msk_len, align 8
   %conv = zext i8 %0 to i64
   %cmp = icmp ult i64 %add, %conv
@@ -3146,8 +3144,8 @@ partial_load_u64a.exit:                           ; preds = %partial_load_u64a.e
   %retval.i75.0 = phi i64 [ %conv38.i, %sw.bb37.i ], [ %conv36.i, %sw.bb34.i ], [ %or33.i, %sw.bb27.i ], [ %conv26.i, %sw.bb24.i ], [ %or23.i, %sw.bb17.i ], [ %or16.i, %sw.bb9.i ], [ %or8.i, %sw.bb1.i ], [ %15, %sw.bb.i ], [ 0, %partial_load_u64a.exit129 ]
   store i64 %retval.i75.0, ptr %add.ptr37, align 1
   %add40 = add i64 %sub.hlen, %cond30
-  %msk = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp49 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp49 = getelementptr inbounds i8, ptr %n, i64 16
   %add54 = xor i64 %sub.hlen, -1
   br label %for.body
 
@@ -3185,20 +3183,20 @@ for.inc:                                          ; preds = %if.then52.for.inc_c
 
 if.end68:                                         ; preds = %for.inc, %if.end
   %conv.i.pre-phi = phi i64 [ %conv, %if.end ], [ %conv42, %for.inc ]
-  %nocase = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 5
+  %nocase = getelementptr inbounds i8, ptr %n, i64 26
   %34 = load i8, ptr %nocase, align 2
   %tobool70 = icmp ne i8 %34, 0
   %cmp.i = icmp ugt i64 %conv.i.pre-phi, %len
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end68
-  %single = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 6
+  %single = getelementptr inbounds i8, ptr %n, i64 27
   %35 = load i8, ptr %single, align 1
   %tobool.i.not = icmp eq i8 %35, 0
   br i1 %tobool.i.not, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %key0.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 7
+  %key0.i = getelementptr inbounds i8, ptr %n, i64 28
   %36 = load i8, ptr %key0.i, align 4
   %37 = add i8 %36, -65
   %38 = icmp ult i8 %37, 26
@@ -3242,9 +3240,9 @@ if.end.i324:                                      ; preds = %if.then.i292
   br i1 %tobool9.i.not1651, label %return, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %if.end.i324
-  %key_offset.i1924 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1938 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1940 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1924 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1938 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1940 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %while.cond.i.backedge
@@ -3374,9 +3372,9 @@ if.then9.i289:                                    ; preds = %if.end.i253
 
 while.body.i424.lr.ph:                            ; preds = %if.then9.i289
   %65 = zext i16 %64 to i32
-  %key_offset.i1722 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1736 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1738 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1722 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1736 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1738 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i424
 
 while.body.i424:                                  ; preds = %while.body.i424.lr.ph, %while.cond.i419.backedge
@@ -3520,9 +3518,9 @@ if.then22.i283:                                   ; preds = %if.end12.i256
   br i1 %tobool11.i470.not.not1637, label %if.end29.i266, label %while.body.i475.lr.ph
 
 while.body.i475.lr.ph:                            ; preds = %if.then22.i283
-  %key_offset.i1621 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1635 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1637 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1621 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1635 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1637 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i475
 
 while.body.i475:                                  ; preds = %while.body.i475.lr.ph, %while.cond.i469.backedge
@@ -3648,9 +3646,9 @@ if.then35.i277:                                   ; preds = %if.end29.i266
 
 cond.true.i.lr.ph:                                ; preds = %if.then35.i277
   %add.ptr.i735 = getelementptr inbounds i8, ptr %buf, i64 %sub15.i260
-  %key_offset.i1116 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1130 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1132 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1116 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1130 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1132 = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.true.i
 
 cond.true.i:                                      ; preds = %cond.true.i.lr.ph, %while.end.i744
@@ -3811,9 +3809,9 @@ if.end48.i273:                                    ; preds = %if.end44.i271
   br i1 %tobool11.i527.not1643, label %return, label %while.body.i532.lr.ph
 
 while.body.i532.lr.ph:                            ; preds = %if.end48.i273
-  %key_offset.i1520 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1534 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1536 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1520 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1534 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1536 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i532
 
 while.body.i532:                                  ; preds = %while.body.i532.lr.ph, %while.cond.i526.backedge
@@ -3956,9 +3954,9 @@ if.end.i358:                                      ; preds = %if.then.i224
   br i1 %tobool9.i369.not1633, label %return, label %while.body.i374.lr.ph
 
 while.body.i374.lr.ph:                            ; preds = %if.end.i358
-  %key_offset.i1823 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1837 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1839 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1823 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1837 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1839 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i374
 
 while.body.i374:                                  ; preds = %while.body.i374.lr.ph, %while.cond.i368.backedge
@@ -4087,9 +4085,9 @@ if.end.i572:                                      ; preds = %if.end.i223
 
 while.body.i589.lr.ph:                            ; preds = %if.end.i572
   %164 = zext i16 %163 to i32
-  %key_offset.i1419 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1433 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1435 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1419 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1433 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1435 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i589
 
 while.body.i589:                                  ; preds = %while.body.i589.lr.ph, %while.cond.i583.backedge
@@ -4232,9 +4230,9 @@ if.end.i629:                                      ; preds = %if.end12.i
   br i1 %tobool11.i641.not.not1620, label %if.end29.i, label %while.body.i646.lr.ph
 
 while.body.i646.lr.ph:                            ; preds = %if.end.i629
-  %key_offset.i1318 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1332 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1334 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1318 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1332 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1334 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i646
 
 while.body.i646:                                  ; preds = %while.body.i646.lr.ph, %while.cond.i640.backedge
@@ -4360,9 +4358,9 @@ if.then35.i:                                      ; preds = %if.end29.i
 
 cond.false.i783.lr.ph:                            ; preds = %if.then35.i
   %add.ptr.i776 = getelementptr inbounds i8, ptr %buf, i64 %sub15.i
-  %key_offset.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.false.i783
 
 cond.false.i783:                                  ; preds = %cond.false.i783.lr.ph, %while.end.i795
@@ -4521,9 +4519,9 @@ if.end.i686:                                      ; preds = %if.end44.i
   br i1 %tobool11.i698.not1626, label %return, label %while.body.i703.lr.ph
 
 while.body.i703.lr.ph:                            ; preds = %if.end.i686
-  %key_offset.i1217 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
-  %msk.i1231 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i1233 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %key_offset.i1217 = getelementptr inbounds i8, ptr %n, i64 25
+  %msk.i1231 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i1233 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i703
 
 while.body.i703:                                  ; preds = %while.body.i703.lr.ph, %while.cond.i697.backedge
@@ -4639,13 +4637,13 @@ while.cond.i697.backedge:                         ; preds = %match.i1236, %parti
   br i1 %tobool11.i698.not, label %return, label %while.body.i703, !llvm.loop !8
 
 if.else.i:                                        ; preds = %if.end.i
-  %key_offset.i2205 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 4
+  %key_offset.i2205 = getelementptr inbounds i8, ptr %n, i64 25
   %239 = load i8, ptr %key_offset.i2205, align 1
   %conv.i2206 = zext i8 %239 to i64
   %sub.i2207 = sub i64 %len, %conv.i2206
   %add.i2208 = add i64 %sub.i2207, 2
   %sub5.i2214 = sub nsw i64 %conv.i.pre-phi, %conv.i2206
-  %key0.i2231 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 7
+  %key0.i2231 = getelementptr inbounds i8, ptr %n, i64 28
   %240 = load i8, ptr %key0.i2231, align 4
   br i1 %tobool70, label %if.then.i161, label %if.else.i160
 
@@ -4653,7 +4651,7 @@ if.then.i161:                                     ; preds = %if.else.i
   %241 = and i8 %240, -33
   %vecinit.i117.i2242 = insertelement <16 x i8> poison, i8 %241, i64 0
   %vecinit15.i132.i2257 = shufflevector <16 x i8> %vecinit.i117.i2242, <16 x i8> poison, <16 x i32> zeroinitializer
-  %key1.i2258 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 8
+  %key1.i2258 = getelementptr inbounds i8, ptr %n, i64 29
   %242 = load i8, ptr %key1.i2258, align 1
   %243 = and i8 %242, -33
   %vecinit.i150.i2269 = insertelement <16 x i8> poison, i8 %243, i64 0
@@ -4689,8 +4687,8 @@ if.end.i2366:                                     ; preds = %if.then.i2330
 
 while.body.i2377.lr.ph:                           ; preds = %if.end.i2366
   %add.i2382 = add nsw i64 %sub5.i2214, -1
-  %msk.i.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2377
 
 while.body.i2377:                                 ; preds = %while.body.i2377.lr.ph, %while.cond.i2372.backedge
@@ -4823,8 +4821,8 @@ if.then16.i2327:                                  ; preds = %if.end.i2287
 while.body.i2632.lr.ph:                           ; preds = %if.then16.i2327
   %273 = zext i16 %272 to i32
   %add.i2638 = add nsw i64 %sub5.i2214, -1
-  %msk.i.i2657 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i2659 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i2657 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i2659 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2632
 
 while.body.i2632:                                 ; preds = %while.body.i2632.lr.ph, %while.cond.i2628.backedge
@@ -4972,8 +4970,8 @@ if.then30.i2321:                                  ; preds = %if.end19.i2290
 
 while.body.i2808.lr.ph:                           ; preds = %if.then30.i2321
   %add.i2815 = add nsw i64 %sub5.i2214, -1
-  %msk.i.i2834 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i2836 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i2834 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i2836 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2808
 
 while.body.i2808:                                 ; preds = %while.body.i2808.lr.ph, %while.cond.i2802.backedge
@@ -5101,8 +5099,8 @@ if.then49.i2314:                                  ; preds = %if.end43.i2303
 cond.true.i3799.lr.ph:                            ; preds = %if.then49.i2314
   %add.ptr.i3680 = getelementptr inbounds i8, ptr %buf, i64 %sub22.i2294
   %sub.ptr.sub.i3705 = xor i64 %292, -1
-  %msk.i.i3726 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3728 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3726 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3728 = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.true.i3799
 
 cond.true.i3799:                                  ; preds = %cond.true.i3799.lr.ph, %while.end.i3699
@@ -5273,8 +5271,8 @@ if.end62.i2310:                                   ; preds = %if.end58.i2308
 
 while.body.i2989.lr.ph:                           ; preds = %if.end62.i2310
   %add.i2996 = add i64 %sub.i2207, -15
-  %msk.i.i3015 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3017 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3015 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3017 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2989
 
 while.body.i2989:                                 ; preds = %while.body.i2989.lr.ph, %while.cond.i2983.backedge
@@ -5389,7 +5387,7 @@ while.cond.i2983.backedge:                        ; preds = %match.i.i3020, %par
 if.else.i160:                                     ; preds = %if.else.i
   %vecinit.i117.i = insertelement <16 x i8> poison, i8 %240, i64 0
   %vecinit15.i132.i = shufflevector <16 x i8> %vecinit.i117.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %key1.i = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 8
+  %key1.i = getelementptr inbounds i8, ptr %n, i64 29
   %366 = load i8, ptr %key1.i, align 1
   %vecinit.i150.i = insertelement <16 x i8> poison, i8 %366, i64 0
   %vecinit15.i165.i = shufflevector <16 x i8> %vecinit.i150.i, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -5423,8 +5421,8 @@ if.end.i2449:                                     ; preds = %if.then.i2115
 
 while.body.i2469.lr.ph:                           ; preds = %if.end.i2449
   %add.i2476 = add nsw i64 %sub5.i2214, -1
-  %msk.i.i2495 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i2497 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i2495 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i2497 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i2469
 
 while.body.i2469:                                 ; preds = %while.body.i2469.lr.ph, %while.cond.i2463.backedge
@@ -5556,8 +5554,8 @@ if.end.i3149:                                     ; preds = %if.end.i2108
 while.body.i3170.lr.ph:                           ; preds = %if.end.i3149
   %394 = zext i16 %393 to i32
   %add.i3177 = add nsw i64 %sub5.i2214, -1
-  %msk.i.i3196 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3198 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3196 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3198 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i3170
 
 while.body.i3170:                                 ; preds = %while.body.i3170.lr.ph, %while.cond.i3164.backedge
@@ -5704,8 +5702,8 @@ if.end.i3330:                                     ; preds = %if.end19.i
 
 while.body.i3351.lr.ph:                           ; preds = %if.end.i3330
   %add.i3358 = add nsw i64 %sub5.i2214, -1
-  %msk.i.i3377 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3379 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3377 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3379 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i3351
 
 while.body.i3351:                                 ; preds = %while.body.i3351.lr.ph, %while.cond.i3345.backedge
@@ -5833,8 +5831,8 @@ if.then49.i:                                      ; preds = %if.end43.i2110
 cond.false.i3865.lr.ph:                           ; preds = %if.then49.i
   %add.ptr.i3858 = getelementptr inbounds i8, ptr %buf, i64 %sub22.i
   %sub.ptr.sub.i3887 = xor i64 %413, -1
-  %msk.i.i3908 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3910 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3908 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3910 = getelementptr inbounds i8, ptr %n, i64 16
   br label %cond.false.i3865
 
 cond.false.i3865:                                 ; preds = %cond.false.i3865.lr.ph, %while.end.i3880
@@ -6003,8 +6001,8 @@ if.end.i3511:                                     ; preds = %if.end58.i
 
 while.body.i3532.lr.ph:                           ; preds = %if.end.i3511
   %add.i3539 = add i64 %sub.i2207, -15
-  %msk.i.i3558 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 1
-  %cmp12.i.i3560 = getelementptr inbounds %struct.noodTable, ptr %n, i64 0, i32 2
+  %msk.i.i3558 = getelementptr inbounds i8, ptr %n, i64 8
+  %cmp12.i.i3560 = getelementptr inbounds i8, ptr %n, i64 16
   br label %while.body.i3532
 
 while.body.i3532:                                 ; preds = %while.body.i3532.lr.ph, %while.cond.i3526.backedge

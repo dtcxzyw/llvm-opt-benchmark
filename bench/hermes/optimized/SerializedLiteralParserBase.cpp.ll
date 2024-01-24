@@ -3,13 +3,10 @@ source_filename = "bench/hermes/original/SerializedLiteralParserBase.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::hbc::SerializedLiteralParserBase" = type { %"class.llvh::ArrayRef", i32, i8, i32, i32 }
-%"class.llvh::ArrayRef" = type { ptr, i64 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6hermes3hbc27SerializedLiteralParserBase20parseTagAndSeqLengthEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %currIdx_ = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 4
+  %currIdx_ = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %currIdx_, align 4
   %conv = sext i32 %0 to i64
   %1 = load ptr, ptr %this, align 8
@@ -36,11 +33,11 @@ if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ 1, %if.else ], [ 2, %if.then ]
   %or.sink = phi i32 [ %and13, %if.else ], [ %or, %if.then ]
   %add16 = add nsw i32 %0, %.sink
-  %4 = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %or.sink, ptr %4, align 8
   store i32 %add16, ptr %currIdx_, align 4
   %and18 = and i8 %2, 112
-  %lastTag_ = getelementptr inbounds %"class.hermes::hbc::SerializedLiteralParserBase", ptr %this, i64 0, i32 2
+  %lastTag_ = getelementptr inbounds i8, ptr %this, i64 20
   store i8 %and18, ptr %lastTag_, align 4
   ret void
 }

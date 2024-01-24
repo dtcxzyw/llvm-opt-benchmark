@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/f_string.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"\\\0A\00", align 1
@@ -27,8 +25,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp715, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
-  %arrayidx26 = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 1
+  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %arrayidx26 = getelementptr inbounds i8, ptr %buf, i64 1
   br label %for.body
 
 if.then2:                                         ; preds = %if.end
@@ -321,7 +319,7 @@ for.end169:                                       ; preds = %for.end162, %entry,
   %s.2 = phi ptr [ %s.1, %if.then ], [ null, %entry ], [ %s.1, %for.end162 ]
   %num.1 = phi i32 [ %add, %if.then ], [ 0, %entry ], [ %add, %for.end162 ]
   store i32 %num.1, ptr %bs, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %bs, i64 8
   store ptr %s.2, ptr %data, align 8
   br label %if.end171
 

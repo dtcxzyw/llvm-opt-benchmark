@@ -3,7 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-dynbuf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dynbuf = type { ptr, i64, i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
@@ -12,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_dyn_init(ptr nocapture noundef writeonly %s, i64 noundef %toobig) local_unnamed_addr #0 {
 entry:
-  %toobig3 = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 3
+  %toobig3 = getelementptr inbounds i8, ptr %s, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s, i8 0, i64 24, i1 false)
   store i64 %toobig, ptr %toobig3, align 8
   ret void
@@ -31,7 +30,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @Curl_dyn_reset(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
-  %leng = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 1
+  %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -49,7 +48,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @Curl_dyn_tail(ptr nocapture noundef %s, i64 noundef %trail) local_unnamed_addr #3 {
 entry:
-  %leng = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 1
+  %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
   %cmp = icmp ult i64 %0, %trail
   br i1 %cmp, label %return, label %if.else
@@ -97,12 +96,12 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Curl_dyn_addn(ptr nocapture noundef %s, ptr nocapture noundef readonly %mem, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %leng.i = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 1
+  %leng.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng.i, align 8
-  %allc.i = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 2
+  %allc.i = getelementptr inbounds i8, ptr %s, i64 16
   %add.i = add i64 %0, %len
   %add1.i = add i64 %add.i, 1
-  %toobig.i = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 3
+  %toobig.i = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load i64, ptr %toobig.i, align 8
   %cmp.i = icmp ugt i64 %add1.i, %1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -188,12 +187,12 @@ dyn_nappend.exit:                                 ; preds = %if.then.i, %if.then
 define hidden noundef i32 @Curl_dyn_add(ptr nocapture noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #12
-  %leng.i = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 1
+  %leng.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng.i, align 8
-  %allc.i = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 2
+  %allc.i = getelementptr inbounds i8, ptr %s, i64 16
   %add.i = add i64 %0, %call
   %add1.i = add i64 %add.i, 1
-  %toobig.i = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 3
+  %toobig.i = getelementptr inbounds i8, ptr %s, i64 24
   %1 = load i64, ptr %toobig.i, align 8
   %cmp.i = icmp ugt i64 %add1.i, %1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -328,7 +327,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @Curl_dyn_len(ptr nocapture noundef readonly %s) local_unnamed_addr #8 {
 entry:
-  %leng = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 1
+  %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
   ret i64 %0
 }
@@ -336,7 +335,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @Curl_dyn_setlen(ptr nocapture noundef %s, i64 noundef %set) local_unnamed_addr #2 {
 entry:
-  %leng = getelementptr inbounds %struct.dynbuf, ptr %s, i64 0, i32 1
+  %leng = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %leng, align 8
   %cmp = icmp ult i64 %0, %set
   br i1 %cmp, label %return, label %if.end

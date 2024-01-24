@@ -134,35 +134,35 @@ for.body:                                         ; preds = %entry, %run_test_ca
   br i1 %tobool.not.i, label %run_test_case.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
-  %plaintext2.i = getelementptr inbounds [21 x %struct.test_case], ptr @test_cases, i64 0, i64 %indvars.iv, i32 1
+  %plaintext2.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %plaintext2.i, align 8
   %call3.i = call fastcc i32 @decode_hex(ptr noundef nonnull %plaintext.i, ptr noundef nonnull %plaintext_len.i, ptr noundef %2, i32 noundef %1, ptr noundef nonnull @.str.2), !range !7
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %run_test_case.exit, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %additional_data6.i = getelementptr inbounds [21 x %struct.test_case], ptr @test_cases, i64 0, i64 %indvars.iv, i32 2
+  %additional_data6.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %additional_data6.i, align 16
   %call7.i = call fastcc i32 @decode_hex(ptr noundef nonnull %additional_data.i, ptr noundef nonnull %additional_data_len.i, ptr noundef %3, i32 noundef %1, ptr noundef nonnull @.str.3), !range !7
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %run_test_case.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %lor.lhs.false5.i
-  %nonce10.i = getelementptr inbounds [21 x %struct.test_case], ptr @test_cases, i64 0, i64 %indvars.iv, i32 3
+  %nonce10.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load ptr, ptr %nonce10.i, align 8
   %call11.i = call fastcc i32 @decode_hex(ptr noundef nonnull %nonce.i, ptr noundef nonnull %nonce_len.i, ptr noundef %4, i32 noundef %1, ptr noundef nonnull @.str.4), !range !7
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %run_test_case.exit, label %lor.lhs.false13.i
 
 lor.lhs.false13.i:                                ; preds = %lor.lhs.false9.i
-  %ciphertext14.i = getelementptr inbounds [21 x %struct.test_case], ptr @test_cases, i64 0, i64 %indvars.iv, i32 4
+  %ciphertext14.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %5 = load ptr, ptr %ciphertext14.i, align 16
   %call15.i = call fastcc i32 @decode_hex(ptr noundef nonnull %ciphertext.i, ptr noundef nonnull %ciphertext_len.i, ptr noundef %5, i32 noundef %1, ptr noundef nonnull @.str.5), !range !7
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %run_test_case.exit, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false13.i
-  %tag18.i = getelementptr inbounds [21 x %struct.test_case], ptr @test_cases, i64 0, i64 %indvars.iv, i32 5
+  %tag18.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %6 = load ptr, ptr %tag18.i, align 8
   %call19.i = call fastcc i32 @decode_hex(ptr noundef nonnull %tag.i, ptr noundef nonnull %tag_len.i, ptr noundef %6, i32 noundef %1, ptr noundef nonnull @.str.6), !range !7
   %tobool20.not.i = icmp eq i32 %call19.i, 0

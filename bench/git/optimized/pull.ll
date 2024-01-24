@@ -14,14 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.refspec_item = type { i8, ptr, ptr }
 %struct.oid_array = type { ptr, i64, i64, i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.branch = type { %struct.hashmap_entry, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.remote = type { %struct.hashmap_entry, ptr, i32, i32, ptr, ptr, i32, i32, ptr, i32, i32, %struct.refspec, %struct.refspec, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.refspec = type { ptr, i32, i32, ptr, i32, i32, i32 }
-%struct.object = type { i32, %struct.object_id }
 
 @.str = private unnamed_addr constant [18 x i8] c"GIT_REFLOG_ACTION\00", align 1
 @the_repository = external local_unnamed_addr global ptr, align 8
@@ -296,8 +288,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %set_reflog_message.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %msg.i, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %msg.i, i64 0, i32 2
+  %len.i.i.i = getelementptr inbounds i8, ptr %msg.i, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %msg.i, i64 16
   %wide.trip.count.i = zext nneg i32 %argc to i64
   br label %for.body.i
 
@@ -366,7 +358,7 @@ if.end:                                           ; preds = %set_reflog_message.
 if.then2:                                         ; preds = %if.end
   call void @prepare_repo_settings(ptr noundef nonnull %8) #17
   %10 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 10, i32 6
+  %command_requires_full_index = getelementptr inbounds i8, ptr %10, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   br label %if.end3
 
@@ -394,7 +386,7 @@ if.end10:                                         ; preds = %if.then8, %if.end6
   br i1 %cmp.i, label %if.then.i19, label %parse_repo_refspecs.exit
 
 if.then.i19:                                      ; preds = %if.end10
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %argv, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %argv, i64 8
   %13 = load ptr, ptr %argv, align 8
   br label %parse_repo_refspecs.exit
 
@@ -475,7 +467,7 @@ if.then24:                                        ; preds = %if.end22
   br i1 %tobool.not.i27, label %if.end6.i31, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.then24
-  %name.i = getelementptr inbounds %struct.branch, ptr %call.i26, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %call.i26, i64 16
   %20 = load ptr, ptr %name.i, align 8
   %call1.i29 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.124, ptr noundef %20) #17
   %call2.i = call i32 @git_config_get_value(ptr noundef %call1.i29, ptr noundef nonnull %value.i25) #17
@@ -555,13 +547,13 @@ if.end35:                                         ; preds = %if.end30
 if.then38:                                        ; preds = %if.end35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %orig_head, i8 0, i64 32, i1 false)
   %26 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %26, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %26, i64 256
   %27 = load ptr, ptr %hash_algo.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %orig_head, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %orig_head, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
   br label %if.end39
 
@@ -582,14 +574,14 @@ if.then43:                                        ; preds = %if.then41
 
 if.end44:                                         ; preds = %if.then43, %if.then41
   %call.i35 = call ptr @null_oid() #17
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %orig_head, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %orig_head, i64 32
   %31 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i36 = icmp eq i32 %31, 0
   br i1 %tobool.not.i.i36, label %if.then.i.i39, label %if.else.i.i
 
 if.then.i.i39:                                    ; preds = %if.end44
   %32 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %32, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %32, i64 256
   %33 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i38
 
@@ -665,7 +657,7 @@ if.end.i45:                                       ; preds = %if.end57
 if.then2.i:                                       ; preds = %if.end.i45
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %spec.i.i)
   call void @refspec_item_init_or_die(ptr noundef nonnull %spec.i.i, ptr noundef nonnull %38, i32 noundef 1) #17
-  %src.i.i = getelementptr inbounds %struct.refspec_item, ptr %spec.i.i, i64 0, i32 1
+  %src.i.i = getelementptr inbounds i8, ptr %spec.i.i, i64 8
   %39 = load ptr, ptr %src.i.i, align 8
   %40 = load i8, ptr %39, align 1
   %tobool.not.i.i47 = icmp eq i8 %40, 0
@@ -769,7 +761,7 @@ if.end.i.i52:                                     ; preds = %if.else.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i52
   %call5.i.i = call ptr @remote_for_branch(ptr noundef nonnull %call1.i.i, ptr noundef null) #17
-  %name.i.i = getelementptr inbounds %struct.remote, ptr %call.i6.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %call.i6.i, i64 16
   %46 = load ptr, ptr %name.i.i, align 8
   %call6.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call5.i.i, ptr noundef nonnull dereferenceable(1) %46) #18
   %tobool7.not.i.i = icmp eq i32 %call6.i.i, 0
@@ -785,10 +777,10 @@ if.end5.i:                                        ; preds = %if.end9.i.i, %get_t
   br i1 %tobool6.not.i, label %get_rebase_fork_point.exit.thread, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %name.i50 = getelementptr inbounds %struct.branch, ptr %call.i43, i64 0, i32 1
+  %name.i50 = getelementptr inbounds i8, ptr %call.i43, i64 16
   %47 = load ptr, ptr %name.i50, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp.i, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.128, ptr noundef nonnull %remote_branch.0.i, ptr noundef %47, ptr noundef null) #17
-  %no_stdin.i = getelementptr inbounds %struct.child_process, ptr %cp.i, i64 0, i32 11
+  %no_stdin.i = getelementptr inbounds i8, ptr %cp.i, i64 104
   %bf.load.i = load i16, ptr %no_stdin.i, align 8
   %bf.set14.i = or i16 %bf.load.i, 13
   store i16 %bf.set14.i, ptr %no_stdin.i, align 8
@@ -808,7 +800,7 @@ get_rebase_fork_point.exit.thread:                ; preds = %if.end57, %if.end5.
   br label %if.then60
 
 get_rebase_fork_point.exit:                       ; preds = %if.end8.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %48 = load ptr, ptr %buf.i, align 8
   %call19.i = call i32 @get_oid_hex(ptr noundef %48, ptr noundef nonnull %rebase_fork_point) #17
   %.not = icmp eq i32 %call19.i, 0
@@ -820,13 +812,13 @@ get_rebase_fork_point.exit:                       ; preds = %if.end8.i
 if.then60:                                        ; preds = %get_rebase_fork_point.exit.thread209, %get_rebase_fork_point.exit.thread, %get_rebase_fork_point.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %rebase_fork_point, i8 0, i64 32, i1 false)
   %49 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i53 = getelementptr inbounds %struct.repository, ptr %49, i64 0, i32 15
+  %hash_algo.i53 = getelementptr inbounds i8, ptr %49, i64 256
   %50 = load ptr, ptr %hash_algo.i53, align 8
   %sub.ptr.lhs.cast.i.i54 = ptrtoint ptr %50 to i64
   %sub.ptr.sub.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i54, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i56 = sdiv exact i64 %sub.ptr.sub.i.i55, 104
   %conv.i.i57 = trunc i64 %sub.ptr.div.i.i56 to i32
-  %algo.i58 = getelementptr inbounds %struct.object_id, ptr %rebase_fork_point, i64 0, i32 1
+  %algo.i58 = getelementptr inbounds i8, ptr %rebase_fork_point, i64 32
   store i32 %conv.i.i57, ptr %algo.i58, align 4
   br label %if.end62
 
@@ -1076,7 +1068,7 @@ if.then107.i:                                     ; preds = %if.else105.i
   unreachable
 
 run_fetch.exit:                                   ; preds = %if.then101.i, %if.else105.i
-  %git_cmd.i = getelementptr inbounds %struct.child_process, ptr %cmd.i, i64 0, i32 11
+  %git_cmd.i = getelementptr inbounds i8, ptr %cmd.i, i64 104
   %bf.load.i68 = load i16, ptr %git_cmd.i, align 8
   %bf.set112.i = or i16 %bf.load.i68, 72
   store i16 %bf.set112.i, ptr %git_cmd.i, align 8
@@ -1099,26 +1091,26 @@ if.end69:                                         ; preds = %if.end66
 if.then72:                                        ; preds = %if.end69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %curr_head, i8 0, i64 32, i1 false)
   %76 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i71 = getelementptr inbounds %struct.repository, ptr %76, i64 0, i32 15
+  %hash_algo.i71 = getelementptr inbounds i8, ptr %76, i64 256
   %77 = load ptr, ptr %hash_algo.i71, align 8
   %sub.ptr.lhs.cast.i.i72 = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i72, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i74 = sdiv exact i64 %sub.ptr.sub.i.i73, 104
   %conv.i.i75 = trunc i64 %sub.ptr.div.i.i74 to i32
-  %algo.i76 = getelementptr inbounds %struct.object_id, ptr %curr_head, i64 0, i32 1
+  %algo.i76 = getelementptr inbounds i8, ptr %curr_head, i64 32
   store i32 %conv.i.i75, ptr %algo.i76, align 4
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then72, %if.end69
   %call.i77 = call ptr @null_oid() #17
-  %algo.i.i78 = getelementptr inbounds %struct.object_id, ptr %orig_head, i64 0, i32 1
+  %algo.i.i78 = getelementptr inbounds i8, ptr %orig_head, i64 32
   %78 = load i32, ptr %algo.i.i78, align 4
   %tobool.not.i.i79 = icmp eq i32 %78, 0
   br i1 %tobool.not.i.i79, label %if.then.i.i94, label %if.else.i.i80
 
 if.then.i.i94:                                    ; preds = %if.end73
   %79 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i95 = getelementptr inbounds %struct.repository, ptr %79, i64 0, i32 15
+  %hash_algo.i.i95 = getelementptr inbounds i8, ptr %79, i64 256
   %80 = load ptr, ptr %hash_algo.i.i95, align 8
   br label %if.end.i.i83
 
@@ -1149,14 +1141,14 @@ is_null_oid.exit96:                               ; preds = %if.then.i.i.i92, %i
 
 land.lhs.true76:                                  ; preds = %is_null_oid.exit96
   %call.i97 = call ptr @null_oid() #17
-  %algo.i.i98 = getelementptr inbounds %struct.object_id, ptr %curr_head, i64 0, i32 1
+  %algo.i.i98 = getelementptr inbounds i8, ptr %curr_head, i64 32
   %82 = load i32, ptr %algo.i.i98, align 4
   %tobool.not.i.i99 = icmp eq i32 %82, 0
   br i1 %tobool.not.i.i99, label %if.then.i.i114, label %if.else.i.i100
 
 if.then.i.i114:                                   ; preds = %land.lhs.true76
   %83 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i115 = getelementptr inbounds %struct.repository, ptr %83, i64 0, i32 15
+  %hash_algo.i.i115 = getelementptr inbounds i8, ptr %83, i64 256
   %84 = load ptr, ptr %hash_algo.i.i115, align 8
   br label %if.end.i.i103
 
@@ -1227,7 +1219,7 @@ if.end91:                                         ; preds = %_.exit122, %land.lh
   br i1 %cmp.not3.i, label %get_merge_heads.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end91
-  %buf.i127 = getelementptr inbounds %struct.strbuf, ptr %sb.i123, i64 0, i32 2
+  %buf.i127 = getelementptr inbounds i8, ptr %sb.i123, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -1257,7 +1249,7 @@ get_merge_heads.exit:                             ; preds = %while.cond.backedge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i123)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %nr = getelementptr inbounds %struct.oid_array, ptr %merge_heads, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %merge_heads, i64 8
   %91 = load i64, ptr %nr, align 8
   %tobool92.not = icmp eq i64 %91, 0
   br i1 %tobool92.not, label %if.then93, label %if.end94
@@ -1274,7 +1266,7 @@ if.end94:                                         ; preds = %get_merge_heads.exi
 
 if.then.i.i150:                                   ; preds = %if.end94
   %93 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i151 = getelementptr inbounds %struct.repository, ptr %93, i64 0, i32 15
+  %hash_algo.i.i151 = getelementptr inbounds i8, ptr %93, i64 256
   %94 = load ptr, ptr %hash_algo.i.i151, align 8
   br label %if.end.i.i139
 
@@ -1342,9 +1334,9 @@ if.end.i157:                                      ; preds = %if.then.i154
 
 if.end5.i158:                                     ; preds = %if.end.i157, %if.end102
   %101 = phi ptr [ %.pre225, %if.end.i157 ], [ %.pre226, %if.end102 ]
-  %hash_algo.i159 = getelementptr inbounds %struct.repository, ptr %101, i64 0, i32 15
+  %hash_algo.i159 = getelementptr inbounds i8, ptr %101, i64 256
   %102 = load ptr, ptr %hash_algo.i159, align 8
-  %empty_tree.i = getelementptr inbounds %struct.git_hash_algo, ptr %102, i64 0, i32 10
+  %empty_tree.i = getelementptr inbounds i8, ptr %102, i64 80
   %103 = load ptr, ptr %empty_tree.i, align 8
   %call6.i160 = call i32 @checkout_fast_forward(ptr noundef %101, ptr noundef %103, ptr noundef %97, i32 noundef 0) #17
   %tobool7.not.i = icmp eq i32 %call6.i160, 0
@@ -1459,14 +1451,14 @@ if.then142:                                       ; preds = %if.end140
   %call2.i.i174 = call ptr @lookup_commit_reference(ptr noundef %115, ptr noundef %113) #17
   %call3.i.i = call ptr @commit_list_insert(ptr noundef %call2.i.i174, ptr noundef nonnull %revs.i.i) #17
   %call.i.i.i = call ptr @null_oid() #17
-  %algo.i.i.i.i = getelementptr inbounds %struct.object_id, ptr %rebase_fork_point, i64 0, i32 1
+  %algo.i.i.i.i = getelementptr inbounds i8, ptr %rebase_fork_point, i64 32
   %116 = load i32, ptr %algo.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i32 %116, 0
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then142
   %117 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.i = getelementptr inbounds %struct.repository, ptr %117, i64 0, i32 15
+  %hash_algo.i.i.i.i = getelementptr inbounds i8, ptr %117, i64 256
   %118 = load ptr, ptr %hash_algo.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -1519,9 +1511,9 @@ get_octopus_merge_base.exit.i:                    ; preds = %if.end.i.i178
 
 if.then.i179:                                     ; preds = %if.end.i.i178
   %124 = load ptr, ptr %123, align 8
-  %oid.i.i = getelementptr inbounds %struct.object, ptr %124, i64 0, i32 1
+  %oid.i.i = getelementptr inbounds i8, ptr %124, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oct_merge_base.i, ptr noundef nonnull align 4 dereferenceable(32) %oid.i.i, i64 32, i1 false)
-  %algo.i.i.i = getelementptr inbounds %struct.object, ptr %124, i64 0, i32 1, i32 1
+  %algo.i.i.i = getelementptr inbounds i8, ptr %124, i64 36
   %125 = load i32, ptr %algo.i.i.i, align 4
   call void @free_commit_list(ptr noundef nonnull %123) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %revs.i.i)
@@ -1533,7 +1525,7 @@ if.then.i179:                                     ; preds = %if.end.i.i178
 
 if.then.i.i.i195:                                 ; preds = %if.then.i179
   %127 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %127, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %127, i64 256
   %128 = load ptr, ptr %hash_algo.i.i.i, align 8
   br label %if.end.i.i.i181
 
@@ -1568,7 +1560,7 @@ land.lhs.true.i:                                  ; preds = %is_null_oid.exit.i
 
 if.then.i16.i:                                    ; preds = %land.lhs.true.i
   %130 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i194 = getelementptr inbounds %struct.repository, ptr %130, i64 0, i32 15
+  %hash_algo.i.i194 = getelementptr inbounds i8, ptr %130, i64 256
   %131 = load ptr, ptr %hash_algo.i.i194, align 8
   br label %if.end.i13.i
 
@@ -1605,7 +1597,7 @@ land.lhs.true8.i:                                 ; preds = %oideq.exit.i, %is_n
 
 if.then.i.i34.i:                                  ; preds = %land.lhs.true8.i
   %134 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i35.i = getelementptr inbounds %struct.repository, ptr %134, i64 0, i32 15
+  %hash_algo.i.i35.i = getelementptr inbounds i8, ptr %134, i64 256
   %135 = load ptr, ptr %hash_algo.i.i35.i, align 8
   br label %if.end.i.i23.i
 
@@ -1636,23 +1628,23 @@ is_null_oid.exit36.i:                             ; preds = %if.end.i.i.i27.i, %
 
 if.then11.i:                                      ; preds = %is_null_oid.exit36.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull align 4 dereferenceable(32) %rebase_fork_point, i64 32, i1 false)
-  %algo.i40.i.phi.trans.insert = getelementptr inbounds %struct.object_id, ptr %113, i64 0, i32 1
+  %algo.i40.i.phi.trans.insert = getelementptr inbounds i8, ptr %113, i64 32
   %.pre224 = load i32, ptr %algo.i40.i.phi.trans.insert, align 4
   br label %get_rebase_newbase_and_upstream.exit
 
 if.else.i192:                                     ; preds = %is_null_oid.exit36.i, %oideq.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %upstream, ptr noundef nonnull align 4 dereferenceable(32) %113, i64 32, i1 false)
-  %algo.i38.i = getelementptr inbounds %struct.object_id, ptr %113, i64 0, i32 1
+  %algo.i38.i = getelementptr inbounds i8, ptr %113, i64 32
   %.pre = load i32, ptr %algo.i38.i, align 4
   br label %get_rebase_newbase_and_upstream.exit
 
 get_rebase_newbase_and_upstream.exit:             ; preds = %if.then11.i, %if.else.i192
   %137 = phi i32 [ %.pre, %if.else.i192 ], [ %.pre224, %if.then11.i ]
   %138 = phi i32 [ %.pre, %if.else.i192 ], [ %133, %if.then11.i ]
-  %algo3.i39.i = getelementptr inbounds %struct.object_id, ptr %upstream, i64 0, i32 1
+  %algo3.i39.i = getelementptr inbounds i8, ptr %upstream, i64 32
   store i32 %138, ptr %algo3.i39.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %newbase, ptr noundef nonnull align 4 dereferenceable(32) %113, i64 32, i1 false)
-  %algo3.i41.i = getelementptr inbounds %struct.object_id, ptr %newbase, i64 0, i32 1
+  %algo3.i41.i = getelementptr inbounds i8, ptr %newbase, i64 32
   store i32 %137, ptr %algo3.i41.i, align 4
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oct_merge_base.i)
   %139 = load i32, ptr @recurse_submodules, align 4
@@ -1830,14 +1822,14 @@ declare i32 @require_clean_work_tree(ptr noundef, ptr noundef, ptr noundef, i32 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #6 {
 entry:
-  %algo = getelementptr inbounds %struct.object_id, ptr %oid1, i64 0, i32 1
+  %algo = getelementptr inbounds i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo, align 8
   br label %if.end
 
@@ -1883,7 +1875,7 @@ entry:
   br i1 %tobool, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %remote_name = getelementptr inbounds %struct.branch, ptr %call, i64 0, i32 3
+  %remote_name = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %remote_name, align 8
   br label %cond.end
 
@@ -2021,7 +2013,7 @@ _.exit59:                                         ; preds = %_.exit49, %_.exit54
   br label %if.end79
 
 if.else40:                                        ; preds = %lor.lhs.false, %if.else20
-  %merge_nr = getelementptr inbounds %struct.branch, ptr %call, i64 0, i32 7
+  %merge_nr = getelementptr inbounds i8, ptr %call, i64 64
   %20 = load i32, ptr %merge_nr, align 8
   %tobool41.not = icmp eq i32 %20, 0
   br i1 %tobool41.not, label %if.then42, label %if.else73
@@ -2140,7 +2132,7 @@ if.end3.i101:                                     ; preds = %_.exit99
 
 _.exit104:                                        ; preds = %_.exit99, %if.end3.i101
   %retval.0.i103 = phi ptr [ %call.i102, %if.end3.i101 ], [ @.str.164, %_.exit99 ]
-  %name = getelementptr inbounds %struct.branch, ptr %call, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call, i64 16
   %39 = load ptr, ptr %name, align 8
   %call72 = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %36, ptr noundef nonnull @.str.167, ptr noundef %37, ptr noundef %retval.0.i103, ptr noundef %39) #17
   br label %if.end79
@@ -2157,7 +2149,7 @@ if.end3.i106:                                     ; preds = %if.else73
 
 _.exit109:                                        ; preds = %if.else73, %if.end3.i106
   %retval.0.i108 = phi ptr [ %call.i107, %if.end3.i106 ], [ @.str.168, %if.else73 ]
-  %merge_name = getelementptr inbounds %struct.branch, ptr %call, i64 0, i32 5
+  %merge_name = getelementptr inbounds i8, ptr %call, i64 48
   %42 = load ptr, ptr %merge_name, align 8
   %43 = load ptr, ptr %42, align 8
   %call75 = tail call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %40, ptr noundef %retval.0.i108, ptr noundef %43) #17
@@ -2175,7 +2167,7 @@ entry:
   %list = alloca ptr, align 8
   %0 = load ptr, ptr @the_repository, align 8
   %call = tail call ptr @lookup_commit_reference(ptr noundef %0, ptr noundef %orig_head) #17
-  %nr = getelementptr inbounds %struct.oid_array, ptr %merge_heads, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %merge_heads, i64 8
   %1 = load i64, ptr %nr, align 8
   %cmp4.not = icmp eq i64 %1, 0
   br i1 %cmp4.not, label %return, label %for.body
@@ -2400,7 +2392,7 @@ if.then70:                                        ; preds = %if.end68
 
 if.end73:                                         ; preds = %if.then70, %if.end68
   %call75 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef nonnull @.str.177) #17
-  %git_cmd = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 11
+  %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %git_cmd, align 8
   %bf.set = or i16 %bf.load, 8
   store i16 %bf.set, ptr %git_cmd, align 8
@@ -2532,7 +2524,7 @@ if.end41:                                         ; preds = %_.exit, %land.lhs.t
   %call46 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef %call45) #17
   %call48 = call ptr @oid_to_hex(ptr noundef %upstream) #17
   %call49 = call ptr @strvec_push(ptr noundef nonnull %cmd, ptr noundef %call48) #17
-  %git_cmd = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 11
+  %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %git_cmd, align 8
   %bf.set = or i16 %bf.load, 8
   store i16 %bf.set, ptr %git_cmd, align 8
@@ -2545,7 +2537,7 @@ define internal fastcc i32 @rebase_submodules() unnamed_addr #0 {
 entry:
   %cp = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.update_submodules.cp, i64 120, i1 false)
-  %git_cmd = getelementptr inbounds %struct.child_process, ptr %cp, i64 0, i32 11
+  %git_cmd = getelementptr inbounds i8, ptr %cp, i64 104
   store i16 9, ptr %git_cmd, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.118, ptr noundef null) #17
   %0 = load i32, ptr @opt_verbosity, align 4
@@ -2585,7 +2577,7 @@ define internal fastcc i32 @update_submodules() unnamed_addr #0 {
 entry:
   %cp = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.update_submodules.cp, i64 120, i1 false)
-  %git_cmd = getelementptr inbounds %struct.child_process, ptr %cp, i64 0, i32 11
+  %git_cmd = getelementptr inbounds i8, ptr %cp, i64 104
   store i16 9, ptr %git_cmd, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef null) #17
   %0 = load i32, ptr @opt_verbosity, align 4
@@ -2650,7 +2642,7 @@ declare i32 @option_fetch_parse_recurse_submodules(ptr noundef, ptr noundef, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_opt_rebase(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
-  %value1 = getelementptr inbounds %struct.option, ptr %opt, i64 0, i32 3
+  %value1 = getelementptr inbounds i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value1, align 8
   %tobool.not = icmp eq ptr %arg, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2765,7 +2757,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.remote, ptr %remote, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %remote, i64 16
   %1 = load ptr, ptr %name, align 8
   store ptr %1, ptr %cb_data, align 8
   br label %return

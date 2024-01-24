@@ -9,14 +9,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::protobuf::internal::WeakDefaultWriter" = type { ptr, ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i8 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.google::protobuf::io::CodedOutputStream" = type { %"class.google::protobuf::io::EpsCopyOutputStream", ptr, i64 }
-%"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, i8, [4 x i8] }>
 %"class.google::protobuf::io::ArrayOutputStream" = type { %"class.google::protobuf::io::ZeroCopyOutputStream", ptr, i32, i32, i32, i32 }
 %"class.google::protobuf::io::ZeroCopyOutputStream" = type { ptr }
-%"struct.google::protobuf::internal::ArrayOutput" = type { ptr, i8 }
+%"class.google::protobuf::io::CodedOutputStream" = type { %"class.google::protobuf::io::EpsCopyOutputStream", ptr, i64 }
+%"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, i8, [4 x i8] }>
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
@@ -26,10 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
 %"struct.std::_Head_base.2" = type { ptr }
-%"class.google::protobuf::internal::ExtensionSet" = type { ptr, i16, i16, %"union.google::protobuf::internal::ExtensionSet::AllocatedData" }
-%"union.google::protobuf::internal::ExtensionSet::AllocatedData" = type { ptr }
-%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.std::__cxx11::basic_string" }
-%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
 
 $_ZN4absl12lts_2023080212log_internal10LogMessagelsEi = comdat any
 
@@ -119,11 +111,11 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %it.04.i = phi ptr [ @__start_pb_defaults, %entry ], [ %incdec.ptr.i, %for.body.i ]
-  %source.i = getelementptr inbounds %"struct.google::protobuf::internal::WeakDefaultWriter", ptr %it.04.i, i64 0, i32 1
+  %source.i = getelementptr inbounds i8, ptr %it.04.i, i64 8
   %0 = load ptr, ptr %source.i, align 8
   %1 = load ptr, ptr %it.04.i, align 8
   store ptr %0, ptr %1, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.google::protobuf::internal::WeakDefaultWriter", ptr %it.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, @__stop_pb_defaults
   br i1 %cmp.not.i, label %_ZN6google8protobuf8internalL16InitWeakDefaultsEv.exit, label %for.body.i, !llvm.loop !6
 
@@ -148,7 +140,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %str, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %str, i64 32
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #12
   %cmp2 = icmp ult ptr %call1, %add.ptr
   br i1 %cmp2, label %return, label %if.else
@@ -171,10 +163,10 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capa
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(ptr noundef %msg, ptr noundef %output) local_unnamed_addr #4 {
 entry:
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %vtable.i = load ptr, ptr %msg, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %0, ptr noundef %output)
   store ptr %call3.i, ptr %cur_.i.i, align 8
@@ -192,23 +184,23 @@ entry:
   call void @_ZN6google8protobuf2io17ArrayOutputStreamC1EPvii(ptr noundef nonnull align 8 dereferenceable(32) %array_stream, ptr noundef %0, i32 noundef 2147483647, i32 noundef -1)
   %1 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %2 = and i8 %1, 1
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %o, i64 0, i32 1
-  %buffer_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %o, i64 0, i32 2
+  %cur_.i = getelementptr inbounds i8, ptr %o, i64 64
+  %buffer_.i.i = getelementptr inbounds i8, ptr %o, i64 16
   store ptr %buffer_.i.i, ptr %o, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %o, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %o, i64 8
   store ptr %buffer_.i.i, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %o, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %o, i64 48
   store ptr %array_stream, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %o, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %o, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %o, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %o, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %o, i64 0, i32 6
+  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %o, i64 58
   store i8 %2, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %o, i64 0, i32 7
+  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %o, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
-  %start_count_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %o, i64 0, i32 2
+  %start_count_.i = getelementptr inbounds i8, ptr %o, i64 72
   %call2.i4 = call noundef i64 @_ZNK6google8protobuf2io17ArrayOutputStream9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(32) %array_stream)
   store i64 %call2.i4, ptr %start_count_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
@@ -242,12 +234,12 @@ invoke.cont2:                                     ; preds = %entry.invoke.cont2_
   %6 = phi ptr [ %.pre, %entry.invoke.cont2_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
-  %is_deterministic = getelementptr inbounds %"struct.google::protobuf::internal::ArrayOutput", ptr %output, i64 0, i32 1
+  %is_deterministic = getelementptr inbounds i8, ptr %output, i64 8
   %7 = load i8, ptr %is_deterministic, align 8
   %8 = and i8 %7, 1
   store i8 %8, ptr %is_serialization_deterministic_.i.i, align 2
   %vtable.i = load ptr, ptr %msg, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %9 = load ptr, ptr %vfn.i, align 8
   %call3.i7 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %6, ptr noundef nonnull %o)
           to label %invoke.cont3 unwind label %lpad1
@@ -366,9 +358,9 @@ define void @_ZN6google8protobuf8internal19ExtensionSerializerEPKNS0_11MessageLi
 entry:
   %idx.ext = zext i32 %offset to i64
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 %idx.ext
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
-  %flat_size_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ExtensionSet", ptr %add.ptr, i64 0, i32 2
+  %flat_size_.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 10
   %1 = load i16, ptr %flat_size_.i.i, align 2
   %cmp.i.i = icmp eq i16 %1, 0
   br i1 %cmp.i.i, label %_ZNK6google8protobuf8internal12ExtensionSet24SerializeWithCachedSizesEPKNS0_11MessageLiteEiiPNS0_2io17CodedOutputStreamE.exit, label %if.end.i.i
@@ -396,7 +388,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i1 = and i64 %2, -2
   %3 = inttoptr i64 %and.i1 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %3, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %_ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_PFSC_vE.exit
 
 if.else.i:                                        ; preds = %entry
@@ -433,7 +425,7 @@ _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112bas
   %retval.i.0 = phi ptr [ %unknown_fields.i, %if.then.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %if.else.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %if.then.i.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %init.check.i.i.i ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %invoke.cont.i.i.i ]
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %retval.i.0) #12
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %retval.i.0) #12
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %9 = load ptr, ptr %cur_.i.i, align 8
   %10 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
@@ -469,11 +461,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %message, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef null)
   %vtable = load ptr, ptr %call.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %message)
   br label %return
@@ -487,46 +479,46 @@ return:                                           ; preds = %entry, %if.then
 define void @_ZN6google8protobuf8internal11GenericSwapEPNS0_11MessageLiteES3_(ptr noundef %m1, ptr noundef %m2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %m1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %m1, ptr noundef null)
   %vtable = load ptr, ptr %call.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %m1)
           to label %invoke.cont unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 invoke.cont:                                      ; preds = %entry
   %vtable2 = load ptr, ptr %m1, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 3
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 24
   %2 = load ptr, ptr %vfn3, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %m1)
           to label %invoke.cont4 unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %vtable5 = load ptr, ptr %m1, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 5
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 40
   %3 = load ptr, ptr %vfn6, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %m1, ptr noundef nonnull align 8 dereferenceable(16) %m2)
           to label %invoke.cont7 unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   %vtable8 = load ptr, ptr %m2, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 3
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 24
   %4 = load ptr, ptr %vfn9, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %m2)
           to label %invoke.cont10 unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 invoke.cont10:                                    ; preds = %invoke.cont7
   %vtable12 = load ptr, ptr %m2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 5
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 40
   %5 = load ptr, ptr %vfn13, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(16) %m2, ptr noundef nonnull align 8 dereferenceable(16) %call.i)
           to label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont10
   %vtable.i.i = load ptr, ptr %call.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #12
   ret void
@@ -535,7 +527,7 @@ _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.ex
   %7 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i8 = load ptr, ptr %call.i, align 8
-  %vfn.i.i9 = getelementptr inbounds ptr, ptr %vtable.i.i8, i64 1
+  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
   %8 = load ptr, ptr %vfn.i.i9, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %call.i) #12
   resume { ptr, i32 } %7
@@ -559,11 +551,11 @@ if.then.i:                                        ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %submessage, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %submessage, ptr noundef %message_arena)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 5
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 40
   %1 = load ptr, ptr %vfn4, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %call2, ptr noundef nonnull align 8 dereferenceable(16) %submessage)
   br label %return
@@ -605,7 +597,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %object, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %object) #12
   br label %delete.end

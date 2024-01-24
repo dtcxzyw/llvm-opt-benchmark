@@ -9,9 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._GQueue = type { ptr, ptr, i32 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %struct.iovec = type { ptr, i64 }
-%struct._GString = type { ptr, i64, i64 }
-%struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
-%struct.QObjectBase_ = type { i32, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"QTEST_LOG\00", align 1
@@ -57,7 +54,7 @@ entry:
   %c = alloca i8, align 1
   %call = tail call ptr @getenv(ptr noundef nonnull @.str) #13
   %cmp.not = icmp eq ptr %call, null
-  %response = getelementptr inbounds %struct.QMPResponseParser, ptr %qmp, i64 0, i32 1
+  %response = getelementptr inbounds i8, ptr %qmp, i64 88
   store ptr null, ptr %response, align 8
   call void @json_message_parser_init(ptr noundef nonnull %qmp, ptr noundef nonnull @qmp_response, ptr noundef nonnull %qmp, ptr noundef null) #13
   %0 = load ptr, ptr %response, align 8
@@ -174,7 +171,7 @@ if.then5:                                         ; preds = %if.end
   unreachable
 
 do.body:                                          ; preds = %if.end
-  %response = getelementptr inbounds %struct.QMPResponseParser, ptr %opaque, i64 0, i32 1
+  %response = getelementptr inbounds i8, ptr %opaque, i64 88
   %2 = load ptr, ptr %response, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.end, label %if.else9
@@ -250,10 +247,10 @@ if.then:                                          ; preds = %entry
   %call1 = tail call ptr @getenv(ptr noundef nonnull @.str) #13
   %cmp.not = icmp eq ptr %call1, null
   %call2 = tail call ptr @qobject_to_json(ptr noundef nonnull %call) #13
-  %len.i = getelementptr inbounds %struct._GString, ptr %call2, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load i64, ptr %len.i, align 8
   %add.i = add i64 %0, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %call2, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %call2, i64 16
   %1 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -298,11 +295,11 @@ if.then11:                                        ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %control.i, i8 0, i64 80, i1 false)
   %mul.i = shl i64 %fds_num, 2
   store ptr %7, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %8, ptr %iov_len.i, align 8
-  %msg_iov.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 2
+  %msg_iov.i = getelementptr inbounds i8, ptr %msg.i, i64 16
   store ptr %iov.i, ptr %msg_iov.i, align 8
-  %msg_iovlen.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 3
+  %msg_iovlen.i = getelementptr inbounds i8, ptr %msg.i, i64 24
   store i64 1, ptr %msg_iovlen.i, align 8
   %cmp1.i = icmp ult i64 %fds_num, 16
   br i1 %cmp1.i, label %do.end.i, label %if.else.i13
@@ -313,26 +310,26 @@ if.else.i13:                                      ; preds = %if.then11
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.else.i13, %if.then11
-  %msg_control.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 4
+  %msg_control.i = getelementptr inbounds i8, ptr %msg.i, i64 32
   store ptr %control.i, ptr %msg_control.i, align 8
   %sub.i = add i64 %mul.i, 7
   %and.i = and i64 %sub.i, -8
   %add4.i = add i64 %and.i, 16
-  %msg_controllen.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 5
+  %msg_controllen.i = getelementptr inbounds i8, ptr %msg.i, i64 40
   store i64 %add4.i, ptr %msg_controllen.i, align 8
   %cmp6.i = icmp ult i64 %and.i, -16
   %cond.i = select i1 %cmp6.i, ptr %control.i, ptr null
   %add9.i = add i64 %mul.i, 16
   store i64 %add9.i, ptr %cond.i, align 16
-  %control.sroa.gep21.i = getelementptr inbounds %struct.cmsghdr, ptr %control.i, i64 0, i32 1
-  %cond.sroa.sel22.i = select i1 %cmp6.i, ptr %control.sroa.gep21.i, ptr inttoptr (i64 8 to ptr)
-  store i32 1, ptr %cond.sroa.sel22.i, align 8
-  %control.sroa.gep19.i = getelementptr inbounds %struct.cmsghdr, ptr %control.i, i64 0, i32 2
+  %control.sroa.gep.i = getelementptr inbounds i8, ptr %control.i, i64 8
+  %cond.sroa.sel.i = select i1 %cmp6.i, ptr %control.sroa.gep.i, ptr inttoptr (i64 8 to ptr)
+  store i32 1, ptr %cond.sroa.sel.i, align 8
+  %control.sroa.gep19.i = getelementptr inbounds i8, ptr %control.i, i64 12
   %cond.sroa.sel20.i = select i1 %cmp6.i, ptr %control.sroa.gep19.i, ptr inttoptr (i64 12 to ptr)
   store i32 1, ptr %cond.sroa.sel20.i, align 4
-  %control.sroa.gep.i = getelementptr inbounds %struct.cmsghdr, ptr %control.i, i64 0, i32 3
-  %cond.sroa.sel.i = select i1 %cmp6.i, ptr %control.sroa.gep.i, ptr inttoptr (i64 16 to ptr)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %cond.sroa.sel.i, ptr nonnull align 4 %fds, i64 %mul.i, i1 false)
+  %control.sroa.gep21.i = getelementptr inbounds i8, ptr %control.i, i64 16
+  %cond.sroa.sel22.i = select i1 %cmp6.i, ptr %control.sroa.gep21.i, ptr inttoptr (i64 16 to ptr)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %cond.sroa.sel22.i, ptr nonnull align 4 %fds, i64 %mul.i, i1 false)
   br label %do.body12.i
 
 do.body12.i:                                      ; preds = %land.rhs.i, %do.end.i
@@ -376,7 +373,7 @@ if.else.i17:                                      ; preds = %if.else
 
 lor.lhs.false.i:                                  ; preds = %socket_send_fds.exit, %if.else
   %call16 = call ptr @g_string_free(ptr noundef nonnull %call2, i32 noundef 1) #13
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %11 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %11, 0
   br i1 %tobool1.not.i, label %if.else.i19, label %land.lhs.true.i
@@ -494,7 +491,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %rsp, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %rsp, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -556,7 +553,7 @@ do.end15:                                         ; preds = %do.body10
   br i1 %tobool16.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %do.end15
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %rsp, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %rsp, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

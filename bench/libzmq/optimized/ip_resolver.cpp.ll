@@ -5,18 +5,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.in6_addr = type { %union.anon }
 %union.anon = type { [4 x i32] }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %"union.zmq::ip_addr_t" = type { %struct.sockaddr_in6 }
-%"class.zmq::ip_resolver_options_t" = type { i8, i8, i8, i8, i8, i8 }
-%"class.zmq::ip_resolver_t" = type <{ ptr, %"class.zmq::ip_resolver_options_t", [2 x i8] }>
+%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.0 = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%struct.ifaddrs = type { ptr, ptr, i32, ptr, ptr, %union.anon.1, ptr }
-%union.anon.1 = type { ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 
 $_ZN3zmq13ip_resolver_tD2Ev = comdat any
@@ -57,7 +51,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %this, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %sin_addr, align 4
   %call2 = tail call i32 @ntohl(i32 noundef %1) #17
   %and = and i32 %call2, -268435456
@@ -65,7 +59,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %this, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %sin6_addr, align 4
   %cmp4 = icmp eq i8 %2, -1
   br label %return
@@ -81,15 +75,10 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i16 @_ZNK3zmq9ip_addr_t4portEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %0 = load i16, ptr %this, align 4
-  %cmp = icmp eq i16 %0, 10
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %this, i64 0, i32 1
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %this, i64 0, i32 1
-  %sin6_port.val = load i16, ptr %sin6_port, align 2
-  %sin_port.val = load i16, ptr %sin_port, align 2
-  %1 = select i1 %cmp, i16 %sin6_port.val, i16 %sin_port.val
-  %call3 = tail call zeroext i16 @ntohs(i16 noundef zeroext %1) #17
-  ret i16 %call3
+  %sin6_port = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = load i16, ptr %sin6_port, align 2
+  %call2 = tail call zeroext i16 @ntohs(i16 noundef zeroext %0) #17
+  ret i16 %call2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -110,16 +99,12 @@ entry:
   ret i32 %conv
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3zmq9ip_addr_t8set_portEt(ptr nocapture noundef nonnull align 4 dereferenceable(28) %this, i16 noundef zeroext %port_) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN3zmq9ip_addr_t8set_portEt(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this, i16 noundef zeroext %port_) local_unnamed_addr #4 align 2 {
 entry:
-  %0 = load i16, ptr %this, align 4
-  %cmp = icmp eq i16 %0, 10
   %call2 = tail call zeroext i16 @htons(i16 noundef zeroext %port_) #17
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %this, i64 0, i32 1
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %this, i64 0, i32 1
-  %sin_port.sink = select i1 %cmp, ptr %sin6_port, ptr %sin_port
-  store i16 %call2, ptr %sin_port.sink, align 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  store i16 %call2, ptr %0, align 2
   ret void
 }
 
@@ -138,14 +123,14 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   store i16 2, ptr %agg.result, align 4
   %call = tail call i32 @htonl(i32 noundef 0) #17
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %agg.result, i64 0, i32 2
+  %sin_addr = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %call, ptr %sin_addr, align 4
   br label %if.end4
 
 if.then2:                                         ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %agg.result, i8 0, i64 28, i1 false)
   store i16 10, ptr %agg.result, align 4
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %agg.result, i64 0, i32 3
+  %sin6_addr = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   br label %if.end4
 
@@ -181,7 +166,7 @@ entry:
 define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t14allow_nic_nameEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %allow_ to i8
-  %_nic_name_allowed = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 1
+  %_nic_name_allowed = getelementptr inbounds i8, ptr %this, i64 1
   store i8 %frombool, ptr %_nic_name_allowed, align 1
   ret ptr %this
 }
@@ -190,7 +175,7 @@ entry:
 define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t4ipv6Eb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %ipv6_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %ipv6_ to i8
-  %_ipv6_wanted = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 2
+  %_ipv6_wanted = getelementptr inbounds i8, ptr %this, i64 2
   store i8 %frombool, ptr %_ipv6_wanted, align 1
   ret ptr %this
 }
@@ -199,7 +184,7 @@ entry:
 define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t11expect_portEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %expect_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %expect_ to i8
-  %_port_expected = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 3
+  %_port_expected = getelementptr inbounds i8, ptr %this, i64 3
   store i8 %frombool, ptr %_port_expected, align 1
   ret ptr %this
 }
@@ -208,7 +193,7 @@ entry:
 define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t9allow_dnsEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %allow_ to i8
-  %_dns_allowed = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 4
+  %_dns_allowed = getelementptr inbounds i8, ptr %this, i64 4
   store i8 %frombool, ptr %_dns_allowed, align 1
   ret ptr %this
 }
@@ -217,7 +202,7 @@ entry:
 define noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t10allow_pathEb(ptr noundef nonnull returned writeonly align 1 dereferenceable(6) %this, i1 noundef zeroext %allow_) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %allow_ to i8
-  %_path_allowed = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 5
+  %_path_allowed = getelementptr inbounds i8, ptr %this, i64 5
   store i8 %frombool, ptr %_path_allowed, align 1
   ret ptr %this
 }
@@ -234,7 +219,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3zmq21ip_resolver_options_t14allow_nic_nameEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_nic_name_allowed = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 1
+  %_nic_name_allowed = getelementptr inbounds i8, ptr %this, i64 1
   %0 = load i8, ptr %_nic_name_allowed, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -244,7 +229,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3zmq21ip_resolver_options_t4ipv6Ev(ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_ipv6_wanted = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 2
+  %_ipv6_wanted = getelementptr inbounds i8, ptr %this, i64 2
   %0 = load i8, ptr %_ipv6_wanted, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -254,7 +239,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3zmq21ip_resolver_options_t11expect_portEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_port_expected = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 3
+  %_port_expected = getelementptr inbounds i8, ptr %this, i64 3
   %0 = load i8, ptr %_port_expected, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -264,7 +249,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3zmq21ip_resolver_options_t9allow_dnsEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_dns_allowed = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 4
+  %_dns_allowed = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i8, ptr %_dns_allowed, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -274,7 +259,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN3zmq21ip_resolver_options_t10allow_pathEv(ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_path_allowed = getelementptr inbounds %"class.zmq::ip_resolver_options_t", ptr %this, i64 0, i32 5
+  %_path_allowed = getelementptr inbounds i8, ptr %this, i64 5
   %0 = load i8, ptr %_path_allowed, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -285,7 +270,7 @@ entry:
 define void @_ZN3zmq13ip_resolver_tC2ENS_21ip_resolver_options_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14) %this, i48 %opts_.coerce) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq13ip_resolver_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_options = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1
+  %_options = getelementptr inbounds i8, ptr %this, i64 8
   store i48 %opts_.coerce, ptr %_options, align 8
   ret void
 }
@@ -305,8 +290,8 @@ entry:
   %if_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp80 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %addr) #18
-  %_options = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1
-  %_port_expected.i = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1, i32 3
+  %_options = getelementptr inbounds i8, ptr %this, i64 8
+  %_port_expected.i = getelementptr inbounds i8, ptr %this, i64 11
   %0 = load i8, ptr %_port_expected.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -406,7 +391,7 @@ lpad36:                                           ; preds = %if.else33
 
 if.end39:                                         ; preds = %cleanup.thread, %invoke.cont37
   %port.2 = phi i16 [ 0, %invoke.cont37 ], [ %port.1.ph, %cleanup.thread ]
-  %_path_allowed.i = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1, i32 5
+  %_path_allowed.i = getelementptr inbounds i8, ptr %this, i64 13
   %7 = load i8, ptr %_path_allowed.i, align 1
   %8 = and i8 %7, 1
   %tobool.i27.not = icmp eq i8 %8, 0
@@ -501,7 +486,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
 
 if.then88:                                        ; preds = %invoke.cont84
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %13 = load ptr, ptr %vfn, align 8
   %call91 = invoke noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr noundef %call93)
           to label %if.end95 unwind label %lpad81
@@ -545,7 +530,7 @@ land.lhs.true107:                                 ; preds = %if.end103
   br i1 %cmp.i30, label %if.then110, label %land.lhs.true116
 
 if.then110:                                       ; preds = %land.lhs.true107
-  %_ipv6_wanted.i = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1, i32 2
+  %_ipv6_wanted.i = getelementptr inbounds i8, ptr %this, i64 10
   %17 = load i8, ptr %_ipv6_wanted.i, align 2
   %18 = and i8 %17, 1
   %tobool.i31.not = icmp eq i8 %18, 0
@@ -560,14 +545,14 @@ if.then2.i:                                       ; preds = %if.then110
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then2.i, %if.then.i
-  %ref.tmp111.sroa.535.0 = phi i32 [ %call.i32, %if.then.i ], [ 0, %if.then2.i ]
+  %ref.tmp111.sroa.534.0 = phi i32 [ %call.i32, %if.then.i ], [ 0, %if.then2.i ]
   %ref.tmp111.sroa.0.0 = phi i16 [ 2, %if.then.i ], [ 10, %if.then2.i ]
   %20 = phi <2 x i64> [ <i64 0, i64 undef>, %if.then.i ], [ %19, %if.then2.i ]
   store i16 %ref.tmp111.sroa.0.0, ptr %ip_addr_, align 4
   %ref.tmp111.sroa.5.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 2
   store i16 0, ptr %ref.tmp111.sroa.5.0.ip_addr_.sroa_idx, align 2
-  %ref.tmp111.sroa.535.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 4
-  store i32 %ref.tmp111.sroa.535.0, ptr %ref.tmp111.sroa.535.0.ip_addr_.sroa_idx, align 4
+  %ref.tmp111.sroa.534.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 4
+  store i32 %ref.tmp111.sroa.534.0, ptr %ref.tmp111.sroa.534.0.ip_addr_.sroa_idx, align 4
   %ref.tmp111.sroa.6.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 8
   store <2 x i64> %20, ptr %ref.tmp111.sroa.6.0.ip_addr_.sroa_idx, align 4
   %ref.tmp111.sroa.7.0.ip_addr_.sroa_idx = getelementptr inbounds i8, ptr %ip_addr_, i64 24
@@ -575,7 +560,7 @@ if.end114:                                        ; preds = %if.then2.i, %if.the
   br label %if.end139
 
 land.lhs.true116:                                 ; preds = %land.lhs.true107, %if.end103
-  %_nic_name_allowed.i = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1, i32 1
+  %_nic_name_allowed.i = getelementptr inbounds i8, ptr %this, i64 9
   %21 = load i8, ptr %_nic_name_allowed.i, align 1
   %22 = and i8 %21, 1
   %tobool.i33.not = icmp eq i8 %22, 0
@@ -604,15 +589,15 @@ invoke.cont134:                                   ; preds = %if.then132
   br i1 %cmp136.not, label %if.end139, label %cleanup144
 
 if.end139:                                        ; preds = %invoke.cont120, %if.end114, %invoke.cont134
-  %24 = load i16, ptr %ip_addr_, align 4
   %call2.i = call zeroext i16 @htons(i16 noundef zeroext %port.2) #17
-  %sin_port.i = getelementptr inbounds %struct.sockaddr_in, ptr %ip_addr_, i64 0, i32 1
-  store i16 %call2.i, ptr %sin_port.i, align 2
-  %cmp141 = icmp eq i16 %24, 10
+  %24 = getelementptr inbounds i8, ptr %ip_addr_, i64 2
+  store i16 %call2.i, ptr %24, align 2
+  %25 = load i16, ptr %ip_addr_, align 4
+  %cmp141 = icmp eq i16 %25, 10
   br i1 %cmp141, label %if.then142, label %cleanup144
 
 if.then142:                                       ; preds = %if.end139
-  %sin6_scope_id = getelementptr inbounds %struct.sockaddr_in6, ptr %ip_addr_, i64 0, i32 4
+  %sin6_scope_id = getelementptr inbounds i8, ptr %ip_addr_, i64 24
   store i32 %zone_id.2, ptr %sin6_scope_id, align 4
   br label %cleanup144
 
@@ -754,7 +739,7 @@ do.end31:                                         ; preds = %do.body24
 
 for.body34.lr.ph:                                 ; preds = %do.body24, %do.end31
   %7 = phi ptr [ %ifp.025.pre, %do.end31 ], [ %4, %do.body24 ]
-  %_ipv6_wanted.i = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1, i32 2
+  %_ipv6_wanted.i = getelementptr inbounds i8, ptr %this, i64 10
   %8 = load i8, ptr %_ipv6_wanted.i, align 2
   %9 = and i8 %8, 1
   %tobool.i.not = icmp eq i8 %9, 0
@@ -763,7 +748,7 @@ for.body34.lr.ph:                                 ; preds = %do.body24, %do.end3
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.inc48
   %ifp.027 = phi ptr [ %7, %for.body34.lr.ph ], [ %ifp.0, %for.inc48 ]
-  %ifa_addr = getelementptr inbounds %struct.ifaddrs, ptr %ifp.027, i64 0, i32 3
+  %ifa_addr = getelementptr inbounds i8, ptr %ifp.027, i64 24
   %10 = load ptr, ptr %ifa_addr, align 8
   %cmp35 = icmp eq ptr %10, null
   br i1 %cmp35, label %for.inc48, label %if.end37
@@ -775,7 +760,7 @@ if.end37:                                         ; preds = %for.body34
   br i1 %cmp40, label %land.lhs.true41, label %for.inc48
 
 land.lhs.true41:                                  ; preds = %if.end37
-  %ifa_name = getelementptr inbounds %struct.ifaddrs, ptr %ifp.027, i64 0, i32 1
+  %ifa_name = getelementptr inbounds i8, ptr %ifp.027, i64 8
   %12 = load ptr, ptr %ifa_name, align 8
   %call42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %nic_, ptr noundef nonnull dereferenceable(1) %12) #19
   %tobool.not = icmp eq i32 %call42, 0
@@ -813,21 +798,21 @@ entry:
   store ptr null, ptr %res, align 8
   %0 = getelementptr inbounds i8, ptr %req, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 40, i1 false)
-  %_options = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1
-  %_ipv6_wanted.i = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1, i32 2
+  %_options = getelementptr inbounds i8, ptr %this, i64 8
+  %_ipv6_wanted.i = getelementptr inbounds i8, ptr %this, i64 10
   %1 = load i8, ptr %_ipv6_wanted.i, align 2
   %2 = and i8 %1, 1
   %tobool.i.not = icmp ne i8 %2, 0
   %cond = select i1 %tobool.i.not, i32 10, i32 2
-  %ai_family = getelementptr inbounds %struct.addrinfo, ptr %req, i64 0, i32 1
+  %ai_family = getelementptr inbounds i8, ptr %req, i64 4
   store i32 %cond, ptr %ai_family, align 4
-  %ai_socktype = getelementptr inbounds %struct.addrinfo, ptr %req, i64 0, i32 2
+  %ai_socktype = getelementptr inbounds i8, ptr %req, i64 8
   store i32 1, ptr %ai_socktype, align 8
   %3 = load i8, ptr %_options, align 8
   %4 = and i8 %3, 1
   %spec.store.select = zext nneg i8 %4 to i32
   store i32 %spec.store.select, ptr %req, align 8
-  %_dns_allowed.i = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this, i64 0, i32 1, i32 4
+  %_dns_allowed.i = getelementptr inbounds i8, ptr %this, i64 12
   %5 = load i8, ptr %_dns_allowed.i, align 4
   %6 = and i8 %5, 1
   %tobool.i6.not.not = icmp eq i8 %6, 0
@@ -844,7 +829,7 @@ entry:
 
 10:                                               ; preds = %entry, %8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %11 = load ptr, ptr %vfn, align 8
   %call16 = call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr noundef %addr_, ptr noundef null, ptr noundef nonnull %req, ptr noundef nonnull %res)
   %cmp17 = icmp eq i32 %call16, -1
@@ -860,7 +845,7 @@ if.then19:                                        ; preds = %land.lhs.true
   %and21 = and i32 %12, -9
   store i32 %and21, ptr %req, align 8
   %vtable22 = load ptr, ptr %this, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 2
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 16
   %13 = load ptr, ptr %vfn23, align 8
   %call24 = call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr noundef %addr_, ptr noundef null, ptr noundef nonnull %req, ptr noundef nonnull %res)
   br label %if.end25
@@ -908,7 +893,7 @@ if.then37:                                        ; preds = %do.body
 
 do.body41:                                        ; preds = %if.then37, %do.body
   %19 = phi ptr [ %.pre, %if.then37 ], [ %16, %do.body ]
-  %ai_addrlen = getelementptr inbounds %struct.addrinfo, ptr %19, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i32, ptr %ai_addrlen, align 8
   %cmp42 = icmp ugt i32 %20, 28
   br i1 %cmp42, label %if.then45, label %do.end49
@@ -920,19 +905,19 @@ if.then45:                                        ; preds = %do.body41
   %call47 = call i32 @fflush(ptr noundef %22)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   %.pre9 = load ptr, ptr %res, align 8
-  %ai_addrlen50.phi.trans.insert = getelementptr inbounds %struct.addrinfo, ptr %.pre9, i64 0, i32 4
+  %ai_addrlen50.phi.trans.insert = getelementptr inbounds i8, ptr %.pre9, i64 16
   %.pre10 = load i32, ptr %ai_addrlen50.phi.trans.insert, align 8
   br label %do.end49
 
 do.end49:                                         ; preds = %do.body41, %if.then45
   %23 = phi i32 [ %20, %do.body41 ], [ %.pre10, %if.then45 ]
   %24 = phi ptr [ %19, %do.body41 ], [ %.pre9, %if.then45 ]
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %24, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %ai_addr, align 8
   %conv51 = zext i32 %23 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ip_addr_, ptr align 2 %25, i64 %conv51, i1 false)
   %vtable52 = load ptr, ptr %this, align 8
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 3
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 24
   %26 = load ptr, ptr %vfn53, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(14) %this, ptr noundef nonnull %24)
   br label %return
@@ -1016,7 +1001,7 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

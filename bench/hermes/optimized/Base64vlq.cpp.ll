@@ -3,8 +3,6 @@ source_filename = "bench/hermes/original/Base64vlq.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-
 @_ZN6hermes9base64vlqL11Base64CharsE = internal unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 16
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15,8 +13,8 @@ entry:
   %cmp = icmp slt i32 %value, 0
   %or = sub nsw i64 1, %mul
   %wideVal.0 = select i1 %cmp, i64 %or, i64 %mul
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 3
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %OS, i64 0, i32 2
+  %OutBufCur.i = getelementptr inbounds i8, ptr %OS, i64 24
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %OS, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %entry

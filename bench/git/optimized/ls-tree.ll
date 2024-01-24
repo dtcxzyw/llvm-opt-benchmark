@@ -96,240 +96,240 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   store i32 0, ptr %null_termination, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %options, i8 0, i64 56, i1 false)
   store i32 5, ptr %ls_tree_options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %ls_tree_options, i64 4
   store i32 100, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %ls_tree_options, i64 8
   store ptr null, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 3
-  %ls_options = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %ls_tree_options, i64 16
+  %ls_options = getelementptr inbounds i8, ptr %options, i64 8
   store ptr %ls_options, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %ls_tree_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %ls_tree_options, i64 32
   store ptr @.str, ptr %help, align 16
-  %flags = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %ls_tree_options, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 7
+  %callback = getelementptr inbounds i8, ptr %ls_tree_options, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 8
+  %defval = getelementptr inbounds i8, ptr %ls_tree_options, i64 56
   store i64 2, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 0, i32 9
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1
+  %ll_callback = getelementptr inbounds i8, ptr %ls_tree_options, i64 64
+  %arrayinit.element = getelementptr inbounds i8, ptr %ls_tree_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 5, ptr %arrayinit.element, align 8
-  %short_name3 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 1
+  %short_name3 = getelementptr inbounds i8, ptr %ls_tree_options, i64 92
   store i32 114, ptr %short_name3, align 4
-  %long_name4 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 2
+  %long_name4 = getelementptr inbounds i8, ptr %ls_tree_options, i64 96
   store ptr null, ptr %long_name4, align 16
-  %value5 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 3
+  %value5 = getelementptr inbounds i8, ptr %ls_tree_options, i64 104
   store ptr %ls_options, ptr %value5, align 8
-  %argh7 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 4
+  %argh7 = getelementptr inbounds i8, ptr %ls_tree_options, i64 112
   store ptr null, ptr %argh7, align 16
-  %help8 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 5
+  %help8 = getelementptr inbounds i8, ptr %ls_tree_options, i64 120
   store ptr @.str.1, ptr %help8, align 8
-  %flags9 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 6
+  %flags9 = getelementptr inbounds i8, ptr %ls_tree_options, i64 128
   store i32 2, ptr %flags9, align 16
-  %callback10 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 7
+  %callback10 = getelementptr inbounds i8, ptr %ls_tree_options, i64 136
   store ptr null, ptr %callback10, align 8
-  %defval11 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 8
+  %defval11 = getelementptr inbounds i8, ptr %ls_tree_options, i64 144
   store i64 1, ptr %defval11, align 16
-  %ll_callback12 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 1, i32 9
-  %arrayinit.element15 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2
+  %ll_callback12 = getelementptr inbounds i8, ptr %ls_tree_options, i64 152
+  %arrayinit.element15 = getelementptr inbounds i8, ptr %ls_tree_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback12, i8 0, i64 24, i1 false)
   store i32 5, ptr %arrayinit.element15, align 16
-  %short_name17 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 1
+  %short_name17 = getelementptr inbounds i8, ptr %ls_tree_options, i64 180
   store i32 116, ptr %short_name17, align 4
-  %long_name18 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 2
+  %long_name18 = getelementptr inbounds i8, ptr %ls_tree_options, i64 184
   store ptr null, ptr %long_name18, align 8
-  %value19 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 3
+  %value19 = getelementptr inbounds i8, ptr %ls_tree_options, i64 192
   store ptr %ls_options, ptr %value19, align 16
-  %argh21 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 4
+  %argh21 = getelementptr inbounds i8, ptr %ls_tree_options, i64 200
   store ptr null, ptr %argh21, align 8
-  %help22 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 5
+  %help22 = getelementptr inbounds i8, ptr %ls_tree_options, i64 208
   store ptr @.str.2, ptr %help22, align 16
-  %flags23 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 6
+  %flags23 = getelementptr inbounds i8, ptr %ls_tree_options, i64 216
   store i32 2, ptr %flags23, align 8
-  %callback24 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 7
+  %callback24 = getelementptr inbounds i8, ptr %ls_tree_options, i64 224
   store ptr null, ptr %callback24, align 16
-  %defval25 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 8
+  %defval25 = getelementptr inbounds i8, ptr %ls_tree_options, i64 232
   store i64 4, ptr %defval25, align 8
-  %ll_callback26 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 2, i32 9
-  %arrayinit.element29 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3
+  %ll_callback26 = getelementptr inbounds i8, ptr %ls_tree_options, i64 240
+  %arrayinit.element29 = getelementptr inbounds i8, ptr %ls_tree_options, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback26, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element29, align 8
-  %short_name31 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 1
+  %short_name31 = getelementptr inbounds i8, ptr %ls_tree_options, i64 268
   store i32 122, ptr %short_name31, align 4
-  %long_name32 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 2
+  %long_name32 = getelementptr inbounds i8, ptr %ls_tree_options, i64 272
   store ptr null, ptr %long_name32, align 16
-  %value33 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 3
+  %value33 = getelementptr inbounds i8, ptr %ls_tree_options, i64 280
   store ptr %null_termination, ptr %value33, align 8
-  %argh34 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 4
+  %argh34 = getelementptr inbounds i8, ptr %ls_tree_options, i64 288
   store ptr null, ptr %argh34, align 16
-  %help35 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 5
+  %help35 = getelementptr inbounds i8, ptr %ls_tree_options, i64 296
   store ptr @.str.3, ptr %help35, align 8
-  %flags36 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 6
+  %flags36 = getelementptr inbounds i8, ptr %ls_tree_options, i64 304
   store i32 2, ptr %flags36, align 16
-  %callback37 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 7
+  %callback37 = getelementptr inbounds i8, ptr %ls_tree_options, i64 312
   store ptr null, ptr %callback37, align 8
-  %defval38 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 8
+  %defval38 = getelementptr inbounds i8, ptr %ls_tree_options, i64 320
   store i64 1, ptr %defval38, align 16
-  %ll_callback39 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 3, i32 9
-  %arrayinit.element42 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4
+  %ll_callback39 = getelementptr inbounds i8, ptr %ls_tree_options, i64 328
+  %arrayinit.element42 = getelementptr inbounds i8, ptr %ls_tree_options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback39, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element42, align 16
-  %short_name44 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 1
+  %short_name44 = getelementptr inbounds i8, ptr %ls_tree_options, i64 356
   store i32 108, ptr %short_name44, align 4
-  %long_name45 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 2
+  %long_name45 = getelementptr inbounds i8, ptr %ls_tree_options, i64 360
   store ptr @.str.4, ptr %long_name45, align 8
-  %value46 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 3
+  %value46 = getelementptr inbounds i8, ptr %ls_tree_options, i64 368
   store ptr %cmdmode, ptr %value46, align 16
-  %argh47 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 4
+  %argh47 = getelementptr inbounds i8, ptr %ls_tree_options, i64 376
   store ptr null, ptr %argh47, align 8
-  %help48 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 5
+  %help48 = getelementptr inbounds i8, ptr %ls_tree_options, i64 384
   store ptr @.str.5, ptr %help48, align 16
-  %flags49 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 6
+  %flags49 = getelementptr inbounds i8, ptr %ls_tree_options, i64 392
   store i32 2054, ptr %flags49, align 8
-  %callback50 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 7
+  %callback50 = getelementptr inbounds i8, ptr %ls_tree_options, i64 400
   store ptr null, ptr %callback50, align 16
-  %defval51 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 8
+  %defval51 = getelementptr inbounds i8, ptr %ls_tree_options, i64 408
   store i64 1, ptr %defval51, align 8
-  %ll_callback52 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 4, i32 9
-  %arrayinit.element55 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5
+  %ll_callback52 = getelementptr inbounds i8, ptr %ls_tree_options, i64 416
+  %arrayinit.element55 = getelementptr inbounds i8, ptr %ls_tree_options, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback52, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element55, align 8
-  %short_name57 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 1
+  %short_name57 = getelementptr inbounds i8, ptr %ls_tree_options, i64 444
   store i32 0, ptr %short_name57, align 4
-  %long_name58 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 2
+  %long_name58 = getelementptr inbounds i8, ptr %ls_tree_options, i64 448
   store ptr @.str.6, ptr %long_name58, align 16
-  %value59 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 3
+  %value59 = getelementptr inbounds i8, ptr %ls_tree_options, i64 456
   store ptr %cmdmode, ptr %value59, align 8
-  %argh60 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 4
+  %argh60 = getelementptr inbounds i8, ptr %ls_tree_options, i64 464
   store ptr null, ptr %argh60, align 16
-  %help61 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 5
+  %help61 = getelementptr inbounds i8, ptr %ls_tree_options, i64 472
   store ptr @.str.7, ptr %help61, align 8
-  %flags62 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 6
+  %flags62 = getelementptr inbounds i8, ptr %ls_tree_options, i64 480
   store i32 2054, ptr %flags62, align 16
-  %callback63 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 7
+  %callback63 = getelementptr inbounds i8, ptr %ls_tree_options, i64 488
   store ptr null, ptr %callback63, align 8
-  %defval64 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 8
+  %defval64 = getelementptr inbounds i8, ptr %ls_tree_options, i64 496
   store i64 2, ptr %defval64, align 16
-  %ll_callback65 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 5, i32 9
-  %arrayinit.element68 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6
+  %ll_callback65 = getelementptr inbounds i8, ptr %ls_tree_options, i64 504
+  %arrayinit.element68 = getelementptr inbounds i8, ptr %ls_tree_options, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback65, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element68, align 16
-  %short_name70 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 1
+  %short_name70 = getelementptr inbounds i8, ptr %ls_tree_options, i64 532
   store i32 0, ptr %short_name70, align 4
-  %long_name71 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 2
+  %long_name71 = getelementptr inbounds i8, ptr %ls_tree_options, i64 536
   store ptr @.str.8, ptr %long_name71, align 8
-  %value72 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 3
+  %value72 = getelementptr inbounds i8, ptr %ls_tree_options, i64 544
   store ptr %cmdmode, ptr %value72, align 16
-  %argh73 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 4
+  %argh73 = getelementptr inbounds i8, ptr %ls_tree_options, i64 552
   store ptr null, ptr %argh73, align 8
-  %help74 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 5
+  %help74 = getelementptr inbounds i8, ptr %ls_tree_options, i64 560
   store ptr @.str.7, ptr %help74, align 16
-  %flags75 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 6
+  %flags75 = getelementptr inbounds i8, ptr %ls_tree_options, i64 568
   store i32 2054, ptr %flags75, align 8
-  %callback76 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 7
+  %callback76 = getelementptr inbounds i8, ptr %ls_tree_options, i64 576
   store ptr null, ptr %callback76, align 16
-  %defval77 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 8
+  %defval77 = getelementptr inbounds i8, ptr %ls_tree_options, i64 584
   store i64 3, ptr %defval77, align 8
-  %ll_callback78 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 6, i32 9
-  %arrayinit.element81 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7
+  %ll_callback78 = getelementptr inbounds i8, ptr %ls_tree_options, i64 592
+  %arrayinit.element81 = getelementptr inbounds i8, ptr %ls_tree_options, i64 616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback78, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element81, align 8
-  %short_name83 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 1
+  %short_name83 = getelementptr inbounds i8, ptr %ls_tree_options, i64 620
   store i32 0, ptr %short_name83, align 4
-  %long_name84 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 2
+  %long_name84 = getelementptr inbounds i8, ptr %ls_tree_options, i64 624
   store ptr @.str.9, ptr %long_name84, align 16
-  %value85 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 3
+  %value85 = getelementptr inbounds i8, ptr %ls_tree_options, i64 632
   store ptr %cmdmode, ptr %value85, align 8
-  %argh86 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 4
+  %argh86 = getelementptr inbounds i8, ptr %ls_tree_options, i64 640
   store ptr null, ptr %argh86, align 16
-  %help87 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 5
+  %help87 = getelementptr inbounds i8, ptr %ls_tree_options, i64 648
   store ptr @.str.10, ptr %help87, align 8
-  %flags88 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 6
+  %flags88 = getelementptr inbounds i8, ptr %ls_tree_options, i64 656
   store i32 2054, ptr %flags88, align 16
-  %callback89 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 7
+  %callback89 = getelementptr inbounds i8, ptr %ls_tree_options, i64 664
   store ptr null, ptr %callback89, align 8
-  %defval90 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 8
+  %defval90 = getelementptr inbounds i8, ptr %ls_tree_options, i64 672
   store i64 4, ptr %defval90, align 16
-  %ll_callback91 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 7, i32 9
-  %arrayinit.element94 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8
+  %ll_callback91 = getelementptr inbounds i8, ptr %ls_tree_options, i64 680
+  %arrayinit.element94 = getelementptr inbounds i8, ptr %ls_tree_options, i64 704
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback91, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element94, align 16
-  %short_name96 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 1
+  %short_name96 = getelementptr inbounds i8, ptr %ls_tree_options, i64 708
   store i32 0, ptr %short_name96, align 4
-  %long_name97 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 2
+  %long_name97 = getelementptr inbounds i8, ptr %ls_tree_options, i64 712
   store ptr @.str.11, ptr %long_name97, align 8
-  %value98 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 3
+  %value98 = getelementptr inbounds i8, ptr %ls_tree_options, i64 720
   store ptr %full_name, ptr %value98, align 16
-  %argh99 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 4
+  %argh99 = getelementptr inbounds i8, ptr %ls_tree_options, i64 728
   store ptr null, ptr %argh99, align 8
-  %help100 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 5
+  %help100 = getelementptr inbounds i8, ptr %ls_tree_options, i64 736
   store ptr @.str.12, ptr %help100, align 16
-  %flags101 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 6
+  %flags101 = getelementptr inbounds i8, ptr %ls_tree_options, i64 744
   store i32 2, ptr %flags101, align 8
-  %callback102 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 7
+  %callback102 = getelementptr inbounds i8, ptr %ls_tree_options, i64 752
   store ptr null, ptr %callback102, align 16
-  %defval103 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 8
+  %defval103 = getelementptr inbounds i8, ptr %ls_tree_options, i64 760
   store i64 1, ptr %defval103, align 8
-  %ll_callback104 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 8, i32 9
-  %arrayinit.element107 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9
+  %ll_callback104 = getelementptr inbounds i8, ptr %ls_tree_options, i64 768
+  %arrayinit.element107 = getelementptr inbounds i8, ptr %ls_tree_options, i64 792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback104, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element107, align 8
-  %short_name109 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 1
+  %short_name109 = getelementptr inbounds i8, ptr %ls_tree_options, i64 796
   store i32 0, ptr %short_name109, align 4
-  %long_name110 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 2
+  %long_name110 = getelementptr inbounds i8, ptr %ls_tree_options, i64 800
   store ptr @.str.13, ptr %long_name110, align 16
-  %value111 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 3
+  %value111 = getelementptr inbounds i8, ptr %ls_tree_options, i64 808
   store ptr %full_tree, ptr %value111, align 8
-  %argh112 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 4
+  %argh112 = getelementptr inbounds i8, ptr %ls_tree_options, i64 816
   store ptr null, ptr %argh112, align 16
-  %help113 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 5
+  %help113 = getelementptr inbounds i8, ptr %ls_tree_options, i64 824
   store ptr @.str.14, ptr %help113, align 8
-  %flags114 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 6
+  %flags114 = getelementptr inbounds i8, ptr %ls_tree_options, i64 832
   store i32 2, ptr %flags114, align 16
-  %callback115 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 7
+  %callback115 = getelementptr inbounds i8, ptr %ls_tree_options, i64 840
   store ptr null, ptr %callback115, align 8
-  %defval116 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 8
+  %defval116 = getelementptr inbounds i8, ptr %ls_tree_options, i64 848
   store i64 1, ptr %defval116, align 16
-  %ll_callback117 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 9, i32 9
-  %arrayinit.element120 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10
+  %ll_callback117 = getelementptr inbounds i8, ptr %ls_tree_options, i64 856
+  %arrayinit.element120 = getelementptr inbounds i8, ptr %ls_tree_options, i64 880
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback117, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element120, align 16
-  %short_name122 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10, i32 1
+  %short_name122 = getelementptr inbounds i8, ptr %ls_tree_options, i64 884
   store i32 0, ptr %short_name122, align 4
-  %long_name123 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10, i32 2
+  %long_name123 = getelementptr inbounds i8, ptr %ls_tree_options, i64 888
   store ptr @.str.15, ptr %long_name123, align 8
-  %value124 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10, i32 3
-  %format = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 5
+  %value124 = getelementptr inbounds i8, ptr %ls_tree_options, i64 896
+  %format = getelementptr inbounds i8, ptr %options, i64 48
   store ptr %format, ptr %value124, align 16
-  %argh125 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10, i32 4
+  %argh125 = getelementptr inbounds i8, ptr %ls_tree_options, i64 904
   store ptr @.str.15, ptr %argh125, align 8
-  %help126 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10, i32 5
+  %help126 = getelementptr inbounds i8, ptr %ls_tree_options, i64 912
   store ptr @.str.16, ptr %help126, align 16
-  %flags127 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10, i32 6
+  %flags127 = getelementptr inbounds i8, ptr %ls_tree_options, i64 920
   store i32 4, ptr %flags127, align 8
-  %callback128 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 10, i32 7
-  %arrayinit.element133 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11
+  %callback128 = getelementptr inbounds i8, ptr %ls_tree_options, i64 928
+  %arrayinit.element133 = getelementptr inbounds i8, ptr %ls_tree_options, i64 968
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback128, i8 0, i64 40, i1 false)
   store i32 13, ptr %arrayinit.element133, align 8
-  %short_name135 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 1
+  %short_name135 = getelementptr inbounds i8, ptr %ls_tree_options, i64 972
   store i32 0, ptr %short_name135, align 4
-  %long_name136 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 2
+  %long_name136 = getelementptr inbounds i8, ptr %ls_tree_options, i64 976
   store ptr @.str.17, ptr %long_name136, align 16
-  %value137 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 3
-  %abbrev = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 1
+  %value137 = getelementptr inbounds i8, ptr %ls_tree_options, i64 984
+  %abbrev = getelementptr inbounds i8, ptr %options, i64 4
   store ptr %abbrev, ptr %value137, align 8
-  %argh138 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 4
+  %argh138 = getelementptr inbounds i8, ptr %ls_tree_options, i64 992
   store ptr @.str.18, ptr %argh138, align 16
-  %help139 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 5
+  %help139 = getelementptr inbounds i8, ptr %ls_tree_options, i64 1000
   store ptr @.str.19, ptr %help139, align 8
-  %flags140 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 6
+  %flags140 = getelementptr inbounds i8, ptr %ls_tree_options, i64 1008
   store i32 1, ptr %flags140, align 16
-  %callback141 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 7
+  %callback141 = getelementptr inbounds i8, ptr %ls_tree_options, i64 1016
   store ptr @parse_opt_abbrev_cb, ptr %callback141, align 8
-  %defval142 = getelementptr inbounds %struct.option, ptr %ls_tree_options, i64 11, i32 8
+  %defval142 = getelementptr inbounds i8, ptr %ls_tree_options, i64 1024
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %defval142, i8 0, i64 120, i1 false)
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #12
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %ls_tree_options, ptr noundef nonnull @ls_tree_usage, i32 noundef 0) #12
@@ -346,7 +346,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   %5 = load i32, ptr %full_name, align 4
   %tobool160.not = icmp eq i32 %5, 0
   %cond = select i1 %tobool160.not, ptr %spec.select, ptr null
-  %prefix161 = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 4
+  %prefix161 = getelementptr inbounds i8, ptr %options, i64 40
   store ptr %cond, ptr %prefix161, align 8
   %6 = load i32, ptr %cmdmode, align 4
   %cmp = icmp eq i32 %6, 3
@@ -401,23 +401,24 @@ if.then182:                                       ; preds = %if.end179
   unreachable
 
 if.end184:                                        ; preds = %if.end179
-  %pathspec = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 3
-  %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
+  %pathspec = getelementptr inbounds i8, ptr %options, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   call void @parse_pathspec(ptr noundef nonnull %pathspec, i32 noundef 122, i32 noundef 1, ptr noundef %spec.select, ptr noundef nonnull %add.ptr) #12
   %13 = load i32, ptr %pathspec, align 8
   %cmp18623 = icmp sgt i32 %13, 0
   br i1 %cmp18623, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end184
-  %items = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 3, i32 4
+  %items = getelementptr inbounds i8, ptr %options, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %14 = load ptr, ptr %items, align 8
-  %len = getelementptr inbounds %struct.pathspec_item, ptr %14, i64 %indvars.iv, i32 3
+  %arrayidx188 = getelementptr inbounds %struct.pathspec_item, ptr %14, i64 %indvars.iv
+  %len = getelementptr inbounds i8, ptr %arrayidx188, i64 20
   %15 = load i32, ptr %len, align 4
-  %nowildcard_len = getelementptr inbounds %struct.pathspec_item, ptr %14, i64 %indvars.iv, i32 5
+  %nowildcard_len = getelementptr inbounds i8, ptr %arrayidx188, i64 28
   store i32 %15, ptr %nowildcard_len, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %pathspec, align 8
@@ -426,7 +427,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp186, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end184
-  %has_wildcard = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 3, i32 1
+  %has_wildcard = getelementptr inbounds i8, ptr %options, i64 20
   %bf.load194 = load i8, ptr %has_wildcard, align 4
   %bf.clear195 = and i8 %bf.load194, -2
   store i8 %bf.clear195, ptr %has_wildcard, align 4
@@ -447,8 +448,8 @@ if.else.us:                                       ; preds = %while.cond.preheade
   br i1 %cmp221.us, label %while.end.sink.split, label %if.else224.us
 
 if.else224.us:                                    ; preds = %if.else.us
-  %incdec.ptr.us = getelementptr inbounds %struct.ls_tree_cmdmode_to_fmt, ptr %m2f.025.us, i64 1
-  %fmt.us = getelementptr inbounds %struct.ls_tree_cmdmode_to_fmt, ptr %m2f.025.us, i64 1, i32 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %m2f.025.us, i64 24
+  %fmt.us = getelementptr inbounds i8, ptr %m2f.025.us, i64 32
   %21 = load ptr, ptr %fmt.us, align 8
   %tobool202.not.us = icmp eq ptr %21, null
   br i1 %tobool202.not.us, label %while.end, label %if.else.us, !llvm.loop !7
@@ -470,15 +471,15 @@ if.then214:                                       ; preds = %if.else
   br label %while.end.sink.split
 
 if.else224:                                       ; preds = %if.else
-  %incdec.ptr = getelementptr inbounds %struct.ls_tree_cmdmode_to_fmt, ptr %m2f.025, i64 1
-  %fmt = getelementptr inbounds %struct.ls_tree_cmdmode_to_fmt, ptr %m2f.025, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %m2f.025, i64 24
+  %fmt = getelementptr inbounds i8, ptr %m2f.025, i64 32
   %24 = load ptr, ptr %fmt, align 8
   %tobool202.not = icmp eq ptr %24, null
   br i1 %tobool202.not, label %while.end, label %if.else, !llvm.loop !7
 
 while.end.sink.split:                             ; preds = %if.else.us, %if.then214
   %m2f.025.us.lcssa.sink = phi ptr [ %m2f.025, %if.then214 ], [ %m2f.025.us, %if.else.us ]
-  %fn223 = getelementptr inbounds %struct.ls_tree_cmdmode_to_fmt, ptr %m2f.025.us.lcssa.sink, i64 0, i32 2
+  %fn223 = getelementptr inbounds i8, ptr %m2f.025.us.lcssa.sink, i64 16
   %25 = load ptr, ptr %fn223, align 8
   br label %while.end
 
@@ -553,30 +554,30 @@ entry:
   %cmp2.i = icmp eq i32 %and.i, 57344
   %cond.i = select i1 %cmp2.i, i32 1, i32 3
   %cond3.i = select i1 %cmp.i, i32 2, i32 %cond.i
-  %format1 = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 5
+  %format1 = getelementptr inbounds i8, ptr %context, i64 48
   %0 = load ptr, ptr %format1, align 8
   store ptr %0, ptr %format, align 8
   br i1 %cmp.i, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %base, i64 16
   %1 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %base, i64 8
   %2 = load i64, ptr %len, align 8
-  %ls_options.i = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 2
+  %ls_options.i = getelementptr inbounds i8, ptr %context, i64 8
   %3 = load i32, ptr %ls_options.i, align 8
   %and.i24 = and i32 %3, 1
   %tobool.not.i = icmp eq i32 %and.i24, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true6
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %pathspec.i = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 3
+  %pathspec.i = getelementptr inbounds i8, ptr %context, i64 16
   %4 = load i32, ptr %pathspec.i, align 8
   %cmp16.i = icmp sgt i32 %4, 0
   br i1 %cmp16.i, label %for.body.lr.ph.i, label %if.end9
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %items.i = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 3, i32 4
+  %items.i = getelementptr inbounds i8, ptr %context, i64 32
   %5 = load ptr, ptr %items.i, align 8
   %wide.trip.count.i = zext nneg i32 %4 to i64
   br label %for.body.i
@@ -625,7 +626,7 @@ if.end9:                                          ; preds = %for.inc.i, %if.end.
   br i1 %cmp10, label %land.lhs.true11, label %if.end16
 
 land.lhs.true11:                                  ; preds = %if.end9
-  %ls_options12 = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 2
+  %ls_options12 = getelementptr inbounds i8, ptr %context, i64 8
   %8 = load i32, ptr %ls_options12, align 8
   %and13 = and i32 %8, 2
   %tobool14.not = icmp eq i32 %and13, 0
@@ -637,12 +638,12 @@ if.end16:                                         ; preds = %land.lhs.true11, %i
   br i1 %tobool18.not151, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end16
-  %prefix55 = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 4
-  %len56 = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 1
-  %buf57 = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
-  %abbrev = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 1
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %prefix55 = getelementptr inbounds i8, ptr %context, i64 40
+  %len56 = getelementptr inbounds i8, ptr %base, i64 8
+  %buf57 = getelementptr inbounds i8, ptr %base, i64 16
+  %abbrev = getelementptr inbounds i8, ptr %context, i64 4
+  %len.i.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end72
@@ -969,7 +970,7 @@ while.end:                                        ; preds = %if.end72, %if.end16
   br i1 %tobool.not.i.i113, label %if.then.i124, label %strbuf_avail.exit.i114
 
 strbuf_avail.exit.i114:                           ; preds = %while.end
-  %len.i.i115 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i.i115 = getelementptr inbounds i8, ptr %sb, i64 8
   %47 = load i64, ptr %len.i.i115, align 8
   %.neg.i116 = add i64 %47, 1
   %tobool.not.i117 = icmp eq i64 %46, %.neg.i116
@@ -977,7 +978,7 @@ strbuf_avail.exit.i114:                           ; preds = %while.end
 
 if.then.i124:                                     ; preds = %strbuf_avail.exit.i114, %while.end
   call void @strbuf_grow(ptr noundef nonnull %sb, i64 noundef 1) #12
-  %len.phi.trans.insert.i125 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.phi.trans.insert.i125 = getelementptr inbounds i8, ptr %sb, i64 8
   %.pre.i126 = load i64, ptr %len.phi.trans.insert.i125, align 8
   %.pre8.i127 = add i64 %.pre.i126, 1
   br label %strbuf_addch.exit128
@@ -986,9 +987,9 @@ strbuf_addch.exit128:                             ; preds = %strbuf_avail.exit.i
   %inc.pre-phi.i119 = phi i64 [ %.pre8.i127, %if.then.i124 ], [ %.neg.i116, %strbuf_avail.exit.i114 ]
   %48 = phi i64 [ %.pre.i126, %if.then.i124 ], [ %47, %strbuf_avail.exit.i114 ]
   %conv.i = select i1 %tobool73.not, i8 10, i8 0
-  %buf.i120 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i120 = getelementptr inbounds i8, ptr %sb, i64 16
   %49 = load ptr, ptr %buf.i120, align 8
-  %len.i121 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i121 = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 %inc.pre-phi.i119, ptr %len.i121, align 8
   %arrayidx.i122 = getelementptr inbounds i8, ptr %49, i64 %48
   store i8 %conv.i, ptr %arrayidx.i122, align 1
@@ -1024,11 +1025,11 @@ entry:
 if.end:                                           ; preds = %entry
   %call3 = tail call ptr @type_name(i32 noundef %cond3.i) #12
   %0 = load ptr, ptr @the_repository, align 8
-  %abbrev = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 1
+  %abbrev = getelementptr inbounds i8, ptr %context, i64 4
   %1 = load i32, ptr %abbrev, align 4
   %call4 = tail call ptr @repo_find_unique_abbrev(ptr noundef %0, ptr noundef %oid, i32 noundef %1) #12
   %call5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i32 noundef %mode, ptr noundef %call3, ptr noundef %call4)
-  %len = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %base, i64 8
   %2 = load i64, ptr %len, align 8
   tail call fastcc void @show_tree_common_default_long(ptr noundef %context, ptr noundef %base, ptr noundef %pathname, i64 noundef %2)
   %3 = load i32, ptr %recurse, align 4
@@ -1087,11 +1088,11 @@ if.else11:                                        ; preds = %if.end
 if.end14:                                         ; preds = %if.then6, %if.else, %if.else11
   %call15 = call ptr @type_name(i32 noundef %cond3.i) #12
   %2 = load ptr, ptr @the_repository, align 8
-  %abbrev = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 1
+  %abbrev = getelementptr inbounds i8, ptr %context, i64 4
   %3 = load i32, ptr %abbrev, align 4
   %call16 = call ptr @repo_find_unique_abbrev(ptr noundef %2, ptr noundef %oid, i32 noundef %3) #12
   %call18 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %mode, ptr noundef %call15, ptr noundef %call16, ptr noundef nonnull %size_text)
-  %len = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %base, i64 8
   %4 = load i64, ptr %len, align 8
   call fastcc void @show_tree_common_default_long(ptr noundef %context, ptr noundef %base, ptr noundef %pathname, i64 noundef %4)
   %5 = load i32, ptr %recurse, align 4
@@ -1107,7 +1108,7 @@ define internal i32 @show_tree_name_only(ptr nocapture readnone %oid, ptr nounde
 entry:
   %recurse = alloca i32, align 4
   %sb = alloca %struct.strbuf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %base, i64 8
   %0 = load i64, ptr %len, align 8
   %and.i = and i32 %mode, 61440
   %cmp.i = icmp eq i32 %and.i, 16384
@@ -1119,7 +1120,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prefix2 = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 4
+  %prefix2 = getelementptr inbounds i8, ptr %context, i64 40
   %1 = load ptr, ptr %prefix2, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #14
   tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef %pathname, i64 noundef %call.i) #12
@@ -1130,7 +1131,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_tree_fmt.sbuf, i64 24, i1 false)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %base, i64 16
   %2 = load ptr, ptr %buf, align 8
   %call4 = call ptr @relative_path(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %sb) #12
   %3 = load ptr, ptr @stdout, align 8
@@ -1141,7 +1142,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
-  %buf7 = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf7 = getelementptr inbounds i8, ptr %base, i64 16
   %5 = load ptr, ptr %buf7, align 8
   %6 = load ptr, ptr @stdout, align 8
   tail call void @write_name_quoted_relative(ptr noundef %5, ptr noundef %1, ptr noundef %6, i32 noundef 10) #12
@@ -1159,7 +1160,7 @@ if.then.i:                                        ; preds = %if.end8
 
 if.end.i:                                         ; preds = %if.end8
   store i64 %0, ptr %len, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %base, i64 16
   %8 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %8, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -1193,7 +1194,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @the_repository, align 8
-  %abbrev = getelementptr inbounds %struct.ls_tree_options, ptr %context, i64 0, i32 1
+  %abbrev = getelementptr inbounds i8, ptr %context, i64 4
   %1 = load i32, ptr %abbrev, align 4
   %call2 = tail call ptr @repo_find_unique_abbrev(ptr noundef %0, ptr noundef %oid, i32 noundef %1) #12
   %bf.load = load i8, ptr %context, align 8
@@ -1231,7 +1232,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ls_options = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 2
+  %ls_options = getelementptr inbounds i8, ptr %options, i64 8
   %0 = load i32, ptr %ls_options, align 8
   %and = lshr i32 %0, 1
   %1 = and i32 %and, 1
@@ -1239,24 +1240,24 @@ if.then:                                          ; preds = %entry
   br label %if.end11
 
 land.lhs.true:                                    ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %base, i64 16
   %2 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %base, i64 8
   %3 = load i64, ptr %len, align 8
-  %ls_options.i = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 2
+  %ls_options.i = getelementptr inbounds i8, ptr %options, i64 8
   %4 = load i32, ptr %ls_options.i, align 8
   %and.i = and i32 %4, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then4
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %pathspec.i = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 3
+  %pathspec.i = getelementptr inbounds i8, ptr %options, i64 16
   %5 = load i32, ptr %pathspec.i, align 8
   %cmp16.i = icmp sgt i32 %5, 0
   br i1 %cmp16.i, label %for.body.lr.ph.i, label %if.end11
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %items.i = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 3, i32 4
+  %items.i = getelementptr inbounds i8, ptr %options, i64 32
   %6 = load ptr, ptr %items.i, align 8
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %for.body.i
@@ -1322,7 +1323,7 @@ declare ptr @repo_find_unique_abbrev(ptr noundef, ptr noundef, i32 noundef) loca
 define internal fastcc void @show_tree_common_default_long(ptr nocapture noundef readonly %options, ptr noundef %base, ptr noundef %pathname, i64 noundef %baselen) unnamed_addr #0 {
 entry:
   %sb = alloca %struct.strbuf, align 8
-  %prefix1 = getelementptr inbounds %struct.ls_tree_options, ptr %options, i64 0, i32 4
+  %prefix1 = getelementptr inbounds i8, ptr %options, i64 40
   %0 = load ptr, ptr %prefix1, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #14
   tail call void @strbuf_add(ptr noundef %base, ptr noundef %pathname, i64 noundef %call.i) #12
@@ -1333,7 +1334,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_tree_fmt.sbuf, i64 24, i1 false)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %base, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call = call ptr @relative_path(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %sb) #12
   %2 = load ptr, ptr @stdout, align 8
@@ -1344,7 +1345,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %buf4 = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf4 = getelementptr inbounds i8, ptr %base, i64 16
   %4 = load ptr, ptr %buf4, align 8
   %5 = load ptr, ptr @stdout, align 8
   tail call void @write_name_quoted_relative(ptr noundef %4, ptr noundef %0, ptr noundef %5, i32 noundef 10) #12
@@ -1361,9 +1362,9 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 if.end.i:                                         ; preds = %if.end
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %base, i64 8
   store i64 %baselen, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %base, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %base, i64 16
   %7 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %7, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i

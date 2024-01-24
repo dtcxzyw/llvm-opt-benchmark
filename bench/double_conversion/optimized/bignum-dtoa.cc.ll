@@ -87,16 +87,16 @@ if.then23:                                        ; preds = %if.end
 
 if.end26:                                         ; preds = %if.end
   store i16 0, ptr %numerator, align 4
-  %exponent_.i = getelementptr inbounds %"class.double_conversion::Bignum", ptr %numerator, i64 0, i32 1
+  %exponent_.i = getelementptr inbounds i8, ptr %numerator, i64 2
   store i16 0, ptr %exponent_.i, align 2
   store i16 0, ptr %denominator, align 4
-  %exponent_.i46 = getelementptr inbounds %"class.double_conversion::Bignum", ptr %denominator, i64 0, i32 1
+  %exponent_.i46 = getelementptr inbounds i8, ptr %denominator, i64 2
   store i16 0, ptr %exponent_.i46, align 2
   store i16 0, ptr %delta_minus, align 4
-  %exponent_.i47 = getelementptr inbounds %"class.double_conversion::Bignum", ptr %delta_minus, i64 0, i32 1
+  %exponent_.i47 = getelementptr inbounds i8, ptr %delta_minus, i64 2
   store i16 0, ptr %exponent_.i47, align 2
   store i16 0, ptr %delta_plus, align 4
-  %exponent_.i48 = getelementptr inbounds %"class.double_conversion::Bignum", ptr %delta_plus, i64 0, i32 1
+  %exponent_.i48 = getelementptr inbounds i8, ptr %delta_plus, i64 2
   store i16 0, ptr %exponent_.i48, align 2
   %cmp.i49 = icmp sgt i32 %exponent.0, -1
   br i1 %cmp.i49, label %if.then.i, label %if.else.i

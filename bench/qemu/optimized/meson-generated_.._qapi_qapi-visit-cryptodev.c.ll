@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.QCryptodevBackendClient = type { i32, i32 }
-%struct.QCryptodevBackendServiceTypeList = type { ptr, i32 }
-%struct.QCryptodevBackendClientList = type { ptr, ptr }
-%struct.QCryptodevInfo = type { ptr, ptr, ptr }
-%struct.QCryptodevInfoList = type { ptr, ptr }
 
 @QCryptodevBackendAlgType_lookup = external constant %struct.QEnumLookup, align 8
 @QCryptodevBackendServiceType_lookup = external constant %struct.QEnumLookup, align 8
@@ -70,7 +65,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.QCryptodevBackendClient, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %type, align 4
   store i32 %0, ptr %value.i, align 4
@@ -88,7 +83,7 @@ return:                                           ; preds = %if.end, %entry
 declare zeroext i1 @visit_type_uint32(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptodevBackendClient(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QCryptodevBackendClient(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -116,7 +111,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_QCryptodevBackendClient_members.exit, label %out_obj.thread
 
 visit_type_QCryptodevBackendClient_members.exit:  ; preds = %if.end5
-  %type.i = getelementptr inbounds %struct.QCryptodevBackendClient, ptr %0, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %type.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -166,7 +161,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_QCryptodevBackendClient(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptodevBackendServiceTypeList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QCryptodevBackendServiceTypeList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
@@ -179,7 +174,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QCryptodevBackendServiceTypeList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4
@@ -229,7 +224,7 @@ declare void @visit_end_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_QCryptodevBackendServiceTypeList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptodevBackendClientList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QCryptodevBackendClientList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -241,7 +236,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QCryptodevBackendClientList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_QCryptodevBackendClient(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -277,18 +272,18 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_QCryptodevBackendClientList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptodevInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QCryptodevInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef %obj, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %service = getelementptr inbounds %struct.QCryptodevInfo, ptr %obj, i64 0, i32 1
+  %service = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_QCryptodevBackendServiceTypeList(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %service, ptr noundef %errp)
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %client = getelementptr inbounds %struct.QCryptodevInfo, ptr %obj, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_QCryptodevBackendClientList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %client, ptr noundef %errp)
   br label %return
 
@@ -300,7 +295,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 declare zeroext i1 @visit_type_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptodevInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QCryptodevInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -327,12 +322,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %service.i = getelementptr inbounds %struct.QCryptodevInfo, ptr %0, i64 0, i32 1
+  %service.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_QCryptodevBackendServiceTypeList(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %service.i, ptr noundef %errp)
   br i1 %call1.i, label %visit_type_QCryptodevInfo_members.exit, label %out_obj.thread
 
 visit_type_QCryptodevInfo_members.exit:           ; preds = %if.end.i
-  %client.i = getelementptr inbounds %struct.QCryptodevInfo, ptr %0, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_QCryptodevBackendClientList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %client.i, ptr noundef %errp)
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -363,7 +358,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_QCryptodevInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QCryptodevInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QCryptodevInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -375,7 +370,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.QCryptodevInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_QCryptodevInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

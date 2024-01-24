@@ -10,24 +10,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.in_addr = type { i32 }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"class.folly::ScopedBoundPort" = type { %"class.std::unique_ptr", %"class.std::shared_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
-%"struct.std::_Head_base.2" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
 %"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
 %"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%class.anon = type { ptr, ptr }
-%"class.std::_Sp_counted_deleter" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_deleter<folly::AsyncServerSocket *, folly::DelayedDestruction::Destructor, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_deleter<folly::AsyncServerSocket *, folly::DelayedDestruction::Destructor, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { ptr }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -84,7 +72,7 @@ $_ZTSN5folly18DelayedDestruction10DestructorE = comdat any
 define void @_ZN5folly15ScopedBoundPortC2ENS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef byval(%"class.folly::IPAddress") align 8 %host) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
-  %sock_ = getelementptr inbounds %"class.folly::ScopedBoundPort", ptr %this, i64 0, i32 1
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call.i12 = invoke noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #13
           to label %call.i.noexc unwind label %lpad
@@ -107,7 +95,7 @@ invoke.cont:                                      ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 16, !tbaa !14
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 16 dereferenceable(636) %1) #15
   %.pre = load ptr, ptr %this, align 8, !tbaa !10
@@ -116,14 +104,14 @@ _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i.i.i.i: ; p
 _ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i.i.i.i, %invoke.cont
   %3 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i.i.i.i ], [ %call.i12, %invoke.cont ]
   %vtable = load ptr, ptr %3, align 16, !tbaa !14
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   %call7 = invoke noundef ptr %4(ptr noundef nonnull align 16 dereferenceable(636) %3)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   store ptr %this, ptr %agg.tmp, align 16, !tbaa.struct !16
   %fun.sroa.2.0.data_2.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %host, ptr %fun.sroa.2.0.data_2.sroa_idx.i, align 8, !tbaa.struct !17
@@ -160,7 +148,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad, %lpad
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i14: ; preds = %ehcleanup
   %vtable.i.i15 = load ptr, ptr %8, align 16, !tbaa !14
-  %vfn.i.i16 = getelementptr inbounds ptr, ptr %vtable.i.i15, i64 1
+  %vfn.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i15, i64 8
   %9 = load ptr, ptr %vfn.i.i16, align 8
   tail call void %9(ptr noundef nonnull align 16 dereferenceable(636) %8) #15
   br label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit17
@@ -184,13 +172,13 @@ declare void @_ZN5folly9EventBase27runInEventBaseThreadAndWaitENS_8FunctionIFvvE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !21
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i acquire, align 8
   %cmp.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -198,14 +186,14 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !23
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !26
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 3
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -271,13 +259,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #15
   %1 = load ptr, ptr %0, align 8, !tbaa !10
   %vtable.i = load ptr, ptr %1, align 16, !tbaa !14
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %2(ptr noundef nonnull align 16 dereferenceable(636) %1)
   call void @_ZN5folly17AsyncServerSocket9newSocketEPNS_9EventBaseE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp.i, ptr noundef %call2.i)
-  %sock_.i = getelementptr inbounds %"class.folly::ScopedBoundPort", ptr %0, i64 0, i32 1
-  %_M_refcount4.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i, i64 0, i32 1
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"class.folly::ScopedBoundPort", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %sock_.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load <2 x ptr>, ptr %ref.tmp.i, align 16, !tbaa !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !21
@@ -286,7 +274,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -294,14 +282,14 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !23
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !26
   %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !14
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %vtable3.i.i.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !14
-  %vfn4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i, i64 24
   %8 = load ptr, ptr %vfn4.i.i.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i
@@ -335,7 +323,7 @@ _ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i: ; preds = %if.then
   br i1 %cmp.not.i.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEaSEOS2_.exit.i
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -343,14 +331,14 @@ if.then.i.i.i:                                    ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !23
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !26
   %vtable.i.i.i.i = load ptr, ptr %11, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
   %vtable3.i.i.i.i = load ptr, ptr %11, align 8, !tbaa !14
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i, i64 3
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn4.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
   br label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
@@ -382,16 +370,16 @@ _ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2E
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #15
   %18 = load ptr, ptr %sock_.i, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp6.i) #15
-  %19 = getelementptr inbounds %class.anon, ptr %p, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %p, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !34
   call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp6.i)
-  %port_.i.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %ref.tmp6.i, i64 0, i32 1
+  %port_.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 24
   store i16 0, ptr %port_.i.i, align 8, !tbaa !35
-  %external_.i.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %ref.tmp6.i, i64 0, i32 2
+  %external_.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 26
   store i8 0, ptr %external_.i.i, align 2, !tbaa !39
   call void @_ZN5folly13SocketAddress17setFromIpAddrPortERKNS_9IPAddressEt(ptr noundef nonnull align 8 dereferenceable(27) %ref.tmp6.i, ptr noundef nonnull align 4 dereferenceable(22) %20, i16 noundef zeroext 0)
   %vtable7.i = load ptr, ptr %18, align 8, !tbaa !14
-  %vfn8.i = getelementptr inbounds ptr, ptr %vtable7.i, i64 5
+  %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 40
   %21 = load ptr, ptr %vfn8.i, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(296) %18, ptr noundef nonnull align 8 dereferenceable(27) %ref.tmp6.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -458,7 +446,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %agg.result, align 8, !tbaa !32
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !21
   %call5.i.i.i17.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
           to label %_ZNSt10shared_ptrIN5folly17AsyncServerSocketEEC2IS1_NS0_18DelayedDestruction10DestructorEvEEPT_T0_.exit unwind label %lpad.i.i.i.i
@@ -469,7 +457,7 @@ lpad.i.i.i.i:                                     ; preds = %invoke.cont
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #15
   %vtable.i.i.i.i.i = load ptr, ptr %call, align 8, !tbaa !14
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(13) %call)
           to label %invoke.cont10.i.i.i.i unwind label %lpad9.i.i.i.i
@@ -499,12 +487,12 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont10.i.i.i
   unreachable
 
 _ZNSt10shared_ptrIN5folly17AsyncServerSocketEEC2IS1_NS0_18DelayedDestruction10DestructorEvEEPT_T0_.exit: ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !23
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !26
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !14
-  %_M_impl.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i, i64 16
   store ptr %call, ptr %_M_impl.i.i.i.i.i, align 8, !tbaa !44
   store ptr %call5.i.i.i17.i.i.i.i, ptr %_M_refcount.i.i, align 8, !tbaa !21
   ret void
@@ -538,10 +526,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8, !tbaa !46
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(13) %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -567,7 +555,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt19_Sp_counted_deleterIPN5folly17AsyncServerSocketENS0_18DelayedDestruction10DestructorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !48
   %cmp.i = icmp eq ptr %0, @_ZTSN5folly18DelayedDestruction10DestructorE
   br i1 %cmp.i, label %cond.true, label %if.end.i
@@ -583,7 +571,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br i1 %cmp7.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %_ZNKSt9type_infoeqERKS_.exit, %entry
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.true, %_ZNKSt9type_infoeqERKS_.exit, %if.end.i
@@ -598,10 +586,10 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
-  %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
+  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
@@ -623,7 +611,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
@@ -642,16 +630,16 @@ entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
   %0 = load ptr, ptr %this, align 8, !tbaa !10
   %vtable = load ptr, ptr %0, align 16, !tbaa !14
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef ptr %1(ptr noundef nonnull align 16 dereferenceable(636) %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %sock_ = getelementptr inbounds %"class.folly::ScopedBoundPort", ptr %this, i64 0, i32 1
-  %_M_refcount4.i.i = getelementptr inbounds %"class.folly::ScopedBoundPort", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %2 = load <2 x ptr>, ptr %sock_, align 8, !tbaa !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sock_, i8 0, i64 16, i1 false)
   store <2 x ptr> %2, ptr %agg.tmp, align 16, !tbaa !10
@@ -672,7 +660,7 @@ if.end.i.i:                                       ; preds = %invoke.cont
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %"_ZZN5folly15ScopedBoundPortD1EvEN3$_0D2Ev.exit"
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -680,14 +668,14 @@ if.then.i.i:                                      ; preds = %"_ZZN5folly15Scoped
 
 if.then.i.i.i7:                                   ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !23
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !26
   %vtable.i.i.i = load ptr, ptr %4, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %vtable3.i.i.i = load ptr, ptr %4, align 8, !tbaa !14
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %8 = load ptr, ptr %vfn4.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -722,7 +710,7 @@ _ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2E
 
 _ZNKSt14default_deleteIN5folly21ScopedEventBaseThreadEEclEPS1_.exit.i: ; preds = %_ZNSt12__shared_ptrIN5folly17AsyncServerSocketELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %vtable.i.i = load ptr, ptr %11, align 16, !tbaa !14
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 16 dereferenceable(636) %11) #15
   br label %_ZNSt10unique_ptrIN5folly21ScopedEventBaseThreadESt14default_deleteIS1_EED2Ev.exit
@@ -757,9 +745,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %dst, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
   store ptr null, ptr %_M_refcount.i.i.i, align 8, !tbaa !21
-  %_M_refcount4.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %src, i64 0, i32 1
+  %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load <2 x ptr>, ptr %src, align 8, !tbaa !10
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !tbaa !21
   store <2 x ptr> %0, ptr %dst, align 8, !tbaa !10
@@ -773,7 +761,7 @@ sw.bb1:                                           ; preds = %sw.bb, %entry
   br i1 %cmp.not.i.i.i, label %sw.epilog, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb1
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %src.val, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %src.val, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -781,14 +769,14 @@ if.then.i.i.i:                                    ; preds = %sw.bb1
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !23
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %src.val, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %src.val, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !26
   %vtable.i.i.i.i = load ptr, ptr %src.val, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %src.val) #15
   %vtable3.i.i.i.i = load ptr, ptr %src.val, align 8, !tbaa !14
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i, i64 3
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %src.val) #15
   br label %sw.epilog
@@ -823,16 +811,16 @@ sw.epilog:                                        ; preds = %if.then7.i.i.i.i, %
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5folly15ScopedBoundPort10getAddressEv(ptr noalias nonnull sret(%"class.folly::SocketAddress") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sock_ = getelementptr inbounds %"class.folly::ScopedBoundPort", ptr %this, i64 0, i32 1
+  %sock_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %sock_, align 8, !tbaa !32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %agg.result)
-  %port_.i.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %agg.result, i64 0, i32 1
+  %port_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i16 0, ptr %port_.i.i, align 8, !tbaa !35, !alias.scope !50
-  %external_.i.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %agg.result, i64 0, i32 2
+  %external_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 0, ptr %external_.i.i, align 2, !tbaa !39, !alias.scope !50
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !14, !noalias !50
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 10
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %agg.result)
           to label %_ZNK5folly17AsyncServerSocket10getAddressEv.exit unwind label %lpad.i

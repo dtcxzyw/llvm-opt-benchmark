@@ -10,40 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<facebook::velox::ByteRange, std::allocator<facebook::velox::ByteRange>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::pair" = type { %"struct.facebook::velox::HashStringAllocator::Position", %"struct.facebook::velox::HashStringAllocator::Position" }
 %"struct.facebook::velox::HashStringAllocator::Position" = type { ptr, ptr }
-%"class.facebook::velox::HashStringAllocator" = type { %"class.facebook::velox::StreamArena", [3058 x %"class.facebook::velox::CompactDoubleList"], [48 x i64], i64, i64, i64, %"struct.facebook::velox::HashStringAllocator::Position", ptr, %"class.facebook::velox::memory::AllocationPool", %"class.folly::F14FastMap", i64 }
-%"class.facebook::velox::StreamArena" = type { ptr, ptr, i64, %"class.std::vector.0", %"class.facebook::velox::memory::Allocation", i32, i32, %"class.std::vector.10", i64, %"class.std::vector.15" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::memory::Allocation>, std::allocator<std::unique_ptr<facebook::velox::memory::Allocation>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::velox::memory::Allocation>, std::allocator<std::unique_ptr<facebook::velox::memory::Allocation>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::memory::Allocation>, std::allocator<std::unique_ptr<facebook::velox::memory::Allocation>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::velox::memory::Allocation>, std::allocator<std::unique_ptr<facebook::velox::memory::Allocation>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.facebook::velox::memory::Allocation" = type <{ ptr, %"class.std::vector.5", i32, [4 x i8] }>
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::memory::Allocation::PageRun, std::allocator<facebook::velox::memory::Allocation::PageRun>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<facebook::velox::memory::ContiguousAllocation, std::allocator<facebook::velox::memory::ContiguousAllocation>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::memory::ContiguousAllocation, std::allocator<facebook::velox::memory::ContiguousAllocation>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::memory::ContiguousAllocation, std::allocator<facebook::velox::memory::ContiguousAllocation>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::memory::ContiguousAllocation, std::allocator<facebook::velox::memory::ContiguousAllocation>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.facebook::velox::CompactDoubleList" = type { i32, i32, i16, i16 }
-%"class.facebook::velox::memory::AllocationPool" = type { ptr, %"class.std::vector.20", %"class.std::vector.10", ptr, i64, i64, i64, i64 }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation, std::allocator<facebook::velox::memory::Allocation>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::memory::Allocation, std::allocator<facebook::velox::memory::Allocation>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::memory::Allocation, std::allocator<facebook::velox::memory::Allocation>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::memory::Allocation, std::allocator<facebook::velox::memory::Allocation>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::F14ValueMap" }
-%"class.folly::F14ValueMap" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { ptr, i64, %"struct.folly::f14::detail::SizeAndPackedBegin" }
-%"struct.folly::f14::detail::SizeAndPackedBegin" = type { i64, %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.facebook::velox::HashStringAllocator::Header" = type { i32 }
-%"struct.facebook::velox::StringView" = type { i32, [4 x i8], %union.anon }
-%union.anon = type { ptr }
 %"class.facebook::velox::ByteInputStream" = type { ptr, %"class.std::vector", ptr }
 
 @_ZTVN8facebook5velox15ByteInputStreamE = external unnamed_addr constant { [6 x ptr] }, align 8
@@ -55,13 +21,13 @@ entry:
   %tmp = alloca %"struct.std::pair", align 8
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %stream, align 8
-  %isBits_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 1
+  %isBits_.i = getelementptr inbounds i8, ptr %stream, i64 8
   store i8 0, ptr %isBits_.i, align 8
-  %isReverseBitOrder_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 2
+  %isReverseBitOrder_.i = getelementptr inbounds i8, ptr %stream, i64 9
   store i8 0, ptr %isReverseBitOrder_.i, align 1
-  %isReversed_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 3
+  %isReversed_.i = getelementptr inbounds i8, ptr %stream, i64 10
   store i8 0, ptr %isReversed_.i, align 2
-  %ranges_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 5
+  %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %ranges_.i, i8 0, i64 44, i1 false)
   %1 = load ptr, ptr %position, align 8
   %cmp = icmp eq ptr %1, null
@@ -152,7 +118,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %currentHeader_.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator", ptr %1, i64 0, i32 7
+  %currentHeader_.i = getelementptr inbounds i8, ptr %1, i64 37272
   %2 = load ptr, ptr %currentHeader_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit, label %if.then.i
@@ -165,11 +131,11 @@ _ZN8facebook5velox19HashStringAllocator8allocateEi.exit: ; preds = %if.end
   %conv.i = zext i32 %0 to i64
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %0, i32 16)
   %call3.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %1, i32 noundef %.sroa.speculated.i, i1 noundef zeroext true)
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator::Header", ptr %call3.i, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %call3.i, i64 4
   %3 = load i32, ptr %value, align 8
   %cmp.i.i.i = icmp ult i32 %3, 13
-  %prefix_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %value, i64 0, i32 1
-  %value_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %value, i64 0, i32 2
+  %prefix_.i = getelementptr inbounds i8, ptr %value, i64 4
+  %value_.i = getelementptr inbounds i8, ptr %value, i64 8
   %4 = load ptr, ptr %value_.i, align 8
   %cond.i = select i1 %cmp.i.i.i, ptr %prefix_.i, ptr %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
@@ -214,7 +180,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, inrange i32 0, i64 2), ptr %stream, align 8
-  %ranges_.i = getelementptr inbounds %"class.facebook::velox::ByteInputStream", ptr %stream, i64 0, i32 1
+  %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 8
   %0 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox15ByteInputStreamD2Ev.exit, label %if.then.i.i.i.i
@@ -230,7 +196,7 @@ lpad:                                             ; preds = %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, inrange i32 0, i64 2), ptr %stream, align 8
-  %ranges_.i2 = getelementptr inbounds %"class.facebook::velox::ByteInputStream", ptr %stream, i64 0, i32 1
+  %ranges_.i2 = getelementptr inbounds i8, ptr %stream, i64 8
   %2 = load ptr, ptr %ranges_.i2, align 8
   %tobool.not.i.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i3, label %_ZN8facebook5velox15ByteInputStreamD2Ev.exit5, label %if.then.i.i.i.i4
@@ -276,9 +242,9 @@ entry:
   br i1 %cmp.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %value, i64 0, i32 2
+  %value_.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %value_.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.facebook::velox::HashStringAllocator::Header", ptr %1, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN8facebook5velox19HashStringAllocator4freeEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %2, ptr noundef nonnull %add.ptr.i)
   br label %if.end

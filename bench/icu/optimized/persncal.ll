@@ -3,10 +3,9 @@ source_filename = "bench/icu/original/persncal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::Calendar" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8], [6 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::PersianCalendar" = type { %"class.icu_75::Calendar.base", [6 x i8] }
 %"class.icu_75::Calendar.base" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 
 @.str = private unnamed_addr constant [8 x i8] c"persian\00", align 1
@@ -152,7 +151,7 @@ declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEiiPi(i32 noundef, i32 nou
 define noundef i32 @_ZN6icu_7515PersianCalendar9yearStartEi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year, i32 noundef 0, i8 noundef signext 0)
   ret i32 %call
@@ -162,7 +161,7 @@ entry:
 define noundef i32 @_ZNK6icu_7515PersianCalendar10monthStartEii(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year, i32 noundef %month) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year, i32 noundef %month, i8 noundef signext 1)
   ret i32 %call
@@ -264,29 +263,29 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx3.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i1 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  %2 = load i32, ptr %arrayidx.i1, align 8
-  %cmp.i2 = icmp sgt i32 %2, 0
-  br i1 %cmp.i2, label %cond.true.i4, label %if.end
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 136
+  %2 = load i32, ptr %arrayidx.i2, align 8
+  %cmp.i3 = icmp sgt i32 %2, 0
+  br i1 %cmp.i3, label %cond.true.i5, label %if.end
 
-cond.true.i4:                                     ; preds = %if.else
-  %arrayidx3.i5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %3 = load i32, ptr %arrayidx3.i5, align 8
+cond.true.i5:                                     ; preds = %if.else
+  %arrayidx3.i7 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load i32, ptr %arrayidx3.i7, align 8
   br label %if.end
 
-if.end:                                           ; preds = %cond.true.i4, %if.else, %cond.true.i, %if.then
-  %year.0 = phi i32 [ %1, %cond.true.i ], [ 1, %if.then ], [ %3, %cond.true.i4 ], [ 1, %if.else ]
+if.end:                                           ; preds = %cond.true.i5, %if.else, %cond.true.i, %if.then
+  %year.0 = phi i32 [ %1, %cond.true.i ], [ 1, %if.then ], [ %3, %cond.true.i5 ], [ 1, %if.else ]
   ret i32 %year.0
 }
 
@@ -328,48 +327,48 @@ if.end:                                           ; preds = %if.else, %if.then
   %conv13 = sext i16 %1 to i32
   %sub14 = add i32 %sub10, 1
   %add15 = sub i32 %sub14, %conv13
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  store i32 0, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  store i32 1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 0
-  store i8 1, ptr %arrayidx5.i, align 4
-  %arrayidx.i12 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  store i32 %add3, ptr %arrayidx.i12, align 8
-  %arrayidx3.i13 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  store i32 1, ptr %arrayidx3.i13, align 8
-  %arrayidx5.i14 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
-  store i8 1, ptr %arrayidx5.i14, align 1
-  %arrayidx.i15 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  store i32 %add3, ptr %arrayidx.i15, align 8
-  %arrayidx3.i16 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
-  store i32 1, ptr %arrayidx3.i16, align 8
-  %arrayidx5.i17 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 19
-  store i8 1, ptr %arrayidx5.i17, align 1
-  %arrayidx.i18 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
-  store i32 %month.0, ptr %arrayidx.i18, align 4
-  %arrayidx3.i19 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
-  store i32 1, ptr %arrayidx3.i19, align 4
-  %arrayidx5.i20 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
-  store i8 1, ptr %arrayidx5.i20, align 2
-  %arrayidx.i21 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
-  store i32 %month.0, ptr %arrayidx.i21, align 8
-  %arrayidx3.i22 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  store i32 1, ptr %arrayidx3.i22, align 8
-  %arrayidx5.i23 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 23
-  store i8 1, ptr %arrayidx5.i23, align 1
-  %arrayidx.i24 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 %add15, ptr %arrayidx.i24, align 8
-  %arrayidx3.i25 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 1, ptr %arrayidx3.i25, align 8
-  %arrayidx5.i26 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
-  store i8 1, ptr %arrayidx5.i26, align 1
-  %arrayidx.i27 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  store i32 %sub14, ptr %arrayidx.i27, align 4
-  %arrayidx3.i28 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 6
-  store i32 1, ptr %arrayidx3.i28, align 4
-  %arrayidx5.i29 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 6
-  store i8 1, ptr %arrayidx5.i29, align 2
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %fFields.i, align 4
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  store i32 1, ptr %fStamp.i, align 4
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  store i8 1, ptr %fIsSet.i, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %add3, ptr %arrayidx.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i, align 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i, align 1
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %this, i64 88
+  store i32 %add3, ptr %arrayidx.i16, align 8
+  %arrayidx3.i18 = getelementptr inbounds i8, ptr %this, i64 208
+  store i32 1, ptr %arrayidx3.i18, align 8
+  %arrayidx5.i20 = getelementptr inbounds i8, ptr %this, i64 127
+  store i8 1, ptr %arrayidx5.i20, align 1
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %month.0, ptr %arrayidx.i22, align 4
+  %arrayidx3.i24 = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 1, ptr %arrayidx3.i24, align 4
+  %arrayidx5.i26 = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 1, ptr %arrayidx5.i26, align 2
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %this, i64 104
+  store i32 %month.0, ptr %arrayidx.i28, align 8
+  %arrayidx3.i30 = getelementptr inbounds i8, ptr %this, i64 224
+  store i32 1, ptr %arrayidx3.i30, align 8
+  %arrayidx5.i32 = getelementptr inbounds i8, ptr %this, i64 131
+  store i8 1, ptr %arrayidx5.i32, align 1
+  %arrayidx.i34 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %add15, ptr %arrayidx.i34, align 8
+  %arrayidx3.i36 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 1, ptr %arrayidx3.i36, align 8
+  %arrayidx5.i38 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx5.i38, align 1
+  %arrayidx.i40 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %sub14, ptr %arrayidx.i40, align 4
+  %arrayidx3.i42 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 1, ptr %arrayidx3.i42, align 4
+  %arrayidx5.i44 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx5.i44, align 2
   ret void
 }
 

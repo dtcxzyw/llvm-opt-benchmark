@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%"class.zmq::thread_t" = type { ptr, ptr, [16 x i8], i8, i64, i32, i32, %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -99,24 +91,24 @@ entry:
   br i1 %new.isnull, label %if.then, label %new.cont
 
 new.cont:                                         ; preds = %entry
-  %_started.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 3
+  %_started.i = getelementptr inbounds i8, ptr %call, i64 32
   store i8 0, ptr %_started.i, align 8
-  %_thread_priority.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 5
+  %_thread_priority.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
   store i32 -1, ptr %_thread_priority.i, align 8
-  %_thread_sched_policy.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 6
+  %_thread_sched_policy.i = getelementptr inbounds i8, ptr %call, i64 52
   store i32 -1, ptr %_thread_sched_policy.i, align 4
-  %0 = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 7, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %call, i64 64
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %0, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %0, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_name.i = getelementptr inbounds %"class.zmq::thread_t", ptr %call, i64 0, i32 2
+  %_name.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_name.i, i8 0, i64 16, i1 false)
   br label %do.end
 
@@ -144,8 +136,8 @@ declare void @_ZN3zmq8thread_t5startEPFvPvES1_PKc(ptr noundef nonnull align 8 de
 define void @zmq_threadclose(ptr noundef nonnull %thread_) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq8thread_t4stopEv(ptr noundef nonnull align 8 dereferenceable(104) %thread_)
-  %_thread_affinity_cpus.i = getelementptr inbounds %"class.zmq::thread_t", ptr %thread_, i64 0, i32 7
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.zmq::thread_t", ptr %thread_, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_thread_affinity_cpus.i = getelementptr inbounds i8, ptr %thread_, i64 56
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %thread_, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %_thread_affinity_cpus.i, ptr noundef %0)
           to label %_ZN3zmq8thread_tD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -441,10 +433,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null

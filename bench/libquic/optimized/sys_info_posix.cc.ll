@@ -125,7 +125,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp4, label %do.body, label %return, !llvm.loop !5
 
 if.end:                                           ; preds = %do.body
-  %f_blocks = getelementptr inbounds %struct.statvfs, ptr %stats, i64 0, i32 2
+  %f_blocks = getelementptr inbounds i8, ptr %stats, i64 16
   %1 = load i64, ptr %f_blocks, align 8
   %cmp6 = icmp eq i64 %1, 0
   br i1 %cmp6, label %land.rhs7, label %land.end9.thread
@@ -173,9 +173,9 @@ if.then10:                                        ; preds = %land.end9
   br i1 %retval.0.i, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %land.end9.thread, %if.then10
-  %f_bavail = getelementptr inbounds %struct.statvfs, ptr %stats, i64 0, i32 4
+  %f_bavail = getelementptr inbounds i8, ptr %stats, i64 32
   %4 = load i64, ptr %f_bavail, align 8
-  %f_frsize = getelementptr inbounds %struct.statvfs, ptr %stats, i64 0, i32 1
+  %f_frsize = getelementptr inbounds i8, ptr %stats, i64 8
   %5 = load i64, ptr %f_frsize, align 8
   %mul = mul i64 %5, %4
   br label %cond.end
@@ -199,7 +199,7 @@ if.then15:                                        ; preds = %if.end13
   br i1 %7, label %cond.end23, label %cond.false19
 
 cond.false19:                                     ; preds = %if.end13.thread, %if.then15
-  %f_frsize21 = getelementptr inbounds %struct.statvfs, ptr %stats, i64 0, i32 1
+  %f_frsize21 = getelementptr inbounds i8, ptr %stats, i64 8
   %8 = load i64, ptr %f_frsize21, align 8
   %mul22 = mul i64 %8, %1
   br label %cond.end23
@@ -304,7 +304,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %release = getelementptr inbounds %struct.utsname, ptr %info, i64 0, i32 2
+  %release = getelementptr inbounds i8, ptr %info, i64 130
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
@@ -357,7 +357,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %machine = getelementptr inbounds %struct.utsname, ptr %info, i64 0, i32 4
+  %machine = getelementptr inbounds i8, ptr %info, i64 260
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
   %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad

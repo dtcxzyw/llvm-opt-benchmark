@@ -7,14 +7,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @usArrayToRLEString(ptr nocapture noundef readonly %src, i32 noundef %srcLen, ptr noundef %buffer, i32 noundef %bufLen, ptr nocapture noundef writeonly %status) local_unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %bufLen to i64
-  %add.ptr = getelementptr inbounds i16, ptr %buffer, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 1
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %bufLen, 0
   br i1 %cmp, label %if.then, label %if.else20
 
 if.then:                                          ; preds = %entry
   %shr = lshr i32 %srcLen, 16
   %conv = trunc i32 %shr to i16
-  %incdec.ptr = getelementptr inbounds i16, ptr %buffer, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %buffer, i64 2
   store i16 %conv, ptr %buffer, align 2
   %cmp1.not = icmp eq i32 %bufLen, 1
   br i1 %cmp1.not, label %if.else18, label %if.then3
@@ -22,7 +23,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %0 = load i16, ptr %src, align 2
   %conv4 = trunc i32 %srcLen to i16
-  %incdec.ptr5 = getelementptr inbounds i16, ptr %buffer, i64 2
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %buffer, i64 4
   store i16 %conv4, ptr %incdec.ptr, align 2
   %cmp698 = icmp sgt i32 %srcLen, 1
   br i1 %cmp698, label %for.body.preheader, label %for.body.lr.ph.i65
@@ -62,7 +63,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
   %j.038.us.i = phi i32 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
   %buffer.addr.037.us.i = phi ptr [ %buffer.addr.2.us.i, %for.inc.us.i ], [ %buffer.addr.0102, %for.body.lr.ph.i ]
-  %cmp5.us.i = icmp ult ptr %buffer.addr.037.us.i, %add.ptr
+  %cmp5.us.i = icmp ult ptr %buffer.addr.037.us.i, %add.ptr.ptr
   br i1 %cmp5.us.i, label %if.then7.us.i, label %if.else.us.i
 
 if.else.us.i:                                     ; preds = %for.body.us.i
@@ -70,13 +71,13 @@ if.else.us.i:                                     ; preds = %for.body.us.i
   br label %do.body9.us.i
 
 if.then7.us.i:                                    ; preds = %for.body.us.i
-  %incdec.ptr.us.i = getelementptr inbounds i16, ptr %buffer.addr.037.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %buffer.addr.037.us.i, i64 2
   store i16 -23131, ptr %buffer.addr.037.us.i, align 2
   br label %do.body9.us.i
 
 do.body9.us.i:                                    ; preds = %if.then7.us.i, %if.else.us.i
   %buffer.addr.1.us.i = phi ptr [ %incdec.ptr.us.i, %if.then7.us.i ], [ %buffer.addr.037.us.i, %if.else.us.i ]
-  %cmp10.us.i = icmp ult ptr %buffer.addr.1.us.i, %add.ptr
+  %cmp10.us.i = icmp ult ptr %buffer.addr.1.us.i, %add.ptr.ptr
   br i1 %cmp10.us.i, label %if.then12.us.i, label %if.else14.us.i
 
 if.else14.us.i:                                   ; preds = %do.body9.us.i
@@ -84,7 +85,7 @@ if.else14.us.i:                                   ; preds = %do.body9.us.i
   br label %for.inc.us.i
 
 if.then12.us.i:                                   ; preds = %do.body9.us.i
-  %incdec.ptr13.us.i = getelementptr inbounds i16, ptr %buffer.addr.1.us.i, i64 1
+  %incdec.ptr13.us.i = getelementptr inbounds i8, ptr %buffer.addr.1.us.i, i64 2
   store i16 -23131, ptr %buffer.addr.1.us.i, align 2
   br label %for.inc.us.i
 
@@ -97,11 +98,11 @@ for.inc.us.i:                                     ; preds = %if.then12.us.i, %if
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %j.038.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %buffer.addr.037.i = phi ptr [ %buffer.addr.2.i, %for.inc.i ], [ %buffer.addr.0102, %for.body.lr.ph.i ]
-  %cmp10.i = icmp ult ptr %buffer.addr.037.i, %add.ptr
+  %cmp10.i = icmp ult ptr %buffer.addr.037.i, %add.ptr.ptr
   br i1 %cmp10.i, label %if.then12.i, label %if.else14.i
 
 if.then12.i:                                      ; preds = %for.body.i
-  %incdec.ptr13.i = getelementptr inbounds i16, ptr %buffer.addr.037.i, i64 1
+  %incdec.ptr13.i = getelementptr inbounds i8, ptr %buffer.addr.037.i, i64 2
   store i16 %runValue.099, ptr %buffer.addr.037.i, align 2
   br label %for.inc.i
 
@@ -124,11 +125,11 @@ if.then20.i:                                      ; preds = %if.else17.i
   br i1 %cmp22.i, label %do.body25.i, label %do.body34.i
 
 do.body25.i:                                      ; preds = %if.then20.i
-  %cmp26.i = icmp ult ptr %buffer.addr.0102, %add.ptr
+  %cmp26.i = icmp ult ptr %buffer.addr.0102, %add.ptr.ptr
   br i1 %cmp26.i, label %if.then28.i, label %if.else30.i
 
 if.then28.i:                                      ; preds = %do.body25.i
-  %incdec.ptr29.i = getelementptr inbounds i16, ptr %buffer.addr.0102, i64 1
+  %incdec.ptr29.i = getelementptr inbounds i8, ptr %buffer.addr.0102, i64 2
   store i16 -23131, ptr %buffer.addr.0102, align 2
   br label %do.body34.i
 
@@ -138,11 +139,11 @@ if.else30.i:                                      ; preds = %do.body25.i
 
 do.body34.i:                                      ; preds = %if.else30.i, %if.then28.i, %if.then20.i
   %buffer.addr.3.i = phi ptr [ %incdec.ptr29.i, %if.then28.i ], [ %buffer.addr.0102, %if.else30.i ], [ %buffer.addr.0102, %if.then20.i ]
-  %cmp35.i = icmp ult ptr %buffer.addr.3.i, %add.ptr
+  %cmp35.i = icmp ult ptr %buffer.addr.3.i, %add.ptr.ptr
   br i1 %cmp35.i, label %if.then37.i, label %if.else39.i
 
 if.then37.i:                                      ; preds = %do.body34.i
-  %incdec.ptr38.i = getelementptr inbounds i16, ptr %buffer.addr.3.i, i64 1
+  %incdec.ptr38.i = getelementptr inbounds i8, ptr %buffer.addr.3.i, i64 2
   store i16 %runValue.099, ptr %buffer.addr.3.i, align 2
   br label %do.body43.i
 
@@ -153,11 +154,11 @@ if.else39.i:                                      ; preds = %do.body34.i
 do.body43.i:                                      ; preds = %if.else39.i, %if.then37.i, %if.else17.i
   %length.addr.0.i = phi i32 [ %runLength.0100, %if.else17.i ], [ 42404, %if.then37.i ], [ 42404, %if.else39.i ]
   %buffer.addr.5.i = phi ptr [ %buffer.addr.0102, %if.else17.i ], [ %incdec.ptr38.i, %if.then37.i ], [ %buffer.addr.3.i, %if.else39.i ]
-  %cmp44.i = icmp ult ptr %buffer.addr.5.i, %add.ptr
+  %cmp44.i = icmp ult ptr %buffer.addr.5.i, %add.ptr.ptr
   br i1 %cmp44.i, label %if.then46.i, label %if.else48.i
 
 if.then46.i:                                      ; preds = %do.body43.i
-  %incdec.ptr47.i = getelementptr inbounds i16, ptr %buffer.addr.5.i, i64 1
+  %incdec.ptr47.i = getelementptr inbounds i8, ptr %buffer.addr.5.i, i64 2
   store i16 -23131, ptr %buffer.addr.5.i, align 2
   br label %do.body51.i
 
@@ -167,12 +168,12 @@ if.else48.i:                                      ; preds = %do.body43.i
 
 do.body51.i:                                      ; preds = %if.else48.i, %if.then46.i
   %buffer.addr.6.i = phi ptr [ %incdec.ptr47.i, %if.then46.i ], [ %buffer.addr.5.i, %if.else48.i ]
-  %cmp52.i = icmp ult ptr %buffer.addr.6.i, %add.ptr
+  %cmp52.i = icmp ult ptr %buffer.addr.6.i, %add.ptr.ptr
   br i1 %cmp52.i, label %if.then54.i, label %if.else57.i
 
 if.then54.i:                                      ; preds = %do.body51.i
   %conv55.i = trunc i32 %length.addr.0.i to i16
-  %incdec.ptr56.i = getelementptr inbounds i16, ptr %buffer.addr.6.i, i64 1
+  %incdec.ptr56.i = getelementptr inbounds i8, ptr %buffer.addr.6.i, i64 2
   store i16 %conv55.i, ptr %buffer.addr.6.i, align 2
   br label %do.body60.i
 
@@ -182,11 +183,11 @@ if.else57.i:                                      ; preds = %do.body51.i
 
 do.body60.i:                                      ; preds = %if.else57.i, %if.then54.i
   %buffer.addr.7.i = phi ptr [ %incdec.ptr56.i, %if.then54.i ], [ %buffer.addr.6.i, %if.else57.i ]
-  %cmp61.i = icmp ult ptr %buffer.addr.7.i, %add.ptr
+  %cmp61.i = icmp ult ptr %buffer.addr.7.i, %add.ptr.ptr
   br i1 %cmp61.i, label %if.then63.i, label %if.else65.i
 
 if.then63.i:                                      ; preds = %do.body60.i
-  %incdec.ptr64.i = getelementptr inbounds i16, ptr %buffer.addr.7.i, i64 1
+  %incdec.ptr64.i = getelementptr inbounds i8, ptr %buffer.addr.7.i, i64 2
   store i16 %runValue.099, ptr %buffer.addr.7.i, align 2
   br label %for.inc
 
@@ -220,7 +221,7 @@ for.body.lr.ph.i65:                               ; preds = %if.then3, %for.cond
 for.body.us.i78:                                  ; preds = %for.body.lr.ph.i65, %for.inc.us.i87
   %j.038.us.i79 = phi i32 [ %inc.us.i89, %for.inc.us.i87 ], [ 0, %for.body.lr.ph.i65 ]
   %buffer.addr.037.us.i80 = phi ptr [ %buffer.addr.2.us.i88, %for.inc.us.i87 ], [ %buffer.addr.0.lcssa113118, %for.body.lr.ph.i65 ]
-  %cmp5.us.i81 = icmp ult ptr %buffer.addr.037.us.i80, %add.ptr
+  %cmp5.us.i81 = icmp ult ptr %buffer.addr.037.us.i80, %add.ptr.ptr
   br i1 %cmp5.us.i81, label %if.then7.us.i93, label %if.else.us.i82
 
 if.else.us.i82:                                   ; preds = %for.body.us.i78
@@ -228,13 +229,13 @@ if.else.us.i82:                                   ; preds = %for.body.us.i78
   br label %do.body9.us.i83
 
 if.then7.us.i93:                                  ; preds = %for.body.us.i78
-  %incdec.ptr.us.i94 = getelementptr inbounds i16, ptr %buffer.addr.037.us.i80, i64 1
+  %incdec.ptr.us.i94 = getelementptr inbounds i8, ptr %buffer.addr.037.us.i80, i64 2
   store i16 -23131, ptr %buffer.addr.037.us.i80, align 2
   br label %do.body9.us.i83
 
 do.body9.us.i83:                                  ; preds = %if.then7.us.i93, %if.else.us.i82
   %buffer.addr.1.us.i84 = phi ptr [ %incdec.ptr.us.i94, %if.then7.us.i93 ], [ %buffer.addr.037.us.i80, %if.else.us.i82 ]
-  %cmp10.us.i85 = icmp ult ptr %buffer.addr.1.us.i84, %add.ptr
+  %cmp10.us.i85 = icmp ult ptr %buffer.addr.1.us.i84, %add.ptr.ptr
   br i1 %cmp10.us.i85, label %if.then12.us.i91, label %if.else14.us.i86
 
 if.else14.us.i86:                                 ; preds = %do.body9.us.i83
@@ -242,7 +243,7 @@ if.else14.us.i86:                                 ; preds = %do.body9.us.i83
   br label %for.inc.us.i87
 
 if.then12.us.i91:                                 ; preds = %do.body9.us.i83
-  %incdec.ptr13.us.i92 = getelementptr inbounds i16, ptr %buffer.addr.1.us.i84, i64 1
+  %incdec.ptr13.us.i92 = getelementptr inbounds i8, ptr %buffer.addr.1.us.i84, i64 2
   store i16 -23131, ptr %buffer.addr.1.us.i84, align 2
   br label %for.inc.us.i87
 
@@ -255,11 +256,11 @@ for.inc.us.i87:                                   ; preds = %if.then12.us.i91, %
 for.body.i67:                                     ; preds = %for.body.lr.ph.i65, %for.inc.i72
   %j.038.i68 = phi i32 [ %inc.i74, %for.inc.i72 ], [ 0, %for.body.lr.ph.i65 ]
   %buffer.addr.037.i69 = phi ptr [ %buffer.addr.2.i73, %for.inc.i72 ], [ %buffer.addr.0.lcssa113118, %for.body.lr.ph.i65 ]
-  %cmp10.i70 = icmp ult ptr %buffer.addr.037.i69, %add.ptr
+  %cmp10.i70 = icmp ult ptr %buffer.addr.037.i69, %add.ptr.ptr
   br i1 %cmp10.i70, label %if.then12.i76, label %if.else14.i71
 
 if.then12.i76:                                    ; preds = %for.body.i67
-  %incdec.ptr13.i77 = getelementptr inbounds i16, ptr %buffer.addr.037.i69, i64 1
+  %incdec.ptr13.i77 = getelementptr inbounds i8, ptr %buffer.addr.037.i69, i64 2
   store i16 %runValue.0.lcssa111120, ptr %buffer.addr.037.i69, align 2
   br label %for.inc.i72
 
@@ -282,11 +283,11 @@ if.then20.i50:                                    ; preds = %if.else17.i27
   br i1 %cmp22.i51, label %do.body25.i58, label %do.body34.i52
 
 do.body25.i58:                                    ; preds = %if.then20.i50
-  %cmp26.i59 = icmp ult ptr %buffer.addr.1, %add.ptr
+  %cmp26.i59 = icmp ult ptr %buffer.addr.1, %add.ptr.ptr
   br i1 %cmp26.i59, label %if.then28.i61, label %if.else30.i60
 
 if.then28.i61:                                    ; preds = %do.body25.i58
-  %incdec.ptr29.i62 = getelementptr inbounds i16, ptr %buffer.addr.1, i64 1
+  %incdec.ptr29.i62 = getelementptr inbounds i8, ptr %buffer.addr.1, i64 2
   store i16 -23131, ptr %buffer.addr.1, align 2
   br label %do.body34.i52
 
@@ -296,11 +297,11 @@ if.else30.i60:                                    ; preds = %do.body25.i58
 
 do.body34.i52:                                    ; preds = %if.else30.i60, %if.then28.i61, %if.then20.i50
   %buffer.addr.3.i53 = phi ptr [ %incdec.ptr29.i62, %if.then28.i61 ], [ %buffer.addr.1, %if.else30.i60 ], [ %buffer.addr.1, %if.then20.i50 ]
-  %cmp35.i54 = icmp ult ptr %buffer.addr.3.i53, %add.ptr
+  %cmp35.i54 = icmp ult ptr %buffer.addr.3.i53, %add.ptr.ptr
   br i1 %cmp35.i54, label %if.then37.i56, label %if.else39.i55
 
 if.then37.i56:                                    ; preds = %do.body34.i52
-  %incdec.ptr38.i57 = getelementptr inbounds i16, ptr %buffer.addr.3.i53, i64 1
+  %incdec.ptr38.i57 = getelementptr inbounds i8, ptr %buffer.addr.3.i53, i64 2
   store i16 %runValue.1, ptr %buffer.addr.3.i53, align 2
   br label %do.body43.i29
 
@@ -311,11 +312,11 @@ if.else39.i55:                                    ; preds = %do.body34.i52
 do.body43.i29:                                    ; preds = %if.else39.i55, %if.then37.i56, %if.else17.i27
   %length.addr.0.i30 = phi i32 [ %runLength.1, %if.else17.i27 ], [ 42404, %if.then37.i56 ], [ 42404, %if.else39.i55 ]
   %buffer.addr.5.i31 = phi ptr [ %buffer.addr.1, %if.else17.i27 ], [ %incdec.ptr38.i57, %if.then37.i56 ], [ %buffer.addr.3.i53, %if.else39.i55 ]
-  %cmp44.i32 = icmp ult ptr %buffer.addr.5.i31, %add.ptr
+  %cmp44.i32 = icmp ult ptr %buffer.addr.5.i31, %add.ptr.ptr
   br i1 %cmp44.i32, label %if.then46.i48, label %if.else48.i33
 
 if.then46.i48:                                    ; preds = %do.body43.i29
-  %incdec.ptr47.i49 = getelementptr inbounds i16, ptr %buffer.addr.5.i31, i64 1
+  %incdec.ptr47.i49 = getelementptr inbounds i8, ptr %buffer.addr.5.i31, i64 2
   store i16 -23131, ptr %buffer.addr.5.i31, align 2
   br label %do.body51.i34
 
@@ -325,12 +326,12 @@ if.else48.i33:                                    ; preds = %do.body43.i29
 
 do.body51.i34:                                    ; preds = %if.else48.i33, %if.then46.i48
   %buffer.addr.6.i35 = phi ptr [ %incdec.ptr47.i49, %if.then46.i48 ], [ %buffer.addr.5.i31, %if.else48.i33 ]
-  %cmp52.i36 = icmp ult ptr %buffer.addr.6.i35, %add.ptr
+  %cmp52.i36 = icmp ult ptr %buffer.addr.6.i35, %add.ptr.ptr
   br i1 %cmp52.i36, label %if.then54.i45, label %if.else57.i37
 
 if.then54.i45:                                    ; preds = %do.body51.i34
   %conv55.i46 = trunc i32 %length.addr.0.i30 to i16
-  %incdec.ptr56.i47 = getelementptr inbounds i16, ptr %buffer.addr.6.i35, i64 1
+  %incdec.ptr56.i47 = getelementptr inbounds i8, ptr %buffer.addr.6.i35, i64 2
   store i16 %conv55.i46, ptr %buffer.addr.6.i35, align 2
   br label %do.body60.i38
 
@@ -340,11 +341,11 @@ if.else57.i37:                                    ; preds = %do.body51.i34
 
 do.body60.i38:                                    ; preds = %if.else57.i37, %if.then54.i45
   %buffer.addr.7.i39 = phi ptr [ %incdec.ptr56.i47, %if.then54.i45 ], [ %buffer.addr.6.i35, %if.else57.i37 ]
-  %cmp61.i40 = icmp ult ptr %buffer.addr.7.i39, %add.ptr
+  %cmp61.i40 = icmp ult ptr %buffer.addr.7.i39, %add.ptr.ptr
   br i1 %cmp61.i40, label %if.then63.i43, label %if.else65.i41
 
 if.then63.i43:                                    ; preds = %do.body60.i38
-  %incdec.ptr64.i44 = getelementptr inbounds i16, ptr %buffer.addr.7.i39, i64 1
+  %incdec.ptr64.i44 = getelementptr inbounds i8, ptr %buffer.addr.7.i39, i64 2
   store i16 %runValue.1, ptr %buffer.addr.7.i39, align 2
   br label %if.end21
 
@@ -375,14 +376,15 @@ define dso_local i32 @byteArrayToRLEString(ptr nocapture noundef readonly %src, 
 entry:
   %state = alloca [2 x i8], align 2
   %idx.ext = sext i32 %bufLen to i64
-  %add.ptr = getelementptr inbounds i16, ptr %buffer, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 1
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %bufLen, 0
   br i1 %cmp, label %if.then, label %if.else29
 
 if.then:                                          ; preds = %entry
   %shr = lshr i32 %srcLen, 16
   %conv = trunc i32 %shr to i16
-  %incdec.ptr = getelementptr inbounds i16, ptr %buffer, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %buffer, i64 2
   store i16 %conv, ptr %buffer, align 2
   %cmp1.not = icmp eq i32 %bufLen, 1
   br i1 %cmp1.not, label %if.else27, label %if.then3
@@ -391,7 +393,7 @@ if.then3:                                         ; preds = %if.then
   %0 = load i8, ptr %src, align 1
   store i16 0, ptr %state, align 2
   %conv4 = trunc i32 %srcLen to i16
-  %incdec.ptr5 = getelementptr inbounds i16, ptr %buffer, i64 2
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %buffer, i64 4
   store i16 %conv4, ptr %incdec.ptr, align 2
   %cmp629 = icmp sgt i32 %srcLen, 1
   br i1 %cmp629, label %for.body.preheader, label %for.end
@@ -417,7 +419,7 @@ if.then15:                                        ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.033, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.030, i32 noundef %runLength.031, ptr noundef nonnull %state, ptr noundef %status)
+  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.033, ptr noundef nonnull %add.ptr.ptr, i8 noundef zeroext %runValue.030, i32 noundef %runLength.031, ptr noundef nonnull %state, ptr noundef %status)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then15, %if.else
@@ -432,7 +434,7 @@ for.end:                                          ; preds = %for.inc, %if.then3
   %runValue.0.lcssa = phi i8 [ %0, %if.then3 ], [ %runValue.1, %for.inc ]
   %runLength.0.lcssa = phi i32 [ 1, %if.then3 ], [ %runLength.1, %for.inc ]
   %buffer.addr.0.lcssa = phi ptr [ %incdec.ptr5, %if.then3 ], [ %buffer.addr.1, %for.inc ]
-  %call18 = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.0.lcssa, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.0.lcssa, i32 noundef %runLength.0.lcssa, ptr noundef nonnull %state, ptr noundef %status)
+  %call18 = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.0.lcssa, ptr noundef nonnull %add.ptr.ptr, i8 noundef zeroext %runValue.0.lcssa, i32 noundef %runLength.0.lcssa, ptr noundef nonnull %state, ptr noundef %status)
   %2 = load i8, ptr %state, align 2
   %cmp21.not = icmp eq i8 %2, 0
   br i1 %cmp21.not, label %if.end30, label %if.then23
@@ -447,7 +449,7 @@ lor.lhs.false.i:                                  ; preds = %if.then23
   br i1 %cmp.i, label %if.end30, label %if.then3.i
 
 if.then3.i:                                       ; preds = %lor.lhs.false.i
-  %cmp8.i = icmp ult ptr %call18, %add.ptr
+  %cmp8.i = icmp ult ptr %call18, %add.ptr.ptr
   br i1 %cmp8.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.then3.i
@@ -455,7 +457,7 @@ if.then10.i:                                      ; preds = %if.then3.i
   %4 = load i8, ptr %arrayidx4.i, align 1
   %conv5.i = zext i8 %4 to i16
   %shl.i = shl nuw i16 %conv5.i, 8
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %call18, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %call18, i64 2
   store i16 %shl.i, ptr %call18, align 2
   br label %if.end30
 
@@ -531,7 +533,7 @@ if.then10.i.us:                                   ; preds = %if.then3.i.us
   %conv5.i.us = zext i8 %3 to i16
   %shl.i.us = shl nuw i16 %conv5.i.us, 8
   %or.i.us = or disjoint i16 %shl.i.us, 165
-  %incdec.ptr.i.us = getelementptr inbounds i16, ptr %buffer.addr.0181.us, i64 1
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %buffer.addr.0181.us, i64 2
   store i16 %or.i.us, ptr %buffer.addr.0181.us, align 2
   br label %lor.lhs.false.i38.us.thread
 
@@ -562,7 +564,7 @@ if.then10.i48.us:                                 ; preds = %if.then3.i42.us
   %conv5.i50.us = zext i8 %4 to i16
   %shl.i51.us = shl nuw i16 %conv5.i50.us, 8
   %or.i52.us = or disjoint i16 %shl.i51.us, 165
-  %incdec.ptr.i53.us = getelementptr inbounds i16, ptr %buffer.addr.0181.us, i64 1
+  %incdec.ptr.i53.us = getelementptr inbounds i8, ptr %buffer.addr.0181.us, i64 2
   store i16 %or.i52.us, ptr %buffer.addr.0181.us, align 2
   br label %if.end11.i45.us
 
@@ -603,7 +605,7 @@ if.then10.i48:                                    ; preds = %if.then3.i42
   %conv5.i50 = zext i8 %6 to i16
   %shl.i51 = shl nuw i16 %conv5.i50, 8
   %or.i52 = or disjoint i16 %shl.i51, %conv6.i
-  %incdec.ptr.i53 = getelementptr inbounds i16, ptr %buffer.addr.0181, i64 1
+  %incdec.ptr.i53 = getelementptr inbounds i8, ptr %buffer.addr.0181, i64 2
   store i16 %or.i52, ptr %buffer.addr.0181, align 2
   br label %if.end11.i45
 
@@ -650,7 +652,7 @@ if.then10.i68:                                    ; preds = %if.then3.i62
   %conv5.i70 = zext i8 %8 to i16
   %shl.i71 = shl nuw i16 %conv5.i70, 8
   %or.i72 = or disjoint i16 %shl.i71, 165
-  %incdec.ptr.i73 = getelementptr inbounds i16, ptr %buffer, i64 1
+  %incdec.ptr.i73 = getelementptr inbounds i8, ptr %buffer, i64 2
   store i16 %or.i72, ptr %buffer, align 2
   br label %if.end11.i65
 
@@ -691,7 +693,7 @@ if.then10.i88:                                    ; preds = %if.then3.i82
   %shl.i91 = shl nuw i16 %conv5.i90, 8
   %conv6.i92 = zext i8 %value to i16
   %or.i93 = or disjoint i16 %shl.i91, %conv6.i92
-  %incdec.ptr.i94 = getelementptr inbounds i16, ptr %buffer.addr.2, i64 1
+  %incdec.ptr.i94 = getelementptr inbounds i8, ptr %buffer.addr.2, i64 2
   store i16 %or.i93, ptr %buffer.addr.2, align 2
   br label %if.end11.i85
 
@@ -732,7 +734,7 @@ if.then10.i109:                                   ; preds = %if.then3.i103
   %conv5.i111 = zext i8 %13 to i16
   %shl.i112 = shl nuw i16 %conv5.i111, 8
   %or.i113 = or disjoint i16 %shl.i112, 165
-  %incdec.ptr.i114 = getelementptr inbounds i16, ptr %buffer.addr.3.ph, i64 1
+  %incdec.ptr.i114 = getelementptr inbounds i8, ptr %buffer.addr.3.ph, i64 2
   store i16 %or.i113, ptr %buffer.addr.3.ph, align 2
   br label %lor.lhs.false.i119.thread
 
@@ -767,7 +769,7 @@ if.then10.i129:                                   ; preds = %if.then3.i123
   %15 = trunc i32 %length.addr.0.ph to i16
   %conv6.i133 = and i16 %15, 255
   %or.i134 = or disjoint i16 %shl.i132, %conv6.i133
-  %incdec.ptr.i135 = getelementptr inbounds i16, ptr %buffer.addr.3.ph, i64 1
+  %incdec.ptr.i135 = getelementptr inbounds i8, ptr %buffer.addr.3.ph, i64 2
   store i16 %or.i134, ptr %buffer.addr.3.ph, align 2
   br label %lor.lhs.false.i140
 
@@ -806,7 +808,7 @@ if.then10.i150:                                   ; preds = %if.then3.i144
   %shl.i153 = shl nuw i16 %conv5.i152, 8
   %conv6.i154 = zext i8 %value to i16
   %or.i155 = or disjoint i16 %shl.i153, %conv6.i154
-  %incdec.ptr.i156 = getelementptr inbounds i16, ptr %retval.0.i128.ph.ph218220, i64 1
+  %incdec.ptr.i156 = getelementptr inbounds i8, ptr %retval.0.i128.ph.ph218220, i64 2
   store i16 %or.i155, ptr %retval.0.i128.ph.ph218220, align 2
   br label %if.end11.i147
 
@@ -858,7 +860,7 @@ if.end6:                                          ; preds = %if.end3
   %1 = load i16, ptr %src, align 2
   %conv = zext i16 %1 to i32
   %shl = shl nuw i32 %conv, 16
-  %arrayidx7 = getelementptr inbounds i16, ptr %src, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %src, i64 2
   %2 = load i16, ptr %arrayidx7, align 2
   %conv8 = zext i16 %2 to i32
   %or = or disjoint i32 %shl, %conv8
@@ -978,7 +980,7 @@ if.end6:                                          ; preds = %if.end3
   %1 = load i16, ptr %src, align 2
   %conv = zext i16 %1 to i32
   %shl = shl nuw i32 %conv, 16
-  %arrayidx7 = getelementptr inbounds i16, ptr %src, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %src, i64 2
   %2 = load i16, ptr %arrayidx7, align 2
   %conv8 = zext i16 %2 to i32
   %or = or disjoint i32 %shl, %conv8

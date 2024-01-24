@@ -3,21 +3,11 @@ source_filename = "bench/icu/original/numparse_validators.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::numparse::impl::ParsedNumber" = type { %"class.icu_75::number::impl::DecimalQuantity", i32, i32, %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", [4 x i16] }
-%"class.icu_75::number::impl::DecimalQuantity" = type <{ %"class.icu_75::IFixedDecimal", i8, [3 x i8], i32, i32, i8, i8, [2 x i8], double, i32, i32, i32, i32, %union.anon, i8, i8, [6 x i8] }>
-%"class.icu_75::IFixedDecimal" = type { ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i32 }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.1, [32 x i8] }
 %struct.anon.1 = type { i16, i32, i32, ptr }
-%"class.icu_75::numparse::impl::RequireDecimalSeparatorValidator" = type <{ %"class.icu_75::numparse::impl::ValidationMatcher", i8, [7 x i8] }>
-%"class.icu_75::numparse::impl::ValidationMatcher" = type { %"class.icu_75::numparse::impl::NumberParseMatcher" }
-%"class.icu_75::numparse::impl::NumberParseMatcher" = type { ptr }
-%"class.icu_75::numparse::impl::MultiplierParseHandler" = type { %"class.icu_75::numparse::impl::ValidationMatcher", %"class.icu_75::number::Scale" }
-%"class.icu_75::number::Scale" = type <{ i32, [4 x i8], ptr, i32, [4 x i8] }>
 
 $_ZN6icu_758numparse4impl21RequireAffixValidatorD2Ev = comdat any
 
@@ -88,21 +78,21 @@ $_ZTIN6icu_757UMemoryE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_758numparse4impl21RequireAffixValidator11postProcessERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %fUnion.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 3, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %result, i64 88
   %0 = load i16, ptr %fUnion.i, align 8
   %conv2.i5 = and i16 %0, 1
   %tobool.not = icmp eq i16 %conv2.i5, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %fUnion.i3 = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 4, i32 1
+  %fUnion.i3 = getelementptr inbounds i8, ptr %result, i64 152
   %1 = load i16, ptr %fUnion.i3, align 8
   %conv2.i46 = and i16 %1, 1
   %tobool3.not = icmp eq i16 %conv2.i46, 0
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %flags = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %result, i64 76
   %2 = load i32, ptr %flags, align 4
   %or = or i32 %2, 256
   store i32 %or, ptr %flags, align 4
@@ -124,13 +114,13 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_758numparse4impl24RequireCurrencyValidator11postProcessERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %currencyCode = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 5
+  %currencyCode = getelementptr inbounds i8, ptr %result, i64 208
   %0 = load i16, ptr %currencyCode, align 8
   %cmp = icmp eq i16 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %result, i64 76
   %1 = load i32, ptr %flags, align 4
   %or = or i32 %1, 256
   store i32 %or, ptr %flags, align 4
@@ -152,7 +142,7 @@ define void @_ZN6icu_758numparse4impl32RequireDecimalSeparatorValidatorC2Eb(ptr 
 entry:
   %frombool = zext i1 %patternHasDecimalSeparator to i8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl32RequireDecimalSeparatorValidatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPatternHasDecimalSeparator = getelementptr inbounds %"class.icu_75::numparse::impl::RequireDecimalSeparatorValidator", ptr %this, i64 0, i32 1
+  %fPatternHasDecimalSeparator = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %frombool, ptr %fPatternHasDecimalSeparator, align 8
   ret void
 }
@@ -160,11 +150,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_758numparse4impl32RequireDecimalSeparatorValidator11postProcessERNS1_12ParsedNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %flags = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %and = lshr i32 %0, 5
   %and.lobit = and i32 %and, 1
-  %fPatternHasDecimalSeparator = getelementptr inbounds %"class.icu_75::numparse::impl::RequireDecimalSeparatorValidator", ptr %this, i64 0, i32 1
+  %fPatternHasDecimalSeparator = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fPatternHasDecimalSeparator, align 8
   %2 = and i8 %1, 1
   %conv3 = zext nneg i8 %2 to i32
@@ -194,7 +184,7 @@ entry:
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 256
   store i32 %or, ptr %flags, align 4
@@ -217,7 +207,7 @@ entry:
 define void @_ZN6icu_758numparse4impl22MultiplierParseHandlerC2ENS_6number5ScaleE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %multiplier) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fMultiplier = getelementptr inbounds %"class.icu_75::numparse::impl::MultiplierParseHandler", ptr %this, i64 0, i32 1
+  %fMultiplier = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number5ScaleC1EOS1_(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier, ptr noundef nonnull align 8 dereferenceable(20) %multiplier) #6
   ret void
 }
@@ -228,14 +218,14 @@ declare void @_ZN6icu_756number5ScaleC1EOS1_(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_758numparse4impl22MultiplierParseHandler11postProcessERNS1_12ParsedNumberE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #1 align 2 {
 entry:
-  %bogus = getelementptr inbounds %"class.icu_75::number::impl::DecimalQuantity", ptr %result, i64 0, i32 1
+  %bogus = getelementptr inbounds i8, ptr %result, i64 8
   %0 = load i8, ptr %bogus, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fMultiplier = getelementptr inbounds %"class.icu_75::numparse::impl::MultiplierParseHandler", ptr %this, i64 0, i32 1
+  %fMultiplier = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNK6icu_756number5Scale17applyReciprocalToERNS0_4impl15DecimalQuantityE(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier, ptr noundef nonnull align 8 dereferenceable(66) %result)
   br label %if.end
 
@@ -334,7 +324,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl22MultiplierParseHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fMultiplier = getelementptr inbounds %"class.icu_75::numparse::impl::MultiplierParseHandler", ptr %this, i64 0, i32 1
+  %fMultiplier = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier) #6
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
   ret void
@@ -344,7 +334,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl22MultiplierParseHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fMultiplier.i = getelementptr inbounds %"class.icu_75::numparse::impl::MultiplierParseHandler", ptr %this, i64 0, i32 1
+  %fMultiplier.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_756number5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %fMultiplier.i) #6
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #6
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #6

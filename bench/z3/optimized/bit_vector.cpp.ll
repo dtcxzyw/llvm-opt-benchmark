@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%class.bit_vector = type { i32, i32, ptr }
-%class.fr_bit_vector = type { %class.bit_vector, %class.svector }
-%class.svector = type { %class.vector }
-%class.vector = type { ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -26,7 +22,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN10bit_vector9expand_toEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %new_capacity) local_unnamed_addr #3 align 2 {
 entry:
-  %m_data = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
   %tobool.not = icmp eq ptr %0, null
   %conv4 = zext i32 %new_capacity to i64
@@ -44,7 +40,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %storemerge = phi ptr [ %call6, %if.else ], [ %call, %if.then ]
   store ptr %storemerge, ptr %m_data, align 8
-  %m_capacity = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_capacity, align 4
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds i32, ptr %storemerge, i64 %idx.ext
@@ -73,13 +69,13 @@ entry:
 if.end:                                           ; preds = %entry
   %add.i = add i32 %new_size, 31
   %div1.i = lshr i32 %add.i, 5
-  %m_capacity = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 1
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_capacity, align 4
   %cmp3 = icmp ugt i32 %div1.i, %1
   br i1 %cmp3, label %if.then4, label %if.end.if.end6_crit_edge
 
 if.end.if.end6_crit_edge:                         ; preds = %if.end
-  %m_data.phi.trans.insert = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre17 = load ptr, ptr %m_data.phi.trans.insert, align 8
   br label %if.end6
 
@@ -87,7 +83,7 @@ if.then4:                                         ; preds = %if.end
   %mul = mul nuw nsw i32 %div1.i, 3
   %add = add nuw nsw i32 %mul, 1
   %shr = lshr i32 %add, 1
-  %m_data.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_data.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   %3 = shl nuw nsw i32 %shr, 2
@@ -145,7 +141,7 @@ if.end11:                                         ; preds = %if.else, %if.then10
   br i1 %cmp12, label %if.then13, label %return
 
 if.then13:                                        ; preds = %if.end11
-  %add.ptr14 = getelementptr inbounds i32, ptr %add.ptr, i64 1
+  %add.ptr14 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %9 = xor i32 %div12, -1
   %sub16 = add nsw i32 %div1.i, %9
   %conv = zext i32 %sub16 to i64
@@ -175,13 +171,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %_ZN10bit_vector6resizeEjb.exit
 
 if.end.i:                                         ; preds = %if.end
-  %m_capacity.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 1
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %m_capacity.i, align 4
   %cmp3.i = icmp ugt i32 %div1.i21, %1
   br i1 %cmp3.i, label %if.then4.i, label %if.end.if.end6_crit_edge.i
 
 if.end.if.end6_crit_edge.i:                       ; preds = %if.end.i
-  %m_data.phi.trans.insert.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre17.i = load ptr, ptr %m_data.phi.trans.insert.i, align 8
   br label %if.end6.i
 
@@ -189,7 +185,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %mul.i = mul nuw nsw i32 %div1.i21, 3
   %add.i22 = add nuw nsw i32 %mul.i, 1
   %shr.i = lshr i32 %add.i22, 1
-  %m_data.i.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   %3 = shl nuw nsw i32 %shr.i, 2
@@ -234,7 +230,7 @@ if.end6.i:                                        ; preds = %_ZN10bit_vector9exp
   br i1 %cmp12.i, label %if.then13.i, label %_ZN10bit_vector6resizeEjb.exit
 
 if.then13.i:                                      ; preds = %if.end6.i
-  %add.ptr14.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %8 = xor i32 %div12.i, -1
   %sub16.i = add nsw i32 %div1.i21, %8
   %conv.i = zext i32 %sub16.i to i64
@@ -255,7 +251,7 @@ if.then10:                                        ; preds = %_ZN10bit_vector6res
   br i1 %cmp12.not23, label %while.cond17.preheader, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then10
-  %m_data = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.body
 
 while.cond17.preheader:                           ; preds = %while.body, %if.then10
@@ -264,7 +260,7 @@ while.cond17.preheader:                           ; preds = %while.body, %if.the
   br i1 %cmp18.not26, label %if.end25, label %while.body19.lr.ph
 
 while.body19.lr.ph:                               ; preds = %while.cond17.preheader
-  %m_data21 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data21 = getelementptr inbounds i8, ptr %this, i64 8
   %10 = zext i32 %i.0.lcssa to i64
   br label %while.body19
 
@@ -302,7 +298,7 @@ if.then27:                                        ; preds = %if.end25
   br i1 %cmp3128, label %for.body.lr.ph, label %if.end41
 
 for.body.lr.ph:                                   ; preds = %if.then27
-  %m_data32 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data32 = getelementptr inbounds i8, ptr %this, i64 8
   %15 = lshr i32 %k, 5
   %16 = zext nneg i32 %15 to i64
   %17 = add nuw nsw i32 %div1.i21, %15
@@ -349,9 +345,9 @@ for.cond.preheader:                               ; preds = %if.end
   %div1.i.i = lshr i32 %add.i.i, 5
   %sub = add nsw i32 %div1.i.i, -1
   %cmp613.not = icmp eq i32 %sub, 0
-  %m_data18.phi.trans.insert = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data18.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load ptr, ptr %m_data18.phi.trans.insert, align 8
-  %m_data21.phi.trans.insert = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
+  %m_data21.phi.trans.insert = getelementptr inbounds i8, ptr %source, i64 8
   %.pre16 = load ptr, ptr %m_data21.phi.trans.insert, align 8
   br i1 %cmp613.not, label %for.end, label %for.body.lr.ph
 
@@ -410,13 +406,13 @@ entry:
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i32 %1, 31
   %div1.i.i = lshr i32 %add.i.i, 5
-  %m_capacity.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 1
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %m_capacity.i, align 4
   %cmp3.i = icmp ugt i32 %div1.i.i, %2
   br i1 %cmp3.i, label %if.then4.i, label %if.end.if.end6_crit_edge.i
 
 if.end.if.end6_crit_edge.i:                       ; preds = %if.end.i
-  %m_data.phi.trans.insert.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre17.i = load ptr, ptr %m_data.phi.trans.insert.i, align 8
   br label %if.end6.i
 
@@ -424,7 +420,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %mul.i = mul nuw nsw i32 %div1.i.i, 3
   %add.i = add nuw nsw i32 %mul.i, 1
   %shr.i = lshr i32 %add.i, 1
-  %m_data.i.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %4 = shl nuw nsw i32 %shr.i, 2
@@ -469,7 +465,7 @@ if.end6.i:                                        ; preds = %_ZN10bit_vector9exp
   br i1 %cmp12.i, label %if.then13.i, label %_ZN10bit_vector6resizeEjb.exit
 
 if.then13.i:                                      ; preds = %if.end6.i
-  %add.ptr14.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %9 = xor i32 %div12.i, -1
   %sub16.i = add nsw i32 %div1.i.i, %9
   %conv.i = zext i32 %sub16.i to i64
@@ -496,8 +492,8 @@ for.cond12.preheader:                             ; preds = %if.end
   br i1 %cmp1319.not, label %for.end24, label %for.body14.lr.ph
 
 for.body14.lr.ph:                                 ; preds = %for.cond12.preheader
-  %m_data15 = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
-  %m_data18 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data15 = getelementptr inbounds i8, ptr %source, i64 8
+  %m_data18 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count = zext i32 %sub to i64
   br label %for.body14
 
@@ -506,8 +502,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp721.not, label %if.end33, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_data = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
-  %m_data8 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %source, i64 8
+  %m_data8 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count27 = zext nneg i32 %div1.i.i18 to i64
   br label %for.body
 
@@ -547,12 +543,12 @@ for.end24:                                        ; preds = %for.cond12.preheade
   %i11.0.lcssa = phi i64 [ %19, %for.end24.loopexit ], [ 0, %for.cond12.preheader ]
   %notmask = shl nsw i32 -1, %rem
   %sub25 = xor i32 %notmask, -1
-  %m_data26 = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
+  %m_data26 = getelementptr inbounds i8, ptr %source, i64 8
   %20 = load ptr, ptr %m_data26, align 8
   %arrayidx28 = getelementptr inbounds i32, ptr %20, i64 %i11.0.lcssa
   %21 = load i32, ptr %arrayidx28, align 4
   %and = and i32 %21, %sub25
-  %m_data29 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data29 = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load ptr, ptr %m_data29, align 8
   %arrayidx31 = getelementptr inbounds i32, ptr %22, i64 %i11.0.lcssa
   %23 = load i32, ptr %arrayidx31, align 4
@@ -581,8 +577,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %for.body.lr.ph, label %if.else
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %m_data = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
-  %m_data6 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %source, i64 8
+  %m_data6 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count53 = zext nneg i32 %div1.i.i to i64
   br label %for.body
 
@@ -611,8 +607,8 @@ for.cond26.preheader:                             ; preds = %if.else
   br i1 %cmp2731.not, label %for.end38, label %for.body28.lr.ph
 
 for.body28.lr.ph:                                 ; preds = %for.cond26.preheader
-  %m_data29 = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
-  %m_data32 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data29 = getelementptr inbounds i8, ptr %source, i64 8
+  %m_data32 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count = zext i32 %sub to i64
   br label %for.body28
 
@@ -621,8 +617,8 @@ for.cond12.preheader:                             ; preds = %if.else
   br i1 %cmp1333.not, label %if.end48, label %for.body14.lr.ph
 
 for.body14.lr.ph:                                 ; preds = %for.cond12.preheader
-  %m_data15 = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
-  %m_data18 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data15 = getelementptr inbounds i8, ptr %source, i64 8
+  %m_data18 = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count44 = zext nneg i32 %div1.i.i29 to i64
   br label %for.body14
 
@@ -662,12 +658,12 @@ for.end38:                                        ; preds = %for.cond26.preheade
   %i9.1.lcssa = phi i64 [ %14, %for.end38.loopexit ], [ 0, %for.cond26.preheader ]
   %notmask = shl nsw i32 -1, %rem
   %sub39 = xor i32 %notmask, -1
-  %m_data40 = getelementptr inbounds %class.bit_vector, ptr %source, i64 0, i32 2
+  %m_data40 = getelementptr inbounds i8, ptr %source, i64 8
   %15 = load ptr, ptr %m_data40, align 8
   %arrayidx42 = getelementptr inbounds i32, ptr %15, i64 %i9.1.lcssa
   %16 = load i32, ptr %arrayidx42, align 4
   %and43 = and i32 %16, %sub39
-  %m_data44 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data44 = getelementptr inbounds i8, ptr %this, i64 8
   %17 = load ptr, ptr %m_data44, align 8
   %arrayidx46 = getelementptr inbounds i32, ptr %17, i64 %i9.1.lcssa
   %18 = load i32, ptr %arrayidx46, align 4
@@ -680,7 +676,7 @@ if.end48:                                         ; preds = %for.body14, %for.co
   br i1 %cmp5035, label %for.body51.lr.ph, label %return
 
 for.body51.lr.ph:                                 ; preds = %if.end48
-  %m_data52 = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data52 = getelementptr inbounds i8, ptr %this, i64 8
   %19 = lshr i32 %add.i.i28, 5
   %20 = zext nneg i32 %19 to i64
   %21 = add nuw nsw i32 %div1.i.i, %19
@@ -709,7 +705,7 @@ entry:
   br i1 %cmp.not4, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -750,16 +746,16 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp213.not, label %for.cond.preheader.for.end_crit_edge, label %for.body.lr.ph
 
 for.cond.preheader.for.end_crit_edge:             ; preds = %for.cond.preheader
-  %m_data16.phi.trans.insert = getelementptr inbounds %class.bit_vector, ptr %other, i64 0, i32 2
+  %m_data16.phi.trans.insert = getelementptr inbounds i8, ptr %other, i64 8
   %.pre = load ptr, ptr %m_data16.phi.trans.insert, align 8
-  %m_data21.phi.trans.insert = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data21.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre17 = load ptr, ptr %m_data21.phi.trans.insert, align 8
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_data = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_data, align 8
-  %m_data3 = getelementptr inbounds %class.bit_vector, ptr %other, i64 0, i32 2
+  %m_data3 = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load ptr, ptr %m_data3, align 8
   %wide.trip.count = zext nneg i32 %sub to i64
   br label %for.body
@@ -805,7 +801,7 @@ return:                                           ; preds = %for.body, %entry, %
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK10bit_vector8get_hashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_data = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8
   %1 = load i32, ptr %this, align 8
   %div1 = lshr i32 %1, 3
@@ -825,7 +821,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %div1.i.i = lshr i32 %add.i.i, 5
-  %m_data = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %wide.trip.count = zext nneg i32 %div1.i.i to i64
   br label %for.body
 
@@ -848,13 +844,13 @@ for.end:                                          ; preds = %for.body, %entry
 define hidden void @_ZN13fr_bit_vector5resetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %m_one_idxs = getelementptr inbounds %class.fr_bit_vector, ptr %this, i64 0, i32 1
+  %m_one_idxs = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_one_idxs, align 8
   %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %_ZN6vectorIjLb0EjE5resetEv.exit, label %_ZN6vectorIjLb0EjE3endEv.exit
 
 _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = zext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %3
@@ -862,7 +858,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %entry
   br i1 %cmp.not5, label %if.then.i, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
-  %m_data.i.i = getelementptr inbounds %class.bit_vector, ptr %this, i64 0, i32 2
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -885,7 +881,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr = getelementptr inbounds i32, ptr %it.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.06, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
@@ -896,7 +892,7 @@ for.end:                                          ; preds = %for.inc
 
 if.then.i:                                        ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %for.end
   %7 = phi ptr [ %.pre, %for.end ], [ %1, %_ZN6vectorIjLb0EjE3endEv.exit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 -4
   store i32 0, ptr %arrayidx.i, align 4
   br label %_ZN6vectorIjLb0EjE5resetEv.exit
 

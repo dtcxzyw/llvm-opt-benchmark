@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-err_blocks.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.err_state_st = type { [16 x i32], [16 x i32], [16 x i64], [16 x ptr], [16 x i64], [16 x i32], [16 x ptr], [16 x i32], [16 x ptr], i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/err/err_blocks.c\00", align 1
@@ -17,12 +16,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 9
+  %top.i = getelementptr inbounds i8, ptr %call, i64 896
   %0 = load i32, ptr %top.i, align 8
   %add.i = add nsw i32 %0, 1
   %rem.i = srem i32 %add.i, 16
   store i32 %rem.i, ptr %top.i, align 8
-  %bottom.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 10
+  %bottom.i = getelementptr inbounds i8, ptr %call, i64 900
   %1 = load i32, ptr %bottom.i, align 4
   %cmp.i = icmp eq i32 %rem.i, %1
   br i1 %cmp.i, label %if.then.i, label %err_get_slot.exit
@@ -37,11 +36,13 @@ if.then.i:                                        ; preds = %if.end
 
 err_get_slot.exit:                                ; preds = %if.end, %if.then.i
   %conv = sext i32 %rem.i to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 5, i64 %conv
+  %err_data_flags.i.i = getelementptr inbounds i8, ptr %call, i64 512
+  %arrayidx.i.i = getelementptr inbounds [16 x i32], ptr %err_data_flags.i.i, i64 0, i64 %conv
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %and.i.i = and i32 %3, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
-  %arrayidx20.i.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 3, i64 %conv
+  %err_data19.i.i = getelementptr inbounds i8, ptr %call, i64 256
+  %arrayidx20.i.i = getelementptr inbounds [16 x ptr], ptr %err_data19.i.i, i64 0, i64 %conv
   br i1 %tobool.not.i.i, label %if.else18.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %err_get_slot.exit
@@ -55,7 +56,8 @@ if.then11.i.i:                                    ; preds = %if.else.i.i
 
 if.else18.i.i:                                    ; preds = %err_get_slot.exit
   store ptr null, ptr %arrayidx20.i.i, align 8
-  %arrayidx22.i.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 4, i64 %conv
+  %err_data_size21.i.i = getelementptr inbounds i8, ptr %call, i64 384
+  %arrayidx22.i.i = getelementptr inbounds [16 x i64], ptr %err_data_size21.i.i, i64 0, i64 %conv
   store i64 0, ptr %arrayidx22.i.i, align 8
   br label %if.end25.sink.split.i.i
 
@@ -65,19 +67,24 @@ if.end25.sink.split.i.i:                          ; preds = %if.else18.i.i, %if.
   br label %err_clear.exit
 
 err_clear.exit:                                   ; preds = %if.else.i.i, %if.end25.sink.split.i.i
-  %arrayidx.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 1, i64 %conv
+  %err_marks.i = getelementptr inbounds i8, ptr %call, i64 64
+  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %err_marks.i, i64 0, i64 %conv
   store i32 0, ptr %arrayidx.i, align 4
   %arrayidx1.i = getelementptr inbounds [16 x i32], ptr %call, i64 0, i64 %conv
   store i32 0, ptr %arrayidx1.i, align 4
-  %arrayidx2.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 2, i64 %conv
+  %err_buffer.i = getelementptr inbounds i8, ptr %call, i64 128
+  %arrayidx2.i = getelementptr inbounds [16 x i64], ptr %err_buffer.i, i64 0, i64 %conv
   store i64 0, ptr %arrayidx2.i, align 8
-  %arrayidx3.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 7, i64 %conv
+  %err_line.i = getelementptr inbounds i8, ptr %call, i64 704
+  %arrayidx3.i = getelementptr inbounds [16 x i32], ptr %err_line.i, i64 0, i64 %conv
   store i32 -1, ptr %arrayidx3.i, align 4
-  %arrayidx4.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 6, i64 %conv
+  %err_file.i = getelementptr inbounds i8, ptr %call, i64 576
+  %arrayidx4.i = getelementptr inbounds [16 x ptr], ptr %err_file.i, i64 0, i64 %conv
   %5 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 91) #6
   store ptr null, ptr %arrayidx4.i, align 8
-  %arrayidx7.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 8, i64 %conv
+  %err_func.i = getelementptr inbounds i8, ptr %call, i64 768
+  %arrayidx7.i = getelementptr inbounds [16 x ptr], ptr %err_func.i, i64 0, i64 %conv
   %6 = load ptr, ptr %arrayidx7.i, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef 93) #6
   store ptr null, ptr %arrayidx7.i, align 8
@@ -97,10 +104,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 9
+  %top = getelementptr inbounds i8, ptr %call, i64 896
   %0 = load i32, ptr %top, align 8
   %conv = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 6, i64 %conv
+  %err_file.i = getelementptr inbounds i8, ptr %call, i64 576
+  %arrayidx.i = getelementptr inbounds [16 x ptr], ptr %err_file.i, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 57) #6
   %cmp.i = icmp eq ptr %file, null
@@ -128,9 +136,11 @@ if.then11.i:                                      ; preds = %if.else.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.else.i, %if.then.i
-  %arrayidx16.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 7, i64 %conv
+  %err_line.i = getelementptr inbounds i8, ptr %call, i64 704
+  %arrayidx16.i = getelementptr inbounds [16 x i32], ptr %err_line.i, i64 0, i64 %conv
   store i32 %line, ptr %arrayidx16.i, align 4
-  %arrayidx17.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 8, i64 %conv
+  %err_func.i = getelementptr inbounds i8, ptr %call, i64 768
+  %arrayidx17.i = getelementptr inbounds [16 x ptr], ptr %err_func.i, i64 0, i64 %conv
   %3 = load ptr, ptr %arrayidx17.i, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 66) #6
   %cmp18.i = icmp eq ptr %func, null
@@ -182,19 +192,22 @@ entry:
   br i1 %cmp, label %if.end54, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 9
+  %top = getelementptr inbounds i8, ptr %call, i64 896
   %cmp1.not = icmp eq ptr %fmt, null
   br i1 %cmp1.not, label %if.end43, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %0 = load i32, ptr %top, align 8
   %conv = sext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 3, i64 %conv
+  %err_data = getelementptr inbounds i8, ptr %call, i64 256
+  %arrayidx = getelementptr inbounds [16 x ptr], ptr %err_data, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx4 = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 4, i64 %conv
+  %err_data_size = getelementptr inbounds i8, ptr %call, i64 384
+  %arrayidx4 = getelementptr inbounds [16 x i64], ptr %err_data_size, i64 0, i64 %conv
   %2 = load i64, ptr %arrayidx4, align 8
   store ptr null, ptr %arrayidx, align 8
-  %arrayidx7 = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 5, i64 %conv
+  %err_data_flags = getelementptr inbounds i8, ptr %call, i64 512
+  %arrayidx7 = getelementptr inbounds [16 x i32], ptr %err_data_flags, i64 0, i64 %conv
   store i32 0, ptr %arrayidx7, align 4
   %cmp8 = icmp ult i64 %2, 1024
   br i1 %cmp8, label %land.lhs.true, label %if.end14
@@ -221,15 +234,15 @@ if.then26:                                        ; preds = %if.end14
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end14, %if.then26
-  %spec.store.select41 = phi i32 [ %spec.store.select, %if.then26 ], [ 0, %if.end14 ]
-  %add = add nuw nsw i32 %spec.store.select41, 1
+  %spec.store.select42 = phi i32 [ %spec.store.select, %if.then26 ], [ 0, %if.end14 ]
+  %add = add nuw nsw i32 %spec.store.select42, 1
   %conv29 = zext nneg i32 %add to i64
   %call30 = tail call ptr @CRYPTO_realloc(ptr noundef %buf.0, i64 noundef %conv29, ptr noundef nonnull @.str, i32 noundef 103) #6
   %cmp31.not = icmp eq ptr %call30, null
   br i1 %cmp31.not, label %if.end38, label %if.then33
 
 if.then33:                                        ; preds = %if.end28
-  %idxprom36 = zext nneg i32 %spec.store.select41 to i64
+  %idxprom36 = zext nneg i32 %spec.store.select42 to i64
   %arrayidx37 = getelementptr inbounds i8, ptr %call30, i64 %idxprom36
   store i8 0, ptr %arrayidx37, align 1
   br label %if.end38
@@ -247,11 +260,13 @@ if.end43:                                         ; preds = %if.end38, %if.end
   %buf.2 = phi ptr [ null, %if.end ], [ %buf.1, %if.end38 ]
   %3 = load i32, ptr %top, align 8
   %conv45 = sext i32 %3 to i64
-  %arrayidx.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 5, i64 %conv45
+  %err_data_flags.i = getelementptr inbounds i8, ptr %call, i64 512
+  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %err_data_flags.i, i64 0, i64 %conv45
   %4 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %4, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %arrayidx20.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 3, i64 %conv45
+  %err_data19.i = getelementptr inbounds i8, ptr %call, i64 256
+  %arrayidx20.i = getelementptr inbounds [16 x ptr], ptr %err_data19.i, i64 0, i64 %conv45
   br i1 %tobool.not.i, label %if.else18.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end43
@@ -265,7 +280,8 @@ if.then11.i:                                      ; preds = %if.else.i
 
 if.else18.i:                                      ; preds = %if.end43
   store ptr null, ptr %arrayidx20.i, align 8
-  %arrayidx22.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 4, i64 %conv45
+  %err_data_size21.i = getelementptr inbounds i8, ptr %call, i64 384
+  %arrayidx22.i = getelementptr inbounds [16 x i64], ptr %err_data_size21.i, i64 0, i64 %conv45
   store i64 0, ptr %arrayidx22.i, align 8
   br label %if.end25.sink.split.i
 
@@ -273,11 +289,11 @@ if.end25.sink.split.i:                            ; preds = %if.else18.i, %if.th
   %.sink.i = phi i32 [ 1, %if.then11.i ], [ 0, %if.else18.i ]
   store i32 %.sink.i, ptr %arrayidx.i, align 4
   %.pre = load i32, ptr %top, align 8
-  %.pre42 = sext i32 %.pre to i64
+  %.pre43 = sext i32 %.pre to i64
   br label %err_clear_data.exit
 
 err_clear_data.exit:                              ; preds = %if.else.i, %if.end25.sink.split.i
-  %conv47.pre-phi = phi i64 [ %conv45, %if.else.i ], [ %.pre42, %if.end25.sink.split.i ]
+  %conv47.pre-phi = phi i64 [ %conv45, %if.else.i ], [ %.pre43, %if.end25.sink.split.i ]
   %cmp.i = icmp eq i32 %lib, 2
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
@@ -295,31 +311,33 @@ cond.false.i:                                     ; preds = %err_clear_data.exit
 err_set_error.exit:                               ; preds = %cond.true.i, %cond.false.i
   %cond.in.i = phi i32 [ %or.i, %cond.true.i ], [ %or43.i, %cond.false.i ]
   %cond.i = zext i32 %cond.in.i to i64
-  %arrayidx.i35 = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 2, i64 %conv47.pre-phi
+  %err_buffer.i = getelementptr inbounds i8, ptr %call, i64 128
+  %arrayidx.i35 = getelementptr inbounds [16 x i64], ptr %err_buffer.i, i64 0, i64 %conv47.pre-phi
   store i64 %cond.i, ptr %arrayidx.i35, align 8
   br i1 %cmp1.not, label %if.end54, label %if.then50
 
 if.then50:                                        ; preds = %err_set_error.exit
   %9 = load i32, ptr %top, align 8
   %conv52 = sext i32 %9 to i64
-  %arrayidx.i36 = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 5, i64 %conv52
-  %10 = load i32, ptr %arrayidx.i36, align 4
-  %and.i37 = and i32 %10, 1
-  %cmp.not.i38 = icmp eq i32 %and.i37, 0
-  br i1 %cmp.not.i38, label %err_set_data.exit, label %if.then.i
+  %arrayidx.i37 = getelementptr inbounds [16 x i32], ptr %err_data_flags.i, i64 0, i64 %conv52
+  %10 = load i32, ptr %arrayidx.i37, align 4
+  %and.i38 = and i32 %10, 1
+  %cmp.not.i39 = icmp eq i32 %and.i38, 0
+  br i1 %cmp.not.i39, label %err_set_data.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then50
-  %arrayidx1.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 3, i64 %conv52
+  %arrayidx1.i = getelementptr inbounds [16 x ptr], ptr %err_data19.i, i64 0, i64 %conv52
   %11 = load ptr, ptr %arrayidx1.i, align 8
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str.1, i32 noundef 78) #6
   br label %err_set_data.exit
 
 err_set_data.exit:                                ; preds = %if.then50, %if.then.i
-  %arrayidx3.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 3, i64 %conv52
+  %arrayidx3.i = getelementptr inbounds [16 x ptr], ptr %err_data19.i, i64 0, i64 %conv52
   store ptr %buf.2, ptr %arrayidx3.i, align 8
-  %arrayidx4.i = getelementptr inbounds %struct.err_state_st, ptr %call, i64 0, i32 4, i64 %conv52
+  %err_data_size.i = getelementptr inbounds i8, ptr %call, i64 384
+  %arrayidx4.i = getelementptr inbounds [16 x i64], ptr %err_data_size.i, i64 0, i64 %conv52
   store i64 %buf_size.2, ptr %arrayidx4.i, align 8
-  store i32 %flags.0, ptr %arrayidx.i36, align 4
+  store i32 %flags.0, ptr %arrayidx.i37, align 4
   br label %if.end54
 
 if.end54:                                         ; preds = %entry, %err_set_data.exit, %err_set_error.exit

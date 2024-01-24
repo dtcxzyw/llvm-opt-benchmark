@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.conf_value_st = type { ptr, ptr, ptr }
-%struct.SXNET_st = type { ptr, ptr }
-%struct.SXNET_ID_st = type { ptr, ptr }
 
 @SXNET_it = hidden constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @SXNET_seq_tt, i64 2, ptr null, i64 16, ptr @.str.1 }, align 8
 @v3_sxnet = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 143, i32 4, ptr @SXNET_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @sxnet_v2i, ptr @sxnet_i2r, ptr null, ptr null }, align 8
@@ -46,9 +43,9 @@ for.cond:                                         ; preds = %SXNET_add_id_asc.ex
 for.body:                                         ; preds = %entry, %for.cond
   %i.09 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
   %call1 = call ptr @sk_value(ptr noundef %nval, i64 noundef %i.09) #4
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call1, i64 16
   %1 = load ptr, ptr %value, align 8
   %call.i = call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %0) #4
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -79,7 +76,7 @@ entry:
   %call = tail call i64 @ASN1_INTEGER_get(ptr noundef %0) #4
   %add = add nsw i64 %call, 1
   %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.7, i32 noundef %indent, ptr noundef nonnull @.str.8, i64 noundef %add, i64 noundef %call) #4
-  %ids = getelementptr inbounds %struct.SXNET_st, ptr %sx, i64 0, i32 1
+  %ids = getelementptr inbounds i8, ptr %sx, i64 8
   %1 = load ptr, ptr %ids, align 8
   %call211 = tail call i64 @sk_num(ptr noundef %1) #4
   %cmp12.not = icmp eq i64 %call211, 0
@@ -93,7 +90,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call5 = tail call ptr @i2s_ASN1_INTEGER(ptr noundef null, ptr noundef %3) #4
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.9, i32 noundef %indent, ptr noundef nonnull @.str.8, ptr noundef %call5) #4
   tail call void @free(ptr noundef %call5) #4
-  %user = getelementptr inbounds %struct.SXNET_ID_st, ptr %call4, i64 0, i32 1
+  %user = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load ptr, ptr %user, align 8
   %call7 = tail call i32 @ASN1_STRING_print(ptr noundef %out, ptr noundef %4) #4
   %inc = add nuw i64 %i.013, 1
@@ -248,7 +245,7 @@ if.end19:                                         ; preds = %if.end15
 
 if.end20:                                         ; preds = %if.end9, %if.end19
   %sx.0 = phi ptr [ %call.i, %if.end19 ], [ %0, %if.end9 ]
-  %ids.i = getelementptr inbounds %struct.SXNET_st, ptr %sx.0, i64 0, i32 1
+  %ids.i = getelementptr inbounds i8, ptr %sx.0, i64 8
   %2 = load ptr, ptr %ids.i, align 8
   %call5.i = tail call i64 @sk_num(ptr noundef %2) #4
   %cmp6.not.i = icmp eq i64 %call5.i, 0
@@ -271,7 +268,7 @@ for.body.i:                                       ; preds = %if.end20, %for.cond
   br i1 %tobool.not.i, label %SXNET_get_id_INTEGER.exit, label %for.cond.i
 
 SXNET_get_id_INTEGER.exit:                        ; preds = %for.body.i
-  %user.i = getelementptr inbounds %struct.SXNET_ID_st, ptr %call2.i, i64 0, i32 1
+  %user.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %6 = load ptr, ptr %user.i, align 8
   %tobool22.not = icmp eq ptr %6, null
   br i1 %tobool22.not, label %if.end24, label %if.then23
@@ -296,7 +293,7 @@ if.then31:                                        ; preds = %if.end28
 
 if.end34:                                         ; preds = %if.then31, %if.end28
   %userlen.addr.1 = phi i32 [ %conv33, %if.then31 ], [ %userlen.addr.0, %if.end28 ]
-  %user35 = getelementptr inbounds %struct.SXNET_ID_st, ptr %call.i22, i64 0, i32 1
+  %user35 = getelementptr inbounds i8, ptr %call.i22, i64 8
   %7 = load ptr, ptr %user35, align 8
   %call36 = tail call i32 @ASN1_STRING_set(ptr noundef %7, ptr noundef nonnull %user, i32 noundef %userlen.addr.1) #4
   %tobool37.not = icmp eq i32 %call36, 0
@@ -364,7 +361,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SXNET_get_id_INTEGER(ptr nocapture noundef readonly %sx, ptr noundef %zone) local_unnamed_addr #0 {
 entry:
-  %ids = getelementptr inbounds %struct.SXNET_st, ptr %sx, i64 0, i32 1
+  %ids = getelementptr inbounds i8, ptr %sx, i64 8
   %0 = load ptr, ptr %ids, align 8
   %call5 = tail call i64 @sk_num(ptr noundef %0) #4
   %cmp6.not = icmp eq i64 %call5, 0
@@ -387,7 +384,7 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %tobool.not, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %user = getelementptr inbounds %struct.SXNET_ID_st, ptr %call2, i64 0, i32 1
+  %user = getelementptr inbounds i8, ptr %call2, i64 8
   %4 = load ptr, ptr %user, align 8
   br label %return
 
@@ -412,7 +409,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ids.i = getelementptr inbounds %struct.SXNET_st, ptr %sx, i64 0, i32 1
+  %ids.i = getelementptr inbounds i8, ptr %sx, i64 8
   %0 = load ptr, ptr %ids.i, align 8
   %call5.i = tail call i64 @sk_num(ptr noundef %0) #4
   %cmp6.not.i = icmp eq i64 %call5.i, 0
@@ -435,7 +432,7 @@ for.body.i:                                       ; preds = %if.end, %for.cond.i
   br i1 %tobool.not.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %user.i = getelementptr inbounds %struct.SXNET_ID_st, ptr %call2.i, i64 0, i32 1
+  %user.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %4 = load ptr, ptr %user.i, align 8
   br label %SXNET_get_id_INTEGER.exit
 
@@ -467,7 +464,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %ids.i = getelementptr inbounds %struct.SXNET_st, ptr %sx, i64 0, i32 1
+  %ids.i = getelementptr inbounds i8, ptr %sx, i64 8
   %0 = load ptr, ptr %ids.i, align 8
   %call5.i = tail call i64 @sk_num(ptr noundef %0) #4
   %cmp6.not.i = icmp eq i64 %call5.i, 0
@@ -490,7 +487,7 @@ for.body.i:                                       ; preds = %if.end, %for.cond.i
   br i1 %tobool.not.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %user.i = getelementptr inbounds %struct.SXNET_ID_st, ptr %call2.i, i64 0, i32 1
+  %user.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %4 = load ptr, ptr %user.i, align 8
   br label %SXNET_get_id_INTEGER.exit
 

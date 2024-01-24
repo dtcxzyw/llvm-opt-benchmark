@@ -13,35 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.virtio_input_config = type { i8, i8, i8, [5 x i8], %union.anon.4 }
 %union.anon.4 = type { %struct.virtio_input_absinfo, [108 x i8] }
 %struct.virtio_input_absinfo = type { i32, i32, i32, i32, i32 }
-%struct.VirtIOInputClass = type { %struct.VirtioDeviceClass, ptr, ptr, ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtIOInputHID = type { %struct.VirtIOInput, ptr, i32, ptr, ptr, i32, i8 }
-%struct.VirtIOInput = type { %struct.VirtIODevice, i8, i8, i32, %union.anon.3, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.2, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.0, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%union.anon.3 = type { %struct.QTailQLink }
 %struct.virtio_input_event = type { i16, i16, i32 }
-%struct.InputEvent = type { i32, %union.anon.5 }
-%union.anon.5 = type { %struct.InputKeyEventWrapper }
-%struct.InputKeyEventWrapper = type { ptr }
-%struct.InputKeyEvent = type { ptr, i8 }
-%struct.InputBtnEvent = type { i32, i8 }
-%struct.InputMoveEvent = type { i32, i64 }
-%struct.InputMultiTouchEvent = type { i32, i64, i64, i32, i64 }
 
 @virtio_input_hid_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 632, i64 0, ptr null, ptr null, ptr null, i8 1, i64 0, ptr @virtio_input_hid_class_init, ptr null, ptr null, ptr null }, align 8
 @virtio_keyboard_info = internal constant %struct.TypeInfo { ptr @.str.8, ptr @.str, i64 632, i64 0, ptr @virtio_keyboard_init, ptr null, ptr null, i8 0, i64 0, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -128,13 +100,13 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_CLASS) #6
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_input_hid_properties) #6
-  %realize = getelementptr inbounds %struct.VirtIOInputClass, ptr %call.i5, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i5, i64 368
   store ptr @virtio_input_hid_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtIOInputClass, ptr %call.i5, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i5, i64 376
   store ptr @virtio_input_hid_unrealize, ptr %unrealize, align 8
-  %change_active = getelementptr inbounds %struct.VirtIOInputClass, ptr %call.i5, i64 0, i32 3
+  %change_active = getelementptr inbounds i8, ptr %call.i5, i64 384
   store ptr @virtio_input_hid_change_active, ptr %change_active, align 8
-  %handle_status = getelementptr inbounds %struct.VirtIOInputClass, ptr %call.i5, i64 0, i32 4
+  %handle_status = getelementptr inbounds i8, ptr %call.i5, i64 392
   store ptr @virtio_input_hid_handle_status, ptr %handle_status, align 8
   ret void
 }
@@ -145,12 +117,12 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @virtio_input_hid_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
-  %handler = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 3
+  %handler = getelementptr inbounds i8, ptr %call.i, i64 608
   %0 = load ptr, ptr %handler, align 8
   %call1 = tail call ptr @qemu_input_handler_register(ptr noundef %dev, ptr noundef %0) #6
-  %hs = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 4
+  %hs = getelementptr inbounds i8, ptr %call.i, i64 616
   store ptr %call1, ptr %hs, align 8
-  %display = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 1
+  %display = getelementptr inbounds i8, ptr %call.i, i64 592
   %1 = load ptr, ptr %display, align 8
   %tobool.not = icmp eq ptr %1, null
   %tobool3.not = icmp eq ptr %call1, null
@@ -158,7 +130,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %head = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %call.i, i64 600
   %2 = load i32, ptr %head, align 8
   tail call void @qemu_input_handler_bind(ptr noundef nonnull %call1, ptr noundef nonnull %1, i32 noundef %2, ptr noundef null) #6
   br label %if.end
@@ -171,7 +143,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @virtio_input_hid_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
-  %hs = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 4
+  %hs = getelementptr inbounds i8, ptr %call.i, i64 616
   %0 = load ptr, ptr %hs, align 8
   tail call void @qemu_input_handler_unregister(ptr noundef %0) #6
   ret void
@@ -181,11 +153,11 @@ entry:
 define internal void @virtio_input_hid_change_active(ptr noundef %vinput) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vinput, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
-  %active = getelementptr inbounds %struct.VirtIOInput, ptr %vinput, i64 0, i32 11
+  %active = getelementptr inbounds i8, ptr %vinput, i64 584
   %0 = load i8, ptr %active, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %hs1 = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 4
+  %hs1 = getelementptr inbounds i8, ptr %call.i, i64 616
   %2 = load ptr, ptr %hs1, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -210,7 +182,7 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %code = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %event, i64 2
   %1 = load i16, ptr %code, align 2
   %2 = icmp ult i16 %1, 3
   br i1 %2, label %switch.lookup, label %if.end16
@@ -223,13 +195,13 @@ switch.lookup:                                    ; preds = %sw.bb
 
 if.end16:                                         ; preds = %sw.bb, %switch.lookup
   %ledbit.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %sw.bb ]
-  %value = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %event, i64 4
   %4 = load i32, ptr %value, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.else18, label %if.then17
 
 if.then17:                                        ; preds = %if.end16
-  %ledstate = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 5
+  %ledstate = getelementptr inbounds i8, ptr %call.i, i64 624
   %5 = load i32, ptr %ledstate, align 8
   %or = or i32 %5, %ledbit.0
   store i32 %or, ptr %ledstate, align 8
@@ -237,7 +209,7 @@ if.then17:                                        ; preds = %if.end16
 
 if.else18:                                        ; preds = %if.end16
   %not = xor i32 %ledbit.0, -1
-  %ledstate19 = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 5
+  %ledstate19 = getelementptr inbounds i8, ptr %call.i, i64 624
   %6 = load i32, ptr %ledstate19, align 8
   %and = and i32 %6, %not
   store i32 %and, ptr %ledstate19, align 8
@@ -283,7 +255,7 @@ entry:
   %ext.i = alloca %struct.virtio_input_config, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #6
-  %handler = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 3
+  %handler = getelementptr inbounds i8, ptr %call.i, i64 608
   store ptr @virtio_keyboard_handler, ptr %handler, align 8
   tail call void @virtio_input_init_config(ptr noundef %call.i3, ptr noundef nonnull @virtio_keyboard_config) #6
   %0 = load i32, ptr @qemu_input_map_qcode_to_linux_len, align 4
@@ -294,7 +266,7 @@ entry:
   br i1 %cmp10.not.i, label %virtio_input_extend_config.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %u.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 4
+  %u.i = getelementptr inbounds i8, ptr %ext.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -335,9 +307,9 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
 virtio_input_extend_config.exit:                  ; preds = %entry, %for.end.loopexit.i
   %bmax.0.lcssa.i = phi i8 [ 0, %entry ], [ %5, %for.end.loopexit.i ]
   store i8 17, ptr %ext.i, align 4
-  %subsel13.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 1
+  %subsel13.i = getelementptr inbounds i8, ptr %ext.i, i64 1
   store i8 1, ptr %subsel13.i, align 1
-  %size.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %ext.i, i64 2
   store i8 %bmax.0.lcssa.i, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i3, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
@@ -362,7 +334,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %evt, i64 8
   %1 = load ptr, ptr %u, align 8
   %2 = load ptr, ptr %1, align 8
   %call3 = tail call i32 @qemu_input_key_value_to_qcode(ptr noundef %2) #6
@@ -379,19 +351,19 @@ land.lhs.true:                                    ; preds = %sw.bb
 
 if.then:                                          ; preds = %land.lhs.true
   store i16 1, ptr %event, align 4
-  %code = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code = getelementptr inbounds i8, ptr %event, i64 2
   store i16 %4, ptr %code, align 2
-  %down = getelementptr inbounds %struct.InputKeyEvent, ptr %1, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %down, align 8
   %6 = and i8 %5, 1
   %cond = zext nneg i8 %6 to i32
-  %value = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %cond, ptr %value, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
 
 if.else:                                          ; preds = %land.lhs.true, %sw.bb
-  %down12 = getelementptr inbounds %struct.InputKeyEvent, ptr %1, i64 0, i32 1
+  %down12 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i8, ptr %down12, align 8
   %8 = and i8 %7, 1
   %tobool13.not = icmp eq i8 %8, 0
@@ -404,9 +376,9 @@ if.then14:                                        ; preds = %if.else
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %entry
-  %u19 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u19 = getelementptr inbounds i8, ptr %evt, i64 8
   %10 = load ptr, ptr %u19, align 8
-  %wheel_axis = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 6
+  %wheel_axis = getelementptr inbounds i8, ptr %call.i, i64 628
   %11 = load i8, ptr %wheel_axis, align 4
   %12 = and i8 %11, 1
   %tobool21.not = icmp ne i8 %12, 0
@@ -417,7 +389,7 @@ sw.bb18:                                          ; preds = %entry
   br i1 %or.cond, label %land.lhs.true29, label %if.else44
 
 land.lhs.true29:                                  ; preds = %sw.bb18
-  %down30 = getelementptr inbounds %struct.InputBtnEvent, ptr %10, i64 0, i32 1
+  %down30 = getelementptr inbounds i8, ptr %10, i64 4
   %13 = load i8, ptr %down30, align 4
   %14 = and i8 %13, 1
   %tobool31.not = icmp eq i8 %14, 0
@@ -425,12 +397,12 @@ land.lhs.true29:                                  ; preds = %sw.bb18
 
 if.then33:                                        ; preds = %land.lhs.true29
   store i16 2, ptr %event, align 4
-  %code37 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code37 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 8, ptr %code37, align 2
   %15 = load i32, ptr %10, align 4
   %cmp39 = icmp eq i32 %15, 3
   %cond41 = select i1 %cmp39, i32 1, i32 -1
-  %value43 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value43 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %cond41, ptr %value43, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
@@ -446,19 +418,19 @@ if.then49:                                        ; preds = %land.lhs.true29, %i
   %idxprom53 = zext i32 %17 to i64
   %arrayidx54 = getelementptr [10 x i16], ptr @keymap_button, i64 0, i64 %idxprom53
   %18 = load i16, ptr %arrayidx54, align 2
-  %code56 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code56 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 %18, ptr %code56, align 2
-  %down57 = getelementptr inbounds %struct.InputBtnEvent, ptr %10, i64 0, i32 1
+  %down57 = getelementptr inbounds i8, ptr %10, i64 4
   %19 = load i8, ptr %down57, align 4
   %20 = and i8 %19, 1
   %cond60 = zext nneg i8 %20 to i32
-  %value62 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value62 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %cond60, ptr %value62, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
 
 if.else63:                                        ; preds = %if.else44
-  %down64 = getelementptr inbounds %struct.InputBtnEvent, ptr %10, i64 0, i32 1
+  %down64 = getelementptr inbounds i8, ptr %10, i64 4
   %21 = load i8, ptr %down64, align 4
   %22 = and i8 %21, 1
   %tobool65.not = icmp eq i8 %22, 0
@@ -471,43 +443,43 @@ if.then66:                                        ; preds = %if.else63
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %entry
-  %u75 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u75 = getelementptr inbounds i8, ptr %evt, i64 8
   %24 = load ptr, ptr %u75, align 8
   store i16 2, ptr %event, align 4
   %25 = load i32, ptr %24, align 8
   %idxprom79 = zext i32 %25 to i64
   %arrayidx80 = getelementptr [2 x i16], ptr @axismap_abs, i64 0, i64 %idxprom79
   %26 = load i16, ptr %arrayidx80, align 2
-  %code82 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code82 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 %26, ptr %code82, align 2
-  %value83 = getelementptr inbounds %struct.InputMoveEvent, ptr %24, i64 0, i32 1
+  %value83 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = load i64, ptr %value83, align 8
   %conv84 = trunc i64 %27 to i32
-  %value86 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value86 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv84, ptr %value86, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
 
 sw.bb87:                                          ; preds = %entry
-  %u88 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u88 = getelementptr inbounds i8, ptr %evt, i64 8
   %28 = load ptr, ptr %u88, align 8
   store i16 3, ptr %event, align 4
   %29 = load i32, ptr %28, align 8
   %idxprom93 = zext i32 %29 to i64
   %arrayidx94 = getelementptr [2 x i16], ptr @axismap_abs, i64 0, i64 %idxprom93
   %30 = load i16, ptr %arrayidx94, align 2
-  %code96 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code96 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 %30, ptr %code96, align 2
-  %value97 = getelementptr inbounds %struct.InputMoveEvent, ptr %28, i64 0, i32 1
+  %value97 = getelementptr inbounds i8, ptr %28, i64 8
   %31 = load i64, ptr %value97, align 8
   %conv98 = trunc i64 %31 to i32
-  %value100 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value100 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv98, ptr %value100, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %entry
-  %u102 = getelementptr inbounds %struct.InputEvent, ptr %evt, i64 0, i32 1
+  %u102 = getelementptr inbounds i8, ptr %evt, i64 8
   %32 = load ptr, ptr %u102, align 8
   %33 = load i32, ptr %32, align 8
   %cmp105 = icmp eq i32 %33, 4
@@ -515,33 +487,33 @@ sw.bb101:                                         ; preds = %entry
   br i1 %cmp105, label %if.then107, label %if.else119
 
 if.then107:                                       ; preds = %sw.bb101
-  %axis110 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %32, i64 0, i32 3
+  %axis110 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load i32, ptr %axis110, align 8
   %idxprom111 = zext i32 %34 to i64
   %arrayidx112 = getelementptr [2 x i16], ptr @axismap_tch, i64 0, i64 %idxprom111
   %35 = load i16, ptr %arrayidx112, align 2
-  %code114 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code114 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 %35, ptr %code114, align 2
-  %value115 = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %32, i64 0, i32 4
+  %value115 = getelementptr inbounds i8, ptr %32, i64 32
   %36 = load i64, ptr %value115, align 8
   %conv116 = trunc i64 %36 to i32
-  %value118 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value118 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv116, ptr %value118, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   br label %sw.epilog
 
 if.else119:                                       ; preds = %sw.bb101
-  %code123 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 1
+  %code123 = getelementptr inbounds i8, ptr %event, i64 2
   store i16 47, ptr %code123, align 2
-  %slot = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %32, i64 0, i32 1
+  %slot = getelementptr inbounds i8, ptr %32, i64 8
   %37 = load i64, ptr %slot, align 8
   %conv124 = trunc i64 %37 to i32
-  %value126 = getelementptr inbounds %struct.virtio_input_event, ptr %event, i64 0, i32 2
+  %value126 = getelementptr inbounds i8, ptr %event, i64 4
   store i32 %conv124, ptr %value126, align 4
   call void @virtio_input_send(ptr noundef %call.i36, ptr noundef nonnull %event) #6
   store i16 3, ptr %event, align 4
   store i16 57, ptr %code123, align 2
-  %tracking_id = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %32, i64 0, i32 2
+  %tracking_id = getelementptr inbounds i8, ptr %32, i64 16
   %38 = load i64, ptr %tracking_id, align 8
   %conv131 = trunc i64 %38 to i32
   store i32 %conv131, ptr %value126, align 4
@@ -579,9 +551,9 @@ entry:
   %ext.i = alloca %struct.virtio_input_config, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #6
-  %handler = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 3
+  %handler = getelementptr inbounds i8, ptr %call.i, i64 608
   store ptr @virtio_mouse_handler, ptr %handler, align 8
-  %wheel_axis = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 6
+  %wheel_axis = getelementptr inbounds i8, ptr %call.i, i64 628
   %0 = load i8, ptr %wheel_axis, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -589,7 +561,7 @@ entry:
   tail call void @virtio_input_init_config(ptr noundef %call.i4, ptr noundef nonnull %cond) #6
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ext.i, i8 0, i64 136, i1 false)
-  %u.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 4
+  %u.i = getelementptr inbounds i8, ptr %ext.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
@@ -624,9 +596,9 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 virtio_input_extend_config.exit:                  ; preds = %for.inc.i
   %6 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
-  %subsel13.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 1
+  %subsel13.i = getelementptr inbounds i8, ptr %ext.i, i64 1
   store i8 1, ptr %subsel13.i, align 1
-  %size.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %ext.i, i64 2
   store i8 %6, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i4, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
@@ -647,9 +619,9 @@ entry:
   %ext.i = alloca %struct.virtio_input_config, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #6
-  %handler = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 3
+  %handler = getelementptr inbounds i8, ptr %call.i, i64 608
   store ptr @virtio_tablet_handler, ptr %handler, align 8
-  %wheel_axis = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 6
+  %wheel_axis = getelementptr inbounds i8, ptr %call.i, i64 628
   %0 = load i8, ptr %wheel_axis, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -657,7 +629,7 @@ entry:
   tail call void @virtio_input_init_config(ptr noundef %call.i4, ptr noundef nonnull %cond) #6
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ext.i, i8 0, i64 136, i1 false)
-  %u.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 4
+  %u.i = getelementptr inbounds i8, ptr %ext.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
@@ -692,9 +664,9 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 virtio_input_extend_config.exit:                  ; preds = %for.inc.i
   %6 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
-  %subsel13.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 1
+  %subsel13.i = getelementptr inbounds i8, ptr %ext.i, i64 1
   store i8 1, ptr %subsel13.i, align 1
-  %size.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %ext.i, i64 2
   store i8 %6, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i4, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
@@ -719,12 +691,12 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_INPUT_HID) #6
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #6
   store i64 15199876379377711, ptr %abs_bits, align 8
-  %handler = getelementptr inbounds %struct.VirtIOInputHID, ptr %call.i, i64 0, i32 3
+  %handler = getelementptr inbounds i8, ptr %call.i, i64 608
   store ptr @virtio_multitouch_handler, ptr %handler, align 8
   tail call void @virtio_input_init_config(ptr noundef %call.i5, ptr noundef nonnull @virtio_multitouch_config) #6
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ext.i, i8 0, i64 136, i1 false)
-  %u.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 4
+  %u.i = getelementptr inbounds i8, ptr %ext.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
@@ -759,24 +731,24 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 virtio_input_extend_config.exit30:                ; preds = %for.inc.i
   %4 = trunc i32 %bmax.1.i to i8
   store i8 17, ptr %ext.i, align 4
-  %subsel13.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 1
+  %subsel13.i = getelementptr inbounds i8, ptr %ext.i, i64 1
   store i8 1, ptr %subsel13.i, align 1
-  %size.i = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %ext.i, i64 2
   store i8 %4, ptr %size.i, align 2
   call void @virtio_input_add_config(ptr noundef %call.i5, ptr noundef nonnull %ext.i) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ext.i6, i8 0, i64 136, i1 false)
-  %u.i7 = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i6, i64 0, i32 4
+  %u.i7 = getelementptr inbounds i8, ptr %ext.i6, i64 8
   store i8 2, ptr %u.i7, align 4
   store i8 16, ptr %ext.i6, align 4
-  %size.i29 = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i6, i64 0, i32 2
+  %size.i29 = getelementptr inbounds i8, ptr %ext.i6, i64 2
   store i8 1, ptr %size.i29, align 2
   call void @virtio_input_add_config(ptr noundef %call.i5, ptr noundef nonnull %ext.i6) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i6)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %ext.i31)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ext.i31, i8 0, i64 136, i1 false)
-  %u.i32 = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i31, i64 0, i32 4
+  %u.i32 = getelementptr inbounds i8, ptr %ext.i31, i64 8
   br label %for.body.i33
 
 for.body.i33:                                     ; preds = %for.inc.i48, %virtio_input_extend_config.exit30
@@ -811,9 +783,9 @@ for.inc.i48:                                      ; preds = %if.end.i39, %for.bo
 virtio_input_extend_config.exit55:                ; preds = %for.inc.i48
   %9 = trunc i32 %bmax.1.i49 to i8
   store i8 17, ptr %ext.i31, align 4
-  %subsel13.i53 = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i31, i64 0, i32 1
+  %subsel13.i53 = getelementptr inbounds i8, ptr %ext.i31, i64 1
   store i8 3, ptr %subsel13.i53, align 1
-  %size.i54 = getelementptr inbounds %struct.virtio_input_config, ptr %ext.i31, i64 0, i32 2
+  %size.i54 = getelementptr inbounds i8, ptr %ext.i31, i64 2
   store i8 %9, ptr %size.i54, align 2
   call void @virtio_input_add_config(ptr noundef %call.i5, ptr noundef nonnull %ext.i31) #6
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %ext.i31)

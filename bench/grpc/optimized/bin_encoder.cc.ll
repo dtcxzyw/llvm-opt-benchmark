@@ -24,7 +24,7 @@ define void @_Z25grpc_chttp2_base64_encodeRK10grpc_slice(ptr noalias sret(%struc
 entry:
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -38,14 +38,14 @@ entry:
   tail call void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %add)
   %3 = load ptr, ptr %input, align 8
   %tobool5.not = icmp eq ptr %3, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %input, i64 16
   %4 = load ptr, ptr %bytes, align 8
   %bytes10 = getelementptr inbounds i8, ptr %input, i64 9
   %cond12 = select i1 %tobool5.not, ptr %bytes10, ptr %4
   %5 = load ptr, ptr %agg.result, align 8
   %tobool14.not = icmp eq ptr %5, null
-  %data16 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
-  %bytes17 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %data16 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %bytes17 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %6 = load ptr, ptr %bytes17, align 8
   %bytes20 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond23 = select i1 %tobool14.not, ptr %bytes20, ptr %6
@@ -203,11 +203,11 @@ entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %input, i64 16
   %1 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %input, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
-  %data17 = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1
+  %data17 = getelementptr inbounds i8, ptr %input, i64 8
   %2 = load i64, ptr %data17, align 8
   %conv = and i64 %2, 255
   %cond22 = select i1 %tobool.not, i64 %conv, i64 %2
@@ -239,8 +239,8 @@ for.end:                                          ; preds = %for.body, %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %5 = load ptr, ptr %agg.result, align 8
   %tobool29.not = icmp eq ptr %5, null
-  %data31 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
-  %bytes32 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %data31 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %bytes32 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %6 = load ptr, ptr %bytes32, align 8
   %bytes35 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond38 = select i1 %tobool29.not, ptr %bytes35, ptr %6
@@ -268,7 +268,7 @@ for.body75:                                       ; preds = %for.body75.preheade
   %13 = load i8, ptr %in.153, align 1
   %idxprom77 = zext i8 %13 to i64
   %arrayidx78 = getelementptr inbounds [257 x %struct.grpc_chttp2_huffsym], ptr @grpc_chttp2_huffsyms, i64 0, i64 %idxprom77
-  %length79 = getelementptr inbounds [257 x %struct.grpc_chttp2_huffsym], ptr @grpc_chttp2_huffsyms, i64 0, i64 %idxprom77, i32 1
+  %length79 = getelementptr inbounds i8, ptr %arrayidx78, i64 4
   %14 = load i32, ptr %length79, align 4
   %sh_prom = zext nneg i32 %14 to i64
   %shl = shl i64 %temp.055, %sh_prom
@@ -361,7 +361,7 @@ define void @_Z46grpc_chttp2_base64_encode_and_huffman_compressRK10grpc_slicePj(
 entry:
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -381,14 +381,14 @@ entry:
   tail call void @grpc_slice_malloc(ptr sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %add8)
   %3 = load ptr, ptr %input, align 8
   %tobool10.not = icmp eq ptr %3, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %input, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %input, i64 16
   %4 = load ptr, ptr %bytes, align 8
   %bytes15 = getelementptr inbounds i8, ptr %input, i64 9
   %cond17 = select i1 %tobool10.not, ptr %bytes15, ptr %4
   %5 = load ptr, ptr %agg.result, align 8
   %tobool19.not = icmp eq ptr %5, null
-  %data21 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
-  %bytes22 = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %data21 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %bytes22 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %6 = load ptr, ptr %bytes22, align 8
   %bytes25 = getelementptr inbounds i8, ptr %agg.result, i64 9
   %cond28 = select i1 %tobool19.not, ptr %bytes25, ptr %6

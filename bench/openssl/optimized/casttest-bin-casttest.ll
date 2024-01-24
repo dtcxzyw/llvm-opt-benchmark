@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @c_b = internal global [16 x i8] c"\B2\C9^\B0\0C1\ADq\80\AC\05\B8\E8=in", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @cast_test_vector, i32 noundef 3, i32 noundef 1) #3
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @cast_test_iterations) #3
@@ -36,7 +36,7 @@ entry:
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cast_test_vector(i32 noundef %z) #0 {
+define internal noundef i32 @cast_test_vector(i32 noundef %z) #0 {
 entry:
   %key = alloca %struct.cast_key_st, align 4
   %out = alloca [80 x i8], align 16
@@ -73,7 +73,7 @@ if.end15:                                         ; preds = %if.then12, %if.end
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cast_test_iterations() #0 {
+define internal noundef i32 @cast_test_iterations() #0 {
 entry:
   %key = alloca %struct.cast_key_st, align 4
   %key_b = alloca %struct.cast_key_st, align 4
@@ -81,8 +81,8 @@ entry:
   %out_b = alloca [16 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %out_a, ptr noundef nonnull align 16 dereferenceable(16) @in_b, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %out_b, ptr noundef nonnull align 16 dereferenceable(16) @in_b, i64 16, i1 false)
-  %arrayidx4 = getelementptr inbounds [16 x i8], ptr %out_a, i64 0, i64 8
-  %arrayidx9 = getelementptr inbounds [16 x i8], ptr %out_b, i64 0, i64 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %out_a, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %out_b, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body

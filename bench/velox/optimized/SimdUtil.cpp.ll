@@ -254,7 +254,7 @@ if.then.i7:                                       ; preds = %for.body3.i
   store i32 %mul.i, ptr %arrayidx5.i, align 4
   %add.i = or disjoint i32 %mul.i, 1
   %inc7.i8 = add nsw i32 %fill.015.i, 2
-  %arrayidx9.i = getelementptr i32, ptr %arrayidx5.i, i64 1
+  %arrayidx9.i = getelementptr i8, ptr %arrayidx5.i, i64 4
   store i32 %add.i, ptr %arrayidx9.i, align 4
   br label %for.inc.i9
 
@@ -301,7 +301,7 @@ declare <8 x i32> @llvm.x86.avx2.permd(<8 x i32>, <8 x i32>) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32>, ptr, <8 x i32>, <8 x i32>, i8 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_SimdUtil.cpp() #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i.i41 = alloca [4 x i64], align 32
@@ -369,7 +369,7 @@ __cxx_global_var_init.exit:                       ; preds = %for.body.i.i5.i.i
   %cmp.i.i.i.i.i.i.i.i.i12.i.i = icmp ne <8 x i32> %6, zeroinitializer
   %7 = sext <8 x i1> %cmp.i.i.i.i.i.i.i.i.i12.i.i to <8 x i32>
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i)
-  store <8 x i32> %7, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i32 0, i64 8), align 32
+  store <8 x i32> %7, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask", ptr @_ZN8facebook5velox4simd6detail13leadingMask32E, i64 0, i32 0, i64 8, i32 0, i32 0, i32 0, i32 0, i64 0), align 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i3)
   store i32 0, ptr %tmp.i.i3, align 4
@@ -426,7 +426,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %for.body.i.i5.i.i18
   %cmp.i.i.i.i.i.i.i.i.i12.i.i24 = icmp ne <4 x i64> %13, zeroinitializer
   %xor.i.i.i.i.i.i.i.i13.i.i = sext <4 x i1> %cmp.i.i.i.i.i.i.i.i.i12.i.i24 to <4 x i64>
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buffer.i.i4.i.i1)
-  store <4 x i64> %xor.i.i.i.i.i.i.i.i13.i.i, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask.2", ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 0, i32 0, i64 4), align 32
+  store <4 x i64> %xor.i.i.i.i.i.i.i.i13.i.i, ptr getelementptr inbounds (%"struct.facebook::velox::simd::detail::LeadingMask.2", ptr @_ZN8facebook5velox4simd6detail13leadingMask64E, i64 0, i32 0, i64 4, i32 0, i32 0, i32 0, i32 0, i64 0), align 32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i.i26)
   br label %for.cond2.preheader.i.i
@@ -610,7 +610,7 @@ if.then.i7.i.i:                                   ; preds = %for.body3.i.i.i
   store i32 %mul.i.i.i, ptr %arrayidx5.i.i.i, align 4
   %add.i.i.i = or disjoint i32 %mul.i.i.i, 1
   %inc7.i8.i.i = add nsw i32 %fill.015.i.i.i, 2
-  %arrayidx9.i.i.i = getelementptr i32, ptr %arrayidx5.i.i.i, i64 1
+  %arrayidx9.i.i.i = getelementptr i8, ptr %arrayidx5.i.i.i, i64 4
   store i32 %add.i.i.i, ptr %arrayidx9.i.i.i, align 4
   br label %for.inc.i9.i.i
 
@@ -657,7 +657,7 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #5 = { nofree nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }

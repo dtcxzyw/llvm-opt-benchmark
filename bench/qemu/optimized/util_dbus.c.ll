@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/util_dbus.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._GError = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [21 x i8] c"org.freedesktop.DBus\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"/org/freedesktop/DBus\00", align 1
 @.str.2 = private unnamed_addr constant [20 x i8] c"../qemu/util/dbus.c\00", align 1
@@ -25,7 +23,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %0, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 37, ptr noundef nonnull @__func__.qemu_dbus_get_queued_owners, ptr noundef nonnull @.str.3, ptr noundef %1) #3
   br label %cleanup
@@ -49,7 +47,7 @@ if.then8:                                         ; preds = %if.then4
 
 if.end10:                                         ; preds = %if.then4
   %3 = load ptr, ptr %err, align 8
-  %message11 = getelementptr inbounds %struct._GError, ptr %3, i64 0, i32 2
+  %message11 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %message11, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 51, ptr noundef nonnull @__func__.qemu_dbus_get_queued_owners, ptr noundef nonnull @.str.6, ptr noundef %4) #3
   br label %cleanup

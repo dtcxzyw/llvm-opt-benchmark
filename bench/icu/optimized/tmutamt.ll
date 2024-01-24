@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.1, [32 x i8] }
 %struct.anon.1 = type { i16, i32, i32, ptr }
-%"class.icu_75::Measure" = type { %"class.icu_75::UObject", %"class.icu_75::Formattable", ptr }
 
 @_ZZN6icu_7514TimeUnitAmount16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_7514TimeUnitAmountE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_7514TimeUnitAmountE, ptr @_ZN6icu_7514TimeUnitAmountD1Ev, ptr @_ZN6icu_7514TimeUnitAmountD0Ev, ptr @_ZNK6icu_7514TimeUnitAmount17getDynamicClassIDEv, ptr @_ZNK6icu_7514TimeUnitAmount5cloneEv, ptr @_ZNK6icu_7514TimeUnitAmounteqERKNS_7UObjectE] }, align 8
@@ -157,7 +156,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6icu_7514TimeUnitAmount11getTimeUnitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %unit.i = getelementptr inbounds %"class.icu_75::Measure", ptr %this, i64 0, i32 2
+  %unit.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %unit.i, align 8
   ret ptr %0
 }
@@ -165,7 +164,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7514TimeUnitAmount16getTimeUnitFieldEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %unit.i.i = getelementptr inbounds %"class.icu_75::Measure", ptr %this, i64 0, i32 2
+  %unit.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %unit.i.i, align 8
   %call2 = tail call noundef i32 @_ZNK6icu_758TimeUnit16getTimeUnitFieldEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret i32 %call2

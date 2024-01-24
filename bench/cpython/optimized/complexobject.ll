@@ -869,7 +869,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._err_stackitem = type { ptr, ptr }
 %struct.anon.769 = type { %struct.PyGC_Head, %struct.PyVarObject, [2 x ptr] }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
-%struct.PyComplexObject = type { %struct._object, %struct.Py_complex }
 %struct.Py_complex = type { double, double }
 %struct._PyUnicodeWriter = type { ptr, ptr, i32, i32, i64, i64, i64, i32, i8, i8 }
 
@@ -959,8 +958,8 @@ entry:
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local { double, double } @_Py_c_prod(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local { double, double } @_Py_c_prod(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #0 {
 entry:
   %0 = fneg double %a.coerce1
   %1 = insertelement <2 x double> poison, double %0, i64 0
@@ -980,10 +979,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local { double, double } @_Py_c_quot(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #3 {
+define dso_local { double, double } @_Py_c_quot(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #2 {
 entry:
   %0 = insertelement <2 x double> poison, double %b.coerce0, i64 0
   %1 = insertelement <2 x double> %0, double %b.coerce1, i64 1
@@ -1000,7 +999,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.then
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #13
   store i32 33, ptr %call, align 4
   br label %if.end51
 
@@ -1050,10 +1049,10 @@ if.end51:                                         ; preds = %if.else28, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local { double, double } @_Py_c_pow(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #5 {
+define dso_local { double, double } @_Py_c_pow(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #4 {
 entry:
   %cmp = fcmp oeq double %b.coerce0, 0.000000e+00
   %cmp1 = fcmp oeq double %b.coerce1, 0.000000e+00
@@ -1073,32 +1072,32 @@ if.then9:                                         ; preds = %if.else
   br i1 %or.cond2, label %if.then14, label %if.end44
 
 if.then14:                                        ; preds = %if.then9
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #13
   store i32 33, ptr %call, align 4
   br label %if.end44
 
 if.else17:                                        ; preds = %if.else
-  %call20 = tail call double @hypot(double noundef %a.coerce0, double noundef %a.coerce1) #15
-  %call22 = tail call double @pow(double noundef %call20, double noundef %b.coerce0) #15
-  %call25 = tail call double @atan2(double noundef %a.coerce1, double noundef %a.coerce0) #15
+  %call20 = tail call double @hypot(double noundef %a.coerce0, double noundef %a.coerce1) #14
+  %call22 = tail call double @pow(double noundef %call20, double noundef %b.coerce0) #14
+  %call25 = tail call double @atan2(double noundef %a.coerce1, double noundef %a.coerce0) #14
   %mul = fmul double %call25, %b.coerce0
   %cmp28 = fcmp une double %b.coerce1, 0.000000e+00
   br i1 %cmp28, label %if.then29, label %if.end36
 
 if.then29:                                        ; preds = %if.else17
   %mul31 = fmul double %call25, %b.coerce1
-  %call32 = tail call double @exp(double noundef %mul31) #15
+  %call32 = tail call double @exp(double noundef %mul31) #14
   %div = fdiv double %call22, %call32
-  %call34 = tail call double @log(double noundef %call20) #15
+  %call34 = tail call double @log(double noundef %call20) #14
   %0 = tail call double @llvm.fmuladd.f64(double %b.coerce1, double %call34, double %mul)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then29, %if.else17
   %len.0 = phi double [ %div, %if.then29 ], [ %call22, %if.else17 ]
   %phase.0 = phi double [ %0, %if.then29 ], [ %mul, %if.else17 ]
-  %call37 = tail call double @cos(double noundef %phase.0) #15
+  %call37 = tail call double @cos(double noundef %phase.0) #14
   %mul38 = fmul double %len.0, %call37
-  %call40 = tail call double @sin(double noundef %phase.0) #15
+  %call40 = tail call double @sin(double noundef %phase.0) #14
   %mul41 = fmul double %len.0, %call40
   br label %if.end44
 
@@ -1111,28 +1110,28 @@ if.end44:                                         ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #7
+declare double @pow(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #7
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #7
+declare double @exp(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #7
+declare double @log(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #7
+declare double @cos(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #7
+declare double @sin(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @_Py_c_abs(double %z.coerce0, double %z.coerce1) local_unnamed_addr #5 {
+define dso_local double @_Py_c_abs(double %z.coerce0, double %z.coerce1) local_unnamed_addr #4 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -1146,7 +1145,7 @@ if.then:                                          ; preds = %entry
   br i1 %isinf, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #13
   store i32 0, ptr %call, align 4
   br label %return
 
@@ -1155,15 +1154,15 @@ if.end:                                           ; preds = %if.then
   br i1 %isinf5, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end
-  %call9 = tail call ptr @__errno_location() #14
+  %call9 = tail call ptr @__errno_location() #13
   store i32 0, ptr %call9, align 4
   br label %return
 
 if.end11:                                         ; preds = %entry
-  %call14 = tail call double @hypot(double noundef %z.coerce0, double noundef %z.coerce1) #15
+  %call14 = tail call double @hypot(double noundef %z.coerce0, double noundef %z.coerce1) #14
   %4 = tail call double @llvm.fabs.f64(double %call14)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
-  %call16 = tail call ptr @__errno_location() #14
+  %call16 = tail call ptr @__errno_location() #13
   br i1 %5, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %if.end11
@@ -1180,21 +1179,21 @@ return:                                           ; preds = %if.then15, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyComplex_FromCComplex(double %cval.coerce0, double %cval.coerce1) local_unnamed_addr #5 {
+define dso_local ptr @PyComplex_FromCComplex(double %cval.coerce0, double %cval.coerce1) local_unnamed_addr #4 {
 entry:
-  %call = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @PyErr_NoMemory() #15
+  %call1 = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_type.i.i = getelementptr inbounds %struct._object, ptr %call, i64 0, i32 1
+  %ob_type.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i, align 8
   %0 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %1 = and i64 %0, 512
@@ -1212,10 +1211,10 @@ if.end.i.i:                                       ; preds = %if.then.i
   br label %_PyObject_Init.exit
 
 _PyObject_Init.exit:                              ; preds = %if.end, %if.then.i, %if.end.i.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call) #15
-  %cval2 = getelementptr inbounds %struct.PyComplexObject, ptr %call, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call) #14
+  %cval2 = getelementptr inbounds i8, ptr %call, i64 16
   store double %cval.coerce0, ptr %cval2, align 8
-  %cval.sroa.2.0.cval2.sroa_idx = getelementptr inbounds %struct.PyComplexObject, ptr %call, i64 0, i32 1, i32 1
+  %cval.sroa.2.0.cval2.sroa_idx = getelementptr inbounds i8, ptr %call, i64 24
   store double %cval.coerce1, ptr %cval.sroa.2.0.cval2.sroa_idx, align 8
   br label %return
 
@@ -1224,26 +1223,26 @@ return:                                           ; preds = %_PyObject_Init.exit
   ret ptr %retval.0
 }
 
-declare ptr @PyObject_Malloc(i64 noundef) local_unnamed_addr #8
+declare ptr @PyObject_Malloc(i64 noundef) local_unnamed_addr #7
 
-declare ptr @PyErr_NoMemory() local_unnamed_addr #8
+declare ptr @PyErr_NoMemory() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyComplex_FromDoubles(double noundef %real, double noundef %imag) local_unnamed_addr #5 {
+define dso_local ptr @PyComplex_FromDoubles(double noundef %real, double noundef %imag) local_unnamed_addr #4 {
 entry:
-  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %PyComplex_FromCComplex.exit
 
 if.end.i:                                         ; preds = %entry
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %0 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %1 = and i64 %0, 512
@@ -1261,10 +1260,10 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store double %real, ptr %cval2.i, align 8
-  %cval.sroa.2.0.cval2.sroa_idx.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i, i64 0, i32 1, i32 1
+  %cval.sroa.2.0.cval2.sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store double %imag, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %PyComplex_FromCComplex.exit
 
@@ -1274,7 +1273,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObje
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @PyComplex_RealAsDouble(ptr noundef %op) local_unnamed_addr #5 {
+define dso_local double @PyComplex_RealAsDouble(ptr noundef %op) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -1282,17 +1281,17 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %op, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %op, i64 16
   %1 = load double, ptr %cval, align 8
   br label %return
 
 if.else:                                          ; preds = %PyObject_TypeCheck.exit
-  %call1 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %op) #15
+  %call1 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %op) #14
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -1300,10 +1299,10 @@ return:                                           ; preds = %if.else, %if.then
   ret double %retval.0
 }
 
-declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #8
+declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @PyComplex_ImagAsDouble(ptr nocapture noundef readonly %op) local_unnamed_addr #5 {
+define dso_local double @PyComplex_ImagAsDouble(ptr nocapture noundef readonly %op) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -1311,12 +1310,12 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %imag = getelementptr inbounds %struct.PyComplexObject, ptr %op, i64 0, i32 1, i32 1
+  %imag = getelementptr inbounds i8, ptr %op, i64 24
   %1 = load double, ptr %imag, align 8
   br label %return
 
@@ -1326,7 +1325,7 @@ return:                                           ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { double, double } @PyComplex_AsCComplex(ptr noundef %op) local_unnamed_addr #5 {
+define dso_local { double, double } @PyComplex_AsCComplex(ptr noundef %op) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -1334,14 +1333,14 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %op.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %op, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %op, i64 16
   %retval.sroa.0.0.copyload = load double, ptr %cval, align 8
-  %retval.sroa.5.0.cval.sroa_idx = getelementptr inbounds %struct.PyComplexObject, ptr %op, i64 0, i32 1, i32 1
+  %retval.sroa.5.0.cval.sroa_idx = getelementptr inbounds i8, ptr %op, i64 24
   %retval.sroa.5.0.copyload = load double, ptr %retval.sroa.5.0.cval.sroa_idx, align 8
   br label %return
 
@@ -1351,9 +1350,9 @@ if.end:                                           ; preds = %PyObject_TypeCheck.
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cval4 = getelementptr inbounds %struct.PyComplexObject, ptr %call1, i64 0, i32 1
+  %cval4 = getelementptr inbounds i8, ptr %call1, i64 16
   %cv.sroa.0.0.copyload = load double, ptr %cval4, align 8
-  %cv.sroa.6.0.cval4.sroa_idx = getelementptr inbounds %struct.PyComplexObject, ptr %call1, i64 0, i32 1, i32 1
+  %cv.sroa.6.0.cval4.sroa_idx = getelementptr inbounds i8, ptr %call1, i64 24
   %cv.sroa.6.0.copyload = load double, ptr %cv.sroa.6.0.cval4.sroa_idx, align 8
   %1 = load i64, ptr %call1, align 8
   %2 = and i64 %1, 2147483648
@@ -1367,16 +1366,16 @@ if.end.i:                                         ; preds = %if.then3
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call1) #14
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call5 = tail call ptr @PyErr_Occurred() #15
+  %call5 = tail call ptr @PyErr_Occurred() #14
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %if.else8, label %return
 
 if.else8:                                         ; preds = %if.else
-  %call9 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %op) #15
+  %call9 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %op) #14
   br label %return
 
 return:                                           ; preds = %if.else, %if.end.i, %if.then1.i, %if.then3, %if.else8, %if.then
@@ -1388,9 +1387,9 @@ return:                                           ; preds = %if.else, %if.end.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @try_complex_special_method(ptr noundef %op) unnamed_addr #5 {
+define internal fastcc ptr @try_complex_special_method(ptr noundef %op) unnamed_addr #4 {
 entry:
-  %call = tail call ptr @_PyObject_LookupSpecial(ptr noundef %op, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 39)) #15
+  %call = tail call ptr @_PyObject_LookupSpecial(ptr noundef %op, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 39)) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.then
 
@@ -1406,7 +1405,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %5 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call, i64 %5
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -1414,12 +1413,12 @@ _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %if.then
-  %call2.i.i = tail call ptr @_PyObject_MakeTpCall(ptr noundef %1, ptr noundef nonnull %call, ptr noundef null, i64 noundef 0, ptr noundef null) #15
+  %call2.i.i = tail call ptr @_PyObject_MakeTpCall(ptr noundef %1, ptr noundef nonnull %call, ptr noundef null, i64 noundef 0, ptr noundef null) #14
   br label %_PyObject_CallNoArgs.exit
 
 if.end.i.i:                                       ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %call3.i.i = tail call ptr %ptr.0.copyload.i.i.i(ptr noundef nonnull %call, ptr noundef null, i64 noundef 0, ptr noundef null) #15
-  %call4.i.i = tail call ptr @_Py_CheckFunctionResult(ptr noundef %1, ptr noundef nonnull %call, ptr noundef %call3.i.i, ptr noundef null) #15
+  %call3.i.i = tail call ptr %ptr.0.copyload.i.i.i(ptr noundef nonnull %call, ptr noundef null, i64 noundef 0, ptr noundef null) #14
+  %call4.i.i = tail call ptr @_Py_CheckFunctionResult(ptr noundef %1, ptr noundef nonnull %call, ptr noundef %call3.i.i, ptr noundef null) #14
   br label %_PyObject_CallNoArgs.exit
 
 _PyObject_CallNoArgs.exit:                        ; preds = %if.then.i.i, %if.end.i.i
@@ -1436,7 +1435,7 @@ if.end.i31:                                       ; preds = %_PyObject_CallNoArg
   br i1 %cmp.i33, label %if.then1.i34, label %Py_DECREF.exit36
 
 if.then1.i34:                                     ; preds = %if.end.i31
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call) #14
   br label %Py_DECREF.exit36
 
 Py_DECREF.exit36:                                 ; preds = %_PyObject_CallNoArgs.exit, %if.then1.i34, %if.end.i31
@@ -1450,16 +1449,16 @@ lor.lhs.false:                                    ; preds = %Py_DECREF.exit36
   br i1 %cmp.i20.not, label %return, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %lor.lhs.false
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call1.val18, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %call1.val18, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   %call1.val = load ptr, ptr %8, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call1.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %call1.val, i64 24
   %9 = load ptr, ptr %tp_name, align 8
   br i1 %tobool3.i.not, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %PyObject_TypeCheck.exit
   %10 = load ptr, ptr @PyExc_TypeError, align 8
-  %call10 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef %9) #15
+  %call10 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef %9) #14
   %11 = load i64, ptr %retval.0.i.i, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i41.not = icmp eq i64 %12, 0
@@ -1473,7 +1472,7 @@ if.end.i22:                                       ; preds = %if.then8
 
 if.end11:                                         ; preds = %PyObject_TypeCheck.exit
   %13 = load ptr, ptr @PyExc_DeprecationWarning, align 8
-  %call14 = tail call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %13, i64 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %9) #15
+  %call14 = tail call i32 (ptr, i64, ptr, ...) @PyErr_WarnFormat(ptr noundef %13, i64 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %9) #14
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.then16
 
@@ -1490,7 +1489,7 @@ if.end.i:                                         ; preds = %if.then16
   br i1 %cmp.i, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end.i, %if.end.i22
-  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i.i) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i.i) #14
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %if.end11, %if.end.i, %if.then16, %if.end.i22, %if.then8, %Py_DECREF.exit36, %lor.lhs.false
@@ -1498,12 +1497,12 @@ return:                                           ; preds = %return.sink.split, 
   ret ptr %retval.0
 }
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #8
+declare ptr @PyErr_Occurred() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_repr(ptr nocapture noundef readonly %v) #5 {
+define internal ptr @complex_repr(ptr nocapture noundef readonly %v) #4 {
 entry:
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
   %cmp = fcmp oeq double %0, 0.000000e+00
   %1 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
@@ -1512,34 +1511,34 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %imag = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
+  %imag = getelementptr inbounds i8, ptr %v, i64 24
   %2 = load double, ptr %imag, align 8
-  %call = tail call ptr @PyOS_double_to_string(double noundef %2, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #15
+  %call = tail call ptr @PyOS_double_to_string(double noundef %2, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then5, label %if.end21
 
 if.then5:                                         ; preds = %if.then
-  %call6 = tail call ptr @PyErr_NoMemory() #15
+  %call6 = tail call ptr @PyErr_NoMemory() #14
   br label %done
 
 if.else:                                          ; preds = %entry
-  %call9 = tail call ptr @PyOS_double_to_string(double noundef %0, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #15
+  %call9 = tail call ptr @PyOS_double_to_string(double noundef %0, i8 noundef signext 114, i32 noundef 0, i32 noundef 0, ptr noundef null) #14
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.else
-  %call12 = tail call ptr @PyErr_NoMemory() #15
+  %call12 = tail call ptr @PyErr_NoMemory() #14
   br label %done
 
 if.end13:                                         ; preds = %if.else
-  %imag15 = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
+  %imag15 = getelementptr inbounds i8, ptr %v, i64 24
   %3 = load double, ptr %imag15, align 8
-  %call16 = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 1, ptr noundef null) #15
+  %call16 = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 1, ptr noundef null) #14
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %if.then18, label %if.end21
 
 if.then18:                                        ; preds = %if.end13
-  %call19 = tail call ptr @PyErr_NoMemory() #15
+  %call19 = tail call ptr @PyErr_NoMemory() #14
   br label %done
 
 if.end21:                                         ; preds = %if.end13, %if.then
@@ -1548,31 +1547,31 @@ if.end21:                                         ; preds = %if.end13, %if.then
   %re.0 = phi ptr [ @.str.3, %if.then ], [ %call9, %if.end13 ]
   %lead.0 = phi ptr [ @.str.3, %if.then ], [ @.str.4, %if.end13 ]
   %tail.0 = phi ptr [ @.str.3, %if.then ], [ @.str.5, %if.end13 ]
-  %call22 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef nonnull %lead.0, ptr noundef nonnull %re.0, ptr noundef nonnull %im.0, ptr noundef nonnull %tail.0) #15
+  %call22 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef nonnull %lead.0, ptr noundef nonnull %re.0, ptr noundef nonnull %im.0, ptr noundef nonnull %tail.0) #14
   br label %done
 
 done:                                             ; preds = %if.end21, %if.then18, %if.then11, %if.then5
   %result.0 = phi ptr [ %call22, %if.end21 ], [ null, %if.then5 ], [ null, %if.then18 ], [ null, %if.then11 ]
   %pre.1 = phi ptr [ %pre.0, %if.end21 ], [ null, %if.then5 ], [ %call9, %if.then18 ], [ null, %if.then11 ]
   %im.1 = phi ptr [ %im.0, %if.end21 ], [ null, %if.then5 ], [ null, %if.then18 ], [ null, %if.then11 ]
-  tail call void @PyMem_Free(ptr noundef %im.1) #15
-  tail call void @PyMem_Free(ptr noundef %pre.1) #15
+  tail call void @PyMem_Free(ptr noundef %im.1) #14
+  tail call void @PyMem_Free(ptr noundef %pre.1) #14
   ret ptr %result.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @complex_hash(ptr noundef %v) #5 {
+define internal i64 @complex_hash(ptr noundef %v) #4 {
 entry:
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
-  %call = tail call i64 @_Py_HashDouble(ptr noundef %v, double noundef %0) #15
+  %call = tail call i64 @_Py_HashDouble(ptr noundef %v, double noundef %0) #14
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %imag = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
+  %imag = getelementptr inbounds i8, ptr %v, i64 24
   %1 = load double, ptr %imag, align 8
-  %call2 = tail call i64 @_Py_HashDouble(ptr noundef nonnull %v, double noundef %1) #15
+  %call2 = tail call i64 @_Py_HashDouble(ptr noundef nonnull %v, double noundef %1) #14
   %cmp3 = icmp eq i64 %call2, -1
   br i1 %cmp3, label %return, label %if.end5
 
@@ -1587,10 +1586,10 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i64 %retval.0
 }
 
-declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #8
+declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_richcompare(ptr noundef %v, ptr noundef %w, i32 noundef %op) #5 {
+define internal ptr @complex_richcompare(ptr noundef %v, ptr noundef %w, i32 noundef %op) #4 {
 entry:
   %w.addr = alloca ptr, align 8
   %j34 = alloca %struct.Py_complex, align 8
@@ -1606,14 +1605,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not.i, label %if.then2, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %if.end
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val13, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val13, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %i.sroa.0.0.copyload = load double, ptr %cval, align 8
-  %i.sroa.7.0.cval.sroa_idx = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
+  %i.sroa.7.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %i.sroa.7.0.copyload = load double, ptr %i.sroa.7.0.cval.sroa_idx, align 8
   br label %if.end7
 
@@ -1626,12 +1625,12 @@ if.else:                                          ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %call2.i14 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #15
+  %call2.i14 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #14
   %cmp.i15 = fcmp oeq double %call2.i14, -1.000000e+00
   br i1 %cmp.i15, label %land.lhs.true.i, label %if.end7
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call5.i = tail call ptr @PyErr_Occurred() #15
+  %call5.i = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %if.end7, label %return
 
@@ -1640,12 +1639,12 @@ if.end8.i:                                        ; preds = %if.else
   br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
-  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
-  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #15
+  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end7
 
 if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
@@ -1678,12 +1677,12 @@ if.then11.if.end57_crit_edge:                     ; preds = %if.then11
   br i1 %.not, label %if.else62.split, label %if.then61.split
 
 if.then13:                                        ; preds = %if.then11
-  %call14 = tail call ptr @PyFloat_FromDouble(double noundef %i.sroa.0.1) #15
+  %call14 = tail call ptr @PyFloat_FromDouble(double noundef %i.sroa.0.1) #14
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %return, label %if.end17
 
 if.end17:                                         ; preds = %if.then13
-  %call18 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %call14, ptr noundef nonnull %w, i32 noundef %op) #15
+  %call18 = tail call ptr @PyObject_RichCompare(ptr noundef nonnull %call14, ptr noundef nonnull %w, i32 noundef %op) #14
   %8 = load i64, ptr %call14, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i66.not = icmp eq i64 %9, 0
@@ -1696,7 +1695,7 @@ if.end.i:                                         ; preds = %if.end17
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call14) #15
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call14) #14
   br label %return
 
 if.else21:                                        ; preds = %if.end7
@@ -1704,12 +1703,12 @@ if.else21:                                        ; preds = %if.end7
   br i1 %cmp.i.not.i17, label %if.then24, label %PyObject_TypeCheck.exit22
 
 PyObject_TypeCheck.exit22:                        ; preds = %if.else21
-  %call2.i19 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i19 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i20.not = icmp eq i32 %call2.i19, 0
   br i1 %tobool3.i20.not, label %if.else30, label %if.then24
 
 if.then24:                                        ; preds = %if.else21, %PyObject_TypeCheck.exit22
-  %call26 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #15
+  %call26 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end57
 
 if.else30:                                        ; preds = %PyObject_TypeCheck.exit22
@@ -1718,7 +1717,7 @@ if.else30:                                        ; preds = %PyObject_TypeCheck.
   br i1 %cmp.i.not.i23, label %if.then37, label %PyObject_TypeCheck.exit28
 
 PyObject_TypeCheck.exit28:                        ; preds = %if.else30
-  %call2.i25 = tail call i32 @PyType_IsSubtype(ptr noundef %.val11, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i25 = tail call i32 @PyType_IsSubtype(ptr noundef %.val11, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i26.not = icmp eq i32 %call2.i25, 0
   br i1 %tobool3.i26.not, label %return, label %if.then33
 
@@ -1728,12 +1727,12 @@ if.then33:                                        ; preds = %PyObject_TypeCheck.
   br i1 %cmp.i.not.i29, label %if.then37, label %PyObject_TypeCheck.exit34
 
 PyObject_TypeCheck.exit34:                        ; preds = %if.then33
-  %call2.i31 = tail call i32 @PyType_IsSubtype(ptr noundef %.val10.pr, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i31 = tail call i32 @PyType_IsSubtype(ptr noundef %.val10.pr, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i32.not = icmp eq i32 %call2.i31, 0
   br i1 %tobool3.i32.not, label %if.else39, label %if.then37
 
 if.then37:                                        ; preds = %if.else30, %if.then33, %PyObject_TypeCheck.exit34
-  %cval38 = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1
+  %cval38 = getelementptr inbounds i8, ptr %w, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %j34, ptr noundef nonnull align 8 dereferenceable(16) %cval38, i64 16, i1 false)
   br label %if.end44
 
@@ -1748,7 +1747,7 @@ if.then42:                                        ; preds = %if.else39
 
 if.end44:                                         ; preds = %if.else39, %if.then37
   %11 = load double, ptr %j34, align 8
-  %imag50 = getelementptr inbounds %struct.Py_complex, ptr %j34, i64 0, i32 1
+  %imag50 = getelementptr inbounds i8, ptr %j34, i64 8
   %12 = load double, ptr %imag50, align 8
   br label %if.end57
 
@@ -1787,10 +1786,10 @@ return:                                           ; preds = %land.lhs.true.i, %i
   ret ptr %retval.0
 }
 
-declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #8
+declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwargs) #5 {
+define internal ptr @complex_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwargs) #4 {
 entry:
   %len.i.i = alloca i64, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -1803,18 +1802,18 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add18 = add i64 %kwargs.val, %args.val
-  %ob_item23 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item23 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %or.cond1 = icmp ult i64 %args.val, 3
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
   %ob_item26 = phi ptr [ %ob_item23, %cond.end.thread ], [ %ob_item, %cond.end ]
   %add24 = phi i64 [ %add18, %cond.end.thread ], [ %args.val, %cond.end ]
-  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item26, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @complex_new._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #15
+  %call14 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %ob_item26, i64 noundef %args.val, ptr noundef %kwargs, ptr noundef null, ptr noundef nonnull @complex_new._parser, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %argsbuf) #14
   %tobool17.not = icmp eq ptr %call14, null
   br i1 %tobool17.not, label %exit, label %if.end
 
@@ -1832,7 +1831,7 @@ if.end20:                                         ; preds = %if.end
   br i1 %or.cond, label %skip_optional_pos, label %if.end27
 
 if.end27:                                         ; preds = %if.end20
-  %arrayidx28 = getelementptr ptr, ptr %cond1631, i64 1
+  %arrayidx28 = getelementptr i8, ptr %cond1631, i64 8
   %3 = load ptr, ptr %arrayidx28, align 8
   br label %skip_optional_pos
 
@@ -1872,19 +1871,19 @@ if.then11.i:                                      ; preds = %if.end7.i
 
 if.then13.i:                                      ; preds = %if.then11.i
   %9 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.23) #15
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.23) #14
   br label %exit
 
 if.then.i.i:                                      ; preds = %if.then11.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i)
-  %call2.i.i = call ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef nonnull %spec.select.i) #15
+  %call2.i.i = call ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef nonnull %spec.select.i) #14
   %cmp.i73.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i73.i, label %complex_subtype_from_string.exit.i, label %if.end.i74.i
 
 if.end.i74.i:                                     ; preds = %if.then.i.i
-  %call4.i.i = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %call2.i.i, ptr noundef nonnull %len.i.i) #15
+  %call4.i.i = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %call2.i.i, ptr noundef nonnull %len.i.i) #14
   %10 = load i64, ptr %len.i.i, align 8
-  %call8.i.i = call ptr @_Py_string_to_number_with_underscores(ptr noundef %call4.i.i, i64 noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select.i, ptr noundef %type, ptr noundef nonnull @complex_from_string_inner) #15
+  %call8.i.i = call ptr @_Py_string_to_number_with_underscores(ptr noundef %call4.i.i, i64 noundef %10, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select.i, ptr noundef %type, ptr noundef nonnull @complex_from_string_inner) #14
   %11 = load i64, ptr %call2.i.i, align 8
   %12 = and i64 %11, 2147483648
   %cmp.i10.not.i.i = icmp eq i64 %12, 0
@@ -1897,7 +1896,7 @@ if.end.i.i75.i:                                   ; preds = %if.end.i74.i
   br i1 %cmp.i.i76.i, label %if.then1.i.i.i, label %complex_subtype_from_string.exit.i
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i75.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call2.i.i) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %call2.i.i) #14
   br label %complex_subtype_from_string.exit.i
 
 complex_subtype_from_string.exit.i:               ; preds = %if.then1.i.i.i, %if.end.i.i75.i, %if.end.i74.i, %if.then.i.i
@@ -1920,7 +1919,7 @@ land.lhs.true18.i:                                ; preds = %if.end16.i
 
 if.then22.i:                                      ; preds = %land.lhs.true18.i
   %16 = load ptr, ptr @PyExc_TypeError, align 8
-  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.24) #15
+  call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.24) #14
   br label %exit
 
 if.end23.i:                                       ; preds = %land.lhs.true18.i, %if.end16.i
@@ -1929,7 +1928,7 @@ if.end23.i:                                       ; preds = %land.lhs.true18.i, 
   br i1 %tobool25.not.i, label %if.else.i, label %if.end31.i
 
 if.else.i:                                        ; preds = %if.end23.i
-  %call27.i = call ptr @PyErr_Occurred() #15
+  %call27.i = call ptr @PyErr_Occurred() #14
   %tobool28.not.i = icmp eq ptr %call27.i, null
   br i1 %tobool28.not.i, label %if.end31.i, label %exit
 
@@ -1937,19 +1936,19 @@ if.end31.i:                                       ; preds = %if.else.i, %if.end2
   %r.addr.1.i = phi ptr [ %spec.select.i, %if.else.i ], [ %call24.i, %if.end23.i ]
   %17 = getelementptr i8, ptr %r.addr.1.i, i64 8
   %r.addr.1.val63.i = load ptr, ptr %17, align 8
-  %tp_as_number.i = getelementptr inbounds %struct._typeobject, ptr %r.addr.1.val63.i, i64 0, i32 10
+  %tp_as_number.i = getelementptr inbounds i8, ptr %r.addr.1.val63.i, i64 96
   %18 = load ptr, ptr %tp_as_number.i, align 8
   %cmp33.i = icmp eq ptr %18, null
   br i1 %cmp33.i, label %if.then40.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end31.i
-  %nb_float.i = getelementptr inbounds %struct.PyNumberMethods, ptr %18, i64 0, i32 18
+  %nb_float.i = getelementptr inbounds i8, ptr %18, i64 144
   %19 = load ptr, ptr %nb_float.i, align 8
   %cmp34.i = icmp eq ptr %19, null
   br i1 %cmp34.i, label %land.lhs.true35.i, label %if.end46.i
 
 land.lhs.true35.i:                                ; preds = %lor.lhs.false.i
-  %nb_index.i = getelementptr inbounds %struct.PyNumberMethods, ptr %18, i64 0, i32 33
+  %nb_index.i = getelementptr inbounds i8, ptr %18, i64 264
   %20 = load ptr, ptr %nb_index.i, align 8
   %cmp36.i = icmp ne ptr %20, null
   %cmp.i.not.i.i = icmp eq ptr %r.addr.1.val63.i, @PyComplex_Type
@@ -1957,7 +1956,7 @@ land.lhs.true35.i:                                ; preds = %lor.lhs.false.i
   br i1 %or.cond.i, label %if.end46.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %land.lhs.true35.i
-  %call2.i80.i = call i32 @PyType_IsSubtype(ptr noundef %r.addr.1.val63.i, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i80.i = call i32 @PyType_IsSubtype(ptr noundef %r.addr.1.val63.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i80.i, 0
   br i1 %tobool3.i.not.i, label %PyObject_TypeCheck.exit.if.then40_crit_edge.i, label %if.end46.i
 
@@ -1968,9 +1967,9 @@ PyObject_TypeCheck.exit.if.then40_crit_edge.i:    ; preds = %PyObject_TypeCheck.
 if.then40.i:                                      ; preds = %PyObject_TypeCheck.exit.if.then40_crit_edge.i, %if.end31.i
   %r.addr.1.val.i = phi ptr [ %r.addr.1.val.pre.i, %PyObject_TypeCheck.exit.if.then40_crit_edge.i ], [ %r.addr.1.val63.i, %if.end31.i ]
   %21 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %r.addr.1.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %r.addr.1.val.i, i64 24
   %22 = load ptr, ptr %tp_name.i, align 8
-  %call42.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %21, ptr noundef nonnull @.str.25, ptr noundef %22) #15
+  %call42.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %21, ptr noundef nonnull @.str.25, ptr noundef %22) #14
   br i1 %tobool25.not.i, label %exit, label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.then40.i
@@ -1986,7 +1985,7 @@ if.end.i158.i:                                    ; preds = %if.then44.i
   br i1 %cmp.i160.i, label %if.then1.i161.i, label %exit
 
 if.then1.i161.i:                                  ; preds = %if.end.i158.i
-  call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #14
   br label %exit
 
 if.end46.i:                                       ; preds = %PyObject_TypeCheck.exit.i, %land.lhs.true35.i, %lor.lhs.false.i
@@ -1995,19 +1994,19 @@ if.end46.i:                                       ; preds = %PyObject_TypeCheck.
 if.then48.i:                                      ; preds = %if.end46.i
   %25 = getelementptr i8, ptr %i.0, i64 8
   %i.val62.i = load ptr, ptr %25, align 8
-  %tp_as_number50.i = getelementptr inbounds %struct._typeobject, ptr %i.val62.i, i64 0, i32 10
+  %tp_as_number50.i = getelementptr inbounds i8, ptr %i.val62.i, i64 96
   %26 = load ptr, ptr %tp_as_number50.i, align 8
   %cmp51.i = icmp eq ptr %26, null
   br i1 %cmp51.i, label %if.then61.i, label %lor.lhs.false52.i
 
 lor.lhs.false52.i:                                ; preds = %if.then48.i
-  %nb_float53.i = getelementptr inbounds %struct.PyNumberMethods, ptr %26, i64 0, i32 18
+  %nb_float53.i = getelementptr inbounds i8, ptr %26, i64 144
   %27 = load ptr, ptr %nb_float53.i, align 8
   %cmp54.i = icmp eq ptr %27, null
   br i1 %cmp54.i, label %land.lhs.true55.i, label %if.end69.i
 
 land.lhs.true55.i:                                ; preds = %lor.lhs.false52.i
-  %nb_index56.i = getelementptr inbounds %struct.PyNumberMethods, ptr %26, i64 0, i32 33
+  %nb_index56.i = getelementptr inbounds i8, ptr %26, i64 264
   %28 = load ptr, ptr %nb_index56.i, align 8
   %cmp57.i = icmp ne ptr %28, null
   %cmp.i.not.i81.i = icmp eq ptr %i.val62.i, @PyComplex_Type
@@ -2015,7 +2014,7 @@ land.lhs.true55.i:                                ; preds = %lor.lhs.false52.i
   br i1 %or.cond115.i, label %if.end69.i, label %PyObject_TypeCheck.exit86.i
 
 PyObject_TypeCheck.exit86.i:                      ; preds = %land.lhs.true55.i
-  %call2.i83.i = call i32 @PyType_IsSubtype(ptr noundef %i.val62.i, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i83.i = call i32 @PyType_IsSubtype(ptr noundef %i.val62.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i84.not.i = icmp eq i32 %call2.i83.i, 0
   br i1 %tobool3.i84.not.i, label %PyObject_TypeCheck.exit86.if.then61_crit_edge.i, label %if.end69.i
 
@@ -2026,9 +2025,9 @@ PyObject_TypeCheck.exit86.if.then61_crit_edge.i:  ; preds = %PyObject_TypeCheck.
 if.then61.i:                                      ; preds = %PyObject_TypeCheck.exit86.if.then61_crit_edge.i, %if.then48.i
   %i.val.i = phi ptr [ %i.val.pre.i, %PyObject_TypeCheck.exit86.if.then61_crit_edge.i ], [ %i.val62.i, %if.then48.i ]
   %29 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name63.i = getelementptr inbounds %struct._typeobject, ptr %i.val.i, i64 0, i32 1
+  %tp_name63.i = getelementptr inbounds i8, ptr %i.val.i, i64 24
   %30 = load ptr, ptr %tp_name63.i, align 8
-  %call64.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %29, ptr noundef nonnull @.str.26, ptr noundef %30) #15
+  %call64.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %29, ptr noundef nonnull @.str.26, ptr noundef %30) #14
   br i1 %tobool25.not.i, label %exit, label %if.then66.i
 
 if.then66.i:                                      ; preds = %if.then61.i
@@ -2044,7 +2043,7 @@ if.end.i149.i:                                    ; preds = %if.then66.i
   br i1 %cmp.i151.i, label %if.then1.i152.i, label %exit
 
 if.then1.i152.i:                                  ; preds = %if.end.i149.i
-  call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #14
   br label %exit
 
 if.end69.i:                                       ; preds = %PyObject_TypeCheck.exit86.i, %land.lhs.true55.i, %lor.lhs.false52.i, %if.end46.i
@@ -2053,14 +2052,14 @@ if.end69.i:                                       ; preds = %PyObject_TypeCheck.
   br i1 %cmp.i.not.i87.i, label %if.then72.i, label %PyObject_TypeCheck.exit92.i
 
 PyObject_TypeCheck.exit92.i:                      ; preds = %if.end69.i
-  %call2.i89.i = call i32 @PyType_IsSubtype(ptr noundef %r.addr.1.val67.i, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i89.i = call i32 @PyType_IsSubtype(ptr noundef %r.addr.1.val67.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i90.not.i = icmp eq i32 %call2.i89.i, 0
   br i1 %tobool3.i90.not.i, label %if.else76.i, label %if.then72.i
 
 if.then72.i:                                      ; preds = %PyObject_TypeCheck.exit92.i, %if.end69.i
-  %cval.i = getelementptr inbounds %struct.PyComplexObject, ptr %r.addr.1.i, i64 0, i32 1
+  %cval.i = getelementptr inbounds i8, ptr %r.addr.1.i, i64 16
   %cr.sroa.0.0.copyload.i = load double, ptr %cval.i, align 8
-  %cr.sroa.5.0.cval.sroa_idx.i = getelementptr inbounds %struct.PyComplexObject, ptr %r.addr.1.i, i64 0, i32 1, i32 1
+  %cr.sroa.5.0.cval.sroa_idx.i = getelementptr inbounds i8, ptr %r.addr.1.i, i64 24
   %cr.sroa.5.0.copyload.i = load double, ptr %cr.sroa.5.0.cval.sroa_idx.i, align 8
   br i1 %tobool25.not.i, label %if.end85.i, label %if.then74.i
 
@@ -2077,7 +2076,7 @@ if.end.i140.i:                                    ; preds = %if.then74.i
   br i1 %cmp.i142.i, label %if.end85.sink.split.i, label %if.end85.i
 
 if.else76.i:                                      ; preds = %PyObject_TypeCheck.exit92.i
-  %call77.i = call ptr @PyNumber_Float(ptr noundef nonnull %r.addr.1.i) #15
+  %call77.i = call ptr @PyNumber_Float(ptr noundef nonnull %r.addr.1.i) #14
   br i1 %tobool25.not.i, label %if.end80.i, label %if.then79.i
 
 if.then79.i:                                      ; preds = %if.else76.i
@@ -2093,7 +2092,7 @@ if.end.i131.i:                                    ; preds = %if.then79.i
   br i1 %cmp.i133.i, label %if.then1.i134.i, label %if.end80.i
 
 if.then1.i134.i:                                  ; preds = %if.end.i131.i
-  call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %r.addr.1.i) #14
   br label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then1.i134.i, %if.end.i131.i, %if.then79.i, %if.else76.i
@@ -2101,7 +2100,7 @@ if.end80.i:                                       ; preds = %if.then1.i134.i, %i
   br i1 %cmp81.i, label %exit, label %if.end83.i
 
 if.end83.i:                                       ; preds = %if.end80.i
-  %call84.i = call double @PyFloat_AsDouble(ptr noundef nonnull %call77.i) #15
+  %call84.i = call double @PyFloat_AsDouble(ptr noundef nonnull %call77.i) #14
   %37 = load i64, ptr %call77.i, align 8
   %38 = and i64 %37, 2147483648
   %cmp.i180.not.i = icmp eq i64 %38, 0
@@ -2118,7 +2117,7 @@ if.end85.sink.split.i:                            ; preds = %if.end.i122.i, %if.
   %tobool71.not105.ph.i = phi i1 [ true, %if.end.i140.i ], [ false, %if.end.i122.i ]
   %cr.sroa.5.0.ph.i = phi double [ %cr.sroa.5.0.copyload.i, %if.end.i140.i ], [ 0.000000e+00, %if.end.i122.i ]
   %cr.sroa.0.0.ph.i = phi double [ %cr.sroa.0.0.copyload.i, %if.end.i140.i ], [ %call84.i, %if.end.i122.i ]
-  call void @_Py_Dealloc(ptr noundef nonnull %call77.sink.i) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %call77.sink.i) #14
   br label %if.end85.i
 
 if.end85.i:                                       ; preds = %if.end85.sink.split.i, %if.end.i122.i, %if.end83.i, %if.end.i140.i, %if.then74.i, %if.then72.i
@@ -2134,17 +2133,17 @@ if.else90.i:                                      ; preds = %if.end85.i
   br i1 %cmp.i.not.i93.i, label %if.end103.i, label %PyObject_TypeCheck.exit98.i
 
 PyObject_TypeCheck.exit98.i:                      ; preds = %if.else90.i
-  %call2.i95.i = call i32 @PyType_IsSubtype(ptr noundef %i.val66.i, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i95.i = call i32 @PyType_IsSubtype(ptr noundef %i.val66.i, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i96.not.i = icmp eq i32 %call2.i95.i, 0
   br i1 %tobool3.i96.not.i, label %if.else95.i, label %if.end103.i
 
 if.else95.i:                                      ; preds = %PyObject_TypeCheck.exit98.i
-  %call96.i = call ptr @PyNumber_Float(ptr noundef nonnull %i.0) #15
+  %call96.i = call ptr @PyNumber_Float(ptr noundef nonnull %i.0) #14
   %cmp97.i = icmp eq ptr %call96.i, null
   br i1 %cmp97.i, label %exit, label %if.end99.i
 
 if.end99.i:                                       ; preds = %if.else95.i
-  %call100.i = call double @PyFloat_AsDouble(ptr noundef nonnull %call96.i) #15
+  %call100.i = call double @PyFloat_AsDouble(ptr noundef nonnull %call96.i) #14
   %40 = load i64, ptr %call96.i, align 8
   %41 = and i64 %40, 2147483648
   %cmp.i184.not.i = icmp eq i64 %41, 0
@@ -2157,13 +2156,13 @@ if.end.i.i:                                       ; preds = %if.end99.i
   br i1 %cmp.i.i, label %if.then1.i.i, label %42
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call96.i) #15
+  call void @_Py_Dealloc(ptr noundef nonnull %call96.i) #14
   br label %42
 
 if.end103.i:                                      ; preds = %PyObject_TypeCheck.exit98.i, %if.else90.i
-  %cval94.i = getelementptr inbounds %struct.PyComplexObject, ptr %i.0, i64 0, i32 1
+  %cval94.i = getelementptr inbounds i8, ptr %i.0, i64 16
   %ci.sroa.0.0.copyload.i = load double, ptr %cval94.i, align 8
-  %ci.sroa.6.0.cval94.sroa_idx.i = getelementptr inbounds %struct.PyComplexObject, ptr %i.0, i64 0, i32 1, i32 1
+  %ci.sroa.6.0.cval94.sroa_idx.i = getelementptr inbounds i8, ptr %i.0, i64 24
   %ci.sroa.6.0.copyload.i = load double, ptr %ci.sroa.6.0.cval94.sroa_idx.i, align 8
   %sub.i = fsub double %cr.sroa.0.0.i, %ci.sroa.6.0.copyload.i
   br label %42
@@ -2171,9 +2170,9 @@ if.end103.i:                                      ; preds = %PyObject_TypeCheck.
 42:                                               ; preds = %if.end103.i, %if.then1.i.i, %if.end.i.i, %if.end99.i, %if.end85.i
   %ci.sroa.0.0113.i = phi double [ %ci.sroa.0.0.copyload.i, %if.end103.i ], [ %cr.sroa.5.0.i, %if.end85.i ], [ %call100.i, %if.end.i.i ], [ %call100.i, %if.then1.i.i ], [ %call100.i, %if.end99.i ]
   %43 = phi double [ %sub.i, %if.end103.i ], [ %cr.sroa.0.0.i, %if.end85.i ], [ %cr.sroa.0.0.i, %if.end.i.i ], [ %cr.sroa.0.0.i, %if.then1.i.i ], [ %cr.sroa.0.0.i, %if.end99.i ]
-  %tp_alloc.i.i.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i.i.i = getelementptr inbounds i8, ptr %type, i64 304
   %44 = load ptr, ptr %tp_alloc.i.i.i, align 8
-  %call.i.i.i = call ptr %44(ptr noundef %type, i64 noundef 0) #15
+  %call.i.i.i = call ptr %44(ptr noundef %type, i64 noundef 0) #14
   %cmp.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.not.i.i.i, label %exit, label %if.then.i.i.i
 
@@ -2181,9 +2180,9 @@ if.then.i.i.i:                                    ; preds = %42
   %or.cond2.i = and i1 %cmp17.i, %tobool71.not105.i
   %add.i = select i1 %or.cond2.i, double %cr.sroa.5.0.i, double -0.000000e+00
   %ci.sroa.0.1.i = fadd double %add.i, %ci.sroa.0.0113.i
-  %cval1.i.i.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i.i.i, i64 0, i32 1
+  %cval1.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store double %43, ptr %cval1.i.i.i, align 8
-  %cval.sroa.2.0.cval1.sroa_idx.i.i.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i.i.i, i64 0, i32 1, i32 1
+  %cval.sroa.2.0.cval1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store double %ci.sroa.0.1.i, ptr %cval.sroa.2.0.cval1.sroa_idx.i.i.i, align 8
   br label %exit
 
@@ -2192,38 +2191,38 @@ exit:                                             ; preds = %if.then.i.i.i, %42,
   ret ptr %return_value.0
 }
 
-declare void @PyObject_Free(ptr noundef) #8
+declare void @PyObject_Free(ptr noundef) #7
 
-declare void @_Py_NewReference(ptr noundef) local_unnamed_addr #8
+declare void @_Py_NewReference(ptr noundef) local_unnamed_addr #7
 
-declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @_PyObject_LookupSpecial(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @_PyObject_LookupSpecial(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
-declare i32 @PyErr_WarnFormat(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
-
-declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
-
-declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
-
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #8
+declare i32 @PyErr_WarnFormat(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #2
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
-declare ptr @PyOS_double_to_string(double noundef, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #8
+declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @PyMem_Free(ptr noundef) local_unnamed_addr #8
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.copysign.f64(double, double) #1
+
+declare ptr @PyOS_double_to_string(double noundef, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #7
+
+declare void @PyMem_Free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_add(ptr noundef %v, ptr noundef %w) #5 {
+define internal ptr @complex_add(ptr noundef %v, ptr noundef %w) #4 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2231,12 +2230,12 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %1 = load <2 x double>, ptr %cval, align 8
   br label %if.end3
 
@@ -2249,13 +2248,13 @@ if.else:                                          ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #15
+  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #14
   %cmp.i = fcmp oeq double %call2.i1, -1.000000e+00
   %4 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call2.i1, i64 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end3
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call5.i = tail call ptr @PyErr_Occurred() #15
+  %call5.i = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %if.end3, label %return
 
@@ -2264,12 +2263,12 @@ if.end8.i:                                        ; preds = %if.else
   br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
-  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
-  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #15
+  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   %5 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call12.i, i64 0
   br label %if.end3
 
@@ -2291,12 +2290,12 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
 PyObject_TypeCheck.exit7:                         ; preds = %if.end3
-  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
 if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
-  %cval7 = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1
+  %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %9 = load <2 x double>, ptr %cval7, align 8
   br label %if.end13
 
@@ -2309,13 +2308,13 @@ if.else8:                                         ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i10, label %if.end8.i19, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.else8
-  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #15
+  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #14
   %cmp.i13 = fcmp oeq double %call2.i12, -1.000000e+00
   %12 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call2.i12, i64 0
   br i1 %cmp.i13, label %land.lhs.true.i15, label %if.end13
 
 land.lhs.true.i15:                                ; preds = %if.then.i11
-  %call5.i16 = tail call ptr @PyErr_Occurred() #15
+  %call5.i16 = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i17 = icmp eq ptr %call5.i16, null
   br i1 %tobool6.not.i17, label %if.end13, label %return
 
@@ -2324,12 +2323,12 @@ if.end8.i19:                                      ; preds = %if.else8
   br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
 PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
-  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
 if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
-  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #15
+  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   %13 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call12.i25, i64 0
   br label %if.end13
 
@@ -2346,16 +2345,16 @@ if.end.i.i.i29:                                   ; preds = %if.end14.i26
 if.end13:                                         ; preds = %if.then11.i24, %land.lhs.true.i15, %if.then.i11, %if.then6
   %15 = phi <2 x double> [ %9, %if.then6 ], [ %13, %if.then11.i24 ], [ <double -1.000000e+00, double 0.000000e+00>, %land.lhs.true.i15 ], [ %12, %if.then.i11 ]
   %16 = fadd <2 x double> %7, %15
-  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i32 = icmp eq ptr %call.i, null
   br i1 %cmp.i32, label %if.then.i37, label %if.end.i
 
 if.then.i37:                                      ; preds = %if.end13
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end.i:                                         ; preds = %if.end13
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %17 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %18 = and i64 %17, 512
@@ -2373,8 +2372,8 @@ if.end.i.i.i35:                                   ; preds = %if.then.i.i
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store <2 x double> %16, ptr %cval2.i, align 8
   br label %return
 
@@ -2384,7 +2383,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_sub(ptr noundef %v, ptr noundef %w) #5 {
+define internal ptr @complex_sub(ptr noundef %v, ptr noundef %w) #4 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2392,12 +2391,12 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %1 = load <2 x double>, ptr %cval, align 8
   br label %if.end3
 
@@ -2410,13 +2409,13 @@ if.else:                                          ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #15
+  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #14
   %cmp.i = fcmp oeq double %call2.i1, -1.000000e+00
   %4 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call2.i1, i64 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end3
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call5.i = tail call ptr @PyErr_Occurred() #15
+  %call5.i = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %if.end3, label %return
 
@@ -2425,12 +2424,12 @@ if.end8.i:                                        ; preds = %if.else
   br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
-  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
-  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #15
+  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   %5 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call12.i, i64 0
   br label %if.end3
 
@@ -2452,12 +2451,12 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
 PyObject_TypeCheck.exit7:                         ; preds = %if.end3
-  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
 if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
-  %cval7 = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1
+  %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %9 = load <2 x double>, ptr %cval7, align 8
   br label %if.end13
 
@@ -2470,13 +2469,13 @@ if.else8:                                         ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i10, label %if.end8.i19, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.else8
-  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #15
+  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #14
   %cmp.i13 = fcmp oeq double %call2.i12, -1.000000e+00
   %12 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call2.i12, i64 0
   br i1 %cmp.i13, label %land.lhs.true.i15, label %if.end13
 
 land.lhs.true.i15:                                ; preds = %if.then.i11
-  %call5.i16 = tail call ptr @PyErr_Occurred() #15
+  %call5.i16 = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i17 = icmp eq ptr %call5.i16, null
   br i1 %tobool6.not.i17, label %if.end13, label %return
 
@@ -2485,12 +2484,12 @@ if.end8.i19:                                      ; preds = %if.else8
   br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
 PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
-  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
 if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
-  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #15
+  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   %13 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call12.i25, i64 0
   br label %if.end13
 
@@ -2507,16 +2506,16 @@ if.end.i.i.i29:                                   ; preds = %if.end14.i26
 if.end13:                                         ; preds = %if.then11.i24, %land.lhs.true.i15, %if.then.i11, %if.then6
   %15 = phi <2 x double> [ %9, %if.then6 ], [ %13, %if.then11.i24 ], [ <double -1.000000e+00, double 0.000000e+00>, %land.lhs.true.i15 ], [ %12, %if.then.i11 ]
   %16 = fsub <2 x double> %7, %15
-  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i32 = icmp eq ptr %call.i, null
   br i1 %cmp.i32, label %if.then.i37, label %if.end.i
 
 if.then.i37:                                      ; preds = %if.end13
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end.i:                                         ; preds = %if.end13
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %17 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %18 = and i64 %17, 512
@@ -2534,8 +2533,8 @@ if.end.i.i.i35:                                   ; preds = %if.then.i.i
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store <2 x double> %16, ptr %cval2.i, align 8
   br label %return
 
@@ -2545,7 +2544,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_mul(ptr noundef %v, ptr noundef %w) #5 {
+define internal ptr @complex_mul(ptr noundef %v, ptr noundef %w) #4 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2553,14 +2552,14 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %a.sroa.0.0.copyload = load double, ptr %cval, align 8
-  %a.sroa.5.0.cval.sroa_idx = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
+  %a.sroa.5.0.cval.sroa_idx = getelementptr inbounds i8, ptr %v, i64 24
   %a.sroa.5.0.copyload = load double, ptr %a.sroa.5.0.cval.sroa_idx, align 8
   br label %if.end3
 
@@ -2573,12 +2572,12 @@ if.else:                                          ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #15
+  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #14
   %cmp.i = fcmp oeq double %call2.i1, -1.000000e+00
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end3
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call5.i = tail call ptr @PyErr_Occurred() #15
+  %call5.i = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %if.end3, label %return
 
@@ -2587,12 +2586,12 @@ if.end8.i:                                        ; preds = %if.else
   br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
-  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
-  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #15
+  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   br label %if.end3
 
 if.end14.i:                                       ; preds = %PyObject_TypeCheck.exit.i
@@ -2614,12 +2613,12 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
 PyObject_TypeCheck.exit7:                         ; preds = %if.end3
-  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
 if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
-  %cval7 = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1
+  %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %5 = load <2 x double>, ptr %cval7, align 8
   br label %if.end13
 
@@ -2632,13 +2631,13 @@ if.else8:                                         ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i10, label %if.end8.i19, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.else8
-  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #15
+  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #14
   %cmp.i13 = fcmp oeq double %call2.i12, -1.000000e+00
   %8 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call2.i12, i64 0
   br i1 %cmp.i13, label %land.lhs.true.i15, label %if.end13
 
 land.lhs.true.i15:                                ; preds = %if.then.i11
-  %call5.i16 = tail call ptr @PyErr_Occurred() #15
+  %call5.i16 = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i17 = icmp eq ptr %call5.i16, null
   br i1 %tobool6.not.i17, label %if.end13, label %return
 
@@ -2647,12 +2646,12 @@ if.end8.i19:                                      ; preds = %if.else8
   br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
 PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
-  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
 if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
-  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #15
+  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   %9 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call12.i25, i64 0
   br label %if.end13
 
@@ -2676,16 +2675,16 @@ if.end13:                                         ; preds = %if.then11.i24, %lan
   %17 = insertelement <2 x double> poison, double %a.sroa.0.1, i64 0
   %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
   %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %11, <2 x double> %16)
-  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i32 = icmp eq ptr %call.i, null
   br i1 %cmp.i32, label %if.then.i37, label %if.end.i
 
 if.then.i37:                                      ; preds = %if.end13
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end.i:                                         ; preds = %if.end13
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %20 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %21 = and i64 %20, 512
@@ -2703,8 +2702,8 @@ if.end.i.i.i35:                                   ; preds = %if.then.i.i
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i35, %if.then.i.i, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store <2 x double> %19, ptr %cval2.i, align 8
   br label %return
 
@@ -2714,7 +2713,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_pow(ptr noundef %v, ptr noundef %w, ptr noundef readnone %z) #5 {
+define internal ptr @complex_pow(ptr noundef %v, ptr noundef %w, ptr noundef readnone %z) #4 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2722,12 +2721,12 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %1 = load <2 x double>, ptr %cval, align 8
   br label %if.end3
 
@@ -2740,13 +2739,13 @@ if.else:                                          ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %call2.i5 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #15
+  %call2.i5 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #14
   %cmp.i = fcmp oeq double %call2.i5, -1.000000e+00
   %4 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call2.i5, i64 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end3
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call5.i = tail call ptr @PyErr_Occurred() #15
+  %call5.i = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %if.end3, label %return
 
@@ -2755,12 +2754,12 @@ if.end8.i:                                        ; preds = %if.else
   br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
-  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
-  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #15
+  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   %5 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call12.i, i64 0
   br label %if.end3
 
@@ -2782,14 +2781,14 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   br i1 %cmp.i.not.i6, label %if.then6, label %PyObject_TypeCheck.exit11
 
 PyObject_TypeCheck.exit11:                        ; preds = %if.end3
-  %call2.i8 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i8 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i9.not = icmp eq i32 %call2.i8, 0
   br i1 %tobool3.i9.not, label %if.else8, label %if.then6
 
 if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit11
-  %cval7 = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1
+  %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %b.sroa.0.0.copyload = load double, ptr %cval7, align 8
-  %b.sroa.6.0.cval7.sroa_idx = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1, i32 1
+  %b.sroa.6.0.cval7.sroa_idx = getelementptr inbounds i8, ptr %w, i64 24
   %b.sroa.6.0.copyload = load double, ptr %b.sroa.6.0.cval7.sroa_idx, align 8
   br label %if.end13
 
@@ -2802,12 +2801,12 @@ if.else8:                                         ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i14, label %if.end8.i23, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.else8
-  %call2.i16 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #15
+  %call2.i16 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #14
   %cmp.i17 = fcmp oeq double %call2.i16, -1.000000e+00
   br i1 %cmp.i17, label %land.lhs.true.i19, label %if.end13
 
 land.lhs.true.i19:                                ; preds = %if.then.i15
-  %call5.i20 = tail call ptr @PyErr_Occurred() #15
+  %call5.i20 = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i21 = icmp eq ptr %call5.i20, null
   br i1 %tobool6.not.i21, label %if.end13, label %return
 
@@ -2816,12 +2815,12 @@ if.end8.i23:                                      ; preds = %if.else8
   br i1 %cmp.i.not.i.i24, label %if.then11.i28, label %PyObject_TypeCheck.exit.i25
 
 PyObject_TypeCheck.exit.i25:                      ; preds = %if.end8.i23
-  %call2.i.i26 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i12, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i26 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i12, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i27 = icmp eq i32 %call2.i.i26, 0
   br i1 %tobool3.i.not.i27, label %if.end14.i30, label %if.then11.i28
 
 if.then11.i28:                                    ; preds = %PyObject_TypeCheck.exit.i25, %if.end8.i23
-  %call12.i29 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #15
+  %call12.i29 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end13
 
 if.end14.i30:                                     ; preds = %PyObject_TypeCheck.exit.i25
@@ -2842,11 +2841,11 @@ if.end13:                                         ; preds = %if.then11.i28, %lan
 
 if.then15:                                        ; preds = %if.end13
   %12 = load ptr, ptr @PyExc_ValueError, align 8
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.7) #15
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.7) #14
   br label %return
 
 if.end16:                                         ; preds = %if.end13
-  %call17 = tail call ptr @__errno_location() #14
+  %call17 = tail call ptr @__errno_location() #13
   store i32 0, ptr %call17, align 4
   %cmp18 = fcmp oeq double %b.sroa.6.0, 0.000000e+00
   br i1 %cmp18, label %land.lhs.true, label %if.else27
@@ -3035,25 +3034,25 @@ _Py_ADJUST_ERANGE2.exit:                          ; preds = %if.then.i39, %if.el
 
 if.then36:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
   %85 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
-  tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.8) #15
+  tail call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str.8) #14
   br label %return
 
 if.then41:                                        ; preds = %_Py_ADJUST_ERANGE2.exit
   %86 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %86, ptr noundef nonnull @.str.9) #15
+  tail call void @PyErr_SetString(ptr noundef %86, ptr noundef nonnull @.str.9) #14
   br label %return
 
 if.end43:                                         ; preds = %_Py_ADJUST_ERANGE2.exit
-  %call.i40 = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i40 = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i41 = icmp eq ptr %call.i40, null
   br i1 %cmp.i41, label %if.then.i48, label %if.end.i
 
 if.then.i48:                                      ; preds = %if.end43
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end.i:                                         ; preds = %if.end43
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i40, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i40, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %87 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %88 = and i64 %87, 512
@@ -3071,10 +3070,10 @@ if.end.i.i.i46:                                   ; preds = %if.then.i.i43
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i46, %if.then.i.i43, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i40) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i40, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i40) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i40, i64 16
   store double %p.sroa.0.0, ptr %cval2.i, align 8
-  %cval.sroa.2.0.cval2.sroa_idx.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i40, i64 0, i32 1, i32 1
+  %cval.sroa.2.0.cval2.sroa_idx.i = getelementptr inbounds i8, ptr %call.i40, i64 24
   store double %p.sroa.4.0, ptr %cval.sroa.2.0.cval2.sroa_idx.i, align 8
   br label %return
 
@@ -3084,21 +3083,21 @@ return:                                           ; preds = %land.lhs.true.i19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_neg(ptr nocapture noundef readonly %v) #5 {
+define internal ptr @complex_neg(ptr nocapture noundef readonly %v) #4 {
 entry:
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load <2 x double>, ptr %cval, align 8
   %1 = fneg <2 x double> %0
-  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %PyComplex_FromCComplex.exit
 
 if.end.i:                                         ; preds = %entry
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %2 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %3 = and i64 %2, 512
@@ -3116,8 +3115,8 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store <2 x double> %1, ptr %cval2.i, align 8
   br label %PyComplex_FromCComplex.exit
 
@@ -3127,7 +3126,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObje
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_pos(ptr noundef %v) #5 {
+define internal ptr @complex_pos(ptr noundef %v) #4 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -3145,18 +3144,18 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %2 = load <2 x double>, ptr %cval, align 8
-  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i3 = icmp eq ptr %call.i, null
   br i1 %cmp.i3, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end.i:                                         ; preds = %if.else
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %3 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %4 = and i64 %3, 512
@@ -3174,8 +3173,8 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store <2 x double> %2, ptr %cval2.i, align 8
   br label %return
 
@@ -3185,11 +3184,11 @@ return:                                           ; preds = %_PyObject_Init.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_abs(ptr nocapture noundef readonly %v) #5 {
+define internal ptr @complex_abs(ptr nocapture noundef readonly %v) #4 {
 entry:
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
-  %1 = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %v, i64 24
   %2 = load double, ptr %1, align 8
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
@@ -3203,19 +3202,19 @@ if.then.i:                                        ; preds = %entry
   br i1 %isinf.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call ptr @__errno_location() #14
+  %call.i = tail call ptr @__errno_location() #13
   br label %if.end.sink.split
 
 if.end.i:                                         ; preds = %if.then.i
   %isinf5.i = fcmp oeq double %5, 0x7FF0000000000000
-  %call9.i = tail call ptr @__errno_location() #14
+  %call9.i = tail call ptr @__errno_location() #13
   br i1 %isinf5.i, label %if.end.sink.split, label %_Py_c_abs.exit
 
 if.end11.i:                                       ; preds = %entry
-  %call14.i = tail call double @hypot(double noundef %0, double noundef %2) #15
+  %call14.i = tail call double @hypot(double noundef %0, double noundef %2) #14
   %7 = tail call double @llvm.fabs.f64(double %call14.i)
   %8 = fcmp ueq double %7, 0x7FF0000000000000
-  %call16.i = tail call ptr @__errno_location() #14
+  %call16.i = tail call ptr @__errno_location() #13
   br i1 %8, label %_Py_c_abs.exit.thread5, label %if.end.sink.split
 
 _Py_c_abs.exit.thread5:                           ; preds = %if.end11.i
@@ -3229,7 +3228,7 @@ _Py_c_abs.exit:                                   ; preds = %if.end.i
 
 if.then:                                          ; preds = %_Py_c_abs.exit.thread5, %_Py_c_abs.exit
   %9 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.10) #15
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.10) #14
   br label %return
 
 if.end.sink.split:                                ; preds = %if.end11.i, %if.end.i, %if.then2.i
@@ -3240,7 +3239,7 @@ if.end.sink.split:                                ; preds = %if.end11.i, %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %_Py_c_abs.exit
   %retval.0.i4 = phi double [ 0x7FF8000000000000, %_Py_c_abs.exit ], [ %retval.0.i4.ph, %if.end.sink.split ]
-  %call2 = tail call ptr @PyFloat_FromDouble(double noundef %retval.0.i4) #15
+  %call2 = tail call ptr @PyFloat_FromDouble(double noundef %retval.0.i4) #14
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -3249,15 +3248,15 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @complex_bool(ptr nocapture noundef readonly %v) #10 {
+define internal i32 @complex_bool(ptr nocapture noundef readonly %v) #9 {
 entry:
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
   %cmp = fcmp une double %0, 0.000000e+00
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %imag = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1, i32 1
+  %imag = getelementptr inbounds i8, ptr %v, i64 24
   %1 = load double, ptr %imag, align 8
   %cmp2 = fcmp une double %1, 0.000000e+00
   %2 = zext i1 %cmp2 to i32
@@ -3269,7 +3268,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_div(ptr noundef %v, ptr noundef %w) #5 {
+define internal ptr @complex_div(ptr noundef %v, ptr noundef %w) #4 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -3277,12 +3276,12 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %v.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %cval = getelementptr inbounds %struct.PyComplexObject, ptr %v, i64 0, i32 1
+  %cval = getelementptr inbounds i8, ptr %v, i64 16
   %1 = load <2 x double>, ptr %cval, align 8
   br label %if.end3
 
@@ -3295,13 +3294,13 @@ if.else:                                          ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #15
+  %call2.i1 = tail call double @PyLong_AsDouble(ptr noundef nonnull %v) #14
   %cmp.i = fcmp oeq double %call2.i1, -1.000000e+00
   %4 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call2.i1, i64 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end3
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %call5.i = tail call ptr @PyErr_Occurred() #15
+  %call5.i = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %if.end3, label %return
 
@@ -3310,12 +3309,12 @@ if.end8.i:                                        ; preds = %if.else
   br i1 %cmp.i.not.i.i, label %if.then11.i, label %PyObject_TypeCheck.exit.i
 
 PyObject_TypeCheck.exit.i:                        ; preds = %if.end8.i
-  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool3.i.not.i, label %if.end14.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %PyObject_TypeCheck.exit.i, %if.end8.i
-  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #15
+  %call12.i = tail call double @PyFloat_AsDouble(ptr noundef nonnull %v) #14
   %5 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %call12.i, i64 0
   br label %if.end3
 
@@ -3337,14 +3336,14 @@ if.end3:                                          ; preds = %if.then11.i, %land.
   br i1 %cmp.i.not.i2, label %if.then6, label %PyObject_TypeCheck.exit7
 
 PyObject_TypeCheck.exit7:                         ; preds = %if.end3
-  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #15
+  %call2.i4 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyComplex_Type) #14
   %tobool3.i5.not = icmp eq i32 %call2.i4, 0
   br i1 %tobool3.i5.not, label %if.else8, label %if.then6
 
 if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit7
-  %cval7 = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1
+  %cval7 = getelementptr inbounds i8, ptr %w, i64 16
   %b.sroa.0.0.copyload = load double, ptr %cval7, align 8
-  %b.sroa.5.0.cval7.sroa_idx = getelementptr inbounds %struct.PyComplexObject, ptr %w, i64 0, i32 1, i32 1
+  %b.sroa.5.0.cval7.sroa_idx = getelementptr inbounds i8, ptr %w, i64 24
   %b.sroa.5.0.copyload = load double, ptr %b.sroa.5.0.cval7.sroa_idx, align 8
   br label %if.end13
 
@@ -3357,12 +3356,12 @@ if.else8:                                         ; preds = %PyObject_TypeCheck.
   br i1 %tobool.not.i10, label %if.end8.i19, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.else8
-  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #15
+  %call2.i12 = tail call double @PyLong_AsDouble(ptr noundef nonnull %w) #14
   %cmp.i13 = fcmp oeq double %call2.i12, -1.000000e+00
   br i1 %cmp.i13, label %land.lhs.true.i15, label %if.end13
 
 land.lhs.true.i15:                                ; preds = %if.then.i11
-  %call5.i16 = tail call ptr @PyErr_Occurred() #15
+  %call5.i16 = tail call ptr @PyErr_Occurred() #14
   %tobool6.not.i17 = icmp eq ptr %call5.i16, null
   br i1 %tobool6.not.i17, label %if.end13, label %return
 
@@ -3371,12 +3370,12 @@ if.end8.i19:                                      ; preds = %if.else8
   br i1 %cmp.i.not.i.i20, label %if.then11.i24, label %PyObject_TypeCheck.exit.i21
 
 PyObject_TypeCheck.exit.i21:                      ; preds = %if.end8.i19
-  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i.i22 = tail call i32 @PyType_IsSubtype(ptr noundef %.val.i8, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not.i23 = icmp eq i32 %call2.i.i22, 0
   br i1 %tobool3.i.not.i23, label %if.end14.i26, label %if.then11.i24
 
 if.then11.i24:                                    ; preds = %PyObject_TypeCheck.exit.i21, %if.end8.i19
-  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #15
+  %call12.i25 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %w) #14
   br label %if.end13
 
 if.end14.i26:                                     ; preds = %PyObject_TypeCheck.exit.i21
@@ -3392,7 +3391,7 @@ if.end.i.i.i29:                                   ; preds = %if.end14.i26
 if.end13:                                         ; preds = %if.then11.i24, %land.lhs.true.i15, %if.then.i11, %if.then6
   %b.sroa.0.1 = phi double [ %b.sroa.0.0.copyload, %if.then6 ], [ %call12.i25, %if.then11.i24 ], [ -1.000000e+00, %land.lhs.true.i15 ], [ %call2.i12, %if.then.i11 ]
   %b.sroa.5.0 = phi double [ %b.sroa.5.0.copyload, %if.then6 ], [ 0.000000e+00, %if.then11.i24 ], [ 0.000000e+00, %land.lhs.true.i15 ], [ 0.000000e+00, %if.then.i11 ]
-  %call14 = tail call ptr @__errno_location() #14
+  %call14 = tail call ptr @__errno_location() #13
   store i32 0, ptr %call14, align 4
   %cmp.i32 = fcmp olt double %b.sroa.0.1, 0.000000e+00
   %fneg.i = fneg double %b.sroa.0.1
@@ -3444,21 +3443,21 @@ if.then30.i:                                      ; preds = %if.else28.i
 if.then18:                                        ; preds = %if.then.i33
   store i32 33, ptr %call14, align 4
   %32 = load ptr, ptr @PyExc_ZeroDivisionError, align 8
-  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.11) #15
+  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.11) #14
   br label %return
 
 if.end19:                                         ; preds = %if.then30.i, %if.else28.i, %if.else.i
   %33 = phi <2 x double> [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %if.else28.i ], [ %31, %if.then30.i ], [ %21, %if.else.i ]
-  %call.i34 = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i34 = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i35 = icmp eq ptr %call.i34, null
   br i1 %cmp.i35, label %if.then.i40, label %if.end.i
 
 if.then.i40:                                      ; preds = %if.end19
-  %call1.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i = tail call ptr @PyErr_NoMemory() #14
   br label %return
 
 if.end.i:                                         ; preds = %if.end19
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %call.i34, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i, align 8
   %34 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %35 = and i64 %34, 512
@@ -3476,8 +3475,8 @@ if.end.i.i.i38:                                   ; preds = %if.then.i.i
   br label %_PyObject_Init.exit.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i38, %if.then.i.i, %if.end.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i34) #15
-  %cval2.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i34, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i34) #14
+  %cval2.i = getelementptr inbounds i8, ptr %call.i34, i64 16
   store <2 x double> %33, ptr %cval2.i, align 8
   br label %return
 
@@ -3487,7 +3486,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @to_complex(ptr nocapture noundef %pobj, ptr nocapture noundef writeonly %pc) unnamed_addr #5 {
+define internal fastcc noundef i32 @to_complex(ptr nocapture noundef %pobj, ptr nocapture noundef writeonly %pc) unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %pobj, align 8
   %1 = getelementptr i8, ptr %0, i64 8
@@ -3500,13 +3499,13 @@ entry:
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call double @PyLong_AsDouble(ptr noundef nonnull %0) #15
+  %call2 = tail call double @PyLong_AsDouble(ptr noundef nonnull %0) #14
   store double %call2, ptr %pc, align 8
   %cmp = fcmp oeq double %call2, -1.000000e+00
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then
-  %call5 = tail call ptr @PyErr_Occurred() #15
+  %call5 = tail call ptr @PyErr_Occurred() #14
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %return, label %if.then7
 
@@ -3519,12 +3518,12 @@ if.end8:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.then11, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %if.end8
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #15
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyFloat_Type) #14
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %if.end8, %PyObject_TypeCheck.exit
-  %call12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #15
+  %call12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %0) #14
   store double %call12, ptr %pc, align 8
   br label %return
 
@@ -3547,37 +3546,37 @@ return:                                           ; preds = %if.then, %land.lhs.
   ret i32 %retval.0
 }
 
-declare double @PyLong_AsDouble(ptr noundef) local_unnamed_addr #8
+declare double @PyLong_AsDouble(ptr noundef) local_unnamed_addr #7
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #2
+declare double @llvm.floor.f64(double) #1
 
-declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #8
+declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #7
 
-declare i64 @_Py_HashDouble(ptr noundef, double noundef) local_unnamed_addr #8
+declare i64 @_Py_HashDouble(ptr noundef, double noundef) local_unnamed_addr #7
 
-declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_conjugate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #5 {
+define internal ptr @complex_conjugate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #4 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load double, ptr %0, align 8
   %1 = getelementptr i8, ptr %self, i64 24
   %self.val1 = load double, ptr %1, align 8
   %fneg.i = fneg double %self.val1
-  %call.i.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call1.i.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i.i = tail call ptr @PyErr_NoMemory() #14
   br label %complex_conjugate_impl.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %ob_type.i.i.i.i = getelementptr inbounds %struct._object, ptr %call.i.i, i64 0, i32 1
+  %ob_type.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i.i, align 8
   %2 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %3 = and i64 %2, 512
@@ -3595,10 +3594,10 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_PyObject_Init.exit.i.i
 
 _PyObject_Init.exit.i.i:                          ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i.i) #15
-  %cval2.i.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i.i) #14
+  %cval2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store double %self.val, ptr %cval2.i.i, align 8
-  %cval.sroa.2.0.cval2.sroa_idx.i.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i.i, i64 0, i32 1, i32 1
+  %cval.sroa.2.0.cval2.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store double %fneg.i, ptr %cval.sroa.2.0.cval2.sroa_idx.i.i, align 8
   br label %complex_conjugate_impl.exit
 
@@ -3608,7 +3607,7 @@ complex_conjugate_impl.exit:                      ; preds = %if.then.i.i, %_PyOb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___complex__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #5 {
+define internal ptr @complex___complex__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #4 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -3626,18 +3625,18 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br label %complex___complex___impl.exit
 
 if.else.i:                                        ; preds = %entry
-  %cval.i = getelementptr inbounds %struct.PyComplexObject, ptr %self, i64 0, i32 1
+  %cval.i = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load <2 x double>, ptr %cval.i, align 8
-  %call.i.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #15
+  %call.i.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i3.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i3.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %call1.i.i = tail call ptr @PyErr_NoMemory() #15
+  %call1.i.i = tail call ptr @PyErr_NoMemory() #14
   br label %complex___complex___impl.exit
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %ob_type.i.i.i.i = getelementptr inbounds %struct._object, ptr %call.i.i, i64 0, i32 1
+  %ob_type.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr @PyComplex_Type, ptr %ob_type.i.i.i.i, align 8
   %3 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 19), align 8
   %4 = and i64 %3, 512
@@ -3655,8 +3654,8 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_PyObject_Init.exit.i.i
 
 _PyObject_Init.exit.i.i:                          ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i.i
-  tail call void @_Py_NewReference(ptr noundef nonnull %call.i.i) #15
-  %cval2.i.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i.i, i64 0, i32 1
+  tail call void @_Py_NewReference(ptr noundef nonnull %call.i.i) #14
+  %cval2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store <2 x double> %2, ptr %cval2.i.i, align 8
   br label %complex___complex___impl.exit
 
@@ -3666,18 +3665,18 @@ complex___complex___impl.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___getnewargs__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #5 {
+define internal ptr @complex___getnewargs__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #4 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load double, ptr %0, align 8
   %1 = getelementptr i8, ptr %self, i64 24
   %self.val1 = load double, ptr %1, align 8
-  %call.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.16, double noundef %self.val, double noundef %self.val1) #15
+  %call.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.16, double noundef %self.val, double noundef %self.val1) #14
   ret ptr %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___format__(ptr noundef %self, ptr noundef %arg) #5 {
+define internal ptr @complex___format__(ptr noundef %self, ptr noundef %arg) #4 {
 entry:
   %writer.i = alloca %struct._PyUnicodeWriter, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -3689,24 +3688,24 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull %arg) #15
+  tail call void @_PyArg_BadArgument(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull %arg) #14
   br label %exit
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %writer.i)
-  call void @_PyUnicodeWriter_Init(ptr noundef nonnull %writer.i) #15
+  call void @_PyUnicodeWriter_Init(ptr noundef nonnull %writer.i) #14
   %3 = getelementptr i8, ptr %arg, i64 16
   %format_spec.val.i = load i64, ptr %3, align 8
-  %call1.i = call i32 @_PyComplex_FormatAdvancedWriter(ptr noundef nonnull %writer.i, ptr noundef %self, ptr noundef nonnull %arg, i64 noundef 0, i64 noundef %format_spec.val.i) #15
+  %call1.i = call i32 @_PyComplex_FormatAdvancedWriter(ptr noundef nonnull %writer.i, ptr noundef %self, ptr noundef nonnull %arg, i64 noundef 0, i64 noundef %format_spec.val.i) #14
   %cmp.i3 = icmp eq i32 %call1.i, -1
   br i1 %cmp.i3, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %writer.i) #15
+  call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %writer.i) #14
   br label %complex___format___impl.exit
 
 if.end.i:                                         ; preds = %if.end
-  %call2.i = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %writer.i) #15
+  %call2.i = call ptr @_PyUnicodeWriter_Finish(ptr noundef nonnull %writer.i) #14
   br label %complex___format___impl.exit
 
 complex___format___impl.exit:                     ; preds = %if.then.i, %if.end.i
@@ -3719,30 +3718,30 @@ exit:                                             ; preds = %complex___format___
   ret ptr %return_value.0
 }
 
-declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #8
+declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #7
 
-declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #8
+declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #7
 
-declare i32 @_PyComplex_FormatAdvancedWriter(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @_PyComplex_FormatAdvancedWriter(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @_PyUnicodeWriter_Dealloc(ptr noundef) local_unnamed_addr #8
+declare void @_PyUnicodeWriter_Dealloc(ptr noundef) local_unnamed_addr #7
 
-declare ptr @_PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #8
+declare ptr @_PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #7
 
-declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #8
+declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #7
 
-declare ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef) local_unnamed_addr #8
+declare ptr @_PyUnicode_TransformDecimalAndSpaceToASCII(ptr noundef) local_unnamed_addr #7
 
-declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @_Py_string_to_number_with_underscores(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @_Py_string_to_number_with_underscores(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_from_string_inner(ptr noundef %s, i64 noundef %len, ptr noundef %type) #5 {
+define internal ptr @complex_from_string_inner(ptr noundef %s, i64 noundef %len, ptr noundef %type) #4 {
 entry:
   %end = alloca ptr, align 8
   br label %while.cond
@@ -3775,23 +3774,23 @@ while.cond6:                                      ; preds = %while.end, %while.c
 
 if.end:                                           ; preds = %while.cond6, %while.end
   %s.addr.2 = phi ptr [ %s.addr.0, %while.end ], [ %s.addr.1, %while.cond6 ]
-  %call = call double @PyOS_string_to_double(ptr noundef nonnull %s.addr.2, ptr noundef nonnull %end, ptr noundef null) #15
+  %call = call double @PyOS_string_to_double(ptr noundef nonnull %s.addr.2, ptr noundef nonnull %end, ptr noundef null) #14
   %cmp17 = fcmp oeq double %call, -1.000000e+00
   br i1 %cmp17, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end
-  %call19 = call ptr @PyErr_Occurred() #15
+  %call19 = call ptr @PyErr_Occurred() #14
   %tobool20.not = icmp eq ptr %call19, null
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true
   %4 = load ptr, ptr @PyExc_ValueError, align 8
-  %call22 = call i32 @PyErr_ExceptionMatches(ptr noundef %4) #15
+  %call22 = call i32 @PyErr_ExceptionMatches(ptr noundef %4) #14
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.then21
-  call void @PyErr_Clear() #15
+  call void @PyErr_Clear() #14
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %land.lhs.true, %if.end
@@ -3809,23 +3808,23 @@ if.then29:                                        ; preds = %if.end26
   ]
 
 if.then36:                                        ; preds = %if.then29, %if.then29
-  %call37 = call double @PyOS_string_to_double(ptr noundef nonnull %5, ptr noundef nonnull %end, ptr noundef null) #15
+  %call37 = call double @PyOS_string_to_double(ptr noundef nonnull %5, ptr noundef nonnull %end, ptr noundef null) #14
   %cmp38 = fcmp oeq double %call37, -1.000000e+00
   br i1 %cmp38, label %land.lhs.true40, label %if.end49
 
 land.lhs.true40:                                  ; preds = %if.then36
-  %call41 = call ptr @PyErr_Occurred() #15
+  %call41 = call ptr @PyErr_Occurred() #14
   %tobool42.not = icmp eq ptr %call41, null
   br i1 %tobool42.not, label %if.end49, label %if.then43
 
 if.then43:                                        ; preds = %land.lhs.true40
   %7 = load ptr, ptr @PyExc_ValueError, align 8
-  %call44 = call i32 @PyErr_ExceptionMatches(ptr noundef %7) #15
+  %call44 = call i32 @PyErr_ExceptionMatches(ptr noundef %7) #14
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %return, label %if.then46
 
 if.then46:                                        ; preds = %if.then43
-  call void @PyErr_Clear() #15
+  call void @PyErr_Clear() #14
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then46, %land.lhs.true40, %if.then36
@@ -3928,22 +3927,22 @@ if.end139:                                        ; preds = %while.cond128, %whi
   br i1 %cmp140.not, label %if.end143, label %parse_error
 
 if.end143:                                        ; preds = %if.end139
-  %tp_alloc.i.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type, i64 304
   %17 = load ptr, ptr %tp_alloc.i.i, align 8
-  %call.i.i = call ptr %17(ptr noundef %type, i64 noundef 0) #15
+  %call.i.i = call ptr %17(ptr noundef %type, i64 noundef 0) #14
   %cmp.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end143
-  %cval1.i.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i.i, i64 0, i32 1
+  %cval1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store double %x.0, ptr %cval1.i.i, align 8
-  %cval.sroa.2.0.cval1.sroa_idx.i.i = getelementptr inbounds %struct.PyComplexObject, ptr %call.i.i, i64 0, i32 1, i32 1
+  %cval.sroa.2.0.cval1.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store double %y.2, ptr %cval.sroa.2.0.cval1.sroa_idx.i.i, align 8
   br label %return
 
 parse_error:                                      ; preds = %if.end97, %if.end58, %if.end139, %if.then121
   %18 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.28) #15
+  call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.28) #14
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.end143, %if.then43, %if.then21, %parse_error
@@ -3951,43 +3950,42 @@ return:                                           ; preds = %if.then.i.i, %if.en
   ret ptr %retval.0
 }
 
-declare double @PyOS_string_to_double(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare double @PyOS_string_to_double(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #8
+declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #7
 
-declare void @PyErr_Clear() local_unnamed_addr #8
+declare void @PyErr_Clear() local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -9,10 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"struct.timeit::imp" = type { %class.stopwatch, ptr, ptr, double }
-%class.stopwatch = type <{ %"class.std::chrono::time_point", %"class.std::chrono::duration", i8, [7 x i8] }>
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -51,16 +47,16 @@ if.then.i.i:                                      ; preds = %entry
   %tobool2.not = icmp eq ptr %out, null
   %cond-lvalue = select i1 %tobool2.not, ptr @_ZSt4cerr, ptr %out
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %call, i8 0, i64 17, i1 false)
-  %m_msg.i = getelementptr inbounds %"struct.timeit::imp", ptr %call, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %msg, ptr %m_msg.i, align 8
-  %m_out.i = getelementptr inbounds %"struct.timeit::imp", ptr %call, i64 0, i32 2
+  %m_out.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %cond-lvalue, ptr %m_out.i, align 8
-  %m_start_memory.i = getelementptr inbounds %"struct.timeit::imp", ptr %call, i64 0, i32 3
+  %m_start_memory.i = getelementptr inbounds i8, ptr %call, i64 40
   %call.i = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %conv.i = uitofp i64 %call.i to double
   %div.i = fmul double %conv.i, 0x3EB0000000000000
   store double %div.i, ptr %m_start_memory.i, align 8
-  %m_running.i.i = getelementptr inbounds %class.stopwatch, ptr %call, i64 0, i32 2
+  %m_running.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
   store i64 %call.i.i.i, ptr %call, align 8
   store i8 1, ptr %m_running.i.i, align 8
@@ -118,7 +114,7 @@ declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6timeit3impD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_running.i = getelementptr inbounds %class.stopwatch, ptr %this, i64 0, i32 2
+  %m_running.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %m_running.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -128,7 +124,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %this, align 8
   %sub.i.i.i = sub i64 %call.i.i, %retval.sroa.0.0.copyload.i1.i.i
-  %m_elapsed.i = getelementptr inbounds %class.stopwatch, ptr %this, i64 0, i32 1
+  %m_elapsed.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %m_elapsed.i, align 8
   %add.i.i = add nsw i64 %sub.i.i.i, %2
   store i64 %add.i.i, ptr %m_elapsed.i, align 8
@@ -142,13 +138,13 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
 invoke.cont2:                                     ; preds = %invoke.cont
   %conv = uitofp i64 %call to double
   %div = fmul double %conv, 0x3EB0000000000000
-  %m_out = getelementptr inbounds %"struct.timeit::imp", ptr %this, i64 0, i32 2
+  %m_out = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %m_out, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %m_msg = getelementptr inbounds %"struct.timeit::imp", ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %m_msg, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef %4)
           to label %invoke.cont5 unwind label %terminate.lpad
@@ -175,7 +171,7 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %invoke.cont14
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %this, align 8
   %sub.i.i.i.i = sub i64 %call.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
-  %m_elapsed.i.i = getelementptr inbounds %class.stopwatch, ptr %this, i64 0, i32 1
+  %m_elapsed.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %m_elapsed.i.i, align 8
   %add.i.i.i = add nsw i64 %sub.i.i.i.i, %7
   store i64 %add.i.i.i, ptr %m_elapsed.i.i, align 8
@@ -186,7 +182,7 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %invoke.cont14
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %_ZN9stopwatch4stopEv.exit.i, %invoke.cont14
-  %m_elapsed.i3 = getelementptr inbounds %class.stopwatch, ptr %this, i64 0, i32 1
+  %m_elapsed.i3 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %m_elapsed.i3, align 8
   %div.i.i.i = sdiv i64 %8, 1000000
   %conv.i = sitofp i64 %div.i.i.i to double
@@ -207,7 +203,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont30 unwind label %terminate.lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont23
-  %m_start_memory = getelementptr inbounds %"struct.timeit::imp", ptr %this, i64 0, i32 3
+  %m_start_memory = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load double, ptr %m_start_memory, align 8
   %call33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call31, double noundef %9)
           to label %invoke.cont32 unwind label %terminate.lpad
@@ -258,7 +254,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixedRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -261
   %or.i.i.i = or disjoint i32 %and.i.i.i, 4

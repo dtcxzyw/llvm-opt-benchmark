@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN3syn5token7parsing7keyword17h224972860d5684a1E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
   call void @_ZN3syn5parse11ParseBuffer4step17h0bf105e128923007E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr nonnull align 8 %5)
   ret void
@@ -21,10 +21,10 @@ define hidden zeroext i1 @_ZN3syn5token7parsing12peek_keyword17hdbfe962966dcb9db
   %6 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %7 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %3, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %6, ptr %0, ptr %1)
-  %9 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %6, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %6, i64 24
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.not.not = icmp eq i8 %10, 3
   br i1 %.not.not, label %18, label %11
@@ -63,12 +63,12 @@ define void @_ZN3syn5token7parsing12punct_helper17h3274c50eec47e803E(ptr sret({ 
   %7 = alloca { ptr, { ptr, i64 } }, align 8
   %8 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %3, ptr %9, align 8
   store ptr %8, ptr %7, align 8
-  %10 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %7, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %4, ptr %10, align 8
-  %11 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %7, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %5, ptr %11, align 8
   call void @_ZN3syn5parse11ParseBuffer4step17hb3445ebdf4e3ff88E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr align 8 %1, ptr nonnull align 8 %7)
   ret void
@@ -88,8 +88,8 @@ define noundef zeroext i1 @_ZN3syn5token7parsing10peek_punct17h3e600536d0176fd0E
   call void @_ZN4core4iter6traits8iterator8Iterator9enumerate17h0a2472b25307d79aE(ptr nonnull sret({ { ptr, ptr }, i64 }) align 8 %9, ptr %12, ptr %13)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hcd758ddc73e8607cE"(ptr nonnull sret({ { ptr, ptr }, i64 }) align 8 %10, ptr nonnull align 8 %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %14 = getelementptr inbounds { { i32, i32, i8, [3 x i8] }, [1 x i32], { ptr, ptr } }, ptr %7, i64 0, i32 2
-  %15 = getelementptr inbounds { { i32, i32, i8, [3 x i8] }, [1 x i32], { ptr, ptr } }, ptr %7, i64 0, i32 2, i32 1
+  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds i8, ptr %7, i64 24
   br label %16
 
 16:                                               ; preds = %30, %4

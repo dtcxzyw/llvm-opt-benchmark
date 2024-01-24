@@ -3,10 +3,8 @@ source_filename = "bench/openssl/original/libcrypto-lib-bn_x931p.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
-define i32 @BN_X931_derive_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define noundef i32 @BN_X931_derive_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_is_odd(ptr noundef %e) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -79,7 +77,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %tobool43.not, label %err, label %if.end45
 
 if.end45:                                         ; preds = %if.end41
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool46.not = icmp eq i32 %0, 0
   br i1 %tobool46.not, label %if.end50, label %land.lhs.true
@@ -155,7 +153,7 @@ declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #1
 declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bn_x931_derive_pi(ptr noundef %pi, ptr noundef %Xpi, ptr noundef %ctx, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc noundef i32 @bn_x931_derive_pi(ptr noundef %pi, ptr noundef %Xpi, ptr noundef %ctx, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_copy(ptr noundef %pi, ptr noundef %Xpi) #2
   %tobool.not = icmp eq ptr %call, null
@@ -292,7 +290,7 @@ declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef,
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_X931_generate_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
+define noundef i32 @BN_X931_generate_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %Xp, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #2
   %cmp = icmp eq ptr %Xp1, null

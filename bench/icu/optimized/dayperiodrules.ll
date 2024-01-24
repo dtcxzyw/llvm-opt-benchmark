@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/dayperiodrules.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"struct.icu_75::(anonymous namespace)::DayPeriodRulesData" = type <{ ptr, ptr, i32, [4 x i8] }>
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase" }
 %"class.icu_75::LocalPointerBase" = type { ptr }
 %"struct.icu_75::DayPeriodRulesCountSink" = type { %"class.icu_75::ResourceSink" }
@@ -12,6 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UObject" = type { ptr }
 %"struct.icu_75::DayPeriodRulesDataSink" = type { %"class.icu_75::ResourceSink", [25 x i32], i32, i32, i32 }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::CharStringByteSink" = type { %"class.icu_75::ByteSink", ptr }
 %"class.icu_75::ByteSink" = type { ptr }
 %"class.icu_75::DayPeriodRules" = type { i8, i8, [24 x i32] }
@@ -110,11 +109,11 @@ $_ZN6icu_7522DayPeriodRulesDataSink12processRulesERKNS_13ResourceTableEPKcRNS_13
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -122,11 +121,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -187,7 +186,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -197,7 +196,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -209,7 +208,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -222,7 +221,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -246,7 +245,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -276,21 +275,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -313,11 +312,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -325,7 +324,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -336,20 +335,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -377,7 +376,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -393,7 +392,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -425,7 +424,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -437,7 +436,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -452,7 +451,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -466,7 +465,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -483,9 +482,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -503,7 +502,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -515,7 +514,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -531,7 +530,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -581,10 +580,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @dayPeriodRulesCleanup_75() #1 {
+define noundef signext i8 @dayPeriodRulesCleanup_75() #1 {
 entry:
   %0 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %rules = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %0, i64 0, i32 1
+  %rules = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %rules, align 8
   %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -648,8 +647,8 @@ invoke.cont5:                                     ; preds = %if.end, %new.notnul
 
 invoke.cont9:                                     ; preds = %invoke.cont5
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522DayPeriodRulesDataSinkE, i64 0, inrange i32 0, i64 2), ptr %sink, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %sink, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %scevgep.i, i8 0, i64 100, i1 false)
+  %cutoffs.i = getelementptr inbounds i8, ptr %sink, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %cutoffs.i, i8 0, i64 100, i1 false)
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont14 unwind label %lpad11
 
@@ -786,7 +785,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.then7, %if.then3
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %parent, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %parent, i64 56
   br label %while.body
 
 if.then7:                                         ; preds = %if.then3
@@ -855,12 +854,12 @@ while.end:                                        ; preds = %while.body
 
 lor.lhs.false:                                    ; preds = %while.end
   %12 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %rules = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %12, i64 0, i32 1
+  %rules = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %rules, align 8
   %idxprom = zext nneg i32 %call16 to i64
   %arrayidx = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %13, i64 %idxprom
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %13, i64 %idxprom, i32 2, i64 0
-  %14 = load i32, ptr %arrayidx.i, align 4
+  %fDayPeriodForHour.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %14 = load i32, ptr %fDayPeriodForHour.i, align 4
   %cmp35 = icmp eq i32 %14, -1
   %spec.select = select i1 %cmp35, ptr null, ptr %arrayidx
   br label %return
@@ -889,14 +888,14 @@ declare noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr nounde
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7514DayPeriodRulesC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) %this) unnamed_addr #9 align 2 {
 entry:
   store i8 0, ptr %this, align 4
-  %fHasNoon = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 1
+  %fHasNoon = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %fHasNoon, align 1
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %scevgep, i8 -1, i64 96, i1 false)
+  %fDayPeriodForHour = getelementptr inbounds i8, ptr %this, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %fDayPeriodForHour, i8 -1, i64 96, i1 false)
   ret void
 }
 
@@ -917,10 +916,10 @@ if.end.i12.thread53:                              ; preds = %if.end.i
   br label %return
 
 if.end6.i:                                        ; preds = %if.end.i
-  %fDayPeriodForHour.i = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2
+  %fDayPeriodForHour.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %fDayPeriodForHour.i, align 4
   %cmp7.i = icmp eq i32 %1, %dayPeriod
-  %arrayidx9.i = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 23
+  %arrayidx9.i = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load i32, ptr %arrayidx9.i, align 4
   %cmp10.i = icmp eq i32 %2, %dayPeriod
   %or.cond.i = select i1 %cmp7.i, i1 %cmp10.i, i1 false
@@ -929,7 +928,7 @@ if.end6.i:                                        ; preds = %if.end.i
 for.body.i:                                       ; preds = %if.end6.i, %for.inc.i
   %i.017.i = phi i32 [ %dec.i, %for.inc.i ], [ 22, %if.end6.i ]
   %idxprom.i = zext nneg i32 %i.017.i to i64
-  %arrayidx14.i = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx14.i = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour.i, i64 0, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx14.i, align 4
   %cmp15.not.i = icmp eq i32 %3, %dayPeriod
   br i1 %cmp15.not.i, label %for.inc.i, label %if.then16.i
@@ -945,7 +944,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.body21.i:                                     ; preds = %if.end6.i, %for.inc28.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc28.i ], [ 0, %if.end6.i ]
-  %arrayidx24.i = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %indvars.iv.i
+  %arrayidx24.i = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour.i, i64 0, i64 %indvars.iv.i
   %4 = load i32, ptr %arrayidx24.i, align 4
   %cmp25.i = icmp eq i32 %4, %dayPeriod
   br i1 %cmp25.i, label %return.loopexit.i, label %for.inc28.i
@@ -974,10 +973,10 @@ if.then5.i13:                                     ; preds = %if.end.i12
   br label %if.end7
 
 if.end6.i14:                                      ; preds = %if.end.i12
-  %fDayPeriodForHour.i15 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2
+  %fDayPeriodForHour.i15 = getelementptr inbounds i8, ptr %this, i64 4
   %6 = load i32, ptr %fDayPeriodForHour.i15, align 4
   %cmp7.i16 = icmp eq i32 %6, %dayPeriod
-  %arrayidx9.i17 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 23
+  %arrayidx9.i17 = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load i32, ptr %arrayidx9.i17, align 4
   %cmp10.i18 = icmp eq i32 %7, %dayPeriod
   %or.cond.i19 = select i1 %cmp7.i16, i1 %cmp10.i18, i1 false
@@ -985,7 +984,7 @@ if.end6.i14:                                      ; preds = %if.end.i12
 
 for.body.i27:                                     ; preds = %if.end6.i14, %for.inc.i32
   %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i33, %for.inc.i32 ], [ 1, %if.end6.i14 ]
-  %arrayidx14.i29 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %indvars.iv.i28
+  %arrayidx14.i29 = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour.i15, i64 0, i64 %indvars.iv.i28
   %8 = load i32, ptr %arrayidx14.i29, align 4
   %cmp15.not.i30 = icmp eq i32 %8, %dayPeriod
   br i1 %cmp15.not.i30, label %for.inc.i32, label %return.loopexit.i31
@@ -998,7 +997,7 @@ for.inc.i32:                                      ; preds = %for.body.i27
 for.body21.i20:                                   ; preds = %if.end6.i14, %for.inc28.i23
   %i18.016.i = phi i32 [ %dec.i24, %for.inc28.i23 ], [ 23, %if.end6.i14 ]
   %idxprom23.i = zext nneg i32 %i18.016.i to i64
-  %arrayidx24.i21 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %idxprom23.i
+  %arrayidx24.i21 = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour.i15, i64 0, i64 %idxprom23.i
   %9 = load i32, ptr %arrayidx24.i21, align 4
   %cmp25.i22 = icmp eq i32 %9, %dayPeriod
   br i1 %cmp25.i22, label %if.then26.i, label %for.inc28.i23
@@ -1059,10 +1058,10 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fDayPeriodForHour = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2
+  %fDayPeriodForHour = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %fDayPeriodForHour, align 4
   %cmp7 = icmp eq i32 %1, %dayPeriod
-  %arrayidx9 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 23
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load i32, ptr %arrayidx9, align 4
   %cmp10 = icmp eq i32 %2, %dayPeriod
   %or.cond = select i1 %cmp7, i1 %cmp10, i1 false
@@ -1071,7 +1070,7 @@ if.end6:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end6, %for.inc
   %i.017 = phi i32 [ %dec, %for.inc ], [ 22, %if.end6 ]
   %idxprom = zext nneg i32 %i.017 to i64
-  %arrayidx14 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx14, align 4
   %cmp15.not = icmp eq i32 %3, %dayPeriod
   br i1 %cmp15.not, label %for.inc, label %if.then16
@@ -1087,7 +1086,7 @@ for.inc:                                          ; preds = %for.body
 
 for.body21:                                       ; preds = %if.end6, %for.inc28
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc28 ], [ 0, %if.end6 ]
-  %arrayidx24 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx24, align 4
   %cmp25 = icmp eq i32 %4, %dayPeriod
   br i1 %cmp25, label %return.loopexit, label %for.inc28
@@ -1127,10 +1126,10 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %fDayPeriodForHour = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2
+  %fDayPeriodForHour = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %fDayPeriodForHour, align 4
   %cmp7 = icmp eq i32 %1, %dayPeriod
-  %arrayidx9 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 23
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load i32, ptr %arrayidx9, align 4
   %cmp10 = icmp eq i32 %2, %dayPeriod
   %or.cond = select i1 %cmp7, i1 %cmp10, i1 false
@@ -1138,7 +1137,7 @@ if.end6:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end6, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %if.end6 ]
-  %arrayidx14 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx14, align 4
   %cmp15.not = icmp eq i32 %3, %dayPeriod
   br i1 %cmp15.not, label %for.inc, label %return.loopexit
@@ -1151,7 +1150,7 @@ for.inc:                                          ; preds = %for.body
 for.body21:                                       ; preds = %if.end6, %for.inc28
   %i18.016 = phi i32 [ %dec, %for.inc28 ], [ 23, %if.end6 ]
   %idxprom23 = zext nneg i32 %i18.016 to i64
-  %arrayidx24 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour, i64 0, i64 %idxprom23
   %4 = load i32, ptr %arrayidx24, align 4
   %cmp25 = icmp eq i32 %4, %dayPeriod
   br i1 %cmp25, label %if.then26, label %for.inc28
@@ -1253,14 +1252,18 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define void @_ZN6icu_7514DayPeriodRules3addEiiNS0_9DayPeriodE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(100) %this, i32 noundef %startHour, i32 noundef %limitHour, i32 noundef %period) local_unnamed_addr #12 align 2 {
 entry:
   %cmp.not4 = icmp eq i32 %startHour, %limitHour
-  br i1 %cmp.not4, label %for.end, label %for.body
+  br i1 %cmp.not4, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %i.05 = phi i32 [ %inc, %for.body ], [ %startHour, %entry ]
+for.body.lr.ph:                                   ; preds = %entry
+  %fDayPeriodForHour = getelementptr inbounds i8, ptr %this, i64 4
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.05 = phi i32 [ %startHour, %for.body.lr.ph ], [ %inc, %for.body ]
   %cmp2 = icmp eq i32 %i.05, 24
   %spec.store.select = select i1 %cmp2, i32 0, i32 %i.05
   %idxprom = sext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour, i64 0, i64 %idxprom
   store i32 %period, ptr %arrayidx, align 4
   %inc = add nsw i32 %spec.store.select, 1
   %cmp.not = icmp eq i32 %inc, %limitHour
@@ -1273,6 +1276,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i8 @_ZN6icu_7514DayPeriodRules14allHoursAreSetEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %this) local_unnamed_addr #13 align 2 {
 entry:
+  %fDayPeriodForHour = getelementptr inbounds i8, ptr %this, i64 4
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1282,7 +1286,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %cmp2 = icmp eq i32 %0, -1
   br i1 %cmp2, label %return, label %for.cond
@@ -1307,7 +1311,7 @@ entry:
   %rules30 = alloca %"class.icu_75::ResourceTable", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %dayPeriodData, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
@@ -1320,7 +1324,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %tobool3.not36, label %for.end41, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %len.i.i = getelementptr inbounds %"class.icu_75::CharString", ptr %cs.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %cs.i, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc39
@@ -1332,7 +1336,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then5:                                         ; preds = %for.body
   %vtable6 = load ptr, ptr %value, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 11
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 88
   %4 = load ptr, ptr %vfn7, align 8
   call void %4(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %locales, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %5 = load i32, ptr %errorCode, align 4
@@ -1350,7 +1354,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i, align 4, !noalias !11
   %vtable.i = load ptr, ptr %value, align 8, !noalias !11
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8, !noalias !11
   %call.i = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !11
   store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !11
@@ -1469,7 +1473,7 @@ if.else:                                          ; preds = %for.body
 
 if.then21:                                        ; preds = %if.else
   %23 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %maxRuleSetNum = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %23, i64 0, i32 2
+  %maxRuleSetNum = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i32, ptr %maxRuleSetNum, align 8
   %add = add nsw i32 %24, 1
   %conv = sext i32 %add to i64
@@ -1483,7 +1487,7 @@ if.then21:                                        ; preds = %if.else
 
 new.cont.thread:                                  ; preds = %if.then21
   %29 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %rules26 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %29, i64 0, i32 1
+  %rules26 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr null, ptr %rules26, align 8
   store i32 7, ptr %errorCode, align 4
   br label %for.end41
@@ -1502,7 +1506,7 @@ arrayctor.loop:                                   ; preds = %invoke.cont25, %new
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %arrayctor.loop
-  %arrayctor.next = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %arrayctor.cur, i64 1
+  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 100
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %if.end29, label %arrayctor.loop
 
@@ -1514,10 +1518,10 @@ lpad24:                                           ; preds = %arrayctor.loop
 
 if.end29:                                         ; preds = %invoke.cont25, %new.notnull
   %31 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %rules = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %31, i64 0, i32 1
+  %rules = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %call22, ptr %rules, align 8
   %vtable31 = load ptr, ptr %value, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 11
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 88
   %32 = load ptr, ptr %vfn32, align 8
   call void %32(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %rules30, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %33 = load ptr, ptr %key.addr, align 8
@@ -1543,7 +1547,7 @@ entry:
   %rules = alloca %"class.icu_75::ResourceTable", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %rules, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
@@ -1603,7 +1607,7 @@ return.sink.split.i:                              ; preds = %while.body.i, %whil
 _ZN6icu_7522DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit: ; preds = %for.body, %while.end.i, %return.sink.split.i
   %retval.0.i = phi i32 [ -1, %for.body ], [ %add.i, %while.end.i ], [ -1, %return.sink.split.i ]
   %9 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %maxRuleSetNum = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %9, i64 0, i32 2
+  %maxRuleSetNum = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i32, ptr %maxRuleSetNum, align 8
   %cmp = icmp sgt i32 %retval.0.i, %10
   br i1 %cmp, label %if.then5, label %for.inc
@@ -1660,28 +1664,28 @@ entry:
   br i1 %cmp.i, label %for.cond.preheader, label %for.end81
 
 for.cond.preheader:                               ; preds = %entry
-  %call2155 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %rules, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
-  %tobool3.not156 = icmp eq i8 %call2155, 0
-  br i1 %tobool3.not156, label %for.end81, label %for.body.lr.ph
+  %call2157 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %rules, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %tobool3.not158 = icmp eq i8 %call2157, 0
+  br i1 %tobool3.not158, label %for.end81, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %ruleSetNum = getelementptr inbounds %"struct.icu_75::DayPeriodRulesDataSink", ptr %this, i64 0, i32 2
-  %period = getelementptr inbounds %"struct.icu_75::DayPeriodRulesDataSink", ptr %this, i64 0, i32 3
-  %cutoffType = getelementptr inbounds %"struct.icu_75::DayPeriodRulesDataSink", ptr %this, i64 0, i32 4
-  %length.i = getelementptr inbounds %"class.icu_75::ResourceArray", ptr %cutoffArray, i64 0, i32 2
-  %fUnion.i.i.i.i76 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp50, i64 0, i32 1
-  %fLength.i.i.i79 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp50, i64 0, i32 1, i32 0, i32 1
+  %ruleSetNum = getelementptr inbounds i8, ptr %this, i64 108
+  %period = getelementptr inbounds i8, ptr %this, i64 112
+  %cutoffType = getelementptr inbounds i8, ptr %this, i64 116
+  %length.i = getelementptr inbounds i8, ptr %cutoffArray, i64 16
+  %fUnion.i.i.i.i76 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
+  %fLength.i.i.i79 = getelementptr inbounds i8, ptr %ref.tmp50, i64 12
   %fBuffer.i.i.i.i.i88 = getelementptr inbounds i8, ptr %ref.tmp50, i64 10
-  %fArray.i.i.i.i.i89 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp50, i64 0, i32 1, i32 0, i32 3
-  %fUnion.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %fArray.i.i.i.i.i89 = getelementptr inbounds i8, ptr %ref.tmp50, i64 24
+  %cutoffs.i109 = getelementptr inbounds i8, ptr %this, i64 8
+  %fUnion.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %fBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 10
-  %fArray.i.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 3
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 8
+  %fArray.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc79
-  %i.0157 = phi i32 [ 0, %for.body.lr.ph ], [ %inc80, %for.inc79 ]
+  %i.0159 = phi i32 [ 0, %for.body.lr.ph ], [ %inc80, %for.inc79 ]
   %1 = load ptr, ptr %key.addr, align 8
   %2 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp slt i32 %2, 1
@@ -1729,7 +1733,7 @@ _ZN6icu_7522DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit: ; preds =
   %retval.0.i = phi i32 [ -1, %for.body ], [ %add.i, %while.end.i ], [ -1, %return.sink.split.i ]
   store i32 %retval.0.i, ptr %ruleSetNum, align 4
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %7 = load ptr, ptr %vfn, align 8
   call void %7(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %ruleSet, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %8 = load i32, ptr %errorCode, align 4
@@ -1737,12 +1741,12 @@ _ZN6icu_7522DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit: ; preds =
   br i1 %cmp.i35, label %for.cond9.preheader, label %for.end81
 
 for.cond9.preheader:                              ; preds = %_ZN6icu_7522DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit
-  %call10152 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %ruleSet, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
-  %tobool11.not153 = icmp eq i8 %call10152, 0
-  br i1 %tobool11.not153, label %for.end70, label %for.body12
+  %call10154 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %ruleSet, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %tobool11.not155 = icmp eq i8 %call10154, 0
+  br i1 %tobool11.not155, label %for.end70, label %for.body12
 
 for.body12:                                       ; preds = %for.cond9.preheader, %_ZN6icu_7522DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit
-  %j.0154 = phi i32 [ %inc69, %_ZN6icu_7522DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit ], [ 0, %for.cond9.preheader ]
+  %j.0156 = phi i32 [ %inc69, %_ZN6icu_7522DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit ], [ 0, %for.cond9.preheader ]
   %9 = load ptr, ptr %key.addr, align 8
   %call13 = call noundef i32 @_ZN6icu_7514DayPeriodRules22getDayPeriodFromStringEPKc(ptr noundef %9), !range !19
   store i32 %call13, ptr %period, align 8
@@ -1751,7 +1755,7 @@ for.body12:                                       ; preds = %for.cond9.preheader
 
 if.end16:                                         ; preds = %for.body12
   %vtable17 = load ptr, ptr %value, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 11
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 88
   %10 = load ptr, ptr %vfn18, align 8
   call void %10(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %periodDefinition, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %11 = load i32, ptr %errorCode, align 4
@@ -1759,14 +1763,14 @@ if.end16:                                         ; preds = %for.body12
   br i1 %cmp.i37, label %for.cond23.preheader, label %for.end81
 
 for.cond23.preheader:                             ; preds = %if.end16
-  %call24148 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %periodDefinition, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
-  %tobool25.not149 = icmp eq i8 %call24148, 0
-  br i1 %tobool25.not149, label %for.end60, label %for.body26
+  %call24150 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %periodDefinition, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %tobool25.not151 = icmp eq i8 %call24150, 0
+  br i1 %tobool25.not151, label %for.end60, label %for.body26
 
 for.body26:                                       ; preds = %for.cond23.preheader, %for.inc58
-  %k.0150 = phi i32 [ %inc59, %for.inc58 ], [ 0, %for.cond23.preheader ]
+  %k.0152 = phi i32 [ %inc59, %for.inc58 ], [ 0, %for.cond23.preheader ]
   %vtable27 = load ptr, ptr %value, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 3
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 24
   %12 = load ptr, ptr %vfn28, align 8
   %call29 = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %value)
   %cmp30 = icmp eq i32 %call29, 0
@@ -1800,7 +1804,7 @@ _ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit: ; preds = 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i, align 4, !noalias !20
   %vtable.i = load ptr, ptr %value, align 8, !noalias !20
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %14 = load ptr, ptr %vfn.i, align 8, !noalias !20
   %call.i42 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !20
   store ptr %call.i42, ptr %agg.tmp.i, align 8, !noalias !20
@@ -1864,13 +1868,13 @@ _ZNK6icu_7513UnicodeStringixEi.exit.i.i:          ; preds = %if.end.i.i
 lor.lhs.false5.i.i:                               ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i.i
   %27 = zext nneg i32 %cond.i.i.i to i64
   %28 = getelementptr i16, ptr %cond.i2.i.i.i.i, i64 %27
-  %arrayidx.i.i37.i.i = getelementptr i16, ptr %28, i64 -2
+  %arrayidx.i.i37.i.i = getelementptr i8, ptr %28, i64 -4
   %29 = load i16, ptr %arrayidx.i.i37.i.i, align 2
   %cmp8.not.i.i = icmp eq i16 %29, 48
   br i1 %cmp8.not.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
 
 _ZNK6icu_7513UnicodeStringixEi.exit53.i.i:        ; preds = %lor.lhs.false5.i.i
-  %arrayidx.i.i52.i.i = getelementptr i16, ptr %28, i64 -1
+  %arrayidx.i.i52.i.i = getelementptr i8, ptr %28, i64 -2
   %30 = load i16, ptr %arrayidx.i.i52.i.i, align 2
   %cmp13.not.i.i = icmp eq i16 %30, 48
   br i1 %cmp13.not.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i
@@ -1888,8 +1892,8 @@ if.end23.i.i:                                     ; preds = %_ZNK6icu_7513Unicod
   br i1 %cmp24.i.i, label %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i, label %if.end8.i
 
 _ZNK6icu_7513UnicodeStringixEi.exit80.i.i:        ; preds = %if.end23.i.i
-  %.sroa.gep139 = getelementptr inbounds i16, ptr %25, i64 1
-  %cond.i2.i.i.i.i.sroa.sel = select i1 %tobool.not.i.i.i.i.i, ptr %.sroa.gep139, ptr %fLength.i.i.i
+  %.sroa.gep141 = getelementptr inbounds i8, ptr %25, i64 2
+  %cond.i2.i.i.i.i.sroa.sel = select i1 %tobool.not.i.i.i.i.i, ptr %.sroa.gep141, ptr %fLength.i.i.i
   %33 = load i16, ptr %cond.i2.i.i.i.i.sroa.sel, align 2
   %34 = add i16 %33, -58
   %or.cond2.i.i = icmp ult i16 %34, -10
@@ -1911,7 +1915,7 @@ if.end8.i:                                        ; preds = %if.end33.i.i, %if.e
   %retval.0.i.ph.i = phi i32 [ %sub18.i.i, %if.end23.i.i ], [ %add34.i.i, %if.end33.i.i ]
   %shl.i = shl nuw nsw i32 1, %retval.0.i41
   %idxprom.i = sext i32 %retval.0.i.ph.i to i64
-  %arrayidx.i46 = getelementptr inbounds %"struct.icu_75::DayPeriodRulesDataSink", ptr %this, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i46 = getelementptr inbounds [25 x i32], ptr %cutoffs.i109, i64 0, i64 %idxprom.i
   %35 = load i32, ptr %arrayidx.i46, align 4
   %or.i = or i32 %35, %shl.i
   store i32 %or.i, ptr %arrayidx.i46, align 4
@@ -1946,7 +1950,7 @@ _ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit62: ; preds 
   %retval.0.i61 = phi i32 [ 2, %if.else ], [ 0, %if.else.i51 ], [ 1, %if.else4.i54 ], [ %..i60, %if.else8.i57 ]
   store i32 %retval.0.i61, ptr %cutoffType, align 4
   %vtable38 = load ptr, ptr %value, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 10
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 80
   %37 = load ptr, ptr %vfn39, align 8
   call void %37(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %cutoffArray, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %38 = load i32, ptr %errorCode, align 4
@@ -1955,23 +1959,23 @@ _ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit62: ; preds 
 
 if.end43:                                         ; preds = %_ZN6icu_7522DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit62
   %39 = load i32, ptr %length.i, align 8
-  %cmp46146 = icmp sgt i32 %39, 0
-  br i1 %cmp46146, label %for.body47, label %for.inc58
+  %cmp46148 = icmp sgt i32 %39, 0
+  br i1 %cmp46148, label %for.body47, label %for.inc58
 
 for.cond45:                                       ; preds = %invoke.cont52
-  %inc = add nuw nsw i32 %l.0147, 1
+  %inc = add nuw nsw i32 %l.0149, 1
   %exitcond.not = icmp eq i32 %inc, %39
   br i1 %exitcond.not, label %for.inc58, label %for.body47, !llvm.loop !23
 
 for.body47:                                       ; preds = %if.end43, %for.cond45
-  %l.0147 = phi i32 [ %inc, %for.cond45 ], [ 0, %if.end43 ]
-  %call48 = call noundef signext i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %cutoffArray, i32 noundef %l.0147, ptr noundef nonnull align 8 dereferenceable(8) %value)
+  %l.0149 = phi i32 [ %inc, %for.cond45 ], [ 0, %if.end43 ]
+  %call48 = call noundef signext i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %cutoffArray, i32 noundef %l.0149, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %40 = load i32, ptr %cutoffType, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i65)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i66)
   store i32 0, ptr %len.i65, align 4, !noalias !24
   %vtable.i67 = load ptr, ptr %value, align 8, !noalias !24
-  %vfn.i68 = getelementptr inbounds ptr, ptr %vtable.i67, i64 4
+  %vfn.i68 = getelementptr inbounds i8, ptr %vtable.i67, i64 32
   %41 = load ptr, ptr %vfn.i68, align 8, !noalias !24
   %call.i69 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i65, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !24
   store ptr %call.i69, ptr %agg.tmp.i66, align 8, !noalias !24
@@ -1997,9 +2001,9 @@ _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit71: ; preds = %fo
 
 if.end.i73:                                       ; preds = %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit71
   %cmp.i74 = icmp eq i32 %40, -1
-  br i1 %cmp.i74, label %if.then2.i121, label %if.end.i.i75
+  br i1 %cmp.i74, label %if.then2.i122, label %if.end.i.i75
 
-if.then2.i121:                                    ; preds = %if.end.i73
+if.then2.i122:                                    ; preds = %if.end.i73
   store i32 3, ptr %errorCode, align 4
   br label %invoke.cont52
 
@@ -2031,13 +2035,13 @@ _ZNK6icu_7513UnicodeStringixEi.exit.i.i86:        ; preds = %if.end.i.i75
 lor.lhs.false5.i.i94:                             ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit.i.i86
   %54 = zext nneg i32 %cond.i.i.i80 to i64
   %55 = getelementptr i16, ptr %cond.i2.i.i.i.i90, i64 %54
-  %arrayidx.i.i37.i.i95 = getelementptr i16, ptr %55, i64 -2
+  %arrayidx.i.i37.i.i95 = getelementptr i8, ptr %55, i64 -4
   %56 = load i16, ptr %arrayidx.i.i37.i.i95, align 2
   %cmp8.not.i.i96 = icmp eq i16 %56, 48
   br i1 %cmp8.not.i.i96, label %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i97, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85
 
 _ZNK6icu_7513UnicodeStringixEi.exit53.i.i97:      ; preds = %lor.lhs.false5.i.i94
-  %arrayidx.i.i52.i.i98 = getelementptr i16, ptr %55, i64 -1
+  %arrayidx.i.i52.i.i98 = getelementptr i8, ptr %55, i64 -2
   %57 = load i16, ptr %arrayidx.i.i52.i.i98, align 2
   %cmp13.not.i.i99 = icmp eq i16 %57, 48
   br i1 %cmp13.not.i.i99, label %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85
@@ -2052,86 +2056,87 @@ _ZNK6icu_7513UnicodeStringixEi.exit66.i.i100:     ; preds = %_ZNK6icu_7513Unicod
 
 if.end23.i.i104:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100
   %cmp24.i.i105 = icmp eq i32 %sub.i.i81, 2
-  br i1 %cmp24.i.i105, label %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i112, label %if.end8.i106
+  br i1 %cmp24.i.i105, label %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113, label %if.end8.i106
 
-_ZNK6icu_7513UnicodeStringixEi.exit80.i.i112:     ; preds = %if.end23.i.i104
-  %.sroa.gep = getelementptr inbounds i16, ptr %52, i64 1
+_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113:     ; preds = %if.end23.i.i104
+  %.sroa.gep = getelementptr inbounds i8, ptr %52, i64 2
   %cond.i2.i.i.i.i90.sroa.sel = select i1 %tobool.not.i.i.i.i.i87, ptr %.sroa.gep, ptr %fLength.i.i.i79
   %60 = load i16, ptr %cond.i2.i.i.i.i90.sroa.sel, align 2
   %61 = add i16 %60, -58
-  %or.cond2.i.i114 = icmp ult i16 %61, -10
-  br i1 %or.cond2.i.i114, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, label %if.end33.i.i115
+  %or.cond2.i.i115 = icmp ult i16 %61, -10
+  br i1 %or.cond2.i.i115, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, label %if.end33.i.i116
 
-if.end33.i.i115:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i112
-  %conv27.i.i116 = zext nneg i16 %60 to i32
-  %mul.i.i117 = mul nuw nsw i32 %sub18.i.i102, 10
-  %sub28.i.i118 = add nsw i32 %mul.i.i117, -48
-  %add34.i.i119 = add nsw i32 %sub28.i.i118, %conv27.i.i116
-  %cmp35.i.i120 = icmp sgt i32 %add34.i.i119, 24
-  br i1 %cmp35.i.i120, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, label %if.end8.i106
+if.end33.i.i116:                                  ; preds = %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113
+  %conv27.i.i117 = zext nneg i16 %60 to i32
+  %mul.i.i118 = mul nuw nsw i32 %sub18.i.i102, 10
+  %sub28.i.i119 = add nsw i32 %mul.i.i118, -48
+  %add34.i.i120 = add nsw i32 %sub28.i.i119, %conv27.i.i117
+  %cmp35.i.i121 = icmp sgt i32 %add34.i.i120, 24
+  br i1 %cmp35.i.i121, label %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, label %if.end8.i106
 
-_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85: ; preds = %if.end33.i.i115, %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i112, %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i97, %lor.lhs.false5.i.i94, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i86, %if.end.i.i75
+_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85: ; preds = %if.end33.i.i116, %_ZNK6icu_7513UnicodeStringixEi.exit80.i.i113, %_ZNK6icu_7513UnicodeStringixEi.exit66.i.i100, %_ZNK6icu_7513UnicodeStringixEi.exit53.i.i97, %lor.lhs.false5.i.i94, %_ZNK6icu_7513UnicodeStringixEi.exit.i.i86, %if.end.i.i75
   store i32 3, ptr %errorCode, align 4
   br label %invoke.cont52
 
-if.end8.i106:                                     ; preds = %if.end33.i.i115, %if.end23.i.i104
-  %retval.0.i.ph.i107 = phi i32 [ %sub18.i.i102, %if.end23.i.i104 ], [ %add34.i.i119, %if.end33.i.i115 ]
+if.end8.i106:                                     ; preds = %if.end33.i.i116, %if.end23.i.i104
+  %retval.0.i.ph.i107 = phi i32 [ %sub18.i.i102, %if.end23.i.i104 ], [ %add34.i.i120, %if.end33.i.i116 ]
   %shl.i108 = shl nuw i32 1, %40
-  %idxprom.i109 = sext i32 %retval.0.i.ph.i107 to i64
-  %arrayidx.i110 = getelementptr inbounds %"struct.icu_75::DayPeriodRulesDataSink", ptr %this, i64 0, i32 1, i64 %idxprom.i109
-  %62 = load i32, ptr %arrayidx.i110, align 4
-  %or.i111 = or i32 %62, %shl.i108
-  store i32 %or.i111, ptr %arrayidx.i110, align 4
+  %idxprom.i110 = sext i32 %retval.0.i.ph.i107 to i64
+  %arrayidx.i111 = getelementptr inbounds [25 x i32], ptr %cutoffs.i109, i64 0, i64 %idxprom.i110
+  %62 = load i32, ptr %arrayidx.i111, align 4
+  %or.i112 = or i32 %62, %shl.i108
+  store i32 %or.i112, ptr %arrayidx.i111, align 4
   br label %invoke.cont52
 
-invoke.cont52:                                    ; preds = %if.end8.i106, %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, %if.then2.i121, %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit71
+invoke.cont52:                                    ; preds = %if.end8.i106, %_ZN6icu_7522DayPeriodRulesDataSink9parseHourERKNS_13UnicodeStringER10UErrorCode.exit.i85, %if.then2.i122, %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit71
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp50) #18
   %63 = load i32, ptr %errorCode, align 4
-  %cmp.i123 = icmp slt i32 %63, 1
-  br i1 %cmp.i123, label %for.cond45, label %for.end81
+  %cmp.i124 = icmp slt i32 %63, 1
+  br i1 %cmp.i124, label %for.cond45, label %for.end81
 
 for.inc58:                                        ; preds = %for.cond45, %if.end43, %invoke.cont
-  %inc59 = add nuw nsw i32 %k.0150, 1
+  %inc59 = add nuw nsw i32 %k.0152, 1
   %call24 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %periodDefinition, i32 noundef %inc59, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool25.not = icmp eq i8 %call24, 0
   br i1 %tobool25.not, label %for.end60, label %for.body26, !llvm.loop !27
 
 for.end60:                                        ; preds = %for.inc58, %for.cond23.preheader
   %64 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %rules.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %64, i64 0, i32 1
+  %rules.i = getelementptr inbounds i8, ptr %64, i64 8
   %65 = load ptr, ptr %rules.i, align 8
   %66 = load i32, ptr %ruleSetNum, align 4
-  %idxprom.i125 = sext i32 %66 to i64
-  %arrayidx.i126 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %65, i64 %idxprom.i125
-  %fHasNoon.i = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %65, i64 %idxprom.i125, i32 1
+  %idxprom.i126 = sext i32 %66 to i64
+  %arrayidx.i127 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %65, i64 %idxprom.i126
+  %fHasNoon.i = getelementptr inbounds i8, ptr %arrayidx.i127, i64 1
+  %fDayPeriodForHour.i.i = getelementptr inbounds i8, ptr %arrayidx.i127, i64 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc42.i, %for.end60
-  %indvars.iv.i127 = phi i64 [ 0, %for.end60 ], [ %indvars.iv.next.i131, %for.inc42.i ]
-  %arrayidx3.i = getelementptr inbounds %"struct.icu_75::DayPeriodRulesDataSink", ptr %this, i64 0, i32 1, i64 %indvars.iv.i127
+  %indvars.iv.i129 = phi i64 [ 0, %for.end60 ], [ %indvars.iv.next.i133, %for.inc42.i ]
+  %arrayidx3.i = getelementptr inbounds [25 x i32], ptr %cutoffs.i109, i64 0, i64 %indvars.iv.i129
   %67 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %67, 8
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end14.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %cmp4.i = icmp eq i64 %indvars.iv.i127, 0
+  %cmp4.i = icmp eq i64 %indvars.iv.i129, 0
   %68 = load i32, ptr %period, align 8
   %cmp5.i = icmp eq i32 %68, 0
-  %or.cond.i128 = select i1 %cmp4.i, i1 %cmp5.i, i1 false
-  br i1 %or.cond.i128, label %if.then6.i, label %if.else.i129
+  %or.cond.i130 = select i1 %cmp4.i, i1 %cmp5.i, i1 false
+  br i1 %or.cond.i130, label %if.then6.i, label %if.else.i131
 
 if.then6.i:                                       ; preds = %if.then.i
-  store i8 1, ptr %arrayidx.i126, align 4
+  store i8 1, ptr %arrayidx.i127, align 4
   br label %if.end14.i
 
-if.else.i129:                                     ; preds = %if.then.i
-  %cmp7.i = icmp eq i64 %indvars.iv.i127, 12
-  %cmp10.i130 = icmp eq i32 %68, 1
-  %or.cond17.i = select i1 %cmp7.i, i1 %cmp10.i130, i1 false
+if.else.i131:                                     ; preds = %if.then.i
+  %cmp7.i = icmp eq i64 %indvars.iv.i129, 12
+  %cmp10.i132 = icmp eq i32 %68, 1
+  %or.cond17.i = select i1 %cmp7.i, i1 %cmp10.i132, i1 false
   br i1 %or.cond17.i, label %if.then11.i, label %for.end44.sink.split.i
 
-if.then11.i:                                      ; preds = %if.else.i129
+if.then11.i:                                      ; preds = %if.else.i131
   store i8 1, ptr %fHasNoon.i, align 1
   br label %if.end14.i
 
@@ -2142,21 +2147,21 @@ if.end14.i:                                       ; preds = %if.then11.i, %if.th
   br i1 %or.cond18.i, label %for.inc42.i, label %for.cond26.preheader.i
 
 for.cond26.preheader.i:                           ; preds = %if.end14.i
-  %71 = trunc i64 %indvars.iv.i127 to i32
+  %71 = trunc i64 %indvars.iv.i129 to i32
   br label %for.cond26.i
 
 for.cond26.i:                                     ; preds = %if.end29.i, %for.cond26.preheader.i
   %hour.0.in.i = phi i32 [ %spec.store.select.i, %if.end29.i ], [ %71, %for.cond26.preheader.i ]
   %hour.0.i = add nsw i32 %hour.0.in.i, 1
   %72 = zext i32 %hour.0.i to i64
-  %cmp27.i = icmp eq i64 %indvars.iv.i127, %72
+  %cmp27.i = icmp eq i64 %indvars.iv.i129, %72
   br i1 %cmp27.i, label %for.end44.sink.split.i, label %if.end29.i
 
 if.end29.i:                                       ; preds = %for.cond26.i
   %cmp30.i = icmp eq i32 %hour.0.i, 25
   %spec.store.select.i = select i1 %cmp30.i, i32 0, i32 %hour.0.i
   %idxprom34.i = sext i32 %spec.store.select.i to i64
-  %arrayidx35.i = getelementptr inbounds %"struct.icu_75::DayPeriodRulesDataSink", ptr %this, i64 0, i32 1, i64 %idxprom34.i
+  %arrayidx35.i = getelementptr inbounds [25 x i32], ptr %cutoffs.i109, i64 0, i64 %idxprom34.i
   %73 = load i32, ptr %arrayidx35.i, align 4
   %and36.i = and i32 %73, 1
   %tobool37.not.i = icmp eq i32 %and36.i, 0
@@ -2165,7 +2170,7 @@ if.end29.i:                                       ; preds = %for.cond26.i
 if.then38.i:                                      ; preds = %if.end29.i
   %74 = load i32, ptr %period, align 8
   %75 = zext i32 %spec.store.select.i to i64
-  %cmp.not4.i.i = icmp eq i64 %indvars.iv.i127, %75
+  %cmp.not4.i.i = icmp eq i64 %indvars.iv.i129, %75
   br i1 %cmp.not4.i.i, label %for.inc42.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then38.i, %for.body.i.i
@@ -2173,55 +2178,55 @@ for.body.i.i:                                     ; preds = %if.then38.i, %for.b
   %cmp2.i.i = icmp eq i32 %i.05.i.i, 24
   %spec.store.select.i.i = select i1 %cmp2.i.i, i32 0, i32 %i.05.i.i
   %idxprom.i.i = sext i32 %spec.store.select.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %65, i64 %idxprom.i125, i32 2, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [24 x i32], ptr %fDayPeriodForHour.i.i, i64 0, i64 %idxprom.i.i
   store i32 %74, ptr %arrayidx.i.i, align 4
   %inc.i.i = add nsw i32 %spec.store.select.i.i, 1
   %cmp.not.i.i = icmp eq i32 %inc.i.i, %spec.store.select.i
   br i1 %cmp.not.i.i, label %for.inc42.i, label %for.body.i.i, !llvm.loop !9
 
 for.inc42.i:                                      ; preds = %for.body.i.i, %if.then38.i, %if.end14.i
-  %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i127, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i131, 25
+  %indvars.iv.next.i133 = add nuw nsw i64 %indvars.iv.i129, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i133, 25
   br i1 %exitcond.not.i, label %_ZN6icu_7522DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit, label %for.body.i, !llvm.loop !29
 
-for.end44.sink.split.i:                           ; preds = %if.else.i129, %for.cond26.i
+for.end44.sink.split.i:                           ; preds = %if.else.i131, %for.cond26.i
   store i32 3, ptr %errorCode, align 4
   br label %_ZN6icu_7522DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit
 
 _ZN6icu_7522DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit: ; preds = %for.inc42.i, %for.end44.sink.split.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %scevgep, i8 0, i64 100, i1 false)
-  %inc69 = add nuw nsw i32 %j.0154, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %cutoffs.i109, i8 0, i64 100, i1 false)
+  %inc69 = add nuw nsw i32 %j.0156, 1
   %call10 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %ruleSet, i32 noundef %inc69, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool11.not = icmp eq i8 %call10, 0
   br i1 %tobool11.not, label %for.end70, label %for.body12, !llvm.loop !30
 
 for.end70:                                        ; preds = %_ZN6icu_7522DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit, %for.cond9.preheader
   %76 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_14dataE, align 8
-  %rules71 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DayPeriodRulesData", ptr %76, i64 0, i32 1
+  %rules71 = getelementptr inbounds i8, ptr %76, i64 8
   %77 = load ptr, ptr %rules71, align 8
   %78 = load i32, ptr %ruleSetNum, align 4
   %idxprom73 = sext i32 %78 to i64
-  br label %for.body.i132
+  br label %for.body.i134
 
-for.cond.i:                                       ; preds = %for.body.i132
-  %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i133, 1
-  %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, 24
-  br i1 %exitcond.not.i137, label %for.inc79, label %for.body.i132, !llvm.loop !10
+for.cond.i:                                       ; preds = %for.body.i134
+  %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i135, 1
+  %exitcond.not.i139 = icmp eq i64 %indvars.iv.next.i138, 24
+  br i1 %exitcond.not.i139, label %for.inc79, label %for.body.i134, !llvm.loop !10
 
-for.body.i132:                                    ; preds = %for.cond.i, %for.end70
-  %indvars.iv.i133 = phi i64 [ 0, %for.end70 ], [ %indvars.iv.next.i136, %for.cond.i ]
-  %arrayidx.i134 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %77, i64 %idxprom73, i32 2, i64 %indvars.iv.i133
-  %79 = load i32, ptr %arrayidx.i134, align 4
-  %cmp2.i135 = icmp eq i32 %79, -1
-  br i1 %cmp2.i135, label %for.end81.sink.split, label %for.cond.i
+for.body.i134:                                    ; preds = %for.cond.i, %for.end70
+  %indvars.iv.i135 = phi i64 [ 0, %for.end70 ], [ %indvars.iv.next.i138, %for.cond.i ]
+  %arrayidx.i136 = getelementptr inbounds %"class.icu_75::DayPeriodRules", ptr %77, i64 %idxprom73, i32 2, i64 %indvars.iv.i135
+  %79 = load i32, ptr %arrayidx.i136, align 4
+  %cmp2.i137 = icmp eq i32 %79, -1
+  br i1 %cmp2.i137, label %for.end81.sink.split, label %for.cond.i
 
 for.inc79:                                        ; preds = %for.cond.i
-  %inc80 = add nuw nsw i32 %i.0157, 1
+  %inc80 = add nuw nsw i32 %i.0159, 1
   %call2 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %rules, i32 noundef %inc80, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool3.not = icmp eq i8 %call2, 0
   br i1 %tobool3.not, label %for.end81, label %for.body, !llvm.loop !31
 
-for.end81.sink.split:                             ; preds = %for.body12, %for.body.i132
+for.end81.sink.split:                             ; preds = %for.body12, %for.body.i134
   store i32 3, ptr %errorCode, align 4
   br label %for.end81
 
@@ -2259,7 +2264,7 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

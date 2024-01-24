@@ -61,7 +61,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17he363a6612178bd6dE
 define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0a5bfc4c6f86b803E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = alloca { {}, { { { ptr, i64 }, i64 } } }, align 8
-  %6 = getelementptr inbounds { { { { ptr, i64 }, ptr } }, {} }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %7)
   call void @"_ZN5regex8builders7Builder3new28_$u7b$$u7b$closure$u7d$$u7d$17h679ef932da954ef9E"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr nonnull align 1 %6, ptr nonnull align 1 %1, i64 %2)
@@ -74,7 +74,7 @@ define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$1
 define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc2513a4cbdbed4c9E"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = alloca { {}, { { { ptr, i64 }, i64 } } }, align 8
-  %6 = getelementptr inbounds { { { { ptr, i64 }, ptr } }, {} }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %7)
   call void @"_ZN5regex8builders7Builder3new28_$u7b$$u7b$closure$u7d$$u7d$17h136273d3ae68ca0eE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr nonnull align 1 %6, ptr nonnull align 1 %1, i64 %2)

@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type opaque
 %struct.BIT_STRING_BITNAME_st = type { i32, ptr, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.conf_value_st = type { ptr, ptr, ptr }
 
 @ASN1_BIT_STRING_it = external constant %struct.ASN1_ITEM_st, align 1
 @ns_cert_type_table = internal constant [9 x %struct.BIT_STRING_BITNAME_st] [%struct.BIT_STRING_BITNAME_st { i32 0, ptr @.str.4, ptr @.str.5 }, %struct.BIT_STRING_BITNAME_st { i32 1, ptr @.str.6, ptr @.str.7 }, %struct.BIT_STRING_BITNAME_st { i32 2, ptr @.str.8, ptr @.str.9 }, %struct.BIT_STRING_BITNAME_st { i32 3, ptr @.str.10, ptr @.str.11 }, %struct.BIT_STRING_BITNAME_st { i32 4, ptr @.str.12, ptr @.str.13 }, %struct.BIT_STRING_BITNAME_st { i32 5, ptr @.str.14, ptr @.str.15 }, %struct.BIT_STRING_BITNAME_st { i32 6, ptr @.str.16, ptr @.str.17 }, %struct.BIT_STRING_BITNAME_st { i32 7, ptr @.str.18, ptr @.str.19 }, %struct.BIT_STRING_BITNAME_st { i32 -1, ptr null, ptr null }], align 16
@@ -57,9 +56,9 @@ define hidden ptr @i2v_ASN1_BIT_STRING(ptr nocapture noundef readonly %method, p
 entry:
   %ret.addr = alloca ptr, align 8
   store ptr %ret, ptr %ret.addr, align 8
-  %usr_data = getelementptr inbounds %struct.v3_ext_method, ptr %method, i64 0, i32 13
+  %usr_data = getelementptr inbounds i8, ptr %method, i64 96
   %0 = load ptr, ptr %usr_data, align 8
-  %lname4 = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %0, i64 0, i32 1
+  %lname4 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %lname4, align 8
   %tobool.not5 = icmp eq ptr %1, null
   br i1 %tobool.not5, label %for.end, label %for.body
@@ -78,8 +77,8 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %incdec.ptr = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.06, i64 1
-  %lname = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.06, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %bnam.06, i64 24
+  %lname = getelementptr inbounds i8, ptr %bnam.06, i64 32
   %4 = load ptr, ptr %lname, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !7
@@ -106,7 +105,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp28.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %usr_data = getelementptr inbounds %struct.v3_ext_method, ptr %method, i64 0, i32 13
+  %usr_data = getelementptr inbounds i8, ptr %method, i64 96
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -123,20 +122,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.029 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.029) #3
   %0 = load ptr, ptr %usr_data, align 8
-  %lname23 = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %0, i64 0, i32 1
+  %lname23 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %lname23, align 8
   %tobool4.not24 = icmp eq ptr %1, null
   br i1 %tobool4.not24, label %if.then20, label %for.body5.lr.ph
 
 for.body5.lr.ph:                                  ; preds = %for.body
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load ptr, ptr %name, align 8
   br label %for.body5
 
 for.body5:                                        ; preds = %for.body5.lr.ph, %for.inc
   %3 = phi ptr [ %1, %for.body5.lr.ph ], [ %6, %for.inc ]
   %bnam.025 = phi ptr [ %0, %for.body5.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %sname = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.025, i64 0, i32 2
+  %sname = getelementptr inbounds i8, ptr %bnam.025, i64 16
   %4 = load ptr, ptr %sname, align 8
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %2) #4
   %tobool7.not = icmp eq i32 %call6, 0
@@ -159,14 +158,14 @@ if.then15:                                        ; preds = %if.then12
   br label %return
 
 for.inc:                                          ; preds = %lor.lhs.false
-  %incdec.ptr = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.025, i64 1
-  %lname = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.025, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %bnam.025, i64 24
+  %lname = getelementptr inbounds i8, ptr %bnam.025, i64 32
   %6 = load ptr, ptr %lname, align 8
   %tobool4.not = icmp eq ptr %6, null
   br i1 %tobool4.not, label %if.then20, label %for.body5, !llvm.loop !10
 
 for.end:                                          ; preds = %if.then12
-  %lname.le = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.025, i64 0, i32 1
+  %lname.le = getelementptr inbounds i8, ptr %bnam.025, i64 8
   %.pr = load ptr, ptr %lname.le, align 8
   %tobool19.not = icmp eq ptr %.pr, null
   br i1 %tobool19.not, label %if.then20, label %for.cond
@@ -174,9 +173,9 @@ for.end:                                          ; preds = %if.then12
 if.then20:                                        ; preds = %for.end, %for.body, %for.inc
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 156, ptr noundef nonnull @.str, i32 noundef 134) #3
   %7 = load ptr, ptr %call2, align 8
-  %name21 = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name21 = getelementptr inbounds i8, ptr %call2, i64 8
   %8 = load ptr, ptr %name21, align 8
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call2, i64 16
   %9 = load ptr, ptr %value, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.1, ptr noundef %7, ptr noundef nonnull @.str.2, ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef %9) #3
   tail call void @ASN1_STRING_free(ptr noundef nonnull %call) #3

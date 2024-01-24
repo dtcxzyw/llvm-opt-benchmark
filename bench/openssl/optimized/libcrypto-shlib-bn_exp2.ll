@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_exp2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/bn/bn_exp2.c\00", align 1
 @__func__.BN_mod_exp2_mont = private unnamed_addr constant [17 x i8] c"BN_mod_exp2_mont\00", align 1
 
@@ -95,7 +93,7 @@ cond.false50:                                     ; preds = %cond.false47
 
 cond.end60:                                       ; preds = %cond.false50, %cond.false47, %cond.end43
   %cond61 = phi i32 [ 6, %cond.end43 ], [ %cond57, %cond.false50 ], [ 5, %cond.false47 ]
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a1, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a1, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool62.not = icmp eq i32 %0, 0
   br i1 %tobool62.not, label %lor.lhs.false, label %if.then65
@@ -162,7 +160,7 @@ lor.lhs.false95:                                  ; preds = %for.body
   br i1 %tobool102.not, label %err, label %for.cond
 
 if.end105:                                        ; preds = %for.cond, %if.end82
-  %neg106 = getelementptr inbounds %struct.bignum_st, ptr %a2, i64 0, i32 3
+  %neg106 = getelementptr inbounds i8, ptr %a2, i64 16
   %4 = load i32, ptr %neg106, align 8
   %tobool107.not = icmp eq i32 %4, 0
   br i1 %tobool107.not, label %lor.lhs.false108, label %if.then111

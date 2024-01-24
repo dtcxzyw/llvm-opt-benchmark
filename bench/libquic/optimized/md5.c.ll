@@ -20,12 +20,12 @@ entry:
 if.end37.i:                                       ; preds = %entry
   %conv.i = trunc i64 %len to i32
   %shl.i = shl i32 %conv.i, 3
-  %Nh.i = getelementptr inbounds %struct.md5_state_st, ptr %ctx, i64 0, i32 2
+  %Nh.i = getelementptr inbounds i8, ptr %ctx, i64 20
   %shr.i = lshr i64 %len, 29
   %conv6.i = trunc i64 %shr.i to i32
   store i32 %conv6.i, ptr %Nh.i, align 4
   store i32 %shl.i, ptr %0, align 16
-  %num.i = getelementptr inbounds %struct.md5_state_st, ptr %ctx, i64 0, i32 4
+  %num.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %cmp38.not.i = icmp ult i64 %len, 64
   br i1 %cmp38.not.i, label %if.then48.i, label %if.end45.i
 
@@ -43,7 +43,7 @@ if.then48.i:                                      ; preds = %if.end37.i, %if.end
   %len.addr.1.i6 = phi i64 [ %sub44.i, %if.end45.i ], [ %len, %if.end37.i ]
   %conv49.i = trunc i64 %len.addr.1.i6 to i32
   store i32 %conv49.i, ptr %num.i, align 8
-  %data51.i = getelementptr inbounds %struct.md5_state_st, ptr %ctx, i64 0, i32 3
+  %data51.i = getelementptr inbounds i8, ptr %ctx, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data51.i, ptr align 1 %data.1.i7, i64 %len.addr.1.i6, i1 false)
   br label %MD5_Update.exit
 
@@ -70,23 +70,23 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Nl = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 1
+  %Nl = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i32, ptr %Nl, align 4
   %conv = trunc i64 %len to i32
   %shl = shl i32 %conv, 3
   %add = add i32 %0, %shl
   %cmp2 = icmp ult i32 %add, %0
-  %Nh = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 2
+  %Nh = getelementptr inbounds i8, ptr %c, i64 20
   %1 = load i32, ptr %Nh, align 4
   %inc = zext i1 %cmp2 to i32
   %2 = add i32 %1, %inc
   %shr = lshr i64 %len, 29
   %conv6 = trunc i64 %shr to i32
-  %Nh7 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 2
+  %Nh7 = getelementptr inbounds i8, ptr %c, i64 20
   %add8 = add i32 %2, %conv6
   store i32 %add8, ptr %Nh7, align 4
   store i32 %add, ptr %Nl, align 4
-  %num = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 4
+  %num = getelementptr inbounds i8, ptr %c, i64 88
   %3 = load i32, ptr %num, align 4
   %conv10 = zext i32 %3 to i64
   %cmp11.not = icmp eq i32 %3, 0
@@ -97,7 +97,7 @@ if.then13:                                        ; preds = %if.end
   %add16 = add nuw nsw i64 %conv10, %len
   %cmp17 = icmp ugt i64 %add16, 63
   %or.cond = select i1 %cmp14, i1 true, i1 %cmp17
-  %data20 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3
+  %data20 = getelementptr inbounds i8, ptr %c, i64 24
   %add.ptr = getelementptr inbounds i8, ptr %data20, i64 %conv10
   br i1 %or.cond, label %if.then19, label %if.else
 
@@ -140,7 +140,7 @@ if.end45:                                         ; preds = %if.then40, %if.end3
 if.then48:                                        ; preds = %if.end45
   %conv49 = trunc i64 %len.addr.1 to i32
   store i32 %conv49, ptr %num, align 4
-  %data51 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3
+  %data51 = getelementptr inbounds i8, ptr %c, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data51, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
   br label %return
 
@@ -151,11 +151,11 @@ return:                                           ; preds = %if.end45, %if.then4
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @MD5_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %num = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 4
+  %num = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %num, align 4
   %conv = zext i32 %0 to i64
-  %data = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3
-  %arrayidx = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 %conv
+  %data = getelementptr inbounds i8, ptr %c, i64 24
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %data, i64 0, i64 %conv
   store i8 -128, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %conv, 1
   %cmp = icmp ugt i32 %0, 55
@@ -173,36 +173,36 @@ if.end:                                           ; preds = %if.then, %entry
   %add.ptr8 = getelementptr inbounds i8, ptr %data, i64 %n.0
   %sub9 = sub nuw nsw i64 56, %n.0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr8, i8 0, i64 %sub9, i1 false)
-  %add.ptr13 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 56
-  %Nl = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 1
+  %add.ptr13 = getelementptr inbounds i8, ptr %c, i64 80
+  %Nl = getelementptr inbounds i8, ptr %c, i64 16
   %1 = load i32, ptr %Nl, align 4
   %conv14 = trunc i32 %1 to i8
-  %incdec.ptr = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 57
+  %incdec.ptr = getelementptr inbounds i8, ptr %c, i64 81
   store i8 %conv14, ptr %add.ptr13, align 1
   %shr = lshr i32 %1, 8
   %conv17 = trunc i32 %shr to i8
-  %incdec.ptr18 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 58
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %c, i64 82
   store i8 %conv17, ptr %incdec.ptr, align 1
   %shr20 = lshr i32 %1, 16
   %conv22 = trunc i32 %shr20 to i8
-  %incdec.ptr23 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 59
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %c, i64 83
   store i8 %conv22, ptr %incdec.ptr18, align 1
   %shr25 = lshr i32 %1, 24
   %conv27 = trunc i32 %shr25 to i8
-  %incdec.ptr28 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 60
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %c, i64 84
   store i8 %conv27, ptr %incdec.ptr23, align 1
-  %Nh = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 2
+  %Nh = getelementptr inbounds i8, ptr %c, i64 20
   %2 = load i32, ptr %Nh, align 4
   %conv30 = trunc i32 %2 to i8
-  %incdec.ptr31 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 61
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %c, i64 85
   store i8 %conv30, ptr %incdec.ptr28, align 1
   %shr33 = lshr i32 %2, 8
   %conv35 = trunc i32 %shr33 to i8
-  %incdec.ptr36 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 62
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %c, i64 86
   store i8 %conv35, ptr %incdec.ptr31, align 1
   %shr38 = lshr i32 %2, 16
   %conv40 = trunc i32 %shr38 to i8
-  %incdec.ptr41 = getelementptr inbounds %struct.md5_state_st, ptr %c, i64 0, i32 3, i64 63
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %c, i64 87
   store i8 %conv40, ptr %incdec.ptr36, align 1
   %shr43 = lshr i32 %2, 24
   %conv45 = trunc i32 %shr43 to i8
@@ -225,7 +225,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv69 = trunc i32 %shr67 to i8
   %incdec.ptr70 = getelementptr inbounds i8, ptr %md, i64 4
   store i8 %conv69, ptr %incdec.ptr66, align 1
-  %arrayidx72 = getelementptr inbounds [4 x i32], ptr %c, i64 0, i64 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %c, i64 4
   %4 = load i32, ptr %arrayidx72, align 4
   %conv74 = trunc i32 %4 to i8
   %incdec.ptr75 = getelementptr inbounds i8, ptr %md, i64 5
@@ -242,7 +242,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv86 = trunc i32 %shr84 to i8
   %incdec.ptr87 = getelementptr inbounds i8, ptr %md, i64 8
   store i8 %conv86, ptr %incdec.ptr83, align 1
-  %arrayidx89 = getelementptr inbounds [4 x i32], ptr %c, i64 0, i64 2
+  %arrayidx89 = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load i32, ptr %arrayidx89, align 4
   %conv91 = trunc i32 %5 to i8
   %incdec.ptr92 = getelementptr inbounds i8, ptr %md, i64 9
@@ -259,7 +259,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv103 = trunc i32 %shr101 to i8
   %incdec.ptr104 = getelementptr inbounds i8, ptr %md, i64 12
   store i8 %conv103, ptr %incdec.ptr100, align 1
-  %arrayidx106 = getelementptr inbounds [4 x i32], ptr %c, i64 0, i64 3
+  %arrayidx106 = getelementptr inbounds i8, ptr %c, i64 12
   %6 = load i32, ptr %arrayidx106, align 4
   %conv108 = trunc i32 %6 to i8
   %incdec.ptr109 = getelementptr inbounds i8, ptr %md, i64 13

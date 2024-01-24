@@ -9,8 +9,8 @@ define zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds { i8, i8 }, ptr %0, i64 0, i32 1
-  %6 = getelementptr inbounds { i8, i8 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = tail call zeroext i1 @"_ZN4core3cmp5impls53_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$u8$GT$2eq17h91f2f1b66f5a7e93E"(ptr nonnull align 1 %5, ptr nonnull align 1 %6)
   br label %8
 

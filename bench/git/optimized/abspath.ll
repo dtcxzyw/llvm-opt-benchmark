@@ -28,7 +28,7 @@ entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %path, ptr noundef nonnull %st) #12
   %tobool.not = icmp eq i32 %call, 0
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp = icmp eq i32 %and, 16384
@@ -76,12 +76,12 @@ if.then3:                                         ; preds = %if.then
 if.end:                                           ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #14
   call void @strbuf_add(ptr noundef nonnull %remaining, ptr noundef nonnull %path, i64 noundef %call.i) #12
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %remaining, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %remaining, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %.val.i = load i8, ptr %1, align 1
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %resolved, i64 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %resolved, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %resolved, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %resolved, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %get_root_part.exit, label %if.then4.i.i
@@ -116,20 +116,20 @@ if.then10:                                        ; preds = %if.then7
   unreachable
 
 if.end13:                                         ; preds = %if.then5, %get_root_part.exit
-  %len14 = getelementptr inbounds %struct.strbuf, ptr %remaining, i64 0, i32 1
+  %len14 = getelementptr inbounds i8, ptr %remaining, i64 8
   %5 = load i64, ptr %len14, align 8
   %cmp.not115116 = icmp eq i64 %5, 0
   br i1 %cmp.not115116, label %while.end, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end13
-  %len2.i.i24 = getelementptr inbounds %struct.strbuf, ptr %next, i64 0, i32 1
-  %buf.i.i25 = getelementptr inbounds %struct.strbuf, ptr %next, i64 0, i32 2
+  %len2.i.i24 = getelementptr inbounds i8, ptr %next, i64 8
+  %buf.i.i25 = getelementptr inbounds i8, ptr %next, i64 16
   %and48 = and i32 %flags, 1
   %tobool49 = icmp eq i32 %and48, 0
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %symlink, i64 0, i32 1
-  %buf.i40 = getelementptr inbounds %struct.strbuf, ptr %symlink, i64 0, i32 2
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %len2.i = getelementptr inbounds i8, ptr %symlink, i64 8
+  %buf.i40 = getelementptr inbounds i8, ptr %symlink, i64 16
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end98
@@ -529,9 +529,9 @@ error_out:                                        ; preds = %if.then80, %if.then
   br i1 %tobool100.not, label %if.then101, label %if.end102
 
 if.then101:                                       ; preds = %error_out
-  %len2.i102 = getelementptr inbounds %struct.strbuf, ptr %resolved, i64 0, i32 1
+  %len2.i102 = getelementptr inbounds i8, ptr %resolved, i64 8
   store i64 0, ptr %len2.i102, align 8
-  %buf.i103 = getelementptr inbounds %struct.strbuf, ptr %resolved, i64 0, i32 2
+  %buf.i103 = getelementptr inbounds i8, ptr %resolved, i64 16
   %55 = load ptr, ptr %buf.i103, align 8
   %cmp3.not.i104 = icmp eq ptr %55, @strbuf_slopbuf
   br i1 %cmp3.not.i104, label %if.end102, label %if.then4.i105
@@ -615,7 +615,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.then2:                                         ; preds = %entry
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len, align 8
   %call3 = tail call ptr @xgetcwd() #12
   %call4 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #12
@@ -635,7 +635,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
 land.lhs.true11:                                  ; preds = %land.lhs.true8
   %2 = load i64, ptr %cwd_stat, align 8
   %tobool12 = icmp ne i64 %2, 0
-  %st_ino = getelementptr inbounds %struct.stat, ptr %cwd_stat, i64 0, i32 1
+  %st_ino = getelementptr inbounds i8, ptr %cwd_stat, i64 8
   %3 = load i64, ptr %st_ino, align 8
   %tobool13 = icmp ne i64 %3, 0
   %or.cond = select i1 %tobool12, i1 true, i1 %tobool13
@@ -647,7 +647,7 @@ land.lhs.true14:                                  ; preds = %land.lhs.true11
   %4 = load i64, ptr %pwd_stat, align 8
   %cmp = icmp eq i64 %4, %2
   %or.cond18 = select i1 %tobool16.not, i1 %cmp, i1 false
-  %st_ino21 = getelementptr inbounds %struct.stat, ptr %pwd_stat, i64 0, i32 1
+  %st_ino21 = getelementptr inbounds i8, ptr %pwd_stat, i64 8
   %5 = load i64, ptr %st_ino21, align 8
   %cmp23 = icmp eq i64 %5, %3
   %or.cond19 = select i1 %or.cond18, i1 %cmp23, i1 false
@@ -669,7 +669,7 @@ if.end25:                                         ; preds = %if.else, %if.then24
   br i1 %cmp27, label %land.lhs.true28, label %if.end33
 
 land.lhs.true28:                                  ; preds = %if.end25
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %7 = load ptr, ptr %buf, align 8
   %8 = getelementptr i8, ptr %7, i64 %6
   %arrayidx = getelementptr i8, ptr %8, i64 -1
@@ -823,7 +823,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 define dso_local void @strbuf_add_real_path(ptr noundef %sb, ptr noundef %path) local_unnamed_addr #2 {
 entry:
   %resolved = alloca %struct.strbuf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then

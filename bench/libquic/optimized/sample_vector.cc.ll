@@ -15,21 +15,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.base::SampleVector" = type { %"class.base::HistogramSamples", %"class.std::vector", ptr, i64, ptr }
-%"class.base::HistogramSamples" = type { ptr, %"struct.base::HistogramSamples::Metadata", ptr }
-%"struct.base::HistogramSamples::Metadata" = type <{ i64, i64, i32, [4 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%"class.base::SampleVectorIterator" = type { %"class.base::SampleCountIterator", ptr, i64, ptr, i64 }
-%"class.base::SampleCountIterator" = type { ptr }
 
 @_ZTVN4base12SampleVectorE = dso_local unnamed_addr constant { [14 x ptr] } { [14 x ptr] [ptr null, ptr @_ZTIN4base12SampleVectorE, ptr @_ZN4base12SampleVectorD2Ev, ptr @_ZN4base12SampleVectorD0Ev, ptr @_ZN4base12SampleVector10AccumulateEii, ptr @_ZNK4base12SampleVector8GetCountEi, ptr @_ZNK4base12SampleVector10TotalCountEv, ptr @_ZN4base16HistogramSamples3AddERKS0_, ptr @_ZN4base16HistogramSamples13AddFromPickleEPNS_14PickleIteratorE, ptr @_ZN4base16HistogramSamples8SubtractERKS0_, ptr @_ZNK4base12SampleVector8IteratorEv, ptr @_ZNK4base16HistogramSamples9SerializeEPNS_6PickleE, ptr @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleCountIteratorENS_16HistogramSamples8OperatorE, ptr @_ZNK4base12SampleVector14GetBucketIndexEi] }, align 8
 @.str = private unnamed_addr constant [37 x i8] c"bucket_ranges_->bucket_count() >= 1u\00", align 1
@@ -73,8 +64,8 @@ entry:
   %ref.tmp19 = alloca %"class.logging::LogMessage", align 8
   tail call void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %id)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %bucket_ranges, i64 0, i32 1
+  %local_counts_ = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %bucket_ranges, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %bucket_ranges, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -105,32 +96,34 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i3, ptr %local_counts_, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3, i64 %sub.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i2.i.i3, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr i32, ptr %call5.i.i.i.i2.i.i3, i64 1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i, 1
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3, i64 4
+  %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i.i, -2
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont3, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %2 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %3 = phi ptr [ %call5.i.i.i.i2.i.i3, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i3, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %3, ptr %counts_, align 8
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 3
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 72
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   store i64 %sub.ptr.div.i, ptr %counts_size_, align 8
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 4
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %bucket_ranges, ptr %bucket_ranges_, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %bucket_ranges, align 8
@@ -207,12 +200,12 @@ entry:
   %ref.tmp31 = alloca %"class.logging::LogMessage", align 8
   tail call void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %id, ptr noundef %meta)
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 1
+  %local_counts_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %local_counts_, i8 0, i64 24, i1 false)
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %counts, ptr %counts_, align 8
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %bucket_ranges, i64 0, i32 1
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %bucket_ranges, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %bucket_ranges, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -221,7 +214,7 @@ entry:
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   %sub.i = add nsw i64 %sub.ptr.div.i.i, -1
   store i64 %sub.i, ptr %counts_size_, align 8
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 4
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %bucket_ranges, ptr %bucket_ranges_, align 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %bucket_ranges, align 8
@@ -267,7 +260,7 @@ invoke.cont14:                                    ; preds = %if.else
 
 if.end:                                           ; preds = %entry, %invoke.cont6, %invoke.cont14
   %6 = load ptr, ptr %bucket_ranges_, align 8
-  %_M_finish.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %6, i64 0, i32 1
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %_M_finish.i.i9, align 8
   %8 = load ptr, ptr %6, align 8
   %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %7 to i64
@@ -306,7 +299,7 @@ declare void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull 
 define dso_local void @_ZN4base12SampleVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 1
+  %local_counts_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %local_counts_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
@@ -324,7 +317,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 define dso_local void @_ZN4base12SampleVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %local_counts_.i = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 1
+  %local_counts_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %local_counts_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4base12SampleVectorD2Ev.exit, label %if.then.i.i.i.i
@@ -346,10 +339,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define dso_local void @_ZN4base12SampleVector10AccumulateEii(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %value, i32 noundef %count) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %value)
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %counts_, align 8
   %arrayidx = getelementptr inbounds i32, ptr %1, i64 %call
   %2 = atomicrmw volatile add ptr %arrayidx, i32 %count monotonic, align 4
@@ -369,10 +362,10 @@ declare void @_ZN4base16HistogramSamples22IncreaseRedundantCountEi(ptr noundef n
 define dso_local noundef i32 @_ZNK4base12SampleVector8GetCountEi(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %value)
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %counts_, align 8
   %arrayidx = getelementptr inbounds i32, ptr %1, i64 %call
   %2 = load atomic volatile i32, ptr %arrayidx monotonic, align 4
@@ -382,13 +375,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define dso_local noundef i32 @_ZNK4base12SampleVector10TotalCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 3
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %counts_size_, align 8
   %cmp4.not = icmp eq i64 %0, 0
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %counts_, align 8
   br label %for.body
 
@@ -410,7 +403,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define dso_local noundef i32 @_ZNK4base12SampleVector15GetCountAtIndexEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %bucket_index) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %counts_, align 8
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %bucket_index
   %1 = load atomic volatile i32, ptr %arrayidx monotonic, align 4
@@ -421,11 +414,11 @@ entry:
 define dso_local void @_ZNK4base12SampleVector8IteratorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %counts_, align 8
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 3
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i64, ptr %counts_size_, align 8
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 4
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %bucket_ranges_, align 8
   invoke void @_ZN4base20SampleVectorIteratorC2EPKimPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef %0, i64 noundef %1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad
@@ -450,28 +443,28 @@ entry:
   %min = alloca i32, align 4
   %max = alloca i32, align 4
   %count = alloca i32, align 4
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 3
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %counts_size_, align 8
   %cmp11.not = icmp eq i64 %0, 0
   br i1 %cmp11.not, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 4
-  %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 2
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 80
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 64
   %cmp9 = icmp eq i32 %op, 0
   br i1 %cmp9, label %land.rhs.us, label %land.rhs
 
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %if.end18.us
   %index.012.us = phi i64 [ %index.1.us, %if.end18.us ], [ 0, %land.rhs.lr.ph ]
   %vtable.us = load ptr, ptr %iter, align 8
-  %vfn.us = getelementptr inbounds ptr, ptr %vtable.us, i64 2
+  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 16
   %1 = load ptr, ptr %vfn.us, align 8
   %call.us = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %iter)
   br i1 %call.us, label %while.end, label %while.body.us
 
 while.body.us:                                    ; preds = %land.rhs.us
   %vtable2.us = load ptr, ptr %iter, align 8
-  %vfn3.us = getelementptr inbounds ptr, ptr %vtable2.us, i64 4
+  %vfn3.us = getelementptr inbounds i8, ptr %vtable2.us, i64 32
   %2 = load ptr, ptr %vfn3.us, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %iter, ptr noundef nonnull %min, ptr noundef nonnull %max, ptr noundef nonnull %count)
   %3 = load i32, ptr %min, align 4
@@ -484,7 +477,7 @@ while.body.us:                                    ; preds = %land.rhs.us
 
 land.lhs.true.us:                                 ; preds = %while.body.us
   %7 = load i32, ptr %max, align 4
-  %add.ptr.i.i9.us = getelementptr i32, ptr %add.ptr.i.i.us, i64 1
+  %add.ptr.i.i9.us = getelementptr i8, ptr %add.ptr.i.i.us, i64 4
   %8 = load i32, ptr %add.ptr.i.i9.us, align 4
   %cmp8.us = icmp eq i32 %7, %8
   br i1 %cmp8.us, label %if.then.us, label %if.else.us
@@ -503,7 +496,7 @@ if.then.us:                                       ; preds = %land.lhs.true.us
   %10 = load i32, ptr %count, align 4
   %11 = atomicrmw volatile add ptr %arrayidx.us, i32 %10 monotonic, align 4
   %vtable11.us = load ptr, ptr %iter, align 8
-  %vfn12.us = getelementptr inbounds ptr, ptr %vtable11.us, i64 3
+  %vfn12.us = getelementptr inbounds i8, ptr %vtable11.us, i64 24
   %12 = load ptr, ptr %vfn12.us, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %iter)
   br label %if.end18.us
@@ -517,14 +510,14 @@ if.end18.us:                                      ; preds = %if.then.us, %if.the
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end18
   %index.012 = phi i64 [ %index.1, %if.end18 ], [ 0, %land.rhs.lr.ph ]
   %vtable = load ptr, ptr %iter, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   %call = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %iter)
   br i1 %call, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
   %vtable2 = load ptr, ptr %iter, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %15 = load ptr, ptr %vfn3, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %iter, ptr noundef nonnull %min, ptr noundef nonnull %max, ptr noundef nonnull %count)
   %16 = load i32, ptr %min, align 4
@@ -537,7 +530,7 @@ while.body:                                       ; preds = %land.rhs
 
 land.lhs.true:                                    ; preds = %while.body
   %20 = load i32, ptr %max, align 4
-  %add.ptr.i.i9 = getelementptr i32, ptr %add.ptr.i.i, i64 1
+  %add.ptr.i.i9 = getelementptr i8, ptr %add.ptr.i.i, i64 4
   %21 = load i32, ptr %add.ptr.i.i9, align 4
   %cmp8 = icmp eq i32 %20, %21
   br i1 %cmp8, label %if.then, label %if.else
@@ -549,7 +542,7 @@ if.then:                                          ; preds = %land.lhs.true
   %sub = sub nsw i32 0, %23
   %24 = atomicrmw volatile add ptr %arrayidx, i32 %sub monotonic, align 4
   %vtable11 = load ptr, ptr %iter, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 3
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 24
   %25 = load ptr, ptr %vfn12, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %iter)
   br label %if.end18
@@ -570,7 +563,7 @@ if.end18:                                         ; preds = %if.then16, %if.then
 
 while.end:                                        ; preds = %land.rhs, %if.end18, %land.rhs.us, %if.end18.us, %entry
   %vtable19 = load ptr, ptr %iter, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 2
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 16
   %27 = load ptr, ptr %vfn20, align 8
   %call21 = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(8) %iter)
   br label %return
@@ -595,9 +588,9 @@ entry:
   %ref.tmp14 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp27 = alloca %"class.logging::LogMessage", align 8
   %ref.tmp69 = alloca %"class.logging::LogMessage", align 8
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVector", ptr %this, i64 0, i32 4
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %bucket_ranges_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %0, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -704,7 +697,7 @@ if.end44:                                         ; preds = %if.end32, %if.end44
 if.end60:                                         ; preds = %if.end44, %if.end32
   %add.lcssa = phi i64 [ %div1153, %if.end32 ], [ %add, %if.end44 ]
   %12 = getelementptr i32, ptr %.pre59, i64 %add.lcssa
-  %add.ptr.i.i30 = getelementptr i32, ptr %12, i64 1
+  %add.ptr.i.i30 = getelementptr i8, ptr %12, i64 4
   %13 = load i32, ptr %add.ptr.i.i30, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v1.addr.i31)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v2.addr.i32)
@@ -740,22 +733,22 @@ entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp11 = alloca %"class.logging::LogMessage", align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 1
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %counts, align 8
   store ptr %0, ptr %counts_, align 8
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %counts, i64 0, i32 1
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %counts, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   store i64 %sub.ptr.div.i, ptr %counts_size_, align 8
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 3
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %bucket_ranges, ptr %bucket_ranges_, align 8
-  %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %index_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %bucket_ranges, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %bucket_ranges, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %bucket_ranges, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -791,7 +784,7 @@ invoke.cont14:                                    ; preds = %if.else
 
 if.end:                                           ; preds = %entry, %invoke.cont6, %invoke.cont14
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i4 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %call.i.noexc3 unwind label %lpad
@@ -830,21 +823,21 @@ invoke.cont18:                                    ; preds = %if.end6.i, %while.b
 define dso_local void @_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %this)
   br i1 %call, label %while.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %counts_size_, align 8
   %2 = load i64, ptr %index_, align 8
   %cmp1 = icmp ult i64 %2, %1
   br i1 %cmp1, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 1
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %counts_, align 8
   br label %while.body
 
@@ -874,15 +867,15 @@ entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 1
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %counts, ptr %counts_, align 8
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 2
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %counts_size, ptr %counts_size_, align 8
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 3
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %bucket_ranges, ptr %bucket_ranges_, align 8
-  %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %index_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %bucket_ranges, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %bucket_ranges, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %bucket_ranges, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -918,7 +911,7 @@ invoke.cont12:                                    ; preds = %if.else
 
 if.end:                                           ; preds = %entry, %invoke.cont4, %invoke.cont12
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i3 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(40) %this)
           to label %call.i.noexc2 unwind label %lpad
@@ -971,9 +964,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4base20SampleVectorIterator4DoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %index_, align 8
-  %counts_size_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 2
+  %counts_size_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %counts_size_, align 8
   %cmp = icmp uge i64 %0, %1
   ret i1 %cmp
@@ -982,25 +975,25 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base20SampleVectorIterator4NextEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %index_, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %index_, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(40) %this)
   br i1 %call.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %counts_size_.i = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 2
+  %counts_size_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %counts_size_.i, align 8
   %3 = load i64, ptr %index_, align 8
   %cmp1.i = icmp ult i64 %3, %2
   br i1 %cmp1.i, label %while.body.lr.ph.i, label %_ZN4base20SampleVectorIterator16SkipEmptyBucketsEv.exit
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %counts_.i = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 1
+  %counts_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %counts_.i, align 8
   br label %while.body.i
 
@@ -1028,9 +1021,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bucket_ranges_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 3
+  %bucket_ranges_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %bucket_ranges_, align 8
-  %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %index_, align 8
   %2 = load ptr, ptr %0, align 8
   %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %1
@@ -1043,13 +1036,13 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %bucket_ranges_4 = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 3
+  %bucket_ranges_4 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %bucket_ranges_4, align 8
-  %index_5 = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_5 = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i64, ptr %index_5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr i32, ptr %6, i64 %5
-  %add.ptr.i.i4 = getelementptr i32, ptr %7, i64 1
+  %add.ptr.i.i4 = getelementptr i8, ptr %7, i64 4
   %8 = load i32, ptr %add.ptr.i.i4, align 4
   store i32 %8, ptr %max, align 4
   br label %if.end7
@@ -1059,9 +1052,9 @@ if.end7:                                          ; preds = %if.then3, %if.end
   br i1 %cmp8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 1
+  %counts_ = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load ptr, ptr %counts_, align 8
-  %index_10 = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_10 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i64, ptr %index_10, align 8
   %arrayidx = getelementptr inbounds i32, ptr %9, i64 %10
   %11 = load atomic volatile i32, ptr %arrayidx monotonic, align 4
@@ -1079,7 +1072,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %index_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this, i64 0, i32 4
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %index_, align 8
   store i64 %0, ptr %index, align 8
   br label %if.end

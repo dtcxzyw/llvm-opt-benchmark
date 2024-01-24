@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, ptr, i32 }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
 
 @X509_REQ_INFO_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.2, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 32, ptr @.str.3, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 40, ptr @.str.4, ptr @X509_PUBKEY_it }, %struct.ASN1_TEMPLATE_st { i64 139, i64 0, i64 48, ptr @.str.5, ptr @X509_ATTRIBUTE_it }], align 16
 @X509_REQ_INFO_aux = internal constant %struct.ASN1_AUX_st { ptr null, i32 2, i32 0, ptr @rinf_cb, i32 0 }, align 8
@@ -113,7 +111,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
   %call = tail call ptr @sk_new_null() #2
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call, ptr %attributes, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end3

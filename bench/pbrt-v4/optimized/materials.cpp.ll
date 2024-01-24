@@ -28,63 +28,34 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pbrt::TaggedPointer" = type { i64 }
 %"class.pbrt::FloatTexture" = type { %"class.pbrt::TaggedPointer.2" }
 %"class.pbrt::TaggedPointer.2" = type { i64 }
-%"class.pbrt::CoatedDiffuseMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::Spectrum", i8, [3 x i8], i32, i32, [4 x i8] }>
-%"class.pbrt::Spectrum" = type { %"class.pbrt::TaggedPointer.3" }
-%"class.pbrt::TaggedPointer.3" = type { i64 }
 %class.anon.46 = type { ptr }
 %"struct.pbrt::TexCoord2D" = type { %"class.pbrt::Point2", float, float, float, float }
-%"class.pbrt::ImageTextureBase" = type { %"class.pbrt::TextureMapping2D", %"class.std::__cxx11::basic_string", float, i8, ptr }
-%"class.pbrt::TextureMapping2D" = type { %"class.pbrt::TaggedPointer.39" }
-%"class.pbrt::TaggedPointer.39" = type { i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.pstd::vector.12" = type { %"class.pstd::pmr::polymorphic_allocator.13", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.13" = type { ptr }
 %"class.pbrt::UniversalTextureEvaluator" = type { i8 }
 %"class.pbrt::CoatedConductorBxDF" = type { %"class.pbrt::LayeredBxDF.4" }
 %"class.pbrt::LayeredBxDF.4" = type { %"class.pbrt::DielectricBxDF", %"class.pbrt::ConductorBxDF", float, float, %"class.pbrt::SampledSpectrum", i32, i32 }
 %"class.pbrt::ConductorBxDF" = type { %"class.pbrt::TrowbridgeReitzDistribution", %"class.pbrt::SampledSpectrum", %"class.pbrt::SampledSpectrum" }
-%"class.pbrt::CoatedConductorMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::Spectrum", %"class.pbrt::FloatTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", i8, [3 x i8], i32, i32, [4 x i8] }>
-%"struct.pbrt::MaterialEvalContext" = type { %"struct.pbrt::TextureEvalContext", %"class.pbrt::Vector3", %"class.pbrt::Normal3", %"class.pbrt::Vector3" }
-%"struct.pbrt::NormalBumpEvalContext" = type { %"class.pbrt::Point3", %"class.pbrt::Point2", %"class.pbrt::Normal3", %struct.anon, float, float, float, float, %"class.pbrt::Vector3", %"class.pbrt::Vector3", i32 }
-%struct.anon = type { %"class.pbrt::Normal3", %"class.pbrt::Vector3", %"class.pbrt::Vector3", %"class.pbrt::Normal3", %"class.pbrt::Normal3" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.pbrt::DielectricMaterial" = type { ptr, %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", i8, %"class.pbrt::Spectrum" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.pbrt::ThinDielectricMaterial" = type { %"class.pbrt::FloatTexture", ptr, %"class.pbrt::Spectrum" }
-%"class.pbrt::MixMaterial" = type { %"class.pbrt::FloatTexture", [2 x %"class.pbrt::Material"] }
+%"class.pbrt::Spectrum" = type { %"class.pbrt::TaggedPointer.3" }
+%"class.pbrt::TaggedPointer.3" = type { i64 }
+%struct._Guard = type { ptr }
 %"class.pbrt::Material" = type { %"class.pbrt::TaggedPointer.18" }
 %"class.pbrt::TaggedPointer.18" = type { i64 }
-%"struct.pbrt::BasicPBRTOptions" = type { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32 }
-%"class.pbrt::HairMaterial" = type { %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture" }
-%"class.pbrt::DiffuseMaterial" = type { ptr, %"class.pbrt::FloatTexture", %"class.pbrt::SpectrumTexture" }
-%"class.pbrt::ConductorMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", i8, [7 x i8] }>
-%"class.pbrt::SubsurfaceMaterial" = type { %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", float, float, %"class.pbrt::FloatTexture", %"class.pbrt::FloatTexture", i8, %"struct.pbrt::BSSRDFTable" }
-%"struct.pbrt::BSSRDFTable" = type { %"class.pstd::vector.12", %"class.pstd::vector.12", %"class.pstd::vector.12", %"class.pstd::vector.12", %"class.pstd::vector.12" }
-%"class.pbrt::DiffuseTransmissionMaterial" = type <{ %"class.pbrt::FloatTexture", ptr, %"class.pbrt::SpectrumTexture", %"class.pbrt::SpectrumTexture", float, [4 x i8] }>
-%"class.pbrt::MeasuredMaterial" = type { %"class.pbrt::FloatTexture", ptr, ptr }
-%struct._Guard = type { ptr }
 %"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
 %"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [40 x i8] }
 %"class.pbrt::RGBUnboundedSpectrum" = type { float, %"class.pbrt::RGBSigmoidPolynomial" }
 %"class.pbrt::RGBSigmoidPolynomial" = type { float, float, float }
 %"class.pbrt::RGBAlbedoSpectrum" = type { %"class.pbrt::RGBSigmoidPolynomial" }
 %"class.pbrt::RGBIlluminantSpectrum" = type { float, %"class.pbrt::RGBSigmoidPolynomial", ptr }
-%"class.pbrt::GPUSpectrumPtexTexture" = type { i32, %"class.pstd::vector.40" }
-%"class.pstd::vector.40" = type { %"class.pstd::pmr::polymorphic_allocator.41", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.41" = type { ptr }
 %"class.pbrt::RGB" = type { float, float, float }
-%"class.pbrt::DenselySampledSpectrum" = type { i32, i32, %"class.pstd::vector.12" }
-%"class.pbrt::BlackbodySpectrum" = type { float, float }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -95,10 +66,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.pbrt::UVMapping" = type { float, float, float, float }
-%"class.pbrt::PlanarMapping" = type { %"class.pbrt::Transform", %"class.pbrt::Vector3", %"class.pbrt::Vector3", float, float }
-%"class.pbrt::Transform" = type { %"class.pbrt::SquareMatrix.47", %"class.pbrt::SquareMatrix.47" }
-%"class.pbrt::SquareMatrix.47" = type { [4 x [4 x float]] }
 
 $_ZNK4pbrt21CoatedDiffuseMaterial7GetBxDFINS_21BasicTextureEvaluatorEEENS_17CoatedDiffuseBxDFET_RKNS_19MaterialEvalContextERNS_18SampledWavelengthsE = comdat any
 
@@ -532,7 +499,7 @@ entry:
   %agg.tmp37 = alloca %"class.pbrt::FloatTexture", align 8
   %agg.tmp38 = alloca %"struct.pbrt::TextureEvalContext", align 8
   %agg.tmp41 = alloca %"class.pbrt::DielectricBxDF", align 8
-  %reflectance = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 2
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %reflectance, align 8
   store i64 %0, ptr %agg.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp212)
@@ -602,7 +569,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp212)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp313)
   store <2 x float> %retval.sroa.0.0.i, ptr %ref.tmp, align 8
-  %12 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store <2 x float> %retval.sroa.6.0.i, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, i8 0, i64 16, i1 false)
@@ -624,20 +591,20 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN4pb
 
 _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
-  %uRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 4
+  %uRoughness = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %uRoughness, align 8
   store i64 %14, ptr %agg.tmp8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp9, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call10 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp9)
-  %vRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 5
+  %vRoughness = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load i64, ptr %vRoughness, align 8
   store i64 %15, ptr %agg.tmp11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp12, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call13 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp12)
-  %remapRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 9
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 72
   %16 = load i8, ptr %remapRoughness, align 8
   %17 = and i8 %16, 1
   %tobool.not = icmp eq i8 %17, 0
@@ -662,12 +629,12 @@ if.end:                                           ; preds = %if.then, %_ZN4pbrt5
   %26 = fcmp olt <2 x float> %22, <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>
   %27 = select <2 x i1> %26, <2 x float> <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>, <2 x float> %22
   %distrib.sroa.0.0 = select i1 %cmp.i.i17, <2 x float> %22, <2 x float> %27
-  %thickness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 6
+  %thickness = getelementptr inbounds i8, ptr %this, i64 48
   %28 = load i64, ptr %thickness, align 8
   store i64 %28, ptr %agg.tmp16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp17, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call18 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp17)
-  %eta = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 8
+  %eta = getelementptr inbounds i8, ptr %this, i64 64
   %29 = load float, ptr %lambda, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
@@ -688,8 +655,8 @@ if.end:                                           ; preds = %if.then, %_ZN4pbrt5
   br i1 %cmp.i, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end
-  %pdf.i.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %arrayidx.i.i3.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1, i32 0, i64 1
+  %pdf.i.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %arrayidx.i.i3.i = getelementptr inbounds i8, ptr %lambda, i64 20
   %33 = load float, ptr %arrayidx.i.i3.i, align 4
   %cmp2.i4.i = fcmp une float %33, 0.000000e+00
   br i1 %cmp2.i4.i, label %for.cond.preheader.i, label %for.cond.i.i
@@ -718,7 +685,7 @@ for.cond.preheader.i:                             ; preds = %_ZNK4pbrt18SampledW
   br label %if.end24
 
 if.end24:                                         ; preds = %for.cond.i.i, %for.cond.preheader.i, %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i, %if.end
-  %albedo = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 3
+  %albedo = getelementptr inbounds i8, ptr %this, i64 24
   %36 = load i64, ptr %albedo, align 8
   store i64 %36, ptr %agg.tmp28, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp2921)
@@ -788,7 +755,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp2921)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3022)
   store <2 x float> %retval.sroa.0.0.i30, ptr %ref.tmp27, align 8
-  %48 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp27, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   store <2 x float> %retval.sroa.6.0.i29, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i49)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i49, i8 0, i64 16, i1 false)
@@ -812,13 +779,13 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit65: ; preds = %for.body.i
   %cmp = fcmp oeq float %call3.i.i, 0.000000e+00
   %sampledEta.0 = select i1 %cmp, float 1.000000e+00, float %call3.i.i
   %.fca.0.load.i60 = load <2 x float>, ptr %retval.i49, align 8
-  %.fca.1.gep.i62 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i49, i64 0, i32 1
+  %.fca.1.gep.i62 = getelementptr inbounds i8, ptr %retval.i49, i64 8
   %.fca.1.load.i63 = load <2 x float>, ptr %.fca.1.gep.i62, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i49)
   store <2 x float> %.fca.0.load.i60, ptr %a, align 8
-  %50 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %a, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %a, i64 8
   store <2 x float> %.fca.1.load.i63, ptr %50, align 8
-  %g = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 7
+  %g = getelementptr inbounds i8, ptr %this, i64 56
   %51 = load i64, ptr %g, align 8
   store i64 %51, ptr %agg.tmp37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp38, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -830,9 +797,9 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit65: ; preds = %for.body.i
   store float %sampledEta.0, ptr %agg.tmp41, align 8
   %agg.tmp41.4.agg.tmp41.4.agg.tmp41.4.mfDistrib3.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp41, i64 4
   store <2 x float> %distrib.sroa.0.0, ptr %agg.tmp41.4.agg.tmp41.4.agg.tmp41.4.mfDistrib3.i.sroa_idx, align 4
-  %maxDepth = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 11
+  %maxDepth = getelementptr inbounds i8, ptr %this, i64 76
   %52 = load i32, ptr %maxDepth, align 4
-  %nSamples = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 12
+  %nSamples = getelementptr inbounds i8, ptr %this, i64 80
   %53 = load i32, ptr %nSamples, align 8
   %agg.tmp41.0.agg.tmp41.0.agg.tmp41.0.agg.tmp41.coerce.sroa.0.0.copyload = load <2 x float>, ptr %agg.tmp41, align 8
   %54 = extractelement <2 x float> %distrib.sroa.0.0, i64 1
@@ -881,16 +848,16 @@ if.then5:                                         ; preds = %entry
   call void @_ZN4pbrt6detail8DispatchIRZNKS_16TextureMapping2D3MapENS_18TextureEvalContextEEUlT_E_NS_10TexCoord2DENS_9UVMappingENS_16SphericalMappingENS_18CylindricalMappingENS_13PlanarMappingEEET0_OS4_PKvi(ptr nonnull sret(%"struct.pbrt::TexCoord2D") align 4 %c.i, ptr noundef nonnull align 8 dereferenceable(8) %map.i.i, ptr noundef %5, i32 noundef %sub.i.i.i)
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %map.i.i)
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple2", ptr %c.i, i64 0, i32 1
-  %6 = load float, ptr %y.i.i, align 4
+  %cond-lvalue.i.i = getelementptr inbounds i8, ptr %c.i, i64 4
+  %6 = load float, ptr %cond-lvalue.i.i, align 4
   %sub.i = fsub float 1.000000e+00, %6
-  store float %sub.i, ptr %y.i.i, align 4
-  %scale.i = getelementptr inbounds %"class.pbrt::ImageTextureBase", ptr %3, i64 0, i32 2
+  store float %sub.i, ptr %cond-lvalue.i.i, align 4
+  %scale.i = getelementptr inbounds i8, ptr %3, i64 40
   %7 = load float, ptr %scale.i, align 8
-  %mipmap.i = getelementptr inbounds %"class.pbrt::ImageTextureBase", ptr %3, i64 0, i32 4
+  %mipmap.i = getelementptr inbounds i8, ptr %3, i64 48
   %8 = load ptr, ptr %mipmap.i, align 8
   %agg.tmp4.sroa.0.0.copyload.i = load <2 x float>, ptr %c.i, align 8
-  %dsdx.i = getelementptr inbounds %"struct.pbrt::TexCoord2D", ptr %c.i, i64 0, i32 1
+  %dsdx.i = getelementptr inbounds i8, ptr %c.i, i64 8
   %9 = load <4 x float>, ptr %dsdx.i, align 8
   %agg.tmp6.sroa.0.0.vec.insert.i = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %10 = extractelement <4 x float> %9, i64 2
@@ -898,7 +865,7 @@ if.then5:                                         ; preds = %entry
   %agg.tmp7.sroa.0.4.vec.insert.i = shufflevector <4 x float> %9, <4 x float> poison, <2 x i32> <i32 1, i32 3>
   %call10.i = call noundef float @_ZNK4pbrt6MIPMap6FilterIfEET_NS_6Point2IfEENS_7Vector2IfEES6_(ptr noundef nonnull align 8 dereferenceable(52) %8, <2 x float> %agg.tmp4.sroa.0.0.copyload.i, <2 x float> %agg.tmp6.sroa.0.4.vec.insert.i, <2 x float> %agg.tmp7.sroa.0.4.vec.insert.i)
   %mul.i = fmul float %7, %call10.i
-  %invert.i = getelementptr inbounds %"class.pbrt::ImageTextureBase", ptr %3, i64 0, i32 3
+  %invert.i = getelementptr inbounds i8, ptr %3, i64 44
   %11 = load i8, ptr %invert.i, align 4
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
@@ -919,7 +886,7 @@ if.then16:                                        ; preds = %entry
   %agg.tmp18.sroa.2.0.ctx.sroa_idx = getelementptr inbounds i8, ptr %ctx, i64 72
   %agg.tmp18.sroa.2.0.copyload = load i32, ptr %agg.tmp18.sroa.2.0.ctx.sroa_idx, align 8
   %conv.i = sext i32 %agg.tmp18.sroa.2.0.copyload to i64
-  %ptr.i.i = getelementptr inbounds %"class.pstd::vector.12", ptr %13, i64 0, i32 1
+  %ptr.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds float, ptr %14, i64 %conv.i
   %15 = load float, ptr %arrayidx.i.i, align 4
@@ -965,7 +932,7 @@ entry:
   %agg.tmp37 = alloca %"class.pbrt::FloatTexture", align 8
   %agg.tmp38 = alloca %"struct.pbrt::TextureEvalContext", align 8
   %agg.tmp41 = alloca %"class.pbrt::DielectricBxDF", align 8
-  %reflectance = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 2
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %reflectance, align 8
   store i64 %0, ptr %agg.tmp, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp2, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -973,7 +940,7 @@ entry:
   %call = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp2, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp3)
   %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
   store <2 x float> %1, ptr %ref.tmp, align 8
-  %2 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %3 = extractvalue { <2 x float>, <2 x float> } %call, 1
   store <2 x float> %3, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -996,20 +963,20 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
-  %uRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 4
+  %uRoughness = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i64, ptr %uRoughness, align 8
   store i64 %5, ptr %agg.tmp8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp9, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call10 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp9)
-  %vRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 5
+  %vRoughness = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %vRoughness, align 8
   store i64 %6, ptr %agg.tmp11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp12, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call13 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp12)
-  %remapRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 9
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load i8, ptr %remapRoughness, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -1034,12 +1001,12 @@ if.end:                                           ; preds = %if.then, %_ZN4pbrt5
   %17 = fcmp olt <2 x float> %13, <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>
   %18 = select <2 x i1> %17, <2 x float> <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>, <2 x float> %13
   %distrib.sroa.0.0 = select i1 %cmp.i.i13, <2 x float> %13, <2 x float> %18
-  %thickness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 6
+  %thickness = getelementptr inbounds i8, ptr %this, i64 48
   %19 = load i64, ptr %thickness, align 8
   store i64 %19, ptr %agg.tmp16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp17, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call18 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp16, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp17)
-  %eta = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 8
+  %eta = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load float, ptr %lambda, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
@@ -1060,8 +1027,8 @@ if.end:                                           ; preds = %if.then, %_ZN4pbrt5
   br i1 %cmp.i, label %if.end24, label %if.then23
 
 if.then23:                                        ; preds = %if.end
-  %pdf.i.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %arrayidx.i.i3.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1, i32 0, i64 1
+  %pdf.i.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %arrayidx.i.i3.i = getelementptr inbounds i8, ptr %lambda, i64 20
   %24 = load float, ptr %arrayidx.i.i3.i, align 4
   %cmp2.i4.i = fcmp une float %24, 0.000000e+00
   br i1 %cmp2.i4.i, label %for.cond.preheader.i, label %for.cond.i.i
@@ -1090,7 +1057,7 @@ for.cond.preheader.i:                             ; preds = %_ZNK4pbrt18SampledW
   br label %if.end24
 
 if.end24:                                         ; preds = %for.cond.i.i, %for.cond.preheader.i, %_ZNK4pbrt18SampledWavelengths19SecondaryTerminatedEv.exit.i, %if.end
-  %albedo = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 3
+  %albedo = getelementptr inbounds i8, ptr %this, i64 24
   %27 = load i64, ptr %albedo, align 8
   store i64 %27, ptr %agg.tmp28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp29, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -1098,7 +1065,7 @@ if.end24:                                         ; preds = %for.cond.i.i, %for.
   %call31 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp28, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp29, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp30)
   %28 = extractvalue { <2 x float>, <2 x float> } %call31, 0
   store <2 x float> %28, ptr %ref.tmp27, align 8
-  %29 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp27, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   %30 = extractvalue { <2 x float>, <2 x float> } %call31, 1
   store <2 x float> %30, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i15)
@@ -1123,13 +1090,13 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit31: ; preds = %for.body.i
   %cmp = fcmp oeq float %call3.i.i, 0.000000e+00
   %sampledEta.0 = select i1 %cmp, float 1.000000e+00, float %call3.i.i
   %.fca.0.load.i26 = load <2 x float>, ptr %retval.i15, align 8
-  %.fca.1.gep.i28 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i15, i64 0, i32 1
+  %.fca.1.gep.i28 = getelementptr inbounds i8, ptr %retval.i15, i64 8
   %.fca.1.load.i29 = load <2 x float>, ptr %.fca.1.gep.i28, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i15)
   store <2 x float> %.fca.0.load.i26, ptr %a, align 8
-  %32 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %a, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %a, i64 8
   store <2 x float> %.fca.1.load.i29, ptr %32, align 8
-  %g = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 7
+  %g = getelementptr inbounds i8, ptr %this, i64 56
   %33 = load i64, ptr %g, align 8
   store i64 %33, ptr %agg.tmp37, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp38, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -1141,9 +1108,9 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit31: ; preds = %for.body.i
   store float %sampledEta.0, ptr %agg.tmp41, align 8
   %agg.tmp41.4.agg.tmp41.4.agg.tmp41.4.mfDistrib3.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp41, i64 4
   store <2 x float> %distrib.sroa.0.0, ptr %agg.tmp41.4.agg.tmp41.4.agg.tmp41.4.mfDistrib3.i.sroa_idx, align 4
-  %maxDepth = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 11
+  %maxDepth = getelementptr inbounds i8, ptr %this, i64 76
   %34 = load i32, ptr %maxDepth, align 4
-  %nSamples = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 12
+  %nSamples = getelementptr inbounds i8, ptr %this, i64 80
   %35 = load i32, ptr %nSamples, align 8
   %agg.tmp41.0.agg.tmp41.0.agg.tmp41.0.agg.tmp41.coerce.sroa.0.0.copyload = load <2 x float>, ptr %agg.tmp41, align 8
   %36 = extractelement <2 x float> %distrib.sroa.0.0, i64 1
@@ -1213,17 +1180,17 @@ entry:
   %agg.tmp95 = alloca %"class.pbrt::FloatTexture", align 8
   %agg.tmp96 = alloca %"struct.pbrt::TextureEvalContext", align 8
   %agg.tmp99 = alloca %"class.pbrt::DielectricBxDF", align 8
-  %interfaceURoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 2
+  %interfaceURoughness = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %interfaceURoughness, align 8
   store i64 %0, ptr %agg.tmp, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp2, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp2)
-  %interfaceVRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 3
+  %interfaceVRoughness = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %interfaceVRoughness, align 8
   store i64 %1, ptr %agg.tmp3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp4, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call5 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp3, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp4)
-  %remapRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 13
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i8, ptr %remapRoughness, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -1248,12 +1215,12 @@ if.end:                                           ; preds = %if.then, %entry
   %12 = fcmp olt <2 x float> %8, <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>
   %13 = select <2 x i1> %12, <2 x float> <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>, <2 x float> %8
   %interfaceDistrib.sroa.0.0 = select i1 %cmp.i.i, <2 x float> %8, <2 x float> %13
-  %thickness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 4
+  %thickness = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %thickness, align 8
   store i64 %14, ptr %agg.tmp8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp9, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call10 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp9)
-  %interfaceEta = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 5
+  %interfaceEta = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load float, ptr %lambda, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
@@ -1274,8 +1241,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %pdf.i.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %arrayidx.i.i3.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1, i32 0, i64 1
+  %pdf.i.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %arrayidx.i.i3.i = getelementptr inbounds i8, ptr %lambda, i64 20
   %19 = load float, ptr %arrayidx.i.i3.i, align 4
   %cmp2.i4.i = fcmp une float %19, 0.000000e+00
   br i1 %cmp2.i4.i, label %for.cond.preheader.i, label %for.cond.i.i
@@ -1307,7 +1274,7 @@ if.end16:                                         ; preds = %for.cond.i.i, %for.
   %cmp = fcmp oeq float %call3.i.i, 0.000000e+00
   %ieta.0 = select i1 %cmp, float 1.000000e+00, float %call3.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ck, i8 0, i64 16, i1 false)
-  %conductorEta = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 10
+  %conductorEta = getelementptr inbounds i8, ptr %this, i64 80
   %22 = load i64, ptr %conductorEta, align 8
   %and.i = and i64 %22, 144115188075855871
   %cmp.i23.not = icmp eq i64 %and.i, 0
@@ -1371,7 +1338,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   store <2 x float> %retval.sroa.0.0.i, ptr %ce, align 8
   %ref.tmp.sroa.2.0.ce.sroa_idx = getelementptr inbounds i8, ptr %ce, i64 8
   store <2 x float> %retval.sroa.6.0.i, ptr %ref.tmp.sroa.2.0.ce.sroa_idx, align 8
-  %k = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 11
+  %k = getelementptr inbounds i8, ptr %this, i64 88
   %28 = load i64, ptr %k, align 8
   store i64 %28, ptr %agg.tmp28, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp2928)
@@ -1443,7 +1410,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   br label %if.end70
 
 if.else:                                          ; preds = %if.end16
-  %reflectance = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 12
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 96
   %40 = load i64, ptr %reflectance, align 8
   store i64 %40, ptr %agg.tmp35, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp3656)
@@ -1513,7 +1480,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp3656)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3757)
   store <2 x float> %retval.sroa.0.0.i65, ptr %ref.tmp34, align 8
-  %52 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp34, i64 0, i32 1
+  %52 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   store <2 x float> %retval.sroa.6.0.i64, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, i8 0, i64 16, i1 false)
@@ -1544,11 +1511,11 @@ _ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i:           ; preds = %if.then4.i.i, %if.e
 
 _ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   store <2 x float> %.fca.0.load.i, ptr %r, align 8
-  %54 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %r, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %r, i64 8
   store <2 x float> %.fca.1.load.i, ptr %54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp44, i8 0, i64 16, i1 false)
   br label %for.body.i.i88
@@ -1580,7 +1547,7 @@ for.body.i91:                                     ; preds = %for.body.i91, %_ZN4
 
 _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit:       ; preds = %for.body.i91
   %.fca.0.load.i97 = load <2 x float>, ptr %retval.i90, align 8
-  %.fca.1.gep.i99 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i90, i64 0, i32 1
+  %.fca.1.gep.i99 = getelementptr inbounds i8, ptr %retval.i90, i64 8
   %.fca.1.load.i100 = load <2 x float>, ptr %.fca.1.gep.i99, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i90)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
@@ -1631,7 +1598,7 @@ _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %for.body.i.i113
   %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   %retval.sroa.2.0.copyload.i = load <2 x float>, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
   store <2 x float> %retval.sroa.0.0.copyload.i, ptr %ref.tmp56, align 8
-  %59 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp56, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %ref.tmp56, i64 8
   store <2 x float> %retval.sroa.2.0.copyload.i, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i121)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i121, i8 0, i64 16, i1 false)
@@ -1651,11 +1618,11 @@ for.body.i122:                                    ; preds = %for.body.i122, %_ZN
 
 _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %for.body.i122
   %.fca.0.load.i130 = load <2 x float>, ptr %retval.i121, align 8
-  %.fca.1.gep.i132 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i121, i64 0, i32 1
+  %.fca.1.gep.i132 = getelementptr inbounds i8, ptr %retval.i121, i64 8
   %.fca.1.load.i133 = load <2 x float>, ptr %.fca.1.gep.i132, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i121)
   store <2 x float> %.fca.0.load.i130, ptr %ref.tmp55, align 8
-  %61 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp55, i64 0, i32 1
+  %61 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
   store <2 x float> %.fca.1.load.i133, ptr %61, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i135)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i135, i8 0, i64 16, i1 false)
@@ -1674,11 +1641,11 @@ for.body.i136:                                    ; preds = %for.body.i136, %_ZN
 
 _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit148:    ; preds = %for.body.i136
   %.fca.0.load.i143 = load <2 x float>, ptr %retval.i135, align 8
-  %.fca.1.gep.i145 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i135, i64 0, i32 1
+  %.fca.1.gep.i145 = getelementptr inbounds i8, ptr %retval.i135, i64 8
   %.fca.1.load.i146 = load <2 x float>, ptr %.fca.1.gep.i145, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i135)
   store <2 x float> %.fca.0.load.i143, ptr %ref.tmp54, align 8
-  %63 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp54, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   store <2 x float> %.fca.1.load.i146, ptr %63, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i149)
   store <2 x float> %.fca.0.load.i.i, ptr %ret.i149, align 8
@@ -1733,12 +1700,12 @@ for.body.i166:                                    ; preds = %for.body.i160, %for
   br i1 %exitcond.not.i171, label %_ZN4pbrt15SampledSpectrumdVEf.exit172, label %for.body.i166, !llvm.loop !21
 
 _ZN4pbrt15SampledSpectrumdVEf.exit172:            ; preds = %for.body.i166
-  %conductorURoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 8
+  %conductorURoughness = getelementptr inbounds i8, ptr %this, i64 64
   %68 = load i64, ptr %conductorURoughness, align 8
   store i64 %68, ptr %agg.tmp73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp74, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call75 = call noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp73, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp74)
-  %conductorVRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 9
+  %conductorVRoughness = getelementptr inbounds i8, ptr %this, i64 72
   %69 = load i64, ptr %conductorVRoughness, align 8
   store i64 %69, ptr %agg.tmp76, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp77, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -1756,7 +1723,7 @@ if.then81:                                        ; preds = %_ZN4pbrt15SampledSp
 if.end84:                                         ; preds = %if.then81, %_ZN4pbrt15SampledSpectrumdVEf.exit172
   %cvrough.0 = phi float [ %call.i.i174, %if.then81 ], [ %call78, %_ZN4pbrt15SampledSpectrumdVEf.exit172 ]
   %curough.0 = phi float [ %call.i.i173, %if.then81 ], [ %call75, %_ZN4pbrt15SampledSpectrumdVEf.exit172 ]
-  %albedo = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 7
+  %albedo = getelementptr inbounds i8, ptr %this, i64 56
   %72 = load i64, ptr %albedo, align 8
   store i64 %72, ptr %agg.tmp86, align 8
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %agg.tmp87184)
@@ -1826,7 +1793,7 @@ _ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextEN
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %agg.tmp87184)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp88185)
   store <2 x float> %retval.sroa.0.0.i193, ptr %ref.tmp85, align 8
-  %84 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp85, i64 0, i32 1
+  %84 = getelementptr inbounds i8, ptr %ref.tmp85, i64 8
   store <2 x float> %retval.sroa.6.0.i192, ptr %84, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i212)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i212, i8 0, i64 16, i1 false)
@@ -1857,13 +1824,13 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i21
   %.sroa.speculated5.i180 = select i1 %cmp.i1.i179, float 0x3F1A36E2E0000000, float %curough.0
   %conductorDistrib.sroa.0.0 = select i1 %cmp.i.i177, float %curough.0, float %.sroa.speculated5.i180
   %.fca.0.load.i222 = load <2 x float>, ptr %retval.i212, align 8
-  %.fca.1.gep.i224 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i212, i64 0, i32 1
+  %.fca.1.gep.i224 = getelementptr inbounds i8, ptr %retval.i212, i64 8
   %.fca.1.load.i225 = load <2 x float>, ptr %.fca.1.gep.i224, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i212)
   store <2 x float> %.fca.0.load.i222, ptr %a, align 8
-  %87 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %a, i64 0, i32 1
+  %87 = getelementptr inbounds i8, ptr %a, i64 8
   store <2 x float> %.fca.1.load.i225, ptr %87, align 8
-  %g = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 6
+  %g = getelementptr inbounds i8, ptr %this, i64 48
   %88 = load i64, ptr %g, align 8
   store i64 %88, ptr %agg.tmp95, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp96, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -1883,9 +1850,9 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i21
   %agg.tmp103.sroa.2.0.copyload = load <2 x float>, ptr %agg.tmp103.sroa.2.0.ck.sroa_idx, align 8
   %89 = bitcast float %conductorDistrib.sroa.0.0 to i32
   %90 = bitcast float %conductorDistrib.sroa.3.0 to i32
-  %maxDepth = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 15
+  %maxDepth = getelementptr inbounds i8, ptr %this, i64 108
   %91 = load i32, ptr %maxDepth, align 4
-  %nSamples = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 16
+  %nSamples = getelementptr inbounds i8, ptr %this, i64 112
   %92 = load i32, ptr %nSamples, align 8
   %agg.tmp99.0.agg.tmp99.0.agg.tmp99.0.agg.tmp99.coerce.sroa.0.0.copyload = load <2 x float>, ptr %agg.tmp99, align 8
   %93 = extractelement <2 x float> %interfaceDistrib.sroa.0.0, i64 1
@@ -1958,17 +1925,17 @@ entry:
   %agg.tmp95 = alloca %"class.pbrt::FloatTexture", align 8
   %agg.tmp96 = alloca %"struct.pbrt::TextureEvalContext", align 8
   %agg.tmp99 = alloca %"class.pbrt::DielectricBxDF", align 8
-  %interfaceURoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 2
+  %interfaceURoughness = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %interfaceURoughness, align 8
   store i64 %0, ptr %agg.tmp, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp2, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp2)
-  %interfaceVRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 3
+  %interfaceVRoughness = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %interfaceVRoughness, align 8
   store i64 %1, ptr %agg.tmp3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp4, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call5 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp3, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp4)
-  %remapRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 13
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i8, ptr %remapRoughness, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -1993,12 +1960,12 @@ if.end:                                           ; preds = %if.then, %entry
   %12 = fcmp olt <2 x float> %8, <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>
   %13 = select <2 x i1> %12, <2 x float> <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>, <2 x float> %8
   %interfaceDistrib.sroa.0.0 = select i1 %cmp.i.i, <2 x float> %8, <2 x float> %13
-  %thickness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 4
+  %thickness = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %thickness, align 8
   store i64 %14, ptr %agg.tmp8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp9, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call10 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp8, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp9)
-  %interfaceEta = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 5
+  %interfaceEta = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load float, ptr %lambda, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %lambda.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %op.i)
@@ -2019,8 +1986,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %pdf.i.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1
-  %arrayidx.i.i3.i = getelementptr inbounds %"class.pbrt::SampledWavelengths", ptr %lambda, i64 0, i32 1, i32 0, i64 1
+  %pdf.i.i = getelementptr inbounds i8, ptr %lambda, i64 16
+  %arrayidx.i.i3.i = getelementptr inbounds i8, ptr %lambda, i64 20
   %19 = load float, ptr %arrayidx.i.i3.i, align 4
   %cmp2.i4.i = fcmp une float %19, 0.000000e+00
   br i1 %cmp2.i4.i, label %for.cond.preheader.i, label %for.cond.i.i
@@ -2052,7 +2019,7 @@ if.end16:                                         ; preds = %for.cond.i.i, %for.
   %cmp = fcmp oeq float %call3.i.i, 0.000000e+00
   %ieta.0 = select i1 %cmp, float 1.000000e+00, float %call3.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ck, i8 0, i64 16, i1 false)
-  %conductorEta = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 10
+  %conductorEta = getelementptr inbounds i8, ptr %this, i64 80
   %22 = load i64, ptr %conductorEta, align 8
   %and.i = and i64 %22, 144115188075855871
   %cmp.i23.not = icmp eq i64 %and.i, 0
@@ -2068,7 +2035,7 @@ if.then20:                                        ; preds = %if.end16
   store <2 x float> %23, ptr %ce, align 8
   %ref.tmp.sroa.2.0.ce.sroa_idx = getelementptr inbounds i8, ptr %ce, i64 8
   store <2 x float> %24, ptr %ref.tmp.sroa.2.0.ce.sroa_idx, align 8
-  %k = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 11
+  %k = getelementptr inbounds i8, ptr %this, i64 88
   %25 = load i64, ptr %k, align 8
   store i64 %25, ptr %agg.tmp28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp29, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -2079,7 +2046,7 @@ if.then20:                                        ; preds = %if.end16
   br label %if.end70
 
 if.else:                                          ; preds = %if.end16
-  %reflectance = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 12
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 96
   %28 = load i64, ptr %reflectance, align 8
   store i64 %28, ptr %agg.tmp35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp36, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -2087,7 +2054,7 @@ if.else:                                          ; preds = %if.end16
   %call38 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp35, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp36, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp37)
   %29 = extractvalue { <2 x float>, <2 x float> } %call38, 0
   store <2 x float> %29, ptr %ref.tmp34, align 8
-  %30 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp34, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   %31 = extractvalue { <2 x float>, <2 x float> } %call38, 1
   store <2 x float> %31, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
@@ -2119,11 +2086,11 @@ _ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i:           ; preds = %if.then4.i.i, %if.e
 
 _ZN4pbrt5ClampIidEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %_ZN4pbrt5ClampIfidEET_S1_T0_T1_.exit.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   store <2 x float> %.fca.0.load.i, ptr %r, align 8
-  %33 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %r, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %r, i64 8
   store <2 x float> %.fca.1.load.i, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp44, i8 0, i64 16, i1 false)
   br label %for.body.i.i26
@@ -2155,7 +2122,7 @@ for.body.i29:                                     ; preds = %for.body.i29, %_ZN4
 
 _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit:       ; preds = %for.body.i29
   %.fca.0.load.i35 = load <2 x float>, ptr %retval.i28, align 8
-  %.fca.1.gep.i37 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i28, i64 0, i32 1
+  %.fca.1.gep.i37 = getelementptr inbounds i8, ptr %retval.i28, i64 8
   %.fca.1.load.i38 = load <2 x float>, ptr %.fca.1.gep.i37, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
@@ -2206,7 +2173,7 @@ _ZNK4pbrt15SampledSpectrummiERKS0_.exit:          ; preds = %for.body.i.i51
   %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp57, i64 8
   %retval.sroa.2.0.copyload.i = load <2 x float>, ptr %retval.sroa.2.0.call.sroa_idx.i, align 8
   store <2 x float> %retval.sroa.0.0.copyload.i, ptr %ref.tmp56, align 8
-  %38 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp56, i64 0, i32 1
+  %38 = getelementptr inbounds i8, ptr %ref.tmp56, i64 8
   store <2 x float> %retval.sroa.2.0.copyload.i, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i59)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i59, i8 0, i64 16, i1 false)
@@ -2226,11 +2193,11 @@ for.body.i60:                                     ; preds = %for.body.i60, %_ZNK
 
 _ZN4pbrt9ClampZeroERKNS_15SampledSpectrumE.exit:  ; preds = %for.body.i60
   %.fca.0.load.i68 = load <2 x float>, ptr %retval.i59, align 8
-  %.fca.1.gep.i70 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i59, i64 0, i32 1
+  %.fca.1.gep.i70 = getelementptr inbounds i8, ptr %retval.i59, i64 8
   %.fca.1.load.i71 = load <2 x float>, ptr %.fca.1.gep.i70, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i59)
   store <2 x float> %.fca.0.load.i68, ptr %ref.tmp55, align 8
-  %40 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp55, i64 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
   store <2 x float> %.fca.1.load.i71, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i73)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i73, i8 0, i64 16, i1 false)
@@ -2249,11 +2216,11 @@ for.body.i74:                                     ; preds = %for.body.i74, %_ZN4
 
 _ZN4pbrt4SqrtERKNS_15SampledSpectrumE.exit86:     ; preds = %for.body.i74
   %.fca.0.load.i81 = load <2 x float>, ptr %retval.i73, align 8
-  %.fca.1.gep.i83 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i73, i64 0, i32 1
+  %.fca.1.gep.i83 = getelementptr inbounds i8, ptr %retval.i73, i64 8
   %.fca.1.load.i84 = load <2 x float>, ptr %.fca.1.gep.i83, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i73)
   store <2 x float> %.fca.0.load.i81, ptr %ref.tmp54, align 8
-  %42 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp54, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   store <2 x float> %.fca.1.load.i84, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i87)
   store <2 x float> %.fca.0.load.i.i, ptr %ret.i87, align 8
@@ -2308,12 +2275,12 @@ for.body.i104:                                    ; preds = %for.body.i98, %for.
   br i1 %exitcond.not.i109, label %_ZN4pbrt15SampledSpectrumdVEf.exit110, label %for.body.i104, !llvm.loop !21
 
 _ZN4pbrt15SampledSpectrumdVEf.exit110:            ; preds = %for.body.i104
-  %conductorURoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 8
+  %conductorURoughness = getelementptr inbounds i8, ptr %this, i64 64
   %47 = load i64, ptr %conductorURoughness, align 8
   store i64 %47, ptr %agg.tmp73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp74, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
   %call75 = call noundef float @_ZN4pbrt25UniversalTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp73, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp74)
-  %conductorVRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 9
+  %conductorVRoughness = getelementptr inbounds i8, ptr %this, i64 72
   %48 = load i64, ptr %conductorVRoughness, align 8
   store i64 %48, ptr %agg.tmp76, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp77, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -2331,7 +2298,7 @@ if.then81:                                        ; preds = %_ZN4pbrt15SampledSp
 if.end84:                                         ; preds = %if.then81, %_ZN4pbrt15SampledSpectrumdVEf.exit110
   %cvrough.0 = phi float [ %call.i.i112, %if.then81 ], [ %call78, %_ZN4pbrt15SampledSpectrumdVEf.exit110 ]
   %curough.0 = phi float [ %call.i.i111, %if.then81 ], [ %call75, %_ZN4pbrt15SampledSpectrumdVEf.exit110 ]
-  %albedo = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 7
+  %albedo = getelementptr inbounds i8, ptr %this, i64 56
   %51 = load i64, ptr %albedo, align 8
   store i64 %51, ptr %agg.tmp86, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp87, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -2339,7 +2306,7 @@ if.end84:                                         ; preds = %if.then81, %_ZN4pbr
   %call89 = call { <2 x float>, <2 x float> } @_ZN4pbrt25UniversalTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE(ptr noundef nonnull align 1 dereferenceable(1) %texEval, ptr noundef nonnull %agg.tmp86, ptr noundef nonnull byval(%"struct.pbrt::TextureEvalContext") align 8 %agg.tmp87, ptr noundef nonnull byval(%"class.pbrt::SampledWavelengths") align 8 %agg.tmp88)
   %52 = extractvalue { <2 x float>, <2 x float> } %call89, 0
   store <2 x float> %52, ptr %ref.tmp85, align 8
-  %53 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp85, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %ref.tmp85, i64 8
   %54 = extractvalue { <2 x float>, <2 x float> } %call89, 1
   store <2 x float> %54, ptr %53, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i122)
@@ -2371,13 +2338,13 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i12
   %.sroa.speculated5.i118 = select i1 %cmp.i1.i117, float 0x3F1A36E2E0000000, float %curough.0
   %conductorDistrib.sroa.0.0 = select i1 %cmp.i.i115, float %curough.0, float %.sroa.speculated5.i118
   %.fca.0.load.i132 = load <2 x float>, ptr %retval.i122, align 8
-  %.fca.1.gep.i134 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i122, i64 0, i32 1
+  %.fca.1.gep.i134 = getelementptr inbounds i8, ptr %retval.i122, i64 8
   %.fca.1.load.i135 = load <2 x float>, ptr %.fca.1.gep.i134, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i122)
   store <2 x float> %.fca.0.load.i132, ptr %a, align 8
-  %57 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %a, i64 0, i32 1
+  %57 = getelementptr inbounds i8, ptr %a, i64 8
   store <2 x float> %.fca.1.load.i135, ptr %57, align 8
-  %g = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 6
+  %g = getelementptr inbounds i8, ptr %this, i64 48
   %58 = load i64, ptr %g, align 8
   store i64 %58, ptr %agg.tmp95, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %agg.tmp96, ptr noundef nonnull align 4 dereferenceable(76) %ctx, i64 76, i1 false)
@@ -2397,9 +2364,9 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit: ; preds = %for.body.i12
   %agg.tmp103.sroa.2.0.copyload = load <2 x float>, ptr %agg.tmp103.sroa.2.0.ck.sroa_idx, align 8
   %59 = bitcast float %conductorDistrib.sroa.0.0 to i32
   %60 = bitcast float %conductorDistrib.sroa.3.0 to i32
-  %maxDepth = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 15
+  %maxDepth = getelementptr inbounds i8, ptr %this, i64 108
   %61 = load i32, ptr %maxDepth, align 4
-  %nSamples = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 16
+  %nSamples = getelementptr inbounds i8, ptr %this, i64 112
   %62 = load i32, ptr %nSamples, align 8
   %agg.tmp99.0.agg.tmp99.0.agg.tmp99.0.agg.tmp99.coerce.sroa.0.0.copyload = load <2 x float>, ptr %agg.tmp99, align 8
   %63 = extractelement <2 x float> %interfaceDistrib.sroa.0.0, i64 1
@@ -2427,9 +2394,9 @@ define dso_local void @_ZNK4pbrt19MaterialEvalContext8ToStringB5cxx11Ev(ptr noal
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK4pbrt18TextureEvalContext8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(76) %this)
-  %wo = getelementptr inbounds %"struct.pbrt::MaterialEvalContext", ptr %this, i64 0, i32 1
-  %ns = getelementptr inbounds %"struct.pbrt::MaterialEvalContext", ptr %this, i64 0, i32 2
-  %dpdus = getelementptr inbounds %"struct.pbrt::MaterialEvalContext", ptr %this, i64 0, i32 3
+  %wo = getelementptr inbounds i8, ptr %this, i64 76
+  %ns = getelementptr inbounds i8, ptr %this, i64 88
+  %dpdus = getelementptr inbounds i8, ptr %this, i64 100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKNS_7Vector3IfEERKNS_7Normal3IfEESB_EEEvPS7_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %wo, ptr noundef nonnull align 4 dereferenceable(12) %ns, ptr noundef nonnull align 4 dereferenceable(12) %dpdus)
           to label %invoke.cont unwind label %lpad.i
@@ -2456,19 +2423,19 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt21NormalBumpEvalContext8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %uv = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 1
-  %shading = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 3
-  %dpdu = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 3, i32 1
-  %dpdv = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 3, i32 2
-  %dndu = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 3, i32 3
-  %dndv = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 3, i32 4
-  %dudx = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 4
-  %dudy = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 5
-  %dvdx = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 6
-  %dvdy = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 7
-  %dpdx = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 8
-  %dpdy = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 9
-  %faceIndex = getelementptr inbounds %"struct.pbrt::NormalBumpEvalContext", ptr %this, i64 0, i32 10
+  %uv = getelementptr inbounds i8, ptr %this, i64 12
+  %shading = getelementptr inbounds i8, ptr %this, i64 32
+  %dpdu = getelementptr inbounds i8, ptr %this, i64 44
+  %dpdv = getelementptr inbounds i8, ptr %this, i64 56
+  %dndu = getelementptr inbounds i8, ptr %this, i64 68
+  %dndv = getelementptr inbounds i8, ptr %this, i64 80
+  %dudx = getelementptr inbounds i8, ptr %this, i64 92
+  %dudy = getelementptr inbounds i8, ptr %this, i64 96
+  %dvdx = getelementptr inbounds i8, ptr %this, i64 100
+  %dvdy = getelementptr inbounds i8, ptr %this, i64 104
+  %dpdx = getelementptr inbounds i8, ptr %this, i64 108
+  %dpdy = getelementptr inbounds i8, ptr %this, i64 120
+  %faceIndex = getelementptr inbounds i8, ptr %this, i64 132
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_6Point3IfEEJRKNS_6Point2IfEERKNS_7Normal3IfEERKNS_7Vector3IfEESH_SD_SD_RKfSJ_SJ_SJ_SH_SH_RKiEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(8) %uv, ptr noundef nonnull align 4 dereferenceable(12) %shading, ptr noundef nonnull align 4 dereferenceable(12) %dpdu, ptr noundef nonnull align 4 dereferenceable(12) %dpdv, ptr noundef nonnull align 4 dereferenceable(12) %dndu, ptr noundef nonnull align 4 dereferenceable(12) %dndv, ptr noundef nonnull align 4 dereferenceable(4) %dudx, ptr noundef nonnull align 4 dereferenceable(4) %dudy, ptr noundef nonnull align 4 dereferenceable(4) %dvdx, ptr noundef nonnull align 4 dereferenceable(4) %dvdy, ptr noundef nonnull align 4 dereferenceable(12) %dpdx, ptr noundef nonnull align 4 dereferenceable(12) %dpdy, ptr noundef nonnull align 4 dereferenceable(4) %faceIndex)
           to label %_ZN4pbrt12StringPrintfIJRKNS_6Point3IfEERKNS_6Point2IfEERKNS_7Normal3IfEERKNS_7Vector3IfEESG_SC_SC_RKfSI_SI_SI_SG_SG_RKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -2488,7 +2455,7 @@ define dso_local void @_ZNK4pbrt18DielectricMaterial8ToStringB5cxx11Ev(ptr noali
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %displacement = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %this, i64 0, i32 1
+  %displacement = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -2517,10 +2484,10 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action7
 
 cond.end:                                         ; preds = %.noexc, %cond.true
-  %uRoughness = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %this, i64 0, i32 2
-  %vRoughness = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %this, i64 0, i32 3
-  %eta = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %this, i64 0, i32 5
-  %remapRoughness = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %this, i64 0, i32 4
+  %uRoughness = getelementptr inbounds i8, ptr %this, i64 16
+  %vRoughness = getelementptr inbounds i8, ptr %this, i64 24
+  %eta = getelementptr inbounds i8, ptr %this, i64 40
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_RKNS_8SpectrumERKbEEEvPSA_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %displacement, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %uRoughness, ptr noundef nonnull align 8 dereferenceable(8) %vRoughness, ptr noundef nonnull align 8 dereferenceable(8) %eta, ptr noundef nonnull align 1 dereferenceable(1) %remapRoughness)
           to label %invoke.cont5 unwind label %lpad.i3
@@ -2651,7 +2618,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %1 = load ptr, ptr %ref.tmp, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -2692,7 +2659,7 @@ invoke.cont10:                                    ; preds = %.noexc34
 invoke.cont12:                                    ; preds = %invoke.cont10
   %4 = load ptr, ptr %ref.tmp6, align 8
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i37 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
           to label %invoke.cont18 unwind label %lpad14
@@ -2798,7 +2765,7 @@ if.end:                                           ; preds = %if.then.i.i.i39, %i
 
 if.then38:                                        ; preds = %if.end
   %vtable.i.i.i.i52 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i53 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i52, i64 2
+  %vfn.i.i.i.i53 = getelementptr inbounds i8, ptr %vtable.i.i.i.i52, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i53, align 8
   %call.i.i.i.i = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 1.500000e+00, ptr %call.i.i.i.i, align 4
@@ -3026,22 +2993,22 @@ invoke.cont111:                                   ; preds = %invoke.cont109
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp107) #19
   %frombool = zext i1 %call112 to i8
   %vtable.i.i.i.i107 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i108 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i107, i64 2
+  %vfn.i.i.i.i108 = getelementptr inbounds i8, ptr %vtable.i.i.i.i107, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i108, align 8
   %call.i.i.i.i109 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 48, i64 noundef 8)
   %40 = load i64, ptr %uRoughness, align 8
   %41 = load i64, ptr %vRoughness, align 8
   %42 = load i64, ptr %displacement, align 8
   store ptr %normalMap, ptr %call.i.i.i.i109, align 8
-  %displacement3.i.i.i = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %call.i.i.i.i109, i64 0, i32 1
+  %displacement3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i109, i64 8
   store i64 %42, ptr %displacement3.i.i.i, align 8
-  %uRoughness4.i.i.i = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %call.i.i.i.i109, i64 0, i32 2
+  %uRoughness4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i109, i64 16
   store i64 %40, ptr %uRoughness4.i.i.i, align 8
-  %vRoughness5.i.i.i = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %call.i.i.i.i109, i64 0, i32 3
+  %vRoughness5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i109, i64 24
   store i64 %41, ptr %vRoughness5.i.i.i, align 8
-  %remapRoughness6.i.i.i = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %call.i.i.i.i109, i64 0, i32 4
+  %remapRoughness6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i109, i64 32
   store i8 %frombool, ptr %remapRoughness6.i.i.i, align 8
-  %eta8.i.i.i = getelementptr inbounds %"class.pbrt::DielectricMaterial", ptr %call.i.i.i.i109, i64 0, i32 5
+  %eta8.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i109, i64 40
   store i64 %eta.sroa.0.1, ptr %eta8.i.i.i, align 8
   ret ptr %call.i.i.i.i109
 
@@ -3089,7 +3056,7 @@ define dso_local void @_ZNK4pbrt22ThinDielectricMaterial8ToStringB5cxx11Ev(ptr n
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %normalMap = getelementptr inbounds %"class.pbrt::ThinDielectricMaterial", ptr %this, i64 0, i32 1
+  %normalMap = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %normalMap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -3118,7 +3085,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action7
 
 cond.end:                                         ; preds = %.noexc, %cond.true
-  %eta = getelementptr inbounds %"class.pbrt::ThinDielectricMaterial", ptr %this, i64 0, i32 2
+  %eta = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8SpectrumEEEEvPSA_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %eta)
           to label %invoke.cont5 unwind label %lpad.i3
@@ -3196,7 +3163,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 invoke.cont4:                                     ; preds = %invoke.cont
   %1 = load ptr, ptr %ref.tmp, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -3237,7 +3204,7 @@ invoke.cont10:                                    ; preds = %.noexc19
 invoke.cont12:                                    ; preds = %invoke.cont10
   %4 = load ptr, ptr %ref.tmp6, align 8
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i22 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
           to label %invoke.cont18 unwind label %lpad14
@@ -3343,7 +3310,7 @@ if.end:                                           ; preds = %if.then.i.i.i24, %i
 
 if.then38:                                        ; preds = %if.end
   %vtable.i.i.i.i37 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i38 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i37, i64 2
+  %vfn.i.i.i.i38 = getelementptr inbounds i8, ptr %vtable.i.i.i.i37, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i38, align 8
   %call.i.i.i.i = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 1.500000e+00, ptr %call.i.i.i.i, align 4
@@ -3379,14 +3346,14 @@ invoke.cont51:                                    ; preds = %invoke.cont47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45) #19
   %vtable.i.i.i.i48 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i49 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i48, i64 2
+  %vfn.i.i.i.i49 = getelementptr inbounds i8, ptr %vtable.i.i.i.i48, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i49, align 8
   %call.i.i.i.i50 = call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 24, i64 noundef 8)
   %23 = load i64, ptr %displacement, align 8
   store i64 %23, ptr %call.i.i.i.i50, align 8
-  %normalMap3.i.i.i = getelementptr inbounds %"class.pbrt::ThinDielectricMaterial", ptr %call.i.i.i.i50, i64 0, i32 1
+  %normalMap3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i50, i64 8
   store ptr %normalMap, ptr %normalMap3.i.i.i, align 8
-  %eta4.i.i.i = getelementptr inbounds %"class.pbrt::ThinDielectricMaterial", ptr %call.i.i.i.i50, i64 0, i32 2
+  %eta4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i50, i64 16
   store i64 %eta.sroa.0.1, ptr %eta4.i.i.i, align 8
   ret ptr %call.i.i.i.i50
 
@@ -3411,8 +3378,8 @@ eh.resume:                                        ; preds = %lpad50, %lpad.i42, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt11MixMaterial8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %materials = getelementptr inbounds %"class.pbrt::MixMaterial", ptr %this, i64 0, i32 1
-  %arrayidx3 = getelementptr inbounds %"class.pbrt::MixMaterial", ptr %this, i64 0, i32 1, i64 1
+  %materials = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_8MaterialEJS4_RKNS_12FloatTextureEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %materials, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4pbrt12StringPrintfIJRKNS_8MaterialES3_RKNS_12FloatTextureEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -3459,7 +3426,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   %1 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %wavefront = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %1, i64 0, i32 8
+  %wavefront = getelementptr inbounds i8, ptr %1, i64 11
   %2 = load i8, ptr %wavefront, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -3502,7 +3469,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 
 if.end:                                           ; preds = %land.rhs, %land.lhs.true.i, %land.lhs.true.i, %land.lhs.true.i, %land.lhs.true.i, %invoke.cont4
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 24, i64 noundef 8)
   %8 = load i64, ptr %amount, align 8
@@ -3511,7 +3478,7 @@ if.end:                                           ; preds = %land.rhs, %land.lhs
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep.i.i.i, i8 0, i64 16, i1 false)
   %9 = load i64, ptr %materials, align 8
   store i64 %9, ptr %scevgep.i.i.i, align 8
-  %arrayidx5.i.i.i = getelementptr inbounds %"class.pbrt::Material", ptr %materials, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %materials, i64 8
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %10 = load i64, ptr %arrayidx5.i.i.i, align 8
   store i64 %10, ptr %arrayidx7.i.i.i, align 8
@@ -3524,13 +3491,13 @@ declare void @_ZN4pbrt9ErrorExitEPKNS_7FileLocEPKc(ptr noundef, ptr noundef) loc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt12HairMaterial8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %color = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 1
-  %eumelanin = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 2
-  %pheomelanin = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 3
-  %eta = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 4
-  %beta_m = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 5
-  %beta_n = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 6
-  %alpha = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %this, i64 0, i32 7
+  %color = getelementptr inbounds i8, ptr %this, i64 8
+  %eumelanin = getelementptr inbounds i8, ptr %this, i64 16
+  %pheomelanin = getelementptr inbounds i8, ptr %this, i64 24
+  %eta = getelementptr inbounds i8, ptr %this, i64 32
+  %beta_m = getelementptr inbounds i8, ptr %this, i64 40
+  %beta_n = getelementptr inbounds i8, ptr %this, i64 48
+  %alpha = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SpectrumTextureEJS4_RKNS_12FloatTextureES7_S7_S7_S7_S7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %color, ptr noundef nonnull align 8 dereferenceable(8) %eumelanin, ptr noundef nonnull align 8 dereferenceable(8) %pheomelanin, ptr noundef nonnull align 8 dereferenceable(8) %eta, ptr noundef nonnull align 8 dereferenceable(8) %beta_m, ptr noundef nonnull align 8 dereferenceable(8) %beta_n, ptr noundef nonnull align 8 dereferenceable(8) %alpha)
           to label %_ZN4pbrt12StringPrintfIJRKNS_15SpectrumTextureES3_RKNS_12FloatTextureES6_S6_S6_S6_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -3838,14 +3805,14 @@ if.else80:                                        ; preds = %lor.lhs.false
   %24 = extractvalue { <2 x float>, <2 x float> } %call84, 0
   %25 = extractvalue { <2 x float>, <2 x float> } %call84, 1
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %26 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 16, i64 noundef 4)
   store <2 x float> %24, ptr %call.i.i.i.i, align 4
   %ref.tmp83.sroa.2.0.call.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store <2 x float> %25, ptr %ref.tmp83.sroa.2.0.call.i.i.i.i.sroa_idx, align 4
   %vtable.i.i.i.i91 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i92 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i91, i64 2
+  %vfn.i.i.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i.i.i91, i64 16
   %27 = load ptr, ptr %vfn.i.i.i.i92, align 8
   %call.i.i.i.i93 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
   %28 = ptrtoint ptr %call.i.i.i.i to i64
@@ -3958,7 +3925,7 @@ invoke.cont128:                                   ; preds = %invoke.cont124
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp122) #19
   %vtable.i.i.i.i126 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i127 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i126, i64 2
+  %vfn.i.i.i.i127 = getelementptr inbounds i8, ptr %vtable.i.i.i.i126, i64 16
   %34 = load ptr, ptr %vfn.i.i.i.i127, align 8
   %call.i.i.i.i128 = call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 64, i64 noundef 8)
   %35 = load i64, ptr %sigma_a, align 8
@@ -3970,19 +3937,19 @@ invoke.cont128:                                   ; preds = %invoke.cont124
   %41 = load i64, ptr %beta_n, align 8
   %42 = load i64, ptr %alpha, align 8
   store i64 %35, ptr %call.i.i.i.i128, align 8
-  %color3.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %call.i.i.i.i128, i64 0, i32 1
+  %color3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i128, i64 8
   store i64 %36, ptr %color3.i.i.i, align 8
-  %eumelanin4.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %call.i.i.i.i128, i64 0, i32 2
+  %eumelanin4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i128, i64 16
   store i64 %37, ptr %eumelanin4.i.i.i, align 8
-  %pheomelanin5.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %call.i.i.i.i128, i64 0, i32 3
+  %pheomelanin5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i128, i64 24
   store i64 %38, ptr %pheomelanin5.i.i.i, align 8
-  %eta6.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %call.i.i.i.i128, i64 0, i32 4
+  %eta6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i128, i64 32
   store i64 %39, ptr %eta6.i.i.i, align 8
-  %beta_m7.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %call.i.i.i.i128, i64 0, i32 5
+  %beta_m7.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i128, i64 40
   store i64 %40, ptr %beta_m7.i.i.i, align 8
-  %beta_n8.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %call.i.i.i.i128, i64 0, i32 6
+  %beta_n8.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i128, i64 48
   store i64 %41, ptr %beta_n8.i.i.i, align 8
-  %alpha9.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %call.i.i.i.i128, i64 0, i32 7
+  %alpha9.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i128, i64 56
   store i64 %42, ptr %alpha9.i.i.i, align 8
   ret ptr %call.i.i.i.i128
 
@@ -4048,7 +4015,7 @@ define dso_local void @_ZNK4pbrt15DiffuseMaterial8ToStringB5cxx11Ev(ptr noalias 
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %displacement = getelementptr inbounds %"class.pbrt::DiffuseMaterial", ptr %this, i64 0, i32 1
+  %displacement = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -4077,7 +4044,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action7
 
 cond.end:                                         ; preds = %.noexc, %cond.true
-  %reflectance = getelementptr inbounds %"class.pbrt::DiffuseMaterial", ptr %this, i64 0, i32 2
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15SpectrumTextureEEEEvPSA_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(8) %displacement, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %reflectance)
           to label %invoke.cont5 unwind label %lpad.i3
@@ -4158,12 +4125,12 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 
 if.then:                                          ; preds = %invoke.cont6
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 5.000000e-01, ptr %call.i.i.i.i, align 4
   %vtable.i.i.i.i7 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i7, i64 2
+  %vfn.i.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i.i7, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i8, align 8
   %call.i.i.i.i9 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
   %4 = ptrtoint ptr %call.i.i.i.i to i64
@@ -4212,15 +4179,15 @@ invoke.cont20:                                    ; preds = %invoke.cont16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #19
   %vtable.i.i.i.i18 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i18, i64 2
+  %vfn.i.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i.i18, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i19, align 8
   %call.i.i.i.i20 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 24, i64 noundef 8)
   %10 = load i64, ptr %reflectance, align 8
   %11 = load i64, ptr %displacement, align 8
   store ptr %normalMap, ptr %call.i.i.i.i20, align 8
-  %displacement3.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseMaterial", ptr %call.i.i.i.i20, i64 0, i32 1
+  %displacement3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i20, i64 8
   store i64 %11, ptr %displacement3.i.i.i, align 8
-  %reflectance4.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseMaterial", ptr %call.i.i.i.i20, i64 0, i32 2
+  %reflectance4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i20, i64 16
   store i64 %10, ptr %reflectance4.i.i.i, align 8
   ret ptr %call.i.i.i.i20
 
@@ -4249,7 +4216,7 @@ define dso_local void @_ZNK4pbrt17ConductorMaterial8ToStringB5cxx11Ev(ptr noalia
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %normalMap = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %this, i64 0, i32 1
+  %normalMap = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %normalMap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -4278,12 +4245,12 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action7
 
 cond.end:                                         ; preds = %.noexc, %cond.true
-  %eta = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %this, i64 0, i32 2
-  %k = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %this, i64 0, i32 3
-  %reflectance = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %this, i64 0, i32 4
-  %uRoughness = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %this, i64 0, i32 5
-  %vRoughness = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %this, i64 0, i32 6
-  %remapRoughness = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %this, i64 0, i32 7
+  %eta = getelementptr inbounds i8, ptr %this, i64 16
+  %k = getelementptr inbounds i8, ptr %this, i64 24
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 32
+  %uRoughness = getelementptr inbounds i8, ptr %this, i64 40
+  %vRoughness = getelementptr inbounds i8, ptr %this, i64 48
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15SpectrumTextureESD_SD_S4_S4_RKbEEEvPSA_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.33, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %eta, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 8 dereferenceable(8) %reflectance, ptr noundef nonnull align 8 dereferenceable(8) %uRoughness, ptr noundef nonnull align 8 dereferenceable(8) %vRoughness, ptr noundef nonnull align 1 dereferenceable(1) %remapRoughness)
           to label %invoke.cont5 unwind label %lpad.i3
@@ -4513,7 +4480,7 @@ invoke.cont36:                                    ; preds = %.noexc61
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i64 = invoke noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont42 unwind label %lpad37
@@ -4570,7 +4537,7 @@ invoke.cont54:                                    ; preds = %.noexc72
 
 invoke.cont56:                                    ; preds = %invoke.cont54
   %vtable.i.i.i.i75 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i76 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i75, i64 2
+  %vfn.i.i.i.i76 = getelementptr inbounds i8, ptr %vtable.i.i.i.i75, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i76, align 8
   %call.i.i.i.i77 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont60 unwind label %lpad55
@@ -4815,7 +4782,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp129) #19
   %frombool = zext i1 %call134 to i8
   %vtable.i.i.i.i132 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i133 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i132, i64 2
+  %vfn.i.i.i.i133 = getelementptr inbounds i8, ptr %vtable.i.i.i.i132, i64 16
   %43 = load ptr, ptr %vfn.i.i.i.i133, align 8
   %call.i.i.i.i = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 64, i64 noundef 8)
   %44 = load i64, ptr %eta, align 8
@@ -4825,19 +4792,19 @@ invoke.cont133:                                   ; preds = %invoke.cont131
   %48 = load i64, ptr %vRoughness, align 8
   %49 = load i64, ptr %displacement, align 8
   store i64 %49, ptr %call.i.i.i.i, align 8
-  %normalMap3.i.i.i = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %call.i.i.i.i, i64 0, i32 1
+  %normalMap3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %normalMap, ptr %normalMap3.i.i.i, align 8
-  %eta4.i.i.i = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %call.i.i.i.i, i64 0, i32 2
+  %eta4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store i64 %44, ptr %eta4.i.i.i, align 8
-  %k5.i.i.i = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %call.i.i.i.i, i64 0, i32 3
+  %k5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store i64 %45, ptr %k5.i.i.i, align 8
-  %reflectance6.i.i.i = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %call.i.i.i.i, i64 0, i32 4
+  %reflectance6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i64 %46, ptr %reflectance6.i.i.i, align 8
-  %uRoughness7.i.i.i = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %call.i.i.i.i, i64 0, i32 5
+  %uRoughness7.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   store i64 %47, ptr %uRoughness7.i.i.i, align 8
-  %vRoughness8.i.i.i = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %call.i.i.i.i, i64 0, i32 6
+  %vRoughness8.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 48
   store i64 %48, ptr %vRoughness8.i.i.i, align 8
-  %remapRoughness9.i.i.i = getelementptr inbounds %"class.pbrt::ConductorMaterial", ptr %call.i.i.i.i, i64 0, i32 7
+  %remapRoughness9.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
   store i8 %frombool, ptr %remapRoughness9.i.i.i, align 8
   ret ptr %call.i.i.i.i
 
@@ -4877,7 +4844,7 @@ define dso_local void @_ZNK4pbrt21CoatedDiffuseMaterial8ToStringB5cxx11Ev(ptr no
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %normalMap = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 1
+  %normalMap = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %normalMap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -4906,12 +4873,12 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action7
 
 cond.end:                                         ; preds = %.noexc, %cond.true
-  %reflectance = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 2
-  %uRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 4
-  %vRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 5
-  %thickness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 6
-  %eta = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 8
-  %remapRoughness = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %this, i64 0, i32 9
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 16
+  %uRoughness = getelementptr inbounds i8, ptr %this, i64 32
+  %vRoughness = getelementptr inbounds i8, ptr %this, i64 40
+  %thickness = getelementptr inbounds i8, ptr %this, i64 48
+  %eta = getelementptr inbounds i8, ptr %this, i64 64
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15SpectrumTextureES4_S4_S4_RKNS_8SpectrumERKbEEEvPSA_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.38, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %reflectance, ptr noundef nonnull align 8 dereferenceable(8) %uRoughness, ptr noundef nonnull align 8 dereferenceable(8) %vRoughness, ptr noundef nonnull align 8 dereferenceable(8) %thickness, ptr noundef nonnull align 8 dereferenceable(8) %eta, ptr noundef nonnull align 1 dereferenceable(1) %remapRoughness)
           to label %invoke.cont5 unwind label %lpad.i3
@@ -5030,12 +4997,12 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 
 if.then:                                          ; preds = %invoke.cont6
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 5.000000e-01, ptr %call.i.i.i.i, align 4
   %vtable.i.i.i.i47 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i48 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i47, i64 2
+  %vfn.i.i.i.i48 = getelementptr inbounds i8, ptr %vtable.i.i.i.i47, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i48, align 8
   %call.i.i.i.i49 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
   %4 = ptrtoint ptr %call.i.i.i.i to i64
@@ -5273,7 +5240,7 @@ invoke.cont79:                                    ; preds = %.noexc99
 
 invoke.cont81:                                    ; preds = %invoke.cont79
   %26 = load ptr, ptr %ref.tmp75, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %ref.tmp75, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 8
   %27 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %26, %27
   %tobool.not.i.i.i = icmp eq ptr %26, null
@@ -5314,7 +5281,7 @@ invoke.cont91:                                    ; preds = %.noexc107
 invoke.cont93:                                    ; preds = %invoke.cont91
   %29 = load ptr, ptr %ref.tmp87, align 8
   %vtable.i.i.i.i110 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i111 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i110, i64 2
+  %vfn.i.i.i.i111 = getelementptr inbounds i8, ptr %vtable.i.i.i.i110, i64 16
   %30 = load ptr, ptr %vfn.i.i.i.i111, align 8
   %call.i.i.i.i112113 = invoke noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
           to label %invoke.cont99 unwind label %lpad95
@@ -5431,7 +5398,7 @@ if.end119:                                        ; preds = %if.then.i.i.i116, %
 
 if.then121:                                       ; preds = %if.end119
   %vtable.i.i.i.i131 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i132 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i131, i64 2
+  %vfn.i.i.i.i132 = getelementptr inbounds i8, ptr %vtable.i.i.i.i131, i64 16
   %46 = load ptr, ptr %vfn.i.i.i.i132, align 8
   %call.i.i.i.i133 = call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 1.500000e+00, ptr %call.i.i.i.i133, align 4
@@ -5549,12 +5516,12 @@ invoke.cont164:                                   ; preds = %invoke.cont161
 
 if.then168:                                       ; preds = %invoke.cont164
   %vtable.i.i.i.i169 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i170 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i169, i64 2
+  %vfn.i.i.i.i170 = getelementptr inbounds i8, ptr %vtable.i.i.i.i169, i64 16
   %53 = load ptr, ptr %vfn.i.i.i.i170, align 8
   %call.i.i.i.i171 = call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 0.000000e+00, ptr %call.i.i.i.i171, align 4
   %vtable.i.i.i.i172 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i173 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i172, i64 2
+  %vfn.i.i.i.i173 = getelementptr inbounds i8, ptr %vtable.i.i.i.i172, i64 16
   %54 = load ptr, ptr %vfn.i.i.i.i173, align 8
   %call.i.i.i.i174 = call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
   %55 = ptrtoint ptr %call.i.i.i.i171 to i64
@@ -5662,7 +5629,7 @@ invoke.cont191:                                   ; preds = %invoke.cont189
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp187) #19
   %frombool = zext i1 %call192 to i8
   %vtable.i.i.i.i193 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i194 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i193, i64 2
+  %vfn.i.i.i.i194 = getelementptr inbounds i8, ptr %vtable.i.i.i.i193, i64 16
   %67 = load ptr, ptr %vfn.i.i.i.i194, align 8
   %call.i.i.i.i195 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 88, i64 noundef 8)
   %68 = load i64, ptr %reflectance, align 8
@@ -5673,27 +5640,27 @@ invoke.cont191:                                   ; preds = %invoke.cont189
   %73 = load i64, ptr %g, align 8
   %74 = load i64, ptr %displacement, align 8
   store i64 %74, ptr %call.i.i.i.i195, align 8
-  %normalMap3.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 1
+  %normalMap3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 8
   store ptr %normalMap, ptr %normalMap3.i.i.i, align 8
-  %reflectance4.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 2
+  %reflectance4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 16
   store i64 %68, ptr %reflectance4.i.i.i, align 8
-  %albedo5.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 3
+  %albedo5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 24
   store i64 %72, ptr %albedo5.i.i.i, align 8
-  %uRoughness6.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 4
+  %uRoughness6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 32
   store i64 %69, ptr %uRoughness6.i.i.i, align 8
-  %vRoughness7.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 5
+  %vRoughness7.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 40
   store i64 %70, ptr %vRoughness7.i.i.i, align 8
-  %thickness8.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 6
+  %thickness8.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 48
   store i64 %71, ptr %thickness8.i.i.i, align 8
-  %g9.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 7
+  %g9.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 56
   store i64 %73, ptr %g9.i.i.i, align 8
-  %eta10.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 8
+  %eta10.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 64
   store i64 %eta.sroa.0.1, ptr %eta10.i.i.i, align 8
-  %remapRoughness11.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 9
+  %remapRoughness11.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 72
   store i8 %frombool, ptr %remapRoughness11.i.i.i, align 8
-  %maxDepth13.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 11
+  %maxDepth13.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 76
   store i32 %call133, ptr %maxDepth13.i.i.i, align 4
-  %nSamples14.i.i.i = getelementptr inbounds %"class.pbrt::CoatedDiffuseMaterial", ptr %call.i.i.i.i195, i64 0, i32 12
+  %nSamples14.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i195, i64 80
   store i32 %call142, ptr %nSamples14.i.i.i, align 8
   ret ptr %call.i.i.i.i195
 
@@ -5733,7 +5700,7 @@ define dso_local void @_ZNK4pbrt23CoatedConductorMaterial8ToStringB5cxx11Ev(ptr 
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %normalMap = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 1
+  %normalMap = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %normalMap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -5762,20 +5729,20 @@ lpad.i:                                           ; preds = %.noexc
   br label %cleanup.action7
 
 cond.end:                                         ; preds = %.noexc, %cond.true
-  %interfaceURoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 2
-  %interfaceVRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 3
-  %thickness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 4
-  %interfaceEta = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 5
-  %g = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 6
-  %albedo = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 7
-  %conductorURoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 8
-  %conductorVRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 9
-  %conductorEta = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 10
-  %k = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 11
-  %reflectance = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 12
-  %remapRoughness = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 13
-  %maxDepth = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 15
-  %nSamples = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %this, i64 0, i32 16
+  %interfaceURoughness = getelementptr inbounds i8, ptr %this, i64 16
+  %interfaceVRoughness = getelementptr inbounds i8, ptr %this, i64 24
+  %thickness = getelementptr inbounds i8, ptr %this, i64 32
+  %interfaceEta = getelementptr inbounds i8, ptr %this, i64 40
+  %g = getelementptr inbounds i8, ptr %this, i64 48
+  %albedo = getelementptr inbounds i8, ptr %this, i64 56
+  %conductorURoughness = getelementptr inbounds i8, ptr %this, i64 64
+  %conductorVRoughness = getelementptr inbounds i8, ptr %this, i64 72
+  %conductorEta = getelementptr inbounds i8, ptr %this, i64 80
+  %k = getelementptr inbounds i8, ptr %this, i64 88
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 96
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 104
+  %maxDepth = getelementptr inbounds i8, ptr %this, i64 108
+  %nSamples = getelementptr inbounds i8, ptr %this, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_S4_RKNS_8SpectrumES4_RKNS_15SpectrumTextureES4_S4_SG_SG_SG_RKbRKiSK_EEEvPSA_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.44, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %interfaceURoughness, ptr noundef nonnull align 8 dereferenceable(8) %interfaceVRoughness, ptr noundef nonnull align 8 dereferenceable(8) %thickness, ptr noundef nonnull align 8 dereferenceable(8) %interfaceEta, ptr noundef nonnull align 8 dereferenceable(8) %g, ptr noundef nonnull align 8 dereferenceable(8) %albedo, ptr noundef nonnull align 8 dereferenceable(8) %conductorURoughness, ptr noundef nonnull align 8 dereferenceable(8) %conductorVRoughness, ptr noundef nonnull align 8 dereferenceable(8) %conductorEta, ptr noundef nonnull align 8 dereferenceable(8) %k, ptr noundef nonnull align 8 dereferenceable(8) %reflectance, ptr noundef nonnull align 1 dereferenceable(1) %remapRoughness, ptr noundef nonnull align 4 dereferenceable(4) %maxDepth, ptr noundef nonnull align 4 dereferenceable(4) %nSamples)
           to label %invoke.cont5 unwind label %lpad.i3
@@ -6099,7 +6066,7 @@ invoke.cont58:                                    ; preds = %.noexc108
 
 invoke.cont60:                                    ; preds = %invoke.cont58
   %18 = load ptr, ptr %ref.tmp54, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data", ptr %ref.tmp54, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   %19 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %18, %19
   %tobool.not.i.i.i = icmp eq ptr %18, null
@@ -6140,7 +6107,7 @@ invoke.cont70:                                    ; preds = %.noexc116
 invoke.cont72:                                    ; preds = %invoke.cont70
   %21 = load ptr, ptr %ref.tmp66, align 8
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i119 = invoke noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
           to label %invoke.cont78 unwind label %lpad74
@@ -6257,7 +6224,7 @@ if.end98:                                         ; preds = %if.then.i.i.i121, %
 
 if.then100:                                       ; preds = %if.end98
   %vtable.i.i.i.i136 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i137 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i136, i64 2
+  %vfn.i.i.i.i137 = getelementptr inbounds i8, ptr %vtable.i.i.i.i136, i64 16
   %38 = load ptr, ptr %vfn.i.i.i.i137, align 8
   %call.i.i.i.i = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 1.500000e+00, ptr %call.i.i.i.i, align 4
@@ -6590,7 +6557,7 @@ invoke.cont202:                                   ; preds = %.noexc214
 
 invoke.cont204:                                   ; preds = %invoke.cont202
   %vtable.i.i.i.i217 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i218 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i217, i64 2
+  %vfn.i.i.i.i218 = getelementptr inbounds i8, ptr %vtable.i.i.i.i217, i64 16
   %69 = load ptr, ptr %vfn.i.i.i.i218, align 8
   %call.i.i.i.i219220 = invoke noundef ptr %69(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont208 unwind label %lpad203
@@ -6647,7 +6614,7 @@ invoke.cont220:                                   ; preds = %.noexc229
 
 invoke.cont222:                                   ; preds = %invoke.cont220
   %vtable.i.i.i.i232 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i233 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i232, i64 2
+  %vfn.i.i.i.i233 = getelementptr inbounds i8, ptr %vtable.i.i.i.i232, i64 16
   %76 = load ptr, ptr %vfn.i.i.i.i233, align 8
   %call.i.i.i.i234235 = invoke noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont226 unwind label %lpad221
@@ -6782,12 +6749,12 @@ invoke.cont269:                                   ; preds = %invoke.cont266
 
 if.then273:                                       ; preds = %invoke.cont269
   %vtable.i.i.i.i272 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i273 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i272, i64 2
+  %vfn.i.i.i.i273 = getelementptr inbounds i8, ptr %vtable.i.i.i.i272, i64 16
   %86 = load ptr, ptr %vfn.i.i.i.i273, align 8
   %call.i.i.i.i274 = call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 0.000000e+00, ptr %call.i.i.i.i274, align 4
   %vtable.i.i.i.i275 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i276 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i275, i64 2
+  %vfn.i.i.i.i276 = getelementptr inbounds i8, ptr %vtable.i.i.i.i275, i64 16
   %87 = load ptr, ptr %vfn.i.i.i.i276, align 8
   %call.i.i.i.i277 = call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
   %88 = ptrtoint ptr %call.i.i.i.i274 to i64
@@ -6895,7 +6862,7 @@ invoke.cont296:                                   ; preds = %invoke.cont294
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp292) #19
   %frombool = zext i1 %call297 to i8
   %vtable.i.i.i.i295 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i296 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i295, i64 2
+  %vfn.i.i.i.i296 = getelementptr inbounds i8, ptr %vtable.i.i.i.i295, i64 16
   %100 = load ptr, ptr %vfn.i.i.i.i296, align 8
   %call.i.i.i.i297 = call noundef ptr %100(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 120, i64 noundef 8)
   %101 = load i64, ptr %interfaceURoughness, align 8
@@ -6910,35 +6877,35 @@ invoke.cont296:                                   ; preds = %invoke.cont294
   %110 = load i64, ptr %reflectance, align 8
   %111 = load i64, ptr %displacement, align 8
   store i64 %111, ptr %call.i.i.i.i297, align 8
-  %normalMap3.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 1
+  %normalMap3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 8
   store ptr %normalMap, ptr %normalMap3.i.i.i, align 8
-  %interfaceURoughness4.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 2
+  %interfaceURoughness4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 16
   store i64 %101, ptr %interfaceURoughness4.i.i.i, align 8
-  %interfaceVRoughness5.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 3
+  %interfaceVRoughness5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 24
   store i64 %102, ptr %interfaceVRoughness5.i.i.i, align 8
-  %thickness6.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 4
+  %thickness6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 32
   store i64 %103, ptr %thickness6.i.i.i, align 8
-  %interfaceEta7.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 5
+  %interfaceEta7.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 40
   store i64 %interfaceEta.sroa.0.1, ptr %interfaceEta7.i.i.i, align 8
-  %g8.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 6
+  %g8.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 48
   store i64 %104, ptr %g8.i.i.i, align 8
-  %albedo9.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 7
+  %albedo9.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 56
   store i64 %105, ptr %albedo9.i.i.i, align 8
-  %conductorURoughness10.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 8
+  %conductorURoughness10.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 64
   store i64 %106, ptr %conductorURoughness10.i.i.i, align 8
-  %conductorVRoughness11.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 9
+  %conductorVRoughness11.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 72
   store i64 %107, ptr %conductorVRoughness11.i.i.i, align 8
-  %conductorEta12.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 10
+  %conductorEta12.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 80
   store i64 %108, ptr %conductorEta12.i.i.i, align 8
-  %k13.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 11
+  %k13.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 88
   store i64 %109, ptr %k13.i.i.i, align 8
-  %reflectance14.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 12
+  %reflectance14.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 96
   store i64 %110, ptr %reflectance14.i.i.i, align 8
-  %remapRoughness15.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 13
+  %remapRoughness15.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 104
   store i8 %frombool, ptr %remapRoughness15.i.i.i, align 8
-  %maxDepth17.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 15
+  %maxDepth17.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 108
   store i32 %call238, ptr %maxDepth17.i.i.i, align 4
-  %nSamples18.i.i.i = getelementptr inbounds %"class.pbrt::CoatedConductorMaterial", ptr %call.i.i.i.i297, i64 0, i32 16
+  %nSamples18.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i297, i64 112
   store i32 %call247, ptr %nSamples18.i.i.i, align 8
   ret ptr %call.i.i.i.i297
 
@@ -6974,16 +6941,16 @@ eh.resume:                                        ; preds = %lpad295, %lpad.i289
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt18SubsurfaceMaterial8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %normalMap = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 1
-  %scale = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 6
-  %sigma_a = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 2
-  %sigma_s = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 3
-  %reflectance = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 4
-  %mfp = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 5
-  %uRoughness = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 8
-  %vRoughness = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 9
-  %eta = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 7
-  %remapRoughness = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %this, i64 0, i32 10
+  %normalMap = getelementptr inbounds i8, ptr %this, i64 8
+  %scale = getelementptr inbounds i8, ptr %this, i64 48
+  %sigma_a = getelementptr inbounds i8, ptr %this, i64 16
+  %sigma_s = getelementptr inbounds i8, ptr %this, i64 24
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 32
+  %mfp = getelementptr inbounds i8, ptr %this, i64 40
+  %uRoughness = getelementptr inbounds i8, ptr %this, i64 56
+  %vRoughness = getelementptr inbounds i8, ptr %this, i64 64
+  %eta = getelementptr inbounds i8, ptr %this, i64 52
+  %remapRoughness = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJRKPNS_5ImageERKfRKNS_15SpectrumTextureESD_SD_SD_S4_S4_SA_SA_RKbEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.55, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %normalMap, ptr noundef nonnull align 4 dereferenceable(4) %scale, ptr noundef nonnull align 8 dereferenceable(8) %sigma_a, ptr noundef nonnull align 8 dereferenceable(8) %sigma_s, ptr noundef nonnull align 8 dereferenceable(8) %reflectance, ptr noundef nonnull align 8 dereferenceable(8) %mfp, ptr noundef nonnull align 8 dereferenceable(8) %uRoughness, ptr noundef nonnull align 8 dereferenceable(8) %vRoughness, ptr noundef nonnull align 4 dereferenceable(4) %scale, ptr noundef nonnull align 4 dereferenceable(4) %eta, ptr noundef nonnull align 1 dereferenceable(1) %remapRoughness)
           to label %_ZN4pbrt12StringPrintfIJRKNS_12FloatTextureERKPNS_5ImageERKfRKNS_15SpectrumTextureESC_SC_SC_S3_S3_S9_S9_RKbEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -7192,7 +7159,7 @@ if.then25:                                        ; preds = %if.end
 
 if.end27:                                         ; preds = %if.then25, %if.end
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i65 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont32 unwind label %lpad20
@@ -7201,7 +7168,7 @@ invoke.cont32:                                    ; preds = %if.end27
   %10 = load i64, ptr %sig_a, align 8
   store i64 %10, ptr %call.i.i.i.i65, align 8
   %vtable.i.i.i.i66 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i67 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i66, i64 2
+  %vfn.i.i.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i.i.i66, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i67, align 8
   %call.i.i.i.i68 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont37 unwind label %lpad20
@@ -7353,7 +7320,7 @@ invoke.cont96:                                    ; preds = %invoke.cont91
 
 if.then102:                                       ; preds = %invoke.cont96
   %vtable.i.i.i.i107 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i108 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i107, i64 2
+  %vfn.i.i.i.i108 = getelementptr inbounds i8, ptr %vtable.i.i.i.i107, i64 16
   %26 = load ptr, ptr %vfn.i.i.i.i108, align 8
   %call.i.i.i.i109 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
           to label %invoke.cont106 unwind label %lpad20
@@ -7426,7 +7393,7 @@ ehcleanup121:                                     ; preds = %lpad110, %lpad.i113
 if.else122:                                       ; preds = %invoke.cont96
   %34 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
   %vtable.i.i.i.i119 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i120 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i119, i64 2
+  %vfn.i.i.i.i120 = getelementptr inbounds i8, ptr %vtable.i.i.i.i119, i64 16
   %35 = load ptr, ptr %vfn.i.i.i.i120, align 8
   %call.i.i.i.i121 = invoke noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 16, i64 noundef 4)
           to label %call.i.i.i.i.noexc unwind label %lpad20
@@ -7438,7 +7405,7 @@ call.i.i.i.i.noexc:                               ; preds = %if.else122
 invoke.cont125:                                   ; preds = %call.i.i.i.i.noexc
   %36 = load ptr, ptr @_ZN4pbrt13RGBColorSpace4sRGBE, align 8
   %vtable.i.i.i.i125 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i126 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i125, i64 2
+  %vfn.i.i.i.i126 = getelementptr inbounds i8, ptr %vtable.i.i.i.i125, i64 16
   %37 = load ptr, ptr %vfn.i.i.i.i126, align 8
   %call.i.i.i.i131 = invoke noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 16, i64 noundef 4)
           to label %call.i.i.i.i.noexc130 unwind label %lpad20
@@ -7449,7 +7416,7 @@ call.i.i.i.i.noexc130:                            ; preds = %invoke.cont125
 
 invoke.cont129:                                   ; preds = %call.i.i.i.i.noexc130
   %vtable.i.i.i.i134 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i135 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i134, i64 2
+  %vfn.i.i.i.i135 = getelementptr inbounds i8, ptr %vtable.i.i.i.i134, i64 16
   %38 = load ptr, ptr %vfn.i.i.i.i135, align 8
   %call.i.i.i.i137 = invoke noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont135 unwind label %lpad20
@@ -7459,7 +7426,7 @@ invoke.cont135:                                   ; preds = %invoke.cont129
   %or.i.i.i.i = or i64 %39, 720575940379279360
   store i64 %or.i.i.i.i, ptr %call.i.i.i.i137, align 8
   %vtable.i.i.i.i139 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i140 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i139, i64 2
+  %vfn.i.i.i.i140 = getelementptr inbounds i8, ptr %vtable.i.i.i.i139, i64 16
   %40 = load ptr, ptr %vfn.i.i.i.i140, align 8
   %call.i.i.i.i143 = invoke noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
           to label %invoke.cont140 unwind label %lpad20
@@ -7799,7 +7766,7 @@ invoke.cont233:                                   ; preds = %invoke.cont231
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp228) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp229) #19
   %vtable.i.i.i.i214 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i215 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i214, i64 2
+  %vfn.i.i.i.i215 = getelementptr inbounds i8, ptr %vtable.i.i.i.i214, i64 16
   %68 = load ptr, ptr %vfn.i.i.i.i215, align 8
   %call.i.i.i.i217 = invoke noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 240, i64 noundef 8)
           to label %call.i.i.i.i.noexc216 unwind label %lpad20
@@ -7810,27 +7777,27 @@ call.i.i.i.i.noexc216:                            ; preds = %invoke.cont233
   %70 = load i64, ptr %vRoughness, align 8
   %71 = load i64, ptr %displacement, align 8
   store i64 %71, ptr %call.i.i.i.i217, align 8
-  %normalMap3.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 1
+  %normalMap3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 8
   store ptr %normalMap, ptr %normalMap3.i.i.i, align 8
-  %sigma_a4.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 2
+  %sigma_a4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 16
   store i64 %sigma_a.sroa.0.0, ptr %sigma_a4.i.i.i, align 8
-  %sigma_s5.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 3
+  %sigma_s5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 24
   store i64 %sigma_s.sroa.0.0, ptr %sigma_s5.i.i.i, align 8
-  %reflectance6.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 4
+  %reflectance6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 32
   store i64 %reflectance.sroa.0.0, ptr %reflectance6.i.i.i, align 8
-  %mfp7.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 5
+  %mfp7.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 40
   store i64 %mfp.sroa.0.0, ptr %mfp7.i.i.i, align 8
-  %scale8.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 6
+  %scale8.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 48
   store float %call152, ptr %scale8.i.i.i, align 8
-  %eta9.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 7
+  %eta9.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 52
   store float %call161, ptr %eta9.i.i.i, align 4
-  %uRoughness10.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 8
+  %uRoughness10.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 56
   store i64 %69, ptr %uRoughness10.i.i.i, align 8
-  %vRoughness11.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 9
+  %vRoughness11.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 64
   store i64 %70, ptr %vRoughness11.i.i.i, align 8
-  %remapRoughness12.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 10
+  %remapRoughness12.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 72
   store i8 %frombool, ptr %remapRoughness12.i.i.i, align 8
-  %table.i.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %call.i.i.i.i217, i64 0, i32 11
+  %table.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i217, i64 80
   invoke void @_ZN4pbrt11BSSRDFTableC1EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(160) %table.i.i.i, i32 noundef 100, i32 noundef 64, ptr nonnull %alloc.coerce)
           to label %.noexc218 unwind label %lpad20
 
@@ -7934,9 +7901,9 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt27DiffuseTransmissionMaterial8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %reflectance = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %this, i64 0, i32 2
-  %transmittance = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %this, i64 0, i32 3
-  %scale = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %this, i64 0, i32 4
+  %reflectance = getelementptr inbounds i8, ptr %this, i64 16
+  %transmittance = getelementptr inbounds i8, ptr %this, i64 24
+  %scale = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJRKNS_15SpectrumTextureES7_RKfEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.65, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %reflectance, ptr noundef nonnull align 8 dereferenceable(8) %transmittance, ptr noundef nonnull align 4 dereferenceable(4) %scale)
           to label %_ZN4pbrt12StringPrintfIJRKNS_12FloatTextureERKNS_15SpectrumTextureES6_RKfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -8000,12 +7967,12 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 
 if.then:                                          ; preds = %invoke.cont6
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 2.500000e-01, ptr %call.i.i.i.i, align 4
   %vtable.i.i.i.i13 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i13, i64 2
+  %vfn.i.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i.i13, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i14, align 8
   %call.i.i.i.i15 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
   %4 = ptrtoint ptr %call.i.i.i.i to i64
@@ -8061,12 +8028,12 @@ invoke.cont22:                                    ; preds = %invoke.cont19
 
 if.then26:                                        ; preds = %invoke.cont22
   %vtable.i.i.i.i26 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i26, i64 2
+  %vfn.i.i.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i.i.i26, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i27, align 8
   %call.i.i.i.i28 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 4, i64 noundef 4)
   store float 2.500000e-01, ptr %call.i.i.i.i28, align 4
   %vtable.i.i.i.i29 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i29, i64 2
+  %vfn.i.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i.i29, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i30, align 8
   %call.i.i.i.i31 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 8, i64 noundef 8)
   %12 = ptrtoint ptr %call.i.i.i.i28 to i64
@@ -8140,20 +8107,20 @@ invoke.cont49:                                    ; preds = %invoke.cont47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45) #19
   %vtable.i.i.i.i50 = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i51 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i50, i64 2
+  %vfn.i.i.i.i51 = getelementptr inbounds i8, ptr %vtable.i.i.i.i50, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i51, align 8
   %call.i.i.i.i52 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 40, i64 noundef 8)
   %19 = load i64, ptr %reflectance, align 8
   %20 = load i64, ptr %transmittance, align 8
   %21 = load i64, ptr %displacement, align 8
   store i64 %21, ptr %call.i.i.i.i52, align 8
-  %normalMap3.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %call.i.i.i.i52, i64 0, i32 1
+  %normalMap3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i52, i64 8
   store ptr %normalMap, ptr %normalMap3.i.i.i, align 8
-  %reflectance4.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %call.i.i.i.i52, i64 0, i32 2
+  %reflectance4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i52, i64 16
   store i64 %19, ptr %reflectance4.i.i.i, align 8
-  %transmittance5.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %call.i.i.i.i52, i64 0, i32 3
+  %transmittance5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i52, i64 24
   store i64 %20, ptr %transmittance5.i.i.i, align 8
-  %scale6.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %call.i.i.i.i52, i64 0, i32 4
+  %scale6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i52, i64 32
   store float %call50, ptr %scale6.i.i.i, align 8
   ret ptr %call.i.i.i.i52
 
@@ -8192,10 +8159,10 @@ entry:
   store i64 0, ptr %this, align 8
   %0 = load i64, ptr %displacement, align 8
   store i64 %0, ptr %this, align 8
-  %normalMap3 = getelementptr inbounds %"class.pbrt::MeasuredMaterial", ptr %this, i64 0, i32 1
+  %normalMap3 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %normalMap, ptr %normalMap3, align 8
   %call = tail call noundef ptr @_ZN4pbrt12MeasuredBxDF16BRDFDataFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr %alloc.coerce)
-  %brdf = getelementptr inbounds %"class.pbrt::MeasuredMaterial", ptr %this, i64 0, i32 2
+  %brdf = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call, ptr %brdf, align 8
   ret void
 }
@@ -8207,7 +8174,7 @@ define dso_local void @_ZNK4pbrt16MeasuredMaterial8ToStringB5cxx11Ev(ptr noalias
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %normalMap = getelementptr inbounds %"class.pbrt::MeasuredMaterial", ptr %this, i64 0, i32 1
+  %normalMap = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %normalMap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -8440,7 +8407,7 @@ invoke.cont22:                                    ; preds = %invoke.cont18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #19
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i29 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 24, i64 noundef 8)
           to label %call.i.i.i.i.noexc unwind label %lpad13
@@ -8448,13 +8415,13 @@ invoke.cont22:                                    ; preds = %invoke.cont18
 call.i.i.i.i.noexc:                               ; preds = %invoke.cont22
   %11 = load i64, ptr %displacement, align 8
   store i64 %11, ptr %call.i.i.i.i29, align 8
-  %normalMap3.i.i.i = getelementptr inbounds %"class.pbrt::MeasuredMaterial", ptr %call.i.i.i.i29, i64 0, i32 1
+  %normalMap3.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i29, i64 8
   store ptr %normalMap, ptr %normalMap3.i.i.i, align 8
   %call.i.i.i30 = invoke noundef ptr @_ZN4pbrt12MeasuredBxDF16BRDFDataFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nonnull %alloc.coerce)
           to label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt16MeasuredMaterialEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS5_12FloatTextureERPNS5_5ImageERS3_EEEPT_DpOT0_.exit unwind label %lpad13
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE10new_objectIN4pbrt16MeasuredMaterialEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS5_12FloatTextureERPNS5_5ImageERS3_EEEPT_DpOT0_.exit: ; preds = %call.i.i.i.i.noexc
-  %brdf.i.i.i = getelementptr inbounds %"class.pbrt::MeasuredMaterial", ptr %call.i.i.i.i29, i64 0, i32 2
+  %brdf.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i29, i64 16
   store ptr %call.i.i.i30, ptr %brdf.i.i.i, align 8
   br label %cleanup
 
@@ -8597,9 +8564,9 @@ sw.bb4.i:                                         ; preds = %if.end
   br label %return
 
 sw.bb5.i:                                         ; preds = %if.end
-  %reflectance.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %1, i64 0, i32 2
-  %transmittance.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %1, i64 0, i32 3
-  %scale.i.i.i = getelementptr inbounds %"class.pbrt::DiffuseTransmissionMaterial", ptr %1, i64 0, i32 4
+  %reflectance.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %transmittance.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %scale.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJRKNS_15SpectrumTextureES7_RKfEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.65, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %reflectance.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %transmittance.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %scale.i.i.i)
           to label %return unwind label %lpad.i.i.i.i
@@ -8611,13 +8578,13 @@ lpad.i.i.i.i:                                     ; preds = %sw.bb5.i
   br label %common.resume
 
 sw.bb6.i:                                         ; preds = %if.end
-  %color.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %1, i64 0, i32 1
-  %eumelanin.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %1, i64 0, i32 2
-  %pheomelanin.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %1, i64 0, i32 3
-  %eta.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %1, i64 0, i32 4
-  %beta_m.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %1, i64 0, i32 5
-  %beta_n.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %1, i64 0, i32 6
-  %alpha.i.i.i = getelementptr inbounds %"class.pbrt::HairMaterial", ptr %1, i64 0, i32 7
+  %color.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %eumelanin.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %pheomelanin.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %eta.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %beta_m.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %beta_n.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %alpha.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_15SpectrumTextureEJS4_RKNS_12FloatTextureES7_S7_S7_S7_S7_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %color.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %eumelanin.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %pheomelanin.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %eta.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %beta_m.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %beta_n.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %alpha.i.i.i)
           to label %return unwind label %lpad.i.i.i18.i
@@ -8633,16 +8600,16 @@ sw.bb7.i:                                         ; preds = %if.end
   br label %return
 
 sw.bb.i.i:                                        ; preds = %if.end
-  %normalMap.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 1
-  %scale.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 6
-  %sigma_a.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 2
-  %sigma_s.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 3
-  %reflectance.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 4
-  %mfp.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 5
-  %uRoughness.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 8
-  %vRoughness.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 9
-  %eta.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 7
-  %remapRoughness.i.i = getelementptr inbounds %"class.pbrt::SubsurfaceMaterial", ptr %1, i64 0, i32 10
+  %normalMap.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %scale.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %sigma_a.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %sigma_s.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %reflectance.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %mfp.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %uRoughness.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %vRoughness.i.i = getelementptr inbounds i8, ptr %1, i64 64
+  %eta.i.i = getelementptr inbounds i8, ptr %1, i64 52
+  %remapRoughness.i.i = getelementptr inbounds i8, ptr %1, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_12FloatTextureEJRKPNS_5ImageERKfRKNS_15SpectrumTextureESD_SD_SD_S4_S4_SA_SA_RKbEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.55, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %normalMap.i.i, ptr noundef nonnull align 4 dereferenceable(4) %scale.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sigma_a.i.i, ptr noundef nonnull align 8 dereferenceable(8) %sigma_s.i.i, ptr noundef nonnull align 8 dereferenceable(8) %reflectance.i.i, ptr noundef nonnull align 8 dereferenceable(8) %mfp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %uRoughness.i.i, ptr noundef nonnull align 8 dereferenceable(8) %vRoughness.i.i, ptr noundef nonnull align 4 dereferenceable(4) %scale.i.i, ptr noundef nonnull align 4 dereferenceable(4) %eta.i.i, ptr noundef nonnull align 1 dereferenceable(1) %remapRoughness.i.i)
           to label %return unwind label %lpad.i.i.i4
@@ -8658,8 +8625,8 @@ sw.bb3.i.i:                                       ; preds = %if.end
   br label %return
 
 sw.default.i.i:                                   ; preds = %if.end
-  %materials.i.i = getelementptr inbounds %"class.pbrt::MixMaterial", ptr %1, i64 0, i32 1
-  %arrayidx3.i.i = getelementptr inbounds %"class.pbrt::MixMaterial", ptr %1, i64 0, i32 1, i64 1
+  %materials.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_8MaterialEJS4_RKNS_12FloatTextureEEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.12, ptr noundef nonnull align 8 dereferenceable(8) %materials.i.i, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx3.i.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %return unwind label %lpad.i.i.i
@@ -8863,7 +8830,7 @@ invoke.cont:                                      ; preds = %if.then86
 invoke.cont90:                                    ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #19
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %materialNames, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %materialNames, i64 8
   %12 = load ptr, ptr %_M_finish.i, align 8
   %13 = load ptr, ptr %materialNames, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
@@ -8941,7 +8908,7 @@ if.then104.cont:                                  ; preds = %if.then104.invoke
   unreachable
 
 if.end108:                                        ; preds = %invoke.cont97
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call98, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %call98, i64 64
   %arrayidx = getelementptr inbounds [2 x %"class.pbrt::Material"], ptr %materials, i64 0, i64 %indvars.iv
   %19 = load i64, ptr %second, align 8
   store i64 %19, ptr %arrayidx, align 8
@@ -9035,7 +9002,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i
   %__x.addr.08.i.i = phi ptr [ %__x.addr.1.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ %0, %entry ]
   %__y.addr.07.i.i = phi ptr [ %__y.addr.1.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ], [ %add.ptr.i.i, %entry ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__x)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -9048,10 +9015,9 @@ terminate.lpad.i.i.i.i:                           ; preds = %while.body.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i: ; preds = %while.body.i.i
   %cmp.i.i.i.i = icmp slt i32 %call.i.i.i.i, 0
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i, i64 0, i32 3
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i, i64 0, i32 2
   %__y.addr.1.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.07.i.i, ptr %__x.addr.08.i.i
-  %__x.addr.1.in.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i, ptr %_M_left.i.i.i
+  %__x.addr.1.in.v.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i, i64 %__x.addr.1.in.v.i.i
   %__x.addr.1.i.i = load ptr, ptr %__x.addr.1.in.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %__x.addr.1.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8MaterialEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i, label %while.body.i.i, !llvm.loop !23
@@ -9061,7 +9027,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   br i1 %cmp.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8MaterialEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE4findERS7_.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt8MaterialEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i
-  %_M_storage.i.i.i3.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i, i64 32
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__x, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -9118,7 +9084,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -9126,7 +9092,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !24
 
@@ -9194,11 +9160,11 @@ entry:
   %ref.tmp = alloca %"class.pbrt::RGBUnboundedSpectrum", align 4
   %ref.tmp14 = alloca %"class.pbrt::RGBAlbedoSpectrum", align 4
   %ref.tmp22 = alloca %"class.pbrt::RGBIlluminantSpectrum", align 8
-  %faceIndex = getelementptr inbounds %"struct.pbrt::TextureEvalContext", ptr %ctx, i64 0, i32 9
+  %faceIndex = getelementptr inbounds i8, ptr %ctx, i64 72
   %0 = load i32, ptr %faceIndex, align 8
   %cmp = icmp sgt i32 %0, -1
   %conv = zext nneg i32 %0 to i64
-  %nStored.i = getelementptr inbounds %"class.pbrt::GPUSpectrumPtexTexture", ptr %this, i64 0, i32 1, i32 3
+  %nStored.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %nStored.i, align 8
   %cmp3 = icmp ugt i64 %1, %conv
   %or.cond = select i1 %cmp, i1 %cmp3, i1 false
@@ -9209,7 +9175,7 @@ land.rhs:                                         ; preds = %entry
   unreachable
 
 land.end:                                         ; preds = %entry
-  %ptr.i = getelementptr inbounds %"class.pbrt::GPUSpectrumPtexTexture", ptr %this, i64 0, i32 1, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %ptr.i, align 8
   %arrayidx.i = getelementptr inbounds %"class.pbrt::RGB", ptr %2, i64 %conv
   %rgb.sroa.0.0.copyload = load <2 x float>, ptr %arrayidx.i, align 4
@@ -9227,10 +9193,10 @@ if.then:                                          ; preds = %land.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, i8 0, i64 16, i1 false)
   %5 = load float, ptr %ref.tmp, align 4
-  %rsp.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ref.tmp, i64 0, i32 1
-  %c2.i.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ref.tmp, i64 0, i32 1, i32 2
+  %rsp.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %c2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %6 = load float, ptr %c2.i.i, align 4
-  %c1.i.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ref.tmp, i64 0, i32 1, i32 1
+  %c1.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %7 = load float, ptr %c1.i.i, align 4
   %8 = load float, ptr %rsp.i, align 4
   br label %for.body.i
@@ -9271,7 +9237,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i:       ; preds = %if.end.i.i.i, %if.t
 _ZNK4pbrt20RGBUnboundedSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
   %.fca.0.insert.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i, 0
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   %.fca.1.insert.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i, <2 x float> %.fca.1.load.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
@@ -9289,9 +9255,9 @@ if.then13:                                        ; preds = %land.end
   call void @_ZN4pbrt17RGBAlbedoSpectrumC1ERKNS_13RGBColorSpaceENS_3RGBE(ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(152) %3, <2 x float> %17, float %retval.0.i16.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i9, i8 0, i64 16, i1 false)
-  %c2.i.i10 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp14, i64 0, i32 2
+  %c2.i.i10 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %18 = load float, ptr %c2.i.i10, align 4
-  %c1.i.i11 = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ref.tmp14, i64 0, i32 1
+  %c1.i.i11 = getelementptr inbounds i8, ptr %ref.tmp14, i64 4
   %19 = load float, ptr %c1.i.i11, align 4
   %20 = load float, ptr %ref.tmp14, align 4
   br label %for.body.i12
@@ -9331,7 +9297,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i22:     ; preds = %if.end.i.i.i15, %if
 _ZNK4pbrt17RGBAlbedoSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i22
   %.fca.0.load.i27 = load <2 x float>, ptr %retval.i9, align 8
   %.fca.0.insert.i28 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i27, 0
-  %.fca.1.gep.i29 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i9, i64 0, i32 1
+  %.fca.1.gep.i29 = getelementptr inbounds i8, ptr %retval.i9, i64 8
   %.fca.1.load.i30 = load <2 x float>, ptr %.fca.1.gep.i29, align 8
   %.fca.1.insert.i31 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i28, <2 x float> %.fca.1.load.i30, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i9)
@@ -9403,8 +9369,8 @@ sw.bb:                                            ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i, i8 0, i64 16, i1 false)
-  %nStored.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %ptr, i64 0, i32 2, i32 3
-  %ptr.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %ptr, i64 0, i32 2, i32 1
+  %nStored.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 32
+  %ptr.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %sw.bb4
@@ -9441,7 +9407,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i, %lor.l
 _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_22DenselySampledSpectrumEEEDaS4_.exit: ; preds = %for.inc.i.i
   %.fca.0.load.i.i = load <2 x float>, ptr %retval.i.i, align 8
   %.fca.0.insert.i.i = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i.i, 0
-  %.fca.1.gep.i.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i.i, i64 0, i32 1
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %retval.i.i, i64 8
   %.fca.1.load.i.i = load <2 x float>, ptr %.fca.1.gep.i.i, align 8
   %.fca.1.insert.i.i = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i, <2 x float> %.fca.1.load.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
@@ -9466,7 +9432,7 @@ for.body.i.i15:                                   ; preds = %for.body.i.i15, %sw
 _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23PiecewiseLinearSpectrumEEEDaS4_.exit: ; preds = %for.body.i.i15
   %.fca.0.load.i.i20 = load <2 x float>, ptr %retval.i.i14, align 8
   %.fca.0.insert.i.i21 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i.i20, 0
-  %.fca.1.gep.i.i22 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i.i14, i64 0, i32 1
+  %.fca.1.gep.i.i22 = getelementptr inbounds i8, ptr %retval.i.i14, i64 8
   %.fca.1.load.i.i23 = load <2 x float>, ptr %.fca.1.gep.i.i22, align 8
   %.fca.1.insert.i.i24 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i21, <2 x float> %.fca.1.load.i.i23, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i14)
@@ -9475,9 +9441,9 @@ _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_23Piecewis
 sw.bb12:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i25, i8 0, i64 16, i1 false)
-  %c2.i.i.i = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ptr, i64 0, i32 2
+  %c2.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 8
   %8 = load float, ptr %c2.i.i.i, align 4
-  %c1.i.i.i = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ptr, i64 0, i32 1
+  %c1.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 4
   %9 = load float, ptr %c1.i.i.i, align 4
   %10 = load float, ptr %ptr, align 4
   br label %for.body.i.i26
@@ -9517,7 +9483,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i:     ; preds = %if.end.i.i.i.i, %if
 _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_17RGBAlbedoSpectrumEEEDaS4_.exit: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i
   %.fca.0.load.i.i32 = load <2 x float>, ptr %retval.i.i25, align 8
   %.fca.0.insert.i.i33 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i.i32, 0
-  %.fca.1.gep.i.i34 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i.i25, i64 0, i32 1
+  %.fca.1.gep.i.i34 = getelementptr inbounds i8, ptr %retval.i.i25, i64 8
   %.fca.1.load.i.i35 = load <2 x float>, ptr %.fca.1.gep.i.i34, align 8
   %.fca.1.insert.i.i36 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i33, <2 x float> %.fca.1.load.i.i35, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i25)
@@ -9527,10 +9493,10 @@ sw.bb16:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i37)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i.i37, i8 0, i64 16, i1 false)
   %16 = load float, ptr %ptr, align 4
-  %rsp.i.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1
-  %c2.i.i.i38 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 2
+  %rsp.i.i = getelementptr inbounds i8, ptr %ptr, i64 4
+  %c2.i.i.i38 = getelementptr inbounds i8, ptr %ptr, i64 12
   %17 = load float, ptr %c2.i.i.i38, align 4
-  %c1.i.i.i39 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 1
+  %c1.i.i.i39 = getelementptr inbounds i8, ptr %ptr, i64 8
   %18 = load float, ptr %c1.i.i.i39, align 4
   %19 = load float, ptr %rsp.i.i, align 4
   br label %for.body.i.i40
@@ -9571,7 +9537,7 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i50:   ; preds = %if.end.i.i.i.i43, %
 _ZZNK4pbrt8Spectrum6SampleERKNS_18SampledWavelengthsEENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS4_.exit: ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i50
   %.fca.0.load.i.i55 = load <2 x float>, ptr %retval.i.i37, align 8
   %.fca.0.insert.i.i56 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load.i.i55, 0
-  %.fca.1.gep.i.i57 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i.i37, i64 0, i32 1
+  %.fca.1.gep.i.i57 = getelementptr inbounds i8, ptr %retval.i.i37, i64 8
   %.fca.1.load.i.i58 = load <2 x float>, ptr %.fca.1.gep.i.i57, align 8
   %.fca.1.insert.i.i59 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i.i56, <2 x float> %.fca.1.load.i.i58, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i37)
@@ -9609,7 +9575,7 @@ entry:
   %retval.i = alloca %"class.pbrt::SampledSpectrum", align 8
   %s = alloca %"class.pbrt::SampledSpectrum", align 8
   %ref.tmp = alloca %"class.pbrt::SampledSpectrum", align 8
-  %illuminant = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %this, i64 0, i32 2
+  %illuminant = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %illuminant, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -9617,10 +9583,10 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %s, i8 0, i64 16, i1 false)
   %1 = load float, ptr %this, align 8
-  %rsp = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %this, i64 0, i32 1
-  %c2.i = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %this, i64 0, i32 1, i32 2
+  %rsp = getelementptr inbounds i8, ptr %this, i64 4
+  %c2.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load float, ptr %c2.i, align 4
-  %c1.i = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %this, i64 0, i32 1, i32 1
+  %c1.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load float, ptr %c1.i, align 8
   %4 = load float, ptr %rsp, align 4
   br label %for.body
@@ -9661,8 +9627,8 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit:         ; preds = %if.then.i.i, %if.en
 for.end:                                          ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, i8 0, i64 16, i1 false)
-  %nStored.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %0, i64 0, i32 2, i32 3
-  %ptr.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %0, i64 0, i32 2, i32 1
+  %nStored.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ptr.i.i = getelementptr inbounds i8, ptr %0, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.end
@@ -9698,11 +9664,11 @@ for.inc.i:                                        ; preds = %if.else.i, %lor.lhs
 
 _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %for.inc.i
   %.fca.0.load.i = load <2 x float>, ptr %retval.i, align 8
-  %.fca.1.gep.i = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   store <2 x float> %.fca.0.load.i, ptr %ref.tmp, align 8
-  %16 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store <2 x float> %.fca.1.load.i, ptr %16, align 8
   br label %for.body.i.i9
 
@@ -9739,7 +9705,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval, i8 0, i64 16, i1 false)
   %0 = load float, ptr %this, align 4
   %cmp.i = fcmp ugt float %0, 0.000000e+00
-  %normalizationFactor = getelementptr inbounds %"class.pbrt::BlackbodySpectrum", ptr %this, i64 0, i32 1
+  %normalizationFactor = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load float, ptr %normalizationFactor, align 4
   br i1 %cmp.i, label %for.body.us, label %entry.split
 
@@ -9815,7 +9781,7 @@ land.rhs.i:                                       ; preds = %_ZN4pbrt7FastExpEf.
 for.end:                                          ; preds = %for.body, %_ZN4pbrt9BlackbodyEff.exit.us
   %.fca.0.load = load <2 x float>, ptr %retval, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load <2 x float>, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.fca.1.load, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -10800,7 +10766,7 @@ sw.bb:                                            ; preds = %entry
   %2 = load <2 x float>, ptr %ptr, align 4, !noalias !36
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %4 = fmul <4 x float> %1, %3
-  %du.i.i = getelementptr inbounds %"class.pbrt::UVMapping", ptr %ptr, i64 0, i32 2
+  %du.i.i = getelementptr inbounds i8, ptr %ptr, i64 8
   %5 = load <2 x float>, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 4, !noalias !33
   %6 = fmul <2 x float> %5, %2
   %7 = load <2 x float>, ptr %du.i.i, align 4, !noalias !36
@@ -10910,24 +10876,24 @@ sw.bb4:                                           ; preds = %entry
   %pt.sroa.0.0.vec.extract.i.i35 = extractelement <2 x float> %call.fca.0.extract.i.i33, i64 0
   %49 = fmul <2 x float> %call.fca.0.extract.i.i33, %call.fca.0.extract.i.i33
   %mul.i.i.i36 = extractelement <2 x float> %49, i64 0
-  %pt.sroa.0.4.vec.extract.i.i37 = extractelement <2 x float> %call.fca.0.extract.i.i33, i64 1
-  %mul.i12.i.i = fmul float %pt.sroa.0.4.vec.extract.i.i37, %pt.sroa.0.4.vec.extract.i.i37
-  %add.i.i38 = fadd float %mul.i.i.i36, %mul.i12.i.i
-  %mul.i.i40 = fmul float %add.i.i38, 0x401921FB60000000
+  %pt.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %call.fca.0.extract.i.i33, i64 1
+  %mul.i12.i.i = fmul float %pt.sroa.0.4.vec.extract.i.i, %pt.sroa.0.4.vec.extract.i.i
+  %add.i.i37 = fadd float %mul.i.i.i36, %mul.i12.i.i
+  %mul.i.i39 = fmul float %add.i.i37, 0x401921FB60000000
   %50 = fneg <2 x float> %call.fca.0.extract.i.i33
   %51 = shufflevector <2 x float> %call.fca.0.extract.i.i33, <2 x float> %50, <2 x i32> <i32 0, i32 3>
-  %52 = insertelement <2 x float> poison, float %mul.i.i40, i64 0
+  %52 = insertelement <2 x float> poison, float %mul.i.i39, i64 0
   %53 = shufflevector <2 x float> %52, <2 x float> poison, <2 x i32> zeroinitializer
   %54 = fdiv <2 x float> %51, %53
-  %div3.i.i.i43 = fdiv float 0.000000e+00, %mul.i.i40
+  %div3.i.i.i42 = fdiv float 0.000000e+00, %mul.i.i39
   %call12.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i25, float %agg.tmp.sroa.4.0.copyload.i27), !noalias !48
   %call12.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call12.i.i, 0
   %call12.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call12.i.i, 1
   %call18.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i29, float %agg.tmp.sroa.6.0.copyload.i31), !noalias !48
   %call18.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call18.i.i, 0
   %call18.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call18.i.i, 1
-  %mul6.i.i.i48 = fmul float %call12.fca.1.extract.i.i, %div3.i.i.i43
-  %mul6.i23.i.i = fmul float %call18.fca.1.extract.i.i, %div3.i.i.i43
+  %mul6.i.i.i47 = fmul float %call12.fca.1.extract.i.i, %div3.i.i.i42
+  %mul6.i23.i.i = fmul float %call18.fca.1.extract.i.i, %div3.i.i.i42
   %55 = shufflevector <2 x float> %call12.fca.0.extract.i.i, <2 x float> %call18.fca.0.extract.i.i, <4 x i32> <i32 1, i32 2, i32 0, i32 2>
   %56 = shufflevector <2 x float> %54, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %57 = shufflevector <4 x float> %56, <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
@@ -10936,12 +10902,12 @@ sw.bb4:                                           ; preds = %entry
   %60 = shufflevector <4 x float> %57, <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x i32> <i32 1, i32 0, i32 6, i32 7>
   %61 = fmul <4 x float> %59, %60
   %62 = fadd <4 x float> %58, %61
-  %63 = insertelement <4 x float> poison, float %mul6.i.i.i48, i64 0
+  %63 = insertelement <4 x float> poison, float %mul6.i.i.i47, i64 0
   %64 = insertelement <4 x float> %63, float %mul6.i23.i.i, i64 1
   %65 = insertelement <4 x float> %64, float %call12.fca.1.extract.i.i, i64 2
   %66 = insertelement <4 x float> %65, float %call18.fca.1.extract.i.i, i64 3
   %67 = fadd <4 x float> %66, %62
-  %call.i.i.i = tail call noundef float @atan2f(float noundef %pt.sroa.0.4.vec.extract.i.i37, float noundef %pt.sroa.0.0.vec.extract.i.i35) #19, !noalias !48
+  %call.i.i.i = tail call noundef float @atan2f(float noundef %pt.sroa.0.4.vec.extract.i.i, float noundef %pt.sroa.0.0.vec.extract.i.i35) #19, !noalias !48
   %add36.i.i = fadd float %call.i.i.i, 0x400921FB60000000
   %mul37.i.i = fmul float %add36.i.i, 0x3FC45F3060000000
   %68 = insertelement <2 x float> poison, float %mul37.i.i, i64 0
@@ -10949,37 +10915,37 @@ sw.bb4:                                           ; preds = %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %agg.tmp.sroa.0.0.copyload.i51 = load <2 x float>, ptr %0, align 4, !noalias !51
-  %agg.tmp.sroa.2.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %0, i64 8
-  %agg.tmp.sroa.2.0.copyload.i53 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i52, align 4, !noalias !51
-  %agg.tmp.sroa.3.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %0, i64 12
-  %agg.tmp.sroa.3.0.copyload.i55 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i54, align 4, !noalias !51
-  %agg.tmp.sroa.4.0..sroa_idx.i56 = getelementptr inbounds i8, ptr %0, i64 20
-  %agg.tmp.sroa.4.0.copyload.i57 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i56, align 4, !noalias !51
-  %agg.tmp.sroa.5.0..sroa_idx.i58 = getelementptr inbounds i8, ptr %0, i64 24
-  %agg.tmp.sroa.5.0.copyload.i59 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i58, align 4, !noalias !51
-  %agg.tmp.sroa.6.0..sroa_idx.i60 = getelementptr inbounds i8, ptr %0, i64 32
-  %agg.tmp.sroa.6.0.copyload.i61 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i60, align 4, !noalias !51
-  %call.i.i62 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i51, float %agg.tmp.sroa.2.0.copyload.i53), !noalias !54
-  %call.fca.0.extract.i.i63 = extractvalue { <2 x float>, float } %call.i.i62, 0
-  %call.fca.1.extract.i.i64 = extractvalue { <2 x float>, float } %call.i.i62, 1
-  %call6.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i55, float %agg.tmp.sroa.4.0.copyload.i57), !noalias !54
+  %agg.tmp.sroa.0.0.copyload.i50 = load <2 x float>, ptr %0, align 4, !noalias !51
+  %agg.tmp.sroa.2.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %0, i64 8
+  %agg.tmp.sroa.2.0.copyload.i52 = load float, ptr %agg.tmp.sroa.2.0..sroa_idx.i51, align 4, !noalias !51
+  %agg.tmp.sroa.3.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %0, i64 12
+  %agg.tmp.sroa.3.0.copyload.i54 = load <2 x float>, ptr %agg.tmp.sroa.3.0..sroa_idx.i53, align 4, !noalias !51
+  %agg.tmp.sroa.4.0..sroa_idx.i55 = getelementptr inbounds i8, ptr %0, i64 20
+  %agg.tmp.sroa.4.0.copyload.i56 = load float, ptr %agg.tmp.sroa.4.0..sroa_idx.i55, align 4, !noalias !51
+  %agg.tmp.sroa.5.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %0, i64 24
+  %agg.tmp.sroa.5.0.copyload.i58 = load <2 x float>, ptr %agg.tmp.sroa.5.0..sroa_idx.i57, align 4, !noalias !51
+  %agg.tmp.sroa.6.0..sroa_idx.i59 = getelementptr inbounds i8, ptr %0, i64 32
+  %agg.tmp.sroa.6.0.copyload.i60 = load float, ptr %agg.tmp.sroa.6.0..sroa_idx.i59, align 4, !noalias !51
+  %call.i.i61 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_6Point3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.0.0.copyload.i50, float %agg.tmp.sroa.2.0.copyload.i52), !noalias !54
+  %call.fca.0.extract.i.i62 = extractvalue { <2 x float>, float } %call.i.i61, 0
+  %call.fca.1.extract.i.i63 = extractvalue { <2 x float>, float } %call.i.i61, 1
+  %call6.i.i = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.3.0.copyload.i54, float %agg.tmp.sroa.4.0.copyload.i56), !noalias !54
   %call6.fca.0.extract.i.i = extractvalue { <2 x float>, float } %call6.i.i, 0
   %call6.fca.1.extract.i.i = extractvalue { <2 x float>, float } %call6.i.i, 1
-  %call12.i.i65 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i59, float %agg.tmp.sroa.6.0.copyload.i61), !noalias !54
-  %call12.fca.0.extract.i.i66 = extractvalue { <2 x float>, float } %call12.i.i65, 0
-  %70 = shufflevector <2 x float> %call12.fca.0.extract.i.i66, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %71 = shufflevector <2 x float> %call12.fca.0.extract.i.i66, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
-  %72 = shufflevector <2 x float> %call12.fca.0.extract.i.i66, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %73 = shufflevector <2 x float> %call12.fca.0.extract.i.i66, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %call12.fca.1.extract.i.i67 = extractvalue { <2 x float>, float } %call12.i.i65, 1
-  %vs.i.i = getelementptr inbounds %"class.pbrt::PlanarMapping", ptr %ptr, i64 0, i32 1
+  %call12.i.i64 = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Vector3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %ptr, <2 x float> %agg.tmp.sroa.5.0.copyload.i58, float %agg.tmp.sroa.6.0.copyload.i60), !noalias !54
+  %call12.fca.0.extract.i.i65 = extractvalue { <2 x float>, float } %call12.i.i64, 0
+  %70 = shufflevector <2 x float> %call12.fca.0.extract.i.i65, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
+  %71 = shufflevector <2 x float> %call12.fca.0.extract.i.i65, <2 x float> poison, <4 x i32> <i32 poison, i32 1, i32 poison, i32 poison>
+  %72 = shufflevector <2 x float> %call12.fca.0.extract.i.i65, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %73 = shufflevector <2 x float> %call12.fca.0.extract.i.i65, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %call12.fca.1.extract.i.i66 = extractvalue { <2 x float>, float } %call12.i.i64, 1
+  %vs.i.i = getelementptr inbounds i8, ptr %ptr, i64 128
   %agg.tmp15.sroa.0.0.copyload.i.i = load <2 x float>, ptr %vs.i.i, align 4, !noalias !54
-  %agg.tmp15.sroa.2.0.vs.sroa_idx.i.i = getelementptr inbounds %"class.pbrt::PlanarMapping", ptr %ptr, i64 0, i32 1, i32 0, i32 2
+  %agg.tmp15.sroa.2.0.vs.sroa_idx.i.i = getelementptr inbounds i8, ptr %ptr, i64 136
   %agg.tmp15.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp15.sroa.2.0.vs.sroa_idx.i.i, align 4, !noalias !54
-  %vt.i.i = getelementptr inbounds %"class.pbrt::PlanarMapping", ptr %ptr, i64 0, i32 2
+  %vt.i.i = getelementptr inbounds i8, ptr %ptr, i64 140
   %agg.tmp22.sroa.0.0.copyload.i.i = load <2 x float>, ptr %vt.i.i, align 4, !noalias !54
-  %agg.tmp22.sroa.2.0.vt.sroa_idx.i.i = getelementptr inbounds %"class.pbrt::PlanarMapping", ptr %ptr, i64 0, i32 2, i32 0, i32 2
+  %agg.tmp22.sroa.2.0.vt.sroa_idx.i.i = getelementptr inbounds i8, ptr %ptr, i64 148
   %agg.tmp22.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp22.sroa.2.0.vt.sroa_idx.i.i, align 4, !noalias !54
   %74 = shufflevector <2 x float> %call6.fca.0.extract.i.i, <2 x float> %agg.tmp15.sroa.0.0.copyload.i.i, <4 x i32> <i32 0, i32 2, i32 1, i32 poison>
   %75 = shufflevector <4 x float> %74, <4 x float> %73, <4 x i32> <i32 0, i32 1, i32 2, i32 4>
@@ -10993,22 +10959,22 @@ sw.default:                                       ; preds = %entry
   %83 = fmul <4 x float> %80, %82
   %84 = fadd <4 x float> %78, %83
   %85 = insertelement <4 x float> poison, float %call6.fca.1.extract.i.i, i64 0
-  %86 = insertelement <4 x float> %85, float %call12.fca.1.extract.i.i67, i64 1
+  %86 = insertelement <4 x float> %85, float %call12.fca.1.extract.i.i66, i64 1
   %87 = shufflevector <4 x float> %86, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %88 = insertelement <4 x float> poison, float %agg.tmp15.sroa.2.0.copyload.i.i, i64 0
   %89 = insertelement <4 x float> %88, float %agg.tmp22.sroa.2.0.copyload.i.i, i64 1
   %90 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %91 = fmul <4 x float> %87, %90
   %92 = fadd <4 x float> %91, %84
-  %ds.i.i = getelementptr inbounds %"class.pbrt::PlanarMapping", ptr %ptr, i64 0, i32 3
+  %ds.i.i = getelementptr inbounds i8, ptr %ptr, i64 152
   %93 = load <2 x float>, ptr %ds.i.i, align 4, !noalias !54
   %94 = shufflevector <2 x float> %agg.tmp22.sroa.0.0.copyload.i.i, <2 x float> %agg.tmp15.sroa.0.0.copyload.i.i, <2 x i32> <i32 0, i32 3>
-  %95 = fmul <2 x float> %call.fca.0.extract.i.i63, %94
+  %95 = fmul <2 x float> %call.fca.0.extract.i.i62, %94
   %96 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %97 = shufflevector <2 x float> %agg.tmp15.sroa.0.0.copyload.i.i, <2 x float> %agg.tmp22.sroa.0.0.copyload.i.i, <2 x i32> <i32 0, i32 3>
-  %98 = fmul <2 x float> %call.fca.0.extract.i.i63, %97
+  %98 = fmul <2 x float> %call.fca.0.extract.i.i62, %97
   %99 = fadd <2 x float> %96, %98
-  %100 = insertelement <2 x float> poison, float %call.fca.1.extract.i.i64, i64 0
+  %100 = insertelement <2 x float> poison, float %call.fca.1.extract.i.i63, i64 0
   %101 = shufflevector <2 x float> %100, <2 x float> poison, <2 x i32> zeroinitializer
   %102 = insertelement <2 x float> poison, float %agg.tmp15.sroa.2.0.copyload.i.i, i64 0
   %103 = insertelement <2 x float> %102, float %agg.tmp22.sroa.2.0.copyload.i.i, i64 1
@@ -11021,8 +10987,8 @@ return:                                           ; preds = %sw.default, %sw.bb4
   %107 = phi <4 x float> [ %92, %sw.default ], [ %67, %sw.bb4 ], [ %45, %sw.bb3 ], [ %4, %sw.bb ]
   %108 = phi <2 x float> [ %106, %sw.default ], [ %69, %sw.bb4 ], [ %48, %sw.bb3 ], [ %8, %sw.bb ]
   store <2 x float> %108, ptr %agg.result, align 4
-  %dsdx39.i.i78 = getelementptr inbounds %"struct.pbrt::TexCoord2D", ptr %agg.result, i64 0, i32 1
-  store <4 x float> %107, ptr %dsdx39.i.i78, align 4
+  %dsdx39.i.i77 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store <4 x float> %107, ptr %dsdx39.i.i77, align 4
   ret void
 }
 
@@ -11036,30 +11002,30 @@ entry:
   %3 = load float, ptr %2, align 4
   %call5 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %4 = extractvalue { ptr, i64 } %call5, 0
-  %arrayidx.i = getelementptr inbounds float, ptr %4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load float, ptr %arrayidx.i, align 4
   %call10 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %6 = extractvalue { ptr, i64 } %call10, 0
-  %arrayidx.i20 = getelementptr inbounds float, ptr %6, i64 2
+  %arrayidx.i20 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load float, ptr %arrayidx.i20, align 4
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %8 = extractvalue { ptr, i64 } %call16, 0
-  %arrayidx.i21 = getelementptr inbounds float, ptr %8, i64 3
+  %arrayidx.i21 = getelementptr inbounds i8, ptr %8, i64 12
   %9 = load float, ptr %arrayidx.i21, align 4
   %call21 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call21, 0
   %11 = load float, ptr %10, align 4
   %call27 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call27, 0
-  %arrayidx.i22 = getelementptr inbounds float, ptr %12, i64 1
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %12, i64 4
   %13 = load float, ptr %arrayidx.i22, align 4
   %call34 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %14 = extractvalue { ptr, i64 } %call34, 0
-  %arrayidx.i23 = getelementptr inbounds float, ptr %14, i64 2
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load float, ptr %arrayidx.i23, align 4
   %call41 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %16 = extractvalue { ptr, i64 } %call41, 0
-  %arrayidx.i24 = getelementptr inbounds float, ptr %16, i64 3
+  %arrayidx.i24 = getelementptr inbounds i8, ptr %16, i64 12
   %17 = load float, ptr %arrayidx.i24, align 4
   %call46 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %18 = extractvalue { ptr, i64 } %call46, 0
@@ -11067,19 +11033,19 @@ entry:
   %mul49 = fmul float %1, %19
   %call52 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %20 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i25 = getelementptr inbounds float, ptr %20, i64 1
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %20, i64 4
   %21 = load float, ptr %arrayidx.i25, align 4
   %mul55 = fmul float %0, %21
   %add56 = fadd float %mul49, %mul55
   %call59 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %22 = extractvalue { ptr, i64 } %call59, 0
-  %arrayidx.i26 = getelementptr inbounds float, ptr %22, i64 2
+  %arrayidx.i26 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load float, ptr %arrayidx.i26, align 4
   %mul62 = fmul float %23, %p.coerce1
   %add63 = fadd float %add56, %mul62
   %call66 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %24 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i27 = getelementptr inbounds float, ptr %24, i64 3
+  %arrayidx.i27 = getelementptr inbounds i8, ptr %24, i64 12
   %25 = load float, ptr %arrayidx.i27, align 4
   %add68 = fadd float %add63, %25
   %call71 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
@@ -11088,19 +11054,19 @@ entry:
   %mul74 = fmul float %1, %27
   %call77 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %28 = extractvalue { ptr, i64 } %call77, 0
-  %arrayidx.i28 = getelementptr inbounds float, ptr %28, i64 1
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %28, i64 4
   %29 = load float, ptr %arrayidx.i28, align 4
   %mul80 = fmul float %0, %29
   %add81 = fadd float %mul74, %mul80
   %call84 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %30 = extractvalue { ptr, i64 } %call84, 0
-  %arrayidx.i29 = getelementptr inbounds float, ptr %30, i64 2
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load float, ptr %arrayidx.i29, align 4
   %mul87 = fmul float %31, %p.coerce1
   %add88 = fadd float %add81, %mul87
   %call91 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 3)
   %32 = extractvalue { ptr, i64 } %call91, 0
-  %arrayidx.i30 = getelementptr inbounds float, ptr %32, i64 3
+  %arrayidx.i30 = getelementptr inbounds i8, ptr %32, i64 12
   %33 = load float, ptr %arrayidx.i30, align 4
   %add93 = fadd float %add88, %33
   %34 = insertelement <2 x float> poison, float %11, i64 0
@@ -11139,22 +11105,22 @@ entry:
   %3 = load float, ptr %2, align 4
   %call5 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %4 = extractvalue { ptr, i64 } %call5, 0
-  %arrayidx.i = getelementptr inbounds float, ptr %4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load float, ptr %arrayidx.i, align 4
   %call10 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %6 = extractvalue { ptr, i64 } %call10, 0
-  %arrayidx.i11 = getelementptr inbounds float, ptr %6, i64 2
+  %arrayidx.i11 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load float, ptr %arrayidx.i11, align 4
   %call16 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %8 = extractvalue { ptr, i64 } %call16, 0
   %9 = load float, ptr %8, align 4
   %call22 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call22, 0
-  %arrayidx.i12 = getelementptr inbounds float, ptr %10, i64 1
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load float, ptr %arrayidx.i12, align 4
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %12 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i13 = getelementptr inbounds float, ptr %12, i64 2
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load float, ptr %arrayidx.i13, align 4
   %14 = insertelement <2 x float> poison, float %9, i64 0
   %15 = insertelement <2 x float> %14, float %5, i64 1
@@ -11176,13 +11142,13 @@ entry:
   %mul39 = fmul float %1, %29
   %call42 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %30 = extractvalue { ptr, i64 } %call42, 0
-  %arrayidx.i14 = getelementptr inbounds float, ptr %30, i64 1
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %30, i64 4
   %31 = load float, ptr %arrayidx.i14, align 4
   %mul45 = fmul float %0, %31
   %add46 = fadd float %mul39, %mul45
   %call49 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %32 = extractvalue { ptr, i64 } %call49, 0
-  %arrayidx.i15 = getelementptr inbounds float, ptr %32, i64 2
+  %arrayidx.i15 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load float, ptr %arrayidx.i15, align 4
   %mul52 = fmul float %33, %v.coerce1
   %add53 = fadd float %add46, %mul52
@@ -11368,13 +11334,13 @@ sw.bb3:                                           ; preds = %entry
 
 lor.lhs.false.i.i:                                ; preds = %sw.bb3
   %conv3.i.i = zext nneg i32 %conv2.i.i to i64
-  %nStored.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %ptr, i64 0, i32 2, i32 3
+  %nStored.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 32
   %5 = load i64, ptr %nStored.i.i.i, align 8
   %cmp5.not.i.i = icmp ugt i64 %5, %conv3.i.i
   br i1 %cmp5.not.i.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %ptr.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %ptr, i64 0, i32 2, i32 1
+  %ptr.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 16
   %6 = load ptr, ptr %ptr.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds float, ptr %6, i64 %conv3.i.i
   %7 = load float, ptr %arrayidx.i.i.i, align 4
@@ -11389,9 +11355,9 @@ sw.bb5:                                           ; preds = %entry
 sw.bb7:                                           ; preds = %entry
   %10 = load ptr, ptr %func, align 8
   %11 = load float, ptr %10, align 4
-  %c2.i.i.i = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ptr, i64 0, i32 2
+  %c2.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 8
   %12 = load float, ptr %c2.i.i.i, align 4
-  %c1.i.i.i = getelementptr inbounds %"class.pbrt::RGBSigmoidPolynomial", ptr %ptr, i64 0, i32 1
+  %c1.i.i.i = getelementptr inbounds i8, ptr %ptr, i64 4
   %13 = load float, ptr %c1.i.i.i, align 4
   %14 = load float, ptr %ptr, align 4
   %15 = tail call noundef float @llvm.fma.f32(float %11, float %14, float %13)
@@ -11418,10 +11384,10 @@ sw.bb9:                                           ; preds = %entry
   %19 = load ptr, ptr %func, align 8
   %20 = load float, ptr %19, align 4
   %21 = load float, ptr %ptr, align 4
-  %rsp.i.i = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1
-  %c2.i.i.i13 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 2
+  %rsp.i.i = getelementptr inbounds i8, ptr %ptr, i64 4
+  %c2.i.i.i13 = getelementptr inbounds i8, ptr %ptr, i64 12
   %22 = load float, ptr %c2.i.i.i13, align 4
-  %c1.i.i.i14 = getelementptr inbounds %"class.pbrt::RGBUnboundedSpectrum", ptr %ptr, i64 0, i32 1, i32 1
+  %c1.i.i.i14 = getelementptr inbounds i8, ptr %ptr, i64 8
   %23 = load float, ptr %c1.i.i.i14, align 4
   %24 = load float, ptr %rsp.i.i, align 4
   %25 = tail call noundef float @llvm.fma.f32(float %20, float %24, float %23)
@@ -11452,17 +11418,17 @@ _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_20RGBUnboundedSpectrumEEEDaS1_.exit: ; p
 sw.bb11:                                          ; preds = %entry
   %29 = load ptr, ptr %func, align 8
   %30 = load float, ptr %29, align 4
-  %illuminant.i.i = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 2
+  %illuminant.i.i = getelementptr inbounds i8, ptr %ptr, i64 16
   %31 = load ptr, ptr %illuminant.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %sw.bb11
   %32 = load float, ptr %ptr, align 8
-  %rsp.i.i27 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 1
-  %c2.i.i.i28 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 1, i32 2
+  %rsp.i.i27 = getelementptr inbounds i8, ptr %ptr, i64 4
+  %c2.i.i.i28 = getelementptr inbounds i8, ptr %ptr, i64 12
   %33 = load float, ptr %c2.i.i.i28, align 4
-  %c1.i.i.i29 = getelementptr inbounds %"class.pbrt::RGBIlluminantSpectrum", ptr %ptr, i64 0, i32 1, i32 1
+  %c1.i.i.i29 = getelementptr inbounds i8, ptr %ptr, i64 8
   %34 = load float, ptr %c1.i.i.i29, align 4
   %35 = load float, ptr %rsp.i.i27, align 4
   %36 = tail call noundef float @llvm.fma.f32(float %30, float %35, float %34)
@@ -11497,13 +11463,13 @@ _ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i:     ; preds = %if.end.i.i.i.i30, %
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNK4pbrt20RGBSigmoidPolynomialclEf.exit.i.i
   %conv3.i.i.i = zext nneg i32 %conv2.i.i.i to i64
-  %nStored.i.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %31, i64 0, i32 2, i32 3
+  %nStored.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 32
   %42 = load i64, ptr %nStored.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp ugt i64 %42, %conv3.i.i.i
   br i1 %cmp5.not.i.i.i, label %if.end.i.i.i, label %_ZNK4pbrt22DenselySampledSpectrumclEf.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
-  %ptr.i.i.i.i = getelementptr inbounds %"class.pbrt::DenselySampledSpectrum", ptr %31, i64 0, i32 2, i32 1
+  %ptr.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 16
   %43 = load ptr, ptr %ptr.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds float, ptr %43, i64 %conv3.i.i.i
   %44 = load float, ptr %arrayidx.i.i.i.i, align 4
@@ -11569,7 +11535,7 @@ land.rhs.i.i.i:                                   ; preds = %_ZN4pbrt7FastExpEf.
 
 _ZZNK4pbrt8SpectrumclEfENKUlT_E_clIPKNS_17BlackbodySpectrumEEEDaS1_.exit: ; preds = %sw.default, %_ZN4pbrt7FastExpEf.exit.i.i.i
   %retval.0.i.i.i44 = phi float [ 0.000000e+00, %sw.default ], [ %div5.i.i.i, %_ZN4pbrt7FastExpEf.exit.i.i.i ]
-  %normalizationFactor.i.i = getelementptr inbounds %"class.pbrt::BlackbodySpectrum", ptr %ptr, i64 0, i32 1
+  %normalizationFactor.i.i = getelementptr inbounds i8, ptr %ptr, i64 4
   %56 = load float, ptr %normalizationFactor.i.i, align 4
   %mul.i.i45 = fmul float %retval.0.i.i.i44, %56
   br label %return
@@ -11876,9 +11842,9 @@ if.then14:                                        ; preds = %if.end12
 invoke.cont15:                                    ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !57
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !57
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !57
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad16
@@ -12020,9 +11986,9 @@ if.then12:                                        ; preds = %if.end10
 invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !60
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !60
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !60
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad14
@@ -12166,9 +12132,9 @@ if.then12:                                        ; preds = %if.end10
 invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !63
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !63
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !63
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad14
@@ -12310,9 +12276,9 @@ if.then36:                                        ; preds = %if.end34
 invoke.cont37:                                    ; preds = %if.then36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !66
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !66
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !66
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad38
@@ -12596,9 +12562,9 @@ if.then32:                                        ; preds = %if.end30
 invoke.cont33:                                    ; preds = %if.then32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !72
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !72
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !72
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad34
@@ -12742,9 +12708,9 @@ if.then30:                                        ; preds = %if.end28
 invoke.cont31:                                    ; preds = %if.then30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !75
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !75
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !75
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad32
@@ -12886,9 +12852,9 @@ if.then28:                                        ; preds = %if.end26
 invoke.cont29:                                    ; preds = %if.then28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !78
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !78
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !78
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad30
@@ -13030,9 +12996,9 @@ if.then26:                                        ; preds = %if.end24
 invoke.cont27:                                    ; preds = %if.then26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !81
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !81
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !81
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad28
@@ -13174,9 +13140,9 @@ if.then24:                                        ; preds = %if.end22
 invoke.cont25:                                    ; preds = %if.then24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !84
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !84
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.1", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !84
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad26
@@ -14012,9 +13978,9 @@ if.then14:                                        ; preds = %if.end12
 invoke.cont15:                                    ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !87
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !87
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !87
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad16
@@ -14156,9 +14122,9 @@ if.then12:                                        ; preds = %if.end10
 invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !90
-  %y.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !90
-  %z.i.i = getelementptr inbounds %"class.pbrt::Tuple3.0", ptr %v, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !90
   invoke void @_ZN4pbrt8internal9ToString3IfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_S8_S8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, float noundef %1, float noundef %2, float noundef %3)
           to label %.noexc unwind label %lpad14
@@ -22839,21 +22805,21 @@ declare void @_ZN4pbrt26ComputeBeamDiffusionBSSRDFEffPNS_11BSSRDFTableE(float no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt11BSSRDFTableD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %nStored.le.i.i = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 4, i32 3
+  %nStored.le.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i64 0, ptr %nStored.le.i.i, align 8
-  %ptr.i = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 4, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %ptr.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  %profileCDF = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 4
-  %nAlloc.i = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 4, i32 2
+  %profileCDF = getelementptr inbounds i8, ptr %this, i64 128
+  %nAlloc.i = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i64, ptr %nAlloc.i, align 8
   %mul.i.i = shl i64 %1, 2
   %2 = load ptr, ptr %profileCDF, align 8
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %0, i64 noundef %mul.i.i, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit unwind label %terminate.lpad.i
@@ -22866,21 +22832,21 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit: ; preds = %entry, %if.end.i.i.i.i
-  %nStored.le.i.i1 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 3, i32 3
+  %nStored.le.i.i1 = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %nStored.le.i.i1, align 8
-  %ptr.i2 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 3, i32 1
+  %ptr.i2 = getelementptr inbounds i8, ptr %this, i64 104
   %6 = load ptr, ptr %ptr.i2, align 8
   %tobool.not.i.i.i.i3 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i3, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit10, label %if.end.i.i.i.i4
 
 if.end.i.i.i.i4:                                  ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit
-  %rhoEff = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 3
-  %nAlloc.i5 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 3, i32 2
+  %rhoEff = getelementptr inbounds i8, ptr %this, i64 96
+  %nAlloc.i5 = getelementptr inbounds i8, ptr %this, i64 112
   %7 = load i64, ptr %nAlloc.i5, align 8
   %mul.i.i6 = shl i64 %7, 2
   %8 = load ptr, ptr %rhoEff, align 8
   %vtable.i.i.i.i7 = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i7, i64 3
+  %vfn.i.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i.i7, i64 24
   %9 = load ptr, ptr %vfn.i.i.i.i8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6, i64 noundef %mul.i.i6, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit10 unwind label %terminate.lpad.i9
@@ -22893,21 +22859,21 @@ terminate.lpad.i9:                                ; preds = %if.end.i.i.i.i4
   unreachable
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit10: ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit, %if.end.i.i.i.i4
-  %nStored.le.i.i11 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 2, i32 3
+  %nStored.le.i.i11 = getelementptr inbounds i8, ptr %this, i64 88
   store i64 0, ptr %nStored.le.i.i11, align 8
-  %ptr.i12 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 2, i32 1
+  %ptr.i12 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load ptr, ptr %ptr.i12, align 8
   %tobool.not.i.i.i.i13 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i13, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit20, label %if.end.i.i.i.i14
 
 if.end.i.i.i.i14:                                 ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit10
-  %profile = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 2
-  %nAlloc.i15 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 2, i32 2
+  %profile = getelementptr inbounds i8, ptr %this, i64 64
+  %nAlloc.i15 = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load i64, ptr %nAlloc.i15, align 8
   %mul.i.i16 = shl i64 %13, 2
   %14 = load ptr, ptr %profile, align 8
   %vtable.i.i.i.i17 = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i17, i64 3
+  %vfn.i.i.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i.i.i17, i64 24
   %15 = load ptr, ptr %vfn.i.i.i.i18, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %12, i64 noundef %mul.i.i16, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit20 unwind label %terminate.lpad.i19
@@ -22920,21 +22886,21 @@ terminate.lpad.i19:                               ; preds = %if.end.i.i.i.i14
   unreachable
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit20: ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit10, %if.end.i.i.i.i14
-  %nStored.le.i.i21 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 1, i32 3
+  %nStored.le.i.i21 = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %nStored.le.i.i21, align 8
-  %ptr.i22 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 1, i32 1
+  %ptr.i22 = getelementptr inbounds i8, ptr %this, i64 40
   %18 = load ptr, ptr %ptr.i22, align 8
   %tobool.not.i.i.i.i23 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i23, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit30, label %if.end.i.i.i.i24
 
 if.end.i.i.i.i24:                                 ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit20
-  %radiusSamples = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 1
-  %nAlloc.i25 = getelementptr inbounds %"struct.pbrt::BSSRDFTable", ptr %this, i64 0, i32 1, i32 2
+  %radiusSamples = getelementptr inbounds i8, ptr %this, i64 32
+  %nAlloc.i25 = getelementptr inbounds i8, ptr %this, i64 48
   %19 = load i64, ptr %nAlloc.i25, align 8
   %mul.i.i26 = shl i64 %19, 2
   %20 = load ptr, ptr %radiusSamples, align 8
   %vtable.i.i.i.i27 = load ptr, ptr %20, align 8
-  %vfn.i.i.i.i28 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i27, i64 3
+  %vfn.i.i.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i.i.i27, i64 24
   %21 = load ptr, ptr %vfn.i.i.i.i28, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %18, i64 noundef %mul.i.i26, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit30 unwind label %terminate.lpad.i29
@@ -22947,20 +22913,20 @@ terminate.lpad.i29:                               ; preds = %if.end.i.i.i.i24
   unreachable
 
 _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit30: ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit20, %if.end.i.i.i.i24
-  %nStored.le.i.i31 = getelementptr inbounds %"class.pstd::vector.12", ptr %this, i64 0, i32 3
+  %nStored.le.i.i31 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %nStored.le.i.i31, align 8
-  %ptr.i32 = getelementptr inbounds %"class.pstd::vector.12", ptr %this, i64 0, i32 1
+  %ptr.i32 = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load ptr, ptr %ptr.i32, align 8
   %tobool.not.i.i.i.i33 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i33, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit40, label %if.end.i.i.i.i34
 
 if.end.i.i.i.i34:                                 ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit30
-  %nAlloc.i35 = getelementptr inbounds %"class.pstd::vector.12", ptr %this, i64 0, i32 2
+  %nAlloc.i35 = getelementptr inbounds i8, ptr %this, i64 16
   %25 = load i64, ptr %nAlloc.i35, align 8
   %mul.i.i36 = shl i64 %25, 2
   %26 = load ptr, ptr %this, align 8
   %vtable.i.i.i.i37 = load ptr, ptr %26, align 8
-  %vfn.i.i.i.i38 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i37, i64 3
+  %vfn.i.i.i.i38 = getelementptr inbounds i8, ptr %vtable.i.i.i.i37, i64 24
   %27 = load ptr, ptr %vfn.i.i.i.i38, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %24, i64 noundef %mul.i.i36, i64 noundef 4)
           to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit40 unwind label %terminate.lpad.i39

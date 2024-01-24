@@ -13,28 +13,28 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10serde_json4read9SliceRead3new17h831c4b3e4e35c458E(ptr nocapture writeonly sret({ { ptr, i64 }, i64 }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17hec85c356bf0a74fdE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %2, %12
   %.sroa.3.0 = phi i8 [ %15, %12 ], [ undef, %2 ]
-  %9 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = zext i1 %7 to i8
   store i8 %10, ptr %9, align 1
-  %11 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %.sroa.3.0, ptr %11, align 2
   store i8 0, ptr %0, align 8
   ret void
@@ -50,19 +50,19 @@ define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h32f90d1890d2d55dE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %2, %12
   %.sroa.3.0 = phi i8 [ %15, %12 ], [ undef, %2 ]
-  %9 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 1
   %10 = zext i1 %7 to i8
   store i8 %10, ptr %9, align 1
-  %11 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %.sroa.3.0, ptr %11, align 2
   store i8 0, ptr %0, align 8
   ret void
@@ -76,7 +76,7 @@ define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$7discard17h15bf199047b13aafE"(ptr nocapture align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !5
   %4 = add i64 %3, 1
   store i64 %4, ptr %2, align 8
@@ -86,7 +86,7 @@ define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$8position17hca131ef552c1f33bE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = alloca { ptr, ptr }, align 8
-  %3 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
   %.val = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %5 = getelementptr i8, ptr %0, i64 8
@@ -99,7 +99,7 @@ define { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_jso
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
   store ptr %10, ptr %2, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %11, ptr %12, align 8
   %13 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h543eddb20936dcd7E"(ptr nonnull align 8 %2)
   %14 = icmp eq ptr %13, null
@@ -139,9 +139,9 @@ _ZN10serde_json4read9SliceRead17position_of_index17h0d21b3bd62a43451E.exit: ; pr
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$13peek_position17ha9f1f407c541498fE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = alloca { ptr, ptr }, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = add i64 %6, 1
   %8 = tail call i64 @_ZN4core3cmp3min17h64274c0cdf9ca992E(i64 %4, i64 %7)
@@ -155,7 +155,7 @@ define { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_jso
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
   store ptr %13, ptr %2, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %14, ptr %15, align 8
   %16 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h543eddb20936dcd7E"(ptr nonnull align 8 %2)
   %17 = icmp eq ptr %16, null
@@ -194,7 +194,7 @@ _ZN10serde_json4read9SliceRead17position_of_index17h0d21b3bd62a43451E.exit: ; pr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$11byte_offset17h91e38c4d7ccf45edE"(ptr nocapture readonly align 8 %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -215,8 +215,8 @@ define void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read.
 define align 8 ptr @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$10ignore_str17hf77f4c39fe3ff243E"(ptr align 8 %0) unnamed_addr #3 {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca { i64, [2 x i64] }, align 8
-  %4 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %4, align 8, !noundef !5
   %7 = load i64, ptr %5, align 8, !noundef !5
   %8 = icmp ult i64 %6, %7
@@ -298,10 +298,10 @@ define void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read.
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i32, i32 }, align 4
   %5 = alloca { i64, [2 x i64] }, align 8
-  %6 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = add i64 %7, 4
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = icmp ugt i64 %8, %10
   br i1 %11, label %19, label %12
@@ -311,7 +311,7 @@ define void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read.
   %14 = extractvalue { i32, i32 } %13, 0
   %15 = extractvalue { i32, i32 } %13, 1
   store i32 %14, ptr %4, align 4
-  %16 = getelementptr inbounds { i32, i32 }, ptr %4, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %15, ptr %16, align 4
   %17 = call { i32, i32 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17hf56574c53103f0b9E"(ptr nonnull align 4 %4)
   %.fca.0.extract16 = extractvalue { i32, i32 } %17, 0
@@ -326,7 +326,7 @@ define void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read.
 
 ._crit_edge:                                      ; preds = %35, %12
   %.0.lcssa = phi i16 [ 0, %12 ], [ %38, %35 ]
-  %20 = getelementptr inbounds { [1 x i16], i16 }, ptr %0, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 2
   store i16 %.0.lcssa, ptr %20, align 2
   store i16 0, ptr %0, align 8
   br label %24
@@ -384,9 +384,9 @@ define void @_ZN10serde_json4read7StrRead3new17h98c6113eebbb8e9fE(ptr nocapture 
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4next17h56db568953da1733E"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17hec85c356bf0a74fdE.exit"
@@ -401,10 +401,10 @@ define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..
 
 "_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4next17hec85c356bf0a74fdE.exit": ; preds = %2, %8
   %.sroa.3.0.i = phi i8 [ %11, %8 ], [ undef, %2 ]
-  %13 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 1
   %14 = zext i1 %7 to i8
   store i8 %14, ptr %13, align 1
-  %15 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %.sroa.3.0.i, ptr %15, align 2
   store i8 0, ptr %0, align 8
   ret void
@@ -412,9 +412,9 @@ define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$4peek17h0bff64f79004de5cE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h32f90d1890d2d55dE.exit"
@@ -427,10 +427,10 @@ define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..
 
 "_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$4peek17h32f90d1890d2d55dE.exit": ; preds = %2, %8
   %.sroa.3.0.i = phi i8 [ %11, %8 ], [ undef, %2 ]
-  %12 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 1
   %13 = zext i1 %7 to i8
   store i8 %13, ptr %12, align 1
-  %14 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %0, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 2
   store i8 %.sroa.3.0.i, ptr %14, align 2
   store i8 0, ptr %0, align 8
   ret void
@@ -438,7 +438,7 @@ define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$7discard17h32b6d53759719089E"(ptr nocapture align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !5
   %4 = add i64 %3, 1
   store i64 %4, ptr %2, align 8
@@ -448,7 +448,7 @@ define hidden void @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$8position17had1cbc288853a25dE"(ptr nocapture readonly align 8 %0) unnamed_addr #3 {
   %2 = alloca { ptr, ptr }, align 8
-  %3 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !5
   %.val.i = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %5 = getelementptr i8, ptr %0, i64 8
@@ -461,7 +461,7 @@ define { i64, i64 } @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json.
   %10 = extractvalue { ptr, ptr } %9, 0
   %11 = extractvalue { ptr, ptr } %9, 1
   store ptr %10, ptr %2, align 8
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %11, ptr %12, align 8
   %13 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h543eddb20936dcd7E"(ptr nonnull align 8 %2)
   %14 = icmp eq ptr %13, null
@@ -506,7 +506,7 @@ define { i64, i64 } @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @"_ZN68_$LT$serde_json..read..StrRead$u20$as$u20$serde_json..read..Read$GT$11byte_offset17hbca2e7249de383ccE"(ptr nocapture readonly align 8 %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -549,9 +549,9 @@ define void @_ZN10serde_json4read12parse_escape16encode_surrogate17h4b5076c89c3b
   %12 = and i8 %11, 63
   %13 = or disjoint i8 %12, -128
   store i8 %6, ptr %3, align 1
-  %14 = getelementptr inbounds [3 x i8], ptr %3, i64 0, i64 1
+  %14 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 %10, ptr %14, align 1
-  %15 = getelementptr inbounds [3 x i8], ptr %3, i64 0, i64 2
+  %15 = getelementptr inbounds i8, ptr %3, i64 2
   store i8 %13, ptr %15, align 1
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h55bebe5af2f4a4baE"(ptr align 8 %0, ptr nonnull align 1 %3, i64 3)
   ret void

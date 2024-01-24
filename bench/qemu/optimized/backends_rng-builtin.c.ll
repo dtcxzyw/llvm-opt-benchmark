@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.RngBuiltin = type { %struct.RngBackend, ptr }
-%struct.RngBackend = type { %struct.Object, i8, %struct.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.RngBackendClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.RngRequest = type { ptr, ptr, ptr, i64, i64, %struct.anon.0 }
-%struct.anon.0 = type { ptr }
 
 @rng_builtin_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 72, i64 0, ptr @rng_builtin_init, ptr null, ptr @rng_builtin_finalize, i8 0, i64 0, ptr @rng_builtin_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"rng-builtin\00", align 1
@@ -46,7 +38,7 @@ define internal void @rng_builtin_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 15, ptr noundef nonnull @__func__.RNG_BUILTIN) #2
   %call1 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @rng_builtin_receive_entropy_bh, ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef null) #2
-  %bh = getelementptr inbounds %struct.RngBuiltin, ptr %call.i, i64 0, i32 1
+  %bh = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %call1, ptr %bh, align 8
   ret void
 }
@@ -55,7 +47,7 @@ entry:
 define internal void @rng_builtin_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 15, ptr noundef nonnull @__func__.RNG_BUILTIN) #2
-  %bh = getelementptr inbounds %struct.RngBuiltin, ptr %call.i, i64 0, i32 1
+  %bh = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load ptr, ptr %bh, align 8
   tail call void @qemu_bh_delete(ptr noundef %0) #2
   ret void
@@ -65,7 +57,7 @@ entry:
 define internal void @rng_builtin_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND_CLASS) #2
-  %request_entropy = getelementptr inbounds %struct.RngBackendClass, ptr %call.i, i64 0, i32 1
+  %request_entropy = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @rng_builtin_request_entropy, ptr %request_entropy, align 8
   ret void
 }
@@ -75,20 +67,20 @@ declare ptr @qemu_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @rng_builtin_receive_entropy_bh(ptr noundef %opaque) #0 {
 entry:
-  %requests = getelementptr inbounds %struct.RngBackend, ptr %opaque, i64 0, i32 2
+  %requests = getelementptr inbounds i8, ptr %opaque, i64 48
   %0 = load ptr, ptr %requests, align 8
   %cmp.not9 = icmp eq ptr %0, null
   br i1 %cmp.not9, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %8, %while.body ], [ %0, %entry ]
-  %data = getelementptr inbounds %struct.RngRequest, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
-  %size = getelementptr inbounds %struct.RngRequest, ptr %1, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i64, ptr %size, align 8
   tail call void @qemu_guest_getrandom_nofail(ptr noundef %2, i64 noundef %3) #2
   %4 = load ptr, ptr %1, align 8
-  %opaque4 = getelementptr inbounds %struct.RngRequest, ptr %1, i64 0, i32 2
+  %opaque4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %opaque4, align 8
   %6 = load ptr, ptr %data, align 8
   %7 = load i64, ptr %size, align 8
@@ -114,7 +106,7 @@ declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #1
 define internal void @rng_builtin_request_entropy(ptr noundef %b, ptr nocapture readnone %req) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 15, ptr noundef nonnull @__func__.RNG_BUILTIN) #2
-  %bh = getelementptr inbounds %struct.RngBuiltin, ptr %call.i, i64 0, i32 1
+  %bh = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load ptr, ptr %bh, align 8
   tail call void @replay_bh_schedule_event(ptr noundef %0) #2
   ret void

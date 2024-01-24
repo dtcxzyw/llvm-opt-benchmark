@@ -17,7 +17,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha72aa36e1df39989E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [4 x i64] }, {} }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
-  %4 = getelementptr inbounds { { { i64, [4 x i64] }, {} }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
@@ -51,7 +51,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf3ae689d0394d6beE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [4 x i64] }, {} }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
-  %4 = getelementptr inbounds { { { i64, [4 x i64] }, {} }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
@@ -68,12 +68,12 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { [176 x i32], i32, [5 x i32] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 704
   store i32 3, ptr %7, align 8
   br label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { { { ptr, ptr }, i64 }, { ptr, ptr, ptr } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 24
   %.fca.0.extract = extractvalue { i64, ptr } %4, 0
   call void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hf401c244a4f0a7bcE"(ptr nonnull sret({ { [24 x i8], i8, [7 x i8] }, ptr, ptr, { { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { ptr, i64 }, i64, { {} }, {} } }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, i8, i8, i8, i8, [4 x i8] } }) align 8 %3, ptr nonnull align 8 %9, i64 %.fca.0.extract, ptr nonnull align 8 %.fca.1.extract)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(728) %3, i64 728, i1 false)
@@ -95,7 +95,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
   br label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { { ptr, ptr }, { ptr, ptr } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
   call void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc75372a8bbd7a210E"(ptr nonnull sret({ { { i64, [9 x i64] }, { [22 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, { { ptr, i64 }, i64 }, ptr, i8, [7 x i8] }) align 8 %3, ptr nonnull align 8 %8, ptr nonnull align 8 %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 8 dereferenceable(496) %3, i64 496, i1 false)
   br label %9
@@ -130,9 +130,9 @@ define { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20
   %5 = alloca { { ptr, ptr }, ptr }, align 8
   %6 = getelementptr i8, ptr %0, i64 16
   store ptr %2, ptr %5, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %6, ptr %8, align 8
   %9 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0ac22dda04b97f1bE(ptr align 8 %0, i64 %1, ptr nonnull align 8 %5)
   ret { i64, i64 } %9
@@ -260,7 +260,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h8a0bc991201447fcE
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he192ed3f6210e9c5E"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { ptr, ptr }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !7, !noundef !5
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
@@ -304,7 +304,7 @@ define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = alloca { { [24 x i8], i8, [7 x i8] } }, align 8
   %4 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   %5 = alloca { {}, { [24 x i8], i8, [7 x i8] } }, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN22serde_derive_internals9internals6respan6respan28_$u7b$$u7b$closure$u7d$$u7d$17h23b73edad2f3d42fE"(ptr nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 %4, ptr nonnull align 8 %6, ptr nonnull align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -319,7 +319,7 @@ define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$1
   %5 = alloca { {}, { [16 x i8], i8, [3 x i8] } }, align 4
   %6 = alloca { { [24 x i8], i8, [7 x i8] } }, align 8
   %7 = alloca { [24 x i8], i8, [7 x i8] }, align 8
-  %8 = getelementptr { ptr, ptr }, ptr %0, i64 0, i32 1
+  %8 = getelementptr i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   call void @"_ZN22serde_derive_internals9internals6respan6respan28_$u7b$$u7b$closure$u7d$$u7d$17h23b73edad2f3d42fE"(ptr nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 %7, ptr nonnull align 8 %8, ptr nonnull align 8 %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -340,7 +340,7 @@ define void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = alloca { { { i64, [39 x i64] }, { [1 x i32] }, [1 x i32] } }, align 8
   %4 = alloca { i64, [39 x i64] }, align 8
   %5 = alloca { {}, { i64, [39 x i64] } }, align 8
-  %6 = getelementptr inbounds { { { { ptr, i64 }, ptr } }, {} }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %3, ptr noundef nonnull align 8 dereferenceable(328) %1, i64 328, i1 false)
   call void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h1b4bb2f4382af795E"(ptr nonnull sret({ i64, [39 x i64] }) align 8 %4, ptr nonnull align 1 %6, ptr nonnull align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %5, ptr noundef nonnull align 8 dereferenceable(320) %4, i64 320, i1 false)

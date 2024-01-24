@@ -18,20 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.ue2::ComponentEUS" = type <{ %"class.ue2::Component", i32, i8, [3 x i8], i32, [4 x i8] }>
-%"class.ue2::Component" = type { ptr, i32, i32 }
-%"class.ue2::ComponentRepeat" = type { %"class.ue2::Component", i32, %"class.std::unique_ptr", i32, i32, %"class.std::vector", %"class.std::vector", i32, i32 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<ue2::PositionInfo>, std::allocator<std::vector<ue2::PositionInfo>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<ue2::PositionInfo>, std::allocator<std::vector<ue2::PositionInfo>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<ue2::PositionInfo>, std::allocator<std::vector<ue2::PositionInfo>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<ue2::PositionInfo>, std::allocator<std::vector<ue2::PositionInfo>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::ComponentWordBoundary" = type <{ %"class.ue2::Component", i32, i32, i8, i8, i8, [5 x i8] }>
 %struct._Guard = type { ptr }
 
 $_ZN3ue218UnsupportedVisitor3preERKNS_18ComponentAssertionE = comdat any
@@ -105,7 +91,7 @@ entry:
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
   store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue218UnsupportedVisitorE, i64 0, inrange i32 0, i64 2), ptr %vis, align 8
   %vtable = load ptr, ptr %root, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(16) %root, ptr noundef nonnull align 8 dereferenceable(8) %vis)
           to label %invoke.cont unwind label %lpad
@@ -399,7 +385,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %loc = getelementptr inbounds %"class.ue2::ComponentEUS", ptr %c, i64 0, i32 1
+  %loc = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i32, ptr %loc, align 8
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
           to label %invoke.cont2 unwind label %lpad
@@ -463,7 +449,7 @@ define linkonce_odr hidden void @_ZN3ue218UnsupportedVisitor3preERKNS_15Componen
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %type = getelementptr inbounds %"class.ue2::ComponentRepeat", ptr %c, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -520,14 +506,14 @@ define linkonce_odr hidden void @_ZN3ue218UnsupportedVisitor3preERKNS_21Componen
 entry:
   %str = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ucp = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %c, i64 0, i32 4
+  %ucp = getelementptr inbounds i8, ptr %c, i64 25
   %0 = load i8, ptr %ucp, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %prefilter = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %c, i64 0, i32 5
+  %prefilter = getelementptr inbounds i8, ptr %c, i64 26
   %2 = load i8, ptr %prefilter, align 2
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
@@ -535,7 +521,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str)
-  %negated = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %c, i64 0, i32 3
+  %negated = getelementptr inbounds i8, ptr %c, i64 24
   %4 = load i8, ptr %negated, align 8
   %5 = and i8 %4, 1
   %tobool3.not = icmp eq i8 %5, 0
@@ -548,7 +534,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %loc = getelementptr inbounds %"class.ue2::ComponentWordBoundary", ptr %c, i64 0, i32 1
+  %loc = getelementptr inbounds i8, ptr %c, i64 16
   %6 = load i32, ptr %loc, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %6)
           to label %invoke.cont6 unwind label %lpad

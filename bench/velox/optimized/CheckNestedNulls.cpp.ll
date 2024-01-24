@@ -3,38 +3,23 @@ source_filename = "bench/velox/original/CheckNestedNulls.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::DecodedVector" = type { i32, ptr, ptr, ptr, %"class.std::optional", ptr, i8, i8, i8, i8, i8, i32, %"class.std::vector", %"class.std::vector.0" }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<const unsigned long *>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<const unsigned long *>::_Storage" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8facebook5velox9functions16checkNestedNullsERKNS0_13DecodedVectorEPKiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %decoded, ptr nocapture noundef readonly %indices, i32 noundef %index, i1 noundef zeroext %throwOnNestedNulls) local_unnamed_addr #0 {
 entry:
-  %nulls_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %decoded, i64 0, i32 3
+  %nulls_.i = getelementptr inbounds i8, ptr %decoded, i64 24
   %0 = load ptr, ptr %nulls_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %isIdentityMapping_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %decoded, i64 0, i32 8
+  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %decoded, i64 58
   %1 = load i8, ptr %isIdentityMapping_.i, align 2
   %2 = and i8 %1, 1
   %tobool2.not.i = icmp eq i8 %2, 0
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %if.then4.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %hasExtraNulls_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %decoded, i64 0, i32 7
+  %hasExtraNulls_.i = getelementptr inbounds i8, ptr %decoded, i64 57
   %3 = load i8, ptr %hasExtraNulls_.i, align 1
   %4 = and i8 %3, 1
   %tobool3.not.i = icmp eq i8 %4, 0
@@ -52,7 +37,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
   br label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
 
 if.end6.i:                                        ; preds = %lor.lhs.false.i
-  %isConstantMapping_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %decoded, i64 0, i32 9
+  %isConstantMapping_.i = getelementptr inbounds i8, ptr %decoded, i64 59
   %6 = load i8, ptr %isConstantMapping_.i, align 1
   %7 = and i8 %6, 1
   %tobool7.not.i = icmp eq i8 %7, 0
@@ -65,7 +50,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   br label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
 
 if.end11.i:                                       ; preds = %if.end6.i
-  %indices_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %decoded, i64 0, i32 1
+  %indices_.i = getelementptr inbounds i8, ptr %decoded, i64 8
   %9 = load ptr, ptr %indices_.i, align 8
   %idxprom.i = sext i32 %index to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i
@@ -87,13 +72,13 @@ _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit: ; preds = %entry, %if.then4.
   br i1 %brmerge, label %return, label %if.then1
 
 if.then1:                                         ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
-  %baseVector_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %decoded, i64 0, i32 5
+  %baseVector_.i = getelementptr inbounds i8, ptr %decoded, i64 48
   %12 = load ptr, ptr %baseVector_.i, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %idxprom
   %13 = load i32, ptr %arrayidx, align 4
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %14 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(99) %12, i32 noundef %13)
   br i1 %call3, label %if.then5, label %return

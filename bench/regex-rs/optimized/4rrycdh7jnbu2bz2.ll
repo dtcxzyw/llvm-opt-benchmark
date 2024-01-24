@@ -20,29 +20,29 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i32], i32 }, ptr %2, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4, !noundef !5
   %8 = icmp eq i32 %7, 4
   br label %25
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds { [1 x i8], i8 }, ptr %2, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %2, i64 1
   %11 = load i8, ptr %10, align 1, !range !7, !noundef !5
   %12 = icmp eq i8 %11, 35
   br label %25
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !8, !noundef !5
-  %16 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr %15, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i8, ptr %16, align 8, !range !7, !noundef !5
   %18 = icmp eq i8 %17, 35
   br label %25
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds { [1 x i64], ptr }, ptr %2, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !align !8, !noundef !5
-  %22 = getelementptr inbounds { { ptr, ptr }, i8, [7 x i8] }, ptr %21, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i8, ptr %22, align 8, !range !7, !noundef !5
   %24 = icmp eq i8 %23, 35
   br label %25

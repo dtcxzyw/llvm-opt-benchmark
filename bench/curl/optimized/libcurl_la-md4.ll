@@ -9,9 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef i32 @Curl_md4it(ptr nocapture noundef writeonly %output, ptr noundef %input, i64 noundef %len) local_unnamed_addr #0 {
 if.end19.i:
   %ctx = alloca %struct.md4_ctx, align 4
-  %a.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 2
+  %a.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %a.i, align 4
-  %hi.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 1
+  %hi.i = getelementptr inbounds i8, ptr %ctx, i64 4
   %call1 = tail call i32 @curlx_uztoui(i64 noundef %len) #6
   %conv = zext i32 %call1 to i64
   %conv1.i = and i32 %call1, 536870911
@@ -32,31 +32,31 @@ MD4_Update.exit:                                  ; preds = %if.end19.i, %if.the
   %.pre = phi i32 [ %.pre.pre, %if.then22.i ], [ %conv1.i, %if.end19.i ]
   %size.addr.1.i = phi i64 [ %and25.i, %if.then22.i ], [ %conv, %if.end19.i ]
   %data.addr.1.i = phi ptr [ %call24.i, %if.then22.i ], [ %input, %if.end19.i ]
-  %buffer27.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6
+  %buffer27.i = getelementptr inbounds i8, ptr %ctx, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buffer27.i, ptr align 1 %data.addr.1.i, i64 %size.addr.1.i, i1 false)
   %and.i = and i32 %.pre, 63
   %conv.i = zext nneg i32 %and.i to i64
-  %buffer.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6
-  %inc.i2 = add nuw nsw i64 %conv.i, 1
-  %arrayidx.i3 = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 %conv.i
-  store i8 -128, ptr %arrayidx.i3, align 1
-  %sub.i4 = xor i64 %conv.i, 63
-  %cmp.i5 = icmp ult i64 %sub.i4, 8
-  br i1 %cmp.i5, label %if.then.i, label %MD4_Final.exit
+  %buffer.i2 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %inc.i3 = add nuw nsw i64 %conv.i, 1
+  %arrayidx.i4 = getelementptr inbounds [64 x i8], ptr %buffer.i2, i64 0, i64 %conv.i
+  store i8 -128, ptr %arrayidx.i4, align 1
+  %sub.i5 = xor i64 %conv.i, 63
+  %cmp.i6 = icmp ult i64 %sub.i5, 8
+  br i1 %cmp.i6, label %if.then.i, label %MD4_Final.exit
 
 if.then.i:                                        ; preds = %MD4_Update.exit
-  %arrayidx3.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 %inc.i2
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3.i, i8 0, i64 %sub.i4, i1 false)
-  %call.i13 = call fastcc ptr @body(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer.i, i64 noundef 64)
+  %arrayidx3.i = getelementptr inbounds [64 x i8], ptr %buffer.i2, i64 0, i64 %inc.i3
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3.i, i8 0, i64 %sub.i5, i1 false)
+  %call.i14 = call fastcc ptr @body(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer.i2, i64 noundef 64)
   br label %MD4_Final.exit
 
 MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %if.then.i
-  %used.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i2, %MD4_Update.exit ]
-  %available.0.i = phi i64 [ 64, %if.then.i ], [ %sub.i4, %MD4_Update.exit ]
-  %d.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 5
-  %c.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 4
-  %b.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 3
-  %arrayidx6.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 %used.0.i
+  %used.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i3, %MD4_Update.exit ]
+  %available.0.i = phi i64 [ 64, %if.then.i ], [ %sub.i5, %MD4_Update.exit ]
+  %d.i = getelementptr inbounds i8, ptr %ctx, i64 20
+  %c.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %b.i = getelementptr inbounds i8, ptr %ctx, i64 12
+  %arrayidx6.i = getelementptr inbounds [64 x i8], ptr %buffer.i2, i64 0, i64 %used.0.i
   %sub7.i = add nsw i64 %available.0.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx6.i, i8 0, i64 %sub7.i, i1 false)
   %0 = load i32, ptr %ctx, align 4
@@ -65,55 +65,55 @@ MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %i
   %and10.i = and i32 %shl.i, 248
   %conv11.i = zext nneg i32 %and10.i to i64
   %call12.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv11.i) #6
-  %arrayidx14.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 56
+  %arrayidx14.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i8 %call12.i, ptr %arrayidx14.i, align 4
   %1 = load i32, ptr %ctx, align 4
-  %shr.i6 = lshr i32 %1, 8
-  %and16.i = and i32 %shr.i6, 255
+  %shr.i7 = lshr i32 %1, 8
+  %and16.i = and i32 %shr.i7, 255
   %conv17.i = zext nneg i32 %and16.i to i64
   %call18.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv17.i) #6
-  %arrayidx20.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 57
+  %arrayidx20.i = getelementptr inbounds i8, ptr %ctx, i64 81
   store i8 %call18.i, ptr %arrayidx20.i, align 1
   %2 = load i32, ptr %ctx, align 4
   %shr22.i = lshr i32 %2, 16
-  %and23.i7 = and i32 %shr22.i, 255
-  %conv24.i = zext nneg i32 %and23.i7 to i64
+  %and23.i8 = and i32 %shr22.i, 255
+  %conv24.i = zext nneg i32 %and23.i8 to i64
   %call25.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv24.i) #6
-  %arrayidx27.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 58
+  %arrayidx27.i = getelementptr inbounds i8, ptr %ctx, i64 82
   store i8 %call25.i, ptr %arrayidx27.i, align 2
   %3 = load i32, ptr %ctx, align 4
   %shr29.i = lshr i32 %3, 24
   %conv31.i = zext nneg i32 %shr29.i to i64
   %call32.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv31.i) #6
-  %arrayidx34.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 59
+  %arrayidx34.i = getelementptr inbounds i8, ptr %ctx, i64 83
   store i8 %call32.i, ptr %arrayidx34.i, align 1
   %4 = load i32, ptr %hi.i, align 4
   %and35.i = and i32 %4, 255
   %conv36.i = zext nneg i32 %and35.i to i64
   %call37.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv36.i) #6
-  %arrayidx39.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 60
+  %arrayidx39.i = getelementptr inbounds i8, ptr %ctx, i64 84
   store i8 %call37.i, ptr %arrayidx39.i, align 4
   %5 = load i32, ptr %hi.i, align 4
   %shr41.i = lshr i32 %5, 8
   %and42.i = and i32 %shr41.i, 255
   %conv43.i = zext nneg i32 %and42.i to i64
   %call44.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv43.i) #6
-  %arrayidx46.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 61
+  %arrayidx46.i = getelementptr inbounds i8, ptr %ctx, i64 85
   store i8 %call44.i, ptr %arrayidx46.i, align 1
   %6 = load i32, ptr %hi.i, align 4
   %shr48.i = lshr i32 %6, 16
   %and49.i = and i32 %shr48.i, 255
   %conv50.i = zext nneg i32 %and49.i to i64
   %call51.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv50.i) #6
-  %arrayidx53.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 62
+  %arrayidx53.i = getelementptr inbounds i8, ptr %ctx, i64 86
   store i8 %call51.i, ptr %arrayidx53.i, align 2
   %7 = load i32, ptr %hi.i, align 4
   %shr55.i = lshr i32 %7, 24
   %conv56.i = zext nneg i32 %shr55.i to i64
   %call57.i = call zeroext i8 @curlx_ultouc(i64 noundef %conv56.i) #6
-  %arrayidx59.i = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 6, i64 63
+  %arrayidx59.i = getelementptr inbounds i8, ptr %ctx, i64 87
   store i8 %call57.i, ptr %arrayidx59.i, align 1
-  %call62.i = call fastcc ptr @body(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer.i, i64 noundef 64)
+  %call62.i = call fastcc ptr @body(ptr noundef nonnull %ctx, ptr noundef nonnull %buffer.i2, i64 noundef 64)
   %8 = load i32, ptr %a.i, align 4
   %and63.i = and i32 %8, 255
   %conv64.i = zext nneg i32 %and63.i to i64
@@ -228,13 +228,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc nonnull ptr @body(ptr nocapture noundef %ctx, ptr noundef readonly %data, i64 noundef %size) unnamed_addr #3 {
 entry:
-  %a1 = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 2
+  %a1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i32, ptr %a1, align 4
-  %b2 = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 3
+  %b2 = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %b2, align 4
-  %c3 = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 4
+  %c3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load i32, ptr %c3, align 4
-  %d4 = getelementptr inbounds %struct.md4_ctx, ptr %ctx, i64 0, i32 5
+  %d4 = getelementptr inbounds i8, ptr %ctx, i64 20
   %3 = load i32, ptr %d4, align 4
   br label %do.body
 

@@ -3,11 +3,6 @@ source_filename = "bench/icu/original/emojiprops.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::EmojiProps" = type { ptr, ptr, [6 x ptr] }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UCPTrie = type { ptr, %union.UCPTrieData, i32, i32, i32, i16, i8, i8, i32, i16, i16, i32, i32 }
-%union.UCPTrieData = type { ptr }
 %"class.icu_75::UCharsTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
 %"class.icu_75::UCharsTrie::Iterator" = type { ptr, ptr, ptr, i32, i32, i8, %"class.icu_75::UnicodeString", i32, i32, ptr }
@@ -35,7 +30,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %cpTrie = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %this, i64 0, i32 1
+  %cpTrie = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %cpTrie, align 8
   invoke void @ucptrie_close_75(ptr noundef %1)
           to label %invoke.cont2 unwind label %terminate.lpad
@@ -96,7 +91,8 @@ if.end.i3:                                        ; preds = %if.then4.i
   br i1 %new.isnull.i, label %if.then2.i, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.end.i3
-  %cpTrie.i.i = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %call1.i, i64 0, i32 1
+  %cpTrie.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %stringTries.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1.i, i8 0, i64 64, i1 false)
   %call.i.i4.i = invoke ptr @udata_openChoice_75(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo, ptr noundef nonnull %call1.i, ptr noundef nonnull %errorCode)
           to label %call.i.i.noexc.i unwind label %lpad.i
@@ -121,7 +117,7 @@ if.then5.i.i.i:                                   ; preds = %call4.i.i.noexc.i
   br label %if.else.thread.i
 
 if.end6.i.i.i:                                    ; preds = %call4.i.i.noexc.i
-  %arrayidx9.i.i.i = getelementptr inbounds i32, ptr %call4.i.i5.i, i64 1
+  %arrayidx9.i.i.i = getelementptr inbounds i8, ptr %call4.i.i5.i, i64 4
   %5 = load i32, ptr %arrayidx9.i.i.i, align 4
   %idx.ext.i.i.i = zext nneg i32 %4 to i64
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call4.i.i5.i, i64 %idx.ext.i.i.i
@@ -147,7 +143,7 @@ for.body.i.i.i:                                   ; preds = %call10.i.i.noexc.i,
   %add.ptr22.i.i.i = getelementptr inbounds i8, ptr %call4.i.i5.i, i64 %idx.ext21.i.i.i
   %cond.i.i.i = select i1 %cmp20.i.i.i, ptr %add.ptr22.i.i.i, ptr null
   %9 = add nsw i64 %indvars.iv.i.i.i, -4
-  %arrayidx25.i.i.i = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %call1.i, i64 0, i32 2, i64 %9
+  %arrayidx25.i.i.i = getelementptr inbounds [6 x ptr], ptr %stringTries.i.i, i64 0, i64 %9
   store ptr %cond.i.i.i, ptr %arrayidx25.i.i.i, align 8
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 10
   br i1 %exitcond.not.i.i.i, label %if.else.i4, label %for.body.i.i.i, !llvm.loop !4
@@ -213,16 +209,16 @@ define noundef signext i8 @_ZN6icu_7510EmojiProps12isAcceptableEPvPKcS3_PK9UData
 entry:
   %3 = load i16, ptr %pInfo, align 2
   %cmp.i = icmp ugt i16 %3, 19
-  %isBigEndian.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 2
+  %isBigEndian.i = getelementptr inbounds i8, ptr %pInfo, i64 4
   %4 = load i8, ptr %isBigEndian.i, align 2
   %.fr5 = freeze i8 %4
-  %charsetFamily.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 3
+  %charsetFamily.i = getelementptr inbounds i8, ptr %pInfo, i64 5
   %5 = load i8, ptr %charsetFamily.i, align 1
   %.fr4 = freeze i8 %5
-  %dataFormat7.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 6
+  %dataFormat7.i = getelementptr inbounds i8, ptr %pInfo, i64 8
   %6 = load <4 x i8>, ptr %dataFormat7.i, align 2
   %.fr = freeze <4 x i8> %6
-  %formatVersion.i = getelementptr inbounds %struct.UDataInfo, ptr %pInfo, i64 0, i32 7
+  %formatVersion.i = getelementptr inbounds i8, ptr %pInfo, i64 12
   %7 = load i8, ptr %formatVersion.i, align 2
   %cmp37.i = icmp eq i8 %7, 1
   %.fr.scalar = bitcast <4 x i8> %.fr to i32
@@ -256,20 +252,24 @@ if.then5:                                         ; preds = %if.end
   br label %for.end
 
 if.end6:                                          ; preds = %if.end
-  %arrayidx9 = getelementptr inbounds i32, ptr %call4, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %call4, i64 4
   %2 = load i32, ptr %arrayidx9, align 4
   %idx.ext = zext nneg i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %idx.ext
   %sub = sub nsw i32 %2, %1
   %call10 = tail call ptr @ucptrie_openFromBinary_75(i32 noundef 0, i32 noundef 2, ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef null, ptr noundef nonnull %errorCode)
-  %cpTrie = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %this, i64 0, i32 1
+  %cpTrie = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call10, ptr %cpTrie, align 8
   %3 = load i32, ptr %errorCode, align 4
   %cmp.i21 = icmp slt i32 %3, 1
-  br i1 %cmp.i21, label %for.body, label %for.end
+  br i1 %cmp.i21, label %for.cond.preheader, label %for.end
 
-for.body:                                         ; preds = %if.end6, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 4, %if.end6 ]
+for.cond.preheader:                               ; preds = %if.end6
+  %stringTries = getelementptr inbounds i8, ptr %this, i64 16
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 4, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx17 = getelementptr inbounds i32, ptr %call4, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -280,7 +280,7 @@ for.body:                                         ; preds = %if.end6, %for.body
   %add.ptr22 = getelementptr inbounds i8, ptr %call4, i64 %idx.ext21
   %cond = select i1 %cmp20, ptr %add.ptr22, ptr null
   %6 = add nsw i64 %indvars.iv, -4
-  %arrayidx25 = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %this, i64 0, i32 2, i64 %6
+  %arrayidx25 = getelementptr inbounds [6 x ptr], ptr %stringTries, i64 0, i64 %6
   store ptr %cond, ptr %arrayidx25, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -299,14 +299,14 @@ declare ptr @ucptrie_openFromBinary_75(i32 noundef, i32 noundef, ptr noundef, i3
 define void @_ZNK6icu_7510EmojiProps17addPropertyStartsEPK9USetAdderR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %sa, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #3 align 2 {
 entry:
   %value = alloca i32, align 4
-  %cpTrie = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %this, i64 0, i32 1
+  %cpTrie = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %cpTrie, align 8
   %call3 = call i32 @ucptrie_getRange_75(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %value)
   %cmp4 = icmp sgt i32 %call3, -1
   br i1 %cmp4, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %sa, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -351,9 +351,9 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp3.not.i, label %if.end5.i, label %land.end
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cpTrie.i = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %call, i64 0, i32 1
+  %cpTrie.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load ptr, ptr %cpTrie.i, align 8
-  %data.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %data.i, align 8
   %cmp6.i = icmp ult i32 %c, 65536
   br i1 %cmp6.i, label %cond.true.i, label %cond.false.i
@@ -374,13 +374,13 @@ cond.false.i:                                     ; preds = %if.end5.i
   br i1 %cmp11.i, label %cond.true12.i, label %cond.false20.i
 
 cond.true12.i:                                    ; preds = %cond.false.i
-  %highStart.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 4
+  %highStart.i = getelementptr inbounds i8, ptr %5, i64 24
   %9 = load i32, ptr %highStart.i, align 8
   %cmp14.not.i = icmp sgt i32 %9, %c
   br i1 %cmp14.not.i, label %cond.false18.i, label %cond.true15.i
 
 cond.true15.i:                                    ; preds = %cond.true12.i
-  %dataLength.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 3
+  %dataLength.i = getelementptr inbounds i8, ptr %5, i64 20
   %10 = load i32, ptr %dataLength.i, align 4
   %sub17.i = add nsw i32 %10, -2
   br label %cond.end26.i
@@ -390,7 +390,7 @@ cond.false18.i:                                   ; preds = %cond.true12.i
   br label %cond.end26.i
 
 cond.false20.i:                                   ; preds = %cond.false.i
-  %dataLength22.i = getelementptr inbounds %struct.UCPTrie, ptr %5, i64 0, i32 3
+  %dataLength22.i = getelementptr inbounds i8, ptr %5, i64 20
   %11 = load i32, ptr %dataLength22.i, align 4
   %sub23.i = add nsw i32 %11, -1
   br label %cond.end26.i
@@ -430,9 +430,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
-  %cpTrie = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %this, i64 0, i32 1
+  %cpTrie = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %cpTrie, align 8
-  %data = getelementptr inbounds %struct.UCPTrie, ptr %4, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data, align 8
   %cmp6 = icmp ult i32 %c, 65536
   br i1 %cmp6, label %cond.true, label %cond.false
@@ -453,13 +453,13 @@ cond.false:                                       ; preds = %if.end5
   br i1 %cmp11, label %cond.true12, label %cond.false20
 
 cond.true12:                                      ; preds = %cond.false
-  %highStart = getelementptr inbounds %struct.UCPTrie, ptr %4, i64 0, i32 4
+  %highStart = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load i32, ptr %highStart, align 8
   %cmp14.not = icmp sgt i32 %8, %c
   br i1 %cmp14.not, label %cond.false18, label %cond.true15
 
 cond.true15:                                      ; preds = %cond.true12
-  %dataLength = getelementptr inbounds %struct.UCPTrie, ptr %4, i64 0, i32 3
+  %dataLength = getelementptr inbounds i8, ptr %4, i64 20
   %9 = load i32, ptr %dataLength, align 4
   %sub17 = add nsw i32 %9, -2
   br label %cond.end26
@@ -469,7 +469,7 @@ cond.false18:                                     ; preds = %cond.true12
   br label %cond.end26
 
 cond.false20:                                     ; preds = %cond.false
-  %dataLength22 = getelementptr inbounds %struct.UCPTrie, ptr %4, i64 0, i32 3
+  %dataLength22 = getelementptr inbounds i8, ptr %4, i64 20
   %10 = load i32, ptr %dataLength22, align 4
   %sub23 = add nsw i32 %10, -1
   br label %cond.end26
@@ -553,9 +553,10 @@ if.end13:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp17.not19, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %uchars_.i = getelementptr inbounds %"class.icu_75::UCharsTrie", ptr %trie, i64 0, i32 1
-  %pos_.i = getelementptr inbounds %"class.icu_75::UCharsTrie", ptr %trie, i64 0, i32 2
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::UCharsTrie", ptr %trie, i64 0, i32 3
+  %stringTries = getelementptr inbounds i8, ptr %this, i64 16
+  %uchars_.i = getelementptr inbounds i8, ptr %trie, i64 8
+  %pos_.i = getelementptr inbounds i8, ptr %trie, i64 16
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %trie, i64 24
   %2 = zext nneg i32 %spec.select15 to i64
   br label %for.body
 
@@ -564,7 +565,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = trunc i64 %indvars.iv to i32
   %sub = add nuw i64 %indvars.iv, 4294967231
   %idxprom = and i64 %sub, 4294967295
-  %arrayidx = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %this, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [6 x ptr], ptr %stringTries, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %cmp18.not = icmp eq ptr %4, null
   br i1 %cmp18.not, label %for.inc, label %invoke.cont
@@ -629,11 +630,12 @@ if.end4:                                          ; preds = %entry
   br i1 %cmp8.not15, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %addString = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 3
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UCharsTrie::Iterator", ptr %iter, i64 0, i32 6, i32 1
+  %stringTries = getelementptr inbounds i8, ptr %this, i64 16
+  %addString = getelementptr inbounds i8, ptr %sa, i64 24
+  %fUnion.i = getelementptr inbounds i8, ptr %iter, i64 48
   %fBuffer.i = getelementptr inbounds i8, ptr %iter, i64 50
-  %fArray.i = getelementptr inbounds %"class.icu_75::UCharsTrie::Iterator", ptr %iter, i64 0, i32 6, i32 1, i32 0, i32 3
-  %fLength.i = getelementptr inbounds %"class.icu_75::UCharsTrie::Iterator", ptr %iter, i64 0, i32 6, i32 1, i32 0, i32 1
+  %fArray.i = getelementptr inbounds i8, ptr %iter, i64 64
+  %fLength.i = getelementptr inbounds i8, ptr %iter, i64 52
   %2 = zext nneg i32 %spec.select14 to i64
   br label %for.body
 
@@ -642,7 +644,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = trunc i64 %indvars.iv to i32
   %sub = add nuw i64 %indvars.iv, 4294967231
   %idxprom = and i64 %sub, 4294967295
-  %arrayidx = getelementptr inbounds %"class.icu_75::EmojiProps", ptr %this, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [6 x ptr], ptr %stringTries, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   %cmp9.not = icmp eq ptr %4, null
   br i1 %cmp9.not, label %for.inc, label %if.then10

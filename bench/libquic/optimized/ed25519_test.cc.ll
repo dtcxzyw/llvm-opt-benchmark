@@ -34,7 +34,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call noundef i32 @_Z12FileTestMainPFbP8FileTestPvES1_PKc(ptr noundef nonnull @_ZL13TestSignatureP8FileTestPv, ptr noundef null, ptr noundef %2)
   br label %return
@@ -81,7 +81,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %call, label %lor.lhs.false, label %cleanup.sink.split
 
 lor.lhs.false:                                    ; preds = %invoke.cont3
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %private_key, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %private_key, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %private_key, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -103,7 +103,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   br i1 %call13, label %lor.lhs.false14, label %cleanup.sink.split.sink.split
 
 lor.lhs.false14:                                  ; preds = %invoke.cont12
-  %_M_finish.i16 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %public_key, i64 0, i32 1
+  %_M_finish.i16 = getelementptr inbounds i8, ptr %public_key, i64 8
   %2 = load ptr, ptr %_M_finish.i16, align 8
   %3 = load ptr, ptr %public_key, align 8
   %sub.ptr.lhs.cast.i17 = ptrtoint ptr %2 to i64
@@ -134,7 +134,7 @@ invoke.cont32:                                    ; preds = %lor.lhs.false27
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont32
-  %_M_finish.i20 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %expected_signature, i64 0, i32 1
+  %_M_finish.i20 = getelementptr inbounds i8, ptr %expected_signature, i64 8
   %4 = load ptr, ptr %_M_finish.i20, align 8
   %5 = load ptr, ptr %expected_signature, align 8
   %sub.ptr.lhs.cast.i21 = ptrtoint ptr %4 to i64
@@ -230,7 +230,7 @@ ehcleanup77:                                      ; preds = %ehcleanup76, %lpad
 
 if.end:                                           ; preds = %invoke.cont35
   %14 = load ptr, ptr %message, align 8
-  %_M_finish.i24 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %message, i64 0, i32 1
+  %_M_finish.i24 = getelementptr inbounds i8, ptr %message, i64 8
   %15 = load ptr, ptr %_M_finish.i24, align 8
   %sub.ptr.lhs.cast.i25 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i26 = ptrtoint ptr %14 to i64

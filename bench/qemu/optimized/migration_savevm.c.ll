@@ -15,65 +15,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.mig_cmd_args = type { i64, ptr }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct._GSList = type { ptr, ptr }
-%struct.SaveStateEntry = type { %union.anon, [256 x i8], i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.SaveVMHandlers = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CompatEntry = type { [256 x i8], i32 }
-%struct.VMStateIfClass = type { %struct.InterfaceClass, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.strList = type { ptr, ptr }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.3, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.QemuThread = type { i64 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.3 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuEvent = type { i32, i8 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.MigrationIncomingState = type { ptr, [2 x ptr], ptr, ptr, %struct.QemuSemaphore, %struct.QemuEvent, %struct.AnnounceTimer, i64, i8, %struct.QemuThread, i8, i8, %struct.QemuThread, i32, i32, ptr, %struct.QemuMutex, ptr, i32, ptr, %struct.QemuSemaphore, %struct.QemuThread, i32, %struct.QemuMutex, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, ptr, ptr, i32, %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.AnnounceTimer = type { ptr, %struct.AnnounceParameters, i32, i32 }
-%struct.AnnounceParameters = type { i64, i64, i64, i64, i8, ptr, ptr }
-%struct.QIOChannelBuffer = type { %struct.QIOChannel, i64, i64, i64, ptr }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.PostcopyTmpPage = type { ptr, ptr, i32, i8 }
 %struct.QEMUSnapshotInfo = type { [128 x i8], [256 x i8], i64, i32, i32, i64, i64 }
 %struct.YankInstance = type { i32, %union.anon.4 }
 %union.anon.4 = type { %struct.YankInstanceBlockNode }
 %struct.YankInstanceBlockNode = type { ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.5, %union.anon.6, %union.anon.7, ptr, i32, ptr, ptr, i8 }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.SnapshotJob = type { %struct.Job, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.Job = type { ptr, ptr, ptr, i8, i8, ptr, ptr, %struct.ProgressMeter, ptr, i32, i32, %struct.QEMUTimer, i32, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.anon.9, ptr, %struct.anon.10 }
-%struct.ProgressMeter = type { i64, i64, %struct.QemuMutex }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.NotifierList = type { %struct.anon.8 }
-%struct.anon.8 = type { ptr }
-%struct.anon.9 = type { ptr, ptr }
-%struct.anon.10 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"timer\00", align 1
 @vmstate_info_timer = dso_local local_unnamed_addr constant %struct.VMStateInfo { ptr @.str, ptr @get_timer, ptr @put_timer }, align 8
@@ -557,7 +504,7 @@ entry:
   %call.i.i = tail call ptr @object_get_class(ptr noundef %1) #16
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #16
   %2 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 21, i64 1, ptr %out_file)
-  %name.i = getelementptr inbounds %struct.MachineClass, ptr %call1.i.i, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %call1.i.i, i64 104
   %3 = load ptr, ptr %name.i, align 8
   %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.44, ptr noundef %3)
   %4 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 5, i64 1, ptr %out_file)
@@ -570,7 +517,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %first.026 = phi i8 [ %first.1, %for.inc ], [ 1, %entry ]
   %5 = load ptr, ptr %elt.027, align 8
   %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 641, ptr noundef nonnull @__func__.dump_vmstate_json_to_file) #16
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call2, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call2, i64 160
   %6 = load ptr, ptr %vmsd, align 8
   %tobool3.not = icmp eq ptr %6, null
   br i1 %tobool3.not, label %for.inc, label %if.end
@@ -589,11 +536,11 @@ if.end7:                                          ; preds = %if.then5, %if.end
   %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.5, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef %call8)
   %call10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.7, i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef %call8)
   %9 = load ptr, ptr %vmsd, align 8
-  %version_id = getelementptr inbounds %struct.VMStateDescription, ptr %9, i64 0, i32 3
+  %version_id = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %version_id, align 4
   %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.8, i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %10)
   %11 = load ptr, ptr %vmsd, align 8
-  %minimum_version_id = getelementptr inbounds %struct.VMStateDescription, ptr %11, i64 0, i32 4
+  %minimum_version_id = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load i32, ptr %minimum_version_id, align 8
   %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.9, i32 noundef 4, ptr noundef nonnull @.str.6, i32 noundef %12)
   %13 = load ptr, ptr %vmsd, align 8
@@ -603,7 +550,7 @@ if.end7:                                          ; preds = %if.then5, %if.end
 
 for.inc:                                          ; preds = %for.body, %if.end7
   %first.1 = phi i8 [ 0, %if.end7 ], [ %first.026, %for.body ]
-  %next = getelementptr inbounds %struct._GSList, ptr %elt.027, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %elt.027, i64 8
   %14 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %14, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -641,13 +588,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %add = add i32 %indent, 2
   %0 = load ptr, ptr %vmsd, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.50, i32 noundef %add, ptr noundef nonnull @.str.6, ptr noundef %0)
-  %version_id = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 3
+  %version_id = getelementptr inbounds i8, ptr %vmsd, i64 12
   %1 = load i32, ptr %version_id, align 4
   %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.8, i32 noundef %add, ptr noundef nonnull @.str.6, i32 noundef %1)
-  %minimum_version_id = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 4
+  %minimum_version_id = getelementptr inbounds i8, ptr %vmsd, i64 16
   %2 = load i32, ptr %minimum_version_id, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.51, i32 noundef %add, ptr noundef nonnull @.str.6, i32 noundef %2)
-  %fields = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 12
+  %fields = getelementptr inbounds i8, ptr %vmsd, i64 72
   %3 = load ptr, ptr %fields, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end25, label %if.then5
@@ -670,20 +617,20 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.then11
   %field.049 = phi ptr [ %field.0.ph52, %while.body.lr.ph ], [ %incdec.ptr, %if.then11 ]
-  %flags = getelementptr inbounds %struct.VMStateField, ptr %field.049, i64 0, i32 9
+  %flags = getelementptr inbounds i8, ptr %field.049, i64 72
   %5 = load i32, ptr %flags, align 8
   %and = and i32 %5, 4096
   %tobool10.not = icmp eq i32 %and, 0
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr %struct.VMStateField, ptr %field.049, i64 1
+  %incdec.ptr = getelementptr i8, ptr %field.049, i64 104
   %6 = load ptr, ptr %incdec.ptr, align 8
   %cmp9.not = icmp eq ptr %6, null
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !7
 
 if.end12:                                         ; preds = %while.body
-  %flags.le = getelementptr inbounds %struct.VMStateField, ptr %field.049, i64 0, i32 9
+  %flags.le = getelementptr inbounds i8, ptr %field.049, i64 72
   br i1 %tobool13.not, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end12
@@ -694,10 +641,10 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.48, i32 noundef %add17, ptr noundef nonnull @.str.6)
   %8 = load ptr, ptr %field.049, align 8
   %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.56, i32 noundef %add.i, ptr noundef nonnull @.str.6, ptr noundef %8)
-  %version_id.i = getelementptr inbounds %struct.VMStateField, ptr %field.049, i64 0, i32 11
+  %version_id.i = getelementptr inbounds i8, ptr %field.049, i64 88
   %9 = load i32, ptr %version_id.i, align 8
   %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.8, i32 noundef %add.i, ptr noundef nonnull @.str.6, i32 noundef %9)
-  %field_exists.i = getelementptr inbounds %struct.VMStateField, ptr %field.049, i64 0, i32 13
+  %field_exists.i = getelementptr inbounds i8, ptr %field.049, i64 96
   %10 = load ptr, ptr %field_exists.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.58
@@ -708,16 +655,16 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool4.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end16
-  %num.i = getelementptr inbounds %struct.VMStateField, ptr %field.049, i64 0, i32 5
+  %num.i = getelementptr inbounds i8, ptr %field.049, i64 40
   %12 = load i32, ptr %num.i, align 8
   %call5.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.60, i32 noundef %add.i, ptr noundef nonnull @.str.6, i32 noundef %12)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end16
-  %size.i = getelementptr inbounds %struct.VMStateField, ptr %field.049, i64 0, i32 3
+  %size.i = getelementptr inbounds i8, ptr %field.049, i64 24
   %13 = load i64, ptr %size.i, align 8
   %call6.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.61, i32 noundef %add.i, ptr noundef nonnull @.str.6, i64 noundef %13)
-  %vmsd.i = getelementptr inbounds %struct.VMStateField, ptr %field.049, i64 0, i32 10
+  %vmsd.i = getelementptr inbounds i8, ptr %field.049, i64 80
   %14 = load ptr, ptr %vmsd.i, align 8
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %dump_vmstate_vmsf.exit, label %if.then7.i
@@ -730,14 +677,14 @@ if.then7.i:                                       ; preds = %if.end.i
 
 dump_vmstate_vmsf.exit:                           ; preds = %if.end.i, %if.then7.i
   %call11.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out_file, ptr noundef nonnull @.str.10, i32 noundef %add17, ptr noundef nonnull @.str.6)
-  %incdec.ptr18 = getelementptr %struct.VMStateField, ptr %field.049, i64 1
+  %incdec.ptr18 = getelementptr i8, ptr %field.049, i64 104
   %17 = load ptr, ptr %incdec.ptr18, align 8
   %cmp9.not48 = icmp eq ptr %17, null
   br i1 %cmp9.not48, label %while.end, label %while.body.lr.ph, !llvm.loop !7
 
 while.end:                                        ; preds = %dump_vmstate_vmsf.exit, %if.then11, %if.then5
   %field.0.lcssa = phi ptr [ %3, %if.then5 ], [ %incdec.ptr, %if.then11 ], [ %incdec.ptr18, %dump_vmstate_vmsf.exit ]
-  %flags19 = getelementptr inbounds %struct.VMStateField, ptr %field.0.lcssa, i64 0, i32 9
+  %flags19 = getelementptr inbounds i8, ptr %field.0.lcssa, i64 72
   %18 = load i32, ptr %flags19, align 8
   %cmp20 = icmp eq i32 %18, 65536
   br i1 %cmp20, label %if.end23, label %if.else22
@@ -751,7 +698,7 @@ if.end23:                                         ; preds = %while.end
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end23, %if.end
-  %subsections = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 13
+  %subsections = getelementptr inbounds i8, ptr %vmsd, i64 80
   %19 = load ptr, ptr %subsections, align 8
   %cmp26.not = icmp eq ptr %19, null
   br i1 %cmp26.not, label %if.end42, label %if.then27
@@ -784,7 +731,7 @@ if.then.i41:                                      ; preds = %while.body33, %if.e
   br label %dump_vmstate_vmss.exit
 
 dump_vmstate_vmss.exit:                           ; preds = %if.end37, %if.then.i41
-  %incdec.ptr39 = getelementptr ptr, ptr %subsection.056, i64 1
+  %incdec.ptr39 = getelementptr i8, ptr %subsection.056, i64 8
   %24 = load ptr, ptr %incdec.ptr39, align 8
   %cmp32.not = icmp eq ptr %24, null
   br i1 %cmp32.not, label %while.end40, label %while.body33, !llvm.loop !8
@@ -807,31 +754,31 @@ declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 define dso_local noundef i32 @register_savevm_live(ptr noundef %idstr, i32 noundef %instance_id, i32 noundef %version_id, ptr noundef %ops, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #18
-  %version_id1 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 4
+  %version_id1 = getelementptr inbounds i8, ptr %call, i64 280
   store i32 %version_id, ptr %version_id1, align 8
   %0 = load i32, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
-  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 6
+  %section_id = getelementptr inbounds i8, ptr %call, i64 288
   store i32 %0, ptr %section_id, align 8
-  %ops2 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 8
+  %ops2 = getelementptr inbounds i8, ptr %call, i64 296
   store ptr %ops, ptr %ops2, align 8
-  %opaque3 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 10
+  %opaque3 = getelementptr inbounds i8, ptr %call, i64 312
   store ptr %opaque, ptr %opaque3, align 8
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %call, i64 304
   store ptr null, ptr %vmsd, align 8
-  %save_setup = getelementptr inbounds %struct.SaveVMHandlers, ptr %ops, i64 0, i32 2
+  %save_setup = getelementptr inbounds i8, ptr %ops, i64 16
   %1 = load ptr, ptr %save_setup, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %is_ram = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 12
+  %is_ram = getelementptr inbounds i8, ptr %call, i64 328
   store i32 1, ptr %is_ram, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %idstr4 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 1
+  %idstr4 = getelementptr inbounds i8, ptr %call, i64 16
   %call5 = tail call ptr @pstrcat(ptr noundef nonnull %idstr4, i32 noundef 256, ptr noundef %idstr) #16
   %cmp6 = icmp eq i32 %instance_id, -1
   br i1 %cmp6, label %if.then7, label %if.end13
@@ -844,13 +791,13 @@ if.then7:                                         ; preds = %if.end
 for.body.i:                                       ; preds = %if.then7, %for.inc.i
   %se.010.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.07.i, %if.then7 ]
   %instance_id.09.i = phi i32 [ %instance_id.1.i, %for.inc.i ], [ 0, %if.then7 ]
-  %idstr1.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i, i64 0, i32 1
+  %idstr1.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr4, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %instance_id2.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i, i64 0, i32 2
+  %instance_id2.i = getelementptr inbounds i8, ptr %se.010.i, i64 272
   %2 = load i32, ptr %instance_id2.i, align 8
   %cmp3.not.i = icmp ugt i32 %instance_id.09.i, %2
   %add.i = add i32 %2, 1
@@ -873,9 +820,9 @@ if.else.i:                                        ; preds = %for.end.i
 
 if.end13:                                         ; preds = %if.end, %for.end.i, %if.then7
   %instance_id.sink = phi i32 [ %instance_id.1.i, %for.end.i ], [ 0, %if.then7 ], [ %instance_id, %if.end ]
-  %instance_id12 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 2
+  %instance_id12 = getelementptr inbounds i8, ptr %call, i64 272
   store i32 %instance_id.sink, ptr %instance_id12, align 8
-  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 11
+  %compat = getelementptr inbounds i8, ptr %call, i64 320
   %3 = load ptr, ptr %compat, align 8
   %tobool.not = icmp eq ptr %3, null
   %cmp15 = icmp eq i32 %instance_id.sink, 0
@@ -908,7 +855,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %save_state_priority.exit
 
 save_state_priority.exit:                         ; preds = %entry
-  %priority.i = getelementptr inbounds %struct.VMStateDescription, ptr %nse.val, i64 0, i32 5
+  %priority.i = getelementptr inbounds i8, ptr %nse.val, i64 20
   %1 = load i32, ptr %priority.i, align 4
   %cmp = icmp ult i32 %1, 7
   br i1 %cmp, label %if.end, label %if.else
@@ -919,8 +866,8 @@ if.else:                                          ; preds = %save_state_priority
 
 if.end:                                           ; preds = %entry, %save_state_priority.exit
   %retval.0.i34 = phi i32 [ %1, %save_state_priority.exit ], [ 0, %entry ]
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %nse, i64 0, i32 1
-  %instance_id = getelementptr inbounds %struct.SaveStateEntry, ptr %nse, i64 0, i32 2
+  %idstr = getelementptr inbounds i8, ptr %nse, i64 16
+  %instance_id = getelementptr inbounds i8, ptr %nse, i64 272
   %2 = load i32, ptr %instance_id, align 8
   %se.017.i = load ptr, ptr @savevm_state, align 8
   %tobool.not18.i = icmp eq ptr %se.017.i, null
@@ -928,19 +875,19 @@ if.end:                                           ; preds = %entry, %save_state_
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %se.019.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.017.i, %if.end ]
-  %idstr1.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 1
+  %idstr1.i = getelementptr inbounds i8, ptr %se.019.i, i64 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %idstr) #19
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %instance_id3.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 2
+  %instance_id3.i = getelementptr inbounds i8, ptr %se.019.i, i64 272
   %3 = load i32, ptr %instance_id3.i, align 8
   %cmp.i = icmp eq i32 %3, %2
   br i1 %cmp.i, label %if.then2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %alias_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 3
+  %alias_id.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %4 = load i32, ptr %alias_id.i, align 4
   %cmp4.i = icmp eq i32 %4, %2
   br i1 %cmp4.i, label %if.then2, label %if.end.i
@@ -951,7 +898,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i, %f
   br i1 %tobool8.not.i, label %for.inc.i, label %land.lhs.true9.i
 
 land.lhs.true9.i:                                 ; preds = %if.end.i
-  %compat.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 11
+  %compat.i = getelementptr inbounds i8, ptr %se.019.i, i64 320
   %5 = load ptr, ptr %compat.i, align 8
   %tobool10.not.i = icmp eq ptr %5, null
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
@@ -962,13 +909,13 @@ if.then11.i:                                      ; preds = %land.lhs.true9.i
   br i1 %tobool16.not.i, label %land.lhs.true17.i, label %for.inc.i
 
 land.lhs.true17.i:                                ; preds = %if.then11.i
-  %instance_id19.i = getelementptr inbounds %struct.CompatEntry, ptr %5, i64 0, i32 1
+  %instance_id19.i = getelementptr inbounds i8, ptr %5, i64 256
   %6 = load i32, ptr %instance_id19.i, align 4
   %cmp20.i = icmp eq i32 %6, %2
   br i1 %cmp20.i, label %if.then2, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %land.lhs.true17.i
-  %alias_id22.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 3
+  %alias_id22.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %7 = load i32, ptr %alias_id22.i, align 4
   %cmp23.i = icmp eq i32 %7, %2
   br i1 %cmp23.i, label %if.then2, label %for.inc.i
@@ -1006,7 +953,7 @@ if.then9:                                         ; preds = %for.body
   br i1 %tobool.not.i27, label %save_state_priority.exit31, label %if.then.i28
 
 if.then.i28:                                      ; preds = %if.then9
-  %priority.i29 = getelementptr inbounds %struct.VMStateDescription, ptr %.val, i64 0, i32 5
+  %priority.i29 = getelementptr inbounds i8, ptr %.val, i64 20
   %11 = load i32, ptr %priority.i29, align 4
   br label %save_state_priority.exit31
 
@@ -1020,9 +967,9 @@ if.else13:                                        ; preds = %save_state_priority
   unreachable
 
 do.body:                                          ; preds = %save_state_priority.exit31
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %9, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %9, i64 8
   %12 = load ptr, ptr %tql_prev, align 8
-  %tql_prev20 = getelementptr inbounds %struct.QTailQLink, ptr %nse, i64 0, i32 1
+  %tql_prev20 = getelementptr inbounds i8, ptr %nse, i64 8
   store ptr %12, ptr %tql_prev20, align 8
   store ptr %9, ptr %nse, align 8
   %13 = load ptr, ptr %tql_prev, align 8
@@ -1031,7 +978,7 @@ do.body:                                          ; preds = %save_state_priority
 do.body28:                                        ; preds = %for.cond
   store ptr null, ptr %nse, align 8
   %14 = load ptr, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), align 8
-  %tql_prev31 = getelementptr inbounds %struct.QTailQLink, ptr %nse, i64 0, i32 1
+  %tql_prev31 = getelementptr inbounds i8, ptr %nse, i64 8
   store ptr %14, ptr %tql_prev31, align 8
   br label %if.end35
 
@@ -1064,7 +1011,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %obj) #16
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_GET_CLASS) #16
-  %get_id.i = getelementptr inbounds %struct.VMStateIfClass, ptr %call1.i.i, i64 0, i32 1
+  %get_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 112
   %0 = load ptr, ptr %get_id.i, align 8
   %call1.i = tail call ptr %0(ptr noundef nonnull %obj) #16
   %tobool1.not = icmp eq ptr %call1.i, null
@@ -1085,13 +1032,13 @@ if.end5:                                          ; preds = %if.then, %if.then2,
 land.rhs:                                         ; preds = %if.end5, %for.inc
   %se.011 = phi ptr [ %2, %for.inc ], [ %1, %if.end5 ]
   %2 = load ptr, ptr %se.011, align 8
-  %idstr10 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.011, i64 0, i32 1
+  %idstr10 = getelementptr inbounds i8, ptr %se.011, i64 16
   %call13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr10, ptr noundef nonnull dereferenceable(1) %id) #19
   %cmp = icmp eq i32 %call13, 0
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %opaque14 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.011, i64 0, i32 10
+  %opaque14 = getelementptr inbounds i8, ptr %se.011, i64 312
   %3 = load ptr, ptr %opaque14, align 8
   %cmp15 = icmp eq ptr %3, %opaque
   br i1 %cmp15, label %if.then16, label %for.inc
@@ -1103,7 +1050,7 @@ if.then16:                                        ; preds = %land.lhs.true
   br i1 %tobool.not.i.i, label %save_state_priority.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then16
-  %priority.i.i = getelementptr inbounds %struct.VMStateDescription, ptr %se.val.i, i64 0, i32 5
+  %priority.i.i = getelementptr inbounds i8, ptr %se.val.i, i64 20
   %5 = load i32, ptr %priority.i.i, align 4
   br label %save_state_priority.exit.i
 
@@ -1126,7 +1073,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   br i1 %tobool.not.i18.i, label %save_state_priority.exit22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %land.lhs.true.i
-  %priority.i20.i = getelementptr inbounds %struct.VMStateDescription, ptr %.val.i, i64 0, i32 5
+  %priority.i20.i = getelementptr inbounds i8, ptr %.val.i, i64 20
   %8 = load i32, ptr %priority.i20.i, align 4
   br label %save_state_priority.exit22.i
 
@@ -1147,15 +1094,15 @@ do.body.sink.split.i:                             ; preds = %if.else.i, %save_st
 savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
   %9 = phi ptr [ %2, %save_state_priority.exit.i ], [ %.pre, %do.body.sink.split.i ]
   %cmp12.not.i = icmp eq ptr %9, null
-  %tql_prev20.i = getelementptr inbounds %struct.QTailQLink, ptr %se.011, i64 0, i32 1
+  %tql_prev20.i = getelementptr inbounds i8, ptr %se.011, i64 8
   %10 = load ptr, ptr %tql_prev20.i, align 8
-  %tql_prev17.i = getelementptr inbounds %struct.QTailQLink, ptr %9, i64 0, i32 1
+  %tql_prev17.i = getelementptr inbounds i8, ptr %9, i64 8
   %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), ptr %tql_prev17.i
   store ptr %10, ptr %.sink23.i, align 8
   %11 = load ptr, ptr %se.011, align 8
   store ptr %11, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %se.011, i8 0, i64 16, i1 false)
-  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %se.011, i64 0, i32 11
+  %compat = getelementptr inbounds i8, ptr %se.011, i64 320
   %12 = load ptr, ptr %compat, align 8
   call void @g_free(ptr noundef %12) #16
   call void @g_free(ptr noundef nonnull %se.011) #16
@@ -1189,19 +1136,19 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %se.019.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.017.i, %entry ]
-  %idstr1.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 1
+  %idstr1.i = getelementptr inbounds i8, ptr %se.019.i, i64 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i, ptr noundef nonnull dereferenceable(1) %0) #19
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %instance_id3.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 2
+  %instance_id3.i = getelementptr inbounds i8, ptr %se.019.i, i64 272
   %1 = load i32, ptr %instance_id3.i, align 8
   %cmp.i = icmp eq i32 %1, %instance_id
   br i1 %cmp.i, label %if.then, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %alias_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 3
+  %alias_id.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %2 = load i32, ptr %alias_id.i, align 4
   %cmp4.i = icmp eq i32 %2, %instance_id
   br i1 %cmp4.i, label %if.then, label %if.end.i
@@ -1212,7 +1159,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i, %f
   br i1 %tobool8.not.i, label %for.inc.i, label %land.lhs.true9.i
 
 land.lhs.true9.i:                                 ; preds = %if.end.i
-  %compat.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 11
+  %compat.i = getelementptr inbounds i8, ptr %se.019.i, i64 320
   %3 = load ptr, ptr %compat.i, align 8
   %tobool10.not.i = icmp eq ptr %3, null
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
@@ -1223,13 +1170,13 @@ if.then11.i:                                      ; preds = %land.lhs.true9.i
   br i1 %tobool16.not.i, label %land.lhs.true17.i, label %for.inc.i
 
 land.lhs.true17.i:                                ; preds = %if.then11.i
-  %instance_id19.i = getelementptr inbounds %struct.CompatEntry, ptr %3, i64 0, i32 1
+  %instance_id19.i = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load i32, ptr %instance_id19.i, align 4
   %cmp20.i = icmp eq i32 %4, %instance_id
   br i1 %cmp20.i, label %if.then, label %lor.lhs.false21.i
 
 lor.lhs.false21.i:                                ; preds = %land.lhs.true17.i
-  %alias_id22.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i, i64 0, i32 3
+  %alias_id22.i = getelementptr inbounds i8, ptr %se.019.i, i64 276
   %5 = load i32, ptr %alias_id22.i, align 4
   %cmp23.i = icmp eq i32 %5, %instance_id
   br i1 %cmp23.i, label %if.then, label %for.inc.i
@@ -1246,7 +1193,7 @@ if.then:                                          ; preds = %land.lhs.true17.i, 
   br i1 %tobool.not.i.i, label %save_state_priority.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %priority.i.i = getelementptr inbounds %struct.VMStateDescription, ptr %se.val.i, i64 0, i32 5
+  %priority.i.i = getelementptr inbounds i8, ptr %se.val.i, i64 20
   %7 = load i32, ptr %priority.i.i, align 4
   br label %save_state_priority.exit.i
 
@@ -1270,7 +1217,7 @@ land.lhs.true.i5:                                 ; preds = %if.then.i
   br i1 %tobool.not.i18.i, label %save_state_priority.exit22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %land.lhs.true.i5
-  %priority.i20.i = getelementptr inbounds %struct.VMStateDescription, ptr %.val.i, i64 0, i32 5
+  %priority.i20.i = getelementptr inbounds i8, ptr %.val.i, i64 20
   %11 = load i32, ptr %priority.i20.i, align 4
   br label %save_state_priority.exit22.i
 
@@ -1290,9 +1237,9 @@ do.body.sink.split.i:                             ; preds = %if.else.i, %save_st
 savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
   %12 = load ptr, ptr %se.019.i, align 8
   %cmp12.not.i = icmp eq ptr %12, null
-  %tql_prev20.i = getelementptr inbounds %struct.QTailQLink, ptr %se.019.i, i64 0, i32 1
+  %tql_prev20.i = getelementptr inbounds i8, ptr %se.019.i, i64 8
   %13 = load ptr, ptr %tql_prev20.i, align 8
-  %tql_prev17.i = getelementptr inbounds %struct.QTailQLink, ptr %12, i64 0, i32 1
+  %tql_prev17.i = getelementptr inbounds i8, ptr %12, i64 8
   %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), ptr %tql_prev17.i
   store ptr %13, ptr %.sink23.i, align 8
   %14 = load ptr, ptr %se.019.i, align 8
@@ -1312,7 +1259,7 @@ entry:
   br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %minimum_version_id = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 4
+  %minimum_version_id = getelementptr inbounds i8, ptr %vmsd, i64 16
   %0 = load i32, ptr %minimum_version_id, align 8
   %cmp1.not = icmp sgt i32 %0, %required_for_version
   br i1 %cmp1.not, label %if.else, label %if.end
@@ -1323,20 +1270,20 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #18
-  %version_id = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 3
+  %version_id = getelementptr inbounds i8, ptr %vmsd, i64 12
   %1 = load i32, ptr %version_id, align 4
-  %version_id2 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 4
+  %version_id2 = getelementptr inbounds i8, ptr %call, i64 280
   store i32 %1, ptr %version_id2, align 8
   %2 = load i32, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
   %inc = add i32 %2, 1
   store i32 %inc, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 2), align 8
-  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 6
+  %section_id = getelementptr inbounds i8, ptr %call, i64 288
   store i32 %2, ptr %section_id, align 8
-  %opaque3 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 10
+  %opaque3 = getelementptr inbounds i8, ptr %call, i64 312
   store ptr %opaque, ptr %opaque3, align 8
-  %vmsd4 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 9
+  %vmsd4 = getelementptr inbounds i8, ptr %call, i64 304
   store ptr %vmsd, ptr %vmsd4, align 8
-  %alias_id5 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 3
+  %alias_id5 = getelementptr inbounds i8, ptr %call, i64 276
   store i32 %alias_id, ptr %alias_id5, align 4
   %tobool.not = icmp eq ptr %obj, null
   br i1 %tobool.not, label %if.end26, label %if.then6
@@ -1344,14 +1291,14 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
 if.then6:                                         ; preds = %if.end
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %obj) #16
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_GET_CLASS) #16
-  %get_id.i = getelementptr inbounds %struct.VMStateIfClass, ptr %call1.i.i, i64 0, i32 1
+  %get_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 112
   %3 = load ptr, ptr %get_id.i, align 8
   %call1.i = tail call ptr %3(ptr noundef nonnull %obj) #16
   %tobool8.not = icmp eq ptr %call1.i, null
   br i1 %tobool8.not, label %if.end26, label %if.then9
 
 if.then9:                                         ; preds = %if.then6
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 1
+  %idstr = getelementptr inbounds i8, ptr %call, i64 16
   %call10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %idstr, i64 noundef 256, ptr noundef nonnull @.str.15, ptr noundef nonnull %call1.i) #16
   %cmp11 = icmp ugt i32 %call10, 255
   br i1 %cmp11, label %if.then13, label %if.end14
@@ -1365,7 +1312,7 @@ if.then13:                                        ; preds = %if.then9
 if.end14:                                         ; preds = %if.then9
   tail call void @g_free(ptr noundef nonnull %call1.i) #16
   %call15 = tail call noalias dereferenceable_or_null(260) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 260) #18
-  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 11
+  %compat = getelementptr inbounds i8, ptr %call, i64 320
   store ptr %call15, ptr %compat, align 8
   %4 = load ptr, ptr %vmsd, align 8
   tail call void @pstrcpy(ptr noundef %call15, i32 noundef 256, ptr noundef %4) #16
@@ -1381,7 +1328,7 @@ cond.true:                                        ; preds = %if.end14
 for.body.i:                                       ; preds = %cond.true, %for.inc.i
   %se.011.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.08.i, %cond.true ]
   %instance_id.010.i = phi i32 [ %instance_id.1.i, %for.inc.i ], [ 0, %cond.true ]
-  %compat.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.011.i, i64 0, i32 11
+  %compat.i = getelementptr inbounds i8, ptr %se.011.i, i64 320
   %6 = load ptr, ptr %compat.i, align 8
   %tobool1.not.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end.i
@@ -1392,7 +1339,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %instance_id5.i = getelementptr inbounds %struct.CompatEntry, ptr %6, i64 0, i32 1
+  %instance_id5.i = getelementptr inbounds i8, ptr %6, i64 256
   %7 = load i32, ptr %instance_id5.i, align 4
   %cmp6.not.i = icmp sgt i32 %instance_id.010.i, %7
   %add.i = add i32 %7, 1
@@ -1408,14 +1355,14 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %i
 if.end26.thread:                                  ; preds = %for.inc.i, %if.end14, %cond.true
   %cond = phi i32 [ %instance_id, %if.end14 ], [ 0, %cond.true ], [ %instance_id.1.i, %for.inc.i ]
   %8 = load ptr, ptr %compat, align 8
-  %instance_id24 = getelementptr inbounds %struct.CompatEntry, ptr %8, i64 0, i32 1
+  %instance_id24 = getelementptr inbounds i8, ptr %8, i64 256
   store i32 %cond, ptr %instance_id24, align 4
   %9 = load ptr, ptr %vmsd, align 8
   %call3045 = tail call ptr @pstrcat(ptr noundef nonnull %idstr, i32 noundef 256, ptr noundef %9) #16
   br label %if.then33
 
 if.end26:                                         ; preds = %if.then6, %if.end
-  %idstr27 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 1
+  %idstr27 = getelementptr inbounds i8, ptr %call, i64 16
   %10 = load ptr, ptr %vmsd, align 8
   %call30 = tail call ptr @pstrcat(ptr noundef nonnull %idstr27, i32 noundef 256, ptr noundef %10) #16
   %cmp31 = icmp eq i32 %instance_id, -1
@@ -1430,13 +1377,13 @@ if.then33:                                        ; preds = %if.end26.thread, %i
 for.body.i32:                                     ; preds = %if.then33, %for.inc.i35
   %se.010.i = phi ptr [ %se.0.i37, %for.inc.i35 ], [ %se.07.i, %if.then33 ]
   %instance_id.09.i = phi i32 [ %instance_id.1.i36, %for.inc.i35 ], [ 0, %if.then33 ]
-  %idstr1.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i, i64 0, i32 1
+  %idstr1.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
   %call.i33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr2747, ptr noundef nonnull dereferenceable(1) %idstr1.i) #19
   %cmp.i34 = icmp eq i32 %call.i33, 0
   br i1 %cmp.i34, label %land.lhs.true.i40, label %for.inc.i35
 
 land.lhs.true.i40:                                ; preds = %for.body.i32
-  %instance_id2.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i, i64 0, i32 2
+  %instance_id2.i = getelementptr inbounds i8, ptr %se.010.i, i64 272
   %11 = load i32, ptr %instance_id2.i, align 8
   %cmp3.not.i = icmp ugt i32 %instance_id.09.i, %11
   %add.i41 = add i32 %11, 1
@@ -1459,7 +1406,7 @@ if.else.i:                                        ; preds = %for.end.i
 
 if.end40:                                         ; preds = %if.end26, %for.end.i, %if.then33
   %instance_id.sink = phi i32 [ %instance_id.1.i36, %for.end.i ], [ 0, %if.then33 ], [ %instance_id, %if.end26 ]
-  %instance_id39 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 2
+  %instance_id39 = getelementptr inbounds i8, ptr %call, i64 272
   store i32 %instance_id.sink, ptr %instance_id39, align 8
   %12 = load i8, ptr @qtest_allowed, align 1
   %13 = and i8 %12, 1
@@ -1471,13 +1418,13 @@ if.then42:                                        ; preds = %if.end40
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end40
-  %compat44 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 11
+  %compat44 = getelementptr inbounds i8, ptr %call, i64 320
   %14 = load ptr, ptr %compat44, align 8
   %tobool45.not = icmp eq ptr %14, null
   br i1 %tobool45.not, label %if.end52, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %if.end43
-  %instance_id47 = getelementptr inbounds %struct.SaveStateEntry, ptr %call, i64 0, i32 2
+  %instance_id47 = getelementptr inbounds i8, ptr %call, i64 272
   %15 = load i32, ptr %instance_id47, align 8
   %cmp48 = icmp eq i32 %15, 0
   br i1 %cmp48, label %if.end52, label %if.else51
@@ -1503,9 +1450,9 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vmstate_check(ptr nocapture noundef readonly %vmsd) unnamed_addr #0 {
 entry:
-  %fields = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 12
+  %fields = getelementptr inbounds i8, ptr %vmsd, i64 72
   %0 = load ptr, ptr %fields, align 8
-  %subsections = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 13
+  %subsections = getelementptr inbounds i8, ptr %vmsd, i64 80
   %1 = load ptr, ptr %subsections, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end9, label %while.cond.preheader
@@ -1517,27 +1464,27 @@ while.cond.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
   %field.016 = phi ptr [ %incdec.ptr, %if.end ], [ %0, %while.cond.preheader ]
-  %flags = getelementptr inbounds %struct.VMStateField, ptr %field.016, i64 0, i32 9
+  %flags = getelementptr inbounds i8, ptr %field.016, i64 72
   %3 = load i32, ptr %flags, align 8
   %and = and i32 %3, 32776
   %tobool2.not = icmp eq i32 %and, 0
   br i1 %tobool2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %while.body
-  %vmsd4 = getelementptr inbounds %struct.VMStateField, ptr %field.016, i64 0, i32 10
+  %vmsd4 = getelementptr inbounds i8, ptr %field.016, i64 80
   %4 = load ptr, ptr %vmsd4, align 8
   tail call fastcc void @vmstate_check(ptr noundef %4)
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %while.body
-  %incdec.ptr = getelementptr %struct.VMStateField, ptr %field.016, i64 1
+  %incdec.ptr = getelementptr i8, ptr %field.016, i64 104
   %5 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %5, null
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !15
 
 while.end:                                        ; preds = %if.end, %while.cond.preheader
   %field.0.lcssa = phi ptr [ %0, %while.cond.preheader ], [ %incdec.ptr, %if.end ]
-  %flags5 = getelementptr inbounds %struct.VMStateField, ptr %field.0.lcssa, i64 0, i32 9
+  %flags5 = getelementptr inbounds i8, ptr %field.0.lcssa, i64 72
   %6 = load i32, ptr %flags5, align 8
   %cmp.not = icmp eq i32 %6, 65536
   br i1 %cmp.not, label %if.end9, label %if.then6
@@ -1572,7 +1519,7 @@ if.else:                                          ; preds = %while.body13
 
 if.end20:                                         ; preds = %while.body13
   tail call fastcc void @vmstate_check(ptr noundef nonnull %8)
-  %incdec.ptr21 = getelementptr ptr, ptr %subsection.018, i64 1
+  %incdec.ptr21 = getelementptr i8, ptr %subsection.018, i64 8
   %tobool11.not = icmp eq ptr %incdec.ptr21, null
   br i1 %tobool11.not, label %while.end22, label %land.rhs, !llvm.loop !16
 
@@ -1589,19 +1536,19 @@ entry:
 
 land.rhs.preheader:                               ; preds = %entry
   %tobool.not.i.i = icmp eq ptr %vmsd, null
-  %priority.i.i = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 5
+  %priority.i.i = getelementptr inbounds i8, ptr %vmsd, i64 20
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
   %se.08 = phi ptr [ %1, %for.inc ], [ %0, %land.rhs.preheader ]
   %1 = load ptr, ptr %se.08, align 8
-  %vmsd2 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.08, i64 0, i32 9
+  %vmsd2 = getelementptr inbounds i8, ptr %se.08, i64 304
   %2 = load ptr, ptr %vmsd2, align 8
   %cmp = icmp eq ptr %2, %vmsd
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %land.rhs
-  %opaque3 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.08, i64 0, i32 10
+  %opaque3 = getelementptr inbounds i8, ptr %se.08, i64 312
   %3 = load ptr, ptr %opaque3, align 8
   %cmp4 = icmp eq ptr %3, %opaque
   br i1 %cmp4, label %if.then, label %for.inc
@@ -1632,7 +1579,7 @@ land.lhs.true.i:                                  ; preds = %if.then.i
   br i1 %tobool.not.i18.i, label %save_state_priority.exit22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %land.lhs.true.i
-  %priority.i20.i = getelementptr inbounds %struct.VMStateDescription, ptr %.val.i, i64 0, i32 5
+  %priority.i20.i = getelementptr inbounds i8, ptr %.val.i, i64 20
   %7 = load i32, ptr %priority.i20.i, align 4
   br label %save_state_priority.exit22.i
 
@@ -1653,15 +1600,15 @@ do.body.sink.split.i:                             ; preds = %if.else.i, %save_st
 savevm_state_handler_remove.exit:                 ; preds = %save_state_priority.exit.i, %do.body.sink.split.i
   %8 = phi ptr [ %1, %save_state_priority.exit.i ], [ %.pre, %do.body.sink.split.i ]
   %cmp12.not.i = icmp eq ptr %8, null
-  %tql_prev20.i = getelementptr inbounds %struct.QTailQLink, ptr %se.08, i64 0, i32 1
+  %tql_prev20.i = getelementptr inbounds i8, ptr %se.08, i64 8
   %9 = load ptr, ptr %tql_prev20.i, align 8
-  %tql_prev17.i = getelementptr inbounds %struct.QTailQLink, ptr %8, i64 0, i32 1
+  %tql_prev17.i = getelementptr inbounds i8, ptr %8, i64 8
   %.sink23.i = select i1 %cmp12.not.i, ptr getelementptr inbounds (%struct.SaveState, ptr @savevm_state, i64 0, i32 0, i32 0, i32 1), ptr %tql_prev17.i
   store ptr %9, ptr %.sink23.i, align 8
   %10 = load ptr, ptr %se.08, align 8
   store ptr %10, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %se.08, i8 0, i64 16, i1 false)
-  %compat = getelementptr inbounds %struct.SaveStateEntry, ptr %se.08, i64 0, i32 11
+  %compat = getelementptr inbounds i8, ptr %se.08, i64 320
   %11 = load ptr, ptr %compat, align 8
   tail call void @g_free(ptr noundef %11) #16
   tail call void @g_free(ptr noundef nonnull %se.08) #16
@@ -1703,7 +1650,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_send_colo_enable.exit
@@ -1746,7 +1693,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %command, 65535
   %conv12.i.i = zext i16 %len to i32
@@ -1801,7 +1748,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %value) #16
   br label %trace_savevm_send_ping.exit
@@ -1846,7 +1793,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_send_open_return_path.exit
@@ -1908,7 +1855,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9) #16
   br label %trace_qemu_savevm_send_packaged.exit
@@ -1950,7 +1897,7 @@ if.then:                                          ; preds = %entry
   store i64 %0, ptr %tmp, align 16
   %call3 = tail call i64 @qemu_target_page_size() #16
   %1 = tail call noundef i64 @llvm.bswap.i64(i64 %call3)
-  %arrayidx5 = getelementptr inbounds [2 x i64], ptr %tmp, i64 0, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %tmp, i64 8
   store i64 %1, ptr %arrayidx5, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1976,7 +1923,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #16
   br label %trace_qemu_savevm_send_postcopy_advise.exit
@@ -2033,7 +1980,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %len to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, i32 noundef %conv11.i.i) #16
@@ -2138,7 +2085,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_send_postcopy_listen.exit
@@ -2181,7 +2128,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_send_postcopy_run.exit
@@ -2224,7 +2171,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_send_postcopy_resume.exit
@@ -2268,7 +2215,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %block_name) #16
   br label %trace_savevm_send_recv_bitmap.exit
@@ -2299,20 +2246,20 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %se.010 = phi ptr [ %se.0, %for.inc ], [ %se.08, %entry ]
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %se.010, i64 304
   %0 = load ptr, ptr %vmsd, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %unmigratable = getelementptr inbounds %struct.VMStateDescription, ptr %0, i64 0, i32 1
+  %unmigratable = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %unmigratable, align 8
   %2 = and i8 %1, 1
   %tobool3.not = icmp eq i8 %2, 0
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010, i64 0, i32 1
+  %idstr = getelementptr inbounds i8, ptr %se.010, i64 16
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 1230, ptr noundef nonnull @__func__.qemu_savevm_state_blocked, ptr noundef nonnull @.str.19, ptr noundef nonnull %idstr) #16
   br label %return
 
@@ -2335,13 +2282,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %se.010 = phi ptr [ %se.0, %for.inc ], [ %se.08, %entry ]
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %se.010, i64 304
   %0 = load ptr, ptr %vmsd, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %unmigratable = getelementptr inbounds %struct.VMStateDescription, ptr %0, i64 0, i32 1
+  %unmigratable = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %unmigratable, align 8
   %2 = and i8 %1, 1
   %tobool3.not = icmp eq i8 %2, 0
@@ -2349,9 +2296,9 @@ land.lhs.true:                                    ; preds = %for.body
 
 do.body:                                          ; preds = %land.lhs.true
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #20
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010, i64 0, i32 1
+  %idstr = getelementptr inbounds i8, ptr %se.010, i64 16
   %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef nonnull %idstr) #16
-  %value = getelementptr inbounds %struct.strList, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %value, align 8
   %3 = load ptr, ptr %reasons, align 8
   store ptr %3, ptr %call, align 8
@@ -2378,7 +2325,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @migrate_get_current() #16
   %call1 = tail call ptr @json_writer_new(i1 noundef zeroext false) #16
-  %vmdesc = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 49
+  %vmdesc = getelementptr inbounds i8, ptr %call, i64 1672
   store ptr %call1, ptr %vmdesc, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2404,7 +2351,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_state_header.exit
@@ -2417,7 +2364,7 @@ trace_savevm_state_header.exit:                   ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef 1363498573) #16
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef 3) #16
-  %send_configuration = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 41
+  %send_configuration = getelementptr inbounds i8, ptr %call, i64 1538
   %7 = load i8, ptr %send_configuration, align 2
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -2460,19 +2407,19 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %se.09 = phi ptr [ %se.0, %for.inc ], [ %se.07, %entry ]
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %se.09, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %se.09, i64 304
   %0 = load ptr, ptr %vmsd, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %dev_unplug_pending = getelementptr inbounds %struct.VMStateDescription, ptr %0, i64 0, i32 11
+  %dev_unplug_pending = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %dev_unplug_pending, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %for.inc, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.09, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.09, i64 312
   %2 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 %1(ptr noundef %2) #16
   br i1 %call, label %return, label %for.inc
@@ -2496,38 +2443,38 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %se.013 = phi ptr [ %se.0, %for.inc ], [ %se.011, %entry ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.013, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.013, i64 296
   %0 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %save_prepare = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 1
+  %save_prepare = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %save_prepare, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %is_active = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 6
+  %is_active = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %is_active, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.013, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.013, i64 312
   %3 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 %2(ptr noundef %3) #16
   br i1 %call, label %if.then6.if.end11_crit_edge, label %for.inc
 
 if.then6.if.end11_crit_edge:                      ; preds = %if.then6
   %.pre = load ptr, ptr %ops, align 8
-  %save_prepare13.phi.trans.insert = getelementptr inbounds %struct.SaveVMHandlers, ptr %.pre, i64 0, i32 1
+  %save_prepare13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre15 = load ptr, ptr %save_prepare13.phi.trans.insert, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6.if.end11_crit_edge, %if.end
   %4 = phi ptr [ %.pre15, %if.then6.if.end11_crit_edge ], [ %1, %if.end ]
-  %opaque14 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.013, i64 0, i32 10
+  %opaque14 = getelementptr inbounds i8, ptr %se.013, i64 312
   %5 = load ptr, ptr %opaque14, align 8
   %call15 = tail call i32 %4(ptr noundef %5, ptr noundef %errp) #16
   %cmp = icmp slt i32 %call15, 0
@@ -2550,7 +2497,7 @@ entry:
   %local_err = alloca ptr, align 8
   %call = tail call ptr @migrate_get_current() #16
   store ptr null, ptr %local_err, align 8
-  %vmdesc = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 49
+  %vmdesc = getelementptr inbounds i8, ptr %call, i64 1672
   %0 = load ptr, ptr %vmdesc, align 8
   %call1 = tail call i64 @qemu_target_page_size() #16
   tail call void @json_writer_int64(ptr noundef %0, ptr noundef nonnull @.str.22, i64 noundef %call1) #16
@@ -2580,7 +2527,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #16
   br label %trace_savevm_state_setup.exit
@@ -2597,13 +2544,13 @@ trace_savevm_state_setup.exit:                    ; preds = %entry, %land.lhs.tr
 
 for.body:                                         ; preds = %trace_savevm_state_setup.exit, %for.inc
   %se.030 = phi ptr [ %se.0, %for.inc ], [ %se.028, %trace_savevm_state_setup.exit ]
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %se.030, i64 304
   %9 = load ptr, ptr %vmsd, align 8
   %tobool3.not = icmp eq ptr %9, null
   br i1 %tobool3.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %early_setup = getelementptr inbounds %struct.VMStateDescription, ptr %9, i64 0, i32 2
+  %early_setup = getelementptr inbounds i8, ptr %9, i64 9
   %10 = load i8, ptr %early_setup, align 1
   %11 = and i8 %10, 1
   %tobool5.not = icmp eq i8 %11, 0
@@ -2616,53 +2563,53 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool8.not, label %for.inc, label %for.end.sink.split
 
 if.end10:                                         ; preds = %land.lhs.true, %for.body
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.030, i64 296
   %13 = load ptr, ptr %ops, align 8
   %tobool11.not = icmp eq ptr %13, null
   br i1 %tobool11.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %save_setup = getelementptr inbounds %struct.SaveVMHandlers, ptr %13, i64 0, i32 2
+  %save_setup = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %save_setup, align 8
   %tobool13.not = icmp eq ptr %14, null
   br i1 %tobool13.not, label %for.inc, label %if.end15
 
 if.end15:                                         ; preds = %lor.lhs.false
-  %is_active = getelementptr inbounds %struct.SaveVMHandlers, ptr %13, i64 0, i32 6
+  %is_active = getelementptr inbounds i8, ptr %13, i64 48
   %15 = load ptr, ptr %is_active, align 8
   %tobool17.not = icmp eq ptr %15, null
   br i1 %tobool17.not, label %if.end24, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.030, i64 312
   %16 = load ptr, ptr %opaque, align 8
   %call21 = tail call zeroext i1 %15(ptr noundef %16) #16
   br i1 %call21, label %if.end24, label %for.inc
 
 if.end24:                                         ; preds = %if.then18, %if.end15
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 1) #16
-  %section_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 6
+  %section_id.i = getelementptr inbounds i8, ptr %se.030, i64 288
   %17 = load i32, ptr %section_id.i, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %17) #16
-  %idstr.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 1
+  %idstr.i = getelementptr inbounds i8, ptr %se.030, i64 16
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i) #19
   %conv6.i = trunc i64 %call.i to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv6.i) #16
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %idstr.i, i64 noundef %call.i) #16
-  %instance_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 2
+  %instance_id.i = getelementptr inbounds i8, ptr %se.030, i64 272
   %18 = load i32, ptr %instance_id.i, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %18) #16
-  %version_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 4
+  %version_id.i = getelementptr inbounds i8, ptr %se.030, i64 280
   %19 = load i32, ptr %version_id.i, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %19) #16
   %20 = load ptr, ptr %ops, align 8
-  %save_setup26 = getelementptr inbounds %struct.SaveVMHandlers, ptr %20, i64 0, i32 2
+  %save_setup26 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load ptr, ptr %save_setup26, align 8
-  %opaque27 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.030, i64 0, i32 10
+  %opaque27 = getelementptr inbounds i8, ptr %se.030, i64 312
   %22 = load ptr, ptr %opaque27, align 8
   %call28 = tail call i32 %21(ptr noundef %f, ptr noundef %22) #16
   %call.i26 = tail call ptr @migrate_get_current() #16
-  %send_section_footer.i = getelementptr inbounds %struct.MigrationState, ptr %call.i26, i64 0, i32 42
+  %send_section_footer.i = getelementptr inbounds i8, ptr %call.i26, i64 1539
   %23 = load i8, ptr %send_section_footer.i, align 1
   %24 = and i8 %23, 1
   %tobool.not.i = icmp eq i8 %24, 0
@@ -2716,7 +2663,7 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   %call = tail call ptr @migrate_get_current() #16
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se, i64 296
   %0 = load ptr, ptr %ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.lhs.true, label %lor.lhs.false
@@ -2727,33 +2674,33 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %se, i64 304
   %2 = load ptr, ptr %vmsd, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %return, label %if.end.thread
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  %vmsd484 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 9
+  %vmsd484 = getelementptr inbounds i8, ptr %se, i64 304
   br label %land.lhs.true6
 
 if.end:                                           ; preds = %lor.lhs.false
-  %vmsd4.phi.trans.insert = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 9
+  %vmsd4.phi.trans.insert = getelementptr inbounds i8, ptr %se, i64 304
   %.pre = load ptr, ptr %vmsd4.phi.trans.insert, align 8
-  %vmsd4 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 9
+  %vmsd4 = getelementptr inbounds i8, ptr %se, i64 304
   %tobool5.not = icmp eq ptr %.pre, null
   br i1 %tobool5.not, label %if.end10, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %if.end.thread, %if.end
   %vmsd486 = phi ptr [ %vmsd484, %if.end.thread ], [ %vmsd4, %if.end ]
   %3 = phi ptr [ %2, %if.end.thread ], [ %.pre, %if.end ]
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se, i64 312
   %4 = load ptr, ptr %opaque, align 8
   %call8 = tail call zeroext i1 @vmstate_section_needed(ptr noundef nonnull %3, ptr noundef %4) #16
   br i1 %call8, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 1
-  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 6
+  %idstr = getelementptr inbounds i8, ptr %se, i64 16
+  %section_id = getelementptr inbounds i8, ptr %se, i64 288
   %5 = load i32, ptr %section_id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2779,7 +2726,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %idstr, i32 noundef %5) #16
   br label %trace_savevm_section_skip.exit
@@ -2794,8 +2741,8 @@ trace_savevm_section_skip.exit:                   ; preds = %if.then9, %land.lhs
 
 if.end10:                                         ; preds = %land.lhs.true6, %if.end
   %vmsd487 = phi ptr [ %vmsd486, %land.lhs.true6 ], [ %vmsd4, %if.end ]
-  %idstr11 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 1
-  %section_id13 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 6
+  %idstr11 = getelementptr inbounds i8, ptr %se, i64 16
+  %section_id13 = getelementptr inbounds i8, ptr %se, i64 288
   %13 = load i32, ptr %section_id13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i37)
   %14 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2821,7 +2768,7 @@ if.then8.i.i46:                                   ; preds = %if.then.i.i44
   %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i37, ptr noundef null) #16
   %call10.i.i48 = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i37, align 8
-  %tv_usec.i.i49 = getelementptr inbounds %struct.timeval, ptr %_now.i.i37, i64 0, i32 1
+  %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i37, i64 8
   %20 = load i64, ptr %tv_usec.i.i49, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i.i48, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %idstr11, i32 noundef %13) #16
   br label %trace_savevm_section_start.exit
@@ -2839,10 +2786,10 @@ trace_savevm_section_start.exit:                  ; preds = %if.end10, %land.lhs
   %conv6.i = trunc i64 %call.i to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv6.i) #16
   tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %idstr11, i64 noundef %call.i) #16
-  %instance_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 2
+  %instance_id.i = getelementptr inbounds i8, ptr %se, i64 272
   %22 = load i32, ptr %instance_id.i, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %22) #16
-  %version_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 4
+  %version_id.i = getelementptr inbounds i8, ptr %se, i64 280
   %23 = load i32, ptr %version_id.i, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %23) #16
   %tobool14.not = icmp eq ptr %vmdesc, null
@@ -2891,7 +2838,7 @@ if.then8.i.i60:                                   ; preds = %if.then.i.i58
   %call9.i.i61 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i51, ptr noundef null) #16
   %call10.i.i62 = tail call i32 @qemu_get_thread_id() #16
   %32 = load i64, ptr %_now.i.i51, align 8
-  %tv_usec.i.i63 = getelementptr inbounds %struct.timeval, ptr %_now.i.i51, i64 0, i32 1
+  %tv_usec.i.i63 = getelementptr inbounds i8, ptr %_now.i.i51, i64 8
   %33 = load i64, ptr %tv_usec.i.i63, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.124, i32 noundef %call10.i.i62, i64 noundef %32, i64 noundef %33, ptr noundef nonnull %idstr11, ptr noundef %cond) #16
   br label %trace_vmstate_save.exit
@@ -2910,7 +2857,7 @@ if.then26:                                        ; preds = %trace_vmstate_save.
   %call.i65 = tail call i64 @qemu_file_transferred(ptr noundef %f) #16
   %35 = load ptr, ptr %ops, align 8
   %36 = load ptr, ptr %35, align 8
-  %opaque.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 10
+  %opaque.i = getelementptr inbounds i8, ptr %se, i64 312
   %37 = load ptr, ptr %opaque.i, align 8
   tail call void %36(ptr noundef %f, ptr noundef %37) #16
   %call1.i = tail call i64 @qemu_file_transferred(ptr noundef %f) #16
@@ -2929,7 +2876,7 @@ if.then.i:                                        ; preds = %if.then26
   br label %if.end33
 
 if.else:                                          ; preds = %trace_vmstate_save.exit
-  %opaque28 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 10
+  %opaque28 = getelementptr inbounds i8, ptr %se, i64 312
   %38 = load ptr, ptr %opaque28, align 8
   %call29 = call i32 @vmstate_save_state_with_err(ptr noundef %f, ptr noundef nonnull %34, ptr noundef %38, ptr noundef %vmdesc, ptr noundef nonnull %local_err) #16
   %tobool30.not = icmp eq i32 %call29, 0
@@ -2968,7 +2915,7 @@ if.then8.i.i75:                                   ; preds = %if.then.i.i73
   %call9.i.i76 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i66, ptr noundef null) #16
   %call10.i.i77 = call i32 @qemu_get_thread_id() #16
   %47 = load i64, ptr %_now.i.i66, align 8
-  %tv_usec.i.i78 = getelementptr inbounds %struct.timeval, ptr %_now.i.i66, i64 0, i32 1
+  %tv_usec.i.i78 = getelementptr inbounds i8, ptr %_now.i.i66, i64 8
   %48 = load i64, ptr %tv_usec.i.i78, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.137, i32 noundef %call10.i.i77, i64 noundef %47, i64 noundef %48, ptr noundef nonnull %idstr11, i32 noundef %41, i32 noundef 0) #16
   br label %trace_savevm_section_end.exit
@@ -2980,7 +2927,7 @@ if.else.i.i79:                                    ; preds = %if.then.i.i73
 trace_savevm_section_end.exit:                    ; preds = %if.end33, %land.lhs.true5.i.i70, %if.then8.i.i75, %if.else.i.i79
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i66)
   %call.i80 = call ptr @migrate_get_current() #16
-  %send_section_footer.i = getelementptr inbounds %struct.MigrationState, ptr %call.i80, i64 0, i32 42
+  %send_section_footer.i = getelementptr inbounds i8, ptr %call.i80, i64 1539
   %49 = load i8, ptr %send_section_footer.i, align 1
   %50 = and i8 %49, 1
   %tobool.not.i81 = icmp eq i8 %50, 0
@@ -3036,7 +2983,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_state_resume_prepare.exit
@@ -3053,38 +3000,38 @@ trace_savevm_state_resume_prepare.exit:           ; preds = %entry, %land.lhs.tr
 
 for.body:                                         ; preds = %trace_savevm_state_resume_prepare.exit, %for.inc
   %se.013 = phi ptr [ %se.0, %for.inc ], [ %se.011, %trace_savevm_state_resume_prepare.exit ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.013, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.013, i64 296
   %7 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %resume_prepare = getelementptr inbounds %struct.SaveVMHandlers, ptr %7, i64 0, i32 15
+  %resume_prepare = getelementptr inbounds i8, ptr %7, i64 120
   %8 = load ptr, ptr %resume_prepare, align 8
   %tobool3.not = icmp eq ptr %8, null
   br i1 %tobool3.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %is_active = getelementptr inbounds %struct.SaveVMHandlers, ptr %7, i64 0, i32 6
+  %is_active = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %is_active, align 8
   %tobool5.not = icmp eq ptr %9, null
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.013, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.013, i64 312
   %10 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 %9(ptr noundef %10) #16
   br i1 %call, label %if.then6.if.end11_crit_edge, label %for.inc
 
 if.then6.if.end11_crit_edge:                      ; preds = %if.then6
   %.pre = load ptr, ptr %ops, align 8
-  %resume_prepare13.phi.trans.insert = getelementptr inbounds %struct.SaveVMHandlers, ptr %.pre, i64 0, i32 15
+  %resume_prepare13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 120
   %.pre15 = load ptr, ptr %resume_prepare13.phi.trans.insert, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6.if.end11_crit_edge, %if.end
   %11 = phi ptr [ %.pre15, %if.then6.if.end11_crit_edge ], [ %8, %if.end ]
-  %opaque14 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.013, i64 0, i32 10
+  %opaque14 = getelementptr inbounds i8, ptr %se.013, i64 312
   %12 = load ptr, ptr %opaque14, align 8
   %call15 = tail call i32 %11(ptr noundef %s, ptr noundef %12) #16
   %cmp = icmp slt i32 %call15, 0
@@ -3130,7 +3077,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_savevm_state_iterate.exit
@@ -3146,32 +3093,32 @@ trace_savevm_state_iterate.exit:                  ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not66, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %trace_savevm_state_iterate.exit
-  %tv_usec.i.i47 = getelementptr inbounds %struct.timeval, ptr %_now.i.i35, i64 0, i32 1
-  %tv_usec.i.i61 = getelementptr inbounds %struct.timeval, ptr %_now.i.i49, i64 0, i32 1
+  %tv_usec.i.i47 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
+  %tv_usec.i.i61 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %se.068 = phi ptr [ %se.065, %for.body.lr.ph ], [ %se.0, %for.inc ]
   %ret.067 = phi i32 [ 1, %for.body.lr.ph ], [ %ret.1, %for.inc ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.068, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.068, i64 296
   %7 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %save_live_iterate = getelementptr inbounds %struct.SaveVMHandlers, ptr %7, i64 0, i32 9
+  %save_live_iterate = getelementptr inbounds i8, ptr %7, i64 72
   %8 = load ptr, ptr %save_live_iterate, align 8
   %tobool3.not = icmp eq ptr %8, null
   br i1 %tobool3.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %is_active = getelementptr inbounds %struct.SaveVMHandlers, ptr %7, i64 0, i32 6
+  %is_active = getelementptr inbounds i8, ptr %7, i64 48
   %9 = load ptr, ptr %is_active, align 8
   %tobool5.not = icmp eq ptr %9, null
   br i1 %tobool5.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.068, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.068, i64 312
   %10 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 %9(ptr noundef %10) #16
   br i1 %call, label %land.lhs.true.if.end9_crit_edge, label %for.inc
@@ -3182,13 +3129,13 @@ land.lhs.true.if.end9_crit_edge:                  ; preds = %land.lhs.true
 
 if.end9:                                          ; preds = %land.lhs.true.if.end9_crit_edge, %if.end
   %11 = phi ptr [ %.pre, %land.lhs.true.if.end9_crit_edge ], [ %7, %if.end ]
-  %is_active_iterate = getelementptr inbounds %struct.SaveVMHandlers, ptr %11, i64 0, i32 8
+  %is_active_iterate = getelementptr inbounds i8, ptr %11, i64 64
   %12 = load ptr, ptr %is_active_iterate, align 8
   %tobool11.not = icmp eq ptr %12, null
   br i1 %tobool11.not, label %if.end18, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %if.end9
-  %opaque15 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.068, i64 0, i32 10
+  %opaque15 = getelementptr inbounds i8, ptr %se.068, i64 312
   %13 = load ptr, ptr %opaque15, align 8
   %call16 = tail call zeroext i1 %12(ptr noundef %13) #16
   br i1 %call16, label %if.end18, label %for.inc
@@ -3198,13 +3145,13 @@ if.end18:                                         ; preds = %land.lhs.true12, %i
 
 land.lhs.true20:                                  ; preds = %if.end18
   %14 = load ptr, ptr %ops, align 8
-  %has_postcopy = getelementptr inbounds %struct.SaveVMHandlers, ptr %14, i64 0, i32 7
+  %has_postcopy = getelementptr inbounds i8, ptr %14, i64 56
   %15 = load ptr, ptr %has_postcopy, align 8
   %tobool22.not = icmp eq ptr %15, null
   br i1 %tobool22.not, label %for.inc, label %land.lhs.true23
 
 land.lhs.true23:                                  ; preds = %land.lhs.true20
-  %opaque26 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.068, i64 0, i32 10
+  %opaque26 = getelementptr inbounds i8, ptr %se.068, i64 312
   %16 = load ptr, ptr %opaque26, align 8
   %call27 = tail call zeroext i1 %15(ptr noundef %16) #16
   br i1 %call27, label %if.end29, label %for.inc
@@ -3214,8 +3161,8 @@ if.end29:                                         ; preds = %land.lhs.true23, %i
   br i1 %call30, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se.068, i64 0, i32 1
-  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %se.068, i64 0, i32 6
+  %idstr = getelementptr inbounds i8, ptr %se.068, i64 16
+  %section_id = getelementptr inbounds i8, ptr %se.068, i64 288
   %17 = load i32, ptr %section_id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i35)
   %18 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3255,9 +3202,9 @@ trace_savevm_section_start.exit:                  ; preds = %if.end32, %land.lhs
   %25 = load i32, ptr %section_id, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %25) #16
   %26 = load ptr, ptr %ops, align 8
-  %save_live_iterate34 = getelementptr inbounds %struct.SaveVMHandlers, ptr %26, i64 0, i32 9
+  %save_live_iterate34 = getelementptr inbounds i8, ptr %26, i64 72
   %27 = load ptr, ptr %save_live_iterate34, align 8
-  %opaque35 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.068, i64 0, i32 10
+  %opaque35 = getelementptr inbounds i8, ptr %se.068, i64 312
   %28 = load ptr, ptr %opaque35, align 8
   %call36 = tail call i32 %27(ptr noundef %f, ptr noundef %28) #16
   %29 = load i32, ptr %section_id, align 8
@@ -3296,7 +3243,7 @@ if.else.i.i62:                                    ; preds = %if.then.i.i56
 trace_savevm_section_end.exit:                    ; preds = %trace_savevm_section_start.exit, %land.lhs.true5.i.i53, %if.then8.i.i58, %if.else.i.i62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i49)
   %call.i = tail call ptr @migrate_get_current() #16
-  %send_section_footer.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 42
+  %send_section_footer.i = getelementptr inbounds i8, ptr %call.i, i64 1539
   %37 = load i8, ptr %send_section_footer.i, align 1
   %38 = and i8 %37, 1
   %tobool.not.i = icmp eq i8 %38, 0
@@ -3347,38 +3294,38 @@ entry:
   br i1 %tobool.not39, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %tv_usec.i.i36 = getelementptr inbounds %struct.timeval, ptr %_now.i.i24, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i24, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %se.040 = phi ptr [ %se.038, %for.body.lr.ph ], [ %se.0, %for.inc ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.040, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.040, i64 296
   %0 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %save_live_complete_postcopy = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 4
+  %save_live_complete_postcopy = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %save_live_complete_postcopy, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %is_active = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 6
+  %is_active = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %is_active, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.040, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.040, i64 312
   %3 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 %2(ptr noundef %3) #16
   br i1 %call, label %if.end11, label %for.inc
 
 if.end11:                                         ; preds = %if.then6, %if.end
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se.040, i64 0, i32 1
-  %section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %se.040, i64 0, i32 6
+  %idstr = getelementptr inbounds i8, ptr %se.040, i64 16
+  %section_id = getelementptr inbounds i8, ptr %se.040, i64 288
   %4 = load i32, ptr %section_id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3418,9 +3365,9 @@ trace_savevm_section_start.exit:                  ; preds = %if.end11, %land.lhs
   %12 = load i32, ptr %section_id, align 8
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %12) #16
   %13 = load ptr, ptr %ops, align 8
-  %save_live_complete_postcopy14 = getelementptr inbounds %struct.SaveVMHandlers, ptr %13, i64 0, i32 4
+  %save_live_complete_postcopy14 = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load ptr, ptr %save_live_complete_postcopy14, align 8
-  %opaque15 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.040, i64 0, i32 10
+  %opaque15 = getelementptr inbounds i8, ptr %se.040, i64 312
   %15 = load ptr, ptr %opaque15, align 8
   %call16 = tail call i32 %14(ptr noundef %f, ptr noundef %15) #16
   %16 = load i32, ptr %section_id, align 8
@@ -3459,7 +3406,7 @@ if.else.i.i37:                                    ; preds = %if.then.i.i31
 trace_savevm_section_end.exit:                    ; preds = %trace_savevm_section_start.exit, %land.lhs.true5.i.i28, %if.then8.i.i33, %if.else.i.i37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i24)
   %call.i = tail call ptr @migrate_get_current() #16
-  %send_section_footer.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 42
+  %send_section_footer.i = getelementptr inbounds i8, ptr %call.i, i64 1539
   %24 = load i8, ptr %send_section_footer.i, align 1
   %25 = and i8 %24, 1
   %tobool.not.i = icmp eq i8 %25, 0
@@ -3502,25 +3449,25 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %local_err = alloca ptr, align 8
   %call = tail call ptr @migrate_get_current() #16
-  %vmdesc2 = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 49
+  %vmdesc2 = getelementptr inbounds i8, ptr %call, i64 1672
   %0 = load ptr, ptr %vmdesc2, align 8
   %se.044 = load ptr, ptr @savevm_state, align 8
   %tobool.not45 = icmp eq ptr %se.044, null
   br i1 %tobool.not45, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %se.046 = phi ptr [ %se.044, %for.body.lr.ph ], [ %se.0, %for.inc ]
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %se.046, i64 0, i32 9
+  %vmsd = getelementptr inbounds i8, ptr %se.046, i64 304
   %1 = load ptr, ptr %vmsd, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %early_setup = getelementptr inbounds %struct.VMStateDescription, ptr %1, i64 0, i32 2
+  %early_setup = getelementptr inbounds i8, ptr %1, i64 9
   %2 = load i8, ptr %early_setup, align 1
   %3 = and i8 %2, 1
   %tobool5.not = icmp eq i8 %3, 0
@@ -3540,8 +3487,8 @@ if.end10:                                         ; preds = %if.end
   %div.i.neg = sdiv i64 %call.i, -1000
   %call.i27 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %div.i28 = sdiv i64 %call.i27, 1000
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se.046, i64 0, i32 1
-  %instance_id = getelementptr inbounds %struct.SaveStateEntry, ptr %se.046, i64 0, i32 2
+  %idstr = getelementptr inbounds i8, ptr %se.046, i64 16
+  %instance_id = getelementptr inbounds i8, ptr %se.046, i64 272
   %4 = load i32, ptr %instance_id, align 8
   %sub = add nsw i64 %div.i28, %div.i.neg
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3618,7 +3565,7 @@ if.end22:                                         ; preds = %if.then21, %if.end1
   %call.i29 = tail call ptr @qdev_get_machine() #16
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i29, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %call2.i = tail call zeroext i1 @migration_in_postcopy() #16
-  %suppress_vmdesc.i = getelementptr inbounds %struct.MachineState, ptr %call.i.i, i64 0, i32 12
+  %suppress_vmdesc.i = getelementptr inbounds i8, ptr %call.i.i, i64 97
   %14 = load i8, ptr %suppress_vmdesc.i, align 1
   %15 = and i8 %14, 1
   %tobool.not.i = icmp ne i8 %15, 0
@@ -3662,7 +3609,7 @@ if.then8.i.i39:                                   ; preds = %if.then.i.i37
   %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #16
   %call10.i.i41 = tail call i32 @qemu_get_thread_id() #16
   %21 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds %struct.timeval, ptr %_now.i.i30, i64 0, i32 1
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %22 = load i64, ptr %tv_usec.i.i42, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i41, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.27) #16
   br label %trace_vmstate_downtime_checkpoint.exit
@@ -3692,7 +3639,7 @@ entry:
   %call = tail call ptr @qdev_get_machine() #16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #16
   %call2 = tail call zeroext i1 @migration_in_postcopy() #16
-  %suppress_vmdesc = getelementptr inbounds %struct.MachineState, ptr %call.i, i64 0, i32 12
+  %suppress_vmdesc = getelementptr inbounds i8, ptr %call.i, i64 97
   %0 = load i8, ptr %suppress_vmdesc, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -3748,7 +3695,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.143, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #16
   br label %trace_savevm_state_complete_precopy.exit
@@ -3770,14 +3717,14 @@ if.then6:                                         ; preds = %trace_savevm_state_
   br i1 %tobool.not74.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then6
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %tv_usec.i.i39.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i27.i, i64 0, i32 1
-  %tv_usec.i.i57.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i45.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i39.i = getelementptr inbounds i8, ptr %_now.i.i27.i, i64 8
+  %tv_usec.i.i57.i = getelementptr inbounds i8, ptr %_now.i.i45.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %se.075.i = phi ptr [ %se.073.i, %for.body.lr.ph.i ], [ %se.0.i, %for.inc.i ]
-  %ops.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.075.i, i64 0, i32 8
+  %ops.i = getelementptr inbounds i8, ptr %se.075.i, i64 296
   %8 = load ptr, ptr %ops.i, align 8
   %tobool1.not.i = icmp eq ptr %8, null
   br i1 %tobool1.not.i, label %for.inc.i, label %lor.lhs.false.i
@@ -3786,13 +3733,13 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %call, label %land.lhs.true.i, label %lor.lhs.false8.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %has_postcopy.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %8, i64 0, i32 7
+  %has_postcopy.i = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load ptr, ptr %has_postcopy.i, align 8
   %tobool4.not.i = icmp eq ptr %9, null
   br i1 %tobool4.not.i, label %lor.lhs.false8.i, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %opaque.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.075.i, i64 0, i32 10
+  %opaque.i = getelementptr inbounds i8, ptr %se.075.i, i64 312
   %10 = load ptr, ptr %opaque.i, align 8
   %call.i = call zeroext i1 %9(ptr noundef %10) #16
   br i1 %call.i, label %for.inc.i, label %land.lhs.true5.lor.lhs.false8_crit_edge.i
@@ -3803,19 +3750,19 @@ land.lhs.true5.lor.lhs.false8_crit_edge.i:        ; preds = %land.lhs.true5.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true5.lor.lhs.false8_crit_edge.i, %land.lhs.true.i, %lor.lhs.false.i
   %11 = phi ptr [ %.pre.i, %land.lhs.true5.lor.lhs.false8_crit_edge.i ], [ %8, %land.lhs.true.i ], [ %8, %lor.lhs.false.i ]
-  %save_live_complete_precopy.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %11, i64 0, i32 5
+  %save_live_complete_precopy.i = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %save_live_complete_precopy.i, align 8
   %tobool10.not.i = icmp eq ptr %12, null
   br i1 %tobool10.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false8.i
-  %is_active.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %11, i64 0, i32 6
+  %is_active.i = getelementptr inbounds i8, ptr %11, i64 48
   %13 = load ptr, ptr %is_active.i, align 8
   %tobool12.not.i = icmp eq ptr %13, null
   br i1 %tobool12.not.i, label %if.end20.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
-  %opaque16.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.075.i, i64 0, i32 10
+  %opaque16.i = getelementptr inbounds i8, ptr %se.075.i, i64 312
   %14 = load ptr, ptr %opaque16.i, align 8
   %call17.i = call zeroext i1 %13(ptr noundef %14) #16
   br i1 %call17.i, label %if.end20.i, label %for.inc.i
@@ -3823,8 +3770,8 @@ if.then13.i:                                      ; preds = %if.end.i
 if.end20.i:                                       ; preds = %if.then13.i, %if.end.i
   %call.i.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %div.i.neg.i = sdiv i64 %call.i.i, -1000
-  %idstr.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.075.i, i64 0, i32 1
-  %section_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.075.i, i64 0, i32 6
+  %idstr.i = getelementptr inbounds i8, ptr %se.075.i, i64 16
+  %section_id.i = getelementptr inbounds i8, ptr %se.075.i, i64 288
   %15 = load i32, ptr %section_id.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %16 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3864,9 +3811,9 @@ trace_savevm_section_start.exit.i:                ; preds = %if.else.i.i.i, %if.
   %23 = load i32, ptr %section_id.i, align 8
   call void @qemu_put_be32(ptr noundef %f, i32 noundef %23) #16
   %24 = load ptr, ptr %ops.i, align 8
-  %save_live_complete_precopy23.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %24, i64 0, i32 5
+  %save_live_complete_precopy23.i = getelementptr inbounds i8, ptr %24, i64 40
   %25 = load ptr, ptr %save_live_complete_precopy23.i, align 8
-  %opaque24.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.075.i, i64 0, i32 10
+  %opaque24.i = getelementptr inbounds i8, ptr %se.075.i, i64 312
   %26 = load ptr, ptr %opaque24.i, align 8
   %call25.i = call i32 %25(ptr noundef %f, ptr noundef %26) #16
   %27 = load i32, ptr %section_id.i, align 8
@@ -3905,7 +3852,7 @@ if.else.i.i40.i:                                  ; preds = %if.then.i.i34.i
 trace_savevm_section_end.exit.i:                  ; preds = %if.else.i.i40.i, %if.then8.i.i36.i, %land.lhs.true5.i.i31.i, %trace_savevm_section_start.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i27.i)
   %call.i41.i = call ptr @migrate_get_current() #16
-  %send_section_footer.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i41.i, i64 0, i32 42
+  %send_section_footer.i.i = getelementptr inbounds i8, ptr %call.i41.i, i64 1539
   %35 = load i8, ptr %send_section_footer.i.i, align 1
   %36 = and i8 %35, 1
   %tobool.not.i.i = icmp eq i8 %36, 0
@@ -3924,7 +3871,7 @@ save_section_footer.exit.i:                       ; preds = %if.then.i.i9, %trac
 if.end30.i:                                       ; preds = %save_section_footer.exit.i
   %call.i43.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %div.i44.i = sdiv i64 %call.i43.i, 1000
-  %instance_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.075.i, i64 0, i32 2
+  %instance_id.i = getelementptr inbounds i8, ptr %se.075.i, i64 272
   %38 = load i32, ptr %instance_id.i, align 8
   %sub.i = add nsw i64 %div.i44.i, %div.i.neg.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i45.i)
@@ -3993,7 +3940,7 @@ if.then8.i.i68.i:                                 ; preds = %if.then.i.i66.i
   %call9.i.i69.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i59.i, ptr noundef null) #16
   %call10.i.i70.i = call i32 @qemu_get_thread_id() #16
   %51 = load i64, ptr %_now.i.i59.i, align 8
-  %tv_usec.i.i71.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i59.i, i64 0, i32 1
+  %tv_usec.i.i71.i = getelementptr inbounds i8, ptr %_now.i.i59.i, i64 8
   %52 = load i64, ptr %tv_usec.i.i71.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i70.i, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.146) #16
   br label %qemu_savevm_state_complete_precopy_iterable.exit.thread
@@ -4042,38 +3989,38 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %se.014 = phi ptr [ %se.0, %for.inc ], [ %se.012, %entry ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.014, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.014, i64 296
   %0 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %state_pending_estimate = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 10
+  %state_pending_estimate = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %state_pending_estimate, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %is_active = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 6
+  %is_active = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %is_active, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.014, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.014, i64 312
   %3 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 %2(ptr noundef %3) #16
   br i1 %call, label %if.then6.if.end11_crit_edge, label %for.inc
 
 if.then6.if.end11_crit_edge:                      ; preds = %if.then6
   %.pre = load ptr, ptr %ops, align 8
-  %state_pending_estimate13.phi.trans.insert = getelementptr inbounds %struct.SaveVMHandlers, ptr %.pre, i64 0, i32 10
+  %state_pending_estimate13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 80
   %.pre15 = load ptr, ptr %state_pending_estimate13.phi.trans.insert, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6.if.end11_crit_edge, %if.end
   %4 = phi ptr [ %.pre15, %if.then6.if.end11_crit_edge ], [ %1, %if.end ]
-  %opaque14 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.014, i64 0, i32 10
+  %opaque14 = getelementptr inbounds i8, ptr %se.014, i64 312
   %5 = load ptr, ptr %opaque14, align 8
   tail call void %4(ptr noundef %5, ptr noundef nonnull %must_precopy, ptr noundef nonnull %can_postcopy) #16
   br label %for.inc
@@ -4098,38 +4045,38 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %se.014 = phi ptr [ %se.0, %for.inc ], [ %se.012, %entry ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.014, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.014, i64 296
   %0 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %state_pending_exact = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 11
+  %state_pending_exact = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %state_pending_exact, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %is_active = getelementptr inbounds %struct.SaveVMHandlers, ptr %0, i64 0, i32 6
+  %is_active = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %is_active, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.014, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.014, i64 312
   %3 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 %2(ptr noundef %3) #16
   br i1 %call, label %if.then6.if.end11_crit_edge, label %for.inc
 
 if.then6.if.end11_crit_edge:                      ; preds = %if.then6
   %.pre = load ptr, ptr %ops, align 8
-  %state_pending_exact13.phi.trans.insert = getelementptr inbounds %struct.SaveVMHandlers, ptr %.pre, i64 0, i32 11
+  %state_pending_exact13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 88
   %.pre15 = load ptr, ptr %state_pending_exact13.phi.trans.insert, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then6.if.end11_crit_edge, %if.end
   %4 = phi ptr [ %.pre15, %if.then6.if.end11_crit_edge ], [ %1, %if.end ]
-  %opaque14 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.014, i64 0, i32 10
+  %opaque14 = getelementptr inbounds i8, ptr %se.014, i64 312
   %5 = load ptr, ptr %opaque14, align 8
   tail call void %4(ptr noundef %5, ptr noundef nonnull %must_precopy, ptr noundef nonnull %can_postcopy) #16
   br label %for.inc
@@ -4183,7 +4130,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.147, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #16
   br label %trace_savevm_state_cleanup.exit
@@ -4200,19 +4147,19 @@ trace_savevm_state_cleanup.exit:                  ; preds = %if.end, %land.lhs.t
 
 for.body:                                         ; preds = %trace_savevm_state_cleanup.exit, %for.inc
   %se.09 = phi ptr [ %se.0, %for.inc ], [ %se.07, %trace_savevm_state_cleanup.exit ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.09, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.09, i64 296
   %8 = load ptr, ptr %ops, align 8
   %tobool2.not = icmp eq ptr %8, null
   br i1 %tobool2.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %save_cleanup = getelementptr inbounds %struct.SaveVMHandlers, ptr %8, i64 0, i32 3
+  %save_cleanup = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %save_cleanup, align 8
   %tobool4.not = icmp eq ptr %9, null
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.09, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.09, i64 312
   %10 = load ptr, ptr %opaque, align 8
   call void %9(ptr noundef %10) #16
   br label %for.inc
@@ -4253,7 +4200,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %se.011 = phi ptr [ %se.0, %for.inc ], [ %se.09, %if.end ]
-  %is_ram = getelementptr inbounds %struct.SaveStateEntry, ptr %se.011, i64 0, i32 12
+  %is_ram = getelementptr inbounds i8, ptr %se.011, i64 328
   %0 = load i32, ptr %is_ram, align 8
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.end3, label %for.inc
@@ -4310,7 +4257,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.149, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #16
   br label %trace_loadvm_state_cleanup.exit
@@ -4327,19 +4274,19 @@ trace_loadvm_state_cleanup.exit:                  ; preds = %entry, %land.lhs.tr
 
 for.body:                                         ; preds = %trace_loadvm_state_cleanup.exit, %for.inc
   %se.09 = phi ptr [ %se.0, %for.inc ], [ %se.07, %trace_loadvm_state_cleanup.exit ]
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se.09, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se.09, i64 296
   %7 = load ptr, ptr %ops, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %load_cleanup = getelementptr inbounds %struct.SaveVMHandlers, ptr %7, i64 0, i32 14
+  %load_cleanup = getelementptr inbounds i8, ptr %7, i64 112
   %8 = load ptr, ptr %load_cleanup, align 8
   %tobool3.not = icmp eq ptr %8, null
   br i1 %tobool3.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se.09, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se.09, i64 312
   %9 = load ptr, ptr %opaque, align 8
   %call = tail call i32 %8(ptr noundef %9) #16
   br label %for.inc
@@ -4383,36 +4330,36 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %idstr.i = alloca [256 x i8], align 16
   %_now.i.i = alloca %struct.timeval, align 8
-  %postcopy_qemufile_dst = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 19
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %tv_usec.i.i344 = getelementptr inbounds %struct.timeval, ptr %_now.i.i332, i64 0, i32 1
-  %tv_usec.i.i.i141 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i120, i64 0, i32 1
-  %tv_usec.i.i.i165 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i144, i64 0, i32 1
-  %tv_usec.i.i.i188 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i167, i64 0, i32 1
-  %tv_usec.i.i.i209 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i190, i64 0, i32 1
-  %tv_usec.i.i.i237 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i211, i64 0, i32 1
-  %tv_usec.i.i21.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i9.i, i64 0, i32 1
-  %tv_usec.i.i36.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i24.i, i64 0, i32 1
-  %tv_usec.i.i51.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i39.i, i64 0, i32 1
-  %tv_usec.i.i.i274 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i239, i64 0, i32 1
-  %tv_usec.i.i.i316 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i277, i64 0, i32 1
-  %tv_usec.i.i34.i306 = getelementptr inbounds %struct.timeval, ptr %_now.i.i22.i276, i64 0, i32 1
-  %tv_usec.i.i49.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i37.i, i64 0, i32 1
-  %tv_usec.i.i330 = getelementptr inbounds %struct.timeval, ptr %_now.i.i318, i64 0, i32 1
-  %tv_usec.i.i75 = getelementptr inbounds %struct.timeval, ptr %_now.i.i63, i64 0, i32 1
-  %tv_usec.i.i.i50 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i22, i64 0, i32 1
-  %tv_usec.i.i34.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i22.i, i64 0, i32 1
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %tv_usec.i.i113 = getelementptr inbounds %struct.timeval, ptr %_now.i.i101, i64 0, i32 1
-  %tv_usec.i.i.i99 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i77, i64 0, i32 1
-  %to_src_file.i84 = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 15
-  %rp_mutex.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 16
-  %postcopy_prio_thread_mutex.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 23
-  %state.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 28
-  %postcopy_channels.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 18
-  %postcopy_tmp_pages.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 24
-  %postcopy_pause_sem_dst.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %mis, i64 0, i32 33
-  %tv_usec.i.i41.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i29.i, i64 0, i32 1
+  %postcopy_qemufile_dst = getelementptr inbounds i8, ptr %mis, i64 352
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i344 = getelementptr inbounds i8, ptr %_now.i.i332, i64 8
+  %tv_usec.i.i.i141 = getelementptr inbounds i8, ptr %_now.i.i.i120, i64 8
+  %tv_usec.i.i.i165 = getelementptr inbounds i8, ptr %_now.i.i.i144, i64 8
+  %tv_usec.i.i.i188 = getelementptr inbounds i8, ptr %_now.i.i.i167, i64 8
+  %tv_usec.i.i.i209 = getelementptr inbounds i8, ptr %_now.i.i.i190, i64 8
+  %tv_usec.i.i.i237 = getelementptr inbounds i8, ptr %_now.i.i.i211, i64 8
+  %tv_usec.i.i21.i = getelementptr inbounds i8, ptr %_now.i.i9.i, i64 8
+  %tv_usec.i.i36.i = getelementptr inbounds i8, ptr %_now.i.i24.i, i64 8
+  %tv_usec.i.i51.i = getelementptr inbounds i8, ptr %_now.i.i39.i, i64 8
+  %tv_usec.i.i.i274 = getelementptr inbounds i8, ptr %_now.i.i.i239, i64 8
+  %tv_usec.i.i.i316 = getelementptr inbounds i8, ptr %_now.i.i.i277, i64 8
+  %tv_usec.i.i34.i306 = getelementptr inbounds i8, ptr %_now.i.i22.i276, i64 8
+  %tv_usec.i.i49.i = getelementptr inbounds i8, ptr %_now.i.i37.i, i64 8
+  %tv_usec.i.i330 = getelementptr inbounds i8, ptr %_now.i.i318, i64 8
+  %tv_usec.i.i75 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
+  %tv_usec.i.i.i50 = getelementptr inbounds i8, ptr %_now.i.i.i22, i64 8
+  %tv_usec.i.i34.i = getelementptr inbounds i8, ptr %_now.i.i22.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i113 = getelementptr inbounds i8, ptr %_now.i.i101, i64 8
+  %tv_usec.i.i.i99 = getelementptr inbounds i8, ptr %_now.i.i.i77, i64 8
+  %to_src_file.i84 = getelementptr inbounds i8, ptr %mis, i64 280
+  %rp_mutex.i = getelementptr inbounds i8, ptr %mis, i64 288
+  %postcopy_prio_thread_mutex.i = getelementptr inbounds i8, ptr %mis, i64 488
+  %state.i = getelementptr inbounds i8, ptr %mis, i64 568
+  %postcopy_channels.i = getelementptr inbounds i8, ptr %mis, i64 344
+  %postcopy_tmp_pages.i = getelementptr inbounds i8, ptr %mis, i64 536
+  %postcopy_pause_sem_dst.i = getelementptr inbounds i8, ptr %mis, i64 712
+  %tv_usec.i.i41.i = getelementptr inbounds i8, ptr %_now.i.i29.i, i64 8
   br label %retry
 
 retry:                                            ; preds = %postcopy_pause_incoming.exit, %entry
@@ -4530,19 +4477,19 @@ trace_qemu_loadvm_state_section_startfull.exit.i: ; preds = %if.else.i.i.i, %if.
 
 for.body.i.i:                                     ; preds = %trace_qemu_loadvm_state_section_startfull.exit.i, %for.inc.i.i
   %se.019.i.i = phi ptr [ %se.0.i.i, %for.inc.i.i ], [ %se.017.i.i, %trace_qemu_loadvm_state_section_startfull.exit.i ]
-  %idstr1.i.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 1
+  %idstr1.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 16
   %call.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %idstr1.i.i, ptr noundef nonnull dereferenceable(1) %idstr.i) #19
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %instance_id3.i.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 2
+  %instance_id3.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 272
   %15 = load i32, ptr %instance_id3.i.i, align 8
   %cmp.i.i = icmp eq i32 %15, %call3.i
   br i1 %cmp.i.i, label %if.end16.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true.i.i
-  %alias_id.i.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 3
+  %alias_id.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 276
   %16 = load i32, ptr %alias_id.i.i, align 4
   %cmp4.i.i = icmp eq i32 %16, %call3.i
   br i1 %cmp4.i.i, label %if.end16.i, label %if.end.i.i
@@ -4553,7 +4500,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
   br i1 %tobool8.not.i.i, label %for.inc.i.i, label %land.lhs.true9.i.i
 
 land.lhs.true9.i.i:                               ; preds = %if.end.i.i
-  %compat.i.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 11
+  %compat.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 320
   %17 = load ptr, ptr %compat.i.i, align 8
   %tobool10.not.i.i = icmp eq ptr %17, null
   br i1 %tobool10.not.i.i, label %for.inc.i.i, label %if.then11.i.i
@@ -4564,13 +4511,13 @@ if.then11.i.i:                                    ; preds = %land.lhs.true9.i.i
   br i1 %tobool16.not.i.i, label %land.lhs.true17.i.i, label %for.inc.i.i
 
 land.lhs.true17.i.i:                              ; preds = %if.then11.i.i
-  %instance_id19.i.i = getelementptr inbounds %struct.CompatEntry, ptr %17, i64 0, i32 1
+  %instance_id19.i.i = getelementptr inbounds i8, ptr %17, i64 256
   %18 = load i32, ptr %instance_id19.i.i, align 4
   %cmp20.i.i = icmp eq i32 %18, %call3.i
   br i1 %cmp20.i.i, label %if.end16.i, label %lor.lhs.false21.i.i
 
 lor.lhs.false21.i.i:                              ; preds = %land.lhs.true17.i.i
-  %alias_id22.i.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 3
+  %alias_id22.i.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 276
   %19 = load i32, ptr %alias_id22.i.i, align 4
   %cmp23.i.i = icmp eq i32 %19, %call3.i
   br i1 %cmp23.i.i, label %if.end16.i, label %for.inc.i.i
@@ -4585,7 +4532,7 @@ if.then14.i:                                      ; preds = %trace_qemu_loadvm_s
   br label %qemu_loadvm_section_start_full.exit.thread
 
 if.end16.i:                                       ; preds = %lor.lhs.false21.i.i, %land.lhs.true17.i.i, %lor.lhs.false.i.i, %land.lhs.true.i.i
-  %version_id17.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 4
+  %version_id17.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 280
   %20 = load i32, ptr %version_id17.i, align 8
   %cmp18.i = icmp ugt i32 %call4.i, %20
   br i1 %cmp18.i, label %if.then20.i, label %if.end23.i
@@ -4595,9 +4542,9 @@ if.then20.i:                                      ; preds = %if.end16.i
   br label %qemu_loadvm_section_start_full.exit.thread
 
 if.end23.i:                                       ; preds = %if.end16.i
-  %load_version_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 5
+  %load_version_id.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 284
   store i32 %call4.i, ptr %load_version_id.i, align 4
-  %load_section_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 7
+  %load_section_id.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 292
   store i32 %call.i, ptr %load_section_id.i, align 4
   %21 = load i8, ptr @xen_allowed, align 1
   %22 = and i8 %21, 1
@@ -4605,7 +4552,7 @@ if.end23.i:                                       ; preds = %if.end16.i
   br i1 %tobool24.not.i, label %if.end29.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end23.i
-  %is_ram.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 12
+  %is_ram.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 328
   %23 = load i32, ptr %is_ram.i, align 8
   %tobool26.not.i = icmp eq i32 %23, 0
   br i1 %tobool26.not.i, label %if.end29.i, label %if.then27.i
@@ -4637,7 +4584,7 @@ if.then41.i:                                      ; preds = %if.end33.i
   %div.i.neg.i = sdiv i64 %call.i29.i, -1000
   %call.i30.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %div.i31.i = sdiv i64 %call.i30.i, 1000
-  %instance_id45.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.019.i.i, i64 0, i32 2
+  %instance_id45.i = getelementptr inbounds i8, ptr %se.019.i.i, i64 272
   %24 = load i32, ptr %instance_id45.i, align 8
   %sub.i = add nsw i64 %div.i31.i, %div.i.neg.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i101)
@@ -4746,7 +4693,7 @@ for.cond.i:                                       ; preds = %for.body.i, %trace_
   br i1 %cond.i, label %if.then11.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %load_section_id.i33 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.0.i, i64 0, i32 7
+  %load_section_id.i33 = getelementptr inbounds i8, ptr %se.0.i, i64 292
   %39 = load i32, ptr %load_section_id.i33, align 4
   %cmp4.i = icmp eq i32 %39, %call.i24
   br i1 %cmp4.i, label %if.end12.i, label %for.cond.i, !llvm.loop !34
@@ -4771,7 +4718,7 @@ if.end16.thread.i:                                ; preds = %if.end12.i
 
 if.then20.i35:                                    ; preds = %if.end16.thread.i, %if.end16.i37
   %call175.i = phi i32 [ %call172.i, %if.end16.thread.i ], [ %call17.i, %if.end16.i37 ]
-  %idstr.i36 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.0.i, i64 0, i32 1
+  %idstr.i36 = getelementptr inbounds i8, ptr %se.0.i, i64 16
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.170, i32 noundef %call.i24, ptr noundef nonnull %idstr.i36) #16
   br label %if.then26
 
@@ -4779,8 +4726,8 @@ if.then23.i:                                      ; preds = %if.end16.i37
   %div.i.neg.i40 = sdiv i64 %call.i.i38, -1000
   %call.i20.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %div.i21.i = sdiv i64 %call.i20.i, 1000
-  %idstr25.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.0.i, i64 0, i32 1
-  %instance_id.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.0.i, i64 0, i32 2
+  %idstr25.i = getelementptr inbounds i8, ptr %se.0.i, i64 16
+  %instance_id.i = getelementptr inbounds i8, ptr %se.0.i, i64 272
   %40 = load i32, ptr %instance_id.i, align 8
   %sub.i41 = add nsw i64 %div.i21.i, %div.i.neg.i40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i22.i)
@@ -4855,7 +4802,7 @@ if.then11.i62:                                    ; preds = %if.end.i59
 if.end14.i:                                       ; preds = %if.end.i59
   %idxprom.i = zext nneg i32 %conv6.i to i64
   %arrayidx.i = getelementptr [12 x %struct.mig_cmd_args], ptr @mig_cmd_args, i64 0, i64 %idxprom.i
-  %name.i = getelementptr [12 x %struct.mig_cmd_args], ptr @mig_cmd_args, i64 0, i64 %idxprom.i, i32 1
+  %name.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %49 = load ptr, ptr %name.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i332)
   %50 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4920,7 +4867,7 @@ if.end34.i:                                       ; preds = %trace_loadvm_proces
   ]
 
 sw.bb.i:                                          ; preds = %if.end34.i
-  %to_src_file.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 15
+  %to_src_file.i = getelementptr inbounds i8, ptr %call.i52, i64 280
   %58 = load ptr, ptr %to_src_file.i, align 8
   %tobool36.not.i = icmp eq ptr %58, null
   br i1 %tobool36.not.i, label %if.end38.i, label %if.then37.i60
@@ -4944,7 +4891,7 @@ if.end44.i:                                       ; preds = %if.end38.i
   br i1 %call45.i, label %land.lhs.true47.i, label %loadvm_process_command.exit
 
 land.lhs.true47.i:                                ; preds = %if.end44.i
-  %switchover_ack_pending_num.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 41
+  %switchover_ack_pending_num.i = getelementptr inbounds i8, ptr %call.i52, i64 1176
   %59 = load i32, ptr %switchover_ack_pending_num.i, align 8
   %tobool48.not.i = icmp eq i32 %59, 0
   br i1 %tobool48.not.i, label %if.then49.i, label %loadvm_process_command.exit
@@ -4996,7 +4943,7 @@ if.else.i.i331:                                   ; preds = %if.then.i.i325
 
 trace_loadvm_process_command_ping.exit:           ; preds = %sw.bb56.i, %land.lhs.true5.i.i322, %if.then8.i.i327, %if.else.i.i331
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i318)
-  %to_src_file58.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 15
+  %to_src_file58.i = getelementptr inbounds i8, ptr %call.i52, i64 280
   %67 = load ptr, ptr %to_src_file58.i, align 8
   %tobool59.not.i = icmp eq ptr %67, null
   br i1 %tobool59.not.i, label %if.then60.i, label %if.end61.i
@@ -5051,7 +4998,7 @@ trace_loadvm_handle_cmd_packaged.exit.i:          ; preds = %if.else.i.i.i317, %
   %call.i.i284 = call ptr @object_dynamic_cast_assert(ptr noundef %call3.i283, ptr noundef nonnull @.str.285, ptr noundef nonnull @.str.286, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #16
   call void @qio_channel_set_name(ptr noundef %call.i.i284, ptr noundef nonnull @.str.195) #16
   %76 = load ptr, ptr %call.i52, align 8
-  %data.i = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call3.i283, i64 0, i32 4
+  %data.i = getelementptr inbounds i8, ptr %call3.i283, i64 120
   %77 = load ptr, ptr %data.i, align 8
   %call6.i285 = call i64 @qemu_get_buffer(ptr noundef %76, ptr noundef %77, i64 noundef %conv.i279) #16
   %conv7.i = trunc i64 %call6.i285 to i32
@@ -5068,7 +5015,7 @@ if.then11.i287:                                   ; preds = %trace_loadvm_handle
   br label %loadvm_process_command.exit
 
 if.end14.i290:                                    ; preds = %trace_loadvm_handle_cmd_packaged.exit.i
-  %usage.i = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call3.i283, i64 0, i32 2
+  %usage.i = getelementptr inbounds i8, ptr %call3.i283, i64 104
   %78 = load i64, ptr %usage.i, align 8
   %add.i291 = add i64 %78, %conv.i279
   store i64 %add.i291, ptr %usage.i, align 8
@@ -5422,9 +5369,9 @@ if.then18.i:                                      ; preds = %trace_loadvm_postco
   br label %loadvm_postcopy_handle_listen.exit
 
 if.end19.i:                                       ; preds = %trace_loadvm_postcopy_handle_listen.exit38.i
-  %have_listen_thread.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 11
+  %have_listen_thread.i = getelementptr inbounds i8, ptr %call.i52, i64 257
   store i8 1, ptr %have_listen_thread.i, align 1
-  %listen_thread.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 12
+  %listen_thread.i = getelementptr inbounds i8, ptr %call.i52, i64 264
   call void @postcopy_thread_create(ptr noundef %call.i52, ptr noundef nonnull %listen_thread.i, ptr noundef nonnull @.str.215, ptr noundef nonnull @postcopy_ram_listen_thread, i32 noundef 1) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i39.i)
   %127 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5513,7 +5460,7 @@ if.then.i196:                                     ; preds = %trace_loadvm_postco
 if.end.i198:                                      ; preds = %trace_loadvm_postcopy_handle_run.exit.i
   %call1.i199 = call i32 @postcopy_state_set(i32 noundef 4) #16
   %call2.i200 = call ptr @qemu_bh_new_full(ptr noundef nonnull @loadvm_postcopy_handle_run_bh, ptr noundef %call.i52, ptr noundef nonnull @.str.226, ptr noundef null) #16
-  %bh.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 27
+  %bh.i = getelementptr inbounds i8, ptr %call.i52, i64 560
   store ptr %call2.i200, ptr %bh.i, align 8
   call void @qemu_bh_schedule(ptr noundef %call2.i200) #16
   br label %loadvm_process_command.exit
@@ -5650,7 +5597,7 @@ loadvm_postcopy_ram_handle_discard.exit:          ; preds = %while.body.i, %sw.b
   br label %loadvm_process_command.exit
 
 sw.bb72.i:                                        ; preds = %if.end34.i
-  %state.i145 = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 28
+  %state.i145 = getelementptr inbounds i8, ptr %call.i52, i64 568
   %154 = load i32, ptr %state.i145, align 8
   %cmp.not.i146 = icmp eq i32 %154, 7
   br i1 %cmp.not.i146, label %if.end.i148, label %if.then.i147
@@ -5660,7 +5607,7 @@ if.then.i147:                                     ; preds = %sw.bb72.i
   br label %loadvm_process_command.exit
 
 if.end.i148:                                      ; preds = %sw.bb72.i
-  %last_rb.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 17
+  %last_rb.i = getelementptr inbounds i8, ptr %call.i52, i64 336
   store ptr null, ptr %last_rb.i, align 8
   call void @migrate_set_state(ptr noundef nonnull %state.i145, i32 noundef 7, i32 noundef 5) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i144)
@@ -5698,23 +5645,23 @@ if.else.i.i.i166:                                 ; preds = %if.then.i.i.i160
 trace_loadvm_postcopy_handle_resume.exit.i:       ; preds = %if.else.i.i.i166, %if.then8.i.i.i162, %land.lhs.true5.i.i.i157, %if.end.i148
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i144)
   call void @migrate_send_rp_resume_ack(ptr noundef nonnull %call.i52, i32 noundef 1) #16
-  %page_request_mutex.i.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 39
+  %page_request_mutex.i.i = getelementptr inbounds i8, ptr %call.i52, i64 1072
   %162 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %163 = inttoptr i64 %162 to ptr
   call void %163(ptr noundef nonnull %page_request_mutex.i.i, ptr noundef nonnull @.str.249, i32 noundef 122) #16
-  %page_requested.i.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 37
+  %page_requested.i.i = getelementptr inbounds i8, ptr %call.i52, i64 1056
   %164 = load ptr, ptr %page_requested.i.i, align 8
   call void @g_tree_foreach(ptr noundef %164, ptr noundef nonnull @postcopy_sync_page_req, ptr noundef nonnull %call.i52) #16
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %page_request_mutex.i.i, ptr noundef nonnull @.str.249, i32 noundef 132) #16
-  %postcopy_pause_sem_fault.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 34
+  %postcopy_pause_sem_fault.i = getelementptr inbounds i8, ptr %call.i52, i64 824
   call void @qemu_sem_post(ptr noundef nonnull %postcopy_pause_sem_fault.i) #16
   %call.i152 = call zeroext i1 @migrate_postcopy_preempt() #16
   br i1 %call.i152, label %if.then2.i, label %loadvm_process_command.exit
 
 if.then2.i:                                       ; preds = %trace_loadvm_postcopy_handle_resume.exit.i
-  %postcopy_qemufile_dst_done.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 20
+  %postcopy_qemufile_dst_done.i = getelementptr inbounds i8, ptr %call.i52, i64 360
   call void @qemu_sem_wait(ptr noundef nonnull %postcopy_qemufile_dst_done.i) #16
-  %postcopy_qemufile_dst.i153 = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 19
+  %postcopy_qemufile_dst.i153 = getelementptr inbounds i8, ptr %call.i52, i64 352
   %165 = load ptr, ptr %postcopy_qemufile_dst.i153, align 8
   %tobool.not.i154 = icmp eq ptr %165, null
   br i1 %tobool.not.i154, label %if.else.i156, label %if.end4.i155
@@ -5724,7 +5671,7 @@ if.else.i156:                                     ; preds = %if.then2.i
   unreachable
 
 if.end4.i155:                                     ; preds = %if.then2.i
-  %postcopy_pause_sem_fast_load.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i52, i64 0, i32 35
+  %postcopy_pause_sem_fast_load.i = getelementptr inbounds i8, ptr %call.i52, i64 936
   call void @qemu_sem_post(ptr noundef nonnull %postcopy_pause_sem_fast_load.i) #16
   br label %loadvm_process_command.exit
 
@@ -6084,13 +6031,13 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %se.010.i = phi ptr [ %se.0.i, %for.inc.i ], [ %se.08.i, %entry ]
-  %vmsd.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i, i64 0, i32 9
+  %vmsd.i = getelementptr inbounds i8, ptr %se.010.i, i64 304
   %0 = load ptr, ptr %vmsd.i, align 8
   %tobool1.not.i = icmp eq ptr %0, null
   br i1 %tobool1.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %unmigratable.i = getelementptr inbounds %struct.VMStateDescription, ptr %0, i64 0, i32 1
+  %unmigratable.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %unmigratable.i, align 8
   %2 = and i8 %1, 1
   %tobool3.not.i = icmp eq i8 %2, 0
@@ -6102,7 +6049,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %tobool.not.not.i, label %if.end, label %for.body.i, !llvm.loop !19
 
 if.then:                                          ; preds = %land.lhs.true.i
-  %idstr.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i, i64 0, i32 1
+  %idstr.i = getelementptr inbounds i8, ptr %se.010.i, i64 16
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.3, i32 noundef 1230, ptr noundef nonnull @__func__.qemu_savevm_state_blocked, ptr noundef nonnull @.str.19, ptr noundef nonnull %idstr.i) #16
   %3 = load ptr, ptr %local_err, align 8
   call void @error_report_err(ptr noundef %3) #16
@@ -6134,7 +6081,7 @@ if.then6.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.i
   %call8.i = tail call ptr @migrate_get_current() #16
-  %send_configuration.i = getelementptr inbounds %struct.MigrationState, ptr %call8.i, i64 0, i32 41
+  %send_configuration.i = getelementptr inbounds i8, ptr %call8.i, i64 1538
   %4 = load i8, ptr %send_configuration.i, align 2
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
@@ -6184,7 +6131,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %11 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.274, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12) #16
   br label %trace_loadvm_state_setup.exit.i
@@ -6201,38 +6148,38 @@ trace_loadvm_state_setup.exit.i:                  ; preds = %if.else.i.i.i, %if.
 
 for.body.i24:                                     ; preds = %trace_loadvm_state_setup.exit.i, %for.inc.i30
   %se.017.i = phi ptr [ %se.0.i31, %for.inc.i30 ], [ %se.015.i, %trace_loadvm_state_setup.exit.i ]
-  %ops.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.017.i, i64 0, i32 8
+  %ops.i = getelementptr inbounds i8, ptr %se.017.i, i64 296
   %13 = load ptr, ptr %ops.i, align 8
   %tobool1.not.i25 = icmp eq ptr %13, null
   br i1 %tobool1.not.i25, label %for.inc.i30, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i24
-  %load_setup.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %13, i64 0, i32 13
+  %load_setup.i = getelementptr inbounds i8, ptr %13, i64 104
   %14 = load ptr, ptr %load_setup.i, align 8
   %tobool3.not.i26 = icmp eq ptr %14, null
   br i1 %tobool3.not.i26, label %for.inc.i30, label %if.end.i27
 
 if.end.i27:                                       ; preds = %lor.lhs.false.i
-  %is_active.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %13, i64 0, i32 6
+  %is_active.i = getelementptr inbounds i8, ptr %13, i64 48
   %15 = load ptr, ptr %is_active.i, align 8
   %tobool5.not.i = icmp eq ptr %15, null
   br i1 %tobool5.not.i, label %if.end11.i, label %if.then6.i28
 
 if.then6.i28:                                     ; preds = %if.end.i27
-  %opaque.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.017.i, i64 0, i32 10
+  %opaque.i = getelementptr inbounds i8, ptr %se.017.i, i64 312
   %16 = load ptr, ptr %opaque.i, align 8
   %call.i29 = tail call zeroext i1 %15(ptr noundef %16) #16
   br i1 %call.i29, label %if.then6.if.end11_crit_edge.i, label %for.inc.i30
 
 if.then6.if.end11_crit_edge.i:                    ; preds = %if.then6.i28
   %.pre.i = load ptr, ptr %ops.i, align 8
-  %load_setup13.phi.trans.insert.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %.pre.i, i64 0, i32 13
+  %load_setup13.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 104
   %.pre19.i = load ptr, ptr %load_setup13.phi.trans.insert.i, align 8
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then6.if.end11_crit_edge.i, %if.end.i27
   %17 = phi ptr [ %.pre19.i, %if.then6.if.end11_crit_edge.i ], [ %14, %if.end.i27 ]
-  %opaque14.i = getelementptr inbounds %struct.SaveStateEntry, ptr %se.017.i, i64 0, i32 10
+  %opaque14.i = getelementptr inbounds i8, ptr %se.017.i, i64 312
   %18 = load ptr, ptr %opaque14.i, align 8
   %call15.i = tail call i32 %17(ptr noundef %f, ptr noundef %18) #16
   %cmp.i = icmp slt i32 %call15.i, 0
@@ -6245,7 +6192,7 @@ for.inc.i30:                                      ; preds = %if.end11.i, %if.the
 
 qemu_loadvm_state_setup.exit:                     ; preds = %if.end11.i
   tail call void @qemu_file_set_error(ptr noundef %f, i32 noundef %call15.i) #16
-  %idstr.i35 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.017.i, i64 0, i32 1
+  %idstr.i35 = getelementptr inbounds i8, ptr %se.017.i, i64 16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.273, ptr noundef nonnull %idstr.i35) #16
   br label %return
 
@@ -6259,24 +6206,24 @@ if.then9:                                         ; preds = %if.end7
   br i1 %tobool.not9.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then9
-  %switchover_ack_pending_num.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 41
+  %switchover_ack_pending_num.i = getelementptr inbounds i8, ptr %call, i64 1176
   br label %for.body.i38
 
 for.body.i38:                                     ; preds = %for.inc.i47, %for.body.lr.ph.i
   %se.010.i39 = phi ptr [ %se.08.i37, %for.body.lr.ph.i ], [ %se.0.i48, %for.inc.i47 ]
-  %ops.i40 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i39, i64 0, i32 8
+  %ops.i40 = getelementptr inbounds i8, ptr %se.010.i39, i64 296
   %19 = load ptr, ptr %ops.i40, align 8
   %tobool1.not.i41 = icmp eq ptr %19, null
   br i1 %tobool1.not.i41, label %for.inc.i47, label %lor.lhs.false.i42
 
 lor.lhs.false.i42:                                ; preds = %for.body.i38
-  %switchover_ack_needed.i = getelementptr inbounds %struct.SaveVMHandlers, ptr %19, i64 0, i32 16
+  %switchover_ack_needed.i = getelementptr inbounds i8, ptr %19, i64 128
   %20 = load ptr, ptr %switchover_ack_needed.i, align 8
   %tobool3.not.i43 = icmp eq ptr %20, null
   br i1 %tobool3.not.i43, label %for.inc.i47, label %if.end.i44
 
 if.end.i44:                                       ; preds = %lor.lhs.false.i42
-  %opaque.i45 = getelementptr inbounds %struct.SaveStateEntry, ptr %se.010.i39, i64 0, i32 10
+  %opaque.i45 = getelementptr inbounds i8, ptr %se.010.i39, i64 312
   %21 = load ptr, ptr %opaque.i45, align 8
   %call.i46 = tail call zeroext i1 %20(ptr noundef %21) #16
   br i1 %call.i46, label %if.then6.i63, label %for.inc.i47
@@ -6293,7 +6240,7 @@ for.inc.i47:                                      ; preds = %if.then6.i63, %if.e
   br i1 %tobool.not.i49, label %for.end.i, label %for.body.i38, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.inc.i47, %if.then9
-  %switchover_ack_pending_num9.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 41
+  %switchover_ack_pending_num9.i = getelementptr inbounds i8, ptr %call, i64 1176
   %23 = load i32, ptr %switchover_ack_pending_num9.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i36)
   %24 = load i32, ptr @trace_events_enabled_count, align 4
@@ -6319,7 +6266,7 @@ if.then8.i.i.i58:                                 ; preds = %if.then.i.i.i56
   %call9.i.i.i59 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i36, ptr noundef null) #16
   %call10.i.i.i60 = tail call i32 @qemu_get_thread_id() #16
   %29 = load i64, ptr %_now.i.i.i36, align 8
-  %tv_usec.i.i.i61 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i36, i64 0, i32 1
+  %tv_usec.i.i.i61 = getelementptr inbounds i8, ptr %_now.i.i.i36, i64 8
   %30 = load i64, ptr %tv_usec.i.i.i61, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.276, i32 noundef %call10.i.i.i60, i64 noundef %29, i64 noundef %30, i32 noundef %23) #16
   br label %qemu_loadvm_state_switchover_ack_needed.exit
@@ -6335,7 +6282,7 @@ qemu_loadvm_state_switchover_ack_needed.exit:     ; preds = %for.end.i, %land.lh
 if.end10:                                         ; preds = %qemu_loadvm_state_switchover_ack_needed.exit, %if.end7
   tail call void @cpu_synchronize_all_pre_loadvm() #16
   %call11 = tail call i32 @qemu_loadvm_state_main(ptr noundef %f, ptr noundef %call)
-  %main_thread_load_event = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 5
+  %main_thread_load_event = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @qemu_event_set(ptr noundef nonnull %main_thread_load_event) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %31 = load i32, ptr @trace_events_enabled_count, align 4
@@ -6361,7 +6308,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %36 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %37 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.278, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, i32 noundef %call11) #16
   br label %trace_qemu_loadvm_state_post_main.exit
@@ -6372,7 +6319,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qemu_loadvm_state_post_main.exit:           ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %have_listen_thread = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 11
+  %have_listen_thread = getelementptr inbounds i8, ptr %call, i64 257
   %38 = load i8, ptr %have_listen_thread, align 1
   %39 = and i8 %38, 1
   %tobool12.not = icmp eq i8 %39, 0
@@ -6471,7 +6418,7 @@ define dso_local i32 @qemu_loadvm_approve_switchover() local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @migration_incoming_get_current() #16
-  %switchover_ack_pending_num = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 41
+  %switchover_ack_pending_num = getelementptr inbounds i8, ptr %call, i64 1176
   %0 = load i32, ptr %switchover_ack_pending_num, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -6503,7 +6450,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.280, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %dec) #16
   br label %trace_loadvm_approve_switchover.exit
@@ -6597,14 +6544,14 @@ if.end35:                                         ; preds = %if.end30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %sn1, i8 0, i64 392, i1 false)
   %call39 = tail call i64 @g_date_time_to_unix(ptr noundef %call) #16
   %conv40 = trunc i64 %call39 to i32
-  %date_sec = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 3
+  %date_sec = getelementptr inbounds i8, ptr %sn1, i64 392
   store i32 %conv40, ptr %date_sec, align 8
   %call41 = tail call i32 @g_date_time_get_microsecond(ptr noundef %call) #16
   %mul = mul i32 %call41, 1000
-  %date_nsec = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 4
+  %date_nsec = getelementptr inbounds i8, ptr %sn1, i64 396
   store i32 %mul, ptr %date_nsec, align 4
   %call42 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
-  %vm_clock_nsec = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 5
+  %vm_clock_nsec = getelementptr inbounds i8, ptr %sn1, i64 400
   store i64 %call42, ptr %vm_clock_nsec, align 8
   %0 = load i32, ptr @replay_mode, align 4
   %cmp43.not = icmp eq i32 %0, 0
@@ -6616,18 +6563,18 @@ if.then45:                                        ; preds = %if.end35
 
 if.end49:                                         ; preds = %if.end35, %if.then45
   %call46.sink = phi i64 [ %call46, %if.then45 ], [ -1, %if.end35 ]
-  %1 = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 6
+  %1 = getelementptr inbounds i8, ptr %sn1, i64 408
   store i64 %call46.sink, ptr %1, align 8
   br i1 %tobool12.not, label %if.else53, label %if.then51
 
 if.then51:                                        ; preds = %if.end49
-  %name52 = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 1
+  %name52 = getelementptr inbounds i8, ptr %sn1, i64 128
   call void @pstrcpy(ptr noundef nonnull %name52, i32 noundef 256, ptr noundef nonnull %name) #16
   br label %if.end57
 
 if.else53:                                        ; preds = %if.end49
   %call54 = tail call noalias ptr @g_date_time_format(ptr noundef %call, ptr noundef nonnull @.str.34) #16
-  %name55 = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 1
+  %name55 = getelementptr inbounds i8, ptr %sn1, i64 128
   call void @pstrcpy(ptr noundef nonnull %name55, i32 noundef 256, ptr noundef %call54) #16
   call void @g_free(ptr noundef %call54) #16
   br label %if.end57
@@ -6645,7 +6592,7 @@ if.then60:                                        ; preds = %if.end57
 
 if.end61:                                         ; preds = %if.end57
   %call.i = call ptr @migrate_get_current() #16
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %2 = load i32, ptr %state.i, align 8
   %call1.i = call zeroext i1 @migration_is_running(i32 noundef %2) #16
   br i1 %call1.i, label %if.then.i, label %if.end.i
@@ -6668,7 +6615,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end7.i, label %qemu_savevm_state.exit
 
 if.end7.i:                                        ; preds = %if.end4.i
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr %call2.i, ptr %to_dst_file.i, align 8
   call void @qemu_savevm_state_header(ptr noundef nonnull %call2.i)
   call void @qemu_savevm_state_setup(ptr noundef nonnull %call2.i)
@@ -6729,7 +6676,7 @@ if.end72:                                         ; preds = %qemu_savevm_state.e
   br i1 %cmp75, label %if.then77, label %if.end85
 
 if.then77:                                        ; preds = %if.end72
-  %name78 = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn1, i64 0, i32 1
+  %name78 = getelementptr inbounds i8, ptr %sn1, i64 128
   %call81 = call i32 @bdrv_all_delete_snapshot(ptr noundef nonnull %name78, i1 noundef zeroext %has_devices, ptr noundef %devices, ptr noundef null) #16
   br label %if.end85
 
@@ -6957,7 +6904,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp16, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end13
-  %vm_state_size = getelementptr inbounds %struct.QEMUSnapshotInfo, ptr %sn, i64 0, i32 2
+  %vm_state_size = getelementptr inbounds i8, ptr %sn, i64 384
   %0 = load i64, ptr %vm_state_size, align 8
   %cmp18 = icmp eq i64 %0, 0
   br i1 %cmp18, label %if.then19, label %if.end21
@@ -6988,7 +6935,7 @@ if.end30:                                         ; preds = %if.end26
   call void @qemu_system_reset(i32 noundef 10) #16
   store ptr %call5.i, ptr %call, align 8
   store i32 2, ptr %.compoundliteral, align 8
-  %u = getelementptr inbounds %struct.YankInstance, ptr %.compoundliteral, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   store i64 0, ptr %u, align 8
   %call31 = call zeroext i1 @yank_register_instance(ptr noundef nonnull %.compoundliteral, ptr noundef %errp) #16
   br i1 %call31, label %if.end33, label %err_drain
@@ -7044,7 +6991,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vmstate_register_ram(ptr noundef %mr, ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %mr, i64 0, i32 11
+  %ram_block = getelementptr inbounds i8, ptr %mr, i64 56
   %0 = load ptr, ptr %ram_block, align 8
   %call = tail call ptr @memory_region_name(ptr noundef %mr) #16
   tail call void @qemu_ram_set_idstr(ptr noundef %0, ptr noundef %call, ptr noundef %dev) #16
@@ -7062,7 +7009,7 @@ declare void @qemu_ram_set_migratable(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vmstate_unregister_ram(ptr nocapture noundef readonly %mr, ptr nocapture noundef readnone %dev) local_unnamed_addr #0 {
 entry:
-  %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %mr, i64 0, i32 11
+  %ram_block = getelementptr inbounds i8, ptr %mr, i64 56
   %0 = load ptr, ptr %ram_block, align 8
   tail call void @qemu_ram_unset_idstr(ptr noundef %0) #16
   %1 = load ptr, ptr %ram_block, align 8
@@ -7077,7 +7024,7 @@ declare void @qemu_ram_unset_migratable(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vmstate_register_ram_global(ptr noundef %mr) local_unnamed_addr #0 {
 entry:
-  %ram_block.i = getelementptr inbounds %struct.MemoryRegion, ptr %mr, i64 0, i32 11
+  %ram_block.i = getelementptr inbounds i8, ptr %mr, i64 56
   %0 = load ptr, ptr %ram_block.i, align 8
   %call.i = tail call ptr @memory_region_name(ptr noundef %mr) #16
   tail call void @qemu_ram_set_idstr(ptr noundef %0, ptr noundef %call.i, ptr noundef null) #16
@@ -7096,7 +7043,7 @@ entry:
   br i1 %or.cond, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %unmigratable = getelementptr inbounds %struct.VMStateDescription, ptr %vmsd, i64 0, i32 1
+  %unmigratable = getelementptr inbounds i8, ptr %vmsd, i64 8
   %1 = load i8, ptr %unmigratable, align 8
   %2 = and i8 %1, 1
   %tobool2 = icmp eq i8 %2, 0
@@ -7117,13 +7064,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %tag) #16
-  %tag3 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 1
+  %tag3 = getelementptr inbounds i8, ptr %call1, i64 280
   store ptr %call2, ptr %tag3, align 8
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %vmstate) #16
-  %vmstate5 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 2
+  %vmstate5 = getelementptr inbounds i8, ptr %call1, i64 288
   store ptr %call4, ptr %vmstate5, align 8
   %call6 = tail call ptr @qapi_clone(ptr noundef %devices, ptr noundef nonnull @visit_type_strList) #16
-  %devices7 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 3
+  %devices7 = getelementptr inbounds i8, ptr %call1, i64 296
   store ptr %call6, ptr %devices7, align 8
   tail call void @job_start(ptr noundef nonnull %call1) #16
   br label %return
@@ -7154,13 +7101,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %tag) #16
-  %tag3 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 1
+  %tag3 = getelementptr inbounds i8, ptr %call1, i64 280
   store ptr %call2, ptr %tag3, align 8
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %vmstate) #16
-  %vmstate5 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 2
+  %vmstate5 = getelementptr inbounds i8, ptr %call1, i64 288
   store ptr %call4, ptr %vmstate5, align 8
   %call6 = tail call ptr @qapi_clone(ptr noundef %devices, ptr noundef nonnull @visit_type_strList) #16
-  %devices7 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 3
+  %devices7 = getelementptr inbounds i8, ptr %call1, i64 296
   store ptr %call6, ptr %devices7, align 8
   tail call void @job_start(ptr noundef nonnull %call1) #16
   br label %return
@@ -7179,10 +7126,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %tag) #16
-  %tag3 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 1
+  %tag3 = getelementptr inbounds i8, ptr %call1, i64 280
   store ptr %call2, ptr %tag3, align 8
   %call4 = tail call ptr @qapi_clone(ptr noundef %devices, ptr noundef nonnull @visit_type_strList) #16
-  %devices5 = getelementptr inbounds %struct.SnapshotJob, ptr %call1, i64 0, i32 3
+  %devices5 = getelementptr inbounds i8, ptr %call1, i64 296
   store ptr %call4, ptr %devices5, align 8
   tail call void @job_start(ptr noundef nonnull %call1) #16
   br label %return
@@ -7221,7 +7168,7 @@ declare i64 @llvm.bswap.i64(i64) #11
 define internal noundef i32 @configuration_pre_load(ptr nocapture noundef writeonly %opaque) #0 {
 entry:
   %call = tail call i32 @qemu_target_page_bits_min() #16
-  %target_page_bits = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 5
+  %target_page_bits = getelementptr inbounds i8, ptr %opaque, i64 88
   store i32 %call, ptr %target_page_bits, align 8
   ret i32 0
 }
@@ -7232,11 +7179,11 @@ entry:
   %0 = load ptr, ptr @current_machine, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #16
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #16
-  %name = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call1.i, i64 104
   %1 = load ptr, ptr %name, align 8
-  %name1 = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 4
+  %name1 = getelementptr inbounds i8, ptr %opaque, i64 80
   %2 = load ptr, ptr %name1, align 8
-  %len = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %opaque, i64 76
   %3 = load i32, ptr %len, align 4
   %conv = zext i32 %3 to i64
   %call2 = tail call i32 @strncmp(ptr noundef %2, ptr noundef %1, i64 noundef %conv) #19
@@ -7248,7 +7195,7 @@ if.then:                                          ; preds = %entry
   br label %out
 
 if.end:                                           ; preds = %entry
-  %target_page_bits = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 5
+  %target_page_bits = getelementptr inbounds i8, ptr %opaque, i64 88
   %4 = load i32, ptr %target_page_bits, align 8
   %call6 = tail call i32 @qemu_target_page_bits() #16
   %cmp7.not = icmp eq i32 %4, %call6
@@ -7267,13 +7214,13 @@ if.end12:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end12
-  %caps_count.i = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 6
+  %caps_count.i = getelementptr inbounds i8, ptr %opaque, i64 92
   %6 = load i32, ptr %caps_count.i, align 4
   %cmp16.not.i = icmp eq i32 %6, 0
   br i1 %cmp16.not.i, label %for.cond2.preheader.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %capabilities.i = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 7
+  %capabilities.i = getelementptr inbounds i8, ptr %opaque, i64 96
   %7 = load ptr, ptr %capabilities.i, align 8
   br label %for.body.i
 
@@ -7282,7 +7229,7 @@ if.then.i.i:                                      ; preds = %if.end12
   unreachable
 
 for.cond2.preheader.i:                            ; preds = %for.body.i, %for.cond.preheader.i
-  %arrayidx11.i = getelementptr %struct.MigrationState, ptr %call.i14, i64 0, i32 24, i64 16
+  %arrayidx11.i = getelementptr i8, ptr %call.i14, i64 1096
   br label %should_validate_capability.exit.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -7347,11 +7294,11 @@ out:                                              ; preds = %configuration_valid
   tail call void @g_free(ptr noundef %16) #16
   store ptr null, ptr %name1, align 8
   store i32 0, ptr %len, align 4
-  %capabilities = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 7
+  %capabilities = getelementptr inbounds i8, ptr %opaque, i64 96
   %17 = load ptr, ptr %capabilities, align 8
   tail call void @g_free(ptr noundef %17) #16
   store ptr null, ptr %capabilities, align 8
-  %caps_count = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 6
+  %caps_count = getelementptr inbounds i8, ptr %opaque, i64 92
   store i32 0, ptr %caps_count, align 4
   ret i32 %ret.0
 }
@@ -7362,20 +7309,20 @@ entry:
   %0 = load ptr, ptr @current_machine, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #16
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #16
-  %name = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call1.i, i64 104
   %1 = load ptr, ptr %name, align 8
   %call1 = tail call ptr @migrate_get_current() #16
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %conv = trunc i64 %call2 to i32
-  %len = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %opaque, i64 76
   store i32 %conv, ptr %len, align 4
-  %name3 = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 4
+  %name3 = getelementptr inbounds i8, ptr %opaque, i64 80
   store ptr %1, ptr %name3, align 8
   %call4 = tail call i32 @qemu_target_page_bits() #16
-  %target_page_bits = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 5
+  %target_page_bits = getelementptr inbounds i8, ptr %opaque, i64 88
   store i32 %call4, ptr %target_page_bits, align 8
   %call.i14 = tail call ptr @migrate_get_current() #16
-  %arrayidx.i = getelementptr %struct.MigrationState, ptr %call.i14, i64 0, i32 24, i64 16
+  %arrayidx.i = getelementptr i8, ptr %call.i14, i64 1096
   br label %should_validate_capability.exit.i
 
 should_validate_capability.exit.i:                ; preds = %for.inc.i, %entry
@@ -7398,14 +7345,14 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %s
   br i1 %exitcond.not.i, label %get_validatable_capabilities_count.exit, label %should_validate_capability.exit.i, !llvm.loop !44
 
 get_validatable_capabilities_count.exit:          ; preds = %for.inc.i
-  %caps_count = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 6
+  %caps_count = getelementptr inbounds i8, ptr %opaque, i64 92
   store i32 %result.1.i, ptr %caps_count, align 4
-  %capabilities = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 7
+  %capabilities = getelementptr inbounds i8, ptr %opaque, i64 96
   %5 = load ptr, ptr %capabilities, align 8
   %conv7 = zext i32 %result.1.i to i64
   %call8 = tail call ptr @g_realloc_n(ptr noundef %5, i64 noundef %conv7, i64 noundef 4) #16
   store ptr %call8, ptr %capabilities, align 8
-  %arrayidx = getelementptr %struct.MigrationState, ptr %call1, i64 0, i32 24, i64 16
+  %arrayidx = getelementptr i8, ptr %call1, i64 1096
   br label %should_validate_capability.exit
 
 should_validate_capability.exit:                  ; preds = %get_validatable_capabilities_count.exit, %for.inc
@@ -7435,7 +7382,7 @@ for.inc:                                          ; preds = %should_validate_cap
   br i1 %exitcond.not, label %for.end, label %should_validate_capability.exit, !llvm.loop !45
 
 for.end:                                          ; preds = %for.inc
-  %uuid = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 8
+  %uuid = getelementptr inbounds i8, ptr %opaque, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %uuid, ptr noundef nonnull align 4 dereferenceable(16) @qemu_uuid, i64 16, i1 false)
   ret i32 0
 }
@@ -7443,11 +7390,11 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @configuration_post_save(ptr nocapture noundef %opaque) #0 {
 entry:
-  %capabilities = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 7
+  %capabilities = getelementptr inbounds i8, ptr %opaque, i64 96
   %0 = load ptr, ptr %capabilities, align 8
   tail call void @g_free(ptr noundef %0) #16
   store ptr null, ptr %capabilities, align 8
-  %caps_count = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 6
+  %caps_count = getelementptr inbounds i8, ptr %opaque, i64 92
   store i32 0, ptr %caps_count, align 4
   ret i32 0
 }
@@ -7479,7 +7426,7 @@ entry:
 define internal zeroext i1 @vmstate_capabilites_needed(ptr nocapture readnone %opaque) #0 {
 entry:
   %call.i = tail call ptr @migrate_get_current() #16
-  %arrayidx.i = getelementptr %struct.MigrationState, ptr %call.i, i64 0, i32 24, i64 16
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 1096
   br label %should_validate_capability.exit.i
 
 should_validate_capability.exit.i:                ; preds = %for.inc.i, %entry
@@ -7571,7 +7518,7 @@ entry:
   %0 = load i8, ptr @qemu_uuid_set, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %uuid = getelementptr inbounds %struct.SaveState, ptr %opaque, i64 0, i32 8
+  %uuid = getelementptr inbounds i8, ptr %opaque, i64 104
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -7639,8 +7586,8 @@ declare i64 @qemu_get_counted_string(ptr noundef, ptr noundef) #1
 define internal fastcc i32 @vmstate_load(ptr noundef %f, ptr noundef %se) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 1
-  %vmsd = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %se, i64 16
+  %vmsd = getelementptr inbounds i8, ptr %se, i64 304
   %0 = load ptr, ptr %vmsd, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -7675,7 +7622,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.161, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %idstr, ptr noundef %cond) #16
   br label %trace_vmstate_load.exit
@@ -7691,21 +7638,21 @@ trace_vmstate_load.exit:                          ; preds = %cond.end, %land.lhs
   br i1 %tobool3.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_vmstate_load.exit
-  %ops = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 8
+  %ops = getelementptr inbounds i8, ptr %se, i64 296
   %10 = load ptr, ptr %ops, align 8
-  %load_state = getelementptr inbounds %struct.SaveVMHandlers, ptr %10, i64 0, i32 12
+  %load_state = getelementptr inbounds i8, ptr %10, i64 96
   %11 = load ptr, ptr %load_state, align 8
-  %opaque = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 10
+  %opaque = getelementptr inbounds i8, ptr %se, i64 312
   %12 = load ptr, ptr %opaque, align 8
-  %load_version_id = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 5
+  %load_version_id = getelementptr inbounds i8, ptr %se, i64 284
   %13 = load i32, ptr %load_version_id, align 4
   %call = tail call i32 %11(ptr noundef %f, ptr noundef %12, i32 noundef %13) #16
   br label %return
 
 if.end:                                           ; preds = %trace_vmstate_load.exit
-  %opaque5 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 10
+  %opaque5 = getelementptr inbounds i8, ptr %se, i64 312
   %14 = load ptr, ptr %opaque5, align 8
-  %load_version_id6 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 5
+  %load_version_id6 = getelementptr inbounds i8, ptr %se, i64 284
   %15 = load i32, ptr %load_version_id6, align 4
   %call7 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull %9, ptr noundef %14, i32 noundef %15) #16
   br label %return
@@ -7719,7 +7666,7 @@ return:                                           ; preds = %if.end, %if.then
 define internal fastcc noundef zeroext i1 @check_section_footer(ptr noundef %f, ptr noundef %se) unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #16
-  %send_section_footer = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 42
+  %send_section_footer = getelementptr inbounds i8, ptr %call, i64 1539
   %0 = load i8, ptr %send_section_footer, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -7741,19 +7688,19 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %idstr = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 1
+  %idstr = getelementptr inbounds i8, ptr %se, i64 16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.166, ptr noundef nonnull %idstr) #16
   br label %return
 
 if.end9:                                          ; preds = %if.end5
   %call10 = tail call i32 @qemu_get_be32(ptr noundef %f) #16
-  %load_section_id = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 7
+  %load_section_id = getelementptr inbounds i8, ptr %se, i64 292
   %2 = load i32, ptr %load_section_id, align 4
   %cmp11.not = icmp eq i32 %call10, %2
   br i1 %cmp11.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end9
-  %idstr14 = getelementptr inbounds %struct.SaveStateEntry, ptr %se, i64 0, i32 1
+  %idstr14 = getelementptr inbounds i8, ptr %se, i64 16
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.167, ptr noundef nonnull %idstr14, i32 noundef %call10, i32 noundef %2) #16
   br label %return
 
@@ -7800,9 +7747,9 @@ entry:
   %0 = load ptr, ptr %call, align 8
   %call1 = tail call ptr @migrate_get_current() #16
   %call2 = tail call ptr @object_ref(ptr noundef %call1) #16
-  %state = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 28
+  %state = getelementptr inbounds i8, ptr %call, i64 568
   tail call void @migrate_set_state(ptr noundef nonnull %state, i32 noundef 4, i32 noundef 5) #16
-  %thread_sync_sem = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 4
+  %thread_sync_sem = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @qemu_sem_post(ptr noundef nonnull %thread_sync_sem) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -7828,7 +7775,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #16
   br label %trace_postcopy_ram_listen_thread_start.exit
@@ -7868,7 +7815,7 @@ if.then8.i.i28:                                   ; preds = %if.then.i.i26
   %call9.i.i29 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i19, ptr noundef null) #16
   %call10.i.i30 = tail call i32 @qemu_get_thread_id() #16
   %14 = load i64, ptr %_now.i.i19, align 8
-  %tv_usec.i.i31 = getelementptr inbounds %struct.timeval, ptr %_now.i.i19, i64 0, i32 1
+  %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i19, i64 8
   %15 = load i64, ptr %tv_usec.i.i31, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.223, i32 noundef %call10.i.i30, i64 noundef %14, i64 noundef %15) #16
   br label %trace_postcopy_ram_listen_thread_exit.exit
@@ -7910,14 +7857,14 @@ if.then18:                                        ; preds = %land.lhs.true8, %la
   unreachable
 
 if.end19:                                         ; preds = %if.then10, %trace_postcopy_ram_listen_thread_exit.exit
-  %main_thread_load_event = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 5
+  %main_thread_load_event = getelementptr inbounds i8, ptr %call, i64 152
   tail call void @qemu_event_wait(ptr noundef nonnull %main_thread_load_event) #16
   %call16 = tail call i32 @postcopy_ram_incoming_cleanup(ptr noundef nonnull %call) #16
   tail call void @migrate_set_state(ptr noundef nonnull %state, i32 noundef 5, i32 noundef 8) #16
   tail call void @migration_incoming_state_destroy() #16
   tail call void @qemu_loadvm_state_cleanup()
   tail call void @rcu_unregister_thread() #16
-  %have_listen_thread = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 11
+  %have_listen_thread = getelementptr inbounds i8, ptr %call, i64 257
   store i8 0, ptr %have_listen_thread, align 1
   %call21 = tail call i32 @postcopy_state_set(i32 noundef 5) #16
   tail call void @object_unref(ptr noundef %call1) #16
@@ -7976,7 +7923,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.229) #16
   br label %trace_vmstate_downtime_checkpoint.exit
@@ -8012,7 +7959,7 @@ if.then8.i.i11:                                   ; preds = %if.then.i.i9
   %call9.i.i12 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i2, ptr noundef null) #16
   %call10.i.i13 = tail call i32 @qemu_get_thread_id() #16
   %12 = load i64, ptr %_now.i.i2, align 8
-  %tv_usec.i.i14 = getelementptr inbounds %struct.timeval, ptr %_now.i.i2, i64 0, i32 1
+  %tv_usec.i.i14 = getelementptr inbounds i8, ptr %_now.i.i2, i64 8
   %13 = load i64, ptr %tv_usec.i.i14, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i13, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.230) #16
   br label %trace_vmstate_downtime_checkpoint.exit16
@@ -8023,7 +7970,7 @@ if.else.i.i15:                                    ; preds = %if.then.i.i9
 
 trace_vmstate_downtime_checkpoint.exit16:         ; preds = %trace_vmstate_downtime_checkpoint.exit, %land.lhs.true5.i.i6, %if.then8.i.i11, %if.else.i.i15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i2)
-  %announce_timer = getelementptr inbounds %struct.MigrationIncomingState, ptr %opaque, i64 0, i32 6
+  %announce_timer = getelementptr inbounds i8, ptr %opaque, i64 160
   %call = tail call ptr @migrate_announce_params() #16
   tail call void @qemu_announce_self(ptr noundef nonnull %announce_timer, ptr noundef %call) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i17)
@@ -8050,7 +7997,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #16
   %call10.i.i28 = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %20 = load i64, ptr %tv_usec.i.i29, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i28, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.231) #16
   br label %trace_vmstate_downtime_checkpoint.exit31
@@ -8097,7 +8044,7 @@ if.then8.i.i41:                                   ; preds = %if.then.i.i39
   %call9.i.i42 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #16
   %call10.i.i43 = call i32 @qemu_get_thread_id() #16
   %27 = load i64, ptr %_now.i.i32, align 8
-  %tv_usec.i.i44 = getelementptr inbounds %struct.timeval, ptr %_now.i.i32, i64 0, i32 1
+  %tv_usec.i.i44 = getelementptr inbounds i8, ptr %_now.i.i32, i64 8
   %28 = load i64, ptr %tv_usec.i.i44, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i43, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.232) #16
   br label %trace_vmstate_downtime_checkpoint.exit46
@@ -8122,7 +8069,7 @@ if.else:                                          ; preds = %trace_vmstate_downt
   br label %if.end3
 
 if.end3:                                          ; preds = %if.else, %if.then2
-  %bh = getelementptr inbounds %struct.MigrationIncomingState, ptr %opaque, i64 0, i32 27
+  %bh = getelementptr inbounds i8, ptr %opaque, i64 560
   %30 = load ptr, ptr %bh, align 8
   call void @qemu_bh_delete(ptr noundef %30) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i47)
@@ -8149,7 +8096,7 @@ if.then8.i.i56:                                   ; preds = %if.then.i.i54
   %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i47, ptr noundef null) #16
   %call10.i.i58 = call i32 @qemu_get_thread_id() #16
   %36 = load i64, ptr %_now.i.i47, align 8
-  %tv_usec.i.i59 = getelementptr inbounds %struct.timeval, ptr %_now.i.i47, i64 0, i32 1
+  %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i47, i64 8
   %37 = load i64, ptr %tv_usec.i.i59, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i58, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.233) #16
   br label %trace_vmstate_downtime_checkpoint.exit61
@@ -8205,7 +8152,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #16
   %call10.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %len to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.241, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %ramid, i32 noundef %conv11.i) #16
@@ -8251,7 +8198,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #16
   %call10.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.243, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6) #16
   br label %_nocheck__trace_loadvm_postcopy_ram_handle_discard_end.exit
@@ -8321,7 +8268,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %key) #16
   br label %trace_postcopy_page_req_sync.exit
@@ -8377,15 +8324,15 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @snapshot_save_job_run(ptr noundef %job, ptr noundef %errp) #0 {
 entry:
-  %errp1 = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 5
+  %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
   %call = tail call ptr @qemu_coroutine_self() #16
-  %co = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 4
+  %co = getelementptr inbounds i8, ptr %job, i64 304
   store ptr %call, ptr %co, align 8
   %call2 = tail call ptr @qemu_get_aio_context() #16
   tail call void @aio_bh_schedule_oneshot_full(ptr noundef %call2, ptr noundef nonnull @snapshot_save_job_bh, ptr noundef %job, ptr noundef nonnull @.str.287) #16
   tail call void @qemu_coroutine_yield() #16
-  %ret = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 6
+  %ret = getelementptr inbounds i8, ptr %job, i64 320
   %0 = load i8, ptr %ret, align 8
   %1 = and i8 %0, 1
   %sext = add nsw i8 %1, -1
@@ -8401,16 +8348,16 @@ declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef
 define internal void @snapshot_save_job_bh(ptr noundef %opaque) #0 {
 entry:
   tail call void @job_progress_set_remaining(ptr noundef %opaque, i64 noundef 1) #16
-  %tag = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opaque, i64 280
   %0 = load ptr, ptr %tag, align 8
-  %vmstate = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 2
+  %vmstate = getelementptr inbounds i8, ptr %opaque, i64 288
   %1 = load ptr, ptr %vmstate, align 8
-  %devices = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 3
+  %devices = getelementptr inbounds i8, ptr %opaque, i64 296
   %2 = load ptr, ptr %devices, align 8
-  %errp = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 5
+  %errp = getelementptr inbounds i8, ptr %opaque, i64 312
   %3 = load ptr, ptr %errp, align 8
   %call = tail call zeroext i1 @save_snapshot(ptr noundef %0, i1 noundef zeroext false, ptr noundef %1, i1 noundef zeroext true, ptr noundef %2, ptr noundef %3)
-  %ret = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 6
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 320
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 8
   tail call void @job_progress_update(ptr noundef %opaque, i64 noundef 1) #16
@@ -8420,7 +8367,7 @@ entry:
   tail call void @g_free(ptr noundef %5) #16
   %6 = load ptr, ptr %devices, align 8
   tail call void @qapi_free_strList(ptr noundef %6) #16
-  %co = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 4
+  %co = getelementptr inbounds i8, ptr %opaque, i64 304
   %7 = load ptr, ptr %co, align 8
   tail call void @aio_co_wake(ptr noundef %7) #16
   ret void
@@ -8439,15 +8386,15 @@ declare void @qapi_free_strList(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @snapshot_load_job_run(ptr noundef %job, ptr noundef %errp) #0 {
 entry:
-  %errp1 = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 5
+  %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
   %call = tail call ptr @qemu_coroutine_self() #16
-  %co = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 4
+  %co = getelementptr inbounds i8, ptr %job, i64 304
   store ptr %call, ptr %co, align 8
   %call2 = tail call ptr @qemu_get_aio_context() #16
   tail call void @aio_bh_schedule_oneshot_full(ptr noundef %call2, ptr noundef nonnull @snapshot_load_job_bh, ptr noundef %job, ptr noundef nonnull @.str.288) #16
   tail call void @qemu_coroutine_yield() #16
-  %ret = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 6
+  %ret = getelementptr inbounds i8, ptr %job, i64 320
   %0 = load i8, ptr %ret, align 8
   %1 = and i8 %0, 1
   %sext = add nsw i8 %1, -1
@@ -8461,16 +8408,16 @@ entry:
   tail call void @job_progress_set_remaining(ptr noundef %opaque, i64 noundef 1) #16
   %call = tail call zeroext i1 @runstate_is_running() #16
   %call1 = tail call i32 @vm_stop(i32 noundef 8) #16
-  %tag = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opaque, i64 280
   %0 = load ptr, ptr %tag, align 8
-  %vmstate = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 2
+  %vmstate = getelementptr inbounds i8, ptr %opaque, i64 288
   %1 = load ptr, ptr %vmstate, align 8
-  %devices = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 3
+  %devices = getelementptr inbounds i8, ptr %opaque, i64 296
   %2 = load ptr, ptr %devices, align 8
-  %errp = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 5
+  %errp = getelementptr inbounds i8, ptr %opaque, i64 312
   %3 = load ptr, ptr %errp, align 8
   %call2 = tail call zeroext i1 @load_snapshot(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true, ptr noundef %2, ptr noundef %3)
-  %ret = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 6
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 320
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr %ret, align 8
   %or.cond = select i1 %call2, i1 %call, i1 false
@@ -8488,7 +8435,7 @@ if.end:                                           ; preds = %if.then, %entry
   tail call void @g_free(ptr noundef %5) #16
   %6 = load ptr, ptr %devices, align 8
   tail call void @qapi_free_strList(ptr noundef %6) #16
-  %co = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 4
+  %co = getelementptr inbounds i8, ptr %opaque, i64 304
   %7 = load ptr, ptr %co, align 8
   tail call void @aio_co_wake(ptr noundef %7) #16
   ret void
@@ -8497,15 +8444,15 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @snapshot_delete_job_run(ptr noundef %job, ptr noundef %errp) #0 {
 entry:
-  %errp1 = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 5
+  %errp1 = getelementptr inbounds i8, ptr %job, i64 312
   store ptr %errp, ptr %errp1, align 8
   %call = tail call ptr @qemu_coroutine_self() #16
-  %co = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 4
+  %co = getelementptr inbounds i8, ptr %job, i64 304
   store ptr %call, ptr %co, align 8
   %call2 = tail call ptr @qemu_get_aio_context() #16
   tail call void @aio_bh_schedule_oneshot_full(ptr noundef %call2, ptr noundef nonnull @snapshot_delete_job_bh, ptr noundef %job, ptr noundef nonnull @.str.289) #16
   tail call void @qemu_coroutine_yield() #16
-  %ret = getelementptr inbounds %struct.SnapshotJob, ptr %job, i64 0, i32 6
+  %ret = getelementptr inbounds i8, ptr %job, i64 320
   %0 = load i8, ptr %ret, align 8
   %1 = and i8 %0, 1
   %sext = add nsw i8 %1, -1
@@ -8517,11 +8464,11 @@ entry:
 define internal void @snapshot_delete_job_bh(ptr noundef %opaque) #0 {
 entry:
   tail call void @job_progress_set_remaining(ptr noundef %opaque, i64 noundef 1) #16
-  %tag = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %opaque, i64 280
   %0 = load ptr, ptr %tag, align 8
-  %devices = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 3
+  %devices = getelementptr inbounds i8, ptr %opaque, i64 296
   %1 = load ptr, ptr %devices, align 8
-  %errp = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 5
+  %errp = getelementptr inbounds i8, ptr %opaque, i64 312
   %2 = load ptr, ptr %errp, align 8
   %call.i = tail call zeroext i1 @bdrv_all_can_snapshot(i1 noundef zeroext true, ptr noundef %1, ptr noundef %2) #16
   br i1 %call.i, label %if.end.i, label %delete_snapshot.exit
@@ -8534,17 +8481,17 @@ if.end.i:                                         ; preds = %entry
 
 delete_snapshot.exit:                             ; preds = %entry, %if.end.i
   %retval.0.i = phi i8 [ 0, %entry ], [ %3, %if.end.i ]
-  %ret = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 6
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 320
   store i8 %retval.0.i, ptr %ret, align 8
   tail call void @job_progress_update(ptr noundef nonnull %opaque, i64 noundef 1) #16
   %4 = load ptr, ptr %tag, align 8
   tail call void @g_free(ptr noundef %4) #16
-  %vmstate.i = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 2
+  %vmstate.i = getelementptr inbounds i8, ptr %opaque, i64 288
   %5 = load ptr, ptr %vmstate.i, align 8
   tail call void @g_free(ptr noundef %5) #16
   %6 = load ptr, ptr %devices, align 8
   tail call void @qapi_free_strList(ptr noundef %6) #16
-  %co = getelementptr inbounds %struct.SnapshotJob, ptr %opaque, i64 0, i32 4
+  %co = getelementptr inbounds i8, ptr %opaque, i64 304
   %7 = load ptr, ptr %co, align 8
   tail call void @aio_co_wake(ptr noundef %7) #16
   ret void

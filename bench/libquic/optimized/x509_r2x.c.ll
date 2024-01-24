@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/x509_r2x.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.x509_cinf_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_r2x.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -24,7 +19,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call, align 8
   %1 = load ptr, ptr %r, align 8
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %1, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %attributes, align 8
   %call1 = tail call i64 @sk_num(ptr noundef %2) #2
   %cmp2.not = icmp eq i64 %call1, 0
@@ -43,7 +38,7 @@ if.end7:                                          ; preds = %if.then3
 
 if.end12:                                         ; preds = %if.end7, %if.end
   %3 = load ptr, ptr %r, align 8
-  %subject = getelementptr inbounds %struct.X509_req_info_st, ptr %3, i64 0, i32 2
+  %subject = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %subject, align 8
   %call14 = tail call ptr @X509_NAME_dup(ptr noundef %4) #2
   %call15 = tail call i32 @X509_set_subject_name(ptr noundef nonnull %call, ptr noundef %call14) #2
@@ -57,7 +52,7 @@ if.end18:                                         ; preds = %if.end12
   br i1 %cmp21, label %err, label %if.end23
 
 if.end23:                                         ; preds = %if.end18
-  %validity = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 4
+  %validity = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %validity, align 8
   %6 = load ptr, ptr %5, align 8
   %call24 = tail call ptr @X509_gmtime_adj(ptr noundef %6, i64 noundef 0) #2
@@ -66,7 +61,7 @@ if.end23:                                         ; preds = %if.end18
 
 if.end27:                                         ; preds = %if.end23
   %7 = load ptr, ptr %validity, align 8
-  %notAfter = getelementptr inbounds %struct.X509_val_st, ptr %7, i64 0, i32 1
+  %notAfter = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %notAfter, align 8
   %conv = sext i32 %days to i64
   %mul = mul nsw i64 %conv, 86400

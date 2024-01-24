@@ -10,15 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"struct.ue2::hwlmLiteral" = type { %"class.std::__cxx11::basic_string", i32, i8, i8, i32, i8, i64, %"class.std::vector", %"class.std::vector" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.noodTable = type { i32, i64, i64, i8, i8, i8, i8, i8, i8 }
 
 $_ZN3ue212bytecode_ptrI9noodTableED2Ev = comdat any
 
@@ -41,8 +32,8 @@ entry:
   %mask.i84 = alloca i64, align 8
   %mask.i = alloca i64, align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %lit) #13
-  %msk = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %lit, i64 0, i32 7
-  %_M_finish.i = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %lit, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %msk = getelementptr inbounds i8, ptr %lit, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %lit, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %msk, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -100,7 +91,7 @@ invoke.cont8:                                     ; preds = %if.then.i.i.i.i.i.i
 
 do.end13.lr.ph:                                   ; preds = %invoke.cont8
   %conv = trunc i64 %sub to i32
-  %cmp19 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %lit, i64 0, i32 8
+  %cmp19 = getelementptr inbounds i8, ptr %lit, i64 80
   %2 = load ptr, ptr %cmp19, align 8
   br label %do.end13
 
@@ -137,7 +128,7 @@ for.end:                                          ; preds = %do.end13, %invoke.c
 
 for.body32.lr.ph:                                 ; preds = %for.end
   %conv28 = trunc i64 %sub26 to i32
-  %nocase = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %lit, i64 0, i32 2
+  %nocase = getelementptr inbounds i8, ptr %lit, i64 36
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %land.end.thread
@@ -198,7 +189,7 @@ do.end61:                                         ; preds = %for.end57
   br i1 %cmp24.i, label %for.body.lr.ph.i, label %invoke.cont63
 
 for.body.lr.ph.i:                                 ; preds = %do.end61
-  %nocase.i = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %lit, i64 0, i32 2
+  %nocase.i = getelementptr inbounds i8, ptr %lit, i64 36
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.backedge.i, %for.body.lr.ph.i
@@ -244,7 +235,7 @@ for.cond.backedge.i:                              ; preds = %if.end.i, %if.then.
 
 invoke.cont63:                                    ; preds = %for.cond.backedge.i, %if.end.i, %if.then.i, %do.end61
   %offset.1.i = phi i64 [ 0, %do.end61 ], [ %i.025.i, %if.then.i ], [ %i.025.i, %if.end.i ], [ %i.025.i, %for.cond.backedge.i ]
-  %id = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %lit, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %lit, i64 32
   %29 = load i32, ptr %id, align 8
   %30 = load ptr, ptr %agg.result, align 8
   store i32 %29, ptr %30, align 8
@@ -252,7 +243,7 @@ invoke.cont63:                                    ; preds = %for.cond.backedge.i
   %cmp69 = icmp eq i64 %call68, 1
   %conv71 = zext i1 %cmp69 to i8
   %31 = load ptr, ptr %agg.result, align 8
-  %single = getelementptr inbounds %struct.noodTable, ptr %31, i64 0, i32 6
+  %single = getelementptr inbounds i8, ptr %31, i64 27
   store i8 %conv71, ptr %single, align 1
   %call74 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %lit) #13
   %sub75 = sub i64 %call74, %offset.1.i
@@ -273,21 +264,21 @@ lpad.i.i:                                         ; preds = %if.then.i.i78
 invoke.cont76:                                    ; preds = %invoke.cont63
   %conv.i.i = trunc i64 %sub75 to i8
   %33 = load ptr, ptr %agg.result, align 8
-  %key_offset80 = getelementptr inbounds %struct.noodTable, ptr %33, i64 0, i32 4
+  %key_offset80 = getelementptr inbounds i8, ptr %33, i64 25
   store i8 %conv.i.i, ptr %key_offset80, align 1
-  %nocase81 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %lit, i64 0, i32 2
+  %nocase81 = getelementptr inbounds i8, ptr %lit, i64 36
   %34 = load i8, ptr %nocase81, align 4
   %35 = and i8 %34, 1
   %36 = load ptr, ptr %agg.result, align 8
-  %nocase87 = getelementptr inbounds %struct.noodTable, ptr %36, i64 0, i32 5
+  %nocase87 = getelementptr inbounds i8, ptr %36, i64 26
   store i8 %35, ptr %nocase87, align 2
   %call88 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %lit, i64 noundef %offset.1.i) #13
   %37 = load i8, ptr %call88, align 1
   %38 = load ptr, ptr %agg.result, align 8
-  %key0 = getelementptr inbounds %struct.noodTable, ptr %38, i64 0, i32 7
+  %key0 = getelementptr inbounds i8, ptr %38, i64 28
   store i8 %37, ptr %key0, align 4
   %39 = load ptr, ptr %agg.result, align 8
-  %single93 = getelementptr inbounds %struct.noodTable, ptr %39, i64 0, i32 6
+  %single93 = getelementptr inbounds i8, ptr %39, i64 27
   %40 = load i8, ptr %single93, align 1
   %tobool94.not = icmp eq i8 %40, 0
   br i1 %tobool94.not, label %if.else, label %if.end
@@ -312,7 +303,7 @@ if.else:                                          ; preds = %invoke.cont76
 if.end:                                           ; preds = %invoke.cont76, %if.else
   %.sink142 = phi ptr [ %43, %if.else ], [ %39, %invoke.cont76 ]
   %.sink = phi i8 [ %42, %if.else ], [ 0, %invoke.cont76 ]
-  %key1100 = getelementptr inbounds %struct.noodTable, ptr %.sink142, i64 0, i32 8
+  %key1100 = getelementptr inbounds i8, ptr %.sink142, i64 29
   store i8 %.sink, ptr %key1100, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mask.i)
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.addr.0.i.i.i.i.i123 to i64
@@ -327,7 +318,7 @@ invoke.cont101:                                   ; preds = %if.end
   %mask.i.0.mask.i.0.mask.i.0.mask.0.mask.0.mask.0..i = load i64, ptr %mask.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mask.i)
   %44 = load ptr, ptr %agg.result, align 8
-  %msk105 = getelementptr inbounds %struct.noodTable, ptr %44, i64 0, i32 1
+  %msk105 = getelementptr inbounds i8, ptr %44, i64 8
   store i64 %mask.i.0.mask.i.0.mask.i.0.mask.0.mask.0.mask.0..i, ptr %msk105, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mask.i84)
   %sub.ptr.lhs.cast.i.i85 = ptrtoint ptr %__first.addr.0.i.i.i.i.i59 to i64
@@ -357,11 +348,11 @@ invoke.cont106:                                   ; preds = %invoke.cont101
   %mask.i84.0.mask.i84.0.mask.i84.0.mask.0.mask.0.mask.0..i90 = load i64, ptr %mask.i84, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mask.i84)
   %48 = load ptr, ptr %agg.result, align 8
-  %cmp110 = getelementptr inbounds %struct.noodTable, ptr %48, i64 0, i32 2
+  %cmp110 = getelementptr inbounds i8, ptr %48, i64 16
   store i64 %mask.i84.0.mask.i84.0.mask.i84.0.mask.0.mask.0.mask.0..i90, ptr %cmp110, align 8
   %conv111 = trunc i64 %.sroa.speculated to i8
   %49 = load ptr, ptr %agg.result, align 8
-  %msk_len = getelementptr inbounds %struct.noodTable, ptr %49, i64 0, i32 3
+  %msk_len = getelementptr inbounds i8, ptr %49, i64 24
   store i8 %conv111, ptr %msk_len, align 8
   %tobool.not.i.i.i = icmp eq ptr %n_cmp.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -504,9 +495,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define linkonce_odr hidden void @_ZN3ue212bytecode_ptrI9noodTableEC2Emm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %bytes_in, i64 noundef %alignment_in) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %bytes = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %this, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %bytes_in, ptr %bytes, align 8
-  %alignment = getelementptr inbounds %"class.ue2::bytecode_ptr", ptr %this, i64 0, i32 2
+  %alignment = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %alignment_in, ptr %alignment, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %alignment_in, i64 8)
   %call5 = invoke noundef ptr @_ZN3ue223aligned_malloc_internalEmm(i64 noundef %bytes_in, i64 noundef %.sroa.speculated)

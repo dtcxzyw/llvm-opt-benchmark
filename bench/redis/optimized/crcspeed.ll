@@ -13,7 +13,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %conv = trunc i64 %indvars.iv to i8
   store i8 %conv, ptr %v, align 1
-  %call = call i64 %crcfn(i64 noundef 0, ptr noundef nonnull %v, i64 noundef 1) #6
+  %call = call i64 %crcfn(i64 noundef 0, ptr noundef nonnull %v, i64 noundef 1) #5
   %arrayidx1 = getelementptr inbounds [256 x i64], ptr %table, i64 0, i64 %indvars.iv
   store i64 %call, ptr %arrayidx1, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -57,7 +57,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %call = call zeroext i16 %crcfn(i16 noundef zeroext 0, ptr noundef nonnull %n, i64 noundef 1) #6
+  %call = call zeroext i16 %crcfn(i16 noundef zeroext 0, ptr noundef nonnull %n, i64 noundef 1) #5
   %0 = load i32, ptr %n, align 4
   %idxprom = sext i32 %0 to i64
   %arrayidx1 = getelementptr inbounds [256 x i16], ptr %table, i64 0, i64 %idxprom
@@ -108,7 +108,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %conv.i = trunc i64 %indvars.iv.i to i8
   store i8 %conv.i, ptr %v.i, align 1
-  %call.i = call i64 %fn(i64 noundef 0, ptr noundef nonnull %v.i, i64 noundef 1) #6
+  %call.i = call i64 %fn(i64 noundef 0, ptr noundef nonnull %v.i, i64 noundef 1) #5
   %arrayidx1.i = getelementptr inbounds [256 x i64], ptr %big_table, i64 0, i64 %indvars.iv.i
   store i64 %call.i, ptr %arrayidx1.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -152,7 +152,7 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %indvars.iv = phi i64 [ 0, %for.cond1.preheader ], [ %indvars.iv.next, %for.body3 ]
   %arrayidx5 = getelementptr inbounds [256 x i64], ptr %big_table, i64 %indvars.iv12, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx5, align 8
-  %3 = call i64 @llvm.bswap.i64(i64 %2)
+  %3 = call noundef i64 @llvm.bswap.i64(i64 %2)
   store i64 %3, ptr %arrayidx5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -176,7 +176,7 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
-  %call.i = call zeroext i16 %fn(i16 noundef zeroext 0, ptr noundef nonnull %n.i, i64 noundef 1) #6
+  %call.i = call zeroext i16 %fn(i16 noundef zeroext 0, ptr noundef nonnull %n.i, i64 noundef 1) #5
   %0 = load i32, ptr %n.i, align 4
   %idxprom.i = sext i32 %0 to i64
   %arrayidx1.i = getelementptr inbounds [256 x i16], ptr %big_table, i64 0, i64 %idxprom.i
@@ -233,7 +233,17 @@ while.cond4.preheader:                            ; preds = %while.body, %entry
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %dec, %while.body ]
   %next.0.lcssa = phi ptr [ %buf, %entry ], [ %incdec.ptr, %while.body ]
   %cmp540 = icmp ugt i64 %len.addr.0.lcssa, 7
-  br i1 %cmp540, label %while.body7, label %while.cond47.preheader
+  br i1 %cmp540, label %while.body7.lr.ph, label %while.cond47.preheader
+
+while.body7.lr.ph:                                ; preds = %while.cond4.preheader
+  %arrayidx9 = getelementptr inbounds i8, ptr %little_table, i64 14336
+  %arrayidx12 = getelementptr inbounds i8, ptr %little_table, i64 12288
+  %arrayidx17 = getelementptr inbounds i8, ptr %little_table, i64 10240
+  %arrayidx22 = getelementptr inbounds i8, ptr %little_table, i64 8192
+  %arrayidx27 = getelementptr inbounds i8, ptr %little_table, i64 6144
+  %arrayidx32 = getelementptr inbounds i8, ptr %little_table, i64 4096
+  %arrayidx37 = getelementptr inbounds i8, ptr %little_table, i64 2048
+  br label %while.body7
 
 while.body:                                       ; preds = %entry, %while.body
   %next.037 = phi ptr [ %incdec.ptr, %while.body ], [ %buf, %entry ]
@@ -263,43 +273,43 @@ while.cond47.preheader:                           ; preds = %while.body7, %while
   %tobool48.not47 = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %tobool48.not47, label %while.end59, label %while.body49
 
-while.body7:                                      ; preds = %while.cond4.preheader, %while.body7
-  %next.143 = phi ptr [ %add.ptr, %while.body7 ], [ %next.0.lcssa, %while.cond4.preheader ]
-  %len.addr.142 = phi i64 [ %sub, %while.body7 ], [ %len.addr.0.lcssa, %while.cond4.preheader ]
-  %crc.addr.141 = phi i64 [ %xor45, %while.body7 ], [ %crc.addr.0.lcssa, %while.cond4.preheader ]
+while.body7:                                      ; preds = %while.body7.lr.ph, %while.body7
+  %next.143 = phi ptr [ %next.0.lcssa, %while.body7.lr.ph ], [ %add.ptr, %while.body7 ]
+  %len.addr.142 = phi i64 [ %len.addr.0.lcssa, %while.body7.lr.ph ], [ %sub, %while.body7 ]
+  %crc.addr.141 = phi i64 [ %crc.addr.0.lcssa, %while.body7.lr.ph ], [ %xor45, %while.body7 ]
   %6 = load i64, ptr %next.143, align 8
   %xor8 = xor i64 %6, %crc.addr.141
   %and10 = and i64 %xor8, 255
-  %arrayidx11 = getelementptr inbounds [256 x i64], ptr %little_table, i64 7, i64 %and10
+  %arrayidx11 = getelementptr inbounds [256 x i64], ptr %arrayidx9, i64 0, i64 %and10
   %7 = load i64, ptr %arrayidx11, align 8
   %shr13 = lshr i64 %xor8, 8
   %and14 = and i64 %shr13, 255
-  %arrayidx15 = getelementptr inbounds [256 x i64], ptr %little_table, i64 6, i64 %and14
+  %arrayidx15 = getelementptr inbounds [256 x i64], ptr %arrayidx12, i64 0, i64 %and14
   %8 = load i64, ptr %arrayidx15, align 8
   %xor16 = xor i64 %8, %7
   %shr18 = lshr i64 %xor8, 16
   %and19 = and i64 %shr18, 255
-  %arrayidx20 = getelementptr inbounds [256 x i64], ptr %little_table, i64 5, i64 %and19
+  %arrayidx20 = getelementptr inbounds [256 x i64], ptr %arrayidx17, i64 0, i64 %and19
   %9 = load i64, ptr %arrayidx20, align 8
   %xor21 = xor i64 %xor16, %9
   %shr23 = lshr i64 %xor8, 24
   %and24 = and i64 %shr23, 255
-  %arrayidx25 = getelementptr inbounds [256 x i64], ptr %little_table, i64 4, i64 %and24
+  %arrayidx25 = getelementptr inbounds [256 x i64], ptr %arrayidx22, i64 0, i64 %and24
   %10 = load i64, ptr %arrayidx25, align 8
   %xor26 = xor i64 %xor21, %10
   %shr28 = lshr i64 %xor8, 32
   %and29 = and i64 %shr28, 255
-  %arrayidx30 = getelementptr inbounds [256 x i64], ptr %little_table, i64 3, i64 %and29
+  %arrayidx30 = getelementptr inbounds [256 x i64], ptr %arrayidx27, i64 0, i64 %and29
   %11 = load i64, ptr %arrayidx30, align 8
   %xor31 = xor i64 %xor26, %11
   %shr33 = lshr i64 %xor8, 40
   %and34 = and i64 %shr33, 255
-  %arrayidx35 = getelementptr inbounds [256 x i64], ptr %little_table, i64 2, i64 %and34
+  %arrayidx35 = getelementptr inbounds [256 x i64], ptr %arrayidx32, i64 0, i64 %and34
   %12 = load i64, ptr %arrayidx35, align 8
   %xor36 = xor i64 %xor31, %12
   %shr38 = lshr i64 %xor8, 48
   %and39 = and i64 %shr38, 255
-  %arrayidx40 = getelementptr inbounds [256 x i64], ptr %little_table, i64 1, i64 %and39
+  %arrayidx40 = getelementptr inbounds [256 x i64], ptr %arrayidx37, i64 0, i64 %and39
   %13 = load i64, ptr %arrayidx40, align 8
   %xor41 = xor i64 %xor36, %13
   %shr43 = lshr i64 %xor8, 56
@@ -348,7 +358,17 @@ while.cond8.preheader:                            ; preds = %while.body, %entry
   %next.0.lcssa = phi ptr [ %buf, %entry ], [ %incdec.ptr, %while.body ]
   %crc.addr.0.lcssa = phi i16 [ %crc, %entry ], [ %xor6, %while.body ]
   %cmp947 = icmp ugt i64 %len.addr.0.lcssa, 7
-  br i1 %cmp947, label %while.body11, label %while.cond68.preheader
+  br i1 %cmp947, label %while.body11.lr.ph, label %while.cond68.preheader
+
+while.body11.lr.ph:                               ; preds = %while.cond8.preheader
+  %arrayidx12 = getelementptr inbounds i8, ptr %little_table, i64 3584
+  %arrayidx21 = getelementptr inbounds i8, ptr %little_table, i64 3072
+  %arrayidx31 = getelementptr inbounds i8, ptr %little_table, i64 2560
+  %arrayidx37 = getelementptr inbounds i8, ptr %little_table, i64 2048
+  %arrayidx43 = getelementptr inbounds i8, ptr %little_table, i64 1536
+  %arrayidx49 = getelementptr inbounds i8, ptr %little_table, i64 1024
+  %arrayidx55 = getelementptr inbounds i8, ptr %little_table, i64 512
+  br label %while.body11
 
 while.body:                                       ; preds = %entry, %while.body
   %crc.addr.044 = phi i16 [ %xor6, %while.body ], [ %crc, %entry ]
@@ -379,49 +399,49 @@ while.cond68.preheader:                           ; preds = %while.body11, %whil
   %tobool69.not54 = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %tobool69.not54, label %while.end86, label %while.body70
 
-while.body11:                                     ; preds = %while.cond8.preheader, %while.body11
-  %crc.addr.150 = phi i16 [ %xor6538, %while.body11 ], [ %crc.addr.0.lcssa, %while.cond8.preheader ]
-  %next.149 = phi ptr [ %add.ptr, %while.body11 ], [ %next.0.lcssa, %while.cond8.preheader ]
-  %len.addr.148 = phi i64 [ %sub, %while.body11 ], [ %len.addr.0.lcssa, %while.cond8.preheader ]
+while.body11:                                     ; preds = %while.body11.lr.ph, %while.body11
+  %crc.addr.150 = phi i16 [ %crc.addr.0.lcssa, %while.body11.lr.ph ], [ %xor6538, %while.body11 ]
+  %next.149 = phi ptr [ %next.0.lcssa, %while.body11.lr.ph ], [ %add.ptr, %while.body11 ]
+  %len.addr.148 = phi i64 [ %len.addr.0.lcssa, %while.body11.lr.ph ], [ %sub, %while.body11 ]
   %9 = load i64, ptr %next.149, align 8
   %and13 = and i64 %9, 255
   %conv14 = zext i16 %crc.addr.150 to i32
   %shr15 = lshr i32 %conv14, 8
   %conv17 = zext nneg i32 %shr15 to i64
   %xor18 = xor i64 %and13, %conv17
-  %arrayidx19 = getelementptr inbounds [256 x i16], ptr %little_table, i64 7, i64 %xor18
+  %arrayidx19 = getelementptr inbounds [256 x i16], ptr %arrayidx12, i64 0, i64 %xor18
   %10 = load i16, ptr %arrayidx19, align 2
   %shr22 = lshr i64 %9, 8
   %and23 = and i64 %shr22, 255
   %and25 = and i32 %conv14, 255
   %conv26 = zext nneg i32 %and25 to i64
   %xor27 = xor i64 %and23, %conv26
-  %arrayidx28 = getelementptr inbounds [256 x i16], ptr %little_table, i64 6, i64 %xor27
+  %arrayidx28 = getelementptr inbounds [256 x i16], ptr %arrayidx21, i64 0, i64 %xor27
   %11 = load i16, ptr %arrayidx28, align 2
   %xor3032 = xor i16 %11, %10
   %shr32 = lshr i64 %9, 16
   %and33 = and i64 %shr32, 255
-  %arrayidx34 = getelementptr inbounds [256 x i16], ptr %little_table, i64 5, i64 %and33
+  %arrayidx34 = getelementptr inbounds [256 x i16], ptr %arrayidx31, i64 0, i64 %and33
   %12 = load i16, ptr %arrayidx34, align 2
   %xor3633 = xor i16 %xor3032, %12
   %shr38 = lshr i64 %9, 24
   %and39 = and i64 %shr38, 255
-  %arrayidx40 = getelementptr inbounds [256 x i16], ptr %little_table, i64 4, i64 %and39
+  %arrayidx40 = getelementptr inbounds [256 x i16], ptr %arrayidx37, i64 0, i64 %and39
   %13 = load i16, ptr %arrayidx40, align 2
   %xor4234 = xor i16 %xor3633, %13
   %shr44 = lshr i64 %9, 32
   %and45 = and i64 %shr44, 255
-  %arrayidx46 = getelementptr inbounds [256 x i16], ptr %little_table, i64 3, i64 %and45
+  %arrayidx46 = getelementptr inbounds [256 x i16], ptr %arrayidx43, i64 0, i64 %and45
   %14 = load i16, ptr %arrayidx46, align 2
   %xor4835 = xor i16 %xor4234, %14
   %shr50 = lshr i64 %9, 40
   %and51 = and i64 %shr50, 255
-  %arrayidx52 = getelementptr inbounds [256 x i16], ptr %little_table, i64 2, i64 %and51
+  %arrayidx52 = getelementptr inbounds [256 x i16], ptr %arrayidx49, i64 0, i64 %and51
   %15 = load i16, ptr %arrayidx52, align 2
   %xor5436 = xor i16 %xor4835, %15
   %shr56 = lshr i64 %9, 48
   %and57 = and i64 %shr56, 255
-  %arrayidx58 = getelementptr inbounds [256 x i16], ptr %little_table, i64 1, i64 %and57
+  %arrayidx58 = getelementptr inbounds [256 x i16], ptr %arrayidx55, i64 0, i64 %and57
   %16 = load i16, ptr %arrayidx58, align 2
   %xor6037 = xor i16 %xor5436, %16
   %shr62 = lshr i64 %9, 56
@@ -456,10 +476,10 @@ while.end86:                                      ; preds = %while.body70, %whil
   ret i16 %crc.addr.2.lcssa
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @crcspeed64big(ptr nocapture noundef readonly %big_table, i64 noundef %crc, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define dso_local noundef i64 @crcspeed64big(ptr nocapture noundef readonly %big_table, i64 noundef %crc, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
 entry:
-  %0 = tail call i64 @llvm.bswap.i64(i64 %crc)
+  %0 = tail call noundef i64 @llvm.bswap.i64(i64 %crc)
   %tobool33 = icmp ne i64 %len, 0
   %1 = ptrtoint ptr %buf to i64
   %and34 = and i64 %1, 7
@@ -472,7 +492,17 @@ while.cond3.preheader:                            ; preds = %while.body, %entry
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %dec, %while.body ]
   %next.0.lcssa = phi ptr [ %buf, %entry ], [ %incdec.ptr, %while.body ]
   %cmp441 = icmp ugt i64 %len.addr.0.lcssa, 7
-  br i1 %cmp441, label %while.body6, label %while.cond46.preheader
+  br i1 %cmp441, label %while.body6.lr.ph, label %while.cond46.preheader
+
+while.body6.lr.ph:                                ; preds = %while.cond3.preheader
+  %arrayidx11 = getelementptr inbounds i8, ptr %big_table, i64 2048
+  %arrayidx16 = getelementptr inbounds i8, ptr %big_table, i64 4096
+  %arrayidx21 = getelementptr inbounds i8, ptr %big_table, i64 6144
+  %arrayidx26 = getelementptr inbounds i8, ptr %big_table, i64 8192
+  %arrayidx31 = getelementptr inbounds i8, ptr %big_table, i64 10240
+  %arrayidx36 = getelementptr inbounds i8, ptr %big_table, i64 12288
+  %arrayidx41 = getelementptr inbounds i8, ptr %big_table, i64 14336
+  br label %while.body6
 
 while.body:                                       ; preds = %entry, %while.body
   %next.038 = phi ptr [ %incdec.ptr, %while.body ], [ %buf, %entry ]
@@ -502,10 +532,10 @@ while.cond46.preheader:                           ; preds = %while.body6, %while
   %tobool47.not48 = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %tobool47.not48, label %while.end58, label %while.body48
 
-while.body6:                                      ; preds = %while.cond3.preheader, %while.body6
-  %next.144 = phi ptr [ %add.ptr, %while.body6 ], [ %next.0.lcssa, %while.cond3.preheader ]
-  %len.addr.143 = phi i64 [ %sub, %while.body6 ], [ %len.addr.0.lcssa, %while.cond3.preheader ]
-  %crc.addr.142 = phi i64 [ %xor44, %while.body6 ], [ %crc.addr.0.lcssa, %while.cond3.preheader ]
+while.body6:                                      ; preds = %while.body6.lr.ph, %while.body6
+  %next.144 = phi ptr [ %next.0.lcssa, %while.body6.lr.ph ], [ %add.ptr, %while.body6 ]
+  %len.addr.143 = phi i64 [ %len.addr.0.lcssa, %while.body6.lr.ph ], [ %sub, %while.body6 ]
+  %crc.addr.142 = phi i64 [ %crc.addr.0.lcssa, %while.body6.lr.ph ], [ %xor44, %while.body6 ]
   %7 = load i64, ptr %next.144, align 8
   %xor7 = xor i64 %7, %crc.addr.142
   %and9 = and i64 %xor7, 255
@@ -513,36 +543,36 @@ while.body6:                                      ; preds = %while.cond3.prehead
   %8 = load i64, ptr %arrayidx10, align 8
   %shr12 = lshr i64 %xor7, 8
   %and13 = and i64 %shr12, 255
-  %arrayidx14 = getelementptr inbounds [256 x i64], ptr %big_table, i64 1, i64 %and13
+  %arrayidx14 = getelementptr inbounds [256 x i64], ptr %arrayidx11, i64 0, i64 %and13
   %9 = load i64, ptr %arrayidx14, align 8
   %xor15 = xor i64 %9, %8
   %shr17 = lshr i64 %xor7, 16
   %and18 = and i64 %shr17, 255
-  %arrayidx19 = getelementptr inbounds [256 x i64], ptr %big_table, i64 2, i64 %and18
+  %arrayidx19 = getelementptr inbounds [256 x i64], ptr %arrayidx16, i64 0, i64 %and18
   %10 = load i64, ptr %arrayidx19, align 8
   %xor20 = xor i64 %xor15, %10
   %shr22 = lshr i64 %xor7, 24
   %and23 = and i64 %shr22, 255
-  %arrayidx24 = getelementptr inbounds [256 x i64], ptr %big_table, i64 3, i64 %and23
+  %arrayidx24 = getelementptr inbounds [256 x i64], ptr %arrayidx21, i64 0, i64 %and23
   %11 = load i64, ptr %arrayidx24, align 8
   %xor25 = xor i64 %xor20, %11
   %shr27 = lshr i64 %xor7, 32
   %and28 = and i64 %shr27, 255
-  %arrayidx29 = getelementptr inbounds [256 x i64], ptr %big_table, i64 4, i64 %and28
+  %arrayidx29 = getelementptr inbounds [256 x i64], ptr %arrayidx26, i64 0, i64 %and28
   %12 = load i64, ptr %arrayidx29, align 8
   %xor30 = xor i64 %xor25, %12
   %shr32 = lshr i64 %xor7, 40
   %and33 = and i64 %shr32, 255
-  %arrayidx34 = getelementptr inbounds [256 x i64], ptr %big_table, i64 5, i64 %and33
+  %arrayidx34 = getelementptr inbounds [256 x i64], ptr %arrayidx31, i64 0, i64 %and33
   %13 = load i64, ptr %arrayidx34, align 8
   %xor35 = xor i64 %xor30, %13
   %shr37 = lshr i64 %xor7, 48
   %and38 = and i64 %shr37, 255
-  %arrayidx39 = getelementptr inbounds [256 x i64], ptr %big_table, i64 6, i64 %and38
+  %arrayidx39 = getelementptr inbounds [256 x i64], ptr %arrayidx36, i64 0, i64 %and38
   %14 = load i64, ptr %arrayidx39, align 8
   %xor40 = xor i64 %xor35, %14
   %shr42 = lshr i64 %xor7, 56
-  %arrayidx43 = getelementptr inbounds [256 x i64], ptr %big_table, i64 7, i64 %shr42
+  %arrayidx43 = getelementptr inbounds [256 x i64], ptr %arrayidx41, i64 0, i64 %shr42
   %15 = load i64, ptr %arrayidx43, align 8
   %xor44 = xor i64 %xor40, %15
   %add.ptr = getelementptr inbounds i8, ptr %next.144, i64 8
@@ -569,15 +599,15 @@ while.body48:                                     ; preds = %while.cond46.prehea
 
 while.end58:                                      ; preds = %while.body48, %while.cond46.preheader
   %crc.addr.2.lcssa = phi i64 [ %crc.addr.1.lcssa, %while.cond46.preheader ], [ %xor56, %while.body48 ]
-  %18 = tail call i64 @llvm.bswap.i64(i64 %crc.addr.2.lcssa)
+  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %crc.addr.2.lcssa)
   ret i64 %18
 }
 
-; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i16 @crcspeed16big(ptr nocapture noundef readonly %big_table, i16 noundef zeroext %crc_in, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define dso_local noundef zeroext i16 @crcspeed16big(ptr nocapture noundef readonly %big_table, i16 noundef zeroext %crc_in, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %conv = zext i16 %crc_in to i64
-  %0 = tail call i64 @llvm.bswap.i64(i64 %conv)
+  %0 = tail call noundef i64 @llvm.bswap.i64(i64 %conv)
   %tobool42 = icmp ne i64 %len, 0
   %1 = ptrtoint ptr %buf to i64
   %and43 = and i64 %1, 7
@@ -590,7 +620,17 @@ while.cond8.preheader:                            ; preds = %while.body, %entry
   %crc.0.lcssa = phi i64 [ %0, %entry ], [ %xor7, %while.body ]
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %dec, %while.body ]
   %cmp950 = icmp ugt i64 %len.addr.0.lcssa, 7
-  br i1 %cmp950, label %while.body11, label %while.cond64.preheader
+  br i1 %cmp950, label %while.body11.lr.ph, label %while.cond64.preheader
+
+while.body11.lr.ph:                               ; preds = %while.cond8.preheader
+  %arrayidx19 = getelementptr inbounds i8, ptr %big_table, i64 512
+  %arrayidx27 = getelementptr inbounds i8, ptr %big_table, i64 1024
+  %arrayidx33 = getelementptr inbounds i8, ptr %big_table, i64 1536
+  %arrayidx39 = getelementptr inbounds i8, ptr %big_table, i64 2048
+  %arrayidx45 = getelementptr inbounds i8, ptr %big_table, i64 2560
+  %arrayidx51 = getelementptr inbounds i8, ptr %big_table, i64 3072
+  %arrayidx57 = getelementptr inbounds i8, ptr %big_table, i64 3584
+  br label %while.body11
 
 while.body:                                       ; preds = %entry, %while.body
   %len.addr.047 = phi i64 [ %dec, %while.body ], [ %len, %entry ]
@@ -621,10 +661,10 @@ while.cond64.preheader:                           ; preds = %while.body11, %whil
   %tobool65.not57 = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %tobool65.not57, label %while.end78, label %while.body66
 
-while.body11:                                     ; preds = %while.cond8.preheader, %while.body11
-  %len.addr.153 = phi i64 [ %sub, %while.body11 ], [ %len.addr.0.lcssa, %while.cond8.preheader ]
-  %crc.152 = phi i64 [ %conv62, %while.body11 ], [ %crc.0.lcssa, %while.cond8.preheader ]
-  %next.151 = phi ptr [ %add.ptr, %while.body11 ], [ %next.0.lcssa, %while.cond8.preheader ]
+while.body11:                                     ; preds = %while.body11.lr.ph, %while.body11
+  %len.addr.153 = phi i64 [ %len.addr.0.lcssa, %while.body11.lr.ph ], [ %sub, %while.body11 ]
+  %crc.152 = phi i64 [ %crc.0.lcssa, %while.body11.lr.ph ], [ %conv62, %while.body11 ]
+  %next.151 = phi ptr [ %next.0.lcssa, %while.body11.lr.ph ], [ %add.ptr, %while.body11 ]
   %7 = load i64, ptr %next.151, align 8
   %shr14 = lshr i64 %crc.152, 48
   %and1333 = xor i64 %7, %shr14
@@ -634,36 +674,36 @@ while.body11:                                     ; preds = %while.cond8.prehead
   %shr20 = lshr i64 %7, 8
   %and2134 = xor i64 %shr20, %crc.152
   %xor23 = and i64 %and2134, 255
-  %arrayidx24 = getelementptr inbounds [256 x i16], ptr %big_table, i64 1, i64 %xor23
+  %arrayidx24 = getelementptr inbounds [256 x i16], ptr %arrayidx19, i64 0, i64 %xor23
   %9 = load i16, ptr %arrayidx24, align 2
   %xor2635 = xor i16 %9, %8
   %shr28 = lshr i64 %7, 16
   %and29 = and i64 %shr28, 255
-  %arrayidx30 = getelementptr inbounds [256 x i16], ptr %big_table, i64 2, i64 %and29
+  %arrayidx30 = getelementptr inbounds [256 x i16], ptr %arrayidx27, i64 0, i64 %and29
   %10 = load i16, ptr %arrayidx30, align 2
   %xor3236 = xor i16 %xor2635, %10
   %shr34 = lshr i64 %7, 24
   %and35 = and i64 %shr34, 255
-  %arrayidx36 = getelementptr inbounds [256 x i16], ptr %big_table, i64 3, i64 %and35
+  %arrayidx36 = getelementptr inbounds [256 x i16], ptr %arrayidx33, i64 0, i64 %and35
   %11 = load i16, ptr %arrayidx36, align 2
   %xor3837 = xor i16 %xor3236, %11
   %shr40 = lshr i64 %7, 32
   %and41 = and i64 %shr40, 255
-  %arrayidx42 = getelementptr inbounds [256 x i16], ptr %big_table, i64 4, i64 %and41
+  %arrayidx42 = getelementptr inbounds [256 x i16], ptr %arrayidx39, i64 0, i64 %and41
   %12 = load i16, ptr %arrayidx42, align 2
   %xor4438 = xor i16 %xor3837, %12
   %shr46 = lshr i64 %7, 40
   %and47 = and i64 %shr46, 255
-  %arrayidx48 = getelementptr inbounds [256 x i16], ptr %big_table, i64 5, i64 %and47
+  %arrayidx48 = getelementptr inbounds [256 x i16], ptr %arrayidx45, i64 0, i64 %and47
   %13 = load i16, ptr %arrayidx48, align 2
   %xor5039 = xor i16 %xor4438, %13
   %shr52 = lshr i64 %7, 48
   %and53 = and i64 %shr52, 255
-  %arrayidx54 = getelementptr inbounds [256 x i16], ptr %big_table, i64 6, i64 %and53
+  %arrayidx54 = getelementptr inbounds [256 x i16], ptr %arrayidx51, i64 0, i64 %and53
   %14 = load i16, ptr %arrayidx54, align 2
   %xor5640 = xor i16 %xor5039, %14
   %shr58 = lshr i64 %7, 56
-  %arrayidx59 = getelementptr inbounds [256 x i16], ptr %big_table, i64 7, i64 %shr58
+  %arrayidx59 = getelementptr inbounds [256 x i16], ptr %arrayidx57, i64 0, i64 %shr58
   %15 = load i16, ptr %arrayidx59, align 2
   %xor6141 = xor i16 %xor5640, %15
   %conv62 = zext i16 %xor6141 to i64
@@ -682,7 +722,7 @@ while.body66:                                     ; preds = %while.cond64.prehea
 
 while.end78:                                      ; preds = %while.body66, %while.cond64.preheader
   %crc.2.lcssa = phi i64 [ %crc.1.lcssa, %while.cond64.preheader ], [ %shr75, %while.body66 ]
-  %16 = tail call i64 @llvm.bswap.i64(i64 %crc.2.lcssa)
+  %16 = tail call noundef i64 @llvm.bswap.i64(i64 %crc.2.lcssa)
   %conv80 = trunc i64 %16 to i16
   ret i16 %conv80
 }
@@ -712,7 +752,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %conv.i = trunc i64 %indvars.iv.i to i8
   store i8 %conv.i, ptr %v.i, align 1
-  %call.i = call i64 %fn(i64 noundef 0, ptr noundef nonnull %v.i, i64 noundef 1) #6
+  %call.i = call i64 %fn(i64 noundef 0, ptr noundef nonnull %v.i, i64 noundef 1) #5
   %arrayidx1.i = getelementptr inbounds [256 x i64], ptr %table, i64 0, i64 %indvars.iv.i
   store i64 %call.i, ptr %arrayidx1.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -758,7 +798,7 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
-  %call.i = call zeroext i16 %fn(i16 noundef zeroext 0, ptr noundef nonnull %n.i, i64 noundef 1) #6
+  %call.i = call zeroext i16 %fn(i16 noundef zeroext 0, ptr noundef nonnull %n.i, i64 noundef 1) #5
   %0 = load i32, ptr %n.i, align 4
   %idxprom.i = sext i32 %0 to i64
   %arrayidx1.i = getelementptr inbounds [256 x i16], ptr %table, i64 0, i64 %idxprom.i
@@ -800,24 +840,23 @@ crcspeed16little_init.exit:                       ; preds = %for.inc25.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #3
+declare i64 @llvm.bswap.i64(i64) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

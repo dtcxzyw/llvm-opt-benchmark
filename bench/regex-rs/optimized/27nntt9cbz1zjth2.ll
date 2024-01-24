@@ -22,7 +22,7 @@ define hidden void @_ZN14regex_automata6hybrid2id11LazyStateID3new17h7c795a99d3e
 
 4:                                                ; preds = %2
   %5 = trunc i64 %1 to i32
-  %6 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %5, ptr %6, align 4
   br label %13
 
@@ -31,7 +31,7 @@ define hidden void @_ZN14regex_automata6hybrid2id11LazyStateID3new17h7c795a99d3e
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = extractvalue { i64, i64 } %8, 1
   %11 = tail call i64 @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda2c61995bae3e47E"(i64 %9, i64 %10, ptr nonnull align 8 @anon.fa8e1c08513ac976066dd8929548b63a.1)
-  %12 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %11, ptr %12, align 8
   br label %13
 
@@ -145,11 +145,11 @@ define zeroext i1 @"_ZN83_$LT$regex_automata..hybrid..id..LazyStateIDError$u20$a
   %.val = load i64, ptr %0, align 8, !noundef !5
   store i64 %.val, ptr %3, align 8
   store ptr %3, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17hd939e933e74b8968E", ptr %6, align 8
-  %7 = getelementptr inbounds [2 x { ptr, ptr }], ptr %4, i64 0, i64 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr @anon.fa8e1c08513ac976066dd8929548b63a.5, ptr %7, align 8
-  %8 = getelementptr inbounds [2 x { ptr, ptr }], ptr %4, i64 0, i64 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h88cfa37c04fce35fE", ptr %8, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.fa8e1c08513ac976066dd8929548b63a.4, i64 2, ptr nonnull align 8 %4, i64 2)
   %9 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %5)

@@ -18,9 +18,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator3map17h9837ed65e89adc30E(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h86766a85fd53b599E"(ptr align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { [1 x { ptr, i64 }], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !5
-  %4 = getelementptr inbounds { [1 x { ptr, i64 }], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %3
   %7 = sub nuw i64 %5, %3
@@ -33,7 +33,7 @@ define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17
 define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17ha6beb540dfd3fb95E"(ptr align 8 %0) unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 16
   %3 = load i64, ptr %0, align 8, !noundef !5
-  %4 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
   %7 = sub nuw i64 %5, %3
@@ -45,9 +45,9 @@ define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN4core5array4iter94_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9into_iter17h27ba8d73db9dd29dE"(ptr nocapture writeonly sret({ [1 x { ptr, i64 }], { i64, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %3 = getelementptr inbounds { [1 x { ptr, i64 }], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds { [1 x { ptr, i64 }], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 1, ptr %4, align 8
   ret void
 }
@@ -61,7 +61,7 @@ define { i64, i64 } @"_ZN4core5array4iter94_$LT$impl$u20$core..iter..traits..col
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2dc53c46c6746603E"(i64 %0, i64 %1, ptr align 8 %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64 }, align 8
   store i64 %0, ptr %4, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = icmp ne ptr %2, null
@@ -105,7 +105,7 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h48cc481ca295fc41E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { [1 x { ptr, i64 }], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %0, null
@@ -150,11 +150,11 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h33208759bad8c7fbE"(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !7, !noundef !5
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1, i32 1
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !5
   tail call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc2513a4cbdbed4c9E"(ptr nonnull align 8 %3, ptr nonnull align 1 %7, i64 %9)
   ret void
@@ -163,11 +163,11 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h5dc96e10de666733E"(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !7, !noundef !5
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 %1, i32 1
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !5
   tail call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0a5bfc4c6f86b803E"(ptr nonnull align 8 %3, ptr nonnull align 1 %7, i64 %9)
   ret void
@@ -175,29 +175,29 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd2168190d963f9ccE"(ptr nocapture writeonly sret({ i64, { i64, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { [1 x { ptr, i64 }], { i64, i64 } }, ptr %1, i64 0, i32 1
-  %4 = getelementptr inbounds { [1 x { ptr, i64 }], { i64, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = load i64, ptr %3, align 8, !noundef !5
   %7 = sub nuw i64 %5, %6
   store i64 %7, ptr %0, align 8
-  %8 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %7, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf51d6ae3fcd8f098E"(ptr nocapture writeonly sret({ i64, { i64, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = load i64, ptr %1, align 8, !noundef !5
   %6 = sub nuw i64 %4, %5
   store i64 %6, ptr %0, align 8
-  %7 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds { i64, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %6, ptr %8, align 8
   ret void
 }

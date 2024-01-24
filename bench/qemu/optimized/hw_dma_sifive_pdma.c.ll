@@ -7,23 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.MemoryRegionOps = type { ptr, ptr, ptr, ptr, i32, %struct.anon.2, %struct.anon.3 }
 %struct.anon.2 = type { i32, i32, i8, ptr }
 %struct.anon.3 = type { i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SiFivePDMAState = type { %struct.SysBusDevice, %struct.MemoryRegion, [8 x ptr], [4 x %struct.sifive_pdma_chan] }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 %struct.sifive_pdma_chan = type { i32, i32, i64, i64, i64, i32, i64, i64, i64, i32 }
 
 @sifive_pdma_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1440, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @sifive_pdma_class_init, ptr null, ptr null, ptr null }, align 8
@@ -74,9 +57,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sifive_pdma_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_pdma_realize, ptr %realize, align 8
   ret void
 }
@@ -85,16 +68,17 @@ entry:
 define internal void @sifive_pdma_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 456, ptr noundef nonnull @__func__.sifive_pdma_realize) #4
-  %iomem = getelementptr inbounds %struct.SiFivePDMAState, ptr %call, i64 0, i32 1
+  %iomem = getelementptr inbounds i8, ptr %call, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef %dev, ptr noundef nonnull @sifive_pdma_ops, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef 1048576) #4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %iomem) #4
+  %irq = getelementptr inbounds i8, ptr %call, i64 1088
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
-  %arrayidx = getelementptr %struct.SiFivePDMAState, ptr %call, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr [8 x ptr], ptr %irq, i64 0, i64 %indvars.iv
   tail call void @sysbus_init_irq(ptr noundef %call.i9, ptr noundef %arrayidx) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -151,38 +135,44 @@ sw.bb:                                            ; preds = %if.end5
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
+  %chan.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom.i = zext nneg i32 %conv to i64
-  %next_bytes.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i, i32 2
+  %next_bytes.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan.i, i64 0, i64 %idxprom.i, i32 2
   %3 = load i64, ptr %next_bytes.i, align 8
   br label %return
 
 sw.bb1.i:                                         ; preds = %sw.bb
+  %chan2.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom3.i = zext nneg i32 %conv to i64
-  %next_dst.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom3.i, i32 3
+  %next_dst.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan2.i, i64 0, i64 %idxprom3.i, i32 3
   %4 = load i64, ptr %next_dst.i, align 8
   br label %return
 
 sw.bb5.i:                                         ; preds = %sw.bb
+  %chan6.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom7.i = zext nneg i32 %conv to i64
-  %next_src.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom7.i, i32 4
+  %next_src.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan6.i, i64 0, i64 %idxprom7.i, i32 4
   %5 = load i64, ptr %next_src.i, align 8
   br label %return
 
 sw.bb9.i:                                         ; preds = %sw.bb
+  %chan10.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom11.i = zext nneg i32 %conv to i64
-  %exec_bytes.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom11.i, i32 6
+  %exec_bytes.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan10.i, i64 0, i64 %idxprom11.i, i32 6
   %6 = load i64, ptr %exec_bytes.i, align 8
   br label %return
 
 sw.bb13.i:                                        ; preds = %sw.bb
+  %chan14.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom15.i = zext nneg i32 %conv to i64
-  %exec_dst.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom15.i, i32 7
+  %exec_dst.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan14.i, i64 0, i64 %idxprom15.i, i32 7
   %7 = load i64, ptr %exec_dst.i, align 8
   br label %return
 
 sw.bb17.i:                                        ; preds = %sw.bb
+  %chan18.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom19.i = zext nneg i32 %conv to i64
-  %exec_src.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom19.i, i32 8
+  %exec_src.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan18.i, i64 0, i64 %idxprom19.i, i32 8
   %8 = load i64, ptr %exec_src.i, align 8
   br label %return
 
@@ -198,10 +188,10 @@ if.then.i:                                        ; preds = %do.body.i
 
 sw.bb7:                                           ; preds = %if.end5
   %and.i9 = and i64 %offset, 4095
-  switch i64 %and.i9, label %do.body.i25 [
-    i64 0, label %sw.bb.i23
-    i64 4, label %sw.bb1.i21
-    i64 8, label %sw.bb5.i18
+  switch i64 %and.i9, label %do.body.i29 [
+    i64 0, label %sw.bb.i26
+    i64 4, label %sw.bb1.i23
+    i64 8, label %sw.bb5.i19
     i64 12, label %sw.bb9.i16
     i64 16, label %sw.bb16.i
     i64 20, label %sw.bb22.i
@@ -216,134 +206,149 @@ sw.bb7:                                           ; preds = %if.end5
     i64 284, label %sw.bb78.i
   ]
 
-sw.bb.i23:                                        ; preds = %sw.bb7
-  %idxprom.i24 = zext nneg i32 %conv to i64
-  %arrayidx.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i24
+sw.bb.i26:                                        ; preds = %sw.bb7
+  %chan.i27 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %idxprom.i28 = zext nneg i32 %conv to i64
+  %arrayidx.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan.i27, i64 0, i64 %idxprom.i28
   %10 = load i32, ptr %arrayidx.i, align 8
   br label %sifive_pdma_readl.exit
 
-sw.bb1.i21:                                       ; preds = %sw.bb7
-  %idxprom3.i22 = zext nneg i32 %conv to i64
-  %next_config.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom3.i22, i32 1
+sw.bb1.i23:                                       ; preds = %sw.bb7
+  %chan2.i24 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %idxprom3.i25 = zext nneg i32 %conv to i64
+  %next_config.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan2.i24, i64 0, i64 %idxprom3.i25, i32 1
   %11 = load i32, ptr %next_config.i, align 4
   br label %sifive_pdma_readl.exit
 
-sw.bb5.i18:                                       ; preds = %sw.bb7
-  %idxprom7.i19 = zext nneg i32 %conv to i64
-  %next_bytes.i20 = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom7.i19, i32 2
-  %12 = load i64, ptr %next_bytes.i20, align 8
+sw.bb5.i19:                                       ; preds = %sw.bb7
+  %chan6.i20 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %idxprom7.i21 = zext nneg i32 %conv to i64
+  %next_bytes.i22 = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan6.i20, i64 0, i64 %idxprom7.i21, i32 2
+  %12 = load i64, ptr %next_bytes.i22, align 8
   %conv.i = trunc i64 %12 to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb9.i16:                                       ; preds = %sw.bb7
-  %idxprom11.i17 = zext nneg i32 %conv to i64
-  %next_bytes13.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom11.i17, i32 2
+  %chan10.i17 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %idxprom11.i18 = zext nneg i32 %conv to i64
+  %next_bytes13.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan10.i17, i64 0, i64 %idxprom11.i18, i32 2
   %13 = load i64, ptr %next_bytes13.i, align 8
   %shr.i.i = lshr i64 %13, 32
   %conv15.i = trunc i64 %shr.i.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb16.i:                                        ; preds = %sw.bb7
+  %chan17.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom18.i = zext nneg i32 %conv to i64
-  %next_dst.i15 = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom18.i, i32 3
+  %next_dst.i15 = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan17.i, i64 0, i64 %idxprom18.i, i32 3
   %14 = load i64, ptr %next_dst.i15, align 8
   %conv21.i = trunc i64 %14 to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb22.i:                                        ; preds = %sw.bb7
+  %chan23.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom24.i = zext nneg i32 %conv to i64
-  %next_dst26.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom24.i, i32 3
+  %next_dst26.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan23.i, i64 0, i64 %idxprom24.i, i32 3
   %15 = load i64, ptr %next_dst26.i, align 8
   %shr.i32.i = lshr i64 %15, 32
   %conv28.i = trunc i64 %shr.i32.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb29.i:                                        ; preds = %sw.bb7
+  %chan30.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom31.i = zext nneg i32 %conv to i64
-  %next_src.i14 = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom31.i, i32 4
+  %next_src.i14 = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan30.i, i64 0, i64 %idxprom31.i, i32 4
   %16 = load i64, ptr %next_src.i14, align 8
   %conv34.i = trunc i64 %16 to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb35.i:                                        ; preds = %sw.bb7
+  %chan36.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom37.i = zext nneg i32 %conv to i64
-  %next_src39.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom37.i, i32 4
+  %next_src39.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan36.i, i64 0, i64 %idxprom37.i, i32 4
   %17 = load i64, ptr %next_src39.i, align 8
   %shr.i34.i = lshr i64 %17, 32
   %conv41.i = trunc i64 %shr.i34.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb42.i:                                        ; preds = %sw.bb7
+  %chan43.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom44.i = zext nneg i32 %conv to i64
-  %exec_config.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom44.i, i32 5
+  %exec_config.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan43.i, i64 0, i64 %idxprom44.i, i32 5
   %18 = load i32, ptr %exec_config.i, align 8
   br label %sifive_pdma_readl.exit
 
 sw.bb46.i:                                        ; preds = %sw.bb7
+  %chan47.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom48.i = zext nneg i32 %conv to i64
-  %exec_bytes.i13 = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom48.i, i32 6
+  %exec_bytes.i13 = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan47.i, i64 0, i64 %idxprom48.i, i32 6
   %19 = load i64, ptr %exec_bytes.i13, align 8
   %conv51.i = trunc i64 %19 to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb52.i:                                        ; preds = %sw.bb7
+  %chan53.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom54.i = zext nneg i32 %conv to i64
-  %exec_bytes56.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom54.i, i32 6
+  %exec_bytes56.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan53.i, i64 0, i64 %idxprom54.i, i32 6
   %20 = load i64, ptr %exec_bytes56.i, align 8
   %shr.i36.i = lshr i64 %20, 32
   %conv58.i = trunc i64 %shr.i36.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb59.i:                                        ; preds = %sw.bb7
+  %chan60.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom61.i = zext nneg i32 %conv to i64
-  %exec_dst.i12 = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom61.i, i32 7
+  %exec_dst.i12 = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan60.i, i64 0, i64 %idxprom61.i, i32 7
   %21 = load i64, ptr %exec_dst.i12, align 8
   %conv64.i = trunc i64 %21 to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb65.i:                                        ; preds = %sw.bb7
+  %chan66.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom67.i = zext nneg i32 %conv to i64
-  %exec_dst69.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom67.i, i32 7
+  %exec_dst69.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan66.i, i64 0, i64 %idxprom67.i, i32 7
   %22 = load i64, ptr %exec_dst69.i, align 8
   %shr.i38.i = lshr i64 %22, 32
   %conv71.i = trunc i64 %shr.i38.i to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb72.i:                                        ; preds = %sw.bb7
+  %chan73.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom74.i = zext nneg i32 %conv to i64
-  %exec_src.i11 = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom74.i, i32 8
+  %exec_src.i11 = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan73.i, i64 0, i64 %idxprom74.i, i32 8
   %23 = load i64, ptr %exec_src.i11, align 8
   %conv77.i = trunc i64 %23 to i32
   br label %sifive_pdma_readl.exit
 
 sw.bb78.i:                                        ; preds = %sw.bb7
+  %chan79.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom80.i = zext nneg i32 %conv to i64
-  %exec_src82.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom80.i, i32 8
+  %exec_src82.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan79.i, i64 0, i64 %idxprom80.i, i32 8
   %24 = load i64, ptr %exec_src82.i, align 8
   %shr.i40.i = lshr i64 %24, 32
   %conv84.i = trunc i64 %shr.i40.i to i32
   br label %sifive_pdma_readl.exit
 
-do.body.i25:                                      ; preds = %sw.bb7
+do.body.i29:                                      ; preds = %sw.bb7
   %25 = load i32, ptr @qemu_loglevel, align 4
   %and.i41.i = and i32 %25, 2048
-  %cmp.i.not.i26 = icmp eq i32 %and.i41.i, 0
-  br i1 %cmp.i.not.i26, label %sifive_pdma_readl.exit, label %if.then.i27
+  %cmp.i.not.i30 = icmp eq i32 %and.i41.i, 0
+  br i1 %cmp.i.not.i30, label %sifive_pdma_readl.exit, label %if.then.i31
 
-if.then.i27:                                      ; preds = %do.body.i25
+if.then.i31:                                      ; preds = %do.body.i29
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.sifive_pdma_readl, i64 noundef %and.i9) #4
   br label %sifive_pdma_readl.exit
 
-sifive_pdma_readl.exit:                           ; preds = %sw.bb.i23, %sw.bb1.i21, %sw.bb5.i18, %sw.bb9.i16, %sw.bb16.i, %sw.bb22.i, %sw.bb29.i, %sw.bb35.i, %sw.bb42.i, %sw.bb46.i, %sw.bb52.i, %sw.bb59.i, %sw.bb65.i, %sw.bb72.i, %sw.bb78.i, %do.body.i25, %if.then.i27
-  %val.0.i10 = phi i32 [ 0, %if.then.i27 ], [ 0, %do.body.i25 ], [ %conv84.i, %sw.bb78.i ], [ %conv77.i, %sw.bb72.i ], [ %conv71.i, %sw.bb65.i ], [ %conv64.i, %sw.bb59.i ], [ %conv58.i, %sw.bb52.i ], [ %conv51.i, %sw.bb46.i ], [ %18, %sw.bb42.i ], [ %conv41.i, %sw.bb35.i ], [ %conv34.i, %sw.bb29.i ], [ %conv28.i, %sw.bb22.i ], [ %conv21.i, %sw.bb16.i ], [ %conv15.i, %sw.bb9.i16 ], [ %conv.i, %sw.bb5.i18 ], [ %11, %sw.bb1.i21 ], [ %10, %sw.bb.i23 ]
+sifive_pdma_readl.exit:                           ; preds = %sw.bb.i26, %sw.bb1.i23, %sw.bb5.i19, %sw.bb9.i16, %sw.bb16.i, %sw.bb22.i, %sw.bb29.i, %sw.bb35.i, %sw.bb42.i, %sw.bb46.i, %sw.bb52.i, %sw.bb59.i, %sw.bb65.i, %sw.bb72.i, %sw.bb78.i, %do.body.i29, %if.then.i31
+  %val.0.i10 = phi i32 [ 0, %if.then.i31 ], [ 0, %do.body.i29 ], [ %conv84.i, %sw.bb78.i ], [ %conv77.i, %sw.bb72.i ], [ %conv71.i, %sw.bb65.i ], [ %conv64.i, %sw.bb59.i ], [ %conv58.i, %sw.bb52.i ], [ %conv51.i, %sw.bb46.i ], [ %18, %sw.bb42.i ], [ %conv41.i, %sw.bb35.i ], [ %conv34.i, %sw.bb29.i ], [ %conv28.i, %sw.bb22.i ], [ %conv21.i, %sw.bb16.i ], [ %conv15.i, %sw.bb9.i16 ], [ %conv.i, %sw.bb5.i19 ], [ %11, %sw.bb1.i23 ], [ %10, %sw.bb.i26 ]
   %conv9 = zext i32 %val.0.i10 to i64
   br label %return
 
 do.body10:                                        ; preds = %if.end5
   %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i28 = and i32 %26, 2048
-  %cmp.i29.not = icmp eq i32 %and.i28, 0
-  br i1 %cmp.i29.not, label %return, label %if.then18
+  %and.i32 = and i32 %26, 2048
+  %cmp.i33.not = icmp eq i32 %and.i32, 0
+  br i1 %cmp.i33.not, label %return, label %if.then18
 
 if.then18:                                        ; preds = %do.body10
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.sifive_pdma_read, i32 noundef %size) #4
@@ -391,20 +396,23 @@ sw.bb:                                            ; preds = %if.end5
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
+  %chan.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom.i = zext nneg i32 %conv to i64
-  %next_bytes.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i, i32 2
+  %next_bytes.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan.i, i64 0, i64 %idxprom.i, i32 2
   store i64 %value, ptr %next_bytes.i, align 8
   br label %sw.epilog
 
 sw.bb1.i:                                         ; preds = %sw.bb
+  %chan2.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom3.i = zext nneg i32 %conv to i64
-  %next_dst.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom3.i, i32 3
+  %next_dst.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan2.i, i64 0, i64 %idxprom3.i, i32 3
   store i64 %value, ptr %next_dst.i, align 8
   br label %sw.epilog
 
 sw.bb5.i:                                         ; preds = %sw.bb
+  %chan6.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom7.i = zext nneg i32 %conv to i64
-  %next_src.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom7.i, i32 4
+  %next_src.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan6.i, i64 0, i64 %idxprom7.i, i32 4
   store i64 %value, ptr %next_src.i, align 8
   br label %sw.epilog
 
@@ -421,7 +429,7 @@ if.then.i:                                        ; preds = %do.body.i
 sw.bb6:                                           ; preds = %if.end5
   %conv7 = trunc i64 %value to i32
   %and.i10 = and i64 %offset, 4095
-  switch i64 %and.i10, label %do.body.i15 [
+  switch i64 %and.i10, label %do.body.i16 [
     i64 0, label %sw.bb.i12
     i64 4, label %sw.bb63.i
     i64 8, label %sw.bb68.i
@@ -440,8 +448,9 @@ sw.bb6:                                           ; preds = %if.end5
   ]
 
 sw.bb.i12:                                        ; preds = %sw.bb6
-  %idxprom.i13 = zext nneg i32 %conv to i64
-  %arrayidx.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i13
+  %chan.i13 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %idxprom.i14 = zext nneg i32 %conv to i64
+  %arrayidx.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan.i13, i64 0, i64 %idxprom.i14
   %4 = load i32, ptr %arrayidx.i, align 8
   %conv.i = zext i32 %4 to i64
   %and1.i = and i64 %conv.i, 1
@@ -454,10 +463,10 @@ sw.bb.i12:                                        ; preds = %sw.bb6
   br i1 %or.cond.i, label %if.end.i, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %sw.bb.i12
-  %next_config.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i13, i32 1
+  %next_config.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 1711276032, ptr %next_config.i, align 4
-  %next_bytes.i14 = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom.i13, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_bytes.i14, i8 0, i64 24, i1 false)
+  %next_bytes.i15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_bytes.i15, i8 0, i64 24, i1 false)
   br label %if.then49.i
 
 if.end.i:                                         ; preds = %sw.bb.i12
@@ -494,14 +503,16 @@ if.end62.i:                                       ; preds = %if.then61.i, %if.en
   br label %sw.epilog
 
 sw.bb63.i:                                        ; preds = %sw.bb6
+  %chan64.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom65.i = zext nneg i32 %conv to i64
-  %next_config67.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom65.i, i32 1
+  %next_config67.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan64.i, i64 0, i64 %idxprom65.i, i32 1
   store i32 %conv7, ptr %next_config67.i, align 4
   br label %sw.epilog
 
 sw.bb68.i:                                        ; preds = %sw.bb6
+  %chan69.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom70.i = zext nneg i32 %conv to i64
-  %next_bytes72.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom70.i, i32 2
+  %next_bytes72.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan69.i, i64 0, i64 %idxprom70.i, i32 2
   %9 = load i64, ptr %next_bytes72.i, align 8
   %conv73.i = and i64 %value, 4294967295
   %and.i.i11 = and i64 %9, -4294967296
@@ -510,8 +521,9 @@ sw.bb68.i:                                        ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb78.i:                                        ; preds = %sw.bb6
+  %chan79.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom80.i = zext nneg i32 %conv to i64
-  %next_bytes82.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom80.i, i32 2
+  %next_bytes82.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan79.i, i64 0, i64 %idxprom80.i, i32 2
   %10 = load i64, ptr %next_bytes82.i, align 8
   %and.i63.i = and i64 %10, 4294967295
   %conv83.i = shl i64 %value, 32
@@ -520,8 +532,9 @@ sw.bb78.i:                                        ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb89.i:                                        ; preds = %sw.bb6
+  %chan90.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom91.i = zext nneg i32 %conv to i64
-  %next_dst93.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom91.i, i32 3
+  %next_dst93.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan90.i, i64 0, i64 %idxprom91.i, i32 3
   %11 = load i64, ptr %next_dst93.i, align 8
   %conv94.i = and i64 %value, 4294967295
   %and.i66.i = and i64 %11, -4294967296
@@ -530,8 +543,9 @@ sw.bb89.i:                                        ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb100.i:                                       ; preds = %sw.bb6
+  %chan101.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom102.i = zext nneg i32 %conv to i64
-  %next_dst104.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom102.i, i32 3
+  %next_dst104.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan101.i, i64 0, i64 %idxprom102.i, i32 3
   %12 = load i64, ptr %next_dst104.i, align 8
   %and.i69.i = and i64 %12, 4294967295
   %conv105.i = shl i64 %value, 32
@@ -540,8 +554,9 @@ sw.bb100.i:                                       ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb111.i:                                       ; preds = %sw.bb6
+  %chan112.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom113.i = zext nneg i32 %conv to i64
-  %next_src115.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom113.i, i32 4
+  %next_src115.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan112.i, i64 0, i64 %idxprom113.i, i32 4
   %13 = load i64, ptr %next_src115.i, align 8
   %conv116.i = and i64 %value, 4294967295
   %and.i73.i = and i64 %13, -4294967296
@@ -550,8 +565,9 @@ sw.bb111.i:                                       ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb122.i:                                       ; preds = %sw.bb6
+  %chan123.i = getelementptr inbounds i8, ptr %opaque, i64 1152
   %idxprom124.i = zext nneg i32 %conv to i64
-  %next_src126.i = getelementptr %struct.SiFivePDMAState, ptr %opaque, i64 0, i32 3, i64 %idxprom124.i, i32 4
+  %next_src126.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan123.i, i64 0, i64 %idxprom124.i, i32 4
   %14 = load i64, ptr %next_src126.i, align 8
   %and.i76.i = and i64 %14, 4294967295
   %conv127.i = shl i64 %value, 32
@@ -559,27 +575,27 @@ sw.bb122.i:                                       ; preds = %sw.bb6
   store i64 %or.i79.i, ptr %next_src126.i, align 8
   br label %sw.epilog
 
-do.body.i15:                                      ; preds = %sw.bb6
+do.body.i16:                                      ; preds = %sw.bb6
   %15 = load i32, ptr @qemu_loglevel, align 4
   %and.i80.i = and i32 %15, 2048
-  %cmp.i.not.i16 = icmp eq i32 %and.i80.i, 0
-  br i1 %cmp.i.not.i16, label %sw.epilog, label %if.then139.i
+  %cmp.i.not.i17 = icmp eq i32 %and.i80.i, 0
+  br i1 %cmp.i.not.i17, label %sw.epilog, label %if.then139.i
 
-if.then139.i:                                     ; preds = %do.body.i15
+if.then139.i:                                     ; preds = %do.body.i16
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.sifive_pdma_writel, i64 noundef %and.i10) #4
   br label %sw.epilog
 
 do.body8:                                         ; preds = %if.end5
   %16 = load i32, ptr @qemu_loglevel, align 4
-  %and.i17 = and i32 %16, 2048
-  %cmp.i18.not = icmp eq i32 %and.i17, 0
-  br i1 %cmp.i18.not, label %sw.epilog, label %if.then16
+  %and.i18 = and i32 %16, 2048
+  %cmp.i19.not = icmp eq i32 %and.i18, 0
+  br i1 %cmp.i19.not, label %sw.epilog, label %if.then16
 
 if.then16:                                        ; preds = %do.body8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.sifive_pdma_write, i32 noundef %size) #4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then139.i, %do.body.i15, %sw.bb122.i, %sw.bb111.i, %sw.bb100.i, %sw.bb89.i, %sw.bb78.i, %sw.bb68.i, %sw.bb63.i, %if.end62.i, %if.then49.i, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %if.then.i, %do.body.i, %sw.bb5.i, %sw.bb1.i, %sw.bb.i, %sw.bb, %sw.bb, %sw.bb, %if.then16, %do.body8, %if.then4, %do.body
+sw.epilog:                                        ; preds = %if.then139.i, %do.body.i16, %sw.bb122.i, %sw.bb111.i, %sw.bb100.i, %sw.bb89.i, %sw.bb78.i, %sw.bb68.i, %sw.bb63.i, %if.end62.i, %if.then49.i, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %if.then.i, %do.body.i, %sw.bb5.i, %sw.bb1.i, %sw.bb.i, %sw.bb, %sw.bb, %sw.bb, %if.then16, %do.body8, %if.then4, %do.body
   ret void
 }
 
@@ -589,15 +605,16 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 define internal fastcc void @sifive_pdma_run(ptr nocapture noundef %s, i32 noundef %ch) unnamed_addr #0 {
 entry:
   %buf = alloca [64 x i8], align 16
+  %chan = getelementptr inbounds i8, ptr %s, i64 1152
   %idxprom = zext nneg i32 %ch to i64
-  %arrayidx = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom
-  %next_bytes = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 2
+  %arrayidx = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan, i64 0, i64 %idxprom
+  %next_bytes = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %next_bytes, align 8
-  %next_dst = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 3
+  %next_dst = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %next_dst, align 8
-  %next_src = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 4
+  %next_src = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %next_src, align 8
-  %next_config = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 1
+  %next_config = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %next_config, align 4
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %done, label %if.end
@@ -614,18 +631,18 @@ if.end13:                                         ; preds = %if.end
   %shl = shl nuw nsw i32 1, %spec.store.select
   %conv = zext nneg i32 %shl to i64
   %4 = add nuw nsw i64 %conv, 4294967295
-  %state = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 9
+  %state = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 1, ptr %state, align 8
   %5 = load i32, ptr %arrayidx, align 8
   %6 = and i32 %5, 1073741823
   store i32 %6, ptr %arrayidx, align 8
-  %exec_config = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 5
+  %exec_config = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store i32 %3, ptr %exec_config, align 8
-  %exec_bytes = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 6
+  %exec_bytes = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i64 %0, ptr %exec_bytes, align 8
-  %exec_dst = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 7
+  %exec_dst = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store i64 %1, ptr %exec_dst, align 8
-  %exec_src = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 8
+  %exec_src = getelementptr inbounds i8, ptr %arrayidx, i64 56
   store i64 %2, ptr %exec_src, align 8
   %7 = zext nneg i32 %spec.store.select to i64
   %div82 = lshr i64 %0, %7
@@ -686,7 +703,7 @@ if.then117:                                       ; preds = %if.end109
   br label %done
 
 done:                                             ; preds = %if.end109, %if.then117, %entry
-  %state134 = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 9
+  %state134 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 3, ptr %state134, align 8
   %23 = load i32, ptr %arrayidx, align 8
   %24 = and i32 %23, -1073741827
@@ -694,7 +711,7 @@ done:                                             ; preds = %if.end109, %if.then
   br label %return
 
 error:                                            ; preds = %if.end
-  %state151 = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 9
+  %state151 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 2, ptr %state151, align 8
   %26 = load i32, ptr %arrayidx, align 8
   %27 = or i32 %26, -2147483648
@@ -709,17 +726,19 @@ return:                                           ; preds = %error, %done
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @sifive_pdma_update_irq(ptr nocapture noundef %s, i32 noundef %ch) unnamed_addr #0 {
 entry:
+  %chan = getelementptr inbounds i8, ptr %s, i64 1152
   %idxprom = zext nneg i32 %ch to i64
-  %arrayidx = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   %conv = zext i32 %0 to i64
   %and7 = and i64 %conv, 32768
   %tobool8.not = icmp eq i64 %and7, 0
   %1 = and i64 %conv, 1073758208
   %or.cond.not = icmp eq i64 %1, 1073758208
+  %irq = getelementptr inbounds i8, ptr %s, i64 1088
   %mul = shl nuw nsw i32 %ch, 1
   %idxprom21 = zext nneg i32 %mul to i64
-  %arrayidx22 = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 2, i64 %idxprom21
+  %arrayidx22 = getelementptr [8 x ptr], ptr %irq, i64 0, i64 %idxprom21
   %2 = load ptr, ptr %arrayidx22, align 8
   %. = zext i1 %or.cond.not to i32
   tail call void @qemu_set_irq(ptr noundef %2, i32 noundef %.) #4
@@ -735,13 +754,14 @@ if.else42:                                        ; preds = %land.lhs.true29, %e
 
 if.end48:                                         ; preds = %land.lhs.true29, %if.else42
   %.sink18 = phi i32 [ 0, %if.else42 ], [ 1, %land.lhs.true29 ]
+  %irq43 = getelementptr inbounds i8, ptr %s, i64 1088
   %mul44 = shl nuw nsw i32 %ch, 1
   %add45 = or disjoint i32 %mul44, 1
   %idxprom46 = zext nneg i32 %add45 to i64
-  %arrayidx47 = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 2, i64 %idxprom46
+  %arrayidx47 = getelementptr [8 x ptr], ptr %irq43, i64 0, i64 %idxprom46
   %4 = load ptr, ptr %arrayidx47, align 8
   tail call void @qemu_set_irq(ptr noundef %4, i32 noundef %.sink18) #4
-  %state = getelementptr %struct.SiFivePDMAState, ptr %s, i64 0, i32 3, i64 %idxprom, i32 9
+  %state = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 0, ptr %state, align 8
   ret void
 }

@@ -8,36 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VHostUserSCMI = type { %struct.VirtIODevice, %struct.CharBackend, ptr, %struct.vhost_dev, %struct.VhostUserState, ptr, ptr, i8, i8 }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.2, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.0, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.vhost_dev = type { ptr, %struct.MemoryListener, %struct.MemoryListener, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, ptr, ptr, ptr, ptr, %struct.anon, %struct.anon.3, %struct.IOMMUNotifier, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
-%struct.IOMMUNotifier = type { ptr, i32, i64, i64, i32, %struct.anon.4 }
-%struct.anon.4 = type { ptr, ptr }
-%struct.VhostUserState = type { ptr, ptr, i32, i8 }
-%struct.VirtioBusClass = type { %struct.BusClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
 
 @vu_scmi_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1272, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @vu_scmi_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"vhost-user-scmi\00", align 1
@@ -96,23 +66,23 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #4
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vu_scmi_properties) #4
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vu_scmi_vmstate, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i9, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i9, i64 176
   store ptr @vu_scmi_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i9, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i9, i64 184
   store ptr @vu_scmi_device_unrealize, ptr %unrealize, align 8
-  %get_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i9, i64 0, i32 3
+  %get_features = getelementptr inbounds i8, ptr %call.i9, i64 192
   store ptr @vu_scmi_get_features, ptr %get_features, align 8
-  %set_status = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i9, i64 0, i32 10
+  %set_status = getelementptr inbounds i8, ptr %call.i9, i64 248
   store ptr @vu_scmi_set_status, ptr %set_status, align 8
-  %guest_notifier_mask = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i9, i64 0, i32 15
+  %guest_notifier_mask = getelementptr inbounds i8, ptr %call.i9, i64 288
   store ptr @vu_scmi_guest_notifier_mask, ptr %guest_notifier_mask, align 8
-  %guest_notifier_pending = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i9, i64 0, i32 14
+  %guest_notifier_pending = getelementptr inbounds i8, ptr %call.i9, i64 280
   store ptr @vu_scmi_guest_notifier_pending, ptr %guest_notifier_pending, align 8
   ret void
 }
@@ -124,7 +94,7 @@ define internal void @vu_scmi_device_realize(ptr noundef %dev, ptr noundef %errp
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #4
   %call.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
-  %chardev = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i22, i64 0, i32 1
+  %chardev = getelementptr inbounds i8, ptr %call.i22, i64 520
   %0 = load ptr, ptr %chardev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -134,27 +104,27 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %host_features = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 5
+  %host_features = getelementptr inbounds i8, ptr %call.i, i64 176
   %1 = load i64, ptr %host_features, align 8
   %or = or i64 %1, 1
   store i64 %or, ptr %host_features, align 8
-  %vhost_user = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i22, i64 0, i32 4
+  %vhost_user = getelementptr inbounds i8, ptr %call.i22, i64 1224
   %call3 = tail call zeroext i1 @vhost_user_init(ptr noundef nonnull %vhost_user, ptr noundef nonnull %chardev, ptr noundef %errp) #4
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
   tail call void @virtio_init(ptr noundef nonnull %call.i, i16 noundef zeroext 32, i64 noundef 0) #4
   %call6 = tail call ptr @virtio_add_queue(ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull @vu_scmi_handle_output) #4
-  %cmd_vq = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i22, i64 0, i32 5
+  %cmd_vq = getelementptr inbounds i8, ptr %call.i22, i64 1248
   store ptr %call6, ptr %cmd_vq, align 8
   %call7 = tail call ptr @virtio_add_queue(ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull @vu_scmi_handle_output) #4
-  %event_vq = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i22, i64 0, i32 6
+  %event_vq = getelementptr inbounds i8, ptr %call.i22, i64 1256
   store ptr %call7, ptr %event_vq, align 8
-  %vhost_dev = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i22, i64 0, i32 3
-  %nvqs = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i22, i64 0, i32 3, i32 9
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i22, i64 584
+  %nvqs = getelementptr inbounds i8, ptr %call.i22, i64 1024
   store i32 2, ptr %nvqs, align 8
   %call10 = tail call noalias dereferenceable_or_null(256) ptr @g_malloc0_n(i64 noundef 2, i64 noundef 128) #5
-  %vqs = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i22, i64 0, i32 3, i32 8
+  %vqs = getelementptr inbounds i8, ptr %call.i22, i64 1016
   store ptr %call10, ptr %vqs, align 8
   %call14 = tail call i32 @vhost_dev_init(ptr noundef nonnull %vhost_dev, ptr noundef nonnull %vhost_user, i32 noundef 2, i32 noundef 0, ptr noundef %errp) #4
   %cmp = icmp slt i32 %call14, 0
@@ -187,21 +157,21 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #4
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
-  %vm_running.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 16
+  %vm_running.i.i = getelementptr inbounds i8, ptr %call.i, i64 434
   %0 = load i8, ptr %vm_running.i.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i, label %virtio_device_should_start.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %use_started.i.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 20
+  %use_started.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 438
   %2 = load i8, ptr %use_started.i.i.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i, label %virtio_device_should_start.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %started.i.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 21
+  %started.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 439
   %4 = load i8, ptr %started.i.i.i, align 1
   %5 = and i8 %4, 1
   %6 = icmp ne i8 %5, 0
@@ -209,14 +179,14 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 virtio_device_should_start.exit.i:                ; preds = %if.then.i.i.i, %if.end.i.i, %entry
   %retval.0.i.i = phi i1 [ false, %entry ], [ %6, %if.then.i.i.i ], [ false, %if.end.i.i ]
-  %connected.i = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i.i, i64 0, i32 7
+  %connected.i = getelementptr inbounds i8, ptr %call.i.i, i64 1264
   %7 = load i8, ptr %connected.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %vu_scmi_set_status.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %virtio_device_should_start.exit.i
-  %9 = getelementptr %struct.VHostUserSCMI, ptr %call.i.i, i64 0, i32 3, i32 19
+  %9 = getelementptr i8, ptr %call.i.i, i64 1088
   %vhost_dev.val.i = load i8, ptr %9, align 8
   %10 = and i8 %vhost_dev.val.i, 1
   %tobool.i.i = icmp ne i8 %10, 0
@@ -235,19 +205,19 @@ if.else.i:                                        ; preds = %if.end7.i
   br label %vu_scmi_set_status.exit
 
 vu_scmi_set_status.exit:                          ; preds = %virtio_device_should_start.exit.i, %if.end.i, %if.then9.i, %if.else.i
-  %vhost_dev = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i4, i64 0, i32 3
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i4, i64 584
   tail call void @vhost_dev_cleanup(ptr noundef nonnull %vhost_dev) #4
-  %cmd_vq.i = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i4, i64 0, i32 5
+  %cmd_vq.i = getelementptr inbounds i8, ptr %call.i4, i64 1248
   %12 = load ptr, ptr %cmd_vq.i, align 8
   tail call void @virtio_delete_queue(ptr noundef %12) #4
-  %event_vq.i = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i4, i64 0, i32 6
+  %event_vq.i = getelementptr inbounds i8, ptr %call.i4, i64 1256
   %13 = load ptr, ptr %event_vq.i, align 8
   tail call void @virtio_delete_queue(ptr noundef %13) #4
-  %vqs.i = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i4, i64 0, i32 3, i32 8
+  %vqs.i = getelementptr inbounds i8, ptr %call.i4, i64 1016
   %14 = load ptr, ptr %vqs.i, align 8
   tail call void @g_free(ptr noundef %14) #4
   tail call void @virtio_cleanup(ptr noundef nonnull %call.i) #4
-  %vhost_user.i = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i4, i64 0, i32 4
+  %vhost_user.i = getelementptr inbounds i8, ptr %call.i4, i64 1224
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user.i) #4
   ret void
 }
@@ -256,7 +226,7 @@ vu_scmi_set_status.exit:                          ; preds = %virtio_device_shoul
 define internal i64 @vu_scmi_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
-  %vhost_dev = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 584
   %call1 = tail call i64 @vhost_get_features(ptr noundef nonnull %vhost_dev, ptr noundef nonnull @feature_bits, i64 noundef %features) #4
   ret i64 %call1
 }
@@ -265,21 +235,21 @@ entry:
 define internal void @vu_scmi_set_status(ptr noundef %vdev, i8 noundef zeroext %status) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
-  %vm_running.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running.i = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running.i, align 2
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %virtio_device_should_start.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %use_started.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 20
+  %use_started.i.i = getelementptr inbounds i8, ptr %vdev, i64 438
   %2 = load i8, ptr %use_started.i.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %started.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 21
+  %started.i.i = getelementptr inbounds i8, ptr %vdev, i64 439
   %4 = load i8, ptr %started.i.i, align 1
   %5 = and i8 %4, 1
   br label %virtio_device_started.exit.i
@@ -295,14 +265,14 @@ virtio_device_started.exit.i:                     ; preds = %if.end.i.i, %if.the
 
 virtio_device_should_start.exit:                  ; preds = %entry, %virtio_device_started.exit.i
   %retval.0.i = phi i1 [ %retval.0.i.i, %virtio_device_started.exit.i ], [ false, %entry ]
-  %connected = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 7
+  %connected = getelementptr inbounds i8, ptr %call.i, i64 1264
   %7 = load i8, ptr %connected, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.end11, label %if.end
 
 if.end:                                           ; preds = %virtio_device_should_start.exit
-  %9 = getelementptr %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3, i32 19
+  %9 = getelementptr i8, ptr %call.i, i64 1088
   %vhost_dev.val = load i8, ptr %9, align 8
   %10 = and i8 %vhost_dev.val, 1
   %tobool.i = icmp ne i8 %10, 0
@@ -332,7 +302,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vhost_dev = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 584
   tail call void @vhost_virtqueue_mask(ptr noundef nonnull %vhost_dev, ptr noundef %vdev, i32 noundef %idx, i1 noundef zeroext %mask) #4
   br label %return
 
@@ -344,7 +314,7 @@ return:                                           ; preds = %entry, %if.end
 define internal zeroext i1 @vu_scmi_guest_notifier_pending(ptr noundef %vdev, i32 noundef %idx) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
-  %vhost_dev = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3
+  %vhost_dev = getelementptr inbounds i8, ptr %call.i, i64 584
   %call1 = tail call zeroext i1 @vhost_virtqueue_pending(ptr noundef nonnull %vhost_dev, i32 noundef %idx) #4
   ret i1 %call1
 }
@@ -385,7 +355,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #4
   %call.i5.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
-  %connected.i = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i5.i, i64 0, i32 7
+  %connected.i = getelementptr inbounds i8, ptr %call.i5.i, i64 1264
   %0 = load i8, ptr %connected.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -393,20 +363,20 @@ sw.bb:                                            ; preds = %entry
 
 if.end.i:                                         ; preds = %sw.bb
   store i8 1, ptr %connected.i, align 8
-  %use_started.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 20
+  %use_started.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 438
   %2 = load i8, ptr %use_started.i.i, align 2
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %started.i.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 21
+  %started.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 439
   %4 = load i8, ptr %started.i.i, align 1
   %5 = and i8 %4, 1
   br label %virtio_device_started.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %status.i = getelementptr inbounds %struct.VirtIODevice, ptr %call.i.i, i64 0, i32 2
+  %status.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %6 = load i8, ptr %status.i, align 8
   %7 = and i8 %6, 4
   br label %virtio_device_started.exit.i
@@ -423,7 +393,7 @@ if.then4.i:                                       ; preds = %virtio_device_start
 sw.bb1:                                           ; preds = %entry
   %call.i.i2 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #4
   %call.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 17, ptr noundef nonnull @__func__.VHOST_USER_SCMI) #4
-  %connected.i3 = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i4.i, i64 0, i32 7
+  %connected.i3 = getelementptr inbounds i8, ptr %call.i4.i, i64 1264
   %8 = load i8, ptr %connected.i3, align 8
   %9 = and i8 %8, 1
   %tobool.not.i4 = icmp eq i8 %9, 0
@@ -431,7 +401,7 @@ sw.bb1:                                           ; preds = %entry
 
 if.end.i5:                                        ; preds = %sw.bb1
   store i8 0, ptr %connected.i3, align 8
-  %10 = getelementptr %struct.VHostUserSCMI, ptr %call.i4.i, i64 0, i32 3, i32 19
+  %10 = getelementptr i8, ptr %call.i4.i, i64 1088
   %vhost_dev.val.i = load i8, ptr %10, align 8
   %11 = and i8 %vhost_dev.val.i, 1
   %tobool.i.not.i = icmp eq i8 %11, 0
@@ -464,8 +434,8 @@ entry:
   %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #4
   %call.i30 = tail call ptr @object_get_class(ptr noundef %call.i29) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i30, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #4
-  %vhost_dev5 = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %vhost_dev5 = getelementptr inbounds i8, ptr %call.i, i64 584
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %0 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -485,9 +455,9 @@ if.then7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %1 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i29, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i29, i64 40
   %2 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call.i, i64 1024
   %3 = load i32, ptr %nvqs, align 8
   %call10 = tail call i32 %1(ptr noundef %2, i32 noundef %3, i1 noundef zeroext true) #4
   %cmp11 = icmp slt i32 %call10, 0
@@ -498,7 +468,7 @@ if.then12:                                        ; preds = %if.end8
   br label %err_host_notifiers
 
 if.end13:                                         ; preds = %if.end8
-  %guest_features = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 6
+  %guest_features = getelementptr inbounds i8, ptr %vdev, i64 184
   %4 = load i64, ptr %guest_features, align 8
   tail call void @vhost_ack_features(ptr noundef nonnull %vhost_dev5, ptr noundef nonnull @feature_bits, i64 noundef %4) #4
   %call16 = tail call i32 @vhost_dev_start(ptr noundef nonnull %vhost_dev5, ptr noundef %vdev, i1 noundef zeroext true) #4
@@ -514,7 +484,7 @@ if.then18:                                        ; preds = %if.end13
   br label %err_host_notifiers
 
 if.end19:                                         ; preds = %if.end13
-  %started_vu = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 8
+  %started_vu = getelementptr inbounds i8, ptr %call.i, i64 1265
   store i8 1, ptr %started_vu, align 1
   %8 = load i32, ptr %nvqs, align 8
   %cmp2231.not = icmp eq i32 %8, 0
@@ -561,8 +531,8 @@ entry:
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #4
   %call.i13 = tail call ptr @object_get_class(ptr noundef %call.i12) #4
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #4
-  %vhost_dev5 = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3
-  %started_vu = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 8
+  %vhost_dev5 = getelementptr inbounds i8, ptr %call.i, i64 584
+  %started_vu = getelementptr inbounds i8, ptr %call.i, i64 1265
   %0 = load i8, ptr %started_vu, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -570,7 +540,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %started_vu, align 1
-  %set_guest_notifiers = getelementptr inbounds %struct.VirtioBusClass, ptr %call1.i, i64 0, i32 11
+  %set_guest_notifiers = getelementptr inbounds i8, ptr %call1.i, i64 240
   %2 = load ptr, ptr %set_guest_notifiers, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %return, label %if.end9
@@ -578,9 +548,9 @@ if.end:                                           ; preds = %entry
 if.end9:                                          ; preds = %if.end
   tail call void @vhost_dev_stop(ptr noundef nonnull %vhost_dev5, ptr noundef %vdev, i1 noundef zeroext true) #4
   %3 = load ptr, ptr %set_guest_notifiers, align 8
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i12, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i12, i64 40
   %4 = load ptr, ptr %parent, align 8
-  %nvqs = getelementptr inbounds %struct.VHostUserSCMI, ptr %call.i, i64 0, i32 3, i32 9
+  %nvqs = getelementptr inbounds i8, ptr %call.i, i64 1024
   %5 = load i32, ptr %nvqs, align 8
   %call11 = tail call i32 %3(ptr noundef %4, i32 noundef %5, i1 noundef zeroext false) #4
   %cmp = icmp slt i32 %call11, 0

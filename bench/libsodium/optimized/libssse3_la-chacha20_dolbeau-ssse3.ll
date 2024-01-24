@@ -17,18 +17,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.c.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.c.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 0, ptr %arrayidx.c.i, align 16
-  %arrayidx9.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 0, ptr %arrayidx9.i, align 4
-  %arrayidx13.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
+  %arrayidx13.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx13.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
@@ -49,21 +49,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 0, ptr %arrayidx.i, align 16
-  %arrayidx3.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ctx, i64 52
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx3.i, align 4
   %add.ptr8.i = getelementptr i8, ptr %n, i64 8
   %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %arrayidx11.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
+  %arrayidx11.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr8.val.i, ptr %arrayidx11.i, align 4
   tail call void @llvm.memset.p0.i64(ptr align 1 %c, i8 0, i64 %clen, i1 false)
   call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %c, ptr noundef %c, i64 noundef %clen)
@@ -86,18 +86,18 @@ if.end:                                           ; preds = %entry
   %conv = trunc i64 %shr to i32
   %conv1 = trunc i64 %ic to i32
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 %conv1, ptr %arrayidx.i, align 16
-  %arrayidx9.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 %conv, ptr %arrayidx9.i, align 4
-  %arrayidx13.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
+  %arrayidx13.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx13.i, align 8
   call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
@@ -117,21 +117,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   store <4 x i32> <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, ptr %ctx, align 16
-  %arrayidx8.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load <4 x i32>, ptr %k, align 1
   store <4 x i32> %0, ptr %arrayidx8.i, align 16
   %add.ptr21.i = getelementptr i8, ptr %k, i64 16
-  %arrayidx24.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 8
+  %arrayidx24.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load <4 x i32>, ptr %add.ptr21.i, align 1
   store <4 x i32> %1, ptr %arrayidx24.i, align 16
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 %ic, ptr %arrayidx.i, align 16
-  %arrayidx3.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ctx, i64 52
   %2 = load <2 x i32>, ptr %n, align 1
   store <2 x i32> %2, ptr %arrayidx3.i, align 4
   %add.ptr8.i = getelementptr i8, ptr %n, i64 8
   %add.ptr8.val.i = load i32, ptr %add.ptr8.i, align 1
-  %arrayidx11.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
+  %arrayidx11.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %add.ptr8.val.i, ptr %arrayidx11.i, align 4
   call fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull %ctx, ptr noundef %m, ptr noundef %c, i64 noundef %mlen)
   call void @sodium_memzero(ptr noundef nonnull %ctx, i64 noundef 64) #5
@@ -155,62 +155,62 @@ if.then1:                                         ; preds = %entry
   %0 = load i32, ptr %ctx, align 4
   %vecinit.i1559 = insertelement <4 x i32> poison, i32 %0, i64 0
   %vecinit3.i1562 = shufflevector <4 x i32> %vecinit.i1559, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx5 = getelementptr i32, ptr %ctx, i64 1
+  %arrayidx5 = getelementptr i8, ptr %ctx, i64 4
   %1 = load i32, ptr %arrayidx5, align 4
   %vecinit.i1568 = insertelement <4 x i32> poison, i32 %1, i64 0
   %vecinit3.i1571 = shufflevector <4 x i32> %vecinit.i1568, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx7 = getelementptr i32, ptr %ctx, i64 2
+  %arrayidx7 = getelementptr i8, ptr %ctx, i64 8
   %2 = load i32, ptr %arrayidx7, align 4
   %vecinit.i1577 = insertelement <4 x i32> poison, i32 %2, i64 0
   %vecinit3.i1580 = shufflevector <4 x i32> %vecinit.i1577, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx9 = getelementptr i32, ptr %ctx, i64 3
+  %arrayidx9 = getelementptr i8, ptr %ctx, i64 12
   %3 = load i32, ptr %arrayidx9, align 4
   %vecinit.i1586 = insertelement <4 x i32> poison, i32 %3, i64 0
   %vecinit3.i1589 = shufflevector <4 x i32> %vecinit.i1586, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx11 = getelementptr i32, ptr %ctx, i64 4
+  %arrayidx11 = getelementptr i8, ptr %ctx, i64 16
   %4 = load i32, ptr %arrayidx11, align 4
   %vecinit.i1595 = insertelement <4 x i32> poison, i32 %4, i64 0
   %vecinit3.i1598 = shufflevector <4 x i32> %vecinit.i1595, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx13 = getelementptr i32, ptr %ctx, i64 5
+  %arrayidx13 = getelementptr i8, ptr %ctx, i64 20
   %5 = load i32, ptr %arrayidx13, align 4
   %vecinit.i1604 = insertelement <4 x i32> poison, i32 %5, i64 0
   %vecinit3.i1607 = shufflevector <4 x i32> %vecinit.i1604, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx15 = getelementptr i32, ptr %ctx, i64 6
+  %arrayidx15 = getelementptr i8, ptr %ctx, i64 24
   %6 = load i32, ptr %arrayidx15, align 4
   %vecinit.i1613 = insertelement <4 x i32> poison, i32 %6, i64 0
   %vecinit3.i1616 = shufflevector <4 x i32> %vecinit.i1613, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx17 = getelementptr i32, ptr %ctx, i64 7
+  %arrayidx17 = getelementptr i8, ptr %ctx, i64 28
   %7 = load i32, ptr %arrayidx17, align 4
   %vecinit.i1622 = insertelement <4 x i32> poison, i32 %7, i64 0
   %vecinit3.i1625 = shufflevector <4 x i32> %vecinit.i1622, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx19 = getelementptr i32, ptr %ctx, i64 8
+  %arrayidx19 = getelementptr i8, ptr %ctx, i64 32
   %8 = load i32, ptr %arrayidx19, align 4
   %vecinit.i1631 = insertelement <4 x i32> poison, i32 %8, i64 0
   %vecinit3.i1634 = shufflevector <4 x i32> %vecinit.i1631, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx21 = getelementptr i32, ptr %ctx, i64 9
+  %arrayidx21 = getelementptr i8, ptr %ctx, i64 36
   %9 = load i32, ptr %arrayidx21, align 4
   %vecinit.i1640 = insertelement <4 x i32> poison, i32 %9, i64 0
   %vecinit3.i1643 = shufflevector <4 x i32> %vecinit.i1640, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx23 = getelementptr i32, ptr %ctx, i64 10
+  %arrayidx23 = getelementptr i8, ptr %ctx, i64 40
   %10 = load i32, ptr %arrayidx23, align 4
   %vecinit.i1649 = insertelement <4 x i32> poison, i32 %10, i64 0
   %vecinit3.i1652 = shufflevector <4 x i32> %vecinit.i1649, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx25 = getelementptr i32, ptr %ctx, i64 11
+  %arrayidx25 = getelementptr i8, ptr %ctx, i64 44
   %11 = load i32, ptr %arrayidx25, align 4
   %vecinit.i1658 = insertelement <4 x i32> poison, i32 %11, i64 0
   %vecinit3.i1661 = shufflevector <4 x i32> %vecinit.i1658, <4 x i32> poison, <4 x i32> zeroinitializer
-  %arrayidx27 = getelementptr i32, ptr %ctx, i64 14
+  %arrayidx27 = getelementptr i8, ptr %ctx, i64 56
   %12 = load i32, ptr %arrayidx27, align 4
   %vecinit.i1667 = insertelement <4 x i32> poison, i32 %12, i64 0
   %vecinit3.i1670 = shufflevector <4 x i32> %vecinit.i1667, <4 x i32> poison, <4 x i32> zeroinitializer
   %13 = bitcast <4 x i32> %vecinit3.i1670 to <2 x i64>
-  %arrayidx29 = getelementptr i32, ptr %ctx, i64 15
+  %arrayidx29 = getelementptr i8, ptr %ctx, i64 60
   %14 = load i32, ptr %arrayidx29, align 4
   %vecinit.i1676 = insertelement <4 x i32> poison, i32 %14, i64 0
   %vecinit3.i1679 = shufflevector <4 x i32> %vecinit.i1676, <4 x i32> poison, <4 x i32> zeroinitializer
   %15 = bitcast <4 x i32> %vecinit3.i1679 to <2 x i64>
-  %arrayidx34 = getelementptr i32, ptr %ctx, i64 12
-  %arrayidx35 = getelementptr i32, ptr %ctx, i64 13
+  %arrayidx34 = getelementptr i8, ptr %ctx, i64 48
+  %arrayidx35 = getelementptr i8, ptr %ctx, i64 52
   br label %while.body
 
 while.body:                                       ; preds = %if.then1, %for.end
@@ -558,10 +558,10 @@ if.end314:                                        ; preds = %for.end, %entry
   br i1 %cmp316658, label %while.body318.lr.ph, label %while.end423
 
 while.body318.lr.ph:                              ; preds = %if.end314
-  %add.ptr333 = getelementptr i32, ptr %ctx, i64 4
-  %add.ptr335 = getelementptr i32, ptr %ctx, i64 8
-  %add.ptr337 = getelementptr i32, ptr %ctx, i64 12
-  %arrayidx412 = getelementptr i32, ptr %ctx, i64 13
+  %add.ptr333 = getelementptr i8, ptr %ctx, i64 16
+  %add.ptr335 = getelementptr i8, ptr %ctx, i64 32
+  %add.ptr337 = getelementptr i8, ptr %ctx, i64 48
+  %arrayidx412 = getelementptr i8, ptr %ctx, i64 52
   br label %while.body318
 
 while.body318:                                    ; preds = %while.body318.lr.ph, %for.end382
@@ -675,11 +675,11 @@ while.end423:                                     ; preds = %for.end382, %if.end
 
 if.then426:                                       ; preds = %while.end423
   %169 = load <4 x i32>, ptr %ctx, align 1
-  %add.ptr439 = getelementptr i32, ptr %ctx, i64 4
+  %add.ptr439 = getelementptr i8, ptr %ctx, i64 16
   %170 = load <4 x i32>, ptr %add.ptr439, align 1
-  %add.ptr441 = getelementptr i32, ptr %ctx, i64 8
+  %add.ptr441 = getelementptr i8, ptr %ctx, i64 32
   %171 = load <4 x i32>, ptr %add.ptr441, align 1
-  %add.ptr443 = getelementptr i32, ptr %ctx, i64 12
+  %add.ptr443 = getelementptr i8, ptr %ctx, i64 48
   %172 = load <2 x i64>, ptr %add.ptr443, align 1
   %173 = bitcast <2 x i64> %172 to <4 x i32>
   br label %for.body448

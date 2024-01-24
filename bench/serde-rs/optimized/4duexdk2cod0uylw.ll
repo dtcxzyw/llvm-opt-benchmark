@@ -22,41 +22,40 @@ define void @_ZN3syn4meta15ParseNestedMeta17parse_nested_meta17h5e9f44a927300d66
   call void @_ZN3syn5group12parse_parens17h68e6e793acbd5359E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %5, ptr nonnull align 8 %7)
   %8 = load i64, ptr %5, align 8, !range !7, !noundef !5
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %12
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  br i1 %9, label %11, label %12
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %5, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+11:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   invoke void @_ZN3syn4meta17parse_nested_meta17h163438f17e5f5eb6E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 8 %6, ptr nonnull align 8 %4)
-          to label %14 unwind label %16
+          to label %13 unwind label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %5, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  br label %15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  br label %14
 
-14:                                               ; preds = %10
+13:                                               ; preds = %11
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17ha54027f8dac45c53E"(ptr nonnull align 8 %6)
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %12
+14:                                               ; preds = %13, %12
   ret void
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %11
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17ha54027f8dac45c53E"(ptr nonnull align 8 %6) #6
-          to label %20 unwind label %18
+          to label %19 unwind label %17
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %15
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #7
   unreachable
 
-20:                                               ; preds = %16
-  resume { ptr, i32 } %17
+19:                                               ; preds = %15
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -68,48 +67,47 @@ define void @_ZN3syn4meta15ParseNestedMeta17parse_nested_meta17hb555550a2d7f8f4b
   call void @_ZN3syn5group12parse_parens17h68e6e793acbd5359E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %5, ptr nonnull align 8 %7)
   %8 = load i64, ptr %5, align 8, !range !7, !noundef !5
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %12
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  br i1 %9, label %11, label %12
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds { [1 x i64], { { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, { { { [2 x i32], i32 }, {} } }, [1 x i32] } }, ptr %5, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+11:                                               ; preds = %3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   invoke void @_ZN3syn4meta17parse_nested_meta17hd5244f6ffbdcc588E(ptr sret({ ptr, [2 x i64] }) align 8 %0, ptr nonnull align 8 %6, ptr nonnull align 8 %4)
-          to label %14 unwind label %16
+          to label %13 unwind label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %5, i64 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  br label %15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  br label %14
 
-14:                                               ; preds = %10
+13:                                               ; preds = %11
   call void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17ha54027f8dac45c53E"(ptr nonnull align 8 %6)
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %12
+14:                                               ; preds = %13, %12
   ret void
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %11
+  %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17ha54027f8dac45c53E"(ptr nonnull align 8 %6) #6
-          to label %20 unwind label %18
+          to label %19 unwind label %17
 
-18:                                               ; preds = %16
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %15
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #7
   unreachable
 
-20:                                               ; preds = %16
-  resume { ptr, i32 } %17
+19:                                               ; preds = %15
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn4meta15ParseNestedMeta5error17h543a713587a84178E(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds { ptr, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = tail call align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h530c1ebdadf8f5c3E"(ptr nonnull align 8 %5, i64 0, ptr nonnull align 8 @anon.0bb760d2594746a9d23f1a9a52dc0c2e.1)
-  %7 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 72
   %8 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %7)
   %9 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = tail call { ptr, ptr } @_ZN3syn5parse11ParseBuffer6cursor17h466572c714a7cc15E(ptr nonnull align 8 %9)
@@ -123,9 +121,9 @@ define void @_ZN3syn4meta15ParseNestedMeta5error17h543a713587a84178E(ptr sret({ 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3syn4meta15ParseNestedMeta5error17h8421c47de1b368a8E(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { ptr, { { { { ptr, i64 }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] } }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = tail call align 8 ptr @"_ZN97_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h530c1ebdadf8f5c3E"(ptr nonnull align 8 %5, i64 0, ptr nonnull align 8 @anon.0bb760d2594746a9d23f1a9a52dc0c2e.1)
-  %7 = getelementptr inbounds { { i64, [8 x i64] }, { { [24 x i8], i8, [7 x i8] }, {} } }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 72
   %8 = tail call i32 @_ZN11proc_macro25Ident4span17hd0de67a5c53012adE(ptr nonnull align 8 %7)
   %9 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   %10 = tail call { ptr, ptr } @_ZN3syn5parse11ParseBuffer6cursor17h466572c714a7cc15E(ptr nonnull align 8 %9)
@@ -149,7 +147,7 @@ define void @_ZN3syn4meta17parse_nested_meta17h163438f17e5f5eb6E(ptr sret({ ptr,
   %11 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %12 = alloca { [8 x i32], i32, [3 x i32] }, align 8
   %13 = alloca { [8 x i32], i32, [3 x i32] }, align 8
-  %14 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 32
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   br label %15
 
@@ -223,7 +221,7 @@ define void @_ZN3syn4meta17parse_nested_meta17h59b821d856f4540dE(ptr sret({ ptr,
   %11 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %12 = alloca { [8 x i32], i32, [3 x i32] }, align 8
   %13 = alloca { [8 x i32], i32, [3 x i32] }, align 8
-  %14 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 32
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   br label %15
 
@@ -297,7 +295,7 @@ define void @_ZN3syn4meta17parse_nested_meta17h6301e7b21f96bba0E(ptr sret({ ptr,
   %11 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %12 = alloca { [8 x i32], i32, [3 x i32] }, align 8
   %13 = alloca { [8 x i32], i32, [3 x i32] }, align 8
-  %14 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 32
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   br label %15
 
@@ -371,7 +369,7 @@ define void @_ZN3syn4meta17parse_nested_meta17h6a3eea6fcece8abfE(ptr sret({ ptr,
   %11 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %12 = alloca { [8 x i32], i32, [3 x i32] }, align 8
   %13 = alloca { [8 x i32], i32, [3 x i32] }, align 8
-  %14 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 32
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   br label %15
 
@@ -445,7 +443,7 @@ define void @_ZN3syn4meta17parse_nested_meta17hd5244f6ffbdcc588E(ptr sret({ ptr,
   %11 = alloca { { { { ptr, i64 }, i64 } } }, align 8
   %12 = alloca { [8 x i32], i32, [3 x i32] }, align 8
   %13 = alloca { [8 x i32], i32, [3 x i32] }, align 8
-  %14 = getelementptr inbounds { [8 x i32], i32, [3 x i32] }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 32
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   br label %15
 
@@ -601,7 +599,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h29
   %.fca.0.extract = extractvalue { ptr, i64 } %17, 0
   store ptr %.fca.0.extract, ptr %16, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %17, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %16, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %18 = invoke { ptr, ptr } @_ZN3syn6buffer11TokenBuffer5begin17h1dcec5d71d5e29e4E(ptr nonnull align 8 %16)
           to label %22 unwind label %20
@@ -762,7 +760,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h4e
   %.fca.0.extract = extractvalue { ptr, i64 } %17, 0
   store ptr %.fca.0.extract, ptr %16, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %17, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %16, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %18 = invoke { ptr, ptr } @_ZN3syn6buffer11TokenBuffer5begin17h1dcec5d71d5e29e4E(ptr nonnull align 8 %16)
           to label %22 unwind label %20
@@ -923,7 +921,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h5d
   %.fca.0.extract = extractvalue { ptr, i64 } %17, 0
   store ptr %.fca.0.extract, ptr %16, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %17, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %16, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %18 = invoke { ptr, ptr } @_ZN3syn6buffer11TokenBuffer5begin17h1dcec5d71d5e29e4E(ptr nonnull align 8 %16)
           to label %22 unwind label %20

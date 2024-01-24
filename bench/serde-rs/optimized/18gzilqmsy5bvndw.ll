@@ -15,17 +15,17 @@ define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13
   %7 = extractvalue { ptr, i64 } %6, 1
   %8 = load <4 x i8>, ptr %5, align 4
   store ptr %2, ptr %0, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %0, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %3, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %0, i64 0, i32 5
+  %12 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %1, ptr %12, align 4
-  %13 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %0, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %0, i64 0, i32 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 40
   store <4 x i8> %8, ptr %14, align 8
   ret void
 }
@@ -45,30 +45,30 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { [1 x i64], { i64, i64, i8, i8, i8, [5 x i8] } }, ptr %1, i64 0, i32 1
-  %9 = getelementptr inbounds { [1 x i64], { i64, i64, i8, i8, i8, [5 x i8] } }, ptr %1, i64 0, i32 1, i32 4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 26
   %10 = load i8, ptr %9, align 2, !range !7, !noundef !6
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %18, label %29
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds { [1 x i64], { i64, i64, i64, i64, i64, i64, i64, i64 } }, ptr %1, i64 0, i32 1, i32 4
+  %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load i64, ptr %12, align 8, !noundef !6
-  %14 = getelementptr inbounds { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1
-  %15 = getelementptr inbounds { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = getelementptr inbounds i8, ptr %1, i64 80
   %16 = load i64, ptr %15, align 8, !noundef !6
   %17 = icmp eq i64 %13, %16
   br i1 %17, label %66, label %54
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds { [1 x i64], { i64, i64, i8, i8, i8, [5 x i8] } }, ptr %1, i64 0, i32 1, i32 2
+  %19 = getelementptr inbounds i8, ptr %1, i64 24
   %20 = load i8, ptr %19, align 8, !range !7, !noundef !6
   %21 = xor i8 %20, 1
   store i8 %21, ptr %19, align 8
   %22 = load i64, ptr %8, align 8, !noundef !6
-  %23 = getelementptr inbounds { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %1, i64 72
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !8, !noundef !6
-  %25 = getelementptr inbounds { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %25 = getelementptr inbounds i8, ptr %1, i64 80
   %26 = load i64, ptr %25, align 8, !noundef !6
   %27 = tail call { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hdad48a79e7806ad0E"(i64 %22, ptr nonnull align 1 %24, i64 %26)
   %.fca.0.extract = extractvalue { ptr, i64 } %27, 0
@@ -88,7 +88,7 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %.fca.1.extract = extractvalue { ptr, i64 } %27, 1
   %32 = getelementptr inbounds i8, ptr %.fca.0.extract, i64 %.fca.1.extract
   store ptr %.fca.0.extract, ptr %4, align 8
-  %33 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %32, ptr %33, align 8
   %34 = call { i32, i32 } @_ZN4core3str11validations15next_code_point17hab26e5bff74b0737E(ptr nonnull align 8 %4)
   %.fca.0.extract11 = extractvalue { i32, i32 } %34, 0
@@ -102,9 +102,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %37, label %41, label %42
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %22, ptr %39, align 8
-  %40 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %22, ptr %40, align 8
   store i64 0, ptr %0, align 8
   br label %53
@@ -132,9 +132,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %49 = load i64, ptr %8, align 8, !noundef !6
   %50 = add i64 %49, %.027
   store i64 %50, ptr %8, align 8
-  %51 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %22, ptr %51, align 8
-  %52 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 2
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %50, ptr %52, align 8
   store i64 1, ptr %0, align 8
   br label %53
@@ -143,14 +143,14 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   ret void
 
 54:                                               ; preds = %11
-  %55 = getelementptr inbounds { [1 x i64], { i64, i64, i64, i64, i64, i64, i64, i64 } }, ptr %1, i64 0, i32 1
-  %56 = getelementptr inbounds { [1 x i64], { i64, i64, i64, i64, i64, i64, i64, i64 } }, ptr %1, i64 0, i32 1, i32 6
+  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds i8, ptr %1, i64 56
   %57 = load i64, ptr %56, align 8, !noundef !6
   %58 = icmp eq i64 %57, -1
   %59 = load ptr, ptr %14, align 8, !nonnull !6, !align !8, !noundef !6
-  %60 = getelementptr inbounds { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 2
+  %60 = getelementptr inbounds i8, ptr %1, i64 88
   %61 = load ptr, ptr %60, align 8, !nonnull !6, !align !8, !noundef !6
-  %62 = getelementptr inbounds { { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 2, i32 1
+  %62 = getelementptr inbounds i8, ptr %1, i64 96
   %63 = load i64, ptr %62, align 8, !noundef !6
   call void @_ZN4core3str7pattern14TwoWaySearcher4next17h3bd3bbc5013a4dadE(ptr nonnull sret({ i64, [2 x i64] }) align 8 %3, ptr nonnull align 8 %55, ptr nonnull align 1 %59, i64 %16, ptr nonnull align 1 %61, i64 %63, i1 zeroext %58)
   %64 = load i64, ptr %3, align 8, !range !9, !noundef !6
@@ -162,9 +162,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %53
 
 67:                                               ; preds = %54
-  %68 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %3, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %3, i64 8
   %69 = load i64, ptr %68, align 8, !noundef !6
-  %70 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %3, i64 0, i32 2
+  %70 = getelementptr inbounds i8, ptr %3, i64 16
   %71 = load i64, ptr %70, align 8, !noundef !6
   br label %73
 
@@ -184,9 +184,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %79 = load i64, ptr %12, align 8, !noundef !6
   %80 = call i64 @_ZN4core3cmp6max_by17h170967dff21d9cacE(i64 %.0, i64 %79)
   store i64 %80, ptr %12, align 8
-  %81 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 1
+  %81 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %69, ptr %81, align 8
-  %82 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 2
+  %82 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.0, ptr %82, align 8
   store i64 1, ptr %0, align 8
   br label %53
@@ -194,9 +194,9 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hba3199ee446aacabE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
-  %4 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %1, i64 0, i32 1
-  %5 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %1, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %1, align 8, !nonnull !6, !align !8, !noundef !6
   %7 = load i64, ptr %3, align 8, !noundef !6
   %8 = load i64, ptr %4, align 8, !noundef !6
@@ -207,8 +207,8 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %1, i64 0, i32 4
-  %13 = getelementptr inbounds { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, ptr %1, i64 0, i32 3
+  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds i8, ptr %1, i64 32
   %invariant.gep = getelementptr i8, ptr %1, i64 39
   br label %14
 
@@ -287,9 +287,9 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   br i1 %49, label %50, label %36
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %32, ptr %51, align 8
-  %52 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.pre61, ptr %52, align 8
   br label %._crit_edge
 
@@ -302,7 +302,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h564bf88161cf4dafE"(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %4, 1

@@ -16,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.Imath_3_2::Vec2.11" = type { float, float }
-%"class.Imath_3_2::Vec2" = type { i32, i32 }
-%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -157,17 +155,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call2, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call, i64 0, i32 1, i32 1
+  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call2, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   invoke void @_ZN7Imf_3_29saveImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_5ImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont4 unwind label %lpad
@@ -413,7 +411,7 @@ delete.notnull:                                   ; preds = %if.then52, %if.else
   %exn.slot.229 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.229) #11
   %vtable = load ptr, ptr %img.0.ph, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %19 = load ptr, ptr %vfn, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(104) %img.0.ph) #11
   br label %delete.end

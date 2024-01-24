@@ -107,10 +107,10 @@ define void @_ZN4core3ptr19swap_nonoverlapping17h7db4a26fcdf8260bE(ptr nocapture
   %4 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.01112
   %5 = getelementptr inbounds { i8, i8 }, ptr %1, i64 %.01112
   %6 = load i8, ptr %4, align 1
-  %7 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.01112, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = load i8, ptr %5, align 1
-  %10 = getelementptr inbounds { i8, i8 }, ptr %1, i64 %.01112, i32 1
+  %10 = getelementptr inbounds i8, ptr %5, i64 1
   %11 = load i8, ptr %10, align 1
   store i8 %9, ptr %4, align 1
   store i8 %11, ptr %7, align 1
@@ -134,10 +134,10 @@ define void @_ZN4core3ptr19swap_nonoverlapping17hf4fcf481563cc7d9E(ptr nocapture
   %4 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.01112
   %5 = getelementptr inbounds { i8, i8 }, ptr %1, i64 %.01112
   %6 = load i8, ptr %4, align 1
-  %7 = getelementptr inbounds { i8, i8 }, ptr %0, i64 %.01112, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = load i8, ptr %5, align 1
-  %10 = getelementptr inbounds { i8, i8 }, ptr %1, i64 %.01112, i32 1
+  %10 = getelementptr inbounds i8, ptr %5, i64 1
   %11 = load i8, ptr %10, align 1
   store i8 %9, ptr %4, align 1
   store i8 %11, ptr %7, align 1

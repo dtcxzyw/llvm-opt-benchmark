@@ -14,23 +14,23 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [27 x i8] c"Cannot derive password: %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local zeroext i1 @qcrypto_pbkdf2_supports(i32 noundef %hash) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @qcrypto_pbkdf2_supports(i32 noundef %hash) local_unnamed_addr #0 {
 entry:
   %switch = icmp ult i32 %hash, 7
   ret i1 %switch
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcrypto_pbkdf2(i32 noundef %hash, ptr noundef %key, i64 noundef %nkey, ptr noundef %salt, i64 noundef %nsalt, i64 noundef %iterations, ptr noundef %out, i64 noundef %nout, ptr noundef %errp) local_unnamed_addr #1 {
+define dso_local noundef i32 @qcrypto_pbkdf2(i32 noundef %hash, ptr noundef %key, i64 noundef %nkey, ptr noundef %salt, i64 noundef %nsalt, i64 noundef %iterations, ptr noundef %out, i64 noundef %nout, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %gkey = alloca %struct.gnutls_datum_t, align 8
   %gsalt = alloca %struct.gnutls_datum_t, align 8
   store ptr %key, ptr %gkey, align 8
-  %size = getelementptr inbounds %struct.gnutls_datum_t, ptr %gkey, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %gkey, i64 8
   %conv = trunc i64 %nkey to i32
   store i32 %conv, ptr %size, align 8
   store ptr %salt, ptr %gsalt, align 8
-  %size2 = getelementptr inbounds %struct.gnutls_datum_t, ptr %gsalt, i64 0, i32 1
+  %size2 = getelementptr inbounds i8, ptr %gsalt, i64 8
   %conv3 = trunc i64 %nsalt to i32
   store i32 %conv3, ptr %size2, align 8
   %cmp6 = icmp ugt i32 %hash, 6

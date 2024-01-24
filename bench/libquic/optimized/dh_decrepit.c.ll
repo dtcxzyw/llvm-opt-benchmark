@@ -26,7 +26,7 @@ if.end4:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.end4
   store ptr %callback, ptr %wrapped, align 8
-  %arg = getelementptr inbounds %struct.wrapped_callback, ptr %wrapped, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %wrapped, i64 8
   store ptr %cb_arg, ptr %arg, align 8
   call void @BN_GENCB_set(ptr noundef nonnull %gencb_storage, ptr noundef nonnull @callback_wrapper, ptr noundef nonnull %wrapped) #2
   br label %if.end8
@@ -55,7 +55,7 @@ define internal noundef i32 @callback_wrapper(i32 noundef %event, i32 noundef %n
 entry:
   %0 = load ptr, ptr %gencb, align 8
   %1 = load ptr, ptr %0, align 8
-  %arg1 = getelementptr inbounds %struct.wrapped_callback, ptr %0, i64 0, i32 1
+  %arg1 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %arg1, align 8
   tail call void %1(i32 noundef %event, i32 noundef %n, ptr noundef %2) #2
   ret i32 1

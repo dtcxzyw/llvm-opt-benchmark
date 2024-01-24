@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -20,9 +18,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %"struct.mold::Glob::Element" = type { i32, %"class.std::__cxx11::basic_string", %"class.std::bitset" }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::bitset" = type { %"struct.std::_Base_bitset" }
 %"struct.std::_Base_bitset" = type { [4 x i64] }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<mold::Glob>::_Storage", i8, [7 x i8] }>
 
 $_ZN4mold12mold_versionB5cxx11E = comdat any
 
@@ -87,12 +86,12 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i, label %if.then.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %cmp3.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -165,28 +164,28 @@ entry:
   br i1 %cmp.i313, label %_ZN4mold4GlobD2Ev.exit, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.lr.ph
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.lr.ph: ; preds = %entry
-  %_M_finish.i.i152 = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %vec, i64 0, i32 1
-  %str.i157 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp88, i64 0, i32 1
-  %0 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp88, i64 0, i32 1, i32 2
-  %_M_string_length.i.i.i.i158 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp88, i64 0, i32 1, i32 1
-  %bitset.i159 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp88, i64 0, i32 2
-  %_M_end_of_storage.i.i161 = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %vec, i64 0, i32 2
-  %str.i120 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp79, i64 0, i32 1
-  %1 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp79, i64 0, i32 1, i32 2
-  %_M_string_length.i.i.i.i121 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp79, i64 0, i32 1, i32 1
-  %bitset.i122 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp79, i64 0, i32 2
-  %str.i89 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp77, i64 0, i32 1
-  %2 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp77, i64 0, i32 1, i32 2
-  %_M_string_length.i.i.i.i90 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp77, i64 0, i32 1, i32 1
-  %bitset.i91 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp77, i64 0, i32 2
-  %str.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp3, i64 0, i32 1
-  %3 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp3, i64 0, i32 1, i32 2
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp3, i64 0, i32 1, i32 1
-  %bitset.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp3, i64 0, i32 2
-  %str.i209 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp101, i64 0, i32 1
-  %4 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp101, i64 0, i32 1, i32 2
-  %_M_string_length.i.i.i.i210 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp101, i64 0, i32 1, i32 1
-  %bitset.i211 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %ref.tmp101, i64 0, i32 2
+  %_M_finish.i.i152 = getelementptr inbounds i8, ptr %vec, i64 8
+  %str.i157 = getelementptr inbounds i8, ptr %ref.tmp88, i64 8
+  %0 = getelementptr inbounds i8, ptr %ref.tmp88, i64 24
+  %_M_string_length.i.i.i.i158 = getelementptr inbounds i8, ptr %ref.tmp88, i64 16
+  %bitset.i159 = getelementptr inbounds i8, ptr %ref.tmp88, i64 40
+  %_M_end_of_storage.i.i161 = getelementptr inbounds i8, ptr %vec, i64 16
+  %str.i120 = getelementptr inbounds i8, ptr %ref.tmp79, i64 8
+  %1 = getelementptr inbounds i8, ptr %ref.tmp79, i64 24
+  %_M_string_length.i.i.i.i121 = getelementptr inbounds i8, ptr %ref.tmp79, i64 16
+  %bitset.i122 = getelementptr inbounds i8, ptr %ref.tmp79, i64 40
+  %str.i89 = getelementptr inbounds i8, ptr %ref.tmp77, i64 8
+  %2 = getelementptr inbounds i8, ptr %ref.tmp77, i64 24
+  %_M_string_length.i.i.i.i90 = getelementptr inbounds i8, ptr %ref.tmp77, i64 16
+  %bitset.i91 = getelementptr inbounds i8, ptr %ref.tmp77, i64 40
+  %str.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %bitset.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 40
+  %str.i209 = getelementptr inbounds i8, ptr %ref.tmp101, i64 8
+  %4 = getelementptr inbounds i8, ptr %ref.tmp101, i64 24
+  %_M_string_length.i.i.i.i210 = getelementptr inbounds i8, ptr %ref.tmp101, i64 16
+  %bitset.i211 = getelementptr inbounds i8, ptr %ref.tmp101, i64 40
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.lr.ph, %sw.epilog
@@ -222,8 +221,8 @@ sw.bb:                                            ; preds = %_ZNKSt17basic_strin
 if.then.i.i10:                                    ; preds = %sw.bb
   %9 = load i32, ptr %ref.tmp3, align 8
   store i32 %9, ptr %7, align 8
-  %str.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %7, i64 0, i32 1
-  %10 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %7, i64 0, i32 1, i32 2
+  %str.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %str.i) #17
   store ptr %10, ptr %str.i.i.i.i.i, align 8
   %11 = load ptr, ptr %str.i, align 8
@@ -247,15 +246,15 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i10
 
 _ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE9push_backEOS2_.exit.thread: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %14 = phi i64 [ %.pre331, %if.else.i.i.i.i.i.i ], [ %12, %if.then.i.i.i.i.i.i ]
-  %_M_string_length.i13.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %7, i64 0, i32 1, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %14, ptr %_M_string_length.i13.i.i.i.i.i.i, align 8
   store ptr %3, ptr %str.i, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
   store i8 0, ptr %3, align 8
-  %bitset.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %7, i64 0, i32 2
+  %bitset.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %bitset.i, i64 32, i1 false)
   %15 = load ptr, ptr %_M_finish.i.i152, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %15, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 72
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i152, align 8
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
 
@@ -278,7 +277,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIN4mold
 _ZN4mold4Glob7ElementD2Ev.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %str.i) #17
   %17 = load ptr, ptr %_M_finish.i.i152, align 8
-  %bitset5 = getelementptr %"struct.mold::Glob::Element", ptr %17, i64 -1, i32 2
+  %bitset5 = getelementptr inbounds i8, ptr %17, i64 -32
   %cmp.i14 = icmp eq i64 %sub.i, 0
   br i1 %cmp.i14, label %cleanup, label %land.lhs.true
 
@@ -428,8 +427,8 @@ sw.bb76:                                          ; preds = %_ZNKSt17basic_strin
 if.then.i.i95:                                    ; preds = %sw.bb76
   %30 = load i32, ptr %ref.tmp77, align 8
   store i32 %30, ptr %28, align 8
-  %str.i.i.i.i.i96 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %28, i64 0, i32 1
-  %31 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %28, i64 0, i32 1, i32 2
+  %str.i.i.i.i.i96 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds i8, ptr %28, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i96, ptr noundef nonnull align 1 dereferenceable(1) %str.i89) #17
   store ptr %31, ptr %str.i.i.i.i.i96, align 8
   %32 = load ptr, ptr %str.i89, align 8
@@ -453,15 +452,15 @@ if.else.i.i.i.i.i.i99:                            ; preds = %if.then.i.i95
 
 _ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE9push_backEOS2_.exit111.thread: ; preds = %if.then.i.i.i.i.i.i106, %if.else.i.i.i.i.i.i99
   %35 = phi i64 [ %.pre329, %if.else.i.i.i.i.i.i99 ], [ %33, %if.then.i.i.i.i.i.i106 ]
-  %_M_string_length.i13.i.i.i.i.i.i102 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %28, i64 0, i32 1, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %28, i64 16
   store i64 %35, ptr %_M_string_length.i13.i.i.i.i.i.i102, align 8
   store ptr %2, ptr %str.i89, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i90, align 8
   store i8 0, ptr %2, align 8
-  %bitset.i.i.i.i.i103 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %28, i64 0, i32 2
+  %bitset.i.i.i.i.i103 = getelementptr inbounds i8, ptr %28, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i103, ptr noundef nonnull align 8 dereferenceable(32) %bitset.i91, i64 32, i1 false)
   %36 = load ptr, ptr %_M_finish.i.i152, align 8
-  %incdec.ptr.i.i105 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %36, i64 1
+  %incdec.ptr.i.i105 = getelementptr inbounds i8, ptr %36, i64 72
   store ptr %incdec.ptr.i.i105, ptr %_M_finish.i.i152, align 8
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i115
 
@@ -505,8 +504,8 @@ sw.bb78:                                          ; preds = %_ZNKSt17basic_strin
 if.then.i.i126:                                   ; preds = %sw.bb78
   %41 = load i32, ptr %ref.tmp79, align 8
   store i32 %41, ptr %39, align 8
-  %str.i.i.i.i.i127 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %39, i64 0, i32 1
-  %42 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %39, i64 0, i32 1, i32 2
+  %str.i.i.i.i.i127 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i127, ptr noundef nonnull align 1 dereferenceable(1) %str.i120) #17
   store ptr %42, ptr %str.i.i.i.i.i127, align 8
   %43 = load ptr, ptr %str.i120, align 8
@@ -530,15 +529,15 @@ if.else.i.i.i.i.i.i130:                           ; preds = %if.then.i.i126
 
 _ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE9push_backEOS2_.exit142.thread: ; preds = %if.then.i.i.i.i.i.i137, %if.else.i.i.i.i.i.i130
   %46 = phi i64 [ %.pre327, %if.else.i.i.i.i.i.i130 ], [ %44, %if.then.i.i.i.i.i.i137 ]
-  %_M_string_length.i13.i.i.i.i.i.i133 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %39, i64 0, i32 1, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %46, ptr %_M_string_length.i13.i.i.i.i.i.i133, align 8
   store ptr %1, ptr %str.i120, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i121, align 8
   store i8 0, ptr %1, align 8
-  %bitset.i.i.i.i.i134 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %39, i64 0, i32 2
+  %bitset.i.i.i.i.i134 = getelementptr inbounds i8, ptr %39, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i134, ptr noundef nonnull align 8 dereferenceable(32) %bitset.i122, i64 32, i1 false)
   %47 = load ptr, ptr %_M_finish.i.i152, align 8
-  %incdec.ptr.i.i136 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %47, i64 1
+  %incdec.ptr.i.i136 = getelementptr inbounds i8, ptr %47, i64 72
   store ptr %incdec.ptr.i.i136, ptr %_M_finish.i.i152, align 8
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i146
 
@@ -573,7 +572,7 @@ if.end83:                                         ; preds = %sw.bb80
   br i1 %cmp.i.i153, label %if.then87, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end83
-  %add.ptr.i.i155 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %50, i64 -1
+  %add.ptr.i.i155 = getelementptr inbounds i8, ptr %50, i64 -72
   %51 = load i32, ptr %add.ptr.i.i155, align 8
   %cmp86.not = icmp eq i32 %51, 0
   br i1 %cmp86.not, label %if.end89, label %if.then87
@@ -598,8 +597,8 @@ if.then87:                                        ; preds = %lor.lhs.false, %if.
 if.then.i.i163:                                   ; preds = %if.then87
   %55 = load i32, ptr %ref.tmp88, align 8
   store i32 %55, ptr %53, align 8
-  %str.i.i.i.i.i164 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %53, i64 0, i32 1
-  %56 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %53, i64 0, i32 1, i32 2
+  %str.i.i.i.i.i164 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i164, ptr noundef nonnull align 1 dereferenceable(1) %str.i157) #17
   store ptr %56, ptr %str.i.i.i.i.i164, align 8
   %57 = load ptr, ptr %str.i157, align 8
@@ -623,15 +622,15 @@ if.else.i.i.i.i.i.i167:                           ; preds = %if.then.i.i163
 
 _ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE9push_backEOS2_.exit179.thread: ; preds = %if.then.i.i.i.i.i.i174, %if.else.i.i.i.i.i.i167
   %60 = phi i64 [ %.pre, %if.else.i.i.i.i.i.i167 ], [ %58, %if.then.i.i.i.i.i.i174 ]
-  %_M_string_length.i13.i.i.i.i.i.i170 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %53, i64 0, i32 1, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i170 = getelementptr inbounds i8, ptr %53, i64 16
   store i64 %60, ptr %_M_string_length.i13.i.i.i.i.i.i170, align 8
   store ptr %0, ptr %str.i157, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i158, align 8
   store i8 0, ptr %0, align 8
-  %bitset.i.i.i.i.i171 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %53, i64 0, i32 2
+  %bitset.i.i.i.i.i171 = getelementptr inbounds i8, ptr %53, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i171, ptr noundef nonnull align 8 dereferenceable(32) %bitset.i159, i64 32, i1 false)
   %61 = load ptr, ptr %_M_finish.i.i152, align 8
-  %incdec.ptr.i.i173 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %61, i64 1
+  %incdec.ptr.i.i173 = getelementptr inbounds i8, ptr %61, i64 72
   store ptr %incdec.ptr.i.i173, ptr %_M_finish.i.i152, align 8
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i183
 
@@ -659,12 +658,12 @@ _ZN4mold4Glob7ElementD2Ev.exit186:                ; preds = %_ZNKSt7__cxx1112bas
 if.end89:                                         ; preds = %_ZN4mold4Glob7ElementD2Ev.exit186, %lor.lhs.false
   %63 = phi ptr [ %.pre326, %_ZN4mold4Glob7ElementD2Ev.exit186 ], [ %50, %lor.lhs.false ]
   %64 = load i8, ptr %add.ptr.i, align 1
-  %str = getelementptr %"struct.mold::Glob::Element", ptr %63, i64 -1, i32 1
-  %_M_string_length.i.i.i = getelementptr %"struct.mold::Glob::Element", ptr %63, i64 -1, i32 1, i32 1
+  %str = getelementptr inbounds i8, ptr %63, i64 -64
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %63, i64 -56
   %65 = load i64, ptr %_M_string_length.i.i.i, align 8
   %add.i.i = add i64 %65, 1
   %66 = load ptr, ptr %str, align 8
-  %67 = getelementptr %"struct.mold::Glob::Element", ptr %63, i64 -1, i32 1, i32 2
+  %67 = getelementptr inbounds i8, ptr %63, i64 -48
   %cmp.i.i.i.i190 = icmp eq ptr %66, %67
   br i1 %cmp.i.i.i.i190, label %if.then.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
 
@@ -703,7 +702,7 @@ sw.default:                                       ; preds = %_ZNKSt17basic_strin
   br i1 %cmp.i.i205, label %if.then100, label %lor.lhs.false96
 
 lor.lhs.false96:                                  ; preds = %sw.default
-  %add.ptr.i.i207 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %72, i64 -1
+  %add.ptr.i.i207 = getelementptr inbounds i8, ptr %72, i64 -72
   %73 = load i32, ptr %add.ptr.i.i207, align 8
   %cmp99.not = icmp eq i32 %73, 0
   br i1 %cmp99.not, label %if.end102, label %if.then100
@@ -728,8 +727,8 @@ if.then100:                                       ; preds = %lor.lhs.false96, %s
 if.then.i.i215:                                   ; preds = %if.then100
   %77 = load i32, ptr %ref.tmp101, align 8
   store i32 %77, ptr %75, align 8
-  %str.i.i.i.i.i216 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %75, i64 0, i32 1
-  %78 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %75, i64 0, i32 1, i32 2
+  %str.i.i.i.i.i216 = getelementptr inbounds i8, ptr %75, i64 8
+  %78 = getelementptr inbounds i8, ptr %75, i64 24
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i216, ptr noundef nonnull align 1 dereferenceable(1) %str.i209) #17
   store ptr %78, ptr %str.i.i.i.i.i216, align 8
   %79 = load ptr, ptr %str.i209, align 8
@@ -753,15 +752,15 @@ if.else.i.i.i.i.i.i219:                           ; preds = %if.then.i.i215
 
 _ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE9push_backEOS2_.exit231.thread: ; preds = %if.then.i.i.i.i.i.i226, %if.else.i.i.i.i.i.i219
   %82 = phi i64 [ %.pre335, %if.else.i.i.i.i.i.i219 ], [ %80, %if.then.i.i.i.i.i.i226 ]
-  %_M_string_length.i13.i.i.i.i.i.i222 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %75, i64 0, i32 1, i32 1
+  %_M_string_length.i13.i.i.i.i.i.i222 = getelementptr inbounds i8, ptr %75, i64 16
   store i64 %82, ptr %_M_string_length.i13.i.i.i.i.i.i222, align 8
   store ptr %4, ptr %str.i209, align 8
   store i64 0, ptr %_M_string_length.i.i.i.i210, align 8
   store i8 0, ptr %4, align 8
-  %bitset.i.i.i.i.i223 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %75, i64 0, i32 2
+  %bitset.i.i.i.i.i223 = getelementptr inbounds i8, ptr %75, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i223, ptr noundef nonnull align 8 dereferenceable(32) %bitset.i211, i64 32, i1 false)
   %83 = load ptr, ptr %_M_finish.i.i152, align 8
-  %incdec.ptr.i.i225 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %83, i64 1
+  %incdec.ptr.i.i225 = getelementptr inbounds i8, ptr %83, i64 72
   store ptr %incdec.ptr.i.i225, ptr %_M_finish.i.i152, align 8
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i235
 
@@ -788,12 +787,12 @@ _ZN4mold4Glob7ElementD2Ev.exit238:                ; preds = %_ZNKSt7__cxx1112bas
 
 if.end102:                                        ; preds = %_ZN4mold4Glob7ElementD2Ev.exit238, %lor.lhs.false96
   %85 = phi ptr [ %.pre337, %_ZN4mold4Glob7ElementD2Ev.exit238 ], [ %72, %lor.lhs.false96 ]
-  %str104 = getelementptr %"struct.mold::Glob::Element", ptr %85, i64 -1, i32 1
-  %_M_string_length.i.i.i241 = getelementptr %"struct.mold::Glob::Element", ptr %85, i64 -1, i32 1, i32 1
+  %str104 = getelementptr inbounds i8, ptr %85, i64 -64
+  %_M_string_length.i.i.i241 = getelementptr inbounds i8, ptr %85, i64 -56
   %86 = load i64, ptr %_M_string_length.i.i.i241, align 8
   %add.i.i242 = add i64 %86, 1
   %87 = load ptr, ptr %str104, align 8
-  %88 = getelementptr %"struct.mold::Glob::Element", ptr %85, i64 -1, i32 1, i32 2
+  %88 = getelementptr inbounds i8, ptr %85, i64 -48
   %cmp.i.i.i.i243 = icmp eq ptr %87, %88
   br i1 %cmp.i.i.i.i243, label %if.then.i.i.i.i251, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i244
 
@@ -856,14 +855,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__first.sroa.0.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %.pre339, %_ZNSt12_Vector_baseIN4mold4Glob7ElementESaIS2_EEC2EmRKS3_.exit.i.i ]
   %92 = load i32, ptr %__first.sroa.0.06.i.i.i.i.i.i, align 8
   store i32 %92, ptr %__cur.07.i.i.i.i.i.i, align 8
-  %str.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i.i.i.i, i64 0, i32 1
-  %str3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 0, i32 1
+  %str.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 8
+  %str3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %str.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %str3.i.i.i.i.i.i.i.i)
-  %bitset.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i.i.i.i, i64 0, i32 2
-  %bitset4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 0, i32 2
+  %bitset.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 40
+  %bitset4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %bitset4.i.i.i.i.i.i.i.i, i64 32, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i, i64 72
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 72
   %cmp.i.i.i.i.i5.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %.pre338
   br i1 %cmp.i.i.i.i.i5.i.i, label %_ZN4mold4GlobD2Ev.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !9
 
@@ -873,32 +872,32 @@ _ZN4mold4GlobD2Ev.exit:                           ; preds = %for.body.i.i.i.i.i.
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %while.end106 ], [ null, %entry ], [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %add.ptr.i.i.i.i300 = getelementptr inbounds i8, ptr %cond.i.i.i.i.i299, i64 %sub.ptr.sub.i.i.i361
   store ptr %cond.i.i.i.i.i299, ptr %agg.result, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i300, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %sw.bb80, %if.end, %_ZN4mold4Glob7ElementD2Ev.exit, %if.end69, %if.end52, %if.then45, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit42, %_ZN4mold4GlobD2Ev.exit
   %.sink = phi i8 [ 1, %_ZN4mold4GlobD2Ev.exit ], [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit42 ], [ 0, %if.then45 ], [ 0, %if.end52 ], [ 0, %if.end69 ], [ 0, %_ZN4mold4Glob7ElementD2Ev.exit ], [ 0, %if.end ], [ 0, %sw.bb80 ]
-  %_M_engaged.i.i.i.i.i255 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i255 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 %.sink, ptr %_M_engaged.i.i.i.i.i255, align 8
   %93 = load ptr, ptr %vec, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %vec, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %vec, i64 8
   %94 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %93, %94
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %_ZSt8_DestroyIN4mold4Glob7ElementEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN4mold4Glob7ElementEEvPT_.exit.i.i.i.i ], [ %93, %cleanup ]
-  %str.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %str.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %95 = load ptr, ptr %str.i.i.i.i.i.i.i, align 8
-  %96 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1, i32 2
+  %96 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %95, %96
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %97 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %97, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i)
@@ -910,7 +909,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
 
 _ZSt8_DestroyIN4mold4Glob7ElementEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 72
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %94
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPN4mold4Glob7ElementES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -938,7 +937,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef zeroext i1 @_ZN4mold4Glob5matchESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %str.coerce0, ptr %str.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -960,7 +959,7 @@ while.body:                                       ; preds = %entry, %sw.epilog
   %elements.sroa.0.0131 = phi ptr [ %add.ptr.i, %sw.epilog ], [ %elements.coerce0, %entry ]
   %elements.sroa.9.0130 = phi i64 [ %sub.i, %sw.epilog ], [ %elements.coerce1, %entry ]
   %sub.i = add i64 %elements.sroa.9.0130, -1
-  %add.ptr.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %elements.sroa.0.0131, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %elements.sroa.0.0131, i64 72
   %0 = load i32, ptr %elements.sroa.0.0131, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -970,9 +969,9 @@ while.body:                                       ; preds = %entry, %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %str3 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %elements.sroa.0.0131, i64 0, i32 1
+  %str3 = getelementptr inbounds i8, ptr %elements.sroa.0.0131, i64 8
   %1 = load ptr, ptr %str3, align 8
-  %_M_string_length.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %elements.sroa.0.0131, i64 0, i32 1, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %elements.sroa.0.0131, i64 16
   %2 = load i64, ptr %_M_string_length.i.i, align 8
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %str.sroa.0.0132, i64 %2)
   %cmp.i.not.i = icmp ult i64 %str.sroa.0.0132, %2
@@ -1006,10 +1005,10 @@ for.cond39.preheader:                             ; preds = %if.end13
   br i1 %cmp41134.not, label %return, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit54
 
 for.cond.preheader:                               ; preds = %if.end13
-  %str19 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %elements.sroa.0.0131, i64 1, i32 1
-  %_M_string_length.i.i17 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %elements.sroa.0.0131, i64 1, i32 1, i32 1
+  %str19 = getelementptr inbounds i8, ptr %elements.sroa.0.0131, i64 80
+  %_M_string_length.i.i17 = getelementptr inbounds i8, ptr %elements.sroa.0.0131, i64 88
   %sub.i35 = add i64 %elements.sroa.9.0130, -2
-  %add.ptr.i36 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %elements.sroa.0.0131, i64 2
+  %add.ptr.i36 = getelementptr inbounds i8, ptr %elements.sroa.0.0131, i64 144
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit46
@@ -1117,7 +1116,7 @@ sw.bb55:                                          ; preds = %while.body
   br i1 %cmp.i64, label %return, label %cleanup.done
 
 cleanup.done:                                     ; preds = %sw.bb55
-  %bitset = getelementptr inbounds %"struct.mold::Glob::Element", ptr %elements.sroa.0.0131, i64 0, i32 2
+  %bitset = getelementptr inbounds i8, ptr %elements.sroa.0.0131, i64 40
   %7 = load i8, ptr %str.sroa.17.0133, align 1
   %conv = sext i8 %7 to i64
   %div1.i.i.i.i = lshr i64 %conv, 6
@@ -1162,7 +1161,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(72) %__args) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1198,18 +1197,18 @@ _ZNSt12_Vector_baseIN4mold4Glob7ElementESaIS2_EE11_M_allocateEm.exit: ; preds = 
   %add.ptr = getelementptr inbounds %"struct.mold::Glob::Element", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = load i32, ptr %__args, align 8
   store i32 %3, ptr %add.ptr, align 8
-  %str.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  %str3.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__args, i64 0, i32 1
-  %4 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1, i32 2
+  %str.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %str3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %4 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %str3.i.i.i) #17
   store ptr %4, ptr %str.i.i.i, align 8
   %5 = load ptr, ptr %str3.i.i.i, align 8
-  %6 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__args, i64 0, i32 1, i32 2
+  %6 = getelementptr inbounds i8, ptr %__args, i64 24
   %cmp.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN4mold4Glob7ElementESaIS2_EE11_M_allocateEm.exit
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__args, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8
   %cmp3.i.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
@@ -1221,20 +1220,20 @@ if.else.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
   store ptr %5, ptr %str.i.i.i, align 8
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %4, align 8
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__args, i64 0, i32 1, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %__args, i64 16
   %.pre = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert, align 8
   br label %_ZNSt16allocator_traitsISaIN4mold4Glob7ElementEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN4mold4Glob7ElementEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %9 = phi i64 [ %7, %if.then.i.i.i.i ], [ %.pre, %if.else.i.i.i.i ]
-  %_M_string_length.i12.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__args, i64 0, i32 1, i32 1
-  %_M_string_length.i13.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1, i32 1
+  %_M_string_length.i12.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
+  %_M_string_length.i13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store i64 %9, ptr %_M_string_length.i13.i.i.i.i, align 8
   store ptr %6, ptr %str3.i.i.i, align 8
   store i64 0, ptr %_M_string_length.i12.i.i.i.i, align 8
   store i8 0, ptr %6, align 8
-  %bitset.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
-  %bitset4.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__args, i64 0, i32 2
+  %bitset.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
+  %bitset4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %bitset4.i.i.i, i64 32, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -1246,18 +1245,18 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %10 = load i32, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !18, !noalias !15
   store i32 %10, ptr %__cur.07.i.i.i, align 8, !alias.scope !15, !noalias !18
-  %str.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %str3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %11 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 2
+  %str.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %str3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %11 = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %str3.i.i.i.i.i.i.i) #17
   store ptr %11, ptr %str.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !18
   %12 = load ptr, ptr %str3.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
-  %13 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 2
+  %13 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %14, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -1269,30 +1268,30 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   store ptr %12, ptr %str.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !18
   %15 = load i64, ptr %13, align 8, !alias.scope !18, !noalias !15
   store i64 %15, ptr %11, align 8, !alias.scope !15, !noalias !18
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %.pre.i.i.i.i = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   br label %_ZSt19__relocate_object_aIN4mold4Glob7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN4mold4Glob7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %16 = phi i64 [ %14, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %_M_string_length.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   store i64 %16, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !18
   store ptr %13, ptr %str3.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   store i8 0, ptr %13, align 1, !alias.scope !18, !noalias !15
-  %bitset.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %bitset4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %bitset.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
+  %bitset4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %bitset4.i.i.i.i.i.i.i, i64 32, i1 false), !alias.scope !20
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %str3.i.i.i.i.i.i.i) #17
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 72
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 72
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN4mold4Glob7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN4mold4Glob7ElementEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaIN4mold4Glob7ElementEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN4mold4Glob7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 72
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, label %for.body.i.i.i12
 
@@ -1303,18 +1302,18 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4mold
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %17 = load i32, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !25, !noalias !22
   store i32 %17, ptr %__cur.07.i.i.i13, align 8, !alias.scope !22, !noalias !25
-  %str.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %str3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %18 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 2
+  %str.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
+  %str3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %str.i.i.i.i.i.i.i15, ptr noundef nonnull align 1 dereferenceable(1) %str3.i.i.i.i.i.i.i16) #17
   store ptr %18, ptr %str.i.i.i.i.i.i.i15, align 8, !alias.scope !22, !noalias !25
   %19 = load ptr, ptr %str3.i.i.i.i.i.i.i16, align 8, !alias.scope !25, !noalias !22
-  %20 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 2
+  %20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
   %cmp.i.i.i.i.i.i.i.i.i17 = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i.i.i.i.i.i.i17, label %if.then.i.i.i.i.i.i.i.i30, label %if.else.i.i.i.i.i.i.i.i18
 
 if.then.i.i.i.i.i.i.i.i30:                        ; preds = %for.body.i.i.i12
-  %_M_string_length.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %21 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i31, align 8, !alias.scope !25, !noalias !22
   %cmp3.i.i.i.i.i.i.i.i.i32 = icmp ult i64 %21, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i32)
@@ -1326,24 +1325,24 @@ if.else.i.i.i.i.i.i.i.i18:                        ; preds = %for.body.i.i.i12
   store ptr %19, ptr %str.i.i.i.i.i.i.i15, align 8, !alias.scope !22, !noalias !25
   %22 = load i64, ptr %20, align 8, !alias.scope !25, !noalias !22
   store i64 %22, ptr %18, align 8, !alias.scope !22, !noalias !25
-  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i19 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 1
+  %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %.pre.i.i.i.i20 = load i64, ptr %_M_string_length.i12.i.i.i.i.phi.trans.insert.i.i.i.i19, align 8, !alias.scope !25, !noalias !22
   br label %_ZSt19__relocate_object_aIN4mold4Glob7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i21
 
 _ZSt19__relocate_object_aIN4mold4Glob7ElementES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i21: ; preds = %if.else.i.i.i.i.i.i.i.i18, %if.then.i.i.i.i.i.i.i.i30
   %23 = phi i64 [ %21, %if.then.i.i.i.i.i.i.i.i30 ], [ %.pre.i.i.i.i20, %if.else.i.i.i.i.i.i.i.i18 ]
-  %_M_string_length.i12.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 1
-  %_M_string_length.i13.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i13, i64 0, i32 1, i32 1
+  %_M_string_length.i12.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %_M_string_length.i13.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   store i64 %23, ptr %_M_string_length.i13.i.i.i.i.i.i.i.i23, align 8, !alias.scope !22, !noalias !25
   store ptr %20, ptr %str3.i.i.i.i.i.i.i16, align 8, !alias.scope !25, !noalias !22
   store i64 0, ptr %_M_string_length.i12.i.i.i.i.i.i.i.i22, align 8, !alias.scope !25, !noalias !22
   store i8 0, ptr %20, align 1, !alias.scope !25, !noalias !22
-  %bitset.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %bitset4.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %bitset.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
+  %bitset4.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitset.i.i.i.i.i.i.i24, ptr noundef nonnull align 8 dereferenceable(32) %bitset4.i.i.i.i.i.i.i25, i64 32, i1 false), !alias.scope !27
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %str3.i.i.i.i.i.i.i16) #17
-  %incdec.ptr.i.i.i26 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i27 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 72
+  %incdec.ptr1.i.i.i27 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 72
   %cmp.not.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i26, %0
   br i1 %cmp.not.i.i.i28, label %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, label %for.body.i.i.i12, !llvm.loop !21
 
@@ -1357,7 +1356,7 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIN4mold
   br label %_ZNSt12_Vector_baseIN4mold4Glob7ElementESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN4mold4Glob7ElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, %if.then.i35
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i29, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.mold::Glob::Element", ptr %cond.i10, i64 %cond.i
@@ -1392,14 +1391,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__pos, i64 noundef %__len1, ptr noundef %__s, i64 noundef %__len2) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8
   %1 = add i64 %__len1, %__pos
   %sub2 = sub i64 %0, %1
   %add = sub i64 %__len2, %__len1
   %sub4 = add i64 %add, %0
   %2 = load ptr, ptr %this, align 8
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
 
@@ -1522,13 +1521,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__str) unnamed_addr #4 comdat align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %__str) #17
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   store ptr %0, ptr %this, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   %1 = load ptr, ptr %__str, align 8
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__str, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__str, i64 8
   %2 = load i64, ptr %_M_string_length.i, align 8
   %cmp.i = icmp ugt i64 %2, 15
   br i1 %cmp.i, label %if.then.i, label %entry.if.end_crit_edge.i
@@ -1577,7 +1576,7 @@ if.end.i.i.i3.i:                                  ; preds = %if.end.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag.exit: ; preds = %if.end.i, %if.then.i.i.i, %if.end.i.i.i3.i
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i, align 8
   %5 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %2

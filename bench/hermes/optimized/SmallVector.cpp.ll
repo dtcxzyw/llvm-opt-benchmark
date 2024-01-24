@@ -3,15 +3,13 @@ source_filename = "bench/hermes/original/SmallVector.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [48 x i8] c"SmallVector capacity overflow during allocation\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readnone %FirstEl, i64 noundef %MinCapacity, i64 noundef %TSize) local_unnamed_addr #0 align 2 {
 entry:
-  %Capacity.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %Capacity.i, align 4
   %conv.i = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv.i, 1
@@ -50,7 +48,7 @@ if.then.i:                                        ; preds = %if.then9
 
 _ZN4llvh11safe_mallocEm.exit:                     ; preds = %if.then9, %if.then.i
   %2 = phi ptr [ %FirstEl, %if.then9 ], [ %.pre, %if.then.i ]
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i, align 8
   %conv.i10 = zext i32 %3 to i64
   %mul14 = mul i64 %conv.i10, %TSize

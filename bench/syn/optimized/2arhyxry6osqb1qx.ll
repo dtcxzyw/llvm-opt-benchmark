@@ -77,12 +77,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17h714db81ae77f189cE"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
@@ -182,12 +182,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17haa60c9dd12c323b0E"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
@@ -287,12 +287,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17h253d80e8b5a05637E"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
@@ -411,7 +411,7 @@ define hidden void @"_ZN3syn8generics8Generics17make_where_clause28_$u7b$$u7b$cl
   %2 = alloca { { { ptr, i64 }, i64 }, ptr }, align 8
   %3 = tail call i32 @"_ZN60_$LT$syn..token..Where$u20$as$u20$core..default..Default$GT$7default17h78c2b7a7e556440fE"()
   call void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$3new17h7ab8c60bc32f1d57E"(ptr nonnull sret({ { { ptr, i64 }, i64 }, ptr }) align 8 %2)
-  %4 = getelementptr inbounds { { { { ptr, i64 }, i64 }, ptr }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %3, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   ret void

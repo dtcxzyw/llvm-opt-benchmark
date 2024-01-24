@@ -3,14 +3,12 @@ source_filename = "bench/abseil-cpp/original/exponential_biased.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::profiling_internal::ExponentialBiased" = type <{ i64, double, i8, [7 x i8] }>
-
 @_ZZN4absl18profiling_internal17ExponentialBiased10InitializeEvE11global_rand = internal global { i32 } zeroinitializer, align 4
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define dso_local noundef i64 @_ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl(ptr noundef nonnull align 8 dereferenceable(17) %this, i64 noundef %mean) local_unnamed_addr #0 align 2 {
 entry:
-  %initialized_ = getelementptr inbounds %"class.absl::profiling_internal::ExponentialBiased", ptr %this, i64 0, i32 2
+  %initialized_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %initialized_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -51,7 +49,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %conv = trunc i64 %shr to i32
   %conv3 = uitofp i32 %conv to double
   %add = fadd double %conv3, 1.000000e+00
-  %bias_ = getelementptr inbounds %"class.absl::profiling_internal::ExponentialBiased", ptr %this, i64 0, i32 1
+  %bias_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load double, ptr %bias_, align 8
   %call4 = tail call double @log2(double noundef %add) #4
   %sub = fadd double %call4, -2.600000e+01
@@ -94,7 +92,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   store i64 %and.i, ptr %this, align 8
-  %initialized_ = getelementptr inbounds %"class.absl::profiling_internal::ExponentialBiased", ptr %this, i64 0, i32 2
+  %initialized_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %initialized_, align 8
   ret void
 }
@@ -112,7 +110,7 @@ declare double @llvm.rint.f64(double) #3
 define dso_local noundef i64 @_ZN4absl18profiling_internal17ExponentialBiased9GetStrideEl(ptr noundef nonnull align 8 dereferenceable(17) %this, i64 noundef %mean) local_unnamed_addr #0 align 2 {
 entry:
   %sub = add nsw i64 %mean, -1
-  %initialized_.i = getelementptr inbounds %"class.absl::profiling_internal::ExponentialBiased", ptr %this, i64 0, i32 2
+  %initialized_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %initialized_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -153,7 +151,7 @@ if.end.i:                                         ; preds = %_ZN4absl18profiling
   %conv.i = trunc i64 %shr.i to i32
   %conv3.i = uitofp i32 %conv.i to double
   %add.i = fadd double %conv3.i, 1.000000e+00
-  %bias_.i = getelementptr inbounds %"class.absl::profiling_internal::ExponentialBiased", ptr %this, i64 0, i32 1
+  %bias_.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load double, ptr %bias_.i, align 8
   %call4.i = tail call double @log2(double noundef %add.i) #4
   %sub.i = fadd double %call4.i, -2.600000e+01

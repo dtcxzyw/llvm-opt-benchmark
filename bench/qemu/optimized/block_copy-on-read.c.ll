@@ -5,28 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.9, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.anon.9 = type { ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.0, %union.anon.1, i32, [16 x %struct.anon.2], ptr, %struct.anon.3, ptr, ptr, %struct.anon.4, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.5, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.6, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
-%struct.CoQueue = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.8, %struct.anon.8, i32, i32, ptr }
-%struct.anon.8 = type { ptr }
-%struct.BDRVStateCOR = type { ptr, i8 }
 
 @.str = private unnamed_addr constant [22 x i8] c"qemu_in_main_thread()\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"../qemu/block/copy-on-read.c\00", align 1
@@ -54,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @bdrv_cor_filter_drop(ptr noundef %cor_filter_bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %cor_filter_bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %cor_filter_bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #4
   br i1 %call, label %do.end, label %if.else
@@ -64,7 +42,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %chain_frozen = getelementptr inbounds %struct.BDRVStateCOR, ptr %0, i64 0, i32 1
+  %chain_frozen = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %chain_frozen, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -120,7 +98,7 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cor_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call ptr @qdict_get_try_str(ptr noundef %options, ptr noundef nonnull @.str.3) #4
   %call1 = tail call zeroext i1 @qemu_in_main_thread() #4
@@ -137,23 +115,23 @@ do.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %do.end
   tail call void @bdrv_graph_rdlock_main_loop() #4
-  %supported_read_flags = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 18
+  %supported_read_flags = getelementptr inbounds i8, ptr %bs, i64 16584
   store i32 512, ptr %supported_read_flags, align 8
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
-  %supported_write_flags = getelementptr inbounds %struct.BlockDriverState, ptr %2, i64 0, i32 19
+  %supported_write_flags = getelementptr inbounds i8, ptr %2, i64 16588
   %3 = load i32, ptr %supported_write_flags, align 4
   %and = and i32 %3, 16
   %or = or disjoint i32 %and, 64
-  %supported_write_flags7 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 19
+  %supported_write_flags7 = getelementptr inbounds i8, ptr %bs, i64 16588
   store i32 %or, ptr %supported_write_flags7, align 4
   %4 = load ptr, ptr %1, align 8
-  %supported_zero_flags = getelementptr inbounds %struct.BlockDriverState, ptr %4, i64 0, i32 20
+  %supported_zero_flags = getelementptr inbounds i8, ptr %4, i64 16592
   %5 = load i32, ptr %supported_zero_flags, align 8
   %and10 = and i32 %5, 276
   %or11 = or disjoint i32 %and10, 64
-  %supported_zero_flags12 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 20
+  %supported_zero_flags12 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or11, ptr %supported_zero_flags12, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end29, label %if.then13
@@ -170,7 +148,7 @@ if.then16:                                        ; preds = %if.then13
 
 if.end17:                                         ; preds = %if.then13
   tail call void @qdict_del(ptr noundef %options, ptr noundef nonnull @.str.3) #4
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %call14, i64 0, i32 6
+  %drv = getelementptr inbounds i8, ptr %call14, i64 16
   %6 = load ptr, ptr %drv, align 8
   %tobool18.not = icmp eq ptr %6, null
   br i1 %tobool18.not, label %if.then19, label %if.end20
@@ -180,7 +158,7 @@ if.then19:                                        ; preds = %if.end17
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end20:                                         ; preds = %if.end17
-  %is_filter = getelementptr inbounds %struct.BlockDriver, ptr %6, i64 0, i32 2
+  %is_filter = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i8, ptr %is_filter, align 4
   %8 = and i8 %7, 1
   %tobool22.not = icmp eq i8 %8, 0
@@ -196,7 +174,7 @@ if.end24:                                         ; preds = %if.end20
   br i1 %cmp26, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end28
 
 if.end28:                                         ; preds = %if.end24
-  %chain_frozen = getelementptr inbounds %struct.BDRVStateCOR, ptr %0, i64 0, i32 1
+  %chain_frozen = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %chain_frozen, align 8
   tail call void @bdrv_ref(ptr noundef nonnull %call14) #4
   br label %if.end29
@@ -219,7 +197,7 @@ return:                                           ; preds = %do.end, %glib_autop
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cor_close(ptr noundef %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #4
   br i1 %call, label %do.end, label %if.else
@@ -229,7 +207,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %chain_frozen = getelementptr inbounds %struct.BDRVStateCOR, ptr %0, i64 0, i32 1
+  %chain_frozen = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %chain_frozen, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -276,7 +254,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @cor_co_preadv_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
   %n = alloca i64, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -287,11 +265,11 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool1.not23, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %file2 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file2 = getelementptr inbounds i8, ptr %bs, i64 16840
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %2 = load ptr, ptr %file, align 8
   %or = or i32 %flags, 1
   %call = tail call i32 @bdrv_co_preadv_part(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %or) #4
@@ -358,7 +336,7 @@ return:                                           ; preds = %if.then21, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cor_co_pwritev_part(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pwritev_part(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags) #4
   ret i32 %call
@@ -367,7 +345,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cor_co_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #4
   ret i32 %call
@@ -376,7 +354,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cor_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pdiscard(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #4
   ret i32 %call
@@ -385,7 +363,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cor_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %1) #4
@@ -395,7 +373,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cor_co_pwritev_compressed(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pwritev(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef 32) #4
   ret i32 %call
@@ -404,7 +382,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cor_co_eject(ptr nocapture noundef readonly %bs, i1 noundef zeroext %eject_flag) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @bdrv_co_eject(ptr noundef %1, i1 noundef zeroext %eject_flag) #4
@@ -414,7 +392,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cor_co_lock_medium(ptr nocapture noundef readonly %bs, i1 noundef zeroext %locked) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @bdrv_co_lock_medium(ptr noundef %1, i1 noundef zeroext %locked) #4

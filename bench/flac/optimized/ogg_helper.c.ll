@@ -3,12 +3,10 @@ source_filename = "bench/flac/original/ogg_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ogg_page = type { ptr, i64, ptr, i64 }
-
 @.str = private unnamed_addr constant [5 x i8] c"OggS\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] zeroinitializer, align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define hidden void @simple_ogg_page__init(ptr nocapture noundef writeonly %page) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %page, i8 0, i64 32, i1 false)
@@ -27,7 +25,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %body = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 2
+  %body = getelementptr inbounds i8, ptr %page, i64 16
   %1 = load ptr, ptr %body, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -45,7 +43,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @simple_ogg_page__get_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) local_unnamed_addr #3 {
+define hidden noundef i32 @simple_ogg_page__get_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) local_unnamed_addr #3 {
 entry:
   %bytes_read.i = alloca i64, align 8
   %crc = alloca [4 x i8], align 4
@@ -65,7 +63,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(282) ptr @malloc(i64 noundef 282) #11
+  %call.i = tail call noalias noundef dereferenceable_or_null(282) ptr @malloc(i64 noundef 282) #11
   store ptr %call.i, ptr %page, align 8
   %cmp8 = icmp eq ptr %call.i, null
   br i1 %cmp8, label %if.then9, label %if.end12
@@ -123,7 +121,7 @@ if.end16:                                         ; preds = %sw.epilog.i
   %6 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %6 to i64
   %add = add nuw nsw i64 %conv, 27
-  %header_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 1
+  %header_len = getelementptr inbounds i8, ptr %page, i64 8
   store i64 %add, ptr %header_len, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %5, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %tobool21.not = icmp eq i32 %bcmp, 0
@@ -202,11 +200,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %conv68 = zext i8 %16 to i32
   %add69 = add nsw i32 %mul, %conv68
   %conv70 = zext i32 %add69 to i64
-  %body_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 3
+  %body_len = getelementptr inbounds i8, ptr %page, i64 24
   store i64 %conv70, ptr %body_len, align 8
   %spec.select.i = call i64 @llvm.umax.i64(i64 %conv70, i64 1)
-  %call.i43 = call noalias ptr @malloc(i64 noundef %spec.select.i) #11
-  %body = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 2
+  %call.i43 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #11
+  %body = getelementptr inbounds i8, ptr %page, i64 16
   store ptr %call.i43, ptr %body, align 8
   %cmp73 = icmp eq ptr %call.i43, null
   br i1 %cmp73, label %if.then75, label %if.end78
@@ -244,7 +242,7 @@ return:                                           ; preds = %full_read_.exit.thr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @full_read_(ptr noundef %encoder, ptr noundef %buffer, i64 noundef %bytes, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) unnamed_addr #3 {
+define internal fastcc noundef i32 @full_read_(ptr noundef %encoder, ptr noundef %buffer, i64 noundef %bytes, ptr nocapture noundef readonly %read_callback, ptr noundef %client_data) unnamed_addr #3 {
 entry:
   %bytes_read = alloca i64, align 8
   %cmp.not10 = icmp eq i64 %bytes, 0
@@ -291,7 +289,7 @@ return:                                           ; preds = %while.body, %sw.epi
 declare void @ogg_page_checksum_set(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @simple_ogg_page__set_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %write_callback, ptr noundef %client_data) local_unnamed_addr #3 {
+define hidden noundef i32 @simple_ogg_page__set_at(ptr noundef %encoder, i64 noundef %position, ptr noundef %page, ptr noundef readonly %seek_callback, ptr nocapture noundef readonly %write_callback, ptr noundef %client_data) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %seek_callback, null
   br i1 %cmp, label %return, label %if.end
@@ -306,16 +304,16 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   tail call void @ogg_page_checksum_set(ptr noundef %page) #10
   %0 = load ptr, ptr %page, align 8
-  %header_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 1
+  %header_len = getelementptr inbounds i8, ptr %page, i64 8
   %1 = load i64, ptr %header_len, align 8
   %call7 = tail call i32 %write_callback(ptr noundef %encoder, ptr noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %client_data) #10
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %if.end12, label %return.sink.split
 
 if.end12:                                         ; preds = %if.end6
-  %body = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 2
+  %body = getelementptr inbounds i8, ptr %page, i64 16
   %2 = load ptr, ptr %body, align 8
-  %body_len = getelementptr inbounds %struct.ogg_page, ptr %page, i64 0, i32 3
+  %body_len = getelementptr inbounds i8, ptr %page, i64 24
   %3 = load i64, ptr %body_len, align 8
   %call13 = tail call i32 %write_callback(ptr noundef %encoder, ptr noundef %2, i64 noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %client_data) #10
   %cmp14.not = icmp eq i32 %call13, 0
@@ -349,7 +347,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
-attributes #0 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

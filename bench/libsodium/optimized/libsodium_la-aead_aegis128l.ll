@@ -120,7 +120,7 @@ if.end.i:                                         ; preds = %if.then
   %add.ptr = getelementptr i8, ptr %c, i64 %clen
   %add.ptr1 = getelementptr i8, ptr %add.ptr, i64 -32
   %1 = load ptr, ptr @implementation, align 8
-  %decrypt_detached.i = getelementptr inbounds %struct.aegis128l_implementation, ptr %1, i64 0, i32 1
+  %decrypt_detached.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %decrypt_detached.i, align 8
   %call.i = tail call i32 %2(ptr noundef %m, ptr noundef nonnull %c, i64 noundef %sub, ptr noundef nonnull %add.ptr1, i64 noundef 32, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull %npub, ptr noundef nonnull %k) #4
   br label %if.end
@@ -150,7 +150,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @implementation, align 8
-  %decrypt_detached = getelementptr inbounds %struct.aegis128l_implementation, ptr %1, i64 0, i32 1
+  %decrypt_detached = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %decrypt_detached, align 8
   %call = tail call i32 %2(ptr noundef %m, ptr noundef nonnull %c, i64 noundef %clen, ptr noundef nonnull %mac, i64 noundef 32, ptr noundef %ad, i64 noundef %adlen, ptr noundef nonnull %npub, ptr noundef nonnull %k) #4
   br label %return

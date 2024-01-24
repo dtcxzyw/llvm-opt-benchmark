@@ -115,8 +115,8 @@ while.cond10.preheader:                           ; preds = %if.end
   br i1 %cmp1172, label %while.body12.preheader, label %while.body32
 
 while.body12.preheader:                           ; preds = %while.cond10.preheader
-  %arrayidx18.c = getelementptr inbounds [2 x i64], ptr %tmp, i64 0, i64 1
-  %arrayidx19.c = getelementptr inbounds i64, ptr %ivec, i64 1
+  %arrayidx18.c = getelementptr inbounds i8, ptr %tmp, i64 8
+  %arrayidx19.c = getelementptr inbounds i8, ptr %ivec, i64 8
   br label %while.body12
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -129,9 +129,9 @@ while.body:                                       ; preds = %while.cond.preheade
   %1 = load i64, ptr %out.addr.066, align 1
   %xor = xor i64 %1, %0
   store i64 %xor, ptr %out.addr.066, align 1
-  %arrayidx.c = getelementptr inbounds i64, ptr %iv.064, i64 1
+  %arrayidx.c = getelementptr inbounds i8, ptr %iv.064, i64 8
   %2 = load i64, ptr %arrayidx.c, align 1
-  %arrayidx5.c = getelementptr inbounds i64, ptr %out.addr.066, i64 1
+  %arrayidx5.c = getelementptr inbounds i8, ptr %out.addr.066, i64 8
   %3 = load i64, ptr %arrayidx5.c, align 1
   %xor.c = xor i64 %3, %2
   store i64 %xor.c, ptr %arrayidx5.c, align 1
@@ -160,12 +160,12 @@ while.body12:                                     ; preds = %while.body12.prehea
   %xor20 = xor i64 %6, %5
   store i64 %xor20, ptr %out.addr.174, align 1
   store i64 %4, ptr %ivec, align 1
-  %arrayidx17.c = getelementptr inbounds i64, ptr %in.addr.175, i64 1
+  %arrayidx17.c = getelementptr inbounds i8, ptr %in.addr.175, i64 8
   %7 = load i64, ptr %arrayidx17.c, align 1
   %8 = load i64, ptr %arrayidx18.c, align 8
   %9 = load i64, ptr %arrayidx19.c, align 1
   %xor20.c = xor i64 %9, %8
-  %arrayidx21.c = getelementptr inbounds i64, ptr %out.addr.174, i64 1
+  %arrayidx21.c = getelementptr inbounds i8, ptr %out.addr.174, i64 8
   store i64 %xor20.c, ptr %arrayidx21.c, align 1
   store i64 %7, ptr %arrayidx19.c, align 1
   %sub26 = add i64 %len.addr.173, -16

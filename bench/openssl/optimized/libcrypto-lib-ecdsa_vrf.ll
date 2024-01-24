@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ecdsa_vrf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_key_method_st = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/ec/ecdsa_vrf.c\00", align 1
 @__func__.ECDSA_do_verify = private unnamed_addr constant [16 x i8] c"ECDSA_do_verify\00", align 1
 @__func__.ECDSA_verify = private unnamed_addr constant [13 x i8] c"ECDSA_verify\00", align 1
@@ -13,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @ECDSA_do_verify(ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef %sig, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %eckey, align 8
-  %verify_sig = getelementptr inbounds %struct.ec_key_method_st, ptr %0, i64 0, i32 14
+  %verify_sig = getelementptr inbounds i8, ptr %0, i64 112
   %1 = load ptr, ptr %verify_sig, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -43,7 +41,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 define i32 @ECDSA_verify(i32 noundef %type, ptr noundef %dgst, i32 noundef %dgst_len, ptr noundef %sigbuf, i32 noundef %sig_len, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %eckey, align 8
-  %verify = getelementptr inbounds %struct.ec_key_method_st, ptr %0, i64 0, i32 13
+  %verify = getelementptr inbounds i8, ptr %0, i64 104
   %1 = load ptr, ptr %verify, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then

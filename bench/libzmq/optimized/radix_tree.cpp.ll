@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.node_t = type { ptr }
-%"class.zmq::radix_tree_t" = type { %struct.node_t, %"class.zmq::atomic_counter_t" }
-%"class.zmq::atomic_counter_t" = type { %"struct.std::atomic", [4 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
 %struct.match_result_t = type { i64, i64, i64, i64, %struct.node_t, %struct.node_t, %struct.node_t }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
@@ -505,7 +501,7 @@ _Z9make_nodemmm.exit:                             ; preds = %entry, %if.then.i
   store i32 0, ptr %add.ptr.i4.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %retval.i)
   store ptr %4, ptr %this, align 8
-  %_size = getelementptr inbounds %"class.zmq::radix_tree_t", ptr %this, i64 0, i32 1
+  %_size = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %_size, align 8
   ret void
 }
@@ -602,17 +598,17 @@ entry:
   %coerce.val.ip = inttoptr i64 %parent_.coerce to ptr
   %coerce.val.ip3 = inttoptr i64 %grandparent_.coerce to ptr
   store i64 %key_bytes_matched_, ptr %this, align 8
-  %_prefix_bytes_matched = getelementptr inbounds %struct.match_result_t, ptr %this, i64 0, i32 1
+  %_prefix_bytes_matched = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %prefix_bytes_matched_, ptr %_prefix_bytes_matched, align 8
-  %_edge_index = getelementptr inbounds %struct.match_result_t, ptr %this, i64 0, i32 2
+  %_edge_index = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %edge_index_, ptr %_edge_index, align 8
-  %_parent_edge_index = getelementptr inbounds %struct.match_result_t, ptr %this, i64 0, i32 3
+  %_parent_edge_index = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %parent_edge_index_, ptr %_parent_edge_index, align 8
-  %_current_node = getelementptr inbounds %struct.match_result_t, ptr %this, i64 0, i32 4
+  %_current_node = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %current_.coerce, ptr %_current_node, align 8
-  %_parent_node = getelementptr inbounds %struct.match_result_t, ptr %this, i64 0, i32 5
+  %_parent_node = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %coerce.val.ip, ptr %_parent_node, align 8
-  %_grandparent_node = getelementptr inbounds %struct.match_result_t, ptr %this, i64 0, i32 6
+  %_grandparent_node = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %coerce.val.ip3, ptr %_grandparent_node, align 8
   ret void
 }
@@ -799,14 +795,14 @@ entry:
   %current_node = alloca %struct.node_t, align 8
   call void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr nonnull sret(%struct.match_result_t) align 8 %match_result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key_, i64 noundef %key_size_, i1 noundef zeroext false)
   %0 = load i64, ptr %match_result, align 8
-  %_prefix_bytes_matched = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 1
+  %_prefix_bytes_matched = getelementptr inbounds i8, ptr %match_result, i64 8
   %1 = load i64, ptr %_prefix_bytes_matched, align 8
-  %_edge_index = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 2
+  %_edge_index = getelementptr inbounds i8, ptr %match_result, i64 16
   %2 = load i64, ptr %_edge_index, align 8
-  %_current_node = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 4
+  %_current_node = getelementptr inbounds i8, ptr %match_result, i64 32
   %3 = load i64, ptr %_current_node, align 8
   store i64 %3, ptr %current_node, align 8
-  %_parent_node = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 5
+  %_parent_node = getelementptr inbounds i8, ptr %match_result, i64 40
   %4 = load i64, ptr %_parent_node, align 8
   %5 = inttoptr i64 %4 to ptr
   %cmp.not = icmp eq i64 %0, %key_size_
@@ -932,7 +928,7 @@ _ZN6node_t11set_node_atEmS_.exit:                 ; preds = %if.else, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6node_t11set_node_atEmS_.exit, %if.then21
-  %_size = getelementptr inbounds %"class.zmq::radix_tree_t", ptr %this, i64 0, i32 1
+  %_size = getelementptr inbounds i8, ptr %this, i64 8
   %17 = atomicrmw add ptr %_size, i32 1 acq_rel, align 4
   br label %return
 
@@ -1056,7 +1052,7 @@ _ZN6node_t6resizeEmm.exit142:                     ; preds = %_Z9make_nodemmm.exi
   call void @_ZN6node_t11set_edge_atEmhS_(ptr noundef nonnull align 8 dereferenceable(8) %current_node, i64 noundef 0, i8 noundef zeroext %30, ptr nonnull %22)
   %31 = load i8, ptr %add.ptr.i.i99, align 1
   call void @_ZN6node_t11set_edge_atEmhS_(ptr noundef nonnull align 8 dereferenceable(8) %current_node, i64 noundef 1, i8 noundef zeroext %31, ptr nonnull %27)
-  %_size53 = getelementptr inbounds %"class.zmq::radix_tree_t", ptr %this, i64 0, i32 1
+  %_size53 = getelementptr inbounds i8, ptr %this, i64 8
   %32 = atomicrmw add ptr %_size53, i32 1 acq_rel, align 4
   %agg.tmp55.sroa.0.0.copyload = load ptr, ptr %current_node, align 8
   %add.ptr.i.i145 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1174,7 +1170,7 @@ _ZN6node_t6resizeEmm.exit233:                     ; preds = %_Z9make_nodemmm.exi
   %42 = load i8, ptr %add.ptr.i.i187, align 1
   call void @_ZN6node_t11set_edge_atEmhS_(ptr noundef nonnull align 8 dereferenceable(8) %current_node, i64 noundef 0, i8 noundef zeroext %42, ptr nonnull %39)
   store i32 1, ptr %call.i225, align 1
-  %_size80 = getelementptr inbounds %"class.zmq::radix_tree_t", ptr %this, i64 0, i32 1
+  %_size80 = getelementptr inbounds i8, ptr %this, i64 8
   %43 = atomicrmw add ptr %_size80, i32 1 acq_rel, align 4
   %agg.tmp82.sroa.0.0.copyload = load ptr, ptr %current_node, align 8
   %add.ptr.i.i235 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1207,7 +1203,7 @@ _ZN6node_t11set_node_atEmS_.exit255:              ; preds = %_ZN6node_t6resizeEm
   br label %return
 
 do.end101:                                        ; preds = %if.end57
-  %_size102 = getelementptr inbounds %"class.zmq::radix_tree_t", ptr %this, i64 0, i32 1
+  %_size102 = getelementptr inbounds i8, ptr %this, i64 8
   %46 = atomicrmw add ptr %_size102, i32 1 acq_rel, align 4
   %47 = load ptr, ptr %current_node, align 8
   %u32.0.copyload.i258 = load i32, ptr %47, align 1
@@ -1233,19 +1229,19 @@ entry:
   %grandparent_node = alloca %struct.node_t, align 8
   call void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr nonnull sret(%struct.match_result_t) align 8 %match_result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %key_, i64 noundef %key_size_, i1 noundef zeroext false)
   %0 = load i64, ptr %match_result, align 8
-  %_prefix_bytes_matched = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 1
+  %_prefix_bytes_matched = getelementptr inbounds i8, ptr %match_result, i64 8
   %1 = load i64, ptr %_prefix_bytes_matched, align 8
-  %_edge_index = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 2
+  %_edge_index = getelementptr inbounds i8, ptr %match_result, i64 16
   %2 = load i64, ptr %_edge_index, align 8
-  %_parent_edge_index = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 3
+  %_parent_edge_index = getelementptr inbounds i8, ptr %match_result, i64 24
   %3 = load i64, ptr %_parent_edge_index, align 8
-  %_current_node = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 4
+  %_current_node = getelementptr inbounds i8, ptr %match_result, i64 32
   %4 = load i64, ptr %_current_node, align 8
   store i64 %4, ptr %current_node, align 8
-  %_parent_node = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 5
+  %_parent_node = getelementptr inbounds i8, ptr %match_result, i64 40
   %5 = load i64, ptr %_parent_node, align 8
   store i64 %5, ptr %parent_node, align 8
-  %_grandparent_node = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 6
+  %_grandparent_node = getelementptr inbounds i8, ptr %match_result, i64 48
   %6 = load i64, ptr %_grandparent_node, align 8
   store i64 %6, ptr %grandparent_node, align 8
   %cmp.not = icmp eq i64 %0, %key_size_
@@ -1267,7 +1263,7 @@ lor.lhs.false3:                                   ; preds = %lor.lhs.false
 if.end:                                           ; preds = %lor.lhs.false3
   %sub = add i32 %u32.0.copyload.i11, -1
   store i32 %sub, ptr %7, align 1
-  %_size = getelementptr inbounds %"class.zmq::radix_tree_t", ptr %this, i64 0, i32 1
+  %_size = getelementptr inbounds i8, ptr %this, i64 8
   %8 = atomicrmw sub ptr %_size, i32 1 acq_rel, align 4
   %9 = load ptr, ptr %current_node, align 8
   %u32.0.copyload.i13 = load i32, ptr %9, align 1
@@ -1482,9 +1478,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %_prefix_bytes_matched = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 1
+  %_prefix_bytes_matched = getelementptr inbounds i8, ptr %match_result, i64 8
   %2 = load i64, ptr %_prefix_bytes_matched, align 8
-  %_current_node = getelementptr inbounds %struct.match_result_t, ptr %match_result, i64 0, i32 4
+  %_current_node = getelementptr inbounds i8, ptr %match_result, i64 32
   %3 = load ptr, ptr %_current_node, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 4
   %u32.0.copyload.i2 = load i32, ptr %add.ptr.i, align 1
@@ -1595,7 +1591,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %node_.coerce, i64 4
   %u32.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %conv = zext i32 %u32.0.copyload.i to i64
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer_, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %buffer_, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %buffer_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1610,7 +1606,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %buffer_, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %buffer_, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
@@ -1812,7 +1808,7 @@ for.end:                                          ; preds = %_ZN6node_t7node_atE
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i64 @_ZNK3zmq12radix_tree_t4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_size = getelementptr inbounds %"class.zmq::radix_tree_t", ptr %this, i64 0, i32 1
+  %_size = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i32, ptr %_size seq_cst, align 8
   %conv = zext i32 %0 to i64
   ret i64 %conv
@@ -1821,7 +1817,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1832,7 +1828,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i

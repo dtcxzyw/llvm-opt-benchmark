@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.termios = type { i32, i32, i32, i32, i8, [32 x i8], i32, i32 }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon }
-%union.anon = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevStdio = type { ptr, i8, i8, i8, i8 }
 %struct.sigaction = type { %union.anon.0, %struct.__sigset_t, i32, ptr }
 %union.anon.0 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
@@ -72,11 +66,11 @@ term_exit.exit:                                   ; preds = %entry, %if.then.i
 define internal void @char_stdio_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #8
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_stdio, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qemu_chr_open_stdio, ptr %open, align 8
-  %chr_set_echo = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 16
+  %chr_set_echo = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr @qemu_chr_set_echo_stdio, ptr %chr_set_echo, align 8
   ret void
 }
@@ -107,13 +101,13 @@ define internal void @qemu_chr_parse_stdio(ptr noundef %opts, ptr nocapture noun
 entry:
   store i32 13, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #9
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call) #8
-  %has_signal = getelementptr inbounds %struct.ChardevStdio, ptr %call, i64 0, i32 3
+  %has_signal = getelementptr inbounds i8, ptr %call, i64 10
   store i8 1, ptr %has_signal, align 2
   %call2 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.4, i1 noundef zeroext true) #8
-  %signal = getelementptr inbounds %struct.ChardevStdio, ptr %call, i64 0, i32 4
+  %signal = getelementptr inbounds i8, ptr %call, i64 11
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr %signal, align 1
   ret void
@@ -124,7 +118,7 @@ define internal void @qemu_chr_open_stdio(ptr noundef %chr, ptr nocapture nounde
 entry:
   %tty.i = alloca %struct.termios, align 4
   %act = alloca %struct.sigaction, align 8
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
   %call = tail call zeroext i1 @is_daemonized() #8
   br i1 %call, label %if.then, label %if.end
@@ -163,14 +157,14 @@ if.end9:                                          ; preds = %if.end2
   store ptr @term_stdio_handler, ptr %act, align 8
   %call11 = call i32 @sigaction(i32 noundef 18, ptr noundef nonnull %act, ptr noundef null) #8
   call void @qemu_chr_open_fd(ptr noundef %chr, i32 noundef 0, i32 noundef 1) #8
-  %has_signal = getelementptr inbounds %struct.ChardevStdio, ptr %0, i64 0, i32 3
+  %has_signal = getelementptr inbounds i8, ptr %0, i64 10
   %3 = load i8, ptr %has_signal, align 2
   %4 = and i8 %3, 1
   %tobool12.not = icmp eq i8 %4, 0
   br i1 %tobool12.not, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end9
-  %signal = getelementptr inbounds %struct.ChardevStdio, ptr %0, i64 0, i32 4
+  %signal = getelementptr inbounds i8, ptr %0, i64 11
   %5 = load i8, ptr %signal, align 1
   %6 = and i8 %5, 1
   br label %lor.end
@@ -184,22 +178,22 @@ lor.end:                                          ; preds = %lor.rhs, %if.end9
   %7 = load i32, ptr %tty.i, align 4
   %and.i = and i32 %7, -1516
   store i32 %and.i, ptr %tty.i, align 4
-  %c_oflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 1
+  %c_oflag.i = getelementptr inbounds i8, ptr %tty.i, i64 4
   %8 = load i32, ptr %c_oflag.i, align 4
   %or.i = or i32 %8, 1
   store i32 %or.i, ptr %c_oflag.i, align 4
-  %c_lflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 3
+  %c_lflag.i = getelementptr inbounds i8, ptr %tty.i, i64 12
   %9 = load i32, ptr %c_lflag.i, align 4
   %and3.i = and i32 %9, -32843
   store i32 %and3.i, ptr %c_lflag.i, align 4
-  %c_cflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 2
+  %c_cflag.i = getelementptr inbounds i8, ptr %tty.i, i64 8
   %10 = load i32, ptr %c_cflag.i, align 4
   %and4.i = and i32 %10, -305
   %or6.i = or disjoint i32 %and4.i, 48
   store i32 %or6.i, ptr %c_cflag.i, align 4
-  %arrayidx.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 5, i64 6
+  %arrayidx.i = getelementptr inbounds i8, ptr %tty.i, i64 23
   store i8 1, ptr %arrayidx.i, align 1
-  %arrayidx8.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 5, i64 5
+  %arrayidx8.i = getelementptr inbounds i8, ptr %tty.i, i64 22
   store i8 0, ptr %arrayidx8.i, align 2
   %tobool9.not.i = icmp eq i8 %frombool, 0
   br i1 %tobool9.not.i, label %if.then10.i, label %qemu_chr_set_echo_stdio.exit
@@ -231,22 +225,22 @@ if.then:                                          ; preds = %entry
   %0 = load i32, ptr %tty, align 4
   %and = and i32 %0, -1516
   store i32 %and, ptr %tty, align 4
-  %c_oflag = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 1
+  %c_oflag = getelementptr inbounds i8, ptr %tty, i64 4
   %1 = load i32, ptr %c_oflag, align 4
   %or = or i32 %1, 1
   store i32 %or, ptr %c_oflag, align 4
-  %c_lflag = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 3
+  %c_lflag = getelementptr inbounds i8, ptr %tty, i64 12
   %2 = load i32, ptr %c_lflag, align 4
   %and3 = and i32 %2, -32843
   store i32 %and3, ptr %c_lflag, align 4
-  %c_cflag = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 2
+  %c_cflag = getelementptr inbounds i8, ptr %tty, i64 8
   %3 = load i32, ptr %c_cflag, align 4
   %and4 = and i32 %3, -305
   %or6 = or disjoint i32 %and4, 48
   store i32 %or6, ptr %c_cflag, align 4
-  %arrayidx = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 5, i64 6
+  %arrayidx = getelementptr inbounds i8, ptr %tty, i64 23
   store i8 1, ptr %arrayidx, align 1
-  %arrayidx8 = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 5, i64 5
+  %arrayidx8 = getelementptr inbounds i8, ptr %tty, i64 22
   store i8 0, ptr %arrayidx8, align 2
   br label %if.end
 
@@ -257,7 +251,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool9.not, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.end
-  %c_lflag11 = getelementptr inbounds %struct.termios, ptr %tty, i64 0, i32 3
+  %c_lflag11 = getelementptr inbounds i8, ptr %tty, i64 12
   %6 = load i32, ptr %c_lflag11, align 4
   %and12 = and i32 %6, -2
   store i32 %and12, ptr %c_lflag11, align 4
@@ -313,22 +307,22 @@ if.then.i:                                        ; preds = %entry
   %2 = load i32, ptr %tty.i, align 4
   %and.i = and i32 %2, -1516
   store i32 %and.i, ptr %tty.i, align 4
-  %c_oflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 1
+  %c_oflag.i = getelementptr inbounds i8, ptr %tty.i, i64 4
   %3 = load i32, ptr %c_oflag.i, align 4
   %or.i = or i32 %3, 1
   store i32 %or.i, ptr %c_oflag.i, align 4
-  %c_lflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 3
+  %c_lflag.i = getelementptr inbounds i8, ptr %tty.i, i64 12
   %4 = load i32, ptr %c_lflag.i, align 4
   %and3.i = and i32 %4, -32843
   store i32 %and3.i, ptr %c_lflag.i, align 4
-  %c_cflag.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 2
+  %c_cflag.i = getelementptr inbounds i8, ptr %tty.i, i64 8
   %5 = load i32, ptr %c_cflag.i, align 4
   %and4.i = and i32 %5, -305
   %or6.i = or disjoint i32 %and4.i, 48
   store i32 %or6.i, ptr %c_cflag.i, align 4
-  %arrayidx.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 5, i64 6
+  %arrayidx.i = getelementptr inbounds i8, ptr %tty.i, i64 23
   store i8 1, ptr %arrayidx.i, align 1
-  %arrayidx8.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 5, i64 5
+  %arrayidx8.i = getelementptr inbounds i8, ptr %tty.i, i64 22
   store i8 0, ptr %arrayidx8.i, align 2
   br label %if.end.i
 
@@ -339,7 +333,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %tobool9.not.i, label %if.then10.i, label %qemu_chr_set_echo_stdio.exit
 
 if.then10.i:                                      ; preds = %if.end.i
-  %c_lflag11.i = getelementptr inbounds %struct.termios, ptr %tty.i, i64 0, i32 3
+  %c_lflag11.i = getelementptr inbounds i8, ptr %tty.i, i64 12
   %8 = load i32, ptr %c_lflag11.i, align 4
   %and12.i = and i32 %8, -2
   store i32 %and12.i, ptr %c_lflag11.i, align 4

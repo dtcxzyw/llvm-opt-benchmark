@@ -5,38 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %union.CPUTailQ = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 
 @.str = private unnamed_addr constant [30 x i8] c"../qemu/system/cpu-throttle.c\00", align 1
 @throttle_percentage = internal unnamed_addr global i32 0, align 4
@@ -67,7 +35,7 @@ while.end.i:                                      ; preds = %if.then
 while.end6.i:                                     ; preds = %while.end.i, %while.end19.i
   %cpu.06.in.i = phi i64 [ %5, %while.end19.i ], [ %2, %while.end.i ]
   %cpu.06.i = inttoptr i64 %cpu.06.in.i to ptr
-  %throttle_thread_scheduled.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i, i64 0, i32 58
+  %throttle_thread_scheduled.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 745
   %3 = atomicrmw xchg ptr %throttle_thread_scheduled.i, i8 1 seq_cst, align 1
   %4 = and i8 %3, 1
   %tobool9.not.i = icmp eq i8 %4, 0
@@ -78,7 +46,7 @@ if.then13.i:                                      ; preds = %while.end6.i
   br label %while.end19.i
 
 while.end19.i:                                    ; preds = %if.then13.i, %while.end6.i
-  %node.i = getelementptr inbounds %struct.CPUState, ptr %cpu.06.i, i64 0, i32 35
+  %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %5 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %tobool1.not.i = icmp eq i64 %5, 0
@@ -126,7 +94,7 @@ while.end:                                        ; preds = %entry
 while.end6:                                       ; preds = %while.end, %while.end19
   %cpu.06.in = phi i64 [ %4, %while.end19 ], [ %1, %while.end ]
   %cpu.06 = inttoptr i64 %cpu.06.in to ptr
-  %throttle_thread_scheduled = getelementptr inbounds %struct.CPUState, ptr %cpu.06, i64 0, i32 58
+  %throttle_thread_scheduled = getelementptr inbounds i8, ptr %cpu.06, i64 745
   %2 = atomicrmw xchg ptr %throttle_thread_scheduled, i8 1 seq_cst, align 1
   %3 = and i8 %2, 1
   %tobool9.not = icmp eq i8 %3, 0
@@ -137,7 +105,7 @@ if.then13:                                        ; preds = %while.end6
   br label %while.end19
 
 while.end19:                                      ; preds = %while.end6, %if.then13
-  %node = getelementptr inbounds %struct.CPUState, ptr %cpu.06, i64 0, i32 35
+  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
   %4 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %tobool1.not = icmp eq i64 %4, 0
@@ -203,12 +171,12 @@ if.end:                                           ; preds = %entry
   %conv3 = fptosi double %2 to i64
   %call4 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #6
   %add = add i64 %call4, %conv3
-  %stop = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 11
+  %stop = getelementptr inbounds i8, ptr %cpu, i64 202
   %cmp9 = icmp sgt i64 %conv3, 0
   br i1 %cmp9, label %land.rhs.lr.ph, label %while.end19
 
 land.rhs.lr.ph:                                   ; preds = %if.end
-  %halt_cond = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 8
+  %halt_cond = getelementptr inbounds i8, ptr %cpu, i64 192
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end13
@@ -245,7 +213,7 @@ if.end13:                                         ; preds = %if.else, %if.then9
   br i1 %cmp, label %land.rhs, label %while.end19, !llvm.loop !9
 
 while.end19:                                      ; preds = %if.end13, %land.rhs, %if.end
-  %throttle_thread_scheduled = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 58
+  %throttle_thread_scheduled = getelementptr inbounds i8, ptr %cpu, i64 745
   store atomic i8 0, ptr %throttle_thread_scheduled monotonic, align 1
   br label %do.end20
 

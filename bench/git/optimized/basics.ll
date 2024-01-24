@@ -3,8 +3,6 @@ source_filename = "bench/git/original/basics.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.strbuf = type { i64, i64, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @put_be24(ptr nocapture noundef writeonly %out, i32 noundef %i) local_unnamed_addr #0 {
 entry:
@@ -105,7 +103,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %1 = phi ptr [ %2, %for.body ], [ %0, %for.cond.preheader ]
   %p.06 = phi ptr [ %incdec.ptr, %for.body ], [ %a, %for.cond.preheader ]
   tail call void @reftable_free(ptr noundef nonnull %1) #7
-  %incdec.ptr = getelementptr inbounds ptr, ptr %p.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.06, i64 8
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !7
@@ -129,7 +127,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   %p.0 = phi ptr [ %names, %entry ], [ %incdec.ptr, %for.cond ]
   %0 = load ptr, ptr %p.0, align 8
   %tobool.not = icmp eq ptr %0, null
-  %incdec.ptr = getelementptr inbounds ptr, ptr %p.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 8
   br i1 %tobool.not, label %for.end, label %for.cond, !llvm.loop !8
 
 for.end:                                          ; preds = %for.cond
@@ -263,16 +261,16 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @common_prefix_size(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #4 {
 entry:
-  %buf = getelementptr inbounds %struct.strbuf, ptr %a, i64 0, i32 2
-  %len = getelementptr inbounds %struct.strbuf, ptr %a, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %a, i64 16
+  %len = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %len, align 8
   %cmp8.not = icmp eq i64 %0, 0
   br i1 %cmp8.not, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %len3 = getelementptr inbounds %struct.strbuf, ptr %b, i64 0, i32 1
+  %len3 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %len3, align 8
-  %buf7 = getelementptr inbounds %struct.strbuf, ptr %b, i64 0, i32 2
+  %buf7 = getelementptr inbounds i8, ptr %b, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc

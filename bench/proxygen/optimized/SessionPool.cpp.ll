@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.proxygen::SessionPool" = type { %"class.proxygen::SessionHolder::Callback", ptr, i32, %"class.std::chrono::duration", %"class.std::chrono::duration", %"class.boost::intrusive::list", %"class.boost::intrusive::list", %"class.boost::intrusive::list", ptr, ptr, ptr }
-%"class.proxygen::SessionHolder::Callback" = type { ptr }
-%"class.std::chrono::duration" = type { i64 }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder" = type { i64 }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
@@ -25,88 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.proxygen::SessionHolder" = type { %"class.proxygen::HTTPSessionBase::InfoCallback", %"class.boost::intrusive::list_member_hook", %"class.boost::intrusive::list_member_hook", ptr, ptr, ptr, %"class.std::chrono::time_point", double, i32, [4 x i8], %"class.proxygen::Endpoint", ptr }
-%"class.proxygen::HTTPSessionBase::InfoCallback" = type { ptr }
-%"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::list_node" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.2" }
-%"class.std::chrono::duration.2" = type { i64 }
-%"class.proxygen::HTTPSessionBase" = type <{ %"class.wangle::ManagedConnection", ptr, ptr, %"struct.wangle::TransportInfo", %"class.proxygen::FilterChain", %"class.proxygen::HTTP2PriorityQueue", %"class.folly::SocketAddress", %"class.folly::SocketAddress", %"class.folly::Optional.43", i8, [7 x i8], %"class.std::unique_ptr", %"struct.std::array.47", ptr, %"class.std::chrono::time_point", %"class.std::chrono::duration.48", i32, i32, i32, i32, i32, i32, i64, i64, i32, i8, i8, [2 x i8] }>
-%"class.wangle::ManagedConnection" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestruction.base", i32, ptr, %"class.wangle::ConnectionAgeTimeout", %"class.folly::Optional", %"class.std::chrono::time_point", %"class.boost::intrusive::list_member_hook" }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr.5" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook.3" }
-%"class.boost::intrusive::generic_hook.3" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
-%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.wangle::ConnectionAgeTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" = type <{ %union.anon.8, i8, [7 x i8] }>
-%union.anon.8 = type { %"class.std::chrono::time_point" }
-%"struct.wangle::TransportInfo" = type { %"class.std::chrono::time_point", %"class.std::chrono::time_point", %"class.std::chrono::duration.9", i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.std::__cxx11::basic_string", i32, %struct.tcp_info, %"class.std::chrono::duration", %"class.std::chrono::duration", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", %"class.std::shared_ptr.13", i64, i64, i64, %"class.std::shared_ptr.16", %"class.std::shared_ptr.16", %"class.std::shared_ptr.16", i32, i32, i32, %"class.std::__cxx11::basic_string", i16, %"class.std::shared_ptr.10", i16, i8, i32, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr.19", %"class.std::shared_ptr.10", %"class.std::shared_ptr.10", i8, %"class.folly::Optional.22", %"class.std::__cxx11::basic_string" }
-%"class.std::chrono::duration.9" = type { i64 }
-%struct.tcp_info = type { i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"class.std::shared_ptr.13" = type { %"class.std::__shared_ptr.14" }
-%"class.std::__shared_ptr.14" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.16" = type { %"class.std::__shared_ptr.17" }
-%"class.std::__shared_ptr.17" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.19" = type { %"class.std::__shared_ptr.20" }
-%"class.std::__shared_ptr.20" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.10" = type { %"class.std::__shared_ptr.11" }
-%"class.std::__shared_ptr.11" = type { ptr, %"class.std::__shared_count" }
-%"class.folly::Optional.22" = type { %"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" = type { %union.anon.23, i8 }
-%union.anon.23 = type { i8 }
-%"class.proxygen::FilterChain" = type { %"class.proxygen::PassThroughHTTPCodecFilter", ptr }
-%"class.proxygen::PassThroughHTTPCodecFilter" = type { %"class.proxygen::GenericFilter" }
-%"class.proxygen::GenericFilter" = type { %"class.proxygen::HTTPCodec", %"class.proxygen::HTTPCodec::Callback", i8, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"class.proxygen::HTTPCodec::Callback" = type { ptr }
-%"class.proxygen::HTTP2PriorityQueue" = type { %"class.proxygen::HTTP2PriorityQueueBase", %"class.folly::F14FastMap", %"class.proxygen::HTTP2PriorityQueue::Node", i32, i64, i32, i32, %"class.folly::Optional.39", i8, %"class.proxygen::WheelTimerInstance", ptr }
-%"class.proxygen::HTTP2PriorityQueueBase" = type { %"class.proxygen::HTTPCodec::PriorityQueue", i64 }
-%"class.proxygen::HTTPCodec::PriorityQueue" = type { ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::F14ValueMap" }
-%"class.folly::F14ValueMap" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.proxygen::HTTP2PriorityQueue::Node" = type { %"class.proxygen::HTTP2PriorityQueueBase::BaseNode", %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr, ptr, i64, i16, ptr, i8, i8, i64, i64, %"class.std::__cxx11::list", %"struct.std::_List_iterator", %"class.boost::intrusive::list_member_hook.32", %"class.boost::intrusive::list.35" }
-%"class.proxygen::HTTP2PriorityQueueBase::BaseNode" = type { ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_iterator" = type { ptr }
-%"class.boost::intrusive::list_member_hook.32" = type { %"class.boost::intrusive::generic_hook.33" }
-%"class.boost::intrusive::generic_hook.33" = type { %"struct.boost::intrusive::list_node" }
-%"class.boost::intrusive::list.35" = type { %"class.boost::intrusive::list_impl.36" }
-%"class.boost::intrusive::list_impl.36" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.folly::Optional.39" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.40, i8, [7 x i8] }>
-%union.anon.40 = type { i64 }
-%"class.proxygen::WheelTimerInstance" = type { ptr, %"class.std::chrono::duration" }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"class.folly::Optional.43" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.44, i8, [7 x i8] }>
-%union.anon.44 = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.46" }
-%"struct.std::_Head_base.46" = type { ptr }
-%"struct.std::array.47" = type { [4 x ptr] }
-%"class.std::chrono::duration.48" = type { i64 }
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -158,35 +66,35 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen11SessionPoolC2EPNS_13SessionHolder5StatsEjNSt6chrono8durationIlSt5ratioILl1ELl1000EEEES8_PNS_27ThreadIdleSessionControllerEPNS_27ServerIdleSessionControllerE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %stats, i32 noundef %maxConns, i64 %timeout.coerce, i64 %maxAge.coerce, ptr noundef %threadIdleSessionController, ptr noundef %serverIdleSessionController) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 1
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %stats, ptr %stats_, align 8
-  %maxConns_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 2
+  %maxConns_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %maxConns, ptr %maxConns_, align 8
-  %timeout_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 3
+  %timeout_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %timeout.coerce, ptr %timeout_, align 8
-  %maxAge_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 4
+  %maxAge_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %maxAge.coerce, ptr %maxAge_, align 8
-  %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
-  %m_header.i1.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %idleSessionList_ = getelementptr inbounds i8, ptr %this, i64 40
+  %m_header.i1.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %idleSessionList_, align 8
   store ptr %m_header.i1.i, ptr %m_header.i1.i, align 8
-  %prev_.i.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %m_header.i1.i, ptr %prev_.i.i.i, align 8
-  %unfilledSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6
-  %m_header.i1.i4 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %unfilledSessionList_ = getelementptr inbounds i8, ptr %this, i64 64
+  %m_header.i1.i4 = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %unfilledSessionList_, align 8
   store ptr %m_header.i1.i4, ptr %m_header.i1.i4, align 8
-  %prev_.i.i.i5 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %m_header.i1.i4, ptr %prev_.i.i.i5, align 8
-  %fullSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7
-  %m_header.i1.i6 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %fullSessionList_ = getelementptr inbounds i8, ptr %this, i64 88
+  %m_header.i1.i6 = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %fullSessionList_, align 8
   store ptr %m_header.i1.i6, ptr %m_header.i1.i6, align 8
-  %prev_.i.i.i7 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %m_header.i1.i6, ptr %prev_.i.i.i7, align 8
-  %threadIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 8
+  %threadIdleSessionController_ = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %threadIdleSessionController, ptr %threadIdleSessionController_, align 8
-  %serverIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 9
+  %serverIdleSessionController_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %serverIdleSessionController, ptr %serverIdleSessionController_, align 8
   %call = invoke noundef ptr @_ZN5folly16EventBaseManager3getEv()
           to label %invoke.cont8 unwind label %lpad7
@@ -196,7 +104,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont9 unwind label %lpad7
 
 invoke.cont9:                                     ; preds = %invoke.cont8
-  %evb_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 10
+  %evb_ = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %call10, ptr %evb_, align 8
   ret void
 
@@ -255,7 +163,7 @@ declare noundef ptr @_ZNK5folly16EventBaseManager12getEventBaseEv(ptr noundef no
 define void @_ZN8proxygen11SessionPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_header.i27.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_header.i27.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i27.i, align 8
   %tobool.not.i2.i = icmp eq ptr %0, null
   %cmp.i3.i = icmp eq ptr %0, %m_header.i27.i
@@ -263,7 +171,7 @@ entry:
   br i1 %1, label %invoke.cont, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %prev_.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %while.body.i
 
 while.body.i:                                     ; preds = %.noexc, %while.body.lr.ph.i
@@ -280,8 +188,8 @@ while.body.i:                                     ; preds = %.noexc, %while.body
   br i1 %4, label %invoke.cont, label %while.body.i, !llvm.loop !6
 
 invoke.cont:                                      ; preds = %.noexc, %entry
-  %unfilledSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6
-  %m_header.i27.i1 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %unfilledSessionList_ = getelementptr inbounds i8, ptr %this, i64 64
+  %m_header.i27.i1 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %m_header.i27.i1, align 8
   %tobool.not.i2.i2 = icmp eq ptr %5, null
   %cmp.i3.i3 = icmp eq ptr %5, %m_header.i27.i1
@@ -289,7 +197,7 @@ invoke.cont:                                      ; preds = %.noexc, %entry
   br i1 %6, label %invoke.cont2, label %while.body.lr.ph.i4
 
 while.body.lr.ph.i4:                              ; preds = %invoke.cont
-  %prev_.i.i5 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i5 = getelementptr inbounds i8, ptr %this, i64 80
   br label %while.body.i6
 
 while.body.i6:                                    ; preds = %.noexc10, %while.body.lr.ph.i4
@@ -306,8 +214,8 @@ while.body.i6:                                    ; preds = %.noexc10, %while.bo
   br i1 %9, label %invoke.cont2, label %while.body.i6, !llvm.loop !6
 
 invoke.cont2:                                     ; preds = %.noexc10, %invoke.cont
-  %fullSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7
-  %m_header.i27.i12 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %fullSessionList_ = getelementptr inbounds i8, ptr %this, i64 88
+  %m_header.i27.i12 = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %m_header.i27.i12, align 8
   %tobool.not.i2.i13 = icmp eq ptr %10, null
   %cmp.i3.i14 = icmp eq ptr %10, %m_header.i27.i12
@@ -315,7 +223,7 @@ invoke.cont2:                                     ; preds = %.noexc10, %invoke.c
   br i1 %11, label %while.end, label %while.body.lr.ph.i15
 
 while.body.lr.ph.i15:                             ; preds = %invoke.cont2
-  %prev_.i.i16 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i16 = getelementptr inbounds i8, ptr %this, i64 104
   br label %while.body.i17
 
 while.body.i17:                                   ; preds = %.noexc21, %while.body.lr.ph.i15
@@ -370,7 +278,7 @@ while.body.i.i.i.i31:                             ; preds = %_ZN5boost9intrusive
   br i1 %cmp.i.not.i.i.i.i33, label %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit34, label %while.body.i.i.i.i31, !llvm.loop !4
 
 _ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit34: ; preds = %while.body.i.i.i.i31, %_ZN5boost9intrusive4listIN8proxygen13SessionHolderEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit28
-  %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
+  %idleSessionList_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %idleSessionList_, i8 0, i64 24, i1 false)
   ret void
 
@@ -392,14 +300,14 @@ terminate.lpad.loopexit.split-lp.loopexit.split-lp: ; preds = %while.body.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp.loopexit, %terminate.lpad.loopexit.split-lp.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit35, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp36, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
   %21 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %21) #19
+  tail call void @__clang_call_terminate(ptr %21) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_header.i27 = getelementptr inbounds %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::root_plus_size", ptr %list, i64 0, i32 1
+  %m_header.i27 = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load ptr, ptr %m_header.i27, align 8
   %tobool.not.i2 = icmp eq ptr %0, null
   %cmp.i3 = icmp eq ptr %0, %m_header.i27
@@ -407,7 +315,7 @@ entry:
   br i1 %1, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %prev_.i = getelementptr inbounds %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::root_plus_size", ptr %list, i64 0, i32 1, i32 0, i32 1
+  %prev_.i = getelementptr inbounds i8, ptr %list, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -426,8 +334,8 @@ while.end:                                        ; preds = %while.body, %entry
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -438,7 +346,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen11SessionPool5emptyEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_header.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_header.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %cmp.i = icmp eq ptr %0, %m_header.i
@@ -446,7 +354,7 @@ entry:
   br i1 %1, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_header.i21 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %m_header.i21 = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %m_header.i21, align 8
   %tobool.not.i1 = icmp eq ptr %2, null
   %cmp.i2 = icmp eq ptr %2, %m_header.i21
@@ -454,7 +362,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %3, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %m_header.i25 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %m_header.i25 = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load ptr, ptr %m_header.i25, align 8
   %tobool.not.i3 = icmp eq ptr %4, null
   %cmp.i4 = icmp eq ptr %4, %m_header.i25
@@ -476,8 +384,8 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen11SessionPoolD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN8proxygen11SessionPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZN8proxygen11SessionPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
   ret void
 }
 
@@ -487,7 +395,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPool18setMaxIdleSessionsEj(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %num) local_unnamed_addr #3 align 2 {
 entry:
-  %maxConns_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 2
+  %maxConns_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %num, ptr %maxConns_, align 8
   tail call void @_ZN8proxygen11SessionPool23purgeExcessIdleSessionsEv(ptr noundef nonnull align 8 dereferenceable(136) %this)
   ret void
@@ -499,12 +407,12 @@ entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp17 = alloca %"class.google::LogMessageFatal", align 8
-  %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
-  %timeout_.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 3
+  %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #19
+  %timeout_.i = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload.i = load i64, ptr %timeout_.i, align 8
   %mul.i.i.i.neg.i.i = mul i64 %retval.sroa.0.0.copyload.i, -1000000
   %sub.i.i = add i64 %mul.i.i.i.neg.i.i, %call
-  %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
+  %idleSessionList_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %idleSessionList_, align 8
   %cmp.not.i = icmp ugt i64 %0, 4294967295
   br i1 %cmp.not.i, label %if.else.i, label %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
@@ -535,11 +443,11 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont2.i.i
 lpad.i.i:                                         ; preds = %invoke.cont4.i.i, %invoke.cont2.i.i, %invoke.cont1.i.i, %if.else.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #20
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #19
   resume { ptr, i32 } %2
 
 _ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #20
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
   store ptr %call6.i.i, ptr %_result, align 8
   %cmp.i.not = icmp eq ptr %call6.i.i, null
@@ -555,18 +463,18 @@ while.body:                                       ; preds = %_ZN6google12Check_L
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #18
   unreachable
 
 lpad:                                             ; preds = %while.body
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp17) #18
   unreachable
 
 while.end:                                        ; preds = %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   %4 = phi i64 [ %.pre, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %0, %_ZN6google12Check_LEImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
-  %m_header.i79 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_header.i79 = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_header.i79, align 8
   %tobool.not.i8 = icmp eq ptr %5, null
   %cmp.i39 = icmp eq ptr %5, %m_header.i79
@@ -574,7 +482,7 @@ while.end:                                        ; preds = %_ZN6google12Check_L
   br i1 %6, label %while.end33, label %while.body25.preheader
 
 while.body25.preheader:                           ; preds = %while.end
-  %maxConns_.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 2
+  %maxConns_.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i32, ptr %maxConns_.i, align 8
   %conv = zext i32 %7 to i64
   %sub = sub nsw i64 %4, %conv
@@ -606,7 +514,7 @@ while.end33:                                      ; preds = %if.end, %while.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen11SessionPool18getMaxIdleSessionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %maxConns_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 2
+  %maxConns_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %maxConns_, align 8
   ret i32 %0
 }
@@ -614,7 +522,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8proxygen11SessionPool10setTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, i64 %duration.coerce) local_unnamed_addr #9 align 2 {
 entry:
-  %timeout_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 3
+  %timeout_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %duration.coerce, ptr %timeout_, align 8
   ret void
 }
@@ -622,7 +530,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZNK8proxygen11SessionPool10getTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %timeout_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 3
+  %timeout_ = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload = load i64, ptr %timeout_, align 8
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -630,7 +538,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen11SessionPool18getNumIdleSessionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
+  %idleSessionList_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %idleSessionList_, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -639,9 +547,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen11SessionPool20getNumActiveSessionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %unfilledSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6
+  %unfilledSessionList_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %unfilledSessionList_, align 8
-  %fullSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7
+  %fullSessionList_ = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i64, ptr %fullSessionList_, align 8
   %add = add i64 %1, %0
   %conv = trunc i64 %add to i32
@@ -651,7 +559,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen11SessionPool27getNumActiveNonFullSessionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %unfilledSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6
+  %unfilledSessionList_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %unfilledSessionList_, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -660,7 +568,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen11SessionPool18getNumFullSessionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fullSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7
+  %fullSessionList_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %fullSessionList_, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -669,12 +577,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen11SessionPool14getNumSessionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
+  %idleSessionList_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %idleSessionList_, align 8
-  %unfilledSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6
+  %unfilledSessionList_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %unfilledSessionList_, align 8
   %add = add i64 %1, %0
-  %fullSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7
+  %fullSessionList_ = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %fullSessionList_, align 8
   %add4 = add i64 %add, %2
   %conv = trunc i64 %add4 to i32
@@ -691,10 +599,10 @@ entry:
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #22
-  %stats_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 1
+  %call2 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #21
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stats_, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
   %call.i6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
 
@@ -709,7 +617,7 @@ call.i.noexc:                                     ; preds = %if.then
 lpad.i:                                           ; preds = %.noexc
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   br label %ehcleanup8
 
 invoke.cont:                                      ; preds = %.noexc
@@ -717,14 +625,14 @@ invoke.cont:                                      ; preds = %.noexc
           to label %.noexc8 unwind label %lpad4
 
 .noexc8:                                          ; preds = %invoke.cont
-  %port_.i = getelementptr inbounds %"class.proxygen::Endpoint", ptr %agg.tmp, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i16 0, ptr %port_.i, align 8
-  %hash_.i = getelementptr inbounds %"class.proxygen::Endpoint", ptr %agg.tmp, i64 0, i32 3
+  %hash_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i64 0, ptr %hash_.i, align 8
-  %isSecure_.i = getelementptr inbounds %"class.proxygen::Endpoint", ptr %agg.tmp, i64 0, i32 4
+  %isSecure_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   store i8 0, ptr %isSecure_.i, align 8
-  %call.i.i7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
-  %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  %call.i.i7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
+  %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
   %call.i2.i.i = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef %call.i.i7, i64 noundef %call2.i.i, i64 noundef 3339675911)
           to label %invoke.cont5 unwind label %terminate.lpad.i.i
 
@@ -732,7 +640,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc8
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #19
+  call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 invoke.cont5:                                     ; preds = %.noexc8
@@ -750,9 +658,9 @@ invoke.cont5:                                     ; preds = %.noexc8
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
   call void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 dereferenceable(152) %call2)
   br label %if.end
 
@@ -769,27 +677,27 @@ lpad4:                                            ; preds = %invoke.cont
 lpad6:                                            ; preds = %invoke.cont5
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad6, %lpad4
   %.pn = phi { ptr, i32 } [ %9, %lpad6 ], [ %8, %lpad4 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %ehcleanup8
 
 ehcleanup8:                                       ; preds = %lpad, %lpad.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ], [ %1, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
-  call void @_ZdlPv(ptr noundef nonnull %call2) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
+  call void @_ZdlPv(ptr noundef nonnull %call2) #20
   resume { ptr, i32 } %.pn.pn
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %session)
   %vtable10 = load ptr, ptr %session, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 54
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 432
   %11 = load ptr, ptr %vfn11, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(1582) %session)
   br label %if.end
@@ -816,7 +724,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.9) #23
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.9) #22
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -825,11 +733,11 @@ invoke.cont:                                      ; preds = %if.then
 lpad:                                             ; preds = %if.end, %if.then
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #20
+  tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) #19
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #20
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #19
   %add.ptr = getelementptr inbounds i8, ptr %__s, i64 %call.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__s, ptr noundef nonnull %add.ptr)
           to label %invoke.cont4 unwind label %lpad
@@ -851,7 +759,7 @@ declare void @_ZN8proxygen13SessionHolder4linkEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN8proxygen11SessionPool14getTransactionEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %upstreamHandler) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_header.i32.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %m_header.i32.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_header.i32.i, align 8
   %tobool.not.i7.i = icmp eq ptr %0, null
   %cmp.i8.i = icmp eq ptr %0, %m_header.i32.i
@@ -859,7 +767,7 @@ entry:
   br i1 %1, label %if.then, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %maxAge_.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 4
+  %maxAge_.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -889,7 +797,7 @@ if.end.i:                                         ; preds = %while.body.i
 
 if.then:                                          ; preds = %while.cond.backedge.i, %entry
   tail call void @_ZN8proxygen11SessionPool23purgeExcessIdleSessionsEv(ptr noundef nonnull align 8 dereferenceable(136) %this)
-  %m_header.i32.i3 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_header.i32.i3 = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_header.i32.i3, align 8
   %tobool.not.i7.i4 = icmp eq ptr %5, null
   %cmp.i8.i5 = icmp eq ptr %5, %m_header.i32.i3
@@ -897,7 +805,7 @@ if.then:                                          ; preds = %while.cond.backedge
   br i1 %6, label %if.end, label %while.body.lr.ph.i6
 
 while.body.lr.ph.i6:                              ; preds = %if.then
-  %maxAge_.i7 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 4
+  %maxAge_.i7 = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.body.i8
 
 while.body.i8:                                    ; preds = %while.cond.backedge.i16, %while.body.lr.ph.i6
@@ -933,7 +841,7 @@ if.end:                                           ; preds = %if.end.i, %if.end.i
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN8proxygen11SessionPool22attemptOpenTransactionEPNS_22HTTPTransactionHandlerERN5boost9intrusive4listINS_13SessionHolderEJNS4_11member_hookIS6_NS4_16list_member_hookIJNS4_9link_modeILNS4_14link_mode_typeE1EEEEEEXadL_ZNS6_8listHookEEEEENS4_18constant_time_sizeILb1EEEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef %upstreamHandler, ptr noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_header.i32 = getelementptr inbounds %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::root_plus_size", ptr %list, i64 0, i32 1
+  %m_header.i32 = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load ptr, ptr %m_header.i32, align 8
   %tobool.not.i7 = icmp eq ptr %0, null
   %cmp.i8 = icmp eq ptr %0, %m_header.i32
@@ -941,7 +849,7 @@ entry:
   br i1 %1, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %maxAge_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 4
+  %maxAge_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -987,7 +895,7 @@ declare void @_ZN8proxygen13SessionHolder5drainEv(ptr noundef nonnull align 8 de
 define noundef ptr @_ZN8proxygen11SessionPool23removeOldestIdleSessionEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %holder = alloca ptr, align 8
-  %m_header.i31 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_header.i31 = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i31, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %cmp.i = icmp eq ptr %0, %m_header.i31
@@ -999,7 +907,7 @@ if.then:                                          ; preds = %entry
   store ptr %add.ptr.i, ptr %holder, align 8
   %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen13SessionHolderEEET_PKciS7_OS5_(ptr noundef nonnull @.str, i32 noundef 130, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %holder)
   %2 = load ptr, ptr %holder, align 8
-  %listHook.i = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %2, i64 0, i32 1
+  %listHook.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %listHook.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %cmp.i.i = icmp eq ptr %3, %listHook.i
@@ -1011,22 +919,22 @@ if.then.i:                                        ; preds = %if.then
   br label %_ZN8proxygen13SessionHolder7releaseEv.exit
 
 if.else.i:                                        ; preds = %if.then
-  %state_.i = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %2, i64 0, i32 8
+  %state_.i = getelementptr inbounds i8, ptr %2, i64 80
   store i32 0, ptr %state_.i, align 8
   br label %_ZN8proxygen13SessionHolder7releaseEv.exit
 
 _ZN8proxygen13SessionHolder7releaseEv.exit:       ; preds = %if.then.i, %if.else.i
-  %session_.i = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %2, i64 0, i32 3
+  %session_.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %session_.i, align 8
-  %originalSessionInfoCb_.i = getelementptr inbounds %"class.proxygen::SessionHolder", ptr %2, i64 0, i32 11
+  %originalSessionInfoCb_.i = getelementptr inbounds i8, ptr %2, i64 144
   %6 = load ptr, ptr %originalSessionInfoCb_.i, align 8
-  %infoCallback_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %5, i64 0, i32 2
+  %infoCallback_.i.i = getelementptr inbounds i8, ptr %5, i64 216
   store ptr %6, ptr %infoCallback_.i.i, align 8
   store ptr null, ptr %session_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(152) %2) #20
+  call void %7(ptr noundef nonnull align 8 dereferenceable(152) %2) #19
   br label %return
 
 return:                                           ; preds = %entry, %_ZN8proxygen13SessionHolder7releaseEv.exit
@@ -1045,8 +953,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #20
+  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %names, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
           to label %invoke.cont unwind label %cleanup.action
 
@@ -1056,20 +964,20 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp.ensured) #19
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp.ensured) #18
   unreachable
 
 lpad:                                             ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #20
-  call void @_ZdlPv(ptr noundef nonnull %call) #21
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
+  call void @_ZdlPv(ptr noundef nonnull %call) #20
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -1083,7 +991,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPool16drainAllSessionsEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_header.i27.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_header.i27.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i27.i, align 8
   %tobool.not.i2.i = icmp eq ptr %0, null
   %cmp.i3.i = icmp eq ptr %0, %m_header.i27.i
@@ -1091,7 +999,7 @@ entry:
   br i1 %1, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %prev_.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -1105,7 +1013,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %4, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit, label %while.body.i, !llvm.loop !6
 
 _ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit: ; preds = %while.body.i, %entry
-  %m_header.i27.i1 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %m_header.i27.i1 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %m_header.i27.i1, align 8
   %tobool.not.i2.i2 = icmp eq ptr %5, null
   %cmp.i3.i3 = icmp eq ptr %5, %m_header.i27.i1
@@ -1113,7 +1021,7 @@ _ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13Session
   br i1 %6, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.lr.ph.i4
 
 while.body.lr.ph.i4:                              ; preds = %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
-  %prev_.i.i5 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i5 = getelementptr inbounds i8, ptr %this, i64 80
   br label %while.body.i6
 
 while.body.i6:                                    ; preds = %while.body.i6, %while.body.lr.ph.i4
@@ -1127,7 +1035,7 @@ while.body.i6:                                    ; preds = %while.body.i6, %whi
   br i1 %9, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.i6, !llvm.loop !6
 
 _ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10: ; preds = %while.body.i6, %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
-  %m_header.i27.i11 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %m_header.i27.i11 = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %m_header.i27.i11, align 8
   %tobool.not.i2.i12 = icmp eq ptr %10, null
   %cmp.i3.i13 = icmp eq ptr %10, %m_header.i27.i11
@@ -1135,7 +1043,7 @@ _ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13Session
   br i1 %11, label %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20, label %while.body.lr.ph.i14
 
 while.body.lr.ph.i14:                             ; preds = %_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10
-  %prev_.i.i15 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i15 = getelementptr inbounds i8, ptr %this, i64 104
   br label %while.body.i16
 
 while.body.i16:                                   ; preds = %while.body.i16, %while.body.lr.ph.i14
@@ -1155,7 +1063,7 @@ _ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13Session
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPool14closeWithResetEv(ptr noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_header.i27.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_header.i27.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_header.i27.i, align 8
   %tobool.not.i2.i = icmp eq ptr %0, null
   %cmp.i3.i = icmp eq ptr %0, %m_header.i27.i
@@ -1163,7 +1071,7 @@ entry:
   br i1 %1, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %prev_.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
@@ -1177,7 +1085,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %4, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit, label %while.body.i, !llvm.loop !9
 
 _ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit: ; preds = %while.body.i, %entry
-  %m_header.i27.i1 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %m_header.i27.i1 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %m_header.i27.i1, align 8
   %tobool.not.i2.i2 = icmp eq ptr %5, null
   %cmp.i3.i3 = icmp eq ptr %5, %m_header.i27.i1
@@ -1185,7 +1093,7 @@ _ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_
   br i1 %6, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.lr.ph.i4
 
 while.body.lr.ph.i4:                              ; preds = %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
-  %prev_.i.i5 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i5 = getelementptr inbounds i8, ptr %this, i64 80
   br label %while.body.i6
 
 while.body.i6:                                    ; preds = %while.body.i6, %while.body.lr.ph.i4
@@ -1199,7 +1107,7 @@ while.body.i6:                                    ; preds = %while.body.i6, %whi
   br i1 %9, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10, label %while.body.i6, !llvm.loop !9
 
 _ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10: ; preds = %while.body.i6, %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit
-  %m_header.i27.i11 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %m_header.i27.i11 = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %m_header.i27.i11, align 8
   %tobool.not.i2.i12 = icmp eq ptr %10, null
   %cmp.i3.i13 = icmp eq ptr %10, %m_header.i27.i11
@@ -1207,7 +1115,7 @@ _ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_
   br i1 %11, label %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit20, label %while.body.lr.ph.i14
 
 while.body.lr.ph.i14:                             ; preds = %_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE.exit10
-  %prev_.i.i15 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %prev_.i.i15 = getelementptr inbounds i8, ptr %this, i64 104
   br label %while.body.i16
 
 while.body.i16:                                   ; preds = %while.body.i16, %while.body.lr.ph.i14
@@ -1227,7 +1135,7 @@ _ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPool25closeSessionListWithResetERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_header.i27 = getelementptr inbounds %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::root_plus_size", ptr %list, i64 0, i32 1
+  %m_header.i27 = getelementptr inbounds i8, ptr %list, i64 8
   %0 = load ptr, ptr %m_header.i27, align 8
   %tobool.not.i2 = icmp eq ptr %0, null
   %cmp.i3 = icmp eq ptr %0, %m_header.i27
@@ -1235,7 +1143,7 @@ entry:
   br i1 %1, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %prev_.i = getelementptr inbounds %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::SessionHolder, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::safe_link>>, &proxygen::SessionHolder::listHook>, unsigned long, true, void>::root_plus_size", ptr %list, i64 0, i32 1, i32 0, i32 1
+  %prev_.i = getelementptr inbounds i8, ptr %list, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1263,19 +1171,19 @@ declare void @_ZN8proxygen13SessionHolder6unlinkEv(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPool10detachIdleEPNS_13SessionHolderE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %sess) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
+  %idleSessionList_ = getelementptr inbounds i8, ptr %this, i64 40
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %sess, i64 8
   %0 = load ptr, ptr %memptr.offset.i.i, align 8, !noalias !10
   %prev_.i5.i.i = getelementptr inbounds i8, ptr %sess, i64 16
   %1 = load ptr, ptr %prev_.i5.i.i, align 8, !noalias !10
   store ptr %0, ptr %1, align 8, !noalias !10
-  %prev_.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %0, i64 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %prev_.i.i.i, align 8, !noalias !10
   %2 = load i64, ptr %idleSessionList_, align 8, !noalias !10
   %dec.i.i = add i64 %2, -1
   store i64 %dec.i.i, ptr %idleSessionList_, align 8, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memptr.offset.i.i, i8 0, i64 16, i1 false), !noalias !10
-  %threadIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 8
+  %threadIdleSessionController_ = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %threadIdleSessionController_, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1285,7 +1193,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %serverIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 9
+  %serverIdleSessionController_ = getelementptr inbounds i8, ptr %this, i64 120
   %4 = load ptr, ptr %serverIdleSessionController_, align 8
   %tobool4.not = icmp eq ptr %4, null
   br i1 %tobool4.not, label %if.end7, label %if.then5
@@ -1305,16 +1213,16 @@ declare void @_ZN8proxygen27ServerIdleSessionController17removeIdleSessionEPKNS_
 
 declare noundef nonnull align 8 dereferenceable(1582) ptr @_ZNK8proxygen13SessionHolder10getSessionEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen11SessionPool21detachPartiallyFilledEPNS_13SessionHolderE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %sess) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %unfilledSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6
+  %unfilledSessionList_ = getelementptr inbounds i8, ptr %this, i64 64
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %sess, i64 8
   %0 = load ptr, ptr %memptr.offset.i.i, align 8, !noalias !13
   %prev_.i5.i.i = getelementptr inbounds i8, ptr %sess, i64 16
   %1 = load ptr, ptr %prev_.i5.i.i, align 8, !noalias !13
   store ptr %0, ptr %1, align 8, !noalias !13
-  %prev_.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %0, i64 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %prev_.i.i.i, align 8, !noalias !13
   %2 = load i64, ptr %unfilledSessionList_, align 8, !noalias !13
   %dec.i.i = add i64 %2, -1
@@ -1323,16 +1231,16 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN8proxygen11SessionPool12detachFilledEPNS_13SessionHolderE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %sess) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fullSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7
+  %fullSessionList_ = getelementptr inbounds i8, ptr %this, i64 88
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %sess, i64 8
   %0 = load ptr, ptr %memptr.offset.i.i, align 8, !noalias !16
   %prev_.i5.i.i = getelementptr inbounds i8, ptr %sess, i64 16
   %1 = load ptr, ptr %prev_.i5.i.i, align 8, !noalias !16
   store ptr %0, ptr %1, align 8, !noalias !16
-  %prev_.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %0, i64 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %prev_.i.i.i, align 8, !noalias !16
   %2 = load i64, ptr %fullSessionList_, align 8, !noalias !16
   %dec.i.i = add i64 %2, -1
@@ -1344,7 +1252,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen11SessionPool10attachIdleEPNS_13SessionHolderE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %sess) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %maxConns_.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 2
+  %maxConns_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %maxConns_.i, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1352,22 +1260,22 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %call2 = tail call noundef nonnull align 8 dereferenceable(1582) ptr @_ZNK8proxygen13SessionHolder10getSessionEv(ptr noundef nonnull align 8 dereferenceable(152) %sess)
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(1582) %call2)
   br i1 %call3, label %lor.lhs.false4, label %if.then
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %maxAge_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 4
+  %maxAge_ = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %maxAge_, align 8
   %call5 = tail call noundef zeroext i1 @_ZNK8proxygen13SessionHolder12shouldAgeOutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(152) %sess, i64 %agg.tmp.sroa.0.0.copyload)
   br i1 %call5, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false4, %lor.lhs.false, %entry
-  %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
+  %idleSessionList_ = getelementptr inbounds i8, ptr %this, i64 40
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %sess, i64 8
-  %m_header.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %prev_.i8.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %m_header.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %prev_.i8.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %prev_.i8.i.i, align 8
   %prev_.i6.i.i = getelementptr inbounds i8, ptr %sess, i64 16
   store ptr %2, ptr %prev_.i6.i.i, align 8
@@ -1381,10 +1289,10 @@ if.then:                                          ; preds = %lor.lhs.false4, %lo
   br label %if.end14
 
 if.else:                                          ; preds = %lor.lhs.false4
-  %idleSessionList_6 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5
+  %idleSessionList_6 = getelementptr inbounds i8, ptr %this, i64 40
   %memptr.offset.i.i8 = getelementptr inbounds i8, ptr %sess, i64 8
-  %m_header.i.i9 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %prev_.i8.i.i10 = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %m_header.i.i9 = getelementptr inbounds i8, ptr %this, i64 48
+  %prev_.i8.i.i10 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %prev_.i8.i.i10, align 8
   %prev_.i6.i.i11 = getelementptr inbounds i8, ptr %sess, i64 16
   store ptr %4, ptr %prev_.i6.i.i11, align 8
@@ -1394,7 +1302,7 @@ if.else:                                          ; preds = %lor.lhs.false4
   %5 = load i64, ptr %idleSessionList_6, align 8
   %inc.i.i12 = add i64 %5, 1
   store i64 %inc.i.i12, ptr %idleSessionList_6, align 8
-  %serverIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 9
+  %serverIdleSessionController_ = getelementptr inbounds i8, ptr %this, i64 120
   %6 = load ptr, ptr %serverIdleSessionController_, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end, label %if.then7
@@ -1405,7 +1313,7 @@ if.then7:                                         ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.else
-  %threadIdleSessionController_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 8
+  %threadIdleSessionController_ = getelementptr inbounds i8, ptr %this, i64 112
   %7 = load ptr, ptr %threadIdleSessionController_, align 8
   %tobool10.not = icmp eq ptr %7, null
   br i1 %tobool10.not, label %if.end13, label %if.then11
@@ -1427,12 +1335,12 @@ declare void @_ZN8proxygen27ServerIdleSessionController14addIdleSessionEPKNS_15H
 declare void @_ZN8proxygen27ThreadIdleSessionController12onAttachIdleEPNS_13SessionHolderE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen11SessionPool21attachPartiallyFilledEPNS_13SessionHolderE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %sess) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPool21attachPartiallyFilledEPNS_13SessionHolderE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %sess) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %unfilledSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6
+  %unfilledSessionList_ = getelementptr inbounds i8, ptr %this, i64 64
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %sess, i64 8
-  %m_header.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %prev_.i8.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %m_header.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %prev_.i8.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %prev_.i8.i.i, align 8
   %prev_.i6.i.i = getelementptr inbounds i8, ptr %sess, i64 16
   store ptr %0, ptr %prev_.i6.i.i, align 8
@@ -1446,12 +1354,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen11SessionPool12attachFilledEPNS_13SessionHolderE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %sess) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11SessionPool12attachFilledEPNS_13SessionHolderE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %sess) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fullSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7
+  %fullSessionList_ = getelementptr inbounds i8, ptr %this, i64 88
   %memptr.offset.i.i = getelementptr inbounds i8, ptr %sess, i64 8
-  %m_header.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
-  %prev_.i8.i.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %m_header.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %prev_.i8.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %prev_.i8.i.i, align 8
   %prev_.i6.i.i = getelementptr inbounds i8, ptr %sess, i64 16
   store ptr %0, ptr %prev_.i6.i.i, align 8
@@ -1465,7 +1373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen11SessionPool18addDrainingSessionEPNS_15HTTPSessionBaseE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #13 align 2 {
+define void @_ZN8proxygen11SessionPool18addDrainingSessionEPNS_15HTTPSessionBaseE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #12 align 2 {
 entry:
   ret void
 }
@@ -1474,17 +1382,17 @@ entry:
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_11SessionPoolE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %pool) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.5)
-  %idleSessionList_.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %pool, i64 0, i32 5
+  %idleSessionList_.i = getelementptr inbounds i8, ptr %pool, i64 40
   %0 = load i64, ptr %idleSessionList_.i, align 8
   %conv.i = trunc i64 %0 to i32
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %conv.i)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.6)
-  %unfilledSessionList_.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %pool, i64 0, i32 6
+  %unfilledSessionList_.i = getelementptr inbounds i8, ptr %pool, i64 64
   %1 = load i64, ptr %unfilledSessionList_.i, align 8
   %conv.i4 = trunc i64 %1 to i32
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call3, i32 noundef %conv.i4)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str.7)
-  %fullSessionList_.i = getelementptr inbounds %"class.proxygen::SessionPool", ptr %pool, i64 0, i32 7
+  %fullSessionList_.i = getelementptr inbounds i8, ptr %pool, i64 88
   %2 = load i64, ptr %fullSessionList_.i, align 8
   %conv.i5 = trunc i64 %2 to i32
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call6, i32 noundef %conv.i5)
@@ -1509,7 +1417,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1538,7 +1446,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #19
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1547,7 +1455,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #19
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -1559,12 +1467,12 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #20
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #19
   resume { ptr, i32 } %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -1597,7 +1505,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #19
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -1618,21 +1526,21 @@ declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull ali
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_SessionPool.cpp() #17 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_SessionPool.cpp() #16 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1645,19 +1553,18 @@ attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind }
-attributes #21 = { builtin nounwind }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { noreturn }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -110,7 +110,7 @@ define void @_ZN3std9panicking3try8do_catch17h54122bf64f2c7bafE(ptr nocapture wr
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }
@@ -134,7 +134,7 @@ define void @_ZN3std9panicking3try8do_catch17hd640c3158327d860E(ptr nocapture wr
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }

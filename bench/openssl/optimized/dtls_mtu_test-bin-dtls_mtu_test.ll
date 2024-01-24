@@ -3,21 +3,6 @@ source_filename = "bench/openssl/original/dtls_mtu_test-bin-dtls_mtu_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.1, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.OSSL_TIME = type { i64 }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.0, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.0 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.1 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.2, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.2 = type { ptr, ptr, ptr, i64 }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
-
 @.str = private unnamed_addr constant [14 x i8] c"run_mtu_tests\00", align 1
 @.str.1 = private unnamed_addr constant [48 x i8] c"test_server_mtu_larger_than_max_fragment_length\00", align 1
 @.str.2 = private unnamed_addr constant [32 x i8] c"../openssl/test/dtls_mtu_test.c\00", align 1
@@ -49,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.33 = private unnamed_addr constant [58 x i8] c"create_ssl_connection(srvr_ssl, clnt_ssl, SSL_ERROR_NONE)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @run_mtu_tests) #6
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_server_mtu_larger_than_max_fragment_length) #6
@@ -209,8 +194,8 @@ declare ptr @DTLS_method() local_unnamed_addr #1
 
 declare void @SSL_CTX_set_psk_server_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define internal i32 @srvr_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %identity, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal noundef i32 @srvr_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %identity, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #2 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %max_psk_len, i32 20)
   %conv = zext nneg i32 %spec.store.select to i64
@@ -221,7 +206,7 @@ entry:
 declare void @SSL_CTX_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @clnt_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr noundef %ident, i32 noundef %max_ident_len, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #0 {
+define internal noundef i32 @clnt_psk_callback(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr noundef %ident, i32 noundef %max_ident_len, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #0 {
 entry:
   %conv = zext i32 %max_ident_len to i64
   %call = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %ident, i64 noundef %conv, ptr noundef nonnull @.str.12) #6
@@ -338,7 +323,7 @@ for.end:                                          ; preds = %for.cond
   %10 = load ptr, ptr %clnt_ssl, align 8
   %call50 = call i64 @SSL_ctrl(ptr noundef %10, i32 noundef 17, i64 noundef 1000, ptr noundef null) #6
   %11 = load i64, ptr %mtus, align 16
-  %arrayidx53 = getelementptr inbounds [30 x i64], ptr %mtus, i64 0, i64 29
+  %arrayidx53 = getelementptr inbounds i8, ptr %mtus, i64 232
   %12 = load i64, ptr %arrayidx53, align 8
   %cmp54.not47 = icmp ugt i64 %11, %12
   br i1 %cmp54.not47, label %for.end117, label %for.body56
@@ -419,7 +404,7 @@ cond.end125:                                      ; preds = %for.end117, %cond.f
   br i1 %tobool128.not, label %end, label %if.end130
 
 if.end130:                                        ; preds = %cond.end125
-  %s3 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond126, i64 0, i32 20
+  %s3 = getelementptr inbounds i8, ptr %cond126, i64 280
   %23 = load i64, ptr %s3, align 8
   %and = and i64 %23, 256
   %tobool131.not = icmp eq i64 %and, 0
@@ -481,7 +466,7 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

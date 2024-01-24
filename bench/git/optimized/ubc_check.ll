@@ -10,18 +10,18 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @ubc_check(ptr noundef readonly %W, ptr nocapture noundef writeonly %dvmask) local_unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr inbounds i32, ptr %W, i64 44
+  %arrayidx = getelementptr inbounds i8, ptr %W, i64 176
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %W, i64 45
+  %arrayidx1 = getelementptr inbounds i8, ptr %W, i64 180
   %1 = load i32, ptr %arrayidx1, align 4
   %xor = xor i32 %1, %0
   %shr = lshr i32 %xor, 29
   %and = and i32 %shr, 1
   %sub = add nuw nsw i32 %and, 67108863
   %or = or i32 %sub, -42180737
-  %arrayidx3 = getelementptr inbounds i32, ptr %W, i64 49
+  %arrayidx3 = getelementptr inbounds i8, ptr %W, i64 196
   %2 = load i32, ptr %arrayidx3, align 4
-  %arrayidx4 = getelementptr inbounds i32, ptr %W, i64 50
+  %arrayidx4 = getelementptr inbounds i8, ptr %W, i64 200
   %3 = load i32, ptr %arrayidx4, align 4
   %xor5 = xor i32 %3, %2
   %shr6 = lshr i32 %xor5, 29
@@ -29,7 +29,7 @@ entry:
   %sub8 = add nsw i32 %and7, -1
   %or9 = or i32 %sub8, 1031733239
   %and10 = and i32 %or9, %or
-  %arrayidx11 = getelementptr inbounds i32, ptr %W, i64 48
+  %arrayidx11 = getelementptr inbounds i8, ptr %W, i64 192
   %4 = load i32, ptr %arrayidx11, align 4
   %xor13 = xor i32 %4, %2
   %shr14 = lshr i32 %xor13, 29
@@ -37,7 +37,7 @@ entry:
   %sub16 = add nuw i32 %and15, 2147483647
   %or17 = or i32 %sub16, -1621131269
   %and18 = and i32 %and10, %or17
-  %arrayidx19 = getelementptr inbounds i32, ptr %W, i64 47
+  %arrayidx19 = getelementptr inbounds i8, ptr %W, i64 188
   %5 = load i32, ptr %arrayidx19, align 4
   %shr21 = lshr i32 %3, 25
   %xor22 = xor i32 %5, %shr21
@@ -50,7 +50,7 @@ entry:
   %and31 = and i32 %shr30, 1
   %sub32 = add nuw nsw i32 %and31, 1073741823
   %or33 = or i32 %sub32, -808460291
-  %arrayidx35 = getelementptr inbounds i32, ptr %W, i64 46
+  %arrayidx35 = getelementptr inbounds i8, ptr %W, i64 184
   %6 = load i32, ptr %arrayidx35, align 4
   %shr36 = lshr i32 %6, 4
   %shr38 = lshr i32 %2, 29
@@ -80,7 +80,7 @@ entry:
   %and74 = and i32 %xor73, 1
   %sub75 = add nuw nsw i32 %and74, 536870911
   %or76 = or i32 %sub75, -269486219
-  %arrayidx78 = getelementptr inbounds i32, ptr %W, i64 43
+  %arrayidx78 = getelementptr inbounds i8, ptr %W, i64 172
   %7 = load i32, ptr %arrayidx78, align 4
   %shr79 = lshr i32 %7, 4
   %shr81 = lshr i32 %6, 29
@@ -93,7 +93,7 @@ entry:
   %and91 = and i32 %shr90, 1
   %sub92 = add nuw nsw i32 %and91, 16777215
   %or93 = or i32 %sub92, -10561569
-  %arrayidx95 = getelementptr inbounds i32, ptr %W, i64 42
+  %arrayidx95 = getelementptr inbounds i8, ptr %W, i64 168
   %8 = load i32, ptr %arrayidx95, align 4
   %shr96 = lshr i32 %8, 4
   %shr98 = lshr i32 %1, 29
@@ -101,7 +101,7 @@ entry:
   %and100 = and i32 %xor99, 1
   %sub101 = add nuw nsw i32 %and100, 67108863
   %or102 = or i32 %sub101, -33718411
-  %arrayidx104 = getelementptr inbounds i32, ptr %W, i64 41
+  %arrayidx104 = getelementptr inbounds i8, ptr %W, i64 164
   %9 = load i32, ptr %arrayidx104, align 4
   %shr105 = lshr i32 %9, 4
   %shr107 = lshr i32 %0, 29
@@ -109,30 +109,30 @@ entry:
   %and109 = and i32 %xor108, 1
   %sub110 = add nuw nsw i32 %and109, 16777215
   %or111 = or i32 %sub110, -8462374
-  %arrayidx113 = getelementptr inbounds i32, ptr %W, i64 40
+  %arrayidx113 = getelementptr inbounds i8, ptr %W, i64 160
   %10 = load i32, ptr %arrayidx113, align 4
   %xor115 = xor i32 %10, %9
   %shr116 = lshr i32 %xor115, 29
   %and117 = and i32 %shr116, 1
   %sub118 = add nsw i32 %and117, -1
   %or119 = or i32 %sub118, 2146828125
-  %arrayidx121 = getelementptr inbounds i32, ptr %W, i64 54
+  %arrayidx121 = getelementptr inbounds i8, ptr %W, i64 216
   %11 = load i32, ptr %arrayidx121, align 4
-  %arrayidx122 = getelementptr inbounds i32, ptr %W, i64 55
+  %arrayidx122 = getelementptr inbounds i8, ptr %W, i64 220
   %12 = load i32, ptr %arrayidx122, align 4
   %xor123 = xor i32 %12, %11
   %shr124 = lshr i32 %xor123, 29
   %and125 = and i32 %shr124, 1
   %sub126 = add nsw i32 %and125, -1
   %or127 = or i32 %sub126, 1064820735
-  %arrayidx129 = getelementptr inbounds i32, ptr %W, i64 53
+  %arrayidx129 = getelementptr inbounds i8, ptr %W, i64 212
   %13 = load i32, ptr %arrayidx129, align 4
   %xor131 = xor i32 %13, %11
   %shr132 = lshr i32 %xor131, 29
   %and133 = and i32 %shr132, 1
   %sub134 = add nuw i32 %and133, 2147483647
   %or135 = or i32 %sub134, -1612843009
-  %arrayidx137 = getelementptr inbounds i32, ptr %W, i64 52
+  %arrayidx137 = getelementptr inbounds i8, ptr %W, i64 208
   %14 = load i32, ptr %arrayidx137, align 4
   %xor139 = xor i32 %14, %13
   %shr140 = lshr i32 %xor139, 29
@@ -144,7 +144,7 @@ entry:
   %and149 = and i32 %xor148, 16
   %sub150 = add nuw nsw i32 %and149, 1073741808
   %or151 = or i32 %sub150, -538085377
-  %arrayidx154 = getelementptr inbounds i32, ptr %W, i64 51
+  %arrayidx154 = getelementptr inbounds i8, ptr %W, i64 204
   %15 = load i32, ptr %arrayidx154, align 4
   %xor155 = xor i32 %15, %3
   %shr156 = lshr i32 %xor155, 29
@@ -198,7 +198,7 @@ entry:
   %and184 = and i32 %and176, %or167
   %and192 = and i32 %and184, %or159
   %and201 = and i32 %and192, %or175
-  %arrayidx202 = getelementptr inbounds i32, ptr %W, i64 39
+  %arrayidx202 = getelementptr inbounds i8, ptr %W, i64 156
   %16 = load i32, ptr %arrayidx202, align 4
   %shr203 = lshr i32 %16, 4
   %shr205 = lshr i32 %8, 29
@@ -212,7 +212,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx212 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx212 = getelementptr inbounds i8, ptr %W, i64 152
   %17 = load i32, ptr %arrayidx212, align 4
   %shr213 = lshr i32 %17, 4
   %shr215 = lshr i32 %9, 29
@@ -225,7 +225,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %mask.0 = phi i32 [ %and220, %if.then ], [ %and210, %entry ]
-  %arrayidx221 = getelementptr inbounds i32, ptr %W, i64 37
+  %arrayidx221 = getelementptr inbounds i8, ptr %W, i64 148
   %18 = load i32, ptr %arrayidx221, align 4
   %shr222 = lshr i32 %18, 4
   %shr224 = lshr i32 %10, 29
@@ -239,7 +239,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool231.not, label %if.end241, label %if.then232
 
 if.then232:                                       ; preds = %if.end
-  %arrayidx234 = getelementptr inbounds i32, ptr %W, i64 56
+  %arrayidx234 = getelementptr inbounds i8, ptr %W, i64 224
   %19 = load i32, ptr %arrayidx234, align 4
   %xor235 = xor i32 %19, %12
   %shr236 = lshr i32 %xor235, 29
@@ -301,7 +301,7 @@ if.end277:                                        ; preds = %if.then268, %if.end
   br i1 %tobool279.not, label %if.end290, label %if.then280
 
 if.then280:                                       ; preds = %if.end277
-  %arrayidx281 = getelementptr inbounds i32, ptr %W, i64 36
+  %arrayidx281 = getelementptr inbounds i8, ptr %W, i64 144
   %20 = load i32, ptr %arrayidx281, align 4
   %shr282 = lshr i32 %20, 4
   %xor285 = xor i32 %shr282, %shr224
@@ -318,7 +318,7 @@ if.end290:                                        ; preds = %if.then280, %if.end
   br i1 %tobool292.not, label %if.end302, label %if.then293
 
 if.then293:                                       ; preds = %if.end290
-  %arrayidx295 = getelementptr inbounds i32, ptr %W, i64 56
+  %arrayidx295 = getelementptr inbounds i8, ptr %W, i64 224
   %21 = load i32, ptr %arrayidx295, align 4
   %xor296 = xor i32 %21, %13
   %22 = shl i32 %xor296, 2
@@ -489,7 +489,7 @@ if.end461:                                        ; preds = %if.then452, %if.end
   br i1 %tobool463.not, label %if.end473, label %if.then464
 
 if.then464:                                       ; preds = %if.end461
-  %arrayidx465 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx465 = getelementptr inbounds i8, ptr %W, i64 152
   %48 = load i32, ptr %arrayidx465, align 4
   %xor467 = xor i32 %48, %10
   %49 = shl i32 %xor467, 27
@@ -514,7 +514,7 @@ if.then476:                                       ; preds = %if.end473
 
 if.end485:                                        ; preds = %if.then476, %if.end473
   %mask.18 = phi i32 [ %and484, %if.then476 ], [ %mask.17, %if.end473 ]
-  %arrayidx486 = getelementptr inbounds i32, ptr %W, i64 36
+  %arrayidx486 = getelementptr inbounds i8, ptr %W, i64 144
   %53 = load i32, ptr %arrayidx486, align 4
   %shr488 = lshr i32 %18, 5
   %xor489 = xor i32 %53, %shr488
@@ -527,7 +527,7 @@ if.end485:                                        ; preds = %if.then476, %if.end
   br i1 %tobool495.not, label %if.end506, label %if.then496
 
 if.then496:                                       ; preds = %if.end485
-  %arrayidx497 = getelementptr inbounds i32, ptr %W, i64 35
+  %arrayidx497 = getelementptr inbounds i8, ptr %W, i64 140
   %54 = load i32, ptr %arrayidx497, align 4
   %shr498 = lshr i32 %54, 4
   %shr500 = lshr i32 %16, 29
@@ -545,9 +545,9 @@ if.end506:                                        ; preds = %if.then496, %if.end
   br i1 %tobool508.not, label %if.end518, label %if.then509
 
 if.then509:                                       ; preds = %if.end506
-  %arrayidx510 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx510 = getelementptr inbounds i8, ptr %W, i64 252
   %55 = load i32, ptr %arrayidx510, align 4
-  %arrayidx511 = getelementptr inbounds i32, ptr %W, i64 64
+  %arrayidx511 = getelementptr inbounds i8, ptr %W, i64 256
   %56 = load i32, ptr %arrayidx511, align 4
   %shr512 = lshr i32 %56, 5
   %xor513 = xor i32 %shr512, %55
@@ -564,9 +564,9 @@ if.end518:                                        ; preds = %if.then509, %if.end
   br i1 %tobool520.not, label %if.end530, label %if.then521
 
 if.then521:                                       ; preds = %if.end518
-  %arrayidx522 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx522 = getelementptr inbounds i8, ptr %W, i64 252
   %57 = load i32, ptr %arrayidx522, align 4
-  %arrayidx523 = getelementptr inbounds i32, ptr %W, i64 64
+  %arrayidx523 = getelementptr inbounds i8, ptr %W, i64 256
   %58 = load i32, ptr %arrayidx523, align 4
   %shr524 = lshr i32 %58, 5
   %xor525 = xor i32 %shr524, %57
@@ -583,9 +583,9 @@ if.end530:                                        ; preds = %if.then521, %if.end
   br i1 %tobool532.not, label %if.end542, label %if.then533
 
 if.then533:                                       ; preds = %if.end530
-  %arrayidx534 = getelementptr inbounds i32, ptr %W, i64 62
+  %arrayidx534 = getelementptr inbounds i8, ptr %W, i64 248
   %59 = load i32, ptr %arrayidx534, align 4
-  %arrayidx535 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx535 = getelementptr inbounds i8, ptr %W, i64 252
   %60 = load i32, ptr %arrayidx535, align 4
   %shr536 = lshr i32 %60, 5
   %xor537 = xor i32 %shr536, %59
@@ -599,9 +599,9 @@ if.end542:                                        ; preds = %if.then533, %if.end
   %mask.22 = phi i32 [ %and541, %if.then533 ], [ %mask.21, %if.end530 ]
   %and543 = and i32 %mask.22, 131080
   %tobool544.not = icmp eq i32 %and543, 0
-  %arrayidx555.phi.trans.insert = getelementptr inbounds i32, ptr %W, i64 61
+  %arrayidx555.phi.trans.insert = getelementptr inbounds i8, ptr %W, i64 244
   %.pre = load i32, ptr %arrayidx555.phi.trans.insert, align 4
-  %arrayidx556.phi.trans.insert = getelementptr inbounds i32, ptr %W, i64 62
+  %arrayidx556.phi.trans.insert = getelementptr inbounds i8, ptr %W, i64 248
   %.pre495 = load i32, ptr %arrayidx556.phi.trans.insert, align 4
   %.pre496 = lshr i32 %.pre495, 5
   %.pre497 = xor i32 %.pre496, %.pre
@@ -619,7 +619,7 @@ if.end542:                                        ; preds = %if.then533, %if.end
   br i1 %tobool564.not, label %if.end574, label %if.then565
 
 if.then565:                                       ; preds = %if.end542
-  %arrayidx566 = getelementptr inbounds i32, ptr %W, i64 60
+  %arrayidx566 = getelementptr inbounds i8, ptr %W, i64 240
   %62 = load i32, ptr %arrayidx566, align 4
   %shr568 = lshr i32 %.pre, 5
   %xor569 = xor i32 %62, %shr568
@@ -636,9 +636,9 @@ if.end574:                                        ; preds = %if.then565, %if.end
   br i1 %tobool576.not, label %if.end586, label %if.then577
 
 if.then577:                                       ; preds = %if.end574
-  %arrayidx578 = getelementptr inbounds i32, ptr %W, i64 58
+  %arrayidx578 = getelementptr inbounds i8, ptr %W, i64 232
   %63 = load i32, ptr %arrayidx578, align 4
-  %arrayidx579 = getelementptr inbounds i32, ptr %W, i64 59
+  %arrayidx579 = getelementptr inbounds i8, ptr %W, i64 236
   %64 = load i32, ptr %arrayidx579, align 4
   %xor580 = xor i32 %64, %63
   %shr581 = lshr i32 %xor580, 29
@@ -655,9 +655,9 @@ if.end586:                                        ; preds = %if.then577, %if.end
   br i1 %tobool588.not, label %if.end598, label %if.then589
 
 if.then589:                                       ; preds = %if.end586
-  %arrayidx590 = getelementptr inbounds i32, ptr %W, i64 57
+  %arrayidx590 = getelementptr inbounds i8, ptr %W, i64 228
   %65 = load i32, ptr %arrayidx590, align 4
-  %arrayidx591 = getelementptr inbounds i32, ptr %W, i64 58
+  %arrayidx591 = getelementptr inbounds i8, ptr %W, i64 232
   %66 = load i32, ptr %arrayidx591, align 4
   %xor592 = xor i32 %66, %65
   %shr593 = lshr i32 %xor592, 29
@@ -674,9 +674,9 @@ if.end598:                                        ; preds = %if.then589, %if.end
   br i1 %tobool600.not, label %if.end610, label %if.then601
 
 if.then601:                                       ; preds = %if.end598
-  %arrayidx602 = getelementptr inbounds i32, ptr %W, i64 56
+  %arrayidx602 = getelementptr inbounds i8, ptr %W, i64 224
   %67 = load i32, ptr %arrayidx602, align 4
-  %arrayidx603 = getelementptr inbounds i32, ptr %W, i64 59
+  %arrayidx603 = getelementptr inbounds i8, ptr %W, i64 236
   %68 = load i32, ptr %arrayidx603, align 4
   %shr604 = lshr i32 %68, 25
   %xor605 = xor i32 %shr604, %67
@@ -693,9 +693,9 @@ if.end610:                                        ; preds = %if.then601, %if.end
   br i1 %tobool612.not, label %if.end622, label %if.then613
 
 if.then613:                                       ; preds = %if.end610
-  %arrayidx614 = getelementptr inbounds i32, ptr %W, i64 56
+  %arrayidx614 = getelementptr inbounds i8, ptr %W, i64 224
   %69 = load i32, ptr %arrayidx614, align 4
-  %arrayidx615 = getelementptr inbounds i32, ptr %W, i64 59
+  %arrayidx615 = getelementptr inbounds i8, ptr %W, i64 236
   %70 = load i32, ptr %arrayidx615, align 4
   %xor616 = xor i32 %70, %69
   %71 = shl i32 %xor616, 2
@@ -711,9 +711,9 @@ if.end622:                                        ; preds = %if.then613, %if.end
   br i1 %tobool624.not, label %if.end634, label %if.then625
 
 if.then625:                                       ; preds = %if.end622
-  %arrayidx626 = getelementptr inbounds i32, ptr %W, i64 56
+  %arrayidx626 = getelementptr inbounds i8, ptr %W, i64 224
   %73 = load i32, ptr %arrayidx626, align 4
-  %arrayidx627 = getelementptr inbounds i32, ptr %W, i64 57
+  %arrayidx627 = getelementptr inbounds i8, ptr %W, i64 228
   %74 = load i32, ptr %arrayidx627, align 4
   %xor628 = xor i32 %74, %73
   %shr629 = lshr i32 %xor628, 29
@@ -730,7 +730,7 @@ if.end634:                                        ; preds = %if.then625, %if.end
   br i1 %tobool636.not, label %if.end646, label %if.then637
 
 if.then637:                                       ; preds = %if.end634
-  %arrayidx639 = getelementptr inbounds i32, ptr %W, i64 58
+  %arrayidx639 = getelementptr inbounds i8, ptr %W, i64 232
   %75 = load i32, ptr %arrayidx639, align 4
   %shr640 = lshr i32 %75, 25
   %xor641 = xor i32 %shr640, %12
@@ -747,7 +747,7 @@ if.end646:                                        ; preds = %if.then637, %if.end
   br i1 %tobool648.not, label %if.end658, label %if.then649
 
 if.then649:                                       ; preds = %if.end646
-  %arrayidx651 = getelementptr inbounds i32, ptr %W, i64 57
+  %arrayidx651 = getelementptr inbounds i8, ptr %W, i64 228
   %76 = load i32, ptr %arrayidx651, align 4
   %shr652 = lshr i32 %76, 25
   %xor653 = xor i32 %shr652, %11
@@ -764,7 +764,7 @@ if.end658:                                        ; preds = %if.then649, %if.end
   br i1 %tobool660.not, label %if.end670, label %if.then661
 
 if.then661:                                       ; preds = %if.end658
-  %arrayidx663 = getelementptr inbounds i32, ptr %W, i64 56
+  %arrayidx663 = getelementptr inbounds i8, ptr %W, i64 224
   %77 = load i32, ptr %arrayidx663, align 4
   %shr664 = lshr i32 %77, 25
   %xor665 = xor i32 %shr664, %13
@@ -874,7 +874,7 @@ if.end786:                                        ; preds = %if.then777, %if.end
   br i1 %tobool788.not, label %if.end798, label %if.then789
 
 if.then789:                                       ; preds = %if.end786
-  %arrayidx790 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx790 = getelementptr inbounds i8, ptr %W, i64 152
   %86 = load i32, ptr %arrayidx790, align 4
   %shr792 = lshr i32 %8, 25
   %xor793 = xor i32 %86, %shr792
@@ -891,7 +891,7 @@ if.end798:                                        ; preds = %if.then789, %if.end
   br i1 %tobool800.not, label %if.end810, label %if.then801
 
 if.then801:                                       ; preds = %if.end798
-  %arrayidx803 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx803 = getelementptr inbounds i8, ptr %W, i64 152
   %87 = load i32, ptr %arrayidx803, align 4
   %shr804 = lshr i32 %87, 5
   %xor805 = xor i32 %shr804, %18
@@ -923,7 +923,7 @@ if.end822:                                        ; preds = %if.then813, %if.end
   br i1 %tobool824.not, label %if.end833, label %if.then825
 
 if.then825:                                       ; preds = %if.end822
-  %arrayidx827 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx827 = getelementptr inbounds i8, ptr %W, i64 152
   %88 = load i32, ptr %arrayidx827, align 4
   %xor828 = xor i32 %88, %53
   %and829 = and i32 %xor828, 16
@@ -934,7 +934,7 @@ if.then825:                                       ; preds = %if.end822
 
 if.end833:                                        ; preds = %if.then825, %if.end822
   %mask.38 = phi i32 [ %and832, %if.then825 ], [ %mask.37, %if.end822 ]
-  %arrayidx834 = getelementptr inbounds i32, ptr %W, i64 35
+  %arrayidx834 = getelementptr inbounds i8, ptr %W, i64 140
   %89 = load i32, ptr %arrayidx834, align 4
   %shr836 = lshr i32 %53, 5
   %xor837 = xor i32 %89, %shr836
@@ -971,9 +971,9 @@ if.then858:                                       ; preds = %if.then855
   br i1 %tobool864.not, label %if.then878, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then858
-  %arrayidx865 = getelementptr inbounds i32, ptr %W, i64 59
+  %arrayidx865 = getelementptr inbounds i8, ptr %W, i64 236
   %90 = load i32, ptr %arrayidx865, align 4
-  %arrayidx866 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx866 = getelementptr inbounds i8, ptr %W, i64 252
   %91 = load i32, ptr %arrayidx866, align 4
   %shr867 = lshr i32 %91, 25
   %xor868 = xor i32 %shr867, %90
@@ -982,7 +982,7 @@ lor.lhs.false:                                    ; preds = %if.then858
   br i1 %tobool870.not, label %lor.lhs.false871, label %if.then878
 
 lor.lhs.false871:                                 ; preds = %lor.lhs.false
-  %arrayidx872 = getelementptr inbounds i32, ptr %W, i64 58
+  %arrayidx872 = getelementptr inbounds i8, ptr %W, i64 232
   %92 = load i32, ptr %arrayidx872, align 4
   %shr874 = lshr i32 %91, 30
   %xor875 = xor i32 %92, %shr874
@@ -1001,7 +1001,7 @@ if.end881:                                        ; preds = %lor.lhs.false871, %
   br i1 %tobool883.not, label %if.end908, label %if.then884
 
 if.then884:                                       ; preds = %if.end881
-  %arrayidx886 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx886 = getelementptr inbounds i8, ptr %W, i64 252
   %93 = load i32, ptr %arrayidx886, align 4
   %shr887 = lshr i32 %93, 5
   %xor888 = xor i32 %shr887, %.pre495
@@ -1010,9 +1010,9 @@ if.then884:                                       ; preds = %if.end881
   br i1 %tobool890.not, label %if.then905, label %lor.lhs.false891
 
 lor.lhs.false891:                                 ; preds = %if.then884
-  %arrayidx892 = getelementptr inbounds i32, ptr %W, i64 60
+  %arrayidx892 = getelementptr inbounds i8, ptr %W, i64 240
   %94 = load i32, ptr %arrayidx892, align 4
-  %arrayidx893 = getelementptr inbounds i32, ptr %W, i64 64
+  %arrayidx893 = getelementptr inbounds i8, ptr %W, i64 256
   %95 = load i32, ptr %arrayidx893, align 4
   %shr894 = lshr i32 %95, 25
   %xor895 = xor i32 %shr894, %94
@@ -1021,7 +1021,7 @@ lor.lhs.false891:                                 ; preds = %if.then884
   br i1 %tobool897.not, label %lor.lhs.false898, label %if.then905
 
 lor.lhs.false898:                                 ; preds = %lor.lhs.false891
-  %arrayidx899 = getelementptr inbounds i32, ptr %W, i64 59
+  %arrayidx899 = getelementptr inbounds i8, ptr %W, i64 236
   %96 = load i32, ptr %arrayidx899, align 4
   %shr901 = lshr i32 %95, 30
   %xor902 = xor i32 %96, %shr901
@@ -1054,7 +1054,7 @@ if.end918:                                        ; preds = %if.then911, %if.end
   br i1 %tobool920.not, label %if.end937, label %if.then921
 
 if.then921:                                       ; preds = %if.end918
-  %arrayidx923 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx923 = getelementptr inbounds i8, ptr %W, i64 252
   %97 = load i32, ptr %arrayidx923, align 4
   %shr924 = lshr i32 %97, 5
   %xor925 = xor i32 %shr924, %.pre495
@@ -1079,9 +1079,9 @@ if.end937:                                        ; preds = %lor.lhs.false928, %
   br i1 %tobool939.not, label %if.end956, label %if.then940
 
 if.then940:                                       ; preds = %if.end937
-  %arrayidx941 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx941 = getelementptr inbounds i8, ptr %W, i64 252
   %98 = load i32, ptr %arrayidx941, align 4
-  %arrayidx942 = getelementptr inbounds i32, ptr %W, i64 64
+  %arrayidx942 = getelementptr inbounds i8, ptr %W, i64 256
   %99 = load i32, ptr %arrayidx942, align 4
   %shr943 = lshr i32 %99, 5
   %xor944 = xor i32 %shr943, %98
@@ -1127,7 +1127,7 @@ lor.lhs.false972:                                 ; preds = %lor.lhs.false966
   br i1 %tobool978.not, label %lor.lhs.false979, label %if.then985
 
 lor.lhs.false979:                                 ; preds = %lor.lhs.false972
-  %arrayidx980 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx980 = getelementptr inbounds i8, ptr %W, i64 152
   %100 = load i32, ptr %arrayidx980, align 4
   %xor982 = xor i32 %100, %10
   %and983 = and i32 %xor982, 2
@@ -1159,7 +1159,7 @@ if.end988:                                        ; preds = %lor.lhs.false979, %
   br i1 %tobool1010.not, label %if.end1018, label %if.then1011
 
 if.then1011:                                      ; preds = %if.end988
-  %arrayidx1013 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx1013 = getelementptr inbounds i8, ptr %W, i64 152
   %102 = load i32, ptr %arrayidx1013, align 4
   %xor1014 = xor i32 %102, %18
   %shl1015 = shl i32 %xor1014, 9
@@ -1210,7 +1210,7 @@ if.end1051:                                       ; preds = %lor.lhs.false1041, 
   br i1 %tobool1053.not, label %if.end1061, label %if.then1054
 
 if.then1054:                                      ; preds = %if.end1051
-  %arrayidx1055 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx1055 = getelementptr inbounds i8, ptr %W, i64 152
   %103 = load i32, ptr %arrayidx1055, align 4
   %xor1057 = xor i32 %103, %16
   %shl1058 = shl i32 %xor1057, 11
@@ -1330,7 +1330,7 @@ if.end1157:                                       ; preds = %lor.lhs.false1147, 
   br i1 %tobool1159.not, label %if.end1183, label %if.then1160
 
 if.then1160:                                      ; preds = %if.end1157
-  %arrayidx1162 = getelementptr inbounds i32, ptr %W, i64 58
+  %arrayidx1162 = getelementptr inbounds i8, ptr %W, i64 232
   %104 = load i32, ptr %arrayidx1162, align 4
   %xor1163 = xor i32 %104, %12
   %and1164 = and i32 %xor1163, 536870912
@@ -1338,7 +1338,7 @@ if.then1160:                                      ; preds = %if.end1157
   br i1 %tobool1165.not, label %if.then1180, label %lor.lhs.false1166
 
 lor.lhs.false1166:                                ; preds = %if.then1160
-  %arrayidx1167 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx1167 = getelementptr inbounds i8, ptr %W, i64 152
   %105 = load i32, ptr %arrayidx1167, align 4
   %shr1169 = lshr i32 %8, 25
   %xor1170 = xor i32 %105, %shr1169
@@ -1386,7 +1386,7 @@ lor.lhs.false1199:                                ; preds = %lor.lhs.false1193
   br i1 %or.cond493, label %if.then1225, label %lor.lhs.false1211
 
 lor.lhs.false1211:                                ; preds = %lor.lhs.false1199
-  %arrayidx1212 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx1212 = getelementptr inbounds i8, ptr %W, i64 152
   %106 = load i32, ptr %arrayidx1212, align 4
   %shr1214 = lshr i32 %8, 25
   %xor1215 = xor i32 %106, %shr1214
@@ -1419,7 +1419,7 @@ if.then1231:                                      ; preds = %if.end1228
   br i1 %tobool1237.not, label %lor.lhs.false1238, label %if.then1245
 
 lor.lhs.false1238:                                ; preds = %if.then1231
-  %arrayidx1239 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx1239 = getelementptr inbounds i8, ptr %W, i64 152
   %107 = load i32, ptr %arrayidx1239, align 4
   %shl1241 = shl i32 %7, 2
   %xor1242 = xor i32 %107, %shl1241
@@ -1438,7 +1438,7 @@ if.end1248:                                       ; preds = %lor.lhs.false1238, 
   br i1 %tobool1250.not, label %if.end1293, label %if.then1251
 
 if.then1251:                                      ; preds = %if.end1248
-  %arrayidx1253 = getelementptr inbounds i32, ptr %W, i64 56
+  %arrayidx1253 = getelementptr inbounds i8, ptr %W, i64 224
   %108 = load i32, ptr %arrayidx1253, align 4
   %shl1254 = shl i32 %108, 5
   %xor1255 = xor i32 %shl1254, %12
@@ -1469,7 +1469,7 @@ lor.lhs.false1276:                                ; preds = %lor.lhs.false1264
   br i1 %tobool1282.not, label %lor.lhs.false1283, label %if.then1290
 
 lor.lhs.false1283:                                ; preds = %lor.lhs.false1276
-  %arrayidx1284 = getelementptr inbounds i32, ptr %W, i64 38
+  %arrayidx1284 = getelementptr inbounds i8, ptr %W, i64 152
   %109 = load i32, ptr %arrayidx1284, align 4
   %shr1286 = lshr i32 %7, 30
   %xor1287 = xor i32 %109, %shr1286
@@ -1488,9 +1488,9 @@ if.end1293:                                       ; preds = %lor.lhs.false1283, 
   br i1 %tobool1295.not, label %if.end1326, label %if.then1296
 
 if.then1296:                                      ; preds = %if.end1293
-  %arrayidx1297 = getelementptr inbounds i32, ptr %W, i64 59
+  %arrayidx1297 = getelementptr inbounds i8, ptr %W, i64 236
   %110 = load i32, ptr %arrayidx1297, align 4
-  %arrayidx1298 = getelementptr inbounds i32, ptr %W, i64 60
+  %arrayidx1298 = getelementptr inbounds i8, ptr %W, i64 240
   %111 = load i32, ptr %arrayidx1298, align 4
   %xor1299 = xor i32 %111, %110
   %and1300 = and i32 %xor1299, 536870912
@@ -1522,7 +1522,7 @@ if.end1326:                                       ; preds = %lor.lhs.false1316, 
   br i1 %tobool1328.not, label %if.end1359, label %if.then1329
 
 if.then1329:                                      ; preds = %if.end1326
-  %arrayidx1330 = getelementptr inbounds i32, ptr %W, i64 58
+  %arrayidx1330 = getelementptr inbounds i8, ptr %W, i64 232
   %113 = load i32, ptr %arrayidx1330, align 4
   %xor1332 = xor i32 %113, %.pre
   %and1333 = and i32 %xor1332, 536870912
@@ -1530,7 +1530,7 @@ if.then1329:                                      ; preds = %if.end1326
   br i1 %tobool1334.not, label %if.then1356, label %lor.lhs.false1335
 
 lor.lhs.false1335:                                ; preds = %if.then1329
-  %arrayidx1336 = getelementptr inbounds i32, ptr %W, i64 57
+  %arrayidx1336 = getelementptr inbounds i8, ptr %W, i64 228
   %114 = load i32, ptr %arrayidx1336, align 4
   %shr1338 = lshr i32 %.pre, 25
   %xor1339 = xor i32 %114, %shr1338
@@ -1556,7 +1556,7 @@ if.end1359:                                       ; preds = %lor.lhs.false1342, 
   br i1 %tobool1361.not, label %if.end1386, label %if.then1362
 
 if.then1362:                                      ; preds = %if.end1359
-  %arrayidx1363 = getelementptr inbounds i32, ptr %W, i64 58
+  %arrayidx1363 = getelementptr inbounds i8, ptr %W, i64 232
   %116 = load i32, ptr %arrayidx1363, align 4
   %shr1365 = lshr i32 %.pre495, 25
   %xor1366 = xor i32 %116, %shr1365
@@ -1582,9 +1582,9 @@ if.end1386:                                       ; preds = %lor.lhs.false1369, 
   br i1 %tobool1388.not, label %if.end1420, label %if.then1389
 
 if.then1389:                                      ; preds = %if.end1386
-  %arrayidx1390 = getelementptr inbounds i32, ptr %W, i64 59
+  %arrayidx1390 = getelementptr inbounds i8, ptr %W, i64 236
   %118 = load i32, ptr %arrayidx1390, align 4
-  %arrayidx1391 = getelementptr inbounds i32, ptr %W, i64 63
+  %arrayidx1391 = getelementptr inbounds i8, ptr %W, i64 252
   %119 = load i32, ptr %arrayidx1391, align 4
   %shr1392 = lshr i32 %119, 25
   %xor1393 = xor i32 %shr1392, %118
@@ -1593,7 +1593,7 @@ if.then1389:                                      ; preds = %if.end1386
   br i1 %tobool1395.not, label %lor.lhs.false1396, label %if.then1417
 
 lor.lhs.false1396:                                ; preds = %if.then1389
-  %arrayidx1397 = getelementptr inbounds i32, ptr %W, i64 57
+  %arrayidx1397 = getelementptr inbounds i8, ptr %W, i64 228
   %120 = load i32, ptr %arrayidx1397, align 4
   %shr1399 = lshr i32 %118, 25
   %xor1400 = xor i32 %120, %shr1399
@@ -1618,9 +1618,9 @@ if.end1420:                                       ; preds = %lor.lhs.false1403, 
   br i1 %tobool1422.not, label %if.end1448, label %if.then1423
 
 if.then1423:                                      ; preds = %if.end1420
-  %arrayidx1424 = getelementptr inbounds i32, ptr %W, i64 60
+  %arrayidx1424 = getelementptr inbounds i8, ptr %W, i64 240
   %122 = load i32, ptr %arrayidx1424, align 4
-  %arrayidx1425 = getelementptr inbounds i32, ptr %W, i64 64
+  %arrayidx1425 = getelementptr inbounds i8, ptr %W, i64 256
   %123 = load i32, ptr %arrayidx1425, align 4
   %shr1426 = lshr i32 %123, 25
   %xor1427 = xor i32 %shr1426, %122

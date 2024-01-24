@@ -11,7 +11,7 @@ define hidden void @OBJ_NAME_do_all_sorted(i32 noundef %type, ptr noundef %callb
 entry:
   %wrapped = alloca %struct.wrapped_callback, align 8
   store ptr %callback, ptr %wrapped, align 8
-  %arg2 = getelementptr inbounds %struct.wrapped_callback, ptr %wrapped, i64 0, i32 1
+  %arg2 = getelementptr inbounds i8, ptr %wrapped, i64 8
   store ptr %arg, ptr %arg2, align 8
   switch i32 %type, label %if.end6 [
     i32 2, label %if.then
@@ -38,10 +38,10 @@ entry:
   %obj_name = alloca %struct.obj_name_st, align 8
   store i64 0, ptr %obj_name, align 8
   store i32 2, ptr %obj_name, align 8
-  %name1 = getelementptr inbounds %struct.obj_name_st, ptr %obj_name, i64 0, i32 1
+  %name1 = getelementptr inbounds i8, ptr %obj_name, i64 8
   store ptr %name, ptr %name1, align 8
   %0 = load ptr, ptr %arg, align 8
-  %arg2 = getelementptr inbounds %struct.wrapped_callback, ptr %arg, i64 0, i32 1
+  %arg2 = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %arg2, align 8
   call void %0(ptr noundef nonnull %obj_name, ptr noundef %1) #3
   ret void
@@ -55,10 +55,10 @@ entry:
   %obj_name = alloca %struct.obj_name_st, align 8
   store i64 0, ptr %obj_name, align 8
   store i32 1, ptr %obj_name, align 8
-  %name1 = getelementptr inbounds %struct.obj_name_st, ptr %obj_name, i64 0, i32 1
+  %name1 = getelementptr inbounds i8, ptr %obj_name, i64 8
   store ptr %name, ptr %name1, align 8
   %0 = load ptr, ptr %arg, align 8
-  %arg2 = getelementptr inbounds %struct.wrapped_callback, ptr %arg, i64 0, i32 1
+  %arg2 = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %arg2, align 8
   call void %0(ptr noundef nonnull %obj_name, ptr noundef %1) #3
   ret void
@@ -70,7 +70,7 @@ entry:
   %wrapped.i = alloca %struct.wrapped_callback, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %wrapped.i)
   store ptr %callback, ptr %wrapped.i, align 8
-  %arg2.i = getelementptr inbounds %struct.wrapped_callback, ptr %wrapped.i, i64 0, i32 1
+  %arg2.i = getelementptr inbounds i8, ptr %wrapped.i, i64 8
   store ptr %arg, ptr %arg2.i, align 8
   switch i32 %type, label %OBJ_NAME_do_all_sorted.exit [
     i32 2, label %if.then.i

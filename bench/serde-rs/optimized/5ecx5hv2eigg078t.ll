@@ -13,7 +13,7 @@ define noundef align 8 ptr @_ZN22serde_derive_internals9internals7ungroup17hf44f
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.03 = phi ptr [ %6, %.lr.ph ], [ %0, %1 ]
-  %5 = getelementptr inbounds { [1 x i64], { ptr, i32 } }, ptr %.03, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %.03, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !6, !align !7, !noundef !6
   %7 = load i64, ptr %6, align 8, !range !5, !noundef !6
   %8 = icmp eq i64 %7, 4

@@ -4,12 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_pkey_asn1_method_st = type { i32, [9 x i8], i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dsa_st = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
 
 @dsa_asn1_meth = hidden constant %struct.evp_pkey_asn1_method_st { i32 116, [9 x i8] c"*\86H\CE8\04\01\00\00", i8 7, ptr @dsa_pub_decode, ptr @dsa_pub_encode, ptr @dsa_pub_cmp, ptr @dsa_priv_decode, ptr @dsa_priv_encode, ptr null, ptr null, ptr @int_dsa_size, ptr @dsa_bits, ptr @dsa_missing_parameters, ptr @dsa_copy_parameters, ptr @dsa_cmp_parameters, ptr @int_dsa_free }, align 8
 @.str = private unnamed_addr constant [127 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/p_dsa_asn1.c\00", align 1
@@ -39,7 +34,7 @@ lor.lhs.false:                                    ; preds = %if.else
 if.end10:                                         ; preds = %lor.lhs.false, %if.then
   %dsa.0 = phi ptr [ %call1, %if.then ], [ %call4, %lor.lhs.false ]
   %call11 = tail call ptr @BN_new() #3
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %dsa.0, i64 0, i32 4
+  %pub_key = getelementptr inbounds i8, ptr %dsa.0, i64 32
   store ptr %call11, ptr %pub_key, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %err, label %if.end15
@@ -81,21 +76,21 @@ entry:
   %algorithm = alloca %struct.cbb_st, align 8
   %oid = alloca %struct.cbb_st, align 8
   %key_bitstring = alloca %struct.cbb_st, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %pkey, align 8
-  %p = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %p, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %q = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %q, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %g = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 3
+  %g = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %g, align 8
   %cmp2 = icmp ne ptr %3, null
   br label %land.end
@@ -140,7 +135,7 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false16
   br i1 %tobool21.not, label %if.then, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false19
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 4
+  %pub_key = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %pub_key, align 8
   %call23 = call i32 @BN_marshal_asn1(ptr noundef nonnull %key_bitstring, ptr noundef %5) #3
   %tobool24.not = icmp eq i32 %call23, 0
@@ -163,13 +158,13 @@ return:                                           ; preds = %lor.lhs.false25, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_pub_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %pkey, align 8
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 4
+  %pub_key = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %pub_key, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %pkey1, align 8
-  %pub_key2 = getelementptr inbounds %struct.dsa_st, ptr %2, i64 0, i32 4
+  %pub_key2 = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %pub_key2, align 8
   %call = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %3) #3
   %cmp = icmp eq i32 %call, 0
@@ -191,10 +186,10 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %call3 = tail call ptr @BN_new() #3
-  %priv_key = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 5
+  %priv_key = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call3, ptr %priv_key, align 8
   %call4 = tail call ptr @BN_new() #3
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 4
+  %pub_key = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call4, ptr %pub_key, align 8
   %0 = load ptr, ptr %priv_key, align 8
   %cmp6 = icmp eq ptr %0, null
@@ -219,10 +214,10 @@ if.end18:                                         ; preds = %lor.lhs.false14
 
 lor.lhs.false21:                                  ; preds = %if.end18
   %1 = load ptr, ptr %pub_key, align 8
-  %g = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 3
+  %g = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load ptr, ptr %g, align 8
   %3 = load ptr, ptr %priv_key, align 8
-  %p = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %p, align 8
   %call24 = tail call i32 @BN_mod_exp(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %call19) #3
   %tobool25.not = icmp eq i32 %call24, 0
@@ -256,13 +251,13 @@ entry:
   %algorithm = alloca %struct.cbb_st, align 8
   %oid = alloca %struct.cbb_st, align 8
   %private_key = alloca %struct.cbb_st, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %pkey, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %priv_key = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 5
+  %priv_key = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %priv_key, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -329,7 +324,7 @@ return:                                           ; preds = %lor.lhs.false24, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @int_dsa_size(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @DSA_size(ptr noundef %0) #3
   ret i32 %call
@@ -338,9 +333,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_bits(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
-  %p = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %p, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %1) #3
   ret i32 %call
@@ -349,21 +344,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @dsa_missing_parameters(ptr nocapture noundef readonly %pkey) #1 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
-  %p = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %p, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %q = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %q, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %g = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 3
+  %g = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %g, align 8
   %cmp4 = icmp eq ptr %3, null
   %spec.select = zext i1 %cmp4 to i32
@@ -377,44 +372,44 @@ return:                                           ; preds = %lor.lhs.false3, %en
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dsa_copy_parameters(ptr nocapture noundef readonly %to, ptr nocapture noundef readonly %from) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %to, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %to, i64 8
   %0 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %from, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %from, i64 8
   %1 = load ptr, ptr %pkey1, align 8
-  %p2 = getelementptr inbounds %struct.dsa_st, ptr %1, i64 0, i32 1
+  %p2 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %p2, align 8
   %call.i = tail call ptr @BN_dup(ptr noundef %2) #3
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %p = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %p, align 8
   tail call void @BN_free(ptr noundef %3) #3
   store ptr %call.i, ptr %p, align 8
   %4 = load ptr, ptr %pkey, align 8
   %5 = load ptr, ptr %pkey1, align 8
-  %q5 = getelementptr inbounds %struct.dsa_st, ptr %5, i64 0, i32 2
+  %q5 = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %q5, align 8
   %call.i5 = tail call ptr @BN_dup(ptr noundef %6) #3
   %cmp.i6 = icmp eq ptr %call.i5, null
   br i1 %cmp.i6, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %q = getelementptr inbounds %struct.dsa_st, ptr %4, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %q, align 8
   tail call void @BN_free(ptr noundef %7) #3
   store ptr %call.i5, ptr %q, align 8
   %8 = load ptr, ptr %pkey, align 8
   %9 = load ptr, ptr %pkey1, align 8
-  %g11 = getelementptr inbounds %struct.dsa_st, ptr %9, i64 0, i32 3
+  %g11 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %g11, align 8
   %call.i10 = tail call ptr @BN_dup(ptr noundef %10) #3
   %cmp.i11 = icmp eq ptr %call.i10, null
   br i1 %cmp.i11, label %return, label %dup_bn_into.exit14
 
 dup_bn_into.exit14:                               ; preds = %lor.lhs.false8
-  %g = getelementptr inbounds %struct.dsa_st, ptr %8, i64 0, i32 3
+  %g = getelementptr inbounds i8, ptr %8, i64 24
   %11 = load ptr, ptr %g, align 8
   tail call void @BN_free(ptr noundef %11) #3
   store ptr %call.i10, ptr %g, align 8
@@ -428,13 +423,13 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: nounwind uwtable
 define internal i32 @dsa_cmp_parameters(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %a, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %pkey, align 8
-  %p = getelementptr inbounds %struct.dsa_st, ptr %0, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %p, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %b, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %b, i64 8
   %2 = load ptr, ptr %pkey1, align 8
-  %p2 = getelementptr inbounds %struct.dsa_st, ptr %2, i64 0, i32 1
+  %p2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %p2, align 8
   %call = tail call i32 @BN_cmp(ptr noundef %1, ptr noundef %3) #3
   %cmp = icmp eq i32 %call, 0
@@ -442,10 +437,10 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %4 = load ptr, ptr %pkey, align 8
-  %q = getelementptr inbounds %struct.dsa_st, ptr %4, i64 0, i32 2
+  %q = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %q, align 8
   %6 = load ptr, ptr %pkey1, align 8
-  %q5 = getelementptr inbounds %struct.dsa_st, ptr %6, i64 0, i32 2
+  %q5 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %q5, align 8
   %call6 = tail call i32 @BN_cmp(ptr noundef %5, ptr noundef %7) #3
   %cmp7 = icmp eq i32 %call6, 0
@@ -453,10 +448,10 @@ land.lhs.true:                                    ; preds = %entry
 
 land.rhs:                                         ; preds = %land.lhs.true
   %8 = load ptr, ptr %pkey, align 8
-  %g = getelementptr inbounds %struct.dsa_st, ptr %8, i64 0, i32 3
+  %g = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %g, align 8
   %10 = load ptr, ptr %pkey1, align 8
-  %g10 = getelementptr inbounds %struct.dsa_st, ptr %10, i64 0, i32 3
+  %g10 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %g10, align 8
   %call11 = tail call i32 @BN_cmp(ptr noundef %9, ptr noundef %11) #3
   %cmp12 = icmp eq i32 %call11, 0
@@ -471,7 +466,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal void @int_dsa_free(ptr nocapture noundef readonly %pkey) #0 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %pkey1, align 8
   tail call void @DSA_free(ptr noundef %0) #3
   ret void

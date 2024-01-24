@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::basic_string<char>::Layout" = type { %union.anon }
 %union.anon = type { %"struct.eastl::basic_string<char>::HeapLayout" }
 %"struct.eastl::basic_string<char>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char>::SSOLayout" = type { [23 x i8], %"struct.eastl::basic_string<char>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char>::SSOLayout::SSOSize" = type { i8 }
 %"struct.eastl::aligned_storage<2, 64>::type" = type { [2 x i8], [62 x i8] }
 %"struct.eastl::aligned_storage<1, 128>::type" = type { [1 x i8], [127 x i8] }
 %"struct.eastl::aligned_storage<4, 256>::type" = type { [4 x i8], [252 x i8] }
@@ -249,7 +247,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mRemainingSizeField.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %this, i64 0, i32 1
+  %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
   br i1 %tobool.i.i, label %if.then.i, label %invoke.cont
@@ -470,7 +468,7 @@ invoke.cont839:
   %cmp830 = icmp eq i32 %i64829.0.i64829.0.i64829.0.i64829.0., 47
   %call832 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp830, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 1917, ptr noundef nonnull @.str.167)
   %call836 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.2, i32 noundef 1926, ptr noundef nonnull @.str.168)
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %str, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 23
   store i8 8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %str, ptr noundef nonnull align 1 dereferenceable(15) @.str.169, i64 15, i1 false)
   %add.ptr.i1.i.i.i.i = getelementptr inbounds i8, ptr %str, i64 15
@@ -555,7 +553,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_TestTypeTraits.cpp() #8 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
-  store i8 23, ptr getelementptr inbounds (%"struct.eastl::basic_string<char>::SSOLayout", ptr @_ZN12_GLOBAL__N_120gEmptyStringInstanceE, i64 0, i32 1), align 1
+  store i8 23, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_120gEmptyStringInstanceE, i64 23), align 1
   store i8 0, ptr @_ZN12_GLOBAL__N_120gEmptyStringInstanceE, align 8
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev, ptr nonnull @_ZN12_GLOBAL__N_120gEmptyStringInstanceE, ptr nonnull @__dso_handle) #11
   ret void

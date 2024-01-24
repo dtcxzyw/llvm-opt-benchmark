@@ -39,21 +39,21 @@ _ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i:
           to label %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i18 unwind label %lpad.loopexit.split-lp108.loopexit.split-lp
 
 _ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i18: ; preds = %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i
-  %_M_end_of_storage.i.i12 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl_data", ptr %queries, i64 0, i32 2
+  %_M_end_of_storage.i.i12 = getelementptr inbounds i8, ptr %queries, i64 16
   %call5.i.i.i.i31 = invoke noalias noundef nonnull dereferenceable(8000000) ptr @_Znwm(i64 noundef 8000000) #11
           to label %_ZNSt6vectorIPhSaIS0_EE7reserveEm.exit32 unwind label %lpad.loopexit.split-lp108.loopexit.split-lp
 
 _ZNSt6vectorIPhSaIS0_EE7reserveEm.exit32:         ; preds = %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i18
-  %_M_finish.i.i19 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl_data", ptr %queries, i64 0, i32 1
-  %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i11, i64 10000
+  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %queries, i64 8
+  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i11, i64 80000
   store ptr %call5.i.i.i.i31, ptr %queries, align 8
   store ptr %call5.i.i.i.i31, ptr %_M_finish.i.i19, align 8
-  %add.ptr21.i28 = getelementptr inbounds ptr, ptr %call5.i.i.i.i31, i64 1000000
+  %add.ptr21.i28 = getelementptr inbounds i8, ptr %call5.i.i.i.i31, i64 8000000
   store ptr %add.ptr21.i28, ptr %_M_end_of_storage.i.i12, align 8
   br label %for.body
 
 for.cond14.preheader:                             ; preds = %for.inc10
-  %_M_finish.i37 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl_data", ptr %queries, i64 0, i32 1
+  %_M_finish.i37 = getelementptr inbounds i8, ptr %queries, i64 8
   %.pre = load ptr, ptr %_M_finish.i37, align 8
   br label %invoke.cont17
 
@@ -167,7 +167,7 @@ for.inc10:                                        ; preds = %_ZNSt6vectorIPhSaIS
   %input_set.sroa.18.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %input_set.sroa.18.1125, %if.then.i ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %input_set.sroa.10.1126, %if.then.i ]
   %input_set.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %input_set.sroa.0.1127, %if.then.i ]
-  %input_set.sroa.10.2 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i.pn, i64 1
+  %input_set.sroa.10.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   %inc11 = add nuw nsw i64 %i.0129, 1
   %exitcond139.not = icmp eq i64 %inc11, 10000
   br i1 %exitcond139.not, label %for.cond14.preheader, label %for.body, !llvm.loop !7
@@ -190,7 +190,7 @@ if.then.i40:                                      ; preds = %invoke.cont17
   %5 = load ptr, ptr %add.ptr.i36, align 8
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %_M_finish.i37, align 8
-  %incdec.ptr.i41 = getelementptr inbounds ptr, ptr %6, i64 1
+  %incdec.ptr.i41 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i41, ptr %_M_finish.i37, align 8
   br label %for.inc22
 
@@ -238,7 +238,7 @@ if.then.i.i.i.i.i.i66:                            ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i60: ; preds = %if.then.i.i.i.i.i.i66, %_ZNSt12_Vector_baseIPhSaIS0_EE11_M_allocateEm.exit.i.i56
   %add.ptr.i.i.i.i.i.i61 = getelementptr inbounds i8, ptr %cond.i10.i.i57, i64 %sub.ptr.sub.i.i.i.i45
-  %incdec.ptr.i.i62 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i.i61, i64 1
+  %incdec.ptr.i.i62 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i61, i64 8
   %tobool.not.i.i.i63 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i63, label %_ZNSt6vectorIPhSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i18.i.i64
 
@@ -283,7 +283,7 @@ invoke.cont37:                                    ; preds = %for.body33
           to label %for.inc41 unwind label %lpad36.loopexit
 
 for.inc41:                                        ; preds = %invoke.cont37
-  %incdec.ptr.i72 = getelementptr inbounds ptr, ptr %__begin1.sroa.0.0133, i64 1
+  %incdec.ptr.i72 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0133, i64 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0133, %add.ptr.i.i.i.i.i.i.pn
   br i1 %cmp.i.not, label %for.end43, label %for.body33
 
@@ -332,7 +332,7 @@ delete.notnull:                                   ; preds = %for.body61
   br label %for.inc63
 
 for.inc63:                                        ; preds = %for.body61, %delete.notnull
-  %incdec.ptr.i75 = getelementptr inbounds ptr, ptr %__begin153.sroa.0.0135, i64 1
+  %incdec.ptr.i75 = getelementptr inbounds i8, ptr %__begin153.sroa.0.0135, i64 8
   %cmp.i74.not = icmp eq ptr %__begin153.sroa.0.0135, %add.ptr.i.i.i.i.i.i.pn
   br i1 %cmp.i74.not, label %for.end65, label %for.body61
 
@@ -409,8 +409,8 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
 define linkonce_odr dso_local void @_Z16benchmark_lookupIN3zmq6trie_tEEvRT_RSt6vectorIPhSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %subscriptions_, ptr noundef nonnull align 8 dereferenceable(24) %queries_) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE11_M_allocateEm.exit.i:
   %call5.i.i.i.i10 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #11
-  %add.ptr21.i = getelementptr inbounds %"class.std::chrono::duration", ptr %call5.i.i.i.i10, i64 10
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl_data", ptr %queries_, i64 0, i32 1
+  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i10, i64 80
+  %_M_finish.i = getelementptr inbounds i8, ptr %queries_, i64 8
   %0 = load ptr, ptr %queries_, align 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = icmp eq ptr %0, %1
@@ -438,7 +438,7 @@ lpad.thread43:                                    ; preds = %for.body5
   br label %if.then.i.i.i
 
 for.inc:                                          ; preds = %for.body5
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.0.062, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.062, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.inc10, label %for.body5
 
@@ -503,7 +503,7 @@ for.inc41:                                        ; preds = %for.body25
   %call33 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   %sub.i.i = sub i64 %interval.sroa.0.066, %call28
   %add.i = add i64 %sub.i.i, %call33
-  %incdec.ptr.i13 = getelementptr inbounds ptr, ptr %__begin217.sroa.0.065, i64 1
+  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %__begin217.sroa.0.065, i64 8
   %cmp.i12.not = icmp eq ptr %incdec.ptr.i13, %10
   br i1 %cmp.i12.not, label %invoke.cont51.loopexit, label %for.body25
 
@@ -585,7 +585,7 @@ for.inc53:                                        ; preds = %_ZNSt6vectorINSt6ch
   %samples_vec.sroa.15.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %samples_vec.sroa.15.167, %if.then.i.i17 ]
   %add.ptr.i.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %samples_vec.sroa.8.168, %if.then.i.i17 ]
   %samples_vec.sroa.0.3 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %samples_vec.sroa.0.269, %if.then.i.i17 ]
-  %samples_vec.sroa.8.2 = getelementptr inbounds %"class.std::chrono::duration", ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 1
+  %samples_vec.sroa.8.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 8
   %inc54 = add nuw nsw i64 %run12.070, 1
   %exitcond80.not = icmp eq i64 %inc54, 10
   br i1 %exitcond80.not, label %for.cond60.preheader, label %for.body15, !llvm.loop !11
@@ -595,7 +595,7 @@ for.body62:                                       ; preds = %for.cond60.preheade
   %__begin1.sroa.0.072 = phi ptr [ %incdec.ptr.i21, %for.body62 ], [ %samples_vec.sroa.0.3, %for.cond60.preheader ]
   %15 = load i64, ptr %__begin1.sroa.0.072, align 8
   %add = add i64 %15, %sum.073
-  %incdec.ptr.i21 = getelementptr inbounds %"class.std::chrono::duration", ptr %__begin1.sroa.0.072, i64 1
+  %incdec.ptr.i21 = getelementptr inbounds i8, ptr %__begin1.sroa.0.072, i64 8
   %cmp.i20.not = icmp eq ptr %__begin1.sroa.0.072, %add.ptr.i.i.i.i.i.i.i.pn
   br i1 %cmp.i20.not, label %for.end68.loopexit, label %for.body62
 
@@ -622,8 +622,8 @@ _ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EED2Ev.exit
 define linkonce_odr dso_local void @_Z16benchmark_lookupIN3zmq12radix_tree_tEEvRT_RSt6vectorIPhSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(16) %subscriptions_, ptr noundef nonnull align 8 dereferenceable(24) %queries_) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE11_M_allocateEm.exit.i:
   %call5.i.i.i.i10 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #11
-  %add.ptr21.i = getelementptr inbounds %"class.std::chrono::duration", ptr %call5.i.i.i.i10, i64 10
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char *, std::allocator<unsigned char *>>::_Vector_impl_data", ptr %queries_, i64 0, i32 1
+  %add.ptr21.i = getelementptr inbounds i8, ptr %call5.i.i.i.i10, i64 80
+  %_M_finish.i = getelementptr inbounds i8, ptr %queries_, i64 8
   %0 = load ptr, ptr %queries_, align 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = icmp eq ptr %0, %1
@@ -651,7 +651,7 @@ lpad.thread43:                                    ; preds = %for.body5
   br label %if.then.i.i.i
 
 for.inc:                                          ; preds = %for.body5
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.0.062, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.062, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %for.inc10, label %for.body5
 
@@ -716,7 +716,7 @@ for.inc41:                                        ; preds = %for.body25
   %call33 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   %sub.i.i = sub i64 %interval.sroa.0.066, %call28
   %add.i = add i64 %sub.i.i, %call33
-  %incdec.ptr.i13 = getelementptr inbounds ptr, ptr %__begin217.sroa.0.065, i64 1
+  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %__begin217.sroa.0.065, i64 8
   %cmp.i12.not = icmp eq ptr %incdec.ptr.i13, %10
   br i1 %cmp.i12.not, label %invoke.cont51.loopexit, label %for.body25
 
@@ -798,7 +798,7 @@ for.inc53:                                        ; preds = %_ZNSt6vectorINSt6ch
   %samples_vec.sroa.15.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %samples_vec.sroa.15.167, %if.then.i.i17 ]
   %add.ptr.i.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %samples_vec.sroa.8.168, %if.then.i.i17 ]
   %samples_vec.sroa.0.3 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %samples_vec.sroa.0.269, %if.then.i.i17 ]
-  %samples_vec.sroa.8.2 = getelementptr inbounds %"class.std::chrono::duration", ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 1
+  %samples_vec.sroa.8.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 8
   %inc54 = add nuw nsw i64 %run12.070, 1
   %exitcond80.not = icmp eq i64 %inc54, 10
   br i1 %exitcond80.not, label %for.cond60.preheader, label %for.body15, !llvm.loop !13
@@ -808,7 +808,7 @@ for.body62:                                       ; preds = %for.cond60.preheade
   %__begin1.sroa.0.072 = phi ptr [ %incdec.ptr.i21, %for.body62 ], [ %samples_vec.sroa.0.3, %for.cond60.preheader ]
   %15 = load i64, ptr %__begin1.sroa.0.072, align 8
   %add = add i64 %15, %sum.073
-  %incdec.ptr.i21 = getelementptr inbounds %"class.std::chrono::duration", ptr %__begin1.sroa.0.072, i64 1
+  %incdec.ptr.i21 = getelementptr inbounds i8, ptr %__begin1.sroa.0.072, i64 8
   %cmp.i20.not = icmp eq ptr %__begin1.sroa.0.072, %add.ptr.i.i.i.i.i.i.i.pn
   br i1 %cmp.i20.not, label %for.end67.loopexit, label %for.body62
 

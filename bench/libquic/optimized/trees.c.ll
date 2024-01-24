@@ -7,9 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ct_data_s = type { %union.anon, %union.anon.0 }
 %union.anon = type { i16 }
 %union.anon.0 = type { i16 }
-%struct.MOZ_Z_internal_state = type { ptr, i32, ptr, i64, ptr, i32, i32, ptr, i32, i8, i32, [12 x i8], [20 x i32], i32, i32, i32, ptr, i64, ptr, ptr, i32, i32, i32, i32, i32, ptr, [256 x i32], i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [573 x %struct.ct_data_s], [61 x %struct.ct_data_s], [39 x %struct.ct_data_s], %struct.tree_desc_s, %struct.tree_desc_s, %struct.tree_desc_s, [16 x i16], [573 x i32], i32, i32, [573 x i8], ptr, i32, i32, ptr, i64, i64, i32, i32, i16, i32, i64, [8 x i8] }
-%struct.tree_desc_s = type { ptr, i32, ptr }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, i32 }
 
 @MOZ_Z__dist_code = dso_local local_unnamed_addr constant [512 x i8] c"\00\01\02\03\04\04\05\05\06\06\06\06\07\07\07\07\08\08\08\08\08\08\08\08\09\09\09\09\09\09\09\09\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0A\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0B\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0C\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0E\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\0F\00\00\10\11\12\12\13\13\14\14\14\14\15\15\15\15\16\16\16\16\16\16\16\16\17\17\17\17\17\17\17\17\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1C\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D\1D", align 16
 @MOZ_Z__length_code = dso_local local_unnamed_addr constant [256 x i8] c"\00\01\02\03\04\05\06\07\08\08\09\09\0A\0A\0B\0B\0C\0C\0C\0C\0D\0D\0D\0D\0E\0E\0E\0E\0F\0F\0F\0F\10\10\10\10\10\10\10\10\11\11\11\11\11\11\11\11\12\12\12\12\12\12\12\12\13\13\13\13\13\13\13\13\14\14\14\14\14\14\14\14\14\14\14\14\14\14\14\14\15\15\15\15\15\15\15\15\15\15\15\15\15\15\15\15\16\16\16\16\16\16\16\16\16\16\16\16\16\16\16\16\17\17\17\17\17\17\17\17\17\17\17\17\17\17\17\17\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\18\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\19\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1A\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1B\1C", align 16
@@ -28,30 +25,30 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local void @MOZ_Z__tr_init(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %dyn_ltree = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41
-  %l_desc = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 44
+  %dyn_ltree = getelementptr inbounds i8, ptr %s, i64 1324
+  %l_desc = getelementptr inbounds i8, ptr %s, i64 4016
   store ptr %dyn_ltree, ptr %l_desc, align 16
-  %stat_desc = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 44, i32 2
+  %stat_desc = getelementptr inbounds i8, ptr %s, i64 4032
   store ptr @static_l_desc, ptr %stat_desc, align 16
-  %dyn_dtree = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 42
-  %d_desc = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 45
+  %dyn_dtree = getelementptr inbounds i8, ptr %s, i64 3616
+  %d_desc = getelementptr inbounds i8, ptr %s, i64 4040
   store ptr %dyn_dtree, ptr %d_desc, align 8
-  %stat_desc5 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 45, i32 2
+  %stat_desc5 = getelementptr inbounds i8, ptr %s, i64 4056
   store ptr @static_d_desc, ptr %stat_desc5, align 8
-  %bl_tree = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43
-  %bl_desc = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 46
+  %bl_tree = getelementptr inbounds i8, ptr %s, i64 3860
+  %bl_desc = getelementptr inbounds i8, ptr %s, i64 4064
   store ptr %bl_tree, ptr %bl_desc, align 16
-  %stat_desc9 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 46, i32 2
+  %stat_desc9 = getelementptr inbounds i8, ptr %s, i64 4080
   store ptr @static_bl_desc, ptr %stat_desc9, align 16
-  %bi_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf = getelementptr inbounds i8, ptr %s, i64 7048
   store i16 0, ptr %bi_buf, align 8
-  %bi_valid = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
+  %bi_valid = getelementptr inbounds i8, ptr %s, i64 7052
   store i32 0, ptr %bi_valid, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree, i64 0, i64 %indvars.iv.i
   store i16 0, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 286
@@ -59,7 +56,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 for.body3.i:                                      ; preds = %for.body.i, %for.body3.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.body3.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 42, i64 %indvars.iv20.i
+  %arrayidx5.i = getelementptr inbounds [61 x %struct.ct_data_s], ptr %dyn_dtree, i64 0, i64 %indvars.iv20.i
   store i16 0, ptr %arrayidx5.i, align 4
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 30
@@ -67,17 +64,17 @@ for.body3.i:                                      ; preds = %for.body.i, %for.bo
 
 for.body12.i:                                     ; preds = %for.body3.i, %for.body12.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body12.i ], [ 0, %for.body3.i ]
-  %arrayidx14.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %indvars.iv24.i
+  %arrayidx14.i = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree, i64 0, i64 %indvars.iv24.i
   store i16 0, ptr %arrayidx14.i, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, 19
   br i1 %exitcond27.not.i, label %init_block.exit, label %for.body12.i, !llvm.loop !8
 
 init_block.exit:                                  ; preds = %for.body12.i
-  %arrayidx20.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 256
+  %arrayidx20.i = getelementptr inbounds i8, ptr %s, i64 2348
   store i16 1, ptr %arrayidx20.i, align 4
-  %opt_len.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 56
-  %last_lit.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 54
+  %opt_len.i = getelementptr inbounds i8, ptr %s, i64 7024
+  %last_lit.i = getelementptr inbounds i8, ptr %s, i64 7012
   store i32 0, ptr %last_lit.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %opt_len.i, i8 0, i64 20, i1 false)
   ret void
@@ -86,7 +83,7 @@ init_block.exit:                                  ; preds = %for.body12.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @MOZ_Z__tr_stored_block(ptr nocapture noundef %s, ptr nocapture noundef readonly %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #1 {
 entry:
-  %bi_valid = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
+  %bi_valid = getelementptr inbounds i8, ptr %s, i64 7052
   %0 = load i32, ptr %bi_valid, align 4
   %cmp = icmp sgt i32 %0, 13
   br i1 %cmp, label %if.then, label %if.else
@@ -94,15 +91,15 @@ entry:
 if.then:                                          ; preds = %entry
   %conv1 = and i32 %last, 65535
   %shl = shl i32 %last, %0
-  %bi_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf = getelementptr inbounds i8, ptr %s, i64 7048
   %1 = load i16, ptr %bi_buf, align 8
   %2 = trunc i32 %shl to i16
   %conv4 = or i16 %1, %2
   store i16 %conv4, ptr %bi_buf, align 8
   %conv7 = trunc i16 %conv4 to i8
-  %pending_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf = getelementptr inbounds i8, ptr %s, i64 16
   %3 = load ptr, ptr %pending_buf, align 16
-  %pending = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load i32, ptr %pending, align 8
   %inc = add i32 %4, 1
   store i32 %inc, ptr %pending, align 8
@@ -129,7 +126,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %shl30 = shl i32 %last, %0
-  %bi_buf31 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf31 = getelementptr inbounds i8, ptr %s, i64 7048
   %10 = load i16, ptr %bi_buf31, align 8
   %11 = trunc i32 %shl30 to i16
   %conv34 = or i16 %10, %11
@@ -145,11 +142,11 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %bi_buf.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf.i.i = getelementptr inbounds i8, ptr %s, i64 7048
   %conv1.i.i = trunc i16 %12 to i8
-  %pending_buf.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %13 = load ptr, ptr %pending_buf.i.i, align 16
-  %pending.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending.i.i = getelementptr inbounds i8, ptr %s, i64 40
   %14 = load i32, ptr %pending.i.i, align 8
   %inc.i.i = add i32 %14, 1
   store i32 %inc.i.i, ptr %pending.i.i, align 8
@@ -165,8 +162,8 @@ if.else.i.i:                                      ; preds = %if.end
   br i1 %cmp11.i.i, label %if.then13.i.i, label %bi_windup.exit.i
 
 if.then13.i.i:                                    ; preds = %if.else.i.i
-  %pending_buf16.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
-  %pending17.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending_buf16.i.i = getelementptr inbounds i8, ptr %s, i64 16
+  %pending17.i.i = getelementptr inbounds i8, ptr %s, i64 40
   br label %if.end21.sink.split.i.i
 
 if.end21.sink.split.i.i:                          ; preds = %if.then13.i.i, %if.then.i.i
@@ -184,13 +181,13 @@ if.end21.sink.split.i.i:                          ; preds = %if.then13.i.i, %if.
   br label %bi_windup.exit.i
 
 bi_windup.exit.i:                                 ; preds = %if.end21.sink.split.i.i, %if.else.i.i
-  %bi_buf22.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf22.i.i = getelementptr inbounds i8, ptr %s, i64 7048
   store i16 0, ptr %bi_buf22.i.i, align 8
   store i32 0, ptr %bi_valid, align 4
   %conv2.i = trunc i64 %stored_len to i8
-  %pending_buf.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf.i = getelementptr inbounds i8, ptr %s, i64 16
   %18 = load ptr, ptr %pending_buf.i, align 16
-  %pending.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending.i = getelementptr inbounds i8, ptr %s, i64 40
   %19 = load i32, ptr %pending.i, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %pending.i, align 8
@@ -251,18 +248,18 @@ copy_block.exit:                                  ; preds = %while.body.i, %bi_w
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @MOZ_Z__tr_flush_bits(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
-  %bi_valid.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
+  %bi_valid.i = getelementptr inbounds i8, ptr %s, i64 7052
   %0 = load i32, ptr %bi_valid.i, align 4
   %cmp.i = icmp eq i32 %0, 16
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %bi_buf.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf.i = getelementptr inbounds i8, ptr %s, i64 7048
   %1 = load i16, ptr %bi_buf.i, align 8
   %conv1.i = trunc i16 %1 to i8
-  %pending_buf.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf.i = getelementptr inbounds i8, ptr %s, i64 16
   %2 = load ptr, ptr %pending_buf.i, align 16
-  %pending.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending.i = getelementptr inbounds i8, ptr %s, i64 40
   %3 = load i32, ptr %pending.i, align 8
   %inc.i = add i32 %3, 1
   store i32 %inc.i, ptr %pending.i, align 8
@@ -287,12 +284,12 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp13.i, label %if.then15.i, label %bi_flush.exit
 
 if.then15.i:                                      ; preds = %if.else.i
-  %bi_buf16.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf16.i = getelementptr inbounds i8, ptr %s, i64 7048
   %8 = load i16, ptr %bi_buf16.i, align 8
   %conv17.i = trunc i16 %8 to i8
-  %pending_buf18.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf18.i = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load ptr, ptr %pending_buf18.i, align 16
-  %pending19.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending19.i = getelementptr inbounds i8, ptr %s, i64 40
   %10 = load i32, ptr %pending19.i, align 8
   %inc20.i = add i32 %10, 1
   store i32 %inc20.i, ptr %pending19.i, align 8
@@ -318,11 +315,11 @@ bi_flush.exit:                                    ; preds = %if.else.i, %if.end2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @MOZ_Z__tr_align(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
-  %bi_valid = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
+  %bi_valid = getelementptr inbounds i8, ptr %s, i64 7052
   %0 = load i32, ptr %bi_valid, align 4
   %cmp = icmp sgt i32 %0, 13
   %shl = shl i32 2, %0
-  %bi_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf = getelementptr inbounds i8, ptr %s, i64 7048
   %1 = load i16, ptr %bi_buf, align 8
   %2 = trunc i32 %shl to i16
   %conv4 = or i16 %1, %2
@@ -331,9 +328,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv7 = trunc i16 %conv4 to i8
-  %pending_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf = getelementptr inbounds i8, ptr %s, i64 16
   %3 = load ptr, ptr %pending_buf, align 16
-  %pending = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending = getelementptr inbounds i8, ptr %s, i64 40
   %4 = load i32, ptr %pending, align 8
   %inc = add i32 %4, 1
   store i32 %inc, ptr %pending, align 8
@@ -371,10 +368,10 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp37, label %if.then39, label %if.else78
 
 if.then39:                                        ; preds = %if.end
-  %bi_buf46 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
-  %pending_buf54 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %bi_buf46 = getelementptr inbounds i8, ptr %s, i64 7048
+  %pending_buf54 = getelementptr inbounds i8, ptr %s, i64 16
   %11 = load ptr, ptr %pending_buf54, align 16
-  %pending55 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending55 = getelementptr inbounds i8, ptr %s, i64 40
   %12 = load i32, ptr %pending55, align 8
   %inc56 = add i32 %12, 1
   store i32 %inc56, ptr %pending55, align 8
@@ -408,10 +405,10 @@ if.end88:                                         ; preds = %if.else78, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end88
-  %bi_buf.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
-  %pending_buf.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %bi_buf.i = getelementptr inbounds i8, ptr %s, i64 7048
+  %pending_buf.i = getelementptr inbounds i8, ptr %s, i64 16
   %18 = load ptr, ptr %pending_buf.i, align 16
-  %pending.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending.i = getelementptr inbounds i8, ptr %s, i64 40
   %19 = load i32, ptr %pending.i, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %pending.i, align 8
@@ -436,10 +433,10 @@ if.else.i:                                        ; preds = %if.end88
   br i1 %cmp13.i, label %if.then15.i, label %bi_flush.exit
 
 if.then15.i:                                      ; preds = %if.else.i
-  %bi_buf16.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
-  %pending_buf18.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %bi_buf16.i = getelementptr inbounds i8, ptr %s, i64 7048
+  %pending_buf18.i = getelementptr inbounds i8, ptr %s, i64 16
   %24 = load ptr, ptr %pending_buf18.i, align 16
-  %pending19.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending19.i = getelementptr inbounds i8, ptr %s, i64 40
   %25 = load i32, ptr %pending19.i, align 8
   %inc20.i = add i32 %25, 1
   store i32 %inc20.i, ptr %pending19.i, align 8
@@ -465,27 +462,31 @@ bi_flush.exit:                                    ; preds = %if.else.i, %if.end2
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @MOZ_Z__tr_flush_block(ptr noundef %s, ptr noundef readonly %buf, i64 noundef %stored_len, i32 noundef %last) local_unnamed_addr #1 {
 entry:
-  %level = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 37
+  %level = getelementptr inbounds i8, ptr %s, i64 1308
   %0 = load i32, ptr %level, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %s, align 16
-  %data_type = getelementptr inbounds %struct.z_stream_s, ptr %1, i64 0, i32 11
+  %data_type = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load i32, ptr %data_type, align 8
   %cmp1 = icmp eq i32 %2, 2
-  br i1 %cmp1, label %for.body.i, label %if.end
+  br i1 %cmp1, label %if.then2, label %if.end
 
-for.body.i:                                       ; preds = %if.then, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then ]
-  %black_mask.012.i = phi i64 [ %shr.i, %for.inc.i ], [ 4093624447, %if.then ]
+if.then2:                                         ; preds = %if.then
+  %dyn_ltree.i = getelementptr inbounds i8, ptr %s, i64 1324
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %if.then2
+  %indvars.iv.i = phi i64 [ 0, %if.then2 ], [ %indvars.iv.next.i, %for.inc.i ]
+  %black_mask.012.i = phi i64 [ 4093624447, %if.then2 ], [ %shr.i, %for.inc.i ]
   %and.i = and i64 %black_mask.012.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree.i, i64 0, i64 %indvars.iv.i
   %3 = load i16, ptr %arrayidx.i, align 4
   %cmp1.not.i = icmp eq i16 %3, 0
   br i1 %cmp1.not.i, label %for.inc.i, label %detect_data_type.exit
@@ -497,19 +498,19 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i
-  %arrayidx4.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 9
+  %arrayidx4.i = getelementptr inbounds i8, ptr %s, i64 1360
   %4 = load i16, ptr %arrayidx4.i, align 4
   %cmp7.not.i = icmp eq i16 %4, 0
   br i1 %cmp7.not.i, label %lor.lhs.false.i, label %detect_data_type.exit
 
 lor.lhs.false.i:                                  ; preds = %for.end.i
-  %arrayidx10.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 10
+  %arrayidx10.i = getelementptr inbounds i8, ptr %s, i64 1364
   %5 = load i16, ptr %arrayidx10.i, align 4
   %cmp13.not.i = icmp eq i16 %5, 0
   br i1 %cmp13.not.i, label %lor.lhs.false15.i, label %detect_data_type.exit
 
 lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
-  %arrayidx17.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 13
+  %arrayidx17.i = getelementptr inbounds i8, ptr %s, i64 1376
   %6 = load i16, ptr %arrayidx17.i, align 4
   %cmp20.not.i = icmp eq i16 %6, 0
   br i1 %cmp20.not.i, label %for.body27.i, label %detect_data_type.exit
@@ -521,7 +522,7 @@ for.cond24.i:                                     ; preds = %for.body27.i
 
 for.body27.i:                                     ; preds = %lor.lhs.false15.i, %for.cond24.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %for.cond24.i ], [ 32, %lor.lhs.false15.i ]
-  %arrayidx30.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 %indvars.iv17.i
+  %arrayidx30.i = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree.i, i64 0, i64 %indvars.iv17.i
   %7 = load i16, ptr %arrayidx30.i, align 4
   %cmp33.not.i = icmp eq i16 %7, 0
   br i1 %cmp33.not.i, label %for.cond24.i, label %detect_data_type.exit
@@ -532,18 +533,18 @@ detect_data_type.exit:                            ; preds = %land.lhs.true.i, %f
   br label %if.end
 
 if.end:                                           ; preds = %detect_data_type.exit, %if.then
-  %l_desc = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 44
+  %l_desc = getelementptr inbounds i8, ptr %s, i64 4016
   tail call fastcc void @build_tree(ptr noundef nonnull %s, ptr noundef nonnull %l_desc)
-  %d_desc = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 45
+  %d_desc = getelementptr inbounds i8, ptr %s, i64 4040
   tail call fastcc void @build_tree(ptr noundef nonnull %s, ptr noundef nonnull %d_desc)
-  %dyn_ltree.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41
-  %max_code.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 44, i32 1
+  %dyn_ltree.i74 = getelementptr inbounds i8, ptr %s, i64 1324
+  %max_code.i = getelementptr inbounds i8, ptr %s, i64 4024
   %8 = load i32, ptr %max_code.i, align 8
-  %dl.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 0, i32 1
+  %dl.i.i = getelementptr inbounds i8, ptr %s, i64 1326
   %9 = load i16, ptr %dl.i.i, align 2
   %10 = sext i32 %8 to i64
-  %11 = getelementptr %struct.ct_data_s, ptr %dyn_ltree.i, i64 %10
-  %dl3.i.i = getelementptr %struct.ct_data_s, ptr %11, i64 1, i32 1
+  %11 = getelementptr %struct.ct_data_s, ptr %dyn_ltree.i74, i64 %10
+  %dl3.i.i = getelementptr i8, ptr %11, i64 6
   store i16 -1, ptr %dl3.i.i, align 2
   %cmp4.not25.i.i = icmp slt i32 %8, 0
   br i1 %cmp4.not25.i.i, label %scan_tree.exit.i, label %for.body.lr.ph.i.i
@@ -553,9 +554,10 @@ for.body.lr.ph.i.i:                               ; preds = %if.end
   %spec.select23.i.i = select i1 %cmp.i.i, i32 3, i32 4
   %spec.select.i.i = select i1 %cmp.i.i, i32 138, i32 7
   %conv.i.i = zext i16 %9 to i32
-  %arrayidx38.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 16
-  %arrayidx51.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 18
-  %arrayidx46.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 17
+  %bl_tree31.i.i = getelementptr inbounds i8, ptr %s, i64 3860
+  %arrayidx38.i.i = getelementptr inbounds i8, ptr %s, i64 3924
+  %arrayidx51.i.i = getelementptr inbounds i8, ptr %s, i64 3932
+  %arrayidx46.i.i = getelementptr inbounds i8, ptr %s, i64 3928
   %12 = add nuw i32 %8, 1
   %wide.trip.count.i.i = zext i32 %12 to i64
   br label %for.body.i.i
@@ -568,7 +570,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %nextlen.028.i.i = phi i32 [ %conv.i.i, %for.body.lr.ph.i.i ], [ %conv10.i.i, %for.inc.i.i ]
   %prevlen.026.i.i = phi i32 [ -1, %for.body.lr.ph.i.i ], [ %prevlen.1.i.i, %for.inc.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %dl9.i.i = getelementptr inbounds %struct.ct_data_s, ptr %dyn_ltree.i, i64 %indvars.iv.next.i.i, i32 1
+  %dl9.i.i = getelementptr inbounds %struct.ct_data_s, ptr %dyn_ltree.i74, i64 %indvars.iv.next.i.i, i32 1
   %13 = load i16, ptr %dl9.i.i, align 2
   %conv10.i.i = zext i16 %13 to i32
   %inc.i.i = add nsw i32 %count.029.i.i, 1
@@ -583,7 +585,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i
 
 if.then18.i.i:                                    ; preds = %if.else.i.i
   %idxprom19.i.i = zext nneg i32 %nextlen.028.i.i to i64
-  %arrayidx20.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom19.i.i
+  %arrayidx20.i.i = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree31.i.i, i64 0, i64 %idxprom19.i.i
   %14 = load i16, ptr %arrayidx20.i.i, align 4
   %15 = trunc i32 %inc.i.i to i16
   %conv23.i.i = add i16 %14, %15
@@ -600,7 +602,7 @@ if.then27.i.i:                                    ; preds = %if.else24.i.i
 
 if.then30.i.i:                                    ; preds = %if.then27.i.i
   %idxprom32.i.i = zext nneg i32 %nextlen.028.i.i to i64
-  %arrayidx33.i.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom32.i.i
+  %arrayidx33.i.i = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree31.i.i, i64 0, i64 %idxprom32.i.i
   %16 = load i16, ptr %arrayidx33.i.i, align 4
   %inc35.i.i = add i16 %16, 1
   store i16 %inc35.i.i, ptr %arrayidx33.i.i, align 4
@@ -646,148 +648,150 @@ for.inc.i.i:                                      ; preds = %if.else61.i.i, %if.
   br i1 %exitcond.not.i.i, label %scan_tree.exit.i, label %for.body.i.i, !llvm.loop !12
 
 scan_tree.exit.i:                                 ; preds = %for.inc.i.i, %if.end
-  %dyn_dtree.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 42
-  %max_code2.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 45, i32 1
+  %dyn_dtree.i = getelementptr inbounds i8, ptr %s, i64 3616
+  %max_code2.i = getelementptr inbounds i8, ptr %s, i64 4048
   %20 = load i32, ptr %max_code2.i, align 8
-  %dl.i14.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 42, i64 0, i32 1
+  %dl.i14.i = getelementptr inbounds i8, ptr %s, i64 3618
   %21 = load i16, ptr %dl.i14.i, align 2
   %22 = sext i32 %20 to i64
   %23 = getelementptr %struct.ct_data_s, ptr %dyn_dtree.i, i64 %22
-  %dl3.i15.i = getelementptr %struct.ct_data_s, ptr %23, i64 1, i32 1
+  %dl3.i15.i = getelementptr i8, ptr %23, i64 6
   store i16 -1, ptr %dl3.i15.i, align 2
   %cmp4.not25.i16.i = icmp slt i32 %20, 0
-  br i1 %cmp4.not25.i16.i, label %scan_tree.exit73.i, label %for.body.lr.ph.i17.i
+  br i1 %cmp4.not25.i16.i, label %scan_tree.exit74.i, label %for.body.lr.ph.i17.i
 
 for.body.lr.ph.i17.i:                             ; preds = %scan_tree.exit.i
   %cmp.i18.i = icmp eq i16 %21, 0
   %spec.select23.i19.i = select i1 %cmp.i18.i, i32 3, i32 4
   %spec.select.i20.i = select i1 %cmp.i18.i, i32 138, i32 7
   %conv.i21.i = zext i16 %21 to i32
-  %arrayidx38.i22.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 16
-  %arrayidx51.i23.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 18
-  %arrayidx46.i24.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 17
+  %bl_tree31.i22.i = getelementptr inbounds i8, ptr %s, i64 3860
+  %arrayidx38.i23.i = getelementptr inbounds i8, ptr %s, i64 3924
+  %arrayidx51.i24.i = getelementptr inbounds i8, ptr %s, i64 3932
+  %arrayidx46.i25.i = getelementptr inbounds i8, ptr %s, i64 3928
   %24 = add nuw i32 %20, 1
-  %wide.trip.count.i25.i = zext i32 %24 to i64
-  br label %for.body.i26.i
+  %wide.trip.count.i26.i = zext i32 %24 to i64
+  br label %for.body.i27.i
 
-for.body.i26.i:                                   ; preds = %for.inc.i57.i, %for.body.lr.ph.i17.i
-  %indvars.iv.i27.i = phi i64 [ 0, %for.body.lr.ph.i17.i ], [ %indvars.iv.next.i33.i, %for.inc.i57.i ]
-  %min_count.131.i28.i = phi i32 [ %spec.select23.i19.i, %for.body.lr.ph.i17.i ], [ %min_count.2.i61.i, %for.inc.i57.i ]
-  %max_count.130.i29.i = phi i32 [ %spec.select.i20.i, %for.body.lr.ph.i17.i ], [ %max_count.2.i60.i, %for.inc.i57.i ]
-  %count.029.i30.i = phi i32 [ 0, %for.body.lr.ph.i17.i ], [ %count.1.i59.i, %for.inc.i57.i ]
-  %nextlen.028.i31.i = phi i32 [ %conv.i21.i, %for.body.lr.ph.i17.i ], [ %conv10.i35.i, %for.inc.i57.i ]
-  %prevlen.026.i32.i = phi i32 [ -1, %for.body.lr.ph.i17.i ], [ %prevlen.1.i58.i, %for.inc.i57.i ]
-  %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i27.i, 1
-  %dl9.i34.i = getelementptr inbounds %struct.ct_data_s, ptr %dyn_dtree.i, i64 %indvars.iv.next.i33.i, i32 1
-  %25 = load i16, ptr %dl9.i34.i, align 2
-  %conv10.i35.i = zext i16 %25 to i32
-  %inc.i36.i = add nsw i32 %count.029.i30.i, 1
-  %cmp11.i37.i = icmp slt i32 %inc.i36.i, %max_count.130.i29.i
-  %cmp13.i38.i = icmp eq i32 %nextlen.028.i31.i, %conv10.i35.i
-  %or.cond.i39.i = select i1 %cmp11.i37.i, i1 %cmp13.i38.i, i1 false
-  br i1 %or.cond.i39.i, label %for.inc.i57.i, label %if.else.i40.i
+for.body.i27.i:                                   ; preds = %for.inc.i58.i, %for.body.lr.ph.i17.i
+  %indvars.iv.i28.i = phi i64 [ 0, %for.body.lr.ph.i17.i ], [ %indvars.iv.next.i34.i, %for.inc.i58.i ]
+  %min_count.131.i29.i = phi i32 [ %spec.select23.i19.i, %for.body.lr.ph.i17.i ], [ %min_count.2.i62.i, %for.inc.i58.i ]
+  %max_count.130.i30.i = phi i32 [ %spec.select.i20.i, %for.body.lr.ph.i17.i ], [ %max_count.2.i61.i, %for.inc.i58.i ]
+  %count.029.i31.i = phi i32 [ 0, %for.body.lr.ph.i17.i ], [ %count.1.i60.i, %for.inc.i58.i ]
+  %nextlen.028.i32.i = phi i32 [ %conv.i21.i, %for.body.lr.ph.i17.i ], [ %conv10.i36.i, %for.inc.i58.i ]
+  %prevlen.026.i33.i = phi i32 [ -1, %for.body.lr.ph.i17.i ], [ %prevlen.1.i59.i, %for.inc.i58.i ]
+  %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i28.i, 1
+  %dl9.i35.i = getelementptr inbounds %struct.ct_data_s, ptr %dyn_dtree.i, i64 %indvars.iv.next.i34.i, i32 1
+  %25 = load i16, ptr %dl9.i35.i, align 2
+  %conv10.i36.i = zext i16 %25 to i32
+  %inc.i37.i = add nsw i32 %count.029.i31.i, 1
+  %cmp11.i38.i = icmp slt i32 %inc.i37.i, %max_count.130.i30.i
+  %cmp13.i39.i = icmp eq i32 %nextlen.028.i32.i, %conv10.i36.i
+  %or.cond.i40.i = select i1 %cmp11.i38.i, i1 %cmp13.i39.i, i1 false
+  br i1 %or.cond.i40.i, label %for.inc.i58.i, label %if.else.i41.i
 
-if.else.i40.i:                                    ; preds = %for.body.i26.i
-  %cmp16.i41.i = icmp slt i32 %inc.i36.i, %min_count.131.i28.i
-  br i1 %cmp16.i41.i, label %if.then18.i69.i, label %if.else24.i42.i
+if.else.i41.i:                                    ; preds = %for.body.i27.i
+  %cmp16.i42.i = icmp slt i32 %inc.i37.i, %min_count.131.i29.i
+  br i1 %cmp16.i42.i, label %if.then18.i70.i, label %if.else24.i43.i
 
-if.then18.i69.i:                                  ; preds = %if.else.i40.i
-  %idxprom19.i70.i = zext nneg i32 %nextlen.028.i31.i to i64
-  %arrayidx20.i71.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom19.i70.i
-  %26 = load i16, ptr %arrayidx20.i71.i, align 4
-  %27 = trunc i32 %inc.i36.i to i16
-  %conv23.i72.i = add i16 %26, %27
-  store i16 %conv23.i72.i, ptr %arrayidx20.i71.i, align 4
-  br label %if.end57.i52.i
+if.then18.i70.i:                                  ; preds = %if.else.i41.i
+  %idxprom19.i71.i = zext nneg i32 %nextlen.028.i32.i to i64
+  %arrayidx20.i72.i = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree31.i22.i, i64 0, i64 %idxprom19.i71.i
+  %26 = load i16, ptr %arrayidx20.i72.i, align 4
+  %27 = trunc i32 %inc.i37.i to i16
+  %conv23.i73.i = add i16 %26, %27
+  store i16 %conv23.i73.i, ptr %arrayidx20.i72.i, align 4
+  br label %if.end57.i53.i
 
-if.else24.i42.i:                                  ; preds = %if.else.i40.i
-  %cmp25.not.i43.i = icmp eq i32 %nextlen.028.i31.i, 0
-  br i1 %cmp25.not.i43.i, label %if.else41.i63.i, label %if.then27.i44.i
+if.else24.i43.i:                                  ; preds = %if.else.i41.i
+  %cmp25.not.i44.i = icmp eq i32 %nextlen.028.i32.i, 0
+  br i1 %cmp25.not.i44.i, label %if.else41.i64.i, label %if.then27.i45.i
 
-if.then27.i44.i:                                  ; preds = %if.else24.i42.i
-  %cmp28.not.i45.i = icmp eq i32 %nextlen.028.i31.i, %prevlen.026.i32.i
-  br i1 %cmp28.not.i45.i, label %if.end36.i50.i, label %if.then30.i46.i
+if.then27.i45.i:                                  ; preds = %if.else24.i43.i
+  %cmp28.not.i46.i = icmp eq i32 %nextlen.028.i32.i, %prevlen.026.i33.i
+  br i1 %cmp28.not.i46.i, label %if.end36.i51.i, label %if.then30.i47.i
 
-if.then30.i46.i:                                  ; preds = %if.then27.i44.i
-  %idxprom32.i47.i = zext nneg i32 %nextlen.028.i31.i to i64
-  %arrayidx33.i48.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom32.i47.i
-  %28 = load i16, ptr %arrayidx33.i48.i, align 4
-  %inc35.i49.i = add i16 %28, 1
-  store i16 %inc35.i49.i, ptr %arrayidx33.i48.i, align 4
-  br label %if.end36.i50.i
+if.then30.i47.i:                                  ; preds = %if.then27.i45.i
+  %idxprom32.i48.i = zext nneg i32 %nextlen.028.i32.i to i64
+  %arrayidx33.i49.i = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree31.i22.i, i64 0, i64 %idxprom32.i48.i
+  %28 = load i16, ptr %arrayidx33.i49.i, align 4
+  %inc35.i50.i = add i16 %28, 1
+  store i16 %inc35.i50.i, ptr %arrayidx33.i49.i, align 4
+  br label %if.end36.i51.i
 
-if.end36.i50.i:                                   ; preds = %if.then30.i46.i, %if.then27.i44.i
-  %29 = load i16, ptr %arrayidx38.i22.i, align 4
-  %inc40.i51.i = add i16 %29, 1
-  store i16 %inc40.i51.i, ptr %arrayidx38.i22.i, align 4
-  br label %if.end57.i52.i
+if.end36.i51.i:                                   ; preds = %if.then30.i47.i, %if.then27.i45.i
+  %29 = load i16, ptr %arrayidx38.i23.i, align 4
+  %inc40.i52.i = add i16 %29, 1
+  store i16 %inc40.i52.i, ptr %arrayidx38.i23.i, align 4
+  br label %if.end57.i53.i
 
-if.else41.i63.i:                                  ; preds = %if.else24.i42.i
-  %cmp42.i64.i = icmp slt i32 %count.029.i30.i, 10
-  br i1 %cmp42.i64.i, label %if.then44.i67.i, label %if.else49.i65.i
+if.else41.i64.i:                                  ; preds = %if.else24.i43.i
+  %cmp42.i65.i = icmp slt i32 %count.029.i31.i, 10
+  br i1 %cmp42.i65.i, label %if.then44.i68.i, label %if.else49.i66.i
 
-if.then44.i67.i:                                  ; preds = %if.else41.i63.i
-  %30 = load i16, ptr %arrayidx46.i24.i, align 4
-  %inc48.i68.i = add i16 %30, 1
-  store i16 %inc48.i68.i, ptr %arrayidx46.i24.i, align 4
-  br label %if.end57.i52.i
+if.then44.i68.i:                                  ; preds = %if.else41.i64.i
+  %30 = load i16, ptr %arrayidx46.i25.i, align 4
+  %inc48.i69.i = add i16 %30, 1
+  store i16 %inc48.i69.i, ptr %arrayidx46.i25.i, align 4
+  br label %if.end57.i53.i
 
-if.else49.i65.i:                                  ; preds = %if.else41.i63.i
-  %31 = load i16, ptr %arrayidx51.i23.i, align 4
-  %inc53.i66.i = add i16 %31, 1
-  store i16 %inc53.i66.i, ptr %arrayidx51.i23.i, align 4
-  br label %if.end57.i52.i
+if.else49.i66.i:                                  ; preds = %if.else41.i64.i
+  %31 = load i16, ptr %arrayidx51.i24.i, align 4
+  %inc53.i67.i = add i16 %31, 1
+  store i16 %inc53.i67.i, ptr %arrayidx51.i24.i, align 4
+  br label %if.end57.i53.i
 
-if.end57.i52.i:                                   ; preds = %if.else49.i65.i, %if.then44.i67.i, %if.end36.i50.i, %if.then18.i69.i
-  %cmp58.i53.i = icmp eq i16 %25, 0
-  br i1 %cmp58.i53.i, label %for.inc.i57.i, label %if.else61.i54.i
+if.end57.i53.i:                                   ; preds = %if.else49.i66.i, %if.then44.i68.i, %if.end36.i51.i, %if.then18.i70.i
+  %cmp58.i54.i = icmp eq i16 %25, 0
+  br i1 %cmp58.i54.i, label %for.inc.i58.i, label %if.else61.i55.i
 
-if.else61.i54.i:                                  ; preds = %if.end57.i52.i
-  %..i55.i = select i1 %cmp13.i38.i, i32 6, i32 7
-  %.24.i56.i = select i1 %cmp13.i38.i, i32 3, i32 4
-  br label %for.inc.i57.i
+if.else61.i55.i:                                  ; preds = %if.end57.i53.i
+  %..i56.i = select i1 %cmp13.i39.i, i32 6, i32 7
+  %.24.i57.i = select i1 %cmp13.i39.i, i32 3, i32 4
+  br label %for.inc.i58.i
 
-for.inc.i57.i:                                    ; preds = %if.else61.i54.i, %if.end57.i52.i, %for.body.i26.i
-  %prevlen.1.i58.i = phi i32 [ %prevlen.026.i32.i, %for.body.i26.i ], [ %nextlen.028.i31.i, %if.end57.i52.i ], [ %nextlen.028.i31.i, %if.else61.i54.i ]
-  %count.1.i59.i = phi i32 [ %inc.i36.i, %for.body.i26.i ], [ 0, %if.end57.i52.i ], [ 0, %if.else61.i54.i ]
-  %max_count.2.i60.i = phi i32 [ %max_count.130.i29.i, %for.body.i26.i ], [ 138, %if.end57.i52.i ], [ %..i55.i, %if.else61.i54.i ]
-  %min_count.2.i61.i = phi i32 [ %min_count.131.i28.i, %for.body.i26.i ], [ 3, %if.end57.i52.i ], [ %.24.i56.i, %if.else61.i54.i ]
-  %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i33.i, %wide.trip.count.i25.i
-  br i1 %exitcond.not.i62.i, label %scan_tree.exit73.i, label %for.body.i26.i, !llvm.loop !12
+for.inc.i58.i:                                    ; preds = %if.else61.i55.i, %if.end57.i53.i, %for.body.i27.i
+  %prevlen.1.i59.i = phi i32 [ %prevlen.026.i33.i, %for.body.i27.i ], [ %nextlen.028.i32.i, %if.end57.i53.i ], [ %nextlen.028.i32.i, %if.else61.i55.i ]
+  %count.1.i60.i = phi i32 [ %inc.i37.i, %for.body.i27.i ], [ 0, %if.end57.i53.i ], [ 0, %if.else61.i55.i ]
+  %max_count.2.i61.i = phi i32 [ %max_count.130.i30.i, %for.body.i27.i ], [ 138, %if.end57.i53.i ], [ %..i56.i, %if.else61.i55.i ]
+  %min_count.2.i62.i = phi i32 [ %min_count.131.i29.i, %for.body.i27.i ], [ 3, %if.end57.i53.i ], [ %.24.i57.i, %if.else61.i55.i ]
+  %exitcond.not.i63.i = icmp eq i64 %indvars.iv.next.i34.i, %wide.trip.count.i26.i
+  br i1 %exitcond.not.i63.i, label %scan_tree.exit74.i, label %for.body.i27.i, !llvm.loop !12
 
-scan_tree.exit73.i:                               ; preds = %for.inc.i57.i, %scan_tree.exit.i
-  %bl_desc.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 46
+scan_tree.exit74.i:                               ; preds = %for.inc.i58.i, %scan_tree.exit.i
+  %bl_desc.i = getelementptr inbounds i8, ptr %s, i64 4064
   tail call fastcc void @build_tree(ptr noundef nonnull %s, ptr noundef nonnull %bl_desc.i)
-  br label %for.body.i74
+  %bl_tree.i = getelementptr inbounds i8, ptr %s, i64 3860
+  br label %for.body.i75
 
-for.body.i74:                                     ; preds = %for.inc.i77, %scan_tree.exit73.i
-  %max_blindex.074.i = phi i32 [ 18, %scan_tree.exit73.i ], [ %dec.i, %for.inc.i77 ]
-  %idxprom.i = zext nneg i32 %max_blindex.074.i to i64
-  %arrayidx.i75 = getelementptr inbounds [19 x i8], ptr @bl_order, i64 0, i64 %idxprom.i
-  %32 = load i8, ptr %arrayidx.i75, align 1
+for.body.i75:                                     ; preds = %for.inc.i78, %scan_tree.exit74.i
+  %max_blindex.075.i = phi i32 [ 18, %scan_tree.exit74.i ], [ %dec.i, %for.inc.i78 ]
+  %idxprom.i = zext nneg i32 %max_blindex.075.i to i64
+  %arrayidx.i76 = getelementptr inbounds [19 x i8], ptr @bl_order, i64 0, i64 %idxprom.i
+  %32 = load i8, ptr %arrayidx.i76, align 1
   %idxprom3.i = zext i8 %32 to i64
-  %dl.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom3.i, i32 1
+  %dl.i = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree.i, i64 0, i64 %idxprom3.i, i32 1
   %33 = load i16, ptr %dl.i, align 2
   %cmp5.not.i = icmp eq i16 %33, 0
-  br i1 %cmp5.not.i, label %for.inc.i77, label %build_bl_tree.exit
+  br i1 %cmp5.not.i, label %for.inc.i78, label %build_bl_tree.exit
 
-for.inc.i77:                                      ; preds = %for.body.i74
-  %dec.i = add nsw i32 %max_blindex.074.i, -1
-  %cmp.i = icmp ugt i32 %max_blindex.074.i, 3
-  br i1 %cmp.i, label %for.body.i74, label %build_bl_tree.exit, !llvm.loop !13
+for.inc.i78:                                      ; preds = %for.body.i75
+  %dec.i = add nsw i32 %max_blindex.075.i, -1
+  %cmp.i = icmp ugt i32 %max_blindex.075.i, 3
+  br i1 %cmp.i, label %for.body.i75, label %build_bl_tree.exit, !llvm.loop !13
 
-build_bl_tree.exit:                               ; preds = %for.body.i74, %for.inc.i77
-  %max_blindex.0.lcssa.i = phi i32 [ %max_blindex.074.i, %for.body.i74 ], [ 2, %for.inc.i77 ]
+build_bl_tree.exit:                               ; preds = %for.body.i75, %for.inc.i78
+  %max_blindex.0.lcssa.i = phi i32 [ %max_blindex.075.i, %for.body.i75 ], [ 2, %for.inc.i78 ]
   %34 = mul i32 %max_blindex.0.lcssa.i, 3
   %add9.i = add i32 %34, 17
   %conv10.i = sext i32 %add9.i to i64
-  %opt_len.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 56
+  %opt_len.i = getelementptr inbounds i8, ptr %s, i64 7024
   %35 = load i64, ptr %opt_len.i, align 16
   %add11.i = add i64 %35, %conv10.i
   store i64 %add11.i, ptr %opt_len.i, align 16
   %add6 = add i64 %add11.i, 10
   %shr = lshr i64 %add6, 3
-  %static_len = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 57
+  %static_len = getelementptr inbounds i8, ptr %s, i64 7032
   %36 = load i64, ptr %static_len, align 8
   %add8 = add i64 %36, 10
   %shr9 = lshr i64 %add8, 3
@@ -810,15 +814,15 @@ if.end14:                                         ; preds = %build_bl_tree.exit,
 
 if.then18:                                        ; preds = %if.end14
   tail call void @MOZ_Z__tr_stored_block(ptr noundef nonnull %s, ptr noundef nonnull %buf, i64 noundef %stored_len, i32 noundef %last)
-  br label %for.body.i90.preheader
+  br label %if.end131
 
 if.else19:                                        ; preds = %if.end14
-  %strategy = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 38
+  %strategy = getelementptr inbounds i8, ptr %s, i64 1312
   %37 = load i32, ptr %strategy, align 16
   %cmp20 = icmp eq i32 %37, 4
   %cmp21 = icmp eq i64 %static_lenb.0, %opt_lenb.0
   %or.cond73 = or i1 %cmp21, %cmp20
-  %bi_valid = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
+  %bi_valid = getelementptr inbounds i8, ptr %s, i64 7052
   %38 = load i32, ptr %bi_valid, align 4
   %cmp23 = icmp sgt i32 %38, 13
   br i1 %or.cond73, label %if.then22, label %if.else65
@@ -830,15 +834,15 @@ if.then22:                                        ; preds = %if.else19
 if.then24:                                        ; preds = %if.then22
   %conv26 = and i32 %conv, 65535
   %shl = shl i32 %conv, %38
-  %bi_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf = getelementptr inbounds i8, ptr %s, i64 7048
   %39 = load i16, ptr %bi_buf, align 8
   %40 = trunc i32 %shl to i16
   %conv29 = or i16 %39, %40
   store i16 %conv29, ptr %bi_buf, align 8
   %conv32 = trunc i16 %conv29 to i8
-  %pending_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf = getelementptr inbounds i8, ptr %s, i64 16
   %41 = load ptr, ptr %pending_buf, align 16
-  %pending = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending = getelementptr inbounds i8, ptr %s, i64 40
   %42 = load i32, ptr %pending, align 8
   %inc = add i32 %42, 1
   store i32 %inc, ptr %pending, align 8
@@ -865,7 +869,7 @@ if.then24:                                        ; preds = %if.then22
 
 if.else52:                                        ; preds = %if.then22
   %shl57 = shl i32 %conv, %38
-  %bi_buf58 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf58 = getelementptr inbounds i8, ptr %s, i64 7048
   %48 = load i16, ptr %bi_buf58, align 8
   %49 = trunc i32 %shl57 to i16
   %conv61 = or i16 %48, %49
@@ -877,7 +881,7 @@ if.end64:                                         ; preds = %if.else52, %if.then
   %storemerge72 = phi i32 [ %add63, %if.else52 ], [ %add51, %if.then24 ]
   store i32 %storemerge72, ptr %bi_valid, align 4
   tail call fastcc void @compress_block(ptr noundef nonnull %s, ptr noundef nonnull @static_ltree, ptr noundef nonnull @static_dtree)
-  br label %for.body.i90.preheader
+  br label %if.end131
 
 if.else65:                                        ; preds = %if.else19
   %conv74 = add i32 %last, 4
@@ -886,15 +890,15 @@ if.else65:                                        ; preds = %if.else19
 if.then71:                                        ; preds = %if.else65
   %conv75 = and i32 %conv74, 65535
   %shl77 = shl i32 %conv74, %38
-  %bi_buf78 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf78 = getelementptr inbounds i8, ptr %s, i64 7048
   %50 = load i16, ptr %bi_buf78, align 8
   %51 = trunc i32 %shl77 to i16
   %conv81 = or i16 %50, %51
   store i16 %conv81, ptr %bi_buf78, align 8
   %conv85 = trunc i16 %conv81 to i8
-  %pending_buf86 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf86 = getelementptr inbounds i8, ptr %s, i64 16
   %52 = load ptr, ptr %pending_buf86, align 16
-  %pending87 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending87 = getelementptr inbounds i8, ptr %s, i64 40
   %53 = load i32, ptr %pending87, align 8
   %inc88 = add i32 %53, 1
   store i32 %inc88, ptr %pending87, align 8
@@ -920,7 +924,7 @@ if.then71:                                        ; preds = %if.else65
 
 if.else110:                                       ; preds = %if.else65
   %shl115 = shl i32 %conv74, %38
-  %bi_buf116 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf116 = getelementptr inbounds i8, ptr %s, i64 7048
   %59 = load i16, ptr %bi_buf116, align 8
   %60 = trunc i32 %shl115 to i16
   %conv119 = or i16 %59, %60
@@ -931,32 +935,32 @@ if.end122:                                        ; preds = %if.else110, %if.the
   %61 = phi i16 [ %conv119, %if.else110 ], [ %conv105, %if.then71 ]
   %storemerge = phi i32 [ %add121, %if.else110 ], [ %add109, %if.then71 ]
   store i32 %storemerge, ptr %bi_valid, align 4
-  %max_code = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 44, i32 1
+  %max_code = getelementptr inbounds i8, ptr %s, i64 4024
   %62 = load i32, ptr %max_code, align 8
-  %max_code126 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 45, i32 1
+  %max_code126 = getelementptr inbounds i8, ptr %s, i64 4048
   %63 = load i32, ptr %max_code126, align 8
   %add128 = add nsw i32 %max_blindex.0, 1
-  %cmp.i78 = icmp sgt i32 %storemerge, 11
+  %cmp.i79 = icmp sgt i32 %storemerge, 11
   %conv.i = add i32 %62, 65280
-  br i1 %cmp.i78, label %if.then.i, label %if.else.i
+  br i1 %cmp.i79, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end122
   %conv2.i = and i32 %conv.i, 65535
   %shl.i = shl i32 %conv.i, %storemerge
-  %bi_buf.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf.i = getelementptr inbounds i8, ptr %s, i64 7048
   %64 = trunc i32 %shl.i to i16
   %conv5.i = or i16 %61, %64
   store i16 %conv5.i, ptr %bi_buf.i, align 8
   %conv8.i = trunc i16 %conv5.i to i8
-  %pending_buf.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf.i = getelementptr inbounds i8, ptr %s, i64 16
   %65 = load ptr, ptr %pending_buf.i, align 16
-  %pending.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending.i = getelementptr inbounds i8, ptr %s, i64 40
   %66 = load i32, ptr %pending.i, align 8
   %inc.i = add i32 %66, 1
   store i32 %inc.i, ptr %pending.i, align 8
-  %idxprom.i88 = zext i32 %66 to i64
-  %arrayidx.i89 = getelementptr inbounds i8, ptr %65, i64 %idxprom.i88
-  store i8 %conv8.i, ptr %arrayidx.i89, align 1
+  %idxprom.i89 = zext i32 %66 to i64
+  %arrayidx.i90 = getelementptr inbounds i8, ptr %65, i64 %idxprom.i89
+  store i8 %conv8.i, ptr %arrayidx.i90, align 1
   %67 = load i16, ptr %bi_buf.i, align 8
   %68 = lshr i16 %67, 8
   %conv11.i = trunc i16 %68 to i8
@@ -991,14 +995,14 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 if.then42.i:                                      ; preds = %if.end.i
   %conv46.i = and i32 %63, 65535
   %shl48.i = shl i32 %63, %storemerge.i
-  %bi_buf49.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf49.i = getelementptr inbounds i8, ptr %s, i64 7048
   %74 = trunc i32 %shl48.i to i16
   %conv52.i = or i16 %73, %74
   store i16 %conv52.i, ptr %bi_buf49.i, align 8
   %conv56.i = trunc i16 %conv52.i to i8
-  %pending_buf57.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf57.i = getelementptr inbounds i8, ptr %s, i64 16
   %75 = load ptr, ptr %pending_buf57.i, align 16
-  %pending58.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending58.i = getelementptr inbounds i8, ptr %s, i64 40
   %76 = load i32, ptr %pending58.i, align 8
   %inc59.i = add i32 %76, 1
   store i32 %inc59.i, ptr %pending58.i, align 8
@@ -1040,14 +1044,14 @@ if.end93.i:                                       ; preds = %if.else81.i, %if.th
 if.then99.i:                                      ; preds = %if.end93.i
   %conv103.i = and i32 %conv102.i, 65535
   %shl105.i = shl i32 %conv102.i, %storemerge93.i
-  %bi_buf106.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf106.i = getelementptr inbounds i8, ptr %s, i64 7048
   %84 = trunc i32 %shl105.i to i16
   %conv109.i = or i16 %83, %84
   store i16 %conv109.i, ptr %bi_buf106.i, align 8
   %conv113.i = trunc i16 %conv109.i to i8
-  %pending_buf114.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf114.i = getelementptr inbounds i8, ptr %s, i64 16
   %85 = load ptr, ptr %pending_buf114.i, align 16
-  %pending115.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending115.i = getelementptr inbounds i8, ptr %s, i64 40
   %86 = load i32, ptr %pending115.i, align 8
   %inc116.i = add i32 %86, 1
   store i32 %inc116.i, ptr %pending115.i, align 8
@@ -1074,7 +1078,7 @@ if.then99.i:                                      ; preds = %if.end93.i
 
 if.else138.i:                                     ; preds = %if.end93.i
   %shl143.i = shl i32 %conv102.i, %storemerge93.i
-  %bi_buf144.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf144.i = getelementptr inbounds i8, ptr %s, i64 7048
   %92 = trunc i32 %shl143.i to i16
   %conv147.i = or i16 %83, %92
   store i16 %conv147.i, ptr %bi_buf144.i, align 8
@@ -1089,22 +1093,23 @@ if.end150.i:                                      ; preds = %if.else138.i, %if.t
   br i1 %cmp15196.i, label %for.body.lr.ph.i, label %send_all_trees.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end150.i
-  %bi_buf211.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
-  %pending_buf177.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
-  %pending178.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %bl_tree202.i = getelementptr inbounds i8, ptr %s, i64 3860
+  %bi_buf211.i = getelementptr inbounds i8, ptr %s, i64 7048
+  %pending_buf177.i = getelementptr inbounds i8, ptr %s, i64 16
+  %pending178.i = getelementptr inbounds i8, ptr %s, i64 40
   %wide.trip.count.i = zext nneg i32 %add128 to i64
-  br label %for.body.i82
+  br label %for.body.i83
 
-for.body.i82:                                     ; preds = %for.inc.i85, %for.body.lr.ph.i
-  %94 = phi i16 [ %93, %for.body.lr.ph.i ], [ %106, %for.inc.i85 ]
-  %95 = phi i32 [ %storemerge94.i, %for.body.lr.ph.i ], [ %storemerge95.i, %for.inc.i85 ]
-  %indvars.iv.i83 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i86, %for.inc.i85 ]
+for.body.i83:                                     ; preds = %for.inc.i86, %for.body.lr.ph.i
+  %94 = phi i16 [ %93, %for.body.lr.ph.i ], [ %106, %for.inc.i86 ]
+  %95 = phi i32 [ %storemerge94.i, %for.body.lr.ph.i ], [ %storemerge95.i, %for.inc.i86 ]
+  %indvars.iv.i84 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i87, %for.inc.i86 ]
   %cmp156.i = icmp sgt i32 %95, 13
-  %arrayidx161.i = getelementptr inbounds [19 x i8], ptr @bl_order, i64 0, i64 %indvars.iv.i83
+  %arrayidx161.i = getelementptr inbounds [19 x i8], ptr @bl_order, i64 0, i64 %indvars.iv.i84
   %96 = load i8, ptr %arrayidx161.i, align 1
   %idxprom162.i = zext i8 %96 to i64
-  %dl.i84 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom162.i, i32 1
-  %97 = load i16, ptr %dl.i84, align 2
+  %dl.i85 = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree202.i, i64 0, i64 %idxprom162.i, i32 1
+  %97 = load i16, ptr %dl.i85, align 2
   %conv164.i = zext i16 %97 to i32
   %shl168.i = shl i32 %conv164.i, %95
   %98 = trunc i32 %shl168.i to i16
@@ -1112,7 +1117,7 @@ for.body.i82:                                     ; preds = %for.inc.i85, %for.b
   store i16 %conv172.i, ptr %bi_buf211.i, align 8
   br i1 %cmp156.i, label %if.then158.i, label %if.else201.i
 
-if.then158.i:                                     ; preds = %for.body.i82
+if.then158.i:                                     ; preds = %for.body.i83
   %conv176.i = trunc i16 %conv172.i to i8
   %99 = load ptr, ptr %pending_buf177.i, align 16
   %100 = load i32, ptr %pending178.i, align 8
@@ -1137,117 +1142,126 @@ if.then158.i:                                     ; preds = %for.body.i82
   %conv196.i = trunc i32 %shr195.i to i16
   store i16 %conv196.i, ptr %bi_buf211.i, align 8
   %add200.i = add nsw i32 %105, -13
-  br label %for.inc.i85
+  br label %for.inc.i86
 
-if.else201.i:                                     ; preds = %for.body.i82
+if.else201.i:                                     ; preds = %for.body.i83
   %add216.i = add nsw i32 %95, 3
-  br label %for.inc.i85
+  br label %for.inc.i86
 
-for.inc.i85:                                      ; preds = %if.else201.i, %if.then158.i
+for.inc.i86:                                      ; preds = %if.else201.i, %if.then158.i
   %106 = phi i16 [ %conv172.i, %if.else201.i ], [ %conv196.i, %if.then158.i ]
   %storemerge95.i = phi i32 [ %add216.i, %if.else201.i ], [ %add200.i, %if.then158.i ]
   store i32 %storemerge95.i, ptr %bi_valid, align 4
-  %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i83, 1
-  %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i
-  br i1 %exitcond.not.i87, label %send_all_trees.exit, label %for.body.i82, !llvm.loop !14
+  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i84, 1
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i
+  br i1 %exitcond.not.i88, label %send_all_trees.exit, label %for.body.i83, !llvm.loop !14
 
-send_all_trees.exit:                              ; preds = %for.inc.i85, %if.end150.i
-  %dyn_ltree.i80 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41
-  tail call fastcc void @send_tree(ptr noundef nonnull %s, ptr noundef nonnull %dyn_ltree.i80, i32 noundef %62)
-  %dyn_dtree.i81 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 42
-  tail call fastcc void @send_tree(ptr noundef nonnull %s, ptr noundef nonnull %dyn_dtree.i81, i32 noundef %63)
-  tail call fastcc void @compress_block(ptr noundef nonnull %s, ptr noundef nonnull %dyn_ltree.i80, ptr noundef nonnull %dyn_dtree.i81)
-  br label %for.body.i90.preheader
+send_all_trees.exit:                              ; preds = %for.inc.i86, %if.end150.i
+  %dyn_ltree.i81 = getelementptr inbounds i8, ptr %s, i64 1324
+  tail call fastcc void @send_tree(ptr noundef nonnull %s, ptr noundef nonnull %dyn_ltree.i81, i32 noundef %62)
+  %dyn_dtree.i82 = getelementptr inbounds i8, ptr %s, i64 3616
+  tail call fastcc void @send_tree(ptr noundef nonnull %s, ptr noundef nonnull %dyn_dtree.i82, i32 noundef %63)
+  tail call fastcc void @compress_block(ptr noundef nonnull %s, ptr noundef nonnull %dyn_ltree.i81, ptr noundef nonnull %dyn_dtree.i82)
+  br label %if.end131
 
-for.body.i90.preheader:                           ; preds = %if.end64, %send_all_trees.exit, %if.then18
-  br label %for.body.i90
+if.end131:                                        ; preds = %if.end64, %send_all_trees.exit, %if.then18
+  %dyn_ltree.i91 = getelementptr inbounds i8, ptr %s, i64 1324
+  br label %for.body.i92
 
-for.body.i90:                                     ; preds = %for.body.i90.preheader, %for.body.i90
-  %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i93, %for.body.i90 ], [ 0, %for.body.i90.preheader ]
-  %arrayidx.i92 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 %indvars.iv.i91
-  store i16 0, ptr %arrayidx.i92, align 4
-  %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i91, 1
-  %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 286
-  br i1 %exitcond.not.i94, label %for.body3.i, label %for.body.i90, !llvm.loop !5
+for.cond1.preheader.i:                            ; preds = %for.body.i92
+  %dyn_dtree.i97 = getelementptr inbounds i8, ptr %s, i64 3616
+  br label %for.body3.i
 
-for.body3.i:                                      ; preds = %for.body.i90, %for.body3.i
-  %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %for.body3.i ], [ 0, %for.body.i90 ]
-  %arrayidx5.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 42, i64 %indvars.iv20.i
+for.body.i92:                                     ; preds = %for.body.i92, %if.end131
+  %indvars.iv.i93 = phi i64 [ 0, %if.end131 ], [ %indvars.iv.next.i95, %for.body.i92 ]
+  %arrayidx.i94 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree.i91, i64 0, i64 %indvars.iv.i93
+  store i16 0, ptr %arrayidx.i94, align 4
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
+  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, 286
+  br i1 %exitcond.not.i96, label %for.cond1.preheader.i, label %for.body.i92, !llvm.loop !5
+
+for.cond10.preheader.i:                           ; preds = %for.body3.i
+  %bl_tree.i98 = getelementptr inbounds i8, ptr %s, i64 3860
+  br label %for.body12.i
+
+for.body3.i:                                      ; preds = %for.body3.i, %for.cond1.preheader.i
+  %indvars.iv20.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %indvars.iv.next21.i, %for.body3.i ]
+  %arrayidx5.i = getelementptr inbounds [61 x %struct.ct_data_s], ptr %dyn_dtree.i97, i64 0, i64 %indvars.iv20.i
   store i16 0, ptr %arrayidx5.i, align 4
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 30
-  br i1 %exitcond23.not.i, label %for.body12.i, label %for.body3.i, !llvm.loop !7
+  br i1 %exitcond23.not.i, label %for.cond10.preheader.i, label %for.body3.i, !llvm.loop !7
 
-for.body12.i:                                     ; preds = %for.body3.i, %for.body12.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %for.body12.i ], [ 0, %for.body3.i ]
-  %arrayidx14.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %indvars.iv24.i
+for.body12.i:                                     ; preds = %for.body12.i, %for.cond10.preheader.i
+  %indvars.iv24.i = phi i64 [ 0, %for.cond10.preheader.i ], [ %indvars.iv.next25.i, %for.body12.i ]
+  %arrayidx14.i = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree.i98, i64 0, i64 %indvars.iv24.i
   store i16 0, ptr %arrayidx14.i, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, 19
   br i1 %exitcond27.not.i, label %init_block.exit, label %for.body12.i, !llvm.loop !8
 
 init_block.exit:                                  ; preds = %for.body12.i
-  %arrayidx20.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 256
+  %arrayidx20.i = getelementptr inbounds i8, ptr %s, i64 2348
   store i16 1, ptr %arrayidx20.i, align 4
-  %opt_len.i95 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 56
-  %last_lit.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 54
+  %opt_len.i99 = getelementptr inbounds i8, ptr %s, i64 7024
+  %last_lit.i = getelementptr inbounds i8, ptr %s, i64 7012
   store i32 0, ptr %last_lit.i, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %opt_len.i95, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %opt_len.i99, i8 0, i64 20, i1 false)
   %tobool.not = icmp eq i32 %last, 0
   br i1 %tobool.not, label %if.end133, label %if.then132
 
 if.then132:                                       ; preds = %init_block.exit
-  %bi_valid.i96 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
-  %107 = load i32, ptr %bi_valid.i96, align 4
-  %cmp.i97 = icmp sgt i32 %107, 8
-  br i1 %cmp.i97, label %if.then.i100, label %if.else.i98
+  %bi_valid.i100 = getelementptr inbounds i8, ptr %s, i64 7052
+  %107 = load i32, ptr %bi_valid.i100, align 4
+  %cmp.i101 = icmp sgt i32 %107, 8
+  br i1 %cmp.i101, label %if.then.i104, label %if.else.i102
 
-if.then.i100:                                     ; preds = %if.then132
-  %bi_buf.i101 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
-  %108 = load i16, ptr %bi_buf.i101, align 8
+if.then.i104:                                     ; preds = %if.then132
+  %bi_buf.i105 = getelementptr inbounds i8, ptr %s, i64 7048
+  %108 = load i16, ptr %bi_buf.i105, align 8
   %conv1.i = trunc i16 %108 to i8
-  %pending_buf.i102 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
-  %109 = load ptr, ptr %pending_buf.i102, align 16
-  %pending.i103 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
-  %110 = load i32, ptr %pending.i103, align 8
-  %inc.i104 = add i32 %110, 1
-  store i32 %inc.i104, ptr %pending.i103, align 8
-  %idxprom.i105 = zext i32 %110 to i64
-  %arrayidx.i106 = getelementptr inbounds i8, ptr %109, i64 %idxprom.i105
-  store i8 %conv1.i, ptr %arrayidx.i106, align 1
-  %111 = load i16, ptr %bi_buf.i101, align 8
+  %pending_buf.i106 = getelementptr inbounds i8, ptr %s, i64 16
+  %109 = load ptr, ptr %pending_buf.i106, align 16
+  %pending.i107 = getelementptr inbounds i8, ptr %s, i64 40
+  %110 = load i32, ptr %pending.i107, align 8
+  %inc.i108 = add i32 %110, 1
+  store i32 %inc.i108, ptr %pending.i107, align 8
+  %idxprom.i109 = zext i32 %110 to i64
+  %arrayidx.i110 = getelementptr inbounds i8, ptr %109, i64 %idxprom.i109
+  store i8 %conv1.i, ptr %arrayidx.i110, align 1
+  %111 = load i16, ptr %bi_buf.i105, align 8
   %112 = lshr i16 %111, 8
   br label %if.end21.sink.split.i
 
-if.else.i98:                                      ; preds = %if.then132
+if.else.i102:                                     ; preds = %if.then132
   %cmp11.i = icmp sgt i32 %107, 0
   br i1 %cmp11.i, label %if.then13.i, label %bi_windup.exit
 
-if.then13.i:                                      ; preds = %if.else.i98
-  %bi_buf14.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+if.then13.i:                                      ; preds = %if.else.i102
+  %bi_buf14.i = getelementptr inbounds i8, ptr %s, i64 7048
   %113 = load i16, ptr %bi_buf14.i, align 8
-  %pending_buf16.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
-  %pending17.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending_buf16.i = getelementptr inbounds i8, ptr %s, i64 16
+  %pending17.i = getelementptr inbounds i8, ptr %s, i64 40
   br label %if.end21.sink.split.i
 
-if.end21.sink.split.i:                            ; preds = %if.then13.i, %if.then.i100
-  %pending.sink.i = phi ptr [ %pending.i103, %if.then.i100 ], [ %pending17.i, %if.then13.i ]
-  %.sink.in.i = phi ptr [ %pending_buf.i102, %if.then.i100 ], [ %pending_buf16.i, %if.then13.i ]
-  %conv15.sink.in.i = phi i16 [ %112, %if.then.i100 ], [ %113, %if.then13.i ]
+if.end21.sink.split.i:                            ; preds = %if.then13.i, %if.then.i104
+  %pending.sink.i = phi ptr [ %pending.i107, %if.then.i104 ], [ %pending17.i, %if.then13.i ]
+  %.sink.in.i = phi ptr [ %pending_buf.i106, %if.then.i104 ], [ %pending_buf16.i, %if.then13.i ]
+  %conv15.sink.in.i = phi i16 [ %112, %if.then.i104 ], [ %113, %if.then13.i ]
   %conv15.sink.i = trunc i16 %conv15.sink.in.i to i8
   %.sink.i = load ptr, ptr %.sink.in.i, align 16
   %114 = load i32, ptr %pending.sink.i, align 8
   %inc18.i = add i32 %114, 1
   store i32 %inc18.i, ptr %pending.sink.i, align 8
   %idxprom19.i = zext i32 %114 to i64
-  %arrayidx20.i99 = getelementptr inbounds i8, ptr %.sink.i, i64 %idxprom19.i
-  store i8 %conv15.sink.i, ptr %arrayidx20.i99, align 1
+  %arrayidx20.i103 = getelementptr inbounds i8, ptr %.sink.i, i64 %idxprom19.i
+  store i8 %conv15.sink.i, ptr %arrayidx20.i103, align 1
   br label %bi_windup.exit
 
-bi_windup.exit:                                   ; preds = %if.else.i98, %if.end21.sink.split.i
-  %bi_buf22.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+bi_windup.exit:                                   ; preds = %if.else.i102, %if.end21.sink.split.i
+  %bi_buf22.i = getelementptr inbounds i8, ptr %s, i64 7048
   store i16 0, ptr %bi_buf22.i, align 8
-  store i32 0, ptr %bi_valid.i96, align 4
+  store i32 0, ptr %bi_valid.i100, align 4
   br label %if.end133
 
 if.end133:                                        ; preds = %bi_windup.exit, %init_block.exit
@@ -1259,38 +1273,42 @@ define internal fastcc void @build_tree(ptr noundef %s, ptr nocapture noundef %d
 entry:
   %next_code.i = alloca [16 x i16], align 16
   %0 = load ptr, ptr %desc, align 8
-  %stat_desc = getelementptr inbounds %struct.tree_desc_s, ptr %desc, i64 0, i32 2
+  %stat_desc = getelementptr inbounds i8, ptr %desc, i64 16
   %1 = load ptr, ptr %stat_desc, align 8
   %2 = load ptr, ptr %1, align 8
-  %elems2 = getelementptr inbounds %struct.static_tree_desc_s, ptr %1, i64 0, i32 3
+  %elems2 = getelementptr inbounds i8, ptr %1, i64 20
   %3 = load i32, ptr %elems2, align 4
-  %heap_len = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 49
+  %heap_len = getelementptr inbounds i8, ptr %s, i64 6412
   store i32 0, ptr %heap_len, align 4
-  %heap_max = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 50
+  %heap_max = getelementptr inbounds i8, ptr %s, i64 6416
   store i32 573, ptr %heap_max, align 16
-  %cmp195 = icmp sgt i32 %3, 0
-  br i1 %cmp195, label %for.body.preheader, label %while.body.lr.ph
+  %cmp200 = icmp sgt i32 %3, 0
+  br i1 %cmp200, label %for.body.lr.ph, label %while.body.lr.ph
 
-for.body.preheader:                               ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
+  %heap = getelementptr inbounds i8, ptr %s, i64 4120
+  %depth = getelementptr inbounds i8, ptr %s, i64 6420
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %for.body
 
 while.cond.preheader:                             ; preds = %for.inc
   %.pre = load i32, ptr %heap_len, align 4
-  %cmp14198 = icmp slt i32 %.pre, 2
-  br i1 %cmp14198, label %while.body.lr.ph, label %while.end
+  %cmp14203 = icmp slt i32 %.pre, 2
+  br i1 %cmp14203, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry, %while.cond.preheader
-  %max_code.0.lcssa216 = phi i32 [ %max_code.1, %while.cond.preheader ], [ -1, %entry ]
+  %max_code.0.lcssa222 = phi i32 [ %max_code.1, %while.cond.preheader ], [ -1, %entry ]
   %4 = phi i32 [ %.pre, %while.cond.preheader ], [ 0, %entry ]
-  %opt_len = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 56
+  %heap19 = getelementptr inbounds i8, ptr %s, i64 4120
+  %depth27 = getelementptr inbounds i8, ptr %s, i64 6420
+  %opt_len = getelementptr inbounds i8, ptr %s, i64 7024
   %tobool.not = icmp eq ptr %2, null
-  %static_len = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 57
+  %static_len = getelementptr inbounds i8, ptr %s, i64 7032
   br label %while.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %max_code.0197 = phi i32 [ -1, %for.body.preheader ], [ %max_code.1, %for.inc ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %max_code.0202 = phi i32 [ -1, %for.body.lr.ph ], [ %max_code.1, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %arrayidx, align 2
   %cmp3.not = icmp eq i16 %5, 0
@@ -1301,40 +1319,40 @@ if.then:                                          ; preds = %for.body
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %heap_len, align 4
   %idxprom6 = sext i32 %inc to i64
-  %arrayidx7 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [573 x i32], ptr %heap, i64 0, i64 %idxprom6
   %7 = trunc i64 %indvars.iv to i32
   store i32 %7, ptr %arrayidx7, align 4
-  %arrayidx9 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %indvars.iv
+  %arrayidx9 = getelementptr inbounds [573 x i8], ptr %depth, i64 0, i64 %indvars.iv
   store i8 0, ptr %arrayidx9, align 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %dl = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %indvars.iv, i32 1
+  %dl = getelementptr inbounds i8, ptr %arrayidx, i64 2
   store i16 0, ptr %dl, align 2
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.else
-  %max_code.1 = phi i32 [ %7, %if.then ], [ %max_code.0197, %if.else ]
+  %max_code.1 = phi i32 [ %7, %if.then ], [ %max_code.0202, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %while.cond.preheader, label %for.body, !llvm.loop !15
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end35
   %8 = phi i32 [ %4, %while.body.lr.ph ], [ %12, %if.end35 ]
-  %max_code.2199 = phi i32 [ %max_code.0.lcssa216, %while.body.lr.ph ], [ %spec.select, %if.end35 ]
-  %cmp16 = icmp slt i32 %max_code.2199, 2
-  %inc18 = add nsw i32 %max_code.2199, 1
-  %spec.select = select i1 %cmp16, i32 %inc18, i32 %max_code.2199
+  %max_code.2204 = phi i32 [ %max_code.0.lcssa222, %while.body.lr.ph ], [ %spec.select, %if.end35 ]
+  %cmp16 = icmp slt i32 %max_code.2204, 2
+  %inc18 = add nsw i32 %max_code.2204, 1
+  %spec.select = select i1 %cmp16, i32 %inc18, i32 %max_code.2204
   %spec.select79 = select i1 %cmp16, i32 %inc18, i32 0
   %inc21 = add nsw i32 %8, 1
   store i32 %inc21, ptr %heap_len, align 4
   %idxprom22 = sext i32 %inc21 to i64
-  %arrayidx23 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds [573 x i32], ptr %heap19, i64 0, i64 %idxprom22
   store i32 %spec.select79, ptr %arrayidx23, align 4
   %idxprom24 = sext i32 %spec.select79 to i64
   %arrayidx25 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom24
   store i16 1, ptr %arrayidx25, align 2
-  %arrayidx29 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom24
+  %arrayidx29 = getelementptr inbounds [573 x i8], ptr %depth27, i64 0, i64 %idxprom24
   store i8 0, ptr %arrayidx29, align 1
   %9 = load i64, ptr %opt_len, align 16
   %dec = add i64 %9, -1
@@ -1357,34 +1375,38 @@ if.end35:                                         ; preds = %if.then30, %while.b
 
 while.end:                                        ; preds = %if.end35, %while.cond.preheader
   %max_code.2.lcssa = phi i32 [ %max_code.1, %while.cond.preheader ], [ %spec.select, %if.end35 ]
-  %max_code36 = getelementptr inbounds %struct.tree_desc_s, ptr %desc, i64 0, i32 1
+  %max_code36 = getelementptr inbounds i8, ptr %desc, i64 8
   store i32 %max_code.2.lcssa, ptr %max_code36, align 8
   %13 = load i32, ptr %heap_len, align 4
-  %cmp39201 = icmp sgt i32 %13, 1
-  br i1 %cmp39201, label %for.body41.preheader, label %do.body.preheader
+  %cmp39206 = icmp sgt i32 %13, 1
+  br i1 %cmp39206, label %for.body41.lr.ph, label %do.body.preheader
 
-for.body41.preheader:                             ; preds = %while.end
-  %div217220 = lshr i32 %13, 1
-  %14 = zext nneg i32 %div217220 to i64
+for.body41.lr.ph:                                 ; preds = %while.end
+  %div219 = lshr i32 %13, 1
+  %heap.i = getelementptr inbounds i8, ptr %s, i64 4120
+  %depth79.i = getelementptr inbounds i8, ptr %s, i64 6420
+  %14 = zext nneg i32 %div219 to i64
   br label %for.body41
 
 do.body.preheader.loopexit:                       ; preds = %pqdownheap.exit
-  %.pre212.pre = load i32, ptr %heap_len, align 4
+  %.pre217.pre = load i32, ptr %heap_len, align 4
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.loopexit, %while.end
-  %.pre212 = phi i32 [ %.pre212.pre, %do.body.preheader.loopexit ], [ %13, %while.end ]
-  %arrayidx46 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 1
+  %.pre217 = phi i32 [ %.pre217.pre, %do.body.preheader.loopexit ], [ %13, %while.end ]
+  %heap45 = getelementptr inbounds i8, ptr %s, i64 4120
+  %arrayidx46 = getelementptr inbounds i8, ptr %s, i64 4124
+  %depth79.i82 = getelementptr inbounds i8, ptr %s, i64 6420
   %15 = sext i32 %3 to i64
   br label %do.body
 
-for.body41:                                       ; preds = %for.body41.preheader, %pqdownheap.exit
-  %indvars.iv206 = phi i64 [ %14, %for.body41.preheader ], [ %indvars.iv.next207, %pqdownheap.exit ]
-  %arrayidx.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %indvars.iv206
+for.body41:                                       ; preds = %for.body41.lr.ph, %pqdownheap.exit
+  %indvars.iv211 = phi i64 [ %14, %for.body41.lr.ph ], [ %indvars.iv.next212, %pqdownheap.exit ]
+  %arrayidx.i = getelementptr inbounds [573 x i32], ptr %heap.i, i64 0, i64 %indvars.iv211
   %16 = load i32, ptr %arrayidx.i, align 4
   %idxprom51.i = sext i32 %16 to i64
-  %arrayidx81.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom51.i
-  %17 = trunc i64 %indvars.iv206 to i32
+  %arrayidx81.i = getelementptr inbounds [573 x i8], ptr %depth79.i, i64 0, i64 %idxprom51.i
+  %17 = trunc i64 %indvars.iv211 to i32
   %j.046.i = shl nuw i32 %17, 1
   %18 = load i32, ptr %heap_len, align 4
   %cmp.not47.i = icmp sgt i32 %j.046.i, %18
@@ -1408,13 +1430,13 @@ while.body.if.end_crit_edge.i:                    ; preds = %while.body.i
 land.lhs.true.i:                                  ; preds = %while.body.i
   %add.i = or disjoint i32 %j.049.i, 1
   %idxprom4.i = sext i32 %add.i to i64
-  %arrayidx5.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds [573 x i32], ptr %heap.i, i64 0, i64 %idxprom4.i
   %20 = load i32, ptr %arrayidx5.i, align 4
   %idxprom6.i = sext i32 %20 to i64
   %arrayidx7.i = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom6.i
   %21 = load i16, ptr %arrayidx7.i, align 2
   %idxprom9.i = sext i32 %j.049.i to i64
-  %arrayidx10.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr inbounds [573 x i32], ptr %heap.i, i64 0, i64 %idxprom9.i
   %22 = load i32, ptr %arrayidx10.i, align 4
   %idxprom11.i = sext i32 %22 to i64
   %arrayidx12.i = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom11.i
@@ -1427,9 +1449,9 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %cmp32.i, label %land.lhs.true34.i, label %if.end.i
 
 land.lhs.true34.i:                                ; preds = %lor.lhs.false.i
-  %arrayidx40.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom6.i
+  %arrayidx40.i = getelementptr inbounds [573 x i8], ptr %depth79.i, i64 0, i64 %idxprom6.i
   %24 = load i8, ptr %arrayidx40.i, align 1
-  %arrayidx47.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom11.i
+  %arrayidx47.i = getelementptr inbounds [573 x i8], ptr %depth79.i, i64 0, i64 %idxprom11.i
   %25 = load i8, ptr %arrayidx47.i, align 1
   %cmp49.not.i = icmp ugt i8 %24, %25
   br i1 %cmp49.not.i, label %if.end.i, label %if.then.i
@@ -1441,7 +1463,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
   %idxprom56.pre-phi.i = phi i64 [ %.pre.i, %while.body.if.end_crit_edge.i ], [ %idxprom4.i, %if.then.i ], [ %idxprom9.i, %land.lhs.true34.i ], [ %idxprom9.i, %lor.lhs.false.i ]
   %j.1.i = phi i32 [ %j.049.i, %while.body.if.end_crit_edge.i ], [ %add.i, %if.then.i ], [ %j.049.i, %land.lhs.true34.i ], [ %j.049.i, %lor.lhs.false.i ]
   %26 = load i16, ptr %arrayidx52.i, align 2
-  %arrayidx57.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom56.pre-phi.i
+  %arrayidx57.i = getelementptr inbounds [573 x i32], ptr %heap.i, i64 0, i64 %idxprom56.pre-phi.i
   %27 = load i32, ptr %arrayidx57.i, align 4
   %idxprom58.i = sext i32 %27 to i64
   %arrayidx59.i = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom58.i
@@ -1455,14 +1477,14 @@ lor.lhs.false64.i:                                ; preds = %if.end.i
 
 land.lhs.true78.i:                                ; preds = %lor.lhs.false64.i
   %29 = load i8, ptr %arrayidx81.i, align 1
-  %arrayidx88.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom58.i
+  %arrayidx88.i = getelementptr inbounds [573 x i8], ptr %depth79.i, i64 0, i64 %idxprom58.i
   %30 = load i8, ptr %arrayidx88.i, align 1
   %cmp90.not.i = icmp ugt i8 %29, %30
   br i1 %cmp90.not.i, label %if.end93.i, label %pqdownheap.exit
 
 if.end93.i:                                       ; preds = %land.lhs.true78.i, %lor.lhs.false64.i
   %idxprom98.i = sext i32 %k.addr.048.i to i64
-  %arrayidx99.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom98.i
+  %arrayidx99.i = getelementptr inbounds [573 x i32], ptr %heap.i, i64 0, i64 %idxprom98.i
   store i32 %27, ptr %arrayidx99.i, align 4
   %j.0.i = shl i32 %j.1.i, 1
   %31 = load i32, ptr %heap_len, align 4
@@ -1472,123 +1494,123 @@ if.end93.i:                                       ; preds = %land.lhs.true78.i, 
 pqdownheap.exit:                                  ; preds = %if.end.i, %land.lhs.true78.i, %if.end93.i, %for.body41
   %k.addr.0.lcssa.i = phi i32 [ %17, %for.body41 ], [ %j.1.i, %if.end93.i ], [ %k.addr.048.i, %land.lhs.true78.i ], [ %k.addr.048.i, %if.end.i ]
   %idxprom102.i = sext i32 %k.addr.0.lcssa.i to i64
-  %arrayidx103.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom102.i
+  %arrayidx103.i = getelementptr inbounds [573 x i32], ptr %heap.i, i64 0, i64 %idxprom102.i
   store i32 %16, ptr %arrayidx103.i, align 4
-  %indvars.iv.next207 = add nsw i64 %indvars.iv206, -1
-  %cmp39 = icmp sgt i64 %indvars.iv206, 1
+  %indvars.iv.next212 = add nsw i64 %indvars.iv211, -1
+  %cmp39 = icmp sgt i64 %indvars.iv211, 1
   br i1 %cmp39, label %for.body41, label %do.body.preheader.loopexit, !llvm.loop !18
 
-do.body:                                          ; preds = %do.body.preheader, %pqdownheap.exit183
-  %32 = phi i32 [ %.pre212, %do.body.preheader ], [ %70, %pqdownheap.exit183 ]
-  %indvars.iv209 = phi i64 [ %15, %do.body.preheader ], [ %indvars.iv.next210, %pqdownheap.exit183 ]
+do.body:                                          ; preds = %do.body.preheader, %pqdownheap.exit187
+  %32 = phi i32 [ %.pre217, %do.body.preheader ], [ %70, %pqdownheap.exit187 ]
+  %indvars.iv214 = phi i64 [ %15, %do.body.preheader ], [ %indvars.iv.next215, %pqdownheap.exit187 ]
   %33 = load i32, ptr %arrayidx46, align 4
   %dec49 = add nsw i32 %32, -1
   store i32 %dec49, ptr %heap_len, align 4
   %idxprom50 = sext i32 %32 to i64
-  %arrayidx51 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom50
   %34 = load i32, ptr %arrayidx51, align 4
   store i32 %34, ptr %arrayidx46, align 4
-  %idxprom51.i81 = sext i32 %34 to i64
-  %arrayidx81.i82 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom51.i81
-  %cmp.not47.i84 = icmp slt i32 %32, 3
-  br i1 %cmp.not47.i84, label %pqdownheap.exit131, label %while.body.lr.ph.i85
+  %idxprom51.i83 = sext i32 %34 to i64
+  %arrayidx81.i84 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom51.i83
+  %cmp.not47.i86 = icmp slt i32 %32, 3
+  br i1 %cmp.not47.i86, label %pqdownheap.exit133, label %while.body.lr.ph.i87
 
-while.body.lr.ph.i85:                             ; preds = %do.body
-  %arrayidx52.i86 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom51.i81
-  br label %while.body.i87
+while.body.lr.ph.i87:                             ; preds = %do.body
+  %arrayidx52.i88 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom51.i83
+  br label %while.body.i89
 
-while.body.i87:                                   ; preds = %if.end93.i102, %while.body.lr.ph.i85
-  %35 = phi i32 [ %dec49, %while.body.lr.ph.i85 ], [ %47, %if.end93.i102 ]
-  %j.049.i88 = phi i32 [ 2, %while.body.lr.ph.i85 ], [ %j.0.i105, %if.end93.i102 ]
-  %k.addr.048.i89 = phi i32 [ 1, %while.body.lr.ph.i85 ], [ %j.1.i95, %if.end93.i102 ]
-  %cmp2.i90 = icmp slt i32 %j.049.i88, %35
-  br i1 %cmp2.i90, label %land.lhs.true.i113, label %while.body.if.end_crit_edge.i91
+while.body.i89:                                   ; preds = %if.end93.i104, %while.body.lr.ph.i87
+  %35 = phi i32 [ %dec49, %while.body.lr.ph.i87 ], [ %47, %if.end93.i104 ]
+  %j.049.i90 = phi i32 [ 2, %while.body.lr.ph.i87 ], [ %j.0.i107, %if.end93.i104 ]
+  %k.addr.048.i91 = phi i32 [ 1, %while.body.lr.ph.i87 ], [ %j.1.i97, %if.end93.i104 ]
+  %cmp2.i92 = icmp slt i32 %j.049.i90, %35
+  br i1 %cmp2.i92, label %land.lhs.true.i115, label %while.body.if.end_crit_edge.i93
 
-while.body.if.end_crit_edge.i91:                  ; preds = %while.body.i87
-  %.pre.i92 = sext i32 %j.049.i88 to i64
-  br label %if.end.i93
+while.body.if.end_crit_edge.i93:                  ; preds = %while.body.i89
+  %.pre.i94 = sext i32 %j.049.i90 to i64
+  br label %if.end.i95
 
-land.lhs.true.i113:                               ; preds = %while.body.i87
-  %add.i114 = or disjoint i32 %j.049.i88, 1
-  %idxprom4.i115 = sext i32 %add.i114 to i64
-  %arrayidx5.i116 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom4.i115
-  %36 = load i32, ptr %arrayidx5.i116, align 4
-  %idxprom6.i117 = sext i32 %36 to i64
-  %arrayidx7.i118 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom6.i117
-  %37 = load i16, ptr %arrayidx7.i118, align 2
-  %idxprom9.i119 = sext i32 %j.049.i88 to i64
-  %arrayidx10.i120 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom9.i119
-  %38 = load i32, ptr %arrayidx10.i120, align 4
-  %idxprom11.i121 = sext i32 %38 to i64
-  %arrayidx12.i122 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom11.i121
-  %39 = load i16, ptr %arrayidx12.i122, align 2
-  %cmp15.i123 = icmp ult i16 %37, %39
-  br i1 %cmp15.i123, label %if.then.i130, label %lor.lhs.false.i124
+land.lhs.true.i115:                               ; preds = %while.body.i89
+  %add.i116 = or disjoint i32 %j.049.i90, 1
+  %idxprom4.i117 = sext i32 %add.i116 to i64
+  %arrayidx5.i118 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom4.i117
+  %36 = load i32, ptr %arrayidx5.i118, align 4
+  %idxprom6.i119 = sext i32 %36 to i64
+  %arrayidx7.i120 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom6.i119
+  %37 = load i16, ptr %arrayidx7.i120, align 2
+  %idxprom9.i121 = sext i32 %j.049.i90 to i64
+  %arrayidx10.i122 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom9.i121
+  %38 = load i32, ptr %arrayidx10.i122, align 4
+  %idxprom11.i123 = sext i32 %38 to i64
+  %arrayidx12.i124 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom11.i123
+  %39 = load i16, ptr %arrayidx12.i124, align 2
+  %cmp15.i125 = icmp ult i16 %37, %39
+  br i1 %cmp15.i125, label %if.then.i132, label %lor.lhs.false.i126
 
-lor.lhs.false.i124:                               ; preds = %land.lhs.true.i113
-  %cmp32.i125 = icmp eq i16 %37, %39
-  br i1 %cmp32.i125, label %land.lhs.true34.i126, label %if.end.i93
+lor.lhs.false.i126:                               ; preds = %land.lhs.true.i115
+  %cmp32.i127 = icmp eq i16 %37, %39
+  br i1 %cmp32.i127, label %land.lhs.true34.i128, label %if.end.i95
 
-land.lhs.true34.i126:                             ; preds = %lor.lhs.false.i124
-  %arrayidx40.i127 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom6.i117
-  %40 = load i8, ptr %arrayidx40.i127, align 1
-  %arrayidx47.i128 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom11.i121
-  %41 = load i8, ptr %arrayidx47.i128, align 1
-  %cmp49.not.i129 = icmp ugt i8 %40, %41
-  br i1 %cmp49.not.i129, label %if.end.i93, label %if.then.i130
+land.lhs.true34.i128:                             ; preds = %lor.lhs.false.i126
+  %arrayidx40.i129 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom6.i119
+  %40 = load i8, ptr %arrayidx40.i129, align 1
+  %arrayidx47.i130 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom11.i123
+  %41 = load i8, ptr %arrayidx47.i130, align 1
+  %cmp49.not.i131 = icmp ugt i8 %40, %41
+  br i1 %cmp49.not.i131, label %if.end.i95, label %if.then.i132
 
-if.then.i130:                                     ; preds = %land.lhs.true34.i126, %land.lhs.true.i113
-  br label %if.end.i93
+if.then.i132:                                     ; preds = %land.lhs.true34.i128, %land.lhs.true.i115
+  br label %if.end.i95
 
-if.end.i93:                                       ; preds = %if.then.i130, %land.lhs.true34.i126, %lor.lhs.false.i124, %while.body.if.end_crit_edge.i91
-  %idxprom56.pre-phi.i94 = phi i64 [ %.pre.i92, %while.body.if.end_crit_edge.i91 ], [ %idxprom4.i115, %if.then.i130 ], [ %idxprom9.i119, %land.lhs.true34.i126 ], [ %idxprom9.i119, %lor.lhs.false.i124 ]
-  %j.1.i95 = phi i32 [ %j.049.i88, %while.body.if.end_crit_edge.i91 ], [ %add.i114, %if.then.i130 ], [ %j.049.i88, %land.lhs.true34.i126 ], [ %j.049.i88, %lor.lhs.false.i124 ]
-  %42 = load i16, ptr %arrayidx52.i86, align 2
-  %arrayidx57.i96 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom56.pre-phi.i94
-  %43 = load i32, ptr %arrayidx57.i96, align 4
-  %idxprom58.i97 = sext i32 %43 to i64
-  %arrayidx59.i98 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom58.i97
-  %44 = load i16, ptr %arrayidx59.i98, align 2
-  %cmp62.i99 = icmp ult i16 %42, %44
-  br i1 %cmp62.i99, label %pqdownheap.exit131, label %lor.lhs.false64.i100
+if.end.i95:                                       ; preds = %if.then.i132, %land.lhs.true34.i128, %lor.lhs.false.i126, %while.body.if.end_crit_edge.i93
+  %idxprom56.pre-phi.i96 = phi i64 [ %.pre.i94, %while.body.if.end_crit_edge.i93 ], [ %idxprom4.i117, %if.then.i132 ], [ %idxprom9.i121, %land.lhs.true34.i128 ], [ %idxprom9.i121, %lor.lhs.false.i126 ]
+  %j.1.i97 = phi i32 [ %j.049.i90, %while.body.if.end_crit_edge.i93 ], [ %add.i116, %if.then.i132 ], [ %j.049.i90, %land.lhs.true34.i128 ], [ %j.049.i90, %lor.lhs.false.i126 ]
+  %42 = load i16, ptr %arrayidx52.i88, align 2
+  %arrayidx57.i98 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom56.pre-phi.i96
+  %43 = load i32, ptr %arrayidx57.i98, align 4
+  %idxprom58.i99 = sext i32 %43 to i64
+  %arrayidx59.i100 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom58.i99
+  %44 = load i16, ptr %arrayidx59.i100, align 2
+  %cmp62.i101 = icmp ult i16 %42, %44
+  br i1 %cmp62.i101, label %pqdownheap.exit133, label %lor.lhs.false64.i102
 
-lor.lhs.false64.i100:                             ; preds = %if.end.i93
-  %cmp76.i101 = icmp eq i16 %42, %44
-  br i1 %cmp76.i101, label %land.lhs.true78.i110, label %if.end93.i102
+lor.lhs.false64.i102:                             ; preds = %if.end.i95
+  %cmp76.i103 = icmp eq i16 %42, %44
+  br i1 %cmp76.i103, label %land.lhs.true78.i112, label %if.end93.i104
 
-land.lhs.true78.i110:                             ; preds = %lor.lhs.false64.i100
-  %45 = load i8, ptr %arrayidx81.i82, align 1
-  %arrayidx88.i111 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom58.i97
-  %46 = load i8, ptr %arrayidx88.i111, align 1
-  %cmp90.not.i112 = icmp ugt i8 %45, %46
-  br i1 %cmp90.not.i112, label %if.end93.i102, label %pqdownheap.exit131
+land.lhs.true78.i112:                             ; preds = %lor.lhs.false64.i102
+  %45 = load i8, ptr %arrayidx81.i84, align 1
+  %arrayidx88.i113 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom58.i99
+  %46 = load i8, ptr %arrayidx88.i113, align 1
+  %cmp90.not.i114 = icmp ugt i8 %45, %46
+  br i1 %cmp90.not.i114, label %if.end93.i104, label %pqdownheap.exit133
 
-if.end93.i102:                                    ; preds = %land.lhs.true78.i110, %lor.lhs.false64.i100
-  %idxprom98.i103 = sext i32 %k.addr.048.i89 to i64
-  %arrayidx99.i104 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom98.i103
-  store i32 %43, ptr %arrayidx99.i104, align 4
-  %j.0.i105 = shl i32 %j.1.i95, 1
+if.end93.i104:                                    ; preds = %land.lhs.true78.i112, %lor.lhs.false64.i102
+  %idxprom98.i105 = sext i32 %k.addr.048.i91 to i64
+  %arrayidx99.i106 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom98.i105
+  store i32 %43, ptr %arrayidx99.i106, align 4
+  %j.0.i107 = shl i32 %j.1.i97, 1
   %47 = load i32, ptr %heap_len, align 4
-  %cmp.not.i106 = icmp sgt i32 %j.0.i105, %47
-  br i1 %cmp.not.i106, label %pqdownheap.exit131, label %while.body.i87, !llvm.loop !17
+  %cmp.not.i108 = icmp sgt i32 %j.0.i107, %47
+  br i1 %cmp.not.i108, label %pqdownheap.exit133, label %while.body.i89, !llvm.loop !17
 
-pqdownheap.exit131:                               ; preds = %if.end.i93, %land.lhs.true78.i110, %if.end93.i102, %do.body
-  %k.addr.0.lcssa.i107 = phi i32 [ 1, %do.body ], [ %j.1.i95, %if.end93.i102 ], [ %k.addr.048.i89, %land.lhs.true78.i110 ], [ %k.addr.048.i89, %if.end.i93 ]
-  %idxprom102.i108 = sext i32 %k.addr.0.lcssa.i107 to i64
-  %arrayidx103.i109 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom102.i108
-  store i32 %34, ptr %arrayidx103.i109, align 4
+pqdownheap.exit133:                               ; preds = %if.end.i95, %land.lhs.true78.i112, %if.end93.i104, %do.body
+  %k.addr.0.lcssa.i109 = phi i32 [ 1, %do.body ], [ %j.1.i97, %if.end93.i104 ], [ %k.addr.048.i91, %land.lhs.true78.i112 ], [ %k.addr.048.i91, %if.end.i95 ]
+  %idxprom102.i110 = sext i32 %k.addr.0.lcssa.i109 to i64
+  %arrayidx103.i111 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom102.i110
+  store i32 %34, ptr %arrayidx103.i111, align 4
   %48 = load i32, ptr %arrayidx46, align 4
   %49 = load i32, ptr %heap_max, align 16
   %dec58 = add nsw i32 %49, -1
   store i32 %dec58, ptr %heap_max, align 16
   %idxprom59 = sext i32 %dec58 to i64
-  %arrayidx60 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom59
   store i32 %33, ptr %arrayidx60, align 4
   %50 = load i32, ptr %heap_max, align 16
   %dec63 = add nsw i32 %50, -1
   store i32 %dec63, ptr %heap_max, align 16
   %idxprom64 = sext i32 %dec63 to i64
-  %arrayidx65 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom64
+  %arrayidx65 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom64
   store i32 %48, ptr %arrayidx65, align 4
   %idxprom66 = sext i32 %33 to i64
   %arrayidx67 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom66
@@ -1597,136 +1619,136 @@ pqdownheap.exit131:                               ; preds = %if.end.i93, %land.l
   %arrayidx71 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom70
   %52 = load i16, ptr %arrayidx71, align 2
   %add = add i16 %52, %51
-  %arrayidx76 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %indvars.iv209
+  %arrayidx76 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %indvars.iv214
   store i16 %add, ptr %arrayidx76, align 2
-  %arrayidx80 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom66
+  %arrayidx80 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom66
   %53 = load i8, ptr %arrayidx80, align 1
-  %arrayidx84 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom70
+  %arrayidx84 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom70
   %54 = load i8, ptr %arrayidx84, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %53, i8 %54)
   %add100 = add i8 %., 1
-  %arrayidx104 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %indvars.iv209
+  %arrayidx104 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %indvars.iv214
   store i8 %add100, ptr %arrayidx104, align 1
-  %55 = trunc i64 %indvars.iv209 to i32
-  %conv105 = trunc i64 %indvars.iv209 to i16
-  %dl108 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom70, i32 1
+  %55 = trunc i64 %indvars.iv214 to i32
+  %conv105 = trunc i64 %indvars.iv214 to i16
+  %dl108 = getelementptr inbounds i8, ptr %arrayidx71, i64 2
   store i16 %conv105, ptr %dl108, align 2
-  %dl111 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom66, i32 1
+  %dl111 = getelementptr inbounds i8, ptr %arrayidx67, i64 2
   store i16 %conv105, ptr %dl111, align 2
-  %indvars.iv.next210 = add i64 %indvars.iv209, 1
+  %indvars.iv.next215 = add i64 %indvars.iv214, 1
   store i32 %55, ptr %arrayidx46, align 4
   %56 = load i32, ptr %heap_len, align 4
-  %cmp.not47.i136 = icmp slt i32 %56, 2
-  br i1 %cmp.not47.i136, label %pqdownheap.exit183, label %while.body.i139
+  %cmp.not47.i140 = icmp slt i32 %56, 2
+  br i1 %cmp.not47.i140, label %pqdownheap.exit187, label %while.body.i143
 
-while.body.i139:                                  ; preds = %pqdownheap.exit131, %if.end93.i154
-  %57 = phi i32 [ %69, %if.end93.i154 ], [ %56, %pqdownheap.exit131 ]
-  %j.049.i140 = phi i32 [ %j.0.i157, %if.end93.i154 ], [ 2, %pqdownheap.exit131 ]
-  %k.addr.048.i141 = phi i32 [ %j.1.i147, %if.end93.i154 ], [ 1, %pqdownheap.exit131 ]
-  %cmp2.i142 = icmp slt i32 %j.049.i140, %57
-  br i1 %cmp2.i142, label %land.lhs.true.i165, label %while.body.if.end_crit_edge.i143
+while.body.i143:                                  ; preds = %pqdownheap.exit133, %if.end93.i158
+  %57 = phi i32 [ %69, %if.end93.i158 ], [ %56, %pqdownheap.exit133 ]
+  %j.049.i144 = phi i32 [ %j.0.i161, %if.end93.i158 ], [ 2, %pqdownheap.exit133 ]
+  %k.addr.048.i145 = phi i32 [ %j.1.i151, %if.end93.i158 ], [ 1, %pqdownheap.exit133 ]
+  %cmp2.i146 = icmp slt i32 %j.049.i144, %57
+  br i1 %cmp2.i146, label %land.lhs.true.i169, label %while.body.if.end_crit_edge.i147
 
-while.body.if.end_crit_edge.i143:                 ; preds = %while.body.i139
-  %.pre.i144 = sext i32 %j.049.i140 to i64
-  br label %if.end.i145
+while.body.if.end_crit_edge.i147:                 ; preds = %while.body.i143
+  %.pre.i148 = sext i32 %j.049.i144 to i64
+  br label %if.end.i149
 
-land.lhs.true.i165:                               ; preds = %while.body.i139
-  %add.i166 = or disjoint i32 %j.049.i140, 1
-  %idxprom4.i167 = sext i32 %add.i166 to i64
-  %arrayidx5.i168 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom4.i167
-  %58 = load i32, ptr %arrayidx5.i168, align 4
-  %idxprom6.i169 = sext i32 %58 to i64
-  %arrayidx7.i170 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom6.i169
-  %59 = load i16, ptr %arrayidx7.i170, align 2
-  %idxprom9.i171 = sext i32 %j.049.i140 to i64
-  %arrayidx10.i172 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom9.i171
-  %60 = load i32, ptr %arrayidx10.i172, align 4
-  %idxprom11.i173 = sext i32 %60 to i64
-  %arrayidx12.i174 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom11.i173
-  %61 = load i16, ptr %arrayidx12.i174, align 2
-  %cmp15.i175 = icmp ult i16 %59, %61
-  br i1 %cmp15.i175, label %if.then.i182, label %lor.lhs.false.i176
+land.lhs.true.i169:                               ; preds = %while.body.i143
+  %add.i170 = or disjoint i32 %j.049.i144, 1
+  %idxprom4.i171 = sext i32 %add.i170 to i64
+  %arrayidx5.i172 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom4.i171
+  %58 = load i32, ptr %arrayidx5.i172, align 4
+  %idxprom6.i173 = sext i32 %58 to i64
+  %arrayidx7.i174 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom6.i173
+  %59 = load i16, ptr %arrayidx7.i174, align 2
+  %idxprom9.i175 = sext i32 %j.049.i144 to i64
+  %arrayidx10.i176 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom9.i175
+  %60 = load i32, ptr %arrayidx10.i176, align 4
+  %idxprom11.i177 = sext i32 %60 to i64
+  %arrayidx12.i178 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom11.i177
+  %61 = load i16, ptr %arrayidx12.i178, align 2
+  %cmp15.i179 = icmp ult i16 %59, %61
+  br i1 %cmp15.i179, label %if.then.i186, label %lor.lhs.false.i180
 
-lor.lhs.false.i176:                               ; preds = %land.lhs.true.i165
-  %cmp32.i177 = icmp eq i16 %59, %61
-  br i1 %cmp32.i177, label %land.lhs.true34.i178, label %if.end.i145
+lor.lhs.false.i180:                               ; preds = %land.lhs.true.i169
+  %cmp32.i181 = icmp eq i16 %59, %61
+  br i1 %cmp32.i181, label %land.lhs.true34.i182, label %if.end.i149
 
-land.lhs.true34.i178:                             ; preds = %lor.lhs.false.i176
-  %arrayidx40.i179 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom6.i169
-  %62 = load i8, ptr %arrayidx40.i179, align 1
-  %arrayidx47.i180 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom11.i173
-  %63 = load i8, ptr %arrayidx47.i180, align 1
-  %cmp49.not.i181 = icmp ugt i8 %62, %63
-  br i1 %cmp49.not.i181, label %if.end.i145, label %if.then.i182
+land.lhs.true34.i182:                             ; preds = %lor.lhs.false.i180
+  %arrayidx40.i183 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom6.i173
+  %62 = load i8, ptr %arrayidx40.i183, align 1
+  %arrayidx47.i184 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom11.i177
+  %63 = load i8, ptr %arrayidx47.i184, align 1
+  %cmp49.not.i185 = icmp ugt i8 %62, %63
+  br i1 %cmp49.not.i185, label %if.end.i149, label %if.then.i186
 
-if.then.i182:                                     ; preds = %land.lhs.true34.i178, %land.lhs.true.i165
-  br label %if.end.i145
+if.then.i186:                                     ; preds = %land.lhs.true34.i182, %land.lhs.true.i169
+  br label %if.end.i149
 
-if.end.i145:                                      ; preds = %if.then.i182, %land.lhs.true34.i178, %lor.lhs.false.i176, %while.body.if.end_crit_edge.i143
-  %idxprom56.pre-phi.i146 = phi i64 [ %.pre.i144, %while.body.if.end_crit_edge.i143 ], [ %idxprom4.i167, %if.then.i182 ], [ %idxprom9.i171, %land.lhs.true34.i178 ], [ %idxprom9.i171, %lor.lhs.false.i176 ]
-  %j.1.i147 = phi i32 [ %j.049.i140, %while.body.if.end_crit_edge.i143 ], [ %add.i166, %if.then.i182 ], [ %j.049.i140, %land.lhs.true34.i178 ], [ %j.049.i140, %lor.lhs.false.i176 ]
+if.end.i149:                                      ; preds = %if.then.i186, %land.lhs.true34.i182, %lor.lhs.false.i180, %while.body.if.end_crit_edge.i147
+  %idxprom56.pre-phi.i150 = phi i64 [ %.pre.i148, %while.body.if.end_crit_edge.i147 ], [ %idxprom4.i171, %if.then.i186 ], [ %idxprom9.i175, %land.lhs.true34.i182 ], [ %idxprom9.i175, %lor.lhs.false.i180 ]
+  %j.1.i151 = phi i32 [ %j.049.i144, %while.body.if.end_crit_edge.i147 ], [ %add.i170, %if.then.i186 ], [ %j.049.i144, %land.lhs.true34.i182 ], [ %j.049.i144, %lor.lhs.false.i180 ]
   %64 = load i16, ptr %arrayidx76, align 2
-  %arrayidx57.i148 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom56.pre-phi.i146
-  %65 = load i32, ptr %arrayidx57.i148, align 4
-  %idxprom58.i149 = sext i32 %65 to i64
-  %arrayidx59.i150 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom58.i149
-  %66 = load i16, ptr %arrayidx59.i150, align 2
-  %cmp62.i151 = icmp ult i16 %64, %66
-  br i1 %cmp62.i151, label %pqdownheap.exit183, label %lor.lhs.false64.i152
+  %arrayidx57.i152 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom56.pre-phi.i150
+  %65 = load i32, ptr %arrayidx57.i152, align 4
+  %idxprom58.i153 = sext i32 %65 to i64
+  %arrayidx59.i154 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %idxprom58.i153
+  %66 = load i16, ptr %arrayidx59.i154, align 2
+  %cmp62.i155 = icmp ult i16 %64, %66
+  br i1 %cmp62.i155, label %pqdownheap.exit187, label %lor.lhs.false64.i156
 
-lor.lhs.false64.i152:                             ; preds = %if.end.i145
-  %cmp76.i153 = icmp eq i16 %64, %66
-  br i1 %cmp76.i153, label %land.lhs.true78.i162, label %if.end93.i154
+lor.lhs.false64.i156:                             ; preds = %if.end.i149
+  %cmp76.i157 = icmp eq i16 %64, %66
+  br i1 %cmp76.i157, label %land.lhs.true78.i166, label %if.end93.i158
 
-land.lhs.true78.i162:                             ; preds = %lor.lhs.false64.i152
+land.lhs.true78.i166:                             ; preds = %lor.lhs.false64.i156
   %67 = load i8, ptr %arrayidx104, align 1
-  %arrayidx88.i163 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 51, i64 %idxprom58.i149
-  %68 = load i8, ptr %arrayidx88.i163, align 1
-  %cmp90.not.i164 = icmp ugt i8 %67, %68
-  br i1 %cmp90.not.i164, label %if.end93.i154, label %pqdownheap.exit183
+  %arrayidx88.i167 = getelementptr inbounds [573 x i8], ptr %depth79.i82, i64 0, i64 %idxprom58.i153
+  %68 = load i8, ptr %arrayidx88.i167, align 1
+  %cmp90.not.i168 = icmp ugt i8 %67, %68
+  br i1 %cmp90.not.i168, label %if.end93.i158, label %pqdownheap.exit187
 
-if.end93.i154:                                    ; preds = %land.lhs.true78.i162, %lor.lhs.false64.i152
-  %idxprom98.i155 = sext i32 %k.addr.048.i141 to i64
-  %arrayidx99.i156 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom98.i155
-  store i32 %65, ptr %arrayidx99.i156, align 4
-  %j.0.i157 = shl i32 %j.1.i147, 1
+if.end93.i158:                                    ; preds = %land.lhs.true78.i166, %lor.lhs.false64.i156
+  %idxprom98.i159 = sext i32 %k.addr.048.i145 to i64
+  %arrayidx99.i160 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom98.i159
+  store i32 %65, ptr %arrayidx99.i160, align 4
+  %j.0.i161 = shl i32 %j.1.i151, 1
   %69 = load i32, ptr %heap_len, align 4
-  %cmp.not.i158 = icmp sgt i32 %j.0.i157, %69
-  br i1 %cmp.not.i158, label %pqdownheap.exit183, label %while.body.i139, !llvm.loop !17
+  %cmp.not.i162 = icmp sgt i32 %j.0.i161, %69
+  br i1 %cmp.not.i162, label %pqdownheap.exit187, label %while.body.i143, !llvm.loop !17
 
-pqdownheap.exit183:                               ; preds = %if.end.i145, %land.lhs.true78.i162, %if.end93.i154, %pqdownheap.exit131
-  %k.addr.0.lcssa.i159 = phi i32 [ 1, %pqdownheap.exit131 ], [ %j.1.i147, %if.end93.i154 ], [ %k.addr.048.i141, %land.lhs.true78.i162 ], [ %k.addr.048.i141, %if.end.i145 ]
-  %idxprom102.i160 = sext i32 %k.addr.0.lcssa.i159 to i64
-  %arrayidx103.i161 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom102.i160
-  store i32 %55, ptr %arrayidx103.i161, align 4
+pqdownheap.exit187:                               ; preds = %if.end.i149, %land.lhs.true78.i166, %if.end93.i158, %pqdownheap.exit133
+  %k.addr.0.lcssa.i163 = phi i32 [ 1, %pqdownheap.exit133 ], [ %j.1.i151, %if.end93.i158 ], [ %k.addr.048.i145, %land.lhs.true78.i166 ], [ %k.addr.048.i145, %if.end.i149 ]
+  %idxprom102.i164 = sext i32 %k.addr.0.lcssa.i163 to i64
+  %arrayidx103.i165 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom102.i164
+  store i32 %55, ptr %arrayidx103.i165, align 4
   %70 = load i32, ptr %heap_len, align 4
   %cmp116 = icmp sgt i32 %70, 1
   br i1 %cmp116, label %do.body, label %do.end, !llvm.loop !19
 
-do.end:                                           ; preds = %pqdownheap.exit183
+do.end:                                           ; preds = %pqdownheap.exit187
   %71 = load i32, ptr %arrayidx46, align 4
   %72 = load i32, ptr %heap_max, align 16
   %dec122 = add nsw i32 %72, -1
   store i32 %dec122, ptr %heap_max, align 16
   %idxprom123 = sext i32 %dec122 to i64
-  %arrayidx124 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom123
+  %arrayidx124 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom123
   store i32 %71, ptr %arrayidx124, align 4
   %73 = load ptr, ptr %desc, align 8
   %74 = load i32, ptr %max_code36, align 8
   %75 = load ptr, ptr %stat_desc, align 8
   %76 = load ptr, ptr %75, align 8
-  %extra_bits.i = getelementptr inbounds %struct.static_tree_desc_s, ptr %75, i64 0, i32 1
+  %extra_bits.i = getelementptr inbounds i8, ptr %75, i64 8
   %77 = load ptr, ptr %extra_bits.i, align 8
-  %extra_base.i = getelementptr inbounds %struct.static_tree_desc_s, ptr %75, i64 0, i32 2
+  %extra_base.i = getelementptr inbounds i8, ptr %75, i64 16
   %78 = load i32, ptr %extra_base.i, align 8
-  %max_length5.i = getelementptr inbounds %struct.static_tree_desc_s, ptr %75, i64 0, i32 4
+  %max_length5.i = getelementptr inbounds i8, ptr %75, i64 24
   %79 = load i32, ptr %max_length5.i, align 8
-  %scevgep.i = getelementptr i8, ptr %s, i64 4088
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %scevgep.i, i8 0, i64 32, i1 false)
+  %bl_count.i = getelementptr inbounds i8, ptr %s, i64 4088
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %bl_count.i, i8 0, i64 32, i1 false)
   %80 = load i32, ptr %heap_max, align 16
-  %idxprom6.i184 = sext i32 %80 to i64
-  %arrayidx7.i185 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %idxprom6.i184
-  %81 = load i32, ptr %arrayidx7.i185, align 4
+  %idxprom6.i189 = sext i32 %80 to i64
+  %arrayidx7.i190 = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %idxprom6.i189
+  %81 = load i32, ptr %arrayidx7.i190, align 4
   %idxprom8.i = sext i32 %81 to i64
   %dl.i = getelementptr inbounds %struct.ct_data_s, ptr %73, i64 %idxprom8.i, i32 1
   store i16 0, ptr %dl.i, align 2
@@ -1735,9 +1757,9 @@ do.end:                                           ; preds = %pqdownheap.exit183
   br i1 %cmp1280.i, label %for.body13.lr.ph.i, label %gen_bitlen.exit
 
 for.body13.lr.ph.i:                               ; preds = %do.end
-  %opt_len.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 56
+  %opt_len.i = getelementptr inbounds i8, ptr %s, i64 7024
   %tobool.not.i = icmp eq ptr %76, null
-  %static_len.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 57
+  %static_len.i = getelementptr inbounds i8, ptr %s, i64 7032
   %83 = sext i32 %82 to i64
   %84 = add nsw i64 %83, 1
   br label %for.body13.i
@@ -1745,11 +1767,11 @@ for.body13.lr.ph.i:                               ; preds = %do.end
 for.body13.i:                                     ; preds = %for.inc62.i, %for.body13.lr.ph.i
   %indvars.iv.i = phi i64 [ %84, %for.body13.lr.ph.i ], [ %indvars.iv.next.i, %for.inc62.i ]
   %overflow.081.i = phi i32 [ 0, %for.body13.lr.ph.i ], [ %spec.select75.i, %for.inc62.i ]
-  %arrayidx16.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %indvars.iv.i
+  %arrayidx16.i = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %indvars.iv.i
   %85 = load i32, ptr %arrayidx16.i, align 4
   %idxprom17.i = sext i32 %85 to i64
   %arrayidx18.i = getelementptr inbounds %struct.ct_data_s, ptr %73, i64 %idxprom17.i
-  %dl19.i = getelementptr inbounds %struct.ct_data_s, ptr %73, i64 %idxprom17.i, i32 1
+  %dl19.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 2
   %86 = load i16, ptr %dl19.i, align 2
   %idxprom20.i = zext i16 %86 to i64
   %dl22.i = getelementptr inbounds %struct.ct_data_s, ptr %73, i64 %idxprom20.i, i32 1
@@ -1767,7 +1789,7 @@ for.body13.i:                                     ; preds = %for.inc62.i, %for.b
 
 if.end34.i:                                       ; preds = %for.body13.i
   %idxprom36.i = sext i32 %spec.select.i to i64
-  %arrayidx37.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 47, i64 %idxprom36.i
+  %arrayidx37.i = getelementptr inbounds [16 x i16], ptr %bl_count.i, i64 0, i64 %idxprom36.i
   %88 = load i16, ptr %arrayidx37.i, align 2
   %inc38.i = add i16 %88, 1
   store i16 %inc38.i, ptr %arrayidx37.i, align 2
@@ -1817,7 +1839,7 @@ for.end64.i:                                      ; preds = %for.inc62.i
 
 do.body.preheader.i:                              ; preds = %for.end64.i
   %idxprom88.i = sext i32 %79 to i64
-  %arrayidx89.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 47, i64 %idxprom88.i
+  %arrayidx89.i = getelementptr inbounds [16 x i16], ptr %bl_count.i, i64 0, i64 %idxprom88.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %while.end.i, %do.body.preheader.i
@@ -1825,20 +1847,20 @@ do.body.i:                                        ; preds = %while.end.i, %do.bo
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %do.body.i
-  %indvars.iv95.i = phi i64 [ %indvars.iv.next96.i, %while.cond.i ], [ %idxprom88.i, %do.body.i ]
-  %indvars.iv.next96.i = add i64 %indvars.iv95.i, -1
-  %arrayidx72.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 47, i64 %indvars.iv.next96.i
+  %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %while.cond.i ], [ %idxprom88.i, %do.body.i ]
+  %indvars.iv.next97.i = add i64 %indvars.iv96.i, -1
+  %arrayidx72.i = getelementptr inbounds [16 x i16], ptr %bl_count.i, i64 0, i64 %indvars.iv.next97.i
   %95 = load i16, ptr %arrayidx72.i, align 2
   %cmp74.i = icmp eq i16 %95, 0
   br i1 %cmp74.i, label %while.cond.i, label %while.end.i, !llvm.loop !21
 
 while.end.i:                                      ; preds = %while.cond.i
-  %arrayidx72.i.le = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 47, i64 %indvars.iv.next96.i
+  %arrayidx72.i.le = getelementptr inbounds [16 x i16], ptr %bl_count.i, i64 0, i64 %indvars.iv.next97.i
   %dec79.i = add i16 %95, -1
   store i16 %dec79.i, ptr %arrayidx72.i.le, align 2
-  %sext.i = shl i64 %indvars.iv95.i, 32
+  %sext.i = shl i64 %indvars.iv96.i, 32
   %idxprom82.i = ashr exact i64 %sext.i, 32
-  %arrayidx83.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 47, i64 %idxprom82.i
+  %arrayidx83.i = getelementptr inbounds [16 x i16], ptr %bl_count.i, i64 0, i64 %idxprom82.i
   %96 = load i16, ptr %arrayidx83.i, align 2
   %add85.i = add i16 %96, 2
   store i16 %add85.i, ptr %arrayidx83.i, align 2
@@ -1850,57 +1872,57 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp92.i, label %do.body.i, label %for.cond94.preheader.i, !llvm.loop !22
 
 for.cond94.preheader.i:                           ; preds = %while.end.i
-  %cmp95.not88.i = icmp eq i32 %79, 0
-  br i1 %cmp95.not88.i, label %gen_bitlen.exit, label %for.body97.i
+  %cmp95.not89.i = icmp eq i32 %79, 0
+  br i1 %cmp95.not89.i, label %gen_bitlen.exit, label %for.body97.i
 
 for.body97.i:                                     ; preds = %for.cond94.preheader.i, %while.cond102.outer.split.us.i
-  %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %while.cond102.outer.split.us.i ], [ %idxprom88.i, %for.cond94.preheader.i ]
-  %h.190.i = phi i32 [ %h.2.ph.lcssa.i, %while.cond102.outer.split.us.i ], [ 573, %for.cond94.preheader.i ]
-  %arrayidx100.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 47, i64 %indvars.iv101.i
+  %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %while.cond102.outer.split.us.i ], [ %idxprom88.i, %for.cond94.preheader.i ]
+  %h.191.i = phi i32 [ %h.2.ph.lcssa.i, %while.cond102.outer.split.us.i ], [ 573, %for.cond94.preheader.i ]
+  %arrayidx100.i = getelementptr inbounds [16 x i16], ptr %bl_count.i, i64 0, i64 %indvars.iv102.i
   %98 = load i16, ptr %arrayidx100.i, align 2
-  %cmp103.not84.i = icmp eq i16 %98, 0
-  br i1 %cmp103.not84.i, label %while.cond102.outer.split.us.i, label %while.cond102.outer.split.lr.ph.i
+  %cmp103.not85.i = icmp eq i16 %98, 0
+  br i1 %cmp103.not85.i, label %while.cond102.outer.split.us.i, label %while.cond102.outer.split.lr.ph.i
 
 while.cond102.outer.split.lr.ph.i:                ; preds = %for.body97.i
   %conv101.i = zext i16 %98 to i32
-  %99 = trunc i64 %indvars.iv101.i to i32
-  %conv134.i = trunc i64 %indvars.iv101.i to i16
+  %99 = trunc i64 %indvars.iv102.i to i32
+  %conv134.i = trunc i64 %indvars.iv102.i to i16
   br label %while.cond102.outer.split.i
 
 while.cond102.outer.split.us.i:                   ; preds = %if.end138.i, %for.body97.i
-  %h.2.ph.lcssa.i = phi i32 [ %h.190.i, %for.body97.i ], [ %103, %if.end138.i ]
-  %indvars.iv.next102.i = add nsw i64 %indvars.iv101.i, -1
-  %100 = and i64 %indvars.iv.next102.i, 4294967295
+  %h.2.ph.lcssa.i = phi i32 [ %h.191.i, %for.body97.i ], [ %103, %if.end138.i ]
+  %indvars.iv.next103.i = add nsw i64 %indvars.iv102.i, -1
+  %100 = and i64 %indvars.iv.next103.i, 4294967295
   %cmp95.not.i = icmp eq i64 %100, 0
   br i1 %cmp95.not.i, label %gen_bitlen.exit, label %for.body97.i, !llvm.loop !23
 
 while.cond102.outer.split.i:                      ; preds = %if.end138.i, %while.cond102.outer.split.lr.ph.i
-  %h.2.ph86.i = phi i32 [ %h.190.i, %while.cond102.outer.split.lr.ph.i ], [ %103, %if.end138.i ]
-  %n.0.ph85.i = phi i32 [ %conv101.i, %while.cond102.outer.split.lr.ph.i ], [ %dec139.i, %if.end138.i ]
-  %101 = sext i32 %h.2.ph86.i to i64
+  %h.2.ph87.i = phi i32 [ %h.191.i, %while.cond102.outer.split.lr.ph.i ], [ %103, %if.end138.i ]
+  %n.0.ph86.i = phi i32 [ %conv101.i, %while.cond102.outer.split.lr.ph.i ], [ %dec139.i, %if.end138.i ]
+  %101 = sext i32 %h.2.ph87.i to i64
   br label %while.cond102.i
 
 while.cond102.i:                                  ; preds = %while.cond102.i, %while.cond102.outer.split.i
-  %indvars.iv98.i = phi i64 [ %101, %while.cond102.outer.split.i ], [ %indvars.iv.next99.i, %while.cond102.i ]
-  %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, -1
-  %arrayidx109.i = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 48, i64 %indvars.iv.next99.i
+  %indvars.iv99.i = phi i64 [ %101, %while.cond102.outer.split.i ], [ %indvars.iv.next100.i, %while.cond102.i ]
+  %indvars.iv.next100.i = add nsw i64 %indvars.iv99.i, -1
+  %arrayidx109.i = getelementptr inbounds [573 x i32], ptr %heap45, i64 0, i64 %indvars.iv.next100.i
   %102 = load i32, ptr %arrayidx109.i, align 4
   %cmp110.i = icmp sgt i32 %102, %74
   br i1 %cmp110.i, label %while.cond102.i, label %if.end113.i, !llvm.loop !24
 
 if.end113.i:                                      ; preds = %while.cond102.i
-  %103 = trunc i64 %indvars.iv.next99.i to i32
+  %103 = trunc i64 %indvars.iv.next100.i to i32
   %idxprom114.i = sext i32 %102 to i64
-  %dl116.i = getelementptr inbounds %struct.ct_data_s, ptr %73, i64 %idxprom114.i, i32 1
+  %arrayidx115.i = getelementptr inbounds %struct.ct_data_s, ptr %73, i64 %idxprom114.i
+  %dl116.i = getelementptr inbounds i8, ptr %arrayidx115.i, i64 2
   %104 = load i16, ptr %dl116.i, align 2
   %conv117.i = zext i16 %104 to i32
   %cmp118.not.i = icmp eq i32 %99, %conv117.i
   br i1 %cmp118.not.i, label %if.end138.i, label %if.then120.i
 
 if.then120.i:                                     ; preds = %if.end113.i
-  %arrayidx115.i = getelementptr inbounds %struct.ct_data_s, ptr %73, i64 %idxprom114.i
   %conv125.i = zext i16 %104 to i64
-  %sub126.i = sub nsw i64 %indvars.iv101.i, %conv125.i
+  %sub126.i = sub nsw i64 %indvars.iv102.i, %conv125.i
   %105 = load i16, ptr %arrayidx115.i, align 2
   %conv130.i = zext i16 %105 to i64
   %mul131.i = mul nsw i64 %sub126.i, %conv130.i
@@ -1911,7 +1933,7 @@ if.then120.i:                                     ; preds = %if.end113.i
   br label %if.end138.i
 
 if.end138.i:                                      ; preds = %if.then120.i, %if.end113.i
-  %dec139.i = add nsw i32 %n.0.ph85.i, -1
+  %dec139.i = add nsw i32 %n.0.ph86.i, -1
   %cmp103.not.i = icmp eq i32 %dec139.i, 0
   br i1 %cmp103.not.i, label %while.cond102.outer.split.us.i, label %while.cond102.outer.split.i, !llvm.loop !24
 
@@ -1930,26 +1952,27 @@ for.body8.preheader.i:                            ; preds = %for.cond5.preheader
   br label %for.body8.i
 
 for.body.i:                                       ; preds = %for.body.i, %gen_bitlen.exit
-  %indvars.iv.i186 = phi i64 [ 1, %gen_bitlen.exit ], [ %indvars.iv.next.i188, %for.body.i ]
+  %indvars.iv.i191 = phi i64 [ 1, %gen_bitlen.exit ], [ %indvars.iv.next.i193, %for.body.i ]
   %code.011.i = phi i16 [ 0, %gen_bitlen.exit ], [ %shl.i, %for.body.i ]
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i186
+  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i191
   %108 = load i16, ptr %gep.i, align 2
-  %add.i187 = add i16 %108, %code.011.i
-  %shl.i = shl i16 %add.i187, 1
-  %arrayidx4.i = getelementptr inbounds [16 x i16], ptr %next_code.i, i64 0, i64 %indvars.iv.i186
+  %add.i192 = add i16 %108, %code.011.i
+  %shl.i = shl i16 %add.i192, 1
+  %arrayidx4.i = getelementptr inbounds [16 x i16], ptr %next_code.i, i64 0, i64 %indvars.iv.i191
   store i16 %shl.i, ptr %arrayidx4.i, align 2
-  %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i186, 1
-  %exitcond.not.i189 = icmp eq i64 %indvars.iv.next.i188, 16
-  br i1 %exitcond.not.i189, label %for.cond5.preheader.i, label %for.body.i, !llvm.loop !25
+  %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i191, 1
+  %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, 16
+  br i1 %exitcond.not.i194, label %for.cond5.preheader.i, label %for.body.i, !llvm.loop !25
 
 for.body8.i:                                      ; preds = %for.inc21.i, %for.body8.preheader.i
   %indvars.iv14.i = phi i64 [ 0, %for.body8.preheader.i ], [ %indvars.iv.next15.i, %for.inc21.i ]
-  %dl.i190 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %indvars.iv14.i, i32 1
-  %109 = load i16, ptr %dl.i190, align 2
+  %arrayidx10.i195 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %indvars.iv14.i
+  %dl.i196 = getelementptr inbounds i8, ptr %arrayidx10.i195, i64 2
+  %109 = load i16, ptr %dl.i196, align 2
   %cmp12.i = icmp eq i16 %109, 0
-  br i1 %cmp12.i, label %for.inc21.i, label %if.end.i191
+  br i1 %cmp12.i, label %for.inc21.i, label %if.end.i197
 
-if.end.i191:                                      ; preds = %for.body8.i
+if.end.i197:                                      ; preds = %for.body8.i
   %conv11.i = zext i16 %109 to i32
   %idxprom14.i = zext i16 %109 to i64
   %arrayidx15.i = getelementptr inbounds [16 x i16], ptr %next_code.i, i64 0, i64 %idxprom14.i
@@ -1958,10 +1981,10 @@ if.end.i191:                                      ; preds = %for.body8.i
   store i16 %inc16.i, ptr %arrayidx15.i, align 2
   br label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %do.body.i.i, %if.end.i191
-  %code.addr.0.i.i = phi i16 [ %110, %if.end.i191 ], [ %shr.i.i, %do.body.i.i ]
-  %len.addr.0.i.i = phi i32 [ %conv11.i, %if.end.i191 ], [ %dec.i.i, %do.body.i.i ]
-  %res.0.i.i = phi i16 [ 0, %if.end.i191 ], [ %shl.i.i, %do.body.i.i ]
+do.body.i.i:                                      ; preds = %do.body.i.i, %if.end.i197
+  %code.addr.0.i.i = phi i16 [ %110, %if.end.i197 ], [ %shr.i.i, %do.body.i.i ]
+  %len.addr.0.i.i = phi i32 [ %conv11.i, %if.end.i197 ], [ %dec.i.i, %do.body.i.i ]
+  %res.0.i.i = phi i16 [ 0, %if.end.i197 ], [ %shl.i.i, %do.body.i.i ]
   %and.i.i = and i16 %code.addr.0.i.i, 1
   %or.i.i = or disjoint i16 %res.0.i.i, %and.i.i
   %shr.i.i = lshr i16 %code.addr.0.i.i, 1
@@ -1971,8 +1994,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %if.en
   br i1 %cmp.i.i, label %do.body.i.i, label %bi_reverse.exit.i, !llvm.loop !26
 
 bi_reverse.exit.i:                                ; preds = %do.body.i.i
-  %arrayidx10.i192 = getelementptr inbounds %struct.ct_data_s, ptr %0, i64 %indvars.iv14.i
-  store i16 %or.i.i, ptr %arrayidx10.i192, align 2
+  store i16 %or.i.i, ptr %arrayidx10.i195, align 2
   br label %for.inc21.i
 
 for.inc21.i:                                      ; preds = %bi_reverse.exit.i, %for.body8.i
@@ -1988,23 +2010,23 @@ gen_codes.exit:                                   ; preds = %for.inc21.i, %for.c
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @compress_block(ptr nocapture noundef %s, ptr nocapture noundef readonly %ltree, ptr nocapture noundef readonly %dtree) unnamed_addr #1 {
 entry:
-  %last_lit = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 54
+  %last_lit = getelementptr inbounds i8, ptr %s, i64 7012
   %0 = load i32, ptr %last_lit, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %entry.if.end338_crit_edge, label %do.body.preheader
 
 entry.if.end338_crit_edge:                        ; preds = %entry
-  %bi_valid343.phi.trans.insert = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
+  %bi_valid343.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 7052
   %.pre = load i32, ptr %bi_valid343.phi.trans.insert, align 4
   br label %if.end338
 
 do.body.preheader:                                ; preds = %entry
-  %d_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 55
-  %l_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 52
-  %bi_valid67 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
-  %bi_buf124 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
-  %pending_buf91 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
-  %pending92 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %d_buf = getelementptr inbounds i8, ptr %s, i64 7016
+  %l_buf = getelementptr inbounds i8, ptr %s, i64 7000
+  %bi_valid67 = getelementptr inbounds i8, ptr %s, i64 7052
+  %bi_buf124 = getelementptr inbounds i8, ptr %s, i64 7048
+  %pending_buf91 = getelementptr inbounds i8, ptr %s, i64 16
+  %pending92 = getelementptr inbounds i8, ptr %s, i64 40
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
@@ -2024,7 +2046,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 if.then6:                                         ; preds = %do.body
   %arrayidx8 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 %idxprom7
-  %dl = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 %idxprom7, i32 1
+  %dl = getelementptr inbounds i8, ptr %arrayidx8, i64 2
   %5 = load i16, ptr %dl, align 2
   %conv9 = zext i16 %5 to i32
   %6 = load i32, ptr %bi_valid67, align 4
@@ -2076,8 +2098,8 @@ if.else56:                                        ; preds = %do.body
   %17 = load i8, ptr %arrayidx58, align 1
   %18 = zext i8 %17 to i64
   %19 = getelementptr %struct.ct_data_s, ptr %ltree, i64 %18
-  %arrayidx64 = getelementptr %struct.ct_data_s, ptr %19, i64 257
-  %dl65 = getelementptr %struct.ct_data_s, ptr %19, i64 257, i32 1
+  %arrayidx64 = getelementptr i8, ptr %19, i64 1028
+  %dl65 = getelementptr i8, ptr %19, i64 1030
   %20 = load i16, ptr %dl65, align 2
   %conv66 = zext i16 %20 to i32
   %21 = load i32, ptr %bi_valid67, align 4
@@ -2202,7 +2224,7 @@ if.end194:                                        ; preds = %if.end194.sink.spli
   %cond.in = load i8, ptr %cond.in.in, align 1
   %idxprom206 = zext i8 %cond.in to i64
   %arrayidx207 = getelementptr inbounds %struct.ct_data_s, ptr %dtree, i64 %idxprom206
-  %dl208 = getelementptr inbounds %struct.ct_data_s, ptr %dtree, i64 %idxprom206, i32 1
+  %dl208 = getelementptr inbounds i8, ptr %arrayidx207, i64 2
   %47 = load i16, ptr %dl208, align 2
   %conv209 = zext i16 %47 to i32
   %sub211 = sub nsw i32 16, %conv209
@@ -2319,17 +2341,17 @@ do.cond:                                          ; preds = %do.cond.sink.split,
 
 if.end338:                                        ; preds = %do.cond, %entry.if.end338_crit_edge
   %72 = phi i32 [ %.pre, %entry.if.end338_crit_edge ], [ %69, %do.cond ]
-  %arrayidx340 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 256
-  %dl341 = getelementptr inbounds %struct.ct_data_s, ptr %ltree, i64 256, i32 1
+  %arrayidx340 = getelementptr inbounds i8, ptr %ltree, i64 1024
+  %dl341 = getelementptr inbounds i8, ptr %ltree, i64 1026
   %73 = load i16, ptr %dl341, align 2
   %conv342 = zext i16 %73 to i32
-  %bi_valid343 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
+  %bi_valid343 = getelementptr inbounds i8, ptr %s, i64 7052
   %sub344 = sub nsw i32 16, %conv342
   %cmp345 = icmp sgt i32 %72, %sub344
   %74 = load i16, ptr %arrayidx340, align 2
   %conv351 = zext i16 %74 to i32
   %shl355 = shl i32 %conv351, %72
-  %bi_buf356 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
+  %bi_buf356 = getelementptr inbounds i8, ptr %s, i64 7048
   %75 = load i16, ptr %bi_buf356, align 8
   %76 = trunc i32 %shl355 to i16
   %conv359 = or i16 %75, %76
@@ -2338,9 +2360,9 @@ if.end338:                                        ; preds = %do.cond, %entry.if.
 
 if.then347:                                       ; preds = %if.end338
   %conv363 = trunc i16 %conv359 to i8
-  %pending_buf364 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
+  %pending_buf364 = getelementptr inbounds i8, ptr %s, i64 16
   %77 = load ptr, ptr %pending_buf364, align 16
-  %pending365 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
+  %pending365 = getelementptr inbounds i8, ptr %s, i64 40
   %78 = load i32, ptr %pending365, align 8
   %inc366 = add i32 %78, 1
   store i32 %inc366, ptr %pending365, align 8
@@ -2380,15 +2402,15 @@ if.end400:                                        ; preds = %if.else388, %if.the
 define dso_local i32 @MOZ_Z__tr_tally(ptr nocapture noundef %s, i32 noundef %dist, i32 noundef %lc) local_unnamed_addr #3 {
 entry:
   %conv = trunc i32 %dist to i16
-  %d_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 55
+  %d_buf = getelementptr inbounds i8, ptr %s, i64 7016
   %0 = load ptr, ptr %d_buf, align 8
-  %last_lit = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 54
+  %last_lit = getelementptr inbounds i8, ptr %s, i64 7012
   %1 = load i32, ptr %last_lit, align 4
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr inbounds i16, ptr %0, i64 %idxprom
   store i16 %conv, ptr %arrayidx, align 2
   %conv1 = trunc i32 %lc to i8
-  %l_buf = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 52
+  %l_buf = getelementptr inbounds i8, ptr %s, i64 7000
   %2 = load ptr, ptr %l_buf, align 8
   %3 = load i32, ptr %last_lit, align 4
   %inc = add i32 %3, 1
@@ -2400,25 +2422,28 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
+  %dyn_ltree = getelementptr inbounds i8, ptr %s, i64 1324
   %idxprom6 = zext i32 %lc to i64
-  %arrayidx7 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 %idxprom6
+  %arrayidx7 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree, i64 0, i64 %idxprom6
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %matches = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 58
+  %matches = getelementptr inbounds i8, ptr %s, i64 7040
   %4 = load i32, ptr %matches, align 16
   %inc9 = add i32 %4, 1
   store i32 %inc9, ptr %matches, align 16
   %dec = add i32 %dist, -1
+  %dyn_ltree10 = getelementptr inbounds i8, ptr %s, i64 1324
   %idxprom11 = zext i32 %lc to i64
   %arrayidx12 = getelementptr inbounds [256 x i8], ptr @MOZ_Z__length_code, i64 0, i64 %idxprom11
   %5 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %5 to i64
   %add14 = add nuw nsw i64 %conv13, 257
-  %arrayidx16 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 41, i64 %add14
+  %arrayidx16 = getelementptr inbounds [573 x %struct.ct_data_s], ptr %dyn_ltree10, i64 0, i64 %add14
   %6 = load i16, ptr %arrayidx16, align 4
   %inc18 = add i16 %6, 1
   store i16 %inc18, ptr %arrayidx16, align 4
+  %dyn_dtree = getelementptr inbounds i8, ptr %s, i64 3616
   %cmp19 = icmp ult i32 %dist, 257
   %shr = lshr i32 %dec, 7
   %add24 = add nuw nsw i32 %shr, 256
@@ -2427,7 +2452,7 @@ if.else:                                          ; preds = %entry
   %cond.in.in = getelementptr inbounds [512 x i8], ptr @MOZ_Z__dist_code, i64 0, i64 %idxprom21.pn
   %cond.in = load i8, ptr %cond.in.in, align 1
   %idxprom28 = zext i8 %cond.in to i64
-  %arrayidx29 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 42, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds [61 x %struct.ct_data_s], ptr %dyn_dtree, i64 0, i64 %idxprom28
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -2436,7 +2461,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %inc31 = add i16 %7, 1
   store i16 %inc31, ptr %arrayidx29.sink17, align 4
   %8 = load i32, ptr %last_lit, align 4
-  %lit_bufsize = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 53
+  %lit_bufsize = getelementptr inbounds i8, ptr %s, i64 7008
   %9 = load i32, ptr %lit_bufsize, align 16
   %sub = add i32 %9, -1
   %cmp33 = icmp eq i32 %8, %sub
@@ -2451,22 +2476,23 @@ entry:
   br i1 %cmp2.not206, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %dl = getelementptr inbounds %struct.ct_data_s, ptr %tree, i64 0, i32 1
+  %dl = getelementptr inbounds i8, ptr %tree, i64 2
   %0 = load i16, ptr %dl, align 2
   %cmp = icmp eq i16 %0, 0
   %spec.select204 = select i1 %cmp, i32 138, i32 7
   %spec.select = select i1 %cmp, i32 3, i32 4
   %conv = zext i16 %0 to i32
-  %bi_valid85 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 61
-  %bi_buf140 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 60
-  %pending_buf108 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 2
-  %pending109 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 5
-  %arrayidx151 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 16
-  %dl152 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 16, i32 1
-  %arrayidx400 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 18
-  %dl401 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 18, i32 1
-  %arrayidx277 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 17
-  %dl278 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 17, i32 1
+  %bl_tree80 = getelementptr inbounds i8, ptr %s, i64 3860
+  %bi_valid85 = getelementptr inbounds i8, ptr %s, i64 7052
+  %bi_buf140 = getelementptr inbounds i8, ptr %s, i64 7048
+  %pending_buf108 = getelementptr inbounds i8, ptr %s, i64 16
+  %pending109 = getelementptr inbounds i8, ptr %s, i64 40
+  %arrayidx151 = getelementptr inbounds i8, ptr %s, i64 3924
+  %dl152 = getelementptr inbounds i8, ptr %s, i64 3926
+  %arrayidx400 = getelementptr inbounds i8, ptr %s, i64 3932
+  %dl401 = getelementptr inbounds i8, ptr %s, i64 3934
+  %arrayidx277 = getelementptr inbounds i8, ptr %s, i64 3928
+  %dl278 = getelementptr inbounds i8, ptr %s, i64 3930
   %1 = add nuw i32 %max_code, 1
   %wide.trip.count = zext i32 %1 to i64
   br label %for.body
@@ -2494,8 +2520,8 @@ if.else:                                          ; preds = %for.body
 
 do.body.preheader:                                ; preds = %if.else
   %idxprom15 = zext nneg i32 %nextlen.0210 to i64
-  %arrayidx16 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom15
-  %dl17 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom15, i32 1
+  %arrayidx16 = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree80, i64 0, i64 %idxprom15
+  %dl17 = getelementptr inbounds i8, ptr %arrayidx16, i64 2
   %.pre214 = load i32, ptr %bi_valid85, align 4
   br label %do.body
 
@@ -2565,8 +2591,8 @@ if.then75:                                        ; preds = %if.else72
 
 if.then78:                                        ; preds = %if.then75
   %idxprom81 = zext nneg i32 %nextlen.0210 to i64
-  %arrayidx82 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom81
-  %dl83 = getelementptr inbounds %struct.MOZ_Z_internal_state, ptr %s, i64 0, i32 43, i64 %idxprom81, i32 1
+  %arrayidx82 = getelementptr inbounds [39 x %struct.ct_data_s], ptr %bl_tree80, i64 0, i64 %idxprom81
+  %dl83 = getelementptr inbounds i8, ptr %arrayidx82, i64 2
   %16 = load i16, ptr %dl83, align 2
   %conv84 = zext i16 %16 to i32
   %sub86 = sub nsw i32 16, %conv84

@@ -9,6 +9,22 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
+%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
+%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
+%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
+%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
+%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
+%"struct.boost::intrusive::list_node" = type { ptr, ptr }
+%"class.boost::intrusive::list.12" = type { %"class.boost::intrusive::list_impl.13" }
+%"class.boost::intrusive::list_impl.13" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
+%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
+%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.23" }
+%"struct.std::_Head_base.23" = type { ptr }
 %"class.folly::HHWheelTimerBase" = type { %"class.folly::AsyncTimeout", %"class.folly::DelayedDestruction.base", %"class.folly::detail::HHWheelTimerDurationInterval", %"class.std::chrono::duration", [4 x [256 x %"class.boost::intrusive::list"]], %"struct.std::array", i64, i64, %"class.std::chrono::time_point", ptr, %"class.boost::intrusive::list" }
 %"class.folly::AsyncTimeout" = type { ptr, %"class.folly::EventBaseEvent", ptr, %"class.std::shared_ptr" }
 %"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
@@ -32,40 +48,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array" = type { [4 x i64] }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration.8" }
 %"class.std::chrono::duration.8" = type { i64 }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.folly::DelayedDestruction" = type { %"class.folly::DelayedDestructionBase.base", i8, [3 x i8] }
-%"class.folly::DelayedDestructionBase" = type <{ ptr, i32, [4 x i8] }>
-%"class.folly::HHWheelTimerBase.9" = type { %"class.folly::AsyncTimeout", %"class.folly::DelayedDestruction.base", %"class.folly::detail::HHWheelTimerDurationInterval.10", %"class.std::chrono::duration.11", [4 x [256 x %"class.boost::intrusive::list.12"]], %"struct.std::array", i64, i64, %"class.std::chrono::time_point", ptr, %"class.boost::intrusive::list.12" }
-%"class.folly::detail::HHWheelTimerDurationInterval.10" = type { %"class.folly::detail::HHWheelTimerDurationInterval<std::chrono::duration<long, std::ratio<1, 1000000>>>::Divider", %"class.folly::detail::HHWheelTimerDurationInterval<std::chrono::duration<long, std::ratio<1, 1000000>>>::Divider", %"class.std::chrono::duration.11" }
-%"class.folly::detail::HHWheelTimerDurationInterval<std::chrono::duration<long, std::ratio<1, 1000000>>>::Divider" = type { i64 }
-%"class.std::chrono::duration.11" = type { i64 }
-%"class.boost::intrusive::list.12" = type { %"class.boost::intrusive::list_impl.13" }
-%"class.boost::intrusive::list_impl.13" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.23" }
-%"struct.std::_Head_base.23" = type { ptr }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr" }
 %"class.std::unique_ptr.32" = type { %"struct.std::__uniq_ptr_data.33" }
 %"struct.std::__uniq_ptr_data.33" = type { %"class.std::__uniq_ptr_impl.34" }
 %"class.std::__uniq_ptr_impl.34" = type { %"class.std::tuple.35" }
 %"class.std::tuple.35" = type { %"struct.std::_Tuple_impl.36" }
 %"struct.std::_Tuple_impl.36" = type { %"struct.std::_Head_base.39" }
 %"struct.std::_Head_base.39" = type { ptr }
+%"class.folly::HHWheelTimerBase.9" = type { %"class.folly::AsyncTimeout", %"class.folly::DelayedDestruction.base", %"class.folly::detail::HHWheelTimerDurationInterval.10", %"class.std::chrono::duration.11", [4 x [256 x %"class.boost::intrusive::list.12"]], %"struct.std::array", i64, i64, %"class.std::chrono::time_point", ptr, %"class.boost::intrusive::list.12" }
+%"class.folly::detail::HHWheelTimerDurationInterval.10" = type { %"class.folly::detail::HHWheelTimerDurationInterval<std::chrono::duration<long, std::ratio<1, 1000000>>>::Divider", %"class.folly::detail::HHWheelTimerDurationInterval<std::chrono::duration<long, std::ratio<1, 1000000>>>::Divider", %"class.std::chrono::duration.11" }
+%"class.folly::detail::HHWheelTimerDurationInterval<std::chrono::duration<long, std::ratio<1, 1000000>>>::Divider" = type { i64 }
+%"class.std::chrono::duration.11" = type { i64 }
 
 $_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEED5Ev = comdat any
 
@@ -348,15 +340,15 @@ invoke.cont:
   %ref.tmp9 = alloca %"class.google::LogMessageFatal", align 8
   %rctx = alloca %"class.folly::RequestContextScopeGuard", align 8
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !12
   %div.i.i.i = udiv i64 %sub.i.i.i, %0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %isDestroyed) #14
   store i8 0, ptr %isDestroyed, align 1, !tbaa !14
-  %processingCallbacksGuard_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_ = getelementptr inbounds i8, ptr %this, i64 16688
   %1 = load ptr, ptr %processingCallbacksGuard_, align 8, !tbaa !16
   %tobool.not.not = icmp eq ptr %1, null
   br i1 %tobool.not.not, label %cleanup.done18, label %cond.false, !prof !45
@@ -380,16 +372,16 @@ cleanup.action:                                   ; preds = %invoke.cont12
 
 cleanup.done18:                                   ; preds = %invoke.cont
   store ptr %isDestroyed, ptr %processingCallbacksGuard_, align 8, !tbaa !16
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   %2 = load i64, ptr %expireTick_, align 8, !tbaa !46
   %cmp140 = icmp slt i64 %2, %div.i.i.i
   br i1 %cmp140, label %while.body.lr.ph, label %invoke.cont79.preheader
 
 while.body.lr.ph:                                 ; preds = %cleanup.done18
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 5
-  %buckets_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 4
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %bitmap_ = getelementptr inbounds i8, ptr %this, i64 16632
+  %buckets_ = getelementptr inbounds i8, ptr %this, i64 248
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16704
   br label %while.body
 
 while.cond.loopexit.loopexit:                     ; preds = %invoke.cont74
@@ -402,8 +394,8 @@ while.cond.loopexit:                              ; preds = %invoke.cont63, %whi
   br i1 %cmp, label %while.body, label %invoke.cont79.preheader, !llvm.loop !47
 
 invoke.cont79.preheader:                          ; preds = %while.cond.loopexit, %cleanup.done18
-  %timeoutsToRunNow_78 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 7
+  %timeoutsToRunNow_78 = getelementptr inbounds i8, ptr %this, i64 16696
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   br label %invoke.cont79
 
 while.body:                                       ; preds = %while.cond.loopexit, %while.body.lr.ph
@@ -467,10 +459,10 @@ invoke.cont63:                                    ; preds = %if.then41.invoke.co
 invoke.cont74:                                    ; preds = %invoke.cont63, %invoke.cont74
   %16 = phi ptr [ %20, %invoke.cont74 ], [ %14, %invoke.cont63 ]
   %17 = load ptr, ptr %16, align 8, !tbaa !49
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %16, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   store ptr %17, ptr %18, align 8, !tbaa !49
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %17, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %18, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !50
@@ -493,10 +485,10 @@ invoke.cont79:                                    ; preds = %invoke.cont91, %inv
 
 invoke.cont88:                                    ; preds = %invoke.cont79
   %24 = load ptr, ptr %22, align 8, !tbaa !49
-  %prev_.i.i.i.i128 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %22, i64 0, i32 1
+  %prev_.i.i.i.i128 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %prev_.i.i.i.i128, align 8, !tbaa !50
   store ptr %24, ptr %25, align 8, !tbaa !49
-  %prev_.i5.i.i.i129 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %24, i64 0, i32 1
+  %prev_.i5.i.i.i129 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %25, ptr %prev_.i5.i.i.i129, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %26 = load i64, ptr %count_, align 8, !tbaa !51
@@ -512,7 +504,7 @@ invoke.cont88:                                    ; preds = %invoke.cont79
 invoke.cont91:                                    ; preds = %invoke.cont88
   %sub.ptr.i.i127 = getelementptr inbounds i8, ptr %22, i64 -8
   %vtable = load ptr, ptr %sub.ptr.i.i127, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %27 = load ptr, ptr %vfn, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i127) #14
   %28 = load i8, ptr %isDestroyed, align 1, !tbaa !14, !range !54, !noundef !55
@@ -586,7 +578,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #0 comdat align 2 {
 entry:
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4, !range !54
   %tobool2.not = icmp eq i8 %0, 0
   %or.cond = select i1 %delayed, i1 %tobool2.not, i1 false
@@ -595,7 +587,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 0, ptr %destroyPending_, align 4, !tbaa !57
   %vtable = load ptr, ptr %this, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #14
   br label %delete.end
@@ -607,19 +599,19 @@ delete.end:                                       ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %guardCount_.i = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this, i64 0, i32 1
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !58
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 1, ptr %destroyPending_, align 4, !tbaa !57
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %if.end
@@ -643,15 +635,15 @@ invoke.cont:
   %ref.tmp9 = alloca %"class.google::LogMessageFatal", align 8
   %rctx = alloca %"class.folly::RequestContextScopeGuard", align 8
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !59
   %div.i.i.i = udiv i64 %sub.i.i.i, %0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %isDestroyed) #14
   store i8 0, ptr %isDestroyed, align 1, !tbaa !14
-  %processingCallbacksGuard_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_ = getelementptr inbounds i8, ptr %this, i64 16688
   %1 = load ptr, ptr %processingCallbacksGuard_, align 8, !tbaa !61
   %tobool.not.not = icmp eq ptr %1, null
   br i1 %tobool.not.not, label %cleanup.done18, label %cond.false, !prof !45
@@ -675,16 +667,16 @@ cleanup.action:                                   ; preds = %invoke.cont12
 
 cleanup.done18:                                   ; preds = %invoke.cont
   store ptr %isDestroyed, ptr %processingCallbacksGuard_, align 8, !tbaa !61
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   %2 = load i64, ptr %expireTick_, align 8, !tbaa !69
   %cmp140 = icmp slt i64 %2, %div.i.i.i
   br i1 %cmp140, label %while.body.lr.ph, label %invoke.cont79.preheader
 
 while.body.lr.ph:                                 ; preds = %cleanup.done18
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 5
-  %buckets_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 4
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %bitmap_ = getelementptr inbounds i8, ptr %this, i64 16632
+  %buckets_ = getelementptr inbounds i8, ptr %this, i64 248
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16704
   br label %while.body
 
 while.cond.loopexit.loopexit:                     ; preds = %invoke.cont74
@@ -697,8 +689,8 @@ while.cond.loopexit:                              ; preds = %invoke.cont63, %whi
   br i1 %cmp, label %while.body, label %invoke.cont79.preheader, !llvm.loop !70
 
 invoke.cont79.preheader:                          ; preds = %while.cond.loopexit, %cleanup.done18
-  %timeoutsToRunNow_78 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 7
+  %timeoutsToRunNow_78 = getelementptr inbounds i8, ptr %this, i64 16696
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   br label %invoke.cont79
 
 while.body:                                       ; preds = %while.cond.loopexit, %while.body.lr.ph
@@ -762,10 +754,10 @@ invoke.cont63:                                    ; preds = %if.then41.invoke.co
 invoke.cont74:                                    ; preds = %invoke.cont63, %invoke.cont74
   %16 = phi ptr [ %20, %invoke.cont74 ], [ %14, %invoke.cont63 ]
   %17 = load ptr, ptr %16, align 8, !tbaa !49
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %16, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   store ptr %17, ptr %18, align 8, !tbaa !49
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %17, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %18, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !50
@@ -788,10 +780,10 @@ invoke.cont79:                                    ; preds = %invoke.cont91, %inv
 
 invoke.cont88:                                    ; preds = %invoke.cont79
   %24 = load ptr, ptr %22, align 8, !tbaa !49
-  %prev_.i.i.i.i128 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %22, i64 0, i32 1
+  %prev_.i.i.i.i128 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %prev_.i.i.i.i128, align 8, !tbaa !50
   store ptr %24, ptr %25, align 8, !tbaa !49
-  %prev_.i5.i.i.i129 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %24, i64 0, i32 1
+  %prev_.i5.i.i.i129 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %25, ptr %prev_.i5.i.i.i129, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %26 = load i64, ptr %count_, align 8, !tbaa !71
@@ -807,7 +799,7 @@ invoke.cont88:                                    ; preds = %invoke.cont79
 invoke.cont91:                                    ; preds = %invoke.cont88
   %sub.ptr.i.i127 = getelementptr inbounds i8, ptr %22, i64 -8
   %vtable = load ptr, ptr %sub.ptr.i.i127, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %27 = load ptr, ptr %vfn, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i127) #14
   %28 = load i8, ptr %isDestroyed, align 1, !tbaa !14, !range !54, !noundef !55
@@ -884,11 +876,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
-  %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 4
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
+  %bucket_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wheel_, i8 0, i64 16, i1 false)
   store i32 -1, ptr %bucket_, align 8, !tbaa !73
-  %requestContext_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 5
+  %requestContext_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %requestContext_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -908,7 +900,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback16callbackCanceledEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %this) #14
   ret void
@@ -935,13 +927,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat($_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
-  %wheel_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_.i, align 8, !tbaa !78
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %count_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %0, i64 0, i32 7
+  %count_.i.i = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_.i.i, align 8, !tbaa !51
   %dec.i.i = add i64 %1, -1
   store i64 %dec.i.i, ptr %count_.i.i, align 8, !tbaa !51
@@ -962,20 +954,20 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %bucket_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 4
+  %bucket_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %bucket_.i.i, align 8, !tbaa !73
   %cmp3.not.i.i = icmp eq i32 %4, -1
   br i1 %cmp3.not.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
   %5 = load ptr, ptr %wheel_.i, align 8, !tbaa !78
-  %buckets_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 4
+  %buckets_.i.i = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom.i.i = sext i32 %4 to i64
   %arrayidx6.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_.i.i, i64 0, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx6.i.i, align 8, !tbaa !49
@@ -985,7 +977,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
-  %bitmap_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 5
+  %bitmap_.i.i = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23.i.i = sdiv i32 %4, 64
   %div.i.i.i.i.sext.i.i = sext i32 %div.i.i.i.i23.i.i to i64
   %rem.i.i.i.i.i.i = and i64 %idxprom.i.i, 63
@@ -1002,13 +994,13 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callba
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit, %entry
-  %_M_refcount.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !79
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %if.end
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
@@ -1016,14 +1008,14 @@ if.then.i.i5:                                     ; preds = %if.end
 
 if.then.i.i.i6:                                   ; preds = %if.then.i.i5
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i = load ptr, ptr %10, align 8, !tbaa !52
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   %vtable3.i.i.i = load ptr, ptr %10, align 8, !tbaa !52
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %14 = load ptr, ptr %vfn4.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1061,7 +1053,7 @@ if.then.i.i.i8:                                   ; preds = %_ZNSt12__shared_ptr
   %prev_.i.i.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load ptr, ptr %prev_.i.i.i.i.i9, align 8, !tbaa !50
   store ptr %18, ptr %19, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i10 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %18, i64 0, i32 1
+  %prev_.i5.i.i.i.i10 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %prev_.i5.i.i.i.i10, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EED2Ev.exit
@@ -1080,7 +1072,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_, align 8, !tbaa !78
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -1089,13 +1081,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_, align 8, !tbaa !78
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %count_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %0, i64 0, i32 7
+  %count_.i = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_.i, align 8, !tbaa !51
   %dec.i = add i64 %1, -1
   store i64 %dec.i, ptr %count_.i, align 8, !tbaa !51
@@ -1116,20 +1108,20 @@ if.then.i.i:                                      ; preds = %if.end.i
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %bucket_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 4
+  %bucket_.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %bucket_.i, align 8, !tbaa !73
   %cmp3.not.i = icmp eq i32 %4, -1
   br i1 %cmp3.not.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i
   %5 = load ptr, ptr %wheel_, align 8, !tbaa !78
-  %buckets_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 4
+  %buckets_.i = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom.i = sext i32 %4 to i64
   %arrayidx6.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_.i, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx6.i, align 8, !tbaa !49
@@ -1139,7 +1131,7 @@ land.lhs.true.i:                                  ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
-  %bitmap_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 5
+  %bitmap_.i = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23.i = sdiv i32 %4, 64
   %div.i.i.i.i.sext.i = sext i32 %div.i.i.i.i23.i to i64
   %rem.i.i.i.i.i = and i64 %idxprom.i, 63
@@ -1162,9 +1154,9 @@ return:                                           ; preds = %_ZN5folly16HHWheelT
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_, align 8, !tbaa !78
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %0, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_, align 8, !tbaa !51
   %dec = add i64 %1, -1
   store i64 %dec, ptr %count_, align 8, !tbaa !51
@@ -1185,20 +1177,20 @@ if.then.i:                                        ; preds = %if.end
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit: ; preds = %if.then.i, %if.end
-  %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 4
+  %bucket_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %bucket_, align 8, !tbaa !73
   %cmp3.not = icmp eq i32 %4, -1
   br i1 %cmp3.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit
   %5 = load ptr, ptr %wheel_, align 8, !tbaa !78
-  %buckets_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 4
+  %buckets_ = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom = sext i32 %4 to i64
   %arrayidx6 = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_, i64 0, i64 %idxprom
   %6 = load ptr, ptr %arrayidx6, align 8, !tbaa !49
@@ -1208,7 +1200,7 @@ land.lhs.true:                                    ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7, label %if.end17
 
 if.then7:                                         ; preds = %land.lhs.true
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 5
+  %bitmap_ = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23 = sdiv i32 %4, 64
   %div.i.i.i.i.sext = sext i32 %div.i.i.i.i23 to i64
   %rem.i.i.i.i = and i64 %idxprom, 63
@@ -1231,10 +1223,10 @@ declare void @_ZN5folly12AsyncTimeout13cancelTimeoutEv(ptr noundef nonnull align
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !52
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
-  %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
+  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !83
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
@@ -1256,7 +1248,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !52
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #14
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
@@ -1272,7 +1264,7 @@ declare void @llvm.trap() #6
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback16getTimeRemainingEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %expiration_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 3
+  %expiration_.i = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.0.0.copyload.i5.i.i.i = load i64, ptr %expiration_.i, align 8
   %cmp.i.i.i.not.i = icmp sgt i64 %retval.sroa.0.0.copyload.i5.i.i.i, %call
   br i1 %cmp.i.i.i.not.i, label %if.end.i, label %_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE.exit
@@ -1290,7 +1282,7 @@ _ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callb
 ; Function Attrs: mustprogress uwtable
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 %now.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %expiration_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 3
+  %expiration_ = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.0.0.copyload.i5.i.i = load i64, ptr %expiration_, align 8
   %cmp.i.i.i.not = icmp sgt i64 %retval.sroa.0.0.copyload.i5.i.i, %now.coerce
   br i1 %cmp.i.i.i.not, label %if.end, label %return
@@ -1311,9 +1303,9 @@ declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback12setScheduledEPS6_NS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %wheel, i64 %deadline.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %wheel, ptr %wheel_, align 8, !tbaa !78
-  %expiration_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 3
+  %expiration_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %deadline.coerce, ptr %expiration_, align 8, !tbaa.struct !7
   ret void
 }
@@ -1329,14 +1321,14 @@ invoke.cont5:
   store i8 0, ptr %destroyPending_.i, align 4, !tbaa !57
   store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
   store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !52
-  %interval_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 216
   store i64 %intervalDuration.coerce, ptr %interval_, align 8, !tbaa !12
-  %divIntervalForSteadyClock_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i = getelementptr inbounds i8, ptr %this, i64 224
   %mul.i.i.i = mul nsw i64 %intervalDuration.coerce, 1000000
   store i64 %mul.i.i.i, ptr %divIntervalForSteadyClock_.i, align 8, !tbaa !12
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 232
   store i64 %intervalDuration.coerce, ptr %interval_.i, align 8, !tbaa !8
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %defaultTimeoutDuration.coerce, ptr %defaultTimeout_, align 8, !tbaa.struct !7
   br label %invoke.cont7
 
@@ -1344,7 +1336,7 @@ invoke.cont7:                                     ; preds = %invoke.cont7, %invo
   %arrayctor.cur.idx = phi i64 [ 248, %invoke.cont5 ], [ %arrayctor.cur.add.3, %invoke.cont7 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr %arrayctor.cur.ptr.ptr, ptr %arrayctor.cur.ptr.ptr, align 8, !tbaa !49
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store ptr %arrayctor.cur.ptr.ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   %arrayctor.cur.ptr.ptr.1 = getelementptr i8, ptr %arrayctor.cur.ptr.ptr, i64 16
   store ptr %arrayctor.cur.ptr.ptr.1, ptr %arrayctor.cur.ptr.ptr.1, align 8, !tbaa !49
@@ -1363,20 +1355,20 @@ invoke.cont7:                                     ; preds = %invoke.cont7, %invo
   br i1 %arrayctor.done.3, label %invoke.cont16, label %invoke.cont7
 
 invoke.cont16:                                    ; preds = %invoke.cont7
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 1, ptr %expireTick_, align 8, !tbaa !46
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   store i64 0, ptr %count_, align 8, !tbaa !51
-  %startTime_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 8
+  %startTime_ = getelementptr inbounds i8, ptr %this, i64 16680
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   store i64 %call.i, ptr %startTime_, align 8
-  %processingCallbacksGuard_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_ = getelementptr inbounds i8, ptr %this, i64 16688
   store ptr null, ptr %processingCallbacksGuard_, align 8, !tbaa !16
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
   store ptr %timeoutsToRunNow_, ptr %timeoutsToRunNow_, align 8, !tbaa !49
-  %prev_.i.i.i.i29 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %prev_.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 16704
   store ptr %timeoutsToRunNow_, ptr %prev_.i.i.i.i29, align 8, !tbaa !50
-  %bitmap_14 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 5
+  %bitmap_14 = getelementptr inbounds i8, ptr %this, i64 16632
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitmap_14, i8 0, i64 32, i1 false)
   ret void
 }
@@ -1405,8 +1397,8 @@ entry:
   %__tmp.i = alloca %"class.boost::intrusive::list", align 16
   %buckets = alloca %"class.std::unique_ptr", align 8
   %timeoutsToRunNow = alloca %"class.boost::intrusive::list", align 16
-  %timeoutsToRunNow.sroa.gep = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %timeoutsToRunNow, i64 0, i32 1
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 7
+  %timeoutsToRunNow.sroa.gep = getelementptr inbounds i8, ptr %timeoutsToRunNow, i64 8
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   %0 = load i64, ptr %count_, align 8, !tbaa !8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end59, label %new.ctorloop.i
@@ -1427,7 +1419,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr %arrayctor.cur.ptr.ptr.i, ptr %arrayctor.cur.ptr.ptr.i, align 8, !tbaa !49, !noalias !86
-  %prev_.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store ptr %arrayctor.cur.ptr.ptr.i, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50, !noalias !86
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 16
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -1436,7 +1428,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
 
 _ZSt11make_uniqueIA_N5boost9intrusive4listIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackEJNS1_18constant_time_sizeILb0EEEEEEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit: ; preds = %invoke.cont.i
   store ptr %.ptr.i, ptr %buckets, align 8, !tbaa !89, !alias.scope !86
-  %__tmp.sroa.gep51.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__tmp.i, i64 0, i32 1
+  %__tmp.sroa.gep51.i = getelementptr inbounds i8, ptr %__tmp.i, i64 8
   br label %invoke.cont.preheader
 
 for.cond34.preheader:                             ; preds = %cleanup25
@@ -1481,9 +1473,9 @@ invoke.cont16:                                    ; preds = %do.body.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN5boost9intrusive4listIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackEJNS0_18constant_time_sizeILb0EEEEEC2EOSD_.exit.i, label %if.end14.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %invoke.cont16
-  %prev_.i.i21.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__begin05.0146, i64 0, i32 1
+  %prev_.i.i21.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin05.0146, i64 8
   %.pre39.i.i.i.i.i = load ptr, ptr %prev_.i.i21.i.i.i.i.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %3, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre40.i.i.i.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i.i.i.i, align 8, !tbaa !50
   %.pre41.i.i.i.i.i = load ptr, ptr %.pre39.i.i.i.i.i, align 8, !tbaa !49
   store ptr %.pre40.i.i.i.i.i, ptr %__tmp.sroa.gep51.i, align 8, !tbaa !50
@@ -1511,18 +1503,18 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN5boost9intrusive
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   store ptr %__begin05.0146, ptr %__begin05.0146, align 8, !tbaa !49
-  %prev_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__begin05.0146, i64 0, i32 1
+  %prev_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin05.0146, i64 8
   store ptr %__begin05.0146, ptr %prev_.i.i.i.i.i.i.i, align 8, !tbaa !50
   br label %if.end4.i.i.i.i8.i
 
 if.end4.i.i.i.i8.i:                               ; preds = %if.then3.i.i.i.i.i, %if.end.i.i.i.i.i
   %.pre.i.i.i.i20.i = phi ptr [ %__begin05.0146, %if.then3.i.i.i.i.i ], [ %9, %if.end.i.i.i.i.i ]
-  %prev_.i.i21.i.i.i.i9.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx.i, i64 0, i32 1
+  %prev_.i.i21.i.i.i.i9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   br i1 %tobool.not.i20.i.i.i.i7.i, label %if.then6.i.i.i.i19.i, label %if.end4.if.end7_crit_edge.i.i.i.i10.i
 
 if.end4.if.end7_crit_edge.i.i.i.i10.i:            ; preds = %if.end4.i.i.i.i8.i
   %.pre39.i.i.i.i11.i = load ptr, ptr %prev_.i.i21.i.i.i.i9.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i.i.i12.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i.i.i12.i = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre40.i.i.i.i13.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i.i.i12.i, align 8, !tbaa !50
   %.pre41.i.i.i.i14.i = load ptr, ptr %.pre39.i.i.i.i11.i, align 8, !tbaa !49
   br label %if.end7.i.i.i.i.i
@@ -1537,11 +1529,11 @@ if.end7.i.i.i.i.i:                                ; preds = %if.then6.i.i.i.i19.
   %11 = phi ptr [ %arrayidx.i, %if.then6.i.i.i.i19.i ], [ %.pre40.i.i.i.i13.i, %if.end4.if.end7_crit_edge.i.i.i.i10.i ]
   %12 = phi ptr [ %arrayidx.i, %if.then6.i.i.i.i19.i ], [ %.pre39.i.i.i.i11.i, %if.end4.if.end7_crit_edge.i.i.i.i10.i ]
   %13 = phi ptr [ %arrayidx.i, %if.then6.i.i.i.i19.i ], [ %.pre, %if.end4.if.end7_crit_edge.i.i.i.i10.i ]
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__begin05.0146, i64 0, i32 1
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin05.0146, i64 8
   %14 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8, !tbaa !50
-  %prev_.i.i23.i.i.i.i15.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre.i.i.i.i20.i, i64 0, i32 1
+  %prev_.i.i23.i.i.i.i15.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i20.i, i64 8
   %15 = load ptr, ptr %prev_.i.i23.i.i.i.i15.i, align 8, !tbaa !50
-  %prev_.i2.i.i.i.i.i16.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %13, i64 0, i32 1
+  %prev_.i2.i.i.i.i.i16.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %11, ptr %prev_.i.i23.i.i.i.i15.i, align 8, !tbaa !50
   store ptr %15, ptr %prev_.i2.i.i.i.i.i16.i, align 8, !tbaa !50
   %16 = load ptr, ptr %14, align 8, !tbaa !49
@@ -1575,7 +1567,7 @@ if.end.i.i.i.i22.i:                               ; preds = %if.then16.i.i.i.i18
 
 if.then3.i.i.i.i42.i:                             ; preds = %if.end.i.i.i.i22.i
   store ptr %arrayidx.i, ptr %arrayidx.i, align 8, !tbaa !49
-  %prev_.i.i.i.i.i.i43.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx.i, i64 0, i32 1
+  %prev_.i.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %arrayidx.i, ptr %prev_.i.i.i.i.i.i43.i, align 8, !tbaa !50
   br label %if.end4.i.i.i.i25.i
 
@@ -1584,7 +1576,7 @@ if.end4.i.i.i.i25.i:                              ; preds = %if.then3.i.i.i.i42.
   br i1 %tobool.not.i20.i.i.i.i24.i, label %if.then6.i.i.i.i40.i, label %if.end4.if.end7_crit_edge.i.i.i.i27.i
 
 if.end4.if.end7_crit_edge.i.i.i.i27.i:            ; preds = %if.end4.i.i.i.i25.i
-  %.pre38.i.i.i.i28.sroa.gep.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre.i, i64 0, i32 1
+  %.pre38.i.i.i.i28.sroa.gep.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %.pre39.i.i.i.i29.i = load ptr, ptr %__tmp.sroa.gep51.i, align 8, !tbaa !50
   %.pre40.i.i.i.i31.i = load ptr, ptr %.pre38.i.i.i.i28.sroa.gep.i, align 8, !tbaa !50
   %.pre41.i.i.i.i32.i = load ptr, ptr %.pre39.i.i.i.i29.i, align 8, !tbaa !49
@@ -1600,9 +1592,9 @@ if.end7.i.i.i.i33.i:                              ; preds = %if.then6.i.i.i.i40.
   %23 = phi ptr [ %__tmp.i, %if.then6.i.i.i.i40.i ], [ %.pre40.i.i.i.i31.i, %if.end4.if.end7_crit_edge.i.i.i.i27.i ]
   %24 = phi ptr [ %__tmp.i, %if.then6.i.i.i.i40.i ], [ %.pre39.i.i.i.i29.i, %if.end4.if.end7_crit_edge.i.i.i.i27.i ]
   %.sroa.phi50.i = phi ptr [ %__tmp.sroa.gep51.i, %if.then6.i.i.i.i40.i ], [ %.pre38.i.i.i.i28.sroa.gep.i, %if.end4.if.end7_crit_edge.i.i.i.i27.i ]
-  %prev_.i.i.i.i.i34.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx.i, i64 0, i32 1
+  %prev_.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %25 = load ptr, ptr %prev_.i.i.i.i.i34.i, align 8, !tbaa !50
-  %prev_.i.i23.i.i.i.i35.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre.i.i.i.i41.i, i64 0, i32 1
+  %prev_.i.i23.i.i.i.i35.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i41.i, i64 8
   %26 = load ptr, ptr %prev_.i.i23.i.i.i.i35.i, align 8, !tbaa !50
   store ptr %23, ptr %prev_.i.i23.i.i.i.i35.i, align 8, !tbaa !50
   store ptr %26, ptr %.sroa.phi50.i, align 8, !tbaa !50
@@ -1647,7 +1639,7 @@ invoke.cont20:                                    ; preds = %while.body.i.i.i.i,
 for.inc:                                          ; preds = %invoke.cont20, %invoke.cont
   %countBuckets.2.ph = phi i64 [ %countBuckets.1148, %invoke.cont ], [ %inc, %invoke.cont20 ]
   %count.2.ph = phi i64 [ %count.1149, %invoke.cont ], [ %add, %invoke.cont20 ]
-  %incdec.ptr = getelementptr inbounds %"class.boost::intrusive::list", ptr %__begin05.0146, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin05.0146, i64 16
   %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr9.ptr
   br i1 %cmp11.not, label %cleanup25, label %invoke.cont
 
@@ -1676,7 +1668,7 @@ while.body.i:                                     ; preds = %for.body37, %_ZN5fo
   br i1 %cmp.i.i82, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
-  %count_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %37, i64 0, i32 7
+  %count_.i.i.i = getelementptr inbounds i8, ptr %37, i64 16672
   %38 = load i64, ptr %count_.i.i.i, align 8, !tbaa !51
   %dec.i.i.i = add i64 %38, -1
   store i64 %dec.i.i.i, ptr %count_.i.i.i, align 8, !tbaa !51
@@ -1696,7 +1688,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %prev_.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %36, i64 8
   %40 = load ptr, ptr %prev_.i.i.i.i.i.i83, align 8, !tbaa !50
   store ptr %39, ptr %40, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %39, i64 0, i32 1
+  %prev_.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %40, ptr %prev_.i5.i.i.i.i.i, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i
@@ -1709,7 +1701,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i
   %42 = load ptr, ptr %wheel_.i.i, align 8, !tbaa !78
-  %buckets_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %42, i64 0, i32 4
+  %buckets_.i.i.i = getelementptr inbounds i8, ptr %42, i64 248
   %idxprom.i.i.i = sext i32 %41 to i64
   %arrayidx6.i.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_.i.i.i, i64 0, i64 %idxprom.i.i.i
   %43 = load ptr, ptr %arrayidx6.i.i.i, align 8, !tbaa !49
@@ -1719,7 +1711,7 @@ land.lhs.true.i.i.i:                              ; preds = %_ZN5boost9intrusive
   br i1 %44, label %if.then7.i.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i
 
 if.then7.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %bitmap_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %42, i64 0, i32 5
+  %bitmap_.i.i.i = getelementptr inbounds i8, ptr %42, i64 16632
   %div.i.i.i.i23.i.i.i = sdiv i32 %41, 64
   %div.i.i.i.i.sext.i.i.i = sext i32 %div.i.i.i.i23.i.i.i to i64
   %rem.i.i.i.i.i.i.i = and i64 %idxprom.i.i.i, 63
@@ -1737,7 +1729,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callba
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit.i: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i, %while.body.i
   %vtable.i = load ptr, ptr %sub.ptr.i.i.i, align 8, !tbaa !52
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %47 = load ptr, ptr %vfn.i, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i.i) #14
   %48 = load ptr, ptr %arrayidx.i81, align 8, !tbaa !49
@@ -1760,19 +1752,19 @@ invoke.cont48:                                    ; preds = %for.inc43, %for.con
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeoutsToRunNow) #14
   store ptr %timeoutsToRunNow, ptr %timeoutsToRunNow, align 16, !tbaa !49
   store ptr %timeoutsToRunNow, ptr %timeoutsToRunNow.sroa.gep, align 8, !tbaa !50
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
   %cmp.i.i85 = icmp eq ptr %timeoutsToRunNow_, %timeoutsToRunNow
   br i1 %cmp.i.i85, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %invoke.cont48
   %51 = load ptr, ptr %timeoutsToRunNow_, align 8, !tbaa !49
   %tobool.not.i20.i.i = icmp eq ptr %51, null
-  %prev_.i.i21.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %prev_.i.i21.i.i = getelementptr inbounds i8, ptr %this, i64 16704
   br i1 %tobool.not.i20.i.i, label %if.then6.i.i, label %if.end4.if.end7_crit_edge.i.i
 
 if.end4.if.end7_crit_edge.i.i:                    ; preds = %if.end4.i.i
   %.pre39.i.i = load ptr, ptr %prev_.i.i21.i.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %51, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %.pre40.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i, align 8, !tbaa !50
   %.pre41.i.i = load ptr, ptr %.pre39.i.i, align 8, !tbaa !49
   br label %if.end14.i.i
@@ -1787,7 +1779,7 @@ if.end14.i.i:                                     ; preds = %if.then6.i.i, %if.e
   %53 = phi ptr [ %timeoutsToRunNow_, %if.then6.i.i ], [ %.pre40.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %54 = phi ptr [ %timeoutsToRunNow_, %if.then6.i.i ], [ %.pre39.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %55 = phi ptr [ %timeoutsToRunNow_, %if.then6.i.i ], [ %51, %if.end4.if.end7_crit_edge.i.i ]
-  %prev_.i2.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %55, i64 0, i32 1
+  %prev_.i2.i.i.i = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %53, ptr %timeoutsToRunNow.sroa.gep, align 8, !tbaa !50
   store ptr %timeoutsToRunNow, ptr %prev_.i2.i.i.i, align 8, !tbaa !50
   store ptr %52, ptr %timeoutsToRunNow, align 16, !tbaa !49
@@ -1821,7 +1813,7 @@ while.body.i91:                                   ; preds = %invoke.cont50, %_ZN
   br i1 %cmp.i.i96, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit.i116, label %if.end.i.i97
 
 if.end.i.i97:                                     ; preds = %while.body.i91
-  %count_.i.i.i98 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %61, i64 0, i32 7
+  %count_.i.i.i98 = getelementptr inbounds i8, ptr %61, i64 16672
   %62 = load i64, ptr %count_.i.i.i98, align 8, !tbaa !51
   %dec.i.i.i99 = add i64 %62, -1
   store i64 %dec.i.i.i99, ptr %count_.i.i.i98, align 8, !tbaa !51
@@ -1841,7 +1833,7 @@ if.then.i.i.i.i103:                               ; preds = %if.end.i.i.i101
   %prev_.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %60, i64 8
   %64 = load ptr, ptr %prev_.i.i.i.i.i.i104, align 8, !tbaa !50
   store ptr %63, ptr %64, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i.i105 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %63, i64 0, i32 1
+  %prev_.i5.i.i.i.i.i105 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %64, ptr %prev_.i5.i.i.i.i.i105, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i106
@@ -1854,7 +1846,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
 
 land.lhs.true.i.i.i109:                           ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i106
   %66 = load ptr, ptr %wheel_.i.i95, align 8, !tbaa !78
-  %buckets_.i.i.i110 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %66, i64 0, i32 4
+  %buckets_.i.i.i110 = getelementptr inbounds i8, ptr %66, i64 248
   %idxprom.i.i.i111 = sext i32 %65 to i64
   %arrayidx6.i.i.i112 = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_.i.i.i110, i64 0, i64 %idxprom.i.i.i111
   %67 = load ptr, ptr %arrayidx6.i.i.i112, align 8, !tbaa !49
@@ -1864,7 +1856,7 @@ land.lhs.true.i.i.i109:                           ; preds = %_ZN5boost9intrusive
   br i1 %68, label %if.then7.i.i.i122, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i115
 
 if.then7.i.i.i122:                                ; preds = %land.lhs.true.i.i.i109
-  %bitmap_.i.i.i123 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %66, i64 0, i32 5
+  %bitmap_.i.i.i123 = getelementptr inbounds i8, ptr %66, i64 16632
   %div.i.i.i.i23.i.i.i124 = sdiv i32 %65, 64
   %div.i.i.i.i.sext.i.i.i125 = sext i32 %div.i.i.i.i23.i.i.i124 to i64
   %rem.i.i.i.i.i.i.i126 = and i64 %idxprom.i.i.i111, 63
@@ -1882,7 +1874,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callba
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit.i116: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i115, %while.body.i91
   %vtable.i117 = load ptr, ptr %sub.ptr.i.i.i94, align 8, !tbaa !52
-  %vfn.i118 = getelementptr inbounds ptr, ptr %vtable.i117, i64 3
+  %vfn.i118 = getelementptr inbounds i8, ptr %vtable.i117, i64 24
   %71 = load ptr, ptr %vfn.i118, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i.i94) #14
   %72 = load ptr, ptr %timeoutsToRunNow, align 16, !tbaa !49
@@ -1929,7 +1921,7 @@ arraydestroy.body.preheader.i.i:                  ; preds = %delete.notnull.i.i
 
 arraydestroy.body.i.i:                            ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i.i, %arraydestroy.body.preheader.i.i
   %arraydestroy.elementPast.i.i = phi ptr [ %arraydestroy.element.i.i, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i.i ], [ %delete.end.i.i, %arraydestroy.body.preheader.i.i ]
-  %arraydestroy.element.i.i = getelementptr inbounds %"class.boost::intrusive::list", ptr %arraydestroy.elementPast.i.i, i64 -1
+  %arraydestroy.element.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i, i64 -16
   %80 = load ptr, ptr %arraydestroy.element.i.i, align 8, !tbaa !49, !noalias !96
   %cmp.i.i.not12.i.i.i.i.i = icmp eq ptr %80, %arraydestroy.element.i.i
   br i1 %cmp.i.i.not12.i.i.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -2003,7 +1995,7 @@ while.body:                                       ; preds = %entry, %_ZN5folly16
   br i1 %cmp.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
-  %count_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %3, i64 0, i32 7
+  %count_.i.i = getelementptr inbounds i8, ptr %3, i64 16672
   %4 = load i64, ptr %count_.i.i, align 8, !tbaa !51
   %dec.i.i = add i64 %4, -1
   store i64 %dec.i.i, ptr %count_.i.i, align 8, !tbaa !51
@@ -2023,7 +2015,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50
   store ptr %5, ptr %6, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %5, i64 0, i32 1
+  %prev_.i5.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %6, ptr %prev_.i5.i.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
@@ -2036,7 +2028,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
 
 land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
   %8 = load ptr, ptr %wheel_.i, align 8, !tbaa !78
-  %buckets_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %8, i64 0, i32 4
+  %buckets_.i.i = getelementptr inbounds i8, ptr %8, i64 248
   %idxprom.i.i = sext i32 %7 to i64
   %arrayidx6.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_.i.i, i64 0, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx6.i.i, align 8, !tbaa !49
@@ -2046,7 +2038,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive
   br i1 %10, label %if.then7.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
-  %bitmap_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %8, i64 0, i32 5
+  %bitmap_.i.i = getelementptr inbounds i8, ptr %8, i64 16632
   %div.i.i.i.i23.i.i = sdiv i32 %7, 64
   %div.i.i.i.i.sext.i.i = sext i32 %div.i.i.i.i23.i.i to i64
   %rem.i.i.i.i.i.i = and i64 %idxprom.i.i, 63
@@ -2064,7 +2056,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callba
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i, %while.body
   %vtable = load ptr, ptr %sub.ptr.i.i, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i) #14
   %14 = load ptr, ptr %timeouts, align 8, !tbaa !49
@@ -2097,7 +2089,7 @@ arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
 
 arraydestroy.body.i:                              ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i, %arraydestroy.body.preheader.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
-  %arraydestroy.element.i = getelementptr inbounds %"class.boost::intrusive::list", ptr %arraydestroy.elementPast.i, i64 -1
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -16
   %3 = load ptr, ptr %arraydestroy.element.i, align 8, !tbaa !49, !noalias !105
   %cmp.i.i.not12.i.i.i.i = icmp eq ptr %3, %arraydestroy.element.i
   br i1 %cmp.i.i.not12.i.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i, label %while.body.i.i.i.i
@@ -2132,7 +2124,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15getTickIntervalEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 232
   %retval.sroa.0.0.copyload.i = load i64, ptr %interval_.i, align 8, !tbaa.struct !7
   ret i64 %retval.sroa.0.0.copyload.i
 }
@@ -2140,7 +2132,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17getDefaultTimeoutEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   %retval.sroa.0.0.copyload = load i64, ptr %defaultTimeout_, align 8, !tbaa.struct !7
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -2148,7 +2140,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17setDefaultTimeoutES5_(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 %timeout.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %timeout.coerce, ptr %defaultTimeout_, align 8, !tbaa.struct !7
   ret void
 }
@@ -2159,13 +2151,13 @@ entry:
   %ref.tmp.i.i85 = alloca %"class.std::shared_ptr", align 8
   %ref.tmp.i.i = alloca %"class.std::shared_ptr", align 8
   %.sroa.speculated128 = tail call i64 @llvm.smax.i64(i64 %timeout.coerce, i64 0)
-  %wheel_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 2
+  %wheel_.i = getelementptr inbounds i8, ptr %callback, i64 24
   %0 = load ptr, ptr %wheel_.i, align 8, !tbaa !78
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %count_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %0, i64 0, i32 7
+  %count_.i.i = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_.i.i, align 8, !tbaa !51
   %dec.i.i = add i64 %1, -1
   store i64 %dec.i.i, ptr %count_.i.i, align 8, !tbaa !51
@@ -2186,20 +2178,20 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %3 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %bucket_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_.i.i = getelementptr inbounds i8, ptr %callback, i64 40
   %4 = load i32, ptr %bucket_.i.i, align 8, !tbaa !73
   %cmp3.not.i.i = icmp eq i32 %4, -1
   br i1 %cmp3.not.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
   %5 = load ptr, ptr %wheel_.i, align 8, !tbaa !78
-  %buckets_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 4
+  %buckets_.i.i = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom.i.i = sext i32 %4 to i64
   %arrayidx6.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_.i.i, i64 0, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx6.i.i, align 8, !tbaa !49
@@ -2209,7 +2201,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
-  %bitmap_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %5, i64 0, i32 5
+  %bitmap_.i.i = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23.i.i = sdiv i32 %4, 64
   %div.i.i.i.i.sext.i.i = sext i32 %div.i.i.i.i23.i.i to i64
   %rem.i.i.i.i.i.i = and i64 %idxprom.i.i, 63
@@ -2228,13 +2220,13 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callba
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback17cancelTimeoutImplEv.exit.i, %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !109
   %10 = load ptr, ptr %call.i, align 8, !tbaa !112, !noalias !109
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %call.i, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %11 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !79, !noalias !109
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !83, !noalias !109
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2250,16 +2242,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN5folly14RequestContext11saveContextEv.exit
 
 _ZN5folly14RequestContext11saveContextEv.exit:    ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit
-  %requestContext_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 5
+  %requestContext_ = getelementptr inbounds i8, ptr %callback, i64 48
   store ptr %10, ptr %requestContext_, align 8, !tbaa !89
-  %_M_refcount3.i.i.i46 = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 5, i32 0, i32 1
+  %_M_refcount3.i.i.i46 = getelementptr inbounds i8, ptr %callback, i64 56
   %15 = load ptr, ptr %_M_refcount3.i.i.i46, align 8, !tbaa !79
   store ptr %11, ptr %_M_refcount3.i.i.i46, align 8, !tbaa !79
   %cmp.not.i.i.i.i47 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i47, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i.i.i48
 
 if.then.i.i.i.i48:                                ; preds = %_ZN5folly14RequestContext11saveContextEv.exit
-  %_M_use_count.i.i.i.i.i49 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i49 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load atomic i64, ptr %_M_use_count.i.i.i.i.i49 acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %16, 4294967297
   %17 = trunc i64 %16 to i32
@@ -2267,14 +2259,14 @@ if.then.i.i.i.i48:                                ; preds = %_ZN5folly14RequestC
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i48
   store i32 0, ptr %_M_use_count.i.i.i.i.i49, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !52
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %15) #14
   %vtable3.i.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %19 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %15) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2303,23 +2295,23 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN5folly14RequestContext11saveContextEv.exit
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   %22 = load i64, ptr %count_, align 8, !tbaa !51
   %inc = add i64 %22, 1
   store i64 %inc, ptr %count_, align 8, !tbaa !51
   %call.i56 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %call.i56, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %23 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !12
   %div.i.i.i = udiv i64 %sub.i.i.i, %23
   %mul.i.i.i.i.i = mul nsw i64 %.sroa.speculated128, 1000000
   %add.i.i = add nsw i64 %call.i56, %mul.i.i.i.i.i
   store ptr %this, ptr %wheel_.i, align 8, !tbaa !78
-  %expiration_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 3
+  %expiration_.i = getelementptr inbounds i8, ptr %callback, i64 32
   store i64 %add.i.i, ptr %expiration_.i, align 8, !tbaa.struct !7
-  %processingCallbacksGuard_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_ = getelementptr inbounds i8, ptr %this, i64 16688
   %24 = load ptr, ptr %processingCallbacksGuard_, align 8, !tbaa !16
   %tobool.not = icmp eq ptr %24, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -2329,24 +2321,24 @@ lor.lhs.false:                                    ; preds = %_ZNSt12__shared_ptr
   br i1 %call18, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   %25 = load i64, ptr %expireTick_, align 8, !tbaa !8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %div.i.i.i, i64 %25)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
   %baseTick.0 = phi i64 [ %.sroa.speculated, %if.then ], [ %div.i.i.i, %lor.lhs.false ]
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 216
   %26 = load i64, ptr %interval_.i, align 8, !tbaa !12
   %div.i.i.i60 = udiv i64 %.sroa.speculated128, %26
   %add = add i64 %div.i.i.i60, %div.i.i.i
   %sub.i = sub nsw i64 %add, %baseTick.0
-  %bitmap_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 5
+  %bitmap_.i = getelementptr inbounds i8, ptr %this, i64 16632
   %cmp.i61 = icmp slt i64 %sub.i, 0
   br i1 %cmp.i61, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %buckets_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 4
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 248
   %and.i = and i64 %div.i.i.i, 255
   %arrayidx3.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_.i, i64 0, i64 %and.i
   %div.i.i.i.i919296.i = lshr i64 %div.i.i.i, 6
@@ -2358,7 +2350,7 @@ if.then.i:                                        ; preds = %if.end
   %or.i.i.i = or i64 %28, %shl.i.i.i
   store i64 %or.i.i.i, ptr %27, align 8, !tbaa !8
   %conv.i = trunc i64 %and.i to i32
-  %bucket_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv.i, ptr %bucket_.i, align 8, !tbaa !73
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
@@ -2367,7 +2359,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp11.i, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %if.else.i
-  %buckets_13.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 4
+  %buckets_13.i = getelementptr inbounds i8, ptr %this, i64 248
   %and15.i = and i64 %add, 255
   %arrayidx16.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_13.i, i64 0, i64 %and15.i
   %div.i.i.i.i74939495.i = lshr i64 %add, 6
@@ -2379,7 +2371,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %or.i.i89.i = or i64 %30, %shl.i.i88.i
   store i64 %or.i.i89.i, ptr %29, align 8, !tbaa !8
   %conv24.i = trunc i64 %and15.i to i32
-  %bucket_25.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_25.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24.i, ptr %bucket_25.i, align 8, !tbaa !73
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
@@ -2415,7 +2407,7 @@ if.else41.i:                                      ; preds = %if.else33.i
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %if.else41.i, %if.then35.i, %if.then28.i, %if.then12.i, %if.then.i
   %list.0.i = phi ptr [ %arrayidx3.i, %if.then.i ], [ %arrayidx16.i, %if.then12.i ], [ %arrayidx32.i, %if.then28.i ], [ %arrayidx40.i, %if.then35.i ], [ %arrayidx48.i, %if.else41.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %callback, i64 8
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %list.0.i, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %list.0.i, i64 8
   %31 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store ptr %31, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
@@ -2440,7 +2432,7 @@ if.then28:                                        ; preds = %land.lhs.true
   %sub29 = add i64 %div.i.i.i, 255
   %and = and i64 %sub29, 255
   %sub30 = sub nuw nsw i64 256, %and
-  %interval_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %33 = load i64, ptr %interval_.i.i, align 8, !tbaa !8
   %mul.i.i.i.i = mul nsw i64 %33, %sub30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
@@ -2449,13 +2441,13 @@ if.then28:                                        ; preds = %land.lhs.true
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then28
-  %_M_refcount.i.i.i63 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i63 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %34 = load ptr, ptr %_M_refcount.i.i.i63, align 8, !tbaa !79
   %cmp.not.i.i.i.i64 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i64, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll.exit, label %if.then.i.i.i.i65
 
 if.then.i.i.i.i65:                                ; preds = %invoke.cont.i.i
-  %_M_use_count.i.i.i.i.i66 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i66 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load atomic i64, ptr %_M_use_count.i.i.i.i.i66 acquire, align 8
   %cmp.i.i.i.i.i67 = icmp eq i64 %35, 4294967297
   %36 = trunc i64 %35 to i32
@@ -2463,14 +2455,14 @@ if.then.i.i.i.i65:                                ; preds = %invoke.cont.i.i
 
 if.then.i.i.i.i.i79:                              ; preds = %if.then.i.i.i.i65
   store i32 0, ptr %_M_use_count.i.i.i.i.i66, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i80 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i80 = getelementptr inbounds i8, ptr %34, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i80, align 4, !tbaa !82
   %vtable.i.i.i.i.i81 = load ptr, ptr %34, align 8, !tbaa !52
-  %vfn.i.i.i.i.i82 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i81, i64 2
+  %vfn.i.i.i.i.i82 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i81, i64 16
   %37 = load ptr, ptr %vfn.i.i.i.i.i82, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34) #14
   %vtable3.i.i.i.i.i83 = load ptr, ptr %34, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i84 = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i83, i64 3
+  %vfn4.i.i.i.i.i84 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i83, i64 24
   %38 = load ptr, ptr %vfn4.i.i.i.i.i84, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %34) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll.exit
@@ -2512,13 +2504,13 @@ lpad.i.i:                                         ; preds = %if.then28
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll.exit: ; preds = %if.then7.i.i.i.i.i77, %invoke.cont.i.i.i.i.i72, %if.then.i.i.i.i.i79, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
   %sub.i76 = add i64 %sub30, %sub
-  %expireTick_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %expireTick_.i = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 %sub.i76, ptr %expireTick_.i, align 8, !tbaa !46
   br label %if.end38
 
 if.else:                                          ; preds = %land.lhs.true, %if.then25
   %call31 = tail call noundef zeroext i1 @_ZNK5folly12AsyncTimeout11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
-  %expireTick_33 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %expireTick_33 = getelementptr inbounds i8, ptr %this, i64 16664
   %42 = load i64, ptr %expireTick_33, align 8
   %cmp = icmp sge i64 %add, %42
   %or.cond.not = select i1 %call31, i1 %cmp, i1 false
@@ -2526,7 +2518,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 if.then34:                                        ; preds = %if.else
   %add35 = add nuw nsw i64 %div.i.i.i60, 1
-  %interval_.i.i86 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i.i86 = getelementptr inbounds i8, ptr %this, i64 232
   %43 = load i64, ptr %interval_.i.i86, align 8, !tbaa !8
   %mul.i.i.i.i87 = mul nsw i64 %43, %add35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i85) #14
@@ -2535,13 +2527,13 @@ if.then34:                                        ; preds = %if.else
           to label %invoke.cont.i.i90 unwind label %lpad.i.i89
 
 invoke.cont.i.i90:                                ; preds = %if.then34
-  %_M_refcount.i.i.i91 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i85, i64 0, i32 1
+  %_M_refcount.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp.i.i85, i64 8
   %44 = load ptr, ptr %_M_refcount.i.i.i91, align 8, !tbaa !79
   %cmp.not.i.i.i.i92 = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i.i92, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll.exit114, label %if.then.i.i.i.i93
 
 if.then.i.i.i.i93:                                ; preds = %invoke.cont.i.i90
-  %_M_use_count.i.i.i.i.i94 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %44, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i94 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load atomic i64, ptr %_M_use_count.i.i.i.i.i94 acquire, align 8
   %cmp.i.i.i.i.i95 = icmp eq i64 %45, 4294967297
   %46 = trunc i64 %45 to i32
@@ -2549,14 +2541,14 @@ if.then.i.i.i.i93:                                ; preds = %invoke.cont.i.i90
 
 if.then.i.i.i.i.i108:                             ; preds = %if.then.i.i.i.i93
   store i32 0, ptr %_M_use_count.i.i.i.i.i94, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i109 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %44, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i109 = getelementptr inbounds i8, ptr %44, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i109, align 4, !tbaa !82
   %vtable.i.i.i.i.i110 = load ptr, ptr %44, align 8, !tbaa !52
-  %vfn.i.i.i.i.i111 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i110, i64 2
+  %vfn.i.i.i.i.i111 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i110, i64 16
   %47 = load ptr, ptr %vfn.i.i.i.i.i111, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %44) #14
   %vtable3.i.i.i.i.i112 = load ptr, ptr %44, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i113 = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i112, i64 3
+  %vfn4.i.i.i.i.i113 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i112, i64 24
   %48 = load ptr, ptr %vfn4.i.i.i.i.i113, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %44) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll.exit114
@@ -2603,10 +2595,10 @@ if.end38:                                         ; preds = %_ZN5folly16HHWheelT
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE12calcNextTickENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 %curTime.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %startTime_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 8
+  %startTime_ = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i = load i64, ptr %startTime_, align 8, !tbaa.struct !7
   %sub.i.i = sub nsw i64 %curTime.coerce, %retval.sroa.0.0.copyload.i7.i
-  %divIntervalForSteadyClock_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i64, ptr %divIntervalForSteadyClock_.i, align 8, !tbaa !12
   %div.i.i = udiv i64 %sub.i.i, %0
   ret i64 %div.i.i
@@ -2617,7 +2609,7 @@ declare noundef zeroext i1 @_ZNK5folly12AsyncTimeout11isScheduledEv(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE16timeToWheelTicksES5_(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 %t.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %interval_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load i64, ptr %interval_, align 8, !tbaa !12
   %div.i.i = udiv i64 %t.coerce, %0
   ret i64 %div.i.i
@@ -2627,12 +2619,12 @@ entry:
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll(ptr noundef nonnull align 8 dereferenceable(16712) %this, ptr noundef %callback, i64 noundef %dueTick, i64 noundef %nextTickToProcess, i64 noundef %nextTick) local_unnamed_addr #2 comdat align 2 {
 entry:
   %sub = sub nsw i64 %dueTick, %nextTickToProcess
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 5
+  %bitmap_ = getelementptr inbounds i8, ptr %this, i64 16632
   %cmp = icmp slt i64 %sub, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %buckets_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 4
+  %buckets_ = getelementptr inbounds i8, ptr %this, i64 248
   %and = and i64 %nextTick, 255
   %arrayidx3 = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_, i64 0, i64 %and
   %div.i.i.i.i919296 = lshr i64 %nextTick, 6
@@ -2644,7 +2636,7 @@ if.then:                                          ; preds = %entry
   %or.i.i = or i64 %1, %shl.i.i
   store i64 %or.i.i, ptr %0, align 8, !tbaa !8
   %conv = trunc i64 %and to i32
-  %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_ = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv, ptr %bucket_, align 8, !tbaa !73
   br label %if.end52
 
@@ -2653,7 +2645,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp11, label %if.then12, label %if.else26
 
 if.then12:                                        ; preds = %if.else
-  %buckets_13 = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 4
+  %buckets_13 = getelementptr inbounds i8, ptr %this, i64 248
   %and15 = and i64 %dueTick, 255
   %arrayidx16 = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_13, i64 0, i64 %and15
   %div.i.i.i.i74939495 = lshr i64 %dueTick, 6
@@ -2665,7 +2657,7 @@ if.then12:                                        ; preds = %if.else
   %or.i.i89 = or i64 %3, %shl.i.i88
   store i64 %or.i.i89, ptr %2, align 8, !tbaa !8
   %conv24 = trunc i64 %and15 to i32
-  %bucket_25 = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_25 = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24, ptr %bucket_25, align 8, !tbaa !73
   br label %if.end52
 
@@ -2701,7 +2693,7 @@ if.else41:                                        ; preds = %if.else33
 if.end52:                                         ; preds = %if.else41, %if.then35, %if.then28, %if.then12, %if.then
   %list.0 = phi ptr [ %arrayidx3, %if.then ], [ %arrayidx16, %if.then12 ], [ %arrayidx32, %if.then28 ], [ %arrayidx40, %if.then35 ], [ %arrayidx48, %if.else41 ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %callback, i64 8
-  %prev_.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %list.0, i64 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %list.0, i64 8
   %4 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !50
   %prev_.i5.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store ptr %4, ptr %prev_.i5.i.i, align 8, !tbaa !50
@@ -2723,7 +2715,7 @@ entry:
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 noundef %nextTick, i64 noundef %ticks) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr", align 8
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i64, ptr %interval_.i, align 8, !tbaa !8
   %mul.i.i.i = mul nsw i64 %0, %ticks
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #14
@@ -2732,13 +2724,13 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !79
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE23scheduleTimeoutInternalES5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -2746,14 +2738,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !52
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %vtable3.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !52
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i, i64 3
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE23scheduleTimeoutInternalES5_.exit
@@ -2792,7 +2784,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE23sched
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #14
   %add = add i64 %nextTick, -1
   %sub = add i64 %add, %ticks
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 %sub, ptr %expireTick_, align 8, !tbaa !46
   ret void
 }
@@ -2802,13 +2794,13 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestConte
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !79
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i acquire, align 8
   %cmp.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2816,14 +2808,14 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !82
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 3
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2865,13 +2857,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !79
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -2879,14 +2871,14 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %vtable3.i.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2932,7 +2924,7 @@ declare noundef zeroext i1 @_ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackE(ptr noundef nonnull align 8 dereferenceable(16712) %this, ptr noundef %callback) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.google::LogMessageFatal", align 8
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i64, ptr %defaultTimeout_, align 8
   %cmp.i.i.not = icmp eq i64 %0, -1
   br i1 %cmp.i.i.not, label %cond.false, label %cleanup.done17, !prof !85
@@ -2978,7 +2970,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5countEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   %0 = load i64, ptr %count_, align 8, !tbaa !51
   ret i64 %0
 }
@@ -3001,7 +2993,7 @@ entry:
           to label %if.then.i unwind label %terminate.lpad
 
 if.then.i:                                        ; preds = %entry
-  %processingCallbacksGuard_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16688
   %0 = load ptr, ptr %processingCallbacksGuard_.i.i.i, align 8, !tbaa !16
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEED1EvEUlvE_Lb1EED2Ev.exit, label %if.then.i.i.i
@@ -3011,7 +3003,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEED1EvEUlvE_Lb1EED2Ev.exit
 
 _ZN5folly6detail14ScopeGuardImplIZNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEED1EvEUlvE_Lb1EED2Ev.exit: ; preds = %if.then.i.i.i, %if.then.i
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 10
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
   %1 = load ptr, ptr %timeoutsToRunNow_, align 8, !tbaa !49, !noalias !113
   %cmp.i.i.not12.i.i.i = icmp eq ptr %1, %timeoutsToRunNow_
   br i1 %cmp.i.i.not12.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %while.body.i.i.i
@@ -3082,7 +3074,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 define weak_odr noundef zeroext i1 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE13cascadeTimersEiiNS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(16712) %this, i32 noundef %bucket, i32 noundef %tick, i64 %curTime.coerce) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cbs = alloca %"class.boost::intrusive::list", align 16
-  %cbs.sroa.gep = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %cbs, i64 0, i32 1
+  %cbs.sroa.gep = getelementptr inbounds i8, ptr %cbs, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cbs) #14
   store ptr %cbs, ptr %cbs, align 16, !tbaa !49
   store ptr %cbs, ptr %cbs.sroa.gep, align 8, !tbaa !50
@@ -3095,12 +3087,12 @@ entry:
 if.end4.i.i:                                      ; preds = %entry
   %0 = load ptr, ptr %arrayidx4, align 8, !tbaa !49
   %tobool.not.i20.i.i = icmp eq ptr %0, null
-  %prev_.i.i21.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx4, i64 0, i32 1
+  %prev_.i.i21.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   br i1 %tobool.not.i20.i.i, label %if.then6.i.i, label %if.end4.if.end7_crit_edge.i.i
 
 if.end4.if.end7_crit_edge.i.i:                    ; preds = %if.end4.i.i
   %.pre39.i.i = load ptr, ptr %prev_.i.i21.i.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %0, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.pre40.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i, align 8, !tbaa !50
   %.pre41.i.i = load ptr, ptr %.pre39.i.i, align 8, !tbaa !49
   br label %if.end14.i.i
@@ -3115,7 +3107,7 @@ if.end14.i.i:                                     ; preds = %if.then6.i.i, %if.e
   %2 = phi ptr [ %arrayidx4, %if.then6.i.i ], [ %.pre40.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %3 = phi ptr [ %arrayidx4, %if.then6.i.i ], [ %.pre39.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %4 = phi ptr [ %arrayidx4, %if.then6.i.i ], [ %0, %if.end4.if.end7_crit_edge.i.i ]
-  %prev_.i2.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %4, i64 0, i32 1
+  %prev_.i2.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %cbs.sroa.gep, align 8, !tbaa !50
   store ptr %cbs, ptr %prev_.i2.i.i.i, align 8, !tbaa !50
   store ptr %1, ptr %cbs, align 16, !tbaa !49
@@ -3134,10 +3126,10 @@ if.then16.i.i:                                    ; preds = %if.end14.i.i
 
 invoke.cont:                                      ; preds = %if.then16.i.i, %if.end14.i.i, %entry
   %8 = phi ptr [ null, %if.then16.i.i ], [ %5, %if.end14.i.i ], [ %cbs, %entry ]
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %curTime.coerce, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %9 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !12
   %div.i.i.i = udiv i64 %sub.i.i.i, %9
   %tobool.not.i.i48 = icmp eq ptr %8, null
@@ -3146,10 +3138,10 @@ invoke.cont:                                      ; preds = %if.then16.i.i, %if.
   br i1 %10, label %while.end, label %invoke.cont14.lr.ph
 
 invoke.cont14.lr.ph:                              ; preds = %invoke.cont
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
-  %bitmap_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 5
-  %buckets_13.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 4
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 216
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
+  %bitmap_.i = getelementptr inbounds i8, ptr %this, i64 16632
+  %buckets_13.i = getelementptr inbounds i8, ptr %this, i64 248
   %and.i = and i64 %div.i.i.i, 255
   %arrayidx3.i = getelementptr inbounds [256 x %"class.boost::intrusive::list"], ptr %buckets_13.i, i64 0, i64 %and.i
   %div.i.i.i.i919296.i = lshr i64 %div.i.i.i, 6
@@ -3163,10 +3155,10 @@ invoke.cont14.lr.ph:                              ; preds = %invoke.cont
 invoke.cont14:                                    ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit, %invoke.cont14.lr.ph
   %12 = phi ptr [ %8, %invoke.cont14.lr.ph ], [ %21, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
   %13 = load ptr, ptr %12, align 8, !tbaa !49
-  %prev_.i.i.i.i37 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %12, i64 0, i32 1
+  %prev_.i.i.i.i37 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %prev_.i.i.i.i37, align 8, !tbaa !50
   store ptr %13, ptr %14, align 8, !tbaa !49
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %13, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %14, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %expiration_.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -3248,7 +3240,7 @@ if.else41.i:                                      ; preds = %if.else33.i
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %if.else41.i, %if.then35.i, %if.then28.i, %if.then12.i, %if.then.i
   %list.0.i = phi ptr [ %arrayidx3.i, %if.then.i ], [ %arrayidx16.i, %if.then12.i ], [ %arrayidx32.i, %if.then28.i ], [ %arrayidx40.i, %if.then35.i ], [ %arrayidx48.i, %if.else41.i ]
-  %prev_.i.i.i.i41 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %list.0.i, i64 0, i32 1
+  %prev_.i.i.i.i41 = getelementptr inbounds i8, ptr %list.0.i, i64 8
   %20 = load ptr, ptr %prev_.i.i.i.i41, align 8, !tbaa !50
   store ptr %20, ptr %prev_.i.i.i.i37, align 8, !tbaa !50
   store ptr %list.0.i, ptr %12, align 8, !tbaa !49
@@ -3286,13 +3278,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.ensured, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !79
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3300,14 +3292,14 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %vtable3.i.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3336,13 +3328,13 @@ if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i, %invoke.cont
-  %_M_refcount.i3 = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i3 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %_M_refcount.i3, align 8, !tbaa !79
   %cmp.not.i.i4 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i4, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %_M_use_count.i.i.i6 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i6 acquire, align 8
   %cmp.i.i.i7 = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -3350,14 +3342,14 @@ if.then.i.i5:                                     ; preds = %_ZNSt12__shared_ptr
 
 if.then.i.i.i17:                                  ; preds = %if.then.i.i5
   store i32 0, ptr %_M_use_count.i.i.i6, align 8, !tbaa !80
-  %_M_weak_count.i.i.i18 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i18 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i18, align 4, !tbaa !82
   %vtable.i.i.i19 = load ptr, ptr %7, align 8, !tbaa !52
-  %vfn.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i19, i64 2
+  %vfn.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i19, i64 16
   %10 = load ptr, ptr %vfn.i.i.i20, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   %vtable3.i.i.i21 = load ptr, ptr %7, align 8, !tbaa !52
-  %vfn4.i.i.i22 = getelementptr inbounds ptr, ptr %vtable3.i.i.i21, i64 3
+  %vfn4.i.i.i22 = getelementptr inbounds i8, ptr %vtable3.i.i.i21, i64 24
   %11 = load ptr, ptr %vfn4.i.i.i22, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit23
@@ -3405,8 +3397,8 @@ entry:
   br i1 %tobool.not, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 5
-  %add.ptr.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %bitmap_ = getelementptr inbounds i8, ptr %this, i64 16632
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16664
   %div.i.i.i.i484950 = lshr i64 %nextTick, 6
   %div.i.i.i.i48.zext = and i64 %div.i.i.i.i484950, 3
   %rem.i.i.i.i = and i64 %nextTick, 63
@@ -3422,7 +3414,7 @@ while.body.preheader.i:                           ; preds = %if.then
   br i1 %iszero.i.peel.i, label %cleanup.peel.i, label %cleanup.thread.i
 
 cleanup.peel.i:                                   ; preds = %while.body.preheader.i
-  %incdec.ptr.i.peel.i = getelementptr inbounds i64, ptr %0, i64 1
+  %incdec.ptr.i.peel.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp.not.peel.i = icmp eq ptr %incdec.ptr.i.peel.i, %add.ptr.i
   br i1 %cmp.not.peel.i, label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit, label %while.body.i
 
@@ -3439,7 +3431,7 @@ cleanup.thread.i:                                 ; preds = %while.body.i, %whil
   br label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit
 
 cleanup.i:                                        ; preds = %while.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %begin.sroa.0.087.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %begin.sroa.0.087.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit, label %while.body.i, !llvm.loop !123
 
@@ -3469,7 +3461,7 @@ if.else:                                          ; preds = %_ZN5folly12findFirs
 
 if.end20:                                         ; preds = %if.else, %if.then12, %entry
   %tick.1 = phi i64 [ 1, %entry ], [ %sub14, %if.then12 ], [ %add, %if.else ]
-  %interval_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load i64, ptr %interval_.i.i, align 8, !tbaa !8
   %mul.i.i.i.i = mul nsw i64 %5, %tick.1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
@@ -3478,13 +3470,13 @@ if.end20:                                         ; preds = %if.else, %if.then12
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end20
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !79
   %cmp.not.i.i.i.i44 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i44, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -3492,14 +3484,14 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !52
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   %vtable3.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19scheduleNextTimeoutEll.exit
@@ -3538,7 +3530,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE19sched
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
   %add.i = add i64 %nextTick, -1
   %sub.i = add i64 %add.i, %tick.1
-  %expireTick_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 6
+  %expireTick_.i = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 %sub.i, ptr %expireTick_.i, align 8, !tbaa !46
   ret void
 }
@@ -3554,10 +3546,10 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #12
 define weak_odr noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE12calcNextTickEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !12
   %div.i.i.i = udiv i64 %sub.i.i.i, %0
   ret i64 %div.i.i.i
@@ -3569,11 +3561,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
-  %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 4
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
+  %bucket_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wheel_, i8 0, i64 16, i1 false)
   store i32 -1, ptr %bucket_, align 8, !tbaa !125
-  %requestContext_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 5
+  %requestContext_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %requestContext_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -3589,7 +3581,7 @@ entry:
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback16callbackCanceledEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %this) #14
   ret void
@@ -3599,13 +3591,13 @@ entry:
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat($_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
-  %wheel_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_.i, align 8, !tbaa !127
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %count_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %0, i64 0, i32 7
+  %count_.i.i = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_.i.i, align 8, !tbaa !71
   %dec.i.i = add i64 %1, -1
   store i64 %dec.i.i, ptr %count_.i.i, align 8, !tbaa !71
@@ -3626,20 +3618,20 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %bucket_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 4
+  %bucket_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %bucket_.i.i, align 8, !tbaa !125
   %cmp3.not.i.i = icmp eq i32 %4, -1
   br i1 %cmp3.not.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
   %5 = load ptr, ptr %wheel_.i, align 8, !tbaa !127
-  %buckets_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 4
+  %buckets_.i.i = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom.i.i = sext i32 %4 to i64
   %arrayidx6.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_.i.i, i64 0, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx6.i.i, align 8, !tbaa !49
@@ -3649,7 +3641,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
-  %bitmap_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 5
+  %bitmap_.i.i = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23.i.i = sdiv i32 %4, 64
   %div.i.i.i.i.sext.i.i = sext i32 %div.i.i.i.i23.i.i to i64
   %rem.i.i.i.i.i.i = and i64 %idxprom.i.i, 63
@@ -3666,13 +3658,13 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Cal
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit, %entry
-  %_M_refcount.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 56
   %10 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !79
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %if.end
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
@@ -3680,14 +3672,14 @@ if.then.i.i5:                                     ; preds = %if.end
 
 if.then.i.i.i6:                                   ; preds = %if.then.i.i5
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i = load ptr, ptr %10, align 8, !tbaa !52
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   %vtable3.i.i.i = load ptr, ptr %10, align 8, !tbaa !52
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %14 = load ptr, ptr %vfn4.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3725,7 +3717,7 @@ if.then.i.i.i8:                                   ; preds = %_ZNSt12__shared_ptr
   %prev_.i.i.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load ptr, ptr %prev_.i.i.i.i.i9, align 8, !tbaa !50
   store ptr %18, ptr %19, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i10 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %18, i64 0, i32 1
+  %prev_.i5.i.i.i.i10 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %prev_.i5.i.i.i.i10, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EED2Ev.exit
@@ -3744,7 +3736,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_, align 8, !tbaa !127
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -3753,13 +3745,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_, align 8, !tbaa !127
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %count_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %0, i64 0, i32 7
+  %count_.i = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_.i, align 8, !tbaa !71
   %dec.i = add i64 %1, -1
   store i64 %dec.i, ptr %count_.i, align 8, !tbaa !71
@@ -3780,20 +3772,20 @@ if.then.i.i:                                      ; preds = %if.end.i
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i: ; preds = %if.then.i.i, %if.end.i
-  %bucket_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 4
+  %bucket_.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %bucket_.i, align 8, !tbaa !125
   %cmp3.not.i = icmp eq i32 %4, -1
   br i1 %cmp3.not.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i
   %5 = load ptr, ptr %wheel_, align 8, !tbaa !127
-  %buckets_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 4
+  %buckets_.i = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom.i = sext i32 %4 to i64
   %arrayidx6.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_.i, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx6.i, align 8, !tbaa !49
@@ -3803,7 +3795,7 @@ land.lhs.true.i:                                  ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
-  %bitmap_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 5
+  %bitmap_.i = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23.i = sdiv i32 %4, 64
   %div.i.i.i.i.sext.i = sext i32 %div.i.i.i.i23.i to i64
   %rem.i.i.i.i.i = and i64 %idxprom.i, 63
@@ -3826,9 +3818,9 @@ return:                                           ; preds = %_ZN5folly16HHWheelT
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %wheel_, align 8, !tbaa !127
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %0, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_, align 8, !tbaa !71
   %dec = add i64 %1, -1
   store i64 %dec, ptr %count_, align 8, !tbaa !71
@@ -3849,20 +3841,20 @@ if.then.i:                                        ; preds = %if.end
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit: ; preds = %if.then.i, %if.end
-  %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 4
+  %bucket_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i32, ptr %bucket_, align 8, !tbaa !125
   %cmp3.not = icmp eq i32 %4, -1
   br i1 %cmp3.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit
   %5 = load ptr, ptr %wheel_, align 8, !tbaa !127
-  %buckets_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 4
+  %buckets_ = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom = sext i32 %4 to i64
   %arrayidx6 = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_, i64 0, i64 %idxprom
   %6 = load ptr, ptr %arrayidx6, align 8, !tbaa !49
@@ -3872,7 +3864,7 @@ land.lhs.true:                                    ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7, label %if.end17
 
 if.then7:                                         ; preds = %land.lhs.true
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 5
+  %bitmap_ = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23 = sdiv i32 %4, 64
   %div.i.i.i.i.sext = sext i32 %div.i.i.i.i23 to i64
   %rem.i.i.i.i = and i64 %idxprom, 63
@@ -3893,7 +3885,7 @@ if.end17:                                         ; preds = %if.then7, %land.lhs
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback16getTimeRemainingEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %expiration_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 3
+  %expiration_.i = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.0.0.copyload.i5.i.i.i = load i64, ptr %expiration_.i, align 8
   %cmp.i.i.i.not.i = icmp sgt i64 %retval.sroa.0.0.copyload.i5.i.i.i, %call
   br i1 %cmp.i.i.i.not.i, label %if.end.i, label %_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE.exit
@@ -3911,7 +3903,7 @@ _ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Ca
 ; Function Attrs: mustprogress uwtable
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback16getTimeRemainingENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 %now.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %expiration_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 3
+  %expiration_ = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.0.0.copyload.i5.i.i = load i64, ptr %expiration_, align 8
   %cmp.i.i.i.not = icmp sgt i64 %retval.sroa.0.0.copyload.i5.i.i, %now.coerce
   br i1 %cmp.i.i.i.not, label %if.end, label %return
@@ -3929,9 +3921,9 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback12setScheduledEPS6_NS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %wheel, i64 %deadline.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
+  %wheel_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %wheel, ptr %wheel_, align 8, !tbaa !127
-  %expiration_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 3
+  %expiration_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %deadline.coerce, ptr %expiration_, align 8, !tbaa.struct !7
   ret void
 }
@@ -3947,14 +3939,14 @@ invoke.cont5:
   store i8 0, ptr %destroyPending_.i, align 4, !tbaa !57
   store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
   store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !52
-  %interval_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 216
   store i64 %intervalDuration.coerce, ptr %interval_, align 8, !tbaa !59
-  %divIntervalForSteadyClock_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i = getelementptr inbounds i8, ptr %this, i64 224
   %mul.i.i.i = mul nsw i64 %intervalDuration.coerce, 1000
   store i64 %mul.i.i.i, ptr %divIntervalForSteadyClock_.i, align 8, !tbaa !59
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 232
   store i64 %intervalDuration.coerce, ptr %interval_.i, align 8, !tbaa !8
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %defaultTimeoutDuration.coerce, ptr %defaultTimeout_, align 8, !tbaa.struct !7
   br label %invoke.cont7
 
@@ -3962,7 +3954,7 @@ invoke.cont7:                                     ; preds = %invoke.cont7, %invo
   %arrayctor.cur.idx = phi i64 [ 248, %invoke.cont5 ], [ %arrayctor.cur.add.3, %invoke.cont7 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr %arrayctor.cur.ptr.ptr, ptr %arrayctor.cur.ptr.ptr, align 8, !tbaa !49
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store ptr %arrayctor.cur.ptr.ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   %arrayctor.cur.ptr.ptr.1 = getelementptr i8, ptr %arrayctor.cur.ptr.ptr, i64 16
   store ptr %arrayctor.cur.ptr.ptr.1, ptr %arrayctor.cur.ptr.ptr.1, align 8, !tbaa !49
@@ -3981,20 +3973,20 @@ invoke.cont7:                                     ; preds = %invoke.cont7, %invo
   br i1 %arrayctor.done.3, label %invoke.cont16, label %invoke.cont7
 
 invoke.cont16:                                    ; preds = %invoke.cont7
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 1, ptr %expireTick_, align 8, !tbaa !69
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   store i64 0, ptr %count_, align 8, !tbaa !71
-  %startTime_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 8
+  %startTime_ = getelementptr inbounds i8, ptr %this, i64 16680
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   store i64 %call.i, ptr %startTime_, align 8
-  %processingCallbacksGuard_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_ = getelementptr inbounds i8, ptr %this, i64 16688
   store ptr null, ptr %processingCallbacksGuard_, align 8, !tbaa !61
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
   store ptr %timeoutsToRunNow_, ptr %timeoutsToRunNow_, align 8, !tbaa !49
-  %prev_.i.i.i.i29 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %prev_.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 16704
   store ptr %timeoutsToRunNow_, ptr %prev_.i.i.i.i29, align 8, !tbaa !50
-  %bitmap_14 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 5
+  %bitmap_14 = getelementptr inbounds i8, ptr %this, i64 16632
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bitmap_14, i8 0, i64 32, i1 false)
   ret void
 }
@@ -4012,8 +4004,8 @@ entry:
   %__tmp.i = alloca %"class.boost::intrusive::list.12", align 16
   %buckets = alloca %"class.std::unique_ptr.32", align 8
   %timeoutsToRunNow = alloca %"class.boost::intrusive::list.12", align 16
-  %timeoutsToRunNow.sroa.gep = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %timeoutsToRunNow, i64 0, i32 1
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 7
+  %timeoutsToRunNow.sroa.gep = getelementptr inbounds i8, ptr %timeoutsToRunNow, i64 8
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   %0 = load i64, ptr %count_, align 8, !tbaa !8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end59, label %new.ctorloop.i
@@ -4034,7 +4026,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
   store ptr %arrayctor.cur.ptr.ptr.i, ptr %arrayctor.cur.ptr.ptr.i, align 8, !tbaa !49, !noalias !128
-  %prev_.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayctor.cur.ptr.ptr.i, i64 0, i32 1
+  %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store ptr %arrayctor.cur.ptr.ptr.i, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50, !noalias !128
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 16
   %arrayctor.next.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.add.i
@@ -4043,7 +4035,7 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i, %new
 
 _ZSt11make_uniqueIA_N5boost9intrusive4listIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackEJNS1_18constant_time_sizeILb0EEEEEEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit: ; preds = %invoke.cont.i
   store ptr %.ptr.i, ptr %buckets, align 8, !tbaa !89, !alias.scope !128
-  %__tmp.sroa.gep51.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__tmp.i, i64 0, i32 1
+  %__tmp.sroa.gep51.i = getelementptr inbounds i8, ptr %__tmp.i, i64 8
   br label %invoke.cont.preheader
 
 for.cond34.preheader:                             ; preds = %cleanup25
@@ -4088,9 +4080,9 @@ invoke.cont16:                                    ; preds = %do.body.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZN5boost9intrusive4listIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackEJNS0_18constant_time_sizeILb0EEEEEC2EOSD_.exit.i, label %if.end14.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %invoke.cont16
-  %prev_.i.i21.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__begin05.0146, i64 0, i32 1
+  %prev_.i.i21.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin05.0146, i64 8
   %.pre39.i.i.i.i.i = load ptr, ptr %prev_.i.i21.i.i.i.i.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %3, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.pre40.i.i.i.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i.i.i.i, align 8, !tbaa !50
   %.pre41.i.i.i.i.i = load ptr, ptr %.pre39.i.i.i.i.i, align 8, !tbaa !49
   store ptr %.pre40.i.i.i.i.i, ptr %__tmp.sroa.gep51.i, align 8, !tbaa !50
@@ -4118,18 +4110,18 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZN5boost9intrusive
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   store ptr %__begin05.0146, ptr %__begin05.0146, align 8, !tbaa !49
-  %prev_.i.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__begin05.0146, i64 0, i32 1
+  %prev_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin05.0146, i64 8
   store ptr %__begin05.0146, ptr %prev_.i.i.i.i.i.i.i, align 8, !tbaa !50
   br label %if.end4.i.i.i.i8.i
 
 if.end4.i.i.i.i8.i:                               ; preds = %if.then3.i.i.i.i.i, %if.end.i.i.i.i.i
   %.pre.i.i.i.i20.i = phi ptr [ %__begin05.0146, %if.then3.i.i.i.i.i ], [ %9, %if.end.i.i.i.i.i ]
-  %prev_.i.i21.i.i.i.i9.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx.i, i64 0, i32 1
+  %prev_.i.i21.i.i.i.i9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   br i1 %tobool.not.i20.i.i.i.i7.i, label %if.then6.i.i.i.i19.i, label %if.end4.if.end7_crit_edge.i.i.i.i10.i
 
 if.end4.if.end7_crit_edge.i.i.i.i10.i:            ; preds = %if.end4.i.i.i.i8.i
   %.pre39.i.i.i.i11.i = load ptr, ptr %prev_.i.i21.i.i.i.i9.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i.i.i12.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i.i.i12.i = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre40.i.i.i.i13.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i.i.i12.i, align 8, !tbaa !50
   %.pre41.i.i.i.i14.i = load ptr, ptr %.pre39.i.i.i.i11.i, align 8, !tbaa !49
   br label %if.end7.i.i.i.i.i
@@ -4144,11 +4136,11 @@ if.end7.i.i.i.i.i:                                ; preds = %if.then6.i.i.i.i19.
   %11 = phi ptr [ %arrayidx.i, %if.then6.i.i.i.i19.i ], [ %.pre40.i.i.i.i13.i, %if.end4.if.end7_crit_edge.i.i.i.i10.i ]
   %12 = phi ptr [ %arrayidx.i, %if.then6.i.i.i.i19.i ], [ %.pre39.i.i.i.i11.i, %if.end4.if.end7_crit_edge.i.i.i.i10.i ]
   %13 = phi ptr [ %arrayidx.i, %if.then6.i.i.i.i19.i ], [ %.pre, %if.end4.if.end7_crit_edge.i.i.i.i10.i ]
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %__begin05.0146, i64 0, i32 1
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin05.0146, i64 8
   %14 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8, !tbaa !50
-  %prev_.i.i23.i.i.i.i15.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre.i.i.i.i20.i, i64 0, i32 1
+  %prev_.i.i23.i.i.i.i15.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i20.i, i64 8
   %15 = load ptr, ptr %prev_.i.i23.i.i.i.i15.i, align 8, !tbaa !50
-  %prev_.i2.i.i.i.i.i16.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %13, i64 0, i32 1
+  %prev_.i2.i.i.i.i.i16.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %11, ptr %prev_.i.i23.i.i.i.i15.i, align 8, !tbaa !50
   store ptr %15, ptr %prev_.i2.i.i.i.i.i16.i, align 8, !tbaa !50
   %16 = load ptr, ptr %14, align 8, !tbaa !49
@@ -4182,7 +4174,7 @@ if.end.i.i.i.i22.i:                               ; preds = %if.then16.i.i.i.i18
 
 if.then3.i.i.i.i42.i:                             ; preds = %if.end.i.i.i.i22.i
   store ptr %arrayidx.i, ptr %arrayidx.i, align 8, !tbaa !49
-  %prev_.i.i.i.i.i.i43.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx.i, i64 0, i32 1
+  %prev_.i.i.i.i.i.i43.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %arrayidx.i, ptr %prev_.i.i.i.i.i.i43.i, align 8, !tbaa !50
   br label %if.end4.i.i.i.i25.i
 
@@ -4191,7 +4183,7 @@ if.end4.i.i.i.i25.i:                              ; preds = %if.then3.i.i.i.i42.
   br i1 %tobool.not.i20.i.i.i.i24.i, label %if.then6.i.i.i.i40.i, label %if.end4.if.end7_crit_edge.i.i.i.i27.i
 
 if.end4.if.end7_crit_edge.i.i.i.i27.i:            ; preds = %if.end4.i.i.i.i25.i
-  %.pre38.i.i.i.i28.sroa.gep.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre.i, i64 0, i32 1
+  %.pre38.i.i.i.i28.sroa.gep.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %.pre39.i.i.i.i29.i = load ptr, ptr %__tmp.sroa.gep51.i, align 8, !tbaa !50
   %.pre40.i.i.i.i31.i = load ptr, ptr %.pre38.i.i.i.i28.sroa.gep.i, align 8, !tbaa !50
   %.pre41.i.i.i.i32.i = load ptr, ptr %.pre39.i.i.i.i29.i, align 8, !tbaa !49
@@ -4207,9 +4199,9 @@ if.end7.i.i.i.i33.i:                              ; preds = %if.then6.i.i.i.i40.
   %23 = phi ptr [ %__tmp.i, %if.then6.i.i.i.i40.i ], [ %.pre40.i.i.i.i31.i, %if.end4.if.end7_crit_edge.i.i.i.i27.i ]
   %24 = phi ptr [ %__tmp.i, %if.then6.i.i.i.i40.i ], [ %.pre39.i.i.i.i29.i, %if.end4.if.end7_crit_edge.i.i.i.i27.i ]
   %.sroa.phi50.i = phi ptr [ %__tmp.sroa.gep51.i, %if.then6.i.i.i.i40.i ], [ %.pre38.i.i.i.i28.sroa.gep.i, %if.end4.if.end7_crit_edge.i.i.i.i27.i ]
-  %prev_.i.i.i.i.i34.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx.i, i64 0, i32 1
+  %prev_.i.i.i.i.i34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %25 = load ptr, ptr %prev_.i.i.i.i.i34.i, align 8, !tbaa !50
-  %prev_.i.i23.i.i.i.i35.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre.i.i.i.i41.i, i64 0, i32 1
+  %prev_.i.i23.i.i.i.i35.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i41.i, i64 8
   %26 = load ptr, ptr %prev_.i.i23.i.i.i.i35.i, align 8, !tbaa !50
   store ptr %23, ptr %prev_.i.i23.i.i.i.i35.i, align 8, !tbaa !50
   store ptr %26, ptr %.sroa.phi50.i, align 8, !tbaa !50
@@ -4254,7 +4246,7 @@ invoke.cont20:                                    ; preds = %while.body.i.i.i.i,
 for.inc:                                          ; preds = %invoke.cont20, %invoke.cont
   %countBuckets.2.ph = phi i64 [ %countBuckets.1148, %invoke.cont ], [ %inc, %invoke.cont20 ]
   %count.2.ph = phi i64 [ %count.1149, %invoke.cont ], [ %add, %invoke.cont20 ]
-  %incdec.ptr = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %__begin05.0146, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin05.0146, i64 16
   %cmp11.not = icmp eq ptr %incdec.ptr, %add.ptr9.ptr
   br i1 %cmp11.not, label %cleanup25, label %invoke.cont
 
@@ -4283,7 +4275,7 @@ while.body.i:                                     ; preds = %for.body37, %_ZN5fo
   br i1 %cmp.i.i82, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
-  %count_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %37, i64 0, i32 7
+  %count_.i.i.i = getelementptr inbounds i8, ptr %37, i64 16672
   %38 = load i64, ptr %count_.i.i.i, align 8, !tbaa !71
   %dec.i.i.i = add i64 %38, -1
   store i64 %dec.i.i.i, ptr %count_.i.i.i, align 8, !tbaa !71
@@ -4303,7 +4295,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %prev_.i.i.i.i.i.i83 = getelementptr inbounds i8, ptr %36, i64 8
   %40 = load ptr, ptr %prev_.i.i.i.i.i.i83, align 8, !tbaa !50
   store ptr %39, ptr %40, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %39, i64 0, i32 1
+  %prev_.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %40, ptr %prev_.i5.i.i.i.i.i, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i
@@ -4316,7 +4308,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i
   %42 = load ptr, ptr %wheel_.i.i, align 8, !tbaa !127
-  %buckets_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %42, i64 0, i32 4
+  %buckets_.i.i.i = getelementptr inbounds i8, ptr %42, i64 248
   %idxprom.i.i.i = sext i32 %41 to i64
   %arrayidx6.i.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_.i.i.i, i64 0, i64 %idxprom.i.i.i
   %43 = load ptr, ptr %arrayidx6.i.i.i, align 8, !tbaa !49
@@ -4326,7 +4318,7 @@ land.lhs.true.i.i.i:                              ; preds = %_ZN5boost9intrusive
   br i1 %44, label %if.then7.i.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i
 
 if.then7.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %bitmap_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %42, i64 0, i32 5
+  %bitmap_.i.i.i = getelementptr inbounds i8, ptr %42, i64 16632
   %div.i.i.i.i23.i.i.i = sdiv i32 %41, 64
   %div.i.i.i.i.sext.i.i.i = sext i32 %div.i.i.i.i23.i.i.i to i64
   %rem.i.i.i.i.i.i.i = and i64 %idxprom.i.i.i, 63
@@ -4344,7 +4336,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Cal
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit.i: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i, %while.body.i
   %vtable.i = load ptr, ptr %sub.ptr.i.i.i, align 8, !tbaa !52
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %47 = load ptr, ptr %vfn.i, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i.i) #14
   %48 = load ptr, ptr %arrayidx.i81, align 8, !tbaa !49
@@ -4367,19 +4359,19 @@ invoke.cont48:                                    ; preds = %for.inc43, %for.con
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %timeoutsToRunNow) #14
   store ptr %timeoutsToRunNow, ptr %timeoutsToRunNow, align 16, !tbaa !49
   store ptr %timeoutsToRunNow, ptr %timeoutsToRunNow.sroa.gep, align 8, !tbaa !50
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
   %cmp.i.i85 = icmp eq ptr %timeoutsToRunNow_, %timeoutsToRunNow
   br i1 %cmp.i.i85, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %invoke.cont48
   %51 = load ptr, ptr %timeoutsToRunNow_, align 8, !tbaa !49
   %tobool.not.i20.i.i = icmp eq ptr %51, null
-  %prev_.i.i21.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %prev_.i.i21.i.i = getelementptr inbounds i8, ptr %this, i64 16704
   br i1 %tobool.not.i20.i.i, label %if.then6.i.i, label %if.end4.if.end7_crit_edge.i.i
 
 if.end4.if.end7_crit_edge.i.i:                    ; preds = %if.end4.i.i
   %.pre39.i.i = load ptr, ptr %prev_.i.i21.i.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %51, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %.pre40.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i, align 8, !tbaa !50
   %.pre41.i.i = load ptr, ptr %.pre39.i.i, align 8, !tbaa !49
   br label %if.end14.i.i
@@ -4394,7 +4386,7 @@ if.end14.i.i:                                     ; preds = %if.then6.i.i, %if.e
   %53 = phi ptr [ %timeoutsToRunNow_, %if.then6.i.i ], [ %.pre40.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %54 = phi ptr [ %timeoutsToRunNow_, %if.then6.i.i ], [ %.pre39.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %55 = phi ptr [ %timeoutsToRunNow_, %if.then6.i.i ], [ %51, %if.end4.if.end7_crit_edge.i.i ]
-  %prev_.i2.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %55, i64 0, i32 1
+  %prev_.i2.i.i.i = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %53, ptr %timeoutsToRunNow.sroa.gep, align 8, !tbaa !50
   store ptr %timeoutsToRunNow, ptr %prev_.i2.i.i.i, align 8, !tbaa !50
   store ptr %52, ptr %timeoutsToRunNow, align 16, !tbaa !49
@@ -4428,7 +4420,7 @@ while.body.i91:                                   ; preds = %invoke.cont50, %_ZN
   br i1 %cmp.i.i96, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit.i116, label %if.end.i.i97
 
 if.end.i.i97:                                     ; preds = %while.body.i91
-  %count_.i.i.i98 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %61, i64 0, i32 7
+  %count_.i.i.i98 = getelementptr inbounds i8, ptr %61, i64 16672
   %62 = load i64, ptr %count_.i.i.i98, align 8, !tbaa !71
   %dec.i.i.i99 = add i64 %62, -1
   store i64 %dec.i.i.i99, ptr %count_.i.i.i98, align 8, !tbaa !71
@@ -4448,7 +4440,7 @@ if.then.i.i.i.i103:                               ; preds = %if.end.i.i.i101
   %prev_.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %60, i64 8
   %64 = load ptr, ptr %prev_.i.i.i.i.i.i104, align 8, !tbaa !50
   store ptr %63, ptr %64, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i.i105 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %63, i64 0, i32 1
+  %prev_.i5.i.i.i.i.i105 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %64, ptr %prev_.i5.i.i.i.i.i105, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i106
@@ -4461,7 +4453,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
 
 land.lhs.true.i.i.i109:                           ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i.i106
   %66 = load ptr, ptr %wheel_.i.i95, align 8, !tbaa !127
-  %buckets_.i.i.i110 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %66, i64 0, i32 4
+  %buckets_.i.i.i110 = getelementptr inbounds i8, ptr %66, i64 248
   %idxprom.i.i.i111 = sext i32 %65 to i64
   %arrayidx6.i.i.i112 = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_.i.i.i110, i64 0, i64 %idxprom.i.i.i111
   %67 = load ptr, ptr %arrayidx6.i.i.i112, align 8, !tbaa !49
@@ -4471,7 +4463,7 @@ land.lhs.true.i.i.i109:                           ; preds = %_ZN5boost9intrusive
   br i1 %68, label %if.then7.i.i.i122, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i115
 
 if.then7.i.i.i122:                                ; preds = %land.lhs.true.i.i.i109
-  %bitmap_.i.i.i123 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %66, i64 0, i32 5
+  %bitmap_.i.i.i123 = getelementptr inbounds i8, ptr %66, i64 16632
   %div.i.i.i.i23.i.i.i124 = sdiv i32 %65, 64
   %div.i.i.i.i.sext.i.i.i125 = sext i32 %div.i.i.i.i23.i.i.i124 to i64
   %rem.i.i.i.i.i.i.i126 = and i64 %idxprom.i.i.i111, 63
@@ -4489,7 +4481,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Cal
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit.i116: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i.i115, %while.body.i91
   %vtable.i117 = load ptr, ptr %sub.ptr.i.i.i94, align 8, !tbaa !52
-  %vfn.i118 = getelementptr inbounds ptr, ptr %vtable.i117, i64 3
+  %vfn.i118 = getelementptr inbounds i8, ptr %vtable.i117, i64 24
   %71 = load ptr, ptr %vfn.i118, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i.i94) #14
   %72 = load ptr, ptr %timeoutsToRunNow, align 16, !tbaa !49
@@ -4536,7 +4528,7 @@ arraydestroy.body.preheader.i.i:                  ; preds = %delete.notnull.i.i
 
 arraydestroy.body.i.i:                            ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i.i, %arraydestroy.body.preheader.i.i
   %arraydestroy.elementPast.i.i = phi ptr [ %arraydestroy.element.i.i, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i.i ], [ %delete.end.i.i, %arraydestroy.body.preheader.i.i ]
-  %arraydestroy.element.i.i = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %arraydestroy.elementPast.i.i, i64 -1
+  %arraydestroy.element.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.i, i64 -16
   %80 = load ptr, ptr %arraydestroy.element.i.i, align 8, !tbaa !49, !noalias !137
   %cmp.i.i.not12.i.i.i.i.i = icmp eq ptr %80, %arraydestroy.element.i.i
   br i1 %cmp.i.i.not12.i.i.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -4610,7 +4602,7 @@ while.body:                                       ; preds = %entry, %_ZN5folly16
   br i1 %cmp.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
-  %count_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %3, i64 0, i32 7
+  %count_.i.i = getelementptr inbounds i8, ptr %3, i64 16672
   %4 = load i64, ptr %count_.i.i, align 8, !tbaa !71
   %dec.i.i = add i64 %4, -1
   store i64 %dec.i.i, ptr %count_.i.i, align 8, !tbaa !71
@@ -4630,7 +4622,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50
   store ptr %5, ptr %6, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %5, i64 0, i32 1
+  %prev_.i5.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %6, ptr %prev_.i5.i.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
@@ -4643,7 +4635,7 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
 
 land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
   %8 = load ptr, ptr %wheel_.i, align 8, !tbaa !127
-  %buckets_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %8, i64 0, i32 4
+  %buckets_.i.i = getelementptr inbounds i8, ptr %8, i64 248
   %idxprom.i.i = sext i32 %7 to i64
   %arrayidx6.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_.i.i, i64 0, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx6.i.i, align 8, !tbaa !49
@@ -4653,7 +4645,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive
   br i1 %10, label %if.then7.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
-  %bitmap_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %8, i64 0, i32 5
+  %bitmap_.i.i = getelementptr inbounds i8, ptr %8, i64 16632
   %div.i.i.i.i23.i.i = sdiv i32 %7, 64
   %div.i.i.i.i.sext.i.i = sext i32 %div.i.i.i.i23.i.i to i64
   %rem.i.i.i.i.i.i = and i64 %idxprom.i.i, 63
@@ -4671,7 +4663,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Cal
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i, %while.body
   %vtable = load ptr, ptr %sub.ptr.i.i, align 8, !tbaa !52
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(64) %sub.ptr.i.i) #14
   %14 = load ptr, ptr %timeouts, align 8, !tbaa !49
@@ -4704,7 +4696,7 @@ arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
 
 arraydestroy.body.i:                              ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i, %arraydestroy.body.preheader.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
-  %arraydestroy.element.i = getelementptr inbounds %"class.boost::intrusive::list.12", ptr %arraydestroy.elementPast.i, i64 -1
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -16
   %3 = load ptr, ptr %arraydestroy.element.i, align 8, !tbaa !49, !noalias !146
   %cmp.i.i.not12.i.i.i.i = icmp eq ptr %3, %arraydestroy.element.i
   br i1 %cmp.i.i.not12.i.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit.i, label %while.body.i.i.i.i
@@ -4733,7 +4725,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress uwtable
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE15getTickIntervalEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 232
   %retval.sroa.0.0.copyload.i = load i64, ptr %interval_.i, align 8, !tbaa.struct !7
   ret i64 %retval.sroa.0.0.copyload.i
 }
@@ -4741,7 +4733,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE17getDefaultTimeoutEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   %retval.sroa.0.0.copyload = load i64, ptr %defaultTimeout_, align 8, !tbaa.struct !7
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -4749,7 +4741,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE17setDefaultTimeoutES5_(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 %timeout.coerce) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %timeout.coerce, ptr %defaultTimeout_, align 8, !tbaa.struct !7
   ret void
 }
@@ -4760,13 +4752,13 @@ entry:
   %ref.tmp.i.i85 = alloca %"class.std::shared_ptr", align 8
   %ref.tmp.i.i = alloca %"class.std::shared_ptr", align 8
   %.sroa.speculated128 = tail call i64 @llvm.smax.i64(i64 %timeout.coerce, i64 0)
-  %wheel_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 2
+  %wheel_.i = getelementptr inbounds i8, ptr %callback, i64 24
   %0 = load ptr, ptr %wheel_.i, align 8, !tbaa !127
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %count_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %0, i64 0, i32 7
+  %count_.i.i = getelementptr inbounds i8, ptr %0, i64 16672
   %1 = load i64, ptr %count_.i.i, align 8, !tbaa !71
   %dec.i.i = add i64 %1, -1
   store i64 %dec.i.i, ptr %count_.i.i, align 8, !tbaa !71
@@ -4787,20 +4779,20 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %3 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !tbaa !50
   store ptr %2, ptr %3, align 8, !tbaa !49
-  %prev_.i5.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %2, i64 0, i32 1
+  %prev_.i5.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %3, ptr %prev_.i5.i.i.i.i, align 8, !tbaa !50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i8 0, i64 16, i1 false)
   br label %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
-  %bucket_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_.i.i = getelementptr inbounds i8, ptr %callback, i64 40
   %4 = load i32, ptr %bucket_.i.i, align 8, !tbaa !125
   %cmp3.not.i.i = icmp eq i32 %4, -1
   br i1 %cmp3.not.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit.i.i
   %5 = load ptr, ptr %wheel_.i, align 8, !tbaa !127
-  %buckets_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 4
+  %buckets_.i.i = getelementptr inbounds i8, ptr %5, i64 248
   %idxprom.i.i = sext i32 %4 to i64
   %arrayidx6.i.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_.i.i, i64 0, i64 %idxprom.i.i
   %6 = load ptr, ptr %arrayidx6.i.i, align 8, !tbaa !49
@@ -4810,7 +4802,7 @@ land.lhs.true.i.i:                                ; preds = %_ZN5boost9intrusive
   br i1 %7, label %if.then7.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i
 
 if.then7.i.i:                                     ; preds = %land.lhs.true.i.i
-  %bitmap_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %5, i64 0, i32 5
+  %bitmap_.i.i = getelementptr inbounds i8, ptr %5, i64 16632
   %div.i.i.i.i23.i.i = sdiv i32 %4, 64
   %div.i.i.i.i.sext.i.i = sext i32 %div.i.i.i.i23.i.i to i64
   %rem.i.i.i.i.i.i = and i64 %idxprom.i.i, 63
@@ -4829,13 +4821,13 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Cal
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit: ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback17cancelTimeoutImplEv.exit.i, %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !150
   %10 = load ptr, ptr %call.i, align 8, !tbaa !112, !noalias !150
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %call.i, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %11 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !79, !noalias !150
   %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !83, !noalias !150
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4851,16 +4843,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN5folly14RequestContext11saveContextEv.exit
 
 _ZN5folly14RequestContext11saveContextEv.exit:    ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8Callback13cancelTimeoutEv.exit
-  %requestContext_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 5
+  %requestContext_ = getelementptr inbounds i8, ptr %callback, i64 48
   store ptr %10, ptr %requestContext_, align 8, !tbaa !89
-  %_M_refcount3.i.i.i46 = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 5, i32 0, i32 1
+  %_M_refcount3.i.i.i46 = getelementptr inbounds i8, ptr %callback, i64 56
   %15 = load ptr, ptr %_M_refcount3.i.i.i46, align 8, !tbaa !79
   store ptr %11, ptr %_M_refcount3.i.i.i46, align 8, !tbaa !79
   %cmp.not.i.i.i.i47 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i47, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i.i.i48
 
 if.then.i.i.i.i48:                                ; preds = %_ZN5folly14RequestContext11saveContextEv.exit
-  %_M_use_count.i.i.i.i.i49 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i49 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load atomic i64, ptr %_M_use_count.i.i.i.i.i49 acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %16, 4294967297
   %17 = trunc i64 %16 to i32
@@ -4868,14 +4860,14 @@ if.then.i.i.i.i48:                                ; preds = %_ZN5folly14RequestC
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i48
   store i32 0, ptr %_M_use_count.i.i.i.i.i49, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !52
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %15) #14
   %vtable3.i.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %19 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %15) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4904,23 +4896,23 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZN5folly14RequestContext11saveContextEv.exit
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   %22 = load i64, ptr %count_, align 8, !tbaa !71
   %inc = add i64 %22, 1
   store i64 %inc, ptr %count_, align 8, !tbaa !71
   %call.i56 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %call.i56, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %23 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !59
   %div.i.i.i = udiv i64 %sub.i.i.i, %23
   %mul.i.i.i.i.i = mul nsw i64 %.sroa.speculated128, 1000
   %add.i.i = add nsw i64 %call.i56, %mul.i.i.i.i.i
   store ptr %this, ptr %wheel_.i, align 8, !tbaa !127
-  %expiration_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 3
+  %expiration_.i = getelementptr inbounds i8, ptr %callback, i64 32
   store i64 %add.i.i, ptr %expiration_.i, align 8, !tbaa.struct !7
-  %processingCallbacksGuard_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_ = getelementptr inbounds i8, ptr %this, i64 16688
   %24 = load ptr, ptr %processingCallbacksGuard_, align 8, !tbaa !61
   %tobool.not = icmp eq ptr %24, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -4930,24 +4922,24 @@ lor.lhs.false:                                    ; preds = %_ZNSt12__shared_ptr
   br i1 %call18, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   %25 = load i64, ptr %expireTick_, align 8, !tbaa !8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %div.i.i.i, i64 %25)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
   %baseTick.0 = phi i64 [ %.sroa.speculated, %if.then ], [ %div.i.i.i, %lor.lhs.false ]
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 216
   %26 = load i64, ptr %interval_.i, align 8, !tbaa !59
   %div.i.i.i60 = udiv i64 %.sroa.speculated128, %26
   %add = add i64 %div.i.i.i60, %div.i.i.i
   %sub.i = sub nsw i64 %add, %baseTick.0
-  %bitmap_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 5
+  %bitmap_.i = getelementptr inbounds i8, ptr %this, i64 16632
   %cmp.i61 = icmp slt i64 %sub.i, 0
   br i1 %cmp.i61, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %buckets_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 4
+  %buckets_.i = getelementptr inbounds i8, ptr %this, i64 248
   %and.i = and i64 %div.i.i.i, 255
   %arrayidx3.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_.i, i64 0, i64 %and.i
   %div.i.i.i.i919296.i = lshr i64 %div.i.i.i, 6
@@ -4959,7 +4951,7 @@ if.then.i:                                        ; preds = %if.end
   %or.i.i.i = or i64 %28, %shl.i.i.i
   store i64 %or.i.i.i, ptr %27, align 8, !tbaa !8
   %conv.i = trunc i64 %and.i to i32
-  %bucket_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv.i, ptr %bucket_.i, align 8, !tbaa !125
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
@@ -4968,7 +4960,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp11.i, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %if.else.i
-  %buckets_13.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 4
+  %buckets_13.i = getelementptr inbounds i8, ptr %this, i64 248
   %and15.i = and i64 %add, 255
   %arrayidx16.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_13.i, i64 0, i64 %and15.i
   %div.i.i.i.i74939495.i = lshr i64 %add, 6
@@ -4980,7 +4972,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %or.i.i89.i = or i64 %30, %shl.i.i88.i
   store i64 %or.i.i89.i, ptr %29, align 8, !tbaa !8
   %conv24.i = trunc i64 %and15.i to i32
-  %bucket_25.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_25.i = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24.i, ptr %bucket_25.i, align 8, !tbaa !125
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit
 
@@ -5016,7 +5008,7 @@ if.else41.i:                                      ; preds = %if.else33.i
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %if.else41.i, %if.then35.i, %if.then28.i, %if.then12.i, %if.then.i
   %list.0.i = phi ptr [ %arrayidx3.i, %if.then.i ], [ %arrayidx16.i, %if.then12.i ], [ %arrayidx32.i, %if.then28.i ], [ %arrayidx40.i, %if.then35.i ], [ %arrayidx48.i, %if.else41.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %callback, i64 8
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %list.0.i, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %list.0.i, i64 8
   %31 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !50
   %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store ptr %31, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
@@ -5041,7 +5033,7 @@ if.then28:                                        ; preds = %land.lhs.true
   %sub29 = add i64 %div.i.i.i, 255
   %and = and i64 %sub29, 255
   %sub30 = sub nuw nsw i64 256, %and
-  %interval_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %33 = load i64, ptr %interval_.i.i, align 8, !tbaa !8
   %mul.i.i.i.i = mul nsw i64 %33, %sub30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
@@ -5050,13 +5042,13 @@ if.then28:                                        ; preds = %land.lhs.true
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then28
-  %_M_refcount.i.i.i63 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i63 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %34 = load ptr, ptr %_M_refcount.i.i.i63, align 8, !tbaa !79
   %cmp.not.i.i.i.i64 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i64, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll.exit, label %if.then.i.i.i.i65
 
 if.then.i.i.i.i65:                                ; preds = %invoke.cont.i.i
-  %_M_use_count.i.i.i.i.i66 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i66 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load atomic i64, ptr %_M_use_count.i.i.i.i.i66 acquire, align 8
   %cmp.i.i.i.i.i67 = icmp eq i64 %35, 4294967297
   %36 = trunc i64 %35 to i32
@@ -5064,14 +5056,14 @@ if.then.i.i.i.i65:                                ; preds = %invoke.cont.i.i
 
 if.then.i.i.i.i.i79:                              ; preds = %if.then.i.i.i.i65
   store i32 0, ptr %_M_use_count.i.i.i.i.i66, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i80 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i80 = getelementptr inbounds i8, ptr %34, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i80, align 4, !tbaa !82
   %vtable.i.i.i.i.i81 = load ptr, ptr %34, align 8, !tbaa !52
-  %vfn.i.i.i.i.i82 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i81, i64 2
+  %vfn.i.i.i.i.i82 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i81, i64 16
   %37 = load ptr, ptr %vfn.i.i.i.i.i82, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34) #14
   %vtable3.i.i.i.i.i83 = load ptr, ptr %34, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i84 = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i83, i64 3
+  %vfn4.i.i.i.i.i84 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i83, i64 24
   %38 = load ptr, ptr %vfn4.i.i.i.i.i84, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %34) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll.exit
@@ -5113,13 +5105,13 @@ lpad.i.i:                                         ; preds = %if.then28
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll.exit: ; preds = %if.then7.i.i.i.i.i77, %invoke.cont.i.i.i.i.i72, %if.then.i.i.i.i.i79, %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
   %sub.i76 = add i64 %sub30, %sub
-  %expireTick_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %expireTick_.i = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 %sub.i76, ptr %expireTick_.i, align 8, !tbaa !69
   br label %if.end38
 
 if.else:                                          ; preds = %land.lhs.true, %if.then25
   %call31 = tail call noundef zeroext i1 @_ZNK5folly12AsyncTimeout11isScheduledEv(ptr noundef nonnull align 8 dereferenceable(200) %this)
-  %expireTick_33 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %expireTick_33 = getelementptr inbounds i8, ptr %this, i64 16664
   %42 = load i64, ptr %expireTick_33, align 8
   %cmp = icmp sge i64 %add, %42
   %or.cond.not = select i1 %call31, i1 %cmp, i1 false
@@ -5127,7 +5119,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 if.then34:                                        ; preds = %if.else
   %add35 = add nuw nsw i64 %div.i.i.i60, 1
-  %interval_.i.i86 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i.i86 = getelementptr inbounds i8, ptr %this, i64 232
   %43 = load i64, ptr %interval_.i.i86, align 8, !tbaa !8
   %mul.i.i.i.i87 = mul nsw i64 %43, %add35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i85) #14
@@ -5136,13 +5128,13 @@ if.then34:                                        ; preds = %if.else
           to label %invoke.cont.i.i90 unwind label %lpad.i.i89
 
 invoke.cont.i.i90:                                ; preds = %if.then34
-  %_M_refcount.i.i.i91 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i85, i64 0, i32 1
+  %_M_refcount.i.i.i91 = getelementptr inbounds i8, ptr %ref.tmp.i.i85, i64 8
   %44 = load ptr, ptr %_M_refcount.i.i.i91, align 8, !tbaa !79
   %cmp.not.i.i.i.i92 = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i.i92, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll.exit114, label %if.then.i.i.i.i93
 
 if.then.i.i.i.i93:                                ; preds = %invoke.cont.i.i90
-  %_M_use_count.i.i.i.i.i94 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %44, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i94 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load atomic i64, ptr %_M_use_count.i.i.i.i.i94 acquire, align 8
   %cmp.i.i.i.i.i95 = icmp eq i64 %45, 4294967297
   %46 = trunc i64 %45 to i32
@@ -5150,14 +5142,14 @@ if.then.i.i.i.i93:                                ; preds = %invoke.cont.i.i90
 
 if.then.i.i.i.i.i108:                             ; preds = %if.then.i.i.i.i93
   store i32 0, ptr %_M_use_count.i.i.i.i.i94, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i109 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %44, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i109 = getelementptr inbounds i8, ptr %44, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i109, align 4, !tbaa !82
   %vtable.i.i.i.i.i110 = load ptr, ptr %44, align 8, !tbaa !52
-  %vfn.i.i.i.i.i111 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i110, i64 2
+  %vfn.i.i.i.i.i111 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i110, i64 16
   %47 = load ptr, ptr %vfn.i.i.i.i.i111, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %44) #14
   %vtable3.i.i.i.i.i112 = load ptr, ptr %44, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i113 = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i112, i64 3
+  %vfn4.i.i.i.i.i113 = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i112, i64 24
   %48 = load ptr, ptr %vfn4.i.i.i.i.i113, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %44) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll.exit114
@@ -5204,10 +5196,10 @@ if.end38:                                         ; preds = %_ZN5folly16HHWheelT
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE12calcNextTickENS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 %curTime.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %startTime_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 8
+  %startTime_ = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i = load i64, ptr %startTime_, align 8, !tbaa.struct !7
   %sub.i.i = sub nsw i64 %curTime.coerce, %retval.sroa.0.0.copyload.i7.i
-  %divIntervalForSteadyClock_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i64, ptr %divIntervalForSteadyClock_.i, align 8, !tbaa !59
   %div.i.i = udiv i64 %sub.i.i, %0
   ret i64 %div.i.i
@@ -5216,7 +5208,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE16timeToWheelTicksES5_(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 %t.coerce) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %interval_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load i64, ptr %interval_, align 8, !tbaa !59
   %div.i.i = udiv i64 %t.coerce, %0
   ret i64 %div.i.i
@@ -5226,12 +5218,12 @@ entry:
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll(ptr noundef nonnull align 8 dereferenceable(16712) %this, ptr noundef %callback, i64 noundef %dueTick, i64 noundef %nextTickToProcess, i64 noundef %nextTick) local_unnamed_addr #2 comdat align 2 {
 entry:
   %sub = sub nsw i64 %dueTick, %nextTickToProcess
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 5
+  %bitmap_ = getelementptr inbounds i8, ptr %this, i64 16632
   %cmp = icmp slt i64 %sub, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %buckets_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 4
+  %buckets_ = getelementptr inbounds i8, ptr %this, i64 248
   %and = and i64 %nextTick, 255
   %arrayidx3 = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_, i64 0, i64 %and
   %div.i.i.i.i919296 = lshr i64 %nextTick, 6
@@ -5243,7 +5235,7 @@ if.then:                                          ; preds = %entry
   %or.i.i = or i64 %1, %shl.i.i
   store i64 %or.i.i, ptr %0, align 8, !tbaa !8
   %conv = trunc i64 %and to i32
-  %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_ = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv, ptr %bucket_, align 8, !tbaa !125
   br label %if.end52
 
@@ -5252,7 +5244,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp11, label %if.then12, label %if.else26
 
 if.then12:                                        ; preds = %if.else
-  %buckets_13 = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 4
+  %buckets_13 = getelementptr inbounds i8, ptr %this, i64 248
   %and15 = and i64 %dueTick, 255
   %arrayidx16 = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_13, i64 0, i64 %and15
   %div.i.i.i.i74939495 = lshr i64 %dueTick, 6
@@ -5264,7 +5256,7 @@ if.then12:                                        ; preds = %if.else
   %or.i.i89 = or i64 %3, %shl.i.i88
   store i64 %or.i.i89, ptr %2, align 8, !tbaa !8
   %conv24 = trunc i64 %and15 to i32
-  %bucket_25 = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %callback, i64 0, i32 4
+  %bucket_25 = getelementptr inbounds i8, ptr %callback, i64 40
   store i32 %conv24, ptr %bucket_25, align 8, !tbaa !125
   br label %if.end52
 
@@ -5300,7 +5292,7 @@ if.else41:                                        ; preds = %if.else33
 if.end52:                                         ; preds = %if.else41, %if.then35, %if.then28, %if.then12, %if.then
   %list.0 = phi ptr [ %arrayidx3, %if.then ], [ %arrayidx16, %if.then12 ], [ %arrayidx32, %if.then28 ], [ %arrayidx40, %if.then35 ], [ %arrayidx48, %if.else41 ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %callback, i64 8
-  %prev_.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %list.0, i64 0, i32 1
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %list.0, i64 8
   %4 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !50
   %prev_.i5.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store ptr %4, ptr %prev_.i5.i.i, align 8, !tbaa !50
@@ -5322,7 +5314,7 @@ entry:
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll(ptr noundef nonnull align 8 dereferenceable(16712) %this, i64 noundef %nextTick, i64 noundef %ticks) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr", align 8
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i64, ptr %interval_.i, align 8, !tbaa !8
   %mul.i.i.i = mul nsw i64 %0, %ticks
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #14
@@ -5331,13 +5323,13 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %1 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !79
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE23scheduleTimeoutInternalES5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -5345,14 +5337,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !52
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   %vtable3.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !52
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i, i64 3
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE23scheduleTimeoutInternalES5_.exit
@@ -5391,7 +5383,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE23sc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #14
   %add = add i64 %nextTick, -1
   %sub = add i64 %add, %ticks
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 %sub, ptr %expireTick_, align 8, !tbaa !69
   ret void
 }
@@ -5406,13 +5398,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !79
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -5420,14 +5412,14 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   %vtable3.i.i.i = load ptr, ptr %0, align 8, !tbaa !52
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 3
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -5471,7 +5463,7 @@ lpad:                                             ; preds = %entry
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE15scheduleTimeoutEPNS6_8CallbackE(ptr noundef nonnull align 8 dereferenceable(16712) %this, ptr noundef %callback) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.google::LogMessageFatal", align 8
-  %defaultTimeout_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 3
+  %defaultTimeout_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i64, ptr %defaultTimeout_, align 8
   %cmp.i.i.not = icmp eq i64 %0, -1
   br i1 %cmp.i.i.not, label %cond.false, label %cleanup.done16, !prof !85
@@ -5508,7 +5500,7 @@ cleanup.done16:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE5countEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %count_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 7
+  %count_ = getelementptr inbounds i8, ptr %this, i64 16672
   %0 = load i64, ptr %count_, align 8, !tbaa !71
   ret i64 %0
 }
@@ -5531,7 +5523,7 @@ entry:
           to label %if.then.i unwind label %terminate.lpad
 
 if.then.i:                                        ; preds = %entry
-  %processingCallbacksGuard_.i.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 9
+  %processingCallbacksGuard_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16688
   %0 = load ptr, ptr %processingCallbacksGuard_.i.i.i, align 8, !tbaa !61
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEED1EvEUlvE_Lb1EED2Ev.exit, label %if.then.i.i.i
@@ -5541,7 +5533,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEED1EvEUlvE_Lb1EED2Ev.exit
 
 _ZN5folly6detail14ScopeGuardImplIZNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEED1EvEUlvE_Lb1EED2Ev.exit: ; preds = %if.then.i.i.i, %if.then.i
-  %timeoutsToRunNow_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 10
+  %timeoutsToRunNow_ = getelementptr inbounds i8, ptr %this, i64 16696
   %1 = load ptr, ptr %timeoutsToRunNow_, align 8, !tbaa !49, !noalias !153
   %cmp.i.i.not12.i.i.i = icmp eq ptr %1, %timeoutsToRunNow_
   br i1 %cmp.i.i.not12.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %while.body.i.i.i
@@ -5609,7 +5601,7 @@ terminate.lpad:                                   ; preds = %entry
 define weak_odr noundef zeroext i1 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE13cascadeTimersEiiNS1_10time_pointINS1_3_V212steady_clockENS2_IlS3_ILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(16712) %this, i32 noundef %bucket, i32 noundef %tick, i64 %curTime.coerce) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cbs = alloca %"class.boost::intrusive::list.12", align 16
-  %cbs.sroa.gep = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %cbs, i64 0, i32 1
+  %cbs.sroa.gep = getelementptr inbounds i8, ptr %cbs, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cbs) #14
   store ptr %cbs, ptr %cbs, align 16, !tbaa !49
   store ptr %cbs, ptr %cbs.sroa.gep, align 8, !tbaa !50
@@ -5622,12 +5614,12 @@ entry:
 if.end4.i.i:                                      ; preds = %entry
   %0 = load ptr, ptr %arrayidx4, align 8, !tbaa !49
   %tobool.not.i20.i.i = icmp eq ptr %0, null
-  %prev_.i.i21.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %arrayidx4, i64 0, i32 1
+  %prev_.i.i21.i.i = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   br i1 %tobool.not.i20.i.i, label %if.then6.i.i, label %if.end4.if.end7_crit_edge.i.i
 
 if.end4.if.end7_crit_edge.i.i:                    ; preds = %if.end4.i.i
   %.pre39.i.i = load ptr, ptr %prev_.i.i21.i.i, align 8, !tbaa !50
-  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %0, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.pre40.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i, align 8, !tbaa !50
   %.pre41.i.i = load ptr, ptr %.pre39.i.i, align 8, !tbaa !49
   br label %if.end14.i.i
@@ -5642,7 +5634,7 @@ if.end14.i.i:                                     ; preds = %if.then6.i.i, %if.e
   %2 = phi ptr [ %arrayidx4, %if.then6.i.i ], [ %.pre40.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %3 = phi ptr [ %arrayidx4, %if.then6.i.i ], [ %.pre39.i.i, %if.end4.if.end7_crit_edge.i.i ]
   %4 = phi ptr [ %arrayidx4, %if.then6.i.i ], [ %0, %if.end4.if.end7_crit_edge.i.i ]
-  %prev_.i2.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %4, i64 0, i32 1
+  %prev_.i2.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %cbs.sroa.gep, align 8, !tbaa !50
   store ptr %cbs, ptr %prev_.i2.i.i.i, align 8, !tbaa !50
   store ptr %1, ptr %cbs, align 16, !tbaa !49
@@ -5661,10 +5653,10 @@ if.then16.i.i:                                    ; preds = %if.end14.i.i
 
 invoke.cont:                                      ; preds = %if.then16.i.i, %if.end14.i.i, %entry
   %8 = phi ptr [ null, %if.then16.i.i ], [ %5, %if.end14.i.i ], [ %cbs, %entry ]
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %curTime.coerce, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %9 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !59
   %div.i.i.i = udiv i64 %sub.i.i.i, %9
   %tobool.not.i.i48 = icmp eq ptr %8, null
@@ -5673,10 +5665,10 @@ invoke.cont:                                      ; preds = %if.then16.i.i, %if.
   br i1 %10, label %while.end, label %invoke.cont14.lr.ph
 
 invoke.cont14.lr.ph:                              ; preds = %invoke.cont
-  %interval_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2
-  %expireTick_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
-  %bitmap_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 5
-  %buckets_13.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 4
+  %interval_.i = getelementptr inbounds i8, ptr %this, i64 216
+  %expireTick_ = getelementptr inbounds i8, ptr %this, i64 16664
+  %bitmap_.i = getelementptr inbounds i8, ptr %this, i64 16632
+  %buckets_13.i = getelementptr inbounds i8, ptr %this, i64 248
   %and.i = and i64 %div.i.i.i, 255
   %arrayidx3.i = getelementptr inbounds [256 x %"class.boost::intrusive::list.12"], ptr %buckets_13.i, i64 0, i64 %and.i
   %div.i.i.i.i919296.i = lshr i64 %div.i.i.i, 6
@@ -5690,10 +5682,10 @@ invoke.cont14.lr.ph:                              ; preds = %invoke.cont
 invoke.cont14:                                    ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit, %invoke.cont14.lr.ph
   %12 = phi ptr [ %8, %invoke.cont14.lr.ph ], [ %21, %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit ]
   %13 = load ptr, ptr %12, align 8, !tbaa !49
-  %prev_.i.i.i.i37 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %12, i64 0, i32 1
+  %prev_.i.i.i.i37 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %prev_.i.i.i.i37, align 8, !tbaa !50
   store ptr %13, ptr %14, align 8, !tbaa !49
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %13, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %14, ptr %prev_.i5.i.i.i, align 8, !tbaa !50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %expiration_.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -5775,7 +5767,7 @@ if.else41.i:                                      ; preds = %if.else33.i
 
 _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleTimeoutImplEPNS6_8CallbackElll.exit: ; preds = %if.else41.i, %if.then35.i, %if.then28.i, %if.then12.i, %if.then.i
   %list.0.i = phi ptr [ %arrayidx3.i, %if.then.i ], [ %arrayidx16.i, %if.then12.i ], [ %arrayidx32.i, %if.then28.i ], [ %arrayidx40.i, %if.then35.i ], [ %arrayidx48.i, %if.else41.i ]
-  %prev_.i.i.i.i41 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %list.0.i, i64 0, i32 1
+  %prev_.i.i.i.i41 = getelementptr inbounds i8, ptr %list.0.i, i64 8
   %20 = load ptr, ptr %prev_.i.i.i.i41, align 8, !tbaa !50
   store ptr %20, ptr %prev_.i.i.i.i37, align 8, !tbaa !50
   store ptr %list.0.i, ptr %12, align 8, !tbaa !49
@@ -5814,8 +5806,8 @@ entry:
   br i1 %tobool.not, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bitmap_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 5
-  %add.ptr.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %bitmap_ = getelementptr inbounds i8, ptr %this, i64 16632
+  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16664
   %div.i.i.i.i484950 = lshr i64 %nextTick, 6
   %div.i.i.i.i48.zext = and i64 %div.i.i.i.i484950, 3
   %rem.i.i.i.i = and i64 %nextTick, 63
@@ -5831,7 +5823,7 @@ while.body.preheader.i:                           ; preds = %if.then
   br i1 %iszero.i.peel.i, label %cleanup.peel.i, label %cleanup.thread.i
 
 cleanup.peel.i:                                   ; preds = %while.body.preheader.i
-  %incdec.ptr.i.peel.i = getelementptr inbounds i64, ptr %0, i64 1
+  %incdec.ptr.i.peel.i = getelementptr inbounds i8, ptr %0, i64 8
   %cmp.not.peel.i = icmp eq ptr %incdec.ptr.i.peel.i, %add.ptr.i
   br i1 %cmp.not.peel.i, label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit, label %while.body.i
 
@@ -5848,7 +5840,7 @@ cleanup.thread.i:                                 ; preds = %while.body.i, %whil
   br label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit
 
 cleanup.i:                                        ; preds = %while.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %begin.sroa.0.087.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %begin.sroa.0.087.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN5folly12findFirstSetIPmEENS_11BitIteratorIT_EES4_S4_.exit, label %while.body.i, !llvm.loop !162
 
@@ -5878,7 +5870,7 @@ if.else:                                          ; preds = %_ZN5folly12findFirs
 
 if.end20:                                         ; preds = %if.else, %if.then12, %entry
   %tick.1 = phi i64 [ 1, %entry ], [ %sub14, %if.then12 ], [ %add, %if.else ]
-  %interval_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 2
+  %interval_.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load i64, ptr %interval_.i.i, align 8, !tbaa !8
   %mul.i.i.i.i = mul nsw i64 %5, %tick.1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
@@ -5887,13 +5879,13 @@ if.end20:                                         ; preds = %if.else, %if.then12
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end20
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !79
   %cmp.not.i.i.i.i44 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i44, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -5901,14 +5893,14 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !80
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !82
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !52
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   %vtable3.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !52
-  %vfn4.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn4.i.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   br label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19scheduleNextTimeoutEll.exit
@@ -5947,7 +5939,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19sc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #14
   %add.i = add i64 %nextTick, -1
   %sub.i = add i64 %add.i, %tick.1
-  %expireTick_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 6
+  %expireTick_.i = getelementptr inbounds i8, ptr %this, i64 16664
   store i64 %sub.i, ptr %expireTick_.i, align 8, !tbaa !69
   ret void
 }
@@ -5956,10 +5948,10 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE19sc
 define weak_odr noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE12calcNextTickEv(ptr noundef nonnull align 8 dereferenceable(16712) %this) local_unnamed_addr #2 comdat align 2 {
 entry:
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
-  %startTime_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 8
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 16680
   %retval.sroa.0.0.copyload.i7.i.i = load i64, ptr %startTime_.i, align 8, !tbaa.struct !7
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i7.i.i
-  %divIntervalForSteadyClock_.i.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 1
+  %divIntervalForSteadyClock_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i64, ptr %divIntervalForSteadyClock_.i.i, align 8, !tbaa !59
   %div.i.i.i = udiv i64 %sub.i.i.i, %0
   ret i64 %div.i.i.i

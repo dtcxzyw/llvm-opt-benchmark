@@ -122,7 +122,7 @@ _ZN14regex_automata4util8captures9GroupInfo5slots17h9da1529a41704147E.exit: ; pr
 58:                                               ; preds = %70, %56
   %.sroa.01.0 = phi i64 [ %.fca.1.extract3, %56 ], [ %72, %70 ]
   %.sroa.3.0 = phi i64 [ %.fca.1.extract7, %56 ], [ %74, %70 ]
-  %59 = getelementptr inbounds { { i32, i32 }, ptr, { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 2
+  %59 = getelementptr inbounds i8, ptr %1, i64 16
   %60 = call { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1142cd8c41ae9867E"(ptr nonnull align 8 %59)
   %61 = extractvalue { ptr, i64 } %60, 0
   %62 = extractvalue { ptr, i64 } %60, 1
@@ -139,9 +139,9 @@ _ZN14regex_automata4util8captures9GroupInfo5slots17h9da1529a41704147E.exit: ; pr
   ret void
 
 70:                                               ; preds = %_ZN14regex_automata4util8captures9GroupInfo5slots17h9da1529a41704147E.exit
-  %71 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %7, i64 0, i32 1
+  %71 = getelementptr inbounds i8, ptr %7, i64 8
   %72 = load i64, ptr %71, align 8, !noundef !6
-  %73 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %7, i64 0, i32 1, i32 1
+  %73 = getelementptr inbounds i8, ptr %7, i64 16
   %74 = load i64, ptr %73, align 8, !noundef !6
   br label %58
 
@@ -189,9 +189,9 @@ _ZN14regex_automata4util8captures9GroupInfo5slots17h9da1529a41704147E.exit: ; pr
 93:                                               ; preds = %90
   %94 = call i64 @_ZN14regex_automata4util10primitives11NonMaxUsize3get17h215f5a78d82a4904E(i64 %77)
   %95 = call i64 @_ZN14regex_automata4util10primitives11NonMaxUsize3get17h215f5a78d82a4904E(i64 %91)
-  %96 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %96 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %94, ptr %96, align 8
-  %97 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %97 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %95, ptr %97, align 8
   store i64 1, ptr %0, align 8
   br label %69
@@ -206,7 +206,7 @@ define hidden { ptr, ptr } @_ZN14regex_automata4util8captures9GroupInfo13pattern
   %3 = alloca i32, align 4
   store i32 %1, ptr %3, align 4
   %4 = tail call align 8 ptr @"_ZN73_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2bb692c5d2a2cc77E"(ptr align 8 %0)
-  %5 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %4, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %4, i64 48
   %6 = tail call { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2e85a2ce6f23634cE"(ptr nonnull align 8 %5)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1

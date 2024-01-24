@@ -54,7 +54,7 @@ while.end:                                        ; preds = %while.cond
 
 if.end15:                                         ; preds = %while.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %lookup, i8 -1, i64 256, i1 false)
-  %arrayidx16 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 43
+  %arrayidx16 = getelementptr inbounds i8, ptr %lookup, i64 43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %arrayidx16, ptr noundef nonnull align 16 dereferenceable(80) @decodetable, i64 80, i1 false)
   %cmp1753.not = icmp eq i64 %sub10, 0
   br i1 %cmp1753.not, label %for.end42, label %for.cond19.preheader

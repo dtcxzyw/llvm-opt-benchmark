@@ -16,7 +16,7 @@ $_ZN17meshopt_Allocator8StorageTIvE8allocateE = comdat any
 @_ZN17meshopt_Allocator8StorageTIvE10deallocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_ZdlPv, comdat, align 8
 @_ZN17meshopt_Allocator8StorageTIvE8allocateE = linkonce_odr dso_local local_unnamed_addr global ptr @_Znwm, comdat, align 8
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local i64 @meshopt_optimizeVertexFetchRemap(ptr nocapture noundef %destination, ptr nocapture noundef readonly %indices, i64 noundef %index_count, i64 noundef %vertex_count) local_unnamed_addr #0 {
 entry:
   %mul = shl i64 %vertex_count, 2
@@ -73,7 +73,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i22, ptr %allocator, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i22, ptr align 1 %destination, i64 %mul, i1 false)
@@ -96,7 +96,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.end
-  %count.i23 = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i23 = getelementptr inbounds i8, ptr %allocator, i64 192
   %inc.i24 = add nuw nsw i64 %2, 1
   store i64 %inc.i24, ptr %count.i23, align 8
   %arrayidx.i25 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %2
@@ -175,7 +175,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %count = getelementptr inbounds %class.meshopt_Allocator, ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i64, ptr %count, align 8
   br label %for.cond
 
@@ -220,7 +220,7 @@ declare void @_ZdlPv(ptr noundef) #6
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) #7
 
-attributes #0 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

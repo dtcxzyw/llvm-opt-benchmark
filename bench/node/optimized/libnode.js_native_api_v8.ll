@@ -5,30 +5,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%struct.napi_env__ = type <{ ptr, ptr, %"class.v8::Global", %"class.v8::Global.0", %"class.v8impl::RefTracker", %"class.v8impl::RefTracker", %"class.std::unordered_set", %struct.napi_extended_error_info, i32, i32, i32, [4 x i8], ptr, i32, i8, [3 x i8] }>
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.v8::Global.0" = type { %"class.v8::PersistentBase.1" }
-%"class.v8::PersistentBase.1" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8impl::RefTracker" = type { ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.napi_extended_error_info = type { ptr, ptr, i32, i32 }
-%"class.v8impl::Finalizer" = type { ptr, ptr, ptr, ptr, ptr }
-%"class.v8impl::RefBase" = type { %"class.v8impl::TrackedFinalizer", i32, i32 }
-%"class.v8impl::TrackedFinalizer" = type { %"class.v8impl::Finalizer", %"class.v8impl::RefTracker" }
-%"class.v8impl::Reference" = type <{ %"class.v8impl::RefBase", %"class.v8::Global.0", i8, [7 x i8] }>
-%"class.v8::WeakCallbackInfo" = type { ptr, ptr, ptr, [2 x ptr] }
 %"class.v8impl::TryCatch" = type { %"class.v8::TryCatch.base", ptr }
 %"class.v8::TryCatch.base" = type <{ ptr, ptr, ptr, ptr, i64, i8 }>
 %"class.v8::EscapableHandleScope" = type { %"class.v8::HandleScope", ptr }
 %"class.v8::HandleScope" = type { ptr, ptr, ptr }
 %"class.v8::Local.4" = type { %"class.v8::LocalBase.5" }
 %"class.v8::LocalBase.5" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8impl::(anonymous namespace)::CallbackBundle" = type { ptr, ptr, ptr }
+%"class.v8::IndirectHandleBase" = type { ptr }
 %"class.v8::Local.8" = type { %"class.v8::LocalBase.9" }
 %"class.v8::LocalBase.9" = type { %"class.v8::IndirectHandleBase" }
 %"class.v8::Local.12" = type { %"class.v8::LocalBase.13" }
@@ -39,217 +22,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.napi_property_descriptor = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr }
 %"class.v8::PropertyDescriptor" = type { ptr }
-%"class.v8::String::ExternalOneByteStringResource" = type { %"class.v8::String::ExternalStringResourceBase", ptr }
-%"class.v8::String::ExternalStringResourceBase" = type { ptr }
-%"class.v8impl::(anonymous namespace)::ExternalOneByteStringResource" = type { %"class.v8::String::ExternalOneByteStringResource", %"class.v8impl::(anonymous namespace)::TrackedStringResource", ptr, i64 }
-%"class.v8impl::(anonymous namespace)::TrackedStringResource" = type { %"class.v8impl::Finalizer", %"class.v8impl::RefTracker" }
-%"class.v8::String::ExternalStringResource" = type { %"class.v8::String::ExternalStringResourceBase", ptr }
-%"class.v8impl::(anonymous namespace)::ExternalStringResource" = type { %"class.v8::String::ExternalStringResource", %"class.v8impl::(anonymous namespace)::TrackedStringResource", ptr, i64 }
-%"class.node::Environment" = type { %"class.node::MemoryRetainer", %"class.std::unordered_multimap", %"class.std::__cxx11::list", ptr, ptr, %struct.uv_timer_s, %struct.uv_check_s, %struct.uv_idle_s, %struct.uv_prepare_s, %struct.uv_check_s, %struct.uv_async_s, i64, %"struct.std::atomic", %"struct.std::atomic", %"class.node::AsyncHooks", %"class.node::ImmediateInfo", %"class.node::AliasedBufferBase.101", %"class.node::TickInfo", %"class.node::permission::Permission", i64, %"class.std::shared_ptr", i8, i8, i8, i8, i8, i8, i64, %"class.std::vector.126", %"class.std::unordered_set.131", %"class.std::unique_ptr", %"class.std::unique_ptr.153", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::unique_ptr.165", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::shared_ptr.173", %"class.std::shared_ptr.176", %"class.std::vector.179", %"class.std::vector.179", %"class.std::__cxx11::basic_string", i8, i32, i32, i8, i32, i32, i32, i32, %"class.node::AliasedBufferBase.101", %"class.node::AliasedBufferBase.89", i32, %"class.std::unique_ptr.184", %"class.node::AliasedBufferBase.101", i64, double, i64, %"class.std::unique_ptr.192", i8, i64, i64, %"class.std::unordered_set.200", %"class.std::unique_ptr.220", i8, %"class.std::__cxx11::list.228", %"class.node::ListHead", %"class.node::ListHead.233", %"class.std::__cxx11::list.235", i32, i32, %"class.node::EnabledDebugList", %"class.std::vector.240", %"class.std::__cxx11::list.245", %"class.node::MutexBase", %"class.std::__cxx11::list.250", %"class.node::CallbackQueue", %"class.node::MutexBase", %"class.node::CallbackQueue", %"class.node::CallbackQueue", i8, %"struct.std::atomic.265", %"class.node::CleanupQueue", i8, %"class.std::unordered_set.283", %"class.std::function", %"class.std::unique_ptr.298", %"class.node::builtins::BuiltinLoader", %"class.std::function.312", %"class.std::unordered_map.314" }
-%"class.node::MemoryRetainer" = type { ptr }
-%"class.std::unordered_multimap" = type { %"class.std::_Hashtable.61" }
-%"class.std::_Hashtable.61" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon = type { [4 x ptr] }
-%struct.uv_idle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.84, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.84 = type { [4 x ptr] }
-%struct.uv_prepare_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.85, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.85 = type { [4 x ptr] }
-%struct.uv_check_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.83, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.83 = type { [4 x ptr] }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.86, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.86 = type { [4 x ptr] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.node::AsyncHooks" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase", %"class.node::AliasedBufferBase.89", %"class.node::AliasedBufferBase", %"class.v8::Global.92", %"class.std::vector.94", ptr, %"struct.std::array" }
-%"class.node::AliasedBufferBase" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.87", ptr }
-%"class.v8::Global.87" = type { %"class.v8::PersistentBase.88" }
-%"class.v8::PersistentBase.88" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Global.92" = type { %"class.v8::PersistentBase.93" }
-%"class.v8::PersistentBase.93" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::vector.94" = type { %"struct.std::_Vector_base.95" }
-%"struct.std::_Vector_base.95" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array" = type { [4 x %"class.v8::Global.99"] }
-%"class.v8::Global.99" = type { %"class.v8::PersistentBase.100" }
-%"class.v8::PersistentBase.100" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::ImmediateInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.89" }
-%"class.node::TickInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.104" }
-%"class.node::AliasedBufferBase.104" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.105", ptr }
-%"class.v8::Global.105" = type { %"class.v8::PersistentBase.106" }
-%"class.v8::PersistentBase.106" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::permission::Permission" = type <{ %"class.std::unordered_map", i8, [7 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.107" }
-%"class.std::_Hashtable.107" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector.126" = type { %"struct.std::_Vector_base.127" }
-%"struct.std::_Vector_base.127" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_set.131" = type { %"class.std::_Hashtable.132" }
-%"class.std::_Hashtable.132" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.152" }
-%"struct.std::_Head_base.152" = type { ptr }
-%"class.std::unique_ptr.153" = type { %"struct.std::__uniq_ptr_data.154" }
-%"struct.std::__uniq_ptr_data.154" = type { %"class.std::__uniq_ptr_impl.155" }
-%"class.std::__uniq_ptr_impl.155" = type { %"class.std::tuple.156" }
-%"class.std::tuple.156" = type { %"struct.std::_Tuple_impl.157" }
-%"struct.std::_Tuple_impl.157" = type { %"struct.std::_Head_base.160" }
-%"struct.std::_Head_base.160" = type { ptr }
-%"class.std::unique_ptr.165" = type { %"struct.std::__uniq_ptr_data.166" }
-%"struct.std::__uniq_ptr_data.166" = type { %"class.std::__uniq_ptr_impl.167" }
-%"class.std::__uniq_ptr_impl.167" = type { %"class.std::tuple.168" }
-%"class.std::tuple.168" = type { %"struct.std::_Tuple_impl.169" }
-%"struct.std::_Tuple_impl.169" = type { %"struct.std::_Head_base.172" }
-%"struct.std::_Head_base.172" = type { ptr }
-%"class.std::shared_ptr.173" = type { %"class.std::__shared_ptr.174" }
-%"class.std::__shared_ptr.174" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.176" = type { %"class.std::__shared_ptr.177" }
-%"class.std::__shared_ptr.177" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.179" = type { %"struct.std::_Vector_base.180" }
-%"struct.std::_Vector_base.180" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.164 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.164 = type { i64, [8 x i8] }
-%"class.node::AliasedBufferBase.89" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.90", ptr }
-%"class.v8::Global.90" = type { %"class.v8::PersistentBase.91" }
-%"class.v8::PersistentBase.91" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.184" = type { %"struct.std::__uniq_ptr_data.185" }
-%"struct.std::__uniq_ptr_data.185" = type { %"class.std::__uniq_ptr_impl.186" }
-%"class.std::__uniq_ptr_impl.186" = type { %"class.std::tuple.187" }
-%"class.std::tuple.187" = type { %"struct.std::_Tuple_impl.188" }
-%"struct.std::_Tuple_impl.188" = type { %"struct.std::_Head_base.191" }
-%"struct.std::_Head_base.191" = type { ptr }
-%"class.node::AliasedBufferBase.101" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.102", ptr }
-%"class.v8::Global.102" = type { %"class.v8::PersistentBase.103" }
-%"class.v8::PersistentBase.103" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.192" = type { %"struct.std::__uniq_ptr_data.193" }
-%"struct.std::__uniq_ptr_data.193" = type { %"class.std::__uniq_ptr_impl.194" }
-%"class.std::__uniq_ptr_impl.194" = type { %"class.std::tuple.195" }
-%"class.std::tuple.195" = type { %"struct.std::_Tuple_impl.196" }
-%"struct.std::_Tuple_impl.196" = type { %"struct.std::_Head_base.199" }
-%"struct.std::_Head_base.199" = type { ptr }
-%"class.std::unordered_set.200" = type { %"class.std::_Hashtable.201" }
-%"class.std::_Hashtable.201" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.220" = type { %"struct.std::__uniq_ptr_data.221" }
-%"struct.std::__uniq_ptr_data.221" = type { %"class.std::__uniq_ptr_impl.222" }
-%"class.std::__uniq_ptr_impl.222" = type { %"class.std::tuple.223" }
-%"class.std::tuple.223" = type { %"struct.std::_Tuple_impl.224" }
-%"struct.std::_Tuple_impl.224" = type { %"struct.std::_Head_base.227" }
-%"struct.std::_Head_base.227" = type { ptr }
-%"class.std::__cxx11::list.228" = type { %"class.std::__cxx11::_List_base.229" }
-%"class.std::__cxx11::_List_base.229" = type { %"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::ListHead" = type { %"class.node::ListNode" }
-%"class.node::ListNode" = type { ptr, ptr }
-%"class.node::ListHead.233" = type { %"class.node::ListNode.234" }
-%"class.node::ListNode.234" = type { ptr, ptr }
-%"class.std::__cxx11::list.235" = type { %"class.std::__cxx11::_List_base.236" }
-%"class.std::__cxx11::_List_base.236" = type { %"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::EnabledDebugList" = type { [75 x i8] }
-%"class.std::vector.240" = type { %"struct.std::_Vector_base.241" }
-%"struct.std::_Vector_base.241" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list.245" = type { %"class.std::__cxx11::_List_base.246" }
-%"class.std::__cxx11::_List_base.246" = type { %"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.250" = type { %"class.std::__cxx11::_List_base.251" }
-%"class.std::__cxx11::_List_base.251" = type { %"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::CallbackQueue" = type { %"struct.std::atomic.255", %"class.std::unique_ptr.257", ptr }
-%"struct.std::atomic.255" = type { %"struct.std::__atomic_base.256" }
-%"struct.std::__atomic_base.256" = type { i64 }
-%"class.std::unique_ptr.257" = type { %"struct.std::__uniq_ptr_data.258" }
-%"struct.std::__uniq_ptr_data.258" = type { %"class.std::__uniq_ptr_impl.259" }
-%"class.std::__uniq_ptr_impl.259" = type { %"class.std::tuple.260" }
-%"class.std::tuple.260" = type { %"struct.std::_Tuple_impl.261" }
-%"struct.std::_Tuple_impl.261" = type { %"struct.std::_Head_base.264" }
-%"struct.std::_Head_base.264" = type { ptr }
-%"struct.std::atomic.265" = type { %"struct.std::__atomic_base.266" }
-%"struct.std::__atomic_base.266" = type { ptr }
-%"class.node::CleanupQueue" = type { %"class.node::MemoryRetainer", %"class.std::unordered_set.267", i64 }
-%"class.std::unordered_set.267" = type { %"class.std::_Hashtable.268" }
-%"class.std::_Hashtable.268" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.283" = type { %"class.std::_Hashtable.284" }
-%"class.std::_Hashtable.284" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.298" = type { %"struct.std::__uniq_ptr_data.299" }
-%"struct.std::__uniq_ptr_data.299" = type { %"class.std::__uniq_ptr_impl.300" }
-%"class.std::__uniq_ptr_impl.300" = type { %"class.std::tuple.301" }
-%"class.std::tuple.301" = type { %"struct.std::_Tuple_impl.302" }
-%"struct.std::_Tuple_impl.302" = type { %"struct.std::_Head_base.305" }
-%"struct.std::_Head_base.305" = type { ptr }
-%"class.node::builtins::BuiltinLoader" = type { %"class.node::ThreadsafeCopyOnWrite", %"class.node::UnionBytes", %"class.std::shared_ptr.309" }
-%"class.node::ThreadsafeCopyOnWrite" = type { %"class.node::CopyOnWrite" }
-%"class.node::CopyOnWrite" = type { %"class.std::shared_ptr.306" }
-%"class.std::shared_ptr.306" = type { %"class.std::__shared_ptr.307" }
-%"class.std::__shared_ptr.307" = type { ptr, %"class.std::__shared_count" }
-%"class.node::UnionBytes" = type { ptr, ptr }
-%"class.std::shared_ptr.309" = type { %"class.std::__shared_ptr.310" }
-%"class.std::__shared_ptr.310" = type { ptr, %"class.std::__shared_count" }
-%"class.std::function.312" = type { %"class.std::_Function_base", ptr }
-%"class.std::unordered_map.314" = type { %"class.std::_Hashtable.315" }
-%"class.std::_Hashtable.315" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.node::IsolateData" = type { %"class.node::MemoryRetainer", i64, %"class.std::unordered_map.374", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.394", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.395", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal.396", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.396", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"class.v8::Eternal.397", %"struct.std::array.398", ptr, ptr, ptr, ptr, ptr, %"class.std::optional", %"class.std::unique_ptr.411", %"class.std::shared_ptr.419", ptr, ptr }
-%"class.std::unordered_map.374" = type { %"class.std::_Hashtable.375" }
-%"class.std::_Hashtable.375" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.v8::Eternal.394" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.395" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.396" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.397" = type { %"class.v8::IndirectHandleBase" }
-%"struct.std::array.398" = type { [64 x %"class.v8::Eternal.395"] }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base.408", [7 x i8] }
-%"struct.std::_Optional_payload.base.408" = type { %"struct.std::_Optional_payload_base.base.407" }
-%"struct.std::_Optional_payload_base.base.407" = type <{ %"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage" = type { %"struct.node::SnapshotConfig" }
-%"struct.node::SnapshotConfig" = type { i32, [4 x i8], %"class.std::optional.400" }
-%"class.std::optional.400" = type { %"struct.std::_Optional_base.401" }
-%"struct.std::_Optional_base.401" = type { %"struct.std::_Optional_payload.403" }
-%"struct.std::_Optional_payload.403" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr.411" = type { %"struct.std::__uniq_ptr_data.412" }
-%"struct.std::__uniq_ptr_data.412" = type { %"class.std::__uniq_ptr_impl.413" }
-%"class.std::__uniq_ptr_impl.413" = type { %"class.std::tuple.414" }
-%"class.std::tuple.414" = type { %"struct.std::_Tuple_impl.415" }
-%"struct.std::_Tuple_impl.415" = type { %"struct.std::_Head_base.418" }
-%"struct.std::_Head_base.418" = type { ptr }
-%"class.std::shared_ptr.419" = type { %"class.std::__shared_ptr.420" }
-%"class.std::__shared_ptr.420" = type { ptr, %"class.std::__shared_count" }
 %struct.napi_type_tag = type { i64, i64 }
-%"class.v8impl::(anonymous namespace)::EscapableHandleScopeWrapper" = type <{ %"class.v8::EscapableHandleScope", i8, [7 x i8] }>
 %"class.v8impl::(anonymous namespace)::FunctionCallbackWrapper" = type { %"class.v8impl::(anonymous namespace)::CallbackWrapperBase" }
 %"class.v8impl::(anonymous namespace)::CallbackWrapperBase" = type { %"class.v8impl::(anonymous namespace)::CallbackWrapper", ptr, ptr }
 %"class.v8impl::(anonymous namespace)::CallbackWrapper" = type { ptr, ptr, i64, ptr }
-%"class.v8::FunctionCallbackInfo" = type <{ ptr, ptr, i32, [4 x i8] }>
 
 $_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_ = comdat any
 
@@ -367,25 +143,25 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE(ptr noundef nonnull align 8 dereferenceable(189) %this, ptr noundef %finalizer) local_unnamed_addr #3 align 2 {
 entry:
-  %module_api_version = getelementptr inbounds %struct.napi_env__, ptr %this, i64 0, i32 13
+  %module_api_version = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load i32, ptr %module_api_version, align 8
   %cmp.not = icmp eq i32 %0, 2147483647
   br i1 %cmp.not, label %"_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit", label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(189) %this, ptr noundef %finalizer) #24
   br label %if.end
 
 "_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit": ; preds = %entry
-  %in_gc_finalizer = getelementptr inbounds %struct.napi_env__, ptr %this, i64 0, i32 14
+  %in_gc_finalizer = getelementptr inbounds i8, ptr %this, i64 188
   %2 = load i8, ptr %in_gc_finalizer, align 4
   %3 = and i8 %2, 1
   store i8 1, ptr %in_gc_finalizer, align 4
   %vtable3 = load ptr, ptr %finalizer, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 2
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
   %4 = load ptr, ptr %vfn4, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %finalizer) #24
   store i8 %3, ptr %in_gc_finalizer, align 4
@@ -398,21 +174,21 @@ if.end:                                           ; preds = %"_ZN4node16OnScopeL
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6v8impl9Finalizer14ResetFinalizerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %finalize_callback_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_, i8 0, i64 24, i1 false)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %env, ptr noundef %finalize_callback, ptr noundef %finalize_data, ptr noundef %finalize_hint) unnamed_addr #5 align 2 {
 entry:
-  %env_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %env, ptr %env_.i, align 8
-  %finalize_callback_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %finalize_callback, ptr %finalize_callback_.i, align 8
-  %finalize_data_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %finalize_data, ptr %finalize_data_.i, align 8
-  %finalize_hint_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %finalize_hint, ptr %finalize_hint_.i, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 40
   %next_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -420,19 +196,18 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
   %cmp = icmp eq ptr %finalize_callback, null
-  %reflist = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond = select i1 %cmp, ptr %reflist, ptr %finalizing_reflist
+  %cond.v = select i1 %cmp, i64 32, i64 56
+  %cond = getelementptr inbounds i8, ptr %env, i64 %cond.v
   %prev_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %cond, ptr %prev_.i, align 8
-  %next_.i4 = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond, i64 0, i32 1
+  %next_.i4 = getelementptr inbounds i8, ptr %cond, i64 8
   %1 = load ptr, ptr %next_.i4, align 8
   store ptr %1, ptr %next_.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZN6v8impl10RefTracker4LinkEPS0_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %prev_5.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 2
+  %prev_5.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %prev_5.i, align 8
   br label %_ZN6v8impl10RefTracker4LinkEPS0_.exit
 
@@ -448,32 +223,31 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define dso_local noundef nonnull ptr @_ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_(ptr noundef %env, ptr noundef %finalize_callback, ptr noundef %finalize_data, ptr noundef %finalize_hint) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
-  %env_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 1
+  %env_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %env, ptr %env_.i.i, align 8
-  %finalize_callback_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 2
+  %finalize_callback_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %finalize_callback, ptr %finalize_callback_.i.i, align 8
-  %finalize_data_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 3
+  %finalize_data_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %finalize_data, ptr %finalize_data_.i.i, align 8
-  %finalize_hint_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 4
+  %finalize_hint_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %finalize_hint, ptr %finalize_hint_.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 40
   %next_.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
   %cmp.i = icmp eq ptr %finalize_callback, null
-  %reflist.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i = select i1 %cmp.i, ptr %reflist.i, ptr %finalizing_reflist.i
+  %cond.v.i = select i1 %cmp.i, i64 32, i64 56
+  %cond.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i
   %prev_.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %cond.i, ptr %prev_.i.i, align 8
-  %next_.i4.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i, i64 0, i32 1
+  %next_.i4.i = getelementptr inbounds i8, ptr %cond.i, i64 8
   %1 = load ptr, ptr %next_.i4.i, align 8
   store ptr %1, ptr %next_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %prev_5.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 2
+  %prev_5.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %prev_5.i.i, align 8
   br label %_ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit
 
@@ -499,7 +273,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %next_3.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %0, i64 0, i32 1
+  %next_3.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.pre.i, ptr %next_3.i, align 8
   br label %if.end.i
 
@@ -509,16 +283,16 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then6.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %prev_.i, align 8
-  %prev_9.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i, i64 0, i32 2
+  %prev_9.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   store ptr %1, ptr %prev_9.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit
 
 _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i, i8 0, i64 16, i1 false)
-  %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %env_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr) #24
   ret void
@@ -538,7 +312,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -548,7 +322,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %2 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %2, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl16TrackedFinalizerD2Ev.exit
 
@@ -557,7 +331,7 @@ _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.the
   %env_.i = getelementptr inbounds i8, ptr %this, i64 -32
   %3 = load ptr, ptr %env_.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
   ret void
@@ -577,7 +351,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %0, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -587,16 +361,16 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %1 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %1, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl16TrackedFinalizerD2Ev.exit
 
 _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.then6.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i.i, i8 0, i64 16, i1 false)
-  %env_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %env_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -620,7 +394,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -630,7 +404,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %ent
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %2 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %2, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl16TrackedFinalizerD0Ev.exit
 
@@ -639,7 +413,7 @@ _ZN6v8impl16TrackedFinalizerD0Ev.exit:            ; preds = %if.end.i.i.i, %if.t
   %env_.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %3 = load ptr, ptr %env_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
@@ -649,11 +423,11 @@ _ZN6v8impl16TrackedFinalizerD0Ev.exit:            ; preds = %if.end.i.i.i, %if.t
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl16TrackedFinalizer8FinalizeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
 entry:
-  %finalize_callback_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_.i, align 8
-  %finalize_data_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %finalize_data_.i, align 8
-  %finalize_hint_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %finalize_hint_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -664,7 +438,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %3, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -674,7 +448,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %4 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %4, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
 
@@ -684,17 +458,17 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   br i1 %cmp.not.i, label %_ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
-  %env_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %env_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #24
   br label %_ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit
 
 _ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit: ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit.i, %if.then.i
   %vtable3.i = load ptr, ptr %this, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 1
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 8
   %7 = load ptr, ptr %vfn4.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   ret void
@@ -703,11 +477,11 @@ _ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit: ; preds = %_ZN6v8impl10RefTra
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl16TrackedFinalizer12FinalizeCoreEb(ptr noundef nonnull align 8 dereferenceable(64) %this, i1 noundef zeroext %deleteMe) local_unnamed_addr #3 align 2 {
 entry:
-  %finalize_callback_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_, align 8
-  %finalize_data_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %finalize_data_, align 8
-  %finalize_hint_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %finalize_hint_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_, i8 0, i64 24, i1 false)
   %prev_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -718,7 +492,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %next_3.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %3, i64 0, i32 1
+  %next_3.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.pre.i, ptr %next_3.i, align 8
   br label %if.end.i
 
@@ -728,7 +502,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then6.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %prev_.i, align 8
-  %prev_9.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i, i64 0, i32 2
+  %prev_9.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   store ptr %4, ptr %prev_9.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit
 
@@ -738,10 +512,10 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit
-  %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %env_, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #24
   br label %if.end
@@ -751,7 +525,7 @@ if.end:                                           ; preds = %if.then, %_ZN6v8imp
 
 delete.notnull:                                   ; preds = %if.end
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 1
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 8
   %7 = load ptr, ptr %vfn4, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   br label %if.end5
@@ -778,7 +552,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %3, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -788,7 +562,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %ent
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %4 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %4, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -801,7 +575,7 @@ if.then.i.i:                                      ; preds = %_ZN6v8impl10RefTrac
   %env_.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %5 = load ptr, ptr %env_.i.i, align 8
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(189) %5, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #24
   br label %_ZN6v8impl16TrackedFinalizer8FinalizeEv.exit
@@ -809,22 +583,22 @@ if.then.i.i:                                      ; preds = %_ZN6v8impl10RefTrac
 _ZN6v8impl16TrackedFinalizer8FinalizeEv.exit:     ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i, %if.then.i.i
   %7 = getelementptr inbounds i8, ptr %this, i64 -40
   %vtable3.i.i = load ptr, ptr %7, align 8
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 1
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 8
   %8 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %7) #24
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %env, i32 noundef %initial_refcount, i32 noundef %ownership, ptr noundef %finalize_callback, ptr noundef %finalize_data, ptr noundef %finalize_hint) unnamed_addr #5 align 2 {
 entry:
-  %env_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %env, ptr %env_.i.i, align 8
-  %finalize_callback_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %finalize_callback, ptr %finalize_callback_.i.i, align 8
-  %finalize_data_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %finalize_data, ptr %finalize_data_.i.i, align 8
-  %finalize_hint_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %finalize_hint, ptr %finalize_hint_.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 40
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -832,19 +606,18 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
   %cmp.i = icmp eq ptr %finalize_callback, null
-  %reflist.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i = select i1 %cmp.i, ptr %reflist.i, ptr %finalizing_reflist.i
+  %cond.v.i = select i1 %cmp.i, i64 32, i64 56
+  %cond.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %cond.i, ptr %prev_.i.i, align 8
-  %next_.i4.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i, i64 0, i32 1
+  %next_.i4.i = getelementptr inbounds i8, ptr %cond.i, i64 8
   %1 = load ptr, ptr %next_.i4.i, align 8
   store ptr %1, ptr %next_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %prev_5.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 2
+  %prev_5.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %prev_5.i.i, align 8
   br label %_ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit
 
@@ -852,9 +625,9 @@ _ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit: ; preds = %
   store ptr %0, ptr %next_.i4.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl7RefBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl7RefBaseE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  %refcount_ = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 1
+  %refcount_ = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %initial_refcount, ptr %refcount_, align 8
-  %ownership_ = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 2
+  %ownership_ = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %ownership, ptr %ownership_, align 4
   ret void
 }
@@ -863,30 +636,29 @@ _ZN6v8impl16TrackedFinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_.exit: ; preds = %
 define dso_local noundef nonnull ptr @_ZN6v8impl7RefBase3NewEP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_(ptr noundef %env, i32 noundef %initial_refcount, i32 noundef %ownership, ptr noundef %finalize_callback, ptr noundef %finalize_data, ptr noundef %finalize_hint) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
-  %env_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 1
+  %env_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %env, ptr %env_.i.i.i, align 8
-  %finalize_callback_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 2
+  %finalize_callback_.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %finalize_callback, ptr %finalize_callback_.i.i.i, align 8
-  %finalize_data_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 3
+  %finalize_data_.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %finalize_data, ptr %finalize_data_.i.i.i, align 8
-  %finalize_hint_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call, i64 0, i32 4
+  %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %finalize_hint, ptr %finalize_hint_.i.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 40
   %next_.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %cmp.i.i = icmp eq ptr %finalize_callback, null
-  %reflist.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i.i = select i1 %cmp.i.i, ptr %reflist.i.i, ptr %finalizing_reflist.i.i
+  %cond.v.i.i = select i1 %cmp.i.i, i64 32, i64 56
+  %cond.i.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i.i
   %prev_.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %cond.i.i, ptr %prev_.i.i.i, align 8
-  %next_.i4.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i.i, i64 0, i32 1
+  %next_.i4.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 8
   %1 = load ptr, ptr %next_.i4.i.i, align 8
   store ptr %1, ptr %next_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %prev_5.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 2
+  %prev_5.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %prev_5.i.i.i, align 8
   br label %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit
 
@@ -894,9 +666,9 @@ _ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; pred
   store ptr %0, ptr %next_.i4.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl7RefBaseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl7RefBaseE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  %refcount_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %call, i64 0, i32 1
+  %refcount_.i = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %initial_refcount, ptr %refcount_.i, align 8
-  %ownership_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %call, i64 0, i32 2
+  %ownership_.i = getelementptr inbounds i8, ptr %call, i64 68
   store i32 %ownership, ptr %ownership_.i, align 4
   ret ptr %call
 }
@@ -904,7 +676,7 @@ _ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; pred
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN6v8impl7RefBase4DataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %finalize_data_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %finalize_data_, align 8
   ret ptr %0
 }
@@ -912,7 +684,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZN6v8impl7RefBase3RefEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %refcount_ = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 1
+  %refcount_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %refcount_, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %refcount_, align 8
@@ -922,7 +694,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZN6v8impl7RefBase5UnrefEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %refcount_ = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 1
+  %refcount_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %refcount_, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -940,7 +712,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN6v8impl7RefBase8RefCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %refcount_ = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 1
+  %refcount_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %refcount_, align 8
   ret i32 %0
 }
@@ -948,14 +720,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl7RefBase8FinalizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
-  %ownership_ = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 2
+  %ownership_ = getelementptr inbounds i8, ptr %this, i64 68
   %0 = load i32, ptr %ownership_, align 4
   %cmp = icmp eq i32 %0, 0
-  %finalize_callback_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %finalize_callback_.i, align 8
-  %finalize_data_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %finalize_data_.i, align 8
-  %finalize_hint_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -966,7 +738,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %4, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -976,7 +748,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %5 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %5, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
 
@@ -986,10 +758,10 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
-  %env_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %env_.i, align 8
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #24
   br label %if.end.i
@@ -999,7 +771,7 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN6v8i
 
 delete.notnull.i:                                 ; preds = %if.end.i
   %vtable3.i = load ptr, ptr %this, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 1
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 8
   %8 = load ptr, ptr %vfn4.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   br label %_ZN6v8impl16TrackedFinalizer12FinalizeCoreEb.exit
@@ -1030,7 +802,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -1040,7 +812,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %ent
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -1053,7 +825,7 @@ if.then.i.i:                                      ; preds = %_ZN6v8impl10RefTrac
   %env_.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %7 = load ptr, ptr %env_.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #24
   br label %if.end.i.i
@@ -1063,7 +835,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN6v
 
 delete.notnull.i.i:                               ; preds = %if.end.i.i
   %vtable3.i.i = load ptr, ptr %0, align 8
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 1
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 8
   %9 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
   br label %_ZN6v8impl7RefBase8FinalizeEv.exit
@@ -1078,7 +850,7 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl9ReferenceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 40
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl9ReferenceE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %persistent_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
   %cmp.i9 = icmp eq ptr %0, null
   br i1 %cmp.i9, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit, label %if.end.i
@@ -1099,7 +871,7 @@ _ZN2v86GlobalINS_5ValueEED2Ev.exit:               ; preds = %if.end.i, %entry
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN2v86GlobalINS_5ValueEED2Ev.exit
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -1109,16 +881,16 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %2 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %2, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl7RefBaseD2Ev.exit
 
 _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.then6.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i.i.i, i8 0, i64 16, i1 false)
-  %env_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %env_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %add.ptr) #24
   ret void
@@ -1151,7 +923,7 @@ _ZN2v86GlobalINS_5ValueEED2Ev.exit.i:             ; preds = %if.end.i.i, %entry
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %2, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -1161,7 +933,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %3 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %3, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl9ReferenceD2Ev.exit
 
@@ -1170,7 +942,7 @@ _ZN6v8impl9ReferenceD2Ev.exit:                    ; preds = %if.end.i.i.i.i, %if
   %env_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %4 = load ptr, ptr %env_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull %this) #24
   ret void
@@ -1182,7 +954,7 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl9ReferenceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl9ReferenceE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %persistent_.i = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_.i, align 8
   %cmp.i9.i = icmp eq ptr %0, null
   br i1 %cmp.i9.i, label %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i, label %if.end.i.i
@@ -1203,7 +975,7 @@ _ZN2v86GlobalINS_5ValueEED2Ev.exit.i:             ; preds = %if.end.i.i, %entry
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -1213,16 +985,16 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %2 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %2, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl9ReferenceD2Ev.exit
 
 _ZN6v8impl9ReferenceD2Ev.exit:                    ; preds = %if.end.i.i.i.i, %if.then6.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i.i.i.i, i8 0, i64 16, i1 false)
-  %env_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %env_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %add.ptr.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -1256,7 +1028,7 @@ _ZN2v86GlobalINS_5ValueEED2Ev.exit.i.i:           ; preds = %if.end.i.i.i, %entr
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN2v86GlobalINS_5ValueEED2Ev.exit.i.i
-  %next_3.i.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %2, i64 0, i32 1
+  %next_3.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %.pre.i.i.i.i.i, ptr %next_3.i.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
@@ -1266,7 +1038,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, 
 
 if.then6.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %3 = load ptr, ptr %prev_.i.i.i.i.i, align 8
-  %prev_9.i.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i.i, i64 16
   store ptr %3, ptr %prev_9.i.i.i.i.i, align 8
   br label %_ZN6v8impl9ReferenceD0Ev.exit
 
@@ -1275,7 +1047,7 @@ _ZN6v8impl9ReferenceD0Ev.exit:                    ; preds = %if.end.i.i.i.i.i, %
   %env_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %4 = load ptr, ptr %env_.i.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(189) %4, ptr noundef nonnull %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
@@ -1311,13 +1083,13 @@ entry:
   %2 = load ptr, ptr %args5, align 8
   %3 = load ptr, ptr %args7, align 8
   %4 = load ptr, ptr %args9, align 8
-  %env_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %env, ptr %env_.i.i.i, align 8
-  %finalize_callback_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %2, ptr %finalize_callback_.i.i.i, align 8
-  %finalize_data_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %3, ptr %finalize_data_.i.i.i, align 8
-  %finalize_hint_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %4, ptr %finalize_hint_.i.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %this, i64 40
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1325,36 +1097,35 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 1, i64 2), ptr %5, align 8
   %cmp.i.i3 = icmp eq ptr %2, null
-  %reflist.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i.i = select i1 %cmp.i.i3, ptr %reflist.i.i, ptr %finalizing_reflist.i.i
+  %cond.v.i.i = select i1 %cmp.i.i3, i64 32, i64 56
+  %cond.i.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i.i
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %cond.i.i, ptr %prev_.i.i.i, align 8
-  %next_.i4.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i.i, i64 0, i32 1
+  %next_.i4.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 8
   %6 = load ptr, ptr %next_.i4.i.i, align 8
   store ptr %6, ptr %next_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %prev_5.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %6, i64 0, i32 2
+  %prev_5.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %prev_5.i.i.i, align 8
   br label %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit
 
 _ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; preds = %entry, %if.then.i.i.i
   store ptr %5, ptr %next_.i4.i.i, align 8
-  %refcount_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 1
+  %refcount_.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %0, ptr %refcount_.i, align 8
-  %ownership_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 2
+  %ownership_.i = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %1, ptr %ownership_.i, align 4
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl9ReferenceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl9ReferenceE, i64 0, inrange i32 1, i64 2), ptr %5, align 8
-  %persistent_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
   %cmp.i.i = icmp eq ptr %value.coerce, null
   br i1 %cmp.i.i, label %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %7 = load ptr, ptr %isolate, align 8
   %8 = load i64, ptr %value.coerce, align 8
   %call2.i.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
@@ -1363,7 +1134,7 @@ if.end.i.i:                                       ; preds = %_ZN6v8impl7RefBaseC
 _ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit: ; preds = %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit, %if.end.i.i
   %retval.i.i.0 = phi ptr [ %call2.i.i, %if.end.i.i ], [ null, %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit ]
   store ptr %retval.i.i.0, ptr %persistent_, align 8
-  %can_be_weak_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 2
+  %can_be_weak_ = getelementptr inbounds i8, ptr %this, i64 80
   %call3.i = tail call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #24
   br i1 %call3.i, label %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread, label %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit
 
@@ -1410,13 +1181,13 @@ if.end:                                           ; preds = %_ZN6v8impl12_GLOBAL
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN6v8impl9Reference3RefEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %persistent_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcount_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 1
+  %refcount_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i32, ptr %refcount_.i, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %refcount_.i, align 8
@@ -1424,7 +1195,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %can_be_weak_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 2
+  %can_be_weak_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i8, ptr %can_be_weak_, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -1442,13 +1213,13 @@ return:                                           ; preds = %if.end, %land.lhs.t
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN6v8impl9Reference5UnrefEv(ptr noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %persistent_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcount_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 1
+  %refcount_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i32, ptr %refcount_.i, align 8
   %cmp.i3 = icmp eq i32 %1, 0
   br i1 %cmp.i3, label %return, label %_ZN6v8impl7RefBase5UnrefEv.exit
@@ -1460,7 +1231,7 @@ _ZN6v8impl7RefBase5UnrefEv.exit:                  ; preds = %if.end
   br i1 %cmp, label %if.then5, label %return
 
 if.then5:                                         ; preds = %_ZN6v8impl7RefBase5UnrefEv.exit
-  %can_be_weak_.i = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 2
+  %can_be_weak_.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load i8, ptr %can_be_weak_.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
@@ -1483,11 +1254,11 @@ return:                                           ; preds = %if.end, %if.end.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl9Reference7SetWeakEv(ptr noundef nonnull align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %can_be_weak_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 2
+  %can_be_weak_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %can_be_weak_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %persistent_2 = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_2 = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %persistent_2, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -1509,17 +1280,17 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @_ZN6v8impl9Reference3GetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN6v8impl9Reference3GetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %persistent_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %env_, align 8
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %1, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %isolate, align 8
   %3 = load i64, ptr %0, align 8
   %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %2, i64 noundef %3) #24
@@ -1533,7 +1304,7 @@ return:                                           ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl9Reference8FinalizeEv(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #3 align 2 {
 entry:
-  %persistent_ = getelementptr inbounds %"class.v8impl::Reference", ptr %this, i64 0, i32 1
+  %persistent_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %persistent_, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit, label %if.end.i
@@ -1544,14 +1315,14 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit:  ; preds = %entry, %if.end.i
-  %ownership_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %this, i64 0, i32 2
+  %ownership_.i = getelementptr inbounds i8, ptr %this, i64 68
   %1 = load i32, ptr %ownership_.i, align 4
   %cmp.i1 = icmp eq i32 %1, 0
-  %finalize_callback_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %finalize_callback_.i.i, align 8
-  %finalize_data_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %finalize_data_.i.i, align 8
-  %finalize_hint_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %finalize_hint_.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i.i, i8 0, i64 24, i1 false)
   %prev_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1562,7 +1333,7 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit:  ; preds = %entry, %if.end.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -1572,7 +1343,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -1582,10 +1353,10 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
-  %env_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %env_.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #24
   br label %if.end.i.i
@@ -1595,7 +1366,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN6v
 
 delete.notnull.i.i:                               ; preds = %if.end.i.i
   %vtable3.i.i = load ptr, ptr %this, align 8
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i, i64 1
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 8
   %9 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   br label %_ZN6v8impl7RefBase8FinalizeEv.exit
@@ -1637,7 +1408,7 @@ _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i: ; preds = %if.end.i.i, %entry
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit.i
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %6, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -1647,7 +1418,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %7 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %7, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
 
@@ -1660,7 +1431,7 @@ if.then.i.i.i:                                    ; preds = %_ZN6v8impl10RefTrac
   %env_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %8 = load ptr, ptr %env_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(189) %8, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5) #24
   br label %if.end.i.i.i
@@ -1670,7 +1441,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN
 
 delete.notnull.i.i.i:                             ; preds = %if.end.i.i.i
   %vtable3.i.i.i = load ptr, ptr %0, align 8
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i, i64 1
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i, i64 8
   %10 = load ptr, ptr %vfn4.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(64) %0) #24
   br label %_ZN6v8impl9Reference8FinalizeEv.exit
@@ -1682,9 +1453,9 @@ _ZN6v8impl9Reference8FinalizeEv.exit:             ; preds = %if.end.i.i.i, %dele
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) #3 align 2 {
 entry:
-  %parameter_.i = getelementptr inbounds %"class.v8::WeakCallbackInfo", ptr %data, i64 0, i32 1
+  %parameter_.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %parameter_.i, align 8
-  %persistent_ = getelementptr inbounds %"class.v8impl::Reference", ptr %0, i64 0, i32 1
+  %persistent_ = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %persistent_, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit, label %if.end.i
@@ -1695,28 +1466,28 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
 
 _ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit:  ; preds = %entry, %if.end.i
-  %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %0, i64 0, i32 1
+  %env_ = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %env_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 40
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %2, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %2, i64 184
   %3 = load i32, ptr %module_api_version.i, align 8
   %cmp.not.i = icmp eq i32 %3, 2147483647
   br i1 %cmp.not.i, label %"_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit.i", label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr) #24
   br label %_ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE.exit
 
 "_ZN4node16OnScopeLeaveImplIZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerEE3$_0ED2Ev.exit.i": ; preds = %_ZN2v814PersistentBaseINS_5ValueEE5ResetEv.exit
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %2, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %2, i64 188
   %5 = load i8, ptr %in_gc_finalizer.i, align 4
   %6 = and i8 %5, 1
   store i8 1, ptr %in_gc_finalizer.i, align 4
   %vtable3.i = load ptr, ptr %add.ptr, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 2
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %7 = load ptr, ptr %vfn4.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr) #24
   store i8 %6, ptr %in_gc_finalizer.i, align 4
@@ -1727,7 +1498,7 @@ _ZN10napi_env__21InvokeFinalizerFromGCEPN6v8impl10RefTrackerE.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_last_error_info(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_last_error_info(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -1737,17 +1508,17 @@ do.body1:                                         ; preds = %entry
   br i1 %cmp2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.body1
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end5:                                          ; preds = %do.body1
-  %last_error = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
-  %error_code = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %last_error = getelementptr inbounds i8, ptr %env, i64 136
+  %error_code = getelementptr inbounds i8, ptr %env, i64 156
   %0 = load i32, ptr %error_code, align 4
   %cmp7 = icmp sgt i32 %0, 23
   br i1 %cmp7, label %do.body11, label %do.end14
@@ -1793,13 +1564,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i26 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i26, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -1810,17 +1581,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -1834,31 +1605,31 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i27 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i27, align 4
-  %engine_error_code3.i28 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i28 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i28, align 8
-  %engine_reserved5.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i29 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i29, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %if.then18, label %do.body22
 
 if.then18:                                        ; preds = %do.end14
-  %error_code1.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i30 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i30, align 4
-  %engine_error_code3.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i31 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i31, align 8
-  %engine_reserved5.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i32 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i32, align 8
   br label %cleanup98
 
@@ -1867,11 +1638,11 @@ do.body22:                                        ; preds = %do.end14
   br i1 %cmp23.not, label %if.then24, label %do.end28
 
 if.then24:                                        ; preds = %do.body22
-  %error_code1.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i33 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i33, align 4
-  %engine_error_code3.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i34 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i34, align 8
-  %engine_reserved5.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i35 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i35, align 8
   br label %cleanup98
 
@@ -1912,11 +1683,11 @@ if.end85:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %if.end85, %do.end59, %if.then43
   %.sink = phi i32 [ 1, %if.then43 ], [ 9, %do.end59 ], [ 10, %if.end85 ]
-  %error_code1.i42 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i42 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i42, align 4
-  %engine_error_code3.i43 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i43 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i43, align 8
-  %engine_reserved5.i44 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i44 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i44, align 8
   br label %cleanup
 
@@ -1932,8 +1703,8 @@ cleanup98:                                        ; preds = %cleanup, %if.then24
 
 if.then.i45:                                      ; preds = %cleanup98
   %10 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 3
-  %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %12 = load ptr, ptr %last_exception.i, align 8
@@ -1975,12 +1746,12 @@ entry:
   %finalize_data.addr.i.i = alloca ptr, align 8
   %finalize_hint.addr.i.i = alloca ptr, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %cb1.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 2
+  %cb1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %cb, ptr %cb1.i, align 8
-  %cb_data.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 1
+  %cb_data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %cb_data, ptr %cb_data.i, align 8
   store ptr %env, ptr %call.i, align 8
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %0 = load ptr, ptr %isolate.i, align 8
   %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
@@ -2004,33 +1775,33 @@ entry:
   br i1 %cmp.i, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end:                                           ; preds = %entry
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call16 = call ptr @_ZN2v88Function3NewENS_5LocalINS_7ContextEEEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS1_IS5_EEiNS_19ConstructorBehaviorENS_14SideEffectTypeE(ptr %retval.sroa.0.0.copyload.i.i, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper6InvokeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr nonnull %call3.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #24
   %cmp.i.i40 = icmp eq ptr %call16, null
   br i1 %cmp.i.i40, label %if.then23, label %_ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit
 
 if.then23:                                        ; preds = %do.end
-  %error_code1.i6 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i6 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i6, align 4
-  %engine_error_code3.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i7 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i7, align 8
-  %engine_reserved5.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i8 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i8, align 8
   br label %return
 
 _ZN2v810MaybeLocalINS_8FunctionEE14ToLocalCheckedEv.exit: ; preds = %do.end
   store ptr %call16, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -2060,13 +1831,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i69 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i69, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -2077,17 +1848,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -2101,31 +1872,31 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i70 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i70 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i70, align 4
-  %engine_error_code3.i71 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i71 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i71, align 8
-  %engine_reserved5.i72 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i72 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i72, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %if.then18, label %do.body22
 
 if.then18:                                        ; preds = %do.end14
-  %error_code1.i73 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i73 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i73, align 4
-  %engine_error_code3.i74 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i74 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i74, align 8
-  %engine_reserved5.i75 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i75 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i75, align 8
   br label %cleanup299
 
@@ -2134,11 +1905,11 @@ do.body22:                                        ; preds = %do.end14
   br i1 %cmp23.not, label %if.then24, label %do.end28
 
 if.then24:                                        ; preds = %do.body22
-  %error_code1.i76 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i76 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i76, align 4
-  %engine_error_code3.i77 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i77 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i77, align 8
-  %engine_reserved5.i78 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i78 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i78, align 8
   br label %cleanup299
 
@@ -2149,11 +1920,11 @@ do.end28:                                         ; preds = %do.body22
   br i1 %or.cond2, label %if.end38, label %if.then33
 
 if.then33:                                        ; preds = %do.end28
-  %error_code1.i79 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i79 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i79, align 4
-  %engine_error_code3.i80 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i80 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i80, align 8
-  %engine_reserved5.i81 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i81 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i81, align 8
   br label %cleanup299
 
@@ -2169,8 +1940,8 @@ do.end48:                                         ; preds = %if.end38
   %8 = add i64 %length, -2147483648
   %or.cond = icmp ult i64 %8, -2147483649
   %cmp59.not = icmp eq ptr %utf8name, null
-  %or.cond107 = or i1 %or.cond, %cmp59.not
-  br i1 %or.cond107, label %cleanup298.sink.split, label %do.end64
+  %or.cond106 = or i1 %or.cond, %cmp59.not
+  br i1 %or.cond106, label %cleanup298.sink.split, label %do.end64
 
 do.end64:                                         ; preds = %do.end48
   %9 = load ptr, ptr %isolate.i, align 8
@@ -2185,17 +1956,17 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end64
   br i1 %cmp29, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %for.inc
-  %static_property_count.0101 = phi i64 [ %static_property_count.1, %for.inc ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
+  %static_property_count.0100 = phi i64 [ %static_property_count.1, %for.inc ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
   %i.099 = phi i64 [ %inc231, %for.inc ], [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
   %add.ptr = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099
-  %attributes = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 6
+  %attributes = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %11 = load i32, ptr %attributes, align 8
   %and = and i32 %11, 1024
   %cmp90.not = icmp eq i32 %and, 0
   br i1 %cmp90.not, label %if.end92, label %if.then91
 
 if.then91:                                        ; preds = %for.body
-  %inc = add i64 %static_property_count.0101, 1
+  %inc = add i64 %static_property_count.0100, 1
   br label %for.inc
 
 if.end92:                                         ; preds = %for.body
@@ -2206,13 +1977,13 @@ if.end92:                                         ; preds = %for.body
 
 do.end100:                                        ; preds = %if.end92
   %call102 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr noundef nonnull %add.ptr), !range !5
-  %getter = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 3
+  %getter = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %12 = load ptr, ptr %getter, align 8
   %cmp103.not = icmp eq ptr %12, null
   br i1 %cmp103.not, label %lor.lhs.false104, label %do.body110
 
 lor.lhs.false104:                                 ; preds = %do.end100
-  %setter = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 4
+  %setter = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %13 = load ptr, ptr %setter, align 8
   %cmp105.not = icmp eq ptr %13, null
   br i1 %cmp105.not, label %if.else, label %if.end123.thread
@@ -2225,21 +1996,21 @@ if.end123.thread:                                 ; preds = %lor.lhs.false104
 do.body110:                                       ; preds = %do.end100
   store ptr null, ptr %getter_tpl, align 8
   store ptr null, ptr %setter_tpl, align 8
-  %data = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 7
+  %data = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %14 = load ptr, ptr %data, align 8
   %call117 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %12, ptr noundef %14, ptr noundef nonnull %getter_tpl, ptr null)
   %cmp118.not = icmp eq i32 %call117, 0
   br i1 %cmp118.not, label %if.end123, label %cleanup298
 
 if.end123:                                        ; preds = %do.body110
-  %setter124.phi.trans.insert = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 4
+  %setter124.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %.pre = load ptr, ptr %setter124.phi.trans.insert, align 8
   %cmp125.not = icmp eq ptr %.pre, null
   br i1 %cmp125.not, label %if.end141, label %do.body127
 
 do.body127:                                       ; preds = %if.end123.thread, %if.end123
   %15 = phi ptr [ %13, %if.end123.thread ], [ %.pre, %if.end123 ]
-  %data130 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 7
+  %data130 = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %16 = load ptr, ptr %data130, align 8
   %call135 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %15, ptr noundef %16, ptr noundef nonnull %setter_tpl, ptr null)
   %cmp136.not = icmp eq i32 %call135, 0
@@ -2258,14 +2029,14 @@ if.end141:                                        ; preds = %do.body127.if.end14
   br label %for.inc
 
 if.else:                                          ; preds = %lor.lhs.false104
-  %method = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 2
+  %method = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %17 = load ptr, ptr %method, align 8
   %cmp161.not = icmp eq ptr %17, null
   br i1 %cmp161.not, label %if.else204, label %if.then162
 
 if.then162:                                       ; preds = %if.else
   store ptr null, ptr %t, align 8
-  %data166 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 7
+  %data166 = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %18 = load ptr, ptr %data166, align 8
   %call172 = call ptr @_ZN2v89Signature3NewEPNS_7IsolateENS_5LocalINS_16FunctionTemplateEEE(ptr noundef %7, ptr nonnull %10) #24
   %call179 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewTemplateEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_16FunctionTemplateEEENSC_INSB_9SignatureEEE(ptr noundef nonnull %env, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %t, ptr %call172)
@@ -2280,7 +2051,7 @@ do.end184:                                        ; preds = %if.then162
   br label %for.inc
 
 if.else204:                                       ; preds = %if.else
-  %value205 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.099, i32 5
+  %value205 = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %19 = load ptr, ptr %value205, align 8
   %call212 = call ptr @_ZN2v816FunctionTemplate17PrototypeTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %10) #24
   %agg.tmp217.sroa.0.0.copyload = load ptr, ptr %property_name, align 8
@@ -2288,14 +2059,14 @@ if.else204:                                       ; preds = %if.else
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end141, %if.else204, %do.end184, %if.then91
-  %static_property_count.1 = phi i64 [ %inc, %if.then91 ], [ %static_property_count.0101, %if.end141 ], [ %static_property_count.0101, %do.end184 ], [ %static_property_count.0101, %if.else204 ]
+  %static_property_count.1 = phi i64 [ %inc, %if.then91 ], [ %static_property_count.0100, %if.end141 ], [ %static_property_count.0100, %do.end184 ], [ %static_property_count.0100, %if.else204 ]
   %inc231 = add nuw i64 %i.099, 1
   %exitcond.not = icmp eq i64 %inc231, %property_count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
   %static_property_count.0.lcssa = phi i64 [ 0, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ %static_property_count.1, %for.inc ]
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call245 = call ptr @_ZN2v816FunctionTemplate11GetFunctionENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr %retval.sroa.0.0.copyload.i.i) #24
   %cmp.i.i370 = icmp eq ptr %call245, null
@@ -2317,26 +2088,26 @@ if.then269:                                       ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp29, label %do.body284, label %for.body273
 
 for.body273:                                      ; preds = %if.then269, %for.inc281
-  %i270.0103 = phi i64 [ %inc282, %for.inc281 ], [ 0, %if.then269 ]
-  %attributes276 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i270.0103, i32 6
+  %i270.0102 = phi i64 [ %inc282, %for.inc281 ], [ 0, %if.then269 ]
+  %add.ptr275 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i270.0102
+  %attributes276 = getelementptr inbounds i8, ptr %add.ptr275, i64 48
   %20 = load i32, ptr %attributes276, align 8
   %and277 = and i32 %20, 1024
   %cmp278.not = icmp eq i32 %and277, 0
   br i1 %cmp278.not, label %for.inc281, label %if.then279
 
 if.then279:                                       ; preds = %for.body273
-  %add.ptr275 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i270.0103
   call void @_ZNSt6vectorI24napi_property_descriptorSaIS0_EE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %static_descriptors, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr275)
   br label %for.inc281
 
 for.inc281:                                       ; preds = %for.body273, %if.then279
-  %inc282 = add nuw i64 %i270.0103, 1
-  %exitcond104.not = icmp eq i64 %inc282, %property_count
-  br i1 %exitcond104.not, label %do.body284, label %for.body273, !llvm.loop !8
+  %inc282 = add nuw i64 %i270.0102, 1
+  %exitcond103.not = icmp eq i64 %inc282, %property_count
+  br i1 %exitcond103.not, label %do.body284, label %for.body273, !llvm.loop !8
 
 do.body284:                                       ; preds = %for.inc281, %if.then269
   %21 = load ptr, ptr %result, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data", ptr %static_descriptors, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %static_descriptors, i64 8
   %22 = load ptr, ptr %_M_finish.i, align 8
   %23 = load ptr, ptr %static_descriptors, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %22 to i64
@@ -2362,11 +2133,11 @@ if.end294:                                        ; preds = %_ZNSt6vectorI24napi
 
 cleanup298.sink.split:                            ; preds = %if.end294, %do.end64, %do.end48
   %.sink = phi i32 [ 1, %do.end48 ], [ 9, %do.end64 ], [ 10, %if.end294 ]
-  %error_code1.i91 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i91 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i91, align 4
-  %engine_error_code3.i92 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i92 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i92, align 8
-  %engine_reserved5.i93 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i93 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i93, align 8
   br label %cleanup298
 
@@ -2382,8 +2153,8 @@ cleanup299:                                       ; preds = %cleanup298, %if.the
 
 if.then.i94:                                      ; preds = %cleanup299
   %25 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %25, i64 0, i32 3
-  %isolate.i96 = getelementptr inbounds %struct.napi_env__, ptr %25, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %25, i64 24
+  %isolate.i96 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %isolate.i96, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %27 = load ptr, ptr %last_exception.i, align 8
@@ -2423,12 +2194,12 @@ entry:
   %finalize_data.addr.i.i = alloca ptr, align 8
   %finalize_hint.addr.i.i = alloca ptr, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %cb1.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 2
+  %cb1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %cb, ptr %cb1.i, align 8
-  %cb_data.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call.i, i64 0, i32 1
+  %cb_data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %cb_data, ptr %cb_data.i, align 8
   store ptr %env, ptr %call.i, align 8
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %0 = load ptr, ptr %isolate.i, align 8
   %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
@@ -2452,11 +2223,11 @@ entry:
   br i1 %cmp.i, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -2464,7 +2235,7 @@ do.end:                                           ; preds = %entry
   %1 = load ptr, ptr %isolate.i, align 8
   %call15 = call ptr @_ZN2v816FunctionTemplate3NewEPNS_7IsolateEPFvRKNS_20FunctionCallbackInfoINS_5ValueEEEENS_5LocalIS4_EENSA_INS_9SignatureEEEiNS_19ConstructorBehaviorENS_14SideEffectTypeEPKNS_9CFunctionEttt(ptr noundef %1, ptr noundef nonnull @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper6InvokeERKN2v820FunctionCallbackInfoINS2_5ValueEEE, ptr nonnull %call3.i, ptr %sig.coerce, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef null, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext 0) #24
   store ptr %call15, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -2483,33 +2254,33 @@ entry:
   br i1 %cmp.not, label %if.else, label %do.end6
 
 do.end6:                                          ; preds = %entry
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %1 = load ptr, ptr %isolate, align 8
   %call8 = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i = icmp eq ptr %call8, null
   br i1 %cmp.i.i, label %if.then14, label %if.end42
 
 if.then14:                                        ; preds = %do.end6
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.napi_property_descriptor, ptr %p, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load ptr, ptr %name, align 8
   %call32 = tail call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #24
   br i1 %call32, label %if.end42, label %if.then33
 
 if.then33:                                        ; preds = %if.else
-  %error_code1.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i9 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 4, ptr %error_code1.i9, align 4
-  %engine_error_code3.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i10 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i10, align 8
-  %engine_reserved5.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i11 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i11, align 8
   br label %return
 
@@ -2526,19 +2297,19 @@ return:                                           ; preds = %if.end42, %if.then3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_134V8PropertyAttributesFromDescriptorEPK24napi_property_descriptor(ptr nocapture noundef readonly %descriptor) unnamed_addr #10 {
 entry:
-  %getter = getelementptr inbounds %struct.napi_property_descriptor, ptr %descriptor, i64 0, i32 3
+  %getter = getelementptr inbounds i8, ptr %descriptor, i64 24
   %0 = load ptr, ptr %getter, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %setter = getelementptr inbounds %struct.napi_property_descriptor, ptr %descriptor, i64 0, i32 4
+  %setter = getelementptr inbounds i8, ptr %descriptor, i64 32
   %1 = load ptr, ptr %setter, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %attributes = getelementptr inbounds %struct.napi_property_descriptor, ptr %descriptor, i64 0, i32 6
+  %attributes = getelementptr inbounds i8, ptr %descriptor, i64 48
   %2 = load i32, ptr %attributes, align 8
   %and = and i32 %2, 1
   %spec.select = xor i32 %and, 1
@@ -2546,7 +2317,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %land.lhs.true2, %land.lhs.true, %entry
   %attribute_flags.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %entry ], [ %spec.select, %land.lhs.true2 ]
-  %attributes4 = getelementptr inbounds %struct.napi_property_descriptor, ptr %descriptor, i64 0, i32 6
+  %attributes4 = getelementptr inbounds i8, ptr %descriptor, i64 48
   %3 = load i32, ptr %attributes4, align 8
   %and5 = and i32 %3, 2
   %4 = xor i32 %and5, 2
@@ -2578,7 +2349,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2589,7 +2360,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit, label %if.end24
 
 _ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit: ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i6 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i6, %sub.ptr.rhs.cast.i
@@ -2625,9 +2396,9 @@ if.end24:                                         ; preds = %_ZNSt12_Vector_base
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI24napi_property_descriptorSaIS0_EE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(64) %__x) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<napi_property_descriptor, std::allocator<napi_property_descriptor>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2635,7 +2406,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %__x, i64 64, i1 false)
   %2 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %struct.napi_property_descriptor, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 64
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end
 
@@ -2654,7 +2425,7 @@ if.then.i.i:                                      ; preds = %if.else
 _ZNKSt6vectorI24napi_property_descriptorSaIS0_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 6
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
-  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 144115188075855871)
   %cond.i.i = select i1 %cmp7.i.i, i64 144115188075855871, i64 %4
@@ -2679,7 +2450,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorI24napi_property_descriptorSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i: ; preds = %_ZNSt12_Vector_baseI24napi_property_descriptorSaIS0_EE11_M_allocateEm.exit.i, %if.then.i.i.i.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %struct.napi_property_descriptor, ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 64
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorI24napi_property_descriptorSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %if.then.i18.i
 
@@ -2712,13 +2483,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i69 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i69, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -2729,17 +2500,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -2753,21 +2524,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i70 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i70 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i70, align 4
-  %engine_error_code3.i71 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i71 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i71, align 8
-  %engine_reserved5.i72 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i72 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i72, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp16 = icmp eq i64 %property_count, 0
   %cmp19 = icmp ne ptr %properties, null
@@ -2775,26 +2546,26 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %do.end14
-  %error_code1.i73 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i73 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i73, align 4
-  %engine_error_code3.i74 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i74 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i74, align 8
-  %engine_reserved5.i75 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i75 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i75, align 8
   br label %cleanup274
 
 if.end24:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp30.not = icmp eq ptr %object, null
   br i1 %cmp30.not, label %if.then31, label %do.end35
 
 if.then31:                                        ; preds = %if.end24
-  %error_code1.i76 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i76 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i76, align 4
-  %engine_error_code3.i77 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i77 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i77, align 8
-  %engine_reserved5.i78 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i78 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i78, align 8
   br label %cleanup274
 
@@ -2807,11 +2578,11 @@ for.cond.preheader:                               ; preds = %do.end35
   br i1 %cmp16, label %for.end, label %for.body
 
 if.then51:                                        ; preds = %do.end35
-  %error_code1.i79 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i79 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 2, ptr %error_code1.i79, align 4
-  %engine_error_code3.i80 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i80 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i80, align 8
-  %engine_reserved5.i81 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i81 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i81, align 8
   br label %cleanup274
 
@@ -2829,38 +2600,38 @@ do.end6.i:                                        ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then14.i, label %do.end70
 
 if.then14.i:                                      ; preds = %do.end6.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %cleanup274
 
 if.else.i:                                        ; preds = %for.body
-  %name.i = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 1
+  %name.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %9 = load ptr, ptr %name.i, align 8
   %call32.i = call noundef zeroext i1 @_ZNK2v85Value6IsNameEv(ptr noundef nonnull align 1 dereferenceable(1) %9) #24
   br i1 %call32.i, label %do.end70, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.else.i
-  %error_code1.i9.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i9.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 4, ptr %error_code1.i9.i, align 4
-  %engine_error_code3.i10.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i10.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i10.i, align 8
-  %engine_reserved5.i11.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i11.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i11.i, align 8
   br label %cleanup274
 
 do.end70:                                         ; preds = %if.else.i, %do.end6.i
   %property_name.sroa.0.0.ph = phi ptr [ %9, %if.else.i ], [ %call8.i, %do.end6.i ]
-  %getter = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 3
+  %getter = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %10 = load ptr, ptr %getter, align 8
   %cmp71.not = icmp eq ptr %10, null
   br i1 %cmp71.not, label %lor.lhs.false, label %do.body77
 
 lor.lhs.false:                                    ; preds = %do.end70
-  %setter = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 4
+  %setter = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %11 = load ptr, ptr %setter, align 8
   %cmp72.not = icmp eq ptr %11, null
   br i1 %cmp72.not, label %if.else, label %if.end86.thread
@@ -2873,21 +2644,21 @@ if.end86.thread:                                  ; preds = %lor.lhs.false
 do.body77:                                        ; preds = %do.end70
   store ptr null, ptr %local_getter, align 8
   store ptr null, ptr %local_setter, align 8
-  %data = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 7
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %12 = load ptr, ptr %data, align 8
   %call80 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %10, ptr noundef %12, ptr noundef nonnull %local_getter)
   %cmp81.not = icmp eq i32 %call80, 0
   br i1 %cmp81.not, label %if.end86, label %cleanup274
 
 if.end86:                                         ; preds = %do.body77
-  %setter87.phi.trans.insert = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 4
+  %setter87.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %.pre = load ptr, ptr %setter87.phi.trans.insert, align 8
   %cmp88.not = icmp eq ptr %.pre, null
   br i1 %cmp88.not, label %if.end100, label %do.body90
 
 do.body90:                                        ; preds = %if.end86.thread, %if.end86
   %13 = phi ptr [ %11, %if.end86.thread ], [ %.pre, %if.end86 ]
-  %data93 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 7
+  %data93 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %14 = load ptr, ptr %data93, align 8
   %call94 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %13, ptr noundef %14, ptr noundef nonnull %local_setter)
   %cmp95.not = icmp eq i32 %call94, 0
@@ -2901,7 +2672,7 @@ if.end100:                                        ; preds = %do.body90.if.end100
   %agg.tmp107.sroa.0.0.copyload = phi ptr [ %agg.tmp107.sroa.0.0.copyload.pre, %do.body90.if.end100_crit_edge ], [ null, %if.end86 ]
   %agg.tmp102.sroa.0.0.copyload = load ptr, ptr %local_getter, align 8
   call void @_ZN2v818PropertyDescriptorC1ENS_5LocalINS_5ValueEEES3_(ptr noundef nonnull align 8 dereferenceable(8) %descriptor, ptr %agg.tmp102.sroa.0.0.copyload, ptr %agg.tmp107.sroa.0.0.copyload) #24
-  %attributes = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 6
+  %attributes = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %15 = load i32, ptr %attributes, align 8
   %and = and i32 %15, 2
   %cmp117 = icmp ne i32 %and, 0
@@ -2918,24 +2689,24 @@ if.end100:                                        ; preds = %do.body90.if.end100
 cleanup:                                          ; preds = %if.end100
   %call135 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond136 = select i1 %call135, i32 10, i32 1
-  %error_code1.i83 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i83 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond136, ptr %error_code1.i83, align 4
-  %engine_error_code3.i84 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i84 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i84, align 8
-  %engine_reserved5.i85 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i85 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i85, align 8
   call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor) #24
   br label %cleanup274
 
 if.else:                                          ; preds = %lor.lhs.false
-  %method = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 2
+  %method = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %18 = load ptr, ptr %method, align 8
   %cmp141.not = icmp eq ptr %18, null
   br i1 %cmp141.not, label %if.else197, label %if.then142
 
 if.then142:                                       ; preds = %if.else
   store ptr null, ptr %method143, align 8
-  %data147 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 7
+  %data147 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %19 = load ptr, ptr %data147, align 8
   %call148 = call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper11NewFunctionEP10napi_env__PFP12napi_value__S3_P20napi_callback_info__EPvPN2v85LocalINSB_8FunctionEEE(ptr noundef nonnull %env, ptr noundef nonnull %18, ptr noundef %19, ptr noundef nonnull %method143)
   %cmp149.not = icmp eq i32 %call148, 0
@@ -2943,7 +2714,7 @@ if.then142:                                       ; preds = %if.else
 
 do.end153:                                        ; preds = %if.then142
   %agg.tmp156.sroa.0.0.copyload = load ptr, ptr %method143, align 8
-  %attributes160 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 6
+  %attributes160 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %20 = load i32, ptr %attributes160, align 8
   %and161 = and i32 %20, 1
   %cmp162 = icmp ne i32 %and161, 0
@@ -2964,19 +2735,19 @@ do.end153:                                        ; preds = %if.then142
 cleanup194:                                       ; preds = %do.end153
   %call188 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond189 = select i1 %call188, i32 10, i32 9
-  %error_code1.i86 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i86 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond189, ptr %error_code1.i86, align 4
-  %engine_error_code3.i87 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i87 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i87, align 8
-  %engine_reserved5.i88 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i88 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i88, align 8
   call void @_ZN2v818PropertyDescriptorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor154) #24
   br label %cleanup274
 
 if.else197:                                       ; preds = %if.else
-  %value198 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 5
+  %value198 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %24 = load ptr, ptr %value198, align 8
-  %attributes206 = getelementptr inbounds %struct.napi_property_descriptor, ptr %properties, i64 %i.0106, i32 6
+  %attributes206 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %25 = load i32, ptr %attributes206, align 8
   %26 = and i32 %25, 7
   %or.cond68.not = icmp eq i32 %26, 7
@@ -3011,11 +2782,11 @@ do.body258:                                       ; preds = %if.then215, %if.els
 if.then262:                                       ; preds = %do.body258
   %call263 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond264 = select i1 %call263, i32 10, i32 1
-  %error_code1.i89 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i89 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond264, ptr %error_code1.i89, align 4
-  %engine_error_code3.i90 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i90 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i90, align 8
-  %engine_reserved5.i91 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i91 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i91, align 8
   br label %cleanup274
 
@@ -3034,11 +2805,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %call271, label %cond.false, label %cleanup274
 
 cond.false:                                       ; preds = %for.end
-  %error_code1.i92 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i92 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i92, align 4
-  %engine_error_code3.i93 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i93 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i93, align 8
-  %engine_reserved5.i94 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i94 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i94, align 8
   br label %cleanup274
 
@@ -3049,8 +2820,8 @@ cleanup274:                                       ; preds = %if.then142, %do.bod
 
 if.then.i95:                                      ; preds = %cleanup274
   %30 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %30, i64 0, i32 3
-  %isolate.i97 = getelementptr inbounds %struct.napi_env__, ptr %30, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %30, i64 24
+  %isolate.i97 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %isolate.i97, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %32 = load ptr, ptr %last_exception.i, align 8
@@ -3096,13 +2867,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i30 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i30, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -3113,17 +2884,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -3137,27 +2908,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i31 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i31, align 4
-  %engine_error_code3.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i32 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i32, align 8
-  %engine_reserved5.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i33 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i33, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp27.not = icmp eq ptr %object, null
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
@@ -3205,11 +2976,11 @@ _ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit: ; preds = %sw.epilog88
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit, %sw.epilog, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then101
   %.sink = phi i32 [ %cond103, %if.then101 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 1, %sw.epilog ], [ 10, %_ZN2v810MaybeLocalINS_5ArrayEE14ToLocalCheckedEv.exit ]
-  %error_code1.i52 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i52 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i52, align 4
-  %engine_error_code3.i53 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i53 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i53, align 8
-  %engine_reserved5.i54 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i54 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i54, align 8
   br label %cleanup
 
@@ -3220,8 +2991,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i55:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i57 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i57 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i57, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -3264,13 +3035,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i20 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i20, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -3281,17 +3052,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -3305,21 +3076,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i21 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i21, align 4
-  %engine_error_code3.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i22 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i22, align 8
-  %engine_reserved5.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i23 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i23, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
   %cmp23.not = icmp eq ptr %value, null
@@ -3327,7 +3098,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp34.not = icmp eq ptr %object, null
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
@@ -3353,11 +3124,11 @@ do.end98:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end98, %do.end39, %do.end28, %do.end14, %if.then92
   %.sink = phi i32 [ %cond94, %if.then92 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 10, %do.end98 ]
-  %error_code1.i39 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i39 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i39, align 4
-  %engine_error_code3.i40 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i40 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i40, align 8
-  %engine_reserved5.i41 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i41 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i41, align 8
   br label %cleanup
 
@@ -3368,8 +3139,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i42:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i44 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i44 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i44, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -3410,13 +3181,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i21 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i21, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -3427,17 +3198,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -3451,21 +3222,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i22, align 4
-  %engine_error_code3.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i23, align 8
-  %engine_reserved5.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i24, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   %cmp23.not = icmp eq ptr %key, null
@@ -3473,7 +3244,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp34.not = icmp eq ptr %object, null
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
@@ -3504,11 +3275,11 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end39, %do.end28, %do.end14, %if.then83
   %.sink = phi i32 [ %cond85, %if.then83 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 10, %cond.true.i ]
-  %error_code1.i40 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i40 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i40, align 4
-  %engine_error_code3.i41 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i41 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i41, align 8
-  %engine_reserved5.i42 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i42 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i42, align 8
   br label %cleanup
 
@@ -3519,8 +3290,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i43:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i45 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i45 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i45, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -3561,13 +3332,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i21 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i21, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -3578,17 +3349,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -3602,21 +3373,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i22, align 4
-  %engine_error_code3.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i23, align 8
-  %engine_reserved5.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i24, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
   %cmp23.not = icmp eq ptr %result, null
@@ -3624,7 +3395,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp38.not = icmp eq ptr %object, null
   br i1 %cmp38.not, label %cleanup.sink.split, label %do.end43
@@ -3651,11 +3422,11 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end43, %do.end28, %do.end14, %if.then87
   %.sink = phi i32 [ %cond89, %if.then87 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end43 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
-  %error_code1.i40 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i40 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i40, align 4
-  %engine_error_code3.i41 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i41 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i41, align 8
-  %engine_reserved5.i42 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i42 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i42, align 8
   br label %cleanup
 
@@ -3666,8 +3437,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i43:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i45 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i45 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i45, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -3708,13 +3479,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i20 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i20, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -3725,17 +3496,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -3749,27 +3520,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i21 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i21, align 4
-  %engine_error_code3.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i22 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i22, align 8
-  %engine_reserved5.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i23 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i23, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp31.not = icmp eq ptr %object, null
   br i1 %cmp31.not, label %cleanup.sink.split, label %do.end36
@@ -3807,11 +3578,11 @@ if.end87:                                         ; preds = %if.then84, %do.end8
 
 cleanup.sink.split:                               ; preds = %if.end87, %do.end36, %do.end21, %do.end14, %if.then76
   %.sink = phi i32 [ %cond78, %if.then76 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end36 ], [ 10, %if.end87 ]
-  %error_code1.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i36 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i36, align 4
-  %engine_error_code3.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i37 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i37, align 8
-  %engine_reserved5.i38 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i38 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i38, align 8
   br label %cleanup
 
@@ -3822,8 +3593,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i39:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i41 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i41 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i41, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -3864,13 +3635,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i22 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i22, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -3881,17 +3652,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -3905,21 +3676,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i23, align 4
-  %engine_error_code3.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i24 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i24, align 8
-  %engine_reserved5.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i25 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i25, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %key, null
   %cmp23.not = icmp eq ptr %result, null
@@ -3927,7 +3698,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp34.not = icmp eq ptr %object, null
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
@@ -3962,11 +3733,11 @@ cond.true.i:                                      ; preds = %do.end78
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end39, %do.end28, %do.end14, %if.then95
   %.sink = phi i32 [ %cond97, %if.then95 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 4, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 10, %cond.true.i ]
-  %error_code1.i44 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i44 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i44, align 4
-  %engine_error_code3.i45 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i45 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i45, align 8
-  %engine_reserved5.i46 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i46 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i46, align 8
   br label %cleanup
 
@@ -3977,8 +3748,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i47:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i49 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i49 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i49, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -4021,13 +3792,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i23 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i23, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -4038,17 +3809,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -4062,27 +3833,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i24, align 4
-  %engine_error_code3.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i25 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i25, align 8
-  %engine_reserved5.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i26 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i26, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp27.not = icmp eq ptr %object, null
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
@@ -4118,11 +3889,11 @@ do.end125:                                        ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end125, %do.end70, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then119
   %.sink = phi i32 [ %cond121, %if.then119 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end70 ], [ 10, %do.end125 ]
-  %error_code1.i45 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i45 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i45, align 4
-  %engine_error_code3.i46 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i46 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i46, align 8
-  %engine_reserved5.i47 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i47 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i47, align 8
   br label %cleanup
 
@@ -4133,8 +3904,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i48:                                      ; preds = %cleanup
   %9 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 3
-  %isolate.i50 = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i50 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i50, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
@@ -4173,13 +3944,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i24 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i24, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -4190,17 +3961,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -4214,27 +3985,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp27.not = icmp eq ptr %object, null
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
@@ -4275,11 +4046,11 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end70, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then110
   %.sink = phi i32 [ %cond112, %if.then110 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 1, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ 9, %do.end70 ], [ 10, %cond.true.i ]
-  %error_code1.i46 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i46 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i46, align 4
-  %engine_error_code3.i47 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i47 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i47, align 8
-  %engine_reserved5.i48 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i48 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i48, align 8
   br label %cleanup
 
@@ -4290,8 +4061,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i49:                                      ; preds = %cleanup
   %12 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 3
-  %isolate.i51 = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %12, i64 24
+  %isolate.i51 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %isolate.i51, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %14 = load ptr, ptr %last_exception.i, align 8
@@ -4330,13 +4101,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i24 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i24, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -4347,17 +4118,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -4371,27 +4142,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp30.not = icmp eq ptr %utf8name, null
   br i1 %cmp30.not, label %cleanup.sink.split, label %do.end35
@@ -4428,11 +4199,11 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end64, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %do.end35, %do.end21, %do.end14, %if.then114
   %.sink = phi i32 [ %cond116, %if.then114 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 9, %do.end35 ], [ 1, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ], [ 2, %do.end64 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
-  %error_code1.i46 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i46 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i46, align 4
-  %engine_error_code3.i47 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i47 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i47, align 8
-  %engine_reserved5.i48 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i48 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i48, align 8
   br label %cleanup
 
@@ -4443,8 +4214,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i49:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i51 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i51 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i51, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -4483,13 +4254,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -4500,17 +4271,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -4524,27 +4295,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i21, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp27.not = icmp eq ptr %object, null
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
@@ -4570,11 +4341,11 @@ do.end83:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end83, %do.end32, %do.end21, %do.end14, %if.then77
   %.sink = phi i32 [ %cond79, %if.then77 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 10, %do.end83 ]
-  %error_code1.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i34 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i34, align 4
-  %engine_error_code3.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i35 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i35, align 8
-  %engine_reserved5.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i36 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i36, align 8
   br label %cleanup
 
@@ -4585,8 +4356,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i37:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i39 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i39 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i39, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -4627,13 +4398,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -4644,17 +4415,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -4668,27 +4439,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp27.not = icmp eq ptr %object, null
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
@@ -4719,11 +4490,11 @@ cond.true.i:                                      ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %cond.true.i, %do.end32, %do.end21, %do.end14, %if.then68
   %.sink = phi i32 [ %cond70, %if.then68 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 10, %cond.true.i ]
-  %error_code1.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i35 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
-  %engine_error_code3.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i36 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i36, align 8
-  %engine_reserved5.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i37 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i37, align 8
   br label %cleanup
 
@@ -4734,8 +4505,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i38:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -4776,13 +4547,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -4793,17 +4564,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -4817,27 +4588,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp27.not = icmp eq ptr %object, null
   br i1 %cmp27.not, label %cleanup.sink.split, label %do.end32
@@ -4864,11 +4635,11 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end32, %do.end21, %do.end14, %if.then72
   %.sink = phi i32 [ %cond74, %if.then72 ], [ 1, %do.end14 ], [ 1, %do.end21 ], [ 2, %do.end32 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
-  %error_code1.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i35 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
-  %engine_error_code3.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i36 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i36, align 8
-  %engine_reserved5.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i37 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i37, align 8
   br label %cleanup
 
@@ -4879,8 +4650,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i38:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -4921,13 +4692,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -4938,17 +4709,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -4962,23 +4733,23 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i21, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp21.not = icmp eq ptr %object, null
   br i1 %cmp21.not, label %cleanup.sink.split, label %do.end25
@@ -5016,11 +4787,11 @@ if.end72:                                         ; preds = %if.then69, %do.end6
 
 cleanup.sink.split:                               ; preds = %if.end72, %do.end25, %do.end14, %if.then61
   %.sink = phi i32 [ %cond63, %if.then61 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %if.end72 ]
-  %error_code1.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i31 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i31, align 4
-  %engine_error_code3.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i32 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i32, align 8
-  %engine_reserved5.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i33 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i33, align 8
   br label %cleanup
 
@@ -5031,8 +4802,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i34:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i36 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i36 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i36, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -5088,13 +4859,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i16 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i16, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5105,17 +4876,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -5129,23 +4900,23 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp21.not = icmp eq ptr %object, null
   br i1 %cmp21.not, label %cleanup.sink.split, label %do.end25
@@ -5171,11 +4942,11 @@ do.end68:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end68, %do.end25, %do.end14, %if.then62
   %.sink = phi i32 [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %do.end68 ]
-  %error_code1.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i29 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i29, align 4
-  %engine_error_code3.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i30 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i30, align 8
-  %engine_reserved5.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i31 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i31, align 8
   br label %cleanup
 
@@ -5186,8 +4957,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i32:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i34 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i34 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i34, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -5228,13 +4999,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i16 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i16, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5245,17 +5016,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -5269,23 +5040,23 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp21.not = icmp eq ptr %object, null
   br i1 %cmp21.not, label %cleanup.sink.split, label %do.end25
@@ -5311,11 +5082,11 @@ do.end68:                                         ; preds = %_ZN2v810MaybeLocalI
 
 cleanup.sink.split:                               ; preds = %do.end68, %do.end25, %do.end14, %if.then62
   %.sink = phi i32 [ %cond64, %if.then62 ], [ 1, %do.end14 ], [ 2, %do.end25 ], [ 10, %do.end68 ]
-  %error_code1.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i29 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i29, align 4
-  %engine_error_code3.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i30 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i30, align 8
-  %engine_reserved5.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i31 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i31, align 8
   br label %cleanup
 
@@ -5326,8 +5097,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i32:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i34 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i34 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i34, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -5359,19 +5130,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_array(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_array(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5386,11 +5157,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -5399,11 +5170,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -5411,7 +5182,7 @@ do.end13:                                         ; preds = %do.body8
   %call18 = tail call noundef zeroext i1 @_ZNK2v85Value7IsArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -5430,13 +5201,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i15 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i15, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5447,17 +5218,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -5471,21 +5242,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   %cmp23.not = icmp eq ptr %result, null
@@ -5504,11 +5275,11 @@ do.end39:                                         ; preds = %do.end28
 
 cleanup.sink.split:                               ; preds = %do.end39, %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 8, %do.end28 ], [ 10, %do.end39 ]
-  %error_code1.i28 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i28 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i28, align 4
-  %engine_error_code3.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i29 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i29, align 8
-  %engine_reserved5.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i30 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i30, align 8
   br label %cleanup
 
@@ -5519,8 +5290,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i31:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -5561,13 +5332,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i16 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i16, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5578,17 +5349,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -5602,21 +5373,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %lhs, null
   %cmp23.not = icmp eq ptr %rhs, null
@@ -5634,11 +5405,11 @@ do.end35:                                         ; preds = %do.end14
 
 cleanup.sink.split:                               ; preds = %do.end35, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 10, %do.end35 ]
-  %error_code1.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i29 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i29, align 4
-  %engine_error_code3.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i30 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i30, align 8
-  %engine_reserved5.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i31 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i31, align 8
   br label %cleanup
 
@@ -5649,8 +5420,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i32:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i34 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i34 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i34, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -5691,13 +5462,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i17 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i17, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5708,17 +5479,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -5732,21 +5503,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i18 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i18, align 4
-  %engine_error_code3.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i19 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i19, align 8
-  %engine_reserved5.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i20 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   %cmp27.not = icmp eq ptr %object, null
@@ -5754,7 +5525,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end32
 
 do.end32:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call41 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %object, ptr %retval.sroa.0.0.copyload.i.i) #24
   %cmp.i.i = icmp eq ptr %call41, null
@@ -5768,11 +5539,11 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end32
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end32, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 2, %do.end32 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ]
-  %error_code1.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i30 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i30, align 4
-  %engine_error_code3.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i31 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i31, align 8
-  %engine_reserved5.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i32 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i32, align 8
   br label %cleanup
 
@@ -5783,8 +5554,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i33:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i35 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i35 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i35, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -5818,19 +5589,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86Object12GetPrototypeEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_object(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_object(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5845,20 +5616,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %call9 = tail call ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef %3) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -5870,19 +5641,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v86Object3NewEPNS_7IsolateE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_array(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_array(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5897,20 +5668,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef 0) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -5922,19 +5693,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_array_with_length(ptr noundef %env, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_array_with_length(ptr noundef %env, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -5949,21 +5720,21 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %conv = trunc i64 %length to i32
   %call9 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %conv) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -5973,19 +5744,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit", label %do.end.i
 
 do.end.i:                                         ; preds = %entry
-  %module_api_version.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -6002,11 +5773,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, 
   br i1 %or.cond1.i, label %do.body12.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6015,11 +5786,11 @@ do.body12.i:                                      ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp13.not.i, label %if.then14.i, label %do.body18.i
 
 if.then14.i:                                      ; preds = %do.body12.i
-  %error_code1.i14.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i14.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i14.i, align 4
-  %engine_error_code3.i15.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i15.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i15.i, align 8
-  %engine_reserved5.i16.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i16.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i16.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6029,16 +5800,16 @@ do.body18.i:                                      ; preds = %do.body12.i
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
-  %error_code1.i17.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i17.i, align 4
-  %engine_error_code3.i18.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18.i, align 8
-  %engine_reserved5.i19.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 do.end25.i:                                       ; preds = %do.body18.i
-  %isolate26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate26.i = getelementptr inbounds i8, ptr %env, i64 8
   %4 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
   %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
@@ -6046,17 +5817,17 @@ do.end25.i:                                       ; preds = %do.body18.i
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 if.then33.i:                                      ; preds = %do.end25.i
-  %error_code1.i20.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i20.i, align 4
-  %engine_error_code3.i21.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21.i, align 8
-  %engine_reserved5.i22.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
   store ptr %call.i.i, ptr %result, align 8
-  %last_error.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ25napi_create_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6066,19 +5837,19 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_string_utf8(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_string_utf8(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit", label %do.end.i
 
 do.end.i:                                         ; preds = %entry
-  %module_api_version.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -6095,11 +5866,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, 
   br i1 %or.cond1.i, label %do.body12.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6108,11 +5879,11 @@ do.body12.i:                                      ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp13.not.i, label %if.then14.i, label %do.body18.i
 
 if.then14.i:                                      ; preds = %do.body12.i
-  %error_code1.i14.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i14.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i14.i, align 4
-  %engine_error_code3.i15.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i15.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i15.i, align 8
-  %engine_reserved5.i16.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i16.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i16.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6122,16 +5893,16 @@ do.body18.i:                                      ; preds = %do.body12.i
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
-  %error_code1.i17.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i17.i, align 4
-  %engine_error_code3.i18.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18.i, align 8
-  %engine_reserved5.i19.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 do.end25.i:                                       ; preds = %do.body18.i
-  %isolate26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate26.i = getelementptr inbounds i8, ptr %env, i64 8
   %4 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
   %call.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
@@ -6139,17 +5910,17 @@ do.end25.i:                                       ; preds = %do.body18.i
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 if.then33.i:                                      ; preds = %do.end25.i
-  %error_code1.i20.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i20.i, align 4
-  %engine_error_code3.i21.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21.i, align 8
-  %engine_reserved5.i22.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
   store ptr %call.i.i, ptr %result, align 8
-  %last_error.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ23napi_create_string_utf8E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6159,19 +5930,19 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit", label %do.end.i
 
 do.end.i:                                         ; preds = %entry
-  %module_api_version.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -6188,11 +5959,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, 
   br i1 %or.cond1.i, label %do.body12.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6201,11 +5972,11 @@ do.body12.i:                                      ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp13.not.i, label %if.then14.i, label %do.body18.i
 
 if.then14.i:                                      ; preds = %do.body12.i
-  %error_code1.i14.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i14.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i14.i, align 4
-  %engine_error_code3.i15.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i15.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i15.i, align 8
-  %engine_reserved5.i16.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i16.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i16.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6215,16 +5986,16 @@ do.body18.i:                                      ; preds = %do.body12.i
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
-  %error_code1.i17.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i17.i, align 4
-  %engine_error_code3.i18.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18.i, align 8
-  %engine_reserved5.i19.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 do.end25.i:                                       ; preds = %do.body18.i
-  %isolate26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate26.i = getelementptr inbounds i8, ptr %env, i64 8
   %4 = load ptr, ptr %isolate26.i, align 8
   %conv.i.i = trunc i64 %length to i32
   %call.i.i = tail call ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
@@ -6232,17 +6003,17 @@ do.end25.i:                                       ; preds = %do.body18.i
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
 
 if.then33.i:                                      ; preds = %do.end25.i
-  %error_code1.i20.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i20.i, align 4
-  %engine_error_code3.i21.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21.i, align 8
-  %engine_reserved5.i22.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
 _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
   store ptr %call.i.i, ptr %result, align 8
-  %last_error.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   br label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ24napi_create_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit"
 
@@ -6252,19 +6023,19 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %do.end25.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @node_api_create_external_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
+define dso_local noundef i32 @node_api_create_external_string_latin1(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %do.end.i
 
 do.end.i:                                         ; preds = %entry
-  %module_api_version.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -6281,11 +6052,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, 
   br i1 %or.cond2.i, label %do.body12.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
@@ -6294,11 +6065,11 @@ do.body12.i:                                      ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp13.not.i, label %if.then14.i, label %do.body18.i
 
 if.then14.i:                                      ; preds = %do.body12.i
-  %error_code1.i15.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i15.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i15.i, align 4
-  %engine_error_code3.i16.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i16.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i16.i, align 8
-  %engine_reserved5.i17.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i17.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i17.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
@@ -6308,11 +6079,11 @@ do.body18.i:                                      ; preds = %do.body12.i
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
-  %error_code1.i18.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i18.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i18.i, align 4
-  %engine_error_code3.i19.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i19.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i19.i, align 8
-  %engine_reserved5.i20.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i20.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
@@ -6320,7 +6091,7 @@ do.end25.i:                                       ; preds = %do.body18.i
   br i1 %cmp.i.i, label %land.lhs.true.i.i.i, label %do.end25.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %do.end25.i
-  %in_gc_finalizer.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %4 = load i8, ptr %in_gc_finalizer.i.i.i, align 4
   %5 = and i8 %4, 1
   %tobool.not.i.i.i = icmp eq i8 %5, 0
@@ -6331,7 +6102,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   unreachable
 
 do.end25.i.i:                                     ; preds = %land.lhs.true.i.i.i, %do.end25.i
-  %isolate26.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate26.i.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate26.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %length, -1
   br i1 %cmp.i16.i.i, label %if.then.i17.i.i, label %if.end.i.i.i
@@ -6343,7 +6114,7 @@ if.then.i17.i.i:                                  ; preds = %do.end25.i.i
 if.end.i.i.i:                                     ; preds = %if.then.i17.i.i, %do.end25.i.i
   %7 = phi i64 [ %call.i.i.i.i.i, %if.then.i17.i.i ], [ %length, %do.end25.i.i ]
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
-  %cached_data_.i.i.i.i.i = getelementptr inbounds %"class.v8::String::ExternalOneByteStringResource", ptr %call2.i.i.i, i64 0, i32 1
+  %cached_data_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 8
   store ptr null, ptr %cached_data_.i.i.i.i.i, align 8
   %env_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 24
   store ptr %env, ptr %env_.i.i.i.i.i.i, align 8
@@ -6356,19 +6127,18 @@ if.end.i.i.i:                                     ; preds = %if.then.i17.i.i, %d
   %8 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 56
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 64
   %cmp.i.i.i.i.i = icmp eq ptr %finalize_callback, null
-  %reflist.i.i.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i.i.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %reflist.i.i.i.i.i, ptr %finalizing_reflist.i.i.i.i.i
+  %cond.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 56
+  %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i.i.i.i.i
   %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 72
   store ptr %cond.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i, align 8
-  %next_.i4.i.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i.i.i.i.i, i64 0, i32 1
+  %next_.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
   %9 = load ptr, ptr %next_.i4.i.i.i.i.i, align 8
   store ptr %9, ptr %next_.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i.i.i, label %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  %prev_5.i.i.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %9, i64 0, i32 2
+  %prev_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %8, ptr %prev_5.i.i.i.i.i.i, align 8
   br label %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i"
 
@@ -6378,26 +6148,26 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, inrange i32 0, i64 2), ptr %call2.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, inrange i32 1, i64 2), ptr %10, align 8
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 0, inrange i32 2, i64 2), ptr %8, align 8
-  %string_.i.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalOneByteStringResource", ptr %call2.i.i.i, i64 0, i32 2
+  %string_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
-  %length_.i.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalOneByteStringResource", ptr %call2.i.i.i, i64 0, i32 3
+  %length_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 88
   store i64 %7, ptr %length_.i.i.i.i, align 8
   %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #24
   %cmp.i.i.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp.i.i.i.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", label %"_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i": ; preds = %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i"
-  %error_code1.i18.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i18.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i18.i.i, align 4
-  %engine_error_code3.i19.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i19.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i19.i.i, align 8
-  %engine_reserved5.i20.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i20.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIcZ38node_api_create_external_string_latin1E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i": ; preds = %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i"
   store ptr %call3.i.i.i, ptr %result, align 8
-  %last_error.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %cmp28.not.i = icmp eq ptr %copied, null
   br i1 %cmp28.not.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIcPF11napi_statusP10napi_env__PKcmPP12napi_value__EZ38node_api_create_external_string_latin1E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %if.then29.i
@@ -6412,19 +6182,19 @@ if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @node_api_create_external_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
+define dso_local noundef i32 @node_api_create_external_string_utf16(ptr noundef %env, ptr noundef %str, i64 noundef %length, ptr noundef %finalize_callback, ptr noundef %finalize_hint, ptr noundef writeonly %result, ptr noundef writeonly %copied) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %do.end.i
 
 do.end.i:                                         ; preds = %entry
-  %module_api_version.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -6441,11 +6211,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, 
   br i1 %or.cond2.i, label %do.body12.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
@@ -6454,11 +6224,11 @@ do.body12.i:                                      ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp13.not.i, label %if.then14.i, label %do.body18.i
 
 if.then14.i:                                      ; preds = %do.body12.i
-  %error_code1.i15.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i15.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i15.i, align 4
-  %engine_error_code3.i16.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i16.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i16.i, align 8
-  %engine_reserved5.i17.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i17.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i17.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
@@ -6468,11 +6238,11 @@ do.body18.i:                                      ; preds = %do.body12.i
   br i1 %or.cond.i, label %do.end25.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body18.i
-  %error_code1.i18.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i18.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i18.i, align 4
-  %engine_error_code3.i19.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i19.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i19.i, align 8
-  %engine_reserved5.i20.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i20.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
@@ -6480,7 +6250,7 @@ do.end25.i:                                       ; preds = %do.body18.i
   br i1 %cmp.i.i, label %land.lhs.true.i.i.i, label %do.end25.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %do.end25.i
-  %in_gc_finalizer.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %4 = load i8, ptr %in_gc_finalizer.i.i.i, align 4
   %5 = and i8 %4, 1
   %tobool.not.i.i.i = icmp eq i8 %5, 0
@@ -6491,7 +6261,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   unreachable
 
 do.end25.i.i:                                     ; preds = %land.lhs.true.i.i.i, %do.end25.i
-  %isolate26.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate26.i.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate26.i.i, align 8
   %cmp.i16.i.i = icmp eq i64 %length, -1
   br i1 %cmp.i16.i.i, label %while.cond.i.i.i.i.i, label %if.end.i.i.i
@@ -6507,7 +6277,7 @@ while.cond.i.i.i.i.i:                             ; preds = %do.end25.i.i, %whil
 if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.i, %do.end25.i.i
   %8 = phi i64 [ %length, %do.end25.i.i ], [ %__i.0.i.i.i.i.i, %while.cond.i.i.i.i.i ]
   %call2.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
-  %cached_data_.i.i.i.i.i = getelementptr inbounds %"class.v8::String::ExternalStringResource", ptr %call2.i.i.i, i64 0, i32 1
+  %cached_data_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 8
   store ptr null, ptr %cached_data_.i.i.i.i.i, align 8
   %env_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 24
   store ptr %env, ptr %env_.i.i.i.i.i.i, align 8
@@ -6520,19 +6290,18 @@ if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.
   %9 = getelementptr inbounds i8, ptr %call2.i.i.i, i64 56
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 64
   %cmp.i.i.i.i.i = icmp eq ptr %finalize_callback, null
-  %reflist.i.i.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i.i.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %reflist.i.i.i.i.i, ptr %finalizing_reflist.i.i.i.i.i
+  %cond.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 32, i64 56
+  %cond.i.i.i.i.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i.i.i.i.i
   %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 72
   store ptr %cond.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i, align 8
-  %next_.i4.i.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i.i.i.i.i, i64 0, i32 1
+  %next_.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
   %10 = load ptr, ptr %next_.i4.i.i.i.i.i, align 8
   store ptr %10, ptr %next_.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i, label %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  %prev_5.i.i.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %10, i64 0, i32 2
+  %prev_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %9, ptr %prev_5.i.i.i.i.i.i, align 8
   br label %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i"
 
@@ -6542,26 +6311,26 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, inrange i32 0, i64 2), ptr %call2.i.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, inrange i32 1, i64 2), ptr %11, align 8
   store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 0, inrange i32 2, i64 2), ptr %9, align 8
-  %string_.i.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalStringResource", ptr %call2.i.i.i, i64 0, i32 2
+  %string_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
-  %length_.i.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalStringResource", ptr %call2.i.i.i, i64 0, i32 3
+  %length_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 88
   store i64 %8, ptr %length_.i.i.i.i, align 8
   %call3.i.i.i = tail call ptr @_ZN2v86String18NewExternalTwoByteEPNS_7IsolateEPNS0_22ExternalStringResourceE(ptr noundef %6, ptr noundef nonnull %call2.i.i.i) #24
   %cmp.i.i.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp.i.i.i.i, label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i", label %"_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.thread.i": ; preds = %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i"
-  %error_code1.i18.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i18.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i18.i.i, align 4
-  %engine_error_code3.i19.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i19.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i19.i.i, align 8
-  %engine_reserved5.i20.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i20.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i20.i.i, align 8
   br label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit"
 
 "_ZN6v8impl12_GLOBAL__N_19NewStringIDsZ37node_api_create_external_string_utf16E3$_0EE11napi_statusP10napi_env__PKT_mPP12napi_value__T0_.exit.i": ; preds = %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i"
   store ptr %call3.i.i.i, ptr %result, align 8
-  %last_error.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %cmp28.not.i = icmp eq ptr %copied, null
   br i1 %cmp28.not.i, label %"_ZN6v8impl12_GLOBAL__N_117NewExternalStringIDsPF11napi_statusP10napi_env__PKDsmPP12napi_value__EZ37node_api_create_external_string_utf16E3$_0EES2_S4_PT_mPFvS4_PvSF_ESF_S9_PbT0_T1_.exit", label %if.then29.i
@@ -6576,19 +6345,19 @@ if.then29.i:                                      ; preds = %"_ZN6v8impl12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_double(ptr noundef %env, double noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_double(ptr noundef %env, double noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -6603,20 +6372,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %value) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -6628,19 +6397,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_int32(ptr noundef %env, i32 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_int32(ptr noundef %env, i32 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -6655,20 +6424,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %call9 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %3, i32 noundef %value) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -6680,19 +6449,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_uint32(ptr noundef %env, i32 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_uint32(ptr noundef %env, i32 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -6707,20 +6476,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %call9 = tail call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %3, i32 noundef %value) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -6732,19 +6501,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_int64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_int64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -6759,21 +6528,21 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %conv = sitofp i64 %value to double
   %call9 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %3, double noundef %conv) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -6783,19 +6552,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_bigint_int64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_bigint_int64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -6810,20 +6579,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %call9 = tail call ptr @_ZN2v86BigInt3NewEPNS_7IsolateEl(ptr noundef %3, i64 noundef %value) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -6835,19 +6604,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 declare ptr @_ZN2v86BigInt3NewEPNS_7IsolateEl(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_bigint_uint64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_bigint_uint64(ptr noundef %env, i64 noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -6862,20 +6631,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %call9 = tail call ptr @_ZN2v86BigInt15NewFromUnsignedEPNS_7IsolateEm(ptr noundef %3, i64 noundef %value) #24
   store ptr %call9, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -6894,13 +6663,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -6911,17 +6680,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -6935,21 +6704,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp ne ptr %words, null
   %cmp23.not = icmp ne ptr %result, null
@@ -6959,7 +6728,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond41, label %do.end38, label %cleanup.sink.split
 
 do.end38:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %conv = trunc i64 %word_count to i32
   %call42 = call ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr %retval.sroa.0.0.copyload.i.i, i32 noundef %sign_bit, i32 noundef %conv, ptr noundef nonnull %words) #24
@@ -6978,11 +6747,11 @@ _ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit: ; preds = %do.end38
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit, %do.end14, %if.then49
   %.sink = phi i32 [ %cond51, %if.then49 ], [ 1, %do.end14 ], [ 10, %_ZN2v810MaybeLocalINS_6BigIntEE14ToLocalCheckedEv.exit ]
-  %error_code1.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i35 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
-  %engine_error_code3.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i36 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i36, align 8
-  %engine_reserved5.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i37 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i37, align 8
   br label %cleanup
 
@@ -6993,8 +6762,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i38:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -7028,19 +6797,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86BigInt12NewFromWordsENS_5LocalINS_7ContextEEEiiPKm(ptr, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_boolean(ptr noundef %env, i1 noundef zeroext %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_boolean(ptr noundef %env, i1 noundef zeroext %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7055,23 +6824,23 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate8 = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate8, align 8
   %4 = ptrtoint ptr %3 to i64
   %storemerge.v.v = select i1 %value, i64 632, i64 640
   %storemerge.v = add i64 %storemerge.v.v, %4
   %storemerge = inttoptr i64 %storemerge.v to ptr
   store ptr %storemerge, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -7081,19 +6850,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_symbol(ptr noundef %env, ptr noundef %description, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_symbol(ptr noundef %env, ptr noundef %description, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i11 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i11, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7108,16 +6877,16 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate8 = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate8, align 8
   %cmp9 = icmp eq ptr %description, null
   br i1 %cmp9, label %if.then10, label %if.else
@@ -7143,11 +6912,11 @@ if.end.i:                                         ; preds = %if.else
   br i1 %cmp.i, label %do.end36, label %if.then33
 
 if.then33:                                        ; preds = %if.else, %if.end.i
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -7158,7 +6927,7 @@ do.end36:                                         ; preds = %if.end.i
 if.end58:                                         ; preds = %do.end36, %if.then10
   %storemerge = phi ptr [ %call47, %do.end36 ], [ %call15, %if.then10 ]
   store ptr %storemerge, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -7170,19 +6939,19 @@ return:                                           ; preds = %entry, %if.end58, %
 declare ptr @_ZN2v86Symbol3NewEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @node_api_symbol_for(ptr noundef %env, ptr noundef %utf8description, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @node_api_symbol_for(ptr noundef %env, ptr noundef %utf8description, i64 noundef %length, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.thread
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7201,11 +6970,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.thread:     ; preds = %do.end
   br i1 %cmp4.not8, label %if.then5, label %_ZN10napi_env__13CheckGCAccessEv.exit.i.i
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.thread, %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -7216,11 +6985,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.i.i:        ; preds = %_ZN10napi_env__13Ch
   br i1 %or.cond1.i.i, label %do.body12.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i.i
-  %error_code1.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i.i.i, align 4
-  %engine_error_code3.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i.i, align 8
-  %engine_reserved5.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i.i, align 8
   br label %return
 
@@ -7230,16 +6999,16 @@ do.body12.i.i:                                    ; preds = %_ZN10napi_env__13Ch
   br i1 %or.cond.i.i, label %do.end25.i.i, label %if.then21.i.i
 
 if.then21.i.i:                                    ; preds = %do.body12.i.i
-  %error_code1.i17.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i17.i.i, align 4
-  %engine_error_code3.i18.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18.i.i, align 8
-  %engine_reserved5.i19.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19.i.i, align 8
   br label %return
 
 do.end25.i.i:                                     ; preds = %do.body12.i.i
-  %isolate26.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate26.i.i = getelementptr inbounds i8, ptr %env, i64 8
   %4 = load ptr, ptr %isolate26.i.i, align 8
   %conv.i.i.i = trunc i64 %length to i32
   %call.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %4, ptr noundef %utf8description, i32 noundef 0, i32 noundef %conv.i.i.i) #24
@@ -7247,16 +7016,16 @@ do.end25.i.i:                                     ; preds = %do.body12.i.i
   br i1 %cmp.i.i.i.i, label %if.then33.i.i, label %do.end13
 
 if.then33.i.i:                                    ; preds = %do.end25.i.i
-  %error_code1.i20.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i20.i.i, align 4
-  %engine_error_code3.i21.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21.i.i, align 8
-  %engine_reserved5.i22.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22.i.i, align 8
   br label %return
 
 do.end13:                                         ; preds = %do.end25.i.i
-  %last_error.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %isolate26.i.i, align 8
   %call26 = tail call ptr @_ZN2v86Symbol3ForEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef %5, ptr nonnull %call.i.i.i) #24
@@ -7272,19 +7041,19 @@ return:                                           ; preds = %if.then8.i.i, %if.t
 declare ptr @_ZN2v86Symbol3ForEPNS_7IsolateENS_5LocalINS_6StringEEE(ptr noundef, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i11 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i11, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7299,11 +7068,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -7312,11 +7081,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -7337,11 +7106,11 @@ if.end.i:                                         ; preds = %do.end13
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
@@ -7351,7 +7120,7 @@ do.end23:                                         ; preds = %if.end.i
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
 if.then16.i:                                      ; preds = %do.end23
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load i64, ptr %code, align 8
   %and.i.i = and i64 %8, 3
@@ -7369,7 +7138,7 @@ if.end.i.i:                                       ; preds = %if.then16.i
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
-  %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
   %13 = load ptr, ptr %isolate61.i, align 8
   %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
@@ -7383,17 +7152,17 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
 do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
   store ptr %call31, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -7405,19 +7174,19 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception5ErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_type_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_type_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i11 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i11, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7432,11 +7201,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -7445,11 +7214,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -7470,11 +7239,11 @@ if.end.i:                                         ; preds = %do.end13
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
@@ -7484,7 +7253,7 @@ do.end23:                                         ; preds = %if.end.i
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
 if.then16.i:                                      ; preds = %do.end23
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load i64, ptr %code, align 8
   %and.i.i = and i64 %8, 3
@@ -7502,7 +7271,7 @@ if.end.i.i:                                       ; preds = %if.then16.i
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
-  %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
   %13 = load ptr, ptr %isolate61.i, align 8
   %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
@@ -7516,17 +7285,17 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
 do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
   store ptr %call31, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -7538,19 +7307,19 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception9TypeErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_range_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_range_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i11 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i11, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7565,11 +7334,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -7578,11 +7347,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -7603,11 +7372,11 @@ if.end.i:                                         ; preds = %do.end13
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
@@ -7617,7 +7386,7 @@ do.end23:                                         ; preds = %if.end.i
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
 if.then16.i:                                      ; preds = %do.end23
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load i64, ptr %code, align 8
   %and.i.i = and i64 %8, 3
@@ -7635,7 +7404,7 @@ if.end.i.i:                                       ; preds = %if.then16.i
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
-  %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
   %13 = load ptr, ptr %isolate61.i, align 8
   %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
@@ -7649,17 +7418,17 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
 do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
   store ptr %call31, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -7671,19 +7440,19 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception10RangeErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @node_api_create_syntax_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @node_api_create_syntax_error(ptr noundef %env, ptr noundef %code, ptr noundef %msg, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i11 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i11, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7698,11 +7467,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -7711,11 +7480,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -7736,11 +7505,11 @@ if.end.i:                                         ; preds = %do.end13
   br i1 %cmp.i, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13, %if.end.i
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
@@ -7750,7 +7519,7 @@ do.end23:                                         ; preds = %if.end.i
   br i1 %cmp.i19.not, label %do.end44, label %if.then16.i
 
 if.then16.i:                                      ; preds = %do.end23
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load i64, ptr %code, align 8
   %and.i.i = and i64 %8, 3
@@ -7768,7 +7537,7 @@ if.end.i.i:                                       ; preds = %if.then16.i
   br i1 %cmp.i.i, label %if.end54.i, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 if.end54.i:                                       ; preds = %if.end.i.i
-  %isolate61.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate61.i = getelementptr inbounds i8, ptr %env, i64 8
   %13 = load ptr, ptr %isolate61.i, align 8
   %call62.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef 1, i32 noundef -1) #24
   %cmp.i.i.i = icmp eq ptr %call62.i, null
@@ -7782,17 +7551,17 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %if.then16.i, %if.end.i.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
   %.sink.i = phi i32 [ 3, %if.then16.i ], [ 3, %if.end.i.i ], [ 9, %if.end54.i ], [ 9, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i ]
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %return
 
 do.end44:                                         ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i, %do.end23
   store ptr %call31, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -7804,19 +7573,19 @@ return:                                           ; preds = %_ZL14set_error_code
 declare ptr @_ZN2v89Exception11SyntaxErrorENS_5LocalINS_6StringEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_typeof(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_typeof(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i31 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i31, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -7831,11 +7600,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -7844,11 +7613,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i33 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i33, align 4
-  %engine_error_code3.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i34 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i34, align 8
-  %engine_reserved5.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i35 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i35, align 8
   br label %return
 
@@ -7945,18 +7714,18 @@ if.end5.i168:                                     ; preds = %if.end.i159
   br i1 %cmp7.i169, label %if.end66, label %if.else55
 
 if.else55:                                        ; preds = %if.else51, %if.end.i159, %if.end5.i168
-  %error_code1.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i36 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i36, align 4
-  %engine_error_code3.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i37 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i37, align 8
-  %engine_reserved5.i38 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i38 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i38, align 8
   br label %return
 
 if.end66:                                         ; preds = %if.end5.i168, %if.else47, %if.end5.i, %if.else39, %if.else35, %if.else31, %if.else27, %if.end.i, %if.else, %do.end13
   %.sink = phi i32 [ 3, %do.end13 ], [ 9, %if.else ], [ 4, %if.end.i ], [ 7, %if.else27 ], [ 8, %if.else31 ], [ 6, %if.else35 ], [ 2, %if.else39 ], [ 0, %if.end5.i ], [ 5, %if.else47 ], [ 1, %if.end5.i168 ]
   store i32 %.sink, ptr %result, align 4
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -7980,19 +7749,19 @@ declare noundef zeroext i1 @_ZNK2v85Value9IsBooleanEv(ptr noundef nonnull align 
 declare noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_undefined(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_undefined(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8007,22 +7776,22 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %4 = ptrtoint ptr %3 to i64
   %add1.i = add i64 %4, 608
   %5 = inttoptr i64 %add1.i to ptr
   store ptr %5, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -8032,19 +7801,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_null(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_null(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8059,22 +7828,22 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   %4 = ptrtoint ptr %3 to i64
   %add1.i = add i64 %4, 624
   %5 = inttoptr i64 %add1.i to ptr
   store ptr %5, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -8084,7 +7853,7 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_cb_info(ptr noundef writeonly %env, ptr noundef %cbinfo, ptr noundef %argc, ptr noundef %argv, ptr noundef writeonly %this_arg, ptr noundef writeonly %data) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_cb_info(ptr noundef writeonly %env, ptr noundef %cbinfo, ptr noundef %argc, ptr noundef %argv, ptr noundef writeonly %this_arg, ptr noundef writeonly %data) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -8094,11 +7863,11 @@ do.body1:                                         ; preds = %entry
   br i1 %cmp2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.body1
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -8111,18 +7880,18 @@ do.body8:                                         ; preds = %do.end5
   br i1 %cmp15.not, label %if.then10, label %if.end14.thread
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
 if.end14.thread:                                  ; preds = %do.body8
   %0 = load i64, ptr %argc, align 8
   %vtable = load ptr, ptr %cbinfo, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo, ptr noundef nonnull %argv, i64 noundef %0) #24
   br label %if.then16
@@ -8157,7 +7926,7 @@ if.then24:                                        ; preds = %if.end22
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end22
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -8167,19 +7936,19 @@ return:                                           ; preds = %entry, %if.end26, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_new_target(ptr noundef %env, ptr noundef %cbinfo, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_new_target(ptr noundef %env, ptr noundef %cbinfo, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8194,11 +7963,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -8207,11 +7976,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -8220,7 +7989,7 @@ do.end13:                                         ; preds = %do.body8
   %3 = load ptr, ptr %vtable, align 8
   %call14 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %cbinfo) #24
   store ptr %call14, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -8237,13 +8006,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i22 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i22, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8254,17 +8023,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -8278,31 +8047,31 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i23, align 4
-  %engine_error_code3.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i24 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i24, align 8
-  %engine_reserved5.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i25 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i25, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %recv, null
   br i1 %cmp17.not, label %if.then18, label %do.end21
 
 if.then18:                                        ; preds = %do.end14
-  %error_code1.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i26 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i26, align 4
-  %engine_error_code3.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i27 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i27, align 8
-  %engine_reserved5.i28 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i28 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i28, align 8
   br label %cleanup
 
@@ -8313,26 +8082,26 @@ do.end21:                                         ; preds = %do.end14
   br i1 %or.cond, label %if.end31, label %if.then26
 
 if.then26:                                        ; preds = %do.end21
-  %error_code1.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i29 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i29, align 4
-  %engine_error_code3.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i30 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i30, align 8
-  %engine_reserved5.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i31 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i31, align 8
   br label %cleanup
 
 if.end31:                                         ; preds = %do.end21
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp41.not = icmp eq ptr %func, null
   br i1 %cmp41.not, label %if.then42, label %do.end46
 
 if.then42:                                        ; preds = %if.end31
-  %error_code1.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i32 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i32, align 4
-  %engine_error_code3.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i33 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i33, align 8
-  %engine_reserved5.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i34 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i34, align 8
   br label %cleanup
 
@@ -8341,11 +8110,11 @@ do.end46:                                         ; preds = %if.end31
   br i1 %call53, label %do.end58, label %if.then54
 
 if.then54:                                        ; preds = %do.end46
-  %error_code1.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i35 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i35, align 4
-  %engine_error_code3.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i36 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i36, align 8
-  %engine_reserved5.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i37 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i37, align 8
   br label %cleanup
 
@@ -8358,11 +8127,11 @@ do.end58:                                         ; preds = %do.end46
 if.then80:                                        ; preds = %do.end58
   %call81 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %cond82 = select i1 %call81, i32 10, i32 9
-  %error_code1.i38 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i38 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond82, ptr %error_code1.i38, align 4
-  %engine_error_code3.i39 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i39 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i39, align 8
-  %engine_reserved5.i40 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i40 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i40, align 8
   br label %cleanup
 
@@ -8385,8 +8154,8 @@ cleanup:                                          ; preds = %if.end98, %if.then8
 
 if.then.i42:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i44 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i44 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i44, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -8420,19 +8189,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_global(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_global(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8447,20 +8216,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call13 = tail call ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.sroa.0.0.copyload.i.i) #24
   store ptr %call13, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -8479,13 +8248,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i13 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i13, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8496,17 +8265,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -8520,31 +8289,31 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i14, align 4
-  %engine_error_code3.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i15 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i15, align 8
-  %engine_reserved5.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i16 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i16, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %error, null
   br i1 %cmp17.not, label %if.then18, label %do.end21
 
 if.then18:                                        ; preds = %do.end14
-  %error_code1.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19, align 8
   br label %cleanup
 
@@ -8561,8 +8330,8 @@ cleanup:                                          ; preds = %do.end21, %if.then1
 
 if.then.i21:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i23 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i23 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i23, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -8603,13 +8372,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8620,17 +8389,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -8644,32 +8413,32 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i21, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
 if.then22:                                        ; preds = %do.end14
-  %error_code1.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i22, align 4
-  %engine_error_code3.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i23, align 8
-  %engine_reserved5.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i24, align 8
   br label %cleanup
 
@@ -8679,11 +8448,11 @@ do.end26:                                         ; preds = %do.end14
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 if.then34:                                        ; preds = %do.end26
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %cleanup
 
@@ -8693,7 +8462,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
   %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
@@ -8713,11 +8482,11 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
@@ -8733,8 +8502,8 @@ cleanup:                                          ; preds = %_ZL14set_error_code
 
 if.then.i31:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -8773,13 +8542,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8790,17 +8559,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -8814,32 +8583,32 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i21, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
 if.then22:                                        ; preds = %do.end14
-  %error_code1.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i22, align 4
-  %engine_error_code3.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i23, align 8
-  %engine_reserved5.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i24, align 8
   br label %cleanup
 
@@ -8849,11 +8618,11 @@ do.end26:                                         ; preds = %do.end14
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 if.then34:                                        ; preds = %do.end26
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %cleanup
 
@@ -8863,7 +8632,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
   %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
@@ -8883,11 +8652,11 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
@@ -8903,8 +8672,8 @@ cleanup:                                          ; preds = %_ZL14set_error_code
 
 if.then.i31:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -8943,13 +8712,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -8960,17 +8729,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -8984,32 +8753,32 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i21, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
 if.then22:                                        ; preds = %do.end14
-  %error_code1.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i22, align 4
-  %engine_error_code3.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i23, align 8
-  %engine_reserved5.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i24, align 8
   br label %cleanup
 
@@ -9019,11 +8788,11 @@ do.end26:                                         ; preds = %do.end14
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 if.then34:                                        ; preds = %do.end26
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %cleanup
 
@@ -9033,7 +8802,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
   %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
@@ -9053,11 +8822,11 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
@@ -9073,8 +8842,8 @@ cleanup:                                          ; preds = %_ZL14set_error_code
 
 if.then.i31:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -9113,13 +8882,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9130,17 +8899,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9154,32 +8923,32 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i21, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %7 = load ptr, ptr %isolate.i, align 8
   %cmp21.not = icmp eq ptr %msg, null
   br i1 %cmp21.not, label %if.then22, label %do.end26
 
 if.then22:                                        ; preds = %do.end14
-  %error_code1.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i22, align 4
-  %engine_error_code3.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i23, align 8
-  %engine_reserved5.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i24, align 8
   br label %cleanup
 
@@ -9189,11 +8958,11 @@ do.end26:                                         ; preds = %do.end14
   br i1 %cmp.i.i, label %if.then34, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
 
 if.then34:                                        ; preds = %do.end26
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %cleanup
 
@@ -9203,7 +8972,7 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end26
   br i1 %cmp3.i.not, label %do.end62, label %do.end33.i
 
 do.end33.i:                                       ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %8 = load ptr, ptr %isolate.i, align 8
   %call34.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %code, i32 noundef 1, i32 noundef -1) #24
@@ -9223,11 +8992,11 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i: ; preds = %if.end54.i
   br i1 %cond.i.not.i, label %do.end62, label %_ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit
 
 _ZL14set_error_codeP10napi_env__N2v85LocalINS1_5ValueEEEP12napi_value__PKc.exit: ; preds = %do.end33.i, %if.end54.i, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
-  %error_code1.i25.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i25.i, align 4
-  %engine_error_code3.i26.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26.i, align 8
-  %engine_reserved5.i27.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27.i, align 8
   br label %cleanup
 
@@ -9243,8 +9012,8 @@ cleanup:                                          ; preds = %_ZL14set_error_code
 
 if.then.i31:                                      ; preds = %cleanup
   %11 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 3
-  %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %11, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %11, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %13 = load ptr, ptr %last_exception.i, align 8
@@ -9276,19 +9045,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_error(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_error(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9303,11 +9072,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9316,11 +9085,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -9328,7 +9097,7 @@ do.end13:                                         ; preds = %do.body8
   %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsNativeErrorEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9340,19 +9109,19 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value13IsNativeErrorEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_double(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_double(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9367,11 +9136,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9380,11 +9149,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i8 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i8, align 4
-  %engine_error_code3.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i9 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i9, align 8
-  %engine_reserved5.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i10 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i10, align 8
   br label %return
 
@@ -9393,18 +9162,18 @@ do.end13:                                         ; preds = %do.body8
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
-  %error_code1.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i11 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 6, ptr %error_code1.i11, align 4
-  %engine_error_code3.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i12 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i12, align 8
-  %engine_reserved5.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i13 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i13, align 8
   br label %return
 
 do.end23:                                         ; preds = %do.end13
   %call29 = tail call noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   store double %call29, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9416,19 +9185,19 @@ return:                                           ; preds = %entry, %do.end23, %
 declare noundef double @_ZNK2v86Number5ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_int32(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_int32(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9443,11 +9212,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9456,11 +9225,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -9477,11 +9246,11 @@ do.body26:                                        ; preds = %do.end13
   br i1 %call28, label %do.end32, label %if.then29
 
 if.then29:                                        ; preds = %do.body26
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 6, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
@@ -9500,7 +9269,7 @@ if.then.i:                                        ; preds = %do.end32
 if.end40:                                         ; preds = %do.end32, %if.then.i, %if.then19
   %storemerge = phi i32 [ %call25, %if.then19 ], [ %ref.tmp33.sroa.29.0.extract.trunc, %if.then.i ], [ %ref.tmp33.sroa.29.0.extract.trunc, %do.end32 ]
   store i32 %storemerge, ptr %result, align 4
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9516,19 +9285,19 @@ declare noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferen
 declare i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_uint32(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_uint32(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9543,11 +9312,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9556,11 +9325,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -9577,11 +9346,11 @@ do.body26:                                        ; preds = %do.end13
   br i1 %call28, label %do.end32, label %if.then29
 
 if.then29:                                        ; preds = %do.body26
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 6, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
@@ -9600,7 +9369,7 @@ if.then.i:                                        ; preds = %do.end32
 if.end40:                                         ; preds = %do.end32, %if.then.i, %if.then19
   %storemerge = phi i32 [ %call25, %if.then19 ], [ %ref.tmp33.sroa.29.0.extract.trunc, %if.then.i ], [ %ref.tmp33.sroa.29.0.extract.trunc, %do.end32 ]
   store i32 %storemerge, ptr %result, align 4
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9616,19 +9385,19 @@ declare noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 derefere
 declare i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_int64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_int64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9643,11 +9412,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9656,11 +9425,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i14, align 4
-  %engine_error_code3.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i15 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i15, align 8
-  %engine_reserved5.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i16 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i16, align 8
   br label %return
 
@@ -9672,7 +9441,7 @@ if.then19:                                        ; preds = %do.end13
   %call25 = tail call noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %conv = sext i32 %call25 to i64
   store i64 %conv, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9681,11 +9450,11 @@ do.body28:                                        ; preds = %do.end13
   br i1 %call30, label %do.end34, label %if.then31
 
 if.then31:                                        ; preds = %do.body28
-  %error_code1.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 6, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
@@ -9710,7 +9479,7 @@ if.then.i:                                        ; preds = %if.then43
 if.end51:                                         ; preds = %do.end34, %if.then43, %if.then.i
   %storemerge = phi i64 [ %6, %if.then.i ], [ %6, %if.then43 ], [ 0, %do.end34 ]
   store i64 %storemerge, ptr %result, align 8
-  %last_error.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i20 = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i20, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9722,19 +9491,19 @@ return:                                           ; preds = %entry, %if.end51, %
 declare { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_bigint_int64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result, ptr noundef %lossless) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_bigint_int64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result, ptr noundef %lossless) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9749,11 +9518,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9762,11 +9531,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.body14
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i10 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i10, align 4
-  %engine_error_code3.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i11 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i11, align 8
-  %engine_reserved5.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i12 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i12, align 8
   br label %return
 
@@ -9775,11 +9544,11 @@ do.body14:                                        ; preds = %do.body8
   br i1 %cmp15.not, label %if.then16, label %do.end19
 
 if.then16:                                        ; preds = %do.body14
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -9788,18 +9557,18 @@ do.end19:                                         ; preds = %do.body14
   br i1 %call25, label %do.end29, label %if.then26
 
 if.then26:                                        ; preds = %do.end19
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 17, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
 do.end29:                                         ; preds = %do.end19
   %call35 = tail call noundef i64 @_ZNK2v86BigInt10Int64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %lossless) #24
   store i64 %call35, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9811,19 +9580,19 @@ return:                                           ; preds = %entry, %do.end29, %
 declare noundef i64 @_ZNK2v86BigInt10Int64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_bigint_uint64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result, ptr noundef %lossless) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_bigint_uint64(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result, ptr noundef %lossless) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9838,11 +9607,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9851,11 +9620,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.body14
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i10 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i10, align 4
-  %engine_error_code3.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i11 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i11, align 8
-  %engine_reserved5.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i12 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i12, align 8
   br label %return
 
@@ -9864,11 +9633,11 @@ do.body14:                                        ; preds = %do.body8
   br i1 %cmp15.not, label %if.then16, label %do.end19
 
 if.then16:                                        ; preds = %do.body14
-  %error_code1.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i13 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i13, align 4
-  %engine_error_code3.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i14 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i14, align 8
-  %engine_reserved5.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i15 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i15, align 8
   br label %return
 
@@ -9877,18 +9646,18 @@ do.end19:                                         ; preds = %do.body14
   br i1 %call25, label %do.end29, label %if.then26
 
 if.then26:                                        ; preds = %do.end19
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 17, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
 do.end29:                                         ; preds = %do.end19
   %call35 = tail call noundef i64 @_ZNK2v86BigInt11Uint64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef nonnull %lossless) #24
   store i64 %call35, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -9900,20 +9669,20 @@ return:                                           ; preds = %entry, %do.end29, %
 declare noundef i64 @_ZNK2v86BigInt11Uint64ValueEPb(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_bigint_words(ptr noundef %env, ptr noundef %value, ptr noundef %sign_bit, ptr noundef %word_count, ptr noundef %words) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_bigint_words(ptr noundef %env, ptr noundef %value, ptr noundef %sign_bit, ptr noundef %word_count, ptr noundef %words) local_unnamed_addr #3 {
 entry:
   %word_count_int = alloca i32, align 4
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -9928,11 +9697,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -9941,11 +9710,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
@@ -9954,11 +9723,11 @@ do.end13:                                         ; preds = %do.body8
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
-  %error_code1.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i19 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 17, ptr %error_code1.i19, align 4
-  %engine_error_code3.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i20 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i20, align 8
-  %engine_reserved5.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i21 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i21, align 8
   br label %return
 
@@ -9979,11 +9748,11 @@ do.body33:                                        ; preds = %do.end23
   br i1 %cmp28, label %if.then35, label %do.body39
 
 if.then35:                                        ; preds = %do.body33
-  %error_code1.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i22 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i22, align 4
-  %engine_error_code3.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i23 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i23, align 8
-  %engine_reserved5.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i24 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i24, align 8
   br label %return
 
@@ -9991,11 +9760,11 @@ do.body39:                                        ; preds = %do.body33
   br i1 %cmp29, label %if.then41, label %do.end44
 
 if.then41:                                        ; preds = %do.body39
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %return
 
@@ -10008,7 +9777,7 @@ if.end46:                                         ; preds = %do.end44, %if.then3
   %4 = phi i32 [ %.pre, %do.end44 ], [ %call32, %if.then30 ]
   %conv47 = sext i32 %4 to i64
   store i64 %conv47, ptr %word_count, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -10022,19 +9791,19 @@ declare noundef i32 @_ZNK2v86BigInt9WordCountEv(ptr noundef nonnull align 1 dere
 declare void @_ZNK2v86BigInt12ToWordsArrayEPiS1_Pm(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_bool(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_bool(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10049,11 +9818,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10062,11 +9831,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i8 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i8, align 4
-  %engine_error_code3.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i9 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i9, align 8
-  %engine_reserved5.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i10 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i10, align 8
   br label %return
 
@@ -10075,11 +9844,11 @@ do.end13:                                         ; preds = %do.body8
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
-  %error_code1.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i11 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 7, ptr %error_code1.i11, align 4
-  %engine_error_code3.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i12 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i12, align 8
-  %engine_reserved5.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i13 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i13, align 8
   br label %return
 
@@ -10087,7 +9856,7 @@ do.end23:                                         ; preds = %do.end13
   %call29 = tail call noundef zeroext i1 @_ZNK2v87Boolean5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call29 to i8
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -10099,19 +9868,19 @@ return:                                           ; preds = %entry, %do.end23, %
 declare noundef zeroext i1 @_ZNK2v87Boolean5ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_string_latin1(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_string_latin1(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10126,11 +9895,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10151,11 +9920,11 @@ if.end.i:                                         ; preds = %do.end7
   br i1 %cmp.i, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7, %if.end.i
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
@@ -10168,11 +9937,11 @@ do.body19:                                        ; preds = %do.end17
   br i1 %cmp20.not, label %if.then21, label %do.end24
 
 if.then21:                                        ; preds = %do.body19
-  %error_code1.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i23, align 4
-  %engine_error_code3.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i24 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i24, align 8
-  %engine_reserved5.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i25 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i25, align 8
   br label %return
 
@@ -10186,7 +9955,7 @@ if.else:                                          ; preds = %do.end17
   br i1 %cmp31.not, label %if.else45, label %if.then32
 
 if.then32:                                        ; preds = %if.else
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %8 = load ptr, ptr %isolate, align 8
   %9 = trunc i64 %bufsize to i32
   %conv39 = add i32 %9, -1
@@ -10207,7 +9976,7 @@ if.end50.sink.split:                              ; preds = %if.else45, %if.then
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.sink.split, %if.then32, %if.else45
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -10221,19 +9990,19 @@ declare noundef i32 @_ZNK2v86String6LengthEv(ptr noundef nonnull align 1 derefer
 declare noundef i32 @_ZNK2v86String12WriteOneByteEPNS_7IsolateEPhiii(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_string_utf8(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_string_utf8(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10248,11 +10017,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10273,11 +10042,11 @@ if.end.i:                                         ; preds = %do.end7
   br i1 %cmp.i, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7, %if.end.i
-  %error_code1.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i21 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i21, align 4
-  %engine_error_code3.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i22 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i22, align 8
-  %engine_reserved5.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i23 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i23, align 8
   br label %return
 
@@ -10290,16 +10059,16 @@ do.body19:                                        ; preds = %do.end17
   br i1 %cmp20.not, label %if.then21, label %do.end24
 
 if.then21:                                        ; preds = %do.body19
-  %error_code1.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i24, align 4
-  %engine_error_code3.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i25 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i25, align 8
-  %engine_reserved5.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i26 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i26, align 8
   br label %return
 
 do.end24:                                         ; preds = %do.body19
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %8 = load ptr, ptr %isolate, align 8
   %call30 = tail call noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr noundef %8) #24
   %conv = sext i32 %call30 to i64
@@ -10310,7 +10079,7 @@ if.else:                                          ; preds = %do.end17
   br i1 %cmp31.not, label %if.else46, label %if.then32
 
 if.then32:                                        ; preds = %if.else
-  %isolate39 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate39 = getelementptr inbounds i8, ptr %env, i64 8
   %9 = load ptr, ptr %isolate39, align 8
   %10 = trunc i64 %bufsize to i32
   %conv40 = add i32 %10, -1
@@ -10331,7 +10100,7 @@ if.end51.sink.split:                              ; preds = %if.else46, %if.then
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end51.sink.split, %if.then32, %if.else46
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -10345,19 +10114,19 @@ declare noundef i32 @_ZNK2v86String10Utf8LengthEPNS_7IsolateE(ptr noundef nonnul
 declare noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_string_utf16(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_string_utf16(ptr noundef %env, ptr noundef %value, ptr noundef %buf, i64 noundef %bufsize, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i18 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i18, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10372,11 +10141,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10397,11 +10166,11 @@ if.end.i:                                         ; preds = %do.end7
   br i1 %cmp.i, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7, %if.end.i
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 3, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
@@ -10414,11 +10183,11 @@ do.body19:                                        ; preds = %do.end17
   br i1 %cmp20.not, label %if.then21, label %do.end24
 
 if.then21:                                        ; preds = %do.body19
-  %error_code1.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i23, align 4
-  %engine_error_code3.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i24 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i24, align 8
-  %engine_reserved5.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i25 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i25, align 8
   br label %return
 
@@ -10432,7 +10201,7 @@ if.else:                                          ; preds = %do.end17
   br i1 %cmp31.not, label %if.else45, label %if.then32
 
 if.then32:                                        ; preds = %if.else
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %8 = load ptr, ptr %isolate, align 8
   %9 = trunc i64 %bufsize to i32
   %conv39 = add i32 %9, -1
@@ -10453,7 +10222,7 @@ if.end50.sink.split:                              ; preds = %if.else45, %if.then
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.sink.split, %if.then32, %if.else45
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -10472,13 +10241,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i15 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i15, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10489,17 +10258,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10513,21 +10282,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   %cmp23.not = icmp eq ptr %result, null
@@ -10543,11 +10312,11 @@ do.end28:                                         ; preds = %do.end14
 
 cleanup.sink.split:                               ; preds = %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 10, %do.end28 ]
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %cleanup
 
@@ -10558,8 +10327,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i28:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i30 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i30 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i30, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -10600,13 +10369,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10617,17 +10386,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10641,21 +10410,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   %cmp23.not = icmp eq ptr %result, null
@@ -10663,7 +10432,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call48 = call ptr @_ZNK2v85Value8ToNumberENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #24
   %cmp.i.i = icmp eq ptr %call48, null
@@ -10676,11 +10445,11 @@ _ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit: ; preds = %do.end28
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 6, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6NumberEE14ToLocalCheckedEv.exit ]
-  %error_code1.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i32 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i32, align 4
-  %engine_error_code3.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i33 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i33, align 8
-  %engine_reserved5.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i34 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i34, align 8
   br label %cleanup
 
@@ -10691,8 +10460,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i35:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i37 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i37 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i37, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -10733,13 +10502,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10750,17 +10519,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10774,21 +10543,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   %cmp23.not = icmp eq ptr %result, null
@@ -10796,7 +10565,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call48 = call ptr @_ZNK2v85Value8ToObjectENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #24
   %cmp.i.i = icmp eq ptr %call48, null
@@ -10809,11 +10578,11 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end28
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 2, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ]
-  %error_code1.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i32 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i32, align 4
-  %engine_error_code3.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i33 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i33, align 8
-  %engine_reserved5.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i34 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i34, align 8
   br label %cleanup
 
@@ -10824,8 +10593,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i35:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i37 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i37 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i37, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -10864,13 +10633,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -10881,17 +10650,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -10905,21 +10674,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   %cmp23.not = icmp eq ptr %result, null
@@ -10927,7 +10696,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call48 = call ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value, ptr %retval.sroa.0.0.copyload.i.i) #24
   %cmp.i.i = icmp eq ptr %call48, null
@@ -10940,11 +10709,11 @@ _ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit: ; preds = %do.end28
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 3, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit ]
-  %error_code1.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i32 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i32, align 4
-  %engine_error_code3.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i33 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i33, align 8
-  %engine_reserved5.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i34 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i34, align 8
   br label %cleanup
 
@@ -10955,8 +10724,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i35:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i37 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i37 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i37, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -10998,13 +10767,13 @@ entry:
   br i1 %cmp.i, label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit, label %do.end.i
 
 do.end.i:                                         ; preds = %entry
-  %module_api_version.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i.i, align 8
   %cmp.i27.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i27.i, label %land.lhs.true.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -11015,17 +10784,17 @@ if.then.i28.i:                                    ; preds = %land.lhs.true.i.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, %do.end.i
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception.i = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %do.body8.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit
 
@@ -11039,27 +10808,27 @@ if.then10.i:                                      ; preds = %do.body8.i
   %5 = load i32, ptr %module_api_version.i.i, align 8
   %cmp11.i = icmp eq i32 %5, 2147483647
   %cond.i = select i1 %cmp11.i, i32 23, i32 10
-  %error_code1.i29.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i29.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond.i, ptr %error_code1.i29.i, align 4
-  %engine_error_code3.i30.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i30.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i30.i, align 8
-  %engine_reserved5.i31.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i31.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i31.i, align 8
   br label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit
 
 do.end14.i:                                       ; preds = %do.body8.i
-  %last_error.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
-  %isolate.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i, ptr noundef %6) #24
-  %_env.i.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch.i, i64 0, i32 1
+  %_env.i.i = getelementptr inbounds i8, ptr %try_catch.i, i64 48
   store ptr %env, ptr %_env.i.i, align 8
   %cmp17.not.i = icmp eq ptr %js_object, null
   br i1 %cmp17.not.i, label %cleanup.sink.split.i, label %do.end21.i
 
 do.end21.i:                                       ; preds = %do.end14.i
-  %context_persistent.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %context_persistent.i.i, align 8
   %call31.i = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #24
   br i1 %call31.i, label %do.end36.i, label %cleanup.sink.split.i
@@ -11085,9 +10854,9 @@ do.end36.i:                                       ; preds = %do.end21.i
   %14 = inttoptr i64 %sub.i.i18.i.i to ptr
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
-  %isolate_data_.i.i.i = getelementptr inbounds %"class.node::Environment", ptr %16, i64 0, i32 4
+  %isolate_data_.i.i.i = getelementptr inbounds i8, ptr %16, i64 96
   %17 = load ptr, ptr %isolate_data_.i.i.i, align 8
-  %napi_wrapper_.i.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %17, i64 0, i32 10
+  %napi_wrapper_.i.i.i = getelementptr inbounds i8, ptr %17, i64 128
   %18 = load ptr, ptr %napi_wrapper_.i.i.i, align 8
   %call59.i = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr nonnull %retval.sroa.0.0.copyload.i.i.i, ptr %18) #24
   %19 = and i16 %call59.i, 1
@@ -11124,9 +10893,9 @@ if.else.i:                                        ; preds = %do.end66.i
 do.body97.i:                                      ; preds = %if.else.i, %do.end75.i
   %reference.0.i = phi ptr [ %call84.i, %do.end75.i ], [ %call95.i, %if.else.i ]
   %call106.i = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr nonnull %retval.sroa.0.0.copyload.i.i.i)
-  %isolate_data_.i.i44.i = getelementptr inbounds %"class.node::Environment", ptr %call106.i, i64 0, i32 4
+  %isolate_data_.i.i44.i = getelementptr inbounds i8, ptr %call106.i, i64 96
   %21 = load ptr, ptr %isolate_data_.i.i44.i, align 8
-  %napi_wrapper_.i.i45.i = getelementptr inbounds %"class.node::IsolateData", ptr %21, i64 0, i32 10
+  %napi_wrapper_.i.i45.i = getelementptr inbounds i8, ptr %21, i64 128
   %22 = load ptr, ptr %napi_wrapper_.i.i45.i, align 8
   %23 = load ptr, ptr %isolate.i.i, align 8
   %call113.i = call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %23, ptr noundef nonnull %reference.0.i) #24
@@ -11155,11 +10924,11 @@ do.end140.i:                                      ; preds = %_ZNO2v85MaybeIbE8Fr
 
 cleanup.sink.split.i:                             ; preds = %do.end140.i, %do.body69.i, %_ZNO2v85MaybeIbE8FromJustEv.exit180.i, %do.end21.i, %do.end14.i
   %.sink.i = phi i32 [ 1, %do.end14.i ], [ 1, %do.end21.i ], [ 1, %_ZNO2v85MaybeIbE8FromJustEv.exit180.i ], [ 1, %do.body69.i ], [ 10, %do.end140.i ]
-  %error_code1.i46.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i46.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink.i, ptr %error_code1.i46.i, align 4
-  %engine_error_code3.i47.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i47.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i47.i, align 8
-  %engine_reserved5.i48.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i48.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i48.i, align 8
   br label %cleanup.i
 
@@ -11170,8 +10939,8 @@ cleanup.i:                                        ; preds = %cleanup.sink.split.
 
 if.then.i50.i:                                    ; preds = %cleanup.i
   %26 = load ptr, ptr %_env.i.i, align 8
-  %last_exception.i.i = getelementptr inbounds %struct.napi_env__, ptr %26, i64 0, i32 3
-  %isolate.i52.i = getelementptr inbounds %struct.napi_env__, ptr %26, i64 0, i32 1
+  %last_exception.i.i = getelementptr inbounds i8, ptr %26, i64 24
+  %isolate.i52.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %isolate.i52.i, align 8
   %call3.i.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch.i) #24
   %28 = load ptr, ptr %last_exception.i.i, align 8
@@ -11204,7 +10973,7 @@ _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_unwrap(ptr noundef %env, ptr noundef %obj, ptr noundef %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_unwrap(ptr noundef %env, ptr noundef %obj, ptr noundef %result) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %obj, ptr noundef %result, i32 noundef 0)
   ret i32 %call
@@ -11218,13 +10987,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i23 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i23, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -11235,17 +11004,17 @@ if.then.i24:                                      ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -11259,21 +11028,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %js_object, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
@@ -11285,16 +11054,16 @@ do.end21:                                         ; preds = %do.end14
   br i1 %or.cond, label %if.end31, label %cleanup.sink.split
 
 if.end31:                                         ; preds = %do.end21
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call41 = call noundef zeroext i1 @_ZNK2v85Value8IsObjectEv(ptr noundef nonnull align 1 dereferenceable(1) %js_object) #24
   br i1 %call41, label %do.end46, label %cleanup.sink.split
 
 do.end46:                                         ; preds = %if.end31
   %call57 = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i)
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %call57, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %call57, i64 96
   %7 = load ptr, ptr %isolate_data_.i.i, align 8
-  %napi_wrapper_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %7, i64 0, i32 10
+  %napi_wrapper_.i.i = getelementptr inbounds i8, ptr %7, i64 128
   %8 = load ptr, ptr %napi_wrapper_.i.i, align 8
   %call68 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #24
   %cmp.i.i.i = icmp eq ptr %call68, null
@@ -11313,7 +11082,7 @@ do.end84:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp25, label %if.then92, label %if.end94
 
 if.then92:                                        ; preds = %do.end84
-  %finalize_data_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call91, i64 0, i32 3
+  %finalize_data_.i = getelementptr inbounds i8, ptr %call91, i64 24
   %9 = load ptr, ptr %finalize_data_.i, align 8
   store ptr %9, ptr %result, align 8
   br label %if.end94
@@ -11324,9 +11093,9 @@ if.end94:                                         ; preds = %if.then92, %do.end8
 
 do.body97:                                        ; preds = %if.end94
   %call106 = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i)
-  %isolate_data_.i.i40 = getelementptr inbounds %"class.node::Environment", ptr %call106, i64 0, i32 4
+  %isolate_data_.i.i40 = getelementptr inbounds i8, ptr %call106, i64 96
   %10 = load ptr, ptr %isolate_data_.i.i40, align 8
-  %napi_wrapper_.i.i41 = getelementptr inbounds %"class.node::IsolateData", ptr %10, i64 0, i32 10
+  %napi_wrapper_.i.i41 = getelementptr inbounds i8, ptr %10, i64 128
   %11 = load ptr, ptr %napi_wrapper_.i.i41, align 8
   %call117 = call i16 @_ZN2v86Object13DeletePrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %js_object, ptr %retval.sroa.0.0.copyload.i.i, ptr %11) #24
   %12 = and i16 %call117, 1
@@ -11348,19 +11117,19 @@ do.body122:                                       ; preds = %_ZNO2v85MaybeIbE8Fr
   unreachable
 
 do.end127:                                        ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit
-  %ownership_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %call91, i64 0, i32 2
+  %ownership_.i = getelementptr inbounds i8, ptr %call91, i64 68
   %14 = load i32, ptr %ownership_.i, align 4
   %cmp129 = icmp eq i32 %14, 1
   br i1 %cmp129, label %if.then130, label %delete.notnull
 
 if.then130:                                       ; preds = %do.end127
-  %finalize_callback_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call91, i64 0, i32 2
+  %finalize_callback_.i = getelementptr inbounds i8, ptr %call91, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %finalize_callback_.i, i8 0, i64 24, i1 false)
   br label %if.end134
 
 delete.notnull:                                   ; preds = %do.end127
   %vtable131 = load ptr, ptr %call91, align 8
-  %vfn132 = getelementptr inbounds ptr, ptr %vtable131, i64 1
+  %vfn132 = getelementptr inbounds i8, ptr %vtable131, i64 8
   %15 = load ptr, ptr %vfn132, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(81) %call91) #24
   br label %if.end134
@@ -11371,11 +11140,11 @@ if.end134:                                        ; preds = %if.then130, %delete
 
 cleanup.sink.split:                               ; preds = %if.end134, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %if.end31, %do.end21, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 1, %do.end21 ], [ 1, %if.end31 ], [ 1, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ], [ 10, %if.end134 ]
-  %error_code1.i42 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i42 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i42, align 4
-  %engine_error_code3.i43 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i43 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i43, align 8
-  %engine_reserved5.i44 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i44 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i44, align 8
   br label %cleanup
 
@@ -11386,8 +11155,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i45:                                      ; preds = %cleanup
   %16 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %16, i64 0, i32 3
-  %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %16, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %16, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %18 = load ptr, ptr %last_exception.i, align 8
@@ -11419,7 +11188,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_remove_wrap(ptr noundef %env, ptr noundef %obj, ptr noundef %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_remove_wrap(ptr noundef %env, ptr noundef %obj, ptr noundef %result) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_16UnwrapEP10napi_env__P12napi_value__PPvNS0_12UnwrapActionE(ptr noundef %env, ptr noundef %obj, ptr noundef %result, i32 noundef 1)
   ret i32 %call
@@ -11438,13 +11207,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i16 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i16, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -11455,17 +11224,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -11479,31 +11248,31 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %if.then18, label %do.end21
 
 if.then18:                                        ; preds = %do.end14
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %cleanup
 
@@ -11545,8 +11314,8 @@ cleanup:                                          ; preds = %if.end35, %if.then1
 
 if.then.i25:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i27 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i27 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i27, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -11587,13 +11356,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i26 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i26, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -11604,17 +11373,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -11628,23 +11397,23 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i27 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i27, align 4
-  %engine_error_code3.i28 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i28 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i28, align 8
-  %engine_reserved5.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i29 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i29, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp21.not = icmp eq ptr %object, null
   br i1 %cmp21.not, label %if.then22, label %do.end27
@@ -11694,9 +11463,9 @@ do.end65:                                         ; preds = %_ZN2v810MaybeLocalI
   %14 = inttoptr i64 %sub.i.i18.i to ptr
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %16, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %16, i64 96
   %17 = load ptr, ptr %isolate_data_.i.i, align 8
-  %napi_type_tag_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %17, i64 0, i32 9
+  %napi_type_tag_.i.i = getelementptr inbounds i8, ptr %17, i64 120
   %18 = load ptr, ptr %napi_type_tag_.i.i, align 8
   %call84 = call i16 @_ZN2v86Object10HasPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr nonnull %retval.sroa.0.0.copyload.i.i, ptr %18) #24
   %19 = and i16 %call84, 1
@@ -11754,11 +11523,11 @@ do.end160:                                        ; preds = %_ZNKR2v85MaybeIbE8F
 
 cleanup.sink.split:                               ; preds = %do.end160, %if.then22, %if.then43, %if.then59, %if.then87, %if.then96, %if.then114, %if.then145, %if.then154
   %.sink = phi i32 [ %cond156, %if.then154 ], [ %cond147, %if.then145 ], [ %cond116, %if.then114 ], [ %cond98, %if.then96 ], [ %cond89, %if.then87 ], [ %cond61, %if.then59 ], [ %cond45, %if.then43 ], [ %cond24, %if.then22 ], [ 10, %do.end160 ]
-  %error_code1.i55 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i55 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i55, align 4
-  %engine_error_code3.i56 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i56 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i56, align 8
-  %engine_reserved5.i57 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i57 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i57, align 8
   br label %cleanup
 
@@ -11769,8 +11538,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i59:                                      ; preds = %cleanup
   %23 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %23, i64 0, i32 3
-  %isolate.i61 = getelementptr inbounds %struct.napi_env__, ptr %23, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %23, i64 24
+  %isolate.i61 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %isolate.i61, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %25 = load ptr, ptr %last_exception.i, align 8
@@ -11852,13 +11621,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i29 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i29, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -11869,17 +11638,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -11893,23 +11662,23 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i30 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i30, align 4
-  %engine_error_code3.i31 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i31 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i31, align 8
-  %engine_reserved5.i32 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i32 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i32, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp21.not = icmp eq ptr %object, null
   br i1 %cmp21.not, label %cleanup.sink.split.sink.split, label %do.end27
@@ -11927,9 +11696,9 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end27
 
 do.end74:                                         ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %call82 = call noundef ptr @_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i)
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %call82, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %call82, i64 96
   %7 = load ptr, ptr %isolate_data_.i.i, align 8
-  %napi_type_tag_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %7, i64 0, i32 9
+  %napi_type_tag_.i.i = getelementptr inbounds i8, ptr %7, i64 120
   %8 = load ptr, ptr %napi_type_tag_.i.i, align 8
   %call93 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %call36, ptr %retval.sroa.0.0.copyload.i.i, ptr %8) #24
   %cmp.i.i176 = icmp eq ptr %call93, null
@@ -11962,9 +11731,9 @@ if.then123:                                       ; preds = %if.then121
   br i1 %cmp125, label %land.rhs, label %if.end152.sink.split
 
 land.rhs:                                         ; preds = %if.then123
-  %upper = getelementptr inbounds %struct.napi_type_tag, ptr %tag, i64 0, i32 1
+  %upper = getelementptr inbounds i8, ptr %tag, i64 8
   %13 = load i64, ptr %upper, align 8
-  %upper126 = getelementptr inbounds %struct.napi_type_tag, ptr %type_tag, i64 0, i32 1
+  %upper126 = getelementptr inbounds i8, ptr %type_tag, i64 8
   %14 = load i64, ptr %upper126, align 8
   br label %if.end152.sink.split.sink.split
 
@@ -11975,7 +11744,7 @@ if.then129:                                       ; preds = %if.then121
   br i1 %cmp132, label %land.rhs133, label %if.end152.sink.split
 
 land.rhs133:                                      ; preds = %if.then129
-  %upper134 = getelementptr inbounds %struct.napi_type_tag, ptr %type_tag, i64 0, i32 1
+  %upper134 = getelementptr inbounds i8, ptr %type_tag, i64 8
   %17 = load i64, ptr %upper134, align 8
   br label %if.end152.sink.split.sink.split
 
@@ -11985,7 +11754,7 @@ if.then140:                                       ; preds = %if.then121
   br i1 %cmp142, label %land.rhs143, label %if.end152.sink.split
 
 land.rhs143:                                      ; preds = %if.then140
-  %upper144 = getelementptr inbounds %struct.napi_type_tag, ptr %type_tag, i64 0, i32 1
+  %upper144 = getelementptr inbounds i8, ptr %type_tag, i64 8
   %19 = load i64, ptr %upper144, align 8
   br label %if.end152.sink.split.sink.split
 
@@ -12013,11 +11782,11 @@ cleanup.sink.split.sink.split:                    ; preds = %do.end74, %_ZN2v810
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %if.end152
   %.sink = phi i32 [ 10, %if.end152 ], [ %cond24, %cleanup.sink.split.sink.split ]
-  %error_code1.i48 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i48 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i48, align 4
-  %engine_error_code3.i49 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i49 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i49, align 8
-  %engine_reserved5.i50 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i50 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i50, align 8
   br label %cleanup
 
@@ -12028,8 +11797,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i51:                                      ; preds = %cleanup
   %21 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %21, i64 0, i32 3
-  %isolate.i53 = getelementptr inbounds %struct.napi_env__, ptr %21, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %21, i64 24
+  %isolate.i53 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %isolate.i53, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %23 = load ptr, ptr %last_exception.i, align 8
@@ -12063,19 +11832,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_value_external(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_value_external(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12090,11 +11859,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -12103,11 +11872,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i8 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i8, align 4
-  %engine_error_code3.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i9 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i9, align 8
-  %engine_reserved5.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i10 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i10, align 8
   br label %return
 
@@ -12116,18 +11885,18 @@ do.end13:                                         ; preds = %do.body8
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
-  %error_code1.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i11 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i11, align 4
-  %engine_error_code3.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i12 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i12, align 8
-  %engine_reserved5.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i13 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i13, align 8
   br label %return
 
 do.end23:                                         ; preds = %do.end13
   %call29 = tail call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   store ptr %call29, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12139,7 +11908,7 @@ return:                                           ; preds = %entry, %do.end23, %
 declare noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_create_reference(ptr noundef %env, ptr noundef %value, i32 noundef %initial_refcount, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_create_reference(ptr noundef %env, ptr noundef %value, i32 noundef %initial_refcount, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %initial_refcount.addr.i = alloca i32, align 4
   %ownership.addr.i = alloca i32, align 4
@@ -12150,13 +11919,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12171,11 +11940,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -12184,11 +11953,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i12 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i12, align 4
-  %engine_error_code3.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i13 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i13, align 8
-  %engine_reserved5.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i14 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i14, align 8
   br label %return
 
@@ -12208,11 +11977,11 @@ lor.lhs.false23:                                  ; preds = %lor.lhs.false
   br i1 %call25, label %if.end29, label %if.then26
 
 if.then26:                                        ; preds = %lor.lhs.false23
-  %error_code1.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i15 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i15, align 4
-  %engine_error_code3.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i16 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i16, align 8
-  %engine_reserved5.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i17 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i17, align 8
   br label %return
 
@@ -12235,7 +12004,7 @@ if.end29:                                         ; preds = %if.then18, %lor.lhs
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_data.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_hint.addr.i)
   store ptr %call.i, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12245,19 +12014,19 @@ return:                                           ; preds = %entry, %if.end29, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_delete_reference(ptr noundef %env, ptr noundef %ref) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_delete_reference(ptr noundef %env, ptr noundef %ref) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12272,20 +12041,20 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %delete.notnull
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 delete.notnull:                                   ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %vtable = load ptr, ptr %ref, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(81) %ref) #24
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12295,19 +12064,19 @@ return:                                           ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_reference_ref(ptr noundef %env, ptr noundef %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_reference_ref(ptr noundef %env, ptr noundef %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12322,22 +12091,22 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %persistent_.i = getelementptr inbounds %"class.v8impl::Reference", ptr %ref, i64 0, i32 1
+  %persistent_.i = getelementptr inbounds i8, ptr %ref, i64 72
   %3 = load ptr, ptr %persistent_.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %_ZN6v8impl9Reference3RefEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end7
-  %refcount_.i.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %ref, i64 0, i32 1
+  %refcount_.i.i = getelementptr inbounds i8, ptr %ref, i64 64
   %4 = load i32, ptr %refcount_.i.i, align 8
   %inc.i.i = add i32 %4, 1
   store i32 %inc.i.i, ptr %refcount_.i.i, align 8
@@ -12345,7 +12114,7 @@ if.end.i:                                         ; preds = %do.end7
   br i1 %cmp.i6, label %land.lhs.true.i7, label %_ZN6v8impl9Reference3RefEv.exit
 
 land.lhs.true.i7:                                 ; preds = %if.end.i
-  %can_be_weak_.i = getelementptr inbounds %"class.v8impl::Reference", ptr %ref, i64 0, i32 2
+  %can_be_weak_.i = getelementptr inbounds i8, ptr %ref, i64 80
   %5 = load i8, ptr %can_be_weak_.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i8 = icmp eq i8 %6, 0
@@ -12365,7 +12134,7 @@ if.then10:                                        ; preds = %_ZN6v8impl9Referenc
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %_ZN6v8impl9Reference3RefEv.exit
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12375,19 +12144,19 @@ return:                                           ; preds = %entry, %if.end11, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_reference_unref(ptr noundef %env, ptr noundef %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_reference_unref(ptr noundef %env, ptr noundef %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12402,31 +12171,31 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %refcount_.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %ref, i64 0, i32 1
+  %refcount_.i = getelementptr inbounds i8, ptr %ref, i64 64
   %3 = load i32, ptr %refcount_.i, align 8
   %cmp9 = icmp eq i32 %3, 0
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %do.end7
-  %error_code1.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i8 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 9, ptr %error_code1.i8, align 4
-  %engine_error_code3.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i9 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i9, align 8
-  %engine_reserved5.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i10 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i10, align 8
   br label %return
 
 if.end12:                                         ; preds = %do.end7
-  %persistent_.i = getelementptr inbounds %"class.v8impl::Reference", ptr %ref, i64 0, i32 1
+  %persistent_.i = getelementptr inbounds i8, ptr %ref, i64 72
   %4 = load ptr, ptr %persistent_.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %_ZN6v8impl9Reference5UnrefEv.exit, label %_ZN6v8impl7RefBase5UnrefEv.exit.i
@@ -12438,7 +12207,7 @@ _ZN6v8impl7RefBase5UnrefEv.exit.i:                ; preds = %if.end12
   br i1 %cmp.i11, label %if.then5.i, label %_ZN6v8impl9Reference5UnrefEv.exit
 
 if.then5.i:                                       ; preds = %_ZN6v8impl7RefBase5UnrefEv.exit.i
-  %can_be_weak_.i.i = getelementptr inbounds %"class.v8impl::Reference", ptr %ref, i64 0, i32 2
+  %can_be_weak_.i.i = getelementptr inbounds i8, ptr %ref, i64 80
   %5 = load i8, ptr %can_be_weak_.i.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i.i = icmp eq i8 %6, 0
@@ -12463,7 +12232,7 @@ if.then15:                                        ; preds = %_ZN6v8impl9Referenc
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %_ZN6v8impl9Reference5UnrefEv.exit
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12473,19 +12242,19 @@ return:                                           ; preds = %entry, %if.end16, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_reference_value(ptr noundef %env, ptr noundef readonly %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_reference_value(ptr noundef %env, ptr noundef readonly %ref, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12500,11 +12269,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -12513,24 +12282,24 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
 do.end13:                                         ; preds = %do.body8
-  %persistent_.i = getelementptr inbounds %"class.v8impl::Reference", ptr %ref, i64 0, i32 1
+  %persistent_.i = getelementptr inbounds i8, ptr %ref, i64 72
   %3 = load ptr, ptr %persistent_.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i, label %_ZN6v8impl9Reference3GetEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.end13
-  %env_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %ref, i64 0, i32 1
+  %env_.i = getelementptr inbounds i8, ptr %ref, i64 8
   %4 = load ptr, ptr %env_.i, align 8
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %isolate.i, align 8
   %6 = load i64, ptr %3, align 8
   %call.i.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %5, i64 noundef %6) #24
@@ -12539,7 +12308,7 @@ if.end.i.i:                                       ; preds = %do.end13
 _ZN6v8impl9Reference3GetEv.exit:                  ; preds = %do.end13, %if.end.i.i
   %retval.sroa.0.0.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %do.end13 ]
   store ptr %retval.sroa.0.0.i, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12549,19 +12318,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_open_handle_scope(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_open_handle_scope(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12576,25 +12345,25 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %call8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   tail call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %call8, ptr noundef %3) #24
   store ptr %call8, ptr %result, align 8
-  %open_handle_scopes = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 8
+  %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
   %4 = load i32, ptr %open_handle_scopes, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %open_handle_scopes, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12604,19 +12373,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_close_handle_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_close_handle_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12631,16 +12400,16 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %open_handle_scopes = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 8
+  %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
   %3 = load i32, ptr %open_handle_scopes, align 8
   %cmp8 = icmp eq i32 %3, 0
   br i1 %cmp8, label %return, label %if.end10
@@ -12650,7 +12419,7 @@ if.end10:                                         ; preds = %do.end7
   store i32 %dec, ptr %open_handle_scopes, align 8
   tail call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #24
   tail call void @_ZdlPv(ptr noundef nonnull %scope) #26
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12660,19 +12429,19 @@ return:                                           ; preds = %do.end7, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_open_escapable_handle_scope(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_open_escapable_handle_scope(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12687,27 +12456,27 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
   %call8 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate, align 8
   tail call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %3) #24
-  %escape_called_.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::EscapableHandleScopeWrapper", ptr %call8, i64 0, i32 1
+  %escape_called_.i = getelementptr inbounds i8, ptr %call8, i64 32
   store i8 0, ptr %escape_called_.i, align 8
   store ptr %call8, ptr %result, align 8
-  %open_handle_scopes = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 8
+  %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
   %4 = load i32, ptr %open_handle_scopes, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %open_handle_scopes, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12717,19 +12486,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_close_escapable_handle_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_close_escapable_handle_scope(ptr noundef %env, ptr noundef %scope) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12744,16 +12513,16 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %open_handle_scopes = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 8
+  %open_handle_scopes = getelementptr inbounds i8, ptr %env, i64 160
   %3 = load i32, ptr %open_handle_scopes, align 8
   %cmp8 = icmp eq i32 %3, 0
   br i1 %cmp8, label %return, label %if.end10
@@ -12764,7 +12533,7 @@ if.end10:                                         ; preds = %do.end7
   %4 = load i32, ptr %open_handle_scopes, align 8
   %dec = add nsw i32 %4, -1
   store i32 %dec, ptr %open_handle_scopes, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12774,19 +12543,19 @@ return:                                           ; preds = %do.end7, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_escape_handle(ptr noundef %env, ptr noundef %scope, ptr noundef %escapee, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_escape_handle(ptr noundef %env, ptr noundef %scope, ptr noundef %escapee, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12801,11 +12570,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -12814,11 +12583,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.body14
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i11 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i11, align 4
-  %engine_error_code3.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i12 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i12, align 8
-  %engine_reserved5.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i13 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i13, align 8
   br label %return
 
@@ -12827,11 +12596,11 @@ do.body14:                                        ; preds = %do.body8
   br i1 %cmp15.not, label %if.then16, label %do.end19
 
 if.then16:                                        ; preds = %do.body14
-  %error_code1.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i14, align 4
-  %engine_error_code3.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i15 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i15, align 8
-  %engine_reserved5.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i16 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i16, align 8
   br label %return
 
@@ -12846,16 +12615,16 @@ if.then22:                                        ; preds = %do.end19
   store i8 1, ptr %3, align 8
   %call4.i.i = tail call noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef nonnull %escapee) #24
   store ptr %call4.i.i, ptr %result, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
 if.end39:                                         ; preds = %do.end19
-  %error_code1.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i17 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 12, ptr %error_code1.i17, align 4
-  %engine_error_code3.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i18 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i18, align 8
-  %engine_reserved5.i19 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i19 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i19, align 8
   br label %return
 
@@ -12872,13 +12641,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i23 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i23, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -12889,17 +12658,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -12913,21 +12682,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i24, align 4
-  %engine_error_code3.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i25 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i25, align 8
-  %engine_reserved5.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i26 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i26, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %constructor, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
@@ -12941,7 +12710,7 @@ do.end21:                                         ; preds = %do.end14
   br i1 %or.cond48, label %cleanup.sink.split, label %do.end38
 
 do.end38:                                         ; preds = %do.end21
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call56 = call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %constructor) #24
   br i1 %call56, label %do.end61, label %cleanup.sink.split
@@ -12959,11 +12728,11 @@ _ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit: ; preds = %do.end61
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit, %do.end61, %do.end38, %do.end21, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 1, %do.end21 ], [ 1, %do.end38 ], [ 10, %do.end61 ], [ 10, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ]
-  %error_code1.i42 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i42 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i42, align 4
-  %engine_error_code3.i43 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i43 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i43, align 8
-  %engine_reserved5.i44 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i44 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i44, align 8
   br label %cleanup
 
@@ -12974,8 +12743,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i45:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -13016,13 +12785,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i24 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i24, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13033,17 +12802,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -13057,21 +12826,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %object, null
   %cmp23.not = icmp eq ptr %result, null
@@ -13080,7 +12849,7 @@ do.end14:                                         ; preds = %do.body8
 
 do.end28:                                         ; preds = %do.end14
   store i8 0, ptr %result, align 1
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %cmp34.not = icmp eq ptr %constructor, null
   br i1 %cmp34.not, label %cleanup.sink.split, label %do.end39
@@ -13114,11 +12883,11 @@ _ZNKR2v85MaybeIbE8FromJustEv.exit:                ; preds = %if.end72
 
 cleanup.sink.split:                               ; preds = %_ZNKR2v85MaybeIbE8FromJustEv.exit, %if.end72, %do.end39, %do.end28, %do.end14, %if.then69
   %.sink = phi i32 [ 5, %if.then69 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 2, %do.end39 ], [ 9, %if.end72 ], [ 10, %_ZNKR2v85MaybeIbE8FromJustEv.exit ]
-  %error_code1.i46 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i46 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i46, align 4
-  %engine_error_code3.i47 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i47 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i47, align 8
-  %engine_reserved5.i48 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i48 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i48, align 8
   br label %cleanup
 
@@ -13129,8 +12898,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i49:                                      ; preds = %cleanup
   %10 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 3
-  %isolate.i51 = getelementptr inbounds %struct.napi_env__, ptr %10, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %10, i64 24
+  %isolate.i51 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %isolate.i51, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %12 = load ptr, ptr %last_exception.i, align 8
@@ -13164,19 +12933,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare i16 @_ZN2v85Value10InstanceOfENS_5LocalINS_7ContextEEENS1_INS_6ObjectEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_exception_pending(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_exception_pending(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i6 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i6, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13191,21 +12960,21 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp ne ptr %3, null
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -13215,19 +12984,19 @@ return:                                           ; preds = %entry, %do.end7, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_and_clear_last_exception(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_and_clear_last_exception(ptr noundef %env, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i13 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i13, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13242,16 +13011,16 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end7:                                          ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i26 = icmp eq ptr %3, null
   br i1 %cmp.i26, label %do.end.i, label %if.end.i39
@@ -13260,7 +13029,7 @@ do.end.i:                                         ; preds = %do.end7
   br i1 %cmp.i13, label %land.lhs.true.i.i, label %napi_get_undefined.exit
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %4 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %5 = and i8 %4, 1
   %tobool.not.i.i = icmp eq i8 %5, 0
@@ -13271,18 +13040,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   unreachable
 
 napi_get_undefined.exit:                          ; preds = %land.lhs.true.i.i, %do.end.i
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   %7 = ptrtoint ptr %6 to i64
   %add1.i.i = add i64 %7, 608
   %8 = inttoptr i64 %add1.i.i to ptr
   store ptr %8, ptr %result, align 8
-  %last_error.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   br label %return
 
 if.end.i39:                                       ; preds = %do.end7
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %9 = load ptr, ptr %isolate, align 8
   %10 = load i64, ptr %3, align 8
   %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %9, i64 noundef %10) #24
@@ -13297,7 +13066,7 @@ if.end.i:                                         ; preds = %if.end.i39
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end.i, %if.end.i39
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -13307,19 +13076,19 @@ return:                                           ; preds = %entry, %if.end20, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_arraybuffer(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_arraybuffer(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13334,11 +13103,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -13347,11 +13116,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -13359,7 +13128,7 @@ do.end13:                                         ; preds = %do.body8
   %call18 = tail call noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -13378,13 +13147,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i14 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i14, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13395,17 +13164,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -13419,21 +13188,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i15 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i15, align 4
-  %engine_error_code3.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i16 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i16, align 8
-  %engine_reserved5.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i17 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i17, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
@@ -13456,11 +13225,11 @@ if.end30:                                         ; preds = %if.then27, %do.end2
 
 cleanup.sink.split:                               ; preds = %if.end30, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 10, %if.end30 ]
-  %error_code1.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i21 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i21, align 4
-  %engine_error_code3.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i22 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i22, align 8
-  %engine_reserved5.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i23 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i23, align 8
   br label %cleanup
 
@@ -13471,8 +13240,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i24:                                      ; preds = %cleanup
   %8 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 3
-  %isolate.i26 = getelementptr inbounds %struct.napi_env__, ptr %8, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %8, i64 24
+  %isolate.i26 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %isolate.i26, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %10 = load ptr, ptr %last_exception.i, align 8
@@ -13521,13 +13290,13 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return, label %do.end.i
 
 do.end.i:                                         ; preds = %do.end
-  %module_api_version.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i.i = getelementptr inbounds i8, ptr %env, i64 184
   %1 = load i32, ptr %module_api_version.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 2147483647
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN10napi_env__13CheckGCAccessEv.exit.i
 
 land.lhs.true.i.i:                                ; preds = %do.end.i
-  %in_gc_finalizer.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i.i = getelementptr inbounds i8, ptr %env, i64 188
   %2 = load i8, ptr %in_gc_finalizer.i.i, align 4
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
@@ -13542,11 +13311,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit.i:          ; preds = %land.lhs.true.i.i, 
   br i1 %cmp4.not.i, label %if.then5.i, label %do.end7.i
 
 if.then5.i:                                       ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit.i
-  %error_code1.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i.i, align 4
-  %engine_error_code3.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i.i, align 8
-  %engine_reserved5.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i.i, align 8
   br label %return
 
@@ -13555,11 +13324,11 @@ do.end7.i:                                        ; preds = %_ZN10napi_env__13Ch
   br i1 %call13.i, label %do.end17.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %do.end7.i
-  %error_code1.i37.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i37.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i37.i, align 4
-  %engine_error_code3.i38.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i38.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i38.i, align 8
-  %engine_reserved5.i39.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i39.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i39.i, align 8
   br label %return
 
@@ -13573,7 +13342,7 @@ if.then100.i:                                     ; preds = %do.end17.i
   br label %if.end109.i
 
 if.end109.i:                                      ; preds = %if.then100.i, %do.end17.i
-  %last_error.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i.i = getelementptr inbounds i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -13585,19 +13354,19 @@ return:                                           ; preds = %if.end109.i, %if.th
 declare i32 @napi_create_external_buffer(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_typedarray_info(ptr noundef %env, ptr noundef %typedarray, ptr noundef writeonly %type, ptr noundef writeonly %length, ptr noundef writeonly %data, ptr noundef writeonly %arraybuffer, ptr noundef writeonly %byte_offset) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_typedarray_info(ptr noundef %env, ptr noundef %typedarray, ptr noundef writeonly %type, ptr noundef writeonly %length, ptr noundef writeonly %data, ptr noundef writeonly %arraybuffer, ptr noundef writeonly %byte_offset) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13612,11 +13381,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -13625,11 +13394,11 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
-  %error_code1.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i37 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i37, align 4
-  %engine_error_code3.i38 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i38 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i38, align 8
-  %engine_reserved5.i39 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i39 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i39, align 8
   br label %return
 
@@ -13729,7 +13498,7 @@ if.then111:                                       ; preds = %if.end109
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then111, %if.end109
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -13739,19 +13508,19 @@ return:                                           ; preds = %entry, %if.end114, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_arraybuffer_info(ptr noundef %env, ptr noundef %arraybuffer, ptr noundef writeonly %data, ptr noundef writeonly %byte_length) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_arraybuffer_info(ptr noundef %env, ptr noundef %arraybuffer, ptr noundef writeonly %data, ptr noundef writeonly %byte_length) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13766,11 +13535,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -13779,11 +13548,11 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
-  %error_code1.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i9 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i9, align 4
-  %engine_error_code3.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i10 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i10, align 8
-  %engine_reserved5.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i11 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i11, align 8
   br label %return
 
@@ -13806,7 +13575,7 @@ if.then28:                                        ; preds = %if.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.end26
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -13818,19 +13587,19 @@ return:                                           ; preds = %entry, %if.end31, %
 declare noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_typedarray(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_typedarray(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13845,11 +13614,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -13858,11 +13627,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -13870,7 +13639,7 @@ do.end13:                                         ; preds = %do.body8
   %call18 = tail call noundef zeroext i1 @_ZNK2v85Value12IsTypedArrayEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -13889,13 +13658,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i114 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i114, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -13906,17 +13675,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -13930,21 +13699,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i115 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i115 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i115, align 4
-  %engine_error_code3.i116 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i116 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i116, align 8
-  %engine_reserved5.i117 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i117 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i117, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
   %cmp23.not = icmp eq ptr %result, null
@@ -14212,11 +13981,11 @@ sw.epilog:                                        ; preds = %do.end413, %do.end3
 
 cleanup.sink.split:                               ; preds = %sw.epilog, %do.end39, %do.end28, %do.end14, %if.then49, %if.then76, %if.then105, %if.then130, %if.then142, %if.then168, %if.then180, %if.then206, %if.then218, %if.then244, %if.then256, %if.then282, %if.then294, %if.then320, %if.then332, %if.then358, %if.then370, %if.then396, %if.then408
   %.sink = phi i32 [ 9, %if.then408 ], [ 9, %if.then396 ], [ 9, %if.then370 ], [ 9, %if.then358 ], [ 9, %if.then332 ], [ 9, %if.then320 ], [ 9, %if.then294 ], [ 9, %if.then282 ], [ 9, %if.then256 ], [ 9, %if.then244 ], [ 9, %if.then218 ], [ 9, %if.then206 ], [ 9, %if.then180 ], [ 9, %if.then168 ], [ 9, %if.then142 ], [ 9, %if.then130 ], [ 9, %if.then105 ], [ 9, %if.then76 ], [ 9, %if.then49 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 1, %do.end39 ], [ 10, %sw.epilog ]
-  %error_code1.i187 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i187 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i187, align 4
-  %engine_error_code3.i188 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i188 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i188, align 8
-  %engine_reserved5.i189 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i189 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i189, align 8
   br label %cleanup
 
@@ -14227,8 +13996,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i190:                                     ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i192 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i192 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i192, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -14317,13 +14086,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i19 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i19, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -14334,17 +14103,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -14358,21 +14127,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i20 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i20 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i20, align 4
-  %engine_error_code3.i21 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i21 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i21, align 8
-  %engine_reserved5.i22 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i22 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i22, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %arraybuffer, null
   %cmp23.not = icmp eq ptr %result, null
@@ -14401,11 +14170,11 @@ if.end50:                                         ; preds = %do.end39
 
 cleanup.sink.split:                               ; preds = %if.end50, %do.end28, %do.end14, %if.then47
   %.sink = phi i32 [ 10, %if.then47 ], [ 1, %do.end14 ], [ 1, %do.end28 ], [ 10, %if.end50 ]
-  %error_code1.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i35 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i35, align 4
-  %engine_error_code3.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i36 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i36, align 8
-  %engine_reserved5.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i37 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i37, align 8
   br label %cleanup
 
@@ -14416,8 +14185,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i38:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -14451,19 +14220,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v88DataView3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_dataview(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_dataview(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -14478,11 +14247,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -14491,11 +14260,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -14503,7 +14272,7 @@ do.end13:                                         ; preds = %do.body8
   %call18 = tail call noundef zeroext i1 @_ZNK2v85Value10IsDataViewEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -14515,19 +14284,19 @@ return:                                           ; preds = %entry, %do.end13, %
 declare noundef zeroext i1 @_ZNK2v85Value10IsDataViewEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_get_dataview_info(ptr noundef %env, ptr noundef %dataview, ptr noundef writeonly %byte_length, ptr noundef writeonly %data, ptr noundef writeonly %arraybuffer, ptr noundef writeonly %byte_offset) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_get_dataview_info(ptr noundef %env, ptr noundef %dataview, ptr noundef writeonly %byte_length, ptr noundef writeonly %data, ptr noundef writeonly %arraybuffer, ptr noundef writeonly %byte_offset) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -14542,11 +14311,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -14555,11 +14324,11 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
-  %error_code1.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i15 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i15, align 4
-  %engine_error_code3.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i16 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i16, align 8
-  %engine_reserved5.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i17 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i17, align 8
   br label %return
 
@@ -14606,7 +14375,7 @@ if.then55:                                        ; preds = %if.end53
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then55, %if.end53
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -14618,7 +14387,7 @@ return:                                           ; preds = %entry, %if.end58, %
 declare noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local i32 @napi_get_version(ptr noundef writeonly %env, ptr noundef writeonly %result) local_unnamed_addr #4 {
+define dso_local noundef i32 @napi_get_version(ptr noundef writeonly %env, ptr noundef writeonly %result) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -14628,17 +14397,17 @@ do.body1:                                         ; preds = %entry
   br i1 %cmp2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.body1
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end5:                                          ; preds = %do.body1
   store i32 9, ptr %result, align 4
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -14655,13 +14424,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i23 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i23, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -14672,17 +14441,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -14696,21 +14465,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i24, align 4
-  %engine_error_code3.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i25 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i25, align 8
-  %engine_reserved5.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i26 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i26, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %deferred, null
   %cmp23.not = icmp eq ptr %promise, null
@@ -14718,7 +14487,7 @@ do.end14:                                         ; preds = %do.body8
   br i1 %or.cond, label %cleanup.sink.split, label %do.end28
 
 do.end28:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call35 = call ptr @_ZN2v87Promise8Resolver3NewENS_5LocalINS_7ContextEEE(ptr %retval.sroa.0.0.copyload.i.i) #24
   %cmp.i.i = icmp eq ptr %call35, null
@@ -14738,11 +14507,11 @@ _ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit: ; preds = %do.
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit, %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 9, %do.end28 ], [ 10, %_ZN2v810MaybeLocalINS_7Promise8ResolverEE14ToLocalCheckedEv.exit ]
-  %error_code1.i36 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i36 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i36, align 4
-  %engine_error_code3.i37 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i37 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i37, align 8
-  %engine_reserved5.i38 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i38 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i38, align 8
   br label %cleanup
 
@@ -14753,8 +14522,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i39:                                      ; preds = %cleanup
   %9 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 3
-  %isolate.i41 = getelementptr inbounds %struct.napi_env__, ptr %9, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %9, i64 24
+  %isolate.i41 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %isolate.i41, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %11 = load ptr, ptr %last_exception.i, align 8
@@ -14790,7 +14559,7 @@ declare ptr @_ZN2v87Promise8Resolver3NewENS_5LocalINS_7ContextEEE(ptr) local_unn
 declare ptr @_ZN2v87Promise8Resolver10GetPromiseEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_resolve_deferred(ptr noundef %env, ptr noundef %deferred, ptr noundef %resolution) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_resolve_deferred(ptr noundef %env, ptr noundef %deferred, ptr noundef %resolution) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_116ConcludeDeferredEP10napi_env__P15napi_deferred__P12napi_value__b(ptr noundef %env, ptr noundef %deferred, ptr noundef %resolution, i1 noundef zeroext true)
   ret i32 %call
@@ -14804,13 +14573,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i22 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i22, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -14821,17 +14590,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i78 = icmp eq ptr %3, null
   br i1 %cmp.i78, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -14845,27 +14614,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i24 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i24, align 4
-  %engine_error_code3.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i25 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i25, align 8
-  %engine_reserved5.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i26 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i26, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %7 = load ptr, ptr %deferred, align 8
   %cmp.i.i = icmp eq ptr %7, null
@@ -14911,11 +14680,11 @@ do.end67:                                         ; preds = %_ZN2v86GlobalINS_5V
 
 cleanup.sink.split:                               ; preds = %do.end67, %_ZN2v86GlobalINS_5ValueEED2Ev.exit, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 9, %_ZN2v86GlobalINS_5ValueEED2Ev.exit ], [ 10, %do.end67 ]
-  %error_code1.i33 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i33 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i33, align 4
-  %engine_error_code3.i34 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i34 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i34, align 8
-  %engine_reserved5.i35 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i35 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i35, align 8
   br label %cleanup
 
@@ -14926,8 +14695,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i38:                                      ; preds = %cleanup
   %12 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 3
-  %isolate.i40 = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %12, i64 24
+  %isolate.i40 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %isolate.i40, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %14 = load ptr, ptr %last_exception.i, align 8
@@ -14959,26 +14728,26 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_reject_deferred(ptr noundef %env, ptr noundef %deferred, ptr noundef %resolution) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_reject_deferred(ptr noundef %env, ptr noundef %deferred, ptr noundef %resolution) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN6v8impl12_GLOBAL__N_116ConcludeDeferredEP10napi_env__P15napi_deferred__P12napi_value__b(ptr noundef %env, ptr noundef %deferred, ptr noundef %resolution, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_promise(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %is_promise) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_promise(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %is_promise) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -14993,11 +14762,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15006,11 +14775,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -15018,7 +14787,7 @@ do.end13:                                         ; preds = %do.body8
   %call18 = tail call noundef zeroext i1 @_ZNK2v85Value9IsPromiseEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %is_promise, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15037,13 +14806,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i15 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i15, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -15054,17 +14823,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15078,27 +14847,27 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %result, null
   br i1 %cmp17.not, label %cleanup.sink.split, label %do.end21
 
 do.end21:                                         ; preds = %do.end14
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call28 = call ptr @_ZN2v84Date3NewENS_5LocalINS_7ContextEEEd(ptr %retval.sroa.0.0.copyload.i.i, double noundef %time) #24
   %cmp.i.i = icmp eq ptr %call28, null
@@ -15111,11 +14880,11 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %do.end21
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %do.end21, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 9, %do.end21 ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
-  %error_code1.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i25 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i25, align 4
-  %engine_error_code3.i26 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i26 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i26, align 8
-  %engine_reserved5.i27 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i27 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i27, align 8
   br label %cleanup
 
@@ -15126,8 +14895,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i28:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i30 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i30 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i30, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -15161,19 +14930,19 @@ return:                                           ; preds = %entry, %_ZN6v8impl8
 declare ptr @_ZN2v84Date3NewENS_5LocalINS_7ContextEEEd(ptr, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_date(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %is_date) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_date(ptr noundef %env, ptr noundef %value, ptr noundef writeonly %is_date) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -15188,11 +14957,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15201,11 +14970,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -15213,7 +14982,7 @@ do.end13:                                         ; preds = %do.body8
   %call18 = tail call noundef zeroext i1 @_ZNK2v85Value6IsDateEv(ptr noundef nonnull align 1 dereferenceable(1) %value) #24
   %frombool = zext i1 %call18 to i8
   store i8 %frombool, ptr %is_date, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15232,13 +15001,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i15 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i15, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -15249,17 +15018,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15273,21 +15042,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i16 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i16, align 4
-  %engine_error_code3.i17 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i17 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i17, align 8
-  %engine_reserved5.i18 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i18 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i18, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %value, null
   %cmp23.not = icmp eq ptr %result, null
@@ -15306,11 +15075,11 @@ do.end39:                                         ; preds = %do.end28
 
 cleanup.sink.split:                               ; preds = %do.end39, %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 18, %do.end28 ], [ 10, %do.end39 ]
-  %error_code1.i28 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i28 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i28, align 4
-  %engine_error_code3.i29 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i29 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i29, align 8
-  %engine_reserved5.i30 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i30 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i30, align 8
   br label %cleanup
 
@@ -15321,8 +15090,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i31:                                      ; preds = %cleanup
   %7 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 3
-  %isolate.i33 = getelementptr inbounds %struct.napi_env__, ptr %7, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %7, i64 24
+  %isolate.i33 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %isolate.i33, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %9 = load ptr, ptr %last_exception.i, align 8
@@ -15363,13 +15132,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i21 = icmp eq i32 %0, 2147483647
   br i1 %cmp.i21, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -15380,17 +15149,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   unreachable
 
 _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.true.i
-  %last_exception = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 3
+  %last_exception = getelementptr inbounds i8, ptr %env, i64 24
   %3 = load ptr, ptr %last_exception, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %do.body8, label %if.then4
 
 if.then4:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 10, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15404,21 +15173,21 @@ if.then10:                                        ; preds = %do.body8
   %5 = load i32, ptr %module_api_version.i, align 8
   %cmp11 = icmp eq i32 %5, 2147483647
   %cond = select i1 %cmp11, i32 23, i32 10
-  %error_code1.i23 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i23 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %cond, ptr %error_code1.i23, align 4
-  %engine_error_code3.i24 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i24 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i24, align 8
-  %engine_reserved5.i25 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i25 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i25, align 8
   br label %return
 
 do.end14:                                         ; preds = %do.body8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
-  %isolate.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate.i = getelementptr inbounds i8, ptr %env, i64 8
   %6 = load ptr, ptr %isolate.i, align 8
   call void @_ZN2v88TryCatchC2EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch, ptr noundef %6) #24
-  %_env.i = getelementptr inbounds %"class.v8impl::TryCatch", ptr %try_catch, i64 0, i32 1
+  %_env.i = getelementptr inbounds i8, ptr %try_catch, i64 48
   store ptr %env, ptr %_env.i, align 8
   %cmp17.not = icmp eq ptr %script, null
   %cmp23.not = icmp eq ptr %result, null
@@ -15442,7 +15211,7 @@ if.end.i:                                         ; preds = %do.end28
   br i1 %cmp.i134, label %if.end36, label %cleanup.sink.split
 
 if.end36:                                         ; preds = %if.end.i
-  %context_persistent.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 2
+  %context_persistent.i = getelementptr inbounds i8, ptr %env, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %context_persistent.i, align 8
   %call52 = call ptr @_ZN2v86Script7CompileENS_5LocalINS_7ContextEEENS1_INS_6StringEEEPNS_12ScriptOriginE(ptr %retval.sroa.0.0.copyload.i.i, ptr nonnull %script, ptr noundef null) #24
   %cmp.i.i116 = icmp eq ptr %call52, null
@@ -15460,11 +15229,11 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %_ZN2v810MaybeL
 
 cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit, %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit, %if.end36, %if.end.i, %do.end28, %do.end14
   %.sink = phi i32 [ 1, %do.end14 ], [ 3, %do.end28 ], [ 3, %if.end.i ], [ 9, %if.end36 ], [ 9, %_ZN2v810MaybeLocalINS_6ScriptEE14ToLocalCheckedEv.exit ], [ 10, %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit ]
-  %error_code1.i41 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i41 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 %.sink, ptr %error_code1.i41, align 4
-  %engine_error_code3.i42 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i42 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i42, align 8
-  %engine_reserved5.i43 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i43 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i43, align 8
   br label %cleanup
 
@@ -15475,8 +15244,8 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 if.then.i45:                                      ; preds = %cleanup
   %12 = load ptr, ptr %_env.i, align 8
-  %last_exception.i = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 3
-  %isolate.i47 = getelementptr inbounds %struct.napi_env__, ptr %12, i64 0, i32 1
+  %last_exception.i = getelementptr inbounds i8, ptr %12, i64 24
+  %isolate.i47 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %isolate.i47, align 8
   %call3.i = call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
   %14 = load ptr, ptr %last_exception.i, align 8
@@ -15512,7 +15281,7 @@ declare ptr @_ZN2v86Script7CompileENS_5LocalINS_7ContextEEENS1_INS_6StringEEEPNS
 declare ptr @_ZN2v86Script3RunENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_add_finalizer(ptr noundef %env, ptr noundef %js_object, ptr noundef %finalize_data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_add_finalizer(ptr noundef %env, ptr noundef %js_object, ptr noundef %finalize_data, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %initial_refcount.addr.i = alloca i32, align 4
   %ownership.addr.i = alloca i32, align 4
@@ -15523,13 +15292,13 @@ entry:
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -15544,11 +15313,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15557,11 +15326,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i11 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i11, align 4
-  %engine_error_code3.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i12 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i12, align 8
-  %engine_reserved5.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i13 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i13, align 8
   br label %return
 
@@ -15570,11 +15339,11 @@ do.end13:                                         ; preds = %do.body8
   br i1 %call19, label %do.end23, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
-  %error_code1.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i14 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i14, align 4
-  %engine_error_code3.i15 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i15 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i15, align 8
-  %engine_reserved5.i16 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i16 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i16, align 8
   br label %return
 
@@ -15606,7 +15375,7 @@ if.then30:                                        ; preds = %do.end23
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %do.end23
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15616,49 +15385,48 @@ return:                                           ; preds = %entry, %if.end31, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @node_api_post_finalizer(ptr noundef %env, ptr noundef %finalize_cb, ptr noundef %finalize_data, ptr noundef %finalize_hint) local_unnamed_addr #3 {
+define dso_local noundef i32 @node_api_post_finalizer(ptr noundef %env, ptr noundef %finalize_cb, ptr noundef %finalize_data, ptr noundef %finalize_hint) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
-  %env_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 1
+  %env_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %env, ptr %env_.i.i.i, align 8
-  %finalize_callback_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 2
+  %finalize_callback_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %finalize_cb, ptr %finalize_callback_.i.i.i, align 8
-  %finalize_data_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 3
+  %finalize_data_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %finalize_data, ptr %finalize_data_.i.i.i, align 8
-  %finalize_hint_.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 4
+  %finalize_hint_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %finalize_hint, ptr %finalize_hint_.i.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call.i, i64 40
   %next_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl16TrackedFinalizerE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
   %cmp.i.i = icmp eq ptr %finalize_cb, null
-  %reflist.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i.i = select i1 %cmp.i.i, ptr %reflist.i.i, ptr %finalizing_reflist.i.i
+  %cond.v.i.i = select i1 %cmp.i.i, i64 32, i64 56
+  %cond.i.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i.i
   %prev_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %cond.i.i, ptr %prev_.i.i.i, align 8
-  %next_.i4.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i.i, i64 0, i32 1
+  %next_.i4.i.i = getelementptr inbounds i8, ptr %cond.i.i, i64 8
   %1 = load ptr, ptr %next_.i4.i.i, align 8
   store ptr %1, ptr %next_.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %prev_5.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 2
+  %prev_5.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %prev_5.i.i.i, align 8
   br label %_ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_.exit
 
 _ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_.exit: ; preds = %do.end, %if.then.i.i.i
   store ptr %0, ptr %next_.i4.i.i, align 8
   %vtable = load ptr, ptr %env, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(189) %env, ptr noundef nonnull %0) #24
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15668,7 +15436,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_adjust_external_memory(ptr noundef %env, i64 noundef %change_in_bytes, ptr noundef writeonly %adjusted_value) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_adjust_external_memory(ptr noundef %env, i64 noundef %change_in_bytes, ptr noundef writeonly %adjusted_value) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -15678,20 +15446,20 @@ do.body1:                                         ; preds = %entry
   br i1 %cmp2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.body1
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end5:                                          ; preds = %do.body1
-  %isolate = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 1
+  %isolate = getelementptr inbounds i8, ptr %env, i64 8
   %0 = load ptr, ptr %isolate, align 8
   %call6 = tail call noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %change_in_bytes) #24
   store i64 %call6, ptr %adjusted_value, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15703,50 +15471,49 @@ return:                                           ; preds = %entry, %do.end5, %i
 declare noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_set_instance_data(ptr noundef %env, ptr noundef %data, ptr noundef %finalize_cb, ptr noundef %finalize_hint) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_set_instance_data(ptr noundef %env, ptr noundef %data, ptr noundef %finalize_cb, ptr noundef %finalize_hint) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %instance_data = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 12
+  %instance_data = getelementptr inbounds i8, ptr %env, i64 176
   %0 = load ptr, ptr %instance_data, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end3, label %delete.notnull
 
 delete.notnull:                                   ; preds = %do.end
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   br label %if.end3
 
 if.end3:                                          ; preds = %delete.notnull, %do.end
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
-  %env_.i.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 1
+  %env_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %env, ptr %env_.i.i.i.i, align 8
-  %finalize_callback_.i.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 2
+  %finalize_callback_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %finalize_cb, ptr %finalize_callback_.i.i.i.i, align 8
-  %finalize_data_.i.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 3
+  %finalize_data_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %data, ptr %finalize_data_.i.i.i.i, align 8
-  %finalize_hint_.i.i.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %call.i, i64 0, i32 4
+  %finalize_hint_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %finalize_hint, ptr %finalize_hint_.i.i.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i, i64 40
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %cmp.i.i.i = icmp eq ptr %finalize_cb, null
-  %reflist.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 4
-  %finalizing_reflist.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 5
-  %cond.i.i.i = select i1 %cmp.i.i.i, ptr %reflist.i.i.i, ptr %finalizing_reflist.i.i.i
+  %cond.v.i.i.i = select i1 %cmp.i.i.i, i64 32, i64 56
+  %cond.i.i.i = getelementptr inbounds i8, ptr %env, i64 %cond.v.i.i.i
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %cond.i.i.i, ptr %prev_.i.i.i.i, align 8
-  %next_.i4.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %cond.i.i.i, i64 0, i32 1
+  %next_.i4.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 8
   %3 = load ptr, ptr %next_.i4.i.i.i, align 8
   store ptr %3, ptr %next_.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6v8impl7RefBase3NewEP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end3
-  %prev_5.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %3, i64 0, i32 2
+  %prev_5.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %2, ptr %prev_5.i.i.i.i, align 8
   br label %_ZN6v8impl7RefBase3NewEP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit
 
@@ -15754,12 +15521,12 @@ _ZN6v8impl7RefBase3NewEP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; pr
   store ptr %2, ptr %next_.i4.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl7RefBaseE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl7RefBaseE, i64 0, inrange i32 1, i64 2), ptr %2, align 8
-  %refcount_.i.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %call.i, i64 0, i32 1
+  %refcount_.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 0, ptr %refcount_.i.i, align 8
-  %ownership_.i.i = getelementptr inbounds %"class.v8impl::RefBase", ptr %call.i, i64 0, i32 2
+  %ownership_.i.i = getelementptr inbounds i8, ptr %call.i, i64 68
   store i32 0, ptr %ownership_.i.i, align 4
   store ptr %call.i, ptr %instance_data, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15769,7 +15536,7 @@ return:                                           ; preds = %entry, %_ZN6v8impl7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @napi_get_instance_data(ptr noundef %env, ptr noundef writeonly %data) local_unnamed_addr #14 {
+define dso_local noundef i32 @napi_get_instance_data(ptr noundef %env, ptr noundef writeonly %data) local_unnamed_addr #14 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.body1
@@ -15779,29 +15546,29 @@ do.body1:                                         ; preds = %entry
   br i1 %cmp2.not, label %if.then3, label %do.end5
 
 if.then3:                                         ; preds = %do.body1
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
 do.end5:                                          ; preds = %do.body1
-  %instance_data = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 12
+  %instance_data = getelementptr inbounds i8, ptr %env, i64 176
   %0 = load ptr, ptr %instance_data, align 8
   %cmp6 = icmp eq ptr %0, null
   br i1 %cmp6, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %do.end5
-  %finalize_data_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %0, i64 0, i32 3
+  %finalize_data_.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %finalize_data_.i, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %do.end5, %cond.false
   %cond = phi ptr [ %1, %cond.false ], [ null, %do.end5 ]
   store ptr %cond, ptr %data, align 8
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15811,19 +15578,19 @@ return:                                           ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_detach_arraybuffer(ptr noundef %env, ptr noundef %arraybuffer) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_detach_arraybuffer(ptr noundef %env, ptr noundef %arraybuffer) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -15838,11 +15605,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.end7
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15851,11 +15618,11 @@ do.end7:                                          ; preds = %_ZN10napi_env__13Ch
   br i1 %call13, label %do.end17, label %if.then14
 
 if.then14:                                        ; preds = %do.end7
-  %error_code1.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i9 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 19, ptr %error_code1.i9, align 4
-  %engine_error_code3.i10 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i10 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i10, align 8
-  %engine_reserved5.i11 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i11 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i11, align 8
   br label %return
 
@@ -15864,11 +15631,11 @@ do.end17:                                         ; preds = %do.end7
   br i1 %call24, label %do.end28, label %if.then25
 
 if.then25:                                        ; preds = %do.end17
-  %error_code1.i12 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i12 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 20, ptr %error_code1.i12, align 4
-  %engine_error_code3.i13 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i13 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i13, align 8
-  %engine_reserved5.i14 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i14 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i14, align 8
   br label %return
 
@@ -15883,7 +15650,7 @@ if.then.i:                                        ; preds = %do.end28
   br label %_ZNK2v85MaybeIbE5CheckEv.exit
 
 _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %do.end28
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15897,19 +15664,19 @@ declare noundef zeroext i1 @_ZNK2v811ArrayBuffer12IsDetachableEv(ptr noundef non
 declare i16 @_ZN2v811ArrayBuffer6DetachENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @napi_is_detached_arraybuffer(ptr noundef %env, ptr noundef %arraybuffer, ptr noundef writeonly %result) local_unnamed_addr #3 {
+define dso_local noundef i32 @napi_is_detached_arraybuffer(ptr noundef %env, ptr noundef %arraybuffer, ptr noundef writeonly %result) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %env, null
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %entry
-  %module_api_version.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 13
+  %module_api_version.i = getelementptr inbounds i8, ptr %env, i64 184
   %0 = load i32, ptr %module_api_version.i, align 8
   %cmp.i = icmp eq i32 %0, 2147483647
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN10napi_env__13CheckGCAccessEv.exit
 
 land.lhs.true.i:                                  ; preds = %do.end
-  %in_gc_finalizer.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 14
+  %in_gc_finalizer.i = getelementptr inbounds i8, ptr %env, i64 188
   %1 = load i8, ptr %in_gc_finalizer.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
@@ -15924,11 +15691,11 @@ _ZN10napi_env__13CheckGCAccessEv.exit:            ; preds = %do.end, %land.lhs.t
   br i1 %cmp4.not, label %if.then5, label %do.body8
 
 if.then5:                                         ; preds = %_ZN10napi_env__13CheckGCAccessEv.exit
-  %error_code1.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i, align 4
-  %engine_error_code3.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i, align 8
-  %engine_reserved5.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i, align 8
   br label %return
 
@@ -15937,11 +15704,11 @@ do.body8:                                         ; preds = %_ZN10napi_env__13Ch
   br i1 %cmp9.not, label %if.then10, label %do.end13
 
 if.then10:                                        ; preds = %do.body8
-  %error_code1.i7 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 3
+  %error_code1.i7 = getelementptr inbounds i8, ptr %env, i64 156
   store i32 1, ptr %error_code1.i7, align 4
-  %engine_error_code3.i8 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 2
+  %engine_error_code3.i8 = getelementptr inbounds i8, ptr %env, i64 152
   store i32 0, ptr %engine_error_code3.i8, align 8
-  %engine_reserved5.i9 = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7, i32 1
+  %engine_reserved5.i9 = getelementptr inbounds i8, ptr %env, i64 144
   store ptr null, ptr %engine_reserved5.i9, align 8
   br label %return
 
@@ -15957,7 +15724,7 @@ land.rhs:                                         ; preds = %do.end13
 land.end:                                         ; preds = %land.rhs, %do.end13
   %frombool = phi i8 [ 0, %do.end13 ], [ %3, %land.rhs ]
   store i8 %frombool, ptr %result, align 1
-  %last_error.i = getelementptr inbounds %struct.napi_env__, ptr %env, i64 0, i32 7
+  %last_error.i = getelementptr inbounds i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
   br label %return
 
@@ -15982,7 +15749,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %0, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -15992,16 +15759,16 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %1 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %1, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl16TrackedFinalizerD2Ev.exit
 
 _ZN6v8impl16TrackedFinalizerD2Ev.exit:            ; preds = %if.end.i.i, %if.then6.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i.i, i8 0, i64 16, i1 false)
-  %env_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %env_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i) #24
   ret void
@@ -16021,7 +15788,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %0, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -16031,16 +15798,16 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %ent
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %1 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %1, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl7RefBaseD2Ev.exit
 
 _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.then6.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i.i.i, i8 0, i64 16, i1 false)
-  %env_.i.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %env_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %2, ptr noundef nonnull %add.ptr.i.i) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -16061,7 +15828,7 @@ entry:
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -16071,7 +15838,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %ent
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %2 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %2, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl7RefBaseD2Ev.exit
 
@@ -16080,7 +15847,7 @@ _ZN6v8impl7RefBaseD2Ev.exit:                      ; preds = %if.end.i.i.i, %if.t
   %env_.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %3 = load ptr, ptr %env_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
   ret void
@@ -16100,7 +15867,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %1, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -16110,7 +15877,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %e
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %2 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %2, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl7RefBaseD0Ev.exit
 
@@ -16119,7 +15886,7 @@ _ZN6v8impl7RefBaseD0Ev.exit:                      ; preds = %if.end.i.i.i.i, %if
   %env_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -32
   %3 = load ptr, ptr %env_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(189) %3, ptr noundef nonnull %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
@@ -16144,36 +15911,36 @@ declare ptr @_ZN2v88Function3NewENS_5LocalINS_7ContextEEEPFvRKNS_20FunctionCallb
 define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper6InvokeERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(20) %info) #3 align 2 {
 entry:
   %cbwrapper = alloca %"class.v8impl::(anonymous namespace)::FunctionCallbackWrapper", align 8
-  %length_.i.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %info, i64 0, i32 2
+  %length_.i.i = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load i32, ptr %length_.i.i, align 8
   %conv.i = sext i32 %0 to i64
-  %values_.i.i.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %info, i64 0, i32 1
+  %values_.i.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %1 = load ptr, ptr %values_.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 -1
-  %_this.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapper", ptr %cbwrapper, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
+  %_this.i.i.i = getelementptr inbounds i8, ptr %cbwrapper, i64 8
   store ptr %add.ptr.i.i.i, ptr %_this.i.i.i, align 8
-  %_args_length.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapper", ptr %cbwrapper, i64 0, i32 2
+  %_args_length.i.i.i = getelementptr inbounds i8, ptr %cbwrapper, i64 16
   store i64 %conv.i, ptr %_args_length.i.i.i, align 8
-  %_data.i.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapper", ptr %cbwrapper, i64 0, i32 3
-  %_cbinfo.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapperBase", ptr %cbwrapper, i64 0, i32 1
+  %_data.i.i.i = getelementptr inbounds i8, ptr %cbwrapper, i64 24
+  %_cbinfo.i.i = getelementptr inbounds i8, ptr %cbwrapper, i64 32
   store ptr %info, ptr %_cbinfo.i.i, align 8
   %2 = load ptr, ptr %info, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %2, i64 4
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %call22.i.i = tail call noundef ptr @_ZNK2v88External5ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx.i.i.i) #24
-  %_bundle.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapperBase", ptr %cbwrapper, i64 0, i32 2
+  %_bundle.i.i = getelementptr inbounds i8, ptr %cbwrapper, i64 40
   store ptr %call22.i.i, ptr %_bundle.i.i, align 8
-  %cb_data.i.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call22.i.i, i64 0, i32 1
+  %cb_data.i.i = getelementptr inbounds i8, ptr %call22.i.i, i64 8
   %3 = load ptr, ptr %cb_data.i.i, align 8
   store ptr %3, ptr %_data.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_123FunctionCallbackWrapperE, i64 0, inrange i32 0, i64 2), ptr %cbwrapper, align 8
   %4 = load ptr, ptr %call22.i.i, align 8
-  %cb4.i = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackBundle", ptr %call22.i.i, i64 0, i32 2
+  %cb4.i = getelementptr inbounds i8, ptr %call22.i.i, i64 16
   %5 = load ptr, ptr %cb4.i, align 8
-  %open_handle_scopes.i.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 8
+  %open_handle_scopes.i.i = getelementptr inbounds i8, ptr %4, i64 160
   %6 = load i32, ptr %open_handle_scopes.i.i, align 8
-  %open_callback_scopes.i.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 9
+  %open_callback_scopes.i.i = getelementptr inbounds i8, ptr %4, i64 164
   %7 = load i32, ptr %open_callback_scopes.i.i, align 4
-  %last_error.i.i.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 7
+  %last_error.i.i.i = getelementptr inbounds i8, ptr %4, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i, i8 0, i64 24, i1 false)
   %call.i3.i.i = call noundef ptr %5(ptr noundef nonnull %4, ptr noundef nonnull %cbwrapper) #24
   %8 = load i32, ptr %open_handle_scopes.i.i, align 8
@@ -16196,13 +15963,13 @@ do.body15.i.i:                                    ; preds = %do.body8.i.i
   unreachable
 
 do.end18.i.i:                                     ; preds = %do.body8.i.i
-  %last_exception.i.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 3
+  %last_exception.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %10 = load ptr, ptr %last_exception.i.i, align 8
   %cmp.i34.i.i = icmp eq ptr %10, null
   br i1 %cmp.i34.i.i, label %_ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i, label %if.end.i48.i.i
 
 if.end.i48.i.i:                                   ; preds = %do.end18.i.i
-  %isolate.i.i = getelementptr inbounds %struct.napi_env__, ptr %4, i64 0, i32 1
+  %isolate.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load ptr, ptr %isolate.i.i, align 8
   %12 = load i64, ptr %10, align 8
   %call.i.i.i = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %11, i64 noundef %12) #24
@@ -16237,7 +16004,7 @@ _ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14In
 
 if.then.i:                                        ; preds = %_ZN10napi_env__14CallIntoModuleIZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEvEUlPS_E_ZNS3_14InvokeCallbackEvEUlS4_N2v85LocalINS6_5ValueEEEE_EEvOT_OT0_.exit.i
   %vtable.i = load ptr, ptr %cbwrapper, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(32) %cbwrapper, ptr noundef nonnull %call.i3.i.i) #24
   br label %_ZN6v8impl12_GLOBAL__N_119CallbackWrapperBase14InvokeCallbackEv.exit
@@ -16263,10 +16030,10 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper12GetNewTargetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #17 align 2 {
 entry:
-  %_cbinfo = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapperBase", ptr %this, i64 0, i32 1
+  %_cbinfo = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_cbinfo, align 8
   %1 = load ptr, ptr %0, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 5
+  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %arrayidx.i, align 8
   %and.i.i = and i64 %2, 3
   %cmp.i.i = icmp eq i64 %and.i.i, 1
@@ -16301,14 +16068,14 @@ return:                                           ; preds = %if.end5.i, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper4ArgsEPP12napi_value__m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %buffer, i64 noundef %buffer_length) unnamed_addr #18 align 2 {
 entry:
-  %_args_length = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapper", ptr %this, i64 0, i32 2
+  %_args_length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %_args_length, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %buffer_length)
   %cmp19.not = icmp eq i64 %.sroa.speculated, 0
   br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_cbinfo = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapperBase", ptr %this, i64 0, i32 1
+  %_cbinfo = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
@@ -16319,14 +16086,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
-  %length_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %1, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %length_.i, align 8
   %cmp2.i.not = icmp sgt i32 %2, %conv
   br i1 %cmp2.i.not, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %for.body
   %3 = load ptr, ptr %1, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %3, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %add1.i = add i64 %5, 608
@@ -16334,7 +16101,7 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %f
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %values_.i = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %1, i64 0, i32 1
+  %values_.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = and i64 %i.020, 4294967295
   %add.ptr.i = getelementptr inbounds i64, ptr %7, i64 %idx.ext.i
@@ -16353,10 +16120,10 @@ for.end:                                          ; preds = %_ZNK2v820FunctionCa
   br i1 %cmp9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %_cbinfo12 = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapperBase", ptr %this, i64 0, i32 1
+  %_cbinfo12 = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %_cbinfo12, align 8
   %9 = load ptr, ptr %8, align 8
-  %arrayidx.i39 = getelementptr inbounds i64, ptr %9, i64 1
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %arrayidx.i39, align 8
   %11 = ptrtoint ptr %10 to i64
   %add1.i47 = add i64 %11, 608
@@ -16376,16 +16143,16 @@ if.end:                                           ; preds = %for.body27, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper14SetReturnValueEP12napi_value__(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %value) unnamed_addr #5 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_123FunctionCallbackWrapper14SetReturnValueEP12napi_value__(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef readonly %value) unnamed_addr #19 align 2 {
 entry:
-  %_cbinfo = getelementptr inbounds %"class.v8impl::(anonymous namespace)::CallbackWrapperBase", ptr %this, i64 0, i32 1
+  %_cbinfo = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_cbinfo, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp.i.i = icmp eq ptr %value, null
   br i1 %cmp.i.i, label %if.then.i, label %_ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx.i19 = getelementptr inbounds i64, ptr %1, i64 1
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx.i19, align 8
   %3 = ptrtoint ptr %2 to i64
   %add1.i = add i64 %3, 616
@@ -16394,7 +16161,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN2v811ReturnValueINS_5ValueEE3SetIS1_EEvNS_5LocalIT_EE.exit: ; preds = %entry, %if.then.i
   %storemerge.in = phi ptr [ %4, %if.then.i ], [ %value, %entry ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %1, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 24
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
   ret void
@@ -16454,7 +16221,7 @@ declare ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(
 declare ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneByteStringResourceE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
@@ -16491,7 +16258,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -16501,7 +16268,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.el
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %6 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
 
@@ -16514,7 +16281,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   %finalize_hint_9.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %finalize_hint_9.i, align 8
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
@@ -16558,7 +16325,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -16568,7 +16335,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -16581,7 +16348,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %finalize_hint_9.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %finalize_hint_9.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
@@ -16601,7 +16368,7 @@ entry:
 define linkonce_odr dso_local void @_ZN2v86String26ExternalStringResourceBase7DisposeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %this) #24
   ret void
@@ -16622,7 +16389,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef ptr @_ZNK6v8impl12_GLOBAL__N_129ExternalOneByteStringResource4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
-  %string_ = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalOneByteStringResource", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %string_, align 8
   ret ptr %0
 }
@@ -16630,7 +16397,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @_ZNK6v8impl12_GLOBAL__N_129ExternalOneByteStringResource6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
-  %length_ = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalOneByteStringResource", ptr %this, i64 0, i32 3
+  %length_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %length_, align 8
   ret i64 %0
 }
@@ -16669,7 +16436,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %4, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -16679,7 +16446,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %5, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -16692,7 +16459,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %finalize_hint_9.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %finalize_hint_9.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
@@ -16735,7 +16502,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %4, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -16745,7 +16512,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %5 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %5, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
 
@@ -16758,7 +16525,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %finalize_hint_9.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %finalize_hint_9.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit
@@ -16770,7 +16537,7 @@ _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #20 align 2 {
+define internal void @_ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 align 2 {
 entry:
   %prev_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %prev_.i, align 8
@@ -16780,7 +16547,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %next_3.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %0, i64 0, i32 1
+  %next_3.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.pre.i, ptr %next_3.i, align 8
   br label %if.end.i
 
@@ -16790,13 +16557,13 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then6.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %prev_.i, align 8
-  %prev_9.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i, i64 0, i32 2
+  %prev_9.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   store ptr %1, ptr %prev_9.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit
 
 _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i, i8 0, i64 16, i1 false)
-  %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %env_, align 8
   ret void
 }
@@ -16835,7 +16602,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -16845,7 +16612,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -16858,7 +16625,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %finalize_hint_9.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %10 = load ptr, ptr %finalize_hint_9.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD2Ev.exit
@@ -16901,7 +16668,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -16911,7 +16678,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
 
@@ -16924,7 +16691,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %finalize_hint_9.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %10 = load ptr, ptr %finalize_hint_9.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit
@@ -16936,7 +16703,7 @@ _ZN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceD0Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef %this) unnamed_addr #20 align 2 {
+define internal void @_ZThn40_N6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv(ptr nocapture noundef %this) unnamed_addr #5 align 2 {
 entry:
   %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %prev_.i.i, align 8
@@ -16946,7 +16713,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %0, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -16956,7 +16723,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %1 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %1, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResource8FinalizeEv.exit
 
@@ -16973,21 +16740,21 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 40
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %finalize_callback_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %env_, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %finalize_data_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %finalize_data_, align 8
-  %finalize_hint_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_, align 8
   tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
   br label %cleanup
@@ -17001,7 +16768,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %next_3.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %4, i64 0, i32 1
+  %next_3.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.pre.i, ptr %next_3.i, align 8
   br label %if.end.i
 
@@ -17011,7 +16778,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.else
 
 if.then6.i:                                       ; preds = %if.end.i
   %5 = load ptr, ptr %prev_.i, align 8
-  %prev_9.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i, i64 0, i32 2
+  %prev_9.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   store ptr %5, ptr %prev_9.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit
 
@@ -17019,12 +16786,12 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit:             ; preds = %if.end.i, %if.then6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %env_, align 8
   %7 = load ptr, ptr %finalize_callback_, align 8
-  %finalize_data_8 = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_8 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %finalize_data_8, align 8
-  %finalize_hint_9 = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_9 = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %finalize_hint_9, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
   br label %cleanup
@@ -17039,21 +16806,21 @@ entry:
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_121TrackedStringResourceE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %finalize_callback_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 2
+  %finalize_callback_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %finalize_callback_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %env_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 1
+  %env_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %env_.i, align 8
   %cmp2.i = icmp eq ptr %1, null
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %finalize_data_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %finalize_data_.i, align 8
-  %finalize_hint_.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %finalize_hint_.i, align 8
   tail call void %0(ptr noundef null, ptr noundef %2, ptr noundef %3) #24
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
@@ -17067,7 +16834,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %4, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -17077,7 +16844,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.el
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %5 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %5, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
 
@@ -17085,12 +16852,12 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_4.phi.trans.insert.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %env_.i, align 8
   %7 = load ptr, ptr %finalize_callback_.i, align 8
-  %finalize_data_8.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 3
+  %finalize_data_8.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %finalize_data_8.i, align 8
-  %finalize_hint_9.i = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this, i64 0, i32 4
+  %finalize_hint_9.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %finalize_hint_9.i, align 8
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
@@ -17134,7 +16901,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -17144,7 +16911,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.el
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %6 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
 
@@ -17157,7 +16924,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   %finalize_hint_9.i = getelementptr inbounds i8, ptr %this, i64 -8
   %10 = load ptr, ptr %finalize_hint_9.i, align 8
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
@@ -17200,7 +16967,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -17210,7 +16977,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -17223,7 +16990,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %finalize_hint_9.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %10 = load ptr, ptr %finalize_hint_9.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD0Ev.exit
@@ -17270,7 +17037,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %next_3.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i, ptr %next_3.i.i, align 8
   br label %if.end.i.i
 
@@ -17280,7 +17047,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.el
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
   %6 = load ptr, ptr %prev_.i.i, align 8
-  %prev_9.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i, i64 0, i32 2
+  %prev_9.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i
 
@@ -17293,7 +17060,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i:           ; preds = %if.then6.i.i, %if.e
   %finalize_hint_9.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %finalize_hint_9.i, align 8
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_121TrackedStringResourceD2Ev.exit
@@ -17337,7 +17104,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -17347,7 +17114,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -17360,7 +17127,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %finalize_hint_9.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %finalize_hint_9.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
@@ -17373,7 +17140,7 @@ _ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit: ; preds = %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef ptr @_ZNK6v8impl12_GLOBAL__N_122ExternalStringResource4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
-  %string_ = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalStringResource", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %string_, align 8
   ret ptr %0
 }
@@ -17381,7 +17148,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @_ZNK6v8impl12_GLOBAL__N_122ExternalStringResource6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #10 align 2 {
 entry:
-  %length_ = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ExternalStringResource", ptr %this, i64 0, i32 3
+  %length_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %length_, align 8
   ret i64 %0
 }
@@ -17420,7 +17187,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %4, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -17430,7 +17197,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %5, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -17443,7 +17210,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %finalize_hint_9.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %finalize_hint_9.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
@@ -17486,7 +17253,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %4, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -17496,7 +17263,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %5 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %5, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
 
@@ -17509,7 +17276,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %finalize_hint_9.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %finalize_hint_9.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(189) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #24
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit
@@ -17554,7 +17321,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %next_3.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i, ptr %next_3.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -17564,7 +17331,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_9.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i
 
@@ -17577,7 +17344,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i:         ; preds = %if.then6.i.i.i, %if
   %finalize_hint_9.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %10 = load ptr, ptr %finalize_hint_9.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD2Ev.exit
@@ -17620,7 +17387,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
-  %next_3.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %5, i64 0, i32 1
+  %next_3.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre.i.i.i.i, ptr %next_3.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
@@ -17630,7 +17397,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %i
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %6 = load ptr, ptr %prev_.i.i.i.i, align 8
-  %prev_9.i.i.i.i = getelementptr inbounds %"class.v8impl::RefTracker", ptr %.pre.i.i.i.i, i64 0, i32 2
+  %prev_9.i.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i.i, i64 16
   store ptr %6, ptr %prev_9.i.i.i.i, align 8
   br label %_ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i
 
@@ -17643,7 +17410,7 @@ _ZN6v8impl10RefTracker6UnlinkEv.exit.i.i.i:       ; preds = %if.then6.i.i.i.i, %
   %finalize_hint_9.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %10 = load ptr, ptr %finalize_hint_9.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(189) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #24
   br label %_ZN6v8impl12_GLOBAL__N_122ExternalStringResourceD0Ev.exit
@@ -17685,7 +17452,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -17699,8 +17466,8 @@ attributes #15 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" 
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

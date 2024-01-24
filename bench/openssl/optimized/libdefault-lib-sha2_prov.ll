@@ -37,7 +37,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @SHA1_Update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha1_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha1_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -120,16 +120,16 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp5.i = icmp eq i32 %0, 5
   br i1 %cmp5.i, label %if.then6.i, label %land.end
 
 if.then6.i:                                       ; preds = %land.lhs.true.i
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load i64, ptr %data_size.i, align 8
   %conv.i = trunc i64 %1 to i32
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %data.i, align 8
   %call7.i = tail call i32 @ossl_sha1_ctrl(ptr noundef nonnull %ctx, i32 noundef 29, i32 noundef %conv.i, ptr noundef %2) #4
   %3 = icmp ne i32 %call7.i, 0
@@ -142,7 +142,7 @@ land.end:                                         ; preds = %if.then6.i, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @sha1_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @sha1_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @known_sha1_settable_ctx_params
 }
@@ -163,16 +163,16 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp5 = icmp eq i32 %0, 5
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %land.lhs.true
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %data_size, align 8
   %conv = trunc i64 %1 to i32
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %data, align 8
   %call7 = tail call i32 @ossl_sha1_ctrl(ptr noundef nonnull %vctx, i32 noundef 29, i32 noundef %conv, ptr noundef %2) #4
   br label %return
@@ -201,7 +201,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @SHA224_Update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha224_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha224_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -295,7 +295,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @SHA256_Update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha256_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha256_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -387,7 +387,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha256_192_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha256_192_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -481,7 +481,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @SHA384_Update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha384_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha384_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -575,7 +575,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @SHA512_Update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha512_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha512_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -667,7 +667,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha512_224_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha512_224_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -759,7 +759,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sha512_256_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @sha512_256_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0

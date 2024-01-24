@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::allocator" = type { i8 }
-%"class.net::HpackEntry" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.base::BasicStringPiece", %"class.base::BasicStringPiece", i64, i32, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -33,10 +32,10 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp8 = alloca %"class.std::allocator", align 1
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
   store ptr %value.coerce0, ptr %value, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %value, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %value, i64 8
   store i64 %value.coerce1, ptr %1, align 8
   %call = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %name)
   %call2 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %name)
@@ -46,7 +45,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #6
-  %value_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   %call5 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -61,19 +60,19 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont10:                                    ; preds = %invoke.cont6
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #6
-  %name_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_ = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %name_ref_, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  %value_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_ = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %value_ref_, ptr noundef nonnull align 8 dereferenceable(32) %value_)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %insertion_index_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 4
+  %insertion_index_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %insertion_index, ptr %insertion_index_, align 8
-  %type_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 5
+  %type_ = getelementptr inbounds i8, ptr %this, i64 104
   %cond = select i1 %is_static, i32 2, i32 1
   store i32 %cond, ptr %type_, align 8
   ret void
@@ -134,19 +133,19 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN3net10HpackEntryC2EN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr %name.coerce0, i64 %name.coerce1, ptr %value.coerce0, i64 %value.coerce1) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
-  %value_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #6
-  %name_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %name.coerce0, ptr %name_ref_, align 8
-  %name.sroa.2.0.name_ref_.sroa_idx = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2, i32 1
+  %name.sroa.2.0.name_ref_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %name.coerce1, ptr %name.sroa.2.0.name_ref_.sroa_idx, align 8
-  %value_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %value.coerce0, ptr %value_ref_, align 8
-  %value.sroa.2.0.value_ref_.sroa_idx = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3, i32 1
+  %value.sroa.2.0.value_ref_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %value.coerce1, ptr %value.sroa.2.0.value_ref_.sroa_idx, align 8
-  %insertion_index_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 4
+  %insertion_index_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %insertion_index_, align 8
-  %type_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 5
+  %type_ = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %type_, align 8
   ret void
 }
@@ -161,21 +160,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN3net10HpackEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
-  %value_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #6
-  %name_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_ = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %name_ref_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %value_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_ = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_ref_)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %insertion_index_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 4
+  %insertion_index_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %insertion_index_, align 8
-  %type_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 5
+  %type_ = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %type_, align 8
   ret void
 
@@ -193,33 +192,33 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 define dso_local void @_ZN3net10HpackEntryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
-  %value_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #6
-  %name_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_ = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %name_ref_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %value_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_ = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %value_ref_)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %insertion_index_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 4
-  %insertion_index_3 = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 4
+  %insertion_index_ = getelementptr inbounds i8, ptr %this, i64 96
+  %insertion_index_3 = getelementptr inbounds i8, ptr %other, i64 96
   %0 = load i64, ptr %insertion_index_3, align 8
   store i64 %0, ptr %insertion_index_, align 8
-  %type_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 5
-  %type_4 = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 5
+  %type_ = getelementptr inbounds i8, ptr %this, i64 104
+  %type_4 = getelementptr inbounds i8, ptr %other, i64 104
   %1 = load i32, ptr %type_4, align 8
   store i32 %1, ptr %type_, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont2
-  %name_ref_6 = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 2
+  %name_ref_6 = getelementptr inbounds i8, ptr %other, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %name_ref_, ptr noundef nonnull align 8 dereferenceable(16) %name_ref_6, i64 16, i1 false)
-  %value_ref_8 = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 3
+  %value_ref_8 = getelementptr inbounds i8, ptr %other, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_ref_, ptr noundef nonnull align 8 dereferenceable(16) %value_ref_8, i64 16, i1 false)
   br label %if.end
 
@@ -235,7 +234,7 @@ if.else:                                          ; preds = %invoke.cont2
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %if.else
-  %value_13 = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 1
+  %value_13 = getelementptr inbounds i8, ptr %other, i64 32
   %call16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value_, ptr noundef nonnull align 8 dereferenceable(32) %value_13)
           to label %invoke.cont15 unwind label %lpad
 
@@ -268,36 +267,36 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(120) ptr @_ZN3net10HpackEntryaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %other) local_unnamed_addr #0 align 2 {
 entry:
-  %insertion_index_ = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 4
+  %insertion_index_ = getelementptr inbounds i8, ptr %other, i64 96
   %0 = load i64, ptr %insertion_index_, align 8
-  %insertion_index_2 = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 4
+  %insertion_index_2 = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %0, ptr %insertion_index_2, align 8
-  %type_ = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 5
+  %type_ = getelementptr inbounds i8, ptr %other, i64 104
   %1 = load i32, ptr %type_, align 8
-  %type_3 = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 5
+  %type_3 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %1, ptr %type_3, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %name_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 2
-  %name_ref_5 = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_ = getelementptr inbounds i8, ptr %other, i64 64
+  %name_ref_5 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %name_ref_5, ptr noundef nonnull align 8 dereferenceable(16) %name_ref_, i64 16, i1 false)
-  %value_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 3
-  %value_ref_6 = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_ = getelementptr inbounds i8, ptr %other, i64 80
+  %value_ref_6 = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_ref_6, ptr noundef nonnull align 8 dereferenceable(16) %value_ref_, i64 16, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other)
-  %value_ = getelementptr inbounds %"class.net::HpackEntry", ptr %other, i64 0, i32 1
-  %value_8 = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %other, i64 32
+  %value_8 = getelementptr inbounds i8, ptr %this, i64 32
   %call9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %value_8, ptr noundef nonnull align 8 dereferenceable(32) %value_)
-  %name_ref_10 = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_10 = getelementptr inbounds i8, ptr %this, i64 64
   %call12 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
   %call14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
   tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3setEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %name_ref_10, ptr noundef %call12, i64 noundef %call14)
-  %value_ref_15 = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_15 = getelementptr inbounds i8, ptr %this, i64 80
   %call17 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %value_8) #6
   %call19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value_8) #6
   tail call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3setEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %value_ref_15, ptr noundef %call17, i64 noundef %call19)
@@ -310,7 +309,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net10HpackEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
-  %value_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #6
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #6
   ret void
@@ -322,10 +321,10 @@ entry:
   %name = alloca %"class.base::BasicStringPiece", align 8
   %value = alloca %"class.base::BasicStringPiece", align 8
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
   store ptr %value.coerce0, ptr %value, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %value, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %value, i64 8
   store i64 %value.coerce1, ptr %1, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %name)
   %call1 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
@@ -339,21 +338,21 @@ define dso_local noundef i64 @_ZNK3net10HpackEntry4SizeEv(ptr nocapture noundef 
 entry:
   %name.i = alloca %"class.base::BasicStringPiece", align 8
   %value.i = alloca %"class.base::BasicStringPiece", align 8
-  %name_ref_.i = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_.i = getelementptr inbounds i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i = load ptr, ptr %name_ref_.i, align 8
-  %retval.sroa.2.0.name_ref_.sroa_idx.i = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.name_ref_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 72
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.name_ref_.sroa_idx.i, align 8
-  %value_ref_.i = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_.i = getelementptr inbounds i8, ptr %this, i64 80
   %retval.sroa.0.0.copyload.i1 = load ptr, ptr %value_ref_.i, align 8
-  %retval.sroa.2.0.value_ref_.sroa_idx.i = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3, i32 1
+  %retval.sroa.2.0.value_ref_.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 88
   %retval.sroa.2.0.copyload.i2 = load i64, ptr %retval.sroa.2.0.value_ref_.sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %name.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %value.i)
   store ptr %retval.sroa.0.0.copyload.i, ptr %name.i, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name.i, i64 8
   store i64 %retval.sroa.2.0.copyload.i, ptr %0, align 8
   store ptr %retval.sroa.0.0.copyload.i1, ptr %value.i, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %value.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %value.i, i64 8
   store i64 %retval.sroa.2.0.copyload.i2, ptr %1, align 8
   %call.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %name.i)
   %call1.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value.i)
@@ -376,7 +375,7 @@ entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
-  %name_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 2
+  %name_ref_ = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(16) %name_ref_)
   %call.i9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, i64 noundef 0, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
@@ -388,7 +387,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont9:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %call.i10) #6
-  %value_ref_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 3
+  %value_ref_ = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %value_ref_)
           to label %invoke.cont12 unwind label %lpad11
 
@@ -421,7 +420,7 @@ invoke.cont14:                                    ; preds = %if.then5.i, %if.end
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %call.i1314) #6
-  %insertion_index_ = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 4
+  %insertion_index_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %insertion_index_, align 8
   invoke void @_ZN4base13SizeTToStringB5cxx11Em(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp17, i64 noundef %0)
           to label %invoke.cont19 unwind label %lpad18
@@ -450,7 +449,7 @@ if.end7.i21:                                      ; preds = %land.lhs.true.i23, 
 invoke.cont21:                                    ; preds = %if.then5.i26, %if.end7.i21
   %call8.sink.i22 = phi ptr [ %call6.i28, %if.then5.i26 ], [ %call8.i30, %if.end7.i21 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %call8.sink.i22) #6
-  %type_.i = getelementptr inbounds %"class.net::HpackEntry", ptr %this, i64 0, i32 5
+  %type_.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i32, ptr %type_.i, align 8
   %cmp.i32 = icmp eq i32 %1, 2
   %cmp.i34 = icmp eq i32 %1, 0

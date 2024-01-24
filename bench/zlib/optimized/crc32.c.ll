@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @x2n_table = internal unnamed_addr constant [32 x i32] [i32 1073741824, i32 536870912, i32 134217728, i32 8388608, i32 32768, i32 -306674912, i32 -1310281582, i32 -1603656425, i32 -312312402, i32 -1999551385, i32 -675545494, i32 -331055343, i32 -1904303760, i32 1680310286, i32 1296546528, i32 167662735, i32 -2088424177, i32 808857370, i32 2069535939, i32 838779241, i32 -1611922902, i32 1821240772, i32 366380877, i32 1608415822, i32 -1160180169, i32 776888047, i32 1319870996, i32 -1465617728, i32 1117427358, i32 344797226, i32 -1005869360, i32 -991810500], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @get_crc_table() local_unnamed_addr #0 {
+define noundef nonnull ptr @get_crc_table() local_unnamed_addr #0 {
 entry:
   ret ptr @crc_table
 }
@@ -71,7 +71,7 @@ while.body15.preheader:                           ; preds = %while.end
   br label %while.body15
 
 while.cond12.loopexit:                            ; preds = %for.body
-  %add.ptr = getelementptr inbounds i64, ptr %words.0199, i64 5
+  %add.ptr = getelementptr inbounds i8, ptr %words.0199, i64 40
   %dec13 = add i64 %dec13200, -1
   %tobool14.not = icmp eq i64 %dec13, 0
   br i1 %tobool14.not, label %while.end80.loopexit, label %while.body15, !llvm.loop !6
@@ -88,19 +88,19 @@ while.body15:                                     ; preds = %while.body15.prehea
   %7 = load i64, ptr %words.0199, align 8
   %xor18 = xor i64 %7, %conv16
   %conv19 = zext i32 %crc1.0195 to i64
-  %arrayidx20 = getelementptr inbounds i64, ptr %words.0199, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %words.0199, i64 8
   %8 = load i64, ptr %arrayidx20, align 8
   %xor21 = xor i64 %8, %conv19
   %conv22 = zext i32 %crc2.0194 to i64
-  %arrayidx23 = getelementptr inbounds i64, ptr %words.0199, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %words.0199, i64 16
   %9 = load i64, ptr %arrayidx23, align 8
   %xor24 = xor i64 %9, %conv22
   %conv25 = zext i32 %crc3.0196 to i64
-  %arrayidx26 = getelementptr inbounds i64, ptr %words.0199, i64 3
+  %arrayidx26 = getelementptr inbounds i8, ptr %words.0199, i64 24
   %10 = load i64, ptr %arrayidx26, align 8
   %xor27 = xor i64 %10, %conv25
   %conv28 = zext i32 %crc4.0198 to i64
-  %arrayidx29 = getelementptr inbounds i64, ptr %words.0199, i64 4
+  %arrayidx29 = getelementptr inbounds i8, ptr %words.0199, i64 32
   %11 = load i64, ptr %arrayidx29, align 8
   %xor30 = xor i64 %11, %conv28
   %and31 = and i64 %xor18, 255
@@ -192,7 +192,7 @@ for.body.i:                                       ; preds = %for.body.i, %while.
 
 crc_word.exit:                                    ; preds = %for.body.i
   %conv84 = and i64 %xor.i, 4294967295
-  %arrayidx86 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 1
+  %arrayidx86 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 8
   %29 = load i64, ptr %arrayidx86, align 8
   %xor87 = xor i64 %conv84, %crc1.0.lcssa
   %xor88 = xor i64 %xor87, %29
@@ -213,7 +213,7 @@ for.body.i131:                                    ; preds = %for.body.i131, %crc
 
 crc_word.exit142:                                 ; preds = %for.body.i131
   %conv90 = and i64 %xor.i138, 4294967295
-  %arrayidx92 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 2
+  %arrayidx92 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 16
   %31 = load i64, ptr %arrayidx92, align 8
   %xor93 = xor i64 %conv90, %crc2.0.lcssa
   %xor94 = xor i64 %xor93, %31
@@ -234,7 +234,7 @@ for.body.i143:                                    ; preds = %for.body.i143, %crc
 
 crc_word.exit154:                                 ; preds = %for.body.i143
   %conv96 = and i64 %xor.i150, 4294967295
-  %arrayidx98 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 3
+  %arrayidx98 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 24
   %33 = load i64, ptr %arrayidx98, align 8
   %xor99 = xor i64 %conv96, %crc3.0.lcssa
   %xor100 = xor i64 %xor99, %33
@@ -255,7 +255,7 @@ for.body.i155:                                    ; preds = %for.body.i155, %crc
 
 crc_word.exit166:                                 ; preds = %for.body.i155
   %conv102 = and i64 %xor.i162, 4294967295
-  %arrayidx104 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 4
+  %arrayidx104 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 32
   %35 = load i64, ptr %arrayidx104, align 8
   %xor105 = xor i64 %conv102, %crc4.0.lcssa
   %xor106 = xor i64 %xor105, %35
@@ -275,7 +275,7 @@ for.body.i167:                                    ; preds = %for.body.i167, %crc
   br i1 %exitcond.not.i176, label %crc_word.exit178, label %for.body.i167, !llvm.loop !8
 
 crc_word.exit178:                                 ; preds = %for.body.i167
-  %add.ptr109 = getelementptr inbounds i64, ptr %words.0.lcssa, i64 5
+  %add.ptr109 = getelementptr inbounds i8, ptr %words.0.lcssa, i64 40
   %conv108 = and i64 %xor.i174, 4294967295
   br label %if.end216
 

@@ -4,11 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ec_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ec_point_st = type { ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
 %struct.P256_POINT = type { [4 x i64], [4 x i64], [4 x i64] }
 %union.anon = type { %struct.P256_POINT }
-%struct.ec_group_st = type { ptr, ptr, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st }
 %struct.P256_POINT_AFFINE = type { [4 x i64], [4 x i64] }
 
 @EC_GFp_nistz256_method.ret = internal constant %struct.ec_method_st { ptr @ec_GFp_mont_group_init, ptr @ec_GFp_mont_group_finish, ptr @ec_GFp_mont_group_copy, ptr @ec_GFp_mont_group_set_curve, ptr @ecp_nistz256_get_affine, ptr @ecp_nistz256_points_mul, ptr null, ptr @ec_GFp_mont_field_mul, ptr @ec_GFp_mont_field_sqr, ptr @ec_GFp_mont_field_encode, ptr @ec_GFp_mont_field_decode }, align 8
@@ -53,31 +50,31 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %top.i = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1, i32 1
+  %top.i = getelementptr inbounds i8, ptr %point, i64 16
   %0 = load i32, ptr %top.i, align 8
   %cmp.i = icmp sgt i32 %0, 4
   br i1 %cmp.i, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %point_x, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %X, align 8
   %conv.i = sext i32 %0 to i64
   %mul.i = shl nsw i64 %conv.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %point_x, ptr align 8 %1, i64 %mul.i, i1 false)
-  %top.i14 = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2, i32 1
+  %top.i14 = getelementptr inbounds i8, ptr %point, i64 40
   %2 = load i32, ptr %top.i14, align 8
   %cmp.i15 = icmp sgt i32 %2, 4
   br i1 %cmp.i15, label %if.then10, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %point_y, i8 0, i64 32, i1 false)
   %3 = load ptr, ptr %Y, align 8
   %conv.i17 = sext i32 %2 to i64
   %mul.i18 = shl nsw i64 %conv.i17, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %point_y, ptr align 8 %3, i64 %mul.i18, i1 false)
-  %top.i21 = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3, i32 1
+  %top.i21 = getelementptr inbounds i8, ptr %point, i64 64
   %4 = load i32, ptr %top.i21, align 8
   %cmp.i22 = icmp sgt i32 %4, 4
   br i1 %cmp.i22, label %if.then10, label %if.end11
@@ -87,7 +84,7 @@ if.then10:                                        ; preds = %lor.lhs.false6, %lo
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false6
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %point_z, i8 0, i64 32, i1 false)
   %5 = load ptr, ptr %Z, align 8
   %conv.i24 = sext i32 %4 to i64
@@ -221,9 +218,9 @@ if.then21:                                        ; preds = %if.then18
   br label %return
 
 if.end22:                                         ; preds = %if.then18
-  %top = getelementptr inbounds %struct.bignum_st, ptr %x, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %x, i64 8
   store i32 4, ptr %top, align 8
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %x, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %x, i64 16
   store i32 0, ptr %neg, align 8
   %6 = load ptr, ptr %x, align 8
   call void @ecp_nistz256_mul_mont(ptr noundef %6, ptr noundef nonnull %z_inv2, ptr noundef nonnull %point_x) #6
@@ -245,9 +242,9 @@ if.then33:                                        ; preds = %if.then27
   br label %return
 
 if.end34:                                         ; preds = %if.then27
-  %top35 = getelementptr inbounds %struct.bignum_st, ptr %y, i64 0, i32 1
+  %top35 = getelementptr inbounds i8, ptr %y, i64 8
   store i32 4, ptr %top35, align 8
-  %neg36 = getelementptr inbounds %struct.bignum_st, ptr %y, i64 0, i32 3
+  %neg36 = getelementptr inbounds i8, ptr %y, i64 16
   store i32 0, ptr %neg36, align 8
   %7 = load ptr, ptr %y, align 8
   call void @ecp_nistz256_mul_mont(ptr noundef %7, ptr noundef nonnull %z_inv3, ptr noundef nonnull %point_y) #6
@@ -300,7 +297,7 @@ if.end9:                                          ; preds = %if.then5, %if.then3
   br i1 %cmp11, label %if.then158, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %order = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 2
+  %order = getelementptr inbounds i8, ptr %group, i64 16
   %call14 = tail call i32 @BN_nnmod(ptr noundef nonnull %call10, ptr noundef nonnull %g_scalar, ptr noundef nonnull %order, ptr noundef nonnull %ctx.addr.0) #6
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.then16, label %if.end18
@@ -315,7 +312,7 @@ if.end18:                                         ; preds = %if.end13, %lor.lhs.
   %ctx.addr.1 = phi ptr [ %ctx, %lor.lhs.false ], [ %ctx.addr.0, %if.end13 ]
   %g_scalar.addr.0 = phi ptr [ %g_scalar, %lor.lhs.false ], [ %call10, %if.end13 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %p_str, i8 0, i64 33, i1 false)
-  %top = getelementptr inbounds %struct.bignum_st, ptr %g_scalar.addr.0, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %g_scalar.addr.0, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp19115 = icmp sgt i32 %0, 0
   br i1 %cmp19115, label %for.body.lr.ph, label %for.body68.preheader
@@ -406,8 +403,8 @@ for.end72:                                        ; preds = %for.body68.preheade
   %and7.i = and i32 %not.i, 1
   %shl.i = lshr i32 %shr510.i, 1
   call void @ecp_nistz256_select_w7(ptr noundef nonnull %p, ptr noundef nonnull @ecp_nistz256_precomputed, i32 noundef %shl.i) #6
-  %Z = getelementptr inbounds %struct.P256_POINT, ptr %p, i64 0, i32 2
-  %Y = getelementptr inbounds %struct.P256_POINT, ptr %p, i64 0, i32 1
+  %Z = getelementptr inbounds i8, ptr %p, i64 64
+  %Y = getelementptr inbounds i8, ptr %p, i64 32
   call void @ecp_nistz256_neg(ptr noundef nonnull %Z, ptr noundef nonnull %Y) #6
   %conv84 = zext nneg i32 %and7.i to i64
   %sub.i56 = sub nsw i64 0, %conv84
@@ -422,8 +419,8 @@ for.end72:                                        ; preds = %for.body68.preheade
   %25 = and <2 x i64> %24, %22
   %26 = xor <2 x i64> %25, %21
   store <2 x i64> %26, ptr %Y, align 32
-  %arrayidx10.i = getelementptr inbounds %struct.P256_POINT, ptr %p, i64 0, i32 2, i64 2
-  %arrayidx12.i = getelementptr inbounds %struct.P256_POINT, ptr %p, i64 0, i32 1, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %p, i64 80
+  %arrayidx12.i = getelementptr inbounds i8, ptr %p, i64 48
   %27 = load <2 x i64>, ptr %arrayidx10.i, align 16
   %28 = and <2 x i64> %27, %20
   %29 = load <2 x i64>, ptr %arrayidx12.i, align 16
@@ -431,10 +428,10 @@ for.end72:                                        ; preds = %for.body68.preheade
   %31 = xor <2 x i64> %30, %28
   store <2 x i64> %31, ptr %arrayidx12.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %Z, ptr noundef nonnull align 16 dereferenceable(32) @ONE, i64 32, i1 false)
-  %Z109 = getelementptr inbounds %struct.P256_POINT, ptr %t, i64 0, i32 2
-  %Y111 = getelementptr inbounds %struct.P256_POINT_AFFINE, ptr %t, i64 0, i32 1
-  %arrayidx10.i83 = getelementptr inbounds %struct.P256_POINT, ptr %t, i64 0, i32 2, i64 2
-  %arrayidx12.i85 = getelementptr inbounds %struct.P256_POINT_AFFINE, ptr %t, i64 0, i32 1, i64 2
+  %Z109 = getelementptr inbounds i8, ptr %t, i64 64
+  %Y111 = getelementptr inbounds i8, ptr %t, i64 32
+  %arrayidx10.i83 = getelementptr inbounds i8, ptr %t, i64 80
+  %arrayidx12.i85 = getelementptr inbounds i8, ptr %t, i64 48
   br label %for.body90
 
 for.body90:                                       ; preds = %for.end72, %for.body90
@@ -549,7 +546,7 @@ if.then10.i:                                      ; preds = %if.end7.i
   br label %if.then185.i
 
 if.end11.i:                                       ; preds = %if.end7.i
-  %order.i = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 2
+  %order.i = getelementptr inbounds i8, ptr %group, i64 16
   %call12.i = call i32 @BN_nnmod(ptr noundef nonnull %call8.i, ptr noundef nonnull %p_scalar, ptr noundef nonnull %order.i, ptr noundef nonnull %ctx.addr.0.i) #6
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.then14.i, label %if.end16.i
@@ -563,7 +560,7 @@ if.end16.i:                                       ; preds = %if.end11.i, %lor.lh
   %new_ctx.1.i = phi ptr [ null, %lor.lhs.false.i ], [ %new_ctx.0.i, %if.end11.i ]
   %ctx.addr.1.i = phi ptr [ %ctx.addr.2, %lor.lhs.false.i ], [ %ctx.addr.0.i, %if.end11.i ]
   %p_scalar.addr.0.i = phi ptr [ %p_scalar, %lor.lhs.false.i ], [ %call8.i, %if.end11.i ]
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %p_scalar.addr.0.i, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %p_scalar.addr.0.i, i64 8
   %48 = load i32, ptr %top.i, align 8
   %cmp17193.i = icmp sgt i32 %48, 0
   br i1 %cmp17193.i, label %for.body.lr.ph.i, label %for.body66.preheader.i
@@ -637,32 +634,32 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp17.i, label %for.body.i, label %for.cond63.preheader.i, !llvm.loop !17
 
 for.end70.i:                                      ; preds = %for.body66.preheader.i, %for.cond63.preheader.i
-  %top.i.i = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 1, i32 1
+  %top.i.i = getelementptr inbounds i8, ptr %p_, i64 16
   %65 = load i32, ptr %top.i.i, align 8
   %cmp.i.i = icmp sgt i32 %65, 4
   br i1 %cmp.i.i, label %if.then88.i, label %lor.lhs.false76.i
 
 lor.lhs.false76.i:                                ; preds = %for.end70.i
-  %X73.i = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 1
+  %X73.i = getelementptr inbounds i8, ptr %p_, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %table.i, i8 0, i64 32, i1 false)
   %66 = load ptr, ptr %X73.i, align 8
   %conv.i.i = sext i32 %65 to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %table.i, ptr align 8 %66, i64 %mul.i.i, i1 false)
-  %top.i107.i = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 2, i32 1
+  %top.i107.i = getelementptr inbounds i8, ptr %p_, i64 40
   %67 = load i32, ptr %top.i107.i, align 8
   %cmp.i108.i = icmp sgt i32 %67, 4
   br i1 %cmp.i108.i, label %if.then88.i, label %lor.lhs.false82.i
 
 lor.lhs.false82.i:                                ; preds = %lor.lhs.false76.i
-  %Y79.i = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 2
-  %Y.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 0, i32 1
+  %Y79.i = getelementptr inbounds i8, ptr %p_, i64 32
+  %Y.i = getelementptr inbounds i8, ptr %table.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %Y.i, i8 0, i64 32, i1 false)
   %68 = load ptr, ptr %Y79.i, align 8
   %conv.i110.i = sext i32 %67 to i64
   %mul.i111.i = shl nsw i64 %conv.i110.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %Y.i, ptr align 8 %68, i64 %mul.i111.i, i1 false)
-  %top.i114.i = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 3, i32 1
+  %top.i114.i = getelementptr inbounds i8, ptr %p_, i64 64
   %69 = load i32, ptr %top.i114.i, align 8
   %cmp.i115.i = icmp sgt i32 %69, 4
   br i1 %cmp.i115.i, label %if.then88.i, label %if.end89.i
@@ -672,44 +669,44 @@ if.then88.i:                                      ; preds = %lor.lhs.false82.i, 
   br label %err.i
 
 if.end89.i:                                       ; preds = %lor.lhs.false82.i
-  %Z85.i = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 3
-  %Z.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 0, i32 2
+  %Z85.i = getelementptr inbounds i8, ptr %p_, i64 56
+  %Z.i = getelementptr inbounds i8, ptr %table.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %Z.i, i8 0, i64 32, i1 false)
   %70 = load ptr, ptr %Z85.i, align 8
   %conv.i117.i = sext i32 %69 to i64
   %mul.i118.i = shl nsw i64 %conv.i117.i, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %Z.i, ptr align 8 %70, i64 %mul.i118.i, i1 false)
-  %arrayidx90.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 1
+  %arrayidx90.i = getelementptr inbounds i8, ptr %table.i, i64 96
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx90.i, ptr noundef nonnull %table.i) #6
-  %arrayidx92.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 2
+  %arrayidx92.i = getelementptr inbounds i8, ptr %table.i, i64 192
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx92.i, ptr noundef nonnull %arrayidx90.i, ptr noundef nonnull %table.i) #6
-  %arrayidx95.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 3
+  %arrayidx95.i = getelementptr inbounds i8, ptr %table.i, i64 288
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx95.i, ptr noundef nonnull %arrayidx90.i) #6
-  %arrayidx97.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 5
+  %arrayidx97.i = getelementptr inbounds i8, ptr %table.i, i64 480
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx97.i, ptr noundef nonnull %arrayidx92.i) #6
-  %arrayidx99.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 7
+  %arrayidx99.i = getelementptr inbounds i8, ptr %table.i, i64 672
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx99.i, ptr noundef nonnull %arrayidx95.i) #6
-  %arrayidx101.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 11
+  %arrayidx101.i = getelementptr inbounds i8, ptr %table.i, i64 1056
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx101.i, ptr noundef nonnull %arrayidx97.i) #6
-  %arrayidx103.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 4
+  %arrayidx103.i = getelementptr inbounds i8, ptr %table.i, i64 384
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx103.i, ptr noundef nonnull %arrayidx95.i, ptr noundef nonnull %table.i) #6
-  %arrayidx106.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 6
+  %arrayidx106.i = getelementptr inbounds i8, ptr %table.i, i64 576
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx106.i, ptr noundef nonnull %arrayidx97.i, ptr noundef nonnull %table.i) #6
-  %arrayidx109.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 8
+  %arrayidx109.i = getelementptr inbounds i8, ptr %table.i, i64 768
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx109.i, ptr noundef nonnull %arrayidx99.i, ptr noundef nonnull %table.i) #6
-  %arrayidx112.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 12
+  %arrayidx112.i = getelementptr inbounds i8, ptr %table.i, i64 1152
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx112.i, ptr noundef nonnull %arrayidx101.i, ptr noundef nonnull %table.i) #6
-  %arrayidx115.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 13
+  %arrayidx115.i = getelementptr inbounds i8, ptr %table.i, i64 1248
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx115.i, ptr noundef nonnull %arrayidx106.i) #6
-  %arrayidx117.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 9
+  %arrayidx117.i = getelementptr inbounds i8, ptr %table.i, i64 864
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx117.i, ptr noundef nonnull %arrayidx103.i) #6
-  %arrayidx119.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 14
+  %arrayidx119.i = getelementptr inbounds i8, ptr %table.i, i64 1344
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx119.i, ptr noundef nonnull %arrayidx115.i, ptr noundef nonnull %table.i) #6
-  %arrayidx122.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 10
+  %arrayidx122.i = getelementptr inbounds i8, ptr %table.i, i64 960
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx122.i, ptr noundef nonnull %arrayidx117.i, ptr noundef nonnull %table.i) #6
-  %arrayidx125.i = getelementptr inbounds %struct.P256_POINT, ptr %table.i, i64 15
+  %arrayidx125.i = getelementptr inbounds i8, ptr %table.i, i64 1440
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx125.i, ptr noundef nonnull %arrayidx119.i, ptr noundef nonnull %table.i) #6
-  %arrayidx130.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 31
+  %arrayidx130.i = getelementptr inbounds i8, ptr %p_str.i, i64 31
   %71 = load i8, ptr %arrayidx130.i, align 1
   %72 = lshr i8 %71, 6
   %shr133.i = zext nneg i8 %72 to i32
@@ -718,9 +715,9 @@ if.end89.i:                                       ; preds = %lor.lhs.false82.i
   %shr510.i.i = add nuw nsw i32 %add9.i.i, %shr133.i
   %shr137.i = lshr i32 %shr510.i.i, 1
   call void @ecp_nistz256_select_w5(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %table.i, i32 noundef %shr137.i) #6
-  %Y160.i = getelementptr inbounds %struct.P256_POINT, ptr %h.i, i64 0, i32 1
-  %arrayidx10.i.i = getelementptr inbounds i64, ptr %tmp.i, i64 2
-  %arrayidx12.i.i = getelementptr inbounds %struct.P256_POINT, ptr %h.i, i64 0, i32 1, i64 2
+  %Y160.i = getelementptr inbounds i8, ptr %h.i, i64 32
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %h.i, i64 48
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end167.i, %if.end89.i
@@ -862,21 +859,21 @@ if.then136:                                       ; preds = %if.end134
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end134, %if.then136, %if.end122
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %r, i64 8
   %call141 = call i32 @bn_set_words(ptr noundef nonnull %X, ptr noundef nonnull %p, i64 noundef 4) #6
   %tobool142.not = icmp eq i32 %call141, 0
   br i1 %tobool142.not, label %return, label %lor.lhs.false143
 
 lor.lhs.false143:                                 ; preds = %if.end138
-  %Y144 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 2
-  %Y145 = getelementptr inbounds %struct.P256_POINT, ptr %p, i64 0, i32 1
+  %Y144 = getelementptr inbounds i8, ptr %r, i64 32
+  %Y145 = getelementptr inbounds i8, ptr %p, i64 32
   %call147 = call i32 @bn_set_words(ptr noundef nonnull %Y144, ptr noundef nonnull %Y145, i64 noundef 4) #6
   %tobool148.not = icmp eq i32 %call147, 0
   br i1 %tobool148.not, label %return, label %lor.lhs.false149
 
 lor.lhs.false149:                                 ; preds = %lor.lhs.false143
-  %Z150 = getelementptr inbounds %struct.ec_point_st, ptr %r, i64 0, i32 3
-  %Z151 = getelementptr inbounds %struct.P256_POINT, ptr %p, i64 0, i32 2
+  %Z150 = getelementptr inbounds i8, ptr %r, i64 56
+  %Z151 = getelementptr inbounds i8, ptr %p, i64 64
   %call153 = call i32 @bn_set_words(ptr noundef nonnull %Z150, ptr noundef nonnull %Z151, i64 noundef 4) #6
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %return, label %err

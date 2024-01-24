@@ -3,61 +3,15 @@ source_filename = "bench/libquic/original/spdy_frame_builder.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::SpdyFrameBuilder" = type <{ %"class.std::unique_ptr", i64, i64, i64, i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.net::SpdyFramer" = type <{ ptr, i32, i32, i32, [4 x i8], i64, i64, i64, i64, i64, %"class.net::SpdyFramer::CharBuffer", i32, i32, i32, i32, %"struct.net::SpdyFramer::SpdySettingsScratch", %"class.std::unique_ptr.2", %"class.std::unique_ptr.10", %"class.std::unique_ptr.10", %"class.std::unique_ptr.18", %"class.std::unique_ptr.26", ptr, ptr, %"class.std::unique_ptr.34", ptr, %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.42", i32, i8, i8, i8, i8, i8, i8, i8, [5 x i8] }>
-%"class.net::SpdyFramer::CharBuffer" = type { %"class.std::unique_ptr", i64, i64 }
-%"struct.net::SpdyFramer::SpdySettingsScratch" = type <{ %"class.net::SpdyFramer::CharBuffer", i32, [4 x i8] }>
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
-%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
-%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
-%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
-%"struct.std::_Head_base.25" = type { ptr }
-%"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
-%"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
-%"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
-%"class.std::tuple.29" = type { %"struct.std::_Tuple_impl.30" }
-%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Head_base.33" }
-%"struct.std::_Head_base.33" = type { ptr }
-%"class.std::unique_ptr.34" = type { %"struct.std::__uniq_ptr_data.35" }
-%"struct.std::__uniq_ptr_data.35" = type { %"class.std::__uniq_ptr_impl.36" }
-%"class.std::__uniq_ptr_impl.36" = type { %"class.std::tuple.37" }
-%"class.std::tuple.37" = type { %"struct.std::_Tuple_impl.38" }
-%"struct.std::_Tuple_impl.38" = type { %"struct.std::_Head_base.41" }
-%"struct.std::_Head_base.41" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -74,10 +28,10 @@ define dso_local void @_ZN3net16SpdyFrameBuilderC2EmNS_16SpdyMajorVersionE(ptr n
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %size) #13
   store ptr %call, ptr %this, align 8
-  %capacity_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %capacity_, align 8
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
-  %version_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %version_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_, i8 0, i64 16, i1 false)
   store i32 %version, ptr %version_, align 8
   ret void
@@ -109,13 +63,13 @@ entry:
   br i1 %cmp.i, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit
 
 _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit:       ; preds = %entry
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_.i, align 8
   %add.i = add i64 %0, %length
   %add2.i = add i64 %add.i, %1
-  %capacity_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp3.i.not = icmp ugt i64 %add2.i, %2
   br i1 %cmp3.i.not, label %return, label %if.end
@@ -138,13 +92,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %offset_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %offset_, align 8
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_, align 8
   %add = add i64 %0, %length
   %add2 = add i64 %add, %1
-  %capacity_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_, align 8
   %cmp3 = icmp ule i64 %add2, %2
   br label %return
@@ -161,13 +115,13 @@ entry:
   br i1 %cmp.i, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit
 
 _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit:       ; preds = %entry
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_.i, align 8
   %add.i = add i64 %0, %length
   %add2.i = add i64 %add.i, %1
-  %capacity_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp3.i.not = icmp ugt i64 %add2.i, %2
   br i1 %cmp3.i.not, label %return, label %if.end
@@ -185,7 +139,7 @@ return:                                           ; preds = %entry, %_ZNK3net16S
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder23WriteControlFrameHeaderERKNS_10SpdyFramerENS_13SpdyFrameTypeEh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %type, i8 noundef zeroext %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %capacity_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %capacity_, align 8
   %call4 = tail call noundef i64 @_ZNK3net10SpdyFramer18GetFrameHeaderSizeEv(ptr noundef nonnull align 8 dereferenceable(259) %framer)
   %sub = sub i64 %0, %call4
@@ -194,9 +148,9 @@ if.end:
   %retval.sroa.3.0.extract.shift.i = tail call i32 @llvm.bswap.i32(i32 %1)
   %retval.sroa.0.0.insert.ext.i = zext i8 %flags to i32
   %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.3.0.extract.shift.i, %retval.sroa.0.0.insert.ext.i
-  %offset_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %offset_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i.i = add i64 %2, 2
   %add2.i.i.i = add i64 %add.i.i.i, %3
@@ -222,7 +176,7 @@ if.end.i14.i.i:                                   ; preds = %_ZNK3net16SpdyFrame
   br label %_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit
 
 _ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit:    ; preds = %if.end, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i, %if.end.i14.i.i
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %framer, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %framer, i64 248
   %9 = load i32, ptr %protocol_version_.i, align 8
   %call10 = tail call noundef i32 @_ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE(i32 noundef %9, i32 noundef %type)
   %10 = load i64, ptr %offset_.i.i.i, align 8
@@ -301,13 +255,13 @@ entry:
   br i1 %cmp.i, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit
 
 _ZNK3net16SpdyFrameBuilder8CanWriteEm.exit:       ; preds = %entry
-  %offset_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %offset_.i, align 8
-  %length_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_.i, align 8
   %add.i = add i64 %0, %conv
   %add2.i = add i64 %add.i, %1
-  %capacity_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i, align 8
   %cmp3.i.not = icmp ugt i64 %add2.i, %2
   br i1 %cmp3.i.not, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i
@@ -337,7 +291,7 @@ return:                                           ; preds = %entry, %if.end.i14,
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %stream_id, i8 noundef zeroext %flags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %version_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %version_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %version_, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end6
@@ -347,13 +301,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %offset_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %offset_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i.i = add i64 %1, 4
   %add2.i.i.i = add i64 %add.i.i.i, %2
-  %capacity_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp3.i.not.i.i = icmp ule i64 %add2.i.i.i, %3
   br i1 %cmp3.i.not.i.i, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i, label %if.end32
@@ -424,21 +378,21 @@ return:                                           ; preds = %_ZN3net16SpdyFrameB
 define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer, i32 noundef %type, i8 noundef zeroext %flags, i32 noundef %stream_id) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %ref.tmp24 = alloca %"class.logging::LogMessage", align 8
-  %protocol_version_.i = getelementptr inbounds %"class.net::SpdyFramer", ptr %framer, i64 0, i32 27
+  %protocol_version_.i = getelementptr inbounds i8, ptr %framer, i64 248
   %0 = load i32, ptr %protocol_version_.i, align 8
   %call15 = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %0)
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end39, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
   %sub = sub i64 %1, %call15
-  %version_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %version_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %version_.i, align 8
   %cmp18.i = icmp eq i32 %2, 1
-  %offset_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
-  %capacity_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp18.i, label %if.then19.i, label %if.else23.i
 
 if.then19.i:                                      ; preds = %if.then16
@@ -494,7 +448,7 @@ land.lhs.true:                                    ; preds = %_ZN3net16SpdyFrameB
 
 cond.false:                                       ; preds = %land.lhs.true
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp24, ptr noundef nonnull @.str, i32 noundef 114, i32 noundef 2)
-  %stream_.i13 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp24, i64 0, i32 2
+  %stream_.i13 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i13, ptr noundef nonnull @.str.1)
           to label %invoke.cont28 unwind label %lpad25
 
@@ -519,12 +473,12 @@ lpad25:                                           ; preds = %invoke.cont31, %inv
 
 if.end39:                                         ; preds = %land.lhs.true, %_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit, %invoke.cont33, %if.end13
   %14 = load i64, ptr %length_, align 8
-  %offset_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_ = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load i64, ptr %offset_, align 8
   %add = add i64 %15, %14
   store i64 %add, ptr %offset_, align 8
   store i64 0, ptr %length_, align 8
-  %capacity_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load i64, ptr %capacity_, align 8
   %add.i.i.i = add i64 %add, 3
   %cmp3.i.not.i.i17 = icmp ule i64 %add.i.i.i, %16
@@ -553,7 +507,7 @@ if.end.i14.i.i:                                   ; preds = %_ZNK3net16SpdyFrame
   br label %_ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit
 
 _ZN3net16SpdyFrameBuilder11WriteUInt24Ej.exit:    ; preds = %if.end39, %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i18, %if.end.i14.i.i
-  %version_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %version_ = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i32, ptr %version_, align 8
   %call49 = call noundef i32 @_ZN3net13SpdyConstants18SerializeFrameTypeENS_16SpdyMajorVersionENS_13SpdyFrameTypeE(i32 noundef %23, i32 noundef %type)
   %24 = load i64, ptr %offset_, align 8
@@ -649,13 +603,13 @@ declare noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(259) %framer, i64 noundef %length) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %version_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %version_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %version_, align 8
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_, align 8
   %cmp18 = icmp eq i32 %0, 1
-  %offset_.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
-  %capacity_.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %offset_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp18, label %if.then19, label %if.else23
 
 if.then19:                                        ; preds = %entry
@@ -723,13 +677,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
-  %offset_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %offset_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i.i = add i64 %0, 2
   %add2.i.i.i = add i64 %add.i.i.i, %1
-  %capacity_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp3.i.not.i.i.not = icmp ugt i64 %add2.i.i.i, %2
   br i1 %cmp3.i.not.i.i.not, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i
@@ -795,13 +749,13 @@ declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder18WriteStringPiece32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
-  %offset_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %offset_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length_.i.i.i, align 8
   %add.i.i.i = add i64 %0, 4
   %add2.i.i.i = add i64 %add.i.i.i, %1
-  %capacity_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp3.i.not.i.i.not = icmp ugt i64 %add2.i.i.i, %2
   br i1 %cmp3.i.not.i.i.not, label %return, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i
@@ -870,16 +824,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13RewriteLengthERKNS_10SpdyFramerE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(259) %framer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8
   %call = tail call noundef i64 @_ZNK3net10SpdyFramer18GetFrameHeaderSizeEv(ptr noundef nonnull align 8 dereferenceable(259) %framer)
   %sub = sub i64 %0, %call
-  %version_.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 4
+  %version_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %version_.i, align 8
   %2 = load i64, ptr %length_, align 8
   %cmp18.i = icmp eq i32 %1, 1
-  %offset_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
-  %capacity_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %offset_.i.i.i, align 8
   %4 = load i64, ptr %capacity_.i.i.i, align 8
   br i1 %cmp18.i, label %if.then19.i, label %if.else23.i
@@ -927,13 +881,13 @@ _ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm.exit: ; preds = %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net16SpdyFrameBuilder14OverwriteFlagsERKNS_10SpdyFramerEh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(259) %framer, i8 noundef zeroext %flags) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %length_ = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8
   store i64 4, ptr %length_, align 8
-  %offset_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 3
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %offset_.i.i.i, align 8
   %add2.i.i.i = add i64 %1, 5
-  %capacity_.i.i.i = getelementptr inbounds %"class.net::SpdyFrameBuilder", ptr %this, i64 0, i32 1
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp3.i.not.i.i = icmp ule i64 %add2.i.i.i, %2
   br i1 %cmp3.i.not.i.i, label %_ZNK3net16SpdyFrameBuilder8CanWriteEm.exit.i.i.i, label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit

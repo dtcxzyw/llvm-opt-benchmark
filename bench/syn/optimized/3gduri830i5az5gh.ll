@@ -23,7 +23,7 @@ define void @_ZN5alloc2rc10RcInnerPtr10inc_strong17h41b9da98bd3b58ceE(ptr nocapt
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN5alloc2rc10RcInnerPtr4weak17h894a3f977de0c36dE(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64, { { { i32, [3 x i32] } } } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
   ret i64 %3
 }
@@ -37,10 +37,10 @@ define noundef i64 @_ZN5alloc2rc10RcInnerPtr6strong17h9447c9d3504216e1E(ptr noca
 ; Function Attrs: nonlazybind uwtable
 define ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h04d713e18db64d18E"(ptr nocapture readonly align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, { { { i32, [3 x i32] } } } }, align 8
-  %3 = getelementptr inbounds { i64, i64, { { { i32, [3 x i32] } } } }, ptr %2, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   store i64 1, ptr %2, align 8
-  %4 = getelementptr inbounds { i64, i64, { { { i32, [3 x i32] } } } }, ptr %2, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 1, ptr %4, align 8
   %5 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 32, i64 8)
           to label %11 unwind label %6

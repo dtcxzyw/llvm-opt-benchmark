@@ -29,7 +29,7 @@ define hidden noundef ptr @_Z13mk_smt_tacticR11ast_managerRK10params_ref(ptr nou
 entry:
   %sp = alloca %struct.sat_params, align 8
   store ptr %p, ptr %sp, align 8
-  %g.i = getelementptr inbounds %struct.sat_params, ptr %sp, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %sp, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str)
   %0 = load ptr, ptr %sp, align 8
   %call.i7 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
@@ -89,7 +89,7 @@ define hidden noundef ptr @_Z19mk_smt_tactic_usingR11ast_managerbRK10params_ref(
 entry:
   %sp = alloca %struct.sat_params, align 8
   store ptr %p, ptr %sp, align 8
-  %g.i = getelementptr inbounds %struct.sat_params, ptr %sp, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %sp, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str)
   %0 = load ptr, ptr %sp, align 8
   %call.i5 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)

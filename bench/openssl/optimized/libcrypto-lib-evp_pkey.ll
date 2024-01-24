@@ -3,13 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-evp_pkey.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/evp/evp_pkey.c\00", align 1
 @__func__.evp_pkcs82pkey_legacy = private unnamed_addr constant [22 x i8] c"evp_pkcs82pkey_legacy\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"TYPE=%s\00", align 1
@@ -53,9 +46,9 @@ if.then7:                                         ; preds = %if.end3
   br label %error
 
 if.end10:                                         ; preds = %if.end3
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %call1, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %call1, i64 8
   %2 = load ptr, ptr %ameth, align 8
-  %priv_decode_ex = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 40
+  %priv_decode_ex = getelementptr inbounds i8, ptr %2, i64 312
   %3 = load ptr, ptr %priv_decode_ex, align 8
   %cmp11.not = icmp eq ptr %3, null
   br i1 %cmp11.not, label %if.else, label %if.then12
@@ -66,7 +59,7 @@ if.then12:                                        ; preds = %if.end10
   br i1 %tobool16.not, label %error, label %return
 
 if.else:                                          ; preds = %if.end10
-  %priv_decode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %2, i64 0, i32 9
+  %priv_decode = getelementptr inbounds i8, ptr %2, i64 64
   %4 = load ptr, ptr %priv_decode, align 8
   %cmp20.not = icmp eq ptr %4, null
   br i1 %cmp20.not, label %if.else28, label %if.then21
@@ -220,7 +213,7 @@ entry:
   %der = alloca ptr, align 8
   %derlen = alloca i64, align 8
   %pp = alloca ptr, align 8
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %pkey, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -259,13 +252,13 @@ if.then10:                                        ; preds = %if.else
   br label %return
 
 if.end11:                                         ; preds = %if.else
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %pkey, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
   %4 = load ptr, ptr %ameth, align 8
   %cmp12.not = icmp eq ptr %4, null
   br i1 %cmp12.not, label %error.sink.split, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %priv_encode = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %4, i64 0, i32 10
+  %priv_encode = getelementptr inbounds i8, ptr %4, i64 72
   %5 = load ptr, ptr %priv_encode, align 8
   %cmp15.not = icmp eq ptr %5, null
   br i1 %cmp15.not, label %error.sink.split, label %if.then16
@@ -317,7 +310,7 @@ declare void @OSSL_ENCODER_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_get_attr_count(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_count(ptr noundef %0) #2
   ret i32 %call
@@ -328,7 +321,7 @@ declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_get_attr_by_NID(ptr nocapture noundef readonly %key, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #2
   ret i32 %call
@@ -339,7 +332,7 @@ declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_get_attr_by_OBJ(ptr nocapture noundef readonly %key, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #2
   ret i32 %call
@@ -350,7 +343,7 @@ declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_PKEY_get_attr(ptr nocapture noundef readonly %key, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call ptr @X509at_get_attr(ptr noundef %0, i32 noundef %loc) #2
   ret ptr %call
@@ -361,7 +354,7 @@ declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_PKEY_delete_attr(ptr nocapture noundef readonly %key, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call ptr @X509at_delete_attr(ptr noundef %0, i32 noundef %loc) #2
   ret ptr %call
@@ -372,7 +365,7 @@ declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_add1_attr(ptr noundef %key, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %attributes, ptr noundef %attr) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -384,7 +377,7 @@ declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_add1_attr_by_OBJ(ptr noundef %key, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %attributes, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -396,7 +389,7 @@ declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_add1_attr_by_NID(ptr noundef %key, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attributes, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -408,7 +401,7 @@ declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_PKEY_add1_attr_by_txt(ptr noundef %key, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 9
+  %attributes = getelementptr inbounds i8, ptr %key, i64 64
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %attributes, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #2
   %tobool.not = icmp ne ptr %call, null
   %. = zext i1 %tobool.not to i32
@@ -422,7 +415,7 @@ define ptr @EVP_PKEY_get0_type_name(ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %name = alloca ptr, align 8
   store ptr null, ptr %name, align 8
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %key, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -455,7 +448,7 @@ declare i32 @EVP_PKEY_asn1_get0_info(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_PKEY_get0_provider(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %key, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %key, i64 96
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then

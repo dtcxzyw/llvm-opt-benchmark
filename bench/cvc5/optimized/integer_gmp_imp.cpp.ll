@@ -583,7 +583,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer8isBitSetEj(ptr noun
 invoke.cont:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   call void @_ZNK4cvc58internal7Integer15extractBitRangeEjj(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef 1, i32 noundef %i)
-  %_mp_size.i.i = getelementptr inbounds %struct.__mpz_struct, ptr %ref.tmp, i64 0, i32 1
+  %_mp_size.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %0 = load i32, ptr %_mp_size.i.i, align 4
   invoke void @__gmpz_clear(ptr noundef nonnull %ref.tmp)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
@@ -677,7 +677,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit7:  ; preds = %_ZN10__gmp_exprIA1_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer6isZeroEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_mp_size.i = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp5.i.not = icmp eq i32 %0, 0
   ret i1 %cmp5.i.not
@@ -960,7 +960,7 @@ define hidden void @_ZN4cvc58internal7Integer11euclidianQRERS1_S2_RKS1_S4_(ptr n
 entry:
   %ref.tmp5 = alloca %"class.cvc5::internal::Integer", align 8
   tail call void @__gmpz_fdiv_qr(ptr noundef nonnull %q, ptr noundef nonnull %r, ptr noundef nonnull %x, ptr noundef nonnull %y)
-  %_mp_size.i.i = getelementptr inbounds %struct.__mpz_struct, ptr %r, i64 0, i32 1
+  %_mp_size.i.i = getelementptr inbounds i8, ptr %r, i64 4
   %0 = load i32, ptr %_mp_size.i.i, align 4
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.else, label %if.end10
@@ -1008,7 +1008,7 @@ eh.resume:                                        ; preds = %lpad6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer16strictlyNegativeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_mp_size.i = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp = icmp slt i32 %0, 0
   ret i1 %cmp
@@ -1017,7 +1017,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal7Integer3sgnEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_mp_size = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size, align 4
   %cmp5 = icmp ne i32 %0, 0
   %conv = zext i1 %cmp5 to i32
@@ -1264,7 +1264,7 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2:  ; preds = %lpad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer16strictlyPositiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_mp_size.i = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp = icmp sgt i32 %0, 0
   ret i1 %cmp
@@ -1600,7 +1600,7 @@ declare i32 @__gmpz_divisible_p(ptr noundef, ptr noundef) local_unnamed_addr #4
 define hidden void @_ZNK4cvc58internal7Integer3absEv(ptr noalias sret(%"class.cvc5::internal::Integer") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.__gmp_expr, align 8
-  %_mp_size.i.i = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i.i, align 4
   %cmp5.i.i = icmp slt i32 %0, 0
   br i1 %cmp5.i.i, label %cond.false, label %cond.true
@@ -1832,7 +1832,7 @@ declare i32 @__gmpz_tstbit(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal7Integer6isPow2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %_mp_size.i.i.i = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i.i.i, align 4
   %or.cond = icmp slt i32 %0, 1
   br i1 %or.cond, label %return, label %if.end
@@ -1862,7 +1862,7 @@ declare i64 @__gmpz_scan1(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer6lengthEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %_mp_size.i = getelementptr inbounds %struct.__mpz_struct, ptr %this, i64 0, i32 1
+  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp5.i.not = icmp eq i32 %0, 0
   br i1 %cmp5.i.not, label %return, label %if.else

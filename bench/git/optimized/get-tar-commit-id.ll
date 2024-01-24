@@ -3,8 +3,6 @@ source_filename = "bench/git/original/get-tar-commit-id.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ustar_header = type { [100 x i8], [8 x i8], [8 x i8], [8 x i8], [12 x i8], [12 x i8], [8 x i8], [1 x i8], [100 x i8], [6 x i8], [2 x i8], [32 x i8], [32 x i8], [8 x i8], [8 x i8], [155 x i8] }
-
 @.str = private unnamed_addr constant [28 x i8] c"builtin/get-tar-commit-id.c\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"unexpected prefix in builtin: %s\00", align 1
 @builtin_get_tar_commit_id_usage = internal constant [22 x i8] c"git get-tar-commit-id\00", align 16
@@ -52,7 +50,7 @@ if.then9:                                         ; preds = %if.end7
   unreachable
 
 if.end10:                                         ; preds = %if.end7
-  %typeflag = getelementptr inbounds %struct.ustar_header, ptr %buffer, i64 0, i32 7
+  %typeflag = getelementptr inbounds i8, ptr %buffer, i64 156
   %0 = load i8, ptr %typeflag, align 4
   %cmp11.not = icmp eq i8 %0, 103
   br i1 %cmp11.not, label %if.end14, label %return

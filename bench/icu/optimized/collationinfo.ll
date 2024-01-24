@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN6icu_7513CollationInfo10printSizesEiPKi(i32 noundef %sizeWithHeader, ptr nocapture noundef readonly %indexes) local_unnamed_addr #0 align 2 {
 entry:
-  %arrayidx = getelementptr i32, ptr %indexes, i64 19
+  %arrayidx = getelementptr i8, ptr %indexes, i64 76
   %0 = load i32, ptr %arrayidx, align 4
   %cmp = icmp slt i32 %0, %sizeWithHeader
   br i1 %cmp, label %if.then, label %if.end
@@ -47,8 +47,8 @@ if.end:                                           ; preds = %if.then, %entry
   %conv2 = sext i32 %1 to i64
   %mul = shl nsw i64 %conv2, 2
   %call4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i64 noundef %conv2, i64 noundef %mul)
-  %2 = getelementptr i32, ptr %indexes, i64 5
-  %arrayidx.i = getelementptr i32, ptr %indexes, i64 6
+  %2 = getelementptr i8, ptr %indexes, i64 20
+  %arrayidx.i = getelementptr i8, ptr %indexes, i64 24
   %3 = load i32, ptr %arrayidx.i, align 4
   %4 = load i32, ptr %2, align 4
   %cmp6.not = icmp eq i32 %3, %4
@@ -65,7 +65,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.then7, %if.end
   %5 = phi i32 [ %.pre, %if.then7 ], [ %3, %if.end ]
-  %arrayidx.i56 = getelementptr i32, ptr %indexes, i64 7
+  %arrayidx.i56 = getelementptr i8, ptr %indexes, i64 28
   %6 = load i32, ptr %arrayidx.i56, align 4
   %cmp13.not = icmp eq i32 %6, %5
   br i1 %cmp13.not, label %if.end17, label %if.then14
@@ -79,7 +79,7 @@ if.then14:                                        ; preds = %if.end11
 
 if.end17:                                         ; preds = %if.then14, %if.end11
   %7 = phi i32 [ %.pre90, %if.then14 ], [ %5, %if.end11 ]
-  %arrayidx.i58 = getelementptr i32, ptr %indexes, i64 8
+  %arrayidx.i58 = getelementptr i8, ptr %indexes, i64 32
   %8 = load i32, ptr %arrayidx.i58, align 4
   %cmp19.not = icmp eq i32 %8, %7
   br i1 %cmp19.not, label %if.end23, label %if.then20
@@ -93,7 +93,7 @@ if.then20:                                        ; preds = %if.end17
 
 if.end23:                                         ; preds = %if.then20, %if.end17
   %9 = phi i32 [ %.pre91, %if.then20 ], [ %7, %if.end17 ]
-  %arrayidx.i60 = getelementptr i32, ptr %indexes, i64 9
+  %arrayidx.i60 = getelementptr i8, ptr %indexes, i64 36
   %10 = load i32, ptr %arrayidx.i60, align 4
   %cmp25.not = icmp eq i32 %10, %9
   br i1 %cmp25.not, label %if.end29, label %if.then26
@@ -107,7 +107,7 @@ if.then26:                                        ; preds = %if.end23
 
 if.end29:                                         ; preds = %if.then26, %if.end23
   %11 = phi i32 [ %.pre92, %if.then26 ], [ %9, %if.end23 ]
-  %arrayidx.i62 = getelementptr i32, ptr %indexes, i64 10
+  %arrayidx.i62 = getelementptr i8, ptr %indexes, i64 40
   %12 = load i32, ptr %arrayidx.i62, align 4
   %cmp31.not = icmp eq i32 %12, %11
   br i1 %cmp31.not, label %if.end37, label %if.then32
@@ -123,7 +123,7 @@ if.then32:                                        ; preds = %if.end29
 
 if.end37:                                         ; preds = %if.then32, %if.end29
   %13 = phi i32 [ %.pre93, %if.then32 ], [ %11, %if.end29 ]
-  %arrayidx.i64 = getelementptr i32, ptr %indexes, i64 11
+  %arrayidx.i64 = getelementptr i8, ptr %indexes, i64 44
   %14 = load i32, ptr %arrayidx.i64, align 4
   %cmp39.not = icmp eq i32 %14, %13
   br i1 %cmp39.not, label %if.end43, label %if.then40
@@ -137,7 +137,7 @@ if.then40:                                        ; preds = %if.end37
 
 if.end43:                                         ; preds = %if.then40, %if.end37
   %15 = phi i32 [ %.pre94, %if.then40 ], [ %13, %if.end37 ]
-  %arrayidx.i66 = getelementptr i32, ptr %indexes, i64 12
+  %arrayidx.i66 = getelementptr i8, ptr %indexes, i64 48
   %16 = load i32, ptr %arrayidx.i66, align 4
   %cmp45.not = icmp eq i32 %16, %15
   br i1 %cmp45.not, label %if.end51, label %if.then46
@@ -153,7 +153,7 @@ if.then46:                                        ; preds = %if.end43
 
 if.end51:                                         ; preds = %if.then46, %if.end43
   %17 = phi i32 [ %.pre95, %if.then46 ], [ %15, %if.end43 ]
-  %arrayidx.i68 = getelementptr i32, ptr %indexes, i64 13
+  %arrayidx.i68 = getelementptr i8, ptr %indexes, i64 52
   %18 = load i32, ptr %arrayidx.i68, align 4
   %cmp53.not = icmp eq i32 %18, %17
   br i1 %cmp53.not, label %if.end59, label %if.then54
@@ -169,7 +169,7 @@ if.then54:                                        ; preds = %if.end51
 
 if.end59:                                         ; preds = %if.then54, %if.end51
   %19 = phi i32 [ %.pre96, %if.then54 ], [ %17, %if.end51 ]
-  %arrayidx.i70 = getelementptr i32, ptr %indexes, i64 14
+  %arrayidx.i70 = getelementptr i8, ptr %indexes, i64 56
   %20 = load i32, ptr %arrayidx.i70, align 4
   %cmp61.not = icmp eq i32 %20, %19
   br i1 %cmp61.not, label %if.end67, label %if.then62
@@ -185,7 +185,7 @@ if.then62:                                        ; preds = %if.end59
 
 if.end67:                                         ; preds = %if.then62, %if.end59
   %21 = phi i32 [ %.pre97, %if.then62 ], [ %19, %if.end59 ]
-  %arrayidx.i72 = getelementptr i32, ptr %indexes, i64 15
+  %arrayidx.i72 = getelementptr i8, ptr %indexes, i64 60
   %22 = load i32, ptr %arrayidx.i72, align 4
   %cmp69.not = icmp eq i32 %22, %21
   br i1 %cmp69.not, label %if.end75, label %if.then70
@@ -201,7 +201,7 @@ if.then70:                                        ; preds = %if.end67
 
 if.end75:                                         ; preds = %if.then70, %if.end67
   %23 = phi i32 [ %.pre98, %if.then70 ], [ %21, %if.end67 ]
-  %arrayidx.i74 = getelementptr i32, ptr %indexes, i64 16
+  %arrayidx.i74 = getelementptr i8, ptr %indexes, i64 64
   %24 = load i32, ptr %arrayidx.i74, align 4
   %cmp77.not = icmp eq i32 %24, %23
   br i1 %cmp77.not, label %if.end83, label %if.then78
@@ -217,7 +217,7 @@ if.then78:                                        ; preds = %if.end75
 
 if.end83:                                         ; preds = %if.then78, %if.end75
   %25 = phi i32 [ %.pre99, %if.then78 ], [ %23, %if.end75 ]
-  %arrayidx.i76 = getelementptr i32, ptr %indexes, i64 17
+  %arrayidx.i76 = getelementptr i8, ptr %indexes, i64 68
   %26 = load i32, ptr %arrayidx.i76, align 4
   %cmp85.not = icmp eq i32 %26, %25
   br i1 %cmp85.not, label %if.end91, label %if.then86
@@ -233,7 +233,7 @@ if.then86:                                        ; preds = %if.end83
 
 if.end91:                                         ; preds = %if.then86, %if.end83
   %27 = phi i32 [ %.pre100, %if.then86 ], [ %25, %if.end83 ]
-  %arrayidx.i78 = getelementptr i32, ptr %indexes, i64 18
+  %arrayidx.i78 = getelementptr i8, ptr %indexes, i64 72
   %28 = load i32, ptr %arrayidx.i78, align 4
   %cmp93.not = icmp eq i32 %28, %27
   br i1 %cmp93.not, label %if.end97, label %if.then94
@@ -271,7 +271,7 @@ define noundef i32 @_ZN6icu_7513CollationInfo13getDataLengthEPKii(ptr nocapture 
 entry:
   %0 = sext i32 %startIndex to i64
   %1 = getelementptr i32, ptr %indexes, i64 %0
-  %arrayidx = getelementptr i32, ptr %1, i64 1
+  %arrayidx = getelementptr i8, ptr %1, i64 4
   %2 = load i32, ptr %arrayidx, align 4
   %3 = load i32, ptr %1, align 4
   %sub = sub nsw i32 %2, %3
@@ -294,13 +294,13 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp.i, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %invoke.cont
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %ranges, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %ranges, i64 8
   %1 = load i32, ptr %count.i, align 8
   %cmp29 = icmp sgt i32 %1, 0
   br i1 %cmp29, label %_ZNK6icu_759UVector3210elementAtiEi.exit.lr.ph, label %cleanup
 
 _ZNK6icu_759UVector3210elementAtiEi.exit.lr.ph:   ; preds = %for.cond.preheader
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %ranges, i64 0, i32 4
+  %elements.i = getelementptr inbounds i8, ptr %ranges, i64 24
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
 if.then:                                          ; preds = %invoke.cont

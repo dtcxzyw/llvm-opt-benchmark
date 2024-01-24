@@ -3,10 +3,6 @@ source_filename = "bench/git/original/repo-settings.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [16 x i8] c"repo-settings.c\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"Cannot add settings for uninitialized repository\00", align 1
 @.str.2 = private unnamed_addr constant [18 x i8] c"feature.manyfiles\00", align 1
@@ -49,7 +45,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %settings = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10
+  %settings = getelementptr inbounds i8, ptr %r, i64 144
   %1 = load i32, ptr %settings, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %settings, align 8
@@ -57,11 +53,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %index_version = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 12
+  %index_version = getelementptr inbounds i8, ptr %r, i64 200
   store i32 -1, ptr %index_version, align 8
-  %core_untracked_cache = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 14
+  %core_untracked_cache = getelementptr inbounds i8, ptr %r, i64 208
   store i32 0, ptr %core_untracked_cache, align 8
-  %fetch_negotiation_algorithm = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 16
+  %fetch_negotiation_algorithm = getelementptr inbounds i8, ptr %r, i64 216
   store i32 0, ptr %fetch_negotiation_algorithm, align 8
   %call.i = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.2, ptr noundef nonnull %manyfiles) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -87,7 +83,7 @@ repo_cfg_bool.exit54:                             ; preds = %repo_cfg_bool.exit
 
 if.then8:                                         ; preds = %repo_cfg_bool.exit54
   store i32 1, ptr %fetch_negotiation_algorithm, align 8
-  %pack_use_bitmap_boundary_traversal = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 9
+  %pack_use_bitmap_boundary_traversal = getelementptr inbounds i8, ptr %r, i64 180
   store i32 1, ptr %pack_use_bitmap_boundary_traversal, align 4
   br label %if.end12
 
@@ -98,13 +94,13 @@ if.end12:                                         ; preds = %repo_cfg_bool.exit5
 
 if.then14:                                        ; preds = %if.end12
   store i32 4, ptr %index_version, align 8
-  %index_skip_hash = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 13
+  %index_skip_hash = getelementptr inbounds i8, ptr %r, i64 204
   store i32 1, ptr %index_skip_hash, align 4
   store i32 2, ptr %core_untracked_cache, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then14, %if.end12
-  %core_commit_graph = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 1
+  %core_commit_graph = getelementptr inbounds i8, ptr %r, i64 148
   %call.i55 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.4, ptr noundef nonnull %core_commit_graph) #5
   %tobool.not.i56 = icmp eq i32 %call.i55, 0
   br i1 %tobool.not.i56, label %repo_cfg_bool.exit58, label %if.then.i57
@@ -114,7 +110,7 @@ if.then.i57:                                      ; preds = %if.end20
   br label %repo_cfg_bool.exit58
 
 repo_cfg_bool.exit58:                             ; preds = %if.end20, %if.then.i57
-  %commit_graph_generation_version = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 2
+  %commit_graph_generation_version = getelementptr inbounds i8, ptr %r, i64 152
   %call.i59 = call i32 @repo_config_get_int(ptr noundef nonnull %r, ptr noundef nonnull @.str.5, ptr noundef nonnull %commit_graph_generation_version) #5
   %tobool.not.i60 = icmp eq i32 %call.i59, 0
   br i1 %tobool.not.i60, label %repo_cfg_int.exit, label %if.then.i61
@@ -124,7 +120,7 @@ if.then.i61:                                      ; preds = %repo_cfg_bool.exit5
   br label %repo_cfg_int.exit
 
 repo_cfg_int.exit:                                ; preds = %repo_cfg_bool.exit58, %if.then.i61
-  %commit_graph_read_changed_paths = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 3
+  %commit_graph_read_changed_paths = getelementptr inbounds i8, ptr %r, i64 156
   %call.i62 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.6, ptr noundef nonnull %commit_graph_read_changed_paths) #5
   %tobool.not.i63 = icmp eq i32 %call.i62, 0
   br i1 %tobool.not.i63, label %repo_cfg_bool.exit65, label %if.then.i64
@@ -134,7 +130,7 @@ if.then.i64:                                      ; preds = %repo_cfg_int.exit
   br label %repo_cfg_bool.exit65
 
 repo_cfg_bool.exit65:                             ; preds = %repo_cfg_int.exit, %if.then.i64
-  %gc_write_commit_graph = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 4
+  %gc_write_commit_graph = getelementptr inbounds i8, ptr %r, i64 160
   %call.i66 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.7, ptr noundef nonnull %gc_write_commit_graph) #5
   %tobool.not.i67 = icmp eq i32 %call.i66, 0
   br i1 %tobool.not.i67, label %repo_cfg_bool.exit69, label %if.then.i68
@@ -144,7 +140,7 @@ if.then.i68:                                      ; preds = %repo_cfg_bool.exit6
   br label %repo_cfg_bool.exit69
 
 repo_cfg_bool.exit69:                             ; preds = %repo_cfg_bool.exit65, %if.then.i68
-  %fetch_write_commit_graph = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 5
+  %fetch_write_commit_graph = getelementptr inbounds i8, ptr %r, i64 164
   %call.i70 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.8, ptr noundef nonnull %fetch_write_commit_graph) #5
   %tobool.not.i71 = icmp eq i32 %call.i70, 0
   br i1 %tobool.not.i71, label %repo_cfg_bool.exit73, label %if.then.i72
@@ -154,7 +150,7 @@ if.then.i72:                                      ; preds = %repo_cfg_bool.exit6
   br label %repo_cfg_bool.exit73
 
 repo_cfg_bool.exit73:                             ; preds = %repo_cfg_bool.exit69, %if.then.i72
-  %pack_use_sparse = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 15
+  %pack_use_sparse = getelementptr inbounds i8, ptr %r, i64 212
   %call.i74 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.9, ptr noundef nonnull %pack_use_sparse) #5
   %tobool.not.i75 = icmp eq i32 %call.i74, 0
   br i1 %tobool.not.i75, label %repo_cfg_bool.exit77, label %if.then.i76
@@ -164,7 +160,7 @@ if.then.i76:                                      ; preds = %repo_cfg_bool.exit7
   br label %repo_cfg_bool.exit77
 
 repo_cfg_bool.exit77:                             ; preds = %repo_cfg_bool.exit73, %if.then.i76
-  %core_multi_pack_index = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 17
+  %core_multi_pack_index = getelementptr inbounds i8, ptr %r, i64 220
   %call.i78 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.10, ptr noundef nonnull %core_multi_pack_index) #5
   %tobool.not.i79 = icmp eq i32 %call.i78, 0
   br i1 %tobool.not.i79, label %repo_cfg_bool.exit81, label %if.then.i80
@@ -174,7 +170,7 @@ if.then.i80:                                      ; preds = %repo_cfg_bool.exit7
   br label %repo_cfg_bool.exit81
 
 repo_cfg_bool.exit81:                             ; preds = %repo_cfg_bool.exit77, %if.then.i80
-  %sparse_index = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 7
+  %sparse_index = getelementptr inbounds i8, ptr %r, i64 172
   %call.i82 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.11, ptr noundef nonnull %sparse_index) #5
   %tobool.not.i83 = icmp eq i32 %call.i82, 0
   br i1 %tobool.not.i83, label %repo_cfg_bool.exit85, label %if.then.i84
@@ -184,7 +180,7 @@ if.then.i84:                                      ; preds = %repo_cfg_bool.exit8
   br label %repo_cfg_bool.exit85
 
 repo_cfg_bool.exit85:                             ; preds = %repo_cfg_bool.exit81, %if.then.i84
-  %index_skip_hash30 = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 13
+  %index_skip_hash30 = getelementptr inbounds i8, ptr %r, i64 204
   %3 = load i32, ptr %index_skip_hash30, align 4
   %call.i86 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.12, ptr noundef nonnull %index_skip_hash30) #5
   %tobool.not.i87 = icmp eq i32 %call.i86, 0
@@ -195,7 +191,7 @@ if.then.i88:                                      ; preds = %repo_cfg_bool.exit8
   br label %repo_cfg_bool.exit89
 
 repo_cfg_bool.exit89:                             ; preds = %repo_cfg_bool.exit85, %if.then.i88
-  %pack_read_reverse_index = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 8
+  %pack_read_reverse_index = getelementptr inbounds i8, ptr %r, i64 176
   %call.i90 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.13, ptr noundef nonnull %pack_read_reverse_index) #5
   %tobool.not.i91 = icmp eq i32 %call.i90, 0
   br i1 %tobool.not.i91, label %repo_cfg_bool.exit93, label %if.then.i92
@@ -205,7 +201,7 @@ if.then.i92:                                      ; preds = %repo_cfg_bool.exit8
   br label %repo_cfg_bool.exit93
 
 repo_cfg_bool.exit93:                             ; preds = %repo_cfg_bool.exit89, %if.then.i92
-  %pack_use_bitmap_boundary_traversal35 = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 9
+  %pack_use_bitmap_boundary_traversal35 = getelementptr inbounds i8, ptr %r, i64 180
   %4 = load i32, ptr %pack_use_bitmap_boundary_traversal35, align 4
   %call.i94 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.14, ptr noundef nonnull %pack_use_bitmap_boundary_traversal35) #5
   %tobool.not.i95 = icmp eq i32 %call.i94, 0
@@ -216,7 +212,7 @@ if.then.i96:                                      ; preds = %repo_cfg_bool.exit9
   br label %repo_cfg_bool.exit97
 
 repo_cfg_bool.exit97:                             ; preds = %repo_cfg_bool.exit93, %if.then.i96
-  %read_replace_refs = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 10
+  %read_replace_refs = getelementptr inbounds i8, ptr %r, i64 184
   %call.i98 = call i32 @repo_config_get_bool(ptr noundef nonnull %r, ptr noundef nonnull @.str.15, ptr noundef nonnull %read_replace_refs) #5
   %tobool.not.i99 = icmp eq i32 %call.i98, 0
   br i1 %tobool.not.i99, label %repo_cfg_bool.exit101, label %if.then.i100
@@ -297,7 +293,7 @@ if.end92.sink.split:                              ; preds = %if.else75, %if.else
   br label %if.end92
 
 if.end92:                                         ; preds = %if.end92.sink.split, %if.else81, %if.end59
-  %command_requires_full_index = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 10, i32 6
+  %command_requires_full_index = getelementptr inbounds i8, ptr %r, i64 168
   store i32 1, ptr %command_requires_full_index, align 8
   br label %return
 

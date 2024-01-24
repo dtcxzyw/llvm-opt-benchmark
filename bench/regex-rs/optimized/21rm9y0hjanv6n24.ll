@@ -16,9 +16,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN79_$LT$aho_corasick..packed..rabinkarp..RabinKarp$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e06b0408539a2d4E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { ptr, { { ptr, i64 }, i64 }, i64, i64 }, ptr %0, i64 0, i32 1
-  %5 = getelementptr inbounds { ptr, { { ptr, i64 }, i64 }, i64, i64 }, ptr %0, i64 0, i32 2
-  %6 = getelementptr inbounds { ptr, { { ptr, i64 }, i64 }, i64, i64 }, ptr %0, i64 0, i32 3
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %6, ptr %3, align 8
   %7 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17h690d13318dfd2d41E(ptr align 8 %1, ptr nonnull align 1 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.0, i64 9, ptr nonnull align 1 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.1, i64 8, ptr align 1 %0, ptr nonnull align 8 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.2, ptr nonnull align 1 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.3, i64 7, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.4, ptr nonnull align 1 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.5, i64 8, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.6, ptr nonnull align 1 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.7, i64 9, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.b4b6779f1370a09c1a0c776c4b3a5da3.8)
   ret i1 %7

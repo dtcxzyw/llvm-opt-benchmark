@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-bn_sqrt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/bn/bn_sqrt.c\00", align 1
 @__func__.BN_mod_sqrt = private unnamed_addr constant [12 x i8] c"BN_mod_sqrt\00", align 1
 
@@ -136,7 +134,7 @@ if.then75:                                        ; preds = %while.end
   br i1 %tobool77.not, label %if.then316, label %if.end79
 
 if.end79:                                         ; preds = %if.then75
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %call50, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %call50, i64 16
   store i32 0, ptr %neg, align 8
   %call80 = tail call i32 @BN_add_word(ptr noundef %call50, i64 noundef 1) #2
   %tobool81.not = icmp eq i32 %call80, 0
@@ -158,7 +156,7 @@ if.end95:                                         ; preds = %if.then91
   br i1 %tobool97.not, label %if.then316, label %if.end99
 
 if.end99:                                         ; preds = %if.end95
-  %neg100 = getelementptr inbounds %struct.bignum_st, ptr %call50, i64 0, i32 3
+  %neg100 = getelementptr inbounds i8, ptr %call50, i64 16
   store i32 0, ptr %neg100, align 8
   %call101 = tail call i32 @BN_mod_exp(ptr noundef %call49, ptr noundef %call51, ptr noundef %call50, ptr noundef %p, ptr noundef %ctx) #2
   %tobool102.not = icmp eq i32 %call101, 0
@@ -200,9 +198,9 @@ if.end129:                                        ; preds = %while.end
   br i1 %tobool131.not, label %if.then316, label %if.end133
 
 if.end133:                                        ; preds = %if.end129
-  %neg134 = getelementptr inbounds %struct.bignum_st, ptr %call50, i64 0, i32 3
+  %neg134 = getelementptr inbounds i8, ptr %call50, i64 16
   store i32 0, ptr %neg134, align 8
-  %neg152 = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 3
+  %neg152 = getelementptr inbounds i8, ptr %p, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end133

@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.slot_results = type { i32, i64, i64, i64 }
 %struct.url_info = type { ptr, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.http_pack_request = type { ptr, ptr, i8, ptr, %struct.strbuf, ptr }
-%struct.strbuf = type { i64, i64, ptr }
-%struct.active_request_slot = type { ptr, i32, i32, i64, ptr, ptr, ptr, ptr, ptr }
-%struct.walker = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 
 @empty_strvec = external global [0 x ptr], align 8
 @__const.cmd_main.index_pack_args = private unnamed_addr constant %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, align 8
@@ -216,7 +212,7 @@ if.then98:                                        ; preds = %if.end96
 if.end100:                                        ; preds = %if.end96
   call void @trace2_cmd_name_fl(ptr noundef nonnull @.str.6, i32 noundef 144, ptr noundef nonnull @.str.7) #9
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #9
-  %nr = getelementptr inbounds %struct.strvec, ptr %index_pack_args, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %index_pack_args, i64 8
   %17 = load i64, ptr %nr, align 8
   %tobool103.not = icmp eq i64 %17, 0
   br i1 %packfile.0.lcssa, label %if.then102, label %if.end109
@@ -247,13 +243,13 @@ if.then.i54:                                      ; preds = %if.end106
   unreachable
 
 if.end.i:                                         ; preds = %if.end106
-  %slot.i = getelementptr inbounds %struct.http_pack_request, ptr %call1.i, i64 0, i32 5
+  %slot.i = getelementptr inbounds i8, ptr %call1.i, i64 56
   %20 = load ptr, ptr %slot.i, align 8
-  %results2.i = getelementptr inbounds %struct.active_request_slot, ptr %20, i64 0, i32 5
+  %results2.i = getelementptr inbounds i8, ptr %20, i64 32
   store ptr %results.i, ptr %results2.i, align 8
-  %index_pack_args3.i = getelementptr inbounds %struct.http_pack_request, ptr %call1.i, i64 0, i32 1
+  %index_pack_args3.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %19, ptr %index_pack_args3.i, align 8
-  %preserve_index_pack_stdout.i = getelementptr inbounds %struct.http_pack_request, ptr %call1.i, i64 0, i32 2
+  %preserve_index_pack_stdout.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %bf.load.i = load i8, ptr %preserve_index_pack_stdout.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %preserve_index_pack_stdout.i, align 8
@@ -286,14 +282,14 @@ if.then16.i:                                      ; preds = %lor.lhs.false.i, %i
   unreachable
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %scheme_len.i = getelementptr inbounds %struct.url_info, ptr %url10.i, i64 0, i32 3
+  %scheme_len.i = getelementptr inbounds i8, ptr %url10.i, i64 24
   %26 = load i64, ptr %scheme_len.i, align 8
   %conv.i = trunc i64 %26 to i32
   %27 = load ptr, ptr %url10.i, align 8
-  %host_len.i = getelementptr inbounds %struct.url_info, ptr %url10.i, i64 0, i32 9
+  %host_len.i = getelementptr inbounds i8, ptr %url10.i, i64 72
   %28 = load i64, ptr %host_len.i, align 8
   %conv19.i = trunc i64 %28 to i32
-  %host_off.i = getelementptr inbounds %struct.url_info, ptr %url10.i, i64 0, i32 8
+  %host_off.i = getelementptr inbounds i8, ptr %url10.i, i64 64
   %29 = load i64, ptr %host_off.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %27, i64 %29
   call void (ptr, ...) @die(ptr noundef nonnull @.str.15, i32 noundef %conv.i, ptr noundef %27, i32 noundef %conv19.i, ptr noundef %arrayidx.i, ptr noundef nonnull @curl_errorstr) #10
@@ -344,7 +340,7 @@ if.else118:                                       ; preds = %if.end114
   %idxprom120 = sext i32 %arg.0.lcssa to i64
   %arrayidx121 = getelementptr ptr, ptr %argv, i64 %idxprom120
   store ptr %arrayidx121, ptr %commit_id, align 8
-  %arrayidx12441 = getelementptr ptr, ptr %arrayidx121, i64 1
+  %arrayidx12441 = getelementptr i8, ptr %arrayidx121, i64 8
   %33 = load ptr, ptr %arrayidx12441, align 8
   %call12542 = call fastcc i32 @fetch_using_walker(ptr noundef %33, i32 noundef %get_verbosely.0.lcssa, i32 noundef %get_recover.0.lcssa, i32 noundef 1, ptr noundef %arrayidx121, ptr noundef %14, i32 noundef 0)
   br label %return
@@ -411,11 +407,11 @@ entry:
   call void @http_init(ptr noundef null, ptr noundef %0, i32 noundef 0) #9
   %1 = load ptr, ptr %url, align 8
   %call = call ptr @get_http_walker(ptr noundef %1) #9
-  %get_verbosely1 = getelementptr inbounds %struct.walker, ptr %call, i64 0, i32 5
+  %get_verbosely1 = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %get_verbosely, ptr %get_verbosely1, align 8
-  %get_recover2 = getelementptr inbounds %struct.walker, ptr %call, i64 0, i32 7
+  %get_recover2 = getelementptr inbounds i8, ptr %call, i64 48
   store i32 %get_recover, ptr %get_recover2, align 8
-  %get_progress = getelementptr inbounds %struct.walker, ptr %call, i64 0, i32 6
+  %get_progress = getelementptr inbounds i8, ptr %call, i64 44
   store i32 0, ptr %get_progress, align 4
   %2 = load ptr, ptr %url, align 8
   %call3 = call i32 @walker_fetch(ptr noundef %call, i32 noundef %commits, ptr noundef %commit_id, ptr noundef %write_ref, ptr noundef %2) #9
@@ -427,7 +423,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %corrupt_object_found = getelementptr inbounds %struct.walker, ptr %call, i64 0, i32 8
+  %corrupt_object_found = getelementptr inbounds i8, ptr %call, i64 52
   %3 = load i32, ptr %corrupt_object_found, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5

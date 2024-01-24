@@ -10,85 +10,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.(anonymous namespace)::DefaultAllocator" = type { %"class.(anonymous namespace)::BumpPointerAllocator" }
 %"class.(anonymous namespace)::BumpPointerAllocator" = type { [4096 x i8], ptr, [8 x i8] }
 %class.OutputStream = type { ptr, i64, i64, i32, i32 }
-%"class.llvh::itanium_demangle::Node" = type <{ ptr, i8, i8, i8, i8, [4 x i8] }>
-%"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta" = type { ptr, i64 }
-%"struct.llvh::ItaniumPartialDemangler" = type { ptr, ptr }
-%"class.llvh::itanium_demangle::FunctionEncoding" = type <{ %"class.llvh::itanium_demangle::Node.base", [4 x i8], ptr, ptr, %"class.llvh::itanium_demangle::NodeArray", ptr, i32, i8, [3 x i8] }>
-%"class.llvh::itanium_demangle::Node.base" = type <{ ptr, i8, i8, i8, i8 }>
-%"class.llvh::itanium_demangle::NodeArray" = type { ptr, i64 }
-%"struct.llvh::itanium_demangle::AbiTagAttr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView }
-%class.StringView = type { ptr, ptr }
-%"struct.llvh::itanium_demangle::StdQualifiedName" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"struct.llvh::itanium_demangle::NestedName" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr }
-%"struct.llvh::itanium_demangle::LocalName" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr }
-%"struct.llvh::itanium_demangle::NameWithTemplateArgs" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr }
 %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState" = type { i8, i8, i32, i8, i64 }
-%"struct.llvh::itanium_demangle::ForwardTemplateReference" = type <{ %"class.llvh::itanium_demangle::Node.base", [4 x i8], i64, ptr, i8, [7 x i8] }>
+%"class.llvh::itanium_demangle::NodeArray" = type { ptr, i64 }
 %"class.llvh::itanium_demangle::NodeOrString" = type { ptr, ptr }
-%"class.llvh::itanium_demangle::SpecialSubstitution" = type { %"class.llvh::itanium_demangle::Node.base", i32 }
-%"class.llvh::itanium_demangle::SpecialName" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView, ptr }
-%"class.llvh::itanium_demangle::CtorVtableSpecialName" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr }
-%"class.llvh::itanium_demangle::TemplateArgumentPack" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::NameType" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView }
-%"class.llvh::itanium_demangle::IntegerLiteral" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView, %class.StringView }
-%"class.llvh::itanium_demangle::BoolExpr" = type { %"class.llvh::itanium_demangle::Node.base", i8, [3 x i8] }
+%class.StringView = type { ptr, ptr }
 %union.anon = type { float }
-%"class.llvh::itanium_demangle::FloatLiteralImpl" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView }
 %union.anon.4 = type { double }
-%"class.llvh::itanium_demangle::FloatLiteralImpl.3" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView }
 %union.anon.6 = type { x86_fp80 }
-%"class.llvh::itanium_demangle::FloatLiteralImpl.5" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView }
-%"class.llvh::itanium_demangle::IntegerCastExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView }
-%"class.llvh::itanium_demangle::FunctionParam" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView }
 %class.anon.7 = type { ptr, ptr }
-%"class.llvh::itanium_demangle::FoldExpr" = type <{ %"class.llvh::itanium_demangle::Node.base", [4 x i8], ptr, ptr, %class.StringView, i8, [7 x i8] }>
 %"class.llvh::itanium_demangle::ParameterPackExpansion" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::BinaryExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView, ptr }
-%"class.llvh::itanium_demangle::PrefixExpr" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView, ptr }
-%"class.llvh::itanium_demangle::CastExpr" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView, ptr, ptr }
-%"class.llvh::itanium_demangle::CallExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::ConversionExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::DeleteExpr" = type <{ %"class.llvh::itanium_demangle::Node.base", [4 x i8], ptr, i8, i8, [6 x i8] }>
-%"class.llvh::itanium_demangle::QualifiedName" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr }
-%"class.llvh::itanium_demangle::DtorName" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::ConversionOperatorType" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::LiteralOperator" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::GlobalQualifiedName" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::MemberExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView, ptr }
-%"class.llvh::itanium_demangle::ArraySubscriptExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr }
-%"class.llvh::itanium_demangle::BracedExpr" = type <{ %"class.llvh::itanium_demangle::Node.base", [4 x i8], ptr, ptr, i8, [7 x i8] }>
-%"class.llvh::itanium_demangle::BracedRangeExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr, ptr }
-%"class.llvh::itanium_demangle::InitListExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::PostfixExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView }
-%"class.llvh::itanium_demangle::NewExpr" = type <{ %"class.llvh::itanium_demangle::Node.base", [4 x i8], %"class.llvh::itanium_demangle::NodeArray", ptr, %"class.llvh::itanium_demangle::NodeArray", i8, i8, [6 x i8] }>
-%"class.llvh::itanium_demangle::EnclosingExpr" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView, ptr, %class.StringView }
-%"class.llvh::itanium_demangle::ConditionalExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr, ptr }
-%"class.llvh::itanium_demangle::SizeofParamPackExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"struct.llvh::itanium_demangle::NodeArrayNode" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::ThrowExpr" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::ExpandedSpecialSubstitution" = type { %"class.llvh::itanium_demangle::Node.base", i32 }
-%"class.llvh::itanium_demangle::CtorDtorName" = type { %"class.llvh::itanium_demangle::Node.base", ptr, i8, i32 }
-%"class.llvh::itanium_demangle::UnnamedTypeName" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView }
-%"class.llvh::itanium_demangle::ClosureTypeName" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray", %class.StringView }
-%"class.llvh::itanium_demangle::StructuredBindingName" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::ParameterPack" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::TemplateArgs" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::EnableIfAttr" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::DotSuffix" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView }
-%"class.llvh::itanium_demangle::NoexceptSpec" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::DynamicExceptionSpec" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeArray" }
-%"class.llvh::itanium_demangle::FunctionType" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %"class.llvh::itanium_demangle::NodeArray", i32, i8, ptr }
-%"class.llvh::itanium_demangle::ObjCProtoName" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView }
-%"class.llvh::itanium_demangle::VendorExtQualType" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView }
-%"class.llvh::itanium_demangle::QualType" = type { %"class.llvh::itanium_demangle::Node.base", i32, ptr }
-%"class.llvh::itanium_demangle::PixelVectorType" = type { %"class.llvh::itanium_demangle::Node.base", %"class.llvh::itanium_demangle::NodeOrString" }
-%"class.llvh::itanium_demangle::VectorType" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %"class.llvh::itanium_demangle::NodeOrString" }
-%"class.llvh::itanium_demangle::ArrayType" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %"class.llvh::itanium_demangle::NodeOrString" }
-%"class.llvh::itanium_demangle::PointerToMemberType" = type { %"class.llvh::itanium_demangle::Node.base", ptr, ptr }
-%"class.llvh::itanium_demangle::ElaboratedTypeSpefType" = type { %"class.llvh::itanium_demangle::Node.base", %class.StringView, ptr }
-%"class.llvh::itanium_demangle::PointerType" = type { %"class.llvh::itanium_demangle::Node.base", ptr }
-%"class.llvh::itanium_demangle::ReferenceType" = type <{ %"class.llvh::itanium_demangle::Node.base", [4 x i8], ptr, i32, i8, [3 x i8] }>
-%"class.llvh::itanium_demangle::PostfixQualifiedType" = type { %"class.llvh::itanium_demangle::Node.base", ptr, %class.StringView }
+%"class.llvh::itanium_demangle::Node.base" = type <{ ptr, i8, i8, i8, i8 }>
 
 $_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream = comdat any
 
@@ -1176,51 +1107,51 @@ if.end4:                                          ; preds = %lor.lhs.false
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #18
   %add.ptr = getelementptr inbounds i8, ptr %MangledName, i64 %call
   store ptr %MangledName, ptr %Parser, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %Parser, i64 8
   store ptr %add.ptr, ptr %Last.i, align 8
-  %Names.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2
-  %Inline.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2, i32 3
+  %Names.i = getelementptr inbounds i8, ptr %Parser, i64 16
+  %Inline.i.i = getelementptr inbounds i8, ptr %Parser, i64 40
   store ptr %Inline.i.i, ptr %Names.i, align 16
-  %Last.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %Parser, i64 24
   store ptr %Inline.i.i, ptr %Last.i.i, align 8
-  %Cap.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2, i32 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3
+  %Cap.i.i = getelementptr inbounds i8, ptr %Parser, i64 32
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %Parser, i64 296
   store ptr %add.ptr.i.i, ptr %Cap.i.i, align 16
-  %Inline.i1.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3, i32 3
+  %Inline.i1.i = getelementptr inbounds i8, ptr %Parser, i64 320
   store ptr %Inline.i1.i, ptr %add.ptr.i.i, align 8
-  %Last.i2.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3, i32 1
+  %Last.i2.i = getelementptr inbounds i8, ptr %Parser, i64 304
   store ptr %Inline.i1.i, ptr %Last.i2.i, align 16
-  %Cap.i3.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3, i32 2
-  %add.ptr.i4.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4
+  %Cap.i3.i = getelementptr inbounds i8, ptr %Parser, i64 312
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %Parser, i64 576
   store ptr %add.ptr.i4.i, ptr %Cap.i3.i, align 8
-  %Inline.i5.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4, i32 3
+  %Inline.i5.i = getelementptr inbounds i8, ptr %Parser, i64 600
   store ptr %Inline.i5.i, ptr %add.ptr.i4.i, align 16
-  %Last.i6.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4, i32 1
+  %Last.i6.i = getelementptr inbounds i8, ptr %Parser, i64 584
   store ptr %Inline.i5.i, ptr %Last.i6.i, align 8
-  %Cap.i7.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4, i32 2
-  %add.ptr.i8.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5
+  %Cap.i7.i = getelementptr inbounds i8, ptr %Parser, i64 592
+  %add.ptr.i8.i = getelementptr inbounds i8, ptr %Parser, i64 664
   store ptr %add.ptr.i8.i, ptr %Cap.i7.i, align 16
-  %Inline.i9.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5, i32 3
+  %Inline.i9.i = getelementptr inbounds i8, ptr %Parser, i64 688
   store ptr %Inline.i9.i, ptr %add.ptr.i8.i, align 8
-  %Last.i10.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5, i32 1
+  %Last.i10.i = getelementptr inbounds i8, ptr %Parser, i64 672
   store ptr %Inline.i9.i, ptr %Last.i10.i, align 16
-  %Cap.i11.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5, i32 2
-  %add.ptr.i12.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 6
+  %Cap.i11.i = getelementptr inbounds i8, ptr %Parser, i64 680
+  %add.ptr.i12.i = getelementptr inbounds i8, ptr %Parser, i64 720
   store ptr %add.ptr.i12.i, ptr %Cap.i11.i, align 8
-  %TryToParseTemplateArgs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 8
+  %TryToParseTemplateArgs.i = getelementptr inbounds i8, ptr %Parser, i64 736
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i12.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %TryToParseTemplateArgs.i, align 16
-  %PermitForwardTemplateReferences.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 9
+  %PermitForwardTemplateReferences.i = getelementptr inbounds i8, ptr %Parser, i64 737
   store i8 0, ptr %PermitForwardTemplateReferences.i, align 1
-  %ParsingLambdaParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 10
+  %ParsingLambdaParams.i = getelementptr inbounds i8, ptr %Parser, i64 738
   store i8 0, ptr %ParsingLambdaParams.i, align 2
-  %ASTAllocator.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 12
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 12, i32 0, i32 1
+  %ASTAllocator.i = getelementptr inbounds i8, ptr %Parser, i64 752
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %Parser, i64 4848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
   %call5 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5parseEv(ptr noundef nonnull align 16 dereferenceable(4864) %Parser)
   %cmp6 = icmp eq ptr %call5, null
@@ -1242,23 +1173,23 @@ if.else.i:                                        ; preds = %if.else
 if.else10:                                        ; preds = %if.else.i, %if.then.i
   %Buf.addr.0.i = phi ptr [ %Buf, %if.else.i ], [ %call.i, %if.then.i ]
   %BufferSize.0.i = phi i64 [ %0, %if.else.i ], [ 1024, %if.then.i ]
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store i64 0, ptr %CurrentPosition.i.i, align 8
   store ptr %Buf.addr.0.i, ptr %S, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store i64 %BufferSize.0.i, ptr %BufferCapacity.i.i, align 8
   %vtable.i = load ptr, ptr %call5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %call5, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.else10
   %vtable2.i = load ptr, ptr %call5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(12) %call5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -1390,7 +1321,7 @@ define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_
 entry:
   %Encoding19 = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 16
-  %Last.i10 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i10, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -1422,9 +1353,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit: ;
   br i1 %cmp5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %3 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %3, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %Current.i.i.i, align 8
   %5 = add i64 %4, -4032
   %cmp.i.i.i = icmp ult i64 %5, -4080
@@ -1441,7 +1372,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %3, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotSuffixEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit
@@ -1449,12 +1380,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotSuffixEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit: ; preds = %if.then6, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %6 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %4, %if.then6 ]
   %7 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %3, %if.then6 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add8.i.i.i = add nsw i64 %6, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %8 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -1601,49 +1532,49 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #18
   %add.ptr = getelementptr inbounds i8, ptr %MangledName, i64 %call
   store ptr %MangledName, ptr %Parser, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %Parser, i64 8
   store ptr %add.ptr, ptr %Last.i, align 8
-  %Names.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2
-  %Inline.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2, i32 3
+  %Names.i = getelementptr inbounds i8, ptr %Parser, i64 16
+  %Inline.i.i = getelementptr inbounds i8, ptr %Parser, i64 40
   store ptr %Inline.i.i, ptr %Names.i, align 16
-  %Last.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %Parser, i64 24
   store ptr %Inline.i.i, ptr %Last.i.i, align 8
-  %Cap.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 2, i32 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3
+  %Cap.i.i = getelementptr inbounds i8, ptr %Parser, i64 32
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %Parser, i64 296
   store ptr %add.ptr.i.i, ptr %Cap.i.i, align 16
-  %Inline.i1.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3, i32 3
+  %Inline.i1.i = getelementptr inbounds i8, ptr %Parser, i64 320
   store ptr %Inline.i1.i, ptr %add.ptr.i.i, align 8
-  %Last.i2.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3, i32 1
+  %Last.i2.i = getelementptr inbounds i8, ptr %Parser, i64 304
   store ptr %Inline.i1.i, ptr %Last.i2.i, align 16
-  %Cap.i3.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 3, i32 2
-  %add.ptr.i4.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4
+  %Cap.i3.i = getelementptr inbounds i8, ptr %Parser, i64 312
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %Parser, i64 576
   store ptr %add.ptr.i4.i, ptr %Cap.i3.i, align 8
-  %Inline.i5.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4, i32 3
+  %Inline.i5.i = getelementptr inbounds i8, ptr %Parser, i64 600
   store ptr %Inline.i5.i, ptr %add.ptr.i4.i, align 16
-  %Last.i6.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4, i32 1
+  %Last.i6.i = getelementptr inbounds i8, ptr %Parser, i64 584
   store ptr %Inline.i5.i, ptr %Last.i6.i, align 8
-  %Cap.i7.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 4, i32 2
-  %add.ptr.i8.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5
+  %Cap.i7.i = getelementptr inbounds i8, ptr %Parser, i64 592
+  %add.ptr.i8.i = getelementptr inbounds i8, ptr %Parser, i64 664
   store ptr %add.ptr.i8.i, ptr %Cap.i7.i, align 16
-  %Inline.i9.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5, i32 3
+  %Inline.i9.i = getelementptr inbounds i8, ptr %Parser, i64 688
   store ptr %Inline.i9.i, ptr %add.ptr.i8.i, align 8
-  %Last.i10.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5, i32 1
+  %Last.i10.i = getelementptr inbounds i8, ptr %Parser, i64 672
   store ptr %Inline.i9.i, ptr %Last.i10.i, align 16
-  %Cap.i11.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 5, i32 2
-  %add.ptr.i12.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 6
+  %Cap.i11.i = getelementptr inbounds i8, ptr %Parser, i64 680
+  %add.ptr.i12.i = getelementptr inbounds i8, ptr %Parser, i64 720
   store ptr %add.ptr.i12.i, ptr %Cap.i11.i, align 8
-  %TryToParseTemplateArgs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 8
+  %TryToParseTemplateArgs.i = getelementptr inbounds i8, ptr %Parser, i64 736
   store i8 1, ptr %TryToParseTemplateArgs.i, align 16
-  %PermitForwardTemplateReferences.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 9
+  %PermitForwardTemplateReferences.i = getelementptr inbounds i8, ptr %Parser, i64 737
   store i8 0, ptr %PermitForwardTemplateReferences.i, align 1
-  %ParsingLambdaParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 10
+  %ParsingLambdaParams.i = getelementptr inbounds i8, ptr %Parser, i64 738
   store i8 0, ptr %ParsingLambdaParams.i, align 2
-  %ASTAllocator.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 12
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 12, i32 0, i32 1
+  %ASTAllocator.i = getelementptr inbounds i8, ptr %Parser, i64 752
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %Parser, i64 4848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   store ptr %Callback, ptr %add.ptr.i12.i, align 16
-  %TypeCallbackContext = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %Parser, i64 0, i32 7
+  %TypeCallbackContext = getelementptr inbounds i8, ptr %Parser, i64 728
   store ptr %Ctx, ptr %TypeCallbackContext, align 8
   %call1 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5parseEv(ptr noundef nonnull align 16 dereferenceable(4864) %Parser)
   %0 = load ptr, ptr %BlockList.i.i.i, align 16
@@ -1714,47 +1645,47 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit: ; pr
 define hidden void @_ZN4llvh23ItaniumPartialDemanglerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %Context = getelementptr inbounds %"struct.llvh::ItaniumPartialDemangler", ptr %this, i64 0, i32 1
+  %Context = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(4864) ptr @_Znwm(i64 noundef 4864) #23
-  %Names.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 2
-  %Inline.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 2, i32 3
+  %Names.i = getelementptr inbounds i8, ptr %call, i64 16
+  %Inline.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %call, i8 0, i64 16, i1 false)
   store ptr %Inline.i.i, ptr %Names.i, align 8
-  %Last.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 2, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %Inline.i.i, ptr %Last.i.i, align 8
-  %Cap.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 2, i32 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 3
+  %Cap.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call, i64 296
   store ptr %add.ptr.i.i, ptr %Cap.i.i, align 8
-  %Inline.i1.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 3, i32 3
+  %Inline.i1.i = getelementptr inbounds i8, ptr %call, i64 320
   store ptr %Inline.i1.i, ptr %add.ptr.i.i, align 8
-  %Last.i2.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 3, i32 1
+  %Last.i2.i = getelementptr inbounds i8, ptr %call, i64 304
   store ptr %Inline.i1.i, ptr %Last.i2.i, align 8
-  %Cap.i3.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 3, i32 2
-  %add.ptr.i4.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 4
+  %Cap.i3.i = getelementptr inbounds i8, ptr %call, i64 312
+  %add.ptr.i4.i = getelementptr inbounds i8, ptr %call, i64 576
   store ptr %add.ptr.i4.i, ptr %Cap.i3.i, align 8
-  %Inline.i5.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 4, i32 3
+  %Inline.i5.i = getelementptr inbounds i8, ptr %call, i64 600
   store ptr %Inline.i5.i, ptr %add.ptr.i4.i, align 8
-  %Last.i6.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 4, i32 1
+  %Last.i6.i = getelementptr inbounds i8, ptr %call, i64 584
   store ptr %Inline.i5.i, ptr %Last.i6.i, align 8
-  %Cap.i7.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 4, i32 2
-  %add.ptr.i8.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 5
+  %Cap.i7.i = getelementptr inbounds i8, ptr %call, i64 592
+  %add.ptr.i8.i = getelementptr inbounds i8, ptr %call, i64 664
   store ptr %add.ptr.i8.i, ptr %Cap.i7.i, align 8
-  %Inline.i9.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 5, i32 3
+  %Inline.i9.i = getelementptr inbounds i8, ptr %call, i64 688
   store ptr %Inline.i9.i, ptr %add.ptr.i8.i, align 8
-  %Last.i10.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 5, i32 1
+  %Last.i10.i = getelementptr inbounds i8, ptr %call, i64 672
   store ptr %Inline.i9.i, ptr %Last.i10.i, align 8
-  %Cap.i11.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 5, i32 2
-  %add.ptr.i12.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 6
+  %Cap.i11.i = getelementptr inbounds i8, ptr %call, i64 680
+  %add.ptr.i12.i = getelementptr inbounds i8, ptr %call, i64 720
   store ptr %add.ptr.i12.i, ptr %Cap.i11.i, align 8
-  %TryToParseTemplateArgs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 8
+  %TryToParseTemplateArgs.i = getelementptr inbounds i8, ptr %call, i64 736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr.i12.i, i8 0, i64 16, i1 false)
   store i8 1, ptr %TryToParseTemplateArgs.i, align 16
-  %PermitForwardTemplateReferences.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 9
+  %PermitForwardTemplateReferences.i = getelementptr inbounds i8, ptr %call, i64 737
   store i8 0, ptr %PermitForwardTemplateReferences.i, align 1
-  %ParsingLambdaParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 10
+  %ParsingLambdaParams.i = getelementptr inbounds i8, ptr %call, i64 738
   store i8 0, ptr %ParsingLambdaParams.i, align 2
-  %ASTAllocator.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 12
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %call, i64 0, i32 12, i32 0, i32 1
+  %ASTAllocator.i = getelementptr inbounds i8, ptr %call, i64 752
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %call, i64 4848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i, align 16
   store ptr %call, ptr %Context, align 8
@@ -1767,14 +1698,14 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh23ItaniumPartialDemanglerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 {
 entry:
-  %Context = getelementptr inbounds %"struct.llvh::ItaniumPartialDemangler", ptr %this, i64 0, i32 1
+  %Context = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Context, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %ASTAllocator.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 12
-  %BlockList.i.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 12, i32 0, i32 1
+  %ASTAllocator.i = getelementptr inbounds i8, ptr %0, i64 752
+  %BlockList.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 4848
   %1 = load ptr, ptr %BlockList.i.i.i.i, align 16
   %tobool.not2.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not2.i.i.i.i, label %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i, label %while.body.i.i.i.i
@@ -1799,9 +1730,9 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %w
 _ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i:   ; preds = %if.end.i.i.i.i, %delete.notnull
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ASTAllocator.i, i8 0, i64 16, i1 false)
   store ptr %ASTAllocator.i, ptr %BlockList.i.i.i.i, align 16
-  %ForwardTemplateRefs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 5
+  %ForwardTemplateRefs.i = getelementptr inbounds i8, ptr %0, i64 664
   %5 = load ptr, ptr %ForwardTemplateRefs.i, align 8
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 5, i32 3
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %0, i64 688
   %cmp.i.i.i = icmp eq ptr %5, %Inline.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i, label %if.then.i.i
 
@@ -1810,9 +1741,9 @@ if.then.i.i:                                      ; preds = %_ZN12_GLOBAL__N_116
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i: ; preds = %if.then.i.i, %_ZN12_GLOBAL__N_116DefaultAllocatorD2Ev.exit.i
-  %TemplateParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 4
+  %TemplateParams.i = getelementptr inbounds i8, ptr %0, i64 576
   %6 = load ptr, ptr %TemplateParams.i, align 8
-  %Inline.i.i1.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 4, i32 3
+  %Inline.i.i1.i = getelementptr inbounds i8, ptr %0, i64 600
   %cmp.i.i2.i = icmp eq ptr %6, %Inline.i.i1.i
   br i1 %cmp.i.i2.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i, label %if.then.i3.i
 
@@ -1821,9 +1752,9 @@ if.then.i3.i:                                     ; preds = %_ZN4llvh16itanium_d
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i: ; preds = %if.then.i3.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EED2Ev.exit.i
-  %Subs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 3
+  %Subs.i = getelementptr inbounds i8, ptr %0, i64 296
   %7 = load ptr, ptr %Subs.i, align 8
-  %Inline.i.i4.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 3, i32 3
+  %Inline.i.i4.i = getelementptr inbounds i8, ptr %0, i64 320
   %cmp.i.i5.i = icmp eq ptr %7, %Inline.i.i4.i
   br i1 %cmp.i.i5.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i, label %if.then.i6.i
 
@@ -1832,9 +1763,9 @@ if.then.i6.i:                                     ; preds = %_ZN4llvh16itanium_d
   br label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EED2Ev.exit.i: ; preds = %if.then.i6.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EED2Ev.exit.i
-  %Names.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 2
+  %Names.i = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %Names.i, align 8
-  %Inline.i.i7.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 2, i32 3
+  %Inline.i.i7.i = getelementptr inbounds i8, ptr %0, i64 40
   %cmp.i.i8.i = icmp eq ptr %8, %Inline.i.i7.i
   br i1 %cmp.i.i8.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEED2Ev.exit, label %if.then.i9.i
 
@@ -1858,8 +1789,8 @@ define hidden void @_ZN4llvh23ItaniumPartialDemanglerC2EOS0_(ptr nocapture nound
 entry:
   %0 = load ptr, ptr %Other, align 8
   store ptr %0, ptr %this, align 8
-  %Context = getelementptr inbounds %"struct.llvh::ItaniumPartialDemangler", ptr %this, i64 0, i32 1
-  %Context3 = getelementptr inbounds %"struct.llvh::ItaniumPartialDemangler", ptr %Other, i64 0, i32 1
+  %Context = getelementptr inbounds i8, ptr %this, i64 8
+  %Context3 = getelementptr inbounds i8, ptr %Other, i64 8
   %1 = load ptr, ptr %Context3, align 8
   store ptr %1, ptr %Context, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Other, i8 0, i64 16, i1 false)
@@ -1873,8 +1804,8 @@ entry:
   %1 = load ptr, ptr %Other, align 8
   store ptr %1, ptr %this, align 8
   store ptr %0, ptr %Other, align 8
-  %Context = getelementptr inbounds %"struct.llvh::ItaniumPartialDemangler", ptr %this, i64 0, i32 1
-  %Context3 = getelementptr inbounds %"struct.llvh::ItaniumPartialDemangler", ptr %Other, i64 0, i32 1
+  %Context = getelementptr inbounds i8, ptr %this, i64 8
+  %Context3 = getelementptr inbounds i8, ptr %Other, i64 8
   %2 = load ptr, ptr %Context, align 8
   %3 = load ptr, ptr %Context3, align 8
   store ptr %3, ptr %Context, align 8
@@ -1885,33 +1816,33 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN4llvh23ItaniumPartialDemangler15partialDemangleEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %MangledName) local_unnamed_addr #1 align 2 {
 entry:
-  %Context = getelementptr inbounds %"struct.llvh::ItaniumPartialDemangler", ptr %this, i64 0, i32 1
+  %Context = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Context, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %MangledName) #18
   %add.ptr = getelementptr inbounds i8, ptr %MangledName, i64 %call
   store ptr %MangledName, ptr %0, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %add.ptr, ptr %Last.i, align 8
-  %Names.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 2
+  %Names.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %Names.i, align 8
-  %Last.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 2, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %Last.i.i, align 8
-  %Subs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 3
+  %Subs.i = getelementptr inbounds i8, ptr %0, i64 296
   %2 = load ptr, ptr %Subs.i, align 8
-  %Last.i1.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 3, i32 1
+  %Last.i1.i = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %2, ptr %Last.i1.i, align 8
-  %TemplateParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 4
+  %TemplateParams.i = getelementptr inbounds i8, ptr %0, i64 576
   %3 = load ptr, ptr %TemplateParams.i, align 8
-  %Last.i2.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 4, i32 1
+  %Last.i2.i = getelementptr inbounds i8, ptr %0, i64 584
   store ptr %3, ptr %Last.i2.i, align 8
-  %ParsingLambdaParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 10
+  %ParsingLambdaParams.i = getelementptr inbounds i8, ptr %0, i64 738
   store i8 0, ptr %ParsingLambdaParams.i, align 2
-  %TryToParseTemplateArgs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 8
+  %TryToParseTemplateArgs.i = getelementptr inbounds i8, ptr %0, i64 736
   store i8 1, ptr %TryToParseTemplateArgs.i, align 16
-  %PermitForwardTemplateReferences.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 9
+  %PermitForwardTemplateReferences.i = getelementptr inbounds i8, ptr %0, i64 737
   store i8 0, ptr %PermitForwardTemplateReferences.i, align 1
-  %ASTAllocator.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 12
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %0, i64 0, i32 12, i32 0, i32 1
+  %ASTAllocator.i = getelementptr inbounds i8, ptr %0, i64 752
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %0, i64 4848
   %4 = load ptr, ptr %BlockList.i.i.i, align 16
   %tobool.not2.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not2.i.i.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.exit, label %while.body.i.i.i
@@ -1946,50 +1877,37 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE5resetEPKcS6_.e
 define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler19getFunctionBaseNameEPcPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %1, 18
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %Name.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 3
+  %Name.i = getelementptr inbounds i8, ptr %0, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end
-  %Name.0.in = phi ptr [ %Name.i, %if.end ], [ %Name.0.in.be, %while.body.backedge ]
+  %Name.0.in = phi ptr [ %Name.i, %if.end ], [ %Base, %while.body.backedge ]
   %Name.0 = load ptr, ptr %Name.0.in, align 8
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %Name.0, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %Name.0, i64 8
   %2 = load i8, ptr %K.i, align 8
   switch i8 %2, label %sw.default [
-    i8 8, label %sw.bb
-    i8 34, label %sw.bb4
+    i8 8, label %while.body.backedge
+    i8 34, label %while.body.backedge
     i8 23, label %sw.bb5
     i8 24, label %sw.bb7
-    i8 32, label %sw.bb8
+    i8 32, label %while.body.backedge
   ]
 
-sw.bb:                                            ; preds = %while.body
-  %Base = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %Name.0, i64 0, i32 1
-  br label %while.body.backedge
-
-while.body.backedge:                              ; preds = %sw.bb, %sw.bb4, %sw.bb5, %sw.bb7, %sw.bb8
-  %Name.0.in.be = phi ptr [ %Name9, %sw.bb8 ], [ %Entity, %sw.bb7 ], [ %Name6, %sw.bb5 ], [ %Child, %sw.bb4 ], [ %Base, %sw.bb ]
+while.body.backedge:                              ; preds = %while.body, %while.body, %while.body, %sw.bb5, %sw.bb7
+  %.sink = phi i64 [ 24, %sw.bb5 ], [ 24, %sw.bb7 ], [ 16, %while.body ], [ 16, %while.body ], [ 16, %while.body ]
+  %Base = getelementptr inbounds i8, ptr %Name.0, i64 %.sink
   br label %while.body, !llvm.loop !9
 
-sw.bb4:                                           ; preds = %while.body
-  %Child = getelementptr inbounds %"struct.llvh::itanium_demangle::StdQualifiedName", ptr %Name.0, i64 0, i32 1
-  br label %while.body.backedge
-
 sw.bb5:                                           ; preds = %while.body
-  %Name6 = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %Name.0, i64 0, i32 2
   br label %while.body.backedge
 
 sw.bb7:                                           ; preds = %while.body
-  %Entity = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %Name.0, i64 0, i32 2
-  br label %while.body.backedge
-
-sw.bb8:                                           ; preds = %while.body
-  %Name9 = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %Name.0, i64 0, i32 1
   br label %while.body.backedge
 
 sw.default:                                       ; preds = %while.body
@@ -2005,7 +1923,7 @@ return:                                           ; preds = %entry, %sw.default
 define hidden noundef zeroext i1 @_ZNK4llvh23ItaniumPartialDemangler10isFunctionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i, align 8
   %cmp = icmp eq i8 %1, 18
   ret i1 %cmp
@@ -2015,9 +1933,9 @@ entry:
 define internal fastcc noundef ptr @_ZL9printNodePKN4llvh16itanium_demangle4NodeEPcPm(ptr noundef %RootNode, ptr noundef %Buf, ptr noundef %N) unnamed_addr #1 {
 entry:
   %S = alloca %class.OutputStream, align 8
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
   %cmp.i = icmp eq ptr %Buf, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -2034,23 +1952,23 @@ if.else.i:                                        ; preds = %entry
 if.end:                                           ; preds = %if.else.i, %if.then.i
   %Buf.addr.0.i = phi ptr [ %Buf, %if.else.i ], [ %call.i, %if.then.i ]
   %BufferSize.0.i = phi i64 [ %0, %if.else.i ], [ 128, %if.then.i ]
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store i64 0, ptr %CurrentPosition.i.i, align 8
   store ptr %Buf.addr.0.i, ptr %S, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store i64 %BufferSize.0.i, ptr %BufferCapacity.i.i, align 8
   %vtable.i = load ptr, ptr %RootNode, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(12) %RootNode, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %RootNode, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %RootNode, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i3
 
 if.then.i3:                                       ; preds = %if.end
   %vtable2.i = load ptr, ptr %RootNode, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(12) %RootNode, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -2110,17 +2028,17 @@ define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler26getFunctionDeclCo
 entry:
   %S = alloca %class.OutputStream, align 8
   %0 = load ptr, ptr %this, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %1, 18
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %Name.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 3
+  %Name.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %Name.i, align 8
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
   %cmp.i10 = icmp eq ptr %Buf, null
   br i1 %cmp.i10, label %if.then.i, label %if.else.i
@@ -2137,10 +2055,10 @@ if.else.i:                                        ; preds = %if.end
 _Z22initializeOutputStreamPcPmR12OutputStreamm.exit: ; preds = %if.then.i, %if.else.i
   %Buf.addr.0.i = phi ptr [ %Buf, %if.else.i ], [ %call.i, %if.then.i ]
   %BufferSize.0.i = phi i64 [ %3, %if.else.i ], [ 128, %if.then.i ]
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store i64 0, ptr %CurrentPosition.i.i, align 8
   store ptr %Buf.addr.0.i, ptr %S, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store i64 %BufferSize.0.i, ptr %BufferCapacity.i.i, align 8
   br label %KeepGoingLocalFunction
 
@@ -2151,28 +2069,20 @@ KeepGoingLocalFunction:                           ; preds = %_Z22initializeOutpu
 
 while.body:                                       ; preds = %while.body.backedge, %KeepGoingLocalFunction
   %Name.1 = phi ptr [ %Name.0, %KeepGoingLocalFunction ], [ %Name.1.be, %while.body.backedge ]
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %Name.1, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %Name.1, i64 8
   %5 = load i8, ptr %K.i, align 8
   switch i8 %5, label %sw.epilog [
-    i8 8, label %if.then7
-    i8 32, label %if.then12
+    i8 8, label %while.body.backedge
+    i8 32, label %while.body.backedge
     i8 34, label %if.end.i
     i8 23, label %sw.bb18
     i8 24, label %sw.bb19
   ]
 
-if.then7:                                         ; preds = %while.body
-  %Base = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %Name.1, i64 0, i32 1
-  br label %while.body.backedge
-
-while.body.backedge:                              ; preds = %if.then7, %if.then12
-  %Name.1.be.in = phi ptr [ %Base, %if.then7 ], [ %Name13, %if.then12 ]
+while.body.backedge:                              ; preds = %while.body, %while.body
+  %Name.1.be.in = getelementptr inbounds i8, ptr %Name.1, i64 16
   %Name.1.be = load ptr, ptr %Name.1.be.in, align 8
   br label %while.body, !llvm.loop !10
-
-if.then12:                                        ; preds = %while.body
-  %Name13 = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %Name.1, i64 0, i32 1
-  br label %while.body.backedge
 
 if.end.i:                                         ; preds = %while.body
   %add.i.i = add i64 %4, 3
@@ -2209,39 +2119,39 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 sw.bb18:                                          ; preds = %while.body
-  %Qual = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %Name.1, i64 0, i32 1
+  %Qual = getelementptr inbounds i8, ptr %Name.1, i64 16
   %10 = load ptr, ptr %Qual, align 8
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %11 = load ptr, ptr %vfn.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %10, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %10, i64 9
   %12 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %12, 1
   br i1 %cmp.not.i, label %sw.epilog, label %if.then.i18
 
 if.then.i18:                                      ; preds = %sw.bb18
   %vtable2.i = load ptr, ptr %10, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %13 = load ptr, ptr %vfn3.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %while.body
-  %Encoding = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %Name.1, i64 0, i32 1
+  %Encoding = getelementptr inbounds i8, ptr %Name.1, i64 16
   %14 = load ptr, ptr %Encoding, align 8
   %vtable.i20 = load ptr, ptr %14, align 8
-  %vfn.i21 = getelementptr inbounds ptr, ptr %vtable.i20, i64 4
+  %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 32
   %15 = load ptr, ptr %vfn.i21, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i22 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %14, i64 0, i32 2
+  %RHSComponentCache.i22 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i22, align 1
   %cmp.not.i23 = icmp eq i8 %16, 1
   br i1 %cmp.not.i23, label %if.end.i36, label %if.then.i24
 
 if.then.i24:                                      ; preds = %sw.bb19
   %vtable2.i25 = load ptr, ptr %14, align 8
-  %vfn3.i26 = getelementptr inbounds ptr, ptr %vtable2.i25, i64 5
+  %vfn3.i26 = getelementptr inbounds i8, ptr %vtable2.i25, i64 40
   %17 = load ptr, ptr %vfn3.i26, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i36
@@ -2279,7 +2189,7 @@ _ZN12OutputStream4growEm.exit.i49:                ; preds = %if.then.i._ZN12Outp
   %22 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i51 = add i64 %22, 2
   store i64 %add.i51, ptr %CurrentPosition.i.i, align 8
-  %Entity = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %Name.1, i64 0, i32 2
+  %Entity = getelementptr inbounds i8, ptr %Name.1, i64 24
   %23 = load ptr, ptr %Entity, align 8
   br label %KeepGoingLocalFunction
 
@@ -2337,13 +2247,13 @@ return:                                           ; preds = %if.then.i, %entry, 
 define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler15getFunctionNameEPcPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %Buf, ptr noundef %N) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %1, 18
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %Name.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 3
+  %Name.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %Name.i, align 8
   %call3 = tail call fastcc noundef ptr @_ZL9printNodePKN4llvh16itanium_demangle4NodeEPcPm(ptr noundef %2, ptr noundef %Buf, ptr noundef %N)
   br label %return
@@ -2358,19 +2268,19 @@ define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler21getFunctionParame
 entry:
   %S = alloca %class.OutputStream, align 8
   %0 = load ptr, ptr %this, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %1, 18
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %Params.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 4
+  %Params.i = getelementptr inbounds i8, ptr %0, i64 32
   %retval.sroa.0.0.copyload.i = load ptr, ptr %Params.i, align 8
-  %retval.sroa.2.0.Params.sroa_idx.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 4, i32 1
+  %retval.sroa.2.0.Params.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.Params.sroa_idx.i, align 8
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
   %cmp.i3 = icmp eq ptr %Buf, null
   br i1 %cmp.i3, label %if.then.i, label %if.end5
@@ -2381,17 +2291,17 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp1.i, label %return, label %if.end5.thread
 
 if.end5.thread:                                   ; preds = %if.then.i
-  %CurrentPosition.i.i50 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i50 = getelementptr inbounds i8, ptr %S, i64 8
   store ptr %call.i, ptr %S, align 8
-  %BufferCapacity.i.i51 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i51 = getelementptr inbounds i8, ptr %S, i64 16
   store i64 128, ptr %BufferCapacity.i.i51, align 8
   br label %_ZN12OutputStreampLEc.exit
 
 if.end5:                                          ; preds = %if.end
   %2 = load i64, ptr %N, align 8
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store ptr %Buf, ptr %S, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store i64 %2, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ugt i64 %2, 1
   br i1 %cmp.not.i.i, label %_ZN12OutputStreampLEc.exit, label %if.then.i.i
@@ -2465,17 +2375,17 @@ if.end.i:                                         ; preds = %_ZN12OutputStream4g
   %arrayidx.i8 = getelementptr inbounds ptr, ptr %retval.sroa.0.0.copyload.i, i64 %Idx.014.i
   %11 = load ptr, ptr %arrayidx.i8, align 8
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %11, i64 0, i32 2
+  %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %11, i64 9
   %13 = load i8, ptr %RHSComponentCache.i.i, align 1
   %cmp.not.i.i9 = icmp eq i8 %13, 1
   br i1 %cmp.not.i.i9, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit.i, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.end.i
   %vtable2.i.i = load ptr, ptr %11, align 8
-  %vfn3.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i, i64 5
+  %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 40
   %14 = load ptr, ptr %vfn3.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit.i
@@ -2581,14 +2491,14 @@ return:                                           ; preds = %if.then.i, %entry, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %NumElements = getelementptr inbounds %"class.llvh::itanium_demangle::NodeArray", ptr %this, i64 0, i32 1
+  %NumElements = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %NumElements, align 8
   %cmp.not13 = icmp eq i64 %0, 0
   br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %CurrentPosition.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %CurrentPosition.i = getelementptr inbounds i8, ptr %S, i64 8
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %.pre = load i64, ptr %CurrentPosition.i, align 8
   br label %for.body
 
@@ -2640,17 +2550,17 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %Idx.014
   %9 = load ptr, ptr %arrayidx, align 8
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %11, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %vtable2.i = load ptr, ptr %9, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %12 = load ptr, ptr %vfn3.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -2681,15 +2591,15 @@ define hidden noundef ptr @_ZNK4llvh23ItaniumPartialDemangler21getFunctionReturn
 entry:
   %S = alloca %class.OutputStream, align 8
   %0 = load ptr, ptr %this, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %1, 18
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 -1, ptr %CurrentPackIndex.i, align 8
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   store i32 -1, ptr %CurrentPackMax.i, align 4
   %cmp.i4 = icmp eq ptr %Buf, null
   br i1 %cmp.i4, label %if.then.i, label %if.else.i
@@ -2706,29 +2616,29 @@ if.else.i:                                        ; preds = %if.end
 if.end4:                                          ; preds = %if.else.i, %if.then.i
   %Buf.addr.0.i = phi ptr [ %Buf, %if.else.i ], [ %call.i, %if.then.i ]
   %BufferSize.0.i = phi i64 [ %2, %if.else.i ], [ 128, %if.then.i ]
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   store i64 0, ptr %CurrentPosition.i.i, align 8
   store ptr %Buf.addr.0.i, ptr %S, align 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   store i64 %BufferSize.0.i, ptr %BufferCapacity.i.i, align 8
-  %Ret.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 2
+  %Ret.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %Ret.i, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %3, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %3, i64 9
   %5 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %5, 1
   br i1 %cmp.not.i, label %if.end7, label %if.then.i5
 
 if.then.i5:                                       ; preds = %if.then6
   %vtable2.i = load ptr, ptr %3, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %6 = load ptr, ptr %vfn3.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end7
@@ -2795,19 +2705,19 @@ entry:
 define hidden noundef zeroext i1 @_ZNK4llvh23ItaniumPartialDemangler21hasFunctionQualifiersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %1, 18
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %CVQuals.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 6
+  %CVQuals.i = getelementptr inbounds i8, ptr %0, i64 56
   %2 = load i32, ptr %CVQuals.i, align 8
   %cmp.not = icmp eq i32 %2, 0
   br i1 %cmp.not, label %lor.rhs, label %return
 
 lor.rhs:                                          ; preds = %if.end
-  %RefQual.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %0, i64 0, i32 7
+  %RefQual.i = getelementptr inbounds i8, ptr %0, i64 60
   %3 = load i8, ptr %RefQual.i, align 4
   %cmp4 = icmp ne i8 %3, 0
   br label %return
@@ -2826,45 +2736,31 @@ entry:
 
 while.body:                                       ; preds = %entry, %sw.epilog
   %N.010 = phi ptr [ %N.0, %sw.epilog ], [ %N.08, %entry ]
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %N.010, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %N.010, i64 8
   %0 = load i8, ptr %K.i, align 8
   switch i8 %0, label %return.loopexit [
     i8 37, label %return
-    i8 8, label %sw.bb2
+    i8 8, label %sw.epilog
     i8 18, label %sw.bb3
     i8 24, label %sw.bb5
-    i8 32, label %sw.bb6
+    i8 32, label %sw.epilog
     i8 23, label %sw.bb7
-    i8 34, label %sw.bb9
+    i8 34, label %sw.epilog
   ]
 
-sw.bb2:                                           ; preds = %while.body
-  %Base = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %N.010, i64 0, i32 1
-  br label %sw.epilog
-
 sw.bb3:                                           ; preds = %while.body
-  %Name.i = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %N.010, i64 0, i32 3
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %while.body
-  %Entity = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %N.010, i64 0, i32 2
-  br label %sw.epilog
-
-sw.bb6:                                           ; preds = %while.body
-  %Name = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %N.010, i64 0, i32 1
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %while.body
-  %Name8 = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %N.010, i64 0, i32 2
   br label %sw.epilog
 
-sw.bb9:                                           ; preds = %while.body
-  %Child = getelementptr inbounds %"struct.llvh::itanium_demangle::StdQualifiedName", ptr %N.010, i64 0, i32 1
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.bb9, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb3, %sw.bb2
-  %N.1.in = phi ptr [ %Child, %sw.bb9 ], [ %Name8, %sw.bb7 ], [ %Name, %sw.bb6 ], [ %Entity, %sw.bb5 ], [ %Name.i, %sw.bb3 ], [ %Base, %sw.bb2 ]
-  %N.0 = load ptr, ptr %N.1.in, align 8
+sw.epilog:                                        ; preds = %while.body, %while.body, %while.body, %sw.bb7, %sw.bb5, %sw.bb3
+  %.sink = phi i64 [ 24, %sw.bb7 ], [ 24, %sw.bb5 ], [ 24, %sw.bb3 ], [ 16, %while.body ], [ 16, %while.body ], [ 16, %while.body ]
+  %Child = getelementptr inbounds i8, ptr %N.010, i64 %.sink
+  %N.0 = load ptr, ptr %Child, align 8
   %tobool.not = icmp eq ptr %N.0, null
   br i1 %tobool.not, label %return.loopexit, label %while.body, !llvm.loop !12
 
@@ -2880,7 +2776,7 @@ return:                                           ; preds = %while.body, %return
 define hidden noundef zeroext i1 @_ZNK4llvh23ItaniumPartialDemangler13isSpecialNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i, align 8
   %2 = and i8 %1, -2
   %3 = icmp eq i8 %2, 20
@@ -2891,7 +2787,7 @@ entry:
 define hidden noundef zeroext i1 @_ZNK4llvh23ItaniumPartialDemangler6isDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp ne i8 %1, 18
   %2 = and i8 %1, -2
@@ -3175,9 +3071,9 @@ sw.bb97.i:                                        ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp102.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE16parseSpecialNameEv.exit, label %if.end104.i
 
 if.end104.i:                                      ; preds = %sw.bb97.i
-  %BlockList.i.i.i119 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i119 = getelementptr inbounds i8, ptr %this, i64 4848
   %11 = load ptr, ptr %BlockList.i.i.i119, align 16
-  %Current.i.i.i120 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 0, i32 1
+  %Current.i.i.i120 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %Current.i.i.i120, align 8
   %13 = add i64 %12, -4032
   %cmp.i.i.i121 = icmp ult i64 %13, -4080
@@ -3194,7 +3090,7 @@ if.then.i9.i.i.i140:                              ; preds = %if.then.i.i.i135
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138: ; preds = %if.then.i.i.i135
   store ptr %11, ptr %call.i6.i.i.i136, align 8
-  %Current.i8.i.i.i139 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i136, i64 0, i32 1
+  %Current.i8.i.i.i139 = getelementptr inbounds i8, ptr %call.i6.i.i.i136, i64 8
   store i64 0, ptr %Current.i8.i.i.i139, align 8
   store ptr %call.i6.i.i.i136, ptr %BlockList.i.i.i119, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESB_DpOT0_.exit
@@ -3202,12 +3098,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA20_KcRPNS0_4NodeEEEESB_DpOT0_.exit: ; preds = %if.end104.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138
   %14 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138 ], [ %12, %if.end104.i ]
   %15 = phi ptr [ %call.i6.i.i.i136, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i138 ], [ %11, %if.end104.i ]
-  %Current7.i.i.i122 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %15, i64 0, i32 1
+  %Current7.i.i.i122 = getelementptr inbounds i8, ptr %15, i64 8
   %add8.i.i.i123 = add nsw i64 %14, 48
   store i64 %add8.i.i.i123, ptr %Current7.i.i.i122, align 8
   %16 = load ptr, ptr %BlockList.i.i.i119, align 16
-  %add.ptr.i.i.i124 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 1
-  %Current11.i.i.i125 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 0, i32 1
+  %add.ptr.i.i.i124 = getelementptr inbounds i8, ptr %16, i64 16
+  %Current11.i.i.i125 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %Current11.i.i.i125, align 8
   %add.ptr12.i.i.i126 = getelementptr inbounds i8, ptr %add.ptr.i.i.i124, i64 %17
   %add.ptr13.i.i.i127 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -48
@@ -3286,9 +3182,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.ex
   br i1 %retval.0.i115, label %if.end120.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE16parseSpecialNameEv.exit
 
 if.end120.i:                                      ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit112.thread, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit112
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %24 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %24, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %Current.i.i.i, align 8
   %26 = add i64 %25, -4032
   %cmp.i.i.i104 = icmp ult i64 %26, -4080
@@ -3305,7 +3201,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %24, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESB_DpOT0_.exit
@@ -3313,12 +3209,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA25_KcRPNS0_4NodeEEEESB_DpOT0_.exit: ; preds = %if.end120.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %27 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %25, %if.end120.i ]
   %28 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %24, %if.end120.i ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %28, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %add8.i.i.i = add nsw i64 %27, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %29 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %29, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %30
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -3349,15 +3245,15 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE16parseSpecialN
 
 if.end:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit, %entry
   store i8 0, ptr %NameInfo, align 8
-  %EndsWithTemplateArgs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %NameInfo, i64 0, i32 1
+  %EndsWithTemplateArgs.i = getelementptr inbounds i8, ptr %NameInfo, i64 1
   store i8 0, ptr %EndsWithTemplateArgs.i, align 1
-  %CVQualifiers.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %NameInfo, i64 0, i32 2
+  %CVQualifiers.i = getelementptr inbounds i8, ptr %NameInfo, i64 4
   store i32 0, ptr %CVQualifiers.i, align 4
-  %ReferenceQualifier.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %NameInfo, i64 0, i32 3
+  %ReferenceQualifier.i = getelementptr inbounds i8, ptr %NameInfo, i64 8
   store i8 0, ptr %ReferenceQualifier.i, align 8
-  %ForwardTemplateRefsBegin.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %NameInfo, i64 0, i32 4
-  %ForwardTemplateRefs.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 5
-  %Last.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 5, i32 1
+  %ForwardTemplateRefsBegin.i = getelementptr inbounds i8, ptr %NameInfo, i64 16
+  %ForwardTemplateRefs.i = getelementptr inbounds i8, ptr %this, i64 664
+  %Last.i.i = getelementptr inbounds i8, ptr %this, i64 672
   %31 = load ptr, ptr %Last.i.i, align 16
   %32 = load ptr, ptr %ForwardTemplateRefs.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %31 to i64
@@ -3382,11 +3278,11 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp17.i, label %for.body.lr.ph.i, label %if.end12.sink.split
 
 for.body.lr.ph.i:                                 ; preds = %if.end9
-  %TemplateParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4
-  %Last.i6.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4, i32 1
+  %TemplateParams.i = getelementptr inbounds i8, ptr %this, i64 576
+  %Last.i6.i = getelementptr inbounds i8, ptr %this, i64 584
   %add.ptr.i.i199 = getelementptr inbounds ptr, ptr %35, i64 %33
   %36 = load ptr, ptr %add.ptr.i.i199, align 8
-  %Index.i200 = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %36, i64 0, i32 2
+  %Index.i200 = getelementptr inbounds i8, ptr %36, i64 16
   %37 = load i64, ptr %Index.i200, align 8
   %38 = load ptr, ptr %Last.i6.i, align 8
   %39 = load ptr, ptr %TemplateParams.i, align 16
@@ -3400,7 +3296,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end9
 for.body.i:                                       ; preds = %if.end.i23
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %.pre22.i, i64 %inc.i
   %40 = load ptr, ptr %add.ptr.i.i, align 8
-  %Index.i = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %40, i64 0, i32 2
+  %Index.i = getelementptr inbounds i8, ptr %40, i64 16
   %41 = load i64, ptr %Index.i, align 8
   %42 = load ptr, ptr %Last.i6.i, align 8
   %43 = load ptr, ptr %TemplateParams.i, align 16
@@ -3418,7 +3314,7 @@ if.end.i23:                                       ; preds = %for.body.lr.ph.i, %
   %I.018.i206 = phi i64 [ %inc.i, %for.body.i ], [ %33, %for.body.lr.ph.i ]
   %add.ptr.i11.i = getelementptr inbounds ptr, ptr %44, i64 %45
   %47 = load ptr, ptr %add.ptr.i11.i, align 8
-  %Ref.i = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %46, i64 0, i32 3
+  %Ref.i = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %47, ptr %Ref.i, align 8
   %inc.i = add i64 %I.018.i206, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i.i22
@@ -3465,15 +3361,15 @@ _ZNK10StringView10startsWithES_.exit.i:           ; preds = %if.end15
 if.then17:                                        ; preds = %_ZNK10StringView10startsWithES_.exit.i
   %add.ptr.i29 = getelementptr inbounds i8, ptr %IsEndOfEncoding.val.val, i64 13
   store ptr %add.ptr.i29, ptr %this, align 16
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i30 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i30 = getelementptr inbounds i8, ptr %this, i64 24
   %49 = load ptr, ptr %Last.i30, align 8
   %50 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i31 = ptrtoint ptr %49 to i64
   %sub.ptr.rhs.cast.i32 = ptrtoint ptr %50 to i64
   %sub.ptr.sub.i33 = sub i64 %sub.ptr.lhs.cast.i31, %sub.ptr.rhs.cast.i32
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %if.then17
@@ -3548,7 +3444,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end23, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %58 = phi ptr [ %add.ptr.i.i47, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %54, %if.end23 ]
-  %incdec.ptr.i42 = getelementptr inbounds ptr, ptr %58, i64 1
+  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %58, i64 8
   store ptr %incdec.ptr.i42, ptr %Last.i30, align 8
   store ptr %call20, ptr %58, align 8
   %.pre = load ptr, ptr %this, align 16
@@ -3567,7 +3463,7 @@ while.end:                                        ; preds = %land.lhs.true.i
   store ptr %add.ptr.i.i52, ptr %Last.i30, align 8
   %62 = extractvalue { ptr, i64 } %call4.i, 0
   store ptr %62, ptr %ref.tmp, align 8
-  %63 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %64 = extractvalue { ptr, i64 } %call4.i, 1
   store i64 %64, ptr %63, align 8
   %call26 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12EnableIfAttrEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
@@ -3612,15 +3508,15 @@ if.then39:                                        ; preds = %land.lhs.true.i55
   br label %return
 
 if.end42:                                         ; preds = %land.lhs.true.i55, %if.end37
-  %Names43 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i61 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names43 = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i61 = getelementptr inbounds i8, ptr %this, i64 24
   %72 = load ptr, ptr %Last.i61, align 8
   %73 = load ptr, ptr %Names43, align 16
   %sub.ptr.lhs.cast.i62 = ptrtoint ptr %72 to i64
   %sub.ptr.rhs.cast.i63 = ptrtoint ptr %73 to i64
   %sub.ptr.sub.i64 = sub i64 %sub.ptr.lhs.cast.i62, %sub.ptr.rhs.cast.i63
-  %Cap.i67 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i76 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i67 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i76 = getelementptr inbounds i8, ptr %this, i64 40
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i96, %if.end42
@@ -3684,7 +3580,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i82:
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit94: ; preds = %if.end48, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i82
   %78 = phi ptr [ %add.ptr.i.i83, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i82 ], [ %74, %if.end48 ]
-  %incdec.ptr.i70 = getelementptr inbounds ptr, ptr %78, i64 1
+  %incdec.ptr.i70 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %incdec.ptr.i70, ptr %Last.i61, align 8
   store ptr %call45, ptr %78, align 8
   %IsEndOfEncoding.val4.val = load ptr, ptr %this, align 16
@@ -3710,7 +3606,7 @@ do.end:                                           ; preds = %_ZN4llvh16itanium_d
   store ptr %add.ptr.i.i103, ptr %Last.i61, align 8
   %83 = extractvalue { ptr, i64 } %call4.i102, 0
   store ptr %83, ptr %ref.tmp52, align 8
-  %84 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp52, i64 0, i32 1
+  %84 = getelementptr inbounds i8, ptr %ref.tmp52, i64 8
   %85 = extractvalue { ptr, i64 } %call4.i102, 1
   store i64 %85, ptr %84, align 8
   %call56 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FunctionEncodingEJRPNS0_4NodeES9_NS0_9NodeArrayES9_RNS0_10QualifiersERNS0_15FunctionRefQualEEEES8_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 8 dereferenceable(8) %ReturnType, ptr noundef nonnull align 8 dereferenceable(8) %Name, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(8) %Attrs, ptr noundef nonnull align 4 dereferenceable(4) %CVQualifiers.i, ptr noundef nonnull align 1 dereferenceable(1) %ReferenceQualifier.i)
@@ -3725,7 +3621,7 @@ return:                                           ; preds = %while.body, %do.bod
 define internal fastcc { ptr, ptr } @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, i1 noundef zeroext %AllowNegative) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp ne ptr %0, %1
   %or.cond.not = select i1 %AllowNegative, i1 %cmp.not.i, i1 false
@@ -3778,9 +3674,9 @@ return:                                           ; preds = %while.body, %land.r
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA34_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(34) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -3797,7 +3693,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -3805,12 +3701,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA34_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -3850,13 +3746,13 @@ entry:
   %Sub = alloca ptr, align 8
   %TA290 = alloca ptr, align 8
   store ptr null, ptr %Result, align 8
-  %TypeCallback = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 6
+  %TypeCallback = getelementptr inbounds i8, ptr %this, i64 720
   %0 = load ptr, ptr %TypeCallback, align 16
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %TypeCallbackContext = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 7
+  %TypeCallbackContext = getelementptr inbounds i8, ptr %this, i64 728
   %1 = load ptr, ptr %TypeCallbackContext, align 8
   %2 = load ptr, ptr %this, align 16
   tail call void %0(ptr noundef %1, ptr noundef %2) #20
@@ -3989,9 +3885,9 @@ sw.bb47:                                          ; preds = %_ZN4llvh16itanium_d
 sw.bb49:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %11 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %Current.i.i.i, align 8
   %13 = add i64 %12, -4048
   %cmp.i.i.i = icmp ult i64 %13, -4080
@@ -4008,7 +3904,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %11, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4016,12 +3912,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb49, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %14 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %12, %sw.bb49 ]
   %15 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %11, %sw.bb49 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %15, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %add8.i.i.i = add nsw i64 %14, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %16 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %17
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -4037,9 +3933,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb52:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr54 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr54, ptr %this, align 16
-  %BlockList.i.i.i134 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i134 = getelementptr inbounds i8, ptr %this, i64 4848
   %18 = load ptr, ptr %BlockList.i.i.i134, align 16
-  %Current.i.i.i135 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %18, i64 0, i32 1
+  %Current.i.i.i135 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i64, ptr %Current.i.i.i135, align 8
   %20 = add i64 %19, -4048
   %cmp.i.i.i136 = icmp ult i64 %20, -4080
@@ -4056,7 +3952,7 @@ if.then.i9.i.i.i154:                              ; preds = %if.then.i.i.i149
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i152: ; preds = %if.then.i.i.i149
   store ptr %18, ptr %call.i6.i.i.i150, align 8
-  %Current.i8.i.i.i153 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i150, i64 0, i32 1
+  %Current.i8.i.i.i153 = getelementptr inbounds i8, ptr %call.i6.i.i.i150, i64 8
   store i64 0, ptr %Current.i8.i.i.i153, align 8
   store ptr %call.i6.i.i.i150, ptr %BlockList.i.i.i134, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA8_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4064,12 +3960,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i152: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA8_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb52, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i152
   %21 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i152 ], [ %19, %sw.bb52 ]
   %22 = phi ptr [ %call.i6.i.i.i150, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i152 ], [ %18, %sw.bb52 ]
-  %Current7.i.i.i137 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 0, i32 1
+  %Current7.i.i.i137 = getelementptr inbounds i8, ptr %22, i64 8
   %add8.i.i.i138 = add nsw i64 %21, 32
   store i64 %add8.i.i.i138, ptr %Current7.i.i.i137, align 8
   %23 = load ptr, ptr %BlockList.i.i.i134, align 16
-  %add.ptr.i.i.i139 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 1
-  %Current11.i.i.i140 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 0, i32 1
+  %add.ptr.i.i.i139 = getelementptr inbounds i8, ptr %23, i64 16
+  %Current11.i.i.i140 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %Current11.i.i.i140, align 8
   %add.ptr12.i.i.i141 = getelementptr inbounds i8, ptr %add.ptr.i.i.i139, i64 %24
   %add.ptr13.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -32
@@ -4085,9 +3981,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb56:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr58 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr58, ptr %this, align 16
-  %BlockList.i.i.i155 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i155 = getelementptr inbounds i8, ptr %this, i64 4848
   %25 = load ptr, ptr %BlockList.i.i.i155, align 16
-  %Current.i.i.i156 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %25, i64 0, i32 1
+  %Current.i.i.i156 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i64, ptr %Current.i.i.i156, align 8
   %27 = add i64 %26, -4048
   %cmp.i.i.i157 = icmp ult i64 %27, -4080
@@ -4104,7 +4000,7 @@ if.then.i9.i.i.i177:                              ; preds = %if.then.i.i.i172
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i175: ; preds = %if.then.i.i.i172
   store ptr %25, ptr %call.i6.i.i.i173, align 8
-  %Current.i8.i.i.i176 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i173, i64 0, i32 1
+  %Current.i8.i.i.i176 = getelementptr inbounds i8, ptr %call.i6.i.i.i173, i64 8
   store i64 0, ptr %Current.i8.i.i.i176, align 8
   store ptr %call.i6.i.i.i173, ptr %BlockList.i.i.i155, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit178
@@ -4112,12 +4008,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i175: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit178: ; preds = %sw.bb56, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i175
   %28 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i175 ], [ %26, %sw.bb56 ]
   %29 = phi ptr [ %call.i6.i.i.i173, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i175 ], [ %25, %sw.bb56 ]
-  %Current7.i.i.i158 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 0, i32 1
+  %Current7.i.i.i158 = getelementptr inbounds i8, ptr %29, i64 8
   %add8.i.i.i159 = add nsw i64 %28, 32
   store i64 %add8.i.i.i159, ptr %Current7.i.i.i158, align 8
   %30 = load ptr, ptr %BlockList.i.i.i155, align 16
-  %add.ptr.i.i.i160 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %30, i64 1
-  %Current11.i.i.i161 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %30, i64 0, i32 1
+  %add.ptr.i.i.i160 = getelementptr inbounds i8, ptr %30, i64 16
+  %Current11.i.i.i161 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i64, ptr %Current11.i.i.i161, align 8
   %add.ptr12.i.i.i162 = getelementptr inbounds i8, ptr %add.ptr.i.i.i160, i64 %31
   %add.ptr13.i.i.i163 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -32
@@ -4133,9 +4029,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb60:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr62 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr62, ptr %this, align 16
-  %BlockList.i.i.i179 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i179 = getelementptr inbounds i8, ptr %this, i64 4848
   %32 = load ptr, ptr %BlockList.i.i.i179, align 16
-  %Current.i.i.i180 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 0, i32 1
+  %Current.i.i.i180 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %Current.i.i.i180, align 8
   %34 = add i64 %33, -4048
   %cmp.i.i.i181 = icmp ult i64 %34, -4080
@@ -4152,7 +4048,7 @@ if.then.i9.i.i.i201:                              ; preds = %if.then.i.i.i196
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i199: ; preds = %if.then.i.i.i196
   store ptr %32, ptr %call.i6.i.i.i197, align 8
-  %Current.i8.i.i.i200 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i197, i64 0, i32 1
+  %Current.i8.i.i.i200 = getelementptr inbounds i8, ptr %call.i6.i.i.i197, i64 8
   store i64 0, ptr %Current.i8.i.i.i200, align 8
   store ptr %call.i6.i.i.i197, ptr %BlockList.i.i.i179, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit202
@@ -4160,12 +4056,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i199: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit202: ; preds = %sw.bb60, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i199
   %35 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i199 ], [ %33, %sw.bb60 ]
   %36 = phi ptr [ %call.i6.i.i.i197, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i199 ], [ %32, %sw.bb60 ]
-  %Current7.i.i.i182 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 0, i32 1
+  %Current7.i.i.i182 = getelementptr inbounds i8, ptr %36, i64 8
   %add8.i.i.i183 = add nsw i64 %35, 32
   store i64 %add8.i.i.i183, ptr %Current7.i.i.i182, align 8
   %37 = load ptr, ptr %BlockList.i.i.i179, align 16
-  %add.ptr.i.i.i184 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %37, i64 1
-  %Current11.i.i.i185 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %37, i64 0, i32 1
+  %add.ptr.i.i.i184 = getelementptr inbounds i8, ptr %37, i64 16
+  %Current11.i.i.i185 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i64, ptr %Current11.i.i.i185, align 8
   %add.ptr12.i.i.i186 = getelementptr inbounds i8, ptr %add.ptr.i.i.i184, i64 %38
   %add.ptr13.i.i.i187 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -32
@@ -4181,9 +4077,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb64:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr66 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr66, ptr %this, align 16
-  %BlockList.i.i.i203 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i203 = getelementptr inbounds i8, ptr %this, i64 4848
   %39 = load ptr, ptr %BlockList.i.i.i203, align 16
-  %Current.i.i.i204 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %39, i64 0, i32 1
+  %Current.i.i.i204 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i64, ptr %Current.i.i.i204, align 8
   %41 = add i64 %40, -4048
   %cmp.i.i.i205 = icmp ult i64 %41, -4080
@@ -4200,7 +4096,7 @@ if.then.i9.i.i.i225:                              ; preds = %if.then.i.i.i220
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223: ; preds = %if.then.i.i.i220
   store ptr %39, ptr %call.i6.i.i.i221, align 8
-  %Current.i8.i.i.i224 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i221, i64 0, i32 1
+  %Current.i8.i.i.i224 = getelementptr inbounds i8, ptr %call.i6.i.i.i221, i64 8
   store i64 0, ptr %Current.i8.i.i.i224, align 8
   store ptr %call.i6.i.i.i221, ptr %BlockList.i.i.i203, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4208,12 +4104,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb64, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223
   %42 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223 ], [ %40, %sw.bb64 ]
   %43 = phi ptr [ %call.i6.i.i.i221, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i223 ], [ %39, %sw.bb64 ]
-  %Current7.i.i.i206 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %43, i64 0, i32 1
+  %Current7.i.i.i206 = getelementptr inbounds i8, ptr %43, i64 8
   %add8.i.i.i207 = add nsw i64 %42, 32
   store i64 %add8.i.i.i207, ptr %Current7.i.i.i206, align 8
   %44 = load ptr, ptr %BlockList.i.i.i203, align 16
-  %add.ptr.i.i.i208 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %44, i64 1
-  %Current11.i.i.i209 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %44, i64 0, i32 1
+  %add.ptr.i.i.i208 = getelementptr inbounds i8, ptr %44, i64 16
+  %Current11.i.i.i209 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load i64, ptr %Current11.i.i.i209, align 8
   %add.ptr12.i.i.i210 = getelementptr inbounds i8, ptr %add.ptr.i.i.i208, i64 %45
   %add.ptr13.i.i.i211 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -32
@@ -4229,9 +4125,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb68:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr70 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr70, ptr %this, align 16
-  %BlockList.i.i.i226 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i226 = getelementptr inbounds i8, ptr %this, i64 4848
   %46 = load ptr, ptr %BlockList.i.i.i226, align 16
-  %Current.i.i.i227 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %46, i64 0, i32 1
+  %Current.i.i.i227 = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load i64, ptr %Current.i.i.i227, align 8
   %48 = add i64 %47, -4048
   %cmp.i.i.i228 = icmp ult i64 %48, -4080
@@ -4248,7 +4144,7 @@ if.then.i9.i.i.i248:                              ; preds = %if.then.i.i.i243
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i246: ; preds = %if.then.i.i.i243
   store ptr %46, ptr %call.i6.i.i.i244, align 8
-  %Current.i8.i.i.i247 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i244, i64 0, i32 1
+  %Current.i8.i.i.i247 = getelementptr inbounds i8, ptr %call.i6.i.i.i244, i64 8
   store i64 0, ptr %Current.i8.i.i.i247, align 8
   store ptr %call.i6.i.i.i244, ptr %BlockList.i.i.i226, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4256,12 +4152,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i246: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb68, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i246
   %49 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i246 ], [ %47, %sw.bb68 ]
   %50 = phi ptr [ %call.i6.i.i.i244, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i246 ], [ %46, %sw.bb68 ]
-  %Current7.i.i.i229 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %50, i64 0, i32 1
+  %Current7.i.i.i229 = getelementptr inbounds i8, ptr %50, i64 8
   %add8.i.i.i230 = add nsw i64 %49, 32
   store i64 %add8.i.i.i230, ptr %Current7.i.i.i229, align 8
   %51 = load ptr, ptr %BlockList.i.i.i226, align 16
-  %add.ptr.i.i.i231 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %51, i64 1
-  %Current11.i.i.i232 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %51, i64 0, i32 1
+  %add.ptr.i.i.i231 = getelementptr inbounds i8, ptr %51, i64 16
+  %Current11.i.i.i232 = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load i64, ptr %Current11.i.i.i232, align 8
   %add.ptr12.i.i.i233 = getelementptr inbounds i8, ptr %add.ptr.i.i.i231, i64 %52
   %add.ptr13.i.i.i234 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -32
@@ -4277,9 +4173,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb72:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr74 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr74, ptr %this, align 16
-  %BlockList.i.i.i249 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 4848
   %53 = load ptr, ptr %BlockList.i.i.i249, align 16
-  %Current.i.i.i250 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %53, i64 0, i32 1
+  %Current.i.i.i250 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load i64, ptr %Current.i.i.i250, align 8
   %55 = add i64 %54, -4048
   %cmp.i.i.i251 = icmp ult i64 %55, -4080
@@ -4296,7 +4192,7 @@ if.then.i9.i.i.i271:                              ; preds = %if.then.i.i.i266
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i269: ; preds = %if.then.i.i.i266
   store ptr %53, ptr %call.i6.i.i.i267, align 8
-  %Current.i8.i.i.i270 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i267, i64 0, i32 1
+  %Current.i8.i.i.i270 = getelementptr inbounds i8, ptr %call.i6.i.i.i267, i64 8
   store i64 0, ptr %Current.i8.i.i.i270, align 8
   store ptr %call.i6.i.i.i267, ptr %BlockList.i.i.i249, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4304,12 +4200,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i269: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb72, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i269
   %56 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i269 ], [ %54, %sw.bb72 ]
   %57 = phi ptr [ %call.i6.i.i.i267, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i269 ], [ %53, %sw.bb72 ]
-  %Current7.i.i.i252 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %57, i64 0, i32 1
+  %Current7.i.i.i252 = getelementptr inbounds i8, ptr %57, i64 8
   %add8.i.i.i253 = add nsw i64 %56, 32
   store i64 %add8.i.i.i253, ptr %Current7.i.i.i252, align 8
   %58 = load ptr, ptr %BlockList.i.i.i249, align 16
-  %add.ptr.i.i.i254 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %58, i64 1
-  %Current11.i.i.i255 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %58, i64 0, i32 1
+  %add.ptr.i.i.i254 = getelementptr inbounds i8, ptr %58, i64 16
+  %Current11.i.i.i255 = getelementptr inbounds i8, ptr %58, i64 8
   %59 = load i64, ptr %Current11.i.i.i255, align 8
   %add.ptr12.i.i.i256 = getelementptr inbounds i8, ptr %add.ptr.i.i.i254, i64 %59
   %add.ptr13.i.i.i257 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -32
@@ -4325,9 +4221,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb76:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr78 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr78, ptr %this, align 16
-  %BlockList.i.i.i272 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i272 = getelementptr inbounds i8, ptr %this, i64 4848
   %60 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %Current.i.i.i273 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %60, i64 0, i32 1
+  %Current.i.i.i273 = getelementptr inbounds i8, ptr %60, i64 8
   %61 = load i64, ptr %Current.i.i.i273, align 8
   %62 = add i64 %61, -4048
   %cmp.i.i.i274 = icmp ult i64 %62, -4080
@@ -4344,7 +4240,7 @@ if.then.i9.i.i.i294:                              ; preds = %if.then.i.i.i289
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i292: ; preds = %if.then.i.i.i289
   store ptr %60, ptr %call.i6.i.i.i290, align 8
-  %Current.i8.i.i.i293 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i290, i64 0, i32 1
+  %Current.i8.i.i.i293 = getelementptr inbounds i8, ptr %call.i6.i.i.i290, i64 8
   store i64 0, ptr %Current.i8.i.i.i293, align 8
   store ptr %call.i6.i.i.i290, ptr %BlockList.i.i.i272, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4352,12 +4248,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i292: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb76, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i292
   %63 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i292 ], [ %61, %sw.bb76 ]
   %64 = phi ptr [ %call.i6.i.i.i290, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i292 ], [ %60, %sw.bb76 ]
-  %Current7.i.i.i275 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %64, i64 0, i32 1
+  %Current7.i.i.i275 = getelementptr inbounds i8, ptr %64, i64 8
   %add8.i.i.i276 = add nsw i64 %63, 32
   store i64 %add8.i.i.i276, ptr %Current7.i.i.i275, align 8
   %65 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %add.ptr.i.i.i277 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %65, i64 1
-  %Current11.i.i.i278 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %65, i64 0, i32 1
+  %add.ptr.i.i.i277 = getelementptr inbounds i8, ptr %65, i64 16
+  %Current11.i.i.i278 = getelementptr inbounds i8, ptr %65, i64 8
   %66 = load i64, ptr %Current11.i.i.i278, align 8
   %add.ptr12.i.i.i279 = getelementptr inbounds i8, ptr %add.ptr.i.i.i277, i64 %66
   %add.ptr13.i.i.i280 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -32
@@ -4373,9 +4269,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb80:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr82 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr82, ptr %this, align 16
-  %BlockList.i.i.i295 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i295 = getelementptr inbounds i8, ptr %this, i64 4848
   %67 = load ptr, ptr %BlockList.i.i.i295, align 16
-  %Current.i.i.i296 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %67, i64 0, i32 1
+  %Current.i.i.i296 = getelementptr inbounds i8, ptr %67, i64 8
   %68 = load i64, ptr %Current.i.i.i296, align 8
   %69 = add i64 %68, -4048
   %cmp.i.i.i297 = icmp ult i64 %69, -4080
@@ -4392,7 +4288,7 @@ if.then.i9.i.i.i317:                              ; preds = %if.then.i.i.i312
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i315: ; preds = %if.then.i.i.i312
   store ptr %67, ptr %call.i6.i.i.i313, align 8
-  %Current.i8.i.i.i316 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i313, i64 0, i32 1
+  %Current.i8.i.i.i316 = getelementptr inbounds i8, ptr %call.i6.i.i.i313, i64 8
   store i64 0, ptr %Current.i8.i.i.i316, align 8
   store ptr %call.i6.i.i.i313, ptr %BlockList.i.i.i295, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4400,12 +4296,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i315: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb80, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i315
   %70 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i315 ], [ %68, %sw.bb80 ]
   %71 = phi ptr [ %call.i6.i.i.i313, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i315 ], [ %67, %sw.bb80 ]
-  %Current7.i.i.i298 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %71, i64 0, i32 1
+  %Current7.i.i.i298 = getelementptr inbounds i8, ptr %71, i64 8
   %add8.i.i.i299 = add nsw i64 %70, 32
   store i64 %add8.i.i.i299, ptr %Current7.i.i.i298, align 8
   %72 = load ptr, ptr %BlockList.i.i.i295, align 16
-  %add.ptr.i.i.i300 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %72, i64 1
-  %Current11.i.i.i301 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %72, i64 0, i32 1
+  %add.ptr.i.i.i300 = getelementptr inbounds i8, ptr %72, i64 16
+  %Current11.i.i.i301 = getelementptr inbounds i8, ptr %72, i64 8
   %73 = load i64, ptr %Current11.i.i.i301, align 8
   %add.ptr12.i.i.i302 = getelementptr inbounds i8, ptr %add.ptr.i.i.i300, i64 %73
   %add.ptr13.i.i.i303 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -32
@@ -4421,9 +4317,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb84:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr86 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr86, ptr %this, align 16
-  %BlockList.i.i.i318 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i318 = getelementptr inbounds i8, ptr %this, i64 4848
   %74 = load ptr, ptr %BlockList.i.i.i318, align 16
-  %Current.i.i.i319 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %74, i64 0, i32 1
+  %Current.i.i.i319 = getelementptr inbounds i8, ptr %74, i64 8
   %75 = load i64, ptr %Current.i.i.i319, align 8
   %76 = add i64 %75, -4048
   %cmp.i.i.i320 = icmp ult i64 %76, -4080
@@ -4440,7 +4336,7 @@ if.then.i9.i.i.i340:                              ; preds = %if.then.i.i.i335
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i338: ; preds = %if.then.i.i.i335
   store ptr %74, ptr %call.i6.i.i.i336, align 8
-  %Current.i8.i.i.i339 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i336, i64 0, i32 1
+  %Current.i8.i.i.i339 = getelementptr inbounds i8, ptr %call.i6.i.i.i336, i64 8
   store i64 0, ptr %Current.i8.i.i.i339, align 8
   store ptr %call.i6.i.i.i336, ptr %BlockList.i.i.i318, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4448,12 +4344,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i338: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb84, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i338
   %77 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i338 ], [ %75, %sw.bb84 ]
   %78 = phi ptr [ %call.i6.i.i.i336, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i338 ], [ %74, %sw.bb84 ]
-  %Current7.i.i.i321 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %78, i64 0, i32 1
+  %Current7.i.i.i321 = getelementptr inbounds i8, ptr %78, i64 8
   %add8.i.i.i322 = add nsw i64 %77, 32
   store i64 %add8.i.i.i322, ptr %Current7.i.i.i321, align 8
   %79 = load ptr, ptr %BlockList.i.i.i318, align 16
-  %add.ptr.i.i.i323 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %79, i64 1
-  %Current11.i.i.i324 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %79, i64 0, i32 1
+  %add.ptr.i.i.i323 = getelementptr inbounds i8, ptr %79, i64 16
+  %Current11.i.i.i324 = getelementptr inbounds i8, ptr %79, i64 8
   %80 = load i64, ptr %Current11.i.i.i324, align 8
   %add.ptr12.i.i.i325 = getelementptr inbounds i8, ptr %add.ptr.i.i.i323, i64 %80
   %add.ptr13.i.i.i326 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -32
@@ -4469,9 +4365,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb88:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr90 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr90, ptr %this, align 16
-  %BlockList.i.i.i341 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i341 = getelementptr inbounds i8, ptr %this, i64 4848
   %81 = load ptr, ptr %BlockList.i.i.i341, align 16
-  %Current.i.i.i342 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %81, i64 0, i32 1
+  %Current.i.i.i342 = getelementptr inbounds i8, ptr %81, i64 8
   %82 = load i64, ptr %Current.i.i.i342, align 8
   %83 = add i64 %82, -4048
   %cmp.i.i.i343 = icmp ult i64 %83, -4080
@@ -4488,7 +4384,7 @@ if.then.i9.i.i.i363:                              ; preds = %if.then.i.i.i358
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i361: ; preds = %if.then.i.i.i358
   store ptr %81, ptr %call.i6.i.i.i359, align 8
-  %Current.i8.i.i.i362 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i359, i64 0, i32 1
+  %Current.i8.i.i.i362 = getelementptr inbounds i8, ptr %call.i6.i.i.i359, i64 8
   store i64 0, ptr %Current.i8.i.i.i362, align 8
   store ptr %call.i6.i.i.i359, ptr %BlockList.i.i.i341, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit364
@@ -4496,12 +4392,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i361: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit364: ; preds = %sw.bb88, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i361
   %84 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i361 ], [ %82, %sw.bb88 ]
   %85 = phi ptr [ %call.i6.i.i.i359, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i361 ], [ %81, %sw.bb88 ]
-  %Current7.i.i.i344 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %85, i64 0, i32 1
+  %Current7.i.i.i344 = getelementptr inbounds i8, ptr %85, i64 8
   %add8.i.i.i345 = add nsw i64 %84, 32
   store i64 %add8.i.i.i345, ptr %Current7.i.i.i344, align 8
   %86 = load ptr, ptr %BlockList.i.i.i341, align 16
-  %add.ptr.i.i.i346 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %86, i64 1
-  %Current11.i.i.i347 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %86, i64 0, i32 1
+  %add.ptr.i.i.i346 = getelementptr inbounds i8, ptr %86, i64 16
+  %Current11.i.i.i347 = getelementptr inbounds i8, ptr %86, i64 8
   %87 = load i64, ptr %Current11.i.i.i347, align 8
   %add.ptr12.i.i.i348 = getelementptr inbounds i8, ptr %add.ptr.i.i.i346, i64 %87
   %add.ptr13.i.i.i349 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -32
@@ -4517,9 +4413,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb92:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr94 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr94, ptr %this, align 16
-  %BlockList.i.i.i365 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i365 = getelementptr inbounds i8, ptr %this, i64 4848
   %88 = load ptr, ptr %BlockList.i.i.i365, align 16
-  %Current.i.i.i366 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %88, i64 0, i32 1
+  %Current.i.i.i366 = getelementptr inbounds i8, ptr %88, i64 8
   %89 = load i64, ptr %Current.i.i.i366, align 8
   %90 = add i64 %89, -4048
   %cmp.i.i.i367 = icmp ult i64 %90, -4080
@@ -4536,7 +4432,7 @@ if.then.i9.i.i.i387:                              ; preds = %if.then.i.i.i382
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i385: ; preds = %if.then.i.i.i382
   store ptr %88, ptr %call.i6.i.i.i383, align 8
-  %Current.i8.i.i.i386 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i383, i64 0, i32 1
+  %Current.i8.i.i.i386 = getelementptr inbounds i8, ptr %call.i6.i.i.i383, i64 8
   store i64 0, ptr %Current.i8.i.i.i386, align 8
   store ptr %call.i6.i.i.i383, ptr %BlockList.i.i.i365, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit388
@@ -4544,12 +4440,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i385: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA14_KcEEEPNS0_4NodeEDpOT0_.exit388: ; preds = %sw.bb92, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i385
   %91 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i385 ], [ %89, %sw.bb92 ]
   %92 = phi ptr [ %call.i6.i.i.i383, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i385 ], [ %88, %sw.bb92 ]
-  %Current7.i.i.i368 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %92, i64 0, i32 1
+  %Current7.i.i.i368 = getelementptr inbounds i8, ptr %92, i64 8
   %add8.i.i.i369 = add nsw i64 %91, 32
   store i64 %add8.i.i.i369, ptr %Current7.i.i.i368, align 8
   %93 = load ptr, ptr %BlockList.i.i.i365, align 16
-  %add.ptr.i.i.i370 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %93, i64 1
-  %Current11.i.i.i371 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %93, i64 0, i32 1
+  %add.ptr.i.i.i370 = getelementptr inbounds i8, ptr %93, i64 16
+  %Current11.i.i.i371 = getelementptr inbounds i8, ptr %93, i64 8
   %94 = load i64, ptr %Current11.i.i.i371, align 8
   %add.ptr12.i.i.i372 = getelementptr inbounds i8, ptr %add.ptr.i.i.i370, i64 %94
   %add.ptr13.i.i.i373 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -32
@@ -4565,9 +4461,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb96:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr98 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr98, ptr %this, align 16
-  %BlockList.i.i.i389 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i389 = getelementptr inbounds i8, ptr %this, i64 4848
   %95 = load ptr, ptr %BlockList.i.i.i389, align 16
-  %Current.i.i.i390 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %95, i64 0, i32 1
+  %Current.i.i.i390 = getelementptr inbounds i8, ptr %95, i64 8
   %96 = load i64, ptr %Current.i.i.i390, align 8
   %97 = add i64 %96, -4048
   %cmp.i.i.i391 = icmp ult i64 %97, -4080
@@ -4584,7 +4480,7 @@ if.then.i9.i.i.i411:                              ; preds = %if.then.i.i.i406
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i409: ; preds = %if.then.i.i.i406
   store ptr %95, ptr %call.i6.i.i.i407, align 8
-  %Current.i8.i.i.i410 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i407, i64 0, i32 1
+  %Current.i8.i.i.i410 = getelementptr inbounds i8, ptr %call.i6.i.i.i407, i64 8
   store i64 0, ptr %Current.i8.i.i.i410, align 8
   store ptr %call.i6.i.i.i407, ptr %BlockList.i.i.i389, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4592,12 +4488,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i409: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb96, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i409
   %98 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i409 ], [ %96, %sw.bb96 ]
   %99 = phi ptr [ %call.i6.i.i.i407, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i409 ], [ %95, %sw.bb96 ]
-  %Current7.i.i.i392 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %99, i64 0, i32 1
+  %Current7.i.i.i392 = getelementptr inbounds i8, ptr %99, i64 8
   %add8.i.i.i393 = add nsw i64 %98, 32
   store i64 %add8.i.i.i393, ptr %Current7.i.i.i392, align 8
   %100 = load ptr, ptr %BlockList.i.i.i389, align 16
-  %add.ptr.i.i.i394 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %100, i64 1
-  %Current11.i.i.i395 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %100, i64 0, i32 1
+  %add.ptr.i.i.i394 = getelementptr inbounds i8, ptr %100, i64 16
+  %Current11.i.i.i395 = getelementptr inbounds i8, ptr %100, i64 8
   %101 = load i64, ptr %Current11.i.i.i395, align 8
   %add.ptr12.i.i.i396 = getelementptr inbounds i8, ptr %add.ptr.i.i.i394, i64 %101
   %add.ptr13.i.i.i397 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -32
@@ -4613,9 +4509,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb100:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr102 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr102, ptr %this, align 16
-  %BlockList.i.i.i412 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i412 = getelementptr inbounds i8, ptr %this, i64 4848
   %102 = load ptr, ptr %BlockList.i.i.i412, align 16
-  %Current.i.i.i413 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %102, i64 0, i32 1
+  %Current.i.i.i413 = getelementptr inbounds i8, ptr %102, i64 8
   %103 = load i64, ptr %Current.i.i.i413, align 8
   %104 = add i64 %103, -4048
   %cmp.i.i.i414 = icmp ult i64 %104, -4080
@@ -4632,7 +4528,7 @@ if.then.i9.i.i.i432:                              ; preds = %if.then.i.i.i427
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i430: ; preds = %if.then.i.i.i427
   store ptr %102, ptr %call.i6.i.i.i428, align 8
-  %Current.i8.i.i.i431 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i428, i64 0, i32 1
+  %Current.i8.i.i.i431 = getelementptr inbounds i8, ptr %call.i6.i.i.i428, i64 8
   store i64 0, ptr %Current.i8.i.i.i431, align 8
   store ptr %call.i6.i.i.i428, ptr %BlockList.i.i.i412, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4640,12 +4536,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i430: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA19_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb100, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i430
   %105 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i430 ], [ %103, %sw.bb100 ]
   %106 = phi ptr [ %call.i6.i.i.i428, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i430 ], [ %102, %sw.bb100 ]
-  %Current7.i.i.i415 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %106, i64 0, i32 1
+  %Current7.i.i.i415 = getelementptr inbounds i8, ptr %106, i64 8
   %add8.i.i.i416 = add nsw i64 %105, 32
   store i64 %add8.i.i.i416, ptr %Current7.i.i.i415, align 8
   %107 = load ptr, ptr %BlockList.i.i.i412, align 16
-  %add.ptr.i.i.i417 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %107, i64 1
-  %Current11.i.i.i418 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %107, i64 0, i32 1
+  %add.ptr.i.i.i417 = getelementptr inbounds i8, ptr %107, i64 16
+  %Current11.i.i.i418 = getelementptr inbounds i8, ptr %107, i64 8
   %108 = load i64, ptr %Current11.i.i.i418, align 8
   %add.ptr12.i.i.i419 = getelementptr inbounds i8, ptr %add.ptr.i.i.i417, i64 %108
   %add.ptr13.i.i.i420 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -32
@@ -4661,9 +4557,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb104:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr106 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr106, ptr %this, align 16
-  %BlockList.i.i.i433 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i433 = getelementptr inbounds i8, ptr %this, i64 4848
   %109 = load ptr, ptr %BlockList.i.i.i433, align 16
-  %Current.i.i.i434 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %109, i64 0, i32 1
+  %Current.i.i.i434 = getelementptr inbounds i8, ptr %109, i64 8
   %110 = load i64, ptr %Current.i.i.i434, align 8
   %111 = add i64 %110, -4048
   %cmp.i.i.i435 = icmp ult i64 %111, -4080
@@ -4680,7 +4576,7 @@ if.then.i9.i.i.i455:                              ; preds = %if.then.i.i.i450
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i453: ; preds = %if.then.i.i.i450
   store ptr %109, ptr %call.i6.i.i.i451, align 8
-  %Current.i8.i.i.i454 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i451, i64 0, i32 1
+  %Current.i8.i.i.i454 = getelementptr inbounds i8, ptr %call.i6.i.i.i451, i64 8
   store i64 0, ptr %Current.i8.i.i.i454, align 8
   store ptr %call.i6.i.i.i451, ptr %BlockList.i.i.i433, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4688,12 +4584,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i453: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb104, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i453
   %112 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i453 ], [ %110, %sw.bb104 ]
   %113 = phi ptr [ %call.i6.i.i.i451, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i453 ], [ %109, %sw.bb104 ]
-  %Current7.i.i.i436 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %113, i64 0, i32 1
+  %Current7.i.i.i436 = getelementptr inbounds i8, ptr %113, i64 8
   %add8.i.i.i437 = add nsw i64 %112, 32
   store i64 %add8.i.i.i437, ptr %Current7.i.i.i436, align 8
   %114 = load ptr, ptr %BlockList.i.i.i433, align 16
-  %add.ptr.i.i.i438 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %114, i64 1
-  %Current11.i.i.i439 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %114, i64 0, i32 1
+  %add.ptr.i.i.i438 = getelementptr inbounds i8, ptr %114, i64 16
+  %Current11.i.i.i439 = getelementptr inbounds i8, ptr %114, i64 8
   %115 = load i64, ptr %Current11.i.i.i439, align 8
   %add.ptr12.i.i.i440 = getelementptr inbounds i8, ptr %add.ptr.i.i.i438, i64 %115
   %add.ptr13.i.i.i441 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -32
@@ -4709,9 +4605,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb108:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr110 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr110, ptr %this, align 16
-  %BlockList.i.i.i456 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i456 = getelementptr inbounds i8, ptr %this, i64 4848
   %116 = load ptr, ptr %BlockList.i.i.i456, align 16
-  %Current.i.i.i457 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %116, i64 0, i32 1
+  %Current.i.i.i457 = getelementptr inbounds i8, ptr %116, i64 8
   %117 = load i64, ptr %Current.i.i.i457, align 8
   %118 = add i64 %117, -4048
   %cmp.i.i.i458 = icmp ult i64 %118, -4080
@@ -4728,7 +4624,7 @@ if.then.i9.i.i.i478:                              ; preds = %if.then.i.i.i473
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i476: ; preds = %if.then.i.i.i473
   store ptr %116, ptr %call.i6.i.i.i474, align 8
-  %Current.i8.i.i.i477 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i474, i64 0, i32 1
+  %Current.i8.i.i.i477 = getelementptr inbounds i8, ptr %call.i6.i.i.i474, i64 8
   store i64 0, ptr %Current.i8.i.i.i477, align 8
   store ptr %call.i6.i.i.i474, ptr %BlockList.i.i.i456, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4736,12 +4632,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i476: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb108, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i476
   %119 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i476 ], [ %117, %sw.bb108 ]
   %120 = phi ptr [ %call.i6.i.i.i474, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i476 ], [ %116, %sw.bb108 ]
-  %Current7.i.i.i459 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %120, i64 0, i32 1
+  %Current7.i.i.i459 = getelementptr inbounds i8, ptr %120, i64 8
   %add8.i.i.i460 = add nsw i64 %119, 32
   store i64 %add8.i.i.i460, ptr %Current7.i.i.i459, align 8
   %121 = load ptr, ptr %BlockList.i.i.i456, align 16
-  %add.ptr.i.i.i461 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %121, i64 1
-  %Current11.i.i.i462 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %121, i64 0, i32 1
+  %add.ptr.i.i.i461 = getelementptr inbounds i8, ptr %121, i64 16
+  %Current11.i.i.i462 = getelementptr inbounds i8, ptr %121, i64 8
   %122 = load i64, ptr %Current11.i.i.i462, align 8
   %add.ptr12.i.i.i463 = getelementptr inbounds i8, ptr %add.ptr.i.i.i461, i64 %122
   %add.ptr13.i.i.i464 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -32
@@ -4757,9 +4653,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb112:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr114 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr114, ptr %this, align 16
-  %BlockList.i.i.i479 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i479 = getelementptr inbounds i8, ptr %this, i64 4848
   %123 = load ptr, ptr %BlockList.i.i.i479, align 16
-  %Current.i.i.i480 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %123, i64 0, i32 1
+  %Current.i.i.i480 = getelementptr inbounds i8, ptr %123, i64 8
   %124 = load i64, ptr %Current.i.i.i480, align 8
   %125 = add i64 %124, -4048
   %cmp.i.i.i481 = icmp ult i64 %125, -4080
@@ -4776,7 +4672,7 @@ if.then.i9.i.i.i501:                              ; preds = %if.then.i.i.i496
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i499: ; preds = %if.then.i.i.i496
   store ptr %123, ptr %call.i6.i.i.i497, align 8
-  %Current.i8.i.i.i500 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i497, i64 0, i32 1
+  %Current.i8.i.i.i500 = getelementptr inbounds i8, ptr %call.i6.i.i.i497, i64 8
   store i64 0, ptr %Current.i8.i.i.i500, align 8
   store ptr %call.i6.i.i.i497, ptr %BlockList.i.i.i479, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit502
@@ -4784,12 +4680,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i499: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_.exit502: ; preds = %sw.bb112, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i499
   %126 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i499 ], [ %124, %sw.bb112 ]
   %127 = phi ptr [ %call.i6.i.i.i497, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i499 ], [ %123, %sw.bb112 ]
-  %Current7.i.i.i482 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %127, i64 0, i32 1
+  %Current7.i.i.i482 = getelementptr inbounds i8, ptr %127, i64 8
   %add8.i.i.i483 = add nsw i64 %126, 32
   store i64 %add8.i.i.i483, ptr %Current7.i.i.i482, align 8
   %128 = load ptr, ptr %BlockList.i.i.i479, align 16
-  %add.ptr.i.i.i484 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %128, i64 1
-  %Current11.i.i.i485 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %128, i64 0, i32 1
+  %add.ptr.i.i.i484 = getelementptr inbounds i8, ptr %128, i64 16
+  %Current11.i.i.i485 = getelementptr inbounds i8, ptr %128, i64 8
   %129 = load i64, ptr %Current11.i.i.i485, align 8
   %add.ptr12.i.i.i486 = getelementptr inbounds i8, ptr %add.ptr.i.i.i484, i64 %129
   %add.ptr13.i.i.i487 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -32
@@ -4805,9 +4701,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb116:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr118 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr118, ptr %this, align 16
-  %BlockList.i.i.i503 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i503 = getelementptr inbounds i8, ptr %this, i64 4848
   %130 = load ptr, ptr %BlockList.i.i.i503, align 16
-  %Current.i.i.i504 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %130, i64 0, i32 1
+  %Current.i.i.i504 = getelementptr inbounds i8, ptr %130, i64 8
   %131 = load i64, ptr %Current.i.i.i504, align 8
   %132 = add i64 %131, -4048
   %cmp.i.i.i505 = icmp ult i64 %132, -4080
@@ -4824,7 +4720,7 @@ if.then.i9.i.i.i523:                              ; preds = %if.then.i.i.i518
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i521: ; preds = %if.then.i.i.i518
   store ptr %130, ptr %call.i6.i.i.i519, align 8
-  %Current.i8.i.i.i522 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i519, i64 0, i32 1
+  %Current.i8.i.i.i522 = getelementptr inbounds i8, ptr %call.i6.i.i.i519, i64 8
   store i64 0, ptr %Current.i8.i.i.i522, align 8
   store ptr %call.i6.i.i.i519, ptr %BlockList.i.i.i503, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA7_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4832,12 +4728,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i521: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA7_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb116, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i521
   %133 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i521 ], [ %131, %sw.bb116 ]
   %134 = phi ptr [ %call.i6.i.i.i519, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i521 ], [ %130, %sw.bb116 ]
-  %Current7.i.i.i506 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %134, i64 0, i32 1
+  %Current7.i.i.i506 = getelementptr inbounds i8, ptr %134, i64 8
   %add8.i.i.i507 = add nsw i64 %133, 32
   store i64 %add8.i.i.i507, ptr %Current7.i.i.i506, align 8
   %135 = load ptr, ptr %BlockList.i.i.i503, align 16
-  %add.ptr.i.i.i508 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %135, i64 1
-  %Current11.i.i.i509 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %135, i64 0, i32 1
+  %add.ptr.i.i.i508 = getelementptr inbounds i8, ptr %135, i64 16
+  %Current11.i.i.i509 = getelementptr inbounds i8, ptr %135, i64 8
   %136 = load i64, ptr %Current11.i.i.i509, align 8
   %add.ptr12.i.i.i510 = getelementptr inbounds i8, ptr %add.ptr.i.i.i508, i64 %136
   %add.ptr13.i.i.i511 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -32
@@ -4853,9 +4749,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb120:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr122 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr122, ptr %this, align 16
-  %BlockList.i.i.i524 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i524 = getelementptr inbounds i8, ptr %this, i64 4848
   %137 = load ptr, ptr %BlockList.i.i.i524, align 16
-  %Current.i.i.i525 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %137, i64 0, i32 1
+  %Current.i.i.i525 = getelementptr inbounds i8, ptr %137, i64 8
   %138 = load i64, ptr %Current.i.i.i525, align 8
   %139 = add i64 %138, -4048
   %cmp.i.i.i526 = icmp ult i64 %139, -4080
@@ -4872,7 +4768,7 @@ if.then.i9.i.i.i546:                              ; preds = %if.then.i.i.i541
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i544: ; preds = %if.then.i.i.i541
   store ptr %137, ptr %call.i6.i.i.i542, align 8
-  %Current.i8.i.i.i545 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i542, i64 0, i32 1
+  %Current.i8.i.i.i545 = getelementptr inbounds i8, ptr %call.i6.i.i.i542, i64 8
   store i64 0, ptr %Current.i8.i.i.i545, align 8
   store ptr %call.i6.i.i.i542, ptr %BlockList.i.i.i524, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit547
@@ -4880,12 +4776,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i544: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit547: ; preds = %sw.bb120, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i544
   %140 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i544 ], [ %138, %sw.bb120 ]
   %141 = phi ptr [ %call.i6.i.i.i542, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i544 ], [ %137, %sw.bb120 ]
-  %Current7.i.i.i527 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %141, i64 0, i32 1
+  %Current7.i.i.i527 = getelementptr inbounds i8, ptr %141, i64 8
   %add8.i.i.i528 = add nsw i64 %140, 32
   store i64 %add8.i.i.i528, ptr %Current7.i.i.i527, align 8
   %142 = load ptr, ptr %BlockList.i.i.i524, align 16
-  %add.ptr.i.i.i529 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %142, i64 1
-  %Current11.i.i.i530 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %142, i64 0, i32 1
+  %add.ptr.i.i.i529 = getelementptr inbounds i8, ptr %142, i64 16
+  %Current11.i.i.i530 = getelementptr inbounds i8, ptr %142, i64 8
   %143 = load i64, ptr %Current11.i.i.i530, align 8
   %add.ptr12.i.i.i531 = getelementptr inbounds i8, ptr %add.ptr.i.i.i529, i64 %143
   %add.ptr13.i.i.i532 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -32
@@ -4901,9 +4797,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb124:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr126 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr126, ptr %this, align 16
-  %BlockList.i.i.i548 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i548 = getelementptr inbounds i8, ptr %this, i64 4848
   %144 = load ptr, ptr %BlockList.i.i.i548, align 16
-  %Current.i.i.i549 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %144, i64 0, i32 1
+  %Current.i.i.i549 = getelementptr inbounds i8, ptr %144, i64 8
   %145 = load i64, ptr %Current.i.i.i549, align 8
   %146 = add i64 %145, -4048
   %cmp.i.i.i550 = icmp ult i64 %146, -4080
@@ -4920,7 +4816,7 @@ if.then.i9.i.i.i570:                              ; preds = %if.then.i.i.i565
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i568: ; preds = %if.then.i.i.i565
   store ptr %144, ptr %call.i6.i.i.i566, align 8
-  %Current.i8.i.i.i569 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i566, i64 0, i32 1
+  %Current.i8.i.i.i569 = getelementptr inbounds i8, ptr %call.i6.i.i.i566, i64 8
   store i64 0, ptr %Current.i8.i.i.i569, align 8
   store ptr %call.i6.i.i.i566, ptr %BlockList.i.i.i548, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -4928,12 +4824,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i568: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb124, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i568
   %147 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i568 ], [ %145, %sw.bb124 ]
   %148 = phi ptr [ %call.i6.i.i.i566, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i568 ], [ %144, %sw.bb124 ]
-  %Current7.i.i.i551 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %148, i64 0, i32 1
+  %Current7.i.i.i551 = getelementptr inbounds i8, ptr %148, i64 8
   %add8.i.i.i552 = add nsw i64 %147, 32
   store i64 %add8.i.i.i552, ptr %Current7.i.i.i551, align 8
   %149 = load ptr, ptr %BlockList.i.i.i548, align 16
-  %add.ptr.i.i.i553 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %149, i64 1
-  %Current11.i.i.i554 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %149, i64 0, i32 1
+  %add.ptr.i.i.i553 = getelementptr inbounds i8, ptr %149, i64 16
+  %Current11.i.i.i554 = getelementptr inbounds i8, ptr %149, i64 8
   %150 = load i64, ptr %Current11.i.i.i554, align 8
   %add.ptr12.i.i.i555 = getelementptr inbounds i8, ptr %add.ptr.i.i.i553, i64 %150
   %add.ptr13.i.i.i556 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -32
@@ -4949,9 +4845,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb128:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr130 = getelementptr inbounds i8, ptr %this.val49, i64 1
   store ptr %incdec.ptr130, ptr %this, align 16
-  %BlockList.i.i.i571 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i571 = getelementptr inbounds i8, ptr %this, i64 4848
   %151 = load ptr, ptr %BlockList.i.i.i571, align 16
-  %Current.i.i.i572 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %151, i64 0, i32 1
+  %Current.i.i.i572 = getelementptr inbounds i8, ptr %151, i64 8
   %152 = load i64, ptr %Current.i.i.i572, align 8
   %153 = add i64 %152, -4048
   %cmp.i.i.i573 = icmp ult i64 %153, -4080
@@ -4968,7 +4864,7 @@ if.then.i9.i.i.i593:                              ; preds = %if.then.i.i.i588
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i591: ; preds = %if.then.i.i.i588
   store ptr %151, ptr %call.i6.i.i.i589, align 8
-  %Current.i8.i.i.i592 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i589, i64 0, i32 1
+  %Current.i8.i.i.i592 = getelementptr inbounds i8, ptr %call.i6.i.i.i589, i64 8
   store i64 0, ptr %Current.i8.i.i.i592, align 8
   store ptr %call.i6.i.i.i589, ptr %BlockList.i.i.i571, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit594
@@ -4976,12 +4872,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i591: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit594: ; preds = %sw.bb128, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i591
   %154 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i591 ], [ %152, %sw.bb128 ]
   %155 = phi ptr [ %call.i6.i.i.i589, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i591 ], [ %151, %sw.bb128 ]
-  %Current7.i.i.i574 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %155, i64 0, i32 1
+  %Current7.i.i.i574 = getelementptr inbounds i8, ptr %155, i64 8
   %add8.i.i.i575 = add nsw i64 %154, 32
   store i64 %add8.i.i.i575, ptr %Current7.i.i.i574, align 8
   %156 = load ptr, ptr %BlockList.i.i.i571, align 16
-  %add.ptr.i.i.i576 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %156, i64 1
-  %Current11.i.i.i577 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %156, i64 0, i32 1
+  %add.ptr.i.i.i576 = getelementptr inbounds i8, ptr %156, i64 16
+  %Current11.i.i.i577 = getelementptr inbounds i8, ptr %156, i64 8
   %157 = load i64, ptr %Current11.i.i.i577, align 8
   %add.ptr12.i.i.i578 = getelementptr inbounds i8, ptr %add.ptr.i.i.i576, i64 %157
   %add.ptr13.i.i.i579 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -32
@@ -5041,7 +4937,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseBareSour
   %add.ptr.i.ptr = getelementptr inbounds i8, ptr %this.val12.i, i64 %incdec.ptr.i.i.i.add
   store ptr %add.ptr.i.ptr, ptr %this, align 16
   store ptr %incdec.ptr.i.i.i.ptr.lcssa, ptr %Res, align 8
-  %162 = getelementptr inbounds { ptr, ptr }, ptr %Res, i64 0, i32 1
+  %162 = getelementptr inbounds i8, ptr %Res, i64 8
   store ptr %add.ptr.i.ptr, ptr %162, align 8
   %cmp.i596 = icmp eq i64 %add.i.i, 0
   br i1 %cmp.i596, label %return, label %if.end138
@@ -5301,7 +5197,7 @@ if.end211:                                        ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp213, label %return, label %if.end215
 
 if.end215:                                        ; preds = %if.end211
-  %TryToParseTemplateArgs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 8
+  %TryToParseTemplateArgs = getelementptr inbounds i8, ptr %this, i64 736
   %175 = load i8, ptr %TryToParseTemplateArgs, align 16
   %176 = and i8 %175, 1
   %tobool216.not = icmp eq i8 %176, 0
@@ -5409,7 +5305,7 @@ if.then278:                                       ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp280, label %return, label %if.end282
 
 if.end282:                                        ; preds = %if.then278
-  %TryToParseTemplateArgs283 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 8
+  %TryToParseTemplateArgs283 = getelementptr inbounds i8, ptr %this, i64 736
   %179 = load i8, ptr %TryToParseTemplateArgs283, align 16
   %180 = and i8 %179, 1
   %tobool284.not = icmp eq i8 %180, 0
@@ -5447,10 +5343,10 @@ sw.epilog299:                                     ; preds = %sw.bb178, %sw.bb180
 
 if.then301:                                       ; preds = %if.end215, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit646, %land.lhs.true217, %if.end234, %if.end242, %if.end251, %if.end260, %if.end269, %if.end294, %if.end187, %if.end225, %sw.epilog299
   %183 = phi ptr [ %182, %sw.epilog299 ], [ %call235, %if.end234 ], [ %call243, %if.end242 ], [ %call253, %if.end251 ], [ %call261, %if.end260 ], [ %call270, %if.end269 ], [ %call295, %if.end294 ], [ %call188, %if.end187 ], [ %call226, %if.end225 ], [ %call212, %land.lhs.true217 ], [ %call212, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit646 ], [ %call212, %if.end215 ]
-  %Subs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
-  %Last.i670 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
+  %Subs = getelementptr inbounds i8, ptr %this, i64 296
+  %Last.i670 = getelementptr inbounds i8, ptr %this, i64 304
   %184 = load ptr, ptr %Last.i670, align 16
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 2
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 312
   %185 = load ptr, ptr %Cap.i, align 8
   %cmp.i671 = icmp eq ptr %184, %185
   br i1 %cmp.i671, label %if.then.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -5461,7 +5357,7 @@ if.then.i:                                        ; preds = %if.then301
   %sub.ptr.rhs.cast.i.i674 = ptrtoint ptr %186 to i64
   %sub.ptr.sub.i.i675 = sub i64 %sub.ptr.lhs.cast.i.i673, %sub.ptr.rhs.cast.i.i674
   %mul.i = ashr exact i64 %sub.ptr.sub.i.i675, 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 3
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %cmp.i.i.i676 = icmp eq ptr %186, %Inline.i.i.i
   %mul.i.i677 = shl i64 %sub.ptr.sub.i.i675, 1
   br i1 %cmp.i.i.i676, label %if.then.i.i, label %if.else.i.i
@@ -5506,7 +5402,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.then301, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %188 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %184, %if.then301 ]
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %188, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %188, i64 8
   store ptr %incdec.ptr.i, ptr %Last.i670, align 16
   store ptr %183, ptr %188, align 8
   br label %return
@@ -5522,7 +5418,7 @@ entry:
   %S = alloca ptr, align 8
   %TA = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit, label %land.lhs.true.i
@@ -5610,7 +5506,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseCVQualif
   br i1 %tobool.not.i, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseCVQualifiersEv.exit
-  %CVQualifiers.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %State, i64 0, i32 2
+  %CVQualifiers.i = getelementptr inbounds i8, ptr %State, i64 4
   store i32 %CVR.2.i, ptr %CVQualifiers.i, align 4
   %.pre = load ptr, ptr %this, align 16
   %.pre989 = load ptr, ptr %Last.i, align 8
@@ -5644,7 +5540,7 @@ if.else16.i:                                      ; preds = %land.lhs.true.i622,
 
 if.end22.i.sink.split:                            ; preds = %if.else16.i, %if.then11.i, %if.then6.i
   %.sink = phi i8 [ 2, %if.then6.i ], [ 1, %if.then11.i ], [ 0, %if.else16.i ]
-  %ReferenceQualifier19.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %State, i64 0, i32 3
+  %ReferenceQualifier19.i = getelementptr inbounds i8, ptr %State, i64 8
   store i8 %.sink, ptr %ReferenceQualifier19.i, align 8
   %.pre1201 = load ptr, ptr %this, align 16
   %.pre1202 = load ptr, ptr %Last.i, align 8
@@ -5667,9 +5563,9 @@ _ZNK10StringView10startsWithES_.exit.i:           ; preds = %if.end22.i
 if.then24.i:                                      ; preds = %_ZNK10StringView10startsWithES_.exit.i
   %add.ptr.i608 = getelementptr inbounds i8, ptr %15, i64 2
   store ptr %add.ptr.i608, ptr %this, align 16
-  %BlockList.i.i.i584 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i584 = getelementptr inbounds i8, ptr %this, i64 4848
   %16 = load ptr, ptr %BlockList.i.i.i584, align 16
-  %Current.i.i.i585 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 0, i32 1
+  %Current.i.i.i585 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %Current.i.i.i585, align 8
   %18 = add i64 %17, -4048
   %cmp.i.i.i586 = icmp ult i64 %18, -4080
@@ -5686,7 +5582,7 @@ if.then.i9.i.i.i603:                              ; preds = %if.then.i.i.i598
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i601: ; preds = %if.then.i.i.i598
   store ptr %16, ptr %call.i6.i.i.i599, align 8
-  %Current.i8.i.i.i602 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i599, i64 0, i32 1
+  %Current.i8.i.i.i602 = getelementptr inbounds i8, ptr %call.i6.i.i.i599, i64 8
   store i64 0, ptr %Current.i8.i.i.i602, align 8
   store ptr %call.i6.i.i.i599, ptr %BlockList.i.i.i584, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -5694,12 +5590,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i601: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.then24.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i601
   %19 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i601 ], [ %17, %if.then24.i ]
   %20 = phi ptr [ %call.i6.i.i.i599, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i601 ], [ %16, %if.then24.i ]
-  %Current7.i.i.i587 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %20, i64 0, i32 1
+  %Current7.i.i.i587 = getelementptr inbounds i8, ptr %20, i64 8
   %add8.i.i.i588 = add nsw i64 %19, 32
   store i64 %add8.i.i.i588, ptr %Current7.i.i.i587, align 8
   %21 = load ptr, ptr %BlockList.i.i.i584, align 16
-  %add.ptr.i.i.i589 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %21, i64 1
-  %Current11.i.i.i590 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %21, i64 0, i32 1
+  %add.ptr.i.i.i589 = getelementptr inbounds i8, ptr %21, i64 16
+  %Current11.i.i.i590 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %Current11.i.i.i590, align 8
   %add.ptr12.i.i.i591 = getelementptr inbounds i8, ptr %add.ptr.i.i.i589, i64 %22
   %add.ptr13.i.i.i592 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i591, i64 -32
@@ -5714,12 +5610,12 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 
 if.end29.i:                                       ; preds = %if.end22.i, %_ZNK10StringView10startsWithES_.exit.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit
   %SoFar.i.0 = phi ptr [ %add.ptr13.i.i.i592, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA4_KcEEEPNS0_4NodeEDpOT0_.exit ], [ null, %_ZNK10StringView10startsWithES_.exit.i ], [ null, %if.end22.i ]
-  %BlockList.i.i.i.i298 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
-  %EndsWithTemplateArgs.i317 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %State, i64 0, i32 1
-  %Subs95.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
-  %Last.i265 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
-  %Cap.i266 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 2
-  %Inline.i.i.i275 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 3
+  %BlockList.i.i.i.i298 = getelementptr inbounds i8, ptr %this, i64 4848
+  %EndsWithTemplateArgs.i317 = getelementptr inbounds i8, ptr %State, i64 1
+  %Subs95.i = getelementptr inbounds i8, ptr %this, i64 296
+  %Last.i265 = getelementptr inbounds i8, ptr %this, i64 304
+  %Cap.i266 = getelementptr inbounds i8, ptr %this, i64 312
+  %Inline.i.i.i275 = getelementptr inbounds i8, ptr %this, i64 320
   %cmp49.i = icmp ne ptr %State, null
   br label %while.cond.i.outer
 
@@ -5822,7 +5718,7 @@ if.end.i519:                                      ; preds = %if.then39.i
 
 if.then3.i521:                                    ; preds = %if.end.i519
   %30 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i.i523 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %30, i64 0, i32 1
+  %Current.i.i.i.i523 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i64, ptr %Current.i.i.i.i523, align 8
   %32 = add i64 %31, -4048
   %cmp.i.i.i.i524 = icmp ult i64 %32, -4080
@@ -5839,7 +5735,7 @@ if.then.i9.i.i.i.i550:                            ; preds = %if.then.i.i.i.i545
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i548: ; preds = %if.then.i.i.i.i545
   store ptr %30, ptr %call.i6.i.i.i.i546, align 8
-  %Current.i8.i.i.i.i549 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i546, i64 0, i32 1
+  %Current.i8.i.i.i.i549 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i546, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i549, align 8
   store ptr %call.i6.i.i.i.i546, ptr %BlockList.i.i.i.i298, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i525
@@ -5847,12 +5743,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i548: ; preds = %if.th
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i525: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i548, %if.then3.i521
   %33 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i548 ], [ %31, %if.then3.i521 ]
   %34 = phi ptr [ %call.i6.i.i.i.i546, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i548 ], [ %30, %if.then3.i521 ]
-  %Current7.i.i.i.i526 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %34, i64 0, i32 1
+  %Current7.i.i.i.i526 = getelementptr inbounds i8, ptr %34, i64 8
   %add8.i.i.i.i527 = add nsw i64 %33, 32
   store i64 %add8.i.i.i.i527, ptr %Current7.i.i.i.i526, align 8
   %35 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i.i528 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %35, i64 1
-  %Current11.i.i.i.i529 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %35, i64 0, i32 1
+  %add.ptr.i.i.i.i528 = getelementptr inbounds i8, ptr %35, i64 16
+  %Current11.i.i.i.i529 = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i64, ptr %Current11.i.i.i.i529, align 8
   %add.ptr12.i.i.i.i530 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i528, i64 %36
   %add.ptr13.i.i.i.i531 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i530, i64 -32
@@ -5929,7 +5825,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i505
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit517: ; preds = %if.end43.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i505
   %41 = phi ptr [ %add.ptr.i.i506, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i505 ], [ %37, %if.end43.i ]
-  %incdec.ptr.i493 = getelementptr inbounds ptr, ptr %41, i64 1
+  %incdec.ptr.i493 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %incdec.ptr.i493, ptr %Last.i265, align 16
   store ptr %SoFar.i.2, ptr %41, align 8
   br label %while.cond.i.outer.backedge
@@ -5942,7 +5838,7 @@ if.then48.i:                                      ; preds = %if.end36.i
 
 if.end54.i:                                       ; preds = %if.then48.i
   %42 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i461 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %42, i64 0, i32 1
+  %Current.i.i.i461 = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load i64, ptr %Current.i.i.i461, align 8
   %44 = add i64 %43, -4048
   %cmp.i.i.i462 = icmp ult i64 %44, -4080
@@ -5959,7 +5855,7 @@ if.then.i9.i.i.i480:                              ; preds = %if.then.i.i.i475
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i478: ; preds = %if.then.i.i.i475
   store ptr %42, ptr %call.i6.i.i.i476, align 8
-  %Current.i8.i.i.i479 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i476, i64 0, i32 1
+  %Current.i8.i.i.i479 = getelementptr inbounds i8, ptr %call.i6.i.i.i476, i64 8
   store i64 0, ptr %Current.i8.i.i.i479, align 8
   store ptr %call.i6.i.i.i476, ptr %BlockList.i.i.i.i298, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit481
@@ -5967,12 +5863,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i478: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit481: ; preds = %if.end54.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i478
   %45 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i478 ], [ %43, %if.end54.i ]
   %46 = phi ptr [ %call.i6.i.i.i476, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i478 ], [ %42, %if.end54.i ]
-  %Current7.i.i.i463 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %46, i64 0, i32 1
+  %Current7.i.i.i463 = getelementptr inbounds i8, ptr %46, i64 8
   %add8.i.i.i464 = add nsw i64 %45, 32
   store i64 %add8.i.i.i464, ptr %Current7.i.i.i463, align 8
   %47 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i465 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %47, i64 1
-  %Current11.i.i.i466 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %47, i64 0, i32 1
+  %add.ptr.i.i.i465 = getelementptr inbounds i8, ptr %47, i64 16
+  %Current11.i.i.i466 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load i64, ptr %Current11.i.i.i466, align 8
   %add.ptr12.i.i.i467 = getelementptr inbounds i8, ptr %add.ptr.i.i.i465, i64 %48
   %add.ptr13.i.i.i468 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i467, i64 -32
@@ -6045,7 +5941,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i447
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit459: ; preds = %if.end61.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i447
   %53 = phi ptr [ %add.ptr.i.i448, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i447 ], [ %49, %if.end61.i ]
-  %incdec.ptr.i435 = getelementptr inbounds ptr, ptr %53, i64 1
+  %incdec.ptr.i435 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %incdec.ptr.i435, ptr %Last.i265, align 16
   store ptr %add.ptr13.i.i.i468, ptr %53, align 8
   br label %while.cond.i.outer.backedge
@@ -6073,7 +5969,7 @@ if.end.i374:                                      ; preds = %if.then74.i
 
 if.then3.i376:                                    ; preds = %if.end.i374
   %55 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i.i378 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %55, i64 0, i32 1
+  %Current.i.i.i.i378 = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load i64, ptr %Current.i.i.i.i378, align 8
   %57 = add i64 %56, -4048
   %cmp.i.i.i.i379 = icmp ult i64 %57, -4080
@@ -6090,7 +5986,7 @@ if.then.i9.i.i.i.i405:                            ; preds = %if.then.i.i.i.i400
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i403: ; preds = %if.then.i.i.i.i400
   store ptr %55, ptr %call.i6.i.i.i.i401, align 8
-  %Current.i8.i.i.i.i404 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i401, i64 0, i32 1
+  %Current.i8.i.i.i.i404 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i401, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i404, align 8
   store ptr %call.i6.i.i.i.i401, ptr %BlockList.i.i.i.i298, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i380
@@ -6098,12 +5994,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i403: ; preds = %if.th
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i380: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i403, %if.then3.i376
   %58 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i403 ], [ %56, %if.then3.i376 ]
   %59 = phi ptr [ %call.i6.i.i.i.i401, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i403 ], [ %55, %if.then3.i376 ]
-  %Current7.i.i.i.i381 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %59, i64 0, i32 1
+  %Current7.i.i.i.i381 = getelementptr inbounds i8, ptr %59, i64 8
   %add8.i.i.i.i382 = add nsw i64 %58, 32
   store i64 %add8.i.i.i.i382, ptr %Current7.i.i.i.i381, align 8
   %60 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i.i383 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %60, i64 1
-  %Current11.i.i.i.i384 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %60, i64 0, i32 1
+  %add.ptr.i.i.i.i383 = getelementptr inbounds i8, ptr %60, i64 16
+  %Current11.i.i.i.i384 = getelementptr inbounds i8, ptr %60, i64 8
   %61 = load i64, ptr %Current11.i.i.i.i384, align 8
   %add.ptr12.i.i.i.i385 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i383, i64 %61
   %add.ptr13.i.i.i.i386 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i385, i64 -32
@@ -6180,7 +6076,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i360
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit372: ; preds = %if.end78.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i360
   %66 = phi ptr [ %add.ptr.i.i361, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i360 ], [ %62, %if.end78.i ]
-  %incdec.ptr.i348 = getelementptr inbounds ptr, ptr %66, i64 1
+  %incdec.ptr.i348 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr %incdec.ptr.i348, ptr %Last.i265, align 16
   store ptr %SoFar.i.4, ptr %66, align 8
   br label %while.cond.i.outer.backedge
@@ -6205,7 +6101,7 @@ if.end.i295:                                      ; preds = %if.then88.i
 
 if.then3.i297:                                    ; preds = %if.end.i295
   %68 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i.i299 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %68, i64 0, i32 1
+  %Current.i.i.i.i299 = getelementptr inbounds i8, ptr %68, i64 8
   %69 = load i64, ptr %Current.i.i.i.i299, align 8
   %70 = add i64 %69, -4048
   %cmp.i.i.i.i300 = icmp ult i64 %70, -4080
@@ -6222,7 +6118,7 @@ if.then.i9.i.i.i.i326:                            ; preds = %if.then.i.i.i.i321
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i324: ; preds = %if.then.i.i.i.i321
   store ptr %68, ptr %call.i6.i.i.i.i322, align 8
-  %Current.i8.i.i.i.i325 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i322, i64 0, i32 1
+  %Current.i8.i.i.i.i325 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i322, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i325, align 8
   store ptr %call.i6.i.i.i.i322, ptr %BlockList.i.i.i.i298, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i301
@@ -6230,12 +6126,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i324: ; preds = %if.th
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i301: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i324, %if.then3.i297
   %71 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i324 ], [ %69, %if.then3.i297 ]
   %72 = phi ptr [ %call.i6.i.i.i.i322, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i324 ], [ %68, %if.then3.i297 ]
-  %Current7.i.i.i.i302 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %72, i64 0, i32 1
+  %Current7.i.i.i.i302 = getelementptr inbounds i8, ptr %72, i64 8
   %add8.i.i.i.i303 = add nsw i64 %71, 32
   store i64 %add8.i.i.i.i303, ptr %Current7.i.i.i.i302, align 8
   %73 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i.i304 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %73, i64 1
-  %Current11.i.i.i.i305 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %73, i64 0, i32 1
+  %add.ptr.i.i.i.i304 = getelementptr inbounds i8, ptr %73, i64 16
+  %Current11.i.i.i.i305 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load i64, ptr %Current11.i.i.i.i305, align 8
   %add.ptr12.i.i.i.i306 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i304, i64 %74
   %add.ptr13.i.i.i.i307 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i306, i64 -32
@@ -6320,7 +6216,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i281
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit293: ; preds = %if.then94.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i281
   %79 = phi ptr [ %add.ptr.i.i282, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i281 ], [ %75, %if.then94.i ]
-  %incdec.ptr.i269 = getelementptr inbounds ptr, ptr %79, i64 1
+  %incdec.ptr.i269 = getelementptr inbounds i8, ptr %79, i64 8
   store ptr %incdec.ptr.i269, ptr %Last.i265, align 16
   store ptr %call89.i, ptr %79, align 8
   br label %while.cond.i.outer.backedge
@@ -6329,13 +6225,13 @@ if.then109.i:                                     ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i, label %return, label %if.end112.i
 
 if.end112.i:                                      ; preds = %if.then109.i
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %SoFar.i.1.ph, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %SoFar.i.1.ph, i64 8
   %80 = load i8, ptr %K.i.i, align 8
   %cmp.i191 = icmp eq i8 %80, 36
   br i1 %cmp.i191, label %if.then.i223, label %if.end5.i192
 
 if.then.i223:                                     ; preds = %if.end112.i
-  %SSK2.i = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialSubstitution", ptr %SoFar.i.1.ph, i64 0, i32 1
+  %SSK2.i = getelementptr inbounds i8, ptr %SoFar.i.1.ph, i64 12
   %81 = load i32, ptr %SSK2.i, align 4
   %.off.i = add i32 %81, -2
   %switch.i = icmp ult i32 %.off.i, 4
@@ -6343,7 +6239,7 @@ if.then.i223:                                     ; preds = %if.end112.i
 
 sw.bb.i:                                          ; preds = %if.then.i223
   %82 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i.i225 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %82, i64 0, i32 1
+  %Current.i.i.i.i225 = getelementptr inbounds i8, ptr %82, i64 8
   %83 = load i64, ptr %Current.i.i.i.i225, align 8
   %84 = add i64 %83, -4064
   %cmp.i.i.i.i226 = icmp ult i64 %84, -4080
@@ -6360,7 +6256,7 @@ if.then.i9.i.i.i.i242:                            ; preds = %if.then.i.i.i.i237
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i240: ; preds = %if.then.i.i.i.i237
   store ptr %82, ptr %call.i6.i.i.i.i238, align 8
-  %Current.i8.i.i.i.i241 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i238, i64 0, i32 1
+  %Current.i8.i.i.i.i241 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i238, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i241, align 8
   store ptr %call.i6.i.i.i.i238, ptr %BlockList.i.i.i.i298, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_27ExpandedSpecialSubstitutionEJRNS0_14SpecialSubKindEEEEPNS0_4NodeEDpOT0_.exit.i
@@ -6368,12 +6264,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i240: ; preds = %if.th
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_27ExpandedSpecialSubstitutionEJRNS0_14SpecialSubKindEEEEPNS0_4NodeEDpOT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i240, %sw.bb.i
   %85 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i240 ], [ %83, %sw.bb.i ]
   %86 = phi ptr [ %call.i6.i.i.i.i238, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i240 ], [ %82, %sw.bb.i ]
-  %Current7.i.i.i.i227 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %86, i64 0, i32 1
+  %Current7.i.i.i.i227 = getelementptr inbounds i8, ptr %86, i64 8
   %add8.i.i.i.i228 = add nsw i64 %85, 16
   store i64 %add8.i.i.i.i228, ptr %Current7.i.i.i.i227, align 8
   %87 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i.i229 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %87, i64 1
-  %Current11.i.i.i.i230 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %87, i64 0, i32 1
+  %add.ptr.i.i.i.i229 = getelementptr inbounds i8, ptr %87, i64 16
+  %Current11.i.i.i.i230 = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load i64, ptr %Current11.i.i.i.i230, align 8
   %add.ptr12.i.i.i.i231 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i229, i64 %88
   %add.ptr13.i.i.i.i232 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i231, i64 -16
@@ -6450,7 +6346,7 @@ if.then31.i:                                      ; preds = %if.end29.i218
 
 if.end36.i219:                                    ; preds = %if.then31.i, %if.end29.i218
   %93 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i70.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %93, i64 0, i32 1
+  %Current.i.i.i70.i = getelementptr inbounds i8, ptr %93, i64 8
   %94 = load i64, ptr %Current.i.i.i70.i, align 8
   %95 = add i64 %94, -4048
   %cmp.i.i.i71.i = icmp ult i64 %95, -4080
@@ -6501,7 +6397,7 @@ if.then64.i:                                      ; preds = %_ZN4llvh16itanium_d
 
 if.end66.i:                                       ; preds = %if.then64.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit133.i
   %97 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i135.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %97, i64 0, i32 1
+  %Current.i.i.i135.i = getelementptr inbounds i8, ptr %97, i64 8
   %98 = load i64, ptr %Current.i.i.i135.i, align 8
   %99 = add i64 %98, -4048
   %cmp.i.i.i136.i = icmp ult i64 %99, -4080
@@ -6524,7 +6420,7 @@ if.then3.i159.sink.split:                         ; preds = %_ZN12_GLOBAL__N_120
   %call.i6.i.i.i151.i.sink1079 = phi ptr [ %call.i6.i.i.i151.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i153.i ], [ %call.i6.i.i.i83.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i ]
   %.sink1066.ph = phi i8 [ 1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i153.i ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i ]
   %sub.i.sink.ph = phi i32 [ %sub61.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i153.i ], [ %sub.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i ]
-  %Current.i8.i.i.i154.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i151.i.sink1079, i64 0, i32 1
+  %Current.i8.i.i.i154.i = getelementptr inbounds i8, ptr %call.i6.i.i.i151.i.sink1079, i64 8
   store i64 0, ptr %Current.i8.i.i.i154.i, align 8
   store ptr %call.i6.i.i.i151.i.sink1079, ptr %BlockList.i.i.i.i298, align 16
   br label %if.then3.i159
@@ -6534,12 +6430,12 @@ if.then3.i159:                                    ; preds = %if.then3.i159.sink.
   %.sink1077 = phi i64 [ %94, %if.end36.i219 ], [ %98, %if.end66.i ], [ 0, %if.then3.i159.sink.split ]
   %.sink1066 = phi i8 [ 0, %if.end36.i219 ], [ 1, %if.end66.i ], [ %.sink1066.ph, %if.then3.i159.sink.split ]
   %sub.i.sink = phi i32 [ %sub.i, %if.end36.i219 ], [ %sub61.i, %if.end66.i ], [ %sub.i.sink.ph, %if.then3.i159.sink.split ]
-  %Current7.i.i.i72.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %.sink1078, i64 0, i32 1
+  %Current7.i.i.i72.i = getelementptr inbounds i8, ptr %.sink1078, i64 8
   %add8.i.i.i73.i = add nsw i64 %.sink1077, 32
   store i64 %add8.i.i.i73.i, ptr %Current7.i.i.i72.i, align 8
   %100 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i74.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %100, i64 1
-  %Current11.i.i.i75.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %100, i64 0, i32 1
+  %add.ptr.i.i.i74.i = getelementptr inbounds i8, ptr %100, i64 16
+  %Current11.i.i.i75.i = getelementptr inbounds i8, ptr %100, i64 8
   %101 = load i64, ptr %Current11.i.i.i75.i, align 8
   %add.ptr12.i.i.i76.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i74.i, i64 %101
   %add.ptr13.i.i.i77.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -32
@@ -6553,7 +6449,7 @@ if.then3.i159:                                    ; preds = %if.then3.i159.sink.
   %Variant.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -4
   store i32 %sub.i.sink, ptr %Variant.i.i.i.i, align 4
   %102 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i.i161 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %102, i64 0, i32 1
+  %Current.i.i.i.i161 = getelementptr inbounds i8, ptr %102, i64 8
   %103 = load i64, ptr %Current.i.i.i.i161, align 8
   %104 = add i64 %103, -4048
   %cmp.i.i.i.i162 = icmp ult i64 %104, -4080
@@ -6570,7 +6466,7 @@ if.then.i9.i.i.i.i188:                            ; preds = %if.then.i.i.i.i183
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i186: ; preds = %if.then.i.i.i.i183
   store ptr %102, ptr %call.i6.i.i.i.i184, align 8
-  %Current.i8.i.i.i.i187 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i184, i64 0, i32 1
+  %Current.i8.i.i.i.i187 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i184, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i187, align 8
   store ptr %call.i6.i.i.i.i184, ptr %BlockList.i.i.i.i298, align 16
   br label %if.end4.i176
@@ -6578,12 +6474,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i186: ; preds = %if.th
 if.end4.i176:                                     ; preds = %if.then3.i159, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i186
   %105 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i186 ], [ %103, %if.then3.i159 ]
   %106 = phi ptr [ %call.i6.i.i.i.i184, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i186 ], [ %102, %if.then3.i159 ]
-  %Current7.i.i.i.i164 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %106, i64 0, i32 1
+  %Current7.i.i.i.i164 = getelementptr inbounds i8, ptr %106, i64 8
   %add8.i.i.i.i165 = add nsw i64 %105, 32
   store i64 %add8.i.i.i.i165, ptr %Current7.i.i.i.i164, align 8
   %107 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i.i166 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %107, i64 1
-  %Current11.i.i.i.i167 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %107, i64 0, i32 1
+  %add.ptr.i.i.i.i166 = getelementptr inbounds i8, ptr %107, i64 16
+  %Current11.i.i.i.i167 = getelementptr inbounds i8, ptr %107, i64 8
   %108 = load i64, ptr %Current11.i.i.i.i167, align 8
   %add.ptr12.i.i.i.i168 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i166, i64 %108
   %add.ptr13.i.i.i.i169 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i168, i64 -32
@@ -6661,7 +6557,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i143
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit155: ; preds = %if.end120.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i143
   %113 = phi ptr [ %add.ptr.i.i144, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i143 ], [ %109, %if.end120.i ]
-  %incdec.ptr.i131 = getelementptr inbounds ptr, ptr %113, i64 1
+  %incdec.ptr.i131 = getelementptr inbounds i8, ptr %113, i64 8
   store ptr %incdec.ptr.i131, ptr %Last.i265, align 16
   store ptr %call117.i, ptr %113, align 8
   br label %while.cond.i.outer.backedge
@@ -6682,7 +6578,7 @@ if.end.i118:                                      ; preds = %if.end122.i
 if.then3.i119:                                    ; preds = %if.end122.i.thread, %if.end.i118
   %call123.i12101212 = phi ptr [ %call123.i, %if.end.i118 ], [ %call123.i1208, %if.end122.i.thread ]
   %114 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %Current.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %114, i64 0, i32 1
+  %Current.i.i.i.i = getelementptr inbounds i8, ptr %114, i64 8
   %115 = load i64, ptr %Current.i.i.i.i, align 8
   %116 = add i64 %115, -4048
   %cmp.i.i.i.i = icmp ult i64 %116, -4080
@@ -6699,7 +6595,7 @@ if.then.i9.i.i.i.i:                               ; preds = %if.then.i.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
   store ptr %114, ptr %call.i6.i.i.i.i, align 8
-  %Current.i8.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i, align 8
   store ptr %call.i6.i.i.i.i, ptr %BlockList.i.i.i.i298, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i
@@ -6707,12 +6603,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10NestedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i, %if.then3.i119
   %117 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %115, %if.then3.i119 ]
   %118 = phi ptr [ %call.i6.i.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %114, %if.then3.i119 ]
-  %Current7.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %118, i64 0, i32 1
+  %Current7.i.i.i.i = getelementptr inbounds i8, ptr %118, i64 8
   %add8.i.i.i.i = add nsw i64 %117, 32
   store i64 %add8.i.i.i.i, ptr %Current7.i.i.i.i, align 8
   %119 = load ptr, ptr %BlockList.i.i.i.i298, align 16
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %119, i64 1
-  %Current11.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %119, i64 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %119, i64 16
+  %Current11.i.i.i.i = getelementptr inbounds i8, ptr %119, i64 8
   %120 = load i64, ptr %Current11.i.i.i.i, align 8
   %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %120
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
@@ -6789,7 +6685,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i104
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit116: ; preds = %if.end126.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i104
   %125 = phi ptr [ %add.ptr.i.i105, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i104 ], [ %121, %if.end126.i ]
-  %incdec.ptr.i92 = getelementptr inbounds ptr, ptr %125, i64 1
+  %incdec.ptr.i92 = getelementptr inbounds i8, ptr %125, i64 8
   store ptr %incdec.ptr.i92, ptr %Last.i265, align 16
   store ptr %SoFar.i.11, ptr %125, align 8
   br label %while.cond.i.outer.backedge
@@ -6803,7 +6699,7 @@ lor.lhs.false129.i:                               ; preds = %land.lhs.true.i578
   br i1 %cmp.i87, label %return, label %if.end133.i
 
 if.end133.i:                                      ; preds = %lor.lhs.false129.i
-  %incdec.ptr.i85 = getelementptr inbounds ptr, ptr %127, i64 -1
+  %incdec.ptr.i85 = getelementptr inbounds i8, ptr %127, i64 -8
   store ptr %incdec.ptr.i85, ptr %Last.i265, align 16
   br label %return
 
@@ -6881,9 +6777,9 @@ if.end30.i:                                       ; preds = %if.end26.i
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split: ; preds = %if.end20.i, %if.end30.i, %if.then7.i
   %137 = phi ptr [ %call10.i39, %if.then7.i ], [ %call27.i, %if.end30.i ], [ %call21.i, %if.end20.i ]
-  %BlockList.i.i.i1080 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i1080 = getelementptr inbounds i8, ptr %this, i64 4848
   %138 = load ptr, ptr %BlockList.i.i.i1080, align 16
-  %Current.i.i.i1081 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %138, i64 0, i32 1
+  %Current.i.i.i1081 = getelementptr inbounds i8, ptr %138, i64 8
   %139 = load i64, ptr %Current.i.i.i1081, align 8
   %140 = add i64 %139, -4048
   %cmp.i.i.i1082 = icmp ult i64 %140, -4080
@@ -6900,7 +6796,7 @@ if.then.i9.i.i.i1098:                             ; preds = %if.then.i.i.i1093
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1096: ; preds = %if.then.i.i.i1093
   store ptr %138, ptr %call.i6.i.i.i1094, align 8
-  %Current.i8.i.i.i1097 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i1094, i64 0, i32 1
+  %Current.i8.i.i.i1097 = getelementptr inbounds i8, ptr %call.i6.i.i.i1094, i64 8
   store i64 0, ptr %Current.i8.i.i.i1097, align 8
   store ptr %call.i6.i.i.i1094, ptr %BlockList.i.i.i1080, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
@@ -6908,12 +6804,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1096: ; preds = %if.the
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1096
   %141 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1096 ], [ %139, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split ]
   %142 = phi ptr [ %call.i6.i.i.i1094, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1096 ], [ %138, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split ]
-  %Current7.i.i.i1083 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %142, i64 0, i32 1
+  %Current7.i.i.i1083 = getelementptr inbounds i8, ptr %142, i64 8
   %add8.i.i.i1084 = add nsw i64 %141, 32
   store i64 %add8.i.i.i1084, ptr %Current7.i.i.i1083, align 8
   %143 = load ptr, ptr %BlockList.i.i.i1080, align 16
-  %add.ptr.i.i.i1085 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %143, i64 1
-  %Current11.i.i.i1086 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %143, i64 0, i32 1
+  %add.ptr.i.i.i1085 = getelementptr inbounds i8, ptr %143, i64 16
+  %Current11.i.i.i1086 = getelementptr inbounds i8, ptr %143, i64 8
   %144 = load i64, ptr %Current11.i.i.i1086, align 8
   %add.ptr12.i.i.i1087 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1085, i64 %144
   %add.ptr13.i.i.i1088 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1087, i64 -32
@@ -6964,7 +6860,7 @@ if.end30:                                         ; preds = %if.end25
   br i1 %cmp26, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end30
-  %EndsWithTemplateArgs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %State, i64 0, i32 1
+  %EndsWithTemplateArgs = getelementptr inbounds i8, ptr %State, i64 1
   store i8 1, ptr %EndsWithTemplateArgs, align 1
   br label %if.end32
 
@@ -6999,9 +6895,9 @@ if.then.i67:                                      ; preds = %_ZNK10StringView10s
   br i1 %cmp.i68, label %return, label %if.end.i69
 
 if.end.i69:                                       ; preds = %if.then.i67
-  %BlockList.i.i.i684 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i684 = getelementptr inbounds i8, ptr %this, i64 4848
   %147 = load ptr, ptr %BlockList.i.i.i684, align 16
-  %Current.i.i.i685 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %147, i64 0, i32 1
+  %Current.i.i.i685 = getelementptr inbounds i8, ptr %147, i64 8
   %148 = load i64, ptr %Current.i.i.i685, align 8
   %149 = add i64 %148, -4048
   %cmp.i.i.i686 = icmp ult i64 %149, -4080
@@ -7018,7 +6914,7 @@ if.then.i9.i.i.i702:                              ; preds = %if.then.i.i.i697
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i700: ; preds = %if.then.i.i.i697
   store ptr %147, ptr %call.i6.i.i.i698, align 8
-  %Current.i8.i.i.i701 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i698, i64 0, i32 1
+  %Current.i8.i.i.i701 = getelementptr inbounds i8, ptr %call.i6.i.i.i698, i64 8
   store i64 0, ptr %Current.i8.i.i.i701, align 8
   store ptr %call.i6.i.i.i698, ptr %BlockList.i.i.i684, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscopedNameEPNS4_9NameStateE.exit.thread893
@@ -7026,12 +6922,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i700: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscopedNameEPNS4_9NameStateE.exit.thread893: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i700, %if.end.i69
   %150 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i700 ], [ %148, %if.end.i69 ]
   %151 = phi ptr [ %call.i6.i.i.i698, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i700 ], [ %147, %if.end.i69 ]
-  %Current7.i.i.i687 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %151, i64 0, i32 1
+  %Current7.i.i.i687 = getelementptr inbounds i8, ptr %151, i64 8
   %add8.i.i.i688 = add nsw i64 %150, 32
   store i64 %add8.i.i.i688, ptr %Current7.i.i.i687, align 8
   %152 = load ptr, ptr %BlockList.i.i.i684, align 16
-  %add.ptr.i.i.i689 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %152, i64 1
-  %Current11.i.i.i690 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %152, i64 0, i32 1
+  %add.ptr.i.i.i689 = getelementptr inbounds i8, ptr %152, i64 16
+  %Current11.i.i.i690 = getelementptr inbounds i8, ptr %152, i64 8
   %153 = load i64, ptr %Current11.i.i.i690, align 8
   %add.ptr12.i.i.i691 = getelementptr inbounds i8, ptr %add.ptr.i.i.i689, i64 %153
   %add.ptr13.i.i.i692 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i691, i64 -32
@@ -7060,10 +6956,10 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit77:
   br i1 %cmp41, label %if.then42, label %return
 
 if.then42:                                        ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit77
-  %Subs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
-  %Last.i78 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
+  %Subs = getelementptr inbounds i8, ptr %this, i64 296
+  %Last.i78 = getelementptr inbounds i8, ptr %this, i64 304
   %155 = load ptr, ptr %Last.i78, align 16
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 2
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 312
   %156 = load ptr, ptr %Cap.i, align 8
   %cmp.i79 = icmp eq ptr %155, %156
   br i1 %cmp.i79, label %if.then.i82, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -7074,7 +6970,7 @@ if.then.i82:                                      ; preds = %if.then42
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %157 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %mul.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 3
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %cmp.i.i.i = icmp eq ptr %157, %Inline.i.i.i
   %mul.i.i = shl i64 %sub.ptr.sub.i.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -7119,7 +7015,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.then42, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %159 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %155, %if.then42 ]
-  %incdec.ptr.i81 = getelementptr inbounds ptr, ptr %159, i64 1
+  %incdec.ptr.i81 = getelementptr inbounds i8, ptr %159, i64 8
   store ptr %incdec.ptr.i81, ptr %Last.i78, align 16
   store ptr %retval.0.i66896, ptr %159, align 8
   %cmp44 = icmp ne ptr %State, null
@@ -7131,14 +7027,14 @@ if.end48:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp44, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %if.end48
-  %EndsWithTemplateArgs51 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db<(anonymous namespace)::DefaultAllocator>::NameState", ptr %State, i64 0, i32 1
+  %EndsWithTemplateArgs51 = getelementptr inbounds i8, ptr %State, i64 1
   store i8 1, ptr %EndsWithTemplateArgs51, align 1
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %if.end48
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %160 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %160, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %160, i64 8
   %161 = load i64, ptr %Current.i.i.i, align 8
   %162 = add i64 %161, -4048
   %cmp.i.i.i83 = icmp ult i64 %162, -4080
@@ -7155,7 +7051,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %160, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
@@ -7163,12 +7059,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %if.end52, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %163 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %161, %if.end52 ]
   %164 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %160, %if.end52 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %164, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %164, i64 8
   %add8.i.i.i = add nsw i64 %163, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %165 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %165, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %165, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %165, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %165, i64 8
   %166 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %166
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -7232,15 +7128,15 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false
 sw.bb4:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %incdec.ptr6 = getelementptr inbounds i8, ptr %this.val5, i64 1
   store ptr %incdec.ptr6, ptr %this, align 16
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i9 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i9 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %Last.i9, align 8
   %7 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i10 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i11 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i10, %sub.ptr.rhs.cast.i11
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %sw.bb4
@@ -7315,7 +7211,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end13, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %15 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %11, %if.end13 ]
-  %incdec.ptr.i23 = getelementptr inbounds ptr, ptr %15, i64 1
+  %incdec.ptr.i23 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %incdec.ptr.i23, ptr %Last.i9, align 8
   store ptr %call10, ptr %15, align 8
   %.pre = load ptr, ptr %this, align 16
@@ -7334,9 +7230,9 @@ while.end:                                        ; preds = %land.lhs.true.i15
   store ptr %add.ptr.i.i25, ptr %Last.i9, align 8
   %19 = extractvalue { ptr, i64 } %call4.i, 0
   %20 = extractvalue { ptr, i64 } %call4.i, 1
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %21 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %21, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %Current.i.i.i, align 8
   %23 = add i64 %22, -4048
   %cmp.i.i.i26 = icmp ult i64 %23, -4080
@@ -7353,7 +7249,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %21, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
@@ -7361,12 +7257,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20TemplateArgumentPackEJRNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %while.end, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %24 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %22, %while.end ]
   %25 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %21, %while.end ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %25, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %add8.i.i.i = add nsw i64 %24, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %26 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %26, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %26, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %26, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %27
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -7428,9 +7324,9 @@ return:                                           ; preds = %while.body, %lor.lh
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12EnableIfAttrEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -7447,7 +7343,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEEPT_DpOT0_.exit
@@ -7455,12 +7351,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12EnableIfAttrEJNS3_9NodeArrayEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -7480,9 +7376,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12EnableIfA
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FunctionEncodingEJRPNS0_4NodeES9_NS0_9NodeArrayES9_RNS0_10QualifiersERNS0_15FunctionRefQualEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args7, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args9) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4016
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -7499,7 +7395,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_NS3_9NodeArrayES7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit
@@ -7507,12 +7403,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle16FunctionEncodingEJRPNS3_4NodeES7_NS3_9NodeArrayES7_RNS3_10QualifiersERNS3_15FunctionRefQualEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 64
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
@@ -7547,9 +7443,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle16FunctionE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA12_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -7566,7 +7462,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -7574,12 +7470,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA12_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -7599,9 +7495,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA9_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -7618,7 +7514,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -7626,12 +7522,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA9_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -7651,9 +7547,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA14_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -7670,7 +7566,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -7678,12 +7574,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA14_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -7703,9 +7599,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA19_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -7722,7 +7618,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -7730,12 +7626,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA19_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -7756,7 +7652,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
 define internal fastcc noundef zeroext i1 @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE15parseCallOffsetEv(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
@@ -7947,9 +7843,9 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA27_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -7966,7 +7862,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -7974,12 +7870,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA27_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -7999,9 +7895,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21CtorVtableSpecialNameEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -8018,7 +7914,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
@@ -8026,12 +7922,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle21CtorVtableSpecialNameEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -8050,9 +7946,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle21CtorVtabl
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA41_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -8069,7 +7965,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -8077,12 +7973,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA41_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -8102,9 +7998,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA18_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -8121,7 +8017,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -8129,12 +8025,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA18_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -8154,9 +8050,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11SpecialNameEJRA22_KcRPNS0_4NodeEEEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -8173,7 +8069,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -8181,12 +8077,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNameEJRA22_KcRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -8230,9 +8126,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle11SpecialName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Special = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialName", ptr %this, i64 0, i32 1
+  %Special = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Special, align 8
-  %agg.tmp.sroa.2.0.Special.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialName", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.Special.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Special.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -8241,10 +8137,10 @@ entry:
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -8278,20 +8174,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %_ZN12OutputStreampLE10StringView.exit
 
 _ZN12OutputStreampLE10StringView.exit:            ; preds = %entry, %_ZN12OutputStream4growEm.exit.i
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialName", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %Child, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStreampLE10StringView.exit
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -8328,10 +8224,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle21CtorVtableSpecialName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 24
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -8362,20 +8258,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 24
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %FirstType = getelementptr inbounds %"class.llvh::itanium_demangle::CtorVtableSpecialName", ptr %this, i64 0, i32 1
+  %FirstType = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %FirstType, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %if.end.i13, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i13
@@ -8413,20 +8309,20 @@ _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12Outp
   %13 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i28 = add i64 %13, 4
   store i64 %add.i28, ptr %CurrentPosition.i.i, align 8
-  %SecondType = getelementptr inbounds %"class.llvh::itanium_demangle::CtorVtableSpecialName", ptr %this, i64 0, i32 2
+  %SecondType = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %SecondType, align 8
   %vtable.i31 = load ptr, ptr %14, align 8
-  %vfn.i32 = getelementptr inbounds ptr, ptr %vtable.i31, i64 4
+  %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 32
   %15 = load ptr, ptr %vfn.i32, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i33 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %14, i64 0, i32 2
+  %RHSComponentCache.i33 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i33, align 1
   %cmp.not.i34 = icmp eq i8 %16, 1
   br i1 %cmp.not.i34, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit39, label %if.then.i35
 
 if.then.i35:                                      ; preds = %_ZN12OutputStream4growEm.exit.i26
   %vtable2.i36 = load ptr, ptr %14, align 8
-  %vfn3.i37 = getelementptr inbounds ptr, ptr %vtable2.i36, i64 5
+  %vfn3.i37 = getelementptr inbounds i8, ptr %vtable2.i36, i64 40
   %17 = load ptr, ptr %vfn3.i37, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit39
@@ -8452,7 +8348,7 @@ entry:
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseSubstitutionEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
@@ -8488,9 +8384,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15:
 sw.bb:                                            ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %4 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %Current.i.i.i, align 8
   %6 = add i64 %5, -4064
   %cmp.i.i.i = icmp ult i64 %6, -4080
@@ -8507,7 +8403,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %4, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %if.end35
@@ -8515,9 +8411,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 sw.bb8:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15
   %incdec.ptr10 = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr10, ptr %this, align 16
-  %BlockList.i.i.i16 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 4848
   %7 = load ptr, ptr %BlockList.i.i.i16, align 16
-  %Current.i.i.i17 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current.i.i.i17 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %Current.i.i.i17, align 8
   %9 = add i64 %8, -4064
   %cmp.i.i.i18 = icmp ult i64 %9, -4080
@@ -8534,7 +8430,7 @@ if.then.i9.i.i.i35:                               ; preds = %if.then.i.i.i30
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33: ; preds = %if.then.i.i.i30
   store ptr %7, ptr %call.i6.i.i.i31, align 8
-  %Current.i8.i.i.i34 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i31, i64 0, i32 1
+  %Current.i8.i.i.i34 = getelementptr inbounds i8, ptr %call.i6.i.i.i31, i64 8
   store i64 0, ptr %Current.i8.i.i.i34, align 8
   store ptr %call.i6.i.i.i31, ptr %BlockList.i.i.i16, align 16
   br label %if.end35
@@ -8542,9 +8438,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33: ; preds = %if.then.
 sw.bb13:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15
   %incdec.ptr15 = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr15, ptr %this, align 16
-  %BlockList.i.i.i37 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 4848
   %10 = load ptr, ptr %BlockList.i.i.i37, align 16
-  %Current.i.i.i38 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %10, i64 0, i32 1
+  %Current.i.i.i38 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %Current.i.i.i38, align 8
   %12 = add i64 %11, -4064
   %cmp.i.i.i39 = icmp ult i64 %12, -4080
@@ -8561,7 +8457,7 @@ if.then.i9.i.i.i56:                               ; preds = %if.then.i.i.i51
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54: ; preds = %if.then.i.i.i51
   store ptr %10, ptr %call.i6.i.i.i52, align 8
-  %Current.i8.i.i.i55 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i52, i64 0, i32 1
+  %Current.i8.i.i.i55 = getelementptr inbounds i8, ptr %call.i6.i.i.i52, i64 8
   store i64 0, ptr %Current.i8.i.i.i55, align 8
   store ptr %call.i6.i.i.i52, ptr %BlockList.i.i.i37, align 16
   br label %if.end35
@@ -8569,9 +8465,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54: ; preds = %if.then.
 sw.bb18:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15
   %incdec.ptr20 = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr20, ptr %this, align 16
-  %BlockList.i.i.i58 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i58 = getelementptr inbounds i8, ptr %this, i64 4848
   %13 = load ptr, ptr %BlockList.i.i.i58, align 16
-  %Current.i.i.i59 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %13, i64 0, i32 1
+  %Current.i.i.i59 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %Current.i.i.i59, align 8
   %15 = add i64 %14, -4064
   %cmp.i.i.i60 = icmp ult i64 %15, -4080
@@ -8588,7 +8484,7 @@ if.then.i9.i.i.i77:                               ; preds = %if.then.i.i.i72
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75: ; preds = %if.then.i.i.i72
   store ptr %13, ptr %call.i6.i.i.i73, align 8
-  %Current.i8.i.i.i76 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i73, i64 0, i32 1
+  %Current.i8.i.i.i76 = getelementptr inbounds i8, ptr %call.i6.i.i.i73, i64 8
   store i64 0, ptr %Current.i8.i.i.i76, align 8
   store ptr %call.i6.i.i.i73, ptr %BlockList.i.i.i58, align 16
   br label %if.end35
@@ -8596,9 +8492,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75: ; preds = %if.then.
 sw.bb23:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15
   %incdec.ptr25 = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr25, ptr %this, align 16
-  %BlockList.i.i.i79 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 4848
   %16 = load ptr, ptr %BlockList.i.i.i79, align 16
-  %Current.i.i.i80 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 0, i32 1
+  %Current.i.i.i80 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %Current.i.i.i80, align 8
   %18 = add i64 %17, -4064
   %cmp.i.i.i81 = icmp ult i64 %18, -4080
@@ -8615,7 +8511,7 @@ if.then.i9.i.i.i98:                               ; preds = %if.then.i.i.i93
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96: ; preds = %if.then.i.i.i93
   store ptr %16, ptr %call.i6.i.i.i94, align 8
-  %Current.i8.i.i.i97 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i94, i64 0, i32 1
+  %Current.i8.i.i.i97 = getelementptr inbounds i8, ptr %call.i6.i.i.i94, i64 8
   store i64 0, ptr %Current.i8.i.i.i97, align 8
   store ptr %call.i6.i.i.i94, ptr %BlockList.i.i.i79, align 16
   br label %if.end35
@@ -8623,9 +8519,9 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96: ; preds = %if.then.
 sw.bb28:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit15
   %incdec.ptr30 = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr30, ptr %this, align 16
-  %BlockList.i.i.i100 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i100 = getelementptr inbounds i8, ptr %this, i64 4848
   %19 = load ptr, ptr %BlockList.i.i.i100, align 16
-  %Current.i.i.i101 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 0, i32 1
+  %Current.i.i.i101 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %Current.i.i.i101, align 8
   %21 = add i64 %20, -4064
   %cmp.i.i.i102 = icmp ult i64 %21, -4080
@@ -8642,7 +8538,7 @@ if.then.i9.i.i.i119:                              ; preds = %if.then.i.i.i114
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117: ; preds = %if.then.i.i.i114
   store ptr %19, ptr %call.i6.i.i.i115, align 8
-  %Current.i8.i.i.i118 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i115, i64 0, i32 1
+  %Current.i8.i.i.i118 = getelementptr inbounds i8, ptr %call.i6.i.i.i115, i64 8
   store i64 0, ptr %Current.i8.i.i.i118, align 8
   store ptr %call.i6.i.i.i115, ptr %BlockList.i.i.i100, align 16
   br label %if.end35
@@ -8652,12 +8548,12 @@ if.end35:                                         ; preds = %_ZN12_GLOBAL__N_120
   %.sink179 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %5, %sw.bb ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %8, %sw.bb8 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %11, %sw.bb13 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ %14, %sw.bb18 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ %17, %sw.bb23 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ %20, %sw.bb28 ]
   %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %sw.bb ], [ %BlockList.i.i.i16, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %BlockList.i.i.i16, %sw.bb8 ], [ %BlockList.i.i.i37, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %BlockList.i.i.i37, %sw.bb13 ], [ %BlockList.i.i.i58, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ %BlockList.i.i.i58, %sw.bb18 ], [ %BlockList.i.i.i79, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ %BlockList.i.i.i79, %sw.bb23 ], [ %BlockList.i.i.i100, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ %BlockList.i.i.i100, %sw.bb28 ]
   %.sink = phi i32 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ 0, %sw.bb ], [ 1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ 1, %sw.bb8 ], [ 2, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ 2, %sw.bb13 ], [ 3, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ 3, %sw.bb18 ], [ 4, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ 4, %sw.bb23 ], [ 5, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ 5, %sw.bb28 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %.sink180, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink180, i64 8
   %add8.i.i.i = add nsw i64 %.sink179, 16
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %22 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %23
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
@@ -8671,10 +8567,10 @@ if.end35:                                         ; preds = %_ZN12_GLOBAL__N_120
   br i1 %cmp.not, label %return, label %if.then37
 
 if.then37:                                        ; preds = %if.end35
-  %Subs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
-  %Last.i121 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
+  %Subs = getelementptr inbounds i8, ptr %this, i64 296
+  %Last.i121 = getelementptr inbounds i8, ptr %this, i64 304
   %24 = load ptr, ptr %Last.i121, align 16
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 2
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 312
   %25 = load ptr, ptr %Cap.i, align 8
   %cmp.i = icmp eq ptr %24, %25
   br i1 %cmp.i, label %if.then.i124, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -8685,7 +8581,7 @@ if.then.i124:                                     ; preds = %if.then37
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %mul.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 3
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %cmp.i.i.i125 = icmp eq ptr %26, %Inline.i.i.i
   %mul.i.i = shl i64 %sub.ptr.sub.i.i, 1
   br i1 %cmp.i.i.i125, label %if.then.i.i, label %if.else.i.i
@@ -8730,7 +8626,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.then37, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %28 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %24, %if.then37 ]
-  %incdec.ptr.i123 = getelementptr inbounds ptr, ptr %28, i64 1
+  %incdec.ptr.i123 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %incdec.ptr.i123, ptr %Last.i121, align 16
   store ptr %call36, ptr %28, align 8
   br label %return
@@ -8743,9 +8639,9 @@ land.lhs.true.i128:                               ; preds = %_ZN4llvh16itanium_d
 if.then41:                                        ; preds = %land.lhs.true.i128
   %incdec.ptr.i132 = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr.i132, ptr %this, align 16
-  %Subs42 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
+  %Subs42 = getelementptr inbounds i8, ptr %this, i64 296
   %30 = load ptr, ptr %Subs42, align 8
-  %Last.i134 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
+  %Last.i134 = getelementptr inbounds i8, ptr %this, i64 304
   %31 = load ptr, ptr %Last.i134, align 16
   %cmp.i135 = icmp eq ptr %30, %31
   br i1 %cmp.i135, label %return, label %if.end45
@@ -8806,8 +8702,8 @@ land.lhs.true.i142:                               ; preds = %if.end51
 lor.lhs.false:                                    ; preds = %land.lhs.true.i142
   %incdec.ptr.i146 = getelementptr inbounds i8, ptr %this.val1499101.i, i64 1
   store ptr %incdec.ptr.i146, ptr %this, align 16
-  %Subs53 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
-  %Last.i148 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
+  %Subs53 = getelementptr inbounds i8, ptr %this, i64 296
+  %Last.i148 = getelementptr inbounds i8, ptr %this, i64 304
   %38 = load ptr, ptr %Last.i148, align 16
   %39 = load ptr, ptr %Subs53, align 8
   %sub.ptr.lhs.cast.i149 = ptrtoint ptr %38 to i64
@@ -8832,7 +8728,7 @@ define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_
 entry:
   %OldParams = alloca %"class.llvh::itanium_demangle::PODSmallVector.0", align 8
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
@@ -8848,42 +8744,42 @@ if.end:                                           ; preds = %land.lhs.true.i
   br i1 %TagTemplates, label %while.cond.us.preheader, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i3 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i3 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %Last.i3, align 8
   %4 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %Cap.i76 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i85 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %Cap.i76 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i85 = getelementptr inbounds i8, ptr %this, i64 40
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   br label %while.cond
 
 while.cond.us.preheader:                          ; preds = %if.end
-  %TemplateParams = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4
+  %TemplateParams = getelementptr inbounds i8, ptr %this, i64 576
   %5 = load ptr, ptr %TemplateParams, align 16
-  %Last.i2 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4, i32 1
+  %Last.i2 = getelementptr inbounds i8, ptr %this, i64 584
   store ptr %5, ptr %Last.i2, align 8
-  %Names157 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i3158 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names157 = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i3158 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %Last.i3158, align 8
   %7 = load ptr, ptr %Names157, align 16
   %sub.ptr.lhs.cast.i159 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i160 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i161 = sub i64 %sub.ptr.lhs.cast.i159, %sub.ptr.rhs.cast.i160
-  %Cap.i76162 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i85163 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
-  %TemplateParams8164 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4
-  %Inline.i.i165 = getelementptr inbounds %"class.llvh::itanium_demangle::PODSmallVector.0", ptr %OldParams, i64 0, i32 3
-  %Last.i.i166 = getelementptr inbounds %"class.llvh::itanium_demangle::PODSmallVector.0", ptr %OldParams, i64 0, i32 1
-  %Cap.i.i167 = getelementptr inbounds %"class.llvh::itanium_demangle::PODSmallVector.0", ptr %OldParams, i64 0, i32 2
-  %add.ptr.i.i168 = getelementptr inbounds %"class.llvh::itanium_demangle::PODSmallVector.0", ptr %OldParams, i64 1
-  %Inline.i9.i169 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4, i32 3
-  %Last9.i170 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4, i32 1
-  %Cap.i171 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4, i32 2
-  %add.ptr.i15.i172 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 5
-  %BlockList.i.i.i173 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %Cap.i76162 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i85163 = getelementptr inbounds i8, ptr %this, i64 40
+  %TemplateParams8164 = getelementptr inbounds i8, ptr %this, i64 576
+  %Inline.i.i165 = getelementptr inbounds i8, ptr %OldParams, i64 24
+  %Last.i.i166 = getelementptr inbounds i8, ptr %OldParams, i64 8
+  %Cap.i.i167 = getelementptr inbounds i8, ptr %OldParams, i64 16
+  %add.ptr.i.i168 = getelementptr inbounds i8, ptr %OldParams, i64 88
+  %Inline.i9.i169 = getelementptr inbounds i8, ptr %this, i64 600
+  %Last9.i170 = getelementptr inbounds i8, ptr %this, i64 584
+  %Cap.i171 = getelementptr inbounds i8, ptr %this, i64 592
+  %add.ptr.i15.i172 = getelementptr inbounds i8, ptr %this, i64 664
+  %BlockList.i.i.i173 = getelementptr inbounds i8, ptr %this, i64 4848
   %sub.ptr.rhs.cast.i.i.i.i.i.i.us = ptrtoint ptr %Inline.i9.i169 to i64
   br label %while.cond.us
 
@@ -9045,21 +8941,21 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us, %if.end13.us
   %26 = phi ptr [ %add.ptr.i.i41.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us ], [ %22, %if.end13.us ]
-  %incdec.ptr.i36.us = getelementptr inbounds ptr, ptr %26, i64 1
+  %incdec.ptr.i36.us = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %incdec.ptr.i36.us, ptr %Last.i3158, align 8
   store ptr %call9.us, ptr %26, align 8
-  %K.i.us = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call9.us, i64 0, i32 1
+  %K.i.us = getelementptr inbounds i8, ptr %call9.us, i64 8
   %27 = load i8, ptr %K.i.us, align 8
   %cmp16.us = icmp eq i8 %27, 28
   br i1 %cmp16.us, label %if.then17.us, label %if.end23.us
 
 if.then17.us:                                     ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us
-  %Elements.i.us = getelementptr inbounds %"class.llvh::itanium_demangle::TemplateArgumentPack", ptr %call9.us, i64 0, i32 1
+  %Elements.i.us = getelementptr inbounds i8, ptr %call9.us, i64 16
   %retval.sroa.0.0.copyload.i.us = load ptr, ptr %Elements.i.us, align 8
-  %retval.sroa.2.0.Elements.sroa_idx.i.us = getelementptr inbounds %"class.llvh::itanium_demangle::TemplateArgumentPack", ptr %call9.us, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.Elements.sroa_idx.i.us = getelementptr inbounds i8, ptr %call9.us, i64 24
   %retval.sroa.2.0.copyload.i.us = load i64, ptr %retval.sroa.2.0.Elements.sroa_idx.i.us, align 8
   %28 = load ptr, ptr %BlockList.i.i.i173, align 16
-  %Current.i.i.i.us = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %28, i64 0, i32 1
+  %Current.i.i.i.us = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i64, ptr %Current.i.i.i.us, align 8
   %30 = add i64 %29, -4048
   %cmp.i.i.i43.us = icmp ult i64 %30, -4080
@@ -9072,7 +8968,7 @@ if.then.i.i.i.us:                                 ; preds = %if.then17.us
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us: ; preds = %if.then.i.i.i.us
   store ptr %28, ptr %call.i6.i.i.i.us, align 8
-  %Current.i8.i.i.i.us = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.us, i64 0, i32 1
+  %Current.i8.i.i.i.us = getelementptr inbounds i8, ptr %call.i6.i.i.i.us, i64 8
   store i64 0, ptr %Current.i8.i.i.i.us, align 8
   store ptr %call.i6.i.i.i.us, ptr %BlockList.i.i.i173, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us
@@ -9080,12 +8976,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ParameterPackEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit.us: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us, %if.then17.us
   %31 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us ], [ %29, %if.then17.us ]
   %32 = phi ptr [ %call.i6.i.i.i.us, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.us ], [ %28, %if.then17.us ]
-  %Current7.i.i.i.us = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 0, i32 1
+  %Current7.i.i.i.us = getelementptr inbounds i8, ptr %32, i64 8
   %add8.i.i.i.us = add nsw i64 %31, 32
   store i64 %add8.i.i.i.us, ptr %Current7.i.i.i.us, align 8
   %33 = load ptr, ptr %BlockList.i.i.i173, align 16
-  %add.ptr.i.i.i.us = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %33, i64 1
-  %Current11.i.i.i.us = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %33, i64 0, i32 1
+  %add.ptr.i.i.i.us = getelementptr inbounds i8, ptr %33, i64 16
+  %Current11.i.i.i.us = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load i64, ptr %Current11.i.i.i.us, align 8
   %add.ptr12.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.us, i64 %34
   %add.ptr13.i.i.i.us = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.us, i64 -32
@@ -9141,7 +9037,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us:
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us: ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us, %if.end23.us
   %39 = phi ptr [ %add.ptr.i.i60.us, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us ], [ %35, %if.end23.us ]
-  %incdec.ptr.i48.us = getelementptr inbounds ptr, ptr %39, i64 1
+  %incdec.ptr.i48.us = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %incdec.ptr.i48.us, ptr %Last9.i170, align 8
   store ptr %TableEntry.0.us, ptr %39, align 8
   %.pre152 = load ptr, ptr %OldParams, align 8
@@ -9251,7 +9147,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91:
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit103: ; preds = %if.end29, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91
   %48 = phi ptr [ %add.ptr.i.i92, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i91 ], [ %44, %if.end29 ]
-  %incdec.ptr.i79 = getelementptr inbounds ptr, ptr %48, i64 1
+  %incdec.ptr.i79 = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %incdec.ptr.i79, ptr %Last.i3, align 8
   store ptr %call26, ptr %48, align 8
   %.pre = load ptr, ptr %this, align 16
@@ -9276,7 +9172,7 @@ while.end:                                        ; preds = %land.lhs.true.i6, %
   %52 = extractvalue { ptr, i64 } %call4.i, 0
   %53 = extractvalue { ptr, i64 } %call4.i, 1
   %54 = load ptr, ptr %BlockList.i.i.i192, align 16
-  %Current.i.i.i108 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %54, i64 0, i32 1
+  %Current.i.i.i108 = getelementptr inbounds i8, ptr %54, i64 8
   %55 = load i64, ptr %Current.i.i.i108, align 8
   %56 = add i64 %55, -4048
   %cmp.i.i.i109 = icmp ult i64 %56, -4080
@@ -9293,7 +9189,7 @@ if.then.i9.i.i.i124:                              ; preds = %if.then.i.i.i119
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122: ; preds = %if.then.i.i.i119
   store ptr %54, ptr %call.i6.i.i.i120, align 8
-  %Current.i8.i.i.i123 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i120, i64 0, i32 1
+  %Current.i8.i.i.i123 = getelementptr inbounds i8, ptr %call.i6.i.i.i120, i64 8
   store i64 0, ptr %Current.i8.i.i.i123, align 8
   store ptr %call.i6.i.i.i120, ptr %BlockList.i.i.i192, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12TemplateArgsEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
@@ -9301,12 +9197,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12TemplateArgsEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %while.end, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122
   %57 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122 ], [ %55, %while.end ]
   %58 = phi ptr [ %call.i6.i.i.i120, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i122 ], [ %54, %while.end ]
-  %Current7.i.i.i110 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %58, i64 0, i32 1
+  %Current7.i.i.i110 = getelementptr inbounds i8, ptr %58, i64 8
   %add8.i.i.i111 = add nsw i64 %57, 32
   store i64 %add8.i.i.i111, ptr %Current7.i.i.i110, align 8
   %59 = load ptr, ptr %BlockList.i.i.i192, align 16
-  %add.ptr.i.i.i112 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %59, i64 1
-  %Current11.i.i.i113 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %59, i64 0, i32 1
+  %add.ptr.i.i.i112 = getelementptr inbounds i8, ptr %59, i64 16
+  %Current11.i.i.i113 = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i64, ptr %Current11.i.i.i113, align 8
   %add.ptr12.i.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i.i.i112, i64 %60
   %add.ptr13.i.i.i115 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -32
@@ -9327,9 +9223,9 @@ return:                                           ; preds = %while.body, %_ZN4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -9346,7 +9242,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
@@ -9354,12 +9250,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20NameWithTemplateArgsEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -9379,7 +9275,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20NameWithT
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseTemplateParamEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
@@ -9457,16 +9353,16 @@ if.end10:                                         ; preds = %_ZN4llvh16itanium_d
   %storemerge = phi ptr [ %incdec.ptr.i9, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit10 ], [ %incdec.ptr.i18, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit19 ]
   %Index.2 = phi i64 [ 0, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit10 ], [ %10, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit19 ]
   store ptr %storemerge, ptr %this, align 16
-  %ParsingLambdaParams = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 10
+  %ParsingLambdaParams = getelementptr inbounds i8, ptr %this, i64 738
   %12 = load i8, ptr %ParsingLambdaParams, align 2
   %13 = and i8 %12, 1
   %tobool.not = icmp eq i8 %13, 0
   br i1 %tobool.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end10
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %14 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %14, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i64, ptr %Current.i.i.i, align 8
   %16 = add i64 %15, -4048
   %cmp.i.i.i = icmp ult i64 %16, -4080
@@ -9483,7 +9379,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %14, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -9491,12 +9387,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.then11, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %17 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %15, %if.then11 ]
   %18 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %14, %if.then11 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %18, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %add8.i.i.i = add nsw i64 %17, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %19 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %20
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -9510,16 +9406,16 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %PermitForwardTemplateReferences = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 9
+  %PermitForwardTemplateReferences = getelementptr inbounds i8, ptr %this, i64 737
   %21 = load i8, ptr %PermitForwardTemplateReferences, align 1
   %22 = and i8 %21, 1
   %tobool14.not = icmp eq i8 %22, 0
   br i1 %tobool14.not, label %if.end20, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %BlockList.i.i.i20 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 4848
   %23 = load ptr, ptr %BlockList.i.i.i20, align 16
-  %Current.i.i.i21 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 0, i32 1
+  %Current.i.i.i21 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %Current.i.i.i21, align 8
   %25 = add i64 %24, -4032
   %cmp.i.i.i22 = icmp ult i64 %25, -4080
@@ -9536,7 +9432,7 @@ if.then.i9.i.i.i38:                               ; preds = %if.then.i.i.i33
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i36: ; preds = %if.then.i.i.i33
   store ptr %23, ptr %call.i6.i.i.i34, align 8
-  %Current.i8.i.i.i37 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i34, i64 0, i32 1
+  %Current.i8.i.i.i37 = getelementptr inbounds i8, ptr %call.i6.i.i.i34, i64 8
   store i64 0, ptr %Current.i8.i.i.i37, align 8
   store ptr %call.i6.i.i.i34, ptr %BlockList.i.i.i20, align 16
   br label %if.end19
@@ -9544,12 +9440,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i36: ; preds = %if.then.
 if.end19:                                         ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i36, %if.then15
   %26 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i36 ], [ %24, %if.then15 ]
   %27 = phi ptr [ %call.i6.i.i.i34, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i36 ], [ %23, %if.then15 ]
-  %Current7.i.i.i23 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %27, i64 0, i32 1
+  %Current7.i.i.i23 = getelementptr inbounds i8, ptr %27, i64 8
   %add8.i.i.i24 = add nsw i64 %26, 48
   store i64 %add8.i.i.i24, ptr %Current7.i.i.i23, align 8
   %28 = load ptr, ptr %BlockList.i.i.i20, align 16
-  %add.ptr.i.i.i25 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %28, i64 1
-  %Current11.i.i.i26 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %28, i64 0, i32 1
+  %add.ptr.i.i.i25 = getelementptr inbounds i8, ptr %28, i64 16
+  %Current11.i.i.i26 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i64, ptr %Current11.i.i.i26, align 8
   %add.ptr12.i.i.i27 = getelementptr inbounds i8, ptr %add.ptr.i.i.i25, i64 %29
   %add.ptr13.i.i.i28 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -48
@@ -9562,10 +9458,10 @@ if.end19:                                         ; preds = %_ZN12_GLOBAL__N_120
   store ptr null, ptr %Ref.i.i.i, align 8
   %Printing.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -16
   store i8 0, ptr %Printing.i.i.i, align 8
-  %ForwardTemplateRefs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 5
-  %Last.i39 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 5, i32 1
+  %ForwardTemplateRefs = getelementptr inbounds i8, ptr %this, i64 664
+  %Last.i39 = getelementptr inbounds i8, ptr %this, i64 672
   %30 = load ptr, ptr %Last.i39, align 16
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 5, i32 2
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 680
   %31 = load ptr, ptr %Cap.i, align 8
   %cmp.i = icmp eq ptr %30, %31
   br i1 %cmp.i, label %if.then.i41, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE9push_backERKS3_.exit
@@ -9576,7 +9472,7 @@ if.then.i41:                                      ; preds = %if.end19
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %mul.i42 = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 5, i32 3
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 688
   %cmp.i.i.i43 = icmp eq ptr %32, %Inline.i.i.i
   %mul.i.i = shl i64 %sub.ptr.sub.i.i, 1
   br i1 %cmp.i.i.i43, label %if.then.i.i, label %if.else.i.i
@@ -9621,14 +9517,14 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE9push_backERKS3_.exit: ; preds = %if.end19, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i
   %34 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i ], [ %30, %if.end19 ]
-  %incdec.ptr.i40 = getelementptr inbounds ptr, ptr %34, i64 1
+  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %incdec.ptr.i40, ptr %Last.i39, align 16
   store ptr %add.ptr13.i.i.i28, ptr %34, align 8
   br label %return
 
 if.end20:                                         ; preds = %if.end13
-  %TemplateParams = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4
-  %Last.i44 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 4, i32 1
+  %TemplateParams = getelementptr inbounds i8, ptr %this, i64 576
+  %Last.i44 = getelementptr inbounds i8, ptr %this, i64 584
   %35 = load ptr, ptr %Last.i44, align 8
   %36 = load ptr, ptr %TemplateParams, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %35 to i64
@@ -9652,7 +9548,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13parseDecltypeEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
@@ -9699,9 +9595,9 @@ land.lhs.true.i19:                                ; preds = %if.end8
 if.end11:                                         ; preds = %land.lhs.true.i19
   %incdec.ptr.i23 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %incdec.ptr.i23, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %8 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %Current.i.i.i, align 8
   %10 = add i64 %9, -4016
   %cmp.i.i.i = icmp ult i64 %10, -4080
@@ -9718,7 +9614,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %8, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_.exit
@@ -9726,12 +9622,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_.exit: ; preds = %if.end11, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %11 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %9, %if.end11 ]
   %12 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %8, %if.end11 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %add8.i.i.i = add nsw i64 %11, 64
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %13 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %13, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %13, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %14
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
@@ -9758,14 +9654,14 @@ return:                                           ; preds = %if.end, %if.end8, %
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE12parseAbiTagsEPNS0_4NodeE(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %N) unnamed_addr #1 align 2 {
 entry:
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 16
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i10 = icmp eq ptr %0, %1
   br i1 %cmp.not.i10, label %return, label %land.lhs.true.i.lr.ph
 
 land.lhs.true.i.lr.ph:                            ; preds = %entry
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true.i.lr.ph, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10AbiTagAttrEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit
@@ -9824,7 +9720,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseBareSour
 
 if.end:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseBareSourceNameEv.exit
   %9 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %9, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %Current.i.i.i, align 8
   %11 = add i64 %10, -4032
   %cmp.i.i.i = icmp ult i64 %11, -4080
@@ -9841,7 +9737,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %9, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10AbiTagAttrEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit
@@ -9849,20 +9745,20 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10AbiTagAttrEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit: ; preds = %if.end, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %12 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %10, %if.end ]
   %13 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %9, %if.end ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %13, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %add8.i.i.i = add nsw i64 %12, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %14 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %14, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %14, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %15
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
-  %RHSComponentCache.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %N.addr.011, i64 0, i32 2
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %N.addr.011, i64 9
   %16 = load i8, ptr %RHSComponentCache.i.i.i, align 1
-  %ArrayCache.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %N.addr.011, i64 0, i32 3
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %N.addr.011, i64 10
   %17 = load i8, ptr %ArrayCache.i.i.i, align 2
-  %FunctionCache.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %N.addr.011, i64 0, i32 4
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %N.addr.011, i64 11
   %18 = load i8, ptr %FunctionCache.i.i.i, align 1
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store i8 8, ptr %K.i.i.i.i, align 8
@@ -9957,9 +9853,9 @@ land.lhs.true.i201:                               ; preds = %_ZN4llvh16itanium_d
 if.end.i12:                                       ; preds = %land.lhs.true.i201
   %incdec.ptr.i205 = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr.i205, ptr %this, align 16
-  %BlockList.i.i.i175 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i175 = getelementptr inbounds i8, ptr %this, i64 4848
   %6 = load ptr, ptr %BlockList.i.i.i175, align 16
-  %Current.i.i.i176 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %6, i64 0, i32 1
+  %Current.i.i.i176 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %Current.i.i.i176, align 8
   %8 = add i64 %7, -4048
   %cmp.i.i.i177 = icmp ult i64 %8, -4080
@@ -9976,7 +9872,7 @@ if.then.i9.i.i.i198:                              ; preds = %if.then.i.i.i193
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i196: ; preds = %if.then.i.i.i193
   store ptr %6, ptr %call.i6.i.i.i194, align 8
-  %Current.i8.i.i.i197 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i194, i64 0, i32 1
+  %Current.i8.i.i.i197 = getelementptr inbounds i8, ptr %call.i6.i.i.i194, i64 8
   store i64 0, ptr %Current.i8.i.i.i197, align 8
   store ptr %call.i6.i.i.i194, ptr %BlockList.i.i.i175, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15UnnamedTypeNameEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit
@@ -9984,12 +9880,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i196: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15UnnamedTypeNameEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.end.i12, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i196
   %9 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i196 ], [ %7, %if.end.i12 ]
   %10 = phi ptr [ %call.i6.i.i.i194, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i196 ], [ %6, %if.end.i12 ]
-  %Current7.i.i.i178 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %10, i64 0, i32 1
+  %Current7.i.i.i178 = getelementptr inbounds i8, ptr %10, i64 8
   %add8.i.i.i179 = add nsw i64 %9, 32
   store i64 %add8.i.i.i179, ptr %Current7.i.i.i178, align 8
   %11 = load ptr, ptr %BlockList.i.i.i175, align 16
-  %add.ptr.i.i.i180 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 1
-  %Current11.i.i.i181 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 0, i32 1
+  %add.ptr.i.i.i180 = getelementptr inbounds i8, ptr %11, i64 16
+  %Current11.i.i.i181 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %Current11.i.i.i181, align 8
   %add.ptr12.i.i.i182 = getelementptr inbounds i8, ptr %add.ptr.i.i.i180, i64 %12
   %add.ptr13.i.i.i183 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i182, i64 -32
@@ -10010,7 +9906,7 @@ _ZNK10StringView10startsWithES_.exit.i165:        ; preds = %_ZNK10StringView10s
 if.then9.i:                                       ; preds = %_ZNK10StringView10startsWithES_.exit.i165
   %add.ptr.i170 = getelementptr inbounds i8, ptr %this.val9, i64 2
   store ptr %add.ptr.i170, ptr %this, align 16
-  %ParsingLambdaParams.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 10
+  %ParsingLambdaParams.i = getelementptr inbounds i8, ptr %this, i64 738
   %13 = load i8, ptr %ParsingLambdaParams.i, align 2
   %14 = and i8 %13, 1
   store i8 1, ptr %ParsingLambdaParams.i, align 2
@@ -10030,8 +9926,8 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfE10St
   br label %if.end20.i
 
 if.then12.i:                                      ; preds = %_ZNK10StringView10startsWithES_.exit.i143, %if.then9.i
-  %Names.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i128 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i128 = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %Last.i128, align 8
   %16 = load ptr, ptr %Names.i, align 16
   %sub.ptr.lhs.cast.i129 = ptrtoint ptr %15 to i64
@@ -10042,8 +9938,8 @@ if.then12.i:                                      ; preds = %_ZNK10StringView10s
   br i1 %cmp.i268, label %_ZN14SwapAndRestoreIbED2Ev.exit, label %if.end16.i.lr.ph
 
 if.end16.i.lr.ph:                                 ; preds = %if.then12.i
-  %Cap.i100 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i109 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i100 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i109 = getelementptr inbounds i8, ptr %this, i64 40
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end16.i.lr.ph, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit98
@@ -10103,7 +9999,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i115
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit127: ; preds = %if.end16.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i115
   %21 = phi ptr [ %add.ptr.i.i116, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i115 ], [ %17, %if.end16.i ]
-  %incdec.ptr.i103 = getelementptr inbounds ptr, ptr %21, i64 1
+  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %incdec.ptr.i103, ptr %Last.i128, align 8
   store ptr %call14.i269, ptr %21, align 8
   %22 = load ptr, ptr %this, align 16
@@ -10181,9 +10077,9 @@ land.lhs.true.i76:                                ; preds = %_ZN4llvh16itanium_d
 if.end25.i:                                       ; preds = %land.lhs.true.i76
   %incdec.ptr.i80 = getelementptr inbounds i8, ptr %34, i64 1
   store ptr %incdec.ptr.i80, ptr %this, align 16
-  %BlockList.i.i.i52 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i52 = getelementptr inbounds i8, ptr %this, i64 4848
   %36 = load ptr, ptr %BlockList.i.i.i52, align 16
-  %Current.i.i.i53 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 0, i32 1
+  %Current.i.i.i53 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load i64, ptr %Current.i.i.i53, align 8
   %38 = add i64 %37, -4032
   %cmp.i.i.i54 = icmp ult i64 %38, -4080
@@ -10200,7 +10096,7 @@ if.then.i9.i.i.i73:                               ; preds = %if.then.i.i.i68
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i71: ; preds = %if.then.i.i.i68
   store ptr %36, ptr %call.i6.i.i.i69, align 8
-  %Current.i8.i.i.i72 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i69, i64 0, i32 1
+  %Current.i8.i.i.i72 = getelementptr inbounds i8, ptr %call.i6.i.i.i69, i64 8
   store i64 0, ptr %Current.i8.i.i.i72, align 8
   store ptr %call.i6.i.i.i69, ptr %BlockList.i.i.i52, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15ClosureTypeNameEJRNS0_9NodeArrayER10StringViewEEEPNS0_4NodeEDpOT0_.exit
@@ -10208,12 +10104,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i71: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15ClosureTypeNameEJRNS0_9NodeArrayER10StringViewEEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.end25.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i71
   %39 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i71 ], [ %37, %if.end25.i ]
   %40 = phi ptr [ %call.i6.i.i.i69, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i71 ], [ %36, %if.end25.i ]
-  %Current7.i.i.i55 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %40, i64 0, i32 1
+  %Current7.i.i.i55 = getelementptr inbounds i8, ptr %40, i64 8
   %add8.i.i.i56 = add nsw i64 %39, 48
   store i64 %add8.i.i.i56, ptr %Current7.i.i.i55, align 8
   %41 = load ptr, ptr %BlockList.i.i.i52, align 16
-  %add.ptr.i.i.i57 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %41, i64 1
-  %Current11.i.i.i58 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %41, i64 0, i32 1
+  %add.ptr.i.i.i57 = getelementptr inbounds i8, ptr %41, i64 16
+  %Current11.i.i.i58 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load i64, ptr %Current11.i.i.i58, align 8
   %add.ptr12.i.i.i59 = getelementptr inbounds i8, ptr %add.ptr.i.i.i57, i64 %42
   %add.ptr13.i.i.i60 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -48
@@ -10256,8 +10152,8 @@ _ZNK10StringView10startsWithES_.exit.i:           ; preds = %if.else11
 if.then13:                                        ; preds = %_ZNK10StringView10startsWithES_.exit.i
   %add.ptr.i30 = getelementptr inbounds i8, ptr %this.val9, i64 2
   store ptr %add.ptr.i30, ptr %this, align 16
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i31 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i31 = getelementptr inbounds i8, ptr %this, i64 24
   %44 = load ptr, ptr %Last.i31, align 8
   %45 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i32 = ptrtoint ptr %44 to i64
@@ -10268,8 +10164,8 @@ if.then13:                                        ; preds = %_ZNK10StringView10s
   br i1 %cmp16271, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %if.then13
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit
@@ -10329,7 +10225,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %50 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %46, %if.end ]
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %50, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %incdec.ptr.i, ptr %Last.i31, align 8
   store ptr %call15272, ptr %50, align 8
   %51 = load ptr, ptr %this, align 16
@@ -10359,9 +10255,9 @@ do.end:                                           ; preds = %land.lhs.true.i
   store ptr %add.ptr.i.i48, ptr %Last.i31, align 8
   %57 = extractvalue { ptr, i64 } %call4.i, 0
   %58 = extractvalue { ptr, i64 } %call4.i, 1
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %59 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %59, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i64, ptr %Current.i.i.i, align 8
   %61 = add i64 %60, -4048
   %cmp.i.i.i49 = icmp ult i64 %61, -4080
@@ -10378,7 +10274,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %59, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21StructuredBindingNameEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
@@ -10386,12 +10282,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21StructuredBindingNameEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %do.end, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %62 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %60, %do.end ]
   %63 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %59, %do.end ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %63, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %63, i64 8
   %add8.i.i.i = add nsw i64 %62, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %64 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %64, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %64, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %64, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %64, i64 8
   %65 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %65
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -10426,9 +10322,9 @@ return:                                           ; preds = %while.body.i224, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8NameType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %Name = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %this, i64 0, i32 1
+  %Name = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Name, align 8
-  %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -10437,10 +10333,10 @@ entry:
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %s, align 8
@@ -10480,9 +10376,9 @@ _ZN12OutputStreampLE10StringView.exit:            ; preds = %entry, %_ZN12Output
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle8NameType11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %Name = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %this, i64 0, i32 1
+  %Name = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %Name, align 8
-  %retval.sroa.2.0.Name.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %this, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.Name.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.2.0.copyload = load ptr, ptr %retval.sroa.2.0.Name.sroa_idx, align 8
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.2.0.copyload, 1
@@ -10505,29 +10401,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10NestedName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Qual = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %this, i64 0, i32 1
+  %Qual = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Qual, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 2
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -10558,20 +10454,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 2
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Name = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %this, i64 0, i32 2
+  %Name = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %Name, align 8
   %vtable.i4 = load ptr, ptr %9, align 8
-  %vfn.i5 = getelementptr inbounds ptr, ptr %vtable.i4, i64 4
+  %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 32
   %10 = load ptr, ptr %vfn.i5, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i6 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 2
+  %RHSComponentCache.i6 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i6, align 1
   %cmp.not.i7 = icmp eq i8 %11, 1
   br i1 %cmp.not.i7, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i9 = load ptr, ptr %9, align 8
-  %vfn3.i10 = getelementptr inbounds ptr, ptr %vtable2.i9, i64 5
+  %vfn3.i10 = getelementptr inbounds i8, ptr %vtable2.i9, i64 40
   %12 = load ptr, ptr %vfn3.i10, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12
@@ -10583,10 +10479,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12: ; preds = %_ZN12O
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle10NestedName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %Name = getelementptr inbounds %"struct.llvh::itanium_demangle::NestedName", ptr %this, i64 0, i32 2
+  %Name = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %Name, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #20
   ret { ptr, ptr } %call
@@ -10608,9 +10504,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA5_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(5) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -10627,7 +10523,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA5_KcEEEPT_DpOT0_.exit
@@ -10635,12 +10531,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA5_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -10659,7 +10555,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle24ForwardTemplateReference19hasRHSComponentSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %Printing, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -10667,9 +10563,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %Printing, align 8
-  %Ref = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 3
+  %Ref = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Ref, align 8
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %2, i64 9
   %3 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %3, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -10697,7 +10593,7 @@ return:                                           ; preds = %entry, %_ZN14SwapAn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle24ForwardTemplateReference12hasArraySlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %Printing, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -10705,9 +10601,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %Printing, align 8
-  %Ref = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 3
+  %Ref = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Ref, align 8
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %2, i64 10
   %3 = load i8, ptr %ArrayCache.i, align 2
   %cmp.not.i = icmp eq i8 %3, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -10718,7 +10614,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -10736,7 +10632,7 @@ return:                                           ; preds = %entry, %_ZN14SwapAn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle24ForwardTemplateReference15hasFunctionSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %Printing, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -10744,9 +10640,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %Printing, align 8
-  %Ref = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 3
+  %Ref = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Ref, align 8
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %2, i64 11
   %3 = load i8, ptr %FunctionCache.i, align 1
   %cmp.not.i = icmp eq i8 %3, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -10757,7 +10653,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZN14SwapAndRestoreIbED2Ev.exit
@@ -10775,7 +10671,7 @@ return:                                           ; preds = %entry, %_ZN14SwapAn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvh16itanium_demangle24ForwardTemplateReference13getSyntaxNodeER12OutputStream(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %Printing, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -10783,10 +10679,10 @@ entry:
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   store i8 1, ptr %Printing, align 8
-  %Ref = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 3
+  %Ref = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Ref, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   store i8 0, ptr %Printing, align 8
@@ -10800,7 +10696,7 @@ return:                                           ; preds = %entry, %_ZN14SwapAn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle24ForwardTemplateReference9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %Printing, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -10808,10 +10704,10 @@ entry:
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   store i8 1, ptr %Printing, align 8
-  %Ref = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 3
+  %Ref = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Ref, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   store i8 0, ptr %Printing, align 8
@@ -10824,7 +10720,7 @@ return:                                           ; preds = %entry, %_ZN14SwapAn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle24ForwardTemplateReference10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %Printing, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -10832,10 +10728,10 @@ entry:
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %entry
   store i8 1, ptr %Printing, align 8
-  %Ref = getelementptr inbounds %"struct.llvh::itanium_demangle::ForwardTemplateReference", ptr %this, i64 0, i32 3
+  %Ref = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Ref, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   store i8 0, ptr %Printing, align 8
@@ -10906,7 +10802,7 @@ entry:
   %ref.tmp631 = alloca %"class.llvh::itanium_demangle::NodeArray", align 8
   %Ex641 = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 16
-  %Last.i12 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i12 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i12, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -11107,15 +11003,15 @@ sw.bb81:                                          ; preds = %sw.bb64
   br i1 %cmp85, label %return, label %if.end87
 
 if.end87:                                         ; preds = %sw.bb81
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i48 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i48 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %Last.i48, align 8
   %8 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i49 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i50 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i51 = sub i64 %sub.ptr.lhs.cast.i49, %sub.ptr.rhs.cast.i50
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %if.end87
@@ -11190,7 +11086,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end93, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %16 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %12, %if.end93 ]
-  %incdec.ptr.i58 = getelementptr inbounds ptr, ptr %16, i64 1
+  %incdec.ptr.i58 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i58, ptr %Last.i48, align 8
   store ptr %call90, ptr %16, align 8
   br label %while.cond, !llvm.loop !24
@@ -11207,7 +11103,7 @@ while.end:                                        ; preds = %land.lhs.true.i
   store ptr %add.ptr.i.i63, ptr %Last.i48, align 8
   %20 = extractvalue { ptr, i64 } %call4.i, 0
   store ptr %20, ptr %ref.tmp, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %22 = extractvalue { ptr, i64 } %call4.i, 1
   store i64 %22, ptr %21, align 8
   %call96 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 8 dereferenceable(8) %Callee, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
@@ -11422,15 +11318,15 @@ if.end240:                                        ; preds = %if.end236
 sw.bb242:                                         ; preds = %sw.bb226
   %add.ptr244 = getelementptr inbounds i8, ptr %this.val10403, i64 2
   store ptr %add.ptr244, ptr %this, align 16
-  %Names245 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i94 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names245 = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i94 = getelementptr inbounds i8, ptr %this, i64 24
   %27 = load ptr, ptr %Last.i94, align 8
   %28 = load ptr, ptr %Names245, align 16
   %sub.ptr.lhs.cast.i95 = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i96 = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i95, %sub.ptr.rhs.cast.i96
-  %Cap.i108 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i117 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i108 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i117 = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond247
 
 while.cond247:                                    ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit135, %sw.bb242
@@ -11505,7 +11401,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i123
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit135: ; preds = %if.end255, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i123
   %36 = phi ptr [ %add.ptr.i.i124, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i123 ], [ %32, %if.end255 ]
-  %incdec.ptr.i111 = getelementptr inbounds ptr, ptr %36, i64 1
+  %incdec.ptr.i111 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %incdec.ptr.i111, ptr %Last.i94, align 8
   store ptr %call252, ptr %36, align 8
   %.pre389 = load ptr, ptr %this, align 16
@@ -11524,7 +11420,7 @@ while.end257:                                     ; preds = %land.lhs.true.i101
   store ptr %add.ptr.i.i140, ptr %Last.i94, align 8
   %40 = extractvalue { ptr, i64 } %call4.i139, 0
   store ptr %40, ptr %ref.tmp259, align 8
-  %41 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp259, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %ref.tmp259, i64 8
   %42 = extractvalue { ptr, i64 } %call4.i139, 1
   store i64 %42, ptr %41, align 8
   %call261 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJDnNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp259)
@@ -11975,15 +11871,15 @@ if.end560:                                        ; preds = %if.then556
 sw.bb564:                                         ; preds = %sw.bb494
   %add.ptr566 = getelementptr inbounds i8, ptr %this.val10403, i64 2
   store ptr %add.ptr566, ptr %this, align 16
-  %Names567 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i243 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names567 = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i243 = getelementptr inbounds i8, ptr %this, i64 24
   %54 = load ptr, ptr %Last.i243, align 8
   %55 = load ptr, ptr %Names567, align 16
   %sub.ptr.lhs.cast.i244 = ptrtoint ptr %54 to i64
   %sub.ptr.rhs.cast.i245 = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i246 = sub i64 %sub.ptr.lhs.cast.i244, %sub.ptr.rhs.cast.i245
-  %Cap.i257 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i266 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i257 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i266 = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond569
 
 while.cond569:                                    ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit284, %sw.bb564
@@ -12058,7 +11954,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i272
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit284: ; preds = %if.end576, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i272
   %63 = phi ptr [ %add.ptr.i.i273, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i272 ], [ %59, %if.end576 ]
-  %incdec.ptr.i260 = getelementptr inbounds ptr, ptr %63, i64 1
+  %incdec.ptr.i260 = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %incdec.ptr.i260, ptr %Last.i243, align 8
   store ptr %call573, ptr %63, align 8
   %.pre = load ptr, ptr %this, align 16
@@ -12077,7 +11973,7 @@ if.end584:                                        ; preds = %land.lhs.true.i250
   store ptr %add.ptr.i.i289, ptr %Last.i243, align 8
   %67 = extractvalue { ptr, i64 } %call4.i288, 0
   store ptr %67, ptr %ref.tmp579, align 8
-  %68 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp579, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %ref.tmp579, i64 8
   %69 = extractvalue { ptr, i64 } %call4.i288, 1
   store i64 %69, ptr %68, align 8
   %call581 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13NodeArrayNodeEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp579)
@@ -12129,15 +12025,15 @@ sw.bb609:                                         ; preds = %sw.bb587
   br i1 %cmp614, label %return, label %if.end616
 
 if.end616:                                        ; preds = %sw.bb609
-  %Names618 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i290 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names618 = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i290 = getelementptr inbounds i8, ptr %this, i64 24
   %71 = load ptr, ptr %Last.i290, align 8
   %72 = load ptr, ptr %Names618, align 16
   %sub.ptr.lhs.cast.i291 = ptrtoint ptr %71 to i64
   %sub.ptr.rhs.cast.i292 = ptrtoint ptr %72 to i64
   %sub.ptr.sub.i293 = sub i64 %sub.ptr.lhs.cast.i291, %sub.ptr.rhs.cast.i292
-  %Cap.i304 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i313 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i304 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i313 = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond620
 
 while.cond620:                                    ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit331, %if.end616
@@ -12212,7 +12108,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i319
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit331: ; preds = %if.end628, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i319
   %80 = phi ptr [ %add.ptr.i.i320, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i319 ], [ %76, %if.end628 ]
-  %incdec.ptr.i307 = getelementptr inbounds ptr, ptr %80, i64 1
+  %incdec.ptr.i307 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %incdec.ptr.i307, ptr %Last.i290, align 8
   store ptr %call625, ptr %80, align 8
   br label %while.cond620, !llvm.loop !27
@@ -12229,7 +12125,7 @@ while.end630:                                     ; preds = %land.lhs.true.i297
   store ptr %add.ptr.i.i336, ptr %Last.i290, align 8
   %84 = extractvalue { ptr, i64 } %call4.i335, 0
   store ptr %84, ptr %ref.tmp631, align 8
-  %85 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp631, i64 0, i32 1
+  %85 = getelementptr inbounds i8, ptr %ref.tmp631, i64 8
   %86 = extractvalue { ptr, i64 } %call4.i335, 1
   store i64 %86, ptr %85, align 8
   %call633 = call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 8 dereferenceable(8) %Ty612, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp631)
@@ -12265,9 +12161,9 @@ return:                                           ; preds = %while.body623, %whi
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA10_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(10) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4016
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -12284,7 +12180,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
@@ -12292,12 +12188,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA10_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 64
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
@@ -12328,7 +12224,7 @@ entry:
   %T = alloca ptr, align 8
   %N = alloca %class.StringView, align 8
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
@@ -12523,9 +12419,9 @@ land.lhs.true.i.i:                                ; preds = %for.end.i
 if.end13.i:                                       ; preds = %land.lhs.true.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 11
   store ptr %incdec.ptr.i.i, ptr %this, align 16
-  %BlockList.i.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %6 = load ptr, ptr %BlockList.i.i.i.i, align 16
-  %Current.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %6, i64 0, i32 1
+  %Current.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %Current.i.i.i.i, align 8
   %8 = add i64 %7, -4048
   %cmp.i.i.i.i = icmp ult i64 %8, -4080
@@ -12542,7 +12438,7 @@ if.then.i9.i.i.i.i:                               ; preds = %if.then.i.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
   store ptr %6, ptr %call.i6.i.i.i.i, align 8
-  %Current.i8.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i, align 8
   store ptr %call.i6.i.i.i.i, ptr %BlockList.i.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIfEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i
@@ -12550,12 +12446,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIfEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i, %if.end13.i
   %9 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %7, %if.end13.i ]
   %10 = phi ptr [ %call.i6.i.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %6, %if.end13.i ]
-  %Current7.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %10, i64 0, i32 1
+  %Current7.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %add8.i.i.i.i = add nsw i64 %9, 32
   store i64 %add8.i.i.i.i, ptr %Current7.i.i.i.i, align 8
   %11 = load ptr, ptr %BlockList.i.i.i.i, align 16
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 1
-  %Current11.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %Current11.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %Current11.i.i.i.i, align 8
   %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %12
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
@@ -12607,9 +12503,9 @@ land.lhs.true.i.i76:                              ; preds = %for.end.i74
 if.end13.i79:                                     ; preds = %land.lhs.true.i.i76
   %incdec.ptr.i.i80 = getelementptr inbounds i8, ptr %0, i64 19
   store ptr %incdec.ptr.i.i80, ptr %this, align 16
-  %BlockList.i.i.i.i81 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i.i81 = getelementptr inbounds i8, ptr %this, i64 4848
   %15 = load ptr, ptr %BlockList.i.i.i.i81, align 16
-  %Current.i.i.i.i82 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %15, i64 0, i32 1
+  %Current.i.i.i.i82 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %Current.i.i.i.i82, align 8
   %17 = add i64 %16, -4048
   %cmp.i.i.i.i83 = icmp ult i64 %17, -4080
@@ -12626,7 +12522,7 @@ if.then.i9.i.i.i.i101:                            ; preds = %if.then.i.i.i.i96
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i99: ; preds = %if.then.i.i.i.i96
   store ptr %15, ptr %call.i6.i.i.i.i97, align 8
-  %Current.i8.i.i.i.i100 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i97, i64 0, i32 1
+  %Current.i8.i.i.i.i100 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i97, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i100, align 8
   store ptr %call.i6.i.i.i.i97, ptr %BlockList.i.i.i.i81, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIdEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i
@@ -12634,12 +12530,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i99: ; preds = %if.the
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIdEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i99, %if.end13.i79
   %18 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i99 ], [ %16, %if.end13.i79 ]
   %19 = phi ptr [ %call.i6.i.i.i.i97, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i99 ], [ %15, %if.end13.i79 ]
-  %Current7.i.i.i.i84 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 0, i32 1
+  %Current7.i.i.i.i84 = getelementptr inbounds i8, ptr %19, i64 8
   %add8.i.i.i.i85 = add nsw i64 %18, 32
   store i64 %add8.i.i.i.i85, ptr %Current7.i.i.i.i84, align 8
   %20 = load ptr, ptr %BlockList.i.i.i.i81, align 16
-  %add.ptr.i.i.i.i86 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %20, i64 1
-  %Current11.i.i.i.i87 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %20, i64 0, i32 1
+  %add.ptr.i.i.i.i86 = getelementptr inbounds i8, ptr %20, i64 16
+  %Current11.i.i.i.i87 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i64, ptr %Current11.i.i.i.i87, align 8
   %add.ptr12.i.i.i.i88 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i86, i64 %21
   %add.ptr13.i.i.i.i89 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -32
@@ -12691,9 +12587,9 @@ land.lhs.true.i.i121:                             ; preds = %for.end.i119
 if.end13.i124:                                    ; preds = %land.lhs.true.i.i121
   %incdec.ptr.i.i125 = getelementptr inbounds i8, ptr %0, i64 23
   store ptr %incdec.ptr.i.i125, ptr %this, align 16
-  %BlockList.i.i.i.i126 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i.i126 = getelementptr inbounds i8, ptr %this, i64 4848
   %24 = load ptr, ptr %BlockList.i.i.i.i126, align 16
-  %Current.i.i.i.i127 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %24, i64 0, i32 1
+  %Current.i.i.i.i127 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %Current.i.i.i.i127, align 8
   %26 = add i64 %25, -4048
   %cmp.i.i.i.i128 = icmp ult i64 %26, -4080
@@ -12710,7 +12606,7 @@ if.then.i9.i.i.i.i146:                            ; preds = %if.then.i.i.i.i141
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i144: ; preds = %if.then.i.i.i.i141
   store ptr %24, ptr %call.i6.i.i.i.i142, align 8
-  %Current.i8.i.i.i.i145 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i142, i64 0, i32 1
+  %Current.i8.i.i.i.i145 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i142, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i145, align 8
   store ptr %call.i6.i.i.i.i142, ptr %BlockList.i.i.i.i126, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIeEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i
@@ -12718,12 +12614,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i144: ; preds = %if.th
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16FloatLiteralImplIeEEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i144, %if.end13.i124
   %27 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i144 ], [ %25, %if.end13.i124 ]
   %28 = phi ptr [ %call.i6.i.i.i.i142, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i144 ], [ %24, %if.end13.i124 ]
-  %Current7.i.i.i.i129 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %28, i64 0, i32 1
+  %Current7.i.i.i.i129 = getelementptr inbounds i8, ptr %28, i64 8
   %add8.i.i.i.i130 = add nsw i64 %27, 32
   store i64 %add8.i.i.i.i130, ptr %Current7.i.i.i.i129, align 8
   %29 = load ptr, ptr %BlockList.i.i.i.i126, align 16
-  %add.ptr.i.i.i.i131 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 1
-  %Current11.i.i.i.i132 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 0, i32 1
+  %add.ptr.i.i.i.i131 = getelementptr inbounds i8, ptr %29, i64 16
+  %Current11.i.i.i.i132 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i64, ptr %Current11.i.i.i.i132, align 8
   %add.ptr12.i.i.i.i133 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i131, i64 %30
   %add.ptr13.i.i.i.i134 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -32
@@ -12809,7 +12705,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %land.rhs.i, %while.body.i
   %38 = phi ptr [ %this.val1012.i, %land.rhs.i ], [ %35, %while.body.i ]
   store ptr %34, ptr %N, align 8
-  %39 = getelementptr inbounds { ptr, ptr }, ptr %N, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %N, i64 8
   store ptr %38, ptr %39, align 8
   %cmp.i176 = icmp eq ptr %34, %38
   %cmp.not.i186 = icmp eq ptr %38, %35
@@ -12852,7 +12748,7 @@ return:                                           ; preds = %for.body.i110, %for
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseFunctionParamEv(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i1 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i1, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -12952,9 +12848,9 @@ land.lhs.true.i:                                  ; preds = %_ZN4llvh16itanium_d
 if.end:                                           ; preds = %land.lhs.true.i
   %incdec.ptr.i9 = getelementptr inbounds i8, ptr %10, i64 1
   store ptr %incdec.ptr.i9, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %12 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Current.i.i.i, align 8
   %14 = add i64 %13, -4048
   %cmp.i.i.i = icmp ult i64 %14, -4080
@@ -12971,7 +12867,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %12, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %return.sink.split
@@ -13107,9 +13003,9 @@ land.lhs.true.i108:                               ; preds = %_ZN4llvh16itanium_d
 if.end23:                                         ; preds = %land.lhs.true.i108
   %incdec.ptr.i112 = getelementptr inbounds i8, ptr %27, i64 1
   store ptr %incdec.ptr.i112, ptr %this, align 16
-  %BlockList.i.i.i114 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i114 = getelementptr inbounds i8, ptr %this, i64 4848
   %29 = load ptr, ptr %BlockList.i.i.i114, align 16
-  %Current.i.i.i115 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 0, i32 1
+  %Current.i.i.i115 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i64, ptr %Current.i.i.i115, align 8
   %31 = add i64 %30, -4048
   %cmp.i.i.i116 = icmp ult i64 %31, -4080
@@ -13126,7 +13022,7 @@ if.then.i9.i.i.i137:                              ; preds = %if.then.i.i.i132
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i135: ; preds = %if.then.i.i.i132
   store ptr %29, ptr %call.i6.i.i.i133, align 8
-  %Current.i8.i.i.i136 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i133, i64 0, i32 1
+  %Current.i8.i.i.i136 = getelementptr inbounds i8, ptr %call.i6.i.i.i133, i64 8
   store i64 0, ptr %Current.i8.i.i.i136, align 8
   store ptr %call.i6.i.i.i133, ptr %BlockList.i.i.i114, align 16
   br label %return.sink.split
@@ -13137,12 +13033,12 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %if.end ], [ %BlockList.i.i.i114, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i135 ], [ %BlockList.i.i.i114, %if.end23 ]
   %retval.sroa.0.0.i93.sink = phi ptr [ %retval.sroa.0.0.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %retval.sroa.0.0.i, %if.end ], [ %retval.sroa.0.0.i93, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i135 ], [ %retval.sroa.0.0.i93, %if.end23 ]
   %retval.sroa.3.0.i94.sink = phi ptr [ %retval.sroa.3.0.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %retval.sroa.3.0.i, %if.end ], [ %retval.sroa.3.0.i94, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i135 ], [ %retval.sroa.3.0.i94, %if.end23 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %.sink171, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink171, i64 8
   %add8.i.i.i = add nsw i64 %.sink, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %32 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %32, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %33
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -13164,7 +13060,7 @@ return:                                           ; preds = %while.body.i102, %w
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13parseFoldExprEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
@@ -13388,9 +13284,9 @@ if.end216:                                        ; preds = %if.end206, %if.then
   %4 = phi i8 [ 1, %if.then215 ], [ %storemerge, %if.end212 ], [ %storemerge, %if.end206 ]
   %Pack.0 = phi ptr [ %call208, %if.then215 ], [ %call203, %if.end212 ], [ %call203, %if.end206 ]
   %Init.1 = phi ptr [ %call203, %if.then215 ], [ %call208, %if.end212 ], [ null, %if.end206 ]
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %5 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current.i.i.i, align 8
   %7 = add i64 %6, -4016
   %cmp.i.i.i = icmp ult i64 %7, -4080
@@ -13407,7 +13303,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %5, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8FoldExprEJRbR10StringViewRPNS0_4NodeESC_EEESB_DpOT0_.exit
@@ -13415,12 +13311,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8FoldExprEJRbR10StringViewRPNS0_4NodeESC_EEESB_DpOT0_.exit: ; preds = %if.end216, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %8 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %6, %if.end216 ]
   %9 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %5, %if.end216 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %9, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %add8.i.i.i = add nsw i64 %8, 64
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %10 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %10, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %10, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %11
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
@@ -13457,9 +13353,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i.i = icmp ult i64 %2, -4080
@@ -13476,7 +13372,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %0, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BinaryExprEJRPNS0_4NodeER10StringViewS9_EEES8_DpOT0_.exit
@@ -13484,12 +13380,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BinaryExprEJRPNS0_4NodeER10StringViewS9_EEES8_DpOT0_.exit: ; preds = %if.end5, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %1, %if.end5 ]
   %4 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %0, %if.end5 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %6
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -13519,9 +13415,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i.i = icmp ult i64 %2, -4080
@@ -13538,7 +13434,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %0, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10PrefixExprEJR10StringViewRPNS0_4NodeEEEESA_DpOT0_.exit
@@ -13546,12 +13442,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10PrefixExprEJR10StringViewRPNS0_4NodeEEEESA_DpOT0_.exit: ; preds = %if.end, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %1, %if.end ]
   %4 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %0, %if.end ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %6
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -13574,9 +13470,9 @@ return:                                           ; preds = %entry, %_ZN4llvh16i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA11_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -13593,7 +13489,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA11_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
@@ -13601,12 +13497,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA11_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -13629,9 +13525,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CallExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -13648,7 +13544,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayEEEEPT_DpOT0_.exit
@@ -13656,12 +13552,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CallExprEJRPNS3_4NodeENS3_9NodeArrayEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -13685,7 +13581,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CallExprEJ
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseConversionExprEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i1 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i1, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -13701,7 +13597,7 @@ _ZNK10StringView10startsWithES_.exit.i:           ; preds = %entry
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %_ZNK10StringView10startsWithES_.exit.i
   %add.ptr.i2 = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %add.ptr.i2, ptr %this, align 16
-  %TryToParseTemplateArgs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 8
+  %TryToParseTemplateArgs = getelementptr inbounds i8, ptr %this, i64 736
   %2 = load i8, ptr %TryToParseTemplateArgs, align 16
   %3 = and i8 %2, 1
   store i8 0, ptr %TryToParseTemplateArgs, align 16
@@ -13724,15 +13620,15 @@ land.lhs.true.i:                                  ; preds = %if.end4
 if.then6:                                         ; preds = %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 1
   store ptr %incdec.ptr.i, ptr %this, align 16
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i8 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i8 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %Last.i8, align 8
   %8 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %if.then6
@@ -13807,7 +13703,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end12, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %16 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %12, %if.end12 ]
-  %incdec.ptr.i18 = getelementptr inbounds ptr, ptr %16, i64 1
+  %incdec.ptr.i18 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i18, ptr %Last.i8, align 8
   store ptr %call9, ptr %16, align 8
   %.pre = load ptr, ptr %this, align 16
@@ -13826,9 +13722,9 @@ while.end:                                        ; preds = %land.lhs.true.i11
   store ptr %add.ptr.i.i23, ptr %Last.i8, align 8
   %20 = extractvalue { ptr, i64 } %call4.i, 0
   %21 = extractvalue { ptr, i64 } %call4.i, 1
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %22 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %Current.i.i.i, align 8
   %24 = add i64 %23, -4032
   %cmp.i.i.i24 = icmp ult i64 %24, -4080
@@ -13845,7 +13741,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %22, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %return.sink.split
@@ -13856,9 +13752,9 @@ if.end16:                                         ; preds = %land.lhs.true.i, %i
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
-  %BlockList.i.i.i27 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 4848
   %25 = load ptr, ptr %BlockList.i.i.i27, align 16
-  %Current.i.i.i28 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %25, i64 0, i32 1
+  %Current.i.i.i28 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i64, ptr %Current.i.i.i28, align 8
   %27 = add i64 %26, -4064
   %cmp.i.i.i29 = icmp ult i64 %27, -4080
@@ -13875,7 +13771,7 @@ if.then.i9.i.i.i41:                               ; preds = %if.then.i.i.i36
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i39: ; preds = %if.then.i.i.i36
   store ptr %25, ptr %call.i6.i.i.i37, align 8
-  %Current.i8.i.i.i40 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i37, i64 0, i32 1
+  %Current.i8.i.i.i40 = getelementptr inbounds i8, ptr %call.i6.i.i.i37, i64 8
   store i64 0, ptr %Current.i8.i.i.i40, align 8
   store ptr %call.i6.i.i.i37, ptr %BlockList.i.i.i27, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit
@@ -13883,19 +13779,19 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i39: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit: ; preds = %if.end21, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i39
   %28 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i39 ], [ %26, %if.end21 ]
   %29 = phi ptr [ %call.i6.i.i.i37, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i39 ], [ %25, %if.end21 ]
-  %Current7.i.i.i30 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 0, i32 1
+  %Current7.i.i.i30 = getelementptr inbounds i8, ptr %29, i64 8
   %add8.i.i.i31 = add nsw i64 %28, 16
   store i64 %add8.i.i.i31, ptr %Current7.i.i.i30, align 8
   %30 = load ptr, ptr %BlockList.i.i.i27, align 16
-  %add.ptr.i.i.i32 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %30, i64 1
-  %Current11.i.i.i33 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %30, i64 0, i32 1
+  %add.ptr.i.i.i32 = getelementptr inbounds i8, ptr %30, i64 16
+  %Current11.i.i.i33 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i64, ptr %Current11.i.i.i33, align 8
   %add.ptr12.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr.i.i.i32, i64 %31
   %add.ptr13.i.i.i35 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i34, i64 -16
   %32 = ptrtoint ptr %call18 to i64
   store i64 %32, ptr %add.ptr13.i.i.i35, align 8
   %33 = load ptr, ptr %BlockList.i.i.i27, align 16
-  %Current.i.i.i43 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %33, i64 0, i32 1
+  %Current.i.i.i43 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load i64, ptr %Current.i.i.i43, align 8
   %35 = add i64 %34, -4032
   %cmp.i.i.i44 = icmp ult i64 %35, -4080
@@ -13912,7 +13808,7 @@ if.then.i9.i.i.i66:                               ; preds = %if.then.i.i.i61
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64: ; preds = %if.then.i.i.i61
   store ptr %33, ptr %call.i6.i.i.i62, align 8
-  %Current.i8.i.i.i65 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i62, i64 0, i32 1
+  %Current.i8.i.i.i65 = getelementptr inbounds i8, ptr %call.i6.i.i.i62, i64 8
   store i64 0, ptr %Current.i8.i.i.i65, align 8
   store ptr %call.i6.i.i.i62, ptr %BlockList.i.i.i27, align 16
   br label %return.sink.split
@@ -13923,12 +13819,12 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %while.end ], [ %BlockList.i.i.i27, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %BlockList.i.i.i27, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %add.ptr13.i.i.i35.sink = phi ptr [ %20, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %20, %while.end ], [ %add.ptr13.i.i.i35, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ %add.ptr13.i.i.i35, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %.sink = phi i64 [ %21, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %21, %while.end ], [ 1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i64 ], [ 1, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %.sink95, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink95, i64 8
   %add8.i.i.i = add nsw i64 %.sink94, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %36 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %36, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %37
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -13951,9 +13847,9 @@ return:                                           ; preds = %while.body, %return
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10DeleteExprEJRPNS0_4NodeERbbEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -13970,7 +13866,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbEEEPT_DpOT0_.exit
@@ -13978,12 +13874,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10DeleteExprEJRPNS3_4NodeERbbEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -14007,9 +13903,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10DeleteExp
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA13_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -14026,7 +13922,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA13_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
@@ -14034,12 +13930,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA13_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -14063,7 +13959,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseUnresolvedNameEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i7 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i7, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -14100,9 +13996,9 @@ if.then6:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.then6
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %3 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %3, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %Current.i.i.i, align 8
   %5 = add i64 %4, -4048
   %cmp.i.i.i = icmp ult i64 %5, -4080
@@ -14119,7 +14015,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %3, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
@@ -14127,12 +14023,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %if.end10, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %6 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %4, %if.end10 ]
   %7 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %3, %if.end10 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add8.i.i.i = add nsw i64 %6, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %8 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -14147,7 +14043,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
 
 if.end14:                                         ; preds = %if.end, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit
   %SoFar.0 = phi ptr [ %add.ptr13.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit ], [ %call2, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit ], [ %call2, %if.end ]
-  %BlockList.i.i.i243 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i243 = getelementptr inbounds i8, ptr %this, i64 4848
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit, %if.end14
@@ -14185,7 +14081,7 @@ if.then4.i:                                       ; preds = %_ZN4llvh16itanium_d
 
 if.end8.i:                                        ; preds = %if.then4.i
   %14 = load ptr, ptr %BlockList.i.i.i243, align 16
-  %Current.i.i.i244 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %14, i64 0, i32 1
+  %Current.i.i.i244 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load i64, ptr %Current.i.i.i244, align 8
   %16 = add i64 %15, -4048
   %cmp.i.i.i245 = icmp ult i64 %16, -4080
@@ -14202,7 +14098,7 @@ if.then.i9.i.i.i263:                              ; preds = %if.then.i.i.i258
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i261: ; preds = %if.then.i.i.i258
   store ptr %14, ptr %call.i6.i.i.i259, align 8
-  %Current.i8.i.i.i262 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i259, i64 0, i32 1
+  %Current.i8.i.i.i262 = getelementptr inbounds i8, ptr %call.i6.i.i.i259, i64 8
   store i64 0, ptr %Current.i8.i.i.i262, align 8
   store ptr %call.i6.i.i.i259, ptr %BlockList.i.i.i243, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit264
@@ -14210,12 +14106,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i261: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit264: ; preds = %if.end8.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i261
   %17 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i261 ], [ %15, %if.end8.i ]
   %18 = phi ptr [ %call.i6.i.i.i259, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i261 ], [ %14, %if.end8.i ]
-  %Current7.i.i.i246 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %18, i64 0, i32 1
+  %Current7.i.i.i246 = getelementptr inbounds i8, ptr %18, i64 8
   %add8.i.i.i247 = add nsw i64 %17, 32
   store i64 %add8.i.i.i247, ptr %Current7.i.i.i246, align 8
   %19 = load ptr, ptr %BlockList.i.i.i243, align 16
-  %add.ptr.i.i.i248 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 1
-  %Current11.i.i.i249 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 0, i32 1
+  %add.ptr.i.i.i248 = getelementptr inbounds i8, ptr %19, i64 16
+  %Current11.i.i.i249 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %Current11.i.i.i249, align 8
   %add.ptr12.i.i.i250 = getelementptr inbounds i8, ptr %add.ptr.i.i.i248, i64 %20
   %add.ptr13.i.i.i251 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -32
@@ -14231,7 +14127,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
 if.end19:                                         ; preds = %if.end.i14, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit264, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit271
   %retval.0.i15.ph = phi ptr [ %call.i13, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit271 ], [ %add.ptr13.i.i.i251, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit264 ], [ %call.i13, %if.end.i14 ]
   %21 = load ptr, ptr %BlockList.i.i.i243, align 16
-  %Current.i.i.i17 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %21, i64 0, i32 1
+  %Current.i.i.i17 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %Current.i.i.i17, align 8
   %23 = add i64 %22, -4048
   %cmp.i.i.i18 = icmp ult i64 %23, -4080
@@ -14248,7 +14144,7 @@ if.then.i9.i.i.i35:                               ; preds = %if.then.i.i.i30
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33: ; preds = %if.then.i.i.i30
   store ptr %21, ptr %call.i6.i.i.i31, align 8
-  %Current.i8.i.i.i34 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i31, i64 0, i32 1
+  %Current.i8.i.i.i34 = getelementptr inbounds i8, ptr %call.i6.i.i.i31, i64 8
   store i64 0, ptr %Current.i8.i.i.i34, align 8
   store ptr %call.i6.i.i.i31, ptr %BlockList.i.i.i243, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
@@ -14256,12 +14152,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %if.end19, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33
   %24 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %22, %if.end19 ]
   %25 = phi ptr [ %call.i6.i.i.i31, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %21, %if.end19 ]
-  %Current7.i.i.i19 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %25, i64 0, i32 1
+  %Current7.i.i.i19 = getelementptr inbounds i8, ptr %25, i64 8
   %add8.i.i.i20 = add nsw i64 %24, 32
   store i64 %add8.i.i.i20, ptr %Current7.i.i.i19, align 8
   %26 = load ptr, ptr %BlockList.i.i.i243, align 16
-  %add.ptr.i.i.i21 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %26, i64 1
-  %Current11.i.i.i22 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %26, i64 0, i32 1
+  %add.ptr.i.i.i21 = getelementptr inbounds i8, ptr %26, i64 16
+  %Current11.i.i.i22 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i64, ptr %Current11.i.i.i22, align 8
   %add.ptr12.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr.i.i.i21, i64 %27
   %add.ptr13.i.i.i24 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -32
@@ -14283,7 +14179,7 @@ while.end:                                        ; preds = %land.lhs.true.i
 
 if.end27:                                         ; preds = %while.end
   %28 = load ptr, ptr %BlockList.i.i.i243, align 16
-  %Current.i.i.i37 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %28, i64 0, i32 1
+  %Current.i.i.i37 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i64, ptr %Current.i.i.i37, align 8
   %30 = add i64 %29, -4048
   %cmp.i.i.i38 = icmp ult i64 %30, -4080
@@ -14300,7 +14196,7 @@ if.then.i9.i.i.i56:                               ; preds = %if.then.i.i.i51
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54: ; preds = %if.then.i.i.i51
   store ptr %28, ptr %call.i6.i.i.i52, align 8
-  %Current.i8.i.i.i55 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i52, i64 0, i32 1
+  %Current.i8.i.i.i55 = getelementptr inbounds i8, ptr %call.i6.i.i.i52, i64 8
   store i64 0, ptr %Current.i8.i.i.i55, align 8
   store ptr %call.i6.i.i.i52, ptr %BlockList.i.i.i243, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit57
@@ -14308,12 +14204,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit57: ; preds = %if.end27, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54
   %31 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %29, %if.end27 ]
   %32 = phi ptr [ %call.i6.i.i.i52, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %28, %if.end27 ]
-  %Current7.i.i.i39 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 0, i32 1
+  %Current7.i.i.i39 = getelementptr inbounds i8, ptr %32, i64 8
   %add8.i.i.i40 = add nsw i64 %31, 32
   store i64 %add8.i.i.i40, ptr %Current7.i.i.i39, align 8
   %33 = load ptr, ptr %BlockList.i.i.i243, align 16
-  %add.ptr.i.i.i41 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %33, i64 1
-  %Current11.i.i.i42 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %33, i64 0, i32 1
+  %add.ptr.i.i.i41 = getelementptr inbounds i8, ptr %33, i64 16
+  %Current11.i.i.i42 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load i64, ptr %Current11.i.i.i42, align 8
   %add.ptr12.i.i.i43 = getelementptr inbounds i8, ptr %add.ptr.i.i.i41, i64 %34
   %add.ptr13.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -32
@@ -14361,9 +14257,9 @@ if.then34:                                        ; preds = %_ZNK10StringView10s
   br i1 %brmerge.not, label %if.then40, label %return
 
 if.then40:                                        ; preds = %if.then34
-  %BlockList.i.i.i98 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i98 = getelementptr inbounds i8, ptr %this, i64 4848
   %36 = load ptr, ptr %BlockList.i.i.i98, align 16
-  %Current.i.i.i99 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 0, i32 1
+  %Current.i.i.i99 = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load i64, ptr %Current.i.i.i99, align 8
   %38 = add i64 %37, -4048
   %cmp.i.i.i100 = icmp ult i64 %38, -4080
@@ -14380,7 +14276,7 @@ if.then.i9.i.i.i116:                              ; preds = %if.then.i.i.i111
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i114: ; preds = %if.then.i.i.i111
   store ptr %36, ptr %call.i6.i.i.i112, align 8
-  %Current.i8.i.i.i115 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i112, i64 0, i32 1
+  %Current.i8.i.i.i115 = getelementptr inbounds i8, ptr %call.i6.i.i.i112, i64 8
   store i64 0, ptr %Current.i8.i.i.i115, align 8
   store ptr %call.i6.i.i.i112, ptr %BlockList.i.i.i98, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES8_DpOT0_.exit
@@ -14388,12 +14284,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i114: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES8_DpOT0_.exit: ; preds = %if.then40, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i114
   %39 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i114 ], [ %37, %if.then40 ]
   %40 = phi ptr [ %call.i6.i.i.i112, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i114 ], [ %36, %if.then40 ]
-  %Current7.i.i.i101 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %40, i64 0, i32 1
+  %Current7.i.i.i101 = getelementptr inbounds i8, ptr %40, i64 8
   %add8.i.i.i102 = add nsw i64 %39, 32
   store i64 %add8.i.i.i102, ptr %Current7.i.i.i101, align 8
   %41 = load ptr, ptr %BlockList.i.i.i98, align 16
-  %add.ptr.i.i.i103 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %41, i64 1
-  %Current11.i.i.i104 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %41, i64 0, i32 1
+  %add.ptr.i.i.i103 = getelementptr inbounds i8, ptr %41, i64 16
+  %Current11.i.i.i104 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load i64, ptr %Current11.i.i.i104, align 8
   %add.ptr12.i.i.i105 = getelementptr inbounds i8, ptr %add.ptr.i.i.i103, i64 %42
   %add.ptr13.i.i.i106 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -32
@@ -14423,7 +14319,7 @@ do.body.preheader:                                ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp.i127344, label %return, label %if.end.i128.lr.ph
 
 if.end.i128.lr.ph:                                ; preds = %do.body.preheader
-  %BlockList.i.i.i272 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i272 = getelementptr inbounds i8, ptr %this, i64 4848
   br label %if.end.i128
 
 if.end.i128:                                      ; preds = %if.end.i128.lr.ph, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit191
@@ -14446,7 +14342,7 @@ if.then4.i135:                                    ; preds = %_ZN4llvh16itanium_d
 
 if.end8.i138:                                     ; preds = %if.then4.i135
   %45 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %Current.i.i.i273 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %45, i64 0, i32 1
+  %Current.i.i.i273 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load i64, ptr %Current.i.i.i273, align 8
   %47 = add i64 %46, -4048
   %cmp.i.i.i274 = icmp ult i64 %47, -4080
@@ -14463,7 +14359,7 @@ if.then.i9.i.i.i292:                              ; preds = %if.then.i.i.i287
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290: ; preds = %if.then.i.i.i287
   store ptr %45, ptr %call.i6.i.i.i288, align 8
-  %Current.i8.i.i.i291 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i288, i64 0, i32 1
+  %Current.i8.i.i.i291 = getelementptr inbounds i8, ptr %call.i6.i.i.i288, i64 8
   store i64 0, ptr %Current.i8.i.i.i291, align 8
   store ptr %call.i6.i.i.i288, ptr %BlockList.i.i.i272, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit293
@@ -14471,12 +14367,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit293: ; preds = %if.end8.i138, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290
   %48 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290 ], [ %46, %if.end8.i138 ]
   %49 = phi ptr [ %call.i6.i.i.i288, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i290 ], [ %45, %if.end8.i138 ]
-  %Current7.i.i.i275 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %49, i64 0, i32 1
+  %Current7.i.i.i275 = getelementptr inbounds i8, ptr %49, i64 8
   %add8.i.i.i276 = add nsw i64 %48, 32
   store i64 %add8.i.i.i276, ptr %Current7.i.i.i275, align 8
   %50 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %add.ptr.i.i.i277 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %50, i64 1
-  %Current11.i.i.i278 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %50, i64 0, i32 1
+  %add.ptr.i.i.i277 = getelementptr inbounds i8, ptr %50, i64 16
+  %Current11.i.i.i278 = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load i64, ptr %Current11.i.i.i278, align 8
   %add.ptr12.i.i.i279 = getelementptr inbounds i8, ptr %add.ptr.i.i.i277, i64 %51
   %add.ptr13.i.i.i280 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -32
@@ -14496,7 +14392,7 @@ if.end53:                                         ; preds = %if.end.i128, %_ZN4l
 
 if.then55:                                        ; preds = %if.end53
   %52 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %Current.i.i.i142 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %52, i64 0, i32 1
+  %Current.i.i.i142 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load i64, ptr %Current.i.i.i142, align 8
   %54 = add i64 %53, -4048
   %cmp.i.i.i143 = icmp ult i64 %54, -4080
@@ -14513,7 +14409,7 @@ if.then.i9.i.i.i161:                              ; preds = %if.then.i.i.i156
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i159: ; preds = %if.then.i.i.i156
   store ptr %52, ptr %call.i6.i.i.i157, align 8
-  %Current.i8.i.i.i160 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i157, i64 0, i32 1
+  %Current.i8.i.i.i160 = getelementptr inbounds i8, ptr %call.i6.i.i.i157, i64 8
   store i64 0, ptr %Current.i8.i.i.i160, align 8
   store ptr %call.i6.i.i.i157, ptr %BlockList.i.i.i272, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit162
@@ -14521,12 +14417,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i159: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit162: ; preds = %if.then55, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i159
   %55 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i159 ], [ %53, %if.then55 ]
   %56 = phi ptr [ %call.i6.i.i.i157, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i159 ], [ %52, %if.then55 ]
-  %Current7.i.i.i144 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %56, i64 0, i32 1
+  %Current7.i.i.i144 = getelementptr inbounds i8, ptr %56, i64 8
   %add8.i.i.i145 = add nsw i64 %55, 32
   store i64 %add8.i.i.i145, ptr %Current7.i.i.i144, align 8
   %57 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %add.ptr.i.i.i146 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %57, i64 1
-  %Current11.i.i.i147 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %57, i64 0, i32 1
+  %add.ptr.i.i.i146 = getelementptr inbounds i8, ptr %57, i64 16
+  %Current11.i.i.i147 = getelementptr inbounds i8, ptr %57, i64 8
   %58 = load i64, ptr %Current11.i.i.i147, align 8
   %add.ptr12.i.i.i148 = getelementptr inbounds i8, ptr %add.ptr.i.i.i146, i64 %58
   %add.ptr13.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -32
@@ -14543,7 +14439,7 @@ if.else:                                          ; preds = %if.end53
 
 if.then58:                                        ; preds = %if.else
   %59 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %Current.i.i.i164 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %59, i64 0, i32 1
+  %Current.i.i.i164 = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load i64, ptr %Current.i.i.i164, align 8
   %61 = add i64 %60, -4048
   %cmp.i.i.i165 = icmp ult i64 %61, -4080
@@ -14560,7 +14456,7 @@ if.then.i9.i.i.i182:                              ; preds = %if.then.i.i.i177
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i180: ; preds = %if.then.i.i.i177
   store ptr %59, ptr %call.i6.i.i.i178, align 8
-  %Current.i8.i.i.i181 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i178, i64 0, i32 1
+  %Current.i8.i.i.i181 = getelementptr inbounds i8, ptr %call.i6.i.i.i178, i64 8
   store i64 0, ptr %Current.i8.i.i.i181, align 8
   store ptr %call.i6.i.i.i178, ptr %BlockList.i.i.i272, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES8_DpOT0_.exit183
@@ -14568,12 +14464,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i180: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19GlobalQualifiedNameEJRPNS0_4NodeEEEES8_DpOT0_.exit183: ; preds = %if.then58, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i180
   %62 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i180 ], [ %60, %if.then58 ]
   %63 = phi ptr [ %call.i6.i.i.i178, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i180 ], [ %59, %if.then58 ]
-  %Current7.i.i.i166 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %63, i64 0, i32 1
+  %Current7.i.i.i166 = getelementptr inbounds i8, ptr %63, i64 8
   %add8.i.i.i167 = add nsw i64 %62, 32
   store i64 %add8.i.i.i167, ptr %Current7.i.i.i166, align 8
   %64 = load ptr, ptr %BlockList.i.i.i272, align 16
-  %add.ptr.i.i.i168 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %64, i64 1
-  %Current11.i.i.i169 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %64, i64 0, i32 1
+  %add.ptr.i.i.i168 = getelementptr inbounds i8, ptr %64, i64 16
+  %Current11.i.i.i169 = getelementptr inbounds i8, ptr %64, i64 8
   %65 = load i64, ptr %Current11.i.i.i169, align 8
   %add.ptr12.i.i.i170 = getelementptr inbounds i8, ptr %add.ptr.i.i.i168, i64 %65
   %add.ptr13.i.i.i171 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -32
@@ -14633,9 +14529,9 @@ if.then76:                                        ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp79, label %return, label %if.end81
 
 if.end81:                                         ; preds = %if.then76
-  %BlockList.i.i.i199 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i199 = getelementptr inbounds i8, ptr %this, i64 4848
   %70 = load ptr, ptr %BlockList.i.i.i199, align 16
-  %Current.i.i.i200 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %70, i64 0, i32 1
+  %Current.i.i.i200 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load i64, ptr %Current.i.i.i200, align 8
   %72 = add i64 %71, -4048
   %cmp.i.i.i201 = icmp ult i64 %72, -4080
@@ -14652,7 +14548,7 @@ if.then.i9.i.i.i219:                              ; preds = %if.then.i.i.i214
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i217: ; preds = %if.then.i.i.i214
   store ptr %70, ptr %call.i6.i.i.i215, align 8
-  %Current.i8.i.i.i218 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i215, i64 0, i32 1
+  %Current.i8.i.i.i218 = getelementptr inbounds i8, ptr %call.i6.i.i.i215, i64 8
   store i64 0, ptr %Current.i8.i.i.i218, align 8
   store ptr %call.i6.i.i.i215, ptr %BlockList.i.i.i199, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit220
@@ -14660,12 +14556,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i217: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit220: ; preds = %if.end81, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i217
   %73 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i217 ], [ %71, %if.end81 ]
   %74 = phi ptr [ %call.i6.i.i.i215, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i217 ], [ %70, %if.end81 ]
-  %Current7.i.i.i202 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %74, i64 0, i32 1
+  %Current7.i.i.i202 = getelementptr inbounds i8, ptr %74, i64 8
   %add8.i.i.i203 = add nsw i64 %73, 32
   store i64 %add8.i.i.i203, ptr %Current7.i.i.i202, align 8
   %75 = load ptr, ptr %BlockList.i.i.i199, align 16
-  %add.ptr.i.i.i204 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %75, i64 1
-  %Current11.i.i.i205 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %75, i64 0, i32 1
+  %add.ptr.i.i.i204 = getelementptr inbounds i8, ptr %75, i64 16
+  %Current11.i.i.i205 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load i64, ptr %Current11.i.i.i205, align 8
   %add.ptr12.i.i.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i204, i64 %76
   %add.ptr13.i.i.i207 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -32
@@ -14685,9 +14581,9 @@ if.end87:                                         ; preds = %if.end72, %_ZN4llvh
   br i1 %cmp90, label %return, label %if.end92
 
 if.end92:                                         ; preds = %if.end87
-  %BlockList.i.i.i221 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i221 = getelementptr inbounds i8, ptr %this, i64 4848
   %77 = load ptr, ptr %BlockList.i.i.i221, align 16
-  %Current.i.i.i222 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %77, i64 0, i32 1
+  %Current.i.i.i222 = getelementptr inbounds i8, ptr %77, i64 8
   %78 = load i64, ptr %Current.i.i.i222, align 8
   %79 = add i64 %78, -4048
   %cmp.i.i.i223 = icmp ult i64 %79, -4080
@@ -14704,7 +14600,7 @@ if.then.i9.i.i.i241:                              ; preds = %if.then.i.i.i236
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239: ; preds = %if.then.i.i.i236
   store ptr %77, ptr %call.i6.i.i.i237, align 8
-  %Current.i8.i.i.i240 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i237, i64 0, i32 1
+  %Current.i8.i.i.i240 = getelementptr inbounds i8, ptr %call.i6.i.i.i237, i64 8
   store i64 0, ptr %Current.i8.i.i.i240, align 8
   store ptr %call.i6.i.i.i237, ptr %BlockList.i.i.i221, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit242
@@ -14712,12 +14608,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13QualifiedNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit242: ; preds = %if.end92, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239
   %80 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239 ], [ %78, %if.end92 ]
   %81 = phi ptr [ %call.i6.i.i.i237, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i239 ], [ %77, %if.end92 ]
-  %Current7.i.i.i224 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %81, i64 0, i32 1
+  %Current7.i.i.i224 = getelementptr inbounds i8, ptr %81, i64 8
   %add8.i.i.i225 = add nsw i64 %80, 32
   store i64 %add8.i.i.i225, ptr %Current7.i.i.i224, align 8
   %82 = load ptr, ptr %BlockList.i.i.i221, align 16
-  %add.ptr.i.i.i226 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %82, i64 1
-  %Current11.i.i.i227 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %82, i64 0, i32 1
+  %add.ptr.i.i.i226 = getelementptr inbounds i8, ptr %82, i64 16
+  %Current11.i.i.i227 = getelementptr inbounds i8, ptr %82, i64 8
   %83 = load i64, ptr %Current11.i.i.i227, align 8
   %add.ptr12.i.i.i228 = getelementptr inbounds i8, ptr %add.ptr.i.i.i226, i64 %83
   %add.ptr13.i.i.i229 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -32
@@ -14738,9 +14634,9 @@ return:                                           ; preds = %if.then4.i, %while.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10MemberExprEJRPNS0_4NodeERA3_KcS9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(3) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -14757,7 +14653,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExprEJRPNS3_4NodeERA3_KcS7_EEEPT_DpOT0_.exit
@@ -14765,12 +14661,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExprEJRPNS3_4NodeERA3_KcS7_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -14795,9 +14691,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10MemberExprEJRPNS0_4NodeERA2_KcS9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -14814,7 +14710,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExprEJRPNS3_4NodeERA2_KcS7_EEEPT_DpOT0_.exit
@@ -14822,12 +14718,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExprEJRPNS3_4NodeERA2_KcS7_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -14850,9 +14746,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_18ArraySubscriptExprEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -14869,7 +14765,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
@@ -14877,12 +14773,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle18ArraySubscriptExprEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -14939,9 +14835,9 @@ if.end:                                           ; preds = %sw.bb
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %3 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %3, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %Current.i.i.i, align 8
   %5 = add i64 %4, -4032
   %cmp.i.i.i = icmp ult i64 %5, -4080
@@ -14958,7 +14854,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %3, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BracedExprEJRPNS0_4NodeES9_bEEES8_DpOT0_.exit
@@ -14966,12 +14862,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BracedExprEJRPNS0_4NodeES9_bEEES8_DpOT0_.exit: ; preds = %if.end10, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %6 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %4, %if.end10 ]
   %7 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %3, %if.end10 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add8.i.i.i = add nsw i64 %6, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %8 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -14999,9 +14895,9 @@ if.end18:                                         ; preds = %sw.bb12
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end18
-  %BlockList.i.i.i11 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 4848
   %10 = load ptr, ptr %BlockList.i.i.i11, align 16
-  %Current.i.i.i12 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %10, i64 0, i32 1
+  %Current.i.i.i12 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %Current.i.i.i12, align 8
   %12 = add i64 %11, -4032
   %cmp.i.i.i13 = icmp ult i64 %12, -4080
@@ -15018,7 +14914,7 @@ if.then.i9.i.i.i32:                               ; preds = %if.then.i.i.i27
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i30: ; preds = %if.then.i.i.i27
   store ptr %10, ptr %call.i6.i.i.i28, align 8
-  %Current.i8.i.i.i31 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i28, i64 0, i32 1
+  %Current.i8.i.i.i31 = getelementptr inbounds i8, ptr %call.i6.i.i.i28, i64 8
   store i64 0, ptr %Current.i8.i.i.i31, align 8
   store ptr %call.i6.i.i.i28, ptr %BlockList.i.i.i11, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BracedExprEJRPNS0_4NodeES9_bEEES8_DpOT0_.exit33
@@ -15026,12 +14922,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i30: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10BracedExprEJRPNS0_4NodeES9_bEEES8_DpOT0_.exit33: ; preds = %if.end23, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i30
   %13 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i30 ], [ %11, %if.end23 ]
   %14 = phi ptr [ %call.i6.i.i.i28, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i30 ], [ %10, %if.end23 ]
-  %Current7.i.i.i14 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %14, i64 0, i32 1
+  %Current7.i.i.i14 = getelementptr inbounds i8, ptr %14, i64 8
   %add8.i.i.i15 = add nsw i64 %13, 48
   store i64 %add8.i.i.i15, ptr %Current7.i.i.i14, align 8
   %15 = load ptr, ptr %BlockList.i.i.i11, align 16
-  %add.ptr.i.i.i16 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %15, i64 1
-  %Current11.i.i.i17 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %15, i64 0, i32 1
+  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %15, i64 16
+  %Current11.i.i.i17 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load i64, ptr %Current11.i.i.i17, align 8
   %add.ptr12.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 %16
   %add.ptr13.i.i.i19 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -48
@@ -15064,9 +14960,9 @@ if.end36:                                         ; preds = %if.end32
   br i1 %cmp39, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end36
-  %BlockList.i.i.i34 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 4848
   %17 = load ptr, ptr %BlockList.i.i.i34, align 16
-  %Current.i.i.i35 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %17, i64 0, i32 1
+  %Current.i.i.i35 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %Current.i.i.i35, align 8
   %19 = add i64 %18, -4032
   %cmp.i.i.i36 = icmp ult i64 %19, -4080
@@ -15083,7 +14979,7 @@ if.then.i9.i.i.i53:                               ; preds = %if.then.i.i.i48
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51: ; preds = %if.then.i.i.i48
   store ptr %17, ptr %call.i6.i.i.i49, align 8
-  %Current.i8.i.i.i52 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i49, i64 0, i32 1
+  %Current.i8.i.i.i52 = getelementptr inbounds i8, ptr %call.i6.i.i.i49, i64 8
   store i64 0, ptr %Current.i8.i.i.i52, align 8
   store ptr %call.i6.i.i.i49, ptr %BlockList.i.i.i34, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15BracedRangeExprEJRPNS0_4NodeES9_S9_EEES8_DpOT0_.exit
@@ -15091,12 +14987,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15BracedRangeExprEJRPNS0_4NodeES9_S9_EEES8_DpOT0_.exit: ; preds = %if.end41, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51
   %20 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51 ], [ %18, %if.end41 ]
   %21 = phi ptr [ %call.i6.i.i.i49, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i51 ], [ %17, %if.end41 ]
-  %Current7.i.i.i37 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %21, i64 0, i32 1
+  %Current7.i.i.i37 = getelementptr inbounds i8, ptr %21, i64 8
   %add8.i.i.i38 = add nsw i64 %20, 48
   store i64 %add8.i.i.i38, ptr %Current7.i.i.i37, align 8
   %22 = load ptr, ptr %BlockList.i.i.i34, align 16
-  %add.ptr.i.i.i39 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 1
-  %Current11.i.i.i40 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 0, i32 1
+  %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %22, i64 16
+  %Current11.i.i.i40 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %Current11.i.i.i40, align 8
   %add.ptr12.i.i.i41 = getelementptr inbounds i8, ptr %add.ptr.i.i.i39, i64 %23
   %add.ptr13.i.i.i42 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i41, i64 -48
@@ -15123,9 +15019,9 @@ return:                                           ; preds = %if.end36, %if.end32
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJDnNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15142,7 +15038,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEEPT_DpOT0_.exit
@@ -15150,12 +15046,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListExprEJDnNS3_9NodeArrayEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -15177,9 +15073,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11PostfixExprEJRPNS0_4NodeERA3_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(3) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15196,7 +15092,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixExprEJRPNS3_4NodeERA3_KcEEEPT_DpOT0_.exit
@@ -15204,12 +15100,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixExprEJRPNS3_4NodeERA3_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -15232,7 +15128,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixEx
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE12parseNewExprEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i2 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i2 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i2, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -15272,15 +15168,15 @@ _ZNK10StringView10startsWithES_.exit.i37:         ; preds = %_ZNK10StringView10s
 if.end:                                           ; preds = %_ZNK10StringView10startsWithES_.exit.i37, %_ZNK10StringView10startsWithES_.exit.i17
   %storemerge = getelementptr inbounds i8, ptr %2, i64 2
   store ptr %storemerge, ptr %this, align 16
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i44 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i44 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %Last.i44, align 8
   %5 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i45 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i46 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i47 = sub i64 %sub.ptr.lhs.cast.i45, %sub.ptr.rhs.cast.i46
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %if.end
@@ -15355,7 +15251,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end13, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %13 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %9, %if.end13 ]
-  %incdec.ptr.i54 = getelementptr inbounds ptr, ptr %13, i64 1
+  %incdec.ptr.i54 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i54, ptr %Last.i44, align 8
   store ptr %call10, ptr %13, align 8
   %.pre = load ptr, ptr %this, align 16
@@ -15474,7 +15370,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i109
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit121: ; preds = %if.end32, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i109
   %30 = phi ptr [ %add.ptr.i.i110, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i109 ], [ %26, %if.end32 ]
-  %incdec.ptr.i97 = getelementptr inbounds ptr, ptr %30, i64 1
+  %incdec.ptr.i97 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %incdec.ptr.i97, ptr %Last.i44, align 8
   store ptr %call29, ptr %30, align 8
   %.pre196 = load ptr, ptr %this, align 16
@@ -15493,9 +15389,9 @@ while.end34:                                      ; preds = %land.lhs.true.i87
   store ptr %add.ptr.i.i126, ptr %Last.i44, align 8
   %34 = extractvalue { ptr, i64 } %call4.i125, 0
   %35 = extractvalue { ptr, i64 } %call4.i125, 1
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %36 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %36, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load i64, ptr %Current.i.i.i, align 8
   %38 = add i64 %37, -4016
   %cmp.i.i.i127 = icmp ult i64 %38, -4080
@@ -15512,7 +15408,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %36, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeES8_RbSC_EEESA_DpOT0_.exit
@@ -15520,12 +15416,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeES8_RbSC_EEESA_DpOT0_.exit: ; preds = %while.end34, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %39 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %37, %while.end34 ]
   %40 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %36, %while.end34 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %40, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %40, i64 8
   %add8.i.i.i = add nsw i64 %39, 64
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %41 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %41, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %41, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %41, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %42
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
@@ -15556,9 +15452,9 @@ land.lhs.true.i130:                               ; preds = %if.else
 if.end40:                                         ; preds = %land.lhs.true.i130
   %incdec.ptr.i134 = getelementptr inbounds i8, ptr %19, i64 1
   store ptr %incdec.ptr.i134, ptr %this, align 16
-  %BlockList.i.i.i136 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i136 = getelementptr inbounds i8, ptr %this, i64 4848
   %44 = load ptr, ptr %BlockList.i.i.i136, align 16
-  %Current.i.i.i137 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %44, i64 0, i32 1
+  %Current.i.i.i137 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load i64, ptr %Current.i.i.i137, align 8
   %46 = add i64 %45, -4016
   %cmp.i.i.i138 = icmp ult i64 %46, -4080
@@ -15575,7 +15471,7 @@ if.then.i9.i.i.i167:                              ; preds = %if.then.i.i.i162
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i165: ; preds = %if.then.i.i.i162
   store ptr %44, ptr %call.i6.i.i.i163, align 8
-  %Current.i8.i.i.i166 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i163, i64 0, i32 1
+  %Current.i8.i.i.i166 = getelementptr inbounds i8, ptr %call.i6.i.i.i163, i64 8
   store i64 0, ptr %Current.i8.i.i.i166, align 8
   store ptr %call.i6.i.i.i163, ptr %BlockList.i.i.i136, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeES7_RbSC_EEESA_DpOT0_.exit
@@ -15583,12 +15479,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i165: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewExprEJRNS0_9NodeArrayERPNS0_4NodeES7_RbSC_EEESA_DpOT0_.exit: ; preds = %if.end40, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i165
   %47 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i165 ], [ %45, %if.end40 ]
   %48 = phi ptr [ %call.i6.i.i.i163, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i165 ], [ %44, %if.end40 ]
-  %Current7.i.i.i139 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %48, i64 0, i32 1
+  %Current7.i.i.i139 = getelementptr inbounds i8, ptr %48, i64 8
   %add8.i.i.i140 = add nsw i64 %47, 64
   store i64 %add8.i.i.i140, ptr %Current7.i.i.i139, align 8
   %49 = load ptr, ptr %BlockList.i.i.i136, align 16
-  %add.ptr.i.i.i141 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %49, i64 1
-  %Current11.i.i.i142 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %49, i64 0, i32 1
+  %add.ptr.i.i.i141 = getelementptr inbounds i8, ptr %49, i64 16
+  %Current11.i.i.i142 = getelementptr inbounds i8, ptr %49, i64 8
   %50 = load i64, ptr %Current11.i.i.i142, align 8
   %add.ptr12.i.i.i143 = getelementptr inbounds i8, ptr %add.ptr.i.i.i141, i64 %50
   %add.ptr13.i.i.i144 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -64
@@ -15622,9 +15518,9 @@ return:                                           ; preds = %while.body, %while.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA11_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4016
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15641,7 +15537,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
@@ -15649,12 +15545,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA11_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 64
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
@@ -15678,9 +15574,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15ConditionalExprEJRPNS0_4NodeES9_S9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15697,7 +15593,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_EEEPT_DpOT0_.exit
@@ -15705,12 +15601,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15ConditionalExprEJRPNS3_4NodeES7_S7_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -15732,9 +15628,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15Condition
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA17_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15751,7 +15647,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA17_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
@@ -15759,12 +15655,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA17_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -15787,9 +15683,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8CastExprEJRA12_KcRPNS0_4NodeESC_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args3) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15806,7 +15702,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA12_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit
@@ -15814,12 +15710,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJRA12_KcRPNS3_4NodeESA_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -15842,9 +15738,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ParameterPackExpansionEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15861,7 +15757,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -15869,12 +15765,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22ParameterPackExpansionEJRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -15890,9 +15786,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Parameter
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA9_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(9) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4016
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15909,7 +15805,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
@@ -15917,12 +15813,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA9_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 64
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
@@ -15948,9 +15844,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19SizeofParamPackExprEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -15967,7 +15863,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -15975,12 +15871,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19SizeofParamPackExprEJRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -15996,9 +15892,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19SizeofPar
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13EnclosingExprEJRA12_KcRPNS0_4NodeERA2_S7_EEESB_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4016
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -16015,7 +15911,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA12_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit
@@ -16023,12 +15919,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13EnclosingExprEJRA12_KcRPNS3_4NodeERA2_S5_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 64
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -64
@@ -16052,9 +15948,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13NodeArrayNodeEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -16071,7 +15967,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEEPT_DpOT0_.exit
@@ -16079,12 +15975,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13NodeArrayNodeEJNS3_9NodeArrayEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -16104,9 +16000,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13NodeArray
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12InitListExprEJRPNS0_4NodeENS0_9NodeArrayEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -16123,7 +16019,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEEPT_DpOT0_.exit
@@ -16131,12 +16027,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListExprEJRPNS3_4NodeENS3_9NodeArrayEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -16159,9 +16055,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA6_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(6) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -16178,7 +16074,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA6_KcEEEPT_DpOT0_.exit
@@ -16186,12 +16082,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA6_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -16210,9 +16106,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9ThrowExprEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -16229,7 +16125,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -16237,12 +16133,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ThrowExprEJRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -16259,7 +16155,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ThrowExprE
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseIntegerLiteralE10StringView(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr %Lit.coerce0, ptr %Lit.coerce1) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i.i, align 8
   %cmp.not.i.i.not = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.not, label %if.end.i, label %land.lhs.true.i.i
@@ -16315,9 +16211,9 @@ land.lhs.true.i:                                  ; preds = %_ZN4llvh16itanium_d
 if.then:                                          ; preds = %land.lhs.true.i
   %incdec.ptr.i3 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %incdec.ptr.i3, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %7 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %Current.i.i.i, align 8
   %9 = add i64 %8, -4032
   %cmp.i.i.i = icmp ult i64 %9, -4080
@@ -16334,7 +16230,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %7, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_14IntegerLiteralEJR10StringViewS8_EEEPNS0_4NodeEDpOT0_.exit
@@ -16342,12 +16238,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_14IntegerLiteralEJR10StringViewS8_EEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.then, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %10 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %8, %if.then ]
   %11 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %7, %if.then ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %add8.i.i.i = add nsw i64 %10, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %12 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %13
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -16372,9 +16268,9 @@ return:                                           ; preds = %land.lhs.true.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8BoolExprEJiEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4064
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -16391,7 +16287,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8BoolExprEJiEEEPT_DpOT0_.exit
@@ -16399,12 +16295,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8BoolExprEJiEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 16
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
@@ -16422,9 +16318,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8BoolExprEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15IntegerCastExprEJRPNS0_4NodeER10StringViewEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -16441,7 +16337,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15IntegerCastExprEJRPNS3_4NodeER10StringViewEEEPT_DpOT0_.exit
@@ -16449,12 +16345,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15IntegerCastExprEJRPNS3_4NodeER10StringViewEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -16473,8 +16369,8 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15IntegerCa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle14IntegerLiteral9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Type = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerLiteral", ptr %this, i64 0, i32 1
-  %Last.i = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerLiteral", ptr %this, i64 0, i32 1, i32 1
+  %Type = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %Last.i, align 8
   %1 = load ptr, ptr %Type, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -16484,10 +16380,10 @@ entry:
   br i1 %cmp, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   %.pre.i = load ptr, ptr %S, align 8
@@ -16596,17 +16492,17 @@ _ZN12OutputStream4growEm.exit.i51:                ; preds = %if.then.i._ZN12Outp
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStream4growEm.exit.i51, %entry
-  %Value = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerLiteral", ptr %this, i64 0, i32 2
+  %Value = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %Value, align 8
   %17 = load i8, ptr %16, align 1
   %cmp9 = icmp eq i8 %17, 110
   br i1 %cmp9, label %if.end.i63, label %if.else
 
 if.end.i63:                                       ; preds = %if.end
-  %CurrentPosition.i.i64 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i64 = getelementptr inbounds i8, ptr %S, i64 8
   %18 = load i64, ptr %CurrentPosition.i.i64, align 8
   %add.i.i65 = add i64 %18, 1
-  %BufferCapacity.i.i66 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i66 = getelementptr inbounds i8, ptr %S, i64 16
   %19 = load i64, ptr %BufferCapacity.i.i66, align 8
   %cmp.not.i.i67 = icmp ult i64 %add.i.i65, %19
   %.pre.i68 = load ptr, ptr %S, align 8
@@ -16637,7 +16533,7 @@ _ZN12OutputStream4growEm.exit.i76:                ; preds = %if.then.i._ZN12Outp
   %22 = load i64, ptr %CurrentPosition.i.i64, align 8
   %add.i78 = add i64 %22, 1
   store i64 %add.i78, ptr %CurrentPosition.i.i64, align 8
-  %Last.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerLiteral", ptr %this, i64 0, i32 2, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %23 = load ptr, ptr %Last.i.i, align 8
   %24 = load ptr, ptr %Value, align 8
   %sub.ptr.lhs.cast.i.i81 = ptrtoint ptr %23 to i64
@@ -16681,7 +16577,7 @@ _ZN12OutputStream4growEm.exit.i102:               ; preds = %if.then.i._ZN12Outp
   br label %if.end20.sink.split
 
 if.else:                                          ; preds = %if.end
-  %agg.tmp17.sroa.2.0.Value18.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerLiteral", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp17.sroa.2.0.Value18.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp17.sroa.2.0.copyload = load ptr, ptr %agg.tmp17.sroa.2.0.Value18.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %agg.tmp17.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i108 = ptrtoint ptr %16 to i64
@@ -16690,10 +16586,10 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp.i110, label %if.end20, label %if.end.i111
 
 if.end.i111:                                      ; preds = %if.else
-  %CurrentPosition.i.i112 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i112 = getelementptr inbounds i8, ptr %S, i64 8
   %29 = load i64, ptr %CurrentPosition.i.i112, align 8
   %add.i.i113 = add i64 %29, %sub.ptr.sub.i.i109
-  %BufferCapacity.i.i114 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i114 = getelementptr inbounds i8, ptr %S, i64 16
   %30 = load i64, ptr %BufferCapacity.i.i114, align 8
   %cmp.not.i.i115 = icmp ult i64 %add.i.i113, %30
   %.pre.i116 = load ptr, ptr %S, align 8
@@ -16743,10 +16639,10 @@ if.end20:                                         ; preds = %if.end20.sink.split
   br i1 %or.cond, label %if.end28, label %if.end.i137
 
 if.end.i137:                                      ; preds = %if.end20
-  %CurrentPosition.i.i138 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i138 = getelementptr inbounds i8, ptr %S, i64 8
   %36 = load i64, ptr %CurrentPosition.i.i138, align 8
   %add.i.i139 = add i64 %36, %sub.ptr.sub.i132
-  %BufferCapacity.i.i140 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i140 = getelementptr inbounds i8, ptr %S, i64 16
   %37 = load i64, ptr %BufferCapacity.i.i140, align 8
   %cmp.not.i.i141 = icmp ult i64 %add.i.i139, %37
   %.pre.i142 = load ptr, ptr %S, align 8
@@ -16799,7 +16695,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8BoolExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Value = getelementptr inbounds %"class.llvh::itanium_demangle::BoolExpr", ptr %this, i64 0, i32 1
+  %Value = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %Value, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -16812,10 +16708,10 @@ entry:
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   %.pre.i = load ptr, ptr %S, align 8
@@ -16873,9 +16769,9 @@ define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16FloatLiteralImplIf
 entry:
   %0 = alloca %union.anon, align 4
   %num = alloca [24 x i8], align 16
-  %Contents = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl", ptr %this, i64 0, i32 1
+  %Contents = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %Contents, align 8
-  %Last.i = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl", ptr %this, i64 0, i32 1, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Last.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -16936,10 +16832,10 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %fo
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZSt7reverseIPcEvT_S1_.exit
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %8, %idx.ext
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %9
   %.pre.i = load ptr, ptr %s, align 8
@@ -17000,9 +16896,9 @@ define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16FloatLiteralImplId
 entry:
   %0 = alloca %union.anon.4, align 8
   %num = alloca [32 x i8], align 16
-  %Contents = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl.3", ptr %this, i64 0, i32 1
+  %Contents = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %Contents, align 8
-  %Last.i = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl.3", ptr %this, i64 0, i32 1, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Last.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -17062,10 +16958,10 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %fo
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZSt7reverseIPcEvT_S1_.exit
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %8, %idx.ext
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %9
   %.pre.i = load ptr, ptr %s, align 8
@@ -17120,9 +17016,9 @@ define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16FloatLiteralImplIe
 entry:
   %0 = alloca %union.anon.6, align 16
   %num = alloca [40 x i8], align 16
-  %Contents = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl.5", ptr %this, i64 0, i32 1
+  %Contents = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %Contents, align 8
-  %Last.i = getelementptr inbounds %"class.llvh::itanium_demangle::FloatLiteralImpl.5", ptr %this, i64 0, i32 1, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %Last.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
@@ -17182,10 +17078,10 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %while.body.i.i, %fo
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZSt7reverseIPcEvT_S1_.exit
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %8, %idx.ext
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %9
   %.pre.i = load ptr, ptr %s, align 8
@@ -17238,10 +17134,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle15IntegerCastExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -17272,20 +17168,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerCastExpr", ptr %this, i64 0, i32 1
+  %Ty = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Ty, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %if.end.i13, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i13
@@ -17323,9 +17219,9 @@ _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12Outp
   %13 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i28 = add i64 %13, 1
   store i64 %add.i28, ptr %CurrentPosition.i.i, align 8
-  %Integer = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerCastExpr", ptr %this, i64 0, i32 2
+  %Integer = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %Integer, align 8
-  %agg.tmp4.sroa.2.0.Integer.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::IntegerCastExpr", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp4.sroa.2.0.Integer.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp4.sroa.2.0.copyload = load ptr, ptr %agg.tmp4.sroa.2.0.Integer.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i31 = ptrtoint ptr %agg.tmp4.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i32 = ptrtoint ptr %agg.tmp4.sroa.0.0.copyload to i64
@@ -17387,10 +17283,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13FunctionParam9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 2
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -17421,9 +17317,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 2
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Number = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionParam", ptr %this, i64 0, i32 1
+  %Number = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Number, align 8
-  %agg.tmp2.sroa.2.0.Number.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionParam", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp2.sroa.2.0.Number.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Number.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i4 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -17487,12 +17383,12 @@ define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8FoldExpr9printLeftE
 entry:
   %PrintPack = alloca %class.anon.7, align 8
   store ptr %S, ptr %PrintPack, align 8
-  %0 = getelementptr inbounds %class.anon.7, ptr %PrintPack, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %PrintPack, i64 8
   store ptr %this, ptr %0, align 8
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %1, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %2
   %.pre.i = load ptr, ptr %S, align 8
@@ -17523,31 +17419,31 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 40, ptr %arrayidx.i, align 1
-  %IsLeftFold = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 5
+  %IsLeftFold = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load i8, ptr %IsLeftFold, align 8
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZN12OutputStreampLEc.exit
-  %Init = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 3
+  %Init = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %Init, align 8
   %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %if.end.i69, label %if.then2
 
 if.then2:                                         ; preds = %if.then
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %8 = load ptr, ptr %vfn.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %7, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %7, i64 9
   %9 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %9, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then2
   %vtable2.i = load ptr, ptr %7, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %10 = load ptr, ptr %vfn3.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -17585,9 +17481,9 @@ _ZN12OutputStreampLEc.exit33:                     ; preds = %_ZNK4llvh16itanium_
   store i64 %inc.pre-phi.i30, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i31 = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 32, ptr %arrayidx.i31, align 1
-  %OperatorName = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 4
+  %OperatorName = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %OperatorName, align 8
-  %agg.tmp.sroa.2.0.OperatorName.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 4, i32 1
+  %agg.tmp.sroa.2.0.OperatorName.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.OperatorName.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -17698,9 +17594,9 @@ _ZN12OutputStream4growEm.exit.i82:                ; preds = %if.then.i._ZN12Outp
   %27 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i84 = add i64 %27, 4
   store i64 %add.i84, ptr %CurrentPosition.i.i, align 8
-  %OperatorName10 = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 4
+  %OperatorName10 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp9.sroa.0.0.copyload = load ptr, ptr %OperatorName10, align 8
-  %agg.tmp9.sroa.2.0.OperatorName10.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 4, i32 1
+  %agg.tmp9.sroa.2.0.OperatorName10.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp9.sroa.2.0.copyload = load ptr, ptr %agg.tmp9.sroa.2.0.OperatorName10.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i87 = ptrtoint ptr %agg.tmp9.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i88 = ptrtoint ptr %agg.tmp9.sroa.0.0.copyload to i64
@@ -17812,9 +17708,9 @@ _ZN12OutputStreampLEc.exit144:                    ; preds = %if.else, %if.then.i
   store i64 %inc.pre-phi.i141, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i142 = getelementptr inbounds i8, ptr %39, i64 %38
   store i8 32, ptr %arrayidx.i142, align 1
-  %OperatorName15 = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 4
+  %OperatorName15 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp14.sroa.0.0.copyload = load ptr, ptr %OperatorName15, align 8
-  %agg.tmp14.sroa.2.0.OperatorName15.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 4, i32 1
+  %agg.tmp14.sroa.2.0.OperatorName15.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp14.sroa.2.0.copyload = load ptr, ptr %agg.tmp14.sroa.2.0.OperatorName15.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i145 = ptrtoint ptr %agg.tmp14.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i146 = ptrtoint ptr %agg.tmp14.sroa.0.0.copyload to i64
@@ -17890,7 +17786,7 @@ _ZN12OutputStream4growEm.exit.i187:               ; preds = %if.then.i._ZN12Outp
   %48 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i189 = add i64 %48, 4
   store i64 %add.i189, ptr %CurrentPosition.i.i, align 8
-  %Init19 = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %this, i64 0, i32 3
+  %Init19 = getelementptr inbounds i8, ptr %this, i64 24
   %49 = load ptr, ptr %Init19, align 8
   %cmp20.not = icmp eq ptr %49, null
   br i1 %cmp20.not, label %if.end29, label %if.then21
@@ -18005,17 +17901,17 @@ _ZN12OutputStreampLEc.exit249:                    ; preds = %_ZN12OutputStreampL
   store i8 32, ptr %arrayidx.i247, align 1
   %61 = load ptr, ptr %Init19, align 8
   %vtable.i250 = load ptr, ptr %61, align 8
-  %vfn.i251 = getelementptr inbounds ptr, ptr %vtable.i250, i64 4
+  %vfn.i251 = getelementptr inbounds i8, ptr %vtable.i250, i64 32
   %62 = load ptr, ptr %vfn.i251, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i252 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %61, i64 0, i32 2
+  %RHSComponentCache.i252 = getelementptr inbounds i8, ptr %61, i64 9
   %63 = load i8, ptr %RHSComponentCache.i252, align 1
   %cmp.not.i253 = icmp eq i8 %63, 1
   br i1 %cmp.not.i253, label %if.end29, label %if.then.i254
 
 if.then.i254:                                     ; preds = %_ZN12OutputStreampLEc.exit249
   %vtable2.i255 = load ptr, ptr %61, align 8
-  %vfn3.i256 = getelementptr inbounds ptr, ptr %vtable2.i255, i64 5
+  %vfn3.i256 = getelementptr inbounds i8, ptr %vtable2.i255, i64 40
   %64 = load ptr, ptr %vfn3.i256, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end29
@@ -18073,13 +17969,13 @@ entry:
 define linkonce_odr hidden void @_ZZNK4llvh16itanium_demangle8FoldExpr9printLeftER12OutputStreamENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::itanium_demangle::ParameterPackExpansion", align 8
-  %0 = getelementptr inbounds %class.anon.7, ptr %this, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %this, align 8
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %2, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %3, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %2, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %4
   %.pre.i = load ptr, ptr %2, align 8
@@ -18110,13 +18006,13 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 40, ptr %arrayidx.i, align 1
-  %Pack = getelementptr inbounds %"class.llvh::itanium_demangle::FoldExpr", ptr %1, i64 0, i32 2
+  %Pack = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %Pack, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %ref.tmp, i64 0, i32 1
-  %RHSComponentCache.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %ref.tmp, i64 0, i32 2
+  %K.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 9
   store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %Child.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPackExpansion", ptr %ref.tmp, i64 0, i32 1
+  %Child.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %7, ptr %Child.i, align 8
   %8 = load ptr, ptr %this, align 8
   call void @_ZNK4llvh16itanium_demangle22ParameterPackExpansion9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %8) #20
@@ -18126,17 +18022,17 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
 
 if.then.i:                                        ; preds = %_ZN12OutputStreampLEc.exit
   %vtable2.i = load ptr, ptr %ref.tmp, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %10 = load ptr, ptr %vfn3.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStreampLEc.exit, %if.then.i
   %11 = load ptr, ptr %this, align 8
-  %CurrentPosition.i.i1 = getelementptr inbounds %class.OutputStream, ptr %11, i64 0, i32 1
+  %CurrentPosition.i.i1 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %CurrentPosition.i.i1, align 8
   %add.i.i2 = add i64 %12, 1
-  %BufferCapacity.i.i3 = getelementptr inbounds %class.OutputStream, ptr %11, i64 0, i32 2
+  %BufferCapacity.i.i3 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load i64, ptr %BufferCapacity.i.i3, align 8
   %cmp.not.i.i4 = icmp ult i64 %add.i.i2, %13
   %.pre.i5 = load ptr, ptr %11, align 8
@@ -18179,27 +18075,27 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle22ParameterPackExpansion9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPackIndex = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
-  %CurrentPackMax = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackIndex = getelementptr inbounds i8, ptr %S, i64 24
+  %CurrentPackMax = getelementptr inbounds i8, ptr %S, i64 28
   %0 = load <2 x i32>, ptr %CurrentPackIndex, align 8
   store i32 -1, ptr %CurrentPackIndex, align 8
   store i32 -1, ptr %CurrentPackMax, align 4
-  %CurrentPosition.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i = getelementptr inbounds i8, ptr %S, i64 8
   %1 = load i64, ptr %CurrentPosition.i, align 8
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPackExpansion", ptr %this, i64 0, i32 1
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %Child, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %2, i64 9
   %4 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %4, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %2, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %5 = load ptr, ptr %vfn3.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -18216,13 +18112,13 @@ for.cond.preheader:                               ; preds = %_ZNK4llvh16itanium_
   br i1 %cmp962, label %if.end.i25.lr.ph, label %_ZN14SwapAndRestoreIjED2Ev.exit61
 
 if.end.i25.lr.ph:                                 ; preds = %for.cond.preheader
-  %BufferCapacity.i.i28 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i28 = getelementptr inbounds i8, ptr %S, i64 16
   br label %if.end.i25
 
 if.end.i:                                         ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
   %7 = load i64, ptr %CurrentPosition.i, align 8
   %add.i.i = add i64 %7, 3
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %8 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %8
   %.pre.i = load ptr, ptr %S, align 8
@@ -18291,17 +18187,17 @@ _ZN12OutputStream4growEm.exit.i38:                ; preds = %if.then.i._ZN12Outp
   store i32 %I.063, ptr %CurrentPackIndex, align 8
   %17 = load ptr, ptr %Child, align 8
   %vtable.i43 = load ptr, ptr %17, align 8
-  %vfn.i44 = getelementptr inbounds ptr, ptr %vtable.i43, i64 4
+  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 32
   %18 = load ptr, ptr %vfn.i44, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i45 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %17, i64 0, i32 2
+  %RHSComponentCache.i45 = getelementptr inbounds i8, ptr %17, i64 9
   %19 = load i8, ptr %RHSComponentCache.i45, align 1
   %cmp.not.i46 = icmp eq i8 %19, 1
   br i1 %cmp.not.i46, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51, label %if.then.i47
 
 if.then.i47:                                      ; preds = %_ZN12OutputStream4growEm.exit.i38
   %vtable2.i48 = load ptr, ptr %17, align 8
-  %vfn3.i49 = getelementptr inbounds ptr, ptr %vtable2.i48, i64 5
+  %vfn3.i49 = getelementptr inbounds i8, ptr %vtable2.i48, i64 40
   %20 = load ptr, ptr %vfn3.i49, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit51
@@ -18331,8 +18227,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10BinaryExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %InfixOperator = getelementptr inbounds %"class.llvh::itanium_demangle::BinaryExpr", ptr %this, i64 0, i32 2
-  %Last.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::BinaryExpr", ptr %this, i64 0, i32 2, i32 1
+  %InfixOperator = getelementptr inbounds i8, ptr %this, i64 24
+  %Last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %Last.i.i, align 8
   %1 = load ptr, ptr %InfixOperator, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -18351,10 +18247,10 @@ _ZeqRK10StringViewS1_.exit:                       ; preds = %land.rhs.i
   br i1 %tobool1.not.i.i.i.i.i, label %if.end.i, label %if.end.i24
 
 if.end.i:                                         ; preds = %_ZeqRK10StringViewS1_.exit, %land.rhs.i
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   %.pre.i = load ptr, ptr %S, align 8
@@ -18388,10 +18284,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %if.end.i24
 
 if.end.i24:                                       ; preds = %_ZeqRK10StringViewS1_.exit, %_ZN12OutputStream4growEm.exit.i, %entry
-  %CurrentPosition.i.i25 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i25 = getelementptr inbounds i8, ptr %S, i64 8
   %7 = load i64, ptr %CurrentPosition.i.i25, align 8
   %add.i.i26 = add i64 %7, 1
-  %BufferCapacity.i.i27 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i27 = getelementptr inbounds i8, ptr %S, i64 16
   %8 = load i64, ptr %BufferCapacity.i.i27, align 8
   %cmp.not.i.i28 = icmp ult i64 %add.i.i26, %8
   %.pre.i29 = load ptr, ptr %S, align 8
@@ -18422,20 +18318,20 @@ _ZN12OutputStream4growEm.exit.i37:                ; preds = %if.then.i._ZN12Outp
   %11 = load i64, ptr %CurrentPosition.i.i25, align 8
   %add.i39 = add i64 %11, 1
   store i64 %add.i39, ptr %CurrentPosition.i.i25, align 8
-  %LHS = getelementptr inbounds %"class.llvh::itanium_demangle::BinaryExpr", ptr %this, i64 0, i32 1
+  %LHS = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %LHS, align 8
   %vtable.i = load ptr, ptr %12, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %13 = load ptr, ptr %vfn.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %12, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %12, i64 9
   %14 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %14, 1
   br i1 %cmp.not.i, label %if.end.i50, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i37
   %vtable2.i = load ptr, ptr %12, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %15 = load ptr, ptr %vfn3.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i50
@@ -18548,20 +18444,20 @@ _ZN12OutputStream4growEm.exit.i110:               ; preds = %if.then.i._ZN12Outp
   %29 = load i64, ptr %CurrentPosition.i.i25, align 8
   %add.i112 = add i64 %29, 2
   store i64 %add.i112, ptr %CurrentPosition.i.i25, align 8
-  %RHS = getelementptr inbounds %"class.llvh::itanium_demangle::BinaryExpr", ptr %this, i64 0, i32 3
+  %RHS = getelementptr inbounds i8, ptr %this, i64 40
   %30 = load ptr, ptr %RHS, align 8
   %vtable.i115 = load ptr, ptr %30, align 8
-  %vfn.i116 = getelementptr inbounds ptr, ptr %vtable.i115, i64 4
+  %vfn.i116 = getelementptr inbounds i8, ptr %vtable.i115, i64 32
   %31 = load ptr, ptr %vfn.i116, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i117 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %30, i64 0, i32 2
+  %RHSComponentCache.i117 = getelementptr inbounds i8, ptr %30, i64 9
   %32 = load i8, ptr %RHSComponentCache.i117, align 1
   %cmp.not.i118 = icmp eq i8 %32, 1
   br i1 %cmp.not.i118, label %if.end.i131, label %if.then.i119
 
 if.then.i119:                                     ; preds = %_ZN12OutputStream4growEm.exit.i110
   %vtable2.i120 = load ptr, ptr %30, align 8
-  %vfn3.i121 = getelementptr inbounds ptr, ptr %vtable2.i120, i64 5
+  %vfn3.i121 = getelementptr inbounds i8, ptr %vtable2.i120, i64 40
   %33 = load ptr, ptr %vfn3.i121, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i131
@@ -18670,21 +18566,21 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10PrefixExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Prefix = getelementptr inbounds %"class.llvh::itanium_demangle::PrefixExpr", ptr %this, i64 0, i32 1
+  %Prefix = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Prefix, align 8
-  %agg.tmp.sroa.2.0.Prefix.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::PrefixExpr", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.Prefix.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Prefix.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp eq ptr %agg.tmp.sroa.2.0.copyload, %agg.tmp.sroa.0.0.copyload
-  %CurrentPosition.i.i10.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i10.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 8
   %.pre = load i64, ptr %CurrentPosition.i.i10.phi.trans.insert, align 8
   br i1 %cmp.i, label %if.end.i9, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i64 %.pre, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %0 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %0
   %.pre.i = load ptr, ptr %S, align 8
@@ -18719,9 +18615,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 if.end.i9:                                        ; preds = %entry, %_ZN12OutputStream4growEm.exit.i
   %4 = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %.pre, %entry ]
-  %CurrentPosition.i.i10 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i10 = getelementptr inbounds i8, ptr %S, i64 8
   %add.i.i11 = add i64 %4, 1
-  %BufferCapacity.i.i12 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i12 = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i12, align 8
   %cmp.not.i.i13 = icmp ult i64 %add.i.i11, %5
   %.pre.i14 = load ptr, ptr %S, align 8
@@ -18752,20 +18648,20 @@ _ZN12OutputStream4growEm.exit.i22:                ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i10, align 8
   %add.i24 = add i64 %8, 1
   store i64 %add.i24, ptr %CurrentPosition.i.i10, align 8
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::PrefixExpr", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %Child, align 8
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %11, 1
   br i1 %cmp.not.i, label %if.end.i35, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i22
   %vtable2.i = load ptr, ptr %9, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %12 = load ptr, ptr %vfn3.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i35
@@ -18822,21 +18718,21 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8CastExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CastKind = getelementptr inbounds %"class.llvh::itanium_demangle::CastExpr", ptr %this, i64 0, i32 1
+  %CastKind = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %CastKind, align 8
-  %agg.tmp.sroa.2.0.CastKind.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::CastExpr", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.CastKind.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.CastKind.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp eq ptr %agg.tmp.sroa.2.0.copyload, %agg.tmp.sroa.0.0.copyload
-  %CurrentPosition.i.i12.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i12.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 8
   %.pre = load i64, ptr %CurrentPosition.i.i12.phi.trans.insert, align 8
   br i1 %cmp.i, label %if.end.i11, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i64 %.pre, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %0 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %0
   %.pre.i = load ptr, ptr %S, align 8
@@ -18871,9 +18767,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 if.end.i11:                                       ; preds = %entry, %_ZN12OutputStream4growEm.exit.i
   %4 = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %.pre, %entry ]
-  %CurrentPosition.i.i12 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i12 = getelementptr inbounds i8, ptr %S, i64 8
   %add.i.i13 = add i64 %4, 1
-  %BufferCapacity.i.i14 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i14 = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i14, align 8
   %cmp.not.i.i15 = icmp ult i64 %add.i.i13, %5
   %.pre.i16 = load ptr, ptr %S, align 8
@@ -18904,10 +18800,10 @@ _ZN12OutputStream4growEm.exit.i24:                ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i12, align 8
   %add.i26 = add i64 %8, 1
   store i64 %add.i26, ptr %CurrentPosition.i.i12, align 8
-  %To = getelementptr inbounds %"class.llvh::itanium_demangle::CastExpr", ptr %this, i64 0, i32 2
+  %To = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %To, align 8
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   %11 = load i64, ptr %CurrentPosition.i.i12, align 8
@@ -18942,10 +18838,10 @@ _ZN12OutputStream4growEm.exit.i49:                ; preds = %if.then.i._ZN12Outp
   %15 = load i64, ptr %CurrentPosition.i.i12, align 8
   %add.i51 = add i64 %15, 2
   store i64 %add.i51, ptr %CurrentPosition.i.i12, align 8
-  %From = getelementptr inbounds %"class.llvh::itanium_demangle::CastExpr", ptr %this, i64 0, i32 3
+  %From = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load ptr, ptr %From, align 8
   %vtable6 = load ptr, ptr %16, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 4
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 32
   %17 = load ptr, ptr %vfn7, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   %18 = load i64, ptr %CurrentPosition.i.i12, align 8
@@ -18999,29 +18895,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8CallExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Callee = getelementptr inbounds %"class.llvh::itanium_demangle::CallExpr", ptr %this, i64 0, i32 1
+  %Callee = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Callee, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -19052,7 +18948,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Args = getelementptr inbounds %"class.llvh::itanium_demangle::CallExpr", ptr %this, i64 0, i32 2
+  %Args = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Args, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %9 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i14 = add i64 %9, 1
@@ -19110,9 +19006,9 @@ entry:
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.i.i = add i64 %sub.ptr.sub, 15
   %and.i.i = and i64 %add.i.i, 4294967280
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %add2.i.i = add i64 %1, %and.i.i
   %cmp.i.i = icmp ugt i64 %add2.i.i, 4079
@@ -19135,10 +19031,10 @@ if.then.i.i.i:                                    ; preds = %if.then4.i.i
 _ZN12_GLOBAL__N_120BumpPointerAllocator15allocateMassiveEm.exit.i.i: ; preds = %if.then4.i.i
   %2 = load ptr, ptr %0, align 8
   store ptr %2, ptr %call.i.i.i, align 8
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i.i.i, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 0, ptr %Current.i.i.i, align 8
   store ptr %call.i.i.i, ptr %0, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator17allocateNodeArrayEm.exit
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -19152,7 +19048,7 @@ if.then.i9.i.i:                                   ; preds = %if.end.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.end.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %if.end5.i.i
@@ -19160,12 +19056,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.end.i.i
 if.end5.i.i:                                      ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i, %entry
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add i64 %3, %and.i.i
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %idx.neg.i.i = sub nsw i64 0, %and.i.i
@@ -19191,10 +19087,10 @@ _ZSt4copyIPPN4llvh16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit: ; preds = %_ZN12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle14ConversionExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -19225,20 +19121,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Type = getelementptr inbounds %"class.llvh::itanium_demangle::ConversionExpr", ptr %this, i64 0, i32 1
+  %Type = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Type, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %if.end.i14, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i14
@@ -19276,7 +19172,7 @@ _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12Outp
   %13 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i29 = add i64 %13, 2
   store i64 %add.i29, ptr %CurrentPosition.i.i, align 8
-  %Expressions = getelementptr inbounds %"class.llvh::itanium_demangle::ConversionExpr", ptr %this, i64 0, i32 2
+  %Expressions = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Expressions, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %14 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i41 = add i64 %14, 1
@@ -19329,17 +19225,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10DeleteExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(26) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %IsGlobal = getelementptr inbounds %"class.llvh::itanium_demangle::DeleteExpr", ptr %this, i64 0, i32 3
+  %IsGlobal = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %IsGlobal, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %CurrentPosition.i.i13.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i13.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 8
   %.pre = load i64, ptr %CurrentPosition.i.i13.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.end.i12, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i64 %.pre, 2
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %2
   %.pre.i = load ptr, ptr %S, align 8
@@ -19374,9 +19270,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 if.end.i12:                                       ; preds = %entry, %_ZN12OutputStream4growEm.exit.i
   %6 = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %.pre, %entry ]
-  %CurrentPosition.i.i13 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i13 = getelementptr inbounds i8, ptr %S, i64 8
   %add.i.i14 = add i64 %6, 6
-  %BufferCapacity.i.i15 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i15 = getelementptr inbounds i8, ptr %S, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i15, align 8
   %cmp.not.i.i16 = icmp ult i64 %add.i.i14, %7
   %.pre.i17 = load ptr, ptr %S, align 8
@@ -19407,7 +19303,7 @@ _ZN12OutputStream4growEm.exit.i25:                ; preds = %if.then.i._ZN12Outp
   %10 = load i64, ptr %CurrentPosition.i.i13, align 8
   %add.i27 = add i64 %10, 6
   store i64 %add.i27, ptr %CurrentPosition.i.i13, align 8
-  %IsArray = getelementptr inbounds %"class.llvh::itanium_demangle::DeleteExpr", ptr %this, i64 0, i32 4
+  %IsArray = getelementptr inbounds i8, ptr %this, i64 25
   %11 = load i8, ptr %IsArray, align 1
   %12 = and i8 %11, 1
   %tobool4.not = icmp eq i8 %12, 0
@@ -19448,20 +19344,20 @@ _ZN12OutputStream4growEm.exit.i50:                ; preds = %if.then.i._ZN12Outp
   br label %if.end8
 
 if.end8:                                          ; preds = %_ZN12OutputStream4growEm.exit.i50, %_ZN12OutputStream4growEm.exit.i25
-  %Op = getelementptr inbounds %"class.llvh::itanium_demangle::DeleteExpr", ptr %this, i64 0, i32 2
+  %Op = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %Op, align 8
   %vtable.i = load ptr, ptr %17, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %18 = load ptr, ptr %vfn.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %17, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %17, i64 9
   %19 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %19, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end8
   %vtable2.i = load ptr, ptr %17, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %20 = load ptr, ptr %vfn3.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -19505,10 +19401,10 @@ if.then:                                          ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %Subs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
+  %Subs = getelementptr inbounds i8, ptr %this, i64 296
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 304
   %2 = load ptr, ptr %Last.i, align 16
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 2
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 312
   %3 = load ptr, ptr %Cap.i, align 8
   %cmp.i = icmp eq ptr %2, %3
   br i1 %cmp.i, label %if.then.i, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
@@ -19519,7 +19415,7 @@ if.then.i:                                        ; preds = %if.end
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %mul.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 3
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 320
   %cmp.i.i.i = icmp eq ptr %4, %Inline.i.i.i
   %mul.i.i = shl i64 %sub.ptr.sub.i.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
@@ -19564,7 +19460,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %6 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %2, %if.end ]
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %Last.i, align 16
   store ptr %call2, ptr %6, align 8
   br label %return
@@ -19606,9 +19502,9 @@ land.lhs.true.i47:                                ; preds = %if.end8.i
 if.end11.i:                                       ; preds = %land.lhs.true.i47
   %incdec.ptr.i50 = getelementptr inbounds i8, ptr %9, i64 1
   store ptr %incdec.ptr.i50, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %12 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Current.i.i.i, align 8
   %14 = add i64 %13, -4016
   %cmp.i.i.i44 = icmp ult i64 %14, -4080
@@ -19625,7 +19521,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %12, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %if.end13
@@ -19633,12 +19529,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 if.end13:                                         ; preds = %if.end11.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %15 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %13, %if.end11.i ]
   %16 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %12, %if.end11.i ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %add8.i.i.i = add nsw i64 %15, 64
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %17 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %17, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %17, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %18
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
@@ -19655,10 +19551,10 @@ if.end13:                                         ; preds = %if.end11.i, %_ZN12_
   store ptr @.str.27, ptr %Postfix.i.i.i, align 8
   %Postfix_.sroa.2.0.Postfix.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr getelementptr inbounds ([2 x i8], ptr @.str.27, i64 0, i64 1), ptr %Postfix_.sroa.2.0.Postfix.sroa_idx.i.i.i, align 8
-  %Subs14 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3
-  %Last.i15 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 1
+  %Subs14 = getelementptr inbounds i8, ptr %this, i64 296
+  %Last.i15 = getelementptr inbounds i8, ptr %this, i64 304
   %19 = load ptr, ptr %Last.i15, align 16
-  %Cap.i16 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 2
+  %Cap.i16 = getelementptr inbounds i8, ptr %this, i64 312
   %20 = load ptr, ptr %Cap.i16, align 8
   %cmp.i17 = icmp eq ptr %19, %20
   br i1 %cmp.i17, label %if.then.i20, label %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit43
@@ -19669,7 +19565,7 @@ if.then.i20:                                      ; preds = %if.end13
   %sub.ptr.rhs.cast.i.i22 = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i21, %sub.ptr.rhs.cast.i.i22
   %mul.i24 = ashr exact i64 %sub.ptr.sub.i.i23, 2
-  %Inline.i.i.i25 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 3, i32 3
+  %Inline.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 320
   %cmp.i.i.i26 = icmp eq ptr %21, %Inline.i.i.i25
   %mul.i.i27 = shl i64 %sub.ptr.sub.i.i23, 1
   br i1 %cmp.i.i.i26, label %if.then.i.i35, label %if.else.i.i28
@@ -19714,7 +19610,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i31:
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit43: ; preds = %if.end13, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i31
   %23 = phi ptr [ %add.ptr.i.i32, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i31 ], [ %19, %if.end13 ]
-  %incdec.ptr.i19 = getelementptr inbounds ptr, ptr %23, i64 1
+  %incdec.ptr.i19 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %incdec.ptr.i19, ptr %Last.i15, align 16
   store ptr %add.ptr13.i.i.i, ptr %23, align 8
   br label %return
@@ -19769,9 +19665,9 @@ if.then4.i:                                       ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i
-  %BlockList.i.i.i43 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 4848
   %3 = load ptr, ptr %BlockList.i.i.i43, align 16
-  %Current.i.i.i44 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %3, i64 0, i32 1
+  %Current.i.i.i44 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %Current.i.i.i44, align 8
   %5 = add i64 %4, -4048
   %cmp.i.i.i45 = icmp ult i64 %5, -4080
@@ -19788,7 +19684,7 @@ if.then.i9.i.i.i63:                               ; preds = %if.then.i.i.i58
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %if.then.i.i.i58
   store ptr %3, ptr %call.i6.i.i.i59, align 8
-  %Current.i8.i.i.i62 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i59, i64 0, i32 1
+  %Current.i8.i.i.i62 = getelementptr inbounds i8, ptr %call.i6.i.i.i59, i64 8
   store i64 0, ptr %Current.i8.i.i.i62, align 8
   store ptr %call.i6.i.i.i59, ptr %BlockList.i.i.i43, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit64
@@ -19796,12 +19692,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit64: ; preds = %if.end8.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61
   %6 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61 ], [ %4, %if.end8.i ]
   %7 = phi ptr [ %call.i6.i.i.i59, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61 ], [ %3, %if.end8.i ]
-  %Current7.i.i.i46 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current7.i.i.i46 = getelementptr inbounds i8, ptr %7, i64 8
   %add8.i.i.i47 = add nsw i64 %6, 32
   store i64 %add8.i.i.i47, ptr %Current7.i.i.i46, align 8
   %8 = load ptr, ptr %BlockList.i.i.i43, align 16
-  %add.ptr.i.i.i48 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 1
-  %Current11.i.i.i49 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 0, i32 1
+  %add.ptr.i.i.i48 = getelementptr inbounds i8, ptr %8, i64 16
+  %Current11.i.i.i49 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %Current11.i.i.i49, align 8
   %add.ptr12.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i.i48, i64 %9
   %add.ptr13.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -32
@@ -19858,9 +19754,9 @@ if.then4.i101:                                    ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp6.i103, label %return, label %if.end8.i104
 
 if.end8.i104:                                     ; preds = %if.then4.i101
-  %BlockList.i.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %12 = load ptr, ptr %BlockList.i.i.i.i, align 16
-  %Current.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %Current.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Current.i.i.i.i, align 8
   %14 = add i64 %13, -4048
   %cmp.i.i.i.i = icmp ult i64 %14, -4080
@@ -19877,7 +19773,7 @@ if.then.i9.i.i.i.i:                               ; preds = %if.then.i.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
   store ptr %12, ptr %call.i6.i.i.i.i, align 8
-  %Current.i8.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i.i, align 8
   store ptr %call.i6.i.i.i.i, ptr %BlockList.i.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i
@@ -19885,12 +19781,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i: ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i, %if.end8.i104
   %15 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %13, %if.end8.i104 ]
   %16 = phi ptr [ %call.i6.i.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i.i ], [ %12, %if.end8.i104 ]
-  %Current7.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 0, i32 1
+  %Current7.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %add8.i.i.i.i = add nsw i64 %15, 32
   store i64 %add8.i.i.i.i, ptr %Current7.i.i.i.i, align 8
   %17 = load ptr, ptr %BlockList.i.i.i.i, align 16
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %17, i64 1
-  %Current11.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %17, i64 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  %Current11.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %Current11.i.i.i.i, align 8
   %add.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %18
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
@@ -19910,9 +19806,9 @@ if.end.i12:                                       ; preds = %if.then5, %_ZN4llvh
 
 if.end6.i:                                        ; preds = %if.end.i95, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i, %if.end.i12
   %storemerge.i132 = phi ptr [ %call4.i, %if.end.i12 ], [ %call.i93, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i ], [ %add.ptr13.i.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit.i ], [ %call.i93, %if.end.i95 ]
-  %BlockList.i.i.i72 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 4848
   %19 = load ptr, ptr %BlockList.i.i.i72, align 16
-  %Current.i.i.i73 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 0, i32 1
+  %Current.i.i.i73 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %Current.i.i.i73, align 8
   %21 = add i64 %20, -4048
   %cmp.i.i.i74 = icmp ult i64 %21, -4080
@@ -19929,7 +19825,7 @@ if.then.i9.i.i.i90:                               ; preds = %if.then.i.i.i85
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i88: ; preds = %if.then.i.i.i85
   store ptr %19, ptr %call.i6.i.i.i86, align 8
-  %Current.i8.i.i.i89 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i86, i64 0, i32 1
+  %Current.i8.i.i.i89 = getelementptr inbounds i8, ptr %call.i6.i.i.i86, i64 8
   store i64 0, ptr %Current.i8.i.i.i89, align 8
   store ptr %call.i6.i.i.i86, ptr %BlockList.i.i.i72, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8DtorNameEJRPNS0_4NodeEEEES8_DpOT0_.exit
@@ -19937,12 +19833,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i88: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8DtorNameEJRPNS0_4NodeEEEES8_DpOT0_.exit: ; preds = %if.end6.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i88
   %22 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i88 ], [ %20, %if.end6.i ]
   %23 = phi ptr [ %call.i6.i.i.i86, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i88 ], [ %19, %if.end6.i ]
-  %Current7.i.i.i75 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 0, i32 1
+  %Current7.i.i.i75 = getelementptr inbounds i8, ptr %23, i64 8
   %add8.i.i.i76 = add nsw i64 %22, 32
   store i64 %add8.i.i.i76, ptr %Current7.i.i.i75, align 8
   %24 = load ptr, ptr %BlockList.i.i.i72, align 16
-  %add.ptr.i.i.i77 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %24, i64 1
-  %Current11.i.i.i78 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %24, i64 0, i32 1
+  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %24, i64 16
+  %Current11.i.i.i78 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %Current11.i.i.i78, align 8
   %add.ptr12.i.i.i79 = getelementptr inbounds i8, ptr %add.ptr.i.i.i77, i64 %25
   %add.ptr13.i.i.i80 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -32
@@ -19985,9 +19881,9 @@ if.then16:                                        ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.then16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %27 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %27, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i64, ptr %Current.i.i.i, align 8
   %29 = add i64 %28, -4048
   %cmp.i.i.i = icmp ult i64 %29, -4080
@@ -20004,7 +19900,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %27, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
@@ -20012,12 +19908,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %if.end20, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %30 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %28, %if.end20 ]
   %31 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %27, %if.end20 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %31, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %add8.i.i.i = add nsw i64 %30, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %32 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %32, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %32, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %33
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -20089,9 +19985,9 @@ _ZNK10StringView10startsWithES_.exit:             ; preds = %if.end5
   br i1 %tobool1.not.i.i.i.i.i, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %_ZNK10StringView10startsWithES_.exit
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %6 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %6, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %Current.i.i.i, align 8
   %8 = add i64 %7, -4048
   %cmp.i.i.i = icmp ult i64 %8, -4080
@@ -20108,15 +20004,15 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %6, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %return.sink.split
 
 if.end12:                                         ; preds = %if.end5, %_ZNK10StringView10startsWithES_.exit
-  %BlockList.i.i.i4 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 4848
   %9 = load ptr, ptr %BlockList.i.i.i4, align 16
-  %Current.i.i.i5 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %9, i64 0, i32 1
+  %Current.i.i.i5 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i64, ptr %Current.i.i.i5, align 8
   %11 = add i64 %10, -4048
   %cmp.i.i.i6 = icmp ult i64 %11, -4080
@@ -20133,7 +20029,7 @@ if.then.i9.i.i.i24:                               ; preds = %if.then.i.i.i19
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22: ; preds = %if.then.i.i.i19
   store ptr %9, ptr %call.i6.i.i.i20, align 8
-  %Current.i8.i.i.i23 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i20, i64 0, i32 1
+  %Current.i8.i.i.i23 = getelementptr inbounds i8, ptr %call.i6.i.i.i20, i64 8
   store i64 0, ptr %Current.i8.i.i.i23, align 8
   store ptr %call.i6.i.i.i20, ptr %BlockList.i.i.i4, align 16
   br label %return.sink.split
@@ -20144,12 +20040,12 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %if.then10 ], [ %BlockList.i.i.i4, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %BlockList.i.i.i4, %if.end12 ]
   %this.val.sink = phi ptr [ @.str.142, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ @.str.142, %if.then10 ], [ %incdec.ptr.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %incdec.ptr.i.i, %if.end12 ]
   %add.ptr.sink = phi ptr [ getelementptr inbounds ([22 x i8], ptr @.str.142, i64 0, i64 21), %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ getelementptr inbounds ([22 x i8], ptr @.str.142, i64 0, i64 21), %if.then10 ], [ %add.ptr, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %add.ptr, %if.end12 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %.sink30, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink30, i64 8
   %add8.i.i.i = add nsw i64 %.sink, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %12 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %13
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -20170,9 +20066,9 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJR10StringViewEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -20189,7 +20085,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJR10StringViewEEEPT_DpOT0_.exit
@@ -20197,12 +20093,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJR10StringViewEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -20218,29 +20114,29 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13QualifiedName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Qualifier = getelementptr inbounds %"class.llvh::itanium_demangle::QualifiedName", ptr %this, i64 0, i32 1
+  %Qualifier = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Qualifier, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 2
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -20271,20 +20167,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 2
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Name = getelementptr inbounds %"class.llvh::itanium_demangle::QualifiedName", ptr %this, i64 0, i32 2
+  %Name = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %Name, align 8
   %vtable.i4 = load ptr, ptr %9, align 8
-  %vfn.i5 = getelementptr inbounds ptr, ptr %vtable.i4, i64 4
+  %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 32
   %10 = load ptr, ptr %vfn.i5, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i6 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 2
+  %RHSComponentCache.i6 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i6, align 1
   %cmp.not.i7 = icmp eq i8 %11, 1
   br i1 %cmp.not.i7, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i9 = load ptr, ptr %9, align 8
-  %vfn3.i10 = getelementptr inbounds ptr, ptr %vtable2.i9, i64 5
+  %vfn3.i10 = getelementptr inbounds i8, ptr %vtable2.i9, i64 40
   %12 = load ptr, ptr %vfn3.i10, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12
@@ -20296,10 +20192,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12: ; preds = %_ZN12O
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle13QualifiedName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %Name = getelementptr inbounds %"class.llvh::itanium_demangle::QualifiedName", ptr %this, i64 0, i32 2
+  %Name = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %Name, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #20
   ret { ptr, ptr } %call
@@ -20377,9 +20273,9 @@ sw.bb4:                                           ; preds = %_ZN4llvh16itanium_d
 sw.bb6:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit42, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit42
   %add.ptr8 = getelementptr inbounds i8, ptr %this.val34, i64 2
   store ptr %add.ptr8, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %3 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %3, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %Current.i.i.i, align 8
   %5 = add i64 %4, -4048
   %cmp.i.i.i = icmp ult i64 %5, -4080
@@ -20396,7 +20292,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %3, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -20404,12 +20300,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb6, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %6 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %4, %sw.bb6 ]
   %7 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %3, %sw.bb6 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add8.i.i.i = add nsw i64 %6, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %8 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %9
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -20469,11 +20365,11 @@ sw.bb29:                                          ; preds = %_ZN4llvh16itanium_d
 sw.bb33:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit50
   %add.ptr35 = getelementptr inbounds i8, ptr %this.val34, i64 2
   store ptr %add.ptr35, ptr %this, align 16
-  %TryToParseTemplateArgs = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 8
+  %TryToParseTemplateArgs = getelementptr inbounds i8, ptr %this, i64 736
   %11 = load i8, ptr %TryToParseTemplateArgs, align 16
   %12 = and i8 %11, 1
   store i8 0, ptr %TryToParseTemplateArgs, align 16
-  %PermitForwardTemplateReferences = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 9
+  %PermitForwardTemplateReferences = getelementptr inbounds i8, ptr %this, i64 737
   %13 = load i8, ptr %PermitForwardTemplateReferences, align 1
   %14 = and i8 %13, 1
   %tobool = icmp ne i8 %14, 0
@@ -20594,9 +20490,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit85:
 sw.bb88:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit85
   %add.ptr90 = getelementptr inbounds i8, ptr %this.val34, i64 2
   store ptr %add.ptr90, ptr %this, align 16
-  %BlockList.i.i.i86 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i86 = getelementptr inbounds i8, ptr %this, i64 4848
   %19 = load ptr, ptr %BlockList.i.i.i86, align 16
-  %Current.i.i.i87 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %19, i64 0, i32 1
+  %Current.i.i.i87 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i64, ptr %Current.i.i.i87, align 8
   %21 = add i64 %20, -4048
   %cmp.i.i.i88 = icmp ult i64 %21, -4080
@@ -20613,7 +20509,7 @@ if.then.i9.i.i.i108:                              ; preds = %if.then.i.i.i103
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i106: ; preds = %if.then.i.i.i103
   store ptr %19, ptr %call.i6.i.i.i104, align 8
-  %Current.i8.i.i.i107 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i104, i64 0, i32 1
+  %Current.i8.i.i.i107 = getelementptr inbounds i8, ptr %call.i6.i.i.i104, i64 8
   store i64 0, ptr %Current.i8.i.i.i107, align 8
   store ptr %call.i6.i.i.i104, ptr %BlockList.i.i.i86, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -20621,12 +20517,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i106: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %sw.bb88, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i106
   %22 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i106 ], [ %20, %sw.bb88 ]
   %23 = phi ptr [ %call.i6.i.i.i104, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i106 ], [ %19, %sw.bb88 ]
-  %Current7.i.i.i89 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 0, i32 1
+  %Current7.i.i.i89 = getelementptr inbounds i8, ptr %23, i64 8
   %add8.i.i.i90 = add nsw i64 %22, 32
   store i64 %add8.i.i.i90, ptr %Current7.i.i.i89, align 8
   %24 = load ptr, ptr %BlockList.i.i.i86, align 16
-  %add.ptr.i.i.i91 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %24, i64 1
-  %Current11.i.i.i92 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %24, i64 0, i32 1
+  %add.ptr.i.i.i91 = getelementptr inbounds i8, ptr %24, i64 16
+  %Current11.i.i.i92 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %Current11.i.i.i92, align 8
   %add.ptr12.i.i.i93 = getelementptr inbounds i8, ptr %add.ptr.i.i.i91, i64 %25
   %add.ptr13.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i93, i64 -32
@@ -20642,9 +20538,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
 sw.bb92:                                          ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit85
   %add.ptr94 = getelementptr inbounds i8, ptr %this.val34, i64 2
   store ptr %add.ptr94, ptr %this, align 16
-  %BlockList.i.i.i109 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i109 = getelementptr inbounds i8, ptr %this, i64 4848
   %26 = load ptr, ptr %BlockList.i.i.i109, align 16
-  %Current.i.i.i110 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %26, i64 0, i32 1
+  %Current.i.i.i110 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i64, ptr %Current.i.i.i110, align 8
   %28 = add i64 %27, -4048
   %cmp.i.i.i111 = icmp ult i64 %28, -4080
@@ -20661,7 +20557,7 @@ if.then.i9.i.i.i131:                              ; preds = %if.then.i.i.i126
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i129: ; preds = %if.then.i.i.i126
   store ptr %26, ptr %call.i6.i.i.i127, align 8
-  %Current.i8.i.i.i130 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i127, i64 0, i32 1
+  %Current.i8.i.i.i130 = getelementptr inbounds i8, ptr %call.i6.i.i.i127, i64 8
   store i64 0, ptr %Current.i8.i.i.i130, align 8
   store ptr %call.i6.i.i.i127, ptr %BlockList.i.i.i109, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit132
@@ -20669,12 +20565,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i129: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit132: ; preds = %sw.bb92, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i129
   %29 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i129 ], [ %27, %sw.bb92 ]
   %30 = phi ptr [ %call.i6.i.i.i127, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i129 ], [ %26, %sw.bb92 ]
-  %Current7.i.i.i112 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %30, i64 0, i32 1
+  %Current7.i.i.i112 = getelementptr inbounds i8, ptr %30, i64 8
   %add8.i.i.i113 = add nsw i64 %29, 32
   store i64 %add8.i.i.i113, ptr %Current7.i.i.i112, align 8
   %31 = load ptr, ptr %BlockList.i.i.i109, align 16
-  %add.ptr.i.i.i114 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %31, i64 1
-  %Current11.i.i.i115 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %31, i64 0, i32 1
+  %add.ptr.i.i.i114 = getelementptr inbounds i8, ptr %31, i64 16
+  %Current11.i.i.i115 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load i64, ptr %Current11.i.i.i115, align 8
   %add.ptr12.i.i.i116 = getelementptr inbounds i8, ptr %add.ptr.i.i.i114, i64 %32
   %add.ptr13.i.i.i117 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i116, i64 -32
@@ -20700,9 +20596,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit140
 if.then101:                                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit140
   %add.ptr103 = getelementptr inbounds i8, ptr %this.val34, i64 2
   store ptr %add.ptr103, ptr %this, align 16
-  %BlockList.i.i.i141 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i141 = getelementptr inbounds i8, ptr %this, i64 4848
   %34 = load ptr, ptr %BlockList.i.i.i141, align 16
-  %Current.i.i.i142 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %34, i64 0, i32 1
+  %Current.i.i.i142 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load i64, ptr %Current.i.i.i142, align 8
   %36 = add i64 %35, -4048
   %cmp.i.i.i143 = icmp ult i64 %36, -4080
@@ -20719,7 +20615,7 @@ if.then.i9.i.i.i163:                              ; preds = %if.then.i.i.i158
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i161: ; preds = %if.then.i.i.i158
   store ptr %34, ptr %call.i6.i.i.i159, align 8
-  %Current.i8.i.i.i162 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i159, i64 0, i32 1
+  %Current.i8.i.i.i162 = getelementptr inbounds i8, ptr %call.i6.i.i.i159, i64 8
   store i64 0, ptr %Current.i8.i.i.i162, align 8
   store ptr %call.i6.i.i.i159, ptr %BlockList.i.i.i141, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit164
@@ -20727,12 +20623,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i161: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_.exit164: ; preds = %if.then101, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i161
   %37 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i161 ], [ %35, %if.then101 ]
   %38 = phi ptr [ %call.i6.i.i.i159, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i161 ], [ %34, %if.then101 ]
-  %Current7.i.i.i144 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %38, i64 0, i32 1
+  %Current7.i.i.i144 = getelementptr inbounds i8, ptr %38, i64 8
   %add8.i.i.i145 = add nsw i64 %37, 32
   store i64 %add8.i.i.i145, ptr %Current7.i.i.i144, align 8
   %39 = load ptr, ptr %BlockList.i.i.i141, align 16
-  %add.ptr.i.i.i146 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %39, i64 1
-  %Current11.i.i.i147 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %39, i64 0, i32 1
+  %add.ptr.i.i.i146 = getelementptr inbounds i8, ptr %39, i64 16
+  %Current11.i.i.i147 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i64, ptr %Current11.i.i.i147, align 8
   %add.ptr12.i.i.i148 = getelementptr inbounds i8, ptr %add.ptr.i.i.i146, i64 %40
   %add.ptr13.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -32
@@ -20982,9 +20878,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit212
 if.then230:                                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit212
   %add.ptr232 = getelementptr inbounds i8, ptr %this.val34, i64 2
   store ptr %add.ptr232, ptr %this, align 16
-  %BlockList.i.i.i213 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i213 = getelementptr inbounds i8, ptr %this, i64 4848
   %47 = load ptr, ptr %BlockList.i.i.i213, align 16
-  %Current.i.i.i214 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %47, i64 0, i32 1
+  %Current.i.i.i214 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load i64, ptr %Current.i.i.i214, align 8
   %49 = add i64 %48, -4048
   %cmp.i.i.i215 = icmp ult i64 %49, -4080
@@ -21001,7 +20897,7 @@ if.then.i9.i.i.i235:                              ; preds = %if.then.i.i.i230
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i233: ; preds = %if.then.i.i.i230
   store ptr %47, ptr %call.i6.i.i.i231, align 8
-  %Current.i8.i.i.i234 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i231, i64 0, i32 1
+  %Current.i8.i.i.i234 = getelementptr inbounds i8, ptr %call.i6.i.i.i231, i64 8
   store i64 0, ptr %Current.i8.i.i.i234, align 8
   store ptr %call.i6.i.i.i231, ptr %BlockList.i.i.i213, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit236
@@ -21009,12 +20905,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i233: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_.exit236: ; preds = %if.then230, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i233
   %50 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i233 ], [ %48, %if.then230 ]
   %51 = phi ptr [ %call.i6.i.i.i231, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i233 ], [ %47, %if.then230 ]
-  %Current7.i.i.i216 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %51, i64 0, i32 1
+  %Current7.i.i.i216 = getelementptr inbounds i8, ptr %51, i64 8
   %add8.i.i.i217 = add nsw i64 %50, 32
   store i64 %add8.i.i.i217, ptr %Current7.i.i.i216, align 8
   %52 = load ptr, ptr %BlockList.i.i.i213, align 16
-  %add.ptr.i.i.i218 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %52, i64 1
-  %Current11.i.i.i219 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %52, i64 0, i32 1
+  %add.ptr.i.i.i218 = getelementptr inbounds i8, ptr %52, i64 16
+  %Current11.i.i.i219 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load i64, ptr %Current11.i.i.i219, align 8
   %add.ptr12.i.i.i220 = getelementptr inbounds i8, ptr %add.ptr.i.i.i218, i64 %53
   %add.ptr13.i.i.i221 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i220, i64 -32
@@ -21078,9 +20974,9 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit252
 if.then259:                                       ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit252
   %add.ptr261 = getelementptr inbounds i8, ptr %this.val34, i64 2
   store ptr %add.ptr261, ptr %this, align 16
-  %BlockList.i.i.i253 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i253 = getelementptr inbounds i8, ptr %this, i64 4848
   %56 = load ptr, ptr %BlockList.i.i.i253, align 16
-  %Current.i.i.i254 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %56, i64 0, i32 1
+  %Current.i.i.i254 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load i64, ptr %Current.i.i.i254, align 8
   %58 = add i64 %57, -4048
   %cmp.i.i.i255 = icmp ult i64 %58, -4080
@@ -21097,7 +20993,7 @@ if.then.i9.i.i.i275:                              ; preds = %if.then.i.i.i270
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i273: ; preds = %if.then.i.i.i270
   store ptr %56, ptr %call.i6.i.i.i271, align 8
-  %Current.i8.i.i.i274 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i271, i64 0, i32 1
+  %Current.i8.i.i.i274 = getelementptr inbounds i8, ptr %call.i6.i.i.i271, i64 8
   store i64 0, ptr %Current.i8.i.i.i274, align 8
   store ptr %call.i6.i.i.i271, ptr %BlockList.i.i.i253, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -21105,12 +21001,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i273: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.then259, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i273
   %59 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i273 ], [ %57, %if.then259 ]
   %60 = phi ptr [ %call.i6.i.i.i271, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i273 ], [ %56, %if.then259 ]
-  %Current7.i.i.i256 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %60, i64 0, i32 1
+  %Current7.i.i.i256 = getelementptr inbounds i8, ptr %60, i64 8
   %add8.i.i.i257 = add nsw i64 %59, 32
   store i64 %add8.i.i.i257, ptr %Current7.i.i.i256, align 8
   %61 = load ptr, ptr %BlockList.i.i.i253, align 16
-  %add.ptr.i.i.i258 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %61, i64 1
-  %Current11.i.i.i259 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %61, i64 0, i32 1
+  %add.ptr.i.i.i258 = getelementptr inbounds i8, ptr %61, i64 16
+  %Current11.i.i.i259 = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load i64, ptr %Current11.i.i.i259, align 8
   %add.ptr12.i.i.i260 = getelementptr inbounds i8, ptr %add.ptr.i.i.i258, i64 %62
   %add.ptr13.i.i.i261 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i260, i64 -32
@@ -21155,10 +21051,10 @@ return:                                           ; preds = %sw.bb264, %sw.bb255
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8DtorName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -21189,10 +21085,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Base = getelementptr inbounds %"class.llvh::itanium_demangle::DtorName", ptr %this, i64 0, i32 1
+  %Base = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Base, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   ret void
@@ -21214,9 +21110,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA11_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(11) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21233,7 +21129,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA11_KcEEEPT_DpOT0_.exit
@@ -21241,12 +21137,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA11_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21265,9 +21161,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA10_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(10) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21284,7 +21180,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA10_KcEEEPT_DpOT0_.exit
@@ -21292,12 +21188,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA10_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21316,9 +21212,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ConversionOperatorTypeEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21335,7 +21231,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -21343,12 +21239,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22ConversionOperatorTypeEJRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21364,9 +21260,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Conversio
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA18_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(18) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21383,7 +21279,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA18_KcEEEPT_DpOT0_.exit
@@ -21391,12 +21287,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA18_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21415,9 +21311,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA16_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21434,7 +21330,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA16_KcEEEPT_DpOT0_.exit
@@ -21442,12 +21338,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA16_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21464,9 +21360,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15LiteralOperatorEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21483,7 +21379,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -21491,12 +21387,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15LiteralOperatorEJRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21512,9 +21408,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15LiteralOp
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA12_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(12) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21531,7 +21427,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA12_KcEEEPT_DpOT0_.exit
@@ -21539,12 +21435,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA12_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21563,9 +21459,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA15_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(15) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21582,7 +21478,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA15_KcEEEPT_DpOT0_.exit
@@ -21590,12 +21486,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA15_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21614,9 +21510,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA13_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(13) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -21633,7 +21529,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA13_KcEEEPT_DpOT0_.exit
@@ -21641,12 +21537,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA13_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -21665,10 +21561,10 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle22ConversionOperatorType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 9
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -21699,20 +21595,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 9
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::ConversionOperatorType", ptr %this, i64 0, i32 1
+  %Ty = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Ty, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -21737,10 +21633,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle15LiteralOperator9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 11
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -21771,20 +21667,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 11
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %OpName = getelementptr inbounds %"class.llvh::itanium_demangle::LiteralOperator", ptr %this, i64 0, i32 1
+  %OpName = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %OpName, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -21809,10 +21705,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle19GlobalQualifiedName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 2
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -21843,20 +21739,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 2
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::GlobalQualifiedName", ptr %this, i64 0, i32 1
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Child, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -21868,10 +21764,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12Out
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle19GlobalQualifiedName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::GlobalQualifiedName", ptr %this, i64 0, i32 1
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Child, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #20
   ret { ptr, ptr } %call
@@ -21893,28 +21789,28 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10MemberExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %LHS = getelementptr inbounds %"class.llvh::itanium_demangle::MemberExpr", ptr %this, i64 0, i32 1
+  %LHS = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %LHS, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %if.then.i
-  %Kind = getelementptr inbounds %"class.llvh::itanium_demangle::MemberExpr", ptr %this, i64 0, i32 2
+  %Kind = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Kind, align 8
-  %agg.tmp.sroa.2.0.Kind.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::MemberExpr", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp.sroa.2.0.Kind.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Kind.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -21923,10 +21819,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -21960,20 +21856,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %_ZN12OutputStreampLE10StringView.exit
 
 _ZN12OutputStreampLE10StringView.exit:            ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, %_ZN12OutputStream4growEm.exit.i
-  %RHS = getelementptr inbounds %"class.llvh::itanium_demangle::MemberExpr", ptr %this, i64 0, i32 3
+  %RHS = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load ptr, ptr %RHS, align 8
   %vtable.i3 = load ptr, ptr %9, align 8
-  %vfn.i4 = getelementptr inbounds ptr, ptr %vtable.i3, i64 4
+  %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 32
   %10 = load ptr, ptr %vfn.i4, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i5 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 2
+  %RHSComponentCache.i5 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i5, align 1
   %cmp.not.i6 = icmp eq i8 %11, 1
   br i1 %cmp.not.i6, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit11, label %if.then.i7
 
 if.then.i7:                                       ; preds = %_ZN12OutputStreampLE10StringView.exit
   %vtable2.i8 = load ptr, ptr %9, align 8
-  %vfn3.i9 = getelementptr inbounds ptr, ptr %vtable2.i8, i64 5
+  %vfn3.i9 = getelementptr inbounds i8, ptr %vtable2.i8, i64 40
   %12 = load ptr, ptr %vfn3.i9, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit11
@@ -21998,10 +21894,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle18ArraySubscriptExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -22032,20 +21928,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Op1 = getelementptr inbounds %"class.llvh::itanium_demangle::ArraySubscriptExpr", ptr %this, i64 0, i32 1
+  %Op1 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Op1, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %if.end.i14, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i14
@@ -22083,20 +21979,20 @@ _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12Outp
   %13 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i29 = add i64 %13, 2
   store i64 %add.i29, ptr %CurrentPosition.i.i, align 8
-  %Op2 = getelementptr inbounds %"class.llvh::itanium_demangle::ArraySubscriptExpr", ptr %this, i64 0, i32 2
+  %Op2 = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %Op2, align 8
   %vtable.i32 = load ptr, ptr %14, align 8
-  %vfn.i33 = getelementptr inbounds ptr, ptr %vtable.i32, i64 4
+  %vfn.i33 = getelementptr inbounds i8, ptr %vtable.i32, i64 32
   %15 = load ptr, ptr %vfn.i33, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i34 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %14, i64 0, i32 2
+  %RHSComponentCache.i34 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i34, align 1
   %cmp.not.i35 = icmp eq i8 %16, 1
   br i1 %cmp.not.i35, label %if.end.i48, label %if.then.i36
 
 if.then.i36:                                      ; preds = %_ZN12OutputStream4growEm.exit.i27
   %vtable2.i37 = load ptr, ptr %14, align 8
-  %vfn3.i38 = getelementptr inbounds ptr, ptr %vtable2.i37, i64 5
+  %vfn3.i38 = getelementptr inbounds i8, ptr %vtable2.i37, i64 40
   %17 = load ptr, ptr %vfn3.i38, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i48
@@ -22153,14 +22049,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10BracedExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %IsArray = getelementptr inbounds %"class.llvh::itanium_demangle::BracedExpr", ptr %this, i64 0, i32 4
+  %IsArray = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %IsArray, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %CurrentPosition.i.i24 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i24 = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i24, align 8
   %add.i.i25 = add i64 %2, 1
-  %BufferCapacity.i.i26 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i26 = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i26, align 8
   %cmp.not.i.i27 = icmp ult i64 %add.i.i25, %3
   %.pre.i28 = load ptr, ptr %S, align 8
@@ -22194,20 +22090,20 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %if.then, %if.then.i
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i24, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 91, ptr %arrayidx.i, align 1
-  %Elem = getelementptr inbounds %"class.llvh::itanium_demangle::BracedExpr", ptr %this, i64 0, i32 2
+  %Elem = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %Elem, align 8
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %7 = load ptr, ptr %vfn.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %6, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %6, i64 9
   %8 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %8, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStreampLEc.exit
   %vtable2.i = load ptr, ptr %6, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %9 = load ptr, ptr %vfn3.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -22275,38 +22171,38 @@ _ZN12OutputStreampLEc.exit40:                     ; preds = %if.else, %if.then.i
   store i64 %inc.pre-phi.i37, ptr %CurrentPosition.i.i24, align 8
   %arrayidx.i38 = getelementptr inbounds i8, ptr %15, i64 %14
   store i8 46, ptr %arrayidx.i38, align 1
-  %Elem4 = getelementptr inbounds %"class.llvh::itanium_demangle::BracedExpr", ptr %this, i64 0, i32 2
+  %Elem4 = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load ptr, ptr %Elem4, align 8
   %vtable.i41 = load ptr, ptr %16, align 8
-  %vfn.i42 = getelementptr inbounds ptr, ptr %vtable.i41, i64 4
+  %vfn.i42 = getelementptr inbounds i8, ptr %vtable.i41, i64 32
   %17 = load ptr, ptr %vfn.i42, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i43 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %16, i64 0, i32 2
+  %RHSComponentCache.i43 = getelementptr inbounds i8, ptr %16, i64 9
   %18 = load i8, ptr %RHSComponentCache.i43, align 1
   %cmp.not.i44 = icmp eq i8 %18, 1
   br i1 %cmp.not.i44, label %if.end, label %if.then.i45
 
 if.then.i45:                                      ; preds = %_ZN12OutputStreampLEc.exit40
   %vtable2.i46 = load ptr, ptr %16, align 8
-  %vfn3.i47 = getelementptr inbounds ptr, ptr %vtable2.i46, i64 5
+  %vfn3.i47 = getelementptr inbounds i8, ptr %vtable2.i46, i64 40
   %19 = load ptr, ptr %vfn3.i47, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i45, %_ZN12OutputStreampLEc.exit40, %_ZN12OutputStreampLEc.exit23
-  %Init = getelementptr inbounds %"class.llvh::itanium_demangle::BracedExpr", ptr %this, i64 0, i32 3
+  %Init = getelementptr inbounds i8, ptr %this, i64 24
   %20 = load ptr, ptr %Init, align 8
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %20, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i8, ptr %K.i, align 8
   %.off = add i8 %21, -65
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %if.end12, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %CurrentPosition.i.i50 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i50 = getelementptr inbounds i8, ptr %S, i64 8
   %22 = load i64, ptr %CurrentPosition.i.i50, align 8
   %add.i.i51 = add i64 %22, 3
-  %BufferCapacity.i.i52 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i52 = getelementptr inbounds i8, ptr %S, i64 16
   %23 = load i64, ptr %BufferCapacity.i.i52, align 8
   %cmp.not.i.i53 = icmp ult i64 %add.i.i51, %23
   %.pre.i54 = load ptr, ptr %S, align 8
@@ -22343,17 +22239,17 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 if.end12:                                         ; preds = %if.end, %_ZN12OutputStream4growEm.exit.i
   %27 = phi ptr [ %20, %if.end ], [ %.pre, %_ZN12OutputStream4growEm.exit.i ]
   %vtable.i63 = load ptr, ptr %27, align 8
-  %vfn.i64 = getelementptr inbounds ptr, ptr %vtable.i63, i64 4
+  %vfn.i64 = getelementptr inbounds i8, ptr %vtable.i63, i64 32
   %28 = load ptr, ptr %vfn.i64, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i65 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %27, i64 0, i32 2
+  %RHSComponentCache.i65 = getelementptr inbounds i8, ptr %27, i64 9
   %29 = load i8, ptr %RHSComponentCache.i65, align 1
   %cmp.not.i66 = icmp eq i8 %29, 1
   br i1 %cmp.not.i66, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit71, label %if.then.i67
 
 if.then.i67:                                      ; preds = %if.end12
   %vtable2.i68 = load ptr, ptr %27, align 8
-  %vfn3.i69 = getelementptr inbounds ptr, ptr %vtable2.i68, i64 5
+  %vfn3.i69 = getelementptr inbounds i8, ptr %vtable2.i68, i64 40
   %30 = load ptr, ptr %vfn3.i69, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit71
@@ -22378,10 +22274,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle15BracedRangeExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -22412,20 +22308,20 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 91, ptr %arrayidx.i, align 1
-  %First = getelementptr inbounds %"class.llvh::itanium_demangle::BracedRangeExpr", ptr %this, i64 0, i32 1
+  %First = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %First, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %4, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %4, i64 9
   %6 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %6, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStreampLEc.exit
   %vtable2.i = load ptr, ptr %4, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %7 = load ptr, ptr %vfn3.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
@@ -22463,20 +22359,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %12 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %12, 5
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Last = getelementptr inbounds %"class.llvh::itanium_demangle::BracedRangeExpr", ptr %this, i64 0, i32 2
+  %Last = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load ptr, ptr %Last, align 8
   %vtable.i20 = load ptr, ptr %13, align 8
-  %vfn.i21 = getelementptr inbounds ptr, ptr %vtable.i20, i64 4
+  %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 32
   %14 = load ptr, ptr %vfn.i21, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i22 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %13, i64 0, i32 2
+  %RHSComponentCache.i22 = getelementptr inbounds i8, ptr %13, i64 9
   %15 = load i8, ptr %RHSComponentCache.i22, align 1
   %cmp.not.i23 = icmp eq i8 %15, 1
   br i1 %cmp.not.i23, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit28, label %if.then.i24
 
 if.then.i24:                                      ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i25 = load ptr, ptr %13, align 8
-  %vfn3.i26 = getelementptr inbounds ptr, ptr %vtable2.i25, i64 5
+  %vfn3.i26 = getelementptr inbounds i8, ptr %vtable2.i25, i64 40
   %16 = load ptr, ptr %vfn3.i26, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit28
@@ -22514,9 +22410,9 @@ _ZN12OutputStreampLEc.exit46:                     ; preds = %_ZNK4llvh16itanium_
   store i64 %inc.pre-phi.i43, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i44 = getelementptr inbounds i8, ptr %20, i64 %19
   store i8 93, ptr %arrayidx.i44, align 1
-  %Init = getelementptr inbounds %"class.llvh::itanium_demangle::BracedRangeExpr", ptr %this, i64 0, i32 3
+  %Init = getelementptr inbounds i8, ptr %this, i64 32
   %21 = load ptr, ptr %Init, align 8
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %21, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i8, ptr %K.i, align 8
   %.off = add i8 %22, -65
   %switch = icmp ult i8 %.off, 2
@@ -22561,17 +22457,17 @@ _ZN12OutputStream4growEm.exit.i68:                ; preds = %if.then.i._ZN12Outp
 if.end:                                           ; preds = %_ZN12OutputStreampLEc.exit46, %_ZN12OutputStream4growEm.exit.i68
   %28 = phi ptr [ %21, %_ZN12OutputStreampLEc.exit46 ], [ %.pre, %_ZN12OutputStream4growEm.exit.i68 ]
   %vtable.i73 = load ptr, ptr %28, align 8
-  %vfn.i74 = getelementptr inbounds ptr, ptr %vtable.i73, i64 4
+  %vfn.i74 = getelementptr inbounds i8, ptr %vtable.i73, i64 32
   %29 = load ptr, ptr %vfn.i74, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i75 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %28, i64 0, i32 2
+  %RHSComponentCache.i75 = getelementptr inbounds i8, ptr %28, i64 9
   %30 = load i8, ptr %RHSComponentCache.i75, align 1
   %cmp.not.i76 = icmp eq i8 %30, 1
   br i1 %cmp.not.i76, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit81, label %if.then.i77
 
 if.then.i77:                                      ; preds = %if.end
   %vtable2.i78 = load ptr, ptr %28, align 8
-  %vfn3.i79 = getelementptr inbounds ptr, ptr %vtable2.i78, i64 5
+  %vfn3.i79 = getelementptr inbounds i8, ptr %vtable2.i78, i64 40
   %31 = load ptr, ptr %vfn3.i79, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit81
@@ -22596,33 +22492,33 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle12InitListExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::InitListExpr", ptr %this, i64 0, i32 1
+  %Ty = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Ty, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.then, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -22653,7 +22549,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %if.end, %if.then.i.
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 123, ptr %arrayidx.i, align 1
-  %Inits = getelementptr inbounds %"class.llvh::itanium_demangle::InitListExpr", ptr %this, i64 0, i32 2
+  %Inits = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Inits, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i5 = add i64 %8, 1
@@ -22706,10 +22602,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle11PostfixExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -22740,20 +22636,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixExpr", ptr %this, i64 0, i32 1
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Child, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %if.end.i13, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i13
@@ -22791,9 +22687,9 @@ _ZN12OutputStream4growEm.exit.i26:                ; preds = %if.then.i._ZN12Outp
   %13 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i28 = add i64 %13, 1
   store i64 %add.i28, ptr %CurrentPosition.i.i, align 8
-  %Operator = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixExpr", ptr %this, i64 0, i32 2
+  %Operator = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %Operator, align 8
-  %agg.tmp4.sroa.2.0.Operator.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixExpr", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp4.sroa.2.0.Operator.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp4.sroa.2.0.copyload = load ptr, ptr %agg.tmp4.sroa.2.0.Operator.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i31 = ptrtoint ptr %agg.tmp4.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i32 = ptrtoint ptr %agg.tmp4.sroa.0.0.copyload to i64
@@ -22855,17 +22751,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle7NewExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(58) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %IsGlobal = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this, i64 0, i32 5
+  %IsGlobal = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %IsGlobal, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %CurrentPosition.i.i20.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i20.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 8
   %.pre = load i64, ptr %CurrentPosition.i.i20.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.end.i19, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i64 %.pre, 11
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %2
   %.pre.i = load ptr, ptr %S, align 8
@@ -22900,9 +22796,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 if.end.i19:                                       ; preds = %entry, %_ZN12OutputStream4growEm.exit.i
   %6 = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %.pre, %entry ]
-  %CurrentPosition.i.i20 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i20 = getelementptr inbounds i8, ptr %S, i64 8
   %add.i.i21 = add i64 %6, 3
-  %BufferCapacity.i.i22 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i22 = getelementptr inbounds i8, ptr %S, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i22, align 8
   %cmp.not.i.i23 = icmp ult i64 %add.i.i21, %7
   %.pre.i24 = load ptr, ptr %S, align 8
@@ -22933,7 +22829,7 @@ _ZN12OutputStream4growEm.exit.i32:                ; preds = %if.then.i._ZN12Outp
   %10 = load i64, ptr %CurrentPosition.i.i20, align 8
   %add.i34 = add i64 %10, 3
   store i64 %add.i34, ptr %CurrentPosition.i.i20, align 8
-  %IsArray = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this, i64 0, i32 6
+  %IsArray = getelementptr inbounds i8, ptr %this, i64 57
   %11 = load i8, ptr %IsArray, align 1
   %12 = and i8 %11, 1
   %tobool4.not = icmp eq i8 %12, 0
@@ -23006,8 +22902,8 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %if.end8, %if.then.i
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i20, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %20, i64 %19
   store i8 32, ptr %arrayidx.i, align 1
-  %ExprList = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this, i64 0, i32 2
-  %NumElements.i = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this, i64 0, i32 2, i32 1
+  %ExprList = getelementptr inbounds i8, ptr %this, i64 16
+  %NumElements.i = getelementptr inbounds i8, ptr %this, i64 24
   %21 = load i64, ptr %NumElements.i, align 8
   %cmp.i75 = icmp eq i64 %21, 0
   br i1 %cmp.i75, label %if.end17, label %if.end.i83
@@ -23081,27 +22977,27 @@ _ZN12OutputStream4growEm.exit.i121:               ; preds = %if.then.i._ZN12Outp
   br label %if.end17
 
 if.end17:                                         ; preds = %_ZN12OutputStream4growEm.exit.i121, %_ZN12OutputStreampLEc.exit
-  %Type = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this, i64 0, i32 3
+  %Type = getelementptr inbounds i8, ptr %this, i64 32
   %32 = load ptr, ptr %Type, align 8
   %vtable.i = load ptr, ptr %32, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %33 = load ptr, ptr %vfn.i, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %32, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %32, i64 9
   %34 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %34, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end17
   %vtable2.i = load ptr, ptr %32, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %35 = load ptr, ptr %vfn3.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(12) %32, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.end17, %if.then.i
-  %InitList = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this, i64 0, i32 4
-  %NumElements.i127 = getelementptr inbounds %"class.llvh::itanium_demangle::NewExpr", ptr %this, i64 0, i32 4, i32 1
+  %InitList = getelementptr inbounds i8, ptr %this, i64 40
+  %NumElements.i127 = getelementptr inbounds i8, ptr %this, i64 48
   %36 = load i64, ptr %NumElements.i127, align 8
   %cmp.i128 = icmp eq i64 %36, 0
   br i1 %cmp.i128, label %if.end25, label %if.end.i136
@@ -23194,9 +23090,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13EnclosingExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Prefix = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this, i64 0, i32 1
+  %Prefix = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Prefix, align 8
-  %agg.tmp.sroa.2.0.Prefix.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.Prefix.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Prefix.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -23205,10 +23101,10 @@ entry:
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -23242,28 +23138,28 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %_ZN12OutputStreampLE10StringView.exit
 
 _ZN12OutputStreampLE10StringView.exit:            ; preds = %entry, %_ZN12OutputStream4growEm.exit.i
-  %Infix = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this, i64 0, i32 2
+  %Infix = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %Infix, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStreampLE10StringView.exit
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12OutputStreampLE10StringView.exit, %if.then.i
-  %Postfix = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this, i64 0, i32 3
+  %Postfix = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Postfix, align 8
-  %agg.tmp2.sroa.2.0.Postfix.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::EnclosingExpr", ptr %this, i64 0, i32 3, i32 1
+  %agg.tmp2.sroa.2.0.Postfix.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Postfix.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i4 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i5 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -23272,10 +23168,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12Out
   br i1 %cmp.i7, label %_ZN12OutputStreampLE10StringView.exit25, label %if.end.i8
 
 if.end.i8:                                        ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
-  %CurrentPosition.i.i9 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i9 = getelementptr inbounds i8, ptr %S, i64 8
   %9 = load i64, ptr %CurrentPosition.i.i9, align 8
   %add.i.i10 = add i64 %9, %sub.ptr.sub.i.i6
-  %BufferCapacity.i.i11 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i11 = getelementptr inbounds i8, ptr %S, i64 16
   %10 = load i64, ptr %BufferCapacity.i.i11, align 8
   %cmp.not.i.i12 = icmp ult i64 %add.i.i10, %10
   %.pre.i13 = load ptr, ptr %S, align 8
@@ -23328,10 +23224,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle15ConditionalExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -23362,20 +23258,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Cond = getelementptr inbounds %"class.llvh::itanium_demangle::ConditionalExpr", ptr %this, i64 0, i32 1
+  %Cond = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Cond, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %if.end.i16, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i16
@@ -23413,20 +23309,20 @@ _ZN12OutputStream4growEm.exit.i29:                ; preds = %if.then.i._ZN12Outp
   %13 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i31 = add i64 %13, 5
   store i64 %add.i31, ptr %CurrentPosition.i.i, align 8
-  %Then = getelementptr inbounds %"class.llvh::itanium_demangle::ConditionalExpr", ptr %this, i64 0, i32 2
+  %Then = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %Then, align 8
   %vtable.i34 = load ptr, ptr %14, align 8
-  %vfn.i35 = getelementptr inbounds ptr, ptr %vtable.i34, i64 4
+  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 32
   %15 = load ptr, ptr %vfn.i35, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i36 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %14, i64 0, i32 2
+  %RHSComponentCache.i36 = getelementptr inbounds i8, ptr %14, i64 9
   %16 = load i8, ptr %RHSComponentCache.i36, align 1
   %cmp.not.i37 = icmp eq i8 %16, 1
   br i1 %cmp.not.i37, label %if.end.i50, label %if.then.i38
 
 if.then.i38:                                      ; preds = %_ZN12OutputStream4growEm.exit.i29
   %vtable2.i39 = load ptr, ptr %14, align 8
-  %vfn3.i40 = getelementptr inbounds ptr, ptr %vtable2.i39, i64 5
+  %vfn3.i40 = getelementptr inbounds i8, ptr %vtable2.i39, i64 40
   %17 = load ptr, ptr %vfn3.i40, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i50
@@ -23464,20 +23360,20 @@ _ZN12OutputStream4growEm.exit.i63:                ; preds = %if.then.i._ZN12Outp
   %22 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i65 = add i64 %22, 5
   store i64 %add.i65, ptr %CurrentPosition.i.i, align 8
-  %Else = getelementptr inbounds %"class.llvh::itanium_demangle::ConditionalExpr", ptr %this, i64 0, i32 3
+  %Else = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load ptr, ptr %Else, align 8
   %vtable.i68 = load ptr, ptr %23, align 8
-  %vfn.i69 = getelementptr inbounds ptr, ptr %vtable.i68, i64 4
+  %vfn.i69 = getelementptr inbounds i8, ptr %vtable.i68, i64 32
   %24 = load ptr, ptr %vfn.i69, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i70 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %23, i64 0, i32 2
+  %RHSComponentCache.i70 = getelementptr inbounds i8, ptr %23, i64 9
   %25 = load i8, ptr %RHSComponentCache.i70, align 1
   %cmp.not.i71 = icmp eq i8 %25, 1
   br i1 %cmp.not.i71, label %if.end.i84, label %if.then.i72
 
 if.then.i72:                                      ; preds = %_ZN12OutputStream4growEm.exit.i63
   %vtable2.i73 = load ptr, ptr %23, align 8
-  %vfn3.i74 = getelementptr inbounds ptr, ptr %vtable2.i73, i64 5
+  %vfn3.i74 = getelementptr inbounds i8, ptr %vtable2.i73, i64 40
   %26 = load ptr, ptr %vfn3.i74, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(12) %23, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i84
@@ -23535,10 +23431,10 @@ entry:
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle19SizeofParamPackExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
   %PPE = alloca %"class.llvh::itanium_demangle::ParameterPackExpansion", align 8
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 10
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -23569,12 +23465,12 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 10
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Pack = getelementptr inbounds %"class.llvh::itanium_demangle::SizeofParamPackExpr", ptr %this, i64 0, i32 1
+  %Pack = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Pack, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %PPE, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %PPE, i64 8
   store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, inrange i32 0, i64 2), ptr %PPE, align 8
-  %Child.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPackExpansion", ptr %PPE, i64 0, i32 1
+  %Child.i = getelementptr inbounds i8, ptr %PPE, i64 16
   store ptr %5, ptr %Child.i, align 8
   call void @_ZNK4llvh16itanium_demangle22ParameterPackExpansion9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %PPE, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %6 = load i64, ptr %CurrentPosition.i.i, align 8
@@ -23628,7 +23524,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13NodeArrayNode9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Array = getelementptr inbounds %"struct.llvh::itanium_demangle::NodeArrayNode", ptr %this, i64 0, i32 1
+  %Array = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Array, ptr noundef nonnull align 8 dereferenceable(32) %S)
   ret void
 }
@@ -23649,10 +23545,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle9ThrowExpr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 6
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -23683,20 +23579,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 6
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Op = getelementptr inbounds %"class.llvh::itanium_demangle::ThrowExpr", ptr %this, i64 0, i32 1
+  %Op = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Op, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -23721,7 +23617,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle27ExpandedSpecialSubstitution9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %SSK = getelementptr inbounds %"class.llvh::itanium_demangle::ExpandedSpecialSubstitution", ptr %this, i64 0, i32 1
+  %SSK = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %SSK, align 4
   switch i32 %0, label %sw.epilog [
     i32 0, label %if.end.i
@@ -23733,10 +23629,10 @@ entry:
   ]
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %1, 14
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %2
   %.pre.i = load ptr, ptr %S, align 8
@@ -23767,10 +23663,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i14:                                       ; preds = %entry
-  %CurrentPosition.i.i15 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i15 = getelementptr inbounds i8, ptr %S, i64 8
   %5 = load i64, ptr %CurrentPosition.i.i15, align 8
   %add.i.i16 = add i64 %5, 17
-  %BufferCapacity.i.i17 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i17 = getelementptr inbounds i8, ptr %S, i64 16
   %6 = load i64, ptr %BufferCapacity.i.i17, align 8
   %cmp.not.i.i18 = icmp ult i64 %add.i.i16, %6
   %.pre.i19 = load ptr, ptr %S, align 8
@@ -23801,10 +23697,10 @@ _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i39:                                       ; preds = %entry
-  %CurrentPosition.i.i40 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i40 = getelementptr inbounds i8, ptr %S, i64 8
   %9 = load i64, ptr %CurrentPosition.i.i40, align 8
   %add.i.i41 = add i64 %9, 70
-  %BufferCapacity.i.i42 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i42 = getelementptr inbounds i8, ptr %S, i64 16
   %10 = load i64, ptr %BufferCapacity.i.i42, align 8
   %cmp.not.i.i43 = icmp ult i64 %add.i.i41, %10
   %.pre.i44 = load ptr, ptr %S, align 8
@@ -23835,10 +23731,10 @@ _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i64:                                       ; preds = %entry
-  %CurrentPosition.i.i65 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i65 = getelementptr inbounds i8, ptr %S, i64 8
   %13 = load i64, ptr %CurrentPosition.i.i65, align 8
   %add.i.i66 = add i64 %13, 49
-  %BufferCapacity.i.i67 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i67 = getelementptr inbounds i8, ptr %S, i64 16
   %14 = load i64, ptr %BufferCapacity.i.i67, align 8
   %cmp.not.i.i68 = icmp ult i64 %add.i.i66, %14
   %.pre.i69 = load ptr, ptr %S, align 8
@@ -23869,10 +23765,10 @@ _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i89:                                       ; preds = %entry
-  %CurrentPosition.i.i90 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i90 = getelementptr inbounds i8, ptr %S, i64 8
   %17 = load i64, ptr %CurrentPosition.i.i90, align 8
   %add.i.i91 = add i64 %17, 49
-  %BufferCapacity.i.i92 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i92 = getelementptr inbounds i8, ptr %S, i64 16
   %18 = load i64, ptr %BufferCapacity.i.i92, align 8
   %cmp.not.i.i93 = icmp ult i64 %add.i.i91, %18
   %.pre.i94 = load ptr, ptr %S, align 8
@@ -23903,10 +23799,10 @@ _ZN12OutputStream4growEm.exit.i102:               ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i114:                                      ; preds = %entry
-  %CurrentPosition.i.i115 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i115 = getelementptr inbounds i8, ptr %S, i64 8
   %21 = load i64, ptr %CurrentPosition.i.i115, align 8
   %add.i.i116 = add i64 %21, 50
-  %BufferCapacity.i.i117 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i117 = getelementptr inbounds i8, ptr %S, i64 16
   %22 = load i64, ptr %BufferCapacity.i.i117, align 8
   %cmp.not.i.i118 = icmp ult i64 %add.i.i116, %22
   %.pre.i119 = load ptr, ptr %S, align 8
@@ -23951,7 +23847,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %SSK = getelementptr inbounds %"class.llvh::itanium_demangle::ExpandedSpecialSubstitution", ptr %this, i64 0, i32 1
+  %SSK = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %SSK, align 4
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK4llvh16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 0, i64 %1
@@ -23980,17 +23876,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle12CtorDtorName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %IsDtor = getelementptr inbounds %"class.llvh::itanium_demangle::CtorDtorName", ptr %this, i64 0, i32 2
+  %IsDtor = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %IsDtor, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   %.pre.i = load ptr, ptr %S, align 8
@@ -24024,10 +23920,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStream4growEm.exit.i, %entry
-  %Basename = getelementptr inbounds %"class.llvh::itanium_demangle::CtorDtorName", ptr %this, i64 0, i32 1
+  %Basename = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %Basename, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %8 = load ptr, ptr %vfn, align 8
   %call3 = tail call { ptr, ptr } %8(ptr noundef nonnull align 8 dereferenceable(12) %7) #20
   %9 = extractvalue { ptr, ptr } %call3, 0
@@ -24039,10 +23935,10 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   br i1 %cmp.i6, label %_ZN12OutputStreampLE10StringView.exit24, label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.end
-  %CurrentPosition.i.i8 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i8 = getelementptr inbounds i8, ptr %S, i64 8
   %11 = load i64, ptr %CurrentPosition.i.i8, align 8
   %add.i.i9 = add i64 %11, %sub.ptr.sub.i.i5
-  %BufferCapacity.i.i10 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i10 = getelementptr inbounds i8, ptr %S, i64 16
   %12 = load i64, ptr %BufferCapacity.i.i10, align 8
   %cmp.not.i.i11 = icmp ult i64 %add.i.i9, %12
   %.pre.i12 = load ptr, ptr %S, align 8
@@ -24095,16 +23991,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10AbiTagAttr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Base = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %this, i64 0, i32 1
+  %Base = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Base, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 5
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   %.pre.i = load ptr, ptr %S, align 8
@@ -24135,9 +24031,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %6 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %6, 5
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Tag = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %this, i64 0, i32 2
+  %Tag = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Tag, align 8
-  %agg.tmp2.sroa.2.0.Tag.sroa_idx = getelementptr inbounds %"struct.llvh::itanium_demangle::AbiTagAttr", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp2.sroa.2.0.Tag.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Tag.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i5 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i6 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -24231,10 +24127,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle15UnnamedTypeName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -24265,9 +24161,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 8
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Count = getelementptr inbounds %"class.llvh::itanium_demangle::UnnamedTypeName", ptr %this, i64 0, i32 1
+  %Count = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Count, align 8
-  %agg.tmp2.sroa.2.0.Count.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::UnnamedTypeName", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp2.sroa.2.0.Count.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Count.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i4 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i5 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -24361,10 +24257,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle15ClosureTypeName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 7
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -24395,9 +24291,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 7
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Count = getelementptr inbounds %"class.llvh::itanium_demangle::ClosureTypeName", ptr %this, i64 0, i32 2
+  %Count = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Count, align 8
-  %agg.tmp2.sroa.2.0.Count.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::ClosureTypeName", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp2.sroa.2.0.Count.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Count.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i7 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -24472,7 +24368,7 @@ _ZN12OutputStream4growEm.exit.i48:                ; preds = %if.then.i._ZN12Outp
   %13 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i50 = add i64 %13, 2
   store i64 %add.i50, ptr %CurrentPosition.i.i, align 8
-  %Params = getelementptr inbounds %"class.llvh::itanium_demangle::ClosureTypeName", ptr %this, i64 0, i32 1
+  %Params = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Params, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %14 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i62 = add i64 %14, 1
@@ -24525,10 +24421,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle21StructuredBindingName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -24559,7 +24455,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 91, ptr %arrayidx.i, align 1
-  %Bindings = getelementptr inbounds %"class.llvh::itanium_demangle::StructuredBindingName", ptr %this, i64 0, i32 1
+  %Bindings = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Bindings, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i4 = add i64 %4, 1
@@ -24612,29 +24508,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle9LocalName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Encoding = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %this, i64 0, i32 1
+  %Encoding = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Encoding, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 2
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -24665,20 +24561,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 2
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Entity = getelementptr inbounds %"struct.llvh::itanium_demangle::LocalName", ptr %this, i64 0, i32 2
+  %Entity = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %Entity, align 8
   %vtable.i4 = load ptr, ptr %9, align 8
-  %vfn.i5 = getelementptr inbounds ptr, ptr %vtable.i4, i64 4
+  %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 32
   %10 = load ptr, ptr %vfn.i5, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i6 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 2
+  %RHSComponentCache.i6 = getelementptr inbounds i8, ptr %9, i64 9
   %11 = load i8, ptr %RHSComponentCache.i6, align 1
   %cmp.not.i7 = icmp eq i8 %11, 1
   br i1 %cmp.not.i7, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i9 = load ptr, ptr %9, align 8
-  %vfn3.i10 = getelementptr inbounds ptr, ptr %vtable2.i9, i64 5
+  %vfn3.i10 = getelementptr inbounds i8, ptr %vtable2.i9, i64 40
   %12 = load ptr, ptr %vfn3.i10, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit12
@@ -24706,7 +24602,7 @@ declare i32 @islower(i32 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle19SpecialSubstitution9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %SSK = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialSubstitution", ptr %this, i64 0, i32 1
+  %SSK = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %SSK, align 4
   switch i32 %0, label %sw.epilog [
     i32 0, label %if.end.i
@@ -24718,10 +24614,10 @@ entry:
   ]
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %1, 14
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %2
   %.pre.i = load ptr, ptr %S, align 8
@@ -24752,10 +24648,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i14:                                       ; preds = %entry
-  %CurrentPosition.i.i15 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i15 = getelementptr inbounds i8, ptr %S, i64 8
   %5 = load i64, ptr %CurrentPosition.i.i15, align 8
   %add.i.i16 = add i64 %5, 17
-  %BufferCapacity.i.i17 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i17 = getelementptr inbounds i8, ptr %S, i64 16
   %6 = load i64, ptr %BufferCapacity.i.i17, align 8
   %cmp.not.i.i18 = icmp ult i64 %add.i.i16, %6
   %.pre.i19 = load ptr, ptr %S, align 8
@@ -24786,10 +24682,10 @@ _ZN12OutputStream4growEm.exit.i27:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i39:                                       ; preds = %entry
-  %CurrentPosition.i.i40 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i40 = getelementptr inbounds i8, ptr %S, i64 8
   %9 = load i64, ptr %CurrentPosition.i.i40, align 8
   %add.i.i41 = add i64 %9, 11
-  %BufferCapacity.i.i42 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i42 = getelementptr inbounds i8, ptr %S, i64 16
   %10 = load i64, ptr %BufferCapacity.i.i42, align 8
   %cmp.not.i.i43 = icmp ult i64 %add.i.i41, %10
   %.pre.i44 = load ptr, ptr %S, align 8
@@ -24820,10 +24716,10 @@ _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i64:                                       ; preds = %entry
-  %CurrentPosition.i.i65 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i65 = getelementptr inbounds i8, ptr %S, i64 8
   %13 = load i64, ptr %CurrentPosition.i.i65, align 8
   %add.i.i66 = add i64 %13, 12
-  %BufferCapacity.i.i67 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i67 = getelementptr inbounds i8, ptr %S, i64 16
   %14 = load i64, ptr %BufferCapacity.i.i67, align 8
   %cmp.not.i.i68 = icmp ult i64 %add.i.i66, %14
   %.pre.i69 = load ptr, ptr %S, align 8
@@ -24854,10 +24750,10 @@ _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i89:                                       ; preds = %entry
-  %CurrentPosition.i.i90 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i90 = getelementptr inbounds i8, ptr %S, i64 8
   %17 = load i64, ptr %CurrentPosition.i.i90, align 8
   %add.i.i91 = add i64 %17, 12
-  %BufferCapacity.i.i92 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i92 = getelementptr inbounds i8, ptr %S, i64 16
   %18 = load i64, ptr %BufferCapacity.i.i92, align 8
   %cmp.not.i.i93 = icmp ult i64 %add.i.i91, %18
   %.pre.i94 = load ptr, ptr %S, align 8
@@ -24888,10 +24784,10 @@ _ZN12OutputStream4growEm.exit.i102:               ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog.sink.split
 
 if.end.i114:                                      ; preds = %entry
-  %CurrentPosition.i.i115 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i115 = getelementptr inbounds i8, ptr %S, i64 8
   %21 = load i64, ptr %CurrentPosition.i.i115, align 8
   %add.i.i116 = add i64 %21, 13
-  %BufferCapacity.i.i117 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i117 = getelementptr inbounds i8, ptr %S, i64 16
   %22 = load i64, ptr %BufferCapacity.i.i117, align 8
   %cmp.not.i.i118 = icmp ult i64 %add.i.i116, %22
   %.pre.i119 = load ptr, ptr %S, align 8
@@ -24936,7 +24832,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle19SpecialSubstitution11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %SSK = getelementptr inbounds %"class.llvh::itanium_demangle::SpecialSubstitution", ptr %this, i64 0, i32 1
+  %SSK = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %SSK, align 4
   %1 = sext i32 %0 to i64
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZNK4llvh16itanium_demangle19SpecialSubstitution11getBaseNameEv, i64 0, i64 %1
@@ -24965,14 +24861,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh16itanium_demangle13ParameterPackC2ENS0_9NodeArrayE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %Data_.coerce0, i64 %Data_.coerce1) unnamed_addr #1 comdat align 2 {
 entry:
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this, i64 0, i32 1
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this, i64 0, i32 2
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this, i64 0, i32 3
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %this, i64 0, i32 4
+  %K.i = getelementptr inbounds i8, ptr %this, i64 8
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %this, i64 9
+  %ArrayCache.i = getelementptr inbounds i8, ptr %this, i64 10
+  %FunctionCache.i = getelementptr inbounds i8, ptr %this, i64 11
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ParameterPackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1
+  %Data = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %Data_.coerce0, ptr %Data, align 8
-  %Data_.sroa.2.0.Data.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %Data_.sroa.2.0.Data.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %Data_.coerce1, ptr %Data_.sroa.2.0.Data.sroa_idx, align 8
   store <4 x i8> <i8 27, i8 2, i8 2, i8 2>, ptr %K.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %Data_.coerce0, i64 %Data_.coerce1
@@ -24991,37 +24887,37 @@ for.body.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i, %
   %__trip_count.050.i.i.i.i = phi i64 [ %dec.i.i.i.i, %if.end12.i.i.i.i ], [ %shr.i.i.i.i, %for.body.preheader.i.i.i.i ]
   %__first.addr.049.i.i.i.i = phi ptr [ %incdec.ptr13.i.i.i.i, %if.end12.i.i.i.i ], [ %Data_.coerce0, %for.body.preheader.i.i.i.i ]
   %1 = load ptr, ptr %__first.addr.049.i.i.i.i, align 8
-  %ArrayCache.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %1, i64 0, i32 3
+  %ArrayCache.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 10
   %2 = load i8, ptr %ArrayCache.i.i.i.i.i.i, align 2
   %cmp.i.i.not.i.i.i.i = icmp eq i8 %2, 1
   br i1 %cmp.i.i.not.i.i.i.i, label %if.end.i.i.i.i, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 8
   %3 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
-  %ArrayCache.i.i26.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %3, i64 0, i32 3
+  %ArrayCache.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %ArrayCache.i.i26.i.i.i.i, align 2
   %cmp.i.i27.not.i.i.i.i = icmp eq i8 %4, 1
   br i1 %cmp.i.i27.not.i.i.i.i, label %if.end4.i.i.i.i, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit
 
 if.end4.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %incdec.ptr5.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i, i64 2
+  %incdec.ptr5.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 16
   %5 = load ptr, ptr %incdec.ptr5.i.i.i.i, align 8
-  %ArrayCache.i.i28.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 3
+  %ArrayCache.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 10
   %6 = load i8, ptr %ArrayCache.i.i28.i.i.i.i, align 2
   %cmp.i.i29.not.i.i.i.i = icmp eq i8 %6, 1
   br i1 %cmp.i.i29.not.i.i.i.i, label %if.end8.i.i.i.i, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit145
 
 if.end8.i.i.i.i:                                  ; preds = %if.end4.i.i.i.i
-  %incdec.ptr9.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i, i64 3
+  %incdec.ptr9.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 24
   %7 = load ptr, ptr %incdec.ptr9.i.i.i.i, align 8
-  %ArrayCache.i.i30.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %7, i64 0, i32 3
+  %ArrayCache.i.i30.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 10
   %8 = load i8, ptr %ArrayCache.i.i30.i.i.i.i, align 2
   %cmp.i.i31.not.i.i.i.i = icmp eq i8 %8, 1
   br i1 %cmp.i.i31.not.i.i.i.i, label %if.end12.i.i.i.i, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit147
 
 if.end12.i.i.i.i:                                 ; preds = %if.end8.i.i.i.i
-  %incdec.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i, i64 4
+  %incdec.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 32
   %dec.i.i.i.i = add nsw i64 %__trip_count.050.i.i.i.i, -1
   %cmp.i.i.i.i = icmp sgt i64 %__trip_count.050.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.loopexit.i.i.i.i, !llvm.loop !38
@@ -25043,45 +24939,45 @@ for.end.i.i.i.i:                                  ; preds = %for.end.loopexit.i.
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   %9 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i, align 8
-  %ArrayCache.i.i32.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 3
+  %ArrayCache.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 10
   %10 = load i8, ptr %ArrayCache.i.i32.i.i.i.i, align 2
   %cmp.i.i33.not.i.i.i.i = icmp eq i8 %10, 1
   br i1 %cmp.i.i33.not.i.i.i.i, label %if.end20.i.i.i.i, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
 
 if.end20.i.i.i.i:                                 ; preds = %sw.bb.i.i.i.i
-  %incdec.ptr21.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr21.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i, i64 8
   br label %sw.bb22.i.i.i.i
 
 sw.bb22.i.i.i.i:                                  ; preds = %if.end20.i.i.i.i, %for.end.i.i.i.i
   %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr21.i.i.i.i, %if.end20.i.i.i.i ]
   %11 = load ptr, ptr %__first.addr.1.i.i.i.i, align 8
-  %ArrayCache.i.i34.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %11, i64 0, i32 3
+  %ArrayCache.i.i34.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 10
   %12 = load i8, ptr %ArrayCache.i.i34.i.i.i.i, align 2
   %cmp.i.i35.not.i.i.i.i = icmp eq i8 %12, 1
   br i1 %cmp.i.i35.not.i.i.i.i, label %if.end25.i.i.i.i, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
 
 if.end25.i.i.i.i:                                 ; preds = %sw.bb22.i.i.i.i
-  %incdec.ptr26.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.1.i.i.i.i, i64 1
+  %incdec.ptr26.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i, i64 8
   br label %sw.bb27.i.i.i.i
 
 sw.bb27.i.i.i.i:                                  ; preds = %if.end25.i.i.i.i, %for.end.i.i.i.i
   %__first.addr.2.i.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr26.i.i.i.i, %if.end25.i.i.i.i ]
   %13 = load ptr, ptr %__first.addr.2.i.i.i.i, align 8
-  %ArrayCache.i.i36.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %13, i64 0, i32 3
+  %ArrayCache.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 10
   %14 = load i8, ptr %ArrayCache.i.i36.i.i.i.i, align 2
   %cmp.i.i37.not.i.i.i.i = icmp eq i8 %14, 1
   br i1 %cmp.i.i37.not.i.i.i.i, label %if.then, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 8
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit145: ; preds = %if.end4.i.i.i.i
-  %incdec.ptr5.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i, i64 2
+  %incdec.ptr5.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 16
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit147: ; preds = %if.end8.i.i.i.i
-  %incdec.ptr9.i.i.i.i.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i, i64 3
+  %incdec.ptr9.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i, i64 24
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit: ; preds = %for.body.i.i.i.i, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit145, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E_EbT_S8_T0_.exit.loopexit.split.loop.exit147, %sw.bb.i.i.i.i, %sw.bb22.i.i.i.i, %sw.bb27.i.i.i.i
@@ -25105,37 +25001,37 @@ for.body.i.i.i.i29:                               ; preds = %if.end12.i.i.i.i45,
   %__trip_count.050.i.i.i.i30 = phi i64 [ %dec.i.i.i.i47, %if.end12.i.i.i.i45 ], [ %shr.i.i.i.i, %for.body.preheader.i.i.i.i27 ]
   %__first.addr.049.i.i.i.i31 = phi ptr [ %incdec.ptr13.i.i.i.i46, %if.end12.i.i.i.i45 ], [ %Data_.coerce0, %for.body.preheader.i.i.i.i27 ]
   %16 = load ptr, ptr %__first.addr.049.i.i.i.i31, align 8
-  %FunctionCache.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %16, i64 0, i32 4
+  %FunctionCache.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 11
   %17 = load i8, ptr %FunctionCache.i.i.i.i.i.i, align 1
   %cmp.i.i.not.i.i.i.i32 = icmp eq i8 %17, 1
   br i1 %cmp.i.i.not.i.i.i.i32, label %if.end.i.i.i.i33, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
 
 if.end.i.i.i.i33:                                 ; preds = %for.body.i.i.i.i29
-  %incdec.ptr.i.i.i.i34 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i31, i64 1
+  %incdec.ptr.i.i.i.i34 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i31, i64 8
   %18 = load ptr, ptr %incdec.ptr.i.i.i.i34, align 8
-  %FunctionCache.i.i26.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %18, i64 0, i32 4
+  %FunctionCache.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 11
   %19 = load i8, ptr %FunctionCache.i.i26.i.i.i.i, align 1
   %cmp.i.i27.not.i.i.i.i35 = icmp eq i8 %19, 1
   br i1 %cmp.i.i27.not.i.i.i.i35, label %if.end4.i.i.i.i37, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit
 
 if.end4.i.i.i.i37:                                ; preds = %if.end.i.i.i.i33
-  %incdec.ptr5.i.i.i.i38 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i31, i64 2
+  %incdec.ptr5.i.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i31, i64 16
   %20 = load ptr, ptr %incdec.ptr5.i.i.i.i38, align 8
-  %FunctionCache.i.i28.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %20, i64 0, i32 4
+  %FunctionCache.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 11
   %21 = load i8, ptr %FunctionCache.i.i28.i.i.i.i, align 1
   %cmp.i.i29.not.i.i.i.i39 = icmp eq i8 %21, 1
   br i1 %cmp.i.i29.not.i.i.i.i39, label %if.end8.i.i.i.i41, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit153
 
 if.end8.i.i.i.i41:                                ; preds = %if.end4.i.i.i.i37
-  %incdec.ptr9.i.i.i.i42 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i31, i64 3
+  %incdec.ptr9.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i31, i64 24
   %22 = load ptr, ptr %incdec.ptr9.i.i.i.i42, align 8
-  %FunctionCache.i.i30.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %22, i64 0, i32 4
+  %FunctionCache.i.i30.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 11
   %23 = load i8, ptr %FunctionCache.i.i30.i.i.i.i, align 1
   %cmp.i.i31.not.i.i.i.i43 = icmp eq i8 %23, 1
   br i1 %cmp.i.i31.not.i.i.i.i43, label %if.end12.i.i.i.i45, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit155
 
 if.end12.i.i.i.i45:                               ; preds = %if.end8.i.i.i.i41
-  %incdec.ptr13.i.i.i.i46 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i31, i64 4
+  %incdec.ptr13.i.i.i.i46 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i31, i64 32
   %dec.i.i.i.i47 = add nsw i64 %__trip_count.050.i.i.i.i30, -1
   %cmp.i.i.i.i48 = icmp sgt i64 %__trip_count.050.i.i.i.i30, 1
   br i1 %cmp.i.i.i.i48, label %for.body.i.i.i.i29, label %for.end.loopexit.i.i.i.i49, !llvm.loop !39
@@ -25157,45 +25053,45 @@ for.end.i.i.i.i8:                                 ; preds = %for.end.loopexit.i.
 
 sw.bb.i.i.i.i23:                                  ; preds = %for.end.i.i.i.i8
   %25 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i10, align 8
-  %FunctionCache.i.i32.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %25, i64 0, i32 4
+  %FunctionCache.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 11
   %26 = load i8, ptr %FunctionCache.i.i32.i.i.i.i, align 1
   %cmp.i.i33.not.i.i.i.i24 = icmp eq i8 %26, 1
   br i1 %cmp.i.i33.not.i.i.i.i24, label %if.end20.i.i.i.i25, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
 
 if.end20.i.i.i.i25:                               ; preds = %sw.bb.i.i.i.i23
-  %incdec.ptr21.i.i.i.i26 = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa.i.i.i.i10, i64 1
+  %incdec.ptr21.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i10, i64 8
   br label %sw.bb22.i.i.i.i18
 
 sw.bb22.i.i.i.i18:                                ; preds = %if.end20.i.i.i.i25, %for.end.i.i.i.i8
   %__first.addr.1.i.i.i.i19 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i10, %for.end.i.i.i.i8 ], [ %incdec.ptr21.i.i.i.i26, %if.end20.i.i.i.i25 ]
   %27 = load ptr, ptr %__first.addr.1.i.i.i.i19, align 8
-  %FunctionCache.i.i34.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %27, i64 0, i32 4
+  %FunctionCache.i.i34.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 11
   %28 = load i8, ptr %FunctionCache.i.i34.i.i.i.i, align 1
   %cmp.i.i35.not.i.i.i.i20 = icmp eq i8 %28, 1
   br i1 %cmp.i.i35.not.i.i.i.i20, label %if.end25.i.i.i.i21, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
 
 if.end25.i.i.i.i21:                               ; preds = %sw.bb22.i.i.i.i18
-  %incdec.ptr26.i.i.i.i22 = getelementptr inbounds ptr, ptr %__first.addr.1.i.i.i.i19, i64 1
+  %incdec.ptr26.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i19, i64 8
   br label %sw.bb27.i.i.i.i12
 
 sw.bb27.i.i.i.i12:                                ; preds = %if.end25.i.i.i.i21, %for.end.i.i.i.i8
   %__first.addr.2.i.i.i.i13 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i10, %for.end.i.i.i.i8 ], [ %incdec.ptr26.i.i.i.i22, %if.end25.i.i.i.i21 ]
   %29 = load ptr, ptr %__first.addr.2.i.i.i.i13, align 8
-  %FunctionCache.i.i36.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %29, i64 0, i32 4
+  %FunctionCache.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 11
   %30 = load i8, ptr %FunctionCache.i.i36.i.i.i.i, align 1
   %cmp.i.i37.not.i.i.i.i14 = icmp eq i8 %30, 1
   br i1 %cmp.i.i37.not.i.i.i.i14, label %if.then13, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i33
-  %incdec.ptr.i.i.i.i34.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i31, i64 1
+  %incdec.ptr.i.i.i.i34.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i31, i64 8
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit153: ; preds = %if.end4.i.i.i.i37
-  %incdec.ptr5.i.i.i.i38.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i31, i64 2
+  %incdec.ptr5.i.i.i.i38.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i31, i64 16
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit155: ; preds = %if.end8.i.i.i.i41
-  %incdec.ptr9.i.i.i.i42.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i31, i64 3
+  %incdec.ptr9.i.i.i.i42.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i31, i64 24
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit: ; preds = %for.body.i.i.i.i29, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit153, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E0_EbT_S8_T0_.exit.loopexit.split.loop.exit155, %sw.bb.i.i.i.i23, %sw.bb22.i.i.i.i18, %sw.bb27.i.i.i.i12
@@ -25219,37 +25115,37 @@ for.body.i.i.i.i80:                               ; preds = %if.end12.i.i.i.i96,
   %__trip_count.050.i.i.i.i81 = phi i64 [ %dec.i.i.i.i98, %if.end12.i.i.i.i96 ], [ %shr.i.i.i.i, %for.body.preheader.i.i.i.i78 ]
   %__first.addr.049.i.i.i.i82 = phi ptr [ %incdec.ptr13.i.i.i.i97, %if.end12.i.i.i.i96 ], [ %Data_.coerce0, %for.body.preheader.i.i.i.i78 ]
   %32 = load ptr, ptr %__first.addr.049.i.i.i.i82, align 8
-  %RHSComponentCache.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %32, i64 0, i32 2
+  %RHSComponentCache.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 9
   %33 = load i8, ptr %RHSComponentCache.i.i.i.i.i.i, align 1
   %cmp.i.i.not.i.i.i.i83 = icmp eq i8 %33, 1
   br i1 %cmp.i.i.not.i.i.i.i83, label %if.end.i.i.i.i84, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit
 
 if.end.i.i.i.i84:                                 ; preds = %for.body.i.i.i.i80
-  %incdec.ptr.i.i.i.i85 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i82, i64 1
+  %incdec.ptr.i.i.i.i85 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i82, i64 8
   %34 = load ptr, ptr %incdec.ptr.i.i.i.i85, align 8
-  %RHSComponentCache.i.i26.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %34, i64 0, i32 2
+  %RHSComponentCache.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 9
   %35 = load i8, ptr %RHSComponentCache.i.i26.i.i.i.i, align 1
   %cmp.i.i27.not.i.i.i.i86 = icmp eq i8 %35, 1
   br i1 %cmp.i.i27.not.i.i.i.i86, label %if.end4.i.i.i.i88, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit
 
 if.end4.i.i.i.i88:                                ; preds = %if.end.i.i.i.i84
-  %incdec.ptr5.i.i.i.i89 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i82, i64 2
+  %incdec.ptr5.i.i.i.i89 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i82, i64 16
   %36 = load ptr, ptr %incdec.ptr5.i.i.i.i89, align 8
-  %RHSComponentCache.i.i28.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %36, i64 0, i32 2
+  %RHSComponentCache.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 9
   %37 = load i8, ptr %RHSComponentCache.i.i28.i.i.i.i, align 1
   %cmp.i.i29.not.i.i.i.i90 = icmp eq i8 %37, 1
   br i1 %cmp.i.i29.not.i.i.i.i90, label %if.end8.i.i.i.i92, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit161
 
 if.end8.i.i.i.i92:                                ; preds = %if.end4.i.i.i.i88
-  %incdec.ptr9.i.i.i.i93 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i82, i64 3
+  %incdec.ptr9.i.i.i.i93 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i82, i64 24
   %38 = load ptr, ptr %incdec.ptr9.i.i.i.i93, align 8
-  %RHSComponentCache.i.i30.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %38, i64 0, i32 2
+  %RHSComponentCache.i.i30.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 9
   %39 = load i8, ptr %RHSComponentCache.i.i30.i.i.i.i, align 1
   %cmp.i.i31.not.i.i.i.i94 = icmp eq i8 %39, 1
   br i1 %cmp.i.i31.not.i.i.i.i94, label %if.end12.i.i.i.i96, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit163
 
 if.end12.i.i.i.i96:                               ; preds = %if.end8.i.i.i.i92
-  %incdec.ptr13.i.i.i.i97 = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i82, i64 4
+  %incdec.ptr13.i.i.i.i97 = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i82, i64 32
   %dec.i.i.i.i98 = add nsw i64 %__trip_count.050.i.i.i.i81, -1
   %cmp.i.i.i.i99 = icmp sgt i64 %__trip_count.050.i.i.i.i81, 1
   br i1 %cmp.i.i.i.i99, label %for.body.i.i.i.i80, label %for.end.loopexit.i.i.i.i100, !llvm.loop !40
@@ -25271,45 +25167,45 @@ for.end.i.i.i.i59:                                ; preds = %for.end.loopexit.i.
 
 sw.bb.i.i.i.i74:                                  ; preds = %for.end.i.i.i.i59
   %41 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i61, align 8
-  %RHSComponentCache.i.i32.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %41, i64 0, i32 2
+  %RHSComponentCache.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 9
   %42 = load i8, ptr %RHSComponentCache.i.i32.i.i.i.i, align 1
   %cmp.i.i33.not.i.i.i.i75 = icmp eq i8 %42, 1
   br i1 %cmp.i.i33.not.i.i.i.i75, label %if.end20.i.i.i.i76, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit
 
 if.end20.i.i.i.i76:                               ; preds = %sw.bb.i.i.i.i74
-  %incdec.ptr21.i.i.i.i77 = getelementptr inbounds ptr, ptr %__first.addr.0.lcssa.i.i.i.i61, i64 1
+  %incdec.ptr21.i.i.i.i77 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i61, i64 8
   br label %sw.bb22.i.i.i.i69
 
 sw.bb22.i.i.i.i69:                                ; preds = %if.end20.i.i.i.i76, %for.end.i.i.i.i59
   %__first.addr.1.i.i.i.i70 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i61, %for.end.i.i.i.i59 ], [ %incdec.ptr21.i.i.i.i77, %if.end20.i.i.i.i76 ]
   %43 = load ptr, ptr %__first.addr.1.i.i.i.i70, align 8
-  %RHSComponentCache.i.i34.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %43, i64 0, i32 2
+  %RHSComponentCache.i.i34.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 9
   %44 = load i8, ptr %RHSComponentCache.i.i34.i.i.i.i, align 1
   %cmp.i.i35.not.i.i.i.i71 = icmp eq i8 %44, 1
   br i1 %cmp.i.i35.not.i.i.i.i71, label %if.end25.i.i.i.i72, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit
 
 if.end25.i.i.i.i72:                               ; preds = %sw.bb22.i.i.i.i69
-  %incdec.ptr26.i.i.i.i73 = getelementptr inbounds ptr, ptr %__first.addr.1.i.i.i.i70, i64 1
+  %incdec.ptr26.i.i.i.i73 = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i70, i64 8
   br label %sw.bb27.i.i.i.i63
 
 sw.bb27.i.i.i.i63:                                ; preds = %if.end25.i.i.i.i72, %for.end.i.i.i.i59
   %__first.addr.2.i.i.i.i64 = phi ptr [ %__first.addr.0.lcssa.i.i.i.i61, %for.end.i.i.i.i59 ], [ %incdec.ptr26.i.i.i.i73, %if.end25.i.i.i.i72 ]
   %45 = load ptr, ptr %__first.addr.2.i.i.i.i64, align 8
-  %RHSComponentCache.i.i36.i.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %45, i64 0, i32 2
+  %RHSComponentCache.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 9
   %46 = load i8, ptr %RHSComponentCache.i.i36.i.i.i.i, align 1
   %cmp.i.i37.not.i.i.i.i65 = icmp eq i8 %46, 1
   br i1 %cmp.i.i37.not.i.i.i.i65, label %if.then22, label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i.i84
-  %incdec.ptr.i.i.i.i85.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i82, i64 1
+  %incdec.ptr.i.i.i.i85.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i82, i64 8
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit161: ; preds = %if.end4.i.i.i.i88
-  %incdec.ptr5.i.i.i.i89.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i82, i64 2
+  %incdec.ptr5.i.i.i.i89.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i82, i64 16
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit163: ; preds = %if.end8.i.i.i.i92
-  %incdec.ptr9.i.i.i.i93.le = getelementptr inbounds ptr, ptr %__first.addr.049.i.i.i.i82, i64 3
+  %incdec.ptr9.i.i.i.i93.le = getelementptr inbounds i8, ptr %__first.addr.049.i.i.i.i82, i64 24
   br label %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit
 
 _ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit: ; preds = %for.body.i.i.i.i80, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit161, %_ZSt6all_ofIPPN4llvh16itanium_demangle4NodeEZNS1_13ParameterPackC1ENS1_9NodeArrayEEUlS3_E1_EbT_S8_T0_.exit.loopexit.split.loop.exit163, %sw.bb.i.i.i.i74, %sw.bb22.i.i.i.i69, %sw.bb27.i.i.i.i63
@@ -25328,39 +25224,39 @@ if.end24:                                         ; preds = %if.then22, %_ZSt6al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle13ParameterPack19hasRHSComponentSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   %0 = load i32, ptr %CurrentPackMax.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge
 
 entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge: ; preds = %entry
-  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 24
   %.pre = load i32, ptr %CurrentPackIndex.phi.trans.insert, align 8
   %1 = zext i32 %.pre to i64
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 if.then.i:                                        ; preds = %entry
-  %NumElements.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %NumElements.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   store i32 %conv.i, ptr %CurrentPackMax.i, align 4
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 0, ptr %CurrentPackIndex.i, align 8
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit: ; preds = %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge, %if.then.i
   %conv = phi i64 [ %1, %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge ], [ 0, %if.then.i ]
-  %NumElements.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %NumElements.i, align 8
   %cmp = icmp ugt i64 %3, %conv
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
-  %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1
+  %Data = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %Data, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %6 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %6, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i4
@@ -25383,39 +25279,39 @@ land.end:                                         ; preds = %if.end.i, %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle13ParameterPack12hasArraySlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   %0 = load i32, ptr %CurrentPackMax.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge
 
 entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge: ; preds = %entry
-  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 24
   %.pre = load i32, ptr %CurrentPackIndex.phi.trans.insert, align 8
   %1 = zext i32 %.pre to i64
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 if.then.i:                                        ; preds = %entry
-  %NumElements.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %NumElements.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   store i32 %conv.i, ptr %CurrentPackMax.i, align 4
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 0, ptr %CurrentPackIndex.i, align 8
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit: ; preds = %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge, %if.then.i
   %conv = phi i64 [ %1, %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge ], [ 0, %if.then.i ]
-  %NumElements.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %NumElements.i, align 8
   %cmp = icmp ugt i64 %3, %conv
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
-  %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1
+  %Data = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %Data, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %5, i64 10
   %6 = load i8, ptr %ArrayCache.i, align 2
   %cmp.not.i = icmp eq i8 %6, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i4
@@ -25426,7 +25322,7 @@ if.then.i4:                                       ; preds = %land.rhs
 
 if.end.i:                                         ; preds = %land.rhs
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %land.end
@@ -25439,39 +25335,39 @@ land.end:                                         ; preds = %if.end.i, %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle13ParameterPack15hasFunctionSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   %0 = load i32, ptr %CurrentPackMax.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge
 
 entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge: ; preds = %entry
-  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 24
   %.pre = load i32, ptr %CurrentPackIndex.phi.trans.insert, align 8
   %1 = zext i32 %.pre to i64
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 if.then.i:                                        ; preds = %entry
-  %NumElements.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %NumElements.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   store i32 %conv.i, ptr %CurrentPackMax.i, align 4
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 0, ptr %CurrentPackIndex.i, align 8
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit: ; preds = %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge, %if.then.i
   %conv = phi i64 [ %1, %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge ], [ 0, %if.then.i ]
-  %NumElements.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %NumElements.i, align 8
   %cmp = icmp ugt i64 %3, %conv
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
-  %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1
+  %Data = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %Data, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx.i, align 8
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %5, i64 11
   %6 = load i8, ptr %FunctionCache.i, align 1
   %cmp.not.i = icmp eq i8 %6, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i4
@@ -25482,7 +25378,7 @@ if.then.i4:                                       ; preds = %land.rhs
 
 if.end.i:                                         ; preds = %land.rhs
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %land.end
@@ -25495,40 +25391,40 @@ land.end:                                         ; preds = %if.end.i, %if.then.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4llvh16itanium_demangle13ParameterPack13getSyntaxNodeER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   %0 = load i32, ptr %CurrentPackMax.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge
 
 entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge: ; preds = %entry
-  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 24
   %.pre = load i32, ptr %CurrentPackIndex.phi.trans.insert, align 8
   %1 = zext i32 %.pre to i64
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 if.then.i:                                        ; preds = %entry
-  %NumElements.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %NumElements.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   store i32 %conv.i, ptr %CurrentPackMax.i, align 4
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 0, ptr %CurrentPackIndex.i, align 8
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit: ; preds = %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge, %if.then.i
   %conv = phi i64 [ %1, %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge ], [ 0, %if.then.i ]
-  %NumElements.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %NumElements.i, align 8
   %cmp = icmp ugt i64 %3, %conv
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
-  %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1
+  %Data = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %Data, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %cond.end
@@ -25541,40 +25437,40 @@ cond.end:                                         ; preds = %_ZNK4llvh16itanium_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13ParameterPack9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   %0 = load i32, ptr %CurrentPackMax.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge
 
 entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge: ; preds = %entry
-  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 24
   %.pre = load i32, ptr %CurrentPackIndex.phi.trans.insert, align 8
   %1 = zext i32 %.pre to i64
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 if.then.i:                                        ; preds = %entry
-  %NumElements.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %NumElements.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   store i32 %conv.i, ptr %CurrentPackMax.i, align 4
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 0, ptr %CurrentPackIndex.i, align 8
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit: ; preds = %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge, %if.then.i
   %conv = phi i64 [ %1, %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge ], [ 0, %if.then.i ]
-  %NumElements.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %NumElements.i, align 8
   %cmp = icmp ugt i64 %3, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
-  %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1
+  %Data = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %Data, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end
@@ -25586,40 +25482,40 @@ if.end:                                           ; preds = %if.then, %_ZNK4llvh
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13ParameterPack10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPackMax.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 4
+  %CurrentPackMax.i = getelementptr inbounds i8, ptr %S, i64 28
   %0 = load i32, ptr %CurrentPackMax.i, align 4
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then.i, label %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge
 
 entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge: ; preds = %entry
-  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 24
   %.pre = load i32, ptr %CurrentPackIndex.phi.trans.insert, align 8
   %1 = zext i32 %.pre to i64
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 if.then.i:                                        ; preds = %entry
-  %NumElements.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %NumElements.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   store i32 %conv.i, ptr %CurrentPackMax.i, align 4
-  %CurrentPackIndex.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 3
+  %CurrentPackIndex.i = getelementptr inbounds i8, ptr %S, i64 24
   store i32 0, ptr %CurrentPackIndex.i, align 8
   br label %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit: ; preds = %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge, %if.then.i
   %conv = phi i64 [ %1, %entry._ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit_crit_edge ], [ 0, %if.then.i ]
-  %NumElements.i = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1, i32 1
+  %NumElements.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %NumElements.i, align 8
   %cmp = icmp ugt i64 %3, %conv
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4llvh16itanium_demangle13ParameterPack23initializePackExpansionER12OutputStream.exit
-  %Data = getelementptr inbounds %"class.llvh::itanium_demangle::ParameterPack", ptr %this, i64 0, i32 1
+  %Data = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %Data, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end
@@ -25644,10 +25540,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle12TemplateArgs9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -25678,7 +25574,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Params = getelementptr inbounds %"class.llvh::itanium_demangle::TemplateArgs", ptr %this, i64 0, i32 1
+  %Params = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Params, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %5 = load i64, ptr %CurrentPosition.i.i, align 8
   %tobool.not.i = icmp eq i64 %5, 0
@@ -25778,39 +25674,39 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle20NameWithTemplateArgs9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Name = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %this, i64 0, i32 1
+  %Name = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Name, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
 
 _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %entry, %if.then.i
-  %TemplateArgs = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %this, i64 0, i32 2
+  %TemplateArgs = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %TemplateArgs, align 8
   %vtable.i2 = load ptr, ptr %4, align 8
-  %vfn.i3 = getelementptr inbounds ptr, ptr %vtable.i2, i64 4
+  %vfn.i3 = getelementptr inbounds i8, ptr %vtable.i2, i64 32
   %5 = load ptr, ptr %vfn.i3, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i4 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %4, i64 0, i32 2
+  %RHSComponentCache.i4 = getelementptr inbounds i8, ptr %4, i64 9
   %6 = load i8, ptr %RHSComponentCache.i4, align 1
   %cmp.not.i5 = icmp eq i8 %6, 1
   br i1 %cmp.not.i5, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit9, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
   %vtable2.i7 = load ptr, ptr %4, align 8
-  %vfn3.i8 = getelementptr inbounds ptr, ptr %vtable2.i7, i64 5
+  %vfn3.i8 = getelementptr inbounds i8, ptr %vtable2.i7, i64 40
   %7 = load ptr, ptr %vfn3.i8, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit9
@@ -25822,10 +25718,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit9: ; preds = %_ZNK4ll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle20NameWithTemplateArgs11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %Name = getelementptr inbounds %"struct.llvh::itanium_demangle::NameWithTemplateArgs", ptr %this, i64 0, i32 1
+  %Name = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Name, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #20
   ret { ptr, ptr } %call
@@ -25847,10 +25743,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16StdQualifiedName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 5
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -25881,20 +25777,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 5
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Child = getelementptr inbounds %"struct.llvh::itanium_demangle::StdQualifiedName", ptr %this, i64 0, i32 1
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Child, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -25906,10 +25802,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %_ZN12Out
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNK4llvh16itanium_demangle16StdQualifiedName11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %Child = getelementptr inbounds %"struct.llvh::itanium_demangle::StdQualifiedName", ptr %this, i64 0, i32 1
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Child, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(12) %0) #20
   ret { ptr, ptr } %call
@@ -25931,7 +25827,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle20TemplateArgumentPack9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Elements = getelementptr inbounds %"class.llvh::itanium_demangle::TemplateArgumentPack", ptr %this, i64 0, i32 1
+  %Elements = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Elements, ptr noundef nonnull align 8 dereferenceable(32) %S)
   ret void
 }
@@ -25952,10 +25848,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle12EnableIfAttr9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 12
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -25986,7 +25882,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 12
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Conditions = getelementptr inbounds %"class.llvh::itanium_demangle::EnableIfAttr", ptr %this, i64 0, i32 1
+  %Conditions = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Conditions, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %5 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i5 = add i64 %5, 1
@@ -26051,18 +25947,18 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16FunctionEncoding9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Ret = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this, i64 0, i32 2
+  %Ret = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Ret, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   %2 = load ptr, ptr %Ret, align 8
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %2, i64 9
   %3 = load i8, ptr %RHSComponentCache.i, align 1
   switch i8 %3, label %if.end.i5 [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit
@@ -26076,10 +25972,10 @@ _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds 
   br i1 %call.i, label %if.end6, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit, %if.then
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %5 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %5, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %6 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %6
   %.pre.i = load ptr, ptr %S, align 8
@@ -26113,20 +26009,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %_ZN12OutputStream4growEm.exit.i, %_ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit, %entry
-  %Name = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this, i64 0, i32 3
+  %Name = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %Name, align 8
   %vtable.i7 = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i7, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i7, i64 32
   %11 = load ptr, ptr %vfn.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i8 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %10, i64 0, i32 2
+  %RHSComponentCache.i8 = getelementptr inbounds i8, ptr %10, i64 9
   %12 = load i8, ptr %RHSComponentCache.i8, align 1
   %cmp.not.i9 = icmp eq i8 %12, 1
   br i1 %cmp.not.i9, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.end6
   %vtable2.i = load ptr, ptr %10, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %13 = load ptr, ptr %vfn3.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -26138,10 +26034,10 @@ _ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit: ; preds = %if.end6,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle16FunctionEncoding10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -26172,7 +26068,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Params = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this, i64 0, i32 4
+  %Params = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Params, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %5 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i21 = add i64 %5, 1
@@ -26206,20 +26102,20 @@ _ZN12OutputStream4growEm.exit.i32:                ; preds = %if.then.i._ZN12Outp
   %9 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i34 = add i64 %9, 1
   store i64 %add.i34, ptr %CurrentPosition.i.i, align 8
-  %Ret = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this, i64 0, i32 2
+  %Ret = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %Ret, align 8
   %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN12OutputStream4growEm.exit.i32
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %11 = load ptr, ptr %vfn, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN12OutputStream4growEm.exit.i32
-  %CVQuals = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this, i64 0, i32 6
+  %CVQuals = getelementptr inbounds i8, ptr %this, i64 56
   %12 = load i32, ptr %CVQuals, align 8
   %and = and i32 %12, 1
   %tobool5.not = icmp eq i32 %and, 0
@@ -26345,7 +26241,7 @@ _ZN12OutputStream4growEm.exit.i107:               ; preds = %if.then.i._ZN12Outp
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZN12OutputStream4growEm.exit.i107, %if.end16
-  %RefQual = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this, i64 0, i32 7
+  %RefQual = getelementptr inbounds i8, ptr %this, i64 60
   %30 = load i8, ptr %RefQual, align 4
   switch i8 %30, label %if.end34 [
     i8 1, label %if.end.i119
@@ -26424,24 +26320,24 @@ if.end34.sink.split:                              ; preds = %_ZN12OutputStream4g
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34.sink.split, %if.end23
-  %Attrs = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionEncoding", ptr %this, i64 0, i32 5
+  %Attrs = getelementptr inbounds i8, ptr %this, i64 48
   %40 = load ptr, ptr %Attrs, align 8
   %cmp35.not = icmp eq ptr %40, null
   br i1 %cmp35.not, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %if.end34
   %vtable.i = load ptr, ptr %40, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %41 = load ptr, ptr %vfn.i, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %40, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %40, i64 9
   %42 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %42, 1
   br i1 %cmp.not.i, label %if.end38, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then36
   %vtable2.i = load ptr, ptr %40, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %43 = load ptr, ptr %vfn3.i, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end38
@@ -26466,29 +26362,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle9DotSuffix9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %Prefix = getelementptr inbounds %"class.llvh::itanium_demangle::DotSuffix", ptr %this, i64 0, i32 1
+  %Prefix = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Prefix, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 2
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %s, align 8
@@ -26519,9 +26415,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 2
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Suffix = getelementptr inbounds %"class.llvh::itanium_demangle::DotSuffix", ptr %this, i64 0, i32 2
+  %Suffix = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Suffix, align 8
-  %agg.tmp2.sroa.2.0.Suffix.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::DotSuffix", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp2.sroa.2.0.Suffix.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Suffix.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i5 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i6 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -26616,7 +26512,7 @@ entry:
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseFunctionTypeEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.end.i, label %land.lhs.true.i.i
@@ -26682,9 +26578,9 @@ _ZNK10StringView10startsWithES_.exit.i:           ; preds = %_ZN4llvh16itanium_d
 if.then:                                          ; preds = %_ZNK10StringView10startsWithES_.exit.i
   %add.ptr.i3 = getelementptr inbounds i8, ptr %7, i64 2
   store ptr %add.ptr.i3, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %8 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %8, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i64, ptr %Current.i.i.i, align 8
   %10 = add i64 %9, -4048
   %cmp.i.i.i = icmp ult i64 %10, -4080
@@ -26701,7 +26597,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %8, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit
@@ -26709,12 +26605,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.then, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %11 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %9, %if.then ]
   %12 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %8, %if.then ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %add8.i.i.i = add nsw i64 %11, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %13 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %13, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %13, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %14
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -26753,9 +26649,9 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false
 if.end11:                                         ; preds = %land.lhs.true.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %incdec.ptr.i, ptr %this, align 16
-  %BlockList.i.i.i26 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 4848
   %18 = load ptr, ptr %BlockList.i.i.i26, align 16
-  %Current.i.i.i27 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %18, i64 0, i32 1
+  %Current.i.i.i27 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i64, ptr %Current.i.i.i27, align 8
   %20 = add i64 %19, -4048
   %cmp.i.i.i28 = icmp ult i64 %20, -4080
@@ -26772,7 +26668,7 @@ if.then.i9.i.i.i44:                               ; preds = %if.then.i.i.i39
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42: ; preds = %if.then.i.i.i39
   store ptr %18, ptr %call.i6.i.i.i40, align 8
-  %Current.i8.i.i.i43 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i40, i64 0, i32 1
+  %Current.i8.i.i.i43 = getelementptr inbounds i8, ptr %call.i6.i.i.i40, i64 8
   store i64 0, ptr %Current.i8.i.i.i43, align 8
   store ptr %call.i6.i.i.i40, ptr %BlockList.i.i.i26, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12NoexceptSpecEJRPNS0_4NodeEEEES8_DpOT0_.exit
@@ -26780,12 +26676,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12NoexceptSpecEJRPNS0_4NodeEEEES8_DpOT0_.exit: ; preds = %if.end11, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42
   %21 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42 ], [ %19, %if.end11 ]
   %22 = phi ptr [ %call.i6.i.i.i40, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i42 ], [ %18, %if.end11 ]
-  %Current7.i.i.i29 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 0, i32 1
+  %Current7.i.i.i29 = getelementptr inbounds i8, ptr %22, i64 8
   %add8.i.i.i30 = add nsw i64 %21, 32
   store i64 %add8.i.i.i30, ptr %Current7.i.i.i29, align 8
   %23 = load ptr, ptr %BlockList.i.i.i26, align 16
-  %add.ptr.i.i.i31 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 1
-  %Current11.i.i.i32 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 0, i32 1
+  %add.ptr.i.i.i31 = getelementptr inbounds i8, ptr %23, i64 16
+  %Current11.i.i.i32 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %Current11.i.i.i32, align 8
   %add.ptr12.i.i.i33 = getelementptr inbounds i8, ptr %add.ptr.i.i.i31, i64 %24
   %add.ptr13.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -32
@@ -26804,15 +26700,15 @@ _ZNK10StringView10startsWithES_.exit.i58:         ; preds = %_ZNK10StringView10s
 if.then19:                                        ; preds = %_ZNK10StringView10startsWithES_.exit.i58
   %add.ptr.i63 = getelementptr inbounds i8, ptr %7, i64 2
   store ptr %add.ptr.i63, ptr %this, align 16
-  %Names = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i65 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i65 = getelementptr inbounds i8, ptr %this, i64 24
   %25 = load ptr, ptr %Last.i65, align 8
   %26 = load ptr, ptr %Names, align 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %Cap.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %if.then19
@@ -26887,7 +26783,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit: ; preds = %if.end25, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i
   %34 = phi ptr [ %add.ptr.i.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i ], [ %30, %if.end25 ]
-  %incdec.ptr.i76 = getelementptr inbounds ptr, ptr %34, i64 1
+  %incdec.ptr.i76 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %incdec.ptr.i76, ptr %Last.i65, align 8
   store ptr %call22, ptr %34, align 8
   %.pre = load ptr, ptr %this, align 16
@@ -26906,9 +26802,9 @@ while.end:                                        ; preds = %land.lhs.true.i68
   store ptr %add.ptr.i.i83, ptr %Last.i65, align 8
   %38 = extractvalue { ptr, i64 } %call4.i, 0
   %39 = extractvalue { ptr, i64 } %call4.i, 1
-  %BlockList.i.i.i84 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i84 = getelementptr inbounds i8, ptr %this, i64 4848
   %40 = load ptr, ptr %BlockList.i.i.i84, align 16
-  %Current.i.i.i85 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %40, i64 0, i32 1
+  %Current.i.i.i85 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load i64, ptr %Current.i.i.i85, align 8
   %42 = add i64 %41, -4048
   %cmp.i.i.i86 = icmp ult i64 %42, -4080
@@ -26925,7 +26821,7 @@ if.then.i9.i.i.i102:                              ; preds = %if.then.i.i.i97
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i100: ; preds = %if.then.i.i.i97
   store ptr %40, ptr %call.i6.i.i.i98, align 8
-  %Current.i8.i.i.i101 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i98, i64 0, i32 1
+  %Current.i8.i.i.i101 = getelementptr inbounds i8, ptr %call.i6.i.i.i98, i64 8
   store i64 0, ptr %Current.i8.i.i.i101, align 8
   store ptr %call.i6.i.i.i98, ptr %BlockList.i.i.i84, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20DynamicExceptionSpecEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit
@@ -26933,12 +26829,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i100: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20DynamicExceptionSpecEJNS0_9NodeArrayEEEEPNS0_4NodeEDpOT0_.exit: ; preds = %while.end, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i100
   %43 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i100 ], [ %41, %while.end ]
   %44 = phi ptr [ %call.i6.i.i.i98, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i100 ], [ %40, %while.end ]
-  %Current7.i.i.i87 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %44, i64 0, i32 1
+  %Current7.i.i.i87 = getelementptr inbounds i8, ptr %44, i64 8
   %add8.i.i.i88 = add nsw i64 %43, 32
   store i64 %add8.i.i.i88, ptr %Current7.i.i.i87, align 8
   %45 = load ptr, ptr %BlockList.i.i.i84, align 16
-  %add.ptr.i.i.i89 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %45, i64 1
-  %Current11.i.i.i90 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %45, i64 0, i32 1
+  %add.ptr.i.i.i89 = getelementptr inbounds i8, ptr %45, i64 16
+  %Current11.i.i.i90 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load i64, ptr %Current11.i.i.i90, align 8
   %add.ptr12.i.i.i91 = getelementptr inbounds i8, ptr %add.ptr.i.i.i89, i64 %46
   %add.ptr13.i.i.i92 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -32
@@ -27003,15 +26899,15 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.ex
   br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit138
-  %Names45 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2
-  %Last.i139 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 1
+  %Names45 = getelementptr inbounds i8, ptr %this, i64 16
+  %Last.i139 = getelementptr inbounds i8, ptr %this, i64 24
   %52 = load ptr, ptr %Last.i139, align 8
   %53 = load ptr, ptr %Names45, align 16
   %sub.ptr.lhs.cast.i140 = ptrtoint ptr %52 to i64
   %sub.ptr.rhs.cast.i141 = ptrtoint ptr %53 to i64
   %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
-  %Cap.i201 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 2
-  %Inline.i.i.i210 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 2, i32 3
+  %Cap.i201 = getelementptr inbounds i8, ptr %this, i64 32
+  %Inline.i.i.i210 = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.body48
 
 while.body48:                                     ; preds = %while.body48.backedge, %if.end44
@@ -27113,7 +27009,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216
 
 _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit228: ; preds = %if.end67, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216
   %62 = phi ptr [ %add.ptr.i.i217, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i216 ], [ %58, %if.end67 ]
-  %incdec.ptr.i204 = getelementptr inbounds ptr, ptr %62, i64 1
+  %incdec.ptr.i204 = getelementptr inbounds i8, ptr %62, i64 8
   store ptr %incdec.ptr.i204, ptr %Last.i139, align 8
   store ptr %call64, ptr %62, align 8
   br label %while.body48.backedge
@@ -27135,9 +27031,9 @@ while.end69:                                      ; preds = %_ZNK10StringView10s
   store ptr %add.ptr.i.i233, ptr %Last.i139, align 8
   %66 = extractvalue { ptr, i64 } %call4.i232, 0
   %67 = extractvalue { ptr, i64 } %call4.i232, 1
-  %BlockList.i.i.i234 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i234 = getelementptr inbounds i8, ptr %this, i64 4848
   %68 = load ptr, ptr %BlockList.i.i.i234, align 16
-  %Current.i.i.i235 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %68, i64 0, i32 1
+  %Current.i.i.i235 = getelementptr inbounds i8, ptr %68, i64 8
   %69 = load i64, ptr %Current.i.i.i235, align 8
   %70 = add i64 %69, -4016
   %cmp.i.i.i236 = icmp ult i64 %70, -4080
@@ -27154,7 +27050,7 @@ if.then.i9.i.i.i255:                              ; preds = %if.then.i.i.i250
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i253: ; preds = %if.then.i.i.i250
   store ptr %68, ptr %call.i6.i.i.i251, align 8
-  %Current.i8.i.i.i254 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i251, i64 0, i32 1
+  %Current.i8.i.i.i254 = getelementptr inbounds i8, ptr %call.i6.i.i.i251, i64 8
   store i64 0, ptr %Current.i8.i.i.i254, align 8
   store ptr %call.i6.i.i.i251, ptr %BlockList.i.i.i234, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualES9_EEES8_DpOT0_.exit
@@ -27162,12 +27058,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i253: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12FunctionTypeEJRPNS0_4NodeERNS0_9NodeArrayERNS0_10QualifiersERNS0_15FunctionRefQualES9_EEES8_DpOT0_.exit: ; preds = %while.end69, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i253
   %71 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i253 ], [ %69, %while.end69 ]
   %72 = phi ptr [ %call.i6.i.i.i251, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i253 ], [ %68, %while.end69 ]
-  %Current7.i.i.i237 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %72, i64 0, i32 1
+  %Current7.i.i.i237 = getelementptr inbounds i8, ptr %72, i64 8
   %add8.i.i.i238 = add nsw i64 %71, 64
   store i64 %add8.i.i.i238, ptr %Current7.i.i.i237, align 8
   %73 = load ptr, ptr %BlockList.i.i.i234, align 16
-  %add.ptr.i.i.i239 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %73, i64 1
-  %Current11.i.i.i240 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %73, i64 0, i32 1
+  %add.ptr.i.i.i239 = getelementptr inbounds i8, ptr %73, i64 16
+  %Current11.i.i.i240 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load i64, ptr %Current11.i.i.i240, align 8
   %add.ptr12.i.i.i241 = getelementptr inbounds i8, ptr %add.ptr.i.i.i239, i64 %74
   %add.ptr13.i.i.i242 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -64
@@ -27197,7 +27093,7 @@ return:                                           ; preds = %while.body, %if.end
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseQualifiedTypeEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.end.i85, label %land.lhs.true.i
@@ -27326,9 +27222,9 @@ if.end13:                                         ; preds = %_ZN14SwapAndRestore
   br i1 %cmp, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %11 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i64, ptr %Current.i.i.i, align 8
   %13 = add i64 %12, -4032
   %cmp.i.i.i = icmp ult i64 %13, -4080
@@ -27345,7 +27241,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %11, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ObjCProtoNameEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit
@@ -27353,12 +27249,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ObjCProtoNameEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit: ; preds = %if.end16, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %14 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %12, %if.end16 ]
   %15 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %11, %if.end16 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %15, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %add8.i.i.i = add nsw i64 %14, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %16 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %16, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %17
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -27379,9 +27275,9 @@ if.end18:                                         ; preds = %if.end, %_ZNK10Stri
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end18
-  %BlockList.i.i.i61 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 4848
   %18 = load ptr, ptr %BlockList.i.i.i61, align 16
-  %Current.i.i.i62 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %18, i64 0, i32 1
+  %Current.i.i.i62 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i64, ptr %Current.i.i.i62, align 8
   %20 = add i64 %19, -4032
   %cmp.i.i.i63 = icmp ult i64 %20, -4080
@@ -27398,7 +27294,7 @@ if.then.i9.i.i.i83:                               ; preds = %if.then.i.i.i78
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i81: ; preds = %if.then.i.i.i78
   store ptr %18, ptr %call.i6.i.i.i79, align 8
-  %Current.i8.i.i.i82 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i79, i64 0, i32 1
+  %Current.i8.i.i.i82 = getelementptr inbounds i8, ptr %call.i6.i.i.i79, i64 8
   store i64 0, ptr %Current.i8.i.i.i82, align 8
   store ptr %call.i6.i.i.i79, ptr %BlockList.i.i.i61, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_17VendorExtQualTypeEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit
@@ -27406,12 +27302,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i81: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_17VendorExtQualTypeEJRPNS0_4NodeER10StringViewEEES8_DpOT0_.exit: ; preds = %if.end23, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i81
   %21 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i81 ], [ %19, %if.end23 ]
   %22 = phi ptr [ %call.i6.i.i.i79, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i81 ], [ %18, %if.end23 ]
-  %Current7.i.i.i64 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 0, i32 1
+  %Current7.i.i.i64 = getelementptr inbounds i8, ptr %22, i64 8
   %add8.i.i.i65 = add nsw i64 %21, 48
   store i64 %add8.i.i.i65, ptr %Current7.i.i.i64, align 8
   %23 = load ptr, ptr %BlockList.i.i.i61, align 16
-  %add.ptr.i.i.i66 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 1
-  %Current11.i.i.i67 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %23, i64 0, i32 1
+  %add.ptr.i.i.i66 = getelementptr inbounds i8, ptr %23, i64 16
+  %Current11.i.i.i67 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load i64, ptr %Current11.i.i.i67, align 8
   %add.ptr12.i.i.i68 = getelementptr inbounds i8, ptr %add.ptr.i.i.i66, i64 %24
   %add.ptr13.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -48
@@ -27481,9 +27377,9 @@ if.end30:                                         ; preds = %_ZN4llvh16itanium_d
   br i1 %cmp31.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
-  %BlockList.i.i.i87 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i87 = getelementptr inbounds i8, ptr %this, i64 4848
   %30 = load ptr, ptr %BlockList.i.i.i87, align 16
-  %Current.i.i.i88 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %30, i64 0, i32 1
+  %Current.i.i.i88 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i64, ptr %Current.i.i.i88, align 8
   %32 = add i64 %31, -4048
   %cmp.i.i.i89 = icmp ult i64 %32, -4080
@@ -27500,7 +27396,7 @@ if.then.i9.i.i.i105:                              ; preds = %if.then.i.i.i100
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i103: ; preds = %if.then.i.i.i100
   store ptr %30, ptr %call.i6.i.i.i101, align 8
-  %Current.i8.i.i.i104 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i101, i64 0, i32 1
+  %Current.i8.i.i.i104 = getelementptr inbounds i8, ptr %call.i6.i.i.i101, i64 8
   store i64 0, ptr %Current.i8.i.i.i104, align 8
   store ptr %call.i6.i.i.i101, ptr %BlockList.i.i.i87, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8QualTypeEJRPNS0_4NodeERNS0_10QualifiersEEEES8_DpOT0_.exit
@@ -27508,20 +27404,20 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i103: ; preds = %if.then
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8QualTypeEJRPNS0_4NodeERNS0_10QualifiersEEEES8_DpOT0_.exit: ; preds = %if.then32, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i103
   %33 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i103 ], [ %31, %if.then32 ]
   %34 = phi ptr [ %call.i6.i.i.i101, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i103 ], [ %30, %if.then32 ]
-  %Current7.i.i.i90 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %34, i64 0, i32 1
+  %Current7.i.i.i90 = getelementptr inbounds i8, ptr %34, i64 8
   %add8.i.i.i91 = add nsw i64 %33, 32
   store i64 %add8.i.i.i91, ptr %Current7.i.i.i90, align 8
   %35 = load ptr, ptr %BlockList.i.i.i87, align 16
-  %add.ptr.i.i.i92 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %35, i64 1
-  %Current11.i.i.i93 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %35, i64 0, i32 1
+  %add.ptr.i.i.i92 = getelementptr inbounds i8, ptr %35, i64 16
+  %Current11.i.i.i93 = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i64, ptr %Current11.i.i.i93, align 8
   %add.ptr12.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr.i.i.i92, i64 %36
   %add.ptr13.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i94, i64 -32
-  %RHSComponentCache.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call27, i64 0, i32 2
+  %RHSComponentCache.i.i.i = getelementptr inbounds i8, ptr %call27, i64 9
   %37 = load i8, ptr %RHSComponentCache.i.i.i, align 1
-  %ArrayCache.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call27, i64 0, i32 3
+  %ArrayCache.i.i.i = getelementptr inbounds i8, ptr %call27, i64 10
   %38 = load i8, ptr %ArrayCache.i.i.i, align 2
-  %FunctionCache.i.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call27, i64 0, i32 4
+  %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %call27, i64 11
   %39 = load i8, ptr %FunctionCache.i.i.i, align 1
   %K.i.i.i.i96 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i94, i64 -24
   store i8 3, ptr %K.i.i.i.i96, align 8
@@ -27546,9 +27442,9 @@ return:                                           ; preds = %if.then, %_ZN4llvh1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8NameTypeEJRA9_KcEEEPNS0_4NodeEDpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull align 1 dereferenceable(9) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -27565,7 +27461,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA9_KcEEEPT_DpOT0_.exit
@@ -27573,12 +27469,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJRA9_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
@@ -27600,7 +27496,7 @@ entry:
   %DimensionNumber = alloca %class.StringView, align 8
   %ElemType = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 16
-  %Last.i4 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i4 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i4, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -27644,7 +27540,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %land.rhs.i
   store ptr %add.ptr.i5, ptr %DimensionNumber, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %DimensionNumber, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %DimensionNumber, i64 8
   store ptr %this.val1012.i, ptr %4, align 8
   %cmp.not.i15 = icmp eq ptr %this.val1012.i, %1
   br i1 %cmp.not.i15, label %return, label %land.lhs.true.i
@@ -27668,9 +27564,9 @@ land.lhs.true.i21:                                ; preds = %if.end10
 if.then12:                                        ; preds = %land.lhs.true.i21
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %this.val1012.i, i64 2
   store ptr %incdec.ptr.i25, ptr %this, align 16
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %7 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %Current.i.i.i, align 8
   %9 = add i64 %8, -4048
   %cmp.i.i.i = icmp ult i64 %9, -4080
@@ -27687,7 +27583,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %7, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15PixelVectorTypeEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit
@@ -27695,12 +27591,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15PixelVectorTypeEJR10StringViewEEEPNS0_4NodeEDpOT0_.exit: ; preds = %if.then12, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %10 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %8, %if.then12 ]
   %11 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %7, %if.then12 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %11, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %add8.i.i.i = add nsw i64 %10, 32
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %12 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %12, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %13
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
@@ -27751,9 +27647,9 @@ if.end28:                                         ; preds = %land.lhs.true.i37
   br i1 %tobool31.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end28
-  %BlockList.i.i.i43 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 4848
   %17 = load ptr, ptr %BlockList.i.i.i43, align 16
-  %Current.i.i.i44 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %17, i64 0, i32 1
+  %Current.i.i.i44 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i64, ptr %Current.i.i.i44, align 8
   %19 = add i64 %18, -4032
   %cmp.i.i.i45 = icmp ult i64 %19, -4080
@@ -27770,7 +27666,7 @@ if.then.i9.i.i.i63:                               ; preds = %if.then.i.i.i58
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %if.then.i.i.i58
   store ptr %17, ptr %call.i6.i.i.i59, align 8
-  %Current.i8.i.i.i62 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i59, i64 0, i32 1
+  %Current.i8.i.i.i62 = getelementptr inbounds i8, ptr %call.i6.i.i.i59, i64 8
   store i64 0, ptr %Current.i8.i.i.i62, align 8
   store ptr %call.i6.i.i.i59, ptr %BlockList.i.i.i43, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
@@ -27778,12 +27674,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %if.end33, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61
   %20 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61 ], [ %18, %if.end33 ]
   %21 = phi ptr [ %call.i6.i.i.i59, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i61 ], [ %17, %if.end33 ]
-  %Current7.i.i.i46 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %21, i64 0, i32 1
+  %Current7.i.i.i46 = getelementptr inbounds i8, ptr %21, i64 8
   %add8.i.i.i47 = add nsw i64 %20, 48
   store i64 %add8.i.i.i47, ptr %Current7.i.i.i46, align 8
   %22 = load ptr, ptr %BlockList.i.i.i43, align 16
-  %add.ptr.i.i.i48 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 1
-  %Current11.i.i.i49 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %22, i64 0, i32 1
+  %add.ptr.i.i.i48 = getelementptr inbounds i8, ptr %22, i64 16
+  %Current11.i.i.i49 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %Current11.i.i.i49, align 8
   %add.ptr12.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr.i.i.i48, i64 %23
   %add.ptr13.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -48
@@ -27806,9 +27702,9 @@ if.end35:                                         ; preds = %land.lhs.true.i29
   br i1 %tobool38.not, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.end35
-  %BlockList.i.i.i64 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 4848
   %24 = load ptr, ptr %BlockList.i.i.i64, align 16
-  %Current.i.i.i65 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %24, i64 0, i32 1
+  %Current.i.i.i65 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %Current.i.i.i65, align 8
   %26 = add i64 %25, -4032
   %cmp.i.i.i66 = icmp ult i64 %26, -4080
@@ -27825,7 +27721,7 @@ if.then.i9.i.i.i89:                               ; preds = %if.then.i.i.i84
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i87: ; preds = %if.then.i.i.i84
   store ptr %24, ptr %call.i6.i.i.i85, align 8
-  %Current.i8.i.i.i88 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i85, i64 0, i32 1
+  %Current.i8.i.i.i88 = getelementptr inbounds i8, ptr %call.i6.i.i.i85, i64 8
   store i64 0, ptr %Current.i8.i.i.i88, align 8
   store ptr %call.i6.i.i.i85, ptr %BlockList.i.i.i64, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit
@@ -27833,12 +27729,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i87: ; preds = %if.then.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit: ; preds = %if.end40, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i87
   %27 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i87 ], [ %25, %if.end40 ]
   %28 = phi ptr [ %call.i6.i.i.i85, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i87 ], [ %24, %if.end40 ]
-  %Current7.i.i.i67 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %28, i64 0, i32 1
+  %Current7.i.i.i67 = getelementptr inbounds i8, ptr %28, i64 8
   %add8.i.i.i68 = add nsw i64 %27, 48
   store i64 %add8.i.i.i68, ptr %Current7.i.i.i67, align 8
   %29 = load ptr, ptr %BlockList.i.i.i64, align 16
-  %add.ptr.i.i.i69 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 1
-  %Current11.i.i.i70 = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %29, i64 0, i32 1
+  %add.ptr.i.i.i69 = getelementptr inbounds i8, ptr %29, i64 16
+  %Current11.i.i.i70 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load i64, ptr %Current11.i.i.i70, align 8
   %add.ptr12.i.i.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i69, i64 %30
   %add.ptr13.i.i.i72 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -48
@@ -27862,7 +27758,7 @@ return:                                           ; preds = %while.body.i, %if.e
 define internal fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE18parseClassEnumTypeEv(ptr noundef nonnull align 16 dereferenceable(4864) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 16
-  %Last.i1 = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 1
+  %Last.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %Last.i1, align 8
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %0 to i64
@@ -27903,9 +27799,9 @@ if.end15:                                         ; preds = %if.end12
   br i1 %cmp.i, label %return, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %BlockList.i.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %2 = load ptr, ptr %BlockList.i.i.i, align 16
-  %Current.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %2, i64 0, i32 1
+  %Current.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %Current.i.i.i, align 8
   %4 = add i64 %3, -4032
   %cmp.i.i.i = icmp ult i64 %4, -4080
@@ -27922,7 +27818,7 @@ if.then.i9.i.i.i:                                 ; preds = %if.then.i.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.i.i
   store ptr %2, ptr %call.i6.i.i.i, align 8
-  %Current.i8.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i.i, i64 0, i32 1
+  %Current.i8.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i.i, align 8
   store ptr %call.i6.i.i.i, ptr %BlockList.i.i.i, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ElaboratedTypeSpefTypeEJR10StringViewRPNS0_4NodeEEEESA_DpOT0_.exit
@@ -27930,12 +27826,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i: ; preds = %if.then.i.
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22ElaboratedTypeSpefTypeEJR10StringViewRPNS0_4NodeEEEESA_DpOT0_.exit: ; preds = %if.then17, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i
   %5 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %3, %if.then17 ]
   %6 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %2, %if.then17 ]
-  %Current7.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %6, i64 0, i32 1
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %add8.i.i.i = add nsw i64 %5, 48
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %7 = load ptr, ptr %BlockList.i.i.i, align 16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 1
-  %Current11.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %7, i64 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %Current11.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %Current11.i.i.i, align 8
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %8
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
@@ -27958,9 +27854,9 @@ return:                                           ; preds = %if.end12.thread, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11PointerTypeEJRPNS0_4NodeEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -27977,7 +27873,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEEPT_DpOT0_.exit
@@ -27985,17 +27881,17 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PointerTypeEJRPNS3_4NodeEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
-  %RHSComponentCache.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %7, i64 0, i32 2
+  %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %7, i64 9
   %8 = load i8, ptr %RHSComponentCache.i.i, align 1
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 11, ptr %K.i.i.i, align 8
@@ -28014,9 +27910,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PointerTy
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13ReferenceTypeEJRPNS0_4NodeENS0_13ReferenceKindEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -28033,7 +27929,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEEPT_DpOT0_.exit
@@ -28041,18 +27937,18 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13ReferenceTypeEJRPNS3_4NodeENS3_13ReferenceKindEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
   %8 = load i32, ptr %args1, align 4
-  %RHSComponentCache.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %7, i64 0, i32 2
+  %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %7, i64 9
   %9 = load i8, ptr %RHSComponentCache.i.i, align 1
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 12, ptr %K.i.i.i, align 8
@@ -28075,9 +27971,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Reference
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA9_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -28094,7 +27990,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEEPT_DpOT0_.exit
@@ -28102,12 +27998,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA9_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -28127,9 +28023,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQu
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20PostfixQualifiedTypeEJRPNS0_4NodeERA11_KcEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -28146,7 +28042,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEEPT_DpOT0_.exit
@@ -28154,12 +28050,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQualifiedTypeEJRPNS3_4NodeERA11_KcEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -28179,10 +28075,10 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle12NoexceptSpec9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 9
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -28213,20 +28109,20 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 9
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %E = getelementptr inbounds %"class.llvh::itanium_demangle::NoexceptSpec", ptr %this, i64 0, i32 1
+  %E = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %E, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %5, i64 9
   %7 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %7, 1
   br i1 %cmp.not.i, label %if.end.i12, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable2.i = load ptr, ptr %5, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %8 = load ptr, ptr %vfn3.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i12
@@ -28283,10 +28179,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle20DynamicExceptionSpec9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 6
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -28317,7 +28213,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 6
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Types = getelementptr inbounds %"class.llvh::itanium_demangle::DynamicExceptionSpec", ptr %this, i64 0, i32 1
+  %Types = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Types, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %5 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i5 = add i64 %5, 1
@@ -28382,16 +28278,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle12FunctionType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Ret = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this, i64 0, i32 1
+  %Ret = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Ret, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   %.pre.i = load ptr, ptr %S, align 8
@@ -28428,10 +28324,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle12FunctionType10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -28462,7 +28358,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Params = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this, i64 0, i32 2
+  %Params = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNK4llvh16itanium_demangle9NodeArray14printWithCommaER12OutputStream(ptr noundef nonnull align 8 dereferenceable(16) %Params, ptr noundef nonnull align 8 dereferenceable(32) %S)
   %5 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i21 = add i64 %5, 1
@@ -28496,13 +28392,13 @@ _ZN12OutputStream4growEm.exit.i32:                ; preds = %if.then.i._ZN12Outp
   %9 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i34 = add i64 %9, 1
   store i64 %add.i34, ptr %CurrentPosition.i.i, align 8
-  %Ret = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this, i64 0, i32 1
+  %Ret = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %Ret, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %11 = load ptr, ptr %vfn, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %CVQuals = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this, i64 0, i32 3
+  %CVQuals = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load i32, ptr %CVQuals, align 8
   %and = and i32 %12, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -28628,7 +28524,7 @@ _ZN12OutputStream4growEm.exit.i107:               ; preds = %if.then.i._ZN12Outp
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZN12OutputStream4growEm.exit.i107, %if.end12
-  %RefQual = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this, i64 0, i32 4
+  %RefQual = getelementptr inbounds i8, ptr %this, i64 44
   %30 = load i8, ptr %RefQual, align 4
   switch i8 %30, label %if.end30 [
     i8 1, label %if.end.i119
@@ -28707,7 +28603,7 @@ if.end30.sink.split:                              ; preds = %_ZN12OutputStream4g
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.end19
-  %ExceptionSpec = getelementptr inbounds %"class.llvh::itanium_demangle::FunctionType", ptr %this, i64 0, i32 5
+  %ExceptionSpec = getelementptr inbounds i8, ptr %this, i64 48
   %40 = load ptr, ptr %ExceptionSpec, align 8
   %cmp31.not = icmp eq ptr %40, null
   br i1 %cmp31.not, label %if.end35, label %if.then32
@@ -28747,17 +28643,17 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %if.then32, %if.then
   store i8 32, ptr %arrayidx.i, align 1
   %45 = load ptr, ptr %ExceptionSpec, align 8
   %vtable.i = load ptr, ptr %45, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %46 = load ptr, ptr %vfn.i, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %45, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %45, i64 9
   %47 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %47, 1
   br i1 %cmp.not.i, label %if.end35, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStreampLEc.exit
   %vtable2.i = load ptr, ptr %45, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %48 = load ptr, ptr %vfn3.i, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(12) %45, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end35
@@ -28782,29 +28678,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13ObjCProtoName9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %this, i64 0, i32 1
+  %Ty = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Ty, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -28835,9 +28731,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Protocol = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %this, i64 0, i32 2
+  %Protocol = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Protocol, align 8
-  %agg.tmp2.sroa.2.0.Protocol.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp2.sroa.2.0.Protocol.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Protocol.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i5 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i6 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -28931,29 +28827,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle17VendorExtQualType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::VendorExtQualType", ptr %this, i64 0, i32 1
+  %Ty = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Ty, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -28984,9 +28880,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 1
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Ext = getelementptr inbounds %"class.llvh::itanium_demangle::VendorExtQualType", ptr %this, i64 0, i32 2
+  %Ext = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Ext, align 8
-  %agg.tmp2.sroa.2.0.Ext.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::VendorExtQualType", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp2.sroa.2.0.Ext.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Ext.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i4 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i5 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -29048,9 +28944,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle8QualType19hasRHSComponentSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Child, align 8
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %1, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -29073,9 +28969,9 @@ _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle8QualType12hasArraySlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Child, align 8
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %ArrayCache.i, align 2
   %cmp.not.i = icmp eq i8 %1, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -29086,7 +28982,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -29099,9 +28995,9 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle8QualType15hasFunctionSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Child, align 8
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %0, i64 11
   %1 = load i8, ptr %FunctionCache.i, align 1
   %cmp.not.i = icmp eq i8 %1, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -29112,7 +29008,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
@@ -29125,10 +29021,10 @@ _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8QualType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Child, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   tail call void @_ZNK4llvh16itanium_demangle8QualType10printQualsER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S)
@@ -29138,10 +29034,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8QualType10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Child, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   ret void
@@ -29163,17 +29059,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle8QualType10printQualsER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %Quals = getelementptr inbounds %"class.llvh::itanium_demangle::QualType", ptr %this, i64 0, i32 1
+  %Quals = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %Quals, align 4
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %1, 6
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %2
   %.pre.i = load ptr, ptr %S, align 8
@@ -29214,10 +29110,10 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   br i1 %tobool4.not, label %if.end8, label %if.end.i11
 
 if.end.i11:                                       ; preds = %if.end
-  %CurrentPosition.i.i12 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i12 = getelementptr inbounds i8, ptr %S, i64 8
   %7 = load i64, ptr %CurrentPosition.i.i12, align 8
   %add.i.i13 = add i64 %7, 9
-  %BufferCapacity.i.i14 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i14 = getelementptr inbounds i8, ptr %S, i64 16
   %8 = load i64, ptr %BufferCapacity.i.i14, align 8
   %cmp.not.i.i15 = icmp ult i64 %add.i.i13, %8
   %.pre.i16 = load ptr, ptr %S, align 8
@@ -29258,10 +29154,10 @@ if.end8:                                          ; preds = %_ZN12OutputStream4g
   br i1 %tobool11.not, label %if.end15, label %if.end.i36
 
 if.end.i36:                                       ; preds = %if.end8
-  %CurrentPosition.i.i37 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i37 = getelementptr inbounds i8, ptr %S, i64 8
   %13 = load i64, ptr %CurrentPosition.i.i37, align 8
   %add.i.i38 = add i64 %13, 9
-  %BufferCapacity.i.i39 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i39 = getelementptr inbounds i8, ptr %S, i64 16
   %14 = load i64, ptr %BufferCapacity.i.i39, align 8
   %cmp.not.i.i40 = icmp ult i64 %add.i.i38, %14
   %.pre.i41 = load ptr, ptr %S, align 8
@@ -29301,9 +29197,9 @@ if.end15:                                         ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10VectorTypeEJRPNS0_4NodeER10StringViewEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -29320,7 +29216,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10VectorTypeEJRPNS3_4NodeER10StringViewEEEPT_DpOT0_.exit
@@ -29328,12 +29224,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10VectorTypeEJRPNS3_4NodeER10StringViewEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -29360,10 +29256,10 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10VectorTyp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle15PixelVectorType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, 13
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %S, align 8
@@ -29394,9 +29290,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %4, 13
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Dimension = getelementptr inbounds %"class.llvh::itanium_demangle::PixelVectorType", ptr %this, i64 0, i32 1
+  %Dimension = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %Dimension, align 8
-  %Second.i = getelementptr inbounds %"class.llvh::itanium_demangle::PixelVectorType", ptr %this, i64 0, i32 1, i32 1
+  %Second.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %Second.i, align 8
   %sub.ptr.lhs.cast.i.i4 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i5 = ptrtoint ptr %5 to i64
@@ -29490,29 +29386,29 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle10VectorType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %BaseType = getelementptr inbounds %"class.llvh::itanium_demangle::VectorType", ptr %this, i64 0, i32 1
+  %BaseType = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %BaseType, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %2, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable2.i = load ptr, ptr %0, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %3 = load ptr, ptr %vfn3.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %4, 8
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %5
   %.pre.i = load ptr, ptr %S, align 8
@@ -29543,10 +29439,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i = add i64 %8, 8
   store i64 %add.i, ptr %CurrentPosition.i.i, align 8
-  %Dimension = getelementptr inbounds %"class.llvh::itanium_demangle::VectorType", ptr %this, i64 0, i32 2
+  %Dimension = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %Dimension, align 8
   %tobool.not.i = icmp ne ptr %9, null
-  %Second.i = getelementptr inbounds %"class.llvh::itanium_demangle::VectorType", ptr %this, i64 0, i32 2, i32 1
+  %Second.i = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load ptr, ptr %Second.i, align 8
   %tobool2.not.i = icmp eq ptr %10, null
   %11 = select i1 %tobool.not.i, i1 %tobool2.not.i, i1 false
@@ -29554,17 +29450,17 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 if.then:                                          ; preds = %_ZN12OutputStream4growEm.exit.i
   %vtable.i6 = load ptr, ptr %9, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 4
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 32
   %12 = load ptr, ptr %vfn.i7, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i8 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %9, i64 0, i32 2
+  %RHSComponentCache.i8 = getelementptr inbounds i8, ptr %9, i64 9
   %13 = load i8, ptr %RHSComponentCache.i8, align 1
   %cmp.not.i9 = icmp eq i8 %13, 1
   br i1 %cmp.not.i9, label %if.end.i47, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.then
   %vtable2.i11 = load ptr, ptr %9, align 8
-  %vfn3.i12 = getelementptr inbounds ptr, ptr %vtable2.i11, i64 5
+  %vfn3.i12 = getelementptr inbounds i8, ptr %vtable2.i11, i64 40
   %14 = load ptr, ptr %vfn3.i12, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i47
@@ -29667,9 +29563,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9ArrayTypeEJRPNS0_4NodeERNS0_12NodeOrStringEEEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4032
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -29686,7 +29582,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ArrayTypeEJRPNS3_4NodeERNS3_12NodeOrStringEEEEPT_DpOT0_.exit
@@ -29694,12 +29590,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ArrayTypeEJRPNS3_4NodeERNS3_12NodeOrStringEEEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 48
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
@@ -29730,10 +29626,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle9ArrayType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Base = getelementptr inbounds %"class.llvh::itanium_demangle::ArrayType", ptr %this, i64 0, i32 1
+  %Base = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Base, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   ret void
@@ -29742,7 +29638,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle9ArrayType10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %CurrentPosition.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load i64, ptr %CurrentPosition.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   %.pre.i.pre = load ptr, ptr %S, align 8
@@ -29757,7 +29653,7 @@ _ZNK12OutputStream4backEv.exit:                   ; preds = %entry
 
 if.end.i:                                         ; preds = %_ZNK12OutputStream4backEv.exit, %entry
   %add.i.i = add i64 %0, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   br i1 %cmp.not.i.i, label %_ZN12OutputStream4growEm.exit.i, label %if.then.i.i
@@ -29794,7 +29690,7 @@ if.end.i15:                                       ; preds = %_ZNK12OutputStream4
   %.pre.i20 = phi ptr [ %.pre.i.pre, %_ZNK12OutputStream4backEv.exit ], [ %.pre.i20.pre, %_ZN12OutputStream4growEm.exit.i ]
   %7 = phi i64 [ %0, %_ZNK12OutputStream4backEv.exit ], [ %add.i, %_ZN12OutputStream4growEm.exit.i ]
   %add.i.i17 = add i64 %7, 1
-  %BufferCapacity.i.i18 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i18 = getelementptr inbounds i8, ptr %S, i64 16
   %8 = load i64, ptr %BufferCapacity.i.i18, align 8
   %cmp.not.i.i19 = icmp ult i64 %add.i.i17, %8
   br i1 %cmp.not.i.i19, label %_ZN12OutputStream4growEm.exit.i28, label %if.then.i.i21
@@ -29824,8 +29720,8 @@ _ZN12OutputStream4growEm.exit.i28:                ; preds = %if.then.i._ZN12Outp
   %11 = load i64, ptr %CurrentPosition.i, align 8
   %add.i30 = add i64 %11, 1
   store i64 %add.i30, ptr %CurrentPosition.i, align 8
-  %Dimension = getelementptr inbounds %"class.llvh::itanium_demangle::ArrayType", ptr %this, i64 0, i32 2
-  %Second.i = getelementptr inbounds %"class.llvh::itanium_demangle::ArrayType", ptr %this, i64 0, i32 2, i32 1
+  %Dimension = getelementptr inbounds i8, ptr %this, i64 24
+  %Second.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %Second.i, align 8
   %tobool.not.i33 = icmp ne ptr %12, null
   %13 = load ptr, ptr %Dimension, align 8
@@ -29881,17 +29777,17 @@ if.else:                                          ; preds = %_ZN12OutputStream4g
 
 if.then13:                                        ; preds = %if.else
   %vtable.i = load ptr, ptr %13, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %20 = load ptr, ptr %vfn.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %13, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %13, i64 9
   %21 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %21, 1
   br i1 %cmp.not.i, label %if.end.i67, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then13
   %vtable2.i = load ptr, ptr %13, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %22 = load ptr, ptr %vfn3.i, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %if.end.i67
@@ -29929,10 +29825,10 @@ _ZN12OutputStream4growEm.exit.i80:                ; preds = %if.then.i._ZN12Outp
   %27 = load i64, ptr %CurrentPosition.i, align 8
   %add.i82 = add i64 %27, 1
   store i64 %add.i82, ptr %CurrentPosition.i, align 8
-  %Base = getelementptr inbounds %"class.llvh::itanium_demangle::ArrayType", ptr %this, i64 0, i32 1
+  %Base = getelementptr inbounds i8, ptr %this, i64 16
   %28 = load ptr, ptr %Base, align 8
   %vtable = load ptr, ptr %28, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %29 = load ptr, ptr %vfn, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   ret void
@@ -29954,9 +29850,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef nonnull ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19PointerToMemberTypeEJRPNS0_4NodeES9_EEES8_DpOT0_(ptr nocapture noundef nonnull align 16 dereferenceable(4864) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #1 align 2 {
 entry:
-  %BlockList.i.i = getelementptr inbounds %"struct.llvh::itanium_demangle::Db", ptr %this, i64 0, i32 12, i32 0, i32 1
+  %BlockList.i.i = getelementptr inbounds i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16
-  %Current.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %0, i64 0, i32 1
+  %Current.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %Current.i.i, align 8
   %2 = add i64 %1, -4048
   %cmp.i.i = icmp ult i64 %2, -4080
@@ -29973,7 +29869,7 @@ if.then.i9.i.i:                                   ; preds = %if.then.i.i
 
 _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
   store ptr %0, ptr %call.i6.i.i, align 8
-  %Current.i8.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %call.i6.i.i, i64 0, i32 1
+  %Current.i8.i.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store i64 0, ptr %Current.i8.i.i, align 8
   store ptr %call.i6.i.i, ptr %BlockList.i.i, align 16
   br label %_ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit
@@ -29981,18 +29877,18 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i: ; preds = %if.then.i.i
 _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19PointerToMemberTypeEJRPNS3_4NodeES7_EEEPT_DpOT0_.exit: ; preds = %entry, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i
   %3 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %1, %entry ]
   %4 = phi ptr [ %call.i6.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i ], [ %0, %entry ]
-  %Current7.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %4, i64 0, i32 1
+  %Current7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %add8.i.i = add nsw i64 %3, 32
   store i64 %add8.i.i, ptr %Current7.i.i, align 8
   %5 = load ptr, ptr %BlockList.i.i, align 16
-  %add.ptr.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 1
-  %Current11.i.i = getelementptr inbounds %"struct.(anonymous namespace)::BumpPointerAllocator::BlockMeta", ptr %5, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %Current11.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %Current11.i.i, align 8
   %add.ptr12.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %6
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %7 = load ptr, ptr %args, align 8
   %8 = load ptr, ptr %args1, align 8
-  %RHSComponentCache.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %8, i64 0, i32 2
+  %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %8, i64 9
   %9 = load i8, ptr %RHSComponentCache.i.i, align 1
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store i8 13, ptr %K.i.i.i, align 8
@@ -30013,9 +29909,9 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19PointerTo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle19PointerToMemberType19hasRHSComponentSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %MemberType = getelementptr inbounds %"class.llvh::itanium_demangle::PointerToMemberType", ptr %this, i64 0, i32 2
+  %MemberType = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %MemberType, align 8
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %1, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -30038,14 +29934,14 @@ _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle19PointerToMemberType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %MemberType = getelementptr inbounds %"class.llvh::itanium_demangle::PointerToMemberType", ptr %this, i64 0, i32 2
+  %MemberType = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %MemberType, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   %2 = load ptr, ptr %MemberType, align 8
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %2, i64 10
   %3 = load i8, ptr %ArrayCache.i, align 2
   switch i8 %3, label %lor.lhs.false [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -30054,7 +29950,7 @@ entry:
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i, label %if.end.i16, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge
@@ -30065,7 +29961,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_cri
 
 lor.lhs.false:                                    ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge, %entry
   %5 = phi ptr [ %.pre, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge ], [ %2, %entry ]
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %5, i64 11
   %6 = load i8, ptr %FunctionCache.i, align 1
   switch i8 %6, label %if.end.i25 [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
@@ -30074,16 +29970,16 @@ lor.lhs.false:                                    ; preds = %_ZNK4llvh16itanium_
 
 _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %lor.lhs.false
   %vtable.i12 = load ptr, ptr %5, align 8
-  %vfn.i13 = getelementptr inbounds ptr, ptr %vtable.i12, i64 2
+  %vfn.i13 = getelementptr inbounds i8, ptr %vtable.i12, i64 16
   %7 = load ptr, ptr %vfn.i13, align 8
   %call.i14 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i14, label %if.end.i16, label %if.end.i25
 
 if.end.i16:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %entry, %lor.lhs.false
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %8, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %9
   %.pre.i = load ptr, ptr %s, align 8
@@ -30114,10 +30010,10 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   br label %if.end
 
 if.end.i25:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %lor.lhs.false
-  %CurrentPosition.i.i26 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i26 = getelementptr inbounds i8, ptr %s, i64 8
   %12 = load i64, ptr %CurrentPosition.i.i26, align 8
   %add.i.i27 = add i64 %12, 1
-  %BufferCapacity.i.i28 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i28 = getelementptr inbounds i8, ptr %s, i64 16
   %13 = load i64, ptr %BufferCapacity.i.i28, align 8
   %cmp.not.i.i29 = icmp ult i64 %add.i.i27, %13
   %.pre.i30 = load ptr, ptr %s, align 8
@@ -30152,29 +30048,29 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   %16 = load i64, ptr %CurrentPosition.i.i26.sink73, align 8
   %add.i40 = add i64 %16, 1
   store i64 %add.i40, ptr %CurrentPosition.i.i26.sink73, align 8
-  %ClassType = getelementptr inbounds %"class.llvh::itanium_demangle::PointerToMemberType", ptr %this, i64 0, i32 1
+  %ClassType = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %ClassType, align 8
   %vtable.i43 = load ptr, ptr %17, align 8
-  %vfn.i44 = getelementptr inbounds ptr, ptr %vtable.i43, i64 4
+  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 32
   %18 = load ptr, ptr %vfn.i44, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %17, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %17, i64 9
   %19 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i45 = icmp eq i8 %19, 1
   br i1 %cmp.not.i45, label %if.end.i55, label %if.then.i46
 
 if.then.i46:                                      ; preds = %if.end
   %vtable2.i = load ptr, ptr %17, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %20 = load ptr, ptr %vfn3.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br label %if.end.i55
 
 if.end.i55:                                       ; preds = %if.then.i46, %if.end
-  %CurrentPosition.i.i56 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i56 = getelementptr inbounds i8, ptr %s, i64 8
   %21 = load i64, ptr %CurrentPosition.i.i56, align 8
   %add.i.i57 = add i64 %21, 3
-  %BufferCapacity.i.i58 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i58 = getelementptr inbounds i8, ptr %s, i64 16
   %22 = load i64, ptr %BufferCapacity.i.i58, align 8
   %cmp.not.i.i59 = icmp ult i64 %add.i.i57, %22
   %.pre.i60 = load ptr, ptr %s, align 8
@@ -30211,9 +30107,9 @@ _ZN12OutputStream4growEm.exit.i68:                ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle19PointerToMemberType10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %MemberType = getelementptr inbounds %"class.llvh::itanium_demangle::PointerToMemberType", ptr %this, i64 0, i32 2
+  %MemberType = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %MemberType, align 8
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %ArrayCache.i, align 2
   switch i8 %1, label %lor.lhs.false [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -30222,7 +30118,7 @@ entry:
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i, label %if.end.i13, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge
@@ -30233,7 +30129,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_cri
 
 lor.lhs.false:                                    ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge, %entry
   %3 = phi ptr [ %.pre, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false_crit_edge ], [ %0, %entry ]
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %3, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %3, i64 11
   %4 = load i8, ptr %FunctionCache.i, align 1
   switch i8 %4, label %if.end [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
@@ -30242,16 +30138,16 @@ lor.lhs.false:                                    ; preds = %_ZNK4llvh16itanium_
 
 _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %lor.lhs.false
   %vtable.i9 = load ptr, ptr %3, align 8
-  %vfn.i10 = getelementptr inbounds ptr, ptr %vtable.i9, i64 2
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 16
   %5 = load ptr, ptr %vfn.i10, align 8
   %call.i11 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i11, label %if.end.i13, label %if.end
 
 if.end.i13:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %entry, %lor.lhs.false
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %6 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %6, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %7
   %.pre.i = load ptr, ptr %s, align 8
@@ -30287,7 +30183,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 if.end:                                           ; preds = %lor.lhs.false, %_ZN12OutputStream4growEm.exit.i, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
   %11 = load ptr, ptr %MemberType, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %12 = load ptr, ptr %vfn, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   ret void
@@ -30309,21 +30205,21 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle22ElaboratedTypeSpefType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Kind = getelementptr inbounds %"class.llvh::itanium_demangle::ElaboratedTypeSpefType", ptr %this, i64 0, i32 1
+  %Kind = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Kind, align 8
-  %agg.tmp.sroa.2.0.Kind.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::ElaboratedTypeSpefType", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.Kind.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Kind.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %cmp.i = icmp eq ptr %agg.tmp.sroa.2.0.copyload, %agg.tmp.sroa.0.0.copyload
-  %CurrentPosition.i.i3.phi.trans.insert = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i3.phi.trans.insert = getelementptr inbounds i8, ptr %S, i64 8
   %.pre = load i64, ptr %CurrentPosition.i.i3.phi.trans.insert, align 8
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %add.i.i = add i64 %.pre, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %S, i64 16
   %0 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %0
   %.pre.i = load ptr, ptr %S, align 8
@@ -30358,9 +30254,9 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 _ZN12OutputStreampLE10StringView.exit:            ; preds = %entry, %_ZN12OutputStream4growEm.exit.i
   %4 = phi i64 [ %add.i, %_ZN12OutputStream4growEm.exit.i ], [ %.pre, %entry ]
-  %CurrentPosition.i.i3 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 1
+  %CurrentPosition.i.i3 = getelementptr inbounds i8, ptr %S, i64 8
   %add.i.i4 = add i64 %4, 1
-  %BufferCapacity.i.i5 = getelementptr inbounds %class.OutputStream, ptr %S, i64 0, i32 2
+  %BufferCapacity.i.i5 = getelementptr inbounds i8, ptr %S, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i5, align 8
   %cmp.not.i.i6 = icmp ult i64 %add.i.i4, %5
   %.pre.i7 = load ptr, ptr %S, align 8
@@ -30391,20 +30287,20 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %_ZN12OutputStreampL
   store i64 %inc.pre-phi.i, ptr %CurrentPosition.i.i3, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 32, ptr %arrayidx.i, align 1
-  %Child = getelementptr inbounds %"class.llvh::itanium_demangle::ElaboratedTypeSpefType", ptr %this, i64 0, i32 2
+  %Child = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %Child, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %9 = load ptr, ptr %vfn.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %8, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %8, i64 9
   %10 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %10, 1
   br i1 %cmp.not.i, label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN12OutputStreampLEc.exit
   %vtable2.i = load ptr, ptr %8, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 5
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 40
   %11 = load ptr, ptr %vfn3.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %S) #20
   br label %_ZNK4llvh16itanium_demangle4Node5printER12OutputStream.exit
@@ -30429,9 +30325,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle11PointerType19hasRHSComponentSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Pointee = getelementptr inbounds %"class.llvh::itanium_demangle::PointerType", ptr %this, i64 0, i32 1
+  %Pointee = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Pointee, align 8
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %1, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -30454,25 +30350,25 @@ _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle11PointerType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %Pointee = getelementptr inbounds %"class.llvh::itanium_demangle::PointerType", ptr %this, i64 0, i32 1
+  %Pointee = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Pointee, align 8
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i, align 8
   %cmp.not = icmp eq i8 %1, 10
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %Ty.i = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %0, i64 0, i32 1
+  %Ty.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %Ty.i, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %3, 7
   br i1 %cmp.i, label %land.rhs.i, label %if.then
 
 land.rhs.i:                                       ; preds = %lor.lhs.false
-  %Name.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %2, i64 0, i32 1
+  %Name.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %Name.i.i, align 8
-  %retval.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.Name.sroa_idx.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %retval.sroa.2.0.copyload.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
@@ -30491,11 +30387,11 @@ _ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land
 
 if.then:                                          ; preds = %land.rhs.i, %lor.lhs.false, %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   %5 = load ptr, ptr %Pointee, align 8
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %5, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %5, i64 10
   %6 = load i8, ptr %ArrayCache.i, align 2
   switch i8 %6, label %if.end [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -30504,16 +30400,16 @@ if.then:                                          ; preds = %land.rhs.i, %lor.lh
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %if.then
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i, label %if.end.i12, label %if.end
 
 if.end.i12:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %if.then
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %8, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %9 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %9
   %.pre.i = load ptr, ptr %s, align 8
@@ -30548,7 +30444,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 if.end:                                           ; preds = %if.then, %_ZN12OutputStream4growEm.exit.i, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
   %13 = load ptr, ptr %Pointee, align 8
-  %ArrayCache.i14 = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %13, i64 0, i32 3
+  %ArrayCache.i14 = getelementptr inbounds i8, ptr %13, i64 10
   %14 = load i8, ptr %ArrayCache.i14, align 2
   switch i8 %14, label %lor.lhs.false11 [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23
@@ -30557,7 +30453,7 @@ if.end:                                           ; preds = %if.then, %_ZN12Outp
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23: ; preds = %if.end
   %vtable.i20 = load ptr, ptr %13, align 8
-  %vfn.i21 = getelementptr inbounds ptr, ptr %vtable.i20, i64 1
+  %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 8
   %15 = load ptr, ptr %vfn.i21, align 8
   %call.i22 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i22, label %if.end.i39, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23.lor.lhs.false11_crit_edge
@@ -30568,7 +30464,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23.lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23.lor.lhs.false11_crit_edge, %if.end
   %16 = phi ptr [ %.pre, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23.lor.lhs.false11_crit_edge ], [ %13, %if.end ]
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %16, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %16, i64 11
   %17 = load i8, ptr %FunctionCache.i, align 1
   switch i8 %17, label %if.end.i64 [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
@@ -30577,16 +30473,16 @@ lor.lhs.false11:                                  ; preds = %_ZNK4llvh16itanium_
 
 _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %lor.lhs.false11
   %vtable.i29 = load ptr, ptr %16, align 8
-  %vfn.i30 = getelementptr inbounds ptr, ptr %vtable.i29, i64 2
+  %vfn.i30 = getelementptr inbounds i8, ptr %vtable.i29, i64 16
   %18 = load ptr, ptr %vfn.i30, align 8
   %call.i31 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i31, label %if.end.i39, label %if.end.i64
 
 if.end.i39:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit23, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %if.end, %lor.lhs.false11
-  %CurrentPosition.i.i40 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i40 = getelementptr inbounds i8, ptr %s, i64 8
   %19 = load i64, ptr %CurrentPosition.i.i40, align 8
   %add.i.i41 = add i64 %19, 1
-  %BufferCapacity.i.i42 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i42 = getelementptr inbounds i8, ptr %s, i64 16
   %20 = load i64, ptr %BufferCapacity.i.i42, align 8
   %cmp.not.i.i43 = icmp ult i64 %add.i.i41, %20
   %.pre.i44 = load ptr, ptr %s, align 8
@@ -30620,10 +30516,10 @@ _ZN12OutputStream4growEm.exit.i52:                ; preds = %if.then.i._ZN12Outp
   br label %if.end.i64
 
 if.end.i64:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %_ZN12OutputStream4growEm.exit.i52, %lor.lhs.false11
-  %CurrentPosition.i.i65 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i65 = getelementptr inbounds i8, ptr %s, i64 8
   %24 = load i64, ptr %CurrentPosition.i.i65, align 8
   %add.i.i66 = add i64 %24, 1
-  %BufferCapacity.i.i67 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i67 = getelementptr inbounds i8, ptr %s, i64 16
   %25 = load i64, ptr %BufferCapacity.i.i67, align 8
   %cmp.not.i.i68 = icmp ult i64 %add.i.i66, %25
   %.pre.i69 = load ptr, ptr %s, align 8
@@ -30654,10 +30550,10 @@ _ZN12OutputStream4growEm.exit.i77:                ; preds = %if.then.i._ZN12Outp
   br label %if.end27
 
 if.end.i89:                                       ; preds = %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, %land.rhs.i.i
-  %CurrentPosition.i.i90 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i90 = getelementptr inbounds i8, ptr %s, i64 8
   %28 = load i64, ptr %CurrentPosition.i.i90, align 8
   %add.i.i91 = add i64 %28, 3
-  %BufferCapacity.i.i92 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i92 = getelementptr inbounds i8, ptr %s, i64 16
   %29 = load i64, ptr %BufferCapacity.i.i92, align 8
   %cmp.not.i.i93 = icmp ult i64 %add.i.i91, %29
   %.pre.i94 = load ptr, ptr %s, align 8
@@ -30688,9 +30584,9 @@ _ZN12OutputStream4growEm.exit.i102:               ; preds = %if.then.i._ZN12Outp
   %32 = load i64, ptr %CurrentPosition.i.i90, align 8
   %add.i104 = add i64 %32, 3
   store i64 %add.i104, ptr %CurrentPosition.i.i90, align 8
-  %Protocol = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %0, i64 0, i32 2
+  %Protocol = getelementptr inbounds i8, ptr %0, i64 24
   %agg.tmp23.sroa.0.0.copyload = load ptr, ptr %Protocol, align 8
-  %agg.tmp23.sroa.2.0.Protocol.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %0, i64 0, i32 2, i32 1
+  %agg.tmp23.sroa.2.0.Protocol.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %agg.tmp23.sroa.2.0.copyload = load ptr, ptr %agg.tmp23.sroa.2.0.Protocol.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i107 = ptrtoint ptr %agg.tmp23.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i108 = ptrtoint ptr %agg.tmp23.sroa.0.0.copyload to i64
@@ -30775,25 +30671,25 @@ if.end27:                                         ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle11PointerType10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %Pointee = getelementptr inbounds %"class.llvh::itanium_demangle::PointerType", ptr %this, i64 0, i32 1
+  %Pointee = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Pointee, align 8
-  %K.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 1
+  %K.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %K.i, align 8
   %cmp.not = icmp eq i8 %1, 10
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %Ty.i = getelementptr inbounds %"class.llvh::itanium_demangle::ObjCProtoName", ptr %0, i64 0, i32 1
+  %Ty.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %Ty.i, align 8
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %2, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr %K.i.i, align 8
   %cmp.i = icmp eq i8 %3, 7
   br i1 %cmp.i, label %land.rhs.i, label %if.then
 
 land.rhs.i:                                       ; preds = %lor.lhs.false
-  %Name.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %2, i64 0, i32 1
+  %Name.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %Name.i.i, align 8
-  %retval.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::NameType", ptr %2, i64 0, i32 1, i32 1
+  %retval.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.Name.sroa_idx.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %retval.sroa.2.0.copyload.i.i to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
@@ -30811,7 +30707,7 @@ _ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit: ; preds = %land
   br i1 %tobool1.not.i.i.i.i.i.i, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %land.rhs.i, %lor.lhs.false, %_ZNK4llvh16itanium_demangle13ObjCProtoName12isObjCObjectEv.exit, %entry
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %0, i64 10
   %4 = load i8, ptr %ArrayCache.i, align 2
   switch i8 %4, label %lor.lhs.false6 [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -30820,7 +30716,7 @@ if.then:                                          ; preds = %land.rhs.i, %lor.lh
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i, label %if.end.i14, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false6_crit_edge
@@ -30831,7 +30727,7 @@ _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false6_cr
 
 lor.lhs.false6:                                   ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false6_crit_edge, %if.then
   %6 = phi ptr [ %.pre, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit.lor.lhs.false6_crit_edge ], [ %0, %if.then ]
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %6, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %6, i64 11
   %7 = load i8, ptr %FunctionCache.i, align 1
   switch i8 %7, label %if.end [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
@@ -30840,16 +30736,16 @@ lor.lhs.false6:                                   ; preds = %_ZNK4llvh16itanium_
 
 _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %lor.lhs.false6
   %vtable.i9 = load ptr, ptr %6, align 8
-  %vfn.i10 = getelementptr inbounds ptr, ptr %vtable.i9, i64 2
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 16
   %8 = load ptr, ptr %vfn.i10, align 8
   %call.i11 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i11, label %if.end.i14, label %if.end
 
 if.end.i14:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %if.then, %lor.lhs.false6
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %9 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %9, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %10 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %10
   %.pre.i = load ptr, ptr %s, align 8
@@ -30885,7 +30781,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 if.end:                                           ; preds = %lor.lhs.false6, %_ZN12OutputStream4growEm.exit.i, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
   %14 = load ptr, ptr %Pointee, align 8
   %vtable = load ptr, ptr %14, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %15 = load ptr, ptr %vfn, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br label %if.end12
@@ -30910,9 +30806,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh16itanium_demangle13ReferenceType19hasRHSComponentSlowER12OutputStream(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 8 dereferenceable(32) %S) unnamed_addr #1 comdat align 2 {
 entry:
-  %Pointee = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this, i64 0, i32 2
+  %Pointee = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Pointee, align 8
-  %RHSComponentCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %0, i64 0, i32 2
+  %RHSComponentCache.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %RHSComponentCache.i, align 1
   %cmp.not.i = icmp eq i8 %1, 2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -30935,7 +30831,7 @@ _ZNK4llvh16itanium_demangle4Node15hasRHSComponentER12OutputStream.exit: ; preds 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13ReferenceType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %Printing, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -30943,15 +30839,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %Printing, align 4
-  %RK.i = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this, i64 0, i32 3
+  %RK.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %RK.i, align 8
-  %retval.sroa.5.0.in5.i = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this, i64 0, i32 2
+  %retval.sroa.5.0.in5.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.5.06.i = load ptr, ptr %retval.sroa.5.0.in5.i, align 8
   %vtable7.i = load ptr, ptr %retval.sroa.5.06.i, align 8
-  %vfn8.i = getelementptr inbounds ptr, ptr %vtable7.i, i64 3
+  %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 24
   %3 = load ptr, ptr %vfn8.i, align 8
   %call29.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.06.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %K.i10.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call29.i, i64 0, i32 1
+  %K.i10.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %4 = load i8, ptr %K.i10.i, align 8
   %cmp.not11.i = icmp eq i8 %4, 12
   br i1 %cmp.not11.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit
@@ -30959,16 +30855,16 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end, %if.end.i
   %call213.i = phi ptr [ %call2.i, %if.end.i ], [ %call29.i, %if.end ]
   %retval.sroa.0.012.i = phi i32 [ %.sroa.speculated.i, %if.end.i ], [ %2, %if.end ]
-  %RK6.i = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %call213.i, i64 0, i32 3
+  %RK6.i = getelementptr inbounds i8, ptr %call213.i, i64 24
   %5 = load i32, ptr %RK6.i, align 4
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %5, i32 %retval.sroa.0.012.i)
-  %retval.sroa.5.0.in.i = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %call213.i, i64 0, i32 2
+  %retval.sroa.5.0.in.i = getelementptr inbounds i8, ptr %call213.i, i64 16
   %retval.sroa.5.0.i = load ptr, ptr %retval.sroa.5.0.in.i, align 8
   %vtable.i = load ptr, ptr %retval.sroa.5.0.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call2.i, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %7 = load i8, ptr %K.i.i, align 8
   %cmp.not.i = icmp eq i8 %7, 12
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, !llvm.loop !43
@@ -30977,10 +30873,10 @@ _ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit: ; pred
   %retval.sroa.0.0.lcssa.i = phi i32 [ %2, %if.end ], [ %.sroa.speculated.i, %if.end.i ]
   %retval.sroa.5.0.lcssa.i = phi ptr [ %retval.sroa.5.06.i, %if.end ], [ %retval.sroa.5.0.i, %if.end.i ]
   %vtable = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %retval.sroa.5.0.lcssa.i, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %retval.sroa.5.0.lcssa.i, i64 10
   %9 = load i8, ptr %ArrayCache.i, align 2
   switch i8 %9, label %lor.lhs.false [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -30989,16 +30885,16 @@ _ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit: ; pred
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit
   %vtable.i13 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 1
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 8
   %10 = load ptr, ptr %vfn.i14, align 8
   %call.i = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i, label %if.end.i16, label %if.end7
 
 if.end.i16:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %11 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %11, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %12 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %12
   %.pre.i = load ptr, ptr %s, align 8
@@ -31040,13 +30936,13 @@ if.end7:                                          ; preds = %_ZN12OutputStream4g
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit27: ; preds = %if.end7
   %vtable.i24 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
-  %vfn.i25 = getelementptr inbounds ptr, ptr %vtable.i24, i64 1
+  %vfn.i25 = getelementptr inbounds i8, ptr %vtable.i24, i64 8
   %16 = load ptr, ptr %vfn.i25, align 8
   %call.i26 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i26, label %if.end.i43, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end7, %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit27
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %retval.sroa.5.0.lcssa.i, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %retval.sroa.5.0.lcssa.i, i64 11
   %17 = load i8, ptr %FunctionCache.i, align 1
   switch i8 %17, label %if.end15 [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
@@ -31055,16 +30951,16 @@ lor.lhs.false:                                    ; preds = %if.end7, %_ZNK4llvh
 
 _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %lor.lhs.false
   %vtable.i33 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
-  %vfn.i34 = getelementptr inbounds ptr, ptr %vtable.i33, i64 2
+  %vfn.i34 = getelementptr inbounds i8, ptr %vtable.i33, i64 16
   %18 = load ptr, ptr %vfn.i34, align 8
   %call.i35 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i35, label %if.end.i43, label %if.end15
 
 if.end.i43:                                       ; preds = %if.end7, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit27, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %lor.lhs.false
-  %CurrentPosition.i.i44 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i44 = getelementptr inbounds i8, ptr %s, i64 8
   %19 = load i64, ptr %CurrentPosition.i.i44, align 8
   %add.i.i45 = add i64 %19, 1
-  %BufferCapacity.i.i46 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i46 = getelementptr inbounds i8, ptr %s, i64 16
   %20 = load i64, ptr %BufferCapacity.i.i46, align 8
   %cmp.not.i.i47 = icmp ult i64 %add.i.i45, %20
   %.pre.i48 = load ptr, ptr %s, align 8
@@ -31101,10 +30997,10 @@ if.end15:                                         ; preds = %lor.lhs.false, %_ZN
   %cmp = icmp eq i32 %retval.sroa.0.0.lcssa.i, 0
   %cond = select i1 %cmp, ptr @.str.30, ptr @.str.29
   %call.i62 = select i1 %cmp, i64 1, i64 2
-  %CurrentPosition.i.i69 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i69 = getelementptr inbounds i8, ptr %s, i64 8
   %24 = load i64, ptr %CurrentPosition.i.i69, align 8
   %add.i.i70 = add i64 %24, %call.i62
-  %BufferCapacity.i.i71 = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i71 = getelementptr inbounds i8, ptr %s, i64 16
   %25 = load i64, ptr %BufferCapacity.i.i71, align 8
   %cmp.not.i.i72 = icmp ult i64 %add.i.i70, %25
   %.pre.i73 = load ptr, ptr %s, align 8
@@ -31145,7 +31041,7 @@ return:                                           ; preds = %entry, %_ZN12Output
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle13ReferenceType10printRightER12OutputStream(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %Printing = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this, i64 0, i32 4
+  %Printing = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %Printing, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -31153,33 +31049,33 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %Printing, align 4
-  %retval.sroa.5.0.in5.i = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %this, i64 0, i32 2
+  %retval.sroa.5.0.in5.i = getelementptr inbounds i8, ptr %this, i64 16
   %retval.sroa.5.06.i = load ptr, ptr %retval.sroa.5.0.in5.i, align 8
   %vtable7.i = load ptr, ptr %retval.sroa.5.06.i, align 8
-  %vfn8.i = getelementptr inbounds ptr, ptr %vtable7.i, i64 3
+  %vfn8.i = getelementptr inbounds i8, ptr %vtable7.i, i64 24
   %2 = load ptr, ptr %vfn8.i, align 8
   %call29.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.06.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %K.i10.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call29.i, i64 0, i32 1
+  %K.i10.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %3 = load i8, ptr %K.i10.i, align 8
   %cmp.not11.i = icmp eq i8 %3, 12
   br i1 %cmp.not11.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit
 
 if.end.i:                                         ; preds = %if.end, %if.end.i
   %call213.i = phi ptr [ %call2.i, %if.end.i ], [ %call29.i, %if.end ]
-  %retval.sroa.5.0.in.i = getelementptr inbounds %"class.llvh::itanium_demangle::ReferenceType", ptr %call213.i, i64 0, i32 2
+  %retval.sroa.5.0.in.i = getelementptr inbounds i8, ptr %call213.i, i64 16
   %retval.sroa.5.0.i = load ptr, ptr %retval.sroa.5.0.in.i, align 8
   %vtable.i = load ptr, ptr %retval.sroa.5.0.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %K.i.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %call2.i, i64 0, i32 1
+  %K.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %5 = load i8, ptr %K.i.i, align 8
   %cmp.not.i = icmp eq i8 %5, 12
   br i1 %cmp.not.i, label %if.end.i, label %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, !llvm.loop !43
 
 _ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit: ; preds = %if.end.i, %if.end
   %retval.sroa.5.0.lcssa.i = phi ptr [ %retval.sroa.5.06.i, %if.end ], [ %retval.sroa.5.0.i, %if.end.i ]
-  %ArrayCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %retval.sroa.5.0.lcssa.i, i64 0, i32 3
+  %ArrayCache.i = getelementptr inbounds i8, ptr %retval.sroa.5.0.lcssa.i, i64 10
   %6 = load i8, ptr %ArrayCache.i, align 2
   switch i8 %6, label %lor.lhs.false [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
@@ -31188,13 +31084,13 @@ _ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit: ; pred
 
 _ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit: ; preds = %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit
   %vtable.i9 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
-  %vfn.i10 = getelementptr inbounds ptr, ptr %vtable.i9, i64 1
+  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 8
   %7 = load ptr, ptr %vfn.i10, align 8
   %call.i = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i, label %if.end.i20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit
-  %FunctionCache.i = getelementptr inbounds %"class.llvh::itanium_demangle::Node", ptr %retval.sroa.5.0.lcssa.i, i64 0, i32 4
+  %FunctionCache.i = getelementptr inbounds i8, ptr %retval.sroa.5.0.lcssa.i, i64 11
   %8 = load i8, ptr %FunctionCache.i, align 1
   switch i8 %8, label %_ZN14SwapAndRestoreIbED2Ev.exit [
     i8 2, label %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
@@ -31203,16 +31099,16 @@ lor.lhs.false:                                    ; preds = %_ZNK4llvh16itanium_
 
 _ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit: ; preds = %lor.lhs.false
   %vtable.i16 = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
-  %vfn.i17 = getelementptr inbounds ptr, ptr %vtable.i16, i64 2
+  %vfn.i17 = getelementptr inbounds i8, ptr %vtable.i16, i64 16
   %9 = load ptr, ptr %vfn.i17, align 8
   %call.i18 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   br i1 %call.i18, label %if.end.i20, label %_ZN14SwapAndRestoreIbED2Ev.exit
 
 if.end.i20:                                       ; preds = %_ZNK4llvh16itanium_demangle4Node8hasArrayER12OutputStream.exit, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit, %_ZNK4llvh16itanium_demangle13ReferenceType8collapseER12OutputStream.exit, %lor.lhs.false
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %10 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %10, 1
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %11 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %11
   %.pre.i = load ptr, ptr %s, align 8
@@ -31247,7 +31143,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
 
 _ZN14SwapAndRestoreIbED2Ev.exit:                  ; preds = %lor.lhs.false, %_ZN12OutputStream4growEm.exit.i, %_ZNK4llvh16itanium_demangle4Node11hasFunctionER12OutputStream.exit
   %vtable = load ptr, ptr %retval.sroa.5.0.lcssa.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %15 = load ptr, ptr %vfn, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(12) %retval.sroa.5.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
   store i8 0, ptr %Printing, align 4
@@ -31273,15 +31169,15 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvh16itanium_demangle20PostfixQualifiedType9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #1 comdat align 2 {
 entry:
-  %Ty = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixQualifiedType", ptr %this, i64 0, i32 1
+  %Ty = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Ty, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %Postfix = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixQualifiedType", ptr %this, i64 0, i32 2
+  %Postfix = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Postfix, align 8
-  %agg.tmp.sroa.2.0.Postfix.sroa_idx = getelementptr inbounds %"class.llvh::itanium_demangle::PostfixQualifiedType", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp.sroa.2.0.Postfix.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Postfix.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -31290,10 +31186,10 @@ entry:
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 1
+  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %2, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds %class.OutputStream, ptr %s, i64 0, i32 2
+  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %s, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %3
   %.pre.i = load ptr, ptr %s, align 8

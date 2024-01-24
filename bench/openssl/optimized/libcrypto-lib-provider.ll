@@ -121,7 +121,7 @@ OSSL_PROVIDER_load_ex.exit:                       ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_PROVIDER_unload(ptr noundef %prov) local_unnamed_addr #0 {
+define noundef i32 @OSSL_PROVIDER_unload(ptr noundef %prov) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_provider_deactivate(ptr noundef %prov, i32 noundef 1) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -209,7 +209,7 @@ entry:
 declare i32 @ossl_provider_get_capabilities(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_PROVIDER_add_builtin(ptr noundef %libctx, ptr noundef %name, ptr noundef %init_fn) local_unnamed_addr #0 {
+define noundef i32 @OSSL_PROVIDER_add_builtin(ptr noundef %libctx, ptr noundef %name, ptr noundef %init_fn) local_unnamed_addr #0 {
 entry:
   %entry1 = alloca %struct.OSSL_PROVIDER_INFO, align 8
   %cmp = icmp eq ptr %name, null
@@ -232,7 +232,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %init = getelementptr inbounds %struct.OSSL_PROVIDER_INFO, ptr %entry1, i64 0, i32 2
+  %init = getelementptr inbounds i8, ptr %entry1, i64 16
   store ptr %init_fn, ptr %init, align 8
   %call8 = call i32 @ossl_provider_info_add_to_store(ptr noundef %libctx, ptr noundef nonnull %entry1) #3
   %tobool.not = icmp eq i32 %call8, 0

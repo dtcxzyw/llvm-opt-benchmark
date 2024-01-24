@@ -73,19 +73,19 @@ define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hac8
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 4
+  %5 = getelementptr inbounds i8, ptr %3, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 32, ptr %6, align 8
-  %7 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 5
+  %7 = getelementptr inbounds i8, ptr %3, i64 56
   store i8 3, ptr %7, align 8
   store i64 0, ptr %3, align 8
-  %8 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 2, i32 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr @anon.e0b8ecc0e99e59fed9800a4569e02262.0, ptr %10, align 8
   %11 = invoke zeroext i1 @"_ZN60_$LT$proc_macro2..LexError$u20$as$u20$core..fmt..Display$GT$3fmt17h0c466c262c482083E"(ptr align 1 %1, ptr nonnull align 8 %3)
           to label %14 unwind label %12
@@ -120,19 +120,19 @@ define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hd98
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 4
+  %5 = getelementptr inbounds i8, ptr %3, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 32, ptr %6, align 8
-  %7 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 5
+  %7 = getelementptr inbounds i8, ptr %3, i64 56
   store i8 3, ptr %7, align 8
   store i64 0, ptr %3, align 8
-  %8 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 2, i32 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr @anon.e0b8ecc0e99e59fed9800a4569e02262.0, ptr %10, align 8
   %11 = invoke zeroext i1 @"_ZN59_$LT$proc_macro2..Literal$u20$as$u20$core..fmt..Display$GT$3fmt17hf6554abbd13d5a5dE"(ptr align 8 %1, ptr nonnull align 8 %3)
           to label %14 unwind label %12
@@ -207,9 +207,9 @@ define void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hc31
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8into_vec17h3d231491b97728d1E"(ptr nocapture writeonly sret({ { ptr, i64 }, i64 }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   ret void
 }
@@ -236,7 +236,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -265,7 +265,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -288,7 +288,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
   store ptr %6, ptr %4, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
   %9 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1afc0ef6a90a548cE"(ptr nonnull align 8 %4)
   %10 = icmp eq ptr %9, null
@@ -320,7 +320,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -349,7 +349,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -378,7 +378,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -407,7 +407,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -436,7 +436,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -465,7 +465,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -494,7 +494,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -546,7 +546,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -575,7 +575,7 @@ define void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStr
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { [1 x i64], ptr } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 8
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2

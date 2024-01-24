@@ -4,57 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.q_obj_SetPasswordOptions_base = type { i32, ptr, i8, i32 }
-%struct.SetPasswordOptions = type { i32, ptr, i8, i32, %union.anon }
-%union.anon = type { %struct.SetPasswordOptionsVnc }
-%struct.SetPasswordOptionsVnc = type { ptr }
-%struct.q_obj_ExpirePasswordOptions_base = type { i32, ptr }
-%struct.ExpirePasswordOptions = type { i32, ptr, %union.anon.0 }
-%union.anon.0 = type { %struct.ExpirePasswordOptionsVnc }
-%struct.ExpirePasswordOptionsVnc = type { ptr }
-%struct.q_obj_screendump_arg = type { ptr, ptr, i8, i64, i8, i32 }
-%struct.VncBasicInfo = type { ptr, ptr, i32, i8 }
-%struct.VncServerInfo = type { ptr, ptr, i32, i8, ptr }
-%struct.VncClientInfo = type { ptr, ptr, i32, i8, ptr, ptr }
-%struct.VncClientInfoList = type { ptr, ptr }
-%struct.VncInfo = type { i8, ptr, i8, i32, ptr, ptr, i8, ptr }
-%struct.VncServerInfo2 = type { ptr, ptr, i32, i8, i32, i8, i32 }
-%struct.VncServerInfo2List = type { ptr, ptr }
-%struct.VncInfo2 = type { ptr, ptr, ptr, i32, i8, i32, ptr }
-%struct.VncInfo2List = type { ptr, ptr }
-%struct.q_obj_VNC_CONNECTED_arg = type { ptr, ptr }
-%struct.q_obj_VNC_INITIALIZED_arg = type { ptr, ptr }
-%struct.q_obj_VNC_DISCONNECTED_arg = type { ptr, ptr }
-%struct.MouseInfo = type { ptr, i64, i8, i8 }
-%struct.MouseInfoList = type { ptr, ptr }
-%struct.KeyValue = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.IntWrapper }
-%struct.IntWrapper = type { i64 }
-%struct.KeyValueList = type { ptr, ptr }
-%struct.q_obj_send_key_arg = type { ptr, i8, i64 }
-%struct.InputKeyEvent = type { ptr, i8 }
-%struct.InputBtnEvent = type { i32, i8 }
-%struct.InputMoveEvent = type { i32, i64 }
-%struct.InputMultiTouchEvent = type { i32, i64, i64, i32, i64 }
-%struct.InputEvent = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.InputKeyEventWrapper }
-%struct.InputKeyEventWrapper = type { ptr }
-%struct.InputEventList = type { ptr, ptr }
-%struct.q_obj_input_send_event_arg = type { ptr, i8, i64, ptr }
-%struct.DisplayGTK = type { i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.DisplayDBus = type { ptr, ptr, i8, i8, ptr }
-%struct.DisplayCocoa = type { i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.DisplaySDL = type { i8, i32 }
-%struct.q_obj_DisplayOptions_base = type { i32, i8, i8, i8, i8, i8, i8, i8, i32 }
-%struct.DisplayOptions = type { i32, i8, i8, i8, i8, i8, i8, i8, i32, %union.anon.3 }
-%union.anon.3 = type { %struct.DisplayDBus }
-%struct.DisplayReloadOptionsVNC = type { i8, i8 }
-%struct.DisplayReloadOptions = type { i32, %union.anon.4 }
-%union.anon.4 = type { %struct.DisplayReloadOptionsVNC }
-%struct.DisplayUpdateOptionsVNC = type { i8, ptr }
-%struct.DisplayUpdateOptions = type { i32, %union.anon.5 }
-%union.anon.5 = type { %struct.DisplayUpdateOptionsVNC }
-%struct.q_obj_client_migrate_info_arg = type { ptr, ptr, i8, i64, i8, i64, ptr }
 
 @DisplayProtocol_lookup = external constant %struct.QEnumLookup, align 8
 @SetPasswordAction_lookup = external constant %struct.QEnumLookup, align 8
@@ -198,7 +147,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_SetPasswordOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_SetPasswordOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i9 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -212,17 +161,17 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %password = getelementptr inbounds %struct.q_obj_SetPasswordOptions_base, ptr %obj, i64 0, i32 1
+  %password = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %password, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_connected = getelementptr inbounds %struct.q_obj_SetPasswordOptions_base, ptr %obj, i64 0, i32 2
+  %has_connected = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_connected) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %connected = getelementptr inbounds %struct.q_obj_SetPasswordOptions_base, ptr %obj, i64 0, i32 3
+  %connected = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i9)
   %2 = load i32, ptr %connected, align 4
   store i32 %2, ptr %value.i9, align 4
@@ -245,7 +194,7 @@ declare zeroext i1 @visit_type_str(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare zeroext i1 @visit_optional(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_SetPasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_SetPasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display.i = alloca i8, align 1
   %value.i9.i = alloca i32, align 4
@@ -260,17 +209,17 @@ entry:
   br i1 %call.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %password.i = getelementptr inbounds %struct.q_obj_SetPasswordOptions_base, ptr %obj, i64 0, i32 1
+  %password.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %password.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_connected.i = getelementptr inbounds %struct.q_obj_SetPasswordOptions_base, ptr %obj, i64 0, i32 2
+  %has_connected.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call4.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_connected.i) #4
   br i1 %call4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %connected.i = getelementptr inbounds %struct.q_obj_SetPasswordOptions_base, ptr %obj, i64 0, i32 3
+  %connected.i = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i9.i)
   %2 = load i32, ptr %connected.i, align 4
   store i32 %2, ptr %value.i9.i, align 4
@@ -288,7 +237,7 @@ if.end:                                           ; preds = %if.then5.i, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.SetPasswordOptions, ptr %obj, i64 0, i32 4
+  %u = getelementptr inbounds i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_display.i)
   %5 = load ptr, ptr %u, align 8
   %tobool.i = icmp ne ptr %5, null
@@ -319,7 +268,7 @@ return:                                           ; preds = %if.then5.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_SetPasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_SetPasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -345,7 +294,7 @@ return:                                           ; preds = %if.then, %if.end5
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_SetPasswordOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_SetPasswordOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -411,7 +360,7 @@ declare zeroext i1 @visit_is_input(ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_SetPasswordOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_SetPasswordOptionsVnc(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_SetPasswordOptionsVnc(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -489,7 +438,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %time = getelementptr inbounds %struct.q_obj_ExpirePasswordOptions_base, ptr %obj, i64 0, i32 1
+  %time = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %time, ptr noundef %errp) #4
   br label %return
 
@@ -499,7 +448,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ExpirePasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ExpirePasswordOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display.i = alloca i8, align 1
   %value.i.i = alloca i32, align 4
@@ -513,7 +462,7 @@ entry:
   br i1 %call.i.i, label %visit_type_q_obj_ExpirePasswordOptions_base_members.exit, label %return
 
 visit_type_q_obj_ExpirePasswordOptions_base_members.exit: ; preds = %entry
-  %time.i = getelementptr inbounds %struct.q_obj_ExpirePasswordOptions_base, ptr %obj, i64 0, i32 1
+  %time.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %time.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end, label %return
 
@@ -525,7 +474,7 @@ if.end:                                           ; preds = %visit_type_q_obj_Ex
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.ExpirePasswordOptions, ptr %obj, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_display.i)
   %3 = load ptr, ptr %u, align 8
   %tobool.i = icmp ne ptr %3, null
@@ -556,7 +505,7 @@ return:                                           ; preds = %entry, %if.end, %vi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ExpirePasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ExpirePasswordOptionsVnc_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -579,7 +528,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ExpirePasswordOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ExpirePasswordOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -632,7 +581,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ExpirePasswordOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_ExpirePasswordOptionsVnc(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_ExpirePasswordOptionsVnc(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_display.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -709,11 +658,11 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_screendump_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_screendump_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %has_device = alloca i8, align 1
-  %device = getelementptr inbounds %struct.q_obj_screendump_arg, ptr %obj, i64 0, i32 1
+  %device = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %device, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -730,22 +679,22 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %has_head = getelementptr inbounds %struct.q_obj_screendump_arg, ptr %obj, i64 0, i32 2
+  %has_head = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_head) #4
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %head = getelementptr inbounds %struct.q_obj_screendump_arg, ptr %obj, i64 0, i32 3
+  %head = getelementptr inbounds i8, ptr %obj, i64 24
   %call11 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %head, ptr noundef %errp) #4
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10, %if.end8
-  %has_format = getelementptr inbounds %struct.q_obj_screendump_arg, ptr %obj, i64 0, i32 4
+  %has_format = getelementptr inbounds i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_format) #4
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
-  %format = getelementptr inbounds %struct.q_obj_screendump_arg, ptr %obj, i64 0, i32 5
+  %format = getelementptr inbounds i8, ptr %obj, i64 36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %format, align 4
   store i32 %1, ptr %value.i, align 4
@@ -772,17 +721,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %service = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 1
+  %service = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %service, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %family = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 2
+  %family = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_NetworkAddressFamily(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %family, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %websocket = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 3
+  %websocket = getelementptr inbounds i8, ptr %obj, i64 20
   %call7 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %websocket, ptr noundef %errp) #4
   br label %return
 
@@ -796,7 +745,7 @@ declare zeroext i1 @visit_type_NetworkAddressFamily(ptr noundef, ptr noundef, pt
 declare zeroext i1 @visit_type_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncBasicInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncBasicInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -823,17 +772,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %service.i = getelementptr inbounds %struct.VncBasicInfo, ptr %0, i64 0, i32 1
+  %service.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %service.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %family.i = getelementptr inbounds %struct.VncBasicInfo, ptr %0, i64 0, i32 2
+  %family.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_NetworkAddressFamily(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %family.i, ptr noundef %errp) #4
   br i1 %call4.i, label %visit_type_VncBasicInfo_members.exit, label %out_obj.thread
 
 visit_type_VncBasicInfo_members.exit:             ; preds = %if.end3.i
-  %websocket.i = getelementptr inbounds %struct.VncBasicInfo, ptr %0, i64 0, i32 3
+  %websocket.i = getelementptr inbounds i8, ptr %0, i64 20
   %call7.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %websocket.i, ptr noundef %errp) #4
   br i1 %call7.i, label %out_obj, label %out_obj.thread
 
@@ -864,10 +813,10 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_VncBasicInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncServerInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncServerInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_auth = alloca i8, align 1
-  %auth = getelementptr inbounds %struct.VncServerInfo, ptr %obj, i64 0, i32 4
+  %auth = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load ptr, ptr %auth, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -876,17 +825,17 @@ entry:
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %service.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 1
+  %service.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %service.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %family.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 2
+  %family.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call4.i = tail call zeroext i1 @visit_type_NetworkAddressFamily(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %family.i, ptr noundef %errp) #4
   br i1 %call4.i, label %visit_type_VncBasicInfo_members.exit, label %return
 
 visit_type_VncBasicInfo_members.exit:             ; preds = %if.end3.i
-  %websocket.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 3
+  %websocket.i = getelementptr inbounds i8, ptr %obj, i64 20
   %call7.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %websocket.i, ptr noundef %errp) #4
   br i1 %call7.i, label %if.end, label %return
 
@@ -907,7 +856,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncServerInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncServerInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -960,16 +909,16 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_VncServerInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncClientInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncClientInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_x509_dname = alloca i8, align 1
   %has_sasl_username = alloca i8, align 1
-  %x509_dname = getelementptr inbounds %struct.VncClientInfo, ptr %obj, i64 0, i32 4
+  %x509_dname = getelementptr inbounds i8, ptr %obj, i64 24
   %0 = load ptr, ptr %x509_dname, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_x509_dname, align 1
-  %sasl_username = getelementptr inbounds %struct.VncClientInfo, ptr %obj, i64 0, i32 5
+  %sasl_username = getelementptr inbounds i8, ptr %obj, i64 32
   %1 = load ptr, ptr %sasl_username, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -978,17 +927,17 @@ entry:
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %service.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 1
+  %service.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %service.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %family.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 2
+  %family.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call4.i = tail call zeroext i1 @visit_type_NetworkAddressFamily(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %family.i, ptr noundef %errp) #4
   br i1 %call4.i, label %visit_type_VncBasicInfo_members.exit, label %return
 
 visit_type_VncBasicInfo_members.exit:             ; preds = %if.end3.i
-  %websocket.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 3
+  %websocket.i = getelementptr inbounds i8, ptr %obj, i64 20
   %call7.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %websocket.i, ptr noundef %errp) #4
   br i1 %call7.i, label %if.end, label %return
 
@@ -1017,7 +966,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncClientInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncClientInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1070,7 +1019,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_VncClientInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncClientInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncClientInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1082,7 +1031,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.VncClientInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_VncClientInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1126,22 +1075,22 @@ declare void @visit_end_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qapi_free_VncClientInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncInfo_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_host = alloca i8, align 1
   %has_service = alloca i8, align 1
   %has_auth = alloca i8, align 1
-  %host = getelementptr inbounds %struct.VncInfo, ptr %obj, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %host, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_host, align 1
-  %service = getelementptr inbounds %struct.VncInfo, ptr %obj, i64 0, i32 4
+  %service = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %service, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_service, align 1
-  %auth = getelementptr inbounds %struct.VncInfo, ptr %obj, i64 0, i32 5
+  %auth = getelementptr inbounds i8, ptr %obj, i64 32
   %2 = load ptr, ptr %auth, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -1158,12 +1107,12 @@ if.then11:                                        ; preds = %if.end
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end
-  %has_family = getelementptr inbounds %struct.VncInfo, ptr %obj, i64 0, i32 2
+  %has_family = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_family) #4
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %family = getelementptr inbounds %struct.VncInfo, ptr %obj, i64 0, i32 3
+  %family = getelementptr inbounds i8, ptr %obj, i64 20
   %call19 = call zeroext i1 @visit_type_NetworkAddressFamily(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %family, ptr noundef %errp) #4
   br i1 %call19, label %if.end22, label %return
 
@@ -1184,12 +1133,12 @@ if.then31:                                        ; preds = %if.end29
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then31, %if.end29
-  %has_clients = getelementptr inbounds %struct.VncInfo, ptr %obj, i64 0, i32 6
+  %has_clients = getelementptr inbounds i8, ptr %obj, i64 40
   %call37 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_clients) #4
   br i1 %call37, label %if.then38, label %if.end42
 
 if.then38:                                        ; preds = %if.end36
-  %clients = getelementptr inbounds %struct.VncInfo, ptr %obj, i64 0, i32 7
+  %clients = getelementptr inbounds i8, ptr %obj, i64 48
   %call39 = call zeroext i1 @visit_type_VncClientInfoList(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %clients, ptr noundef %errp)
   br i1 %call39, label %if.end42, label %return
 
@@ -1202,7 +1151,7 @@ return:                                           ; preds = %if.then38, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1279,7 +1228,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncServerInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncServerInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i10 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -1287,22 +1236,22 @@ entry:
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %service.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 1
+  %service.i = getelementptr inbounds i8, ptr %obj, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %service.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %family.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 2
+  %family.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call4.i = tail call zeroext i1 @visit_type_NetworkAddressFamily(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %family.i, ptr noundef %errp) #4
   br i1 %call4.i, label %visit_type_VncBasicInfo_members.exit, label %return
 
 visit_type_VncBasicInfo_members.exit:             ; preds = %if.end3.i
-  %websocket.i = getelementptr inbounds %struct.VncBasicInfo, ptr %obj, i64 0, i32 3
+  %websocket.i = getelementptr inbounds i8, ptr %obj, i64 20
   %call7.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %websocket.i, ptr noundef %errp) #4
   br i1 %call7.i, label %if.end, label %return
 
 if.end:                                           ; preds = %visit_type_VncBasicInfo_members.exit
-  %auth = getelementptr inbounds %struct.VncServerInfo2, ptr %obj, i64 0, i32 4
+  %auth = getelementptr inbounds i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %auth, align 4
   store i32 %0, ptr %value.i, align 4
@@ -1313,12 +1262,12 @@ if.end:                                           ; preds = %visit_type_VncBasic
   br i1 %call.i9, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_vencrypt = getelementptr inbounds %struct.VncServerInfo2, ptr %obj, i64 0, i32 5
+  %has_vencrypt = getelementptr inbounds i8, ptr %obj, i64 28
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_vencrypt) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %vencrypt = getelementptr inbounds %struct.VncServerInfo2, ptr %obj, i64 0, i32 6
+  %vencrypt = getelementptr inbounds i8, ptr %obj, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i10)
   %2 = load i32, ptr %vencrypt, align 4
   store i32 %2, ptr %value.i10, align 4
@@ -1337,7 +1286,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncServerInfo2(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncServerInfo2(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1390,7 +1339,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_VncServerInfo2(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncServerInfo2List(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncServerInfo2List(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1402,7 +1351,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.VncServerInfo2List, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_VncServerInfo2(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1438,12 +1387,12 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_VncServerInfo2List(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncInfo2_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i20 = alloca i32, align 4
   %value.i = alloca i32, align 4
   %has_display = alloca i8, align 1
-  %display = getelementptr inbounds %struct.VncInfo2, ptr %obj, i64 0, i32 6
+  %display = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %display, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -1452,17 +1401,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %server = getelementptr inbounds %struct.VncInfo2, ptr %obj, i64 0, i32 1
+  %server = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_VncServerInfo2List(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %server, ptr noundef %errp)
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %clients = getelementptr inbounds %struct.VncInfo2, ptr %obj, i64 0, i32 2
+  %clients = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_VncClientInfoList(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %clients, ptr noundef %errp)
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %auth = getelementptr inbounds %struct.VncInfo2, ptr %obj, i64 0, i32 3
+  %auth = getelementptr inbounds i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %auth, align 4
   store i32 %1, ptr %value.i, align 4
@@ -1473,12 +1422,12 @@ if.end7:                                          ; preds = %if.end4
   br i1 %call.i, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %has_vencrypt = getelementptr inbounds %struct.VncInfo2, ptr %obj, i64 0, i32 4
+  %has_vencrypt = getelementptr inbounds i8, ptr %obj, i64 28
   %call11 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_vencrypt) #4
   br i1 %call11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end10
-  %vencrypt = getelementptr inbounds %struct.VncInfo2, ptr %obj, i64 0, i32 5
+  %vencrypt = getelementptr inbounds i8, ptr %obj, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i20)
   %3 = load i32, ptr %vencrypt, align 4
   store i32 %3, ptr %value.i20, align 4
@@ -1505,7 +1454,7 @@ return:                                           ; preds = %if.then18, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncInfo2(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncInfo2(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1558,7 +1507,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_VncInfo2(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_VncInfo2List(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_VncInfo2List(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1570,7 +1519,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.VncInfo2List, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_VncInfo2(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1613,13 +1562,13 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_VNC_CONNECTED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_VNC_CONNECTED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_VncServerInfo(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %client = getelementptr inbounds %struct.q_obj_VNC_CONNECTED_arg, ptr %obj, i64 0, i32 1
+  %client = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_VncBasicInfo(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %client, ptr noundef %errp)
   br label %return
 
@@ -1629,13 +1578,13 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_VNC_INITIALIZED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_VNC_INITIALIZED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_VncServerInfo(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %client = getelementptr inbounds %struct.q_obj_VNC_INITIALIZED_arg, ptr %obj, i64 0, i32 1
+  %client = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_VncClientInfo(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %client, ptr noundef %errp)
   br label %return
 
@@ -1645,13 +1594,13 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_VNC_DISCONNECTED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_VNC_DISCONNECTED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_VncServerInfo(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %client = getelementptr inbounds %struct.q_obj_VNC_DISCONNECTED_arg, ptr %obj, i64 0, i32 1
+  %client = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_VncClientInfo(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %client, ptr noundef %errp)
   br label %return
 
@@ -1667,17 +1616,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %index = getelementptr inbounds %struct.MouseInfo, ptr %obj, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %index, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %current = getelementptr inbounds %struct.MouseInfo, ptr %obj, i64 0, i32 2
+  %current = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %current, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %absolute = getelementptr inbounds %struct.MouseInfo, ptr %obj, i64 0, i32 3
+  %absolute = getelementptr inbounds i8, ptr %obj, i64 17
   %call7 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %absolute, ptr noundef %errp) #4
   br label %return
 
@@ -1687,7 +1636,7 @@ return:                                           ; preds = %if.end6, %if.end3, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MouseInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_MouseInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1714,17 +1663,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %index.i = getelementptr inbounds %struct.MouseInfo, ptr %0, i64 0, i32 1
+  %index.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %index.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread
 
 if.end3.i:                                        ; preds = %if.end.i
-  %current.i = getelementptr inbounds %struct.MouseInfo, ptr %0, i64 0, i32 2
+  %current.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %current.i, ptr noundef %errp) #4
   br i1 %call4.i, label %visit_type_MouseInfo_members.exit, label %out_obj.thread
 
 visit_type_MouseInfo_members.exit:                ; preds = %if.end3.i
-  %absolute.i = getelementptr inbounds %struct.MouseInfo, ptr %0, i64 0, i32 3
+  %absolute.i = getelementptr inbounds i8, ptr %0, i64 17
   %call7.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %absolute.i, ptr noundef %errp) #4
   br i1 %call7.i, label %out_obj, label %out_obj.thread
 
@@ -1755,7 +1704,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_MouseInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MouseInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_MouseInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1767,7 +1716,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.MouseInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_MouseInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1834,7 +1783,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_IntWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_IntWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -1901,7 +1850,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_QKeyCodeWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_QKeyCodeWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 4, ptr noundef %errp) #4
@@ -1995,12 +1944,12 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.KeyValue, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u, ptr noundef %errp) #4
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.KeyValue, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i8)
   %2 = load i32, ptr %u3, align 4
   store i32 %2, ptr %value.i.i8, align 4
@@ -2020,7 +1969,7 @@ return:                                           ; preds = %entry, %sw.bb2, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_KeyValue(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_KeyValue(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i8.i = alloca i32, align 4
   %value.i.i.i = alloca i32, align 4
@@ -2061,7 +2010,7 @@ if.end.i:                                         ; preds = %if.end5
   ]
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %u3.i = getelementptr inbounds %struct.KeyValue, ptr %0, i64 0, i32 1
+  %u3.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i8.i)
   %3 = load i32, ptr %u3.i, align 4
   store i32 %3, ptr %value.i.i8.i, align 4
@@ -2076,7 +2025,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_KeyValue_members.exit:                 ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.KeyValue, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u.i, ptr noundef %errp) #4
   br i1 %call.i.i, label %out_obj, label %out_obj.thread
 
@@ -2107,7 +2056,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_KeyValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_KeyValueList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_KeyValueList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2119,7 +2068,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.KeyValueList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_KeyValue(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2155,18 +2104,18 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_KeyValueList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_send_key_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_send_key_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_KeyValueList(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef %obj, ptr noundef %errp)
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_hold_time = getelementptr inbounds %struct.q_obj_send_key_arg, ptr %obj, i64 0, i32 1
+  %has_hold_time = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_hold_time) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %hold_time = getelementptr inbounds %struct.q_obj_send_key_arg, ptr %obj, i64 0, i32 2
+  %hold_time = getelementptr inbounds i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %hold_time, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
@@ -2221,7 +2170,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %down = getelementptr inbounds %struct.InputKeyEvent, ptr %obj, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %down, ptr noundef %errp) #4
   br label %return
 
@@ -2231,7 +2180,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputKeyEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputKeyEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2258,7 +2207,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_InputKeyEvent_members.exit, label %out_obj.thread
 
 visit_type_InputKeyEvent_members.exit:            ; preds = %if.end5
-  %down.i = getelementptr inbounds %struct.InputKeyEvent, ptr %0, i64 0, i32 1
+  %down.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %down.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -2302,7 +2251,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %down = getelementptr inbounds %struct.InputBtnEvent, ptr %obj, i64 0, i32 1
+  %down = getelementptr inbounds i8, ptr %obj, i64 4
   %call1 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %down, ptr noundef %errp) #4
   br label %return
 
@@ -2312,7 +2261,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputBtnEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputBtnEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -2346,7 +2295,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %visit_type_InputBtnEvent_members.exit, label %out_obj.thread
 
 visit_type_InputBtnEvent_members.exit:            ; preds = %if.end5
-  %down.i = getelementptr inbounds %struct.InputBtnEvent, ptr %0, i64 0, i32 1
+  %down.i = getelementptr inbounds i8, ptr %0, i64 4
   %call1.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %down.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -2390,7 +2339,7 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.InputMoveEvent, ptr %obj, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value, ptr noundef %errp) #4
   br label %return
 
@@ -2400,7 +2349,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
@@ -2434,7 +2383,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %visit_type_InputMoveEvent_members.exit, label %out_obj.thread
 
 visit_type_InputMoveEvent_members.exit:           ; preds = %if.end5
-  %value.i = getelementptr inbounds %struct.InputMoveEvent, ptr %0, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -2479,17 +2428,17 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %slot = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %obj, i64 0, i32 1
+  %slot = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %slot, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %tracking_id = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %obj, i64 0, i32 2
+  %tracking_id = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.38, ptr noundef nonnull %tracking_id, ptr noundef %errp) #4
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %axis = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %obj, i64 0, i32 3
+  %axis = getelementptr inbounds i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i13)
   %2 = load i32, ptr %axis, align 4
   store i32 %2, ptr %value.i13, align 4
@@ -2500,7 +2449,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %call.i14, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %value = getelementptr inbounds %struct.InputMultiTouchEvent, ptr %obj, i64 0, i32 4
+  %value = getelementptr inbounds i8, ptr %obj, i64 32
   %call10 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value, ptr noundef %errp) #4
   br label %return
 
@@ -2510,7 +2459,7 @@ return:                                           ; preds = %if.end9, %if.end6, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputMultiTouchEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputMultiTouchEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2575,14 +2524,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputKeyEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputKeyEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_InputKeyEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputKeyEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputKeyEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2605,7 +2554,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_InputKeyEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_InputKeyEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2635,14 +2584,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_InputKeyEventWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputBtnEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputBtnEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_InputBtnEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputBtnEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputBtnEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2665,7 +2614,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_InputBtnEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_InputBtnEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2695,14 +2644,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_InputBtnEventWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputMoveEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputMoveEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputMoveEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputMoveEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2725,7 +2674,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2755,14 +2704,14 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_InputMoveEventWrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputMultiTouchEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputMultiTouchEventWrapper_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_type_InputMultiTouchEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef %obj, ptr noundef %errp)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputMultiTouchEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputMultiTouchEventWrapper(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2785,7 +2734,7 @@ if.else:                                          ; preds = %if.then1
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_InputMultiTouchEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
+  %call.i = tail call noundef zeroext i1 @visit_type_InputMultiTouchEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp)
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
@@ -2829,7 +2778,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputEvent_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputEvent_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
@@ -2851,28 +2800,28 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.InputEvent, ptr %obj, i64 0, i32 1
-  %call.i = call zeroext i1 @visit_type_InputKeyEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u, ptr noundef %errp)
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i = call noundef zeroext i1 @visit_type_InputKeyEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.InputEvent, ptr %obj, i64 0, i32 1
-  %call.i17 = call zeroext i1 @visit_type_InputBtnEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u3, ptr noundef %errp)
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i17 = call noundef zeroext i1 @visit_type_InputBtnEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.InputEvent, ptr %obj, i64 0, i32 1
-  %call.i18 = call zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u6, ptr noundef %errp)
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i18 = call noundef zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.InputEvent, ptr %obj, i64 0, i32 1
-  %call.i19 = call zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u9, ptr noundef %errp)
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i19 = call noundef zeroext i1 @visit_type_InputMoveEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds %struct.InputEvent, ptr %obj, i64 0, i32 1
-  %call.i20 = call zeroext i1 @visit_type_InputMultiTouchEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u12, ptr noundef %errp)
+  %u12 = getelementptr inbounds i8, ptr %obj, i64 8
+  %call.i20 = call noundef zeroext i1 @visit_type_InputMultiTouchEvent(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
 sw.default:                                       ; preds = %if.end
@@ -2885,7 +2834,7 @@ return:                                           ; preds = %entry, %sw.bb11, %s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputEvent(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2938,7 +2887,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_InputEvent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_InputEventList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_InputEventList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -2950,7 +2899,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.InputEventList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_InputEvent(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2986,7 +2935,7 @@ return:                                           ; preds = %out_obj, %land.lhs.
 declare void @qapi_free_InputEventList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_input_send_event_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_input_send_event_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_device = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -3001,17 +2950,17 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %has_head = getelementptr inbounds %struct.q_obj_input_send_event_arg, ptr %obj, i64 0, i32 1
+  %has_head = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_head) #4
   br i1 %call6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end5
-  %head = getelementptr inbounds %struct.q_obj_input_send_event_arg, ptr %obj, i64 0, i32 2
+  %head = getelementptr inbounds i8, ptr %obj, i64 16
   %call8 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %head, ptr noundef %errp) #4
   br i1 %call8, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then7, %if.end5
-  %events = getelementptr inbounds %struct.q_obj_input_send_event_arg, ptr %obj, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_type_InputEventList(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %events, ptr noundef %errp)
   br label %return
 
@@ -3021,43 +2970,43 @@ return:                                           ; preds = %if.end11, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayGTK_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayGTK_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %grab_on_hover = getelementptr inbounds %struct.DisplayGTK, ptr %obj, i64 0, i32 1
+  %grab_on_hover = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %grab_on_hover, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_zoom_to_fit = getelementptr inbounds %struct.DisplayGTK, ptr %obj, i64 0, i32 2
+  %has_zoom_to_fit = getelementptr inbounds i8, ptr %obj, i64 2
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %has_zoom_to_fit) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %zoom_to_fit = getelementptr inbounds %struct.DisplayGTK, ptr %obj, i64 0, i32 3
+  %zoom_to_fit = getelementptr inbounds i8, ptr %obj, i64 3
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %zoom_to_fit, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_show_tabs = getelementptr inbounds %struct.DisplayGTK, ptr %obj, i64 0, i32 4
+  %has_show_tabs = getelementptr inbounds i8, ptr %obj, i64 4
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %has_show_tabs) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %show_tabs = getelementptr inbounds %struct.DisplayGTK, ptr %obj, i64 0, i32 5
+  %show_tabs = getelementptr inbounds i8, ptr %obj, i64 5
   %call12 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %show_tabs, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_show_menubar = getelementptr inbounds %struct.DisplayGTK, ptr %obj, i64 0, i32 6
+  %has_show_menubar = getelementptr inbounds i8, ptr %obj, i64 6
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %has_show_menubar) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %show_menubar = getelementptr inbounds %struct.DisplayGTK, ptr %obj, i64 0, i32 7
+  %show_menubar = getelementptr inbounds i8, ptr %obj, i64 7
   %call18 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %show_menubar, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
@@ -3070,7 +3019,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayGTK(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayGTK(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -3123,7 +3072,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayGTK(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayEGLHeadless_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayEGLHeadless_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_rendernode = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -3146,7 +3095,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayEGLHeadless(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayEGLHeadless(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_rendernode.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -3211,7 +3160,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayEGLHeadless(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayDBus_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayDBus_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_rendernode = alloca i8, align 1
   %has_addr = alloca i8, align 1
@@ -3220,12 +3169,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_rendernode, align 1
-  %addr = getelementptr inbounds %struct.DisplayDBus, ptr %obj, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %addr, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_addr, align 1
-  %audiodev = getelementptr inbounds %struct.DisplayDBus, ptr %obj, i64 0, i32 4
+  %audiodev = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %audiodev, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -3246,12 +3195,12 @@ if.then15:                                        ; preds = %if.end13
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then15, %if.end13
-  %has_p2p = getelementptr inbounds %struct.DisplayDBus, ptr %obj, i64 0, i32 2
+  %has_p2p = getelementptr inbounds i8, ptr %obj, i64 16
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %has_p2p) #4
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %p2p = getelementptr inbounds %struct.DisplayDBus, ptr %obj, i64 0, i32 3
+  %p2p = getelementptr inbounds i8, ptr %obj, i64 17
   %call23 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %p2p, ptr noundef %errp) #4
   br i1 %call23, label %if.end26, label %return
 
@@ -3272,7 +3221,7 @@ return:                                           ; preds = %if.then28, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayDBus(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayDBus(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -3337,7 +3286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayCurses_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayCurses_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_charset = alloca i8, align 1
   %0 = load ptr, ptr %obj, align 8
@@ -3360,7 +3309,7 @@ return:                                           ; preds = %if.then, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayCurses(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayCurses(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_charset.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -3425,43 +3374,43 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayCurses(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayCocoa_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayCocoa_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %left_command_key = getelementptr inbounds %struct.DisplayCocoa, ptr %obj, i64 0, i32 1
+  %left_command_key = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef nonnull %left_command_key, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_full_grab = getelementptr inbounds %struct.DisplayCocoa, ptr %obj, i64 0, i32 2
+  %has_full_grab = getelementptr inbounds i8, ptr %obj, i64 2
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %has_full_grab) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %full_grab = getelementptr inbounds %struct.DisplayCocoa, ptr %obj, i64 0, i32 3
+  %full_grab = getelementptr inbounds i8, ptr %obj, i64 3
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %full_grab, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_swap_opt_cmd = getelementptr inbounds %struct.DisplayCocoa, ptr %obj, i64 0, i32 4
+  %has_swap_opt_cmd = getelementptr inbounds i8, ptr %obj, i64 4
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %has_swap_opt_cmd) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %swap_opt_cmd = getelementptr inbounds %struct.DisplayCocoa, ptr %obj, i64 0, i32 5
+  %swap_opt_cmd = getelementptr inbounds i8, ptr %obj, i64 5
   %call12 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %swap_opt_cmd, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_zoom_to_fit = getelementptr inbounds %struct.DisplayCocoa, ptr %obj, i64 0, i32 6
+  %has_zoom_to_fit = getelementptr inbounds i8, ptr %obj, i64 6
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %has_zoom_to_fit) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %zoom_to_fit = getelementptr inbounds %struct.DisplayCocoa, ptr %obj, i64 0, i32 7
+  %zoom_to_fit = getelementptr inbounds i8, ptr %obj, i64 7
   %call18 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %zoom_to_fit, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
@@ -3474,7 +3423,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayCocoa(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayCocoa(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -3539,14 +3488,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplaySDL_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplaySDL_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %grab_mod = getelementptr inbounds %struct.DisplaySDL, ptr %obj, i64 0, i32 1
+  %grab_mod = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %grab_mod, align 4
   store i32 %0, ptr %value.i, align 4
@@ -3565,7 +3514,7 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplaySDL(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplaySDL(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -3593,7 +3542,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %grab_mod.i = getelementptr inbounds %struct.DisplaySDL, ptr %0, i64 0, i32 1
+  %grab_mod.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %grab_mod.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -3642,7 +3591,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_DisplayOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_DisplayOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i21 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -3656,42 +3605,42 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_full_screen = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 1
+  %has_full_screen = getelementptr inbounds i8, ptr %obj, i64 4
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %has_full_screen) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %full_screen = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 2
+  %full_screen = getelementptr inbounds i8, ptr %obj, i64 5
   %call3 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %full_screen, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_window_close = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 3
+  %has_window_close = getelementptr inbounds i8, ptr %obj, i64 6
   %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.54, ptr noundef nonnull %has_window_close) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %window_close = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 4
+  %window_close = getelementptr inbounds i8, ptr %obj, i64 7
   %call9 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.54, ptr noundef nonnull %window_close, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_show_cursor = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 5
+  %has_show_cursor = getelementptr inbounds i8, ptr %obj, i64 8
   %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef nonnull %has_show_cursor) #4
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %show_cursor = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 6
+  %show_cursor = getelementptr inbounds i8, ptr %obj, i64 9
   %call15 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef nonnull %show_cursor, ptr noundef %errp) #4
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_gl = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 7
+  %has_gl = getelementptr inbounds i8, ptr %obj, i64 10
   %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %has_gl) #4
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %gl = getelementptr inbounds %struct.q_obj_DisplayOptions_base, ptr %obj, i64 0, i32 8
+  %gl = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i21)
   %2 = load i32, ptr %gl, align 4
   store i32 %2, ptr %value.i21, align 4
@@ -3710,7 +3659,7 @@ return:                                           ; preds = %if.then20, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_charset.i = alloca i8, align 1
   %call = tail call zeroext i1 @visit_type_q_obj_DisplayOptions_base_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp)
@@ -3726,7 +3675,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.DisplayOptions, ptr %obj, i64 0, i32 9
+  %u = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_charset.i)
   %1 = load ptr, ptr %u, align 8
   %tobool.i = icmp ne ptr %1, null
@@ -3748,7 +3697,7 @@ visit_type_DisplayCurses_members.exit:            ; preds = %if.then.i, %if.end5
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.DisplayOptions, ptr %obj, i64 0, i32 9
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_DisplayDBus_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
@@ -3762,7 +3711,7 @@ return:                                           ; preds = %if.end, %if.end, %e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -3827,13 +3776,13 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayReloadOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayReloadOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %tls_certs = getelementptr inbounds %struct.DisplayReloadOptionsVNC, ptr %obj, i64 0, i32 1
+  %tls_certs = getelementptr inbounds i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
@@ -3846,7 +3795,7 @@ return:                                           ; preds = %if.then, %if.end3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayReloadOptionsVNC(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayReloadOptionsVNC(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 2, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -3873,7 +3822,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %tls_certs.i = getelementptr inbounds %struct.DisplayReloadOptionsVNC, ptr %0, i64 0, i32 1
+  %tls_certs.i = getelementptr inbounds i8, ptr %0, i64 1
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread16
 
@@ -3918,7 +3867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayReloadOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayReloadOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
@@ -3935,12 +3884,12 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.DisplayReloadOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 4
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %u) #4
   br i1 %call.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %tls_certs.i = getelementptr inbounds %struct.DisplayReloadOptions, ptr %obj, i64 0, i32 1, i32 0, i32 1
+  %tls_certs.i = getelementptr inbounds i8, ptr %obj, i64 5
   %call1.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %return
 
@@ -3957,7 +3906,7 @@ return:                                           ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayReloadOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayReloadOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
@@ -3995,12 +3944,12 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %cond.i, label %sw.bb.i, label %sw.default.i
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.DisplayReloadOptions, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 4
   %call.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %u.i) #4
   br i1 %call.i.i, label %if.then.i.i, label %out_obj
 
 if.then.i.i:                                      ; preds = %sw.bb.i
-  %tls_certs.i.i = getelementptr inbounds %struct.DisplayReloadOptions, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %tls_certs.i.i = getelementptr inbounds i8, ptr %0, i64 5
   %call1.i.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %tls_certs.i.i, ptr noundef %errp) #4
   br i1 %call1.i.i, label %out_obj, label %out_obj.thread16
 
@@ -4047,13 +3996,13 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayUpdateOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayUpdateOptionsVNC_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef %obj) #4
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %addresses = getelementptr inbounds %struct.DisplayUpdateOptionsVNC, ptr %obj, i64 0, i32 1
+  %addresses = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
@@ -4068,7 +4017,7 @@ return:                                           ; preds = %if.then, %if.end3
 declare zeroext i1 @visit_type_SocketAddressList(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayUpdateOptionsVNC(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayUpdateOptionsVNC(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
   br i1 %call, label %if.end, label %return
@@ -4095,7 +4044,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %addresses.i = getelementptr inbounds %struct.DisplayUpdateOptionsVNC, ptr %0, i64 0, i32 1
+  %addresses.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses.i, ptr noundef %errp) #4
   br i1 %call1.i, label %out_obj, label %out_obj.thread16
 
@@ -4140,7 +4089,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayUpdateOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayUpdateOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
@@ -4157,12 +4106,12 @@ if.end:                                           ; preds = %entry
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.DisplayUpdateOptions, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %u) #4
   br i1 %call.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %addresses.i = getelementptr inbounds %struct.DisplayUpdateOptions, ptr %obj, i64 0, i32 1, i32 0, i32 1
+  %addresses.i = getelementptr inbounds i8, ptr %obj, i64 16
   %call1.i = call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses.i, ptr noundef %errp) #4
   br i1 %call1.i, label %if.end3.i, label %return
 
@@ -4179,7 +4128,7 @@ return:                                           ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DisplayUpdateOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_DisplayUpdateOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i.i = alloca i32, align 4
   %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
@@ -4217,12 +4166,12 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %cond.i, label %sw.bb.i, label %sw.default.i
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %u.i = getelementptr inbounds %struct.DisplayUpdateOptions, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %call.i.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %u.i) #4
   br i1 %call.i.i, label %if.then.i.i, label %out_obj
 
 if.then.i.i:                                      ; preds = %sw.bb.i
-  %addresses.i.i = getelementptr inbounds %struct.DisplayUpdateOptions, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %addresses.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %call1.i.i = call zeroext i1 @visit_type_SocketAddressList(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %addresses.i.i, ptr noundef %errp) #4
   br i1 %call1.i.i, label %out_obj, label %out_obj.thread16
 
@@ -4257,10 +4206,10 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_DisplayUpdateOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_client_migrate_info_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visit_type_q_obj_client_migrate_info_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_cert_subject = alloca i8, align 1
-  %cert_subject = getelementptr inbounds %struct.q_obj_client_migrate_info_arg, ptr %obj, i64 0, i32 6
+  %cert_subject = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %cert_subject, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -4269,27 +4218,27 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %hostname = getelementptr inbounds %struct.q_obj_client_migrate_info_arg, ptr %obj, i64 0, i32 1
+  %hostname = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %hostname, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %has_port = getelementptr inbounds %struct.q_obj_client_migrate_info_arg, ptr %obj, i64 0, i32 2
+  %has_port = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %has_port) #4
   br i1 %call5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end4
-  %port = getelementptr inbounds %struct.q_obj_client_migrate_info_arg, ptr %obj, i64 0, i32 3
+  %port = getelementptr inbounds i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %port, ptr noundef %errp) #4
   br i1 %call7, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.then6, %if.end4
-  %has_tls_port = getelementptr inbounds %struct.q_obj_client_migrate_info_arg, ptr %obj, i64 0, i32 4
+  %has_tls_port = getelementptr inbounds i8, ptr %obj, i64 32
   %call11 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %has_tls_port) #4
   br i1 %call11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end10
-  %tls_port = getelementptr inbounds %struct.q_obj_client_migrate_info_arg, ptr %obj, i64 0, i32 5
+  %tls_port = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %tls_port, ptr noundef %errp) #4
   br i1 %call13, label %if.end16, label %return
 

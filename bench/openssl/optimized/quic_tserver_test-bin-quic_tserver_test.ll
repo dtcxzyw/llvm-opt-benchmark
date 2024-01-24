@@ -81,13 +81,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.57 = private unnamed_addr constant [66 x i8] c"SSL_inject_net_dgram(c_ssl, rmsg.data, rmsg.data_len, NULL, NULL)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #8
   %tobool.not = icmp eq i32 %call, 0
@@ -139,7 +139,7 @@ declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tserver(i32 noundef %idx) #1 {
+define internal noundef i32 @test_tserver(i32 noundef %idx) #1 {
 entry:
   %c_pair_own.i = alloca ptr, align 8
   %s_pair_own.i = alloca ptr, align 8
@@ -247,19 +247,19 @@ if.end44.i:                                       ; preds = %if.end39.i
 
 if.end48.i:                                       ; preds = %if.end44.i
   store i64 1000000000, ptr @fake_time.0, align 8
-  %net_rbio.i = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args.i, i64 0, i32 3
+  %net_rbio.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 24
   store ptr %call40.i, ptr %net_rbio.i, align 8
-  %net_wbio.i = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args.i, i64 0, i32 4
+  %net_wbio.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 32
   store ptr %call40.i, ptr %net_wbio.i, align 8
-  %alpn50.i = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args.i, i64 0, i32 7
+  %alpn50.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 56
   store ptr null, ptr %alpn50.i, align 8
-  %ctx.i = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args.i, i64 0, i32 2
+  %ctx.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 16
   store ptr null, ptr %ctx.i, align 8
   %tobool51.i = icmp ne i32 %rem3, 0
   br i1 %tobool51.i, label %if.then52.i, label %if.end53.i
 
 if.then52.i:                                      ; preds = %if.end48.i
-  %now_cb.i = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args.i, i64 0, i32 5
+  %now_cb.i = getelementptr inbounds i8, ptr %tserver_args.i, i64 40
   store ptr @fake_now, ptr %now_cb.i, align 8
   br label %if.end53.i
 
@@ -393,8 +393,8 @@ if.end138.i:                                      ; preds = %if.end131.i
 
 if.end158.lr.ph.i:                                ; preds = %if.end138.i
   %or.cond6.i = and i1 %tobool4, %tobool51.i
-  %6 = getelementptr inbounds { i64, i64 }, ptr %tv.i, i64 0, i32 1
-  %data_len.i = getelementptr inbounds %struct.bio_msg_st, ptr %rmsg.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %tv.i, i64 8
+  %data_len.i = getelementptr inbounds i8, ptr %rmsg.i, i64 8
   %7 = getelementptr inbounds i8, ptr %rmsg.i, i64 16
   br label %if.end158.i
 

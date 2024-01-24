@@ -3,7 +3,6 @@ source_filename = "bench/libquic/original/json_parser.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::internal::JSONParser" = type <{ i32, [4 x i8], ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [4 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -20,26 +19,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.base::Value" = type <{ ptr, i32, [4 x i8] }>
-%"class.base::internal::(anonymous namespace)::DictionaryHiddenRootValue" = type { %"class.base::DictionaryValue", %"class.std::unique_ptr.2" }
-%"class.base::DictionaryValue" = type { %"class.base::Value.base", %"class.std::map" }
-%"class.base::Value.base" = type <{ ptr, i32 }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<base::Value>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<base::Value>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<base::Value>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::unique_ptr<base::Value>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.base::internal::(anonymous namespace)::ListHiddenRootValue" = type { %"class.base::ListValue", %"class.std::unique_ptr.2" }
-%"class.base::ListValue" = type { %"class.base::Value.base", %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<base::Value>, std::allocator<std::unique_ptr<base::Value>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<base::Value>, std::allocator<std::unique_ptr<base::Value>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<base::Value>, std::allocator<std::unique_ptr<base::Value>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<base::Value>, std::allocator<std::unique_ptr<base::Value>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.base::internal::JSONParser::StringBuilder" = type { ptr, i64, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.base::internal::(anonymous namespace)::JSONStringValue" = type { %"class.base::Value.base", %"class.base::BasicStringPiece" }
+%"class.base::internal::JSONParser::StringBuilder" = type { ptr, i64, ptr }
 %"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
 %"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
 %"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
@@ -86,7 +67,7 @@ $_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defau
 define dso_local void @_ZN4base8internal10JSONParserC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this, i32 noundef %options) unnamed_addr #0 align 2 {
 entry:
   store i32 %options, ptr %this, align 8
-  %start_pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 2
+  %start_pos_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %start_pos_, i8 0, i64 52, i1 false)
   ret void
 }
@@ -107,7 +88,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %root = alloca %"class.std::unique_ptr", align 8
   store ptr %input.coerce0, ptr %input, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %input, i64 8
   store i64 %input.coerce1, ptr %0, align 8
   store ptr null, ptr %input_copy, align 8
   %1 = load i32, ptr %this, align 8
@@ -150,25 +131,25 @@ if.end:                                           ; preds = %if.else, %_ZNSt10un
   %call8.sink = phi ptr [ %call6, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %call8, %if.else ]
   %5 = phi ptr [ %call.i2, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ null, %if.else ]
   %6 = phi i64 [ %2, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ 0, %if.else ]
-  %start_pos_9 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 2
+  %start_pos_9 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call8.sink, ptr %start_pos_9, align 8
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call8.sink, ptr %pos_, align 8
   %call13 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %input)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %call8.sink, i64 %call13
-  %end_pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr, ptr %end_pos_, align 8
-  %index_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %index_, align 8
-  %line_number_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 1, ptr %line_number_, align 8
-  %index_last_line_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
-  %error_code_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
-  %error_line_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
-  %error_column_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %index_last_line_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_code_ = getelementptr inbounds i8, ptr %this, i64 48
+  %error_line_ = getelementptr inbounds i8, ptr %this, i64 52
+  %error_column_ = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %index_last_line_, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %pos_, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 3
@@ -257,7 +238,7 @@ lpad34.body:                                      ; preds = %lpad34, %_ZNSt10uni
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %lpad34.body
   %vtable.i.i = load ptr, ptr %20, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %21 = load ptr, ptr %vfn.i.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(12) %20) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
@@ -273,7 +254,7 @@ if.end51:                                         ; preds = %land.lhs.true44, %i
   br i1 %tobool54.not, label %if.then55, label %if.end77
 
 if.then55:                                        ; preds = %if.end51
-  %type_.i = getelementptr inbounds %"class.base::Value", ptr %11, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %11, i64 8
   %23 = load i32, ptr %type_.i, align 8
   switch i32 %23, label %if.end77 [
     i32 6, label %if.then59
@@ -295,7 +276,7 @@ call.i16.noexc:                                   ; preds = %if.then59
 
 .noexc.i:                                         ; preds = %call.i16.noexc
   store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %call.i1617, align 8, !noalias !12
-  %json_.i.i = getelementptr inbounds %"class.base::internal::(anonymous namespace)::DictionaryHiddenRootValue", ptr %call.i1617, i64 0, i32 1
+  %json_.i.i = getelementptr inbounds i8, ptr %call.i1617, i64 64
   store i64 %6, ptr %json_.i.i, align 8, !noalias !12
   store ptr null, ptr %agg.tmp.i, align 8, !noalias !12
   invoke void @_ZN4base15DictionaryValue4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(64) %call.i1617, ptr noundef nonnull %11)
@@ -316,7 +297,7 @@ lpad.i:                                           ; preds = %call.i16.noexc
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit6.i: ; preds = %lpad.i, %lpad.i.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %25, %lpad.i ], [ %24, %lpad.i.i ]
   %vtable.i.i4.i = load ptr, ptr %11, align 8, !noalias !12
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %26 = load ptr, ptr %vfn.i.i5.i, align 8, !noalias !12
   call void %26(ptr noundef nonnull align 8 dereferenceable(12) %11) #17, !noalias !12
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i) #17, !noalias !12
@@ -325,7 +306,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit6.i: ; preds = %
 
 _ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %11, align 8, !noalias !12
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %27 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !12
   call void %27(ptr noundef nonnull align 8 dereferenceable(12) %11) #17, !noalias !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -345,7 +326,7 @@ call.i25.noexc:                                   ; preds = %if.then66
 
 .noexc.i34:                                       ; preds = %call.i25.noexc
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %call.i2542, align 8, !noalias !15
-  %json_.i.i35 = getelementptr inbounds %"class.base::internal::(anonymous namespace)::ListHiddenRootValue", ptr %call.i2542, i64 0, i32 1
+  %json_.i.i35 = getelementptr inbounds i8, ptr %call.i2542, i64 40
   store i64 %6, ptr %json_.i.i35, align 8, !noalias !15
   store ptr null, ptr %agg.tmp.i24, align 8, !noalias !15
   invoke void @_ZN4base9ListValue4SwapEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i2542, ptr noundef nonnull %11)
@@ -366,7 +347,7 @@ lpad.i26:                                         ; preds = %call.i25.noexc
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit6.i33: ; preds = %lpad.i26, %lpad.i.i36
   %eh.lpad-body.i28 = phi { ptr, i32 } [ %29, %lpad.i26 ], [ %28, %lpad.i.i36 ]
   %vtable.i.i4.i31 = load ptr, ptr %11, align 8, !noalias !15
-  %vfn.i.i5.i32 = getelementptr inbounds ptr, ptr %vtable.i.i4.i31, i64 1
+  %vfn.i.i5.i32 = getelementptr inbounds i8, ptr %vtable.i.i4.i31, i64 8
   %30 = load ptr, ptr %vfn.i.i5.i32, align 8, !noalias !15
   call void %30(ptr noundef nonnull align 8 dereferenceable(12) %11) #17, !noalias !15
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i24) #17, !noalias !15
@@ -375,7 +356,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit6.i33: ; preds =
 
 _ZNSt10unique_ptrIN4base8internal12_GLOBAL__N_119ListHiddenRootValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %.noexc.i34
   %vtable.i.i.i40 = load ptr, ptr %11, align 8, !noalias !15
-  %vfn.i.i.i41 = getelementptr inbounds ptr, ptr %vtable.i.i.i40, i64 1
+  %vfn.i.i.i41 = getelementptr inbounds i8, ptr %vtable.i.i.i40, i64 8
   %31 = load ptr, ptr %vfn.i.i.i41, align 8, !noalias !15
   call void %31(ptr noundef nonnull align 8 dereferenceable(12) %11) #17, !noalias !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i24)
@@ -403,7 +384,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i52: ; preds = %cleanup
   %vtable.i.i53 = load ptr, ptr %.pr, align 8
-  %vfn.i.i54 = getelementptr inbounds ptr, ptr %vtable.i.i53, i64 1
+  %vfn.i.i54 = getelementptr inbounds i8, ptr %vtable.i.i53, i64 8
   %33 = load ptr, ptr %vfn.i.i54, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit55
@@ -462,11 +443,11 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base8internal10JSONParser10NextNCharsEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %n) local_unnamed_addr #6 align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %index_, align 8
   %add = add nsw i32 %0, %n
   store i32 %add, ptr %index_, align 8
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %pos_, align 8
   %idx.ext = sext i32 %n to i64
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.ext
@@ -486,10 +467,10 @@ entry:
 define dso_local noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4base8internal10JSONParser24EatWhitespaceAndCommentsEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
-  %pos_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
-  %end_pos_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %end_pos_.i, align 8
   %cmp.i.not = icmp ugt ptr %add.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %if.end
@@ -561,11 +542,11 @@ return:                                           ; preds = %if.end, %entry, %sw
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef nonnull ptr @_ZN4base8internal10JSONParser8NextCharEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %index_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %index_, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %index_, align 8
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %pos_, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 1
   store ptr %incdec.ptr, ptr %pos_, align 8
@@ -575,19 +556,19 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base8internal10JSONParser11ReportErrorENS_10JSONReader14JsonParseErrorEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %code, i32 noundef %column_adjust) local_unnamed_addr #6 align 2 {
 entry:
-  %error_code_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_ = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %code, ptr %error_code_, align 8
-  %line_number_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %line_number_, align 8
-  %error_line_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_ = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %0, ptr %error_line_, align 4
-  %index_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %index_, align 8
-  %index_last_line_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_ = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load i32, ptr %index_last_line_, align 4
   %sub = add i32 %1, %column_adjust
   %add = sub i32 %sub, %2
-  %error_column_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add, ptr %error_column_, align 8
   ret void
 }
@@ -597,7 +578,7 @@ declare void @_ZNK4base5Value14CreateDeepCopyEv(ptr sret(%"class.std::unique_ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK4base8internal10JSONParser10error_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %error_code_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %error_code_, align 8
   ret i32 %0
 }
@@ -606,11 +587,11 @@ entry:
 define dso_local void @_ZNK4base8internal10JSONParser15GetErrorMessageB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %error_line_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_ = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %error_line_, align 4
-  %error_column_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %error_column_, align 8
-  %error_code_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_ = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %error_code_, align 8
   call void @_ZN4base10JSONReader17ErrorCodeToStringB5cxx11ENS0_14JsonParseErrorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %2)
   %3 = or i32 %1, %0
@@ -662,7 +643,7 @@ declare void @_ZN4base10JSONReader17ErrorCodeToStringB5cxx11ENS0_14JsonParseErro
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK4base8internal10JSONParser10error_lineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %error_line_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_ = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %error_line_, align 4
   ret i32 %0
 }
@@ -670,7 +651,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK4base8internal10JSONParser12error_columnEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %error_column_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %error_column_, align 8
   ret i32 %0
 }
@@ -686,7 +667,7 @@ entry:
 define dso_local void @_ZN4base8internal10JSONParser13StringBuilderC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %pos) unnamed_addr #0 align 2 {
 entry:
   store ptr %pos, ptr %this, align 8
-  %length_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -694,8 +675,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base8internal10JSONParser13StringBuilder4SwapEPS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %other) local_unnamed_addr #6 align 2 {
 entry:
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %other, i64 0, i32 2
-  %string_2 = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %other, i64 16
+  %string_2 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %1 = load ptr, ptr %string_2, align 8
   store ptr %1, ptr %string_, align 8
@@ -704,8 +685,8 @@ entry:
   %3 = load ptr, ptr %this, align 8
   store ptr %3, ptr %other, align 8
   store ptr %2, ptr %this, align 8
-  %length_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %other, i64 0, i32 1
-  %length_4 = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %other, i64 8
+  %length_4 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %length_, align 8
   %5 = load i64, ptr %length_4, align 8
   store i64 %5, ptr %length_, align 8
@@ -716,7 +697,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base8internal10JSONParser13StringBuilderD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -736,7 +717,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base8internal10JSONParser13StringBuilder6AppendERKc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %c) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else16, label %if.then14
@@ -747,7 +728,7 @@ if.then14:                                        ; preds = %if.end13
   br label %if.end17
 
 if.else16:                                        ; preds = %if.end13
-  %length_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %length_, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %length_, align 8
@@ -762,7 +743,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base8internal10JSONParser13StringBuilder12AppendStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #2 align 2 {
 entry:
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %str)
   ret void
@@ -774,7 +755,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local void @_ZN4base8internal10JSONParser13StringBuilder7ConvertEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
@@ -782,7 +763,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   %1 = load ptr, ptr %this, align 8
-  %length_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %length_, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -818,7 +799,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4base8internal10JSONParser13StringBuilder16CanBeStringPieceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %tobool.not = icmp eq ptr %0, null
   ret i1 %tobool.not
@@ -828,7 +809,7 @@ entry:
 define dso_local { ptr, i64 } @_ZN4base8internal10JSONParser13StringBuilder13AsStringPieceB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -839,7 +820,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %length_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 1
+  %length_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %length_, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %1, i64 noundef %2)
   br label %return
@@ -847,7 +828,7 @@ if.end:                                           ; preds = %entry
 return:                                           ; preds = %if.end, %if.then
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -861,7 +842,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8internal10JSONParser13StringBuilder8AsStringB5cxx11Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
-  %string_ = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 2
+  %string_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %string_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end.i, label %if.end
@@ -870,7 +851,7 @@ if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   %1 = load ptr, ptr %this, align 8
-  %length_.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %this, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %length_.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
@@ -898,29 +879,29 @@ if.end:                                           ; preds = %_ZN4base8internal10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4base8internal10JSONParser24EatWhitespaceAndCommentsEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
-  %end_pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %end_pos_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %end_pos_, align 8
   %pos_.promoted = load ptr, ptr %pos_, align 8
   %cmp12 = icmp ult ptr %pos_.promoted, %0
   br i1 %cmp12, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %index_.i.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
-  %index_last_line_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
-  %start_pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 2
+  %index_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %index_last_line_ = getelementptr inbounds i8, ptr %this, i64 44
+  %start_pos_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %start_pos_, align 8
-  %line_number_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_ = getelementptr inbounds i8, ptr %this, i64 40
   %index_.i.i.promoted = load i32, ptr %index_.i.i, align 8
   %line_number_.promoted = load i32, ptr %line_number_, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %inc18 = phi i32 [ %line_number_.promoted, %while.body.lr.ph ], [ %inc16, %sw.epilog ]
+  %2 = phi i32 [ %line_number_.promoted, %while.body.lr.ph ], [ %12, %sw.epilog ]
   %inc.i13.i14 = phi i32 [ %index_.i.i.promoted, %while.body.lr.ph ], [ %inc.i13.i15, %sw.epilog ]
   %add.ptr.i.i813 = phi ptr [ %pos_.promoted, %while.body.lr.ph ], [ %add.ptr.i.i9, %sw.epilog ]
-  %2 = load i8, ptr %add.ptr.i.i813, align 1
-  switch i8 %2, label %while.end [
+  %3 = load i8, ptr %add.ptr.i.i813, align 1
+  switch i8 %3, label %while.end [
     i8 13, label %sw.bb
     i8 10, label %sw.bb
     i8 32, label %sw.bb12
@@ -930,25 +911,25 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 sw.bb:                                            ; preds = %while.body, %while.body
   store i32 %inc.i13.i14, ptr %index_last_line_, align 4
-  %3 = load i8, ptr %add.ptr.i.i813, align 1
-  %cmp5 = icmp eq i8 %3, 10
+  %4 = load i8, ptr %add.ptr.i.i813, align 1
+  %cmp5 = icmp eq i8 %4, 10
   %cmp7 = icmp ugt ptr %add.ptr.i.i813, %1
   %or.cond = select i1 %cmp5, i1 %cmp7, i1 false
   br i1 %or.cond, label %land.lhs.true8, label %if.then
 
 land.lhs.true8:                                   ; preds = %sw.bb
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr.i.i813, i64 -1
-  %4 = load i8, ptr %add.ptr, align 1
-  %cmp11 = icmp eq i8 %4, 13
+  %5 = load i8, ptr %add.ptr, align 1
+  %cmp11 = icmp eq i8 %5, 13
   br i1 %cmp11, label %sw.bb12, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true8, %sw.bb
-  %inc = add nsw i32 %inc18, 1
+  %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %line_number_, align 8
   br label %sw.bb12
 
 sw.bb12:                                          ; preds = %land.lhs.true8, %if.then, %while.body, %while.body
-  %inc17 = phi i32 [ %inc18, %land.lhs.true8 ], [ %inc, %if.then ], [ %inc18, %while.body ], [ %inc18, %while.body ]
+  %6 = phi i32 [ %2, %land.lhs.true8 ], [ %inc, %if.then ], [ %2, %while.body ], [ %2, %while.body ]
   %inc.i = add nsw i32 %inc.i13.i14, 1
   store i32 %inc.i, ptr %index_.i.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i813, i64 1
@@ -959,62 +940,62 @@ lor.lhs.false.i:                                  ; preds = %while.body
   %inc.i.i = add nsw i32 %inc.i13.i14, 1
   store i32 %inc.i.i, ptr %index_.i.i, align 8
   store ptr %add.ptr.i.i, ptr %pos_, align 8
-  %5 = load i8, ptr %add.ptr.i.i, align 1
-  switch i8 %5, label %while.end [
+  %7 = load i8, ptr %add.ptr.i.i, align 1
+  switch i8 %7, label %while.end [
     i8 47, label %while.cond.i
     i8 42, label %while.cond18.i
   ]
 
 while.cond.i:                                     ; preds = %lor.lhs.false.i, %while.body.i
-  %6 = phi i32 [ %inc.i13.i, %while.body.i ], [ %inc.i.i, %lor.lhs.false.i ]
+  %8 = phi i32 [ %inc.i13.i, %while.body.i ], [ %inc.i.i, %lor.lhs.false.i ]
   %add.ptr.i933.i = phi ptr [ %add.ptr.i9.i, %while.body.i ], [ %add.ptr.i.i, %lor.lhs.false.i ]
   %add.ptr.i9.i = getelementptr inbounds i8, ptr %add.ptr.i933.i, i64 1
   %cmp.i11.not.not.i = icmp ugt ptr %add.ptr.i9.i, %0
   br i1 %cmp.i11.not.not.i, label %while.end, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %inc.i13.i = add nsw i32 %6, 1
+  %inc.i13.i = add nsw i32 %8, 1
   store i32 %inc.i13.i, ptr %index_.i.i, align 8
   store ptr %add.ptr.i9.i, ptr %pos_, align 8
-  %7 = load i8, ptr %add.ptr.i9.i, align 1
-  switch i8 %7, label %while.cond.i [
+  %9 = load i8, ptr %add.ptr.i9.i, align 1
+  switch i8 %9, label %while.cond.i [
     i8 13, label %sw.epilog
     i8 10, label %sw.epilog
   ]
 
 while.cond18.i:                                   ; preds = %lor.lhs.false.i, %while.body20.i
-  %8 = phi i32 [ %inc.i21.i, %while.body20.i ], [ %inc.i.i, %lor.lhs.false.i ]
+  %10 = phi i32 [ %inc.i21.i, %while.body20.i ], [ %inc.i.i, %lor.lhs.false.i ]
   %add.ptr.i1731.i = phi ptr [ %add.ptr.i17.i, %while.body20.i ], [ %add.ptr.i.i, %lor.lhs.false.i ]
-  %previous_char.0.i = phi i8 [ %9, %while.body20.i ], [ 0, %lor.lhs.false.i ]
+  %previous_char.0.i = phi i8 [ %11, %while.body20.i ], [ 0, %lor.lhs.false.i ]
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %add.ptr.i1731.i, i64 1
   %cmp.i19.not.i = icmp ugt ptr %add.ptr.i17.i, %0
   br i1 %cmp.i19.not.i, label %while.end, label %while.body20.i
 
 while.body20.i:                                   ; preds = %while.cond18.i
-  %inc.i21.i = add nsw i32 %8, 1
+  %inc.i21.i = add nsw i32 %10, 1
   store i32 %inc.i21.i, ptr %index_.i.i, align 8
   store ptr %add.ptr.i17.i, ptr %pos_, align 8
-  %9 = load i8, ptr %add.ptr.i17.i, align 1
+  %11 = load i8, ptr %add.ptr.i17.i, align 1
   %cmp23.i = icmp eq i8 %previous_char.0.i, 42
-  %cmp25.i = icmp eq i8 %9, 47
+  %cmp25.i = icmp eq i8 %11, 47
   %or.cond1.i = select i1 %cmp23.i, i1 %cmp25.i, i1 false
   br i1 %or.cond1.i, label %if.then26.i, label %while.cond18.i, !llvm.loop !21
 
 if.then26.i:                                      ; preds = %while.body20.i
-  %inc.i25.i = add nsw i32 %8, 2
+  %inc.i25.i = add nsw i32 %10, 2
   store i32 %inc.i25.i, ptr %index_.i.i, align 8
   %incdec.ptr.i27.i = getelementptr inbounds i8, ptr %add.ptr.i1731.i, i64 2
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb12, %if.then26.i
   %incdec.ptr.i27.i.sink = phi ptr [ %incdec.ptr.i27.i, %if.then26.i ], [ %incdec.ptr.i, %sw.bb12 ]
-  %inc16.ph = phi i32 [ %inc18, %if.then26.i ], [ %inc17, %sw.bb12 ]
+  %.ph = phi i32 [ %2, %if.then26.i ], [ %6, %sw.bb12 ]
   %inc.i13.i15.ph = phi i32 [ %inc.i25.i, %if.then26.i ], [ %inc.i, %sw.bb12 ]
   store ptr %incdec.ptr.i27.i.sink, ptr %pos_, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.body.i, %while.body.i, %sw.epilog.sink.split
-  %inc16 = phi i32 [ %inc16.ph, %sw.epilog.sink.split ], [ %inc18, %while.body.i ], [ %inc18, %while.body.i ]
+  %12 = phi i32 [ %.ph, %sw.epilog.sink.split ], [ %2, %while.body.i ], [ %2, %while.body.i ]
   %inc.i13.i15 = phi i32 [ %inc.i13.i15.ph, %sw.epilog.sink.split ], [ %inc.i13.i, %while.body.i ], [ %inc.i13.i, %while.body.i ]
   %add.ptr.i.i9 = phi ptr [ %incdec.ptr.i27.i.sink, %sw.epilog.sink.split ], [ %add.ptr.i9.i, %while.body.i ], [ %add.ptr.i9.i, %while.body.i ]
   %cmp = icmp ult ptr %add.ptr.i.i9, %0
@@ -1027,7 +1008,7 @@ while.end:                                        ; preds = %sw.epilog, %while.b
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser10EatCommentEv(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not = icmp eq i8 %1, 47
@@ -1035,13 +1016,13 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
-  %end_pos_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %end_pos_.i, align 8
   %cmp.i.not = icmp ugt ptr %add.ptr.i, %2
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %index_.i, align 8
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %index_.i, align 8
@@ -1133,19 +1114,19 @@ sw.bb5:                                           ; preds = %entry, %entry, %ent
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %error_code_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 3, ptr %error_code_.i, align 8
-  %line_number_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %line_number_.i, align 8
-  %error_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %0, ptr %error_line_.i, align 4
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %index_.i, align 8
-  %index_last_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load i32, ptr %index_last_line_.i, align 4
   %sub.i = add i32 %1, 1
   %add.i = sub i32 %sub.i, %2
-  %error_column_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i, ptr %error_column_.i, align 8
   store ptr null, ptr %agg.result, align 8
   br label %return
@@ -1162,32 +1143,32 @@ entry:
   %value = alloca %"class.std::unique_ptr", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp41 = alloca %"class.std::unique_ptr", align 8
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not = icmp eq i8 %1, 123
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %error_code_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 3, ptr %error_code_.i, align 8
-  %line_number_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %line_number_.i, align 8
-  %error_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %2, ptr %error_line_.i, align 4
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %index_.i, align 8
-  %index_last_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %index_last_line_.i, align 4
   %sub.i = add i32 %3, 1
   %add.i = sub i32 %sub.i, %4
-  %error_column_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i, ptr %error_column_.i, align 8
   store ptr null, ptr %agg.result, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %stack_depth_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 6
+  %stack_depth_ = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %stack_depth_, align 4
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %stack_depth_, align 4
@@ -1195,19 +1176,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %error_code_.i12 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i12 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 5, ptr %error_code_.i12, align 8
-  %line_number_.i13 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i13 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i32, ptr %line_number_.i13, align 8
-  %error_line_.i14 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i14 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %6, ptr %error_line_.i14, align 4
-  %index_.i15 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i15 = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i32, ptr %index_.i15, align 8
-  %index_last_line_.i16 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i16 = getelementptr inbounds i8, ptr %this, i64 44
   %8 = load i32, ptr %index_last_line_.i16, align 4
   %sub.i17 = add i32 %7, 1
   %add.i18 = sub i32 %sub.i17, %8
-  %error_column_.i19 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i19 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i18, ptr %error_column_.i19, align 8
   store ptr null, ptr %agg.result, align 8
   br label %cleanup65
@@ -1226,7 +1207,7 @@ invoke.cont5:                                     ; preds = %if.end4
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
-  %index_.i20 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i20 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i32, ptr %index_.i20, align 8
   %inc.i21 = add nsw i32 %10, 1
   store i32 %inc.i21, ptr %index_.i20, align 8
@@ -1234,14 +1215,14 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 1
   store ptr %incdec.ptr.i, ptr %pos_, align 8
   %call12 = tail call noundef i32 @_ZN4base8internal10JSONParser12GetNextTokenEv(ptr noundef nonnull align 8 dereferenceable(60) %this), !range !8
-  %error_code_.i34 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
-  %line_number_.i35 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
-  %error_line_.i36 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
-  %index_last_line_.i38 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
-  %error_column_.i41 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
-  %string_.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %key, i64 0, i32 2
-  %length_.i.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %key, i64 0, i32 1
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %error_code_.i34 = getelementptr inbounds i8, ptr %this, i64 48
+  %line_number_.i35 = getelementptr inbounds i8, ptr %this, i64 40
+  %error_line_.i36 = getelementptr inbounds i8, ptr %this, i64 52
+  %index_last_line_.i38 = getelementptr inbounds i8, ptr %this, i64 44
+  %error_column_.i41 = getelementptr inbounds i8, ptr %this, i64 56
+  %string_.i = getelementptr inbounds i8, ptr %key, i64 16
+  %length_.i.i = getelementptr inbounds i8, ptr %key, i64 8
+  %12 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont8, %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit
@@ -1380,7 +1361,7 @@ invoke.cont43:                                    ; preds = %invoke.cont40
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %invoke.cont43
   %vtable.i.i = load ptr, ptr %34, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %35 = load ptr, ptr %vfn.i.i, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(12) %34) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
@@ -1440,7 +1421,7 @@ lpad42:                                           ; preds = %invoke.cont40
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i65: ; preds = %lpad42
   %vtable.i.i66 = load ptr, ptr %46, align 8
-  %vfn.i.i67 = getelementptr inbounds ptr, ptr %vtable.i.i66, i64 1
+  %vfn.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i66, i64 8
   %47 = load ptr, ptr %vfn.i.i67, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(12) %46) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit68
@@ -1474,7 +1455,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i77: ; preds = %cleanup
   %vtable.i.i78 = load ptr, ptr %.pr, align 8
-  %vfn.i.i79 = getelementptr inbounds ptr, ptr %vtable.i.i78, i64 1
+  %vfn.i.i79 = getelementptr inbounds i8, ptr %vtable.i.i78, i64 8
   %51 = load ptr, ptr %vfn.i.i79, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit80
@@ -1509,7 +1490,7 @@ ehcleanup:                                        ; preds = %lpad37, %lpad.i.i, 
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i83: ; preds = %ehcleanup
   %vtable.i.i84 = load ptr, ptr %53, align 8
-  %vfn.i.i85 = getelementptr inbounds ptr, ptr %vtable.i.i84, i64 1
+  %vfn.i.i85 = getelementptr inbounds i8, ptr %vtable.i.i84, i64 8
   %54 = load ptr, ptr %vfn.i.i85, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(12) %53) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit86
@@ -1522,7 +1503,7 @@ ehcleanup62:                                      ; preds = %_ZNSt10unique_ptrIN
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit86 ], [ %17, %lpad19 ]
   call void @_ZN4base8internal10JSONParser13StringBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %key) #17
   %vtable.i.i92 = load ptr, ptr %call6, align 8
-  %vfn.i.i93 = getelementptr inbounds ptr, ptr %vtable.i.i92, i64 1
+  %vfn.i.i93 = getelementptr inbounds i8, ptr %vtable.i.i92, i64 8
   %55 = load ptr, ptr %vfn.i.i93, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(64) %call6) #17
   br label %ehcleanup66
@@ -1533,7 +1514,7 @@ cleanup63:                                        ; preds = %while.cond
 
 _ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i: ; preds = %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit, %if.then15
   %vtable.i.i88 = load ptr, ptr %call6, align 8
-  %vfn.i.i89 = getelementptr inbounds ptr, ptr %vtable.i.i88, i64 1
+  %vfn.i.i89 = getelementptr inbounds i8, ptr %vtable.i.i88, i64 8
   %56 = load ptr, ptr %vfn.i.i89, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(64) %call6) #17
   br label %cleanup65
@@ -1560,32 +1541,32 @@ define dso_local void @_ZN4base8internal10JSONParser11ConsumeListEv(ptr noalias 
 entry:
   %item = alloca %"class.std::unique_ptr", align 8
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not = icmp eq i8 %1, 91
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %error_code_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 3, ptr %error_code_.i, align 8
-  %line_number_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %line_number_.i, align 8
-  %error_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %2, ptr %error_line_.i, align 4
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %index_.i, align 8
-  %index_last_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %index_last_line_.i, align 4
   %sub.i = add i32 %3, 1
   %add.i = sub i32 %sub.i, %4
-  %error_column_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i, ptr %error_column_.i, align 8
   store ptr null, ptr %agg.result, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %stack_depth_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 6
+  %stack_depth_ = getelementptr inbounds i8, ptr %this, i64 36
   %5 = load i32, ptr %stack_depth_, align 4
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %stack_depth_, align 4
@@ -1593,19 +1574,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %error_code_.i10 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i10 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 5, ptr %error_code_.i10, align 8
-  %line_number_.i11 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i11 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i32, ptr %line_number_.i11, align 8
-  %error_line_.i12 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i12 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %6, ptr %error_line_.i12, align 4
-  %index_.i13 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i13 = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load i32, ptr %index_.i13, align 8
-  %index_last_line_.i14 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i14 = getelementptr inbounds i8, ptr %this, i64 44
   %8 = load i32, ptr %index_last_line_.i14, align 4
   %sub.i15 = add i32 %7, 1
   %add.i16 = sub i32 %sub.i15, %8
-  %error_column_.i17 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i17 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i16, ptr %error_column_.i17, align 8
   store ptr null, ptr %agg.result, align 8
   br label %cleanup41
@@ -1624,7 +1605,7 @@ invoke.cont5:                                     ; preds = %if.end4
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont5
-  %index_.i18 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i18 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i32, ptr %index_.i18, align 8
   %inc.i19 = add nsw i32 %10, 1
   store i32 %inc.i19, ptr %index_.i18, align 8
@@ -1636,11 +1617,11 @@ invoke.cont8:                                     ; preds = %invoke.cont5
   br i1 %cmp13.not85, label %cleanup39, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %invoke.cont8
-  %error_code_.i29 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
-  %line_number_.i30 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
-  %error_line_.i31 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
-  %index_last_line_.i33 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
-  %error_column_.i36 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_code_.i29 = getelementptr inbounds i8, ptr %this, i64 48
+  %line_number_.i30 = getelementptr inbounds i8, ptr %this, i64 40
+  %error_line_.i31 = getelementptr inbounds i8, ptr %this, i64 52
+  %index_last_line_.i33 = getelementptr inbounds i8, ptr %this, i64 44
+  %error_column_.i36 = getelementptr inbounds i8, ptr %this, i64 56
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -1683,7 +1664,7 @@ invoke.cont20:                                    ; preds = %if.end17
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %invoke.cont20
   %vtable.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(12) %16) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
@@ -1728,7 +1709,7 @@ lpad19:                                           ; preds = %if.end17
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i38: ; preds = %lpad19
   %vtable.i.i39 = load ptr, ptr %24, align 8
-  %vfn.i.i40 = getelementptr inbounds ptr, ptr %vtable.i.i39, i64 1
+  %vfn.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i39, i64 8
   %25 = load ptr, ptr %vfn.i.i40, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(12) %24) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit41
@@ -1762,7 +1743,7 @@ cleanup:                                          ; preds = %cleanup.sink.split,
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i51: ; preds = %cleanup
   %vtable.i.i52 = load ptr, ptr %.pr, align 8
-  %vfn.i.i53 = getelementptr inbounds ptr, ptr %vtable.i.i52, i64 1
+  %vfn.i.i53 = getelementptr inbounds i8, ptr %vtable.i.i52, i64 8
   %30 = load ptr, ptr %vfn.i.i53, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #17
   store ptr null, ptr %item, align 8
@@ -1778,7 +1759,7 @@ while.cond.backedge:                              ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i56: ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit41
   %vtable.i.i57 = load ptr, ptr %26, align 8
-  %vfn.i.i58 = getelementptr inbounds ptr, ptr %vtable.i.i57, i64 1
+  %vfn.i.i58 = getelementptr inbounds i8, ptr %vtable.i.i57, i64 8
   %31 = load ptr, ptr %vfn.i.i58, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(12) %26) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit59
@@ -1793,7 +1774,7 @@ cleanup39:                                        ; preds = %while.cond.backedge
 
 _ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i51, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54.thread
   %vtable.i.i61 = load ptr, ptr %call6, align 8
-  %vfn.i.i62 = getelementptr inbounds ptr, ptr %vtable.i.i61, i64 1
+  %vfn.i.i62 = getelementptr inbounds i8, ptr %vtable.i.i61, i64 8
   %32 = load ptr, ptr %vfn.i.i62, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(40) %call6) #17
   br label %cleanup41
@@ -1801,7 +1782,7 @@ _ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i: ; preds = %_ZNSt10uniqu
 _ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit67: ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit59, %lpad10
   %.pn.pn = phi { ptr, i32 } [ %23, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit59 ], [ %14, %lpad10 ]
   %vtable.i.i65 = load ptr, ptr %call6, align 8
-  %vfn.i.i66 = getelementptr inbounds ptr, ptr %vtable.i.i65, i64 1
+  %vfn.i.i66 = getelementptr inbounds i8, ptr %vtable.i.i65, i64 8
   %33 = load ptr, ptr %vfn.i.i66, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(40) %call6) #17
   br label %ehcleanup42
@@ -1848,7 +1829,7 @@ lpad.body:                                        ; preds = %lpad.i13, %lpad, %l
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %invoke.cont
-  %string_.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %string, i64 0, i32 2
+  %string_.i = getelementptr inbounds i8, ptr %string, i64 16
   %1 = load ptr, ptr %string_.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %land.lhs.true, label %invoke.cont14
@@ -1862,14 +1843,14 @@ land.lhs.true:                                    ; preds = %if.end
 if.end.i:                                         ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
   %3 = load ptr, ptr %string, align 8
-  %length_.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %string, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %string, i64 8
   %4 = load i64, ptr %length_.i, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval.i, ptr noundef %3, i64 noundef %4)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end.i
   %.fca.0.load.i = load ptr, ptr %retval.i, align 8
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %retval.i, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %retval.i, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
   %call.i5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
@@ -1887,9 +1868,9 @@ lpad.i:                                           ; preds = %call.i.noexc
 
 cleanup.thread:                                   ; preds = %call.i.noexc
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_115JSONStringValueE, i64 0, inrange i32 0, i64 2), ptr %call.i5, align 8, !noalias !29
-  %string_piece_.i.i = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %call.i5, i64 0, i32 1
+  %string_piece_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
   store ptr %.fca.0.load.i, ptr %string_piece_.i.i, align 8, !noalias !29
-  %piece.sroa.2.0.string_piece_.sroa_idx.i.i = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %call.i5, i64 0, i32 1, i32 1
+  %piece.sroa.2.0.string_piece_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i5, i64 24
   store i64 %.fca.1.load.i, ptr %piece.sroa.2.0.string_piece_.sroa_idx.i.i, align 8, !noalias !29
   store ptr %call.i5, ptr %agg.result, align 8
   br label %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit
@@ -1901,7 +1882,7 @@ if.end.i11:                                       ; preds = %land.lhs.true
 
 call.i.noexc14:                                   ; preds = %if.end.i11
   %6 = load ptr, ptr %string, align 8
-  %length_.i12 = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %string, i64 0, i32 1
+  %length_.i12 = getelementptr inbounds i8, ptr %string, i64 8
   %7 = load i64, ptr %length_.i12, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call.i15, ptr noundef %6, i64 noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
@@ -1932,7 +1913,7 @@ call.i.noexc26:                                   ; preds = %invoke.cont14
 
 invoke.cont.i25:                                  ; preds = %call.i.noexc26
   %10 = load ptr, ptr %agg.tmp.i, align 8, !noalias !32
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp.i, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %12 = load i64, ptr %11, align 8, !noalias !32
   invoke void @_ZN4base11StringValueC1ENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %call.i27, ptr %10, i64 %12)
           to label %cleanup.thread39 unwind label %lpad.i24, !noalias !32
@@ -1950,7 +1931,7 @@ cleanup.thread39:                                 ; preds = %invoke.cont.i25
 
 cleanup:                                          ; preds = %invoke.cont
   store ptr null, ptr %agg.result, align 8
-  %string_.i35.phi.trans.insert = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %string, i64 0, i32 2
+  %string_.i35.phi.trans.insert = getelementptr inbounds i8, ptr %string, i64 16
   %.pre = load ptr, ptr %string_.i35.phi.trans.insert, align 8
   %isnull.i = icmp eq ptr %.pre, null
   br i1 %isnull.i, label %_ZN4base8internal10JSONParser13StringBuilderD2Ev.exit, label %delete.notnull.i
@@ -1972,9 +1953,9 @@ entry:
   %num_int = alloca i32, align 4
   %num_double = alloca double, align 8
   %ref.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
-  %index_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %index_, align 8
   %2 = load i8, ptr %0, align 1
   %cmp = icmp eq i8 %2, 45
@@ -1992,7 +1973,7 @@ if.end:                                           ; preds = %if.then, %entry
   %index_.i.promoted.i = phi i32 [ %inc.i, %if.then ], [ %1, %entry ]
   %3 = phi i8 [ %.pre, %if.then ], [ %2, %entry ]
   %4 = phi ptr [ %incdec.ptr.i, %if.then ], [ %0, %entry ]
-  %end_pos_.i.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %end_pos_.i.i, align 8
   %add.ptr.i9.i = getelementptr inbounds i8, ptr %4, i64 1
   %cmp.i10.i = icmp ule ptr %add.ptr.i9.i, %5
@@ -2025,17 +2006,17 @@ _ZN4base8internal10JSONParser7ReadIntEb.exit:     ; preds = %while.body.i
 
 if.then4:                                         ; preds = %if.end, %_ZN4base8internal10JSONParser7ReadIntEb.exit
   %12 = phi i32 [ %index_.i.promoted.i, %if.end ], [ %inc.i.i, %_ZN4base8internal10JSONParser7ReadIntEb.exit ]
-  %error_code_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i, align 8
-  %line_number_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i = getelementptr inbounds i8, ptr %this, i64 40
   %13 = load i32, ptr %line_number_.i, align 8
-  %error_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %13, ptr %error_line_.i, align 4
-  %index_last_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i = getelementptr inbounds i8, ptr %this, i64 44
   %14 = load i32, ptr %index_last_line_.i, align 4
   %sub.i = add i32 %12, 1
   %add.i = sub i32 %sub.i, %14
-  %error_column_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i, ptr %error_column_.i, align 8
   br label %return
 
@@ -2048,17 +2029,17 @@ if.then10:                                        ; preds = %if.end5
   br i1 %cmp.i.not, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.then10
-  %error_code_.i6 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i6 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i6, align 8
-  %line_number_.i7 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i7 = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load i32, ptr %line_number_.i7, align 8
-  %error_line_.i8 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i8 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %15, ptr %error_line_.i8, align 4
-  %index_last_line_.i10 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i10 = getelementptr inbounds i8, ptr %this, i64 44
   %16 = load i32, ptr %index_last_line_.i10, align 4
   %sub.i11 = add i32 %inc.i14.i, 2
   %add.i12 = sub i32 %sub.i11, %16
-  %error_column_.i13 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i13 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i12, ptr %error_column_.i13, align 8
   br label %return
 
@@ -2089,17 +2070,17 @@ while.body.i27:                                   ; preds = %if.end13, %while.bo
   br i1 %or.cond7.i35, label %while.body.i27, label %if.end19, !llvm.loop !35
 
 if.then16:                                        ; preds = %if.end13
-  %error_code_.i40 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i40 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i40, align 8
-  %line_number_.i41 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i41 = getelementptr inbounds i8, ptr %this, i64 40
   %23 = load i32, ptr %line_number_.i41, align 8
-  %error_line_.i42 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i42 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %23, ptr %error_line_.i42, align 4
-  %index_last_line_.i44 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i44 = getelementptr inbounds i8, ptr %this, i64 44
   %24 = load i32, ptr %index_last_line_.i44, align 4
   %sub.i45 = add i32 %inc.i14.i, 3
   %add.i46 = sub i32 %sub.i45, %24
-  %error_column_.i47 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i47 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i46, ptr %error_column_.i47, align 8
   br label %return
 
@@ -2158,17 +2139,17 @@ while.body.i65:                                   ; preds = %if.end37, %while.bo
   br i1 %or.cond7.i73, label %while.body.i65, label %if.end42, !llvm.loop !35
 
 if.then39:                                        ; preds = %if.end37
-  %error_code_.i78 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i78 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i78, align 8
-  %line_number_.i79 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i79 = getelementptr inbounds i8, ptr %this, i64 40
   %37 = load i32, ptr %line_number_.i79, align 8
-  %error_line_.i80 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i80 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %37, ptr %error_line_.i80, align 4
-  %index_last_line_.i82 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i82 = getelementptr inbounds i8, ptr %this, i64 44
   %38 = load i32, ptr %index_last_line_.i82, align 4
   %sub.i83 = add i32 %index_.i.promoted.i64, 1
   %add.i84 = sub i32 %sub.i83, %38
-  %error_column_.i85 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i85 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i84, ptr %error_column_.i85, align 8
   br label %return
 
@@ -2186,18 +2167,18 @@ if.end42:                                         ; preds = %while.body.i65, %if
   ]
 
 sw.default:                                       ; preds = %if.end42
-  %error_code_.i86 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i86 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i86, align 8
-  %line_number_.i87 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i87 = getelementptr inbounds i8, ptr %this, i64 40
   %42 = load i32, ptr %line_number_.i87, align 8
-  %error_line_.i88 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i88 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %42, ptr %error_line_.i88, align 4
   %43 = load i32, ptr %index_, align 8
-  %index_last_line_.i90 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i90 = getelementptr inbounds i8, ptr %this, i64 44
   %44 = load i32, ptr %index_last_line_.i90, align 4
   %sub.i91 = add i32 %43, 1
   %add.i92 = sub i32 %sub.i91, %44
-  %error_column_.i93 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i93 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i92, ptr %error_column_.i93, align 8
   br label %return
 
@@ -2274,7 +2255,7 @@ return:                                           ; preds = %land.rhs, %if.end59
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base8internal10JSONParser14ConsumeLiteralEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(60) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %1 = load i8, ptr %0, align 1
   switch i8 %1, label %sw.default [
@@ -2285,7 +2266,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 3
-  %end_pos_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %end_pos_.i, align 8
   %cmp.i.not = icmp ugt ptr %add.ptr.i, %2
   br i1 %cmp.i.not, label %if.then, label %lor.lhs.false
@@ -2296,25 +2277,25 @@ lor.lhs.false:                                    ; preds = %sw.bb
   br i1 %cmp.i1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %sw.bb
-  %error_code_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i, align 8
-  %line_number_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i32, ptr %line_number_.i, align 8
-  %error_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %3, ptr %error_line_.i, align 4
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %index_.i, align 8
-  %index_last_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i = getelementptr inbounds i8, ptr %this, i64 44
   %5 = load i32, ptr %index_last_line_.i, align 4
   %sub.i = add i32 %4, 1
   %add.i = sub i32 %sub.i, %5
-  %error_column_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i, ptr %error_column_.i, align 8
   store ptr null, ptr %agg.result, align 8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %index_.i2 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i32, ptr %index_.i2, align 8
   %add.i3 = add nsw i32 %6, 3
   store i32 %add.i3, ptr %index_.i2, align 8
@@ -2340,7 +2321,7 @@ _ZNSt10unique_ptrIN4base16FundamentalValueESt14default_deleteIS1_EED2Ev.exit: ; 
 
 sw.bb5:                                           ; preds = %entry
   %add.ptr.i8 = getelementptr inbounds i8, ptr %0, i64 4
-  %end_pos_.i9 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i9 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %end_pos_.i9, align 8
   %cmp.i10.not = icmp ugt ptr %add.ptr.i8, %8
   br i1 %cmp.i10.not, label %if.then11, label %lor.lhs.false7
@@ -2351,25 +2332,25 @@ lor.lhs.false7:                                   ; preds = %sw.bb5
   br i1 %cmp.i12, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %lor.lhs.false7, %sw.bb5
-  %error_code_.i13 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i13 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i13, align 8
-  %line_number_.i14 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i14 = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load i32, ptr %line_number_.i14, align 8
-  %error_line_.i15 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i15 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %9, ptr %error_line_.i15, align 4
-  %index_.i16 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i16 = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i32, ptr %index_.i16, align 8
-  %index_last_line_.i17 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i17 = getelementptr inbounds i8, ptr %this, i64 44
   %11 = load i32, ptr %index_last_line_.i17, align 4
   %sub.i18 = add i32 %10, 1
   %add.i19 = sub i32 %sub.i18, %11
-  %error_column_.i20 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i20 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i19, ptr %error_column_.i20, align 8
   store ptr null, ptr %agg.result, align 8
   br label %return
 
 if.end12:                                         ; preds = %lor.lhs.false7
-  %index_.i21 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i21 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i32, ptr %index_.i21, align 8
   %add.i22 = add nsw i32 %12, 4
   store i32 %add.i22, ptr %index_.i21, align 8
@@ -2389,7 +2370,7 @@ _ZNSt10unique_ptrIN4base16FundamentalValueESt14default_deleteIS1_EED2Ev.exit33: 
 
 sw.bb15:                                          ; preds = %entry
   %add.ptr.i35 = getelementptr inbounds i8, ptr %0, i64 3
-  %end_pos_.i36 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i36 = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %end_pos_.i36, align 8
   %cmp.i37.not = icmp ugt ptr %add.ptr.i35, %14
   br i1 %cmp.i37.not, label %if.then21, label %lor.lhs.false17
@@ -2400,25 +2381,25 @@ lor.lhs.false17:                                  ; preds = %sw.bb15
   br i1 %cmp.i39, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %lor.lhs.false17, %sw.bb15
-  %error_code_.i40 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i40 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i40, align 8
-  %line_number_.i41 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i41 = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load i32, ptr %line_number_.i41, align 8
-  %error_line_.i42 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i42 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %15, ptr %error_line_.i42, align 4
-  %index_.i43 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i43 = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load i32, ptr %index_.i43, align 8
-  %index_last_line_.i44 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i44 = getelementptr inbounds i8, ptr %this, i64 44
   %17 = load i32, ptr %index_last_line_.i44, align 4
   %sub.i45 = add i32 %16, 1
   %add.i46 = sub i32 %sub.i45, %17
-  %error_column_.i47 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i47 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i46, ptr %error_column_.i47, align 8
   store ptr null, ptr %agg.result, align 8
   br label %return
 
 if.end22:                                         ; preds = %lor.lhs.false17
-  %index_.i48 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i48 = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load i32, ptr %index_.i48, align 8
   %add.i49 = add nsw i32 %18, 3
   store i32 %add.i49, ptr %index_.i48, align 8
@@ -2427,19 +2408,19 @@ if.end22:                                         ; preds = %lor.lhs.false17
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %error_code_.i52 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i52 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 3, ptr %error_code_.i52, align 8
-  %line_number_.i53 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i53 = getelementptr inbounds i8, ptr %this, i64 40
   %19 = load i32, ptr %line_number_.i53, align 8
-  %error_line_.i54 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i54 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %19, ptr %error_line_.i54, align 4
-  %index_.i55 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i55 = getelementptr inbounds i8, ptr %this, i64 32
   %20 = load i32, ptr %index_.i55, align 8
-  %index_last_line_.i56 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i56 = getelementptr inbounds i8, ptr %this, i64 44
   %21 = load i32, ptr %index_last_line_.i56, align 4
   %sub.i57 = add i32 %20, 1
   %add.i58 = sub i32 %sub.i57, %21
-  %error_column_.i59 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i59 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i58, ptr %error_column_.i59, align 8
   store ptr null, ptr %agg.result, align 8
   br label %return
@@ -2459,42 +2440,42 @@ entry:
   %hex_digit = alloca i32, align 4
   %ref.tmp56 = alloca %"class.base::BasicStringPiece", align 8
   %utf8_units = alloca %"class.std::__cxx11::basic_string", align 8
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %1 = load i8, ptr %0, align 1
   %cmp.not = icmp eq i8 %1, 34
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %error_code_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 3, ptr %error_code_.i, align 8
-  %line_number_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %line_number_.i, align 8
-  %error_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %2, ptr %error_line_.i, align 4
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %index_.i, align 8
-  %index_last_line_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load i32, ptr %index_last_line_.i, align 4
   %sub.i = add i32 %3, 1
   %add.i = sub i32 %sub.i, %4
-  %error_column_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i, ptr %error_column_.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %index_.i4 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i4 = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i32, ptr %index_.i4, align 8
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %index_.i4, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %incdec.ptr.i, ptr %pos_, align 8
   store ptr %incdec.ptr.i, ptr %string, align 8
-  %length_.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %string, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %string, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %length_.i, i8 0, i64 16, i1 false)
-  %end_pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %end_pos_, align 8
-  %start_pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 2
+  %start_pos_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %start_pos_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
@@ -2505,7 +2486,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.not216, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %string_.i19 = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %string, i64 0, i32 2
+  %string_.i19 = getelementptr inbounds i8, ptr %string, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end117
@@ -2566,17 +2547,17 @@ if.then26.loopexit:                               ; preds = %if.end22, %lor.rhs.
 
 if.then26:                                        ; preds = %if.then12, %if.then26.loopexit
   %15 = phi i32 [ %.pre, %if.then26.loopexit ], [ %inc, %if.then12 ]
-  %error_code_.i7 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i7 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 7, ptr %error_code_.i7, align 8
-  %line_number_.i8 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i8 = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load i32, ptr %line_number_.i8, align 8
-  %error_line_.i9 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i9 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %16, ptr %error_line_.i9, align 4
-  %index_last_line_.i11 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i11 = getelementptr inbounds i8, ptr %this, i64 44
   %17 = load i32, ptr %index_last_line_.i11, align 4
   %sub.i12 = add i32 %15, 1
   %add.i13 = sub i32 %sub.i12, %17
-  %error_column_.i14 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i14 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i13, ptr %error_column_.i14, align 8
   br label %cleanup119
 
@@ -2590,14 +2571,14 @@ if.then30:                                        ; preds = %if.end28
   %18 = load i32, ptr %index_.i4, align 8
   %dec = add nsw i32 %18, -1
   store i32 %dec, ptr %index_.i4, align 8
-  %string_2.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %out, i64 0, i32 2
+  %string_2.i = getelementptr inbounds i8, ptr %out, i64 16
   %19 = load ptr, ptr %string_.i19, align 8
   %20 = load ptr, ptr %string_2.i, align 8
   store ptr %20, ptr %string_.i19, align 8
   store ptr %19, ptr %string_2.i, align 8
   %21 = load ptr, ptr %string, align 8
   store ptr %21, ptr %out, align 8
-  %length_4.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %out, i64 0, i32 1
+  %length_4.i = getelementptr inbounds i8, ptr %out, i64 8
   %22 = load i64, ptr %length_.i, align 8
   store i64 %22, ptr %length_4.i, align 8
   br label %cleanup119
@@ -2660,17 +2641,17 @@ invoke.cont43:                                    ; preds = %invoke.cont.i, %if.
   br i1 %cmp.i26.not, label %if.then46, label %if.end48
 
 if.then46:                                        ; preds = %invoke.cont43
-  %error_code_.i27 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i27 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 1, ptr %error_code_.i27, align 8
-  %line_number_.i28 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i28 = getelementptr inbounds i8, ptr %this, i64 40
   %32 = load i32, ptr %line_number_.i28, align 8
-  %error_line_.i29 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i29 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %32, ptr %error_line_.i29, align 4
   %33 = load i32, ptr %index_.i4, align 8
-  %index_last_line_.i31 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i31 = getelementptr inbounds i8, ptr %this, i64 44
   %34 = load i32, ptr %index_last_line_.i31, align 4
   %add.i32 = sub i32 %33, %34
-  %error_column_.i33 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i33 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i32, ptr %error_column_.i33, align 8
   br label %cleanup119
 
@@ -2700,17 +2681,17 @@ sw.bb:                                            ; preds = %if.end48
   br i1 %cmp.i41.not, label %if.then53, label %if.end55
 
 if.then53:                                        ; preds = %sw.bb
-  %error_code_.i42 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i42 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 1, ptr %error_code_.i42, align 8
-  %line_number_.i43 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i43 = getelementptr inbounds i8, ptr %this, i64 40
   %37 = load i32, ptr %line_number_.i43, align 8
-  %error_line_.i44 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i44 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %37, ptr %error_line_.i44, align 4
-  %index_last_line_.i46 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i46 = getelementptr inbounds i8, ptr %this, i64 44
   %38 = load i32, ptr %index_last_line_.i46, align 4
   %sub.i47 = add i32 %35, 2
   %add.i48 = sub i32 %sub.i47, %38
-  %error_column_.i49 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i49 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i48, ptr %error_column_.i49, align 8
   br label %cleanup119
 
@@ -2756,18 +2737,18 @@ if.end65.thread:                                  ; preds = %lor.rhs.i57
   br label %if.else72.invoke
 
 if.then63:                                        ; preds = %lor.rhs.i57, %invoke.cont59
-  %error_code_.i63 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i63 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 1, ptr %error_code_.i63, align 8
-  %line_number_.i64 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i64 = getelementptr inbounds i8, ptr %this, i64 40
   %44 = load i32, ptr %line_number_.i64, align 8
-  %error_line_.i65 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i65 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %44, ptr %error_line_.i65, align 4
   %45 = load i32, ptr %index_.i4, align 8
-  %index_last_line_.i67 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i67 = getelementptr inbounds i8, ptr %this, i64 44
   %46 = load i32, ptr %index_last_line_.i67, align 4
   %47 = xor i32 %46, -1
   %add.i69 = add i32 %45, %47
-  %error_column_.i70 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i70 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i69, ptr %error_column_.i70, align 8
   br label %cleanup119
 
@@ -2796,16 +2777,16 @@ sw.bb75:                                          ; preds = %if.end48
   br i1 %cmp.i86.not, label %if.then78, label %if.end80
 
 if.then78:                                        ; preds = %sw.bb75
-  %error_code_.i87 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i87 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 1, ptr %error_code_.i87, align 8
-  %line_number_.i88 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i88 = getelementptr inbounds i8, ptr %this, i64 40
   %51 = load i32, ptr %line_number_.i88, align 8
-  %error_line_.i89 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i89 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %51, ptr %error_line_.i89, align 4
-  %index_last_line_.i91 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i91 = getelementptr inbounds i8, ptr %this, i64 44
   %52 = load i32, ptr %index_last_line_.i91, align 4
   %add.i92 = sub i32 %inc.i35, %52
-  %error_column_.i93 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i93 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i92, ptr %error_column_.i93, align 8
   br label %cleanup119
 
@@ -2836,18 +2817,18 @@ cleanup.thread:                                   ; preds = %if.end87
   br label %if.end117
 
 cleanup:                                          ; preds = %invoke.cont83
-  %error_code_.i98 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i98 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 1, ptr %error_code_.i98, align 8
-  %line_number_.i99 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i99 = getelementptr inbounds i8, ptr %this, i64 40
   %54 = load i32, ptr %line_number_.i99, align 8
-  %error_line_.i100 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i100 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %54, ptr %error_line_.i100, align 4
   %55 = load i32, ptr %index_.i4, align 8
-  %index_last_line_.i102 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i102 = getelementptr inbounds i8, ptr %this, i64 44
   %56 = load i32, ptr %index_last_line_.i102, align 4
   %57 = xor i32 %56, -1
   %add.i104 = add i32 %55, %57
-  %error_column_.i105 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i105 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i104, ptr %error_column_.i105, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8_units) #17
   br label %cleanup119
@@ -2877,16 +2858,16 @@ if.then14.i175.invoke:                            ; preds = %if.end48, %if.end48
           to label %if.end117 unwind label %lpad
 
 sw.default:                                       ; preds = %if.end48
-  %error_code_.i181 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i181 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 1, ptr %error_code_.i181, align 8
-  %line_number_.i182 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i182 = getelementptr inbounds i8, ptr %this, i64 40
   %60 = load i32, ptr %line_number_.i182, align 8
-  %error_line_.i183 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i183 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %60, ptr %error_line_.i183, align 4
-  %index_last_line_.i185 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i185 = getelementptr inbounds i8, ptr %this, i64 44
   %61 = load i32, ptr %index_last_line_.i185, align 4
   %add.i186 = sub i32 %inc.i35, %61
-  %error_column_.i187 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i187 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i186, ptr %error_column_.i187, align 8
   br label %cleanup119
 
@@ -2903,22 +2884,22 @@ while.end.loopexit:                               ; preds = %if.end117
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end
   %64 = phi i32 [ %.pre227, %while.end.loopexit ], [ %inc.i, %if.end ]
-  %error_code_.i188 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 9
+  %error_code_.i188 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 2, ptr %error_code_.i188, align 8
-  %line_number_.i189 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 7
+  %line_number_.i189 = getelementptr inbounds i8, ptr %this, i64 40
   %65 = load i32, ptr %line_number_.i189, align 8
-  %error_line_.i190 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 10
+  %error_line_.i190 = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %65, ptr %error_line_.i190, align 4
-  %index_last_line_.i192 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 8
+  %index_last_line_.i192 = getelementptr inbounds i8, ptr %this, i64 44
   %66 = load i32, ptr %index_last_line_.i192, align 4
   %add.i193 = sub i32 %64, %66
-  %error_column_.i194 = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 11
+  %error_column_.i194 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %add.i193, ptr %error_column_.i194, align 8
   br label %cleanup119
 
 cleanup119:                                       ; preds = %cleanup, %while.end, %sw.default, %if.then78, %if.then63, %if.then53, %if.then46, %if.then30, %if.then26
   %retval.3 = phi i1 [ false, %if.then26 ], [ true, %if.then30 ], [ false, %sw.default ], [ false, %cleanup ], [ false, %if.then78 ], [ false, %if.then63 ], [ false, %if.then53 ], [ false, %if.then46 ], [ false, %while.end ]
-  %string_.i195 = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %string, i64 0, i32 2
+  %string_.i195 = getelementptr inbounds i8, ptr %string, i64 16
   %67 = load ptr, ptr %string_.i195, align 8
   %isnull.i = icmp eq ptr %67, null
   br i1 %isnull.i, label %return, label %delete.notnull.i
@@ -2960,7 +2941,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else5
 
 if.then:                                          ; preds = %entry
-  %string_.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %dest, i64 0, i32 2
+  %string_.i = getelementptr inbounds i8, ptr %dest, i64 16
   %1 = load ptr, ptr %string_.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.else16.i, label %if.then14.i
@@ -2971,7 +2952,7 @@ if.then14.i:                                      ; preds = %if.then
   br label %if.end54
 
 if.else16.i:                                      ; preds = %if.then
-  %length_.i = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %dest, i64 0, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %dest, i64 8
   %2 = load i64, ptr %length_.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %length_.i, align 8
@@ -3007,7 +2988,7 @@ if.else21:                                        ; preds = %if.else12
   %6 = trunc i32 %shr28 to i8
   %7 = and i8 %6, 63
   %conv30 = or disjoint i8 %7, -128
-  %arrayidx33 = getelementptr inbounds [4 x i8], ptr %utf8_units, i64 0, i64 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %utf8_units, i64 1
   store i8 %conv30, ptr %arrayidx33, align 1
   br label %if.end
 
@@ -3036,7 +3017,7 @@ if.end48:                                         ; preds = %if.then7, %if.end
   store i8 %conv44, ptr %arrayidx47, align 1
   %12 = zext nneg i32 %inc45 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %string_.i23 = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %dest, i64 0, i32 2
+  %string_.i23 = getelementptr inbounds i8, ptr %dest, i64 16
   %13 = load ptr, ptr %string_.i23, align 8
   %tobool.not.i24 = icmp eq ptr %13, null
   br i1 %tobool.not.i24, label %if.end.i, label %_ZN4base8internal10JSONParser13StringBuilder7ConvertEv.exit
@@ -3044,7 +3025,7 @@ if.end48:                                         ; preds = %if.then7, %if.end
 if.end.i:                                         ; preds = %if.end48
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   %14 = load ptr, ptr %dest, align 8
-  %length_.i25 = getelementptr inbounds %"class.base::internal::JSONParser::StringBuilder", ptr %dest, i64 0, i32 1
+  %length_.i25 = getelementptr inbounds i8, ptr %dest, i64 8
   %15 = load i64, ptr %length_.i25, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call.i, ptr noundef %14, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
@@ -3115,10 +3096,10 @@ entry:
   %code_unit8 = alloca [8 x i8], align 8
   %code_unit16_low = alloca i32, align 4
   %ref.tmp21 = alloca %"class.base::BasicStringPiece", align 8
-  %pos_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 4
-  %end_pos_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %end_pos_.i, align 8
   %cmp.i.not = icmp ugt ptr %add.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %if.end
@@ -3130,7 +3111,7 @@ if.end:                                           ; preds = %entry
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %index_.i, align 8
   %add.i = add nsw i32 %2, 3
   store i32 %add.i, ptr %index_.i, align 8
@@ -3251,7 +3232,7 @@ if.else50:                                        ; preds = %if.else42
   %17 = trunc i32 %shr56 to i8
   %18 = and i8 %17, 63
   %conv59 = or disjoint i8 %18, -128
-  %arrayidx61 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 1
+  %arrayidx61 = getelementptr inbounds i8, ptr %code_unit8, i64 1
   store i8 %conv59, ptr %arrayidx61, align 1
   br label %if.end62
 
@@ -3330,7 +3311,7 @@ if.else101:                                       ; preds = %if.else93
   %28 = trunc i32 %shr107 to i8
   %29 = and i8 %28, 63
   %conv110 = or disjoint i8 %29, -128
-  %arrayidx112 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 1
+  %arrayidx112 = getelementptr inbounds i8, ptr %code_unit8, i64 1
   store i8 %conv110, ptr %arrayidx112, align 1
   br label %if.end113
 
@@ -3371,10 +3352,10 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4base8internal10JSONParser7ReadIntEb(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i1 noundef zeroext %allow_leading_zeros) local_unnamed_addr #7 align 2 {
 entry:
-  %pos_ = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 3
+  %pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %pos_, align 8
   %1 = load i8, ptr %0, align 1
-  %end_pos_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 4
+  %end_pos_.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %end_pos_.i, align 8
   %add.ptr.i9 = getelementptr inbounds i8, ptr %0, i64 1
   %cmp.i10 = icmp ule ptr %add.ptr.i9, %2
@@ -3384,7 +3365,7 @@ entry:
   br i1 %or.cond711, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %index_.i = getelementptr inbounds %"class.base::internal::JSONParser", ptr %this, i64 0, i32 5
+  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
   %index_.i.promoted = load i32, ptr %index_.i, align 8
   br label %while.body
 
@@ -3454,7 +3435,7 @@ declare void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 derefere
 define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::DictionaryHiddenRootValue", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %json_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -3474,7 +3455,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %json_.i = getelementptr inbounds %"class.base::internal::(anonymous namespace)::DictionaryHiddenRootValue", ptr %this, i64 0, i32 1
+  %json_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %json_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -3548,7 +3529,7 @@ lpad:                                             ; preds = %if.end5, %if.end
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %lpad
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
@@ -3571,7 +3552,7 @@ invoke.cont7:                                     ; preds = %if.end5
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %invoke.cont7
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5) #17
   %.pr = load ptr, ptr %ref.tmp, align 8
@@ -3580,7 +3561,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i5: ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit
   %vtable.i.i6 = load ptr, ptr %.pr, align 8
-  %vfn.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i6, i64 1
+  %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 8
   %7 = load ptr, ptr %vfn.i.i7, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit8
@@ -3596,7 +3577,7 @@ cleanup:                                          ; preds = %invoke.cont, %_ZNSt
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10: ; preds = %cleanup
   %vtable.i.i11 = load ptr, ptr %8, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 1
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 8
   %9 = load ptr, ptr %vfn.i.i12, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(12) %8) #17
   br label %return
@@ -3615,7 +3596,7 @@ entry:
   call void @_ZNK4base15DictionaryValue14CreateDeepCopyEv(ptr nonnull sret(%"class.std::unique_ptr.26") align 8 %copy, ptr noundef nonnull align 8 dereferenceable(64) %this)
   %0 = load ptr, ptr %copy, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %other)
           to label %invoke.cont unwind label %lpad
@@ -3625,7 +3606,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::DictionaryHiddenRootValue", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %json_, align 8
   store ptr null, ptr %json_, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -3648,7 +3629,7 @@ invoke.cont4:                                     ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i: ; preds = %invoke.cont4
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(64) %4) #17
   br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit
@@ -3665,7 +3646,7 @@ lpad:                                             ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i2: ; preds = %lpad
   %vtable.i.i3 = load ptr, ptr %7, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 1
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
   %8 = load ptr, ptr %vfn.i.i4, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(64) %7) #17
   br label %_ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EED2Ev.exit5
@@ -3691,7 +3672,7 @@ declare void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable
 define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::ListHiddenRootValue", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %json_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i
@@ -3711,7 +3692,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %json_.i = getelementptr inbounds %"class.base::internal::(anonymous namespace)::ListHiddenRootValue", ptr %this, i64 0, i32 1
+  %json_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %json_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD2Ev.exit, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
@@ -3769,7 +3750,7 @@ lpad:                                             ; preds = %if.end4, %if.end
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i: ; preds = %lpad
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(12) %1) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit
@@ -3792,7 +3773,7 @@ invoke.cont6:                                     ; preds = %if.end4
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %invoke.cont6
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(12) %5) #17
   %.pr = load ptr, ptr %ref.tmp, align 8
@@ -3801,7 +3782,7 @@ _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i5: ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EEaSEOS4_.exit
   %vtable.i.i6 = load ptr, ptr %.pr, align 8
-  %vfn.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i6, i64 1
+  %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 8
   %7 = load ptr, ptr %vfn.i.i7, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(12) %.pr) #17
   br label %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit8
@@ -3817,7 +3798,7 @@ cleanup:                                          ; preds = %invoke.cont, %_ZNSt
 
 _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i10: ; preds = %cleanup
   %vtable.i.i11 = load ptr, ptr %8, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 1
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 8
   %9 = load ptr, ptr %vfn.i.i12, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(12) %8) #17
   br label %return
@@ -3834,7 +3815,7 @@ entry:
   call void @_ZNK4base9ListValue14CreateDeepCopyEv(ptr nonnull sret(%"class.std::unique_ptr.37") align 8 %copy, ptr noundef nonnull align 8 dereferenceable(40) %this)
   %0 = load ptr, ptr %copy, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %other)
           to label %invoke.cont unwind label %lpad
@@ -3844,7 +3825,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::ListHiddenRootValue", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %json_, align 8
   store ptr null, ptr %json_, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
@@ -3867,7 +3848,7 @@ invoke.cont4:                                     ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i: ; preds = %invoke.cont4
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(40) %4) #17
   br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit
@@ -3884,7 +3865,7 @@ lpad:                                             ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i2: ; preds = %lpad
   %vtable.i.i3 = load ptr, ptr %7, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 1
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
   %8 = load ptr, ptr %vfn.i.i4, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(40) %7) #17
   br label %_ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EED2Ev.exit5
@@ -3919,7 +3900,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZNK4base8internal12_GLOBAL__N_115JSONStringValue11GetAsStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %out_value) unnamed_addr #2 align 2 {
 entry:
-  %string_piece_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %this, i64 0, i32 1
+  %string_piece_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12CopyToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %string_piece_, ptr noundef %out_value)
   ret i1 true
 }
@@ -3928,9 +3909,9 @@ entry:
 define internal noundef zeroext i1 @_ZNK4base8internal12_GLOBAL__N_115JSONStringValue11GetAsStringEPNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %out_value) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string.82", align 8
-  %string_piece_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %this, i64 0, i32 1
+  %string_piece_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %string_piece_, align 8
-  %agg.tmp.sroa.2.0.string_piece_.sroa_idx = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.string_piece_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.string_piece_.sroa_idx, align 8
   call void @_ZN4base11UTF8ToUTF16ENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string.82") align 8 %ref.tmp, ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload)
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %out_value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
@@ -3944,7 +3925,7 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
-  %string_piece_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %this, i64 0, i32 1
+  %string_piece_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %string_piece_)
           to label %invoke.cont unwind label %lpad
 
@@ -3954,7 +3935,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   invoke void @_ZN4base11StringValueC1ENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr %0, i64 %2)
           to label %invoke.cont4 unwind label %lpad2
@@ -3986,14 +3967,14 @@ entry:
   %other_string = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %other_string) #17
-  %type_.i = getelementptr inbounds %"class.base::Value", ptr %other, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 4
   br i1 %cmp.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(12) %other, ptr noundef nonnull %other_string)
           to label %invoke.cont unwind label %lpad
@@ -4006,7 +3987,7 @@ land.rhs:                                         ; preds = %invoke.cont
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %land.rhs
-  %string_piece_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %this, i64 0, i32 1
+  %string_piece_ = getelementptr inbounds i8, ptr %this, i64 16
   %call5 = invoke noundef zeroext i1 @_ZN4baseeqERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %string_piece_)
           to label %land.end unwind label %lpad
 

@@ -5,36 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.FDMonOps = type { ptr, ptr, ptr }
 %struct.QemuEvent = type { i32, i8 }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon, i8, %struct.EventNotifier, %struct.anon.0, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.0 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
 %struct.AioHandlerList = type { ptr }
-%struct.AioHandler = type { %struct._GPollFD, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.1, %struct.anon.2, %struct.anon.3, %struct.anon.4, %struct.anon.5, i32, i64, i8 }
-%struct._GPollFD = type { i32, i16, i16 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr, ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.anon.5 = type { ptr }
 %struct.timeval = type { i64, i64 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.6, %struct.NotifierList }
-%struct.anon.6 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"../qemu/util/aio-posix.c\00", align 1
 @.str.1 = private unnamed_addr constant [94 x i8] c"in_aio_context_home_thread(ctx == iohandler_get_aio_context() ? qemu_get_aio_context() : ctx)\00", align 1
@@ -77,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local zeroext i1 @aio_poll_disabled(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %poll_disable_cnt = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 20
+  %poll_disable_cnt = getelementptr inbounds i8, ptr %ctx, i64 512
   %0 = load atomic i32, ptr %poll_disable_cnt monotonic, align 8
   %tobool = icmp ne i32 %0, 0
   ret i1 %tobool
@@ -86,8 +58,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef %node, i32 noundef %revents) local_unnamed_addr #1 {
 entry:
-  %node_ready = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 9
-  %le_prev = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 9, i32 1
+  %node_ready = getelementptr inbounds i8, ptr %node, i64 80
+  %le_prev = getelementptr inbounds i8, ptr %node, i64 88
   %0 = load ptr, ptr %le_prev, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -98,7 +70,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %le_prev9 = getelementptr inbounds %struct.AioHandler, ptr %1, i64 0, i32 9, i32 1
+  %le_prev9 = getelementptr inbounds i8, ptr %1, i64 88
   store ptr %0, ptr %le_prev9, align 8
   %.pre = load ptr, ptr %node_ready, align 8
   %.pre17 = load ptr, ptr %le_prev, align 8
@@ -113,7 +85,7 @@ if.end:                                           ; preds = %if.then3, %if.then
 
 do.end:                                           ; preds = %entry, %if.end
   %conv = trunc i32 %revents to i16
-  %revents19 = getelementptr inbounds %struct._GPollFD, ptr %node, i64 0, i32 2
+  %revents19 = getelementptr inbounds i8, ptr %node, i64 6
   store i16 %conv, ptr %revents19, align 2
   %4 = load ptr, ptr %ready_list, align 8
   store ptr %4, ptr %node_ready, align 8
@@ -121,7 +93,7 @@ do.end:                                           ; preds = %entry, %if.end
   br i1 %cmp23.not, label %if.end31, label %if.then25
 
 if.then25:                                        ; preds = %do.end
-  %le_prev30 = getelementptr inbounds %struct.AioHandler, ptr %4, i64 0, i32 9, i32 1
+  %le_prev30 = getelementptr inbounds i8, ptr %4, i64 88
   store ptr %node_ready, ptr %le_prev30, align 8
   br label %if.end31
 
@@ -136,9 +108,9 @@ define dso_local void @aio_set_fd_handler(ptr noundef %ctx, i32 noundef %fd, ptr
 entry:
   %tobool1.not = icmp eq ptr %io_poll_ready, null
   %spec.store.select = select i1 %tobool1.not, ptr null, ptr %io_poll
-  %list_lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
+  %list_lock = getelementptr inbounds i8, ptr %ctx, i64 172
   tail call void @qemu_lockcnt_lock(ptr noundef nonnull %list_lock) #10
-  %aio_handlers.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 3
+  %aio_handlers.i = getelementptr inbounds i8, ptr %ctx, i64 152
   %node.05.i = load ptr, ptr %aio_handlers.i, align 8
   %tobool.not6.i = icmp eq ptr %node.05.i, null
   br i1 %tobool.not6.i, label %find_aio_handler.exit, label %for.body.i
@@ -150,13 +122,13 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %le_prev.i = getelementptr inbounds %struct.AioHandler, ptr %node.07.i, i64 0, i32 10, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %node.07.i, i64 104
   %1 = load ptr, ptr %le_prev.i, align 8
   %cmp2.not.i = icmp eq ptr %1, null
   br i1 %cmp2.not.i, label %find_aio_handler.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %node5.i = getelementptr inbounds %struct.AioHandler, ptr %node.07.i, i64 0, i32 8
+  %node5.i = getelementptr inbounds i8, ptr %node.07.i, i64 64
   %node.0.i = load ptr, ptr %node5.i, align 8
   %tobool.not.i = icmp eq ptr %node.0.i, null
   br i1 %tobool.not.i, label %find_aio_handler.exit, label %for.body.i, !llvm.loop !5
@@ -179,9 +151,9 @@ if.then8:                                         ; preds = %if.then7
   br label %if.end93
 
 if.end10:                                         ; preds = %if.then7
-  %events = getelementptr inbounds %struct._GPollFD, ptr %node.0.lcssa.i, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 4
   store i16 0, ptr %events, align 4
-  %io_poll11 = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 3
+  %io_poll11 = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 24
   %2 = load ptr, ptr %io_poll11, align 8
   %tobool12.not = icmp eq ptr %2, null
   %lnot.ext.neg = sext i1 %tobool12.not to i32
@@ -194,7 +166,7 @@ if.else:                                          ; preds = %find_aio_handler.ex
   br i1 %tobool16.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.else
-  %io_poll17 = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 3
+  %io_poll17 = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 24
   %3 = load ptr, ptr %io_poll17, align 8
   %tobool18.not = icmp eq ptr %3, null
   %.neg = sext i1 %tobool18.not to i32
@@ -204,15 +176,15 @@ land.end:                                         ; preds = %land.rhs, %if.else
   %land.ext.neg = phi i32 [ 0, %if.else ], [ %.neg, %land.rhs ]
   %sub21 = add nsw i32 %land.ext.neg, %lnot.ext15
   %call25 = tail call noalias dereferenceable_or_null(160) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 160) #11
-  %io_read26 = getelementptr inbounds %struct.AioHandler, ptr %call25, i64 0, i32 1
+  %io_read26 = getelementptr inbounds i8, ptr %call25, i64 8
   store ptr %io_read, ptr %io_read26, align 8
-  %io_write27 = getelementptr inbounds %struct.AioHandler, ptr %call25, i64 0, i32 2
+  %io_write27 = getelementptr inbounds i8, ptr %call25, i64 16
   store ptr %io_write, ptr %io_write27, align 8
-  %io_poll28 = getelementptr inbounds %struct.AioHandler, ptr %call25, i64 0, i32 3
+  %io_poll28 = getelementptr inbounds i8, ptr %call25, i64 24
   store ptr %spec.store.select, ptr %io_poll28, align 8
-  %io_poll_ready29 = getelementptr inbounds %struct.AioHandler, ptr %call25, i64 0, i32 4
+  %io_poll_ready29 = getelementptr inbounds i8, ptr %call25, i64 32
   store ptr %io_poll_ready, ptr %io_poll_ready29, align 8
-  %opaque30 = getelementptr inbounds %struct.AioHandler, ptr %call25, i64 0, i32 7
+  %opaque30 = getelementptr inbounds i8, ptr %call25, i64 56
   store ptr %opaque, ptr %opaque30, align 8
   br i1 %tobool16.not, label %if.then32, label %if.else35
 
@@ -227,13 +199,13 @@ if.else35:                                        ; preds = %land.end
 
 if.end38:                                         ; preds = %if.else35, %if.then32
   tail call void @g_source_add_poll(ptr noundef %ctx, ptr noundef nonnull %call25) #10
-  %events42 = getelementptr inbounds %struct._GPollFD, ptr %call25, i64 0, i32 1
+  %events42 = getelementptr inbounds i8, ptr %call25, i64 4
   %cond44 = select i1 %tobool4, i16 12, i16 0
   %conv47 = select i1 %tobool2, i16 25, i16 0
   %or = or i16 %cond44, %conv47
   store i16 %or, ptr %events42, align 4
-  %node49 = getelementptr inbounds %struct.AioHandler, ptr %call25, i64 0, i32 8
-  %le_prev = getelementptr inbounds %struct.AioHandler, ptr %call25, i64 0, i32 8, i32 1
+  %node49 = getelementptr inbounds i8, ptr %call25, i64 64
+  %le_prev = getelementptr inbounds i8, ptr %call25, i64 72
   store ptr %aio_handlers.i, ptr %le_prev, align 8
   %5 = load ptr, ptr %aio_handlers.i, align 8
   store ptr %5, ptr %node49, align 8
@@ -243,18 +215,18 @@ if.end38:                                         ; preds = %if.else35, %if.then
   br i1 %cmp60.not, label %while.end77, label %if.then62
 
 if.then62:                                        ; preds = %if.end38
-  %le_prev68 = getelementptr inbounds %struct.AioHandler, ptr %5, i64 0, i32 8, i32 1
+  %le_prev68 = getelementptr inbounds i8, ptr %5, i64 72
   store ptr %node49, ptr %le_prev68, align 8
   br label %while.end77
 
 while.end77:                                      ; preds = %if.end10, %if.end38, %if.then62
   %poll_disable_change.0 = phi i32 [ %sub21, %if.then62 ], [ %sub21, %if.end38 ], [ %lnot.ext.neg, %if.end10 ]
   %new_node.0 = phi ptr [ %call25, %if.then62 ], [ %call25, %if.end38 ], [ null, %if.end10 ]
-  %poll_disable_cnt = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 20
+  %poll_disable_cnt = getelementptr inbounds i8, ptr %ctx, i64 512
   %7 = load atomic i32, ptr %poll_disable_cnt monotonic, align 8
   %add = add i32 %7, %poll_disable_change.0
   store atomic i32 %add, ptr %poll_disable_cnt monotonic, align 8
-  %fdmon_ops = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 29
+  %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
   %8 = load ptr, ptr %fdmon_ops, align 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef %ctx, ptr noundef %node.0.lcssa.i, ptr noundef %new_node.0) #10
@@ -271,12 +243,12 @@ if.then.i53:                                      ; preds = %if.then87
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i53, %if.then87
-  %revents.i = getelementptr inbounds %struct._GPollFD, ptr %node.0.lcssa.i, i64 0, i32 2
+  %revents.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 6
   store i16 0, ptr %revents.i, align 2
-  %poll_ready.i = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 15
+  %poll_ready.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 152
   store i8 0, ptr %poll_ready.i, align 8
-  %node_deleted.i = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 10
-  %le_prev.i52 = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 10, i32 1
+  %node_deleted.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 96
+  %le_prev.i52 = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 104
   %10 = load ptr, ptr %le_prev.i52, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.end4.i, label %aio_remove_fd_handler.exit
@@ -287,7 +259,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %tobool6.not.i, label %do.body31.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.end4.i
-  %deleted_aio_handlers.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 4
+  %deleted_aio_handlers.i = getelementptr inbounds i8, ptr %ctx, i64 160
   store ptr %deleted_aio_handlers.i, ptr %le_prev.i52, align 8
   %11 = load ptr, ptr %deleted_aio_handlers.i, align 8
   store ptr %11, ptr %node_deleted.i, align 8
@@ -298,13 +270,13 @@ do.body.i:                                        ; preds = %if.end4.i
   br i1 %cmp20.not.i, label %aio_remove_fd_handler.exit, label %if.then21.i
 
 if.then21.i:                                      ; preds = %do.body.i
-  %le_prev27.i = getelementptr inbounds %struct.AioHandler, ptr %13, i64 0, i32 10, i32 1
+  %le_prev27.i = getelementptr inbounds i8, ptr %13, i64 104
   store ptr %node_deleted.i, ptr %le_prev27.i, align 8
   br label %aio_remove_fd_handler.exit
 
 do.body31.i:                                      ; preds = %if.end4.i
-  %node_poll.i = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 11
-  %le_prev32.i = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 11, i32 1
+  %node_poll.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 112
+  %le_prev32.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 120
   %14 = load ptr, ptr %le_prev32.i, align 8
   %cmp33.not.i = icmp eq ptr %14, null
   br i1 %cmp33.not.i, label %do.body56.i, label %if.then34.i
@@ -315,7 +287,7 @@ if.then34.i:                                      ; preds = %do.body31.i
   br i1 %cmp37.not.i, label %if.end45.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.then34.i
-  %le_prev44.i = getelementptr inbounds %struct.AioHandler, ptr %15, i64 0, i32 11, i32 1
+  %le_prev44.i = getelementptr inbounds i8, ptr %15, i64 120
   store ptr %14, ptr %le_prev44.i, align 8
   %.pre.i = load ptr, ptr %node_poll.i, align 8
   %.pre33.i = load ptr, ptr %le_prev32.i, align 8
@@ -329,15 +301,15 @@ if.end45.i:                                       ; preds = %if.then38.i, %if.th
   br label %do.body56.i
 
 do.body56.i:                                      ; preds = %if.end45.i, %do.body31.i
-  %node57.i = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 8
+  %node57.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 64
   %18 = load ptr, ptr %node57.i, align 8
   %cmp59.not.i = icmp eq ptr %18, null
-  %le_prev71.phi.trans.insert.i = getelementptr inbounds %struct.AioHandler, ptr %node.0.lcssa.i, i64 0, i32 8, i32 1
+  %le_prev71.phi.trans.insert.i = getelementptr inbounds i8, ptr %node.0.lcssa.i, i64 72
   %.pre35.i = load ptr, ptr %le_prev71.phi.trans.insert.i, align 8
   br i1 %cmp59.not.i, label %if.end67.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %do.body56.i
-  %le_prev66.i = getelementptr inbounds %struct.AioHandler, ptr %18, i64 0, i32 8, i32 1
+  %le_prev66.i = getelementptr inbounds i8, ptr %18, i64 72
   store ptr %.pre35.i, ptr %le_prev66.i, align 8
   %.pre34.i = load ptr, ptr %node57.i, align 8
   br label %if.end67.i
@@ -404,21 +376,21 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %le_prev.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.07.i.i, i64 0, i32 10, i32 1
+  %le_prev.i.i = getelementptr inbounds i8, ptr %node.07.i.i, i64 104
   %2 = load ptr, ptr %le_prev.i.i, align 8
   %cmp2.not.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i, label %if.end.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
-  %node5.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.07.i.i, i64 0, i32 8
+  %node5.i.i = getelementptr inbounds i8, ptr %node.07.i.i, i64 64
   %node.0.i.i = load ptr, ptr %node5.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %node.0.i.i, null
   br i1 %tobool.not.i.i, label %aio_set_fd_poll.exit, label %for.body.i.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %if.then.i.i
-  %io_poll_begin1.i = getelementptr inbounds %struct.AioHandler, ptr %node.07.i.i, i64 0, i32 5
+  %io_poll_begin1.i = getelementptr inbounds i8, ptr %node.07.i.i, i64 40
   store ptr %io_poll_begin, ptr %io_poll_begin1.i, align 8
-  %io_poll_end2.i = getelementptr inbounds %struct.AioHandler, ptr %node.07.i.i, i64 0, i32 6
+  %io_poll_end2.i = getelementptr inbounds i8, ptr %node.07.i.i, i64 48
   store ptr %io_poll_end, ptr %io_poll_end2.i, align 8
   br label %aio_set_fd_poll.exit
 
@@ -427,11 +399,11 @@ aio_set_fd_poll.exit:                             ; preds = %for.inc.i.i, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @aio_prepare(ptr noundef %ctx) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @aio_prepare(ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
   %ready_list = alloca %struct.AioHandlerList, align 8
   store i64 0, ptr %ready_list, align 8
-  %poll_started.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 27
+  %poll_started.i = getelementptr inbounds i8, ptr %ctx, i64 568
   %0 = load i8, ptr %poll_started.i, align 8
   %1 = and i8 %0, 1
   %2 = icmp eq i8 %1, 0
@@ -439,43 +411,43 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i8 0, ptr %poll_started.i, align 8
-  %list_lock.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
+  %list_lock.i = getelementptr inbounds i8, ptr %ctx, i64 172
   tail call void @qemu_lockcnt_inc(ptr noundef nonnull %list_lock.i) #10
-  %poll_aio_handlers.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 26
+  %poll_aio_handlers.i = getelementptr inbounds i8, ptr %ctx, i64 560
   %node.017.i = load ptr, ptr %poll_aio_handlers.i, align 8
   %tobool7.not18.i = icmp eq ptr %node.017.i, null
   br i1 %tobool7.not18.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %node.020.i = phi ptr [ %node.0.i, %for.inc.i ], [ %node.017.i, %if.end.i ]
-  %le_prev.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 10, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %node.020.i, i64 104
   %3 = load ptr, ptr %le_prev.i, align 8
   %cmp8.not.i = icmp eq ptr %3, null
   br i1 %cmp8.not.i, label %if.end11.i, label %for.inc.i
 
 if.end11.i:                                       ; preds = %for.body.i
-  %io_poll_end.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 6
-  %fn.0.i = load ptr, ptr %io_poll_end.i, align 8
+  %fn.0.in.i = getelementptr inbounds i8, ptr %node.020.i, i64 48
+  %fn.0.i = load ptr, ptr %fn.0.in.i, align 8
   %tobool15.not.i = icmp eq ptr %fn.0.i, null
   br i1 %tobool15.not.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end11.i
-  %opaque.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %node.020.i, i64 56
   %4 = load ptr, ptr %opaque.i, align 8
   call void %fn.0.i(ptr noundef %4) #10
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then16.i, %if.end11.i
-  %io_poll.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 3
+  %io_poll.i = getelementptr inbounds i8, ptr %node.020.i, i64 24
   %5 = load ptr, ptr %io_poll.i, align 8
-  %opaque19.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 7
+  %opaque19.i = getelementptr inbounds i8, ptr %node.020.i, i64 56
   %6 = load ptr, ptr %opaque19.i, align 8
   %call.i = call zeroext i1 %5(ptr noundef %6) #10
   br i1 %call.i, label %if.then21.i, label %for.inc.i
 
 if.then21.i:                                      ; preds = %if.end17.i
-  %node_ready.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 9
-  %le_prev.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 9, i32 1
+  %node_ready.i.i = getelementptr inbounds i8, ptr %node.020.i, i64 80
+  %le_prev.i.i = getelementptr inbounds i8, ptr %node.020.i, i64 88
   %7 = load ptr, ptr %le_prev.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %do.end.i.i, label %if.then.i.i
@@ -486,7 +458,7 @@ if.then.i.i:                                      ; preds = %if.then21.i
   br i1 %cmp2.not.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %le_prev9.i.i = getelementptr inbounds %struct.AioHandler, ptr %8, i64 0, i32 9, i32 1
+  %le_prev9.i.i = getelementptr inbounds i8, ptr %8, i64 88
   store ptr %7, ptr %le_prev9.i.i, align 8
   %.pre.i.i = load ptr, ptr %node_ready.i.i, align 8
   %.pre17.i.i = load ptr, ptr %le_prev.i.i, align 8
@@ -499,7 +471,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.end.i.i, %if.then21.i
-  %poll_ready.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 15
+  %poll_ready.i.i = getelementptr inbounds i8, ptr %node.020.i, i64 152
   store i8 1, ptr %poll_ready.i.i, align 8
   %11 = load ptr, ptr %ready_list, align 8
   store ptr %11, ptr %node_ready.i.i, align 8
@@ -507,7 +479,7 @@ do.end.i.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp22.not.i.i, label %aio_add_poll_ready_handler.exit.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %do.end.i.i
-  %le_prev28.i.i = getelementptr inbounds %struct.AioHandler, ptr %11, i64 0, i32 9, i32 1
+  %le_prev28.i.i = getelementptr inbounds i8, ptr %11, i64 88
   store ptr %node_ready.i.i, ptr %le_prev28.i.i, align 8
   br label %aio_add_poll_ready_handler.exit.i
 
@@ -517,7 +489,7 @@ aio_add_poll_ready_handler.exit.i:                ; preds = %if.then23.i.i, %do.
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %aio_add_poll_ready_handler.exit.i, %if.end17.i, %for.body.i
-  %node_poll.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 11
+  %node_poll.i = getelementptr inbounds i8, ptr %node.020.i, i64 112
   %node.0.i = load ptr, ptr %node_poll.i, align 8
   %tobool7.not.i = icmp eq ptr %node.0.i, null
   br i1 %tobool7.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
@@ -534,11 +506,11 @@ poll_set_started.exit:                            ; preds = %entry, %for.end.i
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @aio_pending(ptr noundef %ctx) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @aio_pending(ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
-  %list_lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
+  %list_lock = getelementptr inbounds i8, ptr %ctx, i64 172
   tail call void @qemu_lockcnt_inc(ptr noundef nonnull %list_lock) #10
-  %aio_handlers = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 3
+  %aio_handlers = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load atomic i64, ptr %aio_handlers monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %tobool.not11.not = icmp eq i64 %0, 0
@@ -547,9 +519,9 @@ entry:
 for.body:                                         ; preds = %entry, %while.end17
   %node.012.in = phi i64 [ %5, %while.end17 ], [ %0, %entry ]
   %node.012 = inttoptr i64 %node.012.in to ptr
-  %revents1 = getelementptr inbounds %struct._GPollFD, ptr %node.012, i64 0, i32 2
+  %revents1 = getelementptr inbounds i8, ptr %node.012, i64 6
   %1 = load i16, ptr %revents1, align 2
-  %events = getelementptr inbounds %struct._GPollFD, ptr %node.012, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %node.012, i64 4
   %2 = load i16, ptr %events, align 4
   %and9 = and i16 %2, %1
   %and = zext i16 %and9 to i32
@@ -558,7 +530,7 @@ for.body:                                         ; preds = %entry, %while.end17
   br i1 %tobool5.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %io_read = getelementptr inbounds %struct.AioHandler, ptr %node.012, i64 0, i32 1
+  %io_read = getelementptr inbounds i8, ptr %node.012, i64 8
   %3 = load ptr, ptr %io_read, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %if.end, label %for.end
@@ -569,13 +541,13 @@ if.end:                                           ; preds = %land.lhs.true, %for
   br i1 %tobool8.not, label %while.end17, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %if.end
-  %io_write = getelementptr inbounds %struct.AioHandler, ptr %node.012, i64 0, i32 2
+  %io_write = getelementptr inbounds i8, ptr %node.012, i64 16
   %4 = load ptr, ptr %io_write, align 8
   %tobool10.not = icmp eq ptr %4, null
   br i1 %tobool10.not, label %while.end17, label %for.end
 
 while.end17:                                      ; preds = %if.end, %land.lhs.true9
-  %node18 = getelementptr inbounds %struct.AioHandler, ptr %node.012, i64 0, i32 8
+  %node18 = getelementptr inbounds i8, ptr %node.012, i64 64
   %5 = load atomic i64, ptr %node18 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %tobool.not.not = icmp eq i64 %5, 0
@@ -594,10 +566,10 @@ declare void @qemu_lockcnt_dec(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_dispatch(ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
-  %list_lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
+  %list_lock = getelementptr inbounds i8, ptr %ctx, i64 172
   tail call void @qemu_lockcnt_inc(ptr noundef nonnull %list_lock) #10
   %call = tail call i32 @aio_bh_poll(ptr noundef %ctx) #10
-  %aio_handlers.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 3
+  %aio_handlers.i = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load atomic i64, ptr %aio_handlers.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %tobool.not5.i = icmp eq i64 %0, 0
@@ -606,7 +578,7 @@ entry:
 while.end6.i:                                     ; preds = %entry, %while.end6.i
   %node.0.in7.i = phi i64 [ %1, %while.end6.i ], [ %0, %entry ]
   %node.0.i = inttoptr i64 %node.0.in7.i to ptr
-  %node7.i = getelementptr inbounds %struct.AioHandler, ptr %node.0.i, i64 0, i32 8
+  %node7.i = getelementptr inbounds i8, ptr %node.0.i, i64 64
   %1 = load atomic i64, ptr %node7.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %call.i = tail call fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef nonnull %node.0.i)
@@ -616,7 +588,7 @@ while.end6.i:                                     ; preds = %entry, %while.end6.
 aio_dispatch_handlers.exit:                       ; preds = %while.end6.i, %entry
   tail call fastcc void @aio_free_deleted_handlers(ptr noundef %ctx)
   tail call void @qemu_lockcnt_dec(ptr noundef nonnull %list_lock) #10
-  %tlg = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 19
+  %tlg = getelementptr inbounds i8, ptr %ctx, i64 480
   %call3 = tail call zeroext i1 @timerlistgroup_run_timers(ptr noundef nonnull %tlg) #10
   ret void
 }
@@ -626,13 +598,13 @@ declare i32 @aio_bh_poll(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @aio_free_deleted_handlers(ptr noundef %ctx) unnamed_addr #2 {
 entry:
-  %deleted_aio_handlers = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 4
+  %deleted_aio_handlers = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load atomic i64, ptr %deleted_aio_handlers monotonic, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %list_lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
+  %list_lock = getelementptr inbounds i8, ptr %ctx, i64 172
   %call = tail call zeroext i1 @qemu_lockcnt_dec_if_lock(ptr noundef nonnull %list_lock) #10
   br i1 %call, label %while.cond3.preheader, label %return
 
@@ -645,15 +617,15 @@ while.cond3.preheader:                            ; preds = %if.end
 do.body13:                                        ; preds = %while.cond3.preheader, %do.end76
   %.in = phi i64 [ %11, %do.end76 ], [ %1, %while.cond3.preheader ]
   %2 = inttoptr i64 %.in to ptr
-  %node14 = getelementptr inbounds %struct.AioHandler, ptr %2, i64 0, i32 8
+  %node14 = getelementptr inbounds i8, ptr %2, i64 64
   %3 = load ptr, ptr %node14, align 8
   %cmp15.not = icmp eq ptr %3, null
-  %le_prev26.phi.trans.insert = getelementptr inbounds %struct.AioHandler, ptr %2, i64 0, i32 8, i32 1
+  %le_prev26.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 72
   %.pre31 = load ptr, ptr %le_prev26.phi.trans.insert, align 8
   br i1 %cmp15.not, label %if.end22, label %if.then16
 
 if.then16:                                        ; preds = %do.body13
-  %le_prev21 = getelementptr inbounds %struct.AioHandler, ptr %3, i64 0, i32 8, i32 1
+  %le_prev21 = getelementptr inbounds i8, ptr %3, i64 72
   store ptr %.pre31, ptr %le_prev21, align 8
   %.pre = load ptr, ptr %node14, align 8
   br label %if.end22
@@ -661,16 +633,16 @@ if.then16:                                        ; preds = %do.body13
 if.end22:                                         ; preds = %do.body13, %if.then16
   %4 = phi ptr [ %.pre, %if.then16 ], [ null, %do.body13 ]
   store ptr %4, ptr %.pre31, align 8
-  %node_deleted = getelementptr inbounds %struct.AioHandler, ptr %2, i64 0, i32 10
+  %node_deleted = getelementptr inbounds i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node14, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %node_deleted, align 8
   %cmp34.not = icmp eq ptr %5, null
-  %le_prev46.phi.trans.insert = getelementptr inbounds %struct.AioHandler, ptr %2, i64 0, i32 10, i32 1
+  %le_prev46.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 104
   %.pre33 = load ptr, ptr %le_prev46.phi.trans.insert, align 8
   br i1 %cmp34.not, label %if.end42, label %if.then35
 
 if.then35:                                        ; preds = %if.end22
-  %le_prev41 = getelementptr inbounds %struct.AioHandler, ptr %5, i64 0, i32 10, i32 1
+  %le_prev41 = getelementptr inbounds i8, ptr %5, i64 104
   store ptr %.pre33, ptr %le_prev41, align 8
   %.pre32 = load ptr, ptr %node_deleted, align 8
   br label %if.end42
@@ -678,8 +650,8 @@ if.then35:                                        ; preds = %if.end22
 if.end42:                                         ; preds = %if.end22, %if.then35
   %6 = phi ptr [ %.pre32, %if.then35 ], [ null, %if.end22 ]
   store ptr %6, ptr %.pre33, align 8
-  %node_poll = getelementptr inbounds %struct.AioHandler, ptr %2, i64 0, i32 11
-  %le_prev53 = getelementptr inbounds %struct.AioHandler, ptr %2, i64 0, i32 11, i32 1
+  %node_poll = getelementptr inbounds i8, ptr %2, i64 112
+  %le_prev53 = getelementptr inbounds i8, ptr %2, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node_deleted, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %le_prev53, align 8
   %cmp54.not = icmp eq ptr %7, null
@@ -691,7 +663,7 @@ if.then55:                                        ; preds = %if.end42
   br i1 %cmp58.not, label %if.end66, label %if.then59
 
 if.then59:                                        ; preds = %if.then55
-  %le_prev65 = getelementptr inbounds %struct.AioHandler, ptr %8, i64 0, i32 11, i32 1
+  %le_prev65 = getelementptr inbounds i8, ptr %8, i64 120
   store ptr %7, ptr %le_prev65, align 8
   %.pre34 = load ptr, ptr %node_poll, align 8
   %.pre35 = load ptr, ptr %le_prev53, align 8
@@ -759,9 +731,9 @@ if.else:                                          ; preds = %if.end.i, %in_aio_c
   unreachable
 
 if.end:                                           ; preds = %cond.end, %in_aio_context_home_thread.exit
-  %list_lock = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 6
+  %list_lock = getelementptr inbounds i8, ptr %ctx, i64 172
   tail call void @qemu_lockcnt_inc(ptr noundef nonnull %list_lock) #10
-  %poll_max_ns = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 22
+  %poll_max_ns = getelementptr inbounds i8, ptr %ctx, i64 528
   %0 = load i64, ptr %poll_max_ns, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end5, label %if.then3
@@ -780,28 +752,28 @@ cond.true7:                                       ; preds = %if.end5
 
 cond.end10:                                       ; preds = %if.end5, %cond.true7
   %cond11 = phi i64 [ %call8, %cond.true7 ], [ 0, %if.end5 ]
-  %poll_aio_handlers.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 26
+  %poll_aio_handlers.i = getelementptr inbounds i8, ptr %ctx, i64 560
   %1 = load atomic i64, ptr %poll_aio_handlers.i monotonic, align 8
   %cmp.i61 = icmp eq i64 %1, 0
   br i1 %cmp.i61, label %try_poll_mode.exit.thread, label %if.end.i62
 
 if.end.i62:                                       ; preds = %cond.end10
-  %poll_ns.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 21
+  %poll_ns.i = getelementptr inbounds i8, ptr %ctx, i64 520
   %2 = load i64, ptr %poll_ns.i, align 8
-  %cond.i.i = tail call i64 @llvm.umin.i64(i64 %cond11, i64 %2)
+  %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 %cond11, i64 %2)
   %tobool.not.i = icmp eq i64 %cond.i.i, 0
   br i1 %tobool.not.i, label %try_poll_mode.exit.thread, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i62
-  %fdmon_ops.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 29
+  %fdmon_ops.i = getelementptr inbounds i8, ptr %ctx, i64 576
   %3 = load ptr, ptr %fdmon_ops.i, align 8
-  %need_wait.i = getelementptr inbounds %struct.FDMonOps, ptr %3, i64 0, i32 2
+  %need_wait.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %need_wait.i, align 8
   %call1.i63 = tail call zeroext i1 %4(ptr noundef nonnull %ctx) #10
   br i1 %call1.i63, label %try_poll_mode.exit.thread, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  %poll_started.i.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 27
+  %poll_started.i.i = getelementptr inbounds i8, ptr %ctx, i64 568
   %5 = load i8, ptr %poll_started.i.i, align 8
   %6 = and i8 %5, 1
   %.not.i = icmp eq i8 %6, 0
@@ -816,25 +788,25 @@ if.end.i.i:                                       ; preds = %if.then2.i
 
 for.body.us.i.i:                                  ; preds = %if.end.i.i, %for.inc.us.i.i
   %node.020.us.i.i = phi ptr [ %node.0.us.i.i, %for.inc.us.i.i ], [ %node.017.i.i, %if.end.i.i ]
-  %le_prev.us.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.us.i.i, i64 0, i32 10, i32 1
+  %le_prev.us.i.i = getelementptr inbounds i8, ptr %node.020.us.i.i, i64 104
   %7 = load ptr, ptr %le_prev.us.i.i, align 8
   %cmp8.not.us.i.i = icmp eq ptr %7, null
   br i1 %cmp8.not.us.i.i, label %if.end11.us.i.i, label %for.inc.us.i.i
 
 if.end11.us.i.i:                                  ; preds = %for.body.us.i.i
-  %io_poll_begin.us.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.us.i.i, i64 0, i32 5
-  %fn.0.us.i.i = load ptr, ptr %io_poll_begin.us.i.i, align 8
+  %fn.0.in.us.i.i = getelementptr inbounds i8, ptr %node.020.us.i.i, i64 40
+  %fn.0.us.i.i = load ptr, ptr %fn.0.in.us.i.i, align 8
   %tobool15.not.us.i.i = icmp eq ptr %fn.0.us.i.i, null
   br i1 %tobool15.not.us.i.i, label %for.inc.us.i.i, label %if.then16.us.i.i
 
 if.then16.us.i.i:                                 ; preds = %if.end11.us.i.i
-  %opaque.us.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.us.i.i, i64 0, i32 7
+  %opaque.us.i.i = getelementptr inbounds i8, ptr %node.020.us.i.i, i64 56
   %8 = load ptr, ptr %opaque.us.i.i, align 8
   tail call void %fn.0.us.i.i(ptr noundef %8) #10
   br label %for.inc.us.i.i
 
 for.inc.us.i.i:                                   ; preds = %if.then16.us.i.i, %if.end11.us.i.i, %for.body.us.i.i
-  %node_poll.us.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.us.i.i, i64 0, i32 11
+  %node_poll.us.i.i = getelementptr inbounds i8, ptr %node.020.us.i.i, i64 112
   %node.0.us.i.i = load ptr, ptr %node_poll.us.i.i, align 8
   %tobool7.not.us.i.i = icmp eq ptr %node.0.us.i.i, null
   br i1 %tobool7.not.us.i.i, label %for.end.i.i, label %for.body.us.i.i, !llvm.loop !7
@@ -877,7 +849,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #10
   %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %14 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i.i.i, i64 noundef %14, i64 noundef %15, ptr noundef %ctx, i64 noundef %cond.i.i, i64 noundef %cond11) #10
   br label %trace_run_poll_handlers_begin.exit.i.i
@@ -889,7 +861,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 trace_run_poll_handlers_begin.exit.i.i:           ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end.i10.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #10
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %16 = load i32, ptr %depth.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %16, 1
   store i32 %inc.i.i.i.i, ptr %depth.i.i.i.i, align 4
@@ -907,7 +879,7 @@ while.end.i.i.i.i:                                ; preds = %trace_run_poll_hand
 rcu_read_auto_lock.exit.i.i:                      ; preds = %while.end.i.i.i.i, %trace_run_poll_handlers_begin.exit.i.i
   %call2.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #10
   %add.i.i.i = add i64 %call2.i.i, 7000000000
-  %notifier.i.i.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 10
+  %notifier.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 204
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %rcu_read_auto_lock.exit.i.i
@@ -921,18 +893,18 @@ land.rhs.i.i.i:                                   ; preds = %do.body.i.i, %for.i
   %timeout.1 = phi i64 [ %timeout.2, %for.inc.i.i.i ], [ %timeout.0, %do.body.i.i ]
   %progress.010.i.i.i = phi i8 [ %progress.1.i.i.i, %for.inc.i.i.i ], [ 0, %do.body.i.i ]
   %node.09.i.i.i = phi ptr [ %19, %for.inc.i.i.i ], [ %18, %do.body.i.i ]
-  %node_poll.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.09.i.i.i, i64 0, i32 11
+  %node_poll.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 112
   %19 = load ptr, ptr %node_poll.i.i.i, align 8
-  %io_poll.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.09.i.i.i, i64 0, i32 3
+  %io_poll.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 24
   %20 = load ptr, ptr %io_poll.i.i.i, align 8
-  %opaque.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.09.i.i.i, i64 0, i32 7
+  %opaque.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 56
   %21 = load ptr, ptr %opaque.i.i.i, align 8
   %call.i.i.i = call zeroext i1 %20(ptr noundef %21) #10
   br i1 %call.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.rhs.i.i.i
-  %node_ready.i.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.09.i.i.i, i64 0, i32 9
-  %le_prev.i.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.09.i.i.i, i64 0, i32 9, i32 1
+  %node_ready.i.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 80
+  %le_prev.i.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 88
   %22 = load ptr, ptr %le_prev.i.i.i.i, align 8
   %cmp.not.i.i26.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i26.i.i, label %do.end.i.i.i.i, label %if.then.i.i27.i.i
@@ -943,7 +915,7 @@ if.then.i.i27.i.i:                                ; preds = %if.then.i.i.i
   br i1 %cmp2.not.i.i.i.i, label %if.end.i.i.i.i, label %if.then3.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i27.i.i
-  %le_prev9.i.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %23, i64 0, i32 9, i32 1
+  %le_prev9.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 88
   store ptr %22, ptr %le_prev9.i.i.i.i, align 8
   %.pre.i.i.i.i = load ptr, ptr %node_ready.i.i.i.i, align 8
   %.pre17.i.i.i.i = load ptr, ptr %le_prev.i.i.i.i, align 8
@@ -956,7 +928,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then3.i.i.i.i, %
   br label %do.end.i.i.i.i
 
 do.end.i.i.i.i:                                   ; preds = %if.end.i.i.i.i, %if.then.i.i.i
-  %poll_ready.i.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.09.i.i.i, i64 0, i32 15
+  %poll_ready.i.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 152
   store i8 1, ptr %poll_ready.i.i.i.i, align 8
   %26 = load ptr, ptr %ready_list, align 8
   store ptr %26, ptr %node_ready.i.i.i.i, align 8
@@ -964,14 +936,14 @@ do.end.i.i.i.i:                                   ; preds = %if.end.i.i.i.i, %if
   br i1 %cmp22.not.i.i.i.i, label %aio_add_poll_ready_handler.exit.i.i.i, label %if.then23.i.i.i.i
 
 if.then23.i.i.i.i:                                ; preds = %do.end.i.i.i.i
-  %le_prev28.i.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %26, i64 0, i32 9, i32 1
+  %le_prev28.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 88
   store ptr %node_ready.i.i.i.i, ptr %le_prev28.i.i.i.i, align 8
   br label %aio_add_poll_ready_handler.exit.i.i.i
 
 aio_add_poll_ready_handler.exit.i.i.i:            ; preds = %if.then23.i.i.i.i, %do.end.i.i.i.i
   store ptr %node.09.i.i.i, ptr %ready_list, align 8
   store ptr %ready_list, ptr %le_prev.i.i.i.i, align 8
-  %poll_idle_timeout.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.09.i.i.i, i64 0, i32 14
+  %poll_idle_timeout.i.i.i = getelementptr inbounds i8, ptr %node.09.i.i.i, i64 144
   store i64 %add.i.i.i, ptr %poll_idle_timeout.i.i.i, align 8
   %27 = load ptr, ptr %opaque.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %27, %notifier.i.i.i
@@ -994,7 +966,7 @@ run_poll_handlers_once.exit.i.i:                  ; preds = %for.end.loopexit.i.
   %progress.0.lcssa.i.i.i = phi i1 [ false, %do.body.i.i ], [ %29, %for.end.loopexit.i.i.i ]
   %call4.i.i = call i64 @qemu_clock_get_ns(i32 noundef 0) #10
   %sub.i.i = sub i64 %call4.i.i, %call2.i.i
-  %cond.i.i.i = call i64 @llvm.umin.i64(i64 %timeout.3, i64 %max_ns.addr.0.i.i)
+  %cond.i.i.i = call noundef i64 @llvm.umin.i64(i64 %timeout.3, i64 %max_ns.addr.0.i.i)
   %tobool.not.i.i = icmp ne i64 %cond.i.i.i, 0
   %brmerge.not.i.i = select i1 %tobool.not.i.i, i1 %progress.0.lcssa.i.i.i, i1 false
   br i1 %brmerge.not.i.i, label %if.else8.i.i, label %do.cond.i.i
@@ -1009,7 +981,7 @@ do.cond.i.i:                                      ; preds = %run_poll_handlers_o
 
 land.rhs.i.i:                                     ; preds = %do.cond.i.i
   %30 = load ptr, ptr %fdmon_ops.i, align 8
-  %need_wait.i.i = getelementptr inbounds %struct.FDMonOps, ptr %30, i64 0, i32 2
+  %need_wait.i.i = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %need_wait.i.i, align 8
   %call11.i.i = call zeroext i1 %31(ptr noundef %ctx) #10
   br i1 %call11.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !18
@@ -1027,16 +999,16 @@ if.end.i.i.i:                                     ; preds = %do.end.i.i
   br i1 %tobool.not29.i.i.i, label %if.end14.i.i, label %land.rhs.lr.ph.i29.i.i
 
 land.rhs.lr.ph.i29.i.i:                           ; preds = %if.end.i.i.i
-  %tv_usec.i.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i.i, i64 8
   %add.i30.i.i = add i64 %call4.i.i, 7000000000
   br label %land.rhs.i31.i.i
 
 land.rhs.i31.i.i:                                 ; preds = %for.inc.i36.i.i, %land.rhs.lr.ph.i29.i.i
   %progress.031.i.i.i = phi i8 [ 0, %land.rhs.lr.ph.i29.i.i ], [ %progress.1.i37.i.i, %for.inc.i36.i.i ]
   %node.030.i.i.i = phi ptr [ %33, %land.rhs.lr.ph.i29.i.i ], [ %34, %for.inc.i36.i.i ]
-  %node_poll.i32.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 11
+  %node_poll.i32.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 112
   %34 = load ptr, ptr %node_poll.i32.i.i, align 8
-  %poll_idle_timeout.i33.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 14
+  %poll_idle_timeout.i33.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 144
   %35 = load i64, ptr %poll_idle_timeout.i33.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %35, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %if.else.i.i.i
@@ -1086,7 +1058,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i
 trace_poll_remove.exit.i.i.i:                     ; preds = %if.else.i.i.i.i.i, %if.then8.i.i.i.i.i, %land.lhs.true5.i.i.i.i.i, %if.then5.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i.i)
   store i64 0, ptr %poll_idle_timeout.i33.i.i, align 8
-  %le_prev.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 11, i32 1
+  %le_prev.i.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 120
   %44 = load ptr, ptr %le_prev.i.i.i, align 8
   %cmp8.not.i.i.i = icmp eq ptr %44, null
   br i1 %cmp8.not.i.i.i, label %do.end.i.i.i, label %if.then9.i.i.i
@@ -1097,7 +1069,7 @@ if.then9.i.i.i:                                   ; preds = %trace_poll_remove.e
   br i1 %cmp12.not.i.i.i, label %if.end20.i.i.i, label %if.then13.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.then9.i.i.i
-  %le_prev19.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %45, i64 0, i32 11, i32 1
+  %le_prev19.i.i.i = getelementptr inbounds i8, ptr %45, i64 120
   store ptr %44, ptr %le_prev19.i.i.i, align 8
   %.pre.i.i.i = load ptr, ptr %node_poll.i32.i.i, align 8
   %.pre32.i.i.i = load ptr, ptr %le_prev.i.i.i, align 8
@@ -1117,24 +1089,24 @@ do.end.i.i.i:                                     ; preds = %if.end20.i.i.i, %tr
   br i1 %tobool30.not.i.i.i, label %for.inc.i36.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %do.end.i.i.i
-  %io_poll_end.i.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 6
+  %io_poll_end.i.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 48
   %50 = load ptr, ptr %io_poll_end.i.i.i, align 8
   %tobool31.not.i.i.i = icmp eq ptr %50, null
   br i1 %tobool31.not.i.i.i, label %for.inc.i36.i.i, label %if.then32.i.i.i
 
 if.then32.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %opaque.i34.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 7
+  %opaque.i34.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 56
   %51 = load ptr, ptr %opaque.i34.i.i, align 8
   call void %50(ptr noundef %51) #10
-  %io_poll.i35.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 3
+  %io_poll.i35.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 24
   %52 = load ptr, ptr %io_poll.i35.i.i, align 8
   %53 = load ptr, ptr %opaque.i34.i.i, align 8
   %call35.i.i.i = call zeroext i1 %52(ptr noundef %53) #10
   br i1 %call35.i.i.i, label %if.then36.i.i.i, label %for.inc.i36.i.i
 
 if.then36.i.i.i:                                  ; preds = %if.then32.i.i.i
-  %node_ready.i.i40.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 9
-  %le_prev.i.i41.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 9, i32 1
+  %node_ready.i.i40.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 80
+  %le_prev.i.i41.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 88
   %54 = load ptr, ptr %le_prev.i.i41.i.i, align 8
   %cmp.not.i.i42.i.i = icmp eq ptr %54, null
   br i1 %cmp.not.i.i42.i.i, label %do.end.i.i50.i.i, label %if.then.i.i43.i.i
@@ -1145,7 +1117,7 @@ if.then.i.i43.i.i:                                ; preds = %if.then36.i.i.i
   br i1 %cmp2.not.i.i44.i.i, label %if.end.i.i49.i.i, label %if.then3.i.i45.i.i
 
 if.then3.i.i45.i.i:                               ; preds = %if.then.i.i43.i.i
-  %le_prev9.i.i46.i.i = getelementptr inbounds %struct.AioHandler, ptr %55, i64 0, i32 9, i32 1
+  %le_prev9.i.i46.i.i = getelementptr inbounds i8, ptr %55, i64 88
   store ptr %54, ptr %le_prev9.i.i46.i.i, align 8
   %.pre.i.i47.i.i = load ptr, ptr %node_ready.i.i40.i.i, align 8
   %.pre17.i.i48.i.i = load ptr, ptr %le_prev.i.i41.i.i, align 8
@@ -1158,7 +1130,7 @@ if.end.i.i49.i.i:                                 ; preds = %if.then3.i.i45.i.i,
   br label %do.end.i.i50.i.i
 
 do.end.i.i50.i.i:                                 ; preds = %if.end.i.i49.i.i, %if.then36.i.i.i
-  %poll_ready.i.i51.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.030.i.i.i, i64 0, i32 15
+  %poll_ready.i.i51.i.i = getelementptr inbounds i8, ptr %node.030.i.i.i, i64 152
   store i8 1, ptr %poll_ready.i.i51.i.i, align 8
   %58 = load ptr, ptr %ready_list, align 8
   store ptr %58, ptr %node_ready.i.i40.i.i, align 8
@@ -1166,7 +1138,7 @@ do.end.i.i50.i.i:                                 ; preds = %if.end.i.i49.i.i, %
   br i1 %cmp22.not.i.i52.i.i, label %aio_add_poll_ready_handler.exit.i55.i.i, label %if.then23.i.i53.i.i
 
 if.then23.i.i53.i.i:                              ; preds = %do.end.i.i50.i.i
-  %le_prev28.i.i54.i.i = getelementptr inbounds %struct.AioHandler, ptr %58, i64 0, i32 9, i32 1
+  %le_prev28.i.i54.i.i = getelementptr inbounds i8, ptr %58, i64 88
   store ptr %node_ready.i.i40.i.i, ptr %le_prev28.i.i54.i.i, align 8
   br label %aio_add_poll_ready_handler.exit.i55.i.i
 
@@ -1223,7 +1195,7 @@ if.then8.i.i65.i.i:                               ; preds = %if.then.i.i63.i.i
   %call9.i.i66.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56.i.i, ptr noundef null) #10
   %call10.i.i67.i.i = call i32 @qemu_get_thread_id() #10
   %66 = load i64, ptr %_now.i.i56.i.i, align 8
-  %tv_usec.i.i68.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i56.i.i, i64 0, i32 1
+  %tv_usec.i.i68.i.i = getelementptr inbounds i8, ptr %_now.i.i56.i.i, i64 8
   %67 = load i64, ptr %tv_usec.i.i68.i.i, align 8
   %conv12.i.i.i.i = zext i1 %progress.075.i.i to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i67.i.i, i64 noundef %66, i64 noundef %67, ptr noundef %ctx, i32 noundef %conv12.i.i.i.i, i64 noundef %timeout.4) #10
@@ -1237,7 +1209,7 @@ if.else.i.i69.i.i:                                ; preds = %if.then.i.i63.i.i
 if.then.i.i70.i.i:                                ; preds = %if.else.i.i69.i.i, %if.then8.i.i65.i.i, %land.lhs.true5.i.i60.i.i, %if.end19.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i56.i.i)
   %call.i.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #10
-  %depth.i.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 12
   %68 = load i32, ptr %depth.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i = icmp eq i32 %68, 0
   br i1 %cmp.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
@@ -1256,7 +1228,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
   fence seq_cst
-  %waiting.i.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   %69 = load atomic i8, ptr %waiting.i.i.i.i.i.i monotonic, align 8
   %70 = and i8 %69, 1
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %70, 0
@@ -1284,13 +1256,13 @@ if.else17:                                        ; preds = %try_poll_mode.exit
   unreachable
 
 while.end:                                        ; preds = %try_poll_mode.exit.thread
-  %notify_me = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 5
+  %notify_me = getelementptr inbounds i8, ptr %ctx, i64 168
   %71 = load atomic i32, ptr %notify_me monotonic, align 8
   %add = add i32 %71, 2
   store atomic i32 %add, ptr %notify_me monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !21
   fence seq_cst
-  %notified = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 9
+  %notified = getelementptr inbounds i8, ptr %ctx, i64 200
   %72 = load atomic i8, ptr %notified monotonic, align 8
   %73 = and i8 %72, 1
   %tobool38.not = icmp eq i8 %73, 0
@@ -1298,17 +1270,17 @@ while.end:                                        ; preds = %try_poll_mode.exit.
 
 lor.lhs.false:                                    ; preds = %try_poll_mode.exit, %try_poll_mode.exit.thread
   %retval.0.i64108113120 = phi i1 [ false, %try_poll_mode.exit.thread ], [ true, %try_poll_mode.exit ]
-  %fdmon_ops = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 29
+  %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
   %74 = load ptr, ptr %fdmon_ops, align 8
-  %need_wait = getelementptr inbounds %struct.FDMonOps, ptr %74, i64 0, i32 2
+  %need_wait = getelementptr inbounds i8, ptr %74, i64 16
   %75 = load ptr, ptr %need_wait, align 8
   %call45 = call zeroext i1 %75(ptr noundef %ctx) #10
   br i1 %call45, label %if.then46, label %if.end72
 
 lor.lhs.false.thread:                             ; preds = %while.end
-  %fdmon_ops145 = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 29
+  %fdmon_ops145 = getelementptr inbounds i8, ptr %ctx, i64 576
   %76 = load ptr, ptr %fdmon_ops145, align 8
-  %need_wait146 = getelementptr inbounds %struct.FDMonOps, ptr %76, i64 0, i32 2
+  %need_wait146 = getelementptr inbounds i8, ptr %76, i64 16
   %77 = load ptr, ptr %need_wait146, align 8
   %call45147 = call zeroext i1 %77(ptr noundef nonnull %ctx) #10
   br i1 %call45147, label %if.then46, label %while.end60
@@ -1317,7 +1289,7 @@ if.then46:                                        ; preds = %lor.lhs.false.threa
   %timeout.7124 = phi i64 [ 0, %lor.lhs.false ], [ %timeout.6.ph, %while.end ], [ 0, %lor.lhs.false.thread ]
   %tobool14.not109111122 = phi i1 [ true, %lor.lhs.false ], [ false, %while.end ], [ false, %lor.lhs.false.thread ]
   %retval.0.i64108113119 = phi i1 [ %retval.0.i64108113120, %lor.lhs.false ], [ false, %while.end ], [ false, %lor.lhs.false.thread ]
-  %poll_started.i = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 27
+  %poll_started.i = getelementptr inbounds i8, ptr %ctx, i64 568
   %78 = load i8, ptr %poll_started.i, align 8
   %79 = and i8 %78, 1
   %80 = icmp eq i8 %79, 0
@@ -1337,34 +1309,34 @@ poll_set_started.exit.thread127:                  ; preds = %if.end.i65
 for.body.i:                                       ; preds = %if.end.i65, %for.inc.i
   %node.020.i = phi ptr [ %node.0.i, %for.inc.i ], [ %node.017.i, %if.end.i65 ]
   %progress.019.i = phi i8 [ %progress.1.i, %for.inc.i ], [ 0, %if.end.i65 ]
-  %le_prev.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 10, i32 1
+  %le_prev.i = getelementptr inbounds i8, ptr %node.020.i, i64 104
   %81 = load ptr, ptr %le_prev.i, align 8
   %cmp8.not.i = icmp eq ptr %81, null
   br i1 %cmp8.not.i, label %if.end11.i, label %for.inc.i
 
 if.end11.i:                                       ; preds = %for.body.i
-  %io_poll_end.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 6
-  %fn.0.i = load ptr, ptr %io_poll_end.i, align 8
+  %fn.0.in.i = getelementptr inbounds i8, ptr %node.020.i, i64 48
+  %fn.0.i = load ptr, ptr %fn.0.in.i, align 8
   %tobool15.not.i = icmp eq ptr %fn.0.i, null
   br i1 %tobool15.not.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end11.i
-  %opaque.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %node.020.i, i64 56
   %82 = load ptr, ptr %opaque.i, align 8
   call void %fn.0.i(ptr noundef %82) #10
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then16.i, %if.end11.i
-  %io_poll.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 3
+  %io_poll.i = getelementptr inbounds i8, ptr %node.020.i, i64 24
   %83 = load ptr, ptr %io_poll.i, align 8
-  %opaque19.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 7
+  %opaque19.i = getelementptr inbounds i8, ptr %node.020.i, i64 56
   %84 = load ptr, ptr %opaque19.i, align 8
   %call.i68 = call zeroext i1 %83(ptr noundef %84) #10
   br i1 %call.i68, label %if.then21.i, label %for.inc.i
 
 if.then21.i:                                      ; preds = %if.end17.i
-  %node_ready.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 9
-  %le_prev.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 9, i32 1
+  %node_ready.i.i = getelementptr inbounds i8, ptr %node.020.i, i64 80
+  %le_prev.i.i = getelementptr inbounds i8, ptr %node.020.i, i64 88
   %85 = load ptr, ptr %le_prev.i.i, align 8
   %cmp.not.i.i69 = icmp eq ptr %85, null
   br i1 %cmp.not.i.i69, label %do.end.i.i71, label %if.then.i.i
@@ -1375,7 +1347,7 @@ if.then.i.i:                                      ; preds = %if.then21.i
   br i1 %cmp2.not.i.i, label %if.end.i.i70, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %le_prev9.i.i = getelementptr inbounds %struct.AioHandler, ptr %86, i64 0, i32 9, i32 1
+  %le_prev9.i.i = getelementptr inbounds i8, ptr %86, i64 88
   store ptr %85, ptr %le_prev9.i.i, align 8
   %.pre.i.i = load ptr, ptr %node_ready.i.i, align 8
   %.pre17.i.i = load ptr, ptr %le_prev.i.i, align 8
@@ -1388,7 +1360,7 @@ if.end.i.i70:                                     ; preds = %if.then3.i.i, %if.t
   br label %do.end.i.i71
 
 do.end.i.i71:                                     ; preds = %if.end.i.i70, %if.then21.i
-  %poll_ready.i.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 15
+  %poll_ready.i.i = getelementptr inbounds i8, ptr %node.020.i, i64 152
   store i8 1, ptr %poll_ready.i.i, align 8
   %89 = load ptr, ptr %ready_list, align 8
   store ptr %89, ptr %node_ready.i.i, align 8
@@ -1396,7 +1368,7 @@ do.end.i.i71:                                     ; preds = %if.end.i.i70, %if.t
   br i1 %cmp22.not.i.i, label %aio_add_poll_ready_handler.exit.i, label %if.then23.i.i
 
 if.then23.i.i:                                    ; preds = %do.end.i.i71
-  %le_prev28.i.i = getelementptr inbounds %struct.AioHandler, ptr %89, i64 0, i32 9, i32 1
+  %le_prev28.i.i = getelementptr inbounds i8, ptr %89, i64 88
   store ptr %node_ready.i.i, ptr %le_prev28.i.i, align 8
   br label %aio_add_poll_ready_handler.exit.i
 
@@ -1407,7 +1379,7 @@ aio_add_poll_ready_handler.exit.i:                ; preds = %if.then23.i.i, %do.
 
 for.inc.i:                                        ; preds = %aio_add_poll_ready_handler.exit.i, %if.end17.i, %for.body.i
   %progress.1.i = phi i8 [ %progress.019.i, %for.body.i ], [ 1, %aio_add_poll_ready_handler.exit.i ], [ %progress.019.i, %if.end17.i ]
-  %node_poll.i = getelementptr inbounds %struct.AioHandler, ptr %node.020.i, i64 0, i32 11
+  %node_poll.i = getelementptr inbounds i8, ptr %node.020.i, i64 112
   %node.0.i = load ptr, ptr %node_poll.i, align 8
   %tobool7.not.i = icmp eq ptr %node.0.i, null
   br i1 %tobool7.not.i, label %poll_set_started.exit, label %for.body.i, !llvm.loop !7
@@ -1423,16 +1395,16 @@ poll_set_started.exit:                            ; preds = %for.inc.i
 if.end49:                                         ; preds = %poll_set_started.exit, %if.then46, %poll_set_started.exit.thread127
   %timeout.8 = phi i64 [ %timeout.7124, %poll_set_started.exit.thread127 ], [ %timeout.7124, %if.then46 ], [ %spec.select, %poll_set_started.exit ]
   %progress.0 = phi i1 [ %retval.0.i64108113119, %poll_set_started.exit.thread127 ], [ %retval.0.i64108113119, %if.then46 ], [ %spec.select131, %poll_set_started.exit ]
-  %fdmon_ops50 = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 29
+  %fdmon_ops50 = getelementptr inbounds i8, ptr %ctx, i64 576
   %92 = load ptr, ptr %fdmon_ops50, align 8
-  %wait = getelementptr inbounds %struct.FDMonOps, ptr %92, i64 0, i32 1
+  %wait = getelementptr inbounds i8, ptr %92, i64 8
   %93 = load ptr, ptr %wait, align 8
   %call51 = call i32 %93(ptr noundef %ctx, ptr noundef nonnull %ready_list, i64 noundef %timeout.8) #10
   br i1 %tobool14.not109111122, label %if.end72, label %while.end60
 
 while.end60:                                      ; preds = %lor.lhs.false.thread, %if.end49
   %progress.1129 = phi i1 [ %progress.0, %if.end49 ], [ false, %lor.lhs.false.thread ]
-  %notify_me61 = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 5
+  %notify_me61 = getelementptr inbounds i8, ptr %ctx, i64 168
   %94 = load atomic i32, ptr %notify_me61 monotonic, align 8
   %sub = add i32 %94, -2
   store atomic i32 %sub, ptr %notify_me61 release, align 8
@@ -1448,7 +1420,7 @@ if.end72:                                         ; preds = %lor.lhs.false, %if.
 if.then75:                                        ; preds = %if.end72
   %call76 = call i64 @qemu_clock_get_ns(i32 noundef 0) #10
   %sub77 = sub i64 %call76, %start.0
-  %poll_ns = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 21
+  %poll_ns = getelementptr inbounds i8, ptr %ctx, i64 520
   %96 = load i64, ptr %poll_ns, align 8
   %cmp78.not = icmp sgt i64 %sub77, %96
   br i1 %cmp78.not, label %if.else80, label %if.end124
@@ -1459,7 +1431,7 @@ if.else80:                                        ; preds = %if.then75
   br i1 %cmp82, label %if.then83, label %if.else93
 
 if.then83:                                        ; preds = %if.else80
-  %poll_shrink = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 24
+  %poll_shrink = getelementptr inbounds i8, ptr %ctx, i64 544
   %98 = load i64, ptr %poll_shrink, align 8
   %tobool85.not = icmp eq i64 %98, 0
   br i1 %tobool85.not, label %if.end91, label %if.then86
@@ -1495,7 +1467,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i72
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %104 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %105 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %104, i64 noundef %105, ptr noundef nonnull %ctx, i64 noundef %96, i64 noundef %storemerge57) #10
   br label %trace_poll_shrink.exit
@@ -1517,7 +1489,7 @@ if.then100:                                       ; preds = %if.else93
   br i1 %tobool107.not, label %if.end112, label %if.then108
 
 if.then108:                                       ; preds = %if.then100
-  %poll_grow = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 23
+  %poll_grow = getelementptr inbounds i8, ptr %ctx, i64 536
   %106 = load i64, ptr %poll_grow, align 8
   %cmp103 = icmp eq i64 %106, 0
   %spec.store.select = select i1 %cmp103, i64 2, i64 %106
@@ -1552,7 +1524,7 @@ if.then8.i.i83:                                   ; preds = %if.then.i.i81
   %call9.i.i84 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i74, ptr noundef null) #10
   %call10.i.i85 = call i32 @qemu_get_thread_id() #10
   %112 = load i64, ptr %_now.i.i74, align 8
-  %tv_usec.i.i86 = getelementptr inbounds %struct.timeval, ptr %_now.i.i74, i64 0, i32 1
+  %tv_usec.i.i86 = getelementptr inbounds i8, ptr %_now.i.i74, i64 8
   %113 = load i64, ptr %tv_usec.i.i86, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i85, i64 noundef %112, i64 noundef %113, ptr noundef nonnull %ctx, i64 noundef %96, i64 noundef %spec.store.select60) #10
   br label %trace_poll_grow.exit
@@ -1574,15 +1546,15 @@ if.end124:                                        ; preds = %if.then75, %if.else
 do.body.i:                                        ; preds = %if.end124, %if.end.i88
   %115 = phi ptr [ %119, %if.end.i88 ], [ %114, %if.end124 ]
   %progress.011.i = phi i1 [ %118, %if.end.i88 ], [ false, %if.end124 ]
-  %node_ready.i = getelementptr inbounds %struct.AioHandler, ptr %115, i64 0, i32 9
+  %node_ready.i = getelementptr inbounds i8, ptr %115, i64 80
   %116 = load ptr, ptr %node_ready.i, align 8
   %cmp.not.i = icmp eq ptr %116, null
-  %le_prev9.phi.trans.insert.i = getelementptr inbounds %struct.AioHandler, ptr %115, i64 0, i32 9, i32 1
+  %le_prev9.phi.trans.insert.i = getelementptr inbounds i8, ptr %115, i64 88
   %.pre12.i = load ptr, ptr %le_prev9.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end.i88, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body.i
-  %le_prev5.i = getelementptr inbounds %struct.AioHandler, ptr %116, i64 0, i32 9, i32 1
+  %le_prev5.i = getelementptr inbounds i8, ptr %116, i64 88
   store ptr %.pre12.i, ptr %le_prev5.i, align 8
   %.pre.i = load ptr, ptr %node_ready.i, align 8
   br label %if.end.i88
@@ -1605,7 +1577,7 @@ aio_dispatch_ready_handlers.exit:                 ; preds = %if.end.i88, %if.end
   %or13358 = or i1 %tobool127, %progress.0.lcssa.i91
   call fastcc void @aio_free_deleted_handlers(ptr noundef %ctx)
   call void @qemu_lockcnt_dec(ptr noundef nonnull %list_lock) #10
-  %tlg = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 19
+  %tlg = getelementptr inbounds i8, ptr %ctx, i64 480
   %call137 = call zeroext i1 @timerlistgroup_run_timers(ptr noundef nonnull %tlg) #10
   %or14159 = or i1 %or13358, %call137
   ret i1 %or14159
@@ -1627,9 +1599,9 @@ declare void @aio_notify_accept(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_context_setup(ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
-  %fdmon_ops = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 29
+  %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
   store ptr @fdmon_poll_ops, ptr %fdmon_ops, align 8
-  %epollfd = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 28
+  %epollfd = getelementptr inbounds i8, ptr %ctx, i64 572
   store i32 -1, ptr %epollfd, align 4
   %call = tail call zeroext i1 @fdmon_io_uring_setup(ptr noundef %ctx) #10
   br i1 %call, label %return, label %if.end
@@ -1670,13 +1642,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_context_set_poll_params(ptr noundef %ctx, i64 noundef %max_ns, i64 noundef %grow, i64 noundef %shrink, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
 entry:
-  %poll_max_ns = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 22
+  %poll_max_ns = getelementptr inbounds i8, ptr %ctx, i64 528
   store i64 %max_ns, ptr %poll_max_ns, align 8
-  %poll_ns = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 21
+  %poll_ns = getelementptr inbounds i8, ptr %ctx, i64 520
   store i64 0, ptr %poll_ns, align 8
-  %poll_grow = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 23
+  %poll_grow = getelementptr inbounds i8, ptr %ctx, i64 536
   store i64 %grow, ptr %poll_grow, align 8
-  %poll_shrink = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 24
+  %poll_shrink = getelementptr inbounds i8, ptr %ctx, i64 544
   store i64 %shrink, ptr %poll_shrink, align 8
   tail call void @aio_notify(ptr noundef %ctx) #10
   ret void
@@ -1685,7 +1657,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_context_set_aio_params(ptr noundef %ctx, i64 noundef %max_batch, ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
 entry:
-  %aio_max_batch = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 25
+  %aio_max_batch = getelementptr inbounds i8, ptr %ctx, i64 552
   store i64 %max_batch, ptr %aio_max_batch, align 8
   tail call void @aio_notify(ptr noundef %ctx) #10
   ret void
@@ -1701,32 +1673,32 @@ declare i32 @qemu_lockcnt_count(ptr noundef) local_unnamed_addr #3
 define internal fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef %node) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %revents1 = getelementptr inbounds %struct._GPollFD, ptr %node, i64 0, i32 2
+  %revents1 = getelementptr inbounds i8, ptr %node, i64 6
   %0 = load i16, ptr %revents1, align 2
-  %events = getelementptr inbounds %struct._GPollFD, ptr %node, i64 0, i32 1
+  %events = getelementptr inbounds i8, ptr %node, i64 4
   %1 = load i16, ptr %events, align 4
   %and62 = and i16 %1, %0
   %and = zext i16 %and62 to i32
   store i16 0, ptr %revents1, align 2
-  %poll_ready6 = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 15
+  %poll_ready6 = getelementptr inbounds i8, ptr %node, i64 152
   %2 = load i8, ptr %poll_ready6, align 8
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
   store i8 0, ptr %poll_ready6, align 8
-  %le_prev = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 10, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %node, i64 104
   %4 = load ptr, ptr %le_prev, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %land.lhs.true, label %if.end145
 
 land.lhs.true:                                    ; preds = %entry
-  %node_poll = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 11
-  %le_prev9 = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 11, i32 1
+  %node_poll = getelementptr inbounds i8, ptr %node, i64 112
+  %le_prev9 = getelementptr inbounds i8, ptr %node, i64 120
   %5 = load ptr, ptr %le_prev9, align 8
   %cmp10.not = icmp eq ptr %5, null
   br i1 %cmp10.not, label %land.lhs.true12, label %if.end38
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
-  %io_poll = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 3
+  %io_poll = getelementptr inbounds i8, ptr %node, i64 24
   %6 = load ptr, ptr %io_poll, align 8
   %tobool13.not = icmp eq ptr %6, null
   br i1 %tobool13.not, label %if.end38, label %if.then
@@ -1757,7 +1729,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %ctx, ptr noundef nonnull %node, i32 noundef %7, i32 noundef %and) #10
   br label %trace_poll_add.exit
@@ -1768,33 +1740,33 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_poll_add.exit:                              ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %poll_started = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 27
+  %poll_started = getelementptr inbounds i8, ptr %ctx, i64 568
   %15 = load i8, ptr %poll_started, align 8
   %16 = and i8 %15, 1
   %tobool15.not = icmp eq i8 %16, 0
   br i1 %tobool15.not, label %do.body, label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %trace_poll_add.exit
-  %io_poll_begin = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 5
+  %io_poll_begin = getelementptr inbounds i8, ptr %node, i64 40
   %17 = load ptr, ptr %io_poll_begin, align 8
   %tobool18.not = icmp eq ptr %17, null
   br i1 %tobool18.not, label %do.body, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true17
-  %opaque = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %node, i64 56
   %18 = load ptr, ptr %opaque, align 8
   tail call void %17(ptr noundef %18) #10
   br label %do.body
 
 do.body:                                          ; preds = %trace_poll_add.exit, %land.lhs.true17, %if.then19
-  %poll_aio_handlers = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 26
+  %poll_aio_handlers = getelementptr inbounds i8, ptr %ctx, i64 560
   %19 = load ptr, ptr %poll_aio_handlers, align 8
   store ptr %19, ptr %node_poll, align 8
   %cmp22.not = icmp eq ptr %19, null
   br i1 %cmp22.not, label %if.end31, label %if.then24
 
 if.then24:                                        ; preds = %do.body
-  %le_prev30 = getelementptr inbounds %struct.AioHandler, ptr %19, i64 0, i32 11, i32 1
+  %le_prev30 = getelementptr inbounds i8, ptr %19, i64 120
   store ptr %node_poll, ptr %le_prev30, align 8
   br label %if.end31
 
@@ -1813,14 +1785,14 @@ if.end38:                                         ; preds = %if.end31, %land.lhs
   br i1 %or.cond63, label %land.lhs.true49, label %if.end113
 
 land.lhs.true49:                                  ; preds = %if.end38
-  %io_poll_ready = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 4
+  %io_poll_ready = getelementptr inbounds i8, ptr %node, i64 32
   %22 = load ptr, ptr %io_poll_ready, align 8
   %tobool50.not = icmp eq ptr %22, null
   br i1 %tobool50.not, label %if.end145, label %do.body52
 
 do.body52:                                        ; preds = %land.lhs.true49
-  %node_poll53 = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 11
-  %le_prev54 = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 11, i32 1
+  %node_poll53 = getelementptr inbounds i8, ptr %node, i64 112
+  %le_prev54 = getelementptr inbounds i8, ptr %node, i64 120
   %23 = load ptr, ptr %le_prev54, align 8
   %cmp55.not = icmp eq ptr %23, null
   br i1 %cmp55.not, label %do.end79, label %if.then57
@@ -1831,7 +1803,7 @@ if.then57:                                        ; preds = %do.body52
   br i1 %cmp60.not, label %if.end69, label %if.then62
 
 if.then62:                                        ; preds = %if.then57
-  %le_prev68 = getelementptr inbounds %struct.AioHandler, ptr %24, i64 0, i32 11, i32 1
+  %le_prev68 = getelementptr inbounds i8, ptr %24, i64 120
   store ptr %23, ptr %le_prev68, align 8
   %.pre76 = load ptr, ptr %node_poll53, align 8
   %.pre77 = load ptr, ptr %le_prev54, align 8
@@ -1847,7 +1819,7 @@ if.end69:                                         ; preds = %if.then62, %if.then
 
 do.end79:                                         ; preds = %do.body52, %if.end69
   %27 = phi ptr [ %22, %do.body52 ], [ %.pre78, %if.end69 ]
-  %opaque81 = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 7
+  %opaque81 = getelementptr inbounds i8, ptr %node, i64 56
   %28 = load ptr, ptr %opaque81, align 8
   tail call void %27(ptr noundef %28) #10
   %29 = load ptr, ptr %le_prev54, align 8
@@ -1855,14 +1827,14 @@ do.end79:                                         ; preds = %do.body52, %if.end6
   br i1 %cmp84.not, label %do.body87, label %if.end109
 
 do.body87:                                        ; preds = %do.end79
-  %poll_aio_handlers88 = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 26
+  %poll_aio_handlers88 = getelementptr inbounds i8, ptr %ctx, i64 560
   %30 = load ptr, ptr %poll_aio_handlers88, align 8
   store ptr %30, ptr %node_poll53, align 8
   %cmp92.not = icmp eq ptr %30, null
   br i1 %cmp92.not, label %if.end101, label %if.then94
 
 if.then94:                                        ; preds = %do.body87
-  %le_prev100 = getelementptr inbounds %struct.AioHandler, ptr %30, i64 0, i32 11, i32 1
+  %le_prev100 = getelementptr inbounds i8, ptr %30, i64 120
   store ptr %node_poll53, ptr %le_prev100, align 8
   br label %if.end101
 
@@ -1873,7 +1845,7 @@ if.end101:                                        ; preds = %if.then94, %do.body
 
 if.end109:                                        ; preds = %if.end101, %do.end79
   %31 = load ptr, ptr %opaque81, align 8
-  %notifier = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 10
+  %notifier = getelementptr inbounds i8, ptr %ctx, i64 204
   %cmp111 = icmp ne ptr %31, %notifier
   br label %return
 
@@ -1885,17 +1857,17 @@ if.end113:                                        ; preds = %if.end38
   br i1 %or.cond64, label %if.end132, label %land.lhs.true121
 
 land.lhs.true121:                                 ; preds = %if.end113
-  %io_read = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 1
+  %io_read = getelementptr inbounds i8, ptr %node, i64 8
   %32 = load ptr, ptr %io_read, align 8
   %tobool122.not = icmp eq ptr %32, null
   br i1 %tobool122.not, label %if.end132, label %if.then123
 
 if.then123:                                       ; preds = %land.lhs.true121
-  %opaque125 = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 7
+  %opaque125 = getelementptr inbounds i8, ptr %node, i64 56
   %33 = load ptr, ptr %opaque125, align 8
   tail call void %32(ptr noundef %33) #10
   %34 = load ptr, ptr %opaque125, align 8
-  %notifier127 = getelementptr inbounds %struct.AioContext, ptr %ctx, i64 0, i32 10
+  %notifier127 = getelementptr inbounds i8, ptr %ctx, i64 204
   %cmp128.not = icmp ne ptr %34, %notifier127
   %spec.select = zext i1 %cmp128.not to i8
   %.pre75 = load ptr, ptr %le_prev, align 8
@@ -1911,13 +1883,13 @@ if.end132:                                        ; preds = %if.then123, %land.l
   br i1 %or.cond65, label %if.end145, label %land.lhs.true140
 
 land.lhs.true140:                                 ; preds = %if.end132
-  %io_write = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 2
+  %io_write = getelementptr inbounds i8, ptr %node, i64 16
   %36 = load ptr, ptr %io_write, align 8
   %tobool141.not = icmp eq ptr %36, null
   br i1 %tobool141.not, label %if.end145, label %if.then142
 
 if.then142:                                       ; preds = %land.lhs.true140
-  %opaque144 = getelementptr inbounds %struct.AioHandler, ptr %node, i64 0, i32 7
+  %opaque144 = getelementptr inbounds i8, ptr %node, i64 56
   %37 = load ptr, ptr %opaque144, align 8
   tail call void %36(ptr noundef %37) #10
   br label %if.end145

@@ -4,25 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.llvh::StringRef" = type { ptr, i64 }
-%"class.llvh::UniqueStringSaver" = type { %"class.llvh::StringSaver", %"class.llvh::DenseSet" }
-%"class.llvh::StringSaver" = type { ptr }
-%"class.llvh::DenseSet" = type { %"class.llvh::detail::DenseSetImpl" }
-%"class.llvh::detail::DenseSetImpl" = type { %"class.llvh::DenseMap" }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.llvh::BumpPtrAllocatorImpl" = type <{ ptr, ptr, %"class.llvh::SmallVector", %"class.llvh::SmallVector.0", i64, i64, %"class.llvh::MallocAllocator", [7 x i8] }>
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [4 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"class.llvh::SmallVector.0" = type { %"class.llvh::SmallVectorImpl.1" }
-%"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
-%"class.llvh::SmallVectorTemplateBase.2" = type { %"class.llvh::SmallVectorTemplateCommon.3" }
-%"class.llvh::SmallVectorTemplateCommon.3" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::MallocAllocator" = type { i8 }
 %"struct.std::pair.6" = type { ptr, i64 }
 %"class.llvh::detail::DenseSetPair" = type { %"class.llvh::StringRef" }
 
@@ -66,9 +47,9 @@ entry:
   %ConstFoundBucket.i.i.i = alloca ptr, align 8
   %S = alloca %"class.llvh::StringRef", align 8
   store ptr %S.coerce0, ptr %S, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %S, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %S, i64 8
   store i64 %S.coerce1, ptr %0, align 8
-  %Unique = getelementptr inbounds %"class.llvh::UniqueStringSaver", ptr %this, i64 0, i32 1
+  %Unique = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !4
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %Unique, ptr noundef nonnull align 8 dereferenceable(16) %S, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !4
   %1 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !4
@@ -115,7 +96,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noalias noundef nonnull ptr @_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(97) %this, i64 noundef %Size, i64 noundef %Alignment) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %BytesAllocated = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 4
+  %BytesAllocated = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %BytesAllocated, align 8
   %add = add i64 %0, %Size
   store i64 %add, ptr %BytesAllocated, align 8
@@ -127,7 +108,7 @@ entry:
   %and.i.i = and i64 %sub.i.i, %not.i.i
   %sub.i = sub i64 %and.i.i, %2
   %add2 = add i64 %sub.i, %Size
-  %End = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 1
+  %End = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %End, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %2
@@ -155,10 +136,10 @@ if.then.i.i:                                      ; preds = %if.then9
   br label %_ZN4llvh15MallocAllocator8AllocateEmm.exit
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit:       ; preds = %if.then9, %if.then.i.i
-  %CustomSizedSlabs = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 3
-  %Size.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %CustomSizedSlabs = getelementptr inbounds i8, ptr %this, i64 64
+  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 76
   %5 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %4, %5
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit, label %if.then.i
@@ -186,8 +167,8 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit: ; pred
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %Slabs.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2
-  %Size.i.i13 = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Slabs.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Size.i.i13 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i32, ptr %Size.i.i13, align 8
   %div1.i.i = lshr i32 %11, 7
   %12 = tail call i32 @llvm.umin.i32(i32 %div1.i.i, i32 30)
@@ -204,13 +185,13 @@ if.then.i.i.i:                                    ; preds = %if.end14
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i:     ; preds = %if.then.i.i.i, %if.end14
   %13 = phi i32 [ %11, %if.end14 ], [ %.pre.i16, %if.then.i.i.i ]
-  %Capacity.i.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %14 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %13, %14
   br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.llvh::BumpPtrAllocatorImpl", ptr %this, i64 0, i32 2, i32 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %Slabs.i, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i = load i32, ptr %Size.i.i13, align 8
   br label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit
@@ -250,7 +231,7 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E15LookupBucketForIS2_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -487,9 +468,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9
 entry:
   %ConstFoundBucket.i9 = alloca ptr, align 8
   %ConstFoundBucket.i = alloca ptr, align 8
-  %NumEntries.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -507,7 +488,7 @@ if.then:                                          ; preds = %entry
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -534,7 +515,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %if.else, 
   br i1 %cmp7.i, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %6, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -548,7 +529,7 @@ if.end18:                                         ; preds = %if.then17, %_ZN4llv
 define linkonce_odr hidden void @_ZN4llvh8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvh8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE15allocateBucketsEj.exit:
   %ConstFoundBucket.i.i = alloca ptr, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -575,9 +556,9 @@ _ZN4llvh8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_E
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
@@ -590,16 +571,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS1_EENS2_12DenseSetPairIS1_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
@@ -612,7 +593,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !11
 
@@ -638,7 +619,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   br label %if.end.i5
 
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
-  %incdec.ptr.i6 = getelementptr inbounds %"class.llvh::detail::DenseSetPair", ptr %B.025.i, i64 1
+  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.025.i, i64 16
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !12
 

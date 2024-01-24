@@ -9,20 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.zip64_dir_trailer_locator = type { [4 x i8], [4 x i8], [8 x i8], [4 x i8], [1 x i8] }
 %struct.zip_dir_trailer = type { [4 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [4 x i8], [4 x i8], [2 x i8], [1 x i8] }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.archiver_args = type { ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, %struct.pathspec, i8, i32, %struct.string_list, ptr }
-%struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.git_zstream = type { %struct.z_stream_s, i64, i64, i64, i64, ptr, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.zip_local_header = type { [4 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [4 x i8], [4 x i8], [4 x i8], [2 x i8], [2 x i8], [1 x i8] }
 %struct.zip_extra_mtime = type { [2 x i8], [2 x i8], [1 x i8], [4 x i8], [1 x i8] }
 %struct.zip64_extra = type { [2 x i8], [2 x i8], [8 x i8], [8 x i8], [1 x i8] }
-%struct.userdiff_driver = type { ptr, ptr, ptr, i32, %struct.userdiff_funcname, ptr, ptr, ptr, ptr, i32 }
-%struct.userdiff_funcname = type { ptr, i32 }
 %struct.zip64_data_desc = type { [4 x i8], [4 x i8], [8 x i8], [8 x i8], [1 x i8] }
 %struct.zip_data_desc = type { [4 x i8], [4 x i8], [4 x i8], [4 x i8], [1 x i8] }
 
@@ -63,7 +54,7 @@ entry:
   %git_time.i = alloca i64, align 8
   %tm.i = alloca %struct.tm, align 8
   tail call void @git_config(ptr noundef nonnull @archive_zip_config, ptr noundef null) #8
-  %git_time = getelementptr inbounds %struct.archiver_args, ptr %args, i64 0, i32 9
+  %git_time = getelementptr inbounds i8, ptr %args, i64 72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %git_time.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
   %0 = load i64, ptr %git_time, align 8
@@ -83,12 +74,12 @@ dos_time.exit:                                    ; preds = %entry
   %call2.i = call ptr @localtime_r(ptr noundef nonnull %git_time.i, ptr noundef nonnull %tm.i) #8
   %3 = load i64, ptr %git_time.i, align 8
   store i64 %3, ptr %git_time, align 8
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %tm.i, i64 12
   %4 = load i32, ptr %tm_mday.i, align 4
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %tm.i, i64 16
   %5 = load i32, ptr %tm_mon.i, align 8
   %add.i = shl i32 %5, 5
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %tm.i, i64 20
   %6 = load i32, ptr %tm_year.i, align 4
   %sub.i = shl i32 %6, 9
   %mul.i = add i32 %4, -40928
@@ -97,11 +88,11 @@ dos_time.exit:                                    ; preds = %entry
   store i32 %add6.i, ptr @zip_date, align 4
   %7 = load i32, ptr %tm.i, align 8
   %div.i = sdiv i32 %7, 2
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %tm.i, i64 4
   %8 = load i32, ptr %tm_min.i, align 4
   %mul7.i = shl nsw i32 %8, 5
   %add8.i = add nsw i32 %mul7.i, %div.i
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %tm.i, i64 8
   %9 = load i32, ptr %tm_hour.i, align 8
   %mul9.i = shl nsw i32 %9, 11
   %add10.i = add nsw i32 %add8.i, %mul9.i
@@ -114,12 +105,12 @@ dos_time.exit:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %dos_time.exit
-  %commit_oid = getelementptr inbounds %struct.archiver_args, ptr %args, i64 0, i32 6
+  %commit_oid = getelementptr inbounds i8, ptr %args, i64 48
   %10 = load ptr, ptr %commit_oid, align 8
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %trailer.i)
   store <4 x i8> <i8 80, i8 75, i8 5, i8 6>, ptr %trailer.i, align 4
-  %disk.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 1
-  %entries_on_this_disk.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 3
+  %disk.i = getelementptr inbounds i8, ptr %trailer.i, i64 4
+  %entries_on_this_disk.i = getelementptr inbounds i8, ptr %trailer.i, i64 8
   store i32 0, ptr %disk.i, align 4
   %11 = load i64, ptr @zip_dir_entries, align 8
   %cmp.not.i.i.i = icmp ult i64 %11, 65536
@@ -129,33 +120,33 @@ if.then:                                          ; preds = %dos_time.exit
   %.sink48.i = select i1 %cmp.not.i.i.i, i8 %conv.i.i.i, i8 -1
   %.sink.i = select i1 %cmp.not.i.i.i, i8 %conv2.i.i.i, i8 -1
   %retval.0.i.i6.i = select i1 %cmp.not.i.i.i, i64 %11, i64 65535
-  %entries.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 4
+  %entries.i = getelementptr inbounds i8, ptr %trailer.i, i64 10
   store i8 %.sink48.i, ptr %entries_on_this_disk.i, align 4
-  %12 = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 3, i64 1
+  %12 = getelementptr inbounds i8, ptr %trailer.i, i64 9
   store i8 %.sink.i, ptr %12, align 1
   %conv.i.i7.i = trunc i64 %retval.0.i.i6.i to i8
   store i8 %conv.i.i7.i, ptr %entries.i, align 2
   %shr.i1.i8.i = lshr i64 %retval.0.i.i6.i, 8
   %conv2.i.i9.i = trunc i64 %shr.i1.i8.i to i8
-  %arrayidx3.i.i10.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 4, i64 1
+  %arrayidx3.i.i10.i = getelementptr inbounds i8, ptr %trailer.i, i64 11
   store i8 %conv2.i.i9.i, ptr %arrayidx3.i.i10.i, align 1
-  %size.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 5
+  %size.i = getelementptr inbounds i8, ptr %trailer.i, i64 12
   %13 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i64 0, i32 1), align 8
   %conv.i.i = trunc i64 %13 to i8
   store i8 %conv.i.i, ptr %size.i, align 4
   %shr.i44.i = lshr i64 %13, 8
   %conv2.i.i = trunc i64 %shr.i44.i to i8
-  %arrayidx3.i13.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 5, i64 1
+  %arrayidx3.i13.i = getelementptr inbounds i8, ptr %trailer.i, i64 13
   store i8 %conv2.i.i, ptr %arrayidx3.i13.i, align 1
   %shr4.i45.i = lshr i64 %13, 16
   %conv6.i.i = trunc i64 %shr4.i45.i to i8
-  %arrayidx7.i14.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 5, i64 2
+  %arrayidx7.i14.i = getelementptr inbounds i8, ptr %trailer.i, i64 14
   store i8 %conv6.i.i, ptr %arrayidx7.i14.i, align 2
   %shr8.i46.i = lshr i64 %13, 24
   %conv10.i.i = trunc i64 %shr8.i46.i to i8
-  %arrayidx11.i15.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 5, i64 3
+  %arrayidx11.i15.i = getelementptr inbounds i8, ptr %trailer.i, i64 15
   store i8 %conv10.i.i, ptr %arrayidx11.i15.i, align 1
-  %offset.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 6
+  %offset.i = getelementptr inbounds i8, ptr %trailer.i, i64 16
   %14 = load i64, ptr @zip_offset, align 8
   %cmp.not.i.i16.i = icmp ult i64 %14, 4294967296
   %spec.select43.i = call i64 @llvm.umin.i64(i64 %14, i64 4294967295)
@@ -163,25 +154,25 @@ if.then:                                          ; preds = %dos_time.exit
   store i8 %conv.i.i18.i, ptr %offset.i, align 4
   %shr.i1.i19.i = lshr i64 %spec.select43.i, 8
   %conv2.i.i20.i = trunc i64 %shr.i1.i19.i to i8
-  %arrayidx3.i.i21.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 6, i64 1
+  %arrayidx3.i.i21.i = getelementptr inbounds i8, ptr %trailer.i, i64 17
   store i8 %conv2.i.i20.i, ptr %arrayidx3.i.i21.i, align 1
   %shr4.i2.i.i = lshr i64 %spec.select43.i, 16
   %conv6.i.i.i = trunc i64 %shr4.i2.i.i to i8
-  %arrayidx7.i.i.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 6, i64 2
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %trailer.i, i64 18
   store i8 %conv6.i.i.i, ptr %arrayidx7.i.i.i, align 2
   %shr8.i3.i.i = lshr i64 %spec.select43.i, 24
   %conv10.i.i.i = trunc i64 %shr8.i3.i.i to i8
-  %arrayidx11.i.i.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 6, i64 3
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %trailer.i, i64 19
   store i8 %conv10.i.i.i, ptr %arrayidx11.i.i.i, align 1
-  %comment_length.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 7
+  %comment_length.i = getelementptr inbounds i8, ptr %trailer.i, i64 20
   %tobool.not.i4 = icmp eq ptr %10, null
   br i1 %tobool.not.i4, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then
   %15 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %15, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %15, i64 256
   %16 = load ptr, ptr %hash_algo.i, align 8
-  %hexsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %16, i64 0, i32 3
+  %hexsz.i = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load i64, ptr %hexsz.i, align 8
   %18 = trunc i64 %17 to i32
   br label %cond.end.i
@@ -192,7 +183,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.th
   store i8 %conv.i23.i, ptr %comment_length.i, align 4
   %shr.i24.i = lshr i32 %cond.i, 8
   %conv2.i25.i = trunc i32 %shr.i24.i to i8
-  %arrayidx3.i26.i = getelementptr inbounds %struct.zip_dir_trailer, ptr %trailer.i, i64 0, i32 7, i64 1
+  %arrayidx3.i26.i = getelementptr inbounds i8, ptr %trailer.i, i64 21
   store i8 %conv2.i25.i, ptr %arrayidx3.i26.i, align 1
   %19 = load ptr, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i64 0, i32 2), align 8
   call void @write_or_die(i32 noundef 1, ptr noundef %19, i64 noundef %13) #8
@@ -203,170 +194,170 @@ if.then.i5:                                       ; preds = %cond.end.i
   call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %trailer64.i.i)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %locator64.i.i)
   store <4 x i8> <i8 80, i8 75, i8 6, i8 6>, ptr %trailer64.i.i, align 4
-  %record_size.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 1
+  %record_size.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 4
   store i8 44, ptr %record_size.i.i, align 4
-  %arrayidx3.i1.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 1, i64 1
-  %creator_version.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 2
+  %arrayidx3.i1.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 5
+  %creator_version.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx3.i1.i.i, i8 0, i64 7, i1 false)
   %20 = load i32, ptr @max_creator_version, align 4
   %conv.i.i30.i = trunc i32 %20 to i8
   store i8 %conv.i.i30.i, ptr %creator_version.i.i, align 4
   %shr.i.i.i = lshr i32 %20, 8
   %conv2.i.i31.i = trunc i32 %shr.i.i.i to i8
-  %arrayidx3.i4.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 2, i64 1
+  %arrayidx3.i4.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 13
   store i8 %conv2.i.i31.i, ptr %arrayidx3.i4.i.i, align 1
-  %version.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 3
+  %version.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 14
   store i8 45, ptr %version.i.i, align 2
-  %arrayidx3.i5.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 3, i64 1
-  %entries_on_this_disk.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6
+  %arrayidx3.i5.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 15
+  %entries_on_this_disk.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %arrayidx3.i5.i.i, i8 0, i64 9, i1 false)
   %21 = load i64, ptr @zip_dir_entries, align 8
   %conv.i12.i.i = trunc i64 %21 to i8
   store i8 %conv.i12.i.i, ptr %entries_on_this_disk.i.i, align 4
   %shr.i13.i.i = lshr i64 %21, 8
   %conv2.i14.i.i = trunc i64 %shr.i13.i.i to i8
-  %arrayidx3.i15.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6, i64 1
+  %arrayidx3.i15.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 25
   store i8 %conv2.i14.i.i, ptr %arrayidx3.i15.i.i, align 1
   %shr4.i.i.i = lshr i64 %21, 16
   %conv6.i.i32.i = trunc i64 %shr4.i.i.i to i8
-  %arrayidx7.i16.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6, i64 2
+  %arrayidx7.i16.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 26
   store i8 %conv6.i.i32.i, ptr %arrayidx7.i16.i.i, align 2
   %shr8.i.i.i = lshr i64 %21, 24
   %conv10.i.i33.i = trunc i64 %shr8.i.i.i to i8
-  %arrayidx11.i17.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6, i64 3
+  %arrayidx11.i17.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 27
   store i8 %conv10.i.i33.i, ptr %arrayidx11.i17.i.i, align 1
   %shr12.i.i.i = lshr i64 %21, 32
   %conv14.i.i.i = trunc i64 %shr12.i.i.i to i8
-  %arrayidx15.i18.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6, i64 4
+  %arrayidx15.i18.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 28
   store i8 %conv14.i.i.i, ptr %arrayidx15.i18.i.i, align 4
   %shr16.i.i.i = lshr i64 %21, 40
   %conv18.i.i.i = trunc i64 %shr16.i.i.i to i8
-  %arrayidx19.i19.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6, i64 5
+  %arrayidx19.i19.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 29
   store i8 %conv18.i.i.i, ptr %arrayidx19.i19.i.i, align 1
   %shr20.i.i.i = lshr i64 %21, 48
   %conv22.i.i.i = trunc i64 %shr20.i.i.i to i8
-  %arrayidx23.i20.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6, i64 6
+  %arrayidx23.i20.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 30
   store i8 %conv22.i.i.i, ptr %arrayidx23.i20.i.i, align 2
   %shr24.i.i.i = lshr i64 %21, 56
   %conv26.i.i.i = trunc i64 %shr24.i.i.i to i8
-  %arrayidx27.i21.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 6, i64 7
+  %arrayidx27.i21.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 31
   store i8 %conv26.i.i.i, ptr %arrayidx27.i21.i.i, align 1
-  %entries.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7
+  %entries.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 32
   store i8 %conv.i12.i.i, ptr %entries.i.i, align 4
-  %arrayidx3.i25.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7, i64 1
+  %arrayidx3.i25.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 33
   store i8 %conv2.i14.i.i, ptr %arrayidx3.i25.i.i, align 1
-  %arrayidx7.i28.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7, i64 2
+  %arrayidx7.i28.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 34
   store i8 %conv6.i.i32.i, ptr %arrayidx7.i28.i.i, align 2
-  %arrayidx11.i31.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7, i64 3
+  %arrayidx11.i31.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 35
   store i8 %conv10.i.i33.i, ptr %arrayidx11.i31.i.i, align 1
-  %arrayidx15.i34.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7, i64 4
+  %arrayidx15.i34.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 36
   store i8 %conv14.i.i.i, ptr %arrayidx15.i34.i.i, align 4
-  %arrayidx19.i37.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7, i64 5
+  %arrayidx19.i37.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 37
   store i8 %conv18.i.i.i, ptr %arrayidx19.i37.i.i, align 1
-  %arrayidx23.i40.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7, i64 6
+  %arrayidx23.i40.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 38
   store i8 %conv22.i.i.i, ptr %arrayidx23.i40.i.i, align 2
-  %arrayidx27.i43.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 7, i64 7
+  %arrayidx27.i43.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 39
   store i8 %conv26.i.i.i, ptr %arrayidx27.i43.i.i, align 1
-  %size.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8
+  %size.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 40
   %22 = load i64, ptr getelementptr inbounds (%struct.strbuf, ptr @zip_dir, i64 0, i32 1), align 8
   %conv.i44.i.i = trunc i64 %22 to i8
   store i8 %conv.i44.i.i, ptr %size.i.i, align 4
   %shr.i45.i.i = lshr i64 %22, 8
   %conv2.i46.i.i = trunc i64 %shr.i45.i.i to i8
-  %arrayidx3.i47.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8, i64 1
+  %arrayidx3.i47.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 41
   store i8 %conv2.i46.i.i, ptr %arrayidx3.i47.i.i, align 1
   %shr4.i48.i.i = lshr i64 %22, 16
   %conv6.i49.i.i = trunc i64 %shr4.i48.i.i to i8
-  %arrayidx7.i50.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8, i64 2
+  %arrayidx7.i50.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 42
   store i8 %conv6.i49.i.i, ptr %arrayidx7.i50.i.i, align 2
   %shr8.i51.i.i = lshr i64 %22, 24
   %conv10.i52.i.i = trunc i64 %shr8.i51.i.i to i8
-  %arrayidx11.i53.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8, i64 3
+  %arrayidx11.i53.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 43
   store i8 %conv10.i52.i.i, ptr %arrayidx11.i53.i.i, align 1
   %shr12.i54.i.i = lshr i64 %22, 32
   %conv14.i55.i.i = trunc i64 %shr12.i54.i.i to i8
-  %arrayidx15.i56.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8, i64 4
+  %arrayidx15.i56.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 44
   store i8 %conv14.i55.i.i, ptr %arrayidx15.i56.i.i, align 4
   %shr16.i57.i.i = lshr i64 %22, 40
   %conv18.i58.i.i = trunc i64 %shr16.i57.i.i to i8
-  %arrayidx19.i59.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8, i64 5
+  %arrayidx19.i59.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 45
   store i8 %conv18.i58.i.i, ptr %arrayidx19.i59.i.i, align 1
   %shr20.i60.i.i = lshr i64 %22, 48
   %conv22.i61.i.i = trunc i64 %shr20.i60.i.i to i8
-  %arrayidx23.i62.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8, i64 6
+  %arrayidx23.i62.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 46
   store i8 %conv22.i61.i.i, ptr %arrayidx23.i62.i.i, align 2
   %shr24.i63.i.i = lshr i64 %22, 56
   %conv26.i64.i.i = trunc i64 %shr24.i63.i.i to i8
-  %arrayidx27.i65.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 8, i64 7
+  %arrayidx27.i65.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 47
   store i8 %conv26.i64.i.i, ptr %arrayidx27.i65.i.i, align 1
-  %offset.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9
+  %offset.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 48
   %23 = load i64, ptr @zip_offset, align 8
   %conv.i66.i.i = trunc i64 %23 to i8
   store i8 %conv.i66.i.i, ptr %offset.i.i, align 4
   %shr.i67.i.i = lshr i64 %23, 8
   %conv2.i68.i.i = trunc i64 %shr.i67.i.i to i8
-  %arrayidx3.i69.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9, i64 1
+  %arrayidx3.i69.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 49
   store i8 %conv2.i68.i.i, ptr %arrayidx3.i69.i.i, align 1
   %shr4.i70.i.i = lshr i64 %23, 16
   %conv6.i71.i.i = trunc i64 %shr4.i70.i.i to i8
-  %arrayidx7.i72.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9, i64 2
+  %arrayidx7.i72.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 50
   store i8 %conv6.i71.i.i, ptr %arrayidx7.i72.i.i, align 2
   %shr8.i73.i.i = lshr i64 %23, 24
   %conv10.i74.i.i = trunc i64 %shr8.i73.i.i to i8
-  %arrayidx11.i75.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9, i64 3
+  %arrayidx11.i75.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 51
   store i8 %conv10.i74.i.i, ptr %arrayidx11.i75.i.i, align 1
   %shr12.i76.i.i = lshr i64 %23, 32
   %conv14.i77.i.i = trunc i64 %shr12.i76.i.i to i8
-  %arrayidx15.i78.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9, i64 4
+  %arrayidx15.i78.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 52
   store i8 %conv14.i77.i.i, ptr %arrayidx15.i78.i.i, align 4
   %shr16.i79.i.i = lshr i64 %23, 40
   %conv18.i80.i.i = trunc i64 %shr16.i79.i.i to i8
-  %arrayidx19.i81.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9, i64 5
+  %arrayidx19.i81.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 53
   store i8 %conv18.i80.i.i, ptr %arrayidx19.i81.i.i, align 1
   %shr20.i82.i.i = lshr i64 %23, 48
   %conv22.i83.i.i = trunc i64 %shr20.i82.i.i to i8
-  %arrayidx23.i84.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9, i64 6
+  %arrayidx23.i84.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 54
   store i8 %conv22.i83.i.i, ptr %arrayidx23.i84.i.i, align 2
   %shr24.i85.i.i = lshr i64 %23, 56
   %conv26.i86.i.i = trunc i64 %shr24.i85.i.i to i8
-  %arrayidx27.i87.i.i = getelementptr inbounds %struct.zip64_dir_trailer, ptr %trailer64.i.i, i64 0, i32 9, i64 7
+  %arrayidx27.i87.i.i = getelementptr inbounds i8, ptr %trailer64.i.i, i64 55
   store i8 %conv26.i86.i.i, ptr %arrayidx27.i87.i.i, align 1
   store <4 x i8> <i8 80, i8 75, i8 6, i8 7>, ptr %locator64.i.i, align 4
-  %disk12.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 1
-  %offset14.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2
+  %disk12.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 4
+  %offset14.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 8
   %add.i.i = add i64 %23, %22
   %conv.i94.i.i = trunc i64 %add.i.i to i8
   store i32 0, ptr %disk12.i.i, align 4
   store i8 %conv.i94.i.i, ptr %offset14.i.i, align 4
   %shr.i95.i.i = lshr i64 %add.i.i, 8
   %conv2.i96.i.i = trunc i64 %shr.i95.i.i to i8
-  %arrayidx3.i97.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2, i64 1
+  %arrayidx3.i97.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 9
   store i8 %conv2.i96.i.i, ptr %arrayidx3.i97.i.i, align 1
   %shr4.i98.i.i = lshr i64 %add.i.i, 16
   %conv6.i99.i.i = trunc i64 %shr4.i98.i.i to i8
-  %arrayidx7.i100.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2, i64 2
+  %arrayidx7.i100.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 10
   store i8 %conv6.i99.i.i, ptr %arrayidx7.i100.i.i, align 2
   %shr8.i101.i.i = lshr i64 %add.i.i, 24
   %conv10.i102.i.i = trunc i64 %shr8.i101.i.i to i8
-  %arrayidx11.i103.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2, i64 3
+  %arrayidx11.i103.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 11
   store i8 %conv10.i102.i.i, ptr %arrayidx11.i103.i.i, align 1
   %shr12.i104.i.i = lshr i64 %add.i.i, 32
   %conv14.i105.i.i = trunc i64 %shr12.i104.i.i to i8
-  %arrayidx15.i106.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2, i64 4
+  %arrayidx15.i106.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 12
   store i8 %conv14.i105.i.i, ptr %arrayidx15.i106.i.i, align 4
   %shr16.i107.i.i = lshr i64 %add.i.i, 40
   %conv18.i108.i.i = trunc i64 %shr16.i107.i.i to i8
-  %arrayidx19.i109.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2, i64 5
+  %arrayidx19.i109.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 13
   store i8 %conv18.i108.i.i, ptr %arrayidx19.i109.i.i, align 1
   %shr20.i110.i.i = lshr i64 %add.i.i, 48
   %conv22.i111.i.i = trunc i64 %shr20.i110.i.i to i8
-  %arrayidx23.i112.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2, i64 6
+  %arrayidx23.i112.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 14
   store i8 %conv22.i111.i.i, ptr %arrayidx23.i112.i.i, align 2
   %shr24.i113.i.i = lshr i64 %add.i.i, 56
   %conv26.i114.i.i = trunc i64 %shr24.i113.i.i to i8
-  %arrayidx27.i115.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 2, i64 7
+  %arrayidx27.i115.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 15
   store i8 %conv26.i114.i.i, ptr %arrayidx27.i115.i.i, align 1
-  %number_of_disks.i.i = getelementptr inbounds %struct.zip64_dir_trailer_locator, ptr %locator64.i.i, i64 0, i32 3
+  %number_of_disks.i.i = getelementptr inbounds i8, ptr %locator64.i.i, i64 16
   store <4 x i8> <i8 1, i8 0, i8 0, i8 0>, ptr %number_of_disks.i.i, align 4
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %trailer64.i.i, i64 noundef 56) #8
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %locator64.i.i, i64 noundef 20) #8
@@ -381,9 +372,9 @@ if.end.i:                                         ; preds = %if.then.i5, %cond.e
 if.then11.i:                                      ; preds = %if.end.i
   %call.i6 = call ptr @oid_to_hex(ptr noundef nonnull %10) #8
   %24 = load ptr, ptr @the_repository, align 8
-  %hash_algo12.i = getelementptr inbounds %struct.repository, ptr %24, i64 0, i32 15
+  %hash_algo12.i = getelementptr inbounds i8, ptr %24, i64 256
   %25 = load ptr, ptr %hash_algo12.i, align 8
-  %hexsz13.i = getelementptr inbounds %struct.git_hash_algo, ptr %25, i64 0, i32 3
+  %hexsz13.i = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load i64, ptr %hexsz13.i, align 8
   call void @write_or_die(i32 noundef 1, ptr noundef %call.i6, i64 noundef %26) #8
   br label %write_zip_trailer.exit
@@ -425,7 +416,7 @@ entry:
   %compressed = alloca [32768 x i8], align 16
   store i64 %size, ptr %size.addr, align 8
   %0 = load i64, ptr @zip_offset, align 8
-  %baselen = getelementptr inbounds %struct.archiver_args, ptr %args, i64 0, i32 4
+  %baselen = getelementptr inbounds i8, ptr %args, i64 32
   %1 = load i64, ptr %baselen, align 8
   %add.ptr = getelementptr inbounds i8, ptr %path, i64 %1
   %call = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #8
@@ -515,7 +506,7 @@ cond.end37:                                       ; preds = %if.then27
   br i1 %cmp21, label %land.lhs.true, label %if.end57
 
 land.lhs.true:                                    ; preds = %cond.end37
-  %compression_level = getelementptr inbounds %struct.archiver_args, ptr %args, i64 0, i32 12
+  %compression_level = getelementptr inbounds i8, ptr %args, i64 108
   %5 = load i32, ptr %compression_level, align 4
   %cmp51 = icmp eq i32 %5, 0
   %cmp54 = icmp eq i64 %size, 0
@@ -561,7 +552,7 @@ if.else69:                                        ; preds = %if.end57
   %conv70 = trunc i64 %size to i32
   %call71 = tail call i64 @crc32(i64 noundef %call, ptr noundef nonnull %buffer, i32 noundef %conv70) #8
   %8 = load ptr, ptr %args, align 8
-  %index = getelementptr inbounds %struct.repository, ptr %8, i64 0, i32 13
+  %index = getelementptr inbounds i8, ptr %8, i64 240
   %9 = load ptr, ptr %index, align 8
   %call.i130 = tail call ptr @userdiff_find_by_path(ptr noundef %9, ptr noundef %add.ptr) #8
   %tobool.not.i = icmp eq ptr %call.i130, null
@@ -573,7 +564,7 @@ if.then.i:                                        ; preds = %if.else69
 
 if.end.i131:                                      ; preds = %if.then.i, %if.else69
   %driver.0.i = phi ptr [ %call.i130, %if.else69 ], [ %call1.i, %if.then.i ]
-  %binary.i = getelementptr inbounds %struct.userdiff_driver, ptr %driver.0.i, i64 0, i32 3
+  %binary.i = getelementptr inbounds i8, ptr %driver.0.i, i64 24
   %10 = load i32, ptr %binary.i, align 8
   %cmp.not.i = icmp eq i32 %10, -1
   br i1 %cmp.not.i, label %if.end4.i, label %if.end87
@@ -619,19 +610,19 @@ if.end91:                                         ; preds = %if.then90, %if.end8
   br i1 %or.cond1, label %if.then96, label %if.end105
 
 if.then96:                                        ; preds = %if.end91
-  %compression_level97 = getelementptr inbounds %struct.archiver_args, ptr %args, i64 0, i32 12
+  %compression_level97 = getelementptr inbounds i8, ptr %args, i64 108
   %14 = load i32, ptr %compression_level97, align 4
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %stream.i)
   call void @git_deflate_init_raw(ptr noundef nonnull %stream.i, i32 noundef %14) #8
   %call.i139 = call i64 @git_deflate_bound(ptr noundef nonnull %stream.i, i64 noundef %12) #8
   %call1.i140 = call ptr @xmalloc(i64 noundef %call.i139) #8
-  %next_in.i = getelementptr inbounds %struct.git_zstream, ptr %stream.i, i64 0, i32 5
+  %next_in.i = getelementptr inbounds i8, ptr %stream.i, i64 144
   store ptr %buffer, ptr %next_in.i, align 8
-  %avail_in.i = getelementptr inbounds %struct.git_zstream, ptr %stream.i, i64 0, i32 1
+  %avail_in.i = getelementptr inbounds i8, ptr %stream.i, i64 112
   store i64 %12, ptr %avail_in.i, align 8
-  %next_out.i = getelementptr inbounds %struct.git_zstream, ptr %stream.i, i64 0, i32 6
+  %next_out.i = getelementptr inbounds i8, ptr %stream.i, i64 152
   store ptr %call1.i140, ptr %next_out.i, align 8
-  %avail_out.i = getelementptr inbounds %struct.git_zstream, ptr %stream.i, i64 0, i32 2
+  %avail_out.i = getelementptr inbounds i8, ptr %stream.i, i64 120
   store i64 %call.i139, ptr %avail_out.i, align 8
   br label %do.body.i
 
@@ -650,7 +641,7 @@ zlib_deflate_raw.exit.thread:                     ; preds = %do.body.i
 
 zlib_deflate_raw.exit:                            ; preds = %do.body.i
   call void @git_deflate_end(ptr noundef nonnull %stream.i) #8
-  %total_out.i = getelementptr inbounds %struct.git_zstream, ptr %stream.i, i64 0, i32 4
+  %total_out.i = getelementptr inbounds i8, ptr %stream.i, i64 136
   %15 = load i64, ptr %total_out.i, align 8
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %stream.i)
   %tobool99.not = icmp eq ptr %call1.i140, null
@@ -677,24 +668,24 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %out.2 = phi ptr [ %call1.i140, %lor.lhs.false100 ], [ %buffer, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ %buffer, %zlib_deflate_raw.exit.thread ], [ %buffer, %zlib_deflate_raw.exit ], [ %buffer, %if.then103 ]
   %deflated.0 = phi ptr [ %call1.i140, %lor.lhs.false100 ], [ null, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ null, %zlib_deflate_raw.exit.thread ], [ null, %zlib_deflate_raw.exit ], [ %call1.i140, %if.then103 ]
   store <4 x i8> <i8 85, i8 84, i8 5, i8 0>, ptr %extra, align 4
-  %flags107 = getelementptr inbounds %struct.zip_extra_mtime, ptr %extra, i64 0, i32 2
+  %flags107 = getelementptr inbounds i8, ptr %extra, i64 4
   store i8 1, ptr %flags107, align 4
-  %mtime = getelementptr inbounds %struct.zip_extra_mtime, ptr %extra, i64 0, i32 3
-  %git_time = getelementptr inbounds %struct.archiver_args, ptr %args, i64 0, i32 9
+  %mtime = getelementptr inbounds i8, ptr %extra, i64 5
+  %git_time = getelementptr inbounds i8, ptr %args, i64 72
   %17 = load i64, ptr %git_time, align 8
   %conv.i = trunc i64 %17 to i8
   store i8 %conv.i, ptr %mtime, align 1
   %shr.i741 = lshr i64 %17, 8
   %conv2.i = trunc i64 %shr.i741 to i8
-  %arrayidx3.i145 = getelementptr inbounds %struct.zip_extra_mtime, ptr %extra, i64 0, i32 3, i64 1
+  %arrayidx3.i145 = getelementptr inbounds i8, ptr %extra, i64 6
   store i8 %conv2.i, ptr %arrayidx3.i145, align 2
   %shr4.i742 = lshr i64 %17, 16
   %conv6.i = trunc i64 %shr4.i742 to i8
-  %arrayidx7.i = getelementptr inbounds %struct.zip_extra_mtime, ptr %extra, i64 0, i32 3, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %extra, i64 7
   store i8 %conv6.i, ptr %arrayidx7.i, align 1
   %shr8.i743 = lshr i64 %17, 24
   %conv10.i = trunc i64 %shr8.i743 to i8
-  %arrayidx11.i = getelementptr inbounds %struct.zip_extra_mtime, ptr %extra, i64 0, i32 3, i64 3
+  %arrayidx11.i = getelementptr inbounds i8, ptr %extra, i64 8
   store i8 %conv10.i, ptr %arrayidx11.i, align 4
   %cmp110 = icmp ult i64 %16, 4294967296
   %cmp113 = icmp ult i64 %compressed_size.1, 4294967296
@@ -705,55 +696,55 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %18 = select i1 %or.cond3, i1 %cmp110, i1 false
   %narrow = select i1 %18, i1 %cmp113, i1 false
   store <4 x i8> <i8 80, i8 75, i8 3, i8 4>, ptr %header, align 4
-  %version = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 1
+  %version = getelementptr inbounds i8, ptr %header, i64 4
   %conv.i149 = select i1 %narrow, i8 10, i8 45
   store i8 %conv.i149, ptr %version, align 4
-  %arrayidx3.i150 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 1, i64 1
+  %arrayidx3.i150 = getelementptr inbounds i8, ptr %header, i64 5
   store i8 0, ptr %arrayidx3.i150, align 1
-  %flags129 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 2
+  %flags129 = getelementptr inbounds i8, ptr %header, i64 6
   %conv.i151 = trunc i64 %flags.2715732 to i8
   store i8 %conv.i151, ptr %flags129, align 2
   %shr.i152744 = lshr i64 %flags.2715732, 8
   %conv2.i153 = trunc i64 %shr.i152744 to i8
-  %arrayidx3.i154 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 2, i64 1
+  %arrayidx3.i154 = getelementptr inbounds i8, ptr %header, i64 7
   store i8 %conv2.i153, ptr %arrayidx3.i154, align 1
-  %compression_method = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 3
+  %compression_method = getelementptr inbounds i8, ptr %header, i64 8
   %conv.i155 = trunc i32 %method.2 to i8
   store i8 %conv.i155, ptr %compression_method, align 4
-  %arrayidx3.i158 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 3, i64 1
+  %arrayidx3.i158 = getelementptr inbounds i8, ptr %header, i64 9
   store i8 0, ptr %arrayidx3.i158, align 1
-  %mtime133 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 4
+  %mtime133 = getelementptr inbounds i8, ptr %header, i64 10
   %19 = load i32, ptr @zip_time, align 4
   %conv.i159 = trunc i32 %19 to i8
   store i8 %conv.i159, ptr %mtime133, align 2
   %shr.i160 = lshr i32 %19, 8
   %conv2.i161 = trunc i32 %shr.i160 to i8
-  %arrayidx3.i162 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 4, i64 1
+  %arrayidx3.i162 = getelementptr inbounds i8, ptr %header, i64 11
   store i8 %conv2.i161, ptr %arrayidx3.i162, align 1
-  %mdate = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 5
+  %mdate = getelementptr inbounds i8, ptr %header, i64 12
   %20 = load i32, ptr @zip_date, align 4
   %conv.i163 = trunc i32 %20 to i8
   store i8 %conv.i163, ptr %mdate, align 4
   %shr.i164 = lshr i32 %20, 8
   %conv2.i165 = trunc i32 %shr.i164 to i8
-  %arrayidx3.i166 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 5, i64 1
+  %arrayidx3.i166 = getelementptr inbounds i8, ptr %header, i64 13
   store i8 %conv2.i165, ptr %arrayidx3.i166, align 1
-  %crc32.i167 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 6
+  %crc32.i167 = getelementptr inbounds i8, ptr %header, i64 14
   %conv.i.i168 = trunc i64 %crc.1711734 to i8
   store i8 %conv.i.i168, ptr %crc32.i167, align 2
   %shr.i23.i169 = lshr i64 %crc.1711734, 8
   %conv2.i.i170 = trunc i64 %shr.i23.i169 to i8
-  %arrayidx3.i.i171 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 6, i64 1
+  %arrayidx3.i.i171 = getelementptr inbounds i8, ptr %header, i64 15
   store i8 %conv2.i.i170, ptr %arrayidx3.i.i171, align 1
   %shr4.i24.i172 = lshr i64 %crc.1711734, 16
   %conv6.i.i173 = trunc i64 %shr4.i24.i172 to i8
-  %arrayidx7.i.i174 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 6, i64 2
+  %arrayidx7.i.i174 = getelementptr inbounds i8, ptr %header, i64 16
   store i8 %conv6.i.i173, ptr %arrayidx7.i.i174, align 4
   %shr8.i25.i175 = lshr i64 %crc.1711734, 24
   %conv10.i.i176 = trunc i64 %shr8.i25.i175 to i8
-  %arrayidx11.i.i177 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 6, i64 3
+  %arrayidx11.i.i177 = getelementptr inbounds i8, ptr %header, i64 17
   store i8 %conv10.i.i176, ptr %arrayidx11.i.i177, align 1
-  %compressed_size1.i178 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 7
+  %compressed_size1.i178 = getelementptr inbounds i8, ptr %header, i64 18
   br i1 %narrow, label %if.else138, label %if.then137
 
 if.then137:                                       ; preds = %if.end105
@@ -787,30 +778,30 @@ if.end139:                                        ; preds = %if.else138, %if.the
   %.sink772 = phi i8 [ %conv6.i18.i, %if.else138 ], [ -1, %if.then137 ]
   %.sink = phi i8 [ %conv10.i21.i, %if.else138 ], [ -1, %if.then137 ]
   %header_extra_size.0 = phi i8 [ 9, %if.else138 ], [ 29, %if.then137 ]
-  %21 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 7, i64 1
+  %21 = getelementptr inbounds i8, ptr %header, i64 19
   store i8 %.sink777, ptr %21, align 1
-  %22 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 7, i64 2
+  %22 = getelementptr inbounds i8, ptr %header, i64 20
   store i8 %.sink776, ptr %22, align 4
-  %23 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 7, i64 3
+  %23 = getelementptr inbounds i8, ptr %header, i64 21
   store i8 %.sink775, ptr %23, align 1
-  %24 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 8
+  %24 = getelementptr inbounds i8, ptr %header, i64 22
   store i8 %.sink774, ptr %24, align 2
-  %25 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 8, i64 1
+  %25 = getelementptr inbounds i8, ptr %header, i64 23
   store i8 %.sink773, ptr %25, align 1
-  %26 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 8, i64 2
+  %26 = getelementptr inbounds i8, ptr %header, i64 24
   store i8 %.sink772, ptr %26, align 4
-  %27 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 8, i64 3
+  %27 = getelementptr inbounds i8, ptr %header, i64 25
   store i8 %.sink, ptr %27, align 1
-  %filename_length = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 9
+  %filename_length = getelementptr inbounds i8, ptr %header, i64 26
   %conv.i186 = trunc i64 %pathlen to i8
   store i8 %conv.i186, ptr %filename_length, align 2
   %shr.i187745 = lshr i64 %pathlen, 8
   %conv2.i188 = trunc i64 %shr.i187745 to i8
-  %arrayidx3.i189 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 9, i64 1
+  %arrayidx3.i189 = getelementptr inbounds i8, ptr %header, i64 27
   store i8 %conv2.i188, ptr %arrayidx3.i189, align 1
-  %extra_length = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 10
+  %extra_length = getelementptr inbounds i8, ptr %header, i64 28
   store i8 %header_extra_size.0, ptr %extra_length, align 4
-  %arrayidx3.i191 = getelementptr inbounds %struct.zip_local_header, ptr %header, i64 0, i32 10, i64 1
+  %arrayidx3.i191 = getelementptr inbounds i8, ptr %header, i64 29
   store i8 0, ptr %arrayidx3.i191, align 1
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %header, i64 noundef 30) #8
   %28 = load i64, ptr @zip_offset, align 8
@@ -828,68 +819,68 @@ if.end139:                                        ; preds = %if.else138, %if.the
 
 if.then148:                                       ; preds = %if.end139
   store <4 x i8> <i8 1, i8 0, i8 16, i8 0>, ptr %extra64, align 4
-  %size153 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2
+  %size153 = getelementptr inbounds i8, ptr %extra64, i64 4
   %31 = load i64, ptr %size.addr, align 8
   %conv.i194 = trunc i64 %31 to i8
   store i8 %conv.i194, ptr %size153, align 4
   %shr.i195 = lshr i64 %31, 8
   %conv2.i196 = trunc i64 %shr.i195 to i8
-  %arrayidx3.i197 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2, i64 1
+  %arrayidx3.i197 = getelementptr inbounds i8, ptr %extra64, i64 5
   store i8 %conv2.i196, ptr %arrayidx3.i197, align 1
   %shr4.i198 = lshr i64 %31, 16
   %conv6.i199 = trunc i64 %shr4.i198 to i8
-  %arrayidx7.i200 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2, i64 2
+  %arrayidx7.i200 = getelementptr inbounds i8, ptr %extra64, i64 6
   store i8 %conv6.i199, ptr %arrayidx7.i200, align 2
   %shr8.i201 = lshr i64 %31, 24
   %conv10.i202 = trunc i64 %shr8.i201 to i8
-  %arrayidx11.i203 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2, i64 3
+  %arrayidx11.i203 = getelementptr inbounds i8, ptr %extra64, i64 7
   store i8 %conv10.i202, ptr %arrayidx11.i203, align 1
   %shr12.i = lshr i64 %31, 32
   %conv14.i = trunc i64 %shr12.i to i8
-  %arrayidx15.i = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2, i64 4
+  %arrayidx15.i = getelementptr inbounds i8, ptr %extra64, i64 8
   store i8 %conv14.i, ptr %arrayidx15.i, align 4
   %shr16.i = lshr i64 %31, 40
   %conv18.i = trunc i64 %shr16.i to i8
-  %arrayidx19.i = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2, i64 5
+  %arrayidx19.i = getelementptr inbounds i8, ptr %extra64, i64 9
   store i8 %conv18.i, ptr %arrayidx19.i, align 1
   %shr20.i = lshr i64 %31, 48
   %conv22.i = trunc i64 %shr20.i to i8
-  %arrayidx23.i = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2, i64 6
+  %arrayidx23.i = getelementptr inbounds i8, ptr %extra64, i64 10
   store i8 %conv22.i, ptr %arrayidx23.i, align 2
   %shr24.i = lshr i64 %31, 56
   %conv26.i = trunc i64 %shr24.i to i8
-  %arrayidx27.i = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 2, i64 7
+  %arrayidx27.i = getelementptr inbounds i8, ptr %extra64, i64 11
   store i8 %conv26.i, ptr %arrayidx27.i, align 1
-  %compressed_size155 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3
+  %compressed_size155 = getelementptr inbounds i8, ptr %extra64, i64 12
   %conv.i204 = trunc i64 %compressed_size.1 to i8
   store i8 %conv.i204, ptr %compressed_size155, align 4
   %shr.i205 = lshr i64 %compressed_size.1, 8
   %conv2.i206 = trunc i64 %shr.i205 to i8
-  %arrayidx3.i207 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3, i64 1
+  %arrayidx3.i207 = getelementptr inbounds i8, ptr %extra64, i64 13
   store i8 %conv2.i206, ptr %arrayidx3.i207, align 1
   %shr4.i208 = lshr i64 %compressed_size.1, 16
   %conv6.i209 = trunc i64 %shr4.i208 to i8
-  %arrayidx7.i210 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3, i64 2
+  %arrayidx7.i210 = getelementptr inbounds i8, ptr %extra64, i64 14
   store i8 %conv6.i209, ptr %arrayidx7.i210, align 2
   %shr8.i211 = lshr i64 %compressed_size.1, 24
   %conv10.i212 = trunc i64 %shr8.i211 to i8
-  %arrayidx11.i213 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3, i64 3
+  %arrayidx11.i213 = getelementptr inbounds i8, ptr %extra64, i64 15
   store i8 %conv10.i212, ptr %arrayidx11.i213, align 1
   %shr12.i214 = lshr i64 %compressed_size.1, 32
   %conv14.i215 = trunc i64 %shr12.i214 to i8
-  %arrayidx15.i216 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3, i64 4
+  %arrayidx15.i216 = getelementptr inbounds i8, ptr %extra64, i64 16
   store i8 %conv14.i215, ptr %arrayidx15.i216, align 4
   %shr16.i217 = lshr i64 %compressed_size.1, 40
   %conv18.i218 = trunc i64 %shr16.i217 to i8
-  %arrayidx19.i219 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3, i64 5
+  %arrayidx19.i219 = getelementptr inbounds i8, ptr %extra64, i64 17
   store i8 %conv18.i218, ptr %arrayidx19.i219, align 1
   %shr20.i220 = lshr i64 %compressed_size.1, 48
   %conv22.i221 = trunc i64 %shr20.i220 to i8
-  %arrayidx23.i222 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3, i64 6
+  %arrayidx23.i222 = getelementptr inbounds i8, ptr %extra64, i64 18
   store i8 %conv22.i221, ptr %arrayidx23.i222, align 2
   %shr24.i223 = lshr i64 %compressed_size.1, 56
   %conv26.i224 = trunc i64 %shr24.i223 to i8
-  %arrayidx27.i225 = getelementptr inbounds %struct.zip64_extra, ptr %extra64, i64 0, i32 3, i64 7
+  %arrayidx27.i225 = getelementptr inbounds i8, ptr %extra64, i64 19
   store i8 %conv26.i224, ptr %arrayidx27.i225, align 1
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %extra64, i64 noundef 20) #8
   %32 = load i64, ptr @zip_offset, align 8
@@ -918,7 +909,7 @@ if.end169:                                        ; preds = %for.cond.preheader,
 
 if.then175:                                       ; preds = %if.end169
   %33 = load ptr, ptr %args, align 8
-  %index177 = getelementptr inbounds %struct.repository, ptr %33, i64 0, i32 13
+  %index177 = getelementptr inbounds i8, ptr %33, i64 240
   %34 = load ptr, ptr %index177, align 8
   %call.i226 = call ptr @userdiff_find_by_path(ptr noundef %34, ptr noundef %add.ptr) #8
   %tobool.not.i227 = icmp eq ptr %call.i226, null
@@ -930,7 +921,7 @@ if.then.i235:                                     ; preds = %if.then175
 
 if.end.i228:                                      ; preds = %if.then.i235, %if.then175
   %driver.0.i229 = phi ptr [ %call.i226, %if.then175 ], [ %call1.i236, %if.then.i235 ]
-  %binary.i230 = getelementptr inbounds %struct.userdiff_driver, ptr %driver.0.i229, i64 0, i32 3
+  %binary.i230 = getelementptr inbounds i8, ptr %driver.0.i229, i64 24
   %35 = load i32, ptr %binary.i230, align 8
   %cmp.not.i231 = icmp eq i32 %35, -1
   br i1 %cmp.not.i231, label %if.end4.i233, label %if.end180
@@ -972,20 +963,20 @@ if.else188:                                       ; preds = %if.end158
   br i1 %or.cond5, label %if.then193, label %if.else256
 
 if.then193:                                       ; preds = %if.else188
-  %compression_level196 = getelementptr inbounds %struct.archiver_args, ptr %args, i64 0, i32 12
+  %compression_level196 = getelementptr inbounds i8, ptr %args, i64 108
   %38 = load i32, ptr %compression_level196, align 4
   call void @git_deflate_init_raw(ptr noundef nonnull %zstream, i32 noundef %38) #8
-  %next_out = getelementptr inbounds %struct.git_zstream, ptr %zstream, i64 0, i32 6
+  %next_out = getelementptr inbounds i8, ptr %zstream, i64 152
   store ptr %compressed, ptr %next_out, align 8
-  %avail_out = getelementptr inbounds %struct.git_zstream, ptr %zstream, i64 0, i32 2
+  %avail_out = getelementptr inbounds i8, ptr %zstream, i64 120
   store i64 32768, ptr %avail_out, align 8
   %call200750 = call i64 @read_istream(ptr noundef nonnull %stream.1714733, ptr noundef nonnull %buf194, i64 noundef 16384) #8
   %cmp201751 = icmp slt i64 %call200750, 1
   br i1 %cmp201751, label %for.end234, label %if.end204.lr.ph
 
 if.end204.lr.ph:                                  ; preds = %if.then193
-  %next_in = getelementptr inbounds %struct.git_zstream, ptr %zstream, i64 0, i32 5
-  %avail_in = getelementptr inbounds %struct.git_zstream, ptr %zstream, i64 0, i32 1
+  %next_in = getelementptr inbounds i8, ptr %zstream, i64 144
+  %avail_in = getelementptr inbounds i8, ptr %zstream, i64 112
   %sub.ptr.rhs.cast = ptrtoint ptr %compressed to i64
   br label %if.end204
 
@@ -1001,7 +992,7 @@ if.end204:                                        ; preds = %if.end204.lr.ph, %i
 
 if.then210:                                       ; preds = %if.end204
   %39 = load ptr, ptr %args, align 8
-  %index212 = getelementptr inbounds %struct.repository, ptr %39, i64 0, i32 13
+  %index212 = getelementptr inbounds i8, ptr %39, i64 240
   %40 = load ptr, ptr %index212, align 8
   %call.i238 = call ptr @userdiff_find_by_path(ptr noundef %40, ptr noundef %add.ptr) #8
   %tobool.not.i239 = icmp eq ptr %call.i238, null
@@ -1013,7 +1004,7 @@ if.then.i247:                                     ; preds = %if.then210
 
 if.end.i240:                                      ; preds = %if.then.i247, %if.then210
   %driver.0.i241 = phi ptr [ %call.i238, %if.then210 ], [ %call1.i248, %if.then.i247 ]
-  %binary.i242 = getelementptr inbounds %struct.userdiff_driver, ptr %driver.0.i241, i64 0, i32 3
+  %binary.i242 = getelementptr inbounds i8, ptr %driver.0.i241, i64 24
   %41 = load i32, ptr %binary.i242, align 8
   %cmp.not.i243 = icmp eq i32 %41, -1
   br i1 %cmp.not.i243, label %if.end4.i245, label %if.end215
@@ -1069,9 +1060,9 @@ if.then237:                                       ; preds = %for.end234
   br label %return
 
 if.end239:                                        ; preds = %for.end234
-  %next_in241 = getelementptr inbounds %struct.git_zstream, ptr %zstream, i64 0, i32 5
+  %next_in241 = getelementptr inbounds i8, ptr %zstream, i64 144
   store ptr %buf194, ptr %next_in241, align 8
-  %avail_in242 = getelementptr inbounds %struct.git_zstream, ptr %zstream, i64 0, i32 1
+  %avail_in242 = getelementptr inbounds i8, ptr %zstream, i64 112
   store i64 0, ptr %avail_in242, align 8
   %call243 = call i32 @git_deflate(ptr noundef nonnull %zstream, i32 noundef 4) #8
   %cmp244.not = icmp eq i32 %call243, 1
@@ -2010,108 +2001,108 @@ entry:
 
 if.then:                                          ; preds = %entry
   store <4 x i8> <i8 80, i8 75, i8 7, i8 8>, ptr %trailer, align 4
-  %crc32 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 1
+  %crc32 = getelementptr inbounds i8, ptr %trailer, i64 4
   store i8 %conv.i, ptr %crc32, align 4
-  %arrayidx3.i6 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 1, i64 1
+  %arrayidx3.i6 = getelementptr inbounds i8, ptr %trailer, i64 5
   store i8 %conv2.i, ptr %arrayidx3.i6, align 1
-  %arrayidx7.i7 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 1, i64 2
+  %arrayidx7.i7 = getelementptr inbounds i8, ptr %trailer, i64 6
   store i8 %conv6.i, ptr %arrayidx7.i7, align 2
-  %arrayidx11.i8 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 1, i64 3
+  %arrayidx11.i8 = getelementptr inbounds i8, ptr %trailer, i64 7
   store i8 %conv10.i, ptr %arrayidx11.i8, align 1
-  %compressed_size3 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2
+  %compressed_size3 = getelementptr inbounds i8, ptr %trailer, i64 8
   store i8 %conv.i9, ptr %compressed_size3, align 4
-  %arrayidx3.i12 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2, i64 1
+  %arrayidx3.i12 = getelementptr inbounds i8, ptr %trailer, i64 9
   store i8 %conv2.i11, ptr %arrayidx3.i12, align 1
-  %arrayidx7.i15 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2, i64 2
+  %arrayidx7.i15 = getelementptr inbounds i8, ptr %trailer, i64 10
   store i8 %conv6.i14, ptr %arrayidx7.i15, align 2
   %shr8.i16 = lshr i64 %compressed_size, 24
   %conv10.i17 = trunc i64 %shr8.i16 to i8
-  %arrayidx11.i18 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2, i64 3
+  %arrayidx11.i18 = getelementptr inbounds i8, ptr %trailer, i64 11
   store i8 %conv10.i17, ptr %arrayidx11.i18, align 1
   %shr12.i = lshr i64 %compressed_size, 32
   %conv14.i = trunc i64 %shr12.i to i8
-  %arrayidx15.i = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2, i64 4
+  %arrayidx15.i = getelementptr inbounds i8, ptr %trailer, i64 12
   store i8 %conv14.i, ptr %arrayidx15.i, align 4
   %shr16.i = lshr i64 %compressed_size, 40
   %conv18.i = trunc i64 %shr16.i to i8
-  %arrayidx19.i = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2, i64 5
+  %arrayidx19.i = getelementptr inbounds i8, ptr %trailer, i64 13
   store i8 %conv18.i, ptr %arrayidx19.i, align 1
   %shr20.i = lshr i64 %compressed_size, 48
   %conv22.i = trunc i64 %shr20.i to i8
-  %arrayidx23.i = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2, i64 6
+  %arrayidx23.i = getelementptr inbounds i8, ptr %trailer, i64 14
   store i8 %conv22.i, ptr %arrayidx23.i, align 2
   %shr24.i = lshr i64 %compressed_size, 56
   %conv26.i = trunc i64 %shr24.i to i8
-  %arrayidx27.i = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 2, i64 7
+  %arrayidx27.i = getelementptr inbounds i8, ptr %trailer, i64 15
   store i8 %conv26.i, ptr %arrayidx27.i, align 1
-  %size5 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3
+  %size5 = getelementptr inbounds i8, ptr %trailer, i64 16
   %conv.i19 = trunc i64 %size to i8
   store i8 %conv.i19, ptr %size5, align 4
   %shr.i20 = lshr i64 %size, 8
   %conv2.i21 = trunc i64 %shr.i20 to i8
-  %arrayidx3.i22 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3, i64 1
+  %arrayidx3.i22 = getelementptr inbounds i8, ptr %trailer, i64 17
   store i8 %conv2.i21, ptr %arrayidx3.i22, align 1
   %shr4.i23 = lshr i64 %size, 16
   %conv6.i24 = trunc i64 %shr4.i23 to i8
-  %arrayidx7.i25 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3, i64 2
+  %arrayidx7.i25 = getelementptr inbounds i8, ptr %trailer, i64 18
   store i8 %conv6.i24, ptr %arrayidx7.i25, align 2
   %shr8.i26 = lshr i64 %size, 24
   %conv10.i27 = trunc i64 %shr8.i26 to i8
-  %arrayidx11.i28 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3, i64 3
+  %arrayidx11.i28 = getelementptr inbounds i8, ptr %trailer, i64 19
   store i8 %conv10.i27, ptr %arrayidx11.i28, align 1
   %shr12.i29 = lshr i64 %size, 32
   %conv14.i30 = trunc i64 %shr12.i29 to i8
-  %arrayidx15.i31 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3, i64 4
+  %arrayidx15.i31 = getelementptr inbounds i8, ptr %trailer, i64 20
   store i8 %conv14.i30, ptr %arrayidx15.i31, align 4
   %shr16.i32 = lshr i64 %size, 40
   %conv18.i33 = trunc i64 %shr16.i32 to i8
-  %arrayidx19.i34 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3, i64 5
+  %arrayidx19.i34 = getelementptr inbounds i8, ptr %trailer, i64 21
   store i8 %conv18.i33, ptr %arrayidx19.i34, align 1
   %shr20.i35 = lshr i64 %size, 48
   %conv22.i36 = trunc i64 %shr20.i35 to i8
-  %arrayidx23.i37 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3, i64 6
+  %arrayidx23.i37 = getelementptr inbounds i8, ptr %trailer, i64 22
   store i8 %conv22.i36, ptr %arrayidx23.i37, align 2
   %shr24.i38 = lshr i64 %size, 56
   %conv26.i39 = trunc i64 %shr24.i38 to i8
-  %arrayidx27.i40 = getelementptr inbounds %struct.zip64_data_desc, ptr %trailer, i64 0, i32 3, i64 7
+  %arrayidx27.i40 = getelementptr inbounds i8, ptr %trailer, i64 23
   store i8 %conv26.i39, ptr %arrayidx27.i40, align 1
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %trailer, i64 noundef 24) #8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store <4 x i8> <i8 80, i8 75, i8 7, i8 8>, ptr %trailer7, align 4
-  %crc3210 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 1
+  %crc3210 = getelementptr inbounds i8, ptr %trailer7, i64 4
   store i8 %conv.i, ptr %crc3210, align 4
-  %arrayidx3.i47 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 1, i64 1
+  %arrayidx3.i47 = getelementptr inbounds i8, ptr %trailer7, i64 5
   store i8 %conv2.i, ptr %arrayidx3.i47, align 1
-  %arrayidx7.i50 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 1, i64 2
+  %arrayidx7.i50 = getelementptr inbounds i8, ptr %trailer7, i64 6
   store i8 %conv6.i, ptr %arrayidx7.i50, align 2
-  %arrayidx11.i53 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 1, i64 3
+  %arrayidx11.i53 = getelementptr inbounds i8, ptr %trailer7, i64 7
   store i8 %conv10.i, ptr %arrayidx11.i53, align 1
-  %compressed_size13 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 2
+  %compressed_size13 = getelementptr inbounds i8, ptr %trailer7, i64 8
   store i8 %conv.i9, ptr %compressed_size13, align 4
-  %arrayidx3.i57 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 2, i64 1
+  %arrayidx3.i57 = getelementptr inbounds i8, ptr %trailer7, i64 9
   store i8 %conv2.i11, ptr %arrayidx3.i57, align 1
-  %arrayidx7.i60 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 2, i64 2
+  %arrayidx7.i60 = getelementptr inbounds i8, ptr %trailer7, i64 10
   store i8 %conv6.i14, ptr %arrayidx7.i60, align 2
   %shr8.i6179 = lshr i64 %compressed_size, 24
   %conv10.i62 = trunc i64 %shr8.i6179 to i8
-  %arrayidx11.i63 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 2, i64 3
+  %arrayidx11.i63 = getelementptr inbounds i8, ptr %trailer7, i64 11
   store i8 %conv10.i62, ptr %arrayidx11.i63, align 1
-  %size16 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 3
+  %size16 = getelementptr inbounds i8, ptr %trailer7, i64 12
   %conv.i64 = trunc i64 %size to i8
   store i8 %conv.i64, ptr %size16, align 4
   %shr.i6580 = lshr i64 %size, 8
   %conv2.i66 = trunc i64 %shr.i6580 to i8
-  %arrayidx3.i67 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 3, i64 1
+  %arrayidx3.i67 = getelementptr inbounds i8, ptr %trailer7, i64 13
   store i8 %conv2.i66, ptr %arrayidx3.i67, align 1
   %shr4.i6881 = lshr i64 %size, 16
   %conv6.i69 = trunc i64 %shr4.i6881 to i8
-  %arrayidx7.i70 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 3, i64 2
+  %arrayidx7.i70 = getelementptr inbounds i8, ptr %trailer7, i64 14
   store i8 %conv6.i69, ptr %arrayidx7.i70, align 2
   %shr8.i7182 = lshr i64 %size, 24
   %conv10.i72 = trunc i64 %shr8.i7182 to i8
-  %arrayidx11.i73 = getelementptr inbounds %struct.zip_data_desc, ptr %trailer7, i64 0, i32 3, i64 3
+  %arrayidx11.i73 = getelementptr inbounds i8, ptr %trailer7, i64 15
   store i8 %conv10.i72, ptr %arrayidx11.i73, align 1
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %trailer7, i64 noundef 16) #8
   br label %if.end

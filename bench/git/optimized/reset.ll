@@ -16,10 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.index_state = type { ptr, i32, i32, i32, i32, ptr, ptr, ptr, %struct.cache_time, i8, i32, %struct.hashmap, %struct.hashmap, %struct.object_id, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.cache_time = type { i32, i32 }
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.reset_head_opts = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"refs/\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"reset.c\00", align 1
@@ -56,9 +52,9 @@ entry:
   %lock = alloca %struct.lock_file, align 8
   %unpack_tree_opts = alloca %struct.unpack_trees_options, align 8
   %0 = load ptr, ptr %opts, align 8
-  %branch = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 2
+  %branch = getelementptr inbounds i8, ptr %opts, i64 16
   %1 = load ptr, ptr %branch, align 8
-  %flags = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %opts, i64 24
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, 2
   %and3 = and i32 %2, 8
@@ -79,7 +75,7 @@ if.then:                                          ; preds = %land.lhs.true
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %orig_head_msg = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 6
+  %orig_head_msg = getelementptr inbounds i8, ptr %opts, i64 48
   %3 = load ptr, ptr %orig_head_msg, align 8
   %tobool7 = icmp eq ptr %3, null
   %tobool9 = icmp ne i32 %and5, 0
@@ -91,7 +87,7 @@ if.then10:                                        ; preds = %if.end
   unreachable
 
 if.end11:                                         ; preds = %if.end
-  %branch_msg = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 4
+  %branch_msg = getelementptr inbounds i8, ptr %opts, i64 32
   %4 = load ptr, ptr %branch_msg, align 8
   %tobool12.not = icmp eq ptr %4, null
   br i1 %tobool12.not, label %if.end17, label %land.lhs.true13
@@ -153,25 +149,25 @@ if.end40:                                         ; preds = %if.end33
   %tobool41.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool41.not, ptr @.str.8, ptr @.str.7
   call void @setup_unpack_trees_porcelain(ptr noundef nonnull %unpack_tree_opts, ptr noundef nonnull %cond) #9
-  %head_idx = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 21
+  %head_idx = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 104
   store i32 1, ptr %head_idx, align 8
-  %index = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 13
+  %index = getelementptr inbounds i8, ptr %r, i64 240
   %7 = load ptr, ptr %index, align 8
-  %src_index = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 25
+  %src_index = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 136
   store ptr %7, ptr %src_index, align 8
-  %dst_index = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 24
+  %dst_index = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 128
   store ptr %7, ptr %dst_index, align 8
   %cond44 = select i1 %tobool41.not, ptr @twoway_merge, ptr @oneway_merge
-  %fn = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 20
+  %fn = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 96
   store ptr %cond44, ptr %fn, align 8
-  %update = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 1
+  %update = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 4
   store i32 1, ptr %update, align 4
   store i32 1, ptr %unpack_tree_opts, align 8
-  %preserve_ignored = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 2
+  %preserve_ignored = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 8
   store i32 0, ptr %preserve_ignored, align 8
-  %skip_cache_tree_update = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 15
+  %skip_cache_tree_update = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 60
   store i32 1, ptr %skip_cache_tree_update, align 4
-  %meta = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 26
+  %meta = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 144
   call void @init_checkout_metadata(ptr noundef nonnull %meta, ptr noundef %1, ptr noundef nonnull %spec.store.select, ptr noundef null) #9
   br i1 %tobool41.not, label %if.end47, label %if.end47.thread
 
@@ -181,7 +177,7 @@ if.end47:                                         ; preds = %if.end40
   br i1 %cmp49, label %if.then50, label %land.lhs.true56
 
 if.end47.thread:                                  ; preds = %if.end40
-  %reset = getelementptr inbounds %struct.unpack_trees_options, ptr %unpack_tree_opts, i64 0, i32 16
+  %reset = getelementptr inbounds i8, ptr %unpack_tree_opts, i64 64
   store i32 2, ptr %reset, align 8
   %call4865 = call i32 @repo_read_index_unmerged(ptr noundef nonnull %r) #9
   %cmp4966 = icmp slt i32 %call4865, 0
@@ -328,22 +324,22 @@ define internal fastcc i32 @update_refs(ptr nocapture noundef readonly %opts, pt
 entry:
   %oid_old_orig = alloca %struct.object_id, align 4
   %msg = alloca %struct.strbuf, align 8
-  %flags = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %opts, i64 24
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %and2 = and i32 %0, 4
   %and4 = and i32 %0, 16
-  %orig_head5 = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 1
+  %orig_head5 = getelementptr inbounds i8, ptr %opts, i64 8
   %1 = load ptr, ptr %orig_head5, align 8
-  %branch = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 2
+  %branch = getelementptr inbounds i8, ptr %opts, i64 16
   %2 = load ptr, ptr %branch, align 8
-  %branch_msg = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 4
+  %branch_msg = getelementptr inbounds i8, ptr %opts, i64 32
   %3 = load ptr, ptr %branch_msg, align 8
-  %head_msg = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 5
+  %head_msg = getelementptr inbounds i8, ptr %opts, i64 40
   %4 = load ptr, ptr %head_msg, align 8
-  %orig_head_msg = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 6
+  %orig_head_msg = getelementptr inbounds i8, ptr %opts, i64 48
   %5 = load ptr, ptr %orig_head_msg, align 8
-  %default_reflog_action6 = getelementptr inbounds %struct.reset_head_opts, ptr %opts, i64 0, i32 7
+  %default_reflog_action6 = getelementptr inbounds i8, ptr %opts, i64 56
   %6 = load ptr, ptr %default_reflog_action6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %msg, ptr noundef nonnull align 8 dereferenceable(24) @__const.update_refs.msg, i64 24, i1 false)
   %tobool = icmp eq i32 %and4, 0
@@ -366,13 +362,13 @@ if.end:                                           ; preds = %if.then
   %tobool11.not = icmp eq ptr %call, null
   %cond = select i1 %tobool11.not, ptr %6, ptr %call
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef nonnull @.str.15, ptr noundef nonnull %cond) #9
-  %len.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %msg, i64 0, i32 1
+  %len.phi.trans.insert = getelementptr inbounds i8, ptr %msg, i64 8
   %.pre = load i64, ptr %len.phi.trans.insert, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %entry, %if.end
   %7 = phi i64 [ 0, %entry ], [ %.pre, %if.end ]
-  %len = getelementptr inbounds %struct.strbuf, ptr %msg, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %msg, i64 8
   br i1 %tobool, label %if.end35, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
@@ -388,7 +384,7 @@ if.then20:                                        ; preds = %if.then14
 
 if.then22:                                        ; preds = %if.then20
   call void @strbuf_add(ptr noundef nonnull %msg, ptr noundef nonnull @.str.17, i64 noundef 18) #9
-  %buf = getelementptr inbounds %struct.strbuf, ptr %msg, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %msg, i64 16
   %9 = load ptr, ptr %buf, align 8
   br label %if.end23
 
@@ -421,7 +417,7 @@ if.then.i:                                        ; preds = %if.then37
 
 if.end.i:                                         ; preds = %if.then37
   store i64 %7, ptr %len, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %msg, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %msg, i64 16
   %11 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %11, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i

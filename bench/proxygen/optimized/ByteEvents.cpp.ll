@@ -8,17 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.proxygen::ByteEvent" = type { ptr, %"class.boost::intrusive::list_member_hook", i64, %"class.std::function" }
-%"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.proxygen::PingByteEvent" = type { %"class.proxygen::ByteEvent", %"class.std::chrono::time_point" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.0" }
-%"class.std::chrono::duration.0" = type { i64 }
 
 $_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA2_cPKcA3_cmS7_EEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISC_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSF_EEEE5valueESC_E4typeEDpRKSE_ = comdat any
 
@@ -70,7 +59,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_9B
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca i64, align 8
-  %eventType_ = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %be, i64 0, i32 2
+  %eventType_ = getelementptr inbounds i8, ptr %be, i64 24
   %bf.load = load i64, ptr %eventType_, align 8
   %bf.cast = and i64 %bf.load, 7
   %arrayidx = getelementptr inbounds [6 x ptr], ptr @_ZN8proxygenL12kTypeStringsE, i64 0, i64 %bf.cast
@@ -102,7 +91,7 @@ entry:
   store ptr %agg.result, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %sizes.i.i.i)
   store i64 2, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %0 = load ptr, ptr %vs1, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i, label %cond.true.i.i.i.i
@@ -114,9 +103,9 @@ cond.true.i.i.i.i:                                ; preds = %entry
 _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %entry
   %cond.i.i.i.i = phi i64 [ %call.i5.i.i.i, %cond.true.i.i.i.i ], [ 0, %entry ]
   store i64 %cond.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element13.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element13.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   store i64 3, ptr %arrayinit.element13.i.i.i, align 16
-  %arrayinit.element16.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 3
+  %arrayinit.element16.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 24
   %1 = load i64, ptr %vs5, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -141,9 +130,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i.i, ptr %arrayinit.element16.i.i.i, align 8
-  %arrayinit.element19.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 4
+  %arrayinit.element19.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 2, ptr %arrayinit.element19.i.i.i, align 16
-  %arrayinit.element22.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 5
+  %arrayinit.element22.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 40
   store i64 0, ptr %arrayinit.element22.i.i.i, align 8
   br label %for.body.i.i.i
 
@@ -184,7 +173,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i64 @_ZN8proxygen13PingByteEvent10getLatencyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
-  %pingRequestReceivedTime_ = getelementptr inbounds %"class.proxygen::PingByteEvent", ptr %this, i64 0, i32 1
+  %pingRequestReceivedTime_ = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %pingRequestReceivedTime_, align 8
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #8
   %sub.i.i.i.i = sub nsw i64 %call.i.i, %agg.tmp.sroa.0.0.copyload
@@ -196,13 +185,13 @@ entry:
 define linkonce_odr void @_ZN8proxygen13PingByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN8proxygen9ByteEventD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %callback_.i = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3
+  %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
   %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -221,13 +210,13 @@ _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %entry, %if.then.i.i
 define linkonce_odr void @_ZN8proxygen13PingByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8proxygen13PingByteEventD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %callback_.i.i = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3
+  %callback_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i.i, i32 noundef 3)
           to label %_ZN8proxygen13PingByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -253,13 +242,13 @@ entry:
 define linkonce_odr void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %callback_ = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_, ptr noundef nonnull align 8 dereferenceable(16) %callback_, i32 noundef 3)
           to label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -278,13 +267,13 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %entry, %if.then.i
 define linkonce_odr void @_ZN8proxygen9ByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen9ByteEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN8proxygen9ByteEventD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %callback_.i = getelementptr inbounds %"class.proxygen::ByteEvent", ptr %this, i64 0, i32 3
+  %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
   %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %callback_.i, i32 noundef 3)
           to label %_ZN8proxygen9ByteEventD2Ev.exit unwind label %terminate.lpad.i.i.i
 

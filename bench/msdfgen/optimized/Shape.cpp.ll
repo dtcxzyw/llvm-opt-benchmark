@@ -4,18 +4,17 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.msdfgen::Shape::Bounds" = type { double, double, double, double }
-%"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.msdfgen::Contour" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.msdfgen::EdgeHolder" = type { ptr }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl" }
 %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.msdfgen::Scanline::Intersection" = type { double, i32 }
+%"class.msdfgen::Contour" = type { %"class.std::vector.0" }
+%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
+%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" }
+%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl" = type { %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.Intersection = type { double, i32, i32 }
 
 $_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
@@ -49,9 +48,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen5Shape10addContourERKNS_7ContourE(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(24) %contour) local_unnamed_addr #1 align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -59,7 +58,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %contour)
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE9push_backERKS1_.exit
 
@@ -74,9 +73,9 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE9push_backERKS1_.exit: ; preds = %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen5Shape10addContourEONS_7ContourE(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(24) %contour) local_unnamed_addr #1 align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -84,17 +83,17 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %2 = load ptr, ptr %contour, align 8
   store ptr %2, ptr %0, align 8
-  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %0, i64 0, i32 1
-  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_finish3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %contour, i64 8
   %3 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_finish.i.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %0, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %contour, i64 16
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contour, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %5, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE9push_backEOS1_.exit
 
@@ -109,7 +108,7 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE9push_backEOS1_.exit: ; preds = %if.then.
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -130,7 +129,7 @@ if.then5.i:                                       ; preds = %entry
 for.body.i.i.i.i.i:                               ; preds = %if.then5.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i ], [ %1, %if.then5.i ]
   %2 = load ptr, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
@@ -138,7 +137,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then5.i, %_ZSt8_
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
@@ -156,7 +155,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
@@ -166,7 +165,7 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN7msd
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE6resizeEm.exit: ; preds = %if.then.i, %if.then5.i, %invoke.cont.i.i
   %5 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.then5.i ], [ %1, %invoke.cont.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %5, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -24
   ret ptr %add.ptr.i.i
 }
 
@@ -174,7 +173,7 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE6resizeEm.exit: ; preds = %if.then.i, %if
 define dso_local noundef zeroext i1 @_ZNK7msdfgen5Shape8validateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not25 = icmp eq ptr %0, %1
   br i1 %cmp.i.not25, label %return, label %for.body
@@ -182,16 +181,16 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc45
   %contour.sroa.0.026 = phi ptr [ %incdec.ptr.i6, %for.inc45 ], [ %0, %entry ]
   %2 = load ptr, ptr %contour.sroa.0.026, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.026, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.026, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %for.inc45, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %3, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   %call11 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %vtable = load ptr, ptr %call11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %4 = load ptr, ptr %vfn, align 8
   %call12 = tail call { double, double } %4(ptr noundef nonnull align 8 dereferenceable(12) %call11, double noundef 1.000000e+00)
   %5 = load ptr, ptr %contour.sroa.0.026, align 8
@@ -211,7 +210,7 @@ if.end:                                           ; preds = %for.body24
   %corner.sroa.0.024 = extractvalue { double, double } %call42.pn, 0
   %call29 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.022)
   %vtable30 = load ptr, ptr %call29, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 5
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 40
   %7 = load ptr, ptr %vfn31, align 8
   %call32 = tail call { double, double } %7(ptr noundef nonnull align 8 dereferenceable(12) %call29, double noundef 0.000000e+00)
   %8 = extractvalue { double, double } %call32, 0
@@ -224,16 +223,16 @@ if.end:                                           ; preds = %for.body24
 if.end36:                                         ; preds = %if.end
   %call39 = tail call noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.022)
   %vtable40 = load ptr, ptr %call39, align 8
-  %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 5
+  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 40
   %11 = load ptr, ptr %vfn41, align 8
   %call42 = tail call { double, double } %11(ptr noundef nonnull align 8 dereferenceable(12) %call39, double noundef 1.000000e+00)
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.022, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.022, i64 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i4.not = icmp eq ptr %incdec.ptr.i, %12
   br i1 %cmp.i4.not, label %for.inc45, label %for.body24, !llvm.loop !8
 
 for.inc45:                                        ; preds = %if.end36, %if.then, %for.body
-  %incdec.ptr.i6 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.026, i64 1
+  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %contour.sroa.0.026, i64 24
   %13 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i6, %13
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !9
@@ -260,19 +259,19 @@ entry:
   %ref.tmp22 = alloca %"class.msdfgen::EdgeHolder", align 8
   %ref.tmp28 = alloca %"class.msdfgen::EdgeHolder", align 8
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not69 = icmp eq ptr %0, %1
   br i1 %cmp.i.not69, label %for.end70, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx12 = getelementptr inbounds [3 x ptr], ptr %parts, i64 0, i64 1
-  %arrayidx13 = getelementptr inbounds [3 x ptr], ptr %parts, i64 0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %parts, i64 8
+  %arrayidx13 = getelementptr inbounds i8, ptr %parts, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc68
   %contour.sroa.0.070 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i51, %for.inc68 ]
-  %_M_finish.i3 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.070, i64 0, i32 1
+  %_M_finish.i3 = getelementptr inbounds i8, ptr %contour.sroa.0.070, i64 8
   %2 = load ptr, ptr %_M_finish.i3, align 8
   %3 = load ptr, ptr %contour.sroa.0.070, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -285,7 +284,7 @@ if.then:                                          ; preds = %for.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %parts, i8 0, i64 24, i1 false)
   %call11 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %vtable = load ptr, ptr %call11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(12) %call11, ptr noundef nonnull align 8 dereferenceable(8) %parts, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx12, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx13)
   %5 = load ptr, ptr %contour.sroa.0.070, align 8
@@ -296,7 +295,7 @@ if.then:                                          ; preds = %for.body
 for.body.i.i.i.i.i:                               ; preds = %if.then, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %5, %if.then ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !5
 
@@ -307,7 +306,7 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
 _ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE5clearEv.exit: ; preds = %if.then, %invoke.cont.i.i
   %7 = load ptr, ptr %parts, align 16
   store ptr %7, ptr %ref.tmp18, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.070, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.070, i64 16
   %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, %8
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -318,7 +317,7 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7msdf
 
 .noexc:                                           ; preds = %if.then.i.i
   %9 = load ptr, ptr %_M_finish.i3, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %9, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i3, align 8
   br label %invoke.cont
 
@@ -341,7 +340,7 @@ if.then.i.i9:                                     ; preds = %invoke.cont
 
 .noexc12:                                         ; preds = %if.then.i.i9
   %13 = load ptr, ptr %_M_finish.i3, align 8
-  %incdec.ptr.i.i10 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %13, i64 1
+  %incdec.ptr.i.i10 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i.i10, ptr %_M_finish.i3, align 8
   br label %invoke.cont25
 
@@ -364,7 +363,7 @@ if.then.i.i18:                                    ; preds = %invoke.cont25
 
 .noexc21:                                         ; preds = %if.then.i.i18
   %17 = load ptr, ptr %_M_finish.i3, align 8
-  %incdec.ptr.i.i19 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %17, i64 1
+  %incdec.ptr.i.i19 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i19, ptr %_M_finish.i3, align 8
   br label %invoke.cont31
 
@@ -396,7 +395,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp.i26.not66, label %for.inc68, label %for.body46.preheader
 
 for.body46.preheader:                             ; preds = %if.else
-  %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %2, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.preheader, %if.end
@@ -404,14 +403,14 @@ for.body46:                                       ; preds = %for.body46.preheade
   %edge.sroa.0.067 = phi ptr [ %incdec.ptr.i, %if.end ], [ %3, %for.body46.preheader ]
   %call48 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %prevEdge.068)
   %vtable49 = load ptr, ptr %call48, align 8
-  %vfn50 = getelementptr inbounds ptr, ptr %vtable49, i64 6
+  %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 48
   %21 = load ptr, ptr %vfn50, align 8
   %call51 = call { double, double } %21(ptr noundef nonnull align 8 dereferenceable(12) %call48, double noundef 1.000000e+00)
   %22 = extractvalue { double, double } %call51, 0
   %23 = extractvalue { double, double } %call51, 1
   %call55 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.067)
   %vtable56 = load ptr, ptr %call55, align 8
-  %vfn57 = getelementptr inbounds ptr, ptr %vtable56, i64 6
+  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 48
   %24 = load ptr, ptr %vfn57, align 8
   %call58 = call { double, double } %24(ptr noundef nonnull align 8 dereferenceable(12) %call55, double noundef 0.000000e+00)
   %25 = extractvalue { double, double } %call58, 0
@@ -445,7 +444,7 @@ if.then63:                                        ; preds = %for.body46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %prevEdge.068)
   %vtable.i = load ptr, ptr %call.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %43 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(12) %call.i)
   switch i32 %call1.i, label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit [
@@ -485,7 +484,7 @@ _ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit: ; preds = %if.then63, %sw.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i37)
   %call.i38 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.067)
   %vtable.i39 = load ptr, ptr %call.i38, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 3
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 24
   %45 = load ptr, ptr %vfn.i40, align 8
   %call1.i41 = call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(12) %call.i38)
   switch i32 %call1.i41, label %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50 [
@@ -519,13 +518,13 @@ _ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50: ; preds = %_ZN7msdfgenL1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN7msdfgenL14deconvergeEdgeERNS_10EdgeHolderEi.exit50, %for.body46
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.067, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.067, i64 8
   %47 = load ptr, ptr %_M_finish.i3, align 8
   %cmp.i26.not = icmp eq ptr %incdec.ptr.i, %47
   br i1 %cmp.i26.not, label %for.inc68, label %for.body46, !llvm.loop !10
 
 for.inc68:                                        ; preds = %if.end, %if.else, %invoke.cont31
-  %incdec.ptr.i51 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.070, i64 1
+  %incdec.ptr.i51 = getelementptr inbounds i8, ptr %contour.sroa.0.070, i64 24
   %48 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i51, %48
   br i1 %cmp.i.not, label %for.end70, label %for.body, !llvm.loop !11
@@ -548,7 +547,7 @@ declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenc
 define dso_local void @_ZNK7msdfgen5Shape5boundERdS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(8) %t) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3 = icmp eq ptr %0, %1
   br i1 %cmp.i.not3, label %for.end, label %for.body
@@ -556,7 +555,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %contour.sroa.0.04 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   tail call void @_ZNK7msdfgen7Contour5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.04, ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(8) %t)
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.04, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %contour.sroa.0.04, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !12
@@ -571,7 +570,7 @@ declare void @_ZNK7msdfgen7Contour5boundERdS1_S1_S1_(ptr noundef nonnull align 8
 define dso_local void @_ZNK7msdfgen5Shape11boundMitersERdS1_S1_S1_ddi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(8) %t, double noundef %border, double noundef %miterLimit, i32 noundef %polarity) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not3 = icmp eq ptr %0, %1
   br i1 %cmp.i.not3, label %for.end, label %for.body
@@ -579,7 +578,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %contour.sroa.0.04 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   tail call void @_ZNK7msdfgen7Contour11boundMitersERdS1_S1_S1_ddi(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.04, ptr noundef nonnull align 8 dereferenceable(8) %l, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(8) %t, double noundef %border, double noundef %miterLimit, i32 noundef %polarity)
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.04, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %contour.sroa.0.04, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !13
@@ -594,11 +593,11 @@ declare void @_ZNK7msdfgen7Contour11boundMitersERdS1_S1_S1_ddi(ptr noundef nonnu
 define dso_local void @_ZNK7msdfgen5Shape9getBoundsEddi(ptr noalias sret(%"struct.msdfgen::Shape::Bounds") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, double noundef %border, double noundef %miterLimit, i32 noundef %polarity) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) @__const._ZNK7msdfgen5Shape9getBoundsEddi.bounds, i64 32, i1 false)
-  %b = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %agg.result, i64 0, i32 1
-  %r = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %agg.result, i64 0, i32 2
-  %t = getelementptr inbounds %"struct.msdfgen::Shape::Bounds", ptr %agg.result, i64 0, i32 3
+  %b = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %r = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %t = getelementptr inbounds i8, ptr %agg.result, i64 24
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not3.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not3.i, label %_ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit, label %for.body.i
@@ -606,7 +605,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %contour.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %0, %entry ]
   tail call void @_ZNK7msdfgen7Contour5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.04.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(8) %t)
-  %incdec.ptr.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.04.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %contour.sroa.0.04.i, i64 24
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.not.i, label %_ZNK7msdfgen5Shape5boundERdS1_S1_S1_.exit, label %for.body.i, !llvm.loop !12
@@ -634,7 +633,7 @@ if.then:                                          ; preds = %_ZNK7msdfgen5Shape5
 for.body.i9:                                      ; preds = %if.then, %for.body.i9
   %contour.sroa.0.04.i10 = phi ptr [ %incdec.ptr.i.i11, %for.body.i9 ], [ %10, %if.then ]
   tail call void @_ZNK7msdfgen7Contour11boundMitersERdS1_S1_S1_ddi(ptr noundef nonnull align 8 dereferenceable(24) %contour.sroa.0.04.i10, ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull align 8 dereferenceable(8) %t, double noundef %border, double noundef %miterLimit, i32 noundef %polarity)
-  %incdec.ptr.i.i11 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.04.i10, i64 1
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %contour.sroa.0.04.i10, i64 24
   %11 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not.i12 = icmp eq ptr %incdec.ptr.i.i11, %11
   br i1 %cmp.i.not.i12, label %if.end14, label %for.body.i9, !llvm.loop !13
@@ -651,14 +650,14 @@ entry:
   %dy = alloca [3 x i32], align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %intersections, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not32 = icmp eq ptr %0, %1
   br i1 %cmp.i.not32, label %for.end33, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i6 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl_data", ptr %intersections, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Scanline::Intersection, std::allocator<msdfgen::Scanline::Intersection>>::_Vector_impl_data", ptr %intersections, i64 0, i32 2
+  %_M_finish.i6 = getelementptr inbounds i8, ptr %intersections, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %intersections, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc31
@@ -666,7 +665,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = phi ptr [ null, %for.body.lr.ph ], [ %20, %for.inc31 ]
   %contour.sroa.0.033 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i11, %for.inc31 ]
   %4 = load ptr, ptr %contour.sroa.0.033, align 8
-  %_M_finish.i4 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.033, i64 0, i32 1
+  %_M_finish.i4 = getelementptr inbounds i8, ptr %contour.sroa.0.033, i64 8
   %5 = load ptr, ptr %_M_finish.i4, align 8
   %cmp.i5.not30 = icmp eq ptr %4, %5
   br i1 %cmp.i5.not30, label %for.inc31, label %for.body16
@@ -679,7 +678,7 @@ for.body16:                                       ; preds = %for.body, %for.inc2
 
 invoke.cont:                                      ; preds = %for.body16
   %vtable = load ptr, ptr %call18, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %7 = load ptr, ptr %vfn, align 8
   %call21 = invoke noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(12) %call18, ptr noundef nonnull %x, ptr noundef nonnull %dy, double noundef %y)
           to label %for.cond22.preheader unwind label %lpad.loopexit.split-lp.loopexit
@@ -708,7 +707,7 @@ if.then.i:                                        ; preds = %for.body23
   %intersection.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %10, ptr %intersection.sroa.3.0..sroa_idx, align 8
   %12 = load ptr, ptr %_M_finish.i6, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %12, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i6, align 8
   br label %for.inc
 
@@ -757,7 +756,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -808,7 +807,7 @@ _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EED2Ev.exit: ; preds = %lpad
 
 for.inc28:                                        ; preds = %for.inc, %for.cond22.preheader
   %17 = phi ptr [ %6, %for.cond22.preheader ], [ %15, %for.inc ]
-  %incdec.ptr.i10 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.031, i64 1
+  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %edge.sroa.0.031, i64 8
   %18 = load ptr, ptr %_M_finish.i4, align 8
   %cmp.i5.not = icmp eq ptr %incdec.ptr.i10, %18
   br i1 %cmp.i5.not, label %for.inc31.loopexit, label %for.body16, !llvm.loop !15
@@ -820,7 +819,7 @@ for.inc31.loopexit:                               ; preds = %for.inc28
 for.inc31:                                        ; preds = %for.inc31.loopexit, %for.body
   %19 = phi ptr [ %.pre, %for.inc31.loopexit ], [ %2, %for.body ]
   %20 = phi ptr [ %17, %for.inc31.loopexit ], [ %3, %for.body ]
-  %incdec.ptr.i11 = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.033, i64 1
+  %incdec.ptr.i11 = getelementptr inbounds i8, ptr %contour.sroa.0.033, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i11, %19
   br i1 %cmp.i.not, label %for.end33, label %for.body, !llvm.loop !16
 
@@ -847,7 +846,7 @@ declare void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12Intersecti
 define dso_local noundef i32 @_ZNK7msdfgen5Shape9edgeCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not5 = icmp eq ptr %0, %1
   br i1 %cmp.i.not5, label %for.end, label %for.body
@@ -855,7 +854,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %total.07 = phi i32 [ %add, %for.body ], [ 0, %entry ]
   %contour.sroa.0.06 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
-  %_M_finish.i2 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %contour.sroa.0.06, i64 0, i32 1
+  %_M_finish.i2 = getelementptr inbounds i8, ptr %contour.sroa.0.06, i64 8
   %2 = load ptr, ptr %_M_finish.i2, align 8
   %3 = load ptr, ptr %contour.sroa.0.06, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -864,7 +863,7 @@ for.body:                                         ; preds = %entry, %for.body
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv = trunc i64 %sub.ptr.div.i to i32
   %add = add nsw i32 %total.07, %conv
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %contour.sroa.0.06, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %contour.sroa.0.06, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !17
 
@@ -878,7 +877,7 @@ define dso_local void @_ZN7msdfgen5Shape14orientContoursEv(ptr nocapture noundef
 entry:
   %x = alloca [3 x double], align 16
   %dy = alloca [3 x i32], align 4
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -904,7 +903,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr i32, ptr %call5.i.i.i.i2.i.i55, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i55, i64 4
   %2 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
   br label %invoke.cont
@@ -938,7 +937,7 @@ for.body:                                         ; preds = %for.body.preheader,
 land.lhs.true:                                    ; preds = %for.body
   %add.ptr.i61 = getelementptr inbounds %"class.msdfgen::Contour", ptr %4, i64 %indvars.iv282
   %6 = load ptr, ptr %add.ptr.i61, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %add.ptr.i61, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %add.ptr.i61, i64 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i62 = icmp eq ptr %6, %7
   br i1 %cmp.i.i62, label %for.inc191, label %if.then
@@ -949,7 +948,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 invoke.cont18:                                    ; preds = %if.then
   %vtable = load ptr, ptr %call19, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %8 = load ptr, ptr %vfn, align 8
   %call21 = invoke { double, double } %8(ptr noundef nonnull align 8 dereferenceable(12) %call19, double noundef 0.000000e+00)
           to label %invoke.cont20 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -959,7 +958,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   %10 = load ptr, ptr %this, align 8
   %add.ptr.i64 = getelementptr inbounds %"class.msdfgen::Contour", ptr %10, i64 %indvars.iv282
   %11 = load ptr, ptr %add.ptr.i64, align 8
-  %_M_finish.i66191 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %add.ptr.i64, i64 0, i32 1
+  %_M_finish.i66191 = getelementptr inbounds i8, ptr %add.ptr.i64, i64 8
   %12 = load ptr, ptr %_M_finish.i66191, align 8
   %cmp.i192 = icmp ne ptr %11, %12
   %cmp37193 = fcmp ord double %9, 0.000000e+00
@@ -973,17 +972,17 @@ for.body38:                                       ; preds = %invoke.cont20, %inv
 
 invoke.cont41:                                    ; preds = %for.body38
   %vtable43 = load ptr, ptr %call42, align 8
-  %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 5
+  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 40
   %14 = load ptr, ptr %vfn44, align 8
   %call46 = invoke { double, double } %14(ptr noundef nonnull align 8 dereferenceable(12) %call42, double noundef 1.000000e+00)
           to label %invoke.cont45 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont45:                                    ; preds = %invoke.cont41
   %15 = extractvalue { double, double } %call46, 1
-  %incdec.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge.sroa.0.0194, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %edge.sroa.0.0194, i64 8
   %16 = load ptr, ptr %this, align 8
   %add.ptr.i65 = getelementptr inbounds %"class.msdfgen::Contour", ptr %16, i64 %indvars.iv282
-  %_M_finish.i66 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %add.ptr.i65, i64 0, i32 1
+  %_M_finish.i66 = getelementptr inbounds i8, ptr %add.ptr.i65, i64 8
   %17 = load ptr, ptr %_M_finish.i66, align 8
   %cmp.i = icmp ne ptr %incdec.ptr.i, %17
   %cmp37 = fcmp oeq double %9, %15
@@ -1066,14 +1065,14 @@ for.body69:                                       ; preds = %for.end, %invoke.co
 
 invoke.cont72:                                    ; preds = %for.body69
   %vtable74 = load ptr, ptr %call73, align 8
-  %vfn75 = getelementptr inbounds ptr, ptr %vtable74, i64 5
+  %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 40
   %23 = load ptr, ptr %vfn75, align 8
   %call77 = invoke { double, double } %23(ptr noundef nonnull align 8 dereferenceable(12) %call73, double noundef 0x3FE3C6EF372FE950)
           to label %invoke.cont76 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont76:                                    ; preds = %invoke.cont72
   %24 = extractvalue { double, double } %call77, 1
-  %incdec.ptr.i73 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge49.sroa.0.0199, i64 1
+  %incdec.ptr.i73 = getelementptr inbounds i8, ptr %edge49.sroa.0.0199, i64 8
   %25 = load ptr, ptr %this, align 8
   %_M_finish.i71 = getelementptr inbounds %"class.msdfgen::Contour", ptr %25, i64 %indvars.iv282, i32 0, i32 0, i32 0, i32 0, i32 1
   %26 = load ptr, ptr %_M_finish.i71, align 8
@@ -1125,7 +1124,7 @@ for.body108:                                      ; preds = %for.body108.prehead
 
 invoke.cont110:                                   ; preds = %for.body108
   %vtable113 = load ptr, ptr %call111, align 8
-  %vfn114 = getelementptr inbounds ptr, ptr %vtable113, i64 10
+  %vfn114 = getelementptr inbounds i8, ptr %vtable113, i64 80
   %37 = load ptr, ptr %vfn114, align 8
   %call116 = invoke noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(12) %call111, ptr noundef nonnull %x, ptr noundef nonnull %dy, double noundef %29)
           to label %for.cond117.preheader unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1220,7 +1219,7 @@ for.inc124:                                       ; preds = %_ZNSt6vectorIZN7msd
   %intersections.sroa.28.4 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.28.3202, %if.then.i ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.18.3203, %if.then.i ]
   %intersections.sroa.0.5 = phi ptr [ %cond.i12.i.i, %_ZNSt6vectorIZN7msdfgen5Shape14orientContoursEvE12IntersectionSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %intersections.sroa.0.4204, %if.then.i ]
-  %intersections.sroa.18.4 = getelementptr inbounds %struct.Intersection, ptr %add.ptr.i.i.i.i.i.pn, i64 1
+  %intersections.sroa.18.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc126, label %for.body119, !llvm.loop !20
@@ -1229,7 +1228,7 @@ for.inc126:                                       ; preds = %for.inc124, %for.co
   %intersections.sroa.28.3.lcssa = phi ptr [ %intersections.sroa.28.2211, %for.cond117.preheader ], [ %intersections.sroa.28.4, %for.inc124 ]
   %intersections.sroa.18.3.lcssa = phi ptr [ %intersections.sroa.18.2213, %for.cond117.preheader ], [ %intersections.sroa.18.4, %for.inc124 ]
   %intersections.sroa.0.4.lcssa = phi ptr [ %intersections.sroa.0.3214, %for.cond117.preheader ], [ %intersections.sroa.0.5, %for.inc124 ]
-  %incdec.ptr.i90 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %edge91.sroa.0.0212, i64 1
+  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %edge91.sroa.0.0212, i64 8
   %41 = load ptr, ptr %this, align 8
   %_M_finish.i81 = getelementptr inbounds %"class.msdfgen::Contour", ptr %41, i64 %indvars.iv268, i32 0, i32 0, i32 0, i32 0, i32 1
   %42 = load ptr, ptr %_M_finish.i81, align 8
@@ -1301,7 +1300,7 @@ if.then151:                                       ; preds = %for.body142
   %48 = add nsw i64 %indvars.iv271, -1
   %direction155 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %48, i32 1
   store i32 0, ptr %direction155, align 8
-  %direction158 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv271, i32 1
+  %direction158 = getelementptr inbounds i8, ptr %add.ptr.i100, i64 8
   store i32 0, ptr %direction158, align 8
   br label %for.inc159
 
@@ -1312,7 +1311,8 @@ for.inc159:                                       ; preds = %for.body142, %if.th
 
 for.body167:                                      ; preds = %for.body167.preheader, %for.inc186
   %indvars.iv277 = phi i64 [ 0, %for.body167.preheader ], [ %indvars.iv.next278, %for.inc186 ]
-  %direction170 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv277, i32 1
+  %add.ptr.i108 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv277
+  %direction170 = getelementptr inbounds i8, ptr %add.ptr.i108, i64 8
   %49 = load i32, ptr %direction170, align 8
   %tobool171.not = icmp eq i32 %49, 0
   br i1 %tobool171.not, label %for.inc186, label %if.then172
@@ -1325,7 +1325,7 @@ if.then172:                                       ; preds = %for.body167
   %xor = xor i32 %and, %conv177
   %mul178 = shl nuw nsw i32 %xor, 1
   %sub179 = add nsw i32 %mul178, -1
-  %contourIndex182 = getelementptr inbounds %struct.Intersection, ptr %intersections.sroa.0.2.lcssa, i64 %indvars.iv277, i32 2
+  %contourIndex182 = getelementptr inbounds i8, ptr %add.ptr.i108, i64 12
   %51 = load i32, ptr %contourIndex182, align 4
   %conv183 = sext i32 %51 to i64
   %add.ptr.i111 = getelementptr inbounds i32, ptr %orientations.sroa.0.0297, i64 %conv183
@@ -1444,7 +1444,7 @@ declare void @_ZN7msdfgen12CubicSegment10deconvergeEid(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1492,19 +1492,19 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !30, !noalias !27
   store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !27, !noalias !30
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !27, !noalias !30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !30, !noalias !27
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !32
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.msdfgen::Contour", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, label %for.body.i.i.i19
 
@@ -1515,13 +1515,13 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN7msdf
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !36, !noalias !33
   store <2 x ptr> %5, ptr %__cur.07.i.i.i20, align 8, !alias.scope !33, !noalias !36
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__cur.07.i.i.i20, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i21, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i25, align 8, !alias.scope !36, !noalias !33
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i24, align 8, !alias.scope !33, !noalias !36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i21, i8 0, i64 24, i1 false), !alias.scope !36, !noalias !33
-  %incdec.ptr.i.i.i26 = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i27 = getelementptr inbounds %"class.msdfgen::Contour", ptr %__cur.07.i.i.i20, i64 1
+  %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 24
+  %incdec.ptr1.i.i.i27 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 24
   %cmp.not.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i26, %0
   br i1 %cmp.not.i.i.i28, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, label %for.body.i.i.i19, !llvm.loop !32
 
@@ -1535,7 +1535,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, %if.then.i31
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i29, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"class.msdfgen::Contour", ptr %cond.i17, i64 %cond.i
@@ -1585,7 +1585,7 @@ unreachable:                                      ; preds = %invoke.cont19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1611,10 +1611,10 @@ _ZNSt16allocator_traitsISaIN7msdfgen10EdgeHolderEEE8allocateERS2_m.exit.i.i.i: ;
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN7msdfgen10EdgeHolderEEE8allocateERS2_m.exit.i.i.i, %entry
   %cond.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6, %_ZNSt16allocator_traitsISaIN7msdfgen10EdgeHolderEEE8allocateERS2_m.exit.i.i.i ]
   store ptr %cond.i.i.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cond.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %cond.i.i.i, i64 %sub.ptr.div.i
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -1628,8 +1628,8 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.sroa.0.09.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__cur.010.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i, !llvm.loop !38
 
@@ -1644,7 +1644,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i.i.i, %lpad.i.i.i.i ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !5
 
@@ -1716,7 +1716,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN7msdfgen7ContourEEE7destroyIS1_EEvRS2_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %__p, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__p, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %__p, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
@@ -1724,7 +1724,7 @@ entry:
 for.body.i.i.i.i.i.i:                             ; preds = %entry, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !5
 
@@ -1751,7 +1751,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1787,8 +1787,8 @@ _ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE11_M_allocateEm.exit: ; preds = %_
   %add.ptr = getelementptr inbounds %"class.msdfgen::Contour", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = load <2 x ptr>, ptr %__args, align 8
   store <2 x ptr> %3, ptr %add.ptr, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %add.ptr, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__args, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
@@ -1802,19 +1802,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !42, !noalias !39
   store <2 x ptr> %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !39, !noalias !42
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !39
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !42, !noalias !39
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !32
 
 _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.msdfgen::Contour", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12
 
@@ -1825,13 +1825,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN7msdf
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %7 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !47, !noalias !44
   store <2 x ptr> %7, ptr %__cur.07.i.i.i13, align 8, !alias.scope !44, !noalias !47
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !47, !noalias !44
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !44, !noalias !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !47, !noalias !44
-  %incdec.ptr.i.i.i19 = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i20 = getelementptr inbounds %"class.msdfgen::Contour", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %cmp.not.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i19, %0
   br i1 %cmp.not.i.i.i21, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %for.body.i.i.i12, !llvm.loop !32
 
@@ -1845,7 +1845,7 @@ if.then.i24:                                      ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN7msdfgen7ContourESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, %if.then.i24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i22, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.msdfgen::Contour", ptr %cond.i10, i64 %cond.i
@@ -1860,14 +1860,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::Contour, std::allocator<msdfgen::Contour>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -1914,13 +1914,13 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN7msd
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %6 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !52, !noalias !49
   store <2 x ptr> %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !49, !noalias !52
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !52, !noalias !49
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !49, !noalias !52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !52, !noalias !49
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.msdfgen::Contour", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !32
 
@@ -1947,7 +1947,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1995,8 +1995,8 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.09.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__cur.010.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !54
 
@@ -2011,7 +2011,7 @@ lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
 for.body.i.i.i.i.i.i.i:                           ; preds = %lpad.i.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %cond.i19, %lpad.i.i.i.i.i ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %__cur.010.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !5
 
@@ -2054,7 +2054,7 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
           to label %for.inc.i.i.i.i.i35 unwind label %lpad.i.i.i.i.i24
 
 for.inc.i.i.i.i.i35:                              ; preds = %for.body.i.i.i.i.i21
-  %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.09.i.i.i.i.i23, i64 1
+  %incdec.ptr.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 8
   %__cur.010.i.i.i.i.i22.add = add nuw nsw i64 %__cur.010.i.i.i.i.i22.idx, 8
   %cmp.not.i.i.i.i.i38 = icmp eq ptr %incdec.ptr.i.i.i.i.i36, %0
   br i1 %cmp.not.i.i.i.i.i38, label %invoke.cont14.loopexit, label %for.body.i.i.i.i.i21, !llvm.loop !54
@@ -2070,7 +2070,7 @@ lpad.i.i.i.i.i24:                                 ; preds = %for.body.i.i.i.i.i2
 for.body.i.i.i.i.i.i.i26:                         ; preds = %lpad.i.i.i.i.i24, %for.body.i.i.i.i.i.i.i26
   %__first.addr.04.i.i.i.i.i.i.i27 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i28, %for.body.i.i.i.i.i.i.i26 ], [ %incdec.ptr.ptr, %lpad.i.i.i.i.i24 ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i27) #19
-  %incdec.ptr.i.i.i.i.i.i.i28 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i.i.i.i.i27, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i27, i64 8
   %cmp.not.i.i.i.i.i.i.i29 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i28, %__cur.010.i.i.i.i.i22.ptr
   br i1 %cmp.not.i.i.i.i.i.i.i29, label %invoke.cont3.i.i.i.i.i30, label %for.body.i.i.i.i.i.i.i26, !llvm.loop !5
 
@@ -2111,7 +2111,7 @@ invoke.cont14:                                    ; preds = %invoke.cont14.loope
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont14 ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN7msdfgen10EdgeHolderES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !5
 
@@ -2124,7 +2124,7 @@ if.then.i44:                                      ; preds = %_ZSt8_DestroyIPN7ms
   br label %_ZNSt12_Vector_baseIN7msdfgen10EdgeHolderESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN7msdfgen10EdgeHolderESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7msdfgen10EdgeHolderES1_EvT_S3_RSaIT0_E.exit, %if.then.i44
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<msdfgen::EdgeHolder, std::allocator<msdfgen::EdgeHolder>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i39, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %cond.i19, i64 %cond.i
@@ -2151,7 +2151,7 @@ if.else:                                          ; preds = %lpad.body.thread59,
 for.body.i.i.i46:                                 ; preds = %if.else, %for.body.i.i.i46
   %__first.addr.04.i.i.i47 = phi ptr [ %incdec.ptr.i.i.i48, %for.body.i.i.i46 ], [ %cond.i19, %if.else ]
   tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i47) #19
-  %incdec.ptr.i.i.i48 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %__first.addr.04.i.i.i47, i64 1
+  %incdec.ptr.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i47, i64 8
   %cmp.not.i.i.i49 = icmp eq ptr %incdec.ptr.i.i.i48, %__new_finish.0.lpad-body63
   br i1 %cmp.not.i.i.i49, label %if.end, label %for.body.i.i.i46, !llvm.loop !5
 

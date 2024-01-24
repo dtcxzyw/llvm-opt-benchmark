@@ -14,10 +14,10 @@ entry:
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %heap1.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 3
+  %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
-  %i1.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
 
@@ -51,7 +51,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %or.cond1, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %i1.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i1.i = getelementptr inbounds i8, ptr %sha3, i64 400
   %0 = load i8, ptr %i1.i, align 8
   %cmp.not.i = icmp eq i8 %0, 0
   %.pre73.i = zext nneg i8 %p to i32
@@ -65,9 +65,9 @@ if.then.i:                                        ; preds = %if.end7
   %cmp8.i = icmp ugt i32 %conv7.i, %len
   %conv11.i = trunc i32 %len to i8
   %spec.select.i = select i1 %cmp8.i, i8 %conv11.i, i8 %conv6.i
-  %t12.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1
+  %t12.i = getelementptr i8, ptr %sha3, i64 200
   %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr [200 x i8], ptr %t12.i, i64 0, i64 %idxprom.i
   %conv14.i = zext i8 %spec.select.i to i32
   %cmp1546.not.i = icmp eq i8 %spec.select.i, 0
   br i1 %cmp1546.not.i, label %for.end.i, label %for.body.preheader.i
@@ -184,7 +184,7 @@ for.cond59.preheader.i:                           ; preds = %for.cond59.preheade
 Sha3Update.exit:                                  ; preds = %for.cond59.for.end74_crit_edge.us.i, %for.cond59.preheader.i, %if.end52.i
   %len.addr.1.lcssa.i = phi i32 [ %len.addr.0.i, %if.end52.i ], [ %sub79.i, %for.cond59.preheader.i ], [ %sub79.us.i, %for.cond59.for.end74_crit_edge.us.i ]
   %data.addr.1.lcssa.i = phi ptr [ %data.addr.0.i, %if.end52.i ], [ %add.ptr83.i, %for.cond59.preheader.i ], [ %add.ptr83.us.i, %for.cond59.for.end74_crit_edge.us.i ]
-  %t86.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1
+  %t86.i = getelementptr inbounds i8, ptr %sha3, i64 200
   %conv88.i = zext i32 %len.addr.1.lcssa.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %t86.i, ptr align 1 %data.addr.1.lcssa.i, i64 %conv88.i, i1 false)
   %9 = load i8, ptr %i1.i, align 8
@@ -207,13 +207,13 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %t.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1
-  %arrayidx.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 143
+  %t.i.i = getelementptr inbounds i8, ptr %sha3, i64 200
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %sha3, i64 343
   store i8 0, ptr %arrayidx.i.i, align 1
-  %i2.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i2.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   %0 = load i8, ptr %i2.i.i, align 8
   %idxprom3.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i, i64 0, i64 %idxprom3.i.i
   store i8 6, ptr %arrayidx4.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %2 = or i8 %1, -128
@@ -276,13 +276,13 @@ entry:
 
 if.end.i4.i:                                      ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
-  %t.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1
-  %arrayidx.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 143
+  %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 343
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  %i2.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 2
+  %i2.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 400
   %0 = load i8, ptr %i2.i.i.i, align 8
   %idxprom3.i.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i.i, i64 0, i64 %idxprom3.i.i.i
   store i8 6, ptr %arrayidx4.i.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %2 = or i8 %1, -128
@@ -350,10 +350,10 @@ entry:
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %heap1.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 3
+  %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
-  %i1.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
 
@@ -378,13 +378,13 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %t.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1
-  %arrayidx.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 135
+  %t.i.i = getelementptr inbounds i8, ptr %sha3, i64 200
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %sha3, i64 335
   store i8 0, ptr %arrayidx.i.i, align 1
-  %i2.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i2.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   %0 = load i8, ptr %i2.i.i, align 8
   %idxprom3.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i, i64 0, i64 %idxprom3.i.i
   store i8 6, ptr %arrayidx4.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %2 = or i8 %1, -128
@@ -447,13 +447,13 @@ entry:
 
 if.end.i4.i:                                      ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
-  %t.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1
-  %arrayidx.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 135
+  %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 335
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  %i2.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 2
+  %i2.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 400
   %0 = load i8, ptr %i2.i.i.i, align 8
   %idxprom3.i.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i.i, i64 0, i64 %idxprom3.i.i.i
   store i8 6, ptr %arrayidx4.i.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %2 = or i8 %1, -128
@@ -521,10 +521,10 @@ entry:
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %heap1.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 3
+  %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
-  %i1.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
 
@@ -549,13 +549,13 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %t.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1
-  %arrayidx.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 103
+  %t.i.i = getelementptr inbounds i8, ptr %sha3, i64 200
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %sha3, i64 303
   store i8 0, ptr %arrayidx.i.i, align 1
-  %i2.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i2.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   %0 = load i8, ptr %i2.i.i, align 8
   %idxprom3.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i, i64 0, i64 %idxprom3.i.i
   store i8 6, ptr %arrayidx4.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %2 = or i8 %1, -128
@@ -618,13 +618,13 @@ entry:
 
 if.end.i4.i:                                      ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
-  %t.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1
-  %arrayidx.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 103
+  %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 303
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  %i2.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 2
+  %i2.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 400
   %0 = load i8, ptr %i2.i.i.i, align 8
   %idxprom3.i.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i.i, i64 0, i64 %idxprom3.i.i.i
   store i8 6, ptr %arrayidx4.i.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %2 = or i8 %1, -128
@@ -692,10 +692,10 @@ entry:
   br i1 %cmp.i, label %wc_InitSha3.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %heap1.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 3
+  %heap1.i = getelementptr inbounds i8, ptr %sha3, i64 408
   store ptr %heap, ptr %heap1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %sha3, i8 0, i64 200, i1 false)
-  %i1.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i1.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   store i8 0, ptr %i1.i.i, align 8
   br label %wc_InitSha3.exit
 
@@ -720,13 +720,13 @@ entry:
   br i1 %or.cond.i, label %wc_Sha3Final.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %t.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1
-  %arrayidx.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 71
+  %t.i.i = getelementptr inbounds i8, ptr %sha3, i64 200
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %sha3, i64 271
   store i8 0, ptr %arrayidx.i.i, align 1
-  %i2.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 2
+  %i2.i.i = getelementptr inbounds i8, ptr %sha3, i64 400
   %0 = load i8, ptr %i2.i.i, align 8
   %idxprom3.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %sha3, i64 0, i32 1, i64 %idxprom3.i.i
+  %arrayidx4.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i, i64 0, i64 %idxprom3.i.i
   store i8 6, ptr %arrayidx4.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %2 = or i8 %1, -128
@@ -789,13 +789,13 @@ entry:
 
 if.end.i4.i:                                      ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %tmpSha3.i, ptr noundef nonnull align 8 dereferenceable(416) %sha3, i64 416, i1 false)
-  %t.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1
-  %arrayidx.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 71
+  %t.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 200
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 271
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  %i2.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 2
+  %i2.i.i.i = getelementptr inbounds i8, ptr %tmpSha3.i, i64 400
   %0 = load i8, ptr %i2.i.i.i, align 8
   %idxprom3.i.i.i = zext i8 %0 to i64
-  %arrayidx4.i.i.i = getelementptr inbounds %struct.wc_Sha3, ptr %tmpSha3.i, i64 0, i32 1, i64 %idxprom3.i.i.i
+  %arrayidx4.i.i.i = getelementptr inbounds [200 x i8], ptr %t.i.i.i, i64 0, i64 %idxprom3.i.i.i
   store i8 6, ptr %arrayidx4.i.i.i, align 1
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %2 = or i8 %1, -128
@@ -859,30 +859,30 @@ wc_Sha3Copy.exit:                                 ; preds = %entry, %if.end.i
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @BlockSha3(ptr nocapture noundef %s) unnamed_addr #2 {
 entry:
-  %arrayidx2 = getelementptr inbounds i64, ptr %s, i64 5
-  %arrayidx3 = getelementptr inbounds i64, ptr %s, i64 10
-  %arrayidx5 = getelementptr inbounds i64, ptr %s, i64 15
-  %arrayidx7 = getelementptr inbounds i64, ptr %s, i64 20
-  %arrayidx10 = getelementptr inbounds i64, ptr %s, i64 1
-  %arrayidx11 = getelementptr inbounds i64, ptr %s, i64 6
-  %arrayidx13 = getelementptr inbounds i64, ptr %s, i64 11
-  %arrayidx15 = getelementptr inbounds i64, ptr %s, i64 16
-  %arrayidx17 = getelementptr inbounds i64, ptr %s, i64 21
-  %arrayidx20 = getelementptr inbounds i64, ptr %s, i64 2
-  %arrayidx21 = getelementptr inbounds i64, ptr %s, i64 7
-  %arrayidx23 = getelementptr inbounds i64, ptr %s, i64 12
-  %arrayidx25 = getelementptr inbounds i64, ptr %s, i64 17
-  %arrayidx27 = getelementptr inbounds i64, ptr %s, i64 22
-  %arrayidx30 = getelementptr inbounds i64, ptr %s, i64 3
-  %arrayidx31 = getelementptr inbounds i64, ptr %s, i64 8
-  %arrayidx33 = getelementptr inbounds i64, ptr %s, i64 13
-  %arrayidx35 = getelementptr inbounds i64, ptr %s, i64 18
-  %arrayidx37 = getelementptr inbounds i64, ptr %s, i64 23
-  %arrayidx40 = getelementptr inbounds i64, ptr %s, i64 4
-  %arrayidx41 = getelementptr inbounds i64, ptr %s, i64 9
-  %arrayidx43 = getelementptr inbounds i64, ptr %s, i64 14
-  %arrayidx45 = getelementptr inbounds i64, ptr %s, i64 19
-  %arrayidx47 = getelementptr inbounds i64, ptr %s, i64 24
+  %arrayidx2 = getelementptr inbounds i8, ptr %s, i64 40
+  %arrayidx3 = getelementptr inbounds i8, ptr %s, i64 80
+  %arrayidx5 = getelementptr inbounds i8, ptr %s, i64 120
+  %arrayidx7 = getelementptr inbounds i8, ptr %s, i64 160
+  %arrayidx10 = getelementptr inbounds i8, ptr %s, i64 8
+  %arrayidx11 = getelementptr inbounds i8, ptr %s, i64 48
+  %arrayidx13 = getelementptr inbounds i8, ptr %s, i64 88
+  %arrayidx15 = getelementptr inbounds i8, ptr %s, i64 128
+  %arrayidx17 = getelementptr inbounds i8, ptr %s, i64 168
+  %arrayidx20 = getelementptr inbounds i8, ptr %s, i64 16
+  %arrayidx21 = getelementptr inbounds i8, ptr %s, i64 56
+  %arrayidx23 = getelementptr inbounds i8, ptr %s, i64 96
+  %arrayidx25 = getelementptr inbounds i8, ptr %s, i64 136
+  %arrayidx27 = getelementptr inbounds i8, ptr %s, i64 176
+  %arrayidx30 = getelementptr inbounds i8, ptr %s, i64 24
+  %arrayidx31 = getelementptr inbounds i8, ptr %s, i64 64
+  %arrayidx33 = getelementptr inbounds i8, ptr %s, i64 104
+  %arrayidx35 = getelementptr inbounds i8, ptr %s, i64 144
+  %arrayidx37 = getelementptr inbounds i8, ptr %s, i64 184
+  %arrayidx40 = getelementptr inbounds i8, ptr %s, i64 32
+  %arrayidx41 = getelementptr inbounds i8, ptr %s, i64 72
+  %arrayidx43 = getelementptr inbounds i8, ptr %s, i64 112
+  %arrayidx45 = getelementptr inbounds i8, ptr %s, i64 152
+  %arrayidx47 = getelementptr inbounds i8, ptr %s, i64 192
   %s.promoted = load i64, ptr %s, align 8
   %arrayidx2.promoted = load i64, ptr %arrayidx2, align 8
   %arrayidx3.promoted = load i64, ptr %arrayidx3, align 8
@@ -912,86 +912,86 @@ entry:
 
 do.body:                                          ; preds = %entry, %do.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %do.body ]
-  %xor911476525 = phi i64 [ %s.promoted, %entry ], [ %xor911, %do.body ]
-  %xor689477524 = phi i64 [ %arrayidx2.promoted, %entry ], [ %xor689, %do.body ]
-  %xor753478523 = phi i64 [ %arrayidx3.promoted, %entry ], [ %xor753, %do.body ]
-  %xor817479522 = phi i64 [ %arrayidx5.promoted, %entry ], [ %xor817, %do.body ]
-  %xor881480521 = phi i64 [ %arrayidx7.promoted, %entry ], [ %xor881, %do.body ]
-  %xor630481520 = phi i64 [ %arrayidx10.promoted, %entry ], [ %xor630, %do.body ]
-  %xor694482519 = phi i64 [ %arrayidx11.promoted, %entry ], [ %xor694, %do.body ]
-  %xor758483518 = phi i64 [ %arrayidx13.promoted, %entry ], [ %xor758, %do.body ]
-  %xor822484517 = phi i64 [ %arrayidx15.promoted, %entry ], [ %xor822, %do.body ]
-  %xor886485516 = phi i64 [ %arrayidx17.promoted, %entry ], [ %xor886, %do.body ]
-  %xor635486515 = phi i64 [ %arrayidx20.promoted, %entry ], [ %xor635, %do.body ]
-  %xor699487514 = phi i64 [ %arrayidx21.promoted, %entry ], [ %xor699, %do.body ]
-  %xor763488513 = phi i64 [ %arrayidx23.promoted, %entry ], [ %xor763, %do.body ]
-  %xor827489512 = phi i64 [ %arrayidx25.promoted, %entry ], [ %xor827, %do.body ]
-  %xor891490511 = phi i64 [ %arrayidx27.promoted, %entry ], [ %xor891, %do.body ]
-  %xor640491510 = phi i64 [ %arrayidx30.promoted, %entry ], [ %xor640, %do.body ]
-  %xor704492509 = phi i64 [ %arrayidx31.promoted, %entry ], [ %xor704, %do.body ]
-  %xor768493508 = phi i64 [ %arrayidx33.promoted, %entry ], [ %xor768, %do.body ]
-  %xor832494507 = phi i64 [ %arrayidx35.promoted, %entry ], [ %xor832, %do.body ]
-  %xor896495506 = phi i64 [ %arrayidx37.promoted, %entry ], [ %xor896, %do.body ]
-  %xor648496505 = phi i64 [ %arrayidx40.promoted, %entry ], [ %xor648, %do.body ]
-  %xor712497504 = phi i64 [ %arrayidx41.promoted, %entry ], [ %xor712, %do.body ]
-  %xor776498503 = phi i64 [ %arrayidx43.promoted, %entry ], [ %xor776, %do.body ]
-  %xor840499502 = phi i64 [ %arrayidx45.promoted, %entry ], [ %xor840, %do.body ]
-  %xor904500501 = phi i64 [ %arrayidx47.promoted, %entry ], [ %xor904, %do.body ]
-  %0 = xor i64 %xor689477524, %xor911476525
-  %1 = xor i64 %0, %xor753478523
-  %2 = xor i64 %1, %xor817479522
-  %xor8 = xor i64 %2, %xor881480521
-  %xor12 = xor i64 %xor694482519, %xor630481520
-  %xor14 = xor i64 %xor12, %xor758483518
-  %xor16 = xor i64 %xor14, %xor822484517
-  %xor18 = xor i64 %xor16, %xor886485516
-  %xor22 = xor i64 %xor699487514, %xor635486515
-  %xor24 = xor i64 %xor22, %xor763488513
-  %xor26 = xor i64 %xor24, %xor827489512
-  %xor28 = xor i64 %xor26, %xor891490511
-  %xor32 = xor i64 %xor704492509, %xor640491510
-  %xor34 = xor i64 %xor32, %xor768493508
-  %xor36 = xor i64 %xor34, %xor832494507
-  %xor38 = xor i64 %xor36, %xor896495506
-  %xor42 = xor i64 %xor712497504, %xor648496505
-  %xor44 = xor i64 %xor42, %xor776498503
-  %xor46 = xor i64 %xor44, %xor840499502
-  %xor48 = xor i64 %xor46, %xor904500501
+  %xor911476500 = phi i64 [ %s.promoted, %entry ], [ %xor911, %do.body ]
+  %0 = phi i64 [ %arrayidx2.promoted, %entry ], [ %xor689, %do.body ]
+  %1 = phi i64 [ %arrayidx3.promoted, %entry ], [ %xor753, %do.body ]
+  %2 = phi i64 [ %arrayidx5.promoted, %entry ], [ %xor817, %do.body ]
+  %3 = phi i64 [ %arrayidx7.promoted, %entry ], [ %xor881, %do.body ]
+  %4 = phi i64 [ %arrayidx10.promoted, %entry ], [ %xor630, %do.body ]
+  %5 = phi i64 [ %arrayidx11.promoted, %entry ], [ %xor694, %do.body ]
+  %6 = phi i64 [ %arrayidx13.promoted, %entry ], [ %xor758, %do.body ]
+  %7 = phi i64 [ %arrayidx15.promoted, %entry ], [ %xor822, %do.body ]
+  %8 = phi i64 [ %arrayidx17.promoted, %entry ], [ %xor886, %do.body ]
+  %9 = phi i64 [ %arrayidx20.promoted, %entry ], [ %xor635, %do.body ]
+  %10 = phi i64 [ %arrayidx21.promoted, %entry ], [ %xor699, %do.body ]
+  %11 = phi i64 [ %arrayidx23.promoted, %entry ], [ %xor763, %do.body ]
+  %12 = phi i64 [ %arrayidx25.promoted, %entry ], [ %xor827, %do.body ]
+  %13 = phi i64 [ %arrayidx27.promoted, %entry ], [ %xor891, %do.body ]
+  %14 = phi i64 [ %arrayidx30.promoted, %entry ], [ %xor640, %do.body ]
+  %15 = phi i64 [ %arrayidx31.promoted, %entry ], [ %xor704, %do.body ]
+  %16 = phi i64 [ %arrayidx33.promoted, %entry ], [ %xor768, %do.body ]
+  %17 = phi i64 [ %arrayidx35.promoted, %entry ], [ %xor832, %do.body ]
+  %18 = phi i64 [ %arrayidx37.promoted, %entry ], [ %xor896, %do.body ]
+  %19 = phi i64 [ %arrayidx40.promoted, %entry ], [ %xor648, %do.body ]
+  %20 = phi i64 [ %arrayidx41.promoted, %entry ], [ %xor712, %do.body ]
+  %21 = phi i64 [ %arrayidx43.promoted, %entry ], [ %xor776, %do.body ]
+  %22 = phi i64 [ %arrayidx45.promoted, %entry ], [ %xor840, %do.body ]
+  %23 = phi i64 [ %arrayidx47.promoted, %entry ], [ %xor904, %do.body ]
+  %24 = xor i64 %0, %xor911476500
+  %25 = xor i64 %24, %1
+  %26 = xor i64 %25, %2
+  %xor8 = xor i64 %26, %3
+  %xor12 = xor i64 %5, %4
+  %xor14 = xor i64 %xor12, %6
+  %xor16 = xor i64 %xor14, %7
+  %xor18 = xor i64 %xor16, %8
+  %xor22 = xor i64 %10, %9
+  %xor24 = xor i64 %xor22, %11
+  %xor26 = xor i64 %xor24, %12
+  %xor28 = xor i64 %xor26, %13
+  %xor32 = xor i64 %15, %14
+  %xor34 = xor i64 %xor32, %16
+  %xor36 = xor i64 %xor34, %17
+  %xor38 = xor i64 %xor36, %18
+  %xor42 = xor i64 %20, %19
+  %xor44 = xor i64 %xor42, %21
+  %xor46 = xor i64 %xor44, %22
+  %xor48 = xor i64 %xor46, %23
   %or = tail call i64 @llvm.fshl.i64(i64 %xor18, i64 %xor18, i64 1)
   %xor53 = xor i64 %xor48, %or
-  %xor55 = xor i64 %xor53, %xor911476525
-  %xor57 = xor i64 %xor53, %xor689477524
-  %xor59 = xor i64 %xor53, %xor753478523
-  %xor61 = xor i64 %xor53, %xor817479522
-  %xor63 = xor i64 %xor53, %xor881480521
+  %xor55 = xor i64 %xor53, %xor911476500
+  %xor57 = xor i64 %xor53, %0
+  %xor59 = xor i64 %xor53, %1
+  %xor61 = xor i64 %xor53, %2
+  %xor63 = xor i64 %xor53, %3
   %or69 = tail call i64 @llvm.fshl.i64(i64 %xor28, i64 %xor28, i64 1)
   %xor70 = xor i64 %or69, %xor8
-  %xor72 = xor i64 %xor70, %xor630481520
-  %xor74 = xor i64 %xor70, %xor694482519
-  %xor76 = xor i64 %xor70, %xor758483518
-  %xor78 = xor i64 %xor70, %xor822484517
-  %xor80 = xor i64 %xor70, %xor886485516
+  %xor72 = xor i64 %xor70, %4
+  %xor74 = xor i64 %xor70, %5
+  %xor76 = xor i64 %xor70, %6
+  %xor78 = xor i64 %xor70, %7
+  %xor80 = xor i64 %xor70, %8
   %or86 = tail call i64 @llvm.fshl.i64(i64 %xor38, i64 %xor38, i64 1)
   %xor87 = xor i64 %or86, %xor18
-  %xor89 = xor i64 %xor87, %xor635486515
-  %xor91 = xor i64 %xor87, %xor699487514
-  %xor93 = xor i64 %xor87, %xor763488513
-  %xor95 = xor i64 %xor87, %xor827489512
-  %xor97 = xor i64 %xor87, %xor891490511
+  %xor89 = xor i64 %xor87, %9
+  %xor91 = xor i64 %xor87, %10
+  %xor93 = xor i64 %xor87, %11
+  %xor95 = xor i64 %xor87, %12
+  %xor97 = xor i64 %xor87, %13
   %or103 = tail call i64 @llvm.fshl.i64(i64 %xor48, i64 %xor48, i64 1)
   %xor104 = xor i64 %or103, %xor28
-  %xor106 = xor i64 %xor104, %xor640491510
-  %xor108 = xor i64 %xor104, %xor704492509
-  %xor110 = xor i64 %xor104, %xor768493508
-  %xor112 = xor i64 %xor104, %xor832494507
-  %xor114 = xor i64 %xor104, %xor896495506
+  %xor106 = xor i64 %xor104, %14
+  %xor108 = xor i64 %xor104, %15
+  %xor110 = xor i64 %xor104, %16
+  %xor112 = xor i64 %xor104, %17
+  %xor114 = xor i64 %xor104, %18
   %or120 = tail call i64 @llvm.fshl.i64(i64 %xor8, i64 %xor8, i64 1)
   %xor121 = xor i64 %xor38, %or120
-  %xor123 = xor i64 %xor121, %xor648496505
-  %xor125 = xor i64 %xor712497504, %xor121
-  %xor127 = xor i64 %xor776498503, %xor121
-  %xor129 = xor i64 %xor840499502, %xor121
-  %xor131 = xor i64 %xor904500501, %xor121
+  %xor123 = xor i64 %xor121, %19
+  %xor125 = xor i64 %20, %xor121
+  %xor127 = xor i64 %21, %xor121
+  %xor129 = xor i64 %22, %xor121
+  %xor131 = xor i64 %23, %xor121
   %or139 = tail call i64 @llvm.fshl.i64(i64 %xor74, i64 %xor74, i64 44)
   %or145 = tail call i64 @llvm.fshl.i64(i64 %xor93, i64 %xor93, i64 43)
   %or151 = tail call i64 @llvm.fshl.i64(i64 %xor112, i64 %xor112, i64 21)
@@ -1005,8 +1005,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor177 = xor i64 %and176, %or145
   %or181 = or i64 %xor55, %or157
   %xor182 = xor i64 %xor164, %or181
-  %3 = xor i64 %xor55, -1
-  %and189 = and i64 %or139, %3
+  %27 = xor i64 %xor55, -1
+  %and189 = and i64 %or139, %27
   %xor190 = xor i64 %and189, %or157
   %or196 = tail call i64 @llvm.fshl.i64(i64 %xor106, i64 %xor106, i64 28)
   %or202 = tail call i64 @llvm.fshl.i64(i64 %xor125, i64 %xor125, i64 20)
@@ -1023,8 +1023,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor241 = xor i64 %or208, %and240
   %or245 = or i64 %or196, %or220
   %xor246 = xor i64 %or245, %xor227
-  %4 = xor i64 %or196, -1
-  %and253 = and i64 %or202, %4
+  %28 = xor i64 %or196, -1
+  %and253 = and i64 %or202, %28
   %xor254 = xor i64 %and253, %or220
   %or260 = tail call i64 @llvm.fshl.i64(i64 %xor72, i64 %xor72, i64 1)
   %or266 = tail call i64 @llvm.fshl.i64(i64 %xor91, i64 %xor91, i64 6)
@@ -1041,8 +1041,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor305 = xor i64 %and304, %or272
   %or309 = or i64 %or284, %or260
   %xor310 = xor i64 %xor291, %or309
-  %5 = xor i64 %or260, -1
-  %and317 = and i64 %or266, %5
+  %29 = xor i64 %or260, -1
+  %and317 = and i64 %or266, %29
   %xor318 = xor i64 %or284, %and317
   %or324 = tail call i64 @llvm.fshl.i64(i64 %xor123, i64 %xor123, i64 27)
   %or330 = tail call i64 @llvm.fshl.i64(i64 %xor57, i64 %xor57, i64 36)
@@ -1059,8 +1059,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor369 = xor i64 %and368, %or336
   %or373 = or i64 %or348, %or324
   %xor374 = xor i64 %xor355, %or373
-  %6 = xor i64 %or324, -1
-  %and381 = and i64 %or330, %6
+  %30 = xor i64 %or324, -1
+  %and381 = and i64 %or330, %30
   %xor382 = xor i64 %or348, %and381
   %or388 = tail call i64 @llvm.fshl.i64(i64 %xor89, i64 %xor89, i64 62)
   %or394 = tail call i64 @llvm.fshl.i64(i64 %xor108, i64 %xor108, i64 55)
@@ -1077,13 +1077,13 @@ do.body:                                          ; preds = %entry, %do.body
   %xor433 = xor i64 %and432, %or400
   %or437 = or i64 %or388, %or412
   %xor438 = xor i64 %xor419, %or437
-  %7 = xor i64 %or388, -1
-  %and445 = and i64 %or394, %7
+  %31 = xor i64 %or388, -1
+  %and445 = and i64 %or394, %31
   %xor446 = xor i64 %and445, %or412
   %arrayidx449 = getelementptr inbounds [24 x i64], ptr @hash_keccak_r, i64 0, i64 %indvars.iv
-  %8 = load i64, ptr %arrayidx449, align 16
-  %9 = xor i64 %and, %8
-  %xor451 = xor i64 %9, %xor55
+  %32 = load i64, ptr %arrayidx449, align 16
+  %33 = xor i64 %and, %32
+  %xor451 = xor i64 %33, %xor55
   %xor455 = xor i64 %xor359, %xor231
   %xor457 = xor i64 %xor455, %xor295
   %xor459 = xor i64 %xor457, %xor423
@@ -1152,8 +1152,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor635 = xor i64 %and634, %or602
   %or639 = or i64 %or614, %xor511
   %xor640 = xor i64 %xor621, %or639
-  %10 = xor i64 %xor511, -1
-  %and647 = and i64 %or596, %10
+  %34 = xor i64 %xor511, -1
+  %and647 = and i64 %or596, %34
   %xor648 = xor i64 %or614, %and647
   %or654 = tail call i64 @llvm.fshl.i64(i64 %xor562, i64 %xor562, i64 28)
   %or660 = tail call i64 @llvm.fshl.i64(i64 %xor581, i64 %xor581, i64 20)
@@ -1170,8 +1170,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor699 = xor i64 %and698, %or666
   %or703 = or i64 %or678, %or654
   %xor704 = xor i64 %xor685, %or703
-  %11 = xor i64 %or654, -1
-  %and711 = and i64 %or660, %11
+  %35 = xor i64 %or654, -1
+  %and711 = and i64 %or660, %35
   %xor712 = xor i64 %and711, %or678
   %or718 = tail call i64 @llvm.fshl.i64(i64 %xor528, i64 %xor528, i64 1)
   %or724 = tail call i64 @llvm.fshl.i64(i64 %xor547, i64 %xor547, i64 6)
@@ -1188,8 +1188,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor763 = xor i64 %and762, %or730
   %or767 = or i64 %or718, %or742
   %xor768 = xor i64 %xor749, %or767
-  %12 = xor i64 %or718, -1
-  %and775 = and i64 %or724, %12
+  %36 = xor i64 %or718, -1
+  %and775 = and i64 %or724, %36
   %xor776 = xor i64 %and775, %or742
   %or782 = tail call i64 @llvm.fshl.i64(i64 %xor579, i64 %xor579, i64 27)
   %or788 = tail call i64 @llvm.fshl.i64(i64 %xor513, i64 %xor513, i64 36)
@@ -1206,8 +1206,8 @@ do.body:                                          ; preds = %entry, %do.body
   %xor827 = xor i64 %or794, %and826
   %or831 = or i64 %or782, %or806
   %xor832 = xor i64 %or831, %xor813
-  %13 = xor i64 %or782, -1
-  %and839 = and i64 %or788, %13
+  %37 = xor i64 %or782, -1
+  %and839 = and i64 %or788, %37
   %xor840 = xor i64 %and839, %or806
   %or846 = tail call i64 @llvm.fshl.i64(i64 %xor545, i64 %xor545, i64 62)
   %or852 = tail call i64 @llvm.fshl.i64(i64 %xor564, i64 %xor564, i64 55)
@@ -1224,14 +1224,14 @@ do.body:                                          ; preds = %entry, %do.body
   %xor891 = xor i64 %and890, %or858
   %or895 = or i64 %or870, %or846
   %xor896 = xor i64 %xor877, %or895
-  %14 = xor i64 %or846, -1
-  %and903 = and i64 %or852, %14
+  %38 = xor i64 %or846, -1
+  %and903 = and i64 %or852, %38
   %xor904 = xor i64 %or870, %and903
-  %15 = or disjoint i64 %indvars.iv, 1
-  %arrayidx909 = getelementptr inbounds [24 x i64], ptr @hash_keccak_r, i64 0, i64 %15
-  %16 = load i64, ptr %arrayidx909, align 8
-  %17 = xor i64 %and624, %16
-  %xor911 = xor i64 %17, %xor511
+  %39 = or disjoint i64 %indvars.iv, 1
+  %arrayidx909 = getelementptr inbounds [24 x i64], ptr @hash_keccak_r, i64 0, i64 %39
+  %40 = load i64, ptr %arrayidx909, align 8
+  %41 = xor i64 %and624, %40
+  %xor911 = xor i64 %41, %xor511
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %cmp = icmp ult i64 %indvars.iv, 22
   br i1 %cmp, label %do.body, label %for.end, !llvm.loop !11

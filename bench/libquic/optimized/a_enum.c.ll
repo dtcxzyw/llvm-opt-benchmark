@@ -3,19 +3,17 @@ source_filename = "bench/libquic/original/a_enum.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/a_enum.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @ASN1_ENUMERATED_set(ptr nocapture noundef %a, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [9 x i8], align 1
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   store i32 10, ptr %type, align 4
   %0 = load i32, ptr %a, align 8
   %cmp = icmp slt i32 %0, 9
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end9
@@ -41,7 +39,7 @@ if.then12:                                        ; preds = %if.end, %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end, %if.end9
-  %data1041 = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data1041 = getelementptr inbounds i8, ptr %a, i64 8
   %cmp14 = icmp slt i64 %v, 0
   br i1 %cmp14, label %if.end17.thread, label %if.end17
 
@@ -113,7 +111,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp1.not = icmp eq i32 %0, 266
   switch i32 %0, label %return [
@@ -127,7 +125,7 @@ if.end6:                                          ; preds = %if.end, %if.end
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp10 = icmp eq ptr %2, null
   br i1 %cmp10, label %return, label %for.cond.preheader
@@ -183,7 +181,7 @@ if.end3:                                          ; preds = %entry, %if.end
   %call4 = tail call i32 @BN_is_negative(ptr noundef %bn) #6
   %tobool.not = icmp eq i32 %call4, 0
   %spec.select = select i1 %tobool.not, i32 10, i32 266
-  %0 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.021, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ret.021, i64 4
   store i32 %spec.select, ptr %0, align 4
   %call9 = tail call i32 @BN_num_bits(ptr noundef %bn) #6
   %cmp10 = icmp eq i32 %call9, 0
@@ -198,7 +196,7 @@ cond.end:                                         ; preds = %if.end3, %cond.fals
   %cond = phi i32 [ %1, %cond.false ], [ 4, %if.end3 ]
   %2 = load i32, ptr %ret.021, align 8
   %cmp12 = icmp slt i32 %2, %cond
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ret.021, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ret.021, i64 8
   %3 = load ptr, ptr %data, align 8
   br i1 %cmp12, label %if.then13, label %if.end20
 
@@ -253,7 +251,7 @@ declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ASN1_ENUMERATED_to_BN(ptr nocapture noundef readonly %ai, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ai, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ai, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %ai, align 8
   %conv = sext i32 %1 to i64
@@ -266,7 +264,7 @@ if.then:                                          ; preds = %entry
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %ai, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ai, i64 4
   %2 = load i32, ptr %type, align 4
   %cmp2 = icmp eq i32 %2, 266
   br i1 %cmp2, label %if.then4, label %if.end5

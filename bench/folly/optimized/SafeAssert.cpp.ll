@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::c_array" = type { [20 x i64] }
 %"struct.folly::c_array.0" = type { [100 x i16] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.folly::detail::safe_assert_arg" = type { ptr, ptr, i32, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -195,7 +194,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %if.end unwind label %terminate.lpad.loopexit.split-lp
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %msg_types = getelementptr inbounds %"struct.folly::detail::safe_assert_arg", ptr %arg_, i64 0, i32 4
+  %msg_types = getelementptr inbounds i8, ptr %arg_, i64 32
   %2 = load ptr, ptr %msg_types, align 8, !tbaa !13
   %3 = load i8, ptr %2, align 1, !tbaa !14
   %cmp.not = icmp eq i8 %3, 0
@@ -207,8 +206,8 @@ if.then3:                                         ; preds = %if.end
 
 invoke.cont4:                                     ; preds = %if.then3
   %4 = load ptr, ptr %msg_types, align 8, !tbaa !13
-  %overflow_arg_area_p17 = getelementptr inbounds %struct.__va_list_tag, ptr %msg, i64 0, i32 2
-  %5 = getelementptr inbounds %struct.__va_list_tag, ptr %msg, i64 0, i32 3
+  %overflow_arg_area_p17 = getelementptr inbounds i8, ptr %msg, i64 8
+  %5 = getelementptr inbounds i8, ptr %msg, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %invoke.cont4
@@ -283,7 +282,7 @@ if.end24:                                         ; preds = %while.body, %if.end
           to label %invoke.cont25 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont25:                                    ; preds = %if.end24
-  %file = getelementptr inbounds %"struct.folly::detail::safe_assert_arg", ptr %arg_, i64 0, i32 1
+  %file = getelementptr inbounds i8, ptr %arg_, i64 8
   %15 = load ptr, ptr %file, align 8, !tbaa !18
   invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr noundef %15)
           to label %invoke.cont26 unwind label %terminate.lpad.loopexit.split-lp
@@ -293,7 +292,7 @@ invoke.cont26:                                    ; preds = %invoke.cont25
           to label %invoke.cont27 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont27:                                    ; preds = %invoke.cont26
-  %line = getelementptr inbounds %"struct.folly::detail::safe_assert_arg", ptr %arg_, i64 0, i32 2
+  %line = getelementptr inbounds i8, ptr %arg_, i64 16
   %16 = load i32, ptr %line, align 8, !tbaa !19
   %conv = zext i32 %16 to i64
   %call.i.i65 = invoke noundef i64 @_ZN5folly13to_ascii_withILm10ENS_17to_ascii_alphabetILb0EEELm20EEEmRAT1__cm(ptr noundef nonnull align 1 dereferenceable(20) %buf, i64 noundef %conv)
@@ -308,7 +307,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %invoke.cont32 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %invoke.cont31
-  %function = getelementptr inbounds %"struct.folly::detail::safe_assert_arg", ptr %arg_, i64 0, i32 3
+  %function = getelementptr inbounds i8, ptr %arg_, i64 24
   %17 = load ptr, ptr %function, align 8, !tbaa !20
   invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_111writeStderrEPKc(ptr noundef %17)
           to label %invoke.cont33 unwind label %terminate.lpad.loopexit.split-lp
@@ -340,7 +339,7 @@ invoke.cont42:                                    ; preds = %invoke.cont41
   br i1 %cmp48.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont42
-  %second = getelementptr inbounds %"struct.std::pair", ptr %call46, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %call46, i64 8
   %18 = load ptr, ptr %second, align 8, !tbaa !21
   br label %cond.end
 
@@ -479,25 +478,25 @@ for.body.i.i:                                     ; preds = %if.end12.i.i, %entr
   br i1 %cmp.i.i.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit", label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.088.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.088.i.i, i64 16
   %incdec.ptr.val.i.i = load i32, ptr %incdec.ptr.i.i, align 8
   %cmp.i.i65.i.i = icmp eq i32 %incdec.ptr.val.i.i, %__pred.coerce
   br i1 %cmp.i.i65.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit", label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %incdec.ptr5.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.088.i.i, i64 2
+  %incdec.ptr5.i.i = getelementptr inbounds i8, ptr %__first.addr.088.i.i, i64 32
   %incdec.ptr5.val.i.i = load i32, ptr %incdec.ptr5.i.i, align 8
   %cmp.i.i66.i.i = icmp eq i32 %incdec.ptr5.val.i.i, %__pred.coerce
   br i1 %cmp.i.i66.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit13", label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end4.i.i
-  %incdec.ptr9.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.088.i.i, i64 3
+  %incdec.ptr9.i.i = getelementptr inbounds i8, ptr %__first.addr.088.i.i, i64 48
   %incdec.ptr9.val.i.i = load i32, ptr %incdec.ptr9.i.i, align 8
   %cmp.i.i67.i.i = icmp eq i32 %incdec.ptr9.val.i.i, %__pred.coerce
   br i1 %cmp.i.i67.i.i, label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit15", label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.end8.i.i
-  %incdec.ptr13.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.088.i.i, i64 4
+  %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %__first.addr.088.i.i, i64 64
   %dec.i.i = add nsw i64 %__trip_count.089.i.i, -1
   %cmp.i.i = icmp ugt i64 %__trip_count.089.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %sw.bb27.i.i, !llvm.loop !26
@@ -508,15 +507,15 @@ sw.bb27.i.i:                                      ; preds = %if.end12.i.i
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
 "_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit": ; preds = %if.end.i.i
-  %incdec.ptr.i.i.le = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.088.i.i, i64 1
+  %incdec.ptr.i.i.le = getelementptr inbounds i8, ptr %__first.addr.088.i.i, i64 16
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
 "_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit13": ; preds = %if.end4.i.i
-  %incdec.ptr5.i.i.le = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.088.i.i, i64 2
+  %incdec.ptr5.i.i.le = getelementptr inbounds i8, ptr %__first.addr.088.i.i, i64 32
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
 "_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit15": ; preds = %if.end8.i.i
-  %incdec.ptr9.i.i.le = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.088.i.i, i64 3
+  %incdec.ptr9.i.i.le = getelementptr inbounds i8, ptr %__first.addr.088.i.i, i64 48
   br label %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit"
 
 "_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %for.body.i.i, %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit", %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit13", %"_ZSt9__find_ifIPKSt4pairIiPKcEN9__gnu_cxx5__ops10_Iter_predIZN5folly6detail12_GLOBAL__N_123safe_assert_terminate_vEPKNSA_15safe_assert_argEiP13__va_list_tagE3$_0EEET_SJ_SJ_T0_.exit.loopexit.split.loop.exit15", %sw.bb27.i.i

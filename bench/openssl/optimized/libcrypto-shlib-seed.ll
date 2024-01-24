@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @SS = internal unnamed_addr constant [4 x [256 x i32]] [[256 x i32] [i32 696885672, i32 92635524, i32 382128852, i32 331600848, i32 340021332, i32 487395612, i32 747413676, i32 621093156, i32 491606364, i32 54739776, i32 403181592, i32 504238620, i32 289493328, i32 1020063996, i32 181060296, i32 591618912, i32 671621160, i32 71581764, i32 536879136, i32 495817116, i32 549511392, i32 583197408, i32 147374280, i32 386339604, i32 629514660, i32 261063564, i32 50529024, i32 994800504, i32 999011256, i32 318968592, i32 314757840, i32 785310444, i32 809529456, i32 210534540, i32 1057960764, i32 680042664, i32 839004720, i32 500027868, i32 919007988, i32 876900468, i32 751624428, i32 361075092, i32 185271048, i32 390550356, i32 474763356, i32 457921368, i32 1032696252, i32 16843008, i32 604250148, i32 470552604, i32 860058480, i32 411603096, i32 268439568, i32 214745292, i32 851636976, i32 432656856, i32 738992172, i32 667411428, i32 843215472, i32 58950528, i32 462132120, i32 297914832, i32 109478532, i32 164217288, i32 541089888, i32 272650320, i32 595829664, i32 734782440, i32 218956044, i32 914797236, i32 512660124, i32 256852812, i32 931640244, i32 441078360, i32 113689284, i32 944271480, i32 646357668, i32 302125584, i32 797942700, i32 365285844, i32 557932896, i32 63161280, i32 881111220, i32 21053760, i32 306336336, i32 1028485500, i32 227377548, i32 134742024, i32 521081628, i32 428446104, i32 0, i32 420024600, i32 67371012, i32 323179344, i32 935850996, i32 566354400, i32 1036907004, i32 910586484, i32 789521196, i32 654779172, i32 813740208, i32 193692552, i32 235799052, i32 730571688, i32 578986656, i32 776888940, i32 327390096, i32 223166796, i32 692674920, i32 1011642492, i32 151585032, i32 168428040, i32 1066382268, i32 802153452, i32 868479984, i32 96846276, i32 126321540, i32 335810580, i32 1053750012, i32 608460900, i32 516870876, i32 772678188, i32 189481800, i32 436867608, i32 101057028, i32 553722144, i32 726360936, i32 642146916, i32 33686016, i32 902164980, i32 310547088, i32 176849544, i32 202113036, i32 864269232, i32 1045328508, i32 281071824, i32 977957496, i32 122110788, i32 377918100, i32 633725412, i32 637936164, i32 8421504, i32 764256684, i32 533713884, i32 562143648, i32 805318704, i32 923218740, i32 781099692, i32 906375732, i32 352653588, i32 570565152, i32 940060728, i32 885321972, i32 663200676, i32 88424772, i32 206323788, i32 25264512, i32 701096424, i32 75792516, i32 394761108, i32 889532724, i32 197903304, i32 248431308, i32 1007431740, i32 826372464, i32 285282576, i32 130532292, i32 160006536, i32 893743476, i32 1003222008, i32 449499864, i32 952692984, i32 344232084, i32 424235352, i32 42107520, i32 80003268, i32 1070593020, i32 155795784, i32 956903736, i32 658989924, i32 12632256, i32 265274316, i32 398971860, i32 948482232, i32 252642060, i32 244220556, i32 37896768, i32 587408160, i32 293704080, i32 743202924, i32 466342872, i32 612671652, i32 872689716, i32 834793968, i32 138952776, i32 46318272, i32 793731948, i32 1024274748, i32 755835180, i32 4210752, i32 1049539260, i32 1041117756, i32 1015853244, i32 29475264, i32 713728680, i32 982168248, i32 240009804, i32 356864340, i32 990589752, i32 483184860, i32 675831912, i32 1062171516, i32 478974108, i32 415813848, i32 172638792, i32 373707348, i32 927429492, i32 545300640, i32 768467436, i32 105267780, i32 897954228, i32 722150184, i32 625303908, i32 986379000, i32 600040416, i32 965325240, i32 830583216, i32 529503132, i32 508449372, i32 969535992, i32 650568420, i32 847426224, i32 822161712, i32 717939432, i32 760045932, i32 525292380, i32 616882404, i32 817950960, i32 231588300, i32 143163528, i32 369496596, i32 973746744, i32 407392344, i32 348442836, i32 574775904, i32 688464168, i32 117900036, i32 855847728, i32 684253416, i32 453710616, i32 84214020, i32 961114488, i32 276861072, i32 709517928, i32 705307176, i32 445289112], [256 x i32] [i32 943196208, i32 -399980320, i32 741149985, i32 -1540979038, i32 -871379005, i32 -601960750, i32 -1338801229, i32 -1204254544, i32 -1406169181, i32 1612726368, i32 1410680145, i32 -1006123069, i32 1141130304, i32 1815039843, i32 1747667811, i32 1478183763, i32 -1073495101, i32 1612857954, i32 808649523, i32 -1271560783, i32 673777953, i32 -1608482656, i32 -534592798, i32 -1540913245, i32 -804011053, i32 -1877900911, i32 269549841, i32 67503618, i32 471600144, i32 -1136882512, i32 875955762, i32 1208699715, i32 -332410909, i32 -2012706688, i32 1814842464, i32 -1473738592, i32 337053459, i32 -1006320448, i32 336987666, i32 -197868304, i32 -1073560894, i32 1141196097, i32 -534658591, i32 -736704814, i32 1010765619, i32 1010634033, i32 -1945203070, i32 -1743222640, i32 673712160, i32 1276005954, i32 -197736718, i32 1010699826, i32 -1541044831, i32 -130430479, i32 202181889, i32 -601894957, i32 -669464368, i32 673909539, i32 1680229986, i32 2017086066, i32 606537507, i32 741281571, i32 -265174543, i32 1882342002, i32 1073889858, i32 -736836400, i32 1073824065, i32 -1073692480, i32 1882407795, i32 1680295779, i32 -1406366560, i32 -2012509309, i32 -197670925, i32 -1406300767, i32 -2147450752, i32 471797523, i32 -938816830, i32 741084192, i32 -1473607006, i32 875824176, i32 -804076846, i32 134941443, i32 -332476702, i32 -399914527, i32 1545424209, i32 -1810594672, i32 404228112, i32 -130496272, i32 1410811731, i32 -1406234974, i32 134744064, i32 -1006254655, i32 269681427, i32 -871510591, i32 -2079947134, i32 -1204188751, i32 -62926861, i32 2084392305, i32 -1073626687, i32 808517937, i32 -197802511, i32 -2012575102, i32 1747602018, i32 -1338932815, i32 -804142639, i32 538968096, i32 -736639021, i32 131586, i32 539099682, i32 67372032, i32 1747470432, i32 1882276209, i32 67569411, i32 -669266989, i32 -1675784815, i32 -1743156847, i32 1612792161, i32 -1136750926, i32 -467220766, i32 1478052177, i32 -602026543, i32 1343308113, i32 -1877966704, i32 -602092336, i32 -1743091054, i32 -1608285277, i32 -1473541213, i32 -804208432, i32 -2147384959, i32 202313475, i32 1141327683, i32 404359698, i32 -534527005, i32 -332608288, i32 -1945268863, i32 -1136685133, i32 -1810463086, i32 2017151859, i32 1545358416, i32 -1608351070, i32 -1608416863, i32 1612923747, i32 539165475, i32 1275940161, i32 -938948416, i32 -1675719022, i32 -1675850608, i32 943327794, i32 202116096, i32 741215778, i32 -1204122958, i32 1814974050, i32 -1675653229, i32 1478117970, i32 -265108750, i32 -1877835118, i32 -265042957, i32 1208568129, i32 2016954480, i32 -871576384, i32 336921873, i32 -130298893, i32 1882210416, i32 1949648241, i32 2084523891, i32 875889969, i32 269484048, i32 197379, i32 1680098400, i32 1814908257, i32 -1006188862, i32 1949582448, i32 -736770607, i32 -1271626576, i32 -399848734, i32 134809857, i32 1949714034, i32 404293905, i32 -62992654, i32 1073758272, i32 269615634, i32 -534724384, i32 -1136816719, i32 67437825, i32 -130364686, i32 65793, i32 -265240336, i32 673843746, i32 1545490002, i32 -1473672799, i32 1410745938, i32 1073955651, i32 -2080012927, i32 336856080, i32 -2012640895, i32 -1743025261, i32 -1338998608, i32 -467286559, i32 1208502336, i32 2017020273, i32 -1810397293, i32 -63124240, i32 471731730, i32 -2147319166, i32 539033889, i32 -1945334656, i32 404425491, i32 1545555795, i32 1949779827, i32 1410614352, i32 -1338867022, i32 471665937, i32 606405921, i32 1276071747, i32 0, i32 1141261890, i32 -332542495, i32 1477986384, i32 1343373906, i32 -399782941, i32 2084458098, i32 -669332782, i32 -938882623, i32 -63058447, i32 808452144, i32 -1810528879, i32 1680164193, i32 1010568240, i32 -1271494990, i32 -467352352, i32 -1204057165, i32 2084326512, i32 202247682, i32 1343242320, i32 943262001, i32 606471714, i32 808583730, i32 -2080078720, i32 1747536225, i32 -1877769325, i32 876021555, i32 -467154973, i32 606340128, i32 -1541110624, i32 -938751037, i32 1343439699, i32 134875650, i32 -2079881341, i32 -669398575, i32 1275874368, i32 -2147253373, i32 -1945137277, i32 -871444798, i32 943393587, i32 1208633922, i32 -1271429197], [256 x i32] [i32 -1582814839, i32 -2122054267, i32 -757852474, i32 -741338173, i32 1347687492, i32 287055117, i32 -1599329140, i32 556016901, i32 1364991309, i32 1128268611, i32 270014472, i32 303832590, i32 1364201793, i32 -251904820, i32 -1027077430, i32 1667244867, i32 539502600, i32 1078199364, i32 538976256, i32 -1852039795, i32 -522182464, i32 -488627518, i32 -1060632376, i32 320083719, i32 -1583078011, i32 -2087972977, i32 50332419, i32 1937259339, i32 -1279771765, i32 319820547, i32 -758115646, i32 -487838002, i32 1886400576, i32 -2138305396, i32 859586319, i32 -1599592312, i32 842019330, i32 -774103603, i32 -218876218, i32 1886663748, i32 -521392948, i32 -1852566139, i32 50858763, i32 1398019911, i32 1348213836, i32 1398283083, i32 -1313063539, i32 16777473, i32 539239428, i32 270277644, i32 1936732995, i32 -1869080440, i32 269488128, i32 -1060369204, i32 -219139390, i32 -774366775, i32 539765772, i32 -471586873, i32 1919955522, i32 -2088762493, i32 -1818748021, i32 -774893119, i32 -2105276794, i32 -1043854903, i32 1616912448, i32 1347424320, i32 -1549786237, i32 -471323701, i32 17566989, i32 -1296812410, i32 -1835262322, i32 1129058127, i32 -1280034937, i32 1381505610, i32 -1027340602, i32 1886926920, i32 -1566300538, i32 303043074, i32 -1548996721, i32 -774629947, i32 1633689921, i32 -1010826301, i32 -1330367356, i32 1094713665, i32 1380979266, i32 1903967565, i32 -2121527923, i32 526344, i32 320610063, i32 -1852302967, i32 0, i32 286791945, i32 263172, i32 1397756739, i32 -202098745, i32 -505404991, i32 -235127347, i32 1920218694, i32 590098191, i32 589571847, i32 -1330630528, i32 -2088236149, i32 34344462, i32 -1549259893, i32 -1566563710, i32 1651256910, i32 -1819274365, i32 1095503181, i32 1634216265, i32 1887190092, i32 17303817, i32 34081290, i32 -1279508593, i32 -471060529, i32 -202361917, i32 -1044118075, i32 -2088499321, i32 269751300, i32 -218349874, i32 1617175620, i32 -757326130, i32 573320718, i32 1128794955, i32 303569418, i32 33818118, i32 555753729, i32 1667771211, i32 1650730566, i32 33554946, i32 -235653691, i32 -1836051838, i32 -2105013622, i32 789516, i32 -1280298109, i32 1920745038, i32 -791670592, i32 1920481866, i32 1128531783, i32 -1835788666, i32 -505141819, i32 572794374, i32 -2139094912, i32 -1582551667, i32 -740548657, i32 -1583341183, i32 808464384, i32 859059975, i32 -1565774194, i32 842282502, i32 286528773, i32 572531202, i32 808990728, i32 -252431164, i32 -1549523065, i32 1094976837, i32 1078725708, i32 -2122317439, i32 -504878647, i32 -2138831740, i32 -1819011193, i32 825505029, i32 -1010299957, i32 -1026814258, i32 809253900, i32 1903178049, i32 286265601, i32 -1010563129, i32 -2121791095, i32 1903441221, i32 -201835573, i32 -757589302, i32 -252167992, i32 -1869343612, i32 1364728137, i32 -2105539966, i32 -1060895548, i32 -201572401, i32 1095240009, i32 825768201, i32 1667508039, i32 -1061158720, i32 -1010036785, i32 -741075001, i32 -1330104184, i32 51121935, i32 -2104750450, i32 1111491138, i32 589308675, i32 -1852829311, i32 1617701964, i32 -740811829, i32 -1599855484, i32 808727556, i32 -235916863, i32 1078462536, i32 -1027603774, i32 1668034383, i32 826031373, i32 556543245, i32 1077936192, i32 -1296286066, i32 842808846, i32 -1329841012, i32 -1044381247, i32 -1566037366, i32 -1296549238, i32 1112280654, i32 1364464965, i32 859323147, i32 -790881076, i32 1617438792, i32 1937522511, i32 -1868817268, i32 -791144248, i32 1112017482, i32 1381242438, i32 1936996167, i32 -1600118656, i32 -504615475, i32 1111754310, i32 -1313589883, i32 589835019, i32 1633953093, i32 -218613046, i32 -471850045, i32 -1313326711, i32 -1313853055, i32 -1818484849, i32 1381768782, i32 -235390519, i32 -488364346, i32 -1297075582, i32 825241857, i32 -488101174, i32 1634479437, i32 1398546255, i32 -521919292, i32 -252694336, i32 -1043591731, i32 -2138568568, i32 303306246, i32 842545674, i32 1347950664, i32 -791407420, i32 1650467394, i32 556280073, i32 50595591, i32 858796803, i32 -521656120, i32 320346891, i32 17040645, i32 1903704393, i32 -1869606784, i32 1650993738, i32 573057546, i32 -1835525494], [256 x i32] [i32 137377848, i32 -924784600, i32 220277805, i32 -2036161498, i32 -809251825, i32 -825041890, i32 -2085375949, i32 -2001684424, i32 -1885098961, i32 1080057888, i32 1162957845, i32 -943471609, i32 1145062404, i32 1331915823, i32 1264805931, i32 1263753243, i32 -1010581501, i32 1113743394, i32 53686323, i32 -2051951563, i32 153167913, i32 -2136956896, i32 -1025318878, i32 -2019318745, i32 -1009528813, i32 -2121166831, i32 17895441, i32 100795398, i32 202382364, i32 -1934574532, i32 103953462, i32 1262700555, i32 -807146449, i32 -2004842488, i32 1281387564, i32 -2002737112, i32 118690839, i32 -993999868, i32 101848086, i32 -990841804, i32 -1027424254, i32 1161905157, i32 -1042161631, i32 -959261674, i32 255015999, i32 221330493, i32 -1904047090, i32 -2003789800, i32 136325160, i32 1312967694, i32 -957156298, i32 238173246, i32 -2053004251, i32 -906889159, i32 218172429, i32 -808199137, i32 -925837288, i32 186853419, i32 1180853286, i32 1249015866, i32 119743527, i32 253963311, i32 -1041108943, i32 1114796082, i32 1111638018, i32 -992947180, i32 1094795265, i32 -1061109760, i32 1131638835, i32 1197696039, i32 -1935627220, i32 -1954314229, i32 -940313545, i32 -1918784467, i32 -2139062272, i32 252910623, i32 -893204470, i32 203435052, i32 -1969051606, i32 70267956, i32 -1026371566, i32 184748043, i32 -823989202, i32 -907941847, i32 1297177629, i32 -2070899692, i32 135272472, i32 -923731912, i32 1196643351, i32 -1901941714, i32 134219784, i32 -977157115, i32 51580947, i32 -842937331, i32 -2038266874, i32 -1984841671, i32 -806093761, i32 1299283005, i32 -1044267007, i32 20000817, i32 -973999051, i32 -1971156982, i32 1247963178, i32 -2119061455, i32 -1043214319, i32 2105376, i32 -942418921, i32 33685506, i32 35790882, i32 67109892, i32 1214277672, i32 1097953329, i32 117638151, i32 -875309029, i32 -1919837155, i32 -1986947047, i32 1096900641, i32 -1900889026, i32 -958208986, i32 1230067737, i32 -841884643, i32 1095847953, i32 -2138009584, i32 -858727396, i32 -1970104294, i32 -2086428637, i32 -1952208853, i32 -1060057072, i32 -2122219519, i32 251857935, i32 1195590663, i32 168957978, i32 -1008476125, i32 -857674708, i32 -1920889843, i32 -1884046273, i32 -2037214186, i32 1265858619, i32 1280334876, i32 -2103271390, i32 -2120114143, i32 1130586147, i32 52633635, i32 1296124941, i32 -926889976, i32 -1902994402, i32 -1936679908, i32 171063354, i32 201329676, i32 237120558, i32 -1967998918, i32 1315073070, i32 -1886151649, i32 1246910490, i32 -1024266190, i32 -2104324078, i32 -1007423437, i32 1229015049, i32 1215330360, i32 -859780084, i32 85005333, i32 -873203653, i32 1081110576, i32 1165063221, i32 1332968511, i32 87110709, i32 1052688, i32 50528259, i32 1147167780, i32 1298230317, i32 -960314362, i32 1148220468, i32 -976104427, i32 -2068794316, i32 -891099094, i32 151062537, i32 1181905974, i32 152115225, i32 -822936514, i32 1077952512, i32 34738194, i32 -1059004384, i32 -1917731779, i32 83952645, i32 -890046406, i32 16842753, i32 -1057951696, i32 170010666, i32 1314020382, i32 -1985894359, i32 1179800598, i32 1128480771, i32 -2055109627, i32 68162580, i32 -1987999735, i32 -1953261541, i32 -2135904208, i32 -975051739, i32 1212172296, i32 1232173113, i32 -2020371433, i32 -856622020, i32 236067870, i32 -2105376766, i32 18948129, i32 -1937732596, i32 185800731, i32 1330863135, i32 1198748727, i32 1146115092, i32 -2102218702, i32 219225117, i32 86058021, i32 1329810447, i32 0, i32 1178747910, i32 -840831955, i32 1213224984, i32 1112690706, i32 -874256341, i32 1316125758, i32 -892151782, i32 -910047223, i32 -839779267, i32 3158064, i32 -2054056939, i32 1164010533, i32 204487740, i32 -2035108810, i32 -991894492, i32 -1951156165, i32 1282440252, i32 235015182, i32 1079005200, i32 154220601, i32 102900774, i32 36843570, i32 -2071952380, i32 1231120425, i32 -2087481325, i32 120796215, i32 -941366233, i32 69215268, i32 -2069847004, i32 -876361717, i32 1129533459, i32 167905290, i32 -2021424121, i32 -908994535, i32 1279282188, i32 -2088534013, i32 -1887204337, i32 -826094578, i32 187906107, i32 1245857802, i32 -2018266057]], align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @SEED_set_key(ptr nocapture noundef readonly %rawkey, ptr nocapture noundef writeonly %ks) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %rawkey, align 1
@@ -126,7 +126,7 @@ entry:
   %arrayidx116 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom115
   %25 = load i32, ptr %arrayidx116, align 4
   %xor117 = xor i32 %xor110, %25
-  %arrayidx120 = getelementptr inbounds i32, ptr %ks, i64 1
+  %arrayidx120 = getelementptr inbounds i8, ptr %ks, i64 4
   store i32 %xor117, ptr %arrayidx120, align 4
   %xor123 = tail call i32 @llvm.fshl.i32(i32 %conv26, i32 %or7, i32 24)
   %xor127 = tail call i32 @llvm.fshl.i32(i32 %conv9, i32 %or23, i32 24)
@@ -155,7 +155,7 @@ entry:
   %arrayidx159 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom158
   %29 = load i32, ptr %arrayidx159, align 4
   %xor160 = xor i32 %xor153, %29
-  %arrayidx162 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 2
+  %arrayidx162 = getelementptr inbounds i8, ptr %ks, i64 8
   store i32 %xor160, ptr %arrayidx162, align 4
   %conv165 = and i32 %sub133, 255
   %idxprom167 = zext nneg i32 %conv165 to i64
@@ -178,7 +178,7 @@ entry:
   %arrayidx188 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom187
   %33 = load i32, ptr %arrayidx188, align 4
   %xor189 = xor i32 %xor182, %33
-  %arrayidx192 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 3
+  %arrayidx192 = getelementptr inbounds i8, ptr %ks, i64 12
   store i32 %xor189, ptr %arrayidx192, align 4
   %shl193 = shl i32 %or45, 8
   %xor195 = or disjoint i32 %shl193, %conv48
@@ -209,7 +209,7 @@ entry:
   %arrayidx231 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom230
   %37 = load i32, ptr %arrayidx231, align 4
   %xor232 = xor i32 %xor225, %37
-  %arrayidx234 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 4
+  %arrayidx234 = getelementptr inbounds i8, ptr %ks, i64 16
   store i32 %xor232, ptr %arrayidx234, align 4
   %conv237 = and i32 %sub205, 255
   %idxprom239 = zext nneg i32 %conv237 to i64
@@ -232,7 +232,7 @@ entry:
   %arrayidx260 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom259
   %41 = load i32, ptr %arrayidx260, align 4
   %xor261 = xor i32 %xor254, %41
-  %arrayidx264 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 5
+  %arrayidx264 = getelementptr inbounds i8, ptr %ks, i64 20
   store i32 %xor261, ptr %arrayidx264, align 4
   %xor267 = tail call i32 @llvm.fshl.i32(i32 %xor127, i32 %xor123, i32 24)
   %xor271 = tail call i32 @llvm.fshl.i32(i32 %xor123, i32 %xor127, i32 24)
@@ -261,7 +261,7 @@ entry:
   %arrayidx303 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom302
   %45 = load i32, ptr %arrayidx303, align 4
   %xor304 = xor i32 %xor297, %45
-  %arrayidx306 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 6
+  %arrayidx306 = getelementptr inbounds i8, ptr %ks, i64 24
   store i32 %xor304, ptr %arrayidx306, align 4
   %conv309 = and i32 %sub277, 255
   %idxprom311 = zext nneg i32 %conv309 to i64
@@ -284,7 +284,7 @@ entry:
   %arrayidx332 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom331
   %49 = load i32, ptr %arrayidx332, align 4
   %xor333 = xor i32 %xor326, %49
-  %arrayidx336 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 7
+  %arrayidx336 = getelementptr inbounds i8, ptr %ks, i64 28
   store i32 %xor333, ptr %arrayidx336, align 4
   %xor339 = tail call i32 @llvm.fshl.i32(i32 %xor195, i32 %shl197, i32 8)
   %xor343 = tail call i32 @llvm.fshl.i32(i32 %xor199, i32 %shl193, i32 8)
@@ -313,7 +313,7 @@ entry:
   %arrayidx375 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom374
   %53 = load i32, ptr %arrayidx375, align 4
   %xor376 = xor i32 %xor369, %53
-  %arrayidx378 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 8
+  %arrayidx378 = getelementptr inbounds i8, ptr %ks, i64 32
   store i32 %xor376, ptr %arrayidx378, align 4
   %conv381 = and i32 %sub349, 255
   %idxprom383 = zext nneg i32 %conv381 to i64
@@ -336,7 +336,7 @@ entry:
   %arrayidx404 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom403
   %57 = load i32, ptr %arrayidx404, align 4
   %xor405 = xor i32 %xor398, %57
-  %arrayidx408 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 9
+  %arrayidx408 = getelementptr inbounds i8, ptr %ks, i64 36
   store i32 %xor405, ptr %arrayidx408, align 4
   %xor411 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor267, i32 24)
   %xor415 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor271, i32 24)
@@ -365,7 +365,7 @@ entry:
   %arrayidx447 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom446
   %61 = load i32, ptr %arrayidx447, align 4
   %xor448 = xor i32 %xor441, %61
-  %arrayidx450 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 10
+  %arrayidx450 = getelementptr inbounds i8, ptr %ks, i64 40
   store i32 %xor448, ptr %arrayidx450, align 4
   %conv453 = and i32 %sub421, 255
   %idxprom455 = zext nneg i32 %conv453 to i64
@@ -388,7 +388,7 @@ entry:
   %arrayidx476 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom475
   %65 = load i32, ptr %arrayidx476, align 4
   %xor477 = xor i32 %xor470, %65
-  %arrayidx480 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 11
+  %arrayidx480 = getelementptr inbounds i8, ptr %ks, i64 44
   store i32 %xor477, ptr %arrayidx480, align 4
   %xor483 = tail call i32 @llvm.fshl.i32(i32 %xor339, i32 %xor343, i32 8)
   %xor487 = tail call i32 @llvm.fshl.i32(i32 %xor343, i32 %xor339, i32 8)
@@ -417,7 +417,7 @@ entry:
   %arrayidx519 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom518
   %69 = load i32, ptr %arrayidx519, align 4
   %xor520 = xor i32 %xor513, %69
-  %arrayidx522 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 12
+  %arrayidx522 = getelementptr inbounds i8, ptr %ks, i64 48
   store i32 %xor520, ptr %arrayidx522, align 4
   %conv525 = and i32 %sub493, 255
   %idxprom527 = zext nneg i32 %conv525 to i64
@@ -440,7 +440,7 @@ entry:
   %arrayidx548 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom547
   %73 = load i32, ptr %arrayidx548, align 4
   %xor549 = xor i32 %xor542, %73
-  %arrayidx552 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 13
+  %arrayidx552 = getelementptr inbounds i8, ptr %ks, i64 52
   store i32 %xor549, ptr %arrayidx552, align 4
   %xor555 = tail call i32 @llvm.fshl.i32(i32 %xor415, i32 %xor411, i32 24)
   %xor559 = tail call i32 @llvm.fshl.i32(i32 %xor411, i32 %xor415, i32 24)
@@ -469,7 +469,7 @@ entry:
   %arrayidx591 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom590
   %77 = load i32, ptr %arrayidx591, align 4
   %xor592 = xor i32 %xor585, %77
-  %arrayidx594 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 14
+  %arrayidx594 = getelementptr inbounds i8, ptr %ks, i64 56
   store i32 %xor592, ptr %arrayidx594, align 4
   %conv597 = and i32 %sub565, 255
   %idxprom599 = zext nneg i32 %conv597 to i64
@@ -492,7 +492,7 @@ entry:
   %arrayidx620 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom619
   %81 = load i32, ptr %arrayidx620, align 4
   %xor621 = xor i32 %xor614, %81
-  %arrayidx624 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 15
+  %arrayidx624 = getelementptr inbounds i8, ptr %ks, i64 60
   store i32 %xor621, ptr %arrayidx624, align 4
   %xor627 = tail call i32 @llvm.fshl.i32(i32 %xor483, i32 %xor487, i32 8)
   %xor631 = tail call i32 @llvm.fshl.i32(i32 %xor487, i32 %xor483, i32 8)
@@ -521,7 +521,7 @@ entry:
   %arrayidx663 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom662
   %85 = load i32, ptr %arrayidx663, align 4
   %xor664 = xor i32 %xor657, %85
-  %arrayidx666 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 16
+  %arrayidx666 = getelementptr inbounds i8, ptr %ks, i64 64
   store i32 %xor664, ptr %arrayidx666, align 4
   %conv669 = and i32 %sub637, 255
   %idxprom671 = zext nneg i32 %conv669 to i64
@@ -544,7 +544,7 @@ entry:
   %arrayidx692 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom691
   %89 = load i32, ptr %arrayidx692, align 4
   %xor693 = xor i32 %xor686, %89
-  %arrayidx696 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 17
+  %arrayidx696 = getelementptr inbounds i8, ptr %ks, i64 68
   store i32 %xor693, ptr %arrayidx696, align 4
   %xor699 = tail call i32 @llvm.fshl.i32(i32 %xor559, i32 %xor555, i32 24)
   %xor703 = tail call i32 @llvm.fshl.i32(i32 %xor555, i32 %xor559, i32 24)
@@ -573,7 +573,7 @@ entry:
   %arrayidx735 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom734
   %93 = load i32, ptr %arrayidx735, align 4
   %xor736 = xor i32 %xor729, %93
-  %arrayidx738 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 18
+  %arrayidx738 = getelementptr inbounds i8, ptr %ks, i64 72
   store i32 %xor736, ptr %arrayidx738, align 4
   %conv741 = and i32 %sub709, 255
   %idxprom743 = zext nneg i32 %conv741 to i64
@@ -596,7 +596,7 @@ entry:
   %arrayidx764 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom763
   %97 = load i32, ptr %arrayidx764, align 4
   %xor765 = xor i32 %xor758, %97
-  %arrayidx768 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 19
+  %arrayidx768 = getelementptr inbounds i8, ptr %ks, i64 76
   store i32 %xor765, ptr %arrayidx768, align 4
   %xor771 = tail call i32 @llvm.fshl.i32(i32 %xor627, i32 %xor631, i32 8)
   %xor775 = tail call i32 @llvm.fshl.i32(i32 %xor631, i32 %xor627, i32 8)
@@ -625,7 +625,7 @@ entry:
   %arrayidx807 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom806
   %101 = load i32, ptr %arrayidx807, align 4
   %xor808 = xor i32 %xor801, %101
-  %arrayidx810 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 20
+  %arrayidx810 = getelementptr inbounds i8, ptr %ks, i64 80
   store i32 %xor808, ptr %arrayidx810, align 4
   %conv813 = and i32 %sub781, 255
   %idxprom815 = zext nneg i32 %conv813 to i64
@@ -648,7 +648,7 @@ entry:
   %arrayidx836 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom835
   %105 = load i32, ptr %arrayidx836, align 4
   %xor837 = xor i32 %xor830, %105
-  %arrayidx840 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 21
+  %arrayidx840 = getelementptr inbounds i8, ptr %ks, i64 84
   store i32 %xor837, ptr %arrayidx840, align 4
   %xor843 = tail call i32 @llvm.fshl.i32(i32 %xor703, i32 %xor699, i32 24)
   %xor847 = tail call i32 @llvm.fshl.i32(i32 %xor699, i32 %xor703, i32 24)
@@ -677,7 +677,7 @@ entry:
   %arrayidx879 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom878
   %109 = load i32, ptr %arrayidx879, align 4
   %xor880 = xor i32 %xor873, %109
-  %arrayidx882 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 22
+  %arrayidx882 = getelementptr inbounds i8, ptr %ks, i64 88
   store i32 %xor880, ptr %arrayidx882, align 4
   %conv885 = and i32 %sub853, 255
   %idxprom887 = zext nneg i32 %conv885 to i64
@@ -700,7 +700,7 @@ entry:
   %arrayidx908 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom907
   %113 = load i32, ptr %arrayidx908, align 4
   %xor909 = xor i32 %xor902, %113
-  %arrayidx912 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 23
+  %arrayidx912 = getelementptr inbounds i8, ptr %ks, i64 92
   store i32 %xor909, ptr %arrayidx912, align 4
   %xor915 = tail call i32 @llvm.fshl.i32(i32 %xor771, i32 %xor775, i32 8)
   %xor919 = tail call i32 @llvm.fshl.i32(i32 %xor775, i32 %xor771, i32 8)
@@ -729,7 +729,7 @@ entry:
   %arrayidx951 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom950
   %117 = load i32, ptr %arrayidx951, align 4
   %xor952 = xor i32 %xor945, %117
-  %arrayidx954 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 24
+  %arrayidx954 = getelementptr inbounds i8, ptr %ks, i64 96
   store i32 %xor952, ptr %arrayidx954, align 4
   %conv957 = and i32 %sub925, 255
   %idxprom959 = zext nneg i32 %conv957 to i64
@@ -752,7 +752,7 @@ entry:
   %arrayidx980 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom979
   %121 = load i32, ptr %arrayidx980, align 4
   %xor981 = xor i32 %xor974, %121
-  %arrayidx984 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 25
+  %arrayidx984 = getelementptr inbounds i8, ptr %ks, i64 100
   store i32 %xor981, ptr %arrayidx984, align 4
   %xor987 = tail call i32 @llvm.fshl.i32(i32 %xor847, i32 %xor843, i32 24)
   %xor991 = tail call i32 @llvm.fshl.i32(i32 %xor843, i32 %xor847, i32 24)
@@ -781,7 +781,7 @@ entry:
   %arrayidx1023 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom1022
   %125 = load i32, ptr %arrayidx1023, align 4
   %xor1024 = xor i32 %xor1017, %125
-  %arrayidx1026 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 26
+  %arrayidx1026 = getelementptr inbounds i8, ptr %ks, i64 104
   store i32 %xor1024, ptr %arrayidx1026, align 4
   %conv1029 = and i32 %sub997, 255
   %idxprom1031 = zext nneg i32 %conv1029 to i64
@@ -804,7 +804,7 @@ entry:
   %arrayidx1052 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom1051
   %129 = load i32, ptr %arrayidx1052, align 4
   %xor1053 = xor i32 %xor1046, %129
-  %arrayidx1056 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 27
+  %arrayidx1056 = getelementptr inbounds i8, ptr %ks, i64 108
   store i32 %xor1053, ptr %arrayidx1056, align 4
   %xor1059 = tail call i32 @llvm.fshl.i32(i32 %xor915, i32 %xor919, i32 8)
   %xor1063 = tail call i32 @llvm.fshl.i32(i32 %xor919, i32 %xor915, i32 8)
@@ -833,7 +833,7 @@ entry:
   %arrayidx1095 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom1094
   %133 = load i32, ptr %arrayidx1095, align 4
   %xor1096 = xor i32 %xor1089, %133
-  %arrayidx1098 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 28
+  %arrayidx1098 = getelementptr inbounds i8, ptr %ks, i64 112
   store i32 %xor1096, ptr %arrayidx1098, align 4
   %conv1101 = and i32 %sub1069, 255
   %idxprom1103 = zext nneg i32 %conv1101 to i64
@@ -856,7 +856,7 @@ entry:
   %arrayidx1124 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom1123
   %137 = load i32, ptr %arrayidx1124, align 4
   %xor1125 = xor i32 %xor1118, %137
-  %arrayidx1128 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 29
+  %arrayidx1128 = getelementptr inbounds i8, ptr %ks, i64 116
   store i32 %xor1125, ptr %arrayidx1128, align 4
   %xor1131 = tail call i32 @llvm.fshl.i32(i32 %xor991, i32 %xor987, i32 24)
   %xor1135 = tail call i32 @llvm.fshl.i32(i32 %xor987, i32 %xor991, i32 24)
@@ -885,7 +885,7 @@ entry:
   %arrayidx1167 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom1166
   %141 = load i32, ptr %arrayidx1167, align 4
   %xor1168 = xor i32 %xor1161, %141
-  %arrayidx1170 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 30
+  %arrayidx1170 = getelementptr inbounds i8, ptr %ks, i64 120
   store i32 %xor1168, ptr %arrayidx1170, align 4
   %conv1173 = and i32 %sub1141, 255
   %idxprom1175 = zext nneg i32 %conv1173 to i64
@@ -908,13 +908,13 @@ entry:
   %arrayidx1196 = getelementptr inbounds [4 x [256 x i32]], ptr @SS, i64 0, i64 3, i64 %idxprom1195
   %145 = load i32, ptr %arrayidx1196, align 4
   %xor1197 = xor i32 %xor1190, %145
-  %arrayidx1200 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 31
+  %arrayidx1200 = getelementptr inbounds i8, ptr %ks, i64 124
   store i32 %xor1197, ptr %arrayidx1200, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SEED_encrypt(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %ks) local_unnamed_addr #1 {
+define void @SEED_encrypt(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %ks) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %s, align 1
   %conv = zext i8 %0 to i32
@@ -989,7 +989,7 @@ entry:
   %or63 = or disjoint i32 %or59, %conv62
   %16 = load i32, ptr %ks, align 4
   %xor = xor i32 %16, %or45
-  %arrayidx66 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %ks, i64 4
   %17 = load i32, ptr %arrayidx66, align 4
   %xor67 = xor i32 %xor, %17
   %xor68 = xor i32 %xor67, %or63
@@ -1061,10 +1061,10 @@ entry:
   %add147 = add i32 %xor146, %xor118
   %xor149 = xor i32 %add147, %or10
   %xor150 = xor i32 %xor146, %or27
-  %arrayidx152 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 2
+  %arrayidx152 = getelementptr inbounds i8, ptr %ks, i64 8
   %30 = load i32, ptr %arrayidx152, align 4
   %xor153 = xor i32 %xor149, %30
-  %arrayidx155 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 3
+  %arrayidx155 = getelementptr inbounds i8, ptr %ks, i64 12
   %31 = load i32, ptr %arrayidx155, align 4
   %xor156 = xor i32 %xor150, %31
   %xor157 = xor i32 %xor156, %xor153
@@ -1136,10 +1136,10 @@ entry:
   %add240 = add i32 %xor239, %xor211
   %xor242 = xor i32 %add240, %or45
   %xor243 = xor i32 %xor239, %or63
-  %arrayidx245 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 4
+  %arrayidx245 = getelementptr inbounds i8, ptr %ks, i64 16
   %44 = load i32, ptr %arrayidx245, align 4
   %xor246 = xor i32 %xor242, %44
-  %arrayidx248 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 5
+  %arrayidx248 = getelementptr inbounds i8, ptr %ks, i64 20
   %45 = load i32, ptr %arrayidx248, align 4
   %xor249 = xor i32 %xor243, %45
   %xor250 = xor i32 %xor249, %xor246
@@ -1211,10 +1211,10 @@ entry:
   %add333 = add i32 %xor332, %xor304
   %xor335 = xor i32 %add333, %xor149
   %xor336 = xor i32 %xor332, %xor150
-  %arrayidx338 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 6
+  %arrayidx338 = getelementptr inbounds i8, ptr %ks, i64 24
   %58 = load i32, ptr %arrayidx338, align 4
   %xor339 = xor i32 %xor335, %58
-  %arrayidx341 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 7
+  %arrayidx341 = getelementptr inbounds i8, ptr %ks, i64 28
   %59 = load i32, ptr %arrayidx341, align 4
   %xor342 = xor i32 %xor336, %59
   %xor343 = xor i32 %xor342, %xor339
@@ -1286,10 +1286,10 @@ entry:
   %add426 = add i32 %xor425, %xor397
   %xor428 = xor i32 %add426, %xor242
   %xor429 = xor i32 %xor425, %xor243
-  %arrayidx431 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 8
+  %arrayidx431 = getelementptr inbounds i8, ptr %ks, i64 32
   %72 = load i32, ptr %arrayidx431, align 4
   %xor432 = xor i32 %xor428, %72
-  %arrayidx434 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 9
+  %arrayidx434 = getelementptr inbounds i8, ptr %ks, i64 36
   %73 = load i32, ptr %arrayidx434, align 4
   %xor435 = xor i32 %xor429, %73
   %xor436 = xor i32 %xor435, %xor432
@@ -1361,10 +1361,10 @@ entry:
   %add519 = add i32 %xor518, %xor490
   %xor521 = xor i32 %add519, %xor335
   %xor522 = xor i32 %xor518, %xor336
-  %arrayidx524 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 10
+  %arrayidx524 = getelementptr inbounds i8, ptr %ks, i64 40
   %86 = load i32, ptr %arrayidx524, align 4
   %xor525 = xor i32 %xor521, %86
-  %arrayidx527 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 11
+  %arrayidx527 = getelementptr inbounds i8, ptr %ks, i64 44
   %87 = load i32, ptr %arrayidx527, align 4
   %xor528 = xor i32 %xor522, %87
   %xor529 = xor i32 %xor528, %xor525
@@ -1436,10 +1436,10 @@ entry:
   %add612 = add i32 %xor611, %xor583
   %xor614 = xor i32 %add612, %xor428
   %xor615 = xor i32 %xor611, %xor429
-  %arrayidx617 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 12
+  %arrayidx617 = getelementptr inbounds i8, ptr %ks, i64 48
   %100 = load i32, ptr %arrayidx617, align 4
   %xor618 = xor i32 %xor614, %100
-  %arrayidx620 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 13
+  %arrayidx620 = getelementptr inbounds i8, ptr %ks, i64 52
   %101 = load i32, ptr %arrayidx620, align 4
   %xor621 = xor i32 %xor615, %101
   %xor622 = xor i32 %xor621, %xor618
@@ -1511,10 +1511,10 @@ entry:
   %add705 = add i32 %xor704, %xor676
   %xor707 = xor i32 %add705, %xor521
   %xor708 = xor i32 %xor704, %xor522
-  %arrayidx710 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 14
+  %arrayidx710 = getelementptr inbounds i8, ptr %ks, i64 56
   %114 = load i32, ptr %arrayidx710, align 4
   %xor711 = xor i32 %xor707, %114
-  %arrayidx713 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 15
+  %arrayidx713 = getelementptr inbounds i8, ptr %ks, i64 60
   %115 = load i32, ptr %arrayidx713, align 4
   %xor714 = xor i32 %xor708, %115
   %xor715 = xor i32 %xor714, %xor711
@@ -1586,10 +1586,10 @@ entry:
   %add798 = add i32 %xor797, %xor769
   %xor800 = xor i32 %add798, %xor614
   %xor801 = xor i32 %xor797, %xor615
-  %arrayidx803 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 16
+  %arrayidx803 = getelementptr inbounds i8, ptr %ks, i64 64
   %128 = load i32, ptr %arrayidx803, align 4
   %xor804 = xor i32 %xor800, %128
-  %arrayidx806 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 17
+  %arrayidx806 = getelementptr inbounds i8, ptr %ks, i64 68
   %129 = load i32, ptr %arrayidx806, align 4
   %xor807 = xor i32 %xor801, %129
   %xor808 = xor i32 %xor807, %xor804
@@ -1661,10 +1661,10 @@ entry:
   %add891 = add i32 %xor890, %xor862
   %xor893 = xor i32 %add891, %xor707
   %xor894 = xor i32 %xor890, %xor708
-  %arrayidx896 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 18
+  %arrayidx896 = getelementptr inbounds i8, ptr %ks, i64 72
   %142 = load i32, ptr %arrayidx896, align 4
   %xor897 = xor i32 %xor893, %142
-  %arrayidx899 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 19
+  %arrayidx899 = getelementptr inbounds i8, ptr %ks, i64 76
   %143 = load i32, ptr %arrayidx899, align 4
   %xor900 = xor i32 %xor894, %143
   %xor901 = xor i32 %xor900, %xor897
@@ -1736,10 +1736,10 @@ entry:
   %add984 = add i32 %xor983, %xor955
   %xor986 = xor i32 %add984, %xor800
   %xor987 = xor i32 %xor983, %xor801
-  %arrayidx989 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 20
+  %arrayidx989 = getelementptr inbounds i8, ptr %ks, i64 80
   %156 = load i32, ptr %arrayidx989, align 4
   %xor990 = xor i32 %xor986, %156
-  %arrayidx992 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 21
+  %arrayidx992 = getelementptr inbounds i8, ptr %ks, i64 84
   %157 = load i32, ptr %arrayidx992, align 4
   %xor993 = xor i32 %xor987, %157
   %xor994 = xor i32 %xor993, %xor990
@@ -1811,10 +1811,10 @@ entry:
   %add1077 = add i32 %xor1076, %xor1048
   %xor1079 = xor i32 %add1077, %xor893
   %xor1080 = xor i32 %xor1076, %xor894
-  %arrayidx1082 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 22
+  %arrayidx1082 = getelementptr inbounds i8, ptr %ks, i64 88
   %170 = load i32, ptr %arrayidx1082, align 4
   %xor1083 = xor i32 %xor1079, %170
-  %arrayidx1085 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 23
+  %arrayidx1085 = getelementptr inbounds i8, ptr %ks, i64 92
   %171 = load i32, ptr %arrayidx1085, align 4
   %xor1086 = xor i32 %xor1080, %171
   %xor1087 = xor i32 %xor1086, %xor1083
@@ -1886,10 +1886,10 @@ entry:
   %add1170 = add i32 %xor1169, %xor1141
   %xor1172 = xor i32 %add1170, %xor986
   %xor1173 = xor i32 %xor1169, %xor987
-  %arrayidx1175 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 24
+  %arrayidx1175 = getelementptr inbounds i8, ptr %ks, i64 96
   %184 = load i32, ptr %arrayidx1175, align 4
   %xor1176 = xor i32 %xor1172, %184
-  %arrayidx1178 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 25
+  %arrayidx1178 = getelementptr inbounds i8, ptr %ks, i64 100
   %185 = load i32, ptr %arrayidx1178, align 4
   %xor1179 = xor i32 %xor1173, %185
   %xor1180 = xor i32 %xor1179, %xor1176
@@ -1961,10 +1961,10 @@ entry:
   %add1263 = add i32 %xor1262, %xor1234
   %xor1265 = xor i32 %add1263, %xor1079
   %xor1266 = xor i32 %xor1262, %xor1080
-  %arrayidx1268 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 26
+  %arrayidx1268 = getelementptr inbounds i8, ptr %ks, i64 104
   %198 = load i32, ptr %arrayidx1268, align 4
   %xor1269 = xor i32 %xor1265, %198
-  %arrayidx1271 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 27
+  %arrayidx1271 = getelementptr inbounds i8, ptr %ks, i64 108
   %199 = load i32, ptr %arrayidx1271, align 4
   %xor1272 = xor i32 %xor1266, %199
   %xor1273 = xor i32 %xor1272, %xor1269
@@ -2036,10 +2036,10 @@ entry:
   %add1356 = add i32 %xor1355, %xor1327
   %xor1358 = xor i32 %add1356, %xor1172
   %xor1359 = xor i32 %xor1355, %xor1173
-  %arrayidx1361 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 28
+  %arrayidx1361 = getelementptr inbounds i8, ptr %ks, i64 112
   %212 = load i32, ptr %arrayidx1361, align 4
   %xor1362 = xor i32 %xor1358, %212
-  %arrayidx1364 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 29
+  %arrayidx1364 = getelementptr inbounds i8, ptr %ks, i64 116
   %213 = load i32, ptr %arrayidx1364, align 4
   %xor1365 = xor i32 %xor1359, %213
   %xor1366 = xor i32 %xor1365, %xor1362
@@ -2111,10 +2111,10 @@ entry:
   %add1449 = add i32 %xor1448, %xor1420
   %xor1451 = xor i32 %add1449, %xor1265
   %xor1452 = xor i32 %xor1448, %xor1266
-  %arrayidx1454 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 30
+  %arrayidx1454 = getelementptr inbounds i8, ptr %ks, i64 120
   %226 = load i32, ptr %arrayidx1454, align 4
   %xor1455 = xor i32 %xor1451, %226
-  %arrayidx1457 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 31
+  %arrayidx1457 = getelementptr inbounds i8, ptr %ks, i64 124
   %227 = load i32, ptr %arrayidx1457, align 4
   %xor1458 = xor i32 %xor1452, %227
   %xor1459 = xor i32 %xor1458, %xor1455
@@ -2249,7 +2249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SEED_decrypt(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %ks) local_unnamed_addr #1 {
+define void @SEED_decrypt(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %ks) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %s, align 1
   %conv = zext i8 %0 to i32
@@ -2322,10 +2322,10 @@ entry:
   %15 = load i8, ptr %arrayidx61, align 1
   %conv62 = zext i8 %15 to i32
   %or63 = or disjoint i32 %or59, %conv62
-  %arrayidx64 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 30
+  %arrayidx64 = getelementptr inbounds i8, ptr %ks, i64 120
   %16 = load i32, ptr %arrayidx64, align 4
   %xor = xor i32 %16, %or45
-  %arrayidx66 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 31
+  %arrayidx66 = getelementptr inbounds i8, ptr %ks, i64 124
   %17 = load i32, ptr %arrayidx66, align 4
   %xor67 = xor i32 %xor, %17
   %xor68 = xor i32 %xor67, %or63
@@ -2397,10 +2397,10 @@ entry:
   %add147 = add i32 %xor146, %xor118
   %xor149 = xor i32 %add147, %or10
   %xor150 = xor i32 %xor146, %or27
-  %arrayidx152 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 28
+  %arrayidx152 = getelementptr inbounds i8, ptr %ks, i64 112
   %30 = load i32, ptr %arrayidx152, align 4
   %xor153 = xor i32 %xor149, %30
-  %arrayidx155 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 29
+  %arrayidx155 = getelementptr inbounds i8, ptr %ks, i64 116
   %31 = load i32, ptr %arrayidx155, align 4
   %xor156 = xor i32 %xor150, %31
   %xor157 = xor i32 %xor156, %xor153
@@ -2472,10 +2472,10 @@ entry:
   %add240 = add i32 %xor239, %xor211
   %xor242 = xor i32 %add240, %or45
   %xor243 = xor i32 %xor239, %or63
-  %arrayidx245 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 26
+  %arrayidx245 = getelementptr inbounds i8, ptr %ks, i64 104
   %44 = load i32, ptr %arrayidx245, align 4
   %xor246 = xor i32 %xor242, %44
-  %arrayidx248 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 27
+  %arrayidx248 = getelementptr inbounds i8, ptr %ks, i64 108
   %45 = load i32, ptr %arrayidx248, align 4
   %xor249 = xor i32 %xor243, %45
   %xor250 = xor i32 %xor249, %xor246
@@ -2547,10 +2547,10 @@ entry:
   %add333 = add i32 %xor332, %xor304
   %xor335 = xor i32 %add333, %xor149
   %xor336 = xor i32 %xor332, %xor150
-  %arrayidx338 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 24
+  %arrayidx338 = getelementptr inbounds i8, ptr %ks, i64 96
   %58 = load i32, ptr %arrayidx338, align 4
   %xor339 = xor i32 %xor335, %58
-  %arrayidx341 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 25
+  %arrayidx341 = getelementptr inbounds i8, ptr %ks, i64 100
   %59 = load i32, ptr %arrayidx341, align 4
   %xor342 = xor i32 %xor336, %59
   %xor343 = xor i32 %xor342, %xor339
@@ -2622,10 +2622,10 @@ entry:
   %add426 = add i32 %xor425, %xor397
   %xor428 = xor i32 %add426, %xor242
   %xor429 = xor i32 %xor425, %xor243
-  %arrayidx431 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 22
+  %arrayidx431 = getelementptr inbounds i8, ptr %ks, i64 88
   %72 = load i32, ptr %arrayidx431, align 4
   %xor432 = xor i32 %xor428, %72
-  %arrayidx434 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 23
+  %arrayidx434 = getelementptr inbounds i8, ptr %ks, i64 92
   %73 = load i32, ptr %arrayidx434, align 4
   %xor435 = xor i32 %xor429, %73
   %xor436 = xor i32 %xor435, %xor432
@@ -2697,10 +2697,10 @@ entry:
   %add519 = add i32 %xor518, %xor490
   %xor521 = xor i32 %add519, %xor335
   %xor522 = xor i32 %xor518, %xor336
-  %arrayidx524 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 20
+  %arrayidx524 = getelementptr inbounds i8, ptr %ks, i64 80
   %86 = load i32, ptr %arrayidx524, align 4
   %xor525 = xor i32 %xor521, %86
-  %arrayidx527 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 21
+  %arrayidx527 = getelementptr inbounds i8, ptr %ks, i64 84
   %87 = load i32, ptr %arrayidx527, align 4
   %xor528 = xor i32 %xor522, %87
   %xor529 = xor i32 %xor528, %xor525
@@ -2772,10 +2772,10 @@ entry:
   %add612 = add i32 %xor611, %xor583
   %xor614 = xor i32 %add612, %xor428
   %xor615 = xor i32 %xor611, %xor429
-  %arrayidx617 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 18
+  %arrayidx617 = getelementptr inbounds i8, ptr %ks, i64 72
   %100 = load i32, ptr %arrayidx617, align 4
   %xor618 = xor i32 %xor614, %100
-  %arrayidx620 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 19
+  %arrayidx620 = getelementptr inbounds i8, ptr %ks, i64 76
   %101 = load i32, ptr %arrayidx620, align 4
   %xor621 = xor i32 %xor615, %101
   %xor622 = xor i32 %xor621, %xor618
@@ -2847,10 +2847,10 @@ entry:
   %add705 = add i32 %xor704, %xor676
   %xor707 = xor i32 %add705, %xor521
   %xor708 = xor i32 %xor704, %xor522
-  %arrayidx710 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 16
+  %arrayidx710 = getelementptr inbounds i8, ptr %ks, i64 64
   %114 = load i32, ptr %arrayidx710, align 4
   %xor711 = xor i32 %xor707, %114
-  %arrayidx713 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 17
+  %arrayidx713 = getelementptr inbounds i8, ptr %ks, i64 68
   %115 = load i32, ptr %arrayidx713, align 4
   %xor714 = xor i32 %xor708, %115
   %xor715 = xor i32 %xor714, %xor711
@@ -2922,10 +2922,10 @@ entry:
   %add798 = add i32 %xor797, %xor769
   %xor800 = xor i32 %add798, %xor614
   %xor801 = xor i32 %xor797, %xor615
-  %arrayidx803 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 14
+  %arrayidx803 = getelementptr inbounds i8, ptr %ks, i64 56
   %128 = load i32, ptr %arrayidx803, align 4
   %xor804 = xor i32 %xor800, %128
-  %arrayidx806 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 15
+  %arrayidx806 = getelementptr inbounds i8, ptr %ks, i64 60
   %129 = load i32, ptr %arrayidx806, align 4
   %xor807 = xor i32 %xor801, %129
   %xor808 = xor i32 %xor807, %xor804
@@ -2997,10 +2997,10 @@ entry:
   %add891 = add i32 %xor890, %xor862
   %xor893 = xor i32 %add891, %xor707
   %xor894 = xor i32 %xor890, %xor708
-  %arrayidx896 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 12
+  %arrayidx896 = getelementptr inbounds i8, ptr %ks, i64 48
   %142 = load i32, ptr %arrayidx896, align 4
   %xor897 = xor i32 %xor893, %142
-  %arrayidx899 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 13
+  %arrayidx899 = getelementptr inbounds i8, ptr %ks, i64 52
   %143 = load i32, ptr %arrayidx899, align 4
   %xor900 = xor i32 %xor894, %143
   %xor901 = xor i32 %xor900, %xor897
@@ -3072,10 +3072,10 @@ entry:
   %add984 = add i32 %xor983, %xor955
   %xor986 = xor i32 %add984, %xor800
   %xor987 = xor i32 %xor983, %xor801
-  %arrayidx989 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 10
+  %arrayidx989 = getelementptr inbounds i8, ptr %ks, i64 40
   %156 = load i32, ptr %arrayidx989, align 4
   %xor990 = xor i32 %xor986, %156
-  %arrayidx992 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 11
+  %arrayidx992 = getelementptr inbounds i8, ptr %ks, i64 44
   %157 = load i32, ptr %arrayidx992, align 4
   %xor993 = xor i32 %xor987, %157
   %xor994 = xor i32 %xor993, %xor990
@@ -3147,10 +3147,10 @@ entry:
   %add1077 = add i32 %xor1076, %xor1048
   %xor1079 = xor i32 %add1077, %xor893
   %xor1080 = xor i32 %xor1076, %xor894
-  %arrayidx1082 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 8
+  %arrayidx1082 = getelementptr inbounds i8, ptr %ks, i64 32
   %170 = load i32, ptr %arrayidx1082, align 4
   %xor1083 = xor i32 %xor1079, %170
-  %arrayidx1085 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 9
+  %arrayidx1085 = getelementptr inbounds i8, ptr %ks, i64 36
   %171 = load i32, ptr %arrayidx1085, align 4
   %xor1086 = xor i32 %xor1080, %171
   %xor1087 = xor i32 %xor1086, %xor1083
@@ -3222,10 +3222,10 @@ entry:
   %add1170 = add i32 %xor1169, %xor1141
   %xor1172 = xor i32 %add1170, %xor986
   %xor1173 = xor i32 %xor1169, %xor987
-  %arrayidx1175 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 6
+  %arrayidx1175 = getelementptr inbounds i8, ptr %ks, i64 24
   %184 = load i32, ptr %arrayidx1175, align 4
   %xor1176 = xor i32 %xor1172, %184
-  %arrayidx1178 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 7
+  %arrayidx1178 = getelementptr inbounds i8, ptr %ks, i64 28
   %185 = load i32, ptr %arrayidx1178, align 4
   %xor1179 = xor i32 %xor1173, %185
   %xor1180 = xor i32 %xor1179, %xor1176
@@ -3297,10 +3297,10 @@ entry:
   %add1263 = add i32 %xor1262, %xor1234
   %xor1265 = xor i32 %add1263, %xor1079
   %xor1266 = xor i32 %xor1262, %xor1080
-  %arrayidx1268 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 4
+  %arrayidx1268 = getelementptr inbounds i8, ptr %ks, i64 16
   %198 = load i32, ptr %arrayidx1268, align 4
   %xor1269 = xor i32 %xor1265, %198
-  %arrayidx1271 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 5
+  %arrayidx1271 = getelementptr inbounds i8, ptr %ks, i64 20
   %199 = load i32, ptr %arrayidx1271, align 4
   %xor1272 = xor i32 %xor1266, %199
   %xor1273 = xor i32 %xor1272, %xor1269
@@ -3372,10 +3372,10 @@ entry:
   %add1356 = add i32 %xor1355, %xor1327
   %xor1358 = xor i32 %add1356, %xor1172
   %xor1359 = xor i32 %xor1355, %xor1173
-  %arrayidx1361 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 2
+  %arrayidx1361 = getelementptr inbounds i8, ptr %ks, i64 8
   %212 = load i32, ptr %arrayidx1361, align 4
   %xor1362 = xor i32 %xor1358, %212
-  %arrayidx1364 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 3
+  %arrayidx1364 = getelementptr inbounds i8, ptr %ks, i64 12
   %213 = load i32, ptr %arrayidx1364, align 4
   %xor1365 = xor i32 %xor1359, %213
   %xor1366 = xor i32 %xor1365, %xor1362
@@ -3449,7 +3449,7 @@ entry:
   %xor1452 = xor i32 %xor1448, %xor1266
   %226 = load i32, ptr %ks, align 4
   %xor1455 = xor i32 %xor1451, %226
-  %arrayidx1457 = getelementptr inbounds [32 x i32], ptr %ks, i64 0, i64 1
+  %arrayidx1457 = getelementptr inbounds i8, ptr %ks, i64 4
   %227 = load i32, ptr %arrayidx1457, align 4
   %xor1458 = xor i32 %xor1452, %227
   %xor1459 = xor i32 %xor1458, %xor1455
@@ -3584,11 +3584,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #2
+declare i32 @llvm.fshl.i32(i32, i32, i32) #1
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

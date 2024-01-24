@@ -3,43 +3,6 @@ source_filename = "bench/libquic/original/quic_spdy_stream.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicSpdyStream" = type { %"class.net::ReliableQuicStream.base", ptr, ptr, i8, i8, %"class.std::__cxx11::basic_string", %"class.net::QuicHeaderList", i8, i8, %"class.std::__cxx11::basic_string", %"class.net::SpdyHeaderBlock" }
-%"class.net::ReliableQuicStream.base" = type <{ ptr, %"class.std::__cxx11::list", i64, %"class.net::QuicStreamSequencer", i32, [4 x i8], ptr, i64, i64, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, [4 x i8], %"class.net::QuicFlowController", ptr, i8 }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::ReliableQuicStream::PendingData, std::allocator<net::ReliableQuicStream::PendingData>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::ReliableQuicStream::PendingData, std::allocator<net::ReliableQuicStream::PendingData>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.net::QuicStreamSequencer" = type <{ ptr, ptr, %"class.net::QuicStreamSequencerBuffer", i64, i8, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%"class.net::QuicStreamSequencerBuffer" = type { i64, i64, i64, %"class.std::__cxx11::list.0", i8, %"class.std::unique_ptr", i64, %"class.std::map" }
-%"class.std::__cxx11::list.0" = type { %"class.std::__cxx11::_List_base.1" }
-%"class.std::__cxx11::_List_base.1" = type { %"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.net::QuicFlowController" = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i8, i64, %"class.net::QuicTime" }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::QuicHeaderList" = type { %"class.net::SpdyHeadersHandlerInterface", %"class.std::deque", i64 }
-%"class.net::SpdyHeadersHandlerInterface" = type { ptr }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.net::SpdyHeaderBlock" = type { %class.linked_hash_map, %"class.std::unique_ptr.27" }
 %class.linked_hash_map = type { %"class.std::unordered_map", %"class.std::__cxx11::list.22" }
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
@@ -49,13 +12,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::list.22" = type { %"class.std::__cxx11::_List_base.23" }
 %"class.std::__cxx11::_List_base.23" = type { %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>, std::allocator<std::pair<base::BasicStringPiece<std::string>, base::BasicStringPiece<std::string>>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::unique_ptr.27" = type { %"struct.std::__uniq_ptr_data.28" }
 %"struct.std::__uniq_ptr_data.28" = type { %"class.std::__uniq_ptr_impl.29" }
 %"class.std::__uniq_ptr_impl.29" = type { %"class.std::tuple.30" }
 %"class.std::tuple.30" = type { %"struct.std::_Tuple_impl.31" }
 %"struct.std::_Tuple_impl.31" = type { %"struct.std::_Head_base.34" }
 %"struct.std::_Head_base.34" = type { ptr }
-%"class.net::ReliableQuicStream" = type <{ ptr, %"class.std::__cxx11::list", i64, %"class.net::QuicStreamSequencer", i32, [4 x i8], ptr, i64, i64, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, [4 x i8], %"class.net::QuicFlowController", ptr, i8, [7 x i8] }>
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -63,6 +27,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -79,70 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.net::StreamBufferDeleter" = type { ptr }
 %"struct.std::_Head_base.114" = type { ptr }
 %"class.std::allocator.10" = type { i8 }
-%"class.net::QuicSession" = type <{ %"class.net::QuicConnectionVisitorInterface", %"class.std::map.35", ptr, %"class.std::vector", %"class.net::QuicConfig", i64, i64, %"class.base::SmallMap", %"class.base::SmallMap.59", i32, [4 x i8], %"class.std::unordered_set", %"class.std::unordered_set", %"class.net::QuicWriteBlockedList", i32, [4 x i8], i64, i64, i64, i32, [4 x i8], %"class.net::QuicFlowController", i32, [4 x i8] }>
-%"class.net::QuicConnectionVisitorInterface" = type { ptr }
-%"class.std::map.35" = type { %"class.std::_Rb_tree.36" }
-%"class.std::_Rb_tree.36" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.40", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.40" = type { %"struct.std::less.41" }
-%"struct.std::less.41" = type { i8 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicConfig" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicFixedTagVector", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedIPEndPoint", %"class.net::QuicFixedUint32" }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.net::QuicFixedTagVector" = type <{ %"class.net::QuicConfigValue", %"class.std::vector.46", i8, [7 x i8], %"class.std::vector.46", i8, [7 x i8] }>
-%"class.net::QuicConfigValue" = type { ptr, i32, i32 }
-%"class.std::vector.46" = type { %"struct.std::_Vector_base.47" }
-%"struct.std::_Vector_base.47" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicNegotiableUint32" = type { %"class.net::QuicNegotiableValue.base", i32, i32, i32 }
-%"class.net::QuicNegotiableValue.base" = type <{ %"class.net::QuicConfigValue", i8 }>
-%"class.net::QuicFixedIPEndPoint" = type <{ %"class.net::QuicConfigValue", %"class.net::IPEndPoint", i8, [7 x i8], %"class.net::IPEndPoint", i8, [7 x i8] }>
-%"class.net::IPEndPoint" = type <{ %"class.net::IPAddress", i16, [6 x i8] }>
-%"class.net::IPAddress" = type { %"class.std::vector.51" }
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicFixedUint32" = type <{ %"class.net::QuicConfigValue", i32, i8, [3 x i8], i32, i8, [3 x i8] }>
-%"class.base::SmallMap" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.56 }
-%"class.base::internal::SmallMapDefaultInit" = type { i8 }
-%union.anon.56 = type { %"class.base::ManualConstructor.57" }
-%"class.base::ManualConstructor.57" = type { %"class.base::AlignedMemory.58" }
-%"class.base::AlignedMemory.58" = type { [56 x i8] }
-%"class.base::SmallMap.59" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.60 }
-%union.anon.60 = type { [10 x %"class.base::ManualConstructor"] }
-%"class.base::ManualConstructor" = type { %"class.base::AlignedMemory" }
-%"class.base::AlignedMemory" = type { [16 x i8] }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.61" }
-%"class.std::_Hashtable.61" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.net::QuicWriteBlockedList" = type <{ %"class.net::PriorityWriteScheduler", [8 x i32], [8 x i32], i8, i8, i8, [5 x i8] }>
-%"class.net::PriorityWriteScheduler" = type { %"class.net::WriteScheduler", i64, [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], %"class.std::unordered_map.83" }
-%"class.net::WriteScheduler" = type { ptr }
-%"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo" = type { %"class.std::deque.77", i64 }
-%"class.std::deque.77" = type { %"class.std::_Deque_base.78" }
-%"class.std::_Deque_base.78" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.82", %"struct.std::_Deque_iterator.82" }
-%"struct.std::_Deque_iterator.82" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_map.83" = type { %"class.std::_Hashtable.84" }
-%"class.std::_Hashtable.84" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.net::QuicRstStreamFrame" = type { i32, i32, i64 }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
 %"struct.net::QuicIOVector" = type { ptr, i32, i64 }
-%"class.net::QuicSpdySession" = type <{ %"class.net::QuicSession.base", [4 x i8], %"class.std::unique_ptr.97", i8, [7 x i8] }>
-%"class.net::QuicSession.base" = type <{ %"class.net::QuicConnectionVisitorInterface", %"class.std::map.35", ptr, %"class.std::vector", %"class.net::QuicConfig", i64, i64, %"class.base::SmallMap", %"class.base::SmallMap.59", i32, [4 x i8], %"class.std::unordered_set", %"class.std::unordered_set", %"class.net::QuicWriteBlockedList", i32, [4 x i8], i64, i64, i64, i32, [4 x i8], %"class.net::QuicFlowController", i32 }>
-%"class.std::unique_ptr.97" = type { %"struct.std::__uniq_ptr_data.98" }
-%"struct.std::__uniq_ptr_data.98" = type { %"class.std::__uniq_ptr_impl.99" }
-%"class.std::__uniq_ptr_impl.99" = type { %"class.std::tuple.100" }
-%"class.std::tuple.100" = type { %"struct.std::_Tuple_impl.101" }
-%"struct.std::_Tuple_impl.101" = type { %"struct.std::_Head_base.104" }
-%"struct.std::_Head_base.104" = type { ptr }
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -174,28 +78,28 @@ define dso_local void @_ZN3net14QuicSpdyStreamC2EjPNS_15QuicSpdySessionE(ptr nou
 entry:
   tail call void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %id, ptr noundef %spdy_session)
   store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   store ptr %spdy_session, ptr %spdy_session_, align 8
-  %visitor_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 2
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 392
   store ptr null, ptr %visitor_, align 8
-  %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 400
   store i8 0, ptr %headers_decompressed_, align 8
-  %priority_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 4
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 401
   store i8 3, ptr %priority_, align 1
-  %decompressed_headers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_ = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_) #12
-  %header_list_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 440
   invoke void @_ZN3net14QuicHeaderListC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %trailers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 7
+  %trailers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 536
   store i8 0, ptr %trailers_decompressed_, align 8
-  %trailers_delivered_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 8
+  %trailers_delivered_ = getelementptr inbounds i8, ptr %this, i64 537
   store i8 0, ptr %trailers_delivered_, align 1
-  %decompressed_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
+  %decompressed_trailers_ = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_) #12
-  %received_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 10
+  %received_trailers_ = getelementptr inbounds i8, ptr %this, i64 576
   invoke void @_ZN3net15SpdyHeaderBlockC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %received_trailers_)
           to label %if.end unwind label %lpad2
 
@@ -216,7 +120,7 @@ lpad4:                                            ; preds = %invoke.cont15, %if.
   br label %ehcleanup19
 
 if.end:                                           ; preds = %invoke.cont
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZN3net19QuicStreamSequencer20SetBlockedUntilFlushEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
           to label %invoke.cont15 unwind label %lpad4
 
@@ -276,25 +180,25 @@ declare void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 derefe
 define dso_local void @_ZN3net14QuicSpdyStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i, align 8
   invoke void @_ZN3net15QuicSpdySession24UnregisterStreamPriorityEj(ptr noundef nonnull align 8 dereferenceable(2057) %0, i32 noundef %1)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %received_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 10
+  %received_trailers_ = getelementptr inbounds i8, ptr %this, i64 576
   tail call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %received_trailers_) #12
-  %decompressed_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
+  %decompressed_trailers_ = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_) #12
-  %header_list_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 440
   tail call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_) #12
-  %decompressed_headers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_ = getelementptr inbounds i8, ptr %this, i64 408
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_) #12
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) #12
   ret void
@@ -333,28 +237,28 @@ declare void @llvm.trap() #6
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream14CloseWriteSideEv(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #0 align 2 {
 entry:
-  %fin_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_.i = getelementptr inbounds i8, ptr %this, i64 260
   %0 = load i8, ptr %fin_received_.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %rst_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 17
+  %rst_received_.i = getelementptr inbounds i8, ptr %this, i64 262
   %2 = load i8, ptr %rst_received_.i, align 2
   %3 = and i8 %2, 1
   %tobool.i1.not = icmp eq i8 %3, 0
   br i1 %tobool.i1.not, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %ignore_read_data_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3, i32 10
+  %ignore_read_data_.i = getelementptr inbounds i8, ptr %this, i64 208
   %4 = load i8, ptr %ignore_read_data_.i, align 8
   %5 = and i8 %4, 1
   %tobool.i2.not = icmp eq i8 %5, 0
   br i1 %tobool.i2.not, label %if.end, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true3
-  %rst_sent_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 16
+  %rst_sent_.i = getelementptr inbounds i8, ptr %this, i64 261
   %6 = load i8, ptr %rst_sent_.i, align 1
   %7 = and i8 %6, 1
   %tobool.i3.not = icmp eq i8 %7, 0
@@ -362,7 +266,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true3
 
 if.then:                                          ; preds = %land.lhs.true6
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 0)
   br label %if.end
@@ -377,28 +281,28 @@ declare void @_ZN3net18ReliableQuicStream14CloseWriteSideEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream11StopReadingEv(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #0 align 2 {
 entry:
-  %fin_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_.i = getelementptr inbounds i8, ptr %this, i64 260
   %0 = load i8, ptr %fin_received_.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %rst_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 17
+  %rst_received_.i = getelementptr inbounds i8, ptr %this, i64 262
   %2 = load i8, ptr %rst_received_.i, align 2
   %3 = and i8 %2, 1
   %tobool.i1.not = icmp eq i8 %3, 0
   br i1 %tobool.i1.not, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %write_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
   %4 = load i8, ptr %write_side_closed_.i, align 1
   %5 = and i8 %4, 1
   %tobool.i2.not = icmp eq i8 %5, 0
   br i1 %tobool.i2.not, label %if.end, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true3
-  %rst_sent_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 16
+  %rst_sent_.i = getelementptr inbounds i8, ptr %this, i64 261
   %6 = load i8, ptr %rst_sent_.i, align 1
   %7 = and i8 %6, 1
   %tobool.i3.not = icmp eq i8 %7, 0
@@ -406,7 +310,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true3
 
 if.then:                                          ; preds = %land.lhs.true5
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 0)
   br label %if.end
@@ -422,15 +326,15 @@ declare void @_ZN3net18ReliableQuicStream11StopReadingEv(ptr noundef nonnull ali
 define dso_local noundef i64 @_ZN3net14QuicSpdyStream12WriteHeadersENS_15SpdyHeaderBlockEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull %header_block, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.net::SpdyHeaderBlock", align 8
-  %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i, align 8
   call void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(88) %header_block)
-  %priority_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 4
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 401
   %2 = load i8, ptr %priority_, align 1
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %3 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(2057) %0, i32 noundef %1, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %fin, i8 noundef zeroext %2, ptr noundef %ack_notifier_delegate)
           to label %invoke.cont unwind label %lpad
@@ -440,10 +344,10 @@ invoke.cont:                                      ; preds = %entry
   br i1 %fin, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  %fin_sent_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 14
+  %fin_sent_.i = getelementptr inbounds i8, ptr %this, i64 259
   store i8 1, ptr %fin_sent_.i, align 1
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 14
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 112
   %4 = load ptr, ptr %vfn5, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(664) %this)
   br label %if.end
@@ -466,7 +370,7 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %data)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %0, i64 %2, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate)
   ret void
@@ -484,7 +388,7 @@ entry:
   %ref.tmp12 = alloca %"struct.std::pair.105", align 8
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.net::SpdyHeaderBlock", align 8
-  %fin_sent_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 14
+  %fin_sent_.i = getelementptr inbounds i8, ptr %this, i64 259
   %0 = load i8, ptr %fin_sent_.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -496,7 +400,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 97, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp3, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 
@@ -511,9 +415,9 @@ lpad:                                             ; preds = %cond.false
   br label %eh.resume
 
 invoke.cont17:                                    ; preds = %entry
-  %stream_bytes_written_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 8
+  %stream_bytes_written_.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load i64, ptr %stream_bytes_written_.i, align 8
-  %queued_data_bytes_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 2
+  %queued_data_bytes_.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i64, ptr %queued_data_bytes_.i, align 8
   %add = add i64 %4, %3
   %conv = trunc i64 %add to i32
@@ -521,14 +425,14 @@ invoke.cont17:                                    ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %5 = load ptr, ptr @_ZN3net21kFinalOffsetHeaderKeyE, align 8, !noalias !5
   store ptr %5, ptr %ref.tmp12, align 8, !alias.scope !5
-  %second.i.i = getelementptr inbounds %"struct.std::pair.105", ptr %ref.tmp12, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #12
   %6 = load ptr, ptr %ref.tmp12, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, ptr noundef %6)
           to label %.noexc unwind label %lpad18
 
 .noexc:                                           ; preds = %invoke.cont17
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp11, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i)
           to label %invoke.cont19 unwind label %lpad18
 
@@ -539,15 +443,15 @@ invoke.cont19:                                    ; preds = %.noexc
 invoke.cont20:                                    ; preds = %invoke.cont19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #12
-  %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   %7 = load ptr, ptr %spdy_session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %8 = load i32, ptr %id_.i, align 8
   call void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(88) %trailer_block)
-  %priority_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 4
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 401
   %9 = load i8, ptr %priority_, align 1
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %10 = load ptr, ptr %vfn, align 8
   %call24 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(2057) %7, i32 noundef %8, ptr noundef nonnull %agg.tmp, i1 noundef zeroext true, i8 noundef zeroext %9, ptr noundef %ack_notifier_delegate)
           to label %invoke.cont23 unwind label %lpad22
@@ -561,7 +465,7 @@ invoke.cont23:                                    ; preds = %invoke.cont20
 
 if.then27:                                        ; preds = %invoke.cont23
   %vtable28 = load ptr, ptr %this, align 8
-  %vfn29 = getelementptr inbounds ptr, ptr %vtable28, i64 14
+  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 112
   %12 = load ptr, ptr %vfn29, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(664) %this)
   br label %return
@@ -601,7 +505,7 @@ declare void @_ZN4base11IntToStringB5cxx11Ei(ptr sret(%"class.std::__cxx11::basi
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN3net14QuicSpdyStream5ReadvEPK5iovecm(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef %iov, i64 noundef %iov_len) unnamed_addr #0 align 2 {
 entry:
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   %call2 = tail call noundef i32 @_ZN3net19QuicStreamSequencer5ReadvEPK5iovecm(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i, ptr noundef %iov, i64 noundef %iov_len)
   %conv = sext i32 %call2 to i64
   ret i64 %conv
@@ -612,7 +516,7 @@ declare noundef i32 @_ZN3net19QuicStreamSequencer5ReadvEPK5iovecm(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK3net14QuicSpdyStream18GetReadableRegionsEP5iovecm(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef %iov, i64 noundef %iov_len) unnamed_addr #0 align 2 {
 entry:
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   %call2 = tail call noundef i32 @_ZNK3net19QuicStreamSequencer18GetReadableRegionsEP5iovecm(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i, ptr noundef %iov, i64 noundef %iov_len)
   ret i32 %call2
 }
@@ -622,7 +526,7 @@ declare noundef i32 @_ZNK3net19QuicStreamSequencer18GetReadableRegionsEP5iovecm(
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream12MarkConsumedEm(ptr noundef nonnull align 8 dereferenceable(664) %this, i64 noundef %num_bytes) local_unnamed_addr #0 align 2 {
 entry:
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer12MarkConsumedEm(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i, i64 noundef %num_bytes)
   ret void
 }
@@ -632,20 +536,20 @@ declare void @_ZN3net19QuicStreamSequencer12MarkConsumedEm(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net14QuicSpdyStream13IsDoneReadingEv(ptr noundef nonnull align 8 dereferenceable(664) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %headers_decompressed_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i8, ptr %headers_decompressed_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %decompressed_headers_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_.i = getelementptr inbounds i8, ptr %this, i64 408
   %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_.i) #12
   br i1 %call.i, label %land.rhs.i, label %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %2, %3
@@ -653,30 +557,30 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
 
 _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %entry, %land.lhs.true.i, %land.rhs.i
   %4 = phi i1 [ false, %land.lhs.true.i ], [ false, %entry ], [ %cmp.i.i.i.i, %land.rhs.i ]
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   %call3 = tail call noundef zeroext i1 @_ZNK3net19QuicStreamSequencer8IsClosedEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
-  %fin_received_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_.i.i = getelementptr inbounds i8, ptr %this, i64 260
   %5 = load i8, ptr %fin_received_.i.i, align 4
   %6 = and i8 %5, 1
   %tobool.i.not.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i, label %_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit
-  %trailers_decompressed_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 7
+  %trailers_decompressed_.i = getelementptr inbounds i8, ptr %this, i64 536
   %7 = load i8, ptr %trailers_decompressed_.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i2 = icmp eq i8 %8, 0
   br i1 %tobool.not.i2, label %_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  %trailers_delivered_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 8
+  %trailers_delivered_.i = getelementptr inbounds i8, ptr %this, i64 537
   %9 = load i8, ptr %trailers_delivered_.i, align 1
   %10 = and i8 %9, 1
   %tobool4.not.i = icmp eq i8 %10, 0
   br i1 %tobool4.not.i, label %_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit, label %land.rhs.i3
 
 land.rhs.i3:                                      ; preds = %if.else3.i
-  %decompressed_trailers_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
+  %decompressed_trailers_.i = getelementptr inbounds i8, ptr %this, i64 544
   %call5.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_.i) #12
   br label %_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit
 
@@ -690,20 +594,20 @@ _ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv.exit: ; preds = %_ZNK3net14Q
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv(ptr noundef nonnull align 8 dereferenceable(664) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i8, ptr %headers_decompressed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %decompressed_headers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_ = getelementptr inbounds i8, ptr %this, i64 408
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_) #12
   br i1 %call, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 496
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, %3
@@ -719,28 +623,28 @@ declare noundef zeroext i1 @_ZNK3net19QuicStreamSequencer8IsClosedEv(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK3net14QuicSpdyStream23FinishedReadingTrailersEv(ptr noundef nonnull align 8 dereferenceable(664) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %fin_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_.i = getelementptr inbounds i8, ptr %this, i64 260
   %0 = load i8, ptr %fin_received_.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %trailers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 7
+  %trailers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 536
   %2 = load i8, ptr %trailers_decompressed_, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %trailers_delivered_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 8
+  %trailers_delivered_ = getelementptr inbounds i8, ptr %this, i64 537
   %4 = load i8, ptr %trailers_delivered_, align 1
   %5 = and i8 %4, 1
   %tobool4.not = icmp eq i8 %5, 0
   br i1 %tobool4.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.else3
-  %decompressed_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
+  %decompressed_trailers_ = getelementptr inbounds i8, ptr %this, i64 544
   %call5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_) #12
   br label %return
 
@@ -752,11 +656,11 @@ return:                                           ; preds = %if.else3, %land.rhs
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net14QuicSpdyStream14HasBytesToReadEv(ptr noundef nonnull align 8 dereferenceable(664) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %decompressed_headers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_ = getelementptr inbounds i8, ptr %this, i64 408
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_) #12
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   %call3 = tail call noundef zeroext i1 @_ZNK3net19QuicStreamSequencer14HasBytesToReadEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
-  %decompressed_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
+  %decompressed_trailers_ = getelementptr inbounds i8, ptr %this, i64 544
   %call5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_) #12
   br i1 %call, label %lor.lhs.false, label %lor.end
 
@@ -778,9 +682,9 @@ declare noundef zeroext i1 @_ZNK3net19QuicStreamSequencer14HasBytesToReadEv(ptr 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream19MarkHeadersConsumedEm(ptr noundef nonnull align 8 dereferenceable(664) %this, i64 noundef %bytes_consumed) local_unnamed_addr #0 align 2 {
 entry:
-  %decompressed_headers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_ = getelementptr inbounds i8, ptr %this, i64 408
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_, i64 noundef 0, i64 noundef %bytes_consumed)
-  %headers_decompressed_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i8, ptr %headers_decompressed_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -791,15 +695,15 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %call.i, label %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit, label %if.end
 
 _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %land.lhs.true.i
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer12SetUnblockedEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   br label %if.end
 
@@ -814,7 +718,7 @@ declare void @_ZN3net19QuicStreamSequencer12SetUnblockedEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream20MarkTrailersConsumedEm(ptr noundef nonnull align 8 dereferenceable(664) %this, i64 noundef %bytes_consumed) local_unnamed_addr #0 align 2 {
 entry:
-  %decompressed_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
+  %decompressed_trailers_ = getelementptr inbounds i8, ptr %this, i64 544
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_, i64 noundef 0, i64 noundef %bytes_consumed)
   ret void
 }
@@ -822,7 +726,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net14QuicSpdyStream21MarkTrailersDeliveredEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %trailers_delivered_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 8
+  %trailers_delivered_ = getelementptr inbounds i8, ptr %this, i64 537
   store i8 1, ptr %trailers_delivered_, align 1
   ret void
 }
@@ -830,29 +734,29 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream17ConsumeHeaderListEv(ptr noundef nonnull align 8 dereferenceable(664) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %header_list_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 440
   tail call void @_ZN3net14QuicHeaderList5ClearEv(ptr noundef nonnull align 8 dereferenceable(96) %header_list_)
-  %headers_decompressed_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i8, ptr %headers_decompressed_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %decompressed_headers_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_.i = getelementptr inbounds i8, ptr %this, i64 408
   %call.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_.i) #12
   br i1 %call.i, label %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit, label %if.end
 
 _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %land.lhs.true.i
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer12SetUnblockedEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   br label %if.end
 
@@ -865,12 +769,12 @@ declare void @_ZN3net14QuicHeaderList5ClearEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream11SetPriorityEh(ptr nocapture noundef nonnull align 8 dereferenceable(664) %this, i8 noundef zeroext %priority) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i, align 8
   tail call void @_ZN3net15QuicSpdySession20UpdateStreamPriorityEjh(ptr noundef nonnull align 8 dereferenceable(2057) %0, i32 noundef %1, i8 noundef zeroext %priority)
-  %priority_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 4
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 401
   store i8 %priority, ptr %priority_, align 1
   ret void
 }
@@ -882,16 +786,15 @@ define dso_local void @_ZN3net14QuicSpdyStream15OnStreamHeadersEN4base16BasicStr
 entry:
   %headers_data = alloca %"class.base::BasicStringPiece", align 8
   store ptr %headers_data.coerce0, ptr %headers_data, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %headers_data, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %headers_data, i64 8
   store i64 %headers_data.coerce1, ptr %0, align 8
-  %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 400
   %1 = load i8, ptr %headers_decompressed_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
-  %decompressed_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
-  %decompressed_headers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
-  %decompressed_trailers_.sink = select i1 %tobool.not, ptr %decompressed_headers_, ptr %decompressed_trailers_
-  call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14AppendToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %headers_data, ptr noundef nonnull %decompressed_trailers_.sink)
+  %. = select i1 %tobool.not, i64 408, i64 544
+  %decompressed_trailers_ = getelementptr inbounds i8, ptr %this, i64 %.
+  call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14AppendToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %headers_data, ptr noundef nonnull %decompressed_trailers_)
   ret void
 }
 
@@ -900,12 +803,12 @@ declare void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tr
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream23OnStreamHeadersPriorityEh(ptr nocapture noundef nonnull align 8 dereferenceable(664) %this, i8 noundef zeroext %priority) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %spdy_session_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_.i = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_.i, align 8
-  %id_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i.i, align 8
   tail call void @_ZN3net15QuicSpdySession20UpdateStreamPriorityEjh(ptr noundef nonnull align 8 dereferenceable(2057) %0, i32 noundef %1, i8 noundef zeroext %priority)
-  %priority_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 4
+  %priority_.i = getelementptr inbounds i8, ptr %this, i64 401
   store i8 %priority, ptr %priority_.i, align 1
   ret void
 }
@@ -913,13 +816,13 @@ if.end:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream23OnStreamHeadersCompleteEbm(ptr noundef nonnull align 8 dereferenceable(664) %this, i1 noundef zeroext %fin, i64 noundef %frame_len) unnamed_addr #0 align 2 {
 entry:
-  %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i8, ptr %headers_decompressed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %vtable = load ptr, ptr %this, align 8
-  %. = select i1 %tobool.not, i64 27, i64 28
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable, i64 %.
+  %. = select i1 %tobool.not, i64 216, i64 224
+  %vfn5 = getelementptr inbounds i8, ptr %vtable, i64 %.
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(664) %this, i1 noundef zeroext %fin, i64 noundef %frame_len)
   ret void
@@ -928,13 +831,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream18OnStreamHeaderListEbmRKNS_14QuicHeaderListE(ptr noundef nonnull align 8 dereferenceable(664) %this, i1 noundef zeroext %fin, i64 noundef %frame_len, ptr noundef nonnull align 8 dereferenceable(96) %header_list) unnamed_addr #0 align 2 {
 entry:
-  %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i8, ptr %headers_decompressed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %vtable = load ptr, ptr %this, align 8
-  %. = select i1 %tobool.not, i64 29, i64 30
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable, i64 %.
+  %. = select i1 %tobool.not, i64 232, i64 240
+  %vfn5 = getelementptr inbounds i8, ptr %vtable, i64 %.
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(664) %this, i1 noundef zeroext %fin, i64 noundef %frame_len, ptr noundef nonnull align 8 dereferenceable(96) %header_list)
   ret void
@@ -945,20 +848,20 @@ define dso_local void @_ZN3net14QuicSpdyStream24OnInitialHeadersCompleteEbm(ptr 
 entry:
   %ref.tmp = alloca %"struct.net::QuicStreamFrame", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 400
   store i8 1, ptr %headers_decompressed_, align 8
   br i1 %fin, label %if.then, label %land.lhs.true.i
 
 if.then:                                          ; preds = %entry
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
   %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %4 = load i64, ptr %3, align 8
   call void @_ZN3net15QuicStreamFrameC1EjbmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, i32 noundef %1, i1 noundef zeroext true, i64 noundef 0, ptr %2, i64 %4)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %if.end unwind label %lpad
@@ -977,20 +880,20 @@ if.end:                                           ; preds = %if.then
   br i1 %8, label %if.end6, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry, %if.end
-  %decompressed_headers_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_.i = getelementptr inbounds i8, ptr %this, i64 408
   %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_.i) #12
   br i1 %call.i, label %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit, label %if.end6
 
 _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %land.lhs.true.i
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %10 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i.i, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZN3net19QuicStreamSequencer12SetUnblockedEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   br label %if.end6
 
@@ -1010,22 +913,22 @@ define dso_local void @_ZN3net14QuicSpdyStream24OnInitialHeadersCompleteEbmRKNS_
 entry:
   %ref.tmp = alloca %"struct.net::QuicStreamFrame", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %headers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 3
+  %headers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 400
   store i8 1, ptr %headers_decompressed_, align 8
-  %header_list_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 440
   %call = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN3net14QuicHeaderListaSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %header_list_, ptr noundef nonnull align 8 dereferenceable(96) %header_list)
   br i1 %fin, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
   %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %4 = load i64, ptr %3, align 8
   call void @_ZN3net15QuicStreamFrameC1EjbmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, i32 noundef %1, i1 noundef zeroext true, i64 noundef 0, ptr %2, i64 %4)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1047,20 +950,20 @@ if.end:                                           ; preds = %invoke.cont, %entry
   br i1 %tobool.not.i, label %if.end7, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %decompressed_headers_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_.i = getelementptr inbounds i8, ptr %this, i64 408
   %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_headers_.i) #12
   br i1 %call.i, label %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit, label %if.end7
 
 _ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit: ; preds = %land.lhs.true.i
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 6, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %10 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i.i, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %_ZNK3net14QuicSpdyStream22FinishedReadingHeadersEv.exit
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZN3net19QuicStreamSequencer12SetUnblockedEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
   br label %if.end7
 
@@ -1075,9 +978,9 @@ define dso_local void @_ZN3net14QuicSpdyStream16OnPromiseHeadersEN4base16BasicSt
 entry:
   %headers_data = alloca %"class.base::BasicStringPiece", align 8
   store ptr %headers_data.coerce0, ptr %headers_data, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %headers_data, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %headers_data, i64 8
   store i64 %headers_data.coerce1, ptr %0, align 8
-  %decompressed_headers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 5
+  %decompressed_headers_ = getelementptr inbounds i8, ptr %this, i64 408
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14AppendToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16) %headers_data, ptr noundef nonnull %decompressed_headers_)
   ret void
 }
@@ -1087,9 +990,9 @@ define dso_local void @_ZN3net14QuicSpdyStream24OnPromiseHeadersCompleteEjm(ptr 
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.10", align 1
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %2 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %2, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %connection_.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #12
   %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1111,7 +1014,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(3372) %3, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont6 unwind label %lpad5
@@ -1149,9 +1052,9 @@ define dso_local void @_ZN3net14QuicSpdyStream19OnPromiseHeaderListEjmRKNS_14Qui
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.10", align 1
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %3 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %3, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #12
   %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1173,7 +1076,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(3372) %4, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont7 unwind label %lpad6
@@ -1212,16 +1115,16 @@ entry:
   %ref.tmp30 = alloca %"class.std::allocator.10", align 1
   %ref.tmp40 = alloca %"struct.net::QuicStreamFrame", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %fin_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_.i = getelementptr inbounds i8, ptr %this, i64 260
   %1 = load i8, ptr %fin_received_.i, align 4
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %3 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %3, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #12
   %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1243,7 +1146,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(3372) %4, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont6 unwind label %lpad5
@@ -1273,9 +1176,9 @@ if.end:                                           ; preds = %entry
   br i1 %fin, label %if.end20, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %session_.i9 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i9 = getelementptr inbounds i8, ptr %this, i64 224
   %9 = load ptr, ptr %session_.i9, align 8
-  %connection_.i10 = getelementptr inbounds %"class.net::QuicSession", ptr %9, i64 0, i32 2
+  %connection_.i10 = getelementptr inbounds i8, ptr %9, i64 56
   %10 = load ptr, ptr %connection_.i10, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #12
   %call.i15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10)
@@ -1297,7 +1200,7 @@ lpad.i13:                                         ; preds = %.noexc16
 
 invoke.cont13:                                    ; preds = %.noexc16
   %vtable14 = load ptr, ptr %10, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 32
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 256
   %12 = load ptr, ptr %vfn15, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(3372) %10, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, i32 noundef 1)
           to label %invoke.cont17 unwind label %lpad16
@@ -1325,18 +1228,18 @@ ehcleanup19:                                      ; preds = %lpad12, %lpad.i13, 
 
 if.end20:                                         ; preds = %if.end
   store i64 0, ptr %final_byte_offset, align 8
-  %decompressed_trailers_.i = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 9
+  %decompressed_trailers_.i = getelementptr inbounds i8, ptr %this, i64 544
   %call22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_.i) #12
   %call24 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %decompressed_trailers_.i) #12
   %conv = trunc i64 %call24 to i32
-  %received_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 10
+  %received_trailers_ = getelementptr inbounds i8, ptr %this, i64 576
   %call25 = call noundef zeroext i1 @_ZN3net9SpdyUtils13ParseTrailersEPKcjPmPNS_15SpdyHeaderBlockE(ptr noundef %call22, i32 noundef %conv, ptr noundef nonnull %final_byte_offset, ptr noundef nonnull %received_trailers_)
   br i1 %call25, label %if.end39, label %if.then26
 
 if.then26:                                        ; preds = %if.end20
-  %session_.i20 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i20 = getelementptr inbounds i8, ptr %this, i64 224
   %15 = load ptr, ptr %session_.i20, align 8
-  %connection_.i21 = getelementptr inbounds %"class.net::QuicSession", ptr %15, i64 0, i32 2
+  %connection_.i21 = getelementptr inbounds i8, ptr %15, i64 56
   %16 = load ptr, ptr %connection_.i21, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30) #12
   %call.i26 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29)
@@ -1358,7 +1261,7 @@ lpad.i24:                                         ; preds = %.noexc27
 
 invoke.cont32:                                    ; preds = %.noexc27
   %vtable33 = load ptr, ptr %16, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 32
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 256
   %18 = load ptr, ptr %vfn34, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(3372) %16, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29, i32 noundef 1)
           to label %invoke.cont36 unwind label %lpad35
@@ -1385,23 +1288,23 @@ ehcleanup38:                                      ; preds = %lpad31, %lpad.i24, 
   br label %eh.resume
 
 if.end39:                                         ; preds = %if.end20
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %21 = load i32, ptr %id_.i, align 8
   %22 = load i64, ptr %final_byte_offset, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
   %23 = load ptr, ptr %agg.tmp, align 8
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %25 = load i64, ptr %24, align 8
   call void @_ZN3net15QuicStreamFrameC1EjbmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp40, i32 noundef %21, i1 noundef zeroext true, i64 noundef %22, ptr %23, i64 %25)
   %vtable43 = load ptr, ptr %this, align 8
-  %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 2
+  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 16
   %26 = load ptr, ptr %vfn44, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp40)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %if.end39
   call void @_ZN3net15QuicStreamFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp40) #12
-  %trailers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 7
+  %trailers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 536
   store i8 1, ptr %trailers_decompressed_, align 8
   br label %return
 
@@ -1439,16 +1342,16 @@ entry:
   %ref.tmp26 = alloca %"class.std::allocator.10", align 1
   %ref.tmp36 = alloca %"struct.net::QuicStreamFrame", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %fin_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_.i = getelementptr inbounds i8, ptr %this, i64 260
   %1 = load i8, ptr %fin_received_.i, align 4
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %3 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %3, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %connection_.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #12
   %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -1470,7 +1373,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(3372) %4, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 1)
           to label %invoke.cont6 unwind label %lpad5
@@ -1500,9 +1403,9 @@ if.end:                                           ; preds = %entry
   br i1 %fin, label %if.end20, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %session_.i9 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i9 = getelementptr inbounds i8, ptr %this, i64 224
   %9 = load ptr, ptr %session_.i9, align 8
-  %connection_.i10 = getelementptr inbounds %"class.net::QuicSession", ptr %9, i64 0, i32 2
+  %connection_.i10 = getelementptr inbounds i8, ptr %9, i64 56
   %10 = load ptr, ptr %connection_.i10, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #12
   %call.i15 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10)
@@ -1524,7 +1427,7 @@ lpad.i13:                                         ; preds = %.noexc16
 
 invoke.cont13:                                    ; preds = %.noexc16
   %vtable14 = load ptr, ptr %10, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 32
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 256
   %12 = load ptr, ptr %vfn15, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(3372) %10, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, i32 noundef 1)
           to label %invoke.cont17 unwind label %lpad16
@@ -1552,14 +1455,14 @@ ehcleanup19:                                      ; preds = %lpad12, %lpad.i13, 
 
 if.end20:                                         ; preds = %if.end
   store i64 0, ptr %final_byte_offset, align 8
-  %received_trailers_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 10
+  %received_trailers_ = getelementptr inbounds i8, ptr %this, i64 576
   %call21 = call noundef zeroext i1 @_ZN3net9SpdyUtils23CopyAndValidateTrailersERKNS_14QuicHeaderListEPmPNS_15SpdyHeaderBlockE(ptr noundef nonnull align 8 dereferenceable(96) %header_list, ptr noundef nonnull %final_byte_offset, ptr noundef nonnull %received_trailers_)
   br i1 %call21, label %if.end35, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %session_.i19 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i19 = getelementptr inbounds i8, ptr %this, i64 224
   %15 = load ptr, ptr %session_.i19, align 8
-  %connection_.i20 = getelementptr inbounds %"class.net::QuicSession", ptr %15, i64 0, i32 2
+  %connection_.i20 = getelementptr inbounds i8, ptr %15, i64 56
   %16 = load ptr, ptr %connection_.i20, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #12
   %call.i25 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25)
@@ -1581,7 +1484,7 @@ lpad.i23:                                         ; preds = %.noexc26
 
 invoke.cont28:                                    ; preds = %.noexc26
   %vtable29 = load ptr, ptr %16, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 32
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 256
   %18 = load ptr, ptr %vfn30, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(3372) %16, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, i32 noundef 1)
           to label %invoke.cont32 unwind label %lpad31
@@ -1608,23 +1511,23 @@ ehcleanup34:                                      ; preds = %lpad27, %lpad.i23, 
   br label %eh.resume
 
 if.end35:                                         ; preds = %if.end20
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %21 = load i32, ptr %id_.i, align 8
   %22 = load i64, ptr %final_byte_offset, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp)
   %23 = load ptr, ptr %agg.tmp, align 8
-  %24 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %25 = load i64, ptr %24, align 8
   call void @_ZN3net15QuicStreamFrameC1EjbmN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp36, i32 noundef %21, i1 noundef zeroext true, i64 noundef %22, ptr %23, i64 %25)
   %vtable39 = load ptr, ptr %this, align 8
-  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 2
+  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 16
   %26 = load ptr, ptr %vfn40, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp36)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %if.end35
   call void @_ZN3net15QuicStreamFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp36) #12
-  %trailers_decompressed_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 7
+  %trailers_decompressed_ = getelementptr inbounds i8, ptr %this, i64 536
   store i8 1, ptr %trailers_decompressed_, align 8
   br label %return
 
@@ -1647,7 +1550,7 @@ declare noundef zeroext i1 @_ZN3net9SpdyUtils23CopyAndValidateTrailersERKNS_14Qu
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net14QuicSpdyStream13OnStreamResetERKNS_18QuicRstStreamFrameE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(16) %frame) unnamed_addr #0 align 2 {
 entry:
-  %error_code = getelementptr inbounds %"struct.net::QuicRstStreamFrame", ptr %frame, i64 0, i32 1
+  %error_code = getelementptr inbounds i8, ptr %frame, i64 4
   %0 = load i32, ptr %error_code, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1657,16 +1560,16 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %rst_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 17
+  %rst_received_.i = getelementptr inbounds i8, ptr %this, i64 262
   store i8 1, ptr %rst_received_.i, align 2
-  %byte_offset = getelementptr inbounds %"struct.net::QuicRstStreamFrame", ptr %frame, i64 0, i32 2
+  %byte_offset = getelementptr inbounds i8, ptr %frame, i64 8
   %1 = load i64, ptr %byte_offset, align 8
   %call = tail call noundef zeroext i1 @_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(377) %this, i64 noundef %1)
   %2 = load i32, ptr %error_code, align 4
-  %stream_error_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 9
+  %stream_error_.i = getelementptr inbounds i8, ptr %this, i64 248
   store i32 %2, ptr %stream_error_.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(664) %this)
   br label %return
@@ -1683,7 +1586,7 @@ declare noundef zeroext i1 @_ZN3net18ReliableQuicStream34MaybeIncreaseHighestRec
 define dso_local void @_ZN3net14QuicSpdyStream7OnCloseEv(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net18ReliableQuicStream7OnCloseEv(ptr noundef nonnull align 8 dereferenceable(377) %this)
-  %visitor_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 2
+  %visitor_ = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %visitor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1709,7 +1612,7 @@ entry:
   br i1 %call, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fin_sent_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 14
+  %fin_sent_.i = getelementptr inbounds i8, ptr %this, i64 259
   %0 = load i8, ptr %fin_sent_.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -1717,7 +1620,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(664) %this)
   br label %if.end
@@ -1738,11 +1641,11 @@ entry:
   %status = alloca %"class.base::BasicStringPiece", align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull @.str.6)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   store ptr %0, ptr %key.i, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %key.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %key.i, i64 8
   store i64 %2, ptr %3, align 8
   %call.i.i.i = call ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %header, ptr noundef nonnull align 8 dereferenceable(16) %key.i)
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
@@ -1756,12 +1659,12 @@ _ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_strin
   %second.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   %4 = load ptr, ptr %second.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i)
-  %list_.i.i = getelementptr inbounds %class.linked_hash_map, ptr %header, i64 0, i32 1
+  %list_.i.i = getelementptr inbounds i8, ptr %header, i64 56
   %cmp.i = icmp eq ptr %4, %list_.i.i
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  %second = getelementptr inbounds %"struct.std::_List_node", ptr %4, i64 0, i32 1, i32 0, i64 16
+  %second = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %status, ptr noundef nonnull align 8 dereferenceable(16) %second, i64 16, i1 false)
   %call6 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %status)
   %cmp.not = icmp eq i64 %call6, 3
@@ -1814,7 +1717,7 @@ declare noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i8 @_ZNK3net14QuicSpdyStream8priorityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(664) %this) unnamed_addr #9 align 2 {
 entry:
-  %priority_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 4
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 401
   %0 = load i8, ptr %priority_, align 1
   ret i8 %0
 }
@@ -1822,7 +1725,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   store ptr null, ptr %spdy_session_, align 8
   ret void
 }
@@ -1830,22 +1733,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local { i64, i8 } @_ZN3net14QuicSpdyStream15WritevDataInnerENS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr nocapture noundef readonly byval(%"struct.net::QuicIOVector") align 8 %iov, i64 noundef %offset, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate) unnamed_addr #0 align 2 {
 entry:
-  %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this, i64 0, i32 1
+  %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
-  %headers_stream_.i = getelementptr inbounds %"class.net::QuicSpdySession", ptr %0, i64 0, i32 2
+  %headers_stream_.i = getelementptr inbounds i8, ptr %0, i64 2048
   %1 = load ptr, ptr %headers_stream_.i, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %force_hol_blocking_.i = getelementptr inbounds %"class.net::QuicSpdySession", ptr %0, i64 0, i32 3
+  %force_hol_blocking_.i = getelementptr inbounds i8, ptr %0, i64 2056
   %2 = load i8, ptr %force_hol_blocking_.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.not = icmp eq i8 %3, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %4 = load i32, ptr %id_.i, align 8
   %call7 = tail call { i64, i8 } @_ZN3net17QuicHeadersStream16WritevStreamDataEjNS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(816) %1, i32 noundef %4, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %iov, i64 noundef %offset, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate)
   br label %return
@@ -1883,13 +1786,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNKSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERSA_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -1923,7 +1826,7 @@ for.body.i.i:                                     ; preds = %if.end15, %for.body
 
 _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS9_St14_List_iteratorISA_IS9_S9_EEENS_10_Select1stENS1_15StringPieceHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSB_.exit: ; preds = %for.body.i.i, %if.end15
   %result.0.lcssa.i.i = phi i64 [ 0, %if.end15 ], [ %add.i.i, %for.body.i.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %result.0.lcssa.i.i, %2
   %3 = load ptr, ptr %this, align 8

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ec_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ec_point_st = type { ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st }
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-%struct.ec_group_st = type { ptr, ptr, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st, %struct.bignum_st, %struct.bignum_st, i32, ptr, %struct.bignum_st }
 
 @EC_GFp_nistp256_method.ret = internal constant %struct.ec_method_st { ptr @ec_GFp_simple_group_init, ptr @ec_GFp_simple_group_finish, ptr @ec_GFp_simple_group_copy, ptr @ec_GFp_simple_group_set_curve, ptr @ec_GFp_nistp256_point_get_affine_coordinates, ptr @ec_GFp_nistp256_points_mul, ptr null, ptr @ec_GFp_simple_field_mul, ptr @ec_GFp_simple_field_sqr, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ec/p256-64.c\00", align 1
@@ -59,19 +56,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 1
+  %X = getelementptr inbounds i8, ptr %point, i64 8
   %call1 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %x_in, ptr noundef nonnull %X), !range !7
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 2
+  %Y = getelementptr inbounds i8, ptr %point, i64 32
   %call4 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %y_in, ptr noundef nonnull %Y), !range !7
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %point, i64 0, i32 3
+  %Z = getelementptr inbounds i8, ptr %point, i64 56
   %call8 = call fastcc i32 @BN_to_felem(ptr noundef nonnull %z1, ptr noundef nonnull %Z), !range !7
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
@@ -86,10 +83,10 @@ if.end11:                                         ; preds = %lor.lhs.false6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %e32.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %e64.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %tmp.i)
-  %arrayidx.i.i.i = getelementptr inbounds i128, ptr %z1, i64 3
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %z1, i64 48
   %0 = load i128, ptr %arrayidx.i.i.i, align 16
   %add.i.i.i = add i128 %0, 18446744069414584320
-  %arrayidx1.i.i.i = getelementptr inbounds i128, ptr %z1, i64 2
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %z1, i64 32
   %1 = load i128, ptr %arrayidx1.i.i.i, align 16
   %shr.i.i.i = lshr i128 %1, 64
   %add3.i.i.i = add i128 %add.i.i.i, %shr.i.i.i
@@ -97,7 +94,7 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %add8.i.i.i = add nuw nsw i128 %conv7.i.i.i, 18446673704965373952
   %2 = load i128, ptr %z1, align 16
   %add11.i.i.i = add i128 %2, 18446744073709551615
-  %arrayidx13.i.i.i = getelementptr inbounds i128, ptr %z1, i64 1
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %z1, i64 16
   %3 = load i128, ptr %arrayidx13.i.i.i, align 16
   %shr17.i.i.i = lshr i128 %add3.i.i.i, 64
   %conv18.i.i.i = trunc i128 %shr17.i.i.i to i64
@@ -145,7 +142,7 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %shr.i.i = lshr i128 %mul.i.i, 64
   %conv5.i.i = and i128 %mul.i.i, 18446744073709551615
   store i128 %conv5.i.i, ptr %tmp.i, align 16
-  %arrayidx8.i2282.i = getelementptr inbounds i128, ptr %tmp.i, i64 1
+  %arrayidx8.i2282.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %conv12.i.i = and i128 %add78.i.i.i, 18446744073709551615
   %mul13.i.i = mul nuw i128 %conv12.i.i, %conv.i.i
   %shr15.i.i = lshr i128 %mul13.i.i, 64
@@ -153,19 +150,19 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %reass.add.i.i = and i128 %conv17.i.i, 36893488147419103230
   %add21.i.i = add nuw nsw i128 %reass.add.i.i, %shr.i.i
   store i128 %add21.i.i, ptr %arrayidx8.i2282.i, align 16
-  %arrayidx23.i.i = getelementptr inbounds i128, ptr %tmp.i, i64 2
+  %arrayidx23.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 32
   %conv27.i.i = and i128 %add88.i.i.i, 18446744073709551615
   %mul28.i.i = mul nuw i128 %conv27.i.i, %conv.i.i
   %shr30.i.i = lshr i128 %mul28.i.i, 64
   %conv32.i.i = and i128 %mul28.i.i, 18446744073709551615
   %add34.i.i = add nuw nsw i128 %conv32.i.i, %shr15.i.i
   %mul36.i.i = shl nuw nsw i128 %add34.i.i, 1
-  %arrayidx38.i.i = getelementptr inbounds i128, ptr %tmp.i, i64 3
+  %arrayidx38.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 48
   %conv42.i.i = and i128 %add98.i.i.i, 18446744073709551615
   %mul43.i.i = mul nuw i128 %conv42.i.i, %conv.i.i
   %shr45.i.i = lshr i128 %mul43.i.i, 64
   %conv47.i.i = and i128 %mul43.i.i, 18446744073709551615
-  %arrayidx51.i.i = getelementptr inbounds i128, ptr %tmp.i, i64 4
+  %arrayidx51.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 64
   %mul56.i.i = mul nuw i128 %conv27.i.i, %conv12.i.i
   %shr58.i.i = lshr i128 %mul56.i.i, 64
   %conv60.i.i = and i128 %mul56.i.i, 18446744073709551615
@@ -185,12 +182,12 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %conv90.i.i = and i128 %mul86.i.i, 18446744073709551615
   %add92.i.i = add nuw nsw i128 %add67.i.i, %conv90.i.i
   %mul94.i.i = shl nuw nsw i128 %add92.i.i, 1
-  %arrayidx96.i.i = getelementptr inbounds i128, ptr %tmp.i, i64 5
+  %arrayidx96.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 80
   %mul101.i.i = mul nuw i128 %conv42.i.i, %conv27.i.i
   %conv105.i.i = and i128 %mul101.i.i, 18446744073709551615
   %add107.i.i = add nuw nsw i128 %conv105.i.i, %shr88.i.i
   %mul109.i.i = shl nuw nsw i128 %add107.i.i, 1
-  %arrayidx111.i.i = getelementptr inbounds i128, ptr %tmp.i, i64 6
+  %arrayidx111.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 96
   %7 = lshr i128 %mul101.i.i, 63
   %add114.i.i = and i128 %7, 36893488147419103230
   %mul119.i.i = mul nuw i128 %conv27.i.i, %conv27.i.i
@@ -205,12 +202,12 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %conv137.i.i = and i128 %mul133.i.i, 18446744073709551615
   %add139.i.i = add nuw nsw i128 %add114.i.i, %conv137.i.i
   store i128 %add139.i.i, ptr %arrayidx111.i.i, align 16
-  %arrayidx141.i.i = getelementptr inbounds i128, ptr %tmp.i, i64 7
+  %arrayidx141.i.i = getelementptr inbounds i8, ptr %tmp.i, i64 112
   store i128 %shr135.i.i, ptr %arrayidx141.i.i, align 16
   %add3.i.i = or disjoint i128 %add21.i.i, 1267650600228229401496703205376
-  %arrayidx4.i.i = getelementptr inbounds i128, ptr %ftmp.i, i64 1
-  %arrayidx7.i.i = getelementptr inbounds i128, ptr %ftmp.i, i64 2
-  %arrayidx10.i.i = getelementptr inbounds i128, ptr %ftmp.i, i64 3
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %ftmp.i, i64 16
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %ftmp.i, i64 32
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %ftmp.i, i64 48
   %shl.i.i19.i = shl nuw nsw i128 %add128.i.i, 32
   %add.i.i20.i = add nuw nsw i128 %shl.i.i19.i, %add125.i.i
   %sub7.i.i.i = sub nsw i128 %add128.i.i, %shr135.i.i
@@ -280,11 +277,11 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %22 = add i128 %add.i.i36.i, %20
   %add56.i.i65.i = sub i128 %21, %22
   store i128 %sub48.i.i61.i, ptr %e2.i, align 16
-  %arrayidx3.i.i = getelementptr inbounds i128, ptr %e2.i, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %e2.i, i64 16
   store i128 %add34.i.i54.i, ptr %arrayidx3.i.i, align 16
-  %arrayidx5.i68.i = getelementptr inbounds i128, ptr %e2.i, i64 2
+  %arrayidx5.i68.i = getelementptr inbounds i8, ptr %e2.i, i64 32
   store i128 %add52.i.i63.i, ptr %arrayidx5.i68.i, align 16
-  %arrayidx7.i69.i = getelementptr inbounds i128, ptr %e2.i, i64 3
+  %arrayidx7.i69.i = getelementptr inbounds i8, ptr %e2.i, i64 48
   store i128 %add56.i.i65.i, ptr %arrayidx7.i69.i, align 16
   %add.i.i72.i = add i128 %add56.i.i65.i, 18446744069414584320
   %shr.i.i74.i = lshr i128 %add52.i.i63.i, 64
@@ -586,11 +583,11 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %50 = add i128 %add.i.i279.i, %48
   %add56.i.i308.i = sub i128 %49, %50
   store i128 %sub48.i.i304.i, ptr %e4.i, align 16
-  %arrayidx3.i310.i = getelementptr inbounds i128, ptr %e4.i, i64 1
+  %arrayidx3.i310.i = getelementptr inbounds i8, ptr %e4.i, i64 16
   store i128 %add34.i.i297.i, ptr %arrayidx3.i310.i, align 16
-  %arrayidx5.i312.i = getelementptr inbounds i128, ptr %e4.i, i64 2
+  %arrayidx5.i312.i = getelementptr inbounds i8, ptr %e4.i, i64 32
   store i128 %add52.i.i306.i, ptr %arrayidx5.i312.i, align 16
-  %arrayidx7.i314.i = getelementptr inbounds i128, ptr %e4.i, i64 3
+  %arrayidx7.i314.i = getelementptr inbounds i8, ptr %e4.i, i64 48
   store i128 %add56.i.i308.i, ptr %arrayidx7.i314.i, align 16
   %add.i.i317.i = add i128 %add56.i.i308.i, 18446744069414584320
   %shr.i.i319.i = lshr i128 %add52.i.i306.i, 64
@@ -1138,11 +1135,11 @@ if.end11:                                         ; preds = %lor.lhs.false6
   %96 = add i128 %add.i.i720.i, %94
   %add56.i.i749.i = sub i128 %95, %96
   store i128 %sub48.i.i745.i, ptr %e8.i, align 16
-  %arrayidx3.i751.i = getelementptr inbounds i128, ptr %e8.i, i64 1
+  %arrayidx3.i751.i = getelementptr inbounds i8, ptr %e8.i, i64 16
   store i128 %add34.i.i738.i, ptr %arrayidx3.i751.i, align 16
-  %arrayidx5.i753.i = getelementptr inbounds i128, ptr %e8.i, i64 2
+  %arrayidx5.i753.i = getelementptr inbounds i8, ptr %e8.i, i64 32
   store i128 %add52.i.i747.i, ptr %arrayidx5.i753.i, align 16
-  %arrayidx7.i755.i = getelementptr inbounds i128, ptr %e8.i, i64 3
+  %arrayidx7.i755.i = getelementptr inbounds i8, ptr %e8.i, i64 48
   store i128 %add56.i.i749.i, ptr %arrayidx7.i755.i, align 16
   br label %for.body.i
 
@@ -1334,11 +1331,11 @@ for.end.i:                                        ; preds = %for.body.i
   %115 = add i128 %add.i.i867.i, %113
   %add56.i.i896.i = sub i128 %114, %115
   store i128 %sub48.i.i892.i, ptr %e16.i, align 16
-  %arrayidx3.i898.i = getelementptr inbounds i128, ptr %e16.i, i64 1
+  %arrayidx3.i898.i = getelementptr inbounds i8, ptr %e16.i, i64 16
   store i128 %add34.i.i885.i, ptr %arrayidx3.i898.i, align 16
-  %arrayidx5.i900.i = getelementptr inbounds i128, ptr %e16.i, i64 2
+  %arrayidx5.i900.i = getelementptr inbounds i8, ptr %e16.i, i64 32
   store i128 %add52.i.i894.i, ptr %arrayidx5.i900.i, align 16
-  %arrayidx7.i902.i = getelementptr inbounds i128, ptr %e16.i, i64 3
+  %arrayidx7.i902.i = getelementptr inbounds i8, ptr %e16.i, i64 48
   store i128 %add56.i.i896.i, ptr %arrayidx7.i902.i, align 16
   br label %for.body60.i
 
@@ -1530,11 +1527,11 @@ for.end67.i:                                      ; preds = %for.body60.i
   %134 = add i128 %add.i.i1014.i, %132
   %add56.i.i1043.i = sub i128 %133, %134
   store i128 %sub48.i.i1039.i, ptr %e32.i, align 16
-  %arrayidx3.i1045.i = getelementptr inbounds i128, ptr %e32.i, i64 1
+  %arrayidx3.i1045.i = getelementptr inbounds i8, ptr %e32.i, i64 16
   store i128 %add34.i.i1032.i, ptr %arrayidx3.i1045.i, align 16
-  %arrayidx5.i1047.i = getelementptr inbounds i128, ptr %e32.i, i64 2
+  %arrayidx5.i1047.i = getelementptr inbounds i8, ptr %e32.i, i64 32
   store i128 %add52.i.i1041.i, ptr %arrayidx5.i1047.i, align 16
-  %arrayidx7.i1049.i = getelementptr inbounds i128, ptr %e32.i, i64 3
+  %arrayidx7.i1049.i = getelementptr inbounds i8, ptr %e32.i, i64 48
   store i128 %add56.i.i1043.i, ptr %arrayidx7.i1049.i, align 16
   br label %for.body77.i
 
@@ -1689,11 +1686,11 @@ for.end84.i:                                      ; preds = %for.body77.i
   store i128 %add139.i2938.i, ptr %arrayidx111.i.i, align 16
   store i128 %shr135.i2936.i, ptr %arrayidx141.i.i, align 16
   store i128 %sub48.i.i1143.i, ptr %e64.i, align 16
-  %arrayidx3.i1149.i = getelementptr inbounds i128, ptr %e64.i, i64 1
+  %arrayidx3.i1149.i = getelementptr inbounds i8, ptr %e64.i, i64 16
   store i128 %add34.i.i1136.i, ptr %arrayidx3.i1149.i, align 16
-  %arrayidx5.i1151.i = getelementptr inbounds i128, ptr %e64.i, i64 2
+  %arrayidx5.i1151.i = getelementptr inbounds i8, ptr %e64.i, i64 32
   store i128 %add52.i.i1145.i, ptr %arrayidx5.i1151.i, align 16
-  %arrayidx7.i1153.i = getelementptr inbounds i128, ptr %e64.i, i64 3
+  %arrayidx7.i1153.i = getelementptr inbounds i8, ptr %e64.i, i64 48
   store i128 %add56.i.i1147.i, ptr %arrayidx7.i1153.i, align 16
   call fastcc void @felem_mul(ptr noundef nonnull %tmp.i, ptr noundef nonnull %ftmp.i, ptr noundef nonnull %z1)
   %142 = load i128, ptr %tmp.i, align 16
@@ -2061,9 +2058,9 @@ for.body108.i:                                    ; preds = %for.body108.i, %for
   br i1 %exitcond3996.not.i, label %for.end115.i, label %for.body108.i, !llvm.loop !13
 
 for.end115.i:                                     ; preds = %for.body108.i
-  %arrayidx4.i1298.i = getelementptr inbounds i128, ptr %ftmp2.i, i64 1
-  %arrayidx7.i1301.i = getelementptr inbounds i128, ptr %ftmp2.i, i64 2
-  %arrayidx10.i1304.i = getelementptr inbounds i128, ptr %ftmp2.i, i64 3
+  %arrayidx4.i1298.i = getelementptr inbounds i8, ptr %ftmp2.i, i64 16
+  %arrayidx7.i1301.i = getelementptr inbounds i8, ptr %ftmp2.i, i64 32
+  %arrayidx10.i1304.i = getelementptr inbounds i8, ptr %ftmp2.i, i64 48
   store i128 %add56.i.i1435.i, ptr %arrayidx10.i1304.i, align 16
   store i128 %add52.i.i1433.i, ptr %arrayidx7.i1301.i, align 16
   store i128 %sub48.i.i1431.i, ptr %ftmp2.i, align 16
@@ -3092,11 +3089,11 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %286 = load i128, ptr %tmp.i, align 16
   %287 = load i128, ptr %arrayidx8.i2282.i, align 16
   %add3.i2241.i = add i128 %287, 1267650600228229401496703205376
-  %arrayidx4.i2242.i = getelementptr inbounds i128, ptr %z2, i64 1
+  %arrayidx4.i2242.i = getelementptr inbounds i8, ptr %z2, i64 16
   %288 = load i128, ptr %arrayidx23.i.i, align 16
-  %arrayidx7.i2245.i = getelementptr inbounds i128, ptr %z2, i64 2
+  %arrayidx7.i2245.i = getelementptr inbounds i8, ptr %z2, i64 32
   %289 = load i128, ptr %arrayidx38.i.i, align 16
-  %arrayidx10.i2248.i = getelementptr inbounds i128, ptr %z2, i64 3
+  %arrayidx10.i2248.i = getelementptr inbounds i8, ptr %z2, i64 48
   %290 = load i128, ptr %arrayidx51.i.i, align 16
   %291 = load i128, ptr %arrayidx96.i.i, align 16
   %shl.i.i2251.i = shl i128 %291, 32
@@ -3193,7 +3190,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %shr.i = lshr i128 %mul.i, 64
   %conv5.i = and i128 %mul.i, 18446744073709551615
   store i128 %conv5.i, ptr %tmp, align 16
-  %arrayidx8.i172 = getelementptr inbounds i128, ptr %tmp, i64 1
+  %arrayidx8.i172 = getelementptr inbounds i8, ptr %tmp, i64 16
   %conv12.i = and i128 %add78.i.i10, 18446744073709551615
   %mul13.i = mul nuw i128 %conv12.i, %conv.i
   %shr15.i = lshr i128 %mul13.i, 64
@@ -3201,20 +3198,20 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %reass.add.i = and i128 %conv17.i, 36893488147419103230
   %add21.i = add nuw nsw i128 %reass.add.i, %shr.i
   store i128 %add21.i, ptr %arrayidx8.i172, align 16
-  %arrayidx23.i = getelementptr inbounds i128, ptr %tmp, i64 2
+  %arrayidx23.i = getelementptr inbounds i8, ptr %tmp, i64 32
   %conv27.i = and i128 %add88.i.i, 18446744073709551615
   %mul28.i = mul nuw i128 %conv27.i, %conv.i
   %shr30.i = lshr i128 %mul28.i, 64
   %conv32.i = and i128 %mul28.i, 18446744073709551615
   %add34.i = add nuw nsw i128 %conv32.i, %shr15.i
   %mul36.i = shl nuw nsw i128 %add34.i, 1
-  %arrayidx38.i = getelementptr inbounds i128, ptr %tmp, i64 3
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp, i64 48
   %conv42.i = and i128 %add98.i.i, 18446744073709551615
   %mul43.i = mul nuw i128 %conv42.i, %conv.i
   %shr45.i = lshr i128 %mul43.i, 64
   %conv47.i = and i128 %mul43.i, 18446744073709551615
   %add49.i = add nuw nsw i128 %conv47.i, %shr30.i
-  %arrayidx51.i = getelementptr inbounds i128, ptr %tmp, i64 4
+  %arrayidx51.i = getelementptr inbounds i8, ptr %tmp, i64 64
   %mul56.i = mul nuw i128 %conv27.i, %conv12.i
   %shr58.i = lshr i128 %mul56.i, 64
   %conv60.i = and i128 %mul56.i, 18446744073709551615
@@ -3233,12 +3230,12 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %conv90.i = and i128 %mul86.i, 18446744073709551615
   %add92.i = add nuw nsw i128 %add67.i, %conv90.i
   %mul94.i = shl nuw nsw i128 %add92.i, 1
-  %arrayidx96.i = getelementptr inbounds i128, ptr %tmp, i64 5
+  %arrayidx96.i = getelementptr inbounds i8, ptr %tmp, i64 80
   %mul101.i = mul nuw i128 %conv42.i, %conv27.i
   %conv105.i = and i128 %mul101.i, 18446744073709551615
   %add107.i = add nuw nsw i128 %conv105.i, %shr88.i
   %mul109.i = shl nuw nsw i128 %add107.i, 1
-  %arrayidx111.i = getelementptr inbounds i128, ptr %tmp, i64 6
+  %arrayidx111.i = getelementptr inbounds i8, ptr %tmp, i64 96
   %301 = lshr i128 %mul101.i, 63
   %add114.i = and i128 %301, 36893488147419103230
   %mul119.i = mul nuw i128 %conv27.i, %conv27.i
@@ -3253,7 +3250,7 @@ felem_inv.exit:                                   ; preds = %for.body138.i
   %conv137.i = and i128 %mul133.i, 18446744073709551615
   %add139.i = add nuw nsw i128 %add114.i, %conv137.i
   store i128 %add139.i, ptr %arrayidx111.i, align 16
-  %arrayidx141.i = getelementptr inbounds i128, ptr %tmp, i64 7
+  %arrayidx141.i = getelementptr inbounds i8, ptr %tmp, i64 112
   store i128 %shr135.i, ptr %arrayidx141.i, align 16
   %add.i = add nuw nsw i128 %conv5.i, 1267650600228229401427983728624
   %add3.i = or disjoint i128 %add21.i, 1267650600228229401496703205376
@@ -3297,13 +3294,13 @@ if.then18:                                        ; preds = %felem_inv.exit
   %add.i22 = add i128 %305, 1267650600228229401427983728624
   %306 = load i128, ptr %arrayidx8.i172, align 16
   %add3.i24 = add i128 %306, 1267650600228229401496703205376
-  %arrayidx4.i25 = getelementptr inbounds i128, ptr %x_in, i64 1
+  %arrayidx4.i25 = getelementptr inbounds i8, ptr %x_in, i64 16
   %307 = load i128, ptr %arrayidx23.i, align 16
   %add6.i27 = add i128 %307, 1267650600228229401427983728656
-  %arrayidx7.i28 = getelementptr inbounds i128, ptr %x_in, i64 2
+  %arrayidx7.i28 = getelementptr inbounds i8, ptr %x_in, i64 32
   %308 = load i128, ptr %arrayidx38.i, align 16
   %add9.i30 = add i128 %308, 1267650600228229401427983728656
-  %arrayidx10.i31 = getelementptr inbounds i128, ptr %x_in, i64 3
+  %arrayidx10.i31 = getelementptr inbounds i8, ptr %x_in, i64 48
   %309 = load i128, ptr %arrayidx51.i, align 16
   %310 = load i128, ptr %arrayidx96.i, align 16
   %shl.i.i34 = shl i128 %310, 32
@@ -3342,7 +3339,7 @@ if.then18:                                        ; preds = %felem_inv.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i)
   %316 = load <2 x i64>, ptr %x_out, align 16
   store <2 x i64> %316, ptr %b_in.i, align 16
-  %arrayidx4.i.i66 = getelementptr inbounds i64, ptr %x_out, i64 2
+  %arrayidx4.i.i66 = getelementptr inbounds i8, ptr %x_out, i64 16
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %b_in.i, i64 16
   %317 = load <2 x i64>, ptr %arrayidx4.i.i66, align 16
   store <2 x i64> %317, ptr %arrayidx5.i.i, align 16
@@ -3423,13 +3420,13 @@ if.then33:                                        ; preds = %if.end31
   %add.i112 = add i128 %331, 1267650600228229401427983728624
   %332 = load i128, ptr %arrayidx8.i172, align 16
   %add3.i114 = add i128 %332, 1267650600228229401496703205376
-  %arrayidx4.i115 = getelementptr inbounds i128, ptr %y_in, i64 1
+  %arrayidx4.i115 = getelementptr inbounds i8, ptr %y_in, i64 16
   %333 = load i128, ptr %arrayidx23.i, align 16
   %add6.i117 = add i128 %333, 1267650600228229401427983728656
-  %arrayidx7.i118 = getelementptr inbounds i128, ptr %y_in, i64 2
+  %arrayidx7.i118 = getelementptr inbounds i8, ptr %y_in, i64 32
   %334 = load i128, ptr %arrayidx38.i, align 16
   %add9.i120 = add i128 %334, 1267650600228229401427983728656
-  %arrayidx10.i121 = getelementptr inbounds i128, ptr %y_in, i64 3
+  %arrayidx10.i121 = getelementptr inbounds i8, ptr %y_in, i64 48
   %335 = load i128, ptr %arrayidx51.i, align 16
   %336 = load i128, ptr %arrayidx96.i, align 16
   %shl.i.i124 = shl i128 %336, 32
@@ -3468,7 +3465,7 @@ if.then33:                                        ; preds = %if.end31
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i156)
   %342 = load <2 x i64>, ptr %y_out, align 16
   store <2 x i64> %342, ptr %b_in.i155, align 16
-  %arrayidx4.i.i159 = getelementptr inbounds i64, ptr %y_out, i64 2
+  %arrayidx4.i.i159 = getelementptr inbounds i8, ptr %y_out, i64 16
   %arrayidx5.i.i160 = getelementptr inbounds i8, ptr %b_in.i155, i64 16
   %343 = load <2 x i64>, ptr %arrayidx4.i.i159, align 16
   store <2 x i64> %343, ptr %arrayidx5.i.i160, align 16
@@ -3587,67 +3584,67 @@ if.end44:                                         ; preds = %if.then34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call35, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1632) %call37, i8 0, i64 1632, i1 false)
   %cmp57.not = icmp eq ptr %p_scalar_, null
-  %order = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 2
-  %X = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 1
-  %Y = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 2
-  %Z = getelementptr inbounds %struct.ec_point_st, ptr %p_, i64 0, i32 3
-  %arrayidx94 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1
-  %arrayidx.i = getelementptr inbounds i128, ptr %x_out, i64 3
-  %arrayidx1.i = getelementptr inbounds i128, ptr %x_out, i64 2
-  %arrayidx13.i = getelementptr inbounds i128, ptr %x_out, i64 1
-  %arrayidx108.i = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 0, i64 1
-  %arrayidx111.i = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 0, i64 2
-  %arrayidx114.i = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 0, i64 3
-  %arrayidx100 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 1
-  %arrayidx.i104 = getelementptr inbounds i128, ptr %y_out, i64 3
-  %arrayidx1.i106 = getelementptr inbounds i128, ptr %y_out, i64 2
-  %arrayidx13.i112 = getelementptr inbounds i128, ptr %y_out, i64 1
-  %arrayidx108.i154 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 1, i64 1
-  %arrayidx111.i155 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 1, i64 2
-  %arrayidx114.i157 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 1, i64 3
-  %arrayidx105 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 2
-  %arrayidx.i158 = getelementptr inbounds i128, ptr %z_out, i64 3
-  %arrayidx1.i160 = getelementptr inbounds i128, ptr %z_out, i64 2
-  %arrayidx13.i166 = getelementptr inbounds i128, ptr %z_out, i64 1
-  %arrayidx108.i208 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 2, i64 1
-  %arrayidx111.i209 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 2, i64 2
-  %arrayidx114.i211 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 1, i64 2, i64 3
-  %arrayidx4.i.i = getelementptr inbounds i128, ptr %felem_x1.i, i64 1
-  %arrayidx7.i.i = getelementptr inbounds i128, ptr %felem_x1.i, i64 2
-  %arrayidx10.i.i = getelementptr inbounds i128, ptr %felem_x1.i, i64 3
-  %arrayidx4.i4.i = getelementptr inbounds i128, ptr %felem_y1.i, i64 1
-  %arrayidx7.i7.i = getelementptr inbounds i128, ptr %felem_y1.i, i64 2
-  %arrayidx10.i10.i = getelementptr inbounds i128, ptr %felem_y1.i, i64 3
-  %arrayidx4.i14.i = getelementptr inbounds i128, ptr %felem_z1.i, i64 1
-  %arrayidx7.i17.i = getelementptr inbounds i128, ptr %felem_z1.i, i64 2
-  %arrayidx10.i20.i = getelementptr inbounds i128, ptr %felem_z1.i, i64 3
-  %arrayidx.i.i = getelementptr inbounds i128, ptr %felem_x3.i, i64 3
-  %arrayidx1.i.i = getelementptr inbounds i128, ptr %felem_x3.i, i64 2
-  %arrayidx13.i.i = getelementptr inbounds i128, ptr %felem_x3.i, i64 1
-  %arrayidx.i21.i = getelementptr inbounds i128, ptr %felem_y3.i, i64 3
-  %arrayidx1.i23.i = getelementptr inbounds i128, ptr %felem_y3.i, i64 2
-  %arrayidx13.i29.i = getelementptr inbounds i128, ptr %felem_y3.i, i64 1
-  %arrayidx.i75.i = getelementptr inbounds i128, ptr %felem_z3.i, i64 3
-  %arrayidx1.i77.i = getelementptr inbounds i128, ptr %felem_z3.i, i64 2
-  %arrayidx13.i83.i = getelementptr inbounds i128, ptr %felem_z3.i, i64 1
-  %arrayidx4.i.i215 = getelementptr inbounds i128, ptr %felem_x_in.i, i64 1
-  %arrayidx7.i.i218 = getelementptr inbounds i128, ptr %felem_x_in.i, i64 2
-  %arrayidx10.i.i221 = getelementptr inbounds i128, ptr %felem_x_in.i, i64 3
-  %arrayidx4.i4.i225 = getelementptr inbounds i128, ptr %felem_y_in.i, i64 1
-  %arrayidx7.i7.i228 = getelementptr inbounds i128, ptr %felem_y_in.i, i64 2
-  %arrayidx10.i10.i231 = getelementptr inbounds i128, ptr %felem_y_in.i, i64 3
-  %arrayidx4.i14.i235 = getelementptr inbounds i128, ptr %felem_z_in.i, i64 1
-  %arrayidx7.i17.i238 = getelementptr inbounds i128, ptr %felem_z_in.i, i64 2
-  %arrayidx10.i20.i241 = getelementptr inbounds i128, ptr %felem_z_in.i, i64 3
-  %arrayidx.i.i242 = getelementptr inbounds i128, ptr %felem_x_out.i, i64 3
-  %arrayidx1.i.i244 = getelementptr inbounds i128, ptr %felem_x_out.i, i64 2
-  %arrayidx13.i.i250 = getelementptr inbounds i128, ptr %felem_x_out.i, i64 1
-  %arrayidx.i21.i296 = getelementptr inbounds i128, ptr %felem_y_out.i, i64 3
-  %arrayidx1.i23.i298 = getelementptr inbounds i128, ptr %felem_y_out.i, i64 2
-  %arrayidx13.i29.i304 = getelementptr inbounds i128, ptr %felem_y_out.i, i64 1
-  %arrayidx.i75.i350 = getelementptr inbounds i128, ptr %felem_z_out.i, i64 3
-  %arrayidx1.i77.i352 = getelementptr inbounds i128, ptr %felem_z_out.i, i64 2
-  %arrayidx13.i83.i358 = getelementptr inbounds i128, ptr %felem_z_out.i, i64 1
+  %order = getelementptr inbounds i8, ptr %group, i64 16
+  %X = getelementptr inbounds i8, ptr %p_, i64 8
+  %Y = getelementptr inbounds i8, ptr %p_, i64 32
+  %Z = getelementptr inbounds i8, ptr %p_, i64 56
+  %arrayidx94 = getelementptr inbounds i8, ptr %call37, i64 96
+  %arrayidx.i = getelementptr inbounds i8, ptr %x_out, i64 48
+  %arrayidx1.i = getelementptr inbounds i8, ptr %x_out, i64 32
+  %arrayidx13.i = getelementptr inbounds i8, ptr %x_out, i64 16
+  %arrayidx108.i = getelementptr inbounds i8, ptr %call37, i64 104
+  %arrayidx111.i = getelementptr inbounds i8, ptr %call37, i64 112
+  %arrayidx114.i = getelementptr inbounds i8, ptr %call37, i64 120
+  %arrayidx100 = getelementptr inbounds i8, ptr %call37, i64 128
+  %arrayidx.i104 = getelementptr inbounds i8, ptr %y_out, i64 48
+  %arrayidx1.i106 = getelementptr inbounds i8, ptr %y_out, i64 32
+  %arrayidx13.i112 = getelementptr inbounds i8, ptr %y_out, i64 16
+  %arrayidx108.i154 = getelementptr inbounds i8, ptr %call37, i64 136
+  %arrayidx111.i155 = getelementptr inbounds i8, ptr %call37, i64 144
+  %arrayidx114.i157 = getelementptr inbounds i8, ptr %call37, i64 152
+  %arrayidx105 = getelementptr inbounds i8, ptr %call37, i64 160
+  %arrayidx.i158 = getelementptr inbounds i8, ptr %z_out, i64 48
+  %arrayidx1.i160 = getelementptr inbounds i8, ptr %z_out, i64 32
+  %arrayidx13.i166 = getelementptr inbounds i8, ptr %z_out, i64 16
+  %arrayidx108.i208 = getelementptr inbounds i8, ptr %call37, i64 168
+  %arrayidx111.i209 = getelementptr inbounds i8, ptr %call37, i64 176
+  %arrayidx114.i211 = getelementptr inbounds i8, ptr %call37, i64 184
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %felem_x1.i, i64 16
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %felem_x1.i, i64 32
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %felem_x1.i, i64 48
+  %arrayidx4.i4.i = getelementptr inbounds i8, ptr %felem_y1.i, i64 16
+  %arrayidx7.i7.i = getelementptr inbounds i8, ptr %felem_y1.i, i64 32
+  %arrayidx10.i10.i = getelementptr inbounds i8, ptr %felem_y1.i, i64 48
+  %arrayidx4.i14.i = getelementptr inbounds i8, ptr %felem_z1.i, i64 16
+  %arrayidx7.i17.i = getelementptr inbounds i8, ptr %felem_z1.i, i64 32
+  %arrayidx10.i20.i = getelementptr inbounds i8, ptr %felem_z1.i, i64 48
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %felem_x3.i, i64 48
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %felem_x3.i, i64 32
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %felem_x3.i, i64 16
+  %arrayidx.i21.i = getelementptr inbounds i8, ptr %felem_y3.i, i64 48
+  %arrayidx1.i23.i = getelementptr inbounds i8, ptr %felem_y3.i, i64 32
+  %arrayidx13.i29.i = getelementptr inbounds i8, ptr %felem_y3.i, i64 16
+  %arrayidx.i75.i = getelementptr inbounds i8, ptr %felem_z3.i, i64 48
+  %arrayidx1.i77.i = getelementptr inbounds i8, ptr %felem_z3.i, i64 32
+  %arrayidx13.i83.i = getelementptr inbounds i8, ptr %felem_z3.i, i64 16
+  %arrayidx4.i.i215 = getelementptr inbounds i8, ptr %felem_x_in.i, i64 16
+  %arrayidx7.i.i218 = getelementptr inbounds i8, ptr %felem_x_in.i, i64 32
+  %arrayidx10.i.i221 = getelementptr inbounds i8, ptr %felem_x_in.i, i64 48
+  %arrayidx4.i4.i225 = getelementptr inbounds i8, ptr %felem_y_in.i, i64 16
+  %arrayidx7.i7.i228 = getelementptr inbounds i8, ptr %felem_y_in.i, i64 32
+  %arrayidx10.i10.i231 = getelementptr inbounds i8, ptr %felem_y_in.i, i64 48
+  %arrayidx4.i14.i235 = getelementptr inbounds i8, ptr %felem_z_in.i, i64 16
+  %arrayidx7.i17.i238 = getelementptr inbounds i8, ptr %felem_z_in.i, i64 32
+  %arrayidx10.i20.i241 = getelementptr inbounds i8, ptr %felem_z_in.i, i64 48
+  %arrayidx.i.i242 = getelementptr inbounds i8, ptr %felem_x_out.i, i64 48
+  %arrayidx1.i.i244 = getelementptr inbounds i8, ptr %felem_x_out.i, i64 32
+  %arrayidx13.i.i250 = getelementptr inbounds i8, ptr %felem_x_out.i, i64 16
+  %arrayidx.i21.i296 = getelementptr inbounds i8, ptr %felem_y_out.i, i64 48
+  %arrayidx1.i23.i298 = getelementptr inbounds i8, ptr %felem_y_out.i, i64 32
+  %arrayidx13.i29.i304 = getelementptr inbounds i8, ptr %felem_y_out.i, i64 16
+  %arrayidx.i75.i350 = getelementptr inbounds i8, ptr %felem_z_out.i, i64 48
+  %arrayidx1.i77.i352 = getelementptr inbounds i8, ptr %felem_z_out.i, i64 32
+  %arrayidx13.i83.i358 = getelementptr inbounds i8, ptr %felem_z_out.i, i64 16
   br i1 %cmp57.not, label %if.end184, label %if.else
 
 if.else:                                          ; preds = %if.end44
@@ -3887,15 +3884,15 @@ for.body111:                                      ; preds = %if.end92, %for.inc
   %and = and i64 %j.0497, 1
   %tobool112.not = icmp eq i64 %and, 0
   %arrayidx154 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %j.0497
-  %arrayidx159 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %j.0497, i64 1
-  %arrayidx163 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %j.0497, i64 2
+  %arrayidx159 = getelementptr inbounds i8, ptr %arrayidx154, i64 32
+  %arrayidx163 = getelementptr inbounds i8, ptr %arrayidx154, i64 64
   br i1 %tobool112.not, label %if.else152, label %if.then113
 
 if.then113:                                       ; preds = %for.body111
   %sub = add nsw i64 %j.0497, -1
   %arrayidx139 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %sub
-  %arrayidx145 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %sub, i64 1
-  %arrayidx150 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %sub, i64 2
+  %arrayidx145 = getelementptr inbounds i8, ptr %arrayidx139, i64 32
+  %arrayidx150 = getelementptr inbounds i8, ptr %arrayidx139, i64 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %felem_x3.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %felem_y3.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %felem_z3.i)
@@ -3994,12 +3991,12 @@ if.then113:                                       ; preds = %for.body111
   %add98.i.i = add nsw i128 %sub72.i.i, %shr94.i.i
   %conv100.i.i = trunc i128 %add88.i.i to i64
   store i64 %conv80.i.i, ptr %arrayidx154, align 8
-  %arrayidx108.i.i = getelementptr inbounds i64, ptr %arrayidx154, i64 1
+  %arrayidx108.i.i = getelementptr inbounds i8, ptr %arrayidx154, i64 8
   store i64 %conv90.i.i, ptr %arrayidx108.i.i, align 8
-  %arrayidx111.i.i = getelementptr inbounds i64, ptr %arrayidx154, i64 2
+  %arrayidx111.i.i = getelementptr inbounds i8, ptr %arrayidx154, i64 16
   store i64 %conv100.i.i, ptr %arrayidx111.i.i, align 8
   %conv113.i.i = trunc i128 %add98.i.i to i64
-  %arrayidx114.i.i = getelementptr inbounds i64, ptr %arrayidx154, i64 3
+  %arrayidx114.i.i = getelementptr inbounds i8, ptr %arrayidx154, i64 24
   store i64 %conv113.i.i, ptr %arrayidx114.i.i, align 8
   %42 = load i128, ptr %arrayidx.i21.i, align 16
   %add.i22.i = add i128 %42, 18446744069414584320
@@ -4056,12 +4053,12 @@ if.then113:                                       ; preds = %for.body111
   %add98.i69.i = add nsw i128 %sub72.i59.i, %shr94.i68.i
   %conv100.i70.i = trunc i128 %add88.i66.i to i64
   store i64 %conv80.i64.i, ptr %arrayidx159, align 8
-  %arrayidx108.i71.i = getelementptr inbounds i64, ptr %arrayidx159, i64 1
+  %arrayidx108.i71.i = getelementptr inbounds i8, ptr %arrayidx154, i64 40
   store i64 %conv90.i67.i, ptr %arrayidx108.i71.i, align 8
-  %arrayidx111.i72.i = getelementptr inbounds i64, ptr %arrayidx159, i64 2
+  %arrayidx111.i72.i = getelementptr inbounds i8, ptr %arrayidx154, i64 48
   store i64 %conv100.i70.i, ptr %arrayidx111.i72.i, align 8
   %conv113.i73.i = trunc i128 %add98.i69.i to i64
-  %arrayidx114.i74.i = getelementptr inbounds i64, ptr %arrayidx159, i64 3
+  %arrayidx114.i74.i = getelementptr inbounds i8, ptr %arrayidx154, i64 56
   store i64 %conv113.i73.i, ptr %arrayidx114.i74.i, align 8
   %49 = load i128, ptr %arrayidx.i75.i, align 16
   %add.i76.i = add i128 %49, 18446744069414584320
@@ -4118,12 +4115,12 @@ if.then113:                                       ; preds = %for.body111
   %add98.i123.i = add nsw i128 %sub72.i113.i, %shr94.i122.i
   %conv100.i124.i = trunc i128 %add88.i120.i to i64
   store i64 %conv80.i118.i, ptr %arrayidx163, align 8
-  %arrayidx108.i125.i = getelementptr inbounds i64, ptr %arrayidx163, i64 1
+  %arrayidx108.i125.i = getelementptr inbounds i8, ptr %arrayidx154, i64 72
   store i64 %conv90.i121.i, ptr %arrayidx108.i125.i, align 8
-  %arrayidx111.i126.i = getelementptr inbounds i64, ptr %arrayidx163, i64 2
+  %arrayidx111.i126.i = getelementptr inbounds i8, ptr %arrayidx154, i64 80
   store i64 %conv100.i124.i, ptr %arrayidx111.i126.i, align 8
   %conv113.i127.i = trunc i128 %add98.i123.i to i64
-  %arrayidx114.i128.i = getelementptr inbounds i64, ptr %arrayidx163, i64 3
+  %arrayidx114.i128.i = getelementptr inbounds i8, ptr %arrayidx154, i64 88
   store i64 %conv113.i127.i, ptr %arrayidx114.i128.i, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %felem_x3.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %felem_y3.i)
@@ -4136,8 +4133,8 @@ if.then113:                                       ; preds = %for.body111
 if.else152:                                       ; preds = %for.body111
   %div103 = lshr exact i64 %j.0497, 1
   %arrayidx166 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %div103
-  %arrayidx172 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %div103, i64 1
-  %arrayidx177 = getelementptr inbounds [17 x [3 x [4 x i64]]], ptr %call37, i64 0, i64 %div103, i64 2
+  %arrayidx172 = getelementptr inbounds i8, ptr %arrayidx166, i64 32
+  %arrayidx177 = getelementptr inbounds i8, ptr %arrayidx166, i64 64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %felem_x_out.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %felem_y_out.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %felem_z_out.i)
@@ -4147,45 +4144,45 @@ if.else152:                                       ; preds = %for.body111
   %56 = load i64, ptr %arrayidx166, align 8
   %conv.i.i212 = zext i64 %56 to i128
   store i128 %conv.i.i212, ptr %felem_x_in.i, align 16
-  %arrayidx2.i.i213 = getelementptr inbounds i64, ptr %arrayidx166, i64 1
+  %arrayidx2.i.i213 = getelementptr inbounds i8, ptr %arrayidx166, i64 8
   %57 = load i64, ptr %arrayidx2.i.i213, align 8
   %conv3.i.i214 = zext i64 %57 to i128
   store i128 %conv3.i.i214, ptr %arrayidx4.i.i215, align 16
-  %arrayidx5.i.i216 = getelementptr inbounds i64, ptr %arrayidx166, i64 2
+  %arrayidx5.i.i216 = getelementptr inbounds i8, ptr %arrayidx166, i64 16
   %58 = load i64, ptr %arrayidx5.i.i216, align 8
   %conv6.i.i217 = zext i64 %58 to i128
   store i128 %conv6.i.i217, ptr %arrayidx7.i.i218, align 16
-  %arrayidx8.i.i219 = getelementptr inbounds i64, ptr %arrayidx166, i64 3
+  %arrayidx8.i.i219 = getelementptr inbounds i8, ptr %arrayidx166, i64 24
   %59 = load i64, ptr %arrayidx8.i.i219, align 8
   %conv9.i.i220 = zext i64 %59 to i128
   store i128 %conv9.i.i220, ptr %arrayidx10.i.i221, align 16
   %60 = load i64, ptr %arrayidx172, align 8
   %conv.i1.i222 = zext i64 %60 to i128
   store i128 %conv.i1.i222, ptr %felem_y_in.i, align 16
-  %arrayidx2.i2.i223 = getelementptr inbounds i64, ptr %arrayidx172, i64 1
+  %arrayidx2.i2.i223 = getelementptr inbounds i8, ptr %arrayidx166, i64 40
   %61 = load i64, ptr %arrayidx2.i2.i223, align 8
   %conv3.i3.i224 = zext i64 %61 to i128
   store i128 %conv3.i3.i224, ptr %arrayidx4.i4.i225, align 16
-  %arrayidx5.i5.i226 = getelementptr inbounds i64, ptr %arrayidx172, i64 2
+  %arrayidx5.i5.i226 = getelementptr inbounds i8, ptr %arrayidx166, i64 48
   %62 = load i64, ptr %arrayidx5.i5.i226, align 8
   %conv6.i6.i227 = zext i64 %62 to i128
   store i128 %conv6.i6.i227, ptr %arrayidx7.i7.i228, align 16
-  %arrayidx8.i8.i229 = getelementptr inbounds i64, ptr %arrayidx172, i64 3
+  %arrayidx8.i8.i229 = getelementptr inbounds i8, ptr %arrayidx166, i64 56
   %63 = load i64, ptr %arrayidx8.i8.i229, align 8
   %conv9.i9.i230 = zext i64 %63 to i128
   store i128 %conv9.i9.i230, ptr %arrayidx10.i10.i231, align 16
   %64 = load i64, ptr %arrayidx177, align 8
   %conv.i11.i232 = zext i64 %64 to i128
   store i128 %conv.i11.i232, ptr %felem_z_in.i, align 16
-  %arrayidx2.i12.i233 = getelementptr inbounds i64, ptr %arrayidx177, i64 1
+  %arrayidx2.i12.i233 = getelementptr inbounds i8, ptr %arrayidx166, i64 72
   %65 = load i64, ptr %arrayidx2.i12.i233, align 8
   %conv3.i13.i234 = zext i64 %65 to i128
   store i128 %conv3.i13.i234, ptr %arrayidx4.i14.i235, align 16
-  %arrayidx5.i15.i236 = getelementptr inbounds i64, ptr %arrayidx177, i64 2
+  %arrayidx5.i15.i236 = getelementptr inbounds i8, ptr %arrayidx166, i64 80
   %66 = load i64, ptr %arrayidx5.i15.i236, align 8
   %conv6.i16.i237 = zext i64 %66 to i128
   store i128 %conv6.i16.i237, ptr %arrayidx7.i17.i238, align 16
-  %arrayidx8.i18.i239 = getelementptr inbounds i64, ptr %arrayidx177, i64 3
+  %arrayidx8.i18.i239 = getelementptr inbounds i8, ptr %arrayidx166, i64 88
   %67 = load i64, ptr %arrayidx8.i18.i239, align 8
   %conv9.i19.i240 = zext i64 %67 to i128
   store i128 %conv9.i19.i240, ptr %arrayidx10.i20.i241, align 16
@@ -4245,12 +4242,12 @@ if.else152:                                       ; preds = %for.body111
   %add98.i.i290 = add nsw i128 %sub72.i.i280, %shr94.i.i289
   %conv100.i.i291 = trunc i128 %add88.i.i287 to i64
   store i64 %conv80.i.i285, ptr %arrayidx154, align 8
-  %arrayidx108.i.i292 = getelementptr inbounds i64, ptr %arrayidx154, i64 1
+  %arrayidx108.i.i292 = getelementptr inbounds i8, ptr %arrayidx154, i64 8
   store i64 %conv90.i.i288, ptr %arrayidx108.i.i292, align 8
-  %arrayidx111.i.i293 = getelementptr inbounds i64, ptr %arrayidx154, i64 2
+  %arrayidx111.i.i293 = getelementptr inbounds i8, ptr %arrayidx154, i64 16
   store i64 %conv100.i.i291, ptr %arrayidx111.i.i293, align 8
   %conv113.i.i294 = trunc i128 %add98.i.i290 to i64
-  %arrayidx114.i.i295 = getelementptr inbounds i64, ptr %arrayidx154, i64 3
+  %arrayidx114.i.i295 = getelementptr inbounds i8, ptr %arrayidx154, i64 24
   store i64 %conv113.i.i294, ptr %arrayidx114.i.i295, align 8
   %75 = load i128, ptr %arrayidx.i21.i296, align 16
   %add.i22.i297 = add i128 %75, 18446744069414584320
@@ -4307,12 +4304,12 @@ if.else152:                                       ; preds = %for.body111
   %add98.i69.i344 = add nsw i128 %sub72.i59.i334, %shr94.i68.i343
   %conv100.i70.i345 = trunc i128 %add88.i66.i341 to i64
   store i64 %conv80.i64.i339, ptr %arrayidx159, align 8
-  %arrayidx108.i71.i346 = getelementptr inbounds i64, ptr %arrayidx159, i64 1
+  %arrayidx108.i71.i346 = getelementptr inbounds i8, ptr %arrayidx154, i64 40
   store i64 %conv90.i67.i342, ptr %arrayidx108.i71.i346, align 8
-  %arrayidx111.i72.i347 = getelementptr inbounds i64, ptr %arrayidx159, i64 2
+  %arrayidx111.i72.i347 = getelementptr inbounds i8, ptr %arrayidx154, i64 48
   store i64 %conv100.i70.i345, ptr %arrayidx111.i72.i347, align 8
   %conv113.i73.i348 = trunc i128 %add98.i69.i344 to i64
-  %arrayidx114.i74.i349 = getelementptr inbounds i64, ptr %arrayidx159, i64 3
+  %arrayidx114.i74.i349 = getelementptr inbounds i8, ptr %arrayidx154, i64 56
   store i64 %conv113.i73.i348, ptr %arrayidx114.i74.i349, align 8
   %82 = load i128, ptr %arrayidx.i75.i350, align 16
   %add.i76.i351 = add i128 %82, 18446744069414584320
@@ -4369,12 +4366,12 @@ if.else152:                                       ; preds = %for.body111
   %add98.i123.i398 = add nsw i128 %sub72.i113.i388, %shr94.i122.i397
   %conv100.i124.i399 = trunc i128 %add88.i120.i395 to i64
   store i64 %conv80.i118.i393, ptr %arrayidx163, align 8
-  %arrayidx108.i125.i400 = getelementptr inbounds i64, ptr %arrayidx163, i64 1
+  %arrayidx108.i125.i400 = getelementptr inbounds i8, ptr %arrayidx154, i64 72
   store i64 %conv90.i121.i396, ptr %arrayidx108.i125.i400, align 8
-  %arrayidx111.i126.i401 = getelementptr inbounds i64, ptr %arrayidx163, i64 2
+  %arrayidx111.i126.i401 = getelementptr inbounds i8, ptr %arrayidx154, i64 80
   store i64 %conv100.i124.i399, ptr %arrayidx111.i126.i401, align 8
   %conv113.i127.i402 = trunc i128 %add98.i123.i398 to i64
-  %arrayidx114.i128.i403 = getelementptr inbounds i64, ptr %arrayidx163, i64 3
+  %arrayidx114.i128.i403 = getelementptr inbounds i8, ptr %arrayidx154, i64 88
   store i64 %conv113.i127.i402, ptr %arrayidx114.i128.i403, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %felem_x_out.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %felem_y_out.i)
@@ -4407,7 +4404,7 @@ lor.lhs.false193:                                 ; preds = %if.then187
   br i1 %tobool195.not, label %if.end207, label %if.then196
 
 if.then196:                                       ; preds = %lor.lhs.false193, %if.then187
-  %order197 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 2
+  %order197 = getelementptr inbounds i8, ptr %group, i64 16
   %call198 = call i32 @BN_nnmod(ptr noundef nonnull %call27, ptr noundef nonnull %g_scalar, ptr noundef nonnull %order197, ptr noundef nonnull %ctx.addr.0) #9
   %tobool199.not = icmp eq i32 %call198, 0
   br i1 %tobool199.not, label %if.then200, label %if.end207
@@ -4444,31 +4441,31 @@ if.end210:                                        ; preds = %for.body.i406, %if.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %nq.i, i8 0, i64 192, i1 false)
   %conv.i = select i1 %cmp.not, i64 255, i64 31
   %cmp12.i = icmp ne ptr %cond220, null
-  %arrayidx2.i413 = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 1
-  %arrayidx4.i = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 2
-  %arrayidx2.i103.i = getelementptr inbounds i64, ptr %tmp.i, i64 1
-  %arrayidx4.i.i414 = getelementptr inbounds i128, ptr %nq.i, i64 1
-  %arrayidx5.i.i415 = getelementptr inbounds i64, ptr %tmp.i, i64 2
-  %arrayidx7.i.i416 = getelementptr inbounds i128, ptr %nq.i, i64 2
-  %arrayidx8.i.i417 = getelementptr inbounds i64, ptr %tmp.i, i64 3
-  %arrayidx10.i.i418 = getelementptr inbounds i128, ptr %nq.i, i64 3
-  %arrayidx65.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 1
-  %arrayidx2.i105.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 1, i64 1
-  %arrayidx4.i107.i = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 1, i64 1
-  %arrayidx5.i108.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 1, i64 2
-  %arrayidx7.i110.i = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 1, i64 2
-  %arrayidx8.i111.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 1, i64 3
-  %arrayidx10.i113.i = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 1, i64 3
-  %arrayidx69.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 2
-  %arrayidx2.i115.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 2, i64 1
-  %arrayidx4.i117.i = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 2, i64 1
-  %arrayidx5.i118.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 2, i64 2
-  %arrayidx7.i120.i = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 2, i64 2
-  %arrayidx8.i121.i = getelementptr inbounds [3 x [4 x i64]], ptr %tmp.i, i64 0, i64 2, i64 3
-  %arrayidx10.i123.i = getelementptr inbounds [3 x [4 x i128]], ptr %nq.i, i64 0, i64 2, i64 3
-  %arrayidx5.i279.i = getelementptr inbounds i128, ptr %ftmp.i, i64 1
-  %arrayidx9.i.i = getelementptr inbounds i128, ptr %ftmp.i, i64 2
-  %arrayidx13.i.i419 = getelementptr inbounds i128, ptr %ftmp.i, i64 3
+  %arrayidx2.i413 = getelementptr inbounds i8, ptr %nq.i, i64 64
+  %arrayidx4.i = getelementptr inbounds i8, ptr %nq.i, i64 128
+  %arrayidx2.i103.i = getelementptr inbounds i8, ptr %tmp.i, i64 8
+  %arrayidx4.i.i414 = getelementptr inbounds i8, ptr %nq.i, i64 16
+  %arrayidx5.i.i415 = getelementptr inbounds i8, ptr %tmp.i, i64 16
+  %arrayidx7.i.i416 = getelementptr inbounds i8, ptr %nq.i, i64 32
+  %arrayidx8.i.i417 = getelementptr inbounds i8, ptr %tmp.i, i64 24
+  %arrayidx10.i.i418 = getelementptr inbounds i8, ptr %nq.i, i64 48
+  %arrayidx65.i = getelementptr inbounds i8, ptr %tmp.i, i64 32
+  %arrayidx2.i105.i = getelementptr inbounds i8, ptr %tmp.i, i64 40
+  %arrayidx4.i107.i = getelementptr inbounds i8, ptr %nq.i, i64 80
+  %arrayidx5.i108.i = getelementptr inbounds i8, ptr %tmp.i, i64 48
+  %arrayidx7.i110.i = getelementptr inbounds i8, ptr %nq.i, i64 96
+  %arrayidx8.i111.i = getelementptr inbounds i8, ptr %tmp.i, i64 56
+  %arrayidx10.i113.i = getelementptr inbounds i8, ptr %nq.i, i64 112
+  %arrayidx69.i = getelementptr inbounds i8, ptr %tmp.i, i64 64
+  %arrayidx2.i115.i = getelementptr inbounds i8, ptr %tmp.i, i64 72
+  %arrayidx4.i117.i = getelementptr inbounds i8, ptr %nq.i, i64 144
+  %arrayidx5.i118.i = getelementptr inbounds i8, ptr %tmp.i, i64 80
+  %arrayidx7.i120.i = getelementptr inbounds i8, ptr %nq.i, i64 160
+  %arrayidx8.i121.i = getelementptr inbounds i8, ptr %tmp.i, i64 88
+  %arrayidx10.i123.i = getelementptr inbounds i8, ptr %nq.i, i64 176
+  %arrayidx5.i279.i = getelementptr inbounds i8, ptr %ftmp.i, i64 16
+  %arrayidx9.i.i = getelementptr inbounds i8, ptr %ftmp.i, i64 32
+  %arrayidx13.i.i419 = getelementptr inbounds i8, ptr %ftmp.i, i64 48
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end224.i, %if.end210
@@ -5096,35 +5093,35 @@ batch_mul.exit:                                   ; preds = %if.end224.i
   %184 = load i128, ptr %nq.i, align 16
   store i128 %184, ptr %x_out, align 16
   %185 = load i128, ptr %arrayidx4.i.i414, align 16
-  %arrayidx3.i.i = getelementptr inbounds i128, ptr %x_out, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %x_out, i64 16
   store i128 %185, ptr %arrayidx3.i.i, align 16
   %186 = load i128, ptr %arrayidx7.i.i416, align 16
-  %arrayidx5.i330.i = getelementptr inbounds i128, ptr %x_out, i64 2
+  %arrayidx5.i330.i = getelementptr inbounds i8, ptr %x_out, i64 32
   store i128 %186, ptr %arrayidx5.i330.i, align 16
   %187 = load i128, ptr %arrayidx10.i.i418, align 16
-  %arrayidx7.i332.i = getelementptr inbounds i128, ptr %x_out, i64 3
+  %arrayidx7.i332.i = getelementptr inbounds i8, ptr %x_out, i64 48
   store i128 %187, ptr %arrayidx7.i332.i, align 16
   %188 = load i128, ptr %arrayidx2.i413, align 16
   store i128 %188, ptr %y_out, align 16
   %189 = load i128, ptr %arrayidx4.i107.i, align 16
-  %arrayidx3.i334.i = getelementptr inbounds i128, ptr %y_out, i64 1
+  %arrayidx3.i334.i = getelementptr inbounds i8, ptr %y_out, i64 16
   store i128 %189, ptr %arrayidx3.i334.i, align 16
   %190 = load i128, ptr %arrayidx7.i110.i, align 16
-  %arrayidx5.i336.i = getelementptr inbounds i128, ptr %y_out, i64 2
+  %arrayidx5.i336.i = getelementptr inbounds i8, ptr %y_out, i64 32
   store i128 %190, ptr %arrayidx5.i336.i, align 16
   %191 = load i128, ptr %arrayidx10.i113.i, align 16
-  %arrayidx7.i338.i = getelementptr inbounds i128, ptr %y_out, i64 3
+  %arrayidx7.i338.i = getelementptr inbounds i8, ptr %y_out, i64 48
   store i128 %191, ptr %arrayidx7.i338.i, align 16
   %192 = load i128, ptr %arrayidx4.i, align 16
   store i128 %192, ptr %z_out, align 16
   %193 = load i128, ptr %arrayidx4.i117.i, align 16
-  %arrayidx3.i340.i = getelementptr inbounds i128, ptr %z_out, i64 1
+  %arrayidx3.i340.i = getelementptr inbounds i8, ptr %z_out, i64 16
   store i128 %193, ptr %arrayidx3.i340.i, align 16
   %194 = load i128, ptr %arrayidx7.i120.i, align 16
-  %arrayidx5.i342.i = getelementptr inbounds i128, ptr %z_out, i64 2
+  %arrayidx5.i342.i = getelementptr inbounds i8, ptr %z_out, i64 32
   store i128 %194, ptr %arrayidx5.i342.i, align 16
   %195 = load i128, ptr %arrayidx10.i123.i, align 16
-  %arrayidx7.i344.i = getelementptr inbounds i128, ptr %z_out, i64 3
+  %arrayidx7.i344.i = getelementptr inbounds i8, ptr %z_out, i64 48
   store i128 %195, ptr %arrayidx7.i344.i, align 16
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %nq.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ftmp.i)
@@ -5138,7 +5135,7 @@ batch_mul.exit:                                   ; preds = %if.end224.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i)
   %196 = load <2 x i64>, ptr %x_in, align 16
   store <2 x i64> %196, ptr %b_in.i, align 16
-  %arrayidx4.i.i438 = getelementptr inbounds i64, ptr %x_in, i64 2
+  %arrayidx4.i.i438 = getelementptr inbounds i8, ptr %x_in, i64 16
   %arrayidx5.i.i439 = getelementptr inbounds i8, ptr %b_in.i, i64 16
   %197 = load <2 x i64>, ptr %arrayidx4.i.i438, align 16
   store <2 x i64> %197, ptr %arrayidx5.i.i439, align 16
@@ -5168,7 +5165,7 @@ lor.lhs.false230:                                 ; preds = %smallfelem_to_BN.ex
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i445)
   %200 = load <2 x i64>, ptr %y_in, align 16
   store <2 x i64> %200, ptr %b_in.i444, align 16
-  %arrayidx4.i.i448 = getelementptr inbounds i64, ptr %y_in, i64 2
+  %arrayidx4.i.i448 = getelementptr inbounds i8, ptr %y_in, i64 16
   %arrayidx5.i.i449 = getelementptr inbounds i8, ptr %b_in.i444, i64 16
   %201 = load <2 x i64>, ptr %arrayidx4.i.i448, align 16
   store <2 x i64> %201, ptr %arrayidx5.i.i449, align 16
@@ -5198,7 +5195,7 @@ lor.lhs.false234:                                 ; preds = %smallfelem_to_BN.ex
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %b_out.i462)
   %204 = load <2 x i64>, ptr %z_in, align 16
   store <2 x i64> %204, ptr %b_in.i461, align 16
-  %arrayidx4.i.i465 = getelementptr inbounds i64, ptr %z_in, i64 2
+  %arrayidx4.i.i465 = getelementptr inbounds i8, ptr %z_in, i64 16
   %arrayidx5.i.i466 = getelementptr inbounds i8, ptr %b_in.i461, i64 16
   %205 = load <2 x i64>, ptr %arrayidx4.i.i465, align 16
   store <2 x i64> %205, ptr %arrayidx5.i.i466, align 16
@@ -5312,13 +5309,13 @@ flip_endian.exit:                                 ; preds = %flip_endian.exit.lo
   %conv.i = zext i64 %5 to i128
   store i128 %conv.i, ptr %out, align 16
   %conv3.i = zext i64 %4 to i128
-  %arrayidx4.i = getelementptr inbounds i128, ptr %out, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %out, i64 16
   store i128 %conv3.i, ptr %arrayidx4.i, align 16
   %conv6.i = zext i64 %3 to i128
-  %arrayidx7.i = getelementptr inbounds i128, ptr %out, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %out, i64 32
   store i128 %conv6.i, ptr %arrayidx7.i, align 16
   %conv9.i = zext i64 %2 to i128
-  %arrayidx10.i = getelementptr inbounds i128, ptr %out, i64 3
+  %arrayidx10.i = getelementptr inbounds i8, ptr %out, i64 48
   store i128 %conv9.i, ptr %arrayidx10.i, align 16
   br label %return
 
@@ -5332,10 +5329,10 @@ define internal fastcc void @felem_mul(ptr nocapture noundef writeonly %out, ptr
 entry:
   %small1 = alloca [4 x i64], align 16
   %small2 = alloca [4 x i64], align 16
-  %arrayidx.i = getelementptr inbounds i128, ptr %in1, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %in1, i64 48
   %0 = load i128, ptr %arrayidx.i, align 16
   %add.i = add i128 %0, 18446744069414584320
-  %arrayidx1.i = getelementptr inbounds i128, ptr %in1, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %in1, i64 32
   %1 = load i128, ptr %arrayidx1.i, align 16
   %shr.i = lshr i128 %1, 64
   %add3.i = add i128 %add.i, %shr.i
@@ -5343,7 +5340,7 @@ entry:
   %add8.i = add nuw nsw i128 %conv7.i, 18446673704965373952
   %2 = load i128, ptr %in1, align 16
   %add11.i = add i128 %2, 18446744073709551615
-  %arrayidx13.i = getelementptr inbounds i128, ptr %in1, i64 1
+  %arrayidx13.i = getelementptr inbounds i8, ptr %in1, i64 16
   %3 = load i128, ptr %arrayidx13.i, align 16
   %shr17.i = lshr i128 %add3.i, 64
   %conv18.i = trunc i128 %shr17.i to i64
@@ -5390,17 +5387,17 @@ entry:
   %add98.i = add nsw i128 %sub72.i, %shr94.i
   %conv100.i = trunc i128 %add88.i to i64
   store i64 %conv80.i, ptr %small1, align 16
-  %arrayidx108.i = getelementptr inbounds i64, ptr %small1, i64 1
+  %arrayidx108.i = getelementptr inbounds i8, ptr %small1, i64 8
   store i64 %conv90.i, ptr %arrayidx108.i, align 8
-  %arrayidx111.i = getelementptr inbounds i64, ptr %small1, i64 2
+  %arrayidx111.i = getelementptr inbounds i8, ptr %small1, i64 16
   store i64 %conv100.i, ptr %arrayidx111.i, align 16
   %conv113.i = trunc i128 %add98.i to i64
-  %arrayidx114.i = getelementptr inbounds i64, ptr %small1, i64 3
+  %arrayidx114.i = getelementptr inbounds i8, ptr %small1, i64 24
   store i64 %conv113.i, ptr %arrayidx114.i, align 8
-  %arrayidx.i1 = getelementptr inbounds i128, ptr %in2, i64 3
+  %arrayidx.i1 = getelementptr inbounds i8, ptr %in2, i64 48
   %7 = load i128, ptr %arrayidx.i1, align 16
   %add.i2 = add i128 %7, 18446744069414584320
-  %arrayidx1.i3 = getelementptr inbounds i128, ptr %in2, i64 2
+  %arrayidx1.i3 = getelementptr inbounds i8, ptr %in2, i64 32
   %8 = load i128, ptr %arrayidx1.i3, align 16
   %shr.i4 = lshr i128 %8, 64
   %add3.i5 = add i128 %add.i2, %shr.i4
@@ -5408,7 +5405,7 @@ entry:
   %add8.i7 = add nuw nsw i128 %conv7.i6, 18446673704965373952
   %9 = load i128, ptr %in2, align 16
   %add11.i8 = add i128 %9, 18446744073709551615
-  %arrayidx13.i9 = getelementptr inbounds i128, ptr %in2, i64 1
+  %arrayidx13.i9 = getelementptr inbounds i8, ptr %in2, i64 16
   %10 = load i128, ptr %arrayidx13.i9, align 16
   %shr17.i10 = lshr i128 %add3.i5, 64
   %conv18.i11 = trunc i128 %shr17.i10 to i64
@@ -5455,12 +5452,12 @@ entry:
   %add98.i49 = add nsw i128 %sub72.i39, %shr94.i48
   %conv100.i50 = trunc i128 %add88.i46 to i64
   store i64 %conv80.i44, ptr %small2, align 16
-  %arrayidx108.i51 = getelementptr inbounds i64, ptr %small2, i64 1
+  %arrayidx108.i51 = getelementptr inbounds i8, ptr %small2, i64 8
   store i64 %conv90.i47, ptr %arrayidx108.i51, align 8
-  %arrayidx111.i52 = getelementptr inbounds i64, ptr %small2, i64 2
+  %arrayidx111.i52 = getelementptr inbounds i8, ptr %small2, i64 16
   store i64 %conv100.i50, ptr %arrayidx111.i52, align 16
   %conv113.i53 = trunc i128 %add98.i49 to i64
-  %arrayidx114.i54 = getelementptr inbounds i64, ptr %small2, i64 3
+  %arrayidx114.i54 = getelementptr inbounds i8, ptr %small2, i64 24
   store i64 %conv113.i53, ptr %arrayidx114.i54, align 8
   call fastcc void @smallfelem_mul(ptr noundef %out, ptr noundef nonnull %small1, ptr noundef nonnull %small2)
   ret void
@@ -5469,10 +5466,10 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @felem_contract(ptr nocapture noundef %out, ptr nocapture noundef readonly %in) unnamed_addr #4 {
 entry:
-  %arrayidx.i = getelementptr inbounds i128, ptr %in, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 48
   %0 = load i128, ptr %arrayidx.i, align 16
   %add.i = add i128 %0, 18446744069414584320
-  %arrayidx1.i = getelementptr inbounds i128, ptr %in, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %in, i64 32
   %1 = load i128, ptr %arrayidx1.i, align 16
   %shr.i = lshr i128 %1, 64
   %add3.i = add i128 %add.i, %shr.i
@@ -5480,7 +5477,7 @@ entry:
   %add8.i = add nuw nsw i128 %conv7.i, 18446673704965373952
   %2 = load i128, ptr %in, align 16
   %add11.i = add i128 %2, 18446744073709551615
-  %arrayidx13.i = getelementptr inbounds i128, ptr %in, i64 1
+  %arrayidx13.i = getelementptr inbounds i8, ptr %in, i64 16
   %3 = load i128, ptr %arrayidx13.i, align 16
   %shr17.i = lshr i128 %add3.i, 64
   %conv18.i = trunc i128 %shr17.i to i64
@@ -5527,12 +5524,12 @@ entry:
   %add98.i = add nsw i128 %shr94.i, %sub72.i
   %conv100.i = trunc i128 %add88.i to i64
   store i64 %conv80.i, ptr %out, align 8
-  %arrayidx108.i = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx108.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %conv90.i, ptr %arrayidx108.i, align 8
-  %arrayidx111.i = getelementptr inbounds i64, ptr %out, i64 2
+  %arrayidx111.i = getelementptr inbounds i8, ptr %out, i64 16
   store i64 %conv100.i, ptr %arrayidx111.i, align 8
   %conv113.i = trunc i128 %add98.i to i64
-  %arrayidx114.i = getelementptr inbounds i64, ptr %out, i64 3
+  %arrayidx114.i = getelementptr inbounds i8, ptr %out, i64 24
   store i64 %conv113.i, ptr %arrayidx114.i, align 8
   br label %for.body
 
@@ -5626,11 +5623,11 @@ entry:
   %shr = lshr i128 %mul, 64
   %conv5 = and i128 %mul, 18446744073709551615
   store i128 %conv5, ptr %out, align 16
-  %arrayidx8 = getelementptr inbounds i128, ptr %out, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %out, i64 16
   store i128 %shr, ptr %arrayidx8, align 16
   %2 = load i64, ptr %small1, align 8
   %conv10 = zext i64 %2 to i128
-  %arrayidx11 = getelementptr inbounds i64, ptr %small2, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %small2, i64 8
   %3 = load i64, ptr %arrayidx11, align 8
   %conv12 = zext i64 %3 to i128
   %mul13 = mul nuw i128 %conv12, %conv10
@@ -5638,9 +5635,9 @@ entry:
   %conv17 = and i128 %mul13, 18446744073709551615
   %add = add nuw nsw i128 %conv17, %shr
   store i128 %add, ptr %arrayidx8, align 16
-  %arrayidx20 = getelementptr inbounds i128, ptr %out, i64 2
+  %arrayidx20 = getelementptr inbounds i8, ptr %out, i64 32
   store i128 %shr15, ptr %arrayidx20, align 16
-  %arrayidx21 = getelementptr inbounds i64, ptr %small1, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %small1, i64 8
   %4 = load i64, ptr %arrayidx21, align 8
   %conv22 = zext i64 %4 to i128
   %5 = load i64, ptr %small2, align 8
@@ -5654,7 +5651,7 @@ entry:
   store i128 %add34, ptr %arrayidx20, align 16
   %6 = load i64, ptr %small1, align 8
   %conv36 = zext i64 %6 to i128
-  %arrayidx37 = getelementptr inbounds i64, ptr %small2, i64 2
+  %arrayidx37 = getelementptr inbounds i8, ptr %small2, i64 16
   %7 = load i64, ptr %arrayidx37, align 8
   %conv38 = zext i64 %7 to i128
   %mul39 = mul nuw i128 %conv38, %conv36
@@ -5662,7 +5659,7 @@ entry:
   %conv43 = and i128 %mul39, 18446744073709551615
   %add45 = add nuw nsw i128 %conv43, %add34
   store i128 %add45, ptr %arrayidx20, align 16
-  %arrayidx47 = getelementptr inbounds i128, ptr %out, i64 3
+  %arrayidx47 = getelementptr inbounds i8, ptr %out, i64 48
   store i128 %shr41, ptr %arrayidx47, align 16
   %8 = load i64, ptr %arrayidx21, align 8
   %conv49 = zext i64 %8 to i128
@@ -5675,7 +5672,7 @@ entry:
   store i128 %add58, ptr %arrayidx20, align 16
   %add61 = add nuw nsw i128 %shr54, %shr41
   store i128 %add61, ptr %arrayidx47, align 16
-  %arrayidx62 = getelementptr inbounds i64, ptr %small1, i64 2
+  %arrayidx62 = getelementptr inbounds i8, ptr %small1, i64 16
   %10 = load i64, ptr %arrayidx62, align 8
   %conv63 = zext i64 %10 to i128
   %11 = load i64, ptr %small2, align 8
@@ -5689,7 +5686,7 @@ entry:
   store i128 %add75, ptr %arrayidx47, align 16
   %12 = load i64, ptr %small1, align 8
   %conv77 = zext i64 %12 to i128
-  %arrayidx78 = getelementptr inbounds i64, ptr %small2, i64 3
+  %arrayidx78 = getelementptr inbounds i8, ptr %small2, i64 24
   %13 = load i64, ptr %arrayidx78, align 8
   %conv79 = zext i64 %13 to i128
   %mul80 = mul nuw i128 %conv79, %conv77
@@ -5697,7 +5694,7 @@ entry:
   %conv84 = and i128 %mul80, 18446744073709551615
   %add86 = add nuw nsw i128 %conv84, %add75
   store i128 %add86, ptr %arrayidx47, align 16
-  %arrayidx88 = getelementptr inbounds i128, ptr %out, i64 4
+  %arrayidx88 = getelementptr inbounds i8, ptr %out, i64 64
   store i128 %shr82, ptr %arrayidx88, align 16
   %14 = load i64, ptr %arrayidx21, align 8
   %conv90 = zext i64 %14 to i128
@@ -5721,7 +5718,7 @@ entry:
   store i128 %add113, ptr %arrayidx47, align 16
   %add116 = add nuw nsw i128 %shr109, %add102
   store i128 %add116, ptr %arrayidx88, align 16
-  %arrayidx117 = getelementptr inbounds i64, ptr %small1, i64 3
+  %arrayidx117 = getelementptr inbounds i8, ptr %small1, i64 24
   %18 = load i64, ptr %arrayidx117, align 8
   %conv118 = zext i64 %18 to i128
   %19 = load i64, ptr %small2, align 8
@@ -5742,7 +5739,7 @@ entry:
   %conv139 = and i128 %mul135, 18446744073709551615
   %add141 = add nuw nsw i128 %conv139, %add130
   store i128 %add141, ptr %arrayidx88, align 16
-  %arrayidx143 = getelementptr inbounds i128, ptr %out, i64 5
+  %arrayidx143 = getelementptr inbounds i8, ptr %out, i64 80
   store i128 %shr137, ptr %arrayidx143, align 16
   %22 = load i64, ptr %arrayidx62, align 8
   %conv145 = zext i64 %22 to i128
@@ -5775,7 +5772,7 @@ entry:
   %conv180 = and i128 %mul176, 18446744073709551615
   %add182 = add nuw nsw i128 %conv180, %add171
   store i128 %add182, ptr %arrayidx143, align 16
-  %arrayidx184 = getelementptr inbounds i128, ptr %out, i64 6
+  %arrayidx184 = getelementptr inbounds i8, ptr %out, i64 96
   store i128 %shr178, ptr %arrayidx184, align 16
   %28 = load i64, ptr %arrayidx117, align 8
   %conv186 = zext i64 %28 to i128
@@ -5797,7 +5794,7 @@ entry:
   %conv207 = and i128 %mul203, 18446744073709551615
   %add209 = add nuw nsw i128 %conv207, %add198
   store i128 %add209, ptr %arrayidx184, align 16
-  %arrayidx211 = getelementptr inbounds i128, ptr %out, i64 7
+  %arrayidx211 = getelementptr inbounds i8, ptr %out, i64 112
   store i128 %shr205, ptr %arrayidx211, align 16
   ret void
 }
@@ -5847,10 +5844,10 @@ entry:
   %small3 = alloca [4 x i64], align 16
   %small4 = alloca [4 x i64], align 16
   %small5 = alloca [4 x i64], align 16
-  %arrayidx.i = getelementptr inbounds i128, ptr %z1, i64 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %z1, i64 48
   %0 = load i128, ptr %arrayidx.i, align 16
   %add.i = add i128 %0, 18446744069414584320
-  %arrayidx1.i = getelementptr inbounds i128, ptr %z1, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %z1, i64 32
   %1 = load i128, ptr %arrayidx1.i, align 16
   %shr.i = lshr i128 %1, 64
   %add3.i = add i128 %add.i, %shr.i
@@ -5858,7 +5855,7 @@ entry:
   %add8.i = add nuw nsw i128 %conv7.i, 18446673704965373952
   %2 = load i128, ptr %z1, align 16
   %add11.i = add i128 %2, 18446744073709551615
-  %arrayidx13.i = getelementptr inbounds i128, ptr %z1, i64 1
+  %arrayidx13.i = getelementptr inbounds i8, ptr %z1, i64 16
   %3 = load i128, ptr %arrayidx13.i, align 16
   %shr17.i = lshr i128 %add3.i, 64
   %conv18.i = trunc i128 %shr17.i to i64
@@ -5905,12 +5902,12 @@ entry:
   %add98.i = add nsw i128 %shr94.i, %sub72.i
   %conv100.i = trunc i128 %add88.i to i64
   store i64 %conv80.i, ptr %small3, align 16
-  %arrayidx108.i = getelementptr inbounds i64, ptr %small3, i64 1
+  %arrayidx108.i = getelementptr inbounds i8, ptr %small3, i64 8
   store i64 %conv90.i, ptr %arrayidx108.i, align 8
-  %arrayidx111.i = getelementptr inbounds i64, ptr %small3, i64 2
+  %arrayidx111.i = getelementptr inbounds i8, ptr %small3, i64 16
   store i64 %conv100.i, ptr %arrayidx111.i, align 16
   %conv113.i = trunc i128 %add98.i to i64
-  %arrayidx114.i = getelementptr inbounds i64, ptr %small3, i64 3
+  %arrayidx114.i = getelementptr inbounds i8, ptr %small3, i64 24
   store i64 %conv113.i, ptr %arrayidx114.i, align 8
   %or.i30 = or i64 %conv90.i, %conv80.i
   %or3.i = or i64 %or.i30, %conv100.i
@@ -5921,10 +5918,10 @@ entry:
   %8 = extractelement <2 x i64> %7, i64 0
   %9 = extractelement <2 x i64> %7, i64 1
   %or.i34 = or i64 %9, %8
-  %arrayidx2.i35 = getelementptr inbounds i64, ptr %z2, i64 2
+  %arrayidx2.i35 = getelementptr inbounds i8, ptr %z2, i64 16
   %10 = load i64, ptr %arrayidx2.i35, align 8
   %or3.i36 = or i64 %or.i34, %10
-  %arrayidx4.i37 = getelementptr inbounds i64, ptr %z2, i64 3
+  %arrayidx4.i37 = getelementptr inbounds i8, ptr %z2, i64 24
   %11 = load i64, ptr %arrayidx4.i37, align 8
   %or5.i38 = or i64 %or3.i36, %11
   %dec.i39 = add i64 %or5.i38, -1
@@ -5984,7 +5981,7 @@ entry:
   %shr.i74 = lshr i128 %mul.i, 64
   %conv5.i = and i128 %mul.i, 18446744073709551615
   store i128 %conv5.i, ptr %tmp, align 16
-  %arrayidx8.i = getelementptr inbounds i128, ptr %tmp, i64 1
+  %arrayidx8.i = getelementptr inbounds i8, ptr %tmp, i64 16
   %conv12.i = and i128 %add78.i, 18446744073709551615
   %mul13.i = mul nuw i128 %conv12.i, %conv.i
   %shr15.i = lshr i128 %mul13.i, 64
@@ -5992,20 +5989,20 @@ entry:
   %reass.add.i = and i128 %conv17.i, 36893488147419103230
   %add21.i = add nuw nsw i128 %reass.add.i, %shr.i74
   store i128 %add21.i, ptr %arrayidx8.i, align 16
-  %arrayidx23.i = getelementptr inbounds i128, ptr %tmp, i64 2
+  %arrayidx23.i = getelementptr inbounds i8, ptr %tmp, i64 32
   %conv27.i = and i128 %add88.i, 18446744073709551615
   %mul28.i = mul nuw i128 %conv27.i, %conv.i
   %shr30.i = lshr i128 %mul28.i, 64
   %conv32.i = and i128 %mul28.i, 18446744073709551615
   %add34.i = add nuw nsw i128 %conv32.i, %shr15.i
   %mul36.i = shl nuw nsw i128 %add34.i, 1
-  %arrayidx38.i = getelementptr inbounds i128, ptr %tmp, i64 3
+  %arrayidx38.i = getelementptr inbounds i8, ptr %tmp, i64 48
   %conv42.i = and i128 %add98.i, 18446744073709551615
   %mul43.i = mul nuw i128 %conv42.i, %conv.i
   %shr45.i = lshr i128 %mul43.i, 64
   %conv47.i = and i128 %mul43.i, 18446744073709551615
   %add49.i = add nuw nsw i128 %conv47.i, %shr30.i
-  %arrayidx51.i = getelementptr inbounds i128, ptr %tmp, i64 4
+  %arrayidx51.i = getelementptr inbounds i8, ptr %tmp, i64 64
   %mul56.i = mul nuw i128 %conv27.i, %conv12.i
   %shr58.i = lshr i128 %mul56.i, 64
   %conv60.i = and i128 %mul56.i, 18446744073709551615
@@ -6024,12 +6021,12 @@ entry:
   %conv90.i78 = and i128 %mul86.i, 18446744073709551615
   %add92.i = add nuw nsw i128 %add67.i, %conv90.i78
   %mul94.i = shl nuw nsw i128 %add92.i, 1
-  %arrayidx96.i = getelementptr inbounds i128, ptr %tmp, i64 5
+  %arrayidx96.i = getelementptr inbounds i8, ptr %tmp, i64 80
   %mul101.i = mul nuw i128 %conv42.i, %conv27.i
   %conv105.i = and i128 %mul101.i, 18446744073709551615
   %add107.i = add nuw nsw i128 %conv105.i, %shr88.i
   %mul109.i = shl nuw nsw i128 %add107.i, 1
-  %arrayidx111.i80 = getelementptr inbounds i128, ptr %tmp, i64 6
+  %arrayidx111.i80 = getelementptr inbounds i8, ptr %tmp, i64 96
   %56 = lshr i128 %mul101.i, 63
   %add114.i = and i128 %56, 36893488147419103230
   %mul119.i = mul nuw i128 %conv27.i, %conv27.i
@@ -6044,15 +6041,15 @@ entry:
   %conv137.i = and i128 %mul133.i, 18446744073709551615
   %add139.i = add nuw nsw i128 %add114.i, %conv137.i
   store i128 %add139.i, ptr %arrayidx111.i80, align 16
-  %arrayidx141.i = getelementptr inbounds i128, ptr %tmp, i64 7
+  %arrayidx141.i = getelementptr inbounds i8, ptr %tmp, i64 112
   store i128 %shr135.i, ptr %arrayidx141.i, align 16
   %add.i81 = add nuw nsw i128 %conv5.i, 1267650600228229401427983728624
   %add3.i83 = or disjoint i128 %add21.i, 1267650600228229401496703205376
-  %arrayidx4.i84 = getelementptr inbounds i128, ptr %ftmp, i64 1
+  %arrayidx4.i84 = getelementptr inbounds i8, ptr %ftmp, i64 16
   %add6.i = add nuw nsw i128 %add78.i77, 1267650600228229401427983728656
-  %arrayidx7.i = getelementptr inbounds i128, ptr %ftmp, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %ftmp, i64 32
   %add9.i = add nuw nsw i128 %add81.i, 1267650600228229401427983728656
-  %arrayidx10.i = getelementptr inbounds i128, ptr %ftmp, i64 3
+  %arrayidx10.i = getelementptr inbounds i8, ptr %ftmp, i64 48
   %shl.i.i = shl nuw nsw i128 %add128.i, 32
   %add.i.i = add nuw nsw i128 %shl.i.i, %add125.i
   %add3.i.i = add nuw nsw i128 %add.i.i, %add.i81
@@ -6133,12 +6130,12 @@ entry:
   %add98.i134 = add nsw i128 %sub72.i124, %shr94.i133
   %conv100.i135 = trunc i128 %add88.i131 to i64
   store i64 %conv80.i129, ptr %small1, align 16
-  %arrayidx108.i136 = getelementptr inbounds i64, ptr %small1, i64 1
+  %arrayidx108.i136 = getelementptr inbounds i8, ptr %small1, i64 8
   store i64 %conv90.i132, ptr %arrayidx108.i136, align 8
-  %arrayidx111.i137 = getelementptr inbounds i64, ptr %small1, i64 2
+  %arrayidx111.i137 = getelementptr inbounds i8, ptr %small1, i64 16
   store i64 %conv100.i135, ptr %arrayidx111.i137, align 16
   %conv113.i138 = trunc i128 %add98.i134 to i64
-  %arrayidx114.i139 = getelementptr inbounds i64, ptr %small1, i64 3
+  %arrayidx114.i139 = getelementptr inbounds i8, ptr %small1, i64 24
   store i64 %conv113.i138, ptr %arrayidx114.i139, align 8
   %tobool.not = icmp eq i32 %mixed, 0
   br i1 %tobool.not, label %if.then, label %if.else
@@ -6206,11 +6203,11 @@ if.then:                                          ; preds = %entry
   store i128 %shr135.i209, ptr %arrayidx141.i, align 16
   %add.i213 = add nuw nsw i128 %conv5.i143, 1267650600228229401427983728624
   %add3.i215 = or disjoint i128 %add21.i152, 1267650600228229401496703205376
-  %arrayidx4.i216 = getelementptr inbounds i128, ptr %ftmp2, i64 1
+  %arrayidx4.i216 = getelementptr inbounds i8, ptr %ftmp2, i64 16
   %add6.i218 = add nuw nsw i128 %add78.i183, 1267650600228229401427983728656
-  %arrayidx7.i219 = getelementptr inbounds i128, ptr %ftmp2, i64 2
+  %arrayidx7.i219 = getelementptr inbounds i8, ptr %ftmp2, i64 32
   %add9.i221 = add nuw nsw i128 %add81.i184, 1267650600228229401427983728656
-  %arrayidx10.i222 = getelementptr inbounds i128, ptr %ftmp2, i64 3
+  %arrayidx10.i222 = getelementptr inbounds i8, ptr %ftmp2, i64 48
   %shl.i.i225 = shl nuw nsw i128 %add128.i206, 32
   %add.i.i226 = add nuw nsw i128 %shl.i.i225, %add125.i205
   %add3.i.i227 = add nuw nsw i128 %add.i.i226, %add.i213
@@ -6287,17 +6284,17 @@ if.then:                                          ; preds = %entry
   %add98.i304 = add nsw i128 %sub72.i294, %shr94.i303
   %conv100.i305 = trunc i128 %add88.i301 to i64
   store i64 %conv80.i299, ptr %small2, align 16
-  %arrayidx108.i306 = getelementptr inbounds i64, ptr %small2, i64 1
+  %arrayidx108.i306 = getelementptr inbounds i8, ptr %small2, i64 8
   store i64 %conv90.i302, ptr %arrayidx108.i306, align 8
-  %arrayidx111.i307 = getelementptr inbounds i64, ptr %small2, i64 2
+  %arrayidx111.i307 = getelementptr inbounds i8, ptr %small2, i64 16
   store i64 %conv100.i305, ptr %arrayidx111.i307, align 16
   %conv113.i308 = trunc i128 %add98.i304 to i64
-  %arrayidx114.i309 = getelementptr inbounds i64, ptr %small2, i64 3
+  %arrayidx114.i309 = getelementptr inbounds i8, ptr %small2, i64 24
   store i64 %conv113.i308, ptr %arrayidx114.i309, align 8
-  %arrayidx.i310 = getelementptr inbounds i128, ptr %x1, i64 3
+  %arrayidx.i310 = getelementptr inbounds i8, ptr %x1, i64 48
   %70 = load i128, ptr %arrayidx.i310, align 16
   %add.i311 = add i128 %70, 18446744069414584320
-  %arrayidx1.i312 = getelementptr inbounds i128, ptr %x1, i64 2
+  %arrayidx1.i312 = getelementptr inbounds i8, ptr %x1, i64 32
   %71 = load i128, ptr %arrayidx1.i312, align 16
   %shr.i313 = lshr i128 %71, 64
   %add3.i314 = add i128 %add.i311, %shr.i313
@@ -6305,7 +6302,7 @@ if.then:                                          ; preds = %entry
   %add8.i316 = add nuw nsw i128 %conv7.i315, 18446673704965373952
   %72 = load i128, ptr %x1, align 16
   %add11.i317 = add i128 %72, 18446744073709551615
-  %arrayidx13.i318 = getelementptr inbounds i128, ptr %x1, i64 1
+  %arrayidx13.i318 = getelementptr inbounds i8, ptr %x1, i64 16
   %73 = load i128, ptr %arrayidx13.i318, align 16
   %shr17.i319 = lshr i128 %add3.i314, 64
   %conv18.i320 = trunc i128 %shr17.i319 to i64
@@ -6352,25 +6349,25 @@ if.then:                                          ; preds = %entry
   %add98.i358 = add nsw i128 %sub72.i348, %shr94.i357
   %conv100.i359 = trunc i128 %add88.i355 to i64
   store i64 %conv80.i353, ptr %small5, align 16
-  %arrayidx108.i360 = getelementptr inbounds i64, ptr %small5, i64 1
+  %arrayidx108.i360 = getelementptr inbounds i8, ptr %small5, i64 8
   store i64 %conv90.i356, ptr %arrayidx108.i360, align 8
-  %arrayidx111.i361 = getelementptr inbounds i64, ptr %small5, i64 2
+  %arrayidx111.i361 = getelementptr inbounds i8, ptr %small5, i64 16
   store i64 %conv100.i359, ptr %arrayidx111.i361, align 16
   %conv113.i362 = trunc i128 %add98.i358 to i64
-  %arrayidx114.i363 = getelementptr inbounds i64, ptr %small5, i64 3
+  %arrayidx114.i363 = getelementptr inbounds i8, ptr %small5, i64 24
   store i64 %conv113.i362, ptr %arrayidx114.i363, align 8
   call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small5, ptr noundef nonnull %small2)
   %77 = load i128, ptr %tmp, align 16
   %add.i364 = add i128 %77, 1267650600228229401427983728624
   %78 = load i128, ptr %arrayidx8.i, align 16
   %add3.i366 = add i128 %78, 1267650600228229401496703205376
-  %arrayidx4.i367 = getelementptr inbounds i128, ptr %ftmp3, i64 1
+  %arrayidx4.i367 = getelementptr inbounds i8, ptr %ftmp3, i64 16
   %79 = load i128, ptr %arrayidx23.i, align 16
   %add6.i369 = add i128 %79, 1267650600228229401427983728656
-  %arrayidx7.i370 = getelementptr inbounds i128, ptr %ftmp3, i64 2
+  %arrayidx7.i370 = getelementptr inbounds i8, ptr %ftmp3, i64 32
   %80 = load i128, ptr %arrayidx38.i, align 16
   %add9.i372 = add i128 %80, 1267650600228229401427983728656
-  %arrayidx10.i373 = getelementptr inbounds i128, ptr %ftmp3, i64 3
+  %arrayidx10.i373 = getelementptr inbounds i8, ptr %ftmp3, i64 48
   %81 = load i128, ptr %arrayidx51.i, align 16
   %82 = load i128, ptr %arrayidx96.i, align 16
   %shl.i.i376 = shl i128 %82, 32
@@ -6602,13 +6599,13 @@ if.then:                                          ; preds = %entry
   %add.i527 = add i128 %111, 1267650600228229401427983728624
   %112 = load i128, ptr %arrayidx8.i, align 16
   %add3.i529 = add i128 %112, 1267650600228229401496703205376
-  %arrayidx4.i530 = getelementptr inbounds i128, ptr %ftmp6, i64 1
+  %arrayidx4.i530 = getelementptr inbounds i8, ptr %ftmp6, i64 16
   %113 = load i128, ptr %arrayidx23.i, align 16
   %add6.i532 = add i128 %113, 1267650600228229401427983728656
-  %arrayidx7.i533 = getelementptr inbounds i128, ptr %ftmp6, i64 2
+  %arrayidx7.i533 = getelementptr inbounds i8, ptr %ftmp6, i64 32
   %114 = load i128, ptr %arrayidx38.i, align 16
   %add9.i535 = add i128 %114, 1267650600228229401427983728656
-  %arrayidx10.i536 = getelementptr inbounds i128, ptr %ftmp6, i64 3
+  %arrayidx10.i536 = getelementptr inbounds i8, ptr %ftmp6, i64 48
   %115 = load i128, ptr %arrayidx51.i, align 16
   %116 = load i128, ptr %arrayidx96.i, align 16
   %shl.i.i539 = shl i128 %116, 32
@@ -6651,17 +6648,17 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %122 = load i128, ptr %x1, align 16
   store i128 %122, ptr %ftmp3, align 16
-  %arrayidx2.i570 = getelementptr inbounds i128, ptr %x1, i64 1
+  %arrayidx2.i570 = getelementptr inbounds i8, ptr %x1, i64 16
   %123 = load i128, ptr %arrayidx2.i570, align 16
-  %arrayidx3.i571 = getelementptr inbounds i128, ptr %ftmp3, i64 1
+  %arrayidx3.i571 = getelementptr inbounds i8, ptr %ftmp3, i64 16
   store i128 %123, ptr %arrayidx3.i571, align 16
-  %arrayidx4.i572 = getelementptr inbounds i128, ptr %x1, i64 2
+  %arrayidx4.i572 = getelementptr inbounds i8, ptr %x1, i64 32
   %124 = load i128, ptr %arrayidx4.i572, align 16
-  %arrayidx5.i573 = getelementptr inbounds i128, ptr %ftmp3, i64 2
+  %arrayidx5.i573 = getelementptr inbounds i8, ptr %ftmp3, i64 32
   store i128 %124, ptr %arrayidx5.i573, align 16
-  %arrayidx6.i574 = getelementptr inbounds i128, ptr %x1, i64 3
+  %arrayidx6.i574 = getelementptr inbounds i8, ptr %x1, i64 48
   %125 = load i128, ptr %arrayidx6.i574, align 16
-  %arrayidx7.i575 = getelementptr inbounds i128, ptr %ftmp3, i64 3
+  %arrayidx7.i575 = getelementptr inbounds i8, ptr %ftmp3, i64 48
   store i128 %125, ptr %arrayidx7.i575, align 16
   %mul.i582 = shl i128 %2, 1
   %mul3.i = shl i128 %3, 1
@@ -6669,17 +6666,17 @@ if.else:                                          ; preds = %entry
   %mul9.i = shl i128 %0, 1
   %126 = load i128, ptr %y1, align 16
   store i128 %126, ptr %ftmp6, align 16
-  %arrayidx2.i586 = getelementptr inbounds i128, ptr %y1, i64 1
+  %arrayidx2.i586 = getelementptr inbounds i8, ptr %y1, i64 16
   %127 = load i128, ptr %arrayidx2.i586, align 16
-  %arrayidx3.i587 = getelementptr inbounds i128, ptr %ftmp6, i64 1
+  %arrayidx3.i587 = getelementptr inbounds i8, ptr %ftmp6, i64 16
   store i128 %127, ptr %arrayidx3.i587, align 16
-  %arrayidx4.i588 = getelementptr inbounds i128, ptr %y1, i64 2
+  %arrayidx4.i588 = getelementptr inbounds i8, ptr %y1, i64 32
   %128 = load i128, ptr %arrayidx4.i588, align 16
-  %arrayidx5.i589 = getelementptr inbounds i128, ptr %ftmp6, i64 2
+  %arrayidx5.i589 = getelementptr inbounds i8, ptr %ftmp6, i64 32
   store i128 %128, ptr %arrayidx5.i589, align 16
-  %arrayidx6.i590 = getelementptr inbounds i128, ptr %y1, i64 3
+  %arrayidx6.i590 = getelementptr inbounds i8, ptr %y1, i64 48
   %129 = load i128, ptr %arrayidx6.i590, align 16
-  %arrayidx7.i591 = getelementptr inbounds i128, ptr %ftmp6, i64 3
+  %arrayidx7.i591 = getelementptr inbounds i8, ptr %ftmp6, i64 48
   store i128 %129, ptr %arrayidx7.i591, align 16
   br label %if.end
 
@@ -6696,13 +6693,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %134 = load i128, ptr %tmp, align 16
   %135 = load i128, ptr %arrayidx8.i, align 16
   %add3.i594 = add i128 %135, 1267650600228229401496703205376
-  %arrayidx4.i595 = getelementptr inbounds i128, ptr %ftmp4, i64 1
+  %arrayidx4.i595 = getelementptr inbounds i8, ptr %ftmp4, i64 16
   %136 = load i128, ptr %arrayidx23.i, align 16
   %add6.i597 = add i128 %136, 1267650600228229401427983728656
-  %arrayidx7.i598 = getelementptr inbounds i128, ptr %ftmp4, i64 2
+  %arrayidx7.i598 = getelementptr inbounds i8, ptr %ftmp4, i64 32
   %137 = load i128, ptr %arrayidx38.i, align 16
   %add9.i600 = add i128 %137, 1267650600228229401427983728656
-  %arrayidx10.i601 = getelementptr inbounds i128, ptr %ftmp4, i64 3
+  %arrayidx10.i601 = getelementptr inbounds i8, ptr %ftmp4, i64 48
   %138 = load i128, ptr %arrayidx51.i, align 16
   %139 = load i128, ptr %arrayidx96.i, align 16
   %shl.i.i604 = shl i128 %139, 32
@@ -6795,12 +6792,12 @@ if.end:                                           ; preds = %if.else, %if.then
   %add98.i697 = add nsw i128 %sub72.i687, %shr94.i696
   %conv100.i698 = trunc i128 %add88.i694 to i64
   store i64 %conv80.i692, ptr %small4, align 16
-  %arrayidx108.i699 = getelementptr inbounds i64, ptr %small4, i64 1
+  %arrayidx108.i699 = getelementptr inbounds i8, ptr %small4, i64 8
   store i64 %conv90.i695, ptr %arrayidx108.i699, align 8
-  %arrayidx111.i700 = getelementptr inbounds i64, ptr %small4, i64 2
+  %arrayidx111.i700 = getelementptr inbounds i8, ptr %small4, i64 16
   store i64 %conv100.i698, ptr %arrayidx111.i700, align 16
   %conv113.i701 = trunc i128 %add98.i697 to i64
-  %arrayidx114.i702 = getelementptr inbounds i64, ptr %small4, i64 3
+  %arrayidx114.i702 = getelementptr inbounds i8, ptr %small4, i64 24
   store i64 %conv113.i701, ptr %arrayidx114.i702, align 8
   %or.i704 = or i64 %conv90.i695, %conv80.i692
   %or3.i706 = or i64 %or.i704, %conv100.i698
@@ -6881,12 +6878,12 @@ if.end:                                           ; preds = %if.else, %if.then
   %add98.i.i792 = add nsw i128 %sub72.i.i782, %shr94.i.i791
   %conv100.i.i793 = trunc i128 %add88.i.i789 to i64
   store i64 %conv80.i.i787, ptr %small2.i, align 16
-  %arrayidx108.i.i794 = getelementptr inbounds i64, ptr %small2.i, i64 1
+  %arrayidx108.i.i794 = getelementptr inbounds i8, ptr %small2.i, i64 8
   store i64 %conv90.i.i790, ptr %arrayidx108.i.i794, align 8
-  %arrayidx111.i.i795 = getelementptr inbounds i64, ptr %small2.i, i64 2
+  %arrayidx111.i.i795 = getelementptr inbounds i8, ptr %small2.i, i64 16
   store i64 %conv100.i.i793, ptr %arrayidx111.i.i795, align 16
   %conv113.i.i796 = trunc i128 %add98.i.i792 to i64
-  %arrayidx114.i.i797 = getelementptr inbounds i64, ptr %small2.i, i64 3
+  %arrayidx114.i.i797 = getelementptr inbounds i8, ptr %small2.i, i64 24
   store i64 %conv113.i.i796, ptr %arrayidx114.i.i797, align 8
   call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small4, ptr noundef nonnull %small2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i)
@@ -6894,13 +6891,13 @@ if.end:                                           ; preds = %if.else, %if.then
   %add.i798 = add i128 %168, 1267650600228229401427983728624
   %169 = load i128, ptr %arrayidx8.i, align 16
   %add3.i800 = add i128 %169, 1267650600228229401496703205376
-  %arrayidx4.i801 = getelementptr inbounds i128, ptr %z_out, i64 1
+  %arrayidx4.i801 = getelementptr inbounds i8, ptr %z_out, i64 16
   %170 = load i128, ptr %arrayidx23.i, align 16
   %add6.i803 = add i128 %170, 1267650600228229401427983728656
-  %arrayidx7.i804 = getelementptr inbounds i128, ptr %z_out, i64 2
+  %arrayidx7.i804 = getelementptr inbounds i8, ptr %z_out, i64 32
   %171 = load i128, ptr %arrayidx38.i, align 16
   %add9.i806 = add i128 %171, 1267650600228229401427983728656
-  %arrayidx10.i807 = getelementptr inbounds i128, ptr %z_out, i64 3
+  %arrayidx10.i807 = getelementptr inbounds i8, ptr %z_out, i64 48
   %172 = load i128, ptr %arrayidx51.i, align 16
   %173 = load i128, ptr %arrayidx96.i, align 16
   %shl.i.i810 = shl i128 %173, 32
@@ -7024,12 +7021,12 @@ if.end:                                           ; preds = %if.else, %if.then
   %add98.i.i933 = add nsw i128 %sub72.i.i923, %shr94.i.i932
   %conv100.i.i934 = trunc i128 %add88.i.i930 to i64
   store i64 %conv80.i.i928, ptr %small2.i884, align 16
-  %arrayidx108.i.i935 = getelementptr inbounds i64, ptr %small2.i884, i64 1
+  %arrayidx108.i.i935 = getelementptr inbounds i8, ptr %small2.i884, i64 8
   store i64 %conv90.i.i931, ptr %arrayidx108.i.i935, align 8
-  %arrayidx111.i.i936 = getelementptr inbounds i64, ptr %small2.i884, i64 2
+  %arrayidx111.i.i936 = getelementptr inbounds i8, ptr %small2.i884, i64 16
   store i64 %conv100.i.i934, ptr %arrayidx111.i.i936, align 16
   %conv113.i.i937 = trunc i128 %add98.i.i933 to i64
-  %arrayidx114.i.i938 = getelementptr inbounds i64, ptr %small2.i884, i64 3
+  %arrayidx114.i.i938 = getelementptr inbounds i8, ptr %small2.i884, i64 24
   store i64 %conv113.i.i937, ptr %arrayidx114.i.i938, align 8
   call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef %y2, ptr noundef nonnull %small2.i884)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i884)
@@ -7056,14 +7053,14 @@ if.end:                                           ; preds = %if.else, %if.then
   %sub48.i.i977 = add i128 %sub30.i.i968, %add.i.i952
   %add.i982 = sub i128 %sub48.i.i977, %201
   %sub.i989 = add i128 %add.i982, %reass.mul1930
-  %arrayidx9.i990 = getelementptr inbounds i128, ptr %ftmp6, i64 1
+  %arrayidx9.i990 = getelementptr inbounds i8, ptr %ftmp6, i64 16
   %202 = load i128, ptr %arrayidx9.i990, align 16
   %add9.i.i957 = add i128 %194, 163526927429441592793074713493504
   %sub15.i.i960 = sub i128 %add9.i.i957, %shl13.i.i959
   %add34.i.i970 = add i128 %sub15.i.i960, %sub7.i.i956
   %add2.i984 = add i128 %add34.i.i970, %shl32.i.i969
   %sub11.i991 = sub i128 %add2.i984, %202
-  %arrayidx12.i992 = getelementptr inbounds i128, ptr %ftmp6, i64 2
+  %arrayidx12.i992 = getelementptr inbounds i8, ptr %ftmp6, i64 32
   %203 = load i128, ptr %arrayidx12.i992, align 16
   %add6.i944 = add i128 %195, 163526927429441592784209900996624
   %204 = add i128 %shl.i.i951, %sub7.i.i956
@@ -7071,7 +7068,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %add52.i.i979 = add i128 %add37.i.i972, %shl50.i.i978
   %add4.i986 = add i128 %add52.i.i979, %mul.i.i971
   %sub14.i993 = sub i128 %add4.i986, %203
-  %arrayidx15.i994 = getelementptr inbounds i128, ptr %ftmp6, i64 3
+  %arrayidx15.i994 = getelementptr inbounds i8, ptr %ftmp6, i64 48
   %205 = load i128, ptr %arrayidx15.i994, align 16
   %add9.i947 = add i128 %196, 163526927429441592784209900996624
   %206 = add i128 %add9.i947, %shl13.i.i959
@@ -7330,13 +7327,13 @@ if.end83:                                         ; preds = %if.end
   %add.i1209 = add i128 %241, 1267650600228229401427983728624
   %242 = load i128, ptr %arrayidx8.i, align 16
   %add3.i1211 = add i128 %242, 1267650600228229401496703205376
-  %arrayidx4.i1212 = getelementptr inbounds i128, ptr %ftmp2, i64 1
+  %arrayidx4.i1212 = getelementptr inbounds i8, ptr %ftmp2, i64 16
   %243 = load i128, ptr %arrayidx23.i, align 16
   %add6.i1214 = add i128 %243, 1267650600228229401427983728656
-  %arrayidx7.i1215 = getelementptr inbounds i128, ptr %ftmp2, i64 2
+  %arrayidx7.i1215 = getelementptr inbounds i8, ptr %ftmp2, i64 32
   %244 = load i128, ptr %arrayidx38.i, align 16
   %add9.i1217 = add i128 %244, 1267650600228229401427983728656
-  %arrayidx10.i1218 = getelementptr inbounds i128, ptr %ftmp2, i64 3
+  %arrayidx10.i1218 = getelementptr inbounds i8, ptr %ftmp2, i64 48
   %245 = load i128, ptr %arrayidx51.i, align 16
   %246 = load i128, ptr %arrayidx96.i, align 16
   %shl.i.i1221 = shl i128 %246, 32
@@ -7470,11 +7467,11 @@ if.end83:                                         ; preds = %if.end
   store i128 %shr135.i1364, ptr %arrayidx141.i, align 16
   %add.i1368 = add nuw nsw i128 %conv5.i1298, 1267650600228229401427983728624
   %add3.i1370 = or disjoint i128 %add21.i1307, 1267650600228229401496703205376
-  %arrayidx4.i1371 = getelementptr inbounds i128, ptr %x_out, i64 1
+  %arrayidx4.i1371 = getelementptr inbounds i8, ptr %x_out, i64 16
   %add6.i1373 = add nuw nsw i128 %add78.i1338, 1267650600228229401427983728656
-  %arrayidx7.i1374 = getelementptr inbounds i128, ptr %x_out, i64 2
+  %arrayidx7.i1374 = getelementptr inbounds i8, ptr %x_out, i64 32
   %add9.i1376 = add nuw nsw i128 %add81.i1339, 1267650600228229401427983728656
-  %arrayidx10.i1377 = getelementptr inbounds i128, ptr %x_out, i64 3
+  %arrayidx10.i1377 = getelementptr inbounds i8, ptr %x_out, i64 48
   %shl.i.i1380 = shl nuw nsw i128 %add128.i1361, 32
   %add.i.i1381 = add nuw nsw i128 %shl.i.i1380, %add125.i1360
   %add3.i.i1382 = add nuw nsw i128 %add.i.i1381, %add.i1368
@@ -7579,37 +7576,37 @@ if.end83:                                         ; preds = %if.end
   %add98.i.i1511 = add nsw i128 %sub72.i.i1501, %shr94.i.i1510
   %conv100.i.i1512 = trunc i128 %add88.i.i1508 to i64
   store i64 %conv80.i.i1506, ptr %small2.i1462, align 16
-  %arrayidx108.i.i1513 = getelementptr inbounds i64, ptr %small2.i1462, i64 1
+  %arrayidx108.i.i1513 = getelementptr inbounds i8, ptr %small2.i1462, i64 8
   store i64 %conv90.i.i1509, ptr %arrayidx108.i.i1513, align 8
-  %arrayidx111.i.i1514 = getelementptr inbounds i64, ptr %small2.i1462, i64 2
+  %arrayidx111.i.i1514 = getelementptr inbounds i8, ptr %small2.i1462, i64 16
   store i64 %conv100.i.i1512, ptr %arrayidx111.i.i1514, align 16
   %conv113.i.i1515 = trunc i128 %add98.i.i1511 to i64
-  %arrayidx114.i.i1516 = getelementptr inbounds i64, ptr %small2.i1462, i64 3
+  %arrayidx114.i.i1516 = getelementptr inbounds i8, ptr %small2.i1462, i64 24
   store i64 %conv113.i.i1515, ptr %arrayidx114.i.i1516, align 8
   call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small1, ptr noundef nonnull %small2.i1462)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i1462)
   call fastcc void @felem_mul(ptr noundef nonnull %tmp2, ptr noundef nonnull %ftmp6, ptr noundef nonnull %ftmp2)
   %272 = load i128, ptr %tmp2, align 16
   %mul.i1517 = shl i128 %272, 1
-  %arrayidx2.i1518 = getelementptr inbounds i128, ptr %tmp2, i64 1
+  %arrayidx2.i1518 = getelementptr inbounds i8, ptr %tmp2, i64 16
   %273 = load i128, ptr %arrayidx2.i1518, align 16
   %mul3.i1519 = shl i128 %273, 1
-  %arrayidx5.i1520 = getelementptr inbounds i128, ptr %tmp2, i64 2
+  %arrayidx5.i1520 = getelementptr inbounds i8, ptr %tmp2, i64 32
   %274 = load i128, ptr %arrayidx5.i1520, align 16
   %mul6.i1521 = shl i128 %274, 1
-  %arrayidx8.i1522 = getelementptr inbounds i128, ptr %tmp2, i64 3
+  %arrayidx8.i1522 = getelementptr inbounds i8, ptr %tmp2, i64 48
   %275 = load i128, ptr %arrayidx8.i1522, align 16
   %mul9.i1523 = shl i128 %275, 1
-  %arrayidx11.i1524 = getelementptr inbounds i128, ptr %tmp2, i64 4
+  %arrayidx11.i1524 = getelementptr inbounds i8, ptr %tmp2, i64 64
   %276 = load i128, ptr %arrayidx11.i1524, align 16
   %mul12.i = shl i128 %276, 1
-  %arrayidx14.i = getelementptr inbounds i128, ptr %tmp2, i64 5
+  %arrayidx14.i = getelementptr inbounds i8, ptr %tmp2, i64 80
   %277 = load i128, ptr %arrayidx14.i, align 16
   %mul15.i = shl i128 %277, 1
-  %arrayidx17.i = getelementptr inbounds i128, ptr %tmp2, i64 6
+  %arrayidx17.i = getelementptr inbounds i8, ptr %tmp2, i64 96
   %278 = load i128, ptr %arrayidx17.i, align 16
   %mul18.i = shl i128 %278, 1
-  %arrayidx20.i = getelementptr inbounds i128, ptr %tmp2, i64 7
+  %arrayidx20.i = getelementptr inbounds i8, ptr %tmp2, i64 112
   %279 = load i128, ptr %arrayidx20.i, align 16
   %mul21.i = shl i128 %279, 1
   %280 = load i128, ptr %tmp, align 16
@@ -7634,9 +7631,9 @@ if.end83:                                         ; preds = %if.end
   %sub37.i = sub i128 %add14.i, %mul21.i
   %add.i1543 = add i128 %sub.i1538, 40564819207303340845695479315968
   %add3.i1545 = add i128 %sub19.i, 40564819207303340847894502572032
-  %arrayidx4.i1546 = getelementptr inbounds i128, ptr %y_out, i64 1
-  %arrayidx7.i1549 = getelementptr inbounds i128, ptr %y_out, i64 2
-  %arrayidx10.i1552 = getelementptr inbounds i128, ptr %y_out, i64 3
+  %arrayidx4.i1546 = getelementptr inbounds i8, ptr %y_out, i64 16
+  %arrayidx7.i1549 = getelementptr inbounds i8, ptr %y_out, i64 32
+  %arrayidx10.i1552 = getelementptr inbounds i8, ptr %y_out, i64 48
   %shl.i.i1555 = shl i128 %sub31.i, 32
   %add.i.i1556 = add i128 %shl.i.i1555, %sub28.i
   %add3.i.i1557 = add i128 %add.i.i1556, %add.i1543
@@ -7764,35 +7761,35 @@ copy_conditional.exit1662:                        ; preds = %for.body.i1653
   %307 = load i128, ptr %x_out, align 16
   store i128 %307, ptr %x3, align 16
   %308 = load i128, ptr %arrayidx4.i1371, align 16
-  %arrayidx3.i1664 = getelementptr inbounds i128, ptr %x3, i64 1
+  %arrayidx3.i1664 = getelementptr inbounds i8, ptr %x3, i64 16
   store i128 %308, ptr %arrayidx3.i1664, align 16
   %309 = load i128, ptr %arrayidx7.i1374, align 16
-  %arrayidx5.i1666 = getelementptr inbounds i128, ptr %x3, i64 2
+  %arrayidx5.i1666 = getelementptr inbounds i8, ptr %x3, i64 32
   store i128 %309, ptr %arrayidx5.i1666, align 16
   %310 = load i128, ptr %arrayidx10.i1377, align 16
-  %arrayidx7.i1668 = getelementptr inbounds i128, ptr %x3, i64 3
+  %arrayidx7.i1668 = getelementptr inbounds i8, ptr %x3, i64 48
   store i128 %310, ptr %arrayidx7.i1668, align 16
   %311 = load i128, ptr %y_out, align 16
   store i128 %311, ptr %y3, align 16
   %312 = load i128, ptr %arrayidx4.i1546, align 16
-  %arrayidx3.i1670 = getelementptr inbounds i128, ptr %y3, i64 1
+  %arrayidx3.i1670 = getelementptr inbounds i8, ptr %y3, i64 16
   store i128 %312, ptr %arrayidx3.i1670, align 16
   %313 = load i128, ptr %arrayidx7.i1549, align 16
-  %arrayidx5.i1672 = getelementptr inbounds i128, ptr %y3, i64 2
+  %arrayidx5.i1672 = getelementptr inbounds i8, ptr %y3, i64 32
   store i128 %313, ptr %arrayidx5.i1672, align 16
   %314 = load i128, ptr %arrayidx10.i1552, align 16
-  %arrayidx7.i1674 = getelementptr inbounds i128, ptr %y3, i64 3
+  %arrayidx7.i1674 = getelementptr inbounds i8, ptr %y3, i64 48
   store i128 %314, ptr %arrayidx7.i1674, align 16
   %315 = load i128, ptr %z_out, align 16
   store i128 %315, ptr %z3, align 16
   %316 = load i128, ptr %arrayidx4.i801, align 16
-  %arrayidx3.i1676 = getelementptr inbounds i128, ptr %z3, i64 1
+  %arrayidx3.i1676 = getelementptr inbounds i8, ptr %z3, i64 16
   store i128 %316, ptr %arrayidx3.i1676, align 16
   %317 = load i128, ptr %arrayidx7.i804, align 16
-  %arrayidx5.i1678 = getelementptr inbounds i128, ptr %z3, i64 2
+  %arrayidx5.i1678 = getelementptr inbounds i8, ptr %z3, i64 32
   store i128 %317, ptr %arrayidx5.i1678, align 16
   %318 = load i128, ptr %arrayidx10.i807, align 16
-  %arrayidx7.i1680 = getelementptr inbounds i128, ptr %z3, i64 3
+  %arrayidx7.i1680 = getelementptr inbounds i8, ptr %z3, i64 48
   store i128 %318, ptr %arrayidx7.i1680, align 16
   br label %return
 
@@ -7811,22 +7808,22 @@ entry:
   %small1 = alloca [4 x i64], align 16
   %small2 = alloca [4 x i64], align 16
   %0 = load i128, ptr %x_in, align 16
-  %arrayidx2.i = getelementptr inbounds i128, ptr %x_in, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %x_in, i64 16
   %1 = load i128, ptr %arrayidx2.i, align 16
-  %arrayidx3.i = getelementptr inbounds i128, ptr %ftmp, i64 1
-  %arrayidx4.i = getelementptr inbounds i128, ptr %x_in, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %ftmp, i64 16
+  %arrayidx4.i = getelementptr inbounds i8, ptr %x_in, i64 32
   %2 = load i128, ptr %arrayidx4.i, align 16
-  %arrayidx5.i = getelementptr inbounds i128, ptr %ftmp, i64 2
-  %arrayidx6.i = getelementptr inbounds i128, ptr %x_in, i64 3
+  %arrayidx5.i = getelementptr inbounds i8, ptr %ftmp, i64 32
+  %arrayidx6.i = getelementptr inbounds i8, ptr %x_in, i64 48
   %3 = load i128, ptr %arrayidx6.i, align 16
-  %arrayidx7.i = getelementptr inbounds i128, ptr %ftmp, i64 3
-  %arrayidx3.i9 = getelementptr inbounds i128, ptr %ftmp2, i64 1
-  %arrayidx5.i11 = getelementptr inbounds i128, ptr %ftmp2, i64 2
-  %arrayidx7.i13 = getelementptr inbounds i128, ptr %ftmp2, i64 3
-  %arrayidx.i.i = getelementptr inbounds i128, ptr %z_in, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %ftmp, i64 48
+  %arrayidx3.i9 = getelementptr inbounds i8, ptr %ftmp2, i64 16
+  %arrayidx5.i11 = getelementptr inbounds i8, ptr %ftmp2, i64 32
+  %arrayidx7.i13 = getelementptr inbounds i8, ptr %ftmp2, i64 48
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %z_in, i64 48
   %4 = load i128, ptr %arrayidx.i.i, align 16
   %add.i.i = add i128 %4, 18446744069414584320
-  %arrayidx1.i.i = getelementptr inbounds i128, ptr %z_in, i64 2
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %z_in, i64 32
   %5 = load i128, ptr %arrayidx1.i.i, align 16
   %shr.i.i = lshr i128 %5, 64
   %add3.i.i = add i128 %add.i.i, %shr.i.i
@@ -7834,7 +7831,7 @@ entry:
   %add8.i.i = add nuw nsw i128 %conv7.i.i, 18446673704965373952
   %6 = load i128, ptr %z_in, align 16
   %add11.i.i = add i128 %6, 18446744073709551615
-  %arrayidx13.i.i = getelementptr inbounds i128, ptr %z_in, i64 1
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %z_in, i64 16
   %7 = load i128, ptr %arrayidx13.i.i, align 16
   %shr17.i.i = lshr i128 %add3.i.i, 64
   %conv18.i.i = trunc i128 %shr17.i.i to i64
@@ -7881,27 +7878,27 @@ entry:
   %mul.i771 = mul nuw i128 %conv.i770, %conv.i770
   %shr.i772 = lshr i128 %mul.i771, 64
   %conv5.i773 = and i128 %mul.i771, 18446744073709551615
-  %arrayidx8.i774 = getelementptr inbounds i128, ptr %tmp, i64 1
+  %arrayidx8.i774 = getelementptr inbounds i8, ptr %tmp, i64 16
   %conv12.i777 = and i128 %add78.i.i, 18446744073709551615
   %mul13.i778 = mul nuw i128 %conv12.i777, %conv.i770
   %shr15.i779 = lshr i128 %mul13.i778, 64
   %conv17.i780 = shl i128 %mul13.i778, 1
   %reass.add.i781 = and i128 %conv17.i780, 36893488147419103230
   %add21.i782 = add nuw nsw i128 %reass.add.i781, %shr.i772
-  %arrayidx23.i783 = getelementptr inbounds i128, ptr %tmp, i64 2
+  %arrayidx23.i783 = getelementptr inbounds i8, ptr %tmp, i64 32
   %conv27.i786 = and i128 %add88.i.i, 18446744073709551615
   %mul28.i787 = mul nuw i128 %conv27.i786, %conv.i770
   %shr30.i788 = lshr i128 %mul28.i787, 64
   %conv32.i789 = and i128 %mul28.i787, 18446744073709551615
   %add34.i790 = add nuw nsw i128 %conv32.i789, %shr15.i779
   %mul36.i791 = shl nuw nsw i128 %add34.i790, 1
-  %arrayidx38.i792 = getelementptr inbounds i128, ptr %tmp, i64 3
+  %arrayidx38.i792 = getelementptr inbounds i8, ptr %tmp, i64 48
   %conv42.i795 = and i128 %add98.i.i, 18446744073709551615
   %mul43.i796 = mul nuw i128 %conv42.i795, %conv.i770
   %shr45.i797 = lshr i128 %mul43.i796, 64
   %conv47.i798 = and i128 %mul43.i796, 18446744073709551615
   %add49.i799 = add nuw nsw i128 %conv47.i798, %shr30.i788
-  %arrayidx51.i800 = getelementptr inbounds i128, ptr %tmp, i64 4
+  %arrayidx51.i800 = getelementptr inbounds i8, ptr %tmp, i64 64
   %mul56.i803 = mul nuw i128 %conv27.i786, %conv12.i777
   %shr58.i804 = lshr i128 %mul56.i803, 64
   %conv60.i805 = and i128 %mul56.i803, 18446744073709551615
@@ -7918,12 +7915,12 @@ entry:
   %conv90.i819 = and i128 %mul86.i817, 18446744073709551615
   %add92.i820 = add nuw nsw i128 %add67.i808, %conv90.i819
   %mul94.i821 = shl nuw nsw i128 %add92.i820, 1
-  %arrayidx96.i822 = getelementptr inbounds i128, ptr %tmp, i64 5
+  %arrayidx96.i822 = getelementptr inbounds i8, ptr %tmp, i64 80
   %mul101.i825 = mul nuw i128 %conv42.i795, %conv27.i786
   %conv105.i826 = and i128 %mul101.i825, 18446744073709551615
   %add107.i827 = add nuw nsw i128 %conv105.i826, %shr88.i818
   %mul109.i828 = shl nuw nsw i128 %add107.i827, 1
-  %arrayidx111.i829 = getelementptr inbounds i128, ptr %tmp, i64 6
+  %arrayidx111.i829 = getelementptr inbounds i8, ptr %tmp, i64 96
   %11 = lshr i128 %mul101.i825, 63
   %add114.i830 = and i128 %11, 36893488147419103230
   %mul119.i832 = mul nuw i128 %conv27.i786, %conv27.i786
@@ -7935,7 +7932,7 @@ entry:
   %shr135.i839 = lshr i128 %mul133.i838, 64
   %conv137.i840 = and i128 %mul133.i838, 18446744073709551615
   %add139.i841 = add nuw nsw i128 %add114.i830, %conv137.i840
-  %arrayidx141.i842 = getelementptr inbounds i128, ptr %tmp, i64 7
+  %arrayidx141.i842 = getelementptr inbounds i8, ptr %tmp, i64 112
   %add3.i = or disjoint i128 %add21.i782, 1267650600228229401496703205376
   %shl.i.i20 = shl nuw nsw i128 %add128.i836, 32
   %add.i.i21 = add nuw nsw i128 %shl.i.i20, %add125.i835
@@ -7964,10 +7961,10 @@ entry:
   %14 = add nuw nsw i128 %add9.i, %add81.i814
   %sub41.i.i = add nuw nsw i128 %14, %shl13.i.i
   %add56.i.i = sub nuw nsw i128 %sub41.i.i, %add.i.i21
-  %arrayidx.i.i25 = getelementptr inbounds i128, ptr %y_in, i64 3
+  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %y_in, i64 48
   %15 = load i128, ptr %arrayidx.i.i25, align 16
   %add.i.i26 = add i128 %15, 18446744069414584320
-  %arrayidx1.i.i27 = getelementptr inbounds i128, ptr %y_in, i64 2
+  %arrayidx1.i.i27 = getelementptr inbounds i8, ptr %y_in, i64 32
   %16 = load i128, ptr %arrayidx1.i.i27, align 16
   %shr.i.i28 = lshr i128 %16, 64
   %add3.i.i29 = add i128 %add.i.i26, %shr.i.i28
@@ -7975,7 +7972,7 @@ entry:
   %add8.i.i31 = add nuw nsw i128 %conv7.i.i30, 18446673704965373952
   %17 = load i128, ptr %y_in, align 16
   %add11.i.i32 = add i128 %17, 18446744073709551615
-  %arrayidx13.i.i33 = getelementptr inbounds i128, ptr %y_in, i64 1
+  %arrayidx13.i.i33 = getelementptr inbounds i8, ptr %y_in, i64 16
   %18 = load i128, ptr %arrayidx13.i.i33, align 16
   %shr17.i.i34 = lshr i128 %add3.i.i29, 64
   %conv18.i.i35 = trunc i128 %shr17.i.i34 to i64
@@ -8157,12 +8154,12 @@ entry:
   %add98.i = add nsw i128 %sub72.i, %shr94.i
   %conv100.i = trunc i128 %add88.i to i64
   store i64 %conv80.i, ptr %small1, align 16
-  %arrayidx108.i = getelementptr inbounds i64, ptr %small1, i64 1
+  %arrayidx108.i = getelementptr inbounds i8, ptr %small1, i64 8
   store i64 %conv90.i, ptr %arrayidx108.i, align 8
-  %arrayidx111.i = getelementptr inbounds i64, ptr %small1, i64 2
+  %arrayidx111.i = getelementptr inbounds i8, ptr %small1, i64 16
   store i64 %conv100.i, ptr %arrayidx111.i, align 16
   %conv113.i = trunc i128 %add98.i to i64
-  %arrayidx114.i = getelementptr inbounds i64, ptr %small1, i64 3
+  %arrayidx114.i = getelementptr inbounds i8, ptr %small1, i64 24
   store i64 %conv113.i, ptr %arrayidx114.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %small2.i)
   %shr.i.i127 = lshr i128 %2, 64
@@ -8216,12 +8213,12 @@ entry:
   %add98.i.i172 = add nsw i128 %sub72.i.i162, %shr94.i.i171
   %conv100.i.i173 = trunc i128 %add88.i.i169 to i64
   store i64 %conv80.i.i167, ptr %small2.i, align 16
-  %arrayidx108.i.i174 = getelementptr inbounds i64, ptr %small2.i, i64 1
+  %arrayidx108.i.i174 = getelementptr inbounds i8, ptr %small2.i, i64 8
   store i64 %conv90.i.i170, ptr %arrayidx108.i.i174, align 8
-  %arrayidx111.i.i175 = getelementptr inbounds i64, ptr %small2.i, i64 2
+  %arrayidx111.i.i175 = getelementptr inbounds i8, ptr %small2.i, i64 16
   store i64 %conv100.i.i173, ptr %arrayidx111.i.i175, align 16
   %conv113.i.i176 = trunc i128 %add98.i.i172 to i64
-  %arrayidx114.i.i177 = getelementptr inbounds i64, ptr %small2.i, i64 3
+  %arrayidx114.i.i177 = getelementptr inbounds i8, ptr %small2.i, i64 24
   store i64 %conv113.i.i176, ptr %arrayidx114.i.i177, align 8
   call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small1, ptr noundef nonnull %small2.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i)
@@ -8370,12 +8367,12 @@ entry:
   %add98.i329 = add nsw i128 %shr94.i328, %sub72.i319
   %conv100.i330 = trunc i128 %add88.i326 to i64
   store i64 %conv80.i324, ptr %small2, align 16
-  %arrayidx108.i331 = getelementptr inbounds i64, ptr %small2, i64 1
+  %arrayidx108.i331 = getelementptr inbounds i8, ptr %small2, i64 8
   store i64 %conv90.i327, ptr %arrayidx108.i331, align 8
-  %arrayidx111.i332 = getelementptr inbounds i64, ptr %small2, i64 2
+  %arrayidx111.i332 = getelementptr inbounds i8, ptr %small2, i64 16
   store i64 %conv100.i330, ptr %arrayidx111.i332, align 16
   %conv113.i333 = trunc i128 %add98.i329 to i64
-  %arrayidx114.i334 = getelementptr inbounds i64, ptr %small2, i64 3
+  %arrayidx114.i334 = getelementptr inbounds i8, ptr %small2, i64 24
   store i64 %conv113.i333, ptr %arrayidx114.i334, align 8
   %conv.i = and i128 %sub64.i314, 18446744073709551615
   %mul.i335 = mul nuw i128 %conv.i, %conv.i
@@ -8431,11 +8428,11 @@ entry:
   %add139.i = add nuw nsw i128 %add114.i, %conv137.i
   %add.i344 = add nuw nsw i128 %conv5.i, 1267650600228229401427983728624
   %add3.i346 = or disjoint i128 %add21.i, 1267650600228229401496703205376
-  %arrayidx4.i347 = getelementptr inbounds i128, ptr %x_out, i64 1
+  %arrayidx4.i347 = getelementptr inbounds i8, ptr %x_out, i64 16
   %add6.i349 = add nuw nsw i128 %add78.i340, 1267650600228229401427983728656
-  %arrayidx7.i350 = getelementptr inbounds i128, ptr %x_out, i64 2
+  %arrayidx7.i350 = getelementptr inbounds i8, ptr %x_out, i64 32
   %add9.i352 = add nuw nsw i128 %add81.i, 1267650600228229401427983728656
-  %arrayidx10.i353 = getelementptr inbounds i128, ptr %x_out, i64 3
+  %arrayidx10.i353 = getelementptr inbounds i8, ptr %x_out, i64 48
   %shl.i.i356 = shl nuw nsw i128 %add128.i, 32
   %add.i.i357 = add nuw nsw i128 %shl.i.i356, %add125.i
   %add3.i.i358 = add nuw nsw i128 %add.i.i357, %add.i344
@@ -8598,11 +8595,11 @@ entry:
   store i128 %shr135.i985, ptr %arrayidx141.i842, align 16
   %add.i495 = add nuw nsw i128 %conv5.i919, 1267650600228229401427983728624
   %add3.i497 = or disjoint i128 %add21.i928, 1267650600228229401496703205376
-  %arrayidx4.i498 = getelementptr inbounds i128, ptr %z_out, i64 1
+  %arrayidx4.i498 = getelementptr inbounds i8, ptr %z_out, i64 16
   %add6.i500 = add nuw nsw i128 %add78.i959, 1267650600228229401427983728656
-  %arrayidx7.i501 = getelementptr inbounds i128, ptr %z_out, i64 2
+  %arrayidx7.i501 = getelementptr inbounds i8, ptr %z_out, i64 32
   %add9.i503 = add nuw nsw i128 %add81.i960, 1267650600228229401427983728656
-  %arrayidx10.i504 = getelementptr inbounds i128, ptr %z_out, i64 3
+  %arrayidx10.i504 = getelementptr inbounds i8, ptr %z_out, i64 48
   %shl.i.i507 = shl nuw nsw i128 %add128.i982, 32
   %add.i.i508 = add nuw nsw i128 %shl.i.i507, %add125.i981
   %add3.i.i509 = add nuw nsw i128 %add.i.i508, %add.i495
@@ -8709,12 +8706,12 @@ entry:
   %add98.i.i622 = add nsw i128 %sub72.i.i612, %shr94.i.i621
   %conv100.i.i623 = trunc i128 %add88.i.i619 to i64
   store i64 %conv80.i.i617, ptr %small2.i573, align 16
-  %arrayidx108.i.i624 = getelementptr inbounds i64, ptr %small2.i573, i64 1
+  %arrayidx108.i.i624 = getelementptr inbounds i8, ptr %small2.i573, i64 8
   store i64 %conv90.i.i620, ptr %arrayidx108.i.i624, align 8
-  %arrayidx111.i.i625 = getelementptr inbounds i64, ptr %small2.i573, i64 2
+  %arrayidx111.i.i625 = getelementptr inbounds i8, ptr %small2.i573, i64 16
   store i64 %conv100.i.i623, ptr %arrayidx111.i.i625, align 16
   %conv113.i.i626 = trunc i128 %add98.i.i622 to i64
-  %arrayidx114.i.i627 = getelementptr inbounds i64, ptr %small2.i573, i64 3
+  %arrayidx114.i.i627 = getelementptr inbounds i8, ptr %small2.i573, i64 24
   store i64 %conv113.i.i626, ptr %arrayidx114.i.i627, align 8
   call fastcc void @smallfelem_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %small2, ptr noundef nonnull %small2.i573)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %small2.i573)
@@ -8808,11 +8805,11 @@ entry:
   %sub37.i = sub i128 %add14.i, %mul21.i
   %add.i727 = add i128 %sub.i722, 40564819207303340845695479315968
   %add3.i729 = add i128 %sub19.i, 40564819207303340847894502572032
-  %arrayidx4.i730 = getelementptr inbounds i128, ptr %y_out, i64 1
+  %arrayidx4.i730 = getelementptr inbounds i8, ptr %y_out, i64 16
   %add6.i732 = add i128 %sub22.i, 40564819207303340845695479316992
-  %arrayidx7.i733 = getelementptr inbounds i128, ptr %y_out, i64 2
+  %arrayidx7.i733 = getelementptr inbounds i8, ptr %y_out, i64 32
   %add9.i735 = add i128 %sub25.i, 40564819207303340845695479316992
-  %arrayidx10.i736 = getelementptr inbounds i128, ptr %y_out, i64 3
+  %arrayidx10.i736 = getelementptr inbounds i8, ptr %y_out, i64 48
   %shl.i.i739 = shl i128 %sub31.i, 32
   %add.i.i740 = add i128 %shl.i.i739, %sub28.i
   %add3.i.i741 = add i128 %add.i.i740, %add.i727

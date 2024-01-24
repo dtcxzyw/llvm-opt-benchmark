@@ -19,17 +19,17 @@ define align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds { { ptr, [2 x i64] }, ptr, { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {}, {} }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %12 = getelementptr inbounds { { ptr, [2 x i64] }, ptr, { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {}, {} }, ptr %0, i64 0, i32 3
+  %12 = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h344548579fad2990E"(ptr nonnull align 1 %12)
           to label %16 unwind label %37
 
 13:                                               ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  %14 = getelementptr inbounds { { ptr, [2 x i64] }, ptr, { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {}, {} }, ptr %0, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false)
-  %15 = getelementptr inbounds { { ptr, [2 x i64] }, ptr, { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {}, {} }, ptr %0, i64 0, i32 3
+  %15 = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h344548579fad2990E"(ptr nonnull align 1 %15)
           to label %26 unwind label %33
 
@@ -42,16 +42,16 @@ define align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   %.fca.1.extract = extractvalue { ptr, i64 } %17, 1
   %19 = icmp ne ptr %.fca.0.extract, null
   tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.fca.1.extract, ptr %20, align 8
   store ptr %.fca.0.extract, ptr %6, align 8
-  %21 = getelementptr inbounds { { ptr, [2 x i64] }, ptr, { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {}, {} }, ptr %0, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
   %22 = call align 1 ptr @"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$4push17h497c999e8dc18555E"(ptr nonnull align 8 %6, ptr nonnull align 8 %5)
   store ptr %.fca.0.extract, ptr %11, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %.fca.1.extract, ptr %23, align 8
-  %24 = getelementptr inbounds { { ptr, i64 }, i64, { {} }, {} }, ptr %11, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 1, ptr %24, align 8
   br label %25
 
@@ -60,11 +60,11 @@ define align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   ret ptr %.0
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds { { ptr, [2 x i64] }, ptr, { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {}, {} }, ptr %0, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$16insert_recursing17h692526e24a706786E"(ptr nonnull sret({ { ptr, i64 }, i64, {} }) align 8 %3, ptr nonnull align 8 %4, ptr nonnull align 8 %2, ptr nonnull align 8 %27)
   %28 = call align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17h7809bdf294824039E"(ptr nonnull align 8 %3)
   %29 = load ptr, ptr %27, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds { { ptr, i64 }, i64, { {} }, {} }, ptr %29, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !5
   %32 = add i64 %31, 1
   store i64 %32, ptr %30, align 8
@@ -85,7 +85,7 @@ define align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
 37:                                               ; preds = %16, %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %38 = getelementptr inbounds { { ptr, [2 x i64] }, ptr, { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {}, {} }, ptr %0, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..lifetime..Lifetime$GT$17h6253f984030a483cE"(ptr nonnull align 8 %38) #6
           to label %.thread12 unwind label %35
 
@@ -101,14 +101,14 @@ define align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   %4 = alloca { { ptr, i64 }, i64, {} }, align 8
   %5 = alloca { { { ptr, i64 }, i64 } }, align 8
   %6 = alloca { ptr, i64 }, align 8
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, ptr, { ptr, [2 x i64] }, {}, {} }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !noundef !5
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, ptr, { ptr, [2 x i64] }, {}, {} }, ptr %0, i64 0, i32 3
+  %10 = getelementptr inbounds i8, ptr %0, i64 56
   br i1 %9, label %11, label %14
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, ptr, { ptr, [2 x i64] }, {}, {} }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   invoke void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h344548579fad2990E"(ptr nonnull align 1 %10)
           to label %15 unwind label %35
@@ -128,15 +128,15 @@ define align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   %.fca.1.extract = extractvalue { ptr, i64 } %16, 1
   %18 = icmp ne ptr %.fca.0.extract, null
   tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.fca.1.extract, ptr %19, align 8
   store ptr %.fca.0.extract, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %20 = call align 1 ptr @"_ZN5alloc11collections5btree4node115NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$4push17h5e3c5adc3cc68dd2E"(ptr nonnull align 8 %6, ptr nonnull align 8 %5)
   store ptr %.fca.0.extract, ptr %13, align 8
-  %21 = getelementptr inbounds { ptr, i64 }, ptr %13, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %.fca.1.extract, ptr %21, align 8
-  %22 = getelementptr inbounds { { ptr, i64 }, i64, { {} }, {} }, ptr %13, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %13, i64 16
   store i64 1, ptr %22, align 8
   br label %23
 
@@ -145,11 +145,11 @@ define align 1 ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$
   ret ptr %.0
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, ptr, { ptr, [2 x i64] }, {}, {} }, ptr %0, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
   call void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$16insert_recursing17h00c0d6a12f30db2cE"(ptr nonnull sret({ { ptr, i64 }, i64, {} }) align 8 %3, ptr nonnull align 8 %4, ptr nonnull align 8 %2, ptr nonnull align 8 %25)
   %26 = call align 1 ptr @"_ZN5alloc11collections5btree4node171Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12into_val_mut17h8bc94cb1bc894266E"(ptr nonnull align 8 %3)
   %27 = load ptr, ptr %25, align 8, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { { ptr, i64 }, i64, { {} }, {} }, ptr %27, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8, !noundef !5
   %30 = add i64 %29, 1
   store i64 %30, ptr %28, align 8
@@ -201,17 +201,17 @@ define void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$G
   unreachable
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %14, ptr %16, align 8
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, i64 }, i64 } }, {} }, { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
-  %18 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, i64 }, i64 } }, {} }, { ptr, i64 } }, ptr %1, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %1, i64 40
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, i64 }, i64 } }, {} }, { ptr, i64 } }, ptr %1, i64 0, i32 2, i32 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 48
   %21 = load i64, ptr %20, align 8, !noundef !5
   call void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17heea347cfb1d3f429E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3, ptr nonnull %19, i64 %21)
   ret void
@@ -219,7 +219,7 @@ define void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$G
 22:                                               ; preds = %9, %10
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %23 = getelementptr inbounds { { ptr, i64 }, { { { { ptr, i64 }, i64 } }, {} }, { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h658b292a0b3915d1E"(ptr nonnull align 8 %23) #6
           to label %26 unwind label %24
 
@@ -256,17 +256,17 @@ define void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$G
   unreachable
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8, !noundef !5
   %15 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %14, ptr %16, align 8
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {} } }, ptr %1, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false)
-  %18 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {} } }, ptr %1, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {} } }, ptr %1, i64 0, i32 1, i32 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !noundef !5
   call void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$4push17h4694d9544ea8c2dbE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3, ptr nonnull %19, i64 %21)
   ret void
@@ -274,7 +274,7 @@ define void @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$G
 22:                                               ; preds = %9, %10
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %23 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { { { [24 x i8], i8, [7 x i8] }, {} }, i32, [1 x i32] }, {} } }, ptr %1, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %1, i64 32
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..lifetime..Lifetime$GT$17h6253f984030a483cE"(ptr nonnull align 8 %23) #6
           to label %26 unwind label %24
 

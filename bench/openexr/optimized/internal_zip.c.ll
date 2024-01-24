@@ -3,23 +3,6 @@ source_filename = "bench/openexr/original/internal_zip.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._exr_decode_pipeline = type { ptr, i16, i16, i32, ptr, %struct.exr_chunk_info_t, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, [5 x %struct.exr_coding_channel_info_t] }
-%struct.exr_chunk_info_t = type { i32, i32, i32, i32, i32, i8, i8, i8, i8, i64, i64, i64, i64, i64 }
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
-%union.anon = type { ptr }
-%struct._exr_encode_pipeline = type { ptr, i16, i16, i32, ptr, %struct.exr_chunk_info_t, ptr, ptr, i64, i64, ptr, i64, ptr, i64, i64, ptr, i64, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, [5 x %struct.exr_coding_channel_info_t] }
-%struct._internal_exr_context = type { i8, i8, i8, i8, i8, i8, i8, i8, %struct.exr_attr_string_t, %struct.exr_attr_string_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i32, %struct._internal_exr_part, ptr, ptr, %struct.exr_attribute_list, %union.pthread_mutex_t, i8, i8, [6 x i8] }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
-%struct._internal_exr_part = type { i32, i32, %struct.exr_attribute_list, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.exr_attr_box2i_t, %struct.exr_attr_box2i_t, i32, i32, i32, float, i32, i32, ptr, ptr, ptr, ptr, i64, i16, i16, i32, i64, i64 }
-%struct.exr_attr_box2i_t = type { %struct.exr_attr_v2i_t, %struct.exr_attr_v2i_t }
-%struct.exr_attr_v2i_t = type { %union.anon.0 }
-%union.anon.0 = type { %struct.anon }
-%struct.anon = type { i32, i32 }
-%struct.exr_attribute_list = type { i32, i32, ptr, ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [59 x i8] c"Unable to allocate scratch buffer for deflate of %lu bytes\00", align 1
 @.str.1 = private unnamed_addr constant [48 x i8] c"Unable to compress buffer %lu -> %lu @ level %d\00", align 1
 
@@ -59,15 +42,15 @@ for.body.i:                                       ; preds = %reconstruct.exit, %
   %v2.020.i = phi ptr [ %incdec.ptr2.i, %for.body.i ], [ %add.ptr.i, %reconstruct.exit ]
   %vOut.019.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %out, %reconstruct.exit ]
   %i.018.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %reconstruct.exit ]
-  %incdec.ptr.i = getelementptr inbounds <2 x i64>, ptr %v1.021.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %v1.021.i, i64 16
   %2 = load <16 x i8>, ptr %v1.021.i, align 1
-  %incdec.ptr2.i = getelementptr inbounds <2 x i64>, ptr %v2.020.i, i64 1
+  %incdec.ptr2.i = getelementptr inbounds i8, ptr %v2.020.i, i64 16
   %3 = load <16 x i8>, ptr %v2.020.i, align 1
   %shuffle.i.i = shufflevector <16 x i8> %2, <16 x i8> %3, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i24.i = shufflevector <16 x i8> %2, <16 x i8> %3, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %incdec.ptr6.i = getelementptr inbounds <2 x i64>, ptr %vOut.019.i, i64 1
+  %incdec.ptr6.i = getelementptr inbounds i8, ptr %vOut.019.i, i64 16
   store <16 x i8> %shuffle.i.i, ptr %vOut.019.i, align 1
-  %incdec.ptr7.i = getelementptr inbounds <2 x i64>, ptr %vOut.019.i, i64 2
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %vOut.019.i, i64 32
   store <16 x i8> %shuffle.i24.i, ptr %incdec.ptr6.i, align 1
   %inc.i = add nuw nsw i64 %i.018.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %div14.i
@@ -170,8 +153,8 @@ define hidden i32 @internal_exr_undo_zip(ptr noundef %decode, ptr noundef %compr
 entry:
   %actual_out_bytes.i = alloca i64, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %comp_buf_size, i64 %uncompressed_size)
-  %scratch_buffer_1 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 15
-  %scratch_alloc_size_1 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 16
+  %scratch_buffer_1 = getelementptr inbounds i8, ptr %decode, i64 160
+  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %decode, i64 168
   %call = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %spec.select) #8
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end3, label %return
@@ -184,7 +167,7 @@ if.end3:                                          ; preds = %entry
   br i1 %cmp.i, label %undo_zip_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %context.i = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 4
+  %context.i = getelementptr inbounds i8, ptr %decode, i64 16
   %2 = load ptr, ptr %context.i, align 8
   %call.i = call i32 @exr_uncompress_buffer(ptr noundef %2, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %actual_out_bytes.i) #8
   %cmp1.i = icmp eq i32 %call.i, 0
@@ -229,15 +212,15 @@ for.body.i.i.i:                                   ; preds = %reconstruct.exit.i.
   %v2.020.i.i.i = phi ptr [ %incdec.ptr2.i.i.i, %for.body.i.i.i ], [ %add.ptr.i.i.i, %reconstruct.exit.i.i ]
   %vOut.019.i.i.i = phi ptr [ %incdec.ptr7.i.i.i, %for.body.i.i.i ], [ %uncompressed_data, %reconstruct.exit.i.i ]
   %i.018.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %reconstruct.exit.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds <2 x i64>, ptr %v1.021.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %v1.021.i.i.i, i64 16
   %6 = load <16 x i8>, ptr %v1.021.i.i.i, align 1
-  %incdec.ptr2.i.i.i = getelementptr inbounds <2 x i64>, ptr %v2.020.i.i.i, i64 1
+  %incdec.ptr2.i.i.i = getelementptr inbounds i8, ptr %v2.020.i.i.i, i64 16
   %7 = load <16 x i8>, ptr %v2.020.i.i.i, align 1
   %shuffle.i.i.i.i = shufflevector <16 x i8> %6, <16 x i8> %7, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i24.i.i.i = shufflevector <16 x i8> %6, <16 x i8> %7, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %incdec.ptr6.i.i.i = getelementptr inbounds <2 x i64>, ptr %vOut.019.i.i.i, i64 1
+  %incdec.ptr6.i.i.i = getelementptr inbounds i8, ptr %vOut.019.i.i.i, i64 16
   store <16 x i8> %shuffle.i.i.i.i, ptr %vOut.019.i.i.i, align 1
-  %incdec.ptr7.i.i.i = getelementptr inbounds <2 x i64>, ptr %vOut.019.i.i.i, i64 2
+  %incdec.ptr7.i.i.i = getelementptr inbounds i8, ptr %vOut.019.i.i.i, i64 32
   store <16 x i8> %shuffle.i24.i.i.i, ptr %incdec.ptr6.i.i.i, align 1
   %inc.i.i.i = add nuw nsw i64 %i.018.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %div14.i.i.i
@@ -286,22 +269,22 @@ define hidden i32 @internal_exr_apply_zip(ptr noundef %encode) local_unnamed_add
 entry:
   %level.i = alloca i32, align 4
   %compbufsz.i = alloca i64, align 8
-  %scratch_buffer_1 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 18
-  %scratch_alloc_size_1 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 19
-  %packed_bytes = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 8
+  %scratch_buffer_1 = getelementptr inbounds i8, ptr %encode, i64 184
+  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %encode, i64 192
+  %packed_bytes = getelementptr inbounds i8, ptr %encode, i64 104
   %0 = load i64, ptr %packed_bytes, align 8
   %call = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %0) #8
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %context = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 4
+  %context = getelementptr inbounds i8, ptr %encode, i64 16
   %1 = load ptr, ptr %context, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %print_error = getelementptr inbounds %struct._internal_exr_context, ptr %1, i64 0, i32 14
+  %print_error = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %print_error, align 8
   %3 = load i64, ptr %packed_bytes, align 8
   %call3 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %1, i32 noundef %call, ptr noundef nonnull @.str, i64 noundef %3) #8
@@ -310,9 +293,9 @@ if.then1:                                         ; preds = %if.then
 if.end4:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %level.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %compbufsz.i)
-  %context.i = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 4
+  %context.i = getelementptr inbounds i8, ptr %encode, i64 16
   %4 = load ptr, ptr %context.i, align 8
-  %part_index.i = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 3
+  %part_index.i = getelementptr inbounds i8, ptr %encode, i64 12
   %5 = load i32, ptr %part_index.i, align 4
   %call.i = call i32 @exr_get_zip_compression_level(ptr noundef %4, i32 noundef %5, ptr noundef nonnull %level.i) #8
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -320,7 +303,7 @@ if.end4:                                          ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end4
   %6 = load ptr, ptr %scratch_buffer_1, align 8
-  %packed_buffer.i = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 7
+  %packed_buffer.i = getelementptr inbounds i8, ptr %encode, i64 96
   %7 = load ptr, ptr %packed_buffer.i, align 8
   %8 = load i64, ptr %packed_bytes, align 8
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %7, i64 %8
@@ -383,9 +366,9 @@ internal_zip_deconstruct_bytes.exit.i:            ; preds = %while.body11.i.i, %
   %14 = load i32, ptr %level.i, align 4
   %15 = load ptr, ptr %scratch_buffer_1, align 8
   %16 = load i64, ptr %packed_bytes, align 8
-  %compressed_buffer.i = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 15
+  %compressed_buffer.i = getelementptr inbounds i8, ptr %encode, i64 160
   %17 = load ptr, ptr %compressed_buffer.i, align 8
-  %compressed_alloc_size.i = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 17
+  %compressed_alloc_size.i = getelementptr inbounds i8, ptr %encode, i64 176
   %18 = load i64, ptr %compressed_alloc_size.i, align 8
   %call4.i = call i32 @exr_compress_buffer(ptr noundef %13, i32 noundef %14, ptr noundef %15, i64 noundef %16, ptr noundef %17, i64 noundef %18, ptr noundef nonnull %compbufsz.i) #8
   %cmp5.i = icmp eq i32 %call4.i, 0
@@ -406,7 +389,7 @@ if.then9.i:                                       ; preds = %if.then6.i
 
 if.end14.i:                                       ; preds = %if.then9.i, %if.then6.i
   %24 = phi i64 [ %23, %if.then9.i ], [ %19, %if.then6.i ]
-  %compressed_bytes.i = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 16
+  %compressed_bytes.i = getelementptr inbounds i8, ptr %encode, i64 168
   store i64 %24, ptr %compressed_bytes.i, align 8
   br label %apply_zip_impl.exit
 
@@ -416,7 +399,7 @@ if.else.i:                                        ; preds = %internal_zip_decons
   br i1 %tobool.not.i, label %apply_zip_impl.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.else.i
-  %print_error.i = getelementptr inbounds %struct._internal_exr_context, ptr %25, i64 0, i32 14
+  %print_error.i = getelementptr inbounds i8, ptr %25, i64 72
   %26 = load ptr, ptr %print_error.i, align 8
   %27 = load i64, ptr %packed_bytes, align 8
   %28 = load i64, ptr %compressed_alloc_size.i, align 8

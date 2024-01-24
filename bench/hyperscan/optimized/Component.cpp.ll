@@ -3,8 +3,6 @@ source_filename = "bench/hyperscan/original/Component.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.ue2::Component" = type { ptr, i32, i32 }
-
 @_ZTVN3ue29ComponentE = hidden unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTIN3ue29ComponentE, ptr @_ZN3ue29ComponentD2Ev, ptr @_ZN3ue29ComponentD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK3ue29Component18vacuous_everywhereEv, ptr @_ZNK3ue29Component10repeatableEv, ptr @_ZN3ue29Component8optimiseEb, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK3ue29Component24checkEmbeddedStartAnchorEb, ptr @_ZNK3ue29Component22checkEmbeddedEndAnchorEb] }, align 8
 @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE = external local_unnamed_addr constant i32, align 4
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -17,10 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN3ue29ComponentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %pos_begin = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 1
+  %pos_begin = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %0, ptr %pos_begin, align 8
-  %pos_end = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 2
+  %pos_end = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %0, ptr %pos_end, align 4
   ret void
 }
@@ -50,9 +48,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3ue29Component15recordPosBoundsEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %b, i32 noundef %e) local_unnamed_addr #0 align 2 {
 entry:
-  %pos_begin = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 1
+  %pos_begin = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %b, ptr %pos_begin, align 8
-  %pos_end = getelementptr inbounds %"class.ue2::Component", ptr %this, i64 0, i32 2
+  %pos_end = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %e, ptr %pos_end, align 4
   ret void
 }

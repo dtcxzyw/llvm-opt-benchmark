@@ -90,7 +90,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
 define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h924425c73cb380f3E"(ptr align 8 %0, i64 %1, ptr align 4 %2, ptr align 4 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr }, align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -154,7 +154,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   tail call void @llvm.assume(i1 %6)
   %7 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %5, i64 8
   %8 = icmp ne ptr %3, null
   br label %10
 
@@ -220,7 +220,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   tail call void @llvm.assume(i1 %6)
   %7 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %5, i64 8
   %8 = icmp ne ptr %3, null
   br label %10
 
@@ -286,7 +286,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   tail call void @llvm.assume(i1 %6)
   %7 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %5, i64 8
   %8 = icmp ne ptr %3, null
   br label %10
 
@@ -414,7 +414,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   tail call void @llvm.assume(i1 %6)
   %7 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %5, i64 8
   %8 = icmp ne ptr %3, null
   br label %10
 
@@ -604,7 +604,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_sear
 .lr.ph.i:                                         ; preds = %3
   %7 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %9
 
 ._crit_edge.i:                                    ; preds = %19, %3
@@ -730,7 +730,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_sear
 .lr.ph.i:                                         ; preds = %3
   %7 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %9
 
 ._crit_edge.i:                                    ; preds = %19, %3
@@ -795,7 +795,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_sear
 .lr.ph.i:                                         ; preds = %3
   %7 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %9
 
 ._crit_edge.i:                                    ; preds = %19, %3
@@ -860,7 +860,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_sear
 .lr.ph.i:                                         ; preds = %3
   %7 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %7)
-  %.fca.1.gep.i.i = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %9
 
 ._crit_edge.i:                                    ; preds = %19, %3
@@ -923,9 +923,9 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !9, !noundef !7
   %9 = call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17hd6f13a6dfce6bb0fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %8), !range !5
   ret i8 %9
@@ -941,9 +941,9 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !9, !noundef !7
   %9 = call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17hd6f13a6dfce6bb0fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %8), !range !5
   ret i8 %9
@@ -957,7 +957,7 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 @"_ZN12regex_syntax7unicode16SimpleCaseFolder3get28_$u7b$$u7b$closure$u7d$$u7d$17h50693e3bb874096eE"(ptr nonnull align 1 %4, ptr nonnull align 8 %1), !range !6
   store i32 %6, ptr %3, align 4
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !10, !noundef !7
   %9 = call i8 @"_ZN4core3cmp5impls49_$LT$impl$u20$core..cmp..Ord$u20$for$u20$char$GT$3cmp17ha3345265d78a7d06E"(ptr nonnull align 4 %3, ptr nonnull align 4 %8), !range !5
   ret i8 %9
@@ -973,9 +973,9 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !9, !noundef !7
   %9 = call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17hd6f13a6dfce6bb0fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %8), !range !5
   ret i8 %9
@@ -989,7 +989,7 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i8 @"_ZN12regex_syntax3hir7literal14PreferenceTrie6insert28_$u7b$$u7b$closure$u7d$$u7d$17h539a6969740f1e2eE"(ptr nonnull align 1 %4, ptr nonnull align 8 %1)
   store i8 %6, ptr %3, align 1
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !8, !noundef !7
   %9 = call i8 @"_ZN4core3cmp5impls47_$LT$impl$u20$core..cmp..Ord$u20$for$u20$u8$GT$3cmp17h21db83cd9ef5f7c8E"(ptr nonnull align 1 %3, ptr nonnull align 1 %8), !range !5
   ret i8 %9
@@ -1005,9 +1005,9 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !9, !noundef !7
   %9 = call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17hd6f13a6dfce6bb0fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %8), !range !5
   ret i8 %9
@@ -1023,9 +1023,9 @@ define i8 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20binary_search_by_key2
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !align !9, !noundef !7
   %9 = call i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$RF$A$GT$3cmp17hd6f13a6dfce6bb0fE"(ptr nonnull align 8 %3, ptr nonnull align 8 %8), !range !5
   ret i8 %9

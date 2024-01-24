@@ -108,33 +108,33 @@ define zeroext i1 @"_ZN80_$LT$regex_automata..hybrid..error..BuildError$u20$as$u
   br label %34
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8, !noundef !6
   store i64 %20, ptr %9, align 8
-  %21 = getelementptr inbounds { [1 x i64], i64, i64 }, ptr %0, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !6
   store i64 %22, ptr %8, align 8
   store ptr %8, ptr %6, align 8
-  %23 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %23, align 8
-  %24 = getelementptr inbounds [2 x { ptr, ptr }], ptr %6, i64 0, i64 1
+  %24 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %9, ptr %24, align 8
-  %25 = getelementptr inbounds [2 x { ptr, ptr }], ptr %6, i64 0, i64 1, i32 1
+  %25 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %25, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr nonnull align 8 @anon.13ec5d857e0bc6c3b870900be500a9c6.8, i64 3, ptr nonnull align 8 %6, i64 2)
   %26 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %7)
   br label %34
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = tail call zeroext i1 @"_ZN83_$LT$regex_automata..hybrid..id..LazyStateIDError$u20$as$u20$core..fmt..Display$GT$3fmt17h3a54dafde088df1aE"(ptr nonnull align 8 %28, ptr align 8 %1)
   br label %34
 
 30:                                               ; preds = %2
-  %31 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %31, ptr %5, align 8
   store ptr %5, ptr %3, align 8
-  %32 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hfa0b5aea3813e0bfE", ptr %32, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.13ec5d857e0bc6c3b870900be500a9c6.10, i64 1, ptr nonnull align 8 %3, i64 1)
   %33 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -209,11 +209,11 @@ default.unreachable:                              ; preds = %2
   br label %22
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds { [4 x i8], i8 }, ptr %0, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %0, i64 4
   %19 = load i8, ptr %18, align 4, !noundef !6
   store i8 %19, ptr %9, align 1
   store ptr %9, ptr %10, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @"_ZN76_$LT$regex_automata..util..escape..DebugByte$u20$as$u20$core..fmt..Debug$GT$3fmt17h0b90769ebe42ba87E", ptr %20, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %11, ptr nonnull align 8 @anon.13ec5d857e0bc6c3b870900be500a9c6.17, i64 2, ptr nonnull align 8 %10, i64 1)
   br label %22
@@ -239,13 +239,13 @@ default.unreachable:                              ; preds = %2
   br label %22
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4, !noundef !6
   store i32 %28, ptr %6, align 4
   %29 = call i64 @_ZN14regex_automata4util10primitives9PatternID8as_usize17h6305b4db36aefa30E(ptr nonnull align 4 %6)
   store i64 %29, ptr %3, align 8
   store ptr %3, ptr %4, align 8
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %30, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.13ec5d857e0bc6c3b870900be500a9c6.24, i64 2, ptr nonnull align 8 %4, i64 1)
   br label %22

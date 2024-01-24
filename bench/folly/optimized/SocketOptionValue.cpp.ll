@@ -3,11 +3,6 @@ source_filename = "bench/folly/original/SocketOptionValue.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::__detail::__variant::_Variant_storage" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized", [28 x i8] }
-%"struct.std::__detail::__variant::_Uninitialized" = type { i32 }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -34,7 +29,7 @@ $_ZTVSt18bad_variant_access = comdat any
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK5folly17SocketOptionValue5asIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
   %cmp.not.i.i = icmp eq i8 %0, 0
   br i1 %cmp.not.i.i, label %_ZSt3getIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKSt7variantIJDpT0_EE.exit, label %if.then.i.i
@@ -42,7 +37,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i, align 8, !tbaa !11
-  %_M_reason.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i.i.i, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #15
   unreachable
@@ -76,7 +71,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this, i64 0, i32 1
+  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8, !tbaa !13
   ret ptr %0
 }
@@ -87,7 +82,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev(ptr noundef nonnull readonly returned align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
   %cmp.not.i.i = icmp eq i8 %0, 1
   br i1 %cmp.not.i.i, label %_ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EERKT_RKSt7variantIJDpT0_EE.exit, label %if.then.i.i
@@ -95,7 +90,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i, align 8, !tbaa !11
-  %_M_reason.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i.i.i, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #15
   unreachable
@@ -107,7 +102,7 @@ _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EERKT_RKSt7var
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK5folly17SocketOptionValue6hasIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i, align 8, !tbaa !7
   %cmp.i = icmp eq i8 %0, 0
   ret i1 %cmp.i
@@ -118,7 +113,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK5folly17SocketOptionValue9hasStringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i, align 8, !tbaa !7
   %cmp.i = icmp eq i8 %0, 1
   ret i1 %cmp.i
@@ -130,7 +125,7 @@ entry:
   %__dnew.i.i20 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
   %sval = alloca [20 x i8], align 16
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
   switch i8 %0, label %if.then.i.i.i17 [
     i8 0, label %_ZNK5folly17SocketOptionValue5asIntEv.exit
@@ -147,7 +142,7 @@ _ZNK5folly17SocketOptionValue5asIntEv.exit:       ; preds = %entry
 
 if.then5:                                         ; preds = %_ZNK5folly17SocketOptionValue5asIntEv.exit
   %conv = zext nneg i32 %call3 to i64
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %3, ptr %agg.result, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #14
   store i64 %conv, ptr %__dnew.i.i, align 8, !tbaa !21
@@ -180,7 +175,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i, %if.end
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i
   %7 = phi ptr [ %.pre1, %if.end.i.i.i.i.i ], [ %3, %if.then.i.i.i.i ]
   %8 = phi i64 [ %.pre, %if.end.i.i.i.i.i ], [ 1, %if.then.i.i.i.i ]
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !26
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !25
@@ -188,9 +183,9 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   br label %cleanup
 
 if.else:                                          ; preds = %_ZNK5folly17SocketOptionValue5asIntEv.exit
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %9, ptr %agg.result, align 8, !tbaa !19
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !26
   store i8 0, ptr %9, align 8, !tbaa !25
   br label %cleanup
@@ -202,16 +197,16 @@ cleanup:                                          ; preds = %if.else, %invoke.co
 if.then.i.i.i17:                                  ; preds = %entry
   %exception.i.i.i.i.i18 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i18, align 8, !tbaa !11
-  %_M_reason.i.i.i.i.i.i19 = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i18, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i18, i64 8
   store ptr @.str.1, ptr %_M_reason.i.i.i.i.i.i19, align 8, !tbaa !13
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i18, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #15
   unreachable
 
 _ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit: ; preds = %entry
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %10, ptr %agg.result, align 8, !tbaa !19
   %11 = load ptr, ptr %this, align 8, !tbaa !23
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i20) #14
   store i64 %12, ptr %__dnew.i.i20, align 8, !tbaa !21
@@ -243,7 +238,7 @@ if.end.i.i.i.i.i26:                               ; preds = %if.end.i.i22
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %if.end.i.i.i.i.i26, %if.then.i.i.i.i25, %if.end.i.i22
   %16 = load i64, ptr %__dnew.i.i20, align 8, !tbaa !21
-  %_M_string_length.i.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %16, ptr %_M_string_length.i.i.i.i23, align 8, !tbaa !26
   %17 = load ptr, ptr %agg.result, align 8, !tbaa !23
   %arrayidx.i.i.i24 = getelementptr inbounds i8, ptr %17, i64 %16
@@ -266,7 +261,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %rhs) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %lhs, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
   switch i8 %0, label %return [
     i8 0, label %land.lhs.true
@@ -274,7 +269,7 @@ entry:
   ]
 
 land.lhs.true:                                    ; preds = %entry
-  %_M_index.i.i.i25 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %rhs, i64 0, i32 1
+  %_M_index.i.i.i25 = getelementptr inbounds i8, ptr %rhs, i64 32
   %1 = load i8, ptr %_M_index.i.i.i25, align 8
   %cmp.i.i26 = icmp eq i8 %1, 0
   br i1 %cmp.i.i26, label %_ZNK5folly17SocketOptionValue5asIntEv.exit36, label %return
@@ -286,15 +281,15 @@ _ZNK5folly17SocketOptionValue5asIntEv.exit36:     ; preds = %land.lhs.true
   br label %return
 
 land.lhs.true10:                                  ; preds = %entry
-  %_M_index.i.i.i39 = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %rhs, i64 0, i32 1
+  %_M_index.i.i.i39 = getelementptr inbounds i8, ptr %rhs, i64 32
   %4 = load i8, ptr %_M_index.i.i.i39, align 8, !tbaa !7
   %cmp.i.i40 = icmp eq i8 %4, 1
   br i1 %cmp.i.i40, label %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit51, label %return
 
 _ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit51: ; preds = %land.lhs.true10
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %lhs, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %5 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !26
-  %_M_string_length.i9.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %rhs, i64 0, i32 1
+  %_M_string_length.i9.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %6 = load i64, ptr %_M_string_length.i9.i, align 8, !tbaa !26
   %cmp.i = icmp eq i64 %5, %6
   br i1 %cmp.i, label %land.rhs.i, label %return
@@ -318,7 +313,7 @@ return:                                           ; preds = %if.end.i.i, %land.r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, i32 noundef %rhs) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %lhs, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
   %cmp.i.i = icmp eq i8 %0, 0
   %1 = load i32, ptr %lhs, align 8
@@ -330,15 +325,15 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %lhs, i64 0, i32 1
+  %_M_index.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
   %cmp.i.i = icmp eq i8 %0, 1
   br i1 %cmp.i.i, label %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit, label %return
 
 _ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit: ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %lhs, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !26
-  %_M_string_length.i9.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %rhs, i64 0, i32 1
+  %_M_string_length.i9.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i64, ptr %_M_string_length.i9.i, align 8, !tbaa !26
   %cmp.i = icmp eq i64 %1, %2
   br i1 %cmp.i, label %land.rhs.i, label %return
@@ -362,7 +357,7 @@ return:                                           ; preds = %if.end.i.i, %land.r
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %rhs) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %lhs, i64 0, i32 1
+  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8, !tbaa !7
   switch i8 %0, label %_ZN5follyeqERKNS_17SocketOptionValueES2_.exit [
     i8 0, label %land.lhs.true.i
@@ -370,7 +365,7 @@ entry:
   ]
 
 land.lhs.true.i:                                  ; preds = %entry
-  %_M_index.i.i.i25.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %rhs, i64 0, i32 1
+  %_M_index.i.i.i25.i = getelementptr inbounds i8, ptr %rhs, i64 32
   %1 = load i8, ptr %_M_index.i.i.i25.i, align 8
   %cmp.i.i26.i = icmp eq i8 %1, 0
   br i1 %cmp.i.i26.i, label %_ZNK5folly17SocketOptionValue5asIntEv.exit36.i, label %_ZN5follyeqERKNS_17SocketOptionValueES2_.exit
@@ -382,15 +377,15 @@ _ZNK5folly17SocketOptionValue5asIntEv.exit36.i:   ; preds = %land.lhs.true.i
   br label %_ZN5follyeqERKNS_17SocketOptionValueES2_.exit
 
 land.lhs.true10.i:                                ; preds = %entry
-  %_M_index.i.i.i39.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %rhs, i64 0, i32 1
+  %_M_index.i.i.i39.i = getelementptr inbounds i8, ptr %rhs, i64 32
   %4 = load i8, ptr %_M_index.i.i.i39.i, align 8, !tbaa !7
   %cmp.i.i40.i = icmp eq i8 %4, 1
   br i1 %cmp.i.i40.i, label %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit51.i, label %_ZN5follyeqERKNS_17SocketOptionValueES2_.exit
 
 _ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit51.i: ; preds = %land.lhs.true10.i
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %lhs, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !26
-  %_M_string_length.i9.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %rhs, i64 0, i32 1
+  %_M_string_length.i9.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %6 = load i64, ptr %_M_string_length.i9.i.i, align 8, !tbaa !26
   %cmp.i.i = icmp eq i64 %5, %6
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN5follyeqERKNS_17SocketOptionValueES2_.exit
@@ -415,7 +410,7 @@ _ZN5follyeqERKNS_17SocketOptionValueES2_.exit:    ; preds = %if.end.i.i.i, %land
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, i32 noundef %rhs) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %lhs, i64 0, i32 1
+  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8, !tbaa !7
   %cmp.i.i.i = icmp ne i8 %0, 0
   %1 = load i32, ptr %lhs, align 8
@@ -427,15 +422,15 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %lhs, i64 0, i32 1
+  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8, !tbaa !7
   %cmp.i.i.i = icmp eq i8 %0, 1
   br i1 %cmp.i.i.i, label %_ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit.i, label %_ZN5follyeqERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNK5folly17SocketOptionValue8asStringB5cxx11Ev.exit.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %lhs, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !26
-  %_M_string_length.i9.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %rhs, i64 0, i32 1
+  %_M_string_length.i9.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %2 = load i64, ptr %_M_string_length.i9.i.i, align 8, !tbaa !26
   %cmp.i.i = icmp eq i64 %1, %2
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN5follyeqERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -462,9 +457,9 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #14
   call void @_ZNK5folly17SocketOptionValue8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %val)
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !26
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !26
   %sub3.i.i.i = sub i64 4611686018427387903, %1
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %0
@@ -484,7 +479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i3 = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -506,7 +501,7 @@ lpad:                                             ; preds = %_ZNSt7__cxx1112basi
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i4 = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6, label %if.then.i.i5
 
@@ -537,14 +532,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #14
   call void @_ZNK5folly17SocketOptionValue8toStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %val)
   %0 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !26
   %call2.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef %0, i64 noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -566,7 +561,7 @@ lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %ref.tmp, align 8, !tbaa !23
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i4 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6, label %if.then.i.i5
 

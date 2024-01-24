@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.std::_Vector_base<std::shared_ptr<OpenColorIO_v2_4dev::Op>, std::allocator<std::shared_ptr<OpenColorIO_v2_4dev::Op>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::shared_ptr.18" = type { %"class.std::__shared_ptr.19" }
 %"class.std::__shared_ptr.19" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -41,7 +40,7 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIfSaIfE
   %mul.i.i.i.i.i.i = shl nsw i64 %numPixels, 4
   %call5.i.i.i.i2.i.i25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #11
   store float 0.000000e+00, ptr %call5.i.i.i.i2.i.i25, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr float, ptr %call5.i.i.i.i2.i.i25, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i25, i64 4
   %1 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
   %cmp48 = icmp sgt i64 %numPixels, 0
@@ -54,7 +53,7 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   %add.ptr.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %mul1
   %2 = load <2 x float>, ptr %values.049, align 4
   store <2 x float> %2, ptr %add.ptr.i, align 4
-  %arrayidx6 = getelementptr inbounds float, ptr %values.049, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %values.049, i64 8
   %3 = load float, ptr %arrayidx6, align 4
   %add8 = or disjoint i64 %mul1, 2
   %add.ptr.i27 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add8
@@ -62,7 +61,7 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   %add11 = or disjoint i64 %mul1, 3
   %add.ptr.i28 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add11
   store float 1.000000e+00, ptr %add.ptr.i28, align 4
-  %add.ptr = getelementptr inbounds float, ptr %values.049, i64 3
+  %add.ptr = getelementptr inbounds i8, ptr %values.049, i64 12
   %inc = add nuw nsw i64 %idx.050, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -78,7 +77,7 @@ invoke.cont14:                                    ; preds = %for.end
           to label %invoke.cont15 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<OpenColorIO_v2_4dev::Op>, std::allocator<std::shared_ptr<OpenColorIO_v2_4dev::Op>>>::_Vector_impl_data", ptr %ops, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ops, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %ops, align 8
   %cmp1951.not = icmp eq ptr %4, %5
@@ -101,7 +100,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %6, i64 %i.052
   %7 = load ptr, ptr %add.ptr.i.i, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %8 = load ptr, ptr %vfn, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %tmp.sroa.0.060, ptr noundef nonnull %tmp.sroa.0.060, i64 noundef %numPixels)
           to label %for.inc27 unwind label %lpad13.loopexit
@@ -140,9 +139,9 @@ for.body33:                                       ; preds = %for.cond31.preheade
   %add43 = or disjoint i64 %mul34, 2
   %add.ptr.i31 = getelementptr inbounds float, ptr %tmp.sroa.0.060, i64 %add43
   %10 = load float, ptr %add.ptr.i31, align 4
-  %arrayidx45 = getelementptr inbounds float, ptr %result.054, i64 2
+  %arrayidx45 = getelementptr inbounds i8, ptr %result.054, i64 8
   store float %10, ptr %arrayidx45, align 4
-  %add.ptr46 = getelementptr inbounds float, ptr %result.054, i64 3
+  %add.ptr46 = getelementptr inbounds i8, ptr %result.054, i64 12
   %inc48 = add nuw nsw i64 %idx30.055, 1
   %exitcond57.not = icmp eq i64 %inc48, %numPixels
   br i1 %exitcond57.not, label %if.then.i.i.i33, label %for.body33, !llvm.loop !7

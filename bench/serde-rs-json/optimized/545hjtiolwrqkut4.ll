@@ -27,45 +27,43 @@ define align 8 ptr @_ZN10serde_json2de12ParserNumber12invalid_type17hf7ccd358d6e
   %5 = alloca { i8, [23 x i8] }, align 8
   %6 = alloca { i8, [23 x i8] }, align 8
   %7 = load i64, ptr %0, align 8, !range !5, !noundef !6
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %7, label %default.unreachable1 [
-    i64 0, label %8
+    i64 0, label %9
     i64 1, label %12
-    i64 2, label %16
+    i64 2, label %15
   ]
 
 default.unreachable1:                             ; preds = %3
   unreachable
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds { [1 x i64], double }, ptr %0, i64 0, i32 1
-  %10 = load double, ptr %9, align 8, !noundef !6
-  %11 = getelementptr inbounds { [1 x i64], double }, ptr %6, i64 0, i32 1
+9:                                                ; preds = %3
+  %10 = load double, ptr %8, align 8, !noundef !6
+  %11 = getelementptr inbounds i8, ptr %6, i64 8
   store double %10, ptr %11, align 8
   store i8 3, ptr %6, align 8
-  br label %20
+  br label %18
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
-  %14 = load i64, ptr %13, align 8, !noundef !6
-  %15 = getelementptr inbounds { [1 x i64], i64 }, ptr %5, i64 0, i32 1
-  store i64 %14, ptr %15, align 8
+  %13 = load i64, ptr %8, align 8, !noundef !6
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %13, ptr %14, align 8
   store i8 1, ptr %5, align 8
-  br label %20
+  br label %18
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
-  %18 = load i64, ptr %17, align 8, !noundef !6
-  %19 = getelementptr inbounds { [1 x i64], i64 }, ptr %4, i64 0, i32 1
-  store i64 %18, ptr %19, align 8
+15:                                               ; preds = %3
+  %16 = load i64, ptr %8, align 8, !noundef !6
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %16, ptr %17, align 8
   store i8 2, ptr %4, align 8
-  br label %20
+  br label %18
 
-20:                                               ; preds = %16, %12, %8
-  %.sink = phi ptr [ %4, %16 ], [ %5, %12 ], [ %6, %8 ]
-  %21 = call align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17hae42ab8580201d10E"(ptr nonnull align 8 %.sink, ptr align 1 %1, ptr align 8 %2)
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  ret ptr %21
+18:                                               ; preds = %15, %12, %9
+  %.sink = phi ptr [ %4, %15 ], [ %5, %12 ], [ %6, %9 ]
+  %19 = call align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$12invalid_type17hae42ab8580201d10E"(ptr nonnull align 8 %.sink, ptr align 1 %1, ptr align 8 %2)
+  %20 = icmp ne ptr %19, null
+  call void @llvm.assume(i1 %20)
+  ret ptr %19
 }
 
 ; Function Attrs: nonlazybind uwtable

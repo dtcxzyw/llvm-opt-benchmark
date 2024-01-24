@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.AUTHORITY_KEYID_st = type { ptr, ptr, ptr }
-%struct.conf_value_st = type { ptr, ptr, ptr }
-%struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
 
 @AUTHORITY_KEYID_it = external constant %struct.ASN1_ITEM_st, align 8
 @v3_akey_id = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 90, i32 4, ptr @AUTHORITY_KEYID_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_AUTHORITY_KEYID, ptr @v2i_AUTHORITY_KEYID, ptr null, ptr null, ptr null }, align 8
@@ -31,7 +25,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %0, align 8
   %conv = sext i32 %2 to i64
@@ -41,7 +35,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %issuer = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akeyid, i64 0, i32 1
+  %issuer = getelementptr inbounds i8, ptr %akeyid, i64 8
   %3 = load ptr, ptr %issuer, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end8, label %if.then5
@@ -53,13 +47,13 @@ if.then5:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %serial = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %akeyid, i64 0, i32 2
+  %serial = getelementptr inbounds i8, ptr %akeyid, i64 16
   %5 = load ptr, ptr %serial, align 8
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %if.end18, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %data12 = getelementptr inbounds %struct.asn1_string_st, ptr %5, i64 0, i32 2
+  %data12 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %data12, align 8
   %7 = load i32, ptr %5, align 8
   %conv15 = sext i32 %7 to i64
@@ -85,14 +79,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %issuer.059 = phi i8 [ %issuer.1, %for.inc ], [ 0, %entry ]
   %i.058 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %call1 = tail call ptr @sk_value(ptr noundef %values, i64 noundef %i.058) #4
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %name, align 8
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str) #5
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call1, i64 16
   %1 = load ptr, ptr %value, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %for.inc, label %land.lhs.true
@@ -109,7 +103,7 @@ if.else:                                          ; preds = %for.body
   br i1 %tobool10.not, label %if.then11, label %if.else20
 
 if.then11:                                        ; preds = %if.else
-  %value12 = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 2
+  %value12 = getelementptr inbounds i8, ptr %call1, i64 16
   %2 = load ptr, ptr %value12, align 8
   %tobool13.not = icmp eq ptr %2, null
   br i1 %tobool13.not, label %for.inc, label %land.lhs.true14
@@ -121,7 +115,7 @@ land.lhs.true14:                                  ; preds = %if.then11
   br label %for.inc
 
 if.else20:                                        ; preds = %if.else
-  %name.le = getelementptr inbounds %struct.conf_value_st, ptr %call1, i64 0, i32 1
+  %name.le = getelementptr inbounds i8, ptr %call1, i64 8
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 159, ptr noundef nonnull @.str.4, i32 noundef 145) #4
   %3 = load ptr, ptr %name.le, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef %3) #4
@@ -142,7 +136,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %tobool24.not, label %if.end32, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.end
-  %issuer_cert = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 1
+  %issuer_cert = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %issuer_cert, align 8
   %tobool25.not = icmp eq ptr %4, null
   br i1 %tobool25.not, label %land.lhs.true28, label %if.end33
@@ -243,7 +237,7 @@ if.then85:                                        ; preds = %lor.lhs.false82, %l
 
 if.end86:                                         ; preds = %lor.lhs.false82
   store i32 4, ptr %call80, align 8
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call80, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call80, i64 8
   store ptr %call62, ptr %d, align 8
   br label %if.end87
 
@@ -251,9 +245,9 @@ if.end87:                                         ; preds = %if.end70.thread, %i
   %serial.04653 = phi ptr [ %call64, %if.end86 ], [ null, %if.end70.thread ]
   %call714752 = phi ptr [ %call71, %if.end86 ], [ %call7143, %if.end70.thread ]
   %gens.0 = phi ptr [ %call77, %if.end86 ], [ null, %if.end70.thread ]
-  %issuer88 = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %call714752, i64 0, i32 1
+  %issuer88 = getelementptr inbounds i8, ptr %call714752, i64 8
   store ptr %gens.0, ptr %issuer88, align 8
-  %serial89 = getelementptr inbounds %struct.AUTHORITY_KEYID_st, ptr %call714752, i64 0, i32 2
+  %serial89 = getelementptr inbounds i8, ptr %call714752, i64 16
   store ptr %serial.04653, ptr %serial89, align 8
   store ptr %ikeyid.1, ptr %call714752, align 8
   br label %return

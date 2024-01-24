@@ -61,13 +61,13 @@ define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h564a5
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17hd6f6993315fadf0cE(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !5
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.thread, label %6
 
 .thread:                                          ; preds = %1
-  %5 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %0, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %5, align 8
   br label %14
 
@@ -77,7 +77,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17hd6f6993315
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %7, i8 -1, i64 %8, i1 false)
   %.pre = load i64, ptr %2, align 8
   %.pre.fr = freeze i64 %.pre
-  %9 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %0, i64 0, i32 3
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8
   %10 = icmp ult i64 %.pre.fr, 8
   %11 = add i64 %.pre.fr, 1
@@ -88,7 +88,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13clear_no_drop17hd6f6993315
 
 14:                                               ; preds = %6, %.thread
   %15 = phi i64 [ 0, %.thread ], [ %spec.select, %6 ]
-  %16 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %0, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %15, ptr %16, align 8
   ret void
 }
@@ -110,7 +110,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17hc9ae2514
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %16 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !5
   %18 = add i64 %17, 1
   call void @"_ZN4core4iter8adapters7step_by15StepBy$LT$I$GT$3new17h29523bf30fd7e318E"(ptr nonnull sret({ { i64, i64 }, i64, i8, [7 x i8] }) align 8 %14, i64 0, i64 %18, i64 16)
@@ -168,9 +168,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0dc724e24bbee881E.ex
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %37 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %15, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %4, ptr %37, align 8
-  %38 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %15, i64 0, i32 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %15, i64 16
   store i64 %3, ptr %38, align 8
   store ptr %0, ptr %15, align 8
   %39 = load i64, ptr %16, align 8, !noundef !5
@@ -179,7 +179,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0dc724e24bbee881E.ex
   br i1 %.not41.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0dc724e24bbee881E.exit
-  %41 = getelementptr inbounds ptr, ptr %2, i64 5
+  %41 = getelementptr inbounds i8, ptr %2, i64 40
   br label %42
 
 42:                                               ; preds = %.lr.ph, %139
@@ -209,7 +209,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0dc724e24bbee881E.ex
           to label %141 unwind label %142
 
 ._crit_edge.loopexit:                             ; preds = %139
-  %.phi.trans.insert = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %140, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %140, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre52 = add i64 %.pre, 1
   %45 = lshr i64 %.pre52, 3
@@ -222,9 +222,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0dc724e24bbee881E.ex
   %48 = phi ptr [ %140, %._crit_edge.loopexit ], [ %0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0dc724e24bbee881E.exit ]
   %49 = icmp ult i64 %47, 8
   %.0 = select i1 %49, i64 %47, i64 %.pre-phi
-  %50 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %48, i64 0, i32 3
+  %50 = getelementptr inbounds i8, ptr %48, i64 24
   %51 = load i64, ptr %50, align 8, !noundef !5
-  %52 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %48, i64 0, i32 2
+  %52 = getelementptr inbounds i8, ptr %48, i64 16
   %53 = sub i64 %.0, %51
   store i64 %53, ptr %52, align 8
   ret void
@@ -251,7 +251,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h0dc724e24bbee881E.ex
 64:                                               ; preds = %61
   %65 = load ptr, ptr %15, align 8, !nonnull !5, !align !6, !noundef !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %66 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %65, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8, !noundef !5
   %68 = and i64 %67, %63
   %69 = load ptr, ptr %65, align 8, !nonnull !5, !noundef !5
@@ -418,7 +418,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %5 = alloca <2 x i64>, align 16
   %6 = alloca <2 x i64>, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %7 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = and i64 %8, %1
   %10 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -524,10 +524,10 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %19 = alloca i16, align 2
   %20 = lshr i64 %1, 57
   %21 = trunc i64 %20 to i8
-  %22 = getelementptr inbounds { ptr, i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !5
   %24 = and i64 %23, %1
-  %25 = getelementptr inbounds ptr, ptr %3, i64 4
+  %25 = getelementptr inbounds i8, ptr %3, i64 32
   br label %26
 
 26:                                               ; preds = %59, %4

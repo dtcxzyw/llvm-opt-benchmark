@@ -33,49 +33,49 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [5 x i8] c"%ju\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @INT32_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @INT32_it() local_unnamed_addr #0 {
 entry:
   ret ptr @INT32_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @UINT32_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @UINT32_it() local_unnamed_addr #0 {
 entry:
   ret ptr @UINT32_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @INT64_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @INT64_it() local_unnamed_addr #0 {
 entry:
   ret ptr @INT64_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @UINT64_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @UINT64_it() local_unnamed_addr #0 {
 entry:
   ret ptr @UINT64_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ZINT32_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ZINT32_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ZINT32_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ZUINT32_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ZUINT32_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ZUINT32_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ZINT64_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ZINT64_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ZINT64_it.local_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ZUINT64_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @ZUINT64_it() local_unnamed_addr #0 {
 entry:
   ret ptr @ZUINT64_it.local_it
 }
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uint32_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal noundef i32 @uint32_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %cont.addr = alloca ptr, align 8
   %utmp = alloca i64, align 8
@@ -138,7 +138,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %2 = load i64, ptr %size, align 8
   %and = and i64 %2, 2
   %cmp8 = icmp eq i64 %and, 0
@@ -203,7 +203,7 @@ define internal i32 @uint32_i2c(ptr nocapture noundef readonly %pval, ptr nounde
 entry:
   %0 = load ptr, ptr %pval, align 8
   %utmp.0.copyload = load i32, ptr %0, align 1
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %1 = load i64, ptr %size, align 8
   %and = and i64 %1, 1
   %cmp = icmp ne i64 %and, 0
@@ -231,7 +231,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @uint32_print(ptr noundef %out, ptr nocapture noundef readonly %pval, ptr nocapture noundef readonly %it, i32 %indent, ptr nocapture readnone %pctx) #1 {
 entry:
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   %and = and i64 %0, 2
   %cmp.not = icmp eq i64 %and, 0
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @uint64_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
+define internal noundef i32 @uint64_c2i(ptr nocapture noundef %pval, ptr noundef %cont, i32 noundef %len, i32 %utype, ptr nocapture readnone %free_cont, ptr nocapture noundef readonly %it) #1 {
 entry:
   %cont.addr = alloca ptr, align 8
   %utmp = alloca i64, align 8
@@ -316,7 +316,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %2 = load i64, ptr %size, align 8
   %and = and i64 %2, 2
   %cmp8 = icmp eq i64 %and, 0
@@ -364,7 +364,7 @@ define internal i32 @uint64_i2c(ptr nocapture noundef readonly %pval, ptr nounde
 entry:
   %0 = load ptr, ptr %pval, align 8
   %utmp.0.copyload = load i64, ptr %0, align 1
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %1 = load i64, ptr %size, align 8
   %and = and i64 %1, 1
   %cmp = icmp ne i64 %and, 0
@@ -391,7 +391,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @uint64_print(ptr noundef %out, ptr nocapture noundef readonly %pval, ptr nocapture noundef readonly %it, i32 %indent, ptr nocapture readnone %pctx) #1 {
 entry:
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   %and = and i64 %0, 2
   %cmp.not = icmp eq i64 %and, 0

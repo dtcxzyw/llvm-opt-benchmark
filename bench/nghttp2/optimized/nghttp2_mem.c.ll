@@ -16,7 +16,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @nghttp2_mem_malloc(ptr nocapture noundef readonly %mem, i64 noundef %size) local_unnamed_addr #1 {
 entry:
-  %malloc = getelementptr inbounds %struct.nghttp2_mem, ptr %mem, i64 0, i32 1
+  %malloc = getelementptr inbounds i8, ptr %mem, i64 8
   %0 = load ptr, ptr %malloc, align 8
   %1 = load ptr, ptr %mem, align 8
   %call = tail call ptr %0(i64 noundef %size, ptr noundef %1) #8
@@ -26,7 +26,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_mem_free(ptr nocapture noundef readonly %mem, ptr noundef %ptr) local_unnamed_addr #1 {
 entry:
-  %free = getelementptr inbounds %struct.nghttp2_mem, ptr %mem, i64 0, i32 2
+  %free = getelementptr inbounds i8, ptr %mem, i64 16
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %mem, align 8
   tail call void %0(ptr noundef %ptr, ptr noundef %1) #8
@@ -43,7 +43,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @nghttp2_mem_calloc(ptr nocapture noundef readonly %mem, i64 noundef %nmemb, i64 noundef %size) local_unnamed_addr #1 {
 entry:
-  %calloc = getelementptr inbounds %struct.nghttp2_mem, ptr %mem, i64 0, i32 3
+  %calloc = getelementptr inbounds i8, ptr %mem, i64 24
   %0 = load ptr, ptr %calloc, align 8
   %1 = load ptr, ptr %mem, align 8
   %call = tail call ptr %0(i64 noundef %nmemb, i64 noundef %size, ptr noundef %1) #8
@@ -53,7 +53,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @nghttp2_mem_realloc(ptr nocapture noundef readonly %mem, ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #1 {
 entry:
-  %realloc = getelementptr inbounds %struct.nghttp2_mem, ptr %mem, i64 0, i32 4
+  %realloc = getelementptr inbounds i8, ptr %mem, i64 32
   %0 = load ptr, ptr %realloc, align 8
   %1 = load ptr, ptr %mem, align 8
   %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %size, ptr noundef %1) #8

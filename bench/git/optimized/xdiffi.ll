@@ -3,17 +3,13 @@ source_filename = "bench/git/original/xdiffi.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.s_diffdata = type { i64, ptr, ptr, ptr }
 %struct.s_xdalgoenv = type { i64, i64, i64 }
+%struct.s_diffdata = type { i64, ptr, ptr, ptr }
+%struct.split_measurement = type { i32, i32, i32, i32, i32, i32 }
+%struct.regmatch_t = type { i32, i32 }
+%struct.s_xdfenv = type { %struct.s_xdfile, %struct.s_xdfile }
 %struct.s_xdfile = type { %struct.s_chastore, i64, i32, ptr, i64, i64, ptr, ptr, ptr, i64, ptr }
 %struct.s_chastore = type { ptr, ptr, i64, i64, ptr, ptr, i64 }
-%struct.s_xdfenv = type { %struct.s_xdfile, %struct.s_xdfile }
-%struct.split_measurement = type { i32, i32, i32, i32, i32, i32 }
-%struct.s_xrecord = type { ptr, ptr, i64, i64 }
-%struct.s_xdchange = type { ptr, i64, i64, i64, i64, i32 }
-%struct.regmatch_t = type { i32, i32 }
-%struct.s_xdemitconf = type { i64, i64, i64, ptr, ptr, ptr }
-%struct.s_xpparam = type { i64, ptr, i64, ptr, i64 }
 
 @.str = private unnamed_addr constant [15 x i8] c"xdiff/xdiffi.c\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"group sync broken sliding up\00", align 1
@@ -29,9 +25,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @xdl_recs_cmp(ptr noundef %dd1, i64 noundef %off1, i64 noundef %lim1, ptr noundef %dd2, i64 noundef %off2, i64 noundef %lim2, ptr noundef %kvdf, ptr noundef %kvdb, i32 noundef %need_min, ptr noundef %xenv) local_unnamed_addr #0 {
 entry:
-  %ha = getelementptr inbounds %struct.s_diffdata, ptr %dd1, i64 0, i32 1
+  %ha = getelementptr inbounds i8, ptr %dd1, i64 8
   %0 = load ptr, ptr %ha, align 8
-  %ha3 = getelementptr inbounds %struct.s_diffdata, ptr %dd2, i64 0, i32 1
+  %ha3 = getelementptr inbounds i8, ptr %dd2, i64 8
   %1 = load ptr, ptr %ha3, align 8
   %cmp80 = icmp slt i64 %off1, %lim1
   %cmp481 = icmp slt i64 %off2, %lim2
@@ -59,8 +55,8 @@ for.inc:                                          ; preds = %land.rhs
 for.end:                                          ; preds = %land.rhs, %for.inc, %entry
   %off2.addr.0.lcssa = phi i64 [ %off2, %entry ], [ %inc7, %for.inc ], [ %off2.addr.083, %land.rhs ]
   %off1.addr.0.lcssa = phi i64 [ %off1, %entry ], [ %inc, %for.inc ], [ %off1.addr.084, %land.rhs ]
-  %invariant.gep = getelementptr i64, ptr %0, i64 -1
-  %invariant.gep88 = getelementptr i64, ptr %1, i64 -1
+  %invariant.gep = getelementptr i8, ptr %0, i64 -8
+  %invariant.gep88 = getelementptr i8, ptr %1, i64 -8
   %cmp990 = icmp slt i64 %off1.addr.0.lcssa, %lim1
   %cmp1191 = icmp slt i64 %off2.addr.0.lcssa, %lim2
   %or.cond5192 = select i1 %cmp990, i1 %cmp1191, i1 false
@@ -91,9 +87,9 @@ for.end21:                                        ; preds = %land.rhs12, %for.in
   br i1 %cmp22, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.end21
-  %rchg = getelementptr inbounds %struct.s_diffdata, ptr %dd2, i64 0, i32 3
+  %rchg = getelementptr inbounds i8, ptr %dd2, i64 24
   %6 = load ptr, ptr %rchg, align 8
-  %rindex = getelementptr inbounds %struct.s_diffdata, ptr %dd2, i64 0, i32 2
+  %rindex = getelementptr inbounds i8, ptr %dd2, i64 16
   %7 = load ptr, ptr %rindex, align 8
   %cmp24101 = icmp slt i64 %off2.addr.0.lcssa, %lim2.addr.0.lcssa
   br i1 %cmp24101, label %for.body25, label %if.end57
@@ -113,9 +109,9 @@ if.else:                                          ; preds = %for.end21
   br i1 %cmp31, label %if.then32, label %if.else43
 
 if.then32:                                        ; preds = %if.else
-  %rchg33 = getelementptr inbounds %struct.s_diffdata, ptr %dd1, i64 0, i32 3
+  %rchg33 = getelementptr inbounds i8, ptr %dd1, i64 24
   %9 = load ptr, ptr %rchg33, align 8
-  %rindex34 = getelementptr inbounds %struct.s_diffdata, ptr %dd1, i64 0, i32 2
+  %rindex34 = getelementptr inbounds i8, ptr %dd1, i64 16
   %10 = load ptr, ptr %rindex34, align 8
   %cmp3699 = icmp slt i64 %off1.addr.0.lcssa, %lim1.addr.0.lcssa
   br i1 %cmp3699, label %for.body37, label %if.end57
@@ -141,15 +137,15 @@ if.else43:                                        ; preds = %if.else
   store i64 %off1.addr.0.lcssa, ptr %arrayidx.i, align 8
   %arrayidx5.i = getelementptr inbounds i64, ptr %kvdb, i64 %sub3.i
   store i64 %lim1.addr.0.lcssa, ptr %arrayidx5.i, align 8
-  %invariant.gep362.i = getelementptr i64, ptr %kvdf, i64 -2
-  %invariant.gep364.i = getelementptr i64, ptr %kvdf, i64 2
-  %invariant.gep366.i = getelementptr i64, ptr %kvdb, i64 -2
-  %invariant.gep368.i = getelementptr i64, ptr %kvdb, i64 2
-  %snake_cnt.i = getelementptr inbounds %struct.s_xdalgoenv, ptr %xenv, i64 0, i32 1
+  %invariant.gep362.i = getelementptr i8, ptr %kvdf, i64 -16
+  %invariant.gep364.i = getelementptr i8, ptr %kvdf, i64 16
+  %invariant.gep366.i = getelementptr i8, ptr %kvdb, i64 -16
+  %invariant.gep368.i = getelementptr i8, ptr %kvdb, i64 16
+  %snake_cnt.i = getelementptr inbounds i8, ptr %xenv, i64 8
   %tobool.not.i = icmp eq i64 %and.i, 0
   %tobool114.not.i = icmp ne i64 %and.i, 0
   %tobool131.not.i = icmp eq i32 %need_min, 0
-  %heur_min.i = getelementptr inbounds %struct.s_xdalgoenv, ptr %xenv, i64 0, i32 2
+  %heur_min.i = getelementptr inbounds i8, ptr %xenv, i64 16
   %12 = add i64 %off1.addr.0.lcssa, %off2.addr.0.lcssa
   %sub204.i = add i64 %lim1.addr.0.lcssa, %lim2.addr.0.lcssa
   br label %for.cond.i
@@ -199,9 +195,9 @@ for.body.i:                                       ; preds = %if.end14.i, %for.in
   %got_snake.0329.i = phi i32 [ %spec.select.i, %for.inc56.i ], [ 0, %if.end14.i ]
   %d.0328.i = phi i64 [ %sub57.i, %for.inc56.i ], [ %fmax.1.i, %if.end14.i ]
   %13 = getelementptr i64, ptr %kvdf, i64 %d.0328.i
-  %arrayidx18.i = getelementptr i64, ptr %13, i64 -1
+  %arrayidx18.i = getelementptr i8, ptr %13, i64 -8
   %14 = load i64, ptr %arrayidx18.i, align 8
-  %arrayidx20.i = getelementptr i64, ptr %13, i64 1
+  %arrayidx20.i = getelementptr i8, ptr %13, i64 8
   %15 = load i64, ptr %arrayidx20.i, align 8
   %cmp21.not.i = icmp slt i64 %14, %15
   %add25.i = add nsw i64 %14, 1
@@ -294,9 +290,9 @@ for.body77.i:                                     ; preds = %if.end74.i, %for.in
   %got_snake.2344.i = phi i32 [ %spec.select285.i, %for.inc128.i ], [ %got_snake.0.lcssa.i, %if.end74.i ]
   %d.1343.i = phi i64 [ %sub129.i, %for.inc128.i ], [ %bmax.1.i, %if.end74.i ]
   %20 = getelementptr i64, ptr %kvdb, i64 %d.1343.i
-  %arrayidx79.i = getelementptr i64, ptr %20, i64 -1
+  %arrayidx79.i = getelementptr i8, ptr %20, i64 -8
   %21 = load i64, ptr %arrayidx79.i, align 8
-  %arrayidx81.i = getelementptr i64, ptr %20, i64 1
+  %arrayidx81.i = getelementptr i8, ptr %20, i64 8
   %22 = load i64, ptr %arrayidx81.i, align 8
   %cmp82.i = icmp slt i64 %21, %22
   %sub89.i = add nsw i64 %22, -1
@@ -646,9 +642,9 @@ if.then8:                                         ; preds = %if.end
   br label %out
 
 if.end10:                                         ; preds = %if.end
-  %nreff = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 9
+  %nreff = getelementptr inbounds i8, ptr %xe, i64 120
   %2 = load i64, ptr %nreff, align 8
-  %nreff11 = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 9
+  %nreff11 = getelementptr inbounds i8, ptr %xe, i64 256
   %3 = load i64, ptr %nreff11, align 8
   %add = add i64 %2, 3
   %add12 = add i64 %add, %3
@@ -676,29 +672,29 @@ if.end20:                                         ; preds = %cond.end
   %call29 = tail call i64 @xdl_bogosqrt(i64 noundef %add12) #8
   %spec.select = tail call i64 @llvm.smax.i64(i64 %call29, i64 256)
   store i64 %spec.select, ptr %xenv, align 8
-  %snake_cnt = getelementptr inbounds %struct.s_xdalgoenv, ptr %xenv, i64 0, i32 1
+  %snake_cnt = getelementptr inbounds i8, ptr %xenv, i64 8
   store i64 20, ptr %snake_cnt, align 8
-  %heur_min = getelementptr inbounds %struct.s_xdalgoenv, ptr %xenv, i64 0, i32 2
+  %heur_min = getelementptr inbounds i8, ptr %xenv, i64 16
   store i64 256, ptr %heur_min, align 8
   %5 = load i64, ptr %nreff, align 8
   store i64 %5, ptr %dd1, align 8
-  %ha = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 10
+  %ha = getelementptr inbounds i8, ptr %xe, i64 128
   %6 = load ptr, ptr %ha, align 8
-  %ha38 = getelementptr inbounds %struct.s_diffdata, ptr %dd1, i64 0, i32 1
+  %ha38 = getelementptr inbounds i8, ptr %dd1, i64 8
   store ptr %6, ptr %ha38, align 8
-  %rchg = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 7
-  %rindex42 = getelementptr inbounds %struct.s_diffdata, ptr %dd1, i64 0, i32 2
+  %rchg = getelementptr inbounds i8, ptr %xe, i64 104
+  %rindex42 = getelementptr inbounds i8, ptr %dd1, i64 16
   %7 = load <2 x ptr>, ptr %rchg, align 8
   %8 = shufflevector <2 x ptr> %7, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %8, ptr %rindex42, align 8
   %9 = load i64, ptr %nreff11, align 8
   store i64 %9, ptr %dd2, align 8
-  %ha47 = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 10
+  %ha47 = getelementptr inbounds i8, ptr %xe, i64 264
   %10 = load ptr, ptr %ha47, align 8
-  %ha48 = getelementptr inbounds %struct.s_diffdata, ptr %dd2, i64 0, i32 1
+  %ha48 = getelementptr inbounds i8, ptr %dd2, i64 8
   store ptr %10, ptr %ha48, align 8
-  %rchg50 = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 7
-  %rindex54 = getelementptr inbounds %struct.s_diffdata, ptr %dd2, i64 0, i32 2
+  %rchg50 = getelementptr inbounds i8, ptr %xe, i64 240
+  %rindex54 = getelementptr inbounds i8, ptr %dd2, i64 16
   %11 = load <2 x ptr>, ptr %rchg50, align 8
   %12 = shufflevector <2 x ptr> %11, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %12, ptr %rindex54, align 8
@@ -742,7 +738,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define dso_local noundef i32 @xdl_change_compact(ptr nocapture noundef readonly %xdf, ptr nocapture noundef readonly %xdfo, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
   %m = alloca %struct.split_measurement, align 4
-  %rchg.i = getelementptr inbounds %struct.s_xdfile, ptr %xdf, i64 0, i32 7
+  %rchg.i = getelementptr inbounds i8, ptr %xdf, i64 104
   %0 = load ptr, ptr %rchg.i, align 8
   %1 = load i8, ptr %0, align 1
   %tobool.not5.i = icmp eq i8 %1, 0
@@ -758,7 +754,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 
 group_init.exit:                                  ; preds = %while.body.i, %entry
   %g.sroa.19.0 = phi i64 [ 0, %entry ], [ %inc.i, %while.body.i ]
-  %rchg.i31 = getelementptr inbounds %struct.s_xdfile, ptr %xdfo, i64 0, i32 7
+  %rchg.i31 = getelementptr inbounds i8, ptr %xdfo, i64 104
   %4 = load ptr, ptr %rchg.i31, align 8
   %5 = load i8, ptr %4, align 1
   %tobool.not5.i32 = icmp eq i8 %5, 0
@@ -774,16 +770,16 @@ while.body.i33:                                   ; preds = %group_init.exit, %w
 
 group_init.exit37:                                ; preds = %while.body.i33, %group_init.exit
   %go.sroa.13.0 = phi i64 [ 0, %group_init.exit ], [ %inc.i34, %while.body.i33 ]
-  %recs.i = getelementptr inbounds %struct.s_xdfile, ptr %xdf, i64 0, i32 6
-  %nrec.i = getelementptr inbounds %struct.s_xdfile, ptr %xdf, i64 0, i32 1
-  %nrec.i62 = getelementptr inbounds %struct.s_xdfile, ptr %xdfo, i64 0, i32 1
+  %recs.i = getelementptr inbounds i8, ptr %xdf, i64 96
+  %nrec.i = getelementptr inbounds i8, ptr %xdf, i64 56
+  %nrec.i62 = getelementptr inbounds i8, ptr %xdfo, i64 56
   %and = and i64 %flags, 8388608
   %tobool57.not = icmp eq i64 %and, 0
-  %pre_indent.i = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 3
-  %pre_blank.i = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 2
-  %indent6.i = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 1
-  %post_blank8.i = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 4
-  %post_indent.i = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 5
+  %pre_indent.i = getelementptr inbounds i8, ptr %m, i64 12
+  %pre_blank.i = getelementptr inbounds i8, ptr %m, i64 8
+  %indent6.i = getelementptr inbounds i8, ptr %m, i64 4
+  %post_blank8.i = getelementptr inbounds i8, ptr %m, i64 16
+  %post_indent.i = getelementptr inbounds i8, ptr %m, i64 20
   br label %while.body
 
 while.body.loopexit:                              ; preds = %for.cond.i229
@@ -816,10 +812,10 @@ do.body:                                          ; preds = %while.body, %do.con
 land.lhs.true.i.preheader:                        ; preds = %do.body
   %13 = load ptr, ptr %recs.i, align 8
   %14 = getelementptr ptr, ptr %13, i64 %g.sroa.0.1
-  %arrayidx.i38514 = getelementptr ptr, ptr %14, i64 -1
+  %arrayidx.i38514 = getelementptr i8, ptr %14, i64 -8
   %15 = load ptr, ptr %arrayidx.i38514, align 8
   %16 = getelementptr ptr, ptr %13, i64 %g.sroa.19.2
-  %arrayidx4.i515 = getelementptr ptr, ptr %16, i64 -1
+  %arrayidx4.i515 = getelementptr i8, ptr %16, i64 -8
   %17 = load ptr, ptr %arrayidx4.i515, align 8
   %18 = getelementptr i8, ptr %15, i64 24
   %.val.i516 = load i64, ptr %18, align 8
@@ -831,10 +827,10 @@ land.lhs.true.i.preheader:                        ; preds = %do.body
 land.lhs.true.i:                                  ; preds = %group_previous.exit
   %20 = load ptr, ptr %recs.i, align 8
   %21 = getelementptr ptr, ptr %20, i64 %g.sroa.0.3.ph
-  %arrayidx.i38 = getelementptr ptr, ptr %21, i64 -1
+  %arrayidx.i38 = getelementptr i8, ptr %21, i64 -8
   %22 = load ptr, ptr %arrayidx.i38, align 8
   %23 = getelementptr ptr, ptr %20, i64 %dec9.i
-  %arrayidx4.i = getelementptr ptr, ptr %23, i64 -1
+  %arrayidx4.i = getelementptr i8, ptr %23, i64 -8
   %24 = load ptr, ptr %arrayidx4.i, align 8
   %25 = getelementptr i8, ptr %22, i64 24
   %.val.i = load i64, ptr %25, align 8
@@ -1034,10 +1030,10 @@ while.body46:                                     ; preds = %while.cond42.prehea
 land.lhs.true.i74:                                ; preds = %while.body46
   %64 = load ptr, ptr %recs.i, align 8
   %65 = getelementptr ptr, ptr %64, i64 %g.sroa.0.6446
-  %arrayidx.i76 = getelementptr ptr, ptr %65, i64 -1
+  %arrayidx.i76 = getelementptr i8, ptr %65, i64 -8
   %66 = load ptr, ptr %arrayidx.i76, align 8
   %67 = getelementptr ptr, ptr %64, i64 %g.sroa.19.7447
-  %arrayidx4.i78 = getelementptr ptr, ptr %67, i64 -1
+  %arrayidx4.i78 = getelementptr i8, ptr %67, i64 -8
   %68 = load ptr, ptr %arrayidx4.i78, align 8
   %69 = getelementptr i8, ptr %66, i64 24
   %.val.i79 = load i64, ptr %69, align 8
@@ -1323,10 +1319,10 @@ while.body88:                                     ; preds = %while.cond85.prehea
 land.lhs.true.i177:                               ; preds = %while.body88
   %97 = load ptr, ptr %recs.i, align 8
   %98 = getelementptr ptr, ptr %97, i64 %g.sroa.0.8464
-  %arrayidx.i179 = getelementptr ptr, ptr %98, i64 -1
+  %arrayidx.i179 = getelementptr i8, ptr %98, i64 -8
   %99 = load ptr, ptr %arrayidx.i179, align 8
   %100 = getelementptr ptr, ptr %97, i64 %g.sroa.19.9465
-  %arrayidx4.i181 = getelementptr ptr, ptr %100, i64 -1
+  %arrayidx4.i181 = getelementptr i8, ptr %100, i64 -8
   %101 = load ptr, ptr %arrayidx4.i181, align 8
   %102 = getelementptr i8, ptr %99, i64 24
   %.val.i182 = load i64, ptr %102, align 8
@@ -1456,7 +1452,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @measure_split(ptr nocapture noundef readonly %xdf, i64 noundef %split, ptr nocapture noundef writeonly %m) unnamed_addr #5 {
 entry:
-  %nrec = getelementptr inbounds %struct.s_xdfile, ptr %xdf, i64 0, i32 1
+  %nrec = getelementptr inbounds i8, ptr %xdf, i64 56
   %0 = load i64, ptr %nrec, align 8
   %cmp.not = icmp sgt i64 %0, %split
   br i1 %cmp.not, label %if.else, label %if.then
@@ -1467,17 +1463,17 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   store i32 0, ptr %m, align 4
-  %recs = getelementptr inbounds %struct.s_xdfile, ptr %xdf, i64 0, i32 6
+  %recs = getelementptr inbounds i8, ptr %xdf, i64 96
   %1 = load ptr, ptr %recs, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %split
   %2 = load ptr, ptr %arrayidx, align 8
-  %size.i = getelementptr inbounds %struct.s_xrecord, ptr %2, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %size.i, align 8
   %cmp13.i = icmp sgt i64 %3, 0
   br i1 %cmp13.i, label %for.body.lr.ph.i, label %if.end
 
 for.body.lr.ph.i:                                 ; preds = %if.else
-  %ptr.i = getelementptr inbounds %struct.s_xrecord, ptr %2, i64 0, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %ptr.i, align 8
   br label %for.body.i
 
@@ -1522,13 +1518,13 @@ for.inc.i:                                        ; preds = %if.end15.i, %if.els
 
 if.end:                                           ; preds = %for.inc.i, %if.end15.i, %for.body.i, %if.else, %if.then
   %retval.0.i.sink = phi i32 [ -1, %if.then ], [ -1, %if.else ], [ %ret.015.i, %for.body.i ], [ 200, %if.end15.i ], [ -1, %for.inc.i ]
-  %indent2 = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 1
+  %indent2 = getelementptr inbounds i8, ptr %m, i64 4
   store i32 %retval.0.i.sink, ptr %indent2, align 4
-  %pre_blank = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 2
+  %pre_blank = getelementptr inbounds i8, ptr %m, i64 8
   store i32 0, ptr %pre_blank, align 4
-  %pre_indent = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 3
+  %pre_indent = getelementptr inbounds i8, ptr %m, i64 12
   store i32 -1, ptr %pre_indent, align 4
-  %recs4 = getelementptr inbounds %struct.s_xdfile, ptr %xdf, i64 0, i32 6
+  %recs4 = getelementptr inbounds i8, ptr %xdf, i64 96
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end11, %if.end
@@ -1542,13 +1538,13 @@ for.body:                                         ; preds = %for.cond
   %9 = load ptr, ptr %recs4, align 8
   %arrayidx5 = getelementptr inbounds ptr, ptr %9, i64 %i.0
   %10 = load ptr, ptr %arrayidx5, align 8
-  %size.i30 = getelementptr inbounds %struct.s_xrecord, ptr %10, i64 0, i32 2
+  %size.i30 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %size.i30, align 8
   %cmp13.i31 = icmp sgt i64 %11, 0
   br i1 %cmp13.i31, label %for.body.lr.ph.i33, label %get_indent.exit56.thread
 
 for.body.lr.ph.i33:                               ; preds = %for.body
-  %ptr.i34 = getelementptr inbounds %struct.s_xrecord, ptr %10, i64 0, i32 1
+  %ptr.i34 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %ptr.i34, align 8
   br label %for.body.i35
 
@@ -1612,9 +1608,9 @@ for.end.sink.split:                               ; preds = %if.end11, %if.end15
   br label %for.end
 
 for.end:                                          ; preds = %get_indent.exit56, %for.cond, %for.end.sink.split
-  %post_blank = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 4
+  %post_blank = getelementptr inbounds i8, ptr %m, i64 16
   store i32 0, ptr %post_blank, align 4
-  %post_indent = getelementptr inbounds %struct.split_measurement, ptr %m, i64 0, i32 5
+  %post_indent = getelementptr inbounds i8, ptr %m, i64 20
   store i32 -1, ptr %post_indent, align 4
   br label %for.cond19
 
@@ -1630,13 +1626,13 @@ for.body22:                                       ; preds = %for.cond19
   %18 = load ptr, ptr %recs4, align 8
   %arrayidx24 = getelementptr inbounds ptr, ptr %18, i64 %i.1
   %19 = load ptr, ptr %arrayidx24, align 8
-  %size.i57 = getelementptr inbounds %struct.s_xrecord, ptr %19, i64 0, i32 2
+  %size.i57 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i64, ptr %size.i57, align 8
   %cmp13.i58 = icmp sgt i64 %20, 0
   br i1 %cmp13.i58, label %for.body.lr.ph.i60, label %get_indent.exit83.thread
 
 for.body.lr.ph.i60:                               ; preds = %for.body22
-  %ptr.i61 = getelementptr inbounds %struct.s_xrecord, ptr %19, i64 0, i32 1
+  %ptr.i61 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load ptr, ptr %ptr.i61, align 8
   br label %for.body.i62
 
@@ -1706,13 +1702,13 @@ for.end39:                                        ; preds = %get_indent.exit83, 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @xdl_build_script(ptr nocapture noundef readonly %xe, ptr nocapture noundef writeonly %xscr) local_unnamed_addr #1 {
 entry:
-  %rchg = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 7
+  %rchg = getelementptr inbounds i8, ptr %xe, i64 104
   %0 = load ptr, ptr %rchg, align 8
-  %rchg3 = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 7
+  %rchg3 = getelementptr inbounds i8, ptr %xe, i64 240
   %1 = load ptr, ptr %rchg3, align 8
-  %nrec = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 1
+  %nrec = getelementptr inbounds i8, ptr %xe, i64 56
   %2 = load i64, ptr %nrec, align 8
-  %nrec6 = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 1
+  %nrec6 = getelementptr inbounds i8, ptr %xe, i64 192
   %3 = load i64, ptr %nrec6, align 8
   %invariant.gep25 = getelementptr i8, ptr %0, i64 -1
   %invariant.gep27 = getelementptr i8, ptr %1, i64 -1
@@ -1769,15 +1765,15 @@ xdl_add_change.exit:                              ; preds = %for.end24
   %sub26 = sub nsw i64 %i2.032, %i2.1
   %sub25 = sub nsw i64 %i1.031, %i1.1
   store ptr %cscr.033, ptr %call.i, align 8
-  %i11.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i, i64 0, i32 1
+  %i11.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %i1.1, ptr %i11.i, align 8
-  %i22.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i, i64 0, i32 2
+  %i22.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %i2.1, ptr %i22.i, align 8
-  %chg13.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i, i64 0, i32 3
+  %chg13.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %sub25, ptr %chg13.i, align 8
-  %chg24.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i, i64 0, i32 4
+  %chg24.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %sub26, ptr %chg24.i, align 8
-  %ignore.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i, i64 0, i32 5
+  %ignore.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i32 0, ptr %ignore.i, align 8
   br label %for.inc30
 
@@ -1836,7 +1832,7 @@ entry:
   %regmatch.i18.i = alloca %struct.regmatch_t, align 4
   %regmatch.i.i = alloca %struct.regmatch_t, align 4
   %xe = alloca %struct.s_xdfenv, align 8
-  %hunk_func = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 5
+  %hunk_func = getelementptr inbounds i8, ptr %xecfg, i64 40
   %0 = load ptr, ptr %hunk_func, align 8
   %tobool.not = icmp eq ptr %0, null
   %cond = select i1 %tobool.not, ptr @xdl_emit_diff, ptr @xdl_call_hunk_func
@@ -1845,18 +1841,18 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %xdf2 = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1
+  %xdf2 = getelementptr inbounds i8, ptr %xe, i64 136
   %1 = load i64, ptr %xpp, align 8
   %call1 = call i32 @xdl_change_compact(ptr noundef nonnull %xe, ptr noundef nonnull %xdf2, i64 noundef %1)
   %2 = load i64, ptr %xpp, align 8
   %call6 = call i32 @xdl_change_compact(ptr noundef nonnull %xdf2, ptr noundef nonnull %xe, i64 noundef %2)
-  %rchg.i = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 7
+  %rchg.i = getelementptr inbounds i8, ptr %xe, i64 104
   %3 = load ptr, ptr %rchg.i, align 8
-  %rchg3.i = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 7
+  %rchg3.i = getelementptr inbounds i8, ptr %xe, i64 240
   %4 = load ptr, ptr %rchg3.i, align 8
-  %nrec.i = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 1
+  %nrec.i = getelementptr inbounds i8, ptr %xe, i64 56
   %5 = load i64, ptr %nrec.i, align 8
-  %nrec6.i = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 1
+  %nrec6.i = getelementptr inbounds i8, ptr %xe, i64 192
   %6 = load i64, ptr %nrec6.i, align 8
   %invariant.gep25.i = getelementptr i8, ptr %3, i64 -1
   %invariant.gep27.i = getelementptr i8, ptr %4, i64 -1
@@ -1913,15 +1909,15 @@ xdl_add_change.exit.i:                            ; preds = %for.end24.i
   %sub26.i = sub nsw i64 %i2.032.i, %i2.1.i
   %sub25.i = sub nsw i64 %i1.031.i, %i1.1.i
   store ptr %cscr.033.i, ptr %call.i.i, align 8
-  %i11.i.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i.i, i64 0, i32 1
+  %i11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i64 %i1.1.i, ptr %i11.i.i, align 8
-  %i22.i.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i.i, i64 0, i32 2
+  %i22.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i64 %i2.1.i, ptr %i22.i.i, align 8
-  %chg13.i.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i.i, i64 0, i32 3
+  %chg13.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i64 %sub25.i, ptr %chg13.i.i, align 8
-  %chg24.i.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i.i, i64 0, i32 4
+  %chg24.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i64 %sub26.i, ptr %chg24.i.i, align 8
-  %ignore.i.i = getelementptr inbounds %struct.s_xdchange, ptr %call.i.i, i64 0, i32 5
+  %ignore.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i32 0, ptr %ignore.i.i, align 8
   br label %for.inc30.i
 
@@ -1958,17 +1954,17 @@ if.then14:                                        ; preds = %if.end12
   br i1 %tobool16.not, label %if.end19, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then14
-  %recs.i = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 6
-  %recs6.i = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 6
+  %recs.i = getelementptr inbounds i8, ptr %xe, i64 96
+  %recs6.i = getelementptr inbounds i8, ptr %xe, i64 232
   br label %for.body.i8
 
 for.body.i8:                                      ; preds = %for.end21.i, %for.body.lr.ph.i
   %xch.028.i = phi ptr [ %cscr.1.i, %for.body.lr.ph.i ], [ %32, %for.end21.i ]
   %15 = load ptr, ptr %recs.i, align 8
-  %i1.i = getelementptr inbounds %struct.s_xdchange, ptr %xch.028.i, i64 0, i32 1
+  %i1.i = getelementptr inbounds i8, ptr %xch.028.i, i64 8
   %16 = load i64, ptr %i1.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %15, i64 %16
-  %chg1.i = getelementptr inbounds %struct.s_xdchange, ptr %xch.028.i, i64 0, i32 3
+  %chg1.i = getelementptr inbounds i8, ptr %xch.028.i, i64 24
   %17 = load i64, ptr %chg1.i, align 8
   %cmp21.i = icmp sgt i64 %17, 0
   br i1 %cmp21.i, label %for.body3.i, label %for.end.i
@@ -1977,9 +1973,9 @@ for.body3.i:                                      ; preds = %for.body.i8, %for.b
   %i.022.i = phi i64 [ %inc.i, %for.body3.i ], [ 0, %for.body.i8 ]
   %arrayidx4.i = getelementptr inbounds ptr, ptr %arrayidx.i, i64 %i.022.i
   %18 = load ptr, ptr %arrayidx4.i, align 8
-  %ptr.i = getelementptr inbounds %struct.s_xrecord, ptr %18, i64 0, i32 1
+  %ptr.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %ptr.i, align 8
-  %size.i = getelementptr inbounds %struct.s_xrecord, ptr %18, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load i64, ptr %size.i, align 8
   %call.i = call i32 @xdl_blankline(ptr noundef %19, i64 noundef %20, i64 noundef %14) #8
   %inc.i = add nuw nsw i64 %i.022.i, 1
@@ -1992,10 +1988,10 @@ for.body3.i:                                      ; preds = %for.body.i8, %for.b
 for.end.i:                                        ; preds = %for.body3.i, %for.body.i8
   %ignore.0.lcssa.i = phi i32 [ 1, %for.body.i8 ], [ %call.i, %for.body3.i ]
   %23 = load ptr, ptr %recs6.i, align 8
-  %i2.i = getelementptr inbounds %struct.s_xdchange, ptr %xch.028.i, i64 0, i32 2
+  %i2.i = getelementptr inbounds i8, ptr %xch.028.i, i64 16
   %24 = load i64, ptr %i2.i, align 8
   %arrayidx7.i = getelementptr inbounds ptr, ptr %23, i64 %24
-  %chg2.i = getelementptr inbounds %struct.s_xdchange, ptr %xch.028.i, i64 0, i32 4
+  %chg2.i = getelementptr inbounds i8, ptr %xch.028.i, i64 32
   %25 = load i64, ptr %chg2.i, align 8
   %cmp923.i = icmp sgt i64 %25, 0
   %tobool1124.i = icmp ne i32 %ignore.0.lcssa.i, 0
@@ -2006,9 +2002,9 @@ for.body13.i:                                     ; preds = %for.end.i, %for.bod
   %i.125.i = phi i64 [ %inc20.i, %for.body13.i ], [ 0, %for.end.i ]
   %arrayidx14.i = getelementptr inbounds ptr, ptr %arrayidx7.i, i64 %i.125.i
   %27 = load ptr, ptr %arrayidx14.i, align 8
-  %ptr15.i = getelementptr inbounds %struct.s_xrecord, ptr %27, i64 0, i32 1
+  %ptr15.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %ptr15.i, align 8
-  %size17.i = getelementptr inbounds %struct.s_xrecord, ptr %27, i64 0, i32 2
+  %size17.i = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i64, ptr %size17.i, align 8
   %call18.i = call i32 @xdl_blankline(ptr noundef %28, i64 noundef %29, i64 noundef %14) #8
   %inc20.i = add nuw nsw i64 %i.125.i, 1
@@ -2020,39 +2016,39 @@ for.body13.i:                                     ; preds = %for.end.i, %for.bod
 
 for.end21.i:                                      ; preds = %for.body13.i, %for.end.i
   %ignore.1.lcssa.i = phi i32 [ %ignore.0.lcssa.i, %for.end.i ], [ %call18.i, %for.body13.i ]
-  %ignore22.i = getelementptr inbounds %struct.s_xdchange, ptr %xch.028.i, i64 0, i32 5
+  %ignore22.i = getelementptr inbounds i8, ptr %xch.028.i, i64 40
   store i32 %ignore.1.lcssa.i, ptr %ignore22.i, align 8
   %32 = load ptr, ptr %xch.028.i, align 8
   %tobool.not.i9 = icmp eq ptr %32, null
   br i1 %tobool.not.i9, label %if.end19, label %for.body.i8, !llvm.loop !40
 
 if.end19:                                         ; preds = %for.end21.i, %if.then14
-  %ignore_regex = getelementptr inbounds %struct.s_xpparam, ptr %xpp, i64 0, i32 1
+  %ignore_regex = getelementptr inbounds i8, ptr %xpp, i64 8
   %33 = load ptr, ptr %ignore_regex, align 8
   %tobool20.not = icmp eq ptr %33, null
   br i1 %tobool20.not, label %if.end22, label %for.body.lr.ph.i12
 
 for.body.lr.ph.i12:                               ; preds = %if.end19
-  %recs.i13 = getelementptr inbounds %struct.s_xdfile, ptr %xe, i64 0, i32 6
-  %ignore_regex_nr.i.i = getelementptr inbounds %struct.s_xpparam, ptr %xpp, i64 0, i32 2
-  %rm_eo.i.i.i = getelementptr inbounds %struct.regmatch_t, ptr %regmatch.i.i, i64 0, i32 1
-  %recs7.i = getelementptr inbounds %struct.s_xdfenv, ptr %xe, i64 0, i32 1, i32 6
-  %rm_eo.i.i25.i = getelementptr inbounds %struct.regmatch_t, ptr %regmatch.i18.i, i64 0, i32 1
+  %recs.i13 = getelementptr inbounds i8, ptr %xe, i64 96
+  %ignore_regex_nr.i.i = getelementptr inbounds i8, ptr %xpp, i64 16
+  %rm_eo.i.i.i = getelementptr inbounds i8, ptr %regmatch.i.i, i64 4
+  %recs7.i = getelementptr inbounds i8, ptr %xe, i64 232
+  %rm_eo.i.i25.i = getelementptr inbounds i8, ptr %regmatch.i18.i, i64 4
   br label %for.body.i14
 
 for.body.i14:                                     ; preds = %for.inc21.i, %for.body.lr.ph.i12
   %xch.045.i = phi ptr [ %cscr.1.i, %for.body.lr.ph.i12 ], [ %61, %for.inc21.i ]
-  %ignore1.i = getelementptr inbounds %struct.s_xdchange, ptr %xch.045.i, i64 0, i32 5
+  %ignore1.i = getelementptr inbounds i8, ptr %xch.045.i, i64 40
   %34 = load i32, ptr %ignore1.i, align 8
   %tobool2.not.i = icmp eq i32 %34, 0
   br i1 %tobool2.not.i, label %if.end.i, label %for.inc21.i
 
 if.end.i:                                         ; preds = %for.body.i14
   %35 = load ptr, ptr %recs.i13, align 8
-  %i1.i16 = getelementptr inbounds %struct.s_xdchange, ptr %xch.045.i, i64 0, i32 1
+  %i1.i16 = getelementptr inbounds i8, ptr %xch.045.i, i64 8
   %36 = load i64, ptr %i1.i16, align 8
   %arrayidx.i17 = getelementptr inbounds ptr, ptr %35, i64 %36
-  %chg1.i18 = getelementptr inbounds %struct.s_xdchange, ptr %xch.045.i, i64 0, i32 3
+  %chg1.i18 = getelementptr inbounds i8, ptr %xch.045.i, i64 24
   %37 = load i64, ptr %chg1.i18, align 8
   %cmp37.i = icmp sgt i64 %37, 0
   br i1 %cmp37.i, label %for.body5.lr.ph.i, label %for.end.i19
@@ -2082,8 +2078,8 @@ record_matches_regex.exit.thread.i:               ; preds = %for.body5thread-pre
 for.body.lr.ph.i.i:                               ; preds = %for.body5.i.preheader, %for.body5thread-pre-split.i
   %42 = phi ptr [ %40, %for.body5.i.preheader ], [ %41, %for.body5thread-pre-split.i ]
   %i.038.i44 = phi i64 [ 0, %for.body5.i.preheader ], [ %inc.i25, %for.body5thread-pre-split.i ]
-  %ptr.i.i = getelementptr inbounds %struct.s_xrecord, ptr %42, i64 0, i32 1
-  %size.i.i = getelementptr inbounds %struct.s_xrecord, ptr %42, i64 0, i32 2
+  %ptr.i.i = getelementptr inbounds i8, ptr %42, i64 8
+  %size.i.i = getelementptr inbounds i8, ptr %42, i64 16
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
@@ -2119,10 +2115,10 @@ record_matches_regex.exit.i:                      ; preds = %for.body.i.i
 
 for.end.i19:                                      ; preds = %record_matches_regex.exit.i, %if.end.i
   %48 = load ptr, ptr %recs7.i, align 8
-  %i2.i20 = getelementptr inbounds %struct.s_xdchange, ptr %xch.045.i, i64 0, i32 2
+  %i2.i20 = getelementptr inbounds i8, ptr %xch.045.i, i64 16
   %49 = load i64, ptr %i2.i20, align 8
   %arrayidx8.i = getelementptr inbounds ptr, ptr %48, i64 %49
-  %chg2.i21 = getelementptr inbounds %struct.s_xdchange, ptr %xch.045.i, i64 0, i32 4
+  %chg2.i21 = getelementptr inbounds i8, ptr %xch.045.i, i64 32
   %50 = load i64, ptr %chg2.i21, align 8
   %cmp1039.i = icmp sgt i64 %50, 0
   br i1 %cmp1039.i, label %for.body14.lr.ph.i, label %for.end19.i
@@ -2152,8 +2148,8 @@ record_matches_regex.exit36.thread.i:             ; preds = %for.body14thread-pr
 for.body.lr.ph.i22.i:                             ; preds = %for.body14.i.preheader, %for.body14thread-pre-split.i
   %55 = phi ptr [ %53, %for.body14.i.preheader ], [ %54, %for.body14thread-pre-split.i ]
   %i.141.i45 = phi i64 [ 0, %for.body14.i.preheader ], [ %inc18.i, %for.body14thread-pre-split.i ]
-  %ptr.i23.i = getelementptr inbounds %struct.s_xrecord, ptr %55, i64 0, i32 1
-  %size.i24.i = getelementptr inbounds %struct.s_xrecord, ptr %55, i64 0, i32 2
+  %ptr.i23.i = getelementptr inbounds i8, ptr %55, i64 8
+  %size.i24.i = getelementptr inbounds i8, ptr %55, i64 16
   br label %for.body.i26.i
 
 for.cond.i32.i:                                   ; preds = %for.body.i26.i
@@ -2230,7 +2226,7 @@ return:                                           ; preds = %return.sink.split, 
 define internal noundef i32 @xdl_call_hunk_func(ptr nocapture readnone %xe, ptr noundef %xscr, ptr nocapture noundef readonly %ecb, ptr noundef %xecfg) unnamed_addr #1 {
 entry:
   %xch = alloca ptr, align 8
-  %hunk_func = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 5
+  %hunk_func = getelementptr inbounds i8, ptr %xecfg, i64 40
   store ptr %xscr, ptr %xch, align 8
   %tobool.not7 = icmp eq ptr %xscr, null
   br i1 %tobool.not7, label %return, label %for.body
@@ -2243,19 +2239,19 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %hunk_func, align 8
-  %i1 = getelementptr inbounds %struct.s_xdchange, ptr %0, i64 0, i32 1
+  %i1 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i64, ptr %i1, align 8
-  %i12 = getelementptr inbounds %struct.s_xdchange, ptr %call, i64 0, i32 1
+  %i12 = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load i64, ptr %i12, align 8
-  %chg1 = getelementptr inbounds %struct.s_xdchange, ptr %call, i64 0, i32 3
+  %chg1 = getelementptr inbounds i8, ptr %call, i64 24
   %4 = load i64, ptr %chg1, align 8
   %add = sub i64 %3, %2
   %sub = add i64 %add, %4
-  %i2 = getelementptr inbounds %struct.s_xdchange, ptr %0, i64 0, i32 2
+  %i2 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %i2, align 8
-  %i24 = getelementptr inbounds %struct.s_xdchange, ptr %call, i64 0, i32 2
+  %i24 = getelementptr inbounds i8, ptr %call, i64 16
   %6 = load i64, ptr %i24, align 8
-  %chg2 = getelementptr inbounds %struct.s_xdchange, ptr %call, i64 0, i32 4
+  %chg2 = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load i64, ptr %chg2, align 8
   %add5 = sub i64 %6, %5
   %sub7 = add i64 %add5, %7

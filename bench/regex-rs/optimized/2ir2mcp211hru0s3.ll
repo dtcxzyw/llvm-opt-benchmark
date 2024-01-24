@@ -6,14 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define align 8 ptr @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0423bad3a32fab95E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !5, !noundef !6
-  %3 = getelementptr inbounds { i64, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   store i64 0, ptr %0, align 8
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds { { i64, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3a526f7ad66f7e8E"(ptr nonnull align 8 %7)
   br label %9
 
@@ -24,7 +24,7 @@ define align 8 ptr @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef align 8 ptr @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek17h6470b90bc67321dcE"(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { i64, ptr }, { ptr, ptr } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h52ebfc22fa502650E"(ptr align 8 %0, ptr nonnull align 8 %2)
   %4 = load ptr, ptr %3, align 8, !noundef !6
   %5 = icmp eq ptr %4, null

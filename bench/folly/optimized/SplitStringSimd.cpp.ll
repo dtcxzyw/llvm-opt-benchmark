@@ -3,149 +3,40 @@ source_filename = "bench/folly/original/SplitStringSimd.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.folly::Range" = type { ptr, ptr }
-%"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl" = type { ptr, ptr, ptr }
 %struct.Initializer = type { i8 }
 %struct.Initializer.5 = type { i8 }
 %struct.Initializer.4 = type { i8 }
 %"class.std::bad_alloc" = type { %"class.std::exception" }
 %"class.std::exception" = type { ptr }
 %class.anon.9 = type { ptr, ptr }
-%"class.folly::small_vector" = type { %"struct.boost::operators_impl::totally_ordered1", %"union.folly::small_vector<folly::Range<const char *>, 1, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1" = type { %"struct.boost::operators_impl::less_than_comparable1" }
-%"struct.boost::operators_impl::less_than_comparable1" = type { %"struct.boost::operators_impl::equality_comparable1" }
-%"struct.boost::operators_impl::equality_comparable1" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"struct.folly::detail::IntegralSizePolicy" = type { %"struct.folly::detail::IntegralSizePolicyBase" }
-%"struct.folly::detail::IntegralSizePolicyBase" = type { i64 }
-%"union.folly::small_vector<folly::Range<const char *>, 1, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 1, void>::HeapPtr", [8 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 1, void>::HeapPtr" = type { ptr }
 %"class.std::length_error" = type { %"class.std::logic_error" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"struct.std::__cow_string" = type { %union.anon }
 %union.anon = type { ptr }
 %class.anon.26 = type { ptr, ptr }
-%"class.folly::small_vector.20" = type { %"struct.boost::operators_impl::totally_ordered1.21", %"union.folly::small_vector<folly::Range<const char *>, 2, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.21" = type { %"struct.boost::operators_impl::less_than_comparable1.22" }
-%"struct.boost::operators_impl::less_than_comparable1.22" = type { %"struct.boost::operators_impl::equality_comparable1.23" }
-%"struct.boost::operators_impl::equality_comparable1.23" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<folly::Range<const char *>, 2, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 2, void>::HeapPtrWithCapacity", [16 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 2, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.43 = type { ptr, ptr }
-%"class.folly::small_vector.37" = type { %"struct.boost::operators_impl::totally_ordered1.38", %"union.folly::small_vector<folly::Range<const char *>, 3, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.38" = type { %"struct.boost::operators_impl::less_than_comparable1.39" }
-%"struct.boost::operators_impl::less_than_comparable1.39" = type { %"struct.boost::operators_impl::equality_comparable1.40" }
-%"struct.boost::operators_impl::equality_comparable1.40" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<folly::Range<const char *>, 3, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 3, void>::HeapPtrWithCapacity", [32 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 3, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.60 = type { ptr, ptr }
-%"class.folly::small_vector.54" = type { %"struct.boost::operators_impl::totally_ordered1.55", %"union.folly::small_vector<folly::Range<const char *>, 4, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.55" = type { %"struct.boost::operators_impl::less_than_comparable1.56" }
-%"struct.boost::operators_impl::less_than_comparable1.56" = type { %"struct.boost::operators_impl::equality_comparable1.57" }
-%"struct.boost::operators_impl::equality_comparable1.57" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<folly::Range<const char *>, 4, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 4, void>::HeapPtrWithCapacity", [48 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 4, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.77 = type { ptr, ptr }
-%"class.folly::small_vector.71" = type { %"struct.boost::operators_impl::totally_ordered1.72", %"union.folly::small_vector<folly::Range<const char *>, 5, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.72" = type { %"struct.boost::operators_impl::less_than_comparable1.73" }
-%"struct.boost::operators_impl::less_than_comparable1.73" = type { %"struct.boost::operators_impl::equality_comparable1.74" }
-%"struct.boost::operators_impl::equality_comparable1.74" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<folly::Range<const char *>, 5, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 5, void>::HeapPtrWithCapacity", [64 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 5, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.94 = type { ptr, ptr }
-%"class.folly::small_vector.88" = type { %"struct.boost::operators_impl::totally_ordered1.89", %"union.folly::small_vector<folly::Range<const char *>, 6, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.89" = type { %"struct.boost::operators_impl::less_than_comparable1.90" }
-%"struct.boost::operators_impl::less_than_comparable1.90" = type { %"struct.boost::operators_impl::equality_comparable1.91" }
-%"struct.boost::operators_impl::equality_comparable1.91" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<folly::Range<const char *>, 6, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 6, void>::HeapPtrWithCapacity", [80 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 6, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.111 = type { ptr, ptr }
-%"class.folly::small_vector.105" = type { %"struct.boost::operators_impl::totally_ordered1.106", %"union.folly::small_vector<folly::Range<const char *>, 7, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.106" = type { %"struct.boost::operators_impl::less_than_comparable1.107" }
-%"struct.boost::operators_impl::less_than_comparable1.107" = type { %"struct.boost::operators_impl::equality_comparable1.108" }
-%"struct.boost::operators_impl::equality_comparable1.108" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<folly::Range<const char *>, 7, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 7, void>::HeapPtrWithCapacity", [96 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 7, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.128 = type { ptr, ptr }
-%"class.folly::small_vector.122" = type { %"struct.boost::operators_impl::totally_ordered1.123", %"union.folly::small_vector<folly::Range<const char *>, 8, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.123" = type { %"struct.boost::operators_impl::less_than_comparable1.124" }
-%"struct.boost::operators_impl::less_than_comparable1.124" = type { %"struct.boost::operators_impl::equality_comparable1.125" }
-%"struct.boost::operators_impl::equality_comparable1.125" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<folly::Range<const char *>, 8, void>::Data" = type { %"struct.folly::small_vector<folly::Range<const char *>, 8, void>::HeapPtrWithCapacity", [112 x i8] }
-%"struct.folly::small_vector<folly::Range<const char *>, 8, void>::HeapPtrWithCapacity" = type { ptr, i64 }
-%"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl" = type { ptr, ptr, ptr }
 %class.anon.158 = type { ptr, ptr }
-%"class.folly::small_vector.153" = type { %"struct.boost::operators_impl::totally_ordered1.154", %"union.folly::small_vector<std::basic_string_view<char>, 1, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.154" = type { %"struct.boost::operators_impl::less_than_comparable1.155" }
-%"struct.boost::operators_impl::less_than_comparable1.155" = type { %"struct.boost::operators_impl::equality_comparable1.156" }
-%"struct.boost::operators_impl::equality_comparable1.156" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 1, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 1, void>::HeapPtr", [8 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 1, void>::HeapPtr" = type { ptr }
 %class.anon.174 = type { ptr, ptr }
-%"class.folly::small_vector.169" = type { %"struct.boost::operators_impl::totally_ordered1.170", %"union.folly::small_vector<std::basic_string_view<char>, 2, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.170" = type { %"struct.boost::operators_impl::less_than_comparable1.171" }
-%"struct.boost::operators_impl::less_than_comparable1.171" = type { %"struct.boost::operators_impl::equality_comparable1.172" }
-%"struct.boost::operators_impl::equality_comparable1.172" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 2, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 2, void>::HeapPtrWithCapacity", [16 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 2, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.190 = type { ptr, ptr }
-%"class.folly::small_vector.185" = type { %"struct.boost::operators_impl::totally_ordered1.186", %"union.folly::small_vector<std::basic_string_view<char>, 3, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.186" = type { %"struct.boost::operators_impl::less_than_comparable1.187" }
-%"struct.boost::operators_impl::less_than_comparable1.187" = type { %"struct.boost::operators_impl::equality_comparable1.188" }
-%"struct.boost::operators_impl::equality_comparable1.188" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 3, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 3, void>::HeapPtrWithCapacity", [32 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 3, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.206 = type { ptr, ptr }
-%"class.folly::small_vector.201" = type { %"struct.boost::operators_impl::totally_ordered1.202", %"union.folly::small_vector<std::basic_string_view<char>, 4, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.202" = type { %"struct.boost::operators_impl::less_than_comparable1.203" }
-%"struct.boost::operators_impl::less_than_comparable1.203" = type { %"struct.boost::operators_impl::equality_comparable1.204" }
-%"struct.boost::operators_impl::equality_comparable1.204" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 4, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 4, void>::HeapPtrWithCapacity", [48 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 4, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.222 = type { ptr, ptr }
-%"class.folly::small_vector.217" = type { %"struct.boost::operators_impl::totally_ordered1.218", %"union.folly::small_vector<std::basic_string_view<char>, 5, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.218" = type { %"struct.boost::operators_impl::less_than_comparable1.219" }
-%"struct.boost::operators_impl::less_than_comparable1.219" = type { %"struct.boost::operators_impl::equality_comparable1.220" }
-%"struct.boost::operators_impl::equality_comparable1.220" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 5, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 5, void>::HeapPtrWithCapacity", [64 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 5, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.238 = type { ptr, ptr }
-%"class.folly::small_vector.233" = type { %"struct.boost::operators_impl::totally_ordered1.234", %"union.folly::small_vector<std::basic_string_view<char>, 6, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.234" = type { %"struct.boost::operators_impl::less_than_comparable1.235" }
-%"struct.boost::operators_impl::less_than_comparable1.235" = type { %"struct.boost::operators_impl::equality_comparable1.236" }
-%"struct.boost::operators_impl::equality_comparable1.236" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 6, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 6, void>::HeapPtrWithCapacity", [80 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 6, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.254 = type { ptr, ptr }
-%"class.folly::small_vector.249" = type { %"struct.boost::operators_impl::totally_ordered1.250", %"union.folly::small_vector<std::basic_string_view<char>, 7, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.250" = type { %"struct.boost::operators_impl::less_than_comparable1.251" }
-%"struct.boost::operators_impl::less_than_comparable1.251" = type { %"struct.boost::operators_impl::equality_comparable1.252" }
-%"struct.boost::operators_impl::equality_comparable1.252" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 7, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 7, void>::HeapPtrWithCapacity", [96 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 7, void>::HeapPtrWithCapacity" = type { ptr, i64 }
 %class.anon.270 = type { ptr, ptr }
-%"class.folly::small_vector.265" = type { %"struct.boost::operators_impl::totally_ordered1.266", %"union.folly::small_vector<std::basic_string_view<char>, 8, void>::Data" }
-%"struct.boost::operators_impl::totally_ordered1.266" = type { %"struct.boost::operators_impl::less_than_comparable1.267" }
-%"struct.boost::operators_impl::less_than_comparable1.267" = type { %"struct.boost::operators_impl::equality_comparable1.268" }
-%"struct.boost::operators_impl::equality_comparable1.268" = type { %"struct.folly::detail::IntegralSizePolicy" }
-%"union.folly::small_vector<std::basic_string_view<char>, 8, void>::Data" = type { %"struct.folly::small_vector<std::basic_string_view<char>, 8, void>::HeapPtrWithCapacity", [112 x i8] }
-%"struct.folly::small_vector<std::basic_string_view<char>, 8, void>::HeapPtrWithCapacity" = type { ptr, i64 }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.290 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.290 = type { i64, [8 x i8] }
-%"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"struct.folly::fbstring_core<char>::RefCounted" = type <{ %"struct.std::atomic", [1 x i8], [7 x i8] }>
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
 %"class.folly::fbstring_core" = type { %union.anon.299 }
 %union.anon.299 = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
-%"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl" = type { ptr, ptr, ptr }
-%"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl" = type { ptr, ptr, ptr }
+%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 
 $_ZN5folly6detail19SimdSplitByCharImplISt6vectorINS_5RangeIPKcEESaIS6_EEE9keepEmptyEcS6_RS8_ = comdat any
 
@@ -402,8 +293,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i290, label %while.cond.i.preheader, label %while.body.i42.lr.ph
 
 while.body.i42.lr.ph:                             ; preds = %if.then3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !10
   %.pre314 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !12
   br label %while.body.i42
@@ -415,8 +306,8 @@ while.cond.i.preheader:                           ; preds = %_ZNSt6vectorIN5foll
   br i1 %cmp.not.i.not300, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %_M_finish.i117 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i118 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i118 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i42:                                   ; preds = %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i42.lr.ph
@@ -439,10 +330,10 @@ while.body.i42:                                   ; preds = %_ZNSt6vectorIN5foll
 
 if.then.i:                                        ; preds = %while.body.i42
   store ptr %prev.i.0291, ptr %7, align 8, !tbaa !15
-  %e_.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 0, i32 1
+  %e_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %prev.i.0291, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i.i.i, ptr %e_.i.i.i.i, align 8, !tbaa !17
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !18
   br label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit
 
@@ -481,14 +372,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %9, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !19, !alias.scope !20
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i, label %for.body.i.i.i.i.i, !llvm.loop !24
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i59.i.i
 
@@ -549,10 +440,10 @@ while.body.i.i:                                   ; preds = %_ZNSt6vectorIN5foll
 
 if.then.i120:                                     ; preds = %while.body.i.i
   store ptr %prev.i.2295, ptr %16, align 8, !tbaa !15
-  %e_.i.i.i.i121 = getelementptr inbounds %"class.folly::Range", ptr %16, i64 0, i32 1
+  %e_.i.i.i.i121 = getelementptr inbounds i8, ptr %16, i64 8
   %add.ptr.i.i.i.i122 = getelementptr inbounds i8, ptr %prev.i.2295, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr.i.i.i.i122, ptr %e_.i.i.i.i121, align 8, !tbaa !17
-  %incdec.ptr.i123 = getelementptr inbounds %"class.folly::Range", ptr %16, i64 1
+  %incdec.ptr.i123 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %incdec.ptr.i123, ptr %_M_finish.i117, align 8, !tbaa !18
   br label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit159
 
@@ -591,14 +482,14 @@ for.body.i.i.i.i.i145:                            ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i146 = phi ptr [ %incdec.ptr1.i.i.i.i.i149, %for.body.i.i.i.i.i145 ], [ %call5.i.i.i.i.i140, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i130 ]
   %__first.addr.07.i.i.i.i.i147 = phi ptr [ %incdec.ptr.i.i.i.i.i148, %for.body.i.i.i.i.i145 ], [ %18, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i130 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i146, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i147, i64 16, i1 false), !tbaa.struct !19, !alias.scope !29
-  %incdec.ptr.i.i.i.i.i148 = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i147, i64 1
-  %incdec.ptr1.i.i.i.i.i149 = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i146, i64 1
+  %incdec.ptr.i.i.i.i.i148 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i147, i64 16
+  %incdec.ptr1.i.i.i.i.i149 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i146, i64 16
   %cmp.not.i.i.i.i.i150 = icmp eq ptr %incdec.ptr.i.i.i.i.i148, %15
   br i1 %cmp.not.i.i.i.i.i150, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i151, label %for.body.i.i.i.i.i145, !llvm.loop !33
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i151: ; preds = %for.body.i.i.i.i.i145, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i130
   %__cur.0.lcssa.i.i.i.i.i152 = phi ptr [ %call5.i.i.i.i.i140, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i130 ], [ %incdec.ptr1.i.i.i.i.i149, %for.body.i.i.i.i.i145 ]
-  %incdec.ptr.i.i153 = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i152, i64 1
+  %incdec.ptr.i.i153 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i152, i64 16
   %tobool.not.i.i.i154 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i154, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i156, label %if.then.i59.i.i155
 
@@ -648,8 +539,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i52305, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %while.body.i53.lr.ph
 
 while.body.i53.lr.ph:                             ; preds = %if.end16.i
-  %_M_finish.i164 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i165 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i164 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i165 = getelementptr inbounds i8, ptr %res, i64 16
   %.pre317 = load ptr, ptr %_M_finish.i164, align 8, !tbaa !10
   %.pre318 = load ptr, ptr %_M_end_of_storage.i165, align 8, !tbaa !12
   br label %while.body.i53
@@ -674,10 +565,10 @@ while.body.i53:                                   ; preds = %_ZNSt6vectorIN5foll
 
 if.then.i167:                                     ; preds = %while.body.i53
   store ptr %prev.i.5306, ptr %27, align 8, !tbaa !15
-  %e_.i.i.i.i168 = getelementptr inbounds %"class.folly::Range", ptr %27, i64 0, i32 1
+  %e_.i.i.i.i168 = getelementptr inbounds i8, ptr %27, i64 8
   %add.ptr.i.i.i.i169 = getelementptr inbounds i8, ptr %prev.i.5306, i64 %sub.ptr.sub.i.i65
   store ptr %add.ptr.i.i.i.i169, ptr %e_.i.i.i.i168, align 8, !tbaa !17
-  %incdec.ptr.i170 = getelementptr inbounds %"class.folly::Range", ptr %27, i64 1
+  %incdec.ptr.i170 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %incdec.ptr.i170, ptr %_M_finish.i164, align 8, !tbaa !18
   br label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit206
 
@@ -716,14 +607,14 @@ for.body.i.i.i.i.i192:                            ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i193 = phi ptr [ %incdec.ptr1.i.i.i.i.i196, %for.body.i.i.i.i.i192 ], [ %call5.i.i.i.i.i187, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i177 ]
   %__first.addr.07.i.i.i.i.i194 = phi ptr [ %incdec.ptr.i.i.i.i.i195, %for.body.i.i.i.i.i192 ], [ %29, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i177 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i193, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i194, i64 16, i1 false), !tbaa.struct !19, !alias.scope !35
-  %incdec.ptr.i.i.i.i.i195 = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i194, i64 1
-  %incdec.ptr1.i.i.i.i.i196 = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i193, i64 1
+  %incdec.ptr.i.i.i.i.i195 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i194, i64 16
+  %incdec.ptr1.i.i.i.i.i196 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i193, i64 16
   %cmp.not.i.i.i.i.i197 = icmp eq ptr %incdec.ptr.i.i.i.i.i195, %26
   br i1 %cmp.not.i.i.i.i.i197, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i198, label %for.body.i.i.i.i.i192, !llvm.loop !39
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i198: ; preds = %for.body.i.i.i.i.i192, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i177
   %__cur.0.lcssa.i.i.i.i.i199 = phi ptr [ %call5.i.i.i.i.i187, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i177 ], [ %incdec.ptr1.i.i.i.i.i196, %for.body.i.i.i.i.i192 ]
-  %incdec.ptr.i.i200 = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i199, i64 1
+  %incdec.ptr.i.i200 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i199, i64 16
   %tobool.not.i.i.i201 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i201, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i203, label %if.then.i59.i.i202
 
@@ -749,19 +640,19 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   %prev.i.7 = phi ptr [ %what.coerce1, %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit_crit_edge ], [ %prev.i.4, %if.end16.i ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %add.ptr6.i62, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit206 ]
   %sub.ptr.rhs.cast.i6 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5.pre-phi, %sub.ptr.rhs.cast.i6
-  %_M_finish.i211 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
+  %_M_finish.i211 = getelementptr inbounds i8, ptr %res, i64 8
   %33 = load ptr, ptr %_M_finish.i211, align 8, !tbaa !10
-  %_M_end_of_storage.i212 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_end_of_storage.i212 = getelementptr inbounds i8, ptr %res, i64 16
   %34 = load ptr, ptr %_M_end_of_storage.i212, align 8, !tbaa !12
   %cmp.not.i213 = icmp eq ptr %33, %34
   br i1 %cmp.not.i213, label %if.else.i219, label %if.then.i214
 
 if.then.i214:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit
   store ptr %prev.i.7, ptr %33, align 8, !tbaa !15
-  %e_.i.i.i.i215 = getelementptr inbounds %"class.folly::Range", ptr %33, i64 0, i32 1
+  %e_.i.i.i.i215 = getelementptr inbounds i8, ptr %33, i64 8
   %add.ptr.i.i.i.i216 = getelementptr inbounds i8, ptr %prev.i.7, i64 %sub.ptr.sub.i7
   store ptr %add.ptr.i.i.i.i216, ptr %e_.i.i.i.i215, align 8, !tbaa !17
-  %incdec.ptr.i217 = getelementptr inbounds %"class.folly::Range", ptr %33, i64 1
+  %incdec.ptr.i217 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %incdec.ptr.i217, ptr %_M_finish.i211, align 8, !tbaa !18
   br label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit253
 
@@ -800,14 +691,14 @@ for.body.i.i.i.i.i239:                            ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i240 = phi ptr [ %incdec.ptr1.i.i.i.i.i243, %for.body.i.i.i.i.i239 ], [ %call5.i.i.i.i.i234, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i224 ]
   %__first.addr.07.i.i.i.i.i241 = phi ptr [ %incdec.ptr.i.i.i.i.i242, %for.body.i.i.i.i.i239 ], [ %35, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i224 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i240, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i241, i64 16, i1 false), !tbaa.struct !19, !alias.scope !41
-  %incdec.ptr.i.i.i.i.i242 = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i241, i64 1
-  %incdec.ptr1.i.i.i.i.i243 = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i240, i64 1
+  %incdec.ptr.i.i.i.i.i242 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i241, i64 16
+  %incdec.ptr1.i.i.i.i.i243 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i240, i64 16
   %cmp.not.i.i.i.i.i244 = icmp eq ptr %incdec.ptr.i.i.i.i.i242, %33
   br i1 %cmp.not.i.i.i.i.i244, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i245, label %for.body.i.i.i.i.i239, !llvm.loop !45
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i245: ; preds = %for.body.i.i.i.i.i239, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i224
   %__cur.0.lcssa.i.i.i.i.i246 = phi ptr [ %call5.i.i.i.i.i234, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i224 ], [ %incdec.ptr1.i.i.i.i.i243, %for.body.i.i.i.i.i239 ]
-  %incdec.ptr.i.i247 = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i246, i64 1
+  %incdec.ptr.i.i247 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i246, i64 16
   %tobool.not.i.i.i248 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i248, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i250, label %if.then.i59.i.i249
 
@@ -896,8 +787,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i287, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -907,8 +798,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not297, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS3_EESaISE_EEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %_M_finish.i110 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i111 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i110 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i111 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -935,10 +826,10 @@ if.end.i.i:                                       ; preds = %while.body.i48
 
 if.then.i:                                        ; preds = %if.end.i.i
   store ptr %prev.i.0288, ptr %7, align 8, !tbaa !15
-  %e_.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 0, i32 1
+  %e_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %prev.i.0288, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i.i.i, ptr %e_.i.i.i.i, align 8, !tbaa !17
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !18
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i
 
@@ -977,14 +868,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %9, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !19, !alias.scope !46
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i, label %for.body.i.i.i.i.i, !llvm.loop !50
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i59.i.i
 
@@ -1042,10 +933,10 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
 
 if.then.i113:                                     ; preds = %if.end.i.i.i
   store ptr %prev.i.2292, ptr %14, align 8, !tbaa !15
-  %e_.i.i.i.i114 = getelementptr inbounds %"class.folly::Range", ptr %14, i64 0, i32 1
+  %e_.i.i.i.i114 = getelementptr inbounds i8, ptr %14, i64 8
   %add.ptr.i.i.i.i115 = getelementptr inbounds i8, ptr %prev.i.2292, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr.i.i.i.i115, ptr %e_.i.i.i.i114, align 8, !tbaa !17
-  %incdec.ptr.i116 = getelementptr inbounds %"class.folly::Range", ptr %14, i64 1
+  %incdec.ptr.i116 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %incdec.ptr.i116, ptr %_M_finish.i110, align 8, !tbaa !18
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i.i
 
@@ -1084,14 +975,14 @@ for.body.i.i.i.i.i138:                            ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i139 = phi ptr [ %incdec.ptr1.i.i.i.i.i142, %for.body.i.i.i.i.i138 ], [ %call5.i.i.i.i.i133, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i123 ]
   %__first.addr.07.i.i.i.i.i140 = phi ptr [ %incdec.ptr.i.i.i.i.i141, %for.body.i.i.i.i.i138 ], [ %16, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i123 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i139, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i140, i64 16, i1 false), !tbaa.struct !19, !alias.scope !53
-  %incdec.ptr.i.i.i.i.i141 = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i140, i64 1
-  %incdec.ptr1.i.i.i.i.i142 = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i139, i64 1
+  %incdec.ptr.i.i.i.i.i141 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i140, i64 16
+  %incdec.ptr1.i.i.i.i.i142 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i139, i64 16
   %cmp.not.i.i.i.i.i143 = icmp eq ptr %incdec.ptr.i.i.i.i.i141, %14
   br i1 %cmp.not.i.i.i.i.i143, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i144, label %for.body.i.i.i.i.i138, !llvm.loop !57
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i144: ; preds = %for.body.i.i.i.i.i138, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i123
   %__cur.0.lcssa.i.i.i.i.i145 = phi ptr [ %call5.i.i.i.i.i133, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i123 ], [ %incdec.ptr1.i.i.i.i.i142, %for.body.i.i.i.i.i138 ]
-  %incdec.ptr.i.i146 = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i145, i64 1
+  %incdec.ptr.i.i146 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i145, i64 16
   %tobool.not.i.i.i147 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i147, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i149, label %if.then.i59.i.i148
 
@@ -1139,8 +1030,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57302, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %_M_finish.i157 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i158 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i157 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i158 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -1167,10 +1058,10 @@ if.end.i.i69:                                     ; preds = %while.body.i58
 
 if.then.i160:                                     ; preds = %if.end.i.i69
   store ptr %prev.i.5303, ptr %23, align 8, !tbaa !15
-  %e_.i.i.i.i161 = getelementptr inbounds %"class.folly::Range", ptr %23, i64 0, i32 1
+  %e_.i.i.i.i161 = getelementptr inbounds i8, ptr %23, i64 8
   %add.ptr.i.i.i.i162 = getelementptr inbounds i8, ptr %prev.i.5303, i64 %sub.ptr.sub.i.i72
   store ptr %add.ptr.i.i.i.i162, ptr %e_.i.i.i.i161, align 8, !tbaa !17
-  %incdec.ptr.i163 = getelementptr inbounds %"class.folly::Range", ptr %23, i64 1
+  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %incdec.ptr.i163, ptr %_M_finish.i157, align 8, !tbaa !18
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit.i74
 
@@ -1209,14 +1100,14 @@ for.body.i.i.i.i.i185:                            ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i186 = phi ptr [ %incdec.ptr1.i.i.i.i.i189, %for.body.i.i.i.i.i185 ], [ %call5.i.i.i.i.i180, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i170 ]
   %__first.addr.07.i.i.i.i.i187 = phi ptr [ %incdec.ptr.i.i.i.i.i188, %for.body.i.i.i.i.i185 ], [ %25, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i170 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i186, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i187, i64 16, i1 false), !tbaa.struct !19, !alias.scope !59
-  %incdec.ptr.i.i.i.i.i188 = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i187, i64 1
-  %incdec.ptr1.i.i.i.i.i189 = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i186, i64 1
+  %incdec.ptr.i.i.i.i.i188 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i187, i64 16
+  %incdec.ptr1.i.i.i.i.i189 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i186, i64 16
   %cmp.not.i.i.i.i.i190 = icmp eq ptr %incdec.ptr.i.i.i.i.i188, %23
   br i1 %cmp.not.i.i.i.i.i190, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i191, label %for.body.i.i.i.i.i185, !llvm.loop !63
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i191: ; preds = %for.body.i.i.i.i.i185, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i170
   %__cur.0.lcssa.i.i.i.i.i192 = phi ptr [ %call5.i.i.i.i.i180, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i170 ], [ %incdec.ptr1.i.i.i.i.i189, %for.body.i.i.i.i.i185 ]
-  %incdec.ptr.i.i193 = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i192, i64 1
+  %incdec.ptr.i.i193 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i192, i64 16
   %tobool.not.i.i.i194 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i194, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i196, label %if.then.i59.i.i195
 
@@ -1243,19 +1134,19 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_5RangeIPS2_EESaISD_EEEEEEviPT0_SI_RT1_.exit
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
-  %_M_finish.i204 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
+  %_M_finish.i204 = getelementptr inbounds i8, ptr %res, i64 8
   %27 = load ptr, ptr %_M_finish.i204, align 8, !tbaa !10
-  %_M_end_of_storage.i205 = getelementptr inbounds %"struct.std::_Vector_base<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_end_of_storage.i205 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load ptr, ptr %_M_end_of_storage.i205, align 8, !tbaa !12
   %cmp.not.i206 = icmp eq ptr %27, %28
   br i1 %cmp.not.i206, label %if.else.i212, label %if.then.i207
 
 if.then.i207:                                     ; preds = %if.end.i5
   store ptr %prev.i.7, ptr %27, align 8, !tbaa !15
-  %e_.i.i.i.i208 = getelementptr inbounds %"class.folly::Range", ptr %27, i64 0, i32 1
+  %e_.i.i.i.i208 = getelementptr inbounds i8, ptr %27, i64 8
   %add.ptr.i.i.i.i209 = getelementptr inbounds i8, ptr %prev.i.7, i64 %sub.ptr.sub.i8
   store ptr %add.ptr.i.i.i.i209, ptr %e_.i.i.i.i208, align 8, !tbaa !17
-  %incdec.ptr.i210 = getelementptr inbounds %"class.folly::Range", ptr %27, i64 1
+  %incdec.ptr.i210 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %incdec.ptr.i210, ptr %_M_finish.i204, align 8, !tbaa !18
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_5RangeIPKcEESaISC_EEEEvRT_SB_SB_.exit
 
@@ -1294,14 +1185,14 @@ for.body.i.i.i.i.i232:                            ; preds = %_ZNKSt6vectorIN5fol
   %__cur.08.i.i.i.i.i233 = phi ptr [ %incdec.ptr1.i.i.i.i.i236, %for.body.i.i.i.i.i232 ], [ %call5.i.i.i.i.i227, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i217 ]
   %__first.addr.07.i.i.i.i.i234 = phi ptr [ %incdec.ptr.i.i.i.i.i235, %for.body.i.i.i.i.i232 ], [ %29, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i217 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i233, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i234, i64 16, i1 false), !tbaa.struct !19, !alias.scope !65
-  %incdec.ptr.i.i.i.i.i235 = getelementptr inbounds %"class.folly::Range", ptr %__first.addr.07.i.i.i.i.i234, i64 1
-  %incdec.ptr1.i.i.i.i.i236 = getelementptr inbounds %"class.folly::Range", ptr %__cur.08.i.i.i.i.i233, i64 1
+  %incdec.ptr.i.i.i.i.i235 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i234, i64 16
+  %incdec.ptr1.i.i.i.i.i236 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i233, i64 16
   %cmp.not.i.i.i.i.i237 = icmp eq ptr %incdec.ptr.i.i.i.i.i235, %27
   br i1 %cmp.not.i.i.i.i.i237, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i238, label %for.body.i.i.i.i.i232, !llvm.loop !69
 
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i238: ; preds = %for.body.i.i.i.i.i232, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i217
   %__cur.0.lcssa.i.i.i.i.i239 = phi ptr [ %call5.i.i.i.i.i227, %_ZNKSt6vectorIN5folly5RangeIPKcEESaIS4_EE12_M_check_lenEmS3_.exit.i.i217 ], [ %incdec.ptr1.i.i.i.i.i236, %for.body.i.i.i.i.i232 ]
-  %incdec.ptr.i.i240 = getelementptr %"class.folly::Range", ptr %__cur.0.lcssa.i.i.i.i.i239, i64 1
+  %incdec.ptr.i.i240 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i239, i64 16
   %tobool.not.i.i.i241 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i241, label %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJRS3_lEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i243, label %if.then.i59.i.i242
 
@@ -1367,8 +1258,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i170, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %e_.i96 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i96 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i46
 
 while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %if.then3.i
@@ -1378,8 +1269,8 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorI
   br i1 %cmp.not.i.not180, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i103 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i104 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i103 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i104 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -1406,10 +1297,10 @@ while.body.i46:                                   ; preds = %_ZN5folly8fbvectorI
 
 if.then.i:                                        ; preds = %while.body.i46
   store ptr %prev.i.0171, ptr %7, align 8, !tbaa !15
-  %e_.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 0, i32 1
+  %e_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %prev.i.0171, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i.i, ptr %e_.i.i.i, align 8, !tbaa !17
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %e_.i96, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit
 
@@ -1462,10 +1353,10 @@ while.body.i.i:                                   ; preds = %while.body.i, %_ZN5
 
 if.then.i106:                                     ; preds = %while.body.i.i
   store ptr %prev.i.2175, ptr %12, align 8, !tbaa !15
-  %e_.i.i.i107 = getelementptr inbounds %"class.folly::Range", ptr %12, i64 0, i32 1
+  %e_.i.i.i107 = getelementptr inbounds i8, ptr %12, i64 8
   %add.ptr.i.i.i108 = getelementptr inbounds i8, ptr %prev.i.2175, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr.i.i.i108, ptr %e_.i.i.i107, align 8, !tbaa !17
-  %incdec.ptr.i109 = getelementptr inbounds %"class.folly::Range", ptr %12, i64 1
+  %incdec.ptr.i109 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %incdec.ptr.i109, ptr %e_.i103, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit114
 
@@ -1508,8 +1399,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54185, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %e_.i119 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i120 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i119 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i120 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i55
 
 while.body.i55:                                   ; preds = %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit130, %while.body.i55.lr.ph
@@ -1536,10 +1427,10 @@ while.body.i55:                                   ; preds = %_ZN5folly8fbvectorI
 
 if.then.i122:                                     ; preds = %while.body.i55
   store ptr %prev.i.5186, ptr %19, align 8, !tbaa !15
-  %e_.i.i.i123 = getelementptr inbounds %"class.folly::Range", ptr %19, i64 0, i32 1
+  %e_.i.i.i123 = getelementptr inbounds i8, ptr %19, i64 8
   %add.ptr.i.i.i124 = getelementptr inbounds i8, ptr %prev.i.5186, i64 %sub.ptr.sub.i.i67
   store ptr %add.ptr.i.i.i124, ptr %e_.i.i.i123, align 8, !tbaa !17
-  %incdec.ptr.i125 = getelementptr inbounds %"class.folly::Range", ptr %19, i64 1
+  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr.i125, ptr %e_.i119, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit130
 
@@ -1562,19 +1453,19 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4.pre-phi, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i135 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i135 = getelementptr inbounds i8, ptr %res, i64 8
   %21 = load ptr, ptr %e_.i135, align 8, !tbaa !72
-  %z_.i136 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i136 = getelementptr inbounds i8, ptr %res, i64 16
   %22 = load ptr, ptr %z_.i136, align 8, !tbaa !75
   %cmp.not.i137 = icmp eq ptr %21, %22
   br i1 %cmp.not.i137, label %if.else.i144, label %if.then.i138
 
 if.then.i138:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit
   store ptr %prev.i.7, ptr %21, align 8, !tbaa !15
-  %e_.i.i.i139 = getelementptr inbounds %"class.folly::Range", ptr %21, i64 0, i32 1
+  %e_.i.i.i139 = getelementptr inbounds i8, ptr %21, i64 8
   %add.ptr.i.i.i140 = getelementptr inbounds i8, ptr %prev.i.7, i64 %sub.ptr.sub.i6
   store ptr %add.ptr.i.i.i140, ptr %e_.i.i.i139, align 8, !tbaa !17
-  %incdec.ptr.i141 = getelementptr inbounds %"class.folly::Range", ptr %21, i64 1
+  %incdec.ptr.i141 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i141, ptr %e_.i135, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit146
 
@@ -1594,7 +1485,7 @@ entry:
   %ref.tmp.i.i.i.i68 = alloca %struct.Initializer, align 1
   %ref.tmp.i.i = alloca %struct.Initializer.5, align 1
   %ref.tmp.i.i.i.i = alloca %struct.Initializer, align 1
-  %z_.i.i = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %this, i64 0, i32 2
+  %z_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %z_.i.i, align 8, !tbaa !75
   %1 = load ptr, ptr %this, align 8, !tbaa !80
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1700,7 +1591,7 @@ land.lhs.true:                                    ; preds = %_ZN5folly13usingJEM
   br i1 %cmp, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %land.lhs.true
-  %e_.i = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %e_.i, align 8, !tbaa !72
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
@@ -1756,10 +1647,10 @@ if.then15:                                        ; preds = %_ZN5folly14goodMall
   %20 = load ptr, ptr %args, align 8, !tbaa !10
   %21 = load i64, ptr %args1, align 8, !tbaa !70
   store ptr %20, ptr %19, align 8, !tbaa !15
-  %e_.i.i = getelementptr inbounds %"class.folly::Range", ptr %19, i64 0, i32 1
+  %e_.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %21
   store ptr %add.ptr.i.i, ptr %e_.i.i, align 8, !tbaa !17
-  %incdec.ptr = getelementptr inbounds %"class.folly::Range", ptr %19, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr, ptr %e_.i, align 8, !tbaa !72
   br label %cleanup52
 
@@ -1775,7 +1666,7 @@ if.then.i.i.i:                                    ; preds = %if.end27
   unreachable
 
 _ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE10M_allocateEm.exit: ; preds = %if.end27
-  %e_.i85 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i85 = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load ptr, ptr %e_.i85, align 8, !tbaa !72
   %23 = load ptr, ptr %this, align 8, !tbaa !80
   %sub.ptr.lhs.cast.i86 = ptrtoint ptr %22 to i64
@@ -1807,7 +1698,7 @@ if.then40:                                        ; preds = %_ZN5folly8fbvectorI
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then40, %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_5RangeIPKcEESaIS6_EE16emplace_back_auxIJRS5_lEEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread
-  %incdec.ptr37119 = getelementptr inbounds %"class.folly::Range", ptr %add.ptr31, i64 1
+  %incdec.ptr37119 = getelementptr inbounds i8, ptr %add.ptr31, i64 16
   store ptr %call.i.i.i, ptr %this, align 8, !tbaa !80
   store ptr %incdec.ptr37119, ptr %e_.i85, align 8, !tbaa !72
   %add.ptr49 = getelementptr inbounds %"class.folly::Range", ptr %call.i.i.i, i64 %div2864
@@ -2151,8 +2042,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i176, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %e_.i102 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i102 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -2162,8 +2053,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not186, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS3_EESaISE_EEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i109 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i110 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i109 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i110 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -2194,10 +2085,10 @@ if.end.i.i:                                       ; preds = %while.body.i48
 
 if.then.i:                                        ; preds = %if.end.i.i
   store ptr %prev.i.0177, ptr %7, align 8, !tbaa !15
-  %e_.i.i.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 0, i32 1
+  %e_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %prev.i.0177, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i.i.i, ptr %e_.i.i.i, align 8, !tbaa !17
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::Range", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %e_.i102, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit
 
@@ -2257,10 +2148,10 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
 
 if.then.i112:                                     ; preds = %if.end.i.i.i
   store ptr %prev.i.2181, ptr %12, align 8, !tbaa !15
-  %e_.i.i.i113 = getelementptr inbounds %"class.folly::Range", ptr %12, i64 0, i32 1
+  %e_.i.i.i113 = getelementptr inbounds i8, ptr %12, i64 8
   %add.ptr.i.i.i114 = getelementptr inbounds i8, ptr %prev.i.2181, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr.i.i.i114, ptr %e_.i.i.i113, align 8, !tbaa !17
-  %incdec.ptr.i115 = getelementptr inbounds %"class.folly::Range", ptr %12, i64 1
+  %incdec.ptr.i115 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %incdec.ptr.i115, ptr %e_.i109, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit120
 
@@ -2306,8 +2197,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57191, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_5RangeIPS2_EESaISD_EEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %e_.i125 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i126 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i125 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i126 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_5RangeIPKcEESaISC_EEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -2338,10 +2229,10 @@ if.end.i.i69:                                     ; preds = %while.body.i58
 
 if.then.i128:                                     ; preds = %if.end.i.i69
   store ptr %prev.i.5192, ptr %19, align 8, !tbaa !15
-  %e_.i.i.i129 = getelementptr inbounds %"class.folly::Range", ptr %19, i64 0, i32 1
+  %e_.i.i.i129 = getelementptr inbounds i8, ptr %19, i64 8
   %add.ptr.i.i.i130 = getelementptr inbounds i8, ptr %prev.i.5192, i64 %sub.ptr.sub.i.i72
   store ptr %add.ptr.i.i.i130, ptr %e_.i.i.i129, align 8, !tbaa !17
-  %incdec.ptr.i131 = getelementptr inbounds %"class.folly::Range", ptr %19, i64 1
+  %incdec.ptr.i131 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr.i131, ptr %e_.i125, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit136
 
@@ -2370,19 +2261,19 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i141 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i141 = getelementptr inbounds i8, ptr %res, i64 8
   %21 = load ptr, ptr %e_.i141, align 8, !tbaa !72
-  %z_.i142 = getelementptr inbounds %"struct.folly::fbvector<folly::Range<const char *>, std::allocator<folly::Range<const char *>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i142 = getelementptr inbounds i8, ptr %res, i64 16
   %22 = load ptr, ptr %z_.i142, align 8, !tbaa !75
   %cmp.not.i143 = icmp eq ptr %21, %22
   br i1 %cmp.not.i143, label %if.else.i150, label %if.then.i144
 
 if.then.i144:                                     ; preds = %if.end.i5
   store ptr %prev.i.7, ptr %21, align 8, !tbaa !15
-  %e_.i.i.i145 = getelementptr inbounds %"class.folly::Range", ptr %21, i64 0, i32 1
+  %e_.i.i.i145 = getelementptr inbounds i8, ptr %21, i64 8
   %add.ptr.i.i.i146 = getelementptr inbounds i8, ptr %prev.i.7, i64 %sub.ptr.sub.i8
   store ptr %add.ptr.i.i.i146, ptr %e_.i.i.i145, align 8, !tbaa !17
-  %incdec.ptr.i147 = getelementptr inbounds %"class.folly::Range", ptr %21, i64 1
+  %incdec.ptr.i147 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i147, ptr %e_.i141, align 8, !tbaa !72
   br label %_ZN5folly8fbvectorINS_5RangeIPKcEESaIS4_EE12emplace_backIJRS3_lEEERS4_DpOT_.exit152
 
@@ -2450,9 +2341,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i249, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %u5.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i96, i64 0, i32 1
-  %e_.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
+  %e_.i.i = getelementptr inbounds i8, ptr %res, i64 16
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -2463,9 +2354,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not259, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %u5.i.i115 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i108, i64 0, i32 1
-  %e_.i.i141 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i115 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
+  %e_.i.i141 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -2696,9 +2587,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54264, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %u5.i.i155 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
-  %32 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i148, i64 0, i32 1
-  %e_.i.i180 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i155 = getelementptr inbounds i8, ptr %res, i64 8
+  %32 = getelementptr inbounds i8, ptr %ref.tmp.i148, i64 8
+  %e_.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %.pre271 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -2806,9 +2697,9 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i188, label %if.then.i218, label %if.end.i189
 
 if.then.i218:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i219 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
+  %u.i219 = getelementptr inbounds i8, ptr %res, i64 8
   store ptr %42, ptr %u.i219, align 8, !tbaa !15
-  %e_.i.i220 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %e_.i.i220 = getelementptr inbounds i8, ptr %res, i64 16
   %add.ptr.i.i221 = getelementptr inbounds i8, ptr %42, i64 %sub.ptr.sub.i6
   store ptr %add.ptr.i.i221, ptr %e_.i.i220, align 8, !tbaa !17
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit222
@@ -2821,7 +2712,7 @@ if.end.i189:                                      ; preds = %_ZN5folly11simd_det
 if.then.i.i192:                                   ; preds = %if.end.i189
   %44 = and i64 %43, 4611686018427387904
   %tobool.i.not.i.i193 = icmp eq i64 %44, 0
-  %u5.i.i194 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
+  %u5.i.i194 = getelementptr inbounds i8, ptr %res, i64 8
   %45 = load ptr, ptr %u5.i.i194, align 8, !tbaa !7
   br i1 %tobool.i.not.i.i193, label %if.end.i.i215, label %if.then3.i.i195
 
@@ -2848,14 +2739,14 @@ if.then11.i213:                                   ; preds = %_ZNK5folly12small_v
   %add.i214 = add nuw nsw i64 %and.i.i.i190, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i187) #24
   store ptr %f.addr.i, ptr %ref.tmp.i187, align 8, !tbaa !10
-  %47 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i187, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %ref.tmp.i187, i64 8
   store ptr %ref.tmp.i3, ptr %47, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(24) %res, i64 noundef %add.i214, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i187, i64 noundef %and.i.i.i190)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i187) #24
   br label %if.end15.i207
 
 if.else.i202:                                     ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i199
-  %u12.i203 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
+  %u12.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %48 = load ptr, ptr %u12.i203, align 8, !tbaa !7
   %add.ptr14.i204 = getelementptr inbounds %"class.folly::Range", ptr %48, i64 %and.i.i.i190
   store ptr %42, ptr %add.ptr14.i204, align 8, !tbaa !15
@@ -2899,7 +2790,7 @@ if.end3:                                          ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end3
   %1 = and i64 %0, 4611686018427387904
   %tobool.i.not.i.i = icmp eq i64 %1, 0
-  %u5.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %this, i64 0, i32 1
+  %u5.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %u5.i.i, align 8, !tbaa !7
   br i1 %tobool.i.not.i.i, label %if.end.i.i, label %if.then3.i.i
 
@@ -2992,7 +2883,7 @@ if.then.i67:                                      ; preds = %_ZN5folly14goodMall
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %spec.select = getelementptr inbounds i8, ptr %call.i, i64 %cond
   %15 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %15, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %16, ptr %u.i.i
@@ -3004,7 +2895,7 @@ invoke.cont26:                                    ; preds = %_ZN5folly13checkedM
   %add.ptr.i72 = getelementptr inbounds %"class.folly::Range", ptr %spec.select, i64 %pos
   %17 = load ptr, ptr %emplaceFunc, align 8, !tbaa !99
   %18 = load ptr, ptr %17, align 8, !tbaa !10
-  %19 = getelementptr inbounds %class.anon.9, ptr %emplaceFunc, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !101
   %21 = load i64, ptr %20, align 8, !tbaa !70
   store ptr %18, ptr %add.ptr.i72, align 8, !tbaa !15
@@ -3025,7 +2916,7 @@ if.end.i75:                                       ; preds = %if.then.i74, %invok
 
 if.then6.i:                                       ; preds = %if.end.i75
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i72, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i72, i64 16
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %add.ptr.i71 to i64
   %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
@@ -3069,7 +2960,7 @@ entry:
   br i1 %tobool.not, label %if.end14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %u = getelementptr inbounds %"class.folly::small_vector", ptr %this, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %u, align 8, !tbaa !7
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end14, label %if.end
@@ -3229,9 +3120,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i256, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %u5.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i102, i64 0, i32 1
-  %e_.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
+  %e_.i.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -3241,9 +3132,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not266, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm1EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %u5.i.i122 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i115, i64 0, i32 1
-  %e_.i.i148 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i115, i64 8
+  %e_.i.i148 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -3484,9 +3375,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57271, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm1EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %u5.i.i162 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
-  %32 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i155, i64 0, i32 1
-  %e_.i.i187 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i162 = getelementptr inbounds i8, ptr %res, i64 8
+  %32 = getelementptr inbounds i8, ptr %ref.tmp.i155, i64 8
+  %e_.i.i187 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm1EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -3603,9 +3494,9 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i195, label %if.then.i225, label %if.end.i196
 
 if.then.i225:                                     ; preds = %if.end.i5
-  %u.i226 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
+  %u.i226 = getelementptr inbounds i8, ptr %res, i64 8
   store ptr %42, ptr %u.i226, align 8, !tbaa !15
-  %e_.i.i227 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1, i32 1
+  %e_.i.i227 = getelementptr inbounds i8, ptr %res, i64 16
   %add.ptr.i.i228 = getelementptr inbounds i8, ptr %42, i64 %sub.ptr.sub.i8
   store ptr %add.ptr.i.i228, ptr %e_.i.i227, align 8, !tbaa !17
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit229
@@ -3618,7 +3509,7 @@ if.end.i196:                                      ; preds = %if.end.i5
 if.then.i.i199:                                   ; preds = %if.end.i196
   %44 = and i64 %43, 4611686018427387904
   %tobool.i.not.i.i200 = icmp eq i64 %44, 0
-  %u5.i.i201 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
+  %u5.i.i201 = getelementptr inbounds i8, ptr %res, i64 8
   %45 = load ptr, ptr %u5.i.i201, align 8, !tbaa !7
   br i1 %tobool.i.not.i.i200, label %if.end.i.i222, label %if.then3.i.i202
 
@@ -3645,14 +3536,14 @@ if.then11.i220:                                   ; preds = %_ZNK5folly12small_v
   %add.i221 = add nuw nsw i64 %and.i.i.i197, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i194) #24
   store ptr %f.addr.i, ptr %ref.tmp.i194, align 8, !tbaa !10
-  %47 = getelementptr inbounds %class.anon.9, ptr %ref.tmp.i194, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %ref.tmp.i194, i64 8
   store ptr %ref.tmp.i3, ptr %47, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(24) %res, i64 noundef %add.i221, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i194, i64 noundef %and.i.i.i197)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i194) #24
   br label %if.end15.i214
 
 if.else.i209:                                     ; preds = %_ZNK5folly12small_vectorINS_5RangeIPKcEELm1EvE8capacityEv.exit.i206
-  %u12.i210 = getelementptr inbounds %"class.folly::small_vector", ptr %res, i64 0, i32 1
+  %u12.i210 = getelementptr inbounds i8, ptr %res, i64 8
   %48 = load ptr, ptr %u12.i210, align 8, !tbaa !7
   %add.ptr14.i211 = getelementptr inbounds %"class.folly::Range", ptr %48, i64 %and.i.i.i197
   store ptr %42, ptr %add.ptr14.i211, align 8, !tbaa !15
@@ -3728,9 +3619,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i229, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -3741,9 +3632,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not239, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i113 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i117 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i108, i64 0, i32 1
+  %capacity_.i.i.i.i113 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -3924,9 +3815,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54244, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i146 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i150 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i141, i64 0, i32 1
+  %capacity_.i.i.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i150 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i141, i64 8
   %.pre251 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -4009,7 +3900,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i175, label %if.then.i196, label %if.end.i176
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i198, align 8, !tbaa !15
   %e_.i.i199 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27, i32 1
@@ -4020,7 +3911,7 @@ if.then.i196:                                     ; preds = %_ZN5folly11simd_det
 if.end.i176:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit
   %and.i.i.i177 = and i64 %27, 4611686018427387903
   %tobool.not.i.i178 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i179 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i179 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i179, align 8
   %retval.0.i.i180 = select i1 %tobool.not.i.i178, i64 2, i64 %28
   %cmp10.i181 = icmp eq i64 %retval.0.i.i180, %and.i.i.i177
@@ -4030,7 +3921,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   %add.i194 = add nuw nsw i64 %and.i.i.i177, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
   store ptr %f.addr.i, ptr %ref.tmp.i174, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i174, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i174, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(40) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i174, i64 noundef %and.i.i.i177)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
@@ -4038,7 +3929,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit202
 
 if.else.i182:                                     ; preds = %if.end.i176
-  %u12.i183 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
+  %u12.i183 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i183, align 8, !tbaa !7
   %add.ptr14.i184 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i177
   store ptr %prev.i.7, ptr %add.ptr14.i184, align 8, !tbaa !15
@@ -4071,7 +3962,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.20", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 2, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -4142,7 +4033,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.20", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -4154,7 +4045,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !110
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.26, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !112
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store ptr %16, ptr %add.ptr.i58, align 8, !tbaa !15
@@ -4175,7 +4066,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -4293,9 +4184,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i235, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -4305,9 +4196,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not245, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm2EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i119 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i123 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i114, i64 0, i32 1
+  %capacity_.i.i.i.i119 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i123 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -4498,9 +4389,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57250, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm2EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i152 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i156 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i147, i64 0, i32 1
+  %capacity_.i.i.i.i152 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i156 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm2EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -4592,7 +4483,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i181, label %if.then.i202, label %if.end.i182
 
 if.then.i202:                                     ; preds = %if.end.i5
-  %u.i203 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
+  %u.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i204 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i204, align 8, !tbaa !15
   %e_.i.i205 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27, i32 1
@@ -4603,7 +4494,7 @@ if.then.i202:                                     ; preds = %if.end.i5
 if.end.i182:                                      ; preds = %if.end.i5
   %and.i.i.i183 = and i64 %27, 4611686018427387903
   %tobool.not.i.i184 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i185 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i185 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i185, align 8
   %retval.0.i.i186 = select i1 %tobool.not.i.i184, i64 2, i64 %28
   %cmp10.i187 = icmp eq i64 %retval.0.i.i186, %and.i.i.i183
@@ -4613,7 +4504,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   %add.i200 = add nuw nsw i64 %and.i.i.i183, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
   store ptr %f.addr.i, ptr %ref.tmp.i180, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.26, ptr %ref.tmp.i180, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i180, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(40) %res, i64 noundef %add.i200, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i180, i64 noundef %and.i.i.i183)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
@@ -4621,7 +4512,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm2EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208
 
 if.else.i188:                                     ; preds = %if.end.i182
-  %u12.i189 = getelementptr inbounds %"class.folly::small_vector.20", ptr %res, i64 0, i32 1
+  %u12.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i189, align 8, !tbaa !7
   %add.ptr14.i190 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i183
   store ptr %prev.i.7, ptr %add.ptr14.i190, align 8, !tbaa !15
@@ -4693,9 +4584,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i229, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -4706,9 +4597,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not239, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i113 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i117 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i108, i64 0, i32 1
+  %capacity_.i.i.i.i113 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -4889,9 +4780,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54244, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i146 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i150 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i141, i64 0, i32 1
+  %capacity_.i.i.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i150 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i141, i64 8
   %.pre251 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -4974,7 +4865,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i175, label %if.then.i196, label %if.end.i176
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i198, align 8, !tbaa !15
   %e_.i.i199 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27, i32 1
@@ -4985,7 +4876,7 @@ if.then.i196:                                     ; preds = %_ZN5folly11simd_det
 if.end.i176:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit
   %and.i.i.i177 = and i64 %27, 4611686018427387903
   %tobool.not.i.i178 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i179 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i179 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i179, align 8
   %retval.0.i.i180 = select i1 %tobool.not.i.i178, i64 3, i64 %28
   %cmp10.i181 = icmp eq i64 %retval.0.i.i180, %and.i.i.i177
@@ -4995,7 +4886,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   %add.i194 = add nuw nsw i64 %and.i.i.i177, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
   store ptr %f.addr.i, ptr %ref.tmp.i174, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i174, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i174, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(56) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i174, i64 noundef %and.i.i.i177)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
@@ -5003,7 +4894,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit202
 
 if.else.i182:                                     ; preds = %if.end.i176
-  %u12.i183 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
+  %u12.i183 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i183, align 8, !tbaa !7
   %add.ptr14.i184 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i177
   store ptr %prev.i.7, ptr %add.ptr14.i184, align 8, !tbaa !15
@@ -5036,7 +4927,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.37", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 3, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -5107,7 +4998,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.37", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -5119,7 +5010,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !123
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.43, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !125
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store ptr %16, ptr %add.ptr.i58, align 8, !tbaa !15
@@ -5140,7 +5031,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -5258,9 +5149,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i235, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -5270,9 +5161,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not245, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm3EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i119 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i123 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i114, i64 0, i32 1
+  %capacity_.i.i.i.i119 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i123 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -5463,9 +5354,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57250, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm3EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i152 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i156 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i147, i64 0, i32 1
+  %capacity_.i.i.i.i152 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i156 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm3EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -5557,7 +5448,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i181, label %if.then.i202, label %if.end.i182
 
 if.then.i202:                                     ; preds = %if.end.i5
-  %u.i203 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
+  %u.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i204 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i204, align 8, !tbaa !15
   %e_.i.i205 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27, i32 1
@@ -5568,7 +5459,7 @@ if.then.i202:                                     ; preds = %if.end.i5
 if.end.i182:                                      ; preds = %if.end.i5
   %and.i.i.i183 = and i64 %27, 4611686018427387903
   %tobool.not.i.i184 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i185 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i185 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i185, align 8
   %retval.0.i.i186 = select i1 %tobool.not.i.i184, i64 3, i64 %28
   %cmp10.i187 = icmp eq i64 %retval.0.i.i186, %and.i.i.i183
@@ -5578,7 +5469,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   %add.i200 = add nuw nsw i64 %and.i.i.i183, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
   store ptr %f.addr.i, ptr %ref.tmp.i180, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.43, ptr %ref.tmp.i180, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i180, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(56) %res, i64 noundef %add.i200, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i180, i64 noundef %and.i.i.i183)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
@@ -5586,7 +5477,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm3EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208
 
 if.else.i188:                                     ; preds = %if.end.i182
-  %u12.i189 = getelementptr inbounds %"class.folly::small_vector.37", ptr %res, i64 0, i32 1
+  %u12.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i189, align 8, !tbaa !7
   %add.ptr14.i190 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i183
   store ptr %prev.i.7, ptr %add.ptr14.i190, align 8, !tbaa !15
@@ -5658,9 +5549,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i229, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -5671,9 +5562,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not239, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i113 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i117 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i108, i64 0, i32 1
+  %capacity_.i.i.i.i113 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -5854,9 +5745,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54244, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i146 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i150 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i141, i64 0, i32 1
+  %capacity_.i.i.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i150 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i141, i64 8
   %.pre251 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -5939,7 +5830,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i175, label %if.then.i196, label %if.end.i176
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i198, align 8, !tbaa !15
   %e_.i.i199 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27, i32 1
@@ -5950,7 +5841,7 @@ if.then.i196:                                     ; preds = %_ZN5folly11simd_det
 if.end.i176:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit
   %and.i.i.i177 = and i64 %27, 4611686018427387903
   %tobool.not.i.i178 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i179 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i179 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i179, align 8
   %retval.0.i.i180 = select i1 %tobool.not.i.i178, i64 4, i64 %28
   %cmp10.i181 = icmp eq i64 %retval.0.i.i180, %and.i.i.i177
@@ -5960,7 +5851,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   %add.i194 = add nuw nsw i64 %and.i.i.i177, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
   store ptr %f.addr.i, ptr %ref.tmp.i174, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i174, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i174, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(72) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i174, i64 noundef %and.i.i.i177)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
@@ -5968,7 +5859,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit202
 
 if.else.i182:                                     ; preds = %if.end.i176
-  %u12.i183 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
+  %u12.i183 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i183, align 8, !tbaa !7
   %add.ptr14.i184 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i177
   store ptr %prev.i.7, ptr %add.ptr14.i184, align 8, !tbaa !15
@@ -6001,7 +5892,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.54", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 4, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -6072,7 +5963,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.54", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -6084,7 +5975,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !136
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.60, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !138
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store ptr %16, ptr %add.ptr.i58, align 8, !tbaa !15
@@ -6105,7 +5996,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -6223,9 +6114,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i235, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -6235,9 +6126,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not245, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm4EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i119 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i123 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i114, i64 0, i32 1
+  %capacity_.i.i.i.i119 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i123 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -6428,9 +6319,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57250, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm4EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i152 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i156 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i147, i64 0, i32 1
+  %capacity_.i.i.i.i152 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i156 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm4EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -6522,7 +6413,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i181, label %if.then.i202, label %if.end.i182
 
 if.then.i202:                                     ; preds = %if.end.i5
-  %u.i203 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
+  %u.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i204 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i204, align 8, !tbaa !15
   %e_.i.i205 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27, i32 1
@@ -6533,7 +6424,7 @@ if.then.i202:                                     ; preds = %if.end.i5
 if.end.i182:                                      ; preds = %if.end.i5
   %and.i.i.i183 = and i64 %27, 4611686018427387903
   %tobool.not.i.i184 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i185 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i185 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i185, align 8
   %retval.0.i.i186 = select i1 %tobool.not.i.i184, i64 4, i64 %28
   %cmp10.i187 = icmp eq i64 %retval.0.i.i186, %and.i.i.i183
@@ -6543,7 +6434,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   %add.i200 = add nuw nsw i64 %and.i.i.i183, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
   store ptr %f.addr.i, ptr %ref.tmp.i180, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.60, ptr %ref.tmp.i180, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i180, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(72) %res, i64 noundef %add.i200, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i180, i64 noundef %and.i.i.i183)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
@@ -6551,7 +6442,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm4EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208
 
 if.else.i188:                                     ; preds = %if.end.i182
-  %u12.i189 = getelementptr inbounds %"class.folly::small_vector.54", ptr %res, i64 0, i32 1
+  %u12.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i189, align 8, !tbaa !7
   %add.ptr14.i190 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i183
   store ptr %prev.i.7, ptr %add.ptr14.i190, align 8, !tbaa !15
@@ -6623,9 +6514,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i229, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -6636,9 +6527,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not239, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i113 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i117 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i108, i64 0, i32 1
+  %capacity_.i.i.i.i113 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -6819,9 +6710,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54244, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i146 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i150 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i141, i64 0, i32 1
+  %capacity_.i.i.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i150 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i141, i64 8
   %.pre251 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -6904,7 +6795,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i175, label %if.then.i196, label %if.end.i176
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i198, align 8, !tbaa !15
   %e_.i.i199 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27, i32 1
@@ -6915,7 +6806,7 @@ if.then.i196:                                     ; preds = %_ZN5folly11simd_det
 if.end.i176:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit
   %and.i.i.i177 = and i64 %27, 4611686018427387903
   %tobool.not.i.i178 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i179 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i179 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i179, align 8
   %retval.0.i.i180 = select i1 %tobool.not.i.i178, i64 5, i64 %28
   %cmp10.i181 = icmp eq i64 %retval.0.i.i180, %and.i.i.i177
@@ -6925,7 +6816,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   %add.i194 = add nuw nsw i64 %and.i.i.i177, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
   store ptr %f.addr.i, ptr %ref.tmp.i174, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i174, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i174, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(88) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i174, i64 noundef %and.i.i.i177)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
@@ -6933,7 +6824,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit202
 
 if.else.i182:                                     ; preds = %if.end.i176
-  %u12.i183 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
+  %u12.i183 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i183, align 8, !tbaa !7
   %add.ptr14.i184 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i177
   store ptr %prev.i.7, ptr %add.ptr14.i184, align 8, !tbaa !15
@@ -6966,7 +6857,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.71", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 5, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -7037,7 +6928,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.71", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -7049,7 +6940,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !149
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.77, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !151
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store ptr %16, ptr %add.ptr.i58, align 8, !tbaa !15
@@ -7070,7 +6961,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -7188,9 +7079,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i235, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -7200,9 +7091,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not245, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm5EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i119 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i123 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i114, i64 0, i32 1
+  %capacity_.i.i.i.i119 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i123 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -7393,9 +7284,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57250, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm5EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i152 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i156 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i147, i64 0, i32 1
+  %capacity_.i.i.i.i152 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i156 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm5EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -7487,7 +7378,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i181, label %if.then.i202, label %if.end.i182
 
 if.then.i202:                                     ; preds = %if.end.i5
-  %u.i203 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
+  %u.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i204 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i204, align 8, !tbaa !15
   %e_.i.i205 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27, i32 1
@@ -7498,7 +7389,7 @@ if.then.i202:                                     ; preds = %if.end.i5
 if.end.i182:                                      ; preds = %if.end.i5
   %and.i.i.i183 = and i64 %27, 4611686018427387903
   %tobool.not.i.i184 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i185 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i185 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i185, align 8
   %retval.0.i.i186 = select i1 %tobool.not.i.i184, i64 5, i64 %28
   %cmp10.i187 = icmp eq i64 %retval.0.i.i186, %and.i.i.i183
@@ -7508,7 +7399,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   %add.i200 = add nuw nsw i64 %and.i.i.i183, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
   store ptr %f.addr.i, ptr %ref.tmp.i180, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.77, ptr %ref.tmp.i180, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i180, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(88) %res, i64 noundef %add.i200, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i180, i64 noundef %and.i.i.i183)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
@@ -7516,7 +7407,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm5EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208
 
 if.else.i188:                                     ; preds = %if.end.i182
-  %u12.i189 = getelementptr inbounds %"class.folly::small_vector.71", ptr %res, i64 0, i32 1
+  %u12.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i189, align 8, !tbaa !7
   %add.ptr14.i190 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i183
   store ptr %prev.i.7, ptr %add.ptr14.i190, align 8, !tbaa !15
@@ -7588,9 +7479,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i229, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -7601,9 +7492,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not239, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i113 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i117 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i108, i64 0, i32 1
+  %capacity_.i.i.i.i113 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -7784,9 +7675,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54244, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i146 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i150 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i141, i64 0, i32 1
+  %capacity_.i.i.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i150 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i141, i64 8
   %.pre251 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -7869,7 +7760,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i175, label %if.then.i196, label %if.end.i176
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i198, align 8, !tbaa !15
   %e_.i.i199 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27, i32 1
@@ -7880,7 +7771,7 @@ if.then.i196:                                     ; preds = %_ZN5folly11simd_det
 if.end.i176:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit
   %and.i.i.i177 = and i64 %27, 4611686018427387903
   %tobool.not.i.i178 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i179 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i179 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i179, align 8
   %retval.0.i.i180 = select i1 %tobool.not.i.i178, i64 6, i64 %28
   %cmp10.i181 = icmp eq i64 %retval.0.i.i180, %and.i.i.i177
@@ -7890,7 +7781,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   %add.i194 = add nuw nsw i64 %and.i.i.i177, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
   store ptr %f.addr.i, ptr %ref.tmp.i174, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i174, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i174, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(104) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i174, i64 noundef %and.i.i.i177)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
@@ -7898,7 +7789,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit202
 
 if.else.i182:                                     ; preds = %if.end.i176
-  %u12.i183 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
+  %u12.i183 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i183, align 8, !tbaa !7
   %add.ptr14.i184 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i177
   store ptr %prev.i.7, ptr %add.ptr14.i184, align 8, !tbaa !15
@@ -7931,7 +7822,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.88", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 6, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -8002,7 +7893,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.88", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -8014,7 +7905,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !162
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.94, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !164
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store ptr %16, ptr %add.ptr.i58, align 8, !tbaa !15
@@ -8035,7 +7926,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -8153,9 +8044,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i235, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -8165,9 +8056,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not245, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm6EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i119 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i123 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i114, i64 0, i32 1
+  %capacity_.i.i.i.i119 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i123 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -8358,9 +8249,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57250, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm6EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i152 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i156 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i147, i64 0, i32 1
+  %capacity_.i.i.i.i152 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i156 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm6EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -8452,7 +8343,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i181, label %if.then.i202, label %if.end.i182
 
 if.then.i202:                                     ; preds = %if.end.i5
-  %u.i203 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
+  %u.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i204 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i204, align 8, !tbaa !15
   %e_.i.i205 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27, i32 1
@@ -8463,7 +8354,7 @@ if.then.i202:                                     ; preds = %if.end.i5
 if.end.i182:                                      ; preds = %if.end.i5
   %and.i.i.i183 = and i64 %27, 4611686018427387903
   %tobool.not.i.i184 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i185 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i185 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i185, align 8
   %retval.0.i.i186 = select i1 %tobool.not.i.i184, i64 6, i64 %28
   %cmp10.i187 = icmp eq i64 %retval.0.i.i186, %and.i.i.i183
@@ -8473,7 +8364,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   %add.i200 = add nuw nsw i64 %and.i.i.i183, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
   store ptr %f.addr.i, ptr %ref.tmp.i180, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.94, ptr %ref.tmp.i180, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i180, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(104) %res, i64 noundef %add.i200, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i180, i64 noundef %and.i.i.i183)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
@@ -8481,7 +8372,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm6EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208
 
 if.else.i188:                                     ; preds = %if.end.i182
-  %u12.i189 = getelementptr inbounds %"class.folly::small_vector.88", ptr %res, i64 0, i32 1
+  %u12.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i189, align 8, !tbaa !7
   %add.ptr14.i190 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i183
   store ptr %prev.i.7, ptr %add.ptr14.i190, align 8, !tbaa !15
@@ -8553,9 +8444,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i229, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -8566,9 +8457,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not239, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i113 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i117 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i108, i64 0, i32 1
+  %capacity_.i.i.i.i113 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -8749,9 +8640,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54244, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i146 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i150 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i141, i64 0, i32 1
+  %capacity_.i.i.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i150 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i141, i64 8
   %.pre251 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -8834,7 +8725,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i175, label %if.then.i196, label %if.end.i176
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i198, align 8, !tbaa !15
   %e_.i.i199 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27, i32 1
@@ -8845,7 +8736,7 @@ if.then.i196:                                     ; preds = %_ZN5folly11simd_det
 if.end.i176:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit
   %and.i.i.i177 = and i64 %27, 4611686018427387903
   %tobool.not.i.i178 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i179 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i179 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i179, align 8
   %retval.0.i.i180 = select i1 %tobool.not.i.i178, i64 7, i64 %28
   %cmp10.i181 = icmp eq i64 %retval.0.i.i180, %and.i.i.i177
@@ -8855,7 +8746,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   %add.i194 = add nuw nsw i64 %and.i.i.i177, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
   store ptr %f.addr.i, ptr %ref.tmp.i174, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i174, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i174, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(120) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i174, i64 noundef %and.i.i.i177)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
@@ -8863,7 +8754,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit202
 
 if.else.i182:                                     ; preds = %if.end.i176
-  %u12.i183 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
+  %u12.i183 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i183, align 8, !tbaa !7
   %add.ptr14.i184 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i177
   store ptr %prev.i.7, ptr %add.ptr14.i184, align 8, !tbaa !15
@@ -8896,7 +8787,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.105", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 7, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -8967,7 +8858,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.105", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -8979,7 +8870,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !175
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.111, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !177
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store ptr %16, ptr %add.ptr.i58, align 8, !tbaa !15
@@ -9000,7 +8891,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -9118,9 +9009,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i235, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -9130,9 +9021,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not245, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm7EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i119 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i123 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i114, i64 0, i32 1
+  %capacity_.i.i.i.i119 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i123 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -9323,9 +9214,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57250, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm7EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i152 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i156 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i147, i64 0, i32 1
+  %capacity_.i.i.i.i152 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i156 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm7EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -9417,7 +9308,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i181, label %if.then.i202, label %if.end.i182
 
 if.then.i202:                                     ; preds = %if.end.i5
-  %u.i203 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
+  %u.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i204 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i204, align 8, !tbaa !15
   %e_.i.i205 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27, i32 1
@@ -9428,7 +9319,7 @@ if.then.i202:                                     ; preds = %if.end.i5
 if.end.i182:                                      ; preds = %if.end.i5
   %and.i.i.i183 = and i64 %27, 4611686018427387903
   %tobool.not.i.i184 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i185 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i185 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i185, align 8
   %retval.0.i.i186 = select i1 %tobool.not.i.i184, i64 7, i64 %28
   %cmp10.i187 = icmp eq i64 %retval.0.i.i186, %and.i.i.i183
@@ -9438,7 +9329,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   %add.i200 = add nuw nsw i64 %and.i.i.i183, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
   store ptr %f.addr.i, ptr %ref.tmp.i180, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.111, ptr %ref.tmp.i180, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i180, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(120) %res, i64 noundef %add.i200, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i180, i64 noundef %and.i.i.i183)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
@@ -9446,7 +9337,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm7EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208
 
 if.else.i188:                                     ; preds = %if.end.i182
-  %u12.i189 = getelementptr inbounds %"class.folly::small_vector.105", ptr %res, i64 0, i32 1
+  %u12.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i189, align 8, !tbaa !7
   %add.ptr14.i190 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i183
   store ptr %prev.i.7, ptr %add.ptr14.i190, align 8, !tbaa !15
@@ -9518,9 +9409,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i229, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -9531,9 +9422,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not239, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i113 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i117 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i108, i64 0, i32 1
+  %capacity_.i.i.i.i113 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i117 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i108, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -9714,9 +9605,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54244, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i146 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i150 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i141, i64 0, i32 1
+  %capacity_.i.i.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i150 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i141, i64 8
   %.pre251 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -9799,7 +9690,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i175, label %if.then.i196, label %if.end.i176
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i198, align 8, !tbaa !15
   %e_.i.i199 = getelementptr inbounds %"class.folly::Range", ptr %u.i197, i64 %27, i32 1
@@ -9810,7 +9701,7 @@ if.then.i196:                                     ; preds = %_ZN5folly11simd_det
 if.end.i176:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit
   %and.i.i.i177 = and i64 %27, 4611686018427387903
   %tobool.not.i.i178 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i179 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i179 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i179, align 8
   %retval.0.i.i180 = select i1 %tobool.not.i.i178, i64 8, i64 %28
   %cmp10.i181 = icmp eq i64 %retval.0.i.i180, %and.i.i.i177
@@ -9820,7 +9711,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   %add.i194 = add nuw nsw i64 %and.i.i.i177, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
   store ptr %f.addr.i, ptr %ref.tmp.i174, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i174, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i174, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(136) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i174, i64 noundef %and.i.i.i177)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i174) #24
@@ -9828,7 +9719,7 @@ if.then11.i193:                                   ; preds = %if.end.i176
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit202
 
 if.else.i182:                                     ; preds = %if.end.i176
-  %u12.i183 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
+  %u12.i183 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i183, align 8, !tbaa !7
   %add.ptr14.i184 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i177
   store ptr %prev.i.7, ptr %add.ptr14.i184, align 8, !tbaa !15
@@ -9861,7 +9752,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.122", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 8, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -9932,7 +9823,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.122", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -9944,7 +9835,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.folly::Range", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !188
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.128, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !190
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store ptr %16, ptr %add.ptr.i58, align 8, !tbaa !15
@@ -9965,7 +9856,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.folly::Range", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.folly::Range", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -10083,9 +9974,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i235, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit.i, %if.then3.i
@@ -10095,9 +9986,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not245, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS3_EELm8EvEEEEEEbiRPT_SI_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i119 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i123 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i114, i64 0, i32 1
+  %capacity_.i.i.i.i119 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i123 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit.i, %while.body.i48.lr.ph
@@ -10288,9 +10179,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57250, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorINS_5RangeIPS2_EELm8EvEEEEEEviPT0_SH_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i152 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i156 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i147, i64 0, i32 1
+  %capacity_.i.i.i.i152 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i156 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorINS_5RangeIPKcEELm8EvEEEEvRT_SB_SB_.exit.i74, %while.body.i58.lr.ph
@@ -10382,7 +10273,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i181, label %if.then.i202, label %if.end.i182
 
 if.then.i202:                                     ; preds = %if.end.i5
-  %u.i203 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
+  %u.i203 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i204 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27
   store ptr %prev.i.7, ptr %add.ptr.i204, align 8, !tbaa !15
   %e_.i.i205 = getelementptr inbounds %"class.folly::Range", ptr %u.i203, i64 %27, i32 1
@@ -10393,7 +10284,7 @@ if.then.i202:                                     ; preds = %if.end.i5
 if.end.i182:                                      ; preds = %if.end.i5
   %and.i.i.i183 = and i64 %27, 4611686018427387903
   %tobool.not.i.i184 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i185 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i185 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i185, align 8
   %retval.0.i.i186 = select i1 %tobool.not.i.i184, i64 8, i64 %28
   %cmp10.i187 = icmp eq i64 %retval.0.i.i186, %and.i.i.i183
@@ -10403,7 +10294,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   %add.i200 = add nuw nsw i64 %and.i.i.i183, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
   store ptr %f.addr.i, ptr %ref.tmp.i180, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.128, ptr %ref.tmp.i180, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i180, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE16makeSizeInternalIZNS5_12emplace_backIJRS3_lEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(136) %res, i64 noundef %add.i200, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i180, i64 noundef %and.i.i.i183)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i180) #24
@@ -10411,7 +10302,7 @@ if.then11.i199:                                   ; preds = %if.end.i182
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm8EvE12emplace_backIJRS3_lEEERS4_DpOT_.exit208
 
 if.else.i188:                                     ; preds = %if.end.i182
-  %u12.i189 = getelementptr inbounds %"class.folly::small_vector.122", ptr %res, i64 0, i32 1
+  %u12.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i189, align 8, !tbaa !7
   %add.ptr14.i190 = getelementptr inbounds %"class.folly::Range", ptr %30, i64 %and.i.i.i183
   store ptr %prev.i.7, ptr %add.ptr14.i190, align 8, !tbaa !15
@@ -10471,8 +10362,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i270, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !10
   %.pre294 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !197
   br label %while.body.i46
@@ -10484,8 +10375,8 @@ while.cond.i.preheader:                           ; preds = %_ZNSt6vectorISt17ba
   br i1 %cmp.not.i.not280, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %_M_finish.i103 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i104 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i103 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i104 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPKclEEERS3_DpOT_.exit, %while.body.i46.lr.ph
@@ -10508,9 +10399,9 @@ while.body.i46:                                   ; preds = %_ZNSt6vectorISt17ba
 
 if.then.i:                                        ; preds = %while.body.i46
   store i64 %sub.ptr.sub.i.i, ptr %7, align 8, !tbaa !199
-  %_M_str.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 0, i32 1
+  %_M_str.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %prev.i.0271, ptr %_M_str.i.i.i.i, align 8, !tbaa !201
-  %incdec.ptr.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !202
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPKclEEERS3_DpOT_.exit
 
@@ -10548,14 +10439,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %9, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !203, !alias.scope !204
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i, label %for.body.i.i.i.i.i, !llvm.loop !208
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i43.i.i
 
@@ -10616,9 +10507,9 @@ while.body.i.i:                                   ; preds = %_ZNSt6vectorISt17ba
 
 if.then.i106:                                     ; preds = %while.body.i.i
   store i64 %sub.ptr.sub.i.i.i, ptr %16, align 8, !tbaa !199
-  %_M_str.i.i.i.i107 = getelementptr inbounds %"class.std::basic_string_view", ptr %16, i64 0, i32 1
+  %_M_str.i.i.i.i107 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %prev.i.2275, ptr %_M_str.i.i.i.i107, align 8, !tbaa !201
-  %incdec.ptr.i108 = getelementptr inbounds %"class.std::basic_string_view", ptr %16, i64 1
+  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %16, i64 16
   store ptr %incdec.ptr.i108, ptr %_M_finish.i103, align 8, !tbaa !202
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPKclEEERS3_DpOT_.exit143
 
@@ -10656,14 +10547,14 @@ for.body.i.i.i.i.i129:                            ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i130 = phi ptr [ %incdec.ptr1.i.i.i.i.i133, %for.body.i.i.i.i.i129 ], [ %call5.i.i.i.i.i125, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i115 ]
   %__first.addr.07.i.i.i.i.i131 = phi ptr [ %incdec.ptr.i.i.i.i.i132, %for.body.i.i.i.i.i129 ], [ %18, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i115 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i130, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i131, i64 16, i1 false), !tbaa.struct !203, !alias.scope !212
-  %incdec.ptr.i.i.i.i.i132 = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i131, i64 1
-  %incdec.ptr1.i.i.i.i.i133 = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i130, i64 1
+  %incdec.ptr.i.i.i.i.i132 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i131, i64 16
+  %incdec.ptr1.i.i.i.i.i133 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i130, i64 16
   %cmp.not.i.i.i.i.i134 = icmp eq ptr %incdec.ptr.i.i.i.i.i132, %15
   br i1 %cmp.not.i.i.i.i.i134, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i135, label %for.body.i.i.i.i.i129, !llvm.loop !216
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i135: ; preds = %for.body.i.i.i.i.i129, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i115
   %__cur.0.lcssa.i.i.i.i.i136 = phi ptr [ %call5.i.i.i.i.i125, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i115 ], [ %incdec.ptr1.i.i.i.i.i133, %for.body.i.i.i.i.i129 ]
-  %incdec.ptr.i.i137 = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i136, i64 1
+  %incdec.ptr.i.i137 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i136, i64 16
   %tobool.not.i.i.i138 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i138, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i140, label %if.then.i43.i.i139
 
@@ -10713,8 +10604,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54285, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %_M_finish.i148 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i149 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i148 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i149 = getelementptr inbounds i8, ptr %res, i64 16
   %.pre297 = load ptr, ptr %_M_finish.i148, align 8, !tbaa !10
   %.pre298 = load ptr, ptr %_M_end_of_storage.i149, align 8, !tbaa !197
   br label %while.body.i55
@@ -10739,9 +10630,9 @@ while.body.i55:                                   ; preds = %_ZNSt6vectorISt17ba
 
 if.then.i151:                                     ; preds = %while.body.i55
   store i64 %sub.ptr.sub.i.i67, ptr %27, align 8, !tbaa !199
-  %_M_str.i.i.i.i152 = getelementptr inbounds %"class.std::basic_string_view", ptr %27, i64 0, i32 1
+  %_M_str.i.i.i.i152 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %prev.i.5286, ptr %_M_str.i.i.i.i152, align 8, !tbaa !201
-  %incdec.ptr.i153 = getelementptr inbounds %"class.std::basic_string_view", ptr %27, i64 1
+  %incdec.ptr.i153 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %incdec.ptr.i153, ptr %_M_finish.i148, align 8, !tbaa !202
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPKclEEERS3_DpOT_.exit188
 
@@ -10779,14 +10670,14 @@ for.body.i.i.i.i.i174:                            ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i175 = phi ptr [ %incdec.ptr1.i.i.i.i.i178, %for.body.i.i.i.i.i174 ], [ %call5.i.i.i.i.i170, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i160 ]
   %__first.addr.07.i.i.i.i.i176 = phi ptr [ %incdec.ptr.i.i.i.i.i177, %for.body.i.i.i.i.i174 ], [ %29, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i160 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i175, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i176, i64 16, i1 false), !tbaa.struct !203, !alias.scope !218
-  %incdec.ptr.i.i.i.i.i177 = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i176, i64 1
-  %incdec.ptr1.i.i.i.i.i178 = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i175, i64 1
+  %incdec.ptr.i.i.i.i.i177 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i176, i64 16
+  %incdec.ptr1.i.i.i.i.i178 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i175, i64 16
   %cmp.not.i.i.i.i.i179 = icmp eq ptr %incdec.ptr.i.i.i.i.i177, %26
   br i1 %cmp.not.i.i.i.i.i179, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i180, label %for.body.i.i.i.i.i174, !llvm.loop !222
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i180: ; preds = %for.body.i.i.i.i.i174, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i160
   %__cur.0.lcssa.i.i.i.i.i181 = phi ptr [ %call5.i.i.i.i.i170, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i160 ], [ %incdec.ptr1.i.i.i.i.i178, %for.body.i.i.i.i.i174 ]
-  %incdec.ptr.i.i182 = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i181, i64 1
+  %incdec.ptr.i.i182 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i181, i64 16
   %tobool.not.i.i.i183 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i183, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i185, label %if.then.i43.i.i184
 
@@ -10812,18 +10703,18 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   %prev.i.7 = phi ptr [ %what.coerce1, %entry._ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit_crit_edge ], [ %prev.i.4, %if.end16.i ], [ %prev.i.1.lcssa, %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit ], [ %add.ptr6.i64, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPKclEEERS3_DpOT_.exit188 ]
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4.pre-phi, %sub.ptr.rhs.cast.i5
-  %_M_finish.i193 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
+  %_M_finish.i193 = getelementptr inbounds i8, ptr %res, i64 8
   %33 = load ptr, ptr %_M_finish.i193, align 8, !tbaa !10
-  %_M_end_of_storage.i194 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_end_of_storage.i194 = getelementptr inbounds i8, ptr %res, i64 16
   %34 = load ptr, ptr %_M_end_of_storage.i194, align 8, !tbaa !197
   %cmp.not.i195 = icmp eq ptr %33, %34
   br i1 %cmp.not.i195, label %if.else.i200, label %if.then.i196
 
 if.then.i196:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit
   store i64 %sub.ptr.sub.i6, ptr %33, align 8, !tbaa !199
-  %_M_str.i.i.i.i197 = getelementptr inbounds %"class.std::basic_string_view", ptr %33, i64 0, i32 1
+  %_M_str.i.i.i.i197 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %prev.i.7, ptr %_M_str.i.i.i.i197, align 8, !tbaa !201
-  %incdec.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %33, i64 1
+  %incdec.ptr.i198 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %incdec.ptr.i198, ptr %_M_finish.i193, align 8, !tbaa !202
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12emplace_backIJRPKclEEERS3_DpOT_.exit233
 
@@ -10861,14 +10752,14 @@ for.body.i.i.i.i.i219:                            ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i220 = phi ptr [ %incdec.ptr1.i.i.i.i.i223, %for.body.i.i.i.i.i219 ], [ %call5.i.i.i.i.i215, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i205 ]
   %__first.addr.07.i.i.i.i.i221 = phi ptr [ %incdec.ptr.i.i.i.i.i222, %for.body.i.i.i.i.i219 ], [ %35, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i205 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i220, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i221, i64 16, i1 false), !tbaa.struct !203, !alias.scope !224
-  %incdec.ptr.i.i.i.i.i222 = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i221, i64 1
-  %incdec.ptr1.i.i.i.i.i223 = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i220, i64 1
+  %incdec.ptr.i.i.i.i.i222 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i221, i64 16
+  %incdec.ptr1.i.i.i.i.i223 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i220, i64 16
   %cmp.not.i.i.i.i.i224 = icmp eq ptr %incdec.ptr.i.i.i.i.i222, %33
   br i1 %cmp.not.i.i.i.i.i224, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i225, label %for.body.i.i.i.i.i219, !llvm.loop !228
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i225: ; preds = %for.body.i.i.i.i.i219, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i205
   %__cur.0.lcssa.i.i.i.i.i226 = phi ptr [ %call5.i.i.i.i.i215, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i205 ], [ %incdec.ptr1.i.i.i.i.i223, %for.body.i.i.i.i.i219 ]
-  %incdec.ptr.i.i227 = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i226, i64 1
+  %incdec.ptr.i.i227 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i226, i64 16
   %tobool.not.i.i.i228 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i228, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i230, label %if.then.i43.i.i229
 
@@ -10922,8 +10813,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i281, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i, %if.then3.i
@@ -10933,8 +10824,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not291, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %_M_finish.i110 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i111 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i110 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i111 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i, %while.body.i48.lr.ph
@@ -10961,9 +10852,9 @@ if.end.i.i:                                       ; preds = %while.body.i48
 
 if.then.i:                                        ; preds = %if.end.i.i
   store i64 %sub.ptr.sub.i.i, ptr %7, align 8, !tbaa !199
-  %_M_str.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 0, i32 1
+  %_M_str.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %prev.i.0282, ptr %_M_str.i.i.i.i, align 8, !tbaa !201
-  %incdec.ptr.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !202
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i
 
@@ -11001,14 +10892,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %9, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !203, !alias.scope !229
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i, label %for.body.i.i.i.i.i, !llvm.loop !233
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i43.i.i
 
@@ -11066,9 +10957,9 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
 
 if.then.i113:                                     ; preds = %if.end.i.i.i
   store i64 %sub.ptr.sub.i.i.i, ptr %14, align 8, !tbaa !199
-  %_M_str.i.i.i.i114 = getelementptr inbounds %"class.std::basic_string_view", ptr %14, i64 0, i32 1
+  %_M_str.i.i.i.i114 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %prev.i.2286, ptr %_M_str.i.i.i.i114, align 8, !tbaa !201
-  %incdec.ptr.i115 = getelementptr inbounds %"class.std::basic_string_view", ptr %14, i64 1
+  %incdec.ptr.i115 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %incdec.ptr.i115, ptr %_M_finish.i110, align 8, !tbaa !202
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i.i
 
@@ -11106,14 +10997,14 @@ for.body.i.i.i.i.i136:                            ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i137 = phi ptr [ %incdec.ptr1.i.i.i.i.i140, %for.body.i.i.i.i.i136 ], [ %call5.i.i.i.i.i132, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i122 ]
   %__first.addr.07.i.i.i.i.i138 = phi ptr [ %incdec.ptr.i.i.i.i.i139, %for.body.i.i.i.i.i136 ], [ %16, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i122 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i137, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i138, i64 16, i1 false), !tbaa.struct !203, !alias.scope !236
-  %incdec.ptr.i.i.i.i.i139 = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i138, i64 1
-  %incdec.ptr1.i.i.i.i.i140 = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i137, i64 1
+  %incdec.ptr.i.i.i.i.i139 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i138, i64 16
+  %incdec.ptr1.i.i.i.i.i140 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i137, i64 16
   %cmp.not.i.i.i.i.i141 = icmp eq ptr %incdec.ptr.i.i.i.i.i139, %14
   br i1 %cmp.not.i.i.i.i.i141, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i142, label %for.body.i.i.i.i.i136, !llvm.loop !240
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i142: ; preds = %for.body.i.i.i.i.i136, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i122
   %__cur.0.lcssa.i.i.i.i.i143 = phi ptr [ %call5.i.i.i.i.i132, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i122 ], [ %incdec.ptr1.i.i.i.i.i140, %for.body.i.i.i.i.i136 ]
-  %incdec.ptr.i.i144 = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i143, i64 1
+  %incdec.ptr.i.i144 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i143, i64 16
   %tobool.not.i.i.i145 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i145, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i147, label %if.then.i43.i.i146
 
@@ -11161,8 +11052,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57296, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %_M_finish.i155 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i156 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i155 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i156 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i74, %while.body.i58.lr.ph
@@ -11189,9 +11080,9 @@ if.end.i.i69:                                     ; preds = %while.body.i58
 
 if.then.i158:                                     ; preds = %if.end.i.i69
   store i64 %sub.ptr.sub.i.i72, ptr %23, align 8, !tbaa !199
-  %_M_str.i.i.i.i159 = getelementptr inbounds %"class.std::basic_string_view", ptr %23, i64 0, i32 1
+  %_M_str.i.i.i.i159 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %prev.i.5297, ptr %_M_str.i.i.i.i159, align 8, !tbaa !201
-  %incdec.ptr.i160 = getelementptr inbounds %"class.std::basic_string_view", ptr %23, i64 1
+  %incdec.ptr.i160 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %incdec.ptr.i160, ptr %_M_finish.i155, align 8, !tbaa !202
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit.i74
 
@@ -11229,14 +11120,14 @@ for.body.i.i.i.i.i181:                            ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i182 = phi ptr [ %incdec.ptr1.i.i.i.i.i185, %for.body.i.i.i.i.i181 ], [ %call5.i.i.i.i.i177, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i167 ]
   %__first.addr.07.i.i.i.i.i183 = phi ptr [ %incdec.ptr.i.i.i.i.i184, %for.body.i.i.i.i.i181 ], [ %25, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i167 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i182, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i183, i64 16, i1 false), !tbaa.struct !203, !alias.scope !242
-  %incdec.ptr.i.i.i.i.i184 = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i183, i64 1
-  %incdec.ptr1.i.i.i.i.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i182, i64 1
+  %incdec.ptr.i.i.i.i.i184 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i183, i64 16
+  %incdec.ptr1.i.i.i.i.i185 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i182, i64 16
   %cmp.not.i.i.i.i.i186 = icmp eq ptr %incdec.ptr.i.i.i.i.i184, %23
   br i1 %cmp.not.i.i.i.i.i186, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i187, label %for.body.i.i.i.i.i181, !llvm.loop !246
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i187: ; preds = %for.body.i.i.i.i.i181, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i167
   %__cur.0.lcssa.i.i.i.i.i188 = phi ptr [ %call5.i.i.i.i.i177, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i167 ], [ %incdec.ptr1.i.i.i.i.i185, %for.body.i.i.i.i.i181 ]
-  %incdec.ptr.i.i189 = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i188, i64 1
+  %incdec.ptr.i.i189 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i188, i64 16
   %tobool.not.i.i.i190 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i190, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i192, label %if.then.i43.i.i191
 
@@ -11263,18 +11154,18 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
 if.end.i5:                                        ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEviPT0_SJ_RT1_.exit
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
-  %_M_finish.i200 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
+  %_M_finish.i200 = getelementptr inbounds i8, ptr %res, i64 8
   %27 = load ptr, ptr %_M_finish.i200, align 8, !tbaa !10
-  %_M_end_of_storage.i201 = getelementptr inbounds %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_end_of_storage.i201 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load ptr, ptr %_M_end_of_storage.i201, align 8, !tbaa !197
   %cmp.not.i202 = icmp eq ptr %27, %28
   br i1 %cmp.not.i202, label %if.else.i207, label %if.then.i203
 
 if.then.i203:                                     ; preds = %if.end.i5
   store i64 %sub.ptr.sub.i8, ptr %27, align 8, !tbaa !199
-  %_M_str.i.i.i.i204 = getelementptr inbounds %"class.std::basic_string_view", ptr %27, i64 0, i32 1
+  %_M_str.i.i.i.i204 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %prev.i.7, ptr %_M_str.i.i.i.i204, align 8, !tbaa !201
-  %incdec.ptr.i205 = getelementptr inbounds %"class.std::basic_string_view", ptr %27, i64 1
+  %incdec.ptr.i205 = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %incdec.ptr.i205, ptr %_M_finish.i200, align 8, !tbaa !202
   br label %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEvRT_PKcSI_.exit
 
@@ -11312,14 +11203,14 @@ for.body.i.i.i.i.i226:                            ; preds = %_ZNKSt6vectorISt17b
   %__cur.08.i.i.i.i.i227 = phi ptr [ %incdec.ptr1.i.i.i.i.i230, %for.body.i.i.i.i.i226 ], [ %call5.i.i.i.i.i222, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i212 ]
   %__first.addr.07.i.i.i.i.i228 = phi ptr [ %incdec.ptr.i.i.i.i.i229, %for.body.i.i.i.i.i226 ], [ %29, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i212 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i227, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i228, i64 16, i1 false), !tbaa.struct !203, !alias.scope !248
-  %incdec.ptr.i.i.i.i.i229 = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.07.i.i.i.i.i228, i64 1
-  %incdec.ptr1.i.i.i.i.i230 = getelementptr inbounds %"class.std::basic_string_view", ptr %__cur.08.i.i.i.i.i227, i64 1
+  %incdec.ptr.i.i.i.i.i229 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i228, i64 16
+  %incdec.ptr1.i.i.i.i.i230 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i227, i64 16
   %cmp.not.i.i.i.i.i231 = icmp eq ptr %incdec.ptr.i.i.i.i.i229, %27
   br i1 %cmp.not.i.i.i.i.i231, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i232, label %for.body.i.i.i.i.i226, !llvm.loop !252
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit42.i.i232: ; preds = %for.body.i.i.i.i.i226, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i212
   %__cur.0.lcssa.i.i.i.i.i233 = phi ptr [ %call5.i.i.i.i.i222, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i212 ], [ %incdec.ptr1.i.i.i.i.i230, %for.body.i.i.i.i.i226 ]
-  %incdec.ptr.i.i234 = getelementptr %"class.std::basic_string_view", ptr %__cur.0.lcssa.i.i.i.i.i233, i64 1
+  %incdec.ptr.i.i234 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i233, i64 16
   %tobool.not.i.i.i235 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i235, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i237, label %if.then.i43.i.i236
 
@@ -11385,8 +11276,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i167, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %e_.i96 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i96 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i46
 
 while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit, %if.then3.i
@@ -11396,8 +11287,8 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorI
   br i1 %cmp.not.i.not177, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i103 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i104 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i103 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i104 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -11424,9 +11315,9 @@ while.body.i46:                                   ; preds = %_ZN5folly8fbvectorI
 
 if.then.i:                                        ; preds = %while.body.i46
   store i64 %sub.ptr.sub.i.i, ptr %7, align 8, !tbaa !199
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %prev.i.0168, ptr %_M_str.i.i.i, align 8, !tbaa !201
-  %incdec.ptr.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %e_.i96, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit
 
@@ -11479,9 +11370,9 @@ while.body.i.i:                                   ; preds = %while.body.i, %_ZN5
 
 if.then.i106:                                     ; preds = %while.body.i.i
   store i64 %sub.ptr.sub.i.i.i, ptr %12, align 8, !tbaa !199
-  %_M_str.i.i.i107 = getelementptr inbounds %"class.std::basic_string_view", ptr %12, i64 0, i32 1
+  %_M_str.i.i.i107 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %prev.i.2172, ptr %_M_str.i.i.i107, align 8, !tbaa !201
-  %incdec.ptr.i108 = getelementptr inbounds %"class.std::basic_string_view", ptr %12, i64 1
+  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %incdec.ptr.i108, ptr %e_.i103, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit113
 
@@ -11524,8 +11415,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54182, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %e_.i118 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i119 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i118 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i119 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i55
 
 while.body.i55:                                   ; preds = %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit128, %while.body.i55.lr.ph
@@ -11552,9 +11443,9 @@ while.body.i55:                                   ; preds = %_ZN5folly8fbvectorI
 
 if.then.i121:                                     ; preds = %while.body.i55
   store i64 %sub.ptr.sub.i.i67, ptr %19, align 8, !tbaa !199
-  %_M_str.i.i.i122 = getelementptr inbounds %"class.std::basic_string_view", ptr %19, i64 0, i32 1
+  %_M_str.i.i.i122 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %prev.i.5183, ptr %_M_str.i.i.i122, align 8, !tbaa !201
-  %incdec.ptr.i123 = getelementptr inbounds %"class.std::basic_string_view", ptr %19, i64 1
+  %incdec.ptr.i123 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr.i123, ptr %e_.i118, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit128
 
@@ -11577,18 +11468,18 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4.pre-phi, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i133 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i133 = getelementptr inbounds i8, ptr %res, i64 8
   %21 = load ptr, ptr %e_.i133, align 8, !tbaa !253
-  %z_.i134 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i134 = getelementptr inbounds i8, ptr %res, i64 16
   %22 = load ptr, ptr %z_.i134, align 8, !tbaa !256
   %cmp.not.i135 = icmp eq ptr %21, %22
   br i1 %cmp.not.i135, label %if.else.i141, label %if.then.i136
 
 if.then.i136:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit
   store i64 %sub.ptr.sub.i6, ptr %21, align 8, !tbaa !199
-  %_M_str.i.i.i137 = getelementptr inbounds %"class.std::basic_string_view", ptr %21, i64 0, i32 1
+  %_M_str.i.i.i137 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %prev.i.7, ptr %_M_str.i.i.i137, align 8, !tbaa !201
-  %incdec.ptr.i138 = getelementptr inbounds %"class.std::basic_string_view", ptr %21, i64 1
+  %incdec.ptr.i138 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i138, ptr %e_.i133, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit143
 
@@ -11608,7 +11499,7 @@ entry:
   %ref.tmp.i.i.i.i67 = alloca %struct.Initializer, align 1
   %ref.tmp.i.i = alloca %struct.Initializer.5, align 1
   %ref.tmp.i.i.i.i = alloca %struct.Initializer, align 1
-  %z_.i.i = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %this, i64 0, i32 2
+  %z_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %z_.i.i, align 8, !tbaa !256
   %1 = load ptr, ptr %this, align 8, !tbaa !261
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -11714,7 +11605,7 @@ land.lhs.true:                                    ; preds = %_ZN5folly13usingJEM
   br i1 %cmp, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %land.lhs.true
-  %e_.i = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %e_.i, align 8, !tbaa !253
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
@@ -11770,9 +11661,9 @@ if.then15:                                        ; preds = %_ZN5folly14goodMall
   %20 = load ptr, ptr %args, align 8, !tbaa !10
   %21 = load i64, ptr %args1, align 8, !tbaa !70
   store i64 %21, ptr %19, align 8, !tbaa !199
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %19, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %20, ptr %_M_str.i.i, align 8, !tbaa !201
-  %incdec.ptr = getelementptr inbounds %"class.std::basic_string_view", ptr %19, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr, ptr %e_.i, align 8, !tbaa !253
   br label %cleanup51
 
@@ -11788,7 +11679,7 @@ if.then.i.i.i:                                    ; preds = %if.end27
   unreachable
 
 _ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE10M_allocateEm.exit: ; preds = %if.end27
-  %e_.i84 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i84 = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load ptr, ptr %e_.i84, align 8, !tbaa !253
   %23 = load ptr, ptr %this, align 8, !tbaa !261
   %sub.ptr.lhs.cast.i85 = ptrtoint ptr %22 to i64
@@ -11820,7 +11711,7 @@ if.then39:                                        ; preds = %_ZN5folly8fbvectorI
 
 if.end43:                                         ; preds = %if.then39, %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS6_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit.thread
   %28 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub.i87
-  %incdec.ptr36117 = getelementptr inbounds %"class.std::basic_string_view", ptr %28, i64 1
+  %incdec.ptr36117 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %call.i.i.i, ptr %this, align 8, !tbaa !261
   store ptr %incdec.ptr36117, ptr %e_.i84, align 8, !tbaa !253
   %add.ptr48 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i.i.i, i64 %div2863
@@ -11878,8 +11769,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i173, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %e_.i102 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i102 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit.i, %if.then3.i
@@ -11889,8 +11780,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not183, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISF_EEEEEEEbiRPT_SK_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i109 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i110 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i109 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i110 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit.i, %while.body.i48.lr.ph
@@ -11921,9 +11812,9 @@ if.end.i.i:                                       ; preds = %while.body.i48
 
 if.then.i:                                        ; preds = %if.end.i.i
   store i64 %sub.ptr.sub.i.i, ptr %7, align 8, !tbaa !199
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %prev.i.0174, ptr %_M_str.i.i.i, align 8, !tbaa !201
-  %incdec.ptr.i = getelementptr inbounds %"class.std::basic_string_view", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %e_.i102, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit
 
@@ -11983,9 +11874,9 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
 
 if.then.i112:                                     ; preds = %if.end.i.i.i
   store i64 %sub.ptr.sub.i.i.i, ptr %12, align 8, !tbaa !199
-  %_M_str.i.i.i113 = getelementptr inbounds %"class.std::basic_string_view", ptr %12, i64 0, i32 1
+  %_M_str.i.i.i113 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %prev.i.2178, ptr %_M_str.i.i.i113, align 8, !tbaa !201
-  %incdec.ptr.i114 = getelementptr inbounds %"class.std::basic_string_view", ptr %12, i64 1
+  %incdec.ptr.i114 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %incdec.ptr.i114, ptr %e_.i109, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit119
 
@@ -12031,8 +11922,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57188, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISE_EEEEEEEviPT0_SJ_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %e_.i124 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i125 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i124 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i125 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaISC_EEEEEvRT_PKcSI_.exit.i74, %while.body.i58.lr.ph
@@ -12063,9 +11954,9 @@ if.end.i.i69:                                     ; preds = %while.body.i58
 
 if.then.i127:                                     ; preds = %if.end.i.i69
   store i64 %sub.ptr.sub.i.i72, ptr %19, align 8, !tbaa !199
-  %_M_str.i.i.i128 = getelementptr inbounds %"class.std::basic_string_view", ptr %19, i64 0, i32 1
+  %_M_str.i.i.i128 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %prev.i.5189, ptr %_M_str.i.i.i128, align 8, !tbaa !201
-  %incdec.ptr.i129 = getelementptr inbounds %"class.std::basic_string_view", ptr %19, i64 1
+  %incdec.ptr.i129 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %incdec.ptr.i129, ptr %e_.i124, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit134
 
@@ -12094,18 +11985,18 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i139 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i139 = getelementptr inbounds i8, ptr %res, i64 8
   %21 = load ptr, ptr %e_.i139, align 8, !tbaa !253
-  %z_.i140 = getelementptr inbounds %"struct.folly::fbvector<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i140 = getelementptr inbounds i8, ptr %res, i64 16
   %22 = load ptr, ptr %z_.i140, align 8, !tbaa !256
   %cmp.not.i141 = icmp eq ptr %21, %22
   br i1 %cmp.not.i141, label %if.else.i147, label %if.then.i142
 
 if.then.i142:                                     ; preds = %if.end.i5
   store i64 %sub.ptr.sub.i8, ptr %21, align 8, !tbaa !199
-  %_M_str.i.i.i143 = getelementptr inbounds %"class.std::basic_string_view", ptr %21, i64 0, i32 1
+  %_M_str.i.i.i143 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %prev.i.7, ptr %_M_str.i.i.i143, align 8, !tbaa !201
-  %incdec.ptr.i144 = getelementptr inbounds %"class.std::basic_string_view", ptr %21, i64 1
+  %incdec.ptr.i144 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %incdec.ptr.i144, ptr %e_.i139, align 8, !tbaa !253
   br label %_ZN5folly8fbvectorISt17basic_string_viewIcSt11char_traitsIcEESaIS4_EE12emplace_backIJRPKclEEERS4_DpOT_.exit149
 
@@ -12173,9 +12064,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i242, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %u5.i.i = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i96, i64 0, i32 1
-  %_M_str.i.i = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
+  %_M_str.i.i = getelementptr inbounds i8, ptr %res, i64 16
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -12186,9 +12077,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not252, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %u5.i.i114 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i107, i64 0, i32 1
-  %_M_str.i.i139 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i114 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
+  %_M_str.i.i139 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -12415,9 +12306,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54257, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %u5.i.i152 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
-  %32 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i145, i64 0, i32 1
-  %_M_str.i.i176 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i152 = getelementptr inbounds i8, ptr %res, i64 8
+  %32 = getelementptr inbounds i8, ptr %ref.tmp.i145, i64 8
+  %_M_str.i.i176 = getelementptr inbounds i8, ptr %res, i64 16
   %.pre264 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -12523,9 +12414,9 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i183, label %if.then.i212, label %if.end.i184
 
 if.then.i212:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i213 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
+  %u.i213 = getelementptr inbounds i8, ptr %res, i64 8
   store i64 %sub.ptr.sub.i6, ptr %u.i213, align 8, !tbaa !199
-  %_M_str.i.i214 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %_M_str.i.i214 = getelementptr inbounds i8, ptr %res, i64 16
   store ptr %42, ptr %_M_str.i.i214, align 8, !tbaa !201
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplace_backIJRPKclEEERS4_DpOT_.exit215
 
@@ -12537,7 +12428,7 @@ if.end.i184:                                      ; preds = %_ZN5folly11simd_det
 if.then.i.i187:                                   ; preds = %if.end.i184
   %44 = and i64 %43, 4611686018427387904
   %tobool.i.not.i.i188 = icmp eq i64 %44, 0
-  %u5.i.i189 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
+  %u5.i.i189 = getelementptr inbounds i8, ptr %res, i64 8
   %45 = load ptr, ptr %u5.i.i189, align 8, !tbaa !7
   br i1 %tobool.i.not.i.i188, label %if.end.i.i209, label %if.then3.i.i190
 
@@ -12564,14 +12455,14 @@ if.then11.i207:                                   ; preds = %_ZNK5folly12small_v
   %add.i208 = add nuw nsw i64 %and.i.i.i185, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i182) #24
   store ptr %f.addr.i, ptr %ref.tmp.i182, align 8, !tbaa !10
-  %47 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i182, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %ref.tmp.i182, i64 8
   store ptr %ref.tmp.i3, ptr %47, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(24) %res, i64 noundef %add.i208, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i182, i64 noundef %and.i.i.i185)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i182) #24
   br label %if.end15.i201
 
 if.else.i197:                                     ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i194
-  %u12.i198 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
+  %u12.i198 = getelementptr inbounds i8, ptr %res, i64 8
   %48 = load ptr, ptr %u12.i198, align 8, !tbaa !7
   %add.ptr14.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %48, i64 %and.i.i.i185
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i199, align 8, !tbaa !199
@@ -12611,7 +12502,7 @@ if.end3:                                          ; preds = %entry
 if.then.i.i:                                      ; preds = %if.end3
   %1 = and i64 %0, 4611686018427387904
   %tobool.i.not.i.i = icmp eq i64 %1, 0
-  %u5.i.i = getelementptr inbounds %"class.folly::small_vector.153", ptr %this, i64 0, i32 1
+  %u5.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %u5.i.i, align 8, !tbaa !7
   br i1 %tobool.i.not.i.i, label %if.end.i.i, label %if.then3.i.i
 
@@ -12704,7 +12595,7 @@ if.then.i67:                                      ; preds = %_ZN5folly14goodMall
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %spec.select = getelementptr inbounds i8, ptr %call.i, i64 %cond
   %15 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.153", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %15, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %16, ptr %u.i.i
@@ -12716,7 +12607,7 @@ if.then24:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i72 = getelementptr inbounds %"class.std::basic_string_view", ptr %spec.select, i64 %pos
   %17 = load ptr, ptr %emplaceFunc, align 8, !tbaa !270
   %18 = load ptr, ptr %17, align 8, !tbaa !10
-  %19 = getelementptr inbounds %class.anon.158, ptr %emplaceFunc, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !272
   %21 = load i64, ptr %20, align 8, !tbaa !70
   store i64 %21, ptr %add.ptr.i72, align 8, !tbaa !199
@@ -12736,7 +12627,7 @@ if.end.i75:                                       ; preds = %if.then.i74, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i75
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i72, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i72, i64 16
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %add.ptr.i71 to i64
   %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
@@ -12780,7 +12671,7 @@ entry:
   br i1 %tobool.not, label %if.end14, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %u = getelementptr inbounds %"class.folly::small_vector.153", ptr %this, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %u, align 8, !tbaa !7
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end14, label %if.end
@@ -12886,9 +12777,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i249, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %u5.i.i = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i102, i64 0, i32 1
-  %_M_str.i.i = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
+  %_M_str.i.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -12898,9 +12789,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not259, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %u5.i.i121 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i114, i64 0, i32 1
-  %_M_str.i.i146 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i121 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i114, i64 8
+  %_M_str.i.i146 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -13137,9 +13028,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57264, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %u5.i.i159 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
-  %32 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i152, i64 0, i32 1
-  %_M_str.i.i183 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %u5.i.i159 = getelementptr inbounds i8, ptr %res, i64 8
+  %32 = getelementptr inbounds i8, ptr %ref.tmp.i152, i64 8
+  %_M_str.i.i183 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -13254,9 +13145,9 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i190, label %if.then.i219, label %if.end.i191
 
 if.then.i219:                                     ; preds = %if.end.i5
-  %u.i220 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
+  %u.i220 = getelementptr inbounds i8, ptr %res, i64 8
   store i64 %sub.ptr.sub.i8, ptr %u.i220, align 8, !tbaa !199
-  %_M_str.i.i221 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1, i32 1
+  %_M_str.i.i221 = getelementptr inbounds i8, ptr %res, i64 16
   store ptr %42, ptr %_M_str.i.i221, align 8, !tbaa !201
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE12emplace_backIJRPKclEEERS4_DpOT_.exit222
 
@@ -13268,7 +13159,7 @@ if.end.i191:                                      ; preds = %if.end.i5
 if.then.i.i194:                                   ; preds = %if.end.i191
   %44 = and i64 %43, 4611686018427387904
   %tobool.i.not.i.i195 = icmp eq i64 %44, 0
-  %u5.i.i196 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
+  %u5.i.i196 = getelementptr inbounds i8, ptr %res, i64 8
   %45 = load ptr, ptr %u5.i.i196, align 8, !tbaa !7
   br i1 %tobool.i.not.i.i195, label %if.end.i.i216, label %if.then3.i.i197
 
@@ -13295,14 +13186,14 @@ if.then11.i214:                                   ; preds = %_ZNK5folly12small_v
   %add.i215 = add nuw nsw i64 %and.i.i.i192, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i189) #24
   store ptr %f.addr.i, ptr %ref.tmp.i189, align 8, !tbaa !10
-  %47 = getelementptr inbounds %class.anon.158, ptr %ref.tmp.i189, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %ref.tmp.i189, i64 8
   store ptr %ref.tmp.i3, ptr %47, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(24) %res, i64 noundef %add.i215, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i189, i64 noundef %and.i.i.i192)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i189) #24
   br label %if.end15.i208
 
 if.else.i204:                                     ; preds = %_ZNK5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE8capacityEv.exit.i201
-  %u12.i205 = getelementptr inbounds %"class.folly::small_vector.153", ptr %res, i64 0, i32 1
+  %u12.i205 = getelementptr inbounds i8, ptr %res, i64 8
   %48 = load ptr, ptr %u12.i205, align 8, !tbaa !7
   %add.ptr14.i206 = getelementptr inbounds %"class.std::basic_string_view", ptr %48, i64 %and.i.i.i192
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i206, align 8, !tbaa !199
@@ -13377,9 +13268,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -13390,9 +13281,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i112 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i116 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i107, i64 0, i32 1
+  %capacity_.i.i.i.i112 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i116 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -13569,9 +13460,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i143 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i147 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i138, i64 0, i32 1
+  %capacity_.i.i.i.i143 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i147 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   %.pre244 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -13652,7 +13543,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i170, label %if.then.i190, label %if.end.i171
 
 if.then.i190:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i191 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
+  %u.i191 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i192 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i192, align 8, !tbaa !199
   %_M_str.i.i193 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27, i32 1
@@ -13662,7 +13553,7 @@ if.then.i190:                                     ; preds = %_ZN5folly11simd_det
 if.end.i171:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit
   %and.i.i.i172 = and i64 %27, 4611686018427387903
   %tobool.not.i.i173 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i174 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i174 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i174, align 8
   %retval.0.i.i175 = select i1 %tobool.not.i.i173, i64 2, i64 %28
   %cmp10.i176 = icmp eq i64 %retval.0.i.i175, %and.i.i.i172
@@ -13672,7 +13563,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   %add.i188 = add nuw nsw i64 %and.i.i.i172, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
   store ptr %f.addr.i, ptr %ref.tmp.i169, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i169, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i169, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(40) %res, i64 noundef %add.i188, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i169, i64 noundef %and.i.i.i172)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
@@ -13680,7 +13571,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplace_backIJRPKclEEERS4_DpOT_.exit195
 
 if.else.i177:                                     ; preds = %if.end.i171
-  %u12.i178 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
+  %u12.i178 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i178, align 8, !tbaa !7
   %add.ptr14.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i172
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i179, align 8, !tbaa !199
@@ -13712,7 +13603,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.169", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 2, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -13783,7 +13674,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.169", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -13795,7 +13686,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !281
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.174, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !283
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store i64 %19, ptr %add.ptr.i58, align 8, !tbaa !199
@@ -13815,7 +13706,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -13933,9 +13824,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i228, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -13945,9 +13836,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not238, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i118 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i122 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i113, i64 0, i32 1
+  %capacity_.i.i.i.i118 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -14134,9 +14025,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57243, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i149 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i153 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i144, i64 0, i32 1
+  %capacity_.i.i.i.i149 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i153 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i144, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -14226,7 +14117,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i176, label %if.then.i196, label %if.end.i177
 
 if.then.i196:                                     ; preds = %if.end.i5
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i198, align 8, !tbaa !199
   %_M_str.i.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27, i32 1
@@ -14236,7 +14127,7 @@ if.then.i196:                                     ; preds = %if.end.i5
 if.end.i177:                                      ; preds = %if.end.i5
   %and.i.i.i178 = and i64 %27, 4611686018427387903
   %tobool.not.i.i179 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i180 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i180, align 8
   %retval.0.i.i181 = select i1 %tobool.not.i.i179, i64 2, i64 %28
   %cmp10.i182 = icmp eq i64 %retval.0.i.i181, %and.i.i.i178
@@ -14246,7 +14137,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   %add.i194 = add nuw nsw i64 %and.i.i.i178, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
   store ptr %f.addr.i, ptr %ref.tmp.i175, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.174, ptr %ref.tmp.i175, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i175, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(40) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i175, i64 noundef %and.i.i.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
@@ -14254,7 +14145,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm2EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201
 
 if.else.i183:                                     ; preds = %if.end.i177
-  %u12.i184 = getelementptr inbounds %"class.folly::small_vector.169", ptr %res, i64 0, i32 1
+  %u12.i184 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i184, align 8, !tbaa !7
   %add.ptr14.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i178
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i185, align 8, !tbaa !199
@@ -14325,9 +14216,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -14338,9 +14229,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i112 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i116 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i107, i64 0, i32 1
+  %capacity_.i.i.i.i112 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i116 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -14517,9 +14408,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i143 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i147 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i138, i64 0, i32 1
+  %capacity_.i.i.i.i143 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i147 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   %.pre244 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -14600,7 +14491,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i170, label %if.then.i190, label %if.end.i171
 
 if.then.i190:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i191 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
+  %u.i191 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i192 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i192, align 8, !tbaa !199
   %_M_str.i.i193 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27, i32 1
@@ -14610,7 +14501,7 @@ if.then.i190:                                     ; preds = %_ZN5folly11simd_det
 if.end.i171:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit
   %and.i.i.i172 = and i64 %27, 4611686018427387903
   %tobool.not.i.i173 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i174 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i174 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i174, align 8
   %retval.0.i.i175 = select i1 %tobool.not.i.i173, i64 3, i64 %28
   %cmp10.i176 = icmp eq i64 %retval.0.i.i175, %and.i.i.i172
@@ -14620,7 +14511,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   %add.i188 = add nuw nsw i64 %and.i.i.i172, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
   store ptr %f.addr.i, ptr %ref.tmp.i169, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i169, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i169, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(56) %res, i64 noundef %add.i188, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i169, i64 noundef %and.i.i.i172)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
@@ -14628,7 +14519,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplace_backIJRPKclEEERS4_DpOT_.exit195
 
 if.else.i177:                                     ; preds = %if.end.i171
-  %u12.i178 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
+  %u12.i178 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i178, align 8, !tbaa !7
   %add.ptr14.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i172
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i179, align 8, !tbaa !199
@@ -14660,7 +14551,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.185", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 3, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -14731,7 +14622,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.185", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -14743,7 +14634,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !294
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.190, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !296
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store i64 %19, ptr %add.ptr.i58, align 8, !tbaa !199
@@ -14763,7 +14654,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -14881,9 +14772,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i228, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -14893,9 +14784,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not238, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i118 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i122 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i113, i64 0, i32 1
+  %capacity_.i.i.i.i118 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -15082,9 +14973,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57243, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i149 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i153 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i144, i64 0, i32 1
+  %capacity_.i.i.i.i149 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i153 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i144, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -15174,7 +15065,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i176, label %if.then.i196, label %if.end.i177
 
 if.then.i196:                                     ; preds = %if.end.i5
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i198, align 8, !tbaa !199
   %_M_str.i.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27, i32 1
@@ -15184,7 +15075,7 @@ if.then.i196:                                     ; preds = %if.end.i5
 if.end.i177:                                      ; preds = %if.end.i5
   %and.i.i.i178 = and i64 %27, 4611686018427387903
   %tobool.not.i.i179 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i180 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i180, align 8
   %retval.0.i.i181 = select i1 %tobool.not.i.i179, i64 3, i64 %28
   %cmp10.i182 = icmp eq i64 %retval.0.i.i181, %and.i.i.i178
@@ -15194,7 +15085,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   %add.i194 = add nuw nsw i64 %and.i.i.i178, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
   store ptr %f.addr.i, ptr %ref.tmp.i175, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.190, ptr %ref.tmp.i175, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i175, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(56) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i175, i64 noundef %and.i.i.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
@@ -15202,7 +15093,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm3EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201
 
 if.else.i183:                                     ; preds = %if.end.i177
-  %u12.i184 = getelementptr inbounds %"class.folly::small_vector.185", ptr %res, i64 0, i32 1
+  %u12.i184 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i184, align 8, !tbaa !7
   %add.ptr14.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i178
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i185, align 8, !tbaa !199
@@ -15273,9 +15164,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -15286,9 +15177,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i112 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i116 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i107, i64 0, i32 1
+  %capacity_.i.i.i.i112 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i116 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -15465,9 +15356,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i143 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i147 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i138, i64 0, i32 1
+  %capacity_.i.i.i.i143 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i147 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   %.pre244 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -15548,7 +15439,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i170, label %if.then.i190, label %if.end.i171
 
 if.then.i190:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i191 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
+  %u.i191 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i192 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i192, align 8, !tbaa !199
   %_M_str.i.i193 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27, i32 1
@@ -15558,7 +15449,7 @@ if.then.i190:                                     ; preds = %_ZN5folly11simd_det
 if.end.i171:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit
   %and.i.i.i172 = and i64 %27, 4611686018427387903
   %tobool.not.i.i173 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i174 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i174 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i174, align 8
   %retval.0.i.i175 = select i1 %tobool.not.i.i173, i64 4, i64 %28
   %cmp10.i176 = icmp eq i64 %retval.0.i.i175, %and.i.i.i172
@@ -15568,7 +15459,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   %add.i188 = add nuw nsw i64 %and.i.i.i172, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
   store ptr %f.addr.i, ptr %ref.tmp.i169, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i169, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i169, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(72) %res, i64 noundef %add.i188, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i169, i64 noundef %and.i.i.i172)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
@@ -15576,7 +15467,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplace_backIJRPKclEEERS4_DpOT_.exit195
 
 if.else.i177:                                     ; preds = %if.end.i171
-  %u12.i178 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
+  %u12.i178 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i178, align 8, !tbaa !7
   %add.ptr14.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i172
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i179, align 8, !tbaa !199
@@ -15608,7 +15499,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.201", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 4, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -15679,7 +15570,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.201", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -15691,7 +15582,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !307
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.206, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !309
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store i64 %19, ptr %add.ptr.i58, align 8, !tbaa !199
@@ -15711,7 +15602,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -15829,9 +15720,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i228, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -15841,9 +15732,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not238, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i118 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i122 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i113, i64 0, i32 1
+  %capacity_.i.i.i.i118 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -16030,9 +15921,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57243, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i149 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i153 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i144, i64 0, i32 1
+  %capacity_.i.i.i.i149 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i153 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i144, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -16122,7 +16013,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i176, label %if.then.i196, label %if.end.i177
 
 if.then.i196:                                     ; preds = %if.end.i5
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i198, align 8, !tbaa !199
   %_M_str.i.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27, i32 1
@@ -16132,7 +16023,7 @@ if.then.i196:                                     ; preds = %if.end.i5
 if.end.i177:                                      ; preds = %if.end.i5
   %and.i.i.i178 = and i64 %27, 4611686018427387903
   %tobool.not.i.i179 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i180 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i180, align 8
   %retval.0.i.i181 = select i1 %tobool.not.i.i179, i64 4, i64 %28
   %cmp10.i182 = icmp eq i64 %retval.0.i.i181, %and.i.i.i178
@@ -16142,7 +16033,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   %add.i194 = add nuw nsw i64 %and.i.i.i178, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
   store ptr %f.addr.i, ptr %ref.tmp.i175, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.206, ptr %ref.tmp.i175, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i175, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(72) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i175, i64 noundef %and.i.i.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
@@ -16150,7 +16041,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm4EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201
 
 if.else.i183:                                     ; preds = %if.end.i177
-  %u12.i184 = getelementptr inbounds %"class.folly::small_vector.201", ptr %res, i64 0, i32 1
+  %u12.i184 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i184, align 8, !tbaa !7
   %add.ptr14.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i178
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i185, align 8, !tbaa !199
@@ -16221,9 +16112,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -16234,9 +16125,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i112 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i116 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i107, i64 0, i32 1
+  %capacity_.i.i.i.i112 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i116 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -16413,9 +16304,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i143 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i147 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i138, i64 0, i32 1
+  %capacity_.i.i.i.i143 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i147 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   %.pre244 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -16496,7 +16387,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i170, label %if.then.i190, label %if.end.i171
 
 if.then.i190:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i191 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
+  %u.i191 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i192 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i192, align 8, !tbaa !199
   %_M_str.i.i193 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27, i32 1
@@ -16506,7 +16397,7 @@ if.then.i190:                                     ; preds = %_ZN5folly11simd_det
 if.end.i171:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit
   %and.i.i.i172 = and i64 %27, 4611686018427387903
   %tobool.not.i.i173 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i174 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i174 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i174, align 8
   %retval.0.i.i175 = select i1 %tobool.not.i.i173, i64 5, i64 %28
   %cmp10.i176 = icmp eq i64 %retval.0.i.i175, %and.i.i.i172
@@ -16516,7 +16407,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   %add.i188 = add nuw nsw i64 %and.i.i.i172, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
   store ptr %f.addr.i, ptr %ref.tmp.i169, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i169, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i169, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(88) %res, i64 noundef %add.i188, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i169, i64 noundef %and.i.i.i172)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
@@ -16524,7 +16415,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplace_backIJRPKclEEERS4_DpOT_.exit195
 
 if.else.i177:                                     ; preds = %if.end.i171
-  %u12.i178 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
+  %u12.i178 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i178, align 8, !tbaa !7
   %add.ptr14.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i172
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i179, align 8, !tbaa !199
@@ -16556,7 +16447,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.217", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 5, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -16627,7 +16518,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.217", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -16639,7 +16530,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !320
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.222, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !322
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store i64 %19, ptr %add.ptr.i58, align 8, !tbaa !199
@@ -16659,7 +16550,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -16777,9 +16668,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i228, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -16789,9 +16680,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not238, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i118 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i122 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i113, i64 0, i32 1
+  %capacity_.i.i.i.i118 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -16978,9 +16869,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57243, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i149 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i153 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i144, i64 0, i32 1
+  %capacity_.i.i.i.i149 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i153 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i144, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -17070,7 +16961,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i176, label %if.then.i196, label %if.end.i177
 
 if.then.i196:                                     ; preds = %if.end.i5
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i198, align 8, !tbaa !199
   %_M_str.i.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27, i32 1
@@ -17080,7 +16971,7 @@ if.then.i196:                                     ; preds = %if.end.i5
 if.end.i177:                                      ; preds = %if.end.i5
   %and.i.i.i178 = and i64 %27, 4611686018427387903
   %tobool.not.i.i179 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i180 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i180, align 8
   %retval.0.i.i181 = select i1 %tobool.not.i.i179, i64 5, i64 %28
   %cmp10.i182 = icmp eq i64 %retval.0.i.i181, %and.i.i.i178
@@ -17090,7 +16981,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   %add.i194 = add nuw nsw i64 %and.i.i.i178, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
   store ptr %f.addr.i, ptr %ref.tmp.i175, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.222, ptr %ref.tmp.i175, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i175, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(88) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i175, i64 noundef %and.i.i.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
@@ -17098,7 +16989,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm5EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201
 
 if.else.i183:                                     ; preds = %if.end.i177
-  %u12.i184 = getelementptr inbounds %"class.folly::small_vector.217", ptr %res, i64 0, i32 1
+  %u12.i184 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i184, align 8, !tbaa !7
   %add.ptr14.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i178
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i185, align 8, !tbaa !199
@@ -17169,9 +17060,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -17182,9 +17073,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i112 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i116 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i107, i64 0, i32 1
+  %capacity_.i.i.i.i112 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i116 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -17361,9 +17252,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i143 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i147 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i138, i64 0, i32 1
+  %capacity_.i.i.i.i143 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i147 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   %.pre244 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -17444,7 +17335,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i170, label %if.then.i190, label %if.end.i171
 
 if.then.i190:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i191 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
+  %u.i191 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i192 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i192, align 8, !tbaa !199
   %_M_str.i.i193 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27, i32 1
@@ -17454,7 +17345,7 @@ if.then.i190:                                     ; preds = %_ZN5folly11simd_det
 if.end.i171:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit
   %and.i.i.i172 = and i64 %27, 4611686018427387903
   %tobool.not.i.i173 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i174 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i174 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i174, align 8
   %retval.0.i.i175 = select i1 %tobool.not.i.i173, i64 6, i64 %28
   %cmp10.i176 = icmp eq i64 %retval.0.i.i175, %and.i.i.i172
@@ -17464,7 +17355,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   %add.i188 = add nuw nsw i64 %and.i.i.i172, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
   store ptr %f.addr.i, ptr %ref.tmp.i169, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i169, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i169, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(104) %res, i64 noundef %add.i188, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i169, i64 noundef %and.i.i.i172)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
@@ -17472,7 +17363,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplace_backIJRPKclEEERS4_DpOT_.exit195
 
 if.else.i177:                                     ; preds = %if.end.i171
-  %u12.i178 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
+  %u12.i178 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i178, align 8, !tbaa !7
   %add.ptr14.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i172
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i179, align 8, !tbaa !199
@@ -17504,7 +17395,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.233", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 6, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -17575,7 +17466,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.233", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -17587,7 +17478,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !333
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.238, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !335
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store i64 %19, ptr %add.ptr.i58, align 8, !tbaa !199
@@ -17607,7 +17498,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -17725,9 +17616,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i228, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -17737,9 +17628,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not238, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i118 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i122 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i113, i64 0, i32 1
+  %capacity_.i.i.i.i118 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -17926,9 +17817,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57243, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i149 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i153 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i144, i64 0, i32 1
+  %capacity_.i.i.i.i149 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i153 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i144, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -18018,7 +17909,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i176, label %if.then.i196, label %if.end.i177
 
 if.then.i196:                                     ; preds = %if.end.i5
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i198, align 8, !tbaa !199
   %_M_str.i.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27, i32 1
@@ -18028,7 +17919,7 @@ if.then.i196:                                     ; preds = %if.end.i5
 if.end.i177:                                      ; preds = %if.end.i5
   %and.i.i.i178 = and i64 %27, 4611686018427387903
   %tobool.not.i.i179 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i180 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i180, align 8
   %retval.0.i.i181 = select i1 %tobool.not.i.i179, i64 6, i64 %28
   %cmp10.i182 = icmp eq i64 %retval.0.i.i181, %and.i.i.i178
@@ -18038,7 +17929,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   %add.i194 = add nuw nsw i64 %and.i.i.i178, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
   store ptr %f.addr.i, ptr %ref.tmp.i175, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.238, ptr %ref.tmp.i175, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i175, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(104) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i175, i64 noundef %and.i.i.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
@@ -18046,7 +17937,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm6EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201
 
 if.else.i183:                                     ; preds = %if.end.i177
-  %u12.i184 = getelementptr inbounds %"class.folly::small_vector.233", ptr %res, i64 0, i32 1
+  %u12.i184 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i184, align 8, !tbaa !7
   %add.ptr14.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i178
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i185, align 8, !tbaa !199
@@ -18117,9 +18008,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -18130,9 +18021,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i112 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i116 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i107, i64 0, i32 1
+  %capacity_.i.i.i.i112 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i116 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -18309,9 +18200,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i143 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i147 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i138, i64 0, i32 1
+  %capacity_.i.i.i.i143 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i147 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   %.pre244 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -18392,7 +18283,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i170, label %if.then.i190, label %if.end.i171
 
 if.then.i190:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i191 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
+  %u.i191 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i192 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i192, align 8, !tbaa !199
   %_M_str.i.i193 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27, i32 1
@@ -18402,7 +18293,7 @@ if.then.i190:                                     ; preds = %_ZN5folly11simd_det
 if.end.i171:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit
   %and.i.i.i172 = and i64 %27, 4611686018427387903
   %tobool.not.i.i173 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i174 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i174 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i174, align 8
   %retval.0.i.i175 = select i1 %tobool.not.i.i173, i64 7, i64 %28
   %cmp10.i176 = icmp eq i64 %retval.0.i.i175, %and.i.i.i172
@@ -18412,7 +18303,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   %add.i188 = add nuw nsw i64 %and.i.i.i172, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
   store ptr %f.addr.i, ptr %ref.tmp.i169, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i169, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i169, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(120) %res, i64 noundef %add.i188, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i169, i64 noundef %and.i.i.i172)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
@@ -18420,7 +18311,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplace_backIJRPKclEEERS4_DpOT_.exit195
 
 if.else.i177:                                     ; preds = %if.end.i171
-  %u12.i178 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
+  %u12.i178 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i178, align 8, !tbaa !7
   %add.ptr14.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i172
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i179, align 8, !tbaa !199
@@ -18452,7 +18343,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.249", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 7, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -18523,7 +18414,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.249", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -18535,7 +18426,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !346
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.254, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !348
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store i64 %19, ptr %add.ptr.i58, align 8, !tbaa !199
@@ -18555,7 +18446,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -18673,9 +18564,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i228, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -18685,9 +18576,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not238, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i118 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i122 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i113, i64 0, i32 1
+  %capacity_.i.i.i.i118 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -18874,9 +18765,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57243, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i149 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i153 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i144, i64 0, i32 1
+  %capacity_.i.i.i.i149 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i153 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i144, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -18966,7 +18857,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i176, label %if.then.i196, label %if.end.i177
 
 if.then.i196:                                     ; preds = %if.end.i5
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i198, align 8, !tbaa !199
   %_M_str.i.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27, i32 1
@@ -18976,7 +18867,7 @@ if.then.i196:                                     ; preds = %if.end.i5
 if.end.i177:                                      ; preds = %if.end.i5
   %and.i.i.i178 = and i64 %27, 4611686018427387903
   %tobool.not.i.i179 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i180 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i180, align 8
   %retval.0.i.i181 = select i1 %tobool.not.i.i179, i64 7, i64 %28
   %cmp10.i182 = icmp eq i64 %retval.0.i.i181, %and.i.i.i178
@@ -18986,7 +18877,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   %add.i194 = add nuw nsw i64 %and.i.i.i178, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
   store ptr %f.addr.i, ptr %ref.tmp.i175, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.254, ptr %ref.tmp.i175, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i175, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(120) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i175, i64 noundef %and.i.i.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
@@ -18994,7 +18885,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm7EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201
 
 if.else.i183:                                     ; preds = %if.end.i177
-  %u12.i184 = getelementptr inbounds %"class.folly::small_vector.249", ptr %res, i64 0, i32 1
+  %u12.i184 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i184, align 8, !tbaa !7
   %add.ptr14.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i178
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i185, align 8, !tbaa !199
@@ -19065,9 +18956,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i96, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i96, i64 8
   %.pre = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i46
 
@@ -19078,9 +18969,9 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly12small_ve
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i112 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i116 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i107, i64 0, i32 1
+  %capacity_.i.i.i.i112 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i116 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 8
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplace_backIJRPKclEEERS4_DpOT_.exit, %while.body.i46.lr.ph
@@ -19257,9 +19148,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i143 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i147 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i138, i64 0, i32 1
+  %capacity_.i.i.i.i143 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i147 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   %.pre244 = load i64, ptr %res, align 8, !tbaa !92
   br label %while.body.i55
 
@@ -19340,7 +19231,7 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   br i1 %cmp.i170, label %if.then.i190, label %if.end.i171
 
 if.then.i190:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit
-  %u.i191 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
+  %u.i191 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i192 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27
   store i64 %sub.ptr.sub.i6, ptr %add.ptr.i192, align 8, !tbaa !199
   %_M_str.i.i193 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i191, i64 %27, i32 1
@@ -19350,7 +19241,7 @@ if.then.i190:                                     ; preds = %_ZN5folly11simd_det
 if.end.i171:                                      ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit
   %and.i.i.i172 = and i64 %27, 4611686018427387903
   %tobool.not.i.i173 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i174 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i174 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i174, align 8
   %retval.0.i.i175 = select i1 %tobool.not.i.i173, i64 8, i64 %28
   %cmp10.i176 = icmp eq i64 %retval.0.i.i175, %and.i.i.i172
@@ -19360,7 +19251,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   %add.i188 = add nuw nsw i64 %and.i.i.i172, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
   store ptr %f.addr.i, ptr %ref.tmp.i169, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i169, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i169, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(136) %res, i64 noundef %add.i188, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i169, i64 noundef %and.i.i.i172)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i169) #24
@@ -19368,7 +19259,7 @@ if.then11.i187:                                   ; preds = %if.end.i171
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplace_backIJRPKclEEERS4_DpOT_.exit195
 
 if.else.i177:                                     ; preds = %if.end.i171
-  %u12.i178 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
+  %u12.i178 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i178, align 8, !tbaa !7
   %add.ptr14.i179 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i172
   store i64 %sub.ptr.sub.i6, ptr %add.ptr14.i179, align 8, !tbaa !199
@@ -19400,7 +19291,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !92
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.265", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 8, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -19471,7 +19362,7 @@ if.then.i54:                                      ; preds = %_ZN5folly14goodMall
 
 _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMallocSizeEm.exit
   %13 = load i64, ptr %this, align 8, !tbaa !92
-  %u.i.i = getelementptr inbounds %"class.folly::small_vector.265", ptr %this, i64 0, i32 1
+  %u.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %u.i.i, align 8
   %tobool.not5.i.i = icmp slt i64 %13, 0
   %cond.i.i = select i1 %tobool.not5.i.i, ptr %14, ptr %u.i.i
@@ -19483,7 +19374,7 @@ if.then18:                                        ; preds = %_ZN5folly13checkedM
   %add.ptr.i58 = getelementptr inbounds %"class.std::basic_string_view", ptr %call.i, i64 %pos
   %15 = load ptr, ptr %emplaceFunc, align 8, !tbaa !359
   %16 = load ptr, ptr %15, align 8, !tbaa !10
-  %17 = getelementptr inbounds %class.anon.270, ptr %emplaceFunc, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %emplaceFunc, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !361
   %19 = load i64, ptr %18, align 8, !tbaa !70
   store i64 %19, ptr %add.ptr.i58, align 8, !tbaa !199
@@ -19503,7 +19394,7 @@ if.end.i61:                                       ; preds = %if.then.i60, %if.th
 
 if.then6.i:                                       ; preds = %if.end.i61
   %add.ptr5.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i.i, i64 %pos
-  %add.ptr9.i = getelementptr inbounds %"class.std::basic_string_view", ptr %add.ptr.i58, i64 1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 16
   %sub.ptr.lhs.cast.i17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i18.i = ptrtoint ptr %add.ptr5.i to i64
   %sub.ptr.sub.i19.i = sub i64 %sub.ptr.lhs.cast.i17.i, %sub.ptr.rhs.cast.i18.i
@@ -19621,9 +19512,9 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i228, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
-  %6 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i102, i64 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i = getelementptr inbounds i8, ptr %res, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i102, i64 8
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit.i, %if.then3.i
@@ -19633,9 +19524,9 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not238, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEbiRPT_SJ_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %capacity_.i.i.i.i118 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i122 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
-  %7 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i113, i64 0, i32 1
+  %capacity_.i.i.i.i118 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i122 = getelementptr inbounds i8, ptr %res, i64 8
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit.i, %while.body.i48.lr.ph
@@ -19822,9 +19713,9 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57243, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEEEviPT0_SI_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %capacity_.i.i.i.i149 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
-  %u12.i153 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
-  %22 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i144, i64 0, i32 1
+  %capacity_.i.i.i.i149 = getelementptr inbounds i8, ptr %res, i64 16
+  %u12.i153 = getelementptr inbounds i8, ptr %res, i64 8
+  %22 = getelementptr inbounds i8, ptr %ref.tmp.i144, i64 8
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvEEEEvRT_PKcSH_.exit.i74, %while.body.i58.lr.ph
@@ -19914,7 +19805,7 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   br i1 %cmp.i176, label %if.then.i196, label %if.end.i177
 
 if.then.i196:                                     ; preds = %if.end.i5
-  %u.i197 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
+  %u.i197 = getelementptr inbounds i8, ptr %res, i64 8
   %add.ptr.i198 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27
   store i64 %sub.ptr.sub.i8, ptr %add.ptr.i198, align 8, !tbaa !199
   %_M_str.i.i199 = getelementptr inbounds %"class.std::basic_string_view", ptr %u.i197, i64 %27, i32 1
@@ -19924,7 +19815,7 @@ if.then.i196:                                     ; preds = %if.end.i5
 if.end.i177:                                      ; preds = %if.end.i5
   %and.i.i.i178 = and i64 %27, 4611686018427387903
   %tobool.not.i.i179 = icmp sgt i64 %27, -1
-  %capacity_.i.i.i.i180 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i180 = getelementptr inbounds i8, ptr %res, i64 16
   %28 = load i64, ptr %capacity_.i.i.i.i180, align 8
   %retval.0.i.i181 = select i1 %tobool.not.i.i179, i64 8, i64 %28
   %cmp10.i182 = icmp eq i64 %retval.0.i.i181, %and.i.i.i178
@@ -19934,7 +19825,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   %add.i194 = add nuw nsw i64 %and.i.i.i178, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
   store ptr %f.addr.i, ptr %ref.tmp.i175, align 8, !tbaa !10
-  %29 = getelementptr inbounds %class.anon.270, ptr %ref.tmp.i175, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %ref.tmp.i175, i64 8
   store ptr %ref.tmp.i3, ptr %29, align 8, !tbaa !10
   call void @_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE16makeSizeInternalIZNS5_12emplace_backIJRPKclEEERS4_DpOT_EUlPvE_EEvmbOT_m(ptr noundef nonnull align 8 dereferenceable(136) %res, i64 noundef %add.i194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i175, i64 noundef %and.i.i.i178)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i175) #24
@@ -19942,7 +19833,7 @@ if.then11.i193:                                   ; preds = %if.end.i177
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm8EvE12emplace_backIJRPKclEEERS4_DpOT_.exit201
 
 if.else.i183:                                     ; preds = %if.end.i177
-  %u12.i184 = getelementptr inbounds %"class.folly::small_vector.265", ptr %res, i64 0, i32 1
+  %u12.i184 = getelementptr inbounds i8, ptr %res, i64 8
   %30 = load ptr, ptr %u12.i184, align 8, !tbaa !7
   %add.ptr14.i185 = getelementptr inbounds %"class.std::basic_string_view", ptr %30, i64 %and.i.i.i178
   store i64 %sub.ptr.sub.i8, ptr %add.ptr14.i185, align 8, !tbaa !199
@@ -20016,8 +19907,8 @@ while.cond.i.preheader:                           ; preds = %while.body.i46, %if
   br i1 %cmp.not.i.not146, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %if.then3.i, %while.body.i46
@@ -20081,7 +19972,7 @@ while.body.i.i:                                   ; preds = %while.body.i, %_ZNS
   br i1 %cmp.not.i100, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i.i
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %12, ptr %10, align 8, !tbaa !372
   %cmp.i.i.i.i = icmp eq ptr %prev.i.2141, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
@@ -20121,14 +20012,14 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKclEEEvRS6_PT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %16 = load i64, ptr %__dnew.i.i.i.i.i, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %16, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !376
   %17 = load ptr, ptr %10, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 0, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i.i) #24
   %18 = load ptr, ptr %_M_finish.i, align 8, !tbaa !377
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !377
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKclEEERS5_DpOT_.exit
 
@@ -20212,9 +20103,9 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKclEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8, !tbaa !10
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !370
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -20222,7 +20113,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %__args, align 8, !tbaa !10
   %3 = load i64, ptr %__args1, align 8, !tbaa !70
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !372
   %cmp.i.i.i = icmp eq ptr %2, null
   %cmp2.i.i.i = icmp ne i64 %3, 0
@@ -20264,14 +20155,14 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKclEEEvRS6_PT_DpOT0_.exit: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %8 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !376
   %9 = load ptr, ptr %0, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #24
   %10 = load ptr, ptr %_M_finish, align 8, !tbaa !377
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %incdec.ptr, ptr %_M_finish, align 8, !tbaa !377
   br label %if.end
 
@@ -20282,7 +20173,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKclEEEvRS6_PT_DpOT0_.exit
   %11 = phi ptr [ %.pre, %if.else ], [ %incdec.ptr, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKclEEEvRS6_PT_DpOT0_.exit ]
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 -32
   ret ptr %add.ptr.i.i
 }
 
@@ -20290,7 +20181,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !377
   %1 = load ptr, ptr %this, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -20388,15 +20279,15 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %invoke.cont ]
   call void @llvm.experimental.noalias.scope.decl(metadata !380)
   call void @llvm.experimental.noalias.scope.decl(metadata !383)
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.08.i.i.i, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 16
   store ptr %11, ptr %__cur.08.i.i.i, align 8, !tbaa !372, !alias.scope !380, !noalias !383
   %12 = load ptr, ptr %__first.addr.07.i.i.i, align 8, !tbaa !374, !alias.scope !383, !noalias !380
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !376, !alias.scope !383, !noalias !380
   %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
@@ -20408,26 +20299,26 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
   store ptr %12, ptr %__cur.08.i.i.i, align 8, !tbaa !374, !alias.scope !380, !noalias !383
   %15 = load i64, ptr %13, align 8, !tbaa !7, !alias.scope !383, !noalias !380
   store i64 %15, ptr %11, align 8, !tbaa !7, !alias.scope !380, !noalias !383
-  %_M_string_length.i23.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i, i64 0, i32 1
+  %_M_string_length.i23.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
   %.pre.i.i.i.i = load i64, ptr %_M_string_length.i23.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !376, !alias.scope !383, !noalias !380
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %16 = phi i64 [ %14, %if.then.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i ]
-  %_M_string_length.i23.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i, i64 0, i32 1
-  %_M_string_length.i24.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.08.i.i.i, i64 0, i32 1
+  %_M_string_length.i23.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 8
+  %_M_string_length.i24.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
   store i64 %16, ptr %_M_string_length.i24.i.i.i.i.i.i.i, align 8, !tbaa !376, !alias.scope !380, !noalias !383
   store ptr %13, ptr %__first.addr.07.i.i.i, align 8, !tbaa !374, !alias.scope !383, !noalias !380
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i, align 8, !tbaa !376, !alias.scope !383, !noalias !380
   store i8 0, ptr %13, align 1, !tbaa !7, !alias.scope !383, !noalias !380
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.08.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !385
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i49, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not6.i.i.i55 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i55, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit74, label %for.body.i.i.i56
 
@@ -20436,15 +20327,15 @@ for.body.i.i.i56:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.07.i.i.i58 = phi ptr [ %incdec.ptr.i.i.i66, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i63 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !386)
   call void @llvm.experimental.noalias.scope.decl(metadata !389)
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.08.i.i.i57, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %__cur.08.i.i.i57, i64 16
   store ptr %17, ptr %__cur.08.i.i.i57, align 8, !tbaa !372, !alias.scope !386, !noalias !389
   %18 = load ptr, ptr %__first.addr.07.i.i.i58, align 8, !tbaa !374, !alias.scope !389, !noalias !386
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i58, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i58, i64 16
   %cmp.i.i.i.i.i.i.i.i59 = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i.i.i.i.i.i59, label %if.then.i.i.i.i.i.i.i70, label %if.else.i.i.i.i.i.i.i60
 
 if.then.i.i.i.i.i.i.i70:                          ; preds = %for.body.i.i.i56
-  %_M_string_length.i.i.i.i.i.i.i.i71 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i58, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i58, i64 8
   %20 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i71, align 8, !tbaa !376, !alias.scope !389, !noalias !386
   %cmp3.i.i.i.i.i.i.i.i72 = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i72)
@@ -20456,20 +20347,20 @@ if.else.i.i.i.i.i.i.i60:                          ; preds = %for.body.i.i.i56
   store ptr %18, ptr %__cur.08.i.i.i57, align 8, !tbaa !374, !alias.scope !386, !noalias !389
   %21 = load i64, ptr %19, align 8, !tbaa !7, !alias.scope !389, !noalias !386
   store i64 %21, ptr %17, align 8, !tbaa !7, !alias.scope !386, !noalias !389
-  %_M_string_length.i23.i.i.i.phi.trans.insert.i.i.i.i61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i58, i64 0, i32 1
+  %_M_string_length.i23.i.i.i.phi.trans.insert.i.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i58, i64 8
   %.pre.i.i.i.i62 = load i64, ptr %_M_string_length.i23.i.i.i.phi.trans.insert.i.i.i.i61, align 8, !tbaa !376, !alias.scope !389, !noalias !386
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i63
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i63: ; preds = %if.else.i.i.i.i.i.i.i60, %if.then.i.i.i.i.i.i.i70
   %22 = phi i64 [ %20, %if.then.i.i.i.i.i.i.i70 ], [ %.pre.i.i.i.i62, %if.else.i.i.i.i.i.i.i60 ]
-  %_M_string_length.i23.i.i.i.i.i.i.i64 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i58, i64 0, i32 1
-  %_M_string_length.i24.i.i.i.i.i.i.i65 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.08.i.i.i57, i64 0, i32 1
+  %_M_string_length.i23.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i58, i64 8
+  %_M_string_length.i24.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__cur.08.i.i.i57, i64 8
   store i64 %22, ptr %_M_string_length.i24.i.i.i.i.i.i.i65, align 8, !tbaa !376, !alias.scope !386, !noalias !389
   store ptr %19, ptr %__first.addr.07.i.i.i58, align 8, !tbaa !374, !alias.scope !389, !noalias !386
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i64, align 8, !tbaa !376, !alias.scope !389, !noalias !386
   store i8 0, ptr %19, align 1, !tbaa !7, !alias.scope !389, !noalias !386
-  %incdec.ptr.i.i.i66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.07.i.i.i58, i64 1
-  %incdec.ptr1.i.i.i67 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.08.i.i.i57, i64 1
+  %incdec.ptr.i.i.i66 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i58, i64 32
+  %incdec.ptr1.i.i.i67 = getelementptr inbounds i8, ptr %__cur.08.i.i.i57, i64 32
   %cmp.not.i.i.i68 = icmp eq ptr %incdec.ptr.i.i.i66, %0
   br i1 %cmp.not.i.i.i68, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit74, label %for.body.i.i.i56, !llvm.loop !391
 
@@ -20483,7 +20374,7 @@ if.then.i75:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %if.then.i75, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit74
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i49, ptr %this, align 8, !tbaa !392
   store ptr %__cur.0.lcssa.i.i.i69, ptr %_M_finish.i.i, align 8, !tbaa !377
   %add.ptr28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i49, i64 %cond.i
@@ -20578,8 +20469,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not147, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %while.cond.i.preheader
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %if.then3.i, %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEvRT_PKcSK_.exit.i
@@ -20654,7 +20545,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end.i.i.i
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %12, ptr %10, align 8, !tbaa !372
   %cmp.i.i.i.i = icmp eq ptr %prev.i.2142, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
@@ -20694,14 +20585,14 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRPKclEEEvRS6_PT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %16 = load i64, ptr %__dnew.i.i.i.i.i, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %16, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !376
   %17 = load ptr, ptr %10, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 0, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i.i) #24
   %18 = load ptr, ptr %_M_finish.i, align 8, !tbaa !377
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !377
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPKclEEERS5_DpOT_.exit
 
@@ -20848,8 +20739,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i167, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i46
 
 while.cond.i.preheader:                           ; preds = %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit, %if.then3.i
@@ -20859,8 +20750,8 @@ while.cond.i.preheader:                           ; preds = %_ZNSt6vectorIN5foll
   br i1 %cmp.not.i.not177, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %_M_finish.i104 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i105 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i104 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i105 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit, %while.body.i46.lr.ph
@@ -20904,16 +20795,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %prev.i.0168, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %prev.i.0168, i64 16
   %9 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !70
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %9, ptr %capacity_.i.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %prev.i.0168, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %prev.i.0168, i64 8
   %10 = load i64, ptr %arrayidx3.i.i.i, align 8, !tbaa !70
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %size_.i.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i.i
 
@@ -20933,7 +20824,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
   %12 = trunc i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %12
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1, !tbaa !7
@@ -20951,14 +20842,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i) #24
   store i64 %sub.ptr.sub.i.i, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %call.i.i.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i)
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr align 1 %prev.i.0168, i64 %sub.ptr.sub.i.i, i1 false)
   store ptr %data_.i.i.i, ptr %7, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i.i, align 8, !tbaa !7
   %13 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %or.i.i.i = or i64 %13, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i2.i, align 8, !tbaa !399
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -20967,7 +20858,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, %if.then3.i.i, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i
   %14 = load ptr, ptr %_M_finish.i, align 8, !tbaa !401
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::basic_fbstring", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit
 
@@ -21037,16 +20928,16 @@ if.then.i.i.i24:                                  ; preds = %if.then.i.i14
   ]
 
 sw.bb.i.i.i31:                                    ; preds = %if.then.i.i.i24
-  %arrayidx.i.i.i32 = getelementptr inbounds i64, ptr %prev.i.2172, i64 2
+  %arrayidx.i.i.i32 = getelementptr inbounds i8, ptr %prev.i.2172, i64 16
   %20 = load i64, ptr %arrayidx.i.i.i32, align 8, !tbaa !70
-  %capacity_.i.i.i33 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i.i33 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %20, ptr %capacity_.i.i.i33, align 8, !tbaa !7
   br label %sw.bb2.i.i.i28
 
 sw.bb2.i.i.i28:                                   ; preds = %sw.bb.i.i.i31, %if.then.i.i.i24
-  %arrayidx3.i.i.i29 = getelementptr inbounds i64, ptr %prev.i.2172, i64 1
+  %arrayidx3.i.i.i29 = getelementptr inbounds i8, ptr %prev.i.2172, i64 8
   %21 = load i64, ptr %arrayidx3.i.i.i29, align 8, !tbaa !70
-  %size_.i.i.i30 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i.i30 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %21, ptr %size_.i.i.i30, align 8, !tbaa !7
   br label %sw.bb4.i.i.i27
 
@@ -21066,7 +20957,7 @@ if.then6.i.i.i19:                                 ; preds = %if.else.i.i.i17
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i20: ; preds = %if.then6.i.i.i19, %if.else.i.i.i17, %sw.bb4.i.i.i27, %if.then.i.i.i24
   %23 = trunc i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i.i21 = sub nuw nsw i8 23, %23
-  %arrayidx.i.i.i.i22 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 23
+  %arrayidx.i.i.i.i22 = getelementptr inbounds i8, ptr %18, i64 23
   store i8 %conv.i.i.i.i21, ptr %arrayidx.i.i.i.i22, align 1, !tbaa !7
   %arrayidx2.i.i.i.i23 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i23, align 1, !tbaa !7
@@ -21084,14 +20975,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i36: ; preds = %if.else.i.i34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i12) #24
   store i64 %sub.ptr.sub.i.i.i, ptr %effectiveCapacity.i.i12, align 8, !tbaa !70
   %call.i.i.i37 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i12)
-  %data_.i.i.i38 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i37, i64 0, i32 1
+  %data_.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i37, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i38, ptr align 1 %prev.i.2172, i64 %sub.ptr.sub.i.i.i, i1 false)
   store ptr %data_.i.i.i38, ptr %18, align 8, !tbaa !7
-  %size_.i.i39 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i39 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %sub.ptr.sub.i.i.i, ptr %size_.i.i39, align 8, !tbaa !7
   %24 = load i64, ptr %effectiveCapacity.i.i12, align 8, !tbaa !70
   %or.i.i.i40 = or i64 %24, 4611686018427387904
-  %capacity_.i.i2.i41 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i2.i41 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %or.i.i.i40, ptr %capacity_.i.i2.i41, align 8, !tbaa !399
   %arrayidx.i.i42 = getelementptr inbounds i8, ptr %data_.i.i.i38, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx.i.i42, align 1, !tbaa !7
@@ -21100,7 +20991,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i36: ; preds = %if.else.i.i34
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit44: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i20, %if.then3.i.i43, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i36
   %25 = load ptr, ptr %_M_finish.i104, align 8, !tbaa !401
-  %incdec.ptr.i108 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %25, i64 1
+  %incdec.ptr.i108 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr %incdec.ptr.i108, ptr %_M_finish.i104, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit113
 
@@ -21143,8 +21034,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54182, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %_M_finish.i119 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i120 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i119 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i120 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i55
 
 while.body.i55:                                   ; preds = %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit128, %while.body.i55.lr.ph
@@ -21188,16 +21079,16 @@ if.then.i.i.i57:                                  ; preds = %if.then.i.i47
   ]
 
 sw.bb.i.i.i64:                                    ; preds = %if.then.i.i.i57
-  %arrayidx.i.i.i65 = getelementptr inbounds i64, ptr %prev.i.5183, i64 2
+  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %prev.i.5183, i64 16
   %33 = load i64, ptr %arrayidx.i.i.i65, align 8, !tbaa !70
-  %capacity_.i.i.i66 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i.i66 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %33, ptr %capacity_.i.i.i66, align 8, !tbaa !7
   br label %sw.bb2.i.i.i61
 
 sw.bb2.i.i.i61:                                   ; preds = %sw.bb.i.i.i64, %if.then.i.i.i57
-  %arrayidx3.i.i.i62 = getelementptr inbounds i64, ptr %prev.i.5183, i64 1
+  %arrayidx3.i.i.i62 = getelementptr inbounds i8, ptr %prev.i.5183, i64 8
   %34 = load i64, ptr %arrayidx3.i.i.i62, align 8, !tbaa !70
-  %size_.i.i.i63 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i.i63 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %34, ptr %size_.i.i.i63, align 8, !tbaa !7
   br label %sw.bb4.i.i.i60
 
@@ -21217,7 +21108,7 @@ if.then6.i.i.i52:                                 ; preds = %if.else.i.i.i50
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i53: ; preds = %if.then6.i.i.i52, %if.else.i.i.i50, %sw.bb4.i.i.i60, %if.then.i.i.i57
   %36 = trunc i64 %sub.ptr.sub.i.i67 to i8
   %conv.i.i.i.i54 = sub nuw nsw i8 23, %36
-  %arrayidx.i.i.i.i55 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 23
+  %arrayidx.i.i.i.i55 = getelementptr inbounds i8, ptr %31, i64 23
   store i8 %conv.i.i.i.i54, ptr %arrayidx.i.i.i.i55, align 1, !tbaa !7
   %arrayidx2.i.i.i.i56 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 %sub.ptr.sub.i.i67
   store i8 0, ptr %arrayidx2.i.i.i.i56, align 1, !tbaa !7
@@ -21235,14 +21126,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i69: ; preds = %if.else.i.i67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i45) #24
   store i64 %sub.ptr.sub.i.i67, ptr %effectiveCapacity.i.i45, align 8, !tbaa !70
   %call.i.i.i70 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i45)
-  %data_.i.i.i71 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i70, i64 0, i32 1
+  %data_.i.i.i71 = getelementptr inbounds i8, ptr %call.i.i.i70, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i71, ptr align 1 %prev.i.5183, i64 %sub.ptr.sub.i.i67, i1 false)
   store ptr %data_.i.i.i71, ptr %31, align 8, !tbaa !7
-  %size_.i.i72 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i72 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %sub.ptr.sub.i.i67, ptr %size_.i.i72, align 8, !tbaa !7
   %37 = load i64, ptr %effectiveCapacity.i.i45, align 8, !tbaa !70
   %or.i.i.i73 = or i64 %37, 4611686018427387904
-  %capacity_.i.i2.i74 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i2.i74 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %or.i.i.i73, ptr %capacity_.i.i2.i74, align 8, !tbaa !399
   %arrayidx.i.i75 = getelementptr inbounds i8, ptr %data_.i.i.i71, i64 %sub.ptr.sub.i.i67
   store i8 0, ptr %arrayidx.i.i75, align 1, !tbaa !7
@@ -21251,7 +21142,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i69: ; preds = %if.else.i.i67
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit77: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i53, %if.then3.i.i76, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i69
   %38 = load ptr, ptr %_M_finish.i119, align 8, !tbaa !401
-  %incdec.ptr.i123 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %38, i64 1
+  %incdec.ptr.i123 = getelementptr inbounds i8, ptr %38, i64 24
   store ptr %incdec.ptr.i123, ptr %_M_finish.i119, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit128
 
@@ -21274,9 +21165,9 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4.pre-phi, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %_M_finish.i134 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
+  %_M_finish.i134 = getelementptr inbounds i8, ptr %res, i64 8
   %39 = load ptr, ptr %_M_finish.i134, align 8, !tbaa !10
-  %_M_end_of_storage.i135 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_end_of_storage.i135 = getelementptr inbounds i8, ptr %res, i64 16
   %40 = load ptr, ptr %_M_end_of_storage.i135, align 8, !tbaa !397
   %cmp.not.i136 = icmp eq ptr %39, %40
   br i1 %cmp.not.i136, label %if.else.i141, label %if.then.i137
@@ -21300,16 +21191,16 @@ if.then.i.i.i90:                                  ; preds = %if.then.i.i80
   ]
 
 sw.bb.i.i.i97:                                    ; preds = %if.then.i.i.i90
-  %arrayidx.i.i.i98 = getelementptr inbounds i64, ptr %prev.i.7, i64 2
+  %arrayidx.i.i.i98 = getelementptr inbounds i8, ptr %prev.i.7, i64 16
   %41 = load i64, ptr %arrayidx.i.i.i98, align 8, !tbaa !70
-  %capacity_.i.i.i99 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i.i99 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %41, ptr %capacity_.i.i.i99, align 8, !tbaa !7
   br label %sw.bb2.i.i.i94
 
 sw.bb2.i.i.i94:                                   ; preds = %sw.bb.i.i.i97, %if.then.i.i.i90
-  %arrayidx3.i.i.i95 = getelementptr inbounds i64, ptr %prev.i.7, i64 1
+  %arrayidx3.i.i.i95 = getelementptr inbounds i8, ptr %prev.i.7, i64 8
   %42 = load i64, ptr %arrayidx3.i.i.i95, align 8, !tbaa !70
-  %size_.i.i.i96 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i.i96 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %42, ptr %size_.i.i.i96, align 8, !tbaa !7
   br label %sw.bb4.i.i.i93
 
@@ -21329,7 +21220,7 @@ if.then6.i.i.i85:                                 ; preds = %if.else.i.i.i83
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i86: ; preds = %if.then6.i.i.i85, %if.else.i.i.i83, %sw.bb4.i.i.i93, %if.then.i.i.i90
   %44 = trunc i64 %sub.ptr.sub.i6 to i8
   %conv.i.i.i.i87 = sub nuw nsw i8 23, %44
-  %arrayidx.i.i.i.i88 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 23
+  %arrayidx.i.i.i.i88 = getelementptr inbounds i8, ptr %39, i64 23
   store i8 %conv.i.i.i.i87, ptr %arrayidx.i.i.i.i88, align 1, !tbaa !7
   %arrayidx2.i.i.i.i89 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 %sub.ptr.sub.i6
   store i8 0, ptr %arrayidx2.i.i.i.i89, align 1, !tbaa !7
@@ -21347,14 +21238,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i102: ; preds = %if.else.i.i100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i78) #24
   store i64 %sub.ptr.sub.i6, ptr %effectiveCapacity.i.i78, align 8, !tbaa !70
   %call.i.i.i103 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i78)
-  %data_.i.i.i104 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i103, i64 0, i32 1
+  %data_.i.i.i104 = getelementptr inbounds i8, ptr %call.i.i.i103, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i104, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i6, i1 false)
   store ptr %data_.i.i.i104, ptr %39, align 8, !tbaa !7
-  %size_.i.i105 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i105 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %sub.ptr.sub.i6, ptr %size_.i.i105, align 8, !tbaa !7
   %45 = load i64, ptr %effectiveCapacity.i.i78, align 8, !tbaa !70
   %or.i.i.i106 = or i64 %45, 4611686018427387904
-  %capacity_.i.i2.i107 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i2.i107 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %or.i.i.i106, ptr %capacity_.i.i2.i107, align 8, !tbaa !399
   %arrayidx.i.i108 = getelementptr inbounds i8, ptr %data_.i.i.i104, i64 %sub.ptr.sub.i6
   store i8 0, ptr %arrayidx.i.i108, align 1, !tbaa !7
@@ -21363,7 +21254,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i102: ; preds = %if.else.i.i100
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit110: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i86, %if.then3.i.i109, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i102
   %46 = load ptr, ptr %_M_finish.i134, align 8, !tbaa !401
-  %incdec.ptr.i138 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %46, i64 1
+  %incdec.ptr.i138 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %incdec.ptr.i138, ptr %_M_finish.i134, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit143
 
@@ -21381,7 +21272,7 @@ _ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_core
 define linkonce_odr void @_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %effectiveCapacity.i.i = alloca i64, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !401
   %1 = load ptr, ptr %this, align 8, !tbaa !10
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -21436,16 +21327,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %3, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !70
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store i64 %6, ptr %capacity_.i.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %3, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load i64, ptr %arrayidx3.i.i.i, align 8, !tbaa !70
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %7, ptr %size_.i.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i.i
 
@@ -21465,7 +21356,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
   %9 = trunc i64 %4 to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %9
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %add.ptr, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i.i = getelementptr inbounds [24 x i8], ptr %add.ptr, i64 0, i64 %4
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1, !tbaa !7
@@ -21486,14 +21377,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i1, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr align 1 %3, i64 %4, i1 false)
   store ptr %data_.i.i.i, ptr %add.ptr, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %4, ptr %size_.i.i, align 8, !tbaa !7
   %10 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %or.i.i.i = or i64 %10, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i2.i, align 8, !tbaa !399
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %4
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -21509,17 +21400,17 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   call void @llvm.experimental.noalias.scope.decl(metadata !406)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i, i64 24, i1 false), !tbaa.struct !409, !alias.scope !410
-  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %__first.addr.07.i.i.i, i64 0, i64 23
+  %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1, !tbaa !7, !alias.scope !412, !noalias !406
   store i8 0, ptr %__first.addr.07.i.i.i, align 1, !tbaa !7, !alias.scope !412, !noalias !406
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.folly::basic_fbstring", ptr %__first.addr.07.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.folly::basic_fbstring", ptr %__cur.08.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i, !llvm.loop !413
 
 _ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i49, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr %"class.folly::basic_fbstring", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not6.i.i.i50 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i50, label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit59, label %for.body.i.i.i51
 
@@ -21528,11 +21419,11 @@ for.body.i.i.i51:                                 ; preds = %_ZNSt6vectorIN5foll
   %__first.addr.07.i.i.i53 = phi ptr [ %incdec.ptr.i.i.i55, %for.body.i.i.i51 ], [ %__position.coerce, %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !414)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.08.i.i.i52, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i53, i64 24, i1 false), !tbaa.struct !409, !alias.scope !417
-  %arrayidx.i.i.i.i.i.i.i.i.i.i54 = getelementptr inbounds [24 x i8], ptr %__first.addr.07.i.i.i53, i64 0, i64 23
+  %arrayidx.i.i.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i53, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i54, align 1, !tbaa !7, !alias.scope !419, !noalias !414
   store i8 0, ptr %__first.addr.07.i.i.i53, align 1, !tbaa !7, !alias.scope !419, !noalias !414
-  %incdec.ptr.i.i.i55 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %__first.addr.07.i.i.i53, i64 1
-  %incdec.ptr1.i.i.i56 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %__cur.08.i.i.i52, i64 1
+  %incdec.ptr.i.i.i55 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i53, i64 24
+  %incdec.ptr1.i.i.i56 = getelementptr inbounds i8, ptr %__cur.08.i.i.i52, i64 24
   %cmp.not.i.i.i57 = icmp eq ptr %incdec.ptr.i.i.i55, %0
   br i1 %cmp.not.i.i.i57, label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit59, label %for.body.i.i.i51, !llvm.loop !420
 
@@ -21546,7 +21437,7 @@ if.then.i60:                                      ; preds = %_ZNSt6vectorIN5foll
   br label %_ZNSt12_Vector_baseIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit
 
 _ZNSt12_Vector_baseIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %if.then.i60, %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit59
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i49, ptr %this, align 8, !tbaa !421
   store ptr %__cur.0.lcssa.i.i.i58, ptr %_M_finish.i.i, align 8, !tbaa !401
   %add.ptr28 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %cond.i49, i64 %cond.i
@@ -21562,7 +21453,7 @@ lpad:                                             ; preds = %_ZN5folly13fbstring
   br i1 %tobool.not, label %if.then, label %if.then.i62
 
 if.then:                                          ; preds = %lpad
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %add.ptr, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 23
   %14 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !7
   %cmp.i.i.i.i = icmp ult i8 %14, 64
   br i1 %cmp.i.i.i.i, label %invoke.cont21, label %if.end.i.i.i.i
@@ -21658,11 +21549,11 @@ if.then:                                          ; preds = %_ZN5folly13checkedM
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5folly13checkedMallocEm.exit
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %size_, align 8, !tbaa !7
   %sub = add i64 %retval.0.i, 9223372036854775807
   %or.i = or i64 %sub, -9223372036854775808
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i, ptr %capacity_.i, align 8, !tbaa !399
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %size
   store i8 0, ptr %arrayidx, align 1, !tbaa !7
@@ -21778,7 +21669,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !7
   %1 = and i8 %0, -64
   %cmp = icmp eq i8 %1, -128
@@ -21854,8 +21745,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i173, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit.i, %if.then3.i
@@ -21865,8 +21756,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not183, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %_M_finish.i110 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i111 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i110 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i111 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit.i, %while.body.i48.lr.ph
@@ -21914,16 +21805,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %prev.i.0174, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %prev.i.0174, i64 16
   %9 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !70
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %9, ptr %capacity_.i.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %prev.i.0174, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %prev.i.0174, i64 8
   %10 = load i64, ptr %arrayidx3.i.i.i, align 8, !tbaa !70
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %size_.i.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i.i
 
@@ -21939,7 +21830,7 @@ if.then6.i.i.i:                                   ; preds = %if.then.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
   %12 = trunc i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %12
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1, !tbaa !7
@@ -21957,14 +21848,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i) #24
   store i64 %sub.ptr.sub.i.i, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %call.i.i.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i)
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr align 1 %prev.i.0174, i64 %sub.ptr.sub.i.i, i1 false)
   store ptr %data_.i.i.i, ptr %7, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i.i, align 8, !tbaa !7
   %13 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %or.i.i.i = or i64 %13, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i2.i, align 8, !tbaa !399
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -21973,7 +21864,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, %if.then3.i.i, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i
   %14 = load ptr, ptr %_M_finish.i, align 8, !tbaa !401
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::basic_fbstring", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit
 
@@ -22050,16 +21941,16 @@ if.then.i.i.i25:                                  ; preds = %if.then.i.i15
   ]
 
 sw.bb.i.i.i32:                                    ; preds = %if.then.i.i.i25
-  %arrayidx.i.i.i33 = getelementptr inbounds i64, ptr %prev.i.2178, i64 2
+  %arrayidx.i.i.i33 = getelementptr inbounds i8, ptr %prev.i.2178, i64 16
   %20 = load i64, ptr %arrayidx.i.i.i33, align 8, !tbaa !70
-  %capacity_.i.i.i34 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i.i34 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %20, ptr %capacity_.i.i.i34, align 8, !tbaa !7
   br label %sw.bb2.i.i.i29
 
 sw.bb2.i.i.i29:                                   ; preds = %sw.bb.i.i.i32, %if.then.i.i.i25
-  %arrayidx3.i.i.i30 = getelementptr inbounds i64, ptr %prev.i.2178, i64 1
+  %arrayidx3.i.i.i30 = getelementptr inbounds i8, ptr %prev.i.2178, i64 8
   %21 = load i64, ptr %arrayidx3.i.i.i30, align 8, !tbaa !70
-  %size_.i.i.i31 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i.i31 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %21, ptr %size_.i.i.i31, align 8, !tbaa !7
   br label %sw.bb4.i.i.i28
 
@@ -22075,7 +21966,7 @@ if.then6.i.i.i20:                                 ; preds = %if.then.i.i15
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i21: ; preds = %if.then6.i.i.i20, %sw.bb4.i.i.i28, %if.then.i.i.i25
   %23 = trunc i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i.i22 = sub nuw nsw i8 23, %23
-  %arrayidx.i.i.i.i23 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 23
+  %arrayidx.i.i.i.i23 = getelementptr inbounds i8, ptr %18, i64 23
   store i8 %conv.i.i.i.i22, ptr %arrayidx.i.i.i.i23, align 1, !tbaa !7
   %arrayidx2.i.i.i.i24 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i24, align 1, !tbaa !7
@@ -22093,14 +21984,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i37: ; preds = %if.else.i.i35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i13) #24
   store i64 %sub.ptr.sub.i.i.i, ptr %effectiveCapacity.i.i13, align 8, !tbaa !70
   %call.i.i.i38 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i13)
-  %data_.i.i.i39 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i38, i64 0, i32 1
+  %data_.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i38, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i39, ptr align 1 %prev.i.2178, i64 %sub.ptr.sub.i.i.i, i1 false)
   store ptr %data_.i.i.i39, ptr %18, align 8, !tbaa !7
-  %size_.i.i40 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i40 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %sub.ptr.sub.i.i.i, ptr %size_.i.i40, align 8, !tbaa !7
   %24 = load i64, ptr %effectiveCapacity.i.i13, align 8, !tbaa !70
   %or.i.i.i41 = or i64 %24, 4611686018427387904
-  %capacity_.i.i2.i42 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i2.i42 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %or.i.i.i41, ptr %capacity_.i.i2.i42, align 8, !tbaa !399
   %arrayidx.i.i43 = getelementptr inbounds i8, ptr %data_.i.i.i39, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx.i.i43, align 1, !tbaa !7
@@ -22109,7 +22000,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i37: ; preds = %if.else.i.i35
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit45: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i21, %if.then3.i.i44, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i37
   %25 = load ptr, ptr %_M_finish.i110, align 8, !tbaa !401
-  %incdec.ptr.i114 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %25, i64 1
+  %incdec.ptr.i114 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr %incdec.ptr.i114, ptr %_M_finish.i110, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit119
 
@@ -22155,8 +22046,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57188, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEviPT0_SM_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %_M_finish.i125 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
-  %_M_end_of_storage.i126 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_finish.i125 = getelementptr inbounds i8, ptr %res, i64 8
+  %_M_end_of_storage.i126 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackISt6vectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEvRT_PKcSL_.exit.i74, %while.body.i58.lr.ph
@@ -22204,16 +22095,16 @@ if.then.i.i.i58:                                  ; preds = %if.then.i.i48
   ]
 
 sw.bb.i.i.i65:                                    ; preds = %if.then.i.i.i58
-  %arrayidx.i.i.i66 = getelementptr inbounds i64, ptr %prev.i.5189, i64 2
+  %arrayidx.i.i.i66 = getelementptr inbounds i8, ptr %prev.i.5189, i64 16
   %33 = load i64, ptr %arrayidx.i.i.i66, align 8, !tbaa !70
-  %capacity_.i.i.i67 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i.i67 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %33, ptr %capacity_.i.i.i67, align 8, !tbaa !7
   br label %sw.bb2.i.i.i62
 
 sw.bb2.i.i.i62:                                   ; preds = %sw.bb.i.i.i65, %if.then.i.i.i58
-  %arrayidx3.i.i.i63 = getelementptr inbounds i64, ptr %prev.i.5189, i64 1
+  %arrayidx3.i.i.i63 = getelementptr inbounds i8, ptr %prev.i.5189, i64 8
   %34 = load i64, ptr %arrayidx3.i.i.i63, align 8, !tbaa !70
-  %size_.i.i.i64 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i.i64 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %34, ptr %size_.i.i.i64, align 8, !tbaa !7
   br label %sw.bb4.i.i.i61
 
@@ -22229,7 +22120,7 @@ if.then6.i.i.i53:                                 ; preds = %if.then.i.i48
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i54: ; preds = %if.then6.i.i.i53, %sw.bb4.i.i.i61, %if.then.i.i.i58
   %36 = trunc i64 %sub.ptr.sub.i.i72 to i8
   %conv.i.i.i.i55 = sub nuw nsw i8 23, %36
-  %arrayidx.i.i.i.i56 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 23
+  %arrayidx.i.i.i.i56 = getelementptr inbounds i8, ptr %31, i64 23
   store i8 %conv.i.i.i.i55, ptr %arrayidx.i.i.i.i56, align 1, !tbaa !7
   %arrayidx2.i.i.i.i57 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 %sub.ptr.sub.i.i72
   store i8 0, ptr %arrayidx2.i.i.i.i57, align 1, !tbaa !7
@@ -22247,14 +22138,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i70: ; preds = %if.else.i.i68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i46) #24
   store i64 %sub.ptr.sub.i.i72, ptr %effectiveCapacity.i.i46, align 8, !tbaa !70
   %call.i.i.i71 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i46)
-  %data_.i.i.i72 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i71, i64 0, i32 1
+  %data_.i.i.i72 = getelementptr inbounds i8, ptr %call.i.i.i71, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i72, ptr align 1 %prev.i.5189, i64 %sub.ptr.sub.i.i72, i1 false)
   store ptr %data_.i.i.i72, ptr %31, align 8, !tbaa !7
-  %size_.i.i73 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i73 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %sub.ptr.sub.i.i72, ptr %size_.i.i73, align 8, !tbaa !7
   %37 = load i64, ptr %effectiveCapacity.i.i46, align 8, !tbaa !70
   %or.i.i.i74 = or i64 %37, 4611686018427387904
-  %capacity_.i.i2.i75 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i2.i75 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %or.i.i.i74, ptr %capacity_.i.i2.i75, align 8, !tbaa !399
   %arrayidx.i.i76 = getelementptr inbounds i8, ptr %data_.i.i.i72, i64 %sub.ptr.sub.i.i72
   store i8 0, ptr %arrayidx.i.i76, align 1, !tbaa !7
@@ -22263,7 +22154,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i70: ; preds = %if.else.i.i68
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit78: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i54, %if.then3.i.i77, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i70
   %38 = load ptr, ptr %_M_finish.i125, align 8, !tbaa !401
-  %incdec.ptr.i129 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %38, i64 1
+  %incdec.ptr.i129 = getelementptr inbounds i8, ptr %38, i64 24
   store ptr %incdec.ptr.i129, ptr %_M_finish.i125, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit134
 
@@ -22292,9 +22183,9 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %_M_finish.i140 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 1
+  %_M_finish.i140 = getelementptr inbounds i8, ptr %res, i64 8
   %39 = load ptr, ptr %_M_finish.i140, align 8, !tbaa !10
-  %_M_end_of_storage.i141 = getelementptr inbounds %"struct.std::_Vector_base<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::_Vector_impl_data", ptr %res, i64 0, i32 2
+  %_M_end_of_storage.i141 = getelementptr inbounds i8, ptr %res, i64 16
   %40 = load ptr, ptr %_M_end_of_storage.i141, align 8, !tbaa !397
   %cmp.not.i142 = icmp eq ptr %39, %40
   br i1 %cmp.not.i142, label %if.else.i147, label %if.then.i143
@@ -22318,16 +22209,16 @@ if.then.i.i.i91:                                  ; preds = %if.then.i.i81
   ]
 
 sw.bb.i.i.i98:                                    ; preds = %if.then.i.i.i91
-  %arrayidx.i.i.i99 = getelementptr inbounds i64, ptr %prev.i.7, i64 2
+  %arrayidx.i.i.i99 = getelementptr inbounds i8, ptr %prev.i.7, i64 16
   %41 = load i64, ptr %arrayidx.i.i.i99, align 8, !tbaa !70
-  %capacity_.i.i.i100 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i.i100 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %41, ptr %capacity_.i.i.i100, align 8, !tbaa !7
   br label %sw.bb2.i.i.i95
 
 sw.bb2.i.i.i95:                                   ; preds = %sw.bb.i.i.i98, %if.then.i.i.i91
-  %arrayidx3.i.i.i96 = getelementptr inbounds i64, ptr %prev.i.7, i64 1
+  %arrayidx3.i.i.i96 = getelementptr inbounds i8, ptr %prev.i.7, i64 8
   %42 = load i64, ptr %arrayidx3.i.i.i96, align 8, !tbaa !70
-  %size_.i.i.i97 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i.i97 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %42, ptr %size_.i.i.i97, align 8, !tbaa !7
   br label %sw.bb4.i.i.i94
 
@@ -22343,7 +22234,7 @@ if.then6.i.i.i86:                                 ; preds = %if.then.i.i81
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i87: ; preds = %if.then6.i.i.i86, %sw.bb4.i.i.i94, %if.then.i.i.i91
   %44 = trunc i64 %sub.ptr.sub.i8 to i8
   %conv.i.i.i.i88 = sub nuw nsw i8 23, %44
-  %arrayidx.i.i.i.i89 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 23
+  %arrayidx.i.i.i.i89 = getelementptr inbounds i8, ptr %39, i64 23
   store i8 %conv.i.i.i.i88, ptr %arrayidx.i.i.i.i89, align 1, !tbaa !7
   %arrayidx2.i.i.i.i90 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 %sub.ptr.sub.i8
   store i8 0, ptr %arrayidx2.i.i.i.i90, align 1, !tbaa !7
@@ -22361,14 +22252,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i103: ; preds = %if.else.i.i101
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i79) #24
   store i64 %sub.ptr.sub.i8, ptr %effectiveCapacity.i.i79, align 8, !tbaa !70
   %call.i.i.i104 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i79)
-  %data_.i.i.i105 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i104, i64 0, i32 1
+  %data_.i.i.i105 = getelementptr inbounds i8, ptr %call.i.i.i104, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i105, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i8, i1 false)
   store ptr %data_.i.i.i105, ptr %39, align 8, !tbaa !7
-  %size_.i.i106 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i106 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %sub.ptr.sub.i8, ptr %size_.i.i106, align 8, !tbaa !7
   %45 = load i64, ptr %effectiveCapacity.i.i79, align 8, !tbaa !70
   %or.i.i.i107 = or i64 %45, 4611686018427387904
-  %capacity_.i.i2.i108 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i2.i108 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %or.i.i.i107, ptr %capacity_.i.i2.i108, align 8, !tbaa !399
   %arrayidx.i.i109 = getelementptr inbounds i8, ptr %data_.i.i.i105, i64 %sub.ptr.sub.i8
   store i8 0, ptr %arrayidx.i.i109, align 1, !tbaa !7
@@ -22377,7 +22268,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i103: ; preds = %if.else.i.i101
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit111: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i87, %if.then3.i.i110, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i103
   %46 = load ptr, ptr %_M_finish.i140, align 8, !tbaa !401
-  %incdec.ptr.i144 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %46, i64 1
+  %incdec.ptr.i144 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %incdec.ptr.i144, ptr %_M_finish.i140, align 8, !tbaa !401
   br label %_ZNSt6vectorIN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS0_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit149
 
@@ -22445,8 +22336,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i214, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %e_.i96 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i96 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i46
 
 while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit, %if.then3.i
@@ -22456,8 +22347,8 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorI
   br i1 %cmp.not.i.not224, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i104 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i105 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i104 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i105 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit, %while.body.i46.lr.ph
@@ -22483,7 +22374,7 @@ while.body.i46:                                   ; preds = %_ZN5folly8fbvectorI
   br i1 %cmp.not.i97, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i46
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !372
   %cmp.i.i.i = icmp eq ptr %prev.i.0215, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -22523,14 +22414,14 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %13 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %13, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !376
   %14 = load ptr, ptr %7, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #24
   %15 = load ptr, ptr %e_.i96, align 8, !tbaa !426
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %15, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %incdec.ptr.i, ptr %e_.i96, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit
 
@@ -22582,7 +22473,7 @@ while.body.i.i:                                   ; preds = %while.body.i, %_ZN5
   br i1 %cmp.not.i106, label %if.else.i125, label %if.then.i107
 
 if.then.i107:                                     ; preds = %while.body.i.i
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %21, ptr %19, align 8, !tbaa !372
   %cmp.i.i.i108 = icmp eq ptr %prev.i.2219, null
   br i1 %cmp.i.i.i108, label %if.then.i.i.i124, label %if.end.i.i.i111
@@ -22622,14 +22513,14 @@ if.end.i.i.i.i.i.i.i121:                          ; preds = %if.end.i.i.i.i113
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i114: ; preds = %if.end.i.i.i.i.i.i.i121, %if.then.i.i.i.i.i.i120, %if.end.i.i.i.i113
   %25 = load i64, ptr %__dnew.i.i.i.i103, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i115 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %25, ptr %_M_string_length.i.i.i.i.i.i115, align 8, !tbaa !376
   %26 = load ptr, ptr %19, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i116 = getelementptr inbounds i8, ptr %26, i64 %25
   store i8 0, ptr %arrayidx.i.i.i.i.i116, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i103) #24
   %27 = load ptr, ptr %e_.i104, align 8, !tbaa !426
-  %incdec.ptr.i117 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %27, i64 1
+  %incdec.ptr.i117 = getelementptr inbounds i8, ptr %27, i64 32
   store ptr %incdec.ptr.i117, ptr %e_.i104, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit127
 
@@ -22672,8 +22563,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54229, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %e_.i133 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i134 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i133 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i134 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i55
 
 while.body.i55:                                   ; preds = %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit156, %while.body.i55.lr.ph
@@ -22699,7 +22590,7 @@ while.body.i55:                                   ; preds = %_ZN5folly8fbvectorI
   br i1 %cmp.not.i135, label %if.else.i154, label %if.then.i136
 
 if.then.i136:                                     ; preds = %while.body.i55
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %33, i64 0, i32 2
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %35, ptr %33, align 8, !tbaa !372
   %cmp.i.i.i137 = icmp eq ptr %prev.i.5230, null
   br i1 %cmp.i.i.i137, label %if.then.i.i.i153, label %if.end.i.i.i140
@@ -22739,14 +22630,14 @@ if.end.i.i.i.i.i.i.i150:                          ; preds = %if.end.i.i.i.i142
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i143: ; preds = %if.end.i.i.i.i.i.i.i150, %if.then.i.i.i.i.i.i149, %if.end.i.i.i.i142
   %39 = load i64, ptr %__dnew.i.i.i.i132, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i144 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %33, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i144 = getelementptr inbounds i8, ptr %33, i64 8
   store i64 %39, ptr %_M_string_length.i.i.i.i.i.i144, align 8, !tbaa !376
   %40 = load ptr, ptr %33, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i145 = getelementptr inbounds i8, ptr %40, i64 %39
   store i8 0, ptr %arrayidx.i.i.i.i.i145, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i132) #24
   %41 = load ptr, ptr %e_.i133, align 8, !tbaa !426
-  %incdec.ptr.i146 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %41, i64 1
+  %incdec.ptr.i146 = getelementptr inbounds i8, ptr %41, i64 32
   store ptr %incdec.ptr.i146, ptr %e_.i133, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit156
 
@@ -22769,15 +22660,15 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4.pre-phi, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i162 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i162 = getelementptr inbounds i8, ptr %res, i64 8
   %42 = load ptr, ptr %e_.i162, align 8, !tbaa !426
-  %z_.i163 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i163 = getelementptr inbounds i8, ptr %res, i64 16
   %43 = load ptr, ptr %z_.i163, align 8, !tbaa !429
   %cmp.not.i164 = icmp eq ptr %42, %43
   br i1 %cmp.not.i164, label %if.else.i183, label %if.then.i165
 
 if.then.i165:                                     ; preds = %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit
-  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %42, i64 0, i32 2
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %44, ptr %42, align 8, !tbaa !372
   %cmp.i.i.i166 = icmp eq ptr %prev.i.7, null
   %45 = icmp ne ptr %what.coerce0, null
@@ -22819,14 +22710,14 @@ if.end.i.i.i.i.i.i.i179:                          ; preds = %if.end.i.i.i.i171
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i172: ; preds = %if.end.i.i.i.i.i.i.i179, %if.then.i.i.i.i.i.i178, %if.end.i.i.i.i171
   %49 = load i64, ptr %__dnew.i.i.i.i161, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i173 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %42, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i173 = getelementptr inbounds i8, ptr %42, i64 8
   store i64 %49, ptr %_M_string_length.i.i.i.i.i.i173, align 8, !tbaa !376
   %50 = load ptr, ptr %42, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i174 = getelementptr inbounds i8, ptr %50, i64 %49
   store i8 0, ptr %arrayidx.i.i.i.i.i174, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i161) #24
   %51 = load ptr, ptr %e_.i162, align 8, !tbaa !426
-  %incdec.ptr.i175 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 1
+  %incdec.ptr.i175 = getelementptr inbounds i8, ptr %51, i64 32
   store ptr %incdec.ptr.i175, ptr %e_.i162, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit185
 
@@ -22848,7 +22739,7 @@ entry:
   %ref.tmp.i.i.i.i70 = alloca %struct.Initializer, align 1
   %ref.tmp.i.i = alloca %struct.Initializer.5, align 1
   %ref.tmp.i.i.i.i = alloca %struct.Initializer, align 1
-  %z_.i.i = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %this, i64 0, i32 2
+  %z_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %z_.i.i, align 8, !tbaa !429
   %1 = load ptr, ptr %this, align 8, !tbaa !434
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -22954,7 +22845,7 @@ land.lhs.true:                                    ; preds = %_ZN5folly13usingJEM
   br i1 %cmp, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %land.lhs.true
-  %e_.i = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %e_.i, align 8, !tbaa !426
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
@@ -23009,7 +22900,7 @@ if.then15:                                        ; preds = %_ZN5folly14goodMall
   %19 = load ptr, ptr %e_.i, align 8, !tbaa !426
   %20 = load ptr, ptr %args, align 8, !tbaa !10
   %21 = load i64, ptr %args1, align 8, !tbaa !70
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %22, ptr %19, align 8, !tbaa !372
   %cmp.i.i = icmp eq ptr %20, null
   %cmp2.i.i = icmp ne i64 %21, 0
@@ -23051,14 +22942,14 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %26 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %26, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !376
   %27 = load ptr, ptr %19, align 8, !tbaa !374
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 %26
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24
   %28 = load ptr, ptr %e_.i, align 8, !tbaa !426
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %28, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %28, i64 32
   store ptr %incdec.ptr, ptr %e_.i, align 8, !tbaa !426
   br label %cleanup54
 
@@ -23074,7 +22965,7 @@ if.then.i.i.i87:                                  ; preds = %if.end27
   unreachable
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE10M_allocateEm.exit: ; preds = %if.end27
-  %e_.i88 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i88 = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load ptr, ptr %e_.i88, align 8, !tbaa !426
   %30 = load ptr, ptr %this, align 8, !tbaa !434
   %sub.ptr.lhs.cast.i89 = ptrtoint ptr %29 to i64
@@ -23138,7 +23029,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i1
   %arrayidx.i.i.i.i101 = getelementptr inbounds i8, ptr %38, i64 %37
   store i8 0, ptr %arrayidx.i.i.i.i101, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i93) #24
-  %incdec.ptr32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr31, i64 1
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %add.ptr31, i64 32
   %39 = load ptr, ptr %this, align 8, !tbaa !434
   %40 = load ptr, ptr %e_.i88, align 8, !tbaa !426
   %cmp.i.i.not22.i.i.i.i.i.i.i = icmp eq ptr %39, %40
@@ -23147,15 +23038,15 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i1
 for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont, %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11S_constructIS6_JS6_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i
   %first.sroa.0.024.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11S_constructIS6_JS6_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %39, %invoke.cont ]
   %b.023.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11S_constructIS6_JS6_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i ], [ %call.i.i.i, %invoke.cont ]
-  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %b.023.i.i.i.i.i.i.i, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %b.023.i.i.i.i.i.i.i, i64 16
   store ptr %41, ptr %b.023.i.i.i.i.i.i.i, align 8, !tbaa !372
   %42 = load ptr, ptr %first.sroa.0.024.i.i.i.i.i.i.i, align 8, !tbaa !374
-  %43 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 0, i32 2
+  %43 = getelementptr inbounds i8, ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 16
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, %43
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 8
   %44 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !376
   %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %44, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i)
@@ -23170,15 +23061,15 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i.
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11S_constructIS6_JS6_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11S_constructIS6_JS6_EEEvPT_DpOT0_.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
-  %_M_string_length.i23.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_string_length.i23.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 8
   %46 = load i64, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i.i, align 8, !tbaa !376
-  %_M_string_length.i24.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %b.023.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_string_length.i24.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %b.023.i.i.i.i.i.i.i, i64 8
   store i64 %46, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i.i, align 8, !tbaa !376
   store ptr %43, ptr %first.sroa.0.024.i.i.i.i.i.i.i, align 8, !tbaa !374
   store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i.i, align 8, !tbaa !376
   store i8 0, ptr %43, align 1, !tbaa !7
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %b.023.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.024.i.i.i.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %b.023.i.i.i.i.i.i.i, i64 32
   %cmp.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %40
   br i1 %cmp.i.i.not.i.i.i.i.i.i.i, label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE13relocate_moveEPS6_S9_S9_.exit.loopexit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !435
 
@@ -23233,12 +23124,12 @@ for.cond5.preheader:                              ; preds = %_ZNSt7__cxx1112basi
 for.body:                                         ; preds = %entry, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
   %first.addr.046 = phi ptr [ %add.ptr4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36 ], [ %first, %entry ]
   %0 = load ptr, ptr %first.addr.046, align 8, !tbaa !374
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %first.addr.046, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %for.body
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %first.addr.046, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !376
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -23249,14 +23140,14 @@ if.then.i.i:                                      ; preds = %for.body
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  %add.ptr1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 1
+  %add.ptr1 = getelementptr inbounds i8, ptr %first.addr.046, i64 32
   %3 = load ptr, ptr %add.ptr1, align 8, !tbaa !374
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 1, i32 2
+  %4 = getelementptr inbounds i8, ptr %first.addr.046, i64 48
   %cmp.i.i.i19 = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21, label %if.then.i.i20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %_M_string_length.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 1, i32 1
+  %_M_string_length.i.i.i22 = getelementptr inbounds i8, ptr %first.addr.046, i64 40
   %5 = load i64, ptr %_M_string_length.i.i.i22, align 8, !tbaa !376
   %cmp3.i.i.i23 = icmp ult i64 %5, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i23)
@@ -23267,14 +23158,14 @@ if.then.i.i20:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %if.then.i.i20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i21
-  %add.ptr2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 2
+  %add.ptr2 = getelementptr inbounds i8, ptr %first.addr.046, i64 64
   %6 = load ptr, ptr %add.ptr2, align 8, !tbaa !374
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 2, i32 2
+  %7 = getelementptr inbounds i8, ptr %first.addr.046, i64 80
   %cmp.i.i.i25 = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i25, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27, label %if.then.i.i26
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  %_M_string_length.i.i.i28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 2, i32 1
+  %_M_string_length.i.i.i28 = getelementptr inbounds i8, ptr %first.addr.046, i64 72
   %8 = load i64, ptr %_M_string_length.i.i.i28, align 8, !tbaa !376
   %cmp3.i.i.i29 = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i29)
@@ -23285,14 +23176,14 @@ if.then.i.i26:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %if.then.i.i26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i27
-  %add.ptr3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 3
+  %add.ptr3 = getelementptr inbounds i8, ptr %first.addr.046, i64 96
   %9 = load ptr, ptr %add.ptr3, align 8, !tbaa !374
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 3, i32 2
+  %10 = getelementptr inbounds i8, ptr %first.addr.046, i64 112
   %cmp.i.i.i31 = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, label %if.then.i.i32
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
-  %_M_string_length.i.i.i34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 3, i32 1
+  %_M_string_length.i.i.i34 = getelementptr inbounds i8, ptr %first.addr.046, i64 104
   %11 = load i64, ptr %_M_string_length.i.i.i34, align 8, !tbaa !376
   %cmp3.i.i.i35 = icmp ult i64 %11, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i35)
@@ -23303,7 +23194,7 @@ if.then.i.i32:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %if.then.i.i32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33
-  %add.ptr4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.046, i64 4
+  %add.ptr4 = getelementptr inbounds i8, ptr %first.addr.046, i64 128
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr4 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 96
@@ -23312,12 +23203,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %if.
 for.body7:                                        ; preds = %for.cond5.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
   %first.addr.148 = phi ptr [ %incdec.ptr, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %first.addr.0.lcssa, %for.cond5.preheader ]
   %12 = load ptr, ptr %first.addr.148, align 8, !tbaa !374
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.148, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %first.addr.148, i64 16
   %cmp.i.i.i37 = icmp eq ptr %12, %13
   br i1 %cmp.i.i.i37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39, label %if.then.i.i38
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39: ; preds = %for.body7
-  %_M_string_length.i.i.i40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.148, i64 0, i32 1
+  %_M_string_length.i.i.i40 = getelementptr inbounds i8, ptr %first.addr.148, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i40, align 8, !tbaa !376
   %cmp3.i.i.i41 = icmp ult i64 %14, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i41)
@@ -23328,7 +23219,7 @@ if.then.i.i38:                                    ; preds = %for.body7
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %if.then.i.i38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i39
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %first.addr.148, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.148, i64 32
   %cmp6.not = icmp eq ptr %incdec.ptr, %last
   br i1 %cmp6.not, label %do.end, label %for.body7, !llvm.loop !437
 
@@ -23387,8 +23278,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i222, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %e_.i102 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i102 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit.i, %if.then3.i
@@ -23398,8 +23289,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not232, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEEEbiRPT_SM_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i112 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i113 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i112 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i113 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit.i, %while.body.i48.lr.ph
@@ -23429,7 +23320,7 @@ if.end.i.i:                                       ; preds = %while.body.i48
   br i1 %cmp.not.i103, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end.i.i
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %9, ptr %7, align 8, !tbaa !372
   %cmp.i.i.i104 = icmp eq ptr %prev.i.0223, null
   br i1 %cmp.i.i.i104, label %if.then.i.i.i, label %if.end.i.i.i105
@@ -23469,14 +23360,14 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %13 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %13, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !376
   %14 = load ptr, ptr %7, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #24
   %15 = load ptr, ptr %e_.i102, align 8, !tbaa !426
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %15, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %incdec.ptr.i, ptr %e_.i102, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit
 
@@ -23535,7 +23426,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
   br i1 %cmp.not.i114, label %if.else.i133, label %if.then.i115
 
 if.then.i115:                                     ; preds = %if.end.i.i.i
-  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %21, ptr %19, align 8, !tbaa !372
   %cmp.i.i.i116 = icmp eq ptr %prev.i.2227, null
   br i1 %cmp.i.i.i116, label %if.then.i.i.i132, label %if.end.i.i.i119
@@ -23575,14 +23466,14 @@ if.end.i.i.i.i.i.i.i129:                          ; preds = %if.end.i.i.i.i121
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i122: ; preds = %if.end.i.i.i.i.i.i.i129, %if.then.i.i.i.i.i.i128, %if.end.i.i.i.i121
   %25 = load i64, ptr %__dnew.i.i.i.i111, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i123 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %25, ptr %_M_string_length.i.i.i.i.i.i123, align 8, !tbaa !376
   %26 = load ptr, ptr %19, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i124 = getelementptr inbounds i8, ptr %26, i64 %25
   store i8 0, ptr %arrayidx.i.i.i.i.i124, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i111) #24
   %27 = load ptr, ptr %e_.i112, align 8, !tbaa !426
-  %incdec.ptr.i125 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %27, i64 1
+  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %27, i64 32
   store ptr %incdec.ptr.i125, ptr %e_.i112, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit135
 
@@ -23628,8 +23519,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57237, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISG_EEEEEEEviPT0_SL_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %e_.i141 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i142 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i141 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i142 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRT_PKcSK_.exit.i74, %while.body.i58.lr.ph
@@ -23659,7 +23550,7 @@ if.end.i.i69:                                     ; preds = %while.body.i58
   br i1 %cmp.not.i143, label %if.else.i162, label %if.then.i144
 
 if.then.i144:                                     ; preds = %if.end.i.i69
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %33, i64 0, i32 2
+  %35 = getelementptr inbounds i8, ptr %33, i64 16
   store ptr %35, ptr %33, align 8, !tbaa !372
   %cmp.i.i.i145 = icmp eq ptr %prev.i.5238, null
   br i1 %cmp.i.i.i145, label %if.then.i.i.i161, label %if.end.i.i.i148
@@ -23699,14 +23590,14 @@ if.end.i.i.i.i.i.i.i158:                          ; preds = %if.end.i.i.i.i150
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i151: ; preds = %if.end.i.i.i.i.i.i.i158, %if.then.i.i.i.i.i.i157, %if.end.i.i.i.i150
   %39 = load i64, ptr %__dnew.i.i.i.i140, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i152 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %33, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i152 = getelementptr inbounds i8, ptr %33, i64 8
   store i64 %39, ptr %_M_string_length.i.i.i.i.i.i152, align 8, !tbaa !376
   %40 = load ptr, ptr %33, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i153 = getelementptr inbounds i8, ptr %40, i64 %39
   store i8 0, ptr %arrayidx.i.i.i.i.i153, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i140) #24
   %41 = load ptr, ptr %e_.i141, align 8, !tbaa !426
-  %incdec.ptr.i154 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %41, i64 1
+  %incdec.ptr.i154 = getelementptr inbounds i8, ptr %41, i64 32
   store ptr %incdec.ptr.i154, ptr %e_.i141, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit164
 
@@ -23735,15 +23626,15 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i170 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i170 = getelementptr inbounds i8, ptr %res, i64 8
   %42 = load ptr, ptr %e_.i170, align 8, !tbaa !426
-  %z_.i171 = getelementptr inbounds %"struct.folly::fbvector<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i171 = getelementptr inbounds i8, ptr %res, i64 16
   %43 = load ptr, ptr %z_.i171, align 8, !tbaa !429
   %cmp.not.i172 = icmp eq ptr %42, %43
   br i1 %cmp.not.i172, label %if.else.i191, label %if.then.i173
 
 if.then.i173:                                     ; preds = %if.end.i5
-  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %42, i64 0, i32 2
+  %44 = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %44, ptr %42, align 8, !tbaa !372
   %cmp.i.i.i174 = icmp eq ptr %prev.i.7, null
   %45 = icmp ne ptr %what.coerce0, null
@@ -23785,14 +23676,14 @@ if.end.i.i.i.i.i.i.i187:                          ; preds = %if.end.i.i.i.i179
 
 _ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE11M_constructIS6_JRPKclEEEvPT_DpOT0_.exit.i180: ; preds = %if.end.i.i.i.i.i.i.i187, %if.then.i.i.i.i.i.i186, %if.end.i.i.i.i179
   %49 = load i64, ptr %__dnew.i.i.i.i169, align 8, !tbaa !70
-  %_M_string_length.i.i.i.i.i.i181 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %42, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i181 = getelementptr inbounds i8, ptr %42, i64 8
   store i64 %49, ptr %_M_string_length.i.i.i.i.i.i181, align 8, !tbaa !376
   %50 = load ptr, ptr %42, align 8, !tbaa !374
   %arrayidx.i.i.i.i.i182 = getelementptr inbounds i8, ptr %50, i64 %49
   store i8 0, ptr %arrayidx.i.i.i.i.i182, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i169) #24
   %51 = load ptr, ptr %e_.i170, align 8, !tbaa !426
-  %incdec.ptr.i183 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %51, i64 1
+  %incdec.ptr.i183 = getelementptr inbounds i8, ptr %51, i64 32
   store ptr %incdec.ptr.i183, ptr %e_.i170, align 8, !tbaa !426
   br label %_ZN5folly8fbvectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE12emplace_backIJRPKclEEERS6_DpOT_.exit193
 
@@ -23860,8 +23751,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i168, label %while.cond.i.preheader, label %while.body.i46.lr.ph
 
 while.body.i46.lr.ph:                             ; preds = %if.then3.i
-  %e_.i97 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i97 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i46
 
 while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit, %if.then3.i
@@ -23871,8 +23762,8 @@ while.cond.i.preheader:                           ; preds = %_ZN5folly8fbvectorI
   br i1 %cmp.not.i.not178, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i105 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i106 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i105 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i106 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i46:                                   ; preds = %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit, %while.body.i46.lr.ph
@@ -23916,16 +23807,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %prev.i.0169, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %prev.i.0169, i64 16
   %9 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !70
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %9, ptr %capacity_.i.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %prev.i.0169, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %prev.i.0169, i64 8
   %10 = load i64, ptr %arrayidx3.i.i.i, align 8, !tbaa !70
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %size_.i.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i.i
 
@@ -23945,7 +23836,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
   %12 = trunc i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %12
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1, !tbaa !7
@@ -23963,14 +23854,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i) #24
   store i64 %sub.ptr.sub.i.i, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %call.i.i.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i)
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr align 1 %prev.i.0169, i64 %sub.ptr.sub.i.i, i1 false)
   store ptr %data_.i.i.i, ptr %7, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i.i, align 8, !tbaa !7
   %13 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %or.i.i.i = or i64 %13, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i2.i, align 8, !tbaa !399
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -23979,7 +23870,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, %if.then3.i.i, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i
   %14 = load ptr, ptr %e_.i97, align 8, !tbaa !442
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::basic_fbstring", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i, ptr %e_.i97, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit
 
@@ -24049,16 +23940,16 @@ if.then.i.i.i20:                                  ; preds = %if.then.i.i10
   ]
 
 sw.bb.i.i.i27:                                    ; preds = %if.then.i.i.i20
-  %arrayidx.i.i.i28 = getelementptr inbounds i64, ptr %prev.i.2173, i64 2
+  %arrayidx.i.i.i28 = getelementptr inbounds i8, ptr %prev.i.2173, i64 16
   %20 = load i64, ptr %arrayidx.i.i.i28, align 8, !tbaa !70
-  %capacity_.i.i.i29 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i.i29 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %20, ptr %capacity_.i.i.i29, align 8, !tbaa !7
   br label %sw.bb2.i.i.i24
 
 sw.bb2.i.i.i24:                                   ; preds = %sw.bb.i.i.i27, %if.then.i.i.i20
-  %arrayidx3.i.i.i25 = getelementptr inbounds i64, ptr %prev.i.2173, i64 1
+  %arrayidx3.i.i.i25 = getelementptr inbounds i8, ptr %prev.i.2173, i64 8
   %21 = load i64, ptr %arrayidx3.i.i.i25, align 8, !tbaa !70
-  %size_.i.i.i26 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i.i26 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %21, ptr %size_.i.i.i26, align 8, !tbaa !7
   br label %sw.bb4.i.i.i23
 
@@ -24078,7 +23969,7 @@ if.then6.i.i.i15:                                 ; preds = %if.else.i.i.i13
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i16: ; preds = %if.then6.i.i.i15, %if.else.i.i.i13, %sw.bb4.i.i.i23, %if.then.i.i.i20
   %23 = trunc i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i.i17 = sub nuw nsw i8 23, %23
-  %arrayidx.i.i.i.i18 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 23
+  %arrayidx.i.i.i.i18 = getelementptr inbounds i8, ptr %18, i64 23
   store i8 %conv.i.i.i.i17, ptr %arrayidx.i.i.i.i18, align 1, !tbaa !7
   %arrayidx2.i.i.i.i19 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i19, align 1, !tbaa !7
@@ -24096,14 +23987,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i32: ; preds = %if.else.i.i30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i8) #24
   store i64 %sub.ptr.sub.i.i.i, ptr %effectiveCapacity.i.i8, align 8, !tbaa !70
   %call.i.i.i33 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i8)
-  %data_.i.i.i34 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i33, i64 0, i32 1
+  %data_.i.i.i34 = getelementptr inbounds i8, ptr %call.i.i.i33, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i34, ptr align 1 %prev.i.2173, i64 %sub.ptr.sub.i.i.i, i1 false)
   store ptr %data_.i.i.i34, ptr %18, align 8, !tbaa !7
-  %size_.i.i35 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i35 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %sub.ptr.sub.i.i.i, ptr %size_.i.i35, align 8, !tbaa !7
   %24 = load i64, ptr %effectiveCapacity.i.i8, align 8, !tbaa !70
   %or.i.i.i36 = or i64 %24, 4611686018427387904
-  %capacity_.i.i2.i37 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i2.i37 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %or.i.i.i36, ptr %capacity_.i.i2.i37, align 8, !tbaa !399
   %arrayidx.i.i38 = getelementptr inbounds i8, ptr %data_.i.i.i34, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx.i.i38, align 1, !tbaa !7
@@ -24112,7 +24003,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i32: ; preds = %if.else.i.i30
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit40: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i16, %if.then3.i.i39, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i32
   %25 = load ptr, ptr %e_.i105, align 8, !tbaa !442
-  %incdec.ptr.i109 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %25, i64 1
+  %incdec.ptr.i109 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr %incdec.ptr.i109, ptr %e_.i105, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit114
 
@@ -24155,8 +24046,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i54183, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb0EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %while.body.i55.lr.ph
 
 while.body.i55.lr.ph:                             ; preds = %if.end16.i
-  %e_.i120 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i121 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i120 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i121 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i55
 
 while.body.i55:                                   ; preds = %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit129, %while.body.i55.lr.ph
@@ -24200,16 +24091,16 @@ if.then.i.i.i53:                                  ; preds = %if.then.i.i43
   ]
 
 sw.bb.i.i.i60:                                    ; preds = %if.then.i.i.i53
-  %arrayidx.i.i.i61 = getelementptr inbounds i64, ptr %prev.i.5184, i64 2
+  %arrayidx.i.i.i61 = getelementptr inbounds i8, ptr %prev.i.5184, i64 16
   %33 = load i64, ptr %arrayidx.i.i.i61, align 8, !tbaa !70
-  %capacity_.i.i.i62 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i.i62 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %33, ptr %capacity_.i.i.i62, align 8, !tbaa !7
   br label %sw.bb2.i.i.i57
 
 sw.bb2.i.i.i57:                                   ; preds = %sw.bb.i.i.i60, %if.then.i.i.i53
-  %arrayidx3.i.i.i58 = getelementptr inbounds i64, ptr %prev.i.5184, i64 1
+  %arrayidx3.i.i.i58 = getelementptr inbounds i8, ptr %prev.i.5184, i64 8
   %34 = load i64, ptr %arrayidx3.i.i.i58, align 8, !tbaa !70
-  %size_.i.i.i59 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i.i59 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %34, ptr %size_.i.i.i59, align 8, !tbaa !7
   br label %sw.bb4.i.i.i56
 
@@ -24229,7 +24120,7 @@ if.then6.i.i.i48:                                 ; preds = %if.else.i.i.i46
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i49: ; preds = %if.then6.i.i.i48, %if.else.i.i.i46, %sw.bb4.i.i.i56, %if.then.i.i.i53
   %36 = trunc i64 %sub.ptr.sub.i.i67 to i8
   %conv.i.i.i.i50 = sub nuw nsw i8 23, %36
-  %arrayidx.i.i.i.i51 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 23
+  %arrayidx.i.i.i.i51 = getelementptr inbounds i8, ptr %31, i64 23
   store i8 %conv.i.i.i.i50, ptr %arrayidx.i.i.i.i51, align 1, !tbaa !7
   %arrayidx2.i.i.i.i52 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 %sub.ptr.sub.i.i67
   store i8 0, ptr %arrayidx2.i.i.i.i52, align 1, !tbaa !7
@@ -24247,14 +24138,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i65: ; preds = %if.else.i.i63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i41) #24
   store i64 %sub.ptr.sub.i.i67, ptr %effectiveCapacity.i.i41, align 8, !tbaa !70
   %call.i.i.i66 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i41)
-  %data_.i.i.i67 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i66, i64 0, i32 1
+  %data_.i.i.i67 = getelementptr inbounds i8, ptr %call.i.i.i66, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i67, ptr align 1 %prev.i.5184, i64 %sub.ptr.sub.i.i67, i1 false)
   store ptr %data_.i.i.i67, ptr %31, align 8, !tbaa !7
-  %size_.i.i68 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i68 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %sub.ptr.sub.i.i67, ptr %size_.i.i68, align 8, !tbaa !7
   %37 = load i64, ptr %effectiveCapacity.i.i41, align 8, !tbaa !70
   %or.i.i.i69 = or i64 %37, 4611686018427387904
-  %capacity_.i.i2.i70 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i2.i70 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %or.i.i.i69, ptr %capacity_.i.i2.i70, align 8, !tbaa !399
   %arrayidx.i.i71 = getelementptr inbounds i8, ptr %data_.i.i.i67, i64 %sub.ptr.sub.i.i67
   store i8 0, ptr %arrayidx.i.i71, align 1, !tbaa !7
@@ -24263,7 +24154,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i65: ; preds = %if.else.i.i63
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit73: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i49, %if.then3.i.i72, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i65
   %38 = load ptr, ptr %e_.i120, align 8, !tbaa !442
-  %incdec.ptr.i124 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %38, i64 1
+  %incdec.ptr.i124 = getelementptr inbounds i8, ptr %38, i64 24
   store ptr %incdec.ptr.i124, ptr %e_.i120, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit129
 
@@ -24286,9 +24177,9 @@ _ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitB
   %sub.ptr.rhs.cast.i5 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i6 = sub i64 %sub.ptr.lhs.cast.i4.pre-phi, %sub.ptr.rhs.cast.i5
   store i64 %sub.ptr.sub.i6, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i135 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i135 = getelementptr inbounds i8, ptr %res, i64 8
   %39 = load ptr, ptr %e_.i135, align 8, !tbaa !442
-  %z_.i136 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i136 = getelementptr inbounds i8, ptr %res, i64 16
   %40 = load ptr, ptr %z_.i136, align 8, !tbaa !445
   %cmp.not.i137 = icmp eq ptr %39, %40
   br i1 %cmp.not.i137, label %if.else.i142, label %if.then.i138
@@ -24312,16 +24203,16 @@ if.then.i.i.i86:                                  ; preds = %if.then.i.i76
   ]
 
 sw.bb.i.i.i93:                                    ; preds = %if.then.i.i.i86
-  %arrayidx.i.i.i94 = getelementptr inbounds i64, ptr %prev.i.7, i64 2
+  %arrayidx.i.i.i94 = getelementptr inbounds i8, ptr %prev.i.7, i64 16
   %41 = load i64, ptr %arrayidx.i.i.i94, align 8, !tbaa !70
-  %capacity_.i.i.i95 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i.i95 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %41, ptr %capacity_.i.i.i95, align 8, !tbaa !7
   br label %sw.bb2.i.i.i90
 
 sw.bb2.i.i.i90:                                   ; preds = %sw.bb.i.i.i93, %if.then.i.i.i86
-  %arrayidx3.i.i.i91 = getelementptr inbounds i64, ptr %prev.i.7, i64 1
+  %arrayidx3.i.i.i91 = getelementptr inbounds i8, ptr %prev.i.7, i64 8
   %42 = load i64, ptr %arrayidx3.i.i.i91, align 8, !tbaa !70
-  %size_.i.i.i92 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i.i92 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %42, ptr %size_.i.i.i92, align 8, !tbaa !7
   br label %sw.bb4.i.i.i89
 
@@ -24341,7 +24232,7 @@ if.then6.i.i.i81:                                 ; preds = %if.else.i.i.i79
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i82: ; preds = %if.then6.i.i.i81, %if.else.i.i.i79, %sw.bb4.i.i.i89, %if.then.i.i.i86
   %44 = trunc i64 %sub.ptr.sub.i6 to i8
   %conv.i.i.i.i83 = sub nuw nsw i8 23, %44
-  %arrayidx.i.i.i.i84 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 23
+  %arrayidx.i.i.i.i84 = getelementptr inbounds i8, ptr %39, i64 23
   store i8 %conv.i.i.i.i83, ptr %arrayidx.i.i.i.i84, align 1, !tbaa !7
   %arrayidx2.i.i.i.i85 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 %sub.ptr.sub.i6
   store i8 0, ptr %arrayidx2.i.i.i.i85, align 1, !tbaa !7
@@ -24359,14 +24250,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i98: ; preds = %if.else.i.i96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i74) #24
   store i64 %sub.ptr.sub.i6, ptr %effectiveCapacity.i.i74, align 8, !tbaa !70
   %call.i.i.i99 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i74)
-  %data_.i.i.i100 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i99, i64 0, i32 1
+  %data_.i.i.i100 = getelementptr inbounds i8, ptr %call.i.i.i99, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i100, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i6, i1 false)
   store ptr %data_.i.i.i100, ptr %39, align 8, !tbaa !7
-  %size_.i.i101 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i101 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %sub.ptr.sub.i6, ptr %size_.i.i101, align 8, !tbaa !7
   %45 = load i64, ptr %effectiveCapacity.i.i74, align 8, !tbaa !70
   %or.i.i.i102 = or i64 %45, 4611686018427387904
-  %capacity_.i.i2.i103 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i2.i103 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %or.i.i.i102, ptr %capacity_.i.i2.i103, align 8, !tbaa !399
   %arrayidx.i.i104 = getelementptr inbounds i8, ptr %data_.i.i.i100, i64 %sub.ptr.sub.i6
   store i8 0, ptr %arrayidx.i.i104, align 1, !tbaa !7
@@ -24375,7 +24266,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i98: ; preds = %if.else.i.i96
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit106: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i82, %if.then3.i.i105, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i98
   %46 = load ptr, ptr %e_.i135, align 8, !tbaa !442
-  %incdec.ptr.i139 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %46, i64 1
+  %incdec.ptr.i139 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %incdec.ptr.i139, ptr %e_.i135, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit144
 
@@ -24397,7 +24288,7 @@ entry:
   %ref.tmp.i.i.i.i66 = alloca %struct.Initializer, align 1
   %ref.tmp.i.i = alloca %struct.Initializer.5, align 1
   %ref.tmp.i.i.i.i = alloca %struct.Initializer, align 1
-  %z_.i.i = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %this, i64 0, i32 2
+  %z_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %z_.i.i, align 8, !tbaa !445
   %1 = load ptr, ptr %this, align 8, !tbaa !450
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -24503,7 +24394,7 @@ land.lhs.true:                                    ; preds = %_ZN5folly13usingJEM
   br i1 %cmp, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %land.lhs.true
-  %e_.i = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %e_.i, align 8, !tbaa !442
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
@@ -24577,16 +24468,16 @@ if.then.i.i.i3:                                   ; preds = %if.then.i.i2
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i3
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %20, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !70
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %19, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
   store i64 %23, ptr %capacity_.i.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i3
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %20, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %24 = load i64, ptr %arrayidx3.i.i.i, align 8, !tbaa !70
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %19, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %24, ptr %size_.i.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i.i
 
@@ -24606,7 +24497,7 @@ if.then6.i.i.i:                                   ; preds = %if.else.i.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i3
   %26 = trunc i64 %21 to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %26
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %19, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i.i = getelementptr inbounds [24 x i8], ptr %19, i64 0, i64 %21
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1, !tbaa !7
@@ -24624,14 +24515,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i) #24
   store i64 %21, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %call.i.i.i4 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i)
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i4, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr align 1 %20, i64 %21, i1 false)
   store ptr %data_.i.i.i, ptr %19, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %19, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store i64 %21, ptr %size_.i.i, align 8, !tbaa !7
   %27 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %or.i.i.i = or i64 %27, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %19, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %19, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i2.i, align 8, !tbaa !399
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %21
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -24640,7 +24531,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, %if.then3.i.i, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i
   %28 = load ptr, ptr %e_.i, align 8, !tbaa !442
-  %incdec.ptr = getelementptr inbounds %"class.folly::basic_fbstring", ptr %28, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %28, i64 24
   store ptr %incdec.ptr, ptr %e_.i, align 8, !tbaa !442
   br label %cleanup52
 
@@ -24656,7 +24547,7 @@ if.then.i.i.i:                                    ; preds = %if.end27
   unreachable
 
 _ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE10M_allocateEm.exit: ; preds = %if.end27
-  %e_.i83 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %this, i64 0, i32 1
+  %e_.i83 = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load ptr, ptr %e_.i83, align 8, !tbaa !442
   %30 = load ptr, ptr %this, align 8, !tbaa !450
   %sub.ptr.lhs.cast.i84 = ptrtoint ptr %29 to i64
@@ -24692,16 +24583,16 @@ if.then.i.i.i17:                                  ; preds = %if.then.i.i7
   ]
 
 sw.bb.i.i.i24:                                    ; preds = %if.then.i.i.i17
-  %arrayidx.i.i.i25 = getelementptr inbounds i64, ptr %31, i64 2
+  %arrayidx.i.i.i25 = getelementptr inbounds i8, ptr %31, i64 16
   %34 = load i64, ptr %arrayidx.i.i.i25, align 8, !tbaa !70
-  %capacity_.i.i.i26 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr31, i64 0, i32 2
+  %capacity_.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr31, i64 16
   store i64 %34, ptr %capacity_.i.i.i26, align 8, !tbaa !7
   br label %sw.bb2.i.i.i21
 
 sw.bb2.i.i.i21:                                   ; preds = %sw.bb.i.i.i24, %if.then.i.i.i17
-  %arrayidx3.i.i.i22 = getelementptr inbounds i64, ptr %31, i64 1
+  %arrayidx3.i.i.i22 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load i64, ptr %arrayidx3.i.i.i22, align 8, !tbaa !70
-  %size_.i.i.i23 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr31, i64 0, i32 1
+  %size_.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr31, i64 8
   store i64 %35, ptr %size_.i.i.i23, align 8, !tbaa !7
   br label %sw.bb4.i.i.i20
 
@@ -24721,7 +24612,7 @@ if.then6.i.i.i12:                                 ; preds = %if.else.i.i.i10
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i13: ; preds = %if.then6.i.i.i12, %if.else.i.i.i10, %sw.bb4.i.i.i20, %if.then.i.i.i17
   %37 = trunc i64 %32 to i8
   %conv.i.i.i.i14 = sub nuw nsw i8 23, %37
-  %arrayidx.i.i.i.i15 = getelementptr inbounds [24 x i8], ptr %add.ptr31, i64 0, i64 23
+  %arrayidx.i.i.i.i15 = getelementptr inbounds i8, ptr %add.ptr31, i64 23
   store i8 %conv.i.i.i.i14, ptr %arrayidx.i.i.i.i15, align 1, !tbaa !7
   %arrayidx2.i.i.i.i16 = getelementptr inbounds [24 x i8], ptr %add.ptr31, i64 0, i64 %32
   store i8 0, ptr %arrayidx2.i.i.i.i16, align 1, !tbaa !7
@@ -24742,14 +24633,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i29: ; preds = %if.else.i.i27
           to label %call.i.i.i30.noexc unwind label %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS9_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit102
 
 call.i.i.i30.noexc:                               ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i29
-  %data_.i.i.i31 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i3037, i64 0, i32 1
+  %data_.i.i.i31 = getelementptr inbounds i8, ptr %call.i.i.i3037, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i31, ptr align 1 %31, i64 %32, i1 false)
   store ptr %data_.i.i.i31, ptr %add.ptr31, align 8, !tbaa !7
-  %size_.i.i32 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr31, i64 0, i32 1
+  %size_.i.i32 = getelementptr inbounds i8, ptr %add.ptr31, i64 8
   store i64 %32, ptr %size_.i.i32, align 8, !tbaa !7
   %38 = load i64, ptr %effectiveCapacity.i.i5, align 8, !tbaa !70
   %or.i.i.i33 = or i64 %38, 4611686018427387904
-  %capacity_.i.i2.i34 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %add.ptr31, i64 0, i32 2
+  %capacity_.i.i2.i34 = getelementptr inbounds i8, ptr %add.ptr31, i64 16
   store i64 %or.i.i.i33, ptr %capacity_.i.i2.i34, align 8, !tbaa !399
   %arrayidx.i.i35 = getelementptr inbounds i8, ptr %data_.i.i.i31, i64 %32
   store i8 0, ptr %arrayidx.i.i35, align 1, !tbaa !7
@@ -24757,7 +24648,7 @@ call.i.i.i30.noexc:                               ; preds = %_ZN5folly13fbstring
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS9_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit
 
 _ZN5folly6detail14ScopeGuardImplIZNS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS9_EE16emplace_back_auxIJRPKclEEEvDpOT_EUlvE_Lb1EED2Ev.exit: ; preds = %call.i.i.i30.noexc, %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i13, %if.then3.i.i36
-  %incdec.ptr37 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %add.ptr31, i64 1
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %add.ptr31, i64 24
   %39 = load ptr, ptr %this, align 8, !tbaa !450
   %tobool.not = icmp eq ptr %39, null
   br i1 %tobool.not, label %if.end44, label %if.then40
@@ -24834,8 +24725,8 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i174, label %while.cond.i.preheader, label %while.body.i48.lr.ph
 
 while.body.i48.lr.ph:                             ; preds = %if.then3.i
-  %e_.i103 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i103 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i48
 
 while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit.i, %if.then3.i
@@ -24845,8 +24736,8 @@ while.cond.i.preheader:                           ; preds = %_ZNK5folly6detail23
   br i1 %cmp.not.i.not184, label %_ZNK5folly11simd_detail19SimdForEachMainLoopclIKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISI_EEEEEEEbiRPT_SN_RT0_NS4_10UnrollStepILi1EEE.exit, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %while.cond.i.preheader
-  %e_.i111 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i112 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i111 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i112 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i
 
 while.body.i48:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit.i, %while.body.i48.lr.ph
@@ -24894,16 +24785,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %prev.i.0175, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %prev.i.0175, i64 16
   %9 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !70
-  %capacity_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %9, ptr %capacity_.i.i.i, align 8, !tbaa !7
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %prev.i.0175, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %prev.i.0175, i64 8
   %10 = load i64, ptr %arrayidx3.i.i.i, align 8, !tbaa !70
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %size_.i.i.i, align 8, !tbaa !7
   br label %sw.bb4.i.i.i
 
@@ -24919,7 +24810,7 @@ if.then6.i.i.i:                                   ; preds = %if.then.i.i
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then6.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
   %12 = trunc i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %12
-  %arrayidx.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 23
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 23
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   %arrayidx2.i.i.i.i = getelementptr inbounds [24 x i8], ptr %7, i64 0, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i, align 1, !tbaa !7
@@ -24937,14 +24828,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i) #24
   store i64 %sub.ptr.sub.i.i, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %call.i.i.i = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i)
-  %data_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i, ptr align 1 %prev.i.0175, i64 %sub.ptr.sub.i.i, i1 false)
   store ptr %data_.i.i.i, ptr %7, align 8, !tbaa !7
-  %size_.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %sub.ptr.sub.i.i, ptr %size_.i.i, align 8, !tbaa !7
   %13 = load i64, ptr %effectiveCapacity.i.i, align 8, !tbaa !70
   %or.i.i.i = or i64 %13, 4611686018427387904
-  %capacity_.i.i2.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %7, i64 0, i32 2
+  %capacity_.i.i2.i = getelementptr inbounds i8, ptr %7, i64 16
   store i64 %or.i.i.i, ptr %capacity_.i.i2.i, align 8, !tbaa !399
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data_.i.i.i, i64 %sub.ptr.sub.i.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !7
@@ -24953,7 +24844,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i: ; preds = %if.else.i.i
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i, %if.then3.i.i, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i
   %14 = load ptr, ptr %e_.i103, align 8, !tbaa !442
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::basic_fbstring", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %incdec.ptr.i, ptr %e_.i103, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit
 
@@ -25030,16 +24921,16 @@ if.then.i.i.i21:                                  ; preds = %if.then.i.i11
   ]
 
 sw.bb.i.i.i28:                                    ; preds = %if.then.i.i.i21
-  %arrayidx.i.i.i29 = getelementptr inbounds i64, ptr %prev.i.2179, i64 2
+  %arrayidx.i.i.i29 = getelementptr inbounds i8, ptr %prev.i.2179, i64 16
   %20 = load i64, ptr %arrayidx.i.i.i29, align 8, !tbaa !70
-  %capacity_.i.i.i30 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i.i30 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %20, ptr %capacity_.i.i.i30, align 8, !tbaa !7
   br label %sw.bb2.i.i.i25
 
 sw.bb2.i.i.i25:                                   ; preds = %sw.bb.i.i.i28, %if.then.i.i.i21
-  %arrayidx3.i.i.i26 = getelementptr inbounds i64, ptr %prev.i.2179, i64 1
+  %arrayidx3.i.i.i26 = getelementptr inbounds i8, ptr %prev.i.2179, i64 8
   %21 = load i64, ptr %arrayidx3.i.i.i26, align 8, !tbaa !70
-  %size_.i.i.i27 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i.i27 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %21, ptr %size_.i.i.i27, align 8, !tbaa !7
   br label %sw.bb4.i.i.i24
 
@@ -25055,7 +24946,7 @@ if.then6.i.i.i16:                                 ; preds = %if.then.i.i11
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i17: ; preds = %if.then6.i.i.i16, %sw.bb4.i.i.i24, %if.then.i.i.i21
   %23 = trunc i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i.i18 = sub nuw nsw i8 23, %23
-  %arrayidx.i.i.i.i19 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 23
+  %arrayidx.i.i.i.i19 = getelementptr inbounds i8, ptr %18, i64 23
   store i8 %conv.i.i.i.i18, ptr %arrayidx.i.i.i.i19, align 1, !tbaa !7
   %arrayidx2.i.i.i.i20 = getelementptr inbounds [24 x i8], ptr %18, i64 0, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx2.i.i.i.i20, align 1, !tbaa !7
@@ -25073,14 +24964,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i33: ; preds = %if.else.i.i31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i9) #24
   store i64 %sub.ptr.sub.i.i.i, ptr %effectiveCapacity.i.i9, align 8, !tbaa !70
   %call.i.i.i34 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i9)
-  %data_.i.i.i35 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i34, i64 0, i32 1
+  %data_.i.i.i35 = getelementptr inbounds i8, ptr %call.i.i.i34, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i35, ptr align 1 %prev.i.2179, i64 %sub.ptr.sub.i.i.i, i1 false)
   store ptr %data_.i.i.i35, ptr %18, align 8, !tbaa !7
-  %size_.i.i36 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 1
+  %size_.i.i36 = getelementptr inbounds i8, ptr %18, i64 8
   store i64 %sub.ptr.sub.i.i.i, ptr %size_.i.i36, align 8, !tbaa !7
   %24 = load i64, ptr %effectiveCapacity.i.i9, align 8, !tbaa !70
   %or.i.i.i37 = or i64 %24, 4611686018427387904
-  %capacity_.i.i2.i38 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %18, i64 0, i32 2
+  %capacity_.i.i2.i38 = getelementptr inbounds i8, ptr %18, i64 16
   store i64 %or.i.i.i37, ptr %capacity_.i.i2.i38, align 8, !tbaa !399
   %arrayidx.i.i39 = getelementptr inbounds i8, ptr %data_.i.i.i35, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx.i.i39, align 1, !tbaa !7
@@ -25089,7 +24980,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i33: ; preds = %if.else.i.i31
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit41: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i17, %if.then3.i.i40, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i33
   %25 = load ptr, ptr %e_.i111, align 8, !tbaa !442
-  %incdec.ptr.i115 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %25, i64 1
+  %incdec.ptr.i115 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr %incdec.ptr.i115, ptr %e_.i111, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit120
 
@@ -25135,8 +25026,8 @@ if.end16.i:                                       ; preds = %_ZNK5folly11simd_de
   br i1 %tobool.not.i57189, label %_ZN5folly11simd_detail19simdForEachAligningILi1EKcNS_6detail23PlatformSimdSplitByCharINS0_22SimdCharPlatformCommonINS0_28SimdCharSse2PlatformSpecificEEELb1EE15ForEachDelegateINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISH_EEEEEEEviPT0_SM_RT1_.exit, label %while.body.i58.lr.ph
 
 while.body.i58.lr.ph:                             ; preds = %if.end16.i
-  %e_.i126 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
-  %z_.i127 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %e_.i126 = getelementptr inbounds i8, ptr %res, i64 8
+  %z_.i127 = getelementptr inbounds i8, ptr %res, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %_ZNK5folly6detail23PlatformSimdSplitByCharINS_11simd_detail22SimdCharPlatformCommonINS2_28SimdCharSse2PlatformSpecificEEELb1EE11emplaceBackINS_8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaISF_EEEEEvRT_PKcSL_.exit.i74, %while.body.i58.lr.ph
@@ -25184,16 +25075,16 @@ if.then.i.i.i54:                                  ; preds = %if.then.i.i44
   ]
 
 sw.bb.i.i.i61:                                    ; preds = %if.then.i.i.i54
-  %arrayidx.i.i.i62 = getelementptr inbounds i64, ptr %prev.i.5190, i64 2
+  %arrayidx.i.i.i62 = getelementptr inbounds i8, ptr %prev.i.5190, i64 16
   %33 = load i64, ptr %arrayidx.i.i.i62, align 8, !tbaa !70
-  %capacity_.i.i.i63 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i.i63 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %33, ptr %capacity_.i.i.i63, align 8, !tbaa !7
   br label %sw.bb2.i.i.i58
 
 sw.bb2.i.i.i58:                                   ; preds = %sw.bb.i.i.i61, %if.then.i.i.i54
-  %arrayidx3.i.i.i59 = getelementptr inbounds i64, ptr %prev.i.5190, i64 1
+  %arrayidx3.i.i.i59 = getelementptr inbounds i8, ptr %prev.i.5190, i64 8
   %34 = load i64, ptr %arrayidx3.i.i.i59, align 8, !tbaa !70
-  %size_.i.i.i60 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i.i60 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %34, ptr %size_.i.i.i60, align 8, !tbaa !7
   br label %sw.bb4.i.i.i57
 
@@ -25209,7 +25100,7 @@ if.then6.i.i.i49:                                 ; preds = %if.then.i.i44
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i50: ; preds = %if.then6.i.i.i49, %sw.bb4.i.i.i57, %if.then.i.i.i54
   %36 = trunc i64 %sub.ptr.sub.i.i72 to i8
   %conv.i.i.i.i51 = sub nuw nsw i8 23, %36
-  %arrayidx.i.i.i.i52 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 23
+  %arrayidx.i.i.i.i52 = getelementptr inbounds i8, ptr %31, i64 23
   store i8 %conv.i.i.i.i51, ptr %arrayidx.i.i.i.i52, align 1, !tbaa !7
   %arrayidx2.i.i.i.i53 = getelementptr inbounds [24 x i8], ptr %31, i64 0, i64 %sub.ptr.sub.i.i72
   store i8 0, ptr %arrayidx2.i.i.i.i53, align 1, !tbaa !7
@@ -25227,14 +25118,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i66: ; preds = %if.else.i.i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i42) #24
   store i64 %sub.ptr.sub.i.i72, ptr %effectiveCapacity.i.i42, align 8, !tbaa !70
   %call.i.i.i67 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i42)
-  %data_.i.i.i68 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i67, i64 0, i32 1
+  %data_.i.i.i68 = getelementptr inbounds i8, ptr %call.i.i.i67, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i68, ptr align 1 %prev.i.5190, i64 %sub.ptr.sub.i.i72, i1 false)
   store ptr %data_.i.i.i68, ptr %31, align 8, !tbaa !7
-  %size_.i.i69 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 1
+  %size_.i.i69 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 %sub.ptr.sub.i.i72, ptr %size_.i.i69, align 8, !tbaa !7
   %37 = load i64, ptr %effectiveCapacity.i.i42, align 8, !tbaa !70
   %or.i.i.i70 = or i64 %37, 4611686018427387904
-  %capacity_.i.i2.i71 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %31, i64 0, i32 2
+  %capacity_.i.i2.i71 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %or.i.i.i70, ptr %capacity_.i.i2.i71, align 8, !tbaa !399
   %arrayidx.i.i72 = getelementptr inbounds i8, ptr %data_.i.i.i68, i64 %sub.ptr.sub.i.i72
   store i8 0, ptr %arrayidx.i.i72, align 1, !tbaa !7
@@ -25243,7 +25134,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i66: ; preds = %if.else.i.i64
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit74: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i50, %if.then3.i.i73, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i66
   %38 = load ptr, ptr %e_.i126, align 8, !tbaa !442
-  %incdec.ptr.i130 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %38, i64 1
+  %incdec.ptr.i130 = getelementptr inbounds i8, ptr %38, i64 24
   store ptr %incdec.ptr.i130, ptr %e_.i126, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit135
 
@@ -25272,9 +25163,9 @@ if.end.i5:                                        ; preds = %_ZN5folly11simd_det
   %sub.ptr.rhs.cast.i7 = ptrtoint ptr %prev.i.7 to i64
   %sub.ptr.sub.i8 = sub i64 %1, %sub.ptr.rhs.cast.i7
   store i64 %sub.ptr.sub.i8, ptr %ref.tmp.i3, align 8, !tbaa !70
-  %e_.i141 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 1
+  %e_.i141 = getelementptr inbounds i8, ptr %res, i64 8
   %39 = load ptr, ptr %e_.i141, align 8, !tbaa !442
-  %z_.i142 = getelementptr inbounds %"struct.folly::fbvector<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>, std::allocator<folly::basic_fbstring<char, std::char_traits<char>, std::allocator<char>, folly::fbstring_core<char>>>>::Impl", ptr %res, i64 0, i32 2
+  %z_.i142 = getelementptr inbounds i8, ptr %res, i64 16
   %40 = load ptr, ptr %z_.i142, align 8, !tbaa !445
   %cmp.not.i143 = icmp eq ptr %39, %40
   br i1 %cmp.not.i143, label %if.else.i148, label %if.then.i144
@@ -25298,16 +25189,16 @@ if.then.i.i.i87:                                  ; preds = %if.then.i.i77
   ]
 
 sw.bb.i.i.i94:                                    ; preds = %if.then.i.i.i87
-  %arrayidx.i.i.i95 = getelementptr inbounds i64, ptr %prev.i.7, i64 2
+  %arrayidx.i.i.i95 = getelementptr inbounds i8, ptr %prev.i.7, i64 16
   %41 = load i64, ptr %arrayidx.i.i.i95, align 8, !tbaa !70
-  %capacity_.i.i.i96 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i.i96 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %41, ptr %capacity_.i.i.i96, align 8, !tbaa !7
   br label %sw.bb2.i.i.i91
 
 sw.bb2.i.i.i91:                                   ; preds = %sw.bb.i.i.i94, %if.then.i.i.i87
-  %arrayidx3.i.i.i92 = getelementptr inbounds i64, ptr %prev.i.7, i64 1
+  %arrayidx3.i.i.i92 = getelementptr inbounds i8, ptr %prev.i.7, i64 8
   %42 = load i64, ptr %arrayidx3.i.i.i92, align 8, !tbaa !70
-  %size_.i.i.i93 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i.i93 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %42, ptr %size_.i.i.i93, align 8, !tbaa !7
   br label %sw.bb4.i.i.i90
 
@@ -25323,7 +25214,7 @@ if.then6.i.i.i82:                                 ; preds = %if.then.i.i77
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i83: ; preds = %if.then6.i.i.i82, %sw.bb4.i.i.i90, %if.then.i.i.i87
   %44 = trunc i64 %sub.ptr.sub.i8 to i8
   %conv.i.i.i.i84 = sub nuw nsw i8 23, %44
-  %arrayidx.i.i.i.i85 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 23
+  %arrayidx.i.i.i.i85 = getelementptr inbounds i8, ptr %39, i64 23
   store i8 %conv.i.i.i.i84, ptr %arrayidx.i.i.i.i85, align 1, !tbaa !7
   %arrayidx2.i.i.i.i86 = getelementptr inbounds [24 x i8], ptr %39, i64 0, i64 %sub.ptr.sub.i8
   store i8 0, ptr %arrayidx2.i.i.i.i86, align 1, !tbaa !7
@@ -25341,14 +25232,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i99: ; preds = %if.else.i.i97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %effectiveCapacity.i.i75) #24
   store i64 %sub.ptr.sub.i8, ptr %effectiveCapacity.i.i75, align 8, !tbaa !70
   %call.i.i.i100 = call noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted6createEPm(ptr noundef nonnull %effectiveCapacity.i.i75)
-  %data_.i.i.i101 = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i100, i64 0, i32 1
+  %data_.i.i.i101 = getelementptr inbounds i8, ptr %call.i.i.i100, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i101, ptr align 1 %prev.i.7, i64 %sub.ptr.sub.i8, i1 false)
   store ptr %data_.i.i.i101, ptr %39, align 8, !tbaa !7
-  %size_.i.i102 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 1
+  %size_.i.i102 = getelementptr inbounds i8, ptr %39, i64 8
   store i64 %sub.ptr.sub.i8, ptr %size_.i.i102, align 8, !tbaa !7
   %45 = load i64, ptr %effectiveCapacity.i.i75, align 8, !tbaa !70
   %or.i.i.i103 = or i64 %45, 4611686018427387904
-  %capacity_.i.i2.i104 = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %39, i64 0, i32 2
+  %capacity_.i.i2.i104 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %or.i.i.i103, ptr %capacity_.i.i2.i104, align 8, !tbaa !399
   %arrayidx.i.i105 = getelementptr inbounds i8, ptr %data_.i.i.i101, i64 %sub.ptr.sub.i8
   store i8 0, ptr %arrayidx.i.i105, align 1, !tbaa !7
@@ -25357,7 +25248,7 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i99: ; preds = %if.else.i.i97
 
 _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEC2EPKcmRKS3_.exit107: ; preds = %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i83, %if.then3.i.i106, %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i99
   %46 = load ptr, ptr %e_.i141, align 8, !tbaa !442
-  %incdec.ptr.i145 = getelementptr inbounds %"class.folly::basic_fbstring", ptr %46, i64 1
+  %incdec.ptr.i145 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %incdec.ptr.i145, ptr %e_.i141, align 8, !tbaa !442
   br label %_ZN5folly8fbvectorINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEEESaIS7_EE12emplace_backIJRPKclEEERS7_DpOT_.exit150
 

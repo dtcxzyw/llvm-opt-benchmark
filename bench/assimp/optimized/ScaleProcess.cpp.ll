@@ -3,20 +3,8 @@ source_filename = "bench/assimp/original/ScaleProcess.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::ScaleProcess" = type <{ %"class.Assimp::BaseProcess", float, [4 x i8] }>
-%"class.Assimp::BaseProcess" = type { ptr, ptr, ptr }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiAnimation = type { %struct.aiString, double, double, i32, ptr, i32, ptr, i32, ptr }
-%struct.aiNodeAnim = type { %struct.aiString, i32, ptr, i32, ptr, i32, ptr, i32, i32 }
 %struct.aiVectorKey = type <{ double, %class.aiVector3t, [4 x i8] }>
 %class.aiVector3t = type { float, float, float }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
-%struct.aiBone = type { %struct.aiString, i32, ptr, ptr, ptr, %class.aiMatrix4x4t }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.aiAnimMesh = type { %struct.aiString, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], i32, float }
-%struct.aiNode = type { %struct.aiString, %class.aiMatrix4x4t, ptr, i32, ptr, i32, ptr, ptr }
 %class.aiQuaterniont = type { float, float, float, float }
 
 $_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_ = comdat any
@@ -42,7 +30,7 @@ define void @_ZN6Assimp12ScaleProcessC2Ev(ptr noundef nonnull align 8 dereferenc
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #12
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp12ScaleProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mScale = getelementptr inbounds %"class.Assimp::ScaleProcess", ptr %this, i64 0, i32 1
+  %mScale = getelementptr inbounds i8, ptr %this, i64 24
   store float 1.000000e+00, ptr %mScale, align 8
   ret void
 }
@@ -53,7 +41,7 @@ declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6Assimp12ScaleProcess8setScaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, float noundef %scale) local_unnamed_addr #2 align 2 {
 entry:
-  %mScale = getelementptr inbounds %"class.Assimp::ScaleProcess", ptr %this, i64 0, i32 1
+  %mScale = getelementptr inbounds i8, ptr %this, i64 24
   store float %scale, ptr %mScale, align 8
   ret void
 }
@@ -61,7 +49,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK6Assimp12ScaleProcess8getScaleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %mScale = getelementptr inbounds %"class.Assimp::ScaleProcess", ptr %this, i64 0, i32 1
+  %mScale = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load float, ptr %mScale, align 8
   ret float %0
 }
@@ -78,7 +66,7 @@ entry:
 define void @_ZN6Assimp12ScaleProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %pImp) unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, float noundef 1.000000e+00)
-  %mScale = getelementptr inbounds %"class.Assimp::ScaleProcess", ptr %this, i64 0, i32 1
+  %mScale = getelementptr inbounds i8, ptr %this, i64 24
   store float %call, ptr %mScale, align 8
   %call2 = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.1, float noundef 1.000000e+00)
   %0 = load float, ptr %mScale, align 8
@@ -92,7 +80,7 @@ declare noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef readonly %pScene) unnamed_addr #7 align 2 {
 entry:
-  %mScale = getelementptr inbounds %"class.Assimp::ScaleProcess", ptr %this, i64 0, i32 1
+  %mScale = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load float, ptr %mScale, align 8
   %cmp = fcmp oeq float %0, 1.000000e+00
   %cmp2 = icmp eq ptr %pScene, null
@@ -100,29 +88,29 @@ entry:
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %mRootNode = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 1
+  %mRootNode = getelementptr inbounds i8, ptr %pScene, i64 8
   %1 = load ptr, ptr %mRootNode, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end4
-  %mNumAnimations = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 6
+  %mNumAnimations = getelementptr inbounds i8, ptr %pScene, i64 48
   %2 = load i32, ptr %mNumAnimations, align 8
   %cmp8221.not = icmp eq i32 %2, 0
   br i1 %cmp8221.not, label %for.cond26.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mAnimations = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 7
+  %mAnimations = getelementptr inbounds i8, ptr %pScene, i64 56
   br label %for.body
 
 for.cond26.preheader:                             ; preds = %for.inc23, %for.cond.preheader
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 2
+  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
   %3 = load i32, ptr %mNumMeshes, align 8
   %cmp27231.not = icmp eq i32 %3, 0
   br i1 %cmp27231.not, label %for.end82, label %for.body28.lr.ph
 
 for.body28.lr.ph:                                 ; preds = %for.cond26.preheader
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
   br label %for.body28
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc23
@@ -131,13 +119,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load ptr, ptr %mAnimations, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv237
   %6 = load ptr, ptr %arrayidx, align 8
-  %mNumChannels = getelementptr inbounds %struct.aiAnimation, ptr %6, i64 0, i32 3
+  %mNumChannels = getelementptr inbounds i8, ptr %6, i64 1048
   %7 = load i32, ptr %mNumChannels, align 8
   %cmp10219.not = icmp eq i32 %7, 0
   br i1 %cmp10219.not, label %for.inc23, label %for.body11.lr.ph
 
 for.body11.lr.ph:                                 ; preds = %for.body
-  %mChannels = getelementptr inbounds %struct.aiAnimation, ptr %6, i64 0, i32 4
+  %mChannels = getelementptr inbounds i8, ptr %6, i64 1056
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.inc20
@@ -146,13 +134,13 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %9 = load ptr, ptr %mChannels, align 8
   %arrayidx13 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv234
   %10 = load ptr, ptr %arrayidx13, align 8
-  %mNumPositionKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %10, i64 0, i32 1
+  %mNumPositionKeys = getelementptr inbounds i8, ptr %10, i64 1028
   %11 = load i32, ptr %mNumPositionKeys, align 4
   %cmp15217.not = icmp eq i32 %11, 0
   br i1 %cmp15217.not, label %for.inc20, label %for.body16.lr.ph
 
 for.body16.lr.ph:                                 ; preds = %for.body11
-  %mPositionKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %10, i64 0, i32 2
+  %mPositionKeys = getelementptr inbounds i8, ptr %10, i64 1032
   br label %for.body16
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
@@ -165,7 +153,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
   %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
   %17 = fmul <2 x float> %16, %14
   store <2 x float> %17, ptr %mValue, align 4
-  %z.i = getelementptr inbounds %struct.aiVectorKey, ptr %12, i64 %indvars.iv, i32 1, i32 2
+  %z.i = getelementptr inbounds i8, ptr %mValue, i64 8
   %18 = load float, ptr %z.i, align 4
   %mul3.i = fmul float %13, %18
   store float %mul3.i, ptr %z.i, align 4
@@ -202,23 +190,23 @@ for.body28:                                       ; preds = %for.body28.lr.ph, %
   %25 = load ptr, ptr %mMeshes, align 8
   %arrayidx30 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv252
   %26 = load ptr, ptr %arrayidx30, align 8
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 1
+  %mNumVertices = getelementptr inbounds i8, ptr %26, i64 4
   %27 = load i32, ptr %mNumVertices, align 4
   %cmp32223.not = icmp eq i32 %27, 0
   br i1 %cmp32223.not, label %for.cond41.preheader, label %for.body33.lr.ph
 
 for.body33.lr.ph:                                 ; preds = %for.body28
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 3
+  %mVertices = getelementptr inbounds i8, ptr %26, i64 16
   br label %for.body33
 
 for.cond41.preheader:                             ; preds = %for.body33, %for.body28
-  %mNumBones = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 11
+  %mNumBones = getelementptr inbounds i8, ptr %26, i64 216
   %28 = load i32, ptr %mNumBones, align 8
   %cmp42225.not = icmp eq i32 %28, 0
   br i1 %cmp42225.not, label %for.cond58.preheader, label %for.body43.lr.ph
 
 for.body43.lr.ph:                                 ; preds = %for.cond41.preheader
-  %mBones = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 12
+  %mBones = getelementptr inbounds i8, ptr %26, i64 224
   br label %for.body43
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.body33
@@ -231,7 +219,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> zeroinitializer
   %34 = fmul <2 x float> %33, %31
   store <2 x float> %34, ptr %arrayidx35, align 4
-  %z.i35 = getelementptr inbounds %class.aiVector3t, ptr %29, i64 %indvars.iv240, i32 2
+  %z.i35 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
   %35 = load float, ptr %z.i35, align 4
   %mul3.i36 = fmul float %30, %35
   store float %mul3.i36, ptr %z.i35, align 4
@@ -242,13 +230,13 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   br i1 %cmp32, label %for.body33, label %for.cond41.preheader, !llvm.loop !8
 
 for.cond58.preheader:                             ; preds = %_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_.exit, %for.cond41.preheader
-  %mNumAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 15
+  %mNumAnimMeshes = getelementptr inbounds i8, ptr %26, i64 1264
   %38 = load i32, ptr %mNumAnimMeshes, align 8
   %cmp59229.not = icmp eq i32 %38, 0
   br i1 %cmp59229.not, label %for.inc80, label %for.body60.lr.ph
 
 for.body60.lr.ph:                                 ; preds = %for.cond58.preheader
-  %mAnimMeshes = getelementptr inbounds %struct.aiMesh, ptr %26, i64 0, i32 16
+  %mAnimMeshes = getelementptr inbounds i8, ptr %26, i64 1272
   br label %for.body60
 
 for.body43:                                       ; preds = %for.body43.lr.ph, %_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_.exit
@@ -256,20 +244,20 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %39 = load ptr, ptr %mBones, align 8
   %arrayidx45 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv243
   %40 = load ptr, ptr %arrayidx45, align 8
-  %mOffsetMatrix = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5
-  %arrayidx.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 3
+  %mOffsetMatrix = getelementptr inbounds i8, ptr %40, i64 1056
+  %arrayidx.i = getelementptr inbounds i8, ptr %40, i64 1068
   %41 = load float, ptr %arrayidx.i, align 4
-  %b1.i.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 4
-  %arrayidx3.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 7
+  %b1.i.i = getelementptr inbounds i8, ptr %40, i64 1072
+  %arrayidx3.i = getelementptr inbounds i8, ptr %40, i64 1084
   %42 = load float, ptr %arrayidx3.i, align 4
-  %c1.i.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 8
-  %arrayidx5.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 11
+  %c1.i.i = getelementptr inbounds i8, ptr %40, i64 1088
+  %arrayidx5.i = getelementptr inbounds i8, ptr %40, i64 1100
   %43 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx20.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %40, i64 1064
   %44 = load float, ptr %arrayidx20.i, align 4
-  %arrayidx22.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 6
+  %arrayidx22.i = getelementptr inbounds i8, ptr %40, i64 1080
   %45 = load float, ptr %arrayidx22.i, align 4
-  %arrayidx24.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 10
+  %arrayidx24.i = getelementptr inbounds i8, ptr %40, i64 1096
   %46 = load float, ptr %arrayidx24.i, align 4
   %47 = load <2 x float>, ptr %mOffsetMatrix, align 4
   %48 = load <2 x float>, ptr %b1.i.i, align 4
@@ -286,9 +274,9 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %57 = extractelement <2 x float> %48, i64 1
   %mul.i86 = fmul float %56, %57
   %mul2.i88 = fmul float %mul.i86, %46
-  %d4.i89 = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 15
+  %d4.i89 = getelementptr inbounds i8, ptr %40, i64 1116
   %58 = load float, ptr %d4.i89, align 4
-  %d3.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 14
+  %d3.i = getelementptr inbounds i8, ptr %40, i64 1112
   %59 = load float, ptr %d3.i, align 4
   %60 = fneg float %mul.i86
   %61 = fmul float %43, %60
@@ -296,7 +284,7 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %62 = tail call float @llvm.fmuladd.f32(float %mul2.i88, float %58, float %neg.i91)
   %mul10.i = fmul float %56, %45
   %mul12.i = fmul float %43, %mul10.i
-  %d2.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 13
+  %d2.i = getelementptr inbounds i8, ptr %40, i64 1108
   %63 = load float, ptr %d2.i, align 4
   %64 = tail call float @llvm.fmuladd.f32(float %mul12.i, float %63, float %62)
   %65 = fneg float %mul10.i
@@ -311,7 +299,7 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %70 = tail call float @llvm.fmuladd.f32(float %neg34.i, float %63, float %68)
   %71 = extractelement <2 x float> %47, i64 1
   %mul36.i96 = fmul float %71, %45
-  %d1.i = getelementptr inbounds %struct.aiBone, ptr %40, i64 0, i32 5, i32 12
+  %d1.i = getelementptr inbounds i8, ptr %40, i64 1104
   %72 = load float, ptr %d1.i, align 4
   %73 = fneg float %mul36.i96
   %neg40.i = fmul float %43, %73
@@ -666,13 +654,13 @@ for.body60:                                       ; preds = %for.body60.lr.ph, %
   %299 = load ptr, ptr %mAnimMeshes, align 8
   %arrayidx62 = getelementptr inbounds ptr, ptr %299, i64 %indvars.iv249
   %300 = load ptr, ptr %arrayidx62, align 8
-  %mNumVertices65 = getelementptr inbounds %struct.aiAnimMesh, ptr %300, i64 0, i32 7
+  %mNumVertices65 = getelementptr inbounds i8, ptr %300, i64 1192
   %301 = load i32, ptr %mNumVertices65, align 8
   %cmp66227.not = icmp eq i32 %301, 0
   br i1 %cmp66227.not, label %for.inc77, label %for.body67.lr.ph
 
 for.body67.lr.ph:                                 ; preds = %for.body60
-  %mVertices69 = getelementptr inbounds %struct.aiAnimMesh, ptr %300, i64 0, i32 1
+  %mVertices69 = getelementptr inbounds i8, ptr %300, i64 1032
   br label %for.body67
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.body67
@@ -685,7 +673,7 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %306 = shufflevector <2 x float> %305, <2 x float> poison, <2 x i32> zeroinitializer
   %307 = fmul <2 x float> %306, %304
   store <2 x float> %307, ptr %arrayidx71, align 4
-  %z.i83 = getelementptr inbounds %class.aiVector3t, ptr %302, i64 %indvars.iv246, i32 2
+  %z.i83 = getelementptr inbounds i8, ptr %arrayidx71, i64 8
   %308 = load float, ptr %z.i83, align 4
   %mul3.i84 = fmul float %303, %308
   store float %mul3.i84, ptr %z.i83, align 4
@@ -725,24 +713,24 @@ return:                                           ; preds = %if.end4, %entry, %f
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_(ptr noundef nonnull align 4 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(12) %pScaling, ptr noundef nonnull align 4 dereferenceable(16) %pRotation, ptr noundef nonnull align 4 dereferenceable(12) %pPosition) local_unnamed_addr #7 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds float, ptr %this, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load float, ptr %arrayidx, align 4
   store float %0, ptr %pPosition, align 4
-  %b1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 4
-  %arrayidx3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 7
+  %b1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load float, ptr %arrayidx3, align 4
-  %y = getelementptr inbounds %class.aiVector3t, ptr %pPosition, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %pPosition, i64 4
   store float %1, ptr %y, align 4
-  %c1.i = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 8
-  %arrayidx5 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 11
+  %c1.i = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load float, ptr %arrayidx5, align 4
-  %z = getelementptr inbounds %class.aiVector3t, ptr %pPosition, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %pPosition, i64 8
   store float %2, ptr %z, align 4
-  %arrayidx20 = getelementptr inbounds float, ptr %this, i64 2
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load float, ptr %arrayidx20, align 4
-  %arrayidx22 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 6
+  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load float, ptr %arrayidx22, align 4
-  %arrayidx24 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 10
+  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load float, ptr %arrayidx24, align 4
   %6 = load <2 x float>, ptr %this, align 4
   %7 = load <2 x float>, ptr %b1.i, align 4
@@ -756,7 +744,7 @@ entry:
   %13 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %mul4.i.i41)
   %14 = tail call noundef float @llvm.fmuladd.f32(float %5, float %5, float %13)
   %sqrt.i43 = tail call noundef float @llvm.sqrt.f32(float %14)
-  %z33 = getelementptr inbounds %class.aiVector3t, ptr %pScaling, i64 0, i32 2
+  %z33 = getelementptr inbounds i8, ptr %pScaling, i64 8
   store float %sqrt.i43, ptr %z33, align 4
   %call34 = tail call noundef float @_ZNK12aiMatrix4x4tIfE11DeterminantEv(ptr noundef nonnull align 4 dereferenceable(64) %this)
   %cmp = fcmp olt float %call34, 0.000000e+00
@@ -898,13 +886,13 @@ _ZN13aiQuaterniontIfEC2ERK12aiMatrix3x3tIfE.exit: ; preds = %if.then.i, %if.then
 define void @_ZN6Assimp12ScaleProcess13traverseNodesEP6aiNodej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %node, i32 noundef %nested_node_id) local_unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN6Assimp12ScaleProcess12applyScalingEP6aiNode(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef %node)
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %node, i64 1104
   %0 = load i32, ptr %mNumChildren, align 8
   %cmp6.not = icmp eq i32 %0, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %node, i64 1112
   %add = add i32 %nested_node_id, 1
   br label %for.body
 
@@ -934,21 +922,21 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %y.i = getelementptr inbounds %class.aiVector3t, ptr %pos, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %pos, i64 4
   store <2 x float> zeroinitializer, ptr %pos, align 8
-  %z.i = getelementptr inbounds %class.aiVector3t, ptr %pos, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %pos, i64 8
   store float 0.000000e+00, ptr %z.i, align 8
-  %y.i3 = getelementptr inbounds %class.aiVector3t, ptr %scale, i64 0, i32 1
+  %y.i3 = getelementptr inbounds i8, ptr %scale, i64 4
   store <2 x float> zeroinitializer, ptr %scale, align 8
-  %z.i4 = getelementptr inbounds %class.aiVector3t, ptr %scale, i64 0, i32 2
+  %z.i4 = getelementptr inbounds i8, ptr %scale, i64 8
   store float 0.000000e+00, ptr %z.i4, align 8
-  %x.i = getelementptr inbounds %class.aiQuaterniont, ptr %rotation, i64 0, i32 1
-  %y.i5 = getelementptr inbounds %class.aiQuaterniont, ptr %rotation, i64 0, i32 2
-  %z.i6 = getelementptr inbounds %class.aiQuaterniont, ptr %rotation, i64 0, i32 3
+  %x.i = getelementptr inbounds i8, ptr %rotation, i64 4
+  %y.i5 = getelementptr inbounds i8, ptr %rotation, i64 8
+  %z.i6 = getelementptr inbounds i8, ptr %rotation, i64 12
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, ptr %rotation, align 16
-  %mTransformation = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1
+  %mTransformation = getelementptr inbounds i8, ptr %currentNode, i64 1028
   call void @_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_(ptr noundef nonnull align 4 dereferenceable(64) %mTransformation, ptr noundef nonnull align 4 dereferenceable(12) %scale, ptr noundef nonnull align 4 dereferenceable(16) %rotation, ptr noundef nonnull align 4 dereferenceable(12) %pos)
-  %mScale = getelementptr inbounds %"class.Assimp::ScaleProcess", ptr %this, i64 0, i32 1
+  %mScale = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load float, ptr %mScale, align 8
   %1 = load float, ptr %pos, align 8
   %mul.i = fmul float %0, %1
@@ -1064,11 +1052,11 @@ if.then:                                          ; preds = %entry
   %94 = call float @llvm.fmuladd.f32(float %60, float 0.000000e+00, float %91)
   %95 = fadd float %38, %94
   store <2 x float> %89, ptr %mTransformation, align 4
-  %ref.tmp5.sroa.7.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 2
+  %ref.tmp5.sroa.7.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1036
   store float %93, ptr %ref.tmp5.sroa.7.0.mTransformation.sroa_idx, align 4
-  %ref.tmp5.sroa.10.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 3
+  %ref.tmp5.sroa.10.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1040
   store float %95, ptr %ref.tmp5.sroa.10.0.mTransformation.sroa_idx, align 4
-  %ref.tmp5.sroa.13.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 4
+  %ref.tmp5.sroa.13.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1044
   %96 = insertelement <2 x float> poison, float %45, i64 0
   %97 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> zeroinitializer
   %98 = fmul <2 x float> %73, %97
@@ -1088,11 +1076,11 @@ if.then:                                          ; preds = %entry
   %112 = call float @llvm.fmuladd.f32(float %62, float 0.000000e+00, float %109)
   %113 = fadd float %47, %112
   store <2 x float> %107, ptr %ref.tmp5.sroa.13.0.mTransformation.sroa_idx, align 4
-  %ref.tmp5.sroa.19.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 6
+  %ref.tmp5.sroa.19.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1052
   store float %111, ptr %ref.tmp5.sroa.19.0.mTransformation.sroa_idx, align 4
-  %ref.tmp5.sroa.22.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 7
+  %ref.tmp5.sroa.22.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1056
   store float %113, ptr %ref.tmp5.sroa.22.0.mTransformation.sroa_idx, align 4
-  %ref.tmp5.sroa.25.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 8
+  %ref.tmp5.sroa.25.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1060
   %114 = insertelement <2 x float> poison, float %53, i64 0
   %115 = shufflevector <2 x float> %114, <2 x float> poison, <2 x i32> zeroinitializer
   %116 = fmul <2 x float> %73, %115
@@ -1106,8 +1094,8 @@ if.then:                                          ; preds = %entry
   %124 = shufflevector <2 x float> %123, <2 x float> poison, <2 x i32> zeroinitializer
   %125 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %124, <2 x float> zeroinitializer, <2 x float> %122)
   store <2 x float> %125, ptr %ref.tmp5.sroa.25.0.mTransformation.sroa_idx, align 4
-  %ref.tmp5.sroa.31.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 10
-  %ref.tmp5.sroa.34.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 11
+  %ref.tmp5.sroa.31.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1068
+  %ref.tmp5.sroa.34.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1072
   %126 = insertelement <4 x float> poison, float %50, i64 0
   %127 = insertelement <4 x float> %126, float %4, i64 1
   %128 = insertelement <4 x float> %127, float %68, i64 2
@@ -1132,7 +1120,7 @@ if.then:                                          ; preds = %entry
   %147 = fadd float %146, 1.000000e+00
   store float %136, ptr %ref.tmp5.sroa.31.0.mTransformation.sroa_idx, align 4
   store <4 x float> %144, ptr %ref.tmp5.sroa.34.0.mTransformation.sroa_idx, align 4
-  %ref.tmp5.sroa.46.0.mTransformation.sroa_idx = getelementptr inbounds %struct.aiNode, ptr %currentNode, i64 0, i32 1, i32 15
+  %ref.tmp5.sroa.46.0.mTransformation.sroa_idx = getelementptr inbounds i8, ptr %currentNode, i64 1088
   store float %147, ptr %ref.tmp5.sroa.46.0.mTransformation.sroa_idx, align 4
   br label %if.end
 
@@ -1167,35 +1155,35 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 define linkonce_odr hidden noundef float @_ZNK12aiMatrix4x4tIfE11DeterminantEv(ptr noundef nonnull align 4 dereferenceable(64) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load float, ptr %this, align 4
-  %b2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 5
+  %b2 = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load float, ptr %b2, align 4
   %mul = fmul float %0, %1
-  %c3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 10
+  %c3 = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load float, ptr %c3, align 4
   %mul2 = fmul float %mul, %2
-  %d4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 15
+  %d4 = getelementptr inbounds i8, ptr %this, i64 60
   %3 = load float, ptr %d4, align 4
-  %c4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 11
+  %c4 = getelementptr inbounds i8, ptr %this, i64 44
   %4 = load float, ptr %c4, align 4
-  %d3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 14
+  %d3 = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load float, ptr %d3, align 4
   %6 = fneg float %mul
   %7 = fmul float %4, %6
   %neg = fmul float %7, %5
   %8 = tail call float @llvm.fmuladd.f32(float %mul2, float %3, float %neg)
-  %b3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 6
+  %b3 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load float, ptr %b3, align 4
   %mul10 = fmul float %0, %9
   %mul12 = fmul float %4, %mul10
-  %d2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 13
+  %d2 = getelementptr inbounds i8, ptr %this, i64 52
   %10 = load float, ptr %d2, align 4
   %11 = tail call float @llvm.fmuladd.f32(float %mul12, float %10, float %8)
-  %c2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 9
+  %c2 = getelementptr inbounds i8, ptr %this, i64 36
   %12 = load float, ptr %c2, align 4
   %13 = fneg float %mul10
   %neg20 = fmul float %12, %13
   %14 = tail call float @llvm.fmuladd.f32(float %neg20, float %3, float %11)
-  %b4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 7
+  %b4 = getelementptr inbounds i8, ptr %this, i64 28
   %15 = load float, ptr %b4, align 4
   %mul22 = fmul float %0, %15
   %mul24 = fmul float %12, %mul22
@@ -1203,15 +1191,15 @@ entry:
   %17 = fneg float %mul22
   %neg34 = fmul float %2, %17
   %18 = tail call float @llvm.fmuladd.f32(float %neg34, float %10, float %16)
-  %a2 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 1
+  %a2 = getelementptr inbounds i8, ptr %this, i64 4
   %19 = load float, ptr %a2, align 4
   %mul36 = fmul float %9, %19
-  %d1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 12
+  %d1 = getelementptr inbounds i8, ptr %this, i64 48
   %20 = load float, ptr %d1, align 4
   %21 = fneg float %mul36
   %neg40 = fmul float %4, %21
   %22 = tail call float @llvm.fmuladd.f32(float %neg40, float %20, float %18)
-  %c1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 8
+  %c1 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load float, ptr %c1, align 4
   %mul44 = fmul float %mul36, %23
   %24 = tail call float @llvm.fmuladd.f32(float %mul44, float %3, float %22)
@@ -1221,7 +1209,7 @@ entry:
   %26 = tail call float @llvm.fmuladd.f32(float %neg54, float %5, float %24)
   %mul59 = fmul float %2, %mul49
   %27 = tail call float @llvm.fmuladd.f32(float %mul59, float %20, float %26)
-  %b1 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 4
+  %b1 = getelementptr inbounds i8, ptr %this, i64 16
   %28 = load float, ptr %b1, align 4
   %mul63 = fmul float %19, %28
   %29 = fneg float %mul63
@@ -1229,7 +1217,7 @@ entry:
   %30 = tail call float @llvm.fmuladd.f32(float %neg68, float %3, float %27)
   %mul73 = fmul float %4, %mul63
   %31 = tail call float @llvm.fmuladd.f32(float %mul73, float %5, float %30)
-  %a3 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 2
+  %a3 = getelementptr inbounds i8, ptr %this, i64 8
   %32 = load float, ptr %a3, align 4
   %mul77 = fmul float %15, %32
   %mul79 = fmul float %23, %mul77
@@ -1249,7 +1237,7 @@ entry:
   %40 = fneg float %mul107
   %neg119 = fmul float %23, %40
   %41 = tail call float @llvm.fmuladd.f32(float %neg119, float %3, float %39)
-  %a4 = getelementptr inbounds %class.aiMatrix4x4t, ptr %this, i64 0, i32 3
+  %a4 = getelementptr inbounds i8, ptr %this, i64 12
   %42 = load float, ptr %a4, align 4
   %mul121 = fmul float %28, %42
   %43 = fneg float %mul121

@@ -3,14 +3,12 @@ source_filename = "bench/libquic/original/cmp.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @BN_ucmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
-  %top1 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %top1, align 8
   %sub = sub nsw i32 %0, %1
   %cmp.not = icmp eq i32 %sub, 0
@@ -62,9 +60,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
-  %neg7 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 3
+  %neg7 = getelementptr inbounds i8, ptr %b, i64 16
   %1 = load i32, ptr %neg7, align 8
   %cmp8.not = icmp eq i32 %0, %1
   %cmp15 = icmp eq i32 %0, 0
@@ -73,9 +71,9 @@ if.end:                                           ; preds = %entry
 
 if.end13:                                         ; preds = %if.end
   %.27 = select i1 %cmp15, i32 -1, i32 1
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i32, ptr %top, align 8
-  %top19 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top19 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i32, ptr %top19, align 8
   %cmp20 = icmp sgt i32 %2, %3
   br i1 %cmp20, label %return, label %if.end22
@@ -265,7 +263,7 @@ return:                                           ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @BN_abs_is_word(ptr nocapture noundef readonly %bn, i64 noundef %w) local_unnamed_addr #2 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %bn, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8
   switch i32 %0, label %return [
     i32 1, label %sw.bb
@@ -291,7 +289,7 @@ return:                                           ; preds = %entry, %sw.bb1, %sw
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @BN_is_zero(ptr nocapture noundef readonly %bn) local_unnamed_addr #3 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %bn, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp eq i32 %0, 0
   %conv = zext i1 %cmp to i32
@@ -301,13 +299,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @BN_is_one(ptr nocapture noundef readonly %bn) local_unnamed_addr #2 {
 entry:
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %bn, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %bn, i64 16
   %0 = load i32, ptr %neg, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %bn, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %bn, i64 8
   %1 = load i32, ptr %top.i, align 8
   %cond = icmp eq i32 %1, 1
   br i1 %cond, label %sw.bb.i, label %land.end
@@ -327,7 +325,7 @@ land.end:                                         ; preds = %sw.bb.i, %land.rhs,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @BN_is_word(ptr nocapture noundef readonly %bn, i64 noundef %w) local_unnamed_addr #2 {
 entry:
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %bn, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top.i, align 8
   switch i32 %0, label %land.end [
     i32 1, label %BN_abs_is_word.exit
@@ -349,7 +347,7 @@ land.rhs:                                         ; preds = %BN_abs_is_word.exit
   br i1 %cmp, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %bn, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %bn, i64 16
   %3 = load i32, ptr %neg, align 8
   %cmp1 = icmp eq i32 %3, 0
   br label %land.end
@@ -363,7 +361,7 @@ land.end:                                         ; preds = %sw.bb1.i, %entry, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @BN_is_odd(ptr nocapture noundef readonly %bn) local_unnamed_addr #2 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %bn, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %bn, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %land.rhs, label %land.end

@@ -7,18 +7,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.grpc_core::TraceFlag" = type <{ ptr, ptr, %"struct.std::atomic", [7 x i8] }>
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i8 }
-%"class.grpc_core::Executor" = type { ptr, ptr, i64, i64, %struct.gpr_spinlock }
-%struct.gpr_spinlock = type { i64 }
 %"class.grpc_core::Thread" = type { i32, ptr, %"class.grpc_core::Thread::Options" }
 %"class.grpc_core::Thread::Options" = type { i8, i8, i64 }
 %"struct.grpc_core::ThreadState" = type { i64, i64, ptr, i64, %struct.grpc_closure_list, i64, i8, i8, %"class.grpc_core::Thread" }
 %struct.grpc_closure_list = type { ptr, ptr }
 %"class.grpc_core::ApplicationCallbackExecCtx" = type { i64, ptr, ptr }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%struct.grpc_closure = type { %union.anon, ptr, ptr, %union.anon.0 }
-%union.anon = type { ptr }
-%union.anon.0 = type { i64 }
-%struct.grpc_completion_queue_functor = type { ptr, i32, i32, ptr }
 %"class.grpc_core::ExecCtx" = type { ptr, %struct.grpc_closure_list, %"struct.grpc_core::ExecCtx::CombinerData", i64, %"class.grpc_core::ScopedTimeCache", ptr }
 %"struct.grpc_core::ExecCtx::CombinerData" = type { ptr, ptr }
 %"class.grpc_core::ScopedTimeCache" = type { %"class.grpc_core::Timestamp::ScopedSource", %"class.std::optional" }
@@ -131,15 +125,15 @@ declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 derefer
 define void @_ZN9grpc_core8ExecutorC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   store ptr %name, ptr %this, align 8
-  %adding_thread_lock_2 = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 4
+  %adding_thread_lock_2 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %adding_thread_lock_2, align 8
-  %num_threads_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 3
+  %num_threads_ = getelementptr inbounds i8, ptr %this, i64 24
   store atomic i64 0, ptr %num_threads_ release, align 8
   %call = tail call i32 @gpr_cpu_num_cores()
   %mul = shl i32 %call, 1
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %mul, i32 1)
   %conv = zext i32 %.sroa.speculated to i64
-  %max_threads_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 2
+  %max_threads_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %conv, ptr %max_threads_, align 8
   ret void
 }
@@ -161,9 +155,9 @@ define void @_ZN9grpc_core8Executor12SetThreadingEb(ptr nocapture noundef nonnul
 entry:
   %ref.tmp38 = alloca %"class.grpc_core::Thread", align 8
   %ref.tmp42 = alloca %"class.grpc_core::Thread::Options", align 8
-  %num_threads_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 3
+  %num_threads_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_threads_ acquire, align 8
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then
@@ -182,7 +176,7 @@ if.then3:                                         ; preds = %do.end
   br i1 %cmp, label %do.body5, label %do.body13
 
 do.body5:                                         ; preds = %if.then3
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %5 = and i8 %4, 1
   %tobool.i.i.i27.not = icmp eq i8 %5, 0
   br i1 %tobool.i.i.i27.not, label %do.end141, label %if.then8
@@ -203,11 +197,11 @@ if.then17:                                        ; preds = %do.body13
 
 do.end19:                                         ; preds = %do.body13
   store atomic i64 1, ptr %num_threads_ release, align 8
-  %max_threads_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 2
+  %max_threads_ = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %max_threads_, align 8
   %mul = mul i64 %8, 96
   %call21 = tail call ptr @gpr_zalloc(i64 noundef %mul)
-  %thd_state_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 1
+  %thd_state_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call21, ptr %thd_state_, align 8
   %9 = load i64, ptr %max_threads_, align 8
   %cmp2369.not = icmp eq i64 %9, 0
@@ -231,13 +225,13 @@ _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %do.end19, %_ZN9grpc
   %15 = load ptr, ptr %thd_state_, align 8
   %thd = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %15, i64 %i.070, i32 8
   store i32 0, ptr %thd, align 8
-  %impl_3.i = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %15, i64 %i.070, i32 8, i32 1
+  %impl_3.i = getelementptr inbounds i8, ptr %thd, i64 8
   store ptr null, ptr %impl_3.i, align 8
-  %options_4.i = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %15, i64 %i.070, i32 8, i32 2
+  %options_4.i = getelementptr inbounds i8, ptr %thd, i64 16
   store i8 1, ptr %options_4.i, align 8
-  %ref.tmp.sroa.6.16.options_4.i.sroa_idx = getelementptr inbounds i8, ptr %options_4.i, i64 1
+  %ref.tmp.sroa.6.16.options_4.i.sroa_idx = getelementptr inbounds i8, ptr %thd, i64 17
   store i8 1, ptr %ref.tmp.sroa.6.16.options_4.i.sroa_idx, align 1
-  %ref.tmp.sroa.871.16.options_4.i.sroa_idx = getelementptr inbounds i8, ptr %options_4.i, i64 8
+  %ref.tmp.sroa.871.16.options_4.i.sroa_idx = getelementptr inbounds i8, ptr %thd, i64 24
   store i64 0, ptr %ref.tmp.sroa.871.16.options_4.i.sroa_idx, align 8
   %16 = load ptr, ptr %thd_state_, align 8
   %elems = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %16, i64 %i.070, i32 4
@@ -255,37 +249,37 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   %18 = phi ptr [ %.pre, %for.cond.for.end_crit_edge ], [ %call21, %do.end19 ]
   %19 = load ptr, ptr %this, align 8
   store i8 1, ptr %ref.tmp42, align 8
-  %tracked_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp42, i64 0, i32 1
+  %tracked_.i = getelementptr inbounds i8, ptr %ref.tmp42, i64 1
   store i8 1, ptr %tracked_.i, align 1
-  %stack_size_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp42, i64 0, i32 2
+  %stack_size_.i = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
   store i64 0, ptr %stack_size_.i, align 8
   call void @_ZN9grpc_core6ThreadC1EPKcPFvPvES3_PbRKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, ptr noundef %19, ptr noundef nonnull @_ZN9grpc_core8Executor10ThreadMainEPv, ptr noundef %18, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp42)
   %20 = load ptr, ptr %thd_state_, align 8
-  %thd45 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %20, i64 0, i32 8
+  %thd45 = getelementptr inbounds i8, ptr %20, i64 64
   %cmp.not.i33 = icmp eq ptr %thd45, %ref.tmp38
-  %impl_.i44.phi.trans.insert = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp38, i64 0, i32 1
+  %impl_.i44.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   br i1 %cmp.not.i33, label %_ZN9grpc_core6ThreadaSEOS0_.exit41, label %_ZN9grpc_core6ThreadaSEOS0_.exit41.thread
 
 _ZN9grpc_core6ThreadaSEOS0_.exit41.thread:        ; preds = %for.end
   %21 = load i32, ptr %ref.tmp38, align 8
   store i32 %21, ptr %thd45, align 8
   %22 = load ptr, ptr %impl_.i44.phi.trans.insert, align 8
-  %impl_3.i36 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %20, i64 0, i32 8, i32 1
+  %impl_3.i36 = getelementptr inbounds i8, ptr %20, i64 72
   store ptr %22, ptr %impl_3.i36, align 8
-  %options_.i37 = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp38, i64 0, i32 2
-  %options_4.i38 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %20, i64 0, i32 8, i32 2
+  %options_.i37 = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
+  %options_4.i38 = getelementptr inbounds i8, ptr %20, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options_4.i38, ptr noundef nonnull align 8 dereferenceable(16) %options_.i37, i64 16, i1 false)
   store i32 5, ptr %ref.tmp38, align 8
   store ptr null, ptr %impl_.i44.phi.trans.insert, align 8
   store i8 1, ptr %options_.i37, align 8
-  %ref.tmp.sroa.2.0.options_.sroa_idx.i39 = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp38, i64 0, i32 2, i32 1
+  %ref.tmp.sroa.2.0.options_.sroa_idx.i39 = getelementptr inbounds i8, ptr %ref.tmp38, i64 17
   store i8 1, ptr %ref.tmp.sroa.2.0.options_.sroa_idx.i39, align 1
-  %ref.tmp.sroa.37.0.options_.sroa_idx.i40 = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp38, i64 0, i32 2, i32 2
+  %ref.tmp.sroa.37.0.options_.sroa_idx.i40 = getelementptr inbounds i8, ptr %ref.tmp38, i64 24
   store i64 0, ptr %ref.tmp.sroa.37.0.options_.sroa_idx.i40, align 8
   br label %_ZN9grpc_core6ThreadD2Ev.exit50
 
 _ZN9grpc_core6ThreadaSEOS0_.exit41:               ; preds = %for.end
-  %options_.i42.phi.trans.insert = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp38, i64 0, i32 2
+  %options_.i42.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
   %.pre72 = load i8, ptr %options_.i42.phi.trans.insert, align 8
   %.pre73 = load ptr, ptr %impl_.i44.phi.trans.insert, align 8
   %23 = and i8 %.pre72, 1
@@ -310,8 +304,8 @@ terminate.lpad.i48:                               ; preds = %if.then.i47
 
 _ZN9grpc_core6ThreadD2Ev.exit50:                  ; preds = %_ZN9grpc_core6ThreadaSEOS0_.exit41.thread, %_ZN9grpc_core6ThreadaSEOS0_.exit41
   %29 = load ptr, ptr %thd_state_, align 8
-  %thd49 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %29, i64 0, i32 8
-  %impl_.i51 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %29, i64 0, i32 8, i32 1
+  %thd49 = getelementptr inbounds i8, ptr %29, i64 64
+  %impl_.i51 = getelementptr inbounds i8, ptr %29, i64 72
   %30 = load ptr, ptr %impl_.i51, align 8
   %cmp.not.i52 = icmp eq ptr %30, null
   %31 = load i32, ptr %thd49, align 8
@@ -328,7 +322,7 @@ if.then3.i:                                       ; preds = %do.body.i
 do.end.i:                                         ; preds = %do.body.i
   store i32 2, ptr %thd49, align 8
   %vtable.i = load ptr, ptr %30, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %32 = load ptr, ptr %vfn.i, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %30)
   br label %do.body132
@@ -346,17 +340,17 @@ if.else:                                          ; preds = %do.end
   br i1 %cmp50, label %do.body52, label %for.cond61.preheader
 
 for.cond61.preheader:                             ; preds = %if.else
-  %max_threads_62 = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 2
+  %max_threads_62 = getelementptr inbounds i8, ptr %this, i64 16
   %33 = load i64, ptr %max_threads_62, align 8
   %cmp6363.not = icmp eq i64 %33, 0
   br i1 %cmp6363.not, label %do.body79.preheader, label %for.body64.lr.ph
 
 for.body64.lr.ph:                                 ; preds = %for.cond61.preheader
-  %thd_state_65 = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 1
+  %thd_state_65 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body64
 
 do.body52:                                        ; preds = %if.else
-  %34 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %34 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %35 = and i8 %34, 1
   %tobool.i.i.i53.not = icmp eq i8 %35, 0
   br i1 %tobool.i.i.i53.not, label %do.end141, label %if.then55
@@ -367,7 +361,7 @@ if.then55:                                        ; preds = %do.body52
   br label %do.end141
 
 do.body79.preheader:                              ; preds = %for.body64, %for.cond61.preheader
-  %adding_thread_lock_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 4
+  %adding_thread_lock_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body79
 
 for.body64:                                       ; preds = %for.body64.lr.ph, %for.body64
@@ -401,21 +395,21 @@ do.end83:                                         ; preds = %do.body79
   br i1 %cmp9165, label %for.body92.lr.ph, label %for.end106
 
 for.body92.lr.ph:                                 ; preds = %do.end83
-  %thd_state_93 = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 1
+  %thd_state_93 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body92
 
 for.body92:                                       ; preds = %for.body92.lr.ph, %for.inc104
   %i89.066 = phi i64 [ 0, %for.body92.lr.ph ], [ %inc105.pre-phi, %for.inc104 ]
   %45 = load ptr, ptr %thd_state_93, align 8
   %thd95 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %45, i64 %i89.066, i32 8
-  %impl_.i54 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %45, i64 %i89.066, i32 8, i32 1
+  %impl_.i54 = getelementptr inbounds i8, ptr %thd95, i64 8
   %46 = load ptr, ptr %impl_.i54, align 8
   %cmp.not.i55 = icmp eq ptr %46, null
   br i1 %cmp.not.i55, label %do.body.i59, label %if.then.i56
 
 if.then.i56:                                      ; preds = %for.body92
   %vtable.i57 = load ptr, ptr %46, align 8
-  %vfn.i58 = getelementptr inbounds ptr, ptr %vtable.i57, i64 3
+  %vfn.i58 = getelementptr inbounds i8, ptr %vtable.i57, i64 24
   %47 = load ptr, ptr %vfn.i58, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %46)
   %48 = load ptr, ptr %impl_.i54, align 8
@@ -424,7 +418,7 @@ if.then.i56:                                      ; preds = %for.body92
 
 delete.notnull.i:                                 ; preds = %if.then.i56
   %vtable4.i = load ptr, ptr %48, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 1
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 8
   %49 = load ptr, ptr %vfn5.i, align 8
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(8) %48) #22
   br label %delete.end.i
@@ -444,7 +438,7 @@ if.then9.i:                                       ; preds = %do.body.i59
   unreachable
 
 _ZN9grpc_core6Thread4JoinEv.exit:                 ; preds = %delete.end.i, %do.body.i59
-  %51 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %51 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %52 = and i8 %51, 1
   %tobool.i.i.i61.not = icmp eq i8 %52, 0
   br i1 %tobool.i.i.i61.not, label %_ZN9grpc_core6Thread4JoinEv.exit.for.inc104_crit_edge, label %if.then99
@@ -471,7 +465,7 @@ for.end106:                                       ; preds = %for.inc104, %do.end
   br i1 %cmp11267.not, label %for.end129, label %for.body113.lr.ph
 
 for.body113.lr.ph:                                ; preds = %for.end106
-  %thd_state_114 = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 1
+  %thd_state_114 = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body113
 
 for.body113:                                      ; preds = %for.body113.lr.ph, %for.body113
@@ -483,9 +477,10 @@ for.body113:                                      ; preds = %for.body113.lr.ph, 
   %cv119 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %56, i64 %i109.068, i32 3
   tail call void @gpr_cv_destroy(ptr noundef nonnull %cv119)
   %57 = load ptr, ptr %thd_state_114, align 8
-  %name122 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %57, i64 %i109.068, i32 2
+  %arrayidx121 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %57, i64 %i109.068
+  %name122 = getelementptr inbounds i8, ptr %arrayidx121, i64 16
   %58 = load ptr, ptr %name122, align 8
-  %elems125 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %57, i64 %i109.068, i32 4
+  %elems125 = getelementptr inbounds i8, ptr %arrayidx121, i64 32
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %elems125, align 8
   %call126 = tail call noundef i64 @_ZN9grpc_core8Executor11RunClosuresEPKc17grpc_closure_list(ptr noundef %58, ptr %agg.tmp.sroa.0.0.copyload, ptr poison)
   %inc128 = add nuw i64 %i109.068, 1
@@ -494,14 +489,14 @@ for.body113:                                      ; preds = %for.body113.lr.ph, 
   br i1 %cmp112, label %for.body113, label %for.end129, !llvm.loop !9
 
 for.end129:                                       ; preds = %for.body113, %for.end106
-  %thd_state_130 = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 1
+  %thd_state_130 = getelementptr inbounds i8, ptr %this, i64 8
   %60 = load ptr, ptr %thd_state_130, align 8
   tail call void @gpr_free(ptr noundef %60)
   tail call void @_Z47grpc_iomgr_platform_shutdown_background_closurev()
   br label %do.body132
 
 do.body132:                                       ; preds = %do.body6.i, %do.end.i, %for.end129
-  %61 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %61 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %62 = and i8 %61, 1
   %tobool.i.i.i62.not = icmp eq i8 %62, 0
   br i1 %tobool.i.i.i62.not, label %do.end141, label %if.then135
@@ -523,7 +518,7 @@ entry:
   %error = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   store i64 1, ptr %callback_exec_ctx, align 8
-  %head_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %callback_exec_ctx, i64 0, i32 1
+  %head_.i = getelementptr inbounds i8, ptr %callback_exec_ctx, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i, i8 0, i64 16, i1 false)
   br i1 icmp ne (ptr @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_exec_ctx_E, ptr null), label %0, label %_ZN9grpc_core26ApplicationCallbackExecCtx3GetEv.exit.i.i
 
@@ -560,7 +555,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %n.026 = phi i64 [ 0, %while.body.lr.ph ], [ %inc, %_ZN4absl12lts_202308026StatusD2Ev.exit15 ]
   %c.025 = phi ptr [ %list.coerce0, %while.body.lr.ph ], [ %5, %_ZN4absl12lts_202308026StatusD2Ev.exit15 ]
   %5 = load ptr, ptr %c.025, align 8
-  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %7 = and i8 %6, 1
   %tobool.i.i.i.not = icmp eq i8 %7, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then
@@ -575,16 +570,16 @@ lpad:                                             ; preds = %do.end, %if.then
   br label %ehcleanup11
 
 do.end:                                           ; preds = %if.then, %while.body
-  %error_data = getelementptr inbounds %struct.grpc_closure, ptr %c.025, i64 0, i32 3
+  %error_data = getelementptr inbounds i8, ptr %c.025, i64 24
   %9 = load i64, ptr %error_data, align 8
   invoke void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %error, i64 noundef %9)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %do.end
   store i64 0, ptr %error_data, align 8
-  %cb = getelementptr inbounds %struct.grpc_closure, ptr %c.025, i64 0, i32 1
+  %cb = getelementptr inbounds i8, ptr %c.025, i64 8
   %10 = load ptr, ptr %cb, align 8
-  %cb_arg = getelementptr inbounds %struct.grpc_closure, ptr %c.025, i64 0, i32 2
+  %cb_arg = getelementptr inbounds i8, ptr %c.025, i64 16
   %11 = load ptr, ptr %cb_arg, align 8
   %12 = load i64, ptr %error, align 8
   store i64 %12, ptr %agg.tmp, align 8
@@ -673,7 +668,7 @@ invoke.cont.i:                                    ; preds = %23, %while.end
   br i1 %cmp.i, label %while.cond.preheader.i, label %_ZN9grpc_core26ApplicationCallbackExecCtxD2Ev.exit
 
 while.cond.preheader.i:                           ; preds = %invoke.cont.i
-  %tail_.i = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %callback_exec_ctx, i64 0, i32 2
+  %tail_.i = getelementptr inbounds i8, ptr %callback_exec_ctx, i64 16
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end.i, %while.cond.preheader.i
@@ -682,7 +677,7 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   br i1 %cmp2.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %internal_next.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %25, i64 0, i32 3
+  %internal_next.i = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load ptr, ptr %internal_next.i, align 8
   store ptr %26, ptr %head_.i, align 8
   %cmp6.i = icmp eq ptr %26, null
@@ -694,7 +689,7 @@ if.then7.i:                                       ; preds = %while.body.i
 
 if.end.i:                                         ; preds = %if.then7.i, %while.body.i
   %27 = load ptr, ptr %25, align 8
-  %internal_success.i = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %25, i64 0, i32 2
+  %internal_success.i = getelementptr inbounds i8, ptr %25, i64 12
   %28 = load i32, ptr %internal_success.i, align 4
   invoke void %27(ptr noundef nonnull %25, i32 noundef %28)
           to label %while.cond.i unwind label %terminate.lpad.loopexit.i, !llvm.loop !11
@@ -795,8 +790,8 @@ invoke.cont:                                      ; preds = %entry, %0
   br i1 %cmp, label %while.cond.preheader, label %if.end12
 
 while.cond.preheader:                             ; preds = %invoke.cont
-  %head_ = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %this, i64 0, i32 1
-  %tail_ = getelementptr inbounds %"class.grpc_core::ApplicationCallbackExecCtx", ptr %this, i64 0, i32 2
+  %head_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end
@@ -805,7 +800,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp2.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %internal_next = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %3, i64 0, i32 3
+  %internal_next = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %internal_next, align 8
   store ptr %4, ptr %head_, align 8
   %cmp6 = icmp eq ptr %4, null
@@ -817,7 +812,7 @@ if.then7:                                         ; preds = %while.body
 
 if.end:                                           ; preds = %if.then7, %while.body
   %5 = load ptr, ptr %3, align 8
-  %internal_success = getelementptr inbounds %struct.grpc_completion_queue_functor, ptr %3, i64 0, i32 2
+  %internal_success = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i32, ptr %internal_success, align 4
   invoke void %5(ptr noundef nonnull %3, i32 noundef %6)
           to label %while.cond unwind label %terminate.lpad.loopexit, !llvm.loop !11
@@ -869,7 +864,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZNK9grpc_core8Executor10IsThreadedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %num_threads_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 3
+  %num_threads_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %num_threads_ acquire, align 8
   %cmp = icmp sgt i64 %0, 0
   ret i1 %cmp
@@ -891,12 +886,12 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core12_GLOBAL__N_119g_this_thread_stateE)
   store ptr %arg, ptr %0, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %exec_ctx, align 8
-  %closure_list_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 1
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 3
+  %closure_list_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 8
+  %flags_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %closure_list_.i, i8 0, i64 32, i1 false)
   store i64 4, ptr %flags_.i, align 8
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 0, i32 1
+  %time_cache_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 48
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 56
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %1, label %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
 
 1:                                                ; preds = %entry
@@ -916,7 +911,7 @@ _ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i: ; preds = %1, 
 _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %4, %_ZTWN9grpc_core9Timestamp25thread_local_time_source_E.exit.i.i.i
   store ptr %time_cache_.i, ptr %2, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exec_ctx, i64 72
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %5, label %invoke.cont.i
 
@@ -927,7 +922,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i:        ; preds = %4, %_ZTWN9grpc_core
 invoke.cont.i:                                    ; preds = %5, %_ZN9grpc_core15ScopedTimeCacheC2Ev.exit.i
   %6 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %7 = load ptr, ptr %6, align 8
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %exec_ctx, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %exec_ctx, i64 80
   store ptr %7, ptr %last_exec_ctx_.i, align 8
   %8 = load i64, ptr %flags_.i, align 8
   %and.i = and i64 %8, 4
@@ -972,18 +967,18 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
 
 _ZN9grpc_core7ExecCtxC2Em.exit:                   ; preds = %if.end.i, %14
   store ptr %exec_ctx, ptr %6, align 8
-  %name = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %arg, i64 0, i32 2
-  %id = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %arg, i64 0, i32 1
-  %depth = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %arg, i64 0, i32 5
-  %elems = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %arg, i64 0, i32 4
-  %shutdown = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %arg, i64 0, i32 6
-  %queued_long_job = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %arg, i64 0, i32 7
-  %cv = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %arg, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %arg, i64 16
+  %id = getelementptr inbounds i8, ptr %arg, i64 8
+  %depth = getelementptr inbounds i8, ptr %arg, i64 48
+  %elems = getelementptr inbounds i8, ptr %arg, i64 32
+  %shutdown = getelementptr inbounds i8, ptr %arg, i64 56
+  %queued_long_job = getelementptr inbounds i8, ptr %arg, i64 57
+  %cv = getelementptr inbounds i8, ptr %arg, i64 24
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont43, %_ZN9grpc_core7ExecCtxC2Em.exit
   %subtract_depth.0 = phi i64 [ 0, %_ZN9grpc_core7ExecCtxC2Em.exit ], [ %call47, %invoke.cont43 ]
-  %15 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %15 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %16 = and i8 %15, 1
   %tobool.i.i.i.not = icmp eq i8 %16, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then
@@ -1050,7 +1045,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool.not, label %if.end26, label %do.body14
 
 do.body14:                                        ; preds = %while.end, %land.rhs
-  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %23 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %24 = and i8 %23, 1
   %tobool.i.i.i21.not = icmp eq i8 %24, 0
   br i1 %tobool.i.i.i21.not, label %do.end23, label %if.then17
@@ -1071,7 +1066,7 @@ if.end26:                                         ; preds = %while.end
           to label %do.body31 unwind label %lpad.loopexit.split-lp.loopexit
 
 do.body31:                                        ; preds = %if.end26
-  %27 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %27 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %28 = and i8 %27, 1
   %tobool.i.i.i22.not = icmp eq i8 %28, 0
   br i1 %tobool.i.i.i22.not, label %do.end40, label %if.then34
@@ -1091,7 +1086,7 @@ do.end40:                                         ; preds = %if.then34, %do.body
 
 invoke.cont41:                                    ; preds = %do.end40, %31
   %32 = load ptr, ptr %6, align 8
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %32, i64 0, i32 4, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 72
   %33 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %34 = and i8 %33, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %34, 0
@@ -1102,10 +1097,10 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont41
   br label %_ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv.exit.i
 
 _ZN9grpc_core15ScopedTimeCache15InvalidateCacheEv.exit.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont41
-  %previous_.i.i.i23 = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %32, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i23 = getelementptr inbounds i8, ptr %32, i64 56
   %35 = load ptr, ptr %previous_.i.i.i23, align 8
   %vtable.i.i.i = load ptr, ptr %35, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %36 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %invoke.cont43 unwind label %lpad.loopexit.split-lp.loopexit
@@ -1204,7 +1199,7 @@ declare { i64, i64 } @gpr_inf_future(i32 noundef) local_unnamed_addr #0
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
   store i64 %or, ptr %flags_, align 8
@@ -1212,7 +1207,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %last_exec_ctx_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2
 
@@ -1239,9 +1234,9 @@ if.then.i:                                        ; preds = %if.then
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %if.then.i, %invoke.cont2
-  %time_cache_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_, align 8
-  %previous_.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core15ScopedTimeCacheD2Ev.exit
 
@@ -1272,23 +1267,23 @@ entry:
   %agg.tmp41 = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.grpc_core::Thread", align 8
   %ref.tmp72 = alloca %"class.grpc_core::Thread::Options", align 8
-  %num_threads_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 3
+  %num_threads_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core12_GLOBAL__N_119g_this_thread_stateE)
-  %thd_state_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 1
+  %thd_state_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core7ExecCtx9exec_ctx_E)
   %cond = select i1 %is_short, ptr @.str.15, ptr @.str.16
   %cmp.i57 = icmp eq ptr %closure, null
-  %error_data.i67 = getelementptr inbounds %struct.grpc_closure, ptr %closure, i64 0, i32 3
-  %max_threads_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 2
+  %error_data.i67 = getelementptr inbounds i8, ptr %closure, i64 24
+  %max_threads_ = getelementptr inbounds i8, ptr %this, i64 16
   %lnot53 = xor i1 %is_short, true
   %frombool55 = zext i1 %lnot53 to i8
-  %adding_thread_lock_ = getelementptr inbounds %"class.grpc_core::Executor", ptr %this, i64 0, i32 4
-  %tracked_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp72, i64 0, i32 1
-  %stack_size_.i = getelementptr inbounds %"class.grpc_core::Thread::Options", ptr %ref.tmp72, i64 0, i32 2
-  %impl_.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp, i64 0, i32 1
-  %options_.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp, i64 0, i32 2
-  %ref.tmp.sroa.2.0.options_.sroa_idx.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp, i64 0, i32 2, i32 1
-  %ref.tmp.sroa.37.0.options_.sroa_idx.i = getelementptr inbounds %"class.grpc_core::Thread", ptr %ref.tmp, i64 0, i32 2, i32 2
+  %adding_thread_lock_ = getelementptr inbounds i8, ptr %this, i64 32
+  %tracked_.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 1
+  %stack_size_.i = getelementptr inbounds i8, ptr %ref.tmp72, i64 8
+  %impl_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %options_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %ref.tmp.sroa.2.0.options_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  %ref.tmp.sroa.37.0.options_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
@@ -1297,7 +1292,7 @@ do.body:                                          ; preds = %do.cond, %entry
   br i1 %cmp, label %do.body2, label %if.end7
 
 do.body2:                                         ; preds = %do.body
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then3
@@ -1316,7 +1311,7 @@ do.end:                                           ; preds = %do.body2, %if.then3
 
 _ZN9grpc_core7ExecCtx3GetEv.exit:                 ; preds = %do.end, %6
   %7 = load ptr, ptr %1, align 8
-  %closure_list_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %7, i64 0, i32 1
+  %closure_list_.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %error, align 8
   store i64 %8, ptr %agg.tmp, align 8
   %and.i.i.i = and i64 %8, 1
@@ -1378,14 +1373,14 @@ if.end.i.i:                                       ; preds = %if.then.i.i5.i, %in
   br i1 %cmp1.i.i, label %_Z24grpc_closure_list_appendP17grpc_closure_listP12grpc_closure.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %tail.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %7, i64 0, i32 1, i32 1
+  %tail.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %17 = load ptr, ptr %tail.i.i, align 8
   br label %_Z24grpc_closure_list_appendP17grpc_closure_listP12grpc_closure.exit.i
 
 _Z24grpc_closure_list_appendP17grpc_closure_listP12grpc_closure.exit.i: ; preds = %if.else.i.i, %if.end.i.i
   %.sink.i.i = phi ptr [ %17, %if.else.i.i ], [ %closure_list_.i, %if.end.i.i ]
   store ptr %closure, ptr %.sink.i.i, align 8
-  %tail6.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %7, i64 0, i32 1, i32 1
+  %tail6.i.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %closure, ptr %tail6.i.i, align 8
   br label %invoke.cont
 
@@ -1483,21 +1478,21 @@ if.end18:                                         ; preds = %_ZN9grpc_core7ExecC
 
 for.cond:                                         ; preds = %if.then26, %if.end18
   %ts.1 = phi ptr [ %ts.0, %if.end18 ], [ %arrayidx30, %if.then26 ]
-  %33 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %33 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %34 = and i8 %33, 1
   %tobool.i.i.i49.not = icmp eq i8 %34, 0
   br i1 %tobool.i.i.i49.not, label %do.end24, label %if.then21
 
 if.then21:                                        ; preds = %for.cond
   %35 = load ptr, ptr %this, align 8
-  %id = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %ts.1, i64 8
   %36 = load i64, ptr %id, align 8
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.2, i32 noundef 295, i32 noundef 1, ptr noundef nonnull @.str.14, ptr noundef %35, ptr noundef %closure, ptr noundef nonnull %cond, i64 noundef %36)
   br label %do.end24
 
 do.end24:                                         ; preds = %for.cond, %if.then21
   call void @gpr_mu_lock(ptr noundef %ts.1)
-  %queued_long_job = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 7
+  %queued_long_job = getelementptr inbounds i8, ptr %ts.1, i64 57
   %37 = load i8, ptr %queued_long_job, align 1
   %38 = and i8 %37, 1
   %tobool25.not.not = icmp eq i8 %38, 0
@@ -1505,7 +1500,7 @@ do.end24:                                         ; preds = %for.cond, %if.then2
 
 if.then26:                                        ; preds = %do.end24
   call void @gpr_mu_unlock(ptr noundef nonnull %ts.1)
-  %id28 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 1
+  %id28 = getelementptr inbounds i8, ptr %ts.1, i64 8
   %39 = load i64, ptr %id28, align 8
   %40 = load ptr, ptr %thd_state_, align 8
   %add = add i64 %39, 1
@@ -1515,21 +1510,21 @@ if.then26:                                        ; preds = %do.end24
   br i1 %cmp31, label %land.lhs.true58, label %for.cond, !llvm.loop !14
 
 if.end34:                                         ; preds = %do.end24
-  %queued_long_job.le = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 7
-  %elems = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 4
+  %queued_long_job.le = getelementptr inbounds i8, ptr %ts.1, i64 57
+  %elems = getelementptr inbounds i8, ptr %ts.1, i64 32
   %agg.tmp35.sroa.0.0.copyload = load ptr, ptr %elems, align 8
   %cmp.i50 = icmp eq ptr %agg.tmp35.sroa.0.0.copyload, null
   br i1 %cmp.i50, label %land.lhs.true, label %if.end39
 
 land.lhs.true:                                    ; preds = %if.end34
-  %shutdown = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 6
+  %shutdown = getelementptr inbounds i8, ptr %ts.1, i64 56
   %41 = load i8, ptr %shutdown, align 8
   %42 = and i8 %41, 1
   %tobool37.not = icmp eq i8 %42, 0
   br i1 %tobool37.not, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %land.lhs.true
-  %cv = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 3
+  %cv = getelementptr inbounds i8, ptr %ts.1, i64 24
   call void @gpr_cv_signal(ptr noundef nonnull %cv)
   br label %if.end39
 
@@ -1595,14 +1590,14 @@ if.end.i.i72:                                     ; preds = %if.then.i.i5.i70, %
   br i1 %cmp1.i.i73, label %_Z24grpc_closure_list_appendP17grpc_closure_listP12grpc_closure.exit.i76, label %if.else.i.i74
 
 if.else.i.i74:                                    ; preds = %if.end.i.i72
-  %tail.i.i75 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 4, i32 1
+  %tail.i.i75 = getelementptr inbounds i8, ptr %ts.1, i64 40
   %52 = load ptr, ptr %tail.i.i75, align 8
   br label %_Z24grpc_closure_list_appendP17grpc_closure_listP12grpc_closure.exit.i76
 
 _Z24grpc_closure_list_appendP17grpc_closure_listP12grpc_closure.exit.i76: ; preds = %if.else.i.i74, %if.end.i.i72
   %.sink.i.i77 = phi ptr [ %52, %if.else.i.i74 ], [ %elems, %if.end.i.i72 ]
   store ptr %closure, ptr %.sink.i.i77, align 8
-  %tail6.i.i78 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 4, i32 1
+  %tail6.i.i78 = getelementptr inbounds i8, ptr %ts.1, i64 40
   store ptr %closure, ptr %tail6.i.i78, align 8
   br label %invoke.cont43
 
@@ -1628,7 +1623,7 @@ terminate.lpad.i85:                               ; preds = %if.then.i.i84
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit87:         ; preds = %invoke.cont43, %if.then.i.i84
-  %depth = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 5
+  %depth = getelementptr inbounds i8, ptr %ts.1, i64 48
   %56 = load i64, ptr %depth, align 8
   %inc = add i64 %56, 1
   store i64 %inc, ptr %depth, align 8
@@ -1639,7 +1634,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit87:         ; preds = %invoke.cont43, %if.
   br i1 %or.cond, label %land.rhs, label %do.cond.critedge
 
 land.rhs:                                         ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit87
-  %shutdown49 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %ts.1, i64 0, i32 6
+  %shutdown49 = getelementptr inbounds i8, ptr %ts.1, i64 56
   %58 = load i8, ptr %shutdown49, align 8
   %59 = and i8 %58, 1
   %tobool50.not = icmp eq i8 %59, 0
@@ -1677,9 +1672,9 @@ _ZN9grpc_core6ThreadaSEOS0_.exit.thread:          ; preds = %if.then66
   %67 = load i32, ptr %ref.tmp, align 8
   store i32 %67, ptr %thd, align 8
   %68 = load ptr, ptr %impl_.i, align 8
-  %impl_3.i = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %66, i64 %62, i32 8, i32 1
+  %impl_3.i = getelementptr inbounds i8, ptr %thd, i64 8
   store ptr %68, ptr %impl_3.i, align 8
-  %options_4.i = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %66, i64 %62, i32 8, i32 2
+  %options_4.i = getelementptr inbounds i8, ptr %thd, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %options_4.i, ptr noundef nonnull align 8 dereferenceable(16) %options_.i, i64 16, i1 false)
   store i32 5, ptr %ref.tmp, align 8
   store ptr null, ptr %impl_.i, align 8
@@ -1714,7 +1709,7 @@ terminate.lpad.i93:                               ; preds = %if.then.i92
 _ZN9grpc_core6ThreadD2Ev.exit:                    ; preds = %_ZN9grpc_core6ThreadaSEOS0_.exit.thread, %_ZN9grpc_core6ThreadaSEOS0_.exit
   %72 = load ptr, ptr %thd_state_, align 8
   %thd78 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %72, i64 %62, i32 8
-  %impl_.i94 = getelementptr inbounds %"struct.grpc_core::ThreadState", ptr %72, i64 %62, i32 8, i32 1
+  %impl_.i94 = getelementptr inbounds i8, ptr %thd78, i64 8
   %73 = load ptr, ptr %impl_.i94, align 8
   %cmp.not.i95 = icmp eq ptr %73, null
   %74 = load i32, ptr %thd78, align 8
@@ -1731,7 +1726,7 @@ if.then3.i:                                       ; preds = %do.body.i
 do.end.i:                                         ; preds = %do.body.i
   store i32 2, ptr %thd78, align 8
   %vtable.i = load ptr, ptr %73, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %75 = load ptr, ptr %vfn.i, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(8) %73)
   br label %if.end79
@@ -1771,7 +1766,7 @@ declare noundef zeroext i1 @_Z52grpc_iomgr_platform_add_closure_to_background_po
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core8Executor7InitAllEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then
@@ -1811,7 +1806,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   tail call void @_ZN9grpc_core8Executor12SetThreadingEb(ptr noundef nonnull align 8 dereferenceable(40) %4, i1 noundef zeroext true)
   %5 = load ptr, ptr getelementptr inbounds ([2 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 0, i64 1), align 8
   tail call void @_ZN9grpc_core8Executor12SetThreadingEb(ptr noundef nonnull align 8 dereferenceable(40) %5, i1 noundef zeroext true)
-  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %7 = and i8 %6, 1
   %tobool.i.i.i2.not = icmp eq i8 %7, 0
   br i1 %tobool.i.i.i2.not, label %do.end16, label %if.then14
@@ -1900,7 +1895,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core8Executor11ShutdownAllEv() local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then
@@ -1946,7 +1941,7 @@ delete.notnull9:                                  ; preds = %delete.end
 
 delete.end10:                                     ; preds = %delete.notnull9, %delete.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_ZN9grpc_core12_GLOBAL__N_19executorsE, i8 0, i64 16, i1 false)
-  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %7 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %8 = and i8 %7, 1
   %tobool.i.i.i3.not = icmp eq i8 %8, 0
   br i1 %tobool.i.i.i3.not, label %do.end15, label %if.then13
@@ -1973,7 +1968,7 @@ do.end:                                           ; preds = %entry
   %conv = sext i32 %executor_type to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, i64 0, i64 %conv
   %0 = load ptr, ptr %arrayidx, align 8
-  %num_threads_.i = getelementptr inbounds %"class.grpc_core::Executor", ptr %0, i64 0, i32 3
+  %num_threads_.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load atomic i64, ptr %num_threads_.i acquire, align 8
   %cmp.i = icmp sgt i64 %1, 0
   ret i1 %cmp.i
@@ -1983,7 +1978,7 @@ do.end:                                           ; preds = %entry
 define noundef zeroext i1 @_ZN9grpc_core8Executor17IsThreadedDefaultEv() local_unnamed_addr #13 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_19executorsE, align 16
-  %num_threads_.i.i = getelementptr inbounds %"class.grpc_core::Executor", ptr %0, i64 0, i32 3
+  %num_threads_.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load atomic i64, ptr %num_threads_.i.i acquire, align 8
   %cmp.i.i = icmp sgt i64 %1, 0
   ret i1 %cmp.i.i
@@ -1992,7 +1987,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core8Executor15SetThreadingAllEb(i1 noundef zeroext %enable) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %for.body, label %if.then
@@ -2013,7 +2008,7 @@ for.body:                                         ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core8Executor19SetThreadingDefaultEb(i1 noundef zeroext %enable) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @_ZN9grpc_core14executor_traceE, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %do.end, label %if.then
@@ -2050,7 +2045,7 @@ declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 define linkonce_odr void @_ZN9grpc_core7ExecCtxD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %flags_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 3
+  %flags_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %flags_.i, align 8
@@ -2058,7 +2053,7 @@ entry:
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %last_exec_ctx_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 5
+  %last_exec_ctx_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %last_exec_ctx_.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, ptr null), label %2, label %invoke.cont2.i
 
@@ -2085,9 +2080,9 @@ if.then.i.i:                                      ; preds = %if.then.i
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %invoke.cont2.i
-  %time_cache_.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4
+  %time_cache_.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i64 0, inrange i32 0, i64 2), ptr %time_cache_.i, align 8
-  %previous_.i.i.i = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %previous_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %previous_.i.i.i, align 8
   br i1 icmp ne (ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, ptr null), label %8, label %_ZN9grpc_core7ExecCtxD2Ev.exit
 
@@ -2120,10 +2115,10 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core9Timestamp12ScopedSource15InvalidateCacheEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this, i64 0, i32 1
+  %previous_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %previous_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void

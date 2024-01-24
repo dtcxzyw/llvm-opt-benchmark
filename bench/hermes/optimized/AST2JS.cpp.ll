@@ -4,88 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.hermes::(anonymous namespace)::GenJS" = type { ptr, i8, i32 }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.hermes::ESTree::Node" = type { %"class.llvh::ilist_node", i32, i32, %"class.llvh::SMRange", %"class.llvh::SMLoc" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::ESTree::ProgramNode" = type { %"class.hermes::ESTree::FunctionLikeNode.base", %"class.hermes::ESTree::ProgramDecoration", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::FunctionLikeNode.base" = type <{ %"class.hermes::ESTree::Node", %"class.hermes::ESTree::FunctionLikeDecoration.base" }>
-%"class.hermes::ESTree::FunctionLikeDecoration.base" = type <{ ptr, i32, i32, i8 }>
-%"class.hermes::ESTree::ProgramDecoration" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl" }
-%"class.hermes::ESTree::ObjectExpressionNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ClassDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ClassExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr, ptr, %"class.llvh::simple_ilist", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::ObjectPatternNode" = type { %"class.hermes::ESTree::PatternNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::PatternNode" = type { %"class.hermes::ESTree::Node" }
 %"class.llvh::FormattedNumber" = type <{ i64, i64, i32, i8, i8, i8, i8 }>
-%"class.hermes::ESTree::StringLiteralNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::RegExpLiteralNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::WhileStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr }
-%"class.hermes::ESTree::LoopStatementNode.base" = type <{ %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::LoopStatementDecoration" }>
-%"class.hermes::ESTree::StatementNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::LoopStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::LabelDecorationBase" = type { i32 }
-%"class.hermes::ESTree::ForInStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr, ptr }
-%"class.hermes::ESTree::ForOfStatementNode" = type <{ %"class.hermes::ESTree::LoopStatementNode.base", [4 x i8], ptr, ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::ForStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr, ptr, ptr }
-%"class.hermes::ESTree::WithStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr }
-%"class.hermes::ESTree::LabeledStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::LabeledStatementDecoration", ptr, ptr }
-%"class.hermes::ESTree::LabeledStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::TryStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::CatchClauseNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::IfStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr, ptr }
-%"class.hermes::ESTree::FunctionExpressionNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ArrowFunctionExpressionNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::BinaryExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::CallExpressionNode" = type { %"class.hermes::ESTree::CallExpressionLikeNode", ptr, ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::CallExpressionLikeNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::OptionalCallExpressionNode" = type <{ %"class.hermes::ESTree::CallExpressionLikeNode", ptr, ptr, %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::LogicalExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::ConditionalExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::AssignmentExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, ptr }
-%"class.hermes::ESTree::UpdateExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::UnaryExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::MemberExpressionNode" = type <{ %"class.hermes::ESTree::MemberExpressionLikeNode", ptr, ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::MemberExpressionLikeNode" = type { %"class.hermes::ESTree::Node" }
-%"class.hermes::ESTree::TaggedTemplateExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::NumericLiteralNode" = type { %"class.hermes::ESTree::Node", double }
-%"class.hermes::ESTree::NewExpressionNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::FunctionDeclarationNode" = type <{ %"class.hermes::ESTree::FunctionLikeNode.base", [7 x i8], ptr, %"class.llvh::simple_ilist", ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::BlockStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::BlockStatementDecoration.base", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::BlockStatementDecoration.base" = type <{ i32, i8, i8, i8 }>
-%"class.hermes::ESTree::DoWhileStatementNode" = type { %"class.hermes::ESTree::LoopStatementNode.base", ptr, ptr }
-%"class.hermes::ESTree::BreakStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::BreakStatementDecoration", ptr }
-%"class.hermes::ESTree::BreakStatementDecoration" = type { %"class.hermes::ESTree::GotoDecorationBase" }
-%"class.hermes::ESTree::GotoDecorationBase" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::ContinueStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::ContinueStatementDecoration", ptr }
-%"class.hermes::ESTree::ContinueStatementDecoration" = type { %"class.hermes::ESTree::GotoDecorationBase" }
-%"class.hermes::ESTree::ThrowStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr }
-%"class.hermes::ESTree::ReturnStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr }
-%"class.hermes::ESTree::SwitchStatementNode" = type { %"class.hermes::ESTree::StatementNode", %"class.hermes::ESTree::SwitchStatementDecoration", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::SwitchStatementDecoration" = type { %"class.hermes::ESTree::LabelDecorationBase" }
-%"class.hermes::ESTree::ExpressionStatementNode" = type { %"class.hermes::ESTree::StatementNode", ptr, ptr }
-%"class.hermes::ESTree::SequenceExpressionNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ArrayExpressionNode" = type <{ %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", i8, [7 x i8] }>
-%"class.hermes::ESTree::YieldExpressionNode" = type <{ %"class.hermes::ESTree::Node", ptr, i8, [7 x i8] }>
-%"class.hermes::ESTree::PrivateNameNode" = type { %"class.hermes::ESTree::Node", ptr }
-%"class.hermes::ESTree::SwitchCaseNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::VariableDeclaratorNode" = type { %"class.hermes::ESTree::Node", ptr, ptr }
-%"class.hermes::ESTree::VariableDeclarationNode" = type { %"class.hermes::ESTree::Node", ptr, %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TemplateLiteralNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::TemplateElementNode" = type { %"class.hermes::ESTree::Node", i8, ptr, ptr }
-%"class.hermes::ESTree::PropertyNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, ptr, i8, i8, i8, [5 x i8] }>
-%"class.hermes::ESTree::ClassBodyNode" = type { %"class.hermes::ESTree::Node", %"class.llvh::simple_ilist" }
-%"class.hermes::ESTree::ClassPropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, i8, i8, i8, i8, ptr, ptr, ptr }
-%"class.hermes::ESTree::ClassPrivatePropertyNode" = type { %"class.hermes::ESTree::Node", ptr, ptr, i8, i8, i8, ptr, ptr, ptr }
-%"class.hermes::ESTree::MethodDefinitionNode" = type <{ %"class.hermes::ESTree::Node", ptr, ptr, ptr, i8, i8, [6 x i8] }>
-%"class.hermes::ESTree::ArrayPatternNode" = type { %"class.hermes::ESTree::PatternNode", %"class.llvh::simple_ilist", ptr }
-%"class.hermes::ESTree::RestElementNode" = type { %"class.hermes::ESTree::PatternNode", ptr }
-%"class.hermes::ESTree::AssignmentPatternNode" = type { %"class.hermes::ESTree::PatternNode", ptr, ptr }
 
 $_ZN4llvh11raw_ostreamlsEPKc = comdat any
 
@@ -404,15 +323,15 @@ entry:
   %genJS = alloca %"class.hermes::(anonymous namespace)::GenJS", align 8
   %frombool.i = zext i1 %pretty to i8
   store ptr %OS, ptr %genJS, align 8
-  %pretty_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %genJS, i64 0, i32 1
+  %pretty_.i = getelementptr inbounds i8, ptr %genJS, i64 8
   store i8 %frombool.i, ptr %pretty_.i, align 8
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %genJS, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %genJS, i64 12
   store i32 0, ptr %indent_.i, align 4
   call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %genJS, ptr noundef %root)
   %0 = load ptr, ptr %genJS, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -438,7 +357,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %kind_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %return
@@ -683,7 +602,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit712: ; preds = %if.end
-  %_body.i = getelementptr inbounds %"class.hermes::ESTree::ProgramNode", ptr %node, i64 0, i32 2
+  %_body.i = getelementptr inbounds i8, ptr %node, i64 88
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_body.i)
   br label %return
 
@@ -816,7 +735,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit840: ; preds = %if.end
-  %_properties.i = getelementptr inbounds %"class.hermes::ESTree::ObjectExpressionNode", ptr %node, i64 0, i32 1
+  %_properties.i = getelementptr inbounds i8, ptr %node, i64 48
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i)
   br label %return
 
@@ -943,21 +862,21 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit960: ; preds = %if.end
-  %_id.i = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 1
+  %_id.i = getelementptr inbounds i8, ptr %node, i64 48
   %5 = load ptr, ptr %_id.i, align 8
-  %_superClass.i = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 3
+  %_superClass.i = getelementptr inbounds i8, ptr %node, i64 64
   %6 = load ptr, ptr %_superClass.i, align 8
-  %_body.i1629 = getelementptr inbounds %"class.hermes::ESTree::ClassDeclarationNode", ptr %node, i64 0, i32 7
+  %_body.i1629 = getelementptr inbounds i8, ptr %node, i64 112
   %7 = load ptr, ptr %_body.i1629, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br label %return
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit964: ; preds = %if.end
-  %_id.i1630 = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 1
+  %_id.i1630 = getelementptr inbounds i8, ptr %node, i64 48
   %8 = load ptr, ptr %_id.i1630, align 8
-  %_superClass.i1631 = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 3
+  %_superClass.i1631 = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_superClass.i1631, align 8
-  %_body.i1632 = getelementptr inbounds %"class.hermes::ESTree::ClassExpressionNode", ptr %node, i64 0, i32 7
+  %_body.i1632 = getelementptr inbounds i8, ptr %node, i64 112
   %10 = load ptr, ptr %_body.i1632, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   br label %return
@@ -1019,7 +938,7 @@ _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EEN
   unreachable
 
 _ZNSt7variantIJN6hermes6ESTree11UnmodifiedTENS1_8RemovedTEPNS1_4NodeEEEaSIS2_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS2_S3_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit1024: ; preds = %if.end
-  %_properties.i1633 = getelementptr inbounds %"class.hermes::ESTree::ObjectPatternNode", ptr %node, i64 0, i32 1
+  %_properties.i1633 = getelementptr inbounds i8, ptr %node, i64 48
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %_properties.i1633)
   br label %return
 
@@ -1690,9 +1609,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_15NullLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val) unnamed_addr #0 align 2 {
 entry:
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %1 to i64
@@ -1722,9 +1641,9 @@ entry:
   %tobool.not.i = icmp eq i8 %0, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.286, ptr @.str.285
   %call.i.i.i = select i1 %tobool.not.i, i64 5, i64 4
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %2 to i64
@@ -1755,9 +1674,9 @@ entry:
   %ref.tmp74.i.i = alloca %"class.llvh::FormattedNumber", align 8
   %ref.tmp78.i.i = alloca %"class.llvh::FormattedNumber", align 8
   %0 = load ptr, ptr %v, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -1773,7 +1692,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit.i
 
 _ZN4llvh11raw_ostreamlsEc.exit.i:                 ; preds = %if.end.i.i, %if.then.i.i
-  %_value.i = getelementptr inbounds %"class.hermes::ESTree::StringLiteralNode", ptr %node, i64 0, i32 1
+  %_value.i = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_value.i, align 8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %3, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -1787,26 +1706,26 @@ _ZN4llvh11raw_ostreamlsEc.exit.i:                 ; preds = %if.end.i.i, %if.the
   br i1 %cmp249.i.i, label %for.body.lr.ph.i.i, label %_ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i
-  %DecValue.i.i196.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp74.i.i, i64 0, i32 1
-  %Width.i.i197.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp74.i.i, i64 0, i32 2
-  %Hex.i.i198.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp74.i.i, i64 0, i32 3
-  %Upper.i.i199.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp74.i.i, i64 0, i32 4
-  %HexPrefix.i.i200.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp74.i.i, i64 0, i32 5
-  %DecValue.i.i216.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp78.i.i, i64 0, i32 1
-  %Width.i.i217.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp78.i.i, i64 0, i32 2
-  %Hex.i.i218.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp78.i.i, i64 0, i32 3
-  %Upper.i.i219.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp78.i.i, i64 0, i32 4
-  %HexPrefix.i.i220.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp78.i.i, i64 0, i32 5
-  %DecValue.i.i172.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp68.i.i, i64 0, i32 1
-  %Width.i.i173.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp68.i.i, i64 0, i32 2
-  %Hex.i.i174.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp68.i.i, i64 0, i32 3
-  %Upper.i.i175.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp68.i.i, i64 0, i32 4
-  %HexPrefix.i.i176.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp68.i.i, i64 0, i32 5
-  %DecValue.i.i.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp.i.i, i64 0, i32 1
-  %Width.i.i.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp.i.i, i64 0, i32 2
-  %Hex.i.i.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp.i.i, i64 0, i32 3
-  %Upper.i.i.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp.i.i, i64 0, i32 4
-  %HexPrefix.i.i.i.i = getelementptr inbounds %"class.llvh::FormattedNumber", ptr %ref.tmp.i.i, i64 0, i32 5
+  %DecValue.i.i196.i.i = getelementptr inbounds i8, ptr %ref.tmp74.i.i, i64 8
+  %Width.i.i197.i.i = getelementptr inbounds i8, ptr %ref.tmp74.i.i, i64 16
+  %Hex.i.i198.i.i = getelementptr inbounds i8, ptr %ref.tmp74.i.i, i64 20
+  %Upper.i.i199.i.i = getelementptr inbounds i8, ptr %ref.tmp74.i.i, i64 21
+  %HexPrefix.i.i200.i.i = getelementptr inbounds i8, ptr %ref.tmp74.i.i, i64 22
+  %DecValue.i.i216.i.i = getelementptr inbounds i8, ptr %ref.tmp78.i.i, i64 8
+  %Width.i.i217.i.i = getelementptr inbounds i8, ptr %ref.tmp78.i.i, i64 16
+  %Hex.i.i218.i.i = getelementptr inbounds i8, ptr %ref.tmp78.i.i, i64 20
+  %Upper.i.i219.i.i = getelementptr inbounds i8, ptr %ref.tmp78.i.i, i64 21
+  %HexPrefix.i.i220.i.i = getelementptr inbounds i8, ptr %ref.tmp78.i.i, i64 22
+  %DecValue.i.i172.i.i = getelementptr inbounds i8, ptr %ref.tmp68.i.i, i64 8
+  %Width.i.i173.i.i = getelementptr inbounds i8, ptr %ref.tmp68.i.i, i64 16
+  %Hex.i.i174.i.i = getelementptr inbounds i8, ptr %ref.tmp68.i.i, i64 20
+  %Upper.i.i175.i.i = getelementptr inbounds i8, ptr %ref.tmp68.i.i, i64 21
+  %HexPrefix.i.i176.i.i = getelementptr inbounds i8, ptr %ref.tmp68.i.i, i64 22
+  %DecValue.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %Width.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %Hex.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 20
+  %Upper.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 21
+  %HexPrefix.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 22
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.backedge.i.i, %for.body.lr.ph.i.i
@@ -1937,9 +1856,9 @@ if.end112.i.i.i.i:                                ; preds = %if.end99.i.i.i.i
 
 sw.bb.i.i:                                        ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %18 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 2
+  %OutBufEnd.i5.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %OutBufEnd.i5.i.i.i, align 8
-  %OutBufCur.i6.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 3
+  %OutBufCur.i6.i.i.i = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %OutBufCur.i6.i.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i8.i.i.i = ptrtoint ptr %20 to i64
@@ -1965,9 +1884,9 @@ for.cond.backedge.i.i:                            ; preds = %_ZN4llvh11raw_ostre
 
 sw.bb6.i.i:                                       ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %22 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i20.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 2
+  %OutBufEnd.i5.i20.i.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load ptr, ptr %OutBufEnd.i5.i20.i.i, align 8
-  %OutBufCur.i6.i21.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 3
+  %OutBufCur.i6.i21.i.i = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %OutBufCur.i6.i21.i.i, align 8
   %sub.ptr.lhs.cast.i7.i22.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i8.i23.i.i = ptrtoint ptr %24 to i64
@@ -1988,9 +1907,9 @@ if.then4.i.i28.i.i:                               ; preds = %sw.bb6.i.i
 
 sw.bb9.i.i:                                       ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %26 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i35.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %26, i64 0, i32 2
+  %OutBufEnd.i5.i35.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %OutBufEnd.i5.i35.i.i, align 8
-  %OutBufCur.i6.i36.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %26, i64 0, i32 3
+  %OutBufCur.i6.i36.i.i = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %OutBufCur.i6.i36.i.i, align 8
   %sub.ptr.lhs.cast.i7.i37.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i8.i38.i.i = ptrtoint ptr %28 to i64
@@ -2011,9 +1930,9 @@ if.then4.i.i43.i.i:                               ; preds = %sw.bb9.i.i
 
 sw.bb12.i.i:                                      ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %30 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i50.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %30, i64 0, i32 2
+  %OutBufEnd.i5.i50.i.i = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %OutBufEnd.i5.i50.i.i, align 8
-  %OutBufCur.i6.i51.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %30, i64 0, i32 3
+  %OutBufCur.i6.i51.i.i = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load ptr, ptr %OutBufCur.i6.i51.i.i, align 8
   %sub.ptr.lhs.cast.i7.i52.i.i = ptrtoint ptr %31 to i64
   %sub.ptr.rhs.cast.i8.i53.i.i = ptrtoint ptr %32 to i64
@@ -2034,9 +1953,9 @@ if.then4.i.i58.i.i:                               ; preds = %sw.bb12.i.i
 
 sw.bb15.i.i:                                      ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %34 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i65.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %34, i64 0, i32 2
+  %OutBufEnd.i5.i65.i.i = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load ptr, ptr %OutBufEnd.i5.i65.i.i, align 8
-  %OutBufCur.i6.i66.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %34, i64 0, i32 3
+  %OutBufCur.i6.i66.i.i = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %OutBufCur.i6.i66.i.i, align 8
   %sub.ptr.lhs.cast.i7.i67.i.i = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i8.i68.i.i = ptrtoint ptr %36 to i64
@@ -2057,9 +1976,9 @@ if.then4.i.i73.i.i:                               ; preds = %sw.bb15.i.i
 
 sw.bb18.i.i:                                      ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %38 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i80.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %38, i64 0, i32 2
+  %OutBufEnd.i5.i80.i.i = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load ptr, ptr %OutBufEnd.i5.i80.i.i, align 8
-  %OutBufCur.i6.i81.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %38, i64 0, i32 3
+  %OutBufCur.i6.i81.i.i = getelementptr inbounds i8, ptr %38, i64 24
   %40 = load ptr, ptr %OutBufCur.i6.i81.i.i, align 8
   %sub.ptr.lhs.cast.i7.i82.i.i = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i8.i83.i.i = ptrtoint ptr %40 to i64
@@ -2080,9 +1999,9 @@ if.then4.i.i88.i.i:                               ; preds = %sw.bb18.i.i
 
 sw.bb21.i.i:                                      ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %42 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i95.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %42, i64 0, i32 2
+  %OutBufEnd.i5.i95.i.i = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load ptr, ptr %OutBufEnd.i5.i95.i.i, align 8
-  %OutBufCur.i6.i96.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %42, i64 0, i32 3
+  %OutBufCur.i6.i96.i.i = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load ptr, ptr %OutBufCur.i6.i96.i.i, align 8
   %sub.ptr.lhs.cast.i7.i97.i.i = ptrtoint ptr %43 to i64
   %sub.ptr.rhs.cast.i8.i98.i.i = ptrtoint ptr %44 to i64
@@ -2103,9 +2022,9 @@ if.then4.i.i103.i.i:                              ; preds = %sw.bb21.i.i
 
 if.then.i2.i:                                     ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
   %46 = load ptr, ptr %v, align 8
-  %OutBufCur.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %46, i64 0, i32 3
+  %OutBufCur.i.i.i = getelementptr inbounds i8, ptr %46, i64 24
   %47 = load ptr, ptr %OutBufCur.i.i.i, align 8
-  %OutBufEnd.i.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %46, i64 0, i32 2
+  %OutBufEnd.i.i.i = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load ptr, ptr %OutBufEnd.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult ptr %47, %48
   br i1 %cmp.not.i.i.i, label %if.end.i112.i.i, label %if.then.i109.i.i
@@ -2122,9 +2041,9 @@ if.end.i112.i.i:                                  ; preds = %if.then.i2.i
 
 _ZN4llvh11raw_ostreamlsEc.exit.i.i:               ; preds = %if.end.i112.i.i, %if.then.i109.i.i
   %retval.0.i111.i.i = phi ptr [ %call.i110.i.i, %if.then.i109.i.i ], [ %46, %if.end.i112.i.i ]
-  %OutBufCur.i114.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i111.i.i, i64 0, i32 3
+  %OutBufCur.i114.i.i = getelementptr inbounds i8, ptr %retval.0.i111.i.i, i64 24
   %49 = load ptr, ptr %OutBufCur.i114.i.i, align 8
-  %OutBufEnd.i115.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i111.i.i, i64 0, i32 2
+  %OutBufEnd.i115.i.i = getelementptr inbounds i8, ptr %retval.0.i111.i.i, i64 16
   %50 = load ptr, ptr %OutBufEnd.i115.i.i, align 8
   %cmp.not.i116.i.i = icmp ult ptr %49, %50
   br i1 %cmp.not.i116.i.i, label %if.end.i120.i.i, label %if.then.i117.i.i
@@ -2156,9 +2075,9 @@ if.end56.i.i:                                     ; preds = %if.end48.i.i
 
 if.then58.i.i:                                    ; preds = %if.end56.i.i
   %53 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i143.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %53, i64 0, i32 2
+  %OutBufEnd.i5.i143.i.i = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %OutBufEnd.i5.i143.i.i, align 8
-  %OutBufCur.i6.i144.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %53, i64 0, i32 3
+  %OutBufCur.i6.i144.i.i = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %OutBufCur.i6.i144.i.i, align 8
   %sub.ptr.lhs.cast.i7.i145.i.i = ptrtoint ptr %54 to i64
   %sub.ptr.rhs.cast.i8.i146.i.i = ptrtoint ptr %55 to i64
@@ -2197,9 +2116,9 @@ if.then65.i.i:                                    ; preds = %if.end63.i.i, %if.e
   %cur.2255.i182228.i = phi ptr [ %cur.2.i.i, %if.end63.i.i ], [ %add.ptr45.i.i.i.i, %if.end44.i.i.i.i ], [ %add.ptr8.i.i.i.i, %if.end.i.i.i.i ], [ %arrayidx73.i.i.i.i, %if.else68.i.i.i.i ], [ %arrayidx100.i.i.i.i, %if.end99.i.i.i.i ], [ %arrayidx87.i.i.i.i, %if.end85.i.i.i.i ], [ %arrayidx73.i.i.i.i, %if.then71.i.i.i.i ], [ %arrayidx32.i.i.i.i, %if.end31.i.i.i.i ], [ %arrayidx21.i.i.i.i, %if.then19.i.i.i.i ], [ %arrayidx2.i.i.i.i, %if.then.i.i.i.i ], [ %add.ptr113.i.i.i.i, %if.end112.i.i.i.i ]
   %retval.0.i256.i172327.i = phi i32 [ %retval.0.i.i.i, %if.end63.i.i ], [ 65533, %if.end44.i.i.i.i ], [ 65533, %if.end.i.i.i.i ], [ 65533, %if.else68.i.i.i.i ], [ 65533, %if.end99.i.i.i.i ], [ 65533, %if.end85.i.i.i.i ], [ 65533, %if.then71.i.i.i.i ], [ 65533, %if.end31.i.i.i.i ], [ 65533, %if.then19.i.i.i.i ], [ 65533, %if.then.i.i.i.i ], [ 65533, %if.end112.i.i.i.i ]
   %57 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i158.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %57, i64 0, i32 2
+  %OutBufEnd.i5.i158.i.i = getelementptr inbounds i8, ptr %57, i64 16
   %58 = load ptr, ptr %OutBufEnd.i5.i158.i.i, align 8
-  %OutBufCur.i6.i159.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %57, i64 0, i32 3
+  %OutBufCur.i6.i159.i.i = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %OutBufCur.i6.i159.i.i, align 8
   %sub.ptr.lhs.cast.i7.i160.i.i = ptrtoint ptr %58 to i64
   %sub.ptr.rhs.cast.i8.i161.i.i = ptrtoint ptr %59 to i64
@@ -2240,9 +2159,9 @@ _ZN6hermes11encodeUTF16IPtEEvRT_j.exit.i.i:       ; preds = %if.end63.i.i
   %64 = or disjoint i32 %63, 56320
   %conv5.i.i.i = zext nneg i32 %64 to i64
   %65 = load ptr, ptr %v, align 8
-  %OutBufEnd.i5.i182.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %65, i64 0, i32 2
+  %OutBufEnd.i5.i182.i.i = getelementptr inbounds i8, ptr %65, i64 16
   %66 = load ptr, ptr %OutBufEnd.i5.i182.i.i, align 8
-  %OutBufCur.i6.i183.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %65, i64 0, i32 3
+  %OutBufCur.i6.i183.i.i = getelementptr inbounds i8, ptr %65, i64 24
   %67 = load ptr, ptr %OutBufCur.i6.i183.i.i, align 8
   %sub.ptr.lhs.cast.i7.i184.i.i = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i8.i185.i.i = ptrtoint ptr %67 to i64
@@ -2270,9 +2189,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit195.i.i:          ; preds = %if.then4.i.i190.i.i
   store i8 0, ptr %Upper.i.i199.i.i, align 1, !alias.scope !12
   store i8 0, ptr %HexPrefix.i.i200.i.i, align 2, !alias.scope !12
   %call76.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i192.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp74.i.i) #12
-  %OutBufEnd.i5.i202.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call76.i.i, i64 0, i32 2
+  %OutBufEnd.i5.i202.i.i = getelementptr inbounds i8, ptr %call76.i.i, i64 16
   %69 = load ptr, ptr %OutBufEnd.i5.i202.i.i, align 8
-  %OutBufCur.i6.i203.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call76.i.i, i64 0, i32 3
+  %OutBufCur.i6.i203.i.i = getelementptr inbounds i8, ptr %call76.i.i, i64 24
   %70 = load ptr, ptr %OutBufCur.i6.i203.i.i, align 8
   %sub.ptr.lhs.cast.i7.i204.i.i = ptrtoint ptr %69 to i64
   %sub.ptr.rhs.cast.i8.i205.i.i = ptrtoint ptr %70 to i64
@@ -2308,9 +2227,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp74.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp78.i.i)
   %72 = load ptr, ptr %v, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %72, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %72, i64 24
   %73 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %72, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %72, i64 16
   %74 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %73, %74
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -2345,9 +2264,9 @@ entry:
 define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_17RegExpLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %v, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -2364,14 +2283,14 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN4llvh11raw_ostreamlsEc.exit.i:                 ; preds = %if.end.i.i, %if.then.i.i
   %3 = load ptr, ptr %v, align 8
-  %_pattern.i = getelementptr inbounds %"class.hermes::ESTree::RegExpLiteralNode", ptr %node, i64 0, i32 1
+  %_pattern.i = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_pattern.i, align 8
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
   %agg.tmp.sroa.2.0.call3.sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i, align 8
-  %OutBufEnd.i2.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 2
+  %OutBufEnd.i2.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %OutBufEnd.i2.i, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load ptr, ptr %OutBufCur.i3.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
@@ -2396,9 +2315,9 @@ if.then4.i.i:                                     ; preds = %if.end.i4.i
 
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %if.then4.i.i, %if.end.i4.i, %if.then.i6.i
   %8 = load ptr, ptr %v, align 8
-  %OutBufCur.i7.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i7.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i7.i, align 8
-  %OutBufEnd.i8.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i8.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i8.i, align 8
   %cmp.not.i9.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i9.i, label %if.end.i13.i, label %if.then.i10.i
@@ -2415,14 +2334,14 @@ if.end.i13.i:                                     ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEc.exit15.i:               ; preds = %if.end.i13.i, %if.then.i10.i
   %11 = load ptr, ptr %v, align 8
-  %_flags.i = getelementptr inbounds %"class.hermes::ESTree::RegExpLiteralNode", ptr %node, i64 0, i32 2
+  %_flags.i = getelementptr inbounds i8, ptr %node, i64 56
   %12 = load ptr, ptr %_flags.i, align 8
   %agg.tmp8.sroa.0.0.copyload.i = load ptr, ptr %12, align 8
   %agg.tmp8.sroa.2.0.call9.sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 8
   %agg.tmp8.sroa.2.0.copyload.i = load i64, ptr %agg.tmp8.sroa.2.0.call9.sroa_idx.i, align 8
-  %OutBufEnd.i16.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i16.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i16.i, align 8
-  %OutBufCur.i17.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i17.i = getelementptr inbounds i8, ptr %11, i64 24
   %14 = load ptr, ptr %OutBufCur.i17.i, align 8
   %sub.ptr.lhs.cast.i18.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i19.i = ptrtoint ptr %14 to i64
@@ -2466,9 +2385,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18ThisExpressionNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val) unnamed_addr #0 align 2 {
 entry:
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %1 to i64
@@ -2494,9 +2413,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_9SuperNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val) unnamed_addr #0 align 2 {
 entry:
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %1 to i64
@@ -2620,9 +2539,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_14IdentifierNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr %v.0.val, ptr %node.48.val.0.val, i64 %node.48.val.8.val) unnamed_addr #0 align 2 {
 entry:
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 16
   %0 = load ptr, ptr %OutBufEnd.i.i, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %v.0.val, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %v.0.val, i64 24
   %1 = load ptr, ptr %OutBufCur.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4902,9 +4821,9 @@ entry:
 
 cond.true.i.split:                                ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Str) #14
-  %OutBufEnd.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 2
+  %OutBufEnd.i5 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5, align 8
-  %OutBufCur.i6 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 3
+  %OutBufCur.i6 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %OutBufCur.i6, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %1 to i64
@@ -4935,9 +4854,9 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry, %if.then4.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr %Str.coerce0, i64 %Str.coerce1) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %OutBufEnd = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 2
+  %OutBufEnd = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %OutBufEnd, align 8
-  %OutBufCur = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this, i64 0, i32 3
+  %OutBufCur = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %OutBufCur, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -4968,7 +4887,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZN6hermes6ESTree4Node11getNodeNameEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %kind_.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %this, i64 0, i32 1
+  %kind_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %kind_.i, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %return
@@ -5920,14 +5839,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %list) unnamed_addr #0 align 2 {
 entry:
-  %__begin2.sroa.0.0.in3 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %list, i64 0, i32 1
+  %__begin2.sroa.0.0.in3 = getelementptr inbounds i8, ptr %list, i64 8
   %__begin2.sroa.0.04 = load ptr, ptr %__begin2.sroa.0.0.in3, align 8
   %cmp.i.not5 = icmp eq ptr %__begin2.sroa.0.04, %list
   br i1 %cmp.i.not5, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %pretty_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_15GenJS17visitStmtInABlockEPNS_6ESTree4NodeES4_.exit
@@ -5957,9 +5876,9 @@ if.end:                                           ; preds = %if.then.i, %if.then
 
 if.then.i3:                                       ; preds = %if.end
   %4 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i, align 8
   %cmp.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
@@ -5976,7 +5895,7 @@ if.then4.i.i:                                     ; preds = %if.then.i3
   br label %_ZN6hermes12_GLOBAL__N_15GenJS17visitStmtInABlockEPNS_6ESTree4NodeES4_.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS17visitStmtInABlockEPNS_6ESTree4NodeES4_.exit: ; preds = %if.then4.i.i, %if.then.i.i, %if.end
-  %__begin2.sroa.0.0.in = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.07, i64 0, i32 1
+  %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %list
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -5997,14 +5916,14 @@ entry:
 
 if.end:                                           ; preds = %entry, %tailrecurse.backedge
   %node.tr67 = phi ptr [ %node.tr.be, %tailrecurse.backedge ], [ %node, %entry ]
-  %kind_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node.tr67, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node.tr67, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
   switch i32 %0, label %return [
     i32 19, label %return.loopexit
     i32 6, label %return.loopexit
     i32 11, label %if.then8
-    i32 13, label %if.then14
-    i32 14, label %if.then21
+    i32 13, label %tailrecurse.backedge.sink.split
+    i32 14, label %tailrecurse.backedge.sink.split
     i32 15, label %if.then28
     i32 24, label %if.then35
     i32 25, label %return.loopexit
@@ -6016,12 +5935,12 @@ if.end:                                           ; preds = %entry, %tailrecurse
   ]
 
 if.then8:                                         ; preds = %if.end
-  %_body = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %node.tr67, i64 0, i32 1
   br label %tailrecurse.backedge.sink.split
 
-tailrecurse.backedge.sink.split:                  ; preds = %if.then60, %if.then45, %if.then35, %if.then28, %if.then21, %if.then14, %if.then8, %cond.false, %cond.false71
-  %_consequent.sink = phi ptr [ %_consequent, %cond.false71 ], [ %_handler, %cond.false ], [ %_body, %if.then8 ], [ %_body15, %if.then14 ], [ %_body22, %if.then21 ], [ %_body29, %if.then28 ], [ %_body36, %if.then35 ], [ %_body46, %if.then45 ], [ %_body61, %if.then60 ]
-  %1 = load ptr, ptr %_consequent.sink, align 8
+tailrecurse.backedge.sink.split:                  ; preds = %if.then67, %if.then52, %if.end, %if.end, %if.then60, %if.then45, %if.then35, %if.then28, %if.then8
+  %.sink = phi i64 [ 56, %if.then8 ], [ 80, %if.then28 ], [ 56, %if.then35 ], [ 64, %if.then45 ], [ 56, %if.then60 ], [ 72, %if.end ], [ 72, %if.end ], [ 56, %if.then52 ], [ 56, %if.then67 ]
+  %_consequent = getelementptr inbounds i8, ptr %node.tr67, i64 %.sink
+  %1 = load ptr, ptr %_consequent, align 8
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %tailrecurse.backedge.sink.split, %if.then67, %if.then52
@@ -6029,49 +5948,29 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   %tobool.not = icmp eq ptr %node.tr.be, null
   br i1 %tobool.not, label %return, label %if.end
 
-if.then14:                                        ; preds = %if.end
-  %_body15 = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node.tr67, i64 0, i32 3
-  br label %tailrecurse.backedge.sink.split
-
-if.then21:                                        ; preds = %if.end
-  %_body22 = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node.tr67, i64 0, i32 4
-  br label %tailrecurse.backedge.sink.split
-
 if.then28:                                        ; preds = %if.end
-  %_body29 = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node.tr67, i64 0, i32 4
   br label %tailrecurse.backedge.sink.split
 
 if.then35:                                        ; preds = %if.end
-  %_body36 = getelementptr inbounds %"class.hermes::ESTree::WithStatementNode", ptr %node.tr67, i64 0, i32 2
   br label %tailrecurse.backedge.sink.split
 
 if.then45:                                        ; preds = %if.end
-  %_body46 = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %node.tr67, i64 0, i32 3
   br label %tailrecurse.backedge.sink.split
 
 if.then52:                                        ; preds = %if.end
-  %_finalizer = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node.tr67, i64 0, i32 3
+  %_finalizer = getelementptr inbounds i8, ptr %node.tr67, i64 64
   %2 = load ptr, ptr %_finalizer, align 8
   %tobool53.not = icmp eq ptr %2, null
-  br i1 %tobool53.not, label %cond.false, label %tailrecurse.backedge
-
-cond.false:                                       ; preds = %if.then52
-  %_handler = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node.tr67, i64 0, i32 2
-  br label %tailrecurse.backedge.sink.split
+  br i1 %tobool53.not, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
 
 if.then60:                                        ; preds = %if.end
-  %_body61 = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %node.tr67, i64 0, i32 2
   br label %tailrecurse.backedge.sink.split
 
 if.then67:                                        ; preds = %if.end
-  %_alternate = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node.tr67, i64 0, i32 3
+  %_alternate = getelementptr inbounds i8, ptr %node.tr67, i64 64
   %3 = load ptr, ptr %_alternate, align 8
   %tobool68.not = icmp eq ptr %3, null
-  br i1 %tobool68.not, label %cond.false71, label %tailrecurse.backedge
-
-cond.false71:                                     ; preds = %if.then67
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node.tr67, i64 0, i32 2
-  br label %tailrecurse.backedge.sink.split
+  br i1 %tobool68.not, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
 
 return.loopexit:                                  ; preds = %if.end, %if.end, %if.end, %if.end
   br label %return
@@ -6084,18 +5983,18 @@ return:                                           ; preds = %tailrecurse.backedg
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree22FunctionExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_async = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 9
+  %_async = getelementptr inbounds i8, ptr %node, i64 129
   %0 = load i8, ptr %_async, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
-  %_generator = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 8
+  %_generator = getelementptr inbounds i8, ptr %node, i64 128
   %2 = load i8, ptr %_generator, align 8
   %3 = and i8 %2, 1
   %tobool2 = icmp ne i8 %3, 0
-  %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %4 = load ptr, ptr %_id, align 8
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 3
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %node, i64 0, i32 4
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %5 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %5)
   ret void
@@ -6108,9 +6007,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -6131,9 +6030,9 @@ if.then4.i.i:                                     ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i, %if.then.i.i, %entry
   %4 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i5.i9 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i9, align 8
-  %OutBufCur.i6.i10 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i6.i10 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i10, align 8
   %sub.ptr.lhs.cast.i7.i11 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i12 = ptrtoint ptr %6 to i64
@@ -6157,9 +6056,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit22:               ; preds = %if.then.i.i20, %if.
 
 if.then6:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit22
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -6196,9 +6095,9 @@ if.else:                                          ; preds = %_ZN4llvh11raw_ostre
 
 if.then13:                                        ; preds = %if.else
   %13 = load ptr, ptr %this, align 8
-  %OutBufCur.i26 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %13, i64 0, i32 3
+  %OutBufCur.i26 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %OutBufCur.i26, align 8
-  %OutBufEnd.i27 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %13, i64 0, i32 2
+  %OutBufEnd.i27 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %OutBufEnd.i27, align 8
   %cmp.not.i28 = icmp ult ptr %14, %15
   br i1 %cmp.not.i28, label %if.end.i32, label %if.then.i29
@@ -6226,9 +6125,9 @@ if.end20:                                         ; preds = %if.else, %_ZN4llvh1
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %params, ptr noundef %body) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -6244,7 +6143,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %__begin2.sroa.0.0.in3 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %params, i64 0, i32 1
+  %__begin2.sroa.0.0.in3 = getelementptr inbounds i8, ptr %params, i64 8
   %__begin2.sroa.0.04 = load ptr, ptr %__begin2.sroa.0.0.in3, align 8
   %cmp.i.not5 = icmp eq ptr %__begin2.sroa.0.04, %params
   br i1 %cmp.i.not5, label %for.end, label %for.body.lr.ph
@@ -6267,9 +6166,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i = icmp eq i8 %4, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %6 to i64
@@ -6290,16 +6189,16 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
-  %__begin2.sroa.0.0.in = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.07, i64 0, i32 1
+  %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %params
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end, %_ZN4llvh11raw_ostreamlsEc.exit
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i5 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i5, align 8
-  %OutBufEnd.i6 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i6 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i6, align 8
   %cmp.not.i7 = icmp ult ptr %9, %10
   br i1 %cmp.not.i7, label %if.end.i11, label %if.then.i8
@@ -6322,7 +6221,7 @@ _ZN4llvh11raw_ostreamlsEc.exit13:                 ; preds = %if.then.i8, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree27ArrowFunctionExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_async = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 9
+  %_async = getelementptr inbounds i8, ptr %node, i64 129
   %0 = load i8, ptr %_async, align 1
   %1 = and i8 %0, 1
   %tobool.not.not = icmp eq i8 %1, 0
@@ -6330,9 +6229,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %4 to i64
@@ -6352,22 +6251,22 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %if.then.i.i, %entry
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 8
+  %_expression = getelementptr inbounds i8, ptr %node, i64 128
   %6 = load i8, ptr %_expression, align 8
   %7 = and i8 %6, 1
   %tobool2.not = icmp eq i8 %7, 0
   br i1 %tobool2.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %if.end
-  %pretty_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i8, ptr %pretty_, align 8
   %9 = and i8 %8, 1
   %tobool3.not = icmp eq i8 %9, 0
   br i1 %tobool3.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.end
-  %_params = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %10 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not3.i.i.i = icmp eq ptr %10, %_params
   br i1 %cmp.i.not3.i.i.i, label %if.else, label %while.body.i.i.i
@@ -6375,7 +6274,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false, %if.
 while.body.i.i.i:                                 ; preds = %land.lhs.true, %while.body.i.i.i
   %__n.05.i.i.i = phi i64 [ %inc.i.i.i, %while.body.i.i.i ], [ 0, %land.lhs.true ]
   %__first.sroa.0.04.i.i.i = phi ptr [ %11, %while.body.i.i.i ], [ %10, %land.lhs.true ]
-  %Next.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__first.sroa.0.04.i.i.i, i64 0, i32 1
+  %Next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i.i, i64 8
   %11 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %__n.05.i.i.i, 1
   %cmp.i.not.i.i.i = icmp eq ptr %11, %_params
@@ -6390,9 +6289,9 @@ if.then5:                                         ; preds = %_ZNK4llvh12simple_i
 
 if.then7:                                         ; preds = %if.then5
   %12 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %13, %14
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -6414,9 +6313,9 @@ if.end10:                                         ; preds = %if.end.i, %if.then.
 
 if.else:                                          ; preds = %land.lhs.true, %_ZNK4llvh12simple_ilistIN6hermes6ESTree4NodeEJEE4sizeEv.exit, %lor.lhs.false
   %16 = load ptr, ptr %this, align 8
-  %OutBufCur.i20 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %16, i64 0, i32 3
+  %OutBufCur.i20 = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %OutBufCur.i20, align 8
-  %OutBufEnd.i21 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %16, i64 0, i32 2
+  %OutBufEnd.i21 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %OutBufEnd.i21, align 8
   %cmp.not.i22 = icmp ult ptr %17, %18
   br i1 %cmp.not.i22, label %if.end.i26, label %if.then.i23
@@ -6432,8 +6331,8 @@ if.end.i26:                                       ; preds = %if.else
   br label %_ZN4llvh11raw_ostreamlsEc.exit28
 
 _ZN4llvh11raw_ostreamlsEc.exit28:                 ; preds = %if.then.i23, %if.end.i26
-  %_params15 = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_params15 = getelementptr inbounds i8, ptr %node, i64 80
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 88
   %__begin3.sroa.0.075 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not76 = icmp eq ptr %__begin3.sroa.0.075, %_params15
   br i1 %cmp.i.not76, label %for.end, label %for.body.lr.ph
@@ -6456,9 +6355,9 @@ if.then22:                                        ; preds = %for.body
   %tobool.not.i = icmp eq i8 %20, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val16, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val16, i64 16
   %21 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val16, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val16, i64 24
   %22 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %22 to i64
@@ -6479,16 +6378,16 @@ if.then4.i.i.i:                                   ; preds = %if.then22
 
 if.end23:                                         ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin3.sroa.0.078)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin3.sroa.0.078, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.078, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin3.sroa.0.0, %_params15
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end23, %_ZN4llvh11raw_ostreamlsEc.exit28
   %24 = load ptr, ptr %this, align 8
-  %OutBufCur.i30 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 3
+  %OutBufCur.i30 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %OutBufCur.i30, align 8
-  %OutBufEnd.i31 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 2
+  %OutBufEnd.i31 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %OutBufEnd.i31, align 8
   %cmp.not.i32 = icmp ult ptr %25, %26
   br i1 %cmp.not.i32, label %if.end.i36, label %if.then.i33
@@ -6517,9 +6416,9 @@ if.then.i40:                                      ; preds = %if.end27
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.end27, %if.then.i40
   %29 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i43 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %29, i64 0, i32 2
+  %OutBufEnd.i5.i43 = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load ptr, ptr %OutBufEnd.i5.i43, align 8
-  %OutBufCur.i6.i44 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %29, i64 0, i32 3
+  %OutBufCur.i6.i44 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load ptr, ptr %OutBufCur.i6.i44, align 8
   %sub.ptr.lhs.cast.i7.i45 = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i8.i46 = ptrtoint ptr %31 to i64
@@ -6550,9 +6449,9 @@ if.then.i59:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit56, %if.then.i59
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ArrowFunctionExpressionNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %34 = load ptr, ptr %_body, align 8
-  %kind_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %34, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp eq i32 %35, 19
   br i1 %cmp.i.i.i.i.i.i, label %if.then31, label %if.end.i64
@@ -6570,9 +6469,9 @@ if.end.i64:                                       ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i67:                                      ; preds = %if.end.i64
   %36 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %36, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %36, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %37, %38
   br i1 %cmp.not.i.i, label %if.end.i.i70, label %if.then.i.i68
@@ -6589,9 +6488,9 @@ if.end.i.i70:                                     ; preds = %if.then.i67
 
 if.then3.i:                                       ; preds = %if.end.i64
   %39 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %39, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %39, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %40, %41
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -6613,9 +6512,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i64, %if.the
 if.then8.i:                                       ; preds = %if.end.i.i70, %if.then.i.i68
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %34)
   %42 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %42, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %42, i64 24
   %43 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %42, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %43, %44
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -6637,7 +6536,7 @@ if.end35:                                         ; preds = %if.then.i16.i, %if.
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %parent, ptr noundef %child, i32 noundef %childPosition) unnamed_addr #7 align 2 {
 entry:
-  %kind_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %parent, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %parent, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
   switch i32 %0, label %if.else33 [
     i32 5, label %if.then
@@ -6651,19 +6550,19 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.end61
 
 land.lhs.true:                                    ; preds = %if.then
-  %kind_.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %child, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %child, i64 16
   %1 = load i32, ptr %kind_.i.i.i.i.i.i.i23, align 8
   %cmp.i.i.i.i.i.i24 = icmp eq i32 %1, 40
   br i1 %cmp.i.i.i.i.i.i24, label %return, label %if.end61
 
 if.then5:                                         ; preds = %entry
-  %kind_.i.i.i.i.i.i.i27 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %child, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %child, i64 16
   %2 = load i32, ptr %kind_.i.i.i.i.i.i.i27, align 8
   %cmp.i.i.i.i.i.i28 = icmp eq i32 %2, 60
   br i1 %cmp.i.i.i.i.i.i28, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.then5
-  %_operator = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %child, i64 0, i32 3
+  %_operator = getelementptr inbounds i8, ptr %child, i64 64
   %3 = load ptr, ptr %_operator, align 8
   %agg.tmp.sroa.2.0.call8.sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call8.sroa_idx, align 8
@@ -6689,86 +6588,50 @@ land.lhs.true.i:                                  ; preds = %tailrecurse.i
   br i1 %cmp.i80, label %return, label %if.end.i81
 
 if.end.i81:                                       ; preds = %land.lhs.true.i, %tailrecurse.i
-  %kind_.i.i.i.i.i.i.i.i.i377 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %expr.tr.i, i64 0, i32 1
-  %6 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i377, align 8
+  %kind_.i.i.i.i.i.i.i.i.i252 = getelementptr inbounds i8, ptr %expr.tr.i, i64 16
+  %6 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i252, align 8
   switch i32 %6, label %return [
     i32 4, label %return.loopexit
     i32 75, label %return.loopexit
     i32 40, label %return.loopexit
     i32 91, label %return.loopexit
-    i32 48, label %if.then8.i
-    i32 49, label %if.then14.i
-    i32 60, label %if.then20.i
-    i32 58, label %if.then26.i
-    i32 59, label %if.then32.i
-    i32 51, label %if.then37.i
+    i32 60, label %tailrecurse.backedge.i
+    i32 59, label %tailrecurse.backedge.i
+    i32 58, label %tailrecurse.backedge.i
+    i32 49, label %tailrecurse.backedge.i
+    i32 48, label %tailrecurse.backedge.i
+    i32 51, label %tailrecurse.backedge.i.fold.split
     i32 53, label %if.then43.i
     i32 52, label %if.then49.i
-    i32 55, label %if.then59.i
-    i32 71, label %if.then64.i
+    i32 71, label %tailrecurse.backedge.i
+    i32 55, label %tailrecurse.backedge.i
   ]
 
-if.then8.i:                                       ; preds = %if.end.i81
-  %_callee.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %expr.tr.i, i64 0, i32 1
+tailrecurse.backedge.i.fold.split:                ; preds = %if.end.i81
   br label %tailrecurse.backedge.i
 
-tailrecurse.backedge.i:                           ; preds = %if.then64.i, %if.then59.i, %land.rhs52.i, %land.rhs.i82, %if.then37.i, %if.then32.i, %if.then26.i, %if.then20.i, %if.then14.i, %if.then8.i
-  %expr.tr.be.in.i = phi ptr [ %_callee.i, %if.then8.i ], [ %_callee15.i, %if.then14.i ], [ %_left.i, %if.then20.i ], [ %_left27.i, %if.then26.i ], [ %_test.i, %if.then32.i ], [ %_left38.i, %if.then37.i ], [ %_argument.i, %land.rhs.i82 ], [ %_argument53.i, %land.rhs52.i ], [ %_object.i, %if.then59.i ], [ %_tag.i, %if.then64.i ]
-  %expr.tr.be.i = load ptr, ptr %expr.tr.be.in.i, align 8
+tailrecurse.backedge.i:                           ; preds = %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %if.end.i81, %tailrecurse.backedge.i.fold.split, %if.then49.i, %if.then43.i
+  %.sink.i = phi i64 [ 56, %if.then43.i ], [ 56, %if.then49.i ], [ 56, %tailrecurse.backedge.i.fold.split ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ], [ 48, %if.end.i81 ]
+  %_callee.i = getelementptr inbounds i8, ptr %expr.tr.i, i64 %.sink.i
+  %expr.tr.be.i = load ptr, ptr %_callee.i, align 8
   br label %tailrecurse.i
 
-if.then14.i:                                      ; preds = %if.end.i81
-  %_callee15.i = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %expr.tr.i, i64 0, i32 1
-  br label %tailrecurse.backedge.i
-
-if.then20.i:                                      ; preds = %if.end.i81
-  %_left.i = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %expr.tr.i, i64 0, i32 1
-  br label %tailrecurse.backedge.i
-
-if.then26.i:                                      ; preds = %if.end.i81
-  %_left27.i = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %expr.tr.i, i64 0, i32 1
-  br label %tailrecurse.backedge.i
-
-if.then32.i:                                      ; preds = %if.end.i81
-  %_test.i = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %expr.tr.i, i64 0, i32 1
-  br label %tailrecurse.backedge.i
-
-if.then37.i:                                      ; preds = %if.end.i81
-  %_left38.i = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %expr.tr.i, i64 0, i32 2
-  br label %tailrecurse.backedge.i
-
 if.then43.i:                                      ; preds = %if.end.i81
-  %_prefix.i = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i, i64 0, i32 3
+  %_prefix.i = getelementptr inbounds i8, ptr %expr.tr.i, i64 64
   %7 = load i8, ptr %_prefix.i, align 8
   %8 = and i8 %7, 1
   %tobool44.not.i = icmp eq i8 %8, 0
-  br i1 %tobool44.not.i, label %land.rhs.i82, label %return
-
-land.rhs.i82:                                     ; preds = %if.then43.i
-  %_argument.i = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i, i64 0, i32 2
-  br label %tailrecurse.backedge.i
+  br i1 %tobool44.not.i, label %tailrecurse.backedge.i, label %return
 
 if.then49.i:                                      ; preds = %if.end.i81
-  %_prefix50.i = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i, i64 0, i32 3
+  %_prefix50.i = getelementptr inbounds i8, ptr %expr.tr.i, i64 64
   %9 = load i8, ptr %_prefix50.i, align 8
   %10 = and i8 %9, 1
   %tobool51.not.i = icmp eq i8 %10, 0
-  br i1 %tobool51.not.i, label %land.rhs52.i, label %return
-
-land.rhs52.i:                                     ; preds = %if.then49.i
-  %_argument53.i = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i, i64 0, i32 2
-  br label %tailrecurse.backedge.i
-
-if.then59.i:                                      ; preds = %if.end.i81
-  %_object.i = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %expr.tr.i, i64 0, i32 1
-  br label %tailrecurse.backedge.i
-
-if.then64.i:                                      ; preds = %if.end.i81
-  %_tag.i = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %expr.tr.i, i64 0, i32 1
-  br label %tailrecurse.backedge.i
+  br i1 %tobool51.not.i, label %tailrecurse.backedge.i, label %return
 
 land.rhs.i:                                       ; preds = %entry
-  %_operator.i = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %parent, i64 0, i32 1
+  %_operator.i = getelementptr inbounds i8, ptr %parent, i64 48
   %11 = load ptr, ptr %_operator.i, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i, align 8
@@ -6779,290 +6642,218 @@ _ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; pred
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %11, align 8
   %lhsc = load i8, ptr %agg.tmp.sroa.0.0.copyload.i, align 1
   switch i8 %lhsc, label %if.else33 [
-    i8 45, label %tailrecurse.i83
-    i8 43, label %tailrecurse.i154.preheader
+    i8 45, label %tailrecurse.i82
+    i8 43, label %tailrecurse.i122.preheader
   ]
 
-tailrecurse.i83:                                  ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %tailrecurse.backedge.i98
-  %expr.tr.i84 = phi ptr [ %expr.tr.be.i100, %tailrecurse.backedge.i98 ], [ %child, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
-  %parent.tr.i85 = phi ptr [ %expr.tr.i84, %tailrecurse.backedge.i98 ], [ null, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
-  %tobool.not.i86 = icmp eq ptr %parent.tr.i85, null
-  br i1 %tobool.not.i86, label %if.end.i89, label %land.lhs.true.i87
+tailrecurse.i82:                                  ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %tailrecurse.backedge.i96
+  %expr.tr.i83 = phi ptr [ %expr.tr.be.i99, %tailrecurse.backedge.i96 ], [ %child, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
+  %parent.tr.i84 = phi ptr [ %expr.tr.i83, %tailrecurse.backedge.i96 ], [ null, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
+  %tobool.not.i85 = icmp eq ptr %parent.tr.i84, null
+  br i1 %tobool.not.i85, label %if.end.i88, label %land.lhs.true.i86
 
-land.lhs.true.i87:                                ; preds = %tailrecurse.i83
-  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i85, ptr noundef %expr.tr.i84, i32 noundef 0), !range !19
-  %cmp.i88 = icmp eq i32 %call.i, 1
-  br i1 %cmp.i88, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43, label %if.end.i89
+land.lhs.true.i86:                                ; preds = %tailrecurse.i82
+  %call.i = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i84, ptr noundef %expr.tr.i83, i32 noundef 0), !range !19
+  %cmp.i87 = icmp eq i32 %call.i, 1
+  br i1 %cmp.i87, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43, label %if.end.i88
 
-if.end.i89:                                       ; preds = %land.lhs.true.i87, %tailrecurse.i83
-  %kind_.i.i.i.i.i.i.i.i.i378 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %expr.tr.i84, i64 0, i32 1
-  %12 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i378, align 8
+if.end.i88:                                       ; preds = %land.lhs.true.i86, %tailrecurse.i82
+  %kind_.i.i.i.i.i.i.i.i.i253 = getelementptr inbounds i8, ptr %expr.tr.i83, i64 16
+  %12 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i253, align 8
   switch i32 %12, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43 [
-    i32 52, label %land.rhs.i.i380
+    i32 52, label %land.rhs.i.i255
     i32 53, label %land.lhs.true.i.i
     i32 34, label %land.rhs.i18.i
-    i32 48, label %if.then8.i96
-    i32 49, label %if.then14.i104
-    i32 60, label %if.then20.i109
-    i32 58, label %if.then26.i114
-    i32 59, label %if.then32.i119
-    i32 51, label %if.then37.i124
-    i32 55, label %if.then59.i146
-    i32 71, label %if.then64.i151
+    i32 60, label %tailrecurse.backedge.i96
+    i32 59, label %tailrecurse.backedge.i96
+    i32 58, label %tailrecurse.backedge.i96
+    i32 49, label %tailrecurse.backedge.i96
+    i32 48, label %tailrecurse.backedge.i96
+    i32 51, label %tailrecurse.backedge.i96.fold.split
+    i32 71, label %tailrecurse.backedge.i96
+    i32 55, label %tailrecurse.backedge.i96
   ]
 
-land.rhs.i.i380:                                  ; preds = %if.end.i89
-  %_operator.i.i = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
+land.rhs.i.i255:                                  ; preds = %if.end.i88
+  %_operator.i.i = getelementptr inbounds i8, ptr %expr.tr.i83, i64 48
   %13 = load ptr, ptr %_operator.i.i, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i, 1
-  br i1 %cmp.i.i.i, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, label %if.then49.i138
+  br i1 %cmp.i.i.i, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, label %if.then49.i113
 
-_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i: ; preds = %land.rhs.i.i380
+_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i: ; preds = %land.rhs.i.i255
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %13, align 8
   %lhsc.i = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 1
   %14 = icmp eq i8 %lhsc.i, 45
-  br i1 %14, label %if.then23, label %if.then49.i138
+  br i1 %14, label %if.then23, label %if.then49.i113
 
-land.lhs.true.i.i:                                ; preds = %if.end.i89
-  %_prefix.i.i = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i84, i64 0, i32 3
+land.lhs.true.i.i:                                ; preds = %if.end.i88
+  %_prefix.i.i = getelementptr inbounds i8, ptr %expr.tr.i83, i64 64
   %15 = load i8, ptr %_prefix.i.i, align 8
   %16 = and i8 %15, 1
   %tobool.not.i.i = icmp eq i8 %16, 0
-  br i1 %tobool.not.i.i, label %if.then43.i129, label %land.rhs.i9.i
+  br i1 %tobool.not.i.i, label %if.then43.i106, label %land.rhs.i9.i
 
 land.rhs.i9.i:                                    ; preds = %land.lhs.true.i.i
-  %_operator.i10.i = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
+  %_operator.i10.i = getelementptr inbounds i8, ptr %expr.tr.i83, i64 48
   %17 = load ptr, ptr %_operator.i10.i, align 8
   %agg.tmp.sroa.2.0.call3.sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %agg.tmp.sroa.2.0.copyload.i12.i = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i, align 8
   %cmp.i.i13.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i12.i, 2
-  br i1 %cmp.i.i13.i, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit, label %if.then43.i129
+  br i1 %cmp.i.i13.i, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit, label %if.then43.i106
 
-land.rhs.i18.i:                                   ; preds = %if.end.i89
-  %_value.i.i = getelementptr inbounds %"class.hermes::ESTree::NumericLiteralNode", ptr %expr.tr.i84, i64 0, i32 1
+land.rhs.i18.i:                                   ; preds = %if.end.i88
+  %_value.i.i = getelementptr inbounds i8, ptr %expr.tr.i83, i64 48
   %18 = load double, ptr %_value.i.i, align 8
-  %cmp.i.i379 = fcmp olt double %18, 0.000000e+00
-  br i1 %cmp.i.i379, label %if.then23, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
+  %cmp.i.i254 = fcmp olt double %18, 0.000000e+00
+  br i1 %cmp.i.i254, label %if.then23, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
 
 _ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit: ; preds = %land.rhs.i9.i
   %agg.tmp.sroa.0.0.copyload.i11.i = load ptr, ptr %17, align 8
   %bcmp.i15.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
   %19 = icmp eq i32 %bcmp.i15.i, 0
-  br i1 %19, label %if.then23, label %if.then43.i129
+  br i1 %19, label %if.then23, label %if.then43.i106
 
-if.then8.i96:                                     ; preds = %if.end.i89
-  %_callee.i97 = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
-  br label %tailrecurse.backedge.i98
+tailrecurse.backedge.i96.fold.split:              ; preds = %if.end.i88
+  br label %tailrecurse.backedge.i96
 
-tailrecurse.backedge.i98:                         ; preds = %if.then64.i151, %if.then59.i146, %land.rhs52.i141, %land.rhs.i133, %if.then37.i124, %if.then32.i119, %if.then26.i114, %if.then20.i109, %if.then14.i104, %if.then8.i96
-  %expr.tr.be.in.i99 = phi ptr [ %_callee.i97, %if.then8.i96 ], [ %_callee15.i105, %if.then14.i104 ], [ %_left.i110, %if.then20.i109 ], [ %_left27.i115, %if.then26.i114 ], [ %_test.i120, %if.then32.i119 ], [ %_left38.i125, %if.then37.i124 ], [ %_argument.i134, %land.rhs.i133 ], [ %_argument53.i142, %land.rhs52.i141 ], [ %_object.i147, %if.then59.i146 ], [ %_tag.i152, %if.then64.i151 ]
-  %expr.tr.be.i100 = load ptr, ptr %expr.tr.be.in.i99, align 8
-  br label %tailrecurse.i83
+tailrecurse.backedge.i96:                         ; preds = %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %if.end.i88, %tailrecurse.backedge.i96.fold.split, %if.then49.i113, %if.then43.i106
+  %.sink.i97 = phi i64 [ 56, %if.then43.i106 ], [ 56, %if.then49.i113 ], [ 56, %tailrecurse.backedge.i96.fold.split ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ], [ 48, %if.end.i88 ]
+  %_callee.i98 = getelementptr inbounds i8, ptr %expr.tr.i83, i64 %.sink.i97
+  %expr.tr.be.i99 = load ptr, ptr %_callee.i98, align 8
+  br label %tailrecurse.i82
 
-if.then14.i104:                                   ; preds = %if.end.i89
-  %_callee15.i105 = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
-  br label %tailrecurse.backedge.i98
-
-if.then20.i109:                                   ; preds = %if.end.i89
-  %_left.i110 = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
-  br label %tailrecurse.backedge.i98
-
-if.then26.i114:                                   ; preds = %if.end.i89
-  %_left27.i115 = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
-  br label %tailrecurse.backedge.i98
-
-if.then32.i119:                                   ; preds = %if.end.i89
-  %_test.i120 = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
-  br label %tailrecurse.backedge.i98
-
-if.then37.i124:                                   ; preds = %if.end.i89
-  %_left38.i125 = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %expr.tr.i84, i64 0, i32 2
-  br label %tailrecurse.backedge.i98
-
-if.then43.i129:                                   ; preds = %land.rhs.i9.i, %land.lhs.true.i.i, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit
-  %_prefix.i130 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i84, i64 0, i32 3
-  %20 = load i8, ptr %_prefix.i130, align 8
+if.then43.i106:                                   ; preds = %land.lhs.true.i.i, %land.rhs.i9.i, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit
+  %_prefix.i107 = getelementptr inbounds i8, ptr %expr.tr.i83, i64 64
+  %20 = load i8, ptr %_prefix.i107, align 8
   %21 = and i8 %20, 1
-  %tobool44.not.i131 = icmp eq i8 %21, 0
-  br i1 %tobool44.not.i131, label %land.rhs.i133, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
+  %tobool44.not.i108 = icmp eq i8 %21, 0
+  br i1 %tobool44.not.i108, label %tailrecurse.backedge.i96, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
 
-land.rhs.i133:                                    ; preds = %if.then43.i129
-  %_argument.i134 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i84, i64 0, i32 2
-  br label %tailrecurse.backedge.i98
-
-if.then49.i138:                                   ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, %land.rhs.i.i380
-  %_prefix50.i139 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i84, i64 0, i32 3
-  %22 = load i8, ptr %_prefix50.i139, align 8
+if.then49.i113:                                   ; preds = %land.rhs.i.i255, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i
+  %_prefix50.i114 = getelementptr inbounds i8, ptr %expr.tr.i83, i64 64
+  %22 = load i8, ptr %_prefix50.i114, align 8
   %23 = and i8 %22, 1
-  %tobool51.not.i140 = icmp eq i8 %23, 0
-  br i1 %tobool51.not.i140, label %land.rhs52.i141, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
-
-land.rhs52.i141:                                  ; preds = %if.then49.i138
-  %_argument53.i142 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i84, i64 0, i32 2
-  br label %tailrecurse.backedge.i98
-
-if.then59.i146:                                   ; preds = %if.end.i89
-  %_object.i147 = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
-  br label %tailrecurse.backedge.i98
-
-if.then64.i151:                                   ; preds = %if.end.i89
-  %_tag.i152 = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %expr.tr.i84, i64 0, i32 1
-  br label %tailrecurse.backedge.i98
+  %tobool51.not.i115 = icmp eq i8 %23, 0
+  br i1 %tobool51.not.i115, label %tailrecurse.backedge.i96, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
 
 if.then23:                                        ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit, %land.rhs.i18.i
-  %pretty_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_ = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load i8, ptr %pretty_, align 8
   %25 = and i8 %24, 1
   %tobool.not = icmp eq i8 %25, 0
   %cond = select i1 %tobool.not, i32 2, i32 1
   br label %return
 
-_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43: ; preds = %if.then49.i138, %if.then43.i129, %land.lhs.true.i87, %if.end.i89, %land.rhs.i18.i
+_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43: ; preds = %if.then49.i113, %if.then43.i106, %land.lhs.true.i86, %if.end.i88, %land.rhs.i18.i
   %26 = icmp eq i8 %lhsc, 43
-  br i1 %26, label %tailrecurse.i154.preheader, label %if.else33
+  br i1 %26, label %tailrecurse.i122.preheader, label %if.else33
 
-tailrecurse.i154.preheader:                       ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
-  br label %tailrecurse.i154
+tailrecurse.i122.preheader:                       ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
+  br label %tailrecurse.i122
 
-tailrecurse.i154:                                 ; preds = %tailrecurse.i154.preheader, %tailrecurse.backedge.i170
-  %expr.tr.i155 = phi ptr [ %expr.tr.be.i172, %tailrecurse.backedge.i170 ], [ %child, %tailrecurse.i154.preheader ]
-  %parent.tr.i156 = phi ptr [ %expr.tr.i155, %tailrecurse.backedge.i170 ], [ null, %tailrecurse.i154.preheader ]
-  %tobool.not.i157 = icmp eq ptr %parent.tr.i156, null
-  br i1 %tobool.not.i157, label %if.end.i161, label %land.lhs.true.i158
+tailrecurse.i122:                                 ; preds = %tailrecurse.i122.preheader, %tailrecurse.backedge.i137
+  %expr.tr.i123 = phi ptr [ %expr.tr.be.i140, %tailrecurse.backedge.i137 ], [ %child, %tailrecurse.i122.preheader ]
+  %parent.tr.i124 = phi ptr [ %expr.tr.i123, %tailrecurse.backedge.i137 ], [ null, %tailrecurse.i122.preheader ]
+  %tobool.not.i125 = icmp eq ptr %parent.tr.i124, null
+  br i1 %tobool.not.i125, label %if.end.i129, label %land.lhs.true.i126
 
-land.lhs.true.i158:                               ; preds = %tailrecurse.i154
-  %call.i159 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i156, ptr noundef %expr.tr.i155, i32 noundef 0), !range !19
-  %cmp.i160 = icmp eq i32 %call.i159, 1
-  br i1 %cmp.i160, label %if.else33, label %if.end.i161
+land.lhs.true.i126:                               ; preds = %tailrecurse.i122
+  %call.i127 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i124, ptr noundef %expr.tr.i123, i32 noundef 0), !range !19
+  %cmp.i128 = icmp eq i32 %call.i127, 1
+  br i1 %cmp.i128, label %if.else33, label %if.end.i129
 
-if.end.i161:                                      ; preds = %land.lhs.true.i158, %tailrecurse.i154
-  %kind_.i.i.i.i.i.i.i.i.i381 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %expr.tr.i155, i64 0, i32 1
-  %27 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i381, align 8
+if.end.i129:                                      ; preds = %land.lhs.true.i126, %tailrecurse.i122
+  %kind_.i.i.i.i.i.i.i.i.i256 = getelementptr inbounds i8, ptr %expr.tr.i123, i64 16
+  %27 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i256, align 8
   switch i32 %27, label %if.else33 [
-    i32 52, label %land.rhs.i.i386
-    i32 53, label %land.lhs.true.i.i382
-    i32 48, label %if.then8.i168
-    i32 49, label %if.then14.i176
-    i32 60, label %if.then20.i181
-    i32 58, label %if.then26.i186
-    i32 59, label %if.then32.i191
-    i32 51, label %if.then37.i196
-    i32 55, label %if.then59.i218
-    i32 71, label %if.then64.i223
+    i32 52, label %land.rhs.i.i261
+    i32 53, label %land.lhs.true.i.i257
+    i32 60, label %tailrecurse.backedge.i137
+    i32 59, label %tailrecurse.backedge.i137
+    i32 58, label %tailrecurse.backedge.i137
+    i32 49, label %tailrecurse.backedge.i137
+    i32 48, label %tailrecurse.backedge.i137
+    i32 51, label %tailrecurse.backedge.i137.fold.split
+    i32 71, label %tailrecurse.backedge.i137
+    i32 55, label %tailrecurse.backedge.i137
   ]
 
-land.rhs.i.i386:                                  ; preds = %if.end.i161
-  %_operator.i.i387 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  %28 = load ptr, ptr %_operator.i.i387, align 8
-  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i388 = getelementptr inbounds i8, ptr %28, i64 8
-  %agg.tmp.sroa.2.0.copyload.i.i389 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i388, align 8
-  %cmp.i.i.i390 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i389, 1
-  br i1 %cmp.i.i.i390, label %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit, label %if.then49.i210
+land.rhs.i.i261:                                  ; preds = %if.end.i129
+  %_operator.i.i262 = getelementptr inbounds i8, ptr %expr.tr.i123, i64 48
+  %28 = load ptr, ptr %_operator.i.i262, align 8
+  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i263 = getelementptr inbounds i8, ptr %28, i64 8
+  %agg.tmp.sroa.2.0.copyload.i.i264 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i263, align 8
+  %cmp.i.i.i265 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i264, 1
+  br i1 %cmp.i.i.i265, label %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit, label %if.then49.i154
 
-land.lhs.true.i.i382:                             ; preds = %if.end.i161
-  %_prefix.i.i383 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i155, i64 0, i32 3
-  %29 = load i8, ptr %_prefix.i.i383, align 8
+land.lhs.true.i.i257:                             ; preds = %if.end.i129
+  %_prefix.i.i258 = getelementptr inbounds i8, ptr %expr.tr.i123, i64 64
+  %29 = load i8, ptr %_prefix.i.i258, align 8
   %30 = and i8 %29, 1
-  %tobool.not.i.i384 = icmp eq i8 %30, 0
-  br i1 %tobool.not.i.i384, label %if.then43.i201, label %land.rhs.i8.i
+  %tobool.not.i.i259 = icmp eq i8 %30, 0
+  br i1 %tobool.not.i.i259, label %if.then43.i147, label %land.rhs.i8.i
 
-land.rhs.i8.i:                                    ; preds = %land.lhs.true.i.i382
-  %_operator.i9.i = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
+land.rhs.i8.i:                                    ; preds = %land.lhs.true.i.i257
+  %_operator.i9.i = getelementptr inbounds i8, ptr %expr.tr.i123, i64 48
   %31 = load ptr, ptr %_operator.i9.i, align 8
-  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i385 = getelementptr inbounds i8, ptr %31, i64 8
-  %agg.tmp.sroa.2.0.copyload.i11.i = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i385, align 8
+  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i260 = getelementptr inbounds i8, ptr %31, i64 8
+  %agg.tmp.sroa.2.0.copyload.i11.i = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i260, align 8
   %cmp.i.i12.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i11.i, 2
-  br i1 %cmp.i.i12.i, label %land.rhs.i.i13.i, label %if.then43.i201
+  br i1 %cmp.i.i12.i, label %land.rhs.i.i13.i, label %if.then43.i147
 
 land.rhs.i.i13.i:                                 ; preds = %land.rhs.i8.i
   %agg.tmp.sroa.0.0.copyload.i10.i = load ptr, ptr %31, align 8
   %bcmp.i14.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
   %32 = icmp eq i32 %bcmp.i14.i, 0
-  br i1 %32, label %if.then29, label %if.then43.i201
+  br i1 %32, label %if.then29, label %if.then43.i147
 
-_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit: ; preds = %land.rhs.i.i386
-  %agg.tmp.sroa.0.0.copyload.i.i392 = load ptr, ptr %28, align 8
-  %lhsc.i393 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i392, align 1
-  %33 = icmp eq i8 %lhsc.i393, 43
-  br i1 %33, label %if.then29, label %if.then49.i210
+_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit: ; preds = %land.rhs.i.i261
+  %agg.tmp.sroa.0.0.copyload.i.i267 = load ptr, ptr %28, align 8
+  %lhsc.i268 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i267, align 1
+  %33 = icmp eq i8 %lhsc.i268, 43
+  br i1 %33, label %if.then29, label %if.then49.i154
 
-if.then8.i168:                                    ; preds = %if.end.i161
-  %_callee.i169 = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  br label %tailrecurse.backedge.i170
+tailrecurse.backedge.i137.fold.split:             ; preds = %if.end.i129
+  br label %tailrecurse.backedge.i137
 
-tailrecurse.backedge.i170:                        ; preds = %if.then64.i223, %if.then59.i218, %land.rhs52.i213, %land.rhs.i205, %if.then37.i196, %if.then32.i191, %if.then26.i186, %if.then20.i181, %if.then14.i176, %if.then8.i168
-  %expr.tr.be.in.i171 = phi ptr [ %_callee.i169, %if.then8.i168 ], [ %_callee15.i177, %if.then14.i176 ], [ %_left.i182, %if.then20.i181 ], [ %_left27.i187, %if.then26.i186 ], [ %_test.i192, %if.then32.i191 ], [ %_left38.i197, %if.then37.i196 ], [ %_argument.i206, %land.rhs.i205 ], [ %_argument53.i214, %land.rhs52.i213 ], [ %_object.i219, %if.then59.i218 ], [ %_tag.i224, %if.then64.i223 ]
-  %expr.tr.be.i172 = load ptr, ptr %expr.tr.be.in.i171, align 8
-  br label %tailrecurse.i154
+tailrecurse.backedge.i137:                        ; preds = %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %if.end.i129, %tailrecurse.backedge.i137.fold.split, %if.then49.i154, %if.then43.i147
+  %.sink.i138 = phi i64 [ 56, %if.then43.i147 ], [ 56, %if.then49.i154 ], [ 56, %tailrecurse.backedge.i137.fold.split ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ], [ 48, %if.end.i129 ]
+  %_callee.i139 = getelementptr inbounds i8, ptr %expr.tr.i123, i64 %.sink.i138
+  %expr.tr.be.i140 = load ptr, ptr %_callee.i139, align 8
+  br label %tailrecurse.i122
 
-if.then14.i176:                                   ; preds = %if.end.i161
-  %_callee15.i177 = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  br label %tailrecurse.backedge.i170
-
-if.then20.i181:                                   ; preds = %if.end.i161
-  %_left.i182 = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  br label %tailrecurse.backedge.i170
-
-if.then26.i186:                                   ; preds = %if.end.i161
-  %_left27.i187 = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  br label %tailrecurse.backedge.i170
-
-if.then32.i191:                                   ; preds = %if.end.i161
-  %_test.i192 = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  br label %tailrecurse.backedge.i170
-
-if.then37.i196:                                   ; preds = %if.end.i161
-  %_left38.i197 = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %expr.tr.i155, i64 0, i32 2
-  br label %tailrecurse.backedge.i170
-
-if.then43.i201:                                   ; preds = %land.rhs.i8.i, %land.lhs.true.i.i382, %land.rhs.i.i13.i
-  %_prefix.i202 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i155, i64 0, i32 3
-  %34 = load i8, ptr %_prefix.i202, align 8
+if.then43.i147:                                   ; preds = %land.rhs.i8.i, %land.lhs.true.i.i257, %land.rhs.i.i13.i
+  %_prefix.i148 = getelementptr inbounds i8, ptr %expr.tr.i123, i64 64
+  %34 = load i8, ptr %_prefix.i148, align 8
   %35 = and i8 %34, 1
-  %tobool44.not.i203 = icmp eq i8 %35, 0
-  br i1 %tobool44.not.i203, label %land.rhs.i205, label %if.else33
+  %tobool44.not.i149 = icmp eq i8 %35, 0
+  br i1 %tobool44.not.i149, label %tailrecurse.backedge.i137, label %if.else33
 
-land.rhs.i205:                                    ; preds = %if.then43.i201
-  %_argument.i206 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i155, i64 0, i32 2
-  br label %tailrecurse.backedge.i170
-
-if.then49.i210:                                   ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit, %land.rhs.i.i386
-  %_prefix50.i211 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i155, i64 0, i32 3
-  %36 = load i8, ptr %_prefix50.i211, align 8
+if.then49.i154:                                   ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit, %land.rhs.i.i261
+  %_prefix50.i155 = getelementptr inbounds i8, ptr %expr.tr.i123, i64 64
+  %36 = load i8, ptr %_prefix50.i155, align 8
   %37 = and i8 %36, 1
-  %tobool51.not.i212 = icmp eq i8 %37, 0
-  br i1 %tobool51.not.i212, label %land.rhs52.i213, label %if.else33
-
-land.rhs52.i213:                                  ; preds = %if.then49.i210
-  %_argument53.i214 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i155, i64 0, i32 2
-  br label %tailrecurse.backedge.i170
-
-if.then59.i218:                                   ; preds = %if.end.i161
-  %_object.i219 = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  br label %tailrecurse.backedge.i170
-
-if.then64.i223:                                   ; preds = %if.end.i161
-  %_tag.i224 = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %expr.tr.i155, i64 0, i32 1
-  br label %tailrecurse.backedge.i170
+  %tobool51.not.i156 = icmp eq i8 %37, 0
+  br i1 %tobool51.not.i156, label %tailrecurse.backedge.i137, label %if.else33
 
 if.then29:                                        ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit, %land.rhs.i.i13.i
-  %pretty_30 = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_30 = getelementptr inbounds i8, ptr %this, i64 8
   %38 = load i8, ptr %pretty_30, align 8
   %39 = and i8 %38, 1
   %tobool31.not = icmp eq i8 %39, 0
   %cond32 = select i1 %tobool31.not, i32 2, i32 1
   br label %return
 
-if.else33:                                        ; preds = %if.end.i161, %if.then49.i210, %if.then43.i201, %land.lhs.true.i158, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %entry, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
+if.else33:                                        ; preds = %if.end.i129, %if.then49.i154, %if.then43.i147, %land.lhs.true.i126, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %entry, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit43
   %cmp34 = icmp eq i32 %childPosition, 2
   %cmp.i.i.i.i.i.i.i46 = icmp eq i32 %0, 60
   %or.cond = and i1 %cmp34, %cmp.i.i.i.i.i.i.i46
   br i1 %or.cond, label %land.rhs.i47, label %if.end61
 
 land.rhs.i47:                                     ; preds = %if.else33
-  %_operator.i48 = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %parent, i64 0, i32 3
+  %_operator.i48 = getelementptr inbounds i8, ptr %parent, i64 64
   %40 = load ptr, ptr %_operator.i48, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx.i50 = getelementptr inbounds i8, ptr %40, i64 8
   %agg.tmp.sroa.2.0.copyload.i51 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i50, align 8
@@ -7073,283 +6864,211 @@ _ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit: ; pre
   %agg.tmp.sroa.0.0.copyload.i49 = load ptr, ptr %40, align 8
   %lhsc75 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i49, align 1
   %41 = icmp eq i8 %lhsc75, 45
-  br i1 %41, label %tailrecurse.i226, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit304
+  br i1 %41, label %tailrecurse.i163, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210
 
-tailrecurse.i226:                                 ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %tailrecurse.backedge.i242
-  %expr.tr.i227 = phi ptr [ %expr.tr.be.i244, %tailrecurse.backedge.i242 ], [ %child, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
-  %parent.tr.i228 = phi ptr [ %expr.tr.i227, %tailrecurse.backedge.i242 ], [ null, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
-  %tobool.not.i229 = icmp eq ptr %parent.tr.i228, null
-  br i1 %tobool.not.i229, label %if.end.i233, label %land.lhs.true.i230
+tailrecurse.i163:                                 ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %tailrecurse.backedge.i178
+  %expr.tr.i164 = phi ptr [ %expr.tr.be.i181, %tailrecurse.backedge.i178 ], [ %child, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
+  %parent.tr.i165 = phi ptr [ %expr.tr.i164, %tailrecurse.backedge.i178 ], [ null, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit ]
+  %tobool.not.i166 = icmp eq ptr %parent.tr.i165, null
+  br i1 %tobool.not.i166, label %if.end.i170, label %land.lhs.true.i167
 
-land.lhs.true.i230:                               ; preds = %tailrecurse.i226
-  %call.i231 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i228, ptr noundef %expr.tr.i227, i32 noundef 0), !range !19
-  %cmp.i232 = icmp eq i32 %call.i231, 1
-  br i1 %cmp.i232, label %land.rhs.i298, label %if.end.i233
+land.lhs.true.i167:                               ; preds = %tailrecurse.i163
+  %call.i168 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i165, ptr noundef %expr.tr.i164, i32 noundef 0), !range !19
+  %cmp.i169 = icmp eq i32 %call.i168, 1
+  br i1 %cmp.i169, label %land.rhs.i204, label %if.end.i170
 
-if.end.i233:                                      ; preds = %land.lhs.true.i230, %tailrecurse.i226
-  %kind_.i.i.i.i.i.i.i.i.i394 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %expr.tr.i227, i64 0, i32 1
-  %42 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i394, align 8
-  switch i32 %42, label %land.rhs.i298 [
-    i32 52, label %land.rhs.i.i410
-    i32 53, label %land.lhs.true.i.i398
-    i32 34, label %land.rhs.i18.i395
-    i32 48, label %if.then8.i240
-    i32 49, label %if.then14.i248
-    i32 60, label %if.then20.i253
-    i32 58, label %if.then26.i258
-    i32 59, label %if.then32.i263
-    i32 51, label %if.then37.i268
-    i32 55, label %if.then59.i290
-    i32 71, label %if.then64.i295
+if.end.i170:                                      ; preds = %land.lhs.true.i167, %tailrecurse.i163
+  %kind_.i.i.i.i.i.i.i.i.i269 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 16
+  %42 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i269, align 8
+  switch i32 %42, label %land.rhs.i204 [
+    i32 52, label %land.rhs.i.i285
+    i32 53, label %land.lhs.true.i.i273
+    i32 34, label %land.rhs.i18.i270
+    i32 60, label %tailrecurse.backedge.i178
+    i32 59, label %tailrecurse.backedge.i178
+    i32 58, label %tailrecurse.backedge.i178
+    i32 49, label %tailrecurse.backedge.i178
+    i32 48, label %tailrecurse.backedge.i178
+    i32 51, label %tailrecurse.backedge.i178.fold.split
+    i32 71, label %tailrecurse.backedge.i178
+    i32 55, label %tailrecurse.backedge.i178
   ]
 
-land.rhs.i.i410:                                  ; preds = %if.end.i233
-  %_operator.i.i411 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  %43 = load ptr, ptr %_operator.i.i411, align 8
-  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i412 = getelementptr inbounds i8, ptr %43, i64 8
-  %agg.tmp.sroa.2.0.copyload.i.i413 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i412, align 8
-  %cmp.i.i.i414 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i413, 1
-  br i1 %cmp.i.i.i414, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i415, label %if.then49.i282
+land.rhs.i.i285:                                  ; preds = %if.end.i170
+  %_operator.i.i286 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
+  %43 = load ptr, ptr %_operator.i.i286, align 8
+  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i287 = getelementptr inbounds i8, ptr %43, i64 8
+  %agg.tmp.sroa.2.0.copyload.i.i288 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i287, align 8
+  %cmp.i.i.i289 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i288, 1
+  br i1 %cmp.i.i.i289, label %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290, label %if.then49.i195
 
-_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i415: ; preds = %land.rhs.i.i410
-  %agg.tmp.sroa.0.0.copyload.i.i416 = load ptr, ptr %43, align 8
-  %lhsc.i417 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i416, align 1
-  %44 = icmp eq i8 %lhsc.i417, 45
-  br i1 %44, label %if.then40, label %if.then49.i282
+_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290: ; preds = %land.rhs.i.i285
+  %agg.tmp.sroa.0.0.copyload.i.i291 = load ptr, ptr %43, align 8
+  %lhsc.i292 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i291, align 1
+  %44 = icmp eq i8 %lhsc.i292, 45
+  br i1 %44, label %if.then40, label %if.then49.i195
 
-land.lhs.true.i.i398:                             ; preds = %if.end.i233
-  %_prefix.i.i399 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i227, i64 0, i32 3
-  %45 = load i8, ptr %_prefix.i.i399, align 8
+land.lhs.true.i.i273:                             ; preds = %if.end.i170
+  %_prefix.i.i274 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
+  %45 = load i8, ptr %_prefix.i.i274, align 8
   %46 = and i8 %45, 1
-  %tobool.not.i.i400 = icmp eq i8 %46, 0
-  br i1 %tobool.not.i.i400, label %if.then43.i273, label %land.rhs.i9.i401
+  %tobool.not.i.i275 = icmp eq i8 %46, 0
+  br i1 %tobool.not.i.i275, label %if.then43.i188, label %land.rhs.i9.i276
 
-land.rhs.i9.i401:                                 ; preds = %land.lhs.true.i.i398
-  %_operator.i10.i402 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  %47 = load ptr, ptr %_operator.i10.i402, align 8
-  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i403 = getelementptr inbounds i8, ptr %47, i64 8
-  %agg.tmp.sroa.2.0.copyload.i12.i404 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i403, align 8
-  %cmp.i.i13.i405 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i12.i404, 2
-  br i1 %cmp.i.i13.i405, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit418, label %if.then43.i273
+land.rhs.i9.i276:                                 ; preds = %land.lhs.true.i.i273
+  %_operator.i10.i277 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
+  %47 = load ptr, ptr %_operator.i10.i277, align 8
+  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i278 = getelementptr inbounds i8, ptr %47, i64 8
+  %agg.tmp.sroa.2.0.copyload.i12.i279 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i278, align 8
+  %cmp.i.i13.i280 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i12.i279, 2
+  br i1 %cmp.i.i13.i280, label %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293, label %if.then43.i188
 
-land.rhs.i18.i395:                                ; preds = %if.end.i233
-  %_value.i.i396 = getelementptr inbounds %"class.hermes::ESTree::NumericLiteralNode", ptr %expr.tr.i227, i64 0, i32 1
-  %48 = load double, ptr %_value.i.i396, align 8
-  %cmp.i.i397 = fcmp olt double %48, 0.000000e+00
-  br i1 %cmp.i.i397, label %if.then40, label %land.rhs.i298
+land.rhs.i18.i270:                                ; preds = %if.end.i170
+  %_value.i.i271 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 48
+  %48 = load double, ptr %_value.i.i271, align 8
+  %cmp.i.i272 = fcmp olt double %48, 0.000000e+00
+  br i1 %cmp.i.i272, label %if.then40, label %land.rhs.i204
 
-_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit418: ; preds = %land.rhs.i9.i401
-  %agg.tmp.sroa.0.0.copyload.i11.i408 = load ptr, ptr %47, align 8
-  %bcmp.i15.i409 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i408, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
-  %49 = icmp eq i32 %bcmp.i15.i409, 0
-  br i1 %49, label %if.then40, label %if.then43.i273
+_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293: ; preds = %land.rhs.i9.i276
+  %agg.tmp.sroa.0.0.copyload.i11.i283 = load ptr, ptr %47, align 8
+  %bcmp.i15.i284 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i11.i283, ptr noundef nonnull dereferenceable(2) @.str.246, i64 2)
+  %49 = icmp eq i32 %bcmp.i15.i284, 0
+  br i1 %49, label %if.then40, label %if.then43.i188
 
-if.then8.i240:                                    ; preds = %if.end.i233
-  %_callee.i241 = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  br label %tailrecurse.backedge.i242
+tailrecurse.backedge.i178.fold.split:             ; preds = %if.end.i170
+  br label %tailrecurse.backedge.i178
 
-tailrecurse.backedge.i242:                        ; preds = %if.then64.i295, %if.then59.i290, %land.rhs52.i285, %land.rhs.i277, %if.then37.i268, %if.then32.i263, %if.then26.i258, %if.then20.i253, %if.then14.i248, %if.then8.i240
-  %expr.tr.be.in.i243 = phi ptr [ %_callee.i241, %if.then8.i240 ], [ %_callee15.i249, %if.then14.i248 ], [ %_left.i254, %if.then20.i253 ], [ %_left27.i259, %if.then26.i258 ], [ %_test.i264, %if.then32.i263 ], [ %_left38.i269, %if.then37.i268 ], [ %_argument.i278, %land.rhs.i277 ], [ %_argument53.i286, %land.rhs52.i285 ], [ %_object.i291, %if.then59.i290 ], [ %_tag.i296, %if.then64.i295 ]
-  %expr.tr.be.i244 = load ptr, ptr %expr.tr.be.in.i243, align 8
-  br label %tailrecurse.i226
+tailrecurse.backedge.i178:                        ; preds = %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %if.end.i170, %tailrecurse.backedge.i178.fold.split, %if.then49.i195, %if.then43.i188
+  %.sink.i179 = phi i64 [ 56, %if.then43.i188 ], [ 56, %if.then49.i195 ], [ 56, %tailrecurse.backedge.i178.fold.split ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ], [ 48, %if.end.i170 ]
+  %_callee.i180 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 %.sink.i179
+  %expr.tr.be.i181 = load ptr, ptr %_callee.i180, align 8
+  br label %tailrecurse.i163
 
-if.then14.i248:                                   ; preds = %if.end.i233
-  %_callee15.i249 = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  br label %tailrecurse.backedge.i242
-
-if.then20.i253:                                   ; preds = %if.end.i233
-  %_left.i254 = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  br label %tailrecurse.backedge.i242
-
-if.then26.i258:                                   ; preds = %if.end.i233
-  %_left27.i259 = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  br label %tailrecurse.backedge.i242
-
-if.then32.i263:                                   ; preds = %if.end.i233
-  %_test.i264 = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  br label %tailrecurse.backedge.i242
-
-if.then37.i268:                                   ; preds = %if.end.i233
-  %_left38.i269 = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %expr.tr.i227, i64 0, i32 2
-  br label %tailrecurse.backedge.i242
-
-if.then43.i273:                                   ; preds = %land.rhs.i9.i401, %land.lhs.true.i.i398, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit418
-  %_prefix.i274 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i227, i64 0, i32 3
-  %50 = load i8, ptr %_prefix.i274, align 8
+if.then43.i188:                                   ; preds = %land.lhs.true.i.i273, %land.rhs.i9.i276, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293
+  %_prefix.i189 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
+  %50 = load i8, ptr %_prefix.i189, align 8
   %51 = and i8 %50, 1
-  %tobool44.not.i275 = icmp eq i8 %51, 0
-  br i1 %tobool44.not.i275, label %land.rhs.i277, label %land.rhs.i298
+  %tobool44.not.i190 = icmp eq i8 %51, 0
+  br i1 %tobool44.not.i190, label %tailrecurse.backedge.i178, label %land.rhs.i204
 
-land.rhs.i277:                                    ; preds = %if.then43.i273
-  %_argument.i278 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i227, i64 0, i32 2
-  br label %tailrecurse.backedge.i242
-
-if.then49.i282:                                   ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i415, %land.rhs.i.i410
-  %_prefix50.i283 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i227, i64 0, i32 3
-  %52 = load i8, ptr %_prefix50.i283, align 8
+if.then49.i195:                                   ; preds = %land.rhs.i.i285, %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290
+  %_prefix50.i196 = getelementptr inbounds i8, ptr %expr.tr.i164, i64 64
+  %52 = load i8, ptr %_prefix50.i196, align 8
   %53 = and i8 %52, 1
-  %tobool51.not.i284 = icmp eq i8 %53, 0
-  br i1 %tobool51.not.i284, label %land.rhs52.i285, label %land.rhs.i298
+  %tobool51.not.i197 = icmp eq i8 %53, 0
+  br i1 %tobool51.not.i197, label %tailrecurse.backedge.i178, label %land.rhs.i204
 
-land.rhs52.i285:                                  ; preds = %if.then49.i282
-  %_argument53.i286 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i227, i64 0, i32 2
-  br label %tailrecurse.backedge.i242
-
-if.then59.i290:                                   ; preds = %if.end.i233
-  %_object.i291 = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  br label %tailrecurse.backedge.i242
-
-if.then64.i295:                                   ; preds = %if.end.i233
-  %_tag.i296 = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %expr.tr.i227, i64 0, i32 1
-  br label %tailrecurse.backedge.i242
-
-if.then40:                                        ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i415, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit418, %land.rhs.i18.i395
-  %pretty_41 = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+if.then40:                                        ; preds = %_ZN6hermes12_GLOBAL__N_17isUnaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit.i290, %_ZN6hermes12_GLOBAL__N_110checkMinusEPNS_6ESTree4NodeE.exit293, %land.rhs.i18.i270
+  %pretty_41 = getelementptr inbounds i8, ptr %this, i64 8
   %54 = load i8, ptr %pretty_41, align 8
   %55 = and i8 %54, 1
   %tobool42.not = icmp eq i8 %55, 0
   %cond43 = select i1 %tobool42.not, i32 2, i32 1
   br label %return
 
-land.rhs.i298:                                    ; preds = %if.then49.i282, %if.then43.i273, %land.lhs.true.i230, %if.end.i233, %land.rhs.i18.i395
-  br i1 %cmp.i.i52, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit304, label %if.end61
+land.rhs.i204:                                    ; preds = %if.then49.i195, %if.then43.i188, %land.lhs.true.i167, %if.end.i170, %land.rhs.i18.i270
+  br i1 %cmp.i.i52, label %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, label %if.end61
 
-_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit304: ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %land.rhs.i298
-  %agg.tmp.sroa.0.0.copyload.i300 = load ptr, ptr %40, align 8
-  %lhsc592 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i300, align 1
-  %56 = icmp eq i8 %lhsc592, 43
-  br i1 %56, label %tailrecurse.i305, label %if.end61
+_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210: ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit, %land.rhs.i204
+  %agg.tmp.sroa.0.0.copyload.i206 = load ptr, ptr %40, align 8
+  %lhsc323 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i206, align 1
+  %56 = icmp eq i8 %lhsc323, 43
+  br i1 %56, label %tailrecurse.i211, label %if.end61
 
-tailrecurse.i305:                                 ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit304, %tailrecurse.backedge.i321
-  %expr.tr.i306 = phi ptr [ %expr.tr.be.i323, %tailrecurse.backedge.i321 ], [ %child, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit304 ]
-  %parent.tr.i307 = phi ptr [ %expr.tr.i306, %tailrecurse.backedge.i321 ], [ null, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit304 ]
-  %tobool.not.i308 = icmp eq ptr %parent.tr.i307, null
-  br i1 %tobool.not.i308, label %if.end.i312, label %land.lhs.true.i309
+tailrecurse.i211:                                 ; preds = %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, %tailrecurse.backedge.i226
+  %expr.tr.i212 = phi ptr [ %expr.tr.be.i229, %tailrecurse.backedge.i226 ], [ %child, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210 ]
+  %parent.tr.i213 = phi ptr [ %expr.tr.i212, %tailrecurse.backedge.i226 ], [ null, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210 ]
+  %tobool.not.i214 = icmp eq ptr %parent.tr.i213, null
+  br i1 %tobool.not.i214, label %if.end.i218, label %land.lhs.true.i215
 
-land.lhs.true.i309:                               ; preds = %tailrecurse.i305
-  %call.i310 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i307, ptr noundef %expr.tr.i306, i32 noundef 0), !range !19
-  %cmp.i311 = icmp eq i32 %call.i310, 1
-  br i1 %cmp.i311, label %if.end61, label %if.end.i312
+land.lhs.true.i215:                               ; preds = %tailrecurse.i211
+  %call.i216 = tail call fastcc noundef i32 @_ZN6hermes12_GLOBAL__N_15GenJS10needParensEPNS_6ESTree4NodeES4_NS0_8ChildPosE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %parent.tr.i213, ptr noundef %expr.tr.i212, i32 noundef 0), !range !19
+  %cmp.i217 = icmp eq i32 %call.i216, 1
+  br i1 %cmp.i217, label %if.end61, label %if.end.i218
 
-if.end.i312:                                      ; preds = %land.lhs.true.i309, %tailrecurse.i305
-  %kind_.i.i.i.i.i.i.i.i.i419 = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %expr.tr.i306, i64 0, i32 1
-  %57 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i419, align 8
+if.end.i218:                                      ; preds = %land.lhs.true.i215, %tailrecurse.i211
+  %kind_.i.i.i.i.i.i.i.i.i294 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 16
+  %57 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i294, align 8
   switch i32 %57, label %if.end61 [
-    i32 52, label %land.rhs.i.i431
-    i32 53, label %land.lhs.true.i.i420
-    i32 48, label %if.then8.i319
-    i32 49, label %if.then14.i327
-    i32 60, label %if.then20.i332
-    i32 58, label %if.then26.i337
-    i32 59, label %if.then32.i342
-    i32 51, label %if.then37.i347
-    i32 55, label %if.then59.i369
-    i32 71, label %if.then64.i374
+    i32 52, label %land.rhs.i.i306
+    i32 53, label %land.lhs.true.i.i295
+    i32 60, label %tailrecurse.backedge.i226
+    i32 59, label %tailrecurse.backedge.i226
+    i32 58, label %tailrecurse.backedge.i226
+    i32 49, label %tailrecurse.backedge.i226
+    i32 48, label %tailrecurse.backedge.i226
+    i32 51, label %tailrecurse.backedge.i226.fold.split
+    i32 71, label %tailrecurse.backedge.i226
+    i32 55, label %tailrecurse.backedge.i226
   ]
 
-land.rhs.i.i431:                                  ; preds = %if.end.i312
-  %_operator.i.i432 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  %58 = load ptr, ptr %_operator.i.i432, align 8
-  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i433 = getelementptr inbounds i8, ptr %58, i64 8
-  %agg.tmp.sroa.2.0.copyload.i.i434 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i433, align 8
-  %cmp.i.i.i435 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i434, 1
-  br i1 %cmp.i.i.i435, label %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit439, label %if.then49.i361
+land.rhs.i.i306:                                  ; preds = %if.end.i218
+  %_operator.i.i307 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 48
+  %58 = load ptr, ptr %_operator.i.i307, align 8
+  %agg.tmp.sroa.2.0.call2.sroa_idx.i.i308 = getelementptr inbounds i8, ptr %58, i64 8
+  %agg.tmp.sroa.2.0.copyload.i.i309 = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i.i308, align 8
+  %cmp.i.i.i310 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i309, 1
+  br i1 %cmp.i.i.i310, label %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314, label %if.then49.i243
 
-land.lhs.true.i.i420:                             ; preds = %if.end.i312
-  %_prefix.i.i421 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i306, i64 0, i32 3
-  %59 = load i8, ptr %_prefix.i.i421, align 8
+land.lhs.true.i.i295:                             ; preds = %if.end.i218
+  %_prefix.i.i296 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 64
+  %59 = load i8, ptr %_prefix.i.i296, align 8
   %60 = and i8 %59, 1
-  %tobool.not.i.i422 = icmp eq i8 %60, 0
-  br i1 %tobool.not.i.i422, label %if.then43.i352, label %land.rhs.i8.i423
+  %tobool.not.i.i297 = icmp eq i8 %60, 0
+  br i1 %tobool.not.i.i297, label %if.then43.i236, label %land.rhs.i8.i298
 
-land.rhs.i8.i423:                                 ; preds = %land.lhs.true.i.i420
-  %_operator.i9.i424 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  %61 = load ptr, ptr %_operator.i9.i424, align 8
-  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i425 = getelementptr inbounds i8, ptr %61, i64 8
-  %agg.tmp.sroa.2.0.copyload.i11.i426 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i425, align 8
-  %cmp.i.i12.i427 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i11.i426, 2
-  br i1 %cmp.i.i12.i427, label %land.rhs.i.i13.i428, label %if.then43.i352
+land.rhs.i8.i298:                                 ; preds = %land.lhs.true.i.i295
+  %_operator.i9.i299 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 48
+  %61 = load ptr, ptr %_operator.i9.i299, align 8
+  %agg.tmp.sroa.2.0.call3.sroa_idx.i.i300 = getelementptr inbounds i8, ptr %61, i64 8
+  %agg.tmp.sroa.2.0.copyload.i11.i301 = load i64, ptr %agg.tmp.sroa.2.0.call3.sroa_idx.i.i300, align 8
+  %cmp.i.i12.i302 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i11.i301, 2
+  br i1 %cmp.i.i12.i302, label %land.rhs.i.i13.i303, label %if.then43.i236
 
-land.rhs.i.i13.i428:                              ; preds = %land.rhs.i8.i423
-  %agg.tmp.sroa.0.0.copyload.i10.i429 = load ptr, ptr %61, align 8
-  %bcmp.i14.i430 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i429, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
-  %62 = icmp eq i32 %bcmp.i14.i430, 0
-  br i1 %62, label %if.then51, label %if.then43.i352
+land.rhs.i.i13.i303:                              ; preds = %land.rhs.i8.i298
+  %agg.tmp.sroa.0.0.copyload.i10.i304 = load ptr, ptr %61, align 8
+  %bcmp.i14.i305 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp.sroa.0.0.copyload.i10.i304, ptr noundef nonnull dereferenceable(2) @.str.247, i64 2)
+  %62 = icmp eq i32 %bcmp.i14.i305, 0
+  br i1 %62, label %if.then51, label %if.then43.i236
 
-_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit439: ; preds = %land.rhs.i.i431
-  %agg.tmp.sroa.0.0.copyload.i.i437 = load ptr, ptr %58, align 8
-  %lhsc.i438 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i437, align 1
-  %63 = icmp eq i8 %lhsc.i438, 43
-  br i1 %63, label %if.then51, label %if.then49.i361
+_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314: ; preds = %land.rhs.i.i306
+  %agg.tmp.sroa.0.0.copyload.i.i312 = load ptr, ptr %58, align 8
+  %lhsc.i313 = load i8, ptr %agg.tmp.sroa.0.0.copyload.i.i312, align 1
+  %63 = icmp eq i8 %lhsc.i313, 43
+  br i1 %63, label %if.then51, label %if.then49.i243
 
-if.then8.i319:                                    ; preds = %if.end.i312
-  %_callee.i320 = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  br label %tailrecurse.backedge.i321
+tailrecurse.backedge.i226.fold.split:             ; preds = %if.end.i218
+  br label %tailrecurse.backedge.i226
 
-tailrecurse.backedge.i321:                        ; preds = %if.then64.i374, %if.then59.i369, %land.rhs52.i364, %land.rhs.i356, %if.then37.i347, %if.then32.i342, %if.then26.i337, %if.then20.i332, %if.then14.i327, %if.then8.i319
-  %expr.tr.be.in.i322 = phi ptr [ %_callee.i320, %if.then8.i319 ], [ %_callee15.i328, %if.then14.i327 ], [ %_left.i333, %if.then20.i332 ], [ %_left27.i338, %if.then26.i337 ], [ %_test.i343, %if.then32.i342 ], [ %_left38.i348, %if.then37.i347 ], [ %_argument.i357, %land.rhs.i356 ], [ %_argument53.i365, %land.rhs52.i364 ], [ %_object.i370, %if.then59.i369 ], [ %_tag.i375, %if.then64.i374 ]
-  %expr.tr.be.i323 = load ptr, ptr %expr.tr.be.in.i322, align 8
-  br label %tailrecurse.i305
+tailrecurse.backedge.i226:                        ; preds = %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %if.end.i218, %tailrecurse.backedge.i226.fold.split, %if.then49.i243, %if.then43.i236
+  %.sink.i227 = phi i64 [ 56, %if.then43.i236 ], [ 56, %if.then49.i243 ], [ 56, %tailrecurse.backedge.i226.fold.split ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ], [ 48, %if.end.i218 ]
+  %_callee.i228 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 %.sink.i227
+  %expr.tr.be.i229 = load ptr, ptr %_callee.i228, align 8
+  br label %tailrecurse.i211
 
-if.then14.i327:                                   ; preds = %if.end.i312
-  %_callee15.i328 = getelementptr inbounds %"class.hermes::ESTree::OptionalCallExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  br label %tailrecurse.backedge.i321
-
-if.then20.i332:                                   ; preds = %if.end.i312
-  %_left.i333 = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  br label %tailrecurse.backedge.i321
-
-if.then26.i337:                                   ; preds = %if.end.i312
-  %_left27.i338 = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  br label %tailrecurse.backedge.i321
-
-if.then32.i342:                                   ; preds = %if.end.i312
-  %_test.i343 = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  br label %tailrecurse.backedge.i321
-
-if.then37.i347:                                   ; preds = %if.end.i312
-  %_left38.i348 = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %expr.tr.i306, i64 0, i32 2
-  br label %tailrecurse.backedge.i321
-
-if.then43.i352:                                   ; preds = %land.rhs.i8.i423, %land.lhs.true.i.i420, %land.rhs.i.i13.i428
-  %_prefix.i353 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i306, i64 0, i32 3
-  %64 = load i8, ptr %_prefix.i353, align 8
+if.then43.i236:                                   ; preds = %land.rhs.i8.i298, %land.lhs.true.i.i295, %land.rhs.i.i13.i303
+  %_prefix.i237 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 64
+  %64 = load i8, ptr %_prefix.i237, align 8
   %65 = and i8 %64, 1
-  %tobool44.not.i354 = icmp eq i8 %65, 0
-  br i1 %tobool44.not.i354, label %land.rhs.i356, label %if.end61
+  %tobool44.not.i238 = icmp eq i8 %65, 0
+  br i1 %tobool44.not.i238, label %tailrecurse.backedge.i226, label %if.end61
 
-land.rhs.i356:                                    ; preds = %if.then43.i352
-  %_argument.i357 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %expr.tr.i306, i64 0, i32 2
-  br label %tailrecurse.backedge.i321
-
-if.then49.i361:                                   ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit439, %land.rhs.i.i431
-  %_prefix50.i362 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i306, i64 0, i32 3
-  %66 = load i8, ptr %_prefix50.i362, align 8
+if.then49.i243:                                   ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314, %land.rhs.i.i306
+  %_prefix50.i244 = getelementptr inbounds i8, ptr %expr.tr.i212, i64 64
+  %66 = load i8, ptr %_prefix50.i244, align 8
   %67 = and i8 %66, 1
-  %tobool51.not.i363 = icmp eq i8 %67, 0
-  br i1 %tobool51.not.i363, label %land.rhs52.i364, label %if.end61
+  %tobool51.not.i245 = icmp eq i8 %67, 0
+  br i1 %tobool51.not.i245, label %tailrecurse.backedge.i226, label %if.end61
 
-land.rhs52.i364:                                  ; preds = %if.then49.i361
-  %_argument53.i365 = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %expr.tr.i306, i64 0, i32 2
-  br label %tailrecurse.backedge.i321
-
-if.then59.i369:                                   ; preds = %if.end.i312
-  %_object.i370 = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  br label %tailrecurse.backedge.i321
-
-if.then64.i374:                                   ; preds = %if.end.i312
-  %_tag.i375 = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %expr.tr.i306, i64 0, i32 1
-  br label %tailrecurse.backedge.i321
-
-if.then51:                                        ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit439, %land.rhs.i.i13.i428
-  %pretty_52 = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+if.then51:                                        ; preds = %_ZN6hermes12_GLOBAL__N_19checkPlusEPNS_6ESTree4NodeE.exit314, %land.rhs.i.i13.i303
+  %pretty_52 = getelementptr inbounds i8, ptr %this, i64 8
   %68 = load i8, ptr %pretty_52, align 8
   %69 = and i8 %68, 1
   %tobool53.not = icmp eq i8 %69, 0
   %cond54 = select i1 %tobool53.not, i32 2, i32 1
   br label %return
 
-if.end61:                                         ; preds = %if.end.i312, %if.then49.i361, %if.then43.i352, %land.lhs.true.i309, %land.rhs.i47, %land.rhs.i, %land.rhs.i298, %if.else33, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit304, %if.then, %land.lhs.true
+if.end61:                                         ; preds = %if.end.i218, %if.then49.i243, %if.then43.i236, %land.lhs.true.i215, %land.rhs.i47, %land.rhs.i, %land.rhs.i204, %if.else33, %_ZN6hermes12_GLOBAL__N_18isBinaryEPNS_6ESTree4NodeEN4llvh9StringRefE.exit210, %if.then, %land.lhs.true
   %70 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load i8, ptr %70, align 8
   %call62 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val, ptr noundef %child)
@@ -7401,7 +7120,7 @@ return:                                           ; preds = %if.then49.i, %if.th
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly %node) unnamed_addr #7 align 2 {
 entry:
-  %kind_.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
   switch i32 %0, label %if.end91 [
     i32 63, label %return
@@ -7443,14 +7162,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %lor.lhs.false36, label %return
 
 lor.lhs.false36:                                  ; preds = %land.lhs.true
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 3
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
   %2 = load ptr, ptr %_arguments, align 8
   %cmp.i.i = icmp eq ptr %2, %_arguments
   %spec.select = select i1 %cmp.i.i, i32 30, i32 31
   br label %return
 
 land.lhs.true50:                                  ; preds = %entry
-  %_prefix = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 3
+  %_prefix = getelementptr inbounds i8, ptr %node, i64 64
   %3 = load i8, ptr %_prefix, align 8
   %4 = and i8 %3, 1
   %tobool52.not.not = icmp eq i8 %4, 0
@@ -7460,7 +7179,7 @@ land.lhs.true50:                                  ; preds = %entry
   br label %return
 
 if.then62:                                        ; preds = %entry
-  %_operator = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 3
+  %_operator = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load ptr, ptr %_operator, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %7, align 8
   %agg.tmp.sroa.2.0.call63.sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
@@ -7469,7 +7188,7 @@ if.then62:                                        ; preds = %entry
   br label %return
 
 if.then69:                                        ; preds = %entry
-  %_operator71 = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 3
+  %_operator71 = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_operator71, align 8
   %agg.tmp70.sroa.0.0.copyload = load ptr, ptr %8, align 8
   %agg.tmp70.sroa.2.0.call72.sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -7657,18 +7376,18 @@ _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree23FunctionDeclarationNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_async = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 9
+  %_async = getelementptr inbounds i8, ptr %node, i64 129
   %0 = load i8, ptr %_async, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
-  %_generator = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 8
+  %_generator = getelementptr inbounds i8, ptr %node, i64 128
   %2 = load i8, ptr %_generator, align 8
   %3 = and i8 %2, 1
   %tobool2 = icmp ne i8 %3, 0
-  %_id = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 72
   %4 = load ptr, ptr %_id, align 8
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 3
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionDeclarationNode", ptr %node, i64 0, i32 4
+  %_params = getelementptr inbounds i8, ptr %node, i64 80
+  %_body = getelementptr inbounds i8, ptr %node, i64 96
   %5 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %5)
   ret void
@@ -7678,9 +7397,9 @@ entry:
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18WhileStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -7713,9 +7432,9 @@ if.then.i:                                        ; preds = %_ZN4llvh11raw_ostre
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
   %6 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %7, %8
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i5
@@ -7731,13 +7450,13 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i5, %if.end.i
-  %_test = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %9 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %9)
   %10 = load ptr, ptr %this, align 8
-  %OutBufCur.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i8 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i8, align 8
-  %OutBufEnd.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 2
+  %OutBufEnd.i9 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %OutBufEnd.i9, align 8
   %cmp.not.i10 = icmp ult ptr %11, %12
   br i1 %cmp.not.i10, label %if.end.i14, label %if.then.i11
@@ -7753,7 +7472,7 @@ if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.end.i14
-  %_body = getelementptr inbounds %"class.hermes::ESTree::WhileStatementNode", ptr %node, i64 0, i32 1
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %13 = load ptr, ptr %_body, align 8
   %14 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %13, i1 noundef zeroext false)
   ret void
@@ -7762,7 +7481,7 @@ _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node, i1 noundef zeroext %forceBlock) unnamed_addr #0 align 2 {
 entry:
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %node, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %0, 19
   %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %node, ptr null
@@ -7770,7 +7489,7 @@ entry:
   br i1 %tobool.not, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %entry
-  %_body = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %spec.select.i, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %spec.select.i, i64 56
   %1 = load ptr, ptr %_body, align 8
   %cmp.i.i = icmp eq ptr %1, %_body
   %cmp.i.i.i.i.i.i = icmp eq i32 %0, 18
@@ -7795,9 +7514,9 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.then, %if.then.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %6 to i64
@@ -7834,9 +7553,9 @@ if.then.i12:                                      ; preds = %if.then8
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14:    ; preds = %if.then8, %if.then.i12
   %10 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %11, %12
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i15
@@ -7852,7 +7571,7 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i15, %if.end.i
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %13 = load i32, ptr %indent_.i, align 4
   %add.i = add nsw i32 %13, 2
   store i32 %add.i, ptr %indent_.i, align 4
@@ -7872,7 +7591,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostre
   br i1 %tobool.not, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
-  %_body13 = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %spec.select.i, i64 0, i32 2
+  %_body13 = getelementptr inbounds i8, ptr %spec.select.i, i64 56
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_body13)
   br label %if.end14
 
@@ -7883,9 +7602,9 @@ if.else:                                          ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i22:                                      ; preds = %if.else
   %18 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i63 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 2
+  %OutBufEnd.i5.i63 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %OutBufEnd.i5.i63, align 8
-  %OutBufCur.i6.i64 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 3
+  %OutBufCur.i6.i64 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %OutBufCur.i6.i64, align 8
   %cmp.i.i68 = icmp eq ptr %19, %20
   br i1 %cmp.i.i68, label %if.then.i.i74, label %if.then4.i.i71
@@ -7919,9 +7638,9 @@ if.then.i28:                                      ; preds = %if.end14
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit33:  ; preds = %if.end14, %if.then.i28
   %27 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i35 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %27, i64 0, i32 2
+  %OutBufEnd.i5.i35 = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %OutBufEnd.i5.i35, align 8
-  %OutBufCur.i6.i36 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %27, i64 0, i32 3
+  %OutBufCur.i6.i36 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %OutBufCur.i6.i36, align 8
   %cmp.i.i40 = icmp eq ptr %28, %29
   br i1 %cmp.i.i40, label %if.then.i.i46, label %if.then4.i.i43
@@ -7938,11 +7657,11 @@ if.then4.i.i43:                                   ; preds = %_ZN6hermes12_GLOBAL
   br label %return
 
 if.else17:                                        ; preds = %if.end
-  %indent_.i49 = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i49 = getelementptr inbounds i8, ptr %this, i64 12
   %31 = load i32, ptr %indent_.i49, align 4
   %add.i50 = add nsw i32 %31, 2
   store i32 %add.i50, ptr %indent_.i49, align 4
-  %pretty_.i51 = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_.i51 = getelementptr inbounds i8, ptr %this, i64 8
   %32 = load i8, ptr %pretty_.i51, align 8
   %33 = and i8 %32, 1
   %tobool.not.i52 = icmp eq i8 %33, 0
@@ -7971,9 +7690,9 @@ return:                                           ; preds = %if.then4.i.i43, %if
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20DoWhileStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -7993,7 +7712,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %node, i64 0, i32 1
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_body, align 8
   %call2 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, i1 noundef zeroext false)
   br i1 %call2, label %if.then, label %if.else
@@ -8012,9 +7731,9 @@ if.then.i:                                        ; preds = %if.then
 
 if.else:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %7 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i5.i8 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i8, align 8
-  %OutBufCur.i6.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i6.i9 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i9, align 8
   %cmp.i.i13 = icmp eq ptr %8, %9
   br i1 %cmp.i.i13, label %if.then.i.i19, label %if.then4.i.i16
@@ -8031,7 +7750,7 @@ if.then4.i.i16:                                   ; preds = %if.else
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit21
 
 _ZN4llvh11raw_ostreamlsEPKc.exit21:               ; preds = %if.then.i.i19, %if.then4.i.i16
-  %pretty_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i8, ptr %pretty_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
@@ -8040,16 +7759,16 @@ _ZN4llvh11raw_ostreamlsEPKc.exit21:               ; preds = %if.then.i.i19, %if.
 if.then.i22:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit21
   %13 = load ptr, ptr %this, align 8
   %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #12
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %14 = load i32, ptr %indent_.i, align 4
   %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i23, i32 noundef %14) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i22, %_ZN4llvh11raw_ostreamlsEPKc.exit21, %if.then.i, %if.then
   %15 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i25 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 2
+  %OutBufEnd.i5.i25 = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %OutBufEnd.i5.i25, align 8
-  %OutBufCur.i6.i26 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 3
+  %OutBufCur.i6.i26 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %OutBufCur.i6.i26, align 8
   %sub.ptr.lhs.cast.i7.i27 = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i8.i28 = ptrtoint ptr %17 to i64
@@ -8082,9 +7801,9 @@ if.then.i40:                                      ; preds = %_ZN4llvh11raw_ostre
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit38, %if.then.i40
   %21 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %22, %23
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i43
@@ -8100,13 +7819,13 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i43, %if.end.i
-  %_test = getelementptr inbounds %"class.hermes::ESTree::DoWhileStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %24 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %24)
   %25 = load ptr, ptr %this, align 8
-  %OutBufCur.i46 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 3
+  %OutBufCur.i46 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i46, align 8
-  %OutBufEnd.i47 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 2
+  %OutBufEnd.i47 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %OutBufEnd.i47, align 8
   %cmp.not.i48 = icmp ult ptr %26, %27
   br i1 %cmp.not.i48, label %if.end.i52, label %if.then.i49
@@ -8128,16 +7847,16 @@ _ZN4llvh11raw_ostreamlsEc.exit54:                 ; preds = %if.then.i49, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ForInStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  %_right = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForInStatementNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_body, align 8
   %3 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
@@ -8159,9 +7878,9 @@ if.then4.i.i:                                     ; preds = %entry
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i23 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i23 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i23, align 8
-  %OutBufEnd.i24 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i24 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i24, align 8
   %cmp.not.i25 = icmp ult ptr %8, %9
   br i1 %cmp.not.i25, label %if.end.i29, label %if.then.i26
@@ -8178,9 +7897,9 @@ if.end.i29:                                       ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEc.exit31:                 ; preds = %if.then.i26, %if.end.i29
   %retval.0.i28 = phi ptr [ %call.i27, %if.then.i26 ], [ %7, %if.end.i29 ]
-  %OutBufEnd.i17 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i28, i64 0, i32 2
+  %OutBufEnd.i17 = getelementptr inbounds i8, ptr %retval.0.i28, i64 16
   %10 = load ptr, ptr %OutBufEnd.i17, align 8
-  %OutBufCur.i18 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i28, i64 0, i32 3
+  %OutBufCur.i18 = getelementptr inbounds i8, ptr %retval.0.i28, i64 24
   %11 = load ptr, ptr %OutBufCur.i18, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
@@ -8190,7 +7909,7 @@ _ZN4llvh11raw_ostreamlsEc.exit31:                 ; preds = %if.then.i26, %if.en
 
 if.then.i21:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit31
   %call3.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i28, ptr noundef nonnull @.str.243, i64 noundef 2) #12
-  %OutBufCur.i8.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i22, i64 0, i32 3
+  %OutBufCur.i8.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i22, i64 24
   %.pre = load ptr, ptr %OutBufCur.i8.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
@@ -8204,7 +7923,7 @@ if.end.i19:                                       ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i21, %if.end.i19
   %13 = phi ptr [ %.pre, %if.then.i21 ], [ %add.ptr.i, %if.end.i19 ]
   %retval.0.i20 = phi ptr [ %call3.i22, %if.then.i21 ], [ %retval.0.i28, %if.end.i19 ]
-  %OutBufEnd.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i20, i64 0, i32 2
+  %OutBufEnd.i9 = getelementptr inbounds i8, ptr %retval.0.i20, i64 16
   %14 = load ptr, ptr %OutBufEnd.i9, align 8
   %cmp.not.i10 = icmp ult ptr %13, %14
   br i1 %cmp.not.i10, label %if.end.i14, label %if.then.i11
@@ -8214,7 +7933,7 @@ if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %OutBufCur.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i20, i64 0, i32 3
+  %OutBufCur.i8 = getelementptr inbounds i8, ptr %retval.0.i20, i64 24
   %incdec.ptr.i15 = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr.i15, ptr %OutBufCur.i8, align 8
   store i8 32, ptr %13, align 1
@@ -8223,9 +7942,9 @@ if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.end.i14
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
   %15 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %16, %17
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -8248,16 +7967,16 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ForOfStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 2
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
-  %_right = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load ptr, ptr %_right, align 8
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForOfStatementNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 72
   %2 = load ptr, ptr %_body, align 8
   %3 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
@@ -8279,9 +7998,9 @@ if.then4.i.i:                                     ; preds = %entry
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i23 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i23 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i23, align 8
-  %OutBufEnd.i24 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i24 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i24, align 8
   %cmp.not.i25 = icmp ult ptr %8, %9
   br i1 %cmp.not.i25, label %if.end.i29, label %if.then.i26
@@ -8298,9 +8017,9 @@ if.end.i29:                                       ; preds = %_ZN4llvh11raw_ostre
 
 _ZN4llvh11raw_ostreamlsEc.exit31:                 ; preds = %if.then.i26, %if.end.i29
   %retval.0.i28 = phi ptr [ %call.i27, %if.then.i26 ], [ %7, %if.end.i29 ]
-  %OutBufEnd.i17 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i28, i64 0, i32 2
+  %OutBufEnd.i17 = getelementptr inbounds i8, ptr %retval.0.i28, i64 16
   %10 = load ptr, ptr %OutBufEnd.i17, align 8
-  %OutBufCur.i18 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i28, i64 0, i32 3
+  %OutBufCur.i18 = getelementptr inbounds i8, ptr %retval.0.i28, i64 24
   %11 = load ptr, ptr %OutBufCur.i18, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
@@ -8310,7 +8029,7 @@ _ZN4llvh11raw_ostreamlsEc.exit31:                 ; preds = %if.then.i26, %if.en
 
 if.then.i21:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit31
   %call3.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i28, ptr noundef nonnull @.str.275, i64 noundef 2) #12
-  %OutBufCur.i8.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i22, i64 0, i32 3
+  %OutBufCur.i8.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i22, i64 24
   %.pre = load ptr, ptr %OutBufCur.i8.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
@@ -8324,7 +8043,7 @@ if.end.i19:                                       ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i21, %if.end.i19
   %13 = phi ptr [ %.pre, %if.then.i21 ], [ %add.ptr.i, %if.end.i19 ]
   %retval.0.i20 = phi ptr [ %call3.i22, %if.then.i21 ], [ %retval.0.i28, %if.end.i19 ]
-  %OutBufEnd.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i20, i64 0, i32 2
+  %OutBufEnd.i9 = getelementptr inbounds i8, ptr %retval.0.i20, i64 16
   %14 = load ptr, ptr %OutBufEnd.i9, align 8
   %cmp.not.i10 = icmp ult ptr %13, %14
   br i1 %cmp.not.i10, label %if.end.i14, label %if.then.i11
@@ -8334,7 +8053,7 @@ if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %OutBufCur.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i20, i64 0, i32 3
+  %OutBufCur.i8 = getelementptr inbounds i8, ptr %retval.0.i20, i64 24
   %incdec.ptr.i15 = getelementptr inbounds i8, ptr %13, i64 1
   store ptr %incdec.ptr.i15, ptr %OutBufCur.i8, align 8
   store i8 32, ptr %13, align 1
@@ -8343,9 +8062,9 @@ if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostre
 _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.end.i14
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
   %15 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %16, %17
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -8369,9 +8088,9 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree16ForStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -8391,7 +8110,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_init = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 1
+  %_init = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_init, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -8405,9 +8124,9 @@ if.end.i:                                         ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i43:                                      ; preds = %if.end.i
   %5 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i.i, label %if.end.i.i46, label %if.then.i.i44
@@ -8424,9 +8143,9 @@ if.end.i.i46:                                     ; preds = %if.then.i43
 
 if.then3.i:                                       ; preds = %if.end.i
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -8448,9 +8167,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i46, %if.then.i.i44
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -8467,9 +8186,9 @@ if.end.i19.i:                                     ; preds = %if.then8.i
 
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit: ; preds = %if.end6.i.thread, %if.end.i19.i, %if.then.i16.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %15, %16
   br i1 %cmp.not.i, label %if.end.i14, label %if.then.i
@@ -8485,7 +8204,7 @@ if.end.i14:                                       ; preds = %_ZN6hermes12_GLOBAL
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i14
-  %_test = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 2
+  %_test = getelementptr inbounds i8, ptr %node, i64 64
   %17 = load ptr, ptr %_test, align 8
   %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8510,9 +8229,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.then, %if.then.i
 
 if.end:                                           ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit, %_ZN4llvh11raw_ostreamlsEc.exit
   %21 = load ptr, ptr %this, align 8
-  %OutBufCur.i19 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i19 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i19, align 8
-  %OutBufEnd.i20 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i20 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %OutBufEnd.i20, align 8
   %cmp.not.i21 = icmp ult ptr %22, %23
   br i1 %cmp.not.i21, label %if.end.i25, label %if.then.i22
@@ -8528,7 +8247,7 @@ if.end.i25:                                       ; preds = %if.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit27
 
 _ZN4llvh11raw_ostreamlsEc.exit27:                 ; preds = %if.then.i22, %if.end.i25
-  %_update = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 3
+  %_update = getelementptr inbounds i8, ptr %node, i64 72
   %24 = load ptr, ptr %_update, align 8
   %tobool7.not = icmp eq ptr %24, null
   br i1 %tobool7.not, label %if.end10, label %if.then8
@@ -8553,9 +8272,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32:    ; preds = %if.then8, %if.then.
 
 if.end10:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32, %_ZN4llvh11raw_ostreamlsEc.exit27
   %28 = load ptr, ptr %this, align 8
-  %OutBufCur.i34 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 3
+  %OutBufCur.i34 = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %OutBufCur.i34, align 8
-  %OutBufEnd.i35 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 2
+  %OutBufEnd.i35 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %OutBufEnd.i35, align 8
   %cmp.not.i36 = icmp ult ptr %29, %30
   br i1 %cmp.not.i36, label %if.end.i40, label %if.then.i37
@@ -8571,7 +8290,7 @@ if.end.i40:                                       ; preds = %if.end10
   br label %_ZN4llvh11raw_ostreamlsEc.exit42
 
 _ZN4llvh11raw_ostreamlsEc.exit42:                 ; preds = %if.then.i37, %if.end.i40
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ForStatementNode", ptr %node, i64 0, i32 4
+  %_body = getelementptr inbounds i8, ptr %node, i64 80
   %31 = load ptr, ptr %_body, align 8
   %32 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %31, i1 noundef zeroext false)
   ret void
@@ -8580,16 +8299,16 @@ _ZN4llvh11raw_ostreamlsEc.exit42:                 ; preds = %if.then.i37, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BlockStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_body = getelementptr inbounds %"class.hermes::ESTree::BlockStatementNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_body, align 8
   %cmp.i.i = icmp eq ptr %0, %_body
   %1 = load ptr, ptr %this, align 8
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %3 to i64
@@ -8609,9 +8328,9 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -8627,11 +8346,11 @@ if.end.i:                                         ; preds = %if.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %indent_.i, align 4
   %add.i = add nsw i32 %7, 2
   store i32 %add.i, ptr %indent_.i, align 4
-  %pretty_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i8, ptr %pretty_.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i = icmp eq i8 %9, 0
@@ -8663,9 +8382,9 @@ if.then.i11:                                      ; preds = %_ZN6hermes12_GLOBAL
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit16:  ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit, %if.then.i11
   %17 = load ptr, ptr %this, align 8
-  %OutBufCur.i17 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i17 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i17, align 8
-  %OutBufEnd.i18 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i18, align 8
   %cmp.not.i19 = icmp ult ptr %18, %19
   br i1 %cmp.not.i19, label %if.end.i23, label %if.then.i20
@@ -8688,9 +8407,9 @@ return:                                           ; preds = %if.end.i23, %if.the
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BreakStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -8710,16 +8429,16 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_label = getelementptr inbounds %"class.hermes::ESTree::BreakStatementNode", ptr %node, i64 0, i32 2
+  %_label = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_label, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %5 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -8747,9 +8466,9 @@ if.end:                                           ; preds = %_ZN4llvh11raw_ostre
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree21ContinueStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -8769,16 +8488,16 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_label = getelementptr inbounds %"class.hermes::ESTree::ContinueStatementNode", ptr %node, i64 0, i32 2
+  %_label = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_label, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %5 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -8806,9 +8525,9 @@ if.end:                                           ; preds = %_ZN4llvh11raw_ostre
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThrowStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -8828,7 +8547,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::ThrowStatementNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_argument, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4)
   ret void
@@ -8838,9 +8557,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree19ReturnStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -8860,16 +8579,16 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::ReturnStatementNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_argument, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %5 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -8897,9 +8616,9 @@ if.end:                                           ; preds = %_ZN4llvh11raw_ostre
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree19SwitchStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -8932,9 +8651,9 @@ if.then.i:                                        ; preds = %_ZN4llvh11raw_ostre
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
   %6 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %7, %8
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i8
@@ -8950,13 +8669,13 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i8, %if.end.i
-  %_discriminant = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 2
+  %_discriminant = getelementptr inbounds i8, ptr %node, i64 56
   %9 = load ptr, ptr %_discriminant, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %9)
   %10 = load ptr, ptr %this, align 8
-  %OutBufCur.i11 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i11 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i11, align 8
-  %OutBufEnd.i12 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 2
+  %OutBufEnd.i12 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %OutBufEnd.i12, align 8
   %cmp.not.i13 = icmp ult ptr %11, %12
   br i1 %cmp.not.i13, label %if.end.i17, label %if.then.i14
@@ -8984,9 +8703,9 @@ if.then.i22:                                      ; preds = %_ZN4llvh11raw_ostre
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit19, %if.then.i22
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i25 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i25 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i25, align 8
-  %OutBufEnd.i26 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i26 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i26, align 8
   %cmp.not.i27 = icmp ult ptr %15, %16
   br i1 %cmp.not.i27, label %if.end.i31, label %if.then.i28
@@ -9010,20 +8729,20 @@ _ZN4llvh11raw_ostreamlsEc.exit33:                 ; preds = %if.then.i28, %if.en
 if.then.i34:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit33
   %19 = load ptr, ptr %this, align 8
   %call.i35 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 10) #12
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %20 = load i32, ptr %indent_.i, align 4
   %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i35, i32 noundef %20) #12
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit33, %if.then.i34
-  %_cases = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SwitchStatementNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_cases = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin2.sroa.0.057 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not58 = icmp eq ptr %__begin2.sroa.0.057, %_cases
   br i1 %cmp.i.not58, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
-  %indent_.i42 = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i42 = getelementptr inbounds i8, ptr %this, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45
@@ -9042,16 +8761,16 @@ if.then.i40:                                      ; preds = %for.body
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45:  ; preds = %for.body, %if.then.i40
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.059, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.059, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_cases
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45, %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
   %25 = load ptr, ptr %this, align 8
-  %OutBufCur.i46 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 3
+  %OutBufCur.i46 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i46, align 8
-  %OutBufEnd.i47 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 2
+  %OutBufEnd.i47 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %OutBufEnd.i47, align 8
   %cmp.not.i48 = icmp ult ptr %26, %27
   br i1 %cmp.not.i48, label %if.end.i52, label %if.then.i49
@@ -9073,13 +8792,13 @@ _ZN4llvh11raw_ostreamlsEc.exit54:                 ; preds = %if.then.i49, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20LabeledStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_label = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %node, i64 0, i32 2
+  %_label = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_label, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -9095,7 +8814,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %pretty_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %pretty_.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
@@ -9104,13 +8823,13 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 if.then.i5:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %6 = load ptr, ptr %this, align 8
   %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 10) #12
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %indent_.i, align 4
   %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i6, i32 noundef %7) #12
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i5
-  %_body = getelementptr inbounds %"class.hermes::ESTree::LabeledStatementNode", ptr %node, i64 0, i32 3
+  %_body = getelementptr inbounds i8, ptr %node, i64 64
   %8 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %8)
   ret void
@@ -9119,7 +8838,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostre
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree23ExpressionStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_expression = getelementptr inbounds %"class.hermes::ESTree::ExpressionStatementNode", ptr %node, i64 0, i32 1
+  %_expression = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_expression, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -9133,9 +8852,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -9152,9 +8871,9 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -9176,9 +8895,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -9201,9 +8920,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree16TryStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -9223,13 +8942,13 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_block = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 1
+  %_block = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_block, align 8
   %5 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %4, i1 noundef zeroext true)
-  %_handler = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 2
+  %_handler = getelementptr inbounds i8, ptr %node, i64 56
   %6 = load ptr, ptr %_handler, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %6)
-  %_finalizer = getelementptr inbounds %"class.hermes::ESTree::TryStatementNode", ptr %node, i64 0, i32 3
+  %_finalizer = getelementptr inbounds i8, ptr %node, i64 64
   %7 = load ptr, ptr %_finalizer, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -9246,9 +8965,9 @@ if.end:                                           ; preds = %if.then, %_ZN4llvh1
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15IfStatementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -9281,9 +9000,9 @@ if.then.i:                                        ; preds = %_ZN4llvh11raw_ostre
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
   %6 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %6, i64 16
   %8 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %7, %8
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
@@ -9299,13 +9018,13 @@ if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i12, %if.end.i
-  %_test = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %9 = load ptr, ptr %_test, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %9)
   %10 = load ptr, ptr %this, align 8
-  %OutBufCur.i15 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i15 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i15, align 8
-  %OutBufEnd.i16 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 2
+  %OutBufEnd.i16 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %OutBufEnd.i16, align 8
   %cmp.not.i17 = icmp ult ptr %11, %12
   br i1 %cmp.not.i17, label %if.end.i21, label %if.then.i18
@@ -9321,10 +9040,10 @@ if.end.i21:                                       ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit23
 
 _ZN4llvh11raw_ostreamlsEc.exit23:                 ; preds = %if.then.i18, %if.end.i21
-  %_alternate = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 3
+  %_alternate = getelementptr inbounds i8, ptr %node, i64 64
   %13 = load ptr, ptr %_alternate, align 8
   %tobool.not = icmp eq ptr %13, null
-  %_consequent7.phi.trans.insert = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %node, i64 0, i32 2
+  %_consequent7.phi.trans.insert = getelementptr inbounds i8, ptr %node, i64 56
   %.pre = load ptr, ptr %_consequent7.phi.trans.insert, align 8
   br i1 %tobool.not, label %land.end, label %land.rhs
 
@@ -9333,13 +9052,13 @@ land.rhs:                                         ; preds = %_ZN4llvh11raw_ostre
   br i1 %tobool.not.i.i24, label %land.end, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.rhs
-  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %.pre, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 16
   %14 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %14, 29
   br i1 %cmp.i.i.i.i.i.i.i.i, label %land.rhs.i, label %land.end
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i.i
-  %_alternate.i = getelementptr inbounds %"class.hermes::ESTree::IfStatementNode", ptr %.pre, i64 0, i32 3
+  %_alternate.i = getelementptr inbounds i8, ptr %.pre, i64 64
   %15 = load ptr, ptr %_alternate.i, align 8
   %tobool1.not.i = icmp eq ptr %15, null
   br label %land.end
@@ -9357,9 +9076,9 @@ if.end:                                           ; preds = %land.end
 
 if.then14:                                        ; preds = %if.end
   %19 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i26 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 2
+  %OutBufEnd.i5.i26 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %OutBufEnd.i5.i26, align 8
-  %OutBufCur.i6.i27 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 3
+  %OutBufCur.i6.i27 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %OutBufCur.i6.i27, align 8
   %cmp.i.i31 = icmp eq ptr %20, %21
   br i1 %cmp.i.i31, label %if.then.i.i37, label %if.then4.i.i34
@@ -9384,7 +9103,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit39:               ; preds = %if.then.i.i37, %if.
 if.then.i40:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit39
   %25 = load ptr, ptr %this, align 8
   %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 noundef zeroext 10) #12
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %26 = load i32, ptr %indent_.i, align 4
   %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i41, i32 noundef %26) #12
   br label %if.end17
@@ -9402,9 +9121,9 @@ if.then.i45:                                      ; preds = %if.else
 
 if.end17:                                         ; preds = %if.then.i45, %if.else, %if.then.i40, %_ZN4llvh11raw_ostreamlsEPKc.exit39
   %28 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i49 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 2
+  %OutBufEnd.i5.i49 = getelementptr inbounds i8, ptr %28, i64 16
   %29 = load ptr, ptr %OutBufEnd.i5.i49, align 8
-  %OutBufCur.i6.i50 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 3
+  %OutBufCur.i6.i50 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %OutBufCur.i6.i50, align 8
   %sub.ptr.lhs.cast.i7.i51 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i8.i52 = ptrtoint ptr %30 to i64
@@ -9439,8 +9158,8 @@ declare noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef, ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree22SequenceExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_expressions = getelementptr inbounds %"class.hermes::ESTree::SequenceExpressionNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::SequenceExpressionNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_expressions = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.09 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not10 = icmp eq ptr %__begin2.sroa.0.09, %_expressions
   br i1 %cmp.i.not10, label %for.end, label %for.body.lr.ph
@@ -9463,9 +9182,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i = icmp eq i8 %1, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val, i64 16
   %2 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val, i64 24
   %3 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %3 to i64
@@ -9498,9 +9217,9 @@ if.end.i:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end.i
   %5 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -9517,9 +9236,9 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -9541,9 +9260,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %__begin2.sroa.0.012)
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -9559,7 +9278,7 @@ if.end.i19.i:                                     ; preds = %if.then8.i
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit: ; preds = %if.end6.i.thread, %if.end.i19.i, %if.then.i16.i, %if.end
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.012, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_expressions
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -9572,9 +9291,9 @@ for.end:                                          ; preds = %_ZN6hermes12_GLOBAL
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitPropsERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %props) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -9590,7 +9309,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %__begin2.sroa.0.0.in3 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %props, i64 0, i32 1
+  %__begin2.sroa.0.0.in3 = getelementptr inbounds i8, ptr %props, i64 8
   %__begin2.sroa.0.04 = load ptr, ptr %__begin2.sroa.0.0.in3, align 8
   %cmp.i.not5 = icmp eq ptr %__begin2.sroa.0.04, %props
   br i1 %cmp.i.not5, label %for.end, label %for.body.lr.ph
@@ -9613,9 +9332,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i = icmp eq i8 %4, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %6 to i64
@@ -9636,16 +9355,16 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.07)
-  %__begin2.sroa.0.0.in = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.07, i64 0, i32 1
+  %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %props
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end, %_ZN4llvh11raw_ostreamlsEc.exit
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i4 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i4, align 8
-  %OutBufEnd.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i5 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i5, align 8
   %cmp.not.i6 = icmp ult ptr %9, %10
   br i1 %cmp.not.i6, label %if.end.i10, label %if.then.i7
@@ -9668,9 +9387,9 @@ _ZN4llvh11raw_ostreamlsEc.exit12:                 ; preds = %if.then.i7, %if.end
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree19ArrayExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -9686,8 +9405,8 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %_elements = getelementptr inbounds %"class.hermes::ESTree::ArrayExpressionNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrayExpressionNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_elements = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.036 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not37 = icmp eq ptr %__begin2.sroa.0.036, %_elements
   br i1 %cmp.i.not37, label %for.end, label %for.body.lr.ph
@@ -9710,9 +9429,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i = icmp eq i8 %4, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val5, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val5, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val5, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val5, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %6 to i64
@@ -9740,9 +9459,9 @@ if.end:                                           ; preds = %if.then4.i.i.i, %if
 
 if.then.i33:                                      ; preds = %if.end
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -9764,9 +9483,9 @@ if.end6.i:                                        ; preds = %if.end
 if.then8.i:                                       ; preds = %if.then.i.i, %if.end.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.039)
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -9782,13 +9501,13 @@ if.end.i19.i:                                     ; preds = %if.then8.i
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit: ; preds = %if.then.i16.i, %if.end.i19.i, %if.end6.i
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.039, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.039, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_elements
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit, %_ZN4llvh11raw_ostreamlsEc.exit
-  %_trailingComma = getelementptr inbounds %"class.hermes::ESTree::ArrayExpressionNode", ptr %node, i64 0, i32 2
+  %_trailingComma = getelementptr inbounds i8, ptr %node, i64 64
   %14 = load i8, ptr %_trailingComma, align 8
   %15 = and i8 %14, 1
   %tobool.not = icmp eq i8 %15, 0
@@ -9802,9 +9521,9 @@ if.then8:                                         ; preds = %for.end
   %tobool.not.i10 = icmp eq i8 %17, 0
   %cond.i11 = select i1 %tobool.not.i10, ptr @.str.240, ptr @.str.239
   %call.i.i.i12 = select i1 %tobool.not.i10, i64 1, i64 2
-  %OutBufEnd.i5.i.i13 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i13 = getelementptr inbounds i8, ptr %this.val, i64 16
   %18 = load ptr, ptr %OutBufEnd.i5.i.i13, align 8
-  %OutBufCur.i6.i.i14 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i14 = getelementptr inbounds i8, ptr %this.val, i64 24
   %19 = load ptr, ptr %OutBufCur.i6.i.i14, align 8
   %sub.ptr.lhs.cast.i7.i.i15 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i8.i.i16 = ptrtoint ptr %19 to i64
@@ -9825,9 +9544,9 @@ if.then4.i.i.i19:                                 ; preds = %if.then8
 
 if.end9:                                          ; preds = %if.then4.i.i.i19, %if.then.i.i.i21, %for.end
   %21 = load ptr, ptr %this, align 8
-  %OutBufCur.i24 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i24 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i24, align 8
-  %OutBufEnd.i25 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i25 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %OutBufEnd.i25, align 8
   %cmp.not.i26 = icmp ult ptr %22, %23
   br i1 %cmp.not.i26, label %if.end.i30, label %if.then.i27
@@ -9850,9 +9569,9 @@ _ZN4llvh11raw_ostreamlsEc.exit32:                 ; preds = %if.then.i27, %if.en
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17NewExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -9872,7 +9591,7 @@ if.then4.i.i:                                     ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %4 = load ptr, ptr %_callee, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -9886,9 +9605,9 @@ if.end.i:                                         ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i:                                        ; preds = %if.end.i
   %5 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %5, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %6, %7
   br i1 %cmp.not.i.i, label %if.end.i.i13, label %if.then.i.i11
@@ -9905,9 +9624,9 @@ if.end.i.i13:                                     ; preds = %if.then.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -9929,9 +9648,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i13, %if.then.i.i11
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %4)
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -9949,8 +9668,8 @@ if.end.i19.i:                                     ; preds = %if.then8.i
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit: ; preds = %if.end6.i.thread, %if.end.i19.i, %if.then.i16.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %14 = load ptr, ptr %this, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 40) #12
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::NewExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin2.sroa.0.040 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not41 = icmp eq ptr %__begin2.sroa.0.040, %_arguments
   br i1 %cmp.i.not41, label %for.end, label %for.body.lr.ph
@@ -9973,9 +9692,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i6 = icmp eq i8 %16, 0
   %cond.i = select i1 %tobool.not.i6, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i6, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val, i64 16
   %17 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val, i64 24
   %18 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %18 to i64
@@ -10003,9 +9722,9 @@ if.end:                                           ; preds = %if.then4.i.i.i, %if
 
 if.then.i27:                                      ; preds = %if.end
   %20 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i28 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %20, i64 0, i32 3
+  %OutBufCur.i.i28 = getelementptr inbounds i8, ptr %20, i64 24
   %21 = load ptr, ptr %OutBufCur.i.i28, align 8
-  %OutBufEnd.i.i29 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %20, i64 0, i32 2
+  %OutBufEnd.i.i29 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %OutBufEnd.i.i29, align 8
   %cmp.not.i.i30 = icmp ult ptr %21, %22
   br i1 %cmp.not.i.i30, label %if.end.i.i35, label %if.then.i.i31
@@ -10027,9 +9746,9 @@ if.end6.i15:                                      ; preds = %if.end
 if.then8.i17:                                     ; preds = %if.then.i.i31, %if.end.i.i35
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.043)
   %23 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i18 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %23, i64 0, i32 3
+  %OutBufCur.i13.i18 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %OutBufCur.i13.i18, align 8
-  %OutBufEnd.i14.i19 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %23, i64 0, i32 2
+  %OutBufEnd.i14.i19 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %OutBufEnd.i14.i19, align 8
   %cmp.not.i15.i20 = icmp ult ptr %24, %25
   br i1 %cmp.not.i15.i20, label %if.end.i19.i25, label %if.then.i16.i21
@@ -10045,7 +9764,7 @@ if.end.i19.i25:                                   ; preds = %if.then8.i17
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit37
 
 _ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit37: ; preds = %if.then.i16.i21, %if.end.i19.i25, %if.end6.i15
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.043, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_arguments
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -10059,14 +9778,14 @@ for.end:                                          ; preds = %_ZN6hermes12_GLOBAL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree19YieldExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_delegate = getelementptr inbounds %"class.hermes::ESTree::YieldExpressionNode", ptr %node, i64 0, i32 2
+  %_delegate = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load i8, ptr %_delegate, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %2 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i5.i4 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i4, align 8
-  %OutBufCur.i6.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i6.i5 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i5, align 8
   %sub.ptr.lhs.cast.i7.i6 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i7 = ptrtoint ptr %4 to i64
@@ -10104,7 +9823,7 @@ if.then4.i.i12:                                   ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i12, %if.then.i.i15, %if.then4.i.i, %if.then.i.i
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::YieldExpressionNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %7 = load ptr, ptr %_argument, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -10118,9 +9837,9 @@ if.end.i:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.end.i
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i.i, label %if.end.i.i20, label %if.then.i.i18
@@ -10137,9 +9856,9 @@ if.end.i.i20:                                     ; preds = %if.then.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -10161,9 +9880,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i20, %if.then.i.i18
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %7)
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %15, %16
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -10185,7 +9904,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18CallExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_callee = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 1
+  %_callee = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_callee, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -10199,9 +9918,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -10218,9 +9937,9 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -10242,9 +9961,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -10262,8 +9981,8 @@ if.end.i19.i:                                     ; preds = %if.then8.i
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit: ; preds = %if.end6.i.thread, %if.end.i19.i, %if.then.i16.i, %entry
   %10 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 40) #12
-  %_arguments = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 3
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::CallExpressionNode", ptr %node, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_arguments = getelementptr inbounds i8, ptr %node, i64 64
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %__begin2.sroa.0.037 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not38 = icmp eq ptr %__begin2.sroa.0.037, %_arguments
   br i1 %cmp.i.not38, label %for.end, label %for.body.lr.ph
@@ -10286,9 +10005,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i6 = icmp eq i8 %12, 0
   %cond.i = select i1 %tobool.not.i6, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i6, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val, i64 16
   %13 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val, i64 24
   %14 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %14 to i64
@@ -10316,9 +10035,9 @@ if.end:                                           ; preds = %if.then4.i.i.i, %if
 
 if.then.i24:                                      ; preds = %if.end
   %16 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i25 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %16, i64 0, i32 3
+  %OutBufCur.i.i25 = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %OutBufCur.i.i25, align 8
-  %OutBufEnd.i.i26 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %16, i64 0, i32 2
+  %OutBufEnd.i.i26 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %OutBufEnd.i.i26, align 8
   %cmp.not.i.i27 = icmp ult ptr %17, %18
   br i1 %cmp.not.i.i27, label %if.end.i.i32, label %if.then.i.i28
@@ -10340,9 +10059,9 @@ if.end6.i12:                                      ; preds = %if.end
 if.then8.i14:                                     ; preds = %if.then.i.i28, %if.end.i.i32
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
   %19 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i15 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 3
+  %OutBufCur.i13.i15 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %OutBufCur.i13.i15, align 8
-  %OutBufEnd.i14.i16 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 2
+  %OutBufEnd.i14.i16 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %OutBufEnd.i14.i16, align 8
   %cmp.not.i15.i17 = icmp ult ptr %20, %21
   br i1 %cmp.not.i15.i17, label %if.end.i19.i22, label %if.then.i16.i18
@@ -10358,7 +10077,7 @@ if.end.i19.i22:                                   ; preds = %if.then8.i14
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit34
 
 _ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit34: ; preds = %if.then.i16.i18, %if.end.i19.i22, %if.end6.i12
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.040, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.040, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_arguments
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -10372,7 +10091,7 @@ for.end:                                          ; preds = %_ZN6hermes12_GLOBAL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree24AssignmentExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %node, i64 0, i32 2
+  %_left = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_left, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -10386,9 +10105,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i23:                                      ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -10405,9 +10124,9 @@ if.end.i.i:                                       ; preds = %if.then.i23
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -10429,9 +10148,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -10460,14 +10179,14 @@ if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
-  %_operator = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %node, i64 0, i32 1
+  %_operator = getelementptr inbounds i8, ptr %node, i64 48
   %13 = load ptr, ptr %_operator, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %12, i64 24
   %15 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
@@ -10502,7 +10221,7 @@ if.then.i15:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17:    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
-  %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentExpressionNode", ptr %node, i64 0, i32 3
+  %_right = getelementptr inbounds i8, ptr %node, i64 64
   %18 = load ptr, ptr %_right, align 8
   %tobool.not.i18 = icmp eq ptr %18, null
   br i1 %tobool.not.i18, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit21, label %if.end.i19
@@ -10516,9 +10235,9 @@ if.end.i19:                                       ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i49:                                      ; preds = %if.end.i19
   %19 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i50 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 3
+  %OutBufCur.i.i50 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %OutBufCur.i.i50, align 8
-  %OutBufEnd.i.i51 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 2
+  %OutBufEnd.i.i51 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %OutBufEnd.i.i51, align 8
   %cmp.not.i.i52 = icmp ult ptr %20, %21
   br i1 %cmp.not.i.i52, label %if.end.i.i57, label %if.then.i.i53
@@ -10535,9 +10254,9 @@ if.end.i.i57:                                     ; preds = %if.then.i49
 
 if.then3.i39:                                     ; preds = %if.end.i19
   %22 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i40 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 3
+  %OutBufCur.i3.i40 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %OutBufCur.i3.i40, align 8
-  %OutBufEnd.i4.i41 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 2
+  %OutBufEnd.i4.i41 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %OutBufEnd.i4.i41, align 8
   %cmp.not.i5.i42 = icmp ult ptr %23, %24
   br i1 %cmp.not.i5.i42, label %if.end.i9.i47, label %if.then.i6.i43
@@ -10559,9 +10278,9 @@ if.end6.i27.thread:                               ; preds = %if.end.i19, %if.the
 if.then8.i29:                                     ; preds = %if.end.i.i57, %if.then.i.i53
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %18)
   %25 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i30 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 3
+  %OutBufCur.i13.i30 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i13.i30, align 8
-  %OutBufEnd.i14.i31 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 2
+  %OutBufEnd.i14.i31 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %OutBufEnd.i14.i31, align 8
   %cmp.not.i15.i32 = icmp ult ptr %26, %27
   br i1 %cmp.not.i15.i32, label %if.end.i19.i37, label %if.then.i16.i33
@@ -10583,7 +10302,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree19UnaryExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_operator = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %node, i64 0, i32 1
+  %_operator = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_operator, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load i8, ptr %1, align 1
@@ -10593,9 +10312,9 @@ entry:
   %3 = load ptr, ptr %this, align 8
   %agg.tmp.sroa.2.0.call5.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call5.sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
@@ -10623,9 +10342,9 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i, %if.end.
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i4 = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i4, align 8
-  %OutBufEnd.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i5 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i5, align 8
   %cmp.not.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i, label %if.end.i8, label %if.then.i6
@@ -10641,7 +10360,7 @@ if.end.i8:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i8, %if.then.i6, %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::UnaryExpressionNode", ptr %node, i64 0, i32 2
+  %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %10 = load ptr, ptr %_argument, align 8
   %tobool.not.i9 = icmp eq ptr %10, null
   br i1 %tobool.not.i9, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i10
@@ -10655,9 +10374,9 @@ if.end.i10:                                       ; preds = %if.end
 
 if.then.i13:                                      ; preds = %if.end.i10
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -10674,9 +10393,9 @@ if.end.i.i:                                       ; preds = %if.then.i13
 
 if.then3.i:                                       ; preds = %if.end.i10
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %15, %16
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -10698,9 +10417,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i10, %if.the
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %10)
   %17 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %18, %19
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -10725,7 +10444,7 @@ declare i32 @isalpha(i32 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20UpdateExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_prefix = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 3
+  %_prefix = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load i8, ptr %_prefix, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -10733,14 +10452,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %_operator = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 1
+  %_operator = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_operator, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %3, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
@@ -10764,7 +10483,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i, %if.end.i, %if.then4.i
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 2
+  %_argument = getelementptr inbounds i8, ptr %node, i64 56
   %7 = load ptr, ptr %_argument, align 8
   %tobool.not.i7 = icmp eq ptr %7, null
   br i1 %tobool.not.i7, label %if.end, label %if.end.i8
@@ -10778,9 +10497,9 @@ if.end.i8:                                        ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i28:                                      ; preds = %if.end.i8
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -10797,9 +10516,9 @@ if.end.i.i:                                       ; preds = %if.then.i28
 
 if.then3.i:                                       ; preds = %if.end.i8
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -10821,9 +10540,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i8, %if.then
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %7)
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %15, %16
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -10839,7 +10558,7 @@ if.end.i19.i:                                     ; preds = %if.then8.i
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %_argument3 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 2
+  %_argument3 = getelementptr inbounds i8, ptr %node, i64 56
   %17 = load ptr, ptr %_argument3, align 8
   %tobool.not.i9 = icmp eq ptr %17, null
   br i1 %tobool.not.i9, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit12, label %if.end.i10
@@ -10853,9 +10572,9 @@ if.end.i10:                                       ; preds = %if.else
 
 if.then.i54:                                      ; preds = %if.end.i10
   %18 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i55 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 3
+  %OutBufCur.i.i55 = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %OutBufCur.i.i55, align 8
-  %OutBufEnd.i.i56 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 2
+  %OutBufEnd.i.i56 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %OutBufEnd.i.i56, align 8
   %cmp.not.i.i57 = icmp ult ptr %19, %20
   br i1 %cmp.not.i.i57, label %if.end.i.i62, label %if.then.i.i58
@@ -10872,9 +10591,9 @@ if.end.i.i62:                                     ; preds = %if.then.i54
 
 if.then3.i44:                                     ; preds = %if.end.i10
   %21 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i45 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i3.i45 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i3.i45, align 8
-  %OutBufEnd.i4.i46 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i4.i46 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %OutBufEnd.i4.i46, align 8
   %cmp.not.i5.i47 = icmp ult ptr %22, %23
   br i1 %cmp.not.i5.i47, label %if.end.i9.i52, label %if.then.i6.i48
@@ -10896,9 +10615,9 @@ if.end6.i32.thread:                               ; preds = %if.end.i10, %if.the
 if.then8.i34:                                     ; preds = %if.end.i.i62, %if.then.i.i58
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   %24 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i35 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 3
+  %OutBufCur.i13.i35 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %OutBufCur.i13.i35, align 8
-  %OutBufEnd.i14.i36 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 2
+  %OutBufEnd.i14.i36 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %OutBufEnd.i14.i36, align 8
   %cmp.not.i15.i37 = icmp ult ptr %25, %26
   br i1 %cmp.not.i15.i37, label %if.end.i19.i42, label %if.then.i16.i38
@@ -10915,14 +10634,14 @@ if.end.i19.i42:                                   ; preds = %if.then8.i34
 
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit12: ; preds = %if.end6.i32.thread, %if.end.i19.i42, %if.then.i16.i38, %if.else
   %27 = load ptr, ptr %this, align 8
-  %_operator6 = getelementptr inbounds %"class.hermes::ESTree::UpdateExpressionNode", ptr %node, i64 0, i32 1
+  %_operator6 = getelementptr inbounds i8, ptr %node, i64 48
   %28 = load ptr, ptr %_operator6, align 8
   %agg.tmp5.sroa.0.0.copyload = load ptr, ptr %28, align 8
   %agg.tmp5.sroa.2.0.call7.sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0.call7.sroa_idx, align 8
-  %OutBufEnd.i13 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %27, i64 0, i32 2
+  %OutBufEnd.i13 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load ptr, ptr %OutBufEnd.i13, align 8
-  %OutBufCur.i14 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %27, i64 0, i32 3
+  %OutBufCur.i14 = getelementptr inbounds i8, ptr %27, i64 24
   %30 = load ptr, ptr %OutBufCur.i14, align 8
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %30 to i64
@@ -10952,17 +10671,17 @@ if.end:                                           ; preds = %if.then4.i21, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20MemberExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_object = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 1
+  %_object = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_object, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
-  %_computed = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 3
+  %_computed = getelementptr inbounds i8, ptr %node, i64 64
   %1 = load i8, ptr %_computed, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   %3 = load ptr, ptr %this, align 8
-  %OutBufCur.i7 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 3
+  %OutBufCur.i7 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %OutBufCur.i7, align 8
-  %OutBufEnd.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %3, i64 0, i32 2
+  %OutBufEnd.i8 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %OutBufEnd.i8, align 8
   %cmp.not.i9 = icmp ult ptr %4, %5
   br i1 %tobool.not, label %if.else, label %if.then
@@ -10994,7 +10713,7 @@ if.end.i13:                                       ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i13, %if.then.i10, %if.end.i, %if.then.i
-  %_property = getelementptr inbounds %"class.hermes::ESTree::MemberExpressionNode", ptr %node, i64 0, i32 2
+  %_property = getelementptr inbounds i8, ptr %node, i64 56
   %6 = load ptr, ptr %_property, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %6)
   %7 = load i8, ptr %_computed, align 8
@@ -11004,9 +10723,9 @@ if.end:                                           ; preds = %if.end.i13, %if.the
 
 if.then6:                                         ; preds = %if.end
   %9 = load ptr, ptr %this, align 8
-  %OutBufCur.i17 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %9, i64 0, i32 3
+  %OutBufCur.i17 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %OutBufCur.i17, align 8
-  %OutBufEnd.i18 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %9, i64 0, i32 2
+  %OutBufEnd.i18 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %OutBufEnd.i18, align 8
   %cmp.not.i19 = icmp ult ptr %10, %11
   br i1 %cmp.not.i19, label %if.end.i23, label %if.then.i20
@@ -11028,7 +10747,7 @@ if.end9:                                          ; preds = %if.end.i23, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree21LogicalExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -11042,9 +10761,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i23:                                      ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -11061,9 +10780,9 @@ if.end.i.i:                                       ; preds = %if.then.i23
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -11085,9 +10804,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -11116,14 +10835,14 @@ if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
-  %_operator = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 3
+  %_operator = getelementptr inbounds i8, ptr %node, i64 64
   %13 = load ptr, ptr %_operator, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %12, i64 24
   %15 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
@@ -11158,7 +10877,7 @@ if.then.i15:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17:    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
-  %_right = getelementptr inbounds %"class.hermes::ESTree::LogicalExpressionNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %18 = load ptr, ptr %_right, align 8
   %tobool.not.i18 = icmp eq ptr %18, null
   br i1 %tobool.not.i18, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit21, label %if.end.i19
@@ -11172,9 +10891,9 @@ if.end.i19:                                       ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i49:                                      ; preds = %if.end.i19
   %19 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i50 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 3
+  %OutBufCur.i.i50 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %OutBufCur.i.i50, align 8
-  %OutBufEnd.i.i51 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %19, i64 0, i32 2
+  %OutBufEnd.i.i51 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %OutBufEnd.i.i51, align 8
   %cmp.not.i.i52 = icmp ult ptr %20, %21
   br i1 %cmp.not.i.i52, label %if.end.i.i57, label %if.then.i.i53
@@ -11191,9 +10910,9 @@ if.end.i.i57:                                     ; preds = %if.then.i49
 
 if.then3.i39:                                     ; preds = %if.end.i19
   %22 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i40 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 3
+  %OutBufCur.i3.i40 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %OutBufCur.i3.i40, align 8
-  %OutBufEnd.i4.i41 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 2
+  %OutBufEnd.i4.i41 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %OutBufEnd.i4.i41, align 8
   %cmp.not.i5.i42 = icmp ult ptr %23, %24
   br i1 %cmp.not.i5.i42, label %if.end.i9.i47, label %if.then.i6.i43
@@ -11215,9 +10934,9 @@ if.end6.i27.thread:                               ; preds = %if.end.i19, %if.the
 if.then8.i29:                                     ; preds = %if.end.i.i57, %if.then.i.i53
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %18)
   %25 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i30 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 3
+  %OutBufCur.i13.i30 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i13.i30, align 8
-  %OutBufEnd.i14.i31 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 2
+  %OutBufEnd.i14.i31 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %OutBufEnd.i14.i31, align 8
   %cmp.not.i15.i32 = icmp ult ptr %26, %27
   br i1 %cmp.not.i15.i32, label %if.end.i19.i37, label %if.then.i16.i33
@@ -11239,7 +10958,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree25ConditionalExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -11253,9 +10972,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i50:                                      ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -11272,9 +10991,9 @@ if.end.i.i:                                       ; preds = %if.then.i50
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -11296,9 +11015,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -11327,9 +11046,9 @@ if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %13, %14
   br i1 %cmp.not.i, label %if.end.i17, label %if.then.i15
@@ -11356,7 +11075,7 @@ if.then.i20:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i20
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 3
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 64
   %16 = load ptr, ptr %_consequent, align 8
   %tobool.not.i23 = icmp eq ptr %16, null
   br i1 %tobool.not.i23, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit26, label %if.end.i24
@@ -11370,9 +11089,9 @@ if.end.i24:                                       ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i76:                                      ; preds = %if.end.i24
   %17 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i77 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i.i77 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i.i77, align 8
-  %OutBufEnd.i.i78 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i.i78 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i.i78, align 8
   %cmp.not.i.i79 = icmp ult ptr %18, %19
   br i1 %cmp.not.i.i79, label %if.end.i.i84, label %if.then.i.i80
@@ -11389,9 +11108,9 @@ if.end.i.i84:                                     ; preds = %if.then.i76
 
 if.then3.i66:                                     ; preds = %if.end.i24
   %20 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i67 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %20, i64 0, i32 3
+  %OutBufCur.i3.i67 = getelementptr inbounds i8, ptr %20, i64 24
   %21 = load ptr, ptr %OutBufCur.i3.i67, align 8
-  %OutBufEnd.i4.i68 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %20, i64 0, i32 2
+  %OutBufEnd.i4.i68 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %OutBufEnd.i4.i68, align 8
   %cmp.not.i5.i69 = icmp ult ptr %21, %22
   br i1 %cmp.not.i5.i69, label %if.end.i9.i74, label %if.then.i6.i70
@@ -11413,9 +11132,9 @@ if.end6.i54.thread:                               ; preds = %if.end.i24, %if.the
 if.then8.i56:                                     ; preds = %if.end.i.i84, %if.then.i.i80
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %16)
   %23 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i57 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %23, i64 0, i32 3
+  %OutBufCur.i13.i57 = getelementptr inbounds i8, ptr %23, i64 24
   %24 = load ptr, ptr %OutBufCur.i13.i57, align 8
-  %OutBufEnd.i14.i58 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %23, i64 0, i32 2
+  %OutBufEnd.i14.i58 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %OutBufEnd.i14.i58, align 8
   %cmp.not.i15.i59 = icmp ult ptr %24, %25
   br i1 %cmp.not.i15.i59, label %if.end.i19.i64, label %if.then.i16.i60
@@ -11443,9 +11162,9 @@ if.then.i29:                                      ; preds = %_ZN6hermes12_GLOBAL
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit31:    ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit26, %if.then.i29
   %27 = load ptr, ptr %this, align 8
-  %OutBufCur.i32 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %27, i64 0, i32 3
+  %OutBufCur.i32 = getelementptr inbounds i8, ptr %27, i64 24
   %28 = load ptr, ptr %OutBufCur.i32, align 8
-  %OutBufEnd.i33 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %27, i64 0, i32 2
+  %OutBufEnd.i33 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load ptr, ptr %OutBufEnd.i33, align 8
   %cmp.not.i34 = icmp ult ptr %28, %29
   br i1 %cmp.not.i34, label %if.end.i38, label %if.then.i35
@@ -11472,7 +11191,7 @@ if.then.i43:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit45
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit45:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit40, %if.then.i43
-  %_alternate = getelementptr inbounds %"class.hermes::ESTree::ConditionalExpressionNode", ptr %node, i64 0, i32 2
+  %_alternate = getelementptr inbounds i8, ptr %node, i64 56
   %31 = load ptr, ptr %_alternate, align 8
   %tobool.not.i46 = icmp eq ptr %31, null
   br i1 %tobool.not.i46, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit49, label %if.end.i47
@@ -11486,9 +11205,9 @@ if.end.i47:                                       ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i112:                                     ; preds = %if.end.i47
   %32 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i113 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %32, i64 0, i32 3
+  %OutBufCur.i.i113 = getelementptr inbounds i8, ptr %32, i64 24
   %33 = load ptr, ptr %OutBufCur.i.i113, align 8
-  %OutBufEnd.i.i114 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %32, i64 0, i32 2
+  %OutBufEnd.i.i114 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %OutBufEnd.i.i114, align 8
   %cmp.not.i.i115 = icmp ult ptr %33, %34
   br i1 %cmp.not.i.i115, label %if.end.i.i120, label %if.then.i.i116
@@ -11505,9 +11224,9 @@ if.end.i.i120:                                    ; preds = %if.then.i112
 
 if.then3.i102:                                    ; preds = %if.end.i47
   %35 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i103 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %35, i64 0, i32 3
+  %OutBufCur.i3.i103 = getelementptr inbounds i8, ptr %35, i64 24
   %36 = load ptr, ptr %OutBufCur.i3.i103, align 8
-  %OutBufEnd.i4.i104 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %35, i64 0, i32 2
+  %OutBufEnd.i4.i104 = getelementptr inbounds i8, ptr %35, i64 16
   %37 = load ptr, ptr %OutBufEnd.i4.i104, align 8
   %cmp.not.i5.i105 = icmp ult ptr %36, %37
   br i1 %cmp.not.i5.i105, label %if.end.i9.i110, label %if.then.i6.i106
@@ -11529,9 +11248,9 @@ if.end6.i90.thread:                               ; preds = %if.end.i47, %if.the
 if.then8.i92:                                     ; preds = %if.end.i.i120, %if.then.i.i116
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %31)
   %38 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i93 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %38, i64 0, i32 3
+  %OutBufCur.i13.i93 = getelementptr inbounds i8, ptr %38, i64 24
   %39 = load ptr, ptr %OutBufCur.i13.i93, align 8
-  %OutBufEnd.i14.i94 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %38, i64 0, i32 2
+  %OutBufEnd.i14.i94 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load ptr, ptr %OutBufEnd.i14.i94, align 8
   %cmp.not.i15.i95 = icmp ult ptr %39, %40
   br i1 %cmp.not.i15.i95, label %if.end.i19.i100, label %if.then.i16.i96
@@ -11553,14 +11272,14 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20BinaryExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_operator = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 3
+  %_operator = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_operator, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load i8, ptr %1, align 1
   %conv = sext i8 %2 to i32
   %call3 = tail call i32 @isalpha(i32 noundef %conv) #14
   %tobool = icmp ne i32 %call3, 0
-  %_left = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_left, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -11574,9 +11293,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i26:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -11593,9 +11312,9 @@ if.end.i.i:                                       ; preds = %if.then.i26
 
 if.then3.i:                                       ; preds = %if.end.i
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -11617,9 +11336,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %3)
   %10 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %11, %12
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -11653,9 +11372,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %16, align 8
   %agg.tmp.sroa.2.0.call6.sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call6.sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %15, i64 24
   %18 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %18 to i64
@@ -11691,7 +11410,7 @@ if.then.i18:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20:    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i18
-  %_right = getelementptr inbounds %"class.hermes::ESTree::BinaryExpressionNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %21 = load ptr, ptr %_right, align 8
   %tobool.not.i21 = icmp eq ptr %21, null
   br i1 %tobool.not.i21, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit24, label %if.end.i22
@@ -11705,9 +11424,9 @@ if.end.i22:                                       ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i52:                                      ; preds = %if.end.i22
   %22 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i53 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 3
+  %OutBufCur.i.i53 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %OutBufCur.i.i53, align 8
-  %OutBufEnd.i.i54 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %22, i64 0, i32 2
+  %OutBufEnd.i.i54 = getelementptr inbounds i8, ptr %22, i64 16
   %24 = load ptr, ptr %OutBufEnd.i.i54, align 8
   %cmp.not.i.i55 = icmp ult ptr %23, %24
   br i1 %cmp.not.i.i55, label %if.end.i.i60, label %if.then.i.i56
@@ -11724,9 +11443,9 @@ if.end.i.i60:                                     ; preds = %if.then.i52
 
 if.then3.i42:                                     ; preds = %if.end.i22
   %25 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i43 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 3
+  %OutBufCur.i3.i43 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %OutBufCur.i3.i43, align 8
-  %OutBufEnd.i4.i44 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %25, i64 0, i32 2
+  %OutBufEnd.i4.i44 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %OutBufEnd.i4.i44, align 8
   %cmp.not.i5.i45 = icmp ult ptr %26, %27
   br i1 %cmp.not.i5.i45, label %if.end.i9.i50, label %if.then.i6.i46
@@ -11748,9 +11467,9 @@ if.end6.i30.thread:                               ; preds = %if.end.i22, %if.the
 if.then8.i32:                                     ; preds = %if.end.i.i60, %if.then.i.i56
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %21)
   %28 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i33 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 3
+  %OutBufCur.i13.i33 = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %OutBufCur.i13.i33, align 8
-  %OutBufEnd.i14.i34 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %28, i64 0, i32 2
+  %OutBufEnd.i14.i34 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %OutBufEnd.i14.i34, align 8
   %cmp.not.i15.i35 = icmp ult ptr %29, %30
   br i1 %cmp.not.i15.i35, label %if.end.i19.i40, label %if.then.i16.i36
@@ -11773,9 +11492,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15PrivateNameNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -11791,7 +11510,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %_id = getelementptr inbounds %"class.hermes::ESTree::PrivateNameNode", ptr %node, i64 0, i32 1
+  %_id = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %3)
   ret void
@@ -11800,13 +11519,13 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14SwitchCaseNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_test = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 1
+  %_test = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_test, align 8
   %tobool.not = icmp eq ptr %0, null
   %1 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i7 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i5.i7 = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %OutBufEnd.i5.i7, align 8
-  %OutBufCur.i6.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i6.i8 = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %OutBufCur.i6.i8, align 8
   %sub.ptr.lhs.cast.i7.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i8.i10 = ptrtoint ptr %3 to i64
@@ -11850,9 +11569,9 @@ if.then4.i.i15:                                   ; preds = %if.else
 
 if.end:                                           ; preds = %if.then4.i.i15, %if.then.i.i18, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -11868,17 +11587,17 @@ if.end.i:                                         ; preds = %if.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %_consequent = getelementptr inbounds %"class.hermes::ESTree::SwitchCaseNode", ptr %node, i64 0, i32 2
+  %_consequent = getelementptr inbounds i8, ptr %node, i64 56
   %10 = load ptr, ptr %_consequent, align 8
   %cmp.i.i22 = icmp eq ptr %10, %_consequent
   br i1 %cmp.i.i22, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %11 = load i32, ptr %indent_.i, align 4
   %add.i = add nsw i32 %11, 2
   store i32 %add.i, ptr %indent_.i, align 4
-  %pretty_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load i8, ptr %pretty_.i, align 8
   %13 = and i8 %12, 1
   %tobool.not.i = icmp eq i8 %13, 0
@@ -11918,9 +11637,9 @@ if.then.i:                                        ; preds = %entry
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %entry, %if.then.i
   %2 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %4 to i64
@@ -11940,7 +11659,7 @@ if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.then4.i.i
-  %_param = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %node, i64 0, i32 1
+  %_param = getelementptr inbounds i8, ptr %node, i64 48
   %6 = load ptr, ptr %_param, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -11958,9 +11677,9 @@ if.then.i9:                                       ; preds = %if.then
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11:    ; preds = %if.then, %if.then.i9
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
@@ -11979,9 +11698,9 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i12, %if.en
   %11 = load ptr, ptr %_param, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %11)
   %12 = load ptr, ptr %this, align 8
-  %OutBufCur.i15 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i15 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %OutBufCur.i15, align 8
-  %OutBufEnd.i16 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i16 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %OutBufEnd.i16, align 8
   %cmp.not.i17 = icmp ult ptr %13, %14
   br i1 %cmp.not.i17, label %if.end.i21, label %if.then.i18
@@ -11997,7 +11716,7 @@ if.end.i21:                                       ; preds = %_ZN4llvh11raw_ostre
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i21, %if.then.i18, %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %_body = getelementptr inbounds %"class.hermes::ESTree::CatchClauseNode", ptr %node, i64 0, i32 2
+  %_body = getelementptr inbounds i8, ptr %node, i64 56
   %15 = load ptr, ptr %_body, align 8
   %16 = tail call fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visitStmtOrBlockEPNS_6ESTree4NodeEbS4_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %15, i1 noundef zeroext true)
   ret void
@@ -12006,25 +11725,25 @@ if.end:                                           ; preds = %if.end.i21, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree22VariableDeclaratorNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_id = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %node, i64 0, i32 2
+  %_id = getelementptr inbounds i8, ptr %node, i64 56
   %0 = load ptr, ptr %_id, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
-  %_init = getelementptr inbounds %"class.hermes::ESTree::VariableDeclaratorNode", ptr %node, i64 0, i32 1
+  %_init = getelementptr inbounds i8, ptr %node, i64 48
   %1 = load ptr, ptr %_init, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %pretty_ = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i8, ptr %pretty_, align 8
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
   %cond = select i1 %tobool2.not, ptr @.str.309, ptr @.str.308
   %call.i.i = select i1 %tobool2.not, i64 1, i64 3
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %6 to i64
@@ -12056,14 +11775,14 @@ if.end:                                           ; preds = %_ZN4llvh11raw_ostre
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree23VariableDeclarationNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_kind = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %node, i64 0, i32 1
+  %_kind = getelementptr inbounds i8, ptr %node, i64 48
   %1 = load ptr, ptr %_kind, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -12073,7 +11792,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
-  %OutBufCur.i5.phi.trans.insert = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3.i, i64 0, i32 3
+  %OutBufCur.i5.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i, i64 24
   %.pre = load ptr, ptr %OutBufCur.i5.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
@@ -12091,7 +11810,7 @@ if.then4.i:                                       ; preds = %if.end.i
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i, %if.end.i, %if.then4.i
   %5 = phi ptr [ %.pre, %if.then.i ], [ %add.ptr.i, %if.then4.i ], [ %3, %if.end.i ]
   %retval.0.i = phi ptr [ %call3.i, %if.then.i ], [ %0, %if.then4.i ], [ %0, %if.end.i ]
-  %OutBufEnd.i6 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i, i64 0, i32 2
+  %OutBufEnd.i6 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %6 = load ptr, ptr %OutBufEnd.i6, align 8
   %cmp.not.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i, label %if.end.i9, label %if.then.i7
@@ -12101,15 +11820,15 @@ if.then.i7:                                       ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i9:                                        ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %OutBufCur.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %retval.0.i, i64 0, i32 3
+  %OutBufCur.i5 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i5, align 8
   store i8 32, ptr %5, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i7, %if.end.i9
-  %_declarations = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %node, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::VariableDeclarationNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_declarations = getelementptr inbounds i8, ptr %node, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %__begin2.sroa.0.015 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i10.not16 = icmp eq ptr %__begin2.sroa.0.015, %_declarations
   br i1 %cmp.i10.not16, label %for.end, label %for.body.lr.ph
@@ -12132,9 +11851,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i11 = icmp eq i8 %8, 0
   %cond.i = select i1 %tobool.not.i11, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i11, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val, i64 16
   %9 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val, i64 24
   %10 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %10 to i64
@@ -12155,7 +11874,7 @@ if.then4.i.i.i:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %if.then4.i.i.i, %if.then.i.i.i, %for.body
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.018)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.018, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.018, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i10.not = icmp eq ptr %__begin2.sroa.0.0, %_declarations
   br i1 %cmp.i10.not, label %for.end, label %for.body
@@ -12168,9 +11887,9 @@ for.end:                                          ; preds = %if.end, %_ZN4llvh11
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree19TemplateLiteralNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -12186,15 +11905,15 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %_expressions = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 2
-  %_quasis = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i5 = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_expressions = getelementptr inbounds i8, ptr %node, i64 64
+  %_quasis = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i5 = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.048 = load ptr, ptr %Next.i.i.i.i5, align 8
   %cmp.i.not49 = icmp eq ptr %__begin2.sroa.0.048, %_quasis
   br i1 %cmp.i.not49, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::TemplateLiteralNode", ptr %node, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 72
   %3 = load ptr, ptr %Next.i.i.i.i, align 8
   br label %for.body
 
@@ -12202,14 +11921,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %__begin2.sroa.0.051 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.048, %for.body.preheader ]
   %ecur.sroa.0.050 = phi ptr [ %ecur.sroa.0.1, %for.inc ], [ %3, %for.body.preheader ]
   %4 = load ptr, ptr %this, align 8
-  %_raw = getelementptr inbounds %"class.hermes::ESTree::TemplateElementNode", ptr %__begin2.sroa.0.051, i64 0, i32 3
+  %_raw = getelementptr inbounds i8, ptr %__begin2.sroa.0.051, i64 64
   %5 = load ptr, ptr %_raw, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %agg.tmp.sroa.2.0.call14.sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call14.sroa_idx, align 8
-  %OutBufEnd.i6 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i6 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i6, align 8
-  %OutBufCur.i7 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i7 = getelementptr inbounds i8, ptr %4, i64 24
   %7 = load ptr, ptr %OutBufCur.i7, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -12238,9 +11957,9 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i11, %if.en
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %9 = load ptr, ptr %this, align 8
-  %OutBufEnd.i13 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %9, i64 0, i32 2
+  %OutBufEnd.i13 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %OutBufEnd.i13, align 8
-  %OutBufCur.i14 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %9, i64 0, i32 3
+  %OutBufCur.i14 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %OutBufCur.i14, align 8
   %sub.ptr.lhs.cast.i15 = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %11 to i64
@@ -12260,13 +11979,13 @@ if.end.i19:                                       ; preds = %if.then
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25
 
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25:    ; preds = %if.then.i23, %if.end.i19
-  %Next.i.i.i.i26 = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %ecur.sroa.0.050, i64 0, i32 1
+  %Next.i.i.i.i26 = getelementptr inbounds i8, ptr %ecur.sroa.0.050, i64 8
   %13 = load ptr, ptr %Next.i.i.i.i26, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ecur.sroa.0.050)
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i28 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i28 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i28, align 8
-  %OutBufEnd.i29 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i29 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i29, align 8
   %cmp.not.i30 = icmp ult ptr %15, %16
   br i1 %cmp.not.i30, label %if.end.i34, label %if.then.i31
@@ -12283,16 +12002,16 @@ if.end.i34:                                       ; preds = %_ZN4llvh11raw_ostre
 
 for.inc:                                          ; preds = %if.end.i34, %if.then.i31, %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %ecur.sroa.0.1 = phi ptr [ %_expressions, %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit ], [ %13, %if.then.i31 ], [ %13, %if.end.i34 ]
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.051, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.051, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_quasis
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11raw_ostreamlsEc.exit
   %17 = load ptr, ptr %this, align 8
-  %OutBufCur.i37 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i37 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i37, align 8
-  %OutBufEnd.i38 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i38 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i38, align 8
   %cmp.not.i39 = icmp ult ptr %18, %19
   br i1 %cmp.not.i39, label %if.end.i43, label %if.then.i40
@@ -12314,7 +12033,7 @@ _ZN4llvh11raw_ostreamlsEc.exit45:                 ; preds = %if.then.i40, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree28TaggedTemplateExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_tag = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 1
+  %_tag = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_tag, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -12328,9 +12047,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -12347,9 +12066,9 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -12371,9 +12090,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i, %if.then.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -12389,7 +12108,7 @@ if.end.i19.i:                                     ; preds = %if.then8.i
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit: ; preds = %if.end6.i.thread, %if.end.i19.i, %if.then.i16.i, %entry
-  %_quasi = getelementptr inbounds %"class.hermes::ESTree::TaggedTemplateExpressionNode", ptr %node, i64 0, i32 2
+  %_quasi = getelementptr inbounds i8, ptr %node, i64 56
   %10 = load ptr, ptr %_quasi, align 8
   %tobool.not.i4 = icmp eq ptr %10, null
   br i1 %tobool.not.i4, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit7, label %if.end.i5
@@ -12403,9 +12122,9 @@ if.end.i5:                                        ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i33:                                      ; preds = %if.end.i5
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i34 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i.i34 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i.i34, align 8
-  %OutBufEnd.i.i35 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i.i35 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i.i35, align 8
   %cmp.not.i.i36 = icmp ult ptr %12, %13
   br i1 %cmp.not.i.i36, label %if.end.i.i41, label %if.then.i.i37
@@ -12422,9 +12141,9 @@ if.end.i.i41:                                     ; preds = %if.then.i33
 
 if.then3.i23:                                     ; preds = %if.end.i5
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i24 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i3.i24 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i3.i24, align 8
-  %OutBufEnd.i4.i25 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i4.i25 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i4.i25, align 8
   %cmp.not.i5.i26 = icmp ult ptr %15, %16
   br i1 %cmp.not.i5.i26, label %if.end.i9.i31, label %if.then.i6.i27
@@ -12446,9 +12165,9 @@ if.end6.i11.thread:                               ; preds = %if.end.i5, %if.then
 if.then8.i13:                                     ; preds = %if.end.i.i41, %if.then.i.i37
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %10)
   %17 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i14 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i13.i14 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i13.i14, align 8
-  %OutBufEnd.i14.i15 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i14.i15 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i14.i15, align 8
   %cmp.not.i15.i16 = icmp ult ptr %18, %19
   br i1 %cmp.not.i15.i16, label %if.end.i19.i21, label %if.then.i16.i17
@@ -12470,7 +12189,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree12PropertyNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_kind = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 3
+  %_kind = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load ptr, ptr %_kind, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -12485,9 +12204,9 @@ if.end.i.i90:                                     ; preds = %entry
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -12497,9 +12216,9 @@ if.then:                                          ; preds = %entry
 
 if.then.thread:                                   ; preds = %if.end.i.i90
   %4 = load ptr, ptr %this, align 8
-  %OutBufEnd.i94 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i94 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %OutBufEnd.i94, align 8
-  %OutBufCur.i95 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i95 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %OutBufCur.i95, align 8
   %sub.ptr.lhs.cast.i96 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i97 = ptrtoint ptr %6 to i64
@@ -12526,16 +12245,16 @@ if.then4.i:                                       ; preds = %if.then.thread, %if
   br label %if.end20
 
 if.else:                                          ; preds = %if.end.i.i90
-  %_method = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 5
+  %_method = getelementptr inbounds i8, ptr %node, i64 73
   %10 = load i8, ptr %_method, align 1
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %if.end20, label %if.then8
 
 if.then8:                                         ; preds = %if.else
-  %_value = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %12 = load ptr, ptr %_value, align 8
-  %_async = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %12, i64 0, i32 9
+  %_async = getelementptr inbounds i8, ptr %12, i64 129
   %13 = load i8, ptr %_async, align 1
   %14 = and i8 %13, 1
   %tobool10.not = icmp eq i8 %14, 0
@@ -12543,9 +12262,9 @@ if.then8:                                         ; preds = %if.else
 
 if.then11:                                        ; preds = %if.then8
   %15 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %17 to i64
@@ -12566,7 +12285,7 @@ if.then4.i.i:                                     ; preds = %if.then11
 
 if.end:                                           ; preds = %if.then4.i.i, %if.then.i.i, %if.then8
   %needSep.0 = phi i8 [ 0, %if.then8 ], [ 1, %if.then.i.i ], [ 1, %if.then4.i.i ]
-  %_generator = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %12, i64 0, i32 8
+  %_generator = getelementptr inbounds i8, ptr %12, i64 128
   %19 = load i8, ptr %_generator, align 8
   %20 = and i8 %19, 1
   %tobool14.not = icmp eq i8 %20, 0
@@ -12574,9 +12293,9 @@ if.end:                                           ; preds = %if.then4.i.i, %if.t
 
 if.then15:                                        ; preds = %if.end
   %21 = load ptr, ptr %this, align 8
-  %OutBufCur.i33 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i33 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i33, align 8
-  %OutBufEnd.i34 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i34 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %OutBufEnd.i34, align 8
   %cmp.not.i = icmp ult ptr %22, %23
   br i1 %cmp.not.i, label %if.end.i37, label %if.then.i35
@@ -12605,7 +12324,7 @@ if.then.i39:                                      ; preds = %_ZN4llvh11raw_ostre
 
 if.end20:                                         ; preds = %if.then.i39, %_ZN4llvh11raw_ostreamlsEc.exit, %if.then4.i, %if.end.i, %if.then.i, %if.else, %if.end
   %needSep.1 = phi i8 [ %needSep.0, %if.end ], [ 0, %if.else ], [ 1, %if.then.i ], [ 1, %if.end.i ], [ 1, %if.then4.i ], [ 0, %_ZN4llvh11raw_ostreamlsEc.exit ], [ 0, %if.then.i39 ]
-  %_computed = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 4
+  %_computed = getelementptr inbounds i8, ptr %node, i64 72
   %26 = load i8, ptr %_computed, align 8
   %27 = and i8 %26, 1
   %tobool21.not = icmp eq i8 %27, 0
@@ -12629,9 +12348,9 @@ if.then.i43:                                      ; preds = %if.then24
 
 if.end25:                                         ; preds = %if.then.i43, %if.then24, %if.then22
   %30 = load ptr, ptr %this, align 8
-  %OutBufCur.i46 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %30, i64 0, i32 3
+  %OutBufCur.i46 = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load ptr, ptr %OutBufCur.i46, align 8
-  %OutBufEnd.i47 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %30, i64 0, i32 2
+  %OutBufEnd.i47 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = load ptr, ptr %OutBufEnd.i47, align 8
   %cmp.not.i48 = icmp ult ptr %31, %32
   br i1 %cmp.not.i48, label %if.end.i52, label %if.then.i49
@@ -12651,9 +12370,9 @@ if.end28:                                         ; preds = %if.end20
 
 if.then30:                                        ; preds = %if.end28
   %33 = load ptr, ptr %this, align 8
-  %OutBufCur.i55 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %33, i64 0, i32 3
+  %OutBufCur.i55 = getelementptr inbounds i8, ptr %33, i64 24
   %34 = load ptr, ptr %OutBufCur.i55, align 8
-  %OutBufEnd.i56 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %33, i64 0, i32 2
+  %OutBufEnd.i56 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %OutBufEnd.i56, align 8
   %cmp.not.i57 = icmp ult ptr %34, %35
   br i1 %cmp.not.i57, label %if.end.i61, label %if.then.i58
@@ -12669,7 +12388,7 @@ if.end.i61:                                       ; preds = %if.then30
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end.i52, %if.then.i49, %if.end.i61, %if.then.i58, %if.end28
-  %_key = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %36 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %36)
   %37 = load i8, ptr %_computed, align 8
@@ -12679,9 +12398,9 @@ if.end33:                                         ; preds = %if.end.i52, %if.the
 
 if.then36:                                        ; preds = %if.end33
   %39 = load ptr, ptr %this, align 8
-  %OutBufCur.i65 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %39, i64 0, i32 3
+  %OutBufCur.i65 = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load ptr, ptr %OutBufCur.i65, align 8
-  %OutBufEnd.i66 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %39, i64 0, i32 2
+  %OutBufEnd.i66 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %OutBufEnd.i66, align 8
   %cmp.not.i67 = icmp ult ptr %40, %41
   br i1 %cmp.not.i67, label %if.end.i71, label %if.then.i68
@@ -12697,7 +12416,7 @@ if.end.i71:                                       ; preds = %if.then36
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end.i71, %if.then.i68, %if.end33
-  %_shorthand = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 6
+  %_shorthand = getelementptr inbounds i8, ptr %node, i64 74
   %42 = load i8, ptr %_shorthand, align 2
   %43 = and i8 %42, 1
   %tobool40.not = icmp eq i8 %43, 0
@@ -12717,26 +12436,26 @@ if.end.i.i:                                       ; preds = %if.end42
   br i1 %.not106, label %lor.lhs.false, label %if.then50
 
 lor.lhs.false:                                    ; preds = %if.end.i.i
-  %_method48 = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 5
+  %_method48 = getelementptr inbounds i8, ptr %node, i64 73
   %45 = load i8, ptr %_method48, align 1
   %46 = and i8 %45, 1
   %tobool49.not = icmp eq i8 %46, 0
   br i1 %tobool49.not, label %if.else54, label %if.then50
 
 if.then50:                                        ; preds = %if.end42, %lor.lhs.false, %if.end.i.i
-  %_value52 = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 2
+  %_value52 = getelementptr inbounds i8, ptr %node, i64 56
   %47 = load ptr, ptr %_value52, align 8
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %47, i64 0, i32 3
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %47, i64 0, i32 4
+  %_params = getelementptr inbounds i8, ptr %47, i64 80
+  %_body = getelementptr inbounds i8, ptr %47, i64 96
   %48 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %48)
   br label %if.end58
 
 if.else54:                                        ; preds = %lor.lhs.false
   %49 = load ptr, ptr %this, align 8
-  %OutBufCur.i74 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %49, i64 0, i32 3
+  %OutBufCur.i74 = getelementptr inbounds i8, ptr %49, i64 24
   %50 = load ptr, ptr %OutBufCur.i74, align 8
-  %OutBufEnd.i75 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %49, i64 0, i32 2
+  %OutBufEnd.i75 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load ptr, ptr %OutBufEnd.i75, align 8
   %cmp.not.i76 = icmp ult ptr %50, %51
   br i1 %cmp.not.i76, label %if.end.i80, label %if.then.i77
@@ -12766,7 +12485,7 @@ if.then.i85:                                      ; preds = %_ZN4llvh11raw_ostre
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit82, %if.then.i85
   %this.val.i = phi i8 [ %this.val26, %_ZN4llvh11raw_ostreamlsEc.exit82 ], [ %this.val.i.pre, %if.then.i85 ]
-  %_value57 = getelementptr inbounds %"class.hermes::ESTree::PropertyNode", ptr %node, i64 0, i32 2
+  %_value57 = getelementptr inbounds i8, ptr %node, i64 56
   %54 = load ptr, ptr %_value57, align 8
   %call.i88 = tail call fastcc i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.val.i, ptr noundef %54)
   %ref.tmp.sroa.0.0.extract.trunc.i = trunc i64 %call.i88 to i32
@@ -12775,9 +12494,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87:    ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i90:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87
   %55 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %55, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %55, i64 24
   %56 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %55, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %55, i64 16
   %57 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %56, %57
   br i1 %cmp.not.i.i, label %if.end.i.i93, label %if.then.i.i91
@@ -12799,9 +12518,9 @@ if.end6.i:                                        ; preds = %_ZN6hermes12_GLOBAL
 if.then8.i:                                       ; preds = %if.then.i.i91, %if.end.i.i93
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %54)
   %58 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %58, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %58, i64 24
   %59 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %58, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %58, i64 16
   %60 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %59, %60
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -12824,9 +12543,9 @@ if.end58:                                         ; preds = %if.end6.i, %if.end.
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS10visitClassEPNS_6ESTree4NodeES4_S4_S4_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %id, ptr noundef %superClass, ptr noundef %body) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -12851,9 +12570,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -12878,9 +12597,9 @@ if.end:                                           ; preds = %_ZN4llvh11raw_ostre
 
 if.then5:                                         ; preds = %if.end
   %7 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i5.i8 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %OutBufEnd.i5.i8, align 8
-  %OutBufCur.i6.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i6.i9 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %OutBufCur.i6.i9, align 8
   %sub.ptr.lhs.cast.i7.i10 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i8.i11 = ptrtoint ptr %9 to i64
@@ -12924,9 +12643,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.end8, %if.then.i
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree13ClassBodyNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -12942,16 +12661,16 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %_body = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %node, i64 0, i32 1
+  %_body = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_body, align 8
   %cmp.i.i = icmp eq ptr %3, %_body
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i4 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i4 = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i4, align 8
-  %OutBufEnd.i5 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i5, align 8
   %cmp.not.i6 = icmp ult ptr %5, %6
   br i1 %cmp.not.i6, label %if.end.i10, label %if.then.i7
@@ -12967,17 +12686,17 @@ if.end.i10:                                       ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %indent_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 2
+  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %indent_.i, align 4
   %add.i = add nsw i32 %7, 2
   store i32 %add.i, ptr %indent_.i, align 4
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ClassBodyNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.038 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not39 = icmp eq ptr %__begin2.sroa.0.038, %_body
   br i1 %cmp.i.not39, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %pretty_.i = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
@@ -12996,7 +12715,7 @@ if.then.i13:                                      ; preds = %for.body
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %for.body, %if.then.i13
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.040)
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.040, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.040, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_body
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
@@ -13009,7 +12728,7 @@ for.end.loopexit:                                 ; preds = %_ZN6hermes12_GLOBAL
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %sub.i = phi i32 [ %12, %for.end.loopexit ], [ %7, %if.end ]
   store i32 %sub.i, ptr %indent_.i, align 4
-  %pretty_.i19 = getelementptr inbounds %"class.hermes::(anonymous namespace)::GenJS", ptr %this, i64 0, i32 1
+  %pretty_.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i8, ptr %pretty_.i19, align 8
   %14 = and i8 %13, 1
   %tobool.not.i20 = icmp eq i8 %14, 0
@@ -13024,9 +12743,9 @@ if.then.i21:                                      ; preds = %for.end
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit26:  ; preds = %for.end, %if.then.i21
   %17 = load ptr, ptr %this, align 8
-  %OutBufCur.i27 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i27 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %OutBufCur.i27, align 8
-  %OutBufEnd.i28 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i28 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %OutBufEnd.i28, align 8
   %cmp.not.i29 = icmp ult ptr %18, %19
   br i1 %cmp.not.i29, label %if.end.i33, label %if.then.i30
@@ -13048,22 +12767,22 @@ return:                                           ; preds = %if.end.i33, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17ClassPropertyNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_computed = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 3
+  %_computed = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load <2 x i8>, ptr %_computed, align 8
   %1 = and <2 x i8> %0, <i8 1, i8 1>
   %2 = icmp eq <2 x i8> %1, zeroinitializer
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %3 = load ptr, ptr %_key, align 8
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %4 = load ptr, ptr %_value, align 8
   %5 = extractelement <2 x i1> %2, i64 1
   br i1 %5, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %6 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i29 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 2
+  %OutBufEnd.i5.i29 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %OutBufEnd.i5.i29, align 8
-  %OutBufCur.i6.i30 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %6, i64 0, i32 3
+  %OutBufCur.i6.i30 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %OutBufCur.i6.i30, align 8
   %sub.ptr.lhs.cast.i7.i31 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i8.i32 = ptrtoint ptr %8 to i64
@@ -13088,9 +12807,9 @@ if.end.i:                                         ; preds = %if.then4.i.i37, %if
 
 if.then5.i:                                       ; preds = %if.end.i
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i19 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i19 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i19, align 8
-  %OutBufEnd.i20 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i20 = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i20, align 8
   %cmp.not.i21 = icmp ult ptr %12, %13
   br i1 %cmp.not.i21, label %if.end.i25, label %if.then.i22
@@ -13112,9 +12831,9 @@ if.end8.i:                                        ; preds = %if.end.i
 if.then15.i:                                      ; preds = %if.end.i25, %if.then.i22
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %3)
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i9 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i9, align 8
-  %OutBufEnd.i10 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i10 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i10, align 8
   %cmp.not.i11 = icmp ult ptr %15, %16
   br i1 %cmp.not.i11, label %if.end.i15, label %if.then.i12
@@ -13135,9 +12854,9 @@ if.end18.i:                                       ; preds = %if.end.i15, %if.the
 
 if.then20.i:                                      ; preds = %if.end18.i
   %17 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %17, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %19 to i64
@@ -13162,9 +12881,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 _ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit: ; preds = %if.end18.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %21 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %22, %23
   br i1 %cmp.not.i, label %if.end.i7, label %if.then.i5
@@ -13186,21 +12905,21 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i5, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree24ClassPrivatePropertyNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_static = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 3
+  %_static = getelementptr inbounds i8, ptr %node, i64 64
   %0 = load i8, ptr %_static, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %_key = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %2 = load ptr, ptr %_key, align 8
-  %_value = getelementptr inbounds %"class.hermes::ESTree::ClassPrivatePropertyNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %3 = load ptr, ptr %_value, align 8
   br i1 %tobool.not, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i19 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i5.i19 = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i19, align 8
-  %OutBufCur.i6.i20 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i6.i20 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i20, align 8
   %sub.ptr.lhs.cast.i7.i21 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i22 = ptrtoint ptr %6 to i64
@@ -13221,9 +12940,9 @@ if.then4.i.i27:                                   ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %if.then4.i.i27, %if.then.i.i30, %entry
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i9 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i9, align 8
-  %OutBufEnd.i10 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i10 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i10, align 8
   %cmp.not.i11 = icmp ult ptr %9, %10
   br i1 %cmp.not.i11, label %if.end.i15, label %if.then.i12
@@ -13245,9 +12964,9 @@ _ZN4llvh11raw_ostreamlsEc.exit17:                 ; preds = %if.then.i12, %if.en
 
 if.then20.i:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit17
   %11 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %13 to i64
@@ -13272,9 +12991,9 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 _ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit: ; preds = %_ZN4llvh11raw_ostreamlsEc.exit17, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %15 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %15, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %16, %17
   br i1 %cmp.not.i, label %if.end.i6, label %if.then.i4
@@ -13296,7 +13015,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i4, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20MethodDefinitionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_static = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 5
+  %_static = getelementptr inbounds i8, ptr %node, i64 73
   %0 = load i8, ptr %_static, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -13304,9 +13023,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %2, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %4 to i64
@@ -13326,19 +13045,19 @@ if.then4.i.i:                                     ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %if.then.i.i, %entry
-  %_value = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 2
+  %_value = getelementptr inbounds i8, ptr %node, i64 56
   %6 = load ptr, ptr %_value, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.end29, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::Node", ptr %6, i64 0, i32 1
+  %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %7, 4
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then4, label %if.end29
 
 if.then4:                                         ; preds = %land.lhs.true.i
-  %_async = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %6, i64 0, i32 9
+  %_async = getelementptr inbounds i8, ptr %6, i64 129
   %8 = load i8, ptr %_async, align 1
   %9 = and i8 %8, 1
   %tobool5.not = icmp eq i8 %9, 0
@@ -13346,9 +13065,9 @@ if.then4:                                         ; preds = %land.lhs.true.i
 
 if.then6:                                         ; preds = %if.then4
   %10 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i23 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 2
+  %OutBufEnd.i5.i23 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %OutBufEnd.i5.i23, align 8
-  %OutBufCur.i6.i24 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i6.i24 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %OutBufCur.i6.i24, align 8
   %sub.ptr.lhs.cast.i7.i25 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i8.i26 = ptrtoint ptr %12 to i64
@@ -13368,7 +13087,7 @@ if.then4.i.i31:                                   ; preds = %if.then6
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then4.i.i31, %if.then.i.i34, %if.then4
-  %_generator = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %6, i64 0, i32 8
+  %_generator = getelementptr inbounds i8, ptr %6, i64 128
   %14 = load i8, ptr %_generator, align 8
   %15 = and i8 %14, 1
   %tobool10.not = icmp eq i8 %15, 0
@@ -13376,9 +13095,9 @@ if.end9:                                          ; preds = %if.then4.i.i31, %if
 
 if.then11:                                        ; preds = %if.end9
   %16 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %16, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %16, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %17, %18
   br i1 %cmp.not.i, label %if.end.i37, label %if.then.i
@@ -13394,7 +13113,7 @@ if.end.i37:                                       ; preds = %if.then11
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end.i37, %if.then.i, %if.end9
-  %_kind = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 3
+  %_kind = getelementptr inbounds i8, ptr %node, i64 64
   %19 = load ptr, ptr %_kind, align 8
   %kind.sroa.0.0.copyload = load ptr, ptr %19, align 8
   %kind.sroa.3.0.call15.sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
@@ -13409,9 +13128,9 @@ if.end.i82:                                       ; preds = %if.end14
 
 if.then18:                                        ; preds = %if.end.i82
   %21 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i39 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i5.i39 = getelementptr inbounds i8, ptr %21, i64 16
   %22 = load ptr, ptr %OutBufEnd.i5.i39, align 8
-  %OutBufCur.i6.i40 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i6.i40 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %OutBufCur.i6.i40, align 8
   %sub.ptr.lhs.cast.i7.i41 = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i8.i42 = ptrtoint ptr %23 to i64
@@ -13437,9 +13156,9 @@ if.end.i:                                         ; preds = %if.end.i82
 
 if.then24:                                        ; preds = %if.end.i
   %26 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i54 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %26, i64 0, i32 2
+  %OutBufEnd.i5.i54 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %OutBufEnd.i5.i54, align 8
-  %OutBufCur.i6.i55 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %26, i64 0, i32 3
+  %OutBufCur.i6.i55 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %OutBufCur.i6.i55, align 8
   %sub.ptr.lhs.cast.i7.i56 = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i8.i57 = ptrtoint ptr %28 to i64
@@ -13459,7 +13178,7 @@ if.then4.i.i62:                                   ; preds = %if.then24
   br label %if.end29
 
 if.end29:                                         ; preds = %land.lhs.true.i, %if.end, %if.then4.i.i62, %if.then.i.i65, %if.then4.i.i47, %if.then.i.i50, %if.end14, %if.end.i
-  %_computed = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 4
+  %_computed = getelementptr inbounds i8, ptr %node, i64 72
   %30 = load i8, ptr %_computed, align 8
   %31 = and i8 %30, 1
   %tobool30.not = icmp eq i8 %31, 0
@@ -13467,9 +13186,9 @@ if.end29:                                         ; preds = %land.lhs.true.i, %i
 
 if.then31:                                        ; preds = %if.end29
   %32 = load ptr, ptr %this, align 8
-  %OutBufCur.i68 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %32, i64 0, i32 3
+  %OutBufCur.i68 = getelementptr inbounds i8, ptr %32, i64 24
   %33 = load ptr, ptr %OutBufCur.i68, align 8
-  %OutBufEnd.i69 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %32, i64 0, i32 2
+  %OutBufEnd.i69 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %OutBufEnd.i69, align 8
   %cmp.not.i70 = icmp ult ptr %33, %34
   br i1 %cmp.not.i70, label %if.end.i74, label %if.then.i71
@@ -13485,7 +13204,7 @@ if.end.i74:                                       ; preds = %if.then31
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end.i74, %if.then.i71, %if.end29
-  %_key = getelementptr inbounds %"class.hermes::ESTree::MethodDefinitionNode", ptr %node, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %node, i64 48
   %35 = load ptr, ptr %_key, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %35)
   %36 = load i8, ptr %_computed, align 8
@@ -13495,9 +13214,9 @@ if.end34:                                         ; preds = %if.end.i74, %if.the
 
 if.then37:                                        ; preds = %if.end34
   %38 = load ptr, ptr %this, align 8
-  %OutBufCur.i78 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %38, i64 0, i32 3
+  %OutBufCur.i78 = getelementptr inbounds i8, ptr %38, i64 24
   %39 = load ptr, ptr %OutBufCur.i78, align 8
-  %OutBufEnd.i79 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %38, i64 0, i32 2
+  %OutBufEnd.i79 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load ptr, ptr %OutBufEnd.i79, align 8
   %cmp.not.i80 = icmp ult ptr %39, %40
   br i1 %cmp.not.i80, label %if.end.i84, label %if.then.i81
@@ -13514,8 +13233,8 @@ if.end.i84:                                       ; preds = %if.then37
 
 if.end40:                                         ; preds = %if.end.i84, %if.then.i81, %if.end34
   %41 = load ptr, ptr %_value, align 8
-  %_params = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %41, i64 0, i32 3
-  %_body = getelementptr inbounds %"class.hermes::ESTree::FunctionExpressionNode", ptr %41, i64 0, i32 4
+  %_params = getelementptr inbounds i8, ptr %41, i64 80
+  %_body = getelementptr inbounds i8, ptr %41, i64 96
   %42 = load ptr, ptr %_body, align 8
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS22visitFuncParamsAndBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %42)
   ret void
@@ -13525,9 +13244,9 @@ if.end40:                                         ; preds = %if.end.i84, %if.the
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree16ArrayPatternNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i = icmp ult ptr %1, %2
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -13543,8 +13262,8 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.i
-  %_elements = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 1
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::ESTree::ArrayPatternNode", ptr %node, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_elements = getelementptr inbounds i8, ptr %node, i64 48
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.019 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not20 = icmp eq ptr %__begin2.sroa.0.019, %_elements
   br i1 %cmp.i.not20, label %for.end, label %for.body.lr.ph
@@ -13567,9 +13286,9 @@ if.then:                                          ; preds = %for.body
   %tobool.not.i = icmp eq i8 %4, 0
   %cond.i = select i1 %tobool.not.i, ptr @.str.240, ptr @.str.239
   %call.i.i.i = select i1 %tobool.not.i, i64 1, i64 2
-  %OutBufEnd.i5.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 2
+  %OutBufEnd.i5.i.i = getelementptr inbounds i8, ptr %this.val, i64 16
   %5 = load ptr, ptr %OutBufEnd.i5.i.i, align 8
-  %OutBufCur.i6.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this.val, i64 0, i32 3
+  %OutBufCur.i6.i.i = getelementptr inbounds i8, ptr %this.val, i64 24
   %6 = load ptr, ptr %OutBufCur.i6.i.i, align 8
   %sub.ptr.lhs.cast.i7.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i8.i.i = ptrtoint ptr %6 to i64
@@ -13597,9 +13316,9 @@ if.end:                                           ; preds = %if.then4.i.i.i, %if
 
 if.then.i16:                                      ; preds = %if.end
   %8 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %8, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %9, %10
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -13621,9 +13340,9 @@ if.end6.i:                                        ; preds = %if.end
 if.then8.i:                                       ; preds = %if.then.i.i, %if.end.i.i
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__begin2.sroa.0.022)
   %11 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %11, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %11, i64 16
   %13 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %12, %13
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -13639,16 +13358,16 @@ if.end.i19.i:                                     ; preds = %if.then8.i
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit: ; preds = %if.then.i16.i, %if.end.i19.i, %if.end6.i
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.022, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %_elements
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit, %_ZN4llvh11raw_ostreamlsEc.exit
   %14 = load ptr, ptr %this, align 8
-  %OutBufCur.i7 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 3
+  %OutBufCur.i7 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %OutBufCur.i7, align 8
-  %OutBufEnd.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %14, i64 0, i32 2
+  %OutBufEnd.i8 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %OutBufEnd.i8, align 8
   %cmp.not.i9 = icmp ult ptr %15, %16
   br i1 %cmp.not.i9, label %if.end.i13, label %if.then.i10
@@ -13671,9 +13390,9 @@ _ZN4llvh11raw_ostreamlsEc.exit15:                 ; preds = %if.then.i10, %if.en
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15RestElementNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %0, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -13705,7 +13424,7 @@ if.then.i:                                        ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
-  %_argument = getelementptr inbounds %"class.hermes::ESTree::RestElementNode", ptr %node, i64 0, i32 1
+  %_argument = getelementptr inbounds i8, ptr %node, i64 48
   %6 = load ptr, ptr %_argument, align 8
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %6)
   ret void
@@ -13714,7 +13433,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostre
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree21AssignmentPatternNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef readonly %node) unnamed_addr #0 align 2 {
 entry:
-  %_left = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %node, i64 0, i32 1
+  %_left = getelementptr inbounds i8, ptr %node, i64 48
   %0 = load ptr, ptr %_left, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, label %if.end.i
@@ -13728,9 +13447,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i18:                                      ; preds = %if.end.i
   %1 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 3
+  %OutBufCur.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %OutBufCur.i.i, align 8
-  %OutBufEnd.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %1, i64 0, i32 2
+  %OutBufEnd.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %OutBufEnd.i.i, align 8
   %cmp.not.i.i = icmp ult ptr %2, %3
   br i1 %cmp.not.i.i, label %if.end.i.i21, label %if.then.i.i19
@@ -13747,9 +13466,9 @@ if.end.i.i21:                                     ; preds = %if.then.i18
 
 if.then3.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 3
+  %OutBufCur.i3.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %OutBufCur.i3.i, align 8
-  %OutBufEnd.i4.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %4, i64 0, i32 2
+  %OutBufEnd.i4.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %OutBufEnd.i4.i, align 8
   %cmp.not.i5.i = icmp ult ptr %5, %6
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
@@ -13771,9 +13490,9 @@ if.end6.i.thread:                                 ; preds = %if.end.i, %if.then.
 if.then8.i:                                       ; preds = %if.end.i.i21, %if.then.i.i19
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %0)
   %7 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 3
+  %OutBufCur.i13.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %OutBufCur.i13.i, align 8
-  %OutBufEnd.i14.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %7, i64 0, i32 2
+  %OutBufEnd.i14.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %OutBufEnd.i14.i, align 8
   %cmp.not.i15.i = icmp ult ptr %8, %9
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
@@ -13802,9 +13521,9 @@ if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
   %12 = load ptr, ptr %this, align 8
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %12, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %OutBufCur.i6.i, align 8
   %cmp.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
@@ -13832,7 +13551,7 @@ if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i11
-  %_right = getelementptr inbounds %"class.hermes::ESTree::AssignmentPatternNode", ptr %node, i64 0, i32 2
+  %_right = getelementptr inbounds i8, ptr %node, i64 56
   %17 = load ptr, ptr %_right, align 8
   %tobool.not.i14 = icmp eq ptr %17, null
   br i1 %tobool.not.i14, label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit17, label %if.end.i15
@@ -13846,9 +13565,9 @@ if.end.i15:                                       ; preds = %_ZN6hermes12_GLOBAL
 
 if.then.i47:                                      ; preds = %if.end.i15
   %18 = load ptr, ptr %this, align 8
-  %OutBufCur.i.i48 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 3
+  %OutBufCur.i.i48 = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %OutBufCur.i.i48, align 8
-  %OutBufEnd.i.i49 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %18, i64 0, i32 2
+  %OutBufEnd.i.i49 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %OutBufEnd.i.i49, align 8
   %cmp.not.i.i50 = icmp ult ptr %19, %20
   br i1 %cmp.not.i.i50, label %if.end.i.i55, label %if.then.i.i51
@@ -13865,9 +13584,9 @@ if.end.i.i55:                                     ; preds = %if.then.i47
 
 if.then3.i37:                                     ; preds = %if.end.i15
   %21 = load ptr, ptr %this, align 8
-  %OutBufCur.i3.i38 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 3
+  %OutBufCur.i3.i38 = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %OutBufCur.i3.i38, align 8
-  %OutBufEnd.i4.i39 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %21, i64 0, i32 2
+  %OutBufEnd.i4.i39 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %OutBufEnd.i4.i39, align 8
   %cmp.not.i5.i40 = icmp ult ptr %22, %23
   br i1 %cmp.not.i5.i40, label %if.end.i9.i45, label %if.then.i6.i41
@@ -13889,9 +13608,9 @@ if.end6.i25.thread:                               ; preds = %if.end.i15, %if.the
 if.then8.i27:                                     ; preds = %if.end.i.i55, %if.then.i.i51
   tail call fastcc void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_12_GLOBAL__N_15GenJSELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %17)
   %24 = load ptr, ptr %this, align 8
-  %OutBufCur.i13.i28 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 3
+  %OutBufCur.i13.i28 = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load ptr, ptr %OutBufCur.i13.i28, align 8
-  %OutBufEnd.i14.i29 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %24, i64 0, i32 2
+  %OutBufEnd.i14.i29 = getelementptr inbounds i8, ptr %24, i64 16
   %26 = load ptr, ptr %OutBufEnd.i14.i29, align 8
   %cmp.not.i15.i30 = icmp ult ptr %25, %26
   br i1 %cmp.not.i15.i30, label %if.end.i19.i35, label %if.then.i16.i31

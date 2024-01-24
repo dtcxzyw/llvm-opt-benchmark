@@ -36,9 +36,9 @@ declare ptr @ASN1_ENUMERATED_it() #0
 define ptr @i2s_ASN1_ENUMERATED_TABLE(ptr noundef %method, ptr noundef %e) #1 {
 entry:
   %call = tail call i64 @ASN1_ENUMERATED_get(ptr noundef %e) #2
-  %usr_data = getelementptr inbounds %struct.v3_ext_method, ptr %method, i64 0, i32 13
+  %usr_data = getelementptr inbounds i8, ptr %method, i64 96
   %0 = load ptr, ptr %usr_data, align 8
-  %lname7 = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %0, i64 0, i32 1
+  %lname7 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %lname7, align 8
   %tobool.not8 = icmp eq ptr %1, null
   br i1 %tobool.not8, label %for.end, label %for.body.preheader
@@ -51,13 +51,13 @@ for.body.preheader:                               ; preds = %entry
 
 for.cond:                                         ; preds = %for.body.preheader, %for.body
   %enam.0915 = phi ptr [ %incdec.ptr, %for.body ], [ %0, %for.body.preheader ]
-  %lname = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %enam.0915, i64 1, i32 1
+  %lname = getelementptr inbounds i8, ptr %enam.0915, i64 32
   %3 = load ptr, ptr %lname, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %enam.0915, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %enam.0915, i64 24
   %4 = load i32, ptr %incdec.ptr, align 8
   %conv = sext i32 %4 to i64
   %cmp = icmp eq i64 %call, %conv

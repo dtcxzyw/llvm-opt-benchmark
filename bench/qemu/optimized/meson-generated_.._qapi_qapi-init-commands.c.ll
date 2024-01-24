@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/meson-generated_.._qapi_qapi-init-command
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QTailQLink = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [13 x i8] c"query-status\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"watchdog-set-action\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"set-action\00", align 1
@@ -231,7 +229,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @qmp_init_marshal(ptr noundef %cmds) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %cmds, align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %cmds, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %cmds, i64 8
   store ptr %cmds, ptr %tql_prev, align 8
   tail call void @qmp_register_command(ptr noundef nonnull %cmds, ptr noundef nonnull @.str, ptr noundef nonnull @qmp_marshal_query_status, i32 noundef 4, i32 noundef 0) #2
   tail call void @qmp_register_command(ptr noundef nonnull %cmds, ptr noundef nonnull @.str.1, ptr noundef nonnull @qmp_marshal_watchdog_set_action, i32 noundef 0, i32 noundef 0) #2

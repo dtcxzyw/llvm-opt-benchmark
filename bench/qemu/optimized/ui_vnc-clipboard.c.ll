@@ -4,26 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.VncState = type { i64, ptr, ptr, i32, i32, [2048 x [3 x i64]], ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, [16 x i8], ptr, i8, i8, ptr, i64, i64, %struct.Buffer, %struct.Buffer, ptr, %struct.PixelFormat, i32, i8, ptr, %struct.audsettings, ptr, i64, i8, %struct.QemuMutex, ptr, %struct.Buffer, ptr, %struct.VncZlib, %struct.VncHextile, ptr, %struct.VncZywrle, %struct.Notifier, %struct.QemuClipboardPeer, ptr, i32, %union.anon }
-%struct.PixelFormat = type { i8, i8, i8, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.audsettings = type { i32, i32, i32, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.Buffer = type { ptr, i64, i64, i64, ptr }
-%struct.VncZlib = type { %struct.Buffer, %struct.Buffer, %struct.z_stream_s, i32 }
-%struct.VncHextile = type { ptr }
-%struct.VncZywrle = type { [4096 x i32] }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.QemuClipboardPeer = type { ptr, %struct.Notifier, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.QemuClipboardInfo = type { i32, ptr, i32, i8, i32, [1 x %struct.anon.0] }
-%struct.anon.0 = type { i8, i8, i64, ptr }
-%struct.QemuClipboardNotify = type { i32, %union.anon.1 }
-%union.anon.1 = type { ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"vnc\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"1.2.11\00", align 1
@@ -44,14 +24,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %cbpeer = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 51
+  %cbpeer = getelementptr inbounds i8, ptr %vs, i64 66232
   %call = tail call ptr @qemu_clipboard_info_new(ptr noundef nonnull %cbpeer, i32 noundef 0) #6
   %and4 = and i32 %flags, 1
   %tobool5.not = icmp eq i32 %and4, 0
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  %types = getelementptr inbounds %struct.QemuClipboardInfo, ptr %call, i64 0, i32 5
+  %types = getelementptr inbounds i8, ptr %call, i64 32
   store i8 1, ptr %types, align 8
   br label %if.end7
 
@@ -66,15 +46,15 @@ if.end8:                                          ; preds = %if.end
   br i1 %tobool10.not, label %if.end31, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end8
-  %cbinfo = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 52
+  %cbinfo = getelementptr inbounds i8, ptr %vs, i64 66272
   %0 = load ptr, ptr %cbinfo, align 8
   %tobool11.not = icmp eq ptr %0, null
   br i1 %tobool11.not, label %if.end31, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
-  %owner = getelementptr inbounds %struct.QemuClipboardInfo, ptr %0, i64 0, i32 1
+  %owner = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %owner, align 8
-  %cbpeer14 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 51
+  %cbpeer14 = getelementptr inbounds i8, ptr %vs, i64 66232
   %cmp = icmp eq ptr %1, %cbpeer14
   br i1 %cmp, label %if.then15, label %if.end31
 
@@ -86,10 +66,10 @@ if.then15:                                        ; preds = %land.lhs.true12
   store ptr %data, ptr %stream.i, align 8
   store i32 %sub, ptr %2, align 8
   %call.i = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #7
-  %total_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 5
-  %next_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 3
+  %total_out.i = getelementptr inbounds i8, ptr %stream.i, i64 40
+  %next_out.i = getelementptr inbounds i8, ptr %stream.i, i64 24
   store ptr %call.i, ptr %next_out.i, align 8
-  %avail_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 4
+  %avail_out.i = getelementptr inbounds i8, ptr %stream.i, i64 32
   store i32 8, ptr %avail_out.i, align 8
   %call4.i = call i32 @inflateInit_(ptr noundef nonnull %stream.i, ptr noundef nonnull @.str.1, i32 noundef 112) #6
   %cmp.not.i = icmp eq i32 %call4.i, 0
@@ -179,15 +159,15 @@ if.end31:                                         ; preds = %if.end30, %land.lhs
   br i1 %tobool33.not, label %if.end62, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end31
-  %cbinfo35 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 52
+  %cbinfo35 = getelementptr inbounds i8, ptr %vs, i64 66272
   %9 = load ptr, ptr %cbinfo35, align 8
   %tobool36.not = icmp eq ptr %9, null
   br i1 %tobool36.not, label %if.end62, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %land.lhs.true34
-  %owner39 = getelementptr inbounds %struct.QemuClipboardInfo, ptr %9, i64 0, i32 1
+  %owner39 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %owner39, align 8
-  %cbpeer40 = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 51
+  %cbpeer40 = getelementptr inbounds i8, ptr %vs, i64 66232
   %cmp41.not = icmp eq ptr %10, %cbpeer40
   %and43 = and i32 %flags, 1
   %tobool44.not = icmp eq i32 %and43, 0
@@ -195,14 +175,14 @@ land.lhs.true37:                                  ; preds = %land.lhs.true34
   br i1 %or.cond26, label %if.end62, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %land.lhs.true37
-  %types47 = getelementptr inbounds %struct.QemuClipboardInfo, ptr %9, i64 0, i32 5
+  %types47 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i8, ptr %types47, align 8
   %12 = and i8 %11, 1
   %tobool50.not = icmp eq i8 %12, 0
   br i1 %tobool50.not, label %if.end62, label %if.then51
 
 if.then51:                                        ; preds = %land.lhs.true45
-  %data55 = getelementptr inbounds %struct.QemuClipboardInfo, ptr %9, i64 0, i32 5, i64 0, i32 3
+  %data55 = getelementptr inbounds i8, ptr %9, i64 48
   %13 = load ptr, ptr %data55, align 8
   %tobool56.not = icmp eq ptr %13, null
   br i1 %tobool56.not, label %if.else, label %if.then57
@@ -212,7 +192,7 @@ if.then57:                                        ; preds = %if.then51
   br label %if.end62
 
 if.else:                                          ; preds = %if.then51
-  %cbpending = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 53
+  %cbpending = getelementptr inbounds i8, ptr %vs, i64 66280
   %14 = load i32, ptr %cbpending, align 8
   %or = or i32 %14, 1
   store i32 %or, ptr %cbpending, align 8
@@ -237,7 +217,7 @@ declare void @qemu_clipboard_set_data(ptr noundef, ptr noundef, i32 noundef, i32
 define internal fastcc void @vnc_clipboard_provide(ptr noundef %vs, ptr nocapture noundef readonly %info) unnamed_addr #0 {
 entry:
   %stream.i = alloca %struct.z_stream_s, align 8
-  %size = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %info, i64 40
   %0 = load i64, ptr %size, align 8
   %add = add i64 %0, 4
   %call = tail call noalias ptr @g_malloc(i64 noundef %add) #7
@@ -257,7 +237,7 @@ entry:
   %arrayidx30 = getelementptr i8, ptr %call, i64 3
   store i8 %conv29, ptr %arrayidx30, align 1
   %add.ptr = getelementptr i8, ptr %call, i64 4
-  %data = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 5, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %info, i64 48
   %2 = load ptr, ptr %data, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %2, i64 %1, i1 false)
   %3 = trunc i64 %1 to i32
@@ -268,10 +248,10 @@ entry:
   store ptr %call, ptr %stream.i, align 8
   store i32 %conv43, ptr %4, align 8
   %call.i = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #7
-  %total_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 5
-  %next_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 3
+  %total_out.i = getelementptr inbounds i8, ptr %stream.i, i64 40
+  %next_out.i = getelementptr inbounds i8, ptr %stream.i, i64 24
   store ptr %call.i, ptr %next_out.i, align 8
-  %avail_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream.i, i64 0, i32 4
+  %avail_out.i = getelementptr inbounds i8, ptr %stream.i, i64 32
   store i32 8, ptr %avail_out.i, align 8
   %call4.i = call i32 @deflateInit_(ptr noundef nonnull %stream.i, i32 noundef -1, ptr noundef nonnull @.str.1, i32 noundef 112) #6
   %cmp.not.i = icmp eq i32 %call4.i, 0
@@ -330,7 +310,7 @@ if.end:                                           ; preds = %deflate_buffer.exit
   %conv25.i = trunc i64 %7 to i32
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  %output_mutex.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 42
+  %output_mutex.i = getelementptr inbounds i8, ptr %vs, i64 49504
   call void %9(ptr noundef nonnull %output_mutex.i, ptr noundef nonnull @.str.2, i32 noundef 60) #6
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 3) #6
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 0) #6
@@ -357,7 +337,7 @@ declare void @qemu_clipboard_request(ptr noundef, i32 noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vnc_client_cut_text(ptr noundef %vs, i64 noundef %len, ptr noundef %text) local_unnamed_addr #0 {
 entry:
-  %cbpeer = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 51
+  %cbpeer = getelementptr inbounds i8, ptr %vs, i64 66232
   %call = tail call ptr @qemu_clipboard_info_new(ptr noundef nonnull %cbpeer, i32 noundef 0) #6
   %conv = trunc i64 %len to i32
   tail call void @qemu_clipboard_set_data(ptr noundef nonnull %cbpeer, ptr noundef %call, i32 noundef 0, i32 noundef %conv, ptr noundef %text, i1 noundef zeroext true) #6
@@ -377,19 +357,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 452984833, ptr %caps, align 4
-  %arrayidx1 = getelementptr inbounds [2 x i32], ptr %caps, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %caps, i64 4
   store i32 0, ptr %arrayidx1, align 4
   call fastcc void @vnc_clipboard_send(ptr noundef nonnull %vs, i32 noundef 2, ptr noundef nonnull %caps)
-  %notifier = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 51, i32 1
+  %notifier = getelementptr inbounds i8, ptr %vs, i64 66240
   %1 = load ptr, ptr %notifier, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.then3, label %if.end10
 
 if.then3:                                         ; preds = %if.end
-  %cbpeer = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 51
+  %cbpeer = getelementptr inbounds i8, ptr %vs, i64 66232
   store ptr @.str, ptr %cbpeer, align 8
   store ptr @vnc_clipboard_notify, ptr %notifier, align 8
-  %request = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 51, i32 2
+  %request = getelementptr inbounds i8, ptr %vs, i64 66264
   store ptr @vnc_clipboard_request, ptr %request, align 8
   tail call void @qemu_clipboard_peer_register(ptr noundef nonnull %cbpeer) #6
   br label %if.end10
@@ -403,7 +383,7 @@ define internal fastcc void @vnc_clipboard_send(ptr noundef %vs, i32 noundef %co
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %output_mutex.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 42
+  %output_mutex.i = getelementptr inbounds i8, ptr %vs, i64 49504
   tail call void %1(ptr noundef nonnull %output_mutex.i, ptr noundef nonnull @.str.2, i32 noundef 60) #6
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 3) #6
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 0) #6
@@ -443,10 +423,10 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %add.ptr = getelementptr i8, ptr %notifier, i64 -66240
-  %1 = getelementptr inbounds %struct.QemuClipboardNotify, ptr %data, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags.i)
-  %owner.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %2, i64 0, i32 1
+  %owner.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %owner.i, align 8
   %cbpeer.i = getelementptr i8, ptr %notifier, i64 -8
   %cmp.i = icmp eq ptr %3, %cbpeer.i
@@ -464,7 +444,7 @@ if.then.i:                                        ; preds = %sw.bb
   br i1 %cmp.i, label %vnc_clipboard_update_info.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %types.i = getelementptr inbounds %struct.QemuClipboardInfo, ptr %2, i64 0, i32 5
+  %types.i = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load i8, ptr %types.i, align 8
   %6 = and i8 %5, 1
   %tobool5.not.i = icmp eq i8 %6, 0
@@ -505,7 +485,7 @@ entry:
   br i1 %cmp.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %entry
-  %owner = getelementptr inbounds %struct.QemuClipboardInfo, ptr %info, i64 0, i32 1
+  %owner = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %owner, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 -66232
   store i32 33554433, ptr %flags, align 4

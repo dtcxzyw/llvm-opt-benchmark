@@ -163,7 +163,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %tobool.not.i100, label %if.end10.i, label %if.end71
 
 if.end10.i:                                       ; preds = %land.lhs.true.i, %for.body.i
-  %incdec.ptr.i99 = getelementptr inbounds ptr, ptr %what.19.i, i64 1
+  %incdec.ptr.i99 = getelementptr inbounds i8, ptr %what.19.i, i64 8
   %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 7
   br i1 %exitcond.not.i, label %if.end45, label %for.body.i, !llvm.loop !8
@@ -186,7 +186,7 @@ for.body.i102:                                    ; preds = %if.then50, %if.end3
   br i1 %tobool.not.i104, label %if.end3.i, label %if.end71
 
 if.end3.i:                                        ; preds = %for.body.i102
-  %incdec.ptr.i105 = getelementptr inbounds ptr, ptr %what.05.i, i64 1
+  %incdec.ptr.i105 = getelementptr inbounds i8, ptr %what.05.i, i64 8
   %inc.i106 = add nuw nsw i32 %i.04.i, 1
   %exitcond.not.i107 = icmp eq i32 %inc.i106, 12
   br i1 %exitcond.not.i107, label %if.end56, label %for.body.i102, !llvm.loop !9
@@ -211,13 +211,13 @@ land.lhs.true.i116:                               ; preds = %for.body.i109
   br i1 %tobool.not.i117, label %if.end9.i, label %checktz.exit
 
 if.end9.i:                                        ; preds = %land.lhs.true.i116, %for.body.i109
-  %incdec.ptr.i112 = getelementptr inbounds %struct.tzinfo, ptr %what.09.i, i64 1
+  %incdec.ptr.i112 = getelementptr inbounds i8, ptr %what.09.i, i64 12
   %inc.i113 = add nuw nsw i32 %i.08.i110, 1
   %exitcond.not.i114 = icmp eq i32 %inc.i113, 69
   br i1 %exitcond.not.i114, label %return, label %for.body.i109, !llvm.loop !10
 
 checktz.exit:                                     ; preds = %land.lhs.true.i116
-  %offset.i = getelementptr inbounds %struct.tzinfo, ptr %what.09.i, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %what.09.i, i64 8
   %17 = load i32, ptr %offset.i, align 4
   %mul.i = mul nsw i32 %17, 60
   br label %if.end71

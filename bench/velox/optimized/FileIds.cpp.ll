@@ -4,23 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"union.std::aligned_storage<32, 16>::type" = type { [32 x i8] }
-%"class.facebook::velox::StringIdMap" = type { %"class.std::mutex", %"class.folly::F14FastMap", %"class.folly::F14FastMap.2", i64, i64 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, i32, %"struct.folly::f14::detail::SizeAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndPackedBegin" = type { i32 }
-%"class.folly::F14FastMap.2" = type { %"class.folly::f14::detail::F14VectorMapImpl.3" }
-%"class.folly::f14::detail::F14VectorMapImpl.3" = type { %"class.folly::f14::detail::F14BasicMap.4" }
-%"class.folly::f14::detail::F14BasicMap.4" = type { %"class.folly::f14::detail::F14Table.5" }
-%"class.folly::f14::detail::F14Table.5" = type { %"class.folly::f14::detail::VectorContainerPolicy.6", ptr, i32, %"struct.folly::f14::detail::SizeAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy.6" = type { ptr }
 
 @_ZZN8facebook5velox7fileIdsEvE3ids = internal unnamed_addr global ptr null, align 8
 @_ZGVZN8facebook5velox7fileIdsEvE3ids = internal global i64 0, align 8
@@ -43,14 +26,14 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  %chunks_.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::StringIdMap", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %chunks_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 48, i1 false)
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i.i, align 8
-  %chunkMask_.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::StringIdMap", ptr %call, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %chunks_.i.i.i.i1.i = getelementptr inbounds %"class.facebook::velox::StringIdMap", ptr %call, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %chunkMask_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
+  %chunks_.i.i.i.i1.i = getelementptr inbounds i8, ptr %call, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %chunkMask_.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_.i.i.i.i1.i, align 8
-  %chunkMask_.i.i.i.i2.i = getelementptr inbounds %"class.facebook::velox::StringIdMap", ptr %call, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %chunkMask_.i.i.i.i2.i = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chunkMask_.i.i.i.i2.i, i8 0, i64 24, i1 false)
   store ptr %call, ptr @_ZZN8facebook5velox7fileIdsEvE3ids, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8facebook5velox7fileIdsEvE3ids) #4

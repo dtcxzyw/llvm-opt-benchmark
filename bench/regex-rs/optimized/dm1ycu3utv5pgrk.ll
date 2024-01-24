@@ -14,7 +14,7 @@ define { i32, ptr } @"_ZN119_$LT$regex_automata..util..primitives..WithPatternID
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { ptr, ptr }, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = tail call { i32, i32 } @"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h825ca627b65bff67E"(ptr nonnull align 8 %5)
   %7 = extractvalue { i32, i32 } %6, 0
   %8 = extractvalue { i32, i32 } %6, 1
@@ -49,11 +49,11 @@ define void @"_ZN14regex_automata4util10primitives26WithPatternIDIter$LT$I$GT$3n
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   store ptr %1, ptr %0, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, ptr }, { i64, i64 } }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %11, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, ptr }, { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %12, ptr %15, align 8
   ret void
 }

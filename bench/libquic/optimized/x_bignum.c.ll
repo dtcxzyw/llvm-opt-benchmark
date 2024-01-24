@@ -29,7 +29,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %it, i64 40
   %1 = load i64, ptr %size, align 8
   %and = and i64 %1, 1
   %tobool1.not = icmp eq i64 %and, 0
@@ -77,7 +77,7 @@ if.then6:                                         ; preds = %if.end3
   br i1 %tobool.not.i5, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
-  %size.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 5
+  %size.i = getelementptr inbounds i8, ptr %it, i64 40
   %3 = load i64, ptr %size.i, align 8
   %and.i = and i64 %3, 1
   %tobool1.not.i = icmp eq i64 %and.i, 0

@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/poly1305_vec.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.poly1305_state_internal_t = type { [2 x %struct.poly1305_power_t], %union.anon.0, i64, i64, [64 x i8] }
-%struct.poly1305_power_t = type { %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon }
-%union.anon = type { <2 x i64> }
-%union.anon.0 = type { [5 x <2 x i64>] }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @CRYPTO_poly1305_init(ptr noundef %state, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
@@ -60,7 +55,7 @@ entry:
   %7 = load i32, ptr %add.ptr29, align 4
   %arrayidx31 = getelementptr inbounds i8, ptr %1, i64 220
   store i32 %7, ptr %arrayidx31, align 4
-  %8 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(96) %8, i8 0, i64 96, i1 false)
   ret void
 }
@@ -72,13 +67,13 @@ entry:
   %add.i = add i64 %0, 63
   %and.i = and i64 %add.i, -64
   %1 = inttoptr i64 %and.i to ptr
-  %started = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 2
+  %started = getelementptr inbounds i8, ptr %1, i64 368
   %2 = load i64, ptr %started, align 16
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end20
 
 if.then:                                          ; preds = %entry
-  %leftover = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 3
+  %leftover = getelementptr inbounds i8, ptr %1, i64 376
   %3 = load i64, ptr %leftover, align 8
   %cmp = icmp eq i64 %3, 0
   %cmp1 = icmp ugt i64 %bytes, 32
@@ -94,7 +89,7 @@ if.then2:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %sub4 = sub i64 32, %3
   %cond.i = tail call noundef i64 @llvm.umin.i64(i64 %sub4, i64 %bytes)
-  %buffer = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 4
+  %buffer = getelementptr inbounds i8, ptr %1, i64 384
   %add.ptr7 = getelementptr inbounds i8, ptr %buffer, i64 %3
   %sub.ptr.lhs.cast.i = ptrtoint ptr %m to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr7 to i64
@@ -203,7 +198,7 @@ if.end18:                                         ; preds = %if.end, %if.then2
 if.end20:                                         ; preds = %if.end18, %entry
   %bytes.addr.1 = phi i64 [ %bytes, %entry ], [ %bytes.addr.0, %if.end18 ]
   %m.addr.1 = phi ptr [ %m, %entry ], [ %m.addr.0, %if.end18 ]
-  %leftover21 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 3
+  %leftover21 = getelementptr inbounds i8, ptr %1, i64 376
   %12 = load i64, ptr %leftover21, align 8
   %tobool22.not = icmp eq i64 %12, 0
   br i1 %tobool22.not, label %if.end42, label %if.then23
@@ -211,7 +206,7 @@ if.end20:                                         ; preds = %if.end18, %entry
 if.then23:                                        ; preds = %if.end20
   %sub25 = sub i64 64, %12
   %cond.i57 = tail call noundef i64 @llvm.umin.i64(i64 %sub25, i64 %bytes.addr.1)
-  %buffer27 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 4
+  %buffer27 = getelementptr inbounds i8, ptr %1, i64 384
   %add.ptr30 = getelementptr inbounds i8, ptr %buffer27, i64 %12
   %sub.ptr.lhs.cast.i58 = ptrtoint ptr %m.addr.1 to i64
   %sub.ptr.rhs.cast.i59 = ptrtoint ptr %add.ptr30 to i64
@@ -329,7 +324,7 @@ if.end47:                                         ; preds = %if.then44, %if.end4
   br i1 %tobool48.not, label %if.end56, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
-  %buffer50 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 4
+  %buffer50 = getelementptr inbounds i8, ptr %1, i64 384
   %21 = load i64, ptr %leftover21, align 8
   %add.ptr53 = getelementptr inbounds i8, ptr %buffer50, i64 %21
   %sub.ptr.lhs.cast.i103 = ptrtoint ptr %m.addr.3 to i64
@@ -426,7 +421,7 @@ if.end56:                                         ; preds = %poly1305_block_copy
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @poly1305_first_block(ptr nocapture noundef %st, ptr nocapture noundef readonly %m) unnamed_addr #2 {
 entry:
-  %arrayidx = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %st, i64 144
   %arrayidx3 = getelementptr inbounds i8, ptr %st, i64 156
   %0 = load i32, ptr %arrayidx3, align 4
   %conv = zext i32 %0 to i64
@@ -548,14 +543,14 @@ for.body:                                         ; preds = %entry, %for.body
   %and106 = and i32 %conv105, 67108863
   %vecinit3.i218 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %and106, i64 0
   %permil108 = shufflevector <4 x i32> %vecinit3.i218, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %R21109 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 1
+  %R21109 = getelementptr inbounds i8, ptr %p.0194, i64 16
   store <4 x i32> %permil108, ptr %R21109, align 16
   %shr110 = lshr i64 %add97, 8
   %conv111 = trunc i64 %shr110 to i32
   %and112 = and i32 %conv111, 67108863
   %vecinit3.i212 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %and112, i64 0
   %permil114 = shufflevector <4 x i32> %vecinit3.i212, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %R22115 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 2
+  %R22115 = getelementptr inbounds i8, ptr %p.0194, i64 32
   store <4 x i32> %permil114, ptr %R22115, align 16
   %shr116 = lshr i64 %add97, 34
   %shl117 = shl nuw nsw i64 %and91, 10
@@ -564,31 +559,31 @@ for.body:                                         ; preds = %entry, %for.body
   %and120 = and i32 %conv119, 67108863
   %vecinit3.i206 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %and120, i64 0
   %permil122 = shufflevector <4 x i32> %vecinit3.i206, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %R23123 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 3
+  %R23123 = getelementptr inbounds i8, ptr %p.0194, i64 48
   store <4 x i32> %permil122, ptr %R23123, align 16
   %shr124 = lshr i64 %and91, 16
   %conv125 = trunc i64 %shr124 to i32
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv125, i64 0
   %permil127 = shufflevector <4 x i32> %vecinit3.i, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %R24128 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 4
+  %R24128 = getelementptr inbounds i8, ptr %p.0194, i64 64
   store <4 x i32> %permil127, ptr %R24128, align 16
   %13 = bitcast <4 x i32> %permil108 to <2 x i64>
   %14 = mul nuw nsw <2 x i64> %13, <i64 5, i64 5>
-  %S21 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 5
+  %S21 = getelementptr inbounds i8, ptr %p.0194, i64 80
   store <2 x i64> %14, ptr %S21, align 16
   %15 = bitcast <4 x i32> %permil114 to <2 x i64>
   %16 = mul nuw nsw <2 x i64> %15, <i64 5, i64 5>
-  %S22 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 6
+  %S22 = getelementptr inbounds i8, ptr %p.0194, i64 96
   store <2 x i64> %16, ptr %S22, align 16
   %17 = bitcast <4 x i32> %permil122 to <2 x i64>
   %18 = mul nuw nsw <2 x i64> %17, <i64 5, i64 5>
-  %S23 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 7
+  %S23 = getelementptr inbounds i8, ptr %p.0194, i64 112
   store <2 x i64> %18, ptr %S23, align 16
   %19 = bitcast <4 x i32> %permil127 to <2 x i64>
   %20 = mul nuw nsw <2 x i64> %19, <i64 5, i64 5>
-  %S24 = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 0, i32 8
+  %S24 = getelementptr inbounds i8, ptr %p.0194, i64 128
   store <2 x i64> %20, ptr %S24, align 16
-  %incdec.ptr = getelementptr inbounds %struct.poly1305_power_t, ptr %p.0194, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.0194, i64 -144
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
@@ -614,23 +609,23 @@ for.end:                                          ; preds = %for.body
   %24 = load i64, ptr %add.ptr180, align 1
   %shuffle.i = insertelement <2 x i64> %vecinit1.i244, i64 %24, i64 1
   %and.i263 = and <2 x i64> %shuffle.i236, <i64 67108863, i64 67108863>
-  %25 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %st, i64 288
   store <2 x i64> %and.i263, ptr %25, align 16
   %26 = lshr <2 x i64> %shuffle.i236, <i64 26, i64 26>
   %and.i260 = and <2 x i64> %26, <i64 67108863, i64 67108863>
-  %arrayidx187 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 1
+  %arrayidx187 = getelementptr inbounds i8, ptr %st, i64 304
   store <2 x i64> %and.i260, ptr %arrayidx187, align 16
   %or.i275 = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %shuffle.i, <2 x i64> %shuffle.i236, <2 x i64> <i64 12, i64 12>)
   %and.i257 = and <2 x i64> %or.i275, <i64 67108863, i64 67108863>
-  %arrayidx192 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 2
+  %arrayidx192 = getelementptr inbounds i8, ptr %st, i64 320
   store <2 x i64> %and.i257, ptr %arrayidx192, align 16
   %27 = lshr <2 x i64> %or.i275, <i64 26, i64 26>
   %and.i = and <2 x i64> %27, <i64 67108863, i64 67108863>
-  %arrayidx195 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 3
+  %arrayidx195 = getelementptr inbounds i8, ptr %st, i64 336
   store <2 x i64> %and.i, ptr %arrayidx195, align 16
   %28 = lshr <2 x i64> %shuffle.i, <i64 40, i64 40>
   %or.i = or disjoint <2 x i64> %28, <i64 16777216, i64 16777216>
-  %arrayidx198 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 4
+  %arrayidx198 = getelementptr inbounds i8, ptr %st, i64 352
   store <2 x i64> %or.i, ptr %arrayidx198, align 16
   ret void
 }
@@ -638,15 +633,15 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef %bytes) unnamed_addr #3 {
 entry:
-  %0 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %st, i64 288
   %1 = load <2 x i64>, ptr %0, align 16
-  %arrayidx3 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %st, i64 304
   %2 = load <2 x i64>, ptr %arrayidx3, align 16
-  %arrayidx4 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %st, i64 320
   %3 = load <2 x i64>, ptr %arrayidx4, align 16
-  %arrayidx5 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %st, i64 336
   %4 = load <2 x i64>, ptr %arrayidx5, align 16
-  %arrayidx6 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %st, i64 0, i32 1, i32 0, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %st, i64 352
   %5 = load <2 x i64>, ptr %arrayidx6, align 16
   %cmp268 = icmp ugt i64 %bytes, 63
   br i1 %cmp268, label %while.body.lr.ph, label %while.end
@@ -654,55 +649,55 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %6 = load <2 x i64>, ptr %st, align 16
   %7 = and <2 x i64> %6, <i64 4294967295, i64 4294967295>
-  %R21 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 1
+  %R21 = getelementptr inbounds i8, ptr %st, i64 16
   %8 = load <2 x i64>, ptr %R21, align 16
   %9 = and <2 x i64> %8, <i64 4294967295, i64 4294967295>
-  %R22 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 2
+  %R22 = getelementptr inbounds i8, ptr %st, i64 32
   %10 = load <2 x i64>, ptr %R22, align 16
   %11 = and <2 x i64> %10, <i64 4294967295, i64 4294967295>
-  %R23 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 3
+  %R23 = getelementptr inbounds i8, ptr %st, i64 48
   %12 = load <2 x i64>, ptr %R23, align 16
   %13 = and <2 x i64> %12, <i64 4294967295, i64 4294967295>
-  %R24 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 4
+  %R24 = getelementptr inbounds i8, ptr %st, i64 64
   %14 = load <2 x i64>, ptr %R24, align 16
   %15 = and <2 x i64> %14, <i64 4294967295, i64 4294967295>
-  %S24 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 8
+  %S24 = getelementptr inbounds i8, ptr %st, i64 128
   %16 = load <2 x i64>, ptr %S24, align 16
   %17 = and <2 x i64> %16, <i64 4294967295, i64 4294967295>
-  %S23 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 7
+  %S23 = getelementptr inbounds i8, ptr %st, i64 112
   %18 = load <2 x i64>, ptr %S23, align 16
   %19 = and <2 x i64> %18, <i64 4294967295, i64 4294967295>
-  %S22 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 6
+  %S22 = getelementptr inbounds i8, ptr %st, i64 96
   %20 = load <2 x i64>, ptr %S22, align 16
   %21 = and <2 x i64> %20, <i64 4294967295, i64 4294967295>
-  %S21 = getelementptr inbounds %struct.poly1305_power_t, ptr %st, i64 0, i32 5
+  %S21 = getelementptr inbounds i8, ptr %st, i64 80
   %22 = load <2 x i64>, ptr %S21, align 16
   %23 = and <2 x i64> %22, <i64 4294967295, i64 4294967295>
-  %arrayidx90 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1
+  %arrayidx90 = getelementptr inbounds i8, ptr %st, i64 144
   %24 = load <2 x i64>, ptr %arrayidx90, align 16
   %25 = and <2 x i64> %24, <i64 4294967295, i64 4294967295>
-  %R2193 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 1
+  %R2193 = getelementptr inbounds i8, ptr %st, i64 160
   %26 = load <2 x i64>, ptr %R2193, align 16
   %27 = and <2 x i64> %26, <i64 4294967295, i64 4294967295>
-  %S2497 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 8
+  %S2497 = getelementptr inbounds i8, ptr %st, i64 272
   %28 = load <2 x i64>, ptr %S2497, align 16
   %29 = and <2 x i64> %28, <i64 4294967295, i64 4294967295>
-  %S23103 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 7
+  %S23103 = getelementptr inbounds i8, ptr %st, i64 256
   %30 = load <2 x i64>, ptr %S23103, align 16
   %31 = and <2 x i64> %30, <i64 4294967295, i64 4294967295>
-  %S22109 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 6
+  %S22109 = getelementptr inbounds i8, ptr %st, i64 240
   %32 = load <2 x i64>, ptr %S22109, align 16
   %33 = and <2 x i64> %32, <i64 4294967295, i64 4294967295>
-  %S21115 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 5
+  %S21115 = getelementptr inbounds i8, ptr %st, i64 224
   %34 = load <2 x i64>, ptr %S21115, align 16
   %35 = and <2 x i64> %34, <i64 4294967295, i64 4294967295>
-  %R22121 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 2
+  %R22121 = getelementptr inbounds i8, ptr %st, i64 176
   %36 = load <2 x i64>, ptr %R22121, align 16
   %37 = and <2 x i64> %36, <i64 4294967295, i64 4294967295>
-  %R23123 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 3
+  %R23123 = getelementptr inbounds i8, ptr %st, i64 192
   %38 = load <2 x i64>, ptr %R23123, align 16
   %39 = and <2 x i64> %38, <i64 4294967295, i64 4294967295>
-  %R24151 = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %st, i64 0, i64 1, i32 4
+  %R24151 = getelementptr inbounds i8, ptr %st, i64 208
   %40 = load <2 x i64>, ptr %R24151, align 16
   %41 = and <2 x i64> %40, <i64 4294967295, i64 4294967295>
   %42 = and <2 x i64> %1, <i64 4294967295, i64 4294967295>
@@ -910,34 +905,34 @@ entry:
   %add.i = add i64 %0, 63
   %and.i = and i64 %add.i, -64
   %1 = inttoptr i64 %and.i to ptr
-  %leftover1 = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 3
+  %leftover1 = getelementptr inbounds i8, ptr %1, i64 376
   %2 = load i64, ptr %leftover1, align 8
-  %buffer = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 4
-  %started = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 2
+  %buffer = getelementptr inbounds i8, ptr %1, i64 384
+  %started = getelementptr inbounds i8, ptr %1, i64 368
   %3 = load i64, ptr %started, align 16
   %tobool.not = icmp eq i64 %3, 0
-  %.phi.trans.insert = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 288
   br i1 %tobool.not, label %entry.if.end_crit_edge, label %if.then
 
 entry.if.end_crit_edge:                           ; preds = %entry
   %.pre = load i64, ptr %.phi.trans.insert, align 32
   %arrayidx3.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 296
   %.pre304 = load i64, ptr %arrayidx3.phi.trans.insert, align 8
-  %arrayidx4.phi.trans.insert = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 1, i32 0, i64 1
+  %arrayidx4.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 304
   %.pre305 = load i64, ptr %arrayidx4.phi.trans.insert, align 16
   br label %if.end
 
 if.then:                                          ; preds = %entry
   %4 = load <2 x i64>, ptr %.phi.trans.insert, align 32
-  %arrayidx3.i = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 1, i32 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %1, i64 304
   %5 = load <2 x i64>, ptr %arrayidx3.i, align 16
-  %arrayidx4.i = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 1, i32 0, i64 2
+  %arrayidx4.i = getelementptr inbounds i8, ptr %1, i64 320
   %6 = load <2 x i64>, ptr %arrayidx4.i, align 64
-  %arrayidx5.i = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 1, i32 0, i64 3
+  %arrayidx5.i = getelementptr inbounds i8, ptr %1, i64 336
   %7 = load <2 x i64>, ptr %arrayidx5.i, align 16
-  %arrayidx6.i = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 1, i32 0, i64 4
+  %arrayidx6.i = getelementptr inbounds i8, ptr %1, i64 352
   %8 = load <2 x i64>, ptr %arrayidx6.i, align 32
-  %arrayidx7.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %1, i64 144
   %cmp.i = icmp ugt i64 %2, 31
   br i1 %cmp.i, label %if.then.i, label %poly1305_combine.exit
 
@@ -946,23 +941,23 @@ if.then.i:                                        ; preds = %if.then
   %10 = and <2 x i64> %4, <i64 4294967295, i64 4294967295>
   %11 = and <2 x i64> %9, <i64 4294967295, i64 4294967295>
   %12 = mul nuw <2 x i64> %11, %10
-  %R21.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 1
+  %R21.i = getelementptr inbounds i8, ptr %1, i64 160
   %13 = load <2 x i64>, ptr %R21.i, align 32
   %14 = and <2 x i64> %13, <i64 4294967295, i64 4294967295>
   %15 = mul nuw <2 x i64> %14, %10
-  %R22.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 2
+  %R22.i = getelementptr inbounds i8, ptr %1, i64 176
   %16 = load <2 x i64>, ptr %R22.i, align 16
   %17 = and <2 x i64> %16, <i64 4294967295, i64 4294967295>
   %18 = mul nuw <2 x i64> %17, %10
-  %R23.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 3
+  %R23.i = getelementptr inbounds i8, ptr %1, i64 192
   %19 = load <2 x i64>, ptr %R23.i, align 64
   %20 = and <2 x i64> %19, <i64 4294967295, i64 4294967295>
   %21 = mul nuw <2 x i64> %20, %10
-  %R24.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 4
+  %R24.i = getelementptr inbounds i8, ptr %1, i64 208
   %22 = load <2 x i64>, ptr %R24.i, align 16
   %23 = and <2 x i64> %22, <i64 4294967295, i64 4294967295>
   %24 = mul nuw <2 x i64> %23, %10
-  %S24.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 8
+  %S24.i = getelementptr inbounds i8, ptr %1, i64 272
   %25 = load <2 x i64>, ptr %S24.i, align 16
   %26 = and <2 x i64> %5, <i64 4294967295, i64 4294967295>
   %27 = and <2 x i64> %25, <i64 4294967295, i64 4294967295>
@@ -970,7 +965,7 @@ if.then.i:                                        ; preds = %if.then
   %29 = mul nuw <2 x i64> %11, %26
   %add.i742.i = add <2 x i64> %28, %12
   %add.i739.i = add <2 x i64> %15, %29
-  %S23.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 7
+  %S23.i = getelementptr inbounds i8, ptr %1, i64 256
   %30 = load <2 x i64>, ptr %S23.i, align 64
   %31 = and <2 x i64> %6, <i64 4294967295, i64 4294967295>
   %32 = and <2 x i64> %30, <i64 4294967295, i64 4294967295>
@@ -978,7 +973,7 @@ if.then.i:                                        ; preds = %if.then
   %34 = mul nuw <2 x i64> %27, %31
   %add.i736.i = add <2 x i64> %add.i742.i, %33
   %add.i733.i = add <2 x i64> %add.i739.i, %34
-  %S22.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 6
+  %S22.i = getelementptr inbounds i8, ptr %1, i64 240
   %35 = load <2 x i64>, ptr %S22.i, align 16
   %36 = and <2 x i64> %7, <i64 4294967295, i64 4294967295>
   %37 = and <2 x i64> %35, <i64 4294967295, i64 4294967295>
@@ -986,7 +981,7 @@ if.then.i:                                        ; preds = %if.then
   %39 = mul nuw <2 x i64> %32, %36
   %add.i730.i = add <2 x i64> %add.i736.i, %38
   %add.i727.i = add <2 x i64> %add.i733.i, %39
-  %S21.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 5
+  %S21.i = getelementptr inbounds i8, ptr %1, i64 224
   %40 = load <2 x i64>, ptr %S21.i, align 32
   %41 = and <2 x i64> %8, <i64 4294967295, i64 4294967295>
   %42 = and <2 x i64> %40, <i64 4294967295, i64 4294967295>
@@ -1008,13 +1003,13 @@ if.then.i:                                        ; preds = %if.then
   %56 = mul nuw <2 x i64> %11, %41
   %57 = load i64, ptr %buffer, align 64
   %vecinit1.i456.i = insertelement <2 x i64> poison, i64 %57, i64 0
-  %add.ptr70.i = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 4, i64 16
+  %add.ptr70.i = getelementptr inbounds i8, ptr %1, i64 400
   %58 = load i64, ptr %add.ptr70.i, align 16
   %shuffle.i443.i = insertelement <2 x i64> %vecinit1.i456.i, i64 %58, i64 1
-  %add.ptr73.i = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 4, i64 8
+  %add.ptr73.i = getelementptr inbounds i8, ptr %1, i64 392
   %59 = load i64, ptr %add.ptr73.i, align 8
   %vecinit1.i448.i = insertelement <2 x i64> poison, i64 %59, i64 0
-  %add.ptr75.i = getelementptr inbounds %struct.poly1305_state_internal_t, ptr %1, i64 0, i32 4, i64 24
+  %add.ptr75.i = getelementptr inbounds i8, ptr %1, i64 408
   %60 = load i64, ptr %add.ptr75.i, align 8
   %shuffle.i.i = insertelement <2 x i64> %vecinit1.i448.i, i64 %60, i64 1
   %and.i509.i = and <2 x i64> %shuffle.i443.i, <i64 67108863, i64 67108863>
@@ -1083,7 +1078,7 @@ poly1305_combine.exit:                            ; preds = %if.then, %if.then.i
   %74 = load i32, ptr %arrayidx119.i, align 4
   %conv120.i = zext i32 %74 to i64
   %or.i = or disjoint i64 %shl.i, %conv120.i
-  %R21121.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 1
+  %R21121.i = getelementptr inbounds i8, ptr %1, i64 160
   %arrayidx122.i = getelementptr inbounds i8, ptr %1, i64 172
   %75 = load i32, ptr %arrayidx122.i, align 4
   %conv123.i = zext i32 %75 to i64
@@ -1092,7 +1087,7 @@ poly1305_combine.exit:                            ; preds = %if.then, %if.then.i
   %76 = load i32, ptr %arrayidx126.i, align 4
   %conv127.i = zext i32 %76 to i64
   %or128.i = or disjoint i64 %shl124.i, %conv127.i
-  %R22129.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 2
+  %R22129.i = getelementptr inbounds i8, ptr %1, i64 176
   %arrayidx130.i = getelementptr inbounds i8, ptr %1, i64 188
   %77 = load i32, ptr %arrayidx130.i, align 4
   %conv131.i = zext i32 %77 to i64
@@ -1120,28 +1115,28 @@ poly1305_combine.exit:                            ; preds = %if.then, %if.then.i
   %shl152.i = shl i32 %78, 10
   %or153.i = or i32 %shl152.i, %shr151.i
   %and155.i = and i32 %or153.i, 67108863
-  %R23156.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 3
+  %R23156.i = getelementptr inbounds i8, ptr %1, i64 192
   %arrayidx157.i = getelementptr inbounds i8, ptr %1, i64 200
   store i32 %and155.i, ptr %arrayidx157.i, align 8
   %shr158.i = lshr i64 %or136.i, 16
   %conv159.i = trunc i64 %shr158.i to i32
-  %R24160.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 4
+  %R24160.i = getelementptr inbounds i8, ptr %1, i64 208
   %arrayidx161.i = getelementptr inbounds i8, ptr %1, i64 216
   store i32 %conv159.i, ptr %arrayidx161.i, align 8
   %mul.i = mul nuw nsw i32 %and143.i, 5
-  %S21164.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 5
+  %S21164.i = getelementptr inbounds i8, ptr %1, i64 224
   %arrayidx165.i = getelementptr inbounds i8, ptr %1, i64 232
   store i32 %mul.i, ptr %arrayidx165.i, align 8
   %mul168.i = mul nuw nsw i32 %and148.i, 5
-  %S22169.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 6
+  %S22169.i = getelementptr inbounds i8, ptr %1, i64 240
   %arrayidx170.i = getelementptr inbounds i8, ptr %1, i64 248
   store i32 %mul168.i, ptr %arrayidx170.i, align 8
   %mul173.i = mul nuw nsw i32 %and155.i, 5
-  %S23174.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 7
+  %S23174.i = getelementptr inbounds i8, ptr %1, i64 256
   %arrayidx175.i = getelementptr inbounds i8, ptr %1, i64 264
   store i32 %mul173.i, ptr %arrayidx175.i, align 8
   %mul178.i = mul i32 %conv159.i, 5
-  %S24179.i = getelementptr inbounds [2 x %struct.poly1305_power_t], ptr %1, i64 0, i64 1, i32 8
+  %S24179.i = getelementptr inbounds i8, ptr %1, i64 272
   %arrayidx180.i = getelementptr inbounds i8, ptr %1, i64 280
   store i32 %mul178.i, ptr %arrayidx180.i, align 8
   %79 = load <2 x i64>, ptr %arrayidx7.i, align 16

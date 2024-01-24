@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.index_state = type opaque
 %struct.object_id = type { [32 x i8], i32 }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [15 x i8] c"git-write-tree\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"missing-ok\00", align 1
@@ -36,66 +33,66 @@ entry:
   store i32 0, ptr %flags, align 4
   store ptr null, ptr %tree_prefix, align 8
   store i32 5, ptr %write_tree_options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %write_tree_options, i64 4
   store i32 0, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %write_tree_options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %write_tree_options, i64 16
   store ptr %flags, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %write_tree_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %write_tree_options, i64 32
   store ptr @.str.2, ptr %help, align 16
-  %flags1 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 6
+  %flags1 = getelementptr inbounds i8, ptr %write_tree_options, i64 40
   store i32 2, ptr %flags1, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 7
+  %callback = getelementptr inbounds i8, ptr %write_tree_options, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 8
+  %defval = getelementptr inbounds i8, ptr %write_tree_options, i64 56
   store i64 1, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 0, i32 9
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1
+  %ll_callback = getelementptr inbounds i8, ptr %write_tree_options, i64 64
+  %arrayinit.element = getelementptr inbounds i8, ptr %write_tree_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element, align 8
-  %short_name3 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1, i32 1
+  %short_name3 = getelementptr inbounds i8, ptr %write_tree_options, i64 92
   store i32 0, ptr %short_name3, align 4
-  %long_name4 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1, i32 2
+  %long_name4 = getelementptr inbounds i8, ptr %write_tree_options, i64 96
   store ptr @.str.3, ptr %long_name4, align 16
-  %value5 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1, i32 3
+  %value5 = getelementptr inbounds i8, ptr %write_tree_options, i64 104
   store ptr %tree_prefix, ptr %value5, align 8
-  %argh6 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1, i32 4
+  %argh6 = getelementptr inbounds i8, ptr %write_tree_options, i64 112
   store ptr @.str.4, ptr %argh6, align 16
-  %help7 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1, i32 5
+  %help7 = getelementptr inbounds i8, ptr %write_tree_options, i64 120
   store ptr @.str.5, ptr %help7, align 8
-  %flags8 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1, i32 6
+  %flags8 = getelementptr inbounds i8, ptr %write_tree_options, i64 128
   store i32 0, ptr %flags8, align 16
-  %callback9 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 1, i32 7
-  %arrayinit.element14 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2
+  %callback9 = getelementptr inbounds i8, ptr %write_tree_options, i64 136
+  %arrayinit.element14 = getelementptr inbounds i8, ptr %write_tree_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback9, i8 0, i64 40, i1 false)
   store i32 5, ptr %arrayinit.element14, align 16
-  %short_name16 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 1
+  %short_name16 = getelementptr inbounds i8, ptr %write_tree_options, i64 180
   store i32 0, ptr %short_name16, align 4
-  %long_name17 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 2
+  %long_name17 = getelementptr inbounds i8, ptr %write_tree_options, i64 184
   store ptr @.str.6, ptr %long_name17, align 8
-  %value18 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 3
+  %value18 = getelementptr inbounds i8, ptr %write_tree_options, i64 192
   store ptr %flags, ptr %value18, align 16
-  %argh19 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 4
+  %argh19 = getelementptr inbounds i8, ptr %write_tree_options, i64 200
   store ptr null, ptr %argh19, align 8
-  %help20 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 5
+  %help20 = getelementptr inbounds i8, ptr %write_tree_options, i64 208
   store ptr @.str.7, ptr %help20, align 16
-  %flags21 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 6
+  %flags21 = getelementptr inbounds i8, ptr %write_tree_options, i64 216
   store i32 10, ptr %flags21, align 8
-  %callback22 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 7
+  %callback22 = getelementptr inbounds i8, ptr %write_tree_options, i64 224
   store ptr null, ptr %callback22, align 16
-  %defval23 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 8
+  %defval23 = getelementptr inbounds i8, ptr %write_tree_options, i64 232
   store i64 2, ptr %defval23, align 8
-  %ll_callback24 = getelementptr inbounds %struct.option, ptr %write_tree_options, i64 2, i32 9
+  %ll_callback24 = getelementptr inbounds i8, ptr %write_tree_options, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %ll_callback24, i8 0, i64 112, i1 false)
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #5
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %cmd_prefix, ptr noundef nonnull %write_tree_options, ptr noundef nonnull @write_tree_usage, i32 noundef 0) #5
   %0 = load ptr, ptr @the_repository, align 8
   call void @prepare_repo_settings(ptr noundef %0) #5
   %1 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 10, i32 6
+  %command_requires_full_index = getelementptr inbounds i8, ptr %1, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   %call40 = call ptr @get_index_file() #5
   %2 = load i32, ptr %flags, align 4

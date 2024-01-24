@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.rand_meth_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.rand_thread_state = type { [32 x i8], i64, i64, [64 x i8], i32 }
 
 @kSSLeayMethod = internal constant %struct.rand_meth_st { ptr @RAND_seed, ptr @RAND_bytes, ptr @RAND_cleanup, ptr @RAND_add, ptr @RAND_pseudo_bytes, ptr @RAND_status }, align 8
 @OPENSSL_ia32cap_P = external local_unnamed_addr global [4 x i32], align 16
@@ -72,39 +71,39 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end12.thread:                                  ; preds = %lor.lhs.false
-  %partial_block = getelementptr inbounds %struct.rand_thread_state, ptr %call6, i64 0, i32 3
+  %partial_block = getelementptr inbounds i8, ptr %call6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %partial_block, i8 0, i64 64, i1 false)
-  %calls_used = getelementptr inbounds %struct.rand_thread_state, ptr %call6, i64 0, i32 1
+  %calls_used = getelementptr inbounds i8, ptr %call6, i64 32
   store i64 1024, ptr %calls_used, align 8
-  %calls_used1353 = getelementptr inbounds %struct.rand_thread_state, ptr %call6, i64 0, i32 1
+  %calls_used1353 = getelementptr inbounds i8, ptr %call6, i64 32
   br label %if.then17
 
 if.end12:                                         ; preds = %if.end2
-  %calls_used13.phi.trans.insert = getelementptr inbounds %struct.rand_thread_state, ptr %call3, i64 0, i32 1
+  %calls_used13.phi.trans.insert = getelementptr inbounds i8, ptr %call3, i64 32
   %.pre = load i64, ptr %calls_used13.phi.trans.insert, align 8
-  %calls_used13 = getelementptr inbounds %struct.rand_thread_state, ptr %call3, i64 0, i32 1
+  %calls_used13 = getelementptr inbounds i8, ptr %call3, i64 32
   %cmp14 = icmp ugt i64 %.pre, 1023
   br i1 %cmp14, label %if.then17, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %if.end12
-  %bytes_used = getelementptr inbounds %struct.rand_thread_state, ptr %call3, i64 0, i32 2
+  %bytes_used = getelementptr inbounds i8, ptr %call3, i64 40
   %2 = load i64, ptr %bytes_used, align 8
   %cmp16 = icmp ugt i64 %2, 1048575
   br i1 %cmp16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end12.thread, %lor.lhs.false15, %if.end12
-  %calls_used1357 = phi ptr [ %calls_used1353, %if.end12.thread ], [ %calls_used13, %lor.lhs.false15 ], [ %calls_used13, %if.end12 ]
+  %calls_used1358 = phi ptr [ %calls_used1353, %if.end12.thread ], [ %calls_used13, %lor.lhs.false15 ], [ %calls_used13, %if.end12 ]
   %state.055 = phi ptr [ %call6, %if.end12.thread ], [ %call3, %lor.lhs.false15 ], [ %call3, %if.end12 ]
   call void @CRYPTO_sysrand(ptr noundef nonnull %state.055, i64 noundef 32) #9
-  store i64 0, ptr %calls_used1357, align 8
-  %bytes_used20 = getelementptr inbounds %struct.rand_thread_state, ptr %state.055, i64 0, i32 2
+  store i64 0, ptr %calls_used1358, align 8
+  %bytes_used20 = getelementptr inbounds i8, ptr %state.055, i64 40
   store i64 0, ptr %bytes_used20, align 8
-  %partial_block_used = getelementptr inbounds %struct.rand_thread_state, ptr %state.055, i64 0, i32 4
+  %partial_block_used = getelementptr inbounds i8, ptr %state.055, i64 112
   store i32 64, ptr %partial_block_used, align 8
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %lor.lhs.false15
-  %calls_used1358 = phi ptr [ %calls_used1357, %if.then17 ], [ %calls_used13, %lor.lhs.false15 ]
+  %calls_used1357 = phi ptr [ %calls_used1358, %if.then17 ], [ %calls_used13, %lor.lhs.false15 ]
   %state.056 = phi ptr [ %state.055, %if.then17 ], [ %call3, %lor.lhs.false15 ]
   %3 = phi i64 [ 0, %if.then17 ], [ %.pre, %lor.lhs.false15 ]
   %cmp22 = icmp ugt i64 %len, 63
@@ -124,40 +123,41 @@ while.body:                                       ; preds = %while.cond.preheade
   call void @CRYPTO_chacha_20(ptr noundef %buf.addr.050, ptr noundef %buf.addr.050, i64 noundef %spec.store.select, ptr noundef nonnull %state.056, ptr noundef nonnull %nonce, i32 noundef 0) #9
   %add.ptr34 = getelementptr inbounds i8, ptr %buf.addr.050, i64 %spec.store.select
   %sub = sub i64 %remaining.051, %spec.store.select
-  %5 = load i64, ptr %calls_used1358, align 8
+  %5 = load i64, ptr %calls_used1357, align 8
   %inc = add i64 %5, 1
-  store i64 %inc, ptr %calls_used1358, align 8
+  store i64 %inc, ptr %calls_used1357, align 8
   %cmp24.not = icmp eq i64 %sub, 0
   br i1 %cmp24.not, label %if.end69, label %while.body, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end21
-  %partial_block_used36 = getelementptr inbounds %struct.rand_thread_state, ptr %state.056, i64 0, i32 4
+  %partial_block_used36 = getelementptr inbounds i8, ptr %state.056, i64 112
   %6 = load i32, ptr %partial_block_used36, align 8
   %conv = zext i32 %6 to i64
   %sub37 = sub nsw i64 64, %conv
   %cmp38 = icmp ult i64 %sub37, %len
-  br i1 %cmp38, label %if.then40, label %for.body.preheader
+  br i1 %cmp38, label %if.then40, label %if.end54
 
 if.then40:                                        ; preds = %if.else
   store i32 0, ptr %nonce41, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %nonce41, i64 4
   store i64 %3, ptr %add.ptr44, align 4
-  %partial_block46 = getelementptr inbounds %struct.rand_thread_state, ptr %state.056, i64 0, i32 3
+  %partial_block46 = getelementptr inbounds i8, ptr %state.056, i64 48
   call void @CRYPTO_chacha_20(ptr noundef nonnull %partial_block46, ptr noundef nonnull %partial_block46, i64 noundef 64, ptr noundef nonnull %state.056, ptr noundef nonnull %nonce41, i32 noundef 0) #9
   store i32 0, ptr %partial_block_used36, align 8
-  br label %for.body.preheader
+  br label %if.end54
 
-for.body.preheader:                               ; preds = %if.then40, %if.else
+if.end54:                                         ; preds = %if.then40, %if.else
+  %partial_block58 = getelementptr inbounds i8, ptr %state.056, i64 48
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %conv5549 = phi i64 [ %conv55, %for.body ], [ 0, %for.body.preheader ]
-  %i.048 = phi i32 [ %inc66, %for.body ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %if.end54, %for.body
+  %conv5549 = phi i64 [ 0, %if.end54 ], [ %conv55, %for.body ]
+  %i.048 = phi i32 [ 0, %if.end54 ], [ %inc66, %for.body ]
   %7 = load i32, ptr %partial_block_used36, align 8
   %inc60 = add i32 %7, 1
   store i32 %inc60, ptr %partial_block_used36, align 8
   %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.rand_thread_state, ptr %state.056, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr inbounds [64 x i8], ptr %partial_block58, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx, align 1
   %arrayidx63 = getelementptr inbounds i8, ptr %buf, i64 %conv5549
   %9 = load i8, ptr %arrayidx63, align 1
@@ -169,13 +169,13 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp56, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body
-  %10 = load i64, ptr %calls_used1358, align 8
+  %10 = load i64, ptr %calls_used1357, align 8
   %inc68 = add i64 %10, 1
-  store i64 %inc68, ptr %calls_used1358, align 8
+  store i64 %inc68, ptr %calls_used1357, align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %while.body, %for.end
-  %bytes_used70 = getelementptr inbounds %struct.rand_thread_state, ptr %state.056, i64 0, i32 2
+  %bytes_used70 = getelementptr inbounds i8, ptr %state.056, i64 40
   %11 = load i64, ptr %bytes_used70, align 8
   %add = add i64 %11, %len
   store i64 %add, ptr %bytes_used70, align 8

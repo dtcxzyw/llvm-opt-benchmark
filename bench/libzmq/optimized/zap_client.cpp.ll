@@ -3,49 +3,11 @@ source_filename = "bench/libzmq/original/zap_client.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.zmq::zap_client_t" = type { ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.zmq::mechanism_base_t" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.zmq::mechanism_base_t" = type { %"class.zmq::mechanism_t", ptr }
-%"class.zmq::mechanism_t" = type { ptr, %"struct.zmq::options_t", %"class.std::map", %"class.std::map", %"struct.zmq::blob_t", %"struct.zmq::blob_t" }
-%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.6", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
-%"struct.zmq::atomic_value_t" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::set.6" = type { %"class.std::_Rb_tree.7" }
-%"class.std::_Rb_tree.7" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.11", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.11" = type { %"struct.std::less.12" }
-%"struct.std::less.12" = type { i8 }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree.14" }
-%"class.std::_Rb_tree.14" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.18", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.18" = type { %"struct.std::less.19" }
-%"struct.std::less.19" = type { i8 }
-%"struct.zmq::blob_t" = type <{ ptr, i64, i8, [7 x i8] }>
 %"class.zmq::msg_t" = type { %union.anon.26 }
 %union.anon.26 = type { %struct.anon }
 %struct.anon = type { ptr, [34 x i8], i8, i8, i32, %"union.zmq::msg_t::group_t" }
 %"union.zmq::msg_t::group_t" = type { %struct.anon.28 }
 %struct.anon.28 = type { i8, ptr }
-%"class.zmq::zap_client_common_handshake_t" = type { %"class.zmq::zap_client_t.base", i32, i32, %"class.zmq::mechanism_base_t" }
-%"class.zmq::zap_client_t.base" = type { ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $_ZN3zmq16close_and_returnEPNS_5msg_tEi = comdat any
 
@@ -102,15 +64,15 @@ define void @_ZN3zmq12zap_client_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_s
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
-  %1 = getelementptr inbounds ptr, ptr %vtt, i64 1
+  %1 = getelementptr inbounds i8, ptr %vtt, i64 8
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8
-  %peer_address = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 1
+  %peer_address = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %peer_address, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_)
-  %status_code = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 2
+  %status_code = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code) #13
   ret void
 }
@@ -156,7 +118,7 @@ do.end:                                           ; preds = %entry, %if.then
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
-  %session = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr, i64 0, i32 1
+  %session = getelementptr inbounds i8, ptr %add.ptr, i64 1488
   %3 = load ptr, ptr %session, align 8
   %call6 = call noundef i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %3, ptr noundef nonnull %msg)
   %cmp8.not = icmp eq i32 %call6, 0
@@ -197,7 +159,7 @@ do.end29:                                         ; preds = %do.end17, %if.then2
   %vbase.offset.ptr32 = getelementptr i8, ptr %vtable31, i64 -24
   %vbase.offset33 = load i64, ptr %vbase.offset.ptr32, align 8
   %add.ptr34 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset33
-  %session35 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr34, i64 0, i32 1
+  %session35 = getelementptr inbounds i8, ptr %add.ptr34, i64 1488
   %10 = load ptr, ptr %session35, align 8
   %call36 = call noundef i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %10, ptr noundef nonnull %msg)
   %cmp38.not = icmp eq i32 %call36, 0
@@ -238,7 +200,7 @@ do.end59:                                         ; preds = %do.end47, %if.then5
   %vbase.offset.ptr62 = getelementptr i8, ptr %vtable61, i64 -24
   %vbase.offset63 = load i64, ptr %vbase.offset.ptr62, align 8
   %add.ptr64 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset63
-  %session65 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr64, i64 0, i32 1
+  %session65 = getelementptr inbounds i8, ptr %add.ptr64, i64 1488
   %17 = load ptr, ptr %session65, align 8
   %call66 = call noundef i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %17, ptr noundef nonnull %msg)
   %cmp68.not = icmp eq i32 %call66, 0
@@ -260,7 +222,7 @@ do.end77:                                         ; preds = %do.end59, %if.then7
   %vbase.offset.ptr79 = getelementptr i8, ptr %vtable78, i64 -24
   %vbase.offset80 = load i64, ptr %vbase.offset.ptr79, align 8
   %add.ptr81 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset80
-  %zap_domain = getelementptr inbounds %"class.zmq::mechanism_t", ptr %add.ptr81, i64 0, i32 1, i32 44
+  %zap_domain = getelementptr inbounds i8, ptr %add.ptr81, i64 672
   %call82 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %zap_domain) #13
   %call83 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %msg, i64 noundef %call82)
   %cmp85.not = icmp eq i32 %call83, 0
@@ -283,13 +245,13 @@ do.end94:                                         ; preds = %do.end77, %if.then8
   %vbase.offset.ptr97 = getelementptr i8, ptr %vtable96, i64 -24
   %vbase.offset98 = load i64, ptr %vbase.offset.ptr97, align 8
   %add.ptr99 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset98
-  %zap_domain101 = getelementptr inbounds %"class.zmq::mechanism_t", ptr %add.ptr99, i64 0, i32 1, i32 44
+  %zap_domain101 = getelementptr inbounds i8, ptr %add.ptr99, i64 672
   %call102 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %zap_domain101) #13
   %vtable103 = load ptr, ptr %this, align 8
   %vbase.offset.ptr104 = getelementptr i8, ptr %vtable103, i64 -24
   %vbase.offset105 = load i64, ptr %vbase.offset.ptr104, align 8
   %add.ptr106 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset105
-  %zap_domain108 = getelementptr inbounds %"class.zmq::mechanism_t", ptr %add.ptr106, i64 0, i32 1, i32 44
+  %zap_domain108 = getelementptr inbounds i8, ptr %add.ptr106, i64 672
   %call109 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %zap_domain108) #13
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call95, ptr align 1 %call102, i64 %call109, i1 false)
   call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %msg, i8 noundef zeroext 1)
@@ -297,7 +259,7 @@ do.end94:                                         ; preds = %do.end77, %if.then8
   %vbase.offset.ptr111 = getelementptr i8, ptr %vtable110, i64 -24
   %vbase.offset112 = load i64, ptr %vbase.offset.ptr111, align 8
   %add.ptr113 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset112
-  %session114 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr113, i64 0, i32 1
+  %session114 = getelementptr inbounds i8, ptr %add.ptr113, i64 1488
   %24 = load ptr, ptr %session114, align 8
   %call115 = call noundef i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %24, ptr noundef nonnull %msg)
   %cmp117.not = icmp eq i32 %call115, 0
@@ -315,7 +277,7 @@ if.then119:                                       ; preds = %do.end94
   br label %do.end126
 
 do.end126:                                        ; preds = %do.end94, %if.then119
-  %peer_address = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 1
+  %peer_address = getelementptr inbounds i8, ptr %this, i64 8
   %call127 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %peer_address) #13
   %call128 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %msg, i64 noundef %call127)
   %cmp130.not = icmp eq i32 %call128, 0
@@ -342,7 +304,7 @@ do.end139:                                        ; preds = %do.end126, %if.then
   %vbase.offset.ptr146 = getelementptr i8, ptr %vtable145, i64 -24
   %vbase.offset147 = load i64, ptr %vbase.offset.ptr146, align 8
   %add.ptr148 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset147
-  %session149 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr148, i64 0, i32 1
+  %session149 = getelementptr inbounds i8, ptr %add.ptr148, i64 1488
   %31 = load ptr, ptr %session149, align 8
   %call150 = call noundef i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %31, ptr noundef nonnull %msg)
   %cmp152.not = icmp eq i32 %call150, 0
@@ -364,7 +326,7 @@ do.end161:                                        ; preds = %do.end139, %if.then
   %vbase.offset.ptr163 = getelementptr i8, ptr %vtable162, i64 -24
   %vbase.offset164 = load i64, ptr %vbase.offset.ptr163, align 8
   %add.ptr165 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset164
-  %routing_id_size = getelementptr inbounds %"class.zmq::mechanism_t", ptr %add.ptr165, i64 0, i32 1, i32 3
+  %routing_id_size = getelementptr inbounds i8, ptr %add.ptr165, i64 24
   %35 = load i8, ptr %routing_id_size, align 8
   %conv = zext i8 %35 to i64
   %call167 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %msg, i64 noundef %conv)
@@ -388,8 +350,8 @@ do.end179:                                        ; preds = %do.end161, %if.then
   %vbase.offset.ptr182 = getelementptr i8, ptr %vtable181, i64 -24
   %vbase.offset183 = load i64, ptr %vbase.offset.ptr182, align 8
   %add.ptr184 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset183
-  %routing_id = getelementptr inbounds %"class.zmq::mechanism_t", ptr %add.ptr184, i64 0, i32 1, i32 4
-  %routing_id_size191 = getelementptr inbounds %"class.zmq::mechanism_t", ptr %add.ptr184, i64 0, i32 1, i32 3
+  %routing_id = getelementptr inbounds i8, ptr %add.ptr184, i64 25
+  %routing_id_size191 = getelementptr inbounds i8, ptr %add.ptr184, i64 24
   %39 = load i8, ptr %routing_id_size191, align 8
   %conv192 = zext i8 %39 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call180, ptr nonnull align 1 %routing_id, i64 %conv192, i1 false)
@@ -398,7 +360,7 @@ do.end179:                                        ; preds = %do.end161, %if.then
   %vbase.offset.ptr194 = getelementptr i8, ptr %vtable193, i64 -24
   %vbase.offset195 = load i64, ptr %vbase.offset.ptr194, align 8
   %add.ptr196 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset195
-  %session197 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr196, i64 0, i32 1
+  %session197 = getelementptr inbounds i8, ptr %add.ptr196, i64 1488
   %40 = load ptr, ptr %session197, align 8
   %call198 = call noundef i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %40, ptr noundef nonnull %msg)
   %cmp200.not = icmp eq i32 %call198, 0
@@ -446,7 +408,7 @@ if.end226:                                        ; preds = %if.then225, %do.end
   %vbase.offset.ptr228 = getelementptr i8, ptr %vtable227, i64 -24
   %vbase.offset229 = load i64, ptr %vbase.offset.ptr228, align 8
   %add.ptr230 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset229
-  %session231 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr230, i64 0, i32 1
+  %session231 = getelementptr inbounds i8, ptr %add.ptr230, i64 1488
   %47 = load ptr, ptr %session231, align 8
   %call232 = call noundef i32 @_ZN3zmq14session_base_t13write_zap_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1624) %47, ptr noundef nonnull %msg)
   %cmp234.not = icmp eq i32 %call232, 0
@@ -464,7 +426,7 @@ if.then237:                                       ; preds = %if.end226
   br label %do.end244
 
 do.end244:                                        ; preds = %if.end226, %if.then237
-  %invariant.gep = getelementptr %"class.zmq::mechanism_base_t", ptr %this, i64 0, i32 1
+  %invariant.gep = getelementptr i8, ptr %this, i64 1488
   br i1 %tobool.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end244
@@ -573,7 +535,7 @@ entry:
   br label %for.body
 
 for.cond8.preheader:                              ; preds = %for.inc
-  %invariant.gep = getelementptr %"class.zmq::mechanism_base_t", ptr %this, i64 0, i32 1
+  %invariant.gep = getelementptr i8, ptr %this, i64 1488
   br label %for.body10
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -654,14 +616,14 @@ if.then25:                                        ; preds = %if.end20
   %vbase.offset.ptr27 = getelementptr i8, ptr %vtable26, i64 -24
   %vbase.offset28 = load i64, ptr %vbase.offset.ptr27, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset28
-  %session30 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr29, i64 0, i32 1
+  %session30 = getelementptr inbounds i8, ptr %add.ptr29, i64 1488
   %10 = load ptr, ptr %session30, align 8
   %call31 = call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %10)
   %vtable32 = load ptr, ptr %this, align 8
   %vbase.offset.ptr33 = getelementptr i8, ptr %vtable32, i64 -24
   %vbase.offset34 = load i64, ptr %vbase.offset.ptr33, align 8
   %add.ptr35 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset34
-  %session36 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr35, i64 0, i32 1
+  %session36 = getelementptr inbounds i8, ptr %add.ptr35, i64 1488
   %11 = load ptr, ptr %session36, align 8
   %call37 = call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %11)
   call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call31, ptr noundef nonnull align 8 dereferenceable(68) %call37, i32 noundef 536870913)
@@ -695,14 +657,14 @@ if.then48:                                        ; preds = %for.end44
   %vbase.offset.ptr50 = getelementptr i8, ptr %vtable49, i64 -24
   %vbase.offset51 = load i64, ptr %vbase.offset.ptr50, align 8
   %add.ptr52 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset51
-  %session53 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr52, i64 0, i32 1
+  %session53 = getelementptr inbounds i8, ptr %add.ptr52, i64 1488
   %15 = load ptr, ptr %session53, align 8
   %call54 = call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %15)
   %vtable55 = load ptr, ptr %this, align 8
   %vbase.offset.ptr56 = getelementptr i8, ptr %vtable55, i64 -24
   %vbase.offset57 = load i64, ptr %vbase.offset.ptr56, align 8
   %add.ptr58 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset57
-  %session59 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr58, i64 0, i32 1
+  %session59 = getelementptr inbounds i8, ptr %add.ptr58, i64 1488
   %16 = load ptr, ptr %session59, align 8
   %call60 = call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %16)
   call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call54, ptr noundef nonnull align 8 dereferenceable(68) %call60, i32 noundef 536870912)
@@ -727,7 +689,7 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit31:    ; preds = %if.then48, %if.then
   br label %return
 
 if.end64:                                         ; preds = %for.end44
-  %arrayidx65 = getelementptr inbounds [7 x %"class.zmq::msg_t"], ptr %msg, i64 0, i64 1
+  %arrayidx65 = getelementptr inbounds i8, ptr %msg, i64 64
   %call66 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx65)
   %cmp67.not = icmp eq i64 %call66, 3
   br i1 %cmp67.not, label %lor.lhs.false, label %if.then71
@@ -743,14 +705,14 @@ if.then71:                                        ; preds = %lor.lhs.false, %if.
   %vbase.offset.ptr73 = getelementptr i8, ptr %vtable72, i64 -24
   %vbase.offset74 = load i64, ptr %vbase.offset.ptr73, align 8
   %add.ptr75 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset74
-  %session76 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr75, i64 0, i32 1
+  %session76 = getelementptr inbounds i8, ptr %add.ptr75, i64 1488
   %20 = load ptr, ptr %session76, align 8
   %call77 = call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %20)
   %vtable78 = load ptr, ptr %this, align 8
   %vbase.offset.ptr79 = getelementptr i8, ptr %vtable78, i64 -24
   %vbase.offset80 = load i64, ptr %vbase.offset.ptr79, align 8
   %add.ptr81 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset80
-  %session82 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr81, i64 0, i32 1
+  %session82 = getelementptr inbounds i8, ptr %add.ptr81, i64 1488
   %21 = load ptr, ptr %session82, align 8
   %call83 = call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %21)
   call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call77, ptr noundef nonnull align 8 dereferenceable(68) %call83, i32 noundef 536870915)
@@ -775,7 +737,7 @@ _ZN3zmq16close_and_returnEPNS_5msg_tEi.exit39:    ; preds = %if.then71, %if.then
   br label %return
 
 if.end87:                                         ; preds = %lor.lhs.false
-  %arrayidx88 = getelementptr inbounds [7 x %"class.zmq::msg_t"], ptr %msg, i64 0, i64 2
+  %arrayidx88 = getelementptr inbounds i8, ptr %msg, i64 128
   %call89 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx88)
   %cmp90.not = icmp eq i64 %call89, 1
   br i1 %cmp90.not, label %lor.lhs.false91, label %if.then96
@@ -791,14 +753,14 @@ if.then96:                                        ; preds = %lor.lhs.false91, %i
   %vbase.offset.ptr98 = getelementptr i8, ptr %vtable97, i64 -24
   %vbase.offset99 = load i64, ptr %vbase.offset.ptr98, align 8
   %add.ptr100 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset99
-  %session101 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr100, i64 0, i32 1
+  %session101 = getelementptr inbounds i8, ptr %add.ptr100, i64 1488
   %25 = load ptr, ptr %session101, align 8
   %call102 = call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %25)
   %vtable103 = load ptr, ptr %this, align 8
   %vbase.offset.ptr104 = getelementptr i8, ptr %vtable103, i64 -24
   %vbase.offset105 = load i64, ptr %vbase.offset.ptr104, align 8
   %add.ptr106 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset105
-  %session107 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr106, i64 0, i32 1
+  %session107 = getelementptr inbounds i8, ptr %add.ptr106, i64 1488
   %26 = load ptr, ptr %session107, align 8
   %call108 = call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %26)
   call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call102, ptr noundef nonnull align 8 dereferenceable(68) %call108, i32 noundef 536870914)
@@ -808,7 +770,7 @@ if.then96:                                        ; preds = %lor.lhs.false91, %i
   br label %return
 
 if.end112:                                        ; preds = %lor.lhs.false91
-  %arrayidx113 = getelementptr inbounds [7 x %"class.zmq::msg_t"], ptr %msg, i64 0, i64 3
+  %arrayidx113 = getelementptr inbounds i8, ptr %msg, i64 192
   %call114 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx113)
   %call116 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx113)
   %cmp117.not = icmp eq i64 %call116, 3
@@ -837,14 +799,14 @@ if.then134:                                       ; preds = %lor.lhs.false130, %
   %vbase.offset.ptr136 = getelementptr i8, ptr %vtable135, i64 -24
   %vbase.offset137 = load i64, ptr %vbase.offset.ptr136, align 8
   %add.ptr138 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset137
-  %session139 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr138, i64 0, i32 1
+  %session139 = getelementptr inbounds i8, ptr %add.ptr138, i64 1488
   %31 = load ptr, ptr %session139, align 8
   %call140 = call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %31)
   %vtable141 = load ptr, ptr %this, align 8
   %vbase.offset.ptr142 = getelementptr i8, ptr %vtable141, i64 -24
   %vbase.offset143 = load i64, ptr %vbase.offset.ptr142, align 8
   %add.ptr144 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset143
-  %session145 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr144, i64 0, i32 1
+  %session145 = getelementptr inbounds i8, ptr %add.ptr144, i64 1488
   %32 = load ptr, ptr %session145, align 8
   %call146 = call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %32)
   call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call140, ptr noundef nonnull align 8 dereferenceable(68) %call146, i32 noundef 536870916)
@@ -854,14 +816,14 @@ if.then134:                                       ; preds = %lor.lhs.false130, %
   br label %return
 
 if.end150:                                        ; preds = %lor.lhs.false130
-  %status_code = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 2
+  %status_code = getelementptr inbounds i8, ptr %this, i64 40
   %call152 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx113)
   %call153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %status_code, ptr noundef %call152, i64 noundef 3)
   %vtable154 = load ptr, ptr %this, align 8
   %vbase.offset.ptr155 = getelementptr i8, ptr %vtable154, i64 -24
   %vbase.offset156 = load i64, ptr %vbase.offset.ptr155, align 8
   %add.ptr157 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset156
-  %arrayidx158 = getelementptr inbounds [7 x %"class.zmq::msg_t"], ptr %msg, i64 0, i64 5
+  %arrayidx158 = getelementptr inbounds i8, ptr %msg, i64 320
   %call159 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx158)
   %call161 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx158)
   call void @_ZN3zmq11mechanism_t11set_user_idEPKvm(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr157, ptr noundef %call159, i64 noundef %call161)
@@ -869,7 +831,7 @@ if.end150:                                        ; preds = %lor.lhs.false130
   %vbase.offset.ptr163 = getelementptr i8, ptr %vtable162, i64 -24
   %vbase.offset164 = load i64, ptr %vbase.offset.ptr163, align 8
   %add.ptr165 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset164
-  %arrayidx166 = getelementptr inbounds [7 x %"class.zmq::msg_t"], ptr %msg, i64 0, i64 6
+  %arrayidx166 = getelementptr inbounds i8, ptr %msg, i64 384
   %call167 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx166)
   %call169 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx166)
   %call170 = call noundef i32 @_ZN3zmq11mechanism_t14parse_metadataEPKhmb(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr165, ptr noundef %call167, i64 noundef %call169, i1 noundef zeroext true)
@@ -881,14 +843,14 @@ if.then172:                                       ; preds = %if.end150
   %vbase.offset.ptr174 = getelementptr i8, ptr %vtable173, i64 -24
   %vbase.offset175 = load i64, ptr %vbase.offset.ptr174, align 8
   %add.ptr176 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset175
-  %session177 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr176, i64 0, i32 1
+  %session177 = getelementptr inbounds i8, ptr %add.ptr176, i64 1488
   %33 = load ptr, ptr %session177, align 8
   %call178 = call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %33)
   %vtable179 = load ptr, ptr %this, align 8
   %vbase.offset.ptr180 = getelementptr i8, ptr %vtable179, i64 -24
   %vbase.offset181 = load i64, ptr %vbase.offset.ptr180, align 8
   %add.ptr182 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset181
-  %session183 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr182, i64 0, i32 1
+  %session183 = getelementptr inbounds i8, ptr %add.ptr182, i64 1488
   %34 = load ptr, ptr %session183, align 8
   %call184 = call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %34)
   call void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call178, ptr noundef nonnull align 8 dereferenceable(68) %call184, i32 noundef 536870917)
@@ -922,7 +884,7 @@ for.inc207:                                       ; preds = %if.then199, %for.bo
 
 for.end209:                                       ; preds = %for.inc207
   %vtable210 = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable210, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable210, i64 8
   %38 = load ptr, ptr %vfn, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(72) %this)
   br label %return
@@ -979,7 +941,7 @@ declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12zap_client_t22handle_zap_status_codeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
-  %status_code = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 2
+  %status_code = getelementptr inbounds i8, ptr %this, i64 40
   %call = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %status_code, i64 noundef 0)
   %0 = load i8, ptr %call, align 1
   switch i8 %0, label %sw.epilog [
@@ -1004,14 +966,14 @@ sw.epilog:                                        ; preds = %sw.bb4, %sw.bb3, %s
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
-  %session = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr, i64 0, i32 1
+  %session = getelementptr inbounds i8, ptr %add.ptr, i64 1488
   %1 = load ptr, ptr %session, align 8
   %call5 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %1)
   %vtable6 = load ptr, ptr %this, align 8
   %vbase.offset.ptr7 = getelementptr i8, ptr %vtable6, i64 -24
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset8
-  %session10 = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr9, i64 0, i32 1
+  %session10 = getelementptr inbounds i8, ptr %add.ptr9, i64 1488
   %2 = load ptr, ptr %session10, align 8
   %call11 = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %2)
   tail call void @_ZN3zmq13socket_base_t27event_handshake_failed_authERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call5, ptr noundef nonnull align 8 dereferenceable(68) %call11, i32 noundef %status_code_numeric.0)
@@ -1028,30 +990,30 @@ declare void @_ZN3zmq13socket_base_t27event_handshake_failed_authERKNS_19endpoin
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq29zap_client_common_handshake_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tENS0_7state_tE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef readnone %session_, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1336) %options_, i32 noundef %zap_reply_ok_state_) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds ptr, ptr %vtt, i64 1
+  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8
-  %2 = getelementptr inbounds ptr, ptr %vtt, i64 2
+  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8
-  %peer_address.i = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 1
+  %peer_address.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_)
-  %status_code.i = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 2
+  %status_code.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i) #13
   %4 = load ptr, ptr %vtt, align 8
   store ptr %4, ptr %this, align 8
-  %5 = getelementptr inbounds ptr, ptr %vtt, i64 3
+  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8
-  %state = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %state, align 8
-  %_zap_reply_ok_state = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %this, i64 0, i32 2
+  %_zap_reply_ok_state = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %zap_reply_ok_state_, ptr %_zap_reply_ok_state, align 4
   ret void
 }
@@ -1059,7 +1021,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3zmq29zap_client_common_handshake_t6statusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 {
 entry:
-  %state = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
   %switch.selectcmp = icmp eq i32 %0, 6
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
@@ -1075,7 +1037,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -72
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %state.i = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %3, i64 0, i32 1
+  %state.i = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load i32, ptr %state.i, align 8
   %switch.selectcmp.i = icmp eq i32 %4, 6
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
@@ -1087,7 +1049,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq29zap_client_common_handshake_t17zap_msg_availableEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
-  %state = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %_ZN3zmq29zap_client_common_handshake_t29receive_and_process_zap_replyEv.exit, label %do.end
@@ -1120,7 +1082,7 @@ _ZN3zmq29zap_client_common_handshake_t29receive_and_process_zap_replyEv.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq29zap_client_common_handshake_t29receive_and_process_zap_replyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
-  %state = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %do.end, label %if.then
@@ -1152,7 +1114,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq29zap_client_common_handshake_t22handle_zap_status_codeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
-  %status_code.i = getelementptr inbounds %"class.zmq::zap_client_t", ptr %this, i64 0, i32 2
+  %status_code.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i, i64 noundef 0)
   %0 = load i8, ptr %call.i, align 1
   switch i8 %0, label %sw.epilog.i [
@@ -1177,14 +1139,14 @@ sw.epilog.i:                                      ; preds = %sw.bb4.i, %sw.bb3.i
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
-  %session.i = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr.i, i64 0, i32 1
+  %session.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1488
   %1 = load ptr, ptr %session.i, align 8
   %call5.i = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %1)
   %vtable6.i = load ptr, ptr %this, align 8
   %vbase.offset.ptr7.i = getelementptr i8, ptr %vtable6.i, i64 -24
   %vbase.offset8.i = load i64, ptr %vbase.offset.ptr7.i, align 8
   %add.ptr9.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset8.i
-  %session10.i = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %add.ptr9.i, i64 0, i32 1
+  %session10.i = getelementptr inbounds i8, ptr %add.ptr9.i, i64 1488
   %2 = load ptr, ptr %session10.i, align 8
   %call11.i = tail call noundef nonnull align 8 dereferenceable(68) ptr @_ZNK3zmq14session_base_t12get_endpointEv(ptr noundef nonnull align 8 dereferenceable(1624) %2)
   tail call void @_ZN3zmq13socket_base_t27event_handshake_failed_authERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %call5.i, ptr noundef nonnull align 8 dereferenceable(68) %call11.i, i32 noundef %status_code_numeric.0.i)
@@ -1199,7 +1161,7 @@ _ZN3zmq12zap_client_t22handle_zap_status_codeEv.exit: ; preds = %entry, %sw.epil
   ]
 
 sw.bb:                                            ; preds = %_ZN3zmq12zap_client_t22handle_zap_status_codeEv.exit
-  %_zap_reply_ok_state = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %this, i64 0, i32 2
+  %_zap_reply_ok_state = getelementptr inbounds i8, ptr %this, i64 76
   %4 = load i32, ptr %_zap_reply_ok_state, align 4
   br label %sw.epilog
 
@@ -1208,7 +1170,7 @@ sw.default:                                       ; preds = %_ZN3zmq12zap_client
 
 sw.epilog:                                        ; preds = %_ZN3zmq12zap_client_t22handle_zap_status_codeEv.exit, %sw.default, %sw.bb
   %.sink = phi i32 [ 5, %sw.default ], [ %4, %sw.bb ], [ 6, %_ZN3zmq12zap_client_t22handle_zap_status_codeEv.exit ]
-  %state4 = getelementptr inbounds %"class.zmq::zap_client_common_handshake_t", ptr %this, i64 0, i32 1
+  %state4 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %.sink, ptr %state4, align 8
   ret void
 }

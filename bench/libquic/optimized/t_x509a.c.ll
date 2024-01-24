@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/t_x509a.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_cert_aux_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [21 x i8] c"%*sTrusted Uses:\0A%*s\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c", \00", align 1
@@ -67,7 +64,7 @@ if.else15:                                        ; preds = %if.end
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else15, %for.end
-  %reject = getelementptr inbounds %struct.x509_cert_aux_st, ptr %aux, i64 0, i32 1
+  %reject = getelementptr inbounds i8, ptr %aux, i64 8
   %4 = load ptr, ptr %reject, align 8
   %tobool18.not = icmp eq ptr %4, null
   br i1 %tobool18.not, label %if.else42, label %if.then19
@@ -109,19 +106,19 @@ if.else42:                                        ; preds = %if.end17
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else42, %for.end40
-  %alias = getelementptr inbounds %struct.x509_cert_aux_st, ptr %aux, i64 0, i32 2
+  %alias = getelementptr inbounds i8, ptr %aux, i64 16
   %8 = load ptr, ptr %alias, align 8
   %tobool45.not = icmp eq ptr %8, null
   br i1 %tobool45.not, label %if.end49, label %if.then46
 
 if.then46:                                        ; preds = %if.end44
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data, align 8
   %call48 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.7, i32 noundef %indent, ptr noundef nonnull @.str.1, ptr noundef %9) #2
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then46, %if.end44
-  %keyid = getelementptr inbounds %struct.x509_cert_aux_st, ptr %aux, i64 0, i32 3
+  %keyid = getelementptr inbounds i8, ptr %aux, i64 24
   %10 = load ptr, ptr %keyid, align 8
   %tobool50.not = icmp eq ptr %10, null
   br i1 %tobool50.not, label %return, label %if.then51
@@ -138,7 +135,7 @@ for.body56:                                       ; preds = %if.then51, %for.bod
   %13 = phi ptr [ %16, %for.body56 ], [ %11, %if.then51 ]
   %tobool57.not = icmp eq i64 %indvars.iv, 0
   %cond = select i1 %tobool57.not, ptr @.str.1, ptr @.str.10
-  %data59 = getelementptr inbounds %struct.asn1_string_st, ptr %13, i64 0, i32 2
+  %data59 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %data59, align 8
   %arrayidx = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
   %15 = load i8, ptr %arrayidx, align 1

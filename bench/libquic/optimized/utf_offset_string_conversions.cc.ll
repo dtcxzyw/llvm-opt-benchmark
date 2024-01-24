@@ -4,14 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.base::OffsetAdjuster::Adjustment" = type { i64, i64, i64 }
-%"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string.10" = type { %"struct.std::__cxx11::basic_string<unsigned short, base::string16_char_traits>::_Alloc_hider", i64, %union.anon.14 }
 %"struct.std::__cxx11::basic_string<unsigned short, base::string16_char_traits>::_Alloc_hider" = type { ptr }
 %union.anon.14 = type { i64, [8 x i8] }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl" }
 %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl" = type { %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -33,9 +32,9 @@ $_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE15_M_range_insertIN9__g
 define dso_local void @_ZN4base14OffsetAdjuster10AdjustmentC2Emmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i64 noundef %original_offset, i64 noundef %original_length, i64 noundef %output_length) unnamed_addr #0 align 2 {
 entry:
   store i64 %original_offset, ptr %this, align 8
-  %original_length3 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %this, i64 0, i32 1
+  %original_length3 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %original_length, ptr %original_length3, align 8
-  %output_length4 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %this, i64 0, i32 2
+  %output_length4 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %output_length, ptr %output_length4, align 8
   ret void
 }
@@ -48,14 +47,14 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %for.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %offsets_for_adjustment, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %offsets_for_adjustment, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %offsets_for_adjustment, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %2, %3
   br i1 %cmp.i.not8, label %for.end, label %for.body
@@ -81,19 +80,19 @@ for.body.i:                                       ; preds = %if.end.i, %if.end13
   br i1 %cmp5.not.i, label %if.end7.i, label %for.end.loopexit.i
 
 if.end7.i:                                        ; preds = %for.body.i
-  %original_length.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i, i64 0, i32 1
+  %original_length.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i, i64 8
   %9 = load i64, ptr %original_length.i, align 8
   %add.i = add i64 %9, %8
   %cmp11.i = icmp ult i64 %5, %add.i
   br i1 %cmp11.i, label %return.sink.split.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end7.i
-  %output_length.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i, i64 0, i32 2
+  %output_length.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i, i64 16
   %10 = load i64, ptr %output_length.i, align 8
   %sub.i = sub i64 %9, %10
   %conv.i = trunc i64 %sub.i to i32
   %add17.i = add nsw i32 %adjustment.016.i, %conv.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i, i64 24
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !5
 
@@ -115,7 +114,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %for.end
 
 _ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit: ; preds = %for.body, %return.sink.split.i
   %12 = phi ptr [ %4, %for.body ], [ %.pre, %return.sink.split.i ]
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %i.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.09, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %12
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -132,7 +131,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not14 = icmp eq ptr %1, %2
   br i1 %cmp.i.not14, label %for.end, label %for.body
@@ -145,19 +144,19 @@ for.body:                                         ; preds = %if.end, %if.end13
   br i1 %cmp5.not, label %if.end7, label %for.end.loopexit
 
 if.end7:                                          ; preds = %for.body
-  %original_length = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015, i64 0, i32 1
+  %original_length = getelementptr inbounds i8, ptr %i.sroa.0.015, i64 8
   %4 = load i64, ptr %original_length, align 8
   %add = add i64 %4, %3
   %cmp11 = icmp ult i64 %0, %add
   br i1 %cmp11, label %return.sink.split, label %if.end13
 
 if.end13:                                         ; preds = %if.end7
-  %output_length = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015, i64 0, i32 2
+  %output_length = getelementptr inbounds i8, ptr %i.sroa.0.015, i64 16
   %5 = load i64, ptr %output_length, align 8
   %sub = sub i64 %4, %5
   %conv = trunc i64 %sub to i32
   %add17 = add nsw i32 %adjustment.016, %conv
-  %incdec.ptr.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.015, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
 
@@ -188,14 +187,14 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %for.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %offsets_for_unadjustment, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %offsets_for_unadjustment, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %offsets_for_unadjustment, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %2, %3
   br i1 %cmp.i.not8, label %for.end, label %for.body
@@ -214,7 +213,7 @@ if.end.i:                                         ; preds = %for.body
   br i1 %cmp.i.not16.i, label %for.end.i, label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end7.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %i.sroa.0.017.i, i64 24
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
@@ -228,9 +227,9 @@ for.body.i:                                       ; preds = %if.end.i, %for.cond
   br i1 %cmp5.not.i, label %if.end7.i, label %for.end.i
 
 if.end7.i:                                        ; preds = %for.body.i
-  %original_length.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.017.i, i64 0, i32 1
+  %original_length.i = getelementptr inbounds i8, ptr %i.sroa.0.017.i, i64 8
   %9 = load i64, ptr %original_length.i, align 8
-  %output_length.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.017.i, i64 0, i32 2
+  %output_length.i = getelementptr inbounds i8, ptr %i.sroa.0.017.i, i64 16
   %10 = load i64, ptr %output_length.i, align 8
   %sub.i = sub i64 %9, %10
   %conv10.i = trunc i64 %sub.i to i32
@@ -254,7 +253,7 @@ return.sink.split.i:                              ; preds = %if.end7.i, %for.end
 
 _ZN4base14OffsetAdjuster14UnadjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit: ; preds = %for.body, %return.sink.split.i
   %11 = phi ptr [ %4, %for.body ], [ %.pre, %return.sink.split.i ]
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %i.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.09, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %11
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -271,13 +270,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not16 = icmp eq ptr %1, %2
   br i1 %cmp.i.not16, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %if.end7
-  %incdec.ptr.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.017, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %i.sroa.0.017, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !8
 
@@ -291,9 +290,9 @@ for.body:                                         ; preds = %if.end, %for.cond
   br i1 %cmp5.not, label %if.end7, label %for.end.loopexit
 
 if.end7:                                          ; preds = %for.body
-  %original_length = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.017, i64 0, i32 1
+  %original_length = getelementptr inbounds i8, ptr %i.sroa.0.017, i64 8
   %4 = load i64, ptr %original_length, align 8
-  %output_length = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.017, i64 0, i32 2
+  %output_length = getelementptr inbounds i8, ptr %i.sroa.0.017, i64 16
   %5 = load i64, ptr %output_length, align 8
   %sub = sub i64 %4, %5
   %conv10 = trunc i64 %sub to i32
@@ -328,13 +327,13 @@ define dso_local void @_ZN4base14OffsetAdjuster26MergeSequentialAdjustmentsERKSt
 entry:
   %0 = load ptr, ptr %adjustments_on_adjusted_string, align 8
   %1 = load ptr, ptr %first_adjustments, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments_on_adjusted_string, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %adjustments_on_adjusted_string, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not48 = icmp eq ptr %0, %2
   br i1 %cmp.i.not48, label %if.end79, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_finish.i14 = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %first_adjustments, i64 0, i32 1
+  %_M_finish.i14 = getelementptr inbounds i8, ptr %first_adjustments, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end69
@@ -349,7 +348,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i15, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.body
-  %original_length = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %adjusted_iter.sroa.0.050, i64 0, i32 1
+  %original_length = getelementptr inbounds i8, ptr %adjusted_iter.sroa.0.050, i64 8
   %4 = load i64, ptr %original_length, align 8
   %add12 = add i64 %.pre53, %4
   %5 = load i64, ptr %first_iter.sroa.0.049, align 8
@@ -359,14 +358,14 @@ lor.rhs:                                          ; preds = %while.body
 if.then:                                          ; preds = %while.body, %lor.rhs
   store i64 %.pre53, ptr %adjusted_iter.sroa.0.050, align 8
   %add18 = add i64 %shift.052, %currently_collapsing.051
-  %incdec.ptr.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %adjusted_iter.sroa.0.050, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %adjusted_iter.sroa.0.050, i64 24
   br label %if.end69
 
 if.else:                                          ; preds = %lor.rhs
   %cmp25 = icmp ugt i64 %.pre53, %5
-  %original_length34 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %first_iter.sroa.0.049, i64 0, i32 1
+  %original_length34 = getelementptr inbounds i8, ptr %first_iter.sroa.0.049, i64 8
   %6 = load i64, ptr %original_length34, align 8
-  %output_length = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %first_iter.sroa.0.049, i64 0, i32 2
+  %output_length = getelementptr inbounds i8, ptr %first_iter.sroa.0.049, i64 16
   %7 = load i64, ptr %output_length, align 8
   br i1 %cmp25, label %if.end, label %if.end60
 
@@ -374,8 +373,8 @@ if.end:                                           ; preds = %if.else
   %sub = add i64 %6, %shift.052
   %add36 = sub i64 %sub, %7
   %call40 = tail call ptr @_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EERS7_(ptr noundef nonnull align 8 dereferenceable(24) %adjustments_on_adjusted_string, ptr nonnull %adjusted_iter.sroa.0.050, ptr noundef nonnull align 8 dereferenceable(24) %first_iter.sroa.0.049)
-  %incdec.ptr.i16 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %call40, i64 1
-  %incdec.ptr.i17 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %first_iter.sroa.0.049, i64 1
+  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %call40, i64 24
+  %incdec.ptr.i17 = getelementptr inbounds i8, ptr %first_iter.sroa.0.049, i64 24
   br label %if.end69
 
 if.end60:                                         ; preds = %if.else
@@ -385,7 +384,7 @@ if.end60:                                         ; preds = %if.else
   %add64 = add i64 %conv61, %4
   store i64 %add64, ptr %original_length, align 8
   %add66 = add i64 %conv61, %currently_collapsing.051
-  %incdec.ptr.i20 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %first_iter.sroa.0.049, i64 1
+  %incdec.ptr.i20 = getelementptr inbounds i8, ptr %first_iter.sroa.0.049, i64 24
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end, %if.end60, %if.then
@@ -400,7 +399,7 @@ if.end69:                                         ; preds = %if.end, %if.end60, 
 if.end79:                                         ; preds = %if.end69, %entry
   %9 = phi ptr [ %0, %entry ], [ %adjusted_iter.sroa.0.1, %if.end69 ]
   %first_iter.sroa.0.0.lcssa = phi ptr [ %1, %entry ], [ %first_iter.sroa.0.1, %if.end69 ]
-  %_M_finish.i23 = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %first_adjustments, i64 0, i32 1
+  %_M_finish.i23 = getelementptr inbounds i8, ptr %first_adjustments, i64 8
   %10 = load ptr, ptr %_M_finish.i23, align 8
   %cmp.i24.not = icmp eq ptr %first_iter.sroa.0.0.lcssa, %10
   br i1 %cmp.i24.not, label %if.end98, label %if.then84
@@ -428,9 +427,9 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %1, %2
   br i1 %cmp.not, label %if.else26, label %if.then
@@ -442,7 +441,7 @@ if.then:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__x, i64 24, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %3, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end38
 
@@ -451,12 +450,12 @@ if.else:                                          ; preds = %if.then
   %__x_copy.sroa.1.8.copyload = load i8, ptr %__x, align 8
   %__x_copy.sroa.4.8.__x.sroa_idx = getelementptr inbounds i8, ptr %__x, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %__x_copy.sroa.4, ptr noundef nonnull align 1 dereferenceable(23) %__x_copy.sroa.4.8.__x.sroa_idx, i64 23, i1 false)
-  %add.ptr.i9 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %1, i64 -1
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %1, i64 -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i9, i64 24, i1 false)
   %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr9.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %4, i64 -1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %4, i64 -24
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
@@ -512,14 +511,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i10.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i, i64 24, i1 false), !alias.scope !11
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %for.body.i.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i16 = getelementptr %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i16 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 24
   %cmp.not5.i.i.i11.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i11.i, label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i12.i
 
@@ -527,8 +526,8 @@ for.body.i.i.i12.i:                               ; preds = %_ZNSt6vectorIN4base
   %__cur.07.i.i.i13.i = phi ptr [ %incdec.ptr1.i.i.i16.i, %for.body.i.i.i12.i ], [ %incdec.ptr.i16, %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
   %__first.addr.06.i.i.i14.i = phi ptr [ %incdec.ptr.i.i.i15.i, %for.body.i.i.i12.i ], [ %add.ptr.i14, %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i13.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14.i, i64 24, i1 false), !alias.scope !16
-  %incdec.ptr.i.i.i15.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.addr.06.i.i.i14.i, i64 1
-  %incdec.ptr1.i.i.i16.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.07.i.i.i13.i, i64 1
+  %incdec.ptr.i.i.i15.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14.i, i64 24
+  %incdec.ptr1.i.i.i16.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i13.i, i64 24
   %cmp.not.i.i.i17.i = icmp eq ptr %incdec.ptr.i.i.i15.i, %1
   br i1 %cmp.not.i.i.i17.i, label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i12.i, !llvm.loop !15
 
@@ -577,7 +576,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %if.end, label %invoke.cont.i.i
@@ -599,8 +598,8 @@ if.end.thread:                                    ; preds = %entry
   br i1 %cmp1421, label %for.body.us.preheader, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_M_finish.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 2
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %adjustments, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %adjustments, i64 16
   br i1 %tobool.not, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %if.end.thread, %for.body.lr.ph
@@ -649,7 +648,7 @@ if.then.i.i:                                      ; preds = %if.then9
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %call4, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8
   %8 = load ptr, ptr %_M_finish.i.i9, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %8, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i9, align 8
   br label %for.inc
 
@@ -695,14 +694,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !21
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 24
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -777,7 +776,7 @@ define dso_local void @_ZN4base27UTF8ToUTF16AndAdjustOffsetsERKNS_16BasicStringP
 entry:
   %adjustments = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr %offsets_for_adjustment, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %offsets_for_adjustment, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %offsets_for_adjustment, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %call5 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %utf8)
   %cmp.i.not5.i = icmp eq ptr %0, %1
@@ -794,7 +793,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %_ZN4base11LimitOffsetINS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERm.exit.i
 
 _ZN4base11LimitOffsetINS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclERm.exit.i: ; preds = %if.then.i.i, %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4base11LimitOffsetINS7_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEET0_T_SJ_SI_.exit, label %for.body.i, !llvm.loop !25
 
@@ -826,7 +825,7 @@ lpad.i:                                           ; preds = %.noexc.i, %invoke.c
 
 lor.lhs.false.i:                                  ; preds = %.noexc.i
   %5 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %6 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %nrvo.skipdtor, label %if.end.i
@@ -858,19 +857,19 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %if.end
   br i1 %cmp5.not.i.i, label %if.end7.i.i, label %for.end.loopexit.i.i
 
 if.end7.i.i:                                      ; preds = %for.body.i.i
-  %original_length.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i.i, i64 0, i32 1
+  %original_length.i.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i.i, i64 8
   %14 = load i64, ptr %original_length.i.i, align 8
   %add.i.i = add i64 %14, %13
   %cmp11.i.i = icmp ult i64 %10, %add.i.i
   br i1 %cmp11.i.i, label %return.sink.split.i.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.end7.i.i
-  %output_length.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i.i, i64 0, i32 2
+  %output_length.i.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i.i, i64 16
   %15 = load i64, ptr %output_length.i.i, align 8
   %sub.i.i = sub i64 %14, %15
   %conv.i.i = trunc i64 %sub.i.i to i32
   %add17.i.i = add nsw i32 %adjustment.016.i.i, %conv.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i.i, i64 24
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %12
   br i1 %cmp.i.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !5
 
@@ -892,7 +891,7 @@ return.sink.split.i.i:                            ; preds = %if.end7.i.i, %for.e
 
 _ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit.i: ; preds = %return.sink.split.i.i, %for.body.i5
   %17 = phi ptr [ %9, %for.body.i5 ], [ %.pre.i, %return.sink.split.i.i ]
-  %incdec.ptr.i.i6 = getelementptr inbounds i64, ptr %i.sroa.0.09.i, i64 1
+  %incdec.ptr.i.i6 = getelementptr inbounds i8, ptr %i.sroa.0.09.i, i64 8
   %cmp.i.not.i7 = icmp eq ptr %incdec.ptr.i.i6, %17
   br i1 %cmp.i.not.i7, label %nrvo.skipdtorthread-pre-split.loopexit, label %for.body.i5, !llvm.loop !7
 
@@ -925,7 +924,7 @@ define dso_local void @_ZN4base27UTF16ToUTF8AndAdjustOffsetsERKNS_16BasicStringP
 entry:
   %adjustments = alloca %"class.std::vector", align 8
   %0 = load ptr, ptr %offsets_for_adjustment, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %offsets_for_adjustment, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %offsets_for_adjustment, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %call5 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %utf16)
   %cmp.i.not5.i = icmp eq ptr %0, %1
@@ -942,7 +941,7 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %_ZN4base11LimitOffsetINS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEEclERm.exit.i
 
 _ZN4base11LimitOffsetINS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEEclERm.exit.i: ; preds = %if.then.i.i, %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %_ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4base11LimitOffsetINS7_16BasicStringPieceINSt7__cxx1112basic_stringItNS7_20string16_char_traitsESaItEEEEEEEET0_T_SI_SH_.exit, label %for.body.i, !llvm.loop !26
 
@@ -974,7 +973,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont18
   %3 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %4 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %invoke.cont22, label %if.end.i
@@ -1006,19 +1005,19 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %if.end
   br i1 %cmp5.not.i.i, label %if.end7.i.i, label %for.end.loopexit.i.i
 
 if.end7.i.i:                                      ; preds = %for.body.i.i
-  %original_length.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i.i, i64 0, i32 1
+  %original_length.i.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i.i, i64 8
   %12 = load i64, ptr %original_length.i.i, align 8
   %add.i.i = add i64 %12, %11
   %cmp11.i.i = icmp ult i64 %8, %add.i.i
   br i1 %cmp11.i.i, label %return.sink.split.i.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.end7.i.i
-  %output_length.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i.i, i64 0, i32 2
+  %output_length.i.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i.i, i64 16
   %13 = load i64, ptr %output_length.i.i, align 8
   %sub.i.i = sub i64 %12, %13
   %conv.i.i = trunc i64 %sub.i.i to i32
   %add17.i.i = add nsw i32 %adjustment.016.i.i, %conv.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %i.sroa.0.015.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.015.i.i, i64 24
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %10
   br i1 %cmp.i.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !5
 
@@ -1040,7 +1039,7 @@ return.sink.split.i.i:                            ; preds = %if.end7.i.i, %for.e
 
 _ZN4base14OffsetAdjuster12AdjustOffsetERKSt6vectorINS0_10AdjustmentESaIS2_EEPm.exit.i: ; preds = %return.sink.split.i.i, %for.body.i8
   %15 = phi ptr [ %7, %for.body.i8 ], [ %.pre.i, %return.sink.split.i.i ]
-  %incdec.ptr.i.i9 = getelementptr inbounds i64, ptr %i.sroa.0.09.i, i64 1
+  %incdec.ptr.i.i9 = getelementptr inbounds i8, ptr %i.sroa.0.09.i, i64 8
   %cmp.i.not.i10 = icmp eq ptr %incdec.ptr.i.i9, %15
   br i1 %cmp.i.not.i10, label %invoke.cont22thread-pre-split.loopexit, label %for.body.i8, !llvm.loop !7
 
@@ -1101,7 +1100,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %adjustments, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %adjustments, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %if.end, label %invoke.cont.i.i
@@ -1123,8 +1122,8 @@ if.end.thread:                                    ; preds = %entry
   br i1 %cmp1421, label %for.body.us.preheader, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %_M_finish.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %adjustments, i64 0, i32 2
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %adjustments, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %adjustments, i64 16
   br i1 %tobool.not, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %if.end.thread, %for.body.lr.ph
@@ -1173,7 +1172,7 @@ if.then.i.i:                                      ; preds = %if.then9
   %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %call4, ptr %ref.tmp.sroa.4.0..sroa_idx, align 8
   %8 = load ptr, ptr %_M_finish.i.i9, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %8, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i9, align 8
   br label %for.inc
 
@@ -1219,14 +1218,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %9, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i.i, i64 24, i1 false), !alias.scope !28
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 24
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN4base14OffsetAdjuster10AdjustmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -1283,9 +1282,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<base::OffsetAdjuster::Adjustment, std::allocator<base::OffsetAdjuster::Adjustment>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1298,7 +1297,7 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
-  br i1 %cmp15, label %for.body.i.i.i.i.i.preheader, label %if.else5.i.i
+  br i1 %cmp15, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
@@ -1309,8 +1308,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.preheader ]
   %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.sroa.0.08.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.09.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 24
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN4base14OffsetAdjuster10AdjustmentES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !32
 
@@ -1333,17 +1332,17 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__position.coerce, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %if.end109
 
-if.else5.i.i:                                     ; preds = %if.then9
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
-  %cmp.i.not5.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %__last.coerce
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit: ; preds = %if.then9
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
+  %cmp.i.not5.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
   br i1 %cmp.i.not5.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %if.else5.i.i, %for.body.i.i.i.i
-  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.else5.i.i ]
-  %__first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i32, %for.body.i.i.i.i ], [ %add.ptr.i.i.i, %if.else5.i.i ]
+for.body.i.i.i.i:                                 ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit, %for.body.i.i.i.i
+  %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
+  %__first.sroa.0.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i32, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.06.i.i.i.i, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.sroa.0.06.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i32, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, label %for.body.i.i.i.i, !llvm.loop !33
 
@@ -1351,8 +1350,8 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdju
   %.pre = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %if.else5.i.i
-  %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %if.else5.i.i ]
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
+  %2 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr %"struct.base::OffsetAdjuster::Adjustment", ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
@@ -1363,8 +1362,8 @@ for.body.i.i.i.i.i34:                             ; preds = %_ZSt22__uninitializ
   %__cur.09.i.i.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i.i.i38, %for.body.i.i.i.i.i34 ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit ]
   %__first.sroa.0.08.i.i.i.i.i36 = phi ptr [ %incdec.ptr.i.i.i.i.i.i37, %for.body.i.i.i.i.i34 ], [ %__position.coerce, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4base14OffsetAdjuster10AdjustmentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i35, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i36, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i37 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.sroa.0.08.i.i.i.i.i36, i64 1
-  %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.09.i.i.i.i.i35, i64 1
+  %incdec.ptr.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i36, i64 24
+  %incdec.ptr.i.i.i.i.i38 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i35, i64 24
   %cmp.i.i.not.i.i.i.i.i39 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i37, %1
   br i1 %cmp.i.i.not.i.i.i.i.i39, label %_ZSt22__uninitialized_move_aIPN4base14OffsetAdjuster10AdjustmentES3_SaIS2_EET0_T_S6_S5_RT1_.exit41.loopexit, label %for.body.i.i.i.i.i34, !llvm.loop !32
 
@@ -1419,8 +1418,8 @@ for.body.i.i.i.i.i52:                             ; preds = %_ZNSt12_Vector_base
   %__cur.09.i.i.i.i.i53 = phi ptr [ %incdec.ptr.i.i.i.i.i56, %for.body.i.i.i.i.i52 ], [ %cond.i50, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit ]
   %__first.sroa.0.08.i.i.i.i.i54 = phi ptr [ %incdec.ptr.i.i.i.i.i.i55, %for.body.i.i.i.i.i52 ], [ %4, %_ZNSt12_Vector_baseIN4base14OffsetAdjuster10AdjustmentESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i53, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i54, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i55 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.sroa.0.08.i.i.i.i.i54, i64 1
-  %incdec.ptr.i.i.i.i.i56 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.09.i.i.i.i.i53, i64 1
+  %incdec.ptr.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i54, i64 24
+  %incdec.ptr.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i53, i64 24
   %cmp.i.i.not.i.i.i.i.i57 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i55, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i57, label %for.body.i.i.i.i60.preheader, label %for.body.i.i.i.i.i52, !llvm.loop !32
 
@@ -1432,8 +1431,8 @@ for.body.i.i.i.i60:                               ; preds = %for.body.i.i.i.i60.
   %__cur.07.i.i.i.i61 = phi ptr [ %incdec.ptr.i.i.i.i64, %for.body.i.i.i.i60 ], [ %__cur.07.i.i.i.i61.ph, %for.body.i.i.i.i60.preheader ]
   %__first.sroa.0.06.i.i.i.i62 = phi ptr [ %incdec.ptr.i.i.i.i.i63, %for.body.i.i.i.i60 ], [ %__first.coerce, %for.body.i.i.i.i60.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.06.i.i.i.i62, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.sroa.0.06.i.i.i.i62, i64 1
-  %incdec.ptr.i.i.i.i64 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.07.i.i.i.i61, i64 1
+  %incdec.ptr.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i62, i64 24
+  %incdec.ptr.i.i.i.i64 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i61, i64 24
   %cmp.i.not.i.i.i.i65 = icmp eq ptr %incdec.ptr.i.i.i.i.i63, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i65, label %invoke.cont83, label %for.body.i.i.i.i60, !llvm.loop !33
 
@@ -1445,8 +1444,8 @@ for.body.i.i.i.i.i69:                             ; preds = %invoke.cont83, %for
   %__cur.09.i.i.i.i.i70 = phi ptr [ %incdec.ptr.i.i.i.i.i73, %for.body.i.i.i.i.i69 ], [ %incdec.ptr.i.i.i.i64, %invoke.cont83 ]
   %__first.sroa.0.08.i.i.i.i.i71 = phi ptr [ %incdec.ptr.i.i.i.i.i.i72, %for.body.i.i.i.i.i69 ], [ %__position.coerce, %invoke.cont83 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.09.i.i.i.i.i70, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.08.i.i.i.i.i71, i64 24, i1 false)
-  %incdec.ptr.i.i.i.i.i.i72 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__first.sroa.0.08.i.i.i.i.i71, i64 1
-  %incdec.ptr.i.i.i.i.i73 = getelementptr inbounds %"struct.base::OffsetAdjuster::Adjustment", ptr %__cur.09.i.i.i.i.i70, i64 1
+  %incdec.ptr.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i71, i64 24
+  %incdec.ptr.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i70, i64 24
   %cmp.i.i.not.i.i.i.i.i74 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i72, %1
   br i1 %cmp.i.i.not.i.i.i.i.i74, label %invoke.cont87, label %for.body.i.i.i.i.i69, !llvm.loop !32
 

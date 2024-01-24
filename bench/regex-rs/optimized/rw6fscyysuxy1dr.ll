@@ -63,7 +63,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator3map17h738f5b899e7526
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5f01217e9fd61665E"(ptr align 8 %0, ptr nocapture readonly align 1 %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !noundef !5
-  %4 = getelementptr inbounds { i8, i8 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1, !noundef !5
   tail call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6b7911bf5c6e45eeE"(ptr align 8 %0, i8 %3, i8 %5)
   ret void
@@ -72,7 +72,7 @@ define void @"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a08f5775741c2c6E"(ptr align 8 %0, ptr nocapture readonly align 1 %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !noundef !5
-  %4 = getelementptr inbounds { i8, i8 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1, !noundef !5
   tail call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc3c4e7c1734f1a22E"(ptr align 8 %0, i8 %3, i8 %5)
   ret void
@@ -81,7 +81,7 @@ define void @"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17hebee525e74b7481eE"(ptr align 8 %0, ptr nocapture readonly align 1 %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !noundef !5
-  %4 = getelementptr inbounds { i8, i8 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1, !noundef !5
   tail call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e714b1c92666e16E"(ptr align 8 %0, i8 %3, i8 %5)
   ret void

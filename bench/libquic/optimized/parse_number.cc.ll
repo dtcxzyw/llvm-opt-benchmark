@@ -66,7 +66,7 @@ cond.true.i:                                      ; preds = %if.end18.i
   %call20.i = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %input, i64 noundef 1, i64 noundef -1)
   %3 = extractvalue { ptr, i64 } %call20.i, 0
   store ptr %3, ptr %numeric_portion.i, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %numeric_portion.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %numeric_portion.i, i64 8
   %5 = extractvalue { ptr, i64 } %call20.i, 1
   store i64 %5, ptr %4, align 8
   br label %cond.end.i
@@ -161,7 +161,7 @@ cond.true.i:                                      ; preds = %if.end18.i
   %call20.i = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %input, i64 noundef 1, i64 noundef -1)
   %3 = extractvalue { ptr, i64 } %call20.i, 0
   store ptr %3, ptr %numeric_portion.i, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %numeric_portion.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %numeric_portion.i, i64 8
   %5 = extractvalue { ptr, i64 } %call20.i, 1
   store i64 %5, ptr %4, align 8
   br label %cond.end.i
@@ -253,7 +253,7 @@ cond.true.i:                                      ; preds = %if.end18.i
   %call20.i = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %input, i64 noundef 1, i64 noundef -1)
   %3 = extractvalue { ptr, i64 } %call20.i, 0
   store ptr %3, ptr %numeric_portion.i, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %numeric_portion.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %numeric_portion.i, i64 8
   %5 = extractvalue { ptr, i64 } %call20.i, 1
   store i64 %5, ptr %4, align 8
   br label %cond.end.i
@@ -345,7 +345,7 @@ cond.true.i:                                      ; preds = %if.end18.i
   %call20.i = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %input, i64 noundef 1, i64 noundef -1)
   %3 = extractvalue { ptr, i64 } %call20.i, 0
   store ptr %3, ptr %numeric_portion.i, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %numeric_portion.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %numeric_portion.i, i64 8
   %5 = extractvalue { ptr, i64 } %call20.i, 1
   store i64 %5, ptr %4, align 8
   br label %cond.end.i

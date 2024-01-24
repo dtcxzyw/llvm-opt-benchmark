@@ -3,8 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-idn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-
 @Curl_cstrdup = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [6 x i8] c"2.3.2\00", align 1
 
@@ -112,7 +110,7 @@ if.end7:                                          ; preds = %idn_encode.exit, %i
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_free_idnconverted_hostname(ptr nocapture noundef %host) local_unnamed_addr #1 {
 entry:
-  %encalloc = getelementptr inbounds %struct.hostname, ptr %host, i64 0, i32 1
+  %encalloc = getelementptr inbounds i8, ptr %host, i64 8
   %0 = load ptr, ptr %encalloc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -130,9 +128,9 @@ if.end:                                           ; preds = %if.then, %entry
 define hidden noundef i32 @Curl_idnconvert_hostname(ptr nocapture noundef %host) local_unnamed_addr #1 {
 entry:
   %decoded.i = alloca ptr, align 8
-  %name = getelementptr inbounds %struct.hostname, ptr %host, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %host, i64 16
   %0 = load ptr, ptr %name, align 8
-  %dispname = getelementptr inbounds %struct.hostname, ptr %host, i64 0, i32 3
+  %dispname = getelementptr inbounds i8, ptr %host, i64 24
   store ptr %0, ptr %dispname, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %return, label %while.cond.i
@@ -182,7 +180,7 @@ if.then6:                                         ; preds = %if.then4
   br label %return
 
 if.end:                                           ; preds = %if.then4
-  %encalloc = getelementptr inbounds %struct.hostname, ptr %host, i64 0, i32 1
+  %encalloc = getelementptr inbounds i8, ptr %host, i64 8
   store ptr %3, ptr %encalloc, align 8
   store ptr %3, ptr %name, align 8
   br label %return

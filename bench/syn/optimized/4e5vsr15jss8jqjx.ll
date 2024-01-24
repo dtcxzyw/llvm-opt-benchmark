@@ -20,17 +20,17 @@ define hidden void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$
   %10 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %11 = tail call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %1)
   %12 = load ptr, ptr %11, align 8, !noundef !5
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !5
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %10, ptr %12, ptr %14)
-  %15 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %10, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %10, i64 24
   %16 = load i8, ptr %15, align 8, !range !6, !noundef !5
   %.not.not = icmp eq i8 %16, 3
   br i1 %.not.not, label %21, label %17
 
 17:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  %18 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, { ptr, ptr } }, ptr %10, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %10, i64 32
   %19 = load <2 x ptr>, ptr %18, align 8
   %20 = invoke zeroext i1 @_ZN3syn5ident7parsing15accept_as_ident17h3e4b801c1ae65e37E(ptr nonnull align 8 %9)
           to label %24 unwind label %22
@@ -52,7 +52,7 @@ define hidden void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$
 25:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store ptr %9, ptr %5, align 8
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..fmt..Display$GT$3fmt17he899830a217d3ec0E", ptr %26, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.5e1a67a96eb294b4b1d10187d946e0c0.2, i64 2, ptr nonnull align 8 %5, i64 1)
           to label %27 unwind label %22
@@ -69,7 +69,7 @@ define hidden void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$
 
 28:                                               ; preds = %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %29 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %0, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 3, ptr %29, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hf6c877fe3383a218E"(ptr nonnull align 8 %9)
   br label %.thread25
@@ -83,7 +83,7 @@ define hidden void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$
 
 33:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %34 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %0, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 3, ptr %34, align 8
   %35 = load i8, ptr %15, align 8, !range !6, !noundef !5
   %.not12 = icmp eq i8 %35, 3

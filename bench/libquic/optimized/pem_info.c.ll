@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-%struct.X509_info_st = type { ptr, ptr, ptr, %struct.evp_cipher_info_st, i32, ptr }
-%struct.private_key_st = type { i32, ptr, ptr, ptr, i32, ptr, i32, %struct.evp_cipher_info_st }
 %struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [125 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/pem/pem_info.c\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"CERTIFICATE\00", align 1
@@ -130,23 +126,23 @@ start.outer.backedge:                             ; preds = %if.end29, %if.end49
 
 start.outer:                                      ; preds = %for.cond.preheader, %start.outer.backedge
   %xi.1.ph = phi ptr [ %xi.1.ph.be, %start.outer.backedge ], [ %call4, %for.cond.preheader ]
-  %x_pkey139 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 2
-  %x_pkey139.le = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 2
-  %enc_data153 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 5
-  %enc_len154 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 4
-  %x_pkey108 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 2
-  %x_pkey108.le = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 2
-  %enc_data122 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 5
-  %enc_len123 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 4
-  %x_pkey = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 2
-  %x_pkey.le = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 2
-  %enc_data = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 5
-  %enc_len = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 4
-  %enc_cipher = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 3
-  %enc_data203 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 5
-  %enc_len205 = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 4
-  %crl = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 1
-  %crl.le = getelementptr inbounds %struct.X509_info_st, ptr %xi.1.ph, i64 0, i32 1
+  %x_pkey139 = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
+  %x_pkey139.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
+  %enc_data153 = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
+  %enc_len154 = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
+  %x_pkey108 = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
+  %x_pkey108.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
+  %enc_data122 = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
+  %enc_len123 = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
+  %x_pkey = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
+  %x_pkey.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
+  %enc_data = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
+  %enc_len = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
+  %enc_cipher = getelementptr inbounds i8, ptr %xi.1.ph, i64 24
+  %enc_data203 = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
+  %enc_len205 = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
+  %crl = getelementptr inbounds i8, ptr %xi.1.ph, i64 8
+  %crl.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 8
   br label %start
 
 if.else37:                                        ; preds = %lor.lhs.false
@@ -234,7 +230,7 @@ if.end121:                                        ; preds = %if.then107
   store i32 0, ptr %enc_len123, align 8
   %call124 = call ptr @X509_PKEY_new() #4
   store ptr %call124, ptr %x_pkey108.le, align 8
-  %dec_pkey127 = getelementptr inbounds %struct.private_key_st, ptr %call124, i64 0, i32 3
+  %dec_pkey127 = getelementptr inbounds i8, ptr %call124, i64 24
   %7 = load ptr, ptr %header, align 8
   %call128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #5
   %conv129 = trunc i64 %call128 to i32
@@ -266,7 +262,7 @@ if.end152:                                        ; preds = %if.then138
   store i32 0, ptr %enc_len154, align 8
   %call155 = call ptr @X509_PKEY_new() #4
   store ptr %call155, ptr %x_pkey139.le, align 8
-  %dec_pkey158 = getelementptr inbounds %struct.private_key_st, ptr %call155, i64 0, i32 3
+  %dec_pkey158 = getelementptr inbounds i8, ptr %call155, i64 24
   %9 = load ptr, ptr %header, align 8
   %call159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #5
   %conv160 = trunc i64 %call159 to i32
@@ -278,7 +274,7 @@ if.then174:                                       ; preds = %if.then80
   store i32 0, ptr %enc_len, align 8
   %call94 = call ptr @X509_PKEY_new() #4
   store ptr %call94, ptr %x_pkey.le, align 8
-  %dec_pkey = getelementptr inbounds %struct.private_key_st, ptr %call94, i64 0, i32 3
+  %dec_pkey = getelementptr inbounds i8, ptr %call94, i64 24
   %10 = load ptr, ptr %header, align 8
   %call97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #5
   %conv98 = trunc i64 %call97 to i32
@@ -368,19 +364,19 @@ if.end220:                                        ; preds = %if.then219, %if.end
   br i1 %cmp9, label %if.then10, label %start
 
 lor.lhs.false224:                                 ; preds = %if.then14
-  %crl225 = getelementptr inbounds %struct.X509_info_st, ptr %xi.0.lcssa, i64 0, i32 1
+  %crl225 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 8
   %21 = load ptr, ptr %crl225, align 8
   %cmp226.not = icmp eq ptr %21, null
   br i1 %cmp226.not, label %lor.lhs.false228, label %if.then236
 
 lor.lhs.false228:                                 ; preds = %lor.lhs.false224
-  %x_pkey229 = getelementptr inbounds %struct.X509_info_st, ptr %xi.0.lcssa, i64 0, i32 2
+  %x_pkey229 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 16
   %22 = load ptr, ptr %x_pkey229, align 8
   %cmp230.not = icmp eq ptr %22, null
   br i1 %cmp230.not, label %lor.lhs.false232, label %if.then236
 
 lor.lhs.false232:                                 ; preds = %lor.lhs.false228
-  %enc_data233 = getelementptr inbounds %struct.X509_info_st, ptr %xi.0.lcssa, i64 0, i32 5
+  %enc_data233 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 56
   %23 = load ptr, ptr %enc_data233, align 8
   %cmp234.not = icmp eq ptr %23, null
   br i1 %cmp234.not, label %if.then244.thread, label %if.then236
@@ -533,19 +529,19 @@ if.then4:                                         ; preds = %if.then
 
 if.end5:                                          ; preds = %if.then, %entry
   %iv_len.0 = phi i32 [ %call, %if.then ], [ 0, %entry ]
-  %x_pkey = getelementptr inbounds %struct.X509_info_st, ptr %xi, i64 0, i32 2
+  %x_pkey = getelementptr inbounds i8, ptr %xi, i64 16
   %0 = load ptr, ptr %x_pkey, align 8
   %cmp6.not = icmp eq ptr %0, null
   br i1 %cmp6.not, label %if.end38, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %enc_data = getelementptr inbounds %struct.X509_info_st, ptr %xi, i64 0, i32 5
+  %enc_data = getelementptr inbounds i8, ptr %xi, i64 56
   %1 = load ptr, ptr %enc_data, align 8
   %cmp8.not = icmp eq ptr %1, null
   br i1 %cmp8.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then7
-  %enc_len = getelementptr inbounds %struct.X509_info_st, ptr %xi, i64 0, i32 4
+  %enc_len = getelementptr inbounds i8, ptr %xi, i64 48
   %2 = load i32, ptr %enc_len, align 8
   %cmp9 = icmp sgt i32 %2, 0
   br i1 %cmp9, label %if.then10, label %if.else
@@ -558,7 +554,7 @@ if.then12:                                        ; preds = %if.then10
   br label %err
 
 if.end13:                                         ; preds = %if.then10
-  %enc_cipher = getelementptr inbounds %struct.X509_info_st, ptr %xi, i64 0, i32 3
+  %enc_cipher = getelementptr inbounds i8, ptr %xi, i64 24
   %3 = load ptr, ptr %enc_cipher, align 8
   %call18 = tail call i32 @EVP_CIPHER_nid(ptr noundef %3) #4
   %call19 = tail call ptr @OBJ_nid2sn(i32 noundef %call18) #4
@@ -570,7 +566,7 @@ if.then21:                                        ; preds = %if.end13
   br label %err
 
 if.end22:                                         ; preds = %if.end13
-  %iv14 = getelementptr inbounds %struct.X509_info_st, ptr %xi, i64 0, i32 3, i32 1
+  %iv14 = getelementptr inbounds i8, ptr %xi, i64 32
   store i8 0, ptr %buf, align 16
   call void @PEM_proc_type(ptr noundef nonnull %buf, i32 noundef 10) #4
   call void @PEM_dek_info(ptr noundef nonnull %buf, ptr noundef nonnull %call19, i32 noundef %iv_len.0, ptr noundef nonnull %iv14) #4
@@ -580,9 +576,9 @@ if.end22:                                         ; preds = %if.end13
   br i1 %cmp27, label %err, label %if.end38
 
 if.else:                                          ; preds = %land.lhs.true, %if.then7
-  %dec_pkey = getelementptr inbounds %struct.private_key_st, ptr %0, i64 0, i32 3
+  %dec_pkey = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %dec_pkey, align 8
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %4, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %pkey, align 8
   %call32 = tail call i32 @PEM_write_bio_RSAPrivateKey(ptr noundef %bp, ptr noundef %5, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) #4
   %cmp33 = icmp slt i32 %call32, 1

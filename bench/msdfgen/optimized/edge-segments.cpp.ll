@@ -3,13 +3,7 @@ source_filename = "bench/msdfgen/original/edge-segments.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.msdfgen::EdgeSegment" = type <{ ptr, i32, [4 x i8] }>
-%"class.msdfgen::SignedDistance" = type { double, double }
-%"class.msdfgen::LinearSegment" = type { %"class.msdfgen::EdgeSegment.base", [2 x %"struct.msdfgen::Vector2"] }
-%"class.msdfgen::EdgeSegment.base" = type <{ ptr, i32 }>
 %"struct.msdfgen::Vector2" = type { double, double }
-%"class.msdfgen::QuadraticSegment" = type { %"class.msdfgen::EdgeSegment.base", [3 x %"struct.msdfgen::Vector2"] }
-%"class.msdfgen::CubicSegment" = type { %"class.msdfgen::EdgeSegment.base", [4 x %"struct.msdfgen::Vector2"] }
 
 $_ZN7msdfgen11EdgeSegmentD2Ev = comdat any
 
@@ -50,7 +44,7 @@ $_ZN7msdfgen12CubicSegmentD0Ev = comdat any
 define dso_local noalias noundef nonnull ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, i32 noundef %edgeColor) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -90,7 +84,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call8 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call8, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call8, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call8, i64 16
@@ -104,7 +98,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call11 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %color.i.i7 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call11, i64 0, i32 1
+  %color.i.i7 = getelementptr inbounds i8, ptr %call11, i64 8
   store i32 %edgeColor, ptr %color.i.i7, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
   %scevgep.i8 = getelementptr inbounds i8, ptr %call11, i64 16
@@ -151,7 +145,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %call15 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call15, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call15, i64 8
   store i32 %edgeColor, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call15, i64 16
@@ -186,7 +180,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.then35:                                        ; preds = %if.end
   %call36 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %color.i.i35 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call36, i64 0, i32 1
+  %color.i.i35 = getelementptr inbounds i8, ptr %call36, i64 8
   store i32 %edgeColor, ptr %color.i.i35, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 0, inrange i32 0, i64 2), ptr %call36, align 8
   %scevgep.i36 = getelementptr inbounds i8, ptr %call36, i64 16
@@ -202,7 +196,7 @@ if.then35:                                        ; preds = %if.end
 
 if.end42:                                         ; preds = %if.end
   %call43 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %color.i.i38 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call43, i64 0, i32 1
+  %color.i.i38 = getelementptr inbounds i8, ptr %call43, i64 8
   store i32 %edgeColor, ptr %color.i.i38, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 0, inrange i32 0, i64 2), ptr %call43, align 8
   %scevgep.i39 = getelementptr inbounds i8, ptr %call43, i64 16
@@ -237,7 +231,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { double, double } %0(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 0.000000e+00)
   %1 = extractvalue { double, double } %call, 0
@@ -251,7 +245,7 @@ if.then:                                          ; preds = %entry
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 5
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
   %4 = load ptr, ptr %vfn5, align 8
   %call6 = tail call { double, double } %4(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 0.000000e+00)
   %5 = extractvalue { double, double } %call6, 0
@@ -279,7 +273,7 @@ if.else:                                          ; preds = %entry
 
 if.then22:                                        ; preds = %if.else
   %vtable25 = load ptr, ptr %this, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 6
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 48
   %13 = load ptr, ptr %vfn26, align 8
   %call27 = tail call { double, double } %13(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 1.000000e+00)
   %14 = extractvalue { double, double } %call27, 0
@@ -293,7 +287,7 @@ if.then22:                                        ; preds = %if.else
   %retval.sroa.3.0.i17 = select i1 %tobool.i14, double %div2.i16, double 1.000000e+00
   %retval.sroa.0.0.i18 = select i1 %tobool.i14, double %div.i15, double 0.000000e+00
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 5
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 40
   %17 = load ptr, ptr %vfn32, align 8
   %call33 = tail call { double, double } %17(ptr noundef nonnull align 8 dereferenceable(12) %this, double noundef 1.000000e+00)
   %18 = extractvalue { double, double } %call33, 0
@@ -318,7 +312,7 @@ if.then40:                                        ; preds = %if.then22
 if.end53.sink.split:                              ; preds = %if.then40, %if.then12
   %.sink = phi double [ %9, %if.then12 ], [ %22, %if.then40 ]
   store double %.sink, ptr %distance, align 8
-  %dot49 = getelementptr inbounds %"class.msdfgen::SignedDistance", ptr %distance, i64 0, i32 1
+  %dot49 = getelementptr inbounds i8, ptr %distance, i64 8
   store double 0.000000e+00, ptr %dot49, align 8
   br label %if.end53
 
@@ -332,7 +326,7 @@ declare double @llvm.fabs.f64(double) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen13LinearSegmentC2ENS_7Vector2ES1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %color.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %color.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %scevgep = getelementptr inbounds i8, ptr %this, i64 16
@@ -349,7 +343,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen16QuadraticSegmentC2ENS_7Vector2ES1_S1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %color.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %color.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %scevgep = getelementptr inbounds i8, ptr %this, i64 16
@@ -370,7 +364,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen12CubicSegmentC2ENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, double %p0.coerce0, double %p0.coerce1, double %p1.coerce0, double %p1.coerce1, double %p2.coerce0, double %p2.coerce1, double %p3.coerce0, double %p3.coerce1, i32 noundef %edgeColor) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %color.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %color.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %edgeColor, ptr %color.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %scevgep = getelementptr inbounds i8, ptr %this, i64 16
@@ -396,11 +390,11 @@ entry:
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen13LinearSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -416,12 +410,12 @@ invoke.cont:
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx7 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -440,13 +434,13 @@ invoke.cont:
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen12CubicSegment5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx7 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
-  %arrayidx10 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 64
+  %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -485,29 +479,29 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK7msdfgen13LinearSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK7msdfgen12CubicSegment13controlPointsEv(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
   %sub.i = fsub double 1.000000e+00, %param
   %0 = load <2 x double>, ptr %p, align 8
   %1 = load <2 x double>, ptr %arrayidx4, align 8
@@ -528,10 +522,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %arrayidx5 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
   %sub.i = fsub double 1.000000e+00, %param
-  %arrayidx12 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load <2 x double>, ptr %p, align 8
   %1 = load <2 x double>, ptr %arrayidx5, align 8
   %2 = insertelement <2 x double> poison, double %sub.i, i64 0
@@ -558,11 +552,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment5pointEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 48
   %sub.i = fsub double 1.000000e+00, %param
-  %arrayidx24 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load <2 x double>, ptr %arrayidx, align 8
   %1 = load <2 x double>, ptr %arrayidx4, align 8
   %2 = insertelement <2 x double> poison, double %sub.i, i64 0
@@ -599,8 +593,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load <2 x double>, ptr %arrayidx, align 8
   %1 = load <2 x double>, ptr %p, align 8
   %2 = fsub <2 x double> %0, %1
@@ -614,9 +608,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx9 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 48
   %sub.i5 = fsub double 1.000000e+00, %param
   %0 = load <2 x double>, ptr %p, align 8
   %1 = load <2 x double>, ptr %arrayidx9, align 8
@@ -649,11 +643,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment9directionEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx10 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 48
   %sub.i9 = fsub double 1.000000e+00, %param
-  %arrayidx28 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load <2 x double>, ptr %arrayidx, align 8
   %1 = load <2 x double>, ptr %p, align 8
   %2 = fsub <2 x double> %0, %1
@@ -715,9 +709,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment15directionChangeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
-  %arrayidx5 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load <2 x double>, ptr %arrayidx, align 8
   %1 = load <2 x double>, ptr %arrayidx5, align 8
   %2 = fsub <2 x double> %0, %1
@@ -734,10 +728,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment15directionChangeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, double noundef %param) unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
-  %arrayidx6 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx20 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 64
   %sub.i21 = fsub double 1.000000e+00, %param
   %0 = load <2 x double>, ptr %arrayidx, align 8
   %1 = load <2 x double>, ptr %arrayidx6, align 8
@@ -765,13 +759,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef double @_ZNK7msdfgen13LinearSegment6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp2.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp2.sroa.2.0.copyload
@@ -784,17 +778,17 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define dso_local noundef double @_ZNK7msdfgen16QuadraticSegment6lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
-  %arrayidx8 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %sub.i17 = fsub double %agg.tmp6.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i18 = fsub double %agg.tmp6.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
@@ -853,13 +847,13 @@ declare double @log(double noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local { double, double } @_ZNK7msdfgen13LinearSegment14signedDistanceENS_7Vector2ERd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %param) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x double>, ptr %p, align 8
-  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp2.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load <2 x double>, ptr %agg.tmp2.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx5 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %2 = insertelement <2 x double> poison, double %origin.coerce0, i64 0
   %3 = insertelement <2 x double> %2, double %agg.tmp3.sroa.0.0.copyload, i64 1
@@ -879,7 +873,7 @@ entry:
   store double %div, ptr %param, align 8
   %cmp = fcmp ogt double %div, 5.000000e-01
   %idxprom = zext i1 %cmp to i64
-  %arrayidx18 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 %idxprom
+  %arrayidx18 = getelementptr inbounds [2 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
   %agg.tmp16.sroa.0.0.copyload = load double, ptr %arrayidx18, align 8
   %agg.tmp16.sroa.2.0.arrayidx18.sroa_idx = getelementptr inbounds i8, ptr %arrayidx18, i64 8
   %agg.tmp16.sroa.2.0.copyload = load double, ptr %agg.tmp16.sroa.2.0.arrayidx18.sroa_idx, align 8
@@ -964,21 +958,21 @@ return:                                           ; preds = %if.then, %if.end30
 define dso_local { double, double } @_ZNK7msdfgen16QuadraticSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(64) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %param) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [3 x double], align 16
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %origin.coerce0
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %origin.coerce1
-  %arrayidx5 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp3.sroa.0.0.copyload = load double, ptr %arrayidx5, align 8
-  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp3.sroa.2.0.copyload = load double, ptr %agg.tmp3.sroa.2.0.arrayidx5.sroa_idx, align 8
   %sub.i22 = fsub double %agg.tmp3.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i23 = fsub double %agg.tmp3.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
-  %arrayidx13 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp11.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
-  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp11.sroa.2.0.copyload = load double, ptr %agg.tmp11.sroa.2.0.arrayidx13.sroa_idx, align 8
   %sub.i26 = fsub double %agg.tmp11.sroa.0.0.copyload, %agg.tmp3.sroa.0.0.copyload
   %sub3.i27 = fsub double %agg.tmp11.sroa.2.0.copyload, %agg.tmp3.sroa.2.0.copyload
@@ -998,7 +992,7 @@ entry:
   %5 = tail call noundef double @llvm.fmuladd.f64(double %sub.i, double %sub.i22, double %mul3.i37)
   %call36 = call noundef i32 @_ZN7msdfgen10solveCubicEPddddd(ptr noundef nonnull %t, double noundef %0, double noundef %mul, double noundef %4, double noundef %5)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %6 = load ptr, ptr %vfn, align 8
   %call37 = call { double, double } %6(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0.000000e+00)
   %7 = extractvalue { double, double } %call37, 0
@@ -1020,7 +1014,7 @@ entry:
   %div = fdiv double %fneg, %14
   store double %div, ptr %param, align 8
   %vtable50 = load ptr, ptr %this, align 8
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 6
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 48
   %15 = load ptr, ptr %vfn51, align 8
   %call52 = call { double, double } %15(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 1.000000e+00)
   %agg.tmp54.sroa.0.0.copyload = load double, ptr %arrayidx13, align 8
@@ -1123,7 +1117,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 if.end133:                                        ; preds = %for.end
   %cmp134 = fcmp olt double %31, 5.000000e-01
   %vtable138 = load ptr, ptr %this, align 8
-  %vfn139 = getelementptr inbounds ptr, ptr %vtable138, i64 6
+  %vfn139 = getelementptr inbounds i8, ptr %vtable138, i64 48
   %32 = load ptr, ptr %vfn139, align 8
   br i1 %cmp134, label %if.then135, label %if.else
 
@@ -1199,11 +1193,11 @@ declare noundef i32 @_ZN7msdfgen10solveCubicEPddddd(ptr noundef, double noundef,
 ; Function Attrs: mustprogress uwtable
 define dso_local { double, double } @_ZNK7msdfgen12CubicSegment14signedDistanceENS_7Vector2ERd(ptr noundef nonnull align 8 dereferenceable(80) %this, double %origin.coerce0, double %origin.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %param) unnamed_addr #0 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %arrayidx5 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx13 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
-  %arrayidx24 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
-  %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp22.sroa.2.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load <2 x double>, ptr %p, align 8
   %1 = insertelement <2 x double> poison, double %origin.coerce0, i64 0
   %2 = insertelement <2 x double> %1, double %origin.coerce1, i64 1
@@ -1218,7 +1212,7 @@ entry:
   %11 = fsub <2 x double> %10, %7
   %12 = fsub <2 x double> %11, %8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %13 = load ptr, ptr %vfn, align 8
   %call40 = tail call { double, double } %13(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0.000000e+00)
   %14 = extractvalue { double, double } %call40, 0
@@ -1242,7 +1236,7 @@ entry:
   %div = fdiv double %fneg, %23
   store double %div, ptr %param, align 8
   %vtable52 = load ptr, ptr %this, align 8
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 6
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 48
   %24 = load ptr, ptr %vfn53, align 8
   %call54 = tail call { double, double } %24(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 1.000000e+00)
   %agg.tmp56.sroa.0.0.copyload = load double, ptr %arrayidx24, align 8
@@ -1415,7 +1409,7 @@ for.end185:                                       ; preds = %for.inc183
 if.end189:                                        ; preds = %for.end185
   %cmp190 = fcmp olt double %97, 5.000000e-01
   %vtable194 = load ptr, ptr %this, align 8
-  %vfn195 = getelementptr inbounds ptr, ptr %vtable194, i64 6
+  %vfn195 = getelementptr inbounds i8, ptr %vtable194, i64 48
   %98 = load ptr, ptr %vfn195, align 8
   br i1 %cmp190, label %if.then191, label %if.else
 
@@ -1489,11 +1483,11 @@ return:                                           ; preds = %for.end185, %if.els
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZNK7msdfgen13LinearSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
-  %y2 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %y2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
   %cmp = fcmp ole double %0, %y
-  %y5 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %y5 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load double, ptr %y5, align 8
   %cmp6 = fcmp ogt double %1, %y
   %or.cond = select i1 %cmp, i1 %cmp6, i1 false
@@ -1507,7 +1501,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %sub = fsub double %y, %0
-  %arrayidx20 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 32
   %sub25 = fsub double %1, %0
   %div = fdiv double %sub, %sub25
   %2 = load double, ptr %p, align 8
@@ -1536,8 +1530,8 @@ return:                                           ; preds = %lor.lhs.false, %if.
 define dso_local noundef i32 @_ZNK7msdfgen16QuadraticSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [2 x double], align 16
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %y2 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %y2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
   %cmp = fcmp olt double %0, %y
   %cond = select i1 %cmp, i32 1, i32 -1
@@ -1548,14 +1542,14 @@ entry:
   br i1 %cmp10, label %if.then, label %if.end35
 
 if.then:                                          ; preds = %entry
-  %y16 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %y16 = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load double, ptr %y16, align 8
   %cmp17 = fcmp olt double %2, %3
   br i1 %cmp17, label %if.then32, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %cmp24 = fcmp oeq double %2, %3
-  %y30 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %y30 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load double, ptr %y30, align 8
   %cmp31 = fcmp olt double %2, %4
   %or.cond51 = select i1 %cmp24, i1 %cmp31, i1 false
@@ -1572,15 +1566,15 @@ if.end35:                                         ; preds = %lor.lhs.false, %if.
   %agg.tmp38.sroa.0.0.copyload = phi double [ %agg.tmp38.sroa.0.0.copyload.pre, %if.then32 ], [ %1, %entry ], [ %1, %lor.lhs.false ]
   %nextDY.0 = phi i32 [ %cond, %if.then32 ], [ %cond, %entry ], [ 1, %lor.lhs.false ]
   %total.0 = phi i32 [ 1, %if.then32 ], [ 0, %entry ], [ 0, %lor.lhs.false ]
-  %arrayidx37 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx37, align 8
-  %agg.tmp.sroa.2.0.arrayidx37.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp.sroa.2.0.arrayidx37.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx37.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp38.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp38.sroa.2.0.copyload
-  %arrayidx44 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx44 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp42.sroa.0.0.copyload = load double, ptr %arrayidx44, align 8
-  %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp42.sroa.2.0.copyload = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
   %sub.i54 = fsub double %agg.tmp42.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i55 = fsub double %agg.tmp42.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
@@ -1594,7 +1588,7 @@ if.end35:                                         ; preds = %lor.lhs.false, %if.
 
 land.lhs.true58:                                  ; preds = %if.end35
   %5 = load double, ptr %t, align 16
-  %arrayidx60 = getelementptr inbounds [2 x double], ptr %t, i64 0, i64 1
+  %arrayidx60 = getelementptr inbounds i8, ptr %t, i64 8
   %6 = load double, ptr %arrayidx60, align 8
   %cmp61 = fcmp ogt double %5, %6
   br i1 %cmp61, label %if.then62, label %for.body.preheader
@@ -1768,8 +1762,8 @@ declare noundef i32 @_ZN7msdfgen14solveQuadraticEPdddd(ptr noundef, double nound
 define dso_local noundef i32 @_ZNK7msdfgen12CubicSegment21scanlineIntersectionsEPdPid(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %dy, double noundef %y) unnamed_addr #0 align 2 {
 entry:
   %t = alloca [3 x double], align 16
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %y2 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %y2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load double, ptr %y2, align 8
   %cmp = fcmp olt double %0, %y
   %cond = select i1 %cmp, i32 1, i32 -1
@@ -1780,7 +1774,7 @@ entry:
   br i1 %cmp10, label %if.then, label %if.end51
 
 if.then:                                          ; preds = %entry
-  %y16 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %y16 = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load double, ptr %y16, align 8
   %cmp17 = fcmp olt double %2, %3
   br i1 %cmp17, label %if.then48, label %lor.lhs.false
@@ -1790,14 +1784,14 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %cmp24, label %land.lhs.true, label %if.end51
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %y30 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %y30 = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load double, ptr %y30, align 8
   %cmp31 = fcmp olt double %2, %4
   br i1 %cmp31, label %if.then48, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %land.lhs.true
   %cmp39 = fcmp oeq double %2, %4
-  %y46 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3, i32 1
+  %y46 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load double, ptr %y46, align 8
   %cmp47 = fcmp olt double %2, %5
   %or.cond66 = select i1 %cmp39, i1 %cmp47, i1 false
@@ -1814,23 +1808,23 @@ if.end51:                                         ; preds = %lor.lhs.false, %lor
   %agg.tmp54.sroa.0.0.copyload = phi double [ %agg.tmp54.sroa.0.0.copyload.pre, %if.then48 ], [ %1, %entry ], [ %1, %lor.lhs.false32 ], [ %1, %lor.lhs.false ]
   %nextDY.0 = phi i32 [ %cond, %if.then48 ], [ %cond, %entry ], [ 1, %lor.lhs.false32 ], [ 1, %lor.lhs.false ]
   %total.0 = phi i32 [ 1, %if.then48 ], [ 0, %entry ], [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false ]
-  %arrayidx53 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx53 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx53, align 8
-  %agg.tmp.sroa.2.0.arrayidx53.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp.sroa.2.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx53.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %agg.tmp54.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp.sroa.2.0.copyload, %agg.tmp54.sroa.2.0.copyload
-  %arrayidx60 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx60 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp58.sroa.0.0.copyload = load double, ptr %arrayidx60, align 8
-  %agg.tmp58.sroa.2.0.arrayidx60.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp58.sroa.2.0.arrayidx60.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp58.sroa.2.0.copyload = load double, ptr %agg.tmp58.sroa.2.0.arrayidx60.sroa_idx, align 8
   %sub.i69 = fsub double %agg.tmp58.sroa.0.0.copyload, %agg.tmp.sroa.0.0.copyload
   %sub3.i70 = fsub double %agg.tmp58.sroa.2.0.copyload, %agg.tmp.sroa.2.0.copyload
   %sub.i73 = fsub double %sub.i69, %sub.i
   %sub3.i74 = fsub double %sub3.i70, %sub3.i
-  %arrayidx71 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx71 = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp69.sroa.0.0.copyload = load double, ptr %arrayidx71, align 8
-  %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3, i32 1
+  %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp69.sroa.2.0.copyload = load double, ptr %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx, align 8
   %sub.i77 = fsub double %agg.tmp69.sroa.0.0.copyload, %agg.tmp58.sroa.0.0.copyload
   %sub3.i78 = fsub double %agg.tmp69.sroa.2.0.copyload, %agg.tmp58.sroa.2.0.copyload
@@ -1847,7 +1841,7 @@ if.end51:                                         ; preds = %lor.lhs.false, %lor
 
 if.then96:                                        ; preds = %if.end51
   %6 = load double, ptr %t, align 16
-  %arrayidx98 = getelementptr inbounds [3 x double], ptr %t, i64 0, i64 1
+  %arrayidx98 = getelementptr inbounds i8, ptr %t, i64 8
   %7 = load double, ptr %arrayidx98, align 8
   %cmp99 = fcmp ogt double %6, %7
   br i1 %cmp99, label %if.then100, label %if.end105
@@ -1864,7 +1858,7 @@ if.end105:                                        ; preds = %if.then100, %if.the
   br i1 %cmp106.not, label %for.body.preheader, label %land.lhs.true107
 
 land.lhs.true107:                                 ; preds = %if.end105
-  %arrayidx109 = getelementptr inbounds [3 x double], ptr %t, i64 0, i64 2
+  %arrayidx109 = getelementptr inbounds i8, ptr %t, i64 16
   %10 = load double, ptr %arrayidx109, align 16
   %cmp110 = fcmp ogt double %9, %10
   br i1 %cmp110, label %if.then111, label %for.body.preheader
@@ -2055,9 +2049,9 @@ if.end284:                                        ; preds = %if.end252.thread, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK7msdfgen13LinearSegment5boundERdS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
   %cmp.i = fcmp ogt double %0, %agg.tmp.sroa.0.0.copyload
@@ -2095,9 +2089,9 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %if.then13.i
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
   %cmp.i5 = fcmp ogt double %4, %agg.tmp2.sroa.0.0.copyload
@@ -2141,9 +2135,9 @@ _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit16: ; preds = %if.end10.i1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK7msdfgen16QuadraticSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #0 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
   %cmp.i = fcmp ogt double %0, %agg.tmp.sroa.0.0.copyload
@@ -2181,9 +2175,9 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %if.then13.i
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
   %cmp.i21 = fcmp ogt double %4, %agg.tmp2.sroa.0.0.copyload
@@ -2221,9 +2215,9 @@ if.then13.i28:                                    ; preds = %if.end10.i26
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit32
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit32: ; preds = %if.end10.i26, %if.then13.i28
-  %arrayidx8 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp6.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp6.sroa.2.0.copyload = load double, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %agg.tmp9.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp9.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
@@ -2247,7 +2241,7 @@ if.then:                                          ; preds = %_ZN7msdfgenL11point
 
 if.then29:                                        ; preds = %if.then
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %8 = load ptr, ptr %vfn, align 8
   %call31 = tail call { double, double } %8(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %div)
   %9 = extractvalue { double, double } %call31, 0
@@ -2303,7 +2297,7 @@ if.then34:                                        ; preds = %if.end32
 
 if.then48:                                        ; preds = %if.then34
   %vtable50 = load ptr, ptr %this, align 8
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 5
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 40
   %17 = load ptr, ptr %vfn51, align 8
   %call52 = tail call { double, double } %17(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %div44)
   %18 = extractvalue { double, double } %call52, 0
@@ -2351,9 +2345,9 @@ if.end54:                                         ; preds = %if.then13.i60, %if.
 define dso_local void @_ZNK7msdfgen12CubicSegment5boundERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %l, ptr nocapture noundef nonnull align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r, ptr nocapture noundef nonnull align 8 dereferenceable(8) %t) unnamed_addr #0 align 2 {
 entry:
   %params = alloca [2 x double], align 16
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %0 = load double, ptr %l, align 8
   %cmp.i = fcmp ogt double %0, %agg.tmp.sroa.0.0.copyload
@@ -2391,9 +2385,9 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit: ; preds = %if.end10.i, %if.then13.i
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %arrayidx4, align 8
-  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3, i32 1
+  %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp2.sroa.2.0.copyload = load double, ptr %agg.tmp2.sroa.2.0.arrayidx4.sroa_idx, align 8
   %4 = load double, ptr %l, align 8
   %cmp.i24 = fcmp ogt double %4, %agg.tmp2.sroa.0.0.copyload
@@ -2431,17 +2425,17 @@ if.then13.i31:                                    ; preds = %if.end10.i29
   br label %_ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35
 
 _ZN7msdfgenL11pointBoundsENS_7Vector2ERdS1_S1_S1_.exit35: ; preds = %if.end10.i29, %if.then13.i31
-  %arrayidx7 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp5.sroa.0.0.copyload = load double, ptr %arrayidx7, align 8
-  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp5.sroa.2.0.copyload = load double, ptr %agg.tmp5.sroa.2.0.arrayidx7.sroa_idx, align 8
   %agg.tmp8.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp8.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %sub.i = fsub double %agg.tmp5.sroa.0.0.copyload, %agg.tmp8.sroa.0.0.copyload
   %sub3.i = fsub double %agg.tmp5.sroa.2.0.copyload, %agg.tmp8.sroa.2.0.copyload
-  %arrayidx15 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp13.sroa.0.0.copyload = load double, ptr %arrayidx15, align 8
-  %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp13.sroa.2.0.copyload = load double, ptr %agg.tmp13.sroa.2.0.arrayidx15.sroa_idx, align 8
   %sub.i36 = fsub double %agg.tmp13.sroa.0.0.copyload, %agg.tmp5.sroa.0.0.copyload
   %sub3.i37 = fsub double %agg.tmp13.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload
@@ -2480,7 +2474,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %9 = load ptr, ptr %vfn, align 8
   %call55 = call { double, double } %9(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %8)
   %10 = extractvalue { double, double } %call55, 0
@@ -2545,7 +2539,7 @@ for.body63:                                       ; preds = %for.body63.preheade
 
 if.then71:                                        ; preds = %for.body63
   %vtable75 = load ptr, ptr %this, align 8
-  %vfn76 = getelementptr inbounds ptr, ptr %vtable75, i64 5
+  %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 40
   %17 = load ptr, ptr %vfn76, align 8
   %call77 = call { double, double } %17(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %16)
   %18 = extractvalue { double, double } %call77, 0
@@ -2598,9 +2592,9 @@ for.end81:                                        ; preds = %for.inc79, %for.end
 define dso_local void @_ZN7msdfgen13LinearSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
   ret void
@@ -2610,9 +2604,9 @@ entry:
 define dso_local void @_ZN7msdfgen16QuadraticSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
   ret void
@@ -2622,14 +2616,14 @@ entry:
 define dso_local void @_ZN7msdfgen12CubicSegment7reverseEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #10 align 2 {
 entry:
   %tmp = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %arrayidx3 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
-  %arrayidx9 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9, i64 16, i1 false)
-  %arrayidx11 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx9, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(16) %tmp, i64 16, i1 false)
   ret void
@@ -2638,9 +2632,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen13LinearSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   store double %to.coerce0, ptr %p, align 8
-  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store double %to.coerce1, ptr %to.sroa.2.0.arrayidx.sroa_idx, align 8
   ret void
 }
@@ -2649,14 +2643,14 @@ entry:
 define dso_local void @_ZN7msdfgen16QuadraticSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
   %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
   %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
-  %arrayidx34 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load <2 x double>, ptr %arrayidx4, align 8
   %1 = extractelement <2 x double> %0, i64 0
   %sub.i = fsub double %agg.tmp.sroa.0.0.copyload, %1
@@ -2705,9 +2699,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen12CubicSegment14moveStartPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
-  %arrayidx5 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load <2 x double>, ptr %p, align 8
   %1 = insertelement <2 x double> poison, double %to.coerce0, i64 0
   %2 = insertelement <2 x double> %1, double %to.coerce1, i64 1
@@ -2723,9 +2717,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN7msdfgen13LinearSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #5 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
   store double %to.coerce0, ptr %arrayidx, align 8
-  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %to.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   store double %to.coerce1, ptr %to.sroa.2.0.arrayidx.sroa_idx, align 8
   ret void
 }
@@ -2734,12 +2728,12 @@ entry:
 define dso_local void @_ZN7msdfgen16QuadraticSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
   %origP1 = alloca %"struct.msdfgen::Vector2", align 8
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %arrayidx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp.sroa.2.0.copyload = load double, ptr %agg.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
-  %arrayidx4 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 32
   %sub.i5 = fsub double %to.coerce0, %agg.tmp.sroa.0.0.copyload
   %sub3.i6 = fsub double %to.coerce1, %agg.tmp.sroa.2.0.copyload
   %0 = load <2 x double>, ptr %arrayidx4, align 8
@@ -2790,9 +2784,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN7msdfgen12CubicSegment12moveEndPointENS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, double %to.coerce0, double %to.coerce1) unnamed_addr #10 align 2 {
 entry:
-  %arrayidx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
-  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3, i32 1
-  %arrayidx5 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 64
+  %agg.tmp3.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load <2 x double>, ptr %arrayidx, align 8
   %1 = insertelement <2 x double> poison, double %to.coerce0, i64 0
   %2 = insertelement <2 x double> %1, double %to.coerce1, i64 1
@@ -2809,10 +2803,10 @@ entry:
 define dso_local void @_ZNK7msdfgen13LinearSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
-  %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x double>, ptr %p, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call3 = invoke { double, double } %1(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont4 unwind label %lpad
@@ -2820,9 +2814,9 @@ entry:
 invoke.cont4:                                     ; preds = %entry
   %2 = extractvalue { double, double } %call3, 0
   %3 = extractvalue { double, double } %call3, 1
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %color = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %4, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -2834,14 +2828,14 @@ invoke.cont4:                                     ; preds = %entry
   store ptr %call, ptr %part0, align 8
   %call5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable7 = load ptr, ptr %this, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 5
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 40
   %5 = load ptr, ptr %vfn8, align 8
   %call11 = invoke { double, double } %5(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont4
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 5
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 40
   %6 = load ptr, ptr %vfn14, align 8
   %call16 = invoke { double, double } %6(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont18 unwind label %lpad9
@@ -2852,7 +2846,7 @@ invoke.cont18:                                    ; preds = %invoke.cont10
   %9 = extractvalue { double, double } %call16, 0
   %10 = extractvalue { double, double } %call16, 1
   %11 = load i32, ptr %color, align 8
-  %color.i.i2 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call5, i64 0, i32 1
+  %color.i.i2 = getelementptr inbounds i8, ptr %call5, i64 8
   store i32 %11, ptr %color.i.i2, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
   %scevgep.i3 = getelementptr inbounds i8, ptr %call5, i64 16
@@ -2866,7 +2860,7 @@ invoke.cont18:                                    ; preds = %invoke.cont10
   store ptr %call5, ptr %part1, align 8
   %call19 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %vtable21 = load ptr, ptr %this, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 5
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 40
   %12 = load ptr, ptr %vfn22, align 8
   %call25 = invoke { double, double } %12(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont30 unwind label %lpad23
@@ -2874,9 +2868,9 @@ invoke.cont18:                                    ; preds = %invoke.cont10
 invoke.cont30:                                    ; preds = %invoke.cont18
   %13 = extractvalue { double, double } %call25, 0
   %14 = extractvalue { double, double } %call25, 1
-  %arrayidx28 = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load i32, ptr %color, align 8
-  %color.i.i7 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call19, i64 0, i32 1
+  %color.i.i7 = getelementptr inbounds i8, ptr %call19, i64 8
   store i32 %15, ptr %color.i.i7, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i64 0, inrange i32 0, i64 2), ptr %call19, align 8
   %scevgep.i8 = getelementptr inbounds i8, ptr %call19, i64 16
@@ -2915,12 +2909,12 @@ eh.resume:                                        ; preds = %lpad23, %lpad9, %lp
 define dso_local void @_ZNK7msdfgen16QuadraticSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x double>, ptr %p, align 8
-  %arrayidx8 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load <2 x double>, ptr %arrayidx8, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call12 = invoke { double, double } %2(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont13 unwind label %lpad
@@ -2929,9 +2923,9 @@ invoke.cont13:                                    ; preds = %invoke.cont
   %3 = fmul <2 x double> %1, <double 0x3FD5555555555555, double 0x3FD5555555555555>
   %4 = extractvalue { double, double } %call12, 0
   %5 = extractvalue { double, double } %call12, 1
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %color = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %6, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -2947,18 +2941,18 @@ invoke.cont13:                                    ; preds = %invoke.cont
   store ptr %call, ptr %part0, align 8
   %call14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable16 = load ptr, ptr %this, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 5
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 40
   %9 = load ptr, ptr %vfn17, align 8
   %call20 = invoke { double, double } %9(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont40 unwind label %lpad18
 
 invoke.cont40:                                    ; preds = %invoke.cont13
-  %arrayidx37 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx37 = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load <2 x double>, ptr %p, align 8
   %11 = load <2 x double>, ptr %arrayidx8, align 8
   %12 = load <2 x double>, ptr %arrayidx37, align 8
   %vtable43 = load ptr, ptr %this, align 8
-  %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 5
+  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 40
   %13 = load ptr, ptr %vfn44, align 8
   %call46 = invoke { double, double } %13(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont48 unwind label %lpad18
@@ -2972,7 +2966,7 @@ invoke.cont48:                                    ; preds = %invoke.cont40
   %19 = extractvalue { double, double } %call46, 0
   %20 = extractvalue { double, double } %call46, 1
   %21 = load i32, ptr %color, align 8
-  %color.i.i26 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call14, i64 0, i32 1
+  %color.i.i26 = getelementptr inbounds i8, ptr %call14, i64 8
   store i32 %21, ptr %color.i.i26, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
   %scevgep.i27 = getelementptr inbounds i8, ptr %call14, i64 16
@@ -2993,7 +2987,7 @@ invoke.cont48:                                    ; preds = %invoke.cont40
   store ptr %call14, ptr %part1, align 8
   %call49 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 5
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 40
   %27 = load ptr, ptr %vfn52, align 8
   %call55 = invoke { double, double } %27(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont69 unwind label %lpad53
@@ -3002,7 +2996,7 @@ invoke.cont69:                                    ; preds = %invoke.cont48
   %28 = extractvalue { double, double } %call55, 1
   %29 = extractvalue { double, double } %call55, 0
   %30 = load i32, ptr %color, align 8
-  %color.i.i41 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call49, i64 0, i32 1
+  %color.i.i41 = getelementptr inbounds i8, ptr %call49, i64 8
   store i32 %30, ptr %color.i.i41, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i64 0, inrange i32 0, i64 2), ptr %call49, align 8
   %scevgep.i42 = getelementptr inbounds i8, ptr %call49, i64 16
@@ -3047,11 +3041,11 @@ eh.resume:                                        ; preds = %lpad53, %lpad18, %l
 define dso_local void @_ZNK7msdfgen12CubicSegment13splitInThirdsERPNS_11EdgeSegmentES3_S3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %part2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1
-  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %agg.tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load <2 x double>, ptr %p, align 8
-  %arrayidx8 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
-  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load <2 x double>, ptr %arrayidx8, align 8
   %2 = extractelement <2 x double> %1, i64 0
   %3 = extractelement <2 x double> %0, i64 0
@@ -3063,12 +3057,12 @@ entry:
   %7 = fmul <2 x double> %1, <double 0x3FD5555555555555, double 0x3FD5555555555555>
   %8 = fadd <2 x double> %6, %7
   %9 = select i1 %5, <2 x double> %0, <2 x double> %8
-  %arrayidx36 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp34.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
-  %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp34.sroa.2.0.copyload = load double, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %10 = load ptr, ptr %vfn, align 8
   %call43 = invoke { double, double } %10(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont44 unwind label %lpad
@@ -3076,9 +3070,9 @@ entry:
 invoke.cont44:                                    ; preds = %entry
   %11 = extractvalue { double, double } %call43, 0
   %12 = extractvalue { double, double } %call43, 1
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %color = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %13, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -3106,7 +3100,7 @@ invoke.cont44:                                    ; preds = %entry
   store ptr %call, ptr %part0, align 8
   %call45 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable47 = load ptr, ptr %this, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 5
+  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 40
   %26 = load ptr, ptr %vfn48, align 8
   %call51 = invoke { double, double } %26(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FD5555555555555)
           to label %invoke.cont140 unwind label %lpad49
@@ -3117,12 +3111,12 @@ invoke.cont140:                                   ; preds = %invoke.cont44
   %agg.tmp58.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
   %27 = load <2 x double>, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
   %agg.tmp67.sroa.2.0.copyload = load double, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
-  %arrayidx90 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx90 = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp88.sroa.0.0.copyload = load double, ptr %arrayidx90, align 8
-  %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 3, i32 1
+  %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp88.sroa.2.0.copyload = load double, ptr %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx, align 8
   %vtable143 = load ptr, ptr %this, align 8
-  %vfn144 = getelementptr inbounds ptr, ptr %vtable143, i64 5
+  %vfn144 = getelementptr inbounds i8, ptr %vtable143, i64 40
   %28 = load ptr, ptr %vfn144, align 8
   %call146 = invoke { double, double } %28(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont148 unwind label %lpad49
@@ -3158,7 +3152,7 @@ invoke.cont148:                                   ; preds = %invoke.cont140
   %56 = extractvalue { double, double } %call146, 0
   %57 = extractvalue { double, double } %call146, 1
   %58 = load i32, ptr %color, align 8
-  %color.i.i138 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call45, i64 0, i32 1
+  %color.i.i138 = getelementptr inbounds i8, ptr %call45, i64 8
   store i32 %58, ptr %color.i.i138, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 0, inrange i32 0, i64 2), ptr %call45, align 8
   %scevgep.i139 = getelementptr inbounds i8, ptr %call45, i64 16
@@ -3203,7 +3197,7 @@ invoke.cont148:                                   ; preds = %invoke.cont140
   store ptr %call45, ptr %part1, align 8
   %call149 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
   %vtable151 = load ptr, ptr %this, align 8
-  %vfn152 = getelementptr inbounds ptr, ptr %vtable151, i64 5
+  %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 40
   %86 = load ptr, ptr %vfn152, align 8
   %call155 = invoke { double, double } %86(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef 0x3FE5555555555555)
           to label %invoke.cont175 unwind label %lpad153
@@ -3214,7 +3208,7 @@ invoke.cont175:                                   ; preds = %invoke.cont148
   %agg.tmp158.sroa.0.0.copyload = load double, ptr %arrayidx8, align 8
   %agg.tmp170.sroa.2.0.copyload = load double, ptr %agg.tmp88.sroa.2.0.arrayidx90.sroa_idx, align 8
   %89 = load i32, ptr %color, align 8
-  %color.i.i181 = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call149, i64 0, i32 1
+  %color.i.i181 = getelementptr inbounds i8, ptr %call149, i64 8
   store i32 %89, ptr %color.i.i181, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 0, inrange i32 0, i64 2), ptr %call149, align 8
   %scevgep.i182 = getelementptr inbounds i8, ptr %call149, i64 16
@@ -3285,12 +3279,12 @@ eh.resume:                                        ; preds = %lpad153, %lpad49, %
 define dso_local noalias noundef nonnull ptr @_ZNK7msdfgen16QuadraticSegment14convertToCubicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
-  %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1
-  %arrayidx8 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx16 = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this, i64 0, i32 1, i64 2
-  %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this, i64 0, i32 1
+  %p = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 48
+  %color = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %color, align 8
-  %color.i.i = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %call, i64 0, i32 1
+  %color.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %color.i.i, align 8
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
   %scevgep.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -3318,7 +3312,7 @@ define dso_local void @_ZN7msdfgen12CubicSegment10deconvergeEid(ptr noundef nonn
 entry:
   %conv = sitofp i32 %param to double
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { double, double } %0(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %conv)
   %1 = extractvalue { double, double } %call, 0
@@ -3337,7 +3331,7 @@ entry:
   %10 = shufflevector <2 x i1> %9, <2 x i1> poison, <2 x i32> zeroinitializer
   %11 = select <2 x i1> %10, <2 x double> %8, <2 x double> <double 0.000000e+00, double 1.000000e+00>
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 7
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 56
   %12 = load ptr, ptr %vfn6, align 8
   %call7 = tail call { double, double } %12(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %conv)
   %13 = extractvalue { double, double } %call7, 0
@@ -3363,7 +3357,7 @@ sw.bb:                                            ; preds = %entry
   %18 = tail call double @llvm.fabs.f64(double %17)
   %sqrt = tail call double @llvm.sqrt.f64(double %18)
   %mul = fmul double %sqrt, %conv17
-  %arrayidx = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 32
   %19 = insertelement <2 x double> poison, double %mul, i64 0
   %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
   %21 = fmul <2 x double> %11, %20
@@ -3388,7 +3382,7 @@ sw.bb24:                                          ; preds = %entry
   %30 = tail call double @llvm.fabs.f64(double %17)
   %sqrt38 = tail call double @llvm.sqrt.f64(double %30)
   %mul32 = fmul double %sqrt38, %conv30
-  %arrayidx38 = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx38 = getelementptr inbounds i8, ptr %this, i64 48
   %31 = insertelement <2 x double> poison, double %mul32, i64 0
   %32 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> zeroinitializer
   %33 = fmul <2 x double> %11, %32

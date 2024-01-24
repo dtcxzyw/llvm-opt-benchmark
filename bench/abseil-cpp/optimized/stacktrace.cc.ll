@@ -103,7 +103,7 @@ while.body:                                       ; preds = %entry, %if.end6
   %skip_count.addr.040 = phi i32 [ %skip_count.addr.1, %if.end6 ], [ %skip_count, %entry ]
   %n.039 = phi i32 [ %n.1, %if.end6 ], [ 0, %entry ]
   %fp.038 = phi ptr [ %retval.0.i, %if.end6 ], [ %0, %entry ]
-  %add.ptr = getelementptr inbounds ptr, ptr %fp.038, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %fp.038, i64 8
   %2 = load ptr, ptr %add.ptr, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %while.end, label %if.end
@@ -243,7 +243,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %skip_count.addr.055.us = phi i32 [ %skip_count.addr.1.us, %if.end6.us ], [ %skip_count, %while.body.lr.ph ]
   %n.054.us = phi i32 [ %n.1.us, %if.end6.us ], [ 0, %while.body.lr.ph ]
   %fp.053.us = phi ptr [ %retval.0.i.us, %if.end6.us ], [ %0, %while.body.lr.ph ]
-  %add.ptr.us = getelementptr inbounds ptr, ptr %fp.053.us, i64 1
+  %add.ptr.us = getelementptr inbounds i8, ptr %fp.053.us, i64 8
   %4 = load ptr, ptr %add.ptr.us, align 8
   %cmp1.us = icmp eq ptr %4, null
   br i1 %cmp1.us, label %while.end, label %if.end.us
@@ -304,7 +304,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %skip_count.addr.055 = phi i32 [ %skip_count.addr.1, %if.end6 ], [ %skip_count, %while.body.lr.ph ]
   %n.054 = phi i32 [ %n.1, %if.end6 ], [ 0, %while.body.lr.ph ]
   %fp.053 = phi ptr [ %retval.0.i, %if.end6 ], [ %0, %while.body.lr.ph ]
-  %add.ptr = getelementptr inbounds ptr, ptr %fp.053, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %fp.053, i64 8
   %9 = load ptr, ptr %add.ptr, align 8
   %cmp1 = icmp eq ptr %9, null
   br i1 %cmp1, label %while.end, label %if.end
@@ -521,7 +521,7 @@ while.body:                                       ; preds = %entry, %if.end15
   %skip_count.addr.040 = phi i32 [ %skip_count.addr.1, %if.end15 ], [ %skip_count, %entry ]
   %n.039 = phi i32 [ %n.1, %if.end15 ], [ 0, %entry ]
   %fp.038 = phi ptr [ %retval.0.i, %if.end15 ], [ %0, %entry ]
-  %add.ptr = getelementptr inbounds ptr, ptr %fp.038, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %fp.038, i64 8
   %2 = load ptr, ptr %add.ptr, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %while.end, label %if.end
@@ -636,7 +636,7 @@ while.body:                                       ; preds = %entry, %if.end15
   %skip_count.addr.040 = phi i32 [ %skip_count.addr.1, %if.end15 ], [ %skip_count, %entry ]
   %n.039 = phi i32 [ %n.1, %if.end15 ], [ 0, %entry ]
   %fp.038 = phi ptr [ %retval.0.i, %if.end15 ], [ %0, %entry ]
-  %add.ptr = getelementptr inbounds ptr, ptr %fp.038, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %fp.038, i64 8
   %2 = load ptr, ptr %add.ptr, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %while.end, label %if.end

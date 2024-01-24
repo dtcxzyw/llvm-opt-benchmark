@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libdefault-lib-crngt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.crng_test_global_st = type { [64 x i8], ptr, i32, ptr }
-%struct.prov_drbg_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i32, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i32, i32, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [51 x i8] c"../openssl/providers/implementations/rands/crngt.c\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"SHA256\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -15,10 +12,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @ossl_rand_crng_ctx_free(ptr noundef %vcrngt_glob) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.crng_test_global_st, ptr %vcrngt_glob, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %vcrngt_glob, i64 80
   %0 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %0) #6
-  %md = getelementptr inbounds %struct.crng_test_global_st, ptr %vcrngt_glob, i64 0, i32 1
+  %md = getelementptr inbounds i8, ptr %vcrngt_glob, i64 64
   %1 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %1) #6
   tail call void @CRYPTO_free(ptr noundef %vcrngt_glob, ptr noundef nonnull @.str, i32 noundef 62) #6
@@ -40,14 +37,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @EVP_MD_fetch(ptr noundef %ctx, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #6
-  %md = getelementptr inbounds %struct.crng_test_global_st, ptr %call, i64 0, i32 1
+  %md = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %call1, ptr %md, align 8
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %return.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr @CRYPTO_THREAD_lock_new() #6
-  %lock = getelementptr inbounds %struct.crng_test_global_st, ptr %call, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %call5, ptr %lock, align 8
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %if.then7, label %return
@@ -83,7 +80,7 @@ entry:
   %sz = alloca i32, align 4
   %stcb = alloca ptr, align 8
   %stcbarg = alloca ptr, align 8
-  %provctx = getelementptr inbounds %struct.prov_drbg_st, ptr %drbg, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
   %0 = load ptr, ptr %provctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #6
   %call1 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %call, i32 noundef 7) #6
@@ -93,21 +90,21 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.crng_test_global_st, ptr %call1, i64 0, i32 3
+  %lock = getelementptr inbounds i8, ptr %call1, i64 80
   %1 = load ptr, ptr %lock, align 8
   %call2 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #6
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %preloaded = getelementptr inbounds %struct.crng_test_global_st, ptr %call1, i64 0, i32 2
+  %preloaded = getelementptr inbounds i8, ptr %call1, i64 72
   %2 = load i32, ptr %preloaded, align 8
   %tobool5.not = icmp eq i32 %2, 0
   br i1 %tobool5.not, label %if.then6, label %if.end16
 
 if.then6:                                         ; preds = %if.end4
   %3 = load ptr, ptr %provctx, align 8
-  %md8 = getelementptr inbounds %struct.crng_test_global_st, ptr %call1, i64 0, i32 1
+  %md8 = getelementptr inbounds i8, ptr %call1, i64 64
   %4 = load ptr, ptr %md8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i)
   %call.i = call i64 @ossl_prov_get_entropy(ptr noundef %3, ptr noundef nonnull %p.i, i32 noundef 0, i64 noundef 16, i64 noundef 16) #6
@@ -183,7 +180,7 @@ if.end38:                                         ; preds = %if.end37, %if.end29
   br i1 %cmp39.not69, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end38
-  %md51 = getelementptr inbounds %struct.crng_test_global_st, ptr %call1, i64 0, i32 1
+  %md51 = getelementptr inbounds i8, ptr %call1, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end78

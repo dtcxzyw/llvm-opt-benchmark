@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %union.anon.0 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.QEMUResetEntry = type { %union.anon, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
 
 @reset_handlers = internal global %union.anon.0 { %struct.QTailQLink { ptr null, ptr @reset_handlers } }, align 8
 
@@ -14,13 +12,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @qemu_register_reset(ptr noundef %func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #4
-  %func1 = getelementptr inbounds %struct.QEMUResetEntry, ptr %call, i64 0, i32 1
+  %func1 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %func, ptr %func1, align 8
-  %opaque2 = getelementptr inbounds %struct.QEMUResetEntry, ptr %call, i64 0, i32 2
+  %opaque2 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %opaque, ptr %opaque2, align 8
   store ptr null, ptr %call, align 8
   %0 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @reset_handlers, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %call, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
   store ptr %call, ptr getelementptr inbounds (%union.anon.0, ptr @reset_handlers, i64 0, i32 0, i32 1), align 8
@@ -34,15 +32,15 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @qemu_register_reset_nosnapshotload(ptr noundef %func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #4
-  %func1 = getelementptr inbounds %struct.QEMUResetEntry, ptr %call, i64 0, i32 1
+  %func1 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %func, ptr %func1, align 8
-  %opaque2 = getelementptr inbounds %struct.QEMUResetEntry, ptr %call, i64 0, i32 2
+  %opaque2 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %opaque, ptr %opaque2, align 8
-  %skip_on_snapshot_load = getelementptr inbounds %struct.QEMUResetEntry, ptr %call, i64 0, i32 3
+  %skip_on_snapshot_load = getelementptr inbounds i8, ptr %call, i64 32
   store i8 1, ptr %skip_on_snapshot_load, align 8
   store ptr null, ptr %call, align 8
   %0 = load ptr, ptr getelementptr inbounds (%union.anon.0, ptr @reset_handlers, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %call, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
   store ptr %call, ptr getelementptr inbounds (%union.anon.0, ptr @reset_handlers, i64 0, i32 0, i32 1), align 8
@@ -58,13 +56,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %re.017 = phi ptr [ %re.0, %for.inc ], [ %re.015, %entry ]
-  %func1 = getelementptr inbounds %struct.QEMUResetEntry, ptr %re.017, i64 0, i32 1
+  %func1 = getelementptr inbounds i8, ptr %re.017, i64 16
   %0 = load ptr, ptr %func1, align 8
   %cmp = icmp eq ptr %0, %func
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %opaque2 = getelementptr inbounds %struct.QEMUResetEntry, ptr %re.017, i64 0, i32 2
+  %opaque2 = getelementptr inbounds i8, ptr %re.017, i64 24
   %1 = load ptr, ptr %opaque2, align 8
   %cmp3 = icmp eq ptr %1, %opaque
   br i1 %cmp3, label %do.body, label %for.inc
@@ -72,9 +70,9 @@ land.lhs.true:                                    ; preds = %for.body
 do.body:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %re.017, align 8
   %cmp5.not = icmp eq ptr %2, null
-  %tql_prev12 = getelementptr inbounds %struct.QTailQLink, ptr %re.017, i64 0, i32 1
+  %tql_prev12 = getelementptr inbounds i8, ptr %re.017, i64 8
   %3 = load ptr, ptr %tql_prev12, align 8
-  %tql_prev10 = getelementptr inbounds %struct.QTailQLink, ptr %2, i64 0, i32 1
+  %tql_prev10 = getelementptr inbounds i8, ptr %2, i64 8
   %.sink = select i1 %cmp5.not, ptr getelementptr inbounds (%union.anon.0, ptr @reset_handlers, i64 0, i32 0, i32 1), ptr %tql_prev10
   store ptr %3, ptr %.sink, align 8
   %4 = load ptr, ptr %re.017, align 8
@@ -108,16 +106,16 @@ land.rhs.lr.ph:                                   ; preds = %entry
 land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %for.inc.us
   %re.06.us = phi ptr [ %1, %for.inc.us ], [ %0, %land.rhs.lr.ph ]
   %1 = load ptr, ptr %re.06.us, align 8
-  %skip_on_snapshot_load.us = getelementptr inbounds %struct.QEMUResetEntry, ptr %re.06.us, i64 0, i32 3
+  %skip_on_snapshot_load.us = getelementptr inbounds i8, ptr %re.06.us, i64 32
   %2 = load i8, ptr %skip_on_snapshot_load.us, align 8
   %3 = and i8 %2, 1
   %tobool2.not.us = icmp eq i8 %3, 0
   br i1 %tobool2.not.us, label %if.end.us, label %for.inc.us
 
 if.end.us:                                        ; preds = %land.rhs.us
-  %func.us = getelementptr inbounds %struct.QEMUResetEntry, ptr %re.06.us, i64 0, i32 1
+  %func.us = getelementptr inbounds i8, ptr %re.06.us, i64 16
   %4 = load ptr, ptr %func.us, align 8
-  %opaque.us = getelementptr inbounds %struct.QEMUResetEntry, ptr %re.06.us, i64 0, i32 2
+  %opaque.us = getelementptr inbounds i8, ptr %re.06.us, i64 24
   %5 = load ptr, ptr %opaque.us, align 8
   tail call void %4(ptr noundef %5) #5
   br label %for.inc.us
@@ -129,9 +127,9 @@ for.inc.us:                                       ; preds = %if.end.us, %land.rh
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %land.rhs
   %re.06 = phi ptr [ %6, %land.rhs ], [ %0, %land.rhs.lr.ph ]
   %6 = load ptr, ptr %re.06, align 8
-  %func = getelementptr inbounds %struct.QEMUResetEntry, ptr %re.06, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %re.06, i64 16
   %7 = load ptr, ptr %func, align 8
-  %opaque = getelementptr inbounds %struct.QEMUResetEntry, ptr %re.06, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %re.06, i64 24
   %8 = load ptr, ptr %opaque, align 8
   tail call void %7(ptr noundef %8) #5
   %tobool.not = icmp eq ptr %6, null

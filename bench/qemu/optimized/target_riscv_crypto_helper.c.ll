@@ -14,24 +14,24 @@ target triple = "x86_64-unknown-linux-gnu"
 @cpuinfo = external local_unnamed_addr global i32, align 4
 @aes_zero = internal constant { [16 x i8] } zeroinitializer, align 16
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_aes32esmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local noundef i64 @helper_aes32esmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
   %arrayidx.i = getelementptr [256 x i32], ptr @AES_Te0, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = tail call i32 @llvm.bswap.i32(i32 %0)
+  %1 = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   %conv19.i = trunc i64 %shamt to i32
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %conv19.i)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %conv19.i)
   %2 = trunc i64 %rs1 to i32
   %conv22.i = xor i32 %or.i.i, %2
   %conv23.i = sext i32 %conv22.i to i64
   ret i64 %conv23.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_aes32esi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local noundef i64 @helper_aes32esi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
@@ -39,31 +39,31 @@ entry:
   %0 = load i8, ptr %arrayidx5.i, align 1
   %conv6.i = zext i8 %0 to i32
   %conv19.i = trunc i64 %shamt to i32
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %conv6.i, i32 %conv6.i, i32 %conv19.i)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %conv6.i, i32 %conv6.i, i32 %conv19.i)
   %1 = trunc i64 %rs1 to i32
   %conv22.i = xor i32 %or.i.i, %1
   %conv23.i = sext i32 %conv22.i to i64
   ret i64 %conv23.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_aes32dsmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local noundef i64 @helper_aes32dsmi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
   %arrayidx11.i = getelementptr [256 x i32], ptr @AES_Td0, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx11.i, align 4
-  %1 = tail call i32 @llvm.bswap.i32(i32 %0)
+  %1 = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   %conv19.i = trunc i64 %shamt to i32
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %conv19.i)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %conv19.i)
   %2 = trunc i64 %rs1 to i32
   %conv22.i = xor i32 %or.i.i, %2
   %conv23.i = sext i32 %conv22.i to i64
   ret i64 %conv23.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_aes32dsi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local noundef i64 @helper_aes32dsi(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr.i = lshr i64 %rs2, %shamt
   %idxprom.i = and i64 %shr.i, 255
@@ -71,7 +71,7 @@ entry:
   %0 = load i8, ptr %arrayidx15.i, align 1
   %conv16.i = zext i8 %0 to i32
   %conv19.i = trunc i64 %shamt to i32
-  %or.i.i = tail call i32 @llvm.fshl.i32(i32 %conv16.i, i32 %conv16.i, i32 %conv19.i)
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %conv16.i, i32 %conv16.i, i32 %conv19.i)
   %1 = trunc i64 %rs1 to i32
   %conv22.i = xor i32 %or.i.i, %1
   %conv23.i = sext i32 %conv22.i to i64
@@ -83,7 +83,7 @@ define dso_local i64 @helper_aes64esm(i64 noundef %rs1, i64 noundef %rs2) local_
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds [2 x i64], ptr %t, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -95,7 +95,7 @@ if.then.i:                                        ; preds = %entry
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %entry
-  call void @aesenc_SB_SR_MC_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull @aes_zero) #9
+  call void @aesenc_SB_SR_MC_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull @aes_zero) #8
   br label %aesenc_SB_SR_MC_AK.exit
 
 aesenc_SB_SR_MC_AK.exit:                          ; preds = %if.then.i, %if.then7.i
@@ -108,7 +108,7 @@ define dso_local i64 @helper_aes64es(i64 noundef %rs1, i64 noundef %rs2) local_u
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds [2 x i64], ptr %t, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -120,7 +120,7 @@ if.then.i:                                        ; preds = %entry
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %entry
-  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull @aes_zero) #9
+  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull @aes_zero) #8
   br label %aesenc_SB_SR_AK.exit
 
 aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then7.i
@@ -133,7 +133,7 @@ define dso_local i64 @helper_aes64ds(i64 noundef %rs1, i64 noundef %rs2) local_u
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds [2 x i64], ptr %t, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -145,7 +145,7 @@ if.then.i:                                        ; preds = %entry
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %entry
-  call void @aesdec_ISB_ISR_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull @aes_zero) #9
+  call void @aesdec_ISB_ISR_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull @aes_zero) #8
   br label %aesdec_ISB_ISR_AK.exit
 
 aesdec_ISB_ISR_AK.exit:                           ; preds = %if.then.i, %if.then7.i
@@ -160,7 +160,7 @@ entry:
   %z = alloca %union.AESState, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %z, i8 0, i64 16, i1 false)
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds [2 x i64], ptr %t, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -172,7 +172,7 @@ if.then.i:                                        ; preds = %entry
   br label %aesdec_ISB_ISR_IMC_AK.exit
 
 if.then7.i:                                       ; preds = %entry
-  call void @aesdec_ISB_ISR_IMC_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %z) #9
+  call void @aesdec_ISB_ISR_IMC_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %z) #8
   br label %aesdec_ISB_ISR_IMC_AK.exit
 
 aesdec_ISB_ISR_IMC_AK.exit:                       ; preds = %if.then.i, %if.then7.i
@@ -184,7 +184,7 @@ aesdec_ISB_ISR_IMC_AK.exit:                       ; preds = %if.then.i, %if.then
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_aes64ks2(i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #3 {
+define dso_local i64 @helper_aes64ks2(i64 noundef %rs1, i64 noundef %rs2) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %rs1, 32
   %conv66 = shl i64 %rs2, 32
@@ -210,11 +210,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %conv1, i32 %conv1, i32 24)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %conv1, i32 %conv1, i32 24)
   %arrayidx = getelementptr [10 x i8], ptr @helper_aes64ks1i.round_consts, i64 0, i64 %conv23
   %0 = load i8, ptr %arrayidx, align 1
   %conv4 = zext i8 %0 to i32
-  %arrayidx5 = getelementptr inbounds [4 x i32], ptr %rc, i64 0, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %rc, i64 4
   store i32 %conv4, ptr %arrayidx5, align 4
   store i32 %conv4, ptr %rc, align 16
   br label %if.end
@@ -234,7 +234,7 @@ if.then.i:                                        ; preds = %if.end
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %if.end
-  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %rc) #9
+  call void @aesenc_SB_SR_AK_gen(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %rc) #8
   br label %aesenc_SB_SR_AK.exit
 
 aesenc_SB_SR_AK.exit:                             ; preds = %if.then.i, %if.then7.i
@@ -247,7 +247,7 @@ define dso_local i64 @helper_aes64im(i64 noundef %rs1) local_unnamed_addr #1 {
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds [2 x i64], ptr %t, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
   store i64 0, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -259,7 +259,7 @@ if.then.i:                                        ; preds = %entry
   br label %aesdec_IMC.exit
 
 if.then7.i:                                       ; preds = %entry
-  call void @aesdec_IMC_gen(ptr noundef nonnull %t, ptr noundef nonnull %t) #9
+  call void @aesdec_IMC_gen(ptr noundef nonnull %t, ptr noundef nonnull %t) #8
   br label %aesdec_IMC.exit
 
 aesdec_IMC.exit:                                  ; preds = %if.then.i, %if.then7.i
@@ -267,8 +267,8 @@ aesdec_IMC.exit:                                  ; preds = %if.then.i, %if.then
   ret i64 %1
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_sm4ed(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local noundef i64 @helper_sm4ed(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %rs2, %shamt
   %conv1 = and i64 %shr, 255
@@ -287,15 +287,15 @@ entry:
   %shl10 = and i32 %and9, 196608
   %xor11 = xor i32 %xor8, %shl10
   %conv12 = trunc i64 %shamt to i32
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %xor11, i32 %xor11, i32 %conv12)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor11, i32 %xor11, i32 %conv12)
   %conv13 = trunc i64 %rs1 to i32
   %xor14 = xor i32 %or.i, %conv13
   %conv15 = sext i32 %xor14 to i64
   ret i64 %conv15
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local i64 @helper_sm4ks(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
+define dso_local noundef i64 @helper_sm4ks(i64 noundef %rs1, i64 noundef %rs2, i64 noundef %shamt) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %rs2, %shamt
   %conv1 = and i64 %shr, 255
@@ -314,7 +314,7 @@ entry:
   %3 = or disjoint i32 %2, %shl10
   %xor11 = or disjoint i32 %3, %conv2
   %conv12 = trunc i64 %shamt to i32
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %xor11, i32 %xor11, i32 %conv12)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor11, i32 %xor11, i32 %conv12)
   %conv13 = trunc i64 %rs1 to i32
   %xor14 = xor i32 %or.i, %conv13
   %conv15 = sext i32 %xor14 to i64
@@ -322,10 +322,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #4
+declare i32 @llvm.bswap.i32(i32) #3
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st) unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %0, <2 x i64> zeroinitializer)
@@ -333,13 +333,13 @@ entry:
   ret void
 }
 
-declare void @aesenc_SB_SR_MC_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @aesenc_SB_SR_MC_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #7
+declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #6
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -348,13 +348,13 @@ entry:
   ret void
 }
 
-declare void @aesenc_SB_SR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @aesenc_SB_SR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #7
+declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #6
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st) unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = tail call <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64> %0, <2 x i64> zeroinitializer)
@@ -362,13 +362,13 @@ entry:
   ret void
 }
 
-declare void @aesdec_ISB_ISR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @aesdec_ISB_ISR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #7
+declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #6
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_IMC_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesdec_ISB_ISR_IMC_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -377,13 +377,13 @@ entry:
   ret void
 }
 
-declare void @aesdec_ISB_ISR_IMC_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @aesdec_ISB_ISR_IMC_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64>, <2 x i64>) #7
+declare <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64>, <2 x i64>) #6
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_IMC_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st) unnamed_addr #5 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @aesdec_IMC_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st) unnamed_addr #4 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = tail call <2 x i64> @llvm.x86.aesni.aesimc(<2 x i64> %0)
@@ -391,24 +391,23 @@ entry:
   ret void
 }
 
-declare void @aesdec_IMC_gen(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @aesdec_IMC_gen(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.aesni.aesimc(<2 x i64>) #7
+declare <2 x i64> @llvm.x86.aesni.aesimc(<2 x i64>) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #8
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
-attributes #0 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+aes,+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

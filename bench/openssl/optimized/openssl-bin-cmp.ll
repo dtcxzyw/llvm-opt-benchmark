@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %union.varref = type { ptr }
-%struct.app_http_tls_info_st = type { ptr, ptr, i32, i64, ptr }
 %struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"help\00", align 1
@@ -953,7 +952,7 @@ if.then.i80:                                      ; preds = %lor.lhs.false.i, %f
 
 for.inc.i:                                        ; preds = %if.then.i80, %lor.lhs.false.i
   %n_options.1.i = phi i32 [ %n_options.0107.i, %lor.lhs.false.i ], [ %dec.i, %if.then.i80 ]
-  %incdec.ptr.i = getelementptr inbounds %struct.options_st, ptr %opt.0106.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %opt.0106.i, i64 24
   %27 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %27, null
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
@@ -963,8 +962,8 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %cmp12.i, label %for.cond16.preheader.i, label %cond.false.i77
 
 for.cond16.preheader.i:                           ; preds = %for.end.i
-  %arrayidx113.i = getelementptr inbounds [3 x ptr], ptr %conf_argv.i, i64 0, i64 1
-  %arrayidx124.i = getelementptr inbounds [3 x ptr], ptr %conf_argv.i, i64 0, i64 2
+  %arrayidx113.i = getelementptr inbounds i8, ptr %conf_argv.i, i64 8
+  %arrayidx124.i = getelementptr inbounds i8, ptr %conf_argv.i, i64 16
   br label %for.body20.i
 
 cond.false.i77:                                   ; preds = %for.end.i
@@ -973,11 +972,11 @@ cond.false.i77:                                   ; preds = %for.end.i
 
 for.body20.i:                                     ; preds = %for.inc183.i, %for.cond16.preheader.i
   %28 = phi ptr [ @.str.6, %for.cond16.preheader.i ], [ %70, %for.inc183.i ]
-  %i.1113.i = phi i32 [ 2, %for.cond16.preheader.i ], [ %inc184.i, %for.inc183.i ]
-  %txt.0111.i = phi ptr [ null, %for.cond16.preheader.i ], [ %txt.3.i, %for.inc183.i ]
+  %i.1112.i = phi i32 [ 2, %for.cond16.preheader.i ], [ %inc184.i, %for.inc183.i ]
+  %txt.0110.i = phi ptr [ null, %for.cond16.preheader.i ], [ %txt.3.i, %for.inc183.i ]
   %opt.1109.i = phi ptr [ getelementptr inbounds ([179 x %struct.options_st], ptr @cmp_options, i64 0, i64 3), %for.cond16.preheader.i ], [ %incdec.ptr185.i, %for.inc183.i ]
   %num.0108.i = phi i64 [ 0, %for.cond16.preheader.i ], [ %num.3.i, %for.inc183.i ]
-  %retval21.i = getelementptr inbounds %struct.options_st, ptr %opt.1109.i, i64 0, i32 1
+  %retval21.i = getelementptr inbounds i8, ptr %opt.1109.i, i64 8
   %29 = load i32, ptr %retval21.i, align 8
   %30 = and i32 %29, -4
   %spec.select.i = icmp eq i32 %30, 1600
@@ -995,15 +994,15 @@ lor.lhs.false49.i:                                ; preds = %for.body20.i
   br i1 %cmp52.i, label %if.then54.i, label %if.end56.i
 
 if.then54.i:                                      ; preds = %lor.lhs.false49.i, %for.body20.i
-  %dec55.i = add i32 %i.1113.i, -1
+  %dec55.i = add i32 %i.1112.i, -1
   br label %for.inc183.i
 
 if.end56.i:                                       ; preds = %lor.lhs.false49.i
   %or.cond.i78 = or i1 %spec.select.i, %32
   %or.cond1.i = or i1 %34, %or.cond.i78
   %dec63.i = sext i1 %or.cond1.i to i32
-  %spec.select55.i = add i32 %i.1113.i, %dec63.i
-  %valtype.i = getelementptr inbounds %struct.options_st, ptr %opt.1109.i, i64 0, i32 2
+  %spec.select55.i = add i32 %i.1112.i, %dec63.i
+  %valtype.i = getelementptr inbounds i8, ptr %opt.1109.i, i64 12
   %35 = load i32, ptr %valtype.i, align 4
   switch i32 %35, label %sw.default.i [
     i32 45, label %sw.bb.i
@@ -1189,7 +1188,7 @@ cond.false99.i:                                   ; preds = %sw.default.i
 
 sw.epilog.i:                                      ; preds = %while.body.i.i, %if.end78.i
   %num.2.i = phi i64 [ %call3.i.i, %if.end78.i ], [ %num.0108.i, %while.body.i.i ]
-  %txt.1.i = phi ptr [ %txt.0111.i, %if.end78.i ], [ %call2.i.i, %while.body.i.i ]
+  %txt.1.i = phi ptr [ %txt.0110.i, %if.end78.i ], [ %call2.i.i, %while.body.i.i ]
   %or.cond4.i = or i1 %spec.select.i, %34
   br i1 %or.cond4.i, label %if.then108.i, label %if.else151.i
 
@@ -1310,10 +1309,10 @@ if.end178.i:                                      ; preds = %land.lhs.true172.i,
 
 for.inc183.i:                                     ; preds = %if.end178.i, %sw.bb166.i, %if.end162.i, %cond.false136.i, %cond.true132.i, %if.end125.i, %if.then94.i, %if.then68.i, %if.then54.i
   %num.3.i = phi i64 [ %num.0108.i, %if.then54.i ], [ %num.0108.i, %if.then94.i ], [ %num.2.i, %cond.true132.i ], [ %num.2.i, %cond.false136.i ], [ 0, %if.end125.i ], [ %num.2.i, %if.end178.i ], [ %num.2.i, %sw.bb166.i ], [ %num.2.i, %if.end162.i ], [ %num.0108.i, %if.then68.i ]
-  %txt.3.i = phi ptr [ %txt.0111.i, %if.then54.i ], [ null, %if.then94.i ], [ %txt.1.i, %cond.true132.i ], [ %txt.1.i, %cond.false136.i ], [ %txt.1.i, %if.end125.i ], [ %txt.2.i, %if.end178.i ], [ %txt.1.i, %sw.bb166.i ], [ %txt.1.i, %if.end162.i ], [ %txt.0111.i, %if.then68.i ]
+  %txt.3.i = phi ptr [ %txt.0110.i, %if.then54.i ], [ null, %if.then94.i ], [ %txt.1.i, %cond.true132.i ], [ %txt.1.i, %cond.false136.i ], [ %txt.1.i, %if.end125.i ], [ %txt.2.i, %if.end178.i ], [ %txt.1.i, %sw.bb166.i ], [ %txt.1.i, %if.end162.i ], [ %txt.0110.i, %if.then68.i ]
   %i.3.i = phi i32 [ %dec55.i, %if.then54.i ], [ %spec.select55.i, %if.then94.i ], [ %spec.select55.i, %cond.true132.i ], [ %spec.select55.i, %cond.false136.i ], [ %spec.select55.i, %if.end125.i ], [ %spec.select55.i, %if.end178.i ], [ %spec.select55.i, %sw.bb166.i ], [ %spec.select55.i, %if.end162.i ], [ %spec.select55.i, %if.then68.i ]
   %inc184.i = add i32 %i.3.i, 1
-  %incdec.ptr185.i = getelementptr inbounds %struct.options_st, ptr %opt.1109.i, i64 1
+  %incdec.ptr185.i = getelementptr inbounds i8, ptr %opt.1109.i, i64 24
   %70 = load ptr, ptr %incdec.ptr185.i, align 8
   %cmp18.not.i = icmp eq ptr %70, null
   br i1 %cmp18.not.i, label %read_config.exitthread-pre-split, label %for.body20.i, !llvm.loop !12
@@ -2586,7 +2585,7 @@ if.then468:                                       ; preds = %if.end465
 if.then475:                                       ; preds = %if.then468
   %187 = load ptr, ptr %call469, align 8
   call void @CRYPTO_free(ptr noundef %187, ptr noundef nonnull @.str.321, i32 noundef 3301) #13
-  %port = getelementptr inbounds %struct.app_http_tls_info_st, ptr %call469, i64 0, i32 1
+  %port = getelementptr inbounds i8, ptr %call469, i64 8
   %188 = load ptr, ptr %port, align 8
   call void @CRYPTO_free(ptr noundef %188, ptr noundef nonnull @.str.321, i32 noundef 3302) #13
   call void @APP_HTTP_TLS_INFO_free(ptr noundef nonnull %call469) #13
@@ -3654,9 +3653,9 @@ cond.false117:                                    ; preds = %if.then113
 if.else121:                                       ; preds = %if.else
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %id_buf, i8 0, i64 100, i1 false)
   store <4 x i8> <i8 105, i8 100, i8 45, i8 105>, ptr %id_buf, align 16
-  %52 = getelementptr inbounds [100 x i8], ptr %id_buf, i64 0, i64 4
+  %52 = getelementptr inbounds i8, ptr %id_buf, i64 4
   store i8 116, ptr %52, align 4
-  %53 = getelementptr inbounds [100 x i8], ptr %id_buf, i64 0, i64 5
+  %53 = getelementptr inbounds i8, ptr %id_buf, i64 5
   store i8 45, ptr %53, align 1
   %call124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %id_buf) #14
   %sub125 = sub i64 99, %call124
@@ -4077,23 +4076,23 @@ if.end312:                                        ; preds = %if.end307
   %call314 = call i32 @OSSL_CMP_CTX_set_http_cb_arg(ptr noundef %ctx, ptr noundef nonnull %call308) #13
   %125 = load ptr, ptr %host, align 8
   %call315 = call fastcc ptr @setup_ssl_ctx(ptr noundef %ctx, ptr noundef %125, ptr noundef %engine)
-  %ssl_ctx = getelementptr inbounds %struct.app_http_tls_info_st, ptr %call308, i64 0, i32 4
+  %ssl_ctx = getelementptr inbounds i8, ptr %call308, i64 32
   store ptr %call315, ptr %ssl_ctx, align 8
   %126 = load ptr, ptr %host, align 8
   store ptr %126, ptr %call308, align 8
   store ptr null, ptr %host, align 8
   %call316 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @setup_client_ctx.server_port, ptr noundef nonnull @.str.321, i32 noundef 2056) #13
-  %port317 = getelementptr inbounds %struct.app_http_tls_info_st, ptr %call308, i64 0, i32 1
+  %port317 = getelementptr inbounds i8, ptr %call308, i64 8
   store ptr %call316, ptr %port317, align 8
   %cmp318 = icmp eq ptr %call316, null
   br i1 %cmp318, label %err, label %if.end321
 
 if.end321:                                        ; preds = %if.end312
-  %use_proxy = getelementptr inbounds %struct.app_http_tls_info_st, ptr %call308, i64 0, i32 2
+  %use_proxy = getelementptr inbounds i8, ptr %call308, i64 16
   store i32 %proxy_host.0, ptr %use_proxy, align 8
   %call324 = call i32 @OSSL_CMP_CTX_get_option(ptr noundef %ctx, i32 noundef 11) #13
   %conv325 = sext i32 %call324 to i64
-  %timeout = getelementptr inbounds %struct.app_http_tls_info_st, ptr %call308, i64 0, i32 3
+  %timeout = getelementptr inbounds i8, ptr %call308, i64 24
   store i64 %conv325, ptr %timeout, align 8
   %127 = load ptr, ptr %ssl_ctx, align 8
   %cmp327 = icmp eq ptr %127, null

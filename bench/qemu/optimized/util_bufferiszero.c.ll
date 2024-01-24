@@ -32,10 +32,10 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   br i1 %tobool.not.i, label %for.cond.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %len.i = getelementptr [4 x %struct.anon], ptr @select_accel_cpuinfo.all, i64 0, i64 %indvars.iv.i, i32 1
+  %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %1 = load i32, ptr %len.i, align 4
   store i32 %1, ptr @length_to_accel, align 4
-  %fn.i = getelementptr [4 x %struct.anon], ptr @select_accel_cpuinfo.all, i64 0, i64 %indvars.iv.i, i32 2
+  %fn.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %fn.i, align 8
   store ptr %2, ptr @buffer_accel, align 8
   br label %select_accel_cpuinfo.exit
@@ -71,10 +71,10 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   br i1 %tobool.not.i, label %for.cond.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %len.i = getelementptr [4 x %struct.anon], ptr @select_accel_cpuinfo.all, i64 0, i64 %indvars.iv.i, i32 1
+  %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %3 = load i32, ptr %len.i, align 4
   store i32 %3, ptr @length_to_accel, align 4
-  %fn.i = getelementptr [4 x %struct.anon], ptr @select_accel_cpuinfo.all, i64 0, i64 %indvars.iv.i, i32 2
+  %fn.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %fn.i, align 8
   store ptr %4, ptr @buffer_accel, align 8
   br label %select_accel_cpuinfo.exit
@@ -136,7 +136,7 @@ if.else.i.i:                                      ; preds = %if.end.i
   %add13.i.i = add i64 %3, %len
   %and14.i.i = and i64 %add13.i.i, -8
   %6 = inttoptr i64 %and14.i.i to ptr
-  %add.ptr1529.i.i = getelementptr i64, ptr %5, i64 8
+  %add.ptr1529.i.i = getelementptr i8, ptr %5, i64 64
   %cmp16.not30.i.i = icmp ugt ptr %add.ptr1529.i.i, %6
   br i1 %cmp16.not30.i.i, label %while.cond.preheader.i.i, label %for.body.i.i
 
@@ -157,14 +157,14 @@ for.body.i.i:                                     ; preds = %if.else.i.i, %if.en
 if.end.i.i:                                       ; preds = %for.body.i.i
   %7 = load <8 x i64>, ptr %p11.032.i.i, align 8
   %8 = tail call i64 @llvm.vector.reduce.or.v8i64(<8 x i64> %7)
-  %add.ptr15.i.i = getelementptr i64, ptr %add.ptr1533.i.i, i64 8
+  %add.ptr15.i.i = getelementptr i8, ptr %add.ptr1533.i.i, i64 64
   %cmp16.not.i.i = icmp ugt ptr %add.ptr15.i.i, %6
   br i1 %cmp16.not.i.i, label %while.cond.preheader.i.i, label %for.body.i.i, !llvm.loop !8
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
   %p11.137.i.i = phi ptr [ %incdec.ptr38.i.i, %while.body.i.i ], [ %p11.0.lcssa.i.i, %while.cond.preheader.i.i ]
   %t10.136.i.i = phi i64 [ %or39.i.i, %while.body.i.i ], [ %t10.0.lcssa.i.i, %while.cond.preheader.i.i ]
-  %incdec.ptr38.i.i = getelementptr i64, ptr %p11.137.i.i, i64 1
+  %incdec.ptr38.i.i = getelementptr i8, ptr %p11.137.i.i, i64 8
   %9 = load i64, ptr %p11.137.i.i, align 8
   %or39.i.i = or i64 %9, %t10.136.i.i
   %cmp36.i.i = icmp ult ptr %incdec.ptr38.i.i, %6
@@ -210,18 +210,18 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %arrayidx = getelementptr <4 x i64>, ptr %p.026, i64 -4
+  %arrayidx = getelementptr i8, ptr %p.026, i64 -128
   %6 = load <4 x i64>, ptr %arrayidx, align 32
-  %arrayidx8 = getelementptr <4 x i64>, ptr %p.026, i64 -3
+  %arrayidx8 = getelementptr i8, ptr %p.026, i64 -96
   %7 = load <4 x i64>, ptr %arrayidx8, align 32
   %or = or <4 x i64> %7, %6
-  %arrayidx9 = getelementptr <4 x i64>, ptr %p.026, i64 -2
+  %arrayidx9 = getelementptr i8, ptr %p.026, i64 -64
   %8 = load <4 x i64>, ptr %arrayidx9, align 32
   %or10 = or <4 x i64> %or, %8
-  %arrayidx11 = getelementptr <4 x i64>, ptr %p.026, i64 -1
+  %arrayidx11 = getelementptr i8, ptr %p.026, i64 -32
   %9 = load <4 x i64>, ptr %arrayidx11, align 32
   %or12 = or <4 x i64> %or10, %9
-  %add.ptr = getelementptr <4 x i64>, ptr %p.026, i64 4
+  %add.ptr = getelementptr i8, ptr %p.026, i64 128
   %cmp.not = icmp ugt ptr %add.ptr, %4
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
@@ -272,28 +272,28 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %tobool5.not, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %arrayidx = getelementptr <2 x i64>, ptr %p.024, i64 -4
+  %arrayidx = getelementptr i8, ptr %p.024, i64 -64
   %6 = load <2 x i64>, ptr %arrayidx, align 16
-  %arrayidx14 = getelementptr <2 x i64>, ptr %p.024, i64 -3
+  %arrayidx14 = getelementptr i8, ptr %p.024, i64 -48
   %7 = load <2 x i64>, ptr %arrayidx14, align 16
   %or = or <2 x i64> %7, %6
-  %arrayidx15 = getelementptr <2 x i64>, ptr %p.024, i64 -2
+  %arrayidx15 = getelementptr i8, ptr %p.024, i64 -32
   %8 = load <2 x i64>, ptr %arrayidx15, align 16
   %or16 = or <2 x i64> %or, %8
-  %arrayidx17 = getelementptr <2 x i64>, ptr %p.024, i64 -1
+  %arrayidx17 = getelementptr i8, ptr %p.024, i64 -16
   %9 = load <2 x i64>, ptr %arrayidx17, align 16
   %or18 = or <2 x i64> %or16, %9
-  %add.ptr = getelementptr <2 x i64>, ptr %p.024, i64 4
+  %add.ptr = getelementptr i8, ptr %p.024, i64 64
   %cmp.not = icmp ugt ptr %add.ptr, %4
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end, %entry
   %t.0.lcssa = phi <2 x i64> [ %0, %entry ], [ %or18, %if.end ]
-  %arrayidx19 = getelementptr <2 x i64>, ptr %4, i64 -3
+  %arrayidx19 = getelementptr i8, ptr %4, i64 -48
   %10 = load <2 x i64>, ptr %arrayidx19, align 16
-  %arrayidx21 = getelementptr <2 x i64>, ptr %4, i64 -2
+  %arrayidx21 = getelementptr i8, ptr %4, i64 -32
   %11 = load <2 x i64>, ptr %arrayidx21, align 16
-  %arrayidx23 = getelementptr <2 x i64>, ptr %4, i64 -1
+  %arrayidx23 = getelementptr i8, ptr %4, i64 -16
   %12 = load <2 x i64>, ptr %arrayidx23, align 16
   %add.ptr25 = getelementptr i8, ptr %buf, i64 %len
   %add.ptr26 = getelementptr i8, ptr %add.ptr25, i64 -16
@@ -336,28 +336,28 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp7.not, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
-  %arrayidx = getelementptr <2 x i64>, ptr %p.023, i64 -4
+  %arrayidx = getelementptr i8, ptr %p.023, i64 -64
   %8 = load <2 x i64>, ptr %arrayidx, align 16
-  %arrayidx15 = getelementptr <2 x i64>, ptr %p.023, i64 -3
+  %arrayidx15 = getelementptr i8, ptr %p.023, i64 -48
   %9 = load <2 x i64>, ptr %arrayidx15, align 16
   %or = or <2 x i64> %9, %8
-  %arrayidx16 = getelementptr <2 x i64>, ptr %p.023, i64 -2
+  %arrayidx16 = getelementptr i8, ptr %p.023, i64 -32
   %10 = load <2 x i64>, ptr %arrayidx16, align 16
   %or17 = or <2 x i64> %or, %10
-  %arrayidx18 = getelementptr <2 x i64>, ptr %p.023, i64 -1
+  %arrayidx18 = getelementptr i8, ptr %p.023, i64 -16
   %11 = load <2 x i64>, ptr %arrayidx18, align 16
   %or19 = or <2 x i64> %or17, %11
-  %add.ptr = getelementptr <2 x i64>, ptr %p.023, i64 4
+  %add.ptr = getelementptr i8, ptr %p.023, i64 64
   %cmp.not = icmp ugt ptr %add.ptr, %4
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %if.end, %entry
   %t.0.lcssa = phi <2 x i64> [ %0, %entry ], [ %or19, %if.end ]
-  %arrayidx20 = getelementptr <2 x i64>, ptr %4, i64 -3
+  %arrayidx20 = getelementptr i8, ptr %4, i64 -48
   %12 = load <2 x i64>, ptr %arrayidx20, align 16
-  %arrayidx22 = getelementptr <2 x i64>, ptr %4, i64 -2
+  %arrayidx22 = getelementptr i8, ptr %4, i64 -32
   %13 = load <2 x i64>, ptr %arrayidx22, align 16
-  %arrayidx24 = getelementptr <2 x i64>, ptr %4, i64 -1
+  %arrayidx24 = getelementptr i8, ptr %4, i64 -16
   %14 = load <2 x i64>, ptr %arrayidx24, align 16
   %add.ptr26 = getelementptr i8, ptr %buf, i64 %len
   %add.ptr27 = getelementptr i8, ptr %add.ptr26, i64 -16
@@ -410,7 +410,7 @@ if.else:                                          ; preds = %entry
   %add13 = add i64 %1, %len
   %and14 = and i64 %add13, -8
   %4 = inttoptr i64 %and14 to ptr
-  %add.ptr1529 = getelementptr i64, ptr %3, i64 8
+  %add.ptr1529 = getelementptr i8, ptr %3, i64 64
   %cmp16.not30 = icmp ugt ptr %add.ptr1529, %4
   br i1 %cmp16.not30, label %while.cond.preheader, label %for.body
 
@@ -431,14 +431,14 @@ for.body:                                         ; preds = %if.else, %if.end
 if.end:                                           ; preds = %for.body
   %5 = load <8 x i64>, ptr %p11.032, align 8
   %6 = tail call i64 @llvm.vector.reduce.or.v8i64(<8 x i64> %5)
-  %add.ptr15 = getelementptr i64, ptr %add.ptr1533, i64 8
+  %add.ptr15 = getelementptr i8, ptr %add.ptr1533, i64 64
   %cmp16.not = icmp ugt ptr %add.ptr15, %4
   br i1 %cmp16.not, label %while.cond.preheader, label %for.body, !llvm.loop !8
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %p11.137 = phi ptr [ %incdec.ptr38, %while.body ], [ %p11.0.lcssa, %while.cond.preheader ]
   %t10.136 = phi i64 [ %or39, %while.body ], [ %t10.0.lcssa, %while.cond.preheader ]
-  %incdec.ptr38 = getelementptr i64, ptr %p11.137, i64 1
+  %incdec.ptr38 = getelementptr i8, ptr %p11.137, i64 8
   %7 = load i64, ptr %p11.137, align 8
   %or39 = or i64 %7, %t10.136
   %cmp36 = icmp ult ptr %incdec.ptr38, %4

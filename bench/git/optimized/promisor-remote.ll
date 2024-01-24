@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strvec = type { ptr, i64, i64 }
-%struct.promisor_remote_config = type { ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.promisor_remote = type { ptr, ptr, [0 x i8] }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.object_id = type { [32 x i8], i32 }
 
@@ -55,7 +50,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %entry
-  %promisors_tail = getelementptr inbounds %struct.promisor_remote_config, ptr %config, i64 0, i32 1
+  %promisors_tail = getelementptr inbounds i8, ptr %config, i64 8
   store ptr %config, ptr %promisors_tail, align 8
   ret void
 }
@@ -66,7 +61,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @repo_promisor_remote_reinit(ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %promisor_remote_config = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 20
+  %promisor_remote_config = getelementptr inbounds i8, ptr %r, i64 288
   %0 = load ptr, ptr %promisor_remote_config, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not6.i = icmp eq ptr %1, null
@@ -82,17 +77,17 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %tobool.not.i, label %if.end.i, label %while.body.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %while.body.i, %entry
-  %promisors_tail.i = getelementptr inbounds %struct.promisor_remote_config, ptr %0, i64 0, i32 1
+  %promisors_tail.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %promisors_tail.i, align 8
   %5 = load ptr, ptr %promisor_remote_config, align 8
   tail call void @free(ptr noundef %5) #9
   store ptr null, ptr %promisor_remote_config, align 8
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #9
   store ptr %call.i, ptr %promisor_remote_config, align 8
-  %promisors_tail.i5 = getelementptr inbounds %struct.promisor_remote_config, ptr %call.i, i64 0, i32 1
+  %promisors_tail.i5 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call.i, ptr %promisors_tail.i5, align 8
   tail call void @repo_config(ptr noundef nonnull %r, ptr noundef nonnull @promisor_remote_config, ptr noundef %call.i) #9
-  %repository_format_partial_clone.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 19
+  %repository_format_partial_clone.i = getelementptr inbounds i8, ptr %r, i64 280
   %6 = load ptr, ptr %repository_format_partial_clone.i, align 8
   %tobool2.not.i = icmp eq ptr %6, null
   br i1 %tobool2.not.i, label %promisor_remote_init.exit, label %for.cond.i.i
@@ -105,7 +100,7 @@ for.cond.i.i:                                     ; preds = %if.end.i, %for.body
   br i1 %tobool.not.i.i, label %if.else.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %name.i.i = getelementptr inbounds %struct.promisor_remote, ptr %r.0.i.i, i64 0, i32 2
+  %name.i.i = getelementptr inbounds i8, ptr %r.0.i.i, i64 16
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %6) #10
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %if.then7.i, label %for.cond.i.i, !llvm.loop !7
@@ -136,7 +131,7 @@ promisor_remote_init.exit:                        ; preds = %if.end.i, %if.then7
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @repo_promisor_remote_find(ptr noundef %r, ptr noundef readonly %remote_name) local_unnamed_addr #0 {
 entry:
-  %promisor_remote_config.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 20
+  %promisor_remote_config.i = getelementptr inbounds i8, ptr %r, i64 288
   %0 = load ptr, ptr %promisor_remote_config.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %promisor_remote_init.exit
@@ -144,10 +139,10 @@ entry:
 if.end.i:                                         ; preds = %entry
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #9
   store ptr %call.i, ptr %promisor_remote_config.i, align 8
-  %promisors_tail.i = getelementptr inbounds %struct.promisor_remote_config, ptr %call.i, i64 0, i32 1
+  %promisors_tail.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call.i, ptr %promisors_tail.i, align 8
   tail call void @repo_config(ptr noundef nonnull %r, ptr noundef nonnull @promisor_remote_config, ptr noundef %call.i) #9
-  %repository_format_partial_clone.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 19
+  %repository_format_partial_clone.i = getelementptr inbounds i8, ptr %r, i64 280
   %1 = load ptr, ptr %repository_format_partial_clone.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %promisor_remote_init.exit, label %for.cond.i.i
@@ -160,7 +155,7 @@ for.cond.i.i:                                     ; preds = %if.end.i, %for.body
   br i1 %tobool.not.i.i, label %if.else.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %name.i.i = getelementptr inbounds %struct.promisor_remote, ptr %r.0.i.i, i64 0, i32 2
+  %name.i.i = getelementptr inbounds i8, ptr %r.0.i.i, i64 16
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %1) #10
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %if.then7.i, label %for.cond.i.i, !llvm.loop !7
@@ -200,7 +195,7 @@ for.cond.i:                                       ; preds = %promisor_remote_ini
   br i1 %tobool.not.i4, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %name.i = getelementptr inbounds %struct.promisor_remote, ptr %r.0.i, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %r.0.i, i64 16
   %call.i5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %remote_name) #10
   %tobool1.not.i = icmp eq i32 %call.i5, 0
   br i1 %tobool1.not.i, label %return, label %for.cond.i, !llvm.loop !7
@@ -227,7 +222,7 @@ entry:
   br i1 %cmp, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %entry
-  %promisor_remote_config.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 20
+  %promisor_remote_config.i = getelementptr inbounds i8, ptr %repo, i64 288
   %0 = load ptr, ptr %promisor_remote_config.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %promisor_remote_init.exit
@@ -235,10 +230,10 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #9
   store ptr %call.i, ptr %promisor_remote_config.i, align 8
-  %promisors_tail.i = getelementptr inbounds %struct.promisor_remote_config, ptr %call.i, i64 0, i32 1
+  %promisors_tail.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call.i, ptr %promisors_tail.i, align 8
   tail call void @repo_config(ptr noundef nonnull %repo, ptr noundef nonnull @promisor_remote_config, ptr noundef %call.i) #9
-  %repository_format_partial_clone.i = getelementptr inbounds %struct.repository, ptr %repo, i64 0, i32 19
+  %repository_format_partial_clone.i = getelementptr inbounds i8, ptr %repo, i64 280
   %1 = load ptr, ptr %repository_format_partial_clone.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %promisor_remote_init.exit, label %for.cond.i.i
@@ -251,7 +246,7 @@ for.cond.i.i:                                     ; preds = %if.end.i, %for.body
   br i1 %tobool.not.i.i, label %if.else.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %name.i.i = getelementptr inbounds %struct.promisor_remote, ptr %r.0.i.i, i64 0, i32 2
+  %name.i.i = getelementptr inbounds i8, ptr %r.0.i.i, i64 16
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i.i, ptr noundef nonnull dereferenceable(1) %1) #10
   %tobool1.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %if.then7.i, label %for.cond.i.i, !llvm.loop !7
@@ -282,9 +277,9 @@ promisor_remote_init.exit:                        ; preds = %if.end, %if.end.i, 
   br i1 %tobool.not65, label %for.cond11.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %promisor_remote_init.exit
-  %git_cmd.i = getelementptr inbounds %struct.child_process, ptr %child.i, i64 0, i32 11
-  %in.i = getelementptr inbounds %struct.child_process, ptr %child.i, i64 0, i32 7
-  %env.i = getelementptr inbounds %struct.child_process, ptr %child.i, i64 0, i32 1
+  %git_cmd.i = getelementptr inbounds i8, ptr %child.i, i64 104
+  %in.i = getelementptr inbounds i8, ptr %child.i, i64 80
+  %env.i = getelementptr inbounds i8, ptr %child.i, i64 24
   br label %for.body
 
 for.cond11.preheader:                             ; preds = %for.inc, %promisor_remote_init.exit
@@ -303,7 +298,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %to_free.068 = phi i32 [ 0, %for.body.lr.ph ], [ %to_free.1, %for.inc ]
   %remaining_nr.067 = phi i32 [ %oid_nr, %for.body.lr.ph ], [ %remaining_nr.1, %for.inc ]
   %remaining_oids.066 = phi ptr [ %oids, %for.body.lr.ph ], [ %remaining_oids.2, %for.inc ]
-  %name = getelementptr inbounds %struct.promisor_remote, ptr %r.069, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %r.069, i64 16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %child.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %child.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.fetch_objects.child, i64 120, i1 false)
   store i16 8, ptr %git_cmd.i, align 8
@@ -439,9 +434,9 @@ if.then17.i:                                      ; preds = %for.body13.i
   %arrayidx20.i = getelementptr inbounds %struct.object_id, ptr %call9.i33, i64 %idxprom19.i
   %arrayidx22.i = getelementptr inbounds %struct.object_id, ptr %remaining_oids.066, i64 %indvars.iv26.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx20.i, ptr noundef nonnull align 4 dereferenceable(32) %arrayidx22.i, i64 32, i1 false)
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %remaining_oids.066, i64 %indvars.iv26.i, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 32
   %9 = load i32, ptr %algo.i.i, align 4
-  %algo3.i.i = getelementptr inbounds %struct.object_id, ptr %call9.i33, i64 %idxprom19.i, i32 1
+  %algo3.i.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 32
   store i32 %9, ptr %algo3.i.i, align 4
   br label %for.inc24.i
 
@@ -573,7 +568,7 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %tobool.not.i, label %if.then10, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %name.i = getelementptr inbounds %struct.promisor_remote, ptr %r.0.i, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %r.0.i, i64 16
   %call.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %call7) #10
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end12, label %for.cond.i, !llvm.loop !7
@@ -604,7 +599,7 @@ for.cond.i13:                                     ; preds = %for.body.i18, %if.t
   br i1 %tobool.not.i17, label %if.end23, label %for.body.i18
 
 for.body.i18:                                     ; preds = %for.cond.i13
-  %name.i19 = getelementptr inbounds %struct.promisor_remote, ptr %r.0.i16, i64 0, i32 2
+  %name.i19 = getelementptr inbounds i8, ptr %r.0.i16, i64 16
   %call.i20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i19, ptr noundef nonnull dereferenceable(1) %call18) #10
   %tobool1.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool1.not.i21, label %if.end23.thread, label %for.cond.i13, !llvm.loop !7
@@ -621,7 +616,7 @@ if.end23:                                         ; preds = %for.cond.i13
 
 if.end26:                                         ; preds = %if.end23.thread, %if.end23
   %r.026 = phi ptr [ %r.0.i16, %if.end23.thread ], [ %call22, %if.end23 ]
-  %partial_clone_filter = getelementptr inbounds %struct.promisor_remote, ptr %r.026, i64 0, i32 1
+  %partial_clone_filter = getelementptr inbounds i8, ptr %r.026, i64 8
   %call27 = call i32 @git_config_string(ptr noundef nonnull %partial_clone_filter, ptr noundef %var, ptr noundef %value) #9
   br label %return
 
@@ -671,9 +666,9 @@ if.then.i11:                                      ; preds = %st_add.exit
 st_add.exit12:                                    ; preds = %st_add.exit
   %add.i10 = add nuw i64 %call2, 17
   %call5 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i10) #9
-  %name = getelementptr inbounds %struct.promisor_remote, ptr %call5, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call5, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name, ptr nonnull align 1 %remote_name, i64 %call2, i1 false)
-  %promisors_tail = getelementptr inbounds %struct.promisor_remote_config, ptr %config, i64 0, i32 1
+  %promisors_tail = getelementptr inbounds i8, ptr %config, i64 8
   %2 = load ptr, ptr %promisors_tail, align 8
   store ptr %call5, ptr %2, align 8
   store ptr %call5, ptr %promisors_tail, align 8

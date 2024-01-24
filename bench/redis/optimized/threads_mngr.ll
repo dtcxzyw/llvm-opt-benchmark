@@ -21,9 +21,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @ThreadsManager_init() local_unnamed_addr #0 {
 entry:
   %act = alloca %struct.sigaction, align 8
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %act, i64 8
   %call = call i32 @sigemptyset(ptr noundef nonnull %sa_mask) #5
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %act, i64 136
   store i32 0, ptr %sa_flags, align 8
   store ptr @invoke_callback, ptr %act, align 8
   %call1 = call i32 @sigaction(i32 noundef 12, ptr noundef nonnull %act, ptr noundef null) #5
@@ -58,7 +58,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ThreadsManager_runOnThreads(ptr nocapture noundef readonly %tids, i64 noundef %tids_len, ptr noundef %callback) local_unnamed_addr #0 {
+define dso_local noundef i32 @ThreadsManager_runOnThreads(ptr nocapture noundef readonly %tids, i64 noundef %tids_len, ptr noundef %callback) local_unnamed_addr #0 {
 entry:
   %timeout_time.i = alloca %struct.timespec, align 8
   %curr_time.i = alloca %struct.timespec, align 8

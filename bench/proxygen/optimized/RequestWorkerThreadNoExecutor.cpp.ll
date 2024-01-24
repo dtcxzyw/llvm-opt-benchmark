@@ -4,126 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"union.std::aligned_storage<32, 16>::type" = type { [32 x i8] }
-%"class.proxygen::RequestWorkerThreadNoExecutor" = type { %"class.proxygen::WorkerThread", i64, %"class.folly::F14ValueMap", %"class.std::shared_ptr", ptr }
-%"class.proxygen::WorkerThread" = type { ptr, i8, %"class.std::thread", %"class.std::mutex", ptr, %"class.std::unique_ptr" }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.folly::F14ValueMap" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.folly::EventBase" = type { %"class.folly::TimeoutManager", %"class.folly::DrivableExecutor", %"class.folly::IOExecutor", %"class.folly::SequencedExecutor", %"class.folly::ScheduledExecutor", %"class.std::chrono::duration", i8, i8, %"struct.std::atomic", %"class.std::unique_ptr.15", %"class.boost::intrusive::list", %"class.boost::intrusive::list", %"struct.folly::Synchronized", %"struct.folly::Synchronized", ptr, %"struct.std::atomic.30", %"class.std::unique_ptr.32", i64, %"struct.std::atomic.40", i8, %"class.std::chrono::duration.42", %"class.folly::EventBase::SmoothLoopTime", %"class.folly::EventBase::SmoothLoopTime", i8, %"class.folly::Function", i64, i64, %"class.std::chrono::time_point", i8, %"class.std::shared_ptr.44", i32, %"class.boost::intrusive::list.47", %"class.std::__cxx11::basic_string", %"class.folly::F14FastMap", %"struct.folly::Synchronized.67", %"class.folly::basic_once_flag", %"class.std::unique_ptr.88", %"class.std::unique_ptr.96", [8 x i8] }
-%"class.folly::TimeoutManager" = type { ptr, %"class.std::unique_ptr.7" }
-%"class.std::unique_ptr.7" = type { %"struct.std::__uniq_ptr_data.8" }
-%"struct.std::__uniq_ptr_data.8" = type { %"class.std::__uniq_ptr_impl.9" }
-%"class.std::__uniq_ptr_impl.9" = type { %"class.std::tuple.10" }
-%"class.std::tuple.10" = type { %"struct.std::_Tuple_impl.11" }
-%"struct.std::_Tuple_impl.11" = type { %"struct.std::_Head_base.14" }
-%"struct.std::_Head_base.14" = type { ptr }
-%"class.folly::DrivableExecutor" = type { %"class.folly::Executor" }
-%"class.folly::Executor" = type { ptr }
-%"class.folly::IOExecutor" = type { %"class.folly::Executor" }
-%"class.folly::SequencedExecutor" = type { %"class.folly::Executor" }
-%"class.folly::ScheduledExecutor" = type { %"class.folly::Executor" }
-%"class.std::chrono::duration" = type { i64 }
-%"struct.std::atomic" = type { %"class.std::thread::id" }
-%"class.std::unique_ptr.15" = type { %"struct.std::__uniq_ptr_data.16" }
-%"struct.std::__uniq_ptr_data.16" = type { %"class.std::__uniq_ptr_impl.17" }
-%"class.std::__uniq_ptr_impl.17" = type { %"class.std::tuple.18" }
-%"class.std::tuple.18" = type { %"struct.std::_Tuple_impl.19" }
-%"struct.std::_Tuple_impl.19" = type { %"struct.std::_Head_base.22" }
-%"struct.std::_Head_base.22" = type { ptr }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"struct.folly::Synchronized" = type <{ %"class.boost::intrusive::list.24", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.boost::intrusive::list.24" = type { %"class.boost::intrusive::list_impl.25" }
-%"class.boost::intrusive::list_impl.25" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder.28", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder.28" = type { i64 }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.29" }
-%"struct.std::atomic.29" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.std::atomic.30" = type { %"struct.std::__atomic_base.31" }
-%"struct.std::__atomic_base.31" = type { i8 }
-%"class.std::unique_ptr.32" = type { %"struct.std::__uniq_ptr_data.33" }
-%"struct.std::__uniq_ptr_data.33" = type { %"class.std::__uniq_ptr_impl.34" }
-%"class.std::__uniq_ptr_impl.34" = type { %"class.std::tuple.35" }
-%"class.std::tuple.35" = type { %"struct.std::_Tuple_impl.36" }
-%"struct.std::_Tuple_impl.36" = type { %"struct.std::_Head_base.39" }
-%"struct.std::_Head_base.39" = type { ptr }
-%"struct.std::atomic.40" = type { %"struct.std::__atomic_base.41" }
-%"struct.std::__atomic_base.41" = type { i64 }
-%"class.std::chrono::duration.42" = type { i64 }
-%"class.folly::EventBase::SmoothLoopTime" = type { double, double, %"class.std::chrono::duration.42", %"class.std::chrono::duration.42", i64 }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.43" }
-%"class.std::chrono::duration.43" = type { i64 }
-%"class.std::shared_ptr.44" = type { %"class.std::__shared_ptr.45" }
-%"class.std::__shared_ptr.45" = type { ptr, %"class.std::__shared_count" }
-%"class.boost::intrusive::list.47" = type { %"class.boost::intrusive::list_impl.48" }
-%"class.boost::intrusive::list_impl.48" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap.51" }
-%"class.folly::f14::detail::F14BasicMap.51" = type { %"class.folly::f14::detail::F14Table.52" }
-%"class.folly::f14::detail::F14Table.52" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.66" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.66" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::Synchronized.67" = type <{ %"class.folly::F14FastSet", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.folly::F14FastSet" = type { %"class.folly::F14ValueSet" }
-%"class.folly::F14ValueSet" = type { %"class.folly::f14::detail::F14BasicSet" }
-%"class.folly::f14::detail::F14BasicSet" = type { %"class.folly::f14::detail::F14Table.70" }
-%"class.folly::f14::detail::F14Table.70" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.85" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.85" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr.86" }
-%"class.folly::f14::detail::PackedChunkItemPtr.86" = type { i64 }
-%"class.folly::basic_once_flag" = type { %"struct.std::atomic.30", %"class.folly::SharedMutexImpl" }
-%"class.std::unique_ptr.88" = type { %"struct.std::__uniq_ptr_data.89" }
-%"struct.std::__uniq_ptr_data.89" = type { %"class.std::__uniq_ptr_impl.90" }
-%"class.std::__uniq_ptr_impl.90" = type { %"class.std::tuple.91" }
-%"class.std::tuple.91" = type { %"struct.std::_Tuple_impl.92" }
-%"struct.std::_Tuple_impl.92" = type { %"struct.std::_Head_base.95" }
-%"struct.std::_Head_base.95" = type { ptr }
-%"class.std::unique_ptr.96" = type { %"struct.std::__uniq_ptr_data.97" }
-%"struct.std::__uniq_ptr_data.97" = type { %"class.std::__uniq_ptr_impl.98" }
-%"class.std::__uniq_ptr_impl.98" = type { %"class.std::tuple.99" }
-%"class.std::tuple.99" = type { %"struct.std::_Tuple_impl.100" }
-%"struct.std::_Tuple_impl.100" = type { %"struct.std::_Head_base.103" }
-%"struct.std::_Head_base.103" = type { ptr }
-%"struct.std::pair" = type { ptr, ptr }
-%"struct.folly::f14::detail::F14Chunk" = type { %"struct.std::array", i8, i8, %"struct.std::array.117" }
-%"struct.std::array" = type { [14 x i8] }
-%"struct.std::array.117" = type { [15 x %"union.std::aligned_storage<16, 8>::type"] }
 %"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.std::allocator.4" = type { i8 }
@@ -163,14 +47,14 @@ entry:
   %call = tail call noundef ptr @_ZN5folly16EventBaseManager3getEv()
   tail call void @_ZN8proxygen12WorkerThreadC2EPN5folly16EventBaseManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %evbName)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %nextRequestId_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 1
+  %nextRequestId_ = getelementptr inbounds i8, ptr %this, i64 80
   %conv = zext i8 %threadId to i64
   %shl = shl nuw i64 %conv, 56
   store i64 %shl, ptr %nextRequestId_, align 8
-  %serviceWorkers_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 2
+  %serviceWorkers_ = getelementptr inbounds i8, ptr %this, i64 88
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %serviceWorkers_, align 8
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
-  %callback_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 4
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %sizeAndChunkShiftAndPackedBegin_.i.i.i, i8 0, i64 32, i1 false)
   store ptr %callback, ptr %callback_, align 8
   ret void
@@ -188,13 +72,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN6wangle21LoadShedConfigurationEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -202,10 +86,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i.i
@@ -231,10 +115,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -256,25 +140,25 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt10shared_ptrIKN6wangle21LoadShedConfigurationEED2Ev.exit
 
 _ZNSt10shared_ptrIKN6wangle21LoadShedConfigurationEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %serviceWorkers_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 2
+  %serviceWorkers_ = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %serviceWorkers_, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %11, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i.i.i, label %_ZN5folly11F14ValueMapIPN8proxygen7ServiceEPNS1_13ServiceWorkerENS_23HeterogeneousAccessHashIS3_vEENS_26HeterogeneousAccessEqualToIS3_vEESaISt4pairIKS3_S5_EEED2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10shared_ptrIKN6wangle21LoadShedConfigurationEED2Ev.exit
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i1 = icmp ult i64 %12, 256
   br i1 %cmp.i.i.i.i.i.i1, label %invoke.cont45.i.i.i.i.i, label %if.end23.i.i.i.i.i
 
 if.end23.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %packedBegin_.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %packedBegin_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   store i64 0, ptr %packedBegin_.i.i.i.i.i.i, align 8
   br label %invoke.cont45.i.i.i.i.i
 
@@ -328,7 +212,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i8 @_ZNK8proxygen29RequestWorkerThreadNoExecutor11getWorkerIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %nextRequestId_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 1
+  %nextRequestId_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i64, ptr %nextRequestId_, align 8
   %shr = lshr i64 %0, 56
   %conv = trunc i64 %shr to i8
@@ -363,7 +247,7 @@ _ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.
   %call1.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i)
   %6 = load ptr, ptr %self.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.i)
-  %nextRequestId_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %6, i64 0, i32 1
+  %nextRequestId_ = getelementptr inbounds i8, ptr %6, i64 80
   %7 = load i64, ptr %nextRequestId_, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.i3)
   br i1 icmp ne (ptr @_ZTHN8proxygen12WorkerThread14currentWorker_E, ptr null), label %8, label %_ZN8proxygen12WorkerThread22getCurrentWorkerThreadEv.exit.i4
@@ -391,7 +275,7 @@ _ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.
   %call1.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen29RequestWorkerThreadNoExecutorEEET_PKciS7_OS5_(ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %self.i3)
   %13 = load ptr, ptr %self.i3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.i3)
-  %nextRequestId_3 = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %13, i64 0, i32 1
+  %nextRequestId_3 = getelementptr inbounds i8, ptr %13, i64 80
   store i64 %or, ptr %nextRequestId_3, align 8
   ret i64 %7
 }
@@ -400,16 +284,16 @@ _ZN8proxygen29RequestWorkerThreadNoExecutor32getRequestWorkerThreadNoExecutorEv.
 define void @_ZN8proxygen29RequestWorkerThreadNoExecutor10flushStatsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
-  %eventBase_.i = getelementptr inbounds %"class.proxygen::WorkerThread", ptr %this, i64 0, i32 5
+  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %eventBase_.i, align 8
-  %loopThread_.i = getelementptr inbounds %"class.folly::EventBase", ptr %0, i64 0, i32 8
+  %loopThread_.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load atomic i64, ptr %loopThread_.i monotonic, align 8
   %call.i.i = tail call i64 @pthread_self() #22
   %cmp.i.i = icmp eq i64 %1, %call.i.i
   br i1 %cmp.i.i, label %cleanup.done, label %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
 
 _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %entry
-  %strictLoopThread_.i = getelementptr inbounds %"class.folly::EventBase", ptr %0, i64 0, i32 7
+  %strictLoopThread_.i = getelementptr inbounds i8, ptr %0, i64 57
   %2 = load i8, ptr %strictLoopThread_.i, align 1
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
@@ -437,7 +321,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %entry, %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
-  %packedBegin_.i.i.i = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %packedBegin_.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %5 = load i64, ptr %packedBegin_.i.i.i, align 8
   %and.i.i.i.i = and i64 %5, -16
   %cmp.i.i.i.not8 = icmp eq i64 %and.i.i.i.i, 0
@@ -448,13 +332,13 @@ for.body.preheader:                               ; preds = %cleanup.done
   %6 = inttoptr i64 %and.i.i.i.i to ptr
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit
-  %__begin1.sroa.6.010 = phi i64 [ %__begin1.sroa.6.3, %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit ], [ %and.i2.i.i.i, %for.body.preheader ]
-  %__begin1.sroa.0.09 = phi ptr [ %__begin1.sroa.0.1, %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit ], [ %6, %for.body.preheader ]
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.09, i64 0, i32 1
+for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
+  %__begin1.sroa.6.010 = phi i64 [ %and.i2.i.i.i, %for.body.preheader ], [ %__begin1.sroa.6.010.be, %for.body.backedge ]
+  %__begin1.sroa.0.09 = phi ptr [ %6, %for.body.preheader ], [ %__begin1.sroa.0.09.be, %for.body.backedge ]
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 8
   %7 = load ptr, ptr %second, align 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(168) %7)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 -16
@@ -474,27 +358,27 @@ while.body.i.i:                                   ; preds = %for.body, %while.co
   %9 = phi i64 [ %dec.i.i, %while.cond.i.i ], [ %__begin1.sroa.6.010, %for.body ]
   %incdec.ptr.i1618.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %__begin1.sroa.0.09, %for.body ]
   %dec.i.i = add i64 %9, -1
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %incdec.ptr.i1618.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i1618.i, i64 -16
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
   %10 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.i.not14.i = icmp eq i8 %10, 0
-  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit, !llvm.loop !4
+  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %for.body.backedge, !llvm.loop !4
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end15.i.i
   %c.i.0.i = phi ptr [ %incdec.ptr16.i.i, %if.end15.i.i ], [ %add.ptr1.i.i.i, %for.cond.i.i.preheader ]
-  %control_.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 0, i32 1
+  %control_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 14
   %11 = load i8, ptr %control_.i.i.i, align 2
   %12 = and i8 %11, 15
   %cmp.i10.not.i = icmp eq i8 %12, 0
   br i1 %cmp.i10.not.i, label %if.end15.i.i, label %for.end
 
 if.end15.i.i:                                     ; preds = %for.cond.i.i
-  %incdec.ptr16.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 -1
+  %incdec.ptr16.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -256
   %13 = load <16 x i8>, ptr %incdec.ptr16.i.i, align 16
   %14 = icmp slt <16 x i8> %13, zeroinitializer
   %15 = bitcast <16 x i1> %14 to i16
   %16 = and i16 %15, 16383
-  %add.ptr.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 -2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -512
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr.i.i, i32 0, i32 3, i32 1)
   %cmp.i11.not.i = icmp eq i16 %16, 0
   br i1 %cmp.i11.not.i, label %for.cond.i.i, label %if.then23.i.i, !llvm.loop !6
@@ -504,17 +388,16 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   %17 = tail call i32 @llvm.ctlz.i32(i32 %and.i.i.i, i1 true), !range !7
   %sub.i.i = xor i32 %17, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %rawItems_.i.i.i = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %c.i.0.i, i64 -1, i32 3
+  %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -240
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv.i.i
-  br label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit
+  br label %for.body.backedge
 
-_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit: ; preds = %while.body.i.i, %if.then23.i.i
-  %__begin1.sroa.0.1 = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %__begin1.sroa.6.3 = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
-  %cmp.i.i.i.not = icmp eq ptr %__begin1.sroa.0.1, null
-  br i1 %cmp.i.i.i.not, label %for.end, label %for.body
+for.body.backedge:                                ; preds = %while.body.i.i, %if.then23.i.i
+  %__begin1.sroa.6.010.be = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
+  %__begin1.sroa.0.09.be = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  br label %for.body
 
-for.end:                                          ; preds = %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit, %for.cond.i.i, %cleanup.done
+for.end:                                          ; preds = %for.cond.i.i, %cleanup.done
   ret void
 }
 
@@ -531,10 +414,10 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 define void @_ZN8proxygen29RequestWorkerThreadNoExecutor5setupEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN8proxygen12WorkerThread5setupEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
-  %callback_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 4
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %callback_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
   ret void
@@ -546,10 +429,10 @@ declare void @_ZN8proxygen12WorkerThread5setupEv(ptr noundef nonnull align 8 der
 define void @_ZN8proxygen29RequestWorkerThreadNoExecutor7cleanupEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN8proxygen12WorkerThread7cleanupEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
-  %callback_ = getelementptr inbounds %"class.proxygen::RequestWorkerThreadNoExecutor", ptr %this, i64 0, i32 4
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %callback_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
   ret void

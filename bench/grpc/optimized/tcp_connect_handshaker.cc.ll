@@ -11,76 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.42" }
 %"struct.std::_Head_base.42" = type { ptr }
-%"class.grpc_core::CoreConfiguration::Builder" = type { %"class.grpc_core::ChannelArgsPreconditioning::Builder", [8 x i8], %"class.grpc_core::ChannelInit::Builder", %"class.grpc_core::HandshakerRegistry::Builder", %"class.grpc_core::ChannelCredsRegistry<>::Builder", %"class.grpc_core::ServiceConfigParser::Builder", %"class.grpc_core::ResolverRegistry::Builder", %"class.grpc_core::LoadBalancingPolicyRegistry::Builder", %"class.grpc_core::ProxyMapperRegistry::Builder", %"class.grpc_core::CertificateProviderRegistry::Builder" }
-%"class.grpc_core::ChannelArgsPreconditioning::Builder" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>, std::allocator<std::function<grpc_core::ChannelArgs (grpc_core::ChannelArgs)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ChannelInit::Builder" = type { [6 x %"class.std::vector.5"], [6 x [2 x %"class.absl::lts_20230802::AnyInvocable"]] }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>, std::allocator<std::unique_ptr<grpc_core::ChannelInit::FilterRegistration>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.absl::lts_20230802::AnyInvocable" = type { %"class.absl::lts_20230802::internal_any_invocable::Impl" }
-%"class.absl::lts_20230802::internal_any_invocable::Impl" = type { %"class.absl::lts_20230802::internal_any_invocable::CoreImpl" }
-%"class.absl::lts_20230802::internal_any_invocable::CoreImpl" = type { %"union.absl::lts_20230802::internal_any_invocable::TypeErasedState", ptr, ptr }
-%"union.absl::lts_20230802::internal_any_invocable::TypeErasedState" = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
-%"class.grpc_core::HandshakerRegistry::Builder" = type { [2 x %"class.std::vector"] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::HandshakerFactory>, std::allocator<std::unique_ptr<grpc_core::HandshakerFactory>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ChannelCredsRegistry<>::Builder" = type { %"class.std::map" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ChannelCredsFactory<grpc_channel_credentials>>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.grpc_core::ServiceConfigParser::Builder" = type { %"class.std::vector.13" }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>, std::allocator<std::unique_ptr<grpc_core::ServiceConfigParser::Parser>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ResolverRegistry::Builder" = type { %"struct.grpc_core::ResolverRegistry::State" }
-%"struct.grpc_core::ResolverRegistry::State" = type { %"class.std::map.18", %"class.std::__cxx11::basic_string" }
-%"class.std::map.18" = type { %"class.std::_Rb_tree.19" }
-%"class.std::_Rb_tree.19" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::ResolverFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.grpc_core::LoadBalancingPolicyRegistry::Builder" = type { %"class.std::map.26" }
-%"class.std::map.26" = type { %"class.std::_Rb_tree.27" }
-%"class.std::_Rb_tree.27" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::LoadBalancingPolicyFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.grpc_core::ProxyMapperRegistry::Builder" = type { %"class.std::vector.31" }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::ProxyMapperInterface>, std::allocator<std::unique_ptr<grpc_core::ProxyMapperInterface>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::CertificateProviderRegistry::Builder" = type { %"class.std::map.36" }
-%"class.std::map.36" = type { %"class.std::_Rb_tree.37" }
-%"class.std::_Rb_tree.37" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
 %"class.grpc_core::RefCountedPtr.57" = type { ptr }
-%"class.grpc_core::RefCounted.59" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker" = type { %"class.grpc_core::Handshaker", %"class.absl::lts_20230802::Mutex", i8, ptr, ptr, ptr, ptr, %struct.grpc_polling_entity, ptr, i8, %struct.grpc_resolved_address, %struct.grpc_closure }
-%"class.grpc_core::Handshaker" = type { %"class.grpc_core::RefCounted.59" }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-%struct.grpc_polling_entity = type <{ %union.anon.60, i32, [4 x i8] }>
-%union.anon.60 = type { ptr }
-%struct.grpc_resolved_address = type { [128 x i8], i32 }
-%struct.grpc_closure = type { %union.anon.55, ptr, ptr, %union.anon.56 }
-%union.anon.55 = type { ptr }
-%union.anon.56 = type { i64 }
 %"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
 %"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr" }
 %"class.grpc_core::RefCountedPtr" = type { ptr }
@@ -90,8 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.62" = type { %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::HandshakerArgs" = type { ptr, %"class.grpc_core::ChannelArgs", ptr, i8, ptr, %"class.grpc_core::Timestamp" }
-%"class.grpc_core::Timestamp" = type { i64 }
 %"class.absl::lts_20230802::StatusOr" = type { %"class.absl::lts_20230802::internal_statusor::StatusOrData" }
 %"class.absl::lts_20230802::internal_statusor::StatusOrData" = type { %union.anon.76, %union.anon.77 }
 %union.anon.76 = type { %"class.absl::lts_20230802::Status" }
@@ -100,10 +29,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::map.78" = type { %"class.std::_Rb_tree.79" }
 %"class.std::_Rb_tree.79" = type { %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::basic_string_view<char>>>, std::less<std::basic_string_view<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
+%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::vector.83" = type { %"struct.std::_Vector_base.84" }
 %"struct.std::_Vector_base.84" = type { %"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_core::URI::QueryParam, std::allocator<grpc_core::URI::QueryParam>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
@@ -112,8 +48,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig" = type { %"class.grpc_event_engine::experimental::EndpointConfig", %"class.grpc_core::ChannelArgs" }
 %"class.grpc_event_engine::experimental::EndpointConfig" = type { ptr }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<std::basic_string_view<char>>::_Storage", i8, [7 x i8] }>
-%"struct.grpc_core::URI::QueryParam" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
 
@@ -209,7 +143,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN9grpc_core28RegisterTCPConnectHandshakerEPNS_17CoreConfiguration7BuilderE(ptr noundef %builder) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
-  %handshaker_registry_.i = getelementptr inbounds %"class.grpc_core::CoreConfiguration::Builder", ptr %builder, i64 0, i32 3
+  %handshaker_registry_.i = getelementptr inbounds i8, ptr %builder, i64 560
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15, !noalias !4
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactoryE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -223,7 +157,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %1 = load ptr, ptr %vfn.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactoryESt14default_deleteIS2_EED2Ev.exit
@@ -240,7 +174,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i5: ; preds = %lpad
   %vtable.i.i6 = load ptr, ptr %3, align 8
-  %vfn.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i6, i64 3
+  %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 24
   %4 = load ptr, ptr %vfn.i.i7, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactoryESt14default_deleteIS2_EED2Ev.exit13
@@ -280,34 +214,34 @@ define internal void @_ZN9grpc_core12_GLOBAL__N_127TCPConnectHandshakerFactory14
 entry:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.57", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #15, !noalias !7
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.59", ptr %call.i, i64 0, i32 1
+  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !7
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !7
-  %mu_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 1
+  %mu_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 0, ptr %mu_.i.i, align 8, !noalias !7
-  %shutdown_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 2
+  %shutdown_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i8 0, ptr %shutdown_.i.i, align 8, !noalias !7
-  %endpoint_to_destroy_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 3
-  %interested_parties_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 6
+  %endpoint_to_destroy_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %interested_parties_.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %endpoint_to_destroy_.i.i, i8 0, i64 24, i1 false), !noalias !7
   %call.i.i = invoke noundef ptr @_Z23grpc_pollset_set_createv()
           to label %invoke.cont3.i.i unwind label %lpad2.i.i, !noalias !7
 
 invoke.cont3.i.i:                                 ; preds = %entry
   store ptr %call.i.i, ptr %interested_parties_.i.i, align 8, !noalias !7
-  %pollent_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 7
+  %pollent_.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   %call5.i.i = invoke { ptr, i32 } @_Z43grpc_polling_entity_create_from_pollset_setP16grpc_pollset_set(ptr noundef %interested_parties)
           to label %invoke.cont4.i.i unwind label %lpad2.i.i, !noalias !7
 
 invoke.cont4.i.i:                                 ; preds = %invoke.cont3.i.i
   %1 = extractvalue { ptr, i32 } %call5.i.i, 0
   store ptr %1, ptr %pollent_.i.i, align 8, !noalias !7
-  %2 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 7, i32 1
+  %2 = getelementptr inbounds i8, ptr %call.i, i64 72
   %3 = extractvalue { ptr, i32 } %call5.i.i, 1
   store i32 %3, ptr %2, align 8, !noalias !7
-  %args_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 8
+  %args_.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr null, ptr %args_.i.i, align 8, !noalias !7
-  %bind_endpoint_to_pollset_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 9
+  %bind_endpoint_to_pollset_.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store i8 0, ptr %bind_endpoint_to_pollset_.i.i, align 8, !noalias !7
   %4 = load ptr, ptr %interested_parties_.i.i, align 8, !noalias !7
   %cmp.not.i.i = icmp eq ptr %4, null
@@ -329,11 +263,11 @@ lpad2.i.i:                                        ; preds = %if.then.i.i, %invok
   br label %common.resume
 
 _ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_120TCPConnectHandshakerEJRP16grpc_pollset_setEEENS_13RefCountedPtrIT_EEDpOT0_.exit: ; preds = %invoke.cont4.i.i, %if.then.i.i
-  %cb1.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 11, i32 1
+  %cb1.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 232
   store ptr @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker9ConnectedEPvN4absl12lts_202308026StatusE, ptr %cb1.i.i.i, align 8, !noalias !7
-  %cb_arg2.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 11, i32 2
+  %cb_arg2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 240
   store ptr %call.i, ptr %cb_arg2.i.i.i, align 8, !noalias !7
-  %error_data.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %call.i, i64 0, i32 11, i32 3
+  %error_data.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 248
   store i64 0, ptr %error_data.i.i.i, align 8, !noalias !7
   store ptr %call.i, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core16HandshakeManager3AddENS_13RefCountedPtrINS_10HandshakerEEE(ptr noundef nonnull align 8 dereferenceable(216) %handshake_mgr, ptr noundef nonnull %agg.tmp)
@@ -345,14 +279,14 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core14Make
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.59", ptr %6, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %7, 1
   br i1 %cmp.i.i.i, label %if.then.i.i2, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
 
 if.then.i.i2:                                     ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
@@ -368,14 +302,14 @@ lpad:                                             ; preds = %_ZN9grpc_core14Make
   br i1 %cmp.not.i10, label %common.resume, label %if.then.i11
 
 if.then.i11:                                      ; preds = %lpad
-  %refs_.i.i12 = getelementptr inbounds %"class.grpc_core::RefCounted.59", ptr %10, i64 0, i32 1
+  %refs_.i.i12 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = atomicrmw sub ptr %refs_.i.i12, i64 1 acq_rel, align 8
   %cmp.i.i.i13 = icmp eq i64 %11, 1
   br i1 %cmp.i.i.i13, label %if.then.i.i14, label %common.resume
 
 if.then.i.i14:                                    ; preds = %if.then.i11
   %vtable.i.i.i15 = load ptr, ptr %10, align 8
-  %vfn.i.i.i16 = getelementptr inbounds ptr, ptr %vtable.i.i.i15, i64 1
+  %vfn.i.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i.i15, i64 8
   %12 = load ptr, ptr %vfn.i.i.i16, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
   br label %common.resume
@@ -421,7 +355,7 @@ entry:
   %agg.tmp24 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp43 = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp79 = alloca %"class.absl::lts_20230802::Status", align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %arg, i64 16
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %invoke.cont3 unwind label %ehcleanup88
 
@@ -431,7 +365,7 @@ invoke.cont3:                                     ; preds = %entry
   br i1 %cmp.i, label %lor.lhs.false, label %if.end
 
 lor.lhs.false:                                    ; preds = %invoke.cont3
-  %shutdown_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 2
+  %shutdown_ = getelementptr inbounds i8, ptr %arg, i64 24
   %1 = load i8, ptr %shutdown_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -482,7 +416,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i25
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %if.then.i, %invoke.cont16, %if.then.i.i25
   %8 = load ptr, ptr %agg.tmp12, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp12, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %8, %9
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -506,7 +440,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %9
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -545,7 +479,7 @@ ehcleanup:                                        ; preds = %lpad15, %lpad13
   br label %ehcleanup84
 
 if.end:                                           ; preds = %if.then.i.i.i, %invoke.cont.i, %invoke.cont3
-  %endpoint_to_destroy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 3
+  %endpoint_to_destroy_ = getelementptr inbounds i8, ptr %arg, i64 32
   %17 = load ptr, ptr %endpoint_to_destroy_, align 8
   %cmp.not = icmp eq ptr %17, null
   br i1 %cmp.not, label %if.end29, label %if.then20
@@ -591,7 +525,7 @@ lpad26:                                           ; preds = %invoke.cont25
   br label %ehcleanup84
 
 if.end29:                                         ; preds = %if.then.i.i31, %invoke.cont27, %if.end
-  %shutdown_32 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 2
+  %shutdown_32 = getelementptr inbounds i8, ptr %arg, i64 24
   %25 = load i8, ptr %shutdown_32, align 8
   %26 = and i8 %25, 1
   %tobool33.not = icmp eq i8 %26, 0
@@ -599,11 +533,11 @@ if.end29:                                         ; preds = %if.then.i.i31, %inv
 
 if.then34:                                        ; preds = %if.end29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %args_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 8
+  %args_.i = getelementptr inbounds i8, ptr %arg, i64 80
   %27 = load ptr, ptr %args_.i, align 8
-  %read_buffer.i = getelementptr inbounds %"struct.grpc_core::HandshakerArgs", ptr %27, i64 0, i32 2
+  %read_buffer.i = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %read_buffer.i, align 8
-  %read_buffer_to_destroy_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 4
+  %read_buffer_to_destroy_.i = getelementptr inbounds i8, ptr %arg, i64 40
   store ptr %28, ptr %read_buffer_to_destroy_.i, align 8
   store ptr null, ptr %read_buffer.i, align 8
   invoke void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
@@ -611,7 +545,7 @@ if.then34:                                        ; preds = %if.end29
 
 invoke.cont37:                                    ; preds = %if.then34
   %29 = load ptr, ptr %args_.i, align 8
-  %args.i = getelementptr inbounds %"struct.grpc_core::HandshakerArgs", ptr %29, i64 0, i32 1
+  %args.i = getelementptr inbounds i8, ptr %29, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #16
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -653,7 +587,7 @@ lpad45:                                           ; preds = %invoke.cont44
   br label %ehcleanup84
 
 do.body:                                          ; preds = %lor.lhs.false
-  %endpoint_to_destroy_52 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 3
+  %endpoint_to_destroy_52 = getelementptr inbounds i8, ptr %arg, i64 32
   %36 = load ptr, ptr %endpoint_to_destroy_52, align 8
   %cmp53.not = icmp eq ptr %36, null
   br i1 %cmp53.not, label %if.then54, label %do.end
@@ -666,11 +600,11 @@ invoke.cont55:                                    ; preds = %if.then54
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %args_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 8
+  %args_ = getelementptr inbounds i8, ptr %arg, i64 80
   %37 = load ptr, ptr %args_, align 8
   store ptr %36, ptr %37, align 8
   store ptr null, ptr %endpoint_to_destroy_52, align 8
-  %bind_endpoint_to_pollset_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 9
+  %bind_endpoint_to_pollset_ = getelementptr inbounds i8, ptr %arg, i64 88
   %38 = load i8, ptr %bind_endpoint_to_pollset_, align 8
   %39 = and i8 %38, 1
   %tobool67.not = icmp eq i8 %39, 0
@@ -679,7 +613,7 @@ do.end:                                           ; preds = %do.body
 if.then68:                                        ; preds = %do.end
   %40 = load ptr, ptr %args_, align 8
   %41 = load ptr, ptr %40, align 8
-  %interested_parties_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %arg, i64 0, i32 6
+  %interested_parties_ = getelementptr inbounds i8, ptr %arg, i64 56
   %42 = load ptr, ptr %interested_parties_, align 8
   invoke void @_Z32grpc_endpoint_add_to_pollset_setP13grpc_endpointP16grpc_pollset_set(ptr noundef %41, ptr noundef %42)
           to label %invoke.cont80 unwind label %lpad2
@@ -701,14 +635,14 @@ terminate.lpad.i53:                               ; preds = %cleanup
   unreachable
 
 if.then.i56:                                      ; preds = %cleanup
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.59", ptr %arg, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %45 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i57 = icmp eq i64 %45, 1
   br i1 %cmp.i.i.i57, label %if.then.i.i58, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
 
 if.then.i.i58:                                    ; preds = %if.then.i56
   %vtable.i.i.i = load ptr, ptr %arg, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %46 = load ptr, ptr %vfn.i.i.i, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(16) %arg) #16
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit
@@ -742,14 +676,14 @@ ehcleanup88:                                      ; preds = %entry
 
 if.then.i63:                                      ; preds = %ehcleanup84, %ehcleanup88
   %.pn2.pn73 = phi { ptr, i32 } [ %50, %ehcleanup88 ], [ %.pn2, %ehcleanup84 ]
-  %refs_.i.i64 = getelementptr inbounds %"class.grpc_core::RefCounted.59", ptr %arg, i64 0, i32 1
+  %refs_.i.i64 = getelementptr inbounds i8, ptr %arg, i64 8
   %51 = atomicrmw sub ptr %refs_.i.i64, i64 1 acq_rel, align 8
   %cmp.i.i.i65 = icmp eq i64 %51, 1
   br i1 %cmp.i.i.i65, label %if.then.i.i66, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit69
 
 if.then.i.i66:                                    ; preds = %if.then.i63
   %vtable.i.i.i67 = load ptr, ptr %arg, align 8
-  %vfn.i.i.i68 = getelementptr inbounds ptr, ptr %vtable.i.i.i67, i64 1
+  %vfn.i.i.i68 = getelementptr inbounds i8, ptr %vtable.i.i.i67, i64 8
   %52 = load ptr, ptr %vfn.i.i.i68, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(16) %arg) #16
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_120TCPConnectHandshakerEED2Ev.exit69
@@ -766,7 +700,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 define internal void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %endpoint_to_destroy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 3
+  %endpoint_to_destroy_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %endpoint_to_destroy_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -776,7 +710,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %read_buffer_to_destroy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 4
+  %read_buffer_to_destroy_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %read_buffer_to_destroy_, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %if.end9, label %if.then4
@@ -791,13 +725,13 @@ invoke.cont6:                                     ; preds = %if.then4
           to label %if.end9 unwind label %terminate.lpad
 
 if.end9:                                          ; preds = %invoke.cont6, %if.end
-  %interested_parties_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 6
+  %interested_parties_ = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %interested_parties_, align 8
   invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %3)
           to label %invoke.cont10 unwind label %terminate.lpad
 
 invoke.cont10:                                    ; preds = %if.end9
-  %mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #16
   ret void
 
@@ -813,7 +747,7 @@ terminate.lpad:                                   ; preds = %if.end9, %invoke.co
 define internal void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %endpoint_to_destroy_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 3
+  %endpoint_to_destroy_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %endpoint_to_destroy_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -823,7 +757,7 @@ if.then.i:                                        ; preds = %entry
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %read_buffer_to_destroy_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 4
+  %read_buffer_to_destroy_.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %read_buffer_to_destroy_.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %if.end9.i, label %if.then4.i
@@ -838,7 +772,7 @@ invoke.cont6.i:                                   ; preds = %if.then4.i
           to label %if.end9.i unwind label %terminate.lpad.i
 
 if.end9.i:                                        ; preds = %invoke.cont6.i, %if.end.i
-  %interested_parties_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 6
+  %interested_parties_.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %interested_parties_.i, align 8
   invoke void @_Z24grpc_pollset_set_destroyP16grpc_pollset_set(ptr noundef %3)
           to label %_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD2Ev.exit unwind label %terminate.lpad.i
@@ -851,7 +785,7 @@ terminate.lpad.i:                                 ; preds = %if.end9.i, %invoke.
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshakerD2Ev.exit: ; preds = %if.end9.i
-  %mu_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 1
+  %mu_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
@@ -864,9 +798,9 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp6 = alloca %"class.std::vector.61", align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %shutdown_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 2
+  %shutdown_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %shutdown_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -874,18 +808,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 1, ptr %shutdown_, align 8
-  %on_handshake_done_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 5
+  %on_handshake_done_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %on_handshake_done_, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %args_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 8
+  %args_.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %args_.i, align 8
-  %read_buffer.i = getelementptr inbounds %"struct.grpc_core::HandshakerArgs", ptr %4, i64 0, i32 2
+  %read_buffer.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %read_buffer.i, align 8
-  %read_buffer_to_destroy_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 4
+  %read_buffer_to_destroy_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %5, ptr %read_buffer_to_destroy_.i, align 8
   store ptr null, ptr %read_buffer.i, align 8
   invoke void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
@@ -893,7 +827,7 @@ if.then3:                                         ; preds = %if.then
 
 invoke.cont:                                      ; preds = %if.then3
   %6 = load ptr, ptr %args_.i, align 8
-  %args.i = getelementptr inbounds %"struct.grpc_core::HandshakerArgs", ptr %6, i64 0, i32 1
+  %args.i = getelementptr inbounds i8, ptr %6, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #16
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -924,7 +858,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont10, %if.then.i.i
   %10 = load ptr, ptr %agg.tmp6, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp6, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp6, i64 8
   %11 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -948,7 +882,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %11
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -1027,9 +961,9 @@ entry:
   %ref.tmp35 = alloca %"class.grpc_core::ChannelArgs", align 8
   %ref.tmp36 = alloca %"class.grpc_core::ChannelArgs", align 8
   %ref.tmp52 = alloca %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %on_handshake_done_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 5
+  %on_handshake_done_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %on_handshake_done, ptr %on_handshake_done_, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -1051,11 +985,11 @@ if.then:                                          ; preds = %_ZN4absl12lts_20230
   unreachable
 
 do.end:                                           ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %args_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 8
+  %args_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %args, ptr %args_, align 8
-  %args2 = getelementptr inbounds %"struct.grpc_core::HandshakerArgs", ptr %args, i64 0, i32 1
+  %args2 = getelementptr inbounds i8, ptr %args, i64 8
   call void @_ZNK9grpc_core11ChannelArgs9GetStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::optional") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args2, i64 45, ptr nonnull @.str.5)
-  %_M_engaged.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %ref.tmp, i64 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load i8, ptr %_M_engaged.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.i.not.i = icmp eq i8 %5, 0
@@ -1075,8 +1009,8 @@ invoke.cont:                                      ; preds = %do.end
   br i1 %cmp.i.i, label %invoke.cont5, label %if.then9
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  %7 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %uri, i64 0, i32 1
-  %addr_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 10
+  %7 = getelementptr inbounds i8, ptr %uri, i64 8
+  %addr_ = getelementptr inbounds i8, ptr %this, i64 92
   %call8 = invoke noundef zeroext i1 @_Z14grpc_parse_uriRKN9grpc_core3URIEP21grpc_resolved_address(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull %addr_)
           to label %invoke.cont7 unwind label %lpad
 
@@ -1115,7 +1049,7 @@ terminate.lpad.i15:                               ; preds = %if.then.i.i14
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont22, %if.then.i.i14
   %11 = load ptr, ptr %agg.tmp18, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp18, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
   %12 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -1139,7 +1073,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -1203,7 +1137,7 @@ if.end24:                                         ; preds = %invoke.cont7
 invoke.cont28:                                    ; preds = %if.end24
   %24 = and i16 %call29, 257
   %retval.0.i = icmp eq i16 %24, 257
-  %bind_endpoint_to_pollset_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 9
+  %bind_endpoint_to_pollset_ = getelementptr inbounds i8, ptr %this, i64 88
   %frombool = zext i1 %retval.0.i to i8
   store i8 %frombool, ptr %bind_endpoint_to_pollset_, align 8
   invoke void @_ZNK9grpc_core11ChannelArgs6RemoveESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.grpc_core::ChannelArgs") align 8 %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(8) %args2, i64 45, ptr nonnull @.str.5)
@@ -1217,19 +1151,19 @@ _ZN9grpc_core13RefCountedPtrINS_10HandshakerEED2Ev.exit: ; preds = %invoke.cont3
   %call44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8) %args2, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35) #16
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35) #16
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp36) #16
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.59", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %25 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !15
-  %interested_parties_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 6
+  %interested_parties_ = getelementptr inbounds i8, ptr %this, i64 56
   %26 = load ptr, ptr %interested_parties_, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental25ChannelArgsEndpointConfigE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp52, align 8
-  %args_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::ChannelArgsEndpointConfig", ptr %ref.tmp52, i64 0, i32 1
+  %args_.i = getelementptr inbounds i8, ptr %ref.tmp52, i64 8
   invoke void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %args_.i, ptr noundef nonnull align 8 dereferenceable(8) %args2)
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %_ZN9grpc_core13RefCountedPtrINS_10HandshakerEED2Ev.exit
-  %endpoint_to_destroy_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 3
-  %connected_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 11
-  %deadline = getelementptr inbounds %"struct.grpc_core::HandshakerArgs", ptr %args, i64 0, i32 5
+  %endpoint_to_destroy_ = getelementptr inbounds i8, ptr %this, i64 32
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 224
+  %deadline = getelementptr inbounds i8, ptr %args, i64 40
   %agg.tmp56.sroa.0.0.copyload = load i64, ptr %deadline, align 8
   %call60 = invoke noundef i64 @_Z23grpc_tcp_client_connectP12grpc_closurePP13grpc_endpointP16grpc_pollset_setRKN17grpc_event_engine12experimental14EndpointConfigEPK21grpc_resolved_addressN9grpc_core9TimestampE(ptr noundef nonnull %connected_, ptr noundef nonnull %endpoint_to_destroy_, ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp52, ptr noundef nonnull %addr_, i64 %agg.tmp56.sroa.0.0.copyload)
           to label %invoke.cont59 unwind label %lpad58
@@ -1245,7 +1179,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorIN4absl
   br i1 %cmp.i.i.i.i36, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup
-  %28 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %uri, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %uri, i64 8
   call void @_ZN9grpc_core3URID2Ev(ptr noundef nonnull align 8 dereferenceable(200) %28) #16
   br label %_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEED2Ev.exit
 
@@ -1322,7 +1256,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -1346,7 +1280,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !10
 
@@ -1374,18 +1308,18 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
-  %interested_parties_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 6
+  %interested_parties_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %interested_parties_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pollent_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 7
+  %pollent_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_Z40grpc_polling_entity_del_from_pollset_setP19grpc_polling_entityP16grpc_pollset_set(ptr noundef nonnull %pollent_, ptr noundef nonnull %0)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %on_handshake_done_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::TCPConnectHandshaker", ptr %this, i64 0, i32 5
+  %on_handshake_done_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %on_handshake_done_, align 8
   %2 = load i64, ptr %error, align 8
   store i64 %2, ptr %agg.tmp, align 8
@@ -1493,7 +1427,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9grpc_core3URID2Ev(ptr noundef nonnull align 8 dereferenceable(200) %1) #16
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.exit
 
@@ -1559,21 +1493,21 @@ declare void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core3URID2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fragment_ = getelementptr inbounds %"class.grpc_core::URI", ptr %this, i64 0, i32 5
+  %fragment_ = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fragment_) #16
-  %query_parameter_pairs_ = getelementptr inbounds %"class.grpc_core::URI", ptr %this, i64 0, i32 4
+  %query_parameter_pairs_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %query_parameter_pairs_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::URI", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
-  %value.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::URI::QueryParam", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value.i.i.i.i.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_core::URI::QueryParam", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !18
 
@@ -1591,8 +1525,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN9grpc_core3URI10QueryParamESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN9grpc_core3URI10QueryParamESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %query_parameter_map_ = getelementptr inbounds %"class.grpc_core::URI", ptr %this, i64 0, i32 3
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.grpc_core::URI", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
+  %query_parameter_map_ = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %query_parameter_map_, ptr noundef %3)
           to label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1605,9 +1539,9 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt6vectorIN9grpc
   unreachable
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN9grpc_core3URI10QueryParamESaIS2_EED2Ev.exit
-  %path_ = getelementptr inbounds %"class.grpc_core::URI", ptr %this, i64 0, i32 2
+  %path_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_) #16
-  %authority_ = getelementptr inbounds %"class.grpc_core::URI", ptr %this, i64 0, i32 1
+  %authority_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %authority_) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #16
   ret void
@@ -1624,10 +1558,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S3_ESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #17
   %cmp.not = icmp eq ptr %1, null

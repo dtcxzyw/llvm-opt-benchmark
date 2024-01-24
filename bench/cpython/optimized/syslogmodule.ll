@@ -99,7 +99,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @syslog_openlog(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @syslog_openlog(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -154,7 +154,7 @@ if.end23:                                         ; preds = %if.then16
 
 if.end28:                                         ; preds = %if.end23, %if.end14
   %noptargs.0 = phi i64 [ %dec, %if.end23 ], [ %add3034, %if.end14 ]
-  %arrayidx29 = getelementptr ptr, ptr %cond1035, i64 1
+  %arrayidx29 = getelementptr i8, ptr %cond1035, i64 8
   %7 = load ptr, ptr %arrayidx29, align 8
   %tobool30.not = icmp eq ptr %7, null
   br i1 %tobool30.not, label %if.end44, label %if.then31
@@ -175,7 +175,7 @@ if.end39:                                         ; preds = %land.lhs.true35, %i
 
 if.end44:                                         ; preds = %if.end39, %if.end28
   %logopt.0 = phi i64 [ %call33, %if.end39 ], [ 0, %if.end28 ]
-  %arrayidx45 = getelementptr ptr, ptr %cond1035, i64 2
+  %arrayidx45 = getelementptr i8, ptr %cond1035, i64 16
   %8 = load ptr, ptr %arrayidx45, align 8
   %call46 = call i64 @PyLong_AsLong(ptr noundef %8) #4
   %cmp47 = icmp eq i64 %call46, -1
@@ -199,7 +199,7 @@ exit:                                             ; preds = %land.lhs.true48, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @syslog_closelog(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @syslog_closelog(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i.i = tail call ptr @PyInterpreterState_Get() #4
   %call1.i.i = tail call ptr @PyInterpreterState_Main() #4
@@ -253,7 +253,7 @@ syslog_closelog_impl.exit:                        ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @syslog_syslog(ptr nocapture readnone %module, ptr noundef %args) #0 {
+define internal noundef ptr @syslog_syslog(ptr nocapture readnone %module, ptr noundef %args) #0 {
 entry:
   %priority = alloca i32, align 4
   %message = alloca ptr, align 8
@@ -489,7 +489,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @syslog_openlog_impl(ptr noundef %ident, i64 noundef %logopt, i64 noundef %facility) unnamed_addr #0 {
+define internal fastcc noundef ptr @syslog_openlog_impl(ptr noundef %ident, i64 noundef %logopt, i64 noundef %facility) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyInterpreterState_Get() #4
   %call1.i = tail call ptr @PyInterpreterState_Main() #4

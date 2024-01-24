@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 
 $_ZNK5folly8Executor16getNumPrioritiesEv = comdat any
 
@@ -99,7 +97,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly14InlineExecutor3addENS_8FunctionIFvvEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %f) unnamed_addr #6 comdat align 2 {
 entry:
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %f, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %f, i64 48
   %0 = load ptr, ptr %call_.i, align 16, !tbaa !11
   tail call void %0(ptr noundef nonnull align 16 dereferenceable(48) %f)
   ret void

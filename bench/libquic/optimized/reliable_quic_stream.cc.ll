@@ -3,199 +3,10 @@ source_filename = "bench/libquic/original/reliable_quic_stream.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.net::ReliableQuicStream::PendingData" = type { %"class.std::__cxx11::basic_string", i64, %class.scoped_refptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%class.scoped_refptr = type { ptr }
-%"class.net::ReliableQuicStream" = type <{ ptr, %"class.std::__cxx11::list", i64, %"class.net::QuicStreamSequencer", i32, [4 x i8], ptr, i64, i64, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, [4 x i8], %"class.net::QuicFlowController", ptr, i8, [7 x i8] }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<net::ReliableQuicStream::PendingData, std::allocator<net::ReliableQuicStream::PendingData>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::ReliableQuicStream::PendingData, std::allocator<net::ReliableQuicStream::PendingData>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.net::QuicStreamSequencer" = type <{ ptr, ptr, %"class.net::QuicStreamSequencerBuffer", i64, i8, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%"class.net::QuicStreamSequencerBuffer" = type { i64, i64, i64, %"class.std::__cxx11::list.3", i8, %"class.std::unique_ptr", i64, %"class.std::map" }
-%"class.std::__cxx11::list.3" = type { %"class.std::__cxx11::_List_base.4" }
-%"class.std::__cxx11::_List_base.4" = type { %"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::QuicStreamSequencerBuffer::Gap, std::allocator<net::QuicStreamSequencerBuffer::Gap>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>, std::_Select1st<std::pair<const unsigned long, net::QuicStreamSequencerBuffer::FrameInfo>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.net::QuicFlowController" = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i8, i64, %"class.net::QuicTime" }
-%"class.net::QuicTime" = type { i64 }
-%"class.net::QuicSession" = type <{ %"class.net::QuicConnectionVisitorInterface", %"class.std::map.109", ptr, %"class.std::vector.117", %"class.net::QuicConfig", i64, i64, %"class.base::SmallMap", %"class.base::SmallMap.130", i32, [4 x i8], %"class.std::unordered_set.132", %"class.std::unordered_set.132", %"class.net::QuicWriteBlockedList", i32, [4 x i8], i64, i64, i64, i32, [4 x i8], %"class.net::QuicFlowController", i32, [4 x i8] }>
-%"class.net::QuicConnectionVisitorInterface" = type { ptr }
-%"class.std::map.109" = type { %"class.std::_Rb_tree.110" }
-%"class.std::_Rb_tree.110" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, unsigned long>, std::_Select1st<std::pair<const unsigned int, unsigned long>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.114", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.114" = type { %"struct.std::less.115" }
-%"struct.std::less.115" = type { i8 }
-%"class.std::vector.117" = type { %"struct.std::_Vector_base.118" }
-%"struct.std::_Vector_base.118" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::ReliableQuicStream *, std::allocator<net::ReliableQuicStream *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicConfig" = type { %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", i64, %"class.net::QuicFixedTagVector", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedUint32", %"class.net::QuicNegotiableUint32", %"class.net::QuicFixedUint32", %"class.net::QuicFixedIPEndPoint", %"class.net::QuicFixedUint32" }
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.net::QuicFixedTagVector" = type <{ %"class.net::QuicConfigValue", %"class.std::vector.122", i8, [7 x i8], %"class.std::vector.122", i8, [7 x i8] }>
-%"class.net::QuicConfigValue" = type { ptr, i32, i32 }
-%"class.std::vector.122" = type { %"struct.std::_Vector_base.123" }
-%"struct.std::_Vector_base.123" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicNegotiableUint32" = type { %"class.net::QuicNegotiableValue.base", i32, i32, i32 }
-%"class.net::QuicNegotiableValue.base" = type <{ %"class.net::QuicConfigValue", i8 }>
-%"class.net::QuicFixedIPEndPoint" = type <{ %"class.net::QuicConfigValue", %"class.net::IPEndPoint", i8, [7 x i8], %"class.net::IPEndPoint", i8, [7 x i8] }>
-%"class.net::IPEndPoint" = type <{ %"class.net::IPAddress", i16, [6 x i8] }>
-%"class.net::IPAddress" = type { %"class.std::vector.51" }
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::QuicFixedUint32" = type <{ %"class.net::QuicConfigValue", i32, i8, [3 x i8], i32, i8, [3 x i8] }>
-%"class.base::SmallMap" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.127 }
-%"class.base::internal::SmallMapDefaultInit" = type { i8 }
-%union.anon.127 = type { %"class.base::ManualConstructor.128" }
-%"class.base::ManualConstructor.128" = type { %"class.base::AlignedMemory.129" }
-%"class.base::AlignedMemory.129" = type { [56 x i8] }
-%"class.base::SmallMap.130" = type { i32, %"class.base::internal::SmallMapDefaultInit", [3 x i8], %union.anon.131 }
-%union.anon.131 = type { [10 x %"class.base::ManualConstructor"] }
-%"class.base::ManualConstructor" = type { %"class.base::AlignedMemory" }
-%"class.base::AlignedMemory" = type { [16 x i8] }
-%"class.std::unordered_set.132" = type { %"class.std::_Hashtable.133" }
-%"class.std::_Hashtable.133" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.net::QuicWriteBlockedList" = type <{ %"class.net::PriorityWriteScheduler", [8 x i32], [8 x i32], i8, i8, i8, [5 x i8] }>
-%"class.net::PriorityWriteScheduler" = type { %"class.net::WriteScheduler", i64, [8 x %"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo"], %"class.std::unordered_map.157" }
-%"class.net::WriteScheduler" = type { ptr }
-%"struct.net::PriorityWriteScheduler<unsigned int>::PriorityInfo" = type { %"class.std::deque.151", i64 }
-%"class.std::deque.151" = type { %"class.std::_Deque_base.152" }
-%"class.std::_Deque_base.152" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::PriorityWriteScheduler<unsigned int>::StreamInfo *, std::allocator<net::PriorityWriteScheduler<unsigned int>::StreamInfo *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.156", %"struct.std::_Deque_iterator.156" }
-%"struct.std::_Deque_iterator.156" = type { ptr, ptr, ptr, ptr }
-%"class.std::unordered_map.157" = type { %"class.std::_Hashtable.158" }
-%"class.std::_Hashtable.158" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.net::QuicConnection" = type <{ %"class.net::QuicFramerVisitorInterface", %"class.net::QuicBlockedWriterInterface", %"class.net::QuicPacketGenerator::DelegateInterface", %"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor", %"class.net::QuicFramer", ptr, ptr, ptr, ptr, i8, i8, [6 x i8], ptr, ptr, i64, %"class.net::IPEndPoint", %"class.net::IPEndPoint", i32, [4 x i8], i64, i8, [7 x i8], i64, ptr, i8, [7 x i8], %"struct.net::QuicPacketHeader", %"struct.net::QuicStopWaitingFrame", i8, [7 x i8], i64, i64, %"class.std::deque", i64, i8, [7 x i8], %"class.std::__cxx11::list.59", i8, [7 x i8], %"class.std::unique_ptr.64", i32, i8, [3 x i8], %"class.net::QuicReceivedPacketManager", %"class.net::QuicSentEntropyManager", i8, [7 x i8], i64, i8, [7 x i8], i64, i32, i32, float, i8, i8, i8, i8, %"class.net::QuicTime::Delta", %"class.net::QuicOneBlockArena", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", %"class.net::QuicArenaScopedPtr", ptr, ptr, %"class.net::QuicPacketGenerator", %"class.net::QuicTime::Delta", %"class.net::QuicTime::Delta", %"struct.net::QuicConnectionStats", %"class.net::QuicTime", %"class.net::QuicTime", %"class.net::QuicTime", i64, %"class.std::unique_ptr.101", i32, i32, i8, [7 x i8], %"class.net::IPEndPoint", %"class.net::IPEndPoint", i8, [7 x i8], %"class.std::vector", i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }>
-%"class.net::QuicFramerVisitorInterface" = type { ptr }
-%"class.net::QuicBlockedWriterInterface" = type { ptr }
-%"class.net::QuicPacketGenerator::DelegateInterface" = type { %"class.net::QuicPacketCreator::DelegateInterface" }
-%"class.net::QuicPacketCreator::DelegateInterface" = type { %"class.net::QuicConnectionCloseDelegateInterface" }
-%"class.net::QuicConnectionCloseDelegateInterface" = type { ptr }
-%"class.net::QuicSentPacketManagerInterface::NetworkChangeVisitor" = type { ptr }
-%"class.net::QuicFramer" = type { ptr, %"class.std::__cxx11::basic_string", ptr, ptr, i32, %"class.std::unordered_set", %"class.std::unordered_map", i64, %"class.std::unordered_map", i64, i8, i64, i32, i32, %"class.std::vector", %"class.std::unique_ptr.35", %"class.std::unique_ptr.35", i8, i8, i8, [3 x %"class.std::unique_ptr.43"], i32, i8, %"class.net::QuicTime", %"class.net::QuicTime::Delta", %"struct.std::array" }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.19" }
-%"class.std::_Hashtable.19" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.35" = type { %"struct.std::__uniq_ptr_data.36" }
-%"struct.std::__uniq_ptr_data.36" = type { %"class.std::__uniq_ptr_impl.37" }
-%"class.std::__uniq_ptr_impl.37" = type { %"class.std::tuple.38" }
-%"class.std::tuple.38" = type { %"struct.std::_Tuple_impl.39" }
-%"struct.std::_Tuple_impl.39" = type { %"struct.std::_Head_base.42" }
-%"struct.std::_Head_base.42" = type { ptr }
-%"class.std::unique_ptr.43" = type { %"struct.std::__uniq_ptr_data.44" }
-%"struct.std::__uniq_ptr_data.44" = type { %"class.std::__uniq_ptr_impl.45" }
-%"class.std::__uniq_ptr_impl.45" = type { %"class.std::tuple.46" }
-%"class.std::tuple.46" = type { %"struct.std::_Tuple_impl.47" }
-%"struct.std::_Tuple_impl.47" = type { %"struct.std::_Head_base.50" }
-%"struct.std::_Head_base.50" = type { ptr }
-%"struct.std::array" = type { [32 x i8] }
-%"struct.net::QuicPacketHeader" = type <{ %"struct.net::QuicPacketPublicHeader", i64, i8, i8, i8, i8, [4 x i8] }>
-%"struct.net::QuicPacketPublicHeader" = type { i64, i32, i8, i8, i8, i8, %"class.std::vector", ptr }
-%"struct.net::QuicStopWaitingFrame" = type { i8, i8, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl" = type { %"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<net::QuicEncryptedPacket *, std::allocator<net::QuicEncryptedPacket *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::__cxx11::list.59" = type { %"class.std::__cxx11::_List_base.60" }
-%"class.std::__cxx11::_List_base.60" = type { %"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::SerializedPacket, std::allocator<net::SerializedPacket>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::unique_ptr.64" = type { %"struct.std::__uniq_ptr_data.65" }
-%"struct.std::__uniq_ptr_data.65" = type { %"class.std::__uniq_ptr_impl.66" }
-%"class.std::__uniq_ptr_impl.66" = type { %"class.std::tuple.67" }
-%"class.std::tuple.67" = type { %"struct.std::_Tuple_impl.68" }
-%"struct.std::_Tuple_impl.68" = type { %"struct.std::_Head_base.71" }
-%"struct.std::_Head_base.71" = type { ptr }
-%"class.net::QuicReceivedPacketManager" = type { %"class.net::QuicReceivedEntropyHashCalculatorInterface", %"class.net::QuicReceivedPacketManager::EntropyTracker", i64, %"struct.net::QuicAckFrame", i8, %"class.net::QuicTime", ptr }
-%"class.net::QuicReceivedEntropyHashCalculatorInterface" = type { ptr }
-%"class.net::QuicReceivedPacketManager::EntropyTracker" = type { %"class.std::deque.72", i8, i64, i64 }
-%"class.std::deque.72" = type { %"class.std::_Deque_base.73" }
-%"class.std::_Deque_base.73" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.77", %"struct.std::_Deque_iterator.77" }
-%"struct.std::_Deque_iterator.77" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicAckFrame" = type <{ i64, %"class.net::QuicTime::Delta", %"class.std::vector.78", %"class.net::PacketNumberQueue", i8, i8, i8, i8, [4 x i8] }>
-%"class.std::vector.78" = type { %"struct.std::_Vector_base.79" }
-%"struct.std::_Vector_base.79" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::PacketNumberQueue" = type { %"class.net::IntervalSet" }
-%"class.net::IntervalSet" = type { %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree.83" }
-%"class.std::_Rb_tree.83" = type { %"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.87", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.87" = type { %"struct.net::IntervalSet<unsigned long>::IntervalComparator" }
-%"struct.net::IntervalSet<unsigned long>::IntervalComparator" = type { i8 }
-%"class.net::QuicSentEntropyManager" = type { ptr, %"class.std::deque.88", i64, %"struct.net::QuicSentEntropyManager::CumulativeEntropy", %"struct.net::QuicSentEntropyManager::CumulativeEntropy" }
-%"class.std::deque.88" = type { %"class.std::_Deque_base.89" }
-%"class.std::_Deque_base.89" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl" = type { %"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<unsigned char, std::allocator<unsigned char>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.90", %"struct.std::_Deque_iterator.90" }
-%"struct.std::_Deque_iterator.90" = type { ptr, ptr, ptr, ptr }
-%"struct.net::QuicSentEntropyManager::CumulativeEntropy" = type <{ i64, i8, [7 x i8] }>
-%"class.net::QuicOneBlockArena" = type { [1024 x i8], i32, [4 x i8] }
-%"class.net::QuicArenaScopedPtr" = type { ptr }
-%"class.net::QuicPacketGenerator" = type { ptr, %"class.net::QuicPacketCreator", %"class.std::vector.91", i8, i8, i8, [5 x i8], %"struct.net::QuicAckFrame", %"struct.net::QuicStopWaitingFrame" }
-%"class.net::QuicPacketCreator" = type { ptr, ptr, ptr, %"class.net::QuicPacketCreator::QuicRandomBoolSource", ptr, i8, i8, i8, i8, %"struct.std::array", i64, i64, i32, %"class.std::vector.91", i64, i64, %"struct.net::SerializedPacket", %"class.std::unordered_map" }
-%"class.net::QuicPacketCreator::QuicRandomBoolSource" = type { ptr, i64, i64 }
-%"struct.net::SerializedPacket" = type { ptr, i16, %"class.std::vector.91", i8, i16, i8, i64, i8, i8, i8, i8, i8, i8, i8, i64, %"class.std::__cxx11::list.96" }
-%"class.std::__cxx11::list.96" = type { %"class.std::__cxx11::_List_base.97" }
-%"class.std::__cxx11::_List_base.97" = type { %"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<net::AckListenerWrapper, std::allocator<net::AckListenerWrapper>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::vector.91" = type { %"struct.std::_Vector_base.92" }
-%"struct.std::_Vector_base.92" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicFrame, std::allocator<net::QuicFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
-%"class.std::unique_ptr.101" = type { %"struct.std::__uniq_ptr_data.102" }
-%"struct.std::__uniq_ptr_data.102" = type { %"class.std::__uniq_ptr_impl.103" }
-%"class.std::__uniq_ptr_impl.103" = type { %"class.std::tuple.104" }
-%"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
-%"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.108" }
-%"struct.std::_Head_base.108" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [48 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.net::QuicStreamFrame" = type { i32, i8, i16, ptr, i64, %"class.std::unique_ptr.171" }
-%"class.std::unique_ptr.171" = type { %"struct.std::__uniq_ptr_data.172" }
-%"struct.std::__uniq_ptr_data.172" = type { %"class.std::__uniq_ptr_impl.173" }
-%"class.std::__uniq_ptr_impl.173" = type { %"class.std::tuple.174" }
-%"class.std::tuple.174" = type { %"struct.std::_Tuple_impl.175" }
-%"struct.std::_Tuple_impl.175" = type { %"struct.std::_Tuple_impl.176", %"struct.std::_Head_base.178" }
-%"struct.std::_Tuple_impl.176" = type { %"struct.std::_Head_base.177" }
-%"struct.std::_Head_base.177" = type { %"class.net::StreamBufferDeleter" }
-%"class.net::StreamBufferDeleter" = type { ptr }
-%"struct.std::_Head_base.178" = type { ptr }
-%"struct.net::QuicRstStreamFrame" = type { i32, i32, i64 }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -209,7 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.net::QuicConsumedData" = type <{ i64, i8, [7 x i8] }>
 %struct.iovec = type { ptr, i64 }
 %"struct.net::QuicIOVector" = type { ptr, i32, i64 }
-%"struct.net::QuicWindowUpdateFrame" = type { i32, i64 }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EED2Ev = comdat any
@@ -239,9 +49,9 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define dso_local void @_ZN3net18ReliableQuicStream11PendingDataC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %data_in, ptr noundef %ack_listener_in) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %data_in) #15
-  %offset = getelementptr inbounds %"struct.net::ReliableQuicStream::PendingData", ptr %this, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %offset, align 8
-  %ack_listener = getelementptr inbounds %"struct.net::ReliableQuicStream::PendingData", ptr %this, i64 0, i32 2
+  %ack_listener = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %ack_listener_in, ptr %ack_listener, align 8
   %tobool.not.i = icmp eq ptr %ack_listener_in, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -268,7 +78,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net18ReliableQuicStream11PendingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ack_listener = getelementptr inbounds %"struct.net::ReliableQuicStream::PendingData", ptr %this, i64 0, i32 2
+  %ack_listener = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %ack_listener, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit, label %if.then.i
@@ -283,7 +93,7 @@ if.then.i:                                        ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %0) #15
   br label %_ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit
@@ -297,33 +107,33 @@ _ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit: ; preds = %entry,
 define dso_local void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %id, ptr noundef %session) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %queued_data_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %queued_data_, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %queued_data_, ptr %queued_data_, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %session, i64 0, i32 2
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %sequencer_ = getelementptr inbounds i8, ptr %this, i64 40
+  %connection_.i = getelementptr inbounds i8, ptr %session, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_size.i.i.i.i.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %connection_.i, align 8
-  %clock_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %0, i64 0, i32 12
+  %clock_.i = getelementptr inbounds i8, ptr %0, i64 480
   %1 = load ptr, ptr %clock_.i, align 8
   invoke void @_ZN3net19QuicStreamSequencerC1EPNS_18ReliableQuicStreamEPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_, ptr noundef nonnull %this, ptr noundef %1)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %entry
-  %id_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_ = getelementptr inbounds i8, ptr %this, i64 216
   store i32 %id, ptr %id_, align 8
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   store ptr %session, ptr %session_, align 8
-  %stream_bytes_read_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 7
+  %stream_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %stream_bytes_read_, i8 0, i64 31, i1 false)
   %2 = load ptr, ptr %connection_.i, align 8
-  %perspective_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %2, i64 0, i32 79
+  %perspective_.i.i = getelementptr inbounds i8, ptr %2, i64 3204
   %3 = load i32, ptr %perspective_.i.i, align 4
-  %perspective_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 19
+  %perspective_ = getelementptr inbounds i8, ptr %this, i64 264
   store i32 %3, ptr %perspective_, align 8
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %connection_.i, align 8
   %call.i7 = invoke noundef ptr @_ZN3net11QuicSession6configEv(ptr noundef nonnull align 8 dereferenceable(2044) %session)
           to label %call.i.noexc unwind label %lpad6
@@ -359,7 +169,7 @@ call.i.noexc12:                                   ; preds = %invoke.cont14
 invoke.cont16:                                    ; preds = %call.i.noexc12
   %conv.i11 = zext i32 %call1.i15 to i64
   %5 = load ptr, ptr %session_, align 8
-  %auto_tune_receive_window_.i = getelementptr inbounds %"class.net::QuicSession", ptr %5, i64 0, i32 21, i32 10
+  %auto_tune_receive_window_.i = getelementptr inbounds i8, ptr %5, i64 2016
   %6 = load i8, ptr %auto_tune_receive_window_.i, align 8
   %7 = and i8 %6, 1
   %tobool.i = icmp ne i8 %7, 0
@@ -367,11 +177,11 @@ invoke.cont16:                                    ; preds = %call.i.noexc12
           to label %invoke.cont23 unwind label %lpad6
 
 invoke.cont23:                                    ; preds = %invoke.cont16
-  %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
   %8 = load ptr, ptr %session_, align 8
-  %flow_controller_.i16 = getelementptr inbounds %"class.net::QuicSession", ptr %8, i64 0, i32 21
+  %flow_controller_.i16 = getelementptr inbounds i8, ptr %8, i64 1944
   store ptr %flow_controller_.i16, ptr %connection_flow_controller_, align 8
-  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   store i8 1, ptr %stream_contributes_to_connection_flow_control_, align 8
   ret void
 
@@ -415,8 +225,8 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i
   %__cur.05.i.i = phi ptr [ %1, %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1
-  %ack_listener.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1, i32 0, i64 40
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
+  %ack_listener.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 56
   %2 = load ptr, ptr %ack_listener.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i, label %if.then.i.i.i.i.i.i
@@ -431,7 +241,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #15
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i
@@ -450,9 +260,9 @@ _ZNSt7__cxx1110_List_baseIN3net18ReliableQuicStream11PendingDataESaIS3_EED2Ev.ex
 define dso_local void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencerD1Ev(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_) #15
-  %queued_data_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1
+  %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %queued_data_, align 8
   %cmp.not4.i.i.i = icmp eq ptr %0, %queued_data_
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EED2Ev.exit, label %while.body.i.i.i
@@ -460,8 +270,8 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i
   %__cur.05.i.i.i = phi ptr [ %1, %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1
-  %ack_listener.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i, i64 0, i32 1, i32 0, i64 40
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
+  %ack_listener.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 56
   %2 = load ptr, ptr %ack_listener.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -476,7 +286,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.body.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(12) %2) #15
   br label %_ZNSt16allocator_traitsISaISt10_List_nodeIN3net18ReliableQuicStream11PendingDataEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i
@@ -506,44 +316,44 @@ define dso_local void @_ZN3net18ReliableQuicStream13OnStreamFrameERKNS_15QuicStr
 if.end:
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::allocator", align 1
-  %fin = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 1
+  %fin = getelementptr inbounds i8, ptr %frame, i64 4
   %0 = load i8, ptr %fin, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %fin_received_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_ = getelementptr inbounds i8, ptr %this, i64 260
   store i8 1, ptr %fin_received_, align 4
-  %fin_sent_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 14
+  %fin_sent_ = getelementptr inbounds i8, ptr %this, i64 259
   %2 = load i8, ptr %fin_sent_, align 1
   %3 = and i8 %2, 1
   %tobool5.not = icmp eq i8 %3, 0
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.then4
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %4 = load ptr, ptr %session_, align 8
-  %id_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_ = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load i32, ptr %id_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 33
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %if.then6, %if.end
-  %read_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %7 = load i8, ptr %read_side_closed_, align 8
   %8 = and i8 %7, 1
   %tobool9.not = icmp eq i8 %8, 0
   br i1 %tobool9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %data_length = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 2
+  %data_length = getelementptr inbounds i8, ptr %frame, i64 6
   %9 = load i16, ptr %data_length, align 2
   %conv = zext i16 %9 to i64
-  %stream_bytes_read_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 7
+  %stream_bytes_read_ = getelementptr inbounds i8, ptr %this, i64 232
   %10 = load i64, ptr %stream_bytes_read_, align 8
   %add = add i64 %10, %conv
   store i64 %add, ptr %stream_bytes_read_, align 8
@@ -551,27 +361,27 @@ if.end11:                                         ; preds = %if.end8
   br i1 %cmp.not, label %if.end27, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end11
-  %offset = getelementptr inbounds %"struct.net::QuicStreamFrame", ptr %frame, i64 0, i32 4
+  %offset = getelementptr inbounds i8, ptr %frame, i64 16
   %11 = load i64, ptr %offset, align 8
   %add12 = add i64 %11, %conv
-  %flow_controller_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
-  %highest_received_byte_offset_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21, i32 6
+  %flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 272
+  %highest_received_byte_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %12 = load i64, ptr %highest_received_byte_offset_.i.i, align 8
   %sub.i = sub i64 %add12, %12
   %call3.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_.i, i64 noundef %add12)
   br i1 %call3.i, label %if.end.i, label %if.end27
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
   %13 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i7 = icmp eq i8 %14, 0
   br i1 %tobool.not.i7, label %if.then14, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %connection_flow_controller_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
   %15 = load ptr, ptr %connection_flow_controller_.i, align 8
-  %highest_received_byte_offset_.i2.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %15, i64 0, i32 6
+  %highest_received_byte_offset_.i2.i = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load i64, ptr %highest_received_byte_offset_.i2.i, align 8
   %add.i = add i64 %sub.i, %16
   %call7.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %15, i64 noundef %add.i)
@@ -582,7 +392,7 @@ if.then14:                                        ; preds = %if.end.i, %if.then4
   br i1 %call15, label %if.then17, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then14
-  %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
   %17 = load ptr, ptr %connection_flow_controller_, align 8
   %call16 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr noundef nonnull align 8 dereferenceable(96) %17)
   br i1 %call16, label %if.then17, label %if.end27
@@ -608,7 +418,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont21:                                    ; preds = %.noexc
   %vtable22 = load ptr, ptr %this, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 9
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 72
   %19 = load ptr, ptr %vfn23, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 59, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18)
           to label %invoke.cont25 unwind label %lpad24
@@ -635,7 +445,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad.i, %l
   resume { ptr, i32 } %.pn
 
 if.end27:                                         ; preds = %land.lhs.true, %lor.lhs.false, %if.end11
-  %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13OnStreamFrameERKNS_15QuicStreamFrameE(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_, ptr noundef nonnull align 8 dereferenceable(40) %frame)
   br label %return
 
@@ -649,24 +459,24 @@ declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(377) %this, i64 noundef %new_offset) local_unnamed_addr #2 align 2 {
 entry:
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
-  %highest_received_byte_offset_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21, i32 6
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
+  %highest_received_byte_offset_.i = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load i64, ptr %highest_received_byte_offset_.i, align 8
   %sub = sub i64 %new_offset, %0
   %call3 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %new_offset)
   br i1 %call3, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %1 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
   %3 = load ptr, ptr %connection_flow_controller_, align 8
-  %highest_received_byte_offset_.i2 = getelementptr inbounds %"class.net::QuicFlowController", ptr %3, i64 0, i32 6
+  %highest_received_byte_offset_.i2 = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i64, ptr %highest_received_byte_offset_.i2, align 8
   %add = add i64 %sub, %4
   %call7 = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef %add)
@@ -689,7 +499,7 @@ declare void @_ZN3net19QuicStreamSequencer13OnStreamFrameERKNS_15QuicStreamFrame
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3net18ReliableQuicStream19num_frames_receivedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(377) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %num_frames_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3, i32 6
+  %num_frames_received_.i = getelementptr inbounds i8, ptr %this, i64 188
   %0 = load i32, ptr %num_frames_received_.i, align 4
   ret i32 %0
 }
@@ -697,7 +507,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK3net18ReliableQuicStream29num_duplicate_frames_receivedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(377) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %num_duplicate_frames_received_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3, i32 7
+  %num_duplicate_frames_received_.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i32, ptr %num_duplicate_frames_received_.i, align 8
   ret i32 %0
 }
@@ -705,43 +515,43 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream13OnStreamResetERKNS_18QuicRstStreamFrameE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %frame) unnamed_addr #2 align 2 {
 entry:
-  %rst_received_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 17
+  %rst_received_ = getelementptr inbounds i8, ptr %this, i64 262
   store i8 1, ptr %rst_received_, align 2
-  %byte_offset = getelementptr inbounds %"struct.net::QuicRstStreamFrame", ptr %frame, i64 0, i32 2
+  %byte_offset = getelementptr inbounds i8, ptr %frame, i64 8
   %0 = load i64, ptr %byte_offset, align 8
-  %flow_controller_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
-  %highest_received_byte_offset_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21, i32 6
+  %flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 272
+  %highest_received_byte_offset_.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %1 = load i64, ptr %highest_received_byte_offset_.i.i, align 8
   %sub.i = sub i64 %0, %1
   %call3.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_.i, i64 noundef %0)
   br i1 %call3.i, label %if.end.i, label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
 
 if.end.i:                                         ; preds = %entry
-  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
   %2 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %connection_flow_controller_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
   %4 = load ptr, ptr %connection_flow_controller_.i, align 8
-  %highest_received_byte_offset_.i2.i = getelementptr inbounds %"class.net::QuicFlowController", ptr %4, i64 0, i32 6
+  %highest_received_byte_offset_.i2.i = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load i64, ptr %highest_received_byte_offset_.i2.i, align 8
   %add.i = add i64 %sub.i, %5
   %call7.i = tail call noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef %add.i)
   br label %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
 
 _ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit: ; preds = %entry, %if.end.i, %if.then4.i
-  %error_code = getelementptr inbounds %"struct.net::QuicRstStreamFrame", ptr %frame, i64 0, i32 1
+  %error_code = getelementptr inbounds i8, ptr %frame, i64 4
   %6 = load i32, ptr %error_code, align 4
-  %stream_error_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 9
+  %stream_error_ = getelementptr inbounds i8, ptr %this, i64 248
   store i32 %6, ptr %stream_error_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(377) %this)
-  %read_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 256
   %8 = load i8, ptr %read_side_closed_.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i2 = icmp eq i8 %9, 0
@@ -749,21 +559,21 @@ _ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit: ; preds 
 
 if.end.i3:                                        ; preds = %_ZN3net18ReliableQuicStream34MaybeIncreaseHighestReceivedOffsetEm.exit
   store i8 1, ptr %read_side_closed_.i, align 8
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
-  %write_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
   %10 = load i8, ptr %write_side_closed_.i, align 1
   %11 = and i8 %10, 1
   %tobool3.not.i = icmp eq i8 %11, 0
   br i1 %tobool3.not.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.then4.i4
 
 if.then4.i4:                                      ; preds = %if.end.i3
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %12 = load ptr, ptr %session_.i, align 8
-  %id_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %13 = load i32, ptr %id_.i.i, align 8
   %vtable.i = load ptr, ptr %12, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 22
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %14 = load ptr, ptr %vfn.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(2044) %12, i32 noundef %13)
   br label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
@@ -775,7 +585,7 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %_ZN3net18ReliableQ
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream13CloseReadSideEv(ptr noundef nonnull align 8 dereferenceable(377) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %read_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -783,21 +593,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %read_side_closed_, align 8
-  %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_)
-  %write_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
   %2 = load i8, ptr %write_side_closed_, align 1
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %4 = load ptr, ptr %session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load i32, ptr %id_.i, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
   br label %if.end5
@@ -809,14 +619,14 @@ if.end5:                                          ; preds = %entry, %if.then4, %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream18OnConnectionClosedENS_13QuicErrorCodeENS_21ConnectionCloseSourceE(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %error, i32 %0) unnamed_addr #2 align 2 {
 entry:
-  %read_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %1 = load i8, ptr %read_side_closed_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %write_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
   %3 = load i8, ptr %write_side_closed_, align 1
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
@@ -827,15 +637,15 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %stream_error_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 9
+  %stream_error_ = getelementptr inbounds i8, ptr %this, i64 248
   store i32 4, ptr %stream_error_, align 8
-  %connection_error_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 10
+  %connection_error_ = getelementptr inbounds i8, ptr %this, i64 252
   store i32 %error, ptr %connection_error_, align 4
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(377) %this)
   %6 = load i8, ptr %read_side_closed_, align 8
@@ -845,21 +655,21 @@ if.end4:                                          ; preds = %if.then3, %if.end
 
 if.end.i:                                         ; preds = %if.end4
   store i8 1, ptr %read_side_closed_, align 8
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
-  %write_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
   %8 = load i8, ptr %write_side_closed_.i, align 1
   %9 = and i8 %8, 1
   %tobool3.not.i = icmp eq i8 %9, 0
   br i1 %tobool3.not.i, label %return, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %10 = load ptr, ptr %session_.i, align 8
-  %id_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %11 = load i32, ptr %id_.i.i, align 8
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 22
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %12 = load ptr, ptr %vfn.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(2044) %10, i32 noundef %11)
   br label %return
@@ -871,9 +681,9 @@ return:                                           ; preds = %if.then4.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream9OnFinReadEv(ptr noundef nonnull align 8 dereferenceable(377) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %fin_received_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_ = getelementptr inbounds i8, ptr %this, i64 260
   store i8 1, ptr %fin_received_, align 4
-  %read_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -881,21 +691,21 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i8 1, ptr %read_side_closed_.i, align 8
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
-  %write_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
   %2 = load i8, ptr %write_side_closed_.i, align 1
   %3 = and i8 %2, 1
   %tobool3.not.i = icmp eq i8 %3, 0
   br i1 %tobool3.not.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %4 = load ptr, ptr %session_.i, align 8
-  %id_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load i32, ptr %id_.i.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 22
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
   br label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
@@ -907,19 +717,19 @@ _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %entry, %if.end.i, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream5ResetENS_22QuicRstStreamErrorCodeE(ptr nocapture noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %error) unnamed_addr #2 align 2 {
 entry:
-  %stream_error_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 9
+  %stream_error_ = getelementptr inbounds i8, ptr %this, i64 248
   store i32 %error, ptr %stream_error_, align 8
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i, align 8
-  %stream_bytes_written_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 8
+  %stream_bytes_written_ = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i64, ptr %stream_bytes_written_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(2044) %0, i32 noundef %1, i32 noundef %error, i64 noundef %2)
-  %rst_sent_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 16
+  %rst_sent_ = getelementptr inbounds i8, ptr %this, i64 261
   store i8 1, ptr %rst_sent_, align 1
   ret void
 }
@@ -927,12 +737,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream26CloseConnectionWithDetailsENS_13QuicErrorCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(377) %this, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %details) unnamed_addr #2 align 2 {
 entry:
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %0, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(3372) %1, i32 noundef %error, ptr noundef nonnull align 8 dereferenceable(32) %details, i32 noundef 1)
   ret void
@@ -951,7 +761,7 @@ entry:
   %remainder = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp63 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %data.coerce0, ptr %data, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %data, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %data, i64 8
   store i64 %data.coerce1, ptr %0, align 8
   %frombool = zext i1 %fin to i8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
@@ -965,7 +775,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 185, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp3, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %cleanup.action unwind label %lpad
 
@@ -980,7 +790,7 @@ lpad:                                             ; preds = %cond.false
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %fin_buffered_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 13
+  %fin_buffered_ = getelementptr inbounds i8, ptr %this, i64 258
   %2 = load i8, ptr %fin_buffered_, align 2
   %3 = and i8 %2, 1
   %tobool11.not = icmp eq i8 %3, 0
@@ -992,7 +802,7 @@ if.then12:                                        ; preds = %if.end
 
 cond.false15:                                     ; preds = %if.then12
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp17, ptr noundef nonnull @.str, i32 noundef 190, i32 noundef 2)
-  %stream_.i6 = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp17, i64 0, i32 2
+  %stream_.i6 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   %call23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i6, ptr noundef nonnull @.str.3)
           to label %cleanup.action27 unwind label %lpad19
 
@@ -1007,7 +817,7 @@ lpad19:                                           ; preds = %cond.false15
   br label %eh.resume
 
 if.end32:                                         ; preds = %if.end
-  %write_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
   %5 = load i8, ptr %write_side_closed_, align 1
   %6 = and i8 %5, 1
   %tobool33.not = icmp eq i8 %6, 0
@@ -1016,7 +826,7 @@ if.end32:                                         ; preds = %if.end
 if.end35:                                         ; preds = %if.end32
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %consumed_data, i64 noundef 0, i1 noundef zeroext false)
   store i8 %frombool, ptr %fin_buffered_, align 2
-  %queued_data_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1
+  %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %queued_data_, align 8
   %cmp.i = icmp eq ptr %7, %queued_data_
   br i1 %cmp.i, label %if.then40, label %if.end35.if.end53_crit_edge
@@ -1030,13 +840,13 @@ if.then40:                                        ; preds = %if.end35
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %data.i, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %data.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %data.i, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %8, align 8
   %call.i = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data.i)
   %call1.i = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   store ptr %call.i, ptr %iov, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %iov, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %call1.i, ptr %9, align 8
   %call44 = call { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull %iov, i32 noundef 1, i1 noundef zeroext %fin, ptr noundef %ack_listener)
   %10 = extractvalue { i64, i8 } %call44, 0
@@ -1056,7 +866,7 @@ lor.lhs.false:                                    ; preds = %if.end53
   br i1 %fin, label %land.lhs.true56, label %if.end67
 
 land.lhs.true56:                                  ; preds = %lor.lhs.false
-  %fin_consumed = getelementptr inbounds %"struct.net::QuicConsumedData", ptr %consumed_data, i64 0, i32 1
+  %fin_consumed = getelementptr inbounds i8, ptr %consumed_data, i64 8
   %13 = load i8, ptr %fin_consumed, align 8
   %14 = and i8 %13, 1
   %tobool57.not = icmp eq i8 %14, 0
@@ -1067,11 +877,11 @@ if.then58:                                        ; preds = %land.lhs.true56, %i
   %call60 = call { ptr, i64 } @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %15, i64 noundef -1)
   %16 = extractvalue { ptr, i64 } %call60, 0
   store ptr %16, ptr %remainder, align 8
-  %17 = getelementptr inbounds { ptr, i64 }, ptr %remainder, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %remainder, i64 8
   %18 = extractvalue { ptr, i64 } %call60, 1
   store i64 %18, ptr %17, align 8
   %call61 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %remainder)
-  %queued_data_bytes_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 2
+  %queued_data_bytes_ = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i64, ptr %queued_data_bytes_, align 8
   %add = add i64 %19, %call61
   store i64 %add, ptr %queued_data_bytes_, align 8
@@ -1080,13 +890,13 @@ if.then58:                                        ; preds = %land.lhs.true56, %i
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad64
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.then58
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i8, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i) #15
-  %offset.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i8, i64 0, i32 1, i32 0, i64 32
+  %offset.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 48
   store i64 0, ptr %offset.i.i.i.i.i.i, align 8
-  %ack_listener.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i8, i64 0, i32 1, i32 0, i64 40
+  %ack_listener.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i8, i64 56
   store ptr %ack_listener, ptr %ack_listener.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %ack_listener, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont65, label %if.then.i.i.i.i.i.i.i
@@ -1102,7 +912,7 @@ invoke.cont65:                                    ; preds = %if.then.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i.i.i.i) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i8, ptr noundef nonnull %queued_data_) #15
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %21 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %21, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -1138,7 +948,7 @@ define dso_local { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecib
 entry:
   %retval = alloca %"struct.net::QuicConsumedData", align 8
   %agg.tmp = alloca %"struct.net::QuicIOVector", align 8
-  %write_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
   %0 = load i8, ptr %write_side_closed_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1169,16 +979,16 @@ _ZN3net16TotalIovecLengthEPK5iovecm.exit:         ; preds = %for.body.i, %if.end
   %length.1.i = phi i64 [ 0, %if.end ], [ %add.i, %for.body.i ]
   %cmp = icmp eq i64 %length.1.i, 0
   %3 = and i1 %cmp, %fin
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   %call4 = tail call noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_)
-  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %4 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
   %5 = and i8 %4, 1
   %tobool5.not = icmp eq i8 %5, 0
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %_ZN3net16TotalIovecLengthEPK5iovecm.exit
-  %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
   %6 = load ptr, ptr %connection_flow_controller_, align 8
   %call7 = tail call noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %call7, i64 %call4)
@@ -1186,9 +996,9 @@ if.then6:                                         ; preds = %_ZN3net16TotalIovec
 
 if.end9:                                          ; preds = %if.then6, %_ZN3net16TotalIovecLengthEPK5iovecm.exit
   %send_window.0 = phi i64 [ %call4, %_ZN3net16TotalIovecLengthEPK5iovecm.exit ], [ %.sroa.speculated, %if.then6 ]
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load ptr, ptr %session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %8 = load i32, ptr %id_.i, align 8
   %call11 = tail call noundef zeroext i1 @_ZN3net11QuicSession11ShouldYieldEj(ptr noundef nonnull align 8 dereferenceable(2044) %7, i32 noundef %8)
   br i1 %call11, label %if.then12, label %if.end15
@@ -1213,7 +1023,7 @@ if.then18:                                        ; preds = %if.end15
   br i1 %tobool.not.i, label %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then18
-  %connection_flow_controller_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
   %13 = load ptr, ptr %connection_flow_controller_.i, align 8
   tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %13)
   %14 = load ptr, ptr %connection_flow_controller_.i, align 8
@@ -1239,19 +1049,19 @@ if.end19:                                         ; preds = %if.end15
   %spec.select = tail call i64 @llvm.umin.i64(i64 %length.1.i, i64 %send_window.0)
   %spec.select10 = and i1 %cmp20, %fin
   store ptr %iov, ptr %agg.tmp, align 8
-  %iov_count3.i = getelementptr inbounds %"struct.net::QuicIOVector", ptr %agg.tmp, i64 0, i32 1
+  %iov_count3.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %iov_count, ptr %iov_count3.i, align 8
-  %total_length4.i = getelementptr inbounds %"struct.net::QuicIOVector", ptr %agg.tmp, i64 0, i32 2
+  %total_length4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 %spec.select, ptr %total_length4.i, align 8
-  %stream_bytes_written_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 8
+  %stream_bytes_written_ = getelementptr inbounds i8, ptr %this, i64 240
   %17 = load i64, ptr %stream_bytes_written_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %18 = load ptr, ptr %vfn, align 8
   %call24 = tail call { i64, i8 } %18(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %agg.tmp, i64 noundef %17, i1 noundef zeroext %spec.select10, ptr noundef %ack_listener)
   %19 = extractvalue { i64, i8 } %call24, 0
   store i64 %19, ptr %retval, align 8
-  %20 = getelementptr inbounds { i64, i8 }, ptr %retval, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %retval, i64 8
   %21 = extractvalue { i64, i8 } %call24, 1
   store i8 %21, ptr %20, align 8
   %22 = load i64, ptr %stream_bytes_written_, align 8
@@ -1264,7 +1074,7 @@ if.end19:                                         ; preds = %if.end15
   br i1 %tobool.not.i14, label %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end19
-  %connection_flow_controller_.i15 = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_.i15 = getelementptr inbounds i8, ptr %this, i64 368
   %25 = load ptr, ptr %connection_flow_controller_.i15, align 8
   tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %25, i64 noundef %19)
   br label %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit
@@ -1295,9 +1105,9 @@ land.lhs.true38:                                  ; preds = %if.end36
   br i1 %tobool39.not, label %if.then53, label %if.then40
 
 if.then40:                                        ; preds = %land.lhs.true38
-  %fin_sent_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 14
+  %fin_sent_ = getelementptr inbounds i8, ptr %this, i64 259
   store i8 1, ptr %fin_sent_, align 1
-  %fin_received_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 15
+  %fin_received_ = getelementptr inbounds i8, ptr %this, i64 260
   %29 = load i8, ptr %fin_received_, align 4
   %30 = and i8 %29, 1
   %tobool41.not = icmp eq i8 %30, 0
@@ -1307,14 +1117,14 @@ if.then42:                                        ; preds = %if.then40
   %31 = load ptr, ptr %session_, align 8
   %32 = load i32, ptr %id_.i, align 8
   %vtable44 = load ptr, ptr %31, align 8
-  %vfn45 = getelementptr inbounds ptr, ptr %vtable44, i64 33
+  %vfn45 = getelementptr inbounds i8, ptr %vtable44, i64 264
   %33 = load ptr, ptr %vfn45, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(2044) %31, i32 noundef %32)
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then42, %if.then40
   %vtable47 = load ptr, ptr %this, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 14
+  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 112
   %34 = load ptr, ptr %vfn48, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(377) %this)
   br label %return
@@ -1334,7 +1144,7 @@ if.else58:                                        ; preds = %if.end30
 return:                                           ; preds = %if.end36, %if.else58, %if.then53, %if.end46, %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit, %_ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit, %if.then12, %if.then
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i64, i8 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i8, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.fca.1.load, 1
   ret { i64, i8 } %.fca.1.insert
@@ -1353,23 +1163,23 @@ define dso_local void @_ZN3net18ReliableQuicStream10OnCanWriteEv(ptr noundef non
 entry:
   %ref.tmp15 = alloca %"class.logging::LogMessage", align 8
   %iov = alloca %struct.iovec, align 8
-  %queued_data_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1
+  %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %queued_data_, align 8
   %cmp.i22 = icmp eq ptr %0, %queued_data_
   br i1 %cmp.i22, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_size.i.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %fin_buffered_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 13
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
-  %queued_data_bytes_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 2
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fin_buffered_ = getelementptr inbounds i8, ptr %this, i64 258
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
+  %queued_data_bytes_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %21, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
   %fin.023 = phi i8 [ 0, %while.body.lr.ph ], [ %fin.1, %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1
-  %ack_listener4 = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1, i32 0, i64 40
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %ack_listener4 = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %ack_listener4, align 8
   %3 = load i64, ptr %_M_size.i.i.i, align 8
   %cmp = icmp eq i64 %3, 1
@@ -1378,7 +1188,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %tobool.not = icmp eq i8 %5, 0
   %spec.select = select i1 %tobool.not, i8 %fin.023, i8 1
   %fin.1 = select i1 %cmp, i8 %spec.select, i8 %fin.023
-  %offset = getelementptr inbounds %"struct.std::_List_node", ptr %1, i64 0, i32 1, i32 0, i64 32
+  %offset = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i64, ptr %offset, align 8
   %cmp8.not = icmp eq i64 %6, 0
   br i1 %cmp8.not, label %if.end32, label %land.lhs.true9
@@ -1394,7 +1204,7 @@ if.then13:                                        ; preds = %land.lhs.true9
 
 cond.false:                                       ; preds = %if.then13
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp15, ptr noundef nonnull @.str, i32 noundef 228, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp15, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.4)
           to label %invoke.cont17 unwind label %lpad
 
@@ -1451,7 +1261,7 @@ if.then49:                                        ; preds = %if.end32
   %sub.i.i.i = add i64 %17, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #15
-  %ack_listener.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %16, i64 0, i32 1, i32 0, i64 40
+  %ack_listener.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 56
   %18 = load ptr, ptr %ack_listener.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit, label %if.then.i.i.i.i.i.i
@@ -1466,13 +1276,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then49
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(12) %18) #15
   br label %_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit
 
 _ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EE9pop_frontEv.exit: ; preds = %if.then49, %if.then.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i.i.i
-  %_M_storage.i.i.i19 = getelementptr inbounds %"struct.std::_List_node", ptr %16, i64 0, i32 1
+  %_M_storage.i.i.i19 = getelementptr inbounds i8, ptr %16, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i19) #15
   call void @_ZdlPv(ptr noundef nonnull %16) #16
   %21 = load ptr, ptr %queued_data_, align 8
@@ -1504,16 +1314,16 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(377) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_)
-  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
   %2 = load ptr, ptr %connection_flow_controller_, align 8
   tail call void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
   %3 = load ptr, ptr %connection_flow_controller_, align 8
@@ -1525,9 +1335,9 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %call4, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %4 = load ptr, ptr %session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load i32, ptr %id_.i, align 8
   tail call void @_ZN3net11QuicSession31MarkConnectionLevelWriteBlockedEj(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
   br label %if.end7
@@ -1549,16 +1359,16 @@ declare noundef zeroext i1 @_ZN3net11QuicSession11ShouldYieldEj(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(377) %this, i64 noundef %bytes) local_unnamed_addr #2 align 2 {
 entry:
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %bytes)
-  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
   %2 = load ptr, ptr %connection_flow_controller_, align 8
   tail call void @_ZN3net18QuicFlowController12AddBytesSentEm(ptr noundef nonnull align 8 dereferenceable(96) %2, i64 noundef %bytes)
   br label %if.end
@@ -1570,12 +1380,12 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local { i64, i8 } @_ZN3net18ReliableQuicStream15WritevDataInnerENS_12QuicIOVectorEmbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr nocapture noundef readonly byval(%"struct.net::QuicIOVector") align 8 %iov, i64 noundef %offset, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate) unnamed_addr #2 align 2 {
 entry:
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load i32, ptr %id_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call { i64, i8 } %2(ptr noundef nonnull align 8 dereferenceable(2044) %0, ptr noundef nonnull %this, i32 noundef %1, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %iov, i64 noundef %offset, i1 noundef zeroext %fin, ptr noundef %ack_notifier_delegate)
   ret { i64, i8 } %call3
@@ -1586,7 +1396,7 @@ declare void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream14CloseWriteSideEv(ptr nocapture noundef nonnull align 8 dereferenceable(377) %this) unnamed_addr #2 align 2 {
 entry:
-  %write_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_ = getelementptr inbounds i8, ptr %this, i64 257
   %0 = load i8, ptr %write_side_closed_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1594,19 +1404,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %write_side_closed_, align 1
-  %read_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %2 = load i8, ptr %read_side_closed_, align 8
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %4 = load ptr, ptr %session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load i32, ptr %id_.i, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %6 = load ptr, ptr %vfn, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
   br label %if.end5
@@ -1618,7 +1428,7 @@ if.end5:                                          ; preds = %entry, %if.then4, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net18ReliableQuicStream15HasBufferedDataEv(ptr noundef nonnull readonly align 8 dereferenceable(377) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %queued_data_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 1
+  %queued_data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %queued_data_, align 8
   %cmp.i = icmp ne ptr %0, %queued_data_
   ret i1 %cmp.i
@@ -1627,11 +1437,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK3net18ReliableQuicStream7versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(377) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %0, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %quic_version_.i.i = getelementptr inbounds %"class.net::QuicConnection", ptr %1, i64 0, i32 4, i32 13
+  %quic_version_.i.i = getelementptr inbounds i8, ptr %1, i64 300
   %2 = load i32, ptr %quic_version_.i.i, align 4
   ret i32 %2
 }
@@ -1639,7 +1449,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream11StopReadingEv(ptr noundef nonnull align 8 dereferenceable(377) %this) unnamed_addr #2 align 2 {
 entry:
-  %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer11StopReadingEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_)
   ret void
 }
@@ -1649,18 +1459,18 @@ declare void @_ZN3net19QuicStreamSequencer11StopReadingEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(26) ptr @_ZNK3net18ReliableQuicStream25PeerAddressOfLatestPacketEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(377) %this) unnamed_addr #8 align 2 {
 entry:
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_, align 8
-  %connection_.i = getelementptr inbounds %"class.net::QuicSession", ptr %0, i64 0, i32 2
+  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
-  %last_packet_source_address_.i = getelementptr inbounds %"class.net::QuicConnection", ptr %1, i64 0, i32 83
+  %last_packet_source_address_.i = getelementptr inbounds i8, ptr %1, i64 3248
   ret ptr %last_packet_source_address_.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream7OnCloseEv(ptr noundef nonnull align 8 dereferenceable(377) %this) unnamed_addr #2 align 2 {
 entry:
-  %read_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -1668,61 +1478,61 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store i8 1, ptr %read_side_closed_.i, align 8
-  %sequencer_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 3
+  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN3net19QuicStreamSequencer13ReleaseBufferEv(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i)
-  %write_side_closed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 12
+  %write_side_closed_.i = getelementptr inbounds i8, ptr %this, i64 257
   %2 = load i8, ptr %write_side_closed_.i, align 1
   %3 = and i8 %2, 1
   %tobool3.not.i = icmp eq i8 %3, 0
   br i1 %tobool3.not.i, label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %session_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
   %4 = load ptr, ptr %session_.i, align 8
-  %id_.i.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %5 = load i32, ptr %id_.i.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 22
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %6 = load ptr, ptr %vfn.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2044) %4, i32 noundef %5)
   br label %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
 
 _ZN3net18ReliableQuicStream13CloseReadSideEv.exit: ; preds = %entry, %if.end.i, %if.then4.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(377) %this)
-  %fin_sent_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 14
+  %fin_sent_ = getelementptr inbounds i8, ptr %this, i64 259
   %8 = load i8, ptr %fin_sent_, align 1
   %9 = and i8 %8, 1
   %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
-  %rst_sent_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 16
+  %rst_sent_ = getelementptr inbounds i8, ptr %this, i64 261
   %10 = load i8, ptr %rst_sent_, align 1
   %11 = and i8 %10, 1
   %tobool2.not = icmp eq i8 %11, 0
   br i1 %tobool2.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %session_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 6
+  %session_ = getelementptr inbounds i8, ptr %this, i64 224
   %12 = load ptr, ptr %session_, align 8
-  %id_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 4
+  %id_.i = getelementptr inbounds i8, ptr %this, i64 216
   %13 = load i32, ptr %id_.i, align 8
-  %stream_bytes_written_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 8
+  %stream_bytes_written_ = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load i64, ptr %stream_bytes_written_, align 8
   %vtable3 = load ptr, ptr %12, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 21
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 168
   %15 = load ptr, ptr %vfn4, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(2044) %12, i32 noundef %13, i32 noundef 7, i64 noundef %14)
   store i8 1, ptr %rst_sent_, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %_ZN3net18ReliableQuicStream13CloseReadSideEv.exit
-  %highest_received_byte_offset_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21, i32 6
+  %highest_received_byte_offset_.i = getelementptr inbounds i8, ptr %this, i64 312
   %16 = load i64, ptr %highest_received_byte_offset_.i, align 8
-  %bytes_consumed_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21, i32 5
+  %bytes_consumed_.i = getelementptr inbounds i8, ptr %this, i64 304
   %17 = load i64, ptr %bytes_consumed_.i, align 8
   %sub = sub i64 %16, %17
   %18 = load i8, ptr %read_side_closed_.i, align 8
@@ -1731,19 +1541,19 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %tobool.not.i2, label %if.then.i, label %if.end.i3
 
 if.then.i:                                        ; preds = %if.end
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %sub)
   br label %if.end.i3
 
 if.end.i3:                                        ; preds = %if.then.i, %if.end
-  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
   %20 = load i8, ptr %stream_contributes_to_connection_flow_control_.i, align 8
   %21 = and i8 %20, 1
   %tobool2.not.i = icmp eq i8 %21, 0
   br i1 %tobool2.not.i, label %_ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i3
-  %connection_flow_controller_.i = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_.i = getelementptr inbounds i8, ptr %this, i64 368
   %22 = load ptr, ptr %connection_flow_controller_.i, align 8
   tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %22, i64 noundef %sub)
   br label %_ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit
@@ -1755,26 +1565,26 @@ _ZN3net18ReliableQuicStream16AddBytesConsumedEm.exit: ; preds = %if.end.i3, %if.
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(377) %this, i64 noundef %bytes) local_unnamed_addr #2 align 2 {
 entry:
-  %read_side_closed_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 11
+  %read_side_closed_ = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i8, ptr %read_side_closed_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %bytes)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 23
+  %stream_contributes_to_connection_flow_control_ = getelementptr inbounds i8, ptr %this, i64 376
   %2 = load i8, ptr %stream_contributes_to_connection_flow_control_, align 8
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %connection_flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 22
+  %connection_flow_controller_ = getelementptr inbounds i8, ptr %this, i64 368
   %4 = load ptr, ptr %connection_flow_controller_, align 8
   tail call void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef %bytes)
   br label %if.end4
@@ -1786,15 +1596,15 @@ if.end4:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream19OnWindowUpdateFrameERKNS_21QuicWindowUpdateFrameE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %frame) unnamed_addr #2 align 2 {
 entry:
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
-  %byte_offset = getelementptr inbounds %"struct.net::QuicWindowUpdateFrame", ptr %frame, i64 0, i32 1
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
+  %byte_offset = getelementptr inbounds i8, ptr %frame, i64 8
   %0 = load i64, ptr %byte_offset, align 8
   %call = tail call noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWindowOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %0)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(377) %this)
   br label %if.end
@@ -1814,13 +1624,13 @@ declare void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18ReliableQuicStream22UpdateSendWindowOffsetEm(ptr noundef nonnull align 8 dereferenceable(377) %this, i64 noundef %new_window) local_unnamed_addr #2 align 2 {
 entry:
-  %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this, i64 0, i32 21
+  %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   %call = tail call noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWindowOffsetEm(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_, i64 noundef %new_window)
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(377) %this)
   br label %if.end

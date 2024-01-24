@@ -3,30 +3,12 @@ source_filename = "bench/velox/original/DateTimeFormatterBuilder.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::functions::DateTimeFormatterBuilder" = type <{ %"class.std::unique_ptr", i64, %"class.std::vector", i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::velox::functions::DateTimeToken, std::allocator<facebook::velox::functions::DateTimeToken>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.facebook::velox::functions::DateTimeToken" = type { i32, %union.anon }
 %union.anon = type { %"struct.facebook::velox::functions::FormatPattern" }
 %"struct.facebook::velox::functions::FormatPattern" = type { i8, i64 }
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<facebook::velox::functions::DateTimeFormatter, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<facebook::velox::functions::DateTimeFormatter, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<48, 8>::type" }
-%"union.std::aligned_storage<48, 8>::type" = type { [48 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions17DateTimeFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -74,7 +56,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox9functions24DateTimeFormatterBuilderC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this, i64 noundef %literalBufSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %type_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 3
+  %type_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store i32 2, ptr %type_, align 8
   %call = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %literalBufSize) #13
@@ -99,22 +81,22 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder9appendEraEv(ptr noundef nonnull returned align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 2, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -133,7 +115,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -149,9 +131,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 0, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 2, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -160,14 +142,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !4
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -189,22 +171,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendCenturyOfEraEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -223,7 +205,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -239,9 +221,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 1, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -250,14 +232,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !10
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -279,22 +261,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendYearOfEraEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 2, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -313,7 +295,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -329,9 +311,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 2, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -340,14 +322,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !14
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -369,22 +351,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder14appendWeekYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 3, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -403,7 +385,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -419,9 +401,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 3, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -430,14 +412,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !18
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -459,22 +441,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendWeekOfWeekYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 4, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -493,7 +475,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -509,9 +491,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 4, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -520,14 +502,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !22
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -549,22 +531,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendDayOfWeek0BasedEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 5, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -583,7 +565,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -599,9 +581,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 5, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -610,14 +592,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !26
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -639,22 +621,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendDayOfWeek1BasedEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 6, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -673,7 +655,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -689,9 +671,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 6, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -700,14 +682,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !30
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -729,22 +711,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder19appendDayOfWeekTextEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 7, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -763,7 +745,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -779,9 +761,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 7, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -790,14 +772,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !34
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -819,22 +801,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder10appendYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 8, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -853,7 +835,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -869,9 +851,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 8, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -880,14 +862,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !38
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -909,22 +891,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendDayOfYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 9, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -943,7 +925,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -959,9 +941,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 9, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -970,14 +952,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !42
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -999,22 +981,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder17appendMonthOfYearEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 10, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1033,7 +1015,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1049,9 +1031,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 10, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1060,14 +1042,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !46
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1089,22 +1071,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder21appendMonthOfYearTextEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 11, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1123,7 +1105,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1139,9 +1121,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 11, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1150,14 +1132,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !50
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1179,22 +1161,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder16appendDayOfMonthEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 12, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1213,7 +1195,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1229,9 +1211,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 12, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1240,14 +1222,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !54
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1269,22 +1251,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendHalfDayOfDayEv(ptr noundef nonnull returned align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 13, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 2, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1303,7 +1285,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1319,9 +1301,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 13, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 2, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1330,14 +1312,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !58
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1359,22 +1341,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder19appendHourOfHalfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 14, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1393,7 +1375,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1409,9 +1391,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 14, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1420,14 +1402,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !62
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1449,22 +1431,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder24appendClockHourOfHalfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 15, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1483,7 +1465,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1499,9 +1481,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 15, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1510,14 +1492,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !66
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1539,22 +1521,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder15appendHourOfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 16, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1573,7 +1555,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1589,9 +1571,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 16, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1600,14 +1582,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !70
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1629,22 +1611,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendClockHourOfDayEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 17, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1663,7 +1645,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1679,9 +1661,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 17, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1690,14 +1672,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !74
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1719,22 +1701,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder18appendMinuteOfHourEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 18, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1753,7 +1735,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1769,9 +1751,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 18, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1780,14 +1762,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !78
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1809,22 +1791,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder20appendSecondOfMinuteEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 19, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1843,7 +1825,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1859,9 +1841,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 19, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1870,14 +1852,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !82
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1899,22 +1881,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder22appendFractionOfSecondEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %digits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 20, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %digits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -1933,7 +1915,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -1949,9 +1931,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 20, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %digits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -1960,14 +1942,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !86
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -1989,22 +1971,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder14appendTimeZoneEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 21, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -2023,7 +2005,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -2039,9 +2021,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 21, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -2050,14 +2032,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !90
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -2079,22 +2061,22 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder22appendTimeZoneOffsetIdEm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, i64 noundef %minDigits) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 22, ptr %2, align 8
-  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %0, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJNS2_13FormatPatternEEEERS3_DpOT_.exit
 
@@ -2113,7 +2095,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -2129,9 +2111,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 0, ptr %add.ptr.i.i, align 8
-  %6 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %6 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store i8 22, ptr %6, align 8
-  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %6, i64 8
+  %ref.tmp.sroa.33.0..sroa_idx4 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   store i64 %minDigits, ptr %ref.tmp.sroa.33.0..sroa_idx4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
@@ -2140,14 +2122,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %4, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !94
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJNS2_13FormatPatternEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -2169,7 +2151,7 @@ _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12emplace_backIJN
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull returned align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %literal) local_unnamed_addr #0 align 2 {
 entry:
-  %_M_str.i = getelementptr inbounds %"class.std::basic_string_view", ptr %literal, i64 0, i32 1
+  %_M_str.i = getelementptr inbounds i8, ptr %literal, i64 8
   %0 = load ptr, ptr %_M_str.i, align 8
   %1 = load i64, ptr %literal, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralEPKcm(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %0, i64 noundef %1)
@@ -2180,28 +2162,28 @@ entry:
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralEPKcm(ptr noundef nonnull returned align 8 dereferenceable(44) %this, ptr nocapture noundef readonly %literalStart, i64 noundef %literalSize) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %bufEnd_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 1
+  %bufEnd_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %bufEnd_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %call2 = tail call ptr @strncpy(ptr noundef %add.ptr, ptr noundef %literalStart, i64 noundef %literalSize) #16
   %2 = load i64, ptr %bufEnd_, align 8
   %add = add i64 %2, %literalSize
   store i64 %add, ptr %bufEnd_, align 8
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %tokens_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -24
   %5 = load i32, ptr %add.ptr.i.i, align 8
   %cmp = icmp eq i32 %5, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %6 = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 -1, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 -16
   %7 = load i64, ptr %6, align 8
   %add11 = add i64 %7, %literalSize
   store i64 %add11, ptr %6, align 8
@@ -2210,19 +2192,19 @@ if.then:                                          ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true, %entry
   %8 = load ptr, ptr %this, align 8
   %add.ptr20 = getelementptr inbounds i8, ptr %8, i64 %2
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %9
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
   store i32 1, ptr %4, align 8
-  %10 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %literalSize, ptr %10, align 8
-  %ref.tmp15.sroa.3.0..sroa_idx = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %4, i64 0, i32 1, i32 0, i32 1
+  %ref.tmp15.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %add.ptr20, ptr %ref.tmp15.sroa.3.0..sroa_idx, align 8
   %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %11, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %if.end
 
@@ -2240,7 +2222,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 _ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %12 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %12
@@ -2256,9 +2238,9 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   %cond.i17.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i13 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
   store i32 1, ptr %add.ptr.i.i13, align 8
-  %13 = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i, i32 1
+  %13 = getelementptr inbounds i8, ptr %add.ptr.i.i13, i64 8
   store i64 %literalSize, ptr %13, align 8
-  %ref.tmp15.sroa.3.0..sroa_idx15 = getelementptr inbounds i8, ptr %13, i64 8
+  %ref.tmp15.sroa.3.0..sroa_idx15 = getelementptr inbounds i8, ptr %add.ptr.i.i13, i64 16
   store ptr %add.ptr20, ptr %ref.tmp15.sroa.3.0..sroa_idx15, align 8
   br i1 %cmp.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i
 
@@ -2266,14 +2248,14 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %f
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i17.i.i, %invoke.cont.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i.i.i, i64 24, i1 false), !alias.scope !98
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i, label %for.body.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i: ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i17.i.i, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.facebook::velox::functions::DateTimeToken", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 24
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EE17_M_realloc_insertIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i27.i.i
 
@@ -2301,7 +2283,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder7setTypeENS1_21DateTimeFormatterTypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(44) %this, i32 noundef %type) local_unnamed_addr #4 align 2 {
 entry:
-  %type_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 3
+  %type_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %type, ptr %type_, align 8
   ret ptr %this
 }
@@ -2309,7 +2291,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox9functions24DateTimeFormatterBuilder5buildEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %type_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 3
+  %type_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %type_, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.then, label %if.end
@@ -2319,29 +2301,29 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %tokens_ = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2
+  %tokens_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   store ptr null, ptr %agg.result, align 8, !alias.scope !102
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13, !noalias !102
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !102
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !102
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions17DateTimeFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !102
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %1 = load <2 x i64>, ptr %this, align 8, !noalias !102
   store ptr null, ptr %this, align 8, !noalias !102
   store <2 x i64> %1, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !102
-  %tokens_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %tokens_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 32
   %2 = load <2 x ptr>, ptr %tokens_, align 8, !noalias !102
   store <2 x ptr> %2, ptr %tokens_.i.i.i.i.i.i.i.i, align 8, !noalias !102
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::functions::DateTimeFormatterBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 48
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !102
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens_, i8 0, i64 24, i1 false), !noalias !102
-  %type_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
+  %type_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 56
   store i32 %0, ptr %type_.i.i.i.i.i.i.i.i, align 8, !noalias !102
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !102
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !alias.scope !102
@@ -2382,8 +2364,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions17DateTimeFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
-  %tokens_.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %tokens_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %tokens_.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox9functions13DateTimeTokenESaIS3_EED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2416,12 +2398,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions17DateTimeFormatterESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #9 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i

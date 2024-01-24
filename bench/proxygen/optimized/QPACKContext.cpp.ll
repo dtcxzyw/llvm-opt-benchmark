@@ -4,26 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.proxygen::QPACKContext" = type <{ %"class.proxygen::QPACKHeaderTable", i32, i32, i32, [4 x i8] }>
-%"class.proxygen::QPACKHeaderTable" = type { %"class.proxygen::HeaderTable", i32, i32, i32, i32, %"class.std::unique_ptr" }
-%"class.proxygen::HeaderTable" = type { ptr, i32, i32, %"class.std::vector", i32, i32, i32, i8, %"class.folly::F14FastMap" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
@@ -62,11 +42,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen12QPACKContextC2Ejb(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %tableSize, i1 noundef zeroext %trackReferences) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN8proxygen16QPACKHeaderTableC1Ejb(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %tableSize, i1 noundef zeroext %trackReferences)
-  %blockedInsertions_ = getelementptr inbounds %"class.proxygen::QPACKContext", ptr %this, i64 0, i32 1
+  %blockedInsertions_ = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %blockedInsertions_, align 8
-  %duplications_ = getelementptr inbounds %"class.proxygen::QPACKContext", ptr %this, i64 0, i32 2
+  %duplications_ = getelementptr inbounds i8, ptr %this, i64 108
   store i32 0, ptr %duplications_, align 4
-  %staticRefs_ = getelementptr inbounds %"class.proxygen::QPACKContext", ptr %this, i64 0, i32 3
+  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 112
   store i32 0, ptr %staticRefs_, align 8
   ret void
 }
@@ -82,7 +62,7 @@ entry:
   br i1 %isStatic, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %staticRefs_ = getelementptr inbounds %"class.proxygen::QPACKContext", ptr %this, i64 0, i32 3
+  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i32, ptr %staticRefs_, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %staticRefs_, align 8
@@ -179,13 +159,13 @@ entry:
   %agg.tmp = alloca %"class.proxygen::HPACKHeader", align 8
   %ref.tmp8 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load ptr, ptr %headers, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data", ptr %headers, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %headers, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not6 = icmp eq ptr %0, %1
   br i1 %cmp.i.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %value.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %agg.tmp, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cleanup.done
@@ -193,7 +173,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   %2 = load ptr, ptr %__begin1.sroa.0.07, align 8
   store ptr %2, ptr %agg.tmp, align 8
   store ptr null, ptr %__begin1.sroa.0.07, align 8
-  %value3.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.07, i64 0, i32 1
+  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i, i64 24, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1
@@ -243,7 +223,7 @@ lpad10:                                           ; preds = %invoke.cont11, %inv
 
 cleanup.done:                                     ; preds = %invoke.cont
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #12
-  %incdec.ptr.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.07, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -267,7 +247,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i.i = icmp eq i8 %1, -128
   %2 = load ptr, ptr %value, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i

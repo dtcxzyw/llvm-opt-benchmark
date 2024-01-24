@@ -6,11 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.X509_POLICY_CACHE_st = type { ptr, ptr, i64, i64, i64 }
-%struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.POLICY_CONSTRAINTS_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
 
 @g_x509_policy_cache_lock = internal global %struct.CRYPTO_STATIC_MUTEX zeroinitializer, align 8
@@ -31,7 +26,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %data = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %cache, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %cache, i64 8
   %1 = load ptr, ptr %data, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -60,7 +55,7 @@ define hidden ptr @policy_cache_set(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %i.i = alloca i32, align 4
   tail call void @CRYPTO_STATIC_MUTEX_lock_read(ptr noundef nonnull @g_x509_policy_cache_lock) #6
-  %policy_cache = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 15
+  %policy_cache = getelementptr inbounds i8, ptr %x, i64 112
   %0 = load ptr, ptr %policy_cache, align 8
   tail call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_x509_policy_cache_lock) #6
   %cmp.not = icmp eq ptr %0, null
@@ -79,10 +74,10 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %policy_cache_new.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3
-  %any_skip.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call.i, i64 0, i32 2
+  %any_skip.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
-  %explicit_skip.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call.i, i64 0, i32 3
-  %map_skip.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call.i, i64 0, i32 4
+  %explicit_skip.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %map_skip.i = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %any_skip.i, i8 -1, i64 24, i1 false)
   store ptr %call.i, ptr %policy_cache, align 8
   %call1.i = call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 401, ptr noundef nonnull %i.i, ptr noundef null) #6
@@ -100,13 +95,13 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %tobool6.not.i, label %land.lhs.true.i, label %if.end.i.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %inhibitPolicyMapping.i = getelementptr inbounds %struct.POLICY_CONSTRAINTS_st, ptr %call1.i, i64 0, i32 1
+  %inhibitPolicyMapping.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %4 = load ptr, ptr %inhibitPolicyMapping.i, align 8
   %tobool7.not.i = icmp eq ptr %4, null
   br i1 %tobool7.not.i, label %bad_cache.i, label %if.end.i29.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %type.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %type.i.i, align 4
   %cmp1.i.i = icmp eq i32 %5, 258
   br i1 %cmp1.i.i, label %bad_cache.i, label %if.end15.i
@@ -114,14 +109,14 @@ if.end.i.i:                                       ; preds = %if.else.i
 if.end15.i:                                       ; preds = %if.end.i.i
   %call.i.i = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %3) #6
   store i64 %call.i.i, ptr %explicit_skip.i, align 8
-  %inhibitPolicyMapping17.phi.trans.insert.i = getelementptr inbounds %struct.POLICY_CONSTRAINTS_st, ptr %call1.i, i64 0, i32 1
+  %inhibitPolicyMapping17.phi.trans.insert.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %.pre.i = load ptr, ptr %inhibitPolicyMapping17.phi.trans.insert.i, align 8
   %cmp.i28.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.i28.i, label %if.end22.i, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %if.end15.i, %land.lhs.true.i
   %6 = phi ptr [ %.pre.i, %if.end15.i ], [ %4, %land.lhs.true.i ]
-  %type.i30.i = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 1
+  %type.i30.i = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %type.i30.i, align 4
   %cmp1.i31.i = icmp eq i32 %7, 258
   br i1 %cmp1.i31.i, label %bad_cache.i, label %if.end3.i32.i
@@ -149,7 +144,7 @@ if.end29.i:                                       ; preds = %if.end22.i
 
 if.end.i38.i:                                     ; preds = %if.end29.i
   %call1.i.i = call ptr @sk_new(ptr noundef nonnull @policy_data_cmp) #6
-  %data2.i.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %9, i64 0, i32 1
+  %data2.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call1.i.i, ptr %data2.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %call1.i.i, null
   br i1 %tobool.not.i.i, label %policy_cache_create.exit.thread.i, label %for.cond.preheader.i.i
@@ -167,7 +162,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %tobool10.not.i.i, label %policy_cache_create.exit.thread.i, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %for.body.i.i
-  %valid_policy.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call9.i.i, i64 0, i32 1
+  %valid_policy.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 8
   %10 = load ptr, ptr %valid_policy.i.i, align 8
   %call13.i.i = call i32 @OBJ_obj2nid(ptr noundef %10) #6
   %cmp14.i.i = icmp eq i32 %call13.i.i, 746
@@ -201,7 +196,7 @@ if.end31.i.i:                                     ; preds = %if.else24.i.i, %if.
   br i1 %cmp7.i.i, label %for.body.i.i, label %if.end33.i, !llvm.loop !7
 
 if.end34.thread.i.i:                              ; preds = %if.else.i.i, %if.then15.i.i
-  %ex_flags.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags.i.i = getelementptr inbounds i8, ptr %x, i64 64
   %14 = load i64, ptr %ex_flags.i.i, align 8
   %or.i.i = or i64 %14, 2048
   store i64 %or.i.i, ptr %ex_flags.i.i, align 8
@@ -213,7 +208,7 @@ if.end37.thread.i.i:                              ; preds = %if.else24.i.i, %if.
 
 policy_cache_create.exit.thread.i:                ; preds = %for.body.i.i, %if.end37.thread.i.i, %if.end.i38.i, %if.end29.i
   call void @sk_pop_free(ptr noundef nonnull %call23.i, ptr noundef nonnull @POLICYINFO_free) #6
-  %data40.i.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %9, i64 0, i32 1
+  %data40.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %15 = load ptr, ptr %data40.i.i, align 8
   call void @sk_pop_free(ptr noundef %15, ptr noundef nonnull @policy_data_free) #6
   store ptr null, ptr %data40.i.i, align 8
@@ -248,7 +243,7 @@ if.then48.i:                                      ; preds = %if.end45.i
   br i1 %cmp49.not.i, label %if.end60.i, label %bad_cache.i
 
 if.end.i40.i:                                     ; preds = %if.end45.i
-  %type.i41.i = getelementptr inbounds %struct.asn1_string_st, ptr %call46.i, i64 0, i32 1
+  %type.i41.i = getelementptr inbounds i8, ptr %call46.i, i64 4
   %18 = load i32, ptr %type.i41.i, align 4
   %cmp1.i42.i = icmp eq i32 %18, 258
   br i1 %cmp1.i42.i, label %bad_cache.i, label %policy_cache_set_int.exit46.i
@@ -260,7 +255,7 @@ policy_cache_set_int.exit46.i:                    ; preds = %if.end.i40.i
 
 bad_cache.i:                                      ; preds = %if.end.i40.i, %if.then48.i, %if.else40.i, %if.then36.i, %if.then25.i, %if.end.i29.i, %if.end.i.i, %land.lhs.true.i, %if.then3.i
   %ext_any.0.i = phi ptr [ null, %if.else40.i ], [ null, %if.then48.i ], [ null, %if.then36.i ], [ null, %if.then25.i ], [ null, %land.lhs.true.i ], [ null, %if.then3.i ], [ null, %if.end.i.i ], [ null, %if.end.i29.i ], [ %call46.i, %if.end.i40.i ]
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 9
+  %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 64
   %19 = load i64, ptr %ex_flags.i, align 8
   %or.i = or i64 %19, 2048
   store i64 %or.i, ptr %ex_flags.i, align 8
@@ -308,9 +303,9 @@ define hidden ptr @policy_cache_find_data(ptr nocapture noundef readonly %cache,
 entry:
   %idx = alloca i64, align 8
   %tmp = alloca %struct.X509_POLICY_DATA_st, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %tmp, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %tmp, i64 8
   store ptr %id, ptr %valid_policy, align 8
-  %data = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %cache, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %cache, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = call i32 @sk_find(ptr noundef %0, ptr noundef nonnull %idx, ptr noundef nonnull %tmp) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -352,10 +347,10 @@ declare ptr @sk_new(ptr noundef) local_unnamed_addr #1
 define internal i32 @policy_data_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %valid_policy, align 8
   %2 = load ptr, ptr %b, align 8
-  %valid_policy1 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %2, i64 0, i32 1
+  %valid_policy1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %valid_policy1, align 8
   %call = tail call i32 @OBJ_cmp(ptr noundef %1, ptr noundef %3) #6
   ret i32 %call

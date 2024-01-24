@@ -8,69 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon, i32, ptr, i32, ptr }
 %union.anon = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioPCIClass = type { %struct.PCIDeviceClass, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.VirtIOGPUPCIBase = type { %struct.VirtIOPCIProxy, ptr }
-%struct.VirtIOPCIProxy = type { %struct.PCIDevice, %struct.MemoryRegion, %union.anon.5, %struct.MemoryRegion, %struct.MemoryRegion, i32, i32, i32, i32, i32, i32, i8, i8, i32, i16, i32, i32, i32, i32, [2 x i32], [1024 x %struct.VirtIOPCIQueue], ptr, i32, %struct.VirtioBusState }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%union.anon.5 = type { %struct.anon }
-%struct.anon = type { %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion, %struct.VirtIOPCIRegion }
-%struct.VirtIOPCIRegion = type { %struct.MemoryRegion, i32, i32, i32 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.VirtIOPCIQueue = type { i16, i8, i8, [2 x i32], [2 x i32], [2 x i32] }
-%struct.VirtioBusState = type { %struct.BusState, i8, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.VirtIOGPUBase = type { %struct.VirtIODevice, ptr, %struct.virtio_gpu_base_conf, %struct.virtio_gpu_config, ptr, i32, i32, %struct.MemoryRegion, [16 x %struct.virtio_gpu_scanout], i32, [16 x %struct.virtio_gpu_requested_state] }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.8, %struct.EventNotifier, i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.6, %union.anon.7 }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%union.anon.8 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.virtio_gpu_base_conf = type { i32, i32, i32, i32, i64 }
-%struct.virtio_gpu_config = type { i32, i32, i32, i32 }
 %struct.virtio_gpu_scanout = type { ptr, ptr, i32, i32, i32, i32, i32, i32, %struct.virtio_gpu_update_cursor, ptr }
 %struct.virtio_gpu_update_cursor = type { %struct.virtio_gpu_ctrl_hdr, %struct.virtio_gpu_cursor_pos, i32, i32, i32, i32 }
 %struct.virtio_gpu_ctrl_hdr = type { i32, i32, i64, i32, i8, [3 x i8] }
 %struct.virtio_gpu_cursor_pos = type { i32, i32, i32, i32 }
-%struct.virtio_gpu_requested_state = type { i16, i16, i32, i32, i32, i32, i32 }
-%struct.VirtIOGPUPCI = type { %struct.VirtIOGPUPCIBase, %struct.VirtIOGPU }
-%struct.VirtIOGPU = type { %struct.VirtIOGPUBase, i64, ptr, ptr, ptr, ptr, ptr, %struct.QemuCond, i8, %union.anon.10, %union.anon.11, %union.anon.12, i64, i8, ptr, ptr, i32, %struct.anon.13, %struct.anon.14 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%union.anon.10 = type { %struct.QTailQLink }
-%union.anon.11 = type { %struct.QTailQLink }
-%union.anon.12 = type { %struct.QTailQLink }
-%struct.anon.13 = type { i32, i32, i32, i32 }
-%struct.anon.14 = type { %union.anon.15, [16 x ptr] }
-%union.anon.15 = type { %struct.QTailQLink }
 
 @virtio_gpu_pci_base_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 33760, i64 0, ptr null, ptr null, ptr null, i8 1, i64 0, ptr @virtio_gpu_pci_base_class_init, ptr null, ptr null, ptr null }, align 8
 @virtio_gpu_pci_info = internal constant %struct.VirtioPCIDeviceTypeInfo { ptr null, ptr @.str.12, ptr null, ptr null, ptr @.str, i64 37056, i64 0, ptr @virtio_gpu_initfn, ptr null, ptr null, ptr null }, align 8
@@ -132,16 +73,16 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_CLASS) #2
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #2
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 32
   store i64 %or.i, ptr %categories, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_gpu_pci_base_properties) #2
-  %hotpluggable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 6
+  %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
   store i8 0, ptr %hotpluggable, align 1
-  %realize = getelementptr inbounds %struct.VirtioPCIClass, ptr %call.i5, i64 0, i32 2
+  %realize = getelementptr inbounds i8, ptr %call.i5, i64 240
   store ptr @virtio_gpu_pci_base_realize, ptr %realize, align 8
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i6, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i6, i64 214
   store i16 896, ptr %class_id, align 2
   ret void
 }
@@ -152,21 +93,21 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @virtio_gpu_pci_base_realize(ptr noundef %vpci_dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vpci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_GPU_PCI_BASE) #2
-  %vgpu1 = getelementptr inbounds %struct.VirtIOGPUPCIBase, ptr %call.i, i64 0, i32 1
+  %vgpu1 = getelementptr inbounds i8, ptr %call.i, i64 33744
   %0 = load ptr, ptr %vgpu1, align 16
   %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #2
-  %conf = getelementptr inbounds %struct.VirtIOGPUBase, ptr %0, i64 0, i32 2
-  %hostmem = getelementptr inbounds %struct.VirtIOGPUBase, ptr %0, i64 0, i32 2, i32 4
+  %conf = getelementptr inbounds i8, ptr %0, i64 528
+  %hostmem = getelementptr inbounds i8, ptr %0, i64 544
   %1 = load i64, ptr %hostmem, align 16
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %msix_bar_idx = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 6
+  %msix_bar_idx = getelementptr inbounds i8, ptr %vpci_dev, i64 4868
   store i32 1, ptr %msix_bar_idx, align 4
-  %modern_mem_bar_idx = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 8
+  %modern_mem_bar_idx = getelementptr inbounds i8, ptr %vpci_dev, i64 4876
   store i32 2, ptr %modern_mem_bar_idx, align 4
-  %hostmem3 = getelementptr inbounds %struct.VirtIOGPUBase, ptr %0, i64 0, i32 7
+  %hostmem3 = getelementptr inbounds i8, ptr %0, i64 592
   %2 = load i64, ptr %hostmem, align 16
   tail call void @memory_region_init(ptr noundef nonnull %hostmem3, ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i64 noundef %2) #2
   tail call void @pci_register_bar(ptr noundef %vpci_dev, i32 noundef 4, i8 noundef zeroext 12, ptr noundef nonnull %hostmem3) #2
@@ -175,11 +116,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %disable_modern.i = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 11
+  %disable_modern.i = getelementptr inbounds i8, ptr %vpci_dev, i64 4888
   store i8 0, ptr %disable_modern.i, align 8
-  %disable_legacy.i = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 13
+  %disable_legacy.i = getelementptr inbounds i8, ptr %vpci_dev, i64 4892
   store i32 1, ptr %disable_legacy.i, align 4
-  %bus = getelementptr inbounds %struct.VirtIOPCIProxy, ptr %vpci_dev, i64 0, i32 23
+  %bus = getelementptr inbounds i8, ptr %vpci_dev, i64 33616
   %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #2
   %call11 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i18, ptr noundef %call.i19, ptr noundef %errp) #2
   br i1 %call11, label %for.cond.preheader, label %for.end
@@ -187,12 +128,16 @@ if.end:                                           ; preds = %if.then, %entry
 for.cond.preheader:                               ; preds = %if.end
   %4 = load i32, ptr %conf, align 16
   %cmp1520.not = icmp eq i32 %4, 0
-  br i1 %cmp1520.not, label %for.end, label %for.body
+  br i1 %cmp1520.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.021 = phi i32 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %scanout = getelementptr inbounds i8, ptr %0, i64 864
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.021 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %idxprom = sext i32 %i.021 to i64
-  %arrayidx = getelementptr %struct.VirtIOGPUBase, ptr %0, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout, i64 0, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %call16 = tail call zeroext i1 @object_property_set_link(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef %vpci_dev, ptr noundef nonnull @error_abort) #2
   %inc = add nuw i32 %i.021, 1
@@ -222,11 +167,11 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @virtio_gpu_initfn(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.14, i32 noundef 87, ptr noundef nonnull @__func__.VIRTIO_GPU_PCI) #2
-  %vdev = getelementptr inbounds %struct.VirtIOGPUPCI, ptr %call.i, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %call.i, i64 33760
   tail call void @virtio_instance_init_common(ptr noundef %obj, ptr noundef nonnull %vdev, i64 noundef 3296, ptr noundef nonnull @.str.13) #2
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #2
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 26, ptr noundef nonnull @__func__.VIRTIO_GPU_PCI_BASE) #2
-  %vgpu = getelementptr inbounds %struct.VirtIOGPUPCIBase, ptr %call.i5, i64 0, i32 1
+  %vgpu = getelementptr inbounds i8, ptr %call.i5, i64 33744
   store ptr %call.i4, ptr %vgpu, align 16
   ret void
 }

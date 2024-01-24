@@ -3,8 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-curl_threads.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Curl_actual_call = type { ptr, ptr }
-
 @Curl_cmalloc = external local_unnamed_addr global ptr, align 8
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
@@ -22,7 +20,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %func, ptr %call1, align 8
-  %arg4 = getelementptr inbounds %struct.Curl_actual_call, ptr %call1, i64 0, i32 1
+  %arg4 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %arg, ptr %arg4, align 8
   %call5 = tail call i32 @pthread_create(ptr noundef nonnull %call, ptr noundef null, ptr noundef nonnull @curl_thread_create_thunk, ptr noundef nonnull %call1) #3
   %cmp.not = icmp eq i32 %call5, 0
@@ -47,7 +45,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef ptr @curl_thread_create_thunk(ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  %arg2 = getelementptr inbounds %struct.Curl_actual_call, ptr %arg, i64 0, i32 1
+  %arg2 = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %arg2, align 8
   %2 = load ptr, ptr @Curl_cfree, align 8
   tail call void %2(ptr noundef nonnull %arg) #3

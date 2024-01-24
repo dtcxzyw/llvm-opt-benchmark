@@ -3,16 +3,6 @@ source_filename = "bench/openssl/original/libssl-lib-ssl_stat.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.quic_conn_st = type { %struct.ssl_st, ptr, ptr, ptr, ptr, ptr, ptr, %union.bio_addr_st, %struct.quic_thread_assist_st, ptr, ptr, i64, i16, i32, i32, i64, i32, i64, i32 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.quic_thread_assist_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-
 @.str = private unnamed_addr constant [6 x i8] c"error\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"SSLv3/TLS read certificate status\00", align 1
 @.str.2 = private unnamed_addr constant [27 x i8] c"SSLv3/TLS write next proto\00", align 1
@@ -188,7 +178,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.SSL_state_string = private unnamed_addr constant [54 x ptr] [ptr @.str.59, ptr @.str.60, ptr @.str.88, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.56, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.57, ptr @.str.74, ptr @.str.75, ptr @.str.61, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.58, ptr @.str.73, ptr @.str.76, ptr @.str.77, ptr @.str.89, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.53, ptr @.str.74, ptr @.str.75, ptr @.str.54, ptr @.str.55, ptr @.str.72, ptr @.str.73, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.101], align 8
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @SSL_state_string_long(ptr noundef %s) local_unnamed_addr #0 {
+define noundef nonnull ptr @SSL_state_string_long(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -201,7 +191,7 @@ cond.false:                                       ; preds = %entry
   ]
 
 cond.end10:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds %struct.quic_conn_st, ptr %s, i64 0, i32 1
+  %tls = getelementptr inbounds i8, ptr %s, i64 64
   %1 = load ptr, ptr %tls, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %return, label %lor.lhs.false
@@ -233,7 +223,7 @@ declare i32 @ossl_statem_in_error(ptr noundef) local_unnamed_addr #1
 declare i32 @SSL_get_state(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @SSL_state_string(ptr noundef %s) local_unnamed_addr #0 {
+define noundef nonnull ptr @SSL_state_string(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %s, null
   br i1 %cmp, label %return, label %cond.false
@@ -246,7 +236,7 @@ cond.false:                                       ; preds = %entry
   ]
 
 cond.end10:                                       ; preds = %cond.false
-  %tls = getelementptr inbounds %struct.quic_conn_st, ptr %s, i64 0, i32 1
+  %tls = getelementptr inbounds i8, ptr %s, i64 64
   %1 = load ptr, ptr %tls, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %return, label %lor.lhs.false
@@ -274,7 +264,7 @@ return:                                           ; preds = %if.end, %switch.loo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @SSL_alert_type_string_long(i32 noundef %value) local_unnamed_addr #2 {
+define noundef nonnull ptr @SSL_alert_type_string_long(i32 noundef %value) local_unnamed_addr #2 {
 entry:
   %shr = ashr i32 %value, 8
   %switch.selectcmp = icmp eq i32 %shr, 2
@@ -285,7 +275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @SSL_alert_type_string(i32 noundef %value) local_unnamed_addr #2 {
+define noundef nonnull ptr @SSL_alert_type_string(i32 noundef %value) local_unnamed_addr #2 {
 entry:
   %shr = ashr i32 %value, 8
   %switch.selectcmp = icmp eq i32 %shr, 2
@@ -296,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @SSL_alert_desc_string(i32 noundef %value) local_unnamed_addr #2 {
+define noundef nonnull ptr @SSL_alert_desc_string(i32 noundef %value) local_unnamed_addr #2 {
 entry:
   %trunc = trunc i32 %value to i8
   switch i8 %trunc, label %sw.default [
@@ -428,7 +418,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @SSL_alert_desc_string_long(i32 noundef %value) local_unnamed_addr #2 {
+define noundef nonnull ptr @SSL_alert_desc_string_long(i32 noundef %value) local_unnamed_addr #2 {
 entry:
   %trunc = trunc i32 %value to i8
   switch i8 %trunc, label %sw.default [

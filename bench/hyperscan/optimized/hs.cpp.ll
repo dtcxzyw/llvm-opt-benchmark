@@ -79,8 +79,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.87" = type { %"struct.std::_Tuple_impl.88" }
 %"struct.std::_Tuple_impl.88" = type { %"struct.std::_Head_base.91" }
 %"struct.std::_Head_base.91" = type { ptr }
-%"class.ue2::CompileError" = type { ptr, %"class.std::__cxx11::basic_string", i8, i32 }
-%struct.hs_platform_info = type { i32, i64, i64, i64 }
 %struct.hs_expr_info = type { i32, i32, i8, i8, i8 }
 %"class.ue2::ParsedExpression" = type { %"class.ue2::ExpressionInfo", %"class.std::unique_ptr.92" }
 %"class.ue2::ExpressionInfo" = type <{ i32, i32, i8, i8, i8, i8, i32, i64, i64, i64, i32, i32, i8, [7 x i8] }>
@@ -98,8 +96,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.103" = type { %"struct.std::_Tuple_impl.104" }
 %"struct.std::_Tuple_impl.104" = type { %"struct.std::_Head_base.107" }
 %"struct.std::_Head_base.107" = type { ptr }
-%"struct.std::_Rb_tree_node.133" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.134" }
-%"struct.__gnu_cxx::__aligned_membuf.134" = type { [56 x i8] }
 %struct._Guard = type { ptr }
 
 $_ZN5boost4noneE = comdat any
@@ -408,7 +404,7 @@ if.then50:                                        ; preds = %if.end48
   br label %return
 
 if.end51:                                         ; preds = %if.end48
-  %limitPatternCount = getelementptr inbounds %"struct.ue2::Grey", ptr %g, i64 0, i32 107
+  %limitPatternCount = getelementptr inbounds i8, ptr %g, i64 224
   %14 = load i32, ptr %limitPatternCount, align 8
   %cmp52 = icmp ult i32 %14, %elements
   br i1 %cmp52, label %if.then53, label %if.end63
@@ -472,7 +468,7 @@ cond.false:                                       ; preds = %_ZL15getSomPrecisio
   %call70 = tail call { i32, i64 } @_ZN3ue218get_current_targetEv()
   %18 = extractvalue { i32, i64 } %call70, 0
   store i32 %18, ptr %target_info, align 8
-  %19 = getelementptr inbounds { i32, i64 }, ptr %target_info, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %target_info, i64 8
   %20 = extractvalue { i32, i64 } %call70, 1
   store i64 %20, ptr %19, align 8
   br label %cond.end
@@ -742,7 +738,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %for.inc.us115, %for.inc.us101, %for.inc.us101.us, %for.inc.us, %for.inc.us.us131, %for.inc.us.us, %for.inc.us.us.us
-  %rm = getelementptr inbounds %"class.ue2::NG", ptr %ng, i64 0, i32 2
+  %rm = getelementptr inbounds i8, ptr %ng, i64 8
   invoke void @_ZN3ue213ParsedLogical14validateSubIDsEPKjPKPKcS2_j(ptr noundef nonnull align 8 dereferenceable(192) %rm, ptr noundef %ids, ptr noundef nonnull %expressions, ptr noundef %flags, i32 noundef %elements)
           to label %invoke.cont105 unwind label %lpad104
 
@@ -759,7 +755,7 @@ invoke.cont108:                                   ; preds = %invoke.cont107
   store ptr %call109, ptr %db, align 8
   store ptr null, ptr %comp_error, align 8
   call void @_ZN3ue22NGD1Ev(ptr noundef nonnull align 8 dereferenceable(1104) %ng) #14
-  %dumpPath.i.i = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 106
+  %dumpPath.i.i = getelementptr inbounds i8, ptr %cc, i64 216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i.i) #14
   br label %return
 
@@ -781,7 +777,7 @@ ehcleanup110:                                     ; preds = %lpad100, %lpad104, 
 ehcleanup111:                                     ; preds = %ehcleanup110, %lpad75
   %ehselector.slot.6 = phi i32 [ %ehselector.slot.5, %ehcleanup110 ], [ %61, %lpad75 ]
   %exn.slot.6 = phi ptr [ %exn.slot.5, %ehcleanup110 ], [ %60, %lpad75 ]
-  %dumpPath.i.i87 = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 106
+  %dumpPath.i.i87 = getelementptr inbounds i8, ptr %cc, i64 216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i.i87) #14
   br label %catch.dispatch112
 
@@ -795,15 +791,15 @@ catch.dispatch112:                                ; preds = %ehcleanup111, %lpad
 catch120:                                         ; preds = %catch.dispatch112
   %74 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #14
   store ptr null, ptr %db, align 8
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %74, i64 0, i32 1
-  %hasIndex = getelementptr inbounds %"class.ue2::CompileError", ptr %74, i64 0, i32 2
+  %reason = getelementptr inbounds i8, ptr %74, i64 8
+  %hasIndex = getelementptr inbounds i8, ptr %74, i64 40
   %75 = load i8, ptr %hasIndex, align 8
   %76 = and i8 %75, 1
   %tobool123.not = icmp eq i8 %76, 0
   br i1 %tobool123.not, label %cond.end126, label %cond.true124
 
 cond.true124:                                     ; preds = %catch120
-  %index = getelementptr inbounds %"class.ue2::CompileError", ptr %74, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %74, i64 44
   %77 = load i32, ptr %index, align 4
   br label %cond.end126
 
@@ -1121,7 +1117,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cpu_features = getelementptr inbounds %struct.hs_platform_info, ptr %p, i64 0, i32 1
+  %cpu_features = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load i64, ptr %cpu_features, align 8
   %and = and i64 %0, 4294967267
   %tobool1.not = icmp eq i64 %and, 0
@@ -1532,7 +1528,7 @@ if.then62:                                        ; preds = %if.end60
   br label %return
 
 if.end63:                                         ; preds = %if.end60
-  %limitPatternCount = getelementptr inbounds %"struct.ue2::Grey", ptr %g, i64 0, i32 107
+  %limitPatternCount = getelementptr inbounds i8, ptr %g, i64 224
   %17 = load i32, ptr %limitPatternCount, align 8
   %cmp64 = icmp ult i32 %17, %elements
   br i1 %cmp64, label %if.then65, label %if.end75
@@ -1596,7 +1592,7 @@ cond.false:                                       ; preds = %_ZL15getSomPrecisio
   %call82 = tail call { i32, i64 } @_ZN3ue218get_current_targetEv()
   %21 = extractvalue { i32, i64 } %call82, 0
   store i32 %21, ptr %target_info, align 8
-  %22 = getelementptr inbounds { i32, i64 }, ptr %target_info, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %target_info, i64 8
   %23 = extractvalue { i32, i64 } %call82, 1
   store i64 %23, ptr %22, align 8
   br label %cond.end
@@ -1882,7 +1878,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.inc.us131, %for.inc.us116, %for.inc.us116.us, %for.inc.us, %for.inc.us.us148, %for.inc.us.us, %for.inc.us.us.us
-  %rm = getelementptr inbounds %"class.ue2::NG", ptr %ng, i64 0, i32 2
+  %rm = getelementptr inbounds i8, ptr %ng, i64 8
   invoke void @_ZN3ue213ParsedLogical14validateSubIDsEPKjPKPKcS2_j(ptr noundef nonnull align 8 dereferenceable(192) %rm, ptr noundef %ids, ptr noundef nonnull %expressions, ptr noundef %flags, i32 noundef %elements)
           to label %invoke.cont119 unwind label %lpad118
 
@@ -1899,7 +1895,7 @@ invoke.cont122:                                   ; preds = %invoke.cont121
   store ptr %call123, ptr %db, align 8
   store ptr null, ptr %comp_error, align 8
   call void @_ZN3ue22NGD1Ev(ptr noundef nonnull align 8 dereferenceable(1104) %ng) #14
-  %dumpPath.i.i = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 106
+  %dumpPath.i.i = getelementptr inbounds i8, ptr %cc, i64 216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i.i) #14
   br label %return
 
@@ -1921,7 +1917,7 @@ ehcleanup124:                                     ; preds = %lpad114, %lpad118, 
 ehcleanup125:                                     ; preds = %ehcleanup124, %lpad87
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup124 ], [ %72, %lpad87 ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup124 ], [ %71, %lpad87 ]
-  %dumpPath.i.i101 = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 106
+  %dumpPath.i.i101 = getelementptr inbounds i8, ptr %cc, i64 216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i.i101) #14
   br label %catch.dispatch126
 
@@ -1935,15 +1931,15 @@ catch.dispatch126:                                ; preds = %ehcleanup125, %lpad
 catch134:                                         ; preds = %catch.dispatch126
   %85 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #14
   store ptr null, ptr %db, align 8
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %85, i64 0, i32 1
-  %hasIndex = getelementptr inbounds %"class.ue2::CompileError", ptr %85, i64 0, i32 2
+  %reason = getelementptr inbounds i8, ptr %85, i64 8
+  %hasIndex = getelementptr inbounds i8, ptr %85, i64 40
   %86 = load i8, ptr %hasIndex, align 8
   %87 = and i8 %86, 1
   %tobool137.not = icmp eq i8 %87, 0
   br i1 %tobool137.not, label %cond.end140, label %cond.true138
 
 cond.true138:                                     ; preds = %catch134
-  %index = getelementptr inbounds %"class.ue2::CompileError", ptr %85, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %85, i64 44
   %88 = load i32, ptr %index, align 4
   br label %cond.end140
 
@@ -2074,14 +2070,14 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont6 unwind label %lpad5, !range !10
 
 invoke.cont6:                                     ; preds = %if.end
-  %dumpPath.i = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp4, i64 0, i32 106
+  %dumpPath.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i) #14
   br label %return
 
 lpad5:                                            ; preds = %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  %dumpPath.i6 = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp4, i64 0, i32 106
+  %dumpPath.i6 = getelementptr inbounds i8, ptr %ref.tmp4, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i6) #14
   br label %eh.resume
 
@@ -2105,14 +2101,14 @@ entry:
           to label %invoke.cont unwind label %lpad, !range !10
 
 invoke.cont:                                      ; preds = %entry
-  %dumpPath.i = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp, i64 0, i32 106
+  %dumpPath.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i) #14
   ret i32 %call
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %dumpPath.i1 = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp, i64 0, i32 106
+  %dumpPath.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i1) #14
   resume { ptr, i32 } %0
 }
@@ -2126,14 +2122,14 @@ entry:
           to label %invoke.cont unwind label %lpad, !range !10
 
 invoke.cont:                                      ; preds = %entry
-  %dumpPath.i = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp, i64 0, i32 106
+  %dumpPath.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i) #14
   ret i32 %call
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %dumpPath.i1 = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp, i64 0, i32 106
+  %dumpPath.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i1) #14
   resume { ptr, i32 } %0
 }
@@ -2207,14 +2203,14 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont6 unwind label %lpad5, !range !10
 
 invoke.cont6:                                     ; preds = %if.end
-  %dumpPath.i = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp4, i64 0, i32 106
+  %dumpPath.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i) #14
   br label %return
 
 lpad5:                                            ; preds = %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
-  %dumpPath.i6 = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp4, i64 0, i32 106
+  %dumpPath.i6 = getelementptr inbounds i8, ptr %ref.tmp4, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i6) #14
   br label %eh.resume
 
@@ -2236,14 +2232,14 @@ entry:
           to label %invoke.cont unwind label %lpad, !range !10
 
 invoke.cont:                                      ; preds = %entry
-  %dumpPath.i = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp, i64 0, i32 106
+  %dumpPath.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i) #14
   ret i32 %call
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %dumpPath.i1 = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp, i64 0, i32 106
+  %dumpPath.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i1) #14
   resume { ptr, i32 } %0
 }
@@ -2471,7 +2467,7 @@ if.end43:                                         ; preds = %if.end31
 invoke.cont53:                                    ; preds = %if.end43
   %14 = extractvalue { i32, i64 } %call54, 0
   store i32 %14, ptr %ref.tmp51, align 8
-  %15 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp51, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
   %16 = extractvalue { i32, i64 } %call54, 1
   store i64 %16, ptr %15, align 8
   invoke void @_ZN3ue24GreyC1Ev(ptr noundef nonnull align 8 dereferenceable(292) %ref.tmp55)
@@ -2482,10 +2478,10 @@ invoke.cont56:                                    ; preds = %invoke.cont53
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont56
-  %dumpPath.i = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp55, i64 0, i32 106
+  %dumpPath.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i) #14
   %call60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %expression) #18
-  %limitPatternLength = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 108
+  %limitPatternLength = getelementptr inbounds i8, ptr %cc, i64 252
   %17 = load i32, ptr %limitPatternLength, align 4
   %conv = zext i32 %17 to i64
   %cmp = icmp ugt i64 %call60, %conv
@@ -2518,7 +2514,7 @@ lpad57:                                           ; preds = %invoke.cont56
           catch ptr @_ZTIN3ue212CompileErrorE
           catch ptr @_ZTISt9bad_alloc
           catch ptr null
-  %dumpPath.i65 = getelementptr inbounds %"struct.ue2::Grey", ptr %ref.tmp55, i64 0, i32 106
+  %dumpPath.i65 = getelementptr inbounds i8, ptr %ref.tmp55, i64 192
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i65) #14
   br label %catch.dispatch
 
@@ -2546,7 +2542,7 @@ cleanup.action:                                   ; preds = %ehcleanup68.thread,
   br label %ehcleanup123
 
 if.end70:                                         ; preds = %invoke.cont58
-  %grey = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3
+  %grey = getelementptr inbounds i8, ptr %cc, i64 24
   invoke void @_ZN3ue213ReportManagerC1ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(292) %grey)
           to label %invoke.cont73 unwind label %lpad72
 
@@ -2555,7 +2551,7 @@ invoke.cont73:                                    ; preds = %if.end70
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  %prefilter = getelementptr inbounds %"class.ue2::ExpressionInfo", ptr %pe, i64 0, i32 5
+  %prefilter = getelementptr inbounds i8, ptr %pe, i64 11
   %22 = load i8, ptr %prefilter, align 1
   %23 = and i8 %22, 1
   %tobool76.not = icmp eq i8 %23, 0
@@ -2566,7 +2562,7 @@ if.then77:                                        ; preds = %invoke.cont75
           to label %invoke.cont80 unwind label %lpad79
 
 invoke.cont80:                                    ; preds = %if.then77
-  %component = getelementptr inbounds %"class.ue2::ParsedExpression", ptr %pe, i64 0, i32 1
+  %component = getelementptr inbounds i8, ptr %pe, i64 56
   invoke void @_ZN3ue213prefilterTreeERSt10unique_ptrINS_9ComponentESt14default_deleteIS1_EERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(8) %component, ptr noundef nonnull align 1 dereferenceable(6) %ref.tmp78)
           to label %if.end82 unwind label %lpad79
 
@@ -2592,7 +2588,7 @@ lpad79:                                           ; preds = %invoke.cont94, %inv
   br label %ehcleanup121
 
 if.end82:                                         ; preds = %invoke.cont80, %invoke.cont75
-  %component83 = getelementptr inbounds %"class.ue2::ParsedExpression", ptr %pe, i64 0, i32 1
+  %component83 = getelementptr inbounds i8, ptr %pe, i64 56
   %27 = load ptr, ptr %component83, align 8
   invoke void @_ZN3ue216checkUnsupportedERKNS_9ComponentE(ptr noundef nonnull align 8 dereferenceable(16) %27)
           to label %invoke.cont85 unwind label %lpad79
@@ -2600,7 +2596,7 @@ if.end82:                                         ; preds = %invoke.cont80, %inv
 invoke.cont85:                                    ; preds = %if.end82
   %28 = load ptr, ptr %component83, align 8
   %vtable = load ptr, ptr %28, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %29 = load ptr, ptr %vfn, align 8
   %call89 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(16) %28, i1 noundef zeroext true)
           to label %invoke.cont88 unwind label %lpad79
@@ -2608,7 +2604,7 @@ invoke.cont85:                                    ; preds = %if.end82
 invoke.cont88:                                    ; preds = %invoke.cont85
   %30 = load ptr, ptr %component83, align 8
   %vtable92 = load ptr, ptr %30, align 8
-  %vfn93 = getelementptr inbounds ptr, ptr %vtable92, i64 14
+  %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 112
   %31 = load ptr, ptr %vfn93, align 8
   %call95 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %30, i1 noundef zeroext true)
           to label %invoke.cont94 unwind label %lpad79
@@ -2618,7 +2614,7 @@ invoke.cont94:                                    ; preds = %invoke.cont88
           to label %invoke.cont96 unwind label %lpad79
 
 invoke.cont96:                                    ; preds = %invoke.cont94
-  %g97 = getelementptr inbounds %"struct.ue2::BuiltExpression", ptr %built_expr, i64 0, i32 1
+  %g97 = getelementptr inbounds i8, ptr %built_expr, i64 56
   %32 = load ptr, ptr %g97, align 8
   %cmp.i.not = icmp eq ptr %32, null
   br i1 %cmp.i.not, label %do.end, label %if.end116
@@ -2672,7 +2668,7 @@ invoke.cont119:                                   ; preds = %if.end116
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i: ; preds = %invoke.cont119
   %vtable.i.i.i = load ptr, ptr %35, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %36 = load ptr, ptr %vfn.i.i.i, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(136) %35) #14
   br label %_ZN3ue215BuiltExpressionD2Ev.exit
@@ -2685,7 +2681,7 @@ _ZN3ue215BuiltExpressionD2Ev.exit:                ; preds = %invoke.cont119, %_Z
 
 _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i: ; preds = %_ZN3ue215BuiltExpressionD2Ev.exit
   %vtable.i.i.i69 = load ptr, ptr %37, align 8
-  %vfn.i.i.i70 = getelementptr inbounds ptr, ptr %vtable.i.i.i69, i64 1
+  %vfn.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i69, i64 8
   %38 = load ptr, ptr %vfn.i.i.i70, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %37) #14
   br label %_ZN3ue216ParsedExpressionD2Ev.exit
@@ -2693,7 +2689,7 @@ _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i: ; preds = %_ZN3ue215Bu
 _ZN3ue216ParsedExpressionD2Ev.exit:               ; preds = %_ZN3ue215BuiltExpressionD2Ev.exit, %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i
   store ptr null, ptr %component83, align 8
   call void @_ZN3ue213ReportManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(505) %rm) #14
-  %dumpPath.i.i = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 106
+  %dumpPath.i.i = getelementptr inbounds i8, ptr %cc, i64 216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i.i) #14
   %39 = load ptr, ptr @hs_misc_alloc, align 8
   %call134 = call ptr %39(i64 noundef 12)
@@ -2715,7 +2711,7 @@ ehcleanup120:                                     ; preds = %ehcleanup111, %clea
 
 _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i.i73: ; preds = %ehcleanup120
   %vtable.i.i.i74 = load ptr, ptr %41, align 8
-  %vfn.i.i.i75 = getelementptr inbounds ptr, ptr %vtable.i.i.i74, i64 1
+  %vfn.i.i.i75 = getelementptr inbounds i8, ptr %vtable.i.i.i74, i64 8
   %42 = load ptr, ptr %vfn.i.i.i75, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(136) %41) #14
   br label %_ZN3ue215BuiltExpressionD2Ev.exit76
@@ -2726,14 +2722,14 @@ _ZN3ue215BuiltExpressionD2Ev.exit76:              ; preds = %ehcleanup120, %_ZNK
 
 ehcleanup121:                                     ; preds = %_ZN3ue215BuiltExpressionD2Ev.exit76, %lpad79
   %.pn28.pn = phi { ptr, i32 } [ %.pn28, %_ZN3ue215BuiltExpressionD2Ev.exit76 ], [ %26, %lpad79 ]
-  %component.i77 = getelementptr inbounds %"class.ue2::ParsedExpression", ptr %pe, i64 0, i32 1
+  %component.i77 = getelementptr inbounds i8, ptr %pe, i64 56
   %43 = load ptr, ptr %component.i77, align 8
   %cmp.not.i.i78 = icmp eq ptr %43, null
   br i1 %cmp.not.i.i78, label %_ZN3ue216ParsedExpressionD2Ev.exit82, label %_ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i79
 
 _ZNKSt14default_deleteIN3ue29ComponentEEclEPS1_.exit.i.i79: ; preds = %ehcleanup121
   %vtable.i.i.i80 = load ptr, ptr %43, align 8
-  %vfn.i.i.i81 = getelementptr inbounds ptr, ptr %vtable.i.i.i80, i64 1
+  %vfn.i.i.i81 = getelementptr inbounds i8, ptr %vtable.i.i.i80, i64 8
   %44 = load ptr, ptr %vfn.i.i.i81, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(16) %43) #14
   br label %_ZN3ue216ParsedExpressionD2Ev.exit82
@@ -2749,7 +2745,7 @@ ehcleanup122:                                     ; preds = %_ZN3ue216ParsedExpr
 
 ehcleanup123:                                     ; preds = %ehcleanup68, %cleanup.action, %ehcleanup122, %lpad72
   %.pn32.pn = phi { ptr, i32 } [ %.pn3286, %cleanup.action ], [ %21, %ehcleanup68 ], [ %.pn28.pn.pn, %ehcleanup122 ], [ %24, %lpad72 ]
-  %dumpPath.i.i83 = getelementptr inbounds %"struct.ue2::CompileContext", ptr %cc, i64 0, i32 3, i32 106
+  %dumpPath.i.i83 = getelementptr inbounds i8, ptr %cc, i64 216
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dumpPath.i.i83) #14
   br label %catch.dispatch
 
@@ -2843,7 +2839,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %platform, i8 0, i64 32, i1 false)
   %call = tail call i64 @cpuid_flags()
-  %cpu_features = getelementptr inbounds %struct.hs_platform_info, ptr %platform, i64 0, i32 1
+  %cpu_features = getelementptr inbounds i8, ptr %platform, i64 8
   store i64 %call, ptr %cpu_features, align 8
   %call1 = tail call i32 @cpuid_tune()
   store i32 %call1, ptr %platform, align 8
@@ -2910,8 +2906,8 @@ declare void @_ZN3ue218fillExpressionInfoERNS_13ReportManagerERKNS_14CompileCont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue213ReportManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(505) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %toExhaustibleKeyMap = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 7
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %toExhaustibleKeyMap = getelementptr inbounds i8, ptr %this, i64 448
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIxSt4pairIKxjESt10_Select1stIS2_ESt4lessIxESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %toExhaustibleKeyMap, ptr noundef %0)
           to label %_ZNSt3mapIxjSt4lessIxESaISt4pairIKxjEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2924,8 +2920,8 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapIxjSt4lessIxESaISt4pairIKxjEEED2Ev.exit: ; preds = %entry
-  %externalIdMap = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 6
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 6, i32 0, i32 2
+  %externalIdMap = getelementptr inbounds i8, ptr %this, i64 392
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 408
   %3 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -2939,13 +2935,13 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt3mapIxjSt4less
 
 _ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %_ZNSt3mapIxjSt4lessIxESaISt4pairIKxjEEED2Ev.exit
   %5 = load ptr, ptr %externalIdMap, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 6, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   %6 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %externalIdMap, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 6, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %7
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEED2Ev.exit, label %if.end.i.i.i.i
 
@@ -2954,8 +2950,8 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIj
   br label %_ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEED2Ev.exit
 
 _ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  %reportIdToProgramOffset = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 5
-  %_M_before_begin.i.i.i.i1 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 5, i32 0, i32 2
+  %reportIdToProgramOffset = getelementptr inbounds i8, ptr %this, i64 336
+  %_M_before_begin.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 352
   %8 = load ptr, ptr %_M_before_begin.i.i.i.i1, align 8
   %tobool.not3.i.i.i.i2 = icmp eq ptr %8, null
   br i1 %tobool.not3.i.i.i.i2, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i3
@@ -2969,13 +2965,13 @@ while.body.i.i.i.i3:                              ; preds = %_ZNSt13unordered_ma
 
 _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i3, %_ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEED2Ev.exit
   %10 = load ptr, ptr %reportIdToProgramOffset, align 8
-  %_M_bucket_count.i.i.i6 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_bucket_count.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 344
   %11 = load i64, ptr %_M_bucket_count.i.i.i6, align 8
   %mul.i.i.i7 = shl i64 %11, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 %mul.i.i.i7, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i1, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %reportIdToProgramOffset, align 8
-  %_M_single_bucket.i.i.i.i.i8 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 5, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 384
   %cmp.i.i.i.i.i9 = icmp eq ptr %_M_single_bucket.i.i.i.i.i8, %12
   br i1 %cmp.i.i.i.i.i9, label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit, label %if.end.i.i.i.i10
 
@@ -2984,8 +2980,8 @@ if.end.i.i.i.i10:                                 ; preds = %_ZNSt10_HashtableIj
   br label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i10
-  %reportIdToDedupeKey = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 4
-  %_M_before_begin.i.i.i.i11 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 4, i32 0, i32 2
+  %reportIdToDedupeKey = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_before_begin.i.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 296
   %13 = load ptr, ptr %_M_before_begin.i.i.i.i11, align 8
   %tobool.not3.i.i.i.i12 = icmp eq ptr %13, null
   br i1 %tobool.not3.i.i.i.i12, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i16, label %while.body.i.i.i.i13
@@ -2999,13 +2995,13 @@ while.body.i.i.i.i13:                             ; preds = %_ZNSt13unordered_ma
 
 _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i16: ; preds = %while.body.i.i.i.i13, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit
   %15 = load ptr, ptr %reportIdToDedupeKey, align 8
-  %_M_bucket_count.i.i.i17 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_bucket_count.i.i.i17 = getelementptr inbounds i8, ptr %this, i64 288
   %16 = load i64, ptr %_M_bucket_count.i.i.i17, align 8
   %mul.i.i.i18 = shl i64 %16, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %mul.i.i.i18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i11, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %reportIdToDedupeKey, align 8
-  %_M_single_bucket.i.i.i.i.i19 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 4, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i19 = getelementptr inbounds i8, ptr %this, i64 328
   %cmp.i.i.i.i.i20 = icmp eq ptr %_M_single_bucket.i.i.i.i.i19, %17
   br i1 %cmp.i.i.i.i.i20, label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit22, label %if.end.i.i.i.i21
 
@@ -3014,8 +3010,8 @@ if.end.i.i.i.i21:                                 ; preds = %_ZNSt10_HashtableIj
   br label %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit22
 
 _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit22: ; preds = %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i16, %if.end.i.i.i.i21
-  %reportIdToInternalMap = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 3
-  %_M_before_begin.i.i.i.i23 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 3, i32 0, i32 2
+  %reportIdToInternalMap = getelementptr inbounds i8, ptr %this, i64 224
+  %_M_before_begin.i.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 240
   %18 = load ptr, ptr %_M_before_begin.i.i.i.i23, align 8
   %tobool.not3.i.i.i.i24 = icmp eq ptr %18, null
   br i1 %tobool.not3.i.i.i.i24, label %_ZNSt10_HashtableIN3ue26ReportESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i25
@@ -3029,13 +3025,13 @@ while.body.i.i.i.i25:                             ; preds = %_ZNSt13unordered_ma
 
 _ZNSt10_HashtableIN3ue26ReportESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i25, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit22
   %20 = load ptr, ptr %reportIdToInternalMap, align 8
-  %_M_bucket_count.i.i.i28 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_bucket_count.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 232
   %21 = load i64, ptr %_M_bucket_count.i.i.i28, align 8
   %mul.i.i.i29 = shl i64 %21, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %mul.i.i.i29, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i23, i8 0, i64 16, i1 false)
   %22 = load ptr, ptr %reportIdToInternalMap, align 8
-  %_M_single_bucket.i.i.i.i.i30 = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 3, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 272
   %cmp.i.i.i.i.i31 = icmp eq ptr %_M_single_bucket.i.i.i.i.i30, %22
   br i1 %cmp.i.i.i.i.i31, label %_ZNSt13unordered_mapIN3ue26ReportEmSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEED2Ev.exit, label %if.end.i.i.i.i32
 
@@ -3044,7 +3040,7 @@ if.end.i.i.i.i32:                                 ; preds = %_ZNSt10_HashtableIN
   br label %_ZNSt13unordered_mapIN3ue26ReportEmSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEED2Ev.exit
 
 _ZNSt13unordered_mapIN3ue26ReportEmSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_mEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN3ue26ReportESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i32
-  %reportIds = getelementptr inbounds %"class.ue2::ReportManager", ptr %this, i64 0, i32 2
+  %reportIds = getelementptr inbounds i8, ptr %this, i64 200
   %23 = load ptr, ptr %reportIds, align 8
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3ue26ReportESaIS1_EED2Ev.exit, label %if.then.i.i.i
@@ -3068,7 +3064,7 @@ declare void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue213ParsedLogicalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %logicalTree = getelementptr inbounds %"class.ue2::ParsedLogical", ptr %this, i64 0, i32 4
+  %logicalTree = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %logicalTree, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI9LogicalOpSaIS0_EED2Ev.exit, label %if.then.i.i.i
@@ -3078,8 +3074,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorI9LogicalOpSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI9LogicalOpSaIS0_EED2Ev.exit:         ; preds = %entry, %if.then.i.i.i
-  %lkey2ckeys = getelementptr inbounds %"class.ue2::ParsedLogical", ptr %this, i64 0, i32 3
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.ue2::ParsedLogical", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
+  %lkey2ckeys = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %lkey2ckeys, ptr noundef %1)
           to label %_ZNSt3mapIjSt3setIjSt4lessIjESaIjEES2_SaISt4pairIKjS4_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -3092,8 +3088,8 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt6vectorI9Logic
   unreachable
 
 _ZNSt3mapIjSt3setIjSt4lessIjESaIjEES2_SaISt4pairIKjS4_EEED2Ev.exit: ; preds = %_ZNSt6vectorI9LogicalOpSaIS0_EED2Ev.exit
-  %toLogicalKeyMap = getelementptr inbounds %"class.ue2::ParsedLogical", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i1 = getelementptr inbounds %"class.ue2::ParsedLogical", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %toLogicalKeyMap = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_parent.i.i.i.i1, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %toLogicalKeyMap, ptr noundef %4)
           to label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit unwind label %terminate.lpad.i.i2
@@ -3106,8 +3102,8 @@ terminate.lpad.i.i2:                              ; preds = %_ZNSt3mapIjSt3setIj
   unreachable
 
 _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit: ; preds = %_ZNSt3mapIjSt3setIjSt4lessIjESaIjEES2_SaISt4pairIKjS4_EEED2Ev.exit
-  %toCombKeyMap = getelementptr inbounds %"class.ue2::ParsedLogical", ptr %this, i64 0, i32 1
-  %_M_parent.i.i.i.i3 = getelementptr inbounds %"class.ue2::ParsedLogical", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %toCombKeyMap = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load ptr, ptr %_M_parent.i.i.i.i3, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %toCombKeyMap, ptr noundef %7)
           to label %_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit5 unwind label %terminate.lpad.i.i4
@@ -3140,10 +3136,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIxSt4pairIKxjESt10_Select1stIS2_ESt4lessIxESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null
@@ -3164,13 +3160,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit
   %__x.addr.05 = phi ptr [ %1, %_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.133", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 8
-  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.133", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 24
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 40
+  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 56
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %second.i.i.i.i.i, ptr noundef %2)
           to label %_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -3199,10 +3195,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null
@@ -3220,10 +3216,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS2_ESt4lessIjESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #19
   %cmp.not = icmp eq ptr %1, null

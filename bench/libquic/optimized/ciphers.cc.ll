@@ -9,14 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%struct.ssl_ctx_st = type { ptr, %union.crypto_mutex_st, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, i16, ptr, ptr, [16 x i8], [16 x i8], [16 x i8], ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i8, ptr, i32 }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ssl_cipher_preference_list_st = type { ptr, ptr }
 
 $_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev = comdat any
 
@@ -33,7 +25,7 @@ $__clang_call_terminate = comdat any
 define hidden noundef zeroext i1 @_Z7CiphersRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx = alloca %"class.std::unique_ptr", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %args, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %args, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -48,7 +40,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -32
   %call3 = tail call ptr @SSLv23_client_method()
   %call4 = tail call ptr @SSL_CTX_new(ptr noundef %call3)
   store ptr %call4, ptr %ctx, align 8
@@ -83,10 +75,10 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end12:                                         ; preds = %invoke.cont
-  %cipher_list = getelementptr inbounds %struct.ssl_ctx_st, ptr %call4, i64 0, i32 4
+  %cipher_list = getelementptr inbounds i8, ptr %call4, i64 72
   %7 = load ptr, ptr %cipher_list, align 8
   %8 = load ptr, ptr %7, align 8
-  %in_group_flags = getelementptr inbounds %struct.ssl_cipher_preference_list_st, ptr %7, i64 0, i32 1
+  %in_group_flags = getelementptr inbounds i8, ptr %7, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end42, %if.end12

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UConverter = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8, i8, [7 x i8], i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, [8 x i8], [32 x i8], [2 x i16], [2 x i16], [32 x i16], i32, [19 x i16], [31 x i8], i8, i8, i8, i32 }
-%struct.UConverterSharedData = type { i32, i32, ptr, ptr, i8, i8, ptr, i32, %struct.UConverterMBCSTable }
-%struct.UConverterMBCSTable = type { i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, [64 x i16], ptr, ptr, i32, i8, i8, i8, i16, i32, ptr, ptr, ptr, ptr }
-%struct.UConverterImpl = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @__const.ucnv_getUnicodeSet_75.sa = private unnamed_addr constant %struct.USetAdder { ptr null, ptr @uset_add_75, ptr @uset_addRange_75, ptr @uset_addString_75, ptr @uset_remove_75, ptr @uset_removeRange_75 }, align 8
 
@@ -36,11 +32,11 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %sharedData = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 6
+  %sharedData = getelementptr inbounds i8, ptr %cnv, i64 48
   %2 = load ptr, ptr %sharedData, align 8
-  %impl = getelementptr inbounds %struct.UConverterSharedData, ptr %2, i64 0, i32 6
+  %impl = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %impl, align 8
-  %getUnicodeSet = getelementptr inbounds %struct.UConverterImpl, ptr %3, i64 0, i32 15
+  %getUnicodeSet = getelementptr inbounds i8, ptr %3, i64 120
   %4 = load ptr, ptr %getUnicodeSet, align 8
   %cmp10 = icmp eq ptr %4, null
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -54,9 +50,9 @@ if.end12:                                         ; preds = %if.end9
   store ptr %setFillIn, ptr %sa, align 8
   tail call void @uset_clear_75(ptr noundef nonnull %setFillIn)
   %5 = load ptr, ptr %sharedData, align 8
-  %impl14 = getelementptr inbounds %struct.UConverterSharedData, ptr %5, i64 0, i32 6
+  %impl14 = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %impl14, align 8
-  %getUnicodeSet15 = getelementptr inbounds %struct.UConverterImpl, ptr %6, i64 0, i32 15
+  %getUnicodeSet15 = getelementptr inbounds i8, ptr %6, i64 120
   %7 = load ptr, ptr %getUnicodeSet15, align 8
   call void %7(ptr noundef nonnull %cnv, ptr noundef nonnull %sa, i32 noundef %whichSet, ptr noundef nonnull %pErrorCode)
   br label %return

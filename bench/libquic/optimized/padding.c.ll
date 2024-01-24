@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.rsa_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, i32, i32, %union.crypto_mutex_st, ptr, ptr, ptr, i32, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%union.crypto_mutex_st = type { double, [48 x i8] }
 
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/rsa/padding.c\00", align 1
 @zeroes = internal constant [8 x i8] zeroinitializer, align 1
@@ -520,9 +517,9 @@ entry:
   br i1 %cmp16.not, label %err, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx6 = getelementptr inbounds [4 x i8], ptr %cnt, i64 0, i64 1
-  %arrayidx12 = getelementptr inbounds [4 x i8], ptr %cnt, i64 0, i64 2
-  %arrayidx15 = getelementptr inbounds [4 x i8], ptr %cnt, i64 0, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %cnt, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %cnt, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %cnt, i64 3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -788,7 +785,7 @@ if.then9:                                         ; preds = %if.else6
 
 if.end12:                                         ; preds = %entry, %if.else6, %if.then2
   %sLen.addr.0 = phi i32 [ %conv, %if.then2 ], [ %sLen, %if.else6 ], [ %sLen, %entry ]
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %call13 = call i32 @BN_num_bits(ptr noundef %0) #8
   %sub = add i32 %call13, 7
@@ -1008,7 +1005,7 @@ if.then9:                                         ; preds = %if.else6
 
 if.end12:                                         ; preds = %entry, %if.else6, %if.then2
   %sLen.addr.0 = phi i32 [ %conv, %if.then2 ], [ %sLen, %if.else6 ], [ %sLen, %entry ]
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %call13 = tail call i32 @BN_is_zero(ptr noundef %0) #8
   %tobool.not = icmp eq i32 %call13, 0

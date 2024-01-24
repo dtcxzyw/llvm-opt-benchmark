@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.alts_crypter_vtable = type { ptr, ptr, ptr }
-%struct.alts_record_protocol_crypter = type { %struct.alts_crypter, ptr, ptr }
-%struct.alts_crypter = type { ptr }
 
 @__const._Z24alts_seal_crypter_createP17gsec_aead_crypterbmPP12alts_crypterPPc.error_msg = private unnamed_addr constant [20 x i8] c"crypter is nullptr.\00", align 16
 @_ZL6vtable = internal constant %struct.alts_crypter_vtable { ptr @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter, ptr @_ZL34alts_seal_crypter_process_in_placeP12alts_crypterPhmmPmPPc, ptr @_Z37alts_record_protocol_crypter_destructP12alts_crypter }, align 8
@@ -91,9 +89,9 @@ if.then.i7.i:                                     ; preds = %if.then6.i
   br label %return
 
 if.end:                                           ; preds = %if.end4.i
-  %crypter = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %c, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load ptr, ptr %crypter, align 8
-  %ctr = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %c, i64 0, i32 2
+  %ctr = getelementptr inbounds i8, ptr %c, i64 16
   %1 = load ptr, ptr %ctr, align 8
   %call1 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %1)
   %2 = load ptr, ptr %ctr, align 8

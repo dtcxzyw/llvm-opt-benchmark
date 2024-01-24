@@ -20,12 +20,12 @@ define void @_ZN14regex_automata4util9prefilter12aho_corasick11AhoCorasick3new17
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %6, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   br label %18
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds { [17 x i8], i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 3, ptr %17, align 1
   br label %18
 
@@ -50,12 +50,12 @@ define void @_ZN14regex_automata4util9prefilter12aho_corasick11AhoCorasick3new17
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %6, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   br label %18
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds { [17 x i8], i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 3, ptr %17, align 1
   br label %18
 
@@ -80,12 +80,12 @@ define void @_ZN14regex_automata4util9prefilter12aho_corasick11AhoCorasick3new17
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, i8, i8, [6 x i8] } }, ptr %6, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   br label %18
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds { [17 x i8], i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 3, ptr %17, align 1
   br label %18
 

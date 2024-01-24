@@ -13,12 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.check_mergetag_data = type { i32, ptr }
-%struct.object = type { i32, %struct.object_id }
-%struct.commit_extra_header = type { ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"list\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"list replace refs\00", align 1
@@ -146,159 +141,159 @@ entry:
   store ptr null, ptr %format, align 8
   store i32 0, ptr %cmdmode, align 4
   store i32 9, ptr %options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %options, i64 4
   store i32 108, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %options, i64 16
   store ptr %cmdmode, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %options, i64 32
   store ptr @.str.1, ptr %help, align 16
-  %flags = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %options, i64 40
   store i32 2054, ptr %flags, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 7
+  %callback = getelementptr inbounds i8, ptr %options, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 8
+  %defval = getelementptr inbounds i8, ptr %options, i64 56
   store i64 1, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds %struct.option, ptr %options, i64 0, i32 9
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %options, i64 1
+  %ll_callback = getelementptr inbounds i8, ptr %options, i64 64
+  %arrayinit.element = getelementptr inbounds i8, ptr %options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 1
+  %short_name2 = getelementptr inbounds i8, ptr %options, i64 92
   store i32 100, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 2
+  %long_name3 = getelementptr inbounds i8, ptr %options, i64 96
   store ptr @.str.2, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 3
+  %value4 = getelementptr inbounds i8, ptr %options, i64 104
   store ptr %cmdmode, ptr %value4, align 8
-  %argh5 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 4
+  %argh5 = getelementptr inbounds i8, ptr %options, i64 112
   store ptr null, ptr %argh5, align 16
-  %help6 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 5
+  %help6 = getelementptr inbounds i8, ptr %options, i64 120
   store ptr @.str.3, ptr %help6, align 8
-  %flags7 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 6
+  %flags7 = getelementptr inbounds i8, ptr %options, i64 128
   store i32 2054, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 7
+  %callback8 = getelementptr inbounds i8, ptr %options, i64 136
   store ptr null, ptr %callback8, align 8
-  %defval9 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 8
+  %defval9 = getelementptr inbounds i8, ptr %options, i64 144
   store i64 2, ptr %defval9, align 16
-  %ll_callback10 = getelementptr inbounds %struct.option, ptr %options, i64 1, i32 9
-  %arrayinit.element13 = getelementptr inbounds %struct.option, ptr %options, i64 2
+  %ll_callback10 = getelementptr inbounds i8, ptr %options, i64 152
+  %arrayinit.element13 = getelementptr inbounds i8, ptr %options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback10, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 1
+  %short_name15 = getelementptr inbounds i8, ptr %options, i64 180
   store i32 101, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 2
+  %long_name16 = getelementptr inbounds i8, ptr %options, i64 184
   store ptr @.str.4, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 3
+  %value17 = getelementptr inbounds i8, ptr %options, i64 192
   store ptr %cmdmode, ptr %value17, align 16
-  %argh18 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 4
+  %argh18 = getelementptr inbounds i8, ptr %options, i64 200
   store ptr null, ptr %argh18, align 8
-  %help19 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 5
+  %help19 = getelementptr inbounds i8, ptr %options, i64 208
   store ptr @.str.5, ptr %help19, align 16
-  %flags20 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 6
+  %flags20 = getelementptr inbounds i8, ptr %options, i64 216
   store i32 2054, ptr %flags20, align 8
-  %callback21 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 7
+  %callback21 = getelementptr inbounds i8, ptr %options, i64 224
   store ptr null, ptr %callback21, align 16
-  %defval22 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 8
+  %defval22 = getelementptr inbounds i8, ptr %options, i64 232
   store i64 3, ptr %defval22, align 8
-  %ll_callback23 = getelementptr inbounds %struct.option, ptr %options, i64 2, i32 9
-  %arrayinit.element26 = getelementptr inbounds %struct.option, ptr %options, i64 3
+  %ll_callback23 = getelementptr inbounds i8, ptr %options, i64 240
+  %arrayinit.element26 = getelementptr inbounds i8, ptr %options, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback23, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element26, align 8
-  %short_name28 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 1
+  %short_name28 = getelementptr inbounds i8, ptr %options, i64 268
   store i32 103, ptr %short_name28, align 4
-  %long_name29 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 2
+  %long_name29 = getelementptr inbounds i8, ptr %options, i64 272
   store ptr @.str.6, ptr %long_name29, align 16
-  %value30 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 3
+  %value30 = getelementptr inbounds i8, ptr %options, i64 280
   store ptr %cmdmode, ptr %value30, align 8
-  %argh31 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 4
+  %argh31 = getelementptr inbounds i8, ptr %options, i64 288
   store ptr null, ptr %argh31, align 16
-  %help32 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 5
+  %help32 = getelementptr inbounds i8, ptr %options, i64 296
   store ptr @.str.7, ptr %help32, align 8
-  %flags33 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 6
+  %flags33 = getelementptr inbounds i8, ptr %options, i64 304
   store i32 2054, ptr %flags33, align 16
-  %callback34 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 7
+  %callback34 = getelementptr inbounds i8, ptr %options, i64 312
   store ptr null, ptr %callback34, align 8
-  %defval35 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 8
+  %defval35 = getelementptr inbounds i8, ptr %options, i64 320
   store i64 4, ptr %defval35, align 16
-  %ll_callback36 = getelementptr inbounds %struct.option, ptr %options, i64 3, i32 9
-  %arrayinit.element39 = getelementptr inbounds %struct.option, ptr %options, i64 4
+  %ll_callback36 = getelementptr inbounds i8, ptr %options, i64 328
+  %arrayinit.element39 = getelementptr inbounds i8, ptr %options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback36, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element39, align 16
-  %short_name41 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 1
+  %short_name41 = getelementptr inbounds i8, ptr %options, i64 356
   store i32 0, ptr %short_name41, align 4
-  %long_name42 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 2
+  %long_name42 = getelementptr inbounds i8, ptr %options, i64 360
   store ptr @.str.8, ptr %long_name42, align 8
-  %value43 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 3
+  %value43 = getelementptr inbounds i8, ptr %options, i64 368
   store ptr %cmdmode, ptr %value43, align 16
-  %argh44 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 4
+  %argh44 = getelementptr inbounds i8, ptr %options, i64 376
   store ptr null, ptr %argh44, align 8
-  %help45 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 5
+  %help45 = getelementptr inbounds i8, ptr %options, i64 384
   store ptr @.str.9, ptr %help45, align 16
-  %flags46 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 6
+  %flags46 = getelementptr inbounds i8, ptr %options, i64 392
   store i32 2054, ptr %flags46, align 8
-  %callback47 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 7
+  %callback47 = getelementptr inbounds i8, ptr %options, i64 400
   store ptr null, ptr %callback47, align 16
-  %defval48 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 8
+  %defval48 = getelementptr inbounds i8, ptr %options, i64 408
   store i64 5, ptr %defval48, align 8
-  %ll_callback49 = getelementptr inbounds %struct.option, ptr %options, i64 4, i32 9
-  %arrayinit.element52 = getelementptr inbounds %struct.option, ptr %options, i64 5
+  %ll_callback49 = getelementptr inbounds i8, ptr %options, i64 416
+  %arrayinit.element52 = getelementptr inbounds i8, ptr %options, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback49, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element52, align 8
-  %short_name54 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 1
+  %short_name54 = getelementptr inbounds i8, ptr %options, i64 444
   store i32 102, ptr %short_name54, align 4
-  %long_name55 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 2
+  %long_name55 = getelementptr inbounds i8, ptr %options, i64 448
   store ptr @.str.10, ptr %long_name55, align 16
-  %value56 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 3
+  %value56 = getelementptr inbounds i8, ptr %options, i64 456
   store ptr %force, ptr %value56, align 8
-  %argh57 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 4
+  %argh57 = getelementptr inbounds i8, ptr %options, i64 464
   store ptr null, ptr %argh57, align 16
-  %help58 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 5
+  %help58 = getelementptr inbounds i8, ptr %options, i64 472
   store ptr @.str.11, ptr %help58, align 8
-  %flags59 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 6
+  %flags59 = getelementptr inbounds i8, ptr %options, i64 480
   store i32 514, ptr %flags59, align 16
-  %callback60 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 7
+  %callback60 = getelementptr inbounds i8, ptr %options, i64 488
   store ptr null, ptr %callback60, align 8
-  %defval61 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 8
+  %defval61 = getelementptr inbounds i8, ptr %options, i64 496
   store i64 1, ptr %defval61, align 16
-  %ll_callback62 = getelementptr inbounds %struct.option, ptr %options, i64 5, i32 9
-  %arrayinit.element65 = getelementptr inbounds %struct.option, ptr %options, i64 6
+  %ll_callback62 = getelementptr inbounds i8, ptr %options, i64 504
+  %arrayinit.element65 = getelementptr inbounds i8, ptr %options, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback62, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element65, align 16
-  %short_name67 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 1
+  %short_name67 = getelementptr inbounds i8, ptr %options, i64 532
   store i32 0, ptr %short_name67, align 4
-  %long_name68 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 2
+  %long_name68 = getelementptr inbounds i8, ptr %options, i64 536
   store ptr @.str.12, ptr %long_name68, align 8
-  %value69 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 3
+  %value69 = getelementptr inbounds i8, ptr %options, i64 544
   store ptr %raw, ptr %value69, align 16
-  %argh70 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 4
+  %argh70 = getelementptr inbounds i8, ptr %options, i64 552
   store ptr null, ptr %argh70, align 8
-  %help71 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 5
+  %help71 = getelementptr inbounds i8, ptr %options, i64 560
   store ptr @.str.13, ptr %help71, align 16
-  %flags72 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 6
+  %flags72 = getelementptr inbounds i8, ptr %options, i64 568
   store i32 2, ptr %flags72, align 8
-  %callback73 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 7
+  %callback73 = getelementptr inbounds i8, ptr %options, i64 576
   store ptr null, ptr %callback73, align 16
-  %defval74 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 8
+  %defval74 = getelementptr inbounds i8, ptr %options, i64 584
   store i64 1, ptr %defval74, align 8
-  %ll_callback75 = getelementptr inbounds %struct.option, ptr %options, i64 6, i32 9
-  %arrayinit.element78 = getelementptr inbounds %struct.option, ptr %options, i64 7
+  %ll_callback75 = getelementptr inbounds i8, ptr %options, i64 592
+  %arrayinit.element78 = getelementptr inbounds i8, ptr %options, i64 616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback75, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element78, align 8
-  %short_name80 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 1
+  %short_name80 = getelementptr inbounds i8, ptr %options, i64 620
   store i32 0, ptr %short_name80, align 4
-  %long_name81 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 2
+  %long_name81 = getelementptr inbounds i8, ptr %options, i64 624
   store ptr @.str.14, ptr %long_name81, align 16
-  %value82 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 3
+  %value82 = getelementptr inbounds i8, ptr %options, i64 632
   store ptr %format, ptr %value82, align 8
-  %argh83 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 4
+  %argh83 = getelementptr inbounds i8, ptr %options, i64 640
   store ptr @.str.14, ptr %argh83, align 16
-  %help84 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 5
+  %help84 = getelementptr inbounds i8, ptr %options, i64 648
   store ptr @.str.15, ptr %help84, align 8
-  %flags85 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 6
+  %flags85 = getelementptr inbounds i8, ptr %options, i64 656
   store i32 0, ptr %flags85, align 16
-  %callback86 = getelementptr inbounds %struct.option, ptr %options, i64 7, i32 7
+  %callback86 = getelementptr inbounds i8, ptr %options, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callback86, i8 0, i64 128, i1 false)
   call void @disable_replace_refs() #15
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #15
@@ -381,14 +376,14 @@ if.end134:                                        ; preds = %sw.bb
   %5 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5), align 16
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
   call void @strbuf_add(ptr noundef nonnull %ref.i, ptr noundef %5, i64 noundef %call.i.i) #15
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %ref.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %ref.i, i64 8
   %6 = load i64, ptr %len.i, align 8
   %7 = load ptr, ptr %argv, align 8
   %tobool.not4.i = icmp eq ptr %7, null
   br i1 %tobool.not4.i, label %for_each_replace_name.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end134
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %ref.i, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %ref.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -472,7 +467,7 @@ if.end3.i.i.i:                                    ; preds = %if.end.i11.i
 
 for.inc.i:                                        ; preds = %17, %if.end12.i, %_.exit.i, %if.then.i
   %had_error.1.i = phi i32 [ 1, %if.then.i ], [ 1, %_.exit.i ], [ %had_error.05.i, %17 ], [ 1, %if.end12.i ]
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %p.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.06.i, i64 8
   %18 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
   br i1 %tobool.not.i, label %for_each_replace_name.exit, label %for.body.i, !llvm.loop !5
@@ -495,7 +490,7 @@ if.then138:                                       ; preds = %sw.bb136
 
 if.end141:                                        ; preds = %sw.bb136
   %19 = load ptr, ptr %argv, align 8
-  %arrayidx142 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx142 = getelementptr inbounds i8, ptr %argv, i64 8
   %20 = load ptr, ptr %arrayidx142, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %object.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %repl.i)
@@ -650,11 +645,11 @@ if.else.i.i:                                      ; preds = %if.end.i.i38
 if.end13.i.i:                                     ; preds = %if.else.i.i, %if.then7.i.i
   %call15.i.i = call ptr @oid_to_hex(ptr noundef nonnull %old_oid.i) #15
   %call16.i.i = call ptr @strvec_push(ptr noundef nonnull %cmd.i.i, ptr noundef %call15.i.i) #15
-  %git_cmd.i.i = getelementptr inbounds %struct.child_process, ptr %cmd.i.i, i64 0, i32 11
+  %git_cmd.i.i = getelementptr inbounds i8, ptr %cmd.i.i, i64 104
   %bf.load.i.i = load i16, ptr %git_cmd.i.i, align 8
   %bf.set.i.i = or i16 %bf.load.i.i, 8
   store i16 %bf.set.i.i, ptr %git_cmd.i.i, align 8
-  %out.i.i = getelementptr inbounds %struct.child_process, ptr %cmd.i.i, i64 0, i32 8
+  %out.i.i = getelementptr inbounds i8, ptr %cmd.i.i, i64 84
   store i32 %call.i18.i, ptr %out.i.i, align 4
   %call17.i.i = call i32 @run_command(ptr noundef nonnull %cmd.i.i) #15
   %tobool18.not.i.i = icmp eq i32 %call17.i.i, 0
@@ -731,13 +726,13 @@ if.then5.i.i:                                     ; preds = %if.end.i29.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd.i26.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.import_object.cmd, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %result.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_graft_file.err, i64 24, i1 false)
   %call6.i32.i = call ptr @strvec_push(ptr noundef nonnull %cmd.i26.i, ptr noundef nonnull @.str.56) #15
-  %git_cmd.i33.i = getelementptr inbounds %struct.child_process, ptr %cmd.i26.i, i64 0, i32 11
+  %git_cmd.i33.i = getelementptr inbounds i8, ptr %cmd.i26.i, i64 104
   %bf.load.i34.i = load i16, ptr %git_cmd.i33.i, align 8
   %bf.set.i35.i = or i16 %bf.load.i34.i, 8
   store i16 %bf.set.i35.i, ptr %git_cmd.i33.i, align 8
-  %in.i.i = getelementptr inbounds %struct.child_process, ptr %cmd.i26.i, i64 0, i32 7
+  %in.i.i = getelementptr inbounds i8, ptr %cmd.i26.i, i64 80
   store i32 %call.i27.i, ptr %in.i.i, align 8
-  %out.i36.i = getelementptr inbounds %struct.child_process, ptr %cmd.i26.i, i64 0, i32 8
+  %out.i36.i = getelementptr inbounds i8, ptr %cmd.i26.i, i64 84
   store i32 -1, ptr %out.i36.i, align 4
   %call7.i.i = call i32 @start_command(ptr noundef nonnull %cmd.i26.i) #15
   %tobool8.not.i.i = icmp eq i32 %call7.i.i, 0
@@ -761,9 +756,9 @@ _.exit15.i.i:                                     ; preds = %if.end3.i12.i.i, %i
 if.end14.i.i:                                     ; preds = %if.then5.i.i
   %35 = load i32, ptr %out.i36.i, align 4
   %36 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %36, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %36, i64 256
   %37 = load ptr, ptr %hash_algo.i.i, align 8
-  %hexsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %37, i64 0, i32 3
+  %hexsz.i.i = getelementptr inbounds i8, ptr %37, i64 24
   %38 = load i64, ptr %hexsz.i.i, align 8
   %add.i.i = add i64 %38, 1
   %call16.i39.i = call i64 @strbuf_read(ptr noundef nonnull %result.i.i, i32 noundef %35, i64 noundef %add.i.i) #15
@@ -810,7 +805,7 @@ _.exit25.i.i:                                     ; preds = %if.end3.i22.i.i, %i
   br label %if.then29.i
 
 if.end34.i.i:                                     ; preds = %if.end25.i.i
-  %buf.i.i40 = getelementptr inbounds %struct.strbuf, ptr %result.i.i, i64 0, i32 2
+  %buf.i.i40 = getelementptr inbounds i8, ptr %result.i.i, i64 16
   %43 = load ptr, ptr %buf.i.i40, align 8
   %call35.i.i = call i32 @get_oid_hex(ptr noundef %43, ptr noundef nonnull %new_oid.i) #15
   %cmp36.i.i = icmp slt i32 %call35.i.i, 0
@@ -853,7 +848,7 @@ _.exit35.i.i:                                     ; preds = %if.end3.i32.i.i, %i
 
 if.end49.i.i:                                     ; preds = %if.else.i30.i
   %46 = load ptr, ptr @the_repository, align 8
-  %index.i.i = getelementptr inbounds %struct.repository, ptr %46, i64 0, i32 13
+  %index.i.i = getelementptr inbounds i8, ptr %46, i64 240
   %47 = load ptr, ptr %index.i.i, align 8
   %call50.i.i = call i32 @index_fd(ptr noundef %47, ptr noundef nonnull %new_oid.i, i32 noundef %call.i27.i, ptr noundef nonnull %st.i.i, i32 noundef %call4.i34, ptr noundef null, i32 noundef 3) #15
   %cmp51.i.i = icmp slt i32 %call50.i.i, 0
@@ -958,8 +953,8 @@ if.end.i58:                                       ; preds = %if.end164
   br i1 %cmp.not5.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end.i58
-  %buf3.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
-  %nr.i = getelementptr inbounds %struct.strvec, ptr %args.i, i64 0, i32 1
+  %buf3.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %nr.i = getelementptr inbounds i8, ptr %args.i, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -998,7 +993,7 @@ while.cond.backedge.i:                            ; preds = %if.end16.i, %while.
 while.end.i:                                      ; preds = %while.cond.backedge.i, %if.end.i58
   %call17.i = call i32 @fclose(ptr noundef nonnull %call1.i)
   call void @strbuf_release(ptr noundef nonnull %buf.i) #15
-  %len.i62 = getelementptr inbounds %struct.strbuf, ptr %err.i, i64 0, i32 1
+  %len.i62 = getelementptr inbounds i8, ptr %err.i, i64 8
   %56 = load i64, ptr %len.i62, align 8
   %tobool18.not.i = icmp eq i64 %56, 0
   br i1 %tobool18.not.i, label %if.then19.i, label %if.end21.i
@@ -1020,7 +1015,7 @@ if.end3.i.i64:                                    ; preds = %if.end21.i
 
 _.exit.i66:                                       ; preds = %if.end3.i.i64, %if.end21.i
   %retval.0.i.i67 = phi ptr [ %call.i.i65, %if.end3.i.i64 ], [ @.str.77, %if.end21.i ]
-  %buf23.i = getelementptr inbounds %struct.strbuf, ptr %err.i, i64 0, i32 2
+  %buf23.i = getelementptr inbounds i8, ptr %err.i, i64 16
   %60 = load ptr, ptr %buf23.i, align 8
   call void (ptr, ...) @warning(ptr noundef %retval.0.i.i67, ptr noundef %60) #15
   call void @strbuf_release(ptr noundef nonnull %err.i) #15
@@ -1087,7 +1082,7 @@ _.exit.i79:                                       ; preds = %if.end3.i.i77, %if.
 
 if.end23.i:                                       ; preds = %if.else12.i, %if.else.i, %lor.lhs.false4.i, %lor.lhs.false.i, %if.end173
   %.sink.i = phi i32 [ 0, %lor.lhs.false4.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end173 ], [ 1, %if.else.i ], [ 2, %if.else12.i ]
-  %format11.i = getelementptr inbounds %struct.show_data, ptr %data.i, i64 0, i32 1
+  %format11.i = getelementptr inbounds i8, ptr %data.i, i64 8
   store i32 %.sink.i, ptr %format11.i, align 8
   %64 = load ptr, ptr @the_repository, align 8
   %call24.i82 = call i32 @for_each_replace_ref(ptr noundef %64, ptr noundef nonnull @show_reference, ptr noundef nonnull %data.i) #15
@@ -1201,16 +1196,16 @@ if.end9:                                          ; preds = %if.end
   %7 = load ptr, ptr @the_repository, align 8
   call void @repo_unuse_commit_buffer(ptr noundef %7, ptr noundef nonnull %call4, ptr noundef %call10) #15
   %sub = add nsw i32 %argc, -1
-  %arrayidx11 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %argv, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %new_parents.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %new_parents.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_graft_file.err, i64 24, i1 false)
   %8 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %8, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %8, i64 256
   %9 = load ptr, ptr %hash_algo.i, align 8
-  %hexsz1.i = getelementptr inbounds %struct.git_hash_algo, ptr %9, i64 0, i32 3
+  %hexsz1.i = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load i64, ptr %hexsz1.i, align 8
-  %buf2.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf2.i = getelementptr inbounds i8, ptr %buf, i64 16
   %11 = load ptr, ptr %buf2.i, align 8
   %add.i = add i64 %10, 6
   %idx.ext.i = and i64 %add.i, 4294967295
@@ -1270,7 +1265,7 @@ if.then17.i:                                      ; preds = %if.end.i
   br i1 %tobool1.not.i16.i, label %if.then14, label %if.then14.sink.split
 
 if.end23.i:                                       ; preds = %if.end.i
-  %oid24.i = getelementptr inbounds %struct.object, ptr %call15.i, i64 0, i32 1
+  %oid24.i = getelementptr inbounds i8, ptr %call15.i, i64 4
   %call25.i = call ptr @oid_to_hex(ptr noundef nonnull %oid24.i) #15
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %new_parents.i, ptr noundef nonnull @.str.71, ptr noundef %call25.i) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1278,9 +1273,9 @@ if.end23.i:                                       ; preds = %if.end.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !11
 
 for.end.loopexit.i:                               ; preds = %if.end23.i
-  %buf30.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %new_parents.i, i64 0, i32 2
+  %buf30.phi.trans.insert.i = getelementptr inbounds i8, ptr %new_parents.i, i64 16
   %.pre.i = load ptr, ptr %buf30.phi.trans.insert.i, align 8
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %new_parents.i, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %new_parents.i, i64 8
   %.pre32.i = load i64, ptr %len.phi.trans.insert.i, align 8
   br label %if.end15
 
@@ -1345,7 +1340,7 @@ _.exit35:                                         ; preds = %_.exit29, %if.end3.
 if.end21:                                         ; preds = %_.exit35, %if.end15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %mergetag_data.i)
   store i32 %argc, ptr %mergetag_data.i, align 8
-  %argv2.i = getelementptr inbounds %struct.check_mergetag_data, ptr %mergetag_data.i, i64 0, i32 1
+  %argv2.i = getelementptr inbounds i8, ptr %mergetag_data.i, i64 8
   store ptr %argv, ptr %argv2.i, align 8
   %call.i36 = call i32 @for_each_mergetag(ptr noundef nonnull @check_one_mergetag, ptr noundef nonnull %call4, ptr noundef nonnull %mergetag_data.i) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %mergetag_data.i)
@@ -1358,7 +1353,7 @@ if.then24:                                        ; preds = %if.end21
 
 if.end25:                                         ; preds = %if.end21
   %23 = load ptr, ptr %buf2.i, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load i64, ptr %len, align 8
   %call.i37 = call i32 @write_object_file_flags(ptr noundef %23, i64 noundef %24, i32 noundef 1, ptr noundef nonnull %new_oid, i32 noundef 0) #15
   %tobool28.not = icmp eq i32 %call.i37, 0
@@ -1380,15 +1375,15 @@ _.exit43:                                         ; preds = %if.then29, %if.end3
   br label %return
 
 if.end33:                                         ; preds = %if.end25
-  %oid = getelementptr inbounds %struct.object, ptr %call4, i64 0, i32 1
-  %algo.i = getelementptr inbounds %struct.object, ptr %call4, i64 0, i32 1, i32 1
+  %oid = getelementptr inbounds i8, ptr %call4, i64 4
+  %algo.i = getelementptr inbounds i8, ptr %call4, i64 36
   %26 = load i32, ptr %algo.i, align 4
   %tobool.not.i44 = icmp eq i32 %26, 0
   br i1 %tobool.not.i44, label %if.then.i48, label %if.else.i
 
 if.then.i48:                                      ; preds = %if.end33
   %27 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i49 = getelementptr inbounds %struct.repository, ptr %27, i64 0, i32 15
+  %hash_algo.i49 = getelementptr inbounds i8, ptr %27, i64 256
   %28 = load ptr, ptr %hash_algo.i49, align 8
   br label %if.end.i46
 
@@ -1537,7 +1532,7 @@ if.end10:                                         ; preds = %if.end
   br i1 %tobool12.not, label %if.then18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end10
-  %buf = getelementptr inbounds %struct.strbuf, ptr %ref, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %ref, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call13 = call i32 @ref_transaction_update(ptr noundef nonnull %call11, ptr noundef %3, ptr noundef %repl, ptr noundef nonnull %prev, i32 noundef 0, ptr noundef null, ptr noundef nonnull %err) #15
   %tobool14.not = icmp eq i32 %call13, 0
@@ -1549,7 +1544,7 @@ lor.lhs.false15:                                  ; preds = %lor.lhs.false
   br i1 %tobool17.not, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %lor.lhs.false15, %lor.lhs.false, %if.end10
-  %buf19 = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 2
+  %buf19 = getelementptr inbounds i8, ptr %err, i64 16
   %4 = load ptr, ptr %buf19, align 8
   %call20 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef %4) #15
   br label %if.end22
@@ -1573,9 +1568,9 @@ declare ptr @type_name(i32 noundef) local_unnamed_addr #2
 define internal fastcc noundef i32 @check_ref_valid(ptr noundef %object, ptr noundef %prev, ptr noundef %ref, i32 noundef %force) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds ([9 x %struct.ref_namespace_info], ptr @ref_namespace, i64 0, i64 5), align 16
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %ref, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %ref, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %ref, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %ref, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -1616,13 +1611,13 @@ if.end:                                           ; preds = %strbuf_setlen.exit
 if.then9:                                         ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %prev, i8 0, i64 32, i1 false)
   %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %6, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %6, i64 256
   %7 = load ptr, ptr %hash_algo.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %prev, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %prev, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
   br label %return
 
@@ -1672,14 +1667,14 @@ declare i32 @launch_editor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #8 {
 entry:
-  %algo = getelementptr inbounds %struct.object_id, ptr %oid1, i64 0, i32 1
+  %algo = getelementptr inbounds i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo, align 8
   br label %if.end
 
@@ -1755,15 +1750,15 @@ define internal noundef i32 @check_one_mergetag(ptr nocapture readnone %commit, 
 entry:
   %tag_oid = alloca %struct.object_id, align 4
   %oid = alloca %struct.object_id, align 4
-  %argv = getelementptr inbounds %struct.check_mergetag_data, ptr %data, i64 0, i32 1
+  %argv = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %argv, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo, align 8
-  %value = getelementptr inbounds %struct.commit_extra_header, ptr %extra, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %extra, i64 16
   %4 = load ptr, ptr %value, align 8
-  %len = getelementptr inbounds %struct.commit_extra_header, ptr %extra, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %extra, i64 24
   %5 = load i64, ptr %len, align 8
   call void @hash_object_file(ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef 4, ptr noundef nonnull %tag_oid) #15
   %6 = load ptr, ptr @the_repository, align 8
@@ -1848,14 +1843,14 @@ _.exit23:                                         ; preds = %if.then17, %if.end3
 
 if.end24:                                         ; preds = %for.body
   %call25 = call ptr @get_tagged_oid(ptr noundef nonnull %call) #15
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %call25, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %call25, i64 32
   %21 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %21, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end24
   %22 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %22, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %22, i64 256
   %23 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -1944,7 +1939,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %format = getelementptr inbounds %struct.show_data, ptr %cb_data, i64 0, i32 1
+  %format = getelementptr inbounds i8, ptr %cb_data, i64 8
   %1 = load i32, ptr %format, align 8
   switch i32 %1, label %if.else8 [
     i32 0, label %if.then1

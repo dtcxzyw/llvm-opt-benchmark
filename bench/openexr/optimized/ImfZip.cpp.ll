@@ -3,7 +3,6 @@ source_filename = "bench/openexr/original/ImfZip.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Imf_3_2::Zip" = type <{ i64, ptr, i32, [4 x i8] }>
 %"class.Imf_3_2::CpuId" = type { i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [25 x i8] c"Data compression failed.\00", align 1
@@ -22,9 +21,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN7Imf_3_23ZipC2Emi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, i64 noundef %maxRawSize, i32 noundef %level) unnamed_addr #0 align 2 {
 entry:
   store i64 %maxRawSize, ptr %this, align 8
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 1
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_tmpBuffer, align 8
-  %_zipLevel = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 2
+  %_zipLevel = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %level, ptr %_zipLevel, align 8
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %maxRawSize) #11
   store ptr %call, ptr %_tmpBuffer, align 8
@@ -37,7 +36,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7Imf_3_23ZipC2Emmi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, i64 noundef %maxScanLineSize, i64 noundef %numScanLines, i32 noundef %level) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_zipLevel = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 2
+  %_zipLevel = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i32 %level, ptr %_zipLevel, align 8
   %cmp.not.i = icmp eq i64 %maxScanLineSize, 0
@@ -64,7 +63,7 @@ lpad.i:                                           ; preds = %if.then.i
   resume { ptr, i32 } %0
 
 _ZN7Imf_3_26uiMultImEET_S1_S1_.exit:              ; preds = %entry, %land.lhs.true.i
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 1
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 8
   %mul.i = mul i64 %numScanLines, %maxScanLineSize
   store i64 %mul.i, ptr %this, align 8
   %call4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %mul.i) #11
@@ -75,7 +74,7 @@ _ZN7Imf_3_26uiMultImEET_S1_S1_.exit:              ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_23ZipD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #2 align 2 {
 entry:
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 1
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
@@ -112,7 +111,7 @@ declare i64 @exr_compress_max_buffer_size(i64 noundef) local_unnamed_addr #5
 define hidden noundef i32 @_ZN7Imf_3_23Zip8compressEPKciPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef readonly %raw, i32 noundef %rawSize, ptr noundef %compressed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %outSize = alloca i64, align 8
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 1
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %idx.ext3 = sext i32 %rawSize to i64
   %add.ptr4 = getelementptr inbounds i8, ptr %raw, i64 %idx.ext3
@@ -173,7 +172,7 @@ while.end28.loopexit:                             ; preds = %while.body19
 
 while.end28:                                      ; preds = %entry, %while.end28.loopexit, %while.end
   %5 = phi ptr [ %.pre22, %while.end28.loopexit ], [ %.pre, %while.end ], [ %0, %entry ]
-  %_zipLevel = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 2
+  %_zipLevel = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load i32, ptr %_zipLevel, align 8
   %7 = load i64, ptr %this, align 8
   %call.i = tail call noundef i64 @exr_compress_max_buffer_size(i64 noundef %7)
@@ -223,7 +222,7 @@ entry:
   %outSize = alloca i64, align 8
   store i64 0, ptr %outSize, align 8
   %conv = sext i32 %compressedSize to i64
-  %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::Zip", ptr %this, i64 0, i32 1
+  %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %1 = load i64, ptr %this, align 8
   %call = call i32 @exr_uncompress_buffer(ptr noundef null, ptr noundef %compressed, i64 noundef %conv, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %outSize)
@@ -333,15 +332,15 @@ for.body:                                         ; preds = %entry, %for.body
   %v2.019 = phi ptr [ %incdec.ptr2, %for.body ], [ %add.ptr, %entry ]
   %vOut.018 = phi ptr [ %incdec.ptr7, %for.body ], [ %out, %entry ]
   %i.017 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %incdec.ptr = getelementptr inbounds <2 x i64>, ptr %v1.020, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %v1.020, i64 16
   %0 = load <16 x i8>, ptr %v1.020, align 1
-  %incdec.ptr2 = getelementptr inbounds <2 x i64>, ptr %v2.019, i64 1
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %v2.019, i64 16
   %1 = load <16 x i8>, ptr %v2.019, align 1
   %shuffle.i = shufflevector <16 x i8> %0, <16 x i8> %1, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %shuffle.i22 = shufflevector <16 x i8> %0, <16 x i8> %1, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %incdec.ptr6 = getelementptr inbounds <2 x i64>, ptr %vOut.018, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %vOut.018, i64 16
   store <16 x i8> %shuffle.i, ptr %vOut.018, align 1
-  %incdec.ptr7 = getelementptr inbounds <2 x i64>, ptr %vOut.018, i64 2
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %vOut.018, i64 32
   store <16 x i8> %shuffle.i22, ptr %incdec.ptr6, align 1
   %inc = add nuw nsw i64 %i.017, 1
   %exitcond.not = icmp eq i64 %inc, %div14

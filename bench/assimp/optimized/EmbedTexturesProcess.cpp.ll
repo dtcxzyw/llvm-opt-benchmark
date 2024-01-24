@@ -6,12 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.Assimp::EmbedTexturesProcess" = type { %"class.Assimp::BaseProcess", %"class.std::__cxx11::basic_string", ptr }
-%"class.Assimp::BaseProcess" = type { ptr, ptr, ptr }
 %struct.aiString = type { i32, [1024 x i8] }
 %"class.std::allocator.0" = type { i8 }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiTexture = type <{ i32, i32, [9 x i8], [7 x i8], ptr, %struct.aiString, [4 x i8] }>
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -97,7 +93,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mRootPath = getelementptr inbounds %"class.Assimp::EmbedTexturesProcess", ptr %this, i64 0, i32 1
+  %mRootPath = getelementptr inbounds i8, ptr %this, i64 24
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %mRootPath, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #16
@@ -107,7 +103,7 @@ invoke.cont:                                      ; preds = %entry
   %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %mRootPath, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16
   %call9 = call noundef ptr @_ZNK6Assimp8Importer12GetIOHandlerEv(ptr noundef nonnull align 8 dereferenceable(8) %pImp)
-  %mIOHandler = getelementptr inbounds %"class.Assimp::EmbedTexturesProcess", ptr %this, i64 0, i32 2
+  %mIOHandler = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call9, ptr %mIOHandler, align 8
   ret void
 
@@ -149,10 +145,10 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mRootNode = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 1
+  %mRootNode = getelementptr inbounds i8, ptr %pScene, i64 8
   %0 = load ptr, ptr %mRootNode, align 8
   %cmp2 = icmp eq ptr %0, null
-  %mIOHandler = getelementptr inbounds %"class.Assimp::EmbedTexturesProcess", ptr %this, i64 0, i32 2
+  %mIOHandler = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %mIOHandler, align 8
   %cmp4 = icmp eq ptr %1, null
   %or.cond = select i1 %cmp2, i1 true, i1 %cmp4
@@ -160,17 +156,17 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   store i32 0, ptr %path, align 4
-  %data.i = getelementptr inbounds %struct.aiString, ptr %path, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %path, i64 4
   store i8 0, ptr %data.i, align 4
   store i32 0, ptr %embeddedTexturesCount, align 4
-  %mNumMaterials = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 4
+  %mNumMaterials = getelementptr inbounds i8, ptr %pScene, i64 32
   %2 = load i32, ptr %mNumMaterials, align 8
   %cmp524.not = icmp eq i32 %2, 0
   br i1 %cmp524.not, label %for.end34, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %mMaterials = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 5
-  %mNumTextures = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 8
+  %mMaterials = getelementptr inbounds i8, ptr %pScene, i64 40
+  %mNumTextures = getelementptr inbounds i8, ptr %pScene, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc32
@@ -292,11 +288,11 @@ entry:
   %extension = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp79 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %imagePath, ptr noundef nonnull align 8 dereferenceable(32) %path)
-  %mIOHandler = getelementptr inbounds %"class.Assimp::EmbedTexturesProcess", ptr %this, i64 0, i32 2
+  %mIOHandler = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %mIOHandler, align 8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %imagePath) #16
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i29 = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %call.i)
           to label %invoke.cont unwind label %lpad
@@ -313,7 +309,7 @@ invoke.cont2:                                     ; preds = %if.then
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %mRootPath = getelementptr inbounds %"class.Assimp::EmbedTexturesProcess", ptr %this, i64 0, i32 1
+  %mRootPath = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %mRootPath)
           to label %.noexc unwind label %lpad
 
@@ -333,7 +329,7 @@ invoke.cont5:                                     ; preds = %.noexc
   %3 = load ptr, ptr %mIOHandler, align 8
   %call.i31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %imagePath) #16
   %vtable.i32 = load ptr, ptr %3, align 8
-  %vfn.i33 = getelementptr inbounds ptr, ptr %vtable.i32, i64 2
+  %vfn.i33 = getelementptr inbounds i8, ptr %vtable.i32, i64 16
   %4 = load ptr, ptr %vfn.i33, align 8
   %call2.i34 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %call.i31)
           to label %invoke.cont8 unwind label %lpad
@@ -359,7 +355,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %5 = load ptr, ptr %mIOHandler, align 8
   %call.i38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %imagePath) #16
   %vtable.i39 = load ptr, ptr %5, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 2
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 16
   %6 = load ptr, ptr %vfn.i40, align 8
   %call2.i41 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %call.i38)
           to label %invoke.cont20 unwind label %lpad
@@ -402,7 +398,7 @@ invoke.cont32:                                    ; preds = %.noexc46
   %call.i48 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %imagePath) #16
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #16
   %vtable.i49 = load ptr, ptr %9, align 8
-  %vfn.i50 = getelementptr inbounds ptr, ptr %vtable.i49, i64 4
+  %vfn.i50 = getelementptr inbounds i8, ptr %vtable.i49, i64 32
   %11 = load ptr, ptr %vfn.i50, align 8
   %call3.i51 = invoke noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %call.i48, ptr noundef %call2.i)
           to label %invoke.cont34 unwind label %lpad33
@@ -439,7 +435,7 @@ ehcleanup:                                        ; preds = %lpad31, %lpad.i44, 
 
 if.end40:                                         ; preds = %invoke.cont34
   %vtable = load ptr, ptr %call3.i51, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %15 = load ptr, ptr %vfn, align 8
   %call43 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %call3.i51)
           to label %invoke.cont42 unwind label %lpad
@@ -454,14 +450,14 @@ invoke.cont42:                                    ; preds = %if.end40
 
 invoke.cont48:                                    ; preds = %invoke.cont42
   %vtable50 = load ptr, ptr %call3.i51, align 8
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 4
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 32
   %19 = load ptr, ptr %vfn51, align 8
   %call53 = invoke noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %call3.i51, i64 noundef 0, i32 noundef 0)
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %invoke.cont48
   %vtable56 = load ptr, ptr %call3.i51, align 8
-  %vfn57 = getelementptr inbounds ptr, ptr %vtable56, i64 2
+  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 16
   %20 = load ptr, ptr %vfn57, align 8
   %call59 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %call3.i51, ptr noundef nonnull %call49, i64 noundef %call43, i64 noundef 1)
           to label %invoke.cont58 unwind label %lpad
@@ -469,17 +465,17 @@ invoke.cont52:                                    ; preds = %invoke.cont48
 invoke.cont58:                                    ; preds = %invoke.cont52
   %21 = load ptr, ptr %mIOHandler, align 8
   %vtable61 = load ptr, ptr %21, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 5
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 40
   %22 = load ptr, ptr %vfn62, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %call3.i51)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %invoke.cont58
-  %mNumTextures = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 8
+  %mNumTextures = getelementptr inbounds i8, ptr %pScene, i64 64
   %23 = load i32, ptr %mNumTextures, align 8
   %inc = add i32 %23, 1
   store i32 %inc, ptr %mNumTextures, align 8
-  %mTextures = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 9
+  %mTextures = getelementptr inbounds i8, ptr %pScene, i64 72
   %24 = load ptr, ptr %mTextures, align 8
   %conv = zext i32 %inc to i64
   %25 = shl nuw nsw i64 %conv, 3
@@ -503,10 +499,10 @@ delete.end:                                       ; preds = %delete.notnull, %in
           to label %invoke.cont71 unwind label %lpad
 
 invoke.cont71:                                    ; preds = %delete.end
-  %pcData.i = getelementptr inbounds %struct.aiTexture, ptr %call72, i64 0, i32 4
-  %mFilename.i = getelementptr inbounds %struct.aiTexture, ptr %call72, i64 0, i32 5
+  %pcData.i = getelementptr inbounds i8, ptr %call72, i64 24
+  %mFilename.i = getelementptr inbounds i8, ptr %call72, i64 32
   store i32 0, ptr %mFilename.i, align 4
-  %data.i.i = getelementptr inbounds %struct.aiTexture, ptr %call72, i64 0, i32 5, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %call72, i64 36
   store i8 0, ptr %data.i.i, align 4
   %conv75 = trunc i64 %call43 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %call72, i8 0, i64 17, i1 false)
@@ -541,7 +537,7 @@ lpad80:                                           ; preds = %if.then85, %invoke.
 if.end88:                                         ; preds = %if.then85, %invoke.cont81
   %call89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %extension) #16
   %spec.store.select = call i64 @llvm.umin.i64(i64 %call89, i64 8)
-  %achFormatHint = getelementptr inbounds %struct.aiTexture, ptr %call72, i64 0, i32 2
+  %achFormatHint = getelementptr inbounds i8, ptr %call72, i64 8
   %call93 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %extension) #16
   %call94 = call ptr @strncpy(ptr noundef nonnull %achFormatHint, ptr noundef %call93, i64 noundef %spec.store.select) #16
   %27 = load ptr, ptr %mTextures, align 8
@@ -817,7 +813,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define linkonce_odr void @_ZN6Assimp20EmbedTexturesProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp20EmbedTexturesProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mRootPath = getelementptr inbounds %"class.Assimp::EmbedTexturesProcess", ptr %this, i64 0, i32 1
+  %mRootPath = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mRootPath) #16
   tail call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #16
   ret void
@@ -827,7 +823,7 @@ entry:
 define linkonce_odr void @_ZN6Assimp20EmbedTexturesProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp20EmbedTexturesProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mRootPath.i = getelementptr inbounds %"class.Assimp::EmbedTexturesProcess", ptr %this, i64 0, i32 1
+  %mRootPath.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mRootPath.i) #16
   tail call void @_ZN6Assimp11BaseProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18

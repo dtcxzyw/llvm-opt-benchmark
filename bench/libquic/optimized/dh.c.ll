@@ -7,9 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CRYPTO_STATIC_MUTEX = type { %union.pthread_rwlock_t }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.dh_st = type { ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/dh/dh.c\00", align 1
@@ -27,11 +24,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %method_mont_p_lock = getelementptr inbounds %struct.dh_st, ptr %calloc, i64 0, i32 5
+  %method_mont_p_lock = getelementptr inbounds i8, ptr %calloc, i64 40
   tail call void @CRYPTO_MUTEX_init(ptr noundef nonnull %method_mont_p_lock) #4
-  %references = getelementptr inbounds %struct.dh_st, ptr %calloc, i64 0, i32 13
+  %references = getelementptr inbounds i8, ptr %calloc, i64 148
   store i32 1, ptr %references, align 4
-  %ex_data = getelementptr inbounds %struct.dh_st, ptr %calloc, i64 0, i32 14
+  %ex_data = getelementptr inbounds i8, ptr %calloc, i64 152
   tail call void @CRYPTO_new_ex_data(ptr noundef nonnull %ex_data) #4
   br label %return
 
@@ -52,41 +49,41 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 13
+  %references = getelementptr inbounds i8, ptr %dh, i64 148
   %call = tail call i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef nonnull %references) #4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %ex_data = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 14
+  %ex_data = getelementptr inbounds i8, ptr %dh, i64 152
   tail call void @CRYPTO_free_ex_data(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %dh, ptr noundef nonnull %ex_data) #4
-  %method_mont_p = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 6
+  %method_mont_p = getelementptr inbounds i8, ptr %dh, i64 96
   %0 = load ptr, ptr %method_mont_p, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #4
   %1 = load ptr, ptr %dh, align 8
   tail call void @BN_clear_free(ptr noundef %1) #4
-  %g = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %dh, i64 8
   %2 = load ptr, ptr %g, align 8
   tail call void @BN_clear_free(ptr noundef %2) #4
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 7
+  %q = getelementptr inbounds i8, ptr %dh, i64 104
   %3 = load ptr, ptr %q, align 8
   tail call void @BN_clear_free(ptr noundef %3) #4
-  %j = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 8
+  %j = getelementptr inbounds i8, ptr %dh, i64 112
   %4 = load ptr, ptr %j, align 8
   tail call void @BN_clear_free(ptr noundef %4) #4
-  %seed = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 9
+  %seed = getelementptr inbounds i8, ptr %dh, i64 120
   %5 = load ptr, ptr %seed, align 8
   tail call void @free(ptr noundef %5) #4
-  %counter = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 11
+  %counter = getelementptr inbounds i8, ptr %dh, i64 136
   %6 = load ptr, ptr %counter, align 8
   tail call void @BN_clear_free(ptr noundef %6) #4
-  %pub_key = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %pub_key = getelementptr inbounds i8, ptr %dh, i64 16
   %7 = load ptr, ptr %pub_key, align 8
   tail call void @BN_clear_free(ptr noundef %7) #4
-  %priv_key = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 3
+  %priv_key = getelementptr inbounds i8, ptr %dh, i64 24
   %8 = load ptr, ptr %priv_key, align 8
   tail call void @BN_clear_free(ptr noundef %8) #4
-  %method_mont_p_lock = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 5
+  %method_mont_p_lock = getelementptr inbounds i8, ptr %dh, i64 40
   tail call void @CRYPTO_MUTEX_cleanup(ptr noundef nonnull %method_mont_p_lock) #4
   tail call void @free(ptr noundef nonnull %dh) #4
   br label %return
@@ -136,7 +133,7 @@ if.then8:                                         ; preds = %if.end6
   br i1 %cmp12, label %if.then78.sink.split, label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.end6
-  %g16 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 1
+  %g16 = getelementptr inbounds i8, ptr %dh, i64 8
   %1 = load ptr, ptr %g16, align 8
   %cmp17 = icmp eq ptr %1, null
   br i1 %cmp17, label %if.then18, label %if.end25
@@ -269,7 +266,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.end62, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %priv_key5 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 3
+  %priv_key5 = getelementptr inbounds i8, ptr %dh, i64 24
   %1 = load ptr, ptr %priv_key5, align 8
   %cmp6.not = icmp eq ptr %1, null
   br i1 %cmp6.not, label %if.then7, label %if.end13
@@ -281,7 +278,7 @@ if.then7:                                         ; preds = %if.end4
 
 if.end13:                                         ; preds = %if.end4, %if.then7
   %priv_key.0 = phi ptr [ %call8, %if.then7 ], [ %1, %if.end4 ]
-  %pub_key14 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %pub_key14 = getelementptr inbounds i8, ptr %dh, i64 16
   %2 = load ptr, ptr %pub_key14, align 8
   %cmp15 = icmp eq ptr %2, null
   br i1 %cmp15, label %if.then16, label %if.end23
@@ -293,8 +290,8 @@ if.then16:                                        ; preds = %if.end13
 
 if.end23:                                         ; preds = %if.end13, %if.then16
   %pub_key.0 = phi ptr [ %call17, %if.then16 ], [ %2, %if.end13 ]
-  %method_mont_p = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 6
-  %method_mont_p_lock = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 5
+  %method_mont_p = getelementptr inbounds i8, ptr %dh, i64 96
+  %method_mont_p_lock = getelementptr inbounds i8, ptr %dh, i64 40
   %3 = load ptr, ptr %dh, align 8
   %call25 = tail call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %method_mont_p, ptr noundef nonnull %method_mont_p_lock, ptr noundef %3, ptr noundef nonnull %call1) #4
   %tobool.not = icmp eq i32 %call25, 0
@@ -304,7 +301,7 @@ if.end27:                                         ; preds = %if.end23
   br i1 %cmp6.not, label %if.then29, label %if.end51
 
 if.then29:                                        ; preds = %if.end27
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 7
+  %q = getelementptr inbounds i8, ptr %dh, i64 104
   %4 = load ptr, ptr %q, align 8
   %tobool30.not = icmp eq ptr %4, null
   br i1 %tobool30.not, label %if.else41, label %do.body.preheader
@@ -332,7 +329,7 @@ do.body.backedge:                                 ; preds = %lor.rhs, %do.cond
 
 if.else41:                                        ; preds = %if.then29
   tail call void @DH_check_standard_parameters(ptr noundef nonnull %dh) #4
-  %priv_length = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 4
+  %priv_length = getelementptr inbounds i8, ptr %dh, i64 32
   %6 = load i32, ptr %priv_length, align 8
   %tobool42.not = icmp eq i32 %6, 0
   br i1 %tobool42.not, label %cond.false, label %cond.end
@@ -351,7 +348,7 @@ cond.end:                                         ; preds = %if.else41, %cond.fa
 
 if.end51:                                         ; preds = %lor.rhs, %cond.end, %if.end27
   call void @BN_with_flags(ptr noundef nonnull %local_priv, ptr noundef nonnull %priv_key.0, i32 noundef 4) #4
-  %g = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %dh, i64 8
   %8 = load ptr, ptr %g, align 8
   %9 = load ptr, ptr %dh, align 8
   %10 = load ptr, ptr %method_mont_p, align 8
@@ -369,7 +366,7 @@ if.end62:                                         ; preds = %do.body.backedge, %
   %pub_key.1.ph = phi ptr [ %pub_key.0, %if.end23 ], [ %pub_key.0, %cond.end ], [ %pub_key.0, %if.end51 ], [ null, %if.then16 ], [ null, %if.then7 ], [ null, %if.end ], [ null, %if.then ], [ %pub_key.0, %do.body.preheader ], [ %pub_key.0, %do.body.backedge ]
   %priv_key.1.ph = phi ptr [ %priv_key.0, %if.end23 ], [ %priv_key.0, %cond.end ], [ %priv_key.0, %if.end51 ], [ %priv_key.0, %if.then16 ], [ null, %if.then7 ], [ null, %if.end ], [ null, %if.then ], [ %priv_key.0, %do.body.preheader ], [ %priv_key.0, %do.body.backedge ]
   call void @ERR_put_error(i32 noundef 5, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 305) #4
-  %pub_key63.phi.trans.insert = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
+  %pub_key63.phi.trans.insert = getelementptr inbounds i8, ptr %dh, i64 16
   %.pre = load ptr, ptr %pub_key63.phi.trans.insert, align 8
   %11 = icmp eq ptr %.pre, null
   br i1 %11, label %if.then65, label %if.end66
@@ -382,7 +379,7 @@ if.end66:                                         ; preds = %if.end62.thread, %i
   %ok.04359 = phi i32 [ 1, %if.end62.thread ], [ 0, %if.then65 ], [ 0, %if.end62 ]
   %ctx.04558 = phi ptr [ %call1, %if.end62.thread ], [ %ctx.0.ph, %if.then65 ], [ %ctx.0.ph, %if.end62 ]
   %priv_key.14957 = phi ptr [ %priv_key.0, %if.end62.thread ], [ %priv_key.1.ph, %if.then65 ], [ %priv_key.1.ph, %if.end62 ]
-  %priv_key67 = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 3
+  %priv_key67 = getelementptr inbounds i8, ptr %dh, i64 24
   %12 = load ptr, ptr %priv_key67, align 8
   %cmp68 = icmp eq ptr %12, null
   br i1 %cmp68, label %if.then69, label %if.end70
@@ -442,7 +439,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then31, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %priv_key = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 3
+  %priv_key = getelementptr inbounds i8, ptr %dh, i64 24
   %1 = load ptr, ptr %priv_key, align 8
   %cmp9 = icmp eq ptr %1, null
   br i1 %cmp9, label %if.then10, label %if.end11
@@ -452,8 +449,8 @@ if.then10:                                        ; preds = %if.end8
   br label %if.then31
 
 if.end11:                                         ; preds = %if.end8
-  %method_mont_p = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 6
-  %method_mont_p_lock = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 5
+  %method_mont_p = getelementptr inbounds i8, ptr %dh, i64 96
+  %method_mont_p_lock = getelementptr inbounds i8, ptr %dh, i64 40
   %2 = load ptr, ptr %dh, align 8
   %call13 = tail call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %method_mont_p, ptr noundef nonnull %method_mont_p_lock, ptr noundef %2, ptr noundef nonnull %call1) #4
   %tobool.not = icmp eq i32 %call13, 0
@@ -525,7 +522,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @DH_up_ref(ptr noundef %dh) local_unnamed_addr #0 {
 entry:
-  %references = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 13
+  %references = getelementptr inbounds i8, ptr %dh, i64 148
   tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #4
   ret i32 1
 }
@@ -544,13 +541,13 @@ DH_new.exit.thread:                               ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %method_mont_p_lock.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 5
+  %method_mont_p_lock.i = getelementptr inbounds i8, ptr %calloc.i, i64 40
   tail call void @CRYPTO_MUTEX_init(ptr noundef nonnull %method_mont_p_lock.i) #4
-  %references.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 13
+  %references.i = getelementptr inbounds i8, ptr %calloc.i, i64 148
   store i32 1, ptr %references.i, align 4
-  %ex_data.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 14
+  %ex_data.i = getelementptr inbounds i8, ptr %calloc.i, i64 152
   tail call void @CRYPTO_new_ex_data(ptr noundef nonnull %ex_data.i) #4
-  %q.i = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 7
+  %q.i = getelementptr inbounds i8, ptr %dh, i64 104
   %0 = load ptr, ptr %q.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   %1 = load ptr, ptr %dh, align 8
@@ -567,8 +564,8 @@ lor.lhs.false.i:                                  ; preds = %if.then.i.i, %if.en
   %2 = load ptr, ptr %calloc.i, align 8
   tail call void @BN_free(ptr noundef %2) #4
   store ptr %a.0.i.i, ptr %calloc.i, align 8
-  %g.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 1
-  %g4.i = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %g4.i = getelementptr inbounds i8, ptr %dh, i64 8
   %3 = load ptr, ptr %g4.i, align 8
   %tobool.not.i19.i = icmp eq ptr %3, null
   br i1 %tobool.not.i19.i, label %int_dh_bn_cpy.exit26.i, label %if.then.i20.i
@@ -586,7 +583,7 @@ int_dh_bn_cpy.exit26.i:                           ; preds = %if.then.i20.i, %lor
   br i1 %tobool.not.i, label %return, label %if.end11.i
 
 if.end11.i:                                       ; preds = %int_dh_bn_cpy.exit26.i
-  %q12.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 7
+  %q12.i = getelementptr inbounds i8, ptr %calloc.i, i64 104
   %5 = load ptr, ptr %q.i, align 8
   %tobool.not.i27.i = icmp eq ptr %5, null
   br i1 %tobool.not.i27.i, label %lor.lhs.false16.i, label %if.then.i28.i
@@ -601,8 +598,8 @@ lor.lhs.false16.i:                                ; preds = %if.then.i28.i, %if.
   %6 = load ptr, ptr %q12.i, align 8
   tail call void @BN_free(ptr noundef %6) #4
   store ptr %a.0.i32.i, ptr %q12.i, align 8
-  %j.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 8
-  %j17.i = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 8
+  %j.i = getelementptr inbounds i8, ptr %calloc.i, i64 112
+  %j17.i = getelementptr inbounds i8, ptr %dh, i64 112
   %7 = load ptr, ptr %j17.i, align 8
   %tobool.not.i35.i = icmp eq ptr %7, null
   br i1 %tobool.not.i35.i, label %if.end21.i, label %if.then.i36.i
@@ -617,19 +614,19 @@ if.end21.i:                                       ; preds = %if.then.i36.i, %lor
   %8 = load ptr, ptr %j.i, align 8
   tail call void @BN_free(ptr noundef %8) #4
   store ptr %a.0.i40.i, ptr %j.i, align 8
-  %seed.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 9
+  %seed.i = getelementptr inbounds i8, ptr %calloc.i, i64 120
   %9 = load ptr, ptr %seed.i, align 8
   tail call void @free(ptr noundef %9) #4
   store ptr null, ptr %seed.i, align 8
-  %seedlen.i = getelementptr inbounds %struct.dh_st, ptr %calloc.i, i64 0, i32 10
+  %seedlen.i = getelementptr inbounds i8, ptr %calloc.i, i64 128
   store i32 0, ptr %seedlen.i, align 8
-  %seed23.i = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 9
+  %seed23.i = getelementptr inbounds i8, ptr %dh, i64 120
   %10 = load ptr, ptr %seed23.i, align 8
   %tobool24.not.i = icmp eq ptr %10, null
   br i1 %tobool24.not.i, label %return, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end21.i
-  %seedlen27.i = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 10
+  %seedlen27.i = getelementptr inbounds i8, ptr %dh, i64 128
   %11 = load i32, ptr %seedlen27.i, align 8
   %conv.i = sext i32 %11 to i64
   %call28.i = tail call ptr @BUF_memdup(ptr noundef nonnull %10, i64 noundef %conv.i) #4
@@ -667,7 +664,7 @@ declare i32 @CRYPTO_get_ex_new_index(ptr noundef, ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @DH_set_ex_data(ptr noundef %d, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.dh_st, ptr %d, i64 0, i32 14
+  %ex_data = getelementptr inbounds i8, ptr %d, i64 152
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #4
   ret i32 %call
 }
@@ -677,7 +674,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden ptr @DH_get_ex_data(ptr noundef %d, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.dh_st, ptr %d, i64 0, i32 14
+  %ex_data = getelementptr inbounds i8, ptr %d, i64 152
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #4
   ret ptr %call
 }

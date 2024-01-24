@@ -3,9 +3,6 @@ source_filename = "bench/hyperscan/original/nfa_build_util.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.NFA = type { i32, i32, i8, i8, i8, i8, %union.anon, i32, i32, i32, i32, i32, i32, i32, [20 x i8] }
-%union.anon = type { i16 }
-
 @.str = private unnamed_addr constant [12 x i8] c"Unreachable\00", align 1
 @_ZTISt11logic_error = external constant ptr
 @switch.table._ZN3ue215state_alignmentERK3NFA = private unnamed_addr constant [25 x i32] [i32 8, i32 16, i32 16, i32 32, i32 16, i32 64, i32 1, i32 2, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 1, i32 64, i32 1, i32 2, i32 1, i32 1, i32 1, i32 2], align 4
@@ -16,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN3ue215state_alignmentERK3NFA(ptr nocapture noundef nonnull readonly align 64 dereferenceable(64) %nfa) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %type = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   %1 = icmp ult i8 %0, 25
   br i1 %1, label %switch.lookup, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -46,7 +43,7 @@ switch.lookup:                                    ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3ue237has_bounded_repeats_other_than_firstsERK3NFA(ptr noundef nonnull align 64 dereferenceable(64) %nfa) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %type = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   %1 = icmp ult i8 %0, 6
   br i1 %1, label %switch.lookup, label %if.else.i.i.i.i.i.i
@@ -87,7 +84,7 @@ _ZN3ue212_GLOBAL__N_124DISPATCH_BY_NFA_TYPE_INTINS0_38has_repeats_other_than_fir
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3ue219has_bounded_repeatsERK3NFA(ptr noundef nonnull align 64 dereferenceable(64) %nfa) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %type = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   %1 = icmp ult i8 %0, 6
   br i1 %1, label %switch.lookup, label %if.else.i.i.i.i.i.i
@@ -128,7 +125,7 @@ _ZN3ue212_GLOBAL__N_124DISPATCH_BY_NFA_TYPE_INTINS0_20has_repeats_dispatchEPFbPK
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3ue29has_accelERK3NFA(ptr noundef nonnull align 64 dereferenceable(64) %nfa) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %type = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   %conv = zext i8 %0 to i32
   %1 = icmp ult i8 %0, 19
@@ -179,7 +176,7 @@ _ZN3ue212_GLOBAL__N_124DISPATCH_BY_NFA_TYPE_INTINS0_18has_accel_dispatchEPFbPK3N
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3ue223requires_decompress_keyERK3NFA(ptr nocapture noundef nonnull readonly align 64 dereferenceable(64) %nfa) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %type = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %nfa, i64 8
   %0 = load i8, ptr %type, align 8
   %switch.i = icmp ult i8 %0, 5
   br i1 %switch.i, label %_ZN3ue212_GLOBAL__N_124DISPATCH_BY_NFA_TYPE_INTINS0_8is_limexEbPK3NFAL13NFAEngineType0EE4doOpES6_RKS5_.exit, label %if.else.i.i.i.i.i

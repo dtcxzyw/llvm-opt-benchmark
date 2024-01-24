@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %class.btTaskSchedulerSequential = type { %class.btITaskScheduler.base, [3 x i8] }
 %class.btITaskScheduler.base = type <{ ptr, ptr, i32, i8 }>
-%class.btITaskScheduler = type <{ ptr, ptr, i32, i8, [3 x i8] }>
 %class.CProfileSample = type { i8 }
 
 $_ZN25btTaskSchedulerSequentialD2Ev = comdat any
@@ -125,11 +124,11 @@ entry:
 define dso_local void @_ZN16btITaskSchedulerC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16btITaskScheduler, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_name = getelementptr inbounds %class.btITaskScheduler, ptr %this, i64 0, i32 1
+  %m_name = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %name, ptr %m_name, align 8
-  %m_savedThreadCounter = getelementptr inbounds %class.btITaskScheduler, ptr %this, i64 0, i32 2
+  %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_savedThreadCounter, align 8
-  %m_isActive = getelementptr inbounds %class.btITaskScheduler, ptr %this, i64 0, i32 3
+  %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
   store i8 0, ptr %m_isActive, align 4
   ret void
 }
@@ -137,14 +136,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16btITaskScheduler8activateEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_isActive = getelementptr inbounds %class.btITaskScheduler, ptr %this, i64 0, i32 3
+  %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_savedThreadCounter = getelementptr inbounds %class.btITaskScheduler, ptr %this, i64 0, i32 2
+  %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %m_savedThreadCounter, align 8
   store i32 %2, ptr @_ZL14gThreadCounter.0, align 4
   store i8 1, ptr %m_isActive, align 4
@@ -157,7 +156,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN16btITaskScheduler10deactivateEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %this) unnamed_addr #5 align 2 {
 entry:
-  %m_isActive = getelementptr inbounds %class.btITaskScheduler, ptr %this, i64 0, i32 3
+  %m_isActive = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %m_isActive, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -165,7 +164,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr @_ZL14gThreadCounter.0, align 4
-  %m_savedThreadCounter = getelementptr inbounds %class.btITaskScheduler, ptr %this, i64 0, i32 2
+  %m_savedThreadCounter = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %2, ptr %m_savedThreadCounter, align 8
   store i8 0, ptr %m_isActive, align 4
   br label %if.end
@@ -228,7 +227,7 @@ if.end:                                           ; preds = %_Z23btGetCurrentThr
 
 if.then1:                                         ; preds = %if.end
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(21) %3)
   br label %if.end2
@@ -240,7 +239,7 @@ if.end2:                                          ; preds = %if.then1, %if.end
 
 if.then4:                                         ; preds = %if.end2
   %vtable5 = load ptr, ptr %ts, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 8
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 64
   %5 = load ptr, ptr %vfn6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(21) %ts)
   br label %if.end7
@@ -260,7 +259,7 @@ entry:
 define dso_local void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef %iBegin, i32 noundef %iEnd, i32 noundef %grainSize, ptr noundef nonnull align 8 dereferenceable(8) %body) local_unnamed_addr #7 {
 entry:
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
   ret void
@@ -270,7 +269,7 @@ entry:
 define dso_local noundef float @_Z13btParallelSumiiiRK18btIParallelSumBody(i32 noundef %iBegin, i32 noundef %iEnd, i32 noundef %grainSize, ptr noundef nonnull align 8 dereferenceable(8) %body) local_unnamed_addr #7 {
 entry:
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
   ret float %call
@@ -384,7 +383,7 @@ entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.3)
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
           to label %invoke.cont unwind label %lpad
@@ -406,7 +405,7 @@ entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.4)
   %vtable = load ptr, ptr %body, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef float %0(ptr noundef nonnull align 8 dereferenceable(8) %body, i32 noundef %iBegin, i32 noundef %iEnd)
           to label %invoke.cont unwind label %lpad

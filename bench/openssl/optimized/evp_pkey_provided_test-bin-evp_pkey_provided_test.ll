@@ -312,7 +312,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.test_print_key_type_using_encoder.3 = private unnamed_addr constant [6 x ptr] [ptr @.str.112, ptr @.str.113, ptr @.str.115, ptr @.str.112, ptr @.str.113, ptr @.str.115], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @test_skip_common_options() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -376,16 +376,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp7.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp8.i)
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 200, ptr noundef nonnull @.str, i32 noundef 1711) #6
-  %incdec.ptr.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %incdec.ptr1.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 2
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %call.i, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.17, i64 noundef 4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
-  %incdec.ptr4.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 3
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %call.i, i64 120
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5.i, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.16, i64 noundef 6) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp5.i, i64 40, i1 false)
-  %incdec.ptr6.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 4
+  %incdec.ptr6.i = getelementptr inbounds i8, ptr %call.i, i64 160
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr4.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp7.i, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i) #6
@@ -807,7 +807,7 @@ for.end:                                          ; preds = %for.inc, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fromdata_dh_fips186_4() #0 {
+define internal noundef i32 @test_fromdata_dh_fips186_4() #0 {
 entry:
   %gindex = alloca i32, align 4
   %pcounter = alloca i32, align 4
@@ -1235,7 +1235,7 @@ err:                                              ; preds = %if.end190, %while.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fromdata_dh_named_group() #0 {
+define internal noundef i32 @test_fromdata_dh_named_group() #0 {
 entry:
   %gindex = alloca i32, align 4
   %pcounter = alloca i32, align 4
@@ -1768,7 +1768,7 @@ err:                                              ; preds = %lor.lhs.false13, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fromdata_dsa_fips186_4() #0 {
+define internal noundef i32 @test_fromdata_dsa_fips186_4() #0 {
 entry:
   %pk = alloca ptr, align 8
   %pub_out = alloca ptr, align 8
@@ -2264,7 +2264,7 @@ err:                                              ; preds = %if.end233, %while.c
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fromdata_ecx(i32 noundef %tst) #0 {
+define internal noundef i32 @test_fromdata_ecx(i32 noundef %tst) #0 {
 entry:
   %pk = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -2282,7 +2282,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %ed25519_fromdata_params, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed25519_fromdata_params, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %ed448_fromdata_params, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed448_fromdata_params, i64 120, i1 false)
   %and = and i32 %tst, 3
-  switch i32 %and, label %entry.unreachabledefault [
+  switch i32 %and, label %default.unreachable45 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb1
     i32 2, label %sw.bb3
@@ -2298,7 +2298,7 @@ sw.bb3:                                           ; preds = %entry
 sw.bb5:                                           ; preds = %entry
   br label %sw.epilog
 
-entry.unreachabledefault:                         ; preds = %entry
+default.unreachable45:                            ; preds = %entry
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %sw.bb5, %sw.bb3, %sw.bb1
@@ -2317,7 +2317,7 @@ if.end:                                           ; preds = %sw.epilog
   br i1 %cmp, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %fromdata_params.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fromdata_params.0, i64 40
   br label %if.end16
 
 if.else:                                          ; preds = %if.end
@@ -2326,8 +2326,8 @@ if.else:                                          ; preds = %if.end
 
 if.then10:                                        ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 16 dereferenceable(40) %fromdata_params.0, i64 40, i1 false)
-  %arrayidx12 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
-  %arrayidx13 = getelementptr inbounds %struct.ossl_param_st, ptr %fromdata_params.0, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx13 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx12, ptr noundef nonnull align 16 dereferenceable(40) %arrayidx13, i64 40, i1 false)
   br label %if.end16
 
@@ -2347,11 +2347,11 @@ lor.lhs.false:                                    ; preds = %if.end16
 
 while.cond.preheader:                             ; preds = %lor.lhs.false
   %cmp49 = icmp slt i32 %tst, 8
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %fromdata_params.0, i64 0, i32 2
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %fromdata_params.0, i64 0, i32 3
-  %arrayidx71 = getelementptr inbounds %struct.ossl_param_st, ptr %fromdata_params.0, i64 1
-  %data82 = getelementptr inbounds %struct.ossl_param_st, ptr %fromdata_params.0, i64 1, i32 2
-  %data_size84 = getelementptr inbounds %struct.ossl_param_st, ptr %fromdata_params.0, i64 1, i32 3
+  %data = getelementptr inbounds i8, ptr %fromdata_params.0, i64 16
+  %data_size = getelementptr inbounds i8, ptr %fromdata_params.0, i64 24
+  %arrayidx71 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 40
+  %data82 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 56
+  %data_size84 = getelementptr inbounds i8, ptr %fromdata_params.0, i64 64
   br label %while.body
 
 while.cond:                                       ; preds = %land.rhs133
@@ -2571,7 +2571,7 @@ err:                                              ; preds = %err.loopexit, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_fromdata_ec() #0 {
+define internal noundef i32 @test_fromdata_ec() #0 {
 entry:
   %pk = alloca ptr, align 8
   %bn_priv = alloca ptr, align 8
@@ -3367,13 +3367,13 @@ declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 declare i32 @PEM_write_bio_PKCS8PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @pass_cb(ptr nocapture readnone %buf, i32 %size, i32 %rwflag, ptr nocapture readnone %u) #4 {
+define internal noundef i32 @pass_cb(ptr nocapture readnone %buf, i32 %size, i32 %rwflag, ptr nocapture readnone %u) #4 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @pass_cb_error(ptr nocapture readnone %buf, i32 %size, i32 %rwflag, ptr nocapture readnone %u) #4 {
+define internal noundef i32 @pass_cb_error(ptr nocapture readnone %buf, i32 %size, i32 %rwflag, ptr nocapture readnone %u) #4 {
 entry:
   ret i32 -1
 }
@@ -3571,7 +3571,7 @@ declare i32 @test_size_t_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_print_key_type_using_encoder(ptr noundef %alg, i32 noundef %type, ptr noundef %pk) unnamed_addr #0 {
+define internal fastcc noundef i32 @test_print_key_type_using_encoder(ptr noundef %alg, i32 noundef %type, ptr noundef %pk) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_mem() #6
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #6

@@ -7,16 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sp_int = type { i32, i32, [129 x i64] }
 %struct.ecc_key = type { i32, i32, i32, i32, ptr, ptr, %struct.ecc_point, [1 x %struct.sp_int], ptr }
 %struct.ecc_point = type { [1 x %struct.sp_int], [1 x %struct.sp_int], [1 x %struct.sp_int] }
-%struct.DecodedCert = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, [20 x i8], [20 x i8], ptr, ptr, i32, i8, [256 x i8], [256 x i8], i32, ptr, i32, i32, ptr, [32 x i8], i32, ptr, i32, i32, ptr, i32, ptr, i32, ptr, i32, [20 x i8], [20 x i8], i8, i8, i8, i16, i8, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i8, ptr, %struct.SignatureCtx, i32, i32, i32 }
-%struct.SignatureCtx = type { ptr, ptr, ptr, ptr, i32, %union.anon, i32, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { ptr }
-%struct.ecc_set_type = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.DhKey = type { %struct.sp_int, %struct.sp_int, %struct.sp_int, ptr, i32 }
-%struct.DNS_entry = type { ptr, i32, i32, ptr }
-%struct.Base_entry = type { ptr, ptr, i32, i8 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.Signer = type { i32, i32, i16, i8, i8, ptr, i32, ptr, ptr, ptr, [20 x i8], [20 x i8], ptr }
-%struct.DerBuffer = type { ptr, ptr, i32, i32, i32 }
 %struct.EncryptedInfo = type { i64 }
 
 @sigMd5wRsaName = internal constant [21 x i8] c"md5WithRSAEncryption\00", align 16
@@ -3153,7 +3144,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %if.end53, label %for.body, !llvm.loop !14
 
 if.else:                                          ; preds = %GetMyVersion.exit
-  %type = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type = getelementptr inbounds i8, ptr %key, i64 8336
   store i32 1, ptr %type, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i55)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i56)
@@ -3191,7 +3182,7 @@ lor.lhs.false29:                                  ; preds = %if.end4.i
   store i32 %add.i61, ptr %inOutIdx, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i55)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i56)
-  %e = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e = getelementptr inbounds i8, ptr %key, i64 1040
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i62)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i63)
   store i32 %add.i61, ptr %idx.i62, align 4
@@ -3227,7 +3218,7 @@ lor.lhs.false32:                                  ; preds = %if.end4.i70
   store i32 %add.i77, ptr %inOutIdx, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i62)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i63)
-  %d = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 2
+  %d = getelementptr inbounds i8, ptr %key, i64 2080
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i79)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i80)
   store i32 %add.i77, ptr %idx.i79, align 4
@@ -3263,31 +3254,31 @@ lor.lhs.false35:                                  ; preds = %if.end4.i87
   store i32 %add.i94, ptr %inOutIdx, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i79)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i80)
-  %p = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 3
+  %p = getelementptr inbounds i8, ptr %key, i64 3120
   %call36 = tail call i32 @GetInt(ptr noundef nonnull %p, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %inSz)
   %cmp37 = icmp slt i32 %call36, 0
   br i1 %cmp37, label %return, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false35
-  %q = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 4
+  %q = getelementptr inbounds i8, ptr %key, i64 4160
   %call39 = tail call i32 @GetInt(ptr noundef nonnull %q, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %inSz)
   %cmp40 = icmp slt i32 %call39, 0
   br i1 %cmp40, label %return, label %if.end42
 
 if.end42:                                         ; preds = %lor.lhs.false38
-  %dP = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 5
+  %dP = getelementptr inbounds i8, ptr %key, i64 5200
   %call43 = tail call i32 @GetInt(ptr noundef nonnull %dP, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %inSz)
   %cmp44 = icmp slt i32 %call43, 0
   br i1 %cmp44, label %return, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %if.end42
-  %dQ = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 6
+  %dQ = getelementptr inbounds i8, ptr %key, i64 6240
   %call46 = tail call i32 @GetInt(ptr noundef nonnull %dQ, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %inSz)
   %cmp47 = icmp slt i32 %call46, 0
   br i1 %cmp47, label %return, label %lor.lhs.false48
 
 lor.lhs.false48:                                  ; preds = %lor.lhs.false45
-  %u = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 7
+  %u = getelementptr inbounds i8, ptr %key, i64 7280
   %call49 = tail call i32 @GetInt(ptr noundef nonnull %u, ptr noundef nonnull %input, ptr noundef nonnull %inOutIdx, i32 noundef %inSz)
   %cmp50 = icmp slt i32 %call49, 0
   br i1 %cmp50, label %return, label %if.end53
@@ -5275,8 +5266,8 @@ if.then23:                                        ; preds = %do.end
   br i1 %cmp28.not, label %lor.lhs.false29, label %if.end39
 
 lor.lhs.false29:                                  ; preds = %if.then23
-  %e = getelementptr inbounds %struct.RsaKey, ptr %a, i64 0, i32 1
-  %e32 = getelementptr inbounds %struct.RsaKey, ptr %b, i64 0, i32 1
+  %e = getelementptr inbounds i8, ptr %a, i64 1040
+  %e32 = getelementptr inbounds i8, ptr %b, i64 1040
   %call33 = call i32 @sp_cmp(ptr noundef nonnull %e, ptr noundef nonnull %e32) #22
   %cmp34.not = icmp eq i32 %call33, 0
   %spec.select = select i1 %cmp34.not, i32 1, i32 -120
@@ -5372,7 +5363,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
-  %type.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type.i = getelementptr inbounds i8, ptr %key, i64 8336
   store i32 0, ptr %type.i, align 8
   %call.i = call i32 @sp_init(ptr noundef nonnull %key) #22
   %cmp5.not.i = icmp eq i32 %call.i, 0
@@ -5384,7 +5375,7 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp10.not.i, label %if.end13.i, label %return.sink.split.i
 
 if.end13.i:                                       ; preds = %if.end7.i
-  %e14.i = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e14.i = getelementptr inbounds i8, ptr %key, i64 1040
   %call15.i = call i32 @sp_init(ptr noundef nonnull %e14.i) #22
   %cmp16.not.i = icmp eq i32 %call15.i, 0
   br i1 %cmp16.not.i, label %if.end19.i, label %return.sink.split.i
@@ -5814,7 +5805,7 @@ while.cond9.preheader:                            ; preds = %for.body, %for.cond
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %w.017 = phi ptr [ %incdec.ptr7, %for.body ], [ %z.0.lcssa, %for.cond.preheader ]
   %len.addr.016 = phi i32 [ %sub8, %for.body ], [ %sub3, %for.cond.preheader ]
-  %incdec.ptr7 = getelementptr inbounds i64, ptr %w.017, i64 1
+  %incdec.ptr7 = getelementptr inbounds i8, ptr %w.017, i64 8
   store volatile i64 0, ptr %w.017, align 8
   %sub8 = add i32 %len.addr.016, -8
   %cmp5 = icmp ugt i32 %sub8, 7
@@ -5843,9 +5834,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %der, align 8
-  %pubKeySize = getelementptr inbounds %struct.DecodedCert, ptr %der, i64 0, i32 1
+  %pubKeySize = getelementptr inbounds i8, ptr %der, i64 8
   %1 = load i32, ptr %pubKeySize, align 8
-  %keyOID = getelementptr inbounds %struct.DecodedCert, ptr %der, i64 0, i32 7
+  %keyOID = getelementptr inbounds i8, ptr %der, i64 32
   %2 = load i32, ptr %keyOID, align 8
   %call = tail call i32 @wc_CheckPrivateKey(ptr noundef nonnull %key, i32 noundef %keySz, ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %return
@@ -5902,9 +5893,9 @@ if.end18:                                         ; preds = %if.then14
 
 if.then22:                                        ; preds = %if.end18
   store i32 518, ptr %algoID, align 4
-  %dp = getelementptr inbounds %struct.ecc_key, ptr %call15, i64 0, i32 4
+  %dp = getelementptr inbounds i8, ptr %call15, i64 16
   %1 = load ptr, ptr %dp, align 8
-  %oidSum = getelementptr inbounds %struct.ecc_set_type, ptr %1, i64 0, i32 11
+  %oidSum = getelementptr inbounds i8, ptr %1, i64 76
   %2 = load i32, ptr %oidSum, align 4
   %call23 = call i32 @wc_ecc_get_oid(i32 noundef %2, ptr noundef %curveOID, ptr noundef %oidSz) #22
   %cmp24 = icmp slt i32 %call23, 0
@@ -6019,7 +6010,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i, %for.co
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %z.0.lcssa.i, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -7972,7 +7963,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 10
+  %type = getelementptr inbounds i8, ptr %key, i64 8336
   store i32 0, ptr %type, align 8
   %call = tail call i32 @sp_init(ptr noundef nonnull %key) #22
   %cmp5.not = icmp eq i32 %call, 0
@@ -7984,7 +7975,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp10.not, label %if.end13, label %return.sink.split
 
 if.end13:                                         ; preds = %if.end7
-  %e14 = getelementptr inbounds %struct.RsaKey, ptr %key, i64 0, i32 1
+  %e14 = getelementptr inbounds i8, ptr %key, i64 1040
   %call15 = tail call i32 @sp_init(ptr noundef nonnull %e14) #22
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end19, label %return.sink.split
@@ -8156,7 +8147,7 @@ land.lhs.true:                                    ; preds = %if.end4.i
   store i32 %add.i, ptr %inOutIdx, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i)
-  %g = getelementptr inbounds %struct.DhKey, ptr %key, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %key, i64 1040
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i12)
   store i32 %add.i, ptr %idx.i11, align 4
@@ -8351,20 +8342,20 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %cert, i8 0, i64 1016, i1 false)
-  %subjectCNEnc.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 21
+  %subjectCNEnc.i = getelementptr inbounds i8, ptr %cert, i64 148
   store i8 12, ptr %subjectCNEnc.i, align 4
-  %source2.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source2.i = getelementptr inbounds i8, ptr %cert, i64 672
   store ptr %source, ptr %source2.i, align 8
-  %maxIdx.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 27
+  %maxIdx.i = getelementptr inbounds i8, ptr %cert, i64 684
   store i32 %inSz, ptr %maxIdx.i, align 4
-  %heap3.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 28
+  %heap3.i = getelementptr inbounds i8, ptr %cert, i64 688
   store ptr %heap, ptr %heap3.i, align 8
-  %maxPathLen.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 43
+  %maxPathLen.i = getelementptr inbounds i8, ptr %cert, i64 837
   store i8 127, ptr %maxPathLen.i, align 1
-  %sigCtx.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58
-  %0 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %sigCtx.i = getelementptr inbounds i8, ptr %cert, i64 920
+  %0 = getelementptr inbounds i8, ptr %cert, i64 928
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 72, i1 false)
-  %devId1.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 6
+  %devId1.i.i = getelementptr inbounds i8, ptr %cert, i64 968
   store i32 -2, ptr %devId1.i.i, align 8
   store ptr %heap, ptr %sigCtx.i, align 8
   br label %InitDecodedCert_ex.exit
@@ -8381,22 +8372,22 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %cert, i8 0, i64 1016, i1 false)
-  %subjectCNEnc = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 21
+  %subjectCNEnc = getelementptr inbounds i8, ptr %cert, i64 148
   store i8 12, ptr %subjectCNEnc, align 4
-  %subject = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 23
+  %subject = getelementptr inbounds i8, ptr %cert, i64 405
   store i8 0, ptr %subject, align 1
-  %source2 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source2 = getelementptr inbounds i8, ptr %cert, i64 672
   store ptr %source, ptr %source2, align 8
-  %maxIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 27
+  %maxIdx = getelementptr inbounds i8, ptr %cert, i64 684
   store i32 %inSz, ptr %maxIdx, align 4
-  %heap3 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 28
+  %heap3 = getelementptr inbounds i8, ptr %cert, i64 688
   store ptr %heap, ptr %heap3, align 8
-  %maxPathLen = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 43
+  %maxPathLen = getelementptr inbounds i8, ptr %cert, i64 837
   store i8 127, ptr %maxPathLen, align 1
-  %sigCtx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58
-  %0 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %sigCtx = getelementptr inbounds i8, ptr %cert, i64 920
+  %0 = getelementptr inbounds i8, ptr %cert, i64 928
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 72, i1 false)
-  %devId1.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 6
+  %devId1.i = getelementptr inbounds i8, ptr %cert, i64 968
   store i32 %devId, ptr %devId1.i, align 8
   store ptr %heap, ptr %sigCtx, align 8
   br label %if.end
@@ -8414,7 +8405,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %sigCtx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 72, i1 false)
-  %devId1 = getelementptr inbounds %struct.SignatureCtx, ptr %sigCtx, i64 0, i32 6
+  %devId1 = getelementptr inbounds i8, ptr %sigCtx, i64 48
   store i32 %devId, ptr %devId1, align 8
   store ptr %heap, ptr %sigCtx, align 8
   br label %if.end
@@ -8431,20 +8422,20 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %cert, i8 0, i64 1016, i1 false)
-  %subjectCNEnc.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 21
+  %subjectCNEnc.i.i = getelementptr inbounds i8, ptr %cert, i64 148
   store i8 12, ptr %subjectCNEnc.i.i, align 4
-  %source2.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source2.i.i = getelementptr inbounds i8, ptr %cert, i64 672
   store ptr %source, ptr %source2.i.i, align 8
-  %maxIdx.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 27
+  %maxIdx.i.i = getelementptr inbounds i8, ptr %cert, i64 684
   store i32 %inSz, ptr %maxIdx.i.i, align 4
-  %heap3.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 28
+  %heap3.i.i = getelementptr inbounds i8, ptr %cert, i64 688
   store ptr %heap, ptr %heap3.i.i, align 8
-  %maxPathLen.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 43
+  %maxPathLen.i.i = getelementptr inbounds i8, ptr %cert, i64 837
   store i8 127, ptr %maxPathLen.i.i, align 1
-  %sigCtx.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58
-  %0 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %sigCtx.i.i = getelementptr inbounds i8, ptr %cert, i64 920
+  %0 = getelementptr inbounds i8, ptr %cert, i64 928
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 72, i1 false)
-  %devId1.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 6
+  %devId1.i.i.i = getelementptr inbounds i8, ptr %cert, i64 968
   store i32 -2, ptr %devId1.i.i.i, align 8
   store ptr %heap, ptr %sigCtx.i.i, align 8
   br label %InitDecodedCert.exit
@@ -8462,7 +8453,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.then4
   %altNames.addr.07 = phi ptr [ %0, %if.then4 ], [ %altNames, %entry ]
   %0 = load ptr, ptr %altNames.addr.07, align 8
-  %name = getelementptr inbounds %struct.DNS_entry, ptr %altNames.addr.07, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %altNames.addr.07, i64 16
   %1 = load ptr, ptr %name, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then4, label %if.then
@@ -8504,7 +8495,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.then4
   %names.addr.07 = phi ptr [ %0, %if.then4 ], [ %names, %entry ]
   %0 = load ptr, ptr %names.addr.07, align 8
-  %name = getelementptr inbounds %struct.Base_entry, ptr %names.addr.07, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %names.addr.07, i64 8
   %1 = load ptr, ptr %name, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then4, label %if.then
@@ -8529,14 +8520,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %subjectCNStored = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 61
+  %subjectCNStored = getelementptr inbounds i8, ptr %cert, i64 1008
   %bf.load = load i32, ptr %subjectCNStored, align 8
   %bf.cast = and i32 %bf.load, 1
   %cmp1.not = icmp eq i32 %bf.cast, 0
   br i1 %cmp1.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %subjectCN = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 19
+  %subjectCN = getelementptr inbounds i8, ptr %cert, i64 136
   %0 = load ptr, ptr %subjectCN, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end6, label %if.then4
@@ -8546,7 +8537,7 @@ if.then4:                                         ; preds = %if.then3
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %if.then4, %if.end
-  %pubKeyStored = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 2
+  %pubKeyStored = getelementptr inbounds i8, ptr %cert, i64 12
   %1 = load i32, ptr %pubKeyStored, align 4
   %cmp7 = icmp eq i32 %1, 1
   br i1 %cmp7, label %if.then9, label %if.end15
@@ -8567,7 +8558,7 @@ if.end15:                                         ; preds = %if.then9, %if.then1
   br i1 %tobool20.not, label %if.end25, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end15
-  %altNames = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 11
+  %altNames = getelementptr inbounds i8, ptr %cert, i64 48
   %4 = load ptr, ptr %altNames, align 8
   %tobool21.not = icmp eq ptr %4, null
   br i1 %tobool21.not, label %if.end25, label %while.body.i
@@ -8575,7 +8566,7 @@ land.lhs.true:                                    ; preds = %if.end15
 while.body.i:                                     ; preds = %land.lhs.true, %if.then4.i
   %altNames.addr.07.i = phi ptr [ %5, %if.then4.i ], [ %4, %land.lhs.true ]
   %5 = load ptr, ptr %altNames.addr.07.i, align 8
-  %name.i = getelementptr inbounds %struct.DNS_entry, ptr %altNames.addr.07.i, i64 0, i32 3
+  %name.i = getelementptr inbounds i8, ptr %altNames.addr.07.i, i64 16
   %6 = load ptr, ptr %name.i, align 8
   %tobool1.not.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i, label %if.then4.i, label %if.then.i
@@ -8590,7 +8581,7 @@ if.then4.i:                                       ; preds = %if.then.i, %while.b
   br i1 %tobool.not.i, label %if.end25, label %while.body.i, !llvm.loop !20
 
 if.end25:                                         ; preds = %if.then4.i, %land.lhs.true, %if.end15
-  %altEmailNames = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 12
+  %altEmailNames = getelementptr inbounds i8, ptr %cert, i64 56
   %7 = load ptr, ptr %altEmailNames, align 8
   %tobool26.not = icmp eq ptr %7, null
   br i1 %tobool26.not, label %if.end30, label %while.body.i31
@@ -8598,7 +8589,7 @@ if.end25:                                         ; preds = %if.then4.i, %land.l
 while.body.i31:                                   ; preds = %if.end25, %if.then4.i36
   %altNames.addr.07.i32 = phi ptr [ %8, %if.then4.i36 ], [ %7, %if.end25 ]
   %8 = load ptr, ptr %altNames.addr.07.i32, align 8
-  %name.i33 = getelementptr inbounds %struct.DNS_entry, ptr %altNames.addr.07.i32, i64 0, i32 3
+  %name.i33 = getelementptr inbounds i8, ptr %altNames.addr.07.i32, i64 16
   %9 = load ptr, ptr %name.i33, align 8
   %tobool1.not.i34 = icmp eq ptr %9, null
   br i1 %tobool1.not.i34, label %if.then4.i36, label %if.then.i35
@@ -8613,7 +8604,7 @@ if.then4.i36:                                     ; preds = %if.then.i35, %while
   br i1 %tobool.not.i37, label %if.end30, label %while.body.i31, !llvm.loop !20
 
 if.end30:                                         ; preds = %if.then4.i36, %if.end25
-  %altDirNames = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 13
+  %altDirNames = getelementptr inbounds i8, ptr %cert, i64 64
   %10 = load ptr, ptr %altDirNames, align 8
   %tobool31.not = icmp eq ptr %10, null
   br i1 %tobool31.not, label %if.end35, label %while.body.i40
@@ -8621,7 +8612,7 @@ if.end30:                                         ; preds = %if.then4.i36, %if.e
 while.body.i40:                                   ; preds = %if.end30, %if.then4.i45
   %altNames.addr.07.i41 = phi ptr [ %11, %if.then4.i45 ], [ %10, %if.end30 ]
   %11 = load ptr, ptr %altNames.addr.07.i41, align 8
-  %name.i42 = getelementptr inbounds %struct.DNS_entry, ptr %altNames.addr.07.i41, i64 0, i32 3
+  %name.i42 = getelementptr inbounds i8, ptr %altNames.addr.07.i41, i64 16
   %12 = load ptr, ptr %name.i42, align 8
   %tobool1.not.i43 = icmp eq ptr %12, null
   br i1 %tobool1.not.i43, label %if.then4.i45, label %if.then.i44
@@ -8636,7 +8627,7 @@ if.then4.i45:                                     ; preds = %if.then.i44, %while
   br i1 %tobool.not.i46, label %if.end35, label %while.body.i40, !llvm.loop !20
 
 if.end35:                                         ; preds = %if.then4.i45, %if.end30
-  %permittedNames = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 14
+  %permittedNames = getelementptr inbounds i8, ptr %cert, i64 72
   %13 = load ptr, ptr %permittedNames, align 8
   %tobool36.not = icmp eq ptr %13, null
   br i1 %tobool36.not, label %if.end40, label %while.body.i49
@@ -8644,7 +8635,7 @@ if.end35:                                         ; preds = %if.then4.i45, %if.e
 while.body.i49:                                   ; preds = %if.end35, %if.then4.i53
   %names.addr.07.i = phi ptr [ %14, %if.then4.i53 ], [ %13, %if.end35 ]
   %14 = load ptr, ptr %names.addr.07.i, align 8
-  %name.i50 = getelementptr inbounds %struct.Base_entry, ptr %names.addr.07.i, i64 0, i32 1
+  %name.i50 = getelementptr inbounds i8, ptr %names.addr.07.i, i64 8
   %15 = load ptr, ptr %name.i50, align 8
   %tobool1.not.i51 = icmp eq ptr %15, null
   br i1 %tobool1.not.i51, label %if.then4.i53, label %if.then.i52
@@ -8659,7 +8650,7 @@ if.then4.i53:                                     ; preds = %if.then.i52, %while
   br i1 %tobool.not.i54, label %if.end40, label %while.body.i49, !llvm.loop !21
 
 if.end40:                                         ; preds = %if.then4.i53, %if.end35
-  %excludedNames = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 15
+  %excludedNames = getelementptr inbounds i8, ptr %cert, i64 80
   %16 = load ptr, ptr %excludedNames, align 8
   %tobool41.not = icmp eq ptr %16, null
   br i1 %tobool41.not, label %if.end45, label %while.body.i56
@@ -8667,7 +8658,7 @@ if.end40:                                         ; preds = %if.then4.i53, %if.e
 while.body.i56:                                   ; preds = %if.end40, %if.then4.i61
   %names.addr.07.i57 = phi ptr [ %17, %if.then4.i61 ], [ %16, %if.end40 ]
   %17 = load ptr, ptr %names.addr.07.i57, align 8
-  %name.i58 = getelementptr inbounds %struct.Base_entry, ptr %names.addr.07.i57, i64 0, i32 1
+  %name.i58 = getelementptr inbounds i8, ptr %names.addr.07.i57, i64 8
   %18 = load ptr, ptr %name.i58, align 8
   %tobool1.not.i59 = icmp eq ptr %18, null
   br i1 %tobool1.not.i59, label %if.then4.i61, label %if.then.i60
@@ -8682,7 +8673,7 @@ if.then4.i61:                                     ; preds = %if.then.i60, %while
   br i1 %tobool.not.i62, label %if.end45, label %while.body.i56, !llvm.loop !21
 
 if.end45:                                         ; preds = %if.then4.i61, %if.end40
-  %sigCtx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58
+  %sigCtx = getelementptr inbounds i8, ptr %cert, i64 920
   tail call void @FreeSignatureCtx(ptr noundef nonnull %sigCtx)
   br label %return
 
@@ -8697,7 +8688,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digest = getelementptr inbounds %struct.SignatureCtx, ptr %sigCtx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %sigCtx, i64 8
   %0 = load ptr, ptr %digest, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7, label %if.then4
@@ -8708,7 +8699,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
-  %sigCpy = getelementptr inbounds %struct.SignatureCtx, ptr %sigCtx, i64 0, i32 3
+  %sigCpy = getelementptr inbounds i8, ptr %sigCtx, i64 24
   %1 = load ptr, ptr %sigCpy, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %if.end17, label %if.then14
@@ -8719,13 +8710,13 @@ if.then14:                                        ; preds = %if.end7
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then14, %if.end7
-  %key = getelementptr inbounds %struct.SignatureCtx, ptr %sigCtx, i64 0, i32 5
+  %key = getelementptr inbounds i8, ptr %sigCtx, i64 40
   %2 = load ptr, ptr %key, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %if.end39, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  %keyOID = getelementptr inbounds %struct.SignatureCtx, ptr %sigCtx, i64 0, i32 10
+  %keyOID = getelementptr inbounds i8, ptr %sigCtx, i64 64
   %3 = load i32, ptr %keyOID, align 8
   switch i32 %3, label %sw.epilog [
     i32 654, label %sw.bb
@@ -8755,7 +8746,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   br label %if.end39
 
 if.end39:                                         ; preds = %sw.epilog, %if.end17
-  %state = getelementptr inbounds %struct.SignatureCtx, ptr %sigCtx, i64 0, i32 7
+  %state = getelementptr inbounds i8, ptr %sigCtx, i64 52
   store i32 0, ptr %state, align 4
   br label %return
 
@@ -8783,7 +8774,7 @@ entry:
   %pubSz = alloca i32, align 4
   %bitString = alloca [7 x i8], align 1
   %algo = alloca [20 x i8], align 16
-  %dp = getelementptr inbounds %struct.ecc_key, ptr %key, i64 0, i32 4
+  %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -8813,7 +8804,7 @@ lor.lhs.false.i:                                  ; preds = %if.end6
   br i1 %tobool.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %oidSz3.i = getelementptr inbounds %struct.ecc_set_type, ptr %0, i64 0, i32 10
+  %oidSz3.i = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load i32, ptr %oidSz3.i, align 8
   %cmp.i.i.i = icmp ult i32 %2, 128
   br i1 %cmp.i.i.i, label %SetCurve.exit, label %for.body.i.i.i.i
@@ -9057,7 +9048,7 @@ lor.lhs.false.i111:                               ; preds = %if.end9.thread.i.i.
   br i1 %cmp1.i113, label %if.then46, label %if.end.thread.i.i117
 
 if.end.thread.i.i117:                             ; preds = %lor.lhs.false.i111
-  %oidSz3.i115 = getelementptr inbounds %struct.ecc_set_type, ptr %18, i64 0, i32 10
+  %oidSz3.i115 = getelementptr inbounds i8, ptr %18, i64 72
   %19 = load i32, ptr %oidSz3.i115, align 8
   store i8 6, ptr %add.ptr40, align 1
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %add.ptr40, i64 1
@@ -9122,7 +9113,7 @@ if.end10.i:                                       ; preds = %if.end6.i
   %conv.i = zext i32 %19 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr40, i64 %add2.i20.i
   %21 = load ptr, ptr %dp, align 8
-  %oid.i = getelementptr inbounds %struct.ecc_set_type, ptr %21, i64 0, i32 9
+  %oid.i = getelementptr inbounds i8, ptr %21, i64 64
   %22 = load ptr, ptr %oid.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %22, i64 %conv.i, i1 false)
   br label %if.then46
@@ -9218,19 +9209,17 @@ declare i32 @wc_ShaHash(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define noundef i32 @GetName(ptr noundef %cert, i32 noundef %nameType, i32 noundef %maxIdx) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq i32 %nameType, 0
-  %issuer = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 22
-  %issuerHash = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 17
-  %subject = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 23
-  %subjectHash = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 16
-  %full.0 = select i1 %cmp, ptr %issuer, ptr %subject
-  %hash.0 = select i1 %cmp, ptr %issuerHash, ptr %subjectHash
-  %srcIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 26
+  %full.0.v = select i1 %cmp, i64 149, i64 405
+  %full.0 = getelementptr inbounds i8, ptr %cert, i64 %full.0.v
+  %hash.0.v = select i1 %cmp, i64 108, i64 88
+  %hash.0 = getelementptr inbounds i8, ptr %cert, i64 %hash.0.v
+  %srcIdx = getelementptr inbounds i8, ptr %cert, i64 680
   %0 = load i32, ptr %srcIdx, align 8
   %cmp4.not = icmp ult i32 %0, %maxIdx
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %entry
-  %source = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source = getelementptr inbounds i8, ptr %cert, i64 672
   %1 = load ptr, ptr %source, align 8
   %cmp3.i = icmp eq ptr %1, null
   br i1 %cmp3.i, label %return, label %if.end10
@@ -9519,9 +9508,9 @@ if.end5.i:                                        ; preds = %if.end45.i.i.i.i.i4
 if.then7.i:                                       ; preds = %if.end5.i
   %idxprom.i58 = zext i32 %idx.1.i.i.i.i.i49 to i64
   %arrayidx.i59 = getelementptr inbounds i8, ptr %1, i64 %idxprom.i58
-  %subjectRaw.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 52
+  %subjectRaw.i = getelementptr inbounds i8, ptr %cert, i64 880
   store ptr %arrayidx.i59, ptr %subjectRaw.i, align 8
-  %subjectRawLen.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 53
+  %subjectRawLen.i = getelementptr inbounds i8, ptr %cert, i64 888
   store i32 %length.1.i.i.i.i.i48, ptr %subjectRawLen.i, align 8
   br label %if.end8.i
 
@@ -9531,11 +9520,11 @@ if.end8.i:                                        ; preds = %if.then7.i, %if.end
 
 if.then5.i.i.i.i66.lr.ph.i:                       ; preds = %if.end8.i
   %conv25.i = zext i32 %add47.i.i to i64
-  %subjectEmail.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 54
-  %subjectEmailLen.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 55
-  %subjectCN.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 19
-  %subjectCNLen.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 20
-  %subjectCNEnc.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 21
+  %subjectEmail.i = getelementptr inbounds i8, ptr %cert, i64 896
+  %subjectEmailLen.i = getelementptr inbounds i8, ptr %cert, i64 904
+  %subjectCN.i = getelementptr inbounds i8, ptr %cert, i64 136
+  %subjectCNLen.i = getelementptr inbounds i8, ptr %cert, i64 144
+  %subjectCNEnc.i = getelementptr inbounds i8, ptr %cert, i64 148
   br label %if.then5.i.i.i.i66.i
 
 if.then5.i.i.i.i66.i:                             ; preds = %if.end202.i, %if.then5.i.i.i.i66.lr.ph.i
@@ -10206,7 +10195,7 @@ if.then:                                          ; preds = %entry
   %conv.i = zext i8 %1 to i32
   %2 = add nsw i32 %conv.i, -53
   %cmp2 = icmp ult i32 %2, -5
-  %tm_year = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %certTime, i64 20
   br i1 %cmp2, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -10218,7 +10207,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end14
 
 if.else6:                                         ; preds = %entry
-  %tm_year7 = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 5
+  %tm_year7 = getelementptr inbounds i8, ptr %certTime, i64 20
   %3 = load i32, ptr %idx, align 4
   %idxprom.i = sext i32 %3 to i64
   %arrayidx.i = getelementptr i8, ptr %date, i64 %idxprom.i
@@ -10253,7 +10242,7 @@ if.end12:                                         ; preds = %lor.lhs.false7.i
 
 if.end14:                                         ; preds = %if.then4, %if.else, %if.end12
   %11 = phi i32 [ 1900, %if.then4 ], [ 2000, %if.else ], [ %mul, %if.end12 ]
-  %tm_year15 = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 5
+  %tm_year15 = getelementptr inbounds i8, ptr %certTime, i64 20
   %12 = load i32, ptr %idx, align 4
   %idxprom.i27 = sext i32 %12 to i64
   %arrayidx.i28 = getelementptr i8, ptr %date, i64 %idxprom.i27
@@ -10285,7 +10274,7 @@ if.end20:                                         ; preds = %lor.lhs.false7.i30
   %19 = load i32, ptr %tm_year15, align 4
   %sub = add nsw i32 %19, -1900
   store i32 %sub, ptr %tm_year15, align 4
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %certTime, i64 16
   %20 = load i32, ptr %idx, align 4
   %idxprom.i43 = sext i32 %20 to i64
   %arrayidx.i44 = getelementptr i8, ptr %date, i64 %idxprom.i43
@@ -10318,7 +10307,7 @@ if.end26:                                         ; preds = %lor.lhs.false7.i46
   %28 = load i32, ptr %tm_mon, align 8
   %sub28 = add nsw i32 %28, -1
   store i32 %sub28, ptr %tm_mon, align 8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %certTime, i64 12
   %29 = load i32, ptr %idx, align 4
   %idxprom.i59 = sext i32 %29 to i64
   %arrayidx.i60 = getelementptr i8, ptr %date, i64 %idxprom.i59
@@ -10348,7 +10337,7 @@ if.end33:                                         ; preds = %lor.lhs.false7.i62
   %add27.i72 = add i32 %sub.i16.i71, %conv.i15.i70
   store i32 %add27.i72, ptr %tm_mday, align 4
   store i32 %inc23.i69, ptr %idx, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %certTime, i64 8
   %idxprom.i75 = sext i32 %inc23.i69 to i64
   %arrayidx.i76 = getelementptr i8, ptr %date, i64 %idxprom.i75
   %37 = load i8, ptr %arrayidx.i76, align 1
@@ -10377,7 +10366,7 @@ if.end38:                                         ; preds = %lor.lhs.false7.i78
   %add27.i88 = add i32 %sub.i16.i87, %conv.i15.i86
   store i32 %add27.i88, ptr %tm_hour, align 4
   store i32 %inc23.i85, ptr %idx, align 4
-  %tm_min = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %certTime, i64 4
   %call39 = tail call fastcc i32 @GetTime(ptr noundef nonnull %tm_min, ptr noundef nonnull %date, ptr noundef nonnull %idx), !range !23
   %cmp40.not = icmp eq i32 %call39, 0
   br i1 %cmp40.not, label %if.end43, label %return
@@ -10435,9 +10424,9 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @DateGreaterThan(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #12 {
 entry:
-  %tm_year = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %a, i64 20
   %0 = load i32, ptr %tm_year, align 4
-  %tm_year1 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 5
+  %tm_year1 = getelementptr inbounds i8, ptr %b, i64 20
   %1 = load i32, ptr %tm_year1, align 4
   %cmp = icmp sgt i32 %0, %1
   br i1 %cmp, label %return, label %if.end
@@ -10447,9 +10436,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %land.lhs.true, label %if.end80
 
 land.lhs.true:                                    ; preds = %if.end
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load i32, ptr %tm_mon, align 8
-  %tm_mon5 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 4
+  %tm_mon5 = getelementptr inbounds i8, ptr %b, i64 16
   %3 = load i32, ptr %tm_mon5, align 8
   %cmp6 = icmp sgt i32 %2, %3
   br i1 %cmp6, label %return, label %land.lhs.true12
@@ -10459,73 +10448,73 @@ land.lhs.true12:                                  ; preds = %land.lhs.true
   br i1 %cmp15, label %land.lhs.true16, label %if.end80
 
 land.lhs.true16:                                  ; preds = %land.lhs.true12
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %a, i64 12
   %4 = load i32, ptr %tm_mday, align 4
-  %tm_mday17 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 3
+  %tm_mday17 = getelementptr inbounds i8, ptr %b, i64 12
   %5 = load i32, ptr %tm_mday17, align 4
   %cmp18 = icmp sgt i32 %4, %5
   br i1 %cmp18, label %return, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true16
-  %tm_mday29 = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 3
+  %tm_mday29 = getelementptr inbounds i8, ptr %a, i64 12
   %6 = load i32, ptr %tm_mday29, align 4
-  %tm_mday30 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 3
+  %tm_mday30 = getelementptr inbounds i8, ptr %b, i64 12
   %7 = load i32, ptr %tm_mday30, align 4
   %cmp31 = icmp eq i32 %6, %7
   br i1 %cmp31, label %land.lhs.true32, label %land.lhs.true44
 
 land.lhs.true32:                                  ; preds = %land.lhs.true28
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %a, i64 8
   %8 = load i32, ptr %tm_hour, align 8
-  %tm_hour33 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 2
+  %tm_hour33 = getelementptr inbounds i8, ptr %b, i64 8
   %9 = load i32, ptr %tm_hour33, align 8
   %cmp34 = icmp sgt i32 %8, %9
   br i1 %cmp34, label %return, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %land.lhs.true32, %land.lhs.true28
-  %tm_mday45 = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 3
+  %tm_mday45 = getelementptr inbounds i8, ptr %a, i64 12
   %10 = load i32, ptr %tm_mday45, align 4
-  %tm_mday46 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 3
+  %tm_mday46 = getelementptr inbounds i8, ptr %b, i64 12
   %11 = load i32, ptr %tm_mday46, align 4
   %cmp47 = icmp eq i32 %10, %11
   br i1 %cmp47, label %land.lhs.true48, label %land.lhs.true64
 
 land.lhs.true48:                                  ; preds = %land.lhs.true44
-  %tm_hour49 = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 2
+  %tm_hour49 = getelementptr inbounds i8, ptr %a, i64 8
   %12 = load i32, ptr %tm_hour49, align 8
-  %tm_hour50 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 2
+  %tm_hour50 = getelementptr inbounds i8, ptr %b, i64 8
   %13 = load i32, ptr %tm_hour50, align 8
   %cmp51 = icmp eq i32 %12, %13
   br i1 %cmp51, label %land.lhs.true52, label %land.lhs.true64
 
 land.lhs.true52:                                  ; preds = %land.lhs.true48
-  %tm_min = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %a, i64 4
   %14 = load i32, ptr %tm_min, align 4
-  %tm_min53 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 1
+  %tm_min53 = getelementptr inbounds i8, ptr %b, i64 4
   %15 = load i32, ptr %tm_min53, align 4
   %cmp54 = icmp sgt i32 %14, %15
   br i1 %cmp54, label %return, label %land.lhs.true64
 
 land.lhs.true64:                                  ; preds = %land.lhs.true52, %land.lhs.true48, %land.lhs.true44
-  %tm_mday65 = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 3
+  %tm_mday65 = getelementptr inbounds i8, ptr %a, i64 12
   %16 = load i32, ptr %tm_mday65, align 4
-  %tm_mday66 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 3
+  %tm_mday66 = getelementptr inbounds i8, ptr %b, i64 12
   %17 = load i32, ptr %tm_mday66, align 4
   %cmp67 = icmp eq i32 %16, %17
   br i1 %cmp67, label %land.lhs.true68, label %if.end80
 
 land.lhs.true68:                                  ; preds = %land.lhs.true64
-  %tm_hour69 = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 2
+  %tm_hour69 = getelementptr inbounds i8, ptr %a, i64 8
   %18 = load i32, ptr %tm_hour69, align 8
-  %tm_hour70 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 2
+  %tm_hour70 = getelementptr inbounds i8, ptr %b, i64 8
   %19 = load i32, ptr %tm_hour70, align 8
   %cmp71 = icmp eq i32 %18, %19
   br i1 %cmp71, label %land.lhs.true72, label %if.end80
 
 land.lhs.true72:                                  ; preds = %land.lhs.true68
-  %tm_min73 = getelementptr inbounds %struct.tm, ptr %a, i64 0, i32 1
+  %tm_min73 = getelementptr inbounds i8, ptr %a, i64 4
   %20 = load i32, ptr %tm_min73, align 4
-  %tm_min74 = getelementptr inbounds %struct.tm, ptr %b, i64 0, i32 1
+  %tm_min74 = getelementptr inbounds i8, ptr %b, i64 4
   %21 = load i32, ptr %tm_min74, align 4
   %cmp75 = icmp eq i32 %20, %21
   br i1 %cmp75, label %land.lhs.true76, label %if.end80
@@ -10647,38 +10636,38 @@ land.lhs.true.i:                                  ; preds = %if.end37
   br i1 %or.cond.i28, label %land.lhs.true5.i, label %return
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %call39, i64 4
   %20 = load i32, ptr %tm_min.i, align 4
   %or.cond21.i = icmp ult i32 %20, 60
   br i1 %or.cond21.i, label %land.lhs.true10.i, label %return
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true5.i
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %call39, i64 8
   %21 = load i32, ptr %tm_hour.i, align 8
   %or.cond22.i = icmp ult i32 %21, 24
   br i1 %or.cond22.i, label %land.lhs.true15.i, label %return
 
 land.lhs.true15.i:                                ; preds = %land.lhs.true10.i
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %call39, i64 12
   %22 = load i32, ptr %tm_mday.i, align 4
   %23 = add i32 %22, -1
   %or.cond23.i = icmp ult i32 %23, 31
   br i1 %or.cond23.i, label %land.lhs.true20.i, label %return
 
 land.lhs.true20.i:                                ; preds = %land.lhs.true15.i
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %call39, i64 16
   %24 = load i32, ptr %tm_mon.i, align 8
   %or.cond24.i = icmp ult i32 %24, 12
   br i1 %or.cond24.i, label %land.lhs.true25.i, label %return
 
 land.lhs.true25.i:                                ; preds = %land.lhs.true20.i
-  %tm_wday.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 6
+  %tm_wday.i = getelementptr inbounds i8, ptr %call39, i64 24
   %25 = load i32, ptr %tm_wday.i, align 8
   %or.cond25.i = icmp ult i32 %25, 7
   br i1 %or.cond25.i, label %ValidateGmtime.exit, label %return
 
 ValidateGmtime.exit:                              ; preds = %land.lhs.true25.i
-  %tm_yday.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 7
+  %tm_yday.i = getelementptr inbounds i8, ptr %call39, i64 28
   %26 = load i32, ptr %tm_yday.i, align 4
   %or.cond26.i = icmp ult i32 %26, 366
   br i1 %or.cond26.i, label %if.end45, label %return
@@ -10688,9 +10677,9 @@ if.end45:                                         ; preds = %ValidateGmtime.exit
   br i1 %cmp46, label %if.then48, label %if.else55
 
 if.then48:                                        ; preds = %if.end45
-  %tm_year.i.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 5
+  %tm_year.i.i = getelementptr inbounds i8, ptr %certTime, i64 20
   %27 = load i32, ptr %tm_year.i.i, align 4
-  %tm_year1.i.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 5
+  %tm_year1.i.i = getelementptr inbounds i8, ptr %call39, i64 20
   %28 = load i32, ptr %tm_year1.i.i, align 4
   %cmp.i.i = icmp sgt i32 %27, %28
   br i1 %cmp.i.i, label %DateLessThan.exit.thread, label %if.end.i.i
@@ -10700,7 +10689,7 @@ if.end.i.i:                                       ; preds = %if.then48
   br i1 %cmp4.i.i, label %land.lhs.true.i.i, label %return
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %tm_mon.i.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 4
+  %tm_mon.i.i = getelementptr inbounds i8, ptr %certTime, i64 16
   %29 = load i32, ptr %tm_mon.i.i, align 8
   %cmp6.i.i = icmp sgt i32 %29, %24
   br i1 %cmp6.i.i, label %DateLessThan.exit.thread, label %land.lhs.true12.i.i
@@ -10710,7 +10699,7 @@ land.lhs.true12.i.i:                              ; preds = %land.lhs.true.i.i
   br i1 %cmp15.i.i, label %land.lhs.true16.i.i, label %return
 
 land.lhs.true16.i.i:                              ; preds = %land.lhs.true12.i.i
-  %tm_mday.i.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 3
+  %tm_mday.i.i = getelementptr inbounds i8, ptr %certTime, i64 12
   %30 = load i32, ptr %tm_mday.i.i, align 4
   %cmp18.i.i = icmp sgt i32 %30, %22
   br i1 %cmp18.i.i, label %DateLessThan.exit.thread, label %land.lhs.true28.i.i
@@ -10720,7 +10709,7 @@ land.lhs.true28.i.i:                              ; preds = %land.lhs.true16.i.i
   br i1 %cmp31.i.i, label %land.lhs.true32.i.i, label %return
 
 land.lhs.true32.i.i:                              ; preds = %land.lhs.true28.i.i
-  %tm_hour.i.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 2
+  %tm_hour.i.i = getelementptr inbounds i8, ptr %certTime, i64 8
   %31 = load i32, ptr %tm_hour.i.i, align 8
   %cmp34.i.i = icmp sgt i32 %31, %21
   br i1 %cmp34.i.i, label %DateLessThan.exit.thread, label %land.lhs.true48.i.i
@@ -10730,7 +10719,7 @@ land.lhs.true48.i.i:                              ; preds = %land.lhs.true32.i.i
   br i1 %cmp51.i.i, label %land.lhs.true52.i.i, label %return
 
 land.lhs.true52.i.i:                              ; preds = %land.lhs.true48.i.i
-  %tm_min.i.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 1
+  %tm_min.i.i = getelementptr inbounds i8, ptr %certTime, i64 4
   %32 = load i32, ptr %tm_min.i.i, align 4
   %cmp54.i.i = icmp sgt i32 %32, %20
   br i1 %cmp54.i.i, label %DateLessThan.exit.thread, label %land.lhs.true72.i.i
@@ -10746,9 +10735,9 @@ DateLessThan.exit.thread:                         ; preds = %land.lhs.true72.i.i
   br label %return
 
 if.else55:                                        ; preds = %if.end45
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %call39, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %call39, i64 20
   %34 = load i32, ptr %tm_year.i, align 4
-  %tm_year1.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 5
+  %tm_year1.i = getelementptr inbounds i8, ptr %certTime, i64 20
   %35 = load i32, ptr %tm_year1.i, align 4
   %cmp.i = icmp sgt i32 %34, %35
   br i1 %cmp.i, label %DateGreaterThan.exit.thread, label %if.end.i30
@@ -10758,7 +10747,7 @@ if.end.i30:                                       ; preds = %if.else55
   br i1 %cmp4.i, label %land.lhs.true.i32, label %return
 
 land.lhs.true.i32:                                ; preds = %if.end.i30
-  %tm_mon5.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 4
+  %tm_mon5.i = getelementptr inbounds i8, ptr %certTime, i64 16
   %36 = load i32, ptr %tm_mon5.i, align 8
   %cmp6.i = icmp sgt i32 %24, %36
   br i1 %cmp6.i, label %DateGreaterThan.exit.thread, label %land.lhs.true12.i
@@ -10768,7 +10757,7 @@ land.lhs.true12.i:                                ; preds = %land.lhs.true.i32
   br i1 %cmp15.i, label %land.lhs.true16.i, label %return
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true12.i
-  %tm_mday17.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 3
+  %tm_mday17.i = getelementptr inbounds i8, ptr %certTime, i64 12
   %37 = load i32, ptr %tm_mday17.i, align 4
   %cmp18.i = icmp sgt i32 %22, %37
   br i1 %cmp18.i, label %DateGreaterThan.exit.thread, label %land.lhs.true28.i
@@ -10778,7 +10767,7 @@ land.lhs.true28.i:                                ; preds = %land.lhs.true16.i
   br i1 %cmp31.i, label %land.lhs.true32.i, label %return
 
 land.lhs.true32.i:                                ; preds = %land.lhs.true28.i
-  %tm_hour33.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 2
+  %tm_hour33.i = getelementptr inbounds i8, ptr %certTime, i64 8
   %38 = load i32, ptr %tm_hour33.i, align 8
   %cmp34.i = icmp sgt i32 %21, %38
   br i1 %cmp34.i, label %DateGreaterThan.exit.thread, label %land.lhs.true48.i
@@ -10788,13 +10777,13 @@ land.lhs.true48.i:                                ; preds = %land.lhs.true32.i
   br i1 %cmp51.i, label %land.lhs.true52.i, label %return
 
 land.lhs.true52.i:                                ; preds = %land.lhs.true48.i
-  %tm_min53.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 1
+  %tm_min53.i = getelementptr inbounds i8, ptr %certTime, i64 4
   %39 = load i32, ptr %tm_min53.i, align 4
   %cmp54.i = icmp sgt i32 %20, %39
   br i1 %cmp54.i, label %DateGreaterThan.exit.thread, label %land.lhs.true72.i
 
 land.lhs.true72.i:                                ; preds = %land.lhs.true52.i
-  %tm_min74.i = getelementptr inbounds %struct.tm, ptr %certTime, i64 0, i32 1
+  %tm_min74.i = getelementptr inbounds i8, ptr %certTime, i64 4
   %40 = load i32, ptr %tm_min74.i, align 4
   %cmp75.i = icmp eq i32 %20, %40
   %41 = load i32, ptr %certTime, align 8
@@ -11029,10 +11018,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %badDate, align 4
-  %source.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source.i = getelementptr inbounds i8, ptr %cert, i64 672
   %0 = load ptr, ptr %source.i, align 8
-  %srcIdx.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 26
-  %maxIdx.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 27
+  %srcIdx.i = getelementptr inbounds i8, ptr %cert, i64 680
+  %maxIdx.i = getelementptr inbounds i8, ptr %cert, i64 684
   %1 = load i32, ptr %maxIdx.i, align 4
   %2 = load i32, ptr %srcIdx.i, align 4
   %cmp3.i.i.i.i.i = icmp eq ptr %0, null
@@ -11136,7 +11125,7 @@ if.end45.i.i.i.i.i:                               ; preds = %while.end.i.i.i.i.i
 if.then5.i.i.i.i24.i:                             ; preds = %if.end45.i.i.i.i.i
   store i32 %idx.1.i.i.i.i.i, ptr %srcIdx.i, align 4
   store i32 %add47.i.i.i.i.i, ptr %maxIdx.i, align 4
-  %certBegin.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 3
+  %certBegin.i = getelementptr inbounds i8, ptr %cert, i64 16
   store i32 %idx.1.i.i.i.i.i, ptr %certBegin.i, align 8
   %add.i.i.i.i25.i = add i32 %idx.1.i.i.i.i.i, 1
   %cmp6.i.i.i.i26.i = icmp ugt i32 %add.i.i.i.i25.i, %add47.i.i.i.i.i
@@ -11234,9 +11223,9 @@ if.end45.i.i.i.i40.i:                             ; preds = %while.end.i.i.i.i78
 
 if.end17.i:                                       ; preds = %if.end45.i.i.i.i40.i
   store i32 %idx.1.i.i.i.i42.i, ptr %srcIdx.i, align 4
-  %sigIndex.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 4
+  %sigIndex.i = getelementptr inbounds i8, ptr %cert, i64 20
   store i32 %add47.i.i.i.i43.i, ptr %sigIndex.i, align 4
-  %version.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 10
+  %version.i = getelementptr inbounds i8, ptr %cert, i64 44
   %add.i.i.i = add i32 %idx.1.i.i.i.i42.i, 1
   %cmp6.i.i.i = icmp ugt i32 %add.i.i.i, %add47.i.i.i.i43.i
   br i1 %cmp6.i.i.i, label %return, label %if.end.i.i
@@ -11295,8 +11284,8 @@ if.end17.i.i:                                     ; preds = %if.end.i.i
 
 if.end.i90.i:                                     ; preds = %if.end17.i.i, %if.then7.i.if.end.i90_crit_edge.i
   %add.i.pre-phi.i = phi i32 [ %.pre.i, %if.then7.i.if.end.i90_crit_edge.i ], [ %add.i.i.i, %if.end17.i.i ]
-  %serial.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 29
-  %serialSz.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 30
+  %serial.i = getelementptr inbounds i8, ptr %cert, i64 696
+  %serialSz.i = getelementptr inbounds i8, ptr %cert, i64 728
   %cmp4.i.i = icmp ugt i32 %add.i.pre-phi.i, %add47.i.i.i.i43.i
   br i1 %cmp4.i.i, label %return, label %if.end8.i.i
 
@@ -11320,7 +11309,7 @@ do.end:                                           ; preds = %if.end11.i.i
   %16 = load i32, ptr %serialSz.i, align 4
   %add19.i.i = add i32 %16, %15
   store i32 %add19.i.i, ptr %srcIdx.i, align 4
-  %signatureOID = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 6
+  %signatureOID = getelementptr inbounds i8, ptr %cert, i64 28
   %17 = load i32, ptr %sigIndex.i, align 4
   %call5 = tail call fastcc i32 @GetSigAlg(ptr noundef nonnull %cert, ptr noundef nonnull %signatureOID, i32 noundef %17), !range !25
   %cmp6 = icmp slt i32 %call5, 0
@@ -11463,9 +11452,9 @@ return:                                           ; preds = %if.then7.i.i, %if.t
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @GetSigAlg(ptr nocapture noundef %cert, ptr nocapture noundef %sigOid, i32 noundef %maxIdx) unnamed_addr #5 {
 entry:
-  %source = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source = getelementptr inbounds i8, ptr %cert, i64 672
   %0 = load ptr, ptr %source, align 8
-  %srcIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 26
+  %srcIdx = getelementptr inbounds i8, ptr %cert, i64 680
   %1 = load i32, ptr %srcIdx, align 4
   %cmp3.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp3.i.i.i.i, label %return, label %if.then5.i.i.i.i
@@ -11582,10 +11571,10 @@ if.then10:                                        ; preds = %if.end7
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then10
-  %sigParamsIndex = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 8
+  %sigParamsIndex = getelementptr inbounds i8, ptr %cert, i64 36
   store i32 %5, ptr %sigParamsIndex, align 4
   %sub = sub i32 %add47.i.i.i.i, %5
-  %sigParamsLength = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 9
+  %sigParamsLength = getelementptr inbounds i8, ptr %cert, i64 40
   store i32 %sub, ptr %sigParamsLength, align 8
   br label %if.end32
 
@@ -11642,20 +11631,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %issuerHash = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 17
-  %subjectHash = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 16
+  %issuerHash = getelementptr inbounds i8, ptr %cert, i64 108
+  %subjectHash = getelementptr inbounds i8, ptr %cert, i64 88
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %issuerHash, ptr noundef nonnull dereferenceable(20) %subjectHash, i64 20)
   %cmp3 = icmp eq i32 %bcmp, 0
-  %selfSigned = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 61
+  %selfSigned = getelementptr inbounds i8, ptr %cert, i64 1008
   %bf.load = load i32, ptr %selfSigned, align 8
   %bf.shl = select i1 %cmp3, i32 131072, i32 0
   %bf.clear = and i32 %bf.load, -131073
   %bf.set = or disjoint i32 %bf.clear, %bf.shl
   store i32 %bf.set, ptr %selfSigned, align 8
-  %source = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source = getelementptr inbounds i8, ptr %cert, i64 672
   %0 = load ptr, ptr %source, align 8
-  %srcIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 26
-  %maxIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 27
+  %srcIdx = getelementptr inbounds i8, ptr %cert, i64 680
+  %maxIdx = getelementptr inbounds i8, ptr %cert, i64 684
   %1 = load i32, ptr %maxIdx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %srcIdx.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %seqLen.i)
@@ -11768,7 +11757,7 @@ if.end3.i:                                        ; preds = %if.end45.i.i.i.i.i
   store i32 %idx.1.i.i.i.i.i, ptr %srcIdx.i, align 4
   %sub.i = sub nsw i32 %idx.1.i.i.i.i.i, %2
   %add.i = add nsw i32 %sub.i, %length.1.i.i.i.i.i
-  %keyOID.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 7
+  %keyOID.i = getelementptr inbounds i8, ptr %cert, i64 32
   %call5.i = call i32 @GetAlgoId(ptr noundef nonnull %0, ptr noundef nonnull %srcIdx.i, ptr noundef nonnull %keyOID.i, i32 noundef 2, i32 noundef %add47.i.i.i.i.i)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %GetCertKey.exit.thread, label %if.end8.i
@@ -11827,11 +11816,11 @@ if.end18.i:                                       ; preds = %if.then13.i
   br i1 %cmp22.not.i, label %if.end25.i, label %GetCertKey.exit.thread
 
 if.end25.i:                                       ; preds = %if.end18.i
-  %sigParamsIndex.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 8
+  %sigParamsIndex.i = getelementptr inbounds i8, ptr %cert, i64 36
   %12 = load i32, ptr %sigParamsIndex.i, align 4
   %idx.ext26.i = zext i32 %12 to i64
   %add.ptr27.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext26.i
-  %sigParamsLength.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 9
+  %sigParamsLength.i = getelementptr inbounds i8, ptr %cert, i64 40
   %13 = load i32, ptr %sigParamsLength.i, align 8
   %call28.i = call fastcc i32 @DecodeRsaPssParams(ptr noundef nonnull %add.ptr27.i, i32 noundef %13, ptr noundef nonnull %sigHash.i, ptr noundef nonnull %sigMgf.i, ptr noundef nonnull %sigSaltLen.i)
   %cmp29.not.i = icmp eq i32 %call28.i, 0
@@ -11968,7 +11957,7 @@ if.end45.i.i.i.i.i.i:                             ; preds = %while.end.i.i.i.i.i
   br i1 %cmp48.i.i.i.i.i.i, label %StoreRsaKey.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end45.i.i.i.i.i.i
-  %pubKeySize.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 1
+  %pubKeySize.i.i = getelementptr inbounds i8, ptr %cert, i64 8
   store i32 %21, ptr %pubKeySize.i.i, align 8
   store ptr %arrayidx.i.i.i.i.i.i, ptr %cert, align 8
   store i32 %add47.i.i.i.i.i.i, ptr %srcIdx.i, align 4
@@ -11996,7 +11985,7 @@ if.end3.i.i:                                      ; preds = %if.end.i28.i
   br i1 %cmp4.not.i.i, label %if.end23.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.end3.i.i
-  %pkCurveOID.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 47
+  %pkCurveOID.i.i = getelementptr inbounds i8, ptr %cert, i64 844
   %call7.i.i = call i32 @GetObjectId(ptr noundef nonnull %0, ptr noundef nonnull %srcIdx.i, ptr noundef nonnull %pkCurveOID.i.i, i32 noundef 3, i32 noundef %add47.i.i.i.i.i)
   %cmp8.i.i = icmp slt i32 %call7.i.i, 0
   br i1 %cmp8.i.i, label %StoreEccKey.exit.i, label %if.end11.i.i
@@ -12033,9 +12022,9 @@ if.end23.i.i:                                     ; preds = %if.end22.i.i, %if.e
 if.end29.i.i:                                     ; preds = %if.end23.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call25.i.i, ptr nonnull align 1 %add.ptr61.i, i64 %conv24.i.i, i1 false)
   store ptr %call25.i.i, ptr %cert, align 8
-  %pubKeyStored.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 2
+  %pubKeyStored.i.i = getelementptr inbounds i8, ptr %cert, i64 12
   store i32 1, ptr %pubKeyStored.i.i, align 4
-  %pubKeySize.i31.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 1
+  %pubKeySize.i31.i = getelementptr inbounds i8, ptr %cert, i64 8
   store i32 %add.i, ptr %pubKeySize.i31.i, align 8
   br label %StoreEccKey.exit.i
 
@@ -12435,7 +12424,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %subjectCNLen = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 20
+  %subjectCNLen = getelementptr inbounds i8, ptr %cert, i64 144
   %0 = load i32, ptr %subjectCNLen, align 8
   %cmp1 = icmp sgt i32 %0, 0
   br i1 %cmp1, label %if.then2, label %if.end13
@@ -12448,7 +12437,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then2
-  %subjectCN = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 19
+  %subjectCN = getelementptr inbounds i8, ptr %cert, i64 136
   %1 = load ptr, ptr %subjectCN, align 8
   %2 = load i32, ptr %subjectCNLen, align 8
   %conv10 = sext i32 %2 to i64
@@ -12458,14 +12447,14 @@ if.end8:                                          ; preds = %if.then2
   %arrayidx = getelementptr inbounds i8, ptr %call4, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   store ptr %call4, ptr %subjectCN, align 8
-  %subjectCNStored = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 61
+  %subjectCNStored = getelementptr inbounds i8, ptr %cert, i64 1008
   %bf.load = load i32, ptr %subjectCNStored, align 8
   %bf.set = or i32 %bf.load, 1
   store i32 %bf.set, ptr %subjectCNStored, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end8, %if.end
-  %keyOID = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 7
+  %keyOID = getelementptr inbounds i8, ptr %cert, i64 32
   %4 = load i32, ptr %keyOID, align 8
   switch i32 %4, label %return [
     i32 645, label %land.lhs.true
@@ -12478,7 +12467,7 @@ land.lhs.true:                                    ; preds = %if.end13, %if.end13
   br i1 %cmp19.not, label %return, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
-  %pubKeySize = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 1
+  %pubKeySize = getelementptr inbounds i8, ptr %cert, i64 8
   %6 = load i32, ptr %pubKeySize, align 8
   %cmp22.not = icmp eq i32 %6, 0
   br i1 %cmp22.not, label %return, label %if.then24
@@ -12495,7 +12484,7 @@ if.end32:                                         ; preds = %if.then24
   %conv35 = zext i32 %8 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call28, ptr align 1 %7, i64 %conv35, i1 false)
   store ptr %call28, ptr %cert, align 8
-  %pubKeyStored = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 2
+  %pubKeyStored = getelementptr inbounds i8, ptr %cert, i64 12
   store i32 1, ptr %pubKeyStored, align 4
   br label %return
 
@@ -12532,16 +12521,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sigCtx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58
-  %state = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 7
+  %sigCtx = getelementptr inbounds i8, ptr %cert, i64 920
+  %state = getelementptr inbounds i8, ptr %cert, i64 972
   %0 = load i32, ptr %state, align 4
   %cmp1 = icmp eq i32 %0, 0
   br i1 %cmp1, label %if.then2, label %if.end256
 
 if.then2:                                         ; preds = %if.end
-  %badDate = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 59
+  %badDate = getelementptr inbounds i8, ptr %cert, i64 1000
   store i32 0, ptr %badDate, align 8
-  %criticalExt = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 60
+  %criticalExt = getelementptr inbounds i8, ptr %cert, i64 1004
   store i32 0, ptr %criticalExt, align 4
   %call = tail call i32 @DecodeToKey(ptr noundef nonnull %cert, i32 noundef %verify)
   %cmp3 = icmp slt i32 %call, 0
@@ -12557,30 +12546,30 @@ if.then7:                                         ; preds = %if.then4
   br label %do.end
 
 do.end:                                           ; preds = %if.then7, %if.then2
-  %srcIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 26
+  %srcIdx = getelementptr inbounds i8, ptr %cert, i64 680
   %2 = load i32, ptr %srcIdx, align 8
-  %sigIndex = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 4
+  %sigIndex = getelementptr inbounds i8, ptr %cert, i64 20
   %3 = load i32, ptr %sigIndex, align 4
   %cmp14 = icmp ult i32 %2, %3
   br i1 %cmp14, label %if.then15, label %if.end36
 
 if.then15:                                        ; preds = %do.end
-  %version = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 10
+  %version = getelementptr inbounds i8, ptr %cert, i64 44
   %4 = load i32, ptr %version, align 4
   %cmp16 = icmp slt i32 %4, 2
   br i1 %cmp16, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.then15
-  %source = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source = getelementptr inbounds i8, ptr %cert, i64 672
   %5 = load ptr, ptr %source, align 8
   %idxprom = zext i32 %2 to i64
   %arrayidx = getelementptr inbounds i8, ptr %5, i64 %idxprom
-  %extensions = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 31
+  %extensions = getelementptr inbounds i8, ptr %cert, i64 736
   store ptr %arrayidx, ptr %extensions, align 8
   %sub = sub i32 %3, %2
-  %extensionsSz = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 32
+  %extensionsSz = getelementptr inbounds i8, ptr %cert, i64 744
   store i32 %sub, ptr %extensionsSz, align 8
-  %extensionsIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 33
+  %extensionsIdx = getelementptr inbounds i8, ptr %cert, i64 748
   store i32 %2, ptr %extensionsIdx, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %oid.i)
@@ -12768,21 +12757,21 @@ while.cond.preheader.i:                           ; preds = %if.end45.i.i.i.i.i
   br i1 %cmp25288.i, label %if.then5.i.i.i.i35.lr.ph.i, label %DecodeCertExtensions.exit
 
 if.then5.i.i.i.i35.lr.ph.i:                       ; preds = %while.cond.preheader.i
-  %extPolicyConstSet.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 61
-  %policyConstSkip.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 44
-  %nsCertType.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 56
-  %excludedNames.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 15
-  %permittedNames.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 14
-  %extExtKeyUsage38.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 46
-  %extKeyUsage.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 45
-  %altNames.i.i.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 11
-  %altEmailNames.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 12
-  %altDirNames.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 13
-  %extCrlInfoRaw.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 36
-  %extCrlInfoRawSz.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 37
-  %extCrlInfoSz.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 39
-  %extCrlInfo.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 38
-  %pathLength.i.i.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 42
+  %extPolicyConstSet.i.i = getelementptr inbounds i8, ptr %cert, i64 1008
+  %policyConstSkip.i.i.i = getelementptr inbounds i8, ptr %cert, i64 838
+  %nsCertType.i.i.i = getelementptr inbounds i8, ptr %cert, i64 908
+  %excludedNames.i.i.i = getelementptr inbounds i8, ptr %cert, i64 80
+  %permittedNames.i.i.i = getelementptr inbounds i8, ptr %cert, i64 72
+  %extExtKeyUsage38.i.i.i = getelementptr inbounds i8, ptr %cert, i64 842
+  %extKeyUsage.i.i.i = getelementptr inbounds i8, ptr %cert, i64 840
+  %altNames.i.i.i.i.i = getelementptr inbounds i8, ptr %cert, i64 48
+  %altEmailNames.i.i.i = getelementptr inbounds i8, ptr %cert, i64 56
+  %altDirNames.i.i.i = getelementptr inbounds i8, ptr %cert, i64 64
+  %extCrlInfoRaw.i.i.i = getelementptr inbounds i8, ptr %cert, i64 768
+  %extCrlInfoRawSz.i.i.i = getelementptr inbounds i8, ptr %cert, i64 776
+  %extCrlInfoSz.i.i.i = getelementptr inbounds i8, ptr %cert, i64 792
+  %extCrlInfo.i.i.i = getelementptr inbounds i8, ptr %cert, i64 784
+  %pathLength.i.i.i = getelementptr inbounds i8, ptr %cert, i64 836
   br label %if.then5.i.i.i.i35.i
 
 if.then5.i.i.i.i35.i:                             ; preds = %if.end80.i, %if.then5.i.i.i.i35.lr.ph.i
@@ -14064,18 +14053,18 @@ if.end53.i.i.i195.i.i:                            ; preds = %if.end45.i.i.i191.i
 
 if.end29.i.i.i:                                   ; preds = %if.end53.i.i.i195.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i.i.i, i8 0, i64 24, i1 false)
-  %type.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i.i.i.i, i64 0, i32 1
+  %type.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i32 2, ptr %type.i.i.i, align 8
   %conv31.i.i.i = zext nneg i32 %length.1.i.i.i192.i.i to i64
   %add.i196.i.i = add nuw nsw i64 %conv31.i.i.i, 1
   %call32.i.i.i = call ptr @wolfSSL_Malloc(i64 noundef %add.i196.i.i) #22
-  %name.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i.i.i.i, i64 0, i32 3
+  %name.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call32.i.i.i, ptr %name.i.i.i, align 8
   %cmp34.i197.i.i = icmp eq ptr %call32.i.i.i, null
   br i1 %cmp34.i197.i.i, label %return.sink.split.i.i.i, label %if.end42.i198.i.i
 
 if.end42.i198.i.i:                                ; preds = %if.end29.i.i.i
-  %len.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i.i.i.i, i64 0, i32 2
+  %len.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 %length.1.i.i.i192.i.i, ptr %len.i.i.i, align 4
   %idxprom44.i.i.i = zext i32 %idx.1.i.i.i.i189.i to i64
   %arrayidx45.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom44.i.i.i
@@ -14276,18 +14265,18 @@ if.end71.i.i.i:                                   ; preds = %if.end45.i.i.i.i167
 
 if.end81.i.i.i:                                   ; preds = %if.end71.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i216.i.i.i, i8 0, i64 24, i1 false)
-  %type82.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i216.i.i.i, i64 0, i32 1
+  %type82.i.i.i = getelementptr inbounds i8, ptr %call.i216.i.i.i, i64 8
   store i32 4, ptr %type82.i.i.i, align 8
   %conv84.i.i.i = zext nneg i32 %length.1.i.i.i.i168.i.i.i to i64
   %add85.i.i.i = add nuw nsw i64 %conv84.i.i.i, 1
   %call86.i.i.i = call ptr @wolfSSL_Malloc(i64 noundef %add85.i.i.i) #22
-  %name87.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i216.i.i.i, i64 0, i32 3
+  %name87.i.i.i = getelementptr inbounds i8, ptr %call.i216.i.i.i, i64 16
   store ptr %call86.i.i.i, ptr %name87.i.i.i, align 8
   %cmp89.i.i.i = icmp eq ptr %call86.i.i.i, null
   br i1 %cmp89.i.i.i, label %return.sink.split.i.i.i, label %if.end99.i.i.i
 
 if.end99.i.i.i:                                   ; preds = %if.end81.i.i.i
-  %len100.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i216.i.i.i, i64 0, i32 2
+  %len100.i.i.i = getelementptr inbounds i8, ptr %call.i216.i.i.i, i64 12
   store i32 %length.1.i.i.i.i168.i.i.i, ptr %len100.i.i.i, align 4
   %idxprom102.i.i.i = zext i32 %idx.1.i.i.i.i169.i.i.i to i64
   %arrayidx103.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom102.i.i.i
@@ -14393,18 +14382,18 @@ if.end53.i.i232.i.i.i:                            ; preds = %if.end45.i.i227.i.i
 
 if.end134.i.i.i:                                  ; preds = %if.end53.i.i232.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i279.i.i.i, i8 0, i64 24, i1 false)
-  %type135.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i279.i.i.i, i64 0, i32 1
+  %type135.i.i.i = getelementptr inbounds i8, ptr %call.i279.i.i.i, i64 8
   store i32 1, ptr %type135.i.i.i, align 8
   %conv137.i.i.i = zext nneg i32 %length.1.i.i228.i.i.i to i64
   %add138.i.i.i = add nuw nsw i64 %conv137.i.i.i, 1
   %call139.i.i.i = call ptr @wolfSSL_Malloc(i64 noundef %add138.i.i.i) #22
-  %name140.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i279.i.i.i, i64 0, i32 3
+  %name140.i.i.i = getelementptr inbounds i8, ptr %call.i279.i.i.i, i64 16
   store ptr %call139.i.i.i, ptr %name140.i.i.i, align 8
   %cmp142.i.i.i = icmp eq ptr %call139.i.i.i, null
   br i1 %cmp142.i.i.i, label %return.sink.split.i.i.i, label %if.end152.i.i.i
 
 if.end152.i.i.i:                                  ; preds = %if.end134.i.i.i
-  %len153.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i279.i.i.i, i64 0, i32 2
+  %len153.i.i.i = getelementptr inbounds i8, ptr %call.i279.i.i.i, i64 12
   store i32 %length.1.i.i228.i.i.i, ptr %len153.i.i.i, align 4
   %idxprom155.i.i.i = zext i32 %idx.1.i.i229.i.i.i to i64
   %arrayidx156.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom155.i.i.i
@@ -14541,18 +14530,18 @@ if.end226.i.i.i:                                  ; preds = %for.end.i.i.i
 
 if.end234.i.i.i:                                  ; preds = %if.end226.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i342.i.i.i, i8 0, i64 24, i1 false)
-  %type235.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i342.i.i.i, i64 0, i32 1
+  %type235.i.i.i = getelementptr inbounds i8, ptr %call.i342.i.i.i, i64 8
   store i32 6, ptr %type235.i.i.i, align 8
   %conv237.i.i.i = sext i32 %length.1.i.i291.i.i.i to i64
   %add238.i.i.i = add nsw i64 %conv237.i.i.i, 1
   %call239.i.i.i = call ptr @wolfSSL_Malloc(i64 noundef %add238.i.i.i) #22
-  %name240.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i342.i.i.i, i64 0, i32 3
+  %name240.i.i.i = getelementptr inbounds i8, ptr %call.i342.i.i.i, i64 16
   store ptr %call239.i.i.i, ptr %name240.i.i.i, align 8
   %cmp242.i.i.i = icmp eq ptr %call239.i.i.i, null
   br i1 %cmp242.i.i.i, label %return.sink.split.i.i.i, label %if.end252.i.i.i
 
 if.end252.i.i.i:                                  ; preds = %if.end234.i.i.i
-  %len253.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i342.i.i.i, i64 0, i32 2
+  %len253.i.i.i = getelementptr inbounds i8, ptr %call.i342.i.i.i, i64 12
   store i32 %length.1.i.i291.i.i.i, ptr %len253.i.i.i, align 4
   %idxprom255.i.i.i = zext i32 %idx.1.i.i292.i.i.i to i64
   %arrayidx256.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom255.i.i.i
@@ -14953,12 +14942,12 @@ if.end45.i.i58.i.i.i.i:                           ; preds = %while.end.i.i99.i.i
   br i1 %cmp48.i.i62.i.i.i.i, label %return.sink.split.i.i.i, label %if.end53.i.i63.i.i.i.i
 
 if.end53.i.i63.i.i.i.i:                           ; preds = %if.end45.i.i58.i.i.i.i
-  %len.i.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i.i.i.i.i, i64 0, i32 2
+  %len.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   store i32 %length.1.i.i59.i.i.i.i, ptr %len.i.i.i.i, align 4
   %conv68.i.i.i.i = zext nneg i32 %length.1.i.i59.i.i.i.i to i64
   %add.i.i180.i.i = add nuw nsw i64 %conv68.i.i.i.i, 1
   %call69.i.i.i.i = call ptr @wolfSSL_Malloc(i64 noundef %add.i.i180.i.i) #22
-  %name.i.i.i.i = getelementptr inbounds %struct.DNS_entry, ptr %call.i.i.i.i.i, i64 0, i32 3
+  %name.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   store ptr %call69.i.i.i.i, ptr %name.i.i.i.i, align 8
   %cmp71.i.i.i.i = icmp eq ptr %call69.i.i.i.i, null
   br i1 %cmp71.i.i.i.i, label %return.sink.split.i.i.i, label %if.else.i.i.i.i
@@ -15866,7 +15855,7 @@ if.end43.i.i.i.i:                                 ; preds = %if.end36.i.i.i.i
   %conv44.i.i.i.i = zext nneg i32 %strLength.2.i.i.i.i to i64
   %add.i.i405.i.i = add nuw nsw i64 %conv44.i.i.i.i, 1
   %call45.i.i.i.i = call ptr @wolfSSL_Malloc(i64 noundef %add.i.i405.i.i) #22
-  %name.i.i406.i.i = getelementptr inbounds %struct.Base_entry, ptr %call37.i.i.i.i, i64 0, i32 1
+  %name.i.i406.i.i = getelementptr inbounds i8, ptr %call37.i.i.i.i, i64 8
   store ptr %call45.i.i.i.i, ptr %name.i.i406.i.i, align 8
   %cmp47.i.i.i.i = icmp eq ptr %call45.i.i.i.i, null
   br i1 %cmp47.i.i.i.i, label %if.then53.i.i.i.i, label %if.end55.i.i.i.i
@@ -15882,9 +15871,9 @@ if.end55.i.i.i.i:                                 ; preds = %if.end43.i.i.i.i
   %145 = load ptr, ptr %name.i.i406.i.i, align 8
   %arrayidx62.i.i.i.i = getelementptr inbounds i8, ptr %145, i64 %conv44.i.i.i.i
   store i8 0, ptr %arrayidx62.i.i.i.i, align 1
-  %nameSz.i.i.i.i = getelementptr inbounds %struct.Base_entry, ptr %call37.i.i.i.i, i64 0, i32 2
+  %nameSz.i.i.i.i = getelementptr inbounds i8, ptr %call37.i.i.i.i, i64 16
   store i32 %strLength.2.i.i.i.i, ptr %nameSz.i.i.i.i, align 8
-  %type.i.i407.i.i = getelementptr inbounds %struct.Base_entry, ptr %call37.i.i.i.i, i64 0, i32 3
+  %type.i.i407.i.i = getelementptr inbounds i8, ptr %call37.i.i.i.i, i64 20
   store i8 %and.i.i.i.i, ptr %type.i.i407.i.i, align 4
   %146 = load ptr, ptr %subtree.0.i.i.i, align 8
   store ptr %146, ptr %call37.i.i.i.i, align 8
@@ -16216,7 +16205,7 @@ if.end33:                                         ; preds = %DecodeCertExtension
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end33, %do.end
-  %maxIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 27
+  %maxIdx = getelementptr inbounds i8, ptr %cert, i64 684
   %162 = load i32, ptr %maxIdx, align 4
   %call37 = call fastcc i32 @GetSigAlg(ptr noundef nonnull %cert, ptr noundef nonnull %confirmOID, i32 noundef %162), !range !25
   %cmp38 = icmp slt i32 %call37, 0
@@ -16224,7 +16213,7 @@ if.end36:                                         ; preds = %if.end33, %do.end
 
 if.end40:                                         ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i)
-  %source.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source.i = getelementptr inbounds i8, ptr %cert, i64 672
   %163 = load ptr, ptr %source.i, align 8
   %164 = load i32, ptr %maxIdx, align 4
   %call.i = call i32 @CheckBitString(ptr noundef %163, ptr noundef nonnull %srcIdx, ptr noundef nonnull %length.i, i32 noundef %164, i32 noundef 1, ptr noundef null), !range !15
@@ -16233,13 +16222,13 @@ if.end40:                                         ; preds = %if.end36
 
 if.end.i:                                         ; preds = %if.end40
   %165 = load i32, ptr %length.i, align 4
-  %sigLength.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 5
+  %sigLength.i = getelementptr inbounds i8, ptr %cert, i64 24
   store i32 %165, ptr %sigLength.i, align 8
   %166 = load ptr, ptr %source.i, align 8
   %167 = load i32, ptr %srcIdx, align 8
   %idxprom.i = zext i32 %167 to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %166, i64 %idxprom.i
-  %signature.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 18
+  %signature.i = getelementptr inbounds i8, ptr %cert, i64 128
   store ptr %arrayidx.i, ptr %signature.i, align 8
   %add.i152 = add i32 %167, %165
   store i32 %add.i152, ptr %srcIdx, align 8
@@ -16255,20 +16244,20 @@ GetSignature.exit.thread:                         ; preds = %if.end40, %if.end.i
 if.end44:                                         ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i)
   %169 = load i32, ptr %confirmOID, align 4
-  %signatureOID = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 6
+  %signatureOID = getelementptr inbounds i8, ptr %cert, i64 28
   %170 = load i32, ptr %signatureOID, align 4
   %cmp45.not = icmp eq i32 %169, %170
   br i1 %cmp45.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.end44
-  %isCA = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 61
+  %isCA = getelementptr inbounds i8, ptr %cert, i64 1008
   %bf.load = load i32, ptr %isCA, align 8
   %171 = and i32 %bf.load, 144
   %or.cond148.not = icmp eq i32 %171, 128
   br i1 %or.cond148.not, label %land.lhs.true53, label %if.end58
 
 land.lhs.true53:                                  ; preds = %if.end47
-  %extKeyUsage = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 45
+  %extKeyUsage = getelementptr inbounds i8, ptr %cert, i64 840
   %172 = load i16, ptr %extKeyUsage, align 8
   %173 = and i16 %172, 4
   %cmp55.not = icmp eq i16 %173, 0
@@ -16285,7 +16274,7 @@ land.lhs.true66:                                  ; preds = %if.end58
   br i1 %cmp67.not, label %if.end96, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %land.lhs.true66
-  %pubKeySize = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 1
+  %pubKeySize = getelementptr inbounds i8, ptr %cert, i64 8
   %176 = load i32, ptr %pubKeySize, align 8
   %cmp70.not = icmp eq i32 %176, 0
   br i1 %cmp70.not, label %if.end96, label %if.then72
@@ -16298,12 +16287,12 @@ if.then76:                                        ; preds = %if.then72
   %idx.ext = zext i32 %176 to i64
   %add.ptr = getelementptr inbounds i8, ptr %175, i64 %idx.ext
   %add.ptr79 = getelementptr inbounds i8, ptr %add.ptr, i64 -65
-  %extSubjKeyId = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 40
+  %extSubjKeyId = getelementptr inbounds i8, ptr %cert, i64 796
   %call.i153 = call i32 @wc_ShaHash(ptr noundef nonnull %add.ptr79, i32 noundef 65, ptr noundef nonnull %extSubjKeyId) #22
   br label %if.end91
 
 if.else83:                                        ; preds = %if.then72
-  %extSubjKeyId86 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 40
+  %extSubjKeyId86 = getelementptr inbounds i8, ptr %cert, i64 796
   %call.i155 = call i32 @wc_ShaHash(ptr noundef nonnull %175, i32 noundef %176, ptr noundef nonnull %extSubjKeyId86) #22
   br label %if.end91
 
@@ -16333,14 +16322,14 @@ switch.early.test:                                ; preds = %lor.lhs.false102
   ]
 
 if.then111:                                       ; preds = %switch.early.test, %if.end96
-  %ca = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 57
+  %ca = getelementptr inbounds i8, ptr %cert, i64 912
   store ptr null, ptr %ca, align 8
   %178 = and i32 %bf.load97, 4
   %tobool116.not = icmp eq i32 %178, 0
   br i1 %tobool116.not, label %land.lhs.true125, label %if.end121
 
 if.end121:                                        ; preds = %if.then111
-  %extAuthKeyId = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 41
+  %extAuthKeyId = getelementptr inbounds i8, ptr %cert, i64 816
   %call119 = call ptr @GetCA(ptr noundef %cm, ptr noundef nonnull %extAuthKeyId) #22
   store ptr %call119, ptr %ca, align 8
   %cmp123 = icmp eq ptr %call119, null
@@ -16359,7 +16348,7 @@ land.lhs.true125:                                 ; preds = %if.end121.land.lhs.
   br i1 %or.cond3, label %if.end141, label %if.then158
 
 if.end141:                                        ; preds = %land.lhs.true125
-  %extSubjKeyId137 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 40
+  %extSubjKeyId137 = getelementptr inbounds i8, ptr %cert, i64 796
   %call139 = call ptr @GetCA(ptr noundef %cm, ptr noundef nonnull %extSubjKeyId137) #22
   store ptr %call139, ptr %ca, align 8
   %cmp143.not = icmp eq ptr %call139, null
@@ -16367,8 +16356,8 @@ if.end141:                                        ; preds = %land.lhs.true125
 
 land.lhs.true145:                                 ; preds = %if.end121, %if.end141
   %180 = phi ptr [ %call139, %if.end141 ], [ %call119, %if.end121 ]
-  %issuerHash = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 17
-  %subjectNameHash = getelementptr inbounds %struct.Signer, ptr %180, i64 0, i32 10
+  %issuerHash = getelementptr inbounds i8, ptr %cert, i64 108
+  %subjectNameHash = getelementptr inbounds i8, ptr %180, i64 56
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %issuerHash, ptr noundef nonnull dereferenceable(20) %subjectNameHash, i64 20)
   %cmp150.not = icmp eq i32 %bcmp, 0
   br i1 %cmp150.not, label %if.end154.if.end185_crit_edge, label %if.end154.thread
@@ -16382,7 +16371,7 @@ if.end154.if.end185_crit_edge:                    ; preds = %land.lhs.true145
   br label %if.end185
 
 if.then158:                                       ; preds = %land.lhs.true125, %if.end141, %if.end154.thread
-  %issuerHash159 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 17
+  %issuerHash159 = getelementptr inbounds i8, ptr %cert, i64 108
   %call161 = call ptr @GetCAByName(ptr noundef %cm, ptr noundef nonnull %issuerHash159) #22
   store ptr %call161, ptr %ca, align 8
   %tobool164.not = icmp eq ptr %call161, null
@@ -16401,9 +16390,9 @@ if.end185:                                        ; preds = %if.then158, %if.end
   br i1 %tobool190.not, label %if.end192, label %if.then191
 
 if.then191:                                       ; preds = %if.end185
-  %pathLength = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 42
+  %pathLength = getelementptr inbounds i8, ptr %cert, i64 836
   %183 = load i8, ptr %pathLength, align 4
-  %maxPathLen = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 43
+  %maxPathLen = getelementptr inbounds i8, ptr %cert, i64 837
   store i8 %183, ptr %maxPathLen, align 1
   br label %if.end192
 
@@ -16415,26 +16404,26 @@ if.end192:                                        ; preds = %if.then191, %if.end
   br i1 %or.cond150, label %if.end256, label %land.lhs.true218
 
 land.lhs.true218:                                 ; preds = %if.end192
-  %extKeyUsage219 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 45
+  %extKeyUsage219 = getelementptr inbounds i8, ptr %cert, i64 840
   %186 = load i16, ptr %extKeyUsage219, align 8
   %187 = and i16 %186, 4
   %cmp222.not = icmp eq i16 %187, 0
   br i1 %cmp222.not, label %if.end256, label %land.lhs.true224
 
 land.lhs.true224:                                 ; preds = %land.lhs.true218
-  %ca225 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 57
+  %ca225 = getelementptr inbounds i8, ptr %cert, i64 912
   %188 = load ptr, ptr %ca225, align 8
   %tobool226.not = icmp eq ptr %188, null
   br i1 %tobool226.not, label %if.end256, label %if.then227
 
 if.then227:                                       ; preds = %land.lhs.true224
-  %maxPathLen229 = getelementptr inbounds %struct.Signer, ptr %188, i64 0, i32 3
+  %maxPathLen229 = getelementptr inbounds i8, ptr %188, i64 10
   %189 = load i8, ptr %maxPathLen229, align 2
   %cmp231 = icmp eq i8 %189, 0
   br i1 %cmp231, label %if.then233, label %if.else243
 
 if.then233:                                       ; preds = %if.then227
-  %maxPathLen234 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 43
+  %maxPathLen234 = getelementptr inbounds i8, ptr %cert, i64 837
   store i8 0, ptr %maxPathLen234, align 1
   %cmp235.not = icmp eq i32 %verify, 0
   br i1 %cmp235.not, label %if.end330, label %return
@@ -16442,7 +16431,7 @@ if.then233:                                       ; preds = %if.then227
 if.else243:                                       ; preds = %if.then227
   %conv230 = zext i8 %189 to i32
   %sub247 = add nsw i32 %conv230, -1
-  %maxPathLen248 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 43
+  %maxPathLen248 = getelementptr inbounds i8, ptr %cert, i64 837
   %190 = load i8, ptr %maxPathLen248, align 1
   %conv249 = zext i8 %190 to i32
   %cond.i = call noundef i32 @llvm.umin.i32(i32 %sub247, i32 %conv249)
@@ -16461,7 +16450,7 @@ switch.early.test223:                             ; preds = %if.end256
   ]
 
 if.then265:                                       ; preds = %switch.early.test223
-  %ca266 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 57
+  %ca266 = getelementptr inbounds i8, ptr %cert, i64 912
   %191 = load ptr, ptr %ca266, align 8
   %tobool267.not = icmp eq ptr %191, null
   br i1 %tobool267.not, label %return, label %if.then268
@@ -16475,31 +16464,31 @@ if.then268:                                       ; preds = %if.then265
   ]
 
 if.then277:                                       ; preds = %if.then268, %if.then268, %if.then268
-  %source279 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source279 = getelementptr inbounds i8, ptr %cert, i64 672
   %192 = load ptr, ptr %source279, align 8
-  %certBegin = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 3
+  %certBegin = getelementptr inbounds i8, ptr %cert, i64 16
   %193 = load i32, ptr %certBegin, align 8
   %idx.ext280 = zext i32 %193 to i64
   %add.ptr281 = getelementptr inbounds i8, ptr %192, i64 %idx.ext280
-  %sigIndex282 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 4
+  %sigIndex282 = getelementptr inbounds i8, ptr %cert, i64 20
   %194 = load i32, ptr %sigIndex282, align 4
   %sub284 = sub i32 %194, %193
-  %publicKey286 = getelementptr inbounds %struct.Signer, ptr %191, i64 0, i32 5
+  %publicKey286 = getelementptr inbounds i8, ptr %191, i64 16
   %195 = load ptr, ptr %publicKey286, align 8
   %196 = load i32, ptr %191, align 8
-  %keyOID = getelementptr inbounds %struct.Signer, ptr %191, i64 0, i32 1
+  %keyOID = getelementptr inbounds i8, ptr %191, i64 4
   %197 = load i32, ptr %keyOID, align 4
-  %signature = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 18
+  %signature = getelementptr inbounds i8, ptr %cert, i64 128
   %198 = load ptr, ptr %signature, align 8
-  %sigLength = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 5
+  %sigLength = getelementptr inbounds i8, ptr %cert, i64 24
   %199 = load i32, ptr %sigLength, align 8
-  %signatureOID290 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 6
+  %signatureOID290 = getelementptr inbounds i8, ptr %cert, i64 28
   %200 = load i32, ptr %signatureOID290, align 4
-  %sigParamsIndex = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 8
+  %sigParamsIndex = getelementptr inbounds i8, ptr %cert, i64 36
   %201 = load i32, ptr %sigParamsIndex, align 4
   %idx.ext292 = zext i32 %201 to i64
   %add.ptr293 = getelementptr inbounds i8, ptr %192, i64 %idx.ext292
-  %sigParamsLength = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 9
+  %sigParamsLength = getelementptr inbounds i8, ptr %cert, i64 40
   %202 = load i32, ptr %sigParamsLength, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i157)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx86.i)
@@ -16534,20 +16523,20 @@ do.end.i:                                         ; preds = %if.then277
   ]
 
 sw.bb.i:                                          ; preds = %do.end.i
-  %keyOID12.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 10
+  %keyOID12.i = getelementptr inbounds i8, ptr %cert, i64 984
   store i32 %197, ptr %keyOID12.i, align 8
   %call.i170 = call ptr @wolfSSL_Malloc(i64 noundef 64) #22
-  %digest.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %digest.i = getelementptr inbounds i8, ptr %cert, i64 928
   store ptr %call.i170, ptr %digest.i, align 8
   %cmp14.i = icmp eq ptr %call.i170, null
   br i1 %cmp14.i, label %ConfirmSignature.exit.thread206, label %if.end16.i
 
 if.end16.i:                                       ; preds = %sw.bb.i
-  %hash.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 11
+  %hash.i = getelementptr inbounds i8, ptr %cert, i64 988
   store i32 4, ptr %hash.i, align 4
-  %mgf.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 12
+  %mgf.i = getelementptr inbounds i8, ptr %cert, i64 992
   store i32 26, ptr %mgf.i, align 8
-  %saltLen.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 13
+  %saltLen.i = getelementptr inbounds i8, ptr %cert, i64 996
   store i32 20, ptr %saltLen.i, align 4
   store i32 1, ptr %state, align 4
   br label %sw.bb18.i
@@ -16557,9 +16546,9 @@ sw.bb18.i:                                        ; preds = %if.end16.i, %do.end
   br i1 %cmp19.i, label %if.then20.i, label %if.else.i
 
 if.then20.i:                                      ; preds = %sw.bb18.i
-  %hash21.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 11
-  %mgf22.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 12
-  %saltLen23.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 13
+  %hash21.i = getelementptr inbounds i8, ptr %cert, i64 988
+  %mgf22.i = getelementptr inbounds i8, ptr %cert, i64 992
+  %saltLen23.i = getelementptr inbounds i8, ptr %cert, i64 996
   %call24.i = call fastcc i32 @DecodeRsaPssParams(ptr noundef %add.ptr293, i32 noundef %202, ptr noundef nonnull %hash21.i, ptr noundef nonnull %mgf22.i, ptr noundef nonnull %saltLen23.i)
   %cmp25.not.i = icmp eq i32 %call24.i, 0
   br i1 %cmp25.not.i, label %if.end27.i, label %ConfirmSignature.exit.thread206
@@ -16574,19 +16563,19 @@ switch.lookup:                                    ; preds = %if.end27.i
   %206 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ParseCertRelative, i64 0, i64 %206
   %switch.load = load i32, ptr %switch.gep, align 4
-  %digest33.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %digest33.i = getelementptr inbounds i8, ptr %cert, i64 928
   %207 = load ptr, ptr %digest33.i, align 8
-  %typeH.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 8
-  %digestSz.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 9
+  %typeH.i = getelementptr inbounds i8, ptr %cert, i64 976
+  %digestSz.i = getelementptr inbounds i8, ptr %cert, i64 980
   %call34.i169 = call fastcc i32 @HashForSignature(ptr noundef nonnull %add.ptr281, i32 noundef %sub284, i32 noundef %switch.load, ptr noundef %207, ptr noundef nonnull %typeH.i, ptr noundef nonnull %digestSz.i)
   %cmp35.not.i = icmp eq i32 %call34.i169, 0
   br i1 %cmp35.not.i, label %if.end45.i, label %ConfirmSignature.exit.thread206
 
 if.else.i:                                        ; preds = %sw.bb18.i
-  %digest38.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %digest38.i = getelementptr inbounds i8, ptr %cert, i64 928
   %208 = load ptr, ptr %digest38.i, align 8
-  %typeH39.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 8
-  %digestSz40.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 9
+  %typeH39.i = getelementptr inbounds i8, ptr %cert, i64 976
+  %digestSz40.i = getelementptr inbounds i8, ptr %cert, i64 980
   %call41.i = call fastcc i32 @HashForSignature(ptr noundef nonnull %add.ptr281, i32 noundef %sub284, i32 noundef %200, ptr noundef %208, ptr noundef nonnull %typeH39.i, ptr noundef nonnull %digestSz40.i)
   %cmp42.not.i = icmp eq i32 %call41.i, 0
   br i1 %cmp42.not.i, label %if.end45.i, label %ConfirmSignature.exit.thread206
@@ -16605,14 +16594,14 @@ sw.bb47.i:                                        ; preds = %if.end45.i, %do.end
 sw.bb48.i:                                        ; preds = %sw.bb47.i, %sw.bb47.i
   store i32 0, ptr %idx.i157, align 4
   %call50.i = call ptr @wolfSSL_Malloc(i64 noundef 8368) #22
-  %key51.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 5
+  %key51.i = getelementptr inbounds i8, ptr %cert, i64 960
   store ptr %call50.i, ptr %key51.i, align 8
   %cmp53.i = icmp eq ptr %call50.i, null
   br i1 %cmp53.i, label %ConfirmSignature.exit.thread206, label %if.end55.i
 
 if.end55.i:                                       ; preds = %sw.bb48.i
   %209 = load ptr, ptr %sigCtx, align 8
-  %devId.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 6
+  %devId.i = getelementptr inbounds i8, ptr %cert, i64 968
   %210 = load i32, ptr %devId.i, align 8
   %call58.i = call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %call50.i, ptr noundef %209, i32 noundef %210) #22
   %cmp59.not.i = icmp eq i32 %call58.i, 0
@@ -16621,7 +16610,7 @@ if.end55.i:                                       ; preds = %sw.bb48.i
 if.end61.i:                                       ; preds = %if.end55.i
   %conv.i = zext i32 %199 to i64
   %call63.i = call ptr @wolfSSL_Malloc(i64 noundef %conv.i) #22
-  %sigCpy.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 3
+  %sigCpy.i = getelementptr inbounds i8, ptr %cert, i64 944
   store ptr %call63.i, ptr %sigCpy.i, align 8
   %cmp65.i = icmp eq ptr %call63.i, null
   br i1 %cmp65.i, label %ConfirmSignature.exit.thread206, label %if.end68.i
@@ -16639,23 +16628,23 @@ if.end74.i:                                       ; preds = %if.end68.i
 sw.epilog.thread.i:                               ; preds = %if.end74.i
   %212 = load ptr, ptr %sigCpy.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr nonnull align 1 %198, i64 %conv.i, i1 false)
-  %out.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 2
+  %out.i = getelementptr inbounds i8, ptr %cert, i64 936
   store ptr null, ptr %out.i, align 8
   br label %if.end116.i
 
 sw.bb85.i:                                        ; preds = %sw.bb47.i
   store i32 0, ptr %idx86.i, align 4
-  %verify.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 4
+  %verify.i = getelementptr inbounds i8, ptr %cert, i64 952
   store i32 0, ptr %verify.i, align 8
   %call88.i = call ptr @wolfSSL_Malloc(i64 noundef 4200) #22
-  %key89.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 5
+  %key89.i = getelementptr inbounds i8, ptr %cert, i64 960
   store ptr %call88.i, ptr %key89.i, align 8
   %cmp91.i = icmp eq ptr %call88.i, null
   br i1 %cmp91.i, label %ConfirmSignature.exit.thread206, label %if.end94.i
 
 if.end94.i:                                       ; preds = %sw.bb85.i
   %213 = load ptr, ptr %sigCtx, align 8
-  %devId97.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 6
+  %devId97.i = getelementptr inbounds i8, ptr %cert, i64 968
   %214 = load i32, ptr %devId97.i, align 8
   %call98.i = call i32 @wc_ecc_init_ex(ptr noundef nonnull %call88.i, ptr noundef %213, i32 noundef %214) #22
   %cmp99.i = icmp slt i32 %call98.i, 0
@@ -16680,36 +16669,36 @@ sw.bb118.i:                                       ; preds = %if.end116.i, %do.en
 
 sw.bb119.i:                                       ; preds = %sw.bb118.i, %sw.bb118.i
   %cmp120.i = icmp eq i32 %200, 654
-  %sigCpy123.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 3
+  %sigCpy123.i = getelementptr inbounds i8, ptr %cert, i64 944
   %216 = load ptr, ptr %sigCpy123.i, align 8
-  %out124.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 2
+  %out124.i = getelementptr inbounds i8, ptr %cert, i64 936
   br i1 %cmp120.i, label %if.then122.i, label %if.else130.i
 
 if.then122.i:                                     ; preds = %sw.bb119.i
-  %hash125.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 11
+  %hash125.i = getelementptr inbounds i8, ptr %cert, i64 988
   %217 = load i32, ptr %hash125.i, align 4
-  %mgf126.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 12
+  %mgf126.i = getelementptr inbounds i8, ptr %cert, i64 992
   %218 = load i32, ptr %mgf126.i, align 8
-  %saltLen127.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 13
+  %saltLen127.i = getelementptr inbounds i8, ptr %cert, i64 996
   %219 = load i32, ptr %saltLen127.i, align 4
-  %key128.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 5
+  %key128.i = getelementptr inbounds i8, ptr %cert, i64 960
   %220 = load ptr, ptr %key128.i, align 8
   %call129.i = call i32 @wc_RsaPSS_VerifyInline_ex(ptr noundef %216, i32 noundef %199, ptr noundef nonnull %out124.i, i32 noundef %217, i32 noundef %218, i32 noundef %219, ptr noundef %220) #22
   br label %sw.epilog143.i
 
 if.else130.i:                                     ; preds = %sw.bb119.i
-  %key133.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 5
+  %key133.i = getelementptr inbounds i8, ptr %cert, i64 960
   %221 = load ptr, ptr %key133.i, align 8
   %call134.i = call i32 @wc_RsaSSL_VerifyInline(ptr noundef %216, i32 noundef %199, ptr noundef nonnull %out124.i, ptr noundef %221) #22
   br label %sw.epilog143.i
 
 sw.bb136.i:                                       ; preds = %sw.bb118.i
-  %digest137.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %digest137.i = getelementptr inbounds i8, ptr %cert, i64 928
   %222 = load ptr, ptr %digest137.i, align 8
-  %digestSz138.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 9
+  %digestSz138.i = getelementptr inbounds i8, ptr %cert, i64 980
   %223 = load i32, ptr %digestSz138.i, align 4
-  %verify139.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 4
-  %key140.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 5
+  %verify139.i = getelementptr inbounds i8, ptr %cert, i64 952
+  %key140.i = getelementptr inbounds i8, ptr %cert, i64 960
   %224 = load ptr, ptr %key140.i, align 8
   %call141.i = call i32 @wc_ecc_verify_hash(ptr noundef nonnull %198, i32 noundef %199, ptr noundef %222, i32 noundef %223, ptr noundef nonnull %verify139.i, ptr noundef %224) #22
   br label %sw.epilog143.i
@@ -16734,20 +16723,20 @@ sw.bb149.i:                                       ; preds = %if.end147.i, %do.en
 
 sw.bb150.i:                                       ; preds = %sw.bb149.i, %sw.bb149.i
   %cmp151.i = icmp eq i32 %200, 654
-  %digest154.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 1
+  %digest154.i = getelementptr inbounds i8, ptr %cert, i64 928
   %225 = load ptr, ptr %digest154.i, align 8
-  %digestSz155.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 9
+  %digestSz155.i = getelementptr inbounds i8, ptr %cert, i64 980
   %226 = load i32, ptr %digestSz155.i, align 4
   br i1 %cmp151.i, label %if.then153.i, label %if.else163.i
 
 if.then153.i:                                     ; preds = %sw.bb150.i
-  %out156.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 2
+  %out156.i = getelementptr inbounds i8, ptr %cert, i64 936
   %227 = load ptr, ptr %out156.i, align 8
-  %hash157.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 11
+  %hash157.i = getelementptr inbounds i8, ptr %cert, i64 988
   %228 = load i32, ptr %hash157.i, align 4
-  %saltLen158.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 13
+  %saltLen158.i = getelementptr inbounds i8, ptr %cert, i64 996
   %229 = load i32, ptr %saltLen158.i, align 4
-  %key159.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 5
+  %key159.i = getelementptr inbounds i8, ptr %cert, i64 960
   %230 = load ptr, ptr %key159.i, align 8
   %call160.i = call i32 @wc_RsaEncryptSize(ptr noundef %230) #22
   %mul.i = shl nsw i32 %call160.i, 3
@@ -16756,7 +16745,7 @@ if.then153.i:                                     ; preds = %sw.bb150.i
   br label %ConfirmSignature.exit
 
 if.else163.i:                                     ; preds = %sw.bb150.i
-  %typeH166.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 8
+  %typeH166.i = getelementptr inbounds i8, ptr %cert, i64 976
   %232 = load i32, ptr %typeH166.i, align 8
   call void @llvm.lifetime.start.p0(i64 74, ptr nonnull %digArray.i.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %algoArray.i.i)
@@ -16842,7 +16831,7 @@ wc_EncodeSignature.exit.i:                        ; preds = %if.end22.loopexit23
   br i1 %cmp168.i, label %land.lhs.true.i, label %ConfirmSignature.exit.thread206
 
 land.lhs.true.i:                                  ; preds = %wc_EncodeSignature.exit.i
-  %out170.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 2
+  %out170.i = getelementptr inbounds i8, ptr %cert, i64 936
   %235 = load ptr, ptr %out170.i, align 8
   %cmp171.not.i = icmp eq ptr %235, null
   br i1 %cmp171.not.i, label %ConfirmSignature.exit.thread206, label %land.lhs.true173.i
@@ -16854,7 +16843,7 @@ land.lhs.true173.i:                               ; preds = %land.lhs.true.i
   br i1 %cmp178.i, label %ConfirmSignature.exit.thread210, label %ConfirmSignature.exit.thread206
 
 sw.bb185.i:                                       ; preds = %sw.bb149.i
-  %verify186.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 58, i32 4
+  %verify186.i = getelementptr inbounds i8, ptr %cert, i64 952
   %236 = load i32, ptr %verify186.i, align 8
   %cmp187.i = icmp eq i32 %236, 1
   br i1 %cmp187.i, label %ConfirmSignature.exit.thread210, label %ConfirmSignature.exit.thread206
@@ -16898,26 +16887,26 @@ if.then317:                                       ; preds = %if.end305, %if.end3
 
 if.end.i172:                                      ; preds = %if.then268, %if.then317
   %237 = phi ptr [ %.pr, %if.then317 ], [ %191, %if.then268 ]
-  %excludedNames.i = getelementptr inbounds %struct.Signer, ptr %237, i64 0, i32 9
+  %excludedNames.i = getelementptr inbounds i8, ptr %237, i64 48
   %238 = load ptr, ptr %excludedNames.i, align 8
   %cmp2.i = icmp eq ptr %238, null
   br i1 %cmp2.i, label %land.lhs.true.i180, label %if.end5.i
 
 land.lhs.true.i180:                               ; preds = %if.end.i172
-  %permittedNames.i = getelementptr inbounds %struct.Signer, ptr %237, i64 0, i32 8
+  %permittedNames.i = getelementptr inbounds i8, ptr %237, i64 40
   %239 = load ptr, ptr %permittedNames.i, align 8
   %cmp3.i181 = icmp eq ptr %239, null
   br i1 %cmp3.i181, label %if.end330, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true.i180, %if.end.i172
-  %altDirNames.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 13
-  %subjectRaw.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 52
-  %subjectRawLen.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 53
-  %altEmailNames.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 12
-  %subjectEmail.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 54
-  %subjectEmailLen.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 55
-  %altNames.i = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 11
-  %permittedNames31.i = getelementptr inbounds %struct.Signer, ptr %237, i64 0, i32 8
+  %altDirNames.i = getelementptr inbounds i8, ptr %cert, i64 64
+  %subjectRaw.i = getelementptr inbounds i8, ptr %cert, i64 880
+  %subjectRawLen.i = getelementptr inbounds i8, ptr %cert, i64 888
+  %altEmailNames.i = getelementptr inbounds i8, ptr %cert, i64 56
+  %subjectEmail.i = getelementptr inbounds i8, ptr %cert, i64 896
+  %subjectEmailLen.i = getelementptr inbounds i8, ptr %cert, i64 904
+  %altNames.i = getelementptr inbounds i8, ptr %cert, i64 48
+  %permittedNames31.i = getelementptr inbounds i8, ptr %237, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end5.i
@@ -16967,30 +16956,30 @@ while.body.lr.ph.i:                               ; preds = %sw.epilog.i
 
 while.body.i:                                     ; preds = %if.end38.i, %while.body.lr.ph.i
   %name.1114.i = phi ptr [ %name.0.i, %while.body.lr.ph.i ], [ %261, %if.end38.i ]
-  %name7.i.i = getelementptr inbounds %struct.DNS_entry, ptr %name.1114.i, i64 0, i32 3
+  %name7.i.i = getelementptr inbounds i8, ptr %name.1114.i, i64 16
   br i1 %cmp2.i, label %if.end30.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %while.body.i
-  %len.i.i = getelementptr inbounds %struct.DNS_entry, ptr %name.1114.i, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %name.1114.i, i64 12
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
   %current.011.i.i = phi ptr [ %238, %while.body.lr.ph.i.i ], [ %253, %if.end12.i.i ]
-  %type.i.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i.i, i64 0, i32 3
+  %type.i.i = getelementptr inbounds i8, ptr %current.011.i.i, i64 20
   %248 = load i8, ptr %type.i.i, align 4
   %cmp2.i.i = icmp eq i8 %248, %240
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.end12.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %249 = load i32, ptr %len.i.i, align 4
-  %nameSz.i.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i.i, i64 0, i32 2
+  %nameSz.i.i = getelementptr inbounds i8, ptr %current.011.i.i, i64 16
   %250 = load i32, ptr %nameSz.i.i, align 8
   %cmp4.not.i.i = icmp slt i32 %249, %250
   br i1 %cmp4.not.i.i, label %if.end12.i.i, label %land.lhs.true.i.i178
 
 land.lhs.true.i.i178:                             ; preds = %if.then.i.i
   %251 = load ptr, ptr %name7.i.i, align 8
-  %name9.i.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i.i, i64 0, i32 1
+  %name9.i.i = getelementptr inbounds i8, ptr %current.011.i.i, i64 8
   %252 = load ptr, ptr %name9.i.i, align 8
   %call.i.i = call fastcc i32 @MatchBaseName(i32 noundef %conv1.i.i, ptr noundef %251, i32 noundef %249, ptr noundef %252, i32 noundef %250), !range !24
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -17007,27 +16996,27 @@ if.end30.i:                                       ; preds = %if.end12.i.i, %whil
   br i1 %cmp.not10.not.i.i, label %if.end38.i, label %while.body.lr.ph.i27.i
 
 while.body.lr.ph.i27.i:                           ; preds = %if.end30.i
-  %len.i29.i = getelementptr inbounds %struct.DNS_entry, ptr %name.1114.i, i64 0, i32 2
+  %len.i29.i = getelementptr inbounds i8, ptr %name.1114.i, i64 12
   br label %while.body.i30.i
 
 while.body.i30.i:                                 ; preds = %if.end12.i34.i, %while.body.lr.ph.i27.i
   %need.012.i.i = phi i32 [ 0, %while.body.lr.ph.i27.i ], [ %need.1.i.i, %if.end12.i34.i ]
   %current.011.i31.i = phi ptr [ %254, %while.body.lr.ph.i27.i ], [ %260, %if.end12.i34.i ]
-  %type.i32.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i31.i, i64 0, i32 3
+  %type.i32.i = getelementptr inbounds i8, ptr %current.011.i31.i, i64 20
   %255 = load i8, ptr %type.i32.i, align 4
   %cmp2.i33.i = icmp eq i8 %255, %240
   br i1 %cmp2.i33.i, label %if.then.i35.i, label %if.end12.i34.i
 
 if.then.i35.i:                                    ; preds = %while.body.i30.i
   %256 = load i32, ptr %len.i29.i, align 4
-  %nameSz.i36.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i31.i, i64 0, i32 2
+  %nameSz.i36.i = getelementptr inbounds i8, ptr %current.011.i31.i, i64 16
   %257 = load i32, ptr %nameSz.i36.i, align 8
   %cmp4.not.i37.i = icmp slt i32 %256, %257
   br i1 %cmp4.not.i37.i, label %if.end12.i34.i, label %land.lhs.true.i38.i
 
 land.lhs.true.i38.i:                              ; preds = %if.then.i35.i
   %258 = load ptr, ptr %name7.i.i, align 8
-  %name9.i39.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i31.i, i64 0, i32 1
+  %name9.i39.i = getelementptr inbounds i8, ptr %current.011.i31.i, i64 8
   %259 = load ptr, ptr %name9.i39.i, align 8
   %call.i40.i = call fastcc i32 @MatchBaseName(i32 noundef %conv1.i.i, ptr noundef %258, i32 noundef %256, ptr noundef %259, i32 noundef %257), !range !24
   %tobool.not.i41.i = icmp eq i32 %call.i40.i, 0
@@ -17063,19 +17052,19 @@ while.body.lr.ph.i44.i:                           ; preds = %if.then47.i
 
 while.body.i47.i:                                 ; preds = %if.end12.i51.i, %while.body.lr.ph.i44.i
   %current.011.i48.i = phi ptr [ %238, %while.body.lr.ph.i44.i ], [ %265, %if.end12.i51.i ]
-  %type.i49.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i48.i, i64 0, i32 3
+  %type.i49.i = getelementptr inbounds i8, ptr %current.011.i48.i, i64 20
   %262 = load i8, ptr %type.i49.i, align 4
   %cmp2.i50.i = icmp eq i8 %262, %240
   br i1 %cmp2.i50.i, label %if.then.i54.i, label %if.end12.i51.i
 
 if.then.i54.i:                                    ; preds = %while.body.i47.i
-  %nameSz.i55.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i48.i, i64 0, i32 2
+  %nameSz.i55.i = getelementptr inbounds i8, ptr %current.011.i48.i, i64 16
   %263 = load i32, ptr %nameSz.i55.i, align 8
   %cmp4.not.i56.i = icmp slt i32 %subjectDnsName.sroa.5.1.i, %263
   br i1 %cmp4.not.i56.i, label %if.end12.i51.i, label %land.lhs.true.i57.i
 
 land.lhs.true.i57.i:                              ; preds = %if.then.i54.i
-  %name9.i58.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i48.i, i64 0, i32 1
+  %name9.i58.i = getelementptr inbounds i8, ptr %current.011.i48.i, i64 8
   %264 = load ptr, ptr %name9.i58.i, align 8
   %call.i59.i = call fastcc i32 @MatchBaseName(i32 noundef %conv1.i45.i, ptr noundef nonnull %subjectDnsName.sroa.10.1.i, i32 noundef %subjectDnsName.sroa.5.1.i, ptr noundef %264, i32 noundef %263), !range !24
   %tobool.not.i60.i = icmp eq i32 %call.i59.i, 0
@@ -17098,19 +17087,19 @@ while.body.lr.ph.i64.i:                           ; preds = %if.end55.i177
 while.body.i67.i:                                 ; preds = %if.end12.i72.i, %while.body.lr.ph.i64.i
   %need.012.i68.i = phi i32 [ 0, %while.body.lr.ph.i64.i ], [ %need.1.i73.i, %if.end12.i72.i ]
   %current.011.i69.i = phi ptr [ %266, %while.body.lr.ph.i64.i ], [ %270, %if.end12.i72.i ]
-  %type.i70.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i69.i, i64 0, i32 3
+  %type.i70.i = getelementptr inbounds i8, ptr %current.011.i69.i, i64 20
   %267 = load i8, ptr %type.i70.i, align 4
   %cmp2.i71.i = icmp eq i8 %267, %240
   br i1 %cmp2.i71.i, label %if.then.i79.i, label %if.end12.i72.i
 
 if.then.i79.i:                                    ; preds = %while.body.i67.i
-  %nameSz.i80.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i69.i, i64 0, i32 2
+  %nameSz.i80.i = getelementptr inbounds i8, ptr %current.011.i69.i, i64 16
   %268 = load i32, ptr %nameSz.i80.i, align 8
   %cmp4.not.i81.i = icmp slt i32 %subjectDnsName.sroa.5.1.i, %268
   br i1 %cmp4.not.i81.i, label %if.end12.i72.i, label %land.lhs.true.i82.i
 
 land.lhs.true.i82.i:                              ; preds = %if.then.i79.i
-  %name9.i83.i = getelementptr inbounds %struct.Base_entry, ptr %current.011.i69.i, i64 0, i32 1
+  %name9.i83.i = getelementptr inbounds i8, ptr %current.011.i69.i, i64 8
   %269 = load ptr, ptr %name9.i83.i, align 8
   %call.i84.i = call fastcc i32 @MatchBaseName(i32 noundef %conv1.i65.i, ptr noundef nonnull %subjectDnsName.sroa.10.1.i, i32 noundef %subjectDnsName.sroa.5.1.i, ptr noundef %269, i32 noundef %268), !range !24
   %tobool.not.i85.i = icmp eq i32 %call.i84.i, 0
@@ -17132,7 +17121,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i82.i
   br i1 %exitcond.not.i, label %if.end330, label %for.body.i, !llvm.loop !35
 
 if.end330:                                        ; preds = %for.inc.i, %switch.early.test223, %switch.early.test223, %if.end256, %if.then268, %if.then233, %land.lhs.true.i180, %if.end305
-  %badDate331 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 59
+  %badDate331 = getelementptr inbounds i8, ptr %cert, i64 1000
   %271 = load i32, ptr %badDate331, align 8
   %cmp332 = icmp ne i32 %271, 0
   %cmp335 = icmp ne i32 %verify, 5
@@ -17140,7 +17129,7 @@ if.end330:                                        ; preds = %for.inc.i, %switch.
   br i1 %or.cond12, label %return, label %if.end342
 
 if.end342:                                        ; preds = %if.end330
-  %criticalExt343 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 60
+  %criticalExt343 = getelementptr inbounds i8, ptr %cert, i64 1004
   %272 = load i32, ptr %criticalExt343, align 4
   br label %return
 
@@ -17178,7 +17167,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define void @FreeSigner(ptr noundef %signer, ptr nocapture noundef readnone %heap) local_unnamed_addr #5 {
 entry:
-  %name = getelementptr inbounds %struct.Signer, ptr %signer, i64 0, i32 7
+  %name = getelementptr inbounds i8, ptr %signer, i64 32
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -17188,7 +17177,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %publicKey = getelementptr inbounds %struct.Signer, ptr %signer, i64 0, i32 5
+  %publicKey = getelementptr inbounds i8, ptr %signer, i64 16
   %1 = load ptr, ptr %publicKey, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -17198,7 +17187,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %permittedNames = getelementptr inbounds %struct.Signer, ptr %signer, i64 0, i32 8
+  %permittedNames = getelementptr inbounds i8, ptr %signer, i64 40
   %2 = load ptr, ptr %permittedNames, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end8, label %while.body.i
@@ -17206,7 +17195,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
 while.body.i:                                     ; preds = %if.end4, %if.then4.i
   %names.addr.07.i = phi ptr [ %3, %if.then4.i ], [ %2, %if.end4 ]
   %3 = load ptr, ptr %names.addr.07.i, align 8
-  %name.i = getelementptr inbounds %struct.Base_entry, ptr %names.addr.07.i, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %names.addr.07.i, i64 8
   %4 = load ptr, ptr %name.i, align 8
   %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %if.then4.i, label %if.then.i
@@ -17221,7 +17210,7 @@ if.then4.i:                                       ; preds = %if.then.i, %while.b
   br i1 %tobool.not.i, label %if.end8, label %while.body.i, !llvm.loop !21
 
 if.end8:                                          ; preds = %if.then4.i, %if.end4
-  %excludedNames = getelementptr inbounds %struct.Signer, ptr %signer, i64 0, i32 9
+  %excludedNames = getelementptr inbounds i8, ptr %signer, i64 48
   %5 = load ptr, ptr %excludedNames, align 8
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %if.then15, label %while.body.i15
@@ -17229,7 +17218,7 @@ if.end8:                                          ; preds = %if.then4.i, %if.end
 while.body.i15:                                   ; preds = %if.end8, %if.then4.i20
   %names.addr.07.i16 = phi ptr [ %6, %if.then4.i20 ], [ %5, %if.end8 ]
   %6 = load ptr, ptr %names.addr.07.i16, align 8
-  %name.i17 = getelementptr inbounds %struct.Base_entry, ptr %names.addr.07.i16, i64 0, i32 1
+  %name.i17 = getelementptr inbounds i8, ptr %names.addr.07.i16, i64 8
   %7 = load ptr, ptr %name.i17, align 8
   %tobool1.not.i18 = icmp eq ptr %7, null
   br i1 %tobool1.not.i18, label %if.then4.i20, label %if.then.i19
@@ -17274,9 +17263,9 @@ for.body:                                         ; preds = %for.body.preheader,
 
 while.body:                                       ; preds = %for.body, %FreeSigner.exit
   %signer.08 = phi ptr [ %1, %FreeSigner.exit ], [ %0, %for.body ]
-  %next1 = getelementptr inbounds %struct.Signer, ptr %signer.08, i64 0, i32 12
+  %next1 = getelementptr inbounds i8, ptr %signer.08, i64 96
   %1 = load ptr, ptr %next1, align 8
-  %name.i = getelementptr inbounds %struct.Signer, ptr %signer.08, i64 0, i32 7
+  %name.i = getelementptr inbounds i8, ptr %signer.08, i64 32
   %2 = load ptr, ptr %name.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -17286,7 +17275,7 @@ if.then.i:                                        ; preds = %while.body
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body
-  %publicKey.i = getelementptr inbounds %struct.Signer, ptr %signer.08, i64 0, i32 5
+  %publicKey.i = getelementptr inbounds i8, ptr %signer.08, i64 16
   %3 = load ptr, ptr %publicKey.i, align 8
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %if.end4.i, label %if.then3.i
@@ -17296,7 +17285,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.end.i
-  %permittedNames.i = getelementptr inbounds %struct.Signer, ptr %signer.08, i64 0, i32 8
+  %permittedNames.i = getelementptr inbounds i8, ptr %signer.08, i64 40
   %4 = load ptr, ptr %permittedNames.i, align 8
   %tobool5.not.i = icmp eq ptr %4, null
   br i1 %tobool5.not.i, label %if.end8.i, label %while.body.i.i
@@ -17304,7 +17293,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
 while.body.i.i:                                   ; preds = %if.end4.i, %if.then4.i.i
   %names.addr.07.i.i = phi ptr [ %5, %if.then4.i.i ], [ %4, %if.end4.i ]
   %5 = load ptr, ptr %names.addr.07.i.i, align 8
-  %name.i.i = getelementptr inbounds %struct.Base_entry, ptr %names.addr.07.i.i, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %names.addr.07.i.i, i64 8
   %6 = load ptr, ptr %name.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %6, null
   br i1 %tobool1.not.i.i, label %if.then4.i.i, label %if.then.i.i
@@ -17319,7 +17308,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i, %while
   br i1 %tobool.not.i.i, label %if.end8.i, label %while.body.i.i, !llvm.loop !21
 
 if.end8.i:                                        ; preds = %if.then4.i.i, %if.end4.i
-  %excludedNames.i = getelementptr inbounds %struct.Signer, ptr %signer.08, i64 0, i32 9
+  %excludedNames.i = getelementptr inbounds i8, ptr %signer.08, i64 48
   %7 = load ptr, ptr %excludedNames.i, align 8
   %tobool9.not.i = icmp eq ptr %7, null
   br i1 %tobool9.not.i, label %FreeSigner.exit, label %while.body.i15.i
@@ -17327,7 +17316,7 @@ if.end8.i:                                        ; preds = %if.then4.i.i, %if.e
 while.body.i15.i:                                 ; preds = %if.end8.i, %if.then4.i20.i
   %names.addr.07.i16.i = phi ptr [ %8, %if.then4.i20.i ], [ %7, %if.end8.i ]
   %8 = load ptr, ptr %names.addr.07.i16.i, align 8
-  %name.i17.i = getelementptr inbounds %struct.Base_entry, ptr %names.addr.07.i16.i, i64 0, i32 1
+  %name.i17.i = getelementptr inbounds i8, ptr %names.addr.07.i16.i, i64 8
   %9 = load ptr, ptr %name.i17.i, align 8
   %tobool1.not.i18.i = icmp eq ptr %9, null
   br i1 %tobool1.not.i18.i, label %if.then4.i20.i, label %if.then.i19.i
@@ -17602,15 +17591,15 @@ sw.epilog:                                        ; preds = %if.then, %sw.defaul
 if.end:                                           ; preds = %sw.epilog
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call, i8 0, i64 %add, i1 false)
   %0 = load ptr, ptr %pDer, align 8
-  %type10 = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 3
+  %type10 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %type, ptr %type10, align 4
-  %dynType11 = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 4
+  %dynType11 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %dynType.0, ptr %dynType11, align 8
-  %heap12 = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 1
+  %heap12 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %heap, ptr %heap12, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %add.ptr, ptr %0, align 8
-  %length13 = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length13 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %length, ptr %length13, align 8
   br label %return
 
@@ -17631,7 +17620,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %type = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %type, align 4
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %land.lhs.true2, label %if.end
@@ -17642,7 +17631,7 @@ land.lhs.true2:                                   ; preds = %if.then
   br i1 %cmp3.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true2
-  %length = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %length, align 8
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
@@ -17676,7 +17665,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i, %for.co
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %z.0.lcssa.i, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -17693,7 +17682,7 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
 
 if.end:                                           ; preds = %while.body12.i, %while.cond9.preheader.i, %land.lhs.true2, %if.then
   store ptr null, ptr %0, align 8
-  %length7 = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length7 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %length7, align 8
   tail call void @wolfSSL_Free(ptr noundef nonnull %0) #22
   store ptr null, ptr %pDer, align 8
@@ -17722,7 +17711,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %FreeDer.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %type.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 3
+  %type.i = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %type.i, align 4
   %cmp.i = icmp eq i32 %1, 1
   br i1 %cmp.i, label %land.lhs.true2.i, label %if.end.i
@@ -17733,7 +17722,7 @@ land.lhs.true2.i:                                 ; preds = %if.then.i
   br i1 %cmp3.not.i, label %if.end.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true2.i
-  %length.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %length.i, align 8
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
@@ -17767,7 +17756,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %for.
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %z.0.lcssa.i.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -17784,7 +17773,7 @@ while.body12.i.i:                                 ; preds = %while.cond9.prehead
 
 if.end.i:                                         ; preds = %while.body12.i.i, %while.cond9.preheader.i.i, %land.lhs.true2.i, %if.then.i
   store ptr null, ptr %0, align 8
-  %length7.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length7.i = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %length7.i, align 8
   tail call void @wolfSSL_Free(ptr noundef nonnull %0) #22
   store ptr null, ptr %pDer, align 8
@@ -18149,7 +18138,7 @@ if.end102:                                        ; preds = %if.end92
 if.end108:                                        ; preds = %if.end102
   %11 = load ptr, ptr %pDer, align 8
   %12 = load ptr, ptr %11, align 8
-  %length = getelementptr inbounds %struct.DerBuffer, ptr %11, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %11, i64 16
   %call110 = tail call i32 @Base64_Decode(ptr noundef %line.addr.0.lcssa.i, i32 noundef %conv103, ptr noundef %12, ptr noundef nonnull %length) #22
   %cmp111 = icmp slt i32 %call110, 0
   br i1 %cmp111, label %return, label %if.end114
@@ -18200,7 +18189,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pDer, align 8
   %1 = load ptr, ptr %0, align 8
-  %length = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i32, ptr %length, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %inOutIdx.i.i)
@@ -18269,7 +18258,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.else:                                          ; preds = %if.end
   %cmp14 = icmp eq ptr %buff, null
-  %length = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %length, align 8
   br i1 %cmp14, label %if.then.i, label %if.else19
 
@@ -18289,7 +18278,7 @@ if.end32:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.else, %if.then23, %if.else19, %if.end32
   %ret.09 = phi i32 [ %call, %if.end32 ], [ -173, %if.else19 ], [ %3, %if.then23 ], [ %1, %if.else ]
-  %type.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 3
+  %type.i = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %type.i, align 4
   %cmp.i = icmp eq i32 %4, 1
   br i1 %cmp.i, label %land.lhs.true2.i, label %if.end.i
@@ -18300,7 +18289,7 @@ land.lhs.true2.i:                                 ; preds = %if.then.i
   br i1 %cmp3.not.i, label %if.end.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true2.i
-  %length.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %length.i, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = trunc i64 %7 to i32
@@ -18334,7 +18323,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %for.
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %z.0.lcssa.i.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -18351,7 +18340,7 @@ while.body12.i.i:                                 ; preds = %while.cond9.prehead
 
 if.end.i:                                         ; preds = %while.body12.i.i, %while.cond9.preheader.i.i, %land.lhs.true2.i, %if.then.i
   store ptr null, ptr %0, align 8
-  %length7.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length7.i = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %length7.i, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %0) #22
   br label %return
@@ -18391,7 +18380,7 @@ if.end15:                                         ; preds = %if.end, %if.end, %i
   br i1 %or.cond5, label %if.end34, label %if.else
 
 if.else:                                          ; preds = %if.end15
-  %length = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %length, align 8
   %cmp24.not = icmp ugt i32 %1, %buffSz
   br i1 %cmp24.not, label %if.then.i, label %if.then26
@@ -18408,7 +18397,7 @@ if.end34:                                         ; preds = %if.end15
 
 if.then.i:                                        ; preds = %if.then26, %if.else, %if.end34
   %ret.016 = phi i32 [ %call, %if.end34 ], [ -173, %if.else ], [ %3, %if.then26 ]
-  %type.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 3
+  %type.i = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i32, ptr %type.i, align 4
   %cmp.i = icmp eq i32 %4, 1
   br i1 %cmp.i, label %land.lhs.true2.i, label %if.end.i
@@ -18419,7 +18408,7 @@ land.lhs.true2.i:                                 ; preds = %if.then.i
   br i1 %cmp3.not.i, label %if.end.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true2.i
-  %length.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %length.i, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = trunc i64 %7 to i32
@@ -18453,7 +18442,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %for.
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %z.0.lcssa.i.i, %for.cond.preheader.i.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %sub3.i.i, %for.cond.preheader.i.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7
@@ -18470,7 +18459,7 @@ while.body12.i.i:                                 ; preds = %while.cond9.prehead
 
 if.end.i:                                         ; preds = %while.body12.i.i, %while.cond9.preheader.i.i, %land.lhs.true2.i, %if.then.i
   store ptr null, ptr %0, align 8
-  %length7.i = getelementptr inbounds %struct.DerBuffer, ptr %0, i64 0, i32 2
+  %length7.i = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %length7.i, align 8
   call void @wolfSSL_Free(ptr noundef nonnull %0) #22
   br label %return
@@ -18508,11 +18497,11 @@ if.end.thread:                                    ; preds = %land.lhs.true
   br i1 %cmp514, label %return, label %if.then12
 
 if.end10:                                         ; preds = %if.end
-  %pubKeySize = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 1
+  %pubKeySize = getelementptr inbounds i8, ptr %cert, i64 8
   br label %return.sink.split
 
 if.then12:                                        ; preds = %if.end.thread
-  %pubKeySize13 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 1
+  %pubKeySize13 = getelementptr inbounds i8, ptr %cert, i64 8
   %3 = load i32, ptr %pubKeySize13, align 8
   %cmp14 = icmp ugt i32 %3, %0
   br i1 %cmp14, label %return, label %if.else
@@ -20120,20 +20109,20 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.not, label %if.end.if.end9_crit_edge, label %lor.lhs.false.i
 
 if.end.if.end9_crit_edge:                         ; preds = %if.end
-  %dp.phi.trans.insert = getelementptr inbounds %struct.ecc_key, ptr %key, i64 0, i32 4
+  %dp.phi.trans.insert = getelementptr inbounds i8, ptr %key, i64 16
   %.pre = load ptr, ptr %dp.phi.trans.insert, align 8
   br label %if.end9
 
 lor.lhs.false.i:                                  ; preds = %if.end
   store i8 -96, ptr %curve, align 16
   %add.ptr = getelementptr inbounds i8, ptr %curve, i64 2
-  %dp.i = getelementptr inbounds %struct.ecc_key, ptr %key, i64 0, i32 4
+  %dp.i = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %oidSz3.i = getelementptr inbounds %struct.ecc_set_type, ptr %0, i64 0, i32 10
+  %oidSz3.i = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load i32, ptr %oidSz3.i, align 8
   store i8 6, ptr %add.ptr, align 2
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %curve, i64 3
@@ -20197,7 +20186,7 @@ SetCurve.exit:                                    ; preds = %if.end6.i
   %conv.i = zext nneg i32 %1 to i64
   %idx.ext.i = sext i32 %add2.i20.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
-  %oid.i = getelementptr inbounds %struct.ecc_set_type, ptr %0, i64 0, i32 9
+  %oid.i = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %oid.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %3, i64 %conv.i, i1 false)
   %add13.i = add nsw i32 %add2.i20.i, %1
@@ -20206,7 +20195,7 @@ SetCurve.exit:                                    ; preds = %if.end6.i
 
 if.end7:                                          ; preds = %SetCurve.exit
   %conv = trunc i32 %add13.i to i8
-  %arrayidx8 = getelementptr inbounds [22 x i8], ptr %curve, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %curve, i64 1
   store i8 %conv, ptr %arrayidx8, align 1
   %add = add nuw i32 %add13.i, 2
   br label %if.end9
@@ -20516,7 +20505,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %dp = getelementptr inbounds %struct.ecc_key, ptr %key, i64 0, i32 4
+  %dp = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %dp, align 8
   %cmp1 = icmp eq ptr %0, null
   %cmp3 = icmp eq ptr %outLen, null
@@ -20524,7 +20513,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %oidSum = getelementptr inbounds %struct.ecc_set_type, ptr %0, i64 0, i32 11
+  %oidSum = getelementptr inbounds i8, ptr %0, i64 76
   %1 = load i32, ptr %oidSum, align 4
   %call = call i32 @wc_ecc_get_oid(i32 noundef %1, ptr noundef nonnull %curveOID, ptr noundef nonnull %oidSz) #22
   %cmp5 = icmp slt i32 %call, 0
@@ -20746,17 +20735,16 @@ define internal fastcc noundef i32 @GetDate(ptr nocapture noundef %cert, i32 nou
 entry:
   %date = alloca [32 x i8], align 16
   %cmp = icmp eq i32 %dateType, 0
-  %source = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 25
+  %source = getelementptr inbounds i8, ptr %cert, i64 672
   %0 = load ptr, ptr %source, align 8
-  %srcIdx = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 26
+  %srcIdx = getelementptr inbounds i8, ptr %cert, i64 680
   %1 = load i32, ptr %srcIdx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %idxprom
-  %afterDate = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 50
-  %beforeDate = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 48
-  %afterDate.sink = select i1 %cmp, ptr %beforeDate, ptr %afterDate
-  store ptr %arrayidx, ptr %afterDate.sink, align 8
-  %srcIdx5 = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 26
+  %.25 = select i1 %cmp, i64 848, i64 864
+  %afterDate = getelementptr inbounds i8, ptr %cert, i64 %.25
+  store ptr %arrayidx, ptr %afterDate, align 8
+  %srcIdx5 = getelementptr inbounds i8, ptr %cert, i64 680
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -20871,10 +20859,9 @@ if.end10:                                         ; preds = %if.end53.i.i.i
   %conv = zext nneg i32 %length.1.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %date, ptr nonnull align 1 %arrayidx29.i, i64 %conv, i1 false)
   %sub = sub i32 %add47.i.i.i, %1
-  %afterDateLen = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 51
-  %beforeDateLen = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 49
-  %afterDateLen.sink = select i1 %cmp, ptr %beforeDateLen, ptr %afterDateLen
-  store i32 %sub, ptr %afterDateLen.sink, align 8
+  %.26 = select i1 %cmp, i64 856, i64 872
+  %afterDateLen = getelementptr inbounds i8, ptr %cert, i64 %.26
+  store i32 %sub, ptr %afterDateLen, align 8
   switch i32 %verify, label %land.lhs.true24 [
     i32 5, label %return
     i32 0, label %return
@@ -20990,7 +20977,7 @@ while.cond.preheader:                             ; preds = %if.end45.i.i.i.i
   br i1 %cmp192, label %if.then5.i.i.i.i14.lr.ph, label %return
 
 if.then5.i.i.i.i14.lr.ph:                         ; preds = %while.cond.preheader
-  %extAuthInfo = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 34
+  %extAuthInfo = getelementptr inbounds i8, ptr %cert, i64 752
   br label %if.then5.i.i.i.i14
 
 if.then5.i.i.i.i14:                               ; preds = %if.then5.i.i.i.i14.lr.ph, %if.end27
@@ -21197,7 +21184,7 @@ land.lhs.true22:                                  ; preds = %if.end53.i.i
   br i1 %cmp23, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %land.lhs.true22
-  %extAuthInfoSz = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 35
+  %extAuthInfoSz = getelementptr inbounds i8, ptr %cert, i64 760
   store i32 %length.1.i.i, ptr %extAuthInfoSz, align 8
   %idx.ext = zext i32 %10 to i64
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 %idx.ext
@@ -21315,7 +21302,7 @@ if.end6:                                          ; preds = %if.end45.i.i.i.i
   br i1 %cmp7.not, label %if.end12, label %do.end11
 
 do.end11:                                         ; preds = %if.end6
-  %extAuthKeyIdSet = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 61
+  %extAuthKeyIdSet = getelementptr inbounds i8, ptr %cert, i64 1008
   %bf.load = load i32, ptr %extAuthKeyIdSet, align 8
   %bf.clear = and i32 %bf.load, -5
   store i32 %bf.clear, ptr %extAuthKeyIdSet, align 8
@@ -21410,7 +21397,7 @@ if.end45.i.i:                                     ; preds = %while.end.i.i, %if.
 if.end19:                                         ; preds = %if.end45.i.i
   %idx.ext = zext i32 %idx.1.i.i to i64
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 %idx.ext
-  %extAuthKeyId = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 41
+  %extAuthKeyId = getelementptr inbounds i8, ptr %cert, i64 816
   %cmp.i = icmp eq i32 %length.1.i.i, 20
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -21525,7 +21512,7 @@ GetOctetString.exit:                              ; preds = %if.end45.i.i.i.i
 if.then:                                          ; preds = %GetOctetString.exit
   %idx.ext = zext nneg i32 %idx.1.i.i.i.i to i64
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 %idx.ext
-  %extSubjKeyId = getelementptr inbounds %struct.DecodedCert, ptr %cert, i64 0, i32 40
+  %extSubjKeyId = getelementptr inbounds i8, ptr %cert, i64 796
   %cmp.i = icmp eq i32 %length.1.i.i.i.i, 20
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 

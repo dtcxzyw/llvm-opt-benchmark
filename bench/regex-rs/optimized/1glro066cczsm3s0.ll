@@ -17,7 +17,7 @@ define align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h0aa92573a868c490E(
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8fae13e309fe5456E"(ptr nonnull align 8 %5)
   %11 = icmp eq ptr %10, null
@@ -43,7 +43,7 @@ define align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h4db7c3d936d19d0aE(
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = call align 4 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5041e9493648cc1E"(ptr nonnull align 8 %5)
   %11 = icmp eq ptr %10, null
@@ -69,7 +69,7 @@ define align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17h94b3cabd0bcc3556E(
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82eedc8b57a375e9E"(ptr nonnull align 8 %5)
   %11 = icmp eq ptr %10, null
@@ -95,7 +95,7 @@ define align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17ha7fe3cdc0f48f84cE(
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbeb82dcc0dc5aa3cE"(ptr nonnull align 8 %5)
   %11 = icmp eq ptr %10, null
@@ -121,7 +121,7 @@ define align 8 ptr @_ZN4core3fmt8builders9DebugList7entries17hdbd810c652af0995E(
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4255ddfad53635a3E"(ptr nonnull align 8 %5)
   %11 = icmp eq ptr %10, null

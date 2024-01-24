@@ -58,7 +58,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [28 x i8] c"CMAC_Final(ctx2, buf, &len)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_cmac_bad) #6
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_cmac_run) #6
@@ -169,9 +169,10 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %case_idx.075 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %data = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %case_idx.075, i32 2
+  %arrayidx = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %case_idx.075
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data) #7
-  %data_len = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %case_idx.075, i32 3
+  %data_len = getelementptr inbounds i8, ptr %arrayidx, i64 4132
   %0 = load i32, ptr %data_len, align 4
   %conv = sext i32 %0 to i64
   %sub = sub i64 %conv, %call1
@@ -182,7 +183,7 @@ while.body:                                       ; preds = %for.body, %if.end
   %fill_idx.074 = phi i64 [ %add, %if.end ], [ %call1, %for.body ]
   %fill_len.073 = phi i64 [ %sub13, %if.end ], [ %sub, %for.body ]
   %cmp5 = icmp ugt i64 %fill_len.073, %call1
-  %arrayidx9 = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %case_idx.075, i32 2, i64 %fill_idx.074
+  %arrayidx9 = getelementptr inbounds [4096 x i8], ptr %data, i64 0, i64 %fill_idx.074
   br i1 %cmp5, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %while.body

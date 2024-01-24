@@ -4,14 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.alts_grpc_record_protocol_vtable = type { ptr, ptr, ptr }
-%struct.alts_grpc_integrity_only_record_protocol = type { %struct.alts_grpc_record_protocol, i8, %struct.grpc_slice_buffer, ptr }
-%struct.alts_grpc_record_protocol = type { ptr, ptr, %struct.grpc_slice_buffer, ptr, i64, i64, ptr, i64 }
-%struct.grpc_slice_buffer = type { ptr, ptr, i64, i64, i64, [7 x %struct.grpc_slice] }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %struct.iovec = type { ptr, i64 }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined" = type { i8, [23 x i8] }
 
 @.str = private unnamed_addr constant [175 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/tsi/alts/zero_copy_frame_protector/alts_grpc_integrity_only_record_protocol.cc\00", align 1
 @.str.1 = private unnamed_addr constant [63 x i8] c"Invalid nullptr arguments to alts_grpc_record_protocol create.\00", align 1
@@ -48,14 +44,14 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %enable_extra_copy10 = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %call, i64 0, i32 1
+  %enable_extra_copy10 = getelementptr inbounds i8, ptr %call, i64 320
   store i8 %frombool2, ptr %enable_extra_copy10, align 8
-  %data_sb = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %call, i64 0, i32 2
+  %data_sb = getelementptr inbounds i8, ptr %call, i64 328
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %data_sb)
-  %tag_length = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %call, i64 0, i32 5
+  %tag_length = getelementptr inbounds i8, ptr %call, i64 296
   %0 = load i64, ptr %tag_length, align 8
   %call13 = tail call ptr @gpr_malloc(i64 noundef %0)
-  %tag_buf = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %call, i64 0, i32 3
+  %tag_buf = getelementptr inbounds i8, ptr %call, i64 592
   store ptr %call13, ptr %tag_buf, align 8
   store ptr @_ZL47alts_grpc_integrity_only_record_protocol_vtable, ptr %call, align 8
   store ptr %call, ptr %rp, align 8
@@ -100,7 +96,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %enable_extra_copy = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %rp, i64 0, i32 1
+  %enable_extra_copy = getelementptr inbounds i8, ptr %rp, i64 320
   %0 = load i8, ptr %enable_extra_copy, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -110,18 +106,18 @@ if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %protected_slice.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %error_details.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp104.i)
-  %length.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %unprotected_slices, i64 0, i32 4
+  %length.i = getelementptr inbounds i8, ptr %unprotected_slices, i64 32
   %2 = load i64, ptr %length.i, align 8
-  %header_length.i = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 4
+  %header_length.i = getelementptr inbounds i8, ptr %rp, i64 288
   %3 = load i64, ptr %header_length.i, align 8
   %add.i = add i64 %3, %2
-  %tag_length.i = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 5
+  %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 296
   %4 = load i64, ptr %tag_length.i, align 8
   %add2.i = add i64 %add.i, %4
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %protected_slice.i, i64 noundef %add2.i)
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %protected_slice.i, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %protected_slice.i, i64 16
   %bytes5.i = getelementptr inbounds i8, ptr %protected_slice.i, i64 9
-  %count.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %unprotected_slices, i64 0, i32 2
+  %count.i = getelementptr inbounds i8, ptr %unprotected_slices, i64 16
   %5 = load i64, ptr %count.i, align 8
   %cmp38.not.i = icmp eq i64 %5, 0
   br i1 %cmp38.not.i, label %for.end.i, label %for.body.lr.ph.i
@@ -133,7 +129,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then4
   %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %7
   %8 = load i64, ptr %header_length.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i, i64 %8
-  %slices.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %unprotected_slices, i64 0, i32 1
+  %slices.i = getelementptr inbounds i8, ptr %unprotected_slices, i64 8
   %.pre.i = load ptr, ptr %slices.i, align 8
   br label %for.body.i
 
@@ -147,16 +143,16 @@ for.body.i:                                       ; preds = %cond.end53.i, %for.
   br i1 %tobool8.not.i, label %cond.false31.i, label %cond.true26.i
 
 cond.true26.i:                                    ; preds = %for.body.i
-  %bytes13.i = getelementptr inbounds %struct.grpc_slice, ptr %9, i64 %i.039.i, i32 1, i32 0, i32 1
+  %bytes13.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %11 = load ptr, ptr %bytes13.i, align 8
-  %data29.i = getelementptr inbounds %struct.grpc_slice, ptr %9, i64 %i.039.i, i32 1
+  %data29.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %12 = load i64, ptr %data29.i, align 8
   br label %cond.end36.i
 
 cond.false31.i:                                   ; preds = %for.body.i
-  %data17.i = getelementptr inbounds %struct.grpc_slice, ptr %9, i64 %i.039.i, i32 1
-  %bytes18.i = getelementptr inbounds %"struct.grpc_slice::grpc_slice_data::grpc_slice_inlined", ptr %data17.i, i64 0, i32 1
-  %13 = load i8, ptr %data17.i, align 8
+  %bytes18.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
+  %data34.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %13 = load i8, ptr %data34.i, align 8
   %conv.i = zext i8 %13 to i64
   br label %cond.end36.i
 
@@ -168,7 +164,7 @@ cond.end36.i:                                     ; preds = %cond.false31.i, %co
   %arrayidx39.i = getelementptr inbounds %struct.grpc_slice, ptr %14, i64 %i.039.i
   %15 = load ptr, ptr %arrayidx39.i, align 8
   %tobool41.not.i = icmp eq ptr %15, null
-  %data50.i = getelementptr inbounds %struct.grpc_slice, ptr %14, i64 %i.039.i, i32 1
+  %data50.i = getelementptr inbounds i8, ptr %arrayidx39.i, i64 8
   br i1 %tobool41.not.i, label %cond.false47.i, label %cond.true42.i
 
 cond.true42.i:                                    ; preds = %cond.end36.i
@@ -198,13 +194,13 @@ for.end.i:                                        ; preds = %cond.end53.i, %if.t
   %add.ptr81.i = getelementptr inbounds i8, ptr %cond66.i, i64 %21
   %add.ptr82.i = getelementptr inbounds i8, ptr %add.ptr81.i, i64 %2
   %22 = load i64, ptr %tag_length.i, align 8
-  %iovec_buf.i = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 6
+  %iovec_buf.i = getelementptr inbounds i8, ptr %rp, i64 304
   %23 = load ptr, ptr %iovec_buf.i, align 8
   store ptr %add.ptr81.i, ptr %23, align 8
   %24 = load ptr, ptr %iovec_buf.i, align 8
-  %iov_len102.i = getelementptr inbounds %struct.iovec, ptr %24, i64 0, i32 1
+  %iov_len102.i = getelementptr inbounds i8, ptr %24, i64 8
   store i64 %2, ptr %iov_len102.i, align 8
-  %iovec_rp.i = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 1
+  %iovec_rp.i = getelementptr inbounds i8, ptr %rp, i64 8
   %25 = load ptr, ptr %iovec_rp.i, align 8
   %26 = load ptr, ptr %iovec_buf.i, align 8
   store ptr %add.ptr82.i, ptr %agg.tmp104.i, align 8
@@ -234,17 +230,17 @@ _ZL43alts_grpc_integrity_only_extra_copy_protectP25alts_grpc_record_protocolP17g
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %header_length = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 4
+  %header_length = getelementptr inbounds i8, ptr %rp, i64 288
   %29 = load i64, ptr %header_length, align 8
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %header_slice, i64 noundef %29)
-  %tag_length = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 5
+  %tag_length = getelementptr inbounds i8, ptr %rp, i64 296
   %30 = load i64, ptr %tag_length, align 8
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %tag_slice, i64 noundef %30)
   store ptr null, ptr %error_details, align 8
   %31 = load ptr, ptr %header_slice, align 8
   %tobool6.not = icmp eq ptr %31, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %header_slice, i64 0, i32 1
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %header_slice, i64 0, i32 1, i32 0, i32 1
+  %data = getelementptr inbounds i8, ptr %header_slice, i64 8
+  %bytes = getelementptr inbounds i8, ptr %header_slice, i64 16
   %32 = load ptr, ptr %bytes, align 8
   %bytes8 = getelementptr inbounds i8, ptr %header_slice, i64 9
   %cond = select i1 %tobool6.not, ptr %bytes8, ptr %32
@@ -253,8 +249,8 @@ if.end5:                                          ; preds = %if.end
   %cond17 = select i1 %tobool6.not, i64 %conv, i64 %33
   %34 = load ptr, ptr %tag_slice, align 8
   %tobool20.not = icmp eq ptr %34, null
-  %data22 = getelementptr inbounds %struct.grpc_slice, ptr %tag_slice, i64 0, i32 1
-  %bytes23 = getelementptr inbounds %struct.grpc_slice, ptr %tag_slice, i64 0, i32 1, i32 0, i32 1
+  %data22 = getelementptr inbounds i8, ptr %tag_slice, i64 8
+  %bytes23 = getelementptr inbounds i8, ptr %tag_slice, i64 16
   %35 = load ptr, ptr %bytes23, align 8
   %bytes26 = getelementptr inbounds i8, ptr %tag_slice, i64 9
   %cond29 = select i1 %tobool20.not, ptr %bytes26, ptr %35
@@ -262,11 +258,11 @@ if.end5:                                          ; preds = %if.end
   %conv39 = and i64 %36, 255
   %cond41 = select i1 %tobool20.not, i64 %conv39, i64 %36
   call void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef nonnull %rp, ptr noundef nonnull %unprotected_slices)
-  %iovec_rp = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 1
+  %iovec_rp = getelementptr inbounds i8, ptr %rp, i64 8
   %37 = load ptr, ptr %iovec_rp, align 8
-  %iovec_buf = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 6
+  %iovec_buf = getelementptr inbounds i8, ptr %rp, i64 304
   %38 = load ptr, ptr %iovec_buf, align 8
-  %count = getelementptr inbounds %struct.grpc_slice_buffer, ptr %unprotected_slices, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %unprotected_slices, i64 16
   %39 = load i64, ptr %count, align 8
   store ptr %cond29, ptr %agg.tmp42, align 8
   %tag_iovec.sroa.2.0.agg.tmp42.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
@@ -310,11 +306,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %length = getelementptr inbounds %struct.grpc_slice_buffer, ptr %protected_slices, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %protected_slices, i64 32
   %0 = load i64, ptr %length, align 8
-  %header_length = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 4
+  %header_length = getelementptr inbounds i8, ptr %rp, i64 288
   %1 = load i64, ptr %header_length, align 8
-  %tag_length = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 5
+  %tag_length = getelementptr inbounds i8, ptr %rp, i64 296
   %2 = load i64, ptr %tag_length, align 8
   %add = add i64 %2, %1
   %cmp4 = icmp ult i64 %0, %add
@@ -325,11 +321,11 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %header_sb = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 2
+  %header_sb = getelementptr inbounds i8, ptr %rp, i64 16
   tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %header_sb)
   %3 = load i64, ptr %header_length, align 8
   tail call void @grpc_slice_buffer_move_first(ptr noundef nonnull %protected_slices, i64 noundef %3, ptr noundef nonnull %header_sb)
-  %length10 = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 2, i32 4
+  %length10 = getelementptr inbounds i8, ptr %rp, i64 48
   %4 = load i64, ptr %length10, align 8
   %5 = load i64, ptr %header_length, align 8
   %cmp12.not = icmp eq i64 %4, %5
@@ -343,7 +339,7 @@ do.end:                                           ; preds = %if.end6
   %call = tail call { ptr, i64 } @_Z42alts_grpc_record_protocol_get_header_iovecP25alts_grpc_record_protocol(ptr noundef nonnull %rp)
   %6 = extractvalue { ptr, i64 } %call, 0
   %7 = extractvalue { ptr, i64 } %call, 1
-  %data_sb = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %rp, i64 0, i32 2
+  %data_sb = getelementptr inbounds i8, ptr %rp, i64 328
   tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %data_sb)
   %8 = load i64, ptr %length, align 8
   %9 = load i64, ptr %tag_length, align 8
@@ -359,20 +355,20 @@ if.then23:                                        ; preds = %do.end
   unreachable
 
 do.end25:                                         ; preds = %do.end
-  %count = getelementptr inbounds %struct.grpc_slice_buffer, ptr %protected_slices, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %protected_slices, i64 16
   %12 = load i64, ptr %count, align 8
   %cmp27 = icmp eq i64 %12, 1
   br i1 %cmp27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %do.end25
-  %slices = getelementptr inbounds %struct.grpc_slice_buffer, ptr %protected_slices, i64 0, i32 1
+  %slices = getelementptr inbounds i8, ptr %protected_slices, i64 8
   %13 = load ptr, ptr %slices, align 8
   %14 = load ptr, ptr %13, align 8
   %tobool.not = icmp eq ptr %14, null
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then28
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %13, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %bytes, align 8
   br label %if.end38
 
@@ -381,7 +377,7 @@ cond.false:                                       ; preds = %if.then28
   br label %if.end38
 
 if.else:                                          ; preds = %do.end25
-  %tag_buf = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %rp, i64 0, i32 3
+  %tag_buf = getelementptr inbounds i8, ptr %rp, i64 592
   %16 = load ptr, ptr %tag_buf, align 8
   tail call void @_Z43alts_grpc_record_protocol_copy_slice_bufferPK17grpc_slice_bufferPh(ptr noundef nonnull %protected_slices, ptr noundef %16)
   %17 = load ptr, ptr %tag_buf, align 8
@@ -391,11 +387,11 @@ if.end38:                                         ; preds = %cond.true, %cond.fa
   %tag_iovec.sroa.0.0 = phi ptr [ %17, %if.else ], [ %15, %cond.true ], [ %bytes34, %cond.false ]
   store ptr null, ptr %error_details, align 8
   tail call void @_Z55alts_grpc_record_protocol_convert_slice_buffer_to_iovecP25alts_grpc_record_protocolPK17grpc_slice_buffer(ptr noundef nonnull %rp, ptr noundef nonnull %data_sb)
-  %iovec_rp = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 1
+  %iovec_rp = getelementptr inbounds i8, ptr %rp, i64 8
   %18 = load ptr, ptr %iovec_rp, align 8
-  %iovec_buf = getelementptr inbounds %struct.alts_grpc_record_protocol, ptr %rp, i64 0, i32 6
+  %iovec_buf = getelementptr inbounds i8, ptr %rp, i64 304
   %19 = load ptr, ptr %iovec_buf, align 8
-  %count41 = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %rp, i64 0, i32 2, i32 2
+  %count41 = getelementptr inbounds i8, ptr %rp, i64 344
   %20 = load i64, ptr %count41, align 8
   store ptr %tag_iovec.sroa.0.0, ptr %agg.tmp42, align 8
   %tag_iovec.sroa.4.0.agg.tmp42.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
@@ -429,9 +425,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data_sb = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %rp, i64 0, i32 2
+  %data_sb = getelementptr inbounds i8, ptr %rp, i64 328
   tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %data_sb)
-  %tag_buf = getelementptr inbounds %struct.alts_grpc_integrity_only_record_protocol, ptr %rp, i64 0, i32 3
+  %tag_buf = getelementptr inbounds i8, ptr %rp, i64 592
   %0 = load ptr, ptr %tag_buf, align 8
   tail call void @gpr_free(ptr noundef %0)
   br label %return

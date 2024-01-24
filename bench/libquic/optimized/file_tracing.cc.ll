@@ -3,16 +3,6 @@ source_filename = "bench/libquic/original/file_tracing.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::FileTracing::ScopedTrace" = type { ptr, ptr }
-%"class.base::File" = type <{ %"class.base::ScopedGeneric", [4 x i8], %"class.base::FilePath", %"class.base::FileTracing::ScopedEnabler", [3 x i8], i32, i8, i8, [6 x i8] }>
-%"class.base::ScopedGeneric" = type { %"struct.base::ScopedGeneric<int, base::internal::ScopedFDCloseTraits>::Data" }
-%"struct.base::ScopedGeneric<int, base::internal::ScopedFDCloseTraits>::Data" = type { i32 }
-%"class.base::FilePath" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.base::FileTracing::ScopedEnabler" = type { i8 }
-
 $__clang_call_terminate = comdat any
 
 @_ZN4base12_GLOBAL__N_110g_providerE = internal global i64 0, align 8
@@ -40,7 +30,7 @@ entry:
 land.rhs:                                         ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %land.end
@@ -68,7 +58,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = inttoptr i64 %0 to ptr
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %this)
   br label %if.end
@@ -87,7 +77,7 @@ invoke.cont:
 if.then:                                          ; preds = %invoke.cont
   %1 = inttoptr i64 %0 to ptr
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %this)
           to label %if.end unwind label %terminate.lpad
@@ -137,11 +127,11 @@ invoke.cont:                                      ; preds = %entry
 
 if.then3:                                         ; preds = %invoke.cont
   %2 = inttoptr i64 %1 to ptr
-  %name_ = getelementptr inbounds %"class.base::FileTracing::ScopedTrace", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %name_, align 8
   %4 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4)
           to label %if.end6 unwind label %terminate.lpad
@@ -160,17 +150,17 @@ terminate.lpad:                                   ; preds = %if.then3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base11FileTracing11ScopedTrace10InitializeEPKcPKNS_4FileEl(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %name, ptr noundef %file, i64 noundef %size) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %trace_enabler_ = getelementptr inbounds %"class.base::File", ptr %file, i64 0, i32 3
+  %trace_enabler_ = getelementptr inbounds i8, ptr %file, i64 40
   store ptr %trace_enabler_, ptr %this, align 8
-  %name_ = getelementptr inbounds %"class.base::FileTracing::ScopedTrace", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %name, ptr %name_, align 8
   %0 = load atomic volatile i64, ptr @_ZN4base12_GLOBAL__N_110g_providerE acquire, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr %name_, align 8
   %3 = load ptr, ptr %this, align 8
-  %tracing_path_ = getelementptr inbounds %"class.base::File", ptr %file, i64 0, i32 2
+  %tracing_path_ = getelementptr inbounds i8, ptr %file, i64 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_, i64 noundef %size)
   ret void

@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/inffast.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, i32 }
-%struct.inflate_state = type { i32, i32, i32, i32, i32, i32, i64, i64, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, [320 x i16], [288 x i16], [1444 x %struct.code], i32, i32, i32 }
 %struct.code = type { i8, i8, i16 }
 
 @.str = private unnamed_addr constant [30 x i8] c"invalid distance too far back\00", align 1
@@ -14,19 +12,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @MOZ_Z_inflate_fast(ptr nocapture noundef %strm, i32 noundef %start) local_unnamed_addr #0 {
 entry:
-  %state1 = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 7
+  %state1 = getelementptr inbounds i8, ptr %strm, i64 56
   %0 = load ptr, ptr %state1, align 8
   %1 = load ptr, ptr %strm, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 -1
-  %avail_in = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %strm, i64 8
   %2 = load i32, ptr %avail_in, align 8
   %sub = add i32 %2, -5
   %idx.ext = zext i32 %sub to i64
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
-  %next_out = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 3
+  %next_out = getelementptr inbounds i8, ptr %strm, i64 24
   %3 = load ptr, ptr %next_out, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %3, i64 -1
-  %avail_out = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 4
+  %avail_out = getelementptr inbounds i8, ptr %strm, i64 32
   %4 = load i32, ptr %avail_out, align 8
   %sub4 = sub i32 %start, %4
   %idx.ext5 = zext i32 %sub4 to i64
@@ -35,34 +33,34 @@ entry:
   %sub8 = add i32 %4, -257
   %idx.ext9 = zext i32 %sub8 to i64
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr3, i64 %idx.ext9
-  %wsize11 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 10
+  %wsize11 = getelementptr inbounds i8, ptr %0, i64 52
   %5 = load i32, ptr %wsize11, align 4
-  %whave12 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 11
+  %whave12 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i32, ptr %whave12, align 8
-  %wnext13 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 12
+  %wnext13 = getelementptr inbounds i8, ptr %0, i64 60
   %7 = load i32, ptr %wnext13, align 4
-  %window14 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 13
+  %window14 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load ptr, ptr %window14, align 8
-  %hold15 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 14
+  %hold15 = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load i64, ptr %hold15, align 8
-  %bits16 = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 15
+  %bits16 = getelementptr inbounds i8, ptr %0, i64 80
   %10 = load i32, ptr %bits16, align 8
-  %lencode = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 19
+  %lencode = getelementptr inbounds i8, ptr %0, i64 96
   %11 = load ptr, ptr %lencode, align 8
-  %distcode = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 20
+  %distcode = getelementptr inbounds i8, ptr %0, i64 104
   %12 = load ptr, ptr %distcode, align 8
-  %lenbits = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 21
+  %lenbits = getelementptr inbounds i8, ptr %0, i64 112
   %13 = load i32, ptr %lenbits, align 8
   %notmask = shl nsw i32 -1, %13
   %sub17 = xor i32 %notmask, -1
-  %distbits = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 22
+  %distbits = getelementptr inbounds i8, ptr %0, i64 116
   %14 = load i32, ptr %distbits, align 4
   %notmask225 = shl nsw i32 -1, %14
   %sub19 = xor i32 %notmask225, -1
   %conv28 = zext nneg i32 %sub17 to i64
   %conv82 = zext nneg i32 %sub19 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr6 to i64
-  %sane = getelementptr inbounds %struct.inflate_state, ptr %0, i64 0, i32 31
+  %sane = getelementptr inbounds i8, ptr %0, i64 7136
   %add.ptr138 = getelementptr inbounds i8, ptr %8, i64 -1
   %cmp139 = icmp eq i32 %7, 0
   %add161 = add i32 %7, %5
@@ -541,7 +539,7 @@ do.end308.sink.split.sink.split:                  ; preds = %if.then133, %if.els
   %bits.9.ph.ph = phi i32 [ %sub32264, %if.else293 ], [ %sub89283, %if.else263 ], [ %sub125, %if.then133 ]
   %hold.9.ph.ph = phi i64 [ %shr263, %if.else293 ], [ %shr88282, %if.else263 ], [ %shr124, %if.then133 ]
   %in.7.ph.ph = phi ptr [ %in.1, %if.else293 ], [ %in.4, %if.else263 ], [ %in.5, %if.then133 ]
-  %msg = getelementptr inbounds %struct.z_stream_s, ptr %strm, i64 0, i32 6
+  %msg = getelementptr inbounds i8, ptr %strm, i64 48
   store ptr %.str.sink, ptr %msg, align 8
   br label %do.end308.sink.split
 

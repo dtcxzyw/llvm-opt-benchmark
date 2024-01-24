@@ -3,13 +3,6 @@ source_filename = "bench/hyperscan/original/compile_context.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.ue2::CompileContext" = type { i8, i8, %"struct.ue2::target_t", %"struct.ue2::Grey" }
-%"struct.ue2::target_t" = type { i32, i64 }
-%"struct.ue2::Grey" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i8, [3 x i8], i32, i32, [4 x i8], %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [4 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-
 @_ZN3ue214CompileContextC1EbbRKNS_8target_tERKNS_4GreyE = hidden unnamed_addr alias void (ptr, i1, i1, ptr, ptr), ptr @_ZN3ue214CompileContextC2EbbRKNS_8target_tERKNS_4GreyE
 
 ; Function Attrs: mustprogress uwtable
@@ -20,18 +13,18 @@ entry:
   %0 = or i1 %in_isStreaming, %in_isVectored
   %frombool4 = zext i1 %0 to i8
   store i8 %frombool4, ptr %this, align 8
-  %vectored = getelementptr inbounds %"struct.ue2::CompileContext", ptr %this, i64 0, i32 1
+  %vectored = getelementptr inbounds i8, ptr %this, i64 1
   store i8 %frombool1, ptr %vectored, align 1
-  %target_info = getelementptr inbounds %"struct.ue2::CompileContext", ptr %this, i64 0, i32 2
+  %target_info = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_info, ptr noundef nonnull align 8 dereferenceable(16) %in_target_info, i64 16, i1 false)
-  %grey = getelementptr inbounds %"struct.ue2::CompileContext", ptr %this, i64 0, i32 3
+  %grey = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(188) %grey, ptr noundef nonnull align 8 dereferenceable(188) %in_grey, i64 188, i1 false)
-  %dumpPath.i = getelementptr inbounds %"struct.ue2::CompileContext", ptr %this, i64 0, i32 3, i32 106
-  %dumpPath3.i = getelementptr inbounds %"struct.ue2::Grey", ptr %in_grey, i64 0, i32 106
-  %1 = getelementptr inbounds %"struct.ue2::CompileContext", ptr %this, i64 0, i32 3, i32 106, i32 2
+  %dumpPath.i = getelementptr inbounds i8, ptr %this, i64 216
+  %dumpPath3.i = getelementptr inbounds i8, ptr %in_grey, i64 192
+  %1 = getelementptr inbounds i8, ptr %this, i64 232
   store ptr %1, ptr %dumpPath.i, align 8
   %2 = load ptr, ptr %dumpPath3.i, align 8
-  %_M_string_length.i.i.i = getelementptr inbounds %"struct.ue2::Grey", ptr %in_grey, i64 0, i32 106, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %in_grey, i64 200
   %3 = load i64, ptr %_M_string_length.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #4
   store i64 %3, ptr %__dnew.i.i.i, align 8
@@ -63,14 +56,14 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
 
 _ZN3ue24GreyC2ERKS0_.exit:                        ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %7 = load i64, ptr %__dnew.i.i.i, align 8
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"struct.ue2::CompileContext", ptr %this, i64 0, i32 3, i32 106, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   store i64 %7, ptr %_M_string_length.i.i.i.i.i, align 8
   %8 = load ptr, ptr %dumpPath.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %7
   store i8 0, ptr %arrayidx.i.i.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #4
-  %limitPatternCount.i = getelementptr inbounds %"struct.ue2::CompileContext", ptr %this, i64 0, i32 3, i32 107
-  %limitPatternCount4.i = getelementptr inbounds %"struct.ue2::Grey", ptr %in_grey, i64 0, i32 107
+  %limitPatternCount.i = getelementptr inbounds i8, ptr %this, i64 248
+  %limitPatternCount4.i = getelementptr inbounds i8, ptr %in_grey, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %limitPatternCount.i, ptr noundef nonnull align 8 dereferenceable(68) %limitPatternCount4.i, i64 68, i1 false)
   ret void
 }

@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.conf_value_st = type { ptr, ptr, ptr }
 
 @EXTENDED_KEY_USAGE_it = hidden constant %struct.ASN1_ITEM_st { i8 0, i64 -1, ptr @EXTENDED_KEY_USAGE_item_tt, i64 0, ptr null, i64 0, ptr @.str }, align 8
 @v3_ext_ku = hidden local_unnamed_addr constant %struct.v3_ext_method { i32 126, i32 0, ptr @EXTENDED_KEY_USAGE_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_EXTENDED_KEY_USAGE, ptr @v2i_EXTENDED_KEY_USAGE, ptr null, ptr null, ptr null }, align 8
@@ -67,13 +66,13 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end12
   %i.014 = phi i64 [ %inc, %if.end12 ], [ 0, %for.cond.preheader ]
   %call2 = tail call ptr @sk_value(ptr noundef %nval, i64 noundef %i.014) #2
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call2, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.else, label %if.end6
 
 if.else:                                          ; preds = %for.body
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call2, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %if.end6
 
@@ -84,11 +83,11 @@ if.end6:                                          ; preds = %for.body, %if.else
   br i1 %tobool8.not, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end6
-  %value.le = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 2
+  %value.le = getelementptr inbounds i8, ptr %call2, i64 16
   tail call void @sk_pop_free(ptr noundef nonnull %call, ptr noundef nonnull @ASN1_OBJECT_free) #2
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 129, ptr noundef nonnull @.str.1, i32 noundef 141) #2
   %2 = load ptr, ptr %call2, align 8
-  %name10 = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name10 = getelementptr inbounds i8, ptr %call2, i64 8
   %3 = load ptr, ptr %name10, align 8
   %4 = load ptr, ptr %value.le, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef %4) #2

@@ -14,25 +14,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisOpArray = type { ptr, i32, i32 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.latencyTimeSeries = type { i32, i32, [160 x %struct.latencySample] }
 %struct.latencySample = type { i32, i32 }
 %struct.latencyStats = type { i32, i32, i32, i32, i32, i32, i64 }
-%struct.dict = type { ptr, [2 x ptr], [2 x i64], i64, i16, [2 x i8], [0 x ptr] }
 %struct.hdr_iter = type { ptr, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, %union.anon, ptr }
 %union.anon = type { %struct.hdr_iter_linear }
 %struct.hdr_iter_linear = type { i64, i64, i64, i64 }
-%struct.hdr_histogram = type { i64, i64, i32, i32, i32, i32, i64, i32, i32, i64, i64, i32, double, i32, i64, ptr }
-%struct.redisCommand = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr, ptr, i64, i64, i64, i64, i32, ptr, ptr, %struct.keySpec, ptr, ptr, ptr }
-%struct.keySpec = type { ptr, i64, i32, %union.anon.0, i32, %union.anon.3 }
-%union.anon.0 = type { %struct.anon.2 }
-%struct.anon.2 = type { ptr, i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i32, i32, i32 }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.redisObject = type { i32, i32, ptr }
 
 @latencyTimeSeriesDictType = dso_local global %struct.dictType { ptr @dictStringHash, ptr null, ptr null, ptr @dictStringKeyCompare, ptr @dictVanillaFree, ptr @dictVanillaFree, ptr null, ptr null, ptr null, ptr null, i8 0 }, align 8
 @.str = private unnamed_addr constant [15 x i8] c"AnonHugePages:\00", align 1
@@ -178,7 +164,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %ts.0 = phi ptr [ %call2, %if.then ], [ %call, %entry ]
-  %max5 = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts.0, i64 0, i32 1
+  %max5 = getelementptr inbounds i8, ptr %ts.0, i64 4
   %2 = load i32, ptr %max5, align 4
   %conv = zext i32 %2 to i64
   %cmp6 = icmp slt i64 %conv, %latency
@@ -193,15 +179,16 @@ if.end11:                                         ; preds = %if.then8, %if.end
   %3 = load i32, ptr %ts.0, align 4
   %sub = add nsw i32 %3, 159
   %rem = srem i32 %sub, 160
+  %samples13 = getelementptr inbounds i8, ptr %ts.0, i64 8
   %idxprom = sext i32 %rem to i64
-  %arrayidx = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts.0, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [160 x %struct.latencySample], ptr %samples13, i64 0, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   %conv14 = sext i32 %4 to i64
   %cmp15 = icmp eq i64 %call1, %conv14
   br i1 %cmp15, label %if.then17, label %if.end32
 
 if.then17:                                        ; preds = %if.end11
-  %latency21 = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts.0, i64 0, i32 2, i64 %idxprom, i32 1
+  %latency21 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %latency21, align 4
   %conv22 = zext i32 %5 to i64
   %cmp23 = icmp slt i64 %conv22, %latency
@@ -215,12 +202,12 @@ if.then25:                                        ; preds = %if.then17
 if.end32:                                         ; preds = %if.end11
   %conv33 = trunc i64 %call1 to i32
   %idxprom36 = sext i32 %3 to i64
-  %arrayidx37 = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts.0, i64 0, i32 2, i64 %idxprom36
+  %arrayidx37 = getelementptr inbounds [160 x %struct.latencySample], ptr %samples13, i64 0, i64 %idxprom36
   store i32 %conv33, ptr %arrayidx37, align 4
   %conv39 = trunc i64 %latency to i32
   %6 = load i32, ptr %ts.0, align 4
   %idxprom42 = sext i32 %6 to i64
-  %latency44 = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts.0, i64 0, i32 2, i64 %idxprom42, i32 1
+  %latency44 = getelementptr inbounds [160 x %struct.latencySample], ptr %samples13, i64 0, i64 %idxprom42, i32 1
   store i32 %conv39, ptr %latency44, align 4
   %inc = add nsw i32 %6, 1
   %cmp47 = icmp eq i32 %inc, 160
@@ -319,30 +306,34 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %max = getelementptr inbounds %struct.latencyTimeSeries, ptr %call, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %max, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %1, %cond.true ], [ 0, %entry ]
   store i32 %cond, ptr %ls, align 8
-  %avg = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 1
-  %min = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 2
-  %max1 = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 3
-  %mad = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 4
-  %samples = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 5
-  %period = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 6
+  %avg = getelementptr inbounds i8, ptr %ls, i64 4
+  %min = getelementptr inbounds i8, ptr %ls, i64 8
+  %max1 = getelementptr inbounds i8, ptr %ls, i64 12
+  %mad = getelementptr inbounds i8, ptr %ls, i64 16
+  %samples = getelementptr inbounds i8, ptr %ls, i64 20
+  %period = getelementptr inbounds i8, ptr %ls, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %avg, i8 0, i64 28, i1 false)
-  br i1 %tobool.not, label %if.end121, label %for.body
+  br i1 %tobool.not, label %if.end121, label %for.cond.preheader
 
-for.body:                                         ; preds = %cond.end, %for.inc
-  %2 = phi i64 [ %13, %for.inc ], [ 0, %cond.end ]
-  %3 = phi i32 [ %14, %for.inc ], [ 0, %cond.end ]
-  %4 = phi i32 [ %15, %for.inc ], [ 0, %cond.end ]
-  %5 = phi i32 [ %16, %for.inc ], [ 0, %cond.end ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %cond.end ]
-  %sum.066 = phi i64 [ %sum.1, %for.inc ], [ 0, %cond.end ]
-  %arrayidx = getelementptr inbounds %struct.latencyTimeSeries, ptr %call, i64 0, i32 2, i64 %indvars.iv
+for.cond.preheader:                               ; preds = %cond.end
+  %samples3 = getelementptr inbounds i8, ptr %call, i64 8
+  br label %for.body
+
+for.body:                                         ; preds = %for.cond.preheader, %for.inc
+  %2 = phi i64 [ 0, %for.cond.preheader ], [ %13, %for.inc ]
+  %3 = phi i32 [ 0, %for.cond.preheader ], [ %14, %for.inc ]
+  %4 = phi i32 [ 0, %for.cond.preheader ], [ %15, %for.inc ]
+  %5 = phi i32 [ 0, %for.cond.preheader ], [ %16, %for.inc ]
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
+  %sum.066 = phi i64 [ 0, %for.cond.preheader ], [ %sum.1, %for.inc ]
+  %arrayidx = getelementptr inbounds [160 x %struct.latencySample], ptr %samples3, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx, align 4
   %cmp4 = icmp eq i32 %6, 0
   br i1 %cmp4, label %for.inc, label %if.end6
@@ -351,7 +342,7 @@ if.end6:                                          ; preds = %for.body
   %inc = add i32 %5, 1
   store i32 %inc, ptr %samples, align 4
   %cmp9 = icmp eq i32 %5, 0
-  %latency = getelementptr inbounds %struct.latencyTimeSeries, ptr %call, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %latency = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %latency, align 4
   br i1 %cmp9, label %if.then10, label %if.else
 
@@ -382,7 +373,7 @@ if.then35:                                        ; preds = %if.end28
 if.end42:                                         ; preds = %if.end28, %if.then35, %if.then10
   %10 = phi i32 [ %3, %if.end28 ], [ %8, %if.then35 ], [ %7, %if.then10 ]
   %11 = phi i32 [ %9, %if.end28 ], [ %9, %if.then35 ], [ %7, %if.then10 ]
-  %latency46 = getelementptr inbounds %struct.latencyTimeSeries, ptr %call, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %latency46 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %12 = load i32, ptr %latency46, align 4
   %conv = zext i32 %12 to i64
   %add = add i64 %sum.066, %conv
@@ -430,7 +421,7 @@ for.body87.preheader:                             ; preds = %if.then69, %for.end
 for.body87:                                       ; preds = %for.body87.preheader, %for.inc110
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %for.inc110 ], [ 0, %for.body87.preheader ]
   %sum.268 = phi i64 [ %sum.3, %for.inc110 ], [ 0, %for.body87.preheader ]
-  %arrayidx90 = getelementptr inbounds %struct.latencyTimeSeries, ptr %call, i64 0, i32 2, i64 %indvars.iv70
+  %arrayidx90 = getelementptr inbounds [160 x %struct.latencySample], ptr %samples3, i64 0, i64 %indvars.iv70
   %18 = load i32, ptr %arrayidx90, align 4
   %cmp92 = icmp eq i32 %18, 0
   br i1 %cmp92, label %for.inc110, label %if.end95
@@ -438,7 +429,7 @@ for.body87:                                       ; preds = %for.body87.preheade
 if.end95:                                         ; preds = %for.body87
   %19 = load i32, ptr %avg, align 4
   %conv97 = zext i32 %19 to i64
-  %latency101 = getelementptr inbounds %struct.latencyTimeSeries, ptr %call, i64 0, i32 2, i64 %indvars.iv70, i32 1
+  %latency101 = getelementptr inbounds i8, ptr %arrayidx90, i64 4
   %20 = load i32, ptr %latency101, align 4
   %conv102 = zext i32 %20 to i64
   %sub103 = sub nsw i64 %conv97, %conv102
@@ -474,9 +465,9 @@ entry:
   %ls = alloca %struct.latencyStats, align 8
   %call = tail call ptr @sdsempty() #14
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 394), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = sub i64 0, %2
   %cmp = icmp eq i64 %1, %add
@@ -491,10 +482,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call5 = tail call ptr @dictGetSafeIterator(ptr noundef nonnull %0) #14
-  %samples = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 5
-  %avg = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 1
-  %mad = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 4
-  %period = getelementptr inbounds %struct.latencyStats, ptr %ls, i64 0, i32 6
+  %samples = getelementptr inbounds i8, ptr %ls, i64 20
+  %avg = getelementptr inbounds i8, ptr %ls, i64 4
+  %mad = getelementptr inbounds i8, ptr %ls, i64 16
+  %period = getelementptr inbounds i8, ptr %ls, i64 24
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end99, %if.end
@@ -550,7 +541,7 @@ if.end16:                                         ; preds = %if.then14, %if.end1
   %conv18 = sitofp i64 %7 to double
   %conv20 = uitofp i32 %4 to double
   %div = fdiv double %conv18, %conv20
-  %max = getelementptr inbounds %struct.latencyTimeSeries, ptr %call9, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call9, i64 4
   %8 = load i32, ptr %max, align 4
   %conv21 = zext i32 %8 to i64
   %call22 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %report.1, ptr noundef nonnull @.str.3, i32 noundef %inc, ptr noundef %call8, i32 noundef %4, i64 noundef %conv, i64 noundef %conv17, double noundef %div, i64 noundef %conv21) #14
@@ -925,7 +916,7 @@ entry:
   %iter = alloca %struct.hdr_iter, align 8
   tail call void @addReplyMapLen(ptr noundef %c, i64 noundef 2) #14
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.43) #14
-  %total_count = getelementptr inbounds %struct.hdr_histogram, ptr %histogram, i64 0, i32 14
+  %total_count = getelementptr inbounds i8, ptr %histogram, i64 88
   %0 = load i64, ptr %total_count, align 8
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %0) #14
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.44) #14
@@ -935,8 +926,8 @@ entry:
   br i1 %call112, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %cumulative_count2 = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 4
-  %highest_equivalent_value = getelementptr inbounds %struct.hdr_iter, ptr %iter, i64 0, i32 6
+  %cumulative_count2 = getelementptr inbounds i8, ptr %iter, i64 32
+  %highest_equivalent_value = getelementptr inbounds i8, ptr %iter, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -994,13 +985,13 @@ entry:
 while.body:                                       ; preds = %entry, %if.end8
   %call112 = phi ptr [ %call1, %if.end8 ], [ %call110, %entry ]
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call112) #14
-  %latency_histogram = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 28
+  %latency_histogram = getelementptr inbounds i8, ptr %call2, i64 224
   %0 = load ptr, ptr %latency_histogram, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 27
+  %fullname = getelementptr inbounds i8, ptr %call2, i64 216
   %1 = load ptr, ptr %fullname, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -1053,13 +1044,13 @@ sdslen.exit:                                      ; preds = %if.then, %sw.bb.i, 
   br label %if.end
 
 if.end:                                           ; preds = %sdslen.exit, %while.body
-  %subcommands = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 20
+  %subcommands = getelementptr inbounds i8, ptr %call2, i64 160
   %9 = load ptr, ptr %subcommands, align 8
   %tobool6.not = icmp eq ptr %9, null
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %subcommands_dict = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 30
+  %subcommands_dict = getelementptr inbounds i8, ptr %call2, i64 288
   %10 = load ptr, ptr %subcommands_dict, align 8
   tail call void @latencyAllCommandsFillCDF(ptr noundef %c, ptr noundef %10, ptr noundef %command_with_data)
   br label %if.end8
@@ -1081,15 +1072,15 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %c) local_unna
 entry:
   %iter.i = alloca %struct.hdr_iter, align 8
   %call = tail call ptr @addReplyDeferredLen(ptr noundef %c) #14
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp45 = icmp sgt i32 %0, 2
   br i1 %cmp45, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
-  %cumulative_count2.i = getelementptr inbounds %struct.hdr_iter, ptr %iter.i, i64 0, i32 4
-  %highest_equivalent_value.i = getelementptr inbounds %struct.hdr_iter, ptr %iter.i, i64 0, i32 6
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %cumulative_count2.i = getelementptr inbounds i8, ptr %iter.i, i64 32
+  %highest_equivalent_value.i = getelementptr inbounds i8, ptr %iter.i, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1098,20 +1089,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call1 = call ptr @lookupCommandBySds(ptr noundef %3) #14
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %latency_histogram = getelementptr inbounds %struct.redisCommand, ptr %call1, i64 0, i32 28
+  %latency_histogram = getelementptr inbounds i8, ptr %call1, i64 224
   %4 = load ptr, ptr %latency_histogram, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %call1, i64 0, i32 27
+  %fullname = getelementptr inbounds i8, ptr %call1, i64 216
   %5 = load ptr, ptr %fullname, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -1163,7 +1154,7 @@ sdslen.exit:                                      ; preds = %if.then3, %sw.bb.i,
 
 if.end7:                                          ; preds = %sdslen.exit, %if.end
   %command_with_data.1 = phi i32 [ %inc, %sdslen.exit ], [ %command_with_data.047, %if.end ]
-  %subcommands_dict = getelementptr inbounds %struct.redisCommand, ptr %call1, i64 0, i32 30
+  %subcommands_dict = getelementptr inbounds i8, ptr %call1, i64 288
   %12 = load ptr, ptr %subcommands_dict, align 8
   %tobool8.not = icmp eq ptr %12, null
   br i1 %tobool8.not, label %for.inc, label %if.then9
@@ -1178,13 +1169,13 @@ while.body:                                       ; preds = %if.then9, %if.end23
   %call1244 = phi ptr [ %call12, %if.end23 ], [ %call1241, %if.then9 ]
   %command_with_data.243 = phi i32 [ %command_with_data.3, %if.end23 ], [ %command_with_data.1, %if.then9 ]
   %call14 = call ptr @dictGetVal(ptr noundef nonnull %call1244) #14
-  %latency_histogram15 = getelementptr inbounds %struct.redisCommand, ptr %call14, i64 0, i32 28
+  %latency_histogram15 = getelementptr inbounds i8, ptr %call14, i64 224
   %13 = load ptr, ptr %latency_histogram15, align 8
   %tobool16.not = icmp eq ptr %13, null
   br i1 %tobool16.not, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %while.body
-  %fullname18 = getelementptr inbounds %struct.redisCommand, ptr %call14, i64 0, i32 27
+  %fullname18 = getelementptr inbounds i8, ptr %call14, i64 216
   %14 = load ptr, ptr %fullname18, align 8
   %arrayidx.i22 = getelementptr inbounds i8, ptr %14, i64 -1
   %15 = load i8, ptr %arrayidx.i22, align 1
@@ -1233,7 +1224,7 @@ sdslen.exit40:                                    ; preds = %if.then17, %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
   call void @addReplyMapLen(ptr noundef %c, i64 noundef 2) #14
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.43) #14
-  %total_count.i = getelementptr inbounds %struct.hdr_histogram, ptr %20, i64 0, i32 14
+  %total_count.i = getelementptr inbounds i8, ptr %20, i64 88
   %21 = load i64, ptr %total_count.i, align 8
   call void @addReplyLongLong(ptr noundef %c, i64 noundef %21) #14
   call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.44) #14
@@ -1308,6 +1299,7 @@ declare ptr @lookupCommandBySds(ptr noundef) local_unnamed_addr #3
 define dso_local void @latencyCommandReplyWithSamples(ptr noundef %c, ptr nocapture noundef readonly %ts) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @addReplyDeferredLen(ptr noundef %c) #14
+  %samples1 = getelementptr inbounds i8, ptr %ts, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1317,7 +1309,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %add = add nsw i32 %0, %j.013
   %rem = srem i32 %add, 160
   %idxprom = sext i32 %rem to i64
-  %arrayidx = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [160 x %struct.latencySample], ptr %samples1, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %for.inc, label %if.end
@@ -1327,7 +1319,7 @@ if.end:                                           ; preds = %for.body
   %2 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %2 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv) #14
-  %latency = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts, i64 0, i32 2, i64 %idxprom, i32 1
+  %latency = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %latency, align 4
   %conv10 = zext i32 %3 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv10) #14
@@ -1354,9 +1346,9 @@ declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_u
 define dso_local void @latencyCommandReplyWithLatestEvents(ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 394), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %2, %1
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %add) #14
@@ -1375,16 +1367,17 @@ while.body:                                       ; preds = %entry, %while.body
   %rem = srem i32 %sub, 160
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef 4) #14
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %call4) #14
+  %samples = getelementptr inbounds i8, ptr %call5, i64 8
   %idxprom = sext i32 %rem to i64
-  %arrayidx7 = getelementptr inbounds %struct.latencyTimeSeries, ptr %call5, i64 0, i32 2, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds [160 x %struct.latencySample], ptr %samples, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx7, align 4
   %conv = sext i32 %5 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv) #14
-  %latency = getelementptr inbounds %struct.latencyTimeSeries, ptr %call5, i64 0, i32 2, i64 %idxprom, i32 1
+  %latency = getelementptr inbounds i8, ptr %arrayidx7, i64 4
   %6 = load i32, ptr %latency, align 4
   %conv11 = zext i32 %6 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv11) #14
-  %max = getelementptr inbounds %struct.latencyTimeSeries, ptr %call5, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call5, i64 4
   %7 = load i32, ptr %max, align 4
   %conv12 = zext i32 %7 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv12) #14
@@ -1405,6 +1398,7 @@ entry:
   %buf = alloca [64 x i8], align 16
   %call = tail call ptr @createSparklineSequence() #14
   %call1 = tail call ptr @sdsempty() #14
+  %samples = getelementptr inbounds i8, ptr %ts, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -1415,7 +1409,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %add = add nsw i32 %0, %j.041
   %rem = srem i32 %add, 160
   %idxprom = sext i32 %rem to i64
-  %arrayidx = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr inbounds [160 x %struct.latencySample], ptr %samples, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %cmp2 = icmp eq i32 %1, 0
   br i1 %cmp2, label %for.inc, label %if.end
@@ -1423,7 +1417,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %2 = load i32, ptr %call, align 8
   %cmp3 = icmp eq i32 %2, 0
-  %latency = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts, i64 0, i32 2, i64 %idxprom, i32 1
+  %latency = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %latency, align 4
   br i1 %cmp3, label %if.end30, label %if.else
 
@@ -1472,7 +1466,7 @@ if.else54:                                        ; preds = %if.else47
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then44, %if.else54, %if.then50, %if.then39
-  %latency64 = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts, i64 0, i32 2, i64 %idxprom, i32 1
+  %latency64 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %latency64, align 4
   %conv65 = uitofp i32 %6 to double
   call void @sparklineSequenceAddSample(ptr noundef nonnull %call, double noundef %conv65, ptr noundef nonnull %buf) #14
@@ -1488,7 +1482,7 @@ for.inc:                                          ; preds = %for.body, %if.end60
 for.end:                                          ; preds = %for.inc
   %conv67 = zext i32 %max.3 to i64
   %conv68 = zext i32 %min.2 to i64
-  %max69 = getelementptr inbounds %struct.latencyTimeSeries, ptr %ts, i64 0, i32 1
+  %max69 = getelementptr inbounds i8, ptr %ts, i64 4
   %7 = load i32, ptr %max69, align 4
   %conv70 = zext i32 %7 to i64
   %call71 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.49, ptr noundef %event, i64 noundef %conv67, i64 noundef %conv68, i64 noundef %conv70) #14
@@ -1525,27 +1519,27 @@ define dso_local void @latencyCommand(ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %command_with_data = alloca i32, align 4
   %help = alloca [15 x ptr], align 16
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.51) #13
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.else7
 
 land.lhs.true:                                    ; preds = %entry
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %3 = load i32, ptr %argc, align 8
   %cmp = icmp eq i32 %3, 3
   br i1 %cmp, label %if.then, label %if.else7
 
 if.then:                                          ; preds = %land.lhs.true
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 394), align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %arrayidx2, align 8
-  %ptr3 = getelementptr inbounds %struct.redisObject, ptr %5, i64 0, i32 2
+  %ptr3 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr3, align 8
   %call4 = tail call ptr @dictFetchValue(ptr noundef %4, ptr noundef %6) #14
   %cmp5 = icmp eq ptr %call4, null
@@ -1557,6 +1551,7 @@ if.then6:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %call.i = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #14
+  %samples1.i = getelementptr inbounds i8, ptr %call4, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.else
@@ -1566,7 +1561,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.else
   %add.i = add nsw i32 %7, %j.013.i
   %rem.i = srem i32 %add.i, 160
   %idxprom.i = sext i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.latencyTimeSeries, ptr %call4, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [160 x %struct.latencySample], ptr %samples1.i, i64 0, i64 %idxprom.i
   %8 = load i32, ptr %arrayidx.i, align 4
   %cmp2.i = icmp eq i32 %8, 0
   br i1 %cmp2.i, label %for.inc.i, label %if.end.i
@@ -1576,7 +1571,7 @@ if.end.i:                                         ; preds = %for.body.i
   %9 = load i32, ptr %arrayidx.i, align 4
   %conv.i = sext i32 %9 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv.i) #14
-  %latency.i = getelementptr inbounds %struct.latencyTimeSeries, ptr %call4, i64 0, i32 2, i64 %idxprom.i, i32 1
+  %latency.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %10 = load i32, ptr %latency.i, align 4
   %conv10.i = zext i32 %10 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv10.i) #14
@@ -1600,16 +1595,16 @@ if.else7:                                         ; preds = %land.lhs.true, %ent
   br i1 %tobool12.not, label %land.lhs.true13, label %if.else28
 
 land.lhs.true13:                                  ; preds = %if.else7
-  %argc14 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc14 = getelementptr inbounds i8, ptr %c, i64 88
   %11 = load i32, ptr %argc14, align 8
   %cmp15 = icmp eq i32 %11, 3
   br i1 %cmp15, label %if.then16, label %if.else28
 
 if.then16:                                        ; preds = %land.lhs.true13
   %12 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 394), align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %arrayidx18, align 8
-  %ptr19 = getelementptr inbounds %struct.redisObject, ptr %13, i64 0, i32 2
+  %ptr19 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr19, align 8
   %call20 = tail call ptr @dictFind(ptr noundef %12, ptr noundef %14) #14
   %cmp21 = icmp eq ptr %call20, null
@@ -1671,7 +1666,7 @@ if.else28:                                        ; preds = %land.lhs.true13, %i
   br i1 %tobool33.not, label %land.lhs.true34, label %if.else38
 
 land.lhs.true34:                                  ; preds = %if.else28
-  %argc35 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc35 = getelementptr inbounds i8, ptr %c, i64 88
   %20 = load i32, ptr %argc35, align 8
   %cmp36 = icmp eq i32 %20, 2
   br i1 %cmp36, label %if.then37, label %if.else38
@@ -1686,7 +1681,7 @@ if.else38:                                        ; preds = %land.lhs.true34, %i
   br i1 %tobool43.not, label %land.lhs.true44, label %if.else50
 
 land.lhs.true44:                                  ; preds = %if.else38
-  %argc45 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc45 = getelementptr inbounds i8, ptr %c, i64 88
   %21 = load i32, ptr %argc45, align 8
   %cmp46 = icmp eq i32 %21, 2
   br i1 %cmp46, label %if.then47, label %if.else50
@@ -1745,7 +1740,7 @@ if.else50:                                        ; preds = %land.lhs.true44, %i
   br i1 %tobool55.not, label %land.lhs.true56, label %if.else74
 
 land.lhs.true56:                                  ; preds = %if.else50
-  %argc57 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc57 = getelementptr inbounds i8, ptr %c, i64 88
   %27 = load i32, ptr %argc57, align 8
   %cmp58 = icmp sgt i32 %27, 1
   br i1 %cmp58, label %if.then59, label %if.else74
@@ -1788,7 +1783,7 @@ for.body:                                         ; preds = %if.then59, %for.bod
   %31 = load ptr, ptr %argv, align 8
   %arrayidx69 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
   %32 = load ptr, ptr %arrayidx69, align 8
-  %ptr70 = getelementptr inbounds %struct.redisObject, ptr %32, i64 0, i32 2
+  %ptr70 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load ptr, ptr %ptr70, align 8
   %call71 = tail call i32 @latencyResetEvent(ptr noundef %33)
   %add = add nsw i32 %call71, %resets.072
@@ -1809,7 +1804,7 @@ if.else74:                                        ; preds = %land.lhs.true56, %i
   br i1 %tobool79.not, label %land.lhs.true80, label %if.else93
 
 land.lhs.true80:                                  ; preds = %if.else74
-  %argc81 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc81 = getelementptr inbounds i8, ptr %c, i64 88
   %37 = load i32, ptr %argc81, align 8
   %cmp82 = icmp sgt i32 %37, 1
   br i1 %cmp82, label %if.then84, label %if.else93
@@ -1838,7 +1833,7 @@ if.else93:                                        ; preds = %land.lhs.true80, %i
   br i1 %tobool98.not, label %land.lhs.true99, label %if.else104
 
 land.lhs.true99:                                  ; preds = %if.else93
-  %argc100 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc100 = getelementptr inbounds i8, ptr %c, i64 88
   %40 = load i32, ptr %argc100, align 8
   %cmp101 = icmp eq i32 %40, 2
   br i1 %cmp101, label %if.then103, label %if.else104
@@ -1854,9 +1849,9 @@ if.else104:                                       ; preds = %land.lhs.true99, %i
 
 nodataerr:                                        ; preds = %if.then16
   %41 = load ptr, ptr %argv, align 8
-  %arrayidx113 = getelementptr inbounds ptr, ptr %41, i64 2
+  %arrayidx113 = getelementptr inbounds i8, ptr %41, i64 16
   %42 = load ptr, ptr %arrayidx113, align 8
-  %ptr114 = getelementptr inbounds %struct.redisObject, ptr %42, i64 0, i32 2
+  %ptr114 = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load ptr, ptr %ptr114, align 8
   tail call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.73, ptr noundef %43) #14
   br label %return
@@ -1893,7 +1888,7 @@ if.end:                                           ; preds = %entry
   %1 = insertelement <2 x i64> <i64 1, i64 poison>, i64 %duration, i64 1
   %2 = add <2 x i64> %0, %1
   store <2 x i64> %2, ptr %arrayidx, align 8
-  %max = getelementptr inbounds %struct.redisServer, ptr @server, i64 0, i32 155, i64 %idxprom, i32 2
+  %max = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load i64, ptr %max, align 8
   %cmp1 = icmp ult i64 %3, %duration
   br i1 %cmp1, label %if.then2, label %if.end4

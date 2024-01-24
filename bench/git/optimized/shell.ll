@@ -57,14 +57,14 @@ entry:
   ]
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str) #12
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.then12
 
 if.then:                                          ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 -8
   br label %if.end15
 
 if.then2:                                         ; preds = %entry
@@ -84,7 +84,7 @@ if.end:                                           ; preds = %if.then2
   unreachable
 
 lor.lhs.false:                                    ; preds = %entry
-  %arrayidx9 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx9, align 8
   %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.4) #12
   %tobool11.not = icmp eq i32 %call10, 0
@@ -96,7 +96,7 @@ if.then12:                                        ; preds = %land.lhs.true, %ent
 
 if.end15:                                         ; preds = %lor.lhs.false, %if.then
   %argv.addr.0 = phi ptr [ %argv, %lor.lhs.false ], [ %incdec.ptr, %if.then ]
-  %arrayidx16 = getelementptr inbounds ptr, ptr %argv.addr.0, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %argv.addr.0, i64 16
   %2 = load ptr, ptr %arrayidx16, align 8
   %call17 = tail call ptr @xstrdup(ptr noundef %2) #13
   %call18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call17, ptr noundef nonnull dereferenceable(4) @.str.6, i64 noundef 3) #12
@@ -145,13 +145,13 @@ sw.bb41:                                          ; preds = %if.end37
 
 sw.epilog:                                        ; preds = %if.end37, %sw.bb41
   %arg.0 = phi ptr [ %add.ptr42, %sw.bb41 ], [ null, %if.end37 ]
-  %exec = getelementptr inbounds %struct.commands, ptr %cmd.032, i64 0, i32 1
+  %exec = getelementptr inbounds i8, ptr %cmd.032, i64 8
   %8 = load ptr, ptr %exec, align 8
   %call44 = tail call i32 %8(ptr noundef nonnull %6, ptr noundef %arg.0) #13
   ret i32 %call44
 
 for.inc:                                          ; preds = %if.end37, %for.body
-  %incdec.ptr45 = getelementptr inbounds %struct.commands, ptr %cmd.032, i64 1
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %cmd.032, i64 16
   %9 = load ptr, ptr %incdec.ptr45, align 8
   %tobool28.not = icmp eq ptr %9, null
   br i1 %tobool28.not, label %for.end, label %for.body, !llvm.loop !5
@@ -260,11 +260,11 @@ if.end:                                           ; preds = %if.then
   unreachable
 
 if.end6:                                          ; preds = %entry
-  %silent_exec_failure = getelementptr inbounds %struct.child_process, ptr %help_cmd, i64 0, i32 11
+  %silent_exec_failure = getelementptr inbounds i8, ptr %help_cmd, i64 104
   store i16 16, ptr %silent_exec_failure, align 8
   %call8 = call ptr @strvec_push(ptr noundef nonnull %help_cmd, ptr noundef nonnull @.str.13) #13
   %call9 = call i32 @run_command(ptr noundef nonnull %help_cmd) #13
-  %silent_exec_failure68 = getelementptr inbounds %struct.child_process, ptr %cmd, i64 0, i32 11
+  %silent_exec_failure68 = getelementptr inbounds i8, ptr %cmd, i64 104
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end6
@@ -524,9 +524,9 @@ if.then5:                                         ; preds = %skip_prefix.exit
 
 if.end6:                                          ; preds = %skip_prefix.exit
   store ptr %me.addr.0, ptr %my_argv, align 16
-  %arrayidx7 = getelementptr inbounds [4 x ptr], ptr %my_argv, i64 0, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %my_argv, i64 8
   store ptr %call, ptr %arrayidx7, align 8
-  %arrayidx8 = getelementptr inbounds [4 x ptr], ptr %my_argv, i64 0, i64 2
+  %arrayidx8 = getelementptr inbounds i8, ptr %my_argv, i64 16
   store ptr null, ptr %arrayidx8, align 16
   %call9 = call i32 @execv_git_cmd(ptr noundef nonnull %my_argv) #13
   ret i32 %call9

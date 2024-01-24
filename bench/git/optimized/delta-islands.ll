@@ -6,31 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.kh_oid_map = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.island_bitmap = type { i32, [0 x i32] }
 %struct.tree_desc = type { ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
-%struct.packing_data = type { ptr, ptr, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, %union.pthread_mutex_t, ptr, i32, i32, i64, i64, ptr, ptr, ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
 %struct.object_entry = type { %struct.pack_idx_entry, ptr, i64, i32, i32, i32, i32, i32, [3 x i8], i8, i56 }
 %struct.pack_idx_entry = type { %struct.object_id, i32, i64 }
 %struct.tree_islands_todo = type { ptr, i32 }
-%struct.tree = type { %struct.object, ptr, i64 }
-%struct.object = type { i32, %struct.object_id }
 %struct.island_load_data = type { ptr, ptr, i64, i64 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
-%struct.kh_str = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.remote_island = type { i64, %struct.oid_array }
-%struct.oid_array = type { ptr, i64, i64, i32 }
-%struct.tag = type { %struct.object, ptr, ptr, i64 }
 %struct.regmatch_t = type { i32, i32 }
-%struct.commit = type { %struct.object, i64, ptr, ptr, i32 }
-%struct.commit_list = type { ptr, ptr }
 
 @island_marks = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [25 x i8] c"Propagating island marks\00", align 1
@@ -77,12 +60,12 @@ if.then.i:                                        ; preds = %if.end
   %sub.i = add i32 %1, -1
   %key.val.i = load i32, ptr %byval-temp4, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %0, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %3, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i
@@ -175,12 +158,12 @@ if.then.i8:                                       ; preds = %kh_get_oid_map.exit
   %sub.i9 = add i32 %1, -1
   %key.val.i10 = load i32, ptr %byval-temp35, align 8
   %and.i11 = and i32 %key.val.i10, %sub.i9
-  %flags.i12 = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i12 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %flags.i12, align 8
-  %keys.i13 = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
-  %algo.i.i.i14 = getelementptr inbounds %struct.object_id, ptr %byval-temp.i6, i64 0, i32 1
+  %keys.i13 = getelementptr inbounds i8, ptr %0, i64 24
+  %algo.i.i.i14 = getelementptr inbounds i8, ptr %byval-temp.i6, i64 32
   %12 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i15 = getelementptr inbounds %struct.repository, ptr %12, i64 0, i32 15
+  %hash_algo.i.i.i15 = getelementptr inbounds i8, ptr %12, i64 256
   br label %while.cond.i16
 
 while.cond.i16:                                   ; preds = %while.body.i34, %if.then.i8
@@ -263,7 +246,7 @@ kh_get_oid_map.exit58:                            ; preds = %while.cond.i16, %oi
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %kh_get_oid_map.exit58
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load ptr, ptr %vals, align 8
   %idxprom = zext i32 %retval.0.i to i64
   %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %idxprom
@@ -275,11 +258,13 @@ if.end8:                                          ; preds = %kh_get_oid_map.exit
   br i1 %cmp.i59, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end8
+  %bits.i = getelementptr inbounds i8, ptr %21, i64 4
   %23 = load i32, ptr @island_bitmap_size, align 4
   %cmp18.not.i = icmp eq i32 %23, 0
-  br i1 %cmp18.not.i, label %return, label %for.body.preheader.i
+  br i1 %cmp18.not.i, label %return, label %for.body.lr.ph.i
 
-for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+  %bits2.i = getelementptr inbounds i8, ptr %22, i64 4
   %wide.trip.count.i = zext i32 %23 to i64
   br label %for.body.i
 
@@ -288,11 +273,11 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !7
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i60 = getelementptr inbounds %struct.island_bitmap, ptr %21, i64 0, i32 1, i64 %indvars.iv.i
+for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
+  %arrayidx.i60 = getelementptr inbounds [0 x i32], ptr %bits.i, i64 0, i64 %indvars.iv.i
   %24 = load i32, ptr %arrayidx.i60, align 4
-  %arrayidx4.i = getelementptr inbounds %struct.island_bitmap, ptr %22, i64 0, i32 1, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds [0 x i32], ptr %bits2.i, i64 0, i64 %indvars.iv.i
   %25 = load i32, ptr %arrayidx4.i, align 4
   %and.i61 = and i32 %25, %24
   %cmp8.not.i = icmp eq i32 %and.i61, %24
@@ -329,12 +314,12 @@ if.then.i:                                        ; preds = %if.end
   %sub.i = add i32 %1, -1
   %key.val.i = load i32, ptr %byval-temp9, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %0, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %3, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i
@@ -421,7 +406,7 @@ kh_get_oid_map.exit:                              ; preds = %if.end, %while.end.
   br i1 %cmp, label %if.end2.thread, label %if.end2
 
 if.end2.thread:                                   ; preds = %kh_get_oid_map.exit
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %vals, align 8
   %idxprom = zext i32 %retval.0.i to i64
   %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
@@ -438,16 +423,16 @@ if.end2:                                          ; preds = %kh_get_oid_map.exit
   br i1 %tobool.not.i, label %kh_get_oid_map.exit63, label %if.then.i13
 
 if.then.i13:                                      ; preds = %if.end2.thread, %if.end2
-  %a_bitmap.087 = phi ptr [ %12, %if.end2.thread ], [ null, %if.end2 ]
+  %a_bitmap.089 = phi ptr [ %12, %if.end2.thread ], [ null, %if.end2 ]
   %sub.i14 = add i32 %1, -1
   %key.val.i15 = load i32, ptr %byval-temp310, align 8
   %and.i16 = and i32 %key.val.i15, %sub.i14
-  %flags.i17 = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i17 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %flags.i17, align 8
-  %keys.i18 = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
-  %algo.i.i.i19 = getelementptr inbounds %struct.object_id, ptr %byval-temp.i11, i64 0, i32 1
+  %keys.i18 = getelementptr inbounds i8, ptr %0, i64 24
+  %algo.i.i.i19 = getelementptr inbounds i8, ptr %byval-temp.i11, i64 32
   %14 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i20 = getelementptr inbounds %struct.repository, ptr %14, i64 0, i32 15
+  %hash_algo.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 256
   br label %while.cond.i21
 
 while.cond.i21:                                   ; preds = %while.body.i39, %if.then.i13
@@ -527,7 +512,7 @@ while.end.i32:                                    ; preds = %oideq_by_value.exit
   br label %kh_get_oid_map.exit63
 
 kh_get_oid_map.exit63:                            ; preds = %if.end2, %while.end.i32
-  %a_bitmap.088 = phi ptr [ null, %if.end2 ], [ %a_bitmap.087, %while.end.i32 ]
+  %a_bitmap.090 = phi ptr [ null, %if.end2 ], [ %a_bitmap.089, %while.end.i32 ]
   %retval.0.i35 = phi i32 [ 0, %if.end2 ], [ %spec.select.i34, %while.end.i32 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp310)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp.i11)
@@ -535,7 +520,7 @@ kh_get_oid_map.exit63:                            ; preds = %if.end2, %while.end
   br i1 %cmp6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %kh_get_oid_map.exit63
-  %vals8 = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals8 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %vals8, align 8
   %idxprom9 = zext i32 %retval.0.i35 to i64
   %arrayidx10 = getelementptr inbounds ptr, ptr %22, i64 %idxprom9
@@ -543,9 +528,9 @@ if.then7:                                         ; preds = %kh_get_oid_map.exit
   br label %if.end11
 
 if.end11:                                         ; preds = %kh_get_oid_map.exit63.thread, %if.then7, %kh_get_oid_map.exit63
-  %a_bitmap.08893 = phi ptr [ %a_bitmap.088, %if.then7 ], [ %a_bitmap.088, %kh_get_oid_map.exit63 ], [ %a_bitmap.087, %kh_get_oid_map.exit63.thread ]
+  %a_bitmap.09095 = phi ptr [ %a_bitmap.090, %if.then7 ], [ %a_bitmap.090, %kh_get_oid_map.exit63 ], [ %a_bitmap.089, %kh_get_oid_map.exit63.thread ]
   %b_bitmap.0 = phi ptr [ %23, %if.then7 ], [ null, %kh_get_oid_map.exit63 ], [ null, %kh_get_oid_map.exit63.thread ]
-  %tobool12.not = icmp eq ptr %a_bitmap.08893, null
+  %tobool12.not = icmp eq ptr %a_bitmap.09095, null
   br i1 %tobool12.not, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
@@ -553,15 +538,17 @@ if.then13:                                        ; preds = %if.end11
   br i1 %tobool14.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then13
-  %cmp.i64 = icmp eq ptr %a_bitmap.08893, %b_bitmap.0
+  %cmp.i64 = icmp eq ptr %a_bitmap.09095, %b_bitmap.0
   br i1 %cmp.i64, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false
+  %bits.i = getelementptr inbounds i8, ptr %a_bitmap.09095, i64 4
   %24 = load i32, ptr @island_bitmap_size, align 4
   %cmp18.not.i = icmp eq i32 %24, 0
-  br i1 %cmp18.not.i, label %return, label %for.body.preheader.i
+  br i1 %cmp18.not.i, label %return, label %for.body.lr.ph.i
 
-for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
+  %bits2.i = getelementptr inbounds i8, ptr %b_bitmap.0, i64 4
   %wide.trip.count.i = zext i32 %24 to i64
   br label %for.body.i
 
@@ -570,11 +557,11 @@ for.cond.i:                                       ; preds = %for.body.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %lor.lhs.false23, label %for.body.i, !llvm.loop !7
 
-for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i65 = getelementptr inbounds %struct.island_bitmap, ptr %a_bitmap.08893, i64 0, i32 1, i64 %indvars.iv.i
+for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
+  %arrayidx.i65 = getelementptr inbounds [0 x i32], ptr %bits.i, i64 0, i64 %indvars.iv.i
   %25 = load i32, ptr %arrayidx.i65, align 4
-  %arrayidx4.i = getelementptr inbounds %struct.island_bitmap, ptr %b_bitmap.0, i64 0, i32 1, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds [0 x i32], ptr %bits2.i, i64 0, i64 %indvars.iv.i
   %26 = load i32, ptr %arrayidx4.i, align 4
   %and.i66 = and i32 %26, %25
   %cmp8.not.i = icmp eq i32 %and.i66, %25
@@ -590,30 +577,32 @@ lor.lhs.false23:                                  ; preds = %for.cond.i
 
 for.cond.preheader.i69:                           ; preds = %lor.lhs.false23
   %.pr = load i32, ptr @island_bitmap_size, align 4
-  %cmp18.not.i70 = icmp eq i32 %.pr, 0
-  br i1 %cmp18.not.i70, label %return, label %for.body.preheader.i71
+  %bits.i70 = getelementptr inbounds i8, ptr %b_bitmap.0, i64 4
+  %cmp18.not.i71 = icmp eq i32 %.pr, 0
+  br i1 %cmp18.not.i71, label %return, label %for.body.lr.ph.i72
 
-for.body.preheader.i71:                           ; preds = %for.cond.preheader.i69
-  %wide.trip.count.i72 = zext i32 %.pr to i64
-  br label %for.body.i73
+for.body.lr.ph.i72:                               ; preds = %for.cond.preheader.i69
+  %bits2.i73 = getelementptr inbounds i8, ptr %a_bitmap.09095, i64 4
+  %wide.trip.count.i74 = zext i32 %.pr to i64
+  br label %for.body.i75
 
-for.cond.i80:                                     ; preds = %for.body.i73
-  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i74, 1
-  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i72
-  br i1 %exitcond.not.i82, label %return, label %for.body.i73, !llvm.loop !7
+for.cond.i82:                                     ; preds = %for.body.i75
+  %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i76, 1
+  %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, %wide.trip.count.i74
+  br i1 %exitcond.not.i84, label %return, label %for.body.i75, !llvm.loop !7
 
-for.body.i73:                                     ; preds = %for.cond.i80, %for.body.preheader.i71
-  %indvars.iv.i74 = phi i64 [ 0, %for.body.preheader.i71 ], [ %indvars.iv.next.i81, %for.cond.i80 ]
-  %arrayidx.i75 = getelementptr inbounds %struct.island_bitmap, ptr %b_bitmap.0, i64 0, i32 1, i64 %indvars.iv.i74
-  %27 = load i32, ptr %arrayidx.i75, align 4
-  %arrayidx4.i76 = getelementptr inbounds %struct.island_bitmap, ptr %a_bitmap.08893, i64 0, i32 1, i64 %indvars.iv.i74
-  %28 = load i32, ptr %arrayidx4.i76, align 4
-  %and.i77 = and i32 %28, %27
-  %cmp8.not.i78 = icmp eq i32 %and.i77, %27
-  br i1 %cmp8.not.i78, label %for.cond.i80, label %return
+for.body.i75:                                     ; preds = %for.cond.i82, %for.body.lr.ph.i72
+  %indvars.iv.i76 = phi i64 [ 0, %for.body.lr.ph.i72 ], [ %indvars.iv.next.i83, %for.cond.i82 ]
+  %arrayidx.i77 = getelementptr inbounds [0 x i32], ptr %bits.i70, i64 0, i64 %indvars.iv.i76
+  %27 = load i32, ptr %arrayidx.i77, align 4
+  %arrayidx4.i78 = getelementptr inbounds [0 x i32], ptr %bits2.i73, i64 0, i64 %indvars.iv.i76
+  %28 = load i32, ptr %arrayidx4.i78, align 4
+  %and.i79 = and i32 %28, %27
+  %cmp8.not.i80 = icmp eq i32 %and.i79, %27
+  br i1 %cmp8.not.i80, label %for.cond.i82, label %return
 
-return:                                           ; preds = %for.body.i, %for.cond.i80, %for.body.i73, %for.cond.preheader.i, %lor.lhs.false, %if.end19, %for.cond.preheader.i69, %lor.lhs.false23, %if.then13, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then13 ], [ 0, %lor.lhs.false23 ], [ 0, %for.cond.preheader.i69 ], [ %spec.select, %if.end19 ], [ 0, %lor.lhs.false ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i80 ], [ 1, %for.body.i73 ], [ -1, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.cond.i82, %for.body.i75, %for.cond.preheader.i, %lor.lhs.false, %if.end19, %for.cond.preheader.i69, %lor.lhs.false23, %if.then13, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.then13 ], [ 0, %lor.lhs.false23 ], [ 0, %for.cond.preheader.i69 ], [ %spec.select, %if.end19 ], [ 0, %lor.lhs.false ], [ 0, %for.cond.preheader.i ], [ 0, %for.cond.i82 ], [ 1, %for.body.i75 ], [ -1, %for.body.i ]
   ret i32 %retval.0
 }
 
@@ -633,7 +622,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %nr_objects = getelementptr inbounds %struct.packing_data, ptr %to_pack, i64 0, i32 2
+  %nr_objects = getelementptr inbounds i8, ptr %to_pack, i64 16
   %2 = load i32, ptr %nr_objects, align 8
   %conv = zext i32 %2 to i64
   %mul.i = shl nuw nsw i64 %conv, 4
@@ -643,8 +632,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp62.not, label %sane_qsort.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %objects = getelementptr inbounds %struct.packing_data, ptr %to_pack, i64 0, i32 1
-  %tree_depth.i = getelementptr inbounds %struct.packing_data, ptr %to_pack, i64 0, i32 16
+  %objects = getelementptr inbounds i8, ptr %to_pack, i64 8
+  %tree_depth.i = getelementptr inbounds i8, ptr %to_pack, i64 144
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -674,7 +663,7 @@ if.end.i:                                         ; preds = %if.then7
 
 oe_tree_depth.exit:                               ; preds = %if.then7, %if.end.i
   %retval.0.i = phi i32 [ %9, %if.end.i ], [ 0, %if.then7 ]
-  %depth = getelementptr inbounds %struct.tree_islands_todo, ptr %call1, i64 %idxprom11, i32 1
+  %depth = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   store i32 %retval.0.i, ptr %depth, align 8
   %inc = add nsw i32 %nr.064, 1
   %.pre = load i32, ptr %nr_objects, align 8
@@ -724,8 +713,8 @@ if.end28:                                         ; preds = %_.exit, %sane_qsort
   br i1 %cmp3067, label %for.body32.lr.ph, label %for.end71
 
 for.body32.lr.ph:                                 ; preds = %if.end28
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
-  %mode = getelementptr inbounds %struct.name_entry, ptr %entry36, i64 0, i32 3
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
+  %mode = getelementptr inbounds i8, ptr %entry36, i64 52
   %wide.trip.count = zext nneg i32 %nr.0.lcssa84 to i64
   %.pre80 = load ptr, ptr @island_marks, align 8
   br label %for.body32
@@ -746,11 +735,11 @@ if.then.i38:                                      ; preds = %for.body32
   %sub.i = add i32 %16, -1
   %key.val.i = load i32, ptr %0, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_map, ptr %14, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_map, ptr %14, i64 0, i32 5
+  %keys.i = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %18, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %18, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i38
@@ -837,7 +826,7 @@ kh_get_oid_map.exit:                              ; preds = %for.body32, %while.
   br i1 %cmp38.not, label %if.end41, label %for.inc69
 
 if.end41:                                         ; preds = %kh_get_oid_map.exit
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %14, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %14, i64 32
   %26 = load ptr, ptr %vals, align 8
   %idxprom42 = zext i32 %retval.0.i40 to i64
   %arrayidx43 = getelementptr inbounds ptr, ptr %26, i64 %idxprom42
@@ -858,16 +847,20 @@ if.then51:                                        ; preds = %lor.lhs.false, %if.
   unreachable
 
 if.end56:                                         ; preds = %lor.lhs.false
-  %buffer = getelementptr inbounds %struct.tree, ptr %call46, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %call46, i64 40
   %28 = load ptr, ptr %buffer, align 8
-  %size = getelementptr inbounds %struct.tree, ptr %call46, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %call46, i64 48
   %29 = load i64, ptr %size, align 8
   call void @init_tree_desc(ptr noundef nonnull %desc, ptr noundef %28, i64 noundef %29) #16
   %call5765 = call i32 @tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %entry36) #16
   %tobool58.not66 = icmp eq i32 %call5765, 0
-  br i1 %tobool58.not66, label %while.end, label %while.body
+  br i1 %tobool58.not66, label %while.end, label %while.body.lr.ph
 
-while.body:                                       ; preds = %if.end56, %while.cond.backedge
+while.body.lr.ph:                                 ; preds = %if.end56
+  %bits.i.i = getelementptr inbounds i8, ptr %27, i64 4
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %30 = load i32, ptr %mode, align 4
   %and = and i32 %30, 61440
   %cmp59 = icmp eq i32 %and, 57344
@@ -882,7 +875,7 @@ if.end67:                                         ; preds = %if.end62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hash_ret.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i43)
   %31 = load ptr, ptr @island_marks, align 8
-  %oid.i = getelementptr inbounds %struct.object, ptr %call64, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %call64, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i43, ptr noundef nonnull align 4 dereferenceable(36) %oid.i, i64 36, i1 false)
   %call.i44 = call fastcc i32 @kh_put_oid_map(ptr noundef %31, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i43, ptr noundef nonnull %hash_ret.i)
   %32 = load i32, ptr %hash_ret.i, align 4
@@ -894,7 +887,7 @@ if.then.i46:                                      ; preds = %if.end67
   %inc.i47 = add i32 %33, 1
   store i32 %inc.i47, ptr %27, align 4
   %34 = load ptr, ptr @island_marks, align 8
-  %vals.i = getelementptr inbounds %struct.kh_oid_map, ptr %34, i64 0, i32 6
+  %vals.i = getelementptr inbounds i8, ptr %34, i64 32
   %35 = load ptr, ptr %vals.i, align 8
   %idxprom.i48 = zext i32 %call.i44 to i64
   %arrayidx.i49 = getelementptr inbounds ptr, ptr %35, i64 %idxprom.i48
@@ -903,7 +896,7 @@ if.then.i46:                                      ; preds = %if.end67
 
 if.end.i50:                                       ; preds = %if.end67
   %36 = load ptr, ptr @island_marks, align 8
-  %vals1.i = getelementptr inbounds %struct.kh_oid_map, ptr %36, i64 0, i32 6
+  %vals1.i = getelementptr inbounds i8, ptr %36, i64 32
   %37 = load ptr, ptr %vals1.i, align 8
   %idxprom2.i = zext i32 %call.i44 to i64
   %arrayidx3.i = getelementptr inbounds ptr, ptr %37, i64 %idxprom2.i
@@ -923,7 +916,7 @@ island_bitmap_new.exit.i:                         ; preds = %if.end.i50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i.i, ptr noundef nonnull align 4 dereferenceable(1) %38, i64 %add.i.i, i1 false)
   store i32 1, ptr %call.i.i, align 4
   %41 = load ptr, ptr @island_marks, align 8
-  %vals8.i = getelementptr inbounds %struct.kh_oid_map, ptr %41, i64 0, i32 6
+  %vals8.i = getelementptr inbounds i8, ptr %41, i64 32
   %42 = load ptr, ptr %vals8.i, align 8
   %arrayidx10.i = getelementptr inbounds ptr, ptr %42, i64 %idxprom2.i
   store ptr %call.i.i, ptr %arrayidx10.i, align 8
@@ -933,17 +926,18 @@ if.end11.i:                                       ; preds = %island_bitmap_new.e
   %b.0.i = phi ptr [ %call.i.i, %island_bitmap_new.exit.i ], [ %38, %if.end.i50 ]
   %43 = load i32, ptr @island_bitmap_size, align 4
   %cmp4.not.i.i = icmp eq i32 %43, 0
-  br i1 %cmp4.not.i.i, label %set_island_marks.exit, label %for.body.preheader.i.i
+  br i1 %cmp4.not.i.i, label %set_island_marks.exit, label %for.body.lr.ph.i.i
 
-for.body.preheader.i.i:                           ; preds = %if.end11.i
+for.body.lr.ph.i.i:                               ; preds = %if.end11.i
+  %bits1.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 4
   %wide.trip.count.i.i = zext i32 %43 to i64
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.island_bitmap, ptr %27, i64 0, i32 1, i64 %indvars.iv.i.i
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [0 x i32], ptr %bits.i.i, i64 0, i64 %indvars.iv.i.i
   %44 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx3.i.i = getelementptr inbounds %struct.island_bitmap, ptr %b.0.i, i64 0, i32 1, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds [0 x i32], ptr %bits1.i.i, i64 0, i64 %indvars.iv.i.i
   %45 = load i32, ptr %arrayidx3.i.i, align 4
   %or.i.i = or i32 %45, %44
   store i32 %or.i.i, ptr %arrayidx3.i.i, align 4
@@ -998,9 +992,9 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @tree_depth_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
-  %depth = getelementptr inbounds %struct.tree_islands_todo, ptr %a, i64 0, i32 1
+  %depth = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %depth, align 8
-  %depth1 = getelementptr inbounds %struct.tree_islands_todo, ptr %b, i64 0, i32 1
+  %depth1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %depth1, align 8
   %sub = sub i32 %0, %1
   ret i32 %sub
@@ -1064,13 +1058,13 @@ entry:
   %call.i1 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
   store ptr %call.i1, ptr %ild, align 8
   %call2 = call i32 @for_each_ref(ptr noundef nonnull @find_island_for_ref, ptr noundef nonnull %ild) #16
-  %nr.i = getelementptr inbounds %struct.island_load_data, ptr %ild, i64 0, i32 2
+  %nr.i = getelementptr inbounds i8, ptr %ild, i64 16
   %0 = load i64, ptr %nr.i, align 8
   %cmp5.not.i = icmp eq i64 %0, 0
   br i1 %cmp5.not.i, label %free_config_regexes.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %rx.i = getelementptr inbounds %struct.island_load_data, ptr %ild, i64 0, i32 1
+  %rx.i = getelementptr inbounds i8, ptr %ild, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -1084,11 +1078,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %free_config_regexes.exit, !llvm.loop !12
 
 free_config_regexes.exit:                         ; preds = %for.body.i, %entry
-  %rx1.i = getelementptr inbounds %struct.island_load_data, ptr %ild, i64 0, i32 1
+  %rx1.i = getelementptr inbounds i8, ptr %ild, i64 8
   %3 = load ptr, ptr %rx1.i, align 8
   call void @free(ptr noundef %3) #16
   %4 = load ptr, ptr %ild, align 8
-  %size.i = getelementptr inbounds %struct.kh_str, ptr %4, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %size.i, align 4
   %conv.i = zext i32 %5 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i, 3
@@ -1098,8 +1092,8 @@ free_config_regexes.exit:                         ; preds = %for.body.i, %entry
   br i1 %cmp.not51.i, label %for.cond10.preheader.i, label %for.body.lr.ph.i2
 
 for.body.lr.ph.i2:                                ; preds = %free_config_regexes.exit
-  %flags.i = getelementptr inbounds %struct.kh_str, ptr %4, i64 0, i32 4
-  %vals.i = getelementptr inbounds %struct.kh_str, ptr %4, i64 0, i32 6
+  %flags.i = getelementptr inbounds i8, ptr %4, i64 16
+  %vals.i = getelementptr inbounds i8, ptr %4, i64 32
   br label %for.body.i3
 
 for.cond10.preheader.i:                           ; preds = %for.inc.i, %free_config_regexes.exit
@@ -1230,9 +1224,9 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i.i, %f
 __ac_X31_hash_string.exit.i.i.i:                  ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i, %if.then.i.i.i
   %h.1.i.i.i.i = phi i32 [ 0, %if.then.i.i.i ], [ %conv.i.i.i.i, %if.then.i.i.i.i ], [ %add.i.i.i.i, %for.body.i.i.i.i ]
   %and.i.i.i = and i32 %h.1.i.i.i.i, %sub.i.i.i
-  %flags.i.i.i = getelementptr inbounds %struct.kh_str, ptr %4, i64 0, i32 4
+  %flags.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %29 = load ptr, ptr %flags.i.i.i, align 8
-  %keys.i.i.i = getelementptr inbounds %struct.kh_str, ptr %4, i64 0, i32 5
+  %keys.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %__ac_X31_hash_string.exit.i.i.i
@@ -1283,7 +1277,7 @@ kh_get_str.exit.i.i:                              ; preds = %while.end.i.i.i, %i
   br i1 %cmp.i.i, label %if.then1.i.i, label %get_core_island.exit.i
 
 if.then1.i.i:                                     ; preds = %kh_get_str.exit.i.i
-  %vals.i.i = getelementptr inbounds %struct.kh_str, ptr %4, i64 0, i32 6
+  %vals.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %35 = load ptr, ptr %vals.i.i, align 8
   %idxprom.i.i = zext i32 %retval.0.i.i.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %35, i64 %idxprom.i.i
@@ -1314,20 +1308,20 @@ land.rhs.i:                                       ; preds = %for.body48.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %for.body48.i
   %40 = phi i1 [ false, %for.body48.i ], [ %cmp56.i, %land.rhs.i ]
-  %nr.i.i = getelementptr inbounds %struct.remote_island, ptr %37, i64 0, i32 1, i32 1
+  %nr.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %41 = load i64, ptr %nr.i.i, align 8
-  %cmp45.not.i.i = icmp eq i64 %41, 0
-  br i1 %cmp45.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
+  %cmp46.not.i.i = icmp eq i64 %41, 0
+  br i1 %cmp46.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %land.end.i
-  %oids.i.i = getelementptr inbounds %struct.remote_island, ptr %37, i64 0, i32 1
+  %oids.i.i = getelementptr inbounds i8, ptr %37, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %conv47.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.inc.i.i ]
-  %i.046.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
+  %conv48.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %conv.i.i, %for.inc.i.i ]
+  %i.047.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.inc.i.i ]
   %42 = load ptr, ptr %oids.i.i, align 8
-  %arrayidx.i38.i = getelementptr inbounds %struct.object_id, ptr %42, i64 %conv47.i.i
+  %arrayidx.i38.i = getelementptr inbounds %struct.object_id, ptr %42, i64 %conv48.i.i
   %call.i.i = call ptr @parse_object(ptr noundef %r, ptr noundef %arrayidx.i38.i) #16
   %tobool.not.i39.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i39.i, label %for.inc.i.i, label %if.end.i.i
@@ -1336,7 +1330,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hash_ret.i.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i.i.i)
   %43 = load ptr, ptr @island_marks, align 8
-  %oid.i.i.i = getelementptr inbounds %struct.object, ptr %call.i.i, i64 0, i32 1
+  %oid.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i.i.i, ptr noundef nonnull align 4 dereferenceable(36) %oid.i.i.i, i64 36, i1 false)
   %call.i.i.i = call fastcc i32 @kh_put_oid_map(ptr noundef %43, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i.i.i, ptr noundef nonnull %hash_ret.i.i.i)
   %44 = load i32, ptr %hash_ret.i.i.i, align 4
@@ -1356,7 +1350,7 @@ if.then.i.i41.i:                                  ; preds = %if.end.i.i
   %call.i.i.i.i = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i.i.i42.i) #16
   store i32 1, ptr %call.i.i.i.i, align 4
   %46 = load ptr, ptr @island_marks, align 8
-  %vals.i.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %46, i64 0, i32 6
+  %vals.i.i.i = getelementptr inbounds i8, ptr %46, i64 32
   %47 = load ptr, ptr %vals.i.i.i, align 8
   %idxprom.i.i43.i = zext i32 %call.i.i.i to i64
   %arrayidx.i.i44.i = getelementptr inbounds ptr, ptr %47, i64 %idxprom.i.i43.i
@@ -1366,7 +1360,7 @@ if.then.i.i41.i:                                  ; preds = %if.end.i.i
 create_or_get_island_marks.exit.i.i:              ; preds = %if.then.i.i41.i, %entry.if.end_crit_edge.i.i.i
   %idxprom3.pre-phi.i.i.i = phi i64 [ %.pre2.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %idxprom.i.i43.i, %if.then.i.i41.i ]
   %48 = phi ptr [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %46, %if.then.i.i41.i ]
-  %vals2.i.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %48, i64 0, i32 6
+  %vals2.i.i.i = getelementptr inbounds i8, ptr %48, i64 32
   %49 = load ptr, ptr %vals2.i.i.i, align 8
   %arrayidx4.i.i.i = getelementptr inbounds ptr, ptr %49, i64 %idxprom3.pre-phi.i.i.i
   %50 = load ptr, ptr %arrayidx4.i.i.i, align 8
@@ -1375,9 +1369,10 @@ create_or_get_island_marks.exit.i.i:              ; preds = %if.then.i.i41.i, %e
   %51 = load i32, ptr @island_counter, align 4
   %rem.i.i.i = and i32 %51, 31
   %shl.i.i45.i = shl nuw i32 1, %rem.i.i.i
+  %bits.i.i.i = getelementptr inbounds i8, ptr %50, i64 4
   %div2.i.i.i = lshr i32 %51, 5
   %idxprom.i16.i.i = zext nneg i32 %div2.i.i.i to i64
-  %arrayidx.i17.i.i = getelementptr inbounds %struct.island_bitmap, ptr %50, i64 0, i32 1, i64 %idxprom.i16.i.i
+  %arrayidx.i17.i.i = getelementptr inbounds [0 x i32], ptr %bits.i.i.i, i64 0, i64 %idxprom.i16.i.i
   %52 = load i32, ptr %arrayidx.i17.i.i, align 4
   %or.i.i.i = or i32 %shl.i.i45.i, %52
   store i32 %or.i.i.i, ptr %arrayidx.i17.i.i, align 4
@@ -1399,14 +1394,14 @@ if.end12.i.i:                                     ; preds = %if.then7.i.i, %crea
   br i1 %cmp17.i61.i, label %while.body.i.i, label %for.inc.i.i
 
 while.body.i.i:                                   ; preds = %if.end12.i.i, %create_or_get_island_marks.exit37.i.i
-  %obj.044.i62.i = phi ptr [ %55, %create_or_get_island_marks.exit37.i.i ], [ %call.i.i, %if.end12.i.i ]
-  %tagged.i.i = getelementptr inbounds %struct.tag, ptr %obj.044.i62.i, i64 0, i32 1
+  %obj.045.i62.i = phi ptr [ %55, %create_or_get_island_marks.exit37.i.i ], [ %call.i.i, %if.end12.i.i ]
+  %tagged.i.i = getelementptr inbounds i8, ptr %obj.045.i62.i, i64 40
   %55 = load ptr, ptr %tagged.i.i, align 8
   %cond.i.i = icmp eq ptr %55, null
   br i1 %cond.i.i, label %for.inc.i.i, label %if.then20.i.i
 
 if.then20.i.i:                                    ; preds = %while.body.i.i
-  %oid21.i.i = getelementptr inbounds %struct.object, ptr %55, i64 0, i32 1
+  %oid21.i.i = getelementptr inbounds i8, ptr %55, i64 4
   %call22.i.i = call ptr @parse_object(ptr noundef %r, ptr noundef nonnull %oid21.i.i) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hash_ret.i18.i.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i19.i.i)
@@ -1430,7 +1425,7 @@ if.then.i23.i.i:                                  ; preds = %if.then20.i.i
   %call.i.i27.i.i = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i.i26.i.i) #16
   store i32 1, ptr %call.i.i27.i.i, align 4
   %59 = load ptr, ptr @island_marks, align 8
-  %vals.i28.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %59, i64 0, i32 6
+  %vals.i28.i.i = getelementptr inbounds i8, ptr %59, i64 32
   %60 = load ptr, ptr %vals.i28.i.i, align 8
   %idxprom.i29.i.i = zext i32 %call.i21.i.i to i64
   %arrayidx.i30.i.i = getelementptr inbounds ptr, ptr %60, i64 %idxprom.i29.i.i
@@ -1440,7 +1435,7 @@ if.then.i23.i.i:                                  ; preds = %if.then20.i.i
 create_or_get_island_marks.exit37.i.i:            ; preds = %if.then.i23.i.i, %entry.if.end_crit_edge.i34.i.i
   %idxprom3.pre-phi.i31.i.i = phi i64 [ %.pre2.i36.i.i, %entry.if.end_crit_edge.i34.i.i ], [ %idxprom.i29.i.i, %if.then.i23.i.i ]
   %61 = phi ptr [ %.pre.i35.i.i, %entry.if.end_crit_edge.i34.i.i ], [ %59, %if.then.i23.i.i ]
-  %vals2.i32.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %61, i64 0, i32 6
+  %vals2.i32.i.i = getelementptr inbounds i8, ptr %61, i64 32
   %62 = load ptr, ptr %vals2.i32.i.i, align 8
   %arrayidx4.i33.i.i = getelementptr inbounds ptr, ptr %62, i64 %idxprom3.pre-phi.i31.i.i
   %63 = load ptr, ptr %arrayidx4.i33.i.i, align 8
@@ -1449,19 +1444,20 @@ create_or_get_island_marks.exit37.i.i:            ; preds = %if.then.i23.i.i, %e
   %64 = load i32, ptr @island_counter, align 4
   %rem.i38.i.i = and i32 %64, 31
   %shl.i39.i.i = shl nuw i32 1, %rem.i38.i.i
-  %div2.i40.i.i = lshr i32 %64, 5
-  %idxprom.i41.i.i = zext nneg i32 %div2.i40.i.i to i64
-  %arrayidx.i42.i.i = getelementptr inbounds %struct.island_bitmap, ptr %63, i64 0, i32 1, i64 %idxprom.i41.i.i
-  %65 = load i32, ptr %arrayidx.i42.i.i, align 4
-  %or.i43.i.i = or i32 %shl.i39.i.i, %65
-  store i32 %or.i43.i.i, ptr %arrayidx.i42.i.i, align 4
+  %bits.i40.i.i = getelementptr inbounds i8, ptr %63, i64 4
+  %div2.i41.i.i = lshr i32 %64, 5
+  %idxprom.i42.i.i = zext nneg i32 %div2.i41.i.i to i64
+  %arrayidx.i43.i.i = getelementptr inbounds [0 x i32], ptr %bits.i40.i.i, i64 0, i64 %idxprom.i42.i.i
+  %65 = load i32, ptr %arrayidx.i43.i.i, align 4
+  %or.i44.i.i = or i32 %shl.i39.i.i, %65
+  store i32 %or.i44.i.i, ptr %arrayidx.i43.i.i, align 4
   %bf.load14.i.i = load i32, ptr %55, align 4
   %66 = and i32 %bf.load14.i.i, 14
   %cmp17.i.i = icmp eq i32 %66, 8
   br i1 %cmp17.i.i, label %while.body.i.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %create_or_get_island_marks.exit37.i.i, %while.body.i.i, %if.end12.i.i, %for.body.i.i
-  %inc.i.i = add i32 %i.046.i.i, 1
+  %inc.i.i = add i32 %i.047.i.i, 1
   %conv.i.i = zext i32 %inc.i.i to i64
   %67 = load i64, ptr %nr.i.i, align 8
   %cmp.i46.i = icmp ugt i64 %67, %conv.i.i
@@ -1490,9 +1486,9 @@ deduplicate_islands.exit:                         ; preds = %mark_remote_island_
   br i1 %cmp.not11.i, label %free_remote_islands.exit, label %for.body.lr.ph.i6
 
 for.body.lr.ph.i6:                                ; preds = %deduplicate_islands.exit
-  %flags.i7 = getelementptr inbounds %struct.kh_str, ptr %68, i64 0, i32 4
-  %keys.i = getelementptr inbounds %struct.kh_str, ptr %68, i64 0, i32 5
-  %vals.i8 = getelementptr inbounds %struct.kh_str, ptr %68, i64 0, i32 6
+  %flags.i7 = getelementptr inbounds i8, ptr %68, i64 16
+  %keys.i = getelementptr inbounds i8, ptr %68, i64 24
+  %vals.i8 = getelementptr inbounds i8, ptr %68, i64 32
   br label %for.body.i9
 
 for.body.i9:                                      ; preds = %for.inc.i16, %for.body.lr.ph.i6
@@ -1519,7 +1515,7 @@ if.end.i22:                                       ; preds = %for.body.i9
   %arrayidx6.i23 = getelementptr inbounds ptr, ptr %77, i64 %idxprom3.i
   %78 = load ptr, ptr %arrayidx6.i23, align 8
   call void @free(ptr noundef %76) #16
-  %oids.i = getelementptr inbounds %struct.remote_island, ptr %78, i64 0, i32 1
+  %oids.i = getelementptr inbounds i8, ptr %78, i64 8
   call void @oid_array_clear(ptr noundef nonnull %oids.i) #16
   call void @free(ptr noundef %78) #16
   %.pre.i24 = load i32, ptr %68, align 8
@@ -1532,13 +1528,13 @@ for.inc.i16:                                      ; preds = %if.end.i22, %for.bo
   br i1 %cmp.not.i18, label %free_remote_islands.exit, label %for.body.i9, !llvm.loop !20
 
 free_remote_islands.exit:                         ; preds = %for.inc.i16, %deduplicate_islands.exit
-  %flags.i.i.i19 = getelementptr inbounds %struct.kh_str, ptr %68, i64 0, i32 4
+  %flags.i.i.i19 = getelementptr inbounds i8, ptr %68, i64 16
   %80 = load ptr, ptr %flags.i.i.i19, align 8
   call void @free(ptr noundef %80) #16
-  %keys.i.i.i20 = getelementptr inbounds %struct.kh_str, ptr %68, i64 0, i32 5
+  %keys.i.i.i20 = getelementptr inbounds i8, ptr %68, i64 24
   %81 = load ptr, ptr %keys.i.i.i20, align 8
   call void @free(ptr noundef %81) #16
-  %vals.i.i.i21 = getelementptr inbounds %struct.kh_str, ptr %68, i64 0, i32 6
+  %vals.i.i.i21 = getelementptr inbounds i8, ptr %68, i64 32
   %82 = load ptr, ptr %vals.i.i.i21, align 8
   call void @free(ptr noundef %82) #16
   call void @free(ptr noundef nonnull %68) #16
@@ -1588,10 +1584,10 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 do.body:                                          ; preds = %if.then
-  %nr = getelementptr inbounds %struct.island_load_data, ptr %cb, i64 0, i32 2
+  %nr = getelementptr inbounds i8, ptr %cb, i64 16
   %0 = load i64, ptr %nr, align 8
   %add = add i64 %0, 1
-  %alloc = getelementptr inbounds %struct.island_load_data, ptr %cb, i64 0, i32 3
+  %alloc = getelementptr inbounds i8, ptr %cb, i64 24
   %1 = load i64, ptr %alloc, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then5, label %do.end
@@ -1610,7 +1606,7 @@ if.then.i:                                        ; preds = %if.then5
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then5
-  %rx = getelementptr inbounds %struct.island_load_data, ptr %cb, i64 0, i32 1
+  %rx = getelementptr inbounds i8, ptr %cb, i64 8
   %3 = load ptr, ptr %rx, align 8
   %mul.i = shl nuw i64 %add.div21, 6
   %call23 = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i) #16
@@ -1624,13 +1620,13 @@ do.end:                                           ; preds = %do.body, %st_mult.e
 
 strbuf_addch.exit:                                ; preds = %do.end
   call void @strbuf_grow(ptr noundef nonnull %re, i64 noundef 1) #16
-  %buf.i.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %re, i64 0, i32 2
+  %buf.i.phi.trans.insert = getelementptr inbounds i8, ptr %re, i64 16
   %.pre = load ptr, ptr %buf.i.phi.trans.insert, align 8
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %re, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %re, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %re, i64 0, i32 2
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %re, i64 0, i32 1
+  %buf.i = getelementptr inbounds i8, ptr %re, i64 16
+  %len.i = getelementptr inbounds i8, ptr %re, i64 8
   store i64 %.pre8.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %.pre, i64 %.pre.i
   store i8 94, ptr %arrayidx.i, align 1
@@ -1643,11 +1639,11 @@ strbuf_addch.exit:                                ; preds = %do.end
 if.end29:                                         ; preds = %strbuf_addch.exit, %do.end
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %v) #18
   call void @strbuf_add(ptr noundef nonnull %re, ptr noundef nonnull %v, i64 noundef %call.i) #16
-  %rx30 = getelementptr inbounds %struct.island_load_data, ptr %cb, i64 0, i32 1
+  %rx30 = getelementptr inbounds i8, ptr %cb, i64 8
   %7 = load ptr, ptr %rx30, align 8
   %8 = load i64, ptr %nr, align 8
   %arrayidx = getelementptr inbounds %struct.re_pattern_buffer, ptr %7, i64 %8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %re, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %re, i64 16
   %9 = load ptr, ptr %buf, align 8
   %call32 = call i32 @regcomp(ptr noundef %arrayidx, ptr noundef %9, i32 noundef 1) #16
   %tobool33.not = icmp eq i32 %call32, 0
@@ -1688,9 +1684,9 @@ entry:
   %matches = alloca [16 x %struct.regmatch_t], align 16
   %island_name = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %island_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.find_island_for_ref.island_name, i64 24, i1 false)
-  %nr = getelementptr inbounds %struct.island_load_data, ptr %cb, i64 0, i32 2
+  %nr = getelementptr inbounds i8, ptr %cb, i64 16
   %0 = load i64, ptr %nr, align 8
-  %rx = getelementptr inbounds %struct.island_load_data, ptr %cb, i64 0, i32 1
+  %rx = getelementptr inbounds i8, ptr %cb, i64 8
   %1 = and i64 %0, 4294967295
   br label %for.cond
 
@@ -1710,7 +1706,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool.not, label %if.end5, label %for.cond, !llvm.loop !21
 
 if.end5:                                          ; preds = %for.body
-  %arrayidx6 = getelementptr inbounds [16 x %struct.regmatch_t], ptr %matches, i64 0, i64 15
+  %arrayidx6 = getelementptr inbounds i8, ptr %matches, i64 120
   %4 = load i32, ptr %arrayidx6, align 8
   %cmp7.not = icmp eq i32 %4, -1
   br i1 %cmp7.not, label %if.end11, label %if.then9
@@ -1730,8 +1726,8 @@ _.exit:                                           ; preds = %if.then9, %if.end3.
   br label %if.end11
 
 if.end11:                                         ; preds = %_.exit, %if.end5
-  %len = getelementptr inbounds %struct.strbuf, ptr %island_name, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %island_name, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %island_name, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %island_name, i64 16
   br label %for.body16
 
 for.body16:                                       ; preds = %if.end11, %for.inc31
@@ -1778,7 +1774,7 @@ if.end26:                                         ; preds = %strbuf_addch.exit, 
   %13 = phi i32 [ %.pre, %strbuf_addch.exit ], [ %6, %if.end23 ]
   %idx.ext = sext i32 %13 to i64
   %add.ptr = getelementptr inbounds i8, ptr %refname, i64 %idx.ext
-  %rm_eo = getelementptr inbounds [16 x %struct.regmatch_t], ptr %matches, i64 0, i64 %indvars.iv33, i32 1
+  %rm_eo = getelementptr inbounds i8, ptr %arrayidx18, i64 4
   %14 = load i32, ptr %rm_eo, align 4
   %sub29 = sub nsw i32 %14, %13
   %conv30 = sext i32 %sub29 to i64
@@ -1793,16 +1789,16 @@ for.inc31:                                        ; preds = %for.body16, %if.end
 for.end32:                                        ; preds = %for.inc31
   %15 = load ptr, ptr %cb, align 8
   %16 = load ptr, ptr %buf.i, align 8
-  %n_occupied.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 2
+  %n_occupied.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %n_occupied.i.i, align 8
-  %upper_bound.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 3
+  %upper_bound.i.i = getelementptr inbounds i8, ptr %15, i64 12
   %18 = load i32, ptr %upper_bound.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %17, %18
   %.pre.i12 = load i32, ptr %15, align 8
   br i1 %cmp.not.i.i, label %if.end5.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.end32
-  %size.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %15, i64 4
   %19 = load i32, ptr %size.i.i, align 4
   %shl.i.i = shl i32 %19, 1
   %cmp1.i.i = icmp ugt i32 %.pre.i12, %shl.i.i
@@ -1841,12 +1837,12 @@ st_mult.exit.i.i:                                 ; preds = %if.then.i.i
 
 if.end38.i.i:                                     ; preds = %st_mult.exit.i.i
   %conv29.i.i = zext i32 %spec.store.select.i.i to i64
-  %keys.i38.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 5
+  %keys.i38.i = getelementptr inbounds i8, ptr %15, i64 24
   %25 = load ptr, ptr %keys.i38.i, align 8
   %mul.i89.i.i = shl nuw nsw i64 %conv29.i.i, 3
   %call31.i.i = call ptr @xrealloc(ptr noundef %25, i64 noundef %mul.i89.i.i) #16
   store ptr %call31.i.i, ptr %keys.i38.i, align 8
-  %vals.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 6
+  %vals.i.i = getelementptr inbounds i8, ptr %15, i64 32
   %26 = load ptr, ptr %vals.i.i, align 8
   %call35.i39.i = call ptr @xrealloc(ptr noundef %26, i64 noundef %mul.i89.i.i) #16
   store ptr %call35.i39.i, ptr %vals.i.i, align 8
@@ -1856,10 +1852,10 @@ if.end38.i.i:                                     ; preds = %st_mult.exit.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end38.i.i, %st_mult.exit.i.i
   %27 = phi i32 [ %.pre.i40.i, %if.end38.i.i ], [ %24, %st_mult.exit.i.i ]
-  %flags.i12.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 4
-  %keys49.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 5
+  %flags.i12.i = getelementptr inbounds i8, ptr %15, i64 16
+  %keys49.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %sub.i13.i = add i32 %spec.store.select.i.i, -1
-  %vals52.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 6
+  %vals52.i.i = getelementptr inbounds i8, ptr %15, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -2021,7 +2017,7 @@ st_mult.exit107.i.i:                              ; preds = %for.end.i.i
   br label %if.end152.i.i
 
 if.end152.i.i:                                    ; preds = %st_mult.exit107.i.i, %for.end.i.i, %if.end38.i.i
-  %flags153.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 4
+  %flags153.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %63 = load ptr, ptr %flags153.i.i, align 8
   call void @free(ptr noundef %63) #16
   store ptr %call17.i.i, ptr %flags153.i.i, align 8
@@ -2060,7 +2056,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i.i, %for
 __ac_X31_hash_string.exit.i.i:                    ; preds = %for.body.i.i.i, %if.then.i.i.i, %if.end5.i.i
   %h.1.i.i.i = phi i32 [ 0, %if.end5.i.i ], [ %conv.i.i.i, %if.then.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %and.i.i = and i32 %h.1.i.i.i, %sub7.i.i
-  %flags.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 4
+  %flags.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %70 = load ptr, ptr %flags.i.i, align 8
   %shr.i.i = lshr i32 %and.i.i, 4
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
@@ -2074,7 +2070,7 @@ __ac_X31_hash_string.exit.i.i:                    ; preds = %for.body.i.i.i, %if
   br i1 %tobool.not.i.i13, label %while.cond.preheader.i.i, label %if.end71.i.i
 
 while.cond.preheader.i.i:                         ; preds = %__ac_X31_hash_string.exit.i.i
-  %keys.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 5
+  %keys.i.i = getelementptr inbounds i8, ptr %15, i64 24
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %while.cond.preheader.i.i
@@ -2150,7 +2146,7 @@ if.end71.i.i:                                     ; preds = %if.then55.i.i, %whi
   br i1 %tobool80.not.i.i, label %if.else98.i.i, label %if.then81.i.i
 
 if.then81.i.i:                                    ; preds = %if.end71.i.i
-  %keys82.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 5
+  %keys82.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %81 = load ptr, ptr %keys82.i.i, align 8
   %idxprom83.i.i = zext i32 %x.1.i.i to i64
   %arrayidx84.i.i = getelementptr inbounds ptr, ptr %81, i64 %idxprom83.i.i
@@ -2162,7 +2158,7 @@ if.then81.i.i:                                    ; preds = %if.end71.i.i
   %83 = load i32, ptr %arrayidx91.i.i, align 4
   %and92.i.i = and i32 %83, %not.i.i
   store i32 %and92.i.i, ptr %arrayidx91.i.i, align 4
-  %size94.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 1
+  %size94.i.i = getelementptr inbounds i8, ptr %15, i64 4
   %84 = load <2 x i32>, ptr %size94.i.i, align 4
   %85 = add <2 x i32> %84, <i32 1, i32 1>
   store <2 x i32> %85, ptr %size94.i.i, align 4
@@ -2178,7 +2174,7 @@ if.else98.i.if.end_crit_edge.i:                   ; preds = %if.else98.i.i
   br label %add_ref_to_island.exit
 
 if.then108.i.i:                                   ; preds = %if.else98.i.i
-  %keys109.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 5
+  %keys109.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %86 = load ptr, ptr %keys109.i.i, align 8
   %idxprom110.i.i = zext i32 %x.1.i.i to i64
   %arrayidx111.i.i = getelementptr inbounds ptr, ptr %86, i64 %idxprom110.i.i
@@ -2190,7 +2186,7 @@ if.then108.i.i:                                   ; preds = %if.else98.i.i
   %88 = load i32, ptr %arrayidx120.i.i, align 4
   %and122.i.i = and i32 %88, %not116.i.i
   store i32 %and122.i.i, ptr %arrayidx120.i.i, align 4
-  %size124.i.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 1
+  %size124.i.i = getelementptr inbounds i8, ptr %15, i64 4
   %89 = load i32, ptr %size124.i.i, align 4
   %inc125.i.i = add i32 %89, 1
   store i32 %inc125.i.i, ptr %size124.i.i, align 4
@@ -2199,12 +2195,12 @@ if.then108.i.i:                                   ; preds = %if.else98.i.i
 if.then.i14:                                      ; preds = %if.then108.i.i, %if.then81.i.i
   %idxprom.pre-phi.i = phi i64 [ %idxprom110.i.i, %if.then108.i.i ], [ %idxprom83.i.i, %if.then81.i.i ]
   %call1.i = call ptr @xstrdup(ptr noundef nonnull %16) #16
-  %keys.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 5
+  %keys.i = getelementptr inbounds i8, ptr %15, i64 24
   %90 = load ptr, ptr %keys.i, align 8
   %arrayidx.i15 = getelementptr inbounds ptr, ptr %90, i64 %idxprom.pre-phi.i
   store ptr %call1.i, ptr %arrayidx.i15, align 8
   %call2.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #16
-  %vals.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 6
+  %vals.i = getelementptr inbounds i8, ptr %15, i64 32
   %91 = load ptr, ptr %vals.i, align 8
   %arrayidx4.i = getelementptr inbounds ptr, ptr %91, i64 %idxprom.pre-phi.i
   store ptr %call2.i, ptr %arrayidx4.i, align 8
@@ -2212,11 +2208,11 @@ if.then.i14:                                      ; preds = %if.then108.i.i, %if
 
 add_ref_to_island.exit:                           ; preds = %if.else98.i.if.end_crit_edge.i, %if.then.i14
   %idxprom6.pre-phi.i = phi i64 [ %.pre57.i, %if.else98.i.if.end_crit_edge.i ], [ %idxprom.pre-phi.i, %if.then.i14 ]
-  %vals5.i = getelementptr inbounds %struct.kh_str, ptr %15, i64 0, i32 6
+  %vals5.i = getelementptr inbounds i8, ptr %15, i64 32
   %92 = load ptr, ptr %vals5.i, align 8
   %arrayidx7.i = getelementptr inbounds ptr, ptr %92, i64 %idxprom6.pre-phi.i
   %93 = load ptr, ptr %arrayidx7.i, align 8
-  %oids.i = getelementptr inbounds %struct.remote_island, ptr %93, i64 0, i32 1
+  %oids.i = getelementptr inbounds i8, ptr %93, i64 8
   call void @oid_array_append(ptr noundef nonnull %oids.i, ptr noundef %oid) #16
   %sha_core.0.copyload.i = load i64, ptr %oid, align 4
   %94 = load i64, ptr %93, align 8
@@ -2242,7 +2238,7 @@ entry:
   %byval-temp.i = alloca %struct.object_id, align 8
   %byval-temp8 = alloca %struct.object_id, align 8
   %0 = load ptr, ptr @island_marks, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %commit, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %commit, i64 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp8, ptr noundef nonnull align 4 dereferenceable(36) %oid, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i)
@@ -2254,12 +2250,12 @@ if.then.i:                                        ; preds = %entry
   %sub.i = add i32 %1, -1
   %key.val.i = load i32, ptr %byval-temp8, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %0, i64 24
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %3, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i
@@ -2346,7 +2342,7 @@ kh_get_oid_map.exit:                              ; preds = %entry, %while.end.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %kh_get_oid_map.exit
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %vals, align 8
   %idxprom = zext i32 %retval.0.i to i64
   %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %idxprom
@@ -2358,7 +2354,7 @@ if.then:                                          ; preds = %kh_get_oid_map.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hash_ret.i)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i9)
   %15 = load ptr, ptr @island_marks, align 8
-  %oid.i = getelementptr inbounds %struct.object, ptr %call2, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %call2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i9, ptr noundef nonnull align 4 dereferenceable(36) %oid.i, i64 36, i1 false)
   %call.i10 = call fastcc i32 @kh_put_oid_map(ptr noundef %15, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i9, ptr noundef nonnull %hash_ret.i)
   %16 = load i32, ptr %hash_ret.i, align 4
@@ -2370,7 +2366,7 @@ if.then.i12:                                      ; preds = %if.then
   %inc.i13 = add i32 %17, 1
   store i32 %inc.i13, ptr %12, align 4
   %18 = load ptr, ptr @island_marks, align 8
-  %vals.i = getelementptr inbounds %struct.kh_oid_map, ptr %18, i64 0, i32 6
+  %vals.i = getelementptr inbounds i8, ptr %18, i64 32
   %19 = load ptr, ptr %vals.i, align 8
   %idxprom.i14 = zext i32 %call.i10 to i64
   %arrayidx.i15 = getelementptr inbounds ptr, ptr %19, i64 %idxprom.i14
@@ -2379,7 +2375,7 @@ if.then.i12:                                      ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   %20 = load ptr, ptr @island_marks, align 8
-  %vals1.i = getelementptr inbounds %struct.kh_oid_map, ptr %20, i64 0, i32 6
+  %vals1.i = getelementptr inbounds i8, ptr %20, i64 32
   %21 = load ptr, ptr %vals1.i, align 8
   %idxprom2.i = zext i32 %call.i10 to i64
   %arrayidx3.i = getelementptr inbounds ptr, ptr %21, i64 %idxprom2.i
@@ -2399,7 +2395,7 @@ island_bitmap_new.exit.i:                         ; preds = %if.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i.i, ptr noundef nonnull align 4 dereferenceable(1) %22, i64 %add.i.i, i1 false)
   store i32 1, ptr %call.i.i, align 4
   %25 = load ptr, ptr @island_marks, align 8
-  %vals8.i = getelementptr inbounds %struct.kh_oid_map, ptr %25, i64 0, i32 6
+  %vals8.i = getelementptr inbounds i8, ptr %25, i64 32
   %26 = load ptr, ptr %vals8.i, align 8
   %arrayidx10.i = getelementptr inbounds ptr, ptr %26, i64 %idxprom2.i
   store ptr %call.i.i, ptr %arrayidx10.i, align 8
@@ -2410,17 +2406,19 @@ if.end11.i:                                       ; preds = %island_bitmap_new.e
   %b.0.i = phi ptr [ %call.i.i, %island_bitmap_new.exit.i ], [ %22, %if.end.i ]
   %28 = load i32, ptr @island_bitmap_size, align 4
   %cmp4.not.i.i = icmp eq i32 %28, 0
-  br i1 %cmp4.not.i.i, label %set_island_marks.exit, label %for.body.preheader.i.i
+  br i1 %cmp4.not.i.i, label %set_island_marks.exit, label %for.body.lr.ph.i.i
 
-for.body.preheader.i.i:                           ; preds = %if.end11.i
+for.body.lr.ph.i.i:                               ; preds = %if.end11.i
+  %bits.i.i = getelementptr inbounds i8, ptr %12, i64 4
+  %bits1.i.i = getelementptr inbounds i8, ptr %b.0.i, i64 4
   %wide.trip.count.i.i = zext i32 %28 to i64
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.island_bitmap, ptr %12, i64 0, i32 1, i64 %indvars.iv.i.i
+for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds [0 x i32], ptr %bits.i.i, i64 0, i64 %indvars.iv.i.i
   %29 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx3.i.i = getelementptr inbounds %struct.island_bitmap, ptr %b.0.i, i64 0, i32 1, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds [0 x i32], ptr %bits1.i.i, i64 0, i64 %indvars.iv.i.i
   %30 = load i32, ptr %arrayidx3.i.i, align 4
   %or.i.i = or i32 %30, %29
   store i32 %or.i.i, ptr %arrayidx3.i.i, align 4
@@ -2432,18 +2430,22 @@ set_island_marks.exit:                            ; preds = %for.body.i.i, %if.t
   %31 = phi ptr [ %18, %if.then.i12 ], [ %27, %if.end11.i ], [ %27, %for.body.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hash_ret.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp.i9)
-  %parents = getelementptr inbounds %struct.commit, ptr %commit, i64 0, i32 2
-  %p.058 = load ptr, ptr %parents, align 8
-  %tobool.not59 = icmp eq ptr %p.058, null
-  br i1 %tobool.not59, label %if.end, label %for.body
+  %parents = getelementptr inbounds i8, ptr %commit, i64 48
+  %p.060 = load ptr, ptr %parents, align 8
+  %tobool.not61 = icmp eq ptr %p.060, null
+  br i1 %tobool.not61, label %if.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %set_island_marks.exit, %set_island_marks.exit52
-  %32 = phi ptr [ %49, %set_island_marks.exit52 ], [ %31, %set_island_marks.exit ]
-  %p.060 = phi ptr [ %p.0, %set_island_marks.exit52 ], [ %p.058, %set_island_marks.exit ]
-  %33 = load ptr, ptr %p.060, align 8
+for.body.lr.ph:                                   ; preds = %set_island_marks.exit
+  %bits.i.i36 = getelementptr inbounds i8, ptr %12, i64 4
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %set_island_marks.exit54
+  %32 = phi ptr [ %31, %for.body.lr.ph ], [ %49, %set_island_marks.exit54 ]
+  %p.062 = phi ptr [ %p.060, %for.body.lr.ph ], [ %p.0, %set_island_marks.exit54 ]
+  %33 = load ptr, ptr %p.062, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hash_ret.i17)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i18)
-  %oid.i19 = getelementptr inbounds %struct.object, ptr %33, i64 0, i32 1
+  %oid.i19 = getelementptr inbounds i8, ptr %33, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i18, ptr noundef nonnull align 4 dereferenceable(36) %oid.i19, i64 36, i1 false)
   %call.i20 = call fastcc i32 @kh_put_oid_map(ptr noundef %32, ptr noundef nonnull byval(%struct.object_id) align 8 %byval-temp.i18, ptr noundef nonnull %hash_ret.i17)
   %34 = load i32, ptr %hash_ret.i17, align 4
@@ -2455,74 +2457,75 @@ if.then.i22:                                      ; preds = %for.body
   %inc.i23 = add i32 %35, 1
   store i32 %inc.i23, ptr %12, align 4
   %36 = load ptr, ptr @island_marks, align 8
-  %vals.i24 = getelementptr inbounds %struct.kh_oid_map, ptr %36, i64 0, i32 6
+  %vals.i24 = getelementptr inbounds i8, ptr %36, i64 32
   %37 = load ptr, ptr %vals.i24, align 8
   %idxprom.i25 = zext i32 %call.i20 to i64
   %arrayidx.i26 = getelementptr inbounds ptr, ptr %37, i64 %idxprom.i25
   store ptr %12, ptr %arrayidx.i26, align 8
-  br label %set_island_marks.exit52
+  br label %set_island_marks.exit54
 
 if.end.i27:                                       ; preds = %for.body
   %38 = load ptr, ptr @island_marks, align 8
-  %vals1.i28 = getelementptr inbounds %struct.kh_oid_map, ptr %38, i64 0, i32 6
+  %vals1.i28 = getelementptr inbounds i8, ptr %38, i64 32
   %39 = load ptr, ptr %vals1.i28, align 8
   %idxprom2.i29 = zext i32 %call.i20 to i64
   %arrayidx3.i30 = getelementptr inbounds ptr, ptr %39, i64 %idxprom2.i29
   %40 = load ptr, ptr %arrayidx3.i30, align 8
   %41 = load i32, ptr %40, align 4
   %cmp.i31 = icmp ugt i32 %41, 1
-  br i1 %cmp.i31, label %island_bitmap_new.exit.i44, label %if.end11.i32
+  br i1 %cmp.i31, label %island_bitmap_new.exit.i46, label %if.end11.i32
 
-island_bitmap_new.exit.i44:                       ; preds = %if.end.i27
-  %dec.i45 = add i32 %41, -1
-  store i32 %dec.i45, ptr %40, align 4
+island_bitmap_new.exit.i46:                       ; preds = %if.end.i27
+  %dec.i47 = add i32 %41, -1
+  store i32 %dec.i47, ptr %40, align 4
   %42 = load i32, ptr @island_bitmap_size, align 4
-  %mul.i.i46 = shl nuw nsw i32 %42, 2
-  %narrow.i.i47 = add nuw i32 %mul.i.i46, 4
-  %add.i.i48 = zext i32 %narrow.i.i47 to i64
-  %call.i.i49 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i.i48) #16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i.i49, ptr noundef nonnull align 4 dereferenceable(1) %40, i64 %add.i.i48, i1 false)
-  store i32 1, ptr %call.i.i49, align 4
+  %mul.i.i48 = shl nuw nsw i32 %42, 2
+  %narrow.i.i49 = add nuw i32 %mul.i.i48, 4
+  %add.i.i50 = zext i32 %narrow.i.i49 to i64
+  %call.i.i51 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i.i50) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %call.i.i51, ptr noundef nonnull align 4 dereferenceable(1) %40, i64 %add.i.i50, i1 false)
+  store i32 1, ptr %call.i.i51, align 4
   %43 = load ptr, ptr @island_marks, align 8
-  %vals8.i50 = getelementptr inbounds %struct.kh_oid_map, ptr %43, i64 0, i32 6
-  %44 = load ptr, ptr %vals8.i50, align 8
-  %arrayidx10.i51 = getelementptr inbounds ptr, ptr %44, i64 %idxprom2.i29
-  store ptr %call.i.i49, ptr %arrayidx10.i51, align 8
+  %vals8.i52 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = load ptr, ptr %vals8.i52, align 8
+  %arrayidx10.i53 = getelementptr inbounds ptr, ptr %44, i64 %idxprom2.i29
+  store ptr %call.i.i51, ptr %arrayidx10.i53, align 8
   br label %if.end11.i32
 
-if.end11.i32:                                     ; preds = %island_bitmap_new.exit.i44, %if.end.i27
-  %45 = phi ptr [ %43, %island_bitmap_new.exit.i44 ], [ %38, %if.end.i27 ]
-  %b.0.i33 = phi ptr [ %call.i.i49, %island_bitmap_new.exit.i44 ], [ %40, %if.end.i27 ]
+if.end11.i32:                                     ; preds = %island_bitmap_new.exit.i46, %if.end.i27
+  %45 = phi ptr [ %43, %island_bitmap_new.exit.i46 ], [ %38, %if.end.i27 ]
+  %b.0.i33 = phi ptr [ %call.i.i51, %island_bitmap_new.exit.i46 ], [ %40, %if.end.i27 ]
   %46 = load i32, ptr @island_bitmap_size, align 4
   %cmp4.not.i.i34 = icmp eq i32 %46, 0
-  br i1 %cmp4.not.i.i34, label %set_island_marks.exit52, label %for.body.preheader.i.i35
+  br i1 %cmp4.not.i.i34, label %set_island_marks.exit54, label %for.body.lr.ph.i.i35
 
-for.body.preheader.i.i35:                         ; preds = %if.end11.i32
-  %wide.trip.count.i.i36 = zext i32 %46 to i64
-  br label %for.body.i.i37
+for.body.lr.ph.i.i35:                             ; preds = %if.end11.i32
+  %bits1.i.i37 = getelementptr inbounds i8, ptr %b.0.i33, i64 4
+  %wide.trip.count.i.i38 = zext i32 %46 to i64
+  br label %for.body.i.i39
 
-for.body.i.i37:                                   ; preds = %for.body.i.i37, %for.body.preheader.i.i35
-  %indvars.iv.i.i38 = phi i64 [ 0, %for.body.preheader.i.i35 ], [ %indvars.iv.next.i.i42, %for.body.i.i37 ]
-  %arrayidx.i.i39 = getelementptr inbounds %struct.island_bitmap, ptr %12, i64 0, i32 1, i64 %indvars.iv.i.i38
-  %47 = load i32, ptr %arrayidx.i.i39, align 4
-  %arrayidx3.i.i40 = getelementptr inbounds %struct.island_bitmap, ptr %b.0.i33, i64 0, i32 1, i64 %indvars.iv.i.i38
-  %48 = load i32, ptr %arrayidx3.i.i40, align 4
-  %or.i.i41 = or i32 %48, %47
-  store i32 %or.i.i41, ptr %arrayidx3.i.i40, align 4
-  %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i38, 1
-  %exitcond.not.i.i43 = icmp eq i64 %indvars.iv.next.i.i42, %wide.trip.count.i.i36
-  br i1 %exitcond.not.i.i43, label %set_island_marks.exit52, label %for.body.i.i37, !llvm.loop !9
+for.body.i.i39:                                   ; preds = %for.body.i.i39, %for.body.lr.ph.i.i35
+  %indvars.iv.i.i40 = phi i64 [ 0, %for.body.lr.ph.i.i35 ], [ %indvars.iv.next.i.i44, %for.body.i.i39 ]
+  %arrayidx.i.i41 = getelementptr inbounds [0 x i32], ptr %bits.i.i36, i64 0, i64 %indvars.iv.i.i40
+  %47 = load i32, ptr %arrayidx.i.i41, align 4
+  %arrayidx3.i.i42 = getelementptr inbounds [0 x i32], ptr %bits1.i.i37, i64 0, i64 %indvars.iv.i.i40
+  %48 = load i32, ptr %arrayidx3.i.i42, align 4
+  %or.i.i43 = or i32 %48, %47
+  store i32 %or.i.i43, ptr %arrayidx3.i.i42, align 4
+  %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i40, 1
+  %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, %wide.trip.count.i.i38
+  br i1 %exitcond.not.i.i45, label %set_island_marks.exit54, label %for.body.i.i39, !llvm.loop !9
 
-set_island_marks.exit52:                          ; preds = %for.body.i.i37, %if.then.i22, %if.end11.i32
-  %49 = phi ptr [ %36, %if.then.i22 ], [ %45, %if.end11.i32 ], [ %45, %for.body.i.i37 ]
+set_island_marks.exit54:                          ; preds = %for.body.i.i39, %if.then.i22, %if.end11.i32
+  %49 = phi ptr [ %36, %if.then.i22 ], [ %45, %if.end11.i32 ], [ %45, %for.body.i.i39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hash_ret.i17)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp.i18)
-  %next = getelementptr inbounds %struct.commit_list, ptr %p.060, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %p.062, i64 8
   %p.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %p.0, null
   br i1 %tobool.not, label %if.end, label %for.body, !llvm.loop !26
 
-if.end:                                           ; preds = %set_island_marks.exit52, %set_island_marks.exit, %kh_get_oid_map.exit.thread, %kh_get_oid_map.exit
+if.end:                                           ; preds = %set_island_marks.exit54, %set_island_marks.exit, %kh_get_oid_map.exit.thread, %kh_get_oid_map.exit
   ret void
 }
 
@@ -2541,8 +2544,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp.not6, label %kh_destroy_oid_map.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %flags = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %0, i64 16
+  %vals = getelementptr inbounds i8, ptr %0, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2581,13 +2584,13 @@ for.inc:                                          ; preds = %if.end, %if.then8, 
   br i1 %cmp.not, label %kh_destroy_oid_map.exit, label %for.body, !llvm.loop !27
 
 kh_destroy_oid_map.exit:                          ; preds = %for.inc, %for.cond.preheader
-  %flags.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 4
+  %flags.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %flags.i.i, align 8
   tail call void @free(ptr noundef %10) #16
-  %keys.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 5
+  %keys.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %keys.i.i, align 8
   tail call void @free(ptr noundef %11) #16
-  %vals.i.i = getelementptr inbounds %struct.kh_oid_map, ptr %0, i64 0, i32 6
+  %vals.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load ptr, ptr %vals.i.i, align 8
   tail call void @free(ptr noundef %12) #16
   tail call void @free(ptr noundef nonnull %0) #16
@@ -2611,16 +2614,16 @@ entry:
   br i1 %or.cond, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
-  %nr_objects = getelementptr inbounds %struct.packing_data, ptr %to_pack, i64 0, i32 2
+  %nr_objects = getelementptr inbounds i8, ptr %to_pack, i64 16
   %2 = load i32, ptr %nr_objects, align 8
   %cmp32.not = icmp eq i32 %2, 0
   br i1 %cmp32.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %objects = getelementptr inbounds %struct.packing_data, ptr %to_pack, i64 0, i32 1
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp.i, i64 0, i32 1
-  %layer1.i = getelementptr inbounds %struct.packing_data, ptr %to_pack, i64 0, i32 17
-  %nr_alloc.i = getelementptr inbounds %struct.packing_data, ptr %to_pack, i64 0, i32 3
+  %objects = getelementptr inbounds i8, ptr %to_pack, i64 8
+  %algo.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i, i64 32
+  %layer1.i = getelementptr inbounds i8, ptr %to_pack, i64 152
+  %nr_alloc.i = getelementptr inbounds i8, ptr %to_pack, i64 20
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2639,11 +2642,11 @@ if.then.i:                                        ; preds = %for.body
   %sub.i = add i32 %5, -1
   %key.val.i = load i32, ptr %arrayidx9, align 8
   %and.i = and i32 %key.val.i, %sub.i
-  %flags.i = getelementptr inbounds %struct.kh_oid_map, ptr %3, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %flags.i, align 8
-  %keys.i = getelementptr inbounds %struct.kh_oid_map, ptr %3, i64 0, i32 5
+  %keys.i = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %7, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %7, i64 256
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then.i
@@ -2749,15 +2752,16 @@ oe_set_layer.exit:                                ; preds = %kh_get_oid_map.exit
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %oe_set_layer.exit
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %17, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %17, i64 32
   %21 = load ptr, ptr %vals, align 8
   %idxprom5 = zext i32 %retval.0.i to i64
   %arrayidx6 = getelementptr inbounds ptr, ptr %21, i64 %idxprom5
   %22 = load ptr, ptr %arrayidx6, align 8
   %23 = load i32, ptr @island_counter_core, align 4
+  %bits.i = getelementptr inbounds i8, ptr %22, i64 4
   %div2.i = lshr i32 %23, 5
   %idxprom.i13 = zext nneg i32 %div2.i to i64
-  %arrayidx.i14 = getelementptr inbounds %struct.island_bitmap, ptr %22, i64 0, i32 1, i64 %idxprom.i13
+  %arrayidx.i14 = getelementptr inbounds [0 x i32], ptr %bits.i, i64 0, i64 %idxprom.i13
   %24 = load i32, ptr %arrayidx.i14, align 4
   %rem.i = and i32 %23, 31
   %25 = shl nuw i32 1, %rem.i
@@ -2814,16 +2818,16 @@ declare i32 @parse_tree_gently(ptr noundef, i32 noundef) local_unnamed_addr #3
 define internal fastcc i32 @kh_put_oid_map(ptr nocapture noundef %h, ptr nocapture noundef readonly byval(%struct.object_id) align 8 %key, ptr nocapture noundef writeonly %ret) unnamed_addr #2 {
 entry:
   %byval-temp = alloca %struct.object_id, align 8
-  %n_occupied = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 2
+  %n_occupied = getelementptr inbounds i8, ptr %h, i64 8
   %0 = load i32, ptr %n_occupied, align 8
-  %upper_bound = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 3
+  %upper_bound = getelementptr inbounds i8, ptr %h, i64 12
   %1 = load i32, ptr %upper_bound, align 4
   %cmp.not = icmp ult i32 %0, %1
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr %h, align 8
-  %size = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %h, i64 4
   %3 = load i32, ptr %size, align 4
   %shl = shl i32 %3, 1
   %cmp1 = icmp ugt i32 %2, %shl
@@ -2837,7 +2841,7 @@ if.end5:                                          ; preds = %if.then, %entry
   %sub7 = add i32 %4, -1
   %key.val = load i32, ptr %key, align 8
   %and = and i32 %key.val, %sub7
-  %flags = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %h, i64 16
   %5 = load ptr, ptr %flags, align 8
   %shr = lshr i32 %and, 4
   %idxprom = zext nneg i32 %shr to i64
@@ -2851,10 +2855,10 @@ if.end5:                                          ; preds = %if.then, %entry
   br i1 %tobool.not, label %while.cond.preheader, label %if.end71
 
 while.cond.preheader:                             ; preds = %if.end5
-  %keys = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 5
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %byval-temp, i64 0, i32 1
+  %keys = getelementptr inbounds i8, ptr %h, i64 24
+  %algo.i.i = getelementptr inbounds i8, ptr %byval-temp, i64 32
   %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %9, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %9, i64 256
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
@@ -2959,7 +2963,7 @@ if.end71:                                         ; preds = %if.then55, %if.end5
   br i1 %tobool80.not, label %if.else98, label %if.then81
 
 if.then81:                                        ; preds = %if.end71
-  %keys82 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 5
+  %keys82 = getelementptr inbounds i8, ptr %h, i64 24
   %19 = load ptr, ptr %keys82, align 8
   %idxprom83 = zext i32 %x.1 to i64
   %arrayidx84 = getelementptr inbounds %struct.object_id, ptr %19, i64 %idxprom83
@@ -2971,7 +2975,7 @@ if.then81:                                        ; preds = %if.end71
   %21 = load i32, ptr %arrayidx91, align 4
   %and92 = and i32 %21, %not
   store i32 %and92, ptr %arrayidx91, align 4
-  %size94 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 1
+  %size94 = getelementptr inbounds i8, ptr %h, i64 4
   %22 = load <2 x i32>, ptr %size94, align 4
   %23 = add <2 x i32> %22, <i32 1, i32 1>
   store <2 x i32> %23, ptr %size94, align 4
@@ -2983,7 +2987,7 @@ if.else98:                                        ; preds = %if.end71
   br i1 %tobool107.not, label %if.end128, label %if.then108
 
 if.then108:                                       ; preds = %if.else98
-  %keys109 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 5
+  %keys109 = getelementptr inbounds i8, ptr %h, i64 24
   %24 = load ptr, ptr %keys109, align 8
   %idxprom110 = zext i32 %x.1 to i64
   %arrayidx111 = getelementptr inbounds %struct.object_id, ptr %24, i64 %idxprom110
@@ -2995,7 +2999,7 @@ if.then108:                                       ; preds = %if.else98
   %26 = load i32, ptr %arrayidx120, align 4
   %and122 = and i32 %26, %not116
   store i32 %and122, ptr %arrayidx120, align 4
-  %size124 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 1
+  %size124 = getelementptr inbounds i8, ptr %h, i64 4
   %27 = load i32, ptr %size124, align 4
   %inc125 = add i32 %27, 1
   store i32 %inc125, ptr %size124, align 4
@@ -3025,7 +3029,7 @@ entry:
   %or8 = or i32 %shr7, %or6
   %inc = add i32 %or8, 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %inc, i32 4)
-  %size = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %h, i64 4
   %0 = load i32, ptr %size, align 4
   %conv = uitofp i32 %spec.store.select to double
   %1 = tail call double @llvm.fmuladd.f64(double %conv, double 7.700000e-01, double 5.000000e-01)
@@ -3047,12 +3051,12 @@ st_mult.exit:                                     ; preds = %entry
 
 if.end38:                                         ; preds = %st_mult.exit
   %conv29 = zext i32 %spec.store.select to i64
-  %keys = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 5
+  %keys = getelementptr inbounds i8, ptr %h, i64 24
   %6 = load ptr, ptr %keys, align 8
   %mul.i87 = mul nuw nsw i64 %conv29, 36
   %call31 = tail call ptr @xrealloc(ptr noundef %6, i64 noundef %mul.i87) #16
   store ptr %call31, ptr %keys, align 8
-  %vals = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 6
+  %vals = getelementptr inbounds i8, ptr %h, i64 32
   %7 = load ptr, ptr %vals, align 8
   %mul.i92 = shl nuw nsw i64 %conv29, 3
   %call35 = tail call ptr @xrealloc(ptr noundef %7, i64 noundef %mul.i92) #16
@@ -3063,10 +3067,10 @@ if.end38:                                         ; preds = %st_mult.exit
 
 for.body.lr.ph:                                   ; preds = %st_mult.exit, %if.end38
   %8 = phi i32 [ %.pre, %if.end38 ], [ %5, %st_mult.exit ]
-  %flags = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 4
-  %keys49 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %h, i64 16
+  %keys49 = getelementptr inbounds i8, ptr %h, i64 24
   %sub = add i32 %spec.store.select, -1
-  %vals52 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 6
+  %vals52 = getelementptr inbounds i8, ptr %h, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3201,12 +3205,12 @@ for.end:                                          ; preds = %for.inc
 
 if.then141:                                       ; preds = %for.end
   %conv143 = zext i32 %spec.store.select to i64
-  %keys142 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 5
+  %keys142 = getelementptr inbounds i8, ptr %h, i64 24
   %36 = load ptr, ptr %keys142, align 8
   %mul.i97 = mul nuw nsw i64 %conv143, 36
   %call145 = tail call ptr @xrealloc(ptr noundef %36, i64 noundef %mul.i97) #16
   store ptr %call145, ptr %keys142, align 8
-  %vals147 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 6
+  %vals147 = getelementptr inbounds i8, ptr %h, i64 32
   %37 = load ptr, ptr %vals147, align 8
   %mul.i102 = shl nuw nsw i64 %conv143, 3
   %call150 = tail call ptr @xrealloc(ptr noundef %37, i64 noundef %mul.i102) #16
@@ -3214,15 +3218,15 @@ if.then141:                                       ; preds = %for.end
   br label %if.end152
 
 if.end152:                                        ; preds = %if.end38, %if.then141, %for.end
-  %flags153 = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 4
+  %flags153 = getelementptr inbounds i8, ptr %h, i64 16
   %38 = load ptr, ptr %flags153, align 8
   tail call void @free(ptr noundef %38) #16
   store ptr %call17, ptr %flags153, align 8
   store i32 %spec.store.select, ptr %h, align 8
   %39 = load i32, ptr %size, align 4
-  %n_occupied = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 2
+  %n_occupied = getelementptr inbounds i8, ptr %h, i64 8
   store i32 %39, ptr %n_occupied, align 8
-  %upper_bound = getelementptr inbounds %struct.kh_oid_map, ptr %h, i64 0, i32 3
+  %upper_bound = getelementptr inbounds i8, ptr %h, i64 12
   store i32 %conv9, ptr %upper_bound, align 4
   br label %if.end161
 

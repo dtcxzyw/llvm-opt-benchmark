@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.net::QuicWallTime" = type { i64 }
-%"class.net::QuicServerConfigProtobuf" = type { %"class.std::vector", %"class.std::__cxx11::basic_string", i64, i64, %"class.std::__cxx11::basic_string" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<net::QuicServerConfigProtobuf::PrivateKey *, std::allocator<net::QuicServerConfigProtobuf::PrivateKey *>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicServerConfigProtobuf::PrivateKey *, std::allocator<net::QuicServerConfigProtobuf::PrivateKey *>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicServerConfigProtobuf::PrivateKey *, std::allocator<net::QuicServerConfigProtobuf::PrivateKey *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicServerConfigProtobuf::PrivateKey *, std::allocator<net::QuicServerConfigProtobuf::PrivateKey *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.net::QuicServerConfigProtobuf::PrivateKey" = type { i32, %"class.std::__cxx11::basic_string" }
 
 @_ZN3net24QuicServerConfigProtobufC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net24QuicServerConfigProtobufC2Ev
 @_ZN3net24QuicServerConfigProtobufD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net24QuicServerConfigProtobufD2Ev
@@ -22,18 +13,18 @@ define dso_local void @_ZN3net24QuicServerConfigProtobufC2Ev(ptr noundef nonnull
 invoke.cont:
   %ref.tmp = alloca %"class.net::QuicWallTime", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %config_ = getelementptr inbounds %"class.net::QuicServerConfigProtobuf", ptr %this, i64 0, i32 1
+  %config_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %config_) #6
   store i64 0, ptr %ref.tmp, align 8
   %call3 = invoke noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %primary_time_ = getelementptr inbounds %"class.net::QuicServerConfigProtobuf", ptr %this, i64 0, i32 2
+  %primary_time_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %call3, ptr %primary_time_, align 8
-  %priority_ = getelementptr inbounds %"class.net::QuicServerConfigProtobuf", ptr %this, i64 0, i32 3
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %priority_, align 8
-  %source_address_token_secret_override_ = getelementptr inbounds %"class.net::QuicServerConfigProtobuf", ptr %this, i64 0, i32 4
+  %source_address_token_secret_override_ = getelementptr inbounds i8, ptr %this, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %source_address_token_secret_override_) #6
   ret void
 
@@ -67,20 +58,20 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN3net24QuicServerConfigProtobufD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::QuicServerConfigProtobuf::PrivateKey *, std::allocator<net::QuicServerConfigProtobuf::PrivateKey *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not2.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not2.i.i, label %invoke.cont, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %entry, %delete.end.i.i
   %begin.sroa.0.03.i.i = phi ptr [ %incdec.ptr.i.i.i, %delete.end.i.i ], [ %0, %entry ]
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %begin.sroa.0.03.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %begin.sroa.0.03.i.i, i64 8
   %2 = load ptr, ptr %begin.sroa.0.03.i.i, align 8
   %isnull.i.i = icmp eq ptr %2, null
   br i1 %isnull.i.i, label %delete.end.i.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %while.body.i.i
-  %private_key_.i.i.i = getelementptr inbounds %"class.net::QuicServerConfigProtobuf::PrivateKey", ptr %2, i64 0, i32 1
+  %private_key_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %private_key_.i.i.i) #6
   tail call void @_ZdlPv(ptr noundef nonnull %2) #7
   br label %delete.end.i.i
@@ -100,9 +91,9 @@ invoke.cont.i.i.i:                                ; preds = %_ZN4base26STLDelete
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i.i, %_ZN4base26STLDeleteContainerPointersIN9__gnu_cxx17__normal_iteratorIPPN3net24QuicServerConfigProtobuf10PrivateKeyESt6vectorIS6_SaIS6_EEEEEEvT_SC_.exit.i, %entry
-  %source_address_token_secret_override_ = getelementptr inbounds %"class.net::QuicServerConfigProtobuf", ptr %this, i64 0, i32 4
+  %source_address_token_secret_override_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %source_address_token_secret_override_) #6
-  %config_ = getelementptr inbounds %"class.net::QuicServerConfigProtobuf", ptr %this, i64 0, i32 1
+  %config_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %config_) #6
   %3 = load ptr, ptr %this, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %3, null

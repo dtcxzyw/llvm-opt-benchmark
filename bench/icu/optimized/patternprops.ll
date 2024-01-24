@@ -3,12 +3,6 @@ source_filename = "bench/icu/original/patternprops.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
-%"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
-%struct.anon.0 = type { i16, i32, i32, ptr }
-
 @_ZN6icu_75L10syntax2000E = internal unnamed_addr constant [10 x i32] [i32 0, i32 -1, i32 -65536, i32 2147418367, i32 2146435070, i32 -65536, i32 4194303, i32 -1048576, i32 -242, i32 65537], align 16
 @_ZN6icu_75L9index2000E = internal unnamed_addr constant [130 x i8] c"\02\03\04\00\00\00\00\00\00\00\00\00\05\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\00\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\06\07\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\01\01\01\00\00\00\00\00\00\00\00\00\00\00\00\08\09", align 16
 @_ZN6icu_75L22syntaxOrWhiteSpace2000E = internal unnamed_addr constant [10 x i32] [i32 0, i32 -1, i32 -16384, i32 2147419135, i32 2146435070, i32 -65536, i32 4194303, i32 -1048576, i32 -242, i32 65537], align 16
@@ -200,7 +194,7 @@ _ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.then2.i, %if.the
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
-  %incdec.ptr = getelementptr inbounds i16, ptr %s.addr.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.07, i64 2
   %dec = add nsw i32 %length.addr.08, -1
   %cmp = icmp sgt i32 %length.addr.08, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !4
@@ -213,12 +207,12 @@ while.end:                                        ; preds = %_ZN6icu_7512Pattern
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZN6icu_7512PatternProps14skipWhiteSpaceERKNS_13UnicodeStringEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %s, i32 noundef %start) local_unnamed_addr #1 align 2 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %cmp14 = icmp sgt i32 %cond.i, %start
@@ -230,7 +224,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit.lr.ph:   ; preds = %entry
   %3 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %3, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %s, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %s, i64 24
   %4 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %4, ptr %fBuffer.i.i.i
   %5 = sext i32 %start to i64
@@ -330,7 +324,7 @@ _ZN6icu_7512PatternProps12isWhiteSpaceEi.exit:    ; preds = %if.then2.i, %if.the
 land.lhs.true:                                    ; preds = %if.else6.i, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit
   %8 = zext nneg i32 %0 to i64
   %9 = getelementptr i16, ptr %s, i64 %8
-  %arrayidx1 = getelementptr i16, ptr %9, i64 -1
+  %arrayidx1 = getelementptr i8, ptr %9, i64 -2
   %10 = load i16, ptr %arrayidx1, align 2
   %conv2 = zext i16 %10 to i32
   %cmp1.i18 = icmp ult i16 %10, 256
@@ -403,7 +397,7 @@ while.body:                                       ; preds = %_ZN6icu_7512Pattern
 
 while.end:                                        ; preds = %if.else6.i29, %_ZN6icu_7512PatternProps12isWhiteSpaceEi.exit37
   %24 = trunc i64 %indvars.iv to i32
-  %invariant.gep = getelementptr i16, ptr %s, i64 -1
+  %invariant.gep = getelementptr i8, ptr %s, i64 -2
   %25 = zext nneg i32 %0 to i64
   br label %while.cond13
 
@@ -526,7 +520,7 @@ _ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %if.then2.i, %i
   br i1 %tobool.not, label %do.cond, label %return
 
 do.cond:                                          ; preds = %if.else18.i, %if.else4.i, %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
-  %incdec.ptr = getelementptr inbounds i16, ptr %s.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 2
   %cmp3 = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp3, label %do.body, label %return, !llvm.loop !9
 
@@ -596,7 +590,7 @@ _ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit: ; preds = %if.then2.i, %i
   br i1 %tobool.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.else18.i, %if.else4.i, %_ZN6icu_7512PatternProps20isSyntaxOrWhiteSpaceEi.exit
-  %incdec.ptr = getelementptr inbounds i16, ptr %s.addr.07, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.07, i64 2
   %dec = add nsw i32 %length.addr.08, -1
   %cmp = icmp sgt i32 %length.addr.08, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !10

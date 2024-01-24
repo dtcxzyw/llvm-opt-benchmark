@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
 %struct.func_args = type { i32, ptr, i32, ptr, ptr }
-%struct.hostent = type { ptr, ptr, i32, i32, ptr }
 
 @stdout = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [2 x i8] c"w\00", align 1
@@ -67,9 +66,9 @@ entry:
   br i1 %cmp, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %argv2 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 1
+  %argv2 = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load ptr, ptr %argv2, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %arrayidx, align 8
   %call = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str)
   br label %if.end
@@ -84,7 +83,7 @@ if.then3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %return_code = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code = getelementptr inbounds i8, ptr %args, i64 16
   store i32 -1, ptr %return_code, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i)
@@ -92,7 +91,7 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @__ctype_b_loc() #14
   %4 = load ptr, ptr %call.i.i, align 8
-  %arrayidx2.i.i = getelementptr inbounds i16, ptr %4, i64 49
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %4, i64 98
   %5 = load i16, ptr %arrayidx2.i.i, align 2
   %6 = and i16 %5, 1024
   %tobool.not.i.i = icmp eq i16 %6, 0
@@ -104,17 +103,17 @@ if.then4.i.i:                                     ; preds = %if.end4
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then4.i.i
-  %sin_addr.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addr.i, i64 0, i32 2
-  %h_addr_list.i.i = getelementptr inbounds %struct.hostent, ptr %call6.i.i, i64 0, i32 4
+  %sin_addr.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
+  %h_addr_list.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 24
   %7 = load ptr, ptr %h_addr_list.i.i, align 8
   %8 = load ptr, ptr %7, align 8
-  %h_length.i.i = getelementptr inbounds %struct.hostent, ptr %call6.i.i, i64 0, i32 3
+  %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
   %9 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %8, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #14
-  %sin_port.c.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addr.i, i64 0, i32 1
+  %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
   store i16 %call13.c.i.i, ptr %sin_port.c.i.i, align 2
   br label %build_addr.exit.i
 
@@ -125,10 +124,10 @@ if.else.i.i:                                      ; preds = %if.then4.i.i
 if.end12.i.i:                                     ; preds = %if.end4
   store i16 2, ptr %addr.i, align 4
   %call13.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #14
-  %sin_port.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addr.i, i64 0, i32 1
+  %sin_port.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
   store i16 %call13.i.i, ptr %sin_port.i.i, align 2
   %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.28) #15
-  %sin_addr23.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addr.i, i64 0, i32 2
+  %sin_addr23.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
   store i32 %call22.i.i, ptr %sin_addr23.i.i, align 4
   br label %build_addr.exit.i
 
@@ -504,9 +503,9 @@ define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_a
 entry:
   %args = alloca %struct.func_args, align 8
   store i32 %argc, ptr %args, align 8
-  %argv2 = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 1
+  %argv2 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %argv, ptr %argv2, align 8
-  %return_code = getelementptr inbounds %struct.func_args, ptr %args, i64 0, i32 2
+  %return_code = getelementptr inbounds i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
   %call = tail call i32 @wolfSSL_Init() #15
   br label %for.body.i

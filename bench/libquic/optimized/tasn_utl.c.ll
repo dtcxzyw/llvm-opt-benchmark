@@ -3,20 +3,13 @@ source_filename = "bench/libquic/original/tasn_utl.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.ASN1_AUX_st = type { ptr, i32, i32, ptr, i32 }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.ASN1_ADB_st = type { i64, i64, ptr, ptr, i64, ptr, ptr }
-%struct.ASN1_ADB_TABLE_st = type { i64, %struct.ASN1_TEMPLATE_st }
-
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/tasn_utl.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @asn1_get_choice_selector(ptr nocapture noundef readonly %pval, ptr nocapture noundef readonly %it) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pval, align 8
-  %utype = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype = getelementptr inbounds i8, ptr %it, i64 8
   %1 = load i64, ptr %utype, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i32, ptr %add.ptr, align 4
@@ -27,7 +20,7 @@ entry:
 define hidden i32 @asn1_set_choice_selector(ptr nocapture noundef readonly %pval, i32 noundef %value, ptr nocapture noundef readonly %it) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
-  %utype = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 1
+  %utype = getelementptr inbounds i8, ptr %it, i64 8
   %1 = load i64, ptr %utype, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i32, ptr %add.ptr, align 4
@@ -45,13 +38,13 @@ entry:
   ]
 
 if.end.i:                                         ; preds = %entry, %entry
-  %funcs.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs.i = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load ptr, ptr %funcs.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 1
   %tobool6.not.i = icmp eq i32 %and.i, 0
@@ -63,7 +56,7 @@ asn1_get_references.exit:                         ; preds = %lor.lhs.false.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %asn1_get_references.exit
-  %ref_offset.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 2
+  %ref_offset.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %ref_offset.i, align 4
   %idx.ext.i = sext i32 %4 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i
@@ -84,13 +77,13 @@ entry:
   ]
 
 if.end.i:                                         ; preds = %entry, %entry
-  %funcs.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs.i = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load ptr, ptr %funcs.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 1
   %tobool6.not.i = icmp eq i32 %and.i, 0
@@ -102,7 +95,7 @@ asn1_get_references.exit:                         ; preds = %lor.lhs.false.i
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %asn1_get_references.exit
-  %ref_offset.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 2
+  %ref_offset.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %ref_offset.i, align 4
   %idx.ext.i = sext i32 %4 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %idx.ext.i
@@ -128,24 +121,24 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %funcs.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs.i = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load ptr, ptr %funcs.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %if.end, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool4.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool4.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false3.i
-  %enc_offset.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 4
+  %enc_offset.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load i32, ptr %enc_offset.i, align 8
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
-  %modified = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %add.ptr.i, i64 0, i32 2
+  %modified = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %modified, align 8
   br label %if.end
@@ -166,20 +159,20 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.end6, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %funcs.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs.i = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load ptr, ptr %funcs.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %if.end6, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool4.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool4.not.i, label %if.end6, label %asn1_get_enc_ptr.exit
 
 asn1_get_enc_ptr.exit:                            ; preds = %lor.lhs.false3.i
-  %enc_offset.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 4
+  %enc_offset.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load i32, ptr %enc_offset.i, align 8
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
@@ -192,7 +185,7 @@ if.then3:                                         ; preds = %asn1_get_enc_ptr.ex
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %asn1_get_enc_ptr.exit
-  %modified = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %add.ptr.i, i64 0, i32 2
+  %modified = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %modified, align 8
   br label %if.end6
@@ -216,20 +209,20 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %funcs.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs.i = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load ptr, ptr %funcs.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %return, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool4.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool4.not.i, label %return, label %asn1_get_enc_ptr.exit
 
 asn1_get_enc_ptr.exit:                            ; preds = %lor.lhs.false3.i
-  %enc_offset.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 4
+  %enc_offset.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load i32, ptr %enc_offset.i, align 8
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
@@ -250,9 +243,9 @@ if.end5:                                          ; preds = %if.then3, %asn1_get
 
 if.end11:                                         ; preds = %if.end5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call6, ptr align 1 %in, i64 %conv, i1 false)
-  %len = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %add.ptr.i, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store i64 %conv, ptr %len, align 8
-  %modified = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %add.ptr.i, i64 0, i32 2
+  %modified = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   store i32 0, ptr %modified, align 8
   br label %return
 
@@ -279,24 +272,24 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %funcs.i = getelementptr inbounds %struct.ASN1_ITEM_st, ptr %it, i64 0, i32 4
+  %funcs.i = getelementptr inbounds i8, ptr %it, i64 32
   %1 = load ptr, ptr %funcs.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %return, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 2
   %tobool4.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool4.not.i, label %return, label %asn1_get_enc_ptr.exit
 
 asn1_get_enc_ptr.exit:                            ; preds = %lor.lhs.false3.i
-  %enc_offset.i = getelementptr inbounds %struct.ASN1_AUX_st, ptr %1, i64 0, i32 4
+  %enc_offset.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load i32, ptr %enc_offset.i, align 8
   %idx.ext.i = sext i32 %3 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
-  %modified = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %add.ptr.i, i64 0, i32 2
+  %modified = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %4 = load i32, ptr %modified, align 8
   %tobool1.not = icmp eq i32 %4, 0
   br i1 %tobool1.not, label %if.end, label %return
@@ -308,7 +301,7 @@ if.end:                                           ; preds = %asn1_get_enc_ptr.ex
 if.then3:                                         ; preds = %if.end
   %5 = load ptr, ptr %out, align 8
   %6 = load ptr, ptr %add.ptr.i, align 8
-  %len5 = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %add.ptr.i, i64 0, i32 1
+  %len5 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %7 = load i64, ptr %len5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %6, i64 %7, i1 false)
   %8 = load i64, ptr %len5, align 8
@@ -322,7 +315,7 @@ if.end7:                                          ; preds = %if.then3, %if.end
   br i1 %tobool8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %len10 = getelementptr inbounds %struct.ASN1_ENCODING_st, ptr %add.ptr.i, i64 0, i32 1
+  %len10 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %10 = load i64, ptr %len10, align 8
   %conv = trunc i64 %10 to i32
   store i32 %conv, ptr %len, align 4
@@ -343,7 +336,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %pval, align 8
-  %offset = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %tt, i64 16
   %2 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
   br label %return
@@ -362,20 +355,20 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %item = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %tt, i64 0, i32 4
+  %item = getelementptr inbounds i8, ptr %tt, i64 32
   %1 = load ptr, ptr %item, align 8
   %2 = load ptr, ptr %pval, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %if.end
-  %null_tt = getelementptr inbounds %struct.ASN1_ADB_st, ptr %1, i64 0, i32 6
+  %null_tt = getelementptr inbounds i8, ptr %1, i64 48
   %3 = load ptr, ptr %null_tt, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %err, label %return
 
 if.end7:                                          ; preds = %if.end
-  %offset = getelementptr inbounds %struct.ASN1_ADB_st, ptr %1, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %4
   %and9 = and i64 %0, 256
@@ -394,13 +387,13 @@ if.else:                                          ; preds = %if.end7
 
 if.end13:                                         ; preds = %if.else, %if.then11
   %selector.0 = phi i64 [ %conv, %if.then11 ], [ %call12, %if.else ]
-  %tblcount = getelementptr inbounds %struct.ASN1_ADB_st, ptr %1, i64 0, i32 4
+  %tblcount = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i64, ptr %tblcount, align 8
   %cmp17 = icmp sgt i64 %6, 0
   br i1 %cmp17, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end13
-  %tbl = getelementptr inbounds %struct.ASN1_ADB_st, ptr %1, i64 0, i32 3
+  %tbl = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load ptr, ptr %tbl, align 8
   br label %for.body
 
@@ -412,17 +405,17 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp16, label %if.then18, label %for.inc
 
 if.then18:                                        ; preds = %for.body
-  %tt19 = getelementptr inbounds %struct.ASN1_ADB_TABLE_st, ptr %atbl.018, i64 0, i32 1
+  %tt19 = getelementptr inbounds i8, ptr %atbl.018, i64 8
   br label %return
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr = getelementptr inbounds %struct.ASN1_ADB_TABLE_st, ptr %atbl.018, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %atbl.018, i64 48
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end13
-  %default_tt = getelementptr inbounds %struct.ASN1_ADB_st, ptr %1, i64 0, i32 5
+  %default_tt = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %default_tt, align 8
   %tobool21.not = icmp eq ptr %9, null
   br i1 %tobool21.not, label %err, label %return

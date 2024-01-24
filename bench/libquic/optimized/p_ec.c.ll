@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_pkey_method_st = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_ctx_st = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
 
 @ec_pkey_meth = hidden local_unnamed_addr constant %struct.evp_pkey_method_st { i32 408, ptr @pkey_ec_init, ptr @pkey_ec_copy, ptr @pkey_ec_cleanup, ptr @pkey_ec_keygen, ptr @pkey_ec_sign, ptr @pkey_ec_verify, ptr null, ptr null, ptr null, ptr @pkey_ec_derive, ptr @pkey_ec_ctrl }, align 8
 @.str = private unnamed_addr constant [121 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/evp/p_ec.c\00", align 1
@@ -20,7 +17,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 0, ptr %call, align 8
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %call, ptr %data, align 8
   br label %return
 
@@ -38,9 +35,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 0, ptr %call.i, align 8
-  %data.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %dst, i64 0, i32 5
+  %data.i = getelementptr inbounds i8, ptr %dst, i64 40
   store ptr %call.i, ptr %data.i, align 8
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %src, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %src, i64 40
   %0 = load ptr, ptr %data, align 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %call.i, align 8
@@ -54,7 +51,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @pkey_ec_cleanup(ptr nocapture noundef readonly %ctx) #2 {
 entry:
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -70,7 +67,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pkey_ec_keygen(ptr nocapture noundef readonly %ctx, ptr noundef %pkey) #3 {
 entry:
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -86,7 +83,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %1 = load ptr, ptr %pkey1, align 8
-  %pkey4 = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 2
+  %pkey4 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %pkey4, align 8
   %call5 = tail call ptr @EC_KEY_get0_group(ptr noundef %2) #8
   %call6 = tail call i32 @EC_KEY_set_group(ptr noundef nonnull %call, ptr noundef %call5) #8
@@ -115,9 +112,9 @@ return:                                           ; preds = %if.end11, %if.then1
 define internal noundef i32 @pkey_ec_sign(ptr nocapture noundef readonly %ctx, ptr noundef %sig, ptr nocapture noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #3 {
 entry:
   %sltmp = alloca i32, align 4
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %0, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %pkey1, align 8
   %tobool.not = icmp eq ptr %sig, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -156,9 +153,9 @@ return:                                           ; preds = %if.end4, %if.end8, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pkey_ec_verify(ptr nocapture noundef readonly %ctx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #3 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pkey, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_st, ptr %0, i64 0, i32 2
+  %pkey1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %pkey1, align 8
   %call = tail call i32 @ECDSA_verify(i32 noundef 0, ptr noundef %tbs, i64 noundef %tbslen, ptr noundef %sig, i64 noundef %siglen, ptr noundef %1) #8
   ret i32 %call
@@ -167,13 +164,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pkey_ec_derive(ptr nocapture noundef readonly %ctx, ptr noundef %key, ptr nocapture noundef %keylen) #3 {
 entry:
-  %pkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %pkey = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %pkey, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %peerkey = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 3
+  %peerkey = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %peerkey, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %if.end
@@ -183,7 +180,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pkey3 = getelementptr inbounds %struct.evp_pkey_st, ptr %0, i64 0, i32 2
+  %pkey3 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %pkey3, align 8
   %tobool4.not = icmp eq ptr %key, null
   br i1 %tobool4.not, label %if.then5, label %if.end7
@@ -198,7 +195,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %pkey9 = getelementptr inbounds %struct.evp_pkey_st, ptr %1, i64 0, i32 2
+  %pkey9 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %pkey9, align 8
   %call10 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %3) #8
   %4 = load i64, ptr %keylen, align 8
@@ -219,7 +216,7 @@ return:                                           ; preds = %if.end7, %if.end14,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pkey_ec_ctrl(ptr nocapture noundef readonly %ctx, i32 noundef %type, i32 %p1, ptr noundef %p2) #3 {
 entry:
-  %data = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %data, align 8
   switch i32 %type, label %sw.default [
     i32 1, label %sw.bb

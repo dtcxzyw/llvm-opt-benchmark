@@ -329,7 +329,7 @@ cond.false.i:                                     ; preds = %call2.i.noexc
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %cond.false.i
-  %stream_.i.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp3.i, i64 0, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.2)
           to label %invoke.cont.i unwind label %lpad.i
 

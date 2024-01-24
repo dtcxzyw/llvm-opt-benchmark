@@ -3,10 +3,6 @@ source_filename = "bench/hyperscan/original/ng_corpus_properties.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.CorpusProperties = type <{ i32, i32, i32, %struct.min_max, %struct.min_max, i32, i32, i32, i32, i32, %"class.boost::random::mersenne_twister_engine", i32, [4 x i8] }>
-%struct.min_max = type { i32, i32 }
-%"class.boost::random::mersenne_twister_engine" = type { [624 x i32], i64 }
-
 $_ZN5boost6random6detail20generate_uniform_intINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEiEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE = comdat any
 
 $_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EE5twistEv = comdat any
@@ -17,15 +13,15 @@ $_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615EL
 define hidden void @_ZN16CorpusPropertiesC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2556) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 100, ptr %this, align 8
-  %unmatchness = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 1
-  %cycleMin = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 5
+  %unmatchness = getelementptr inbounds i8, ptr %this, i64 4
+  %cycleMin = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %unmatchness, i8 0, i64 24, i1 false)
   store <4 x i32> <i32 1, i32 1, i32 500000, i32 0>, ptr %cycleMin, align 4
-  %alphabetSize = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 9
+  %alphabetSize = getelementptr inbounds i8, ptr %this, i64 44
   store i32 -1, ptr %alphabetSize, align 4
-  %randomGen = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10
+  %randomGen = getelementptr inbounds i8, ptr %this, i64 48
   store i32 5489, ptr %randomGen, align 8
-  %i.i.i.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10, i32 1
+  %i.i.i.i = getelementptr inbounds i8, ptr %this, i64 2544
   store i64 1, ptr %i.i.i.i, align 8
   br label %for.body.i.i.i
 
@@ -48,9 +44,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !5
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10, i32 0, i64 396
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1632
   %4 = load i32, ptr %arrayidx.i.i.i.i, align 8
-  %arrayidx3.i.i.i.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10, i32 0, i64 623
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 2540
   %5 = load i32, ptr %arrayidx3.i.i.i.i, align 4
   %xor.i.i.i.i = xor i32 %5, %4
   %xor4.i.i.i.i = shl i32 %xor.i.i.i.i, 1
@@ -116,7 +112,7 @@ for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i.5
   br label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit
 
 _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEC2Ev.exit: ; preds = %for.body.i.i.i.i, %for.cond.i.i.i.i.4, %for.cond.i.i.i.i.3, %for.cond.i.i.i.i.2, %for.cond.i.i.i.i.1, %for.cond.i.i.i.i, %for.end.i.i.i.i
-  %rngSeed = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 11
+  %rngSeed = getelementptr inbounds i8, ptr %this, i64 2552
   store i32 0, ptr %rngSeed, align 8
   ret void
 }
@@ -131,9 +127,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %match, ptr %this, align 8
-  %unmatchness = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 1
+  %unmatchness = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %unmatch, ptr %unmatchness, align 4
-  %randomness = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 2
+  %randomness = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %random, ptr %randomness, align 8
   br label %return
 
@@ -144,11 +140,11 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN16CorpusProperties4seedEj(ptr nocapture noundef nonnull align 8 dereferenceable(2556) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
-  %rngSeed = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 11
+  %rngSeed = getelementptr inbounds i8, ptr %this, i64 2552
   store i32 %val, ptr %rngSeed, align 8
-  %randomGen = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10
+  %randomGen = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %val, ptr %randomGen, align 8
-  %i.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10, i32 1
+  %i.i = getelementptr inbounds i8, ptr %this, i64 2544
   store i64 1, ptr %i.i, align 8
   br label %for.body.i
 
@@ -171,9 +167,9 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
-  %arrayidx.i.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10, i32 0, i64 396
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 1632
   %4 = load i32, ptr %arrayidx.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10, i32 0, i64 623
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %this, i64 2540
   %5 = load i32, ptr %arrayidx3.i.i, align 4
   %xor.i.i = xor i32 %5, %4
   %xor4.i.i = shl i32 %xor.i.i, 1
@@ -245,7 +241,7 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK16CorpusProperties7getSeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2556) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %rngSeed = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 11
+  %rngSeed = getelementptr inbounds i8, ptr %this, i64 2552
   %0 = load i32, ptr %rngSeed, align 8
   ret i32 %0
 }
@@ -253,7 +249,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN16CorpusProperties4randEjj(ptr noundef nonnull align 8 dereferenceable(2556) %this, i32 noundef %n, i32 noundef %m) local_unnamed_addr #3 align 2 {
 entry:
-  %randomGen = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10
+  %randomGen = getelementptr inbounds i8, ptr %this, i64 48
   %call.i.i = tail call noundef i32 @_ZN5boost6random6detail20generate_uniform_intINS0_23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEEiEET0_RT_S5_S5_N4mpl_5bool_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(2504) %randomGen, i32 noundef %n, i32 noundef %m)
   ret i32 %call.i.i
 }
@@ -266,20 +262,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %unmatchness = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 1
+  %unmatchness = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %unmatchness, align 4
   %cmp2 = icmp eq i32 %1, 100
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %randomness = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 2
+  %randomness = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %randomness, align 8
   %cmp5 = icmp eq i32 %2, 100
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %randomGen.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10
-  %i.i171.i = getelementptr inbounds %class.CorpusProperties, ptr %this, i64 0, i32 10, i32 1
+  %randomGen.i = getelementptr inbounds i8, ptr %this, i64 48
+  %i.i171.i = getelementptr inbounds i8, ptr %this, i64 2544
   %.pre.i = load i64, ptr %i.i171.i, align 8
   br label %for.cond76.i
 
@@ -340,7 +336,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.end75
 
 if.then7:                                         ; preds = %if.else
-  %i.i = getelementptr inbounds %"class.boost::random::mersenne_twister_engine", ptr %eng, i64 0, i32 1
+  %i.i = getelementptr inbounds i8, ptr %eng, i64 2496
   %0 = load i64, ptr %i.i, align 8
   %cmp.i = icmp eq i64 %0, 624
   br i1 %cmp.i, label %if.then.i, label %_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm11ELj4294967295ELm7ELj2636928640ELm15ELj4022730752ELm18ELj1812433253EEclEv.exit
@@ -376,7 +372,7 @@ if.end75:                                         ; preds = %if.else
   %cmp67 = icmp eq i32 %rem66, %retval.0.i
   %inc69 = zext i1 %cmp67 to i32
   %spec.select151 = add nuw i32 %div64, %inc69
-  %i.i171 = getelementptr inbounds %"class.boost::random::mersenne_twister_engine", ptr %eng, i64 0, i32 1
+  %i.i171 = getelementptr inbounds i8, ptr %eng, i64 2496
   %.pre = load i64, ptr %i.i171, align 8
   br label %for.cond76
 
@@ -433,7 +429,7 @@ vector.body:                                      ; preds = %vector.body, %entry
   %1 = or disjoint i64 %index, 1
   %2 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %1
   %wide.load = load <4 x i32>, ptr %2, align 4
-  %3 = getelementptr inbounds i32, ptr %2, i64 4
+  %3 = getelementptr inbounds i8, ptr %2, i64 16
   %wide.load155 = load <4 x i32>, ptr %3, align 4
   %4 = shufflevector <4 x i32> %vector.recur, <4 x i32> %wide.load, <4 x i32> <i32 3, i32 4, i32 5, i32 6>
   %5 = shufflevector <4 x i32> %wide.load, <4 x i32> %wide.load155, <4 x i32> <i32 3, i32 4, i32 5, i32 6>
@@ -446,7 +442,7 @@ vector.body:                                      ; preds = %vector.body, %entry
   %12 = add nuw nsw i64 %index, 397
   %13 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 %12
   %wide.load156 = load <4 x i32>, ptr %13, align 4
-  %14 = getelementptr inbounds i32, ptr %13, i64 4
+  %14 = getelementptr inbounds i8, ptr %13, i64 16
   %wide.load157 = load <4 x i32>, ptr %14, align 4
   %15 = lshr exact <4 x i32> %10, <i32 1, i32 1, i32 1, i32 1>
   %16 = lshr exact <4 x i32> %11, <i32 1, i32 1, i32 1, i32 1>
@@ -461,17 +457,17 @@ vector.body:                                      ; preds = %vector.body, %entry
   %25 = xor <4 x i32> %22, %wide.load157
   %26 = xor <4 x i32> %25, %16
   store <4 x i32> %24, ptr %0, align 8
-  %27 = getelementptr inbounds i32, ptr %0, i64 4
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %26, ptr %27, align 8
   %index.next = add nuw nsw i64 %index, 8
   %28 = icmp eq i64 %index.next, 216
   br i1 %28, label %for.body, label %vector.body, !llvm.loop !8
 
 for.body:                                         ; preds = %vector.body
-  %arrayidx = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 216
-  %arrayidx3 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 217
-  %arrayidx7 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 613
-  %arrayidx3.3 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 220
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 864
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 868
+  %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 2452
+  %arrayidx3.3 = getelementptr inbounds i8, ptr %this, i64 880
   %29 = load <4 x i32>, ptr %arrayidx3, align 4
   %30 = shufflevector <4 x i32> %wide.load155, <4 x i32> %29, <4 x i32> <i32 3, i32 5, i32 6, i32 6>
   %31 = and <4 x i32> %30, <i32 -2147483648, i32 2147483646, i32 2147483646, i32 -2147483648>
@@ -487,9 +483,9 @@ for.body:                                         ; preds = %vector.body
   %41 = select <4 x i1> %40, <4 x i32> zeroinitializer, <4 x i32> <i32 -1727483681, i32 -1727483681, i32 -1727483681, i32 -1727483681>
   %42 = xor <4 x i32> %38, %41
   store <4 x i32> %42, ptr %arrayidx, align 8
-  %arrayidx3.4 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 221
-  %arrayidx7.4 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 617
-  %arrayidx3.5 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 222
+  %arrayidx3.4 = getelementptr inbounds i8, ptr %this, i64 884
+  %arrayidx7.4 = getelementptr inbounds i8, ptr %this, i64 2468
+  %arrayidx3.5 = getelementptr inbounds i8, ptr %this, i64 888
   %43 = load <2 x i32>, ptr %arrayidx3.4, align 4
   %44 = shufflevector <4 x i32> %29, <4 x i32> poison, <2 x i32> <i32 poison, i32 3>
   %45 = shufflevector <2 x i32> %43, <2 x i32> %44, <2 x i32> <i32 0, i32 3>
@@ -505,9 +501,9 @@ for.body:                                         ; preds = %vector.body
   %55 = select <2 x i1> %54, <2 x i32> zeroinitializer, <2 x i32> <i32 -1727483681, i32 -1727483681>
   %56 = xor <2 x i32> %52, %55
   store <2 x i32> %56, ptr %arrayidx3.3, align 8
-  %arrayidx26 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 223
-  %arrayidx31 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 619
-  %arrayidx26.3 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 226
+  %arrayidx26 = getelementptr inbounds i8, ptr %this, i64 892
+  %arrayidx31 = getelementptr inbounds i8, ptr %this, i64 2476
+  %arrayidx26.3 = getelementptr inbounds i8, ptr %this, i64 904
   %57 = load <4 x i32>, ptr %arrayidx26, align 4
   %58 = shufflevector <4 x i32> %57, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 2>
   %59 = and <4 x i32> %58, <i32 2147483646, i32 2147483646, i32 2147483646, i32 -2147483648>
@@ -526,11 +522,11 @@ for.body:                                         ; preds = %vector.body
   store <4 x i32> %71, ptr %arrayidx3.5, align 8
   %72 = extractelement <4 x i32> %57, i64 3
   %and23.4 = and i32 %72, -2147483648
-  %arrayidx26.4 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 227
+  %arrayidx26.4 = getelementptr inbounds i8, ptr %this, i64 908
   %73 = load i32, ptr %arrayidx26.4, align 4
   %and27.4 = and i32 %73, 2147483646
   %or28.4 = or disjoint i32 %and27.4, %and23.4
-  %arrayidx31.4 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 623
+  %arrayidx31.4 = getelementptr inbounds i8, ptr %this, i64 2492
   %74 = load i32, ptr %arrayidx31.4, align 4
   %shr32.4 = lshr exact i32 %or28.4, 1
   %xor33.4 = xor i32 %shr32.4, %74
@@ -573,7 +569,7 @@ for.cond.cleanup77:                               ; preds = %vector.body162
   %92 = load i32, ptr %this, align 8
   %and110 = and i32 %92, 2147483646
   %or111 = or disjoint i32 %and110, %and107
-  %arrayidx113 = getelementptr inbounds [624 x i32], ptr %this, i64 0, i64 396
+  %arrayidx113 = getelementptr inbounds i8, ptr %this, i64 1584
   %93 = load i32, ptr %arrayidx113, align 8
   %shr114 = lshr exact i32 %or111, 1
   %xor115 = xor i32 %shr114, %93
@@ -582,7 +578,7 @@ for.cond.cleanup77:                               ; preds = %vector.body162
   %mul119 = select i1 %.not, i32 0, i32 -1727483681
   %xor120 = xor i32 %xor115, %mul119
   store i32 %xor120, ptr %arrayidx31.4, align 4
-  %i = getelementptr inbounds %"class.boost::random::mersenne_twister_engine", ptr %this, i64 0, i32 1
+  %i = getelementptr inbounds i8, ptr %this, i64 2496
   store i64 0, ptr %i, align 8
   ret void
 }

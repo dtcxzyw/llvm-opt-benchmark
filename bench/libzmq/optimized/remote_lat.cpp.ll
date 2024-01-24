@@ -32,13 +32,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call i32 @atoi(ptr nocapture noundef %1) #7
   %conv = sext i32 %call2 to i64
-  %arrayidx3 = getelementptr inbounds ptr, ptr %argv, i64 3
+  %arrayidx3 = getelementptr inbounds i8, ptr %argv, i64 24
   %2 = load ptr, ptr %arrayidx3, align 8
   %call4 = tail call i32 @atoi(ptr nocapture noundef %2) #7
   %call5 = tail call ptr @zmq_init(i32 noundef 1)

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.base::MemoryMappedFile::Region" = type { i64, i64 }
-%"class.base::MemoryMappedFile" = type { %"class.base::File", ptr, i64 }
 %"class.base::File" = type <{ %"class.base::ScopedGeneric", [4 x i8], %"class.base::FilePath", %"class.base::FileTracing::ScopedEnabler", [3 x i8], i32, i8, i8, [6 x i8] }>
 %"class.base::ScopedGeneric" = type { %"struct.base::ScopedGeneric<int, base::internal::ScopedFDCloseTraits>::Data" }
 %"struct.base::ScopedGeneric<int, base::internal::ScopedFDCloseTraits>::Data" = type { i32 }
@@ -26,9 +25,9 @@ entry:
   %0 = load i64, ptr %other, align 8
   %1 = load i64, ptr %this, align 8
   %cmp = icmp eq i64 %0, %1
-  %size = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %other, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i64, ptr %size, align 8
-  %size3 = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %this, i64 0, i32 1
+  %size3 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %size3, align 8
   %cmp4 = icmp eq i64 %2, %3
   %4 = select i1 %cmp, i1 %cmp4, i1 false
@@ -41,9 +40,9 @@ entry:
   %0 = load i64, ptr %other, align 8
   %1 = load i64, ptr %this, align 8
   %cmp.not = icmp ne i64 %0, %1
-  %size = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %other, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i64, ptr %size, align 8
-  %size3 = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %this, i64 0, i32 1
+  %size3 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %size3, align 8
   %cmp4 = icmp ne i64 %2, %3
   %4 = select i1 %cmp.not, i1 true, i1 %cmp4
@@ -89,7 +88,7 @@ declare void @_ZN4base4FileD1Ev(ptr noundef nonnull align 8 dereferenceable(50))
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4base16MemoryMappedFile10InitializeERKNS_8FilePathENS0_6AccessE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %file_name, i32 noundef %access) local_unnamed_addr #5 align 2 {
 entry:
-  %data_.i = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %data_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end, label %return
@@ -119,7 +118,7 @@ return:                                           ; preds = %if.end7, %if.end, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4base16MemoryMappedFile7IsValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %data_, align 8
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -136,7 +135,7 @@ define dso_local noundef zeroext i1 @_ZN4base16MemoryMappedFile10InitializeENS_4
 if.end:
   %agg.tmp = alloca %"class.base::File", align 8
   call void @_ZN4base4FileC1EOS0_(ptr noundef nonnull align 8 dereferenceable(50) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(50) %file)
-  %data_.i.i = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %data_.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end29.i, label %invoke.cont5
@@ -178,7 +177,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %size = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %region, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %region, i64 8
   %0 = load i64, ptr %size, align 8
   %1 = load i64, ptr %region, align 8
   %sub = sub nsw i64 9223372036854775807, %1
@@ -188,18 +187,18 @@ sw.bb:                                            ; preds = %entry
 sw.bb2:                                           ; preds = %sw.bb, %entry, %entry
   %2 = load i64, ptr %region, align 8
   %cmp4 = icmp slt i64 %2, 0
-  %size5 = getelementptr inbounds %"struct.base::MemoryMappedFile::Region", ptr %region, i64 0, i32 1
+  %size5 = getelementptr inbounds i8, ptr %region, i64 8
   %3 = load i64, ptr %size5, align 8
   %cmp6 = icmp slt i64 %3, 0
   %or.cond = select i1 %cmp4, i1 true, i1 %cmp6
-  %data_.i = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %data_.i, align 8
   %cmp.i = icmp ne ptr %4, null
   %or.cond11 = select i1 %or.cond, i1 true, i1 %cmp.i
   br i1 %or.cond11, label %return, label %if.end29
 
 sw.epilog:                                        ; preds = %entry
-  %data_.i.old = getelementptr inbounds %"class.base::MemoryMappedFile", ptr %this, i64 0, i32 1
+  %data_.i.old = getelementptr inbounds i8, ptr %this, i64 56
   %.old = load ptr, ptr %data_.i.old, align 8
   %cmp.i.old.not = icmp eq ptr %.old, null
   br i1 %cmp.i.old.not, label %if.end29, label %return

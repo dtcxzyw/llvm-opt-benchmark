@@ -3,13 +3,7 @@ source_filename = "bench/openexr/original/internal_rle.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._exr_encode_pipeline = type { ptr, i16, i16, i32, ptr, %struct.exr_chunk_info_t, ptr, ptr, i64, i64, ptr, i64, ptr, i64, i64, ptr, i64, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, [5 x %struct.exr_coding_channel_info_t] }
-%struct.exr_chunk_info_t = type { i32, i32, i32, i32, i32, i8, i8, i8, i8, i64, i64, i64, i64, i64 }
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
-%union.anon = type { ptr }
-%struct._exr_decode_pipeline = type { ptr, i16, i16, i32, ptr, %struct.exr_chunk_info_t, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, [5 x %struct.exr_coding_channel_info_t] }
-
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden i64 @internal_rle_compress(ptr nocapture noundef writeonly %out, i64 noundef %outbytes, ptr noundef readonly %src, i64 noundef %srcbytes) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %src, i64 %srcbytes
@@ -155,17 +149,17 @@ while.end67:                                      ; preds = %if.end, %while.cond
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_exr_apply_rle(ptr noundef %encode) local_unnamed_addr #1 {
 entry:
-  %packed_bytes = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 8
+  %packed_bytes = getelementptr inbounds i8, ptr %encode, i64 104
   %0 = load i64, ptr %packed_bytes, align 8
-  %scratch_buffer_1 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 18
-  %scratch_alloc_size_1 = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 19
+  %scratch_buffer_1 = getelementptr inbounds i8, ptr %encode, i64 184
+  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %encode, i64 192
   %call = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %0) #7
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %scratch_buffer_1, align 8
-  %packed_buffer = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 7
+  %packed_buffer = getelementptr inbounds i8, ptr %encode, i64 96
   %2 = load ptr, ptr %packed_buffer, align 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %2, i64 %0
   %cmp18.i = icmp sgt i64 %0, 0
@@ -223,9 +217,9 @@ while.body11.i:                                   ; preds = %while.body11.i, %wh
   br i1 %cmp9.i, label %while.body11.i, label %reorder_and_predict.exit, !llvm.loop !9
 
 reorder_and_predict.exit:                         ; preds = %while.body11.i, %if.end, %while.end.i
-  %compressed_buffer = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 15
+  %compressed_buffer = getelementptr inbounds i8, ptr %encode, i64 160
   %7 = load ptr, ptr %compressed_buffer, align 8
-  %compressed_alloc_size = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 17
+  %compressed_alloc_size = getelementptr inbounds i8, ptr %encode, i64 176
   %8 = load i64, ptr %compressed_alloc_size, align 8
   %9 = load ptr, ptr %scratch_buffer_1, align 8
   %add.ptr.i19 = getelementptr inbounds i8, ptr %9, i64 %0
@@ -382,7 +376,7 @@ if.then5:                                         ; preds = %internal_rle_compre
 
 if.end8:                                          ; preds = %if.then5, %internal_rle_compress.exit
   %outb.0 = phi i64 [ %0, %if.then5 ], [ %outb.3.i, %internal_rle_compress.exit ]
-  %compressed_bytes = getelementptr inbounds %struct._exr_encode_pipeline, ptr %encode, i64 0, i32 16
+  %compressed_bytes = getelementptr inbounds i8, ptr %encode, i64 168
   store i64 %outb.0, ptr %compressed_bytes, align 8
   br label %return
 
@@ -396,7 +390,7 @@ declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden i64 @internal_rle_decompress(ptr nocapture noundef writeonly %out, i64 noundef %outsz, ptr nocapture noundef readonly %src, i64 noundef %packsz) local_unnamed_addr #4 {
 entry:
   %cmp32.not = icmp eq i64 %packsz, 0
@@ -469,8 +463,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_exr_undo_rle(ptr noundef %decode, ptr nocapture noundef readonly %src, i64 noundef %packsz, ptr noundef writeonly %out, i64 noundef %outsz) local_unnamed_addr #1 {
 entry:
-  %scratch_buffer_1 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 15
-  %scratch_alloc_size_1 = getelementptr inbounds %struct._exr_decode_pipeline, ptr %decode, i64 0, i32 16
+  %scratch_buffer_1 = getelementptr inbounds i8, ptr %decode, i64 160
+  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %decode, i64 168
   %call = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %outsz) #7
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -608,11 +602,11 @@ declare i32 @internal_decode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smin.i8(i8, i8) #6
 
-attributes #0 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

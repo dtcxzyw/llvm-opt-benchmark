@@ -8,9 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.strvec = type { ptr, i64, i64 }
-%struct.cache_entry = type { %struct.hashmap_entry, %struct.stat_data, i32, i32, i32, i32, i32, %struct.object_id, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.stat_data = type { %struct.cache_time, %struct.cache_time, i32, i32, i32, i32, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 
 @.str = private unnamed_addr constant [70 x i8] c"git merge-index [-o] [-q] <merge-program> (-a | [--] [<filename>...])\00", align 1
@@ -48,7 +45,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @the_repository, align 8
   %call1 = tail call i32 @repo_read_index(ptr noundef %0) #7
   tail call void @ensure_full_index(ptr noundef nonnull @the_index) #7
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(3) @.str.1) #9
   %tobool.not = icmp eq i32 %call2, 0
@@ -56,14 +53,13 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store i1 true, ptr @one_shot, align 4
-  %arrayidx6.phi.trans.insert = getelementptr inbounds ptr, ptr %argv, i64 2
-  %.pre = load ptr, ptr %arrayidx6.phi.trans.insert, align 8
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %2 = phi ptr [ %1, %if.end ], [ %.pre, %if.then3 ]
   %i.0 = phi i32 [ 1, %if.end ], [ 2, %if.then3 ]
   %idxprom5 = zext nneg i32 %i.0 to i64
+  %arrayidx6 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom5
+  %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(3) @.str.2) #9
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %if.end11
@@ -71,14 +67,14 @@ if.end4:                                          ; preds = %if.then3, %if.end
 if.then9:                                         ; preds = %if.end4
   store i1 true, ptr @quiet, align 4
   %inc10 = add nuw nsw i32 %i.0, 1
-  %.pre25 = zext nneg i32 %inc10 to i64
-  %arrayidx14.phi.trans.insert = getelementptr inbounds ptr, ptr %argv, i64 %.pre25
-  %.pre26 = load ptr, ptr %arrayidx14.phi.trans.insert, align 8
+  %.pre = zext nneg i32 %inc10 to i64
+  %arrayidx14.phi.trans.insert = getelementptr inbounds ptr, ptr %argv, i64 %.pre
+  %.pre25 = load ptr, ptr %arrayidx14.phi.trans.insert, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end4
-  %3 = phi ptr [ %.pre26, %if.then9 ], [ %2, %if.end4 ]
-  %idxprom13.pre-phi = phi i64 [ %.pre25, %if.then9 ], [ %idxprom5, %if.end4 ]
+  %3 = phi ptr [ %.pre25, %if.then9 ], [ %2, %if.end4 ]
+  %idxprom13.pre-phi = phi i64 [ %.pre, %if.then9 ], [ %idxprom5, %if.end4 ]
   %i.1 = phi i32 [ %inc10, %if.then9 ], [ %i.0, %if.end4 ]
   store ptr %3, ptr @pgm, align 8
   %i.219 = add nuw nsw i32 %i.1, 1
@@ -130,14 +126,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %idxprom.i = sext i32 %i.07.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
-  %ce_flags.i = getelementptr inbounds %struct.cache_entry, ptr %10, i64 0, i32 3
+  %ce_flags.i = getelementptr inbounds i8, ptr %10, i64 56
   %11 = load i32, ptr %ce_flags.i, align 8
   %12 = and i32 %11, 12288
   %tobool.not.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %name.i = getelementptr inbounds %struct.cache_entry, ptr %10, i64 0, i32 8
+  %name.i = getelementptr inbounds i8, ptr %10, i64 108
   %call.i = tail call fastcc i32 @merge_entry(i32 noundef %i.07.i, ptr noundef nonnull %name.i), !range !5
   %sub.i = add nsw i32 %i.07.i, -1
   %add.i = add i32 %sub.i, %call.i
@@ -215,21 +211,21 @@ entry:
   %cmd = alloca %struct.child_process, align 8
   %0 = load ptr, ptr @pgm, align 8
   store ptr %0, ptr %arguments, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %arguments, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %arguments, i64 8
   store ptr @.str.7, ptr %arrayinit.element, align 8
-  %arrayinit.element1 = getelementptr inbounds ptr, ptr %arguments, i64 2
+  %arrayinit.element1 = getelementptr inbounds i8, ptr %arguments, i64 16
   store ptr @.str.7, ptr %arrayinit.element1, align 16
-  %arrayinit.element2 = getelementptr inbounds ptr, ptr %arguments, i64 3
+  %arrayinit.element2 = getelementptr inbounds i8, ptr %arguments, i64 24
   store ptr @.str.7, ptr %arrayinit.element2, align 8
-  %arrayinit.element3 = getelementptr inbounds ptr, ptr %arguments, i64 4
+  %arrayinit.element3 = getelementptr inbounds i8, ptr %arguments, i64 32
   store ptr %path, ptr %arrayinit.element3, align 16
-  %arrayinit.element4 = getelementptr inbounds ptr, ptr %arguments, i64 5
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %arguments, i64 40
   store ptr @.str.7, ptr %arrayinit.element4, align 8
-  %arrayinit.element5 = getelementptr inbounds ptr, ptr %arguments, i64 6
+  %arrayinit.element5 = getelementptr inbounds i8, ptr %arguments, i64 48
   store ptr @.str.7, ptr %arrayinit.element5, align 16
-  %arrayinit.element6 = getelementptr inbounds ptr, ptr %arguments, i64 7
+  %arrayinit.element6 = getelementptr inbounds i8, ptr %arguments, i64 56
   store ptr @.str.7, ptr %arrayinit.element6, align 8
-  %arrayinit.element7 = getelementptr inbounds ptr, ptr %arguments, i64 8
+  %arrayinit.element7 = getelementptr inbounds i8, ptr %arguments, i64 64
   store ptr null, ptr %arrayinit.element7, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cmd, ptr noundef nonnull align 8 dereferenceable(120) @__const.merge_entry.cmd, i64 120, i1 false)
   %1 = load i32, ptr getelementptr inbounds (%struct.index_state, ptr @the_index, i64 0, i32 2), align 4
@@ -250,23 +246,23 @@ do.body:                                          ; preds = %do.body.preheader, 
   %3 = load ptr, ptr @the_index, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
-  %name = getelementptr inbounds %struct.cache_entry, ptr %4, i64 0, i32 8
+  %name = getelementptr inbounds i8, ptr %4, i64 108
   %call = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %path) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end9, label %do.end
 
 if.end9:                                          ; preds = %do.body
-  %ce_flags = getelementptr inbounds %struct.cache_entry, ptr %4, i64 0, i32 3
+  %ce_flags = getelementptr inbounds i8, ptr %4, i64 56
   %5 = load i32, ptr %ce_flags, align 8
   %and = lshr i32 %5, 12
   %shr = and i32 %and, 3
   %inc = add nuw nsw i32 %found.0, 1
   %idxprom10 = zext nneg i32 %shr to i64
   %arrayidx11 = getelementptr inbounds [4 x [65 x i8]], ptr %hexbuf, i64 0, i64 %idxprom10
-  %oid = getelementptr inbounds %struct.cache_entry, ptr %4, i64 0, i32 7
+  %oid = getelementptr inbounds i8, ptr %4, i64 72
   %call13 = call ptr @oid_to_hex_r(ptr noundef nonnull %arrayidx11, ptr noundef nonnull %oid) #7
   %arrayidx15 = getelementptr inbounds [4 x [60 x i8]], ptr %ownbuf, i64 0, i64 %idxprom10
-  %ce_mode = getelementptr inbounds %struct.cache_entry, ptr %4, i64 0, i32 2
+  %ce_mode = getelementptr inbounds i8, ptr %4, i64 52
   %6 = load i32, ptr %ce_mode, align 4
   %call17 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %arrayidx15, i64 noundef 60, ptr noundef nonnull @.str.9, i32 noundef %6) #7
   %arrayidx22 = getelementptr inbounds [9 x ptr], ptr %arguments, i64 0, i64 %idxprom10

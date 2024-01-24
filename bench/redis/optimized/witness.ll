@@ -3,9 +3,6 @@ source_filename = "bench/redis/original/witness.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.witness_s = type { ptr, i32, ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-
 @witness_lock_error = hidden local_unnamed_addr constant ptr @witness_lock_error_impl, align 8
 @witness_owner_error = hidden local_unnamed_addr constant ptr @witness_owner_error_impl, align 8
 @witness_not_owner_error = hidden local_unnamed_addr constant ptr @witness_not_owner_error_impl, align 8
@@ -25,11 +22,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @witness_init(ptr nocapture noundef writeonly %witness, ptr noundef %name, i32 noundef %rank, ptr noundef %comp, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   store ptr %name, ptr %witness, align 8
-  %rank2 = getelementptr inbounds %struct.witness_s, ptr %witness, i64 0, i32 1
+  %rank2 = getelementptr inbounds i8, ptr %witness, i64 8
   store i32 %rank, ptr %rank2, align 8
-  %comp3 = getelementptr inbounds %struct.witness_s, ptr %witness, i64 0, i32 2
+  %comp3 = getelementptr inbounds i8, ptr %witness, i64 16
   store ptr %comp, ptr %comp3, align 8
-  %opaque4 = getelementptr inbounds %struct.witness_s, ptr %witness, i64 0, i32 3
+  %opaque4 = getelementptr inbounds i8, ptr %witness, i64 24
   store ptr %opaque, ptr %opaque4, align 8
   ret void
 }
@@ -40,7 +37,7 @@ entry:
   tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str) #6
   tail call fastcc void @witness_print_witnesses(ptr noundef %witnesses)
   %0 = load ptr, ptr %witness, align 8
-  %rank = getelementptr inbounds %struct.witness_s, ptr %witness, i64 0, i32 1
+  %rank = getelementptr inbounds i8, ptr %witness, i64 8
   %1 = load i32, ptr %rank, align 8
   tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.1, ptr noundef %0, i32 noundef %1) #6
   tail call void @abort() #7
@@ -51,7 +48,7 @@ entry:
 define internal void @witness_owner_error_impl(ptr nocapture noundef readonly %witness) #1 {
 entry:
   %0 = load ptr, ptr %witness, align 8
-  %rank = getelementptr inbounds %struct.witness_s, ptr %witness, i64 0, i32 1
+  %rank = getelementptr inbounds i8, ptr %witness, i64 8
   %1 = load i32, ptr %rank, align 8
   tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.4, ptr noundef %0, i32 noundef %1) #6
   tail call void @abort() #7
@@ -62,7 +59,7 @@ entry:
 define internal void @witness_not_owner_error_impl(ptr nocapture noundef readonly %witness) #1 {
 entry:
   %0 = load ptr, ptr %witness, align 8
-  %rank = getelementptr inbounds %struct.witness_s, ptr %witness, i64 0, i32 1
+  %rank = getelementptr inbounds i8, ptr %witness, i64 8
   %1 = load i32, ptr %rank, align 8
   tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.5, ptr noundef %0, i32 noundef %1) #6
   tail call void @abort() #7
@@ -122,9 +119,9 @@ for.body:                                         ; preds = %entry, %if.end10
   br i1 %cmp1.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %rank = getelementptr inbounds %struct.witness_s, ptr %w.019, i64 0, i32 1
+  %rank = getelementptr inbounds i8, ptr %w.019, i64 8
   %1 = load i32, ptr %rank, align 8
-  %rank2 = getelementptr inbounds %struct.witness_s, ptr %last.020, i64 0, i32 1
+  %rank2 = getelementptr inbounds i8, ptr %last.020, i64 8
   %2 = load i32, ptr %rank2, align 8
   %cmp3 = icmp ugt i32 %1, %2
   br i1 %cmp3, label %do.end, label %if.end10
@@ -145,7 +142,7 @@ if.else.i:                                        ; preds = %do.end
 if.end10:                                         ; preds = %if.else.i, %if.then.i, %for.body, %land.lhs.true
   %n.1 = phi i32 [ %n.021, %land.lhs.true ], [ %n.021, %for.body ], [ 0, %if.then.i ], [ 0, %if.else.i ]
   %inc = add i32 %n.1, 1
-  %link = getelementptr inbounds %struct.witness_s, ptr %w.019, i64 0, i32 4
+  %link = getelementptr inbounds i8, ptr %w.019, i64 32
   %4 = load ptr, ptr %link, align 8
   %5 = load ptr, ptr %witnesses, align 8
   %cmp12.not = icmp eq ptr %4, %5
@@ -156,7 +153,7 @@ if.end10:                                         ; preds = %if.else.i, %if.then
 if.then16:                                        ; preds = %if.end10
   %cmp.i13 = icmp eq i32 %n.1, 0
   %6 = load ptr, ptr %w.019, align 8
-  %rank.i14 = getelementptr inbounds %struct.witness_s, ptr %w.019, i64 0, i32 1
+  %rank.i14 = getelementptr inbounds i8, ptr %w.019, i64 8
   %7 = load i32, ptr %rank.i14, align 8
   br i1 %cmp.i13, label %if.then.i16, label %if.else.i15
 

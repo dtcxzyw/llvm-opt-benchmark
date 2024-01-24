@@ -55,7 +55,8 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
-  %git_config_name = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv
+  %git_config_name = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %git_config_name, align 8
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key, ptr noundef nonnull dereferenceable(1) %0) #7
   %tobool3.not = icmp eq i32 %call2, 0
@@ -70,7 +71,7 @@ if.then6:                                         ; preds = %if.then4
   br label %return
 
 if.end9:                                          ; preds = %if.then4
-  %value12 = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %indvars.iv, i32 2
+  %value12 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load ptr, ptr %value12, align 16
   tail call void @free(ptr noundef %1) #6
   %call13 = tail call ptr @xstrdup(ptr noundef nonnull %value) #6
@@ -94,14 +95,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %idxprom = zext nneg i32 %var to i64
-  %getenv_called = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %idxprom, i32 3
+  %arrayidx = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %idxprom
+  %getenv_called = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %bf.load = load i8, ptr %getenv_called, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.then1, label %if.end19
 
 if.then1:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 16
   %call = tail call ptr @getenv(ptr noundef %0) #6
   %tobool4.not = icmp eq ptr %call, null
@@ -113,7 +114,7 @@ land.lhs.true:                                    ; preds = %if.then1
   br i1 %tobool5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
-  %value = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %idxprom, i32 2
+  %value = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %value, align 16
   tail call void @free(ptr noundef %2) #6
   %call9 = tail call ptr @xstrdup(ptr noundef nonnull %call) #6
@@ -128,7 +129,7 @@ if.end13:                                         ; preds = %if.then6, %land.lhs
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end13, %if.end
-  %value22 = getelementptr inbounds [11 x %struct.tr2_sysenv_entry], ptr @tr2_sysenv_settings, i64 0, i64 %idxprom, i32 2
+  %value22 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %value22, align 16
   ret ptr %3
 }

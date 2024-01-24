@@ -3,12 +3,6 @@ source_filename = "bench/hermes/original/UTF16Stream.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::UTF16Stream" = type { ptr, ptr, ptr, ptr, ptr, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<char16_t, std::allocator<char16_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<char16_t, std::allocator<char16_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<char16_t, std::allocator<char16_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char16_t, std::allocator<char16_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 $_ZNSt6vectorIDsSaIDsEE17_M_default_appendEm = comdat any
 
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
@@ -18,24 +12,24 @@ $_ZNSt6vectorIDsSaIDsEE17_M_default_appendEm = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes11UTF16StreamC2EN4llvh8ArrayRefIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr %utf8.coerce0, i64 %utf8.coerce1) unnamed_addr #0 align 2 {
 entry:
-  %utf8Begin_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 2
+  %utf8Begin_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %utf8.coerce0, ptr %utf8Begin_, align 8
-  %utf8End_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 3
+  %utf8End_ = getelementptr inbounds i8, ptr %this, i64 24
   %add.ptr.i = getelementptr inbounds i8, ptr %utf8.coerce0, i64 %utf8.coerce1
   store ptr %add.ptr.i, ptr %utf8End_, align 8
-  %beginCapture_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 4
+  %beginCapture_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %beginCapture_, align 8
-  %storage_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5
-  %0 = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %storage_ = getelementptr inbounds i8, ptr %this, i64 40
+  %0 = getelementptr inbounds i8, ptr %this, i64 48
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #11
   store ptr %call5.i.i.i.i.i.i, ptr %storage_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i, i64 1024
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 2048
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(2048) %call5.i.i.i.i.i.i, i8 0, i64 2048, i1 false)
   store ptr %add.ptr.i.i.i, ptr %0, align 8
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %call5.i.i.i.i.i.i, i64 1023
-  %end_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 2046
+  %end_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr.i.i, ptr %end_, align 8
   store ptr %add.ptr.i.i, ptr %this, align 8
   ret void
@@ -45,7 +39,7 @@ entry:
 define hidden void @_ZN6hermes11UTF16Stream12beginCaptureEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %beginCapture_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 4
+  %beginCapture_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %0, ptr %beginCapture_, align 8
   ret void
 }
@@ -53,7 +47,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden { ptr, i64 } @_ZN6hermes11UTF16Stream10endCaptureEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %beginCapture_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 4
+  %beginCapture_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %beginCapture_, align 8
   store ptr null, ptr %beginCapture_, align 8
   %1 = load ptr, ptr %this, align 8
@@ -69,7 +63,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6hermes11UTF16Stream13cancelCaptureEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %beginCapture_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 4
+  %beginCapture_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %beginCapture_, align 8
   ret void
 }
@@ -77,15 +71,15 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes11UTF16Stream18makeRoomForCaptureEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %beginCapture_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 4
+  %beginCapture_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %beginCapture_, align 8
-  %storage_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5
+  %storage_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %storage_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 1
-  %_M_finish.i = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast
@@ -124,8 +118,8 @@ if.then.i.i:                                      ; preds = %if.then5.i
 _ZNSt6vectorIDsSaIDsEE6resizeEm.exit:             ; preds = %if.then.i, %if.else.i, %if.then5.i, %if.then.i.i
   %4 = phi ptr [ %.pre10, %if.then.i ], [ %1, %if.else.i ], [ %1, %if.then5.i ], [ %1, %if.then.i.i ]
   %5 = phi ptr [ %.pre9, %if.then.i ], [ %2, %if.else.i ], [ %2, %if.then5.i ], [ %add.ptr.i, %if.then.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %5, i64 -1
-  %end_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -2
+  %end_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr.i.i, ptr %end_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %beginCapture_, align 8
@@ -133,7 +127,7 @@ _ZNSt6vectorIDsSaIDsEE6resizeEm.exit:             ; preds = %if.then.i, %if.else
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %end_22 = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 1
+  %end_22 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %end_22, align 8
   %sub.ptr.lhs.cast24 = ptrtoint ptr %6 to i64
   %sub.ptr.sub26 = sub i64 %sub.ptr.lhs.cast24, %sub.ptr.lhs.cast
@@ -161,18 +155,18 @@ if.end:                                           ; preds = %_ZSt4copyIPKDsN9__g
 define hidden noundef zeroext i1 @_ZN6hermes11UTF16Stream6refillEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 align 2 {
 entry:
   %out = alloca ptr, align 8
-  %utf8Begin_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 2
+  %utf8Begin_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %utf8Begin_, align 8
-  %utf8End_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 3
+  %utf8End_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %utf8End_, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %beginCapture_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 4
+  %beginCapture_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %beginCapture_, align 8
   %tobool.not = icmp eq ptr %2, null
-  %storage_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5
+  %storage_ = getelementptr inbounds i8, ptr %this, i64 40
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -181,7 +175,7 @@ if.then2:                                         ; preds = %if.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
@@ -226,7 +220,7 @@ _ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i:           ; preds = %if.then.i.i.i, %if.
   br label %if.end9
 
 if.else.i:                                        ; preds = %if.then2
-  %end_22.i = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 1
+  %end_22.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %end_22.i, align 8
   %sub.ptr.lhs.cast24.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub26.i = sub i64 %sub.ptr.lhs.cast24.i, %sub.ptr.lhs.cast.i
@@ -247,7 +241,7 @@ _ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load ptr, ptr %_M_finish.i, align 8
   %11 = load ptr, ptr %storage_, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %10 to i64
@@ -257,7 +251,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp3, label %if.then5.i, label %if.end9
 
 if.then5.i:                                       ; preds = %if.else
-  %add.ptr.i17 = getelementptr inbounds i16, ptr %11, i64 1024
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %11, i64 2048
   %tobool.not.i.i = icmp eq ptr %10, %add.ptr.i17
   br i1 %tobool.not.i.i, label %if.end9, label %if.then.i.i18
 
@@ -269,8 +263,8 @@ if.end9:                                          ; preds = %if.else, %if.then5.
   %12 = phi ptr [ %.pre, %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i ], [ %7, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i ], [ %add.ptr.i17, %if.then.i.i18 ], [ %10, %if.then5.i ], [ %10, %if.else ]
   %13 = phi ptr [ %add.ptr40.i, %_ZSt4copyIPKDsN9__gnu_cxx17__normal_iteratorIPDsSt6vectorIDsSaIDsEEEEET0_T_SA_S9_.exit.i ], [ %add.ptr20.i, %_ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i ], [ %11, %if.then.i.i18 ], [ %11, %if.then5.i ], [ %11, %if.else ]
   store ptr %13, ptr %this, align 8
-  %add.ptr.i.i21 = getelementptr inbounds i16, ptr %12, i64 -1
-  %end_ = getelementptr inbounds %"class.hermes::UTF16Stream", ptr %this, i64 0, i32 1
+  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %12, i64 -2
+  %end_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr.i.i21, ptr %end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.i.i21 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %13 to i64
@@ -363,14 +357,14 @@ entry:
   br i1 %cmp.not, label %if.end41, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<char16_t, std::allocator<char16_t>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 1
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<char16_t, std::allocator<char16_t>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -385,15 +379,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store i16 0, ptr %0, align 2
-  %incdec.ptr.i.i.i = getelementptr i16, ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 2
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 1
   %4 = add i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -417,33 +412,33 @@ _ZNKSt6vectorIDsSaIDsEE12_M_check_lenEmPKc.exit:  ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #11
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i16 0, ptr %add.ptr, align 2
-  %cmp.i.i.i.i.i21 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i21, label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit25, label %if.end.i.i.i.i.i22
+  %cmp.i.i.i.i.i22 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i22, label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26, label %if.end.i.i.i.i.i23
 
-if.end.i.i.i.i.i22:                               ; preds = %_ZNKSt6vectorIDsSaIDsEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i20 = getelementptr i16, ptr %add.ptr, i64 1
+if.end.i.i.i.i.i23:                               ; preds = %_ZNKSt6vectorIDsSaIDsEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i20 = getelementptr i8, ptr %add.ptr, i64 2
   %6 = shl nuw nsw i64 %__n, 1
   %7 = add nsw i64 %6, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i20, i8 0, i64 %7, i1 false)
-  br label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit25
+  br label %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26
 
-_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit25: ; preds = %_ZNKSt6vectorIDsSaIDsEE12_M_check_lenEmPKc.exit, %if.end.i.i.i.i.i22
+_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26: ; preds = %_ZNKSt6vectorIDsSaIDsEE12_M_check_lenEmPKc.exit, %if.end.i.i.i.i.i23
   %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i26, label %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i27, label %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit
 
-if.then.i.i.i26:                                  ; preds = %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit25
+if.then.i.i.i27:                                  ; preds = %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i, ptr align 2 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit
 
-_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit25, %if.then.i.i.i26
+_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPDsmDsET_S1_T0_RSaIT1_E.exit26, %if.then.i.i.i27
   %tobool.not.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIDsSaIDsEE13_M_deallocateEPDsm.exit, label %if.then.i27
+  br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIDsSaIDsEE13_M_deallocateEPDsm.exit, label %if.then.i28
 
-if.then.i27:                                      ; preds = %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit
+if.then.i28:                                      ; preds = %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #14
   br label %_ZNSt12_Vector_baseIDsSaIDsEE13_M_deallocateEPDsm.exit
 
-_ZNSt12_Vector_baseIDsSaIDsEE13_M_deallocateEPDsm.exit: ; preds = %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit, %if.then.i27
+_ZNSt12_Vector_baseIDsSaIDsEE13_M_deallocateEPDsm.exit: ; preds = %_ZNSt6vectorIDsSaIDsEE11_S_relocateEPDsS2_S2_RS0_.exit, %if.then.i28
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr34 = getelementptr inbounds i16, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8

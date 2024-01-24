@@ -9,52 +9,52 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @Hacl_Hash_Core_SHA1_legacy_init(ptr nocapture noundef writeonly %s) local_unnamed_addr #0 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %s, align 4
-  %arrayidx21 = getelementptr i32, ptr %s, i64 4
+  %arrayidx21 = getelementptr i8, ptr %s, i64 16
   store i32 -1009589776, ptr %arrayidx21, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Hash_Core_SHA1_legacy_finish(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %s, align 4
-  %or7.i = tail call i32 @llvm.bswap.i32(i32 %0)
+  %or7.i = tail call noundef i32 @llvm.bswap.i32(i32 %0)
   store i32 %or7.i, ptr %dst, align 1
   %add.ptr3 = getelementptr i8, ptr %dst, i64 4
-  %arrayidx5 = getelementptr i32, ptr %s, i64 1
+  %arrayidx5 = getelementptr i8, ptr %s, i64 4
   %1 = load i32, ptr %arrayidx5, align 4
-  %or7.i23 = tail call i32 @llvm.bswap.i32(i32 %1)
+  %or7.i23 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %or7.i23, ptr %add.ptr3, align 1
   %add.ptr10 = getelementptr i8, ptr %dst, i64 8
-  %arrayidx12 = getelementptr i32, ptr %s, i64 2
+  %arrayidx12 = getelementptr i8, ptr %s, i64 8
   %2 = load i32, ptr %arrayidx12, align 4
-  %or7.i24 = tail call i32 @llvm.bswap.i32(i32 %2)
+  %or7.i24 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %or7.i24, ptr %add.ptr10, align 1
   %add.ptr17 = getelementptr i8, ptr %dst, i64 12
-  %arrayidx19 = getelementptr i32, ptr %s, i64 3
+  %arrayidx19 = getelementptr i8, ptr %s, i64 12
   %3 = load i32, ptr %arrayidx19, align 4
-  %or7.i25 = tail call i32 @llvm.bswap.i32(i32 %3)
+  %or7.i25 = tail call noundef i32 @llvm.bswap.i32(i32 %3)
   store i32 %or7.i25, ptr %add.ptr17, align 1
   %add.ptr24 = getelementptr i8, ptr %dst, i64 16
-  %arrayidx26 = getelementptr i32, ptr %s, i64 4
+  %arrayidx26 = getelementptr i8, ptr %s, i64 16
   %4 = load i32, ptr %arrayidx26, align 4
-  %or7.i26 = tail call i32 @llvm.bswap.i32(i32 %4)
+  %or7.i26 = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   store i32 %or7.i26, ptr %add.ptr24, align 1
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Hash_SHA1_legacy_update_multi(ptr nocapture noundef %s, ptr nocapture noundef readonly %blocks, i32 noundef %n_blocks) local_unnamed_addr #2 {
 entry:
   %_w.i = alloca [80 x i32], align 16
-  %cmp3.not = icmp eq i32 %n_blocks, 0
-  br i1 %cmp3.not, label %for.end, label %for.body.lr.ph
+  %cmp4.not = icmp eq i32 %n_blocks, 0
+  br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx1.i = getelementptr i32, ptr %s, i64 1
-  %arrayidx2.i = getelementptr i32, ptr %s, i64 2
-  %arrayidx3.i = getelementptr i32, ptr %s, i64 3
-  %arrayidx4.i = getelementptr i32, ptr %s, i64 4
+  %arrayidx1.i = getelementptr i8, ptr %s, i64 4
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 8
+  %arrayidx3.i = getelementptr i8, ptr %s, i64 12
+  %arrayidx4.i = getelementptr i8, ptr %s, i64 16
   %s.promoted = load i32, ptr %s, align 4
   %arrayidx1.i.promoted = load i32, ptr %arrayidx1.i, align 4
   %arrayidx2.i.promoted = load i32, ptr %arrayidx2.i, align 4
@@ -65,11 +65,11 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %legacy_update.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %legacy_update.exit ]
-  %add104.i9 = phi i32 [ %arrayidx4.i.promoted, %for.body.lr.ph ], [ %add104.i, %legacy_update.exit ]
-  %add102.i8 = phi i32 [ %arrayidx3.i.promoted, %for.body.lr.ph ], [ %add102.i, %legacy_update.exit ]
-  %add100.i7 = phi i32 [ %arrayidx2.i.promoted, %for.body.lr.ph ], [ %add100.i, %legacy_update.exit ]
-  %add98.i6 = phi i32 [ %arrayidx1.i.promoted, %for.body.lr.ph ], [ %add98.i, %legacy_update.exit ]
-  %add96.i5 = phi i32 [ %s.promoted, %for.body.lr.ph ], [ %add96.i, %legacy_update.exit ]
+  %add104.i10 = phi i32 [ %arrayidx4.i.promoted, %for.body.lr.ph ], [ %add104.i, %legacy_update.exit ]
+  %add102.i9 = phi i32 [ %arrayidx3.i.promoted, %for.body.lr.ph ], [ %add102.i, %legacy_update.exit ]
+  %add100.i8 = phi i32 [ %arrayidx2.i.promoted, %for.body.lr.ph ], [ %add100.i, %legacy_update.exit ]
+  %add98.i7 = phi i32 [ %arrayidx1.i.promoted, %for.body.lr.ph ], [ %add98.i, %legacy_update.exit ]
+  %add96.i6 = phi i32 [ %s.promoted, %for.body.lr.ph ], [ %add96.i, %legacy_update.exit ]
   %mul = shl i64 %indvars.iv, 6
   %idx.ext = and i64 %mul, 4294967232
   %add.ptr = getelementptr i8, ptr %blocks, i64 %idx.ext
@@ -86,7 +86,7 @@ if.then.i:                                        ; preds = %for.body.i
   %0 = shl nuw nsw i64 %indvars.iv.i, 2
   %add.ptr.i = getelementptr i8, ptr %add.ptr, i64 %0
   %add.ptr.val.i = load i32, ptr %add.ptr.i, align 1
-  %or7.i.i = tail call i32 @llvm.bswap.i32(i32 %add.ptr.val.i)
+  %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %add.ptr.val.i)
   br label %if.end.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -117,72 +117,72 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %exitcond.not.i, label %for.body27.i, label %for.body.i, !llvm.loop !4
 
 for.body27.i:                                     ; preds = %if.end.i, %if.end64.i
-  %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %if.end64.i ], [ 0, %if.end.i ]
-  %add707181.i = phi i32 [ %add70.i, %if.end64.i ], [ %add96.i5, %if.end.i ]
-  %add70717279.i = phi i32 [ %add707181.i, %if.end64.i ], [ %add98.i6, %if.end.i ]
-  %or757378.i = phi i32 [ %or75.i, %if.end64.i ], [ %add100.i7, %if.end.i ]
-  %or75737477.i = phi i32 [ %or757378.i, %if.end64.i ], [ %add102.i8, %if.end.i ]
-  %or7573747576.i = phi i32 [ %or75737477.i, %if.end64.i ], [ %add104.i9, %if.end.i ]
-  %arrayidx34.i = getelementptr [80 x i32], ptr %_w.i, i64 0, i64 %indvars.iv90.i
-  %9 = load i32, ptr %arrayidx34.i, align 4
-  %cmp35.i = icmp ult i64 %indvars.iv90.i, 20
+  %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %if.end64.i ], [ 0, %if.end.i ]
+  %add707175.i = phi i32 [ %add70.i, %if.end64.i ], [ %add96.i6, %if.end.i ]
+  %9 = phi i32 [ %add707175.i, %if.end64.i ], [ %add98.i7, %if.end.i ]
+  %10 = phi i32 [ %or75.i, %if.end64.i ], [ %add100.i8, %if.end.i ]
+  %11 = phi i32 [ %10, %if.end64.i ], [ %add102.i9, %if.end.i ]
+  %12 = phi i32 [ %11, %if.end64.i ], [ %add104.i10, %if.end.i ]
+  %arrayidx34.i = getelementptr [80 x i32], ptr %_w.i, i64 0, i64 %indvars.iv85.i
+  %13 = load i32, ptr %arrayidx34.i, align 4
+  %cmp35.i = icmp ult i64 %indvars.iv85.i, 20
   br i1 %cmp35.i, label %if.end52.i, label %if.else39.i
 
 if.else39.i:                                      ; preds = %for.body27.i
-  %10 = trunc i64 %indvars.iv90.i to i32
-  %11 = add i32 %10, -40
-  %or.cond.i = icmp ult i32 %11, 20
+  %14 = trunc i64 %indvars.iv85.i to i32
+  %15 = add i32 %14, -40
+  %or.cond.i = icmp ult i32 %15, 20
   br i1 %or.cond.i, label %if.else55.thread.i, label %if.else55.i
 
 if.else55.thread.i:                               ; preds = %if.else39.i
-  %and43.i = and i32 %or757378.i, %add70717279.i
-  %and4463.i = xor i32 %or757378.i, %add70717279.i
-  %xor46.i = and i32 %and4463.i, %or75737477.i
+  %and43.i = and i32 %10, %9
+  %and4463.i = xor i32 %10, %9
+  %xor46.i = and i32 %and4463.i, %11
   %xor47.i = xor i32 %xor46.i, %and43.i
   br label %if.else58.i
 
 if.end52.i:                                       ; preds = %for.body27.i
-  %and.i = and i32 %or757378.i, %add70717279.i
-  %not.i = xor i32 %add70717279.i, -1
-  %and37.i = and i32 %or75737477.i, %not.i
+  %and.i = and i32 %10, %9
+  %not.i = xor i32 %9, -1
+  %and37.i = and i32 %11, %not.i
   %xor38.i = or disjoint i32 %and37.i, %and.i
   br label %if.end64.i
 
 if.else55.i:                                      ; preds = %if.else39.i
-  %xor49.i = xor i32 %or757378.i, %add70717279.i
-  %xor50.i = xor i32 %xor49.i, %or75737477.i
-  %cmp56.i = icmp ult i64 %indvars.iv90.i, 40
+  %xor49.i = xor i32 %10, %9
+  %xor50.i = xor i32 %xor49.i, %11
+  %cmp56.i = icmp ult i64 %indvars.iv85.i, 40
   br i1 %cmp56.i, label %if.end64.i, label %if.else58.i
 
 if.else58.i:                                      ; preds = %if.else55.i, %if.else55.thread.i
   %ite0.0.ph69.i = phi i32 [ %xor47.i, %if.else55.thread.i ], [ %xor50.i, %if.else55.i ]
-  %cmp59.i = icmp ult i64 %indvars.iv90.i, 60
+  %cmp59.i = icmp ult i64 %indvars.iv85.i, 60
   %..i = select i1 %cmp59.i, i32 -1894007588, i32 -899497514
   br label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.else58.i, %if.else55.i, %if.end52.i
   %ite0.066.i = phi i32 [ %xor38.i, %if.end52.i ], [ %xor50.i, %if.else55.i ], [ %ite0.0.ph69.i, %if.else58.i ]
   %ite.0.i = phi i32 [ 1518500249, %if.end52.i ], [ 1859775393, %if.else55.i ], [ %..i, %if.else58.i ]
-  %or67.i = tail call i32 @llvm.fshl.i32(i32 %add707181.i, i32 %add707181.i, i32 5)
-  %add.i = add i32 %or7573747576.i, %or67.i
-  %add68.i = add i32 %add.i, %9
+  %or67.i = tail call i32 @llvm.fshl.i32(i32 %add707175.i, i32 %add707175.i, i32 5)
+  %add.i = add i32 %12, %or67.i
+  %add68.i = add i32 %add.i, %13
   %add69.i = add i32 %add68.i, %ite0.066.i
   %add70.i = add i32 %add69.i, %ite.0.i
-  %or75.i = tail call i32 @llvm.fshl.i32(i32 %add70717279.i, i32 %add70717279.i, i32 30)
-  %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
-  %exitcond93.not.i = icmp eq i64 %indvars.iv.next91.i, 80
-  br i1 %exitcond93.not.i, label %legacy_update.exit, label %for.body27.i, !llvm.loop !6
+  %or75.i = tail call i32 @llvm.fshl.i32(i32 %9, i32 %9, i32 30)
+  %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
+  %exitcond88.not.i = icmp eq i64 %indvars.iv.next86.i, 80
+  br i1 %exitcond88.not.i, label %legacy_update.exit, label %for.body27.i, !llvm.loop !6
 
 legacy_update.exit:                               ; preds = %if.end64.i
-  %add96.i = add i32 %add70.i, %add96.i5
+  %add96.i = add i32 %add70.i, %add96.i6
   store i32 %add96.i, ptr %s, align 4
-  %add98.i = add i32 %add707181.i, %add98.i6
+  %add98.i = add i32 %add707175.i, %add98.i7
   store i32 %add98.i, ptr %arrayidx1.i, align 4
-  %add100.i = add i32 %or75.i, %add100.i7
+  %add100.i = add i32 %or75.i, %add100.i8
   store i32 %add100.i, ptr %arrayidx2.i, align 4
-  %add102.i = add i32 %or757378.i, %add102.i8
+  %add102.i = add i32 %10, %add102.i9
   store i32 %add102.i, ptr %arrayidx3.i, align 4
-  %add104.i = add i32 %or75737477.i, %add104.i9
+  %add104.i = add i32 %11, %add104.i10
   store i32 %add104.i, ptr %arrayidx4.i, align 4
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %_w.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -193,7 +193,7 @@ for.end:                                          ; preds = %legacy_update.exit,
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Hash_SHA1_legacy_update_last(ptr nocapture noundef %s, i64 noundef %prev_len, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #2 {
 entry:
   %tmp_twoblocks = alloca [128 x i8], align 16
@@ -231,7 +231,7 @@ legacy_pad.exit:                                  ; preds = %entry, %for.body.pr
   %idx.ext.i = zext nneg i32 %rem4 to i64
   %add.ptr10.i = getelementptr i8, ptr %add.ptr.i, i64 %idx.ext.i
   %shl.i = shl i64 %add, 3
-  %or19.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i)
+  %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i)
   store i64 %or19.i.i, ptr %add.ptr10.i, align 1
   %div1214 = lshr i32 %add7, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef %s, ptr noundef nonnull %tmp_twoblocks, i32 noundef %div1214)
@@ -244,7 +244,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Hash_SHA1_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #2 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
@@ -294,7 +294,7 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %idx.ext.i.i = zext nneg i32 %rem4.i to i64
   %add.ptr10.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext.i.i
   %shl.i.i = shl nuw nsw i64 %add.i, 3
-  %or19.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
   store i64 %or19.i.i.i, ptr %add.ptr10.i.i, align 1
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %s, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)
@@ -303,15 +303,15 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %4 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %3)
   store <4 x i32> %4, ptr %dst, align 1
   %add.ptr24.i = getelementptr i8, ptr %dst, i64 16
-  %arrayidx26.i = getelementptr inbounds i32, ptr %s, i64 4
+  %arrayidx26.i = getelementptr inbounds i8, ptr %s, i64 16
   %5 = load i32, ptr %arrayidx26.i, align 16
-  %or7.i26.i = tail call i32 @llvm.bswap.i32(i32 %5)
+  %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %or7.i26.i, ptr %add.ptr24.i, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @Hacl_Streaming_SHA1_legacy_create_in() local_unnamed_addr #5 {
+define hidden noalias noundef ptr @Hacl_Streaming_SHA1_legacy_create_in() local_unnamed_addr #5 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #15
   %call1 = tail call noalias dereferenceable_or_null(20) ptr @calloc(i64 noundef 5, i64 noundef 4) #15
@@ -322,7 +322,7 @@ entry:
   %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %call1, align 4
-  %arrayidx21.i = getelementptr i32, ptr %call1, i64 4
+  %arrayidx21.i = getelementptr i8, ptr %call1, i64 16
   store i32 -1009589776, ptr %arrayidx21.i, align 4
   ret ptr %call4
 }
@@ -341,7 +341,7 @@ entry:
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %scrut.sroa.0.0.copyload, align 4
-  %arrayidx21.i = getelementptr i32, ptr %scrut.sroa.0.0.copyload, i64 4
+  %arrayidx21.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store i32 -1009589776, ptr %arrayidx21.i, align 4
   store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
   store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
@@ -349,8 +349,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i8 @Hacl_Streaming_SHA1_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i8 @Hacl_Streaming_SHA1_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -467,7 +467,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i8 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Hacl_Streaming_SHA1_legacy_finish(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst) local_unnamed_addr #9 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
@@ -524,7 +524,7 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %idx.ext.i.i = zext nneg i32 %rem4.i to i64
   %add.ptr10.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 %idx.ext.i.i
   %shl.i.i = shl i64 %scrut.sroa.3.0.copyload, 3
-  %or19.i.i.i = tail call i64 @llvm.bswap.i64(i64 %shl.i.i)
+  %or19.i.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %shl.i.i)
   store i64 %or19.i.i.i, ptr %add.ptr10.i.i, align 1
   %div1214.i = lshr i32 %add7.i, 6
   call void @Hacl_Hash_SHA1_legacy_update_multi(ptr noundef nonnull %tmp_block_state, ptr noundef nonnull %tmp_twoblocks.i, i32 noundef %div1214.i)
@@ -533,9 +533,9 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %6 = tail call <4 x i32> @llvm.bswap.v4i32(<4 x i32> %5)
   store <4 x i32> %6, ptr %dst, align 1
   %add.ptr24.i = getelementptr i8, ptr %dst, i64 16
-  %arrayidx26.i = getelementptr inbounds i32, ptr %tmp_block_state, i64 4
+  %arrayidx26.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
   %7 = load i32, ptr %arrayidx26.i, align 16
-  %or7.i26.i = tail call i32 @llvm.bswap.i32(i32 %7)
+  %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   store i32 %or7.i26.i, ptr %add.ptr24.i, align 1
   ret void
 }
@@ -556,7 +556,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias ptr @Hacl_Streaming_SHA1_legacy_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #12 {
+define hidden noalias noundef ptr @Hacl_Streaming_SHA1_legacy_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
@@ -576,7 +576,7 @@ entry:
   ret ptr %call7
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Streaming_SHA1_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #2 {
 entry:
   tail call void @Hacl_Hash_SHA1_legacy_hash(ptr noundef %input, i32 noundef %input_len, ptr noundef %dst)
@@ -602,15 +602,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 declare <4 x i32> @llvm.bswap.v4i32(<4 x i32>) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

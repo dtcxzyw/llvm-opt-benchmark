@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-lhash.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lhash_st = type { ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i32 }
-%struct.lhash_node_st = type { ptr, ptr, i64 }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/lhash/lhash.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -25,18 +22,18 @@ if.end4:                                          ; preds = %if.end
   %0 = insertelement <2 x ptr> poison, ptr %c, i64 0
   %1 = insertelement <2 x ptr> %0, ptr %h, i64 1
   %2 = icmp eq <2 x ptr> %1, zeroinitializer
-  %comp = getelementptr inbounds %struct.lhash_st, ptr %call, i64 0, i32 1
+  %comp = getelementptr inbounds i8, ptr %call, i64 8
   %3 = select <2 x i1> %2, <2 x ptr> <ptr @strcmp, ptr @OPENSSL_LH_strhash>, <2 x ptr> %1
   store <2 x ptr> %3, ptr %comp, align 8
-  %num_nodes = getelementptr inbounds %struct.lhash_st, ptr %call, i64 0, i32 3
+  %num_nodes = getelementptr inbounds i8, ptr %call, i64 24
   store i32 8, ptr %num_nodes, align 8
-  %num_alloc_nodes = getelementptr inbounds %struct.lhash_st, ptr %call, i64 0, i32 4
+  %num_alloc_nodes = getelementptr inbounds i8, ptr %call, i64 28
   store i32 16, ptr %num_alloc_nodes, align 4
-  %pmax = getelementptr inbounds %struct.lhash_st, ptr %call, i64 0, i32 6
+  %pmax = getelementptr inbounds i8, ptr %call, i64 36
   store i32 8, ptr %pmax, align 4
-  %up_load = getelementptr inbounds %struct.lhash_st, ptr %call, i64 0, i32 7
+  %up_load = getelementptr inbounds i8, ptr %call, i64 40
   store i64 512, ptr %up_load, align 8
-  %down_load = getelementptr inbounds %struct.lhash_st, ptr %call, i64 0, i32 8
+  %down_load = getelementptr inbounds i8, ptr %call, i64 48
   store i64 256, ptr %down_load, align 8
   br label %return
 
@@ -108,7 +105,7 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %num_nodes.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes.i = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %num_nodes.i, align 8
   %cmp112.not.i = icmp eq i32 %0, 0
   br i1 %cmp112.not.i, label %OPENSSL_LH_flush.exit, label %for.body.i
@@ -123,7 +120,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
   %n.011.i = phi ptr [ %3, %while.body.i ], [ %2, %for.body.i ]
-  %next.i = getelementptr inbounds %struct.lhash_node_st, ptr %n.011.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %n.011.i, i64 8
   %3 = load ptr, ptr %next.i, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %n.011.i, ptr noundef nonnull @.str, i32 noundef 92) #7
   %cmp2.not.i = icmp eq ptr %3, null
@@ -144,7 +141,7 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   br i1 %cmp1.i, label %for.body.i, label %OPENSSL_LH_flush.exit, !llvm.loop !7
 
 OPENSSL_LH_flush.exit:                            ; preds = %while.end.i, %for.cond.preheader.i
-  %num_items.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 9
+  %num_items.i = getelementptr inbounds i8, ptr %lh, i64 56
   store i64 0, ptr %num_items.i, align 8
   %7 = load ptr, ptr %lh, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 76) #7
@@ -162,7 +159,7 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %num_nodes = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %num_nodes, align 8
   %cmp112.not = icmp eq i32 %0, 0
   br i1 %cmp112.not, label %for.end, label %for.body
@@ -177,7 +174,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 while.body:                                       ; preds = %for.body, %while.body
   %n.011 = phi ptr [ %3, %while.body ], [ %2, %for.body ]
-  %next = getelementptr inbounds %struct.lhash_node_st, ptr %n.011, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %n.011, i64 8
   %3 = load ptr, ptr %next, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %n.011, ptr noundef nonnull @.str, i32 noundef 92) #7
   %cmp2.not = icmp eq ptr %3, null
@@ -198,7 +195,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %while.end, %for.cond.preheader
-  %num_items = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 9
+  %num_items = getelementptr inbounds i8, ptr %lh, i64 56
   store i64 0, ptr %num_items, align 8
   br label %return
 
@@ -209,14 +206,14 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_LH_insert(ptr nocapture noundef %lh, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 10
+  %error = getelementptr inbounds i8, ptr %lh, i64 64
   store i32 0, ptr %error, align 8
-  %up_load = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 7
+  %up_load = getelementptr inbounds i8, ptr %lh, i64 40
   %0 = load i64, ptr %up_load, align 8
-  %num_items = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 9
+  %num_items = getelementptr inbounds i8, ptr %lh, i64 56
   %1 = load i64, ptr %num_items, align 8
   %mul = shl i64 %1, 8
-  %num_nodes = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes = getelementptr inbounds i8, ptr %lh, i64 24
   %2 = load i32, ptr %num_nodes, align 8
   %conv = zext i32 %2 to i64
   %div = udiv i64 %mul, %conv
@@ -224,11 +221,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %num_alloc_nodes.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %num_alloc_nodes.i = getelementptr inbounds i8, ptr %lh, i64 28
   %3 = load i32, ptr %num_alloc_nodes.i, align 4
-  %p1.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 5
+  %p1.i = getelementptr inbounds i8, ptr %lh, i64 32
   %4 = load i32, ptr %p1.i, align 8
-  %pmax2.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 6
+  %pmax2.i = getelementptr inbounds i8, ptr %lh, i64 36
   %5 = load i32, ptr %pmax2.i, align 4
   %add.i = add i32 %4, 1
   %cmp.not.i = icmp ult i32 %add.i, %5
@@ -278,11 +275,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end15.i
 for.body.i:                                       ; preds = %if.end33.i, %for.body.lr.ph.i
   %np.037.i = phi ptr [ %np.034.i, %for.body.lr.ph.i ], [ %np.0.i, %if.end33.i ]
   %n1.036.i = phi ptr [ %arrayidx.i, %for.body.lr.ph.i ], [ %n1.1.i, %if.end33.i ]
-  %hash24.i = getelementptr inbounds %struct.lhash_node_st, ptr %np.037.i, i64 0, i32 2
+  %hash24.i = getelementptr inbounds i8, ptr %np.037.i, i64 16
   %9 = load i64, ptr %hash24.i, align 8
   %rem.i = urem i64 %9, %conv25.i
   %cmp27.not.i = icmp eq i64 %rem.i, %idxprom.i
-  %next32.i = getelementptr inbounds %struct.lhash_node_st, ptr %np.037.i, i64 0, i32 1
+  %next32.i = getelementptr inbounds i8, ptr %np.037.i, i64 8
   br i1 %cmp27.not.i, label %if.end33.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %for.body.i
@@ -306,21 +303,21 @@ expand.exit:                                      ; preds = %if.then.i
   br label %return
 
 if.end:                                           ; preds = %if.end33.i, %if.end15.i, %entry
-  %hash1.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %hash1.i = getelementptr inbounds i8, ptr %lh, i64 16
   %13 = load ptr, ptr %hash1.i, align 8
   %call.i16 = tail call i64 %13(ptr noundef %data) #7
-  %pmax.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 6
+  %pmax.i = getelementptr inbounds i8, ptr %lh, i64 36
   %14 = load i32, ptr %pmax.i, align 4
   %conv.i17 = zext i32 %14 to i64
   %rem.i18 = urem i64 %call.i16, %conv.i17
-  %p.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 5
+  %p.i = getelementptr inbounds i8, ptr %lh, i64 32
   %15 = load i32, ptr %p.i, align 8
   %conv2.i = zext i32 %15 to i64
   %cmp.i = icmp ult i64 %rem.i18, %conv2.i
   br i1 %cmp.i, label %if.then.i23, label %if.end.i19
 
 if.then.i23:                                      ; preds = %if.end
-  %num_alloc_nodes.i24 = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %num_alloc_nodes.i24 = getelementptr inbounds i8, ptr %lh, i64 28
   %16 = load i32, ptr %num_alloc_nodes.i24, align 4
   %conv4.i = zext i32 %16 to i64
   %rem5.i = urem i64 %call.i16, %conv4.i
@@ -328,7 +325,7 @@ if.then.i23:                                      ; preds = %if.end
 
 if.end.i19:                                       ; preds = %if.then.i23, %if.end
   %nn.0.i = phi i64 [ %rem5.i, %if.then.i23 ], [ %rem.i18, %if.end ]
-  %comp.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %comp.i = getelementptr inbounds i8, ptr %lh, i64 8
   %17 = load ptr, ptr %comp.i, align 8
   %18 = load ptr, ptr %lh, align 8
   %sext.i = shl nuw i64 %nn.0.i, 32
@@ -341,7 +338,7 @@ if.end.i19:                                       ; preds = %if.then.i23, %if.en
 for.body.i22:                                     ; preds = %if.end.i19, %for.inc.i
   %n1.020.i = phi ptr [ %n1.0.i, %for.inc.i ], [ %n1.017.i, %if.end.i19 ]
   %n1.0.in19.i = phi ptr [ %ret.1.i, %for.inc.i ], [ %arrayidx.i21, %if.end.i19 ]
-  %hash9.i = getelementptr inbounds %struct.lhash_node_st, ptr %n1.020.i, i64 0, i32 2
+  %hash9.i = getelementptr inbounds i8, ptr %n1.020.i, i64 16
   %19 = load i64, ptr %hash9.i, align 8
   %cmp10.not.i = icmp eq i64 %19, %call.i16
   br i1 %cmp10.not.i, label %if.end13.i, label %for.inc.i
@@ -353,7 +350,7 @@ if.end13.i:                                       ; preds = %for.body.i22
   br i1 %cmp16.i, label %getrn.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end13.i, %for.body.i22
-  %ret.1.i = getelementptr inbounds %struct.lhash_node_st, ptr %n1.020.i, i64 0, i32 1
+  %ret.1.i = getelementptr inbounds i8, ptr %n1.020.i, i64 8
   %n1.0.i = load ptr, ptr %ret.1.i, align 8
   %cmp7.not.i = icmp eq ptr %n1.0.i, null
   br i1 %cmp7.not.i, label %if.then5, label %for.body.i22, !llvm.loop !9
@@ -377,9 +374,9 @@ if.then9:                                         ; preds = %if.then5
 
 if.end11:                                         ; preds = %if.then5
   store ptr %data, ptr %call6, align 8
-  %next = getelementptr inbounds %struct.lhash_node_st, ptr %call6, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr null, ptr %next, align 8
-  %hash13 = getelementptr inbounds %struct.lhash_node_st, ptr %call6, i64 0, i32 2
+  %hash13 = getelementptr inbounds i8, ptr %call6, i64 16
   store i64 %call.i16, ptr %hash13, align 8
   store ptr %call6, ptr %n1.0.in.lcssa.i29, align 8
   %22 = load i64, ptr %num_items, align 8
@@ -402,23 +399,23 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_LH_delete(ptr nocapture noundef %lh, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 10
+  %error = getelementptr inbounds i8, ptr %lh, i64 64
   store i32 0, ptr %error, align 8
-  %hash1.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %hash1.i = getelementptr inbounds i8, ptr %lh, i64 16
   %0 = load ptr, ptr %hash1.i, align 8
   %call.i = tail call i64 %0(ptr noundef %data) #7
-  %pmax.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 6
+  %pmax.i = getelementptr inbounds i8, ptr %lh, i64 36
   %1 = load i32, ptr %pmax.i, align 4
   %conv.i = zext i32 %1 to i64
   %rem.i = urem i64 %call.i, %conv.i
-  %p.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 5
+  %p.i = getelementptr inbounds i8, ptr %lh, i64 32
   %2 = load i32, ptr %p.i, align 8
   %conv2.i = zext i32 %2 to i64
   %cmp.i = icmp ult i64 %rem.i, %conv2.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %num_alloc_nodes.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %num_alloc_nodes.i = getelementptr inbounds i8, ptr %lh, i64 28
   %3 = load i32, ptr %num_alloc_nodes.i, align 4
   %conv4.i = zext i32 %3 to i64
   %rem5.i = urem i64 %call.i, %conv4.i
@@ -426,7 +423,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %nn.0.i = phi i64 [ %rem5.i, %if.then.i ], [ %rem.i, %entry ]
-  %comp.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %comp.i = getelementptr inbounds i8, ptr %lh, i64 8
   %4 = load ptr, ptr %comp.i, align 8
   %5 = load ptr, ptr %lh, align 8
   %sext.i = shl nuw i64 %nn.0.i, 32
@@ -439,7 +436,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %n1.020.i = phi ptr [ %n1.0.i, %for.inc.i ], [ %n1.017.i, %if.end.i ]
   %n1.0.in19.i = phi ptr [ %ret.1.i, %for.inc.i ], [ %arrayidx.i, %if.end.i ]
-  %hash9.i = getelementptr inbounds %struct.lhash_node_st, ptr %n1.020.i, i64 0, i32 2
+  %hash9.i = getelementptr inbounds i8, ptr %n1.020.i, i64 16
   %6 = load i64, ptr %hash9.i, align 8
   %cmp10.not.i = icmp eq i64 %6, %call.i
   br i1 %cmp10.not.i, label %if.end13.i, label %for.inc.i
@@ -451,7 +448,7 @@ if.end13.i:                                       ; preds = %for.body.i
   br i1 %cmp16.i, label %getrn.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end13.i, %for.body.i
-  %ret.1.i = getelementptr inbounds %struct.lhash_node_st, ptr %n1.020.i, i64 0, i32 1
+  %ret.1.i = getelementptr inbounds i8, ptr %n1.020.i, i64 8
   %n1.0.i = load ptr, ptr %ret.1.i, align 8
   %cmp7.not.i = icmp eq ptr %n1.0.i, null
   br i1 %cmp7.not.i, label %return, label %for.body.i, !llvm.loop !9
@@ -462,22 +459,22 @@ getrn.exit:                                       ; preds = %if.end13.i
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %getrn.exit
-  %next = getelementptr inbounds %struct.lhash_node_st, ptr %.pr, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %.pr, i64 8
   %8 = load ptr, ptr %next, align 8
   store ptr %8, ptr %n1.0.in19.i, align 8
   %9 = load ptr, ptr %.pr, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %.pr, ptr noundef nonnull @.str, i32 noundef 146) #7
-  %num_items = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 9
+  %num_items = getelementptr inbounds i8, ptr %lh, i64 56
   %10 = load i64, ptr %num_items, align 8
   %dec = add i64 %10, -1
   store i64 %dec, ptr %num_items, align 8
-  %num_nodes = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes = getelementptr inbounds i8, ptr %lh, i64 24
   %11 = load i32, ptr %num_nodes, align 8
   %cmp2 = icmp ugt i32 %11, 16
   br i1 %cmp2, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else
-  %down_load = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 8
+  %down_load = getelementptr inbounds i8, ptr %lh, i64 48
   %12 = load i64, ptr %down_load, align 8
   %mul = shl i64 %dec, 8
   %conv = zext i32 %11 to i64
@@ -521,7 +518,7 @@ if.else.i:                                        ; preds = %if.then.i19
 
 if.end.i21:                                       ; preds = %if.else.i, %if.then15.i
   %.pre.i = phi ptr [ %call.i20, %if.else.i ], [ %.pre.pre.i, %if.then15.i ]
-  %num_alloc_nodes.i22 = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %num_alloc_nodes.i22 = getelementptr inbounds i8, ptr %lh, i64 28
   %20 = load i32, ptr %num_alloc_nodes.i22, align 4
   %div28.i = lshr i32 %20, 1
   store i32 %div28.i, ptr %num_alloc_nodes.i22, align 4
@@ -546,13 +543,13 @@ if.end24.i:                                       ; preds = %if.end.i21, %if.the
 
 while.cond.i:                                     ; preds = %if.end24.i, %while.cond.i
   %n1.0.i18 = phi ptr [ %25, %while.cond.i ], [ %24, %if.end24.i ]
-  %next.i = getelementptr inbounds %struct.lhash_node_st, ptr %n1.0.i18, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %n1.0.i18, i64 8
   %25 = load ptr, ptr %next.i, align 8
   %cmp38.not.i = icmp eq ptr %25, null
   br i1 %cmp38.not.i, label %contract.exit.loopexit, label %while.cond.i, !llvm.loop !10
 
 contract.exit.loopexit:                           ; preds = %while.cond.i
-  %next.i.le = getelementptr inbounds %struct.lhash_node_st, ptr %n1.0.i18, i64 0, i32 1
+  %next.i.le = getelementptr inbounds i8, ptr %n1.0.i18, i64 8
   br label %contract.exit
 
 contract.exit:                                    ; preds = %contract.exit.loopexit, %if.end24.i
@@ -568,7 +565,7 @@ return:                                           ; preds = %for.inc.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_LH_retrieve(ptr nocapture noundef %lh, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 10
+  %error = getelementptr inbounds i8, ptr %lh, i64 64
   %0 = load i32, ptr %error, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -578,21 +575,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %hash1.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 2
+  %hash1.i = getelementptr inbounds i8, ptr %lh, i64 16
   %1 = load ptr, ptr %hash1.i, align 8
   %call.i = tail call i64 %1(ptr noundef %data) #7
-  %pmax.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 6
+  %pmax.i = getelementptr inbounds i8, ptr %lh, i64 36
   %2 = load i32, ptr %pmax.i, align 4
   %conv.i = zext i32 %2 to i64
   %rem.i = urem i64 %call.i, %conv.i
-  %p.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 5
+  %p.i = getelementptr inbounds i8, ptr %lh, i64 32
   %3 = load i32, ptr %p.i, align 8
   %conv2.i = zext i32 %3 to i64
   %cmp.i = icmp ult i64 %rem.i, %conv2.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %num_alloc_nodes.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 4
+  %num_alloc_nodes.i = getelementptr inbounds i8, ptr %lh, i64 28
   %4 = load i32, ptr %num_alloc_nodes.i, align 4
   %conv4.i = zext i32 %4 to i64
   %rem5.i = urem i64 %call.i, %conv4.i
@@ -600,7 +597,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %nn.0.i = phi i64 [ %rem5.i, %if.then.i ], [ %rem.i, %if.end ]
-  %comp.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 1
+  %comp.i = getelementptr inbounds i8, ptr %lh, i64 8
   %5 = load ptr, ptr %comp.i, align 8
   %6 = load ptr, ptr %lh, align 8
   %sext.i = shl nuw i64 %nn.0.i, 32
@@ -613,7 +610,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
   %n1.020.i = phi ptr [ %n1.0.i, %for.inc.i ], [ %n1.017.i, %if.end.i ]
   %n1.0.in19.i = phi ptr [ %ret.1.i, %for.inc.i ], [ %arrayidx.i, %if.end.i ]
-  %hash9.i = getelementptr inbounds %struct.lhash_node_st, ptr %n1.020.i, i64 0, i32 2
+  %hash9.i = getelementptr inbounds i8, ptr %n1.020.i, i64 16
   %7 = load i64, ptr %hash9.i, align 8
   %cmp10.not.i = icmp eq i64 %7, %call.i
   br i1 %cmp10.not.i, label %if.end13.i, label %for.inc.i
@@ -625,7 +622,7 @@ if.end13.i:                                       ; preds = %for.body.i
   br i1 %cmp16.i, label %getrn.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end13.i, %for.body.i
-  %ret.1.i = getelementptr inbounds %struct.lhash_node_st, ptr %n1.020.i, i64 0, i32 1
+  %ret.1.i = getelementptr inbounds i8, ptr %n1.020.i, i64 8
   %n1.0.i = load ptr, ptr %ret.1.i, align 8
   %cmp7.not.i = icmp eq ptr %n1.0.i, null
   br i1 %cmp7.not.i, label %cond.end, label %for.body.i, !llvm.loop !9
@@ -651,7 +648,7 @@ entry:
   br i1 %cmp.i, label %doall_util_fn.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %num_nodes.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes.i = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %num_nodes.i, align 8
   %i.010.i = add i32 %0, -1
   %cmp111.i = icmp sgt i32 %i.010.i, -1
@@ -676,7 +673,7 @@ for.cond.loopexit.us.i:                           ; preds = %while.body.us.us.i,
 
 while.body.us.us.i:                               ; preds = %for.body.us.i, %while.body.us.us.i
   %a.09.us.us.i = phi ptr [ %4, %while.body.us.us.i ], [ %3, %for.body.us.i ]
-  %next.us.us.i = getelementptr inbounds %struct.lhash_node_st, ptr %a.09.us.us.i, i64 0, i32 1
+  %next.us.us.i = getelementptr inbounds i8, ptr %a.09.us.us.i, i64 8
   %4 = load ptr, ptr %next.us.us.i, align 8
   %5 = load ptr, ptr %a.09.us.us.i, align 8
   tail call void %func(ptr noundef %5) #7
@@ -694,7 +691,7 @@ entry:
   br i1 %cmp.i, label %doall_util_fn.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %num_nodes.i = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 3
+  %num_nodes.i = getelementptr inbounds i8, ptr %lh, i64 24
   %0 = load i32, ptr %num_nodes.i, align 8
   %i.010.i = add i32 %0, -1
   %cmp111.i = icmp sgt i32 %i.010.i, -1
@@ -719,7 +716,7 @@ for.body.i:                                       ; preds = %for.cond.loopexit.i
 
 while.body.i:                                     ; preds = %for.body.i, %while.body.i
   %a.09.i = phi ptr [ %4, %while.body.i ], [ %3, %for.body.i ]
-  %next.i = getelementptr inbounds %struct.lhash_node_st, ptr %a.09.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %a.09.i, i64 8
   %4 = load ptr, ptr %next.i, align 8
   %5 = load ptr, ptr %a.09.i, align 8
   tail call void %func(ptr noundef %5, ptr noundef %arg) #7
@@ -782,7 +779,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %num_items = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 9
+  %num_items = getelementptr inbounds i8, ptr %lh, i64 56
   %0 = load i64, ptr %num_items, align 8
   br label %cond.end
 
@@ -794,7 +791,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @OPENSSL_LH_get_down_load(ptr nocapture noundef readonly %lh) local_unnamed_addr #4 {
 entry:
-  %down_load = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 8
+  %down_load = getelementptr inbounds i8, ptr %lh, i64 48
   %0 = load i64, ptr %down_load, align 8
   ret i64 %0
 }
@@ -802,7 +799,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @OPENSSL_LH_set_down_load(ptr nocapture noundef writeonly %lh, i64 noundef %down_load) local_unnamed_addr #5 {
 entry:
-  %down_load1 = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 8
+  %down_load1 = getelementptr inbounds i8, ptr %lh, i64 48
   store i64 %down_load, ptr %down_load1, align 8
   ret void
 }
@@ -810,7 +807,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @OPENSSL_LH_error(ptr nocapture noundef readonly %lh) local_unnamed_addr #4 {
 entry:
-  %error = getelementptr inbounds %struct.lhash_st, ptr %lh, i64 0, i32 10
+  %error = getelementptr inbounds i8, ptr %lh, i64 64
   %0 = load i32, ptr %error, align 8
   ret i32 %0
 }

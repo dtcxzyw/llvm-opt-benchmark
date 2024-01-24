@@ -7,12 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.net::IPEndPoint" = type <{ %"class.net::IPAddress", i16, [6 x i8] }>
-%"class.net::IPAddress" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl" }
 %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl" = type { %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl_data" }
@@ -41,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net12HostPortPairC2Ev(ptr noundef nonnull align 8 dereferenceable(34) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #5
-  %port_ = getelementptr inbounds %"class.net::HostPortPair", ptr %this, i64 0, i32 1
+  %port_ = getelementptr inbounds i8, ptr %this, i64 32
   store i16 0, ptr %port_, align 8
   ret void
 }
@@ -53,7 +47,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define dso_local void @_ZN3net12HostPortPairC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(34) %this, ptr noundef nonnull align 8 dereferenceable(32) %in_host, i16 noundef zeroext %in_port) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %in_host)
-  %port_ = getelementptr inbounds %"class.net::HostPortPair", ptr %this, i64 0, i32 1
+  %port_ = getelementptr inbounds i8, ptr %this, i64 32
   store i16 %in_port, ptr %port_, align 8
   ret void
 }
@@ -74,7 +68,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont1:                                     ; preds = %invoke.cont
   %conv = trunc i32 %call to i16
-  %port_.i = getelementptr inbounds %"class.net::HostPortPair", ptr %agg.result, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i16 %conv, ptr %port_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #5
   ret void
@@ -100,13 +94,13 @@ define dso_local void @_ZN3net12HostPortPair14FromIPEndPointERKNS_10IPEndPointE(
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK3net10IPEndPoint19ToStringWithoutPortB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(26) %ipe)
-  %port_.i = getelementptr inbounds %"class.net::IPEndPoint", ptr %ipe, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %ipe, i64 24
   %0 = load i16, ptr %port_.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %entry
-  %port_.i2 = getelementptr inbounds %"class.net::HostPortPair", ptr %agg.result, i64 0, i32 1
+  %port_.i2 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i16 %0, ptr %port_.i2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #5
   ret void
@@ -131,13 +125,13 @@ entry:
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %str)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp1, ptr noundef nonnull @.str)
   %0 = load ptr, ptr %agg.tmp, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = load ptr, ptr %agg.tmp1, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   %5 = load i64, ptr %4, align 8
   call void @_ZN4base16SplitStringPieceENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr nonnull sret(%"class.std::vector.5") align 8 %key_port, ptr %0, i64 %2, ptr %3, i64 %5, i32 noundef 1, i32 noundef 0)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl_data", ptr %key_port, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %key_port, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %key_port, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
@@ -148,7 +142,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #5
-  %port_.i = getelementptr inbounds %"class.net::HostPortPair", ptr %agg.result, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i16 0, ptr %port_.i, align 8
   br label %cleanup
 
@@ -158,7 +152,7 @@ lpad:                                             ; preds = %if.end7, %if.end
   br label %ehcleanup20
 
 if.end:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds %"class.base::BasicStringPiece", ptr %7, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   %call4 = invoke noundef zeroext i1 @_ZN3net10ParseInt32ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_14ParseIntFormatEPiPNS_13ParseIntErrorE(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i32 noundef 0, ptr noundef nonnull %port, ptr noundef null)
           to label %invoke.cont3 unwind label %lpad
 
@@ -167,7 +161,7 @@ invoke.cont3:                                     ; preds = %if.end
 
 if.then5:                                         ; preds = %invoke.cont3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #5
-  %port_.i4 = getelementptr inbounds %"class.net::HostPortPair", ptr %agg.result, i64 0, i32 1
+  %port_.i4 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i16 0, ptr %port_.i4, align 8
   br label %cleanup
 
@@ -178,7 +172,7 @@ if.end7:                                          ; preds = %invoke.cont3
 
 invoke.cont8:                                     ; preds = %if.end7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #5
-  %port_.i6 = getelementptr inbounds %"class.net::HostPortPair", ptr %agg.result, i64 0, i32 1
+  %port_.i6 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i16 0, ptr %port_.i6, align 8
   br i1 %call9, label %if.end12, label %cleanup
 
@@ -261,7 +255,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %port_ = getelementptr inbounds %"class.net::HostPortPair", ptr %this, i64 0, i32 1
+  %port_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i16, ptr %port_, align 8
   %conv = zext i16 %0 to i32
   invoke void @_ZN4base12UintToStringB5cxx11Ej(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %conv)
@@ -336,7 +330,7 @@ cond.false:                                       ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %cond.false
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp9, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.3)
           to label %invoke.cont14 unwind label %lpad11
 

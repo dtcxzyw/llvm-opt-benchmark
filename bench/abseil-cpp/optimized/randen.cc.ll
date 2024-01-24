@@ -3,8 +3,6 @@ source_filename = "bench/abseil-cpp/original/randen.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::random_internal::Randen" = type <{ ptr, i8, [7 x i8] }>
-
 @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state.0 = internal unnamed_addr global ptr null, align 8
 @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state.1 = internal unnamed_addr global i8 0, align 8
 @_ZGVZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state = internal global i64 0, align 8
@@ -46,7 +44,7 @@ _ZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEv.exit: ; preds = %entry
   %retval.sroa.2.0.copyload.i = load i8, ptr @_ZZN4absl15random_internal12_GLOBAL__N_114GetRandenStateEvE5state.1, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %this, align 8
   %5 = and i8 %retval.sroa.2.0.copyload.i, 1
-  %has_crypto_ = getelementptr inbounds %"class.absl::random_internal::Randen", ptr %this, i64 0, i32 1
+  %has_crypto_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %5, ptr %has_crypto_, align 8
   ret void
 }

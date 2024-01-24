@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN22serde_derive_internals9internals6symbol123_$LT$impl$u20$core..cmp..PartialEq$LT$serde_derive_internals..internals..symbol..Symbol$GT$$u20$for$u20$syn..path..Path$GT$2eq17hecb451a3ccb61d6fE"(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hb57892c0706fe75fE(ptr align 8 %0, ptr nonnull align 1 %3, i64 %5)
   ret i1 %6
@@ -16,7 +16,7 @@ define zeroext i1 @"_ZN22serde_derive_internals9internals6symbol123_$LT$impl$u20
 define zeroext i1 @"_ZN22serde_derive_internals9internals6symbol127_$LT$impl$u20$core..cmp..PartialEq$LT$serde_derive_internals..internals..symbol..Symbol$GT$$u20$for$u20$$RF$syn..path..Path$GT$2eq17hf33d83726075e688E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !7, !noundef !5
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17hb57892c0706fe75fE(ptr nonnull align 8 %3, ptr nonnull align 1 %4, i64 %6)
   ret i1 %7

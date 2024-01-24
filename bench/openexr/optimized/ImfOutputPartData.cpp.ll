@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.Imf_3_2::OutputPartData" = type { %"class.Imf_3_2::Header", i64, i64, i32, i32, i8, ptr }
-%"class.Imf_3_2::Header" = type <{ %"class.std::map", i8, [7 x i8] }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Attribute *>>, std::less<Imf_3_2::Name>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -33,13 +24,13 @@ define hidden void @_ZN7Imf_3_214OutputPartDataC2EPNS_17OutputStreamMutexERKNS_6
 entry:
   %frombool = zext i1 %multipart to i8
   tail call void @_ZN7Imf_3_26HeaderC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(49) %header)
-  %numThreads3 = getelementptr inbounds %"struct.Imf_3_2::OutputPartData", ptr %this, i64 0, i32 3
+  %numThreads3 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %numThreads, ptr %numThreads3, align 8
-  %partNumber4 = getelementptr inbounds %"struct.Imf_3_2::OutputPartData", ptr %this, i64 0, i32 4
+  %partNumber4 = getelementptr inbounds i8, ptr %this, i64 76
   store i32 %partNumber, ptr %partNumber4, align 4
-  %multipart5 = getelementptr inbounds %"struct.Imf_3_2::OutputPartData", ptr %this, i64 0, i32 5
+  %multipart5 = getelementptr inbounds i8, ptr %this, i64 80
   store i8 %frombool, ptr %multipart5, align 8
-  %mutex7 = getelementptr inbounds %"struct.Imf_3_2::OutputPartData", ptr %this, i64 0, i32 6
+  %mutex7 = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %mutex, ptr %mutex7, align 8
   ret void
 }

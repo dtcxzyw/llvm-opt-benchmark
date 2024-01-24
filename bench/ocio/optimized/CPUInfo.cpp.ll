@@ -15,10 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev7CPUInfoC2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(90) %this) unnamed_addr #0 align 2 {
 entry:
-  %family = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::CPUInfo", ptr %this, i64 0, i32 1
-  %model = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::CPUInfo", ptr %this, i64 0, i32 2
-  %name = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::CPUInfo", ptr %this, i64 0, i32 3
-  %vendor = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::CPUInfo", ptr %this, i64 0, i32 4
+  %family = getelementptr inbounds i8, ptr %this, i64 4
+  %model = getelementptr inbounds i8, ptr %this, i64 8
+  %name = getelementptr inbounds i8, ptr %this, i64 12
+  %vendor = getelementptr inbounds i8, ptr %this, i64 77
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(90) %this, i8 0, i64 90, i1 false)
   %0 = tail call { i32, i32, i32, i32 } asm sideeffect "mov    %rbx, %rsi \0A\09cpuid               \0A\09xchg   %rbx, %rsi", "={ax},={si},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #4, !srcloc !4
   %asmresult.i = extractvalue { i32, i32, i32, i32 } %0, 0
@@ -26,9 +26,9 @@ entry:
   %asmresult5.i = extractvalue { i32, i32, i32, i32 } %0, 2
   %asmresult6.i = extractvalue { i32, i32, i32, i32 } %0, 3
   store i32 %asmresult4.i, ptr %vendor, align 1
-  %add.ptr9 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::CPUInfo", ptr %this, i64 0, i32 4, i64 4
+  %add.ptr9 = getelementptr inbounds i8, ptr %this, i64 81
   store i32 %asmresult6.i, ptr %add.ptr9, align 1
-  %add.ptr13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::CPUInfo", ptr %this, i64 0, i32 4, i64 8
+  %add.ptr13 = getelementptr inbounds i8, ptr %this, i64 85
   store i32 %asmresult5.i, ptr %add.ptr13, align 1
   %cmp.not = icmp eq i32 %asmresult.i, 0
   br i1 %cmp.not, label %if.end104, label %if.then
@@ -294,9 +294,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
   %29 = shl nuw nsw i64 %indvars.iv, 4
   %add.ptr217 = getelementptr inbounds i8, ptr %name, i64 %29
-  %arrayidx1.i41 = getelementptr inbounds i32, ptr %add.ptr217, i64 1
-  %arrayidx2.i42 = getelementptr inbounds i32, ptr %add.ptr217, i64 2
-  %arrayidx3.i43 = getelementptr inbounds i32, ptr %add.ptr217, i64 3
+  %arrayidx1.i41 = getelementptr inbounds i8, ptr %add.ptr217, i64 4
+  %arrayidx2.i42 = getelementptr inbounds i8, ptr %add.ptr217, i64 8
+  %arrayidx3.i43 = getelementptr inbounds i8, ptr %add.ptr217, i64 12
   %30 = trunc i64 %indvars.iv to i32
   %31 = add i32 %30, -2147483646
   %32 = tail call { i32, i32, i32, i32 } asm sideeffect "mov    %rbx, %rsi \0A\09cpuid               \0A\09xchg   %rbx, %rsi", "={ax},={si},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 %31, i32 0) #4, !srcloc !4

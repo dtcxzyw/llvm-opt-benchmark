@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
-%struct.evp_cipher_st = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EVP_BytesToKey(ptr nocapture noundef readonly %type, ptr noundef %md, ptr noundef %salt, ptr noundef %data, i64 noundef %data_len, i32 noundef %count, ptr noundef writeonly %key, ptr noundef writeonly %iv) local_unnamed_addr #0 {
@@ -13,13 +12,13 @@ entry:
   %md_buf = alloca [64 x i8], align 16
   %mds = alloca i32, align 4
   store i32 0, ptr %mds, align 4
-  %key_len = getelementptr inbounds %struct.evp_cipher_st, ptr %type, i64 0, i32 2
+  %key_len = getelementptr inbounds i8, ptr %type, i64 8
   %0 = load i32, ptr %key_len, align 8
   %cmp = icmp eq ptr %data, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %iv_len = getelementptr inbounds %struct.evp_cipher_st, ptr %type, i64 0, i32 3
+  %iv_len = getelementptr inbounds i8, ptr %type, i64 12
   %1 = load i32, ptr %iv_len, align 4
   call void @EVP_MD_CTX_init(ptr noundef nonnull %c) #2
   %cmp14.not = icmp eq ptr %salt, null

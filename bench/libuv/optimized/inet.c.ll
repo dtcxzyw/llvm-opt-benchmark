@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @inet_pton6.xdigits_u = internal constant [17 x i8] c"0123456789ABCDEF\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @uv_inet_ntop(i32 noundef %af, ptr nocapture noundef readonly %src, ptr noundef %dst, i64 noundef %size) local_unnamed_addr #0 {
+define noundef i32 @uv_inet_ntop(i32 noundef %af, ptr nocapture noundef readonly %src, ptr noundef %dst, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %tmp.i.i = alloca [16 x i8], align 16
   %tmp.i4 = alloca [46 x i8], align 16
@@ -138,9 +138,9 @@ if.end56.i:                                       ; preds = %if.then45.i, %for.e
   %add.i = add nsw i32 %spec.select.i, %best.sroa.14.3.i.fr
   %cmp99.i = icmp eq i32 %spec.select.i, 0
   %cmp107.i = icmp eq i32 %best.sroa.14.3.i.fr, 7
-  %arrayidx110.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 7
+  %arrayidx110.i = getelementptr inbounds i8, ptr %words.i, i64 28
   %cmp115.i = icmp eq i32 %best.sroa.14.3.i.fr, 5
-  %arrayidx118.i = getelementptr inbounds [8 x i32], ptr %words.i, i64 0, i64 5
+  %arrayidx118.i = getelementptr inbounds i8, ptr %words.i, i64 20
   %sub.ptr.rhs.cast131.i = ptrtoint ptr %tmp.i4 to i64
   %sub.ptr.sub132.neg.i = add i64 %sub.ptr.rhs.cast131.i, 46
   br i1 %cmp99.i, label %for.body70.preheader.i, label %if.end56.split.us.i
@@ -392,7 +392,7 @@ return:                                           ; preds = %entry, %inet_ntop6.
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @uv_inet_pton(i32 noundef %af, ptr noundef %src, ptr noundef writeonly %dst) local_unnamed_addr #1 {
+define noundef i32 @uv_inet_pton(i32 noundef %af, ptr noundef %src, ptr noundef writeonly %dst) local_unnamed_addr #1 {
 entry:
   %tmp.i.i = alloca [4 x i8], align 4
   %tmp.i13 = alloca [16 x i8], align 16

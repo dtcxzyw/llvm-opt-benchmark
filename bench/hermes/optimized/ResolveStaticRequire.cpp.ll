@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.144" = type { %"struct.std::_Tuple_impl.145" }
 %"struct.std::_Tuple_impl.145" = type { %"struct.std::_Head_base.148" }
 %"struct.std::_Head_base.148" = type { ptr }
-%"class.hermes::Pass" = type { ptr, i32, %"class.llvh::StringRef" }
-%"class.llvh::StringRef" = type { ptr, i64 }
 
 $_ZN6hermes20ResolveStaticRequireD2Ev = comdat any
 
@@ -29,11 +27,11 @@ entry:
 define hidden void @_ZN6hermes26createResolveStaticRequireEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.141") align 8 %agg.result) local_unnamed_addr #1 {
 _ZNSt10unique_ptrIN6hermes20ResolveStaticRequireESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #4, !noalias !4
-  %kind.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 1
+  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !4
-  %name2.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2
+  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @.str.13, ptr %name2.i.i.i.i, align 8, !noalias !4
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2, i32 1
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 20, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes20ResolveStaticRequireE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8

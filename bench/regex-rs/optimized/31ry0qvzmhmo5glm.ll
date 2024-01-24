@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$u20$regex_automata..util..prefilter..PrefilterI$GT$4find17h3c1f95d2b08d5bceE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr align 32 %1, ptr align 1 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 {
   %7 = alloca { i64, i64 }, align 8
   store i64 %4, ptr %7, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %7, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %5, ptr %8, align 8
   %9 = tail call { ptr, i64 } @"_ZN14regex_automata4util6search108_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..search..Span$GT$$u20$for$u20$$u5b$u8$u5d$$GT$5index17h3e86cc444039cba3E"(ptr align 1 %2, i64 %3, i64 %4, i64 %5, ptr nonnull align 8 @anon.e79b2971d078f6ce595e8bc57af1064b.1)
   %10 = extractvalue { ptr, i64 } %9, 0
@@ -41,9 +41,9 @@ define void @"_ZN111_$LT$regex_automata..util..prefilter..memmem..Memmem$u20$as$
 
 14:                                               ; preds = %6
   %15 = add i64 %9, %4
-  %16 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %4, ptr %16, align 8
-  %17 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %15, ptr %17, align 8
   br label %18
 

@@ -51,7 +51,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp5 = icmp slt i32 %1, %prev.012
   %spec.select = select i1 %cmp5, i32 1, i32 %bad.013
   %inc = add nuw nsw i32 %i.011, 1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %tmp.014, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.014, i64 8
   %exitcond.not = icmp eq i32 %inc, 32
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -72,7 +72,7 @@ for.body16:                                       ; preds = %if.then10, %for.bod
   %call19 = tail call ptr @OBJ_nid2sn(i32 noundef %5) #4
   %call20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %5, ptr noundef %call19)
   %inc22 = add nuw nsw i32 %i.115, 1
-  %incdec.ptr23 = getelementptr inbounds ptr, ptr %tmp.116, i64 1
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %tmp.116, i64 8
   %exitcond17.not = icmp eq i32 %inc22, 32
   br i1 %exitcond17.not, label %return, label %for.body16, !llvm.loop !9
 

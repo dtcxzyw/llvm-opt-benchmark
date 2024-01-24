@@ -3,8 +3,6 @@ source_filename = "bench/proxygen/original/ZstdStreamCompressor.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.proxygen::ZstdStreamCompressor" = type <{ %"class.proxygen::StreamCompressor", %"class.std::unique_ptr", i32, i8, i8, [2 x i8] }>
-%"class.proxygen::StreamCompressor" = type { ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -52,13 +50,13 @@ define void @_ZN8proxygen20ZstdStreamCompressorC2Eib(ptr nocapture noundef nonnu
 entry:
   %frombool = zext i1 %independentChunks to i8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %codec_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 1
+  %codec_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %codec_, align 8
-  %compressionLevel_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 2
+  %compressionLevel_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %compressionLevel, ptr %compressionLevel_, align 8
-  %independent_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 3
+  %independent_ = getelementptr inbounds i8, ptr %this, i64 20
   store i8 %frombool, ptr %independent_, align 4
-  %error_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 4
+  %error_ = getelementptr inbounds i8, ptr %this, i64 21
   store i8 0, ptr %error_, align 1
   ret void
 }
@@ -67,13 +65,13 @@ entry:
 define noundef nonnull align 8 dereferenceable(49) ptr @_ZN8proxygen20ZstdStreamCompressor8getCodecEv(ptr nocapture noundef nonnull align 8 dereferenceable(22) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
-  %codec_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 1
+  %codec_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codec_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %compressionLevel_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 2
+  %compressionLevel_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %compressionLevel_, align 8
   call void @_ZN5folly2io14getStreamCodecENS0_9CodecTypeEi(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp, i32 noundef 8, i32 noundef %1)
   %2 = load ptr, ptr %ref.tmp, align 8
@@ -85,7 +83,7 @@ if.then:                                          ; preds = %entry
 
 _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %if.then
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(49) %3) #8
   %.pr = load ptr, ptr %ref.tmp, align 8
@@ -94,7 +92,7 @@ _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit: 
 
 _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(49) %.pr) #8
   br label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit
@@ -120,7 +118,7 @@ entry:
   %out = alloca %"class.std::unique_ptr.2", align 8
   %inrange = alloca %"class.folly::Range", align 8
   %outrange = alloca %"class.folly::Range.10", align 8
-  %error_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 4
+  %error_ = getelementptr inbounds i8, ptr %this, i64 21
   %0 = load i8, ptr %error_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -141,7 +139,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   call void @_ZN5folly5IOBufC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %clone) #8
-  %next_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %in, i64 0, i32 4
+  %next_.i = getelementptr inbounds i8, ptr %in, i64 32
   %2 = load ptr, ptr %next_.i, align 8
   %cmp.i.not = icmp eq ptr %2, %in
   br i1 %cmp.i.not, label %if.end8, label %if.then5
@@ -163,20 +161,20 @@ lpad:                                             ; preds = %if.then.i, %invoke.
 
 if.end8:                                          ; preds = %invoke.cont6, %if.end4
   %in.addr.0 = phi ptr [ %clone, %invoke.cont6 ], [ %in, %if.end4 ]
-  %independent_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 3
+  %independent_ = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i8, ptr %independent_, align 4
   %5 = and i8 %4, 1
   %tobool10 = icmp ne i8 %5, 0
   %6 = select i1 %last, i1 true, i1 %tobool10
   %cond = select i1 %6, i32 2, i32 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %codec_.i = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 1
+  %codec_.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %codec_.i, align 8
   %cmp.i.not.i = icmp eq ptr %7, null
   br i1 %cmp.i.not.i, label %if.then.i, label %invoke.cont11
 
 if.then.i:                                        ; preds = %if.end8
-  %compressionLevel_.i = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 2
+  %compressionLevel_.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i32, ptr %compressionLevel_.i, align 8
   invoke void @_ZN5folly2io14getStreamCodecENS0_9CodecTypeEi(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i, i32 noundef 8, i32 noundef %8)
           to label %.noexc unwind label %lpad
@@ -191,7 +189,7 @@ if.then.i:                                        ; preds = %if.end8
 
 _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i: ; preds = %.noexc
   %vtable.i.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(49) %10) #8
   %.pr.i = load ptr, ptr %ref.tmp.i, align 8
@@ -200,7 +198,7 @@ _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i
 
 _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEaSEOS5_.exit.i
   %vtable.i.i.i = load ptr, ptr %.pr.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(49) %.pr.i) #8
   br label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit.i
@@ -220,7 +218,7 @@ invoke.cont11:                                    ; preds = %_ZNSt10unique_ptrIN
 
 if.then15:                                        ; preds = %invoke.cont11
   %14 = load i64, ptr %in.addr.0, align 8
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible", ptr %agg.tmp, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %14, ptr %agg.tmp, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   invoke void @_ZN5folly2io11StreamCodec11resetStreamENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(49) %13, ptr noundef nonnull %agg.tmp)
@@ -237,28 +235,28 @@ invoke.cont23:                                    ; preds = %if.end20
           to label %invoke.cont36 unwind label %lpad
 
 invoke.cont36:                                    ; preds = %invoke.cont23
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %in.addr.0, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %in.addr.0, i64 8
   %16 = load ptr, ptr %data_.i, align 8
   %17 = load i64, ptr %in.addr.0, align 8
   store ptr %16, ptr %inrange, align 8
-  %e_.i = getelementptr inbounds %"class.folly::Range", ptr %inrange, i64 0, i32 1
+  %e_.i = getelementptr inbounds i8, ptr %inrange, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %17
   store ptr %add.ptr.i, ptr %e_.i, align 8
   %18 = load ptr, ptr %out, align 8
-  %data_.i12 = getelementptr inbounds %"class.folly::IOBuf", ptr %18, i64 0, i32 1
+  %data_.i12 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %data_.i12, align 8
   %20 = load i64, ptr %18, align 8
   %add.ptr.i13 = getelementptr inbounds i8, ptr %19, i64 %20
-  %buf_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %18, i64 0, i32 3
+  %buf_.i.i = getelementptr inbounds i8, ptr %18, i64 24
   %21 = load ptr, ptr %buf_.i.i, align 8
-  %capacity_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %18, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %22 = load i64, ptr %capacity_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 %22
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i13 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store ptr %add.ptr.i13, ptr %outrange, align 8
-  %e_.i14 = getelementptr inbounds %"class.folly::Range.10", ptr %outrange, i64 0, i32 1
+  %e_.i14 = getelementptr inbounds i8, ptr %outrange, i64 8
   %add.ptr.i15 = getelementptr inbounds i8, ptr %add.ptr.i13, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i15, ptr %e_.i14, align 8
   %call40 = invoke noundef zeroext i1 @_ZN5folly2io11StreamCodec14compressStreamERNS_5RangeIPKhEERNS2_IPhEENS1_7FlushOpE(ptr noundef nonnull align 8 dereferenceable(49) %13, ptr noundef nonnull align 8 dereferenceable(16) %inrange, ptr noundef nonnull align 8 dereferenceable(16) %outrange, i32 noundef %cond)
@@ -277,7 +275,7 @@ lpad26:                                           ; preds = %invoke.cont36
 invoke.cont98:                                    ; preds = %invoke.cont39
   %24 = load ptr, ptr %out, align 8
   %25 = load ptr, ptr %outrange, align 8
-  %data_.i16 = getelementptr inbounds %"class.folly::IOBuf", ptr %24, i64 0, i32 1
+  %data_.i16 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %data_.i16, align 8
   %27 = load i64, ptr %24, align 8
   %add.ptr.i17 = getelementptr inbounds i8, ptr %26, i64 %27
@@ -296,7 +294,7 @@ if.then100:                                       ; preds = %invoke.cont98
 
 _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i18: ; preds = %if.then100
   %vtable.i.i.i19 = load ptr, ptr %28, align 8
-  %vfn.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i19, i64 1
+  %vfn.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i19, i64 8
   %29 = load ptr, ptr %vfn.i.i.i20, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(49) %28) #8
   br label %cleanup.thread
@@ -395,14 +393,14 @@ declare void @__cxa_end_catch() local_unnamed_addr
 define linkonce_odr void @_ZN8proxygen20ZstdStreamCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(22) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %codec_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 1
+  %codec_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codec_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(49) %0) #8
   br label %_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit
@@ -416,14 +414,14 @@ _ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev.exit: ; p
 define linkonce_odr void @_ZN8proxygen20ZstdStreamCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(22) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %codec_.i = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 1
+  %codec_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codec_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN8proxygen20ZstdStreamCompressorD2Ev.exit, label %_ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5folly2io11StreamCodecEEclEPS2_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(49) %0) #8
   br label %_ZN8proxygen20ZstdStreamCompressorD2Ev.exit
@@ -436,7 +434,7 @@ _ZN8proxygen20ZstdStreamCompressorD2Ev.exit:      ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8proxygen20ZstdStreamCompressor8hasErrorEv(ptr noundef nonnull align 8 dereferenceable(22) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %error_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this, i64 0, i32 4
+  %error_ = getelementptr inbounds i8, ptr %this, i64 21
   %0 = load i8, ptr %error_, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0

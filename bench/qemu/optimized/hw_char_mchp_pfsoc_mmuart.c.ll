@@ -10,27 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.3 = type { i32, i32, i8 }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.MchpPfSoCMMUartState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.SerialMM, [13 x i32] }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.SerialMM = type { %struct.SysBusDevice, %struct.SerialState, i8, i8 }
-%struct.SerialState = type { %struct.DeviceState, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.CharBackend, i32, i32, i32, i32, i8, i64, %struct.Fifo8, %struct.Fifo8, i8, ptr, i32, i64, i32, ptr, %struct.MemoryRegion }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.Fifo8 = type { ptr, i32, i32, i32 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [16 x i8] c"mchp.pfsoc.uart\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"chardev\00", align 1
@@ -111,7 +90,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @mchp_pfsoc_mmuart_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 37, ptr noundef nonnull @__func__.MCHP_PFSOC_UART) #3
-  %serial_mm = getelementptr inbounds %struct.MchpPfSoCMMUartState, ptr %call.i, i64 0, i32 3
+  %serial_mm = getelementptr inbounds i8, ptr %call.i, i64 1360
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull %serial_mm, i64 noundef 1488, ptr noundef nonnull @.str.3) #3
   %call2 = tail call ptr @object_property_add_alias(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull %serial_mm, ptr noundef nonnull @.str.1) #3
   ret void
@@ -121,13 +100,13 @@ entry:
 define internal void @mchp_pfsoc_mmuart_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @mchp_pfsoc_mmuart_realize, ptr %realize, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @mchp_pfsoc_mmuart_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @mchp_pfsoc_mmuart_vmstate, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
@@ -142,7 +121,7 @@ declare ptr @object_property_add_alias(ptr noundef, ptr noundef, ptr noundef, pt
 define internal void @mchp_pfsoc_mmuart_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 37, ptr noundef nonnull @__func__.MCHP_PFSOC_UART) #3
-  %serial_mm = getelementptr inbounds %struct.MchpPfSoCMMUartState, ptr %call.i, i64 0, i32 3
+  %serial_mm = getelementptr inbounds i8, ptr %call.i, i64 1360
   %call.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %serial_mm, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   tail call void @qdev_prop_set_uint8(ptr noundef %call.i17, ptr noundef nonnull @.str.6, i8 noundef zeroext 2) #3
   %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %serial_mm, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
@@ -157,14 +136,14 @@ if.end:                                           ; preds = %entry
   %call.i21 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   %call.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %serial_mm, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_pass_irq(ptr noundef %call.i21, ptr noundef %call.i22) #3
-  %container = getelementptr inbounds %struct.MchpPfSoCMMUartState, ptr %call.i, i64 0, i32 1
+  %container = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @memory_region_init(ptr noundef nonnull %container, ptr noundef %call.i, ptr noundef nonnull @.str.9, i64 noundef 4096) #3
   %call.i23 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_init_mmio(ptr noundef %call.i23, ptr noundef nonnull %container) #3
   %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %serial_mm, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   %call17 = tail call ptr @sysbus_mmio_get_region(ptr noundef %call.i24, i32 noundef 0) #3
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 0, ptr noundef %call17) #3
-  %iomem = getelementptr inbounds %struct.MchpPfSoCMMUartState, ptr %call.i, i64 0, i32 2
+  %iomem = getelementptr inbounds i8, ptr %call.i, i64 1088
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef %call.i, ptr noundef nonnull @mchp_pfsoc_mmuart_ops, ptr noundef %call.i, ptr noundef nonnull @.str.10, i64 noundef 4064) #3
   tail call void @memory_region_add_subregion(ptr noundef nonnull %container, i64 noundef 32, ptr noundef nonnull %iomem) #3
   br label %return
@@ -177,9 +156,9 @@ return:                                           ; preds = %entry, %if.end
 define internal void @mchp_pfsoc_mmuart_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 37, ptr noundef nonnull @__func__.MCHP_PFSOC_UART) #3
-  %reg = getelementptr inbounds %struct.MchpPfSoCMMUartState, ptr %call.i, i64 0, i32 4
+  %reg = getelementptr inbounds i8, ptr %call.i, i64 2848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(52) %reg, i8 0, i64 52, i1 false)
-  %serial_mm = getelementptr inbounds %struct.MchpPfSoCMMUartState, ptr %call.i, i64 0, i32 3
+  %serial_mm = getelementptr inbounds i8, ptr %call.i, i64 1360
   %call.i2 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %serial_mm, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   tail call void @device_cold_reset(ptr noundef %call.i2) #3
   ret void
@@ -220,7 +199,8 @@ if.then2:                                         ; preds = %do.body
 
 if.end3:                                          ; preds = %entry
   %shr = lshr i64 %addr, 2
-  %arrayidx = getelementptr %struct.MchpPfSoCMMUartState, ptr %opaque, i64 0, i32 4, i64 %shr
+  %reg = getelementptr inbounds i8, ptr %opaque, i64 2848
+  %arrayidx = getelementptr [13 x i32], ptr %reg, i64 0, i64 %shr
   %1 = load i32, ptr %arrayidx, align 4
   %conv4 = zext i32 %1 to i64
   br label %return
@@ -250,7 +230,8 @@ if.then4:                                         ; preds = %do.body
 
 if.end5:                                          ; preds = %entry
   %shr = lshr i64 %addr, 2
-  %arrayidx = getelementptr %struct.MchpPfSoCMMUartState, ptr %opaque, i64 0, i32 4, i64 %shr
+  %reg = getelementptr inbounds i8, ptr %opaque, i64 2848
+  %arrayidx = getelementptr [13 x i32], ptr %reg, i64 0, i64 %shr
   store i32 %conv, ptr %arrayidx, align 4
   br label %return
 

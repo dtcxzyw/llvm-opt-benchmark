@@ -102,7 +102,7 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h8da
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %49, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %49, i64 8
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17h55aed018bdd1ff85E"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %15)
   %54 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf17275b572d5d3c2E"(ptr nonnull align 8 %53)
           to label %57 unwind label %.loopexit.split-lp21
@@ -130,9 +130,9 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h8da
   %58 = extractvalue { ptr, ptr } %54, 0
   %59 = extractvalue { ptr, ptr } %54, 1
   store ptr %58, ptr %14, align 8
-  %60 = getelementptr inbounds { ptr, ptr }, ptr %14, i64 0, i32 1
+  %60 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %61 = getelementptr inbounds i8, ptr %11, i64 8
   br label %62
 
 62:                                               ; preds = %.loopexit19, %57
@@ -186,21 +186,21 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h8da
 
 81:                                               ; preds = %76
   store ptr %13, ptr %6, align 8
-  %82 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %82 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h59b75cb278f6bb7eE", ptr %82, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr nonnull align 8 @anon.55d44e0239b33ca778919f5fd189670a.10, i64 1, ptr nonnull align 8 %6, i64 1)
           to label %.invoke unwind label %.loopexit.split-lp.loopexit.split-lp
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %74, i64 0, i32 1
+  %84 = getelementptr inbounds i8, ptr %74, i64 8
   %85 = load ptr, ptr %84, align 8, !nonnull !6, !align !9, !noundef !6
-  %86 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %74, i64 0, i32 1, i32 1
+  %86 = getelementptr inbounds i8, ptr %74, i64 16
   %87 = load i64, ptr %86, align 8, !noundef !6
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h6a7bf74602f1132cE"(ptr nonnull align 8 %12, ptr nonnull align 1 %85, i64 %87)
           to label %.loopexit19 unwind label %.loopexit.split-lp.loopexit
 
 88:                                               ; preds = %76
-  %89 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %74, i64 0, i32 1
+  %89 = getelementptr inbounds i8, ptr %74, i64 8
   %90 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf17275b572d5d3c2E"(ptr nonnull align 8 %89)
           to label %91 unwind label %.loopexit.split-lp.loopexit
 
@@ -235,16 +235,16 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h8da
   br i1 %102, label %103, label %108
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %99, i64 0, i32 1
+  %104 = getelementptr inbounds i8, ptr %99, i64 8
   %105 = load ptr, ptr %104, align 8, !nonnull !6, !align !9, !noundef !6
-  %106 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %99, i64 0, i32 1, i32 1
+  %106 = getelementptr inbounds i8, ptr %99, i64 16
   %107 = load i64, ptr %106, align 8, !noundef !6
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h6a7bf74602f1132cE"(ptr nonnull align 8 %12, ptr nonnull align 1 %105, i64 %107)
           to label %94 unwind label %.loopexit
 
 108:                                              ; preds = %100
   store ptr %10, ptr %8, align 8
-  %109 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %109 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h59b75cb278f6bb7eE", ptr %109, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr nonnull align 8 @anon.55d44e0239b33ca778919f5fd189670a.7, i64 1, ptr nonnull align 8 %8, i64 1)
           to label %.invoke unwind label %.loopexit.split-lp.loopexit.split-lp

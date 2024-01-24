@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.async_ctrs = type { i32, i32 }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -46,13 +45,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.async_write.smallrec = private unnamed_addr constant [6 x i8] c"\00\00\00\00\01\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -96,7 +95,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_asyncio(i32 noundef %test) #1 {
+define internal noundef i32 @test_asyncio(i32 noundef %test) #1 {
 entry:
   %serverctx = alloca ptr, align 8
   %clientctx = alloca ptr, align 8
@@ -395,7 +394,7 @@ entry:
 if.end3:                                          ; preds = %entry
   %call4 = tail call ptr @BIO_get_data(ptr noundef %bio) #5
   tail call void @BIO_clear_flags(ptr noundef %bio, i32 noundef 15) #5
-  %wctr = getelementptr inbounds %struct.async_ctrs, ptr %call4, i64 0, i32 1
+  %wctr = getelementptr inbounds i8, ptr %call4, i64 4
   %0 = load i32, ptr %wctr, align 4
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %if.else126, label %if.then6
@@ -407,9 +406,9 @@ if.then6:                                         ; preds = %if.end3
 
 if.then8:                                         ; preds = %if.then6
   %conv = zext nneg i32 %inl to i64
-  %arrayidx85 = getelementptr inbounds [6 x i8], ptr %smallrec, i64 0, i64 1
-  %arrayidx87 = getelementptr inbounds [6 x i8], ptr %smallrec, i64 0, i64 2
-  %arrayidx89 = getelementptr inbounds [6 x i8], ptr %smallrec, i64 0, i64 5
+  %arrayidx85 = getelementptr inbounds i8, ptr %smallrec, i64 1
+  %arrayidx87 = getelementptr inbounds i8, ptr %smallrec, i64 2
+  %arrayidx89 = getelementptr inbounds i8, ptr %smallrec, i64 5
   br label %while.cond
 
 while.cond:                                       ; preds = %while.end95, %if.then8
@@ -728,7 +727,7 @@ entry:
 declare i32 @BIO_meth_set_gets(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @async_gets(ptr nocapture readnone %bio, ptr nocapture readnone %buf, i32 %size) #0 {
+define internal noundef i32 @async_gets(ptr nocapture readnone %bio, ptr nocapture readnone %buf, i32 %size) #0 {
 entry:
   ret i32 -1
 }
@@ -756,7 +755,7 @@ return:                                           ; preds = %sw.default, %entry
 declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @async_new(ptr noundef %bio) #1 {
+define internal noundef i32 @async_new(ptr noundef %bio) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 8, ptr noundef nonnull @.str.14, i32 noundef 66) #5
   %cmp = icmp eq ptr %call, null
@@ -775,7 +774,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @async_free(ptr noundef %bio) #1 {
+define internal noundef i32 @async_free(ptr noundef %bio) #1 {
 entry:
   %cmp = icmp eq ptr %bio, null
   br i1 %cmp, label %return, label %if.end

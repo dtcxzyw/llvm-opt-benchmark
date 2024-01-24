@@ -81,12 +81,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17hf0f58be6e57d1117E"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
@@ -185,12 +185,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
   store ptr %8, ptr %6, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %6, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %11, align 8
   store ptr %6, ptr %5, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %12, align 8
   %13 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17hf6c41c636844a89dE"(ptr nonnull align 8 %6)
           to label %15 unwind label %.loopexit.split-lp
@@ -264,7 +264,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %34 = extractvalue { i64, i32 } %29, 0
   %35 = extractvalue { i64, i32 } %29, 1
   store i64 %34, ptr %33, align 8
-  %36 = getelementptr inbounds [0 x { i64, i32 }], ptr %16, i64 0, i64 %.fca.0.extract, i32 1
+  %36 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %35, ptr %36, align 8
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %37 = icmp eq i64 %.pr, 0
@@ -294,12 +294,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17h9e1b23d8f81c03eaE"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
@@ -398,12 +398,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
   store ptr %8, ptr %6, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %6, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %11, align 8
   store ptr %6, ptr %5, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %12, align 8
   %13 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17h68c7903c71b8f398E"(ptr nonnull align 8 %6)
           to label %15 unwind label %.loopexit.split-lp
@@ -502,12 +502,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
   store ptr %8, ptr %6, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %6, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %11, align 8
   store ptr %6, ptr %5, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %12, align 8
   %13 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17hc67ae2df0e39ca5aE"(ptr nonnull align 8 %6)
           to label %15 unwind label %.loopexit.split-lp
@@ -581,7 +581,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %34 = extractvalue { i32, i32 } %29, 0
   %35 = extractvalue { i32, i32 } %29, 1
   store i32 %34, ptr %33, align 4
-  %36 = getelementptr inbounds [0 x { i32, i32 }], ptr %16, i64 0, i64 %.fca.0.extract, i32 1
+  %36 = getelementptr inbounds i8, ptr %33, i64 4
   store i32 %35, ptr %36, align 4
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %37 = icmp eq i64 %.pr, 0
@@ -611,12 +611,12 @@ define hidden void @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie4iter1
   %9 = alloca { ptr, ptr }, align 8
   %10 = alloca ptr, align 8
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { i64, { { { ptr, i64 }, i64 } } }, { i64, { { { ptr, i64 }, i64 } } } }, ptr %1, i64 0, i32 4
+  %11 = getelementptr inbounds i8, ptr %1, i64 96
   %12 = tail call { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$10borrow_mut17h508a0518879dea26E"(ptr nonnull align 8 %11, ptr nonnull align 8 @anon.0faa2e580157d88a22476e8f29ef1d11.3)
   %.fca.0.extract = extractvalue { ptr, ptr } %12, 0
   store ptr %.fca.0.extract, ptr %9, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %12, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %13 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h4d4f46d4253ab2c6E"(ptr nonnull align 8 %9)
           to label %18 unwind label %16
@@ -639,7 +639,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie4iter1
           to label %19 unwind label %16
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { i64, { { { ptr, i64 }, i64 } } }, { i64, { { { ptr, i64 }, i64 } } } }, ptr %1, i64 0, i32 5
+  %20 = getelementptr inbounds i8, ptr %1, i64 128
   %21 = invoke { ptr, ptr } @"_ZN4core4cell16RefCell$LT$T$GT$10borrow_mut17h534e0b7a90a57243E"(ptr nonnull align 8 %20, ptr nonnull align 8 @anon.0faa2e580157d88a22476e8f29ef1d11.4)
           to label %22 unwind label %16
 
@@ -647,7 +647,7 @@ define hidden void @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie4iter1
   %.fca.0.extract1 = extractvalue { ptr, ptr } %21, 0
   store ptr %.fca.0.extract1, ptr %8, align 8
   %.fca.1.extract3 = extractvalue { ptr, ptr } %21, 1
-  %.fca.1.gep4 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %.fca.1.gep4 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.fca.1.extract3, ptr %.fca.1.gep4, align 8
   %23 = invoke align 8 ptr @"_ZN74_$LT$core..cell..RefMut$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hfc73618a641bdd71E"(ptr nonnull align 8 %8)
           to label %24 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -690,8 +690,8 @@ define hidden void @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie4iter1
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %27
-  %28 = getelementptr inbounds { [1 x i64], { i64, i32 } }, ptr %7, i64 0, i32 1
-  %29 = getelementptr inbounds { [1 x i64], { i64, i32 } }, ptr %7, i64 0, i32 1, i32 1
+  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 16
   br label %30
 
 30:                                               ; preds = %.preheader, %84
@@ -742,9 +742,9 @@ define hidden void @_ZN14regex_automata3nfa8thompson10range_trie9RangeTrie4iter1
           to label %50 unwind label %.loopexit.loopexit
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds { i32, { i8, i8 }, [2 x i8] }, ptr %45, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %45, i64 4
   %52 = load i8, ptr %51, align 4, !noundef !5
-  %53 = getelementptr inbounds { i32, { i8, i8 }, [2 x i8] }, ptr %45, i64 0, i32 1, i32 1
+  %53 = getelementptr inbounds i8, ptr %45, i64 5
   %54 = load i8, ptr %53, align 1, !noundef !5
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4f9c70197b74d6ebE"(ptr align 8 %49, i8 %52, i8 %54)
           to label %55 unwind label %.loopexit.loopexit
@@ -959,7 +959,7 @@ define hidden void @"_ZN85_$LT$regex_automata..nfa..thompson..range_trie..State$
   %6 = alloca ptr, align 8
   store ptr %2, ptr %6, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha91c4d08bdaf09c1E", ptr %7, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.0faa2e580157d88a22476e8f29ef1d11.10, i64 1, ptr nonnull align 8 %4, i64 1)
   call void @_ZN5alloc3fmt6format17ha29fd04f702afcabE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr nonnull align 8 %5)

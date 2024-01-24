@@ -14,15 +14,15 @@ define hidden void @"_ZN22serde_derive_internals9internals5check38check_internal
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = load ptr, ptr %5, align 8, !nonnull !5, !align !6, !noundef !5
-  %7 = getelementptr inbounds { ptr, ptr, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !6, !noundef !5
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !align !6, !noundef !5
-  %10 = getelementptr inbounds { { { i64, [6 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { i64, [28 x i64] }, { [8 x i32], i32, [3 x i32] }, { [8 x i32], i32, [3 x i32] }, { [22 x i32], i32, [3 x i32] }, { { { { ptr, i64 }, i64, { {} }, {} } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, i8, [6 x i8] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { i8, i8 }, { i8, i8 }, i8, i8, i8, i8, i8, i8, [6 x i8] }, { i8, [31 x i8] }, { { [24 x i8], i8, [7 x i8] }, {} }, ptr, ptr }, ptr %9, i64 0, i32 4
+  %10 = getelementptr inbounds i8, ptr %9, i64 1192
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !align !6, !noundef !5
-  %12 = getelementptr inbounds { ptr, ptr, ptr }, ptr %0, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !align !6, !noundef !5
   store ptr %13, ptr %2, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h506f3086e7de21a9E", ptr %14, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.44195bb420a2103908f1fdc00ef28206.2, i64 2, ptr nonnull align 8 %2, i64 1)
   call void @_ZN5alloc3fmt6format17h33baad1a8d99d4edE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr nonnull align 8 %3)

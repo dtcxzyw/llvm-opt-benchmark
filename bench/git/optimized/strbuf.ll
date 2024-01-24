@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.string_list_item = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -182,12 +181,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 if.then35.i:                                      ; preds = %entry
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   %0 = tail call i64 @llvm.umax.i64(i64 %hint, i64 23)
   %add8.div20.i = add nuw i64 %0, 1
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %call31.i = tail call ptr @xrealloc(ptr noundef null, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
   store i8 0, ptr %call31.i, align 1
@@ -209,7 +208,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len, align 8
   %2 = sub nuw i64 -2, %extra
   %cmp2 = icmp ult i64 %2, %1
@@ -223,7 +222,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.not, label %if.then4, label %do.body
 
 if.then4:                                         ; preds = %if.end
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf, align 8
   br label %do.body
 
@@ -239,7 +238,7 @@ if.then11:                                        ; preds = %do.body
   %div20 = lshr i64 %mul, 1
   %add8.div20 = tail call i64 @llvm.umax.i64(i64 %div20, i64 %add8)
   store i64 %add8.div20, ptr %sb, align 8
-  %buf29 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29 = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29, align 8
   %call31 = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20) #23
   store ptr %call31, ptr %buf29, align 8
@@ -249,7 +248,7 @@ do.end:                                           ; preds = %do.body, %if.then11
   br i1 %tobool.not, label %if.then35, label %if.end37
 
 if.then35:                                        ; preds = %do.end
-  %buf36 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36 = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36, align 8
   store i8 0, ptr %5, align 1
   br label %if.end37
@@ -266,7 +265,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   tail call void @free(ptr noundef %1) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
@@ -284,7 +283,7 @@ define dso_local ptr @strbuf_detach(ptr nocapture noundef %sb, ptr noundef write
 entry:
   %0 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %cmp2.i = icmp eq i64 %1, -1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -297,7 +296,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -312,7 +311,7 @@ do.end.i:                                         ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -323,7 +322,7 @@ if.then35.i:                                      ; preds = %do.end.i
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.body.i, %do.end.i, %if.then35.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf, align 8
   %tobool.not = icmp eq ptr %sz, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -346,15 +345,15 @@ entry:
   br i1 %tobool.not.i, label %strbuf_release.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   tail call void @free(ptr noundef %1) #23
   br label %strbuf_release.exit
 
 strbuf_release.exit:                              ; preds = %entry, %if.then.i
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr %buf, ptr %buf1, align 8
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 %len, ptr %len2, align 8
   store i64 %alloc, ptr %sb, align 8
   %tobool.not.i7 = icmp eq i64 %alloc, 0
@@ -409,72 +408,72 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @strbuf_trim(ptr nocapture noundef %sb) local_unnamed_addr #8 {
 entry:
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %len.promoted.i = load i64, ptr %len.i, align 8
-  %cmp.not7.i = icmp eq i64 %len.promoted.i, 0
-  %buf6.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %cmp.not6.i = icmp eq i64 %len.promoted.i, 0
+  %buf6.phi.trans.insert.i = getelementptr inbounds i8, ptr %sb, i64 16
   %.pre.i = load ptr, ptr %buf6.phi.trans.insert.i, align 8
-  br i1 %cmp.not7.i, label %strbuf_rtrim.exit, label %land.rhs.lr.ph.i
+  br i1 %cmp.not6.i, label %strbuf_rtrim.exit, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %entry
   %invariant.gep.i = getelementptr i8, ptr %.pre.i, i64 -1
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %dec68.i = phi i64 [ %len.promoted.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %dec68.i
-  %0 = load i8, ptr %gep.i, align 1
-  %idxprom.i = zext i8 %0 to i64
+  %0 = phi i64 [ %len.promoted.i, %land.rhs.lr.ph.i ], [ %dec.i, %while.body.i ]
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %0
+  %1 = load i8, ptr %gep.i, align 1
+  %idxprom.i = zext i8 %1 to i64
   %arrayidx2.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
-  %1 = load i8, ptr %arrayidx2.i, align 1
-  %2 = and i8 %1, 1
-  %cmp3.not.i = icmp eq i8 %2, 0
+  %2 = load i8, ptr %arrayidx2.i, align 1
+  %3 = and i8 %2, 1
+  %cmp3.not.i = icmp eq i8 %3, 0
   br i1 %cmp3.not.i, label %strbuf_rtrim.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %dec.i = add i64 %dec68.i, -1
+  %dec.i = add i64 %0, -1
   store i64 %dec.i, ptr %len.i, align 8
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %strbuf_rtrim.exit, label %land.rhs.i, !llvm.loop !7
 
 strbuf_rtrim.exit:                                ; preds = %land.rhs.i, %while.body.i, %entry
-  %.lcssa.i = phi i64 [ 0, %entry ], [ %dec68.i, %land.rhs.i ], [ 0, %while.body.i ]
+  %.lcssa.i = phi i64 [ 0, %entry ], [ %0, %land.rhs.i ], [ 0, %while.body.i ]
   %arrayidx8.i = getelementptr inbounds i8, ptr %.pre.i, i64 %.lcssa.i
   store i8 0, ptr %arrayidx8.i, align 1
-  %3 = load ptr, ptr %buf6.phi.trans.insert.i, align 8
+  %4 = load ptr, ptr %buf6.phi.trans.insert.i, align 8
   %len.promoted.i3 = load i64, ptr %len.i, align 8
-  %cmp.not10.i = icmp eq i64 %len.promoted.i3, 0
-  br i1 %cmp.not10.i, label %strbuf_ltrim.exit, label %land.rhs.preheader.i
+  %cmp.not9.i = icmp eq i64 %len.promoted.i3, 0
+  br i1 %cmp.not9.i, label %strbuf_ltrim.exit, label %land.rhs.preheader.i
 
 land.rhs.preheader.i:                             ; preds = %strbuf_rtrim.exit
-  %scevgep.i = getelementptr i8, ptr %3, i64 %len.promoted.i3
+  %scevgep.i = getelementptr i8, ptr %4, i64 %len.promoted.i3
   br label %land.rhs.i4
 
 land.rhs.i4:                                      ; preds = %while.body.i6, %land.rhs.preheader.i
-  %b.012.i = phi ptr [ %incdec.ptr.i, %while.body.i6 ], [ %3, %land.rhs.preheader.i ]
-  %dec911.i = phi i64 [ %dec.i7, %while.body.i6 ], [ %len.promoted.i3, %land.rhs.preheader.i ]
-  %4 = load i8, ptr %b.012.i, align 1
-  %idxprom.i5 = zext i8 %4 to i64
+  %b.010.i = phi ptr [ %incdec.ptr.i, %while.body.i6 ], [ %4, %land.rhs.preheader.i ]
+  %5 = phi i64 [ %dec.i7, %while.body.i6 ], [ %len.promoted.i3, %land.rhs.preheader.i ]
+  %6 = load i8, ptr %b.010.i, align 1
+  %idxprom.i5 = zext i8 %6 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i5
-  %5 = load i8, ptr %arrayidx.i, align 1
-  %6 = and i8 %5, 1
-  %cmp1.not.i = icmp eq i8 %6, 0
+  %7 = load i8, ptr %arrayidx.i, align 1
+  %8 = and i8 %7, 1
+  %cmp1.not.i = icmp eq i8 %8, 0
   br i1 %cmp1.not.i, label %strbuf_ltrim.exit, label %while.body.i6
 
 while.body.i6:                                    ; preds = %land.rhs.i4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %b.012.i, i64 1
-  %dec.i7 = add i64 %dec911.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %b.010.i, i64 1
+  %dec.i7 = add i64 %5, -1
   store i64 %dec.i7, ptr %len.i, align 8
   %cmp.not.i8 = icmp eq i64 %dec.i7, 0
   br i1 %cmp.not.i8, label %strbuf_ltrim.exit, label %land.rhs.i4, !llvm.loop !8
 
 strbuf_ltrim.exit:                                ; preds = %land.rhs.i4, %while.body.i6, %strbuf_rtrim.exit
-  %b.0.lcssa.i = phi ptr [ %3, %strbuf_rtrim.exit ], [ %b.012.i, %land.rhs.i4 ], [ %scevgep.i, %while.body.i6 ]
-  %.lcssa.i9 = phi i64 [ 0, %strbuf_rtrim.exit ], [ %dec911.i, %land.rhs.i4 ], [ 0, %while.body.i6 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %3, ptr align 1 %b.0.lcssa.i, i64 %.lcssa.i9, i1 false)
-  %7 = load ptr, ptr %buf6.phi.trans.insert.i, align 8
-  %8 = load i64, ptr %len.i, align 8
-  %arrayidx8.i10 = getelementptr inbounds i8, ptr %7, i64 %8
+  %b.0.lcssa.i = phi ptr [ %4, %strbuf_rtrim.exit ], [ %b.010.i, %land.rhs.i4 ], [ %scevgep.i, %while.body.i6 ]
+  %.lcssa.i9 = phi i64 [ 0, %strbuf_rtrim.exit ], [ %5, %land.rhs.i4 ], [ 0, %while.body.i6 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %b.0.lcssa.i, i64 %.lcssa.i9, i1 false)
+  %9 = load ptr, ptr %buf6.phi.trans.insert.i, align 8
+  %10 = load i64, ptr %len.i, align 8
+  %arrayidx8.i10 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 0, ptr %arrayidx8.i10, align 1
   ret void
 }
@@ -482,36 +481,36 @@ strbuf_ltrim.exit:                                ; preds = %land.rhs.i4, %while
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @strbuf_rtrim(ptr nocapture noundef %sb) local_unnamed_addr #8 {
 entry:
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %len.promoted = load i64, ptr %len, align 8
-  %cmp.not7 = icmp eq i64 %len.promoted, 0
-  %buf6.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %cmp.not6 = icmp eq i64 %len.promoted, 0
+  %buf6.phi.trans.insert = getelementptr inbounds i8, ptr %sb, i64 16
   %.pre = load ptr, ptr %buf6.phi.trans.insert, align 8
-  br i1 %cmp.not7, label %while.end, label %land.rhs.lr.ph
+  br i1 %cmp.not6, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %invariant.gep = getelementptr i8, ptr %.pre, i64 -1
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
-  %dec68 = phi i64 [ %len.promoted, %land.rhs.lr.ph ], [ %dec, %while.body ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %dec68
-  %0 = load i8, ptr %gep, align 1
-  %idxprom = zext i8 %0 to i64
+  %0 = phi i64 [ %len.promoted, %land.rhs.lr.ph ], [ %dec, %while.body ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep, align 1
+  %idxprom = zext i8 %1 to i64
   %arrayidx2 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %1 = load i8, ptr %arrayidx2, align 1
-  %2 = and i8 %1, 1
-  %cmp3.not = icmp eq i8 %2, 0
+  %2 = load i8, ptr %arrayidx2, align 1
+  %3 = and i8 %2, 1
+  %cmp3.not = icmp eq i8 %3, 0
   br i1 %cmp3.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %dec = add i64 %dec68, -1
+  %dec = add i64 %0, -1
   store i64 %dec, ptr %len, align 8
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
-  %.lcssa = phi i64 [ 0, %entry ], [ 0, %while.body ], [ %dec68, %land.rhs ]
+  %.lcssa = phi i64 [ 0, %entry ], [ 0, %while.body ], [ %0, %land.rhs ]
   %arrayidx8 = getelementptr inbounds i8, ptr %.pre, i64 %.lcssa
   store i8 0, ptr %arrayidx8, align 1
   ret void
@@ -520,42 +519,42 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @strbuf_ltrim(ptr nocapture noundef %sb) local_unnamed_addr #8 {
 entry:
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %len.promoted = load i64, ptr %len, align 8
-  %cmp.not10 = icmp eq i64 %len.promoted, 0
-  br i1 %cmp.not10, label %while.end, label %land.rhs.preheader
+  %cmp.not9 = icmp eq i64 %len.promoted, 0
+  br i1 %cmp.not9, label %while.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %entry
   %scevgep = getelementptr i8, ptr %0, i64 %len.promoted
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
-  %b.012 = phi ptr [ %incdec.ptr, %while.body ], [ %0, %land.rhs.preheader ]
-  %dec911 = phi i64 [ %dec, %while.body ], [ %len.promoted, %land.rhs.preheader ]
-  %1 = load i8, ptr %b.012, align 1
-  %idxprom = zext i8 %1 to i64
+  %b.010 = phi ptr [ %incdec.ptr, %while.body ], [ %0, %land.rhs.preheader ]
+  %1 = phi i64 [ %dec, %while.body ], [ %len.promoted, %land.rhs.preheader ]
+  %2 = load i8, ptr %b.010, align 1
+  %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
-  %2 = load i8, ptr %arrayidx, align 1
-  %3 = and i8 %2, 1
-  %cmp1.not = icmp eq i8 %3, 0
+  %3 = load i8, ptr %arrayidx, align 1
+  %4 = and i8 %3, 1
+  %cmp1.not = icmp eq i8 %4, 0
   br i1 %cmp1.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %b.012, i64 1
-  %dec = add i64 %dec911, -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %b.010, i64 1
+  %dec = add i64 %1, -1
   store i64 %dec, ptr %len, align 8
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !8
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
-  %b.0.lcssa = phi ptr [ %0, %entry ], [ %scevgep, %while.body ], [ %b.012, %land.rhs ]
-  %.lcssa = phi i64 [ 0, %entry ], [ 0, %while.body ], [ %dec911, %land.rhs ]
+  %b.0.lcssa = phi ptr [ %0, %entry ], [ %scevgep, %while.body ], [ %b.010, %land.rhs ]
+  %.lcssa = phi i64 [ 0, %entry ], [ 0, %while.body ], [ %1, %land.rhs ]
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %b.0.lcssa, i64 %.lcssa, i1 false)
-  %4 = load ptr, ptr %buf, align 8
-  %5 = load i64, ptr %len, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %4, i64 %5
+  %5 = load ptr, ptr %buf, align 8
+  %6 = load i64, ptr %len, align 8
+  %arrayidx8 = getelementptr inbounds i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx8, align 1
   ret void
 }
@@ -563,32 +562,32 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @strbuf_trim_trailing_dir_sep(ptr nocapture noundef %sb) local_unnamed_addr #8 {
 entry:
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %len.promoted = load i64, ptr %len, align 8
-  %cmp.not7 = icmp eq i64 %len.promoted, 0
-  %buf3.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %cmp.not6 = icmp eq i64 %len.promoted, 0
+  %buf3.phi.trans.insert = getelementptr inbounds i8, ptr %sb, i64 16
   %.pre = load ptr, ptr %buf3.phi.trans.insert, align 8
-  br i1 %cmp.not7, label %while.end, label %land.rhs.lr.ph
+  br i1 %cmp.not6, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
   %invariant.gep = getelementptr i8, ptr %.pre, i64 -1
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
-  %dec68 = phi i64 [ %len.promoted, %land.rhs.lr.ph ], [ %dec, %while.body ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %dec68
-  %0 = load i8, ptr %gep, align 1
-  %cmp.i.not = icmp eq i8 %0, 47
+  %0 = phi i64 [ %len.promoted, %land.rhs.lr.ph ], [ %dec, %while.body ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %0
+  %1 = load i8, ptr %gep, align 1
+  %cmp.i.not = icmp eq i8 %1, 47
   br i1 %cmp.i.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %dec = add i64 %dec68, -1
+  %dec = add i64 %0, -1
   store i64 %dec, ptr %len, align 8
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !9
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
-  %.lcssa = phi i64 [ 0, %entry ], [ 0, %while.body ], [ %dec68, %land.rhs ]
+  %.lcssa = phi i64 [ 0, %entry ], [ 0, %while.body ], [ %0, %land.rhs ]
   %arrayidx5 = getelementptr inbounds i8, ptr %.pre, i64 %.lcssa
   store i8 0, ptr %arrayidx5, align 1
   ret void
@@ -597,13 +596,13 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @strbuf_trim_trailing_newline(ptr nocapture noundef %sb) local_unnamed_addr #9 {
 entry:
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end21, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx = getelementptr i8, ptr %2, i64 -1
@@ -650,9 +649,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf, align 8
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len1, align 8
   %call2 = call ptr @reencode_string_len(ptr noundef %0, i64 noundef %1, ptr noundef %to, ptr noundef %from, ptr noundef nonnull %len) #23
   %tobool3.not = icmp eq ptr %call2, null
@@ -724,9 +723,9 @@ declare ptr @reencode_string_len(ptr noundef, i64 noundef, ptr noundef, ptr noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @strbuf_tolower(ptr nocapture noundef readonly %sb) local_unnamed_addr #8 {
 entry:
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %cmp7 = icmp sgt i64 %1, 0
@@ -800,7 +799,7 @@ if.then.i.i:                                      ; preds = %if.end9
   unreachable
 
 if.then35.i.i:                                    ; preds = %if.end9
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %call10, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %call10, i64 16
   store ptr null, ptr %buf.i.i, align 8
   %0 = tail call i64 @llvm.umax.i64(i64 %conv11, i64 23)
   %add8.div20.i.i = add nuw i64 %0, 1
@@ -889,7 +888,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %2 = sub nuw i64 -2, %len
   %cmp2.i = icmp ult i64 %2, %1
@@ -903,7 +902,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -919,7 +918,7 @@ if.then11.i:                                      ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -929,13 +928,13 @@ do.end.i:                                         ; preds = %if.then11.i, %do.bo
   br i1 %tobool.not.i, label %if.then35.i, label %strbuf_grow.exit
 
 if.then35.i:                                      ; preds = %do.end.i
-  %buf36.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36.i, align 8
   store i8 0, ptr %5, align 1
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.end.i, %if.then35.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load ptr, ptr %buf, align 8
   %7 = load i64, ptr %len.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %7
@@ -974,7 +973,7 @@ entry:
   br i1 %tobool.not8, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %nr = getelementptr inbounds %struct.string_list, ptr %slist, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %slist, i64 8
   %1 = load ptr, ptr %slist, align 8
   %2 = load i64, ptr %nr, align 8
   %add.ptr11 = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %2
@@ -995,7 +994,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %3 = load ptr, ptr %item.0914, align 8
   %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #24
   tail call void @strbuf_add(ptr noundef %str, ptr noundef %3, i64 noundef %call.i7)
-  %incdec.ptr = getelementptr inbounds %struct.string_list_item, ptr %item.0914, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.0914, i64 16
   %4 = load ptr, ptr %slist, align 8
   %5 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %5
@@ -1025,7 +1024,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %tobool.not.i, label %strbuf_release.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %1, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   tail call void @free(ptr noundef %3) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
@@ -1034,7 +1033,7 @@ if.then.i:                                        ; preds = %while.body
 
 strbuf_release.exit:                              ; preds = %while.body, %if.then.i
   %4 = phi ptr [ %1, %while.body ], [ %.pre, %if.then.i ]
-  %incdec.ptr = getelementptr inbounds ptr, ptr %s.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %s.06, i64 8
   tail call void @free(ptr noundef %4) #23
   %5 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %5, null
@@ -1051,15 +1050,15 @@ return:                                           ; preds = %entry, %while.end
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @strbuf_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #11 {
 entry:
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %a, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i64, ptr %len1, align 8
-  %len2 = getelementptr inbounds %struct.strbuf, ptr %b, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i64, ptr %len2, align 8
   %cmp = icmp ult i64 %0, %1
   %. = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %a, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load ptr, ptr %buf, align 8
-  %buf6 = getelementptr inbounds %struct.strbuf, ptr %b, i64 0, i32 2
+  %buf6 = getelementptr inbounds i8, ptr %b, i64 16
   %3 = load ptr, ptr %buf6, align 8
   %call = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %.) #24
   %tobool.not = icmp eq i32 %call, 0
@@ -1085,7 +1084,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len1, align 8
   %cmp2 = icmp ult i64 %0, %pos
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -1125,7 +1124,7 @@ if.end.i:                                         ; preds = %if.then10
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -1141,7 +1140,7 @@ if.then11.i:                                      ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -1151,13 +1150,13 @@ do.end.i:                                         ; preds = %if.then11.i, %do.bo
   br i1 %tobool.not.i, label %if.then35.i, label %if.end12
 
 if.then35.i:                                      ; preds = %do.end.i
-  %buf36.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36.i, align 8
   store i8 0, ptr %5, align 1
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end8, %if.then35.i, %do.end.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %pos
   %add.ptr13 = getelementptr inbounds i8, ptr %add.ptr, i64 %dlen
@@ -1205,7 +1204,7 @@ entry:
 define dso_local void @strbuf_vinsertf(ptr nocapture noundef %sb, i64 noundef %pos, ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #2 {
 entry:
   %cp = alloca [1 x %struct.__va_list_tag], align 16
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len1, align 8
   %cmp = icmp ult i64 %0, %pos
   br i1 %cmp, label %if.then, label %if.end
@@ -1216,7 +1215,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.va_copy(ptr nonnull %cp, ptr %ap)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   %2 = load i64, ptr %len1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
@@ -1379,7 +1378,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_addbuf(ptr nocapture noundef %sb, ptr nocapture noundef readonly %sb2) local_unnamed_addr #2 {
 entry:
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb2, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb2, i64 8
   %0 = load i64, ptr %len, align 8
   %1 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %1, 0
@@ -1387,7 +1386,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %2 = load i64, ptr %len.i, align 8
   %3 = sub nuw i64 -2, %0
   %cmp2.i = icmp ult i64 %3, %2
@@ -1401,7 +1400,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -1417,7 +1416,7 @@ if.then11.i:                                      ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %5, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -1427,17 +1426,17 @@ do.end.i:                                         ; preds = %if.then11.i, %do.bo
   br i1 %tobool.not.i, label %if.then35.i, label %strbuf_grow.exit
 
 if.then35.i:                                      ; preds = %do.end.i
-  %buf36.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load ptr, ptr %buf36.i, align 8
   store i8 0, ptr %6, align 1
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.end.i, %if.then35.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %7 = load ptr, ptr %buf, align 8
   %8 = load i64, ptr %len.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %8
-  %buf2 = getelementptr inbounds %struct.strbuf, ptr %sb2, i64 0, i32 2
+  %buf2 = getelementptr inbounds i8, ptr %sb2, i64 16
   %9 = load ptr, ptr %buf2, align 8
   %10 = load i64, ptr %len, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %9, i64 %10, i1 false)
@@ -1483,8 +1482,8 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not9, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %len.i7.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %len.i7.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %strbuf_addch.exit
@@ -1547,7 +1546,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %8 = load i64, ptr %len.i7.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx3.i, align 1
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv.addr.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.010, i64 8
   %9 = load ptr, ptr %incdec.ptr, align 8
   %call.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
   tail call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %9, i64 noundef %call.i7)
@@ -1556,7 +1555,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br i1 %tobool2.not, label %return, label %while.body, !llvm.loop !13
 
 return:                                           ; preds = %strbuf_addch.exit, %if.end, %entry
-  %retval.0.in = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %retval.0.in = getelementptr inbounds i8, ptr %buf, i64 16
   %retval.0 = load ptr, ptr %retval.0.in, align 8
   ret ptr %retval.0
 }
@@ -1570,7 +1569,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %2 = sub nuw i64 -2, %n
   %cmp2.i = icmp ult i64 %2, %1
@@ -1584,7 +1583,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -1600,7 +1599,7 @@ if.then11.i:                                      ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -1610,13 +1609,13 @@ do.end.i:                                         ; preds = %if.then11.i, %do.bo
   br i1 %tobool.not.i, label %if.then35.i, label %strbuf_grow.exit
 
 if.then35.i:                                      ; preds = %do.end.i
-  %buf36.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36.i, align 8
   store i8 0, ptr %5, align 1
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.end.i, %if.then35.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load ptr, ptr %buf, align 8
   %7 = load i64, ptr %len.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %7
@@ -1667,7 +1666,7 @@ entry:
   %cp = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  %len.i23 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i23 = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i23, align 8
   br i1 %tobool.not.i, label %if.then, label %strbuf_avail.exit
 
@@ -1689,7 +1688,7 @@ if.then.i:                                        ; preds = %if.then.thread, %if
   unreachable
 
 if.then4.i:                                       ; preds = %if.then
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -1704,7 +1703,7 @@ do.end.i:                                         ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -1716,9 +1715,9 @@ if.then35.i:                                      ; preds = %do.end.i
 
 if.end:                                           ; preds = %do.body.i, %if.then35.i, %do.end.i, %strbuf_avail.exit
   call void @llvm.va_copy(ptr nonnull %cp, ptr %ap)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf, align 8
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %sb, i64 8
   %5 = load i64, ptr %len1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
   %6 = load i64, ptr %sb, align 8
@@ -1923,13 +1922,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %while.body, %while.body.us, %entry
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %out, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %strbuf_complete_line.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %while.end
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %out, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %3 = getelementptr i8, ptr %2, i64 %1
   %arrayidx.i.i = getelementptr i8, ptr %3, i64 -1
@@ -2007,13 +2006,13 @@ entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf1, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx = getelementptr i8, ptr %2, i64 -1
@@ -2022,9 +2021,9 @@ land.rhs:                                         ; preds = %entry
   call void @llvm.va_start(ptr nonnull %params)
   call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %params)
   call void @llvm.va_end(ptr nonnull %params)
-  %buf6 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf6 = getelementptr inbounds i8, ptr %buf, i64 16
   %4 = load ptr, ptr %buf6, align 8
-  %len7 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len7 = getelementptr inbounds i8, ptr %buf, i64 8
   %5 = load i64, ptr %len7, align 8
   %6 = load i8, ptr @strbuf_add_commented_lines.prefix1, align 1
   %cmp.not.i = icmp eq i8 %6, %comment_line_char
@@ -2053,9 +2052,9 @@ if.end.critedge:                                  ; preds = %entry
   call void @llvm.va_start(ptr nonnull %params)
   call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef nonnull %params)
   call void @llvm.va_end(ptr nonnull %params)
-  %buf6.c = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf6.c = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load ptr, ptr %buf6.c, align 8
-  %len7.c = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len7.c = getelementptr inbounds i8, ptr %buf, i64 8
   %10 = load i64, ptr %len7.c, align 8
   %11 = load i8, ptr @strbuf_add_commented_lines.prefix1, align 1
   %cmp.not.i6 = icmp eq i8 %11, %comment_line_char
@@ -2123,7 +2122,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %1 = load i64, ptr %sb, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
-  %len.i7.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i7.i = getelementptr inbounds i8, ptr %sb, i64 8
   %2 = load i64, ptr %len.i7.i, align 8
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
@@ -2145,7 +2144,7 @@ if.then.i.i:                                      ; preds = %if.then.thread.i, %
   unreachable
 
 if.then4.i.i:                                     ; preds = %if.then.i
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i.i, align 8
   br label %do.body.i.i
 
@@ -2160,7 +2159,7 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   %div20.i.i = lshr i64 %mul.i.i, 1
   %add8.div20.i.i = tail call i64 @llvm.umax.i64(i64 %div20.i.i, i64 %add8.i.i)
   store i64 %add8.div20.i.i, ptr %sb, align 8
-  %buf29.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i.i, align 8
   %call31.i.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i.i) #23
   store ptr %call31.i.i, ptr %buf29.i.i, align 8
@@ -2171,7 +2170,7 @@ if.then35.i.i:                                    ; preds = %do.end.i.i
   br label %strbuf_addch.exit
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %do.body.i.i, %do.end.i.i, %if.then35.i.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf.i, align 8
   %6 = load i64, ptr %len.i7.i, align 8
   %inc.i = add i64 %6, 1
@@ -2209,7 +2208,7 @@ hex2chr.exit:                                     ; preds = %sw.bb1, %cond.false
 if.end:                                           ; preds = %hex2chr.exit
   %11 = load i64, ptr %sb, align 8
   %tobool.not.i.i5 = icmp eq i64 %11, 0
-  %len.i7.i6 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i7.i6 = getelementptr inbounds i8, ptr %sb, i64 8
   %12 = load i64, ptr %len.i7.i6, align 8
   br i1 %tobool.not.i.i5, label %if.then.i28, label %strbuf_avail.exit.i7
 
@@ -2231,7 +2230,7 @@ if.then.i.i27:                                    ; preds = %if.then.thread.i15,
   unreachable
 
 if.then4.i.i30:                                   ; preds = %if.then.i28
-  %buf.i.i31 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i.i31 = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i.i31, align 8
   br label %do.body.i.i17
 
@@ -2246,7 +2245,7 @@ do.end.i.i20:                                     ; preds = %do.body.i.i17
   %div20.i.i22 = lshr i64 %mul.i.i21, 1
   %add8.div20.i.i23 = tail call i64 @llvm.umax.i64(i64 %div20.i.i22, i64 %add8.i.i18)
   store i64 %add8.div20.i.i23, ptr %sb, align 8
-  %buf29.i.i24 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i.i24 = getelementptr inbounds i8, ptr %sb, i64 16
   %14 = load ptr, ptr %buf29.i.i24, align 8
   %call31.i.i25 = tail call ptr @xrealloc(ptr noundef %14, i64 noundef %add8.div20.i.i23) #23
   store ptr %call31.i.i25, ptr %buf29.i.i24, align 8
@@ -2258,7 +2257,7 @@ if.then35.i.i26:                                  ; preds = %do.end.i.i20
 
 strbuf_addch.exit32:                              ; preds = %strbuf_avail.exit.i7, %do.body.i.i17, %do.end.i.i20, %if.then35.i.i26
   %conv.i = trunc i32 %cond.i to i8
-  %buf.i10 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i10 = getelementptr inbounds i8, ptr %sb, i64 16
   %15 = load ptr, ptr %buf.i10, align 8
   %16 = load i64, ptr %len.i7.i6, align 8
   %inc.i12 = add i64 %16, 1
@@ -2285,15 +2284,15 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_addbuf_percentquote(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
 entry:
-  %len1 = getelementptr inbounds %struct.strbuf, ptr %src, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load i64, ptr %len1, align 8
   %cmp35.not = icmp eq i64 %0, 0
   br i1 %cmp35.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %src, i64 0, i32 2
-  %len.i7.i = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %src, i64 16
+  %len.i7.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %dst, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %strbuf_addch.exit34
@@ -2444,8 +2443,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
-  %len.i7.i = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %len.i7.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %dst, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2550,7 +2549,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %2 = sub nuw i64 -2, %size
   %cmp2.i = icmp ult i64 %2, %1
@@ -2564,7 +2563,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -2580,7 +2579,7 @@ if.then11.i:                                      ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -2590,13 +2589,13 @@ do.end.i:                                         ; preds = %if.then11.i, %do.bo
   br i1 %tobool.not.i, label %if.then35.i, label %strbuf_grow.exit
 
 if.then35.i:                                      ; preds = %do.end.i
-  %buf36.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36.i, align 8
   store i8 0, ptr %5, align 1
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.end.i, %if.then35.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load ptr, ptr %buf, align 8
   %7 = load i64, ptr %len.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %7
@@ -2651,7 +2650,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @strbuf_read(ptr nocapture noundef %sb, i32 noundef %fd, i64 noundef %hint) local_unnamed_addr #2 {
 entry:
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
   %1 = load i64, ptr %sb, align 8
   %tobool.not = icmp eq i64 %hint, 0
@@ -2671,7 +2670,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -2687,7 +2686,7 @@ if.then11.i:                                      ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -2697,13 +2696,13 @@ do.end.i:                                         ; preds = %if.then11.i, %do.bo
   br i1 %tobool.not.i, label %if.then35.i, label %strbuf_grow.exit
 
 if.then35.i:                                      ; preds = %do.end.i
-  %buf36.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36.i, align 8
   store i8 0, ptr %5, align 1
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.end.i, %if.then35.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load i64, ptr %sb, align 8
   %7 = load i64, ptr %len, align 8
   %8 = xor i64 %7, -1
@@ -2836,7 +2835,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %2 = sub nuw i64 -2, %cond
   %cmp2.i = icmp ult i64 %2, %1
@@ -2850,7 +2849,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -2866,7 +2865,7 @@ if.then11.i:                                      ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -2876,13 +2875,13 @@ do.end.i:                                         ; preds = %if.then11.i, %do.bo
   br i1 %tobool.not.i, label %if.then35.i, label %strbuf_grow.exit
 
 if.then35.i:                                      ; preds = %do.end.i
-  %buf36.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36.i, align 8
   store i8 0, ptr %5, align 1
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.end.i, %if.then35.i
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %6 = load ptr, ptr %buf, align 8
   %7 = load i64, ptr %len.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %7
@@ -2939,13 +2938,13 @@ declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i64 @strbuf_write(ptr nocapture noundef readonly %sb, ptr nocapture noundef %f) local_unnamed_addr #16 {
 entry:
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %0, ptr noundef %f)
   br label %cond.end
@@ -2967,8 +2966,8 @@ entry:
 
 lor.lhs.false.i.lr.ph:                            ; preds = %entry
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %hint, i64 32)
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load i64, ptr %len.i, align 8
   %2 = sub nuw nsw i64 -2, %spec.store.select
   %cmp2.i32 = icmp ult i64 %2, %1
@@ -3080,7 +3079,7 @@ if.then13:                                        ; preds = %while.end
   br i1 %tobool.not.i17, label %return, label %if.then.i18
 
 if.then.i18:                                      ; preds = %if.then13
-  %buf.i19 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i19 = getelementptr inbounds i8, ptr %sb, i64 16
   %13 = load ptr, ptr %buf.i19, align 8
   tail call void @free(ptr noundef %13) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.strbuf_addftime.munged_fmt, i64 24, i1 false)
@@ -3101,13 +3100,13 @@ declare ptr @__errno_location() local_unnamed_addr #17
 define dso_local noundef i32 @strbuf_getcwd(ptr nocapture noundef %sb) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %sb, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %cmp2.i32 = icmp ugt i64 %1, -130
   br i1 %cmp2.i32, label %if.then.i, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %entry
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   br label %if.end.i
 
 if.then.i:                                        ; preds = %for.inc, %entry
@@ -3243,9 +3242,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -3321,8 +3320,8 @@ entry:
   br i1 %tobool.not.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %entry
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %line, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %line, i64 0, i32 2
+  %len2.i.i = getelementptr inbounds i8, ptr %line, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %line, i64 16
   %call4.i = tail call ptr @__errno_location() #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len2.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %call4.i, align 4
@@ -3375,9 +3374,9 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
@@ -3521,9 +3520,9 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %len2.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
@@ -3620,9 +3619,9 @@ entry:
 define dso_local noundef i32 @strbuf_getwholeline_fd(ptr nocapture noundef %sb, i32 noundef %fd, i32 noundef %term) local_unnamed_addr #2 {
 entry:
   %ch = alloca i8, align 1
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %while.body.preheader, label %if.then4.i
@@ -3804,7 +3803,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %entry
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %2 = sub nuw i64 -2, %call
   %cmp2.i.i = icmp ult i64 %2, %1
@@ -3818,7 +3817,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   br i1 %tobool.not.i.i, label %if.then4.i.i, label %do.body.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i.i, align 8
   br label %do.body.i.i
 
@@ -3834,7 +3833,7 @@ if.then11.i.i:                                    ; preds = %do.body.i.i
   %div20.i.i = lshr i64 %mul.i.i, 1
   %add8.div20.i.i = tail call i64 @llvm.umax.i64(i64 %div20.i.i, i64 %add8.i.i)
   store i64 %add8.div20.i.i, ptr %sb, align 8
-  %buf29.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   %4 = load ptr, ptr %buf29.i.i, align 8
   %call31.i.i = tail call ptr @xrealloc(ptr noundef %4, i64 noundef %add8.div20.i.i) #23
   store ptr %call31.i.i, ptr %buf29.i.i, align 8
@@ -3844,7 +3843,7 @@ do.end.i.i:                                       ; preds = %if.then11.i.i, %do.
   br i1 %tobool.not.i.i, label %if.then35.i.i, label %strbuf_grow.exit.i
 
 if.then35.i.i:                                    ; preds = %do.end.i.i
-  %buf36.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf36.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf36.i.i, align 8
   store i8 0, ptr %5, align 1
   br label %strbuf_grow.exit.i
@@ -3854,7 +3853,7 @@ strbuf_grow.exit.i:                               ; preds = %if.then35.i.i, %do.
   br i1 %tobool.not12.i, label %strbuf_add_urlencode.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %strbuf_grow.exit.i
-  %buf.i.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i.i.i = getelementptr inbounds i8, ptr %sb, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
@@ -4196,7 +4195,7 @@ entry:
   call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %fmt, ptr noundef %ap)
   %0 = load i64, ptr %buf, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %cmp2.i.i = icmp eq i64 %1, -1
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.end.i.i
@@ -4209,7 +4208,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i, label %if.then4.i.i, label %do.body.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   store ptr null, ptr %buf.i.i, align 8
   br label %do.body.i.i
 
@@ -4218,7 +4217,7 @@ do.body.i.i:                                      ; preds = %if.then4.i.i, %if.e
   br i1 %cmp10.i.not.i, label %do.body.i.i.strbuf_detach.exit_crit_edge, label %do.end.i.i
 
 do.body.i.i.strbuf_detach.exit_crit_edge:         ; preds = %do.body.i.i
-  %buf.i.phi.trans.insert = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 16
   %.pre = load ptr, ptr %buf.i.phi.trans.insert, align 8
   br label %strbuf_detach.exit
 
@@ -4228,7 +4227,7 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   %mul.i.i = add i64 %2, 48
   %div20.i.i = lshr i64 %mul.i.i, 1
   %add8.div20.i.i = tail call i64 @llvm.umax.i64(i64 %div20.i.i, i64 %add8.i.i)
-  %buf29.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf29.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %3 = load ptr, ptr %buf29.i.i, align 8
   %call31.i.i = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %add8.div20.i.i) #23
   br i1 %tobool.not.i.i, label %if.then35.i.i, label %strbuf_detach.exit
@@ -4253,7 +4252,7 @@ entry:
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef %fmt, ptr noundef nonnull %ap)
   %0 = load i64, ptr %buf.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %0, 0
-  %len.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %1 = load i64, ptr %len.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %1, -1
   br i1 %cmp2.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -4266,7 +4265,7 @@ if.end.i.i.i:                                     ; preds = %entry
   br i1 %tobool.not.i.i.i, label %if.then4.i.i.i, label %do.body.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
-  %buf.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   store ptr null, ptr %buf.i.i.i, align 8
   br label %do.body.i.i.i
 
@@ -4275,7 +4274,7 @@ do.body.i.i.i:                                    ; preds = %if.then4.i.i.i, %if
   br i1 %cmp10.i.not.i.i, label %do.body.i.i.strbuf_detach.exit_crit_edge.i, label %do.end.i.i.i
 
 do.body.i.i.strbuf_detach.exit_crit_edge.i:       ; preds = %do.body.i.i.i
-  %buf.i.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %.pre.i = load ptr, ptr %buf.i.phi.trans.insert.i, align 8
   br label %xstrvfmt.exit
 
@@ -4285,7 +4284,7 @@ do.end.i.i.i:                                     ; preds = %do.body.i.i.i
   %mul.i.i.i = add i64 %2, 48
   %div20.i.i.i = lshr i64 %mul.i.i.i, 1
   %add8.div20.i.i.i = call i64 @llvm.umax.i64(i64 %div20.i.i.i, i64 %add8.i.i.i)
-  %buf29.i.i.i = getelementptr inbounds %struct.strbuf, ptr %buf.i, i64 0, i32 2
+  %buf29.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %3 = load ptr, ptr %buf29.i.i.i, align 8
   %call31.i.i.i = call ptr @xrealloc(ptr noundef %3, i64 noundef %add8.div20.i.i.i) #23
   br i1 %tobool.not.i.i.i, label %if.then35.i.i.i, label %xstrvfmt.exit
@@ -4319,8 +4318,8 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.i.i218, label %if.then.i.i137, label %lor.lhs.false.i.i.lr.ph
 
 lor.lhs.false.i.i.lr.ph:                          ; preds = %while.cond.preheader
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %munged_fmt, i64 0, i32 1
-  %buf.i.i136 = getelementptr inbounds %struct.strbuf, ptr %munged_fmt, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %munged_fmt, i64 8
+  %buf.i.i136 = getelementptr inbounds i8, ptr %munged_fmt, i64 16
   %tobool14.not = icmp eq i32 %suppress_tz_name, 0
   %div = sdiv i32 %tz_offset, 100
   %mul = mul nsw i32 %div, 3600
@@ -4615,7 +4614,7 @@ if.end22:                                         ; preds = %do.body.i43, %if.th
 while.end:                                        ; preds = %strbuf_add.exit
   %22 = load i64, ptr %sb, align 8
   %tobool.not.i56 = icmp eq i64 %22, 0
-  %len.i57 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i57 = getelementptr inbounds i8, ptr %sb, i64 8
   %23 = load i64, ptr %len.i57, align 8
   %cmp2.i = icmp ugt i64 %23, -130
   br i1 %cmp2.i, label %if.then.i61, label %if.end.i58
@@ -4628,7 +4627,7 @@ if.end.i58:                                       ; preds = %while.end
   br i1 %tobool.not.i56, label %if.then4.i, label %do.body.i59
 
 if.then4.i:                                       ; preds = %if.end.i58
-  %buf.i60 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i60 = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i60, align 8
   br label %do.body.i59
 
@@ -4643,7 +4642,7 @@ do.end.i:                                         ; preds = %do.body.i59
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %25 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %25, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -4654,7 +4653,7 @@ if.then35.i:                                      ; preds = %do.end.i
   br label %strbuf_grow.exit
 
 strbuf_grow.exit:                                 ; preds = %do.body.i59, %do.end.i, %if.then35.i
-  %buf23 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf23 = getelementptr inbounds i8, ptr %sb, i64 16
   %26 = load ptr, ptr %buf23, align 8
   %27 = load i64, ptr %len.i57, align 8
   %add.ptr = getelementptr inbounds i8, ptr %26, i64 %27
@@ -4832,7 +4831,7 @@ define dso_local void @strbuf_stripspace(ptr nocapture noundef %sb, i8 noundef s
 entry:
   %0 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %0, 0
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   %1 = load i64, ptr %len.i, align 8
   %cmp2.i = icmp ugt i64 %1, -3
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
@@ -4845,7 +4844,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.then4.i, label %do.body.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   store ptr null, ptr %buf.i, align 8
   br label %do.body.i
 
@@ -4860,7 +4859,7 @@ do.end.i:                                         ; preds = %do.body.i
   %div20.i = lshr i64 %mul.i, 1
   %add8.div20.i = tail call i64 @llvm.umax.i64(i64 %div20.i, i64 %add8.i)
   store i64 %add8.div20.i, ptr %sb, align 8
-  %buf29.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf29.i = getelementptr inbounds i8, ptr %sb, i64 16
   %3 = load ptr, ptr %buf29.i, align 8
   %call31.i = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %add8.div20.i) #23
   store ptr %call31.i, ptr %buf29.i, align 8
@@ -4876,7 +4875,7 @@ strbuf_grow.exit:                                 ; preds = %do.body.i, %do.end.
   br i1 %cmp44.not, label %if.end.i37, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %strbuf_grow.exit
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %tobool7.not = icmp eq i8 %comment_line_char, 0
   br i1 %tobool7.not, label %for.body.us, label %for.body
 
@@ -5054,7 +5053,7 @@ if.then.i40:                                      ; preds = %for.end
 if.end.i37:                                       ; preds = %strbuf_grow.exit, %for.end
   %j.0.lcssa59 = phi i64 [ %j.0.lcssa, %for.end ], [ 0, %strbuf_grow.exit ]
   store i64 %j.0.lcssa59, ptr %len.i, align 8
-  %buf.i38 = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i38 = getelementptr inbounds i8, ptr %sb, i64 16
   %25 = load ptr, ptr %buf.i38, align 8
   %cmp3.not.i = icmp eq ptr %25, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i39
@@ -5071,7 +5070,7 @@ strbuf_setlen.exit:                               ; preds = %if.end.i37, %if.the
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_strip_file_from_path(ptr nocapture noundef %sb) local_unnamed_addr #2 {
 entry:
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #24
   %tobool.not = icmp eq ptr %call.i, null
@@ -5093,7 +5092,7 @@ if.then.i:                                        ; preds = %cond.end
 
 if.end.i:                                         ; preds = %entry, %cond.end
   %cond7 = phi i64 [ %add, %cond.end ], [ 0, %entry ]
-  %len2.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 %cond7, ptr %len2.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i

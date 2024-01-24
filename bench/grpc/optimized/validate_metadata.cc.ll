@@ -96,11 +96,11 @@ define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr noalias sre
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes2.i = getelementptr inbounds i8, ptr %slice, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %1
-  %data6.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data6.i = getelementptr inbounds i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %2, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -157,11 +157,11 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr %slice, align 8, !noalias !10
   %tobool.not.i.i = icmp eq ptr %0, null
-  %bytes.i.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i.i, align 8, !noalias !10
   %bytes2.i.i = getelementptr inbounds i8, ptr %slice, i64 9
   %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes2.i.i, ptr %1
-  %data6.i.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data6.i.i = getelementptr inbounds i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i.i, align 8, !noalias !10
   %conv.i.i = and i64 %2, 255
   %cond11.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %2
@@ -228,11 +228,11 @@ define void @_Z42grpc_validate_header_nonbin_value_is_legalRK10grpc_slice(ptr no
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes2.i = getelementptr inbounds i8, ptr %slice, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %1
-  %data6.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data6.i = getelementptr inbounds i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %2, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -276,11 +276,11 @@ entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load ptr, ptr %slice, align 8, !noalias !21
   %tobool.not.i.i = icmp eq ptr %0, null
-  %bytes.i.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i.i, align 8, !noalias !21
   %bytes2.i.i = getelementptr inbounds i8, ptr %slice, i64 9
   %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes2.i.i, ptr %1
-  %data6.i.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data6.i.i = getelementptr inbounds i8, ptr %slice, i64 8
   %2 = load i64, ptr %data6.i.i, align 8, !noalias !21
   %conv.i.i = and i64 %2, 255
   %cond11.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %2
@@ -336,7 +336,7 @@ define noundef i32 @_Z30grpc_is_binary_header_internalRK10grpc_slice(ptr nocaptu
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data6 = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data6 = getelementptr inbounds i8, ptr %slice, i64 8
   %1 = load i64, ptr %data6, align 8
   %conv = and i64 %1, 255
   %cond11 = select i1 %tobool.not, i64 %conv, i64 %1
@@ -345,7 +345,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %bytes2 = getelementptr inbounds i8, ptr %slice, i64 9
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %2
   %add.ptr.i = getelementptr inbounds i8, ptr %cond, i64 %cond11
@@ -365,7 +365,7 @@ define i32 @grpc_is_binary_header(ptr nocapture noundef readonly byval(%struct.g
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %data6.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data6.i = getelementptr inbounds i8, ptr %slice, i64 8
   %1 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %1, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %1
@@ -374,7 +374,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %bytes2.i = getelementptr inbounds i8, ptr %slice, i64 9
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %2
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %cond11.i

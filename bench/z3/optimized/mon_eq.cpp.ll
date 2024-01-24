@@ -11,9 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%"class.std::_Hashtable.87" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 
 $_ZN3nla17check_assignmentsI6vectorINS_6mon_eqELb1EjEEEbRKT_RKN2lp10lar_solverERSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjSC_EEE = comdat any
 
@@ -51,7 +48,7 @@ entry:
   br i1 %cmp.i.i, label %return, label %_ZNK6vectorIN3nla6mon_eqELb1EjE3endEv.exit
 
 _ZNK6vectorIN3nla6mon_eqELb1EjE3endEv.exit:       ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"class.nla::mon_eq", ptr %0, i64 %2
@@ -61,7 +58,7 @@ _ZNK6vectorIN3nla6mon_eqELb1EjE3endEv.exit:       ; preds = %entry
 for.body:                                         ; preds = %_ZNK6vectorIN3nla6mon_eqELb1EjE3endEv.exit, %for.body
   %__begin0.06 = phi ptr [ %incdec.ptr, %for.body ], [ %0, %_ZNK6vectorIN3nla6mon_eqELb1EjE3endEv.exit ]
   %call2 = tail call noundef zeroext i1 @_ZN3nla16check_assignmentINS_6mon_eqEEEbRKT_RSt13unordered_mapIj8rationalSt4hashIjESt8equal_toIjESaISt4pairIKjS6_EEE(ptr noundef nonnull align 8 dereferenceable(16) %__begin0.06, ptr noundef nonnull align 8 dereferenceable(56) %vars)
-  %incdec.ptr = getelementptr inbounds %"class.nla::mon_eq", ptr %__begin0.06, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.06, i64 16
   %cmp.not = icmp ne ptr %incdec.ptr, %add.ptr.i
   %or.cond.not = select i1 %call2, i1 %cmp.not, i1 false
   br i1 %or.cond.not, label %for.body, label %return
@@ -84,7 +81,7 @@ entry:
   %0 = load i32, ptr %m, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node5.i)
   %conv.i.i.i = zext i32 %0 to i64
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable.87", ptr %vars, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %vars, i64 8
   %1 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i = urem i64 %conv.i.i.i, %1
   %2 = load ptr, ptr %vars, align 8
@@ -120,7 +117,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end3.i.i.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i.i.i, %if.end3.i.i.i, %entry
   store ptr %vars, ptr %__node5.i, align 8
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, rational>, std::allocator<std::pair<const unsigned int, rational>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %__node5.i, i64 0, i32 1
+  %_M_node.i.i = getelementptr inbounds i8, ptr %__node5.i, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #12
   store ptr null, ptr %call5.i.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 8
@@ -142,9 +139,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i.i.i
           to label %if.end.i._ZNSt8__detail9_Map_baseIjSt4pairIKj8rationalESaIS4_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj.exit_crit_edge unwind label %lpad.i
 
 if.end.i._ZNSt8__detail9_Map_baseIjSt4pairIKj8rationalESaIS4_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj.exit_crit_edge: ; preds = %if.end.i
-  %m_kind.i.i.i.phi.trans.insert = getelementptr inbounds %class.mpz, ptr %r1, i64 0, i32 1
+  %m_kind.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %r1, i64 4
   %bf.load.i.i.i.pre = load i8, ptr %m_kind.i.i.i.phi.trans.insert, align 4
-  %m_kind.i1.i.i.phi.trans.insert = getelementptr inbounds %class.mpq, ptr %r1, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %r1, i64 20
   %bf.load.i2.i.i.pre = load i8, ptr %m_kind.i1.i.i.phi.trans.insert, align 4
   br label %_ZNSt8__detail9_Map_baseIjSt4pairIKj8rationalESaIS4_ENS_10_Select1stESt8equal_toIjESt4hashIjENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixEOj.exit
 
@@ -165,17 +162,17 @@ _ZNSt8__detail9_Map_baseIjSt4pairIKj8rationalESaIS4_ENS_10_Select1stESt8equal_to
   %retval.0.i = getelementptr inbounds i8, ptr %retval.0.i.pn.i, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node5.i)
   store i32 0, ptr %r1, align 8
-  %m_kind.i.i.i = getelementptr inbounds %class.mpz, ptr %r1, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %r1, i64 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i, -4
   store i8 %bf.clear3.i.i.i, ptr %m_kind.i.i.i, align 4
-  %m_ptr.i.i.i = getelementptr inbounds %class.mpz, ptr %r1, i64 0, i32 2
+  %m_ptr.i.i.i = getelementptr inbounds i8, ptr %r1, i64 8
   store ptr null, ptr %m_ptr.i.i.i, align 8
-  %m_den.i.i = getelementptr inbounds %class.mpq, ptr %r1, i64 0, i32 1
+  %m_den.i.i = getelementptr inbounds i8, ptr %r1, i64 16
   store i32 1, ptr %m_den.i.i, align 8
-  %m_kind.i1.i.i = getelementptr inbounds %class.mpq, ptr %r1, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i = getelementptr inbounds i8, ptr %r1, i64 20
   %bf.clear3.i3.i.i = and i8 %bf.load.i2.i.i, -4
   store i8 %bf.clear3.i3.i.i, ptr %m_kind.i1.i.i, align 4
-  %m_ptr.i4.i.i = getelementptr inbounds %class.mpq, ptr %r1, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %r1, i64 24
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %9 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.pn.i, i64 20
@@ -220,13 +217,13 @@ invoke.cont:                                      ; preds = %if.else.i.i7.i.i, %
   br i1 %cmp.i.i.i.i, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %invoke.cont
-  %m_vs.i = getelementptr inbounds %"class.nla::mon_eq", ptr %m, i64 0, i32 1
+  %m_vs.i = getelementptr inbounds i8, ptr %m, i64 8
   %13 = load ptr, ptr %m_vs.i, align 8
   %cmp.i.i = icmp eq ptr %13, null
   br i1 %cmp.i.i, label %cleanup, label %_ZNK6vectorIjLb0EjE3endEv.exit
 
 _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %if.then
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %13, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i.i, align 4
   %15 = zext i32 %14 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %13, i64 %15
@@ -234,7 +231,7 @@ _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %if.then
   br i1 %cmp.not138, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit
-  %_M_node.i.i76 = getelementptr inbounds %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, rational>, std::allocator<std::pair<const unsigned int, rational>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %__node5.i58, i64 0, i32 1
+  %_M_node.i.i76 = getelementptr inbounds i8, ptr %__node5.i58, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont11, %for.body.lr.ph
@@ -312,7 +309,7 @@ invoke.cont11:                                    ; preds = %for.cond.i.i.i89, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node5.i58)
   %25 = load i32, ptr %retval.0.i88, align 8
   %cmp.i.i.i.i14 = icmp eq i32 %25, 0
-  %incdec.ptr = getelementptr inbounds i32, ptr %__begin0.0139, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.0139, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   %or.cond = select i1 %cmp.i.i.i.i14, i1 true, i1 %cmp.not
   br i1 %or.cond, label %cleanup, label %for.body
@@ -328,18 +325,18 @@ lpad.loopexit.split-lp:                           ; preds = %if.end14
   br label %ehcleanup
 
 if.end14:                                         ; preds = %invoke.cont
-  %m_kind.i.i.i15 = getelementptr inbounds %class.mpz, ptr %r2, i64 0, i32 1
+  %m_kind.i.i.i15 = getelementptr inbounds i8, ptr %r2, i64 4
   %bf.load.i.i.i16 = load i8, ptr %m_kind.i.i.i15, align 4
   %bf.clear3.i.i.i17 = and i8 %bf.load.i.i.i16, -4
-  %m_ptr.i.i.i18 = getelementptr inbounds %class.mpz, ptr %r2, i64 0, i32 2
+  %m_ptr.i.i.i18 = getelementptr inbounds i8, ptr %r2, i64 8
   store ptr null, ptr %m_ptr.i.i.i18, align 8
-  %m_den.i.i19 = getelementptr inbounds %class.mpq, ptr %r2, i64 0, i32 1
+  %m_den.i.i19 = getelementptr inbounds i8, ptr %r2, i64 16
   store i32 1, ptr %m_den.i.i19, align 8
-  %m_kind.i1.i.i20 = getelementptr inbounds %class.mpq, ptr %r2, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i20 = getelementptr inbounds i8, ptr %r2, i64 20
   %bf.load.i2.i.i21 = load i8, ptr %m_kind.i1.i.i20, align 4
   %bf.clear3.i3.i.i22 = and i8 %bf.load.i2.i.i21, -4
   store i8 %bf.clear3.i3.i.i22, ptr %m_kind.i1.i.i20, align 4
-  %m_ptr.i4.i.i23 = getelementptr inbounds %class.mpq, ptr %r2, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i23 = getelementptr inbounds i8, ptr %r2, i64 24
   store ptr null, ptr %m_ptr.i4.i.i23, align 8
   %26 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   store i32 1, ptr %r2, align 8
@@ -349,13 +346,13 @@ if.end14:                                         ; preds = %invoke.cont
 
 invoke.cont15:                                    ; preds = %if.end14
   store i32 1, ptr %m_den.i.i19, align 8
-  %m_vs.i24 = getelementptr inbounds %"class.nla::mon_eq", ptr %m, i64 0, i32 1
+  %m_vs.i24 = getelementptr inbounds i8, ptr %m, i64 8
   %27 = load ptr, ptr %m_vs.i24, align 8
   %cmp.i.i25 = icmp eq ptr %27, null
   br i1 %cmp.i.i25, label %for.end35, label %_ZNK6vectorIjLb0EjE3endEv.exit30
 
 _ZNK6vectorIjLb0EjE3endEv.exit30:                 ; preds = %invoke.cont15
-  %arrayidx.i.i27 = getelementptr inbounds i32, ptr %27, i64 -1
+  %arrayidx.i.i27 = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx.i.i27, align 4
   %29 = zext i32 %28 to i64
   %add.ptr.i29 = getelementptr inbounds i32, ptr %27, i64 %29
@@ -363,7 +360,7 @@ _ZNK6vectorIjLb0EjE3endEv.exit30:                 ; preds = %invoke.cont15
   br i1 %cmp26.not136, label %for.end35, label %for.body27.lr.ph
 
 for.body27.lr.ph:                                 ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit30
-  %_M_node.i.i110 = getelementptr inbounds %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, rational>, std::allocator<std::pair<const unsigned int, rational>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %__node5.i92, i64 0, i32 1
+  %_M_node.i.i110 = getelementptr inbounds i8, ptr %__node5.i92, i64 8
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.inc33
@@ -476,7 +473,7 @@ if.else.i.i:                                      ; preds = %land.lhs.true.i.i, 
           to label %for.inc33 unwind label %lpad16.loopexit
 
 for.inc33:                                        ; preds = %.noexc35, %if.else.i.i
-  %incdec.ptr34 = getelementptr inbounds i32, ptr %__begin019.0137, i64 1
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %__begin019.0137, i64 4
   %cmp26.not = icmp eq ptr %incdec.ptr34, %add.ptr.i29
   br i1 %cmp26.not, label %for.end35, label %for.body27
 
@@ -601,7 +598,7 @@ entry:
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
-  %m_den.i = getelementptr inbounds %class.mpq, ptr %this, i64 0, i32 1
+  %m_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -619,12 +616,12 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -688,7 +685,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -723,7 +720,7 @@ _ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, rational>, std::allocator<std::pair<const unsigned int, rational>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -790,7 +787,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -818,7 +815,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj8rationalELb0EEEEE
 
 _ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj8rationalELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKj8rationalELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -869,7 +866,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -878,7 +875,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIjSt4pairIKj8rationalESaIS3_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable.87", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void

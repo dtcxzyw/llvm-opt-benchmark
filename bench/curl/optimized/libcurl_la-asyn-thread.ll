@@ -3,51 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-asyn-thread.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.thread_data = type { ptr, i32, i64, %struct.thread_sync_data }
-%struct.thread_sync_data = type { ptr, i32, i32, ptr, ptr, [2 x i32], i32, ptr, %struct.addrinfo, ptr }
-%struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon.1, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ConnectBits = type { i32 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon.1 = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
-
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [37 x i8] c"getaddrinfo() thread failed to start\00", align 1
@@ -100,7 +55,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_resolver_cancel(ptr nocapture noundef %data) local_unnamed_addr #1 {
 entry:
-  %async = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26
+  %async = getelementptr inbounds i8, ptr %data, i64 3624
   tail call fastcc void @destroy_async_data(ptr noundef nonnull %async)
   ret void
 }
@@ -108,20 +63,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @destroy_async_data(ptr nocapture noundef %async) unnamed_addr #1 {
 entry:
-  %tdata = getelementptr inbounds %struct.Curl_async, ptr %async, i64 0, i32 2
+  %tdata = getelementptr inbounds i8, ptr %async, i64 16
   %0 = load ptr, ptr %tdata, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tsd = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3
-  %sock_pair = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 5
+  %tsd = getelementptr inbounds i8, ptr %0, i64 24
+  %sock_pair = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %sock_pair, align 8
-  %data3 = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 4
+  %data3 = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %data3, align 8
   %3 = load ptr, ptr %tsd, align 8
   %call = tail call i32 @pthread_mutex_lock(ptr noundef %3) #8
-  %done6 = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 1
+  %done6 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %done6, align 8
   store i32 1, ptr %done6, align 8
   %5 = load ptr, ptr %tsd, align 8
@@ -156,10 +111,10 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %hostname.i = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 3
+  %hostname.i = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load ptr, ptr %hostname.i, align 8
   tail call void %10(ptr noundef %11) #8
-  %res.i = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 7
+  %res.i = getelementptr inbounds i8, ptr %0, i64 72
   %12 = load ptr, ptr %res.i, align 8
   %tobool3.not.i = icmp eq ptr %12, null
   br i1 %tobool3.not.i, label %if.end6.i, label %if.then4.i
@@ -169,7 +124,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then4.i, %if.end.i
-  %arrayidx.i = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 5, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 60
   %13 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %13, -1
   br i1 %cmp.not.i, label %destroy_thread_sync_data.exit, label %if.then7.i
@@ -202,7 +157,7 @@ if.end22:                                         ; preds = %if.end20, %entry
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_resolver_kill(ptr nocapture noundef %data) local_unnamed_addr #1 {
 entry:
-  %tdata = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 2
+  %tdata = getelementptr inbounds i8, ptr %data, i64 3640
   %0 = load ptr, ptr %tdata, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -213,7 +168,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %land.lhs.true1
 
 land.lhs.true1:                                   ; preds = %land.lhs.true
-  %quick_exit = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %quick_exit = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %quick_exit, align 2
   %2 = and i64 %bf.load, 128
   %cmp2.not.not = icmp eq i64 %2, 0
@@ -221,14 +176,14 @@ land.lhs.true1:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true1
   %call.i = tail call i32 @Curl_thread_join(ptr noundef nonnull %0) #8
-  %done.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 6
+  %done.i = getelementptr inbounds i8, ptr %data, i64 3664
   %bf.load.i = load i8, ptr %done.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %done.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %land.lhs.true, %land.lhs.true1, %if.then
-  %async.i5.sink = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26
+  %async.i5.sink = getelementptr inbounds i8, ptr %data, i64 3624
   tail call fastcc void @destroy_async_data(ptr noundef nonnull %async.i5.sink)
   ret void
 }
@@ -236,8 +191,8 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_resolver_wait_resolv(ptr noundef %data, ptr noundef writeonly %entry1) local_unnamed_addr #1 {
 entry:
-  %async.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26
-  %tdata.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 2
+  %async.i = getelementptr inbounds i8, ptr %data, i64 3624
+  %tdata.i = getelementptr inbounds i8, ptr %data, i64 3640
   %0 = load ptr, ptr %tdata.i, align 8
   %call.i = tail call i32 @Curl_thread_join(ptr noundef %0) #8
   %tobool.i = icmp ne i32 %call.i, 0
@@ -247,33 +202,33 @@ entry:
 
 if.end11.thread.i:                                ; preds = %entry
   %data.val.i.i = load ptr, ptr %tdata.i, align 8
-  %sock_error.i.i = getelementptr inbounds %struct.thread_data, ptr %data.val.i.i, i64 0, i32 3, i32 6
+  %sock_error.i.i = getelementptr inbounds i8, ptr %data.val.i.i, i64 64
   %1 = load i32, ptr %sock_error.i.i, align 8
-  %res.i.i = getelementptr inbounds %struct.thread_data, ptr %data.val.i.i, i64 0, i32 3, i32 7
+  %res.i.i = getelementptr inbounds i8, ptr %data.val.i.i, i64 72
   %2 = load ptr, ptr %res.i.i, align 8
   %call1.i.i = tail call i32 @Curl_addrinfo_callback(ptr noundef nonnull %data, i32 noundef %1, ptr noundef %2) #8
   store ptr null, ptr %res.i.i, align 8
-  %done15.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 6
+  %done15.i = getelementptr inbounds i8, ptr %data, i64 3664
   %bf.load16.i = load i8, ptr %done15.i, align 8
   %bf.set17.i = or i8 %bf.load16.i, 1
   store i8 %bf.set17.i, ptr %done15.i, align 8
   br label %if.then15.i
 
 if.end11.i:                                       ; preds = %entry
-  %done.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 6
+  %done.i = getelementptr inbounds i8, ptr %data, i64 3664
   %bf.load.i = load i8, ptr %done.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %done.i, align 8
   br i1 %tobool6.i, label %if.then15.i, label %if.end11.if.end18_crit_edge.i
 
 if.end11.if.end18_crit_edge.i:                    ; preds = %if.end11.i
-  %dns21.phi.trans.insert.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 1
+  %dns21.phi.trans.insert.i = getelementptr inbounds i8, ptr %data, i64 3632
   %.pre.i = load ptr, ptr %dns21.phi.trans.insert.i, align 8
   br label %if.end18.i
 
 if.then15.i:                                      ; preds = %if.end11.i, %if.end11.thread.i
   %result.019.i = phi i32 [ %call1.i.i, %if.end11.thread.i ], [ 0, %if.end11.i ]
-  %dns.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 1
+  %dns.i = getelementptr inbounds i8, ptr %data, i64 3632
   %3 = load ptr, ptr %dns.i, align 8
   store ptr %3, ptr %entry1, align 8
   br label %if.end18.i
@@ -281,7 +236,7 @@ if.then15.i:                                      ; preds = %if.end11.i, %if.end
 if.end18.i:                                       ; preds = %if.then15.i, %if.end11.if.end18_crit_edge.i
   %4 = phi ptr [ %3, %if.then15.i ], [ %.pre.i, %if.end11.if.end18_crit_edge.i ]
   %result.018.i = phi i32 [ %result.019.i, %if.then15.i ], [ 0, %if.end11.if.end18_crit_edge.i ]
-  %dns21.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 1
+  %dns21.i = getelementptr inbounds i8, ptr %data, i64 3632
   %tobool22.not.i = icmp eq ptr %4, null
   br i1 %tobool22.not.i, label %if.then24.i, label %if.end26.i
 
@@ -297,7 +252,7 @@ if.end26.i:                                       ; preds = %if.then24.i, %if.en
   br i1 %tobool32.not.i, label %if.then35.i, label %thread_wait_resolv.exit
 
 if.then35.i:                                      ; preds = %if.end26.i
-  %conn.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn.i = getelementptr inbounds i8, ptr %data, i64 32
   %6 = load ptr, ptr %conn.i, align 8
   tail call void @Curl_conncontrol(ptr noundef %6, i32 noundef 1) #8
   br label %thread_wait_resolv.exit
@@ -309,18 +264,18 @@ thread_wait_resolv.exit:                          ; preds = %if.end26.i, %if.the
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_resolver_is_resolved(ptr noundef %data, ptr nocapture noundef writeonly %entry1) local_unnamed_addr #1 {
 entry:
-  %async = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26
-  %tdata = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 2
+  %async = getelementptr inbounds i8, ptr %data, i64 3624
+  %tdata = getelementptr inbounds i8, ptr %data, i64 3640
   %0 = load ptr, ptr %tdata, align 8
   store ptr null, ptr %entry1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tsd = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3
+  %tsd = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %tsd, align 8
   %call = tail call i32 @pthread_mutex_lock(ptr noundef %1) #8
-  %done5 = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 1
+  %done5 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i32, ptr %done5, align 8
   %3 = load ptr, ptr %tsd, align 8
   %call8 = tail call i32 @pthread_mutex_unlock(ptr noundef %3) #8
@@ -329,13 +284,13 @@ if.end:                                           ; preds = %entry
 
 if.then10:                                        ; preds = %if.end
   %data.val.i = load ptr, ptr %tdata, align 8
-  %sock_error.i = getelementptr inbounds %struct.thread_data, ptr %data.val.i, i64 0, i32 3, i32 6
+  %sock_error.i = getelementptr inbounds i8, ptr %data.val.i, i64 64
   %4 = load i32, ptr %sock_error.i, align 8
-  %res.i = getelementptr inbounds %struct.thread_data, ptr %data.val.i, i64 0, i32 3, i32 7
+  %res.i = getelementptr inbounds i8, ptr %data.val.i, i64 72
   %5 = load ptr, ptr %res.i, align 8
   %call1.i = tail call i32 @Curl_addrinfo_callback(ptr noundef nonnull %data, i32 noundef %4, ptr noundef %5) #8
   store ptr null, ptr %res.i, align 8
-  %dns = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 1
+  %dns = getelementptr inbounds i8, ptr %data, i64 3632
   %6 = load ptr, ptr %dns, align 8
   %tobool14.not = icmp eq ptr %6, null
   br i1 %tobool14.not, label %if.then15, label %if.end19
@@ -355,19 +310,19 @@ if.else:                                          ; preds = %if.end
   %call25 = tail call { i64, i32 } @Curl_now() #8
   %8 = extractvalue { i64, i32 } %call25, 0
   %9 = extractvalue { i64, i32 } %call25, 1
-  %t_startsingle = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 19
+  %t_startsingle = getelementptr inbounds i8, ptr %data, i64 2896
   %10 = load i64, ptr %t_startsingle, align 8
-  %11 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 19, i32 1
+  %11 = getelementptr inbounds i8, ptr %data, i64 2904
   %12 = load i32, ptr %11, align 8
   %call26 = tail call i64 @Curl_timediff(i64 %8, i32 %9, i64 %10, i32 %12) #8
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %call26, i64 0)
-  %poll_interval = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 1
+  %poll_interval = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i32, ptr %poll_interval, align 8
   %cmp29 = icmp eq i32 %13, 0
   br i1 %cmp29, label %if.end42.sink.split, label %if.else32
 
 if.else32:                                        ; preds = %if.else
-  %interval_end = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 2
+  %interval_end = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %interval_end, align 8
   %cmp33.not = icmp sge i64 %spec.store.select, %14
   %mul = zext i1 %cmp33.not to i32
@@ -386,7 +341,7 @@ if.end42:                                         ; preds = %if.end42.sink.split
   %17 = phi i32 [ %.ph, %if.else32 ], [ %.ph.sink, %if.end42.sink.split ]
   %conv = zext nneg i32 %17 to i64
   %add = add nuw nsw i64 %spec.store.select, %conv
-  %interval_end44 = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 2
+  %interval_end44 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %add, ptr %interval_end44, align 8
   tail call void @Curl_expire(ptr noundef nonnull %data, i64 noundef %conv, i32 noundef 1) #8
   br label %return
@@ -413,27 +368,27 @@ declare void @Curl_expire(ptr noundef, i64 noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Curl_resolver_getsock(ptr noundef %data, ptr nocapture noundef writeonly %socks) local_unnamed_addr #1 {
 entry:
-  %tdata = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 2
+  %tdata = getelementptr inbounds i8, ptr %data, i64 3640
   %0 = load ptr, ptr %tdata, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sock_pair = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 5
+  %sock_pair = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %sock_pair, align 8
   store i32 %1, ptr %socks, align 4
-  %data5 = getelementptr inbounds %struct.thread_data, ptr %0, i64 0, i32 3, i32 4
+  %data5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %data, ptr %data5, align 8
   br label %if.end17
 
 if.else:                                          ; preds = %entry
-  %resolver = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 3
+  %resolver = getelementptr inbounds i8, ptr %data, i64 3648
   %2 = load ptr, ptr %resolver, align 8
   %call = tail call { i64, i32 } @Curl_now() #8
   %3 = extractvalue { i64, i32 } %call, 0
   %4 = extractvalue { i64, i32 } %call, 1
   %5 = load i64, ptr %2, align 8
-  %6 = getelementptr inbounds { i64, i32 }, ptr %2, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %call6 = tail call i64 @Curl_timediff(i64 %3, i32 %4, i64 %5, i32 %7) #8
   %cmp = icmp slt i64 %call6, 3
@@ -467,12 +422,12 @@ if.end17:                                         ; preds = %if.end16, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @Curl_resolver_getaddrinfo(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly %waitp) local_unnamed_addr #1 {
 entry:
-  %resolver = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 3
+  %resolver = getelementptr inbounds i8, ptr %data, i64 3648
   %0 = load ptr, ptr %resolver, align 8
   store i32 0, ptr %waitp, align 4
-  %conn = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn = getelementptr inbounds i8, ptr %data, i64 32
   %1 = load ptr, ptr %conn, align 8
-  %ip_version = getelementptr inbounds %struct.connectdata, ptr %1, i64 0, i32 55
+  %ip_version = getelementptr inbounds i8, ptr %1, i64 1167
   %2 = load i8, ptr %ip_version, align 1
   %cmp.not = icmp eq i8 %2, 1
   br i1 %cmp.not, label %if.end9, label %land.lhs.true
@@ -483,7 +438,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %call, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %land.lhs.true
-  %ip_version4 = getelementptr inbounds %struct.connectdata, ptr %.pre, i64 0, i32 55
+  %ip_version4 = getelementptr inbounds i8, ptr %.pre, i64 1167
   %3 = load i8, ptr %ip_version4, align 1
   %cmp6 = icmp eq i8 %3, 2
   %. = select i1 %cmp6, i32 10, i32 0
@@ -492,7 +447,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.end9:                                          ; preds = %if.then, %land.lhs.true, %entry
   %4 = phi ptr [ %.pre, %land.lhs.true ], [ %1, %entry ], [ %.pre, %if.then ]
   %pf.0 = phi i32 [ 2, %land.lhs.true ], [ 2, %entry ], [ %., %if.then ]
-  %transport = getelementptr inbounds %struct.connectdata, ptr %4, i64 0, i32 54
+  %transport = getelementptr inbounds i8, ptr %4, i64 1166
   %5 = load i8, ptr %transport, align 2
   %call14 = tail call { i64, i32 } @Curl_now() #8
   %6 = extractvalue { i64, i32 } %call14, 0
@@ -502,8 +457,8 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
   store i32 %7, ptr %tmp.sroa.2.0.start.sroa_idx, align 8
   %8 = load ptr, ptr @Curl_ccalloc, align 8
   %call.i = tail call ptr %8(i64 noundef 1, i64 noundef 136) #8
-  %async.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26
-  %tdata.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 2
+  %async.i = getelementptr inbounds i8, ptr %data, i64 3624
+  %tdata.i = getelementptr inbounds i8, ptr %data, i64 3640
   store ptr %call.i, ptr %tdata.i, align 8
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end17, label %if.end.i
@@ -511,32 +466,32 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
 if.end.i:                                         ; preds = %if.end9
   %cmp12 = icmp eq i8 %5, 3
   %cond = select i1 %cmp12, i32 1, i32 2
-  %port3.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 4
+  %port3.i = getelementptr inbounds i8, ptr %data, i64 3656
   store i32 %port, ptr %port3.i, align 8
-  %done.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 6
+  %done.i = getelementptr inbounds i8, ptr %data, i64 3664
   %bf.load.i = load i8, ptr %done.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   store i8 %bf.clear.i, ptr %done.i, align 8
-  %status.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 5
+  %status.i = getelementptr inbounds i8, ptr %data, i64 3660
   store i32 0, ptr %status.i, align 4
-  %dns.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 26, i32 1
+  %dns.i = getelementptr inbounds i8, ptr %data, i64 3632
   store ptr null, ptr %dns.i, align 8
   store ptr null, ptr %call.i, align 8
-  %tsd1.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3
+  %tsd1.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %tsd1.i.i, i8 0, i64 56, i1 false)
-  %td2.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 9
+  %td2.i.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %call.i, ptr %td2.i.i, align 8
-  %port3.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 2
+  %port3.i.i = getelementptr inbounds i8, ptr %call.i, i64 36
   store i32 %port, ptr %port3.i.i, align 4
-  %done.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 1
+  %done.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 1, ptr %done.i.i, align 8
-  %hints4.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 8
+  %hints4.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 0, ptr %hints4.i.i, align 8
-  %hints.sroa.2.0.hints4.i.i.sroa_idx = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 8, i32 1
+  %hints.sroa.2.0.hints4.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 84
   store i32 %pf.0, ptr %hints.sroa.2.0.hints4.i.i.sroa_idx, align 4
-  %hints.sroa.3.0.hints4.i.i.sroa_idx = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 8, i32 2
+  %hints.sroa.3.0.hints4.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 88
   store i32 %cond, ptr %hints.sroa.3.0.hints4.i.i.sroa_idx, align 8
-  %hints.sroa.4.0.hints4.i.i.sroa_idx = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 8, i32 3
+  %hints.sroa.4.0.hints4.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 92
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %hints.sroa.4.0.hints4.i.i.sroa_idx, i8 0, i64 36, i1 false)
   %9 = load ptr, ptr @Curl_cmalloc, align 8
   %call.i.i = tail call ptr %9(i64 noundef 40) #8
@@ -546,29 +501,29 @@ if.end.i:                                         ; preds = %if.end9
 
 if.end.i.i:                                       ; preds = %if.end.i
   %call7.i.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %call.i.i, ptr noundef null) #8
-  %sock_pair.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 5
+  %sock_pair.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %call8.i.i = tail call i32 @pipe(ptr noundef nonnull %sock_pair.i.i) #8
   %cmp.i.i = icmp slt i32 %call8.i.i, 0
   br i1 %cmp.i.i, label %if.then9.i.i, label %if.end14.i.i
 
 if.then9.i.i:                                     ; preds = %if.end.i.i
   store i32 -1, ptr %sock_pair.i.i, align 8
-  %arrayidx13.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 5, i64 1
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %call.i, i64 60
   store i32 -1, ptr %arrayidx13.i.i, align 4
   br label %err_exit.i.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
-  %sock_error.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 6
+  %sock_error.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 0, ptr %sock_error.i.i, align 8
   %10 = load ptr, ptr @Curl_cstrdup, align 8
   %call15.i.i = tail call ptr %10(ptr noundef %hostname) #8
-  %hostname16.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 3
+  %hostname16.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call15.i.i, ptr %hostname16.i.i, align 8
   %tobool18.not.i.i = icmp eq ptr %call15.i.i, null
   br i1 %tobool18.not.i.i, label %err_exit.i.i, label %if.end8.i
 
 err_exit.i.i:                                     ; preds = %if.end14.i.i, %if.then9.i.i, %if.end.i
-  %sock_pair21.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 5
+  %sock_pair21.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %11 = load i32, ptr %sock_pair21.i.i, align 8
   %cmp23.not.i.i = icmp eq i32 %11, -1
   br i1 %cmp23.not.i.i, label %if.end30.i.i, label %if.then24.i.i
@@ -592,10 +547,10 @@ if.then.i.i.i:                                    ; preds = %if.end30.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.end30.i.i
   %15 = load ptr, ptr @Curl_cfree, align 8
-  %hostname.i.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 3
+  %hostname.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %16 = load ptr, ptr %hostname.i.i.i, align 8
   tail call void %15(ptr noundef %16) #8
-  %res.i.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 7
+  %res.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %17 = load ptr, ptr %res.i.i.i, align 8
   %tobool3.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool3.not.i.i.i, label %if.end6.i.i.i, label %if.then4.i.i.i
@@ -605,7 +560,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.then4.i.i.i, %if.end.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %struct.thread_data, ptr %call.i, i64 0, i32 3, i32 5, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 60
   %18 = load i32, ptr %arrayidx.i.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %18, -1
   br i1 %cmp.not.i.i.i, label %if.then6.i, label %if.then7.i.i.i
@@ -719,15 +674,15 @@ define internal noundef i32 @getaddrinfo_thread(ptr noundef %arg) #1 {
 entry:
   %service = alloca [12 x i8], align 1
   %buf = alloca [1 x i8], align 1
-  %td1 = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 9
+  %td1 = getelementptr inbounds i8, ptr %arg, i64 104
   %0 = load ptr, ptr %td1, align 8
-  %port = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 2
+  %port = getelementptr inbounds i8, ptr %arg, i64 12
   %1 = load i32, ptr %port, align 4
   %call = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %service, i64 noundef 12, ptr noundef nonnull @.str.1, i32 noundef %1) #8
-  %hostname = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 3
+  %hostname = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load ptr, ptr %hostname, align 8
-  %hints = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 8
-  %res = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 7
+  %hints = getelementptr inbounds i8, ptr %arg, i64 56
+  %res = getelementptr inbounds i8, ptr %arg, i64 48
   %call3 = call i32 @Curl_getaddrinfo_ex(ptr noundef %2, ptr noundef nonnull %service, ptr noundef nonnull %hints, ptr noundef nonnull %res) #8
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.end10, label %if.then
@@ -737,14 +692,14 @@ if.then:                                          ; preds = %entry
   %3 = load i32, ptr %call4, align 4
   %tobool5.not = icmp eq i32 %3, 0
   %call3. = select i1 %tobool5.not, i32 %call3, i32 %3
-  %sock_error = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 6
+  %sock_error = getelementptr inbounds i8, ptr %arg, i64 40
   store i32 %call3., ptr %sock_error, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then, %entry
   %4 = load ptr, ptr %arg, align 8
   %call11 = call i32 @pthread_mutex_lock(ptr noundef %4) #8
-  %done = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 1
+  %done = getelementptr inbounds i8, ptr %arg, i64 8
   %5 = load i32, ptr %done, align 8
   %tobool12.not = icmp eq i32 %5, 0
   br i1 %tobool12.not, label %if.else16, label %if.then13
@@ -776,7 +731,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then4.i, %if.end.i
-  %arrayidx.i = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 5, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %arg, i64 36
   %13 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i = icmp eq i32 %13, -1
   br i1 %cmp.not.i, label %destroy_thread_sync_data.exit, label %if.then7.i
@@ -792,7 +747,7 @@ destroy_thread_sync_data.exit:                    ; preds = %if.end6.i, %if.then
   br label %if.end33
 
 if.else16:                                        ; preds = %if.end10
-  %arrayidx = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 5, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %arg, i64 36
   %15 = load i32, ptr %arrayidx, align 4
   %cmp17.not = icmp eq i32 %15, -1
   br i1 %cmp17.not, label %if.end29, label %if.then18
@@ -806,7 +761,7 @@ if.then18:                                        ; preds = %if.else16
 if.then25:                                        ; preds = %if.then18
   %call26 = tail call ptr @__errno_location() #9
   %16 = load i32, ptr %call26, align 4
-  %sock_error27 = getelementptr inbounds %struct.thread_sync_data, ptr %arg, i64 0, i32 6
+  %sock_error27 = getelementptr inbounds i8, ptr %arg, i64 40
   store i32 %16, ptr %sock_error27, align 8
   br label %if.end29
 

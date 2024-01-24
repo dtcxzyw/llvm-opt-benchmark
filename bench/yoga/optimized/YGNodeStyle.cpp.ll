@@ -4,23 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.YGValue = type { float, i32 }
-%"class.facebook::yoga::Node" = type { i8, ptr, ptr, ptr, ptr, ptr, %"class.facebook::yoga::Style", %"struct.facebook::yoga::LayoutResults", i64, ptr, %"class.std::vector", ptr, %"struct.std::array.5" }
-%"class.facebook::yoga::Style" = type { i8, [3 x i8], %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"class.facebook::yoga::CompactValue", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.facebook::yoga::FloatOptional" }
 %"class.facebook::yoga::CompactValue" = type { i32 }
-%"struct.std::array" = type { [9 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.0" = type { [3 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.1" = type { [2 x %"class.facebook::yoga::CompactValue"] }
-%"struct.facebook::yoga::FloatOptional" = type { float }
-%"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i8, i32, %"struct.std::array.2", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.3", %"struct.std::array.3", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4" }
-%"struct.std::array.2" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
-%"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
-%"struct.std::array.3" = type { [2 x float] }
-%"struct.std::array.4" = type { [4 x float] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.5" = type { [2 x %struct.YGValue] }
 
 $_ZNK8facebook4yoga5StyleeqERKS1_ = comdat any
 
@@ -38,8 +22,8 @@ $_ZN8facebook4yoga13inexactEqualsILm2ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeCopyStyle(ptr noundef %dstNodeRef, ptr noundef %srcNodeRef) local_unnamed_addr #0 {
 entry:
-  %style_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %dstNodeRef, i64 0, i32 6
-  %style_.i4 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %srcNodeRef, i64 0, i32 6
+  %style_.i = getelementptr inbounds i8, ptr %dstNodeRef, i64 48
+  %style_.i4 = getelementptr inbounds i8, ptr %srcNodeRef, i64 48
   %call4 = tail call noundef zeroext i1 @_ZNK8facebook4yoga5StyleeqERKS1_(ptr noundef nonnull align 4 dereferenceable(204) %style_.i, ptr noundef nonnull align 4 dereferenceable(204) %style_.i4)
   br i1 %call4, label %if.end, label %if.then
 
@@ -63,9 +47,9 @@ entry:
   br i1 %or.cond64, label %land.lhs.true18, label %land.end
 
 land.lhs.true18:                                  ; preds = %entry
-  %alignContent_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 1
+  %alignContent_ = getelementptr inbounds i8, ptr %this, i64 1
   %bf.load19 = load i24, ptr %alignContent_, align 1
-  %alignContent_21 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 1
+  %alignContent_21 = getelementptr inbounds i8, ptr %other, i64 1
   %bf.load22 = load i24, ptr %alignContent_21, align 1
   %2 = xor i24 %bf.load22, %bf.load19
   %3 = and i24 %2, 524287
@@ -73,9 +57,9 @@ land.lhs.true18:                                  ; preds = %entry
   br i1 %or.cond70, label %land.lhs.true92, label %land.end
 
 land.lhs.true92:                                  ; preds = %land.lhs.true18
-  %flex_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 2
+  %flex_ = getelementptr inbounds i8, ptr %this, i64 4
   %agg.tmp.sroa.0.0.copyload = load float, ptr %flex_, align 4
-  %flex_94 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 2
+  %flex_94 = getelementptr inbounds i8, ptr %other, i64 4
   %agg.tmp93.sroa.0.0.copyload = load float, ptr %flex_94, align 4
   %or.cond.i.i = fcmp ord float %agg.tmp.sroa.0.0.copyload, %agg.tmp93.sroa.0.0.copyload
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i.i
@@ -93,9 +77,9 @@ if.end.i.i:                                       ; preds = %land.lhs.true92
   br i1 %or.cond71, label %land.lhs.true96, label %land.end
 
 land.lhs.true96:                                  ; preds = %if.end.i.i, %if.then.i.i
-  %flexGrow_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 3
+  %flexGrow_ = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp97.sroa.0.0.copyload = load float, ptr %flexGrow_, align 4
-  %flexGrow_99 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 3
+  %flexGrow_99 = getelementptr inbounds i8, ptr %other, i64 8
   %agg.tmp98.sroa.0.0.copyload = load float, ptr %flexGrow_99, align 4
   %or.cond.i.i31 = fcmp ord float %agg.tmp97.sroa.0.0.copyload, %agg.tmp98.sroa.0.0.copyload
   br i1 %or.cond.i.i31, label %if.then.i.i37, label %if.end.i.i32
@@ -113,9 +97,9 @@ if.end.i.i32:                                     ; preds = %land.lhs.true96
   br i1 %or.cond72, label %land.lhs.true103, label %land.end
 
 land.lhs.true103:                                 ; preds = %if.end.i.i32, %if.then.i.i37
-  %flexShrink_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 4
+  %flexShrink_ = getelementptr inbounds i8, ptr %this, i64 12
   %agg.tmp104.sroa.0.0.copyload = load float, ptr %flexShrink_, align 4
-  %flexShrink_106 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 4
+  %flexShrink_106 = getelementptr inbounds i8, ptr %other, i64 12
   %agg.tmp105.sroa.0.0.copyload = load float, ptr %flexShrink_106, align 4
   %or.cond.i.i41 = fcmp ord float %agg.tmp104.sroa.0.0.copyload, %agg.tmp105.sroa.0.0.copyload
   br i1 %or.cond.i.i41, label %if.then.i.i47, label %if.end.i.i42
@@ -133,65 +117,65 @@ if.end.i.i42:                                     ; preds = %land.lhs.true103
   br i1 %or.cond73, label %land.lhs.true110, label %land.end
 
 land.lhs.true110:                                 ; preds = %if.end.i.i42, %if.then.i.i47
-  %flexBasis_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 5
+  %flexBasis_ = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp111.sroa.0.0.copyload = load i32, ptr %flexBasis_, align 4
-  %flexBasis_113 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 5
+  %flexBasis_113 = getelementptr inbounds i8, ptr %other, i64 16
   %agg.tmp112.sroa.0.0.copyload = load i32, ptr %flexBasis_113, align 4
   %call116 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsENS0_12CompactValueES1_(i32 %agg.tmp111.sroa.0.0.copyload, i32 %agg.tmp112.sroa.0.0.copyload)
   br i1 %call116, label %land.lhs.true117, label %land.end
 
 land.lhs.true117:                                 ; preds = %land.lhs.true110
-  %margin_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 6
-  %margin_118 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 6
+  %margin_ = getelementptr inbounds i8, ptr %this, i64 20
+  %margin_118 = getelementptr inbounds i8, ptr %other, i64 20
   %call119 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm9ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(36) %margin_, ptr noundef nonnull align 4 dereferenceable(36) %margin_118)
   br i1 %call119, label %land.lhs.true120, label %land.end
 
 land.lhs.true120:                                 ; preds = %land.lhs.true117
-  %position_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 7
-  %position_121 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 7
+  %position_ = getelementptr inbounds i8, ptr %this, i64 56
+  %position_121 = getelementptr inbounds i8, ptr %other, i64 56
   %call122 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm9ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(36) %position_, ptr noundef nonnull align 4 dereferenceable(36) %position_121)
   br i1 %call122, label %land.lhs.true123, label %land.end
 
 land.lhs.true123:                                 ; preds = %land.lhs.true120
-  %padding_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 8
-  %padding_124 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 8
+  %padding_ = getelementptr inbounds i8, ptr %this, i64 92
+  %padding_124 = getelementptr inbounds i8, ptr %other, i64 92
   %call125 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm9ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(36) %padding_, ptr noundef nonnull align 4 dereferenceable(36) %padding_124)
   br i1 %call125, label %land.lhs.true126, label %land.end
 
 land.lhs.true126:                                 ; preds = %land.lhs.true123
-  %border_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 9
-  %border_127 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 9
+  %border_ = getelementptr inbounds i8, ptr %this, i64 128
+  %border_127 = getelementptr inbounds i8, ptr %other, i64 128
   %call128 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm9ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(36) %border_, ptr noundef nonnull align 4 dereferenceable(36) %border_127)
   br i1 %call128, label %land.lhs.true129, label %land.end
 
 land.lhs.true129:                                 ; preds = %land.lhs.true126
-  %gap_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 10
-  %gap_130 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 10
+  %gap_ = getelementptr inbounds i8, ptr %this, i64 164
+  %gap_130 = getelementptr inbounds i8, ptr %other, i64 164
   %call131 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm3ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(12) %gap_, ptr noundef nonnull align 4 dereferenceable(12) %gap_130)
   br i1 %call131, label %land.lhs.true132, label %land.end
 
 land.lhs.true132:                                 ; preds = %land.lhs.true129
-  %dimensions_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 11
-  %dimensions_133 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 11
+  %dimensions_ = getelementptr inbounds i8, ptr %this, i64 176
+  %dimensions_133 = getelementptr inbounds i8, ptr %other, i64 176
   %call134 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(8) %dimensions_, ptr noundef nonnull align 4 dereferenceable(8) %dimensions_133)
   br i1 %call134, label %land.lhs.true135, label %land.end
 
 land.lhs.true135:                                 ; preds = %land.lhs.true132
-  %minDimensions_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 12
-  %minDimensions_136 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 12
+  %minDimensions_ = getelementptr inbounds i8, ptr %this, i64 184
+  %minDimensions_136 = getelementptr inbounds i8, ptr %other, i64 184
   %call137 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(8) %minDimensions_, ptr noundef nonnull align 4 dereferenceable(8) %minDimensions_136)
   br i1 %call137, label %land.lhs.true138, label %land.end
 
 land.lhs.true138:                                 ; preds = %land.lhs.true135
-  %maxDimensions_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 13
-  %maxDimensions_139 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 13
+  %maxDimensions_ = getelementptr inbounds i8, ptr %this, i64 192
+  %maxDimensions_139 = getelementptr inbounds i8, ptr %other, i64 192
   %call140 = tail call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2ENS0_12CompactValueEEEbRKSt5arrayIT0_XT_EES7_(ptr noundef nonnull align 4 dereferenceable(8) %maxDimensions_, ptr noundef nonnull align 4 dereferenceable(8) %maxDimensions_139)
   br i1 %call140, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true138
-  %aspectRatio_ = getelementptr inbounds %"class.facebook::yoga::Style", ptr %this, i64 0, i32 14
+  %aspectRatio_ = getelementptr inbounds i8, ptr %this, i64 200
   %agg.tmp141.sroa.0.0.copyload = load float, ptr %aspectRatio_, align 4
-  %aspectRatio_143 = getelementptr inbounds %"class.facebook::yoga::Style", ptr %other, i64 0, i32 14
+  %aspectRatio_143 = getelementptr inbounds i8, ptr %other, i64 200
   %agg.tmp142.sroa.0.0.copyload = load float, ptr %aspectRatio_143, align 4
   %or.cond.i.i51 = fcmp ord float %agg.tmp141.sroa.0.0.copyload, %agg.tmp142.sroa.0.0.copyload
   br i1 %or.cond.i.i51, label %if.then.i.i57, label %if.end.i.i52
@@ -221,7 +205,7 @@ declare void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnul
 define void @YGNodeStyleSetDirection(ptr noundef %node, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %value to i8
-  %style_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i.i = load i8, ptr %style_.i.i, align 4
   %bf.clear.i.i = and i8 %bf.load.i.i, 3
   %cmp.not.i = icmp eq i8 %bf.clear.i.i, %conv.i
@@ -242,7 +226,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9directionEvEETnD
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %style_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 3
   %conv.i = zext nneg i8 %bf.clear.i to i32
@@ -253,7 +237,7 @@ entry:
 define void @YGNodeStyleSetFlexDirection(ptr noundef %node, i32 noundef %flexDirection) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %flexDirection to i8
-  %style_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i.i = load i8, ptr %style_.i.i, align 4
   %bf.lshr.i.i = lshr i8 %bf.load.i.i, 2
   %bf.clear.i.i = and i8 %bf.lshr.i.i, 3
@@ -276,7 +260,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style13flexDirectionEv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetFlexDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %style_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
   %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 3
@@ -288,7 +272,7 @@ entry:
 define void @YGNodeStyleSetJustifyContent(ptr noundef %node, i32 noundef %justifyContent) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %justifyContent to i8
-  %style_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i.i = load i8, ptr %style_.i.i, align 4
   %bf.lshr.i.i = lshr i8 %bf.load.i.i, 4
   %bf.clear.i.i = and i8 %bf.lshr.i.i, 7
@@ -311,7 +295,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style14justifyContentE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetJustifyContent(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %style_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
   %bf.lshr.i = lshr i8 %bf.load.i, 4
   %bf.clear.i = and i8 %bf.lshr.i, 7
@@ -323,7 +307,7 @@ entry:
 define void @YGNodeStyleSetAlignContent(ptr noundef %node, i32 noundef %alignContent) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %alignContent to i8
-  %alignContent_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %alignContent_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %alignContent_.i.i, align 1
   %0 = trunc i24 %bf.load.i.i to i8
   %bf.cast.i.i = and i8 %0, 15
@@ -346,7 +330,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12alignContentEvE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetAlignContent(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %alignContent_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %alignContent_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %alignContent_.i, align 1
   %0 = and i24 %bf.load.i, 15
   %bf.cast.i = zext nneg i24 %0 to i32
@@ -357,7 +341,7 @@ entry:
 define void @YGNodeStyleSetAlignItems(ptr noundef %node, i32 noundef %alignItems) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %alignItems to i8
-  %alignItems_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %alignItems_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %alignItems_.i.i, align 1
   %0 = trunc i24 %bf.load.i.i to i8
   %1 = lshr i8 %0, 4
@@ -380,7 +364,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style10alignItemsEvEET
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetAlignItems(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %alignItems_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %alignItems_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %alignItems_.i, align 1
   %0 = zext i24 %bf.load.i to i32
   %1 = lshr i32 %0, 4
@@ -392,7 +376,7 @@ entry:
 define void @YGNodeStyleSetAlignSelf(ptr noundef %node, i32 noundef %alignSelf) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %alignSelf to i8
-  %alignSelf_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %alignSelf_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %alignSelf_.i.i, align 1
   %bf.lshr.i.i = lshr i24 %bf.load.i.i, 8
   %0 = trunc i24 %bf.lshr.i.i to i8
@@ -417,7 +401,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9alignSelfEvEETnD
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetAlignSelf(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %alignSelf_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %alignSelf_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %alignSelf_.i, align 1
   %bf.lshr.i = lshr i24 %bf.load.i, 8
   %0 = and i24 %bf.lshr.i, 15
@@ -429,7 +413,7 @@ entry:
 define void @YGNodeStyleSetPositionType(ptr noundef %node, i32 noundef %positionType) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %positionType to i8
-  %positionType_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %positionType_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %positionType_.i.i, align 1
   %bf.lshr.i.i = lshr i24 %bf.load.i.i, 12
   %0 = trunc i24 %bf.lshr.i.i to i8
@@ -454,7 +438,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12positionTypeEvE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetPositionType(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %positionType_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %positionType_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %positionType_.i, align 1
   %bf.lshr.i = lshr i24 %bf.load.i, 12
   %0 = and i24 %bf.lshr.i, 3
@@ -466,7 +450,7 @@ entry:
 define void @YGNodeStyleSetFlexWrap(ptr noundef %node, i32 noundef %flexWrap) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %flexWrap to i8
-  %flexWrap_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %flexWrap_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %flexWrap_.i.i, align 1
   %bf.lshr.i.i = lshr i24 %bf.load.i.i, 14
   %0 = trunc i24 %bf.lshr.i.i to i8
@@ -491,7 +475,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8flexWrapEvEETnDa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetFlexWrap(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %flexWrap_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %flexWrap_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %flexWrap_.i, align 1
   %bf.lshr.i = lshr i24 %bf.load.i, 14
   %0 = and i24 %bf.lshr.i, 3
@@ -503,7 +487,7 @@ entry:
 define void @YGNodeStyleSetOverflow(ptr noundef %node, i32 noundef %overflow) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %overflow to i8
-  %overflow_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %overflow_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %overflow_.i.i, align 1
   %bf.lshr.i.i = lshr i24 %bf.load.i.i, 16
   %0 = trunc i24 %bf.lshr.i.i to i8
@@ -528,7 +512,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8overflowEvEETnDa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetOverflow(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %overflow_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %overflow_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %overflow_.i, align 1
   %bf.lshr.i = lshr i24 %bf.load.i, 16
   %0 = and i24 %bf.lshr.i, 3
@@ -540,7 +524,7 @@ entry:
 define void @YGNodeStyleSetDisplay(ptr noundef %node, i32 noundef %display) local_unnamed_addr #0 {
 entry:
   %conv.i = trunc i32 %display to i8
-  %display_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %display_.i.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i.i = load i24, ptr %display_.i.i, align 1
   %bf.lshr.i.i = lshr i24 %bf.load.i.i, 18
   %0 = trunc i24 %bf.lshr.i.i to i8
@@ -565,7 +549,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7displayEvEETnDaX
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @YGNodeStyleGetDisplay(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %display_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %display_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %display_.i, align 1
   %bf.lshr.i = lshr i24 %bf.load.i, 18
   %0 = and i24 %bf.lshr.i, 1
@@ -576,7 +560,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlex(ptr noundef %node, float noundef %flex) local_unnamed_addr #0 {
 entry:
-  %flex_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 2
+  %flex_.i.i = getelementptr inbounds i8, ptr %node, i64 52
   %retval.sroa.0.0.copyload.i.i = load float, ptr %flex_.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %retval.sroa.0.0.copyload.i.i, %flex
   br i1 %cmp.i.i.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style4flexEvEETnDaXadL_ZNS3_7setFlexENS2_13FloatOptionalEEES4_EEvP6YGNodeT1_.exit, label %lor.rhs.i.i.i
@@ -599,7 +583,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style4flexEvEETnDaXadL
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @YGNodeStyleGetFlex(ptr nocapture noundef readonly %nodeRef) local_unnamed_addr #2 {
 entry:
-  %flex_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 6, i32 2
+  %flex_.i = getelementptr inbounds i8, ptr %nodeRef, i64 52
   %retval.sroa.0.0.copyload.i = load float, ptr %flex_.i, align 4
   %cmp.i.i = fcmp uno float %retval.sroa.0.0.copyload.i, 0.000000e+00
   %cond = select i1 %cmp.i.i, float 0x7FF8000000000000, float %retval.sroa.0.0.copyload.i
@@ -609,7 +593,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlexGrow(ptr noundef %node, float noundef %flexGrow) local_unnamed_addr #0 {
 entry:
-  %flexGrow_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 3
+  %flexGrow_.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %retval.sroa.0.0.copyload.i.i = load float, ptr %flexGrow_.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %retval.sroa.0.0.copyload.i.i, %flexGrow
   br i1 %cmp.i.i.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8flexGrowEvEETnDaXadL_ZNS3_11setFlexGrowENS2_13FloatOptionalEEES4_EEvP6YGNodeT1_.exit, label %lor.rhs.i.i.i
@@ -632,7 +616,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8flexGrowEvEETnDa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @YGNodeStyleGetFlexGrow(ptr nocapture noundef readonly %nodeRef) local_unnamed_addr #2 {
 entry:
-  %flexGrow_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 6, i32 3
+  %flexGrow_.i = getelementptr inbounds i8, ptr %nodeRef, i64 56
   %retval.sroa.0.0.copyload.i = load float, ptr %flexGrow_.i, align 4
   %cmp.i.i.inv = fcmp ord float %retval.sroa.0.0.copyload.i, 0.000000e+00
   %cond = select i1 %cmp.i.i.inv, float %retval.sroa.0.0.copyload.i, float 0.000000e+00
@@ -642,7 +626,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlexShrink(ptr noundef %node, float noundef %flexShrink) local_unnamed_addr #0 {
 entry:
-  %flexShrink_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 4
+  %flexShrink_.i.i = getelementptr inbounds i8, ptr %node, i64 60
   %retval.sroa.0.0.copyload.i.i = load float, ptr %flexShrink_.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %retval.sroa.0.0.copyload.i.i, %flexShrink
   br i1 %cmp.i.i.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style10flexShrinkEvEETnDaXadL_ZNS3_13setFlexShrinkENS2_13FloatOptionalEEES4_EEvP6YGNodeT1_.exit, label %lor.rhs.i.i.i
@@ -665,13 +649,13 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style10flexShrinkEvEET
 ; Function Attrs: mustprogress uwtable
 define float @YGNodeStyleGetFlexShrink(ptr nocapture noundef readonly %nodeRef) local_unnamed_addr #0 {
 entry:
-  %flexShrink_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 6, i32 4
+  %flexShrink_.i = getelementptr inbounds i8, ptr %nodeRef, i64 60
   %retval.sroa.0.0.copyload.i = load float, ptr %flexShrink_.i, align 4
   %cmp.i.i = fcmp uno float %retval.sroa.0.0.copyload.i, 0.000000e+00
   br i1 %cmp.i.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %config_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %nodeRef, i64 0, i32 11
+  %config_.i = getelementptr inbounds i8, ptr %nodeRef, i64 616
   %0 = load ptr, ptr %config_.i, align 8
   %call5 = tail call noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %cond = select i1 %call5, float 1.000000e+00, float 0.000000e+00
@@ -713,7 +697,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %flexBasis_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
+  %flexBasis_.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %flexBasis_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_12CompactValueEEES4_EEvP6YGNodeT1_.exit, label %if.then.i
@@ -757,7 +741,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %flexBasis_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
+  %flexBasis_.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %flexBasis_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_12CompactValueEEES4_EEvP6YGNodeT1_.exit, label %if.then.i
@@ -774,7 +758,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetFlexBasisAuto(ptr noundef %node) local_unnamed_addr #0 {
 entry:
-  %flexBasis_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
+  %flexBasis_.i.i = getelementptr inbounds i8, ptr %node, i64 64
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %flexBasis_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, 2141891242
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnDaXadL_ZNS3_12setFlexBasisENS2_12CompactValueEEES4_EEvP6YGNodeT1_.exit, label %if.then.i
@@ -791,7 +775,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetFlexBasis(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %flexBasis_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 5
+  %flexBasis_.i = getelementptr inbounds i8, ptr %node, i64 64
   %retval.sroa.0.0.copyload.i = load i32, ptr %flexBasis_.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
@@ -867,7 +851,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %position_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 7
+  %position_.i.i = getelementptr inbounds i8, ptr %node, i64 104
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i, i64 0, i64 %conv.i.i
@@ -914,7 +898,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %position_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 7
+  %position_.i.i = getelementptr inbounds i8, ptr %node, i64 104
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i, i64 0, i64 %conv.i.i
@@ -934,7 +918,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8positionENS2_4Ed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetPosition(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %position_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 7
+  %position_.i = getelementptr inbounds i8, ptr %node, i64 104
   %0 = and i32 %edge, 255
   %conv.i1 = zext nneg i32 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i, i64 0, i64 %conv.i1
@@ -1010,7 +994,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %margin_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
+  %margin_.i.i = getelementptr inbounds i8, ptr %node, i64 68
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i, i64 0, i64 %conv.i.i
@@ -1057,7 +1041,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %margin_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
+  %margin_.i.i = getelementptr inbounds i8, ptr %node, i64 68
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i, i64 0, i64 %conv.i.i
@@ -1077,7 +1061,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6marginENS2_4Edge
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetMarginAuto(ptr noundef %node, i32 noundef %edge) local_unnamed_addr #0 {
 entry:
-  %margin_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
+  %margin_.i.i = getelementptr inbounds i8, ptr %node, i64 68
   %0 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %0 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i, i64 0, i64 %conv.i.i
@@ -1097,7 +1081,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6marginENS2_4Edge
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetMargin(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %margin_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 6
+  %margin_.i = getelementptr inbounds i8, ptr %node, i64 68
   %0 = and i32 %edge, 255
   %conv.i1 = zext nneg i32 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i, i64 0, i64 %conv.i1
@@ -1173,7 +1157,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %padding_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 8
+  %padding_.i.i = getelementptr inbounds i8, ptr %node, i64 140
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i, i64 0, i64 %conv.i.i
@@ -1220,7 +1204,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %padding_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 8
+  %padding_.i.i = getelementptr inbounds i8, ptr %node, i64 140
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i, i64 0, i64 %conv.i.i
@@ -1240,7 +1224,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7paddingENS2_4Edg
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetPadding(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %padding_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 8
+  %padding_.i = getelementptr inbounds i8, ptr %node, i64 140
   %0 = and i32 %edge, 255
   %conv.i1 = zext nneg i32 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i, i64 0, i64 %conv.i1
@@ -1316,7 +1300,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %border_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 9
+  %border_.i.i = getelementptr inbounds i8, ptr %node, i64 176
   %3 = and i32 %edge, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %border_.i.i, i64 0, i64 %conv.i.i
@@ -1336,7 +1320,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6borderENS2_4Edge
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @YGNodeStyleGetBorder(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
-  %border_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 9
+  %border_.i = getelementptr inbounds i8, ptr %node, i64 176
   %0 = and i32 %edge, 255
   %conv.i1 = zext nneg i32 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %border_.i, i64 0, i64 %conv.i1
@@ -1399,7 +1383,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %gap_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 10
+  %gap_.i.i = getelementptr inbounds i8, ptr %node, i64 212
   %3 = and i32 %gutter, 255
   %conv.i.i = zext nneg i32 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [3 x %"class.facebook::yoga::CompactValue"], ptr %gap_.i.i, i64 0, i64 %conv.i.i
@@ -1419,7 +1403,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style3gapENS2_6GutterE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @YGNodeStyleGetGap(ptr nocapture noundef readonly %node, i32 noundef %gutter) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
-  %gap_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 10
+  %gap_.i = getelementptr inbounds i8, ptr %node, i64 212
   %0 = and i32 %gutter, 255
   %conv.i1 = zext nneg i32 %0 to i64
   %arrayidx.i.i.i = getelementptr inbounds [3 x %"class.facebook::yoga::CompactValue"], ptr %gap_.i, i64 0, i64 %conv.i1
@@ -1456,7 +1440,7 @@ return:                                           ; preds = %if.end, %if.end.i, 
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetAspectRatio(ptr noundef %node, float noundef %aspectRatio) local_unnamed_addr #0 {
 entry:
-  %aspectRatio_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 14
+  %aspectRatio_.i.i = getelementptr inbounds i8, ptr %node, i64 248
   %retval.sroa.0.0.copyload.i.i = load float, ptr %aspectRatio_.i.i, align 4
   %cmp.i.i.i = fcmp oeq float %retval.sroa.0.0.copyload.i.i, %aspectRatio
   br i1 %cmp.i.i.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style11aspectRatioEvEETnDaXadL_ZNS3_14setAspectRatioENS2_13FloatOptionalEEES4_EEvP6YGNodeT1_.exit, label %lor.rhs.i.i.i
@@ -1479,7 +1463,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style11aspectRatioEvEE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @YGNodeStyleGetAspectRatio(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
 entry:
-  %aspectRatio_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 14
+  %aspectRatio_.i = getelementptr inbounds i8, ptr %node, i64 248
   %retval.sroa.0.0.copyload.i = load float, ptr %aspectRatio_.i, align 4
   %cmp.i.i = fcmp uno float %retval.sroa.0.0.copyload.i, 0.000000e+00
   %cond = select i1 %cmp.i.i, float 0x7FF8000000000000, float %retval.sroa.0.0.copyload.i
@@ -1515,7 +1499,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %dimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
+  %dimensions_.i.i = getelementptr inbounds i8, ptr %node, i64 224
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %dimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1559,7 +1543,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %dimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
+  %dimensions_.i.i = getelementptr inbounds i8, ptr %node, i64 224
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %dimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1576,7 +1560,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetWidthAuto(ptr noundef %node) local_unnamed_addr #0 {
 entry:
-  %dimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
+  %dimensions_.i.i = getelementptr inbounds i8, ptr %node, i64 224
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %dimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, 2141891242
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1593,7 +1577,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %dimensions_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11
+  %dimensions_.i = getelementptr inbounds i8, ptr %node, i64 224
   %retval.sroa.0.0.copyload.i = load i32, ptr %dimensions_.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
     i32 2141891242, label %sw.bb.i
@@ -1666,7 +1650,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 228
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1710,7 +1694,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 228
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1727,7 +1711,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeStyleSetHeightAuto(ptr noundef %node) local_unnamed_addr #0 {
 entry:
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 228
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, 2141891242
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9DimensionEEETnDaXadL_ZNS3_12setDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1744,7 +1728,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 11, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 228
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
     i32 2141891242, label %sw.bb.i
@@ -1817,7 +1801,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %minDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
+  %minDimensions_.i.i = getelementptr inbounds i8, ptr %node, i64 232
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %minDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1861,7 +1845,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %minDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
+  %minDimensions_.i.i = getelementptr inbounds i8, ptr %node, i64 232
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %minDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1878,7 +1862,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetMinWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %minDimensions_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
+  %minDimensions_.i = getelementptr inbounds i8, ptr %node, i64 232
   %retval.sroa.0.0.copyload.i = load i32, ptr %minDimensions_.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
     i32 2141891242, label %sw.bb.i
@@ -1951,7 +1935,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 236
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -1995,7 +1979,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 236
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMinDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -2012,7 +1996,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetMinHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 236
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
     i32 2141891242, label %sw.bb.i
@@ -2085,7 +2069,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %maxDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
+  %maxDimensions_.i.i = getelementptr inbounds i8, ptr %node, i64 240
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %maxDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -2129,7 +2113,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %maxDimensions_.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
+  %maxDimensions_.i.i = getelementptr inbounds i8, ptr %node, i64 240
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %maxDimensions_.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -2146,7 +2130,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetMaxWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %maxDimensions_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
+  %maxDimensions_.i = getelementptr inbounds i8, ptr %node, i64 240
   %retval.sroa.0.0.copyload.i = load i32, ptr %maxDimensions_.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
     i32 2141891242, label %sw.bb.i
@@ -2219,7 +2203,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value6pointsEf.exit:            ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %sub.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2140081935, %lor.lhs.false3.i.i ], [ 2140081935, %if.end.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 244
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -2263,7 +2247,7 @@ if.end7.i.i:                                      ; preds = %lor.lhs.false3.i.i
 
 _ZN8facebook4yoga5value7percentEf.exit:           ; preds = %entry, %if.end.i.i, %lor.lhs.false3.i.i, %if.end7.i.i
   %retval.sroa.0.0.i.i = phi i32 [ %or.i.i, %if.end7.i.i ], [ 2143289344, %entry ], [ 2139156720, %lor.lhs.false3.i.i ], [ 2139156720, %if.end.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 244
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
   %cmp.i.i.not.i = icmp eq i32 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.i.i
   br i1 %cmp.i.i.not.i, label %_ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS2_9DimensionEEETnDaXadL_ZNS3_15setMaxDimensionES4_NS2_12CompactValueEEES4_S5_EEvP6YGNodeT1_T2_.exit, label %if.then.i
@@ -2280,7 +2264,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @YGNodeStyleGetMaxHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 244
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i [
     i32 2141891242, label %sw.bb.i

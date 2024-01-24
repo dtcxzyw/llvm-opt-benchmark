@@ -21,9 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.crypto::(anonymous namespace)::SecureHashSHA256" = type { %"class.crypto::SecureHash", %struct.sha256_state_st }
-%"class.crypto::SecureHash" = type { ptr }
-%struct.sha256_state_st = type { [8 x i32], i32, i32, [64 x i8], i32, i32 }
 %"class.crypto::ScopedOpenSSLSafeSizeBuffer" = type { ptr, i64, [32 x i8] }
 
 $__clang_call_terminate = comdat any
@@ -53,7 +50,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #9, !noalias !5
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !5
-  %ctx_2.i.i = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %call.i, i64 0, i32 1
+  %ctx_2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call.i1.i = invoke i32 @SHA256_Init(ptr noundef nonnull %ctx_2.i.i)
           to label %return unwind label %lpad.i, !noalias !5
 
@@ -73,7 +70,7 @@ sw.default:                                       ; preds = %entry
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 61, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4 unwind label %lpad
 
@@ -131,7 +128,7 @@ declare i32 @SHA256_Init(ptr noundef) local_unnamed_addr #1
 define internal void @_ZN6crypto12_GLOBAL__N_116SecureHashSHA256D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ctx_ = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this, i64 0, i32 1
+  %ctx_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @OPENSSL_cleanse(ptr noundef nonnull %ctx_, i64 noundef 112)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -150,7 +147,7 @@ terminate.lpad:                                   ; preds = %entry
 define internal void @_ZN6crypto12_GLOBAL__N_116SecureHashSHA256D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ctx_.i = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this, i64 0, i32 1
+  %ctx_.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @OPENSSL_cleanse(ptr noundef nonnull %ctx_.i, i64 noundef 112)
           to label %_ZN6crypto12_GLOBAL__N_116SecureHashSHA256D2Ev.exit unwind label %terminate.lpad.i
 
@@ -169,7 +166,7 @@ _ZN6crypto12_GLOBAL__N_116SecureHashSHA256D2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6crypto12_GLOBAL__N_116SecureHashSHA2566UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %input, i64 noundef %len) unnamed_addr #0 align 2 {
 entry:
-  %ctx_ = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this, i64 0, i32 1
+  %ctx_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i32 @SHA256_Update(ptr noundef nonnull %ctx_, ptr noundef %input, i64 noundef %len)
   ret void
 }
@@ -179,12 +176,12 @@ define internal void @_ZN6crypto12_GLOBAL__N_116SecureHashSHA2566FinishEPvm(ptr 
 entry:
   %result = alloca %"class.crypto::ScopedOpenSSLSafeSizeBuffer", align 8
   store ptr %output, ptr %result, align 8
-  %output_len_.i = getelementptr inbounds %"class.crypto::ScopedOpenSSLSafeSizeBuffer", ptr %result, i64 0, i32 1
+  %output_len_.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %len, ptr %output_len_.i, align 8
   %cmp.i = icmp ult i64 %len, 32
-  %min_sized_buffer_.i = getelementptr inbounds %"class.crypto::ScopedOpenSSLSafeSizeBuffer", ptr %result, i64 0, i32 2
+  %min_sized_buffer_.i = getelementptr inbounds i8, ptr %result, i64 16
   %cond.i = select i1 %cmp.i, ptr %min_sized_buffer_.i, ptr %output
-  %ctx_ = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this, i64 0, i32 1
+  %ctx_ = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = invoke i32 @SHA256_Final(ptr noundef %cond.i, ptr noundef nonnull %ctx_)
           to label %invoke.cont2 unwind label %lpad
 
@@ -228,8 +225,8 @@ define internal void @_ZNK6crypto12_GLOBAL__N_116SecureHashSHA2565CloneEv(ptr no
 _ZNSt10unique_ptrIN6crypto12_GLOBAL__N_116SecureHashSHA256ESt14default_deleteIS2_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #9, !noalias !8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !8
-  %ctx_2.i.i = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %call.i, i64 0, i32 1
-  %ctx_3.i.i = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this, i64 0, i32 1
+  %ctx_2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %ctx_3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ctx_2.i.i, ptr noundef nonnull align 8 dereferenceable(112) %ctx_3.i.i, i64 112, i1 false), !noalias !8
   store ptr %call.i, ptr %agg.result, align 8
   ret void

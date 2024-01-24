@@ -3,13 +3,6 @@ source_filename = "bench/hyperscan/original/accel.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.anon.0 = type { i8, i8, i8 }
-%struct.anon.1 = type { i8, i8, i8, i8, i8, i8 }
-%struct.anon.4 = type { i8, i8, <2 x i64>, <2 x i64> }
-%struct.anon.6 = type { i8, i8, <2 x i64>, <2 x i64> }
-%struct.anon.5 = type { i8, i8, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64> }
-%struct.anon = type { i8, i8 }
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @run_accel(ptr nocapture noundef readonly %accel, ptr noundef %c, ptr noundef %c_end) local_unnamed_addr #0 {
 entry:
@@ -32,7 +25,7 @@ do.end3:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %do.end3
-  %c5 = getelementptr inbounds %struct.anon.0, ptr %accel, i64 0, i32 2
+  %c5 = getelementptr inbounds i8, ptr %accel, i64 2
   %1 = load i8, ptr %c5, align 2
   %vecinit.i1002 = insertelement <16 x i8> poison, i8 %1, i64 0
   %vecinit15.i1017 = shufflevector <16 x i8> %vecinit.i1002, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -163,7 +156,7 @@ do.end8:                                          ; preds = %entry
   br i1 %cmp10.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %do.end8
-  %c14 = getelementptr inbounds %struct.anon.0, ptr %accel, i64 0, i32 2
+  %c14 = getelementptr inbounds i8, ptr %accel, i64 2
   %19 = load i8, ptr %c14, align 2
   %vecinit.i1035 = insertelement <16 x i8> poison, i8 %19, i64 0
   %vecinit15.i1050 = shufflevector <16 x i8> %vecinit.i1035, <16 x i8> poison, <16 x i32> zeroinitializer
@@ -300,9 +293,9 @@ do.end18:                                         ; preds = %entry
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %do.end18
-  %c1 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 2
+  %c1 = getelementptr inbounds i8, ptr %accel, i64 2
   %43 = load i8, ptr %c1, align 2
-  %c2 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 3
+  %c2 = getelementptr inbounds i8, ptr %accel, i64 3
   %44 = load i8, ptr %c2, align 1
   %add.ptr25 = getelementptr inbounds i8, ptr %c_end, i64 -1
   %vecinit.i903 = insertelement <16 x i8> poison, i8 %43, i64 0
@@ -407,9 +400,9 @@ do.end29:                                         ; preds = %entry
   br i1 %cmp32.not, label %if.end35, label %return
 
 if.end35:                                         ; preds = %do.end29
-  %c136 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 2
+  %c136 = getelementptr inbounds i8, ptr %accel, i64 2
   %65 = load i8, ptr %c136, align 2
-  %c237 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 3
+  %c237 = getelementptr inbounds i8, ptr %accel, i64 3
   %66 = load i8, ptr %c237, align 1
   %add.ptr38 = getelementptr inbounds i8, ptr %c_end, i64 -1
   %vecinit.i969 = insertelement <16 x i8> poison, i8 %65, i64 0
@@ -520,13 +513,13 @@ do.end42:                                         ; preds = %entry
   br i1 %cmp45.not, label %if.end48, label %return
 
 if.end48:                                         ; preds = %do.end42
-  %c149 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 2
+  %c149 = getelementptr inbounds i8, ptr %accel, i64 2
   %93 = load i8, ptr %c149, align 2
-  %c250 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 3
+  %c250 = getelementptr inbounds i8, ptr %accel, i64 3
   %94 = load i8, ptr %c250, align 1
-  %m1 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 4
+  %m1 = getelementptr inbounds i8, ptr %accel, i64 4
   %95 = load i8, ptr %m1, align 4
-  %m2 = getelementptr inbounds %struct.anon.1, ptr %accel, i64 0, i32 5
+  %m2 = getelementptr inbounds i8, ptr %accel, i64 5
   %96 = load i8, ptr %m2, align 1
   %add.ptr51 = getelementptr inbounds i8, ptr %c_end, i64 -1
   %vecinit.i837 = insertelement <16 x i8> poison, i8 %93, i64 0
@@ -656,9 +649,9 @@ do.end55:                                         ; preds = %entry
   br i1 %cmp57.not, label %if.end60, label %return
 
 if.end60:                                         ; preds = %do.end55
-  %lo = getelementptr inbounds %struct.anon.4, ptr %accel, i64 0, i32 2
+  %lo = getelementptr inbounds i8, ptr %accel, i64 16
   %125 = load <2 x i64>, ptr %lo, align 16
-  %hi = getelementptr inbounds %struct.anon.4, ptr %accel, i64 0, i32 3
+  %hi = getelementptr inbounds i8, ptr %accel, i64 32
   %126 = load <2 x i64>, ptr %hi, align 16
   %call61 = tail call ptr @shuftiExec(<2 x i64> noundef %125, <2 x i64> noundef %126, ptr noundef %c, ptr noundef %c_end) #5
   br label %do.end86
@@ -669,9 +662,9 @@ do.end64:                                         ; preds = %entry
   br i1 %cmp66.not, label %if.end69, label %return
 
 if.end69:                                         ; preds = %do.end64
-  %mask1 = getelementptr inbounds %struct.anon.6, ptr %accel, i64 0, i32 2
+  %mask1 = getelementptr inbounds i8, ptr %accel, i64 16
   %127 = load <2 x i64>, ptr %mask1, align 16
-  %mask2 = getelementptr inbounds %struct.anon.6, ptr %accel, i64 0, i32 3
+  %mask2 = getelementptr inbounds i8, ptr %accel, i64 32
   %128 = load <2 x i64>, ptr %mask2, align 16
   %call70 = tail call ptr @truffleExec(<2 x i64> noundef %127, <2 x i64> noundef %128, ptr noundef %c, ptr noundef %c_end) #5
   br label %do.end86
@@ -682,13 +675,13 @@ do.end73:                                         ; preds = %entry
   br i1 %cmp76.not, label %if.end79, label %return
 
 if.end79:                                         ; preds = %do.end73
-  %lo1 = getelementptr inbounds %struct.anon.5, ptr %accel, i64 0, i32 2
+  %lo1 = getelementptr inbounds i8, ptr %accel, i64 16
   %129 = load <2 x i64>, ptr %lo1, align 16
-  %hi1 = getelementptr inbounds %struct.anon.5, ptr %accel, i64 0, i32 3
+  %hi1 = getelementptr inbounds i8, ptr %accel, i64 32
   %130 = load <2 x i64>, ptr %hi1, align 16
-  %lo2 = getelementptr inbounds %struct.anon.5, ptr %accel, i64 0, i32 4
+  %lo2 = getelementptr inbounds i8, ptr %accel, i64 48
   %131 = load <2 x i64>, ptr %lo2, align 16
-  %hi2 = getelementptr inbounds %struct.anon.5, ptr %accel, i64 0, i32 5
+  %hi2 = getelementptr inbounds i8, ptr %accel, i64 64
   %132 = load <2 x i64>, ptr %hi2, align 16
   %add.ptr80 = getelementptr inbounds i8, ptr %c_end, i64 -1
   %call81 = tail call ptr @shuftiDoubleExec(<2 x i64> noundef %129, <2 x i64> noundef %130, <2 x i64> noundef %131, <2 x i64> noundef %132, ptr noundef %c, ptr noundef nonnull %add.ptr80) #5
@@ -696,7 +689,7 @@ if.end79:                                         ; preds = %do.end73
 
 do.end86:                                         ; preds = %if.end9.i, %if.end.i, %if.end9.i172, %if.end.i168, %for.cond.i.preheader, %for.cond.i163.preheader, %if.then40.i587, %if.then13.i614, %if.then36.i, %if.then10.i652, %cond.end15.i224, %cond.end15.i, %dvermSearchAlignedMasked.exit, %entry, %if.then.i293, %if.end11.i, %if.end16.i, %cond.true.i202, %cond.true22.i, %if.end32.i, %cond.false.i260, %cond.false25.i230, %if.end32.i236, %cond.true37.i, %cond.true.i, %cond.false40.i131, %cond.false.i151, %if.end79, %if.end69, %if.end60
   %rv.0 = phi ptr [ %call81, %if.end79 ], [ %call70, %if.end69 ], [ %call61, %if.end60 ], [ %cond49.i139, %cond.false40.i131 ], [ %add.ptr.i432, %cond.false.i151 ], [ %cond49.i, %cond.true37.i ], [ %add.ptr.i384, %cond.true.i ], [ %add.ptr.i1747, %cond.false.i260 ], [ %add.ptr19.i2064, %cond.end15.i224 ], [ %add.ptr.i1781, %cond.false25.i230 ], [ %arrayidx.i241.add.ptr25, %if.end32.i236 ], [ %add.ptr.i1643, %cond.true.i202 ], [ %add.ptr22.i2018, %cond.end15.i ], [ %add.ptr.i1720, %cond.true22.i ], [ %arrayidx.i.add.ptr38, %if.end32.i ], [ %add.ptr.i2156, %if.then.i293 ], [ %add.ptr24.i2260, %dvermSearchAlignedMasked.exit ], [ %add.ptr.i2205, %if.end11.i ], [ %arrayidx.i288.add.ptr51, %if.end16.i ], [ %c_end, %entry ], [ %add.ptr12.i654, %if.then10.i652 ], [ %add.ptr40.i, %if.then36.i ], [ %add.ptr15.i617, %if.then13.i614 ], [ %add.ptr44.i590, %if.then40.i587 ], [ %c, %for.cond.i163.preheader ], [ %c, %for.cond.i.preheader ], [ %scevgep851, %if.end9.i172 ], [ %buf.addr.i104.0822, %if.end.i168 ], [ %scevgep, %if.end9.i ], [ %buf.addr.i.0811, %if.end.i ]
-  %offset = getelementptr inbounds %struct.anon, ptr %accel, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %accel, i64 1
   %133 = load i8, ptr %offset, align 1
   %idx.ext = zext i8 %133 to i64
   %add.ptr88 = getelementptr inbounds i8, ptr %c, i64 %idx.ext

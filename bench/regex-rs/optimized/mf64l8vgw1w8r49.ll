@@ -16,14 +16,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN93_$LT$regex_automata..util..interpolate..Ref$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h091bf98ca9fa8bffE"(ptr nocapture writeonly sret({ ptr, [1 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN91_$LT$regex_automata..util..interpolate..Ref$u20$as$u20$core..convert..From$LT$usize$GT$$GT$4from17h6241ae07cc02e484E"(ptr nocapture writeonly sret({ ptr, [1 x i64] }) align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   store ptr null, ptr %0, align 8
   ret void
@@ -49,7 +49,7 @@ define void @_ZN14regex_automata4util11interpolate12find_cap_ref17hb732e940fd271
   br i1 %13, label %14, label %10
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 1
+  %15 = getelementptr inbounds i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !noundef !5
   %17 = icmp eq i8 %16, 123
   br i1 %17, label %18, label %.preheader
@@ -103,22 +103,22 @@ define void @_ZN14regex_automata4util11interpolate12find_cap_ref17hb732e940fd271
   br i1 %41, label %42, label %_ZN14regex_automata4util11interpolate19find_cap_ref_braced17hcb7eae2f3edbe5afE.exit
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %5, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %5, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !6, !nonnull !5, !align !11, !noundef !5
-  %45 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %5, i64 0, i32 1, i32 1
+  %45 = getelementptr inbounds i8, ptr %5, i64 16
   %46 = load i64, ptr %45, align 8, !noalias !6, !noundef !5
   call void @"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h15f84a226c5fa81dE"(ptr nonnull sret({ i8, [15 x i8] }) align 8 %4, ptr nonnull align 1 %44, i64 %46), !noalias !6
   %47 = load i8, ptr %4, align 8, !range !12, !noalias !6, !noundef !5
   %48 = icmp eq i8 %47, 0
-  %49 = getelementptr inbounds { [1 x i64], i64 }, ptr %4, i64 0, i32 1
+  %49 = getelementptr inbounds i8, ptr %4, i64 8
   %50 = load i64, ptr %49, align 8, !noalias !6
   %.sroa.012.0.i = select i1 %48, ptr null, ptr %44
   %.sroa.3.0.i = select i1 %48, i64 %50, i64 %46
-  %51 = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %0, i64 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.012.0.i, ptr %51, align 8, !alias.scope !6
-  %.sroa.010.sroa.2.0..sroa_idx.i = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %.sroa.010.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.3.0.i, ptr %.sroa.010.sroa.2.0..sroa_idx.i, align 8, !alias.scope !6
-  %.sroa.211.0..sroa_idx.i = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.211.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %32, ptr %.sroa.211.0..sroa_idx.i, align 8, !alias.scope !6
   br label %_ZN14regex_automata4util11interpolate19find_cap_ref_braced17hcb7eae2f3edbe5afE.exit
 
@@ -160,15 +160,15 @@ _ZN14regex_automata4util11interpolate19find_cap_ref_braced17hcb7eae2f3edbe5afE.e
   call void @"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h15f84a226c5fa81dE"(ptr nonnull sret({ i8, [15 x i8] }) align 8 %7, ptr align 1 %68, i64 %69)
   %70 = load i8, ptr %7, align 8, !range !12, !noundef !5
   %71 = icmp eq i8 %70, 0
-  %72 = getelementptr inbounds { [1 x i64], i64 }, ptr %7, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %7, i64 8
   %73 = load i64, ptr %72, align 8
   %.sroa.013.0 = select i1 %71, ptr null, ptr %68
   %.sroa.3.0 = select i1 %71, i64 %73, i64 %69
-  %74 = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %0, i64 0, i32 1
+  %74 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.013.0, ptr %74, align 8
-  %.sroa.011.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %.sroa.011.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.3.0, ptr %.sroa.011.sroa.2.0..sroa_idx, align 8
-  %.sroa.212.0..sroa_idx = getelementptr inbounds { [1 x i64], { { ptr, [1 x i64] }, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.212.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.0, ptr %.sroa.212.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
   br label %52

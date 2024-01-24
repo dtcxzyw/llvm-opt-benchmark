@@ -3,8 +3,6 @@ source_filename = "bench/cpython/original/numbertheory.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.fnt_params = type { i32, i64, i64, [0 x i64] }
-
 @mpd_roots = external hidden local_unnamed_addr constant [0 x i64], align 8
 @mpd_moduli = external hidden local_unnamed_addr constant [0 x i64], align 8
 
@@ -87,17 +85,21 @@ if.end:                                           ; preds = %entry
   %0 = load i64, ptr %arrayidx.i, align 8
   %call1 = tail call i64 @_mpd_getkernel(i64 noundef %n, i32 noundef %sign, i32 noundef %modnum)
   store i32 %modnum, ptr %call, align 8
-  %modulus = getelementptr inbounds %struct.fnt_params, ptr %call, i64 0, i32 1
+  %modulus = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %0, ptr %modulus, align 8
-  %kernel3 = getelementptr inbounds %struct.fnt_params, ptr %call, i64 0, i32 2
+  %kernel3 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %call1, ptr %kernel3, align 8
   %cmp416.not = icmp ult i64 %n, 2
-  br i1 %cmp416.not, label %return, label %for.body
+  br i1 %cmp416.not, label %return, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.end, %for.body
-  %i.018 = phi i64 [ %inc, %for.body ], [ 0, %if.end ]
-  %w.017 = phi i64 [ %call5, %for.body ], [ 1, %if.end ]
-  %arrayidx = getelementptr %struct.fnt_params, ptr %call, i64 0, i32 3, i64 %i.018
+for.body.lr.ph:                                   ; preds = %if.end
+  %wtable = getelementptr inbounds i8, ptr %call, i64 24
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %w.017 = phi i64 [ 1, %for.body.lr.ph ], [ %call5, %for.body ]
+  %arrayidx = getelementptr [0 x i64], ptr %wtable, i64 0, i64 %i.018
   store i64 %w.017, ptr %arrayidx, align 8
   %call5 = tail call fastcc i64 @x64_mulmod(i64 noundef %w.017, i64 noundef %call1, i64 noundef %0)
   %inc = add nuw nsw i64 %i.018, 1
@@ -229,7 +231,7 @@ entry:
   %0 = load i64, ptr %arrayidx.i, align 8
   %call = tail call i64 @_mpd_getkernel(i64 noundef 3, i32 noundef %sign, i32 noundef %modnum)
   store i64 1, ptr %w3table, align 8
-  %arrayidx1 = getelementptr i64, ptr %w3table, i64 1
+  %arrayidx1 = getelementptr i8, ptr %w3table, i64 8
   store i64 %call, ptr %arrayidx1, align 8
   br label %while.body.i
 
@@ -253,7 +255,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %cmp.not.i, label %x64_powmod.exit, label %while.body.i, !llvm.loop !4
 
 x64_powmod.exit:                                  ; preds = %if.end.i
-  %arrayidx3 = getelementptr i64, ptr %w3table, i64 2
+  %arrayidx3 = getelementptr i8, ptr %w3table, i64 16
   store i64 %r.1.i, ptr %arrayidx3, align 8
   ret void
 }

@@ -97,9 +97,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3smt12display_smt2ERSoN3sat7literalER11ast_managerPKP4expr(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 %lit.coerce, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef readonly %bool_var2expr_map) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
-  %ref.tmp.sroa.gep = getelementptr inbounds %struct.mk_ismt2_pp, ptr %ref.tmp, i64 0, i32 2
+  %ref.tmp.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %ref.tmp18 = alloca %struct.mk_pp, align 8
-  %ref.tmp18.sroa.gep = getelementptr inbounds %struct.mk_ismt2_pp, ptr %ref.tmp18, i64 0, i32 2
+  %ref.tmp18.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
   %cmp.i = icmp eq i32 %lit.coerce, 0
   br i1 %cmp.i, label %if.then, label %if.else
 
@@ -147,7 +147,7 @@ invoke.cont:                                      ; preds = %if.then11
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont
-  %m_empty.i.i = getelementptr inbounds %struct.mk_ismt2_pp, ptr %ref.tmp, i64 0, i32 2
+  %m_empty.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i.i) #6
   br label %if.end27
 
@@ -166,7 +166,7 @@ if.else17:                                        ; preds = %if.else9
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %if.else17
-  %m_empty.i.i13 = getelementptr inbounds %struct.mk_ismt2_pp, ptr %ref.tmp18, i64 0, i32 2
+  %m_empty.i.i13 = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_empty.i.i13) #6
   br label %if.end27
 
@@ -286,7 +286,7 @@ entry:
   br i1 %cmp.i.i, label %_Z7displayIPKN3sat7literalEEvRSoRKT_S7_PKc.exit, label %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
 
 _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %2
@@ -326,7 +326,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i3
   br label %_ZN3satlsERSoNS_7literalE.exit.i.i
 
 _ZN3satlsERSoNS_7literalE.exit.i.i:               ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.sat::literal", ptr %it.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.06.i.i, i64 4
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
   br i1 %cmp.not.i.i, label %_Z7displayIPKN3sat7literalEEvRSoRKT_S7_PKc.exit, label %for.body.i.i, !llvm.loop !4
 

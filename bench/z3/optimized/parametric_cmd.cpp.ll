@@ -16,15 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%class.parametric_cmd = type { %class.cmd, %class.symbol, ptr, %class.params_ref, %class.scoped_ptr }
-%class.cmd = type { ptr, %class.symbol, i32, i32 }
-%class.params_ref = type { ptr }
-%class.scoped_ptr = type { ptr }
-%class.string_buffer = type { [64 x i8], ptr, i64, i64 }
 %"class.std::allocator" = type { i8 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
-%class.cmd_exception = type { %class.default_exception, i32, i32 }
 %struct._Guard = type { ptr }
 
 $_ZN13cmd_exceptionC2EPKc = comdat any
@@ -136,22 +128,22 @@ define hidden noundef ptr @_ZNK14parametric_cmd9get_descrER11cmd_context(ptr nou
 entry:
   %buf = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_descr = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 2
+  %m_descr = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_descr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 88)
-  %m_buffer.i = getelementptr inbounds %class.string_buffer, ptr %call, i64 0, i32 1
+  %m_buffer.i = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %call, ptr %m_buffer.i, align 8
-  %m_pos.i = getelementptr inbounds %class.string_buffer, ptr %call, i64 0, i32 2
+  %m_pos.i = getelementptr inbounds i8, ptr %call, i64 72
   store i64 0, ptr %m_pos.i, align 8
-  %m_capacity.i = getelementptr inbounds %class.string_buffer, ptr %call, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %call, i64 80
   store i64 64, ptr %m_capacity.i, align 8
   store ptr %call, ptr %m_descr, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 29
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(56) %this)
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #13
@@ -201,13 +193,13 @@ _ZN13string_bufferILj64EE6appendEPKc.exit:        ; preds = %entry.while.end_cri
   %add4.i = add i64 %10, %call.i
   store i64 %add4.i, ptr %m_pos.i, align 8
   %11 = load ptr, ptr %m_descr, align 8
-  %m_pos.i5 = getelementptr inbounds %class.string_buffer, ptr %11, i64 0, i32 2
+  %m_pos.i5 = getelementptr inbounds i8, ptr %11, i64 72
   %12 = load i64, ptr %m_pos.i5, align 8
   %add.i6 = add i64 %12, 38
-  %m_capacity.i7 = getelementptr inbounds %class.string_buffer, ptr %11, i64 0, i32 3
+  %m_capacity.i7 = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load i64, ptr %m_capacity.i7, align 8
   %cmp4.i8 = icmp ugt i64 %add.i6, %13
-  %m_buffer.i.i9 = getelementptr inbounds %class.string_buffer, ptr %11, i64 0, i32 1
+  %m_buffer.i.i9 = getelementptr inbounds i8, ptr %11, i64 64
   br i1 %cmp4.i8, label %while.body.i14, label %entry.while.end_crit_edge.i10
 
 entry.while.end_crit_edge.i10:                    ; preds = %_ZN13string_bufferILj64EE6appendEPKc.exit
@@ -250,7 +242,7 @@ _ZN13string_bufferILj64EE6appendEPKc.exit25:      ; preds = %entry.while.end_cri
   %add4.i13 = add i64 %20, 38
   store i64 %add4.i13, ptr %m_pos.i5, align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %buf)
-  %m_pdescrs.i = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 4
+  %m_pdescrs.i = getelementptr inbounds i8, ptr %this, i64 48
   %21 = load ptr, ptr %m_pdescrs.i, align 8
   %cmp.i.not.i = icmp eq ptr %21, null
   br i1 %cmp.i.not.i, label %if.then.i, label %invoke.cont
@@ -283,7 +275,7 @@ _Z7deallocI12param_descrsEvPT_.exit.i.i:          ; preds = %if.end.i.i.i27, %if
 
 _ZN10scoped_ptrI12param_descrsEaSEPS0_.exit.i:    ; preds = %_Z7deallocI12param_descrsEvPT_.exit.i.i, %.noexc
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 28
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %23 = load ptr, ptr %vfn.i, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %call2.i29)
           to label %.noexc31 unwind label %lpad
@@ -304,13 +296,13 @@ invoke.cont7:                                     ; preds = %invoke.cont
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %call.i32 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  %m_pos.i33 = getelementptr inbounds %class.string_buffer, ptr %25, i64 0, i32 2
+  %m_pos.i33 = getelementptr inbounds i8, ptr %25, i64 72
   %26 = load i64, ptr %m_pos.i33, align 8
   %add.i34 = add i64 %26, %call.i32
-  %m_capacity.i35 = getelementptr inbounds %class.string_buffer, ptr %25, i64 0, i32 3
+  %m_capacity.i35 = getelementptr inbounds i8, ptr %25, i64 80
   %27 = load i64, ptr %m_capacity.i35, align 8
   %cmp4.i36 = icmp ugt i64 %add.i34, %27
-  %m_buffer.i.i37 = getelementptr inbounds %class.string_buffer, ptr %25, i64 0, i32 1
+  %m_buffer.i.i37 = getelementptr inbounds i8, ptr %25, i64 64
   br i1 %cmp4.i36, label %while.body.i41, label %entry.while.end_crit_edge.i38
 
 entry.while.end_crit_edge.i38:                    ; preds = %invoke.cont9
@@ -379,22 +371,22 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
 
 if.end:                                           ; preds = %invoke.cont11, %entry
   %37 = phi ptr [ %.pre, %invoke.cont11 ], [ %0, %entry ]
-  %m_pos.i54 = getelementptr inbounds %class.string_buffer, ptr %37, i64 0, i32 2
+  %m_pos.i54 = getelementptr inbounds i8, ptr %37, i64 72
   %38 = load i64, ptr %m_pos.i54, align 8
-  %m_capacity.i55 = getelementptr inbounds %class.string_buffer, ptr %37, i64 0, i32 3
+  %m_capacity.i55 = getelementptr inbounds i8, ptr %37, i64 80
   %39 = load i64, ptr %m_capacity.i55, align 8
   %cmp.not.i = icmp ult i64 %38, %39
   br i1 %cmp.not.i, label %entry.if.end_crit_edge.i, label %if.then.i56
 
 entry.if.end_crit_edge.i:                         ; preds = %if.end
-  %m_buffer.phi.trans.insert.i = getelementptr inbounds %class.string_buffer, ptr %37, i64 0, i32 1
+  %m_buffer.phi.trans.insert.i = getelementptr inbounds i8, ptr %37, i64 64
   %.pre.i66 = load ptr, ptr %m_buffer.phi.trans.insert.i, align 8
   br label %_ZNK13string_bufferILj64EE5c_strEv.exit
 
 if.then.i56:                                      ; preds = %if.end
   %shl.i.i57 = shl i64 %39, 1
   %call.i.i58 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %shl.i.i57)
-  %m_buffer.i.i59 = getelementptr inbounds %class.string_buffer, ptr %37, i64 0, i32 1
+  %m_buffer.i.i59 = getelementptr inbounds i8, ptr %37, i64 64
   %40 = load ptr, ptr %m_buffer.i.i59, align 8
   %41 = load i64, ptr %m_pos.i54, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i58, ptr align 1 %40, i64 %41, i1 false)
@@ -418,7 +410,7 @@ _ZN13string_bufferILj64EE6expandEv.exit.i64:      ; preds = %if.end.i.i.i63, %if
 _ZNK13string_bufferILj64EE5c_strEv.exit:          ; preds = %entry.if.end_crit_edge.i, %_ZN13string_bufferILj64EE6expandEv.exit.i64
   %43 = phi i64 [ %38, %entry.if.end_crit_edge.i ], [ %.pre1.i, %_ZN13string_bufferILj64EE6expandEv.exit.i64 ]
   %44 = phi ptr [ %.pre.i66, %entry.if.end_crit_edge.i ], [ %call.i.i58, %_ZN13string_bufferILj64EE6expandEv.exit.i64 ]
-  %m_buffer.i65 = getelementptr inbounds %class.string_buffer, ptr %37, i64 0, i32 1
+  %m_buffer.i65 = getelementptr inbounds i8, ptr %37, i64 64
   %arrayidx.i = getelementptr inbounds i8, ptr %44, i64 %43
   store i8 0, ptr %arrayidx.i, align 1
   %45 = load ptr, ptr %m_buffer.i65, align 8
@@ -432,7 +424,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(p
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK14parametric_cmd7pdescrsER11cmd_context(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx) local_unnamed_addr #3 align 2 {
 entry:
-  %m_pdescrs = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 4
+  %m_pdescrs = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_pdescrs, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -459,7 +451,7 @@ _Z7deallocI12param_descrsEvPT_.exit.i:            ; preds = %if.end.i.i, %if.the
 
 _ZN10scoped_ptrI12param_descrsEaSEPS0_.exit:      ; preds = %if.then, %_Z7deallocI12param_descrsEvPT_.exit.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %call2)
   %.pre = load ptr, ptr %m_pdescrs, align 8
@@ -485,14 +477,14 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK14parametric_cmd13next_arg_kindER11cmd_context(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx) unnamed_addr #3 align 2 {
 entry:
-  %m_last = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 1
+  %m_last = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_last, align 8
   %1 = load ptr, ptr @_ZN6symbol4nullE, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_pdescrs.i = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 4
+  %m_pdescrs.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %m_pdescrs.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZNK14parametric_cmd7pdescrsER11cmd_context.exit
@@ -519,7 +511,7 @@ _Z7deallocI12param_descrsEvPT_.exit.i.i:          ; preds = %if.end.i.i.i, %if.t
 
 _ZN10scoped_ptrI12param_descrsEaSEPS0_.exit.i:    ; preds = %_Z7deallocI12param_descrsEvPT_.exit.i.i, %if.then.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 28
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
   %.pre.i = load ptr, ptr %m_pdescrs.i, align 8
@@ -542,7 +534,7 @@ define hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextRK6symbol(pt
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_last = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 1
+  %m_last = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_last, align 8
   %1 = load ptr, ptr @_ZN6symbol4nullE, align 8
   %cmp.i = icmp eq ptr %0, %1
@@ -558,7 +550,7 @@ invoke.cont:                                      ; preds = %if.then
   %2 = load i64, ptr %ref.tmp, align 8
   store i64 %2, ptr %m_last, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #14
-  %m_pdescrs.i = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 4
+  %m_pdescrs.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_pdescrs.i, align 8
   %cmp.i.not.i = icmp eq ptr %3, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZNK14parametric_cmd7pdescrsER11cmd_context.exit
@@ -585,7 +577,7 @@ _Z7deallocI12param_descrsEvPT_.exit.i.i:          ; preds = %if.end.i.i.i, %if.t
 
 _ZN10scoped_ptrI12param_descrsEaSEPS0_.exit.i:    ; preds = %_Z7deallocI12param_descrsEvPT_.exit.i.i, %if.then.i
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 28
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %5 = load ptr, ptr %vfn.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
   %.pre.i = load ptr, ptr %m_pdescrs.i, align 8
@@ -620,7 +612,7 @@ lpad9:                                            ; preds = %if.then8
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  %m_params = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 3
+  %m_params = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN10params_ref7set_symEPKcRK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %s)
   %10 = load i64, ptr @_ZN6symbol4nullE, align 8
   store i64 %10, ptr %m_last, align 8
@@ -681,14 +673,14 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #14
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_line = getelementptr inbounds %class.cmd_exception, ptr %this, i64 0, i32 1
+  %m_line = getelementptr inbounds i8, ptr %this, i64 40
   store i32 -1, ptr %m_line, align 8
-  %m_pos = getelementptr inbounds %class.cmd_exception, ptr %this, i64 0, i32 2
+  %m_pos = getelementptr inbounds i8, ptr %this, i64 44
   store i32 -1, ptr %m_pos, align 4
   ret void
 
@@ -709,7 +701,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN13cmd_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i) #14
   ret void
 }
@@ -724,19 +716,19 @@ declare void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(
 define linkonce_odr hidden void @_ZN14parametric_cmdD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV14parametric_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_descr = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 2
+  %m_descr = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_descr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %m_capacity.i.i = getelementptr inbounds %class.string_buffer, ptr %0, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load i64, ptr %m_capacity.i.i, align 8
   %cmp.i.i = icmp ugt i64 %1, 64
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN13string_bufferILj64EED2Ev.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %m_buffer.i.i = getelementptr inbounds %class.string_buffer, ptr %0, i64 0, i32 1
+  %m_buffer.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %m_buffer.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %_ZN13string_bufferILj64EED2Ev.exit.i, label %if.end.i.i.i
@@ -757,7 +749,7 @@ _ZN13string_bufferILj64EED2Ev.exit.i:             ; preds = %if.end.i.i.i, %if.t
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %_ZN13string_bufferILj64EED2Ev.exit.i, %entry
-  %m_pdescrs = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 4
+  %m_pdescrs = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_pdescrs, align 8
   %cmp.i.i1 = icmp eq ptr %5, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrI12param_descrsED2Ev.exit, label %if.end.i.i
@@ -775,7 +767,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrI12param_descrsED2Ev.exit:         ; preds = %if.end, %if.end.i.i
-  %m_params = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 3
+  %m_params = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #14
   ret void
 
@@ -809,7 +801,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNK3cmd8get_nameEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %m_name = getelementptr inbounds %class.cmd, ptr %this, i64 0, i32 1
+  %m_name = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load ptr, ptr %m_name, align 8
   ret ptr %retval.sroa.0.0.copyload
 }
@@ -829,10 +821,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14parametric_cmd7prepareER11cmd_context(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_last = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 1
+  %m_last = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr @_ZN6symbol4nullE, align 8
   store i64 %0, ptr %m_last, align 8
-  %m_params = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 3
+  %m_params = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN10params_ref5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %m_params)
   ret void
 }
@@ -840,8 +832,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i32 noundef %val) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_params = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 3
-  %m_last = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 1
+  %m_params = getelementptr inbounds i8, ptr %this, i64 40
+  %m_last = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN10params_ref8set_uintERK6symbolj(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %m_last, i32 noundef %val)
   %0 = load i64, ptr @_ZN6symbol4nullE, align 8
   store i64 %0, ptr %m_last, align 8
@@ -851,8 +843,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i1 noundef zeroext %val) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_params = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 3
-  %m_last = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 1
+  %m_params = getelementptr inbounds i8, ptr %this, i64 40
+  %m_last = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN10params_ref8set_boolERK6symbolb(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %m_last, i1 noundef zeroext %val)
   %0 = load i64, ptr @_ZN6symbol4nullE, align 8
   store i64 %0, ptr %m_last, align 8
@@ -862,8 +854,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextRK8rational(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(32) %val) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_params = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 3
-  %m_last = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 1
+  %m_params = getelementptr inbounds i8, ptr %this, i64 40
+  %m_last = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN10params_ref7set_ratERK6symbolRK8rational(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %m_last, ptr noundef nonnull align 8 dereferenceable(32) %val)
   %0 = load i64, ptr @_ZN6symbol4nullE, align 8
   store i64 %0, ptr %m_last, align 8
@@ -881,8 +873,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextPKc(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %val) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_params = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 3
-  %m_last = getelementptr inbounds %class.parametric_cmd, ptr %this, i64 0, i32 1
+  %m_params = getelementptr inbounds i8, ptr %this, i64 40
+  %m_last = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN10params_ref7set_strERK6symbolPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %m_last, ptr noundef %val)
   %0 = load i64, ptr @_ZN6symbol4nullE, align 8
   store i64 %0, ptr %m_last, align 8
@@ -998,7 +990,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr hidden void @_ZN13cmd_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg.i.i = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void

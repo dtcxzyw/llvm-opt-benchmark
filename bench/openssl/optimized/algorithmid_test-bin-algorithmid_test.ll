@@ -78,13 +78,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.59 = private unnamed_addr constant [64 x i8] c"'%s' doesn't appear to be a SubjectPublicKeyInfo in PEM format\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.test_options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   br label %while.cond
 
@@ -398,7 +398,7 @@ if.end55.i:                                       ; preds = %lor.lhs.false49.i
   br i1 %tobool60.not.i, label %test_x509_sig_aid.exit, label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.end55.i
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %params.i, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %params.i, i64 32
   %21 = load i64, ptr %return_size.i, align 16
   %22 = load ptr, ptr %algid_legacy.i, align 8
   %conv63.i = sext i32 %call27.i to i64
@@ -639,7 +639,7 @@ if.end38:                                         ; preds = %lor.lhs.false32
   br i1 %tobool44.not, label %end, label %if.end46
 
 if.end46:                                         ; preds = %if.end38
-  %return_size = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 0, i32 4
+  %return_size = getelementptr inbounds i8, ptr %params, i64 32
   %6 = load i64, ptr %return_size, align 16
   %7 = load ptr, ptr %algid_legacy, align 8
   %conv47 = sext i32 %call5 to i64

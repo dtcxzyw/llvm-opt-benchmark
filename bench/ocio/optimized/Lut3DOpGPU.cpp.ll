@@ -18,30 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator" = type { i8 }
 %"class.OpenColorIO_v2_4dev::GpuShaderText" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", %"class.std::__cxx11::basic_ostringstream", i32, [4 x i8] }>
 %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine" = type { ptr }
-%"class.OpenColorIO_v2_4dev::Lut3DOpData" = type { %"class.OpenColorIO_v2_4dev::OpData", i32, %"class.OpenColorIO_v2_4dev::Lut3DOpData::Lut3DArray", i32, i32 }
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.4" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.4" = type { %"struct.std::_Vector_base.5" }
-%"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenColorIO_v2_4dev::Lut3DOpData::Lut3DArray" = type { %"class.OpenColorIO_v2_4dev::ArrayT" }
-%"class.OpenColorIO_v2_4dev::ArrayT" = type { %"class.OpenColorIO_v2_4dev::ArrayBase", i64, i64, %"class.std::vector.9" }
-%"class.OpenColorIO_v2_4dev::ArrayBase" = type { ptr }
-%"class.std::vector.9" = type { %"struct.std::_Vector_base.10" }
-%"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -636,13 +612,13 @@ invoke.cont56:                                    ; preds = %invoke.cont44
   %spec.store.select = select i1 %cmp46, i32 1, i32 %call45
   %call53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #5
   %15 = load ptr, ptr %lutData, align 8
-  %m_length.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::Lut3DOpData", ptr %15, i64 0, i32 2, i32 0, i32 1
+  %m_length.i.i = getelementptr inbounds i8, ptr %15, i64 184
   %16 = load i64, ptr %m_length.i.i, align 8
   %conv = trunc i64 %16 to i32
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::Lut3DOpData", ptr %15, i64 0, i32 2, i32 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %15, i64 200
   %17 = load ptr, ptr %m_data.i, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %18 = load ptr, ptr %vfn, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %call50, ptr noundef %call53, i32 noundef %conv, i32 noundef %spec.store.select, ptr noundef nonnull %17)
           to label %invoke.cont63 unwind label %lpad55
@@ -666,19 +642,19 @@ invoke.cont69:                                    ; preds = %invoke.cont67
 invoke.cont72:                                    ; preds = %invoke.cont69
   %call73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71) #5
   %vtable74 = load ptr, ptr %20, align 8
-  %vfn75 = getelementptr inbounds ptr, ptr %vtable74, i64 15
+  %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 120
   %21 = load ptr, ptr %vfn75, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %call73)
           to label %invoke.cont81 unwind label %lpad76
 
 invoke.cont81:                                    ; preds = %invoke.cont72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71) #5
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %ss, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #5
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %ss, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #5
   %22 = load ptr, ptr %lutData, align 8
-  %m_length.i.i319 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::Lut3DOpData", ptr %22, i64 0, i32 2, i32 0, i32 1
+  %m_length.i.i319 = getelementptr inbounds i8, ptr %22, i64 184
   %23 = load i64, ptr %m_length.i.i319, align 8
   %conv83 = sitofp i64 %23 to float
   %div = fdiv float 1.000000e+00, %conv83
@@ -3149,9 +3125,9 @@ lpad76:                                           ; preds = %invoke.cont72
 
 ehcleanup79:                                      ; preds = %lpad76, %lpad68
   %.pn52 = phi { ptr, i32 } [ %37, %lpad76 ], [ %36, %lpad68 ]
-  %m_ossLine.i320 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 3
+  %m_ossLine.i320 = getelementptr inbounds i8, ptr %ss, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i320) #5
-  %m_ossText.i321 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss, i64 0, i32 2
+  %m_ossText.i321 = getelementptr inbounds i8, ptr %ss, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i321) #5
   br label %ehcleanup1859
 
@@ -5895,16 +5871,16 @@ if.end1848:                                       ; preds = %invoke.cont1772, %i
 invoke.cont1851:                                  ; preds = %if.end1848
   %call1852 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1850) #5
   %vtable1853 = load ptr, ptr %337, align 8
-  %vfn1854 = getelementptr inbounds ptr, ptr %vtable1853, i64 18
+  %vfn1854 = getelementptr inbounds i8, ptr %vtable1853, i64 144
   %338 = load ptr, ptr %vfn1854, align 8
   invoke void %338(ptr noundef nonnull align 8 dereferenceable(16) %337, ptr noundef %call1852)
           to label %invoke.cont1856 unwind label %lpad1855
 
 invoke.cont1856:                                  ; preds = %invoke.cont1851
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1850) #5
-  %m_ossLine.i330 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss84, i64 0, i32 3
+  %m_ossLine.i330 = getelementptr inbounds i8, ptr %ss84, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i330) #5
-  %m_ossText.i331 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss84, i64 0, i32 2
+  %m_ossText.i331 = getelementptr inbounds i8, ptr %ss84, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i331) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #5
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %resName) #5
@@ -5918,9 +5894,9 @@ lpad1855:                                         ; preds = %invoke.cont1851
 
 ehcleanup1858:                                    ; preds = %lpad1855, %ehcleanup1847, %ehcleanup1825, %lpad1773, %lpad1758, %lpad1750, %lpad1743, %lpad1734, %ehcleanup1728, %ehcleanup1695, %ehcleanup1663, %ehcleanup1642, %ehcleanup1620, %ehcleanup1588, %ehcleanup1573, %ehcleanup1541, %lpad1523, %lpad1517, %lpad1511, %lpad1502, %ehcleanup1496, %ehcleanup1463, %ehcleanup1431, %ehcleanup1410, %ehcleanup1388, %ehcleanup1356, %ehcleanup1341, %ehcleanup1309, %lpad1291, %lpad1285, %lpad1279, %lpad1270, %ehcleanup1264, %ehcleanup1231, %ehcleanup1199, %ehcleanup1178, %ehcleanup1156, %ehcleanup1124, %ehcleanup1109, %ehcleanup1077, %lpad1059, %lpad1053, %lpad1046, %lpad1040, %lpad1034, %lpad1027, %lpad1018, %ehcleanup1012, %ehcleanup979, %ehcleanup947, %ehcleanup926, %ehcleanup904, %ehcleanup872, %ehcleanup857, %ehcleanup825, %lpad807, %lpad801, %lpad795, %lpad786, %ehcleanup780, %ehcleanup747, %ehcleanup715, %ehcleanup694, %ehcleanup672, %ehcleanup640, %ehcleanup625, %ehcleanup593, %lpad575, %lpad569, %lpad563, %lpad554, %ehcleanup548, %ehcleanup515, %ehcleanup483, %ehcleanup462, %ehcleanup440, %ehcleanup408, %ehcleanup393, %ehcleanup361, %lpad343, %lpad337, %lpad330, %lpad324, %ehcleanup320, %ehcleanup287, %ehcleanup261, %ehcleanup229, %ehcleanup206, %ehcleanup188, %ehcleanup170, %ehcleanup152, %lpad117, %lpad106, %lpad98, %lpad92, %lpad88
   %.pn312 = phi { ptr, i32 } [ %339, %lpad1855 ], [ %38, %lpad88 ], [ %322, %lpad1773 ], [ %321, %lpad1758 ], [ %320, %lpad1750 ], [ %319, %lpad1743 ], [ %318, %lpad1734 ], [ %.pn306.pn.pn.pn.pn, %ehcleanup1728 ], [ %.pn300.pn.pn.pn.pn, %ehcleanup1695 ], [ %.pn296.pn.pn, %ehcleanup1663 ], [ %.pn292.pn.pn, %ehcleanup1642 ], [ %.pn286.pn.pn.pn.pn, %ehcleanup1620 ], [ %.pn284, %ehcleanup1588 ], [ %.pn278.pn.pn.pn.pn, %ehcleanup1573 ], [ %.pn276, %ehcleanup1541 ], [ %281, %lpad1523 ], [ %280, %lpad1517 ], [ %279, %lpad1511 ], [ %278, %lpad1502 ], [ %.pn270.pn.pn.pn.pn, %ehcleanup1496 ], [ %.pn264.pn.pn.pn.pn, %ehcleanup1463 ], [ %.pn260.pn.pn, %ehcleanup1431 ], [ %.pn256.pn.pn, %ehcleanup1410 ], [ %.pn250.pn.pn.pn.pn, %ehcleanup1388 ], [ %.pn248, %ehcleanup1356 ], [ %.pn242.pn.pn.pn.pn, %ehcleanup1341 ], [ %.pn240, %ehcleanup1309 ], [ %241, %lpad1291 ], [ %240, %lpad1285 ], [ %239, %lpad1279 ], [ %238, %lpad1270 ], [ %.pn234.pn.pn.pn.pn, %ehcleanup1264 ], [ %.pn228.pn.pn.pn.pn, %ehcleanup1231 ], [ %.pn224.pn.pn, %ehcleanup1199 ], [ %.pn220.pn.pn, %ehcleanup1178 ], [ %.pn214.pn.pn.pn.pn, %ehcleanup1156 ], [ %.pn212, %ehcleanup1124 ], [ %.pn206.pn.pn.pn.pn, %ehcleanup1109 ], [ %.pn204, %ehcleanup1077 ], [ %201, %lpad1059 ], [ %200, %lpad1053 ], [ %199, %lpad1046 ], [ %198, %lpad1040 ], [ %197, %lpad1034 ], [ %196, %lpad1027 ], [ %195, %lpad1018 ], [ %.pn198.pn.pn.pn.pn, %ehcleanup1012 ], [ %.pn192.pn.pn.pn.pn, %ehcleanup979 ], [ %.pn188.pn.pn, %ehcleanup947 ], [ %.pn184.pn.pn, %ehcleanup926 ], [ %.pn178.pn.pn.pn.pn, %ehcleanup904 ], [ %.pn176, %ehcleanup872 ], [ %.pn170.pn.pn.pn.pn, %ehcleanup857 ], [ %.pn168, %ehcleanup825 ], [ %158, %lpad807 ], [ %157, %lpad801 ], [ %156, %lpad795 ], [ %155, %lpad786 ], [ %.pn162.pn.pn.pn.pn, %ehcleanup780 ], [ %.pn156.pn.pn.pn.pn, %ehcleanup747 ], [ %.pn152.pn.pn, %ehcleanup715 ], [ %.pn148.pn.pn, %ehcleanup694 ], [ %.pn142.pn.pn.pn.pn, %ehcleanup672 ], [ %.pn140, %ehcleanup640 ], [ %.pn134.pn.pn.pn.pn, %ehcleanup625 ], [ %.pn132, %ehcleanup593 ], [ %118, %lpad575 ], [ %117, %lpad569 ], [ %116, %lpad563 ], [ %115, %lpad554 ], [ %.pn126.pn.pn.pn.pn, %ehcleanup548 ], [ %.pn120.pn.pn.pn.pn, %ehcleanup515 ], [ %.pn116.pn.pn, %ehcleanup483 ], [ %.pn112.pn.pn, %ehcleanup462 ], [ %.pn106.pn.pn.pn.pn, %ehcleanup440 ], [ %.pn104, %ehcleanup408 ], [ %.pn98.pn.pn.pn.pn, %ehcleanup393 ], [ %.pn96, %ehcleanup361 ], [ %78, %lpad343 ], [ %77, %lpad337 ], [ %76, %lpad330 ], [ %75, %lpad324 ], [ %.pn90.pn.pn.pn.pn, %ehcleanup320 ], [ %.pn86.pn.pn, %ehcleanup287 ], [ %.pn80.pn.pn.pn.pn, %ehcleanup261 ], [ %.pn77.pn, %ehcleanup229 ], [ %.pn74.pn, %ehcleanup206 ], [ %.pn71.pn, %ehcleanup188 ], [ %.pn68.pn, %ehcleanup170 ], [ %.pn64.pn.pn, %ehcleanup152 ], [ %42, %lpad117 ], [ %.pn61.pn, %ehcleanup1847 ], [ %.pn54.pn.pn.pn.pn.pn, %ehcleanup1825 ], [ %41, %lpad106 ], [ %40, %lpad98 ], [ %39, %lpad92 ]
-  %m_ossLine.i332 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss84, i64 0, i32 3
+  %m_ossLine.i332 = getelementptr inbounds i8, ptr %ss84, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i332) #5
-  %m_ossText.i333 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %ss84, i64 0, i32 2
+  %m_ossText.i333 = getelementptr inbounds i8, ptr %ss84, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i333) #5
   br label %ehcleanup1859
 

@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-eng_ctrl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 %struct.ENGINE_CMD_DEFN_st = type { i32, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/engine/eng_ctrl.c\00", align 1
@@ -29,7 +26,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ctrl = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 14
+  %ctrl = getelementptr inbounds i8, ptr %e, i64 112
   %0 = load ptr, ptr %ctrl, align 8
   %cmp1 = icmp ne ptr %0, null
   switch i32 %cmd, label %sw.epilog [
@@ -52,7 +49,7 @@ sw.bb2:                                           ; preds = %if.end, %if.end, %i
   br i1 %cmp1, label %land.lhs.true, label %if.then7
 
 land.lhs.true:                                    ; preds = %sw.bb2
-  %flags = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 19
+  %flags = getelementptr inbounds i8, ptr %e, i64 152
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 2
   %tobool3.not = icmp eq i32 %and, 0
@@ -63,7 +60,7 @@ if.then4:                                         ; preds = %land.lhs.true
   br i1 %cmp.i, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %if.then4
-  %cmd_defns.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 18
+  %cmd_defns.i = getelementptr inbounds i8, ptr %e, i64 144
   %2 = load ptr, ptr %cmd_defns.i, align 8
   %cmp1.i = icmp eq ptr %2, null
   br i1 %cmp1.i, label %return, label %lor.lhs.false.i
@@ -74,7 +71,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i
   br i1 %cmp.i.i, label %return, label %int_ctrl_cmd_is_null.exit.i
 
 int_ctrl_cmd_is_null.exit.i:                      ; preds = %lor.lhs.false.i
-  %cmd_name.i.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %2, i64 0, i32 1
+  %cmd_name.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %cmd_name.i.i, align 8
   %cmp1.i.not.i = icmp eq ptr %4, null
   %spec.select.i = select i1 %cmp1.i.not.i, i32 0, i32 %3
@@ -97,7 +94,7 @@ if.then13.i:                                      ; preds = %if.end5.i
   br label %return
 
 if.end15.i:                                       ; preds = %if.end5.i
-  %cmd_defns18.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 18
+  %cmd_defns18.i = getelementptr inbounds i8, ptr %e, i64 144
   %6 = load ptr, ptr %cmd_defns18.i, align 8
   %cmp19.i = icmp eq ptr %6, null
   br i1 %cmp6.i, label %if.then17.i, label %if.end28.i
@@ -113,7 +110,7 @@ lor.lhs.false20.i:                                ; preds = %if.then17.i
 int_ctrl_cmd_is_null.exit.i.i:                    ; preds = %lor.lhs.false20.i, %while.body.i.i
   %idx.021.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %lor.lhs.false20.i ]
   %defn.addr.020.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %6, %lor.lhs.false20.i ]
-  %cmd_name.i.i.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %defn.addr.020.i.i, i64 0, i32 1
+  %cmd_name.i.i.i = getelementptr inbounds i8, ptr %defn.addr.020.i.i, i64 8
   %8 = load ptr, ptr %cmd_name.i.i.i, align 8
   %.fr.i.i = freeze ptr %8
   %cmp1.i.not.i.i = icmp eq ptr %.fr.i.i, null
@@ -126,7 +123,7 @@ land.rhs.i.i:                                     ; preds = %int_ctrl_cmd_is_nul
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %inc.i.i = add nuw nsw i32 %idx.021.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %defn.addr.020.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %defn.addr.020.i.i, i64 32
   %9 = load i32, ptr %incdec.ptr.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.i.i.i, label %if.then24.i, label %int_ctrl_cmd_is_null.exit.i.i, !llvm.loop !4
@@ -156,7 +153,7 @@ int_ctrl_cmd_is_null.exit.i35.i:                  ; preds = %lor.lhs.false31.i, 
   %12 = phi i32 [ %14, %while.body.i38.i ], [ %11, %lor.lhs.false31.i ]
   %idx.010.i.i = phi i32 [ %inc.i39.i, %while.body.i38.i ], [ 0, %lor.lhs.false31.i ]
   %defn.addr.09.i.i = phi ptr [ %incdec.ptr.i40.i, %while.body.i38.i ], [ %6, %lor.lhs.false31.i ]
-  %cmd_name.i.i36.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %defn.addr.09.i.i, i64 0, i32 1
+  %cmd_name.i.i36.i = getelementptr inbounds i8, ptr %defn.addr.09.i.i, i64 8
   %13 = load ptr, ptr %cmd_name.i.i36.i, align 8
   %cmp1.i.i.i = icmp ne ptr %13, null
   %cmp.i37.i = icmp ult i32 %12, %conv.i
@@ -165,7 +162,7 @@ int_ctrl_cmd_is_null.exit.i35.i:                  ; preds = %lor.lhs.false31.i, 
 
 while.body.i38.i:                                 ; preds = %int_ctrl_cmd_is_null.exit.i35.i
   %inc.i39.i = add nuw nsw i32 %idx.010.i.i, 1
-  %incdec.ptr.i40.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %defn.addr.09.i.i, i64 1
+  %incdec.ptr.i40.i = getelementptr inbounds i8, ptr %defn.addr.09.i.i, i64 32
   %14 = load i32, ptr %incdec.ptr.i40.i, align 8
   %cmp.i.i41.i = icmp eq i32 %14, 0
   br i1 %cmp.i.i41.i, label %int_ctrl_cmd_by_num.exit.loopexit.i, label %int_ctrl_cmd_is_null.exit.i35.i, !llvm.loop !6
@@ -189,6 +186,7 @@ if.then36.i:                                      ; preds = %int_ctrl_cmd_by_num
   br label %return
 
 if.end37.i:                                       ; preds = %int_ctrl_cmd_by_num.exit.i
+  %arrayidx40.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %6, i64 %idx.0.lcssa.i.i
   switch i32 %cmd, label %sw.epilog.i [
     i32 12, label %sw.bb.i
     i32 14, label %sw.bb44.i
@@ -199,28 +197,27 @@ if.end37.i:                                       ; preds = %int_ctrl_cmd_by_num
   ]
 
 sw.bb.i:                                          ; preds = %if.end37.i
-  %arrayidx40.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %6, i64 %idx.0.lcssa.i.i
-  %incdec.ptr.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %arrayidx40.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 32
   %16 = load i32, ptr %incdec.ptr.i, align 8
   %cmp.i42.i = icmp eq i32 %16, 0
   br i1 %cmp.i42.i, label %return, label %int_ctrl_cmd_is_null.exit48.i
 
 int_ctrl_cmd_is_null.exit48.i:                    ; preds = %sw.bb.i
-  %cmd_name.i44.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %arrayidx40.i, i64 1, i32 1
+  %cmd_name.i44.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 40
   %17 = load ptr, ptr %cmd_name.i44.i, align 8
   %cmp1.i45.not.i = icmp eq ptr %17, null
   %spec.select6.i = select i1 %cmp1.i45.not.i, i32 0, i32 %16
   br label %return
 
 sw.bb44.i:                                        ; preds = %if.end37.i
-  %cmd_name.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %6, i64 %idx.0.lcssa.i.i, i32 1
+  %cmd_name.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 8
   %18 = load ptr, ptr %cmd_name.i, align 8
   %call45.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #6
   %conv46.i = trunc i64 %call45.i to i32
   br label %return
 
 sw.bb47.i:                                        ; preds = %if.end37.i
-  %cmd_name48.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %6, i64 %idx.0.lcssa.i.i, i32 1
+  %cmd_name48.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 8
   %19 = load ptr, ptr %cmd_name48.i, align 8
   %call49.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %p, ptr noundef nonnull dereferenceable(1) %19) #5
   %call50.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p) #6
@@ -228,7 +225,7 @@ sw.bb47.i:                                        ; preds = %if.end37.i
   br label %return
 
 sw.bb52.i:                                        ; preds = %if.end37.i
-  %cmd_desc.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %6, i64 %idx.0.lcssa.i.i, i32 2
+  %cmd_desc.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 16
   %20 = load ptr, ptr %cmd_desc.i, align 8
   %cmp53.i = icmp eq ptr %20, null
   %.str.1..i = select i1 %cmp53.i, ptr @.str.1, ptr %20
@@ -237,7 +234,7 @@ sw.bb52.i:                                        ; preds = %if.end37.i
   br label %return
 
 sw.bb62.i:                                        ; preds = %if.end37.i
-  %cmd_desc63.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %6, i64 %idx.0.lcssa.i.i, i32 2
+  %cmd_desc63.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 16
   %21 = load ptr, ptr %cmd_desc63.i, align 8
   %cmp64.i = icmp eq ptr %21, null
   %.str.1.33.i = select i1 %cmp64.i, ptr @.str.1, ptr %21
@@ -247,7 +244,7 @@ sw.bb62.i:                                        ; preds = %if.end37.i
   br label %return
 
 sw.bb74.i:                                        ; preds = %if.end37.i
-  %cmd_flags.i = getelementptr inbounds %struct.ENGINE_CMD_DEFN_st, ptr %6, i64 %idx.0.lcssa.i.i, i32 3
+  %cmd_flags.i = getelementptr inbounds i8, ptr %arrayidx40.i, i64 24
   %22 = load i32, ptr %cmd_flags.i, align 8
   br label %return
 
@@ -327,7 +324,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ctrl = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 14
+  %ctrl = getelementptr inbounds i8, ptr %e, i64 112
   %0 = load ptr, ptr %ctrl, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.then5, label %lor.lhs.false3
@@ -380,7 +377,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ctrl = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 14
+  %ctrl = getelementptr inbounds i8, ptr %e, i64 112
   %0 = load ptr, ptr %ctrl, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.then5, label %lor.lhs.false3

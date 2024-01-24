@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.rocksdb::OffpeakTimeOption" = type { %"class.std::__cxx11::basic_string", i32, i32 }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
@@ -99,9 +98,9 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #6
-  %daily_offpeak_start_time_utc = getelementptr inbounds %"struct.rocksdb::OffpeakTimeOption", ptr %this, i64 0, i32 1
+  %daily_offpeak_start_time_utc = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %daily_offpeak_start_time_utc, align 8
-  %daily_offpeak_end_time_utc = getelementptr inbounds %"struct.rocksdb::OffpeakTimeOption", ptr %this, i64 0, i32 2
+  %daily_offpeak_end_time_utc = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %daily_offpeak_end_time_utc, align 4
   %call.i4 = invoke noundef zeroext i1 @_ZN7rocksdb23TryParseTimeRangeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS8_(ptr noundef nonnull align 8 dereferenceable(32) %offpeak_time_string, ptr noundef nonnull align 4 dereferenceable(4) %daily_offpeak_start_time_utc, ptr noundef nonnull align 4 dereferenceable(4) %daily_offpeak_end_time_utc)
           to label %call.i.noexc3 unwind label %lpad2
@@ -151,8 +150,8 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb17OffpeakTimeOption24SetFromOffpeakTimeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %offpeak_time_string) local_unnamed_addr #0 align 2 {
 entry:
-  %daily_offpeak_start_time_utc = getelementptr inbounds %"struct.rocksdb::OffpeakTimeOption", ptr %this, i64 0, i32 1
-  %daily_offpeak_end_time_utc = getelementptr inbounds %"struct.rocksdb::OffpeakTimeOption", ptr %this, i64 0, i32 2
+  %daily_offpeak_start_time_utc = getelementptr inbounds i8, ptr %this, i64 32
+  %daily_offpeak_end_time_utc = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load <2 x i32>, ptr %daily_offpeak_start_time_utc, align 8
   %call = tail call noundef zeroext i1 @_ZN7rocksdb23TryParseTimeRangeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiS8_(ptr noundef nonnull align 8 dereferenceable(32) %offpeak_time_string, ptr noundef nonnull align 4 dereferenceable(4) %daily_offpeak_start_time_utc, ptr noundef nonnull align 4 dereferenceable(4) %daily_offpeak_end_time_utc)
   br i1 %call, label %if.then, label %if.else
@@ -176,9 +175,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZNK7rocksdb17OffpeakTimeOption18GetOffpeakTimeInfoERKl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %current_time) local_unnamed_addr #3 align 2 {
 entry:
-  %daily_offpeak_start_time_utc = getelementptr inbounds %"struct.rocksdb::OffpeakTimeOption", ptr %this, i64 0, i32 1
+  %daily_offpeak_start_time_utc = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %daily_offpeak_start_time_utc, align 8
-  %daily_offpeak_end_time_utc = getelementptr inbounds %"struct.rocksdb::OffpeakTimeOption", ptr %this, i64 0, i32 2
+  %daily_offpeak_end_time_utc = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load i32, ptr %daily_offpeak_end_time_utc, align 4
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %return, label %if.end

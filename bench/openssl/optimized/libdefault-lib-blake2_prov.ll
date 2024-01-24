@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.ossl_dispatch_st = type { i32, ptr }
-%struct.blake2s_md_data_st = type { %struct.blake2s_ctx_st, %struct.blake2s_param_st }
-%struct.blake2s_ctx_st = type { [8 x i32], [2 x i32], [2 x i32], [64 x i8], i64, i64 }
-%struct.blake2s_param_st = type { i8, i8, i8, i8, [4 x i8], [6 x i8], i8, i8, [8 x i8], [8 x i8] }
-%struct.blake2b_md_data_st = type { %struct.blake2b_ctx_st, %struct.blake2b_param_st }
-%struct.blake2b_ctx_st = type { [8 x i64], [2 x i64], [2 x i64], [128 x i8], i64, i64 }
-%struct.blake2b_param_st = type { i8, i8, i8, i8, [4 x i8], [8 x i8], i8, i8, [14 x i8], [16 x i8], [16 x i8] }
 
 @known_blake2s_ctx_params = internal constant [2 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str, i32 2, ptr null, i64 0, i64 0 }, %struct.ossl_param_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [5 x i8] c"size\00", align 1
@@ -26,19 +20,19 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.blake2b512_internal_final = private unnamed_addr constant [26 x i8] c"blake2b512_internal_final\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_blake2s_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
+define noundef nonnull ptr @ossl_blake2s_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
 entry:
   ret ptr @known_blake2s_ctx_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_blake2s_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
+define noundef nonnull ptr @ossl_blake2s_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
 entry:
   ret ptr @known_blake2s_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_blake2s_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
+define noundef i32 @ossl_blake2s_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end
@@ -53,7 +47,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %params6 = getelementptr inbounds %struct.blake2s_md_data_st, ptr %vctx, i64 0, i32 1
+  %params6 = getelementptr inbounds i8, ptr %vctx, i64 128
   %0 = load i8, ptr %params6, align 8
   %conv = zext i8 %0 to i32
   %call7 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call, i32 noundef %conv) #4
@@ -82,7 +76,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_blake2s_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
+define noundef i32 @ossl_blake2s_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
 entry:
   %size = alloca i64, align 8
   %cmp = icmp eq ptr %vctx, null
@@ -121,7 +115,7 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end9
-  %params14 = getelementptr inbounds %struct.blake2s_md_data_st, ptr %vctx, i64 0, i32 1
+  %params14 = getelementptr inbounds i8, ptr %vctx, i64 128
   %conv = trunc i64 %0 to i8
   call void @ossl_blake2s_param_set_digest_length(ptr noundef nonnull %params14, i8 noundef zeroext %conv) #4
   br label %return
@@ -163,7 +157,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %outlen = getelementptr inbounds %struct.blake2s_ctx_st, ptr %ctx, i64 0, i32 5
+  %outlen = getelementptr inbounds i8, ptr %ctx, i64 120
   %0 = load i64, ptr %outlen, align 8
   store i64 %0, ptr %outl, align 8
   %cmp = icmp eq i64 %outsz, 0
@@ -238,7 +232,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %params.i = getelementptr inbounds %struct.blake2s_md_data_st, ptr %ctx, i64 0, i32 1
+  %params.i = getelementptr inbounds i8, ptr %ctx, i64 128
   %0 = load i8, ptr %params.i, align 8
   tail call void @ossl_blake2s_param_init(ptr noundef nonnull %params.i) #4
   %cmp.not.i = icmp eq i8 %0, 0
@@ -260,19 +254,19 @@ land.end:                                         ; preds = %ossl_blake2s256_ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_blake2b_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
+define noundef nonnull ptr @ossl_blake2b_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
 entry:
   ret ptr @known_blake2b_ctx_params
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_blake2b_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
+define noundef nonnull ptr @ossl_blake2b_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %pctx) #0 {
 entry:
   ret ptr @known_blake2b_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_blake2b_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
+define noundef i32 @ossl_blake2b_get_ctx_params(ptr noundef readonly %vctx, ptr noundef %params) #1 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end
@@ -287,7 +281,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %params6 = getelementptr inbounds %struct.blake2b_md_data_st, ptr %vctx, i64 0, i32 1
+  %params6 = getelementptr inbounds i8, ptr %vctx, i64 240
   %0 = load i8, ptr %params6, align 8
   %conv = zext i8 %0 to i32
   %call7 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call, i32 noundef %conv) #4
@@ -306,7 +300,7 @@ return:                                           ; preds = %if.end4, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_blake2b_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
+define noundef i32 @ossl_blake2b_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #1 {
 entry:
   %size = alloca i64, align 8
   %cmp = icmp eq ptr %vctx, null
@@ -345,7 +339,7 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end9
-  %params14 = getelementptr inbounds %struct.blake2b_md_data_st, ptr %vctx, i64 0, i32 1
+  %params14 = getelementptr inbounds i8, ptr %vctx, i64 240
   %conv = trunc i64 %0 to i8
   call void @ossl_blake2b_param_set_digest_length(ptr noundef nonnull %params14, i8 noundef zeroext %conv) #4
   br label %return
@@ -383,7 +377,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %outlen = getelementptr inbounds %struct.blake2b_ctx_st, ptr %ctx, i64 0, i32 5
+  %outlen = getelementptr inbounds i8, ptr %ctx, i64 232
   %0 = load i64, ptr %outlen, align 8
   store i64 %0, ptr %outl, align 8
   %cmp = icmp eq i64 %outsz, 0
@@ -456,7 +450,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %params.i = getelementptr inbounds %struct.blake2b_md_data_st, ptr %ctx, i64 0, i32 1
+  %params.i = getelementptr inbounds i8, ptr %ctx, i64 240
   %0 = load i8, ptr %params.i, align 8
   tail call void @ossl_blake2b_param_init(ptr noundef nonnull %params.i) #4
   %cmp.not.i = icmp eq i8 %0, 0

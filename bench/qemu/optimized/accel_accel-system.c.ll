@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.AccelClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.AccelOpsClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"accel\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"../qemu/accel/accel-system.c\00", align 1
@@ -34,12 +27,12 @@ define dso_local i32 @accel_init_machine(ptr noundef %accel, ptr noundef %ms) lo
 entry:
   %call = tail call ptr @object_get_class(ptr noundef %accel) #5
   %call1 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 35, ptr noundef nonnull @__func__.accel_init_machine) #5
-  %accelerator = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 27
+  %accelerator = getelementptr inbounds i8, ptr %ms, i64 272
   store ptr %accel, ptr %accelerator, align 8
-  %allowed = getelementptr inbounds %struct.AccelClass, ptr %call1, i64 0, i32 8
+  %allowed = getelementptr inbounds i8, ptr %call1, i64 152
   %0 = load ptr, ptr %allowed, align 8
   store i8 1, ptr %0, align 1
-  %init_machine = getelementptr inbounds %struct.AccelClass, ptr %call1, i64 0, i32 2
+  %init_machine = getelementptr inbounds i8, ptr %call1, i64 104
   %1 = load ptr, ptr %init_machine, align 8
   %call2 = tail call i32 %1(ptr noundef %ms) #5
   %cmp = icmp slt i32 %call2, 0
@@ -53,7 +46,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %compat_props = getelementptr inbounds %struct.AccelClass, ptr %call1, i64 0, i32 9
+  %compat_props = getelementptr inbounds i8, ptr %call1, i64 160
   %3 = load ptr, ptr %compat_props, align 8
   tail call void @object_set_accelerator_compat_props(ptr noundef %3) #5
   br label %if.end
@@ -74,7 +67,7 @@ declare void @object_set_accelerator_compat_props(ptr noundef) local_unnamed_add
 define dso_local ptr @current_accel() local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @current_machine, align 8
-  %accelerator = getelementptr inbounds %struct.MachineState, ptr %0, i64 0, i32 27
+  %accelerator = getelementptr inbounds i8, ptr %0, i64 272
   %1 = load ptr, ptr %accelerator, align 8
   ret ptr %1
 }
@@ -82,11 +75,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @accel_setup_post(ptr noundef %ms) local_unnamed_addr #0 {
 entry:
-  %accelerator = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 27
+  %accelerator = getelementptr inbounds i8, ptr %ms, i64 272
   %0 = load ptr, ptr %accelerator, align 8
   %call = tail call ptr @object_get_class(ptr noundef %0) #5
   %call1 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.accel_setup_post) #5
-  %setup_post = getelementptr inbounds %struct.AccelClass, ptr %call1, i64 0, i32 3
+  %setup_post = getelementptr inbounds i8, ptr %call1, i64 112
   %1 = load ptr, ptr %setup_post, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -134,7 +127,7 @@ if.else11:                                        ; preds = %if.end6
   unreachable
 
 do.end13:                                         ; preds = %if.end6
-  %ops_init = getelementptr inbounds %struct.AccelOpsClass, ptr %call.i10, i64 0, i32 1
+  %ops_init = getelementptr inbounds i8, ptr %call.i10, i64 96
   %0 = load ptr, ptr %ops_init, align 8
   %tobool14.not = icmp eq ptr %0, null
   br i1 %tobool14.not, label %if.end17, label %if.then15

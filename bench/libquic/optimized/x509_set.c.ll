@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/x509_set.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_cinf_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_val_st = type { ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_set_version(ptr noundef readonly %x, i64 noundef %version) local_unnamed_addr #0 {
 entry:
@@ -65,7 +61,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %x, align 8
-  %serialNumber = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 1
+  %serialNumber = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %serialNumber, align 8
   %cmp1.not = icmp eq ptr %1, %serial
   br i1 %cmp1.not, label %if.end10, label %if.then2
@@ -77,11 +73,11 @@ if.then2:                                         ; preds = %if.end
 
 if.then4:                                         ; preds = %if.then2
   %2 = load ptr, ptr %x, align 8
-  %serialNumber6 = getelementptr inbounds %struct.x509_cinf_st, ptr %2, i64 0, i32 1
+  %serialNumber6 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %serialNumber6, align 8
   tail call void @ASN1_STRING_free(ptr noundef %3) #2
   %4 = load ptr, ptr %x, align 8
-  %serialNumber8 = getelementptr inbounds %struct.x509_cinf_st, ptr %4, i64 0, i32 1
+  %serialNumber8 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %call, ptr %serialNumber8, align 8
   br label %if.end10
 
@@ -110,7 +106,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %issuer = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 3
+  %issuer = getelementptr inbounds i8, ptr %0, i64 24
   %call = tail call i32 @X509_NAME_set(ptr noundef nonnull %issuer, ptr noundef %name) #2
   br label %return
 
@@ -133,7 +129,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %subject = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 5
+  %subject = getelementptr inbounds i8, ptr %0, i64 40
   %call = tail call i32 @X509_NAME_set(ptr noundef nonnull %subject, ptr noundef %name) #2
   br label %return
 
@@ -150,7 +146,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %x, align 8
-  %validity = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 4
+  %validity = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %validity, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
@@ -167,12 +163,12 @@ if.then5:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then5
   %3 = load ptr, ptr %x, align 8
-  %validity9 = getelementptr inbounds %struct.x509_cinf_st, ptr %3, i64 0, i32 4
+  %validity9 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %validity9, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void @ASN1_STRING_free(ptr noundef %5) #2
   %6 = load ptr, ptr %x, align 8
-  %validity12 = getelementptr inbounds %struct.x509_cinf_st, ptr %6, i64 0, i32 4
+  %validity12 = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %validity12, align 8
   store ptr %call, ptr %7, align 8
   br label %if.end15
@@ -196,13 +192,13 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %x, align 8
-  %validity = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 4
+  %validity = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %validity, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %notAfter = getelementptr inbounds %struct.X509_val_st, ptr %1, i64 0, i32 1
+  %notAfter = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %notAfter, align 8
   %cmp4.not = icmp eq ptr %2, %tm
   br i1 %cmp4.not, label %if.end15, label %if.then5
@@ -214,15 +210,15 @@ if.then5:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then5
   %3 = load ptr, ptr %x, align 8
-  %validity9 = getelementptr inbounds %struct.x509_cinf_st, ptr %3, i64 0, i32 4
+  %validity9 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %validity9, align 8
-  %notAfter10 = getelementptr inbounds %struct.X509_val_st, ptr %4, i64 0, i32 1
+  %notAfter10 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %notAfter10, align 8
   tail call void @ASN1_STRING_free(ptr noundef %5) #2
   %6 = load ptr, ptr %x, align 8
-  %validity12 = getelementptr inbounds %struct.x509_cinf_st, ptr %6, i64 0, i32 4
+  %validity12 = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %validity12, align 8
-  %notAfter13 = getelementptr inbounds %struct.X509_val_st, ptr %7, i64 0, i32 1
+  %notAfter13 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %call, ptr %notAfter13, align 8
   br label %if.end15
 
@@ -249,7 +245,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %key = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 6
+  %key = getelementptr inbounds i8, ptr %0, i64 48
   %call = tail call i32 @X509_PUBKEY_set(ptr noundef nonnull %key, ptr noundef %pkey) #2
   br label %return
 

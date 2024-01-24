@@ -29,39 +29,39 @@ entry:
   store i32 0, ptr %verbose, align 4
   store i32 0, ptr %flags, align 4
   store i32 8, ptr %verify_commit_options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %verify_commit_options, i64 4
   store i32 118, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %verify_commit_options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %verify_commit_options, i64 16
   store ptr %verbose, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %verify_commit_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %verify_commit_options, i64 32
   store ptr @.str.1, ptr %help, align 16
-  %flags1 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 0, i32 6
+  %flags1 = getelementptr inbounds i8, ptr %verify_commit_options, i64 40
   store i32 2, ptr %flags1, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 0, i32 7
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1
+  %callback = getelementptr inbounds i8, ptr %verify_commit_options, i64 48
+  %arrayinit.element = getelementptr inbounds i8, ptr %verify_commit_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback, i8 0, i64 40, i1 false)
   store i32 5, ptr %arrayinit.element, align 8
-  %short_name3 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 1
+  %short_name3 = getelementptr inbounds i8, ptr %verify_commit_options, i64 92
   store i32 0, ptr %short_name3, align 4
-  %long_name4 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 2
+  %long_name4 = getelementptr inbounds i8, ptr %verify_commit_options, i64 96
   store ptr @.str.2, ptr %long_name4, align 16
-  %value5 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 3
+  %value5 = getelementptr inbounds i8, ptr %verify_commit_options, i64 104
   store ptr %flags, ptr %value5, align 8
-  %argh6 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 4
+  %argh6 = getelementptr inbounds i8, ptr %verify_commit_options, i64 112
   store ptr null, ptr %argh6, align 16
-  %help7 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 5
+  %help7 = getelementptr inbounds i8, ptr %verify_commit_options, i64 120
   store ptr @.str.3, ptr %help7, align 8
-  %flags8 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 6
+  %flags8 = getelementptr inbounds i8, ptr %verify_commit_options, i64 128
   store i32 2, ptr %flags8, align 16
-  %callback9 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 7
+  %callback9 = getelementptr inbounds i8, ptr %verify_commit_options, i64 136
   store ptr null, ptr %callback9, align 8
-  %defval10 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 8
+  %defval10 = getelementptr inbounds i8, ptr %verify_commit_options, i64 144
   store i64 2, ptr %defval10, align 16
-  %ll_callback11 = getelementptr inbounds %struct.option, ptr %verify_commit_options, i64 1, i32 9
+  %ll_callback11 = getelementptr inbounds i8, ptr %verify_commit_options, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback11, i8 0, i64 112, i1 false)
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #6
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %verify_commit_options, ptr noundef nonnull @verify_commit_usage, i32 noundef 4) #6

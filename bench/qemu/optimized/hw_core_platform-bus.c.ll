@@ -7,24 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.2, i32, ptr, i32, ptr }
 %union.anon.2 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PlatformBusDevice = type { %struct.SysBusDevice, i32, %struct.MemoryRegion, i32, ptr, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 %struct.MemoryRegionSection = type { i128, ptr, ptr, i64, i64, i8, i8, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"container\00", align 1
 @error_abort = external global ptr, align 8
@@ -52,13 +35,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @platform_bus_get_irqn(ptr nocapture noundef readonly %pbus, ptr noundef %sbdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sysbus_get_connected_irq(ptr noundef %sbdev, i32 noundef %n) #8
-  %num_irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 3
+  %num_irqs = getelementptr inbounds i8, ptr %pbus, i64 1104
   %0 = load i32, ptr %num_irqs, align 16
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 4
+  %irqs = getelementptr inbounds i8, ptr %pbus, i64 1112
   %1 = load ptr, ptr %irqs, align 8
   br label %for.body
 
@@ -90,7 +73,7 @@ entry:
   br i1 %call1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mmio = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 2
+  %mmio = getelementptr inbounds i8, ptr %pbus, i64 832
   %call2 = tail call ptr @object_property_get_link(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @error_abort) #8
   %cmp.not = icmp eq ptr %call2, %mmio
   br i1 %cmp.not, label %if.end4, label %return
@@ -120,9 +103,9 @@ entry:
   br i1 %call16, label %for.body.lr.ph, label %for.cond1.preheader
 
 for.body.lr.ph:                                   ; preds = %entry
-  %num_irqs.i = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 3
-  %used_irqs.i = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 5
-  %irqs.i = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 4
+  %num_irqs.i = getelementptr inbounds i8, ptr %pbus, i64 1104
+  %used_irqs.i = getelementptr inbounds i8, ptr %pbus, i64 1120
+  %irqs.i = getelementptr inbounds i8, ptr %pbus, i64 1112
   br label %for.body
 
 for.cond1.preheader:                              ; preds = %platform_bus_map_irq.exit, %entry
@@ -130,9 +113,9 @@ for.cond1.preheader:                              ; preds = %platform_bus_map_ir
   br i1 %call218, label %for.body3.lr.ph, label %for.end6
 
 for.body3.lr.ph:                                  ; preds = %for.cond1.preheader
-  %mmio_size.i = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 1
-  %mmio.i = getelementptr inbounds %struct.PlatformBusDevice, ptr %pbus, i64 0, i32 2
-  %mr.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %tmp.i, i64 0, i32 1
+  %mmio_size.i = getelementptr inbounds i8, ptr %pbus, i64 816
+  %mmio.i = getelementptr inbounds i8, ptr %pbus, i64 832
+  %mr.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   br label %for.body3
 
 for.body:                                         ; preds = %for.body.lr.ph, %platform_bus_map_irq.exit
@@ -273,7 +256,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @platform_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @platform_bus_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @platform_bus_properties) #8
   ret void
@@ -284,13 +267,13 @@ define internal void @platform_bus_realize(ptr noundef %dev, ptr nocapture readn
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
   %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.PLATFORM_BUS_DEVICE) #8
-  %mmio = getelementptr inbounds %struct.PlatformBusDevice, ptr %call.i15, i64 0, i32 2
-  %mmio_size = getelementptr inbounds %struct.PlatformBusDevice, ptr %call.i15, i64 0, i32 1
+  %mmio = getelementptr inbounds i8, ptr %call.i15, i64 832
+  %mmio_size = getelementptr inbounds i8, ptr %call.i15, i64 816
   %0 = load i32, ptr %mmio_size, align 16
   %conv = zext i32 %0 to i64
   tail call void @memory_region_init(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @.str.8, i64 noundef %conv) #8
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #8
-  %num_irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %call.i15, i64 0, i32 3
+  %num_irqs = getelementptr inbounds i8, ptr %call.i15, i64 1104
   %1 = load i32, ptr %num_irqs, align 16
   %conv3 = zext i32 %1 to i64
   %sub.i.i = add nuw nsw i64 %conv3, 63
@@ -305,12 +288,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 bitmap_new.exit:                                  ; preds = %entry
-  %used_irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %call.i15, i64 0, i32 5
+  %used_irqs = getelementptr inbounds i8, ptr %call.i15, i64 1120
   store ptr %call.i.i, ptr %used_irqs, align 16
   %3 = load i32, ptr %num_irqs, align 16
   %conv6 = zext i32 %3 to i64
   %call7 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv6, i64 noundef 8) #11
-  %irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %call.i15, i64 0, i32 4
+  %irqs = getelementptr inbounds i8, ptr %call.i15, i64 1112
   store ptr %call7, ptr %irqs, align 8
   %4 = load i32, ptr %num_irqs, align 16
   %cmp18.not = icmp eq i32 %4, 0
@@ -384,9 +367,9 @@ entry:
   br i1 %call11, label %if.end.lr.ph, label %for.end8
 
 if.end.lr.ph:                                     ; preds = %entry
-  %num_irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %opaque, i64 0, i32 3
-  %irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %opaque, i64 0, i32 4
-  %used_irqs = getelementptr inbounds %struct.PlatformBusDevice, ptr %opaque, i64 0, i32 5
+  %num_irqs = getelementptr inbounds i8, ptr %opaque, i64 1104
+  %irqs = getelementptr inbounds i8, ptr %opaque, i64 1112
+  %used_irqs = getelementptr inbounds i8, ptr %opaque, i64 1120
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc6

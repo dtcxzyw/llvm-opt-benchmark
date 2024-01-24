@@ -6,12 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.InterfaceInfo = type { ptr }
 %struct.EventLoopBaseParamInfo = type { ptr, i64 }
-%struct.EventLoopBase = type { %struct.Object, i64, i64, i64 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.UserCreatableClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.EventLoopBaseClass = type { %struct.ObjectClass, ptr, ptr, ptr }
 
 @event_loop_base_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 64, i64 0, ptr @event_loop_base_instance_init, ptr null, ptr null, i8 1, i64 120, ptr @event_loop_base_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"event-loop-base\00", align 1
@@ -57,7 +51,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @event_loop_base_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE) #2
-  %thread_pool_max = getelementptr inbounds %struct.EventLoopBase, ptr %call.i, i64 0, i32 3
+  %thread_pool_max = getelementptr inbounds i8, ptr %call.i, i64 56
   store i64 64, ptr %thread_pool_max, align 8
   ret void
 }
@@ -66,9 +60,9 @@ entry:
 define internal void @event_loop_base_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #2
-  %complete = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @event_loop_base_complete, ptr %complete, align 8
-  %can_be_deleted = getelementptr inbounds %struct.UserCreatableClass, ptr %call.i, i64 0, i32 2
+  %can_be_deleted = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @event_loop_base_can_be_deleted, ptr %can_be_deleted, align 8
   %call1 = tail call ptr @object_class_property_add(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @event_loop_base_get_param, ptr noundef nonnull @event_loop_base_set_param, ptr noundef null, ptr noundef nonnull @aio_max_batch_info) #2
   %call2 = tail call ptr @object_class_property_add(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, ptr noundef nonnull @event_loop_base_get_param, ptr noundef nonnull @event_loop_base_set_param, ptr noundef null, ptr noundef nonnull @thread_pool_min_info) #2
@@ -84,7 +78,7 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %uc) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE_GET_CLASS) #2
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE) #2
-  %init = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call1.i, i64 0, i32 1
+  %init = getelementptr inbounds i8, ptr %call1.i, i64 96
   %0 = load ptr, ptr %init, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -103,7 +97,7 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %uc) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE_GET_CLASS) #2
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %uc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE) #2
-  %can_be_deleted = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call1.i, i64 0, i32 3
+  %can_be_deleted = getelementptr inbounds i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %can_be_deleted, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -123,7 +117,7 @@ declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, pt
 define internal void @event_loop_base_get_param(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE) #2
-  %offset = getelementptr inbounds %struct.EventLoopBaseParamInfo, ptr %opaque, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %call.i, i64 %0
   %call1 = tail call zeroext i1 @visit_type_int64(ptr noundef %v, ptr noundef %name, ptr noundef %add.ptr, ptr noundef %errp) #2
@@ -137,7 +131,7 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE_GET_CLASS) #2
   %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.EVENT_LOOP_BASE) #2
-  %offset = getelementptr inbounds %struct.EventLoopBaseParamInfo, ptr %opaque, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i64, ptr %offset, align 8
   %add.ptr = getelementptr i8, ptr %call.i8, i64 %0
   %call2 = call zeroext i1 @visit_type_int64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #2
@@ -155,7 +149,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   store i64 %1, ptr %add.ptr, align 8
-  %update_params = getelementptr inbounds %struct.EventLoopBaseClass, ptr %call1.i, i64 0, i32 2
+  %update_params = getelementptr inbounds i8, ptr %call1.i, i64 104
   %3 = load ptr, ptr %update_params, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.then6

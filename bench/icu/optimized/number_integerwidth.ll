@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.icu_75::number::IntegerWidth" = type <{ %union.anon, i8, [3 x i8] }>
 %union.anon = type { i32, [4 x i8] }
-%struct.anon = type { i16, i16, i8 }
 
 @_ZN6icu_756number12IntegerWidthC1Essb = unnamed_addr alias void (ptr, i16, i16, i1), ptr @_ZN6icu_756number12IntegerWidthC2Essb
 
@@ -13,12 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_756number12IntegerWidthC2Essb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) %this, i16 noundef signext %minInt, i16 noundef signext %maxInt, i1 noundef zeroext %formatFailIfMoreThanMaxDigits) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %formatFailIfMoreThanMaxDigits to i8
-  %fHasError = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this, i64 0, i32 1
+  %fHasError = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %fHasError, align 4
   store i16 %minInt, ptr %this, align 4
-  %fMaxInt = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 1
+  %fMaxInt = getelementptr inbounds i8, ptr %this, i64 2
   store i16 %maxInt, ptr %fMaxInt, align 2
-  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 2
+  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %this, i64 4
   store i8 %frombool, ptr %fFormatFailIfMoreThanMaxDigits, align 4
   ret void
 }
@@ -56,7 +55,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define { i64, i8 } @_ZN6icu_756number12IntegerWidth10truncateAtEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %this, i32 noundef %maxInt) local_unnamed_addr #1 align 2 {
 entry:
   %retval = alloca %"class.icu_75::number::IntegerWidth", align 8
-  %fHasError = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this, i64 0, i32 1
+  %fHasError = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %fHasError, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -88,7 +87,7 @@ if.then8:                                         ; preds = %if.else
   br label %return
 
 if.else9:                                         ; preds = %if.else
-  %fHasError.i = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %retval, i64 0, i32 1
+  %fHasError.i = getelementptr inbounds i8, ptr %retval, i64 8
   store i32 65810, ptr %retval, align 8
   store i8 1, ptr %fHasError.i, align 8
   br label %return
@@ -110,7 +109,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end24
 
 if.end:                                           ; preds = %entry
-  %fHasError = getelementptr inbounds %"class.icu_75::number::IntegerWidth", ptr %this, i64 0, i32 1
+  %fHasError = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %fHasError, align 4
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
@@ -121,7 +120,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end24
 
 if.else:                                          ; preds = %if.end
-  %fMaxInt = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 1
+  %fMaxInt = getelementptr inbounds i8, ptr %this, i64 2
   %3 = load i16, ptr %fMaxInt, align 2
   %conv = sext i16 %3 to i32
   %cmp = icmp eq i16 %3, -1
@@ -134,7 +133,7 @@ if.then4:                                         ; preds = %if.else
   br label %if.end24
 
 if.else7:                                         ; preds = %if.else
-  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds %struct.anon, ptr %this, i64 0, i32 2
+  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %this, i64 4
   %5 = load i8, ptr %fFormatFailIfMoreThanMaxDigits, align 4
   %6 = and i8 %5, 1
   %tobool9.not = icmp eq i8 %6, 0

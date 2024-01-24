@@ -111,25 +111,25 @@ entry:
   %cmp = icmp slt i32 %nid, 1
   br i1 %cmp, label %return, label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.06 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %nid2 = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.06, i32 1
-  %0 = load i32, ptr %nid2, align 8
-  %cmp3 = icmp eq i32 %0, %nid
-  br i1 %cmp3, label %if.then4, label %for.inc
-
-if.then4:                                         ; preds = %for.body
-  %arrayidx = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.06
-  %1 = load ptr, ptr %arrayidx, align 16
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.06, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.05, 1
   %exitcond.not = icmp eq i64 %inc, 82
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-return:                                           ; preds = %for.inc, %entry, %if.then4
-  %retval.0 = phi ptr [ %1, %if.then4 ], [ null, %entry ], [ null, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.05 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.05
+  %nid2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %0 = load i32, ptr %nid2, align 8
+  %cmp3 = icmp eq i32 %0, %nid
+  br i1 %cmp3, label %if.then4, label %for.cond
+
+if.then4:                                         ; preds = %for.body
+  %1 = load ptr, ptr %arrayidx, align 16
+  br label %return
+
+return:                                           ; preds = %for.cond, %entry, %if.then4
+  %retval.0 = phi ptr [ %1, %if.then4 ], [ null, %entry ], [ null, %for.cond ]
   ret ptr %retval.0
 }
 
@@ -139,47 +139,48 @@ entry:
   %cmp.not = icmp eq ptr %name, null
   br i1 %cmp.not, label %return, label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %i.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.05.i
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.04.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, 15
+  br i1 %exitcond.not.i, label %for.body.preheader, label %for.body.i, !llvm.loop !6
+
+for.body.i:                                       ; preds = %entry, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
+  %arrayidx.i = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #5
   %cmp2.i = icmp eq i32 %call.i, 0
-  br i1 %cmp2.i, label %ossl_ec_curve_nist2nid_int.exit, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.05.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, 15
-  br i1 %exitcond.not.i, label %for.body, label %for.body.i, !llvm.loop !6
+  br i1 %cmp2.i, label %ossl_ec_curve_nist2nid_int.exit, label %for.cond.i
 
 ossl_ec_curve_nist2nid_int.exit:                  ; preds = %for.body.i
-  %nid.i = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.05.i, i32 1
-  br label %return.sink.split
+  %nid.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %1 = load i32, ptr %nid.i, align 8
+  %cmp1.not = icmp eq i32 %1, 0
+  br i1 %cmp1.not, label %for.body.preheader, label %return
 
-for.body:                                         ; preds = %for.inc.i, %for.inc
-  %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %for.inc.i ]
-  %arrayidx = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.08
-  %1 = load ptr, ptr %arrayidx, align 16
-  %call5 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %1, ptr noundef nonnull %name) #6
-  %cmp6 = icmp eq i32 %call5, 0
-  br i1 %cmp6, label %if.then7, label %for.inc
+for.body.preheader:                               ; preds = %for.cond.i, %ossl_ec_curve_nist2nid_int.exit
+  br label %for.body
 
-if.then7:                                         ; preds = %for.body
-  %nid9 = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.08, i32 1
-  br label %return.sink.split
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.08, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, 82
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
-return.sink.split:                                ; preds = %if.then7, %ossl_ec_curve_nist2nid_int.exit
-  %nid.i.sink = phi ptr [ %nid.i, %ossl_ec_curve_nist2nid_int.exit ], [ %nid9, %if.then7 ]
-  %2 = load i32, ptr %nid.i.sink, align 8
+for.body:                                         ; preds = %for.body.preheader, %for.cond
+  %i.07 = phi i64 [ %inc, %for.cond ], [ 0, %for.body.preheader ]
+  %arrayidx = getelementptr inbounds [82 x %struct.ec_name2nid_st], ptr @curve_list, i64 0, i64 %i.07
+  %2 = load ptr, ptr %arrayidx, align 16
+  %call5 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %2, ptr noundef nonnull %name) #6
+  %cmp6 = icmp eq i32 %call5, 0
+  br i1 %cmp6, label %if.then7, label %for.cond
+
+if.then7:                                         ; preds = %for.body
+  %nid9 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %3 = load i32, ptr %nid9, align 8
   br label %return
 
-return:                                           ; preds = %for.inc, %return.sink.split, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %2, %return.sink.split ], [ 0, %for.inc ]
+return:                                           ; preds = %for.cond, %entry, %ossl_ec_curve_nist2nid_int.exit, %if.then7
+  %retval.0 = phi i32 [ %3, %if.then7 ], [ %1, %ossl_ec_curve_nist2nid_int.exit ], [ 0, %entry ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -188,26 +189,26 @@ define i32 @ossl_ec_curve_nist2nid_int(ptr nocapture noundef readonly %name) loc
 entry:
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.05
-  %0 = load ptr, ptr %arrayidx, align 16
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #5
-  %cmp2 = icmp eq i32 %call, 0
-  br i1 %cmp2, label %if.then, label %for.inc
-
-if.then:                                          ; preds = %for.body
-  %nid = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.05, i32 1
-  %1 = load i32, ptr %nid, align 8
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.05, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, 15
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
-return:                                           ; preds = %for.inc, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04
+  %0 = load ptr, ptr %arrayidx, align 16
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #5
+  %cmp2 = icmp eq i32 %call, 0
+  br i1 %cmp2, label %if.then, label %for.cond
+
+if.then:                                          ; preds = %for.body
+  %nid = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %1 = load i32, ptr %nid, align 8
+  br label %return
+
+return:                                           ; preds = %for.cond, %if.then
+  %retval.0 = phi i32 [ %1, %if.then ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -218,25 +219,25 @@ define ptr @ossl_ec_curve_nid2nist_int(i32 noundef %nid) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %nid1 = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.05, i32 1
-  %0 = load i32, ptr %nid1, align 8
-  %cmp2 = icmp eq i32 %0, %nid
-  br i1 %cmp2, label %if.then, label %for.inc
-
-if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.05
-  %1 = load ptr, ptr %arrayidx, align 16
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.05, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, 15
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
 
-return:                                           ; preds = %for.inc, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ null, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [15 x %struct.ec_name2nid_st], ptr @nist_curves, i64 0, i64 %i.04
+  %nid1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %0 = load i32, ptr %nid1, align 8
+  %cmp2 = icmp eq i32 %0, %nid
+  br i1 %cmp2, label %if.then, label %for.cond
+
+if.then:                                          ; preds = %for.body
+  %1 = load ptr, ptr %arrayidx, align 16
+  br label %return
+
+return:                                           ; preds = %for.cond, %if.then
+  %retval.0 = phi ptr [ %1, %if.then ], [ null, %for.cond ]
   ret ptr %retval.0
 }
 

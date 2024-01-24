@@ -16,17 +16,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<const Assimp::FBX::Connection *, std::allocator<const Assimp::FBX::Connection *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const Assimp::FBX::Connection *, std::allocator<const Assimp::FBX::Connection *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const Assimp::FBX::Connection *, std::allocator<const Assimp::FBX::Connection *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const Assimp::FBX::Connection *, std::allocator<const Assimp::FBX::Connection *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Assimp::FBX::Geometry" = type { %"class.Assimp::FBX::Object", ptr, %"class.std::unordered_set" }
-%"class.Assimp::FBX::Object" = type { ptr, ptr, %"class.std::__cxx11::basic_string", i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.std::allocator" = type { i8 }
-%"class.Assimp::FBX::Connection" = type { i64, %"class.std::__cxx11::basic_string", i64, i64, ptr }
 %"class.std::vector.66" = type { %"struct.std::_Vector_base.67" }
 %"struct.std::_Vector_base.67" = type { %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data" }
@@ -35,25 +28,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.62" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Assimp::FBX::MeshGeometry" = type { %"class.Assimp::FBX::Geometry", %"class.std::vector.61", %"class.std::vector.66", %"class.std::vector.71", %"class.std::vector.71", %"class.std::vector.66", %"class.std::vector.66", %"class.std::vector.66", [8 x %"class.std::__cxx11::basic_string"], [8 x %"class.std::vector.76"], [8 x %"class.std::vector.81"], %"class.std::vector.71", %"class.std::vector.71", %"class.std::vector.71" }
-%"class.std::vector.71" = type { %"struct.std::_Vector_base.72" }
-%"struct.std::_Vector_base.72" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Assimp::FBX::Element" = type { ptr, %"class.std::vector", ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<const Assimp::FBX::Token *, std::allocator<const Assimp::FBX::Token *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const Assimp::FBX::Token *, std::allocator<const Assimp::FBX::Token *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const Assimp::FBX::Token *, std::allocator<const Assimp::FBX::Token *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const Assimp::FBX::Token *, std::allocator<const Assimp::FBX::Token *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.aiVector3t = type { float, float, float }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [40 x i8] }
-%"struct.Assimp::FBX::ImportSettings" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %class.aiVector2t = type { float, float }
 %class.aiColor4t = type { float, float, float, float }
-%"class.Assimp::FBX::ShapeGeometry" = type { %"class.Assimp::FBX::Geometry", %"class.std::vector.66", %"class.std::vector.66", %"class.std::vector.71" }
-%"class.Assimp::FBX::LineGeometry" = type { %"class.Assimp::FBX::Geometry", %"class.std::vector.66", %"class.std::vector.61" }
 %struct._Guard = type { ptr }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -396,27 +373,27 @@ entry:
   %ref.tmp21 = alloca i64, align 8
   tail call void @_ZN6Assimp3FBX6ObjectC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(32) %name)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %skin = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 1
+  %skin = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %skin, align 8
-  %blendShapes = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %blendShapes = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %_M_single_bucket.i.i, ptr %blendShapes, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %id.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 3
+  %id.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %id.i, align 8
   invoke void @_ZNK6Assimp3FBX8Document36GetConnectionsByDestinationSequencedEmPKc(ptr nonnull sret(%"class.std::vector.8") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(336) %doc, i64 noundef %0, ptr noundef nonnull @.str)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
   %1 = load ptr, ptr %ref.tmp, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<const Assimp::FBX::Connection *, std::allocator<const Assimp::FBX::Connection *>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not17 = icmp eq ptr %1, %2
   br i1 %cmp.i.not17, label %for.end, label %for.body
@@ -475,7 +452,7 @@ invoke.cont17:                                    ; preds = %if.then15
 
 if.then20:                                        ; preds = %invoke.cont17
   %9 = load ptr, ptr %bsp, align 8
-  %id.i8 = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %9, i64 0, i32 3
+  %id.i8 = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load i64, ptr %id.i8, align 8
   store i64 %10, ptr %ref.tmp21, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -503,7 +480,7 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA33_KcmEEEvDpOT_.exit: ; p
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA33_KcmEEEvDpOT_.exit, %invoke.cont12, %invoke.cont17
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin2.sroa.0.018, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.018, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
@@ -527,7 +504,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad8 ], [ %5, %if.then.i.i.i ]
   call void @_ZNSt13unordered_setIPKN6Assimp3FBX10BlendShapeESt4hashIS4_ESt8equal_toIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %blendShapes) #23
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #23
   resume { ptr, i32 } %.pn
 }
@@ -553,7 +530,7 @@ entry:
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp50 = alloca %"class.std::allocator", align 1
-  %prop.i = getelementptr inbounds %"class.Assimp::FBX::Connection", ptr %con, i64 0, i32 1
+  %prop.i = getelementptr inbounds i8, ptr %con, i64 8
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %prop.i) #23
   %tobool2.not = icmp eq i64 %call1, 0
   br i1 %is_object_property_conn, label %land.lhs.true, label %land.lhs.true15
@@ -860,7 +837,7 @@ entry:
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp50 = alloca %"class.std::allocator", align 1
-  %prop.i = getelementptr inbounds %"class.Assimp::FBX::Connection", ptr %con, i64 0, i32 1
+  %prop.i = getelementptr inbounds i8, ptr %con, i64 8
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %prop.i) #23
   %tobool2.not = icmp eq i64 %call1, 0
   br i1 %is_object_property_conn, label %land.lhs.true, label %land.lhs.true15
@@ -1155,7 +1132,7 @@ eh.resume:                                        ; preds = %ehcleanup61, %lpad.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt13unordered_setIPKN6Assimp3FBX10BlendShapeESt4hashIS4_ESt8equal_toIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %tobool.not3.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
@@ -1169,13 +1146,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i: ; preds = %while.body.i.i.i, %entry
   %2 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i.i, align 8
   %mul.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %4
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
@@ -1190,14 +1167,14 @@ _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6Assimp3FBX8Geometry14GetBlendShapesEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %blendShapes = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2
+  %blendShapes = getelementptr inbounds i8, ptr %this, i64 64
   ret ptr %blendShapes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK6Assimp3FBX8Geometry12DeformerSkinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %skin = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 1
+  %skin = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %skin, align 8
   ret ptr %0
 }
@@ -1226,13 +1203,13 @@ entry:
   %ref.tmp171 = alloca %"class.std::allocator", align 1
   tail call void @_ZN6Assimp3FBX8GeometryC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(336) %doc)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12MeshGeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_materials = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 1
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %m_faces = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3
-  %m_facesVertexStartIndices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 4
-  %m_tangents = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 5
-  %m_binormals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 6
-  %m_normals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 7
+  %m_materials = getelementptr inbounds i8, ptr %this, i64 120
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
+  %m_faces = getelementptr inbounds i8, ptr %this, i64 168
+  %m_facesVertexStartIndices = getelementptr inbounds i8, ptr %this, i64 192
+  %m_tangents = getelementptr inbounds i8, ptr %this, i64 216
+  %m_binormals = getelementptr inbounds i8, ptr %this, i64 240
+  %m_normals = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %m_materials, i8 0, i64 168, i1 false)
   br label %arrayctor.loop
 
@@ -1246,10 +1223,10 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
 
 arrayctor.loop4.preheader:                        ; preds = %arrayctor.loop
   %scevgep = getelementptr inbounds i8, ptr %this, i64 544
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
-  %compound.i = getelementptr inbounds %"class.Assimp::FBX::Element", ptr %element, i64 0, i32 2
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
+  %compound.i = getelementptr inbounds i8, ptr %element, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %scevgep, i8 0, i64 456, i1 false)
   %0 = load ptr, ptr %compound.i, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1367,7 +1344,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
 
 invoke.cont50:                                    ; preds = %invoke.cont45
   %8 = load ptr, ptr %tempVerts, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %tempVerts, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %tempVerts, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i, label %if.then52, label %if.end54
@@ -1457,7 +1434,7 @@ if.end54:                                         ; preds = %_ZN6Assimp12LogFunc
 
 invoke.cont56:                                    ; preds = %if.end54
   %17 = load ptr, ptr %tempFaces, align 8
-  %_M_finish.i.i66 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %tempFaces, i64 0, i32 1
+  %_M_finish.i.i66 = getelementptr inbounds i8, ptr %tempFaces, i64 8
   %18 = load ptr, ptr %_M_finish.i.i66, align 8
   %cmp.i.i67 = icmp eq ptr %17, %18
   br i1 %cmp.i.i67, label %if.then58, label %if.end60
@@ -1515,7 +1492,7 @@ if.end60:                                         ; preds = %_ZN6Assimp12LogFunc
   br i1 %cmp.i, label %if.then.i.i.i200.invoke, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end60
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %21 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %22 = load ptr, ptr %m_vertices, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %21 to i64
@@ -1526,7 +1503,7 @@ if.end.i:                                         ; preds = %if.end60
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i, label %if.end.i88
 
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
-  %_M_finish.i.i77 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i77 = getelementptr inbounds i8, ptr %this, i64 152
   %23 = load ptr, ptr %_M_finish.i.i77, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
@@ -1542,8 +1519,8 @@ for.body.i.i.i.i:                                 ; preds = %call5.i.i.i.i.noexc
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i81, %call5.i.i.i.i.noexc ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %22, %call5.i.i.i.i.noexc ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i, i64 12, i1 false), !alias.scope !6
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 12
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %23
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -1574,7 +1551,7 @@ invoke.cont63:                                    ; preds = %_ZNSt6vectorI10aiVe
 if.end.i88:                                       ; preds = %if.end.i, %invoke.cont63
   %div329.in = phi i64 [ %.pre313.pre-phi, %invoke.cont63 ], [ %sub.ptr.div.i, %if.end.i ]
   %div329 = udiv i64 %div329.in, 3
-  %_M_end_of_storage.i.i89 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i89 = getelementptr inbounds i8, ptr %this, i64 184
   %24 = load ptr, ptr %_M_end_of_storage.i.i89, align 8
   %25 = load ptr, ptr %m_faces, align 8
   %sub.ptr.lhs.cast.i.i90 = ptrtoint ptr %24 to i64
@@ -1585,7 +1562,7 @@ if.end.i88:                                       ; preds = %if.end.i, %invoke.c
   br i1 %cmp3.i94, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i, label %invoke.cont66
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %if.end.i88
-  %_M_finish.i.i95 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i95 = getelementptr inbounds i8, ptr %this, i64 176
   %26 = load ptr, ptr %_M_finish.i.i95, align 8
   %sub.ptr.lhs.cast.i6.i96 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i8.i97 = sub i64 %sub.ptr.lhs.cast.i6.i96, %sub.ptr.rhs.cast.i.i91
@@ -1624,7 +1601,7 @@ invoke.cont66:                                    ; preds = %_ZNSt12_Vector_base
   %sub.ptr.rhs.cast.i109 = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i110 = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i109
   %sub.ptr.div.i111 = sdiv exact i64 %sub.ptr.sub.i110, 12
-  %_M_finish.i.i112 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i112 = getelementptr inbounds i8, ptr %this, i64 960
   %29 = load ptr, ptr %_M_finish.i.i112, align 8
   %30 = load ptr, ptr %m_mapping_offsets, align 8
   %sub.ptr.lhs.cast.i.i113 = ptrtoint ptr %29 to i64
@@ -1664,7 +1641,7 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 invoke.cont69:                                    ; preds = %if.then.i120.invoke.cont69_crit_edge, %invoke.cont.i.i, %if.then5.i, %if.else.i
   %sub.ptr.div.i126.pre-phi = phi i64 [ %.pre317, %if.then.i120.invoke.cont69_crit_edge ], [ %sub.ptr.div.i111, %invoke.cont.i.i ], [ %sub.ptr.div.i111, %if.then5.i ], [ %sub.ptr.div.i111, %if.else.i ]
   store i32 0, ptr %ref.tmp72, align 4
-  %_M_finish.i.i127 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i127 = getelementptr inbounds i8, ptr %this, i64 936
   %31 = load ptr, ptr %_M_finish.i.i127, align 8
   %32 = load ptr, ptr %m_mapping_counts, align 8
   %sub.ptr.lhs.cast.i.i128 = ptrtoint ptr %31 to i64
@@ -1699,7 +1676,7 @@ invoke.cont73:                                    ; preds = %invoke.cont.i.i136,
   %sub.ptr.rhs.cast.i142 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i143 = sub i64 %sub.ptr.lhs.cast.i141, %sub.ptr.rhs.cast.i142
   %sub.ptr.div.i144 = ashr exact i64 %sub.ptr.sub.i143, 2
-  %_M_finish.i.i145 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i145 = getelementptr inbounds i8, ptr %this, i64 984
   %35 = load ptr, ptr %_M_finish.i.i145, align 8
   %36 = load ptr, ptr %m_mappings, align 8
   %sub.ptr.lhs.cast.i.i146 = ptrtoint ptr %35 to i64
@@ -1745,8 +1722,8 @@ invoke.cont76:                                    ; preds = %if.then.i157.invoke
   br i1 %cmp.i167.not286, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont76
-  %_M_finish.i169 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
-  %_M_finish.i176 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i169 = getelementptr inbounds i8, ptr %this, i64 152
+  %_M_finish.i176 = getelementptr inbounds i8, ptr %this, i64 176
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1799,7 +1776,7 @@ if.end94:                                         ; preds = %for.body
 if.then.i170:                                     ; preds = %if.end94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %45, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i168, i64 12, i1 false)
   %47 = load ptr, ptr %_M_finish.i169, align 8
-  %incdec.ptr.i = getelementptr inbounds %class.aiVector3t, ptr %47, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %47, i64 12
   store ptr %incdec.ptr.i, ptr %_M_finish.i169, align 8
   br label %invoke.cont98
 
@@ -1837,14 +1814,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %48, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i.i, i64 12, i1 false), !alias.scope !11
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 12
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 12
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %45
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %class.aiVector3t, ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 12
   %tobool.not.i.i.i = icmp eq ptr %48, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -1877,7 +1854,7 @@ if.then104:                                       ; preds = %invoke.cont98
 if.then.i179:                                     ; preds = %if.then104
   store i32 %inc, ptr %52, align 4
   %54 = load ptr, ptr %_M_finish.i176, align 8
-  %incdec.ptr.i180 = getelementptr inbounds i32, ptr %54, i64 1
+  %incdec.ptr.i180 = getelementptr inbounds i8, ptr %54, i64 4
   store ptr %incdec.ptr.i180, ptr %_M_finish.i176, align 8
   br label %for.inc
 
@@ -1925,7 +1902,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i195, i64 %sub.ptr.sub.i.i.i.i185
-  %incdec.ptr.i.i197 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i197 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %tobool.not.i.i.i198 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i198, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -1942,7 +1919,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
 
 for.inc:                                          ; preds = %if.then.i179, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %invoke.cont98
   %count.1 = phi i32 [ %inc, %invoke.cont98 ], [ 0, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ 0, %if.then.i179 ]
-  %incdec.ptr.i204 = getelementptr inbounds i32, ptr %__begin2.sroa.0.0287, i64 1
+  %incdec.ptr.i204 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0287, i64 4
   %cmp.i167.not = icmp eq ptr %incdec.ptr.i204, %37
   br i1 %cmp.i167.not, label %for.end.loopexit, label %for.body
 
@@ -2012,15 +1989,15 @@ for.body131:                                      ; preds = %for.end121, %for.bo
   %70 = load ptr, ptr %m_mappings, align 8
   %add.ptr.i217 = getelementptr inbounds i32, ptr %70, i64 %conv152
   store i32 %cursor.1294, ptr %add.ptr.i217, align 4
-  %incdec.ptr.i218 = getelementptr inbounds i32, ptr %__begin2123.sroa.0.0293, i64 1
+  %incdec.ptr.i218 = getelementptr inbounds i8, ptr %__begin2123.sroa.0.0293, i64 4
   %cmp.i214.not = icmp eq ptr %incdec.ptr.i218, %64
   br i1 %cmp.i214.not, label %for.cond157.preheader, label %for.body131
 
 for.body159:                                      ; preds = %for.cond157.preheader, %for.inc191
   %it.sroa.0.0296 = phi ptr [ %call.i, %for.inc191 ], [ %6, %for.cond157.preheader ]
-  %second161 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.0296, i64 0, i32 1, i32 0, i64 32
+  %second161 = getelementptr inbounds i8, ptr %it.sroa.0.0296, i64 64
   %71 = load ptr, ptr %second161, align 8
-  %tokens.i = getelementptr inbounds %"class.Assimp::FBX::Element", ptr %71, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %71, i64 8
   %72 = load ptr, ptr %tokens.i, align 8
   %73 = load ptr, ptr %72, align 8
   %call167 = invoke noundef i32 @_ZN6Assimp3FBX15ParseTokenAsIntERKNS0_5TokenERPKc(ptr noundef nonnull align 8 dereferenceable(36) %73, ptr noundef nonnull align 8 dereferenceable(8) %err)
@@ -2061,7 +2038,7 @@ ehcleanup177:                                     ; preds = %lpad174, %lpad172
 
 if.end178:                                        ; preds = %invoke.cont166
   %77 = load ptr, ptr %doc, align 8
-  %readAllLayers = getelementptr inbounds %"struct.Assimp::FBX::ImportSettings", ptr %77, i64 0, i32 1
+  %readAllLayers = getelementptr inbounds i8, ptr %77, i64 1
   %78 = load i8, ptr %readAllLayers, align 1
   %79 = and i8 %78, 1
   %tobool181 = icmp ne i8 %79, 0
@@ -2384,7 +2361,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
 
 for.body:                                         ; preds = %invoke.cont5, %for.body
   %eit.sroa.0.09 = phi ptr [ %call.i, %for.body ], [ %1, %invoke.cont5 ]
-  %second8 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %eit.sroa.0.09, i64 0, i32 1, i32 0, i64 32
+  %second8 = getelementptr inbounds i8, ptr %eit.sroa.0.09, i64 64
   %3 = load ptr, ptr %second8, align 8
   %call9 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %3)
   call void @_ZN6Assimp3FBX12MeshGeometry16ReadLayerElementERKNS0_5ScopeE(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(48) %call9)
@@ -2445,35 +2422,35 @@ _ZNSt12_Vector_baseI10aiVector2tIfESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
   ret ptr %m_vertices
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry10GetNormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_normals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 7
+  %m_normals = getelementptr inbounds i8, ptr %this, i64 264
   ret ptr %m_normals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry11GetTangentsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_tangents = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 5
+  %m_tangents = getelementptr inbounds i8, ptr %this, i64 216
   ret ptr %m_tangents
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry12GetBinormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_binormals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 6
+  %m_binormals = getelementptr inbounds i8, ptr %this, i64 240
   ret ptr %m_binormals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetFaceIndexCountsEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_faces = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3
+  %m_faces = getelementptr inbounds i8, ptr %this, i64 168
   ret ptr %m_faces
 }
 
@@ -2497,8 +2474,9 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %cmp = icmp ugt i32 %index, 7
+  %m_uvs = getelementptr inbounds i8, ptr %this, i64 544
   %idxprom = zext nneg i32 %index to i64
-  %arrayidx = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 9, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x %"class.std::vector.76"], ptr %m_uvs, i64 0, i64 %idxprom
   %cond-lvalue = select i1 %cmp, ptr @_ZZNK6Assimp3FBX12MeshGeometry16GetTextureCoordsEjE5empty, ptr %arrayidx
   ret ptr %cond-lvalue
 }
@@ -2539,8 +2517,9 @@ lpad.body.thread:                                 ; preds = %.noexc
   br label %cleanup.action4
 
 cond.false:                                       ; preds = %entry
+  %m_uvNames = getelementptr inbounds i8, ptr %this, i64 288
   %idxprom = zext nneg i32 %index to i64
-  %arrayidx = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr %m_uvNames, i64 0, i64 %idxprom
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx)
   br label %cleanup.done
 
@@ -2584,8 +2563,9 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   %cmp = icmp ugt i32 %index, 7
+  %m_colors = getelementptr inbounds i8, ptr %this, i64 736
   %idxprom = zext nneg i32 %index to i64
-  %arrayidx = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 10, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x %"class.std::vector.81"], ptr %m_colors, i64 0, i64 %idxprom
   %cond-lvalue = select i1 %cmp, ptr @_ZZNK6Assimp3FBX12MeshGeometry15GetVertexColorsEjE5empty, ptr %arrayidx
   ret ptr %cond-lvalue
 }
@@ -2593,7 +2573,7 @@ init.end:                                         ; preds = %init, %init.check, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetMaterialIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(1000) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_materials = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 1
+  %m_materials = getelementptr inbounds i8, ptr %this, i64 120
   ret ptr %m_materials
 }
 
@@ -2601,8 +2581,8 @@ entry:
 define hidden noundef ptr @_ZNK6Assimp3FBX12MeshGeometry19ToOutputVertexIndexEjRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1000) %this, i32 noundef %in_index, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %conv = zext i32 %in_index to i64
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11, i32 0, i32 0, i32 0, i32 1
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 936
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_mapping_counts, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2616,8 +2596,8 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv
   %2 = load i32, ptr %add.ptr.i, align 4
   store i32 %2, ptr %count, align 4
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
   %3 = load ptr, ptr %m_mapping_offsets, align 8
   %add.ptr.i3 = getelementptr inbounds i32, ptr %3, i64 %conv
   %4 = load i32, ptr %add.ptr.i3, align 4
@@ -2635,16 +2615,16 @@ return:                                           ; preds = %entry, %if.end
 define hidden noundef i32 @_ZNK6Assimp3FBX12MeshGeometry18FaceForVertexIndexEj(ptr noundef nonnull align 8 dereferenceable(1000) %this, i32 noundef %in_index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
-  %m_facesVertexStartIndices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 4
+  %m_facesVertexStartIndices = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_facesVertexStartIndices, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 200
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_faces = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_faces = getelementptr inbounds i8, ptr %this, i64 168
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 176
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %m_faces, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -2670,10 +2650,10 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %if.then, %if.then.i
 
 if.end.i:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
   %6 = load ptr, ptr %m_facesVertexStartIndices, align 8
-  %add.ptr.i3 = getelementptr inbounds i32, ptr %6, i64 1
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %5, align 4
   store i32 %7, ptr %add.ptr.i3, align 4
-  %incdec.ptr.i15.i = getelementptr inbounds i32, ptr %5, i64 1
+  %incdec.ptr.i15.i = getelementptr inbounds i8, ptr %5, i64 4
   %cmp.i4.not16.i = icmp eq ptr %incdec.ptr.i15.i, %4
   br i1 %cmp.i4.not16.i, label %_ZSt11partial_sumIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit, label %while.body.i
 
@@ -2683,15 +2663,15 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   %__result.sroa.0.017.i = phi ptr [ %incdec.ptr.i5.i, %while.body.i ], [ %add.ptr.i3, %if.end.i ]
   %8 = load i32, ptr %incdec.ptr.i19.i, align 4
   %add.i = add i32 %8, %__value.018.i
-  %incdec.ptr.i5.i = getelementptr inbounds i32, ptr %__result.sroa.0.017.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %__result.sroa.0.017.i, i64 4
   store i32 %add.i, ptr %incdec.ptr.i5.i, align 4
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i19.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i19.i, i64 4
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i.i, %4
   br i1 %cmp.i4.not.i, label %_ZSt11partial_sumIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit, label %while.body.i, !llvm.loop !19
 
 _ZSt11partial_sumIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit: ; preds = %while.body.i, %if.end.i, %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %9, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 -4
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   %.pre10 = load ptr, ptr %m_facesVertexStartIndices, align 8
   br label %if.end
@@ -2710,10 +2690,10 @@ while.body.i.i:                                   ; preds = %if.end, %while.body
   %__len.08.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.end ]
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %11, %if.end ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %incdec.ptr.i8.sink.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
-  %12 = load i32, ptr %incdec.ptr.i8.sink.i.i.i.i, align 4
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %12 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i32 %12, %in_index
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i8.sink.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %13 = xor i64 %shr.i.i, -1
   %sub9.i.i = add nsw i64 %__len.08.i.i, %13
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i.i, ptr %__first.sroa.0.07.i.i, ptr %incdec.ptr.i.i.i
@@ -2723,7 +2703,7 @@ while.body.i.i:                                   ; preds = %if.end, %while.body
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjET_S7_S7_RKT0_.exit: ; preds = %while.body.i.i, %if.end
   %__first.sroa.0.0.lcssa.i.i = phi ptr [ %11, %if.end ], [ %__first.sroa.0.1.i.i, %while.body.i.i ]
-  %add.ptr.i8 = getelementptr inbounds i32, ptr %__first.sroa.0.0.lcssa.i.i, i64 -1
+  %add.ptr.i8 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 -4
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 2
@@ -2802,7 +2782,7 @@ invoke.cont17:                                    ; preds = %invoke.cont10
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   store i32 %call20, ptr %typedIndex, align 4
-  %element = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 1
+  %element = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %element, align 8
   %call22 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %2)
           to label %invoke.cont21 unwind label %lpad16.loopexit.split-lp
@@ -2819,7 +2799,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 
 for.body:                                         ; preds = %invoke.cont23, %for.inc
   %it.sroa.0.031 = phi ptr [ %call.i, %for.inc ], [ %3, %invoke.cont23 ]
-  %second27 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.031, i64 0, i32 1, i32 0, i64 32
+  %second27 = getelementptr inbounds i8, ptr %it.sroa.0.031, i64 64
   %5 = load ptr, ptr %second27, align 8
   %call29 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6Assimp3FBX16GetRequiredTokenERKNS0_7ElementEj(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 0)
           to label %invoke.cont28 unwind label %lpad16.loopexit
@@ -2833,7 +2813,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont30
-  %second27.le = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.031, i64 0, i32 1, i32 0, i64 32
+  %second27.le = getelementptr inbounds i8, ptr %it.sroa.0.031, i64 64
   %6 = load ptr, ptr %second27.le, align 8
   %call35 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6Assimp3FBX16GetRequiredScopeERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %invoke.cont34 unwind label %lpad16.loopexit.split-lp
@@ -3124,7 +3104,7 @@ invoke.cont31:                                    ; preds = %.noexc53
 while.body.i.i.i.i:                               ; preds = %invoke.cont31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %__x.addr.08.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %9, %invoke.cont31 ]
   %__y.addr.07.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i, %invoke.cont31 ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 32
   %call.i.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -3137,10 +3117,9 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %while.body.i.i.i.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i.i, 0
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.07.i.i.i.i, ptr %__x.addr.08.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !22
@@ -3150,7 +3129,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br i1 %cmp.i.i.i.i, label %invoke.cont33, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
-  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i.i)
           to label %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp3FBX7ElementESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -3166,7 +3145,7 @@ _ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp3FB
   br i1 %cmp.i.i.i.i.i, label %invoke.cont33, label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNKSt8multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp3FBX7ElementESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 64
   %14 = load ptr, ptr %second.i, align 8
   br label %invoke.cont33
 
@@ -3175,9 +3154,10 @@ invoke.cont33:                                    ; preds = %cond.false.i, %_ZNK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #23
+  %m_uvNames = getelementptr inbounds i8, ptr %this, i64 288
   %15 = load i32, ptr %index.addr, align 4
   %idxprom = sext i32 %15 to i64
-  %arrayidx = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr %m_uvNames, i64 0, i64 %idxprom
   %call38 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #23
   %tobool.not = icmp eq ptr %cond.i, null
@@ -3194,7 +3174,7 @@ invoke.cont41:                                    ; preds = %if.then39
 invoke.cont43:                                    ; preds = %invoke.cont41
   %16 = load i32, ptr %index.addr, align 4
   %idxprom45 = sext i32 %16 to i64
-  %arrayidx46 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 8, i64 %idxprom45
+  %arrayidx46 = getelementptr inbounds [8 x %"class.std::__cxx11::basic_string"], ptr %m_uvNames, i64 0, i64 %idxprom45
   %call47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx46, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #23
   br label %if.end48
@@ -3210,20 +3190,21 @@ ehcleanup36:                                      ; preds = %lpad30, %lpad.i51
   br label %ehcleanup130
 
 if.end48:                                         ; preds = %invoke.cont43, %invoke.cont33
+  %m_uvs = getelementptr inbounds i8, ptr %this, i64 544
   %18 = load i32, ptr %index.addr, align 4
   %idxprom49 = sext i32 %18 to i64
-  %arrayidx50 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 9, i64 %idxprom49
-  %m_vertices.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %arrayidx50 = getelementptr inbounds [8 x %"class.std::vector.76"], ptr %m_uvs, i64 0, i64 %idxprom49
+  %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %19 = load ptr, ptr %_M_finish.i.i, align 8
   %20 = load ptr, ptr %m_vertices.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 12
-  %m_mapping_counts.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mapping_counts.i = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets.i = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings.i = getelementptr inbounds i8, ptr %this, i64 976
   invoke void @_ZN6Assimp3FBX22ResolveVertexDataArrayI10aiVector2tIfEEEvRSt6vectorIT_SaIS5_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_PKcSL_mRKS4_IjSaIjEESP_SP_(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx50, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i64 noundef %sub.ptr.div.i.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_counts.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_offsets.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mappings.i)
           to label %cleanup129 unwind label %lpad22
 
@@ -3233,8 +3214,8 @@ if.else:                                          ; preds = %invoke.cont19
   br i1 %cmp.i58, label %if.then54, label %if.else78
 
 if.then54:                                        ; preds = %if.else
-  %m_materials = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_materials = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 128
   %21 = load ptr, ptr %_M_finish.i, align 8
   %22 = load ptr, ptr %m_materials, align 8
   %cmp56.not = icmp eq ptr %21, %22
@@ -3272,7 +3253,7 @@ if.end59:                                         ; preds = %if.then54
 
 invoke.cont61:                                    ; preds = %if.end59
   %23 = load ptr, ptr %temp_materials, align 8
-  %_M_finish.i66 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %temp_materials, i64 0, i32 1
+  %_M_finish.i66 = getelementptr inbounds i8, ptr %temp_materials, i64 8
   %24 = load ptr, ptr %_M_finish.i66, align 8
   %cmp.i.not3.i.i = icmp eq ptr %23, %24
   br i1 %cmp.i.not3.i.i, label %invoke.cont69, label %for.body.i.i
@@ -3284,7 +3265,7 @@ for.body.i.i:                                     ; preds = %invoke.cont61, %for
   %.lobit.i.i = lshr i32 %25, 31
   %inc.i.i = zext nneg i32 %.lobit.i.i to i64
   %spec.select.i.i = add nuw nsw i64 %__n.05.i.i, %inc.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.sroa.0.04.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 4
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %24
   br i1 %cmp.i.not.i.i, label %invoke.cont69, label %for.body.i.i, !llvm.loop !23
 
@@ -3335,11 +3316,11 @@ if.then.i.i.i:                                    ; preds = %lpad60
   br label %ehcleanup130
 
 if.end75:                                         ; preds = %invoke.cont69
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %temp_materials, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %temp_materials, i64 16
   %28 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %29 = load ptr, ptr %m_materials, align 8
   store ptr %29, ptr %temp_materials, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %30 = load <2 x ptr>, ptr %_M_finish.i, align 8
   store <2 x ptr> %30, ptr %_M_finish.i66, align 8
   store ptr %23, ptr %m_materials, align 8
@@ -3362,8 +3343,8 @@ if.else78:                                        ; preds = %if.else
   br i1 %cmp.i85, label %if.then81, label %if.else89
 
 if.then81:                                        ; preds = %if.else78
-  %m_normals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 7
-  %_M_finish.i86 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %m_normals = getelementptr inbounds i8, ptr %this, i64 264
+  %_M_finish.i86 = getelementptr inbounds i8, ptr %this, i64 272
   %32 = load ptr, ptr %_M_finish.i86, align 8
   %33 = load ptr, ptr %m_normals, align 8
   %cmp83.not = icmp eq ptr %32, %33
@@ -3395,17 +3376,17 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE8LogErrorIJRA33_KcEEEvDpOT_.exit: ; p
   br label %cleanup129
 
 if.end86:                                         ; preds = %if.then81
-  %m_vertices.i100 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i.i101 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_vertices.i100 = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i.i101 = getelementptr inbounds i8, ptr %this, i64 152
   %34 = load ptr, ptr %_M_finish.i.i101, align 8
   %35 = load ptr, ptr %m_vertices.i100, align 8
   %sub.ptr.lhs.cast.i.i102 = ptrtoint ptr %34 to i64
   %sub.ptr.rhs.cast.i.i103 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i104 = sub i64 %sub.ptr.lhs.cast.i.i102, %sub.ptr.rhs.cast.i.i103
   %sub.ptr.div.i.i105 = sdiv exact i64 %sub.ptr.sub.i.i104, 12
-  %m_mapping_counts.i106 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets.i107 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings.i108 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mapping_counts.i106 = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets.i107 = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings.i108 = getelementptr inbounds i8, ptr %this, i64 976
   invoke void @_ZN6Assimp3FBX22ResolveVertexDataArrayI10aiVector3tIfEEEvRSt6vectorIT_SaIS5_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_PKcSL_mRKS4_IjSaIjEESP_SP_(ptr noundef nonnull align 8 dereferenceable(24) %m_normals, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %sub.ptr.div.i.i105, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_counts.i106, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_offsets.i107, ptr noundef nonnull align 8 dereferenceable(24) %m_mappings.i108)
           to label %cleanup129 unwind label %lpad22
 
@@ -3415,8 +3396,8 @@ if.else89:                                        ; preds = %if.else78
   br i1 %cmp.i111, label %if.then92, label %if.else100
 
 if.then92:                                        ; preds = %if.else89
-  %m_tangents = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 5
-  %_M_finish.i112 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_tangents = getelementptr inbounds i8, ptr %this, i64 216
+  %_M_finish.i112 = getelementptr inbounds i8, ptr %this, i64 224
   %36 = load ptr, ptr %_M_finish.i112, align 8
   %37 = load ptr, ptr %m_tangents, align 8
   %cmp94.not = icmp eq ptr %36, %37
@@ -3457,8 +3438,8 @@ if.else100:                                       ; preds = %if.else89
   br i1 %cmp.i127, label %if.then103, label %if.else111
 
 if.then103:                                       ; preds = %if.else100
-  %m_binormals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 6
-  %_M_finish.i128 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %m_binormals = getelementptr inbounds i8, ptr %this, i64 240
+  %_M_finish.i128 = getelementptr inbounds i8, ptr %this, i64 248
   %38 = load ptr, ptr %_M_finish.i128, align 8
   %39 = load ptr, ptr %m_binormals, align 8
   %cmp105.not = icmp eq ptr %38, %39
@@ -3488,8 +3469,9 @@ if.then116:                                       ; preds = %if.then114
           to label %cleanup129 unwind label %lpad22
 
 if.end119:                                        ; preds = %if.then114
+  %m_colors = getelementptr inbounds i8, ptr %this, i64 736
   %idxprom120 = sext i32 %40 to i64
-  %arrayidx121 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 10, i64 %idxprom120
+  %arrayidx121 = getelementptr inbounds [8 x %"class.std::vector.81"], ptr %m_colors, i64 0, i64 %idxprom120
   invoke void @_ZN6Assimp3FBX12MeshGeometry20ReadVertexDataColorsERSt6vectorI9aiColor4tIfESaIS4_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx121, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
           to label %cleanup129 unwind label %lpad22
 
@@ -3519,17 +3501,17 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp3FBX12MeshGeometry16ReadVertexDataUVERSt6vectorI10aiVector2tIfESaIS4_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(24) %uv_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType) local_unnamed_addr #0 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_vertices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
   tail call void @_ZN6Assimp3FBX22ResolveVertexDataArrayI10aiVector2tIfEEEvRSt6vectorIT_SaIS5_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_PKcSL_mRKS4_IjSaIjEESP_SP_(ptr noundef nonnull align 8 dereferenceable(24) %uv_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_counts, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_offsets, ptr noundef nonnull align 8 dereferenceable(24) %m_mappings)
   ret void
 }
@@ -3563,8 +3545,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   %ref.tmp31 = alloca i64, align 8
-  %m_faces = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_faces = getelementptr inbounds i8, ptr %this, i64 168
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_faces, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -3611,7 +3593,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 if.then8:                                         ; preds = %invoke.cont6
   %3 = load ptr, ptr %materials_out, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %materials_out, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %materials_out, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i, label %if.then10, label %if.else
@@ -3681,8 +3663,8 @@ invoke.cont.i.i:                                  ; preds = %_ZN6Assimp12LogFunc
 if.end15:                                         ; preds = %invoke.cont.i.i, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA73_KcEEEvDpOT_.exit, %if.else
   %9 = phi ptr [ %7, %invoke.cont.i.i ], [ %7, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA73_KcEEEvDpOT_.exit ], [ %3, %if.else ]
   %10 = phi ptr [ %7, %invoke.cont.i.i ], [ %7, %_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA73_KcEEEvDpOT_.exit ], [ %4, %if.else ]
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i28 = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i28 = getelementptr inbounds i8, ptr %this, i64 152
   %11 = load ptr, ptr %_M_finish.i28, align 8
   %12 = load ptr, ptr %m_vertices, align 8
   %sub.ptr.lhs.cast.i29 = ptrtoint ptr %11 to i64
@@ -3733,7 +3715,7 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %_ZNSt6vectorIiSaIiE
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %14, %_ZNSt6vectorIiSaIiEE2atEm.exit ]
   store i32 %15, ptr %__first.addr.04.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 4
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %13
   br i1 %cmp.not.i.i.i.i, label %if.end36, label %for.body.i.i.i.i, !llvm.loop !24
 
@@ -3748,7 +3730,7 @@ land.lhs.true:                                    ; preds = %if.else24
   br i1 %cmp.i43, label %if.then27, label %if.else34
 
 if.then27:                                        ; preds = %land.lhs.true
-  %_M_finish.i.i44 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %materials_out, i64 0, i32 1
+  %_M_finish.i.i44 = getelementptr inbounds i8, ptr %materials_out, i64 8
   %16 = load ptr, ptr %_M_finish.i.i44, align 8
   %17 = load ptr, ptr %materials_out, align 8
   %sub.ptr.lhs.cast.i.i45 = ptrtoint ptr %16 to i64
@@ -3828,17 +3810,17 @@ if.end36:                                         ; preds = %for.body.i.i.i.i, %
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp3FBX12MeshGeometry21ReadVertexDataNormalsERSt6vectorI10aiVector3tIfESaIS4_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(24) %normals_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType) local_unnamed_addr #0 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_vertices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
   tail call void @_ZN6Assimp3FBX22ResolveVertexDataArrayI10aiVector3tIfEEEvRSt6vectorIT_SaIS5_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_PKcSL_mRKS4_IjSaIjEESP_SP_(ptr noundef nonnull align 8 dereferenceable(24) %normals_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_counts, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_offsets, ptr noundef nonnull align 8 dereferenceable(24) %m_mappings)
   ret void
 }
@@ -3908,17 +3890,17 @@ call.i.i18.noexc:                                 ; preds = %invoke.cont10
   %.str.62..str.61 = select i1 %cmp.i.not3.i.i.i.i19, ptr @.str.62, ptr @.str.61
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #23
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %m_vertices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
   call void @_ZN6Assimp3FBX22ResolveVertexDataArrayI10aiVector3tIfEEEvRSt6vectorIT_SaIS5_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_PKcSL_mRKS4_IjSaIjEESP_SP_(ptr noundef nonnull align 8 dereferenceable(24) %tangents_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType, ptr noundef nonnull %cond31, ptr noundef nonnull %.str.62..str.61, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_counts, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_offsets, ptr noundef nonnull align 8 dereferenceable(24) %m_mappings)
   ret void
 
@@ -4016,17 +3998,17 @@ call.i.i18.noexc:                                 ; preds = %invoke.cont10
   %.str.64..str.63 = select i1 %cmp.i.not3.i.i.i.i19, ptr @.str.64, ptr @.str.63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #23
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %m_vertices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
   call void @_ZN6Assimp3FBX22ResolveVertexDataArrayI10aiVector3tIfEEEvRSt6vectorIT_SaIS5_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_PKcSL_mRKS4_IjSaIjEESP_SP_(ptr noundef nonnull align 8 dereferenceable(24) %binormals_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType, ptr noundef nonnull %cond31, ptr noundef nonnull %.str.64..str.63, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_counts, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_offsets, ptr noundef nonnull align 8 dereferenceable(24) %m_mappings)
   ret void
 
@@ -4080,17 +4062,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp3FBX12MeshGeometry20ReadVertexDataColorsERSt6vectorI9aiColor4tIfESaIS4_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESI_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(24) %colors_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType) local_unnamed_addr #0 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_vertices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
   tail call void @_ZN6Assimp3FBX22ResolveVertexDataArrayI9aiColor4tIfEEEvRSt6vectorIT_SaIS5_EERKNS0_5ScopeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_PKcSL_mRKS4_IjSaIjEESP_SP_(ptr noundef nonnull align 8 dereferenceable(24) %colors_out, ptr noundef nonnull align 8 dereferenceable(48) %source, ptr noundef nonnull align 8 dereferenceable(32) %MappingInformationType, ptr noundef nonnull align 8 dereferenceable(32) %ReferenceInformationType, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_counts, ptr noundef nonnull align 8 dereferenceable(24) %m_mapping_offsets, ptr noundef nonnull align 8 dereferenceable(24) %m_mappings)
   ret void
 }
@@ -4330,14 +4312,14 @@ invoke.cont31:                                    ; preds = %invoke.cont29
 invoke.cont33:                                    ; preds = %invoke.cont31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #23
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %tempData, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %tempData, i64 8
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %tempData, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 12
-  %_M_finish.i138 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
+  %_M_finish.i138 = getelementptr inbounds i8, ptr %mapping_offsets, i64 8
   %10 = load ptr, ptr %_M_finish.i138, align 8
   %11 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i139 = ptrtoint ptr %10 to i64
@@ -4591,14 +4573,14 @@ invoke.cont95:                                    ; preds = %invoke.cont93
 invoke.cont97:                                    ; preds = %invoke.cont95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp91) #23
-  %_M_finish.i223 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %uvIndices, i64 0, i32 1
+  %_M_finish.i223 = getelementptr inbounds i8, ptr %uvIndices, i64 8
   %33 = load ptr, ptr %_M_finish.i223, align 8
   %34 = load ptr, ptr %uvIndices, align 8
   %sub.ptr.lhs.cast.i224 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i225 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i226 = sub i64 %sub.ptr.lhs.cast.i224, %sub.ptr.rhs.cast.i225
   %sub.ptr.div.i227 = ashr exact i64 %sub.ptr.sub.i226, 2
-  %_M_finish.i228 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
+  %_M_finish.i228 = getelementptr inbounds i8, ptr %mapping_offsets, i64 8
   %35 = load ptr, ptr %_M_finish.i228, align 8
   %36 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i229 = ptrtoint ptr %35 to i64
@@ -4688,7 +4670,7 @@ for.body117.lr.ph:                                ; preds = %invoke.cont111
   %sub.ptr.rhs.cast.i256 = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i257 = sub i64 %sub.ptr.lhs.cast.i255, %sub.ptr.rhs.cast.i256
   %sub.ptr.div.i258 = ashr exact i64 %sub.ptr.sub.i257, 2
-  %_M_finish.i262 = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %tempData66, i64 0, i32 1
+  %_M_finish.i262 = getelementptr inbounds i8, ptr %tempData66, i64 8
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i258, i64 1)
   br label %for.body117
 
@@ -4902,7 +4884,7 @@ invoke.cont182:                                   ; preds = %invoke.cont180
 invoke.cont184:                                   ; preds = %invoke.cont182
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
-  %_M_finish.i307 = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %tempData176, i64 0, i32 1
+  %_M_finish.i307 = getelementptr inbounds i8, ptr %tempData176, i64 8
   %66 = load ptr, ptr %_M_finish.i307, align 8
   %67 = load ptr, ptr %tempData176, align 8
   %sub.ptr.lhs.cast.i308 = ptrtoint ptr %66 to i64
@@ -4963,10 +4945,10 @@ lpad192:                                          ; preds = %call8.i.noexc324, %
 
 if.end194:                                        ; preds = %invoke.cont184
   %72 = load ptr, ptr %data_out, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %data_out, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %data_out, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 16
   store ptr %67, ptr %data_out, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %tempData176, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
   %73 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
   store ptr %72, ptr %tempData176, align 8
   %74 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8
@@ -5089,7 +5071,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
 invoke.cont237:                                   ; preds = %invoke.cont235
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp231) #23
-  %_M_finish.i362 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %uvIndices229, i64 0, i32 1
+  %_M_finish.i362 = getelementptr inbounds i8, ptr %uvIndices229, i64 8
   %81 = load ptr, ptr %_M_finish.i362, align 8
   %82 = load ptr, ptr %uvIndices229, align 8
   %sub.ptr.lhs.cast.i363 = ptrtoint ptr %81 to i64
@@ -5179,7 +5161,7 @@ invoke.cont256:                                   ; preds = %if.end255
   br i1 %cmp.i383.not415, label %cleanup300, label %for.body262.lr.ph
 
 for.body262.lr.ph:                                ; preds = %invoke.cont256
-  %_M_finish.i385 = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %tempData204, i64 0, i32 1
+  %_M_finish.i385 = getelementptr inbounds i8, ptr %tempData204, i64 8
   br label %for.body262
 
 for.body262:                                      ; preds = %for.body262.lr.ph, %for.inc297
@@ -5267,7 +5249,7 @@ if.end291:                                        ; preds = %if.end270
 
 for.inc297:                                       ; preds = %if.end291, %if.then266
   %next.1 = add i32 %next.0417, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__begin6.sroa.0.0416, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin6.sroa.0.0416, i64 4
   %cmp.i383.not = icmp eq ptr %incdec.ptr.i, %92
   br i1 %cmp.i383.not, label %cleanup300thread-pre-split, label %for.body262
 
@@ -5572,14 +5554,14 @@ invoke.cont31:                                    ; preds = %invoke.cont29
 invoke.cont33:                                    ; preds = %invoke.cont31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #23
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %tempData, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %tempData, i64 8
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %tempData, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_finish.i138 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
+  %_M_finish.i138 = getelementptr inbounds i8, ptr %mapping_offsets, i64 8
   %10 = load ptr, ptr %_M_finish.i138, align 8
   %11 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i139 = ptrtoint ptr %10 to i64
@@ -5834,14 +5816,14 @@ invoke.cont95:                                    ; preds = %invoke.cont93
 invoke.cont97:                                    ; preds = %invoke.cont95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp91) #23
-  %_M_finish.i223 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %uvIndices, i64 0, i32 1
+  %_M_finish.i223 = getelementptr inbounds i8, ptr %uvIndices, i64 8
   %34 = load ptr, ptr %_M_finish.i223, align 8
   %35 = load ptr, ptr %uvIndices, align 8
   %sub.ptr.lhs.cast.i224 = ptrtoint ptr %34 to i64
   %sub.ptr.rhs.cast.i225 = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i226 = sub i64 %sub.ptr.lhs.cast.i224, %sub.ptr.rhs.cast.i225
   %sub.ptr.div.i227 = ashr exact i64 %sub.ptr.sub.i226, 2
-  %_M_finish.i228 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
+  %_M_finish.i228 = getelementptr inbounds i8, ptr %mapping_offsets, i64 8
   %36 = load ptr, ptr %_M_finish.i228, align 8
   %37 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i229 = ptrtoint ptr %36 to i64
@@ -5931,7 +5913,7 @@ for.body117.lr.ph:                                ; preds = %invoke.cont111
   %sub.ptr.rhs.cast.i256 = ptrtoint ptr %45 to i64
   %sub.ptr.sub.i257 = sub i64 %sub.ptr.lhs.cast.i255, %sub.ptr.rhs.cast.i256
   %sub.ptr.div.i258 = ashr exact i64 %sub.ptr.sub.i257, 2
-  %_M_finish.i262 = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %tempData66, i64 0, i32 1
+  %_M_finish.i262 = getelementptr inbounds i8, ptr %tempData66, i64 8
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i258, i64 1)
   br label %for.body117
 
@@ -6146,7 +6128,7 @@ invoke.cont182:                                   ; preds = %invoke.cont180
 invoke.cont184:                                   ; preds = %invoke.cont182
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
-  %_M_finish.i307 = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %tempData176, i64 0, i32 1
+  %_M_finish.i307 = getelementptr inbounds i8, ptr %tempData176, i64 8
   %68 = load ptr, ptr %_M_finish.i307, align 8
   %69 = load ptr, ptr %tempData176, align 8
   %sub.ptr.lhs.cast.i308 = ptrtoint ptr %68 to i64
@@ -6207,10 +6189,10 @@ lpad192:                                          ; preds = %call8.i.noexc324, %
 
 if.end194:                                        ; preds = %invoke.cont184
   %74 = load ptr, ptr %data_out, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %data_out, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %data_out, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 16
   store ptr %69, ptr %data_out, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %tempData176, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
   %75 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
   store ptr %74, ptr %tempData176, align 8
   %76 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8
@@ -6333,7 +6315,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
 invoke.cont237:                                   ; preds = %invoke.cont235
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp231) #23
-  %_M_finish.i362 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %uvIndices229, i64 0, i32 1
+  %_M_finish.i362 = getelementptr inbounds i8, ptr %uvIndices229, i64 8
   %83 = load ptr, ptr %_M_finish.i362, align 8
   %84 = load ptr, ptr %uvIndices229, align 8
   %sub.ptr.lhs.cast.i363 = ptrtoint ptr %83 to i64
@@ -6423,7 +6405,7 @@ invoke.cont256:                                   ; preds = %if.end255
   br i1 %cmp.i383.not415, label %cleanup301, label %for.body263.lr.ph
 
 for.body263.lr.ph:                                ; preds = %invoke.cont256
-  %_M_finish.i385 = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %tempData204, i64 0, i32 1
+  %_M_finish.i385 = getelementptr inbounds i8, ptr %tempData204, i64 8
   br label %for.body263
 
 for.body263:                                      ; preds = %for.body263.lr.ph, %for.inc298
@@ -6512,7 +6494,7 @@ if.end292:                                        ; preds = %if.end271
 
 for.inc298:                                       ; preds = %if.end292, %if.then267
   %next.1 = add i32 %next.0417, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__begin6.sroa.0.0416, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin6.sroa.0.0416, i64 4
   %cmp.i383.not = icmp eq ptr %incdec.ptr.i, %94
   br i1 %cmp.i383.not, label %cleanup301thread-pre-split, label %for.body263
 
@@ -6817,14 +6799,14 @@ invoke.cont31:                                    ; preds = %invoke.cont29
 invoke.cont33:                                    ; preds = %invoke.cont31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #23
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %tempData, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %tempData, i64 8
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %tempData, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %_M_finish.i138 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
+  %_M_finish.i138 = getelementptr inbounds i8, ptr %mapping_offsets, i64 8
   %10 = load ptr, ptr %_M_finish.i138, align 8
   %11 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i139 = ptrtoint ptr %10 to i64
@@ -7078,14 +7060,14 @@ invoke.cont95:                                    ; preds = %invoke.cont93
 invoke.cont97:                                    ; preds = %invoke.cont95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp91) #23
-  %_M_finish.i223 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %uvIndices, i64 0, i32 1
+  %_M_finish.i223 = getelementptr inbounds i8, ptr %uvIndices, i64 8
   %33 = load ptr, ptr %_M_finish.i223, align 8
   %34 = load ptr, ptr %uvIndices, align 8
   %sub.ptr.lhs.cast.i224 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i225 = ptrtoint ptr %34 to i64
   %sub.ptr.sub.i226 = sub i64 %sub.ptr.lhs.cast.i224, %sub.ptr.rhs.cast.i225
   %sub.ptr.div.i227 = ashr exact i64 %sub.ptr.sub.i226, 2
-  %_M_finish.i228 = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %mapping_offsets, i64 0, i32 1
+  %_M_finish.i228 = getelementptr inbounds i8, ptr %mapping_offsets, i64 8
   %35 = load ptr, ptr %_M_finish.i228, align 8
   %36 = load ptr, ptr %mapping_offsets, align 8
   %sub.ptr.lhs.cast.i229 = ptrtoint ptr %35 to i64
@@ -7175,7 +7157,7 @@ for.body117.lr.ph:                                ; preds = %invoke.cont111
   %sub.ptr.rhs.cast.i256 = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i257 = sub i64 %sub.ptr.lhs.cast.i255, %sub.ptr.rhs.cast.i256
   %sub.ptr.div.i258 = ashr exact i64 %sub.ptr.sub.i257, 2
-  %_M_finish.i262 = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %tempData66, i64 0, i32 1
+  %_M_finish.i262 = getelementptr inbounds i8, ptr %tempData66, i64 8
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i258, i64 1)
   br label %for.body117
 
@@ -7389,7 +7371,7 @@ invoke.cont182:                                   ; preds = %invoke.cont180
 invoke.cont184:                                   ; preds = %invoke.cont182
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178) #23
-  %_M_finish.i307 = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %tempData176, i64 0, i32 1
+  %_M_finish.i307 = getelementptr inbounds i8, ptr %tempData176, i64 8
   %66 = load ptr, ptr %_M_finish.i307, align 8
   %67 = load ptr, ptr %tempData176, align 8
   %sub.ptr.lhs.cast.i308 = ptrtoint ptr %66 to i64
@@ -7450,10 +7432,10 @@ lpad192:                                          ; preds = %call8.i.noexc324, %
 
 if.end194:                                        ; preds = %invoke.cont184
   %72 = load ptr, ptr %data_out, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %data_out, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %data_out, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %data_out, i64 16
   store ptr %67, ptr %data_out, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %tempData176, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %tempData176, i64 16
   %73 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
   store ptr %72, ptr %tempData176, align 8
   %74 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8
@@ -7576,7 +7558,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
 invoke.cont237:                                   ; preds = %invoke.cont235
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp230) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp231) #23
-  %_M_finish.i362 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %uvIndices229, i64 0, i32 1
+  %_M_finish.i362 = getelementptr inbounds i8, ptr %uvIndices229, i64 8
   %81 = load ptr, ptr %_M_finish.i362, align 8
   %82 = load ptr, ptr %uvIndices229, align 8
   %sub.ptr.lhs.cast.i363 = ptrtoint ptr %81 to i64
@@ -7666,7 +7648,7 @@ invoke.cont256:                                   ; preds = %if.end255
   br i1 %cmp.i383.not415, label %cleanup300, label %for.body262.lr.ph
 
 for.body262.lr.ph:                                ; preds = %invoke.cont256
-  %_M_finish.i385 = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %tempData204, i64 0, i32 1
+  %_M_finish.i385 = getelementptr inbounds i8, ptr %tempData204, i64 8
   br label %for.body262
 
 for.body262:                                      ; preds = %for.body262.lr.ph, %for.inc297
@@ -7752,7 +7734,7 @@ if.end291:                                        ; preds = %if.end270
 
 for.inc297:                                       ; preds = %if.end291, %if.then266
   %next.1 = add i32 %next.0417, 1
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__begin6.sroa.0.0416, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin6.sroa.0.0416, i64 4
   %cmp.i383.not = icmp eq ptr %incdec.ptr.i, %92
   br i1 %cmp.i383.not, label %cleanup300thread-pre-split, label %for.body262
 
@@ -7825,7 +7807,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i406, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -7870,10 +7852,10 @@ entry:
   %ref.tmp26 = alloca %"class.std::allocator", align 1
   tail call void @_ZN6Assimp3FBX8GeometryC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(336) %doc)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX13ShapeGeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 1
-  %m_normals = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 2
-  %m_indices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 3
-  %compound.i = getelementptr inbounds %"class.Assimp::FBX::Element", ptr %element, i64 0, i32 2
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
+  %m_normals = getelementptr inbounds i8, ptr %this, i64 144
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 168
+  %compound.i = getelementptr inbounds i8, ptr %element, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %m_vertices, i8 0, i64 72, i1 false)
   %0 = load ptr, ptr %compound.i, align 8
   %cmp = icmp eq ptr %0, null
@@ -8089,7 +8071,7 @@ declare void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIjSaIjEERKNS0_7Elem
 define hidden void @_ZN6Assimp3FBX13ShapeGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX13ShapeGeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_indices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 3
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_indices, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
@@ -8099,7 +8081,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_normals = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 2
+  %m_normals = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load ptr, ptr %m_normals, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
@@ -8109,7 +8091,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i2
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load ptr, ptr %m_vertices, align 8
   %tobool.not.i.i.i3 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i3, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit5, label %if.then.i.i.i4
@@ -8120,8 +8102,8 @@ if.then.i.i.i4:                                   ; preds = %_ZNSt6vectorI10aiVe
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit5:   ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, %if.then.i.i.i4
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %blendShapes.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %blendShapes.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -8135,13 +8117,13 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNSt6vectorI10aiVe
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit5
   %5 = load ptr, ptr %blendShapes.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %blendShapes.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %7
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6Assimp3FBX8GeometryD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -8151,7 +8133,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIP
 
 _ZN6Assimp3FBX8GeometryD2Ev.exit:                 ; preds = %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, %if.end.i.i.i.i.i
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name.i.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i) #23
   ret void
 }
@@ -8170,21 +8152,21 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
   ret ptr %m_vertices
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry10GetNormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_normals = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 2
+  %m_normals = getelementptr inbounds i8, ptr %this, i64 144
   ret ptr %m_normals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX13ShapeGeometry10GetIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_indices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this, i64 0, i32 3
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 168
   ret ptr %m_indices
 }
 
@@ -8199,9 +8181,9 @@ entry:
   %ref.tmp17 = alloca %"class.std::allocator", align 1
   tail call void @_ZN6Assimp3FBX8GeometryC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(336) %doc)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12LineGeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this, i64 0, i32 1
-  %m_indices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this, i64 0, i32 2
-  %compound.i = getelementptr inbounds %"class.Assimp::FBX::Element", ptr %element, i64 0, i32 2
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 144
+  %compound.i = getelementptr inbounds i8, ptr %element, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_vertices, i8 0, i64 48, i1 false)
   %0 = load ptr, ptr %compound.i, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -8361,7 +8343,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 define hidden void @_ZN6Assimp3FBX12LineGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12LineGeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_indices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this, i64 0, i32 2
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %m_indices, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
@@ -8371,7 +8353,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this, i64 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
   %1 = load ptr, ptr %m_vertices, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, label %if.then.i.i.i2
@@ -8382,8 +8364,8 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %if.then.i.i.i2
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %blendShapes.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %blendShapes.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -8397,13 +8379,13 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNSt6vectorI10aiVe
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit
   %4 = load ptr, ptr %blendShapes.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %blendShapes.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %6
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6Assimp3FBX8GeometryD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -8413,7 +8395,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIP
 
 _ZN6Assimp3FBX8GeometryD2Ev.exit:                 ; preds = %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, %if.end.i.i.i.i.i
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name.i.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i) #23
   ret void
 }
@@ -8429,14 +8411,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry11GetVerticesEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this, i64 0, i32 1
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 120
   ret ptr %m_vertices
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry10GetIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_indices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this, i64 0, i32 2
+  %m_indices = getelementptr inbounds i8, ptr %this, i64 144
   ret ptr %m_indices
 }
 
@@ -8444,8 +8426,8 @@ entry:
 define linkonce_odr hidden void @_ZN6Assimp3FBX8GeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %blendShapes = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %blendShapes = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -8459,13 +8441,13 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %entry
   %2 = load ptr, ptr %blendShapes, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %blendShapes, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %4
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIPKN6Assimp3FBX10BlendShapeESt4hashIS4_ESt8equal_toIS4_ESaIS4_EED2Ev.exit, label %if.end.i.i.i.i
 
@@ -8475,7 +8457,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
 
 _ZNSt13unordered_setIPKN6Assimp3FBX10BlendShapeESt4hashIS4_ESt8equal_toIS4_ESaIS4_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #23
   ret void
 }
@@ -8484,8 +8466,8 @@ _ZNSt13unordered_setIPKN6Assimp3FBX10BlendShapeESt4hashIS4_ESt8equal_toIS4_ESaIS
 define linkonce_odr hidden void @_ZN6Assimp3FBX8GeometryD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %blendShapes.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %blendShapes.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -8499,13 +8481,13 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %entry
   %2 = load ptr, ptr %blendShapes.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %blendShapes.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %4
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6Assimp3FBX8GeometryD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -8515,7 +8497,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIP
 
 _ZN6Assimp3FBX8GeometryD2Ev.exit:                 ; preds = %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, %if.end.i.i.i.i.i
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name.i.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -8525,7 +8507,7 @@ _ZN6Assimp3FBX8GeometryD2Ev.exit:                 ; preds = %_ZNSt10_HashtableIP
 define linkonce_odr hidden void @_ZN6Assimp3FBX12MeshGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(1000) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12MeshGeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 13
+  %m_mappings = getelementptr inbounds i8, ptr %this, i64 976
   %0 = load ptr, ptr %m_mappings, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i
@@ -8535,7 +8517,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 12
+  %m_mapping_offsets = getelementptr inbounds i8, ptr %this, i64 952
   %1 = load ptr, ptr %m_mapping_offsets, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIjSaIjEED2Ev.exit3, label %if.then.i.i.i2
@@ -8545,7 +8527,7 @@ if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit3
 
 _ZNSt6vectorIjSaIjEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i2
-  %m_mapping_counts = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 11
+  %m_mapping_counts = getelementptr inbounds i8, ptr %this, i64 928
   %2 = load ptr, ptr %m_mapping_counts, align 8
   %tobool.not.i.i.i4 = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i4, label %arraydestroy.body.preheader, label %if.then.i.i.i5
@@ -8598,7 +8580,7 @@ arraydestroy.body10:                              ; preds = %_ZNSt6vectorI10aiVe
   br i1 %arraydestroy.done13, label %arraydestroy.done14, label %arraydestroy.body10
 
 arraydestroy.done14:                              ; preds = %arraydestroy.body10
-  %m_normals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 7
+  %m_normals = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %m_normals, align 8
   %tobool.not.i.i.i11 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, label %if.then.i.i.i12
@@ -8608,7 +8590,7 @@ if.then.i.i.i12:                                  ; preds = %arraydestroy.done14
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %arraydestroy.done14, %if.then.i.i.i12
-  %m_binormals = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 6
+  %m_binormals = getelementptr inbounds i8, ptr %this, i64 240
   %6 = load ptr, ptr %m_binormals, align 8
   %tobool.not.i.i.i13 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i13, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit15, label %if.then.i.i.i14
@@ -8618,7 +8600,7 @@ if.then.i.i.i14:                                  ; preds = %_ZNSt6vectorI10aiVe
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit15
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit15:  ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, %if.then.i.i.i14
-  %m_tangents = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 5
+  %m_tangents = getelementptr inbounds i8, ptr %this, i64 216
   %7 = load ptr, ptr %m_tangents, align 8
   %tobool.not.i.i.i16 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i16, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit18, label %if.then.i.i.i17
@@ -8628,7 +8610,7 @@ if.then.i.i.i17:                                  ; preds = %_ZNSt6vectorI10aiVe
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit18
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit18:  ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit15, %if.then.i.i.i17
-  %m_facesVertexStartIndices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 4
+  %m_facesVertexStartIndices = getelementptr inbounds i8, ptr %this, i64 192
   %8 = load ptr, ptr %m_facesVertexStartIndices, align 8
   %tobool.not.i.i.i19 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i19, label %_ZNSt6vectorIjSaIjEED2Ev.exit21, label %if.then.i.i.i20
@@ -8638,7 +8620,7 @@ if.then.i.i.i20:                                  ; preds = %_ZNSt6vectorI10aiVe
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit21
 
 _ZNSt6vectorIjSaIjEED2Ev.exit21:                  ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit18, %if.then.i.i.i20
-  %m_faces = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 3
+  %m_faces = getelementptr inbounds i8, ptr %this, i64 168
   %9 = load ptr, ptr %m_faces, align 8
   %tobool.not.i.i.i22 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i22, label %_ZNSt6vectorIjSaIjEED2Ev.exit24, label %if.then.i.i.i23
@@ -8648,7 +8630,7 @@ if.then.i.i.i23:                                  ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit24
 
 _ZNSt6vectorIjSaIjEED2Ev.exit24:                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit21, %if.then.i.i.i23
-  %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 2
+  %m_vertices = getelementptr inbounds i8, ptr %this, i64 144
   %10 = load ptr, ptr %m_vertices, align 8
   %tobool.not.i.i.i25 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i25, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit27, label %if.then.i.i.i26
@@ -8658,7 +8640,7 @@ if.then.i.i.i26:                                  ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit27
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit27:  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit24, %if.then.i.i.i26
-  %m_materials = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this, i64 0, i32 1
+  %m_materials = getelementptr inbounds i8, ptr %this, i64 120
   %11 = load ptr, ptr %m_materials, align 8
   %tobool.not.i.i.i28 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i28, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i29
@@ -8669,8 +8651,8 @@ if.then.i.i.i29:                                  ; preds = %_ZNSt6vectorI10aiVe
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit27, %if.then.i.i.i29
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %blendShapes.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %blendShapes.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -8684,13 +8666,13 @@ while.body.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %14 = load ptr, ptr %blendShapes.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %15, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %blendShapes.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %16
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6Assimp3FBX8GeometryD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -8700,7 +8682,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNSt10_HashtableIP
 
 _ZN6Assimp3FBX8GeometryD2Ev.exit:                 ; preds = %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, %if.end.i.i.i.i.i
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name.i.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i) #23
   ret void
 }
@@ -8731,7 +8713,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define linkonce_odr hidden void @_ZN6Assimp3FBX6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #23
   ret void
 }
@@ -8740,7 +8722,7 @@ entry:
 define linkonce_odr hidden void @_ZN6Assimp3FBX6ObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name.i = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this, i64 0, i32 2
+  %name.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -8751,14 +8733,14 @@ define linkonce_odr hidden { ptr, ptr } @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stri
 entry:
   %_M_parent.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.048 = load ptr, ptr %_M_parent.i, align 8
-  %cmp.not49 = icmp eq ptr %__x.048, null
-  br i1 %cmp.not49, label %return, label %while.body
+  %__x.047 = load ptr, ptr %_M_parent.i, align 8
+  %cmp.not48 = icmp eq ptr %__x.047, null
+  br i1 %cmp.not48, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end19
-  %__x.051 = phi ptr [ %__x.0, %if.end19 ], [ %__x.048, %entry ]
-  %__y.050 = phi ptr [ %__y.1, %if.end19 ], [ %add.ptr.i, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.051, i64 0, i32 1
+  %__x.050 = phi ptr [ %__x.0, %if.end19 ], [ %__x.047, %entry ]
+  %__y.049 = phi ptr [ %__y.1, %if.end19 ], [ %add.ptr.i, %entry ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x.050, i64 32
   %call.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit unwind label %terminate.lpad.i.i
 
@@ -8771,11 +8753,7 @@ terminate.lpad.i.i:                               ; preds = %while.body
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %while.body
   %cmp.i.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i.i, label %if.then, label %if.else
-
-if.then:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.051, i64 0, i32 3
-  br label %if.end19
+  br i1 %cmp.i.i, label %if.end19, label %if.else
 
 if.else:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   %call.i.i18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
@@ -8790,20 +8768,20 @@ terminate.lpad.i.i19:                             ; preds = %if.else
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21: ; preds = %if.else
   %cmp.i.i20 = icmp slt i32 %call.i.i18, 0
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.051, i64 0, i32 2
   br i1 %cmp.i.i20, label %if.end19, label %if.else12
 
 if.else12:                                        ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21
-  %4 = load ptr, ptr %_M_left.i, align 8
-  %_M_right.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.051, i64 0, i32 3
+  %_M_left.i22 = getelementptr inbounds i8, ptr %__x.050, i64 16
+  %4 = load ptr, ptr %_M_left.i22, align 8
+  %_M_right.i23 = getelementptr inbounds i8, ptr %__x.050, i64 24
   %5 = load ptr, ptr %_M_right.i23, align 8
   %cmp.not6.i = icmp eq ptr %4, null
   br i1 %cmp.not6.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   %__x.addr.08.i = phi ptr [ %__x.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %4, %if.else12 ]
-  %__y.addr.07.i = phi ptr [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %__x.051, %if.else12 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i, i64 0, i32 1
+  %__y.addr.07.i = phi ptr [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %__x.050, %if.else12 ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i, i64 32
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__k)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -8816,23 +8794,22 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i: ; preds = %while.body.i
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i, i64 0, i32 3
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i, i64 0, i32 2
   %__y.addr.1.i = select i1 %cmp.i.i.i, ptr %__y.addr.07.i, ptr %__x.addr.08.i
-  %__x.addr.1.in.i = select i1 %cmp.i.i.i, ptr %_M_right.i.i, ptr %_M_left.i.i
+  %__x.addr.1.in.v.i = select i1 %cmp.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i = getelementptr inbounds i8, ptr %__x.addr.08.i, i64 %__x.addr.1.in.v.i
   %__x.addr.1.i = load ptr, ptr %__x.addr.1.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.addr.1.i, null
   br i1 %cmp.not.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit, label %while.body.i, !llvm.loop !22
 
 _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i, %if.else12
-  %__y.addr.0.lcssa.i = phi ptr [ %__x.051, %if.else12 ], [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
+  %__y.addr.0.lcssa.i = phi ptr [ %__x.050, %if.else12 ], [ %__y.addr.1.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ]
   %cmp.not6.i24 = icmp eq ptr %5, null
   br i1 %cmp.not6.i24, label %return, label %while.body.i25
 
 while.body.i25:                                   ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31
-  %__x.addr.08.i26 = phi ptr [ %__x.addr.1.i37, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %5, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit ]
-  %__y.addr.07.i27 = phi ptr [ %__y.addr.1.i35, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.050, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.08.i26, i64 0, i32 1
+  %__x.addr.08.i26 = phi ptr [ %__x.addr.1.i36, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %5, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit ]
+  %__y.addr.07.i27 = phi ptr [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.049, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.addr.08.i26, i64 32
   %call.i.i.i29 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i28)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 unwind label %terminate.lpad.i.i.i30
 
@@ -8845,24 +8822,24 @@ terminate.lpad.i.i.i30:                           ; preds = %while.body.i25
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31: ; preds = %while.body.i25
   %cmp.i.i.i32 = icmp slt i32 %call.i.i.i29, 0
-  %_M_left.i.i33 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i26, i64 0, i32 2
-  %_M_right.i.i34 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.08.i26, i64 0, i32 3
-  %__y.addr.1.i35 = select i1 %cmp.i.i.i32, ptr %__x.addr.08.i26, ptr %__y.addr.07.i27
-  %__x.addr.1.in.i36 = select i1 %cmp.i.i.i32, ptr %_M_left.i.i33, ptr %_M_right.i.i34
-  %__x.addr.1.i37 = load ptr, ptr %__x.addr.1.in.i36, align 8
-  %cmp.not.i38 = icmp eq ptr %__x.addr.1.i37, null
-  br i1 %cmp.not.i38, label %return, label %while.body.i25, !llvm.loop !37
+  %__y.addr.1.i33 = select i1 %cmp.i.i.i32, ptr %__x.addr.08.i26, ptr %__y.addr.07.i27
+  %__x.addr.1.in.v.i34 = select i1 %cmp.i.i.i32, i64 16, i64 24
+  %__x.addr.1.in.i35 = getelementptr inbounds i8, ptr %__x.addr.08.i26, i64 %__x.addr.1.in.v.i34
+  %__x.addr.1.i36 = load ptr, ptr %__x.addr.1.in.i35, align 8
+  %cmp.not.i37 = icmp eq ptr %__x.addr.1.i36, null
+  br i1 %cmp.not.i37, label %return, label %while.body.i25, !llvm.loop !37
 
-if.end19:                                         ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21, %if.then
-  %__y.1 = phi ptr [ %__y.050, %if.then ], [ %__x.051, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
-  %__x.1.in = phi ptr [ %_M_right.i, %if.then ], [ %_M_left.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
-  %__x.0 = load ptr, ptr %__x.1.in, align 8
+if.end19:                                         ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
+  %.sink = phi i64 [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ 16, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
+  %__y.1 = phi ptr [ %__y.049, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %__x.050, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit21 ]
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.050, i64 %.sink
+  %__x.0 = load ptr, ptr %_M_left.i, align 8
   %cmp.not = icmp eq ptr %__x.0, null
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !38
 
 return:                                           ; preds = %if.end19, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31, %entry, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit
   %retval.sroa.0.0 = phi ptr [ %__y.addr.0.lcssa.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.0.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
-  %retval.sroa.3.0 = phi ptr [ %__y.050, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i35, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
+  %retval.sroa.3.0 = phi ptr [ %__y.049, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN6Assimp3FBX7ElementEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_.exit ], [ %add.ptr.i, %entry ], [ %__y.addr.1.i33, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i31 ], [ %__y.1, %if.end19 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -8998,7 +8975,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS4_SK_NS6_10_AllocNodeISaINS6_10_Hash_nodeIS4_Lb0EEEEEEEESt4pairINS6_14_Node_iteratorIS4_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k, ptr noundef nonnull align 8 dereferenceable(8) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end13.thread
@@ -9006,7 +8983,7 @@ entry:
 if.end13.thread:                                  ; preds = %entry
   %1 = load ptr, ptr %__k, align 8
   %2 = ptrtoint ptr %1 to i64
-  %_M_bucket_count.i20 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i20 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i20, align 8
   %rem.i.i.i21 = urem i64 %2, %3
   %4 = load ptr, ptr %this, align 8
@@ -9016,7 +8993,7 @@ if.end13.thread:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %__k, align 8
   br label %for.cond
 
@@ -9034,7 +9011,7 @@ for.body:                                         ; preds = %for.cond
 
 if.end13:                                         ; preds = %for.cond
   %8 = ptrtoint ptr %6 to i64
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %8, %9
   br label %if.end25
@@ -9092,12 +9069,12 @@ return:                                           ; preds = %for.cond.i.i, %for.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS6_10_Hash_nodeIS4_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -9161,7 +9138,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS6_10_Hash_nodeIS4_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -9215,7 +9192,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -9243,7 +9220,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPKN6Assimp3FBX10BlendShapeEL
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPKN6Assimp3FBX10BlendShapeELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPKN6Assimp3FBX10BlendShapeELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -9294,7 +9271,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -9303,7 +9280,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIPKN6Assimp3FBX10BlendShapeES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -9670,14 +9647,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -9692,15 +9669,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store i32 0, ptr %0, align 4
-  %incdec.ptr.i.i.i = getelementptr i32, ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 2
   %4 = add i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -9724,33 +9702,33 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr i32, ptr %add.ptr, i64 1
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
   %6 = shl nuw nsw i64 %__n, 2
   %7 = add nsw i64 %6, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i29, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i30, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
 
-if.then.i.i.i29:                                  ; preds = %try.cont
+if.then.i.i.i30:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i29
-  %tobool.not.i30 = icmp eq ptr %1, null
-  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32, label %if.then.i31
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i30
+  %tobool.not.i31 = icmp eq ptr %1, null
+  br i1 %tobool.not.i31, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33, label %if.then.i32
 
-if.then.i31:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
+if.then.i32:                                      ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #22
-  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32
+  br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i31
+_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %if.then.i32
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -9758,7 +9736,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32: ; preds = %_ZNSt6vectorIj
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit32, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33, %entry
   ret void
 }
 
@@ -9769,9 +9747,9 @@ entry:
   br i1 %cmp.not, label %if.end94, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -9815,7 +9793,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
 for.body.i.i.i:                                   ; preds = %invoke.cont20, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %__position.coerce, %invoke.cont20 ]
   store i32 %2, ptr %__first.addr.04.i.i.i, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !42
 
@@ -9831,7 +9809,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %1, %if.end.i.i.i.i.i ]
   store i32 %2, ptr %__first.addr.04.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 4
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i49
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i.i.i.i, !llvm.loop !42
 
@@ -9856,7 +9834,7 @@ invoke.cont35:                                    ; preds = %invoke.cont27
 for.body.i.i.i58:                                 ; preds = %invoke.cont35, %for.body.i.i.i58
   %__first.addr.04.i.i.i59 = phi ptr [ %incdec.ptr.i.i.i60, %for.body.i.i.i58 ], [ %__position.coerce, %invoke.cont35 ]
   store i32 %2, ptr %__first.addr.04.i.i.i59, align 4
-  %incdec.ptr.i.i.i60 = getelementptr inbounds i32, ptr %__first.addr.04.i.i.i59, i64 1
+  %incdec.ptr.i.i.i60 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i59, i64 4
   %cmp.not.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i60, %1
   br i1 %cmp.not.i.i.i61, label %if.end94, label %for.body.i.i.i58, !llvm.loop !42
 
@@ -9899,7 +9877,7 @@ if.end.i.i.i.i.i65:                               ; preds = %cond.true.i, %_ZNKS
 for.body.i.i.i.i.i.i.i67:                         ; preds = %for.body.i.i.i.i.i.i.i67, %if.end.i.i.i.i.i65
   %__first.addr.04.i.i.i.i.i.i.i68 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i69, %for.body.i.i.i.i.i.i.i67 ], [ %add.ptr54, %if.end.i.i.i.i.i65 ]
   store i32 %8, ptr %__first.addr.04.i.i.i.i.i.i.i68, align 4
-  %incdec.ptr.i.i.i.i.i.i.i69 = getelementptr inbounds i32, ptr %__first.addr.04.i.i.i.i.i.i.i68, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i68, i64 4
   %cmp.not.i.i.i.i.i.i.i70 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i69, %add.ptr.i.i.i.i.i66
   br i1 %cmp.not.i.i.i.i.i.i.i70, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i67, !llvm.loop !42
 
@@ -10999,7 +10977,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -11011,7 +10989,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector3t<float>, std::allocator<aiVector3t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -11055,8 +11033,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI10aiV
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__cur.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %__first.addr.06.i.i.i.i, i64 12, i1 false), !alias.scope !43
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %class.aiVector3t, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 12
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 12
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -12119,7 +12097,7 @@ declare void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI10aiVector2tIfESaI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorI10aiVector2tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -12131,7 +12109,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<aiVector2t<float>, std::allocator<aiVector2t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -12178,8 +12156,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI10aiV
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 4, !alias.scope !50, !noalias !47
   store i64 %6, ptr %__cur.07.i.i.i.i, align 4, !alias.scope !47, !noalias !50
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %class.aiVector2t, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %class.aiVector2t, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI10aiVector2tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !52
 
@@ -12221,7 +12199,7 @@ declare void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorI9aiColor4tIfESaIS3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorI9aiColor4tIfESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -12233,7 +12211,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<aiColor4t<float>, std::allocator<aiColor4t<float>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -12277,8 +12255,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI9aiCo
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %call5.i.i.i.i, %_ZNKSt6vectorI9aiColor4tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNKSt6vectorI9aiColor4tIfESaIS1_EE12_M_check_lenEmPKc.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__cur.07.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %__first.addr.06.i.i.i.i, i64 16, i1 false), !alias.scope !53
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %class.aiColor4t, ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %class.aiColor4t, ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i, !llvm.loop !57
 
@@ -12415,14 +12393,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -12437,15 +12415,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store i32 0, ptr %0, align 4
-  %incdec.ptr.i.i.i = getelementptr i32, ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 4
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 2
   %4 = add i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -12469,33 +12448,33 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   store i32 0, ptr %add.ptr, align 4
-  %cmp.i.i.i.i.i23 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i23, label %try.cont, label %if.end.i.i.i.i.i24
+  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
-if.end.i.i.i.i.i24:                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i22 = getelementptr i32, ptr %add.ptr, i64 1
+if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+  %incdec.ptr.i.i.i22 = getelementptr i8, ptr %add.ptr, i64 4
   %6 = shl nuw nsw i64 %__n, 2
   %7 = add nsw i64 %6, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i22, i8 0, i64 %7, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i24, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
+try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
   %cmp.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i.i, label %if.then.i.i.i29, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
+  br i1 %cmp.i.i.i, label %if.then.i.i.i30, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
 
-if.then.i.i.i29:                                  ; preds = %try.cont
+if.then.i.i.i30:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i, ptr align 4 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i29
-  %tobool.not.i30 = icmp eq ptr %1, null
-  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32, label %if.then.i31
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %try.cont, %if.then.i.i.i30
+  %tobool.not.i31 = icmp eq ptr %1, null
+  br i1 %tobool.not.i31, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit33, label %if.then.i32
 
-if.then.i31:                                      ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
+if.then.i32:                                      ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #22
-  br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32
+  br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit33
 
-_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i31
+_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit33: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i32
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -12503,7 +12482,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32: ; preds = %_ZNSt6vectorIi
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit32, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit33, %entry
   ret void
 }
 

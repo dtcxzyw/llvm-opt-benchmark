@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.srtp_protection_profile_st = type { ptr, i64 }
-%struct.ssl_ctx_st = type { ptr, %union.crypto_mutex_st, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, i16, ptr, ptr, [16 x i8], [16 x i8], [16 x i8], ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i8, ptr, i32 }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ssl_st = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.crypto_ex_data_st, ptr, i32, i32, i32, i32, i16, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i8, i8, i32 }
 
 @.str = private unnamed_addr constant [23 x i8] c"SRTP_AES128_CM_SHA1_80\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"SRTP_AES128_CM_SHA1_32\00", align 1
@@ -19,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SSL_CTX_set_srtp_profiles(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 63
+  %srtp_profiles = getelementptr inbounds i8, ptr %ctx, i64 568
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles), !range !7
   ret i32 %call
 }
@@ -68,7 +64,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %tobool4.not.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.srtp_protection_profile_st, ptr %p.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.07.i, i64 16
   %1 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.else, label %while.body.i, !llvm.loop !8
@@ -94,7 +90,7 @@ return:                                           ; preds = %do.end, %if.else, %
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SSL_set_srtp_profiles(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 45
+  %srtp_profiles = getelementptr inbounds i8, ptr %ssl, i64 328
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles), !range !7
   ret i32 %call
 }
@@ -106,15 +102,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %srtp_profiles = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 45
+  %srtp_profiles = getelementptr inbounds i8, ptr %ssl, i64 328
   %0 = load ptr, ptr %srtp_profiles, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %1 = load ptr, ptr %ctx, align 8
-  %srtp_profiles5 = getelementptr inbounds %struct.ssl_ctx_st, ptr %1, i64 0, i32 63
+  %srtp_profiles5 = getelementptr inbounds i8, ptr %1, i64 568
   %2 = load ptr, ptr %srtp_profiles5, align 8
   br label %return
 
@@ -126,7 +122,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_get_selected_srtp_profile(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
 entry:
-  %srtp_profile = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 46
+  %srtp_profile = getelementptr inbounds i8, ptr %ssl, i64 336
   %0 = load ptr, ptr %srtp_profile, align 8
   ret ptr %0
 }
@@ -134,7 +130,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 63
+  %srtp_profiles.i = getelementptr inbounds i8, ptr %ctx, i64 568
   %call.i = tail call fastcc noundef i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i), !range !7
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext
@@ -143,7 +139,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SSL_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles.i = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 45
+  %srtp_profiles.i = getelementptr inbounds i8, ptr %ssl, i64 328
   %call.i = tail call fastcc noundef i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i), !range !7
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext

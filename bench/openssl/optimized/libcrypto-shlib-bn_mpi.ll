@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_mpi.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/bn/bn_mpi.c\00", align 1
 @__func__.BN_mpi2bn = private unnamed_addr constant [10 x i8] c"BN_mpi2bn\00", align 1
 
@@ -50,7 +48,7 @@ if.end33:                                         ; preds = %if.then31, %if.end7
   %idxprom = zext nneg i32 %add34 to i64
   %arrayidx35 = getelementptr inbounds i8, ptr %d, i64 %idxprom
   %call36 = tail call i32 @BN_bn2bin(ptr noundef %a, ptr noundef nonnull %arrayidx35) #2
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %2 = load i32, ptr %neg, align 8
   %tobool37.not = icmp eq i32 %2, 0
   br i1 %tobool37.not, label %return, label %if.then38
@@ -133,9 +131,9 @@ if.end29:                                         ; preds = %if.end21, %if.end25
   br i1 %cmp30, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end29
-  %neg33 = getelementptr inbounds %struct.bignum_st, ptr %a.025, i64 0, i32 3
+  %neg33 = getelementptr inbounds i8, ptr %a.025, i64 16
   store i32 0, ptr %neg33, align 8
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a.025, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a.025, i64 8
   store i32 0, ptr %top, align 8
   br label %return
 
@@ -158,7 +156,7 @@ if.end48:                                         ; preds = %if.end34
   %tobool.not = icmp slt i8 %4, 0
   %.lobit = lshr i8 %4, 7
   %spec.select = zext nneg i8 %.lobit to i32
-  %neg49 = getelementptr inbounds %struct.bignum_st, ptr %a.025, i64 0, i32 3
+  %neg49 = getelementptr inbounds i8, ptr %a.025, i64 16
   store i32 %spec.select, ptr %neg49, align 8
   br i1 %tobool.not, label %if.then51, label %return
 

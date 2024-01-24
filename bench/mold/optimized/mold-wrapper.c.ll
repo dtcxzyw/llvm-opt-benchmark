@@ -185,14 +185,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %aq.i)
   call void @llvm.va_copy(ptr nonnull %aq.i, ptr nonnull %ap)
   %aq.promoted.i = load i32, ptr %aq.i, align 16
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %aq.i, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %aq.i, i64 0, i32 3
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %aq.i, i64 8
+  %0 = getelementptr inbounds i8, ptr %aq.i, i64 16
   %reg_save_area.i = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %vaarg.end.i, %entry
-  %overflow_arg_area.next5.i = phi ptr [ %overflow_arg_area_p.promoted.i, %entry ], [ %overflow_arg_area.next4.i, %vaarg.end.i ]
+  %overflow_arg_area5.i = phi ptr [ %overflow_arg_area_p.promoted.i, %entry ], [ %overflow_arg_area4.i, %vaarg.end.i ]
   %gp_offset3.i = phi i32 [ %aq.promoted.i, %entry ], [ %gp_offset2.i, %vaarg.end.i ]
   %i.0.i = phi i32 [ 0, %entry ], [ %inc.i, %vaarg.end.i ]
   %fits_in_gp.i = icmp ult i32 %gp_offset3.i, 41
@@ -206,14 +206,14 @@ vaarg.in_reg.i:                                   ; preds = %while.cond.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %while.cond.i
-  %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.next5.i, i64 8
+  %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area5.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
   br label %vaarg.end.i
 
 vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %vaarg.in_reg.i
-  %overflow_arg_area.next4.i = phi ptr [ %overflow_arg_area.next5.i, %vaarg.in_reg.i ], [ %overflow_arg_area.next.i, %vaarg.in_mem.i ]
+  %overflow_arg_area4.i = phi ptr [ %overflow_arg_area5.i, %vaarg.in_reg.i ], [ %overflow_arg_area.next.i, %vaarg.in_mem.i ]
   %gp_offset2.i = phi i32 [ %3, %vaarg.in_reg.i ], [ %gp_offset3.i, %vaarg.in_mem.i ]
-  %vaarg.addr.i = phi ptr [ %2, %vaarg.in_reg.i ], [ %overflow_arg_area.next5.i, %vaarg.in_mem.i ]
+  %vaarg.addr.i = phi ptr [ %2, %vaarg.in_reg.i ], [ %overflow_arg_area5.i, %vaarg.in_mem.i ]
   %4 = load ptr, ptr %vaarg.addr.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   %inc.i = add nuw nsw i32 %i.0.i, 1
@@ -226,8 +226,8 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %conv = zext nneg i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 3
   %5 = alloca i8, i64 %mul, align 16
-  %overflow_arg_area_p.i2 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %6 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p.i2 = getelementptr inbounds i8, ptr %ap, i64 8
+  %6 = getelementptr inbounds i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
   %reg_save_area.i11 = load ptr, ptr %6, align 16
@@ -310,14 +310,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %aq.i)
   call void @llvm.va_copy(ptr nonnull %aq.i, ptr nonnull %ap)
   %aq.promoted.i = load i32, ptr %aq.i, align 16
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %aq.i, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %aq.i, i64 0, i32 3
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %aq.i, i64 8
+  %0 = getelementptr inbounds i8, ptr %aq.i, i64 16
   %reg_save_area.i = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %vaarg.end.i, %entry
-  %overflow_arg_area.next5.i = phi ptr [ %overflow_arg_area_p.promoted.i, %entry ], [ %overflow_arg_area.next4.i, %vaarg.end.i ]
+  %overflow_arg_area5.i = phi ptr [ %overflow_arg_area_p.promoted.i, %entry ], [ %overflow_arg_area4.i, %vaarg.end.i ]
   %gp_offset3.i = phi i32 [ %aq.promoted.i, %entry ], [ %gp_offset2.i, %vaarg.end.i ]
   %i.0.i = phi i32 [ 0, %entry ], [ %inc.i, %vaarg.end.i ]
   %fits_in_gp.i = icmp ult i32 %gp_offset3.i, 41
@@ -331,14 +331,14 @@ vaarg.in_reg.i:                                   ; preds = %while.cond.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %while.cond.i
-  %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.next5.i, i64 8
+  %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area5.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
   br label %vaarg.end.i
 
 vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %vaarg.in_reg.i
-  %overflow_arg_area.next4.i = phi ptr [ %overflow_arg_area.next5.i, %vaarg.in_reg.i ], [ %overflow_arg_area.next.i, %vaarg.in_mem.i ]
+  %overflow_arg_area4.i = phi ptr [ %overflow_arg_area5.i, %vaarg.in_reg.i ], [ %overflow_arg_area.next.i, %vaarg.in_mem.i ]
   %gp_offset2.i = phi i32 [ %3, %vaarg.in_reg.i ], [ %gp_offset3.i, %vaarg.in_mem.i ]
-  %vaarg.addr.i = phi ptr [ %2, %vaarg.in_reg.i ], [ %overflow_arg_area.next5.i, %vaarg.in_mem.i ]
+  %vaarg.addr.i = phi ptr [ %2, %vaarg.in_reg.i ], [ %overflow_arg_area5.i, %vaarg.in_mem.i ]
   %4 = load ptr, ptr %vaarg.addr.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   %inc.i = add nuw nsw i32 %i.0.i, 1
@@ -351,8 +351,8 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %conv = zext nneg i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 3
   %5 = alloca i8, i64 %mul, align 16
-  %overflow_arg_area_p.i2 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %6 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p.i2 = getelementptr inbounds i8, ptr %ap, i64 8
+  %6 = getelementptr inbounds i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
   %reg_save_area.i11 = load ptr, ptr %6, align 16
@@ -411,14 +411,14 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %aq.i)
   call void @llvm.va_copy(ptr nonnull %aq.i, ptr nonnull %ap)
   %aq.promoted.i = load i32, ptr %aq.i, align 16
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %aq.i, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %aq.i, i64 0, i32 3
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %aq.i, i64 8
+  %0 = getelementptr inbounds i8, ptr %aq.i, i64 16
   %reg_save_area.i = load ptr, ptr %0, align 16
   %overflow_arg_area_p.promoted.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %vaarg.end.i, %entry
-  %overflow_arg_area.next5.i = phi ptr [ %overflow_arg_area_p.promoted.i, %entry ], [ %overflow_arg_area.next4.i, %vaarg.end.i ]
+  %overflow_arg_area5.i = phi ptr [ %overflow_arg_area_p.promoted.i, %entry ], [ %overflow_arg_area4.i, %vaarg.end.i ]
   %gp_offset3.i = phi i32 [ %aq.promoted.i, %entry ], [ %gp_offset2.i, %vaarg.end.i ]
   %i.0.i = phi i32 [ 0, %entry ], [ %inc.i, %vaarg.end.i ]
   %fits_in_gp.i = icmp ult i32 %gp_offset3.i, 41
@@ -432,14 +432,14 @@ vaarg.in_reg.i:                                   ; preds = %while.cond.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %while.cond.i
-  %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.next5.i, i64 8
+  %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area5.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
   br label %vaarg.end.i
 
 vaarg.end.i:                                      ; preds = %vaarg.in_mem.i, %vaarg.in_reg.i
-  %overflow_arg_area.next4.i = phi ptr [ %overflow_arg_area.next5.i, %vaarg.in_reg.i ], [ %overflow_arg_area.next.i, %vaarg.in_mem.i ]
+  %overflow_arg_area4.i = phi ptr [ %overflow_arg_area5.i, %vaarg.in_reg.i ], [ %overflow_arg_area.next.i, %vaarg.in_mem.i ]
   %gp_offset2.i = phi i32 [ %3, %vaarg.in_reg.i ], [ %gp_offset3.i, %vaarg.in_mem.i ]
-  %vaarg.addr.i = phi ptr [ %2, %vaarg.in_reg.i ], [ %overflow_arg_area.next5.i, %vaarg.in_mem.i ]
+  %vaarg.addr.i = phi ptr [ %2, %vaarg.in_reg.i ], [ %overflow_arg_area5.i, %vaarg.in_mem.i ]
   %4 = load ptr, ptr %vaarg.addr.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   %inc.i = add nuw nsw i32 %i.0.i, 1
@@ -452,8 +452,8 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %conv = zext nneg i32 %add to i64
   %mul = shl nuw nsw i64 %conv, 3
   %5 = alloca i8, i64 %mul, align 16
-  %overflow_arg_area_p.i2 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %6 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p.i2 = getelementptr inbounds i8, ptr %ap, i64 8
+  %6 = getelementptr inbounds i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
   %reg_save_area.i11 = load ptr, ptr %6, align 16

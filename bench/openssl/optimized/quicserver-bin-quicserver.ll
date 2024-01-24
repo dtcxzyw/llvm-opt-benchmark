@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [56 x i8] c"quicserver [-6][-trace] hostname port certfile keyfile\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %res.i = alloca ptr, align 8
   %tserver_args = alloca %struct.quic_tserver_args_st, align 8
@@ -119,11 +119,11 @@ if.end29:                                         ; preds = %while.end
   %idxprom31 = zext nneg i32 %argnext.0.lcssa to i64
   %arrayidx32 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom31
   %8 = load ptr, ptr %arrayidx32, align 8
-  %arrayidx35 = getelementptr ptr, ptr %arrayidx32, i64 1
+  %arrayidx35 = getelementptr i8, ptr %arrayidx32, i64 8
   %9 = load ptr, ptr %arrayidx35, align 8
-  %arrayidx38 = getelementptr ptr, ptr %arrayidx32, i64 2
+  %arrayidx38 = getelementptr i8, ptr %arrayidx32, i64 16
   %10 = load ptr, ptr %arrayidx38, align 8
-  %arrayidx41 = getelementptr ptr, ptr %arrayidx32, i64 3
+  %arrayidx41 = getelementptr i8, ptr %arrayidx32, i64 24
   %11 = load ptr, ptr %arrayidx41, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i)
   %call.i53 = tail call i32 @BIO_sock_init() #9
@@ -207,15 +207,15 @@ if.then48:                                        ; preds = %create_dgram_bio.ex
 
 if.end50:                                         ; preds = %lor.lhs.false45
   store ptr null, ptr %tserver_args, align 8
-  %net_rbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 3
+  %net_rbio = getelementptr inbounds i8, ptr %tserver_args, i64 24
   store ptr %call26.i, ptr %net_rbio, align 8
-  %net_wbio = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 4
+  %net_wbio = getelementptr inbounds i8, ptr %tserver_args, i64 32
   store ptr %call26.i, ptr %net_wbio, align 8
-  %alpn51 = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 7
+  %alpn51 = getelementptr inbounds i8, ptr %tserver_args, i64 56
   store ptr %alpn, ptr %alpn51, align 8
-  %alpnlen = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 8
+  %alpnlen = getelementptr inbounds i8, ptr %tserver_args, i64 64
   store i64 9, ptr %alpnlen, align 8
-  %ctx = getelementptr inbounds %struct.quic_tserver_args_st, ptr %tserver_args, i64 0, i32 2
+  %ctx = getelementptr inbounds i8, ptr %tserver_args, i64 16
   store ptr null, ptr %ctx, align 8
   %call52 = call ptr @ossl_quic_tserver_new(ptr noundef nonnull %tserver_args, ptr noundef %10, ptr noundef %11) #9
   %cmp53 = icmp eq ptr %call52, null

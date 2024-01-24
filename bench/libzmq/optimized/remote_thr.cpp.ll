@@ -32,19 +32,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 16
   %2 = load ptr, ptr %arrayidx2, align 8
   %call3 = tail call i32 @atoi(ptr nocapture noundef %2) #6
-  %arrayidx4 = getelementptr inbounds ptr, ptr %argv, i64 3
+  %arrayidx4 = getelementptr inbounds i8, ptr %argv, i64 24
   %3 = load ptr, ptr %arrayidx4, align 8
   %call5 = tail call i32 @atoi(ptr nocapture noundef %3) #6
   %cmp6 = icmp ugt i32 %argc, 4
   br i1 %cmp6, label %land.lhs.true7, label %if.end11
 
 land.lhs.true7:                                   ; preds = %if.end
-  %arrayidx8 = getelementptr inbounds ptr, ptr %argv, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %argv, i64 32
   %4 = load ptr, ptr %arrayidx8, align 8
   %call9 = tail call i32 @atoi(ptr nocapture noundef %4) #6
   %tobool.not = icmp eq i32 %call9, 0

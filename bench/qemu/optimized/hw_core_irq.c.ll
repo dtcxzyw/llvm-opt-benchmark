@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.IRQState = type { %struct.Object, ptr, ptr, i32 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"irq\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"../qemu/hw/core/irq.c\00", align 1
@@ -21,11 +19,11 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %handler = getelementptr inbounds %struct.IRQState, ptr %irq, i64 0, i32 1
+  %handler = getelementptr inbounds i8, ptr %irq, i64 40
   %0 = load ptr, ptr %handler, align 8
-  %opaque = getelementptr inbounds %struct.IRQState, ptr %irq, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %irq, i64 48
   %1 = load ptr, ptr %opaque, align 8
-  %n = getelementptr inbounds %struct.IRQState, ptr %irq, i64 0, i32 3
+  %n = getelementptr inbounds i8, ptr %irq, i64 56
   %2 = load i32, ptr %n, align 8
   tail call void %0(ptr noundef %1, i32 noundef %2, i32 noundef %level) #5
   br label %return
@@ -66,11 +64,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %call.i = tail call ptr @object_new(ptr noundef nonnull @.str) #5
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 29, ptr noundef nonnull @__func__.IRQ) #5
-  %handler2.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i, i64 0, i32 1
+  %handler2.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %handler, ptr %handler2.i, align 8
-  %opaque3.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i, i64 0, i32 2
+  %opaque3.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store ptr %opaque, ptr %opaque3.i, align 8
-  %n4.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i, i64 0, i32 3
+  %n4.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   %1 = trunc i64 %indvars.iv to i32
   store i32 %1, ptr %n4.i, align 8
   %arrayidx = getelementptr ptr, ptr %cond, i64 %indvars.iv
@@ -94,11 +92,11 @@ define dso_local ptr @qemu_allocate_irq(ptr noundef %handler, ptr noundef %opaqu
 entry:
   %call = tail call ptr @object_new(ptr noundef nonnull @.str) #5
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 29, ptr noundef nonnull @__func__.IRQ) #5
-  %handler2 = getelementptr inbounds %struct.IRQState, ptr %call.i, i64 0, i32 1
+  %handler2 = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %handler, ptr %handler2, align 8
-  %opaque3 = getelementptr inbounds %struct.IRQState, ptr %call.i, i64 0, i32 2
+  %opaque3 = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %opaque, ptr %opaque3, align 8
-  %n4 = getelementptr inbounds %struct.IRQState, ptr %call.i, i64 0, i32 3
+  %n4 = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 %n, ptr %n4, align 8
   ret ptr %call.i
 }
@@ -119,11 +117,11 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %call.i.i = tail call ptr @object_new(ptr noundef nonnull @.str) #5
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 29, ptr noundef nonnull @__func__.IRQ) #5
-  %handler2.i.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i.i, i64 0, i32 1
+  %handler2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   store ptr %handler, ptr %handler2.i.i, align 8
-  %opaque3.i.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i.i, i64 0, i32 2
+  %opaque3.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 48
   store ptr %opaque, ptr %opaque3.i.i, align 8
-  %n4.i.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i.i, i64 0, i32 3
+  %n4.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
   %0 = trunc i64 %indvars.iv.i to i32
   store i32 %0, ptr %n4.i.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %call3.i, i64 %indvars.iv.i
@@ -180,11 +178,11 @@ entry:
   br i1 %tobool.not.i.i, label %qemu_irq_raise.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %handler.i.i = getelementptr inbounds %struct.IRQState, ptr %irq, i64 0, i32 1
+  %handler.i.i = getelementptr inbounds i8, ptr %irq, i64 40
   %0 = load ptr, ptr %handler.i.i, align 8
-  %opaque.i.i = getelementptr inbounds %struct.IRQState, ptr %irq, i64 0, i32 2
+  %opaque.i.i = getelementptr inbounds i8, ptr %irq, i64 48
   %1 = load ptr, ptr %opaque.i.i, align 8
-  %n.i.i = getelementptr inbounds %struct.IRQState, ptr %irq, i64 0, i32 3
+  %n.i.i = getelementptr inbounds i8, ptr %irq, i64 56
   %2 = load i32, ptr %n.i.i, align 8
   tail call void %0(ptr noundef %1, i32 noundef %2, i32 noundef 1) #5
   br label %qemu_irq_raise.exit
@@ -192,11 +190,11 @@ if.end.i.i:                                       ; preds = %entry
 qemu_irq_raise.exit:                              ; preds = %entry, %if.end.i.i
   %call.i = tail call ptr @object_new(ptr noundef nonnull @.str) #5
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 29, ptr noundef nonnull @__func__.IRQ) #5
-  %handler2.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i, i64 0, i32 1
+  %handler2.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr @qemu_notirq, ptr %handler2.i, align 8
-  %opaque3.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i, i64 0, i32 2
+  %opaque3.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   store ptr %irq, ptr %opaque3.i, align 8
-  %n4.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i, i64 0, i32 3
+  %n4.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   store i32 0, ptr %n4.i, align 8
   ret ptr %call.i.i
 }
@@ -204,11 +202,11 @@ qemu_irq_raise.exit:                              ; preds = %entry, %if.end.i.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_notirq(ptr nocapture noundef readonly %opaque, i32 %line, i32 noundef %level) #0 {
 entry:
-  %handler = getelementptr inbounds %struct.IRQState, ptr %opaque, i64 0, i32 1
+  %handler = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %handler, align 8
-  %opaque1 = getelementptr inbounds %struct.IRQState, ptr %opaque, i64 0, i32 2
+  %opaque1 = getelementptr inbounds i8, ptr %opaque, i64 48
   %1 = load ptr, ptr %opaque1, align 8
-  %n = getelementptr inbounds %struct.IRQState, ptr %opaque, i64 0, i32 3
+  %n = getelementptr inbounds i8, ptr %opaque, i64 56
   %2 = load i32, ptr %n, align 8
   %tobool.not = icmp eq i32 %level, 0
   %lnot.ext = zext i1 %tobool.not to i32
@@ -232,8 +230,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.preheader.i ]
   %call.i.i.i = tail call ptr @object_new(ptr noundef nonnull @.str) #5
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 29, ptr noundef nonnull @__func__.IRQ) #5
-  %handler2.i.i.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i.i.i, i64 0, i32 1
-  %n4.i.i.i = getelementptr inbounds %struct.IRQState, ptr %call.i.i.i.i, i64 0, i32 3
+  %handler2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
+  %n4.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 56
   %0 = trunc i64 %indvars.iv.i.i to i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %handler2.i.i.i, i8 0, i64 16, i1 false)
   store i32 %0, ptr %n4.i.i.i, align 8
@@ -258,10 +256,10 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %arrayidx2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   %4 = load ptr, ptr %arrayidx2, align 8
-  %handler5 = getelementptr inbounds %struct.IRQState, ptr %4, i64 0, i32 1
+  %handler5 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %handler, ptr %handler5, align 8
   %5 = load ptr, ptr %arrayidx2, align 8
-  %opaque = getelementptr inbounds %struct.IRQState, ptr %5, i64 0, i32 2
+  %opaque = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %arrayidx, ptr %opaque, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

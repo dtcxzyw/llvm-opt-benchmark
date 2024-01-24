@@ -3,53 +3,45 @@ source_filename = "bench/hyperscan/original/gough.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mq = type { ptr, i32, i32, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i8, ptr, ptr, [10 x %struct.mq_item] }
 %struct.mq_item = type { i32, i64, i64 }
 %struct.mstate_aux = type { i32, i32, i16, i32 }
 %struct.gough_report = type { i32, i32 }
-%struct.gough_ins = type { i32, i32, i32 }
-%struct.NFA = type { i32, i32, i8, i8, i8, i8, %union.anon, i32, i32, i32, i32, i32, i32, i32, [20 x i8] }
-%union.anon = type { i16 }
-%struct.gough_info = type { i32, i32, i32, i8 }
-%struct.mcclellan = type { i16, i32, i16, i16, i32, i32, i32, i16, i16, i16, i16, i8, i8, i8, i8, [256 x i8], i32, i32, i32, i32 }
-%struct.gough_accel = type { %union.AccelAux, i8, i32 }
-%union.AccelAux = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64> }
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecGough8_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %add.ptr.i12 = getelementptr inbounds i8, ptr %6, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
   %7 = load i8, ptr %6, align 1
   store i8 %7, ptr %s.i, align 1
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cur.i7 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i6 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i7 = getelementptr inbounds i8, ptr %q, i64 8
   %9 = load i32, ptr %cur.i7, align 8
   %idxprom.i8 = zext i32 %9 to i64
-  %location.i10 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i8, i32 1
+  %location.i10 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i6, i64 0, i64 %idxprom.i8, i32 1
   %10 = load i64, ptr %location.i10, align 8
   %add.i11 = add i64 %10, %0
   %cmp.i19 = icmp eq i8 %7, 0
@@ -106,7 +98,7 @@ for.cond.i:                                       ; preds = %cond.end63.i
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.cond.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %18 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %18, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -140,10 +132,12 @@ if.end8.i.critedge:                               ; preds = %for.cond.i, %cond.e
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %cond.end.i30, %if.end8.i.critedge, %doReports.exit, %entry
-  %cur.i41 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i40 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i41 = getelementptr inbounds i8, ptr %q, i64 8
   %21 = load i32, ptr %cur.i41, align 8
   %idxprom.i42 = zext i32 %21 to i64
-  %location.i44 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i42, i32 1
+  %arrayidx.i43 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom.i42
+  %location.i44 = getelementptr inbounds i8, ptr %arrayidx.i43, i64 8
   %22 = load i64, ptr %location.i44, align 8
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %cur.i41, align 8
@@ -160,10 +154,10 @@ while.body.i.preheader:                           ; preds = %if.end8.i
   br label %while.body.i
 
 if.then17.i:                                      ; preds = %if.end8.i
-  %arrayidx.i43 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i42
   store i32 %21, ptr %cur.i41, align 8
   store i32 0, ptr %arrayidx.i43, align 8
-  store i64 %end, ptr %location.i44, align 8
+  %location27.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom.i42, i32 1
+  store i64 %end, ptr %location27.i, align 8
   %23 = load ptr, ptr %state.i, align 8
   store i8 %7, ptr %23, align 1
   br label %nfaExecGough8_Q2i.exit
@@ -173,7 +167,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom34.i = zext i32 %24 to i64
-  %location36.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom34.i, i32 1
+  %location36.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom34.i, i32 1
   %25 = load i64, ptr %location36.i, align 8
   %cond45.i = tail call i64 @llvm.smin.i64(i64 %25, i64 %end)
   %cmp49.i = icmp slt i64 %sp.i.0, 0
@@ -194,7 +188,7 @@ if.then65.i:                                      ; preds = %while.body.i
 land.lhs.true94.i:                                ; preds = %while.body.i
   %27 = load i32, ptr %cur.i41, align 8
   %idxprom97.i = zext i32 %27 to i64
-  %location99.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom97.i, i32 1
+  %location99.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom97.i, i32 1
   %28 = load i64, ptr %location99.i, align 8
   %cmp100.i = icmp sgt i64 %28, %end
   br i1 %cmp100.i, label %if.then102.i, label %if.end116.i
@@ -203,9 +197,9 @@ if.then102.i:                                     ; preds = %land.lhs.true94.i
   %dec104.i = add i32 %27, -1
   store i32 %dec104.i, ptr %cur.i41, align 8
   %idxprom107.i = zext i32 %dec104.i to i64
-  %arrayidx108.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom107.i
+  %arrayidx108.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom107.i
   store i32 0, ptr %arrayidx108.i, align 8
-  %location114.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom107.i, i32 1
+  %location114.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom107.i, i32 1
   store i64 %end, ptr %location114.i, align 8
   %29 = load i8, ptr %s.i, align 1
   %30 = load ptr, ptr %state.i, align 8
@@ -219,7 +213,7 @@ if.end116.i:                                      ; preds = %land.lhs.true94.i
   br i1 %cmp121.i.not, label %if.end124.i, label %while.body.i.backedge
 
 if.end124.i:                                      ; preds = %if.end116.i
-  %arrayidx128.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom97.i
+  %arrayidx128.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom97.i
   %31 = load i32, ptr %arrayidx128.i, align 8
   switch i32 %31, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -238,7 +232,7 @@ if.then133.i:                                     ; preds = %sw.bb.i
 
 if.end135.i:                                      ; preds = %sw.bb.i
   %33 = load i8, ptr %s.i, align 1
-  %som141.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom97.i, i32 2
+  %som141.i = getelementptr inbounds i8, ptr %arrayidx128.i, i64 16
   %34 = load i64, ptr %som141.i, align 8
   %35 = load i32, ptr %aux_offset.i.i, align 4
   %36 = load i32, ptr %haig_offset.i.i.i, align 4
@@ -268,9 +262,9 @@ do.end9.i:                                        ; preds = %if.end.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
-  %dest1.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 1
+  %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
   %39 = load i32, ptr %dest1.i.i, align 4
-  %src2.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 2
+  %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
   %40 = load i32, ptr %src2.i.i, align 4
   %41 = load i32, ptr %pc.addr.i.0.i, align 4
   switch i32 %41, label %goughEnableStarts.exit.loopexit [
@@ -320,7 +314,7 @@ if.then32.i.i:                                    ; preds = %if.else.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.else.i.i, %if.then.i.i, %sw.bb9.i.i, %sw.bb5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 12
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
@@ -369,35 +363,36 @@ define hidden signext i8 @nfaExecGough16_Q(ptr noundef %n, ptr nocapture noundef
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %add.ptr.i12 = getelementptr inbounds i8, ptr %6, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
   %7 = load i16, ptr %6, align 2
   store i16 %7, ptr %s.i, align 2
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cur.i7 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i6 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i7 = getelementptr inbounds i8, ptr %q, i64 8
   %9 = load i32, ptr %cur.i7, align 8
   %idxprom.i8 = zext i32 %9 to i64
-  %location.i10 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i8, i32 1
+  %location.i10 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i6, i64 0, i64 %idxprom.i8, i32 1
   %10 = load i64, ptr %location.i10, align 8
   %add.i11 = add i64 %10, %0
   %cmp.i19 = icmp eq i16 %7, 0
@@ -454,7 +449,7 @@ for.cond.i:                                       ; preds = %cond.end63.i
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.cond.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %18 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %18, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -488,10 +483,12 @@ if.end7.i.critedge:                               ; preds = %for.cond.i, %cond.e
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %cond.end.i28, %if.end7.i.critedge, %doReports.exit, %entry
-  %cur.i38 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i37 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i38 = getelementptr inbounds i8, ptr %q, i64 8
   %21 = load i32, ptr %cur.i38, align 8
   %idxprom.i39 = zext i32 %21 to i64
-  %location.i41 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i39, i32 1
+  %arrayidx.i40 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom.i39
+  %location.i41 = getelementptr inbounds i8, ptr %arrayidx.i40, i64 8
   %22 = load i64, ptr %location.i41, align 8
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %cur.i38, align 8
@@ -508,10 +505,10 @@ while.body.i.preheader:                           ; preds = %if.end7.i
   br label %while.body.i
 
 if.then16.i:                                      ; preds = %if.end7.i
-  %arrayidx.i40 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i39
   store i32 %21, ptr %cur.i38, align 8
   store i32 0, ptr %arrayidx.i40, align 8
-  store i64 %end, ptr %location.i41, align 8
+  %location26.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom.i39, i32 1
+  store i64 %end, ptr %location26.i, align 8
   %23 = load ptr, ptr %state.i, align 8
   store i16 %7, ptr %23, align 2
   br label %nfaExecGough16_Q2i.exit
@@ -521,7 +518,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom31.i = zext i32 %24 to i64
-  %location33.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom31.i, i32 1
+  %location33.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom31.i, i32 1
   %25 = load i64, ptr %location33.i, align 8
   %cond42.i = tail call i64 @llvm.smin.i64(i64 %25, i64 %end)
   %cmp44.i = icmp slt i64 %sp.i.0, 0
@@ -542,7 +539,7 @@ if.then60.i:                                      ; preds = %while.body.i
 land.lhs.true87.i:                                ; preds = %while.body.i
   %27 = load i32, ptr %cur.i38, align 8
   %idxprom90.i = zext i32 %27 to i64
-  %location92.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i, i32 1
+  %location92.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom90.i, i32 1
   %28 = load i64, ptr %location92.i, align 8
   %cmp93.i = icmp sgt i64 %28, %end
   br i1 %cmp93.i, label %if.then95.i, label %if.end109.i
@@ -551,9 +548,9 @@ if.then95.i:                                      ; preds = %land.lhs.true87.i
   %dec97.i = add i32 %27, -1
   store i32 %dec97.i, ptr %cur.i38, align 8
   %idxprom100.i = zext i32 %dec97.i to i64
-  %arrayidx101.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom100.i
+  %arrayidx101.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom100.i
   store i32 0, ptr %arrayidx101.i, align 8
-  %location107.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom100.i, i32 1
+  %location107.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom100.i, i32 1
   store i64 %end, ptr %location107.i, align 8
   %29 = load i16, ptr %s.i, align 2
   %30 = load ptr, ptr %state.i, align 8
@@ -567,7 +564,7 @@ if.end109.i:                                      ; preds = %land.lhs.true87.i
   br i1 %cmp114.i.not, label %if.end117.i, label %while.body.i.backedge
 
 if.end117.i:                                      ; preds = %if.end109.i
-  %arrayidx121.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i
+  %arrayidx121.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom90.i
   %31 = load i32, ptr %arrayidx121.i, align 8
   switch i32 %31, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -585,7 +582,7 @@ if.then126.i:                                     ; preds = %sw.bb.i
 
 if.end127.i:                                      ; preds = %sw.bb.i
   %33 = load i16, ptr %s.i, align 2
-  %som132.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i, i32 2
+  %som132.i = getelementptr inbounds i8, ptr %arrayidx121.i, i64 16
   %34 = load i64, ptr %som132.i, align 8
   %35 = load i32, ptr %aux_offset.i.i, align 4
   %36 = load i32, ptr %haig_offset.i.i.i, align 4
@@ -615,9 +612,9 @@ do.end9.i:                                        ; preds = %if.end.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
-  %dest1.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 1
+  %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
   %39 = load i32, ptr %dest1.i.i, align 4
-  %src2.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 2
+  %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
   %40 = load i32, ptr %src2.i.i, align 4
   %41 = load i32, ptr %pc.addr.i.0.i, align 4
   switch i32 %41, label %goughEnableStarts.exit.loopexit [
@@ -667,7 +664,7 @@ if.then32.i.i:                                    ; preds = %if.else.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.else.i.i, %if.then.i.i, %sw.bb9.i.i, %sw.bb5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 12
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
@@ -715,35 +712,36 @@ define hidden signext i8 @nfaExecGough8_Q2(ptr noundef %n, ptr nocapture noundef
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %add.ptr.i12 = getelementptr inbounds i8, ptr %6, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
   %7 = load i8, ptr %6, align 1
   store i8 %7, ptr %s.i, align 1
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cur.i7 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i6 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i7 = getelementptr inbounds i8, ptr %q, i64 8
   %9 = load i32, ptr %cur.i7, align 8
   %idxprom.i8 = zext i32 %9 to i64
-  %location.i10 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i8, i32 1
+  %location.i10 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i6, i64 0, i64 %idxprom.i8, i32 1
   %10 = load i64, ptr %location.i10, align 8
   %add.i11 = add i64 %10, %0
   %cmp.i19 = icmp eq i8 %7, 0
@@ -800,7 +798,7 @@ for.cond.i:                                       ; preds = %cond.end63.i
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.cond.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %18 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %18, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -834,10 +832,12 @@ if.end8.i.critedge:                               ; preds = %for.cond.i, %cond.e
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %cond.end.i30, %if.end8.i.critedge, %doReports.exit, %entry
-  %cur.i41 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i40 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i41 = getelementptr inbounds i8, ptr %q, i64 8
   %21 = load i32, ptr %cur.i41, align 8
   %idxprom.i42 = zext i32 %21 to i64
-  %location.i44 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i42, i32 1
+  %arrayidx.i43 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom.i42
+  %location.i44 = getelementptr inbounds i8, ptr %arrayidx.i43, i64 8
   %22 = load i64, ptr %location.i44, align 8
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %cur.i41, align 8
@@ -854,10 +854,10 @@ while.body.i.preheader:                           ; preds = %if.end8.i
   br label %while.body.i
 
 if.then17.i:                                      ; preds = %if.end8.i
-  %arrayidx.i43 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i42
   store i32 %21, ptr %cur.i41, align 8
   store i32 0, ptr %arrayidx.i43, align 8
-  store i64 %end, ptr %location.i44, align 8
+  %location27.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom.i42, i32 1
+  store i64 %end, ptr %location27.i, align 8
   %23 = load ptr, ptr %state.i, align 8
   store i8 %7, ptr %23, align 1
   br label %nfaExecGough8_Q2i.exit
@@ -867,7 +867,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom34.i = zext i32 %24 to i64
-  %location36.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom34.i, i32 1
+  %location36.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom34.i, i32 1
   %25 = load i64, ptr %location36.i, align 8
   %cond45.i = tail call i64 @llvm.smin.i64(i64 %25, i64 %end)
   %cmp49.i = icmp slt i64 %sp.i.0, 0
@@ -896,13 +896,13 @@ if.then74.i:                                      ; preds = %land.lhs.true70.i
   %dec78.i = add i32 %28, -1
   store i32 %dec78.i, ptr %cur.i41, align 8
   %idxprom81.i = zext i32 %dec78.i to i64
-  %arrayidx82.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom81.i
+  %arrayidx82.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom81.i
   store i32 0, ptr %arrayidx82.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cur_buf.i.0 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add84.i = add i64 %reass.sub, 1
-  %location89.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom81.i, i32 1
+  %location89.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom81.i, i32 1
   store i64 %add84.i, ptr %location89.i, align 8
   %29 = load i8, ptr %s.i, align 1
   %30 = load ptr, ptr %state.i, align 8
@@ -911,7 +911,7 @@ if.then74.i:                                      ; preds = %land.lhs.true70.i
 
 land.lhs.true94.i:                                ; preds = %land.lhs.true70.i
   %idxprom97.i = zext i32 %28 to i64
-  %location99.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom97.i, i32 1
+  %location99.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom97.i, i32 1
   %31 = load i64, ptr %location99.i, align 8
   %cmp100.i = icmp sgt i64 %31, %end
   br i1 %cmp100.i, label %if.then102.i, label %if.end116.i
@@ -920,9 +920,9 @@ if.then102.i:                                     ; preds = %land.lhs.true94.i
   %dec104.i = add i32 %28, -1
   store i32 %dec104.i, ptr %cur.i41, align 8
   %idxprom107.i = zext i32 %dec104.i to i64
-  %arrayidx108.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom107.i
+  %arrayidx108.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom107.i
   store i32 0, ptr %arrayidx108.i, align 8
-  %location114.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom107.i, i32 1
+  %location114.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom107.i, i32 1
   store i64 %end, ptr %location114.i, align 8
   %32 = load i8, ptr %s.i, align 1
   %33 = load ptr, ptr %state.i, align 8
@@ -936,7 +936,7 @@ if.end116.i:                                      ; preds = %land.lhs.true94.i
   br i1 %cmp121.i.not, label %if.end124.i, label %while.body.i.backedge
 
 if.end124.i:                                      ; preds = %if.end116.i
-  %arrayidx128.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom97.i
+  %arrayidx128.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom97.i
   %34 = load i32, ptr %arrayidx128.i, align 8
   switch i32 %34, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -955,7 +955,7 @@ if.then133.i:                                     ; preds = %sw.bb.i
 
 if.end135.i:                                      ; preds = %sw.bb.i
   %36 = load i8, ptr %s.i, align 1
-  %som141.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom97.i, i32 2
+  %som141.i = getelementptr inbounds i8, ptr %arrayidx128.i, i64 16
   %37 = load i64, ptr %som141.i, align 8
   %38 = load i32, ptr %aux_offset.i.i, align 4
   %39 = load i32, ptr %haig_offset.i.i.i, align 4
@@ -985,9 +985,9 @@ do.end9.i:                                        ; preds = %if.end.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
-  %dest1.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 1
+  %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
   %42 = load i32, ptr %dest1.i.i, align 4
-  %src2.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 2
+  %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
   %43 = load i32, ptr %src2.i.i, align 4
   %44 = load i32, ptr %pc.addr.i.0.i, align 4
   switch i32 %44, label %goughEnableStarts.exit.loopexit [
@@ -1037,7 +1037,7 @@ if.then32.i.i:                                    ; preds = %if.else.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.else.i.i, %if.then.i.i, %sw.bb9.i.i, %sw.bb5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 12
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
@@ -1086,35 +1086,36 @@ define hidden signext i8 @nfaExecGough16_Q2(ptr noundef %n, ptr nocapture nounde
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %add.ptr.i12 = getelementptr inbounds i8, ptr %6, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
   %7 = load i16, ptr %6, align 2
   store i16 %7, ptr %s.i, align 2
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cur.i7 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i6 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i7 = getelementptr inbounds i8, ptr %q, i64 8
   %9 = load i32, ptr %cur.i7, align 8
   %idxprom.i8 = zext i32 %9 to i64
-  %location.i10 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i8, i32 1
+  %location.i10 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i6, i64 0, i64 %idxprom.i8, i32 1
   %10 = load i64, ptr %location.i10, align 8
   %add.i11 = add i64 %10, %0
   %cmp.i19 = icmp eq i16 %7, 0
@@ -1171,7 +1172,7 @@ for.cond.i:                                       ; preds = %cond.end63.i
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.cond.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %18 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %18, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -1205,10 +1206,12 @@ if.end7.i.critedge:                               ; preds = %for.cond.i, %cond.e
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %cond.end.i28, %if.end7.i.critedge, %doReports.exit, %entry
-  %cur.i38 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i37 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i38 = getelementptr inbounds i8, ptr %q, i64 8
   %21 = load i32, ptr %cur.i38, align 8
   %idxprom.i39 = zext i32 %21 to i64
-  %location.i41 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i39, i32 1
+  %arrayidx.i40 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom.i39
+  %location.i41 = getelementptr inbounds i8, ptr %arrayidx.i40, i64 8
   %22 = load i64, ptr %location.i41, align 8
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %cur.i38, align 8
@@ -1225,10 +1228,10 @@ while.body.i.preheader:                           ; preds = %if.end7.i
   br label %while.body.i
 
 if.then16.i:                                      ; preds = %if.end7.i
-  %arrayidx.i40 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i39
   store i32 %21, ptr %cur.i38, align 8
   store i32 0, ptr %arrayidx.i40, align 8
-  store i64 %end, ptr %location.i41, align 8
+  %location26.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom.i39, i32 1
+  store i64 %end, ptr %location26.i, align 8
   %23 = load ptr, ptr %state.i, align 8
   store i16 %7, ptr %23, align 2
   br label %nfaExecGough16_Q2i.exit
@@ -1238,7 +1241,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom31.i = zext i32 %24 to i64
-  %location33.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom31.i, i32 1
+  %location33.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom31.i, i32 1
   %25 = load i64, ptr %location33.i, align 8
   %cond42.i = tail call i64 @llvm.smin.i64(i64 %25, i64 %end)
   %cmp44.i = icmp slt i64 %sp.i.0, 0
@@ -1267,13 +1270,13 @@ if.then69.i:                                      ; preds = %land.lhs.true65.i
   %dec71.i = add i32 %28, -1
   store i32 %dec71.i, ptr %cur.i38, align 8
   %idxprom74.i = zext i32 %dec71.i to i64
-  %arrayidx75.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom74.i
+  %arrayidx75.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom74.i
   store i32 0, ptr %arrayidx75.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cur_buf.i.0 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add77.i = add i64 %reass.sub, 1
-  %location82.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom74.i, i32 1
+  %location82.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom74.i, i32 1
   store i64 %add77.i, ptr %location82.i, align 8
   %29 = load i16, ptr %s.i, align 2
   %30 = load ptr, ptr %state.i, align 8
@@ -1282,7 +1285,7 @@ if.then69.i:                                      ; preds = %land.lhs.true65.i
 
 land.lhs.true87.i:                                ; preds = %land.lhs.true65.i
   %idxprom90.i = zext i32 %28 to i64
-  %location92.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i, i32 1
+  %location92.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom90.i, i32 1
   %31 = load i64, ptr %location92.i, align 8
   %cmp93.i = icmp sgt i64 %31, %end
   br i1 %cmp93.i, label %if.then95.i, label %if.end109.i
@@ -1291,9 +1294,9 @@ if.then95.i:                                      ; preds = %land.lhs.true87.i
   %dec97.i = add i32 %28, -1
   store i32 %dec97.i, ptr %cur.i38, align 8
   %idxprom100.i = zext i32 %dec97.i to i64
-  %arrayidx101.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom100.i
+  %arrayidx101.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom100.i
   store i32 0, ptr %arrayidx101.i, align 8
-  %location107.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom100.i, i32 1
+  %location107.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom100.i, i32 1
   store i64 %end, ptr %location107.i, align 8
   %32 = load i16, ptr %s.i, align 2
   %33 = load ptr, ptr %state.i, align 8
@@ -1307,7 +1310,7 @@ if.end109.i:                                      ; preds = %land.lhs.true87.i
   br i1 %cmp114.i.not, label %if.end117.i, label %while.body.i.backedge
 
 if.end117.i:                                      ; preds = %if.end109.i
-  %arrayidx121.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i
+  %arrayidx121.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom90.i
   %34 = load i32, ptr %arrayidx121.i, align 8
   switch i32 %34, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -1325,7 +1328,7 @@ if.then126.i:                                     ; preds = %sw.bb.i
 
 if.end127.i:                                      ; preds = %sw.bb.i
   %36 = load i16, ptr %s.i, align 2
-  %som132.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom90.i, i32 2
+  %som132.i = getelementptr inbounds i8, ptr %arrayidx121.i, i64 16
   %37 = load i64, ptr %som132.i, align 8
   %38 = load i32, ptr %aux_offset.i.i, align 4
   %39 = load i32, ptr %haig_offset.i.i.i, align 4
@@ -1355,9 +1358,9 @@ do.end9.i:                                        ; preds = %if.end.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
-  %dest1.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 1
+  %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
   %42 = load i32, ptr %dest1.i.i, align 4
-  %src2.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 2
+  %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
   %43 = load i32, ptr %src2.i.i, align 4
   %44 = load i32, ptr %pc.addr.i.0.i, align 4
   switch i32 %44, label %goughEnableStarts.exit.loopexit [
@@ -1407,7 +1410,7 @@ if.then32.i.i:                                    ; preds = %if.else.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.else.i.i, %if.then.i.i, %sw.bb9.i.i, %sw.bb5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 12
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
@@ -1455,35 +1458,36 @@ define hidden signext i8 @nfaExecGough8_QR(ptr noundef %n, ptr noundef %q, i32 n
 entry:
   %s.i = alloca i8, align 1
   %final_look.i = alloca ptr, align 8
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %add.ptr.i15 = getelementptr inbounds i8, ptr %6, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
   %7 = load i8, ptr %6, align 1
   store i8 %7, ptr %s.i, align 1
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cur.i10 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i9 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i10 = getelementptr inbounds i8, ptr %q, i64 8
   %9 = load i32, ptr %cur.i10, align 8
   %idxprom.i11 = zext i32 %9 to i64
-  %location.i13 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i11, i32 1
+  %location.i13 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i9, i64 0, i64 %idxprom.i11, i32 1
   %10 = load i64, ptr %location.i13, align 8
   %add.i14 = add i64 %10, %0
   %cmp.i22 = icmp eq i8 %7, 0
@@ -1540,7 +1544,7 @@ for.cond.i:                                       ; preds = %cond.end63.i
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.cond.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %18 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %18, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -1574,10 +1578,11 @@ if.end8.i.critedge:                               ; preds = %for.cond.i, %cond.e
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %cond.end.i33, %if.end8.i.critedge, %doReports.exit, %entry
-  %cur.i44 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i43 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i44 = getelementptr inbounds i8, ptr %q, i64 8
   %21 = load i32, ptr %cur.i44, align 8
   %idxprom.i45 = zext i32 %21 to i64
-  %location.i47 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i45, i32 1
+  %location.i47 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i43, i64 0, i64 %idxprom.i45, i32 1
   %22 = load i64, ptr %location.i47, align 8
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %cur.i44, align 8
@@ -1594,7 +1599,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %if.end8.i ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %if.end8.i ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom34.i = zext i32 %23 to i64
-  %location36.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom34.i, i32 1
+  %location36.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i43, i64 0, i64 %idxprom34.i, i32 1
   %24 = load i64, ptr %location36.i, align 8
   %cmp49.i = icmp slt i64 %sp.i.0, 0
   %cond57.i = tail call i64 @llvm.smin.i64(i64 %24, i64 0)
@@ -1620,7 +1625,7 @@ if.end116.i:                                      ; preds = %while.body.i
 
 if.end124.i:                                      ; preds = %if.end116.i
   %idxprom127.i = zext i32 %.pre.pre to i64
-  %arrayidx128.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom127.i
+  %arrayidx128.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i43, i64 0, i64 %idxprom127.i
   %26 = load i32, ptr %arrayidx128.i, align 8
   switch i32 %26, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -1639,7 +1644,7 @@ if.then133.i:                                     ; preds = %sw.bb.i
 
 if.end135.i:                                      ; preds = %sw.bb.i
   %28 = load i8, ptr %s.i, align 1
-  %som141.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom127.i, i32 2
+  %som141.i = getelementptr inbounds i8, ptr %arrayidx128.i, i64 16
   %29 = load i64, ptr %som141.i, align 8
   %30 = load i32, ptr %aux_offset.i.i, align 4
   %31 = load i32, ptr %haig_offset.i.i.i, align 4
@@ -1669,9 +1674,9 @@ do.end9.i:                                        ; preds = %if.end.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
-  %dest1.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 1
+  %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
   %34 = load i32, ptr %dest1.i.i, align 4
-  %src2.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 2
+  %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
   %35 = load i32, ptr %src2.i.i, align 4
   %36 = load i32, ptr %pc.addr.i.0.i, align 4
   switch i32 %36, label %goughEnableStarts.exit.loopexit [
@@ -1721,7 +1726,7 @@ if.then32.i.i:                                    ; preds = %if.else.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.else.i.i, %if.then.i.i, %sw.bb9.i.i, %sw.bb5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 12
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
@@ -1777,35 +1782,36 @@ define hidden signext i8 @nfaExecGough16_QR(ptr noundef %n, ptr noundef %q, i32 
 entry:
   %s.i = alloca i16, align 2
   %final_look.i = alloca ptr, align 8
-  %offset1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset1 = getelementptr inbounds i8, ptr %q, i64 32
   %0 = load i64, ptr %offset1, align 8
-  %buffer2 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer2 = getelementptr inbounds i8, ptr %q, i64 40
   %1 = load ptr, ptr %buffer2, align 8
-  %cb3 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb3 = getelementptr inbounds i8, ptr %q, i64 88
   %2 = load ptr, ptr %cb3, align 8
-  %context4 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context4 = getelementptr inbounds i8, ptr %q, i64 96
   %3 = load ptr, ptr %context4, align 8
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %4 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %5 = load i64, ptr %hlength, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %5
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %6 = load ptr, ptr %state.i, align 8
   %add.ptr.i15 = getelementptr inbounds i8, ptr %6, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %n, i64 64
   %7 = load i16, ptr %6, align 2
   store i16 %7, ptr %s.i, align 2
-  %report_current.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current.i = getelementptr inbounds i8, ptr %q, i64 80
   %8 = load i8, ptr %report_current.i, align 8
   %tobool.i.not = icmp eq i8 %8, 0
   br i1 %tobool.i.not, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cur.i10 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i9 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i10 = getelementptr inbounds i8, ptr %q, i64 8
   %9 = load i32, ptr %cur.i10, align 8
   %idxprom.i11 = zext i32 %9 to i64
-  %location.i13 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i11, i32 1
+  %location.i13 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i9, i64 0, i64 %idxprom.i11, i32 1
   %10 = load i64, ptr %location.i13, align 8
   %add.i14 = add i64 %10, %0
   %cmp.i22 = icmp eq i16 %7, 0
@@ -1862,7 +1868,7 @@ for.cond.i:                                       ; preds = %cond.end63.i
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.cond.i
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %for.cond.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %18 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %18, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -1896,10 +1902,11 @@ if.end7.i.critedge:                               ; preds = %for.cond.i, %cond.e
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %cond.end.i31, %if.end7.i.critedge, %doReports.exit, %entry
-  %cur.i41 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i40 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i41 = getelementptr inbounds i8, ptr %q, i64 8
   %21 = load i32, ptr %cur.i41, align 8
   %idxprom.i42 = zext i32 %21 to i64
-  %location.i44 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i42, i32 1
+  %location.i44 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom.i42, i32 1
   %22 = load i64, ptr %location.i44, align 8
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %cur.i41, align 8
@@ -1916,7 +1923,7 @@ while.body.i:                                     ; preds = %while.body.i.backed
   %cur_buf.i.0 = phi ptr [ %cond.i, %if.end7.i ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %if.end7.i ], [ %local_ep.i.0, %while.body.i.backedge ]
   %idxprom31.i = zext i32 %23 to i64
-  %location33.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom31.i, i32 1
+  %location33.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom31.i, i32 1
   %24 = load i64, ptr %location33.i, align 8
   %cmp44.i = icmp slt i64 %sp.i.0, 0
   %cond52.i = tail call i64 @llvm.smin.i64(i64 %24, i64 0)
@@ -1942,7 +1949,7 @@ if.end109.i:                                      ; preds = %while.body.i
 
 if.end117.i:                                      ; preds = %if.end109.i
   %idxprom120.i = zext i32 %.pre.pre to i64
-  %arrayidx121.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom120.i
+  %arrayidx121.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom120.i
   %26 = load i32, ptr %arrayidx121.i, align 8
   switch i32 %26, label %sw.epilog.i [
     i32 2, label %sw.bb.i
@@ -1960,7 +1967,7 @@ if.then126.i:                                     ; preds = %sw.bb.i
 
 if.end127.i:                                      ; preds = %sw.bb.i
   %28 = load i16, ptr %s.i, align 2
-  %som132.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom120.i, i32 2
+  %som132.i = getelementptr inbounds i8, ptr %arrayidx121.i, i64 16
   %29 = load i64, ptr %som132.i, align 8
   %30 = load i32, ptr %aux_offset.i.i, align 4
   %31 = load i32, ptr %haig_offset.i.i.i, align 4
@@ -1990,9 +1997,9 @@ do.end9.i:                                        ; preds = %if.end.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %do.end9.i
   %pc.addr.i.0.i = phi ptr [ %add.ptr10.i, %do.end9.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
-  %dest1.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 1
+  %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 4
   %34 = load i32, ptr %dest1.i.i, align 4
-  %src2.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 0, i32 2
+  %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 8
   %35 = load i32, ptr %src2.i.i, align 4
   %36 = load i32, ptr %pc.addr.i.0.i, align 4
   switch i32 %36, label %goughEnableStarts.exit.loopexit [
@@ -2042,7 +2049,7 @@ if.then32.i.i:                                    ; preds = %if.else.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.then32.i.i, %if.else.i.i, %if.then.i.i, %sw.bb9.i.i, %sw.bb5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pc.addr.i.0.i, i64 12
   br label %while.body.i.i
 
 goughEnableStarts.exit.loopexit:                  ; preds = %while.body.i.i
@@ -2095,7 +2102,7 @@ declare signext i8 @nfaExecMcClellan16_inAccept(ptr noundef, i32 noundef, ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef signext i8 @nfaExecGough8_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
 entry:
-  %streamStateSize = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 10
+  %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
   %0 = load i32, ptr %streamStateSize, align 4
   %conv = zext i32 %0 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %state, i8 0, i64 %conv, i1 false)
@@ -2122,7 +2129,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef signext i8 @nfaExecGough16_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #2 {
 entry:
-  %streamStateSize = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 10
+  %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
   %0 = load i32, ptr %streamStateSize, align 4
   %conv = zext i32 %0 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %state, i8 0, i64 %conv, i1 false)
@@ -2146,19 +2153,20 @@ return:                                           ; preds = %entry, %if.then
 define hidden noundef signext i8 @nfaExecGough8_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %cb1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb1 = getelementptr inbounds i8, ptr %q, i64 88
   %0 = load ptr, ptr %cb1, align 8
-  %context = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context = getelementptr inbounds i8, ptr %q, i64 96
   %1 = load ptr, ptr %context, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %2 = load ptr, ptr %state, align 8
   %3 = load i8, ptr %2, align 1
-  %offset.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
   %4 = load i64, ptr %offset.i, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %5 = load i32, ptr %cur.i, align 8
   %idxprom.i = zext i32 %5 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %6 = load i64, ptr %location.i, align 8
   %add.i = add i64 %6, %4
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 16
@@ -2221,7 +2229,7 @@ cond.end39.i:                                     ; preds = %if.then26.i, %cond.
 for.body.i:                                       ; preds = %cond.end63.i, %for.body.i.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %cond.end63.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %16 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %16, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -2250,11 +2258,11 @@ if.end:                                           ; preds = %cond.end63.i, %cond
 define hidden noundef signext i8 @nfaExecGough16_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %cb1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb1 = getelementptr inbounds i8, ptr %q, i64 88
   %0 = load ptr, ptr %cb1, align 8
-  %context = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context = getelementptr inbounds i8, ptr %q, i64 96
   %1 = load ptr, ptr %context, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %2 = load ptr, ptr %state, align 8
   %3 = load i16, ptr %2, align 2
   %aux_offset.i19 = getelementptr inbounds i8, ptr %n, i64 76
@@ -2263,12 +2271,13 @@ entry:
   %add.ptr1.i21 = getelementptr inbounds i8, ptr %n, i64 %idx.ext.i20
   %idx.ext2.i22 = zext i16 %3 to i64
   %add.ptr3.i23 = getelementptr inbounds %struct.mstate_aux, ptr %add.ptr1.i21, i64 %idx.ext2.i22
-  %offset.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i = getelementptr inbounds i8, ptr %q, i64 32
   %5 = load i64, ptr %offset.i, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %6 = load i32, ptr %cur.i, align 8
   %idxprom.i = zext i32 %6 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i, i32 1
   %7 = load i64, ptr %location.i, align 8
   %add.i = add i64 %7, %5
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 16
@@ -2322,7 +2331,7 @@ cond.end39.i:                                     ; preds = %if.then26.i, %cond.
 for.body.i:                                       ; preds = %cond.end63.i, %for.body.i.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.i.lr.ph ], [ %indvars.iv.next, %cond.end63.i ]
   %arrayidx53.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv
-  %som54.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i = getelementptr inbounds i8, ptr %arrayidx53.i, i64 4
   %14 = load i32, ptr %som54.i, align 4
   %cmp56.i = icmp eq i32 %14, -1
   br i1 %cmp56.i, label %cond.end63.i, label %cond.false59.i
@@ -2416,7 +2425,7 @@ for.cond.i.i:                                     ; preds = %cond.end63.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.i.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.i.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i.i ]
   %arrayidx53.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv.i
-  %som54.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv.i, i32 1
+  %som54.i.i = getelementptr inbounds i8, ptr %arrayidx53.i.i, i64 4
   %4 = load i32, ptr %som54.i.i, align 4
   %cmp56.i.i = icmp eq i32 %4, -1
   br i1 %cmp56.i.i, label %cond.end63.i.i, label %cond.false59.i.i
@@ -2476,7 +2485,7 @@ for.cond.i.i:                                     ; preds = %cond.end63.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.body.i.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.i.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i.i ]
   %arrayidx53.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv.i
-  %som54.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv.i, i32 1
+  %som54.i.i = getelementptr inbounds i8, ptr %arrayidx53.i.i, i64 4
   %4 = load i32, ptr %som54.i.i, align 4
   %cmp56.i.i = icmp eq i32 %4, -1
   br i1 %cmp56.i.i, label %cond.end63.i.i, label %cond.false59.i.i
@@ -2502,9 +2511,9 @@ goughCheckEOD.exit:                               ; preds = %for.cond.i.i, %cond
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecGough8_queueInitState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #4 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
-  %scratchStateSize = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 9
+  %scratchStateSize = getelementptr inbounds i8, ptr %nfa, i64 24
   %1 = load i32, ptr %scratchStateSize, align 8
   %conv = zext i32 %1 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %conv, i1 false)
@@ -2514,9 +2523,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecGough16_queueInitState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q) local_unnamed_addr #4 {
 entry:
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
-  %scratchStateSize = getelementptr inbounds %struct.NFA, ptr %nfa, i64 0, i32 9
+  %scratchStateSize = getelementptr inbounds i8, ptr %nfa, i64 24
   %1 = load i32, ptr %scratchStateSize, align 8
   %conv = zext i32 %1 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %conv, i1 false)
@@ -2526,24 +2535,24 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecGough8_queueCompressState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #5 {
 entry:
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state, align 8
   %2 = load i8, ptr %1, align 1
   store i8 %2, ptr %0, align 1
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 1
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 16
-  %offset = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %q, i64 32
   %3 = load i64, ptr %offset, align 8
   %add = add i64 %3, %loc
   %haig_offset.i = getelementptr inbounds i8, ptr %nfa, i64 364
   %4 = load i32, ptr %haig_offset.i, align 4
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr1.i = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext.i
-  %stream_som_loc_count.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 2
+  %stream_som_loc_count.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
   %5 = load i32, ptr %stream_som_loc_count.i, align 4
-  %stream_som_loc_width.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 3
+  %stream_som_loc_width.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 12
   %6 = load i8, ptr %stream_som_loc_width.i, align 4
   %conv.i = zext i8 %6 to i32
   %cmp.i20.not = icmp eq i32 %5, 0
@@ -2631,9 +2640,9 @@ entry:
   %1 = load i32, ptr %haig_offset.i, align 4
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr1.i = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext.i
-  %stream_som_loc_count.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 2
+  %stream_som_loc_count.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
   %2 = load i32, ptr %stream_som_loc_count.i, align 4
-  %stream_som_loc_width.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 3
+  %stream_som_loc_width.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 12
   %3 = load i8, ptr %stream_som_loc_width.i, align 4
   %conv.i = zext i8 %3 to i32
   %cmp.i14.not = icmp eq i32 %2, 0
@@ -2712,24 +2721,24 @@ expandSomSpace.exit:                              ; preds = %for.body.i.us32, %f
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecGough16_queueCompressState(ptr nocapture noundef readonly %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #5 {
 entry:
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state, align 8
   %2 = load i16, ptr %1, align 2
   store i16 %2, ptr %0, align 1
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 2
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 16
-  %offset = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset = getelementptr inbounds i8, ptr %q, i64 32
   %3 = load i64, ptr %offset, align 8
   %add = add i64 %3, %loc
   %haig_offset.i = getelementptr inbounds i8, ptr %nfa, i64 364
   %4 = load i32, ptr %haig_offset.i, align 4
   %idx.ext.i = zext i32 %4 to i64
   %add.ptr1.i = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext.i
-  %stream_som_loc_count.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 2
+  %stream_som_loc_count.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
   %5 = load i32, ptr %stream_som_loc_count.i, align 4
-  %stream_som_loc_width.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 3
+  %stream_som_loc_width.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 12
   %6 = load i8, ptr %stream_som_loc_width.i, align 4
   %conv.i = zext i8 %6 to i32
   %cmp.i20.not = icmp eq i32 %5, 0
@@ -2817,9 +2826,9 @@ entry:
   %1 = load i32, ptr %haig_offset.i, align 4
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr1.i = getelementptr inbounds i8, ptr %nfa, i64 %idx.ext.i
-  %stream_som_loc_count.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 2
+  %stream_som_loc_count.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 8
   %2 = load i32, ptr %stream_som_loc_count.i, align 4
-  %stream_som_loc_width.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i, i64 0, i32 3
+  %stream_som_loc_width.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 12
   %3 = load i8, ptr %stream_som_loc_width.i, align 4
   %conv.i = zext i8 %3 to i32
   %cmp.i14.not = icmp eq i32 %2, 0
@@ -2901,24 +2910,24 @@ entry:
   %0 = load i8, ptr %state, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %add.ptr1.i = getelementptr inbounds i8, ptr %m, i64 308
-  %alphaShift.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 11
+  %alphaShift.i = getelementptr inbounds i8, ptr %m, i64 32
   %1 = load i8, ptr %alphaShift.i, align 4
   %conv.i = zext i8 %1 to i32
   %add.ptr2.i = getelementptr inbounds i8, ptr %m, i64 -64
-  %aux_offset.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 4
+  %aux_offset.i = getelementptr inbounds i8, ptr %m, i64 12
   %2 = load i32, ptr %aux_offset.i, align 4
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %idx.ext.i
-  %haig_offset.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 18
+  %haig_offset.i = getelementptr inbounds i8, ptr %m, i64 300
   %3 = load i32, ptr %haig_offset.i, align 4
   %idx.ext.i3 = zext i32 %3 to i64
   %add.ptr1.i4 = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %idx.ext.i3
-  %add.ptr4.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i4, i64 1
-  %accel_limit_8.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 7
+  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr1.i4, i64 16
+  %accel_limit_8.i = getelementptr inbounds i8, ptr %m, i64 24
   %4 = load i16, ptr %accel_limit_8.i, align 4
-  %accept_limit_8.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 8
+  %accept_limit_8.i = getelementptr inbounds i8, ptr %m, i64 26
   %5 = load i16, ptr %accept_limit_8.i, align 2
-  %has_accel.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 13
+  %has_accel.i = getelementptr inbounds i8, ptr %m, i64 34
   %6 = load i8, ptr %has_accel.i, align 2
   %tobool.i = icmp eq i8 %6, 0
   %cmp.i = icmp ult i64 %len, 16
@@ -2938,6 +2947,7 @@ without_accel.i:                                  ; preds = %entry, %if.end120.i
   br i1 %7, label %while.body.i.lr.ph, label %with_accel.i
 
 while.body.i.lr.ph:                               ; preds = %without_accel.i
+  %remap.i = getelementptr inbounds i8, ptr %m, i64 36
   %sub.ptr.rhs.cast.i17 = ptrtoint ptr %buf to i64
   %sub.ptr.sub.i18 = sub i64 %offAdj, %sub.ptr.rhs.cast.i17
   %add35.i = add i64 %sub.ptr.sub.i18, 1
@@ -2953,7 +2963,7 @@ while.body.i.us:                                  ; preds = %while.body.i.lr.ph,
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %c.i.1319.us, i64 1
   %8 = load i8, ptr %c.i.1319.us, align 1
   %idxprom.i.us = zext i8 %8 to i64
-  %arrayidx.i.us = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 15, i64 %idxprom.i.us
+  %arrayidx.i.us = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i.us
   %9 = load i8, ptr %arrayidx.i.us, align 1
   %shl.i.us = shl i32 %conv10.i.us, %conv.i
   %conv15.i.us = zext i8 %9 to i32
@@ -2973,9 +2983,9 @@ if.end.i13.us:                                    ; preds = %while.body.i.us
 
 while.body.i61.us:                                ; preds = %sw.epilog.i74.us, %if.end.i13.us
   %pc.addr.i56.0.us = phi ptr [ %add.ptr.i15.us, %if.end.i13.us ], [ %incdec.ptr.i75.us, %sw.epilog.i74.us ]
-  %dest1.i62.us = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0.us, i64 0, i32 1
+  %dest1.i62.us = getelementptr inbounds i8, ptr %pc.addr.i56.0.us, i64 4
   %11 = load i32, ptr %dest1.i62.us, align 4
-  %src2.i63.us = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0.us, i64 0, i32 2
+  %src2.i63.us = getelementptr inbounds i8, ptr %pc.addr.i56.0.us, i64 8
   %12 = load i32, ptr %src2.i63.us, align 4
   %13 = load i32, ptr %pc.addr.i56.0.us, align 4
   switch i32 %13, label %run_prog.exit.us [
@@ -3026,7 +3036,7 @@ if.then.i92.us:                                   ; preds = %sw.bb16.i64.us
   br label %sw.epilog.i74.us
 
 sw.epilog.i74.us:                                 ; preds = %if.then.i92.us, %if.then32.i76.us, %if.else.i68.us, %sw.bb5.i103.us, %sw.bb9.i97.us
-  %incdec.ptr.i75.us = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0.us, i64 1
+  %incdec.ptr.i75.us = getelementptr inbounds i8, ptr %pc.addr.i56.0.us, i64 12
   br label %while.body.i61.us
 
 run_prog.exit.us:                                 ; preds = %while.body.i61.us, %while.body.i.us
@@ -3044,7 +3054,7 @@ while.body.i.us329:                               ; preds = %while.body.i.lr.ph,
   %incdec.ptr.i.us336 = getelementptr inbounds i8, ptr %c.i.1319.us331, i64 1
   %20 = load i8, ptr %c.i.1319.us331, align 1
   %idxprom.i.us337 = zext i8 %20 to i64
-  %arrayidx.i.us338 = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 15, i64 %idxprom.i.us337
+  %arrayidx.i.us338 = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i.us337
   %21 = load i8, ptr %arrayidx.i.us338, align 1
   %shl.i.us339 = shl i32 %conv10.i.us335, %conv.i
   %conv15.i.us340 = zext i8 %21 to i32
@@ -3064,9 +3074,9 @@ if.end.i13.us345:                                 ; preds = %while.body.i.us329
 
 while.body.i61.us350:                             ; preds = %sw.epilog.i74.us377, %if.end.i13.us345
   %pc.addr.i56.0.us351 = phi ptr [ %add.ptr.i15.us347, %if.end.i13.us345 ], [ %incdec.ptr.i75.us378, %sw.epilog.i74.us377 ]
-  %dest1.i62.us352 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0.us351, i64 0, i32 1
+  %dest1.i62.us352 = getelementptr inbounds i8, ptr %pc.addr.i56.0.us351, i64 4
   %23 = load i32, ptr %dest1.i62.us352, align 4
-  %src2.i63.us353 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0.us351, i64 0, i32 2
+  %src2.i63.us353 = getelementptr inbounds i8, ptr %pc.addr.i56.0.us351, i64 8
   %24 = load i32, ptr %src2.i63.us353, align 4
   %25 = load i32, ptr %pc.addr.i56.0.us351, align 4
   switch i32 %25, label %run_prog.exit.us379 [
@@ -3117,7 +3127,7 @@ if.then.i92.us374:                                ; preds = %sw.bb16.i64.us364
   br label %sw.epilog.i74.us377
 
 sw.epilog.i74.us377:                              ; preds = %if.then.i92.us374, %if.then32.i76.us372, %if.else.i68.us368, %sw.bb5.i103.us359, %sw.bb9.i97.us354
-  %incdec.ptr.i75.us378 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0.us351, i64 1
+  %incdec.ptr.i75.us378 = getelementptr inbounds i8, ptr %pc.addr.i56.0.us351, i64 12
   br label %while.body.i61.us350
 
 run_prog.exit.us379:                              ; preds = %while.body.i61.us350, %while.body.i.us329
@@ -3143,7 +3153,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %incdec.ptr.i = getelementptr inbounds i8, ptr %c.i.1319, i64 1
   %33 = load i8, ptr %c.i.1319, align 1
   %idxprom.i = zext i8 %33 to i64
-  %arrayidx.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 15, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i
   %34 = load i8, ptr %arrayidx.i, align 1
   %shl.i = shl i32 %conv10.i, %conv.i
   %conv15.i = zext i8 %34 to i32
@@ -3163,9 +3173,9 @@ if.end.i13:                                       ; preds = %while.body.i
 
 while.body.i61:                                   ; preds = %sw.epilog.i74, %if.end.i13
   %pc.addr.i56.0 = phi ptr [ %add.ptr.i15, %if.end.i13 ], [ %incdec.ptr.i75, %sw.epilog.i74 ]
-  %dest1.i62 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0, i64 0, i32 1
+  %dest1.i62 = getelementptr inbounds i8, ptr %pc.addr.i56.0, i64 4
   %36 = load i32, ptr %dest1.i62, align 4
-  %src2.i63 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0, i64 0, i32 2
+  %src2.i63 = getelementptr inbounds i8, ptr %pc.addr.i56.0, i64 8
   %37 = load i32, ptr %src2.i63, align 4
   %38 = load i32, ptr %pc.addr.i56.0, align 4
   switch i32 %38, label %run_prog.exit [
@@ -3216,7 +3226,7 @@ if.then32.i76:                                    ; preds = %if.else.i68
   br label %sw.epilog.i74
 
 sw.epilog.i74:                                    ; preds = %if.then.i92, %if.then32.i76, %if.else.i68, %sw.bb9.i97, %sw.bb5.i103
-  %incdec.ptr.i75 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i56.0, i64 1
+  %incdec.ptr.i75 = getelementptr inbounds i8, ptr %pc.addr.i56.0, i64 12
   br label %while.body.i61
 
 run_prog.exit:                                    ; preds = %while.body.i61, %while.body.i
@@ -3291,7 +3301,7 @@ for.cond.i184.i:                                  ; preds = %cond.end63.i196.i
 for.body.i187.i:                                  ; preds = %for.body.i187.i.lr.ph, %for.cond.i184.i
   %indvars.iv = phi i64 [ 0, %for.body.i187.i.lr.ph ], [ %indvars.iv.next, %for.cond.i184.i ]
   %arrayidx53.i190.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i188.i, i64 0, i64 %indvars.iv
-  %som54.i191.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i188.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i191.i = getelementptr inbounds i8, ptr %arrayidx53.i190.i, i64 4
   %52 = load i32, ptr %som54.i191.i, align 4
   %cmp56.i192.i = icmp eq i32 %52, -1
   br i1 %cmp56.i192.i, label %cond.end63.i196.i, label %cond.false59.i193.i
@@ -3337,6 +3347,7 @@ with_accel.i:                                     ; preds = %if.end44.i.us381, %
   br i1 %56, label %while.body52.i.lr.ph, label %while.end139.i
 
 while.body52.i.lr.ph:                             ; preds = %with_accel.i
+  %remap54.i = getelementptr inbounds i8, ptr %m, i64 36
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %buf to i64
   %sub.ptr.sub.i39 = sub i64 %offAdj, %sub.ptr.rhs.cast.i38
   %cmp74.i.not = icmp eq i32 %mode, 2
@@ -3354,7 +3365,7 @@ while.body52.i:                                   ; preds = %while.body52.i.lr.p
   %incdec.ptr55.i = getelementptr inbounds i8, ptr %c.i.3410, i64 1
   %57 = load i8, ptr %c.i.3410, align 1
   %idxprom56.i = zext i8 %57 to i64
-  %arrayidx57.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 15, i64 %idxprom56.i
+  %arrayidx57.i = getelementptr inbounds [256 x i8], ptr %remap54.i, i64 0, i64 %idxprom56.i
   %58 = load i8, ptr %arrayidx57.i, align 1
   %shl62.i = shl i32 %conv49.i, %conv.i
   %conv63.i = zext i8 %58 to i32
@@ -3374,9 +3385,9 @@ if.end.i34:                                       ; preds = %while.body52.i
 
 while.body.i45:                                   ; preds = %sw.epilog.i, %if.end.i34
   %pc.addr.i.0 = phi ptr [ %add.ptr.i36, %if.end.i34 ], [ %incdec.ptr.i49, %sw.epilog.i ]
-  %dest1.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0, i64 0, i32 1
+  %dest1.i = getelementptr inbounds i8, ptr %pc.addr.i.0, i64 4
   %60 = load i32, ptr %dest1.i, align 4
-  %src2.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0, i64 0, i32 2
+  %src2.i = getelementptr inbounds i8, ptr %pc.addr.i.0, i64 8
   %61 = load i32, ptr %src2.i, align 4
   %62 = load i32, ptr %pc.addr.i.0, align 4
   switch i32 %62, label %run_prog.exit42 [
@@ -3427,7 +3438,7 @@ if.then32.i:                                      ; preds = %if.else.i47
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.then.i50, %if.then32.i, %if.else.i47, %sw.bb9.i, %sw.bb5.i
-  %incdec.ptr.i49 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0, i64 1
+  %incdec.ptr.i49 = getelementptr inbounds i8, ptr %pc.addr.i.0, i64 12
   br label %while.body.i45
 
 run_prog.exit42:                                  ; preds = %while.body.i45, %while.body52.i
@@ -3510,7 +3521,7 @@ for.cond.i.i:                                     ; preds = %cond.end63.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i.lr.ph, %for.cond.i.i
   %indvars.iv455 = phi i64 [ 0, %for.body.i.i.lr.ph ], [ %indvars.iv.next456, %for.cond.i.i ]
   %arrayidx53.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv455
-  %som54.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv455, i32 1
+  %som54.i.i = getelementptr inbounds i8, ptr %arrayidx53.i.i, i64 4
   %76 = load i32, ptr %som54.i.i, align 4
   %cmp56.i.i = icmp eq i32 %76, -1
   br i1 %cmp56.i.i, label %cond.end63.i.i, label %cond.false59.i.i
@@ -3549,7 +3560,7 @@ if.then106.i:                                     ; preds = %if.else.i
   br i1 %cmp115.i.not, label %if.end120.i, label %land.lhs.true117.i
 
 land.lhs.true117.i:                               ; preds = %if.then106.i
-  %prog_offset.i = getelementptr inbounds %struct.gough_accel, ptr %add.ptr113.i, i64 0, i32 2
+  %prog_offset.i = getelementptr inbounds i8, ptr %add.ptr113.i, i64 84
   %80 = load i32, ptr %prog_offset.i, align 4
   %tobool118.i.not = icmp eq i32 %80, 0
   br i1 %tobool118.i.not, label %if.end120.i, label %if.then119.i
@@ -3632,9 +3643,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 while.body.i91:                                   ; preds = %sw.epilog.i104, %while.body
   %pc.addr.i86.0 = phi ptr [ %add.ptr, %while.body ], [ %incdec.ptr.i105, %sw.epilog.i104 ]
-  %dest1.i92 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i86.0, i64 0, i32 1
+  %dest1.i92 = getelementptr inbounds i8, ptr %pc.addr.i86.0, i64 4
   %1 = load i32, ptr %dest1.i92, align 4
-  %src2.i93 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i86.0, i64 0, i32 2
+  %src2.i93 = getelementptr inbounds i8, ptr %pc.addr.i86.0, i64 8
   %2 = load i32, ptr %src2.i93, align 4
   %3 = load i32, ptr %pc.addr.i86.0, align 4
   switch i32 %3, label %run_prog_i.exit140 [
@@ -3685,7 +3696,7 @@ if.then32.i106:                                   ; preds = %if.else.i98
   br label %sw.epilog.i104
 
 sw.epilog.i104:                                   ; preds = %if.then.i122, %if.then32.i106, %if.else.i98, %sw.bb9.i127, %sw.bb5.i133
-  %incdec.ptr.i105 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i86.0, i64 1
+  %incdec.ptr.i105 = getelementptr inbounds i8, ptr %pc.addr.i86.0, i64 12
   br label %while.body.i91
 
 run_prog_i.exit140:                               ; preds = %while.body.i91
@@ -3710,9 +3721,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 while.body.i35:                                   ; preds = %sw.epilog.i48, %for.body
   %pc.addr.i30.0 = phi ptr [ %add.ptr, %for.body ], [ %incdec.ptr.i49, %sw.epilog.i48 ]
-  %dest1.i36 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i30.0, i64 0, i32 1
+  %dest1.i36 = getelementptr inbounds i8, ptr %pc.addr.i30.0, i64 4
   %8 = load i32, ptr %dest1.i36, align 4
-  %src2.i37 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i30.0, i64 0, i32 2
+  %src2.i37 = getelementptr inbounds i8, ptr %pc.addr.i30.0, i64 8
   %9 = load i32, ptr %src2.i37, align 4
   %10 = load i32, ptr %pc.addr.i30.0, align 4
   switch i32 %10, label %for.inc [
@@ -3762,7 +3773,7 @@ if.then32.i50:                                    ; preds = %if.else.i42
   br label %sw.epilog.i48
 
 sw.epilog.i48:                                    ; preds = %if.then.i66, %if.then32.i50, %if.else.i42, %sw.bb9.i71, %sw.bb5.i77
-  %incdec.ptr.i49 = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i30.0, i64 1
+  %incdec.ptr.i49 = getelementptr inbounds i8, ptr %pc.addr.i30.0, i64 12
   br label %while.body.i35
 
 for.inc:                                          ; preds = %while.body.i35
@@ -3786,9 +3797,9 @@ while.body.i.preheader:                           ; preds = %while.body.i.prehea
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %sw.epilog.i
   %pc.addr.i.0 = phi ptr [ %incdec.ptr.i, %sw.epilog.i ], [ %add.ptr, %while.body.i.preheader ]
-  %dest1.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0, i64 0, i32 1
+  %dest1.i = getelementptr inbounds i8, ptr %pc.addr.i.0, i64 4
   %17 = load i32, ptr %dest1.i, align 4
-  %src2.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0, i64 0, i32 2
+  %src2.i = getelementptr inbounds i8, ptr %pc.addr.i.0, i64 8
   %18 = load i32, ptr %src2.i, align 4
   %19 = load i32, ptr %pc.addr.i.0, align 4
   switch i32 %19, label %for.inc26 [
@@ -3838,7 +3849,7 @@ if.then32.i:                                      ; preds = %if.else.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.then.i, %if.then32.i, %if.else.i, %sw.bb9.i, %sw.bb5.i
-  %incdec.ptr.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.0, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %pc.addr.i.0, i64 12
   br label %while.body.i
 
 for.inc26:                                        ; preds = %while.body.i
@@ -3857,22 +3868,22 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %m, i64 -64
   %add.ptr1.i = getelementptr inbounds i8, ptr %buf, i64 %len
   %add.ptr2.i = getelementptr inbounds i8, ptr %m, i64 308
-  %sherman_limit.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 9
+  %sherman_limit.i = getelementptr inbounds i8, ptr %m, i64 28
   %1 = load i16, ptr %sherman_limit.i, align 4
-  %sherman_offset.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 5
+  %sherman_offset.i = getelementptr inbounds i8, ptr %m, i64 16
   %2 = load i32, ptr %sherman_offset.i, align 4
   %idx.ext.i = zext i32 %2 to i64
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i
-  %alphaShift.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 11
+  %alphaShift.i = getelementptr inbounds i8, ptr %m, i64 32
   %3 = load i8, ptr %alphaShift.i, align 4
   %conv.i = zext i8 %3 to i32
   %4 = and i16 %0, 16383
-  %haig_offset.i.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 18
+  %haig_offset.i.i = getelementptr inbounds i8, ptr %m, i64 300
   %5 = load i32, ptr %haig_offset.i.i, align 4
   %idx.ext.i304.i = zext i32 %5 to i64
   %add.ptr1.i305.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext.i304.i
-  %add.ptr6.i = getelementptr inbounds %struct.gough_info, ptr %add.ptr1.i305.i, i64 1
-  %has_accel.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 13
+  %add.ptr6.i = getelementptr inbounds i8, ptr %add.ptr1.i305.i, i64 16
+  %has_accel.i = getelementptr inbounds i8, ptr %m, i64 34
   %6 = load i8, ptr %has_accel.i, align 2
   %tobool.i = icmp eq i8 %6, 0
   %cmp.i = icmp ult i64 %len, 16
@@ -3892,13 +3903,14 @@ without_accel.i:                                  ; preds = %entry, %if.end156.i
   br i1 %7, label %while.body.i.lr.ph, label %with_accel.i
 
 while.body.i.lr.ph:                               ; preds = %without_accel.i
+  %remap.i = getelementptr inbounds i8, ptr %m, i64 36
   %sub.ptr.rhs.cast.i332.i = ptrtoint ptr %buf to i64
   %sub.ptr.sub.i333.i = sub i64 %offAdj, %sub.ptr.rhs.cast.i332.i
   %conv17.i = zext i16 %1 to i32
   %cmp35.i.not = icmp eq i32 %mode, 2
   %cmp41.i = icmp eq i32 %mode, 1
   %add50.i = add i64 %sub.ptr.sub.i333.i, 1
-  %aux_offset.i.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 4
+  %aux_offset.i.i = getelementptr inbounds i8, ptr %m, i64 12
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end61.i
@@ -3911,7 +3923,7 @@ while.body.i:                                     ; preds = %while.body.i.lr.ph,
   %incdec.ptr.i = getelementptr inbounds i8, ptr %c.i.1391, i64 1
   %8 = load i8, ptr %c.i.1391, align 1
   %idxprom.i = zext i8 %8 to i64
-  %arrayidx.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 15, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx.i, align 1
   %shl.i = shl i32 %conv10.i393, %conv.i
   %conv15.i = zext i8 %9 to i32
@@ -3931,9 +3943,9 @@ if.end.i328.i:                                    ; preds = %while.body.i
 
 while.body.i.i:                                   ; preds = %sw.epilog.i.i, %if.end.i328.i
   %pc.addr.i.i.0 = phi ptr [ %add.ptr.i330.i, %if.end.i328.i ], [ %incdec.ptr.i.i, %sw.epilog.i.i ]
-  %dest1.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.i.0, i64 0, i32 1
+  %dest1.i.i = getelementptr inbounds i8, ptr %pc.addr.i.i.0, i64 4
   %11 = load i32, ptr %dest1.i.i, align 4
-  %src2.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.i.0, i64 0, i32 2
+  %src2.i.i = getelementptr inbounds i8, ptr %pc.addr.i.i.0, i64 8
   %12 = load i32, ptr %src2.i.i, align 4
   %13 = load i32, ptr %pc.addr.i.i.0, align 4
   switch i32 %13, label %run_prog.exit336.i [
@@ -3984,7 +3996,7 @@ if.then32.i.i:                                    ; preds = %if.else.i.i
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.then.i347.i, %if.then32.i.i, %if.else.i.i, %sw.bb9.i.i, %sw.bb5.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i.i.0, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pc.addr.i.i.0, i64 12
   br label %while.body.i.i
 
 run_prog.exit336.i:                               ; preds = %while.body.i.i, %while.body.i
@@ -4134,7 +4146,7 @@ for.cond.i225.i:                                  ; preds = %cond.end63.i237.i
 for.body.i228.i:                                  ; preds = %for.body.i228.i.lr.ph, %for.cond.i225.i
   %indvars.iv = phi i64 [ 0, %for.body.i228.i.lr.ph ], [ %indvars.iv.next, %for.cond.i225.i ]
   %arrayidx53.i231.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i229.i, i64 0, i64 %indvars.iv
-  %som54.i232.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i229.i, i64 0, i64 %indvars.iv, i32 1
+  %som54.i232.i = getelementptr inbounds i8, ptr %arrayidx53.i231.i, i64 4
   %35 = load i32, ptr %som54.i232.i, align 4
   %cmp56.i233.i = icmp eq i32 %35, -1
   br i1 %cmp56.i233.i, label %cond.end63.i237.i, label %cond.false59.i234.i
@@ -4181,13 +4193,14 @@ with_accel.i:                                     ; preds = %if.end61.i, %withou
   br i1 %39, label %while.body72.i.lr.ph, label %while.end180.i
 
 while.body72.i.lr.ph:                             ; preds = %with_accel.i
+  %remap74.i = getelementptr inbounds i8, ptr %m, i64 36
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf to i64
   %sub.ptr.sub.i.i = sub i64 %offAdj, %sub.ptr.rhs.cast.i.i
   %conv86.i = zext i16 %1 to i32
   %cmp106.i.not = icmp eq i32 %mode, 2
   %cmp113.i = icmp eq i32 %mode, 1
   %add126.i = add i64 %sub.ptr.sub.i.i, 1
-  %aux_offset.i287.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 4
+  %aux_offset.i287.i = getelementptr inbounds i8, ptr %m, i64 12
   br label %while.body72.i
 
 while.body72.i:                                   ; preds = %while.body72.i.lr.ph, %if.end176.i
@@ -4200,7 +4213,7 @@ while.body72.i:                                   ; preds = %while.body72.i.lr.p
   %incdec.ptr75.i = getelementptr inbounds i8, ptr %c.i.3406, i64 1
   %40 = load i8, ptr %c.i.3406, align 1
   %idxprom76.i = zext i8 %40 to i64
-  %arrayidx77.i = getelementptr inbounds %struct.mcclellan, ptr %m, i64 0, i32 15, i64 %idxprom76.i
+  %arrayidx77.i = getelementptr inbounds [256 x i8], ptr %remap74.i, i64 0, i64 %idxprom76.i
   %41 = load i8, ptr %arrayidx77.i, align 1
   %shl82.i = shl i32 %conv69.i408, %conv.i
   %conv83.i = zext i8 %41 to i32
@@ -4220,9 +4233,9 @@ if.end.i311.i:                                    ; preds = %while.body72.i
 
 while.body.i358.i:                                ; preds = %sw.epilog.i371.i, %if.end.i311.i
   %pc.addr.i353.i.0 = phi ptr [ %add.ptr.i313.i, %if.end.i311.i ], [ %incdec.ptr.i372.i, %sw.epilog.i371.i ]
-  %dest1.i359.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i353.i.0, i64 0, i32 1
+  %dest1.i359.i = getelementptr inbounds i8, ptr %pc.addr.i353.i.0, i64 4
   %43 = load i32, ptr %dest1.i359.i, align 4
-  %src2.i360.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i353.i.0, i64 0, i32 2
+  %src2.i360.i = getelementptr inbounds i8, ptr %pc.addr.i353.i.0, i64 8
   %44 = load i32, ptr %src2.i360.i, align 4
   %45 = load i32, ptr %pc.addr.i353.i.0, align 4
   switch i32 %45, label %run_prog.exit.i [
@@ -4273,7 +4286,7 @@ if.then32.i373.i:                                 ; preds = %if.else.i365.i
   br label %sw.epilog.i371.i
 
 sw.epilog.i371.i:                                 ; preds = %if.then.i389.i, %if.then32.i373.i, %if.else.i365.i, %sw.bb9.i394.i, %sw.bb5.i400.i
-  %incdec.ptr.i372.i = getelementptr inbounds %struct.gough_ins, ptr %pc.addr.i353.i.0, i64 1
+  %incdec.ptr.i372.i = getelementptr inbounds i8, ptr %pc.addr.i353.i.0, i64 12
   br label %while.body.i358.i
 
 run_prog.exit.i:                                  ; preds = %while.body.i358.i, %while.body72.i
@@ -4419,7 +4432,7 @@ for.cond.i.i:                                     ; preds = %cond.end63.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i.lr.ph, %for.cond.i.i
   %indvars.iv449 = phi i64 [ 0, %for.body.i.i.lr.ph ], [ %indvars.iv.next450, %for.cond.i.i ]
   %arrayidx53.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv449
-  %som54.i.i = getelementptr inbounds [0 x %struct.gough_report], ptr %report51.i.i, i64 0, i64 %indvars.iv449, i32 1
+  %som54.i.i = getelementptr inbounds i8, ptr %arrayidx53.i.i, i64 4
   %67 = load i32, ptr %som54.i.i, align 4
   %cmp56.i.i = icmp eq i32 %67, -1
   br i1 %cmp56.i.i, label %cond.end63.i.i, label %cond.false59.i.i
@@ -4468,7 +4481,7 @@ if.then141.i:                                     ; preds = %if.else137.i
   br i1 %cmp151.i.not, label %if.end156.i, label %land.lhs.true153.i
 
 land.lhs.true153.i:                               ; preds = %if.then141.i
-  %prog_offset.i = getelementptr inbounds %struct.gough_accel, ptr %add.ptr149.i, i64 0, i32 2
+  %prog_offset.i = getelementptr inbounds i8, ptr %add.ptr149.i, i64 84
   %72 = load i32, ptr %prog_offset.i, align 4
   %tobool154.i.not = icmp eq i32 %72, 0
   br i1 %tobool154.i.not, label %if.end156.i, label %if.then155.i

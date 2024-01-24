@@ -8,10 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.ls_refs_data = type { i32, i32, %struct.strvec, %struct.strbuf, %struct.strvec, i8 }
 %struct.strvec = type { ptr, i64, i64 }
-%struct.packet_reader = type { i32, ptr, i64, ptr, i32, i32, i32, i32, ptr, i32, i8, ptr, ptr, %struct.strbuf }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"peel\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"symrefs\00", align 1
@@ -47,11 +43,11 @@ entry:
   %flag.i = alloca i32, align 4
   %data = alloca %struct.ls_refs_data, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %data, i8 0, i64 88, i1 false)
-  %prefixes = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 2
+  %prefixes = getelementptr inbounds i8, ptr %data, i64 8
   call void @strvec_init(ptr noundef nonnull %prefixes) #9
-  %buf = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %data, i64 32
   call void @strbuf_init(ptr noundef nonnull %buf, i64 noundef 0) #9
-  %hidden_refs = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 4
+  %hidden_refs = getelementptr inbounds i8, ptr %data, i64 56
   call void @strvec_init(ptr noundef nonnull %hidden_refs) #9
   call void @git_config(ptr noundef nonnull @ls_refs_config, ptr noundef nonnull %data) #9
   %call10 = call i32 @packet_reader_read(ptr noundef %request) #9
@@ -59,10 +55,10 @@ entry:
   br i1 %cmp11, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %line = getelementptr inbounds %struct.packet_reader, ptr %request, i64 0, i32 8
-  %unborn = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 5
-  %nr = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 2, i32 1
-  %symrefs = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 1
+  %line = getelementptr inbounds i8, ptr %request, i64 48
+  %unborn = getelementptr inbounds i8, ptr %data, i64 80
+  %nr = getelementptr inbounds i8, ptr %data, i64 16
+  %symrefs = getelementptr inbounds i8, ptr %data, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end25
@@ -145,7 +141,7 @@ if.end25:                                         ; preds = %if.then4, %if.then7
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end25, %entry
-  %status = getelementptr inbounds %struct.packet_reader, ptr %request, i64 0, i32 6
+  %status = getelementptr inbounds i8, ptr %request, i64 40
   %5 = load i32, ptr %status, align 8
   %cmp26.not = icmp eq i32 %5, 2
   br i1 %cmp26.not, label %if.end29, label %if.then27
@@ -156,7 +152,7 @@ if.then27:                                        ; preds = %while.end
   unreachable
 
 if.end29:                                         ; preds = %while.end
-  %nr31 = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 2, i32 1
+  %nr31 = getelementptr inbounds i8, ptr %data, i64 16
   %6 = load i64, ptr %nr31, align 8
   %cmp32 = icmp ugt i64 %6, 65535
   br i1 %cmp32, label %if.then33, label %if.end35
@@ -172,7 +168,7 @@ if.end35:                                         ; preds = %if.then33, %if.end2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %namespaced.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.send_possibly_unborn_head.namespaced, i64 24, i1 false)
   %call.i = call ptr @get_git_namespace() #9
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %namespaced.i, ptr noundef nonnull @.str.13, ptr noundef %call.i) #9
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %namespaced.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %namespaced.i, i64 16
   %7 = load ptr, ptr %buf.i, align 8
   %call1.i = call ptr @resolve_ref_unsafe(ptr noundef %7, i32 noundef 0, ptr noundef nonnull %oid.i, ptr noundef nonnull %flag.i) #9
   %tobool.not.i8 = icmp eq ptr %call1.i, null
@@ -180,14 +176,14 @@ if.end35:                                         ; preds = %if.then33, %if.end2
 
 if.end.i:                                         ; preds = %if.end35
   %call.i.i = call ptr @null_oid() #9
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %oid.i, i64 0, i32 1
+  %algo.i.i.i = getelementptr inbounds i8, ptr %oid.i, i64 32
   %8 = load i32, ptr %algo.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i
   %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i = getelementptr inbounds %struct.repository, ptr %9, i64 0, i32 15
+  %hash_algo.i.i.i = getelementptr inbounds i8, ptr %9, i64 256
   %10 = load ptr, ptr %hash_algo.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -221,11 +217,11 @@ is_null_oid.exit.if.then8_crit_edge.i:            ; preds = %is_null_oid.exit.i
   br label %if.then8.i
 
 lor.lhs.false.i:                                  ; preds = %is_null_oid.exit.i
-  %unborn.i = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 5
+  %unborn.i = getelementptr inbounds i8, ptr %data, i64 80
   %bf.load.i = load i8, ptr %unborn.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool4.not.i = icmp eq i8 %bf.clear.i, 0
-  %symrefs.i = getelementptr inbounds %struct.ls_refs_data, ptr %data, i64 0, i32 1
+  %symrefs.i = getelementptr inbounds i8, ptr %data, i64 4
   %12 = load i32, ptr %symrefs.i, align 4
   %tobool5.not.i = icmp eq i32 %12, 0
   %or.cond = select i1 %tobool4.not.i, i1 true, i1 %tobool5.not.i
@@ -286,7 +282,7 @@ declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @ls_refs_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr noundef %cb_data) #0 {
 entry:
-  %hidden_refs = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 4
+  %hidden_refs = getelementptr inbounds i8, ptr %cb_data, i64 56
   %call = tail call i32 @parse_hide_refs_config(ptr noundef %var, ptr noundef %value, ptr noundef nonnull @.str.7, ptr noundef nonnull %hidden_refs) #9
   ret i32 %call
 }
@@ -376,10 +372,10 @@ entry:
   %peeled = alloca %struct.object_id, align 4
   store i32 %flag, ptr %flag.addr, align 4
   %call = tail call ptr @strip_namespace(ptr noundef %refname) #9
-  %buf = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 3
-  %len2.i = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 3, i32 1
+  %buf = getelementptr inbounds i8, ptr %cb_data, i64 32
+  %len2.i = getelementptr inbounds i8, ptr %cb_data, i64 40
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 3, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %cb_data, i64 48
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -389,14 +385,14 @@ if.then4.i:                                       ; preds = %entry
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
-  %hidden_refs = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 4
+  %hidden_refs = getelementptr inbounds i8, ptr %cb_data, i64 56
   %call1 = tail call i32 @ref_is_hidden(ptr noundef %call, ptr noundef %refname, ptr noundef nonnull %hidden_refs) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %strbuf_setlen.exit
-  %prefixes = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 2
-  %nr.i = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 2, i32 1
+  %prefixes = getelementptr inbounds i8, ptr %cb_data, i64 8
+  %nr.i = getelementptr inbounds i8, ptr %cb_data, i64 16
   %1 = load i64, ptr %nr.i, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %if.end5, label %for.body.i
@@ -430,7 +426,7 @@ if.else:                                          ; preds = %if.end5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then7
-  %symrefs = getelementptr inbounds %struct.ls_refs_data, ptr %cb_data, i64 0, i32 1
+  %symrefs = getelementptr inbounds i8, ptr %cb_data, i64 4
   %5 = load i32, ptr %symrefs, align 4
   %tobool12.not = icmp eq i32 %5, 0
   %and = and i32 %flag, 1

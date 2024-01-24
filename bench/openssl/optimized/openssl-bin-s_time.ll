@@ -86,7 +86,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [9 x i8] c"starting\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @s_time_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @s_time_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %buf = alloca [8192 x i8], align 16
   %call = tail call ptr @TLS_client_method() #7
@@ -645,7 +645,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i64 @time(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @doConnection(ptr noundef %scon, ptr noundef %host, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc noundef ptr @doConnection(ptr noundef %scon, ptr noundef %host, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %no_linger = alloca %struct.linger, align 4
   %call = tail call ptr @BIO_s_connect() #7
@@ -718,7 +718,7 @@ if.then29:                                        ; preds = %if.end26
 
 if.end31:                                         ; preds = %if.end16
   store i32 1, ptr %no_linger, align 4
-  %l_linger = getelementptr inbounds %struct.linger, ptr %no_linger, i64 0, i32 1
+  %l_linger = getelementptr inbounds i8, ptr %no_linger, i64 4
   store i32 0, ptr %l_linger, align 4
   %call32 = tail call i32 @SSL_get_fd(ptr noundef nonnull %serverCon.0) #7
   %cmp33 = icmp sgt i32 %call32, -1

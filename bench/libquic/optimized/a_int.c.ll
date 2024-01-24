@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/a_int.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [123 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/a_int.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -19,10 +17,10 @@ declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ASN1_INTEGER_cmp(ptr noundef %x, ptr noundef %y) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %x, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %x, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, 256
-  %type1 = getelementptr inbounds %struct.asn1_string_st, ptr %y, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %y, i64 4
   %1 = load i32, ptr %type1, align 4
   %and2 = and i32 %1, 256
   %cmp.not = icmp eq i32 %and, %and2
@@ -59,10 +57,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.end36.thread, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %1 = load i32, ptr %type, align 4
   %and = and i32 %1, 256
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i8, ptr %2, align 1
   %cmp4 = icmp eq i32 %0, 1
@@ -155,7 +153,7 @@ if.then47:                                        ; preds = %if.end43.thread, %i
 
 if.else49:                                        ; preds = %if.end43
   %tobool50.not = icmp eq i32 %spec.select, 0
-  %data52 = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data52 = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load ptr, ptr %data52, align 8
   br i1 %tobool50.not, label %if.then51, label %if.else55
 
@@ -247,7 +245,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 4
   store i32 2, ptr %type, align 4
   br label %if.end4
 
@@ -271,14 +269,14 @@ if.end10:                                         ; preds = %if.end4
   br i1 %tobool.not, label %if.then11, label %if.else13
 
 if.then11:                                        ; preds = %if.end10
-  %type12 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type12 = getelementptr inbounds i8, ptr %ret.0, i64 4
   store i32 2, ptr %type12, align 4
   br label %if.end68
 
 if.else13:                                        ; preds = %if.end10
   %2 = load i8, ptr %1, align 1
   %tobool15.not = icmp sgt i8 %2, -1
-  %type54 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type54 = getelementptr inbounds i8, ptr %ret.0, i64 4
   %cmp59 = icmp ne i64 %len, 1
   br i1 %tobool15.not, label %if.else53, label %if.then16
 
@@ -367,7 +365,7 @@ if.else53:                                        ; preds = %if.else13
 
 if.end68:                                         ; preds = %for.body, %if.else37, %if.else53, %if.then36, %if.then11
   %len.addr.2 = phi i64 [ %inc, %if.then36 ], [ %len.addr.1, %if.else53 ], [ 0, %if.then11 ], [ %len.addr.0, %if.else37 ], [ %len.addr.0, %for.body ]
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ret.0, i64 8
   %11 = load ptr, ptr %data, align 8
   %cmp69.not = icmp eq ptr %11, null
   br i1 %cmp69.not, label %if.end73, label %if.then71
@@ -437,7 +435,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 4
   store i32 2, ptr %type, align 4
   br label %if.end4
 
@@ -465,7 +463,7 @@ if.end10:                                         ; preds = %if.end7
   br i1 %cmp13, label %err, label %if.end16
 
 if.end16:                                         ; preds = %if.end10
-  %type17 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 1
+  %type17 = getelementptr inbounds i8, ptr %ret.0, i64 4
   store i32 2, ptr %type17, align 4
   %tobool18.not = icmp eq i64 %3, 0
   br i1 %tobool18.not, label %if.end29, label %if.then19
@@ -498,7 +496,7 @@ if.end26:                                         ; preds = %if.then25, %if.then
 
 if.end29:                                         ; preds = %if.end26, %if.end16
   %8 = phi i64 [ %6, %if.end26 ], [ 0, %if.end16 ]
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ret.0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ret.0, i64 8
   %9 = load ptr, ptr %data, align 8
   %cmp30.not = icmp eq ptr %9, null
   br i1 %cmp30.not, label %if.end34, label %if.then32
@@ -549,11 +547,11 @@ declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 define hidden noundef i32 @ASN1_INTEGER_set(ptr nocapture noundef %a, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [9 x i8], align 1
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   store i32 2, ptr %type, align 4
   %0 = load i32, ptr %a, align 8
   %cmp = icmp slt i32 %0, 9
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end9
@@ -579,7 +577,7 @@ if.then12:                                        ; preds = %if.end, %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end, %if.end9
-  %data1041 = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data1041 = getelementptr inbounds i8, ptr %a, i64 8
   %cmp14 = icmp slt i64 %v, 0
   br i1 %cmp14, label %if.end17.thread, label %if.end17
 
@@ -646,7 +644,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp1.not = icmp eq i32 %0, 258
   switch i32 %0, label %return [
@@ -660,7 +658,7 @@ if.end6:                                          ; preds = %if.end, %if.end
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp10 = icmp eq ptr %2, null
   br i1 %cmp10, label %return, label %for.cond.preheader
@@ -727,7 +725,7 @@ if.else8:                                         ; preds = %land.lhs.true, %if.
 
 if.end10:                                         ; preds = %land.lhs.true, %if.else8
   %.sink = phi i32 [ 2, %if.else8 ], [ 258, %land.lhs.true ]
-  %type9 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.025, i64 0, i32 1
+  %type9 = getelementptr inbounds i8, ptr %ret.025, i64 4
   store i32 %.sink, ptr %type9, align 4
   %call11 = tail call i32 @BN_num_bits(ptr noundef %bn) #9
   %cmp12 = icmp eq i32 %call11, 0
@@ -742,7 +740,7 @@ cond.end:                                         ; preds = %if.end10, %cond.fal
   %cond = phi i32 [ %0, %cond.false ], [ 4, %if.end10 ]
   %1 = load i32, ptr %ret.025, align 8
   %cmp14 = icmp slt i32 %1, %cond
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ret.025, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ret.025, i64 8
   %2 = load ptr, ptr %data, align 8
   br i1 %cmp14, label %if.then15, label %if.end22
 
@@ -769,7 +767,7 @@ if.end22:                                         ; preds = %cond.end, %if.end20
   br i1 %tobool28.not, label %if.then29, label %return
 
 if.then29:                                        ; preds = %if.end22
-  %data23 = getelementptr inbounds %struct.asn1_string_st, ptr %ret.025, i64 0, i32 2
+  %data23 = getelementptr inbounds i8, ptr %ret.025, i64 8
   %4 = load ptr, ptr %data23, align 8
   store i8 0, ptr %4, align 1
   store i32 1, ptr %ret.025, align 8
@@ -803,7 +801,7 @@ declare i64 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ASN1_INTEGER_to_BN(ptr nocapture noundef readonly %ai, ptr noundef %bn) local_unnamed_addr #0 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %ai, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %ai, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %ai, align 8
   %conv = sext i32 %1 to i64
@@ -816,7 +814,7 @@ if.then:                                          ; preds = %entry
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %ai, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ai, i64 4
   %2 = load i32, ptr %type, align 4
   %cmp2 = icmp eq i32 %2, 258
   br i1 %cmp2, label %if.then4, label %if.end5

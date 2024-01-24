@@ -23,11 +23,11 @@ define hidden noundef zeroext i1 @_ZN6cineon12IdentifyFileEPNS_8InStreamE(ptr no
 entry:
   %magic = alloca i32, align 4
   %vtable = load ptr, ptr %fp, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %fp)
   %vtable1 = load ptr, ptr %fp, align 8
-  %vfn2 = getelementptr inbounds ptr, ptr %vtable1, i64 5
+  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 40
   %1 = load ptr, ptr %vfn2, align 8
   %call = call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(16) %fp, ptr noundef nonnull %magic, i64 noundef 4)
   %cmp.not = icmp eq i64 %call, 4

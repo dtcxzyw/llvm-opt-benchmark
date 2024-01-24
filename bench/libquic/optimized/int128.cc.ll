@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.net::uint128_pod" = type { i64, i64 }
-%"class.net::uint128" = type { i64, i64 }
 
 @_ZN3net11kuint128maxE = dso_local local_unnamed_addr constant %"struct.net::uint128_pod" { i64 -1, i64 -1 }, align 8
 @.str = private unnamed_addr constant [3 x i8] c"::\00", align 1
@@ -12,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN3netlsERSoRKNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8) %o, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #0 {
 entry:
-  %hi_ = getelementptr inbounds %"class.net::uint128", ptr %b, i64 0, i32 1
+  %hi_ = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load i64, ptr %hi_, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %o, i64 noundef %0)
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str)

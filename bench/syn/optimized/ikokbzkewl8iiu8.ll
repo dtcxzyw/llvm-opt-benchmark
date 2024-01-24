@@ -43,7 +43,7 @@ define hidden void @"_ZN57_$LT$proc_macro2..Group$u20$as$u20$core..clone..Clone$
 define hidden void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..clone..Clone$GT$5clone17ha68ef58bbfbf9cb0E"(ptr nocapture writeonly sret({ { [24 x i8], i8, [7 x i8] }, {} }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [24 x i8], i8, [7 x i8] }, align 8
   call void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17hcaf985b7f4f2beb8E"(ptr nonnull sret({ [24 x i8], i8, [7 x i8] }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, {} }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
   invoke void @"_ZN73_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8501d6125022615dE"(ptr nonnull align 1 %4)
           to label %7 unwind label %5
 
@@ -70,14 +70,14 @@ define hidden void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..clone..Clone$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN57_$LT$proc_macro2..Punct$u20$as$u20$core..clone..Clone$GT$5clone17h3489bfe2ae6b2694E"(ptr nocapture writeonly sret({ i32, i32, i8, [3 x i8] }) align 4 %0, ptr nocapture readonly align 4 %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !range !6, !noundef !5
-  %4 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %1, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load i8, ptr %4, align 4, !range !7, !noundef !5
-  %5 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !noundef !5
   store i32 %3, ptr %0, align 4
-  %7 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.val, ptr %7, align 4
-  %8 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %6, ptr %8, align 4
   ret void
 }
@@ -86,7 +86,7 @@ define hidden void @"_ZN57_$LT$proc_macro2..Punct$u20$as$u20$core..clone..Clone$
 define hidden void @"_ZN59_$LT$proc_macro2..Literal$u20$as$u20$core..clone..Clone$GT$5clone17h77b009dd1008ff3eE"(ptr nocapture writeonly sret({ { ptr, [2 x i64] }, {} }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [2 x i64] }, align 8
   call void @"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17h04870ddc174dda32E"(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { ptr, [2 x i64] }, {} }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN73_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8501d6125022615dE"(ptr nonnull align 1 %4)
           to label %7 unwind label %5
 
@@ -136,7 +136,7 @@ define hidden noundef zeroext i1 @"_ZN63_$LT$proc_macro2..Delimiter$u20$as$u20$c
 define hidden void @"_ZN63_$LT$proc_macro2..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h115c4dc0f5fe96a8E"(ptr nocapture writeonly sret({ { ptr, [3 x i64] }, {} }) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [3 x i64] }, align 8
   call void @"_ZN68_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..clone..Clone$GT$5clone17h665f6e0a1b0edd8eE"(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { { ptr, [3 x i64] }, {} }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
   invoke void @"_ZN73_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8501d6125022615dE"(ptr nonnull align 1 %4)
           to label %7 unwind label %5
 
@@ -206,7 +206,7 @@ define void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$syn..ext..IdentExt$GT$5unr
           to label %.noexc unwind label %6
 
 .noexc:                                           ; preds = %15
-  %16 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, {} }, ptr %1, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
   invoke void @"_ZN73_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8501d6125022615dE"(ptr nonnull align 1 %16)
           to label %"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$core..clone..Clone$GT$5clone17ha68ef58bbfbf9cb0E.exit" unwind label %17
 
@@ -266,7 +266,7 @@ define zeroext i1 @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..token..Token$u20$f
   %3 = alloca { { [24 x i8], i8, [7 x i8] }, {} }, align 8
   %4 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %4, ptr %0, ptr %1)
-  %5 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8, !range !8, !noundef !5
   %.not.not = icmp eq i8 %6, 3
   br i1 %.not.not, label %14, label %7
@@ -355,9 +355,9 @@ define i64 @"_ZN104_$LT$proc_macro2..Span$u20$as$u20$syn..span..IntoSpans$LT$$u5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN104_$LT$proc_macro2..Span$u20$as$u20$syn..span..IntoSpans$LT$$u5b$proc_macro2..Span$u3b$$u20$3$u5d$$GT$$GT$10into_spans17h5057a85fb19c8dacE"(ptr nocapture writeonly sret([3 x i32]) align 4 %0, i32 %1) unnamed_addr #5 {
   store i32 %1, ptr %0, align 4
-  %3 = getelementptr inbounds [3 x i32], ptr %0, i64 0, i64 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds [3 x i32], ptr %0, i64 0, i64 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 4
   ret void
 }

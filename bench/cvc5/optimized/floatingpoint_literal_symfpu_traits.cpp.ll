@@ -4,11 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
+%"class.cvc5::internal::symfpuLiteral::wrappedBitVector" = type { %"class.cvc5::internal::BitVector" }
 %"class.cvc5::internal::BitVector" = type { i32, %"class.cvc5::internal::Integer" }
 %"class.cvc5::internal::Integer" = type { %class.__gmp_expr }
 %class.__gmp_expr = type { [1 x %struct.__mpz_struct] }
 %struct.__mpz_struct = type { i32, i32, ptr }
-%"class.cvc5::internal::symfpuLiteral::wrappedBitVector" = type { %"class.cvc5::internal::BitVector" }
 %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0" = type { %"class.cvc5::internal::BitVector" }
 
 $_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5Ejj = comdat any
@@ -210,8 +210,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
-  %d_value3.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %old, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i, ptr noundef nonnull %d_value3.i)
   ret void
 }
@@ -221,8 +221,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
-  %d_value3.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %old, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i, ptr noundef nonnull %d_value3.i)
   ret void
 }
@@ -267,8 +267,8 @@ entry:
 .noexc:                                           ; preds = %entry
   %1 = load i32, ptr %ref.tmp.i, align 8, !noalias !7
   store i32 %1, ptr %agg.result, align 8, !alias.scope !7
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -298,7 +298,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i1
 
@@ -319,7 +319,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %4, %lpad.i ]
-  %d_value.i.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i2)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit4 unwind label %terminate.lpad.i.i.i.i3
 
@@ -341,8 +341,8 @@ entry:
   call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -398,8 +398,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   %1 = load i32, ptr %ref.tmp, align 8
   store i32 %1, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -415,7 +415,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont5
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont5
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp1, i64 0, i32 1
+  %d_value.i3 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i3)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %terminate.lpad.i.i.i4
 
@@ -427,7 +427,7 @@ terminate.lpad.i.i.i4:                            ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit5:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %d_value.i6 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %base, i64 0, i32 1
+  %d_value.i6 = getelementptr inbounds i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i6)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit8 unwind label %terminate.lpad.i.i.i7
 
@@ -466,7 +466,7 @@ terminate.lpad.i.i.i10:                           ; preds = %lpad4
 
 ehcleanup:                                        ; preds = %lpad4, %lpad2
   %.pn = phi { ptr, i32 } [ %9, %lpad2 ], [ %10, %lpad4 ]
-  %d_value.i12 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp1, i64 0, i32 1
+  %d_value.i12 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i12)
           to label %ehcleanup6 unwind label %terminate.lpad.i.i.i13
 
@@ -479,7 +479,7 @@ terminate.lpad.i.i.i13:                           ; preds = %ehcleanup
 
 ehcleanup6:                                       ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %8, %lpad ], [ %.pn, %ehcleanup ]
-  %d_value.i15 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %base, i64 0, i32 1
+  %d_value.i15 = getelementptr inbounds i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i15)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit17 unwind label %terminate.lpad.i.i.i16
 
@@ -499,7 +499,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef no
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   store i32 %size, ptr %this, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value = getelementptr inbounds i8, ptr %this, i64 8
   %conv.i.i = zext i32 %z to i64
   tail call void @__gmpz_init_set_ui(ptr noundef nonnull %d_value, i64 noundef %conv.i.i)
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %size)
@@ -581,8 +581,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont2:                                     ; preds = %invoke.cont
   %2 = load i32, ptr %result, align 8
   store i32 %2, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %result, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %result, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -598,7 +598,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont4
-  %d_value.i5 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %shiftAmount, i64 0, i32 1
+  %d_value.i5 = getelementptr inbounds i8, ptr %shiftAmount, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i5)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit7 unwind label %terminate.lpad.i.i.i6
 
@@ -610,7 +610,7 @@ terminate.lpad.i.i.i6:                            ; preds = %_ZN4cvc58internal9B
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit7:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %d_value.i8 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %base, i64 0, i32 1
+  %d_value.i8 = getelementptr inbounds i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i8)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit10 unwind label %terminate.lpad.i.i.i9
 
@@ -649,7 +649,7 @@ terminate.lpad.i.i.i12:                           ; preds = %lpad3
 
 ehcleanup:                                        ; preds = %lpad3, %lpad1
   %.pn = phi { ptr, i32 } [ %10, %lpad1 ], [ %11, %lpad3 ]
-  %d_value.i14 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %shiftAmount, i64 0, i32 1
+  %d_value.i14 = getelementptr inbounds i8, ptr %shiftAmount, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i14)
           to label %ehcleanup5 unwind label %terminate.lpad.i.i.i15
 
@@ -662,7 +662,7 @@ terminate.lpad.i.i.i15:                           ; preds = %ehcleanup
 
 ehcleanup5:                                       ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %9, %lpad ], [ %.pn, %ehcleanup ]
-  %d_value.i17 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %base, i64 0, i32 1
+  %d_value.i17 = getelementptr inbounds i8, ptr %base, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i17)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit19 unwind label %terminate.lpad.i.i.i18
 
@@ -691,7 +691,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -708,7 +708,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -740,7 +740,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -757,7 +757,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -779,8 +779,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -822,8 +822,8 @@ entry:
   call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -867,8 +867,8 @@ entry:
   call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -912,8 +912,8 @@ entry:
   call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -957,8 +957,8 @@ entry:
   call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1002,8 +1002,8 @@ entry:
   call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1047,8 +1047,8 @@ entry:
   call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1100,8 +1100,8 @@ entry:
 .noexc:                                           ; preds = %entry
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !10
   store i32 %0, ptr %agg.result, align 8, !alias.scope !10
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1131,7 +1131,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i1
 
@@ -1152,7 +1152,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i2)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit4 unwind label %terminate.lpad.i.i.i.i3
 
@@ -1182,8 +1182,8 @@ entry:
 .noexc:                                           ; preds = %entry
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !13
   store i32 %0, ptr %agg.result, align 8, !alias.scope !13
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1213,7 +1213,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i1
 
@@ -1234,7 +1234,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i2)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit4 unwind label %terminate.lpad.i.i.i.i3
 
@@ -1256,8 +1256,8 @@ entry:
   %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
   store i32 %call.i, ptr %ref.tmp2, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp2, i64 0, i32 1
-  %d_value2.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %op, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %d_value2.i = getelementptr inbounds i8, ptr %op, i64 8
   call void @__gmpz_init_set(ptr noundef nonnull %d_value.i, ptr noundef nonnull %d_value2.i)
   invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
@@ -1265,8 +1265,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1340,8 +1340,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !16
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !16
   store i32 %0, ptr %agg.result, align 8, !alias.scope !16
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1386,8 +1386,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !19
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !19
   store i32 %0, ptr %agg.result, align 8, !alias.scope !19
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1430,8 +1430,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1489,8 +1489,8 @@ entry:
   call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !22
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !22
   store i32 %0, ptr %agg.result, align 8, !alias.scope !22
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1535,8 +1535,8 @@ entry:
   call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !25
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !25
   store i32 %0, ptr %agg.result, align 8, !alias.scope !25
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1579,8 +1579,8 @@ define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVector
 entry:
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
   ret void
 }
@@ -1590,8 +1590,8 @@ define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVector
 entry:
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
   ret void
 }
@@ -1603,8 +1603,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1653,8 +1653,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2, i32 noundef 0), !noalias !28
   %1 = load i32, ptr %ref.tmp.i, align 8, !noalias !28
   store i32 %1, ptr %agg.result, align 8, !alias.scope !28
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1697,8 +1697,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1748,8 +1748,8 @@ if.then:                                          ; preds = %entry
   call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !31
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !31
   store i32 %0, ptr %agg.result, align 8, !alias.scope !31
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1796,8 +1796,8 @@ if.then3:                                         ; preds = %if.else
 if.else5:                                         ; preds = %if.else
   %6 = load i32, ptr %this, align 8
   store i32 %6, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
   br label %return
 
@@ -1817,8 +1817,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !34
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !34
   store i32 %0, ptr %agg.result, align 8, !alias.scope !34
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1861,8 +1861,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1923,8 +1923,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
-  %d_value3.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %old, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i, ptr noundef nonnull %d_value3.i)
   ret void
 }
@@ -1934,8 +1934,8 @@ define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorI
 entry:
   %0 = load i32, ptr %old, align 8
   store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
-  %d_value3.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %old, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_value3.i = getelementptr inbounds i8, ptr %old, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i, ptr noundef nonnull %d_value3.i)
   ret void
 }
@@ -1978,8 +1978,8 @@ entry:
 .noexc:                                           ; preds = %entry
   %1 = load i32, ptr %ref.tmp.i, align 8, !noalias !40
   store i32 %1, ptr %agg.result, align 8, !alias.scope !40
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2009,7 +2009,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i1
 
@@ -2030,7 +2030,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %4, %lpad.i ]
-  %d_value.i.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i2)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit4 unwind label %terminate.lpad.i.i.i.i3
 
@@ -2052,8 +2052,8 @@ entry:
   call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2115,7 +2115,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2132,7 +2132,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -2164,7 +2164,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -2181,7 +2181,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %in
 lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i3)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
 
@@ -2203,8 +2203,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2246,8 +2246,8 @@ entry:
   call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2289,8 +2289,8 @@ entry:
   call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2332,8 +2332,8 @@ entry:
   call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2375,8 +2375,8 @@ entry:
   call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2418,8 +2418,8 @@ entry:
   call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2461,8 +2461,8 @@ entry:
   call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2512,8 +2512,8 @@ entry:
 .noexc:                                           ; preds = %entry
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !46
   store i32 %0, ptr %agg.result, align 8, !alias.scope !46
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2543,7 +2543,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i1
 
@@ -2564,7 +2564,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i2)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit4 unwind label %terminate.lpad.i.i.i.i3
 
@@ -2594,8 +2594,8 @@ entry:
 .noexc:                                           ; preds = %entry
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !49
   store i32 %0, ptr %agg.result, align 8, !alias.scope !49
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2625,7 +2625,7 @@ terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i1
 
@@ -2646,7 +2646,7 @@ lpad:                                             ; preds = %entry
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i2)
           to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit4 unwind label %terminate.lpad.i.i.i.i3
 
@@ -2668,8 +2668,8 @@ entry:
   %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
   store i32 %call.i, ptr %ref.tmp2, align 8
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp2, i64 0, i32 1
-  %d_value2.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %op, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %d_value2.i = getelementptr inbounds i8, ptr %op, i64 8
   call void @__gmpz_init_set(ptr noundef nonnull %d_value.i, ptr noundef nonnull %d_value2.i)
   invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
           to label %invoke.cont unwind label %lpad
@@ -2677,8 +2677,8 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -2750,8 +2750,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !52
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !52
   store i32 %0, ptr %agg.result, align 8, !alias.scope !52
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2796,8 +2796,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !55
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !55
   store i32 %0, ptr %agg.result, align 8, !alias.scope !55
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2840,8 +2840,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -2899,8 +2899,8 @@ entry:
   call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !58
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !58
   store i32 %0, ptr %agg.result, align 8, !alias.scope !58
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2945,8 +2945,8 @@ entry:
   call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !61
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !61
   store i32 %0, ptr %agg.result, align 8, !alias.scope !61
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -2987,8 +2987,8 @@ define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVector
 entry:
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
   ret void
 }
@@ -2998,8 +2998,8 @@ define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVector
 entry:
   %0 = load i32, ptr %this, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
   ret void
 }
@@ -3011,8 +3011,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3059,8 +3059,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2, i32 noundef 0), !noalias !64
   %1 = load i32, ptr %ref.tmp.i, align 8, !noalias !64
   store i32 %1, ptr %agg.result, align 8, !alias.scope !64
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -3103,8 +3103,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3154,8 +3154,8 @@ if.then:                                          ; preds = %entry
   call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !67
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !67
   store i32 %0, ptr %agg.result, align 8, !alias.scope !67
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -3202,8 +3202,8 @@ if.then3:                                         ; preds = %if.else
 if.else5:                                         ; preds = %if.else
   %6 = load i32, ptr %this, align 8
   store i32 %6, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
   br label %return
 
@@ -3223,8 +3223,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !70
   %0 = load i32, ptr %ref.tmp.i, align 8, !noalias !70
   store i32 %0, ptr %agg.result, align 8, !alias.scope !70
-  %d_value.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp.i, i64 0, i32 1
+  %d_value.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i.i, ptr noundef nonnull %d_value3.i.i.i)
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -3267,8 +3267,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3312,8 +3312,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -3357,8 +3357,8 @@ entry:
   call void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
   %0 = load i32, ptr %ref.tmp, align 8
   store i32 %0, ptr %agg.result, align 8
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %agg.result, i64 0, i32 1
-  %d_value3.i.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_value3.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull %d_value.i.i, ptr noundef nonnull %d_value3.i.i)
           to label %invoke.cont unwind label %lpad
 

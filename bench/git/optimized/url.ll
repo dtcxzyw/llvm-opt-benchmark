@@ -197,8 +197,8 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %tobool2.not = icmp eq ptr %stop_at, null
   %tobool21 = icmp ne i32 %decode_plus, 0
-  %len.i.i26 = getelementptr inbounds %struct.strbuf, ptr %out, i64 0, i32 1
-  %buf.i30 = getelementptr inbounds %struct.strbuf, ptr %out, i64 0, i32 2
+  %len.i.i26 = getelementptr inbounds i8, ptr %out, i64 8
+  %buf.i30 = getelementptr inbounds i8, ptr %out, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -377,13 +377,13 @@ define dso_local void @end_url_with_slash(ptr noundef %buf, ptr noundef %url) lo
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #8
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %url, i64 noundef %call.i) #9
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %strbuf_complete.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i = getelementptr i8, ptr %2, i64 -1
@@ -430,13 +430,13 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #8
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %url, i64 noundef %call.i.i) #9
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i, label %end_url_with_slash.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf.i.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i.i = getelementptr i8, ptr %2, i64 -1

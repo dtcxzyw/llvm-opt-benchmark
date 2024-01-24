@@ -3,25 +3,9 @@ source_filename = "bench/hyperscan/original/rose_build_lit_accel.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.HWLM = type { i8, i64, %union.AccelAux, %union.AccelAux }
-%union.AccelAux = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64> }
-%"struct.std::_Vector_base<ue2::AccelString, std::allocator<ue2::AccelString>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::AccelString" = type { %"class.std::__cxx11::basic_string", i8, %"class.std::vector.20", %"class.std::vector.20", i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.anon.1 = type { i8, i8, i8, i8, i8, i8 }
-%struct.anon.0 = type { i8, i8, i8 }
 %"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
 %"class.ue2::bitfield" = type { %"struct.std::array" }
 %"struct.std::array" = type { [4 x i64] }
-%struct.anon.4 = type { i8, i8, <2 x i64>, <2 x i64> }
-%struct.anon.6 = type { i8, i8, <2 x i64>, <2 x i64> }
 
 @_ZTIN3ue218ResourceLimitErrorE = external constant ptr
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -29,11 +13,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue217buildForwardAccelEP4HWLMRKSt6vectorINS_11AccelStringESaIS3_EEy(ptr noundef %h, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lits, i64 noundef %expected_groups) local_unnamed_addr #0 {
 entry:
-  %accel1 = getelementptr inbounds %struct.HWLM, ptr %h, i64 0, i32 2
+  %accel1 = getelementptr inbounds i8, ptr %h, i64 16
   tail call fastcc void @_ZN3ue2L22findForwardAccelSchemeERKSt6vectorINS_11AccelStringESaIS1_EEyP8AccelAux(ptr noundef nonnull align 8 dereferenceable(24) %lits, i64 noundef %expected_groups, ptr noundef nonnull %accel1)
-  %accel0 = getelementptr inbounds %struct.HWLM, ptr %h, i64 0, i32 3
+  %accel0 = getelementptr inbounds i8, ptr %h, i64 96
   tail call fastcc void @_ZN3ue2L22findForwardAccelSchemeERKSt6vectorINS_11AccelStringESaIS1_EEyP8AccelAux(ptr noundef nonnull align 8 dereferenceable(24) %lits, i64 noundef -1, ptr noundef nonnull %accel0)
-  %accel1_groups = getelementptr inbounds %struct.HWLM, ptr %h, i64 0, i32 1
+  %accel1_groups = getelementptr inbounds i8, ptr %h, i64 8
   store i64 %expected_groups, ptr %accel1_groups, align 8
   ret void
 }
@@ -42,7 +26,7 @@ entry:
 define internal fastcc void @_ZN3ue2L22findForwardAccelSchemeERKSt6vectorINS_11AccelStringESaIS1_EEyP8AccelAux(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lits, i64 noundef %expected_groups, ptr noundef %aux) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %lits, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::AccelString, std::allocator<ue2::AccelString>>::_Vector_impl_data", ptr %lits, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %lits, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not24.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not24.i, label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EED2Ev.exit, label %for.body.i
@@ -52,7 +36,7 @@ for.body.i:                                       ; preds = %entry, %cleanup.i
   %filtered_lits.sroa.18.0 = phi ptr [ %filtered_lits.sroa.18.1, %cleanup.i ], [ null, %entry ]
   %filtered_lits.sroa.0.0 = phi ptr [ %filtered_lits.sroa.0.1, %cleanup.i ], [ null, %entry ]
   %__begin1.sroa.0.025.i = phi ptr [ %incdec.ptr.i.i, %cleanup.i ], [ %0, %entry ]
-  %groups.i = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.025.i, i64 0, i32 4
+  %groups.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.025.i, i64 88
   %2 = load i64, ptr %groups.i, align 8
   %and.i = and i64 %2, %expected_groups
   %tobool.not.i235 = icmp eq i64 %and.i, 0
@@ -64,7 +48,7 @@ if.end.i:                                         ; preds = %for.body.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   store ptr %__begin1.sroa.0.025.i, ptr %filtered_lits.sroa.11.0, align 8
-  %incdec.ptr.i20.i = getelementptr inbounds ptr, ptr %filtered_lits.sroa.11.0, i64 1
+  %incdec.ptr.i20.i = getelementptr inbounds i8, ptr %filtered_lits.sroa.11.0, i64 8
   br label %cleanup.i
 
 if.else.i.i:                                      ; preds = %if.end.i
@@ -108,7 +92,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit39.i.i.i
 
 _ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit39.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPKN3ue211AccelStringESaIS3_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %filtered_lits.sroa.0.0, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i40.i.i.i
 
@@ -124,7 +108,7 @@ cleanup.i:                                        ; preds = %_ZNSt6vectorIPKN3ue
   %filtered_lits.sroa.11.1 = phi ptr [ %filtered_lits.sroa.11.0, %for.body.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i20.i, %if.then.i.i ]
   %filtered_lits.sroa.18.1 = phi ptr [ %filtered_lits.sroa.18.0, %for.body.i ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %filtered_lits.sroa.18.0, %if.then.i.i ]
   %filtered_lits.sroa.0.1 = phi ptr [ %filtered_lits.sroa.0.0, %for.body.i ], [ %cond.i31.i.i.i, %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %filtered_lits.sroa.0.0, %if.then.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.025.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.025.i, i64 96
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i
 
@@ -145,7 +129,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont.i.i.i25
 
 if.end:                                           ; preds = %invoke.cont
   %4 = load ptr, ptr %filtered_lits.sroa.0.1, align 8
-  %_M_string_length.i.i239 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 0, i32 1
+  %_M_string_length.i.i239 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_M_string_length.i.i239, align 8
   %spec.select419.i = tail call i64 @llvm.umin.i64(i64 %5, i64 16)
   %sub.i240 = add nsw i64 %spec.select419.i, -1
@@ -199,12 +183,12 @@ for.body11.i:                                     ; preds = %for.inc102.i, %for.
   %__begin2.sroa.0.0432.i = phi ptr [ %filtered_lits.sroa.0.1, %for.body11.lr.ph.i ], [ %incdec.ptr.i.i252, %for.inc102.i ]
   %curr.sroa.22.0431.i = phi i8 [ 0, %for.body11.lr.ph.i ], [ %curr.sroa.22.2401.i, %for.inc102.i ]
   %15 = load ptr, ptr %__begin2.sroa.0.0432.i, align 8
-  %nocase.i = getelementptr inbounds %"struct.ue2::AccelString", ptr %15, i64 0, i32 1
+  %nocase.i = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load i8, ptr %nocase.i, align 8, !range !5, !noundef !6
   %tobool.not.i245 = icmp eq i8 %16, 0
   %spec.select454.i = select i1 %brmerge453.i, i8 1, i8 %curr.sroa.22.0431.i
   %curr.sroa.22.1.i = select i1 %tobool.not.i245, i8 %curr.sroa.22.0431.i, i8 %spec.select454.i
-  %_M_string_length.i326.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %15, i64 0, i32 1
+  %_M_string_length.i326.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i64, ptr %_M_string_length.i326.i, align 8
   %spec.select420.i = tail call i64 @llvm.umin.i64(i64 %17, i64 16)
   %sub29.i = add nsw i64 %spec.select420.i, -1
@@ -261,7 +245,7 @@ land.end72.i:                                     ; preds = %land.rhs61.i, %land
 
 for.inc102.i:                                     ; preds = %land.end72.i, %for.cond.cleanup31.i
   %curr.sroa.22.2401.i = phi i8 [ 1, %for.cond.cleanup31.i ], [ %curr.sroa.22.1.i, %land.end72.i ]
-  %incdec.ptr.i.i252 = getelementptr inbounds ptr, ptr %__begin2.sroa.0.0432.i, i64 1
+  %incdec.ptr.i.i252 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0432.i, i64 8
   %cmp.i325.not.i = icmp eq ptr %incdec.ptr.i.i252, %filtered_lits.sroa.11.1
   br i1 %cmp.i325.not.i, label %for.body119.lr.ph.i, label %for.body11.i
 
@@ -299,7 +283,7 @@ for.body119.i:                                    ; preds = %cleanup208.i, %for.
   %__begin2110.sroa.0.0438.i = phi ptr [ %filtered_lits.sroa.0.1, %for.body119.lr.ph.i ], [ %incdec.ptr.i363.i, %cleanup208.i ]
   %curr.sroa.17378.0437.i = phi i32 [ 0, %for.body119.lr.ph.i ], [ %curr.sroa.17378.3.i, %cleanup208.i ]
   %30 = load ptr, ptr %__begin2110.sroa.0.0438.i, align 8
-  %_M_string_length.i338.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %30, i64 0, i32 1
+  %_M_string_length.i338.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load i64, ptr %_M_string_length.i338.i, align 8
   %spec.select421.i = tail call i64 @llvm.umin.i64(i64 %31, i64 16)
   %sub135.i = add nsw i64 %spec.select421.i, -1
@@ -353,8 +337,8 @@ land.rhs152.i:                                    ; preds = %for.body138.i
 if.then185.i:                                     ; preds = %land.rhs152.i, %if.end183.i.us
   %.us-phi = phi i64 [ %conv125435.i.us, %if.end183.i.us ], [ %conv125435.i, %land.rhs152.i ]
   %conv186.i = zext i32 %curr.sroa.17378.0437.i to i64
-  %msk.i.i = getelementptr inbounds %"struct.ue2::AccelString", ptr %30, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.ue2::AccelString", ptr %30, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %msk.i.i = getelementptr inbounds i8, ptr %30, i64 40
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %30, i64 48
   %41 = load ptr, ptr %_M_finish.i.i.i, align 8
   %42 = load ptr, ptr %msk.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %41 to i64
@@ -419,7 +403,7 @@ for.inc206.i:                                     ; preds = %for.body138.i, %lan
 
 cleanup208.i:                                     ; preds = %for.inc206.i, %for.inc206.i.us, %cond.end198.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i, %for.body119.i
   %curr.sroa.17378.3.i = phi i32 [ %conv200.i, %cond.end198.i ], [ %curr.sroa.17378.0437.i, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.thread.i ], [ %curr.sroa.17378.0437.i, %for.body119.i ], [ %curr.sroa.17378.0437.i, %for.inc206.i.us ], [ %curr.sroa.17378.0437.i, %for.inc206.i ]
-  %incdec.ptr.i363.i = getelementptr inbounds ptr, ptr %__begin2110.sroa.0.0438.i, i64 1
+  %incdec.ptr.i363.i = getelementptr inbounds i8, ptr %__begin2110.sroa.0.0438.i, i64 8
   %cmp.i332.not.i = icmp eq ptr %incdec.ptr.i363.i, %filtered_lits.sroa.11.1
   br i1 %cmp.i332.not.i, label %if.end.i.i, label %for.body119.i
 
@@ -462,7 +446,7 @@ lpad.i.i.i249:                                    ; preds = %if.then.i.i.i247
 _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %if.end225.i
   %47 = icmp eq i8 %.in.i, 0
   %conv.i.i.i251 = trunc i32 %best.sroa.13.1472481.i to i8
-  %offset.i = getelementptr inbounds %struct.anon.1, ptr %aux, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i251, ptr %offset.i, align 1
   %48 = and i8 %best.sroa.0.1470483.i, -33
   %49 = and i8 %best.sroa.7.1471482.i, -33
@@ -470,9 +454,9 @@ _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %if.end225.i
   %.sink = select i1 %47, i8 %best.sroa.0.1470483.i, i8 %48
   %best.sroa.7.1471482.sink.i = select i1 %47, i8 %best.sroa.7.1471482.i, i8 %49
   store i8 %.sink482, ptr %aux, align 16
-  %50 = getelementptr inbounds %struct.anon.1, ptr %aux, i64 0, i32 2
+  %50 = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %.sink, ptr %50, align 2
-  %c2234.i = getelementptr inbounds %struct.anon.1, ptr %aux, i64 0, i32 3
+  %c2234.i = getelementptr inbounds i8, ptr %aux, i64 3
   store i8 %best.sroa.7.1471482.sink.i, ptr %c2234.i, align 1
   br label %cleanup164
 
@@ -513,21 +497,21 @@ for.body95.i.us:                                  ; preds = %for.body95.lr.ph.i,
   %__begin286.sroa.0.0335.i.us = phi ptr [ %incdec.ptr.i253.i.us, %for.cond.cleanup112.i.us ], [ %filtered_lits.sroa.0.1, %for.body95.lr.ph.i ]
   %curr.sroa.9283.0334.i.us = phi i32 [ %curr.sroa.9283.1.lcssa.i.us, %for.cond.cleanup112.i.us ], [ 0, %for.body95.lr.ph.i ]
   %55 = load ptr, ptr %__begin286.sroa.0.0335.i.us, align 8
-  %_M_string_length.i251.i.us = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %55, i64 0, i32 1
+  %_M_string_length.i251.i.us = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load i64, ptr %_M_string_length.i251.i.us, align 8
   %cmp111328.not.i.us = icmp eq i64 %56, 0
   br i1 %cmp111328.not.i.us, label %for.cond.cleanup112.i.us, label %for.body113.lr.ph.i.us
 
 for.body113.lr.ph.i.us:                           ; preds = %for.body95.i.us
   %spec.select319.i.us = tail call i64 @llvm.umin.i64(i64 %56, i64 16)
-  %msk.i.i281.us = getelementptr inbounds %"struct.ue2::AccelString", ptr %55, i64 0, i32 2
-  %_M_finish.i.i.i282.us = getelementptr inbounds %"struct.ue2::AccelString", ptr %55, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %msk.i.i281.us = getelementptr inbounds i8, ptr %55, i64 40
+  %_M_finish.i.i.i282.us = getelementptr inbounds i8, ptr %55, i64 48
   %57 = load ptr, ptr %55, align 8
   br label %for.body113.i.us.us
 
 for.cond.cleanup112.i.us:                         ; preds = %if.end154.i.us.us, %for.body95.i.us
   %curr.sroa.9283.1.lcssa.i.us = phi i32 [ %curr.sroa.9283.0334.i.us, %for.body95.i.us ], [ %curr.sroa.9283.2.i.us.us, %if.end154.i.us.us ]
-  %incdec.ptr.i253.i.us = getelementptr inbounds ptr, ptr %__begin286.sroa.0.0335.i.us, i64 1
+  %incdec.ptr.i253.i.us = getelementptr inbounds i8, ptr %__begin286.sroa.0.0335.i.us, i64 8
   %cmp.i246.not.i.us = icmp eq ptr %incdec.ptr.i253.i.us, %filtered_lits.sroa.11.1
   br i1 %cmp.i246.not.i.us, label %if.end.i.i283, label %for.body95.i.us
 
@@ -609,12 +593,12 @@ for.body11.i266:                                  ; preds = %for.inc78.i, %for.b
   %__begin2.sroa.0.0327.i = phi ptr [ %filtered_lits.sroa.0.1, %for.body11.lr.ph.i264 ], [ %incdec.ptr.i.i280, %for.inc78.i ]
   %curr.sroa.14.0326.i = phi i8 [ 0, %for.body11.lr.ph.i264 ], [ %curr.sroa.14.2303.i.fr, %for.inc78.i ]
   %63 = load ptr, ptr %__begin2.sroa.0.0327.i, align 8
-  %nocase.i267 = getelementptr inbounds %"struct.ue2::AccelString", ptr %63, i64 0, i32 1
+  %nocase.i267 = getelementptr inbounds i8, ptr %63, i64 32
   %64 = load i8, ptr %nocase.i267, align 8, !range !5, !noundef !6
   %tobool.not.i268 = icmp eq i8 %64, 0
   %65 = select i1 %tobool.not.i268, i1 true, i1 %cmp.i.i265
   %curr.sroa.14.1.i = select i1 %65, i8 %curr.sroa.14.0326.i, i8 1
-  %_M_string_length.i242.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %63, i64 0, i32 1
+  %_M_string_length.i242.i = getelementptr inbounds i8, ptr %63, i64 8
   %66 = load i64, ptr %_M_string_length.i242.i, align 8
   %spec.select318.i = tail call i64 @llvm.umin.i64(i64 %66, i64 16)
   %tobool56.not.i = icmp eq i8 %curr.sroa.14.1.i, 0
@@ -646,7 +630,7 @@ for.body29.i:                                     ; preds = %land.rhs.i269
 for.inc78.i:                                      ; preds = %for.body29.i, %for.cond.cleanup28.i
   %curr.sroa.14.2303.i = phi i8 [ 1, %for.cond.cleanup28.i ], [ %curr.sroa.14.1.i, %for.body29.i ]
   %curr.sroa.14.2303.i.fr = freeze i8 %curr.sroa.14.2303.i
-  %incdec.ptr.i.i280 = getelementptr inbounds ptr, ptr %__begin2.sroa.0.0327.i, i64 1
+  %incdec.ptr.i.i280 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0327.i, i64 8
   %cmp.i241.not.i = icmp eq ptr %incdec.ptr.i.i280, %filtered_lits.sroa.11.1
   br i1 %cmp.i241.not.i, label %for.body95.lr.ph.i, label %for.body11.i266
 
@@ -669,21 +653,21 @@ for.body95.i:                                     ; preds = %for.body95.lr.ph.i,
   %__begin286.sroa.0.0335.i = phi ptr [ %incdec.ptr.i253.i, %for.cond.cleanup112.i ], [ %filtered_lits.sroa.0.1, %for.body95.lr.ph.i ]
   %curr.sroa.9283.0334.i = phi i32 [ %curr.sroa.9283.1.lcssa.i, %for.cond.cleanup112.i ], [ 0, %for.body95.lr.ph.i ]
   %71 = load ptr, ptr %__begin286.sroa.0.0335.i, align 8
-  %_M_string_length.i251.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %71, i64 0, i32 1
+  %_M_string_length.i251.i = getelementptr inbounds i8, ptr %71, i64 8
   %72 = load i64, ptr %_M_string_length.i251.i, align 8
   %cmp111328.not.i = icmp eq i64 %72, 0
   br i1 %cmp111328.not.i, label %for.cond.cleanup112.i, label %for.body113.lr.ph.i
 
 for.body113.lr.ph.i:                              ; preds = %for.body95.i
   %spec.select319.i = tail call i64 @llvm.umin.i64(i64 %72, i64 16)
-  %msk.i.i281 = getelementptr inbounds %"struct.ue2::AccelString", ptr %71, i64 0, i32 2
-  %_M_finish.i.i.i282 = getelementptr inbounds %"struct.ue2::AccelString", ptr %71, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %msk.i.i281 = getelementptr inbounds i8, ptr %71, i64 40
+  %_M_finish.i.i.i282 = getelementptr inbounds i8, ptr %71, i64 48
   %73 = load ptr, ptr %71, align 8
   br label %for.body113.i
 
 for.cond.cleanup112.i:                            ; preds = %if.end154.i, %for.body95.i
   %curr.sroa.9283.1.lcssa.i = phi i32 [ %curr.sroa.9283.0334.i, %for.body95.i ], [ %curr.sroa.9283.2.i, %if.end154.i ]
-  %incdec.ptr.i253.i = getelementptr inbounds ptr, ptr %__begin286.sroa.0.0335.i, i64 1
+  %incdec.ptr.i253.i = getelementptr inbounds i8, ptr %__begin286.sroa.0.0335.i, i64 8
   %cmp.i246.not.i = icmp eq ptr %incdec.ptr.i253.i, %filtered_lits.sroa.11.1
   br i1 %cmp.i246.not.i, label %if.end.i.i283, label %for.body95.i
 
@@ -791,7 +775,7 @@ if.end190.i:                                      ; preds = %if.end174.i, %for.c
   %.sink354.i = phi i8 [ %spec.select522, %if.end174.i ], [ %spec.select520, %for.cond.cleanup.thread370.i ]
   %.sink.i = phi i8 [ %spec.select523, %if.end174.i ], [ %spec.select521, %for.cond.cleanup.thread370.i ]
   store i8 %.sink354.i, ptr %aux, align 16
-  %82 = getelementptr inbounds %struct.anon.0, ptr %aux, i64 0, i32 2
+  %82 = getelementptr inbounds i8, ptr %aux, i64 2
   store i8 %.sink.i, ptr %82, align 2
   %cmp.not.i.i.i272 = icmp ult i32 %best.sroa.7.1367375381.i, 256
   br i1 %cmp.not.i.i.i272, label %invoke.cont3, label %if.then.i.i.i273
@@ -809,7 +793,7 @@ lpad.i.i.i275:                                    ; preds = %if.then.i.i.i273
 
 invoke.cont3:                                     ; preds = %if.end190.i
   %conv.i.i.i278 = trunc i32 %best.sroa.7.1367375381.i to i8
-  %offset.i279 = getelementptr inbounds %struct.anon.0, ptr %aux, i64 0, i32 1
+  %offset.i279 = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i.i278, ptr %offset.i279, align 1
   br label %cleanup164
 
@@ -834,15 +818,15 @@ lpad10:                                           ; preds = %invoke.cont8
 
 for.body:                                         ; preds = %for.body.i.i.i.i.i.i.preheader, %cleanup91
   %__begin1.sroa.0.0439 = phi ptr [ %incdec.ptr.i, %cleanup91 ], [ %84, %for.body.i.i.i.i.i.i.preheader ]
-  %groups = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.0439, i64 0, i32 4
+  %groups = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 88
   %87 = load i64, ptr %groups, align 8
   %and = and i64 %87, %expected_groups
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %cleanup91, label %if.end18
 
 if.end18:                                         ; preds = %for.body
-  %msk.i = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.0439, i64 0, i32 2
-  %_M_finish.i.i313 = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.0439, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %msk.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 40
+  %_M_finish.i.i313 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 48
   %88 = load ptr, ptr %_M_finish.i.i313, align 8
   %89 = load ptr, ptr %msk.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %88 to i64
@@ -866,7 +850,7 @@ for.inc.i:                                        ; preds = %for.body.i314
 
 _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %for.inc.i, %for.body.i314, %if.end18
   %msk_true_size.0.lcssa.i = phi i64 [ %sub.ptr.sub.i.i, %if.end18 ], [ 0, %for.inc.i ], [ %msk_true_size.029.i, %for.body.i314 ]
-  %_M_string_length.i.i316 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin1.sroa.0.0439, i64 0, i32 1
+  %_M_string_length.i.i316 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 8
   %91 = load i64, ptr %_M_string_length.i.i316, align 8
   %spec.select.i317 = tail call noundef i64 @llvm.usub.sat.i64(i64 %msk_true_size.0.lcssa.i, i64 %91)
   %conv = trunc i64 %spec.select.i317 to i32
@@ -878,7 +862,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.for.body54.lr.ph_crit_edge: ; p
   br label %for.body54.lr.ph
 
 for.cond25.preheader.lr.ph:                       ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit
-  %cmp33 = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.0439, i64 0, i32 3
+  %cmp33 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 64
   %92 = and i64 %spec.select.i317, 4294967295
   %.pre485.pre = load ptr, ptr %cmp33, align 8
   br label %for.cond25.preheader
@@ -889,7 +873,7 @@ for.cond51.preheader:                             ; preds = %for.cond.cleanup27
 
 for.body54.lr.ph:                                 ; preds = %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.for.body54.lr.ph_crit_edge, %for.cond51.preheader
   %.pre-phi = phi i64 [ %.pre, %_ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit.for.body54.lr.ph_crit_edge ], [ %92, %for.cond51.preheader ]
-  %nocase.i325 = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.0439, i64 0, i32 1
+  %nocase.i325 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 32
   %.pre487 = load ptr, ptr %__begin1.sroa.0.0439, align 8
   %.pre488 = load i8, ptr %nocase.i325, align 8, !range !5
   %.pre488.fr = freeze i8 %.pre488
@@ -1070,7 +1054,7 @@ cleanup:                                          ; preds = %land.lhs.true.i, %f
   br i1 %cmp52, label %for.body54, label %cleanup91, !llvm.loop !17
 
 cleanup91:                                        ; preds = %cleanup, %for.cond51.preheader, %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.ue2::AccelString", ptr %__begin1.sroa.0.0439, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0439, i64 96
   %cmp.i312.not = icmp eq ptr %incdec.ptr.i, %85
   br i1 %cmp.i312.not, label %invoke.cont112.preheader, label %for.body
 
@@ -1099,8 +1083,8 @@ invoke.cont112:                                   ; preds = %invoke.cont112.preh
 if.end132:                                        ; preds = %for.cond.cleanup107
   %conv133 = zext i32 %spec.select230 to i64
   %add.ptr.i355 = getelementptr inbounds %"class.ue2::CharReach", ptr %call5.i.i.i.i4.i.i311, i64 %conv133
-  %lo = getelementptr inbounds %struct.anon.4, ptr %aux, i64 0, i32 2
-  %hi = getelementptr inbounds %struct.anon.4, ptr %aux, i64 0, i32 3
+  %lo = getelementptr inbounds i8, ptr %aux, i64 16
+  %hi = getelementptr inbounds i8, ptr %aux, i64 32
   %call137 = invoke noundef i32 @_ZN3ue216shuftiBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i355, ptr noundef nonnull %lo, ptr noundef nonnull %hi)
           to label %invoke.cont136 unwind label %lpad135
 
@@ -1111,7 +1095,7 @@ invoke.cont136:                                   ; preds = %if.end132
 do.end142:                                        ; preds = %invoke.cont136
   store i8 13, ptr %aux, align 16
   %cmp.not.i.i356 = icmp ult i32 %spec.select230, 256
-  br i1 %cmp.not.i.i356, label %invoke.cont143, label %if.then.i.i357
+  br i1 %cmp.not.i.i356, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, label %if.then.i.i357
 
 if.then.i.i357:                                   ; preds = %do.end142
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 48) #12
@@ -1123,12 +1107,6 @@ lpad.i.i:                                         ; preds = %if.then.i.i357
           cleanup
   tail call void @__cxa_free_exception(ptr %exception.i.i) #12
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit376
-
-invoke.cont143:                                   ; preds = %do.end142
-  %conv.i.i358 = trunc i32 %spec.select230 to i8
-  %offset = getelementptr inbounds %struct.anon.4, ptr %aux, i64 0, i32 1
-  store i8 %conv.i.i358, ptr %offset, align 1
-  br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
 lpad135:                                          ; preds = %invoke.cont.i.i365.invoke, %if.end145, %if.end132
   %119 = landingpad { ptr, i32 }
@@ -1142,7 +1120,7 @@ if.end145:                                        ; preds = %invoke.cont136
 do.end149:                                        ; preds = %if.end145
   store i8 15, ptr %aux, align 16
   %cmp.not.i.i361 = icmp ult i32 %spec.select230, 256
-  br i1 %cmp.not.i.i361, label %invoke.cont151, label %if.then.i.i362
+  br i1 %cmp.not.i.i361, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, label %if.then.i.i362
 
 if.then.i.i362:                                   ; preds = %do.end149
   %exception.i.i363 = tail call ptr @__cxa_allocate_exception(i64 48) #12
@@ -1163,13 +1141,13 @@ lpad.i.i364:                                      ; preds = %if.then.i.i362
   tail call void @__cxa_free_exception(ptr %exception.i.i363) #12
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit376
 
-invoke.cont151:                                   ; preds = %do.end149
+_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split: ; preds = %do.end149, %do.end142
   %conv.i.i366 = trunc i32 %spec.select230 to i8
-  %offset153 = getelementptr inbounds %struct.anon.6, ptr %aux, i64 0, i32 1
+  %offset153 = getelementptr inbounds i8, ptr %aux, i64 1
   store i8 %conv.i.i366, ptr %offset153, align 1
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %invoke.cont151, %invoke.cont143, %for.cond.cleanup107
+_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit.sink.split, %for.cond.cleanup107
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i4.i.i311) #11
   br label %cleanup164
 

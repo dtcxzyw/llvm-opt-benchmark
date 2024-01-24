@@ -3,18 +3,8 @@ source_filename = "bench/brotli/original/block_splitter.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockSplit = type { i64, i64, ptr, ptr, i64, i64 }
 %struct.Command = type { i32, i32, i32, i16, i16 }
 %struct.HistogramLiteral = type { [256 x i32], i64, double }
-%struct.BrotliEncoderParams = type { i32, i32, i32, i32, i64, i64, i32, i32, %struct.BrotliHasherParams, %struct.BrotliDistanceParams, %struct.SharedEncoderDictionary }
-%struct.BrotliHasherParams = type { i32, i32, i32, i32 }
-%struct.BrotliDistanceParams = type { i32, i32, i32, i32, i64 }
-%struct.SharedEncoderDictionary = type { i32, %struct.CompoundDictionary, %struct.ContextualEncoderDictionary, i32 }
-%struct.CompoundDictionary = type { i64, i64, [16 x ptr], [16 x ptr], [16 x i64], i64, [16 x ptr] }
-%struct.ContextualEncoderDictionary = type { i32, i8, [64 x i8], [64 x ptr], i64, %struct.BrotliEncoderDictionary, ptr }
-%struct.BrotliEncoderDictionary = type { ptr, i32, i32, i64, ptr, ptr, ptr, ptr, %struct.BrotliTrie, i32, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr }
-%struct.BrotliTrie = type { ptr, i64, i64, %struct.BrotliTrieNode }
-%struct.BrotliTrieNode = type { i8, i8, i8, i32, i32 }
 %struct.HistogramCommand = type { [704 x i32], i64, double }
 %struct.HistogramDistance = type { [544 x i32], i64, double }
 
@@ -30,11 +20,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @BrotliDestroyBlockSplit(ptr noundef %m, ptr nocapture noundef %self) local_unnamed_addr #1 {
 entry:
-  %types = getelementptr inbounds %struct.BlockSplit, ptr %self, i64 0, i32 2
+  %types = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %types, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %0) #7
   store ptr null, ptr %types, align 8
-  %lengths = getelementptr inbounds %struct.BlockSplit, ptr %self, i64 0, i32 3
+  %lengths = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load ptr, ptr %lengths, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %1) #7
   store ptr null, ptr %lengths, align 8
@@ -112,7 +102,7 @@ if.then9.i:                                       ; preds = %if.end.i
 if.end13.i:                                       ; preds = %if.then9.i, %if.end.i
   %pos.2.i = phi i64 [ %add12.i, %if.then9.i ], [ %pos.1.i, %if.end.i ]
   %add14.i = add i64 %insert_len.0.i, %from_pos.1.i
-  %copy_len_.i.i = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.026.i, i32 1
+  %copy_len_.i.i = getelementptr inbounds i8, ptr %arrayidx.i39, i64 4
   %2 = load i32, ptr %copy_len_.i.i, align 4
   %and.i.i = and i32 %2, 33554431
   %conv16.i = zext nneg i32 %and.i.i to i64
@@ -131,7 +121,7 @@ CopyLiteralsToByteArray.exit:                     ; preds = %if.end13.i
   br i1 %cmp.not, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %CopyLiteralsToByteArray.exit, %entry
-  %cond143114411448 = phi ptr [ null, %entry ], [ %cond.ph, %CopyLiteralsToByteArray.exit ]
+  %cond139414041411 = phi ptr [ null, %entry ], [ %cond.ph, %CopyLiteralsToByteArray.exit ]
   store i64 1, ptr %literal_split, align 8
   br label %SplitByteVectorLiteral.exit
 
@@ -140,9 +130,9 @@ if.end3.i:                                        ; preds = %CopyLiteralsToByteA
   br i1 %cmp4.i, label %if.then5.i, label %cond.true86.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %types_alloc_size.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 4
+  %types_alloc_size.i = getelementptr inbounds i8, ptr %literal_split, i64 32
   %3 = load i64, ptr %types_alloc_size.i, align 8
-  %num_blocks.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 1
+  %num_blocks.i = getelementptr inbounds i8, ptr %literal_split, i64 8
   %4 = load i64, ptr %num_blocks.i, align 8
   %add6.i = add i64 %4, 1
   %cmp7.i = icmp ult i64 %3, %add6.i
@@ -166,13 +156,13 @@ cond.end22.i:                                     ; preds = %while.cond.i
   br i1 %cmp25.not.i52, label %if.end29.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %cond.end22.i
-  %types.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 2
+  %types.i = getelementptr inbounds i8, ptr %literal_split, i64 16
   %6 = load ptr, ptr %types.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20.i, ptr align 1 %6, i64 %5, i1 false)
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then26.i, %cond.end22.i
-  %types30.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 2
+  %types30.i = getelementptr inbounds i8, ptr %literal_split, i64 16
   %7 = load ptr, ptr %types30.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %7) #7
   store ptr %call20.i, ptr %types30.i, align 8
@@ -184,7 +174,7 @@ if.end29.i:                                       ; preds = %if.then26.i, %cond.
 if.end34.i:                                       ; preds = %if.end29.i, %if.then5.i
   %add36.pre-phi.i = phi i64 [ %.pre180.i, %if.end29.i ], [ %add6.i, %if.then5.i ]
   %8 = phi i64 [ %.pre.i, %if.end29.i ], [ %4, %if.then5.i ]
-  %lengths_alloc_size.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 5
+  %lengths_alloc_size.i = getelementptr inbounds i8, ptr %literal_split, i64 40
   %9 = load i64, ptr %lengths_alloc_size.i, align 8
   %cmp37.i = icmp ult i64 %9, %add36.pre-phi.i
   br i1 %cmp37.i, label %if.then38.i, label %if.end74.i
@@ -208,14 +198,14 @@ cond.end62.i:                                     ; preds = %while.cond50.i
   br i1 %cmp65.not.i, label %if.end69.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %cond.end62.i
-  %lengths.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 3
+  %lengths.i = getelementptr inbounds i8, ptr %literal_split, i64 24
   %11 = load ptr, ptr %lengths.i, align 8
   %mul68.i = shl i64 %10, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call60.i, ptr align 4 %11, i64 %mul68.i, i1 false)
   br label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.then66.i, %cond.end62.i
-  %lengths70.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 3
+  %lengths70.i = getelementptr inbounds i8, ptr %literal_split, i64 24
   %12 = load ptr, ptr %lengths70.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %12) #7
   store ptr %call60.i, ptr %lengths70.i, align 8
@@ -226,12 +216,12 @@ if.end69.i:                                       ; preds = %if.then66.i, %cond.
 if.end74.i:                                       ; preds = %if.end69.i, %if.end34.i
   %13 = phi i64 [ %.pre179.i, %if.end69.i ], [ %8, %if.end34.i ]
   store i64 1, ptr %literal_split, align 8
-  %types76.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 2
+  %types76.i = getelementptr inbounds i8, ptr %literal_split, i64 16
   %14 = load ptr, ptr %types76.i, align 8
   %arrayidx.i49 = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 0, ptr %arrayidx.i49, align 1
   %conv.i50 = trunc i64 %add.i to i32
-  %lengths78.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 3
+  %lengths78.i = getelementptr inbounds i8, ptr %literal_split, i64 24
   %15 = load ptr, ptr %lengths78.i, align 8
   %16 = load i64, ptr %num_blocks.i, align 8
   %arrayidx80.i = getelementptr inbounds i32, ptr %15, i64 %16
@@ -255,7 +245,7 @@ for.cond.preheader.i.i:                           ; preds = %for.body.i.i.i
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %cond.true86.i
   %i.i.025.i.i = phi i64 [ 0, %cond.true86.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %i.i.025.i.i
-  %bit_cost_.i.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %i.i.025.i.i, i32 2
+  %bit_cost_.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %add.ptr.i.i.i, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i.i, align 8
   %inc.i.i.i = add nuw nsw i64 %i.i.025.i.i, 1
@@ -285,7 +275,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %for.b
   %spec.select.i.i = select i1 %cmp4.not.i.i, i64 %pos.0.i.i, i64 %sub7.i.i
   %arrayidx.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %i.029.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.ph, i64 %spec.select.i.i
-  %total_count_.i.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %i.029.i.i, i32 1
+  %total_count_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1024
   %19 = load i64, ptr %total_count_.i.i.i, align 8
   %add.i.i.i = add i64 %19, 70
   store i64 %add.i.i.i, ptr %total_count_.i.i.i, align 8
@@ -322,8 +312,8 @@ InitialEntropyCodesLiteral.exit.i:                ; preds = %for.inc.i.i
   br i1 %cmp20.not.i.i, label %RefineEntropyCodesLiteral.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %InitialEntropyCodesLiteral.exit.i
-  %total_count_.i.i115.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %.add.i44, i32 1
-  %bit_cost_.i.i116.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %.add.i44, i32 2
+  %total_count_.i.i115.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 1024
+  %bit_cost_.i.i116.i = getelementptr inbounds i8, ptr %add.ptr.i46, i64 1032
   %add.i18.i.i = add i64 %add.i, -69
   br label %for.body.i117.i
 
@@ -356,7 +346,7 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
 RandomSampleLiteral.exit.i.i:                     ; preds = %while.body.i.i.i.i
   %rem.i119.i = urem i64 %iter.022.i.i, %.add.i44
   %arrayidx.i120.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %rem.i119.i
-  %total_count_1.i.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %rem.i119.i, i32 1
+  %total_count_1.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i120.i, i64 1024
   %25 = load i64, ptr %total_count_1.i.i.i, align 8
   %add.i.i121.i = add i64 %25, 70
   store i64 %add.i.i121.i, ptr %total_count_1.i.i.i, align 8
@@ -399,7 +389,7 @@ cond.true133.i:                                   ; preds = %cond.true124.i, %Re
   %cond130.i = phi ptr [ %call127.i, %cond.true124.i ], [ null, %RefineEntropyCodesLiteral.exit.i ]
   %mul134.i = shl nuw nsw i64 %.add.i44, 1
   %call135.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul134.i) #7
-  %quality.i = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 1
+  %quality.i = getelementptr inbounds i8, ptr %params, i64 4
   %28 = load i32, ptr %quality.i, align 4
   %cmp139.inv.i = icmp sgt i32 %28, 10
   %cond141.i = select i1 %cmp139.inv.i, i64 10, i64 3
@@ -682,7 +672,7 @@ RemapBlockIdsLiteral.exit.i:                      ; preds = %for.body18.i.i
 for.body.i.i145.i:                                ; preds = %RemapBlockIdsLiteral.exit.i, %for.body.i.i145.i
   %i.i.011.i.i = phi i64 [ %inc.i.i148.i, %for.body.i.i145.i ], [ 0, %RemapBlockIdsLiteral.exit.i ]
   %add.ptr.i.i146.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %i.i.011.i.i
-  %bit_cost_.i.i147.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %i.i.011.i.i, i32 2
+  %bit_cost_.i.i147.i = getelementptr inbounds i8, ptr %add.ptr.i.i146.i, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %add.ptr.i.i146.i, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i147.i, align 8
   %inc.i.i148.i = add nuw nsw i64 %i.i.011.i.i, 1
@@ -705,7 +695,7 @@ for.body.i151.i:                                  ; preds = %for.body.i151.i.pre
   %55 = load i32, ptr %arrayidx.i.i155.i, align 4
   %inc.i4.i.i = add i32 %55, 1
   store i32 %inc.i4.i.i, ptr %arrayidx.i.i155.i, align 4
-  %total_count_.i5.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call89.i, i64 %idxprom.i153.i, i32 1
+  %total_count_.i5.i.i = getelementptr inbounds i8, ptr %arrayidx1.i.i, i64 1024
   %56 = load i64, ptr %total_count_.i5.i.i, align 8
   %inc1.i.i.i = add i64 %56, 1
   store i64 %inc1.i.i.i, ptr %total_count_.i5.i.i, align 8
@@ -774,16 +764,16 @@ cond.true27.i.i:                                  ; preds = %cond.end23.i.i
 cond.true36.i.i:                                  ; preds = %cond.true27.i.i, %cond.end23.i.i
   %cond33.i.i = phi ptr [ %call30.i.i, %cond.true27.i.i ], [ null, %cond.end23.i.i ]
   %call38.i.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 49176) #7
-  %add.ptr45.i.i = getelementptr inbounds i32, ptr %cond8310322.i.i, i64 256
+  %add.ptr45.i.i = getelementptr inbounds i8, ptr %cond8310322.i.i, i64 1024
   %call46.i.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 2080) #7
   %mul48.i.i = shl i64 %add297306324.i.i, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %cond8310322.i.i, i8 0, i64 %mul48.i.i, i1 false)
   br label %for.body.i160.i
 
 for.cond60.preheader.i.i:                         ; preds = %for.inc.i164.i
-  %add.ptr43.i.i = getelementptr inbounds i32, ptr %cond8310322.i.i, i64 128
-  %add.ptr42.i.i = getelementptr inbounds i32, ptr %cond8310322.i.i, i64 64
-  %add.ptr44.i.i = getelementptr inbounds i32, ptr %cond8310322.i.i, i64 192
+  %add.ptr43.i.i = getelementptr inbounds i8, ptr %cond8310322.i.i, i64 512
+  %add.ptr42.i.i = getelementptr inbounds i8, ptr %cond8310322.i.i, i64 256
+  %add.ptr44.i.i = getelementptr inbounds i8, ptr %cond8310322.i.i, i64 768
   br i1 %cmp.not.i.i, label %for.end197.i.i, label %for.body69.lr.ph.i.i
 
 for.body.i160.i:                                  ; preds = %for.inc.i164.i, %cond.true36.i.i
@@ -815,76 +805,76 @@ for.inc.i164.i:                                   ; preds = %if.then.i163.i, %lo
 
 for.body69.lr.ph.i.i:                             ; preds = %for.cond60.preheader.i.i, %for.end193.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.end193.i.i ], [ %retval.0.i.i, %for.cond60.preheader.i.i ]
-  %all_histograms_size.0367.i.i = phi i64 [ %all_histograms_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %all_histograms_capacity.0366.i.i = phi i64 [ %all_histograms_capacity.1.i.i, %for.end193.i.i ], [ %div288312321.i.i, %for.cond60.preheader.i.i ]
-  %all_histograms.0365.i.i = phi ptr [ %all_histograms.1.i.i, %for.end193.i.i ], [ %cond17325.i.i, %for.cond60.preheader.i.i ]
-  %cluster_size_size.0364.i.i = phi i64 [ %cluster_size_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %cluster_size_capacity.0363.i.i = phi i64 [ %cluster_size_capacity.1.i.i, %for.end193.i.i ], [ %div288312321.i.i, %for.cond60.preheader.i.i ]
-  %cluster_size.0362.i.i = phi ptr [ %cluster_size.1.i.i, %for.end193.i.i ], [ %cond24.i.i, %for.cond60.preheader.i.i ]
-  %num_clusters.0361.i.i = phi i64 [ %add194.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %pos.0360.i.i = phi i64 [ %pos.2.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %i.1359.i.i = phi i64 [ %add196.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
-  %umin399.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i, i64 64)
-  %umax400.i.i = tail call i64 @llvm.umax.i64(i64 %umin399.i.i, i64 1)
-  %60 = getelementptr i32, ptr %add.ptr45.i.i, i64 %i.1359.i.i
+  %all_histograms_size.0368.i.i = phi i64 [ %all_histograms_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %all_histograms_capacity.0367.i.i = phi i64 [ %all_histograms_capacity.1.i.i, %for.end193.i.i ], [ %div288312321.i.i, %for.cond60.preheader.i.i ]
+  %all_histograms.0366.i.i = phi ptr [ %all_histograms.1.i.i, %for.end193.i.i ], [ %cond17325.i.i, %for.cond60.preheader.i.i ]
+  %cluster_size_size.0365.i.i = phi i64 [ %cluster_size_size.1.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %cluster_size_capacity.0364.i.i = phi i64 [ %cluster_size_capacity.1.i.i, %for.end193.i.i ], [ %div288312321.i.i, %for.cond60.preheader.i.i ]
+  %cluster_size.0363.i.i = phi ptr [ %cluster_size.1.i.i, %for.end193.i.i ], [ %cond24.i.i, %for.cond60.preheader.i.i ]
+  %num_clusters.0362.i.i = phi i64 [ %add194.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %pos.0361.i.i = phi i64 [ %pos.2.lcssa.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %i.1360.i.i = phi i64 [ %add196.i.i, %for.end193.i.i ], [ 0, %for.cond60.preheader.i.i ]
+  %umin400.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i, i64 64)
+  %umax401.i.i = tail call i64 @llvm.umax.i64(i64 %umin400.i.i, i64 1)
+  %60 = getelementptr i32, ptr %add.ptr45.i.i, i64 %i.1360.i.i
   br label %for.body69.i.i
 
 for.body69.i.i:                                   ; preds = %for.end84.i.i, %for.body69.lr.ph.i.i
-  %j.0348.i.i = phi i64 [ 0, %for.body69.lr.ph.i.i ], [ %inc94.i166.i, %for.end84.i.i ]
-  %pos.1347.i.i = phi i64 [ %pos.0360.i.i, %for.body69.lr.ph.i.i ], [ %pos.2.lcssa.i.i, %for.end84.i.i ]
-  %arrayidx71.i.i = getelementptr i32, ptr %60, i64 %j.0348.i.i
+  %j.0349.i.i = phi i64 [ 0, %for.body69.lr.ph.i.i ], [ %inc94.i166.i, %for.end84.i.i ]
+  %pos.1348.i.i = phi i64 [ %pos.0361.i.i, %for.body69.lr.ph.i.i ], [ %pos.2.lcssa.i.i, %for.end84.i.i ]
+  %arrayidx71.i.i = getelementptr i32, ptr %60, i64 %j.0349.i.i
   %61 = load i32, ptr %arrayidx71.i.i, align 4
   %conv72.i.i = zext i32 %61 to i64
-  %arrayidx73.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %cond33.i.i, i64 %j.0348.i.i
-  %total_count_.i424.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %cond33.i.i, i64 %j.0348.i.i, i32 1
-  %bit_cost_.i425.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %cond33.i.i, i64 %j.0348.i.i, i32 2
+  %arrayidx73.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %cond33.i.i, i64 %j.0349.i.i
+  %total_count_.i424.i.i = getelementptr inbounds i8, ptr %arrayidx73.i.i, i64 1024
+  %bit_cost_.i425.i.i = getelementptr inbounds i8, ptr %arrayidx73.i.i, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %arrayidx73.i.i, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i425.i.i, align 8
   %cmp75342.not.i.i = icmp eq i32 %61, 0
   br i1 %cmp75342.not.i.i, label %for.end84.i.i, label %for.body77.i.i
 
 for.body77.i.i:                                   ; preds = %for.body69.i.i, %for.body77.i.i
-  %62 = phi i64 [ %inc1.i433.i.i, %for.body77.i.i ], [ 0, %for.body69.i.i ]
-  %pos.2343.i.i = phi i64 [ %inc79.i.i, %for.body77.i.i ], [ %pos.1347.i.i, %for.body69.i.i ]
+  %inc1.i433346.i.i = phi i64 [ %inc1.i433.i.i, %for.body77.i.i ], [ 0, %for.body69.i.i ]
+  %pos.2343.i.i = phi i64 [ %inc79.i.i, %for.body77.i.i ], [ %pos.1348.i.i, %for.body69.i.i ]
   %inc79.i.i = add i64 %pos.2343.i.i, 1
   %arrayidx80.i.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.2343.i.i
-  %63 = load i8, ptr %arrayidx80.i.i, align 1
-  %conv81.i.i = zext i8 %63 to i64
+  %62 = load i8, ptr %arrayidx80.i.i, align 1
+  %conv81.i.i = zext i8 %62 to i64
   %arrayidx.i430.i.i = getelementptr inbounds [256 x i32], ptr %arrayidx73.i.i, i64 0, i64 %conv81.i.i
-  %64 = load i32, ptr %arrayidx.i430.i.i, align 4
-  %inc.i431.i.i = add i32 %64, 1
+  %63 = load i32, ptr %arrayidx.i430.i.i, align 4
+  %inc.i431.i.i = add i32 %63, 1
   store i32 %inc.i431.i.i, ptr %arrayidx.i430.i.i, align 4
-  %inc1.i433.i.i = add nuw nsw i64 %62, 1
+  %inc1.i433.i.i = add nuw nsw i64 %inc1.i433346.i.i, 1
   store i64 %inc1.i433.i.i, ptr %total_count_.i424.i.i, align 8
-  %exitcond396.not.i.i = icmp eq i64 %inc1.i433.i.i, %conv72.i.i
-  br i1 %exitcond396.not.i.i, label %for.end84.i.i, label %for.body77.i.i, !llvm.loop !27
+  %exitcond397.not.i.i = icmp eq i64 %inc1.i433.i.i, %conv72.i.i
+  br i1 %exitcond397.not.i.i, label %for.end84.i.i, label %for.body77.i.i, !llvm.loop !27
 
 for.end84.i.i:                                    ; preds = %for.body77.i.i, %for.body69.i.i
-  %pos.2.lcssa.i.i = phi i64 [ %pos.1347.i.i, %for.body69.i.i ], [ %inc79.i.i, %for.body77.i.i ]
+  %pos.2.lcssa.i.i = phi i64 [ %pos.1348.i.i, %for.body69.i.i ], [ %inc79.i.i, %for.body77.i.i ]
   %call86.i.i = tail call double @BrotliPopulationCostLiteral(ptr noundef nonnull %arrayidx73.i.i) #7
   store double %call86.i.i, ptr %bit_cost_.i425.i.i, align 8
-  %conv88.i.i = trunc i64 %j.0348.i.i to i32
-  %arrayidx89.i.i = getelementptr inbounds i32, ptr %add.ptr42.i.i, i64 %j.0348.i.i
+  %conv88.i.i = trunc i64 %j.0349.i.i to i32
+  %arrayidx89.i.i = getelementptr inbounds i32, ptr %add.ptr42.i.i, i64 %j.0349.i.i
   store i32 %conv88.i.i, ptr %arrayidx89.i.i, align 4
-  %arrayidx91.i.i = getelementptr inbounds i32, ptr %add.ptr43.i.i, i64 %j.0348.i.i
+  %arrayidx91.i.i = getelementptr inbounds i32, ptr %add.ptr43.i.i, i64 %j.0349.i.i
   store i32 %conv88.i.i, ptr %arrayidx91.i.i, align 4
-  %arrayidx92.i.i = getelementptr inbounds i32, ptr %cond8310322.i.i, i64 %j.0348.i.i
+  %arrayidx92.i.i = getelementptr inbounds i32, ptr %cond8310322.i.i, i64 %j.0349.i.i
   store i32 1, ptr %arrayidx92.i.i, align 4
-  %inc94.i166.i = add nuw nsw i64 %j.0348.i.i, 1
-  %exitcond397.not.i.i = icmp eq i64 %inc94.i166.i, %umax400.i.i
-  br i1 %exitcond397.not.i.i, label %for.end95.i167.i, label %for.body69.i.i, !llvm.loop !28
+  %inc94.i166.i = add nuw nsw i64 %j.0349.i.i, 1
+  %exitcond398.not.i.i = icmp eq i64 %inc94.i166.i, %umax401.i.i
+  br i1 %exitcond398.not.i.i, label %for.end95.i167.i, label %for.body69.i.i, !llvm.loop !28
 
 for.end95.i167.i:                                 ; preds = %for.end84.i.i
-  %sub64.i.i = sub i64 %retval.0.i.i, %i.1359.i.i
+  %sub64.i.i = sub i64 %retval.0.i.i, %i.1360.i.i
   %cond.i438.i.i = tail call i64 @llvm.umin.i64(i64 %sub64.i.i, i64 64)
   %call96.i.i = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef nonnull %cond33.i.i, ptr noundef %call46.i.i, ptr noundef nonnull %cond8310322.i.i, ptr noundef nonnull %add.ptr43.i.i, ptr noundef nonnull %add.ptr42.i.i, ptr noundef %call38.i.i, i64 noundef %cond.i438.i.i, i64 noundef %cond.i438.i.i, i64 noundef 64, i64 noundef 2048) #7
-  %add97.i.i = add i64 %call96.i.i, %all_histograms_size.0367.i.i
-  %cmp98.i.i = icmp ult i64 %all_histograms_capacity.0366.i.i, %add97.i.i
+  %add97.i.i = add i64 %call96.i.i, %all_histograms_size.0368.i.i
+  %cmp98.i.i = icmp ult i64 %all_histograms_capacity.0367.i.i, %add97.i.i
   br i1 %cmp98.i.i, label %if.then100.i.i, label %if.end125.i.i
 
 if.then100.i.i:                                   ; preds = %for.end95.i167.i
-  %cmp101.i.i = icmp eq i64 %all_histograms_capacity.0366.i.i, 0
-  %cond107.i.i = select i1 %cmp101.i.i, i64 %add97.i.i, i64 %all_histograms_capacity.0366.i.i
+  %cmp101.i.i = icmp eq i64 %all_histograms_capacity.0367.i.i, 0
+  %cond107.i.i = select i1 %cmp101.i.i, i64 %add97.i.i, i64 %all_histograms_capacity.0367.i.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.then100.i.i
@@ -899,24 +889,24 @@ cond.end118.i.i:                                  ; preds = %while.cond.i.i
   br i1 %cmp101.i.i, label %if.end124.i.i, label %if.then122.i.i
 
 if.then122.i.i:                                   ; preds = %cond.end118.i.i
-  %mul123.i.i = mul i64 %all_histograms_capacity.0366.i.i, 1040
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i, ptr align 8 %all_histograms.0365.i.i, i64 %mul123.i.i, i1 false)
+  %mul123.i.i = mul i64 %all_histograms_capacity.0367.i.i, 1040
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i, ptr align 8 %all_histograms.0366.i.i, i64 %mul123.i.i, i1 false)
   br label %if.end124.i.i
 
 if.end124.i.i:                                    ; preds = %if.then122.i.i, %cond.end118.i.i
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0365.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0366.i.i) #7
   br label %if.end125.i.i
 
 if.end125.i.i:                                    ; preds = %if.end124.i.i, %for.end95.i167.i
-  %all_histograms.1.i.i = phi ptr [ %call116.i.i, %if.end124.i.i ], [ %all_histograms.0365.i.i, %for.end95.i167.i ]
-  %all_histograms_capacity.1.i.i = phi i64 [ %_new_size.0.i.i, %if.end124.i.i ], [ %all_histograms_capacity.0366.i.i, %for.end95.i167.i ]
-  %add126.i.i = add i64 %call96.i.i, %cluster_size_size.0364.i.i
-  %cmp127.i.i = icmp ult i64 %cluster_size_capacity.0363.i.i, %add126.i.i
+  %all_histograms.1.i.i = phi ptr [ %call116.i.i, %if.end124.i.i ], [ %all_histograms.0366.i.i, %for.end95.i167.i ]
+  %all_histograms_capacity.1.i.i = phi i64 [ %_new_size.0.i.i, %if.end124.i.i ], [ %all_histograms_capacity.0367.i.i, %for.end95.i167.i ]
+  %add126.i.i = add i64 %call96.i.i, %cluster_size_size.0365.i.i
+  %cmp127.i.i = icmp ult i64 %cluster_size_capacity.0364.i.i, %add126.i.i
   br i1 %cmp127.i.i, label %if.then129.i.i, label %if.end159.i.i
 
 if.then129.i.i:                                   ; preds = %if.end125.i.i
-  %cmp131.i.i = icmp eq i64 %cluster_size_capacity.0363.i.i, 0
-  %cond137.i.i = select i1 %cmp131.i.i, i64 %add126.i.i, i64 %cluster_size_capacity.0363.i.i
+  %cmp131.i.i = icmp eq i64 %cluster_size_capacity.0364.i.i, 0
+  %cond137.i.i = select i1 %cmp131.i.i, i64 %add126.i.i, i64 %cluster_size_capacity.0364.i.i
   br label %while.cond139.i.i
 
 while.cond139.i.i:                                ; preds = %while.cond139.i.i, %if.then129.i.i
@@ -931,71 +921,71 @@ cond.end152.i.i:                                  ; preds = %while.cond139.i.i
   br i1 %cmp131.i.i, label %if.end158.i.i, label %if.then156.i.i
 
 if.then156.i.i:                                   ; preds = %cond.end152.i.i
-  %mul157.i.i = shl i64 %cluster_size_capacity.0363.i.i, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i, ptr align 4 %cluster_size.0362.i.i, i64 %mul157.i.i, i1 false)
+  %mul157.i.i = shl i64 %cluster_size_capacity.0364.i.i, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i, ptr align 4 %cluster_size.0363.i.i, i64 %mul157.i.i, i1 false)
   br label %if.end158.i.i
 
 if.end158.i.i:                                    ; preds = %if.then156.i.i, %cond.end152.i.i
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0362.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0363.i.i) #7
   br label %if.end159.i.i
 
 if.end159.i.i:                                    ; preds = %if.end158.i.i, %if.end125.i.i
-  %cluster_size.1.i.i = phi ptr [ %call150.i.i, %if.end158.i.i ], [ %cluster_size.0362.i.i, %if.end125.i.i ]
-  %cluster_size_capacity.1.i.i = phi i64 [ %_new_size130.0.i.i, %if.end158.i.i ], [ %cluster_size_capacity.0363.i.i, %if.end125.i.i ]
-  %cmp161350.not.i.i = icmp eq i64 %call96.i.i, 0
-  br i1 %cmp161350.not.i.i, label %for.body183.lr.ph.i.i, label %for.body163.i.i
+  %cluster_size.1.i.i = phi ptr [ %call150.i.i, %if.end158.i.i ], [ %cluster_size.0363.i.i, %if.end125.i.i ]
+  %cluster_size_capacity.1.i.i = phi i64 [ %_new_size130.0.i.i, %if.end158.i.i ], [ %cluster_size_capacity.0364.i.i, %if.end125.i.i ]
+  %cmp161351.not.i.i = icmp eq i64 %call96.i.i, 0
+  br i1 %cmp161351.not.i.i, label %for.body183.lr.ph.i.i, label %for.body163.i.i
 
 for.body183.lr.ph.i.i:                            ; preds = %for.body163.i.i, %if.end159.i.i
-  %cluster_size_size.1.lcssa.i.i = phi i64 [ %cluster_size_size.0364.i.i, %if.end159.i.i ], [ %inc171.i.i, %for.body163.i.i ]
-  %all_histograms_size.1.lcssa.i.i = phi i64 [ %all_histograms_size.0367.i.i, %if.end159.i.i ], [ %inc164.i.i, %for.body163.i.i ]
-  %conv184.i.i = trunc i64 %num_clusters.0361.i.i to i32
+  %cluster_size_size.1.lcssa.i.i = phi i64 [ %cluster_size_size.0365.i.i, %if.end159.i.i ], [ %inc171.i.i, %for.body163.i.i ]
+  %all_histograms_size.1.lcssa.i.i = phi i64 [ %all_histograms_size.0368.i.i, %if.end159.i.i ], [ %inc164.i.i, %for.body163.i.i ]
+  %conv184.i.i = trunc i64 %num_clusters.0362.i.i to i32
   br label %for.body183.i.i
 
 for.body163.i.i:                                  ; preds = %if.end159.i.i, %for.body163.i.i
-  %all_histograms_size.1353.i.i = phi i64 [ %inc164.i.i, %for.body163.i.i ], [ %all_histograms_size.0367.i.i, %if.end159.i.i ]
-  %cluster_size_size.1352.i.i = phi i64 [ %inc171.i.i, %for.body163.i.i ], [ %cluster_size_size.0364.i.i, %if.end159.i.i ]
-  %j.1351.i.i = phi i64 [ %inc178.i.i, %for.body163.i.i ], [ 0, %if.end159.i.i ]
-  %inc164.i.i = add i64 %all_histograms_size.1353.i.i, 1
-  %arrayidx165.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %all_histograms.1.i.i, i64 %all_histograms_size.1353.i.i
-  %arrayidx166.i.i = getelementptr inbounds i32, ptr %add.ptr42.i.i, i64 %j.1351.i.i
-  %65 = load i32, ptr %arrayidx166.i.i, align 4
-  %idxprom.i168.i = zext i32 %65 to i64
+  %all_histograms_size.1354.i.i = phi i64 [ %inc164.i.i, %for.body163.i.i ], [ %all_histograms_size.0368.i.i, %if.end159.i.i ]
+  %cluster_size_size.1353.i.i = phi i64 [ %inc171.i.i, %for.body163.i.i ], [ %cluster_size_size.0365.i.i, %if.end159.i.i ]
+  %j.1352.i.i = phi i64 [ %inc178.i.i, %for.body163.i.i ], [ 0, %if.end159.i.i ]
+  %inc164.i.i = add i64 %all_histograms_size.1354.i.i, 1
+  %arrayidx165.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %all_histograms.1.i.i, i64 %all_histograms_size.1354.i.i
+  %arrayidx166.i.i = getelementptr inbounds i32, ptr %add.ptr42.i.i, i64 %j.1352.i.i
+  %64 = load i32, ptr %arrayidx166.i.i, align 4
+  %idxprom.i168.i = zext i32 %64 to i64
   %arrayidx167.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %cond33.i.i, i64 %idxprom.i168.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx165.i.i, ptr noundef nonnull align 8 dereferenceable(1040) %arrayidx167.i.i, i64 1040, i1 false)
-  %66 = load i32, ptr %arrayidx166.i.i, align 4
-  %idxprom169.i.i = zext i32 %66 to i64
+  %65 = load i32, ptr %arrayidx166.i.i, align 4
+  %idxprom169.i.i = zext i32 %65 to i64
   %arrayidx170.i.i = getelementptr inbounds i32, ptr %cond8310322.i.i, i64 %idxprom169.i.i
-  %67 = load i32, ptr %arrayidx170.i.i, align 4
-  %inc171.i.i = add i64 %cluster_size_size.1352.i.i, 1
-  %arrayidx172.i.i = getelementptr inbounds i32, ptr %cluster_size.1.i.i, i64 %cluster_size_size.1352.i.i
-  store i32 %67, ptr %arrayidx172.i.i, align 4
-  %conv173.i.i = trunc i64 %j.1351.i.i to i32
-  %68 = load i32, ptr %arrayidx166.i.i, align 4
-  %idxprom175.i.i = zext i32 %68 to i64
+  %66 = load i32, ptr %arrayidx170.i.i, align 4
+  %inc171.i.i = add i64 %cluster_size_size.1353.i.i, 1
+  %arrayidx172.i.i = getelementptr inbounds i32, ptr %cluster_size.1.i.i, i64 %cluster_size_size.1353.i.i
+  store i32 %66, ptr %arrayidx172.i.i, align 4
+  %conv173.i.i = trunc i64 %j.1352.i.i to i32
+  %67 = load i32, ptr %arrayidx166.i.i, align 4
+  %idxprom175.i.i = zext i32 %67 to i64
   %arrayidx176.i.i = getelementptr inbounds i32, ptr %add.ptr44.i.i, i64 %idxprom175.i.i
   store i32 %conv173.i.i, ptr %arrayidx176.i.i, align 4
-  %inc178.i.i = add nuw i64 %j.1351.i.i, 1
-  %exitcond398.not.i.i = icmp eq i64 %inc178.i.i, %call96.i.i
-  br i1 %exitcond398.not.i.i, label %for.body183.lr.ph.i.i, label %for.body163.i.i, !llvm.loop !31
+  %inc178.i.i = add nuw i64 %j.1352.i.i, 1
+  %exitcond399.not.i.i = icmp eq i64 %inc178.i.i, %call96.i.i
+  br i1 %exitcond399.not.i.i, label %for.body183.lr.ph.i.i, label %for.body163.i.i, !llvm.loop !31
 
 for.body183.i.i:                                  ; preds = %for.body183.i.i, %for.body183.lr.ph.i.i
-  %j.2357.i.i = phi i64 [ 0, %for.body183.lr.ph.i.i ], [ %inc192.i.i, %for.body183.i.i ]
-  %arrayidx185.i.i = getelementptr inbounds i32, ptr %add.ptr43.i.i, i64 %j.2357.i.i
-  %69 = load i32, ptr %arrayidx185.i.i, align 4
-  %idxprom186.i.i = zext i32 %69 to i64
+  %j.2358.i.i = phi i64 [ 0, %for.body183.lr.ph.i.i ], [ %inc192.i.i, %for.body183.i.i ]
+  %arrayidx185.i.i = getelementptr inbounds i32, ptr %add.ptr43.i.i, i64 %j.2358.i.i
+  %68 = load i32, ptr %arrayidx185.i.i, align 4
+  %idxprom186.i.i = zext i32 %68 to i64
   %arrayidx187.i.i = getelementptr inbounds i32, ptr %add.ptr44.i.i, i64 %idxprom186.i.i
-  %70 = load i32, ptr %arrayidx187.i.i, align 4
-  %add188.i.i = add i32 %70, %conv184.i.i
-  %add189.i.i = add nuw nsw i64 %j.2357.i.i, %i.1359.i.i
+  %69 = load i32, ptr %arrayidx187.i.i, align 4
+  %add188.i.i = add i32 %69, %conv184.i.i
+  %add189.i.i = add nuw nsw i64 %j.2358.i.i, %i.1360.i.i
   %arrayidx190.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %add189.i.i
   store i32 %add188.i.i, ptr %arrayidx190.i.i, align 4
-  %inc192.i.i = add nuw nsw i64 %j.2357.i.i, 1
-  %exitcond401.not.i.i = icmp eq i64 %inc192.i.i, %umax400.i.i
-  br i1 %exitcond401.not.i.i, label %for.end193.i.i, label %for.body183.i.i, !llvm.loop !32
+  %inc192.i.i = add nuw nsw i64 %j.2358.i.i, 1
+  %exitcond402.not.i.i = icmp eq i64 %inc192.i.i, %umax401.i.i
+  br i1 %exitcond402.not.i.i, label %for.end193.i.i, label %for.body183.i.i, !llvm.loop !32
 
 for.end193.i.i:                                   ; preds = %for.body183.i.i
-  %add194.i.i = add i64 %call96.i.i, %num_clusters.0361.i.i
-  %add196.i.i = add i64 %i.1359.i.i, 64
+  %add194.i.i = add i64 %call96.i.i, %num_clusters.0362.i.i
+  %add196.i.i = add i64 %i.1360.i.i, 64
   %cmp61.i.i = icmp ult i64 %add196.i.i, %retval.0.i.i
   %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, -64
   br i1 %cmp61.i.i, label %for.body69.lr.ph.i.i, label %for.end197.i.i, !llvm.loop !33
@@ -1014,8 +1004,8 @@ for.end197.i.i:                                   ; preds = %for.end193.i.i, %fo
 
 if.then205.i.i:                                   ; preds = %for.end197.i.i
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call38.i.i) #7
-  %71 = mul i64 %cond.i.i169.i, 24
-  %mul211.i.i = add i64 %71, 24
+  %70 = mul i64 %cond.i.i169.i, 24
+  %mul211.i.i = add i64 %70, 24
   %call212.i.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul211.i.i) #7
   br label %if.end216.i.i
 
@@ -1030,17 +1020,17 @@ for.body228.preheader.i.i:                        ; preds = %if.end216.i.i
   br label %for.body228.i.i
 
 for.body228.i.i:                                  ; preds = %for.body228.i.i, %for.body228.preheader.i.i
-  %i.2372.i.i = phi i64 [ %inc232.i.i, %for.body228.i.i ], [ 0, %for.body228.preheader.i.i ]
-  %conv229.i.i = trunc i64 %i.2372.i.i to i32
-  %arrayidx230.i.i = getelementptr inbounds i32, ptr %call221.i.i, i64 %i.2372.i.i
+  %i.2373.i.i = phi i64 [ %inc232.i.i, %for.body228.i.i ], [ 0, %for.body228.preheader.i.i ]
+  %conv229.i.i = trunc i64 %i.2373.i.i to i32
+  %arrayidx230.i.i = getelementptr inbounds i32, ptr %call221.i.i, i64 %i.2373.i.i
   store i32 %conv229.i.i, ptr %arrayidx230.i.i, align 4
-  %inc232.i.i = add nuw i64 %i.2372.i.i, 1
-  %exitcond402.not.i.i = icmp eq i64 %inc232.i.i, %num_clusters.0.lcssa.i.i
-  br i1 %exitcond402.not.i.i, label %for.end233.i.i, label %for.body228.i.i, !llvm.loop !34
+  %inc232.i.i = add nuw i64 %i.2373.i.i, 1
+  %exitcond403.not.i.i = icmp eq i64 %inc232.i.i, %num_clusters.0.lcssa.i.i
+  br i1 %exitcond403.not.i.i, label %for.end233.i.i, label %for.body228.i.i, !llvm.loop !34
 
 for.end233.i.i:                                   ; preds = %for.body228.i.i, %if.end216.i.i
-  %cond224408.i.i = phi ptr [ null, %if.end216.i.i ], [ %call221.i.i, %for.body228.i.i ]
-  %call234.i.i = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef %all_histograms.0.lcssa.i.i, ptr noundef %call46.i.i, ptr noundef %cluster_size.0.lcssa.i.i, ptr noundef %cond295308323.i.i, ptr noundef %cond224408.i.i, ptr noundef %pairs.0.i.i, i64 noundef %num_clusters.0.lcssa.i.i, i64 noundef %retval.0.i.i, i64 noundef 256, i64 noundef %cond.i.i169.i) #7
+  %cond224409.i.i = phi ptr [ null, %if.end216.i.i ], [ %call221.i.i, %for.body228.i.i ]
+  %call234.i.i = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef %all_histograms.0.lcssa.i.i, ptr noundef %call46.i.i, ptr noundef %cluster_size.0.lcssa.i.i, ptr noundef %cond295308323.i.i, ptr noundef %cond224409.i.i, ptr noundef %pairs.0.i.i, i64 noundef %num_clusters.0.lcssa.i.i, i64 noundef %retval.0.i.i, i64 noundef 256, i64 noundef %cond.i.i169.i) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %pairs.0.i.i) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0.lcssa.i.i) #7
   br i1 %cmp217.not.i.i, label %for.cond251.preheader.i.i, label %for.body246.preheader.i.i
@@ -1052,115 +1042,115 @@ for.body246.preheader.i.i:                        ; preds = %for.end233.i.i
   br label %for.cond251.preheader.i.i
 
 for.cond251.preheader.i.i:                        ; preds = %for.body246.preheader.i.i, %for.end233.i.i
-  %cond242410.i.i = phi ptr [ %call239.i.i, %for.body246.preheader.i.i ], [ null, %for.end233.i.i ]
+  %cond242411.i.i = phi ptr [ %call239.i.i, %for.body246.preheader.i.i ], [ null, %for.end233.i.i ]
   br i1 %cmp.not.i.i, label %for.end310.i.i, label %for.body254.lr.ph.i.i
 
 for.body254.lr.ph.i.i:                            ; preds = %for.cond251.preheader.i.i
-  %total_count_.i.i170.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call46.i.i, i64 0, i32 1
-  %bit_cost_.i.i171.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call46.i.i, i64 0, i32 2
-  %add.ptr279.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %call46.i.i, i64 1
-  %cmp282380.not.i.i = icmp eq i64 %call234.i.i, 0
+  %total_count_.i.i170.i = getelementptr inbounds i8, ptr %call46.i.i, i64 1024
+  %bit_cost_.i.i171.i = getelementptr inbounds i8, ptr %call46.i.i, i64 1032
+  %add.ptr279.i.i = getelementptr inbounds i8, ptr %call46.i.i, i64 1040
+  %cmp282381.not.i.i = icmp eq i64 %call234.i.i, 0
   br label %for.body254.i.i
 
 for.body254.i.i:                                  ; preds = %for.inc308.i.i, %for.body254.lr.ph.i.i
-  %next_index.0388.i.i = phi i32 [ 0, %for.body254.lr.ph.i.i ], [ %next_index.1.i.i, %for.inc308.i.i ]
-  %pos.3387.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %pos.4.lcssa.i.i, %for.inc308.i.i ]
-  %i.4386.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %inc309.i.i, %for.inc308.i.i ]
+  %next_index.0389.i.i = phi i32 [ 0, %for.body254.lr.ph.i.i ], [ %next_index.1.i.i, %for.inc308.i.i ]
+  %pos.3388.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %pos.4.lcssa.i.i, %for.inc308.i.i ]
+  %i.4387.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i ], [ %inc309.i.i, %for.inc308.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %call46.i.i, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i, align 8
-  %arrayidx257.i.i = getelementptr inbounds i32, ptr %add.ptr45.i.i, i64 %i.4386.i.i
-  %72 = load i32, ptr %arrayidx257.i.i, align 4
-  %cmp259376.not.i.i = icmp eq i32 %72, 0
-  br i1 %cmp259376.not.i.i, label %for.end267.i.i, label %for.body261.i.i
+  %arrayidx257.i.i = getelementptr inbounds i32, ptr %add.ptr45.i.i, i64 %i.4387.i.i
+  %71 = load i32, ptr %arrayidx257.i.i, align 4
+  %cmp259377.not.i.i = icmp eq i32 %71, 0
+  br i1 %cmp259377.not.i.i, label %for.end267.i.i, label %for.body261.i.i
 
 for.body261.i.i:                                  ; preds = %for.body254.i.i, %for.body261.i.i
-  %73 = phi i64 [ %inc1.i.i174.i, %for.body261.i.i ], [ 0, %for.body254.i.i ]
-  %pos.4377.i.i = phi i64 [ %inc262.i.i, %for.body261.i.i ], [ %pos.3387.i.i, %for.body254.i.i ]
-  %inc262.i.i = add i64 %pos.4377.i.i, 1
-  %arrayidx263.i.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.4377.i.i
-  %74 = load i8, ptr %arrayidx263.i.i, align 1
-  %conv264.i.i = zext i8 %74 to i64
+  %72 = phi i64 [ %inc1.i.i174.i, %for.body261.i.i ], [ 0, %for.body254.i.i ]
+  %pos.4378.i.i = phi i64 [ %inc262.i.i, %for.body261.i.i ], [ %pos.3388.i.i, %for.body254.i.i ]
+  %inc262.i.i = add i64 %pos.4378.i.i, 1
+  %arrayidx263.i.i = getelementptr inbounds i8, ptr %cond.ph, i64 %pos.4378.i.i
+  %73 = load i8, ptr %arrayidx263.i.i, align 1
+  %conv264.i.i = zext i8 %73 to i64
   %arrayidx.i.i172.i = getelementptr inbounds [256 x i32], ptr %call46.i.i, i64 0, i64 %conv264.i.i
-  %75 = load i32, ptr %arrayidx.i.i172.i, align 4
-  %inc.i.i173.i = add i32 %75, 1
+  %74 = load i32, ptr %arrayidx.i.i172.i, align 4
+  %inc.i.i173.i = add i32 %74, 1
   store i32 %inc.i.i173.i, ptr %arrayidx.i.i172.i, align 4
-  %inc1.i.i174.i = add nuw nsw i64 %73, 1
+  %inc1.i.i174.i = add nuw nsw i64 %72, 1
   store i64 %inc1.i.i174.i, ptr %total_count_.i.i170.i, align 8
-  %76 = load i32, ptr %arrayidx257.i.i, align 4
-  %conv258.i.i = zext i32 %76 to i64
+  %75 = load i32, ptr %arrayidx257.i.i, align 4
+  %conv258.i.i = zext i32 %75 to i64
   %cmp259.i.i = icmp ult i64 %inc1.i.i174.i, %conv258.i.i
   br i1 %cmp259.i.i, label %for.body261.i.i, label %for.end267.i.i, !llvm.loop !35
 
 for.end267.i.i:                                   ; preds = %for.body261.i.i, %for.body254.i.i
-  %pos.4.lcssa.i.i = phi i64 [ %pos.3387.i.i, %for.body254.i.i ], [ %inc262.i.i, %for.body261.i.i ]
-  %cond276.in.idx.i.i = tail call i64 @llvm.usub.sat.i64(i64 %i.4386.i.i, i64 1)
+  %pos.4.lcssa.i.i = phi i64 [ %pos.3388.i.i, %for.body254.i.i ], [ %inc262.i.i, %for.body261.i.i ]
+  %cond276.in.idx.i.i = tail call i64 @llvm.usub.sat.i64(i64 %i.4387.i.i, i64 1)
   %cond276.in.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %cond276.in.idx.i.i
   %cond276.i.i = load i32, ptr %cond276.in.i.i, align 4
   %idxprom277.i.i = zext i32 %cond276.i.i to i64
   %arrayidx278.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %all_histograms.0.lcssa.i.i, i64 %idxprom277.i.i
   %call280.i.i = tail call double @BrotliHistogramBitCostDistanceLiteral(ptr noundef nonnull %call46.i.i, ptr noundef %arrayidx278.i.i, ptr noundef nonnull %add.ptr279.i.i) #7
-  br i1 %cmp282380.not.i.i, label %for.end297.i.i, label %for.body284.i.i
+  br i1 %cmp282381.not.i.i, label %for.end297.i.i, label %for.body284.i.i
 
 for.body284.i.i:                                  ; preds = %for.end267.i.i, %for.inc295.i.i
-  %best_bits.0383.i.i = phi double [ %best_bits.1.i.i, %for.inc295.i.i ], [ %call280.i.i, %for.end267.i.i ]
-  %best_out.0382.i.i = phi i32 [ %best_out.1.i.i, %for.inc295.i.i ], [ %cond276.i.i, %for.end267.i.i ]
-  %j255.1381.i.i = phi i64 [ %inc296.i.i, %for.inc295.i.i ], [ 0, %for.end267.i.i ]
-  %arrayidx285.i.i = getelementptr inbounds i32, ptr %cond224408.i.i, i64 %j255.1381.i.i
-  %77 = load i32, ptr %arrayidx285.i.i, align 4
-  %idxprom286.i.i = zext i32 %77 to i64
+  %best_bits.0384.i.i = phi double [ %best_bits.1.i.i, %for.inc295.i.i ], [ %call280.i.i, %for.end267.i.i ]
+  %best_out.0383.i.i = phi i32 [ %best_out.1.i.i, %for.inc295.i.i ], [ %cond276.i.i, %for.end267.i.i ]
+  %j255.1382.i.i = phi i64 [ %inc296.i.i, %for.inc295.i.i ], [ 0, %for.end267.i.i ]
+  %arrayidx285.i.i = getelementptr inbounds i32, ptr %cond224409.i.i, i64 %j255.1382.i.i
+  %76 = load i32, ptr %arrayidx285.i.i, align 4
+  %idxprom286.i.i = zext i32 %76 to i64
   %arrayidx287.i.i = getelementptr inbounds %struct.HistogramLiteral, ptr %all_histograms.0.lcssa.i.i, i64 %idxprom286.i.i
   %call289.i.i = tail call double @BrotliHistogramBitCostDistanceLiteral(ptr noundef %call46.i.i, ptr noundef %arrayidx287.i.i, ptr noundef nonnull %add.ptr279.i.i) #7
-  %cmp290.i.i = fcmp olt double %call289.i.i, %best_bits.0383.i.i
+  %cmp290.i.i = fcmp olt double %call289.i.i, %best_bits.0384.i.i
   br i1 %cmp290.i.i, label %if.then292.i.i, label %for.inc295.i.i
 
 if.then292.i.i:                                   ; preds = %for.body284.i.i
-  %78 = load i32, ptr %arrayidx285.i.i, align 4
+  %77 = load i32, ptr %arrayidx285.i.i, align 4
   br label %for.inc295.i.i
 
 for.inc295.i.i:                                   ; preds = %if.then292.i.i, %for.body284.i.i
-  %best_out.1.i.i = phi i32 [ %78, %if.then292.i.i ], [ %best_out.0382.i.i, %for.body284.i.i ]
-  %best_bits.1.i.i = phi double [ %call289.i.i, %if.then292.i.i ], [ %best_bits.0383.i.i, %for.body284.i.i ]
-  %inc296.i.i = add nuw i64 %j255.1381.i.i, 1
-  %exitcond403.not.i.i = icmp eq i64 %inc296.i.i, %call234.i.i
-  br i1 %exitcond403.not.i.i, label %for.end297.loopexit.i.i, label %for.body284.i.i, !llvm.loop !36
+  %best_out.1.i.i = phi i32 [ %77, %if.then292.i.i ], [ %best_out.0383.i.i, %for.body284.i.i ]
+  %best_bits.1.i.i = phi double [ %call289.i.i, %if.then292.i.i ], [ %best_bits.0384.i.i, %for.body284.i.i ]
+  %inc296.i.i = add nuw i64 %j255.1382.i.i, 1
+  %exitcond404.not.i.i = icmp eq i64 %inc296.i.i, %call234.i.i
+  br i1 %exitcond404.not.i.i, label %for.end297.loopexit.i.i, label %for.body284.i.i, !llvm.loop !36
 
 for.end297.loopexit.i.i:                          ; preds = %for.inc295.i.i
-  %.pre406.i.i = zext i32 %best_out.1.i.i to i64
+  %.pre407.i.i = zext i32 %best_out.1.i.i to i64
   br label %for.end297.i.i
 
 for.end297.i.i:                                   ; preds = %for.end297.loopexit.i.i, %for.end267.i.i
-  %idxprom299.pre-phi.i.i = phi i64 [ %.pre406.i.i, %for.end297.loopexit.i.i ], [ %idxprom277.i.i, %for.end267.i.i ]
+  %idxprom299.pre-phi.i.i = phi i64 [ %.pre407.i.i, %for.end297.loopexit.i.i ], [ %idxprom277.i.i, %for.end267.i.i ]
   %best_out.0.lcssa.i.i = phi i32 [ %best_out.1.i.i, %for.end297.loopexit.i.i ], [ %cond276.i.i, %for.end267.i.i ]
-  %arrayidx298.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %i.4386.i.i
+  %arrayidx298.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %i.4387.i.i
   store i32 %best_out.0.lcssa.i.i, ptr %arrayidx298.i.i, align 4
-  %arrayidx300.i.i = getelementptr inbounds i32, ptr %cond242410.i.i, i64 %idxprom299.pre-phi.i.i
-  %79 = load i32, ptr %arrayidx300.i.i, align 4
-  %cmp301.i.i = icmp eq i32 %79, -1
+  %arrayidx300.i.i = getelementptr inbounds i32, ptr %cond242411.i.i, i64 %idxprom299.pre-phi.i.i
+  %78 = load i32, ptr %arrayidx300.i.i, align 4
+  %cmp301.i.i = icmp eq i32 %78, -1
   br i1 %cmp301.i.i, label %if.then303.i.i, label %for.inc308.i.i
 
 if.then303.i.i:                                   ; preds = %for.end297.i.i
-  %inc304.i.i = add i32 %next_index.0388.i.i, 1
-  store i32 %next_index.0388.i.i, ptr %arrayidx300.i.i, align 4
+  %inc304.i.i = add i32 %next_index.0389.i.i, 1
+  store i32 %next_index.0389.i.i, ptr %arrayidx300.i.i, align 4
   br label %for.inc308.i.i
 
 for.inc308.i.i:                                   ; preds = %if.then303.i.i, %for.end297.i.i
-  %next_index.1.i.i = phi i32 [ %inc304.i.i, %if.then303.i.i ], [ %next_index.0388.i.i, %for.end297.i.i ]
-  %inc309.i.i = add nuw i64 %i.4386.i.i, 1
-  %exitcond404.not.i.i = icmp eq i64 %inc309.i.i, %retval.0.i.i
-  br i1 %exitcond404.not.i.i, label %for.end310.i.i, label %for.body254.i.i, !llvm.loop !37
+  %next_index.1.i.i = phi i32 [ %inc304.i.i, %if.then303.i.i ], [ %next_index.0389.i.i, %for.end297.i.i ]
+  %inc309.i.i = add nuw i64 %i.4387.i.i, 1
+  %exitcond405.not.i.i = icmp eq i64 %inc309.i.i, %retval.0.i.i
+  br i1 %exitcond405.not.i.i, label %for.end310.i.i, label %for.body254.i.i, !llvm.loop !37
 
 for.end310.i.i:                                   ; preds = %for.inc308.i.i, %for.cond251.preheader.i.i
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call46.i.i) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224408.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224409.i.i) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i) #7
-  %types_alloc_size.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 4
-  %80 = load i64, ptr %types_alloc_size.i.i, align 8
-  %cmp311.i.i = icmp ult i64 %80, %retval.0.i.i
+  %types_alloc_size.i.i = getelementptr inbounds i8, ptr %literal_split, i64 32
+  %79 = load i64, ptr %types_alloc_size.i.i, align 8
+  %cmp311.i.i = icmp ult i64 %79, %retval.0.i.i
   br i1 %cmp311.i.i, label %if.then313.i.i, label %if.end349.i.i
 
 if.then313.i.i:                                   ; preds = %for.end310.i.i
-  %cmp316.i.i = icmp eq i64 %80, 0
-  %num_blocks..i.i = select i1 %cmp316.i.i, i64 %retval.0.i.i, i64 %80
+  %cmp316.i.i = icmp eq i64 %79, 0
+  %num_blocks..i.i = select i1 %cmp316.i.i, i64 %retval.0.i.i, i64 %79
   br label %while.cond324.i.i
 
 while.cond324.i.i:                                ; preds = %while.cond324.i.i, %if.then313.i.i
@@ -1171,33 +1161,33 @@ while.cond324.i.i:                                ; preds = %while.cond324.i.i, 
 
 cond.end336.i.i:                                  ; preds = %while.cond324.i.i
   %call334.i.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size314.0.i.i) #7
-  %81 = load i64, ptr %types_alloc_size.i.i, align 8
-  %cmp339.not.i.i = icmp eq i64 %81, 0
+  %80 = load i64, ptr %types_alloc_size.i.i, align 8
+  %cmp339.not.i.i = icmp eq i64 %80, 0
   br i1 %cmp339.not.i.i, label %if.end344.i.i, label %if.then341.i.i
 
 if.then341.i.i:                                   ; preds = %cond.end336.i.i
-  %types.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 2
-  %82 = load ptr, ptr %types.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call334.i.i, ptr align 1 %82, i64 %81, i1 false)
+  %types.i.i = getelementptr inbounds i8, ptr %literal_split, i64 16
+  %81 = load ptr, ptr %types.i.i, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call334.i.i, ptr align 1 %81, i64 %80, i1 false)
   br label %if.end344.i.i
 
 if.end344.i.i:                                    ; preds = %if.then341.i.i, %cond.end336.i.i
-  %types345.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 2
-  %83 = load ptr, ptr %types345.i.i, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %83) #7
+  %types345.i.i = getelementptr inbounds i8, ptr %literal_split, i64 16
+  %82 = load ptr, ptr %types345.i.i, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %82) #7
   store ptr %call334.i.i, ptr %types345.i.i, align 8
   store i64 %_new_size314.0.i.i, ptr %types_alloc_size.i.i, align 8
   br label %if.end349.i.i
 
 if.end349.i.i:                                    ; preds = %if.end344.i.i, %for.end310.i.i
-  %lengths_alloc_size.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 5
-  %84 = load i64, ptr %lengths_alloc_size.i.i, align 8
-  %cmp350.i.i = icmp ult i64 %84, %retval.0.i.i
+  %lengths_alloc_size.i.i = getelementptr inbounds i8, ptr %literal_split, i64 40
+  %83 = load i64, ptr %lengths_alloc_size.i.i, align 8
+  %cmp350.i.i = icmp ult i64 %83, %retval.0.i.i
   br i1 %cmp350.i.i, label %if.then352.i.i, label %if.end388.i.i
 
 if.then352.i.i:                                   ; preds = %if.end349.i.i
-  %cmp355.i.i = icmp eq i64 %84, 0
-  %num_blocks.290.i.i = select i1 %cmp355.i.i, i64 %retval.0.i.i, i64 %84
+  %cmp355.i.i = icmp eq i64 %83, 0
+  %num_blocks.290.i.i = select i1 %cmp355.i.i, i64 %retval.0.i.i, i64 %83
   br label %while.cond363.i.i
 
 while.cond363.i.i:                                ; preds = %while.cond363.i.i, %if.then352.i.i
@@ -1209,21 +1199,21 @@ while.cond363.i.i:                                ; preds = %while.cond363.i.i, 
 cond.end375.i.i:                                  ; preds = %while.cond363.i.i
   %mul372.i.i = shl i64 %_new_size353.0.i.i, 2
   %call373.i.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul372.i.i) #7
-  %85 = load i64, ptr %lengths_alloc_size.i.i, align 8
-  %cmp378.not.i.i = icmp eq i64 %85, 0
+  %84 = load i64, ptr %lengths_alloc_size.i.i, align 8
+  %cmp378.not.i.i = icmp eq i64 %84, 0
   br i1 %cmp378.not.i.i, label %if.end388.thread.i.i, label %if.then380.i.i
 
 if.then380.i.i:                                   ; preds = %cond.end375.i.i
-  %lengths.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 3
-  %86 = load ptr, ptr %lengths.i.i, align 8
-  %mul382.i.i = shl i64 %85, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call373.i.i, ptr align 4 %86, i64 %mul382.i.i, i1 false)
+  %lengths.i.i = getelementptr inbounds i8, ptr %literal_split, i64 24
+  %85 = load ptr, ptr %lengths.i.i, align 8
+  %mul382.i.i = shl i64 %84, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call373.i.i, ptr align 4 %85, i64 %mul382.i.i, i1 false)
   br label %if.end388.thread.i.i
 
 if.end388.thread.i.i:                             ; preds = %if.then380.i.i, %cond.end375.i.i
-  %lengths384.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 3
-  %87 = load ptr, ptr %lengths384.i.i, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %87) #7
+  %lengths384.i.i = getelementptr inbounds i8, ptr %literal_split, i64 24
+  %86 = load ptr, ptr %lengths384.i.i, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %86) #7
   store ptr %call373.i.i, ptr %lengths384.i.i, align 8
   store i64 %_new_size353.0.i.i, ptr %lengths_alloc_size.i.i, align 8
   br label %for.body393.lr.ph.i.i
@@ -1232,74 +1222,74 @@ if.end388.i.i:                                    ; preds = %if.end349.i.i
   br i1 %cmp.not.i.i, label %ClusterBlocksLiteral.exit.i, label %for.body393.lr.ph.i.i
 
 for.body393.lr.ph.i.i:                            ; preds = %if.end388.i.i, %if.end388.thread.i.i
-  %types410.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 2
-  %lengths412.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 3
+  %types410.i.i = getelementptr inbounds i8, ptr %literal_split, i64 16
+  %lengths412.i.i = getelementptr inbounds i8, ptr %literal_split, i64 24
   br label %for.body393.i.i
 
 for.body393.i.i:                                  ; preds = %for.inc417.i.i, %for.body393.lr.ph.i.i
-  %max_type.0393.i.i = phi i8 [ 0, %for.body393.lr.ph.i.i ], [ %max_type.1.i.i, %for.inc417.i.i ]
-  %block_idx389.0392.i.i = phi i64 [ 0, %for.body393.lr.ph.i.i ], [ %block_idx389.1.i.i, %for.inc417.i.i ]
-  %cur_length.0391.i.i = phi i32 [ 0, %for.body393.lr.ph.i.i ], [ %cur_length.1.i.i, %for.inc417.i.i ]
-  %i.5390.i.i = phi i64 [ 0, %for.body393.lr.ph.i.i ], [ %add396.i.i, %for.inc417.i.i ]
-  %arrayidx394.i.i = getelementptr inbounds i32, ptr %add.ptr45.i.i, i64 %i.5390.i.i
-  %88 = load i32, ptr %arrayidx394.i.i, align 4
-  %add395.i.i = add i32 %88, %cur_length.0391.i.i
-  %add396.i.i = add nuw i64 %i.5390.i.i, 1
+  %max_type.0394.i.i = phi i8 [ 0, %for.body393.lr.ph.i.i ], [ %max_type.1.i.i, %for.inc417.i.i ]
+  %block_idx389.0393.i.i = phi i64 [ 0, %for.body393.lr.ph.i.i ], [ %block_idx389.1.i.i, %for.inc417.i.i ]
+  %cur_length.0392.i.i = phi i32 [ 0, %for.body393.lr.ph.i.i ], [ %cur_length.1.i.i, %for.inc417.i.i ]
+  %i.5391.i.i = phi i64 [ 0, %for.body393.lr.ph.i.i ], [ %add396.i.i, %for.inc417.i.i ]
+  %arrayidx394.i.i = getelementptr inbounds i32, ptr %add.ptr45.i.i, i64 %i.5391.i.i
+  %87 = load i32, ptr %arrayidx394.i.i, align 4
+  %add395.i.i = add i32 %87, %cur_length.0392.i.i
+  %add396.i.i = add nuw i64 %i.5391.i.i, 1
   %cmp397.i.i = icmp eq i64 %add396.i.i, %retval.0.i.i
-  %arrayidx406.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %i.5390.i.i
+  %arrayidx406.phi.trans.insert.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %i.5391.i.i
   %.pre.i.i = load i32, ptr %arrayidx406.phi.trans.insert.i.i, align 4
   br i1 %cmp397.i.i, label %if.then405.i.i, label %lor.lhs.false399.i.i
 
 lor.lhs.false399.i.i:                             ; preds = %for.body393.i.i
   %arrayidx402.i.i = getelementptr inbounds i32, ptr %cond295308323.i.i, i64 %add396.i.i
-  %89 = load i32, ptr %arrayidx402.i.i, align 4
-  %cmp403.not.i.i = icmp eq i32 %.pre.i.i, %89
+  %88 = load i32, ptr %arrayidx402.i.i, align 4
+  %cmp403.not.i.i = icmp eq i32 %.pre.i.i, %88
   br i1 %cmp403.not.i.i, label %for.inc417.i.i, label %if.then405.i.i
 
 if.then405.i.i:                                   ; preds = %lor.lhs.false399.i.i, %for.body393.i.i
   %idxprom407.i.i = zext i32 %.pre.i.i to i64
-  %arrayidx408.i.i = getelementptr inbounds i32, ptr %cond242410.i.i, i64 %idxprom407.i.i
-  %90 = load i32, ptr %arrayidx408.i.i, align 4
-  %conv409.i.i = trunc i32 %90 to i8
-  %91 = load ptr, ptr %types410.i.i, align 8
-  %arrayidx411.i.i = getelementptr inbounds i8, ptr %91, i64 %block_idx389.0392.i.i
+  %arrayidx408.i.i = getelementptr inbounds i32, ptr %cond242411.i.i, i64 %idxprom407.i.i
+  %89 = load i32, ptr %arrayidx408.i.i, align 4
+  %conv409.i.i = trunc i32 %89 to i8
+  %90 = load ptr, ptr %types410.i.i, align 8
+  %arrayidx411.i.i = getelementptr inbounds i8, ptr %90, i64 %block_idx389.0393.i.i
   store i8 %conv409.i.i, ptr %arrayidx411.i.i, align 1
-  %92 = load ptr, ptr %lengths412.i.i, align 8
-  %arrayidx413.i.i = getelementptr inbounds i32, ptr %92, i64 %block_idx389.0392.i.i
+  %91 = load ptr, ptr %lengths412.i.i, align 8
+  %arrayidx413.i.i = getelementptr inbounds i32, ptr %91, i64 %block_idx389.0393.i.i
   store i32 %add395.i.i, ptr %arrayidx413.i.i, align 4
-  %conv.i.i175.i = zext i8 %max_type.0393.i.i to i32
-  %conv1.i.i.i = and i32 %90, 255
+  %conv.i.i175.i = zext i8 %max_type.0394.i.i to i32
+  %conv1.i.i.i = and i32 %89, 255
   %cond.i459.i.i = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i, i32 %conv.i.i175.i)
   %conv5.i.i.i = trunc i32 %cond.i459.i.i to i8
-  %inc415.i.i = add i64 %block_idx389.0392.i.i, 1
+  %inc415.i.i = add i64 %block_idx389.0393.i.i, 1
   br label %for.inc417.i.i
 
 for.inc417.i.i:                                   ; preds = %if.then405.i.i, %lor.lhs.false399.i.i
   %cur_length.1.i.i = phi i32 [ 0, %if.then405.i.i ], [ %add395.i.i, %lor.lhs.false399.i.i ]
-  %block_idx389.1.i.i = phi i64 [ %inc415.i.i, %if.then405.i.i ], [ %block_idx389.0392.i.i, %lor.lhs.false399.i.i ]
-  %max_type.1.i.i = phi i8 [ %conv5.i.i.i, %if.then405.i.i ], [ %max_type.0393.i.i, %lor.lhs.false399.i.i ]
+  %block_idx389.1.i.i = phi i64 [ %inc415.i.i, %if.then405.i.i ], [ %block_idx389.0393.i.i, %lor.lhs.false399.i.i ]
+  %max_type.1.i.i = phi i8 [ %conv5.i.i.i, %if.then405.i.i ], [ %max_type.0394.i.i, %lor.lhs.false399.i.i ]
   br i1 %cmp397.i.i, label %for.end419.loopexit.i.i, label %for.body393.i.i, !llvm.loop !40
 
 for.end419.loopexit.i.i:                          ; preds = %for.inc417.i.i
-  %93 = zext i8 %max_type.1.i.i to i64
-  %94 = add nuw nsw i64 %93, 1
+  %92 = zext i8 %max_type.1.i.i to i64
+  %93 = add nuw nsw i64 %92, 1
   br label %ClusterBlocksLiteral.exit.i
 
 ClusterBlocksLiteral.exit.i:                      ; preds = %for.end419.loopexit.i.i, %if.end388.i.i
   %block_idx389.0.lcssa.i.i = phi i64 [ 0, %if.end388.i.i ], [ %block_idx389.1.i.i, %for.end419.loopexit.i.i ]
-  %max_type.0.lcssa.i.i = phi i64 [ 1, %if.end388.i.i ], [ %94, %for.end419.loopexit.i.i ]
-  %num_blocks420.i.i = getelementptr inbounds %struct.BlockSplit, ptr %literal_split, i64 0, i32 1
+  %max_type.0.lcssa.i.i = phi i64 [ 1, %if.end388.i.i ], [ %93, %for.end419.loopexit.i.i ]
+  %num_blocks420.i.i = getelementptr inbounds i8, ptr %literal_split, i64 8
   store i64 %block_idx389.0.lcssa.i.i, ptr %num_blocks420.i.i, align 8
   store i64 %max_type.0.lcssa.i.i, ptr %literal_split, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond242410.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond242411.i.i) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond8310322.i.i) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond295308323.i.i) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call97.i) #7
   br label %SplitByteVectorLiteral.exit
 
 SplitByteVectorLiteral.exit:                      ; preds = %if.then2.i, %if.end74.i, %ClusterBlocksLiteral.exit.i
-  %cond143114411447 = phi ptr [ %cond143114411448, %if.then2.i ], [ %cond.ph, %if.end74.i ], [ %cond.ph, %ClusterBlocksLiteral.exit.i ]
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond143114411447) #7
+  %cond139414041410 = phi ptr [ %cond139414041411, %if.then2.i ], [ %cond.ph, %if.end74.i ], [ %cond.ph, %ClusterBlocksLiteral.exit.i ]
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond139414041410) #7
   br i1 %cmp4.not.i, label %cond.end16.thread, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %SplitByteVectorLiteral.exit
@@ -1308,19 +1298,19 @@ for.body.preheader:                               ; preds = %SplitByteVectorLite
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.01452 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %cmd_prefix_ = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.01452, i32 3
-  %95 = load i16, ptr %cmd_prefix_, align 4
-  %arrayidx10 = getelementptr inbounds i16, ptr %call5, i64 %i.01452
-  store i16 %95, ptr %arrayidx10, align 2
-  %inc = add nuw i64 %i.01452, 1
+  %i.01415 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %cmd_prefix_ = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.01415, i32 3
+  %94 = load i16, ptr %cmd_prefix_, align 4
+  %arrayidx10 = getelementptr inbounds i16, ptr %call5, i64 %i.01415
+  store i16 %94, ptr %arrayidx10, align 2
+  %inc = add nuw i64 %i.01415, 1
   %exitcond.not = icmp eq i64 %inc, %num_commands
   br i1 %exitcond.not, label %if.end3.i60, label %for.body, !llvm.loop !41
 
 cond.end16.thread:                                ; preds = %SplitByteVectorLiteral.exit
   store i64 1, ptr %insert_and_copy_split, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef null) #7
-  br label %if.then2.i1418
+  br label %if.then2.i1381
 
 if.end3.i60:                                      ; preds = %for.body
   %div.lhs.trunc.i53 = trunc i64 %num_commands to i16
@@ -1330,114 +1320,114 @@ if.end3.i60:                                      ; preds = %for.body
   %cmp.i57 = icmp ugt i64 %num_commands, 26499
   %spec.select.i58 = select i1 %cmp.i57, i64 50, i64 %add.i56
   %cmp4.i61 = icmp ult i64 %num_commands, 128
-  br i1 %cmp4.i61, label %if.then5.i680, label %cond.true86.i62
+  br i1 %cmp4.i61, label %if.then5.i643, label %cond.true86.i62
 
-if.then5.i680:                                    ; preds = %if.end3.i60
-  %types_alloc_size.i681 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 4
-  %96 = load i64, ptr %types_alloc_size.i681, align 8
-  %num_blocks.i682 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 1
-  %97 = load i64, ptr %num_blocks.i682, align 8
-  %add6.i683 = add i64 %97, 1
-  %cmp7.i684 = icmp ult i64 %96, %add6.i683
-  br i1 %cmp7.i684, label %if.then8.i713, label %if.end34.i685
+if.then5.i643:                                    ; preds = %if.end3.i60
+  %types_alloc_size.i644 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 32
+  %95 = load i64, ptr %types_alloc_size.i644, align 8
+  %num_blocks.i645 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 8
+  %96 = load i64, ptr %num_blocks.i645, align 8
+  %add6.i646 = add i64 %96, 1
+  %cmp7.i647 = icmp ult i64 %95, %add6.i646
+  br i1 %cmp7.i647, label %if.then8.i676, label %if.end34.i648
 
-if.then8.i713:                                    ; preds = %if.then5.i680
-  %cmp10.i714 = icmp eq i64 %96, 0
-  %add6..i715 = select i1 %cmp10.i714, i64 %add6.i683, i64 %96
-  br label %while.cond.i716
+if.then8.i676:                                    ; preds = %if.then5.i643
+  %cmp10.i677 = icmp eq i64 %95, 0
+  %add6..i678 = select i1 %cmp10.i677, i64 %add6.i646, i64 %95
+  br label %while.cond.i679
 
-while.cond.i716:                                  ; preds = %while.cond.i716, %if.then8.i713
-  %_new_size.0.i717 = phi i64 [ %add6..i715, %if.then8.i713 ], [ %mul.i719, %while.cond.i716 ]
-  %cmp16.i718 = icmp ult i64 %_new_size.0.i717, %add6.i683
-  %mul.i719 = shl i64 %_new_size.0.i717, 1
-  br i1 %cmp16.i718, label %while.cond.i716, label %cond.end22.i720, !llvm.loop !42
+while.cond.i679:                                  ; preds = %while.cond.i679, %if.then8.i676
+  %_new_size.0.i680 = phi i64 [ %add6..i678, %if.then8.i676 ], [ %mul.i682, %while.cond.i679 ]
+  %cmp16.i681 = icmp ult i64 %_new_size.0.i680, %add6.i646
+  %mul.i682 = shl i64 %_new_size.0.i680, 1
+  br i1 %cmp16.i681, label %while.cond.i679, label %cond.end22.i683, !llvm.loop !42
 
-cond.end22.i720:                                  ; preds = %while.cond.i716
-  %call20.i721 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size.0.i717) #7
-  %98 = load i64, ptr %types_alloc_size.i681, align 8
-  %cmp25.not.i722 = icmp eq i64 %98, 0
-  br i1 %cmp25.not.i722, label %if.end29.i725, label %if.then26.i723
+cond.end22.i683:                                  ; preds = %while.cond.i679
+  %call20.i684 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size.0.i680) #7
+  %97 = load i64, ptr %types_alloc_size.i644, align 8
+  %cmp25.not.i685 = icmp eq i64 %97, 0
+  br i1 %cmp25.not.i685, label %if.end29.i688, label %if.then26.i686
 
-if.then26.i723:                                   ; preds = %cond.end22.i720
-  %types.i724 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 2
-  %99 = load ptr, ptr %types.i724, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20.i721, ptr align 1 %99, i64 %98, i1 false)
-  br label %if.end29.i725
+if.then26.i686:                                   ; preds = %cond.end22.i683
+  %types.i687 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 16
+  %98 = load ptr, ptr %types.i687, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20.i684, ptr align 1 %98, i64 %97, i1 false)
+  br label %if.end29.i688
 
-if.end29.i725:                                    ; preds = %if.then26.i723, %cond.end22.i720
-  %types30.i726 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 2
-  %100 = load ptr, ptr %types30.i726, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %100) #7
-  store ptr %call20.i721, ptr %types30.i726, align 8
-  store i64 %_new_size.0.i717, ptr %types_alloc_size.i681, align 8
-  %.pre.i727 = load i64, ptr %num_blocks.i682, align 8
-  %.pre180.i728 = add i64 %.pre.i727, 1
-  br label %if.end34.i685
+if.end29.i688:                                    ; preds = %if.then26.i686, %cond.end22.i683
+  %types30.i689 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 16
+  %99 = load ptr, ptr %types30.i689, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %99) #7
+  store ptr %call20.i684, ptr %types30.i689, align 8
+  store i64 %_new_size.0.i680, ptr %types_alloc_size.i644, align 8
+  %.pre.i690 = load i64, ptr %num_blocks.i645, align 8
+  %.pre180.i691 = add i64 %.pre.i690, 1
+  br label %if.end34.i648
 
-if.end34.i685:                                    ; preds = %if.end29.i725, %if.then5.i680
-  %add36.pre-phi.i686 = phi i64 [ %.pre180.i728, %if.end29.i725 ], [ %add6.i683, %if.then5.i680 ]
-  %101 = phi i64 [ %.pre.i727, %if.end29.i725 ], [ %97, %if.then5.i680 ]
-  %lengths_alloc_size.i687 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 5
-  %102 = load i64, ptr %lengths_alloc_size.i687, align 8
-  %cmp37.i688 = icmp ult i64 %102, %add36.pre-phi.i686
-  br i1 %cmp37.i688, label %if.then38.i696, label %if.end74.i689
+if.end34.i648:                                    ; preds = %if.end29.i688, %if.then5.i643
+  %add36.pre-phi.i649 = phi i64 [ %.pre180.i691, %if.end29.i688 ], [ %add6.i646, %if.then5.i643 ]
+  %100 = phi i64 [ %.pre.i690, %if.end29.i688 ], [ %96, %if.then5.i643 ]
+  %lengths_alloc_size.i650 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 40
+  %101 = load i64, ptr %lengths_alloc_size.i650, align 8
+  %cmp37.i651 = icmp ult i64 %101, %add36.pre-phi.i649
+  br i1 %cmp37.i651, label %if.then38.i659, label %if.end74.i652
 
-if.then38.i696:                                   ; preds = %if.end34.i685
-  %cmp41.i697 = icmp eq i64 %102, 0
-  %add36..i698 = select i1 %cmp41.i697, i64 %add36.pre-phi.i686, i64 %102
-  br label %while.cond50.i699
+if.then38.i659:                                   ; preds = %if.end34.i648
+  %cmp41.i660 = icmp eq i64 %101, 0
+  %add36..i661 = select i1 %cmp41.i660, i64 %add36.pre-phi.i649, i64 %101
+  br label %while.cond50.i662
 
-while.cond50.i699:                                ; preds = %while.cond50.i699, %if.then38.i696
-  %_new_size39.0.i700 = phi i64 [ %add36..i698, %if.then38.i696 ], [ %mul55.i702, %while.cond50.i699 ]
-  %cmp53.i701 = icmp ult i64 %_new_size39.0.i700, %add36.pre-phi.i686
-  %mul55.i702 = shl i64 %_new_size39.0.i700, 1
-  br i1 %cmp53.i701, label %while.cond50.i699, label %cond.end62.i703, !llvm.loop !43
+while.cond50.i662:                                ; preds = %while.cond50.i662, %if.then38.i659
+  %_new_size39.0.i663 = phi i64 [ %add36..i661, %if.then38.i659 ], [ %mul55.i665, %while.cond50.i662 ]
+  %cmp53.i664 = icmp ult i64 %_new_size39.0.i663, %add36.pre-phi.i649
+  %mul55.i665 = shl i64 %_new_size39.0.i663, 1
+  br i1 %cmp53.i664, label %while.cond50.i662, label %cond.end62.i666, !llvm.loop !43
 
-cond.end62.i703:                                  ; preds = %while.cond50.i699
-  %mul59.i704 = shl i64 %_new_size39.0.i700, 2
-  %call60.i705 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul59.i704) #7
-  %103 = load i64, ptr %lengths_alloc_size.i687, align 8
-  %cmp65.not.i706 = icmp eq i64 %103, 0
-  br i1 %cmp65.not.i706, label %if.end69.i710, label %if.then66.i707
+cond.end62.i666:                                  ; preds = %while.cond50.i662
+  %mul59.i667 = shl i64 %_new_size39.0.i663, 2
+  %call60.i668 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul59.i667) #7
+  %102 = load i64, ptr %lengths_alloc_size.i650, align 8
+  %cmp65.not.i669 = icmp eq i64 %102, 0
+  br i1 %cmp65.not.i669, label %if.end69.i673, label %if.then66.i670
 
-if.then66.i707:                                   ; preds = %cond.end62.i703
-  %lengths.i708 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 3
-  %104 = load ptr, ptr %lengths.i708, align 8
-  %mul68.i709 = shl i64 %103, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call60.i705, ptr align 4 %104, i64 %mul68.i709, i1 false)
-  br label %if.end69.i710
+if.then66.i670:                                   ; preds = %cond.end62.i666
+  %lengths.i671 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
+  %103 = load ptr, ptr %lengths.i671, align 8
+  %mul68.i672 = shl i64 %102, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call60.i668, ptr align 4 %103, i64 %mul68.i672, i1 false)
+  br label %if.end69.i673
 
-if.end69.i710:                                    ; preds = %if.then66.i707, %cond.end62.i703
-  %lengths70.i711 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 3
-  %105 = load ptr, ptr %lengths70.i711, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %105) #7
-  store ptr %call60.i705, ptr %lengths70.i711, align 8
-  store i64 %_new_size39.0.i700, ptr %lengths_alloc_size.i687, align 8
-  %.pre179.i712 = load i64, ptr %num_blocks.i682, align 8
-  br label %if.end74.i689
+if.end69.i673:                                    ; preds = %if.then66.i670, %cond.end62.i666
+  %lengths70.i674 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
+  %104 = load ptr, ptr %lengths70.i674, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %104) #7
+  store ptr %call60.i668, ptr %lengths70.i674, align 8
+  store i64 %_new_size39.0.i663, ptr %lengths_alloc_size.i650, align 8
+  %.pre179.i675 = load i64, ptr %num_blocks.i645, align 8
+  br label %if.end74.i652
 
-if.end74.i689:                                    ; preds = %if.end69.i710, %if.end34.i685
-  %106 = phi i64 [ %.pre179.i712, %if.end69.i710 ], [ %101, %if.end34.i685 ]
+if.end74.i652:                                    ; preds = %if.end69.i673, %if.end34.i648
+  %105 = phi i64 [ %.pre179.i675, %if.end69.i673 ], [ %100, %if.end34.i648 ]
   store i64 1, ptr %insert_and_copy_split, align 8
-  %types76.i690 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 2
-  %107 = load ptr, ptr %types76.i690, align 8
-  %arrayidx.i691 = getelementptr inbounds i8, ptr %107, i64 %106
-  store i8 0, ptr %arrayidx.i691, align 1
-  %conv.i692 = trunc i64 %num_commands to i32
-  %lengths78.i693 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 3
-  %108 = load ptr, ptr %lengths78.i693, align 8
-  %109 = load i64, ptr %num_blocks.i682, align 8
-  %arrayidx80.i694 = getelementptr inbounds i32, ptr %108, i64 %109
-  store i32 %conv.i692, ptr %arrayidx80.i694, align 4
-  %110 = load i64, ptr %num_blocks.i682, align 8
-  %inc.i695 = add i64 %110, 1
-  store i64 %inc.i695, ptr %num_blocks.i682, align 8
+  %types76.i653 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 16
+  %106 = load ptr, ptr %types76.i653, align 8
+  %arrayidx.i654 = getelementptr inbounds i8, ptr %106, i64 %105
+  store i8 0, ptr %arrayidx.i654, align 1
+  %conv.i655 = trunc i64 %num_commands to i32
+  %lengths78.i656 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
+  %107 = load ptr, ptr %lengths78.i656, align 8
+  %108 = load i64, ptr %num_blocks.i645, align 8
+  %arrayidx80.i657 = getelementptr inbounds i32, ptr %107, i64 %108
+  store i32 %conv.i655, ptr %arrayidx80.i657, align 4
+  %109 = load i64, ptr %num_blocks.i645, align 8
+  %inc.i658 = add i64 %109, 1
+  store i64 %inc.i658, ptr %num_blocks.i645, align 8
   %.pre = shl nuw nsw i64 %num_commands, 1
   br label %cond.end16
 
 cond.true86.i62:                                  ; preds = %if.end3.i60
-  %111 = mul nuw nsw i64 %spec.select.i58, 2832
-  %mul88.i63 = add nuw nsw i64 %111, 2832
+  %110 = mul nuw nsw i64 %spec.select.i58, 2832
+  %mul88.i63 = add nuw nsw i64 %110, 2832
   %call89.i64 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul88.i63) #7
   br label %for.body.i.i.i65
 
@@ -1449,7 +1439,7 @@ for.cond.preheader.i.i71:                         ; preds = %for.body.i.i.i65
 for.body.i.i.i65:                                 ; preds = %for.body.i.i.i65, %cond.true86.i62
   %i.i.025.i.i66 = phi i64 [ 0, %cond.true86.i62 ], [ %inc.i.i.i69, %for.body.i.i.i65 ]
   %add.ptr.i.i.i67 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.i.025.i.i66
-  %bit_cost_.i.i.i68 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.i.025.i.i66, i32 2
+  %bit_cost_.i.i.i68 = getelementptr inbounds i8, ptr %add.ptr.i.i.i67, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %add.ptr.i.i.i67, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i.i68, align 8
   %inc.i.i.i69 = add nuw nsw i64 %i.i.025.i.i66, 1
@@ -1479,21 +1469,21 @@ if.end.i.i85:                                     ; preds = %if.then.i.i80, %for
   %spec.select.i.i90 = select i1 %cmp4.not.i.i89, i64 %pos.0.i.i87, i64 %sub7.i.i73
   %arrayidx.i.i91 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.029.i.i75
   %add.ptr.i.i92 = getelementptr inbounds i16, ptr %call5, i64 %spec.select.i.i90
-  %total_count_.i.i.i93 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.029.i.i75, i32 1
-  %112 = load i64, ptr %total_count_.i.i.i93, align 8
-  %add.i.i.i94 = add i64 %112, 40
+  %total_count_.i.i.i93 = getelementptr inbounds i8, ptr %arrayidx.i.i91, i64 2816
+  %111 = load i64, ptr %total_count_.i.i.i93, align 8
+  %add.i.i.i94 = add i64 %111, 40
   store i64 %add.i.i.i94, ptr %total_count_.i.i.i93, align 8
   br label %while.body.i.i.i95
 
 while.body.i.i.i95:                               ; preds = %while.body.i.i.i95, %if.end.i.i85
   %dec.i27.i.i96 = phi i64 [ 40, %if.end.i.i85 ], [ %dec.i.i.i102, %while.body.i.i.i95 ]
   %p.addr.i.026.i.i97 = phi ptr [ %add.ptr.i.i92, %if.end.i.i85 ], [ %incdec.ptr.i.i.i98, %while.body.i.i.i95 ]
-  %incdec.ptr.i.i.i98 = getelementptr inbounds i16, ptr %p.addr.i.026.i.i97, i64 1
-  %113 = load i16, ptr %p.addr.i.026.i.i97, align 2
-  %idxprom.i.i.i99 = zext i16 %113 to i64
+  %incdec.ptr.i.i.i98 = getelementptr inbounds i8, ptr %p.addr.i.026.i.i97, i64 2
+  %112 = load i16, ptr %p.addr.i.026.i.i97, align 2
+  %idxprom.i.i.i99 = zext i16 %112 to i64
   %arrayidx.i.i.i100 = getelementptr inbounds [704 x i32], ptr %arrayidx.i.i91, i64 0, i64 %idxprom.i.i.i99
-  %114 = load i32, ptr %arrayidx.i.i.i100, align 4
-  %inc.i9.i.i101 = add i32 %114, 1
+  %113 = load i32, ptr %arrayidx.i.i.i100, align 4
+  %inc.i9.i.i101 = add i32 %113, 1
   store i32 %inc.i9.i.i101, ptr %arrayidx.i.i.i100, align 4
   %dec.i.i.i102 = add nsw i64 %dec.i27.i.i96, -1
   %tobool.i.not.i.i103 = icmp eq i64 %dec.i.i.i102, 0
@@ -1510,14 +1500,14 @@ InitialEntropyCodesCommand.exit.i:                ; preds = %for.inc.i.i104
   %div.i114.i109 = udiv i64 %mul.i113.i108, 40
   %add1.i.i110 = add nuw nsw i64 %div.i114.i109, 99
   %sub.i.i111 = add nuw nsw i64 %add1.i.i110, %spec.select.i58
-  %115 = urem i64 %sub.i.i111, %spec.select.i58
-  %mul3.i.i112 = sub nuw nsw i64 %sub.i.i111, %115
-  %cmp20.not.i.i113 = icmp eq i64 %sub.i.i111, %115
+  %114 = urem i64 %sub.i.i111, %spec.select.i58
+  %mul3.i.i112 = sub nuw nsw i64 %sub.i.i111, %114
+  %cmp20.not.i.i113 = icmp eq i64 %sub.i.i111, %114
   br i1 %cmp20.not.i.i113, label %RefineEntropyCodesCommand.exit.i, label %for.body.lr.ph.i.i114
 
 for.body.lr.ph.i.i114:                            ; preds = %InitialEntropyCodesCommand.exit.i
-  %total_count_.i.i115.i115 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %spec.select.i58, i32 1
-  %bit_cost_.i.i116.i116 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %spec.select.i58, i32 2
+  %total_count_.i.i115.i115 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 2816
+  %bit_cost_.i.i116.i116 = getelementptr inbounds i8, ptr %add.ptr.i107, i64 2824
   %add.i18.i.i117 = add i64 %num_commands, -39
   br label %for.body.i117.i118
 
@@ -1536,12 +1526,12 @@ for.body.i117.i118:                               ; preds = %for.inc.i126.i145, 
 while.body.i.i.i.i125:                            ; preds = %while.body.i.i.i.i125, %for.body.i117.i118
   %dec.i10.i.i.i126 = phi i64 [ 40, %for.body.i117.i118 ], [ %dec.i.i.i.i132, %while.body.i.i.i.i125 ]
   %p.addr.i.09.i.i.i127 = phi ptr [ %add.ptr.i.i118.i124, %for.body.i117.i118 ], [ %incdec.ptr.i.i.i.i128, %while.body.i.i.i.i125 ]
-  %incdec.ptr.i.i.i.i128 = getelementptr inbounds i16, ptr %p.addr.i.09.i.i.i127, i64 1
-  %116 = load i16, ptr %p.addr.i.09.i.i.i127, align 2
-  %idxprom.i.i.i.i129 = zext i16 %116 to i64
+  %incdec.ptr.i.i.i.i128 = getelementptr inbounds i8, ptr %p.addr.i.09.i.i.i127, i64 2
+  %115 = load i16, ptr %p.addr.i.09.i.i.i127, align 2
+  %idxprom.i.i.i.i129 = zext i16 %115 to i64
   %arrayidx.i.i.i.i130 = getelementptr inbounds [704 x i32], ptr %add.ptr.i107, i64 0, i64 %idxprom.i.i.i.i129
-  %117 = load i32, ptr %arrayidx.i.i.i.i130, align 4
-  %inc.i.i.i.i131 = add i32 %117, 1
+  %116 = load i32, ptr %arrayidx.i.i.i.i130, align 4
+  %inc.i.i.i.i131 = add i32 %116, 1
   store i32 %inc.i.i.i.i131, ptr %arrayidx.i.i.i.i130, align 4
   %dec.i.i.i.i132 = add nsw i64 %dec.i10.i.i.i126, -1
   %tobool.i.not.i.i.i133 = icmp eq i64 %dec.i.i.i.i132, 0
@@ -1550,20 +1540,20 @@ while.body.i.i.i.i125:                            ; preds = %while.body.i.i.i.i1
 RandomSampleCommand.exit.i.i:                     ; preds = %while.body.i.i.i.i125
   %rem.i119.i134 = urem i64 %iter.022.i.i119, %spec.select.i58
   %arrayidx.i120.i135 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %rem.i119.i134
-  %118 = load i64, ptr %total_count_.i.i115.i115, align 8
-  %total_count_1.i.i.i136 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %rem.i119.i134, i32 1
-  %119 = load i64, ptr %total_count_1.i.i.i136, align 8
-  %add.i.i121.i137 = add i64 %119, %118
+  %117 = load i64, ptr %total_count_.i.i115.i115, align 8
+  %total_count_1.i.i.i136 = getelementptr inbounds i8, ptr %arrayidx.i120.i135, i64 2816
+  %118 = load i64, ptr %total_count_1.i.i.i136, align 8
+  %add.i.i121.i137 = add i64 %118, %117
   store i64 %add.i.i121.i137, ptr %total_count_1.i.i.i136, align 8
   br label %for.body.i.i122.i138
 
 for.body.i.i122.i138:                             ; preds = %for.body.i.i122.i138, %RandomSampleCommand.exit.i.i
   %i.i.019.i.i139 = phi i64 [ 0, %RandomSampleCommand.exit.i.i ], [ %inc.i.i124.i143, %for.body.i.i122.i138 ]
   %arrayidx.i.i123.i140 = getelementptr inbounds [704 x i32], ptr %add.ptr.i107, i64 0, i64 %i.i.019.i.i139
-  %120 = load i32, ptr %arrayidx.i.i123.i140, align 4
+  %119 = load i32, ptr %arrayidx.i.i123.i140, align 4
   %arrayidx3.i.i.i141 = getelementptr inbounds [704 x i32], ptr %arrayidx.i120.i135, i64 0, i64 %i.i.019.i.i139
-  %121 = load i32, ptr %arrayidx3.i.i.i141, align 4
-  %add4.i.i.i142 = add i32 %121, %120
+  %120 = load i32, ptr %arrayidx3.i.i.i141, align 4
+  %add4.i.i.i142 = add i32 %120, %119
   store i32 %add4.i.i.i142, ptr %arrayidx3.i.i.i141, align 4
   %inc.i.i124.i143 = add nuw nsw i64 %i.i.019.i.i139, 1
   %exitcond.not.i125.i144 = icmp eq i64 %inc.i.i124.i143, 704
@@ -1594,9 +1584,9 @@ cond.true133.i159:                                ; preds = %cond.true124.i157, 
   %cond130.i160 = phi ptr [ %call127.i158, %cond.true124.i157 ], [ null, %RefineEntropyCodesCommand.exit.i ]
   %mul134.i161 = shl nuw nsw i64 %spec.select.i58, 1
   %call135.i162 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul134.i161) #7
-  %quality.i163 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 1
-  %122 = load i32, ptr %quality.i163, align 4
-  %cmp139.inv.i164 = icmp sgt i32 %122, 10
+  %quality.i163 = getelementptr inbounds i8, ptr %params, i64 4
+  %121 = load i32, ptr %quality.i163, align 4
+  %cmp139.inv.i164 = icmp sgt i32 %121, 10
   %cond141.i165 = select i1 %cmp139.inv.i164, i64 10, i64 3
   %sub96.i.i166 = add i64 %num_commands, -1
   %arrayidx99.i.i167 = getelementptr inbounds i8, ptr %call97.i148, i64 %sub96.i.i166
@@ -1604,13 +1594,13 @@ cond.true133.i159:                                ; preds = %cond.true124.i157, 
 
 for.body.i168:                                    ; preds = %BuildBlockHistogramsCommand.exit.i, %cond.true133.i159
   %i.0178.i169 = phi i64 [ 0, %cond.true133.i159 ], [ %inc147.i329, %BuildBlockHistogramsCommand.exit.i ]
-  %num_histograms.1177.i170 = phi i64 [ %spec.select.i58, %cond.true133.i159 ], [ %146, %BuildBlockHistogramsCommand.exit.i ]
+  %num_histograms.1177.i170 = phi i64 [ %spec.select.i58, %cond.true133.i159 ], [ %145, %BuildBlockHistogramsCommand.exit.i ]
   %add.i128.i171 = add nuw nsw i64 %num_histograms.1177.i170, 7
   %shr.i.i172 = lshr i64 %add.i128.i171, 3
   %cmp.i129.i173 = icmp ult i64 %num_histograms.1177.i170, 2
-  br i1 %cmp.i129.i173, label %for.body.preheader.i.i679, label %if.end.i130.i174
+  br i1 %cmp.i129.i173, label %for.body.preheader.i.i642, label %if.end.i130.i174
 
-for.body.preheader.i.i679:                        ; preds = %for.body.i168
+for.body.preheader.i.i642:                        ; preds = %for.body.i168
   tail call void @llvm.memset.p0.i64(ptr align 1 %call97.i148, i8 0, i64 %num_commands, i1 false)
   br label %FindBlocksCommand.exit.i
 
@@ -1622,14 +1612,14 @@ if.end.i130.i174:                                 ; preds = %for.body.i168
 for.body5.i.i176:                                 ; preds = %FastLog2.exit.i.i184, %if.end.i130.i174
   %i.192.i.i177 = phi i64 [ 0, %if.end.i130.i174 ], [ %inc11.i.i187, %FastLog2.exit.i.i184 ]
   %total_count_.i.i178 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.192.i.i177, i32 1
-  %123 = load i64, ptr %total_count_.i.i178, align 8
-  %conv7.i.i179 = and i64 %123, 4294967295
+  %122 = load i64, ptr %total_count_.i.i178, align 8
+  %conv7.i.i179 = and i64 %122, 4294967295
   %cmp.i.i.i180 = icmp ult i64 %conv7.i.i179, 256
-  br i1 %cmp.i.i.i180, label %if.then.i.i.i677, label %if.end.i.i.i181
+  br i1 %cmp.i.i.i180, label %if.then.i.i.i640, label %if.end.i.i.i181
 
-if.then.i.i.i677:                                 ; preds = %for.body5.i.i176
-  %arrayidx.i.i137.i678 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv7.i.i179
-  %124 = load double, ptr %arrayidx.i.i137.i678, align 8
+if.then.i.i.i640:                                 ; preds = %for.body5.i.i176
+  %arrayidx.i.i137.i641 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv7.i.i179
+  %123 = load double, ptr %arrayidx.i.i137.i641, align 8
   br label %FastLog2.exit.i.i184
 
 if.end.i.i.i181:                                  ; preds = %for.body5.i.i176
@@ -1637,8 +1627,8 @@ if.end.i.i.i181:                                  ; preds = %for.body5.i.i176
   %call.i.i.i183 = tail call double @log2(double noundef %conv.i.i131.i182) #7
   br label %FastLog2.exit.i.i184
 
-FastLog2.exit.i.i184:                             ; preds = %if.end.i.i.i181, %if.then.i.i.i677
-  %retval.i.0.i.i185 = phi double [ %124, %if.then.i.i.i677 ], [ %call.i.i.i183, %if.end.i.i.i181 ]
+FastLog2.exit.i.i184:                             ; preds = %if.end.i.i.i181, %if.then.i.i.i640
+  %retval.i.0.i.i185 = phi double [ %123, %if.then.i.i.i640 ], [ %call.i.i.i183, %if.end.i.i.i181 ]
   %arrayidx9.i.i186 = getelementptr inbounds double, ptr %call109.i152, i64 %i.192.i.i177
   store double %retval.i.0.i.i185, ptr %arrayidx9.i.i186, align 8
   %inc11.i.i187 = add nuw nsw i64 %i.192.i.i177, 1
@@ -1654,37 +1644,37 @@ for.body16.i.i189:                                ; preds = %FastLog2.exit.i.i18
   %dec.i.i191 = add nsw i64 %i.294.i.i190, -1
   %invariant.gep.i.i192 = getelementptr [704 x i32], ptr %call89.i64, i64 0, i64 %dec.i.i191
   %mul26.i.i193 = mul i64 %dec.i.i191, %num_histograms.1177.i170
-  %125 = getelementptr double, ptr %call109.i152, i64 %mul26.i.i193
+  %124 = getelementptr double, ptr %call109.i152, i64 %mul26.i.i193
   br label %for.body20.i.i194
 
 for.body20.i.i194:                                ; preds = %BitCost.exit.i.i205, %for.body16.i.i189
   %j.093.i.i195 = phi i64 [ 0, %for.body16.i.i189 ], [ %inc30.i.i209, %BitCost.exit.i.i205 ]
   %arrayidx21.i.i196 = getelementptr inbounds double, ptr %call109.i152, i64 %j.093.i.i195
-  %126 = load double, ptr %arrayidx21.i.i196, align 8
+  %125 = load double, ptr %arrayidx21.i.i196, align 8
   %gep.i.i197 = getelementptr %struct.HistogramCommand, ptr %invariant.gep.i.i192, i64 %j.093.i.i195
-  %127 = load i32, ptr %gep.i.i197, align 4
-  %conv24.i.i198 = zext i32 %127 to i64
-  %cmp.i129.i.i199 = icmp eq i32 %127, 0
+  %126 = load i32, ptr %gep.i.i197, align 4
+  %conv24.i.i198 = zext i32 %126 to i64
+  %cmp.i129.i.i199 = icmp eq i32 %126, 0
   br i1 %cmp.i129.i.i199, label %BitCost.exit.i.i205, label %cond.false.i.i.i200
 
 cond.false.i.i.i200:                              ; preds = %for.body20.i.i194
-  %cmp.i.i.i.i201 = icmp ult i32 %127, 256
-  br i1 %cmp.i.i.i.i201, label %if.then.i.i.i.i675, label %if.end.i.i.i.i202
+  %cmp.i.i.i.i201 = icmp ult i32 %126, 256
+  br i1 %cmp.i.i.i.i201, label %if.then.i.i.i.i638, label %if.end.i.i.i.i202
 
-if.then.i.i.i.i675:                               ; preds = %cond.false.i.i.i200
-  %arrayidx.i.i.i136.i676 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv24.i.i198
-  %128 = load double, ptr %arrayidx.i.i.i136.i676, align 8
+if.then.i.i.i.i638:                               ; preds = %cond.false.i.i.i200
+  %arrayidx.i.i.i136.i639 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv24.i.i198
+  %127 = load double, ptr %arrayidx.i.i.i136.i639, align 8
   br label %BitCost.exit.i.i205
 
 if.end.i.i.i.i202:                                ; preds = %cond.false.i.i.i200
-  %conv.i.i.i.i203 = uitofp i32 %127 to double
+  %conv.i.i.i.i203 = uitofp i32 %126 to double
   %call.i.i.i.i204 = tail call double @log2(double noundef %conv.i.i.i.i203) #7
   br label %BitCost.exit.i.i205
 
-BitCost.exit.i.i205:                              ; preds = %if.end.i.i.i.i202, %if.then.i.i.i.i675, %for.body20.i.i194
-  %cond.i.i.i206 = phi double [ -2.000000e+00, %for.body20.i.i194 ], [ %128, %if.then.i.i.i.i675 ], [ %call.i.i.i.i204, %if.end.i.i.i.i202 ]
-  %sub.i133.i207 = fsub double %126, %cond.i.i.i206
-  %arrayidx28.i.i208 = getelementptr double, ptr %125, i64 %j.093.i.i195
+BitCost.exit.i.i205:                              ; preds = %if.end.i.i.i.i202, %if.then.i.i.i.i638, %for.body20.i.i194
+  %cond.i.i.i206 = phi double [ -2.000000e+00, %for.body20.i.i194 ], [ %127, %if.then.i.i.i.i638 ], [ %call.i.i.i.i204, %if.end.i.i.i.i202 ]
+  %sub.i133.i207 = fsub double %125, %cond.i.i.i206
+  %arrayidx28.i.i208 = getelementptr double, ptr %124, i64 %j.093.i.i195
   store double %sub.i133.i207, ptr %arrayidx28.i.i208, align 8
   %inc30.i.i209 = add nuw nsw i64 %j.093.i.i195, 1
   %exitcond108.not.i.i210 = icmp eq i64 %inc30.i.i209, %num_histograms.1177.i170
@@ -1700,32 +1690,32 @@ for.end32.i.i213:                                 ; preds = %for.cond13.loopexit
 for.body39.i.i216:                                ; preds = %for.inc93.i.i252, %for.end32.i.i213
   %byte_ix.099.i.i217 = phi i64 [ %inc94.i.i253, %for.inc93.i.i252 ], [ 0, %for.end32.i.i213 ]
   %arrayidx41.i.i218 = getelementptr inbounds i16, ptr %call5, i64 %byte_ix.099.i.i217
-  %129 = load i16, ptr %arrayidx41.i.i218, align 2
-  %conv42.i.i219 = zext i16 %129 to i64
+  %128 = load i16, ptr %arrayidx41.i.i218, align 2
+  %conv42.i.i219 = zext i16 %128 to i64
   %mul43.i.i220 = mul nuw nsw i64 %num_histograms.1177.i170, %conv42.i.i219
-  %130 = getelementptr double, ptr %call109.i152, i64 %mul43.i.i220
+  %129 = getelementptr double, ptr %call109.i152, i64 %mul43.i.i220
   %arrayidx58.i.i221 = getelementptr inbounds i8, ptr %call97.i148, i64 %byte_ix.099.i.i217
   br label %for.body47.i.i222
 
 for.body47.i.i222:                                ; preds = %for.inc60.i.i229, %for.body39.i.i216
   %k.096.i.i223 = phi i64 [ 0, %for.body39.i.i216 ], [ %inc61.i.i231, %for.inc60.i.i229 ]
   %min_cost.095.i.i224 = phi double [ 0x547D42AEA2879F2E, %for.body39.i.i216 ], [ %min_cost.1.i.i230, %for.inc60.i.i229 ]
-  %arrayidx49.i.i225 = getelementptr double, ptr %130, i64 %k.096.i.i223
-  %131 = load double, ptr %arrayidx49.i.i225, align 8
+  %arrayidx49.i.i225 = getelementptr double, ptr %129, i64 %k.096.i.i223
+  %130 = load double, ptr %arrayidx49.i.i225, align 8
   %arrayidx50.i.i226 = getelementptr inbounds double, ptr %call117.i154, i64 %k.096.i.i223
-  %132 = load double, ptr %arrayidx50.i.i226, align 8
-  %add51.i.i227 = fadd double %131, %132
+  %131 = load double, ptr %arrayidx50.i.i226, align 8
+  %add51.i.i227 = fadd double %130, %131
   store double %add51.i.i227, ptr %arrayidx50.i.i226, align 8
   %cmp53.i.i228 = fcmp olt double %add51.i.i227, %min_cost.095.i.i224
-  br i1 %cmp53.i.i228, label %if.then55.i.i673, label %for.inc60.i.i229
+  br i1 %cmp53.i.i228, label %if.then55.i.i636, label %for.inc60.i.i229
 
-if.then55.i.i673:                                 ; preds = %for.body47.i.i222
-  %conv57.i.i674 = trunc i64 %k.096.i.i223 to i8
-  store i8 %conv57.i.i674, ptr %arrayidx58.i.i221, align 1
+if.then55.i.i636:                                 ; preds = %for.body47.i.i222
+  %conv57.i.i637 = trunc i64 %k.096.i.i223 to i8
+  store i8 %conv57.i.i637, ptr %arrayidx58.i.i221, align 1
   br label %for.inc60.i.i229
 
-for.inc60.i.i229:                                 ; preds = %if.then55.i.i673, %for.body47.i.i222
-  %min_cost.1.i.i230 = phi double [ %add51.i.i227, %if.then55.i.i673 ], [ %min_cost.095.i.i224, %for.body47.i.i222 ]
+for.inc60.i.i229:                                 ; preds = %if.then55.i.i636, %for.body47.i.i222
+  %min_cost.1.i.i230 = phi double [ %add51.i.i227, %if.then55.i.i636 ], [ %min_cost.095.i.i224, %for.body47.i.i222 ]
   %inc61.i.i231 = add nuw nsw i64 %k.096.i.i223, 1
   %exitcond109.not.i.i232 = icmp eq i64 %inc61.i.i231, %num_histograms.1177.i170
   br i1 %exitcond109.not.i.i232, label %for.end62.i.i233, label %for.body47.i.i222, !llvm.loop !52
@@ -1733,39 +1723,39 @@ for.inc60.i.i229:                                 ; preds = %if.then55.i.i673, %
 for.end62.i.i233:                                 ; preds = %for.inc60.i.i229
   %mul40.i.i234 = mul i64 %byte_ix.099.i.i217, %shr.i.i172
   %cmp63.i.i235 = icmp ult i64 %byte_ix.099.i.i217, 2000
-  br i1 %cmp63.i.i235, label %if.then65.i.i667, label %if.end70.i.i236
+  br i1 %cmp63.i.i235, label %if.then65.i.i630, label %if.end70.i.i236
 
-if.then65.i.i667:                                 ; preds = %for.end62.i.i233
-  %conv66.i.i668 = uitofp i64 %byte_ix.099.i.i217 to double
-  %mul67.i.i669 = fmul double %conv66.i.i668, 7.000000e-02
-  %div.i135.i670 = fdiv double %mul67.i.i669, 2.000000e+03
-  %add68.i.i671 = fadd double %div.i135.i670, 7.700000e-01
-  %mul69.i.i672 = fmul double %add68.i.i671, 1.350000e+01
+if.then65.i.i630:                                 ; preds = %for.end62.i.i233
+  %conv66.i.i631 = uitofp i64 %byte_ix.099.i.i217 to double
+  %mul67.i.i632 = fmul double %conv66.i.i631, 7.000000e-02
+  %div.i135.i633 = fdiv double %mul67.i.i632, 2.000000e+03
+  %add68.i.i634 = fadd double %div.i135.i633, 7.700000e-01
+  %mul69.i.i635 = fmul double %add68.i.i634, 1.350000e+01
   br label %if.end70.i.i236
 
-if.end70.i.i236:                                  ; preds = %if.then65.i.i667, %for.end62.i.i233
-  %block_switch_cost.0.i.i237 = phi double [ %mul69.i.i672, %if.then65.i.i667 ], [ 1.350000e+01, %for.end62.i.i233 ]
-  %133 = getelementptr i8, ptr %cond130.i160, i64 %mul40.i.i234
+if.end70.i.i236:                                  ; preds = %if.then65.i.i630, %for.end62.i.i233
+  %block_switch_cost.0.i.i237 = phi double [ %mul69.i.i635, %if.then65.i.i630 ], [ 1.350000e+01, %for.end62.i.i233 ]
+  %132 = getelementptr i8, ptr %cond130.i160, i64 %mul40.i.i234
   br label %for.body74.i.i238
 
 for.body74.i.i238:                                ; preds = %for.inc90.i.i249, %if.end70.i.i236
   %k.197.i.i239 = phi i64 [ 0, %if.end70.i.i236 ], [ %inc91.i.i250, %for.inc90.i.i249 ]
   %arrayidx75.i.i240 = getelementptr inbounds double, ptr %call117.i154, i64 %k.197.i.i239
-  %134 = load double, ptr %arrayidx75.i.i240, align 8
-  %sub76.i.i241 = fsub double %134, %min_cost.1.i.i230
+  %133 = load double, ptr %arrayidx75.i.i240, align 8
+  %sub76.i.i241 = fsub double %133, %min_cost.1.i.i230
   store double %sub76.i.i241, ptr %arrayidx75.i.i240, align 8
   %cmp78.i.i242 = fcmp ult double %sub76.i.i241, %block_switch_cost.0.i.i237
   br i1 %cmp78.i.i242, label %for.inc90.i.i249, label %if.then80.i.i243
 
 if.then80.i.i243:                                 ; preds = %for.body74.i.i238
-  %135 = trunc i64 %k.197.i.i239 to i8
-  %sh_prom.i.i244 = and i8 %135, 7
+  %134 = trunc i64 %k.197.i.i239 to i8
+  %sh_prom.i.i244 = and i8 %134, 7
   %shl.i.i245 = shl nuw i8 1, %sh_prom.i.i244
   store double %block_switch_cost.0.i.i237, ptr %arrayidx75.i.i240, align 8
   %shr84.i.i246 = lshr i64 %k.197.i.i239, 3
-  %arrayidx86.i.i247 = getelementptr i8, ptr %133, i64 %shr84.i.i246
-  %136 = load i8, ptr %arrayidx86.i.i247, align 1
-  %or89.i.i248 = or i8 %136, %shl.i.i245
+  %arrayidx86.i.i247 = getelementptr i8, ptr %132, i64 %shr84.i.i246
+  %135 = load i8, ptr %arrayidx86.i.i247, align 1
+  %or89.i.i248 = or i8 %135, %shl.i.i245
   store i8 %or89.i.i248, ptr %arrayidx86.i.i247, align 1
   br label %for.inc90.i.i249
 
@@ -1780,12 +1770,12 @@ for.inc93.i.i252:                                 ; preds = %for.inc90.i.i249
   br i1 %exitcond111.not.i.i254, label %for.end95.i.i255, label %for.body39.i.i216, !llvm.loop !54
 
 for.end95.i.i255:                                 ; preds = %for.inc93.i.i252
-  %137 = load i8, ptr %arrayidx99.i.i167, align 1
+  %136 = load i8, ptr %arrayidx99.i.i167, align 1
   %mul98.i.i256 = mul i64 %shr.i.i172, %sub96.i.i166
   br label %while.body.i.i257
 
 while.body.i.i257:                                ; preds = %if.end127.i.i275, %for.end95.i.i255
-  %cur_id.0104.i.i258 = phi i8 [ %cur_id.1.i.i277, %if.end127.i.i275 ], [ %137, %for.end95.i.i255 ]
+  %cur_id.0104.i.i258 = phi i8 [ %cur_id.1.i.i277, %if.end127.i.i275 ], [ %136, %for.end95.i.i255 ]
   %ix97.0103.i.i259 = phi i64 [ %sub108.i.i265, %if.end127.i.i275 ], [ %mul98.i.i256, %for.end95.i.i255 ]
   %num_blocks.0102.i.i260 = phi i64 [ %num_blocks.1.i.i276, %if.end127.i.i275 ], [ 1, %for.end95.i.i255 ]
   %byte_ix.1101.i.i261 = phi i64 [ %dec107.i.i264, %if.end127.i.i275 ], [ %sub96.i.i166, %for.end95.i.i255 ]
@@ -1793,33 +1783,33 @@ while.body.i.i257:                                ; preds = %if.end127.i.i275, %
   %shl105.i.i263 = shl nuw i8 1, %and104.i.i262
   %dec107.i.i264 = add i64 %byte_ix.1101.i.i261, -1
   %sub108.i.i265 = sub i64 %ix97.0103.i.i259, %shr.i.i172
-  %138 = lshr i8 %cur_id.0104.i.i258, 3
-  %conv111.i.i266 = zext nneg i8 %138 to i64
-  %139 = getelementptr i8, ptr %cond130.i160, i64 %sub108.i.i265
-  %arrayidx113.i.i267 = getelementptr i8, ptr %139, i64 %conv111.i.i266
-  %140 = load i8, ptr %arrayidx113.i.i267, align 1
-  %and11688.i.i268 = and i8 %140, %shl105.i.i263
+  %137 = lshr i8 %cur_id.0104.i.i258, 3
+  %conv111.i.i266 = zext nneg i8 %137 to i64
+  %138 = getelementptr i8, ptr %cond130.i160, i64 %sub108.i.i265
+  %arrayidx113.i.i267 = getelementptr i8, ptr %138, i64 %conv111.i.i266
+  %139 = load i8, ptr %arrayidx113.i.i267, align 1
+  %and11688.i.i268 = and i8 %139, %shl105.i.i263
   %tobool.not.i.i269 = icmp eq i8 %and11688.i.i268, 0
   br i1 %tobool.not.i.i269, label %if.end127.i.i275, label %if.then117.i.i270
 
 if.then117.i.i270:                                ; preds = %while.body.i.i257
   %arrayidx119.i.i271 = getelementptr inbounds i8, ptr %call97.i148, i64 %dec107.i.i264
-  %141 = load i8, ptr %arrayidx119.i.i271, align 1
-  %cmp121.not.i.i272 = icmp ne i8 %cur_id.0104.i.i258, %141
+  %140 = load i8, ptr %arrayidx119.i.i271, align 1
+  %cmp121.not.i.i272 = icmp ne i8 %cur_id.0104.i.i258, %140
   %inc125.i.i273 = zext i1 %cmp121.not.i.i272 to i64
   %spec.select.i134.i274 = add i64 %num_blocks.0102.i.i260, %inc125.i.i273
   br label %if.end127.i.i275
 
 if.end127.i.i275:                                 ; preds = %if.then117.i.i270, %while.body.i.i257
   %num_blocks.1.i.i276 = phi i64 [ %num_blocks.0102.i.i260, %while.body.i.i257 ], [ %spec.select.i134.i274, %if.then117.i.i270 ]
-  %cur_id.1.i.i277 = phi i8 [ %cur_id.0104.i.i258, %while.body.i.i257 ], [ %141, %if.then117.i.i270 ]
+  %cur_id.1.i.i277 = phi i8 [ %cur_id.0104.i.i258, %while.body.i.i257 ], [ %140, %if.then117.i.i270 ]
   %arrayidx128.i.i278 = getelementptr inbounds i8, ptr %call97.i148, i64 %dec107.i.i264
   store i8 %cur_id.1.i.i277, ptr %arrayidx128.i.i278, align 1
   %cmp100.not.i.i279 = icmp eq i64 %dec107.i.i264, 0
   br i1 %cmp100.not.i.i279, label %FindBlocksCommand.exit.i, label %while.body.i.i257, !llvm.loop !55
 
-FindBlocksCommand.exit.i:                         ; preds = %if.end127.i.i275, %for.body.preheader.i.i679
-  %retval.0.i.i280 = phi i64 [ 1, %for.body.preheader.i.i679 ], [ %num_blocks.1.i.i276, %if.end127.i.i275 ]
+FindBlocksCommand.exit.i:                         ; preds = %if.end127.i.i275, %for.body.preheader.i.i642
+  %retval.0.i.i280 = phi i64 [ 1, %for.body.preheader.i.i642 ], [ %num_blocks.1.i.i276, %if.end127.i.i275 ]
   %cmp19.not.i.i281 = icmp eq i64 %num_histograms.1177.i170, 0
   br i1 %cmp19.not.i.i281, label %for.body3.i.i288.preheader, label %for.body.i139.i282
 
@@ -1838,20 +1828,20 @@ for.body3.i.i288:                                 ; preds = %for.body3.i.i288.pr
   %i.123.i.i289 = phi i64 [ %inc13.i.i297, %for.inc12.i.i295 ], [ 0, %for.body3.i.i288.preheader ]
   %next_id.022.i.i290 = phi i16 [ %next_id.1.i.i296, %for.inc12.i.i295 ], [ 0, %for.body3.i.i288.preheader ]
   %arrayidx4.i.i291 = getelementptr inbounds i8, ptr %call97.i148, i64 %i.123.i.i289
-  %142 = load i8, ptr %arrayidx4.i.i291, align 1
-  %idxprom.i.i292 = zext i8 %142 to i64
+  %141 = load i8, ptr %arrayidx4.i.i291, align 1
+  %idxprom.i.i292 = zext i8 %141 to i64
   %arrayidx5.i.i293 = getelementptr inbounds i16, ptr %call135.i162, i64 %idxprom.i.i292
-  %143 = load i16, ptr %arrayidx5.i.i293, align 2
-  %cmp6.i.i294 = icmp eq i16 %143, 256
-  br i1 %cmp6.i.i294, label %if.then.i144.i665, label %for.inc12.i.i295
+  %142 = load i16, ptr %arrayidx5.i.i293, align 2
+  %cmp6.i.i294 = icmp eq i16 %142, 256
+  br i1 %cmp6.i.i294, label %if.then.i144.i628, label %for.inc12.i.i295
 
-if.then.i144.i665:                                ; preds = %for.body3.i.i288
-  %inc8.i.i666 = add i16 %next_id.022.i.i290, 1
+if.then.i144.i628:                                ; preds = %for.body3.i.i288
+  %inc8.i.i629 = add i16 %next_id.022.i.i290, 1
   store i16 %next_id.022.i.i290, ptr %arrayidx5.i.i293, align 2
   br label %for.inc12.i.i295
 
-for.inc12.i.i295:                                 ; preds = %if.then.i144.i665, %for.body3.i.i288
-  %next_id.1.i.i296 = phi i16 [ %inc8.i.i666, %if.then.i144.i665 ], [ %next_id.022.i.i290, %for.body3.i.i288 ]
+for.inc12.i.i295:                                 ; preds = %if.then.i144.i628, %for.body3.i.i288
+  %next_id.1.i.i296 = phi i16 [ %inc8.i.i629, %if.then.i144.i628 ], [ %next_id.022.i.i290, %for.body3.i.i288 ]
   %inc13.i.i297 = add nuw i64 %i.123.i.i289, 1
   %exitcond26.not.i.i298 = icmp eq i64 %inc13.i.i297, %num_commands
   br i1 %exitcond26.not.i.i298, label %for.body18.i.i300, label %for.body3.i.i288, !llvm.loop !57
@@ -1859,29 +1849,29 @@ for.inc12.i.i295:                                 ; preds = %if.then.i144.i665, 
 for.body18.i.i300:                                ; preds = %for.inc12.i.i295, %for.body18.i.i300
   %i.225.i.i301 = phi i64 [ %inc25.i.i306, %for.body18.i.i300 ], [ 0, %for.inc12.i.i295 ]
   %arrayidx19.i.i302 = getelementptr inbounds i8, ptr %call97.i148, i64 %i.225.i.i301
-  %144 = load i8, ptr %arrayidx19.i.i302, align 1
-  %idxprom20.i.i303 = zext i8 %144 to i64
+  %143 = load i8, ptr %arrayidx19.i.i302, align 1
+  %idxprom20.i.i303 = zext i8 %143 to i64
   %arrayidx21.i143.i304 = getelementptr inbounds i16, ptr %call135.i162, i64 %idxprom20.i.i303
-  %145 = load i16, ptr %arrayidx21.i143.i304, align 2
-  %conv22.i.i305 = trunc i16 %145 to i8
+  %144 = load i16, ptr %arrayidx21.i143.i304, align 2
+  %conv22.i.i305 = trunc i16 %144 to i8
   store i8 %conv22.i.i305, ptr %arrayidx19.i.i302, align 1
   %inc25.i.i306 = add nuw i64 %i.225.i.i301, 1
   %exitcond27.not.i.i307 = icmp eq i64 %inc25.i.i306, %num_commands
   br i1 %exitcond27.not.i.i307, label %RemapBlockIdsCommand.exit.i, label %for.body18.i.i300, !llvm.loop !58
 
 RemapBlockIdsCommand.exit.i:                      ; preds = %for.body18.i.i300
-  %146 = zext i16 %next_id.1.i.i296 to i64
+  %145 = zext i16 %next_id.1.i.i296 to i64
   %cmp.i10.not.i.i308 = icmp eq i16 %next_id.1.i.i296, 0
   br i1 %cmp.i10.not.i.i308, label %for.body.i151.i316.preheader, label %for.body.i.i145.i309
 
 for.body.i.i145.i309:                             ; preds = %RemapBlockIdsCommand.exit.i, %for.body.i.i145.i309
   %i.i.011.i.i310 = phi i64 [ %inc.i.i148.i313, %for.body.i.i145.i309 ], [ 0, %RemapBlockIdsCommand.exit.i ]
   %add.ptr.i.i146.i311 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.i.011.i.i310
-  %bit_cost_.i.i147.i312 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %i.i.011.i.i310, i32 2
+  %bit_cost_.i.i147.i312 = getelementptr inbounds i8, ptr %add.ptr.i.i146.i311, i64 2824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %add.ptr.i.i146.i311, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i.i147.i312, align 8
   %inc.i.i148.i313 = add nuw nsw i64 %i.i.011.i.i310, 1
-  %exitcond.not.i149.i314 = icmp eq i64 %inc.i.i148.i313, %146
+  %exitcond.not.i149.i314 = icmp eq i64 %inc.i.i148.i313, %145
   br i1 %exitcond.not.i149.i314, label %for.body.i151.i316.preheader, label %for.body.i.i145.i309, !llvm.loop !44
 
 for.body.i151.i316.preheader:                     ; preds = %for.body.i.i145.i309, %RemapBlockIdsCommand.exit.i
@@ -1890,19 +1880,19 @@ for.body.i151.i316.preheader:                     ; preds = %for.body.i.i145.i30
 for.body.i151.i316:                               ; preds = %for.body.i151.i316.preheader, %for.body.i151.i316
   %i.013.i.i317 = phi i64 [ %inc.i156.i327, %for.body.i151.i316 ], [ 0, %for.body.i151.i316.preheader ]
   %arrayidx.i152.i318 = getelementptr inbounds i8, ptr %call97.i148, i64 %i.013.i.i317
-  %147 = load i8, ptr %arrayidx.i152.i318, align 1
-  %idxprom.i153.i319 = zext i8 %147 to i64
+  %146 = load i8, ptr %arrayidx.i152.i318, align 1
+  %idxprom.i153.i319 = zext i8 %146 to i64
   %arrayidx1.i.i320 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %idxprom.i153.i319
   %arrayidx2.i.i321 = getelementptr inbounds i16, ptr %call5, i64 %i.013.i.i317
-  %148 = load i16, ptr %arrayidx2.i.i321, align 2
-  %conv.i154.i322 = zext i16 %148 to i64
+  %147 = load i16, ptr %arrayidx2.i.i321, align 2
+  %conv.i154.i322 = zext i16 %147 to i64
   %arrayidx.i.i155.i323 = getelementptr inbounds [704 x i32], ptr %arrayidx1.i.i320, i64 0, i64 %conv.i154.i322
-  %149 = load i32, ptr %arrayidx.i.i155.i323, align 4
-  %inc.i4.i.i324 = add i32 %149, 1
+  %148 = load i32, ptr %arrayidx.i.i155.i323, align 4
+  %inc.i4.i.i324 = add i32 %148, 1
   store i32 %inc.i4.i.i324, ptr %arrayidx.i.i155.i323, align 4
-  %total_count_.i5.i.i325 = getelementptr inbounds %struct.HistogramCommand, ptr %call89.i64, i64 %idxprom.i153.i319, i32 1
-  %150 = load i64, ptr %total_count_.i5.i.i325, align 8
-  %inc1.i.i.i326 = add i64 %150, 1
+  %total_count_.i5.i.i325 = getelementptr inbounds i8, ptr %arrayidx1.i.i320, i64 2816
+  %149 = load i64, ptr %total_count_.i5.i.i325, align 8
+  %inc1.i.i.i326 = add i64 %149, 1
   store i64 %inc1.i.i.i326, ptr %total_count_.i5.i.i325, align 8
   %inc.i156.i327 = add nuw i64 %i.013.i.i317, 1
   %exitcond14.not.i.i328 = icmp eq i64 %inc.i156.i327, %num_commands
@@ -1969,24 +1959,24 @@ cond.true27.i.i363:                               ; preds = %cond.end23.i.i356
 cond.true36.i.i366:                               ; preds = %cond.true27.i.i363, %cond.end23.i.i356
   %cond33.i.i367 = phi ptr [ %call30.i.i365, %cond.true27.i.i363 ], [ null, %cond.end23.i.i356 ]
   %call38.i.i368 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 49176) #7
-  %add.ptr45.i.i370 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 256
+  %add.ptr45.i.i370 = getelementptr inbounds i8, ptr %cond8310322.i.i360, i64 1024
   %call46.i.i371 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 5664) #7
   %mul48.i.i372 = shl i64 %add297306324.i.i358, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %cond8310322.i.i360, i8 0, i64 %mul48.i.i372, i1 false)
   br label %for.body.i160.i373
 
 for.cond60.preheader.i.i388:                      ; preds = %for.inc.i164.i386
-  %add.ptr43.i.i369 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 128
-  %add.ptr42.i.i389 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 64
-  %add.ptr44.i.i390 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 192
-  br i1 %cmp.not.i.i332, label %for.end197.i.i477, label %for.body69.lr.ph.i.i391
+  %add.ptr43.i.i369 = getelementptr inbounds i8, ptr %cond8310322.i.i360, i64 512
+  %add.ptr42.i.i389 = getelementptr inbounds i8, ptr %cond8310322.i.i360, i64 256
+  %add.ptr44.i.i390 = getelementptr inbounds i8, ptr %cond8310322.i.i360, i64 768
+  br i1 %cmp.not.i.i332, label %for.end197.i.i457, label %for.body69.lr.ph.i.i391
 
 for.body.i160.i373:                               ; preds = %for.inc.i164.i386, %cond.true36.i.i366
   %block_idx.0341.i.i374 = phi i64 [ %block_idx.1.i.i387, %for.inc.i164.i386 ], [ 0, %cond.true36.i.i366 ]
   %i.0340.i.i375 = phi i64 [ %add50.i.i378, %for.inc.i164.i386 ], [ 0, %cond.true36.i.i366 ]
   %arrayidx.i161.i376 = getelementptr inbounds i32, ptr %add.ptr45.i.i370, i64 %block_idx.0341.i.i374
-  %151 = load i32, ptr %arrayidx.i161.i376, align 4
-  %inc.i162.i377 = add i32 %151, 1
+  %150 = load i32, ptr %arrayidx.i161.i376, align 4
+  %inc.i162.i377 = add i32 %150, 1
   store i32 %inc.i162.i377, ptr %arrayidx.i161.i376, align 4
   %add50.i.i378 = add nuw i64 %i.0340.i.i375, 1
   %cmp51.i.i379 = icmp eq i64 %add50.i.i378, %num_commands
@@ -1994,10 +1984,10 @@ for.body.i160.i373:                               ; preds = %for.inc.i164.i386, 
 
 lor.lhs.false.i.i380:                             ; preds = %for.body.i160.i373
   %arrayidx52.i.i381 = getelementptr inbounds i8, ptr %call97.i148, i64 %i.0340.i.i375
-  %152 = load i8, ptr %arrayidx52.i.i381, align 1
+  %151 = load i8, ptr %arrayidx52.i.i381, align 1
   %arrayidx54.i.i382 = getelementptr inbounds i8, ptr %call97.i148, i64 %add50.i.i378
-  %153 = load i8, ptr %arrayidx54.i.i382, align 1
-  %cmp56.not.i.i383 = icmp eq i8 %152, %153
+  %152 = load i8, ptr %arrayidx54.i.i382, align 1
+  %cmp56.not.i.i383 = icmp eq i8 %151, %152
   br i1 %cmp56.not.i.i383, label %for.inc.i164.i386, label %if.then.i163.i384
 
 if.then.i163.i384:                                ; preds = %lor.lhs.false.i.i380, %for.body.i160.i373
@@ -2008,1715 +1998,1716 @@ for.inc.i164.i386:                                ; preds = %if.then.i163.i384, 
   %block_idx.1.i.i387 = phi i64 [ %inc58.i.i385, %if.then.i163.i384 ], [ %block_idx.0341.i.i374, %lor.lhs.false.i.i380 ]
   br i1 %cmp51.i.i379, label %for.cond60.preheader.i.i388, label %for.body.i160.i373, !llvm.loop !61
 
-for.body69.lr.ph.i.i391:                          ; preds = %for.cond60.preheader.i.i388, %for.end193.i.i472
-  %indvars.iv.i.i392 = phi i64 [ %indvars.iv.next.i.i476, %for.end193.i.i472 ], [ %retval.0.i.i280, %for.cond60.preheader.i.i388 ]
-  %all_histograms_size.0367.i.i393 = phi i64 [ %all_histograms_size.1.lcssa.i.i460, %for.end193.i.i472 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %all_histograms_capacity.0366.i.i394 = phi i64 [ %all_histograms_capacity.1.i.i433, %for.end193.i.i472 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
-  %all_histograms.0365.i.i395 = phi ptr [ %all_histograms.1.i.i432, %for.end193.i.i472 ], [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ]
-  %cluster_size_size.0364.i.i396 = phi i64 [ %cluster_size_size.1.lcssa.i.i459, %for.end193.i.i472 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %cluster_size_capacity.0363.i.i397 = phi i64 [ %cluster_size_capacity.1.i.i438, %for.end193.i.i472 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
-  %cluster_size.0362.i.i398 = phi ptr [ %cluster_size.1.i.i437, %for.end193.i.i472 ], [ %cond24.i.i362, %for.cond60.preheader.i.i388 ]
-  %num_clusters.0361.i.i399 = phi i64 [ %add194.i.i473, %for.end193.i.i472 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %pos.0360.i.i400 = phi i64 [ %pos.2.lcssa.i.i419, %for.end193.i.i472 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %i.1359.i.i401 = phi i64 [ %add196.i.i474, %for.end193.i.i472 ], [ 0, %for.cond60.preheader.i.i388 ]
-  %umin399.i.i402 = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i392, i64 64)
-  %umax400.i.i403 = tail call i64 @llvm.umax.i64(i64 %umin399.i.i402, i64 1)
-  %154 = getelementptr i32, ptr %add.ptr45.i.i370, i64 %i.1359.i.i401
-  br label %for.body69.i.i405
+for.body69.lr.ph.i.i391:                          ; preds = %for.cond60.preheader.i.i388, %for.end193.i.i452
+  %indvars.iv.i.i392 = phi i64 [ %indvars.iv.next.i.i456, %for.end193.i.i452 ], [ %retval.0.i.i280, %for.cond60.preheader.i.i388 ]
+  %all_histograms_size.0367.i.i = phi i64 [ %all_histograms_size.1.lcssa.i.i442, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %all_histograms_capacity.0366.i.i = phi i64 [ %all_histograms_capacity.1.i.i419, %for.end193.i.i452 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
+  %all_histograms.0365.i.i = phi ptr [ %all_histograms.1.i.i418, %for.end193.i.i452 ], [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ]
+  %cluster_size_size.0364.i.i = phi i64 [ %cluster_size_size.1.lcssa.i.i441, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %cluster_size_capacity.0363.i.i = phi i64 [ %cluster_size_capacity.1.i.i424, %for.end193.i.i452 ], [ %div288312321.i.i361, %for.cond60.preheader.i.i388 ]
+  %cluster_size.0362.i.i = phi ptr [ %cluster_size.1.i.i423, %for.end193.i.i452 ], [ %cond24.i.i362, %for.cond60.preheader.i.i388 ]
+  %num_clusters.0361.i.i = phi i64 [ %add194.i.i453, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %pos.0360.i.i = phi i64 [ %pos.2.lcssa.i.i405, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %i.1359.i.i = phi i64 [ %add196.i.i454, %for.end193.i.i452 ], [ 0, %for.cond60.preheader.i.i388 ]
+  %umin399.i.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i392, i64 64)
+  %umax400.i.i = tail call i64 @llvm.umax.i64(i64 %umin399.i.i, i64 1)
+  %153 = getelementptr i32, ptr %add.ptr45.i.i370, i64 %i.1359.i.i
+  br label %for.body69.i.i394
 
-for.body69.i.i405:                                ; preds = %for.end84.i.i418, %for.body69.lr.ph.i.i391
-  %j.0348.i.i406 = phi i64 [ 0, %for.body69.lr.ph.i.i391 ], [ %inc94.i166.i425, %for.end84.i.i418 ]
-  %pos.1347.i.i407 = phi i64 [ %pos.0360.i.i400, %for.body69.lr.ph.i.i391 ], [ %pos.2.lcssa.i.i419, %for.end84.i.i418 ]
-  %arrayidx71.i.i408 = getelementptr i32, ptr %154, i64 %j.0348.i.i406
-  %155 = load i32, ptr %arrayidx71.i.i408, align 4
-  %conv72.i.i409 = zext i32 %155 to i64
-  %arrayidx73.i.i410 = getelementptr inbounds %struct.HistogramCommand, ptr %cond33.i.i367, i64 %j.0348.i.i406
-  %total_count_.i451.i.i = getelementptr inbounds %struct.HistogramCommand, ptr %cond33.i.i367, i64 %j.0348.i.i406, i32 1
-  %bit_cost_.i452.i.i = getelementptr inbounds %struct.HistogramCommand, ptr %cond33.i.i367, i64 %j.0348.i.i406, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %arrayidx73.i.i410, i8 0, i64 2824, i1 false)
+for.body69.i.i394:                                ; preds = %for.end84.i.i404, %for.body69.lr.ph.i.i391
+  %j.0348.i.i = phi i64 [ 0, %for.body69.lr.ph.i.i391 ], [ %inc94.i166.i411, %for.end84.i.i404 ]
+  %pos.1347.i.i = phi i64 [ %pos.0360.i.i, %for.body69.lr.ph.i.i391 ], [ %pos.2.lcssa.i.i405, %for.end84.i.i404 ]
+  %arrayidx71.i.i395 = getelementptr i32, ptr %153, i64 %j.0348.i.i
+  %154 = load i32, ptr %arrayidx71.i.i395, align 4
+  %conv72.i.i396 = zext i32 %154 to i64
+  %arrayidx73.i.i397 = getelementptr inbounds %struct.HistogramCommand, ptr %cond33.i.i367, i64 %j.0348.i.i
+  %total_count_.i451.i.i = getelementptr inbounds i8, ptr %arrayidx73.i.i397, i64 2816
+  %bit_cost_.i452.i.i = getelementptr inbounds i8, ptr %arrayidx73.i.i397, i64 2824
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %arrayidx73.i.i397, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i452.i.i, align 8
-  %cmp75342.not.i.i411 = icmp eq i32 %155, 0
-  br i1 %cmp75342.not.i.i411, label %for.end84.i.i418, label %for.body77.i.i412
+  %cmp75342.not.i.i398 = icmp eq i32 %154, 0
+  br i1 %cmp75342.not.i.i398, label %for.end84.i.i404, label %for.body77.i.i399
 
-for.body77.i.i412:                                ; preds = %for.body69.i.i405, %for.body77.i.i412
-  %k.0344.i.i = phi i64 [ %inc83.i.i, %for.body77.i.i412 ], [ 0, %for.body69.i.i405 ]
-  %pos.2343.i.i413 = phi i64 [ %inc79.i.i414, %for.body77.i.i412 ], [ %pos.1347.i.i407, %for.body69.i.i405 ]
-  %inc79.i.i414 = add i64 %pos.2343.i.i413, 1
-  %arrayidx80.i.i415 = getelementptr inbounds i16, ptr %call5, i64 %pos.2343.i.i413
-  %156 = load i16, ptr %arrayidx80.i.i415, align 2
-  %conv81.i.i416 = zext i16 %156 to i64
-  %arrayidx.i457.i.i = getelementptr inbounds [704 x i32], ptr %arrayidx73.i.i410, i64 0, i64 %conv81.i.i416
-  %157 = load i32, ptr %arrayidx.i457.i.i, align 4
-  %inc.i458.i.i = add i32 %157, 1
+for.body77.i.i399:                                ; preds = %for.body69.i.i394, %for.body77.i.i399
+  %k.0344.i.i = phi i64 [ %inc83.i.i, %for.body77.i.i399 ], [ 0, %for.body69.i.i394 ]
+  %pos.2343.i.i400 = phi i64 [ %inc79.i.i401, %for.body77.i.i399 ], [ %pos.1347.i.i, %for.body69.i.i394 ]
+  %inc79.i.i401 = add i64 %pos.2343.i.i400, 1
+  %arrayidx80.i.i402 = getelementptr inbounds i16, ptr %call5, i64 %pos.2343.i.i400
+  %155 = load i16, ptr %arrayidx80.i.i402, align 2
+  %conv81.i.i403 = zext i16 %155 to i64
+  %arrayidx.i457.i.i = getelementptr inbounds [704 x i32], ptr %arrayidx73.i.i397, i64 0, i64 %conv81.i.i403
+  %156 = load i32, ptr %arrayidx.i457.i.i, align 4
+  %inc.i458.i.i = add i32 %156, 1
   store i32 %inc.i458.i.i, ptr %arrayidx.i457.i.i, align 4
-  %158 = load i64, ptr %total_count_.i451.i.i, align 8
-  %inc1.i460.i.i = add i64 %158, 1
+  %157 = load i64, ptr %total_count_.i451.i.i, align 8
+  %inc1.i460.i.i = add i64 %157, 1
   store i64 %inc1.i460.i.i, ptr %total_count_.i451.i.i, align 8
   %inc83.i.i = add nuw nsw i64 %k.0344.i.i, 1
-  %exitcond396.not.i.i417 = icmp eq i64 %inc83.i.i, %conv72.i.i409
-  br i1 %exitcond396.not.i.i417, label %for.end84.i.i418, label %for.body77.i.i412, !llvm.loop !62
+  %exitcond396.not.i.i = icmp eq i64 %inc83.i.i, %conv72.i.i396
+  br i1 %exitcond396.not.i.i, label %for.end84.i.i404, label %for.body77.i.i399, !llvm.loop !62
 
-for.end84.i.i418:                                 ; preds = %for.body77.i.i412, %for.body69.i.i405
-  %pos.2.lcssa.i.i419 = phi i64 [ %pos.1347.i.i407, %for.body69.i.i405 ], [ %inc79.i.i414, %for.body77.i.i412 ]
-  %call86.i.i420 = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %arrayidx73.i.i410) #7
-  store double %call86.i.i420, ptr %bit_cost_.i452.i.i, align 8
-  %conv88.i.i421 = trunc i64 %j.0348.i.i406 to i32
-  %arrayidx89.i.i422 = getelementptr inbounds i32, ptr %add.ptr42.i.i389, i64 %j.0348.i.i406
-  store i32 %conv88.i.i421, ptr %arrayidx89.i.i422, align 4
-  %arrayidx91.i.i423 = getelementptr inbounds i32, ptr %add.ptr43.i.i369, i64 %j.0348.i.i406
-  store i32 %conv88.i.i421, ptr %arrayidx91.i.i423, align 4
-  %arrayidx92.i.i424 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 %j.0348.i.i406
-  store i32 1, ptr %arrayidx92.i.i424, align 4
-  %inc94.i166.i425 = add nuw nsw i64 %j.0348.i.i406, 1
-  %exitcond397.not.i.i426 = icmp eq i64 %inc94.i166.i425, %umax400.i.i403
-  br i1 %exitcond397.not.i.i426, label %for.end95.i167.i427, label %for.body69.i.i405, !llvm.loop !63
+for.end84.i.i404:                                 ; preds = %for.body77.i.i399, %for.body69.i.i394
+  %pos.2.lcssa.i.i405 = phi i64 [ %pos.1347.i.i, %for.body69.i.i394 ], [ %inc79.i.i401, %for.body77.i.i399 ]
+  %call86.i.i406 = tail call double @BrotliPopulationCostCommand(ptr noundef nonnull %arrayidx73.i.i397) #7
+  store double %call86.i.i406, ptr %bit_cost_.i452.i.i, align 8
+  %conv88.i.i407 = trunc i64 %j.0348.i.i to i32
+  %arrayidx89.i.i408 = getelementptr inbounds i32, ptr %add.ptr42.i.i389, i64 %j.0348.i.i
+  store i32 %conv88.i.i407, ptr %arrayidx89.i.i408, align 4
+  %arrayidx91.i.i409 = getelementptr inbounds i32, ptr %add.ptr43.i.i369, i64 %j.0348.i.i
+  store i32 %conv88.i.i407, ptr %arrayidx91.i.i409, align 4
+  %arrayidx92.i.i410 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 %j.0348.i.i
+  store i32 1, ptr %arrayidx92.i.i410, align 4
+  %inc94.i166.i411 = add nuw nsw i64 %j.0348.i.i, 1
+  %exitcond397.not.i.i412 = icmp eq i64 %inc94.i166.i411, %umax400.i.i
+  br i1 %exitcond397.not.i.i412, label %for.end95.i167.i413, label %for.body69.i.i394, !llvm.loop !63
 
-for.end95.i167.i427:                              ; preds = %for.end84.i.i418
-  %sub64.i.i404 = sub i64 %retval.0.i.i280, %i.1359.i.i401
-  %cond.i427.i.i = tail call i64 @llvm.umin.i64(i64 %sub64.i.i404, i64 64)
-  %call96.i.i428 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef nonnull %cond33.i.i367, ptr noundef %call46.i.i371, ptr noundef nonnull %cond8310322.i.i360, ptr noundef nonnull %add.ptr43.i.i369, ptr noundef nonnull %add.ptr42.i.i389, ptr noundef %call38.i.i368, i64 noundef %cond.i427.i.i, i64 noundef %cond.i427.i.i, i64 noundef 64, i64 noundef 2048) #7
-  %add97.i.i429 = add i64 %call96.i.i428, %all_histograms_size.0367.i.i393
-  %cmp98.i.i430 = icmp ult i64 %all_histograms_capacity.0366.i.i394, %add97.i.i429
-  br i1 %cmp98.i.i430, label %if.then100.i.i652, label %if.end125.i.i431
+for.end95.i167.i413:                              ; preds = %for.end84.i.i404
+  %sub64.i.i393 = sub i64 %retval.0.i.i280, %i.1359.i.i
+  %cond.i427.i.i = tail call i64 @llvm.umin.i64(i64 %sub64.i.i393, i64 64)
+  %call96.i.i414 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef nonnull %cond33.i.i367, ptr noundef %call46.i.i371, ptr noundef nonnull %cond8310322.i.i360, ptr noundef nonnull %add.ptr43.i.i369, ptr noundef nonnull %add.ptr42.i.i389, ptr noundef %call38.i.i368, i64 noundef %cond.i427.i.i, i64 noundef %cond.i427.i.i, i64 noundef 64, i64 noundef 2048) #7
+  %add97.i.i415 = add i64 %call96.i.i414, %all_histograms_size.0367.i.i
+  %cmp98.i.i416 = icmp ult i64 %all_histograms_capacity.0366.i.i, %add97.i.i415
+  br i1 %cmp98.i.i416, label %if.then100.i.i615, label %if.end125.i.i417
 
-if.then100.i.i652:                                ; preds = %for.end95.i167.i427
-  %cmp101.i.i653 = icmp eq i64 %all_histograms_capacity.0366.i.i394, 0
-  %cond107.i.i654 = select i1 %cmp101.i.i653, i64 %add97.i.i429, i64 %all_histograms_capacity.0366.i.i394
-  br label %while.cond.i.i655
+if.then100.i.i615:                                ; preds = %for.end95.i167.i413
+  %cmp101.i.i616 = icmp eq i64 %all_histograms_capacity.0366.i.i, 0
+  %cond107.i.i617 = select i1 %cmp101.i.i616, i64 %add97.i.i415, i64 %all_histograms_capacity.0366.i.i
+  br label %while.cond.i.i618
 
-while.cond.i.i655:                                ; preds = %while.cond.i.i655, %if.then100.i.i652
-  %_new_size.0.i.i656 = phi i64 [ %cond107.i.i654, %if.then100.i.i652 ], [ %mul111.i.i658, %while.cond.i.i655 ]
-  %cmp109.i.i657 = icmp ult i64 %_new_size.0.i.i656, %add97.i.i429
-  %mul111.i.i658 = shl i64 %_new_size.0.i.i656, 1
-  br i1 %cmp109.i.i657, label %while.cond.i.i655, label %cond.end118.i.i659, !llvm.loop !64
+while.cond.i.i618:                                ; preds = %while.cond.i.i618, %if.then100.i.i615
+  %_new_size.0.i.i619 = phi i64 [ %cond107.i.i617, %if.then100.i.i615 ], [ %mul111.i.i621, %while.cond.i.i618 ]
+  %cmp109.i.i620 = icmp ult i64 %_new_size.0.i.i619, %add97.i.i415
+  %mul111.i.i621 = shl i64 %_new_size.0.i.i619, 1
+  br i1 %cmp109.i.i620, label %while.cond.i.i618, label %cond.end118.i.i622, !llvm.loop !64
 
-cond.end118.i.i659:                               ; preds = %while.cond.i.i655
-  %mul115.i.i660 = mul i64 %_new_size.0.i.i656, 2832
-  %call116.i.i661 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul115.i.i660) #7
-  br i1 %cmp101.i.i653, label %if.end124.i.i664, label %if.then122.i.i662
+cond.end118.i.i622:                               ; preds = %while.cond.i.i618
+  %mul115.i.i623 = mul i64 %_new_size.0.i.i619, 2832
+  %call116.i.i624 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul115.i.i623) #7
+  br i1 %cmp101.i.i616, label %if.end124.i.i627, label %if.then122.i.i625
 
-if.then122.i.i662:                                ; preds = %cond.end118.i.i659
-  %mul123.i.i663 = mul i64 %all_histograms_capacity.0366.i.i394, 2832
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i661, ptr align 8 %all_histograms.0365.i.i395, i64 %mul123.i.i663, i1 false)
-  br label %if.end124.i.i664
+if.then122.i.i625:                                ; preds = %cond.end118.i.i622
+  %mul123.i.i626 = mul i64 %all_histograms_capacity.0366.i.i, 2832
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i624, ptr align 8 %all_histograms.0365.i.i, i64 %mul123.i.i626, i1 false)
+  br label %if.end124.i.i627
 
-if.end124.i.i664:                                 ; preds = %if.then122.i.i662, %cond.end118.i.i659
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0365.i.i395) #7
-  br label %if.end125.i.i431
+if.end124.i.i627:                                 ; preds = %if.then122.i.i625, %cond.end118.i.i622
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0365.i.i) #7
+  br label %if.end125.i.i417
 
-if.end125.i.i431:                                 ; preds = %if.end124.i.i664, %for.end95.i167.i427
-  %all_histograms.1.i.i432 = phi ptr [ %call116.i.i661, %if.end124.i.i664 ], [ %all_histograms.0365.i.i395, %for.end95.i167.i427 ]
-  %all_histograms_capacity.1.i.i433 = phi i64 [ %_new_size.0.i.i656, %if.end124.i.i664 ], [ %all_histograms_capacity.0366.i.i394, %for.end95.i167.i427 ]
-  %add126.i.i434 = add i64 %call96.i.i428, %cluster_size_size.0364.i.i396
-  %cmp127.i.i435 = icmp ult i64 %cluster_size_capacity.0363.i.i397, %add126.i.i434
-  br i1 %cmp127.i.i435, label %if.then129.i.i639, label %if.end159.i.i436
+if.end125.i.i417:                                 ; preds = %if.end124.i.i627, %for.end95.i167.i413
+  %all_histograms.1.i.i418 = phi ptr [ %call116.i.i624, %if.end124.i.i627 ], [ %all_histograms.0365.i.i, %for.end95.i167.i413 ]
+  %all_histograms_capacity.1.i.i419 = phi i64 [ %_new_size.0.i.i619, %if.end124.i.i627 ], [ %all_histograms_capacity.0366.i.i, %for.end95.i167.i413 ]
+  %add126.i.i420 = add i64 %call96.i.i414, %cluster_size_size.0364.i.i
+  %cmp127.i.i421 = icmp ult i64 %cluster_size_capacity.0363.i.i, %add126.i.i420
+  br i1 %cmp127.i.i421, label %if.then129.i.i602, label %if.end159.i.i422
 
-if.then129.i.i639:                                ; preds = %if.end125.i.i431
-  %cmp131.i.i640 = icmp eq i64 %cluster_size_capacity.0363.i.i397, 0
-  %cond137.i.i641 = select i1 %cmp131.i.i640, i64 %add126.i.i434, i64 %cluster_size_capacity.0363.i.i397
-  br label %while.cond139.i.i642
+if.then129.i.i602:                                ; preds = %if.end125.i.i417
+  %cmp131.i.i603 = icmp eq i64 %cluster_size_capacity.0363.i.i, 0
+  %cond137.i.i604 = select i1 %cmp131.i.i603, i64 %add126.i.i420, i64 %cluster_size_capacity.0363.i.i
+  br label %while.cond139.i.i605
 
-while.cond139.i.i642:                             ; preds = %while.cond139.i.i642, %if.then129.i.i639
-  %_new_size130.0.i.i643 = phi i64 [ %cond137.i.i641, %if.then129.i.i639 ], [ %mul144.i.i645, %while.cond139.i.i642 ]
-  %cmp141.i.i644 = icmp ult i64 %_new_size130.0.i.i643, %add126.i.i434
-  %mul144.i.i645 = shl i64 %_new_size130.0.i.i643, 1
-  br i1 %cmp141.i.i644, label %while.cond139.i.i642, label %cond.end152.i.i646, !llvm.loop !65
+while.cond139.i.i605:                             ; preds = %while.cond139.i.i605, %if.then129.i.i602
+  %_new_size130.0.i.i606 = phi i64 [ %cond137.i.i604, %if.then129.i.i602 ], [ %mul144.i.i608, %while.cond139.i.i605 ]
+  %cmp141.i.i607 = icmp ult i64 %_new_size130.0.i.i606, %add126.i.i420
+  %mul144.i.i608 = shl i64 %_new_size130.0.i.i606, 1
+  br i1 %cmp141.i.i607, label %while.cond139.i.i605, label %cond.end152.i.i609, !llvm.loop !65
 
-cond.end152.i.i646:                               ; preds = %while.cond139.i.i642
-  %mul149.i.i647 = shl i64 %_new_size130.0.i.i643, 2
-  %call150.i.i648 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul149.i.i647) #7
-  br i1 %cmp131.i.i640, label %if.end158.i.i651, label %if.then156.i.i649
+cond.end152.i.i609:                               ; preds = %while.cond139.i.i605
+  %mul149.i.i610 = shl i64 %_new_size130.0.i.i606, 2
+  %call150.i.i611 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul149.i.i610) #7
+  br i1 %cmp131.i.i603, label %if.end158.i.i614, label %if.then156.i.i612
 
-if.then156.i.i649:                                ; preds = %cond.end152.i.i646
-  %mul157.i.i650 = shl i64 %cluster_size_capacity.0363.i.i397, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i648, ptr align 4 %cluster_size.0362.i.i398, i64 %mul157.i.i650, i1 false)
-  br label %if.end158.i.i651
+if.then156.i.i612:                                ; preds = %cond.end152.i.i609
+  %mul157.i.i613 = shl i64 %cluster_size_capacity.0363.i.i, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i611, ptr align 4 %cluster_size.0362.i.i, i64 %mul157.i.i613, i1 false)
+  br label %if.end158.i.i614
 
-if.end158.i.i651:                                 ; preds = %if.then156.i.i649, %cond.end152.i.i646
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0362.i.i398) #7
-  br label %if.end159.i.i436
+if.end158.i.i614:                                 ; preds = %if.then156.i.i612, %cond.end152.i.i609
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0362.i.i) #7
+  br label %if.end159.i.i422
 
-if.end159.i.i436:                                 ; preds = %if.end158.i.i651, %if.end125.i.i431
-  %cluster_size.1.i.i437 = phi ptr [ %call150.i.i648, %if.end158.i.i651 ], [ %cluster_size.0362.i.i398, %if.end125.i.i431 ]
-  %cluster_size_capacity.1.i.i438 = phi i64 [ %_new_size130.0.i.i643, %if.end158.i.i651 ], [ %cluster_size_capacity.0363.i.i397, %if.end125.i.i431 ]
-  %cmp161350.not.i.i439 = icmp eq i64 %call96.i.i428, 0
-  br i1 %cmp161350.not.i.i439, label %for.body183.lr.ph.i.i458, label %for.body163.i.i440
+if.end159.i.i422:                                 ; preds = %if.end158.i.i614, %if.end125.i.i417
+  %cluster_size.1.i.i423 = phi ptr [ %call150.i.i611, %if.end158.i.i614 ], [ %cluster_size.0362.i.i, %if.end125.i.i417 ]
+  %cluster_size_capacity.1.i.i424 = phi i64 [ %_new_size130.0.i.i606, %if.end158.i.i614 ], [ %cluster_size_capacity.0363.i.i, %if.end125.i.i417 ]
+  %cmp161350.not.i.i = icmp eq i64 %call96.i.i414, 0
+  br i1 %cmp161350.not.i.i, label %for.body183.lr.ph.i.i440, label %for.body163.i.i425
 
-for.body183.lr.ph.i.i458:                         ; preds = %for.body163.i.i440, %if.end159.i.i436
-  %cluster_size_size.1.lcssa.i.i459 = phi i64 [ %cluster_size_size.0364.i.i396, %if.end159.i.i436 ], [ %inc171.i.i451, %for.body163.i.i440 ]
-  %all_histograms_size.1.lcssa.i.i460 = phi i64 [ %all_histograms_size.0367.i.i393, %if.end159.i.i436 ], [ %inc164.i.i444, %for.body163.i.i440 ]
-  %conv184.i.i461 = trunc i64 %num_clusters.0361.i.i399 to i32
-  br label %for.body183.i.i462
+for.body183.lr.ph.i.i440:                         ; preds = %for.body163.i.i425, %if.end159.i.i422
+  %cluster_size_size.1.lcssa.i.i441 = phi i64 [ %cluster_size_size.0364.i.i, %if.end159.i.i422 ], [ %inc171.i.i433, %for.body163.i.i425 ]
+  %all_histograms_size.1.lcssa.i.i442 = phi i64 [ %all_histograms_size.0367.i.i, %if.end159.i.i422 ], [ %inc164.i.i426, %for.body163.i.i425 ]
+  %conv184.i.i443 = trunc i64 %num_clusters.0361.i.i to i32
+  br label %for.body183.i.i444
 
-for.body163.i.i440:                               ; preds = %if.end159.i.i436, %for.body163.i.i440
-  %all_histograms_size.1353.i.i441 = phi i64 [ %inc164.i.i444, %for.body163.i.i440 ], [ %all_histograms_size.0367.i.i393, %if.end159.i.i436 ]
-  %cluster_size_size.1352.i.i442 = phi i64 [ %inc171.i.i451, %for.body163.i.i440 ], [ %cluster_size_size.0364.i.i396, %if.end159.i.i436 ]
-  %j.1351.i.i443 = phi i64 [ %inc178.i.i456, %for.body163.i.i440 ], [ 0, %if.end159.i.i436 ]
-  %inc164.i.i444 = add i64 %all_histograms_size.1353.i.i441, 1
-  %arrayidx165.i.i445 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.1.i.i432, i64 %all_histograms_size.1353.i.i441
-  %arrayidx166.i.i446 = getelementptr inbounds i32, ptr %add.ptr42.i.i389, i64 %j.1351.i.i443
-  %159 = load i32, ptr %arrayidx166.i.i446, align 4
-  %idxprom.i168.i447 = zext i32 %159 to i64
-  %arrayidx167.i.i448 = getelementptr inbounds %struct.HistogramCommand, ptr %cond33.i.i367, i64 %idxprom.i168.i447
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx165.i.i445, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx167.i.i448, i64 2832, i1 false)
-  %160 = load i32, ptr %arrayidx166.i.i446, align 4
-  %idxprom169.i.i449 = zext i32 %160 to i64
-  %arrayidx170.i.i450 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 %idxprom169.i.i449
-  %161 = load i32, ptr %arrayidx170.i.i450, align 4
-  %inc171.i.i451 = add i64 %cluster_size_size.1352.i.i442, 1
-  %arrayidx172.i.i452 = getelementptr inbounds i32, ptr %cluster_size.1.i.i437, i64 %cluster_size_size.1352.i.i442
-  store i32 %161, ptr %arrayidx172.i.i452, align 4
-  %conv173.i.i453 = trunc i64 %j.1351.i.i443 to i32
-  %162 = load i32, ptr %arrayidx166.i.i446, align 4
-  %idxprom175.i.i454 = zext i32 %162 to i64
-  %arrayidx176.i.i455 = getelementptr inbounds i32, ptr %add.ptr44.i.i390, i64 %idxprom175.i.i454
-  store i32 %conv173.i.i453, ptr %arrayidx176.i.i455, align 4
-  %inc178.i.i456 = add nuw i64 %j.1351.i.i443, 1
-  %exitcond398.not.i.i457 = icmp eq i64 %inc178.i.i456, %call96.i.i428
-  br i1 %exitcond398.not.i.i457, label %for.body183.lr.ph.i.i458, label %for.body163.i.i440, !llvm.loop !66
+for.body163.i.i425:                               ; preds = %if.end159.i.i422, %for.body163.i.i425
+  %all_histograms_size.1353.i.i = phi i64 [ %inc164.i.i426, %for.body163.i.i425 ], [ %all_histograms_size.0367.i.i, %if.end159.i.i422 ]
+  %cluster_size_size.1352.i.i = phi i64 [ %inc171.i.i433, %for.body163.i.i425 ], [ %cluster_size_size.0364.i.i, %if.end159.i.i422 ]
+  %j.1351.i.i = phi i64 [ %inc178.i.i438, %for.body163.i.i425 ], [ 0, %if.end159.i.i422 ]
+  %inc164.i.i426 = add i64 %all_histograms_size.1353.i.i, 1
+  %arrayidx165.i.i427 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.1.i.i418, i64 %all_histograms_size.1353.i.i
+  %arrayidx166.i.i428 = getelementptr inbounds i32, ptr %add.ptr42.i.i389, i64 %j.1351.i.i
+  %158 = load i32, ptr %arrayidx166.i.i428, align 4
+  %idxprom.i168.i429 = zext i32 %158 to i64
+  %arrayidx167.i.i430 = getelementptr inbounds %struct.HistogramCommand, ptr %cond33.i.i367, i64 %idxprom.i168.i429
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx165.i.i427, ptr noundef nonnull align 8 dereferenceable(2832) %arrayidx167.i.i430, i64 2832, i1 false)
+  %159 = load i32, ptr %arrayidx166.i.i428, align 4
+  %idxprom169.i.i431 = zext i32 %159 to i64
+  %arrayidx170.i.i432 = getelementptr inbounds i32, ptr %cond8310322.i.i360, i64 %idxprom169.i.i431
+  %160 = load i32, ptr %arrayidx170.i.i432, align 4
+  %inc171.i.i433 = add i64 %cluster_size_size.1352.i.i, 1
+  %arrayidx172.i.i434 = getelementptr inbounds i32, ptr %cluster_size.1.i.i423, i64 %cluster_size_size.1352.i.i
+  store i32 %160, ptr %arrayidx172.i.i434, align 4
+  %conv173.i.i435 = trunc i64 %j.1351.i.i to i32
+  %161 = load i32, ptr %arrayidx166.i.i428, align 4
+  %idxprom175.i.i436 = zext i32 %161 to i64
+  %arrayidx176.i.i437 = getelementptr inbounds i32, ptr %add.ptr44.i.i390, i64 %idxprom175.i.i436
+  store i32 %conv173.i.i435, ptr %arrayidx176.i.i437, align 4
+  %inc178.i.i438 = add nuw i64 %j.1351.i.i, 1
+  %exitcond398.not.i.i439 = icmp eq i64 %inc178.i.i438, %call96.i.i414
+  br i1 %exitcond398.not.i.i439, label %for.body183.lr.ph.i.i440, label %for.body163.i.i425, !llvm.loop !66
 
-for.body183.i.i462:                               ; preds = %for.body183.i.i462, %for.body183.lr.ph.i.i458
-  %j.2357.i.i463 = phi i64 [ 0, %for.body183.lr.ph.i.i458 ], [ %inc192.i.i470, %for.body183.i.i462 ]
-  %arrayidx185.i.i464 = getelementptr inbounds i32, ptr %add.ptr43.i.i369, i64 %j.2357.i.i463
-  %163 = load i32, ptr %arrayidx185.i.i464, align 4
-  %idxprom186.i.i465 = zext i32 %163 to i64
-  %arrayidx187.i.i466 = getelementptr inbounds i32, ptr %add.ptr44.i.i390, i64 %idxprom186.i.i465
-  %164 = load i32, ptr %arrayidx187.i.i466, align 4
-  %add188.i.i467 = add i32 %164, %conv184.i.i461
-  %add189.i.i468 = add nuw nsw i64 %j.2357.i.i463, %i.1359.i.i401
-  %arrayidx190.i.i469 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %add189.i.i468
-  store i32 %add188.i.i467, ptr %arrayidx190.i.i469, align 4
-  %inc192.i.i470 = add nuw nsw i64 %j.2357.i.i463, 1
-  %exitcond401.not.i.i471 = icmp eq i64 %inc192.i.i470, %umax400.i.i403
-  br i1 %exitcond401.not.i.i471, label %for.end193.i.i472, label %for.body183.i.i462, !llvm.loop !67
+for.body183.i.i444:                               ; preds = %for.body183.i.i444, %for.body183.lr.ph.i.i440
+  %j.2357.i.i = phi i64 [ 0, %for.body183.lr.ph.i.i440 ], [ %inc192.i.i451, %for.body183.i.i444 ]
+  %arrayidx185.i.i445 = getelementptr inbounds i32, ptr %add.ptr43.i.i369, i64 %j.2357.i.i
+  %162 = load i32, ptr %arrayidx185.i.i445, align 4
+  %idxprom186.i.i446 = zext i32 %162 to i64
+  %arrayidx187.i.i447 = getelementptr inbounds i32, ptr %add.ptr44.i.i390, i64 %idxprom186.i.i446
+  %163 = load i32, ptr %arrayidx187.i.i447, align 4
+  %add188.i.i448 = add i32 %163, %conv184.i.i443
+  %add189.i.i449 = add nuw nsw i64 %j.2357.i.i, %i.1359.i.i
+  %arrayidx190.i.i450 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %add189.i.i449
+  store i32 %add188.i.i448, ptr %arrayidx190.i.i450, align 4
+  %inc192.i.i451 = add nuw nsw i64 %j.2357.i.i, 1
+  %exitcond401.not.i.i = icmp eq i64 %inc192.i.i451, %umax400.i.i
+  br i1 %exitcond401.not.i.i, label %for.end193.i.i452, label %for.body183.i.i444, !llvm.loop !67
 
-for.end193.i.i472:                                ; preds = %for.body183.i.i462
-  %add194.i.i473 = add i64 %call96.i.i428, %num_clusters.0361.i.i399
-  %add196.i.i474 = add i64 %i.1359.i.i401, 64
-  %cmp61.i.i475 = icmp ult i64 %add196.i.i474, %retval.0.i.i280
-  %indvars.iv.next.i.i476 = add i64 %indvars.iv.i.i392, -64
-  br i1 %cmp61.i.i475, label %for.body69.lr.ph.i.i391, label %for.end197.i.i477, !llvm.loop !68
+for.end193.i.i452:                                ; preds = %for.body183.i.i444
+  %add194.i.i453 = add i64 %call96.i.i414, %num_clusters.0361.i.i
+  %add196.i.i454 = add i64 %i.1359.i.i, 64
+  %cmp61.i.i455 = icmp ult i64 %add196.i.i454, %retval.0.i.i280
+  %indvars.iv.next.i.i456 = add i64 %indvars.iv.i.i392, -64
+  br i1 %cmp61.i.i455, label %for.body69.lr.ph.i.i391, label %for.end197.i.i457, !llvm.loop !68
 
-for.end197.i.i477:                                ; preds = %for.end193.i.i472, %for.cond60.preheader.i.i388
-  %num_clusters.0.lcssa.i.i478 = phi i64 [ 0, %for.cond60.preheader.i.i388 ], [ %add194.i.i473, %for.end193.i.i472 ]
-  %cluster_size.0.lcssa.i.i479 = phi ptr [ %cond24.i.i362, %for.cond60.preheader.i.i388 ], [ %cluster_size.1.i.i437, %for.end193.i.i472 ]
-  %all_histograms.0.lcssa.i.i480 = phi ptr [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ], [ %all_histograms.1.i.i432, %for.end193.i.i472 ]
+for.end197.i.i457:                                ; preds = %for.end193.i.i452, %for.cond60.preheader.i.i388
+  %num_clusters.0.lcssa.i.i458 = phi i64 [ 0, %for.cond60.preheader.i.i388 ], [ %add194.i.i453, %for.end193.i.i452 ]
+  %cluster_size.0.lcssa.i.i459 = phi ptr [ %cond24.i.i362, %for.cond60.preheader.i.i388 ], [ %cluster_size.1.i.i423, %for.end193.i.i452 ]
+  %all_histograms.0.lcssa.i.i460 = phi ptr [ %cond17325.i.i357, %for.cond60.preheader.i.i388 ], [ %all_histograms.1.i.i418, %for.end193.i.i452 ]
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond33.i.i367) #7
-  %mul198.i.i481 = shl i64 %num_clusters.0.lcssa.i.i478, 6
-  %div199289.i.i482 = lshr i64 %num_clusters.0.lcssa.i.i478, 1
-  %mul200.i.i483 = mul i64 %div199289.i.i482, %num_clusters.0.lcssa.i.i478
-  %cond.i.i169.i484 = tail call i64 @llvm.umin.i64(i64 %mul198.i.i481, i64 %mul200.i.i483)
-  %cmp203.i.i485 = icmp ugt i64 %cond.i.i169.i484, 2048
-  br i1 %cmp203.i.i485, label %if.then205.i.i636, label %if.end216.i.i486
+  %mul198.i.i461 = shl i64 %num_clusters.0.lcssa.i.i458, 6
+  %div199289.i.i462 = lshr i64 %num_clusters.0.lcssa.i.i458, 1
+  %mul200.i.i463 = mul i64 %div199289.i.i462, %num_clusters.0.lcssa.i.i458
+  %cond.i.i169.i464 = tail call i64 @llvm.umin.i64(i64 %mul198.i.i461, i64 %mul200.i.i463)
+  %cmp203.i.i465 = icmp ugt i64 %cond.i.i169.i464, 2048
+  br i1 %cmp203.i.i465, label %if.then205.i.i599, label %if.end216.i.i466
 
-if.then205.i.i636:                                ; preds = %for.end197.i.i477
+if.then205.i.i599:                                ; preds = %for.end197.i.i457
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call38.i.i368) #7
-  %165 = mul i64 %cond.i.i169.i484, 24
-  %mul211.i.i637 = add i64 %165, 24
-  %call212.i.i638 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul211.i.i637) #7
-  br label %if.end216.i.i486
+  %164 = mul i64 %cond.i.i169.i464, 24
+  %mul211.i.i600 = add i64 %164, 24
+  %call212.i.i601 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul211.i.i600) #7
+  br label %if.end216.i.i466
 
-if.end216.i.i486:                                 ; preds = %if.then205.i.i636, %for.end197.i.i477
-  %pairs.0.i.i487 = phi ptr [ %call212.i.i638, %if.then205.i.i636 ], [ %call38.i.i368, %for.end197.i.i477 ]
-  %cmp217.not.i.i488 = icmp eq i64 %num_clusters.0.lcssa.i.i478, 0
-  br i1 %cmp217.not.i.i488, label %for.end233.i.i498, label %for.body228.preheader.i.i489
+if.end216.i.i466:                                 ; preds = %if.then205.i.i599, %for.end197.i.i457
+  %pairs.0.i.i467 = phi ptr [ %call212.i.i601, %if.then205.i.i599 ], [ %call38.i.i368, %for.end197.i.i457 ]
+  %cmp217.not.i.i468 = icmp eq i64 %num_clusters.0.lcssa.i.i458, 0
+  br i1 %cmp217.not.i.i468, label %for.end233.i.i477, label %for.body228.preheader.i.i469
 
-for.body228.preheader.i.i489:                     ; preds = %if.end216.i.i486
-  %mul220.i.i490 = shl i64 %num_clusters.0.lcssa.i.i478, 2
-  %call221.i.i491 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul220.i.i490) #7
-  br label %for.body228.i.i492
+for.body228.preheader.i.i469:                     ; preds = %if.end216.i.i466
+  %mul220.i.i470 = shl i64 %num_clusters.0.lcssa.i.i458, 2
+  %call221.i.i471 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul220.i.i470) #7
+  br label %for.body228.i.i472
 
-for.body228.i.i492:                               ; preds = %for.body228.i.i492, %for.body228.preheader.i.i489
-  %i.2372.i.i493 = phi i64 [ %inc232.i.i496, %for.body228.i.i492 ], [ 0, %for.body228.preheader.i.i489 ]
-  %conv229.i.i494 = trunc i64 %i.2372.i.i493 to i32
-  %arrayidx230.i.i495 = getelementptr inbounds i32, ptr %call221.i.i491, i64 %i.2372.i.i493
-  store i32 %conv229.i.i494, ptr %arrayidx230.i.i495, align 4
-  %inc232.i.i496 = add nuw i64 %i.2372.i.i493, 1
-  %exitcond402.not.i.i497 = icmp eq i64 %inc232.i.i496, %num_clusters.0.lcssa.i.i478
-  br i1 %exitcond402.not.i.i497, label %for.end233.i.i498, label %for.body228.i.i492, !llvm.loop !69
+for.body228.i.i472:                               ; preds = %for.body228.i.i472, %for.body228.preheader.i.i469
+  %i.2372.i.i = phi i64 [ %inc232.i.i475, %for.body228.i.i472 ], [ 0, %for.body228.preheader.i.i469 ]
+  %conv229.i.i473 = trunc i64 %i.2372.i.i to i32
+  %arrayidx230.i.i474 = getelementptr inbounds i32, ptr %call221.i.i471, i64 %i.2372.i.i
+  store i32 %conv229.i.i473, ptr %arrayidx230.i.i474, align 4
+  %inc232.i.i475 = add nuw i64 %i.2372.i.i, 1
+  %exitcond402.not.i.i476 = icmp eq i64 %inc232.i.i475, %num_clusters.0.lcssa.i.i458
+  br i1 %exitcond402.not.i.i476, label %for.end233.i.i477, label %for.body228.i.i472, !llvm.loop !69
 
-for.end233.i.i498:                                ; preds = %for.body228.i.i492, %if.end216.i.i486
-  %cond224408.i.i499 = phi ptr [ null, %if.end216.i.i486 ], [ %call221.i.i491, %for.body228.i.i492 ]
-  %call234.i.i500 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %all_histograms.0.lcssa.i.i480, ptr noundef %call46.i.i371, ptr noundef %cluster_size.0.lcssa.i.i479, ptr noundef %cond295308323.i.i359, ptr noundef %cond224408.i.i499, ptr noundef %pairs.0.i.i487, i64 noundef %num_clusters.0.lcssa.i.i478, i64 noundef %retval.0.i.i280, i64 noundef 256, i64 noundef %cond.i.i169.i484) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %pairs.0.i.i487) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0.lcssa.i.i479) #7
-  br i1 %cmp217.not.i.i488, label %for.cond251.preheader.i.i504, label %for.body246.preheader.i.i501
+for.end233.i.i477:                                ; preds = %for.body228.i.i472, %if.end216.i.i466
+  %cond224408.i.i = phi ptr [ null, %if.end216.i.i466 ], [ %call221.i.i471, %for.body228.i.i472 ]
+  %call234.i.i478 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %all_histograms.0.lcssa.i.i460, ptr noundef %call46.i.i371, ptr noundef %cluster_size.0.lcssa.i.i459, ptr noundef %cond295308323.i.i359, ptr noundef %cond224408.i.i, ptr noundef %pairs.0.i.i467, i64 noundef %num_clusters.0.lcssa.i.i458, i64 noundef %retval.0.i.i280, i64 noundef 256, i64 noundef %cond.i.i169.i464) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %pairs.0.i.i467) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0.lcssa.i.i459) #7
+  br i1 %cmp217.not.i.i468, label %for.cond251.preheader.i.i482, label %for.body246.preheader.i.i479
 
-for.body246.preheader.i.i501:                     ; preds = %for.end233.i.i498
-  %mul238.i.i502 = shl i64 %num_clusters.0.lcssa.i.i478, 2
-  %call239.i.i503 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul238.i.i502) #7
-  tail call void @llvm.memset.p0.i64(ptr align 4 %call239.i.i503, i8 -1, i64 %mul238.i.i502, i1 false)
-  br label %for.cond251.preheader.i.i504
+for.body246.preheader.i.i479:                     ; preds = %for.end233.i.i477
+  %mul238.i.i480 = shl i64 %num_clusters.0.lcssa.i.i458, 2
+  %call239.i.i481 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul238.i.i480) #7
+  tail call void @llvm.memset.p0.i64(ptr align 4 %call239.i.i481, i8 -1, i64 %mul238.i.i480, i1 false)
+  br label %for.cond251.preheader.i.i482
 
-for.cond251.preheader.i.i504:                     ; preds = %for.body246.preheader.i.i501, %for.end233.i.i498
-  %cond242410.i.i505 = phi ptr [ %call239.i.i503, %for.body246.preheader.i.i501 ], [ null, %for.end233.i.i498 ]
-  br i1 %cmp.not.i.i332, label %for.end310.i.i561, label %for.body254.lr.ph.i.i506
+for.cond251.preheader.i.i482:                     ; preds = %for.body246.preheader.i.i479, %for.end233.i.i477
+  %cond242410.i.i = phi ptr [ %call239.i.i481, %for.body246.preheader.i.i479 ], [ null, %for.end233.i.i477 ]
+  br i1 %cmp.not.i.i332, label %for.end310.i.i528, label %for.body254.lr.ph.i.i483
 
-for.body254.lr.ph.i.i506:                         ; preds = %for.cond251.preheader.i.i504
-  %total_count_.i.i170.i507 = getelementptr inbounds %struct.HistogramCommand, ptr %call46.i.i371, i64 0, i32 1
-  %bit_cost_.i.i171.i508 = getelementptr inbounds %struct.HistogramCommand, ptr %call46.i.i371, i64 0, i32 2
-  %add.ptr279.i.i509 = getelementptr inbounds %struct.HistogramCommand, ptr %call46.i.i371, i64 1
-  %cmp282380.not.i.i510 = icmp eq i64 %call234.i.i500, 0
-  br label %for.body254.i.i511
+for.body254.lr.ph.i.i483:                         ; preds = %for.cond251.preheader.i.i482
+  %total_count_.i.i170.i484 = getelementptr inbounds i8, ptr %call46.i.i371, i64 2816
+  %bit_cost_.i.i171.i485 = getelementptr inbounds i8, ptr %call46.i.i371, i64 2824
+  %add.ptr279.i.i486 = getelementptr inbounds i8, ptr %call46.i.i371, i64 2832
+  %cmp282380.not.i.i = icmp eq i64 %call234.i.i478, 0
+  br label %for.body254.i.i487
 
-for.body254.i.i511:                               ; preds = %for.inc308.i.i557, %for.body254.lr.ph.i.i506
-  %next_index.0388.i.i512 = phi i32 [ 0, %for.body254.lr.ph.i.i506 ], [ %next_index.1.i.i558, %for.inc308.i.i557 ]
-  %pos.3387.i.i513 = phi i64 [ 0, %for.body254.lr.ph.i.i506 ], [ %pos.4.lcssa.i.i528, %for.inc308.i.i557 ]
-  %i.4386.i.i514 = phi i64 [ 0, %for.body254.lr.ph.i.i506 ], [ %inc309.i.i559, %for.inc308.i.i557 ]
+for.body254.i.i487:                               ; preds = %for.inc308.i.i524, %for.body254.lr.ph.i.i483
+  %next_index.0388.i.i = phi i32 [ 0, %for.body254.lr.ph.i.i483 ], [ %next_index.1.i.i525, %for.inc308.i.i524 ]
+  %pos.3387.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i483 ], [ %pos.4.lcssa.i.i499, %for.inc308.i.i524 ]
+  %i.4386.i.i = phi i64 [ 0, %for.body254.lr.ph.i.i483 ], [ %inc309.i.i526, %for.inc308.i.i524 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %call46.i.i371, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i508, align 8
-  %arrayidx257.i.i515 = getelementptr inbounds i32, ptr %add.ptr45.i.i370, i64 %i.4386.i.i514
-  %166 = load i32, ptr %arrayidx257.i.i515, align 4
-  %cmp259376.not.i.i516 = icmp eq i32 %166, 0
-  br i1 %cmp259376.not.i.i516, label %for.end267.i.i527, label %for.body261.i.i517
+  store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i485, align 8
+  %arrayidx257.i.i488 = getelementptr inbounds i32, ptr %add.ptr45.i.i370, i64 %i.4386.i.i
+  %165 = load i32, ptr %arrayidx257.i.i488, align 4
+  %cmp259376.not.i.i = icmp eq i32 %165, 0
+  br i1 %cmp259376.not.i.i, label %for.end267.i.i498, label %for.body261.i.i489
 
-for.body261.i.i517:                               ; preds = %for.body254.i.i511, %for.body261.i.i517
-  %j255.0378.i.i = phi i64 [ %inc266.i.i, %for.body261.i.i517 ], [ 0, %for.body254.i.i511 ]
-  %pos.4377.i.i518 = phi i64 [ %inc262.i.i519, %for.body261.i.i517 ], [ %pos.3387.i.i513, %for.body254.i.i511 ]
-  %inc262.i.i519 = add i64 %pos.4377.i.i518, 1
-  %arrayidx263.i.i520 = getelementptr inbounds i16, ptr %call5, i64 %pos.4377.i.i518
-  %167 = load i16, ptr %arrayidx263.i.i520, align 2
-  %conv264.i.i521 = zext i16 %167 to i64
-  %arrayidx.i.i172.i522 = getelementptr inbounds [704 x i32], ptr %call46.i.i371, i64 0, i64 %conv264.i.i521
-  %168 = load i32, ptr %arrayidx.i.i172.i522, align 4
-  %inc.i.i173.i523 = add i32 %168, 1
-  store i32 %inc.i.i173.i523, ptr %arrayidx.i.i172.i522, align 4
-  %169 = load i64, ptr %total_count_.i.i170.i507, align 8
-  %inc1.i.i174.i524 = add i64 %169, 1
-  store i64 %inc1.i.i174.i524, ptr %total_count_.i.i170.i507, align 8
+for.body261.i.i489:                               ; preds = %for.body254.i.i487, %for.body261.i.i489
+  %j255.0378.i.i = phi i64 [ %inc266.i.i, %for.body261.i.i489 ], [ 0, %for.body254.i.i487 ]
+  %pos.4377.i.i = phi i64 [ %inc262.i.i490, %for.body261.i.i489 ], [ %pos.3387.i.i, %for.body254.i.i487 ]
+  %inc262.i.i490 = add i64 %pos.4377.i.i, 1
+  %arrayidx263.i.i491 = getelementptr inbounds i16, ptr %call5, i64 %pos.4377.i.i
+  %166 = load i16, ptr %arrayidx263.i.i491, align 2
+  %conv264.i.i492 = zext i16 %166 to i64
+  %arrayidx.i.i172.i493 = getelementptr inbounds [704 x i32], ptr %call46.i.i371, i64 0, i64 %conv264.i.i492
+  %167 = load i32, ptr %arrayidx.i.i172.i493, align 4
+  %inc.i.i173.i494 = add i32 %167, 1
+  store i32 %inc.i.i173.i494, ptr %arrayidx.i.i172.i493, align 4
+  %168 = load i64, ptr %total_count_.i.i170.i484, align 8
+  %inc1.i.i174.i495 = add i64 %168, 1
+  store i64 %inc1.i.i174.i495, ptr %total_count_.i.i170.i484, align 8
   %inc266.i.i = add nuw nsw i64 %j255.0378.i.i, 1
-  %170 = load i32, ptr %arrayidx257.i.i515, align 4
-  %conv258.i.i525 = zext i32 %170 to i64
-  %cmp259.i.i526 = icmp ult i64 %inc266.i.i, %conv258.i.i525
-  br i1 %cmp259.i.i526, label %for.body261.i.i517, label %for.end267.i.i527, !llvm.loop !70
+  %169 = load i32, ptr %arrayidx257.i.i488, align 4
+  %conv258.i.i496 = zext i32 %169 to i64
+  %cmp259.i.i497 = icmp ult i64 %inc266.i.i, %conv258.i.i496
+  br i1 %cmp259.i.i497, label %for.body261.i.i489, label %for.end267.i.i498, !llvm.loop !70
 
-for.end267.i.i527:                                ; preds = %for.body261.i.i517, %for.body254.i.i511
-  %pos.4.lcssa.i.i528 = phi i64 [ %pos.3387.i.i513, %for.body254.i.i511 ], [ %inc262.i.i519, %for.body261.i.i517 ]
-  %cond276.in.idx.i.i529 = tail call i64 @llvm.usub.sat.i64(i64 %i.4386.i.i514, i64 1)
-  %cond276.in.i.i530 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %cond276.in.idx.i.i529
-  %cond276.i.i531 = load i32, ptr %cond276.in.i.i530, align 4
-  %idxprom277.i.i532 = zext i32 %cond276.i.i531 to i64
-  %arrayidx278.i.i533 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i480, i64 %idxprom277.i.i532
-  %call280.i.i534 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef nonnull %call46.i.i371, ptr noundef %arrayidx278.i.i533, ptr noundef nonnull %add.ptr279.i.i509) #7
-  br i1 %cmp282380.not.i.i510, label %for.end297.i.i551, label %for.body284.i.i535
+for.end267.i.i498:                                ; preds = %for.body261.i.i489, %for.body254.i.i487
+  %pos.4.lcssa.i.i499 = phi i64 [ %pos.3387.i.i, %for.body254.i.i487 ], [ %inc262.i.i490, %for.body261.i.i489 ]
+  %cond276.in.idx.i.i500 = tail call i64 @llvm.usub.sat.i64(i64 %i.4386.i.i, i64 1)
+  %cond276.in.i.i501 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %cond276.in.idx.i.i500
+  %cond276.i.i502 = load i32, ptr %cond276.in.i.i501, align 4
+  %idxprom277.i.i503 = zext i32 %cond276.i.i502 to i64
+  %arrayidx278.i.i504 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i460, i64 %idxprom277.i.i503
+  %call280.i.i505 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef nonnull %call46.i.i371, ptr noundef %arrayidx278.i.i504, ptr noundef nonnull %add.ptr279.i.i486) #7
+  br i1 %cmp282380.not.i.i, label %for.end297.i.i518, label %for.body284.i.i506
 
-for.body284.i.i535:                               ; preds = %for.end267.i.i527, %for.inc295.i.i544
-  %best_bits.0383.i.i536 = phi double [ %best_bits.1.i.i546, %for.inc295.i.i544 ], [ %call280.i.i534, %for.end267.i.i527 ]
-  %best_out.0382.i.i537 = phi i32 [ %best_out.1.i.i545, %for.inc295.i.i544 ], [ %cond276.i.i531, %for.end267.i.i527 ]
-  %j255.1381.i.i538 = phi i64 [ %inc296.i.i547, %for.inc295.i.i544 ], [ 0, %for.end267.i.i527 ]
-  %arrayidx285.i.i539 = getelementptr inbounds i32, ptr %cond224408.i.i499, i64 %j255.1381.i.i538
-  %171 = load i32, ptr %arrayidx285.i.i539, align 4
-  %idxprom286.i.i540 = zext i32 %171 to i64
-  %arrayidx287.i.i541 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i480, i64 %idxprom286.i.i540
-  %call289.i.i542 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef %call46.i.i371, ptr noundef %arrayidx287.i.i541, ptr noundef nonnull %add.ptr279.i.i509) #7
-  %cmp290.i.i543 = fcmp olt double %call289.i.i542, %best_bits.0383.i.i536
-  br i1 %cmp290.i.i543, label %if.then292.i.i635, label %for.inc295.i.i544
+for.body284.i.i506:                               ; preds = %for.end267.i.i498, %for.inc295.i.i512
+  %best_bits.0383.i.i = phi double [ %best_bits.1.i.i514, %for.inc295.i.i512 ], [ %call280.i.i505, %for.end267.i.i498 ]
+  %best_out.0382.i.i = phi i32 [ %best_out.1.i.i513, %for.inc295.i.i512 ], [ %cond276.i.i502, %for.end267.i.i498 ]
+  %j255.1381.i.i = phi i64 [ %inc296.i.i515, %for.inc295.i.i512 ], [ 0, %for.end267.i.i498 ]
+  %arrayidx285.i.i507 = getelementptr inbounds i32, ptr %cond224408.i.i, i64 %j255.1381.i.i
+  %170 = load i32, ptr %arrayidx285.i.i507, align 4
+  %idxprom286.i.i508 = zext i32 %170 to i64
+  %arrayidx287.i.i509 = getelementptr inbounds %struct.HistogramCommand, ptr %all_histograms.0.lcssa.i.i460, i64 %idxprom286.i.i508
+  %call289.i.i510 = tail call double @BrotliHistogramBitCostDistanceCommand(ptr noundef %call46.i.i371, ptr noundef %arrayidx287.i.i509, ptr noundef nonnull %add.ptr279.i.i486) #7
+  %cmp290.i.i511 = fcmp olt double %call289.i.i510, %best_bits.0383.i.i
+  br i1 %cmp290.i.i511, label %if.then292.i.i598, label %for.inc295.i.i512
 
-if.then292.i.i635:                                ; preds = %for.body284.i.i535
-  %172 = load i32, ptr %arrayidx285.i.i539, align 4
-  br label %for.inc295.i.i544
+if.then292.i.i598:                                ; preds = %for.body284.i.i506
+  %171 = load i32, ptr %arrayidx285.i.i507, align 4
+  br label %for.inc295.i.i512
 
-for.inc295.i.i544:                                ; preds = %if.then292.i.i635, %for.body284.i.i535
-  %best_out.1.i.i545 = phi i32 [ %172, %if.then292.i.i635 ], [ %best_out.0382.i.i537, %for.body284.i.i535 ]
-  %best_bits.1.i.i546 = phi double [ %call289.i.i542, %if.then292.i.i635 ], [ %best_bits.0383.i.i536, %for.body284.i.i535 ]
-  %inc296.i.i547 = add nuw i64 %j255.1381.i.i538, 1
-  %exitcond403.not.i.i548 = icmp eq i64 %inc296.i.i547, %call234.i.i500
-  br i1 %exitcond403.not.i.i548, label %for.end297.loopexit.i.i549, label %for.body284.i.i535, !llvm.loop !71
+for.inc295.i.i512:                                ; preds = %if.then292.i.i598, %for.body284.i.i506
+  %best_out.1.i.i513 = phi i32 [ %171, %if.then292.i.i598 ], [ %best_out.0382.i.i, %for.body284.i.i506 ]
+  %best_bits.1.i.i514 = phi double [ %call289.i.i510, %if.then292.i.i598 ], [ %best_bits.0383.i.i, %for.body284.i.i506 ]
+  %inc296.i.i515 = add nuw i64 %j255.1381.i.i, 1
+  %exitcond403.not.i.i516 = icmp eq i64 %inc296.i.i515, %call234.i.i478
+  br i1 %exitcond403.not.i.i516, label %for.end297.loopexit.i.i517, label %for.body284.i.i506, !llvm.loop !71
 
-for.end297.loopexit.i.i549:                       ; preds = %for.inc295.i.i544
-  %.pre406.i.i550 = zext i32 %best_out.1.i.i545 to i64
-  br label %for.end297.i.i551
+for.end297.loopexit.i.i517:                       ; preds = %for.inc295.i.i512
+  %.pre406.i.i = zext i32 %best_out.1.i.i513 to i64
+  br label %for.end297.i.i518
 
-for.end297.i.i551:                                ; preds = %for.end297.loopexit.i.i549, %for.end267.i.i527
-  %idxprom299.pre-phi.i.i552 = phi i64 [ %.pre406.i.i550, %for.end297.loopexit.i.i549 ], [ %idxprom277.i.i532, %for.end267.i.i527 ]
-  %best_out.0.lcssa.i.i553 = phi i32 [ %best_out.1.i.i545, %for.end297.loopexit.i.i549 ], [ %cond276.i.i531, %for.end267.i.i527 ]
-  %arrayidx298.i.i554 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %i.4386.i.i514
-  store i32 %best_out.0.lcssa.i.i553, ptr %arrayidx298.i.i554, align 4
-  %arrayidx300.i.i555 = getelementptr inbounds i32, ptr %cond242410.i.i505, i64 %idxprom299.pre-phi.i.i552
-  %173 = load i32, ptr %arrayidx300.i.i555, align 4
-  %cmp301.i.i556 = icmp eq i32 %173, -1
-  br i1 %cmp301.i.i556, label %if.then303.i.i633, label %for.inc308.i.i557
+for.end297.i.i518:                                ; preds = %for.end297.loopexit.i.i517, %for.end267.i.i498
+  %idxprom299.pre-phi.i.i519 = phi i64 [ %.pre406.i.i, %for.end297.loopexit.i.i517 ], [ %idxprom277.i.i503, %for.end267.i.i498 ]
+  %best_out.0.lcssa.i.i520 = phi i32 [ %best_out.1.i.i513, %for.end297.loopexit.i.i517 ], [ %cond276.i.i502, %for.end267.i.i498 ]
+  %arrayidx298.i.i521 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %i.4386.i.i
+  store i32 %best_out.0.lcssa.i.i520, ptr %arrayidx298.i.i521, align 4
+  %arrayidx300.i.i522 = getelementptr inbounds i32, ptr %cond242410.i.i, i64 %idxprom299.pre-phi.i.i519
+  %172 = load i32, ptr %arrayidx300.i.i522, align 4
+  %cmp301.i.i523 = icmp eq i32 %172, -1
+  br i1 %cmp301.i.i523, label %if.then303.i.i596, label %for.inc308.i.i524
 
-if.then303.i.i633:                                ; preds = %for.end297.i.i551
-  %inc304.i.i634 = add i32 %next_index.0388.i.i512, 1
-  store i32 %next_index.0388.i.i512, ptr %arrayidx300.i.i555, align 4
-  br label %for.inc308.i.i557
+if.then303.i.i596:                                ; preds = %for.end297.i.i518
+  %inc304.i.i597 = add i32 %next_index.0388.i.i, 1
+  store i32 %next_index.0388.i.i, ptr %arrayidx300.i.i522, align 4
+  br label %for.inc308.i.i524
 
-for.inc308.i.i557:                                ; preds = %if.then303.i.i633, %for.end297.i.i551
-  %next_index.1.i.i558 = phi i32 [ %inc304.i.i634, %if.then303.i.i633 ], [ %next_index.0388.i.i512, %for.end297.i.i551 ]
-  %inc309.i.i559 = add nuw i64 %i.4386.i.i514, 1
-  %exitcond404.not.i.i560 = icmp eq i64 %inc309.i.i559, %retval.0.i.i280
-  br i1 %exitcond404.not.i.i560, label %for.end310.i.i561, label %for.body254.i.i511, !llvm.loop !72
+for.inc308.i.i524:                                ; preds = %if.then303.i.i596, %for.end297.i.i518
+  %next_index.1.i.i525 = phi i32 [ %inc304.i.i597, %if.then303.i.i596 ], [ %next_index.0388.i.i, %for.end297.i.i518 ]
+  %inc309.i.i526 = add nuw i64 %i.4386.i.i, 1
+  %exitcond404.not.i.i527 = icmp eq i64 %inc309.i.i526, %retval.0.i.i280
+  br i1 %exitcond404.not.i.i527, label %for.end310.i.i528, label %for.body254.i.i487, !llvm.loop !72
 
-for.end310.i.i561:                                ; preds = %for.inc308.i.i557, %for.cond251.preheader.i.i504
+for.end310.i.i528:                                ; preds = %for.inc308.i.i524, %for.cond251.preheader.i.i482
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call46.i.i371) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224408.i.i499) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i480) #7
-  %types_alloc_size.i.i562 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 4
-  %174 = load i64, ptr %types_alloc_size.i.i562, align 8
-  %cmp311.i.i563 = icmp ult i64 %174, %retval.0.i.i280
-  br i1 %cmp311.i.i563, label %if.then313.i.i619, label %if.end349.i.i564
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224408.i.i) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i460) #7
+  %types_alloc_size.i.i529 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 32
+  %173 = load i64, ptr %types_alloc_size.i.i529, align 8
+  %cmp311.i.i530 = icmp ult i64 %173, %retval.0.i.i280
+  br i1 %cmp311.i.i530, label %if.then313.i.i582, label %if.end349.i.i531
 
-if.then313.i.i619:                                ; preds = %for.end310.i.i561
-  %cmp316.i.i620 = icmp eq i64 %174, 0
-  %num_blocks..i.i621 = select i1 %cmp316.i.i620, i64 %retval.0.i.i280, i64 %174
-  br label %while.cond324.i.i622
+if.then313.i.i582:                                ; preds = %for.end310.i.i528
+  %cmp316.i.i583 = icmp eq i64 %173, 0
+  %num_blocks..i.i584 = select i1 %cmp316.i.i583, i64 %retval.0.i.i280, i64 %173
+  br label %while.cond324.i.i585
 
-while.cond324.i.i622:                             ; preds = %while.cond324.i.i622, %if.then313.i.i619
-  %_new_size314.0.i.i623 = phi i64 [ %num_blocks..i.i621, %if.then313.i.i619 ], [ %mul328.i.i625, %while.cond324.i.i622 ]
-  %cmp325.i.i624 = icmp ult i64 %_new_size314.0.i.i623, %retval.0.i.i280
-  %mul328.i.i625 = shl i64 %_new_size314.0.i.i623, 1
-  br i1 %cmp325.i.i624, label %while.cond324.i.i622, label %cond.end336.i.i626, !llvm.loop !73
+while.cond324.i.i585:                             ; preds = %while.cond324.i.i585, %if.then313.i.i582
+  %_new_size314.0.i.i586 = phi i64 [ %num_blocks..i.i584, %if.then313.i.i582 ], [ %mul328.i.i588, %while.cond324.i.i585 ]
+  %cmp325.i.i587 = icmp ult i64 %_new_size314.0.i.i586, %retval.0.i.i280
+  %mul328.i.i588 = shl i64 %_new_size314.0.i.i586, 1
+  br i1 %cmp325.i.i587, label %while.cond324.i.i585, label %cond.end336.i.i589, !llvm.loop !73
 
-cond.end336.i.i626:                               ; preds = %while.cond324.i.i622
-  %call334.i.i627 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size314.0.i.i623) #7
-  %175 = load i64, ptr %types_alloc_size.i.i562, align 8
-  %cmp339.not.i.i628 = icmp eq i64 %175, 0
-  br i1 %cmp339.not.i.i628, label %if.end344.i.i631, label %if.then341.i.i629
+cond.end336.i.i589:                               ; preds = %while.cond324.i.i585
+  %call334.i.i590 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size314.0.i.i586) #7
+  %174 = load i64, ptr %types_alloc_size.i.i529, align 8
+  %cmp339.not.i.i591 = icmp eq i64 %174, 0
+  br i1 %cmp339.not.i.i591, label %if.end344.i.i594, label %if.then341.i.i592
 
-if.then341.i.i629:                                ; preds = %cond.end336.i.i626
-  %types.i.i630 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 2
-  %176 = load ptr, ptr %types.i.i630, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call334.i.i627, ptr align 1 %176, i64 %175, i1 false)
-  br label %if.end344.i.i631
+if.then341.i.i592:                                ; preds = %cond.end336.i.i589
+  %types.i.i593 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 16
+  %175 = load ptr, ptr %types.i.i593, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call334.i.i590, ptr align 1 %175, i64 %174, i1 false)
+  br label %if.end344.i.i594
 
-if.end344.i.i631:                                 ; preds = %if.then341.i.i629, %cond.end336.i.i626
-  %types345.i.i632 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 2
-  %177 = load ptr, ptr %types345.i.i632, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %177) #7
-  store ptr %call334.i.i627, ptr %types345.i.i632, align 8
-  store i64 %_new_size314.0.i.i623, ptr %types_alloc_size.i.i562, align 8
-  br label %if.end349.i.i564
+if.end344.i.i594:                                 ; preds = %if.then341.i.i592, %cond.end336.i.i589
+  %types345.i.i595 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 16
+  %176 = load ptr, ptr %types345.i.i595, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %176) #7
+  store ptr %call334.i.i590, ptr %types345.i.i595, align 8
+  store i64 %_new_size314.0.i.i586, ptr %types_alloc_size.i.i529, align 8
+  br label %if.end349.i.i531
 
-if.end349.i.i564:                                 ; preds = %if.end344.i.i631, %for.end310.i.i561
-  %lengths_alloc_size.i.i565 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 5
-  %178 = load i64, ptr %lengths_alloc_size.i.i565, align 8
-  %cmp350.i.i566 = icmp ult i64 %178, %retval.0.i.i280
-  br i1 %cmp350.i.i566, label %if.then352.i.i603, label %if.end388.i.i567
+if.end349.i.i531:                                 ; preds = %if.end344.i.i594, %for.end310.i.i528
+  %lengths_alloc_size.i.i532 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 40
+  %177 = load i64, ptr %lengths_alloc_size.i.i532, align 8
+  %cmp350.i.i533 = icmp ult i64 %177, %retval.0.i.i280
+  br i1 %cmp350.i.i533, label %if.then352.i.i566, label %if.end388.i.i534
 
-if.then352.i.i603:                                ; preds = %if.end349.i.i564
-  %cmp355.i.i604 = icmp eq i64 %178, 0
-  %num_blocks.290.i.i605 = select i1 %cmp355.i.i604, i64 %retval.0.i.i280, i64 %178
-  br label %while.cond363.i.i606
+if.then352.i.i566:                                ; preds = %if.end349.i.i531
+  %cmp355.i.i567 = icmp eq i64 %177, 0
+  %num_blocks.290.i.i568 = select i1 %cmp355.i.i567, i64 %retval.0.i.i280, i64 %177
+  br label %while.cond363.i.i569
 
-while.cond363.i.i606:                             ; preds = %while.cond363.i.i606, %if.then352.i.i603
-  %_new_size353.0.i.i607 = phi i64 [ %num_blocks.290.i.i605, %if.then352.i.i603 ], [ %mul367.i.i609, %while.cond363.i.i606 ]
-  %cmp364.i.i608 = icmp ult i64 %_new_size353.0.i.i607, %retval.0.i.i280
-  %mul367.i.i609 = shl i64 %_new_size353.0.i.i607, 1
-  br i1 %cmp364.i.i608, label %while.cond363.i.i606, label %cond.end375.i.i610, !llvm.loop !74
+while.cond363.i.i569:                             ; preds = %while.cond363.i.i569, %if.then352.i.i566
+  %_new_size353.0.i.i570 = phi i64 [ %num_blocks.290.i.i568, %if.then352.i.i566 ], [ %mul367.i.i572, %while.cond363.i.i569 ]
+  %cmp364.i.i571 = icmp ult i64 %_new_size353.0.i.i570, %retval.0.i.i280
+  %mul367.i.i572 = shl i64 %_new_size353.0.i.i570, 1
+  br i1 %cmp364.i.i571, label %while.cond363.i.i569, label %cond.end375.i.i573, !llvm.loop !74
 
-cond.end375.i.i610:                               ; preds = %while.cond363.i.i606
-  %mul372.i.i611 = shl i64 %_new_size353.0.i.i607, 2
-  %call373.i.i612 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul372.i.i611) #7
-  %179 = load i64, ptr %lengths_alloc_size.i.i565, align 8
-  %cmp378.not.i.i613 = icmp eq i64 %179, 0
-  br i1 %cmp378.not.i.i613, label %if.end388.thread.i.i617, label %if.then380.i.i614
+cond.end375.i.i573:                               ; preds = %while.cond363.i.i569
+  %mul372.i.i574 = shl i64 %_new_size353.0.i.i570, 2
+  %call373.i.i575 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul372.i.i574) #7
+  %178 = load i64, ptr %lengths_alloc_size.i.i532, align 8
+  %cmp378.not.i.i576 = icmp eq i64 %178, 0
+  br i1 %cmp378.not.i.i576, label %if.end388.thread.i.i580, label %if.then380.i.i577
 
-if.then380.i.i614:                                ; preds = %cond.end375.i.i610
-  %lengths.i.i615 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 3
-  %180 = load ptr, ptr %lengths.i.i615, align 8
-  %mul382.i.i616 = shl i64 %179, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call373.i.i612, ptr align 4 %180, i64 %mul382.i.i616, i1 false)
-  br label %if.end388.thread.i.i617
+if.then380.i.i577:                                ; preds = %cond.end375.i.i573
+  %lengths.i.i578 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
+  %179 = load ptr, ptr %lengths.i.i578, align 8
+  %mul382.i.i579 = shl i64 %178, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call373.i.i575, ptr align 4 %179, i64 %mul382.i.i579, i1 false)
+  br label %if.end388.thread.i.i580
 
-if.end388.thread.i.i617:                          ; preds = %if.then380.i.i614, %cond.end375.i.i610
-  %lengths384.i.i618 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 3
-  %181 = load ptr, ptr %lengths384.i.i618, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %181) #7
-  store ptr %call373.i.i612, ptr %lengths384.i.i618, align 8
-  store i64 %_new_size353.0.i.i607, ptr %lengths_alloc_size.i.i565, align 8
-  br label %for.body393.lr.ph.i.i568
+if.end388.thread.i.i580:                          ; preds = %if.then380.i.i577, %cond.end375.i.i573
+  %lengths384.i.i581 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
+  %180 = load ptr, ptr %lengths384.i.i581, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %180) #7
+  store ptr %call373.i.i575, ptr %lengths384.i.i581, align 8
+  store i64 %_new_size353.0.i.i570, ptr %lengths_alloc_size.i.i532, align 8
+  br label %for.body393.lr.ph.i.i535
 
-if.end388.i.i567:                                 ; preds = %if.end349.i.i564
-  br i1 %cmp.not.i.i332, label %ClusterBlocksCommand.exit.i, label %for.body393.lr.ph.i.i568
+if.end388.i.i534:                                 ; preds = %if.end349.i.i531
+  br i1 %cmp.not.i.i332, label %ClusterBlocksCommand.exit.i, label %for.body393.lr.ph.i.i535
 
-for.body393.lr.ph.i.i568:                         ; preds = %if.end388.i.i567, %if.end388.thread.i.i617
-  %types410.i.i569 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 2
-  %lengths412.i.i570 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 3
-  br label %for.body393.i.i571
+for.body393.lr.ph.i.i535:                         ; preds = %if.end388.i.i534, %if.end388.thread.i.i580
+  %types410.i.i536 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 16
+  %lengths412.i.i537 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 24
+  br label %for.body393.i.i538
 
-for.body393.i.i571:                               ; preds = %for.inc417.i.i595, %for.body393.lr.ph.i.i568
-  %max_type.0393.i.i572 = phi i8 [ 0, %for.body393.lr.ph.i.i568 ], [ %max_type.1.i.i598, %for.inc417.i.i595 ]
-  %block_idx389.0392.i.i573 = phi i64 [ 0, %for.body393.lr.ph.i.i568 ], [ %block_idx389.1.i.i597, %for.inc417.i.i595 ]
-  %cur_length.0391.i.i574 = phi i32 [ 0, %for.body393.lr.ph.i.i568 ], [ %cur_length.1.i.i596, %for.inc417.i.i595 ]
-  %i.5390.i.i575 = phi i64 [ 0, %for.body393.lr.ph.i.i568 ], [ %add396.i.i578, %for.inc417.i.i595 ]
-  %arrayidx394.i.i576 = getelementptr inbounds i32, ptr %add.ptr45.i.i370, i64 %i.5390.i.i575
-  %182 = load i32, ptr %arrayidx394.i.i576, align 4
-  %add395.i.i577 = add i32 %182, %cur_length.0391.i.i574
-  %add396.i.i578 = add nuw i64 %i.5390.i.i575, 1
-  %cmp397.i.i579 = icmp eq i64 %add396.i.i578, %retval.0.i.i280
-  %arrayidx406.phi.trans.insert.i.i580 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %i.5390.i.i575
-  %.pre.i.i581 = load i32, ptr %arrayidx406.phi.trans.insert.i.i580, align 4
-  br i1 %cmp397.i.i579, label %if.then405.i.i585, label %lor.lhs.false399.i.i582
+for.body393.i.i538:                               ; preds = %for.inc417.i.i558, %for.body393.lr.ph.i.i535
+  %max_type.0393.i.i = phi i8 [ 0, %for.body393.lr.ph.i.i535 ], [ %max_type.1.i.i561, %for.inc417.i.i558 ]
+  %block_idx389.0392.i.i = phi i64 [ 0, %for.body393.lr.ph.i.i535 ], [ %block_idx389.1.i.i560, %for.inc417.i.i558 ]
+  %cur_length.0391.i.i = phi i32 [ 0, %for.body393.lr.ph.i.i535 ], [ %cur_length.1.i.i559, %for.inc417.i.i558 ]
+  %i.5390.i.i = phi i64 [ 0, %for.body393.lr.ph.i.i535 ], [ %add396.i.i541, %for.inc417.i.i558 ]
+  %arrayidx394.i.i539 = getelementptr inbounds i32, ptr %add.ptr45.i.i370, i64 %i.5390.i.i
+  %181 = load i32, ptr %arrayidx394.i.i539, align 4
+  %add395.i.i540 = add i32 %181, %cur_length.0391.i.i
+  %add396.i.i541 = add nuw i64 %i.5390.i.i, 1
+  %cmp397.i.i542 = icmp eq i64 %add396.i.i541, %retval.0.i.i280
+  %arrayidx406.phi.trans.insert.i.i543 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %i.5390.i.i
+  %.pre.i.i544 = load i32, ptr %arrayidx406.phi.trans.insert.i.i543, align 4
+  br i1 %cmp397.i.i542, label %if.then405.i.i548, label %lor.lhs.false399.i.i545
 
-lor.lhs.false399.i.i582:                          ; preds = %for.body393.i.i571
-  %arrayidx402.i.i583 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %add396.i.i578
-  %183 = load i32, ptr %arrayidx402.i.i583, align 4
-  %cmp403.not.i.i584 = icmp eq i32 %.pre.i.i581, %183
-  br i1 %cmp403.not.i.i584, label %for.inc417.i.i595, label %if.then405.i.i585
+lor.lhs.false399.i.i545:                          ; preds = %for.body393.i.i538
+  %arrayidx402.i.i546 = getelementptr inbounds i32, ptr %cond295308323.i.i359, i64 %add396.i.i541
+  %182 = load i32, ptr %arrayidx402.i.i546, align 4
+  %cmp403.not.i.i547 = icmp eq i32 %.pre.i.i544, %182
+  br i1 %cmp403.not.i.i547, label %for.inc417.i.i558, label %if.then405.i.i548
 
-if.then405.i.i585:                                ; preds = %lor.lhs.false399.i.i582, %for.body393.i.i571
-  %idxprom407.i.i586 = zext i32 %.pre.i.i581 to i64
-  %arrayidx408.i.i587 = getelementptr inbounds i32, ptr %cond242410.i.i505, i64 %idxprom407.i.i586
-  %184 = load i32, ptr %arrayidx408.i.i587, align 4
-  %conv409.i.i588 = trunc i32 %184 to i8
-  %185 = load ptr, ptr %types410.i.i569, align 8
-  %arrayidx411.i.i589 = getelementptr inbounds i8, ptr %185, i64 %block_idx389.0392.i.i573
-  store i8 %conv409.i.i588, ptr %arrayidx411.i.i589, align 1
-  %186 = load ptr, ptr %lengths412.i.i570, align 8
-  %arrayidx413.i.i590 = getelementptr inbounds i32, ptr %186, i64 %block_idx389.0392.i.i573
-  store i32 %add395.i.i577, ptr %arrayidx413.i.i590, align 4
-  %conv.i.i175.i591 = zext i8 %max_type.0393.i.i572 to i32
-  %conv1.i.i.i592 = and i32 %184, 255
-  %cond.i448.i.i = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i592, i32 %conv.i.i175.i591)
-  %conv5.i.i.i593 = trunc i32 %cond.i448.i.i to i8
-  %inc415.i.i594 = add i64 %block_idx389.0392.i.i573, 1
-  br label %for.inc417.i.i595
+if.then405.i.i548:                                ; preds = %lor.lhs.false399.i.i545, %for.body393.i.i538
+  %idxprom407.i.i549 = zext i32 %.pre.i.i544 to i64
+  %arrayidx408.i.i550 = getelementptr inbounds i32, ptr %cond242410.i.i, i64 %idxprom407.i.i549
+  %183 = load i32, ptr %arrayidx408.i.i550, align 4
+  %conv409.i.i551 = trunc i32 %183 to i8
+  %184 = load ptr, ptr %types410.i.i536, align 8
+  %arrayidx411.i.i552 = getelementptr inbounds i8, ptr %184, i64 %block_idx389.0392.i.i
+  store i8 %conv409.i.i551, ptr %arrayidx411.i.i552, align 1
+  %185 = load ptr, ptr %lengths412.i.i537, align 8
+  %arrayidx413.i.i553 = getelementptr inbounds i32, ptr %185, i64 %block_idx389.0392.i.i
+  store i32 %add395.i.i540, ptr %arrayidx413.i.i553, align 4
+  %conv.i.i175.i554 = zext i8 %max_type.0393.i.i to i32
+  %conv1.i.i.i555 = and i32 %183, 255
+  %cond.i448.i.i = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i555, i32 %conv.i.i175.i554)
+  %conv5.i.i.i556 = trunc i32 %cond.i448.i.i to i8
+  %inc415.i.i557 = add i64 %block_idx389.0392.i.i, 1
+  br label %for.inc417.i.i558
 
-for.inc417.i.i595:                                ; preds = %if.then405.i.i585, %lor.lhs.false399.i.i582
-  %cur_length.1.i.i596 = phi i32 [ 0, %if.then405.i.i585 ], [ %add395.i.i577, %lor.lhs.false399.i.i582 ]
-  %block_idx389.1.i.i597 = phi i64 [ %inc415.i.i594, %if.then405.i.i585 ], [ %block_idx389.0392.i.i573, %lor.lhs.false399.i.i582 ]
-  %max_type.1.i.i598 = phi i8 [ %conv5.i.i.i593, %if.then405.i.i585 ], [ %max_type.0393.i.i572, %lor.lhs.false399.i.i582 ]
-  br i1 %cmp397.i.i579, label %for.end419.loopexit.i.i599, label %for.body393.i.i571, !llvm.loop !75
+for.inc417.i.i558:                                ; preds = %if.then405.i.i548, %lor.lhs.false399.i.i545
+  %cur_length.1.i.i559 = phi i32 [ 0, %if.then405.i.i548 ], [ %add395.i.i540, %lor.lhs.false399.i.i545 ]
+  %block_idx389.1.i.i560 = phi i64 [ %inc415.i.i557, %if.then405.i.i548 ], [ %block_idx389.0392.i.i, %lor.lhs.false399.i.i545 ]
+  %max_type.1.i.i561 = phi i8 [ %conv5.i.i.i556, %if.then405.i.i548 ], [ %max_type.0393.i.i, %lor.lhs.false399.i.i545 ]
+  br i1 %cmp397.i.i542, label %for.end419.loopexit.i.i562, label %for.body393.i.i538, !llvm.loop !75
 
-for.end419.loopexit.i.i599:                       ; preds = %for.inc417.i.i595
-  %187 = zext i8 %max_type.1.i.i598 to i64
-  %188 = add nuw nsw i64 %187, 1
+for.end419.loopexit.i.i562:                       ; preds = %for.inc417.i.i558
+  %186 = zext i8 %max_type.1.i.i561 to i64
+  %187 = add nuw nsw i64 %186, 1
   br label %ClusterBlocksCommand.exit.i
 
-ClusterBlocksCommand.exit.i:                      ; preds = %for.end419.loopexit.i.i599, %if.end388.i.i567
-  %block_idx389.0.lcssa.i.i600 = phi i64 [ 0, %if.end388.i.i567 ], [ %block_idx389.1.i.i597, %for.end419.loopexit.i.i599 ]
-  %max_type.0.lcssa.i.i601 = phi i64 [ 1, %if.end388.i.i567 ], [ %188, %for.end419.loopexit.i.i599 ]
-  %num_blocks420.i.i602 = getelementptr inbounds %struct.BlockSplit, ptr %insert_and_copy_split, i64 0, i32 1
-  store i64 %block_idx389.0.lcssa.i.i600, ptr %num_blocks420.i.i602, align 8
-  store i64 %max_type.0.lcssa.i.i601, ptr %insert_and_copy_split, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond242410.i.i505) #7
+ClusterBlocksCommand.exit.i:                      ; preds = %for.end419.loopexit.i.i562, %if.end388.i.i534
+  %block_idx389.0.lcssa.i.i563 = phi i64 [ 0, %if.end388.i.i534 ], [ %block_idx389.1.i.i560, %for.end419.loopexit.i.i562 ]
+  %max_type.0.lcssa.i.i564 = phi i64 [ 1, %if.end388.i.i534 ], [ %187, %for.end419.loopexit.i.i562 ]
+  %num_blocks420.i.i565 = getelementptr inbounds i8, ptr %insert_and_copy_split, i64 8
+  store i64 %block_idx389.0.lcssa.i.i563, ptr %num_blocks420.i.i565, align 8
+  store i64 %max_type.0.lcssa.i.i564, ptr %insert_and_copy_split, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond242410.i.i) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond8310322.i.i360) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond295308323.i.i359) #7
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call97.i148) #7
   br label %cond.end16
 
-cond.end16:                                       ; preds = %ClusterBlocksCommand.exit.i, %if.end74.i689
-  %mul13.pre-phi = phi i64 [ %.pre, %if.end74.i689 ], [ %mul.i113.i108, %ClusterBlocksCommand.exit.i ]
+cond.end16:                                       ; preds = %ClusterBlocksCommand.exit.i, %if.end74.i652
+  %mul13.pre-phi = phi i64 [ %.pre, %if.end74.i652 ], [ %mul.i113.i108, %ClusterBlocksCommand.exit.i ]
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %call5) #7
   %call14 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul13.pre-phi) #7
-  br i1 %cmp4.not.i, label %if.then2.i1418, label %for.body21
+  br i1 %cmp4.not.i, label %if.then2.i1381, label %for.body21
 
 for.body21:                                       ; preds = %cond.end16, %for.inc31
-  %i18.01455 = phi i64 [ %inc32, %for.inc31 ], [ 0, %cond.end16 ]
-  %j.01454 = phi i64 [ %j.1, %for.inc31 ], [ 0, %cond.end16 ]
-  %copy_len_.i = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i18.01455, i32 1
-  %189 = load i32, ptr %copy_len_.i, align 4
-  %and.i = and i32 %189, 33554431
+  %i18.01418 = phi i64 [ %inc32, %for.inc31 ], [ 0, %cond.end16 ]
+  %j.01417 = phi i64 [ %j.1, %for.inc31 ], [ 0, %cond.end16 ]
+  %arrayidx22 = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i18.01418
+  %copy_len_.i = getelementptr inbounds i8, ptr %arrayidx22, i64 4
+  %188 = load i32, ptr %copy_len_.i, align 4
+  %and.i = and i32 %188, 33554431
   %tobool.not = icmp eq i32 %and.i, 0
   br i1 %tobool.not, label %for.inc31, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body21
-  %cmd_prefix_24 = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i18.01455, i32 3
-  %190 = load i16, ptr %cmd_prefix_24, align 4
-  %cmp25 = icmp ugt i16 %190, 127
+  %cmd_prefix_24 = getelementptr inbounds i8, ptr %arrayidx22, i64 12
+  %189 = load i16, ptr %cmd_prefix_24, align 4
+  %cmp25 = icmp ugt i16 %189, 127
   br i1 %cmp25, label %if.then, label %for.inc31
 
 if.then:                                          ; preds = %land.lhs.true
-  %dist_prefix_ = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i18.01455, i32 4
-  %191 = load i16, ptr %dist_prefix_, align 2
-  %192 = and i16 %191, 1023
-  %inc29 = add i64 %j.01454, 1
-  %arrayidx30 = getelementptr inbounds i16, ptr %call14, i64 %j.01454
-  store i16 %192, ptr %arrayidx30, align 2
+  %dist_prefix_ = getelementptr inbounds i8, ptr %arrayidx22, i64 14
+  %190 = load i16, ptr %dist_prefix_, align 2
+  %191 = and i16 %190, 1023
+  %inc29 = add i64 %j.01417, 1
+  %arrayidx30 = getelementptr inbounds i16, ptr %call14, i64 %j.01417
+  store i16 %191, ptr %arrayidx30, align 2
   br label %for.inc31
 
 for.inc31:                                        ; preds = %for.body21, %land.lhs.true, %if.then
-  %j.1 = phi i64 [ %inc29, %if.then ], [ %j.01454, %land.lhs.true ], [ %j.01454, %for.body21 ]
-  %inc32 = add nuw i64 %i18.01455, 1
-  %exitcond1456.not = icmp eq i64 %inc32, %num_commands
-  br i1 %exitcond1456.not, label %for.end33, label %for.body21, !llvm.loop !76
+  %j.1 = phi i64 [ %inc29, %if.then ], [ %j.01417, %land.lhs.true ], [ %j.01417, %for.body21 ]
+  %inc32 = add nuw i64 %i18.01418, 1
+  %exitcond1419.not = icmp eq i64 %inc32, %num_commands
+  br i1 %exitcond1419.not, label %for.end33, label %for.body21, !llvm.loop !76
 
 for.end33:                                        ; preds = %for.inc31
-  %div.lhs.trunc.i730 = trunc i64 %j.1 to i16
-  %div176.i731 = udiv i16 %div.lhs.trunc.i730, 544
-  %narrow.i732 = add nuw nsw i16 %div176.i731, 1
-  %add.i733 = zext nneg i16 %narrow.i732 to i64
-  %cmp.i734 = icmp ugt i64 %j.1, 27199
-  %spec.select = select i1 %cmp.i734, i64 50, i64 %add.i733
-  %cmp1.i736 = icmp eq i64 %j.1, 0
-  br i1 %cmp1.i736, label %if.then2.i1418, label %if.end3.i737
+  %div.lhs.trunc.i693 = trunc i64 %j.1 to i16
+  %div176.i694 = udiv i16 %div.lhs.trunc.i693, 544
+  %narrow.i695 = add nuw nsw i16 %div176.i694, 1
+  %add.i696 = zext nneg i16 %narrow.i695 to i64
+  %cmp.i697 = icmp ugt i64 %j.1, 27199
+  %spec.select = select i1 %cmp.i697, i64 50, i64 %add.i696
+  %cmp1.i699 = icmp eq i64 %j.1, 0
+  br i1 %cmp1.i699, label %if.then2.i1381, label %if.end3.i700
 
-if.then2.i1418:                                   ; preds = %cond.end16, %cond.end16.thread, %for.end33
-  %cond17146814771483 = phi ptr [ %call14, %for.end33 ], [ null, %cond.end16.thread ], [ %call14, %cond.end16 ]
+if.then2.i1381:                                   ; preds = %cond.end16, %cond.end16.thread, %for.end33
+  %cond17143114401446 = phi ptr [ %call14, %for.end33 ], [ null, %cond.end16.thread ], [ %call14, %cond.end16 ]
   store i64 1, ptr %dist_split, align 8
   br label %SplitByteVectorDistance.exit
 
-if.end3.i737:                                     ; preds = %for.end33
-  %cmp4.i738 = icmp ult i64 %j.1, 128
-  br i1 %cmp4.i738, label %if.then5.i1369, label %cond.true86.i739
+if.end3.i700:                                     ; preds = %for.end33
+  %cmp4.i701 = icmp ult i64 %j.1, 128
+  br i1 %cmp4.i701, label %if.then5.i1332, label %cond.true86.i702
 
-if.then5.i1369:                                   ; preds = %if.end3.i737
-  %types_alloc_size.i1370 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 4
-  %193 = load i64, ptr %types_alloc_size.i1370, align 8
-  %num_blocks.i1371 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 1
-  %194 = load i64, ptr %num_blocks.i1371, align 8
-  %add6.i1372 = add i64 %194, 1
-  %cmp7.i1373 = icmp ult i64 %193, %add6.i1372
-  br i1 %cmp7.i1373, label %if.then8.i1402, label %if.end34.i1374
+if.then5.i1332:                                   ; preds = %if.end3.i700
+  %types_alloc_size.i1333 = getelementptr inbounds i8, ptr %dist_split, i64 32
+  %192 = load i64, ptr %types_alloc_size.i1333, align 8
+  %num_blocks.i1334 = getelementptr inbounds i8, ptr %dist_split, i64 8
+  %193 = load i64, ptr %num_blocks.i1334, align 8
+  %add6.i1335 = add i64 %193, 1
+  %cmp7.i1336 = icmp ult i64 %192, %add6.i1335
+  br i1 %cmp7.i1336, label %if.then8.i1365, label %if.end34.i1337
 
-if.then8.i1402:                                   ; preds = %if.then5.i1369
-  %cmp10.i1403 = icmp eq i64 %193, 0
-  %add6..i1404 = select i1 %cmp10.i1403, i64 %add6.i1372, i64 %193
-  br label %while.cond.i1405
+if.then8.i1365:                                   ; preds = %if.then5.i1332
+  %cmp10.i1366 = icmp eq i64 %192, 0
+  %add6..i1367 = select i1 %cmp10.i1366, i64 %add6.i1335, i64 %192
+  br label %while.cond.i1368
 
-while.cond.i1405:                                 ; preds = %while.cond.i1405, %if.then8.i1402
-  %_new_size.0.i1406 = phi i64 [ %add6..i1404, %if.then8.i1402 ], [ %mul.i1408, %while.cond.i1405 ]
-  %cmp16.i1407 = icmp ult i64 %_new_size.0.i1406, %add6.i1372
-  %mul.i1408 = shl i64 %_new_size.0.i1406, 1
-  br i1 %cmp16.i1407, label %while.cond.i1405, label %cond.end22.i1409, !llvm.loop !77
+while.cond.i1368:                                 ; preds = %while.cond.i1368, %if.then8.i1365
+  %_new_size.0.i1369 = phi i64 [ %add6..i1367, %if.then8.i1365 ], [ %mul.i1371, %while.cond.i1368 ]
+  %cmp16.i1370 = icmp ult i64 %_new_size.0.i1369, %add6.i1335
+  %mul.i1371 = shl i64 %_new_size.0.i1369, 1
+  br i1 %cmp16.i1370, label %while.cond.i1368, label %cond.end22.i1372, !llvm.loop !77
 
-cond.end22.i1409:                                 ; preds = %while.cond.i1405
-  %call20.i1410 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size.0.i1406) #7
-  %195 = load i64, ptr %types_alloc_size.i1370, align 8
-  %cmp25.not.i1411 = icmp eq i64 %195, 0
-  br i1 %cmp25.not.i1411, label %if.end29.i1414, label %if.then26.i1412
+cond.end22.i1372:                                 ; preds = %while.cond.i1368
+  %call20.i1373 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size.0.i1369) #7
+  %194 = load i64, ptr %types_alloc_size.i1333, align 8
+  %cmp25.not.i1374 = icmp eq i64 %194, 0
+  br i1 %cmp25.not.i1374, label %if.end29.i1377, label %if.then26.i1375
 
-if.then26.i1412:                                  ; preds = %cond.end22.i1409
-  %types.i1413 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 2
-  %196 = load ptr, ptr %types.i1413, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20.i1410, ptr align 1 %196, i64 %195, i1 false)
-  br label %if.end29.i1414
+if.then26.i1375:                                  ; preds = %cond.end22.i1372
+  %types.i1376 = getelementptr inbounds i8, ptr %dist_split, i64 16
+  %195 = load ptr, ptr %types.i1376, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20.i1373, ptr align 1 %195, i64 %194, i1 false)
+  br label %if.end29.i1377
 
-if.end29.i1414:                                   ; preds = %if.then26.i1412, %cond.end22.i1409
-  %types30.i1415 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 2
-  %197 = load ptr, ptr %types30.i1415, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %197) #7
-  store ptr %call20.i1410, ptr %types30.i1415, align 8
-  store i64 %_new_size.0.i1406, ptr %types_alloc_size.i1370, align 8
-  %.pre.i1416 = load i64, ptr %num_blocks.i1371, align 8
-  %.pre180.i1417 = add i64 %.pre.i1416, 1
-  br label %if.end34.i1374
+if.end29.i1377:                                   ; preds = %if.then26.i1375, %cond.end22.i1372
+  %types30.i1378 = getelementptr inbounds i8, ptr %dist_split, i64 16
+  %196 = load ptr, ptr %types30.i1378, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %196) #7
+  store ptr %call20.i1373, ptr %types30.i1378, align 8
+  store i64 %_new_size.0.i1369, ptr %types_alloc_size.i1333, align 8
+  %.pre.i1379 = load i64, ptr %num_blocks.i1334, align 8
+  %.pre180.i1380 = add i64 %.pre.i1379, 1
+  br label %if.end34.i1337
 
-if.end34.i1374:                                   ; preds = %if.end29.i1414, %if.then5.i1369
-  %add36.pre-phi.i1375 = phi i64 [ %.pre180.i1417, %if.end29.i1414 ], [ %add6.i1372, %if.then5.i1369 ]
-  %198 = phi i64 [ %.pre.i1416, %if.end29.i1414 ], [ %194, %if.then5.i1369 ]
-  %lengths_alloc_size.i1376 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 5
-  %199 = load i64, ptr %lengths_alloc_size.i1376, align 8
-  %cmp37.i1377 = icmp ult i64 %199, %add36.pre-phi.i1375
-  br i1 %cmp37.i1377, label %if.then38.i1385, label %if.end74.i1378
+if.end34.i1337:                                   ; preds = %if.end29.i1377, %if.then5.i1332
+  %add36.pre-phi.i1338 = phi i64 [ %.pre180.i1380, %if.end29.i1377 ], [ %add6.i1335, %if.then5.i1332 ]
+  %197 = phi i64 [ %.pre.i1379, %if.end29.i1377 ], [ %193, %if.then5.i1332 ]
+  %lengths_alloc_size.i1339 = getelementptr inbounds i8, ptr %dist_split, i64 40
+  %198 = load i64, ptr %lengths_alloc_size.i1339, align 8
+  %cmp37.i1340 = icmp ult i64 %198, %add36.pre-phi.i1338
+  br i1 %cmp37.i1340, label %if.then38.i1348, label %if.end74.i1341
 
-if.then38.i1385:                                  ; preds = %if.end34.i1374
-  %cmp41.i1386 = icmp eq i64 %199, 0
-  %add36..i1387 = select i1 %cmp41.i1386, i64 %add36.pre-phi.i1375, i64 %199
-  br label %while.cond50.i1388
+if.then38.i1348:                                  ; preds = %if.end34.i1337
+  %cmp41.i1349 = icmp eq i64 %198, 0
+  %add36..i1350 = select i1 %cmp41.i1349, i64 %add36.pre-phi.i1338, i64 %198
+  br label %while.cond50.i1351
 
-while.cond50.i1388:                               ; preds = %while.cond50.i1388, %if.then38.i1385
-  %_new_size39.0.i1389 = phi i64 [ %add36..i1387, %if.then38.i1385 ], [ %mul55.i1391, %while.cond50.i1388 ]
-  %cmp53.i1390 = icmp ult i64 %_new_size39.0.i1389, %add36.pre-phi.i1375
-  %mul55.i1391 = shl i64 %_new_size39.0.i1389, 1
-  br i1 %cmp53.i1390, label %while.cond50.i1388, label %cond.end62.i1392, !llvm.loop !78
+while.cond50.i1351:                               ; preds = %while.cond50.i1351, %if.then38.i1348
+  %_new_size39.0.i1352 = phi i64 [ %add36..i1350, %if.then38.i1348 ], [ %mul55.i1354, %while.cond50.i1351 ]
+  %cmp53.i1353 = icmp ult i64 %_new_size39.0.i1352, %add36.pre-phi.i1338
+  %mul55.i1354 = shl i64 %_new_size39.0.i1352, 1
+  br i1 %cmp53.i1353, label %while.cond50.i1351, label %cond.end62.i1355, !llvm.loop !78
 
-cond.end62.i1392:                                 ; preds = %while.cond50.i1388
-  %mul59.i1393 = shl i64 %_new_size39.0.i1389, 2
-  %call60.i1394 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul59.i1393) #7
-  %200 = load i64, ptr %lengths_alloc_size.i1376, align 8
-  %cmp65.not.i1395 = icmp eq i64 %200, 0
-  br i1 %cmp65.not.i1395, label %if.end69.i1399, label %if.then66.i1396
+cond.end62.i1355:                                 ; preds = %while.cond50.i1351
+  %mul59.i1356 = shl i64 %_new_size39.0.i1352, 2
+  %call60.i1357 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul59.i1356) #7
+  %199 = load i64, ptr %lengths_alloc_size.i1339, align 8
+  %cmp65.not.i1358 = icmp eq i64 %199, 0
+  br i1 %cmp65.not.i1358, label %if.end69.i1362, label %if.then66.i1359
 
-if.then66.i1396:                                  ; preds = %cond.end62.i1392
-  %lengths.i1397 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 3
-  %201 = load ptr, ptr %lengths.i1397, align 8
-  %mul68.i1398 = shl i64 %200, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call60.i1394, ptr align 4 %201, i64 %mul68.i1398, i1 false)
-  br label %if.end69.i1399
+if.then66.i1359:                                  ; preds = %cond.end62.i1355
+  %lengths.i1360 = getelementptr inbounds i8, ptr %dist_split, i64 24
+  %200 = load ptr, ptr %lengths.i1360, align 8
+  %mul68.i1361 = shl i64 %199, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call60.i1357, ptr align 4 %200, i64 %mul68.i1361, i1 false)
+  br label %if.end69.i1362
 
-if.end69.i1399:                                   ; preds = %if.then66.i1396, %cond.end62.i1392
-  %lengths70.i1400 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 3
-  %202 = load ptr, ptr %lengths70.i1400, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %202) #7
-  store ptr %call60.i1394, ptr %lengths70.i1400, align 8
-  store i64 %_new_size39.0.i1389, ptr %lengths_alloc_size.i1376, align 8
-  %.pre179.i1401 = load i64, ptr %num_blocks.i1371, align 8
-  br label %if.end74.i1378
+if.end69.i1362:                                   ; preds = %if.then66.i1359, %cond.end62.i1355
+  %lengths70.i1363 = getelementptr inbounds i8, ptr %dist_split, i64 24
+  %201 = load ptr, ptr %lengths70.i1363, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %201) #7
+  store ptr %call60.i1357, ptr %lengths70.i1363, align 8
+  store i64 %_new_size39.0.i1352, ptr %lengths_alloc_size.i1339, align 8
+  %.pre179.i1364 = load i64, ptr %num_blocks.i1334, align 8
+  br label %if.end74.i1341
 
-if.end74.i1378:                                   ; preds = %if.end69.i1399, %if.end34.i1374
-  %203 = phi i64 [ %.pre179.i1401, %if.end69.i1399 ], [ %198, %if.end34.i1374 ]
+if.end74.i1341:                                   ; preds = %if.end69.i1362, %if.end34.i1337
+  %202 = phi i64 [ %.pre179.i1364, %if.end69.i1362 ], [ %197, %if.end34.i1337 ]
   store i64 1, ptr %dist_split, align 8
-  %types76.i1379 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 2
-  %204 = load ptr, ptr %types76.i1379, align 8
-  %arrayidx.i1380 = getelementptr inbounds i8, ptr %204, i64 %203
-  store i8 0, ptr %arrayidx.i1380, align 1
-  %conv.i1381 = trunc i64 %j.1 to i32
-  %lengths78.i1382 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 3
-  %205 = load ptr, ptr %lengths78.i1382, align 8
-  %206 = load i64, ptr %num_blocks.i1371, align 8
-  %arrayidx80.i1383 = getelementptr inbounds i32, ptr %205, i64 %206
-  store i32 %conv.i1381, ptr %arrayidx80.i1383, align 4
-  %207 = load i64, ptr %num_blocks.i1371, align 8
-  %inc.i1384 = add i64 %207, 1
-  store i64 %inc.i1384, ptr %num_blocks.i1371, align 8
+  %types76.i1342 = getelementptr inbounds i8, ptr %dist_split, i64 16
+  %203 = load ptr, ptr %types76.i1342, align 8
+  %arrayidx.i1343 = getelementptr inbounds i8, ptr %203, i64 %202
+  store i8 0, ptr %arrayidx.i1343, align 1
+  %conv.i1344 = trunc i64 %j.1 to i32
+  %lengths78.i1345 = getelementptr inbounds i8, ptr %dist_split, i64 24
+  %204 = load ptr, ptr %lengths78.i1345, align 8
+  %205 = load i64, ptr %num_blocks.i1334, align 8
+  %arrayidx80.i1346 = getelementptr inbounds i32, ptr %204, i64 %205
+  store i32 %conv.i1344, ptr %arrayidx80.i1346, align 4
+  %206 = load i64, ptr %num_blocks.i1334, align 8
+  %inc.i1347 = add i64 %206, 1
+  store i64 %inc.i1347, ptr %num_blocks.i1334, align 8
   br label %SplitByteVectorDistance.exit
 
-cond.true86.i739:                                 ; preds = %if.end3.i737
-  %208 = mul nuw nsw i64 %spec.select, 2192
-  %mul88.i740 = add nuw nsw i64 %208, 2192
-  %call89.i741 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul88.i740) #7
-  br label %for.body.i.i.i742
+cond.true86.i702:                                 ; preds = %if.end3.i700
+  %207 = mul nuw nsw i64 %spec.select, 2192
+  %mul88.i703 = add nuw nsw i64 %207, 2192
+  %call89.i704 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul88.i703) #7
+  br label %for.body.i.i.i705
 
-for.cond.preheader.i.i748:                        ; preds = %for.body.i.i.i742
-  %div.i.i749 = udiv i64 %j.1, %spec.select
-  %sub7.i.i750 = add i64 %j.1, -41
-  br label %for.body.i.i751
+for.cond.preheader.i.i711:                        ; preds = %for.body.i.i.i705
+  %div.i.i712 = udiv i64 %j.1, %spec.select
+  %sub7.i.i713 = add i64 %j.1, -41
+  br label %for.body.i.i714
 
-for.body.i.i.i742:                                ; preds = %for.body.i.i.i742, %cond.true86.i739
-  %i.i.025.i.i743 = phi i64 [ 0, %cond.true86.i739 ], [ %inc.i.i.i746, %for.body.i.i.i742 ]
-  %add.ptr.i.i.i744 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %i.i.025.i.i743
-  %bit_cost_.i.i.i745 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %i.i.025.i.i743, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %add.ptr.i.i.i744, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %bit_cost_.i.i.i745, align 8
-  %inc.i.i.i746 = add nuw nsw i64 %i.i.025.i.i743, 1
-  %exitcond.not.i.i747 = icmp eq i64 %inc.i.i.i746, %spec.select
-  br i1 %exitcond.not.i.i747, label %for.cond.preheader.i.i748, label %for.body.i.i.i742, !llvm.loop !79
+for.body.i.i.i705:                                ; preds = %for.body.i.i.i705, %cond.true86.i702
+  %i.i.025.i.i706 = phi i64 [ 0, %cond.true86.i702 ], [ %inc.i.i.i709, %for.body.i.i.i705 ]
+  %add.ptr.i.i.i707 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %i.i.025.i.i706
+  %bit_cost_.i.i.i708 = getelementptr inbounds i8, ptr %add.ptr.i.i.i707, i64 2184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %add.ptr.i.i.i707, i8 0, i64 2184, i1 false)
+  store double 0x7FF0000000000000, ptr %bit_cost_.i.i.i708, align 8
+  %inc.i.i.i709 = add nuw nsw i64 %i.i.025.i.i706, 1
+  %exitcond.not.i.i710 = icmp eq i64 %inc.i.i.i709, %spec.select
+  br i1 %exitcond.not.i.i710, label %for.cond.preheader.i.i711, label %for.body.i.i.i705, !llvm.loop !79
 
-for.body.i.i751:                                  ; preds = %for.inc.i.i781, %for.cond.preheader.i.i748
-  %i.029.i.i752 = phi i64 [ 0, %for.cond.preheader.i.i748 ], [ %inc.i.i782, %for.inc.i.i781 ]
-  %seed.028.i.i753 = phi i32 [ 7, %for.cond.preheader.i.i748 ], [ %seed.1.i.i763, %for.inc.i.i781 ]
-  %mul.i.i754 = mul i64 %i.029.i.i752, %j.1
-  %div1.i.i755 = udiv i64 %mul.i.i754, %spec.select
-  %cmp2.not.i.i756 = icmp eq i64 %i.029.i.i752, 0
-  br i1 %cmp2.not.i.i756, label %if.end.i.i762, label %if.then.i.i757
+for.body.i.i714:                                  ; preds = %for.inc.i.i744, %for.cond.preheader.i.i711
+  %i.029.i.i715 = phi i64 [ 0, %for.cond.preheader.i.i711 ], [ %inc.i.i745, %for.inc.i.i744 ]
+  %seed.028.i.i716 = phi i32 [ 7, %for.cond.preheader.i.i711 ], [ %seed.1.i.i726, %for.inc.i.i744 ]
+  %mul.i.i717 = mul i64 %i.029.i.i715, %j.1
+  %div1.i.i718 = udiv i64 %mul.i.i717, %spec.select
+  %cmp2.not.i.i719 = icmp eq i64 %i.029.i.i715, 0
+  br i1 %cmp2.not.i.i719, label %if.end.i.i725, label %if.then.i.i720
 
-if.then.i.i757:                                   ; preds = %for.body.i.i751
-  %mul.i.i.i758 = mul i32 %seed.028.i.i753, 16807
-  %conv.i.i759 = zext i32 %mul.i.i.i758 to i64
-  %rem.i.i760 = urem i64 %conv.i.i759, %div.i.i749
-  %add.i.i761 = add i64 %rem.i.i760, %div1.i.i755
-  br label %if.end.i.i762
+if.then.i.i720:                                   ; preds = %for.body.i.i714
+  %mul.i.i.i721 = mul i32 %seed.028.i.i716, 16807
+  %conv.i.i722 = zext i32 %mul.i.i.i721 to i64
+  %rem.i.i723 = urem i64 %conv.i.i722, %div.i.i712
+  %add.i.i724 = add i64 %rem.i.i723, %div1.i.i718
+  br label %if.end.i.i725
 
-if.end.i.i762:                                    ; preds = %if.then.i.i757, %for.body.i.i751
-  %seed.1.i.i763 = phi i32 [ %mul.i.i.i758, %if.then.i.i757 ], [ %seed.028.i.i753, %for.body.i.i751 ]
-  %pos.0.i.i764 = phi i64 [ %add.i.i761, %if.then.i.i757 ], [ %div1.i.i755, %for.body.i.i751 ]
-  %add3.i.i765 = add i64 %pos.0.i.i764, 40
-  %cmp4.not.i.i766 = icmp ult i64 %add3.i.i765, %j.1
-  %spec.select.i.i767 = select i1 %cmp4.not.i.i766, i64 %pos.0.i.i764, i64 %sub7.i.i750
-  %arrayidx.i.i768 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %i.029.i.i752
-  %add.ptr.i.i769 = getelementptr inbounds i16, ptr %call14, i64 %spec.select.i.i767
-  %total_count_.i.i.i770 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %i.029.i.i752, i32 1
-  %209 = load i64, ptr %total_count_.i.i.i770, align 8
-  %add.i.i.i771 = add i64 %209, 40
-  store i64 %add.i.i.i771, ptr %total_count_.i.i.i770, align 8
-  br label %while.body.i.i.i772
+if.end.i.i725:                                    ; preds = %if.then.i.i720, %for.body.i.i714
+  %seed.1.i.i726 = phi i32 [ %mul.i.i.i721, %if.then.i.i720 ], [ %seed.028.i.i716, %for.body.i.i714 ]
+  %pos.0.i.i727 = phi i64 [ %add.i.i724, %if.then.i.i720 ], [ %div1.i.i718, %for.body.i.i714 ]
+  %add3.i.i728 = add i64 %pos.0.i.i727, 40
+  %cmp4.not.i.i729 = icmp ult i64 %add3.i.i728, %j.1
+  %spec.select.i.i730 = select i1 %cmp4.not.i.i729, i64 %pos.0.i.i727, i64 %sub7.i.i713
+  %arrayidx.i.i731 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %i.029.i.i715
+  %add.ptr.i.i732 = getelementptr inbounds i16, ptr %call14, i64 %spec.select.i.i730
+  %total_count_.i.i.i733 = getelementptr inbounds i8, ptr %arrayidx.i.i731, i64 2176
+  %208 = load i64, ptr %total_count_.i.i.i733, align 8
+  %add.i.i.i734 = add i64 %208, 40
+  store i64 %add.i.i.i734, ptr %total_count_.i.i.i733, align 8
+  br label %while.body.i.i.i735
 
-while.body.i.i.i772:                              ; preds = %while.body.i.i.i772, %if.end.i.i762
-  %dec.i27.i.i773 = phi i64 [ 40, %if.end.i.i762 ], [ %dec.i.i.i779, %while.body.i.i.i772 ]
-  %p.addr.i.026.i.i774 = phi ptr [ %add.ptr.i.i769, %if.end.i.i762 ], [ %incdec.ptr.i.i.i775, %while.body.i.i.i772 ]
-  %incdec.ptr.i.i.i775 = getelementptr inbounds i16, ptr %p.addr.i.026.i.i774, i64 1
-  %210 = load i16, ptr %p.addr.i.026.i.i774, align 2
-  %idxprom.i.i.i776 = zext i16 %210 to i64
-  %arrayidx.i.i.i777 = getelementptr inbounds [544 x i32], ptr %arrayidx.i.i768, i64 0, i64 %idxprom.i.i.i776
-  %211 = load i32, ptr %arrayidx.i.i.i777, align 4
-  %inc.i9.i.i778 = add i32 %211, 1
-  store i32 %inc.i9.i.i778, ptr %arrayidx.i.i.i777, align 4
-  %dec.i.i.i779 = add nsw i64 %dec.i27.i.i773, -1
-  %tobool.i.not.i.i780 = icmp eq i64 %dec.i.i.i779, 0
-  br i1 %tobool.i.not.i.i780, label %for.inc.i.i781, label %while.body.i.i.i772, !llvm.loop !80
+while.body.i.i.i735:                              ; preds = %while.body.i.i.i735, %if.end.i.i725
+  %dec.i27.i.i736 = phi i64 [ 40, %if.end.i.i725 ], [ %dec.i.i.i742, %while.body.i.i.i735 ]
+  %p.addr.i.026.i.i737 = phi ptr [ %add.ptr.i.i732, %if.end.i.i725 ], [ %incdec.ptr.i.i.i738, %while.body.i.i.i735 ]
+  %incdec.ptr.i.i.i738 = getelementptr inbounds i8, ptr %p.addr.i.026.i.i737, i64 2
+  %209 = load i16, ptr %p.addr.i.026.i.i737, align 2
+  %idxprom.i.i.i739 = zext i16 %209 to i64
+  %arrayidx.i.i.i740 = getelementptr inbounds [544 x i32], ptr %arrayidx.i.i731, i64 0, i64 %idxprom.i.i.i739
+  %210 = load i32, ptr %arrayidx.i.i.i740, align 4
+  %inc.i9.i.i741 = add i32 %210, 1
+  store i32 %inc.i9.i.i741, ptr %arrayidx.i.i.i740, align 4
+  %dec.i.i.i742 = add nsw i64 %dec.i27.i.i736, -1
+  %tobool.i.not.i.i743 = icmp eq i64 %dec.i.i.i742, 0
+  br i1 %tobool.i.not.i.i743, label %for.inc.i.i744, label %while.body.i.i.i735, !llvm.loop !80
 
-for.inc.i.i781:                                   ; preds = %while.body.i.i.i772
-  %inc.i.i782 = add nuw nsw i64 %i.029.i.i752, 1
-  %exitcond30.not.i.i783 = icmp eq i64 %inc.i.i782, %spec.select
-  br i1 %exitcond30.not.i.i783, label %InitialEntropyCodesDistance.exit.i, label %for.body.i.i751, !llvm.loop !81
+for.inc.i.i744:                                   ; preds = %while.body.i.i.i735
+  %inc.i.i745 = add nuw nsw i64 %i.029.i.i715, 1
+  %exitcond30.not.i.i746 = icmp eq i64 %inc.i.i745, %spec.select
+  br i1 %exitcond30.not.i.i746, label %InitialEntropyCodesDistance.exit.i, label %for.body.i.i714, !llvm.loop !81
 
-InitialEntropyCodesDistance.exit.i:               ; preds = %for.inc.i.i781
-  %add.ptr.i784 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %spec.select
-  %mul.i113.i785 = shl i64 %j.1, 1
-  %div.i114.i786 = udiv i64 %mul.i113.i785, 40
-  %add1.i.i787 = add nuw nsw i64 %div.i114.i786, 99
-  %sub.i.i788 = add nuw nsw i64 %add1.i.i787, %spec.select
-  %212 = urem i64 %sub.i.i788, %spec.select
-  %mul3.i.i789 = sub nuw nsw i64 %sub.i.i788, %212
-  %cmp20.not.i.i790 = icmp eq i64 %sub.i.i788, %212
-  br i1 %cmp20.not.i.i790, label %RefineEntropyCodesDistance.exit.i, label %for.body.lr.ph.i.i791
+InitialEntropyCodesDistance.exit.i:               ; preds = %for.inc.i.i744
+  %add.ptr.i747 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %spec.select
+  %mul.i113.i748 = shl i64 %j.1, 1
+  %div.i114.i749 = udiv i64 %mul.i113.i748, 40
+  %add1.i.i750 = add nuw nsw i64 %div.i114.i749, 99
+  %sub.i.i751 = add nuw nsw i64 %add1.i.i750, %spec.select
+  %211 = urem i64 %sub.i.i751, %spec.select
+  %mul3.i.i752 = sub nuw nsw i64 %sub.i.i751, %211
+  %cmp20.not.i.i753 = icmp eq i64 %sub.i.i751, %211
+  br i1 %cmp20.not.i.i753, label %RefineEntropyCodesDistance.exit.i, label %for.body.lr.ph.i.i754
 
-for.body.lr.ph.i.i791:                            ; preds = %InitialEntropyCodesDistance.exit.i
-  %total_count_.i.i115.i792 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %spec.select, i32 1
-  %bit_cost_.i.i116.i793 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %spec.select, i32 2
-  %add.i18.i.i794 = add i64 %j.1, -39
-  br label %for.body.i117.i795
+for.body.lr.ph.i.i754:                            ; preds = %InitialEntropyCodesDistance.exit.i
+  %total_count_.i.i115.i755 = getelementptr inbounds i8, ptr %add.ptr.i747, i64 2176
+  %bit_cost_.i.i116.i756 = getelementptr inbounds i8, ptr %add.ptr.i747, i64 2184
+  %add.i18.i.i757 = add i64 %j.1, -39
+  br label %for.body.i117.i758
 
-for.body.i117.i795:                               ; preds = %for.inc.i126.i822, %for.body.lr.ph.i.i791
-  %iter.022.i.i796 = phi i64 [ 0, %for.body.lr.ph.i.i791 ], [ %inc.i127.i823, %for.inc.i126.i822 ]
-  %seed.021.i.i797 = phi i32 [ 7, %for.body.lr.ph.i.i791 ], [ %mul.i.i.i.i798, %for.inc.i126.i822 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %add.ptr.i784, i8 0, i64 2176, i1 false)
-  store double 0x7FF0000000000000, ptr %bit_cost_.i.i116.i793, align 8
-  %mul.i.i.i.i798 = mul i32 %seed.021.i.i797, 16807
-  %conv.i.i.i799 = zext i32 %mul.i.i.i.i798 to i64
-  %rem.i.i.i800 = urem i64 %conv.i.i.i799, %add.i18.i.i794
-  %add.ptr.i.i118.i801 = getelementptr inbounds i16, ptr %call14, i64 %rem.i.i.i800
-  store i64 40, ptr %total_count_.i.i115.i792, align 8
-  br label %while.body.i.i.i.i802
+for.body.i117.i758:                               ; preds = %for.inc.i126.i785, %for.body.lr.ph.i.i754
+  %iter.022.i.i759 = phi i64 [ 0, %for.body.lr.ph.i.i754 ], [ %inc.i127.i786, %for.inc.i126.i785 ]
+  %seed.021.i.i760 = phi i32 [ 7, %for.body.lr.ph.i.i754 ], [ %mul.i.i.i.i761, %for.inc.i126.i785 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %add.ptr.i747, i8 0, i64 2176, i1 false)
+  store double 0x7FF0000000000000, ptr %bit_cost_.i.i116.i756, align 8
+  %mul.i.i.i.i761 = mul i32 %seed.021.i.i760, 16807
+  %conv.i.i.i762 = zext i32 %mul.i.i.i.i761 to i64
+  %rem.i.i.i763 = urem i64 %conv.i.i.i762, %add.i18.i.i757
+  %add.ptr.i.i118.i764 = getelementptr inbounds i16, ptr %call14, i64 %rem.i.i.i763
+  store i64 40, ptr %total_count_.i.i115.i755, align 8
+  br label %while.body.i.i.i.i765
 
-while.body.i.i.i.i802:                            ; preds = %while.body.i.i.i.i802, %for.body.i117.i795
-  %dec.i10.i.i.i803 = phi i64 [ 40, %for.body.i117.i795 ], [ %dec.i.i.i.i809, %while.body.i.i.i.i802 ]
-  %p.addr.i.09.i.i.i804 = phi ptr [ %add.ptr.i.i118.i801, %for.body.i117.i795 ], [ %incdec.ptr.i.i.i.i805, %while.body.i.i.i.i802 ]
-  %incdec.ptr.i.i.i.i805 = getelementptr inbounds i16, ptr %p.addr.i.09.i.i.i804, i64 1
-  %213 = load i16, ptr %p.addr.i.09.i.i.i804, align 2
-  %idxprom.i.i.i.i806 = zext i16 %213 to i64
-  %arrayidx.i.i.i.i807 = getelementptr inbounds [544 x i32], ptr %add.ptr.i784, i64 0, i64 %idxprom.i.i.i.i806
-  %214 = load i32, ptr %arrayidx.i.i.i.i807, align 4
-  %inc.i.i.i.i808 = add i32 %214, 1
-  store i32 %inc.i.i.i.i808, ptr %arrayidx.i.i.i.i807, align 4
-  %dec.i.i.i.i809 = add nsw i64 %dec.i10.i.i.i803, -1
-  %tobool.i.not.i.i.i810 = icmp eq i64 %dec.i.i.i.i809, 0
-  br i1 %tobool.i.not.i.i.i810, label %RandomSampleDistance.exit.i.i, label %while.body.i.i.i.i802, !llvm.loop !80
+while.body.i.i.i.i765:                            ; preds = %while.body.i.i.i.i765, %for.body.i117.i758
+  %dec.i10.i.i.i766 = phi i64 [ 40, %for.body.i117.i758 ], [ %dec.i.i.i.i772, %while.body.i.i.i.i765 ]
+  %p.addr.i.09.i.i.i767 = phi ptr [ %add.ptr.i.i118.i764, %for.body.i117.i758 ], [ %incdec.ptr.i.i.i.i768, %while.body.i.i.i.i765 ]
+  %incdec.ptr.i.i.i.i768 = getelementptr inbounds i8, ptr %p.addr.i.09.i.i.i767, i64 2
+  %212 = load i16, ptr %p.addr.i.09.i.i.i767, align 2
+  %idxprom.i.i.i.i769 = zext i16 %212 to i64
+  %arrayidx.i.i.i.i770 = getelementptr inbounds [544 x i32], ptr %add.ptr.i747, i64 0, i64 %idxprom.i.i.i.i769
+  %213 = load i32, ptr %arrayidx.i.i.i.i770, align 4
+  %inc.i.i.i.i771 = add i32 %213, 1
+  store i32 %inc.i.i.i.i771, ptr %arrayidx.i.i.i.i770, align 4
+  %dec.i.i.i.i772 = add nsw i64 %dec.i10.i.i.i766, -1
+  %tobool.i.not.i.i.i773 = icmp eq i64 %dec.i.i.i.i772, 0
+  br i1 %tobool.i.not.i.i.i773, label %RandomSampleDistance.exit.i.i, label %while.body.i.i.i.i765, !llvm.loop !80
 
-RandomSampleDistance.exit.i.i:                    ; preds = %while.body.i.i.i.i802
-  %rem.i119.i811 = urem i64 %iter.022.i.i796, %spec.select
-  %arrayidx.i120.i812 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %rem.i119.i811
-  %215 = load i64, ptr %total_count_.i.i115.i792, align 8
-  %total_count_1.i.i.i813 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %rem.i119.i811, i32 1
-  %216 = load i64, ptr %total_count_1.i.i.i813, align 8
-  %add.i.i121.i814 = add i64 %216, %215
-  store i64 %add.i.i121.i814, ptr %total_count_1.i.i.i813, align 8
-  br label %for.body.i.i122.i815
+RandomSampleDistance.exit.i.i:                    ; preds = %while.body.i.i.i.i765
+  %rem.i119.i774 = urem i64 %iter.022.i.i759, %spec.select
+  %arrayidx.i120.i775 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %rem.i119.i774
+  %214 = load i64, ptr %total_count_.i.i115.i755, align 8
+  %total_count_1.i.i.i776 = getelementptr inbounds i8, ptr %arrayidx.i120.i775, i64 2176
+  %215 = load i64, ptr %total_count_1.i.i.i776, align 8
+  %add.i.i121.i777 = add i64 %215, %214
+  store i64 %add.i.i121.i777, ptr %total_count_1.i.i.i776, align 8
+  br label %for.body.i.i122.i778
 
-for.body.i.i122.i815:                             ; preds = %for.body.i.i122.i815, %RandomSampleDistance.exit.i.i
-  %i.i.019.i.i816 = phi i64 [ 0, %RandomSampleDistance.exit.i.i ], [ %inc.i.i124.i820, %for.body.i.i122.i815 ]
-  %arrayidx.i.i123.i817 = getelementptr inbounds [544 x i32], ptr %add.ptr.i784, i64 0, i64 %i.i.019.i.i816
-  %217 = load i32, ptr %arrayidx.i.i123.i817, align 4
-  %arrayidx3.i.i.i818 = getelementptr inbounds [544 x i32], ptr %arrayidx.i120.i812, i64 0, i64 %i.i.019.i.i816
-  %218 = load i32, ptr %arrayidx3.i.i.i818, align 4
-  %add4.i.i.i819 = add i32 %218, %217
-  store i32 %add4.i.i.i819, ptr %arrayidx3.i.i.i818, align 4
-  %inc.i.i124.i820 = add nuw nsw i64 %i.i.019.i.i816, 1
-  %exitcond.not.i125.i821 = icmp eq i64 %inc.i.i124.i820, 544
-  br i1 %exitcond.not.i125.i821, label %for.inc.i126.i822, label %for.body.i.i122.i815, !llvm.loop !82
+for.body.i.i122.i778:                             ; preds = %for.body.i.i122.i778, %RandomSampleDistance.exit.i.i
+  %i.i.019.i.i779 = phi i64 [ 0, %RandomSampleDistance.exit.i.i ], [ %inc.i.i124.i783, %for.body.i.i122.i778 ]
+  %arrayidx.i.i123.i780 = getelementptr inbounds [544 x i32], ptr %add.ptr.i747, i64 0, i64 %i.i.019.i.i779
+  %216 = load i32, ptr %arrayidx.i.i123.i780, align 4
+  %arrayidx3.i.i.i781 = getelementptr inbounds [544 x i32], ptr %arrayidx.i120.i775, i64 0, i64 %i.i.019.i.i779
+  %217 = load i32, ptr %arrayidx3.i.i.i781, align 4
+  %add4.i.i.i782 = add i32 %217, %216
+  store i32 %add4.i.i.i782, ptr %arrayidx3.i.i.i781, align 4
+  %inc.i.i124.i783 = add nuw nsw i64 %i.i.019.i.i779, 1
+  %exitcond.not.i125.i784 = icmp eq i64 %inc.i.i124.i783, 544
+  br i1 %exitcond.not.i125.i784, label %for.inc.i126.i785, label %for.body.i.i122.i778, !llvm.loop !82
 
-for.inc.i126.i822:                                ; preds = %for.body.i.i122.i815
-  %inc.i127.i823 = add nuw i64 %iter.022.i.i796, 1
-  %cmp.i.i824 = icmp ult i64 %inc.i127.i823, %mul3.i.i789
-  br i1 %cmp.i.i824, label %for.body.i117.i795, label %RefineEntropyCodesDistance.exit.i, !llvm.loop !83
+for.inc.i126.i785:                                ; preds = %for.body.i.i122.i778
+  %inc.i127.i786 = add nuw i64 %iter.022.i.i759, 1
+  %cmp.i.i787 = icmp ult i64 %inc.i127.i786, %mul3.i.i752
+  br i1 %cmp.i.i787, label %for.body.i117.i758, label %RefineEntropyCodesDistance.exit.i, !llvm.loop !83
 
-RefineEntropyCodesDistance.exit.i:                ; preds = %for.inc.i126.i822, %InitialEntropyCodesDistance.exit.i
-  %call97.i825 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %j.1) #7
-  %add102.i826 = add nuw nsw i64 %spec.select, 7
-  %shr.i827 = lshr i64 %add102.i826, 3
-  %mul108.i828 = mul nuw nsw i64 %spec.select, 4352
-  %call109.i829 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul108.i828) #7
-  %mul116.i830 = shl nuw nsw i64 %spec.select, 3
-  %call117.i831 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul116.i830) #7
-  %mul121.i832 = mul i64 %shr.i827, %j.1
-  %cmp122.not.i833 = icmp eq i64 %mul121.i832, 0
-  br i1 %cmp122.not.i833, label %cond.true133.i836, label %cond.true124.i834
+RefineEntropyCodesDistance.exit.i:                ; preds = %for.inc.i126.i785, %InitialEntropyCodesDistance.exit.i
+  %call97.i788 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %j.1) #7
+  %add102.i789 = add nuw nsw i64 %spec.select, 7
+  %shr.i790 = lshr i64 %add102.i789, 3
+  %mul108.i791 = mul nuw nsw i64 %spec.select, 4352
+  %call109.i792 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul108.i791) #7
+  %mul116.i793 = shl nuw nsw i64 %spec.select, 3
+  %call117.i794 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul116.i793) #7
+  %mul121.i795 = mul i64 %shr.i790, %j.1
+  %cmp122.not.i796 = icmp eq i64 %mul121.i795, 0
+  br i1 %cmp122.not.i796, label %cond.true133.i799, label %cond.true124.i797
 
-cond.true124.i834:                                ; preds = %RefineEntropyCodesDistance.exit.i
-  %call127.i835 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul121.i832) #7
-  br label %cond.true133.i836
+cond.true124.i797:                                ; preds = %RefineEntropyCodesDistance.exit.i
+  %call127.i798 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul121.i795) #7
+  br label %cond.true133.i799
 
-cond.true133.i836:                                ; preds = %cond.true124.i834, %RefineEntropyCodesDistance.exit.i
-  %cond130.i837 = phi ptr [ %call127.i835, %cond.true124.i834 ], [ null, %RefineEntropyCodesDistance.exit.i ]
-  %mul134.i838 = shl nuw nsw i64 %spec.select, 1
-  %call135.i839 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul134.i838) #7
-  %quality.i840 = getelementptr inbounds %struct.BrotliEncoderParams, ptr %params, i64 0, i32 1
-  %219 = load i32, ptr %quality.i840, align 4
-  %cmp139.inv.i841 = icmp sgt i32 %219, 10
-  %cond141.i842 = select i1 %cmp139.inv.i841, i64 10, i64 3
-  %sub96.i.i843 = add i64 %j.1, -1
-  %arrayidx99.i.i844 = getelementptr inbounds i8, ptr %call97.i825, i64 %sub96.i.i843
-  br label %for.body.i845
+cond.true133.i799:                                ; preds = %cond.true124.i797, %RefineEntropyCodesDistance.exit.i
+  %cond130.i800 = phi ptr [ %call127.i798, %cond.true124.i797 ], [ null, %RefineEntropyCodesDistance.exit.i ]
+  %mul134.i801 = shl nuw nsw i64 %spec.select, 1
+  %call135.i802 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul134.i801) #7
+  %quality.i803 = getelementptr inbounds i8, ptr %params, i64 4
+  %218 = load i32, ptr %quality.i803, align 4
+  %cmp139.inv.i804 = icmp sgt i32 %218, 10
+  %cond141.i805 = select i1 %cmp139.inv.i804, i64 10, i64 3
+  %sub96.i.i806 = add i64 %j.1, -1
+  %arrayidx99.i.i807 = getelementptr inbounds i8, ptr %call97.i788, i64 %sub96.i.i806
+  br label %for.body.i808
 
-for.body.i845:                                    ; preds = %BuildBlockHistogramsDistance.exit.i, %cond.true133.i836
-  %i.0178.i846 = phi i64 [ 0, %cond.true133.i836 ], [ %inc147.i1006, %BuildBlockHistogramsDistance.exit.i ]
-  %num_histograms.1177.i847 = phi i64 [ %spec.select, %cond.true133.i836 ], [ %243, %BuildBlockHistogramsDistance.exit.i ]
-  %add.i128.i848 = add nuw nsw i64 %num_histograms.1177.i847, 7
-  %shr.i.i849 = lshr i64 %add.i128.i848, 3
-  %cmp.i129.i850 = icmp ult i64 %num_histograms.1177.i847, 2
-  br i1 %cmp.i129.i850, label %for.body.preheader.i.i1368, label %if.end.i130.i851
+for.body.i808:                                    ; preds = %BuildBlockHistogramsDistance.exit.i, %cond.true133.i799
+  %i.0178.i809 = phi i64 [ 0, %cond.true133.i799 ], [ %inc147.i969, %BuildBlockHistogramsDistance.exit.i ]
+  %num_histograms.1177.i810 = phi i64 [ %spec.select, %cond.true133.i799 ], [ %242, %BuildBlockHistogramsDistance.exit.i ]
+  %add.i128.i811 = add nuw nsw i64 %num_histograms.1177.i810, 7
+  %shr.i.i812 = lshr i64 %add.i128.i811, 3
+  %cmp.i129.i813 = icmp ult i64 %num_histograms.1177.i810, 2
+  br i1 %cmp.i129.i813, label %for.body.preheader.i.i1331, label %if.end.i130.i814
 
-for.body.preheader.i.i1368:                       ; preds = %for.body.i845
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call97.i825, i8 0, i64 %j.1, i1 false)
+for.body.preheader.i.i1331:                       ; preds = %for.body.i808
+  tail call void @llvm.memset.p0.i64(ptr align 1 %call97.i788, i8 0, i64 %j.1, i1 false)
   br label %FindBlocksDistance.exit.i
 
-if.end.i130.i851:                                 ; preds = %for.body.i845
-  %mul2.i.i852 = mul nuw nsw i64 %num_histograms.1177.i847, 4352
-  tail call void @llvm.memset.p0.i64(ptr align 8 %call109.i829, i8 0, i64 %mul2.i.i852, i1 false)
-  br label %for.body5.i.i853
-
-for.body5.i.i853:                                 ; preds = %FastLog2.exit.i.i861, %if.end.i130.i851
-  %i.192.i.i854 = phi i64 [ 0, %if.end.i130.i851 ], [ %inc11.i.i864, %FastLog2.exit.i.i861 ]
-  %total_count_.i.i855 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %i.192.i.i854, i32 1
-  %220 = load i64, ptr %total_count_.i.i855, align 8
-  %conv7.i.i856 = and i64 %220, 4294967295
-  %cmp.i.i.i857 = icmp ult i64 %conv7.i.i856, 256
-  br i1 %cmp.i.i.i857, label %if.then.i.i.i1366, label %if.end.i.i.i858
-
-if.then.i.i.i1366:                                ; preds = %for.body5.i.i853
-  %arrayidx.i.i137.i1367 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv7.i.i856
-  %221 = load double, ptr %arrayidx.i.i137.i1367, align 8
-  br label %FastLog2.exit.i.i861
-
-if.end.i.i.i858:                                  ; preds = %for.body5.i.i853
-  %conv.i.i131.i859 = uitofp i64 %conv7.i.i856 to double
-  %call.i.i.i860 = tail call double @log2(double noundef %conv.i.i131.i859) #7
-  br label %FastLog2.exit.i.i861
-
-FastLog2.exit.i.i861:                             ; preds = %if.end.i.i.i858, %if.then.i.i.i1366
-  %retval.i.0.i.i862 = phi double [ %221, %if.then.i.i.i1366 ], [ %call.i.i.i860, %if.end.i.i.i858 ]
-  %arrayidx9.i.i863 = getelementptr inbounds double, ptr %call109.i829, i64 %i.192.i.i854
-  store double %retval.i.0.i.i862, ptr %arrayidx9.i.i863, align 8
-  %inc11.i.i864 = add nuw nsw i64 %i.192.i.i854, 1
-  %exitcond.not.i132.i865 = icmp eq i64 %inc11.i.i864, %num_histograms.1177.i847
-  br i1 %exitcond.not.i132.i865, label %for.body16.i.i866, label %for.body5.i.i853, !llvm.loop !84
-
-for.cond13.loopexit.i.i888:                       ; preds = %BitCost.exit.i.i882
-  %cmp14.not.i.i889 = icmp eq i64 %dec.i.i868, 0
-  br i1 %cmp14.not.i.i889, label %for.end32.i.i890, label %for.body16.i.i866, !llvm.loop !85
-
-for.body16.i.i866:                                ; preds = %FastLog2.exit.i.i861, %for.cond13.loopexit.i.i888
-  %i.294.i.i867 = phi i64 [ %dec.i.i868, %for.cond13.loopexit.i.i888 ], [ 544, %FastLog2.exit.i.i861 ]
-  %dec.i.i868 = add nsw i64 %i.294.i.i867, -1
-  %invariant.gep.i.i869 = getelementptr [544 x i32], ptr %call89.i741, i64 0, i64 %dec.i.i868
-  %mul26.i.i870 = mul i64 %dec.i.i868, %num_histograms.1177.i847
-  %222 = getelementptr double, ptr %call109.i829, i64 %mul26.i.i870
-  br label %for.body20.i.i871
-
-for.body20.i.i871:                                ; preds = %BitCost.exit.i.i882, %for.body16.i.i866
-  %j.093.i.i872 = phi i64 [ 0, %for.body16.i.i866 ], [ %inc30.i.i886, %BitCost.exit.i.i882 ]
-  %arrayidx21.i.i873 = getelementptr inbounds double, ptr %call109.i829, i64 %j.093.i.i872
-  %223 = load double, ptr %arrayidx21.i.i873, align 8
-  %gep.i.i874 = getelementptr %struct.HistogramDistance, ptr %invariant.gep.i.i869, i64 %j.093.i.i872
-  %224 = load i32, ptr %gep.i.i874, align 4
-  %conv24.i.i875 = zext i32 %224 to i64
-  %cmp.i129.i.i876 = icmp eq i32 %224, 0
-  br i1 %cmp.i129.i.i876, label %BitCost.exit.i.i882, label %cond.false.i.i.i877
-
-cond.false.i.i.i877:                              ; preds = %for.body20.i.i871
-  %cmp.i.i.i.i878 = icmp ult i32 %224, 256
-  br i1 %cmp.i.i.i.i878, label %if.then.i.i.i.i1364, label %if.end.i.i.i.i879
-
-if.then.i.i.i.i1364:                              ; preds = %cond.false.i.i.i877
-  %arrayidx.i.i.i136.i1365 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv24.i.i875
-  %225 = load double, ptr %arrayidx.i.i.i136.i1365, align 8
-  br label %BitCost.exit.i.i882
-
-if.end.i.i.i.i879:                                ; preds = %cond.false.i.i.i877
-  %conv.i.i.i.i880 = uitofp i32 %224 to double
-  %call.i.i.i.i881 = tail call double @log2(double noundef %conv.i.i.i.i880) #7
-  br label %BitCost.exit.i.i882
-
-BitCost.exit.i.i882:                              ; preds = %if.end.i.i.i.i879, %if.then.i.i.i.i1364, %for.body20.i.i871
-  %cond.i.i.i883 = phi double [ -2.000000e+00, %for.body20.i.i871 ], [ %225, %if.then.i.i.i.i1364 ], [ %call.i.i.i.i881, %if.end.i.i.i.i879 ]
-  %sub.i133.i884 = fsub double %223, %cond.i.i.i883
-  %arrayidx28.i.i885 = getelementptr double, ptr %222, i64 %j.093.i.i872
-  store double %sub.i133.i884, ptr %arrayidx28.i.i885, align 8
-  %inc30.i.i886 = add nuw nsw i64 %j.093.i.i872, 1
-  %exitcond108.not.i.i887 = icmp eq i64 %inc30.i.i886, %num_histograms.1177.i847
-  br i1 %exitcond108.not.i.i887, label %for.cond13.loopexit.i.i888, label %for.body20.i.i871, !llvm.loop !86
-
-for.end32.i.i890:                                 ; preds = %for.cond13.loopexit.i.i888
-  %mul33.i.i891 = shl nuw nsw i64 %num_histograms.1177.i847, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %call117.i831, i8 0, i64 %mul33.i.i891, i1 false)
-  %mul35.i.i892 = mul i64 %shr.i.i849, %j.1
-  tail call void @llvm.memset.p0.i64(ptr align 1 %cond130.i837, i8 0, i64 %mul35.i.i892, i1 false)
-  br label %for.body39.i.i893
-
-for.body39.i.i893:                                ; preds = %for.inc93.i.i929, %for.end32.i.i890
-  %byte_ix.099.i.i894 = phi i64 [ %inc94.i.i930, %for.inc93.i.i929 ], [ 0, %for.end32.i.i890 ]
-  %arrayidx41.i.i895 = getelementptr inbounds i16, ptr %call14, i64 %byte_ix.099.i.i894
-  %226 = load i16, ptr %arrayidx41.i.i895, align 2
-  %conv42.i.i896 = zext i16 %226 to i64
-  %mul43.i.i897 = mul nuw nsw i64 %num_histograms.1177.i847, %conv42.i.i896
-  %227 = getelementptr double, ptr %call109.i829, i64 %mul43.i.i897
-  %arrayidx58.i.i898 = getelementptr inbounds i8, ptr %call97.i825, i64 %byte_ix.099.i.i894
-  br label %for.body47.i.i899
-
-for.body47.i.i899:                                ; preds = %for.inc60.i.i906, %for.body39.i.i893
-  %k.096.i.i900 = phi i64 [ 0, %for.body39.i.i893 ], [ %inc61.i.i908, %for.inc60.i.i906 ]
-  %min_cost.095.i.i901 = phi double [ 0x547D42AEA2879F2E, %for.body39.i.i893 ], [ %min_cost.1.i.i907, %for.inc60.i.i906 ]
-  %arrayidx49.i.i902 = getelementptr double, ptr %227, i64 %k.096.i.i900
-  %228 = load double, ptr %arrayidx49.i.i902, align 8
-  %arrayidx50.i.i903 = getelementptr inbounds double, ptr %call117.i831, i64 %k.096.i.i900
-  %229 = load double, ptr %arrayidx50.i.i903, align 8
-  %add51.i.i904 = fadd double %228, %229
-  store double %add51.i.i904, ptr %arrayidx50.i.i903, align 8
-  %cmp53.i.i905 = fcmp olt double %add51.i.i904, %min_cost.095.i.i901
-  br i1 %cmp53.i.i905, label %if.then55.i.i1362, label %for.inc60.i.i906
-
-if.then55.i.i1362:                                ; preds = %for.body47.i.i899
-  %conv57.i.i1363 = trunc i64 %k.096.i.i900 to i8
-  store i8 %conv57.i.i1363, ptr %arrayidx58.i.i898, align 1
-  br label %for.inc60.i.i906
-
-for.inc60.i.i906:                                 ; preds = %if.then55.i.i1362, %for.body47.i.i899
-  %min_cost.1.i.i907 = phi double [ %add51.i.i904, %if.then55.i.i1362 ], [ %min_cost.095.i.i901, %for.body47.i.i899 ]
-  %inc61.i.i908 = add nuw nsw i64 %k.096.i.i900, 1
-  %exitcond109.not.i.i909 = icmp eq i64 %inc61.i.i908, %num_histograms.1177.i847
-  br i1 %exitcond109.not.i.i909, label %for.end62.i.i910, label %for.body47.i.i899, !llvm.loop !87
-
-for.end62.i.i910:                                 ; preds = %for.inc60.i.i906
-  %mul40.i.i911 = mul i64 %byte_ix.099.i.i894, %shr.i.i849
-  %cmp63.i.i912 = icmp ult i64 %byte_ix.099.i.i894, 2000
-  br i1 %cmp63.i.i912, label %if.then65.i.i1356, label %if.end70.i.i913
-
-if.then65.i.i1356:                                ; preds = %for.end62.i.i910
-  %conv66.i.i1357 = uitofp i64 %byte_ix.099.i.i894 to double
-  %mul67.i.i1358 = fmul double %conv66.i.i1357, 7.000000e-02
-  %div.i135.i1359 = fdiv double %mul67.i.i1358, 2.000000e+03
-  %add68.i.i1360 = fadd double %div.i135.i1359, 7.700000e-01
-  %mul69.i.i1361 = fmul double %add68.i.i1360, 1.460000e+01
-  br label %if.end70.i.i913
-
-if.end70.i.i913:                                  ; preds = %if.then65.i.i1356, %for.end62.i.i910
-  %block_switch_cost.0.i.i914 = phi double [ %mul69.i.i1361, %if.then65.i.i1356 ], [ 1.460000e+01, %for.end62.i.i910 ]
-  %230 = getelementptr i8, ptr %cond130.i837, i64 %mul40.i.i911
-  br label %for.body74.i.i915
-
-for.body74.i.i915:                                ; preds = %for.inc90.i.i926, %if.end70.i.i913
-  %k.197.i.i916 = phi i64 [ 0, %if.end70.i.i913 ], [ %inc91.i.i927, %for.inc90.i.i926 ]
-  %arrayidx75.i.i917 = getelementptr inbounds double, ptr %call117.i831, i64 %k.197.i.i916
-  %231 = load double, ptr %arrayidx75.i.i917, align 8
-  %sub76.i.i918 = fsub double %231, %min_cost.1.i.i907
-  store double %sub76.i.i918, ptr %arrayidx75.i.i917, align 8
-  %cmp78.i.i919 = fcmp ult double %sub76.i.i918, %block_switch_cost.0.i.i914
-  br i1 %cmp78.i.i919, label %for.inc90.i.i926, label %if.then80.i.i920
-
-if.then80.i.i920:                                 ; preds = %for.body74.i.i915
-  %232 = trunc i64 %k.197.i.i916 to i8
-  %sh_prom.i.i921 = and i8 %232, 7
-  %shl.i.i922 = shl nuw i8 1, %sh_prom.i.i921
-  store double %block_switch_cost.0.i.i914, ptr %arrayidx75.i.i917, align 8
-  %shr84.i.i923 = lshr i64 %k.197.i.i916, 3
-  %arrayidx86.i.i924 = getelementptr i8, ptr %230, i64 %shr84.i.i923
-  %233 = load i8, ptr %arrayidx86.i.i924, align 1
-  %or89.i.i925 = or i8 %233, %shl.i.i922
-  store i8 %or89.i.i925, ptr %arrayidx86.i.i924, align 1
-  br label %for.inc90.i.i926
-
-for.inc90.i.i926:                                 ; preds = %if.then80.i.i920, %for.body74.i.i915
-  %inc91.i.i927 = add nuw nsw i64 %k.197.i.i916, 1
-  %exitcond110.not.i.i928 = icmp eq i64 %inc91.i.i927, %num_histograms.1177.i847
-  br i1 %exitcond110.not.i.i928, label %for.inc93.i.i929, label %for.body74.i.i915, !llvm.loop !88
-
-for.inc93.i.i929:                                 ; preds = %for.inc90.i.i926
-  %inc94.i.i930 = add nuw i64 %byte_ix.099.i.i894, 1
-  %exitcond111.not.i.i931 = icmp eq i64 %inc94.i.i930, %j.1
-  br i1 %exitcond111.not.i.i931, label %for.end95.i.i932, label %for.body39.i.i893, !llvm.loop !89
-
-for.end95.i.i932:                                 ; preds = %for.inc93.i.i929
-  %234 = load i8, ptr %arrayidx99.i.i844, align 1
-  %mul98.i.i933 = mul i64 %shr.i.i849, %sub96.i.i843
-  br label %while.body.i.i934
-
-while.body.i.i934:                                ; preds = %if.end127.i.i952, %for.end95.i.i932
-  %cur_id.0104.i.i935 = phi i8 [ %cur_id.1.i.i954, %if.end127.i.i952 ], [ %234, %for.end95.i.i932 ]
-  %ix97.0103.i.i936 = phi i64 [ %sub108.i.i942, %if.end127.i.i952 ], [ %mul98.i.i933, %for.end95.i.i932 ]
-  %num_blocks.0102.i.i937 = phi i64 [ %num_blocks.1.i.i953, %if.end127.i.i952 ], [ 1, %for.end95.i.i932 ]
-  %byte_ix.1101.i.i938 = phi i64 [ %dec107.i.i941, %if.end127.i.i952 ], [ %sub96.i.i843, %for.end95.i.i932 ]
-  %and104.i.i939 = and i8 %cur_id.0104.i.i935, 7
-  %shl105.i.i940 = shl nuw i8 1, %and104.i.i939
-  %dec107.i.i941 = add i64 %byte_ix.1101.i.i938, -1
-  %sub108.i.i942 = sub i64 %ix97.0103.i.i936, %shr.i.i849
-  %235 = lshr i8 %cur_id.0104.i.i935, 3
-  %conv111.i.i943 = zext nneg i8 %235 to i64
-  %236 = getelementptr i8, ptr %cond130.i837, i64 %sub108.i.i942
-  %arrayidx113.i.i944 = getelementptr i8, ptr %236, i64 %conv111.i.i943
-  %237 = load i8, ptr %arrayidx113.i.i944, align 1
-  %and11688.i.i945 = and i8 %237, %shl105.i.i940
-  %tobool.not.i.i946 = icmp eq i8 %and11688.i.i945, 0
-  br i1 %tobool.not.i.i946, label %if.end127.i.i952, label %if.then117.i.i947
-
-if.then117.i.i947:                                ; preds = %while.body.i.i934
-  %arrayidx119.i.i948 = getelementptr inbounds i8, ptr %call97.i825, i64 %dec107.i.i941
-  %238 = load i8, ptr %arrayidx119.i.i948, align 1
-  %cmp121.not.i.i949 = icmp ne i8 %cur_id.0104.i.i935, %238
-  %inc125.i.i950 = zext i1 %cmp121.not.i.i949 to i64
-  %spec.select.i134.i951 = add i64 %num_blocks.0102.i.i937, %inc125.i.i950
-  br label %if.end127.i.i952
-
-if.end127.i.i952:                                 ; preds = %if.then117.i.i947, %while.body.i.i934
-  %num_blocks.1.i.i953 = phi i64 [ %num_blocks.0102.i.i937, %while.body.i.i934 ], [ %spec.select.i134.i951, %if.then117.i.i947 ]
-  %cur_id.1.i.i954 = phi i8 [ %cur_id.0104.i.i935, %while.body.i.i934 ], [ %238, %if.then117.i.i947 ]
-  %arrayidx128.i.i955 = getelementptr inbounds i8, ptr %call97.i825, i64 %dec107.i.i941
-  store i8 %cur_id.1.i.i954, ptr %arrayidx128.i.i955, align 1
-  %cmp100.not.i.i956 = icmp eq i64 %dec107.i.i941, 0
-  br i1 %cmp100.not.i.i956, label %FindBlocksDistance.exit.i, label %while.body.i.i934, !llvm.loop !90
-
-FindBlocksDistance.exit.i:                        ; preds = %if.end127.i.i952, %for.body.preheader.i.i1368
-  %retval.0.i.i957 = phi i64 [ 1, %for.body.preheader.i.i1368 ], [ %num_blocks.1.i.i953, %if.end127.i.i952 ]
-  %cmp19.not.i.i958 = icmp eq i64 %num_histograms.1177.i847, 0
-  br i1 %cmp19.not.i.i958, label %for.body3.i.i965.preheader, label %for.body.i139.i959
-
-for.body.i139.i959:                               ; preds = %FindBlocksDistance.exit.i, %for.body.i139.i959
-  %i.020.i.i960 = phi i64 [ %inc.i141.i962, %for.body.i139.i959 ], [ 0, %FindBlocksDistance.exit.i ]
-  %arrayidx.i140.i961 = getelementptr inbounds i16, ptr %call135.i839, i64 %i.020.i.i960
-  store i16 256, ptr %arrayidx.i140.i961, align 2
-  %inc.i141.i962 = add nuw nsw i64 %i.020.i.i960, 1
-  %exitcond.not.i142.i963 = icmp eq i64 %inc.i141.i962, %num_histograms.1177.i847
-  br i1 %exitcond.not.i142.i963, label %for.body3.i.i965.preheader, label %for.body.i139.i959, !llvm.loop !91
-
-for.body3.i.i965.preheader:                       ; preds = %for.body.i139.i959, %FindBlocksDistance.exit.i
-  br label %for.body3.i.i965
-
-for.body3.i.i965:                                 ; preds = %for.body3.i.i965.preheader, %for.inc12.i.i972
-  %i.123.i.i966 = phi i64 [ %inc13.i.i974, %for.inc12.i.i972 ], [ 0, %for.body3.i.i965.preheader ]
-  %next_id.022.i.i967 = phi i16 [ %next_id.1.i.i973, %for.inc12.i.i972 ], [ 0, %for.body3.i.i965.preheader ]
-  %arrayidx4.i.i968 = getelementptr inbounds i8, ptr %call97.i825, i64 %i.123.i.i966
-  %239 = load i8, ptr %arrayidx4.i.i968, align 1
-  %idxprom.i.i969 = zext i8 %239 to i64
-  %arrayidx5.i.i970 = getelementptr inbounds i16, ptr %call135.i839, i64 %idxprom.i.i969
-  %240 = load i16, ptr %arrayidx5.i.i970, align 2
-  %cmp6.i.i971 = icmp eq i16 %240, 256
-  br i1 %cmp6.i.i971, label %if.then.i144.i1354, label %for.inc12.i.i972
-
-if.then.i144.i1354:                               ; preds = %for.body3.i.i965
-  %inc8.i.i1355 = add i16 %next_id.022.i.i967, 1
-  store i16 %next_id.022.i.i967, ptr %arrayidx5.i.i970, align 2
-  br label %for.inc12.i.i972
-
-for.inc12.i.i972:                                 ; preds = %if.then.i144.i1354, %for.body3.i.i965
-  %next_id.1.i.i973 = phi i16 [ %inc8.i.i1355, %if.then.i144.i1354 ], [ %next_id.022.i.i967, %for.body3.i.i965 ]
-  %inc13.i.i974 = add nuw i64 %i.123.i.i966, 1
-  %exitcond26.not.i.i975 = icmp eq i64 %inc13.i.i974, %j.1
-  br i1 %exitcond26.not.i.i975, label %for.body18.i.i977, label %for.body3.i.i965, !llvm.loop !92
-
-for.body18.i.i977:                                ; preds = %for.inc12.i.i972, %for.body18.i.i977
-  %i.225.i.i978 = phi i64 [ %inc25.i.i983, %for.body18.i.i977 ], [ 0, %for.inc12.i.i972 ]
-  %arrayidx19.i.i979 = getelementptr inbounds i8, ptr %call97.i825, i64 %i.225.i.i978
-  %241 = load i8, ptr %arrayidx19.i.i979, align 1
-  %idxprom20.i.i980 = zext i8 %241 to i64
-  %arrayidx21.i143.i981 = getelementptr inbounds i16, ptr %call135.i839, i64 %idxprom20.i.i980
-  %242 = load i16, ptr %arrayidx21.i143.i981, align 2
-  %conv22.i.i982 = trunc i16 %242 to i8
-  store i8 %conv22.i.i982, ptr %arrayidx19.i.i979, align 1
-  %inc25.i.i983 = add nuw i64 %i.225.i.i978, 1
-  %exitcond27.not.i.i984 = icmp eq i64 %inc25.i.i983, %j.1
-  br i1 %exitcond27.not.i.i984, label %RemapBlockIdsDistance.exit.i, label %for.body18.i.i977, !llvm.loop !93
-
-RemapBlockIdsDistance.exit.i:                     ; preds = %for.body18.i.i977
-  %243 = zext i16 %next_id.1.i.i973 to i64
-  %cmp.i10.not.i.i985 = icmp eq i16 %next_id.1.i.i973, 0
-  br i1 %cmp.i10.not.i.i985, label %for.body.i151.i993.preheader, label %for.body.i.i145.i986
-
-for.body.i.i145.i986:                             ; preds = %RemapBlockIdsDistance.exit.i, %for.body.i.i145.i986
-  %i.i.011.i.i987 = phi i64 [ %inc.i.i148.i990, %for.body.i.i145.i986 ], [ 0, %RemapBlockIdsDistance.exit.i ]
-  %add.ptr.i.i146.i988 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %i.i.011.i.i987
-  %bit_cost_.i.i147.i989 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %i.i.011.i.i987, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %add.ptr.i.i146.i988, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %bit_cost_.i.i147.i989, align 8
-  %inc.i.i148.i990 = add nuw nsw i64 %i.i.011.i.i987, 1
-  %exitcond.not.i149.i991 = icmp eq i64 %inc.i.i148.i990, %243
-  br i1 %exitcond.not.i149.i991, label %for.body.i151.i993.preheader, label %for.body.i.i145.i986, !llvm.loop !79
-
-for.body.i151.i993.preheader:                     ; preds = %for.body.i.i145.i986, %RemapBlockIdsDistance.exit.i
-  br label %for.body.i151.i993
-
-for.body.i151.i993:                               ; preds = %for.body.i151.i993.preheader, %for.body.i151.i993
-  %i.013.i.i994 = phi i64 [ %inc.i156.i1004, %for.body.i151.i993 ], [ 0, %for.body.i151.i993.preheader ]
-  %arrayidx.i152.i995 = getelementptr inbounds i8, ptr %call97.i825, i64 %i.013.i.i994
-  %244 = load i8, ptr %arrayidx.i152.i995, align 1
-  %idxprom.i153.i996 = zext i8 %244 to i64
-  %arrayidx1.i.i997 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %idxprom.i153.i996
-  %arrayidx2.i.i998 = getelementptr inbounds i16, ptr %call14, i64 %i.013.i.i994
-  %245 = load i16, ptr %arrayidx2.i.i998, align 2
-  %conv.i154.i999 = zext i16 %245 to i64
-  %arrayidx.i.i155.i1000 = getelementptr inbounds [544 x i32], ptr %arrayidx1.i.i997, i64 0, i64 %conv.i154.i999
-  %246 = load i32, ptr %arrayidx.i.i155.i1000, align 4
-  %inc.i4.i.i1001 = add i32 %246, 1
-  store i32 %inc.i4.i.i1001, ptr %arrayidx.i.i155.i1000, align 4
-  %total_count_.i5.i.i1002 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i741, i64 %idxprom.i153.i996, i32 1
-  %247 = load i64, ptr %total_count_.i5.i.i1002, align 8
-  %inc1.i.i.i1003 = add i64 %247, 1
-  store i64 %inc1.i.i.i1003, ptr %total_count_.i5.i.i1002, align 8
-  %inc.i156.i1004 = add nuw i64 %i.013.i.i994, 1
-  %exitcond14.not.i.i1005 = icmp eq i64 %inc.i156.i1004, %j.1
-  br i1 %exitcond14.not.i.i1005, label %BuildBlockHistogramsDistance.exit.i, label %for.body.i151.i993, !llvm.loop !94
-
-BuildBlockHistogramsDistance.exit.i:              ; preds = %for.body.i151.i993
-  %inc147.i1006 = add nuw nsw i64 %i.0178.i846, 1
-  %exitcond.not.i1007 = icmp eq i64 %inc147.i1006, %cond141.i842
-  br i1 %exitcond.not.i1007, label %for.end.i1008, label %for.body.i845, !llvm.loop !95
-
-for.end.i1008:                                    ; preds = %BuildBlockHistogramsDistance.exit.i
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call109.i829) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call117.i831) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond130.i837) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call135.i839) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call89.i741) #7
-  %cmp.not.i.i1009 = icmp eq i64 %retval.0.i.i957, 0
-  br i1 %cmp.not.i.i1009, label %cond.end7.i.i1015, label %cond.end.i.i1010
-
-cond.end.i.i1010:                                 ; preds = %for.end.i1008
-  %mul.i157.i1011 = shl i64 %retval.0.i.i957, 2
-  %call.i.i1012 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul.i157.i1011) #7
-  %add.i158.i1013 = add i64 %retval.0.i.i957, 256
-  %cmp1.not.i.i1014 = icmp eq i64 %add.i158.i1013, 0
-  br i1 %cmp1.not.i.i1014, label %cond.true19.i.i1024, label %cond.end7.i.i1015
-
-cond.end7.i.i1015:                                ; preds = %cond.end.i.i1010, %for.end.i1008
-  %add296.i.i1016 = phi i64 [ %add.i158.i1013, %cond.end.i.i1010 ], [ 256, %for.end.i1008 ]
-  %cond294.i.i1017 = phi ptr [ %call.i.i1012, %cond.end.i.i1010 ], [ null, %for.end.i1008 ]
-  %mul4.i.i1018 = shl i64 %add296.i.i1016, 2
-  %call5.i.i1019 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul4.i.i1018) #7
-  %sub.i159.i1020 = shl i64 %retval.0.i.i957, 4
-  %mul10.i.i1021 = add i64 %sub.i159.i1020, 1008
-  %div288.i.i1022 = lshr i64 %mul10.i.i1021, 6
-  %cmp11.not.i.i1023 = icmp ult i64 %mul10.i.i1021, 64
-  br i1 %cmp11.not.i.i1023, label %cond.end23.i.i1033, label %cond.true19.i.i1024
-
-cond.true19.i.i1024:                              ; preds = %cond.end7.i.i1015, %cond.end.i.i1010
-  %div288303.sink.i.i1025 = phi i64 [ %div288.i.i1022, %cond.end7.i.i1015 ], [ 288230376151711695, %cond.end.i.i1010 ]
-  %add297305337.i.i1026 = phi i64 [ %add296.i.i1016, %cond.end7.i.i1015 ], [ 0, %cond.end.i.i1010 ]
-  %cond295307336.i.i1027 = phi ptr [ %cond294.i.i1017, %cond.end7.i.i1015 ], [ %call.i.i1012, %cond.end.i.i1010 ]
-  %cond8309335.i.i1028 = phi ptr [ %call5.i.i1019, %cond.end7.i.i1015 ], [ null, %cond.end.i.i1010 ]
-  %mul13.i.i1029 = mul i64 %div288303.sink.i.i1025, 2192
-  %call14.i.i1030 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul13.i.i1029) #7
-  %mul20.i.i1031 = shl nuw nsw i64 %div288303.sink.i.i1025, 2
-  %call21.i.i1032 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul20.i.i1031) #7
-  br label %cond.end23.i.i1033
-
-cond.end23.i.i1033:                               ; preds = %cond.true19.i.i1024, %cond.end7.i.i1015
-  %cond17325.i.i1034 = phi ptr [ %call14.i.i1030, %cond.true19.i.i1024 ], [ null, %cond.end7.i.i1015 ]
-  %add297306324.i.i1035 = phi i64 [ %add297305337.i.i1026, %cond.true19.i.i1024 ], [ %add296.i.i1016, %cond.end7.i.i1015 ]
-  %cond295308323.i.i1036 = phi ptr [ %cond295307336.i.i1027, %cond.true19.i.i1024 ], [ %cond294.i.i1017, %cond.end7.i.i1015 ]
-  %cond8310322.i.i1037 = phi ptr [ %cond8309335.i.i1028, %cond.true19.i.i1024 ], [ %call5.i.i1019, %cond.end7.i.i1015 ]
-  %div288312321.i.i1038 = phi i64 [ %div288303.sink.i.i1025, %cond.true19.i.i1024 ], [ %div288.i.i1022, %cond.end7.i.i1015 ]
-  %cond24.i.i1039 = phi ptr [ %call21.i.i1032, %cond.true19.i.i1024 ], [ null, %cond.end7.i.i1015 ]
-  br i1 %cmp.not.i.i1009, label %cond.true36.i.i1044, label %cond.true27.i.i1040
-
-cond.true27.i.i1040:                              ; preds = %cond.end23.i.i1033
-  %cond.i441.i.i1041 = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i957, i64 64)
-  %mul29.i.i1042 = mul nuw nsw i64 %cond.i441.i.i1041, 2192
-  %call30.i.i1043 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul29.i.i1042) #7
-  br label %cond.true36.i.i1044
-
-cond.true36.i.i1044:                              ; preds = %cond.true27.i.i1040, %cond.end23.i.i1033
-  %cond33.i.i1045 = phi ptr [ %call30.i.i1043, %cond.true27.i.i1040 ], [ null, %cond.end23.i.i1033 ]
-  %call38.i.i1046 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 49176) #7
-  %add.ptr45.i.i1048 = getelementptr inbounds i32, ptr %cond8310322.i.i1037, i64 256
-  %call46.i.i1049 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 4384) #7
-  %mul48.i.i1050 = shl i64 %add297306324.i.i1035, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %cond8310322.i.i1037, i8 0, i64 %mul48.i.i1050, i1 false)
-  br label %for.body.i160.i1051
-
-for.cond60.preheader.i.i1066:                     ; preds = %for.inc.i164.i1064
-  %add.ptr43.i.i1047 = getelementptr inbounds i32, ptr %cond8310322.i.i1037, i64 128
-  %add.ptr42.i.i1067 = getelementptr inbounds i32, ptr %cond8310322.i.i1037, i64 64
-  %add.ptr44.i.i1068 = getelementptr inbounds i32, ptr %cond8310322.i.i1037, i64 192
-  br i1 %cmp.not.i.i1009, label %for.end197.i.i1163, label %for.body69.lr.ph.i.i1069
-
-for.body.i160.i1051:                              ; preds = %for.inc.i164.i1064, %cond.true36.i.i1044
-  %block_idx.0341.i.i1052 = phi i64 [ %block_idx.1.i.i1065, %for.inc.i164.i1064 ], [ 0, %cond.true36.i.i1044 ]
-  %i.0340.i.i1053 = phi i64 [ %add50.i.i1056, %for.inc.i164.i1064 ], [ 0, %cond.true36.i.i1044 ]
-  %arrayidx.i161.i1054 = getelementptr inbounds i32, ptr %add.ptr45.i.i1048, i64 %block_idx.0341.i.i1052
-  %248 = load i32, ptr %arrayidx.i161.i1054, align 4
-  %inc.i162.i1055 = add i32 %248, 1
-  store i32 %inc.i162.i1055, ptr %arrayidx.i161.i1054, align 4
-  %add50.i.i1056 = add nuw i64 %i.0340.i.i1053, 1
-  %cmp51.i.i1057 = icmp eq i64 %add50.i.i1056, %j.1
-  br i1 %cmp51.i.i1057, label %if.then.i163.i1062, label %lor.lhs.false.i.i1058
-
-lor.lhs.false.i.i1058:                            ; preds = %for.body.i160.i1051
-  %arrayidx52.i.i1059 = getelementptr inbounds i8, ptr %call97.i825, i64 %i.0340.i.i1053
-  %249 = load i8, ptr %arrayidx52.i.i1059, align 1
-  %arrayidx54.i.i1060 = getelementptr inbounds i8, ptr %call97.i825, i64 %add50.i.i1056
-  %250 = load i8, ptr %arrayidx54.i.i1060, align 1
-  %cmp56.not.i.i1061 = icmp eq i8 %249, %250
-  br i1 %cmp56.not.i.i1061, label %for.inc.i164.i1064, label %if.then.i163.i1062
-
-if.then.i163.i1062:                               ; preds = %lor.lhs.false.i.i1058, %for.body.i160.i1051
-  %inc58.i.i1063 = add i64 %block_idx.0341.i.i1052, 1
-  br label %for.inc.i164.i1064
-
-for.inc.i164.i1064:                               ; preds = %if.then.i163.i1062, %lor.lhs.false.i.i1058
-  %block_idx.1.i.i1065 = phi i64 [ %inc58.i.i1063, %if.then.i163.i1062 ], [ %block_idx.0341.i.i1052, %lor.lhs.false.i.i1058 ]
-  br i1 %cmp51.i.i1057, label %for.cond60.preheader.i.i1066, label %for.body.i160.i1051, !llvm.loop !96
-
-for.body69.lr.ph.i.i1069:                         ; preds = %for.cond60.preheader.i.i1066, %for.end193.i.i1158
-  %indvars.iv.i.i1070 = phi i64 [ %indvars.iv.next.i.i1162, %for.end193.i.i1158 ], [ %retval.0.i.i957, %for.cond60.preheader.i.i1066 ]
-  %all_histograms_size.0367.i.i1071 = phi i64 [ %all_histograms_size.1.lcssa.i.i1146, %for.end193.i.i1158 ], [ 0, %for.cond60.preheader.i.i1066 ]
-  %all_histograms_capacity.0366.i.i1072 = phi i64 [ %all_histograms_capacity.1.i.i1119, %for.end193.i.i1158 ], [ %div288312321.i.i1038, %for.cond60.preheader.i.i1066 ]
-  %all_histograms.0365.i.i1073 = phi ptr [ %all_histograms.1.i.i1118, %for.end193.i.i1158 ], [ %cond17325.i.i1034, %for.cond60.preheader.i.i1066 ]
-  %cluster_size_size.0364.i.i1074 = phi i64 [ %cluster_size_size.1.lcssa.i.i1145, %for.end193.i.i1158 ], [ 0, %for.cond60.preheader.i.i1066 ]
-  %cluster_size_capacity.0363.i.i1075 = phi i64 [ %cluster_size_capacity.1.i.i1124, %for.end193.i.i1158 ], [ %div288312321.i.i1038, %for.cond60.preheader.i.i1066 ]
-  %cluster_size.0362.i.i1076 = phi ptr [ %cluster_size.1.i.i1123, %for.end193.i.i1158 ], [ %cond24.i.i1039, %for.cond60.preheader.i.i1066 ]
-  %num_clusters.0361.i.i1077 = phi i64 [ %add194.i.i1159, %for.end193.i.i1158 ], [ 0, %for.cond60.preheader.i.i1066 ]
-  %pos.0360.i.i1078 = phi i64 [ %pos.2.lcssa.i.i1104, %for.end193.i.i1158 ], [ 0, %for.cond60.preheader.i.i1066 ]
-  %i.1359.i.i1079 = phi i64 [ %add196.i.i1160, %for.end193.i.i1158 ], [ 0, %for.cond60.preheader.i.i1066 ]
-  %umin399.i.i1080 = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i1070, i64 64)
-  %umax400.i.i1081 = tail call i64 @llvm.umax.i64(i64 %umin399.i.i1080, i64 1)
-  %251 = getelementptr i32, ptr %add.ptr45.i.i1048, i64 %i.1359.i.i1079
-  br label %for.body69.i.i1083
-
-for.body69.i.i1083:                               ; preds = %for.end84.i.i1103, %for.body69.lr.ph.i.i1069
-  %j.0348.i.i1084 = phi i64 [ 0, %for.body69.lr.ph.i.i1069 ], [ %inc94.i166.i1110, %for.end84.i.i1103 ]
-  %pos.1347.i.i1085 = phi i64 [ %pos.0360.i.i1078, %for.body69.lr.ph.i.i1069 ], [ %pos.2.lcssa.i.i1104, %for.end84.i.i1103 ]
-  %arrayidx71.i.i1086 = getelementptr i32, ptr %251, i64 %j.0348.i.i1084
-  %252 = load i32, ptr %arrayidx71.i.i1086, align 4
-  %conv72.i.i1087 = zext i32 %252 to i64
-  %arrayidx73.i.i1088 = getelementptr inbounds %struct.HistogramDistance, ptr %cond33.i.i1045, i64 %j.0348.i.i1084
-  %total_count_.i451.i.i1089 = getelementptr inbounds %struct.HistogramDistance, ptr %cond33.i.i1045, i64 %j.0348.i.i1084, i32 1
-  %bit_cost_.i452.i.i1090 = getelementptr inbounds %struct.HistogramDistance, ptr %cond33.i.i1045, i64 %j.0348.i.i1084, i32 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %arrayidx73.i.i1088, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %bit_cost_.i452.i.i1090, align 8
-  %cmp75342.not.i.i1091 = icmp eq i32 %252, 0
-  br i1 %cmp75342.not.i.i1091, label %for.end84.i.i1103, label %for.body77.i.i1092
-
-for.body77.i.i1092:                               ; preds = %for.body69.i.i1083, %for.body77.i.i1092
-  %k.0344.i.i1093 = phi i64 [ %inc83.i.i1101, %for.body77.i.i1092 ], [ 0, %for.body69.i.i1083 ]
-  %pos.2343.i.i1094 = phi i64 [ %inc79.i.i1095, %for.body77.i.i1092 ], [ %pos.1347.i.i1085, %for.body69.i.i1083 ]
-  %inc79.i.i1095 = add i64 %pos.2343.i.i1094, 1
-  %arrayidx80.i.i1096 = getelementptr inbounds i16, ptr %call14, i64 %pos.2343.i.i1094
-  %253 = load i16, ptr %arrayidx80.i.i1096, align 2
-  %conv81.i.i1097 = zext i16 %253 to i64
-  %arrayidx.i457.i.i1098 = getelementptr inbounds [544 x i32], ptr %arrayidx73.i.i1088, i64 0, i64 %conv81.i.i1097
-  %254 = load i32, ptr %arrayidx.i457.i.i1098, align 4
-  %inc.i458.i.i1099 = add i32 %254, 1
-  store i32 %inc.i458.i.i1099, ptr %arrayidx.i457.i.i1098, align 4
-  %255 = load i64, ptr %total_count_.i451.i.i1089, align 8
-  %inc1.i460.i.i1100 = add i64 %255, 1
-  store i64 %inc1.i460.i.i1100, ptr %total_count_.i451.i.i1089, align 8
-  %inc83.i.i1101 = add nuw nsw i64 %k.0344.i.i1093, 1
-  %exitcond396.not.i.i1102 = icmp eq i64 %inc83.i.i1101, %conv72.i.i1087
-  br i1 %exitcond396.not.i.i1102, label %for.end84.i.i1103, label %for.body77.i.i1092, !llvm.loop !97
-
-for.end84.i.i1103:                                ; preds = %for.body77.i.i1092, %for.body69.i.i1083
-  %pos.2.lcssa.i.i1104 = phi i64 [ %pos.1347.i.i1085, %for.body69.i.i1083 ], [ %inc79.i.i1095, %for.body77.i.i1092 ]
-  %call86.i.i1105 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %arrayidx73.i.i1088) #7
-  store double %call86.i.i1105, ptr %bit_cost_.i452.i.i1090, align 8
-  %conv88.i.i1106 = trunc i64 %j.0348.i.i1084 to i32
-  %arrayidx89.i.i1107 = getelementptr inbounds i32, ptr %add.ptr42.i.i1067, i64 %j.0348.i.i1084
-  store i32 %conv88.i.i1106, ptr %arrayidx89.i.i1107, align 4
-  %arrayidx91.i.i1108 = getelementptr inbounds i32, ptr %add.ptr43.i.i1047, i64 %j.0348.i.i1084
-  store i32 %conv88.i.i1106, ptr %arrayidx91.i.i1108, align 4
-  %arrayidx92.i.i1109 = getelementptr inbounds i32, ptr %cond8310322.i.i1037, i64 %j.0348.i.i1084
-  store i32 1, ptr %arrayidx92.i.i1109, align 4
-  %inc94.i166.i1110 = add nuw nsw i64 %j.0348.i.i1084, 1
-  %exitcond397.not.i.i1111 = icmp eq i64 %inc94.i166.i1110, %umax400.i.i1081
-  br i1 %exitcond397.not.i.i1111, label %for.end95.i167.i1112, label %for.body69.i.i1083, !llvm.loop !98
-
-for.end95.i167.i1112:                             ; preds = %for.end84.i.i1103
-  %sub64.i.i1082 = sub i64 %retval.0.i.i957, %i.1359.i.i1079
-  %cond.i427.i.i1113 = tail call i64 @llvm.umin.i64(i64 %sub64.i.i1082, i64 64)
-  %call96.i.i1114 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef nonnull %cond33.i.i1045, ptr noundef %call46.i.i1049, ptr noundef nonnull %cond8310322.i.i1037, ptr noundef nonnull %add.ptr43.i.i1047, ptr noundef nonnull %add.ptr42.i.i1067, ptr noundef %call38.i.i1046, i64 noundef %cond.i427.i.i1113, i64 noundef %cond.i427.i.i1113, i64 noundef 64, i64 noundef 2048) #7
-  %add97.i.i1115 = add i64 %call96.i.i1114, %all_histograms_size.0367.i.i1071
-  %cmp98.i.i1116 = icmp ult i64 %all_histograms_capacity.0366.i.i1072, %add97.i.i1115
-  br i1 %cmp98.i.i1116, label %if.then100.i.i1341, label %if.end125.i.i1117
-
-if.then100.i.i1341:                               ; preds = %for.end95.i167.i1112
-  %cmp101.i.i1342 = icmp eq i64 %all_histograms_capacity.0366.i.i1072, 0
-  %cond107.i.i1343 = select i1 %cmp101.i.i1342, i64 %add97.i.i1115, i64 %all_histograms_capacity.0366.i.i1072
-  br label %while.cond.i.i1344
-
-while.cond.i.i1344:                               ; preds = %while.cond.i.i1344, %if.then100.i.i1341
-  %_new_size.0.i.i1345 = phi i64 [ %cond107.i.i1343, %if.then100.i.i1341 ], [ %mul111.i.i1347, %while.cond.i.i1344 ]
-  %cmp109.i.i1346 = icmp ult i64 %_new_size.0.i.i1345, %add97.i.i1115
-  %mul111.i.i1347 = shl i64 %_new_size.0.i.i1345, 1
-  br i1 %cmp109.i.i1346, label %while.cond.i.i1344, label %cond.end118.i.i1348, !llvm.loop !99
-
-cond.end118.i.i1348:                              ; preds = %while.cond.i.i1344
-  %mul115.i.i1349 = mul i64 %_new_size.0.i.i1345, 2192
-  %call116.i.i1350 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul115.i.i1349) #7
-  br i1 %cmp101.i.i1342, label %if.end124.i.i1353, label %if.then122.i.i1351
-
-if.then122.i.i1351:                               ; preds = %cond.end118.i.i1348
-  %mul123.i.i1352 = mul i64 %all_histograms_capacity.0366.i.i1072, 2192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i1350, ptr align 8 %all_histograms.0365.i.i1073, i64 %mul123.i.i1352, i1 false)
-  br label %if.end124.i.i1353
-
-if.end124.i.i1353:                                ; preds = %if.then122.i.i1351, %cond.end118.i.i1348
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0365.i.i1073) #7
-  br label %if.end125.i.i1117
-
-if.end125.i.i1117:                                ; preds = %if.end124.i.i1353, %for.end95.i167.i1112
-  %all_histograms.1.i.i1118 = phi ptr [ %call116.i.i1350, %if.end124.i.i1353 ], [ %all_histograms.0365.i.i1073, %for.end95.i167.i1112 ]
-  %all_histograms_capacity.1.i.i1119 = phi i64 [ %_new_size.0.i.i1345, %if.end124.i.i1353 ], [ %all_histograms_capacity.0366.i.i1072, %for.end95.i167.i1112 ]
-  %add126.i.i1120 = add i64 %call96.i.i1114, %cluster_size_size.0364.i.i1074
-  %cmp127.i.i1121 = icmp ult i64 %cluster_size_capacity.0363.i.i1075, %add126.i.i1120
-  br i1 %cmp127.i.i1121, label %if.then129.i.i1328, label %if.end159.i.i1122
-
-if.then129.i.i1328:                               ; preds = %if.end125.i.i1117
-  %cmp131.i.i1329 = icmp eq i64 %cluster_size_capacity.0363.i.i1075, 0
-  %cond137.i.i1330 = select i1 %cmp131.i.i1329, i64 %add126.i.i1120, i64 %cluster_size_capacity.0363.i.i1075
-  br label %while.cond139.i.i1331
-
-while.cond139.i.i1331:                            ; preds = %while.cond139.i.i1331, %if.then129.i.i1328
-  %_new_size130.0.i.i1332 = phi i64 [ %cond137.i.i1330, %if.then129.i.i1328 ], [ %mul144.i.i1334, %while.cond139.i.i1331 ]
-  %cmp141.i.i1333 = icmp ult i64 %_new_size130.0.i.i1332, %add126.i.i1120
-  %mul144.i.i1334 = shl i64 %_new_size130.0.i.i1332, 1
-  br i1 %cmp141.i.i1333, label %while.cond139.i.i1331, label %cond.end152.i.i1335, !llvm.loop !100
-
-cond.end152.i.i1335:                              ; preds = %while.cond139.i.i1331
-  %mul149.i.i1336 = shl i64 %_new_size130.0.i.i1332, 2
-  %call150.i.i1337 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul149.i.i1336) #7
-  br i1 %cmp131.i.i1329, label %if.end158.i.i1340, label %if.then156.i.i1338
-
-if.then156.i.i1338:                               ; preds = %cond.end152.i.i1335
-  %mul157.i.i1339 = shl i64 %cluster_size_capacity.0363.i.i1075, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i1337, ptr align 4 %cluster_size.0362.i.i1076, i64 %mul157.i.i1339, i1 false)
-  br label %if.end158.i.i1340
-
-if.end158.i.i1340:                                ; preds = %if.then156.i.i1338, %cond.end152.i.i1335
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0362.i.i1076) #7
-  br label %if.end159.i.i1122
-
-if.end159.i.i1122:                                ; preds = %if.end158.i.i1340, %if.end125.i.i1117
-  %cluster_size.1.i.i1123 = phi ptr [ %call150.i.i1337, %if.end158.i.i1340 ], [ %cluster_size.0362.i.i1076, %if.end125.i.i1117 ]
-  %cluster_size_capacity.1.i.i1124 = phi i64 [ %_new_size130.0.i.i1332, %if.end158.i.i1340 ], [ %cluster_size_capacity.0363.i.i1075, %if.end125.i.i1117 ]
-  %cmp161350.not.i.i1125 = icmp eq i64 %call96.i.i1114, 0
-  br i1 %cmp161350.not.i.i1125, label %for.body183.lr.ph.i.i1144, label %for.body163.i.i1126
-
-for.body183.lr.ph.i.i1144:                        ; preds = %for.body163.i.i1126, %if.end159.i.i1122
-  %cluster_size_size.1.lcssa.i.i1145 = phi i64 [ %cluster_size_size.0364.i.i1074, %if.end159.i.i1122 ], [ %inc171.i.i1137, %for.body163.i.i1126 ]
-  %all_histograms_size.1.lcssa.i.i1146 = phi i64 [ %all_histograms_size.0367.i.i1071, %if.end159.i.i1122 ], [ %inc164.i.i1130, %for.body163.i.i1126 ]
-  %conv184.i.i1147 = trunc i64 %num_clusters.0361.i.i1077 to i32
-  br label %for.body183.i.i1148
-
-for.body163.i.i1126:                              ; preds = %if.end159.i.i1122, %for.body163.i.i1126
-  %all_histograms_size.1353.i.i1127 = phi i64 [ %inc164.i.i1130, %for.body163.i.i1126 ], [ %all_histograms_size.0367.i.i1071, %if.end159.i.i1122 ]
-  %cluster_size_size.1352.i.i1128 = phi i64 [ %inc171.i.i1137, %for.body163.i.i1126 ], [ %cluster_size_size.0364.i.i1074, %if.end159.i.i1122 ]
-  %j.1351.i.i1129 = phi i64 [ %inc178.i.i1142, %for.body163.i.i1126 ], [ 0, %if.end159.i.i1122 ]
-  %inc164.i.i1130 = add i64 %all_histograms_size.1353.i.i1127, 1
-  %arrayidx165.i.i1131 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.1.i.i1118, i64 %all_histograms_size.1353.i.i1127
-  %arrayidx166.i.i1132 = getelementptr inbounds i32, ptr %add.ptr42.i.i1067, i64 %j.1351.i.i1129
-  %256 = load i32, ptr %arrayidx166.i.i1132, align 4
-  %idxprom.i168.i1133 = zext i32 %256 to i64
-  %arrayidx167.i.i1134 = getelementptr inbounds %struct.HistogramDistance, ptr %cond33.i.i1045, i64 %idxprom.i168.i1133
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx165.i.i1131, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx167.i.i1134, i64 2192, i1 false)
-  %257 = load i32, ptr %arrayidx166.i.i1132, align 4
-  %idxprom169.i.i1135 = zext i32 %257 to i64
-  %arrayidx170.i.i1136 = getelementptr inbounds i32, ptr %cond8310322.i.i1037, i64 %idxprom169.i.i1135
-  %258 = load i32, ptr %arrayidx170.i.i1136, align 4
-  %inc171.i.i1137 = add i64 %cluster_size_size.1352.i.i1128, 1
-  %arrayidx172.i.i1138 = getelementptr inbounds i32, ptr %cluster_size.1.i.i1123, i64 %cluster_size_size.1352.i.i1128
-  store i32 %258, ptr %arrayidx172.i.i1138, align 4
-  %conv173.i.i1139 = trunc i64 %j.1351.i.i1129 to i32
-  %259 = load i32, ptr %arrayidx166.i.i1132, align 4
-  %idxprom175.i.i1140 = zext i32 %259 to i64
-  %arrayidx176.i.i1141 = getelementptr inbounds i32, ptr %add.ptr44.i.i1068, i64 %idxprom175.i.i1140
-  store i32 %conv173.i.i1139, ptr %arrayidx176.i.i1141, align 4
-  %inc178.i.i1142 = add nuw i64 %j.1351.i.i1129, 1
-  %exitcond398.not.i.i1143 = icmp eq i64 %inc178.i.i1142, %call96.i.i1114
-  br i1 %exitcond398.not.i.i1143, label %for.body183.lr.ph.i.i1144, label %for.body163.i.i1126, !llvm.loop !101
-
-for.body183.i.i1148:                              ; preds = %for.body183.i.i1148, %for.body183.lr.ph.i.i1144
-  %j.2357.i.i1149 = phi i64 [ 0, %for.body183.lr.ph.i.i1144 ], [ %inc192.i.i1156, %for.body183.i.i1148 ]
-  %arrayidx185.i.i1150 = getelementptr inbounds i32, ptr %add.ptr43.i.i1047, i64 %j.2357.i.i1149
-  %260 = load i32, ptr %arrayidx185.i.i1150, align 4
-  %idxprom186.i.i1151 = zext i32 %260 to i64
-  %arrayidx187.i.i1152 = getelementptr inbounds i32, ptr %add.ptr44.i.i1068, i64 %idxprom186.i.i1151
-  %261 = load i32, ptr %arrayidx187.i.i1152, align 4
-  %add188.i.i1153 = add i32 %261, %conv184.i.i1147
-  %add189.i.i1154 = add nuw nsw i64 %j.2357.i.i1149, %i.1359.i.i1079
-  %arrayidx190.i.i1155 = getelementptr inbounds i32, ptr %cond295308323.i.i1036, i64 %add189.i.i1154
-  store i32 %add188.i.i1153, ptr %arrayidx190.i.i1155, align 4
-  %inc192.i.i1156 = add nuw nsw i64 %j.2357.i.i1149, 1
-  %exitcond401.not.i.i1157 = icmp eq i64 %inc192.i.i1156, %umax400.i.i1081
-  br i1 %exitcond401.not.i.i1157, label %for.end193.i.i1158, label %for.body183.i.i1148, !llvm.loop !102
-
-for.end193.i.i1158:                               ; preds = %for.body183.i.i1148
-  %add194.i.i1159 = add i64 %call96.i.i1114, %num_clusters.0361.i.i1077
-  %add196.i.i1160 = add i64 %i.1359.i.i1079, 64
-  %cmp61.i.i1161 = icmp ult i64 %add196.i.i1160, %retval.0.i.i957
-  %indvars.iv.next.i.i1162 = add i64 %indvars.iv.i.i1070, -64
-  br i1 %cmp61.i.i1161, label %for.body69.lr.ph.i.i1069, label %for.end197.i.i1163, !llvm.loop !103
-
-for.end197.i.i1163:                               ; preds = %for.end193.i.i1158, %for.cond60.preheader.i.i1066
-  %num_clusters.0.lcssa.i.i1164 = phi i64 [ 0, %for.cond60.preheader.i.i1066 ], [ %add194.i.i1159, %for.end193.i.i1158 ]
-  %cluster_size.0.lcssa.i.i1165 = phi ptr [ %cond24.i.i1039, %for.cond60.preheader.i.i1066 ], [ %cluster_size.1.i.i1123, %for.end193.i.i1158 ]
-  %all_histograms.0.lcssa.i.i1166 = phi ptr [ %cond17325.i.i1034, %for.cond60.preheader.i.i1066 ], [ %all_histograms.1.i.i1118, %for.end193.i.i1158 ]
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond33.i.i1045) #7
-  %mul198.i.i1167 = shl i64 %num_clusters.0.lcssa.i.i1164, 6
-  %div199289.i.i1168 = lshr i64 %num_clusters.0.lcssa.i.i1164, 1
-  %mul200.i.i1169 = mul i64 %div199289.i.i1168, %num_clusters.0.lcssa.i.i1164
-  %cond.i.i169.i1170 = tail call i64 @llvm.umin.i64(i64 %mul198.i.i1167, i64 %mul200.i.i1169)
-  %cmp203.i.i1171 = icmp ugt i64 %cond.i.i169.i1170, 2048
-  br i1 %cmp203.i.i1171, label %if.then205.i.i1325, label %if.end216.i.i1172
-
-if.then205.i.i1325:                               ; preds = %for.end197.i.i1163
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call38.i.i1046) #7
-  %262 = mul i64 %cond.i.i169.i1170, 24
-  %mul211.i.i1326 = add i64 %262, 24
-  %call212.i.i1327 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul211.i.i1326) #7
-  br label %if.end216.i.i1172
-
-if.end216.i.i1172:                                ; preds = %if.then205.i.i1325, %for.end197.i.i1163
-  %pairs.0.i.i1173 = phi ptr [ %call212.i.i1327, %if.then205.i.i1325 ], [ %call38.i.i1046, %for.end197.i.i1163 ]
-  %cmp217.not.i.i1174 = icmp eq i64 %num_clusters.0.lcssa.i.i1164, 0
-  br i1 %cmp217.not.i.i1174, label %for.end233.i.i1184, label %for.body228.preheader.i.i1175
-
-for.body228.preheader.i.i1175:                    ; preds = %if.end216.i.i1172
-  %mul220.i.i1176 = shl i64 %num_clusters.0.lcssa.i.i1164, 2
-  %call221.i.i1177 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul220.i.i1176) #7
-  br label %for.body228.i.i1178
-
-for.body228.i.i1178:                              ; preds = %for.body228.i.i1178, %for.body228.preheader.i.i1175
-  %i.2372.i.i1179 = phi i64 [ %inc232.i.i1182, %for.body228.i.i1178 ], [ 0, %for.body228.preheader.i.i1175 ]
-  %conv229.i.i1180 = trunc i64 %i.2372.i.i1179 to i32
-  %arrayidx230.i.i1181 = getelementptr inbounds i32, ptr %call221.i.i1177, i64 %i.2372.i.i1179
-  store i32 %conv229.i.i1180, ptr %arrayidx230.i.i1181, align 4
-  %inc232.i.i1182 = add nuw i64 %i.2372.i.i1179, 1
-  %exitcond402.not.i.i1183 = icmp eq i64 %inc232.i.i1182, %num_clusters.0.lcssa.i.i1164
-  br i1 %exitcond402.not.i.i1183, label %for.end233.i.i1184, label %for.body228.i.i1178, !llvm.loop !104
-
-for.end233.i.i1184:                               ; preds = %for.body228.i.i1178, %if.end216.i.i1172
-  %cond224408.i.i1185 = phi ptr [ null, %if.end216.i.i1172 ], [ %call221.i.i1177, %for.body228.i.i1178 ]
-  %call234.i.i1186 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %all_histograms.0.lcssa.i.i1166, ptr noundef %call46.i.i1049, ptr noundef %cluster_size.0.lcssa.i.i1165, ptr noundef %cond295308323.i.i1036, ptr noundef %cond224408.i.i1185, ptr noundef %pairs.0.i.i1173, i64 noundef %num_clusters.0.lcssa.i.i1164, i64 noundef %retval.0.i.i957, i64 noundef 256, i64 noundef %cond.i.i169.i1170) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %pairs.0.i.i1173) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0.lcssa.i.i1165) #7
-  br i1 %cmp217.not.i.i1174, label %for.cond251.preheader.i.i1190, label %for.body246.preheader.i.i1187
-
-for.body246.preheader.i.i1187:                    ; preds = %for.end233.i.i1184
-  %mul238.i.i1188 = shl i64 %num_clusters.0.lcssa.i.i1164, 2
-  %call239.i.i1189 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul238.i.i1188) #7
-  tail call void @llvm.memset.p0.i64(ptr align 4 %call239.i.i1189, i8 -1, i64 %mul238.i.i1188, i1 false)
-  br label %for.cond251.preheader.i.i1190
-
-for.cond251.preheader.i.i1190:                    ; preds = %for.body246.preheader.i.i1187, %for.end233.i.i1184
-  %cond242410.i.i1191 = phi ptr [ %call239.i.i1189, %for.body246.preheader.i.i1187 ], [ null, %for.end233.i.i1184 ]
-  br i1 %cmp.not.i.i1009, label %for.end310.i.i1249, label %for.body254.lr.ph.i.i1192
-
-for.body254.lr.ph.i.i1192:                        ; preds = %for.cond251.preheader.i.i1190
-  %total_count_.i.i170.i1193 = getelementptr inbounds %struct.HistogramDistance, ptr %call46.i.i1049, i64 0, i32 1
-  %bit_cost_.i.i171.i1194 = getelementptr inbounds %struct.HistogramDistance, ptr %call46.i.i1049, i64 0, i32 2
-  %add.ptr279.i.i1195 = getelementptr inbounds %struct.HistogramDistance, ptr %call46.i.i1049, i64 1
-  %cmp282380.not.i.i1196 = icmp eq i64 %call234.i.i1186, 0
-  br label %for.body254.i.i1197
-
-for.body254.i.i1197:                              ; preds = %for.inc308.i.i1245, %for.body254.lr.ph.i.i1192
-  %next_index.0388.i.i1198 = phi i32 [ 0, %for.body254.lr.ph.i.i1192 ], [ %next_index.1.i.i1246, %for.inc308.i.i1245 ]
-  %pos.3387.i.i1199 = phi i64 [ 0, %for.body254.lr.ph.i.i1192 ], [ %pos.4.lcssa.i.i1216, %for.inc308.i.i1245 ]
-  %i.4386.i.i1200 = phi i64 [ 0, %for.body254.lr.ph.i.i1192 ], [ %inc309.i.i1247, %for.inc308.i.i1245 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %call46.i.i1049, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i1194, align 8
-  %arrayidx257.i.i1201 = getelementptr inbounds i32, ptr %add.ptr45.i.i1048, i64 %i.4386.i.i1200
-  %263 = load i32, ptr %arrayidx257.i.i1201, align 4
-  %cmp259376.not.i.i1202 = icmp eq i32 %263, 0
-  br i1 %cmp259376.not.i.i1202, label %for.end267.i.i1215, label %for.body261.i.i1203
-
-for.body261.i.i1203:                              ; preds = %for.body254.i.i1197, %for.body261.i.i1203
-  %j255.0378.i.i1204 = phi i64 [ %inc266.i.i1212, %for.body261.i.i1203 ], [ 0, %for.body254.i.i1197 ]
-  %pos.4377.i.i1205 = phi i64 [ %inc262.i.i1206, %for.body261.i.i1203 ], [ %pos.3387.i.i1199, %for.body254.i.i1197 ]
-  %inc262.i.i1206 = add i64 %pos.4377.i.i1205, 1
-  %arrayidx263.i.i1207 = getelementptr inbounds i16, ptr %call14, i64 %pos.4377.i.i1205
-  %264 = load i16, ptr %arrayidx263.i.i1207, align 2
-  %conv264.i.i1208 = zext i16 %264 to i64
-  %arrayidx.i.i172.i1209 = getelementptr inbounds [544 x i32], ptr %call46.i.i1049, i64 0, i64 %conv264.i.i1208
-  %265 = load i32, ptr %arrayidx.i.i172.i1209, align 4
-  %inc.i.i173.i1210 = add i32 %265, 1
-  store i32 %inc.i.i173.i1210, ptr %arrayidx.i.i172.i1209, align 4
-  %266 = load i64, ptr %total_count_.i.i170.i1193, align 8
-  %inc1.i.i174.i1211 = add i64 %266, 1
-  store i64 %inc1.i.i174.i1211, ptr %total_count_.i.i170.i1193, align 8
-  %inc266.i.i1212 = add nuw nsw i64 %j255.0378.i.i1204, 1
-  %267 = load i32, ptr %arrayidx257.i.i1201, align 4
-  %conv258.i.i1213 = zext i32 %267 to i64
-  %cmp259.i.i1214 = icmp ult i64 %inc266.i.i1212, %conv258.i.i1213
-  br i1 %cmp259.i.i1214, label %for.body261.i.i1203, label %for.end267.i.i1215, !llvm.loop !105
-
-for.end267.i.i1215:                               ; preds = %for.body261.i.i1203, %for.body254.i.i1197
-  %pos.4.lcssa.i.i1216 = phi i64 [ %pos.3387.i.i1199, %for.body254.i.i1197 ], [ %inc262.i.i1206, %for.body261.i.i1203 ]
-  %cond276.in.idx.i.i1217 = tail call i64 @llvm.usub.sat.i64(i64 %i.4386.i.i1200, i64 1)
-  %cond276.in.i.i1218 = getelementptr inbounds i32, ptr %cond295308323.i.i1036, i64 %cond276.in.idx.i.i1217
-  %cond276.i.i1219 = load i32, ptr %cond276.in.i.i1218, align 4
-  %idxprom277.i.i1220 = zext i32 %cond276.i.i1219 to i64
-  %arrayidx278.i.i1221 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1166, i64 %idxprom277.i.i1220
-  %call280.i.i1222 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef nonnull %call46.i.i1049, ptr noundef %arrayidx278.i.i1221, ptr noundef nonnull %add.ptr279.i.i1195) #7
-  br i1 %cmp282380.not.i.i1196, label %for.end297.i.i1239, label %for.body284.i.i1223
-
-for.body284.i.i1223:                              ; preds = %for.end267.i.i1215, %for.inc295.i.i1232
-  %best_bits.0383.i.i1224 = phi double [ %best_bits.1.i.i1234, %for.inc295.i.i1232 ], [ %call280.i.i1222, %for.end267.i.i1215 ]
-  %best_out.0382.i.i1225 = phi i32 [ %best_out.1.i.i1233, %for.inc295.i.i1232 ], [ %cond276.i.i1219, %for.end267.i.i1215 ]
-  %j255.1381.i.i1226 = phi i64 [ %inc296.i.i1235, %for.inc295.i.i1232 ], [ 0, %for.end267.i.i1215 ]
-  %arrayidx285.i.i1227 = getelementptr inbounds i32, ptr %cond224408.i.i1185, i64 %j255.1381.i.i1226
-  %268 = load i32, ptr %arrayidx285.i.i1227, align 4
-  %idxprom286.i.i1228 = zext i32 %268 to i64
-  %arrayidx287.i.i1229 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1166, i64 %idxprom286.i.i1228
-  %call289.i.i1230 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef %call46.i.i1049, ptr noundef %arrayidx287.i.i1229, ptr noundef nonnull %add.ptr279.i.i1195) #7
-  %cmp290.i.i1231 = fcmp olt double %call289.i.i1230, %best_bits.0383.i.i1224
-  br i1 %cmp290.i.i1231, label %if.then292.i.i1324, label %for.inc295.i.i1232
-
-if.then292.i.i1324:                               ; preds = %for.body284.i.i1223
-  %269 = load i32, ptr %arrayidx285.i.i1227, align 4
-  br label %for.inc295.i.i1232
-
-for.inc295.i.i1232:                               ; preds = %if.then292.i.i1324, %for.body284.i.i1223
-  %best_out.1.i.i1233 = phi i32 [ %269, %if.then292.i.i1324 ], [ %best_out.0382.i.i1225, %for.body284.i.i1223 ]
-  %best_bits.1.i.i1234 = phi double [ %call289.i.i1230, %if.then292.i.i1324 ], [ %best_bits.0383.i.i1224, %for.body284.i.i1223 ]
-  %inc296.i.i1235 = add nuw i64 %j255.1381.i.i1226, 1
-  %exitcond403.not.i.i1236 = icmp eq i64 %inc296.i.i1235, %call234.i.i1186
-  br i1 %exitcond403.not.i.i1236, label %for.end297.loopexit.i.i1237, label %for.body284.i.i1223, !llvm.loop !106
-
-for.end297.loopexit.i.i1237:                      ; preds = %for.inc295.i.i1232
-  %.pre406.i.i1238 = zext i32 %best_out.1.i.i1233 to i64
-  br label %for.end297.i.i1239
-
-for.end297.i.i1239:                               ; preds = %for.end297.loopexit.i.i1237, %for.end267.i.i1215
-  %idxprom299.pre-phi.i.i1240 = phi i64 [ %.pre406.i.i1238, %for.end297.loopexit.i.i1237 ], [ %idxprom277.i.i1220, %for.end267.i.i1215 ]
-  %best_out.0.lcssa.i.i1241 = phi i32 [ %best_out.1.i.i1233, %for.end297.loopexit.i.i1237 ], [ %cond276.i.i1219, %for.end267.i.i1215 ]
-  %arrayidx298.i.i1242 = getelementptr inbounds i32, ptr %cond295308323.i.i1036, i64 %i.4386.i.i1200
-  store i32 %best_out.0.lcssa.i.i1241, ptr %arrayidx298.i.i1242, align 4
-  %arrayidx300.i.i1243 = getelementptr inbounds i32, ptr %cond242410.i.i1191, i64 %idxprom299.pre-phi.i.i1240
-  %270 = load i32, ptr %arrayidx300.i.i1243, align 4
-  %cmp301.i.i1244 = icmp eq i32 %270, -1
-  br i1 %cmp301.i.i1244, label %if.then303.i.i1322, label %for.inc308.i.i1245
-
-if.then303.i.i1322:                               ; preds = %for.end297.i.i1239
-  %inc304.i.i1323 = add i32 %next_index.0388.i.i1198, 1
-  store i32 %next_index.0388.i.i1198, ptr %arrayidx300.i.i1243, align 4
-  br label %for.inc308.i.i1245
-
-for.inc308.i.i1245:                               ; preds = %if.then303.i.i1322, %for.end297.i.i1239
-  %next_index.1.i.i1246 = phi i32 [ %inc304.i.i1323, %if.then303.i.i1322 ], [ %next_index.0388.i.i1198, %for.end297.i.i1239 ]
-  %inc309.i.i1247 = add nuw i64 %i.4386.i.i1200, 1
-  %exitcond404.not.i.i1248 = icmp eq i64 %inc309.i.i1247, %retval.0.i.i957
-  br i1 %exitcond404.not.i.i1248, label %for.end310.i.i1249, label %for.body254.i.i1197, !llvm.loop !107
-
-for.end310.i.i1249:                               ; preds = %for.inc308.i.i1245, %for.cond251.preheader.i.i1190
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call46.i.i1049) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224408.i.i1185) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i1166) #7
-  %types_alloc_size.i.i1250 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 4
-  %271 = load i64, ptr %types_alloc_size.i.i1250, align 8
-  %cmp311.i.i1251 = icmp ult i64 %271, %retval.0.i.i957
-  br i1 %cmp311.i.i1251, label %if.then313.i.i1308, label %if.end349.i.i1252
-
-if.then313.i.i1308:                               ; preds = %for.end310.i.i1249
-  %cmp316.i.i1309 = icmp eq i64 %271, 0
-  %num_blocks..i.i1310 = select i1 %cmp316.i.i1309, i64 %retval.0.i.i957, i64 %271
-  br label %while.cond324.i.i1311
-
-while.cond324.i.i1311:                            ; preds = %while.cond324.i.i1311, %if.then313.i.i1308
-  %_new_size314.0.i.i1312 = phi i64 [ %num_blocks..i.i1310, %if.then313.i.i1308 ], [ %mul328.i.i1314, %while.cond324.i.i1311 ]
-  %cmp325.i.i1313 = icmp ult i64 %_new_size314.0.i.i1312, %retval.0.i.i957
-  %mul328.i.i1314 = shl i64 %_new_size314.0.i.i1312, 1
-  br i1 %cmp325.i.i1313, label %while.cond324.i.i1311, label %cond.end336.i.i1315, !llvm.loop !108
-
-cond.end336.i.i1315:                              ; preds = %while.cond324.i.i1311
-  %call334.i.i1316 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size314.0.i.i1312) #7
-  %272 = load i64, ptr %types_alloc_size.i.i1250, align 8
-  %cmp339.not.i.i1317 = icmp eq i64 %272, 0
-  br i1 %cmp339.not.i.i1317, label %if.end344.i.i1320, label %if.then341.i.i1318
-
-if.then341.i.i1318:                               ; preds = %cond.end336.i.i1315
-  %types.i.i1319 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 2
-  %273 = load ptr, ptr %types.i.i1319, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call334.i.i1316, ptr align 1 %273, i64 %272, i1 false)
-  br label %if.end344.i.i1320
-
-if.end344.i.i1320:                                ; preds = %if.then341.i.i1318, %cond.end336.i.i1315
-  %types345.i.i1321 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 2
-  %274 = load ptr, ptr %types345.i.i1321, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %274) #7
-  store ptr %call334.i.i1316, ptr %types345.i.i1321, align 8
-  store i64 %_new_size314.0.i.i1312, ptr %types_alloc_size.i.i1250, align 8
-  br label %if.end349.i.i1252
-
-if.end349.i.i1252:                                ; preds = %if.end344.i.i1320, %for.end310.i.i1249
-  %lengths_alloc_size.i.i1253 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 5
-  %275 = load i64, ptr %lengths_alloc_size.i.i1253, align 8
-  %cmp350.i.i1254 = icmp ult i64 %275, %retval.0.i.i957
-  br i1 %cmp350.i.i1254, label %if.then352.i.i1292, label %if.end388.i.i1255
-
-if.then352.i.i1292:                               ; preds = %if.end349.i.i1252
-  %cmp355.i.i1293 = icmp eq i64 %275, 0
-  %num_blocks.290.i.i1294 = select i1 %cmp355.i.i1293, i64 %retval.0.i.i957, i64 %275
-  br label %while.cond363.i.i1295
-
-while.cond363.i.i1295:                            ; preds = %while.cond363.i.i1295, %if.then352.i.i1292
-  %_new_size353.0.i.i1296 = phi i64 [ %num_blocks.290.i.i1294, %if.then352.i.i1292 ], [ %mul367.i.i1298, %while.cond363.i.i1295 ]
-  %cmp364.i.i1297 = icmp ult i64 %_new_size353.0.i.i1296, %retval.0.i.i957
-  %mul367.i.i1298 = shl i64 %_new_size353.0.i.i1296, 1
-  br i1 %cmp364.i.i1297, label %while.cond363.i.i1295, label %cond.end375.i.i1299, !llvm.loop !109
-
-cond.end375.i.i1299:                              ; preds = %while.cond363.i.i1295
-  %mul372.i.i1300 = shl i64 %_new_size353.0.i.i1296, 2
-  %call373.i.i1301 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul372.i.i1300) #7
-  %276 = load i64, ptr %lengths_alloc_size.i.i1253, align 8
-  %cmp378.not.i.i1302 = icmp eq i64 %276, 0
-  br i1 %cmp378.not.i.i1302, label %if.end388.thread.i.i1306, label %if.then380.i.i1303
-
-if.then380.i.i1303:                               ; preds = %cond.end375.i.i1299
-  %lengths.i.i1304 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 3
-  %277 = load ptr, ptr %lengths.i.i1304, align 8
-  %mul382.i.i1305 = shl i64 %276, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call373.i.i1301, ptr align 4 %277, i64 %mul382.i.i1305, i1 false)
-  br label %if.end388.thread.i.i1306
-
-if.end388.thread.i.i1306:                         ; preds = %if.then380.i.i1303, %cond.end375.i.i1299
-  %lengths384.i.i1307 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 3
-  %278 = load ptr, ptr %lengths384.i.i1307, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %278) #7
-  store ptr %call373.i.i1301, ptr %lengths384.i.i1307, align 8
-  store i64 %_new_size353.0.i.i1296, ptr %lengths_alloc_size.i.i1253, align 8
-  br label %for.body393.lr.ph.i.i1256
-
-if.end388.i.i1255:                                ; preds = %if.end349.i.i1252
-  br i1 %cmp.not.i.i1009, label %ClusterBlocksDistance.exit.i, label %for.body393.lr.ph.i.i1256
-
-for.body393.lr.ph.i.i1256:                        ; preds = %if.end388.i.i1255, %if.end388.thread.i.i1306
-  %types410.i.i1257 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 2
-  %lengths412.i.i1258 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 3
-  br label %for.body393.i.i1259
-
-for.body393.i.i1259:                              ; preds = %for.inc417.i.i1284, %for.body393.lr.ph.i.i1256
-  %max_type.0393.i.i1260 = phi i8 [ 0, %for.body393.lr.ph.i.i1256 ], [ %max_type.1.i.i1287, %for.inc417.i.i1284 ]
-  %block_idx389.0392.i.i1261 = phi i64 [ 0, %for.body393.lr.ph.i.i1256 ], [ %block_idx389.1.i.i1286, %for.inc417.i.i1284 ]
-  %cur_length.0391.i.i1262 = phi i32 [ 0, %for.body393.lr.ph.i.i1256 ], [ %cur_length.1.i.i1285, %for.inc417.i.i1284 ]
-  %i.5390.i.i1263 = phi i64 [ 0, %for.body393.lr.ph.i.i1256 ], [ %add396.i.i1266, %for.inc417.i.i1284 ]
-  %arrayidx394.i.i1264 = getelementptr inbounds i32, ptr %add.ptr45.i.i1048, i64 %i.5390.i.i1263
-  %279 = load i32, ptr %arrayidx394.i.i1264, align 4
-  %add395.i.i1265 = add i32 %279, %cur_length.0391.i.i1262
-  %add396.i.i1266 = add nuw i64 %i.5390.i.i1263, 1
-  %cmp397.i.i1267 = icmp eq i64 %add396.i.i1266, %retval.0.i.i957
-  %arrayidx406.phi.trans.insert.i.i1268 = getelementptr inbounds i32, ptr %cond295308323.i.i1036, i64 %i.5390.i.i1263
-  %.pre.i.i1269 = load i32, ptr %arrayidx406.phi.trans.insert.i.i1268, align 4
-  br i1 %cmp397.i.i1267, label %if.then405.i.i1273, label %lor.lhs.false399.i.i1270
-
-lor.lhs.false399.i.i1270:                         ; preds = %for.body393.i.i1259
-  %arrayidx402.i.i1271 = getelementptr inbounds i32, ptr %cond295308323.i.i1036, i64 %add396.i.i1266
-  %280 = load i32, ptr %arrayidx402.i.i1271, align 4
-  %cmp403.not.i.i1272 = icmp eq i32 %.pre.i.i1269, %280
-  br i1 %cmp403.not.i.i1272, label %for.inc417.i.i1284, label %if.then405.i.i1273
-
-if.then405.i.i1273:                               ; preds = %lor.lhs.false399.i.i1270, %for.body393.i.i1259
-  %idxprom407.i.i1274 = zext i32 %.pre.i.i1269 to i64
-  %arrayidx408.i.i1275 = getelementptr inbounds i32, ptr %cond242410.i.i1191, i64 %idxprom407.i.i1274
-  %281 = load i32, ptr %arrayidx408.i.i1275, align 4
-  %conv409.i.i1276 = trunc i32 %281 to i8
-  %282 = load ptr, ptr %types410.i.i1257, align 8
-  %arrayidx411.i.i1277 = getelementptr inbounds i8, ptr %282, i64 %block_idx389.0392.i.i1261
-  store i8 %conv409.i.i1276, ptr %arrayidx411.i.i1277, align 1
-  %283 = load ptr, ptr %lengths412.i.i1258, align 8
-  %arrayidx413.i.i1278 = getelementptr inbounds i32, ptr %283, i64 %block_idx389.0392.i.i1261
-  store i32 %add395.i.i1265, ptr %arrayidx413.i.i1278, align 4
-  %conv.i.i175.i1279 = zext i8 %max_type.0393.i.i1260 to i32
-  %conv1.i.i.i1280 = and i32 %281, 255
-  %cond.i448.i.i1281 = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i1280, i32 %conv.i.i175.i1279)
-  %conv5.i.i.i1282 = trunc i32 %cond.i448.i.i1281 to i8
-  %inc415.i.i1283 = add i64 %block_idx389.0392.i.i1261, 1
-  br label %for.inc417.i.i1284
-
-for.inc417.i.i1284:                               ; preds = %if.then405.i.i1273, %lor.lhs.false399.i.i1270
-  %cur_length.1.i.i1285 = phi i32 [ 0, %if.then405.i.i1273 ], [ %add395.i.i1265, %lor.lhs.false399.i.i1270 ]
-  %block_idx389.1.i.i1286 = phi i64 [ %inc415.i.i1283, %if.then405.i.i1273 ], [ %block_idx389.0392.i.i1261, %lor.lhs.false399.i.i1270 ]
-  %max_type.1.i.i1287 = phi i8 [ %conv5.i.i.i1282, %if.then405.i.i1273 ], [ %max_type.0393.i.i1260, %lor.lhs.false399.i.i1270 ]
-  br i1 %cmp397.i.i1267, label %for.end419.loopexit.i.i1288, label %for.body393.i.i1259, !llvm.loop !110
-
-for.end419.loopexit.i.i1288:                      ; preds = %for.inc417.i.i1284
-  %284 = zext i8 %max_type.1.i.i1287 to i64
-  %285 = add nuw nsw i64 %284, 1
+if.end.i130.i814:                                 ; preds = %for.body.i808
+  %mul2.i.i815 = mul nuw nsw i64 %num_histograms.1177.i810, 4352
+  tail call void @llvm.memset.p0.i64(ptr align 8 %call109.i792, i8 0, i64 %mul2.i.i815, i1 false)
+  br label %for.body5.i.i816
+
+for.body5.i.i816:                                 ; preds = %FastLog2.exit.i.i824, %if.end.i130.i814
+  %i.192.i.i817 = phi i64 [ 0, %if.end.i130.i814 ], [ %inc11.i.i827, %FastLog2.exit.i.i824 ]
+  %total_count_.i.i818 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %i.192.i.i817, i32 1
+  %219 = load i64, ptr %total_count_.i.i818, align 8
+  %conv7.i.i819 = and i64 %219, 4294967295
+  %cmp.i.i.i820 = icmp ult i64 %conv7.i.i819, 256
+  br i1 %cmp.i.i.i820, label %if.then.i.i.i1329, label %if.end.i.i.i821
+
+if.then.i.i.i1329:                                ; preds = %for.body5.i.i816
+  %arrayidx.i.i137.i1330 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv7.i.i819
+  %220 = load double, ptr %arrayidx.i.i137.i1330, align 8
+  br label %FastLog2.exit.i.i824
+
+if.end.i.i.i821:                                  ; preds = %for.body5.i.i816
+  %conv.i.i131.i822 = uitofp i64 %conv7.i.i819 to double
+  %call.i.i.i823 = tail call double @log2(double noundef %conv.i.i131.i822) #7
+  br label %FastLog2.exit.i.i824
+
+FastLog2.exit.i.i824:                             ; preds = %if.end.i.i.i821, %if.then.i.i.i1329
+  %retval.i.0.i.i825 = phi double [ %220, %if.then.i.i.i1329 ], [ %call.i.i.i823, %if.end.i.i.i821 ]
+  %arrayidx9.i.i826 = getelementptr inbounds double, ptr %call109.i792, i64 %i.192.i.i817
+  store double %retval.i.0.i.i825, ptr %arrayidx9.i.i826, align 8
+  %inc11.i.i827 = add nuw nsw i64 %i.192.i.i817, 1
+  %exitcond.not.i132.i828 = icmp eq i64 %inc11.i.i827, %num_histograms.1177.i810
+  br i1 %exitcond.not.i132.i828, label %for.body16.i.i829, label %for.body5.i.i816, !llvm.loop !84
+
+for.cond13.loopexit.i.i851:                       ; preds = %BitCost.exit.i.i845
+  %cmp14.not.i.i852 = icmp eq i64 %dec.i.i831, 0
+  br i1 %cmp14.not.i.i852, label %for.end32.i.i853, label %for.body16.i.i829, !llvm.loop !85
+
+for.body16.i.i829:                                ; preds = %FastLog2.exit.i.i824, %for.cond13.loopexit.i.i851
+  %i.294.i.i830 = phi i64 [ %dec.i.i831, %for.cond13.loopexit.i.i851 ], [ 544, %FastLog2.exit.i.i824 ]
+  %dec.i.i831 = add nsw i64 %i.294.i.i830, -1
+  %invariant.gep.i.i832 = getelementptr [544 x i32], ptr %call89.i704, i64 0, i64 %dec.i.i831
+  %mul26.i.i833 = mul i64 %dec.i.i831, %num_histograms.1177.i810
+  %221 = getelementptr double, ptr %call109.i792, i64 %mul26.i.i833
+  br label %for.body20.i.i834
+
+for.body20.i.i834:                                ; preds = %BitCost.exit.i.i845, %for.body16.i.i829
+  %j.093.i.i835 = phi i64 [ 0, %for.body16.i.i829 ], [ %inc30.i.i849, %BitCost.exit.i.i845 ]
+  %arrayidx21.i.i836 = getelementptr inbounds double, ptr %call109.i792, i64 %j.093.i.i835
+  %222 = load double, ptr %arrayidx21.i.i836, align 8
+  %gep.i.i837 = getelementptr %struct.HistogramDistance, ptr %invariant.gep.i.i832, i64 %j.093.i.i835
+  %223 = load i32, ptr %gep.i.i837, align 4
+  %conv24.i.i838 = zext i32 %223 to i64
+  %cmp.i129.i.i839 = icmp eq i32 %223, 0
+  br i1 %cmp.i129.i.i839, label %BitCost.exit.i.i845, label %cond.false.i.i.i840
+
+cond.false.i.i.i840:                              ; preds = %for.body20.i.i834
+  %cmp.i.i.i.i841 = icmp ult i32 %223, 256
+  br i1 %cmp.i.i.i.i841, label %if.then.i.i.i.i1327, label %if.end.i.i.i.i842
+
+if.then.i.i.i.i1327:                              ; preds = %cond.false.i.i.i840
+  %arrayidx.i.i.i136.i1328 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv24.i.i838
+  %224 = load double, ptr %arrayidx.i.i.i136.i1328, align 8
+  br label %BitCost.exit.i.i845
+
+if.end.i.i.i.i842:                                ; preds = %cond.false.i.i.i840
+  %conv.i.i.i.i843 = uitofp i32 %223 to double
+  %call.i.i.i.i844 = tail call double @log2(double noundef %conv.i.i.i.i843) #7
+  br label %BitCost.exit.i.i845
+
+BitCost.exit.i.i845:                              ; preds = %if.end.i.i.i.i842, %if.then.i.i.i.i1327, %for.body20.i.i834
+  %cond.i.i.i846 = phi double [ -2.000000e+00, %for.body20.i.i834 ], [ %224, %if.then.i.i.i.i1327 ], [ %call.i.i.i.i844, %if.end.i.i.i.i842 ]
+  %sub.i133.i847 = fsub double %222, %cond.i.i.i846
+  %arrayidx28.i.i848 = getelementptr double, ptr %221, i64 %j.093.i.i835
+  store double %sub.i133.i847, ptr %arrayidx28.i.i848, align 8
+  %inc30.i.i849 = add nuw nsw i64 %j.093.i.i835, 1
+  %exitcond108.not.i.i850 = icmp eq i64 %inc30.i.i849, %num_histograms.1177.i810
+  br i1 %exitcond108.not.i.i850, label %for.cond13.loopexit.i.i851, label %for.body20.i.i834, !llvm.loop !86
+
+for.end32.i.i853:                                 ; preds = %for.cond13.loopexit.i.i851
+  %mul33.i.i854 = shl nuw nsw i64 %num_histograms.1177.i810, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %call117.i794, i8 0, i64 %mul33.i.i854, i1 false)
+  %mul35.i.i855 = mul i64 %shr.i.i812, %j.1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %cond130.i800, i8 0, i64 %mul35.i.i855, i1 false)
+  br label %for.body39.i.i856
+
+for.body39.i.i856:                                ; preds = %for.inc93.i.i892, %for.end32.i.i853
+  %byte_ix.099.i.i857 = phi i64 [ %inc94.i.i893, %for.inc93.i.i892 ], [ 0, %for.end32.i.i853 ]
+  %arrayidx41.i.i858 = getelementptr inbounds i16, ptr %call14, i64 %byte_ix.099.i.i857
+  %225 = load i16, ptr %arrayidx41.i.i858, align 2
+  %conv42.i.i859 = zext i16 %225 to i64
+  %mul43.i.i860 = mul nuw nsw i64 %num_histograms.1177.i810, %conv42.i.i859
+  %226 = getelementptr double, ptr %call109.i792, i64 %mul43.i.i860
+  %arrayidx58.i.i861 = getelementptr inbounds i8, ptr %call97.i788, i64 %byte_ix.099.i.i857
+  br label %for.body47.i.i862
+
+for.body47.i.i862:                                ; preds = %for.inc60.i.i869, %for.body39.i.i856
+  %k.096.i.i863 = phi i64 [ 0, %for.body39.i.i856 ], [ %inc61.i.i871, %for.inc60.i.i869 ]
+  %min_cost.095.i.i864 = phi double [ 0x547D42AEA2879F2E, %for.body39.i.i856 ], [ %min_cost.1.i.i870, %for.inc60.i.i869 ]
+  %arrayidx49.i.i865 = getelementptr double, ptr %226, i64 %k.096.i.i863
+  %227 = load double, ptr %arrayidx49.i.i865, align 8
+  %arrayidx50.i.i866 = getelementptr inbounds double, ptr %call117.i794, i64 %k.096.i.i863
+  %228 = load double, ptr %arrayidx50.i.i866, align 8
+  %add51.i.i867 = fadd double %227, %228
+  store double %add51.i.i867, ptr %arrayidx50.i.i866, align 8
+  %cmp53.i.i868 = fcmp olt double %add51.i.i867, %min_cost.095.i.i864
+  br i1 %cmp53.i.i868, label %if.then55.i.i1325, label %for.inc60.i.i869
+
+if.then55.i.i1325:                                ; preds = %for.body47.i.i862
+  %conv57.i.i1326 = trunc i64 %k.096.i.i863 to i8
+  store i8 %conv57.i.i1326, ptr %arrayidx58.i.i861, align 1
+  br label %for.inc60.i.i869
+
+for.inc60.i.i869:                                 ; preds = %if.then55.i.i1325, %for.body47.i.i862
+  %min_cost.1.i.i870 = phi double [ %add51.i.i867, %if.then55.i.i1325 ], [ %min_cost.095.i.i864, %for.body47.i.i862 ]
+  %inc61.i.i871 = add nuw nsw i64 %k.096.i.i863, 1
+  %exitcond109.not.i.i872 = icmp eq i64 %inc61.i.i871, %num_histograms.1177.i810
+  br i1 %exitcond109.not.i.i872, label %for.end62.i.i873, label %for.body47.i.i862, !llvm.loop !87
+
+for.end62.i.i873:                                 ; preds = %for.inc60.i.i869
+  %mul40.i.i874 = mul i64 %byte_ix.099.i.i857, %shr.i.i812
+  %cmp63.i.i875 = icmp ult i64 %byte_ix.099.i.i857, 2000
+  br i1 %cmp63.i.i875, label %if.then65.i.i1319, label %if.end70.i.i876
+
+if.then65.i.i1319:                                ; preds = %for.end62.i.i873
+  %conv66.i.i1320 = uitofp i64 %byte_ix.099.i.i857 to double
+  %mul67.i.i1321 = fmul double %conv66.i.i1320, 7.000000e-02
+  %div.i135.i1322 = fdiv double %mul67.i.i1321, 2.000000e+03
+  %add68.i.i1323 = fadd double %div.i135.i1322, 7.700000e-01
+  %mul69.i.i1324 = fmul double %add68.i.i1323, 1.460000e+01
+  br label %if.end70.i.i876
+
+if.end70.i.i876:                                  ; preds = %if.then65.i.i1319, %for.end62.i.i873
+  %block_switch_cost.0.i.i877 = phi double [ %mul69.i.i1324, %if.then65.i.i1319 ], [ 1.460000e+01, %for.end62.i.i873 ]
+  %229 = getelementptr i8, ptr %cond130.i800, i64 %mul40.i.i874
+  br label %for.body74.i.i878
+
+for.body74.i.i878:                                ; preds = %for.inc90.i.i889, %if.end70.i.i876
+  %k.197.i.i879 = phi i64 [ 0, %if.end70.i.i876 ], [ %inc91.i.i890, %for.inc90.i.i889 ]
+  %arrayidx75.i.i880 = getelementptr inbounds double, ptr %call117.i794, i64 %k.197.i.i879
+  %230 = load double, ptr %arrayidx75.i.i880, align 8
+  %sub76.i.i881 = fsub double %230, %min_cost.1.i.i870
+  store double %sub76.i.i881, ptr %arrayidx75.i.i880, align 8
+  %cmp78.i.i882 = fcmp ult double %sub76.i.i881, %block_switch_cost.0.i.i877
+  br i1 %cmp78.i.i882, label %for.inc90.i.i889, label %if.then80.i.i883
+
+if.then80.i.i883:                                 ; preds = %for.body74.i.i878
+  %231 = trunc i64 %k.197.i.i879 to i8
+  %sh_prom.i.i884 = and i8 %231, 7
+  %shl.i.i885 = shl nuw i8 1, %sh_prom.i.i884
+  store double %block_switch_cost.0.i.i877, ptr %arrayidx75.i.i880, align 8
+  %shr84.i.i886 = lshr i64 %k.197.i.i879, 3
+  %arrayidx86.i.i887 = getelementptr i8, ptr %229, i64 %shr84.i.i886
+  %232 = load i8, ptr %arrayidx86.i.i887, align 1
+  %or89.i.i888 = or i8 %232, %shl.i.i885
+  store i8 %or89.i.i888, ptr %arrayidx86.i.i887, align 1
+  br label %for.inc90.i.i889
+
+for.inc90.i.i889:                                 ; preds = %if.then80.i.i883, %for.body74.i.i878
+  %inc91.i.i890 = add nuw nsw i64 %k.197.i.i879, 1
+  %exitcond110.not.i.i891 = icmp eq i64 %inc91.i.i890, %num_histograms.1177.i810
+  br i1 %exitcond110.not.i.i891, label %for.inc93.i.i892, label %for.body74.i.i878, !llvm.loop !88
+
+for.inc93.i.i892:                                 ; preds = %for.inc90.i.i889
+  %inc94.i.i893 = add nuw i64 %byte_ix.099.i.i857, 1
+  %exitcond111.not.i.i894 = icmp eq i64 %inc94.i.i893, %j.1
+  br i1 %exitcond111.not.i.i894, label %for.end95.i.i895, label %for.body39.i.i856, !llvm.loop !89
+
+for.end95.i.i895:                                 ; preds = %for.inc93.i.i892
+  %233 = load i8, ptr %arrayidx99.i.i807, align 1
+  %mul98.i.i896 = mul i64 %shr.i.i812, %sub96.i.i806
+  br label %while.body.i.i897
+
+while.body.i.i897:                                ; preds = %if.end127.i.i915, %for.end95.i.i895
+  %cur_id.0104.i.i898 = phi i8 [ %cur_id.1.i.i917, %if.end127.i.i915 ], [ %233, %for.end95.i.i895 ]
+  %ix97.0103.i.i899 = phi i64 [ %sub108.i.i905, %if.end127.i.i915 ], [ %mul98.i.i896, %for.end95.i.i895 ]
+  %num_blocks.0102.i.i900 = phi i64 [ %num_blocks.1.i.i916, %if.end127.i.i915 ], [ 1, %for.end95.i.i895 ]
+  %byte_ix.1101.i.i901 = phi i64 [ %dec107.i.i904, %if.end127.i.i915 ], [ %sub96.i.i806, %for.end95.i.i895 ]
+  %and104.i.i902 = and i8 %cur_id.0104.i.i898, 7
+  %shl105.i.i903 = shl nuw i8 1, %and104.i.i902
+  %dec107.i.i904 = add i64 %byte_ix.1101.i.i901, -1
+  %sub108.i.i905 = sub i64 %ix97.0103.i.i899, %shr.i.i812
+  %234 = lshr i8 %cur_id.0104.i.i898, 3
+  %conv111.i.i906 = zext nneg i8 %234 to i64
+  %235 = getelementptr i8, ptr %cond130.i800, i64 %sub108.i.i905
+  %arrayidx113.i.i907 = getelementptr i8, ptr %235, i64 %conv111.i.i906
+  %236 = load i8, ptr %arrayidx113.i.i907, align 1
+  %and11688.i.i908 = and i8 %236, %shl105.i.i903
+  %tobool.not.i.i909 = icmp eq i8 %and11688.i.i908, 0
+  br i1 %tobool.not.i.i909, label %if.end127.i.i915, label %if.then117.i.i910
+
+if.then117.i.i910:                                ; preds = %while.body.i.i897
+  %arrayidx119.i.i911 = getelementptr inbounds i8, ptr %call97.i788, i64 %dec107.i.i904
+  %237 = load i8, ptr %arrayidx119.i.i911, align 1
+  %cmp121.not.i.i912 = icmp ne i8 %cur_id.0104.i.i898, %237
+  %inc125.i.i913 = zext i1 %cmp121.not.i.i912 to i64
+  %spec.select.i134.i914 = add i64 %num_blocks.0102.i.i900, %inc125.i.i913
+  br label %if.end127.i.i915
+
+if.end127.i.i915:                                 ; preds = %if.then117.i.i910, %while.body.i.i897
+  %num_blocks.1.i.i916 = phi i64 [ %num_blocks.0102.i.i900, %while.body.i.i897 ], [ %spec.select.i134.i914, %if.then117.i.i910 ]
+  %cur_id.1.i.i917 = phi i8 [ %cur_id.0104.i.i898, %while.body.i.i897 ], [ %237, %if.then117.i.i910 ]
+  %arrayidx128.i.i918 = getelementptr inbounds i8, ptr %call97.i788, i64 %dec107.i.i904
+  store i8 %cur_id.1.i.i917, ptr %arrayidx128.i.i918, align 1
+  %cmp100.not.i.i919 = icmp eq i64 %dec107.i.i904, 0
+  br i1 %cmp100.not.i.i919, label %FindBlocksDistance.exit.i, label %while.body.i.i897, !llvm.loop !90
+
+FindBlocksDistance.exit.i:                        ; preds = %if.end127.i.i915, %for.body.preheader.i.i1331
+  %retval.0.i.i920 = phi i64 [ 1, %for.body.preheader.i.i1331 ], [ %num_blocks.1.i.i916, %if.end127.i.i915 ]
+  %cmp19.not.i.i921 = icmp eq i64 %num_histograms.1177.i810, 0
+  br i1 %cmp19.not.i.i921, label %for.body3.i.i928.preheader, label %for.body.i139.i922
+
+for.body.i139.i922:                               ; preds = %FindBlocksDistance.exit.i, %for.body.i139.i922
+  %i.020.i.i923 = phi i64 [ %inc.i141.i925, %for.body.i139.i922 ], [ 0, %FindBlocksDistance.exit.i ]
+  %arrayidx.i140.i924 = getelementptr inbounds i16, ptr %call135.i802, i64 %i.020.i.i923
+  store i16 256, ptr %arrayidx.i140.i924, align 2
+  %inc.i141.i925 = add nuw nsw i64 %i.020.i.i923, 1
+  %exitcond.not.i142.i926 = icmp eq i64 %inc.i141.i925, %num_histograms.1177.i810
+  br i1 %exitcond.not.i142.i926, label %for.body3.i.i928.preheader, label %for.body.i139.i922, !llvm.loop !91
+
+for.body3.i.i928.preheader:                       ; preds = %for.body.i139.i922, %FindBlocksDistance.exit.i
+  br label %for.body3.i.i928
+
+for.body3.i.i928:                                 ; preds = %for.body3.i.i928.preheader, %for.inc12.i.i935
+  %i.123.i.i929 = phi i64 [ %inc13.i.i937, %for.inc12.i.i935 ], [ 0, %for.body3.i.i928.preheader ]
+  %next_id.022.i.i930 = phi i16 [ %next_id.1.i.i936, %for.inc12.i.i935 ], [ 0, %for.body3.i.i928.preheader ]
+  %arrayidx4.i.i931 = getelementptr inbounds i8, ptr %call97.i788, i64 %i.123.i.i929
+  %238 = load i8, ptr %arrayidx4.i.i931, align 1
+  %idxprom.i.i932 = zext i8 %238 to i64
+  %arrayidx5.i.i933 = getelementptr inbounds i16, ptr %call135.i802, i64 %idxprom.i.i932
+  %239 = load i16, ptr %arrayidx5.i.i933, align 2
+  %cmp6.i.i934 = icmp eq i16 %239, 256
+  br i1 %cmp6.i.i934, label %if.then.i144.i1317, label %for.inc12.i.i935
+
+if.then.i144.i1317:                               ; preds = %for.body3.i.i928
+  %inc8.i.i1318 = add i16 %next_id.022.i.i930, 1
+  store i16 %next_id.022.i.i930, ptr %arrayidx5.i.i933, align 2
+  br label %for.inc12.i.i935
+
+for.inc12.i.i935:                                 ; preds = %if.then.i144.i1317, %for.body3.i.i928
+  %next_id.1.i.i936 = phi i16 [ %inc8.i.i1318, %if.then.i144.i1317 ], [ %next_id.022.i.i930, %for.body3.i.i928 ]
+  %inc13.i.i937 = add nuw i64 %i.123.i.i929, 1
+  %exitcond26.not.i.i938 = icmp eq i64 %inc13.i.i937, %j.1
+  br i1 %exitcond26.not.i.i938, label %for.body18.i.i940, label %for.body3.i.i928, !llvm.loop !92
+
+for.body18.i.i940:                                ; preds = %for.inc12.i.i935, %for.body18.i.i940
+  %i.225.i.i941 = phi i64 [ %inc25.i.i946, %for.body18.i.i940 ], [ 0, %for.inc12.i.i935 ]
+  %arrayidx19.i.i942 = getelementptr inbounds i8, ptr %call97.i788, i64 %i.225.i.i941
+  %240 = load i8, ptr %arrayidx19.i.i942, align 1
+  %idxprom20.i.i943 = zext i8 %240 to i64
+  %arrayidx21.i143.i944 = getelementptr inbounds i16, ptr %call135.i802, i64 %idxprom20.i.i943
+  %241 = load i16, ptr %arrayidx21.i143.i944, align 2
+  %conv22.i.i945 = trunc i16 %241 to i8
+  store i8 %conv22.i.i945, ptr %arrayidx19.i.i942, align 1
+  %inc25.i.i946 = add nuw i64 %i.225.i.i941, 1
+  %exitcond27.not.i.i947 = icmp eq i64 %inc25.i.i946, %j.1
+  br i1 %exitcond27.not.i.i947, label %RemapBlockIdsDistance.exit.i, label %for.body18.i.i940, !llvm.loop !93
+
+RemapBlockIdsDistance.exit.i:                     ; preds = %for.body18.i.i940
+  %242 = zext i16 %next_id.1.i.i936 to i64
+  %cmp.i10.not.i.i948 = icmp eq i16 %next_id.1.i.i936, 0
+  br i1 %cmp.i10.not.i.i948, label %for.body.i151.i956.preheader, label %for.body.i.i145.i949
+
+for.body.i.i145.i949:                             ; preds = %RemapBlockIdsDistance.exit.i, %for.body.i.i145.i949
+  %i.i.011.i.i950 = phi i64 [ %inc.i.i148.i953, %for.body.i.i145.i949 ], [ 0, %RemapBlockIdsDistance.exit.i ]
+  %add.ptr.i.i146.i951 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %i.i.011.i.i950
+  %bit_cost_.i.i147.i952 = getelementptr inbounds i8, ptr %add.ptr.i.i146.i951, i64 2184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %add.ptr.i.i146.i951, i8 0, i64 2184, i1 false)
+  store double 0x7FF0000000000000, ptr %bit_cost_.i.i147.i952, align 8
+  %inc.i.i148.i953 = add nuw nsw i64 %i.i.011.i.i950, 1
+  %exitcond.not.i149.i954 = icmp eq i64 %inc.i.i148.i953, %242
+  br i1 %exitcond.not.i149.i954, label %for.body.i151.i956.preheader, label %for.body.i.i145.i949, !llvm.loop !79
+
+for.body.i151.i956.preheader:                     ; preds = %for.body.i.i145.i949, %RemapBlockIdsDistance.exit.i
+  br label %for.body.i151.i956
+
+for.body.i151.i956:                               ; preds = %for.body.i151.i956.preheader, %for.body.i151.i956
+  %i.013.i.i957 = phi i64 [ %inc.i156.i967, %for.body.i151.i956 ], [ 0, %for.body.i151.i956.preheader ]
+  %arrayidx.i152.i958 = getelementptr inbounds i8, ptr %call97.i788, i64 %i.013.i.i957
+  %243 = load i8, ptr %arrayidx.i152.i958, align 1
+  %idxprom.i153.i959 = zext i8 %243 to i64
+  %arrayidx1.i.i960 = getelementptr inbounds %struct.HistogramDistance, ptr %call89.i704, i64 %idxprom.i153.i959
+  %arrayidx2.i.i961 = getelementptr inbounds i16, ptr %call14, i64 %i.013.i.i957
+  %244 = load i16, ptr %arrayidx2.i.i961, align 2
+  %conv.i154.i962 = zext i16 %244 to i64
+  %arrayidx.i.i155.i963 = getelementptr inbounds [544 x i32], ptr %arrayidx1.i.i960, i64 0, i64 %conv.i154.i962
+  %245 = load i32, ptr %arrayidx.i.i155.i963, align 4
+  %inc.i4.i.i964 = add i32 %245, 1
+  store i32 %inc.i4.i.i964, ptr %arrayidx.i.i155.i963, align 4
+  %total_count_.i5.i.i965 = getelementptr inbounds i8, ptr %arrayidx1.i.i960, i64 2176
+  %246 = load i64, ptr %total_count_.i5.i.i965, align 8
+  %inc1.i.i.i966 = add i64 %246, 1
+  store i64 %inc1.i.i.i966, ptr %total_count_.i5.i.i965, align 8
+  %inc.i156.i967 = add nuw i64 %i.013.i.i957, 1
+  %exitcond14.not.i.i968 = icmp eq i64 %inc.i156.i967, %j.1
+  br i1 %exitcond14.not.i.i968, label %BuildBlockHistogramsDistance.exit.i, label %for.body.i151.i956, !llvm.loop !94
+
+BuildBlockHistogramsDistance.exit.i:              ; preds = %for.body.i151.i956
+  %inc147.i969 = add nuw nsw i64 %i.0178.i809, 1
+  %exitcond.not.i970 = icmp eq i64 %inc147.i969, %cond141.i805
+  br i1 %exitcond.not.i970, label %for.end.i971, label %for.body.i808, !llvm.loop !95
+
+for.end.i971:                                     ; preds = %BuildBlockHistogramsDistance.exit.i
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call109.i792) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call117.i794) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond130.i800) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call135.i802) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call89.i704) #7
+  %cmp.not.i.i972 = icmp eq i64 %retval.0.i.i920, 0
+  br i1 %cmp.not.i.i972, label %cond.end7.i.i978, label %cond.end.i.i973
+
+cond.end.i.i973:                                  ; preds = %for.end.i971
+  %mul.i157.i974 = shl i64 %retval.0.i.i920, 2
+  %call.i.i975 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul.i157.i974) #7
+  %add.i158.i976 = add i64 %retval.0.i.i920, 256
+  %cmp1.not.i.i977 = icmp eq i64 %add.i158.i976, 0
+  br i1 %cmp1.not.i.i977, label %cond.true19.i.i987, label %cond.end7.i.i978
+
+cond.end7.i.i978:                                 ; preds = %cond.end.i.i973, %for.end.i971
+  %add296.i.i979 = phi i64 [ %add.i158.i976, %cond.end.i.i973 ], [ 256, %for.end.i971 ]
+  %cond294.i.i980 = phi ptr [ %call.i.i975, %cond.end.i.i973 ], [ null, %for.end.i971 ]
+  %mul4.i.i981 = shl i64 %add296.i.i979, 2
+  %call5.i.i982 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul4.i.i981) #7
+  %sub.i159.i983 = shl i64 %retval.0.i.i920, 4
+  %mul10.i.i984 = add i64 %sub.i159.i983, 1008
+  %div288.i.i985 = lshr i64 %mul10.i.i984, 6
+  %cmp11.not.i.i986 = icmp ult i64 %mul10.i.i984, 64
+  br i1 %cmp11.not.i.i986, label %cond.end23.i.i996, label %cond.true19.i.i987
+
+cond.true19.i.i987:                               ; preds = %cond.end7.i.i978, %cond.end.i.i973
+  %div288303.sink.i.i988 = phi i64 [ %div288.i.i985, %cond.end7.i.i978 ], [ 288230376151711695, %cond.end.i.i973 ]
+  %add297305337.i.i989 = phi i64 [ %add296.i.i979, %cond.end7.i.i978 ], [ 0, %cond.end.i.i973 ]
+  %cond295307336.i.i990 = phi ptr [ %cond294.i.i980, %cond.end7.i.i978 ], [ %call.i.i975, %cond.end.i.i973 ]
+  %cond8309335.i.i991 = phi ptr [ %call5.i.i982, %cond.end7.i.i978 ], [ null, %cond.end.i.i973 ]
+  %mul13.i.i992 = mul i64 %div288303.sink.i.i988, 2192
+  %call14.i.i993 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul13.i.i992) #7
+  %mul20.i.i994 = shl nuw nsw i64 %div288303.sink.i.i988, 2
+  %call21.i.i995 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul20.i.i994) #7
+  br label %cond.end23.i.i996
+
+cond.end23.i.i996:                                ; preds = %cond.true19.i.i987, %cond.end7.i.i978
+  %cond17325.i.i997 = phi ptr [ %call14.i.i993, %cond.true19.i.i987 ], [ null, %cond.end7.i.i978 ]
+  %add297306324.i.i998 = phi i64 [ %add297305337.i.i989, %cond.true19.i.i987 ], [ %add296.i.i979, %cond.end7.i.i978 ]
+  %cond295308323.i.i999 = phi ptr [ %cond295307336.i.i990, %cond.true19.i.i987 ], [ %cond294.i.i980, %cond.end7.i.i978 ]
+  %cond8310322.i.i1000 = phi ptr [ %cond8309335.i.i991, %cond.true19.i.i987 ], [ %call5.i.i982, %cond.end7.i.i978 ]
+  %div288312321.i.i1001 = phi i64 [ %div288303.sink.i.i988, %cond.true19.i.i987 ], [ %div288.i.i985, %cond.end7.i.i978 ]
+  %cond24.i.i1002 = phi ptr [ %call21.i.i995, %cond.true19.i.i987 ], [ null, %cond.end7.i.i978 ]
+  br i1 %cmp.not.i.i972, label %cond.true36.i.i1007, label %cond.true27.i.i1003
+
+cond.true27.i.i1003:                              ; preds = %cond.end23.i.i996
+  %cond.i441.i.i1004 = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i920, i64 64)
+  %mul29.i.i1005 = mul nuw nsw i64 %cond.i441.i.i1004, 2192
+  %call30.i.i1006 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul29.i.i1005) #7
+  br label %cond.true36.i.i1007
+
+cond.true36.i.i1007:                              ; preds = %cond.true27.i.i1003, %cond.end23.i.i996
+  %cond33.i.i1008 = phi ptr [ %call30.i.i1006, %cond.true27.i.i1003 ], [ null, %cond.end23.i.i996 ]
+  %call38.i.i1009 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 49176) #7
+  %add.ptr45.i.i1011 = getelementptr inbounds i8, ptr %cond8310322.i.i1000, i64 1024
+  %call46.i.i1012 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 4384) #7
+  %mul48.i.i1013 = shl i64 %add297306324.i.i998, 2
+  tail call void @llvm.memset.p0.i64(ptr align 4 %cond8310322.i.i1000, i8 0, i64 %mul48.i.i1013, i1 false)
+  br label %for.body.i160.i1014
+
+for.cond60.preheader.i.i1029:                     ; preds = %for.inc.i164.i1027
+  %add.ptr43.i.i1010 = getelementptr inbounds i8, ptr %cond8310322.i.i1000, i64 512
+  %add.ptr42.i.i1030 = getelementptr inbounds i8, ptr %cond8310322.i.i1000, i64 256
+  %add.ptr44.i.i1031 = getelementptr inbounds i8, ptr %cond8310322.i.i1000, i64 768
+  br i1 %cmp.not.i.i972, label %for.end197.i.i1126, label %for.body69.lr.ph.i.i1032
+
+for.body.i160.i1014:                              ; preds = %for.inc.i164.i1027, %cond.true36.i.i1007
+  %block_idx.0341.i.i1015 = phi i64 [ %block_idx.1.i.i1028, %for.inc.i164.i1027 ], [ 0, %cond.true36.i.i1007 ]
+  %i.0340.i.i1016 = phi i64 [ %add50.i.i1019, %for.inc.i164.i1027 ], [ 0, %cond.true36.i.i1007 ]
+  %arrayidx.i161.i1017 = getelementptr inbounds i32, ptr %add.ptr45.i.i1011, i64 %block_idx.0341.i.i1015
+  %247 = load i32, ptr %arrayidx.i161.i1017, align 4
+  %inc.i162.i1018 = add i32 %247, 1
+  store i32 %inc.i162.i1018, ptr %arrayidx.i161.i1017, align 4
+  %add50.i.i1019 = add nuw i64 %i.0340.i.i1016, 1
+  %cmp51.i.i1020 = icmp eq i64 %add50.i.i1019, %j.1
+  br i1 %cmp51.i.i1020, label %if.then.i163.i1025, label %lor.lhs.false.i.i1021
+
+lor.lhs.false.i.i1021:                            ; preds = %for.body.i160.i1014
+  %arrayidx52.i.i1022 = getelementptr inbounds i8, ptr %call97.i788, i64 %i.0340.i.i1016
+  %248 = load i8, ptr %arrayidx52.i.i1022, align 1
+  %arrayidx54.i.i1023 = getelementptr inbounds i8, ptr %call97.i788, i64 %add50.i.i1019
+  %249 = load i8, ptr %arrayidx54.i.i1023, align 1
+  %cmp56.not.i.i1024 = icmp eq i8 %248, %249
+  br i1 %cmp56.not.i.i1024, label %for.inc.i164.i1027, label %if.then.i163.i1025
+
+if.then.i163.i1025:                               ; preds = %lor.lhs.false.i.i1021, %for.body.i160.i1014
+  %inc58.i.i1026 = add i64 %block_idx.0341.i.i1015, 1
+  br label %for.inc.i164.i1027
+
+for.inc.i164.i1027:                               ; preds = %if.then.i163.i1025, %lor.lhs.false.i.i1021
+  %block_idx.1.i.i1028 = phi i64 [ %inc58.i.i1026, %if.then.i163.i1025 ], [ %block_idx.0341.i.i1015, %lor.lhs.false.i.i1021 ]
+  br i1 %cmp51.i.i1020, label %for.cond60.preheader.i.i1029, label %for.body.i160.i1014, !llvm.loop !96
+
+for.body69.lr.ph.i.i1032:                         ; preds = %for.cond60.preheader.i.i1029, %for.end193.i.i1121
+  %indvars.iv.i.i1033 = phi i64 [ %indvars.iv.next.i.i1125, %for.end193.i.i1121 ], [ %retval.0.i.i920, %for.cond60.preheader.i.i1029 ]
+  %all_histograms_size.0367.i.i1034 = phi i64 [ %all_histograms_size.1.lcssa.i.i1109, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %all_histograms_capacity.0366.i.i1035 = phi i64 [ %all_histograms_capacity.1.i.i1082, %for.end193.i.i1121 ], [ %div288312321.i.i1001, %for.cond60.preheader.i.i1029 ]
+  %all_histograms.0365.i.i1036 = phi ptr [ %all_histograms.1.i.i1081, %for.end193.i.i1121 ], [ %cond17325.i.i997, %for.cond60.preheader.i.i1029 ]
+  %cluster_size_size.0364.i.i1037 = phi i64 [ %cluster_size_size.1.lcssa.i.i1108, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %cluster_size_capacity.0363.i.i1038 = phi i64 [ %cluster_size_capacity.1.i.i1087, %for.end193.i.i1121 ], [ %div288312321.i.i1001, %for.cond60.preheader.i.i1029 ]
+  %cluster_size.0362.i.i1039 = phi ptr [ %cluster_size.1.i.i1086, %for.end193.i.i1121 ], [ %cond24.i.i1002, %for.cond60.preheader.i.i1029 ]
+  %num_clusters.0361.i.i1040 = phi i64 [ %add194.i.i1122, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %pos.0360.i.i1041 = phi i64 [ %pos.2.lcssa.i.i1067, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %i.1359.i.i1042 = phi i64 [ %add196.i.i1123, %for.end193.i.i1121 ], [ 0, %for.cond60.preheader.i.i1029 ]
+  %umin399.i.i1043 = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i.i1033, i64 64)
+  %umax400.i.i1044 = tail call i64 @llvm.umax.i64(i64 %umin399.i.i1043, i64 1)
+  %250 = getelementptr i32, ptr %add.ptr45.i.i1011, i64 %i.1359.i.i1042
+  br label %for.body69.i.i1046
+
+for.body69.i.i1046:                               ; preds = %for.end84.i.i1066, %for.body69.lr.ph.i.i1032
+  %j.0348.i.i1047 = phi i64 [ 0, %for.body69.lr.ph.i.i1032 ], [ %inc94.i166.i1073, %for.end84.i.i1066 ]
+  %pos.1347.i.i1048 = phi i64 [ %pos.0360.i.i1041, %for.body69.lr.ph.i.i1032 ], [ %pos.2.lcssa.i.i1067, %for.end84.i.i1066 ]
+  %arrayidx71.i.i1049 = getelementptr i32, ptr %250, i64 %j.0348.i.i1047
+  %251 = load i32, ptr %arrayidx71.i.i1049, align 4
+  %conv72.i.i1050 = zext i32 %251 to i64
+  %arrayidx73.i.i1051 = getelementptr inbounds %struct.HistogramDistance, ptr %cond33.i.i1008, i64 %j.0348.i.i1047
+  %total_count_.i451.i.i1052 = getelementptr inbounds i8, ptr %arrayidx73.i.i1051, i64 2176
+  %bit_cost_.i452.i.i1053 = getelementptr inbounds i8, ptr %arrayidx73.i.i1051, i64 2184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %arrayidx73.i.i1051, i8 0, i64 2184, i1 false)
+  store double 0x7FF0000000000000, ptr %bit_cost_.i452.i.i1053, align 8
+  %cmp75342.not.i.i1054 = icmp eq i32 %251, 0
+  br i1 %cmp75342.not.i.i1054, label %for.end84.i.i1066, label %for.body77.i.i1055
+
+for.body77.i.i1055:                               ; preds = %for.body69.i.i1046, %for.body77.i.i1055
+  %k.0344.i.i1056 = phi i64 [ %inc83.i.i1064, %for.body77.i.i1055 ], [ 0, %for.body69.i.i1046 ]
+  %pos.2343.i.i1057 = phi i64 [ %inc79.i.i1058, %for.body77.i.i1055 ], [ %pos.1347.i.i1048, %for.body69.i.i1046 ]
+  %inc79.i.i1058 = add i64 %pos.2343.i.i1057, 1
+  %arrayidx80.i.i1059 = getelementptr inbounds i16, ptr %call14, i64 %pos.2343.i.i1057
+  %252 = load i16, ptr %arrayidx80.i.i1059, align 2
+  %conv81.i.i1060 = zext i16 %252 to i64
+  %arrayidx.i457.i.i1061 = getelementptr inbounds [544 x i32], ptr %arrayidx73.i.i1051, i64 0, i64 %conv81.i.i1060
+  %253 = load i32, ptr %arrayidx.i457.i.i1061, align 4
+  %inc.i458.i.i1062 = add i32 %253, 1
+  store i32 %inc.i458.i.i1062, ptr %arrayidx.i457.i.i1061, align 4
+  %254 = load i64, ptr %total_count_.i451.i.i1052, align 8
+  %inc1.i460.i.i1063 = add i64 %254, 1
+  store i64 %inc1.i460.i.i1063, ptr %total_count_.i451.i.i1052, align 8
+  %inc83.i.i1064 = add nuw nsw i64 %k.0344.i.i1056, 1
+  %exitcond396.not.i.i1065 = icmp eq i64 %inc83.i.i1064, %conv72.i.i1050
+  br i1 %exitcond396.not.i.i1065, label %for.end84.i.i1066, label %for.body77.i.i1055, !llvm.loop !97
+
+for.end84.i.i1066:                                ; preds = %for.body77.i.i1055, %for.body69.i.i1046
+  %pos.2.lcssa.i.i1067 = phi i64 [ %pos.1347.i.i1048, %for.body69.i.i1046 ], [ %inc79.i.i1058, %for.body77.i.i1055 ]
+  %call86.i.i1068 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %arrayidx73.i.i1051) #7
+  store double %call86.i.i1068, ptr %bit_cost_.i452.i.i1053, align 8
+  %conv88.i.i1069 = trunc i64 %j.0348.i.i1047 to i32
+  %arrayidx89.i.i1070 = getelementptr inbounds i32, ptr %add.ptr42.i.i1030, i64 %j.0348.i.i1047
+  store i32 %conv88.i.i1069, ptr %arrayidx89.i.i1070, align 4
+  %arrayidx91.i.i1071 = getelementptr inbounds i32, ptr %add.ptr43.i.i1010, i64 %j.0348.i.i1047
+  store i32 %conv88.i.i1069, ptr %arrayidx91.i.i1071, align 4
+  %arrayidx92.i.i1072 = getelementptr inbounds i32, ptr %cond8310322.i.i1000, i64 %j.0348.i.i1047
+  store i32 1, ptr %arrayidx92.i.i1072, align 4
+  %inc94.i166.i1073 = add nuw nsw i64 %j.0348.i.i1047, 1
+  %exitcond397.not.i.i1074 = icmp eq i64 %inc94.i166.i1073, %umax400.i.i1044
+  br i1 %exitcond397.not.i.i1074, label %for.end95.i167.i1075, label %for.body69.i.i1046, !llvm.loop !98
+
+for.end95.i167.i1075:                             ; preds = %for.end84.i.i1066
+  %sub64.i.i1045 = sub i64 %retval.0.i.i920, %i.1359.i.i1042
+  %cond.i427.i.i1076 = tail call i64 @llvm.umin.i64(i64 %sub64.i.i1045, i64 64)
+  %call96.i.i1077 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef nonnull %cond33.i.i1008, ptr noundef %call46.i.i1012, ptr noundef nonnull %cond8310322.i.i1000, ptr noundef nonnull %add.ptr43.i.i1010, ptr noundef nonnull %add.ptr42.i.i1030, ptr noundef %call38.i.i1009, i64 noundef %cond.i427.i.i1076, i64 noundef %cond.i427.i.i1076, i64 noundef 64, i64 noundef 2048) #7
+  %add97.i.i1078 = add i64 %call96.i.i1077, %all_histograms_size.0367.i.i1034
+  %cmp98.i.i1079 = icmp ult i64 %all_histograms_capacity.0366.i.i1035, %add97.i.i1078
+  br i1 %cmp98.i.i1079, label %if.then100.i.i1304, label %if.end125.i.i1080
+
+if.then100.i.i1304:                               ; preds = %for.end95.i167.i1075
+  %cmp101.i.i1305 = icmp eq i64 %all_histograms_capacity.0366.i.i1035, 0
+  %cond107.i.i1306 = select i1 %cmp101.i.i1305, i64 %add97.i.i1078, i64 %all_histograms_capacity.0366.i.i1035
+  br label %while.cond.i.i1307
+
+while.cond.i.i1307:                               ; preds = %while.cond.i.i1307, %if.then100.i.i1304
+  %_new_size.0.i.i1308 = phi i64 [ %cond107.i.i1306, %if.then100.i.i1304 ], [ %mul111.i.i1310, %while.cond.i.i1307 ]
+  %cmp109.i.i1309 = icmp ult i64 %_new_size.0.i.i1308, %add97.i.i1078
+  %mul111.i.i1310 = shl i64 %_new_size.0.i.i1308, 1
+  br i1 %cmp109.i.i1309, label %while.cond.i.i1307, label %cond.end118.i.i1311, !llvm.loop !99
+
+cond.end118.i.i1311:                              ; preds = %while.cond.i.i1307
+  %mul115.i.i1312 = mul i64 %_new_size.0.i.i1308, 2192
+  %call116.i.i1313 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul115.i.i1312) #7
+  br i1 %cmp101.i.i1305, label %if.end124.i.i1316, label %if.then122.i.i1314
+
+if.then122.i.i1314:                               ; preds = %cond.end118.i.i1311
+  %mul123.i.i1315 = mul i64 %all_histograms_capacity.0366.i.i1035, 2192
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call116.i.i1313, ptr align 8 %all_histograms.0365.i.i1036, i64 %mul123.i.i1315, i1 false)
+  br label %if.end124.i.i1316
+
+if.end124.i.i1316:                                ; preds = %if.then122.i.i1314, %cond.end118.i.i1311
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0365.i.i1036) #7
+  br label %if.end125.i.i1080
+
+if.end125.i.i1080:                                ; preds = %if.end124.i.i1316, %for.end95.i167.i1075
+  %all_histograms.1.i.i1081 = phi ptr [ %call116.i.i1313, %if.end124.i.i1316 ], [ %all_histograms.0365.i.i1036, %for.end95.i167.i1075 ]
+  %all_histograms_capacity.1.i.i1082 = phi i64 [ %_new_size.0.i.i1308, %if.end124.i.i1316 ], [ %all_histograms_capacity.0366.i.i1035, %for.end95.i167.i1075 ]
+  %add126.i.i1083 = add i64 %call96.i.i1077, %cluster_size_size.0364.i.i1037
+  %cmp127.i.i1084 = icmp ult i64 %cluster_size_capacity.0363.i.i1038, %add126.i.i1083
+  br i1 %cmp127.i.i1084, label %if.then129.i.i1291, label %if.end159.i.i1085
+
+if.then129.i.i1291:                               ; preds = %if.end125.i.i1080
+  %cmp131.i.i1292 = icmp eq i64 %cluster_size_capacity.0363.i.i1038, 0
+  %cond137.i.i1293 = select i1 %cmp131.i.i1292, i64 %add126.i.i1083, i64 %cluster_size_capacity.0363.i.i1038
+  br label %while.cond139.i.i1294
+
+while.cond139.i.i1294:                            ; preds = %while.cond139.i.i1294, %if.then129.i.i1291
+  %_new_size130.0.i.i1295 = phi i64 [ %cond137.i.i1293, %if.then129.i.i1291 ], [ %mul144.i.i1297, %while.cond139.i.i1294 ]
+  %cmp141.i.i1296 = icmp ult i64 %_new_size130.0.i.i1295, %add126.i.i1083
+  %mul144.i.i1297 = shl i64 %_new_size130.0.i.i1295, 1
+  br i1 %cmp141.i.i1296, label %while.cond139.i.i1294, label %cond.end152.i.i1298, !llvm.loop !100
+
+cond.end152.i.i1298:                              ; preds = %while.cond139.i.i1294
+  %mul149.i.i1299 = shl i64 %_new_size130.0.i.i1295, 2
+  %call150.i.i1300 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul149.i.i1299) #7
+  br i1 %cmp131.i.i1292, label %if.end158.i.i1303, label %if.then156.i.i1301
+
+if.then156.i.i1301:                               ; preds = %cond.end152.i.i1298
+  %mul157.i.i1302 = shl i64 %cluster_size_capacity.0363.i.i1038, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call150.i.i1300, ptr align 4 %cluster_size.0362.i.i1039, i64 %mul157.i.i1302, i1 false)
+  br label %if.end158.i.i1303
+
+if.end158.i.i1303:                                ; preds = %if.then156.i.i1301, %cond.end152.i.i1298
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0362.i.i1039) #7
+  br label %if.end159.i.i1085
+
+if.end159.i.i1085:                                ; preds = %if.end158.i.i1303, %if.end125.i.i1080
+  %cluster_size.1.i.i1086 = phi ptr [ %call150.i.i1300, %if.end158.i.i1303 ], [ %cluster_size.0362.i.i1039, %if.end125.i.i1080 ]
+  %cluster_size_capacity.1.i.i1087 = phi i64 [ %_new_size130.0.i.i1295, %if.end158.i.i1303 ], [ %cluster_size_capacity.0363.i.i1038, %if.end125.i.i1080 ]
+  %cmp161350.not.i.i1088 = icmp eq i64 %call96.i.i1077, 0
+  br i1 %cmp161350.not.i.i1088, label %for.body183.lr.ph.i.i1107, label %for.body163.i.i1089
+
+for.body183.lr.ph.i.i1107:                        ; preds = %for.body163.i.i1089, %if.end159.i.i1085
+  %cluster_size_size.1.lcssa.i.i1108 = phi i64 [ %cluster_size_size.0364.i.i1037, %if.end159.i.i1085 ], [ %inc171.i.i1100, %for.body163.i.i1089 ]
+  %all_histograms_size.1.lcssa.i.i1109 = phi i64 [ %all_histograms_size.0367.i.i1034, %if.end159.i.i1085 ], [ %inc164.i.i1093, %for.body163.i.i1089 ]
+  %conv184.i.i1110 = trunc i64 %num_clusters.0361.i.i1040 to i32
+  br label %for.body183.i.i1111
+
+for.body163.i.i1089:                              ; preds = %if.end159.i.i1085, %for.body163.i.i1089
+  %all_histograms_size.1353.i.i1090 = phi i64 [ %inc164.i.i1093, %for.body163.i.i1089 ], [ %all_histograms_size.0367.i.i1034, %if.end159.i.i1085 ]
+  %cluster_size_size.1352.i.i1091 = phi i64 [ %inc171.i.i1100, %for.body163.i.i1089 ], [ %cluster_size_size.0364.i.i1037, %if.end159.i.i1085 ]
+  %j.1351.i.i1092 = phi i64 [ %inc178.i.i1105, %for.body163.i.i1089 ], [ 0, %if.end159.i.i1085 ]
+  %inc164.i.i1093 = add i64 %all_histograms_size.1353.i.i1090, 1
+  %arrayidx165.i.i1094 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.1.i.i1081, i64 %all_histograms_size.1353.i.i1090
+  %arrayidx166.i.i1095 = getelementptr inbounds i32, ptr %add.ptr42.i.i1030, i64 %j.1351.i.i1092
+  %255 = load i32, ptr %arrayidx166.i.i1095, align 4
+  %idxprom.i168.i1096 = zext i32 %255 to i64
+  %arrayidx167.i.i1097 = getelementptr inbounds %struct.HistogramDistance, ptr %cond33.i.i1008, i64 %idxprom.i168.i1096
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx165.i.i1094, ptr noundef nonnull align 8 dereferenceable(2192) %arrayidx167.i.i1097, i64 2192, i1 false)
+  %256 = load i32, ptr %arrayidx166.i.i1095, align 4
+  %idxprom169.i.i1098 = zext i32 %256 to i64
+  %arrayidx170.i.i1099 = getelementptr inbounds i32, ptr %cond8310322.i.i1000, i64 %idxprom169.i.i1098
+  %257 = load i32, ptr %arrayidx170.i.i1099, align 4
+  %inc171.i.i1100 = add i64 %cluster_size_size.1352.i.i1091, 1
+  %arrayidx172.i.i1101 = getelementptr inbounds i32, ptr %cluster_size.1.i.i1086, i64 %cluster_size_size.1352.i.i1091
+  store i32 %257, ptr %arrayidx172.i.i1101, align 4
+  %conv173.i.i1102 = trunc i64 %j.1351.i.i1092 to i32
+  %258 = load i32, ptr %arrayidx166.i.i1095, align 4
+  %idxprom175.i.i1103 = zext i32 %258 to i64
+  %arrayidx176.i.i1104 = getelementptr inbounds i32, ptr %add.ptr44.i.i1031, i64 %idxprom175.i.i1103
+  store i32 %conv173.i.i1102, ptr %arrayidx176.i.i1104, align 4
+  %inc178.i.i1105 = add nuw i64 %j.1351.i.i1092, 1
+  %exitcond398.not.i.i1106 = icmp eq i64 %inc178.i.i1105, %call96.i.i1077
+  br i1 %exitcond398.not.i.i1106, label %for.body183.lr.ph.i.i1107, label %for.body163.i.i1089, !llvm.loop !101
+
+for.body183.i.i1111:                              ; preds = %for.body183.i.i1111, %for.body183.lr.ph.i.i1107
+  %j.2357.i.i1112 = phi i64 [ 0, %for.body183.lr.ph.i.i1107 ], [ %inc192.i.i1119, %for.body183.i.i1111 ]
+  %arrayidx185.i.i1113 = getelementptr inbounds i32, ptr %add.ptr43.i.i1010, i64 %j.2357.i.i1112
+  %259 = load i32, ptr %arrayidx185.i.i1113, align 4
+  %idxprom186.i.i1114 = zext i32 %259 to i64
+  %arrayidx187.i.i1115 = getelementptr inbounds i32, ptr %add.ptr44.i.i1031, i64 %idxprom186.i.i1114
+  %260 = load i32, ptr %arrayidx187.i.i1115, align 4
+  %add188.i.i1116 = add i32 %260, %conv184.i.i1110
+  %add189.i.i1117 = add nuw nsw i64 %j.2357.i.i1112, %i.1359.i.i1042
+  %arrayidx190.i.i1118 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %add189.i.i1117
+  store i32 %add188.i.i1116, ptr %arrayidx190.i.i1118, align 4
+  %inc192.i.i1119 = add nuw nsw i64 %j.2357.i.i1112, 1
+  %exitcond401.not.i.i1120 = icmp eq i64 %inc192.i.i1119, %umax400.i.i1044
+  br i1 %exitcond401.not.i.i1120, label %for.end193.i.i1121, label %for.body183.i.i1111, !llvm.loop !102
+
+for.end193.i.i1121:                               ; preds = %for.body183.i.i1111
+  %add194.i.i1122 = add i64 %call96.i.i1077, %num_clusters.0361.i.i1040
+  %add196.i.i1123 = add i64 %i.1359.i.i1042, 64
+  %cmp61.i.i1124 = icmp ult i64 %add196.i.i1123, %retval.0.i.i920
+  %indvars.iv.next.i.i1125 = add i64 %indvars.iv.i.i1033, -64
+  br i1 %cmp61.i.i1124, label %for.body69.lr.ph.i.i1032, label %for.end197.i.i1126, !llvm.loop !103
+
+for.end197.i.i1126:                               ; preds = %for.end193.i.i1121, %for.cond60.preheader.i.i1029
+  %num_clusters.0.lcssa.i.i1127 = phi i64 [ 0, %for.cond60.preheader.i.i1029 ], [ %add194.i.i1122, %for.end193.i.i1121 ]
+  %cluster_size.0.lcssa.i.i1128 = phi ptr [ %cond24.i.i1002, %for.cond60.preheader.i.i1029 ], [ %cluster_size.1.i.i1086, %for.end193.i.i1121 ]
+  %all_histograms.0.lcssa.i.i1129 = phi ptr [ %cond17325.i.i997, %for.cond60.preheader.i.i1029 ], [ %all_histograms.1.i.i1081, %for.end193.i.i1121 ]
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond33.i.i1008) #7
+  %mul198.i.i1130 = shl i64 %num_clusters.0.lcssa.i.i1127, 6
+  %div199289.i.i1131 = lshr i64 %num_clusters.0.lcssa.i.i1127, 1
+  %mul200.i.i1132 = mul i64 %div199289.i.i1131, %num_clusters.0.lcssa.i.i1127
+  %cond.i.i169.i1133 = tail call i64 @llvm.umin.i64(i64 %mul198.i.i1130, i64 %mul200.i.i1132)
+  %cmp203.i.i1134 = icmp ugt i64 %cond.i.i169.i1133, 2048
+  br i1 %cmp203.i.i1134, label %if.then205.i.i1288, label %if.end216.i.i1135
+
+if.then205.i.i1288:                               ; preds = %for.end197.i.i1126
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call38.i.i1009) #7
+  %261 = mul i64 %cond.i.i169.i1133, 24
+  %mul211.i.i1289 = add i64 %261, 24
+  %call212.i.i1290 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul211.i.i1289) #7
+  br label %if.end216.i.i1135
+
+if.end216.i.i1135:                                ; preds = %if.then205.i.i1288, %for.end197.i.i1126
+  %pairs.0.i.i1136 = phi ptr [ %call212.i.i1290, %if.then205.i.i1288 ], [ %call38.i.i1009, %for.end197.i.i1126 ]
+  %cmp217.not.i.i1137 = icmp eq i64 %num_clusters.0.lcssa.i.i1127, 0
+  br i1 %cmp217.not.i.i1137, label %for.end233.i.i1147, label %for.body228.preheader.i.i1138
+
+for.body228.preheader.i.i1138:                    ; preds = %if.end216.i.i1135
+  %mul220.i.i1139 = shl i64 %num_clusters.0.lcssa.i.i1127, 2
+  %call221.i.i1140 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul220.i.i1139) #7
+  br label %for.body228.i.i1141
+
+for.body228.i.i1141:                              ; preds = %for.body228.i.i1141, %for.body228.preheader.i.i1138
+  %i.2372.i.i1142 = phi i64 [ %inc232.i.i1145, %for.body228.i.i1141 ], [ 0, %for.body228.preheader.i.i1138 ]
+  %conv229.i.i1143 = trunc i64 %i.2372.i.i1142 to i32
+  %arrayidx230.i.i1144 = getelementptr inbounds i32, ptr %call221.i.i1140, i64 %i.2372.i.i1142
+  store i32 %conv229.i.i1143, ptr %arrayidx230.i.i1144, align 4
+  %inc232.i.i1145 = add nuw i64 %i.2372.i.i1142, 1
+  %exitcond402.not.i.i1146 = icmp eq i64 %inc232.i.i1145, %num_clusters.0.lcssa.i.i1127
+  br i1 %exitcond402.not.i.i1146, label %for.end233.i.i1147, label %for.body228.i.i1141, !llvm.loop !104
+
+for.end233.i.i1147:                               ; preds = %for.body228.i.i1141, %if.end216.i.i1135
+  %cond224408.i.i1148 = phi ptr [ null, %if.end216.i.i1135 ], [ %call221.i.i1140, %for.body228.i.i1141 ]
+  %call234.i.i1149 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %all_histograms.0.lcssa.i.i1129, ptr noundef %call46.i.i1012, ptr noundef %cluster_size.0.lcssa.i.i1128, ptr noundef %cond295308323.i.i999, ptr noundef %cond224408.i.i1148, ptr noundef %pairs.0.i.i1136, i64 noundef %num_clusters.0.lcssa.i.i1127, i64 noundef %retval.0.i.i920, i64 noundef 256, i64 noundef %cond.i.i169.i1133) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %pairs.0.i.i1136) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cluster_size.0.lcssa.i.i1128) #7
+  br i1 %cmp217.not.i.i1137, label %for.cond251.preheader.i.i1153, label %for.body246.preheader.i.i1150
+
+for.body246.preheader.i.i1150:                    ; preds = %for.end233.i.i1147
+  %mul238.i.i1151 = shl i64 %num_clusters.0.lcssa.i.i1127, 2
+  %call239.i.i1152 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul238.i.i1151) #7
+  tail call void @llvm.memset.p0.i64(ptr align 4 %call239.i.i1152, i8 -1, i64 %mul238.i.i1151, i1 false)
+  br label %for.cond251.preheader.i.i1153
+
+for.cond251.preheader.i.i1153:                    ; preds = %for.body246.preheader.i.i1150, %for.end233.i.i1147
+  %cond242410.i.i1154 = phi ptr [ %call239.i.i1152, %for.body246.preheader.i.i1150 ], [ null, %for.end233.i.i1147 ]
+  br i1 %cmp.not.i.i972, label %for.end310.i.i1212, label %for.body254.lr.ph.i.i1155
+
+for.body254.lr.ph.i.i1155:                        ; preds = %for.cond251.preheader.i.i1153
+  %total_count_.i.i170.i1156 = getelementptr inbounds i8, ptr %call46.i.i1012, i64 2176
+  %bit_cost_.i.i171.i1157 = getelementptr inbounds i8, ptr %call46.i.i1012, i64 2184
+  %add.ptr279.i.i1158 = getelementptr inbounds i8, ptr %call46.i.i1012, i64 2192
+  %cmp282380.not.i.i1159 = icmp eq i64 %call234.i.i1149, 0
+  br label %for.body254.i.i1160
+
+for.body254.i.i1160:                              ; preds = %for.inc308.i.i1208, %for.body254.lr.ph.i.i1155
+  %next_index.0388.i.i1161 = phi i32 [ 0, %for.body254.lr.ph.i.i1155 ], [ %next_index.1.i.i1209, %for.inc308.i.i1208 ]
+  %pos.3387.i.i1162 = phi i64 [ 0, %for.body254.lr.ph.i.i1155 ], [ %pos.4.lcssa.i.i1179, %for.inc308.i.i1208 ]
+  %i.4386.i.i1163 = phi i64 [ 0, %for.body254.lr.ph.i.i1155 ], [ %inc309.i.i1210, %for.inc308.i.i1208 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %call46.i.i1012, i8 0, i64 2184, i1 false)
+  store double 0x7FF0000000000000, ptr %bit_cost_.i.i171.i1157, align 8
+  %arrayidx257.i.i1164 = getelementptr inbounds i32, ptr %add.ptr45.i.i1011, i64 %i.4386.i.i1163
+  %262 = load i32, ptr %arrayidx257.i.i1164, align 4
+  %cmp259376.not.i.i1165 = icmp eq i32 %262, 0
+  br i1 %cmp259376.not.i.i1165, label %for.end267.i.i1178, label %for.body261.i.i1166
+
+for.body261.i.i1166:                              ; preds = %for.body254.i.i1160, %for.body261.i.i1166
+  %j255.0378.i.i1167 = phi i64 [ %inc266.i.i1175, %for.body261.i.i1166 ], [ 0, %for.body254.i.i1160 ]
+  %pos.4377.i.i1168 = phi i64 [ %inc262.i.i1169, %for.body261.i.i1166 ], [ %pos.3387.i.i1162, %for.body254.i.i1160 ]
+  %inc262.i.i1169 = add i64 %pos.4377.i.i1168, 1
+  %arrayidx263.i.i1170 = getelementptr inbounds i16, ptr %call14, i64 %pos.4377.i.i1168
+  %263 = load i16, ptr %arrayidx263.i.i1170, align 2
+  %conv264.i.i1171 = zext i16 %263 to i64
+  %arrayidx.i.i172.i1172 = getelementptr inbounds [544 x i32], ptr %call46.i.i1012, i64 0, i64 %conv264.i.i1171
+  %264 = load i32, ptr %arrayidx.i.i172.i1172, align 4
+  %inc.i.i173.i1173 = add i32 %264, 1
+  store i32 %inc.i.i173.i1173, ptr %arrayidx.i.i172.i1172, align 4
+  %265 = load i64, ptr %total_count_.i.i170.i1156, align 8
+  %inc1.i.i174.i1174 = add i64 %265, 1
+  store i64 %inc1.i.i174.i1174, ptr %total_count_.i.i170.i1156, align 8
+  %inc266.i.i1175 = add nuw nsw i64 %j255.0378.i.i1167, 1
+  %266 = load i32, ptr %arrayidx257.i.i1164, align 4
+  %conv258.i.i1176 = zext i32 %266 to i64
+  %cmp259.i.i1177 = icmp ult i64 %inc266.i.i1175, %conv258.i.i1176
+  br i1 %cmp259.i.i1177, label %for.body261.i.i1166, label %for.end267.i.i1178, !llvm.loop !105
+
+for.end267.i.i1178:                               ; preds = %for.body261.i.i1166, %for.body254.i.i1160
+  %pos.4.lcssa.i.i1179 = phi i64 [ %pos.3387.i.i1162, %for.body254.i.i1160 ], [ %inc262.i.i1169, %for.body261.i.i1166 ]
+  %cond276.in.idx.i.i1180 = tail call i64 @llvm.usub.sat.i64(i64 %i.4386.i.i1163, i64 1)
+  %cond276.in.i.i1181 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %cond276.in.idx.i.i1180
+  %cond276.i.i1182 = load i32, ptr %cond276.in.i.i1181, align 4
+  %idxprom277.i.i1183 = zext i32 %cond276.i.i1182 to i64
+  %arrayidx278.i.i1184 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1129, i64 %idxprom277.i.i1183
+  %call280.i.i1185 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef nonnull %call46.i.i1012, ptr noundef %arrayidx278.i.i1184, ptr noundef nonnull %add.ptr279.i.i1158) #7
+  br i1 %cmp282380.not.i.i1159, label %for.end297.i.i1202, label %for.body284.i.i1186
+
+for.body284.i.i1186:                              ; preds = %for.end267.i.i1178, %for.inc295.i.i1195
+  %best_bits.0383.i.i1187 = phi double [ %best_bits.1.i.i1197, %for.inc295.i.i1195 ], [ %call280.i.i1185, %for.end267.i.i1178 ]
+  %best_out.0382.i.i1188 = phi i32 [ %best_out.1.i.i1196, %for.inc295.i.i1195 ], [ %cond276.i.i1182, %for.end267.i.i1178 ]
+  %j255.1381.i.i1189 = phi i64 [ %inc296.i.i1198, %for.inc295.i.i1195 ], [ 0, %for.end267.i.i1178 ]
+  %arrayidx285.i.i1190 = getelementptr inbounds i32, ptr %cond224408.i.i1148, i64 %j255.1381.i.i1189
+  %267 = load i32, ptr %arrayidx285.i.i1190, align 4
+  %idxprom286.i.i1191 = zext i32 %267 to i64
+  %arrayidx287.i.i1192 = getelementptr inbounds %struct.HistogramDistance, ptr %all_histograms.0.lcssa.i.i1129, i64 %idxprom286.i.i1191
+  %call289.i.i1193 = tail call double @BrotliHistogramBitCostDistanceDistance(ptr noundef %call46.i.i1012, ptr noundef %arrayidx287.i.i1192, ptr noundef nonnull %add.ptr279.i.i1158) #7
+  %cmp290.i.i1194 = fcmp olt double %call289.i.i1193, %best_bits.0383.i.i1187
+  br i1 %cmp290.i.i1194, label %if.then292.i.i1287, label %for.inc295.i.i1195
+
+if.then292.i.i1287:                               ; preds = %for.body284.i.i1186
+  %268 = load i32, ptr %arrayidx285.i.i1190, align 4
+  br label %for.inc295.i.i1195
+
+for.inc295.i.i1195:                               ; preds = %if.then292.i.i1287, %for.body284.i.i1186
+  %best_out.1.i.i1196 = phi i32 [ %268, %if.then292.i.i1287 ], [ %best_out.0382.i.i1188, %for.body284.i.i1186 ]
+  %best_bits.1.i.i1197 = phi double [ %call289.i.i1193, %if.then292.i.i1287 ], [ %best_bits.0383.i.i1187, %for.body284.i.i1186 ]
+  %inc296.i.i1198 = add nuw i64 %j255.1381.i.i1189, 1
+  %exitcond403.not.i.i1199 = icmp eq i64 %inc296.i.i1198, %call234.i.i1149
+  br i1 %exitcond403.not.i.i1199, label %for.end297.loopexit.i.i1200, label %for.body284.i.i1186, !llvm.loop !106
+
+for.end297.loopexit.i.i1200:                      ; preds = %for.inc295.i.i1195
+  %.pre406.i.i1201 = zext i32 %best_out.1.i.i1196 to i64
+  br label %for.end297.i.i1202
+
+for.end297.i.i1202:                               ; preds = %for.end297.loopexit.i.i1200, %for.end267.i.i1178
+  %idxprom299.pre-phi.i.i1203 = phi i64 [ %.pre406.i.i1201, %for.end297.loopexit.i.i1200 ], [ %idxprom277.i.i1183, %for.end267.i.i1178 ]
+  %best_out.0.lcssa.i.i1204 = phi i32 [ %best_out.1.i.i1196, %for.end297.loopexit.i.i1200 ], [ %cond276.i.i1182, %for.end267.i.i1178 ]
+  %arrayidx298.i.i1205 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %i.4386.i.i1163
+  store i32 %best_out.0.lcssa.i.i1204, ptr %arrayidx298.i.i1205, align 4
+  %arrayidx300.i.i1206 = getelementptr inbounds i32, ptr %cond242410.i.i1154, i64 %idxprom299.pre-phi.i.i1203
+  %269 = load i32, ptr %arrayidx300.i.i1206, align 4
+  %cmp301.i.i1207 = icmp eq i32 %269, -1
+  br i1 %cmp301.i.i1207, label %if.then303.i.i1285, label %for.inc308.i.i1208
+
+if.then303.i.i1285:                               ; preds = %for.end297.i.i1202
+  %inc304.i.i1286 = add i32 %next_index.0388.i.i1161, 1
+  store i32 %next_index.0388.i.i1161, ptr %arrayidx300.i.i1206, align 4
+  br label %for.inc308.i.i1208
+
+for.inc308.i.i1208:                               ; preds = %if.then303.i.i1285, %for.end297.i.i1202
+  %next_index.1.i.i1209 = phi i32 [ %inc304.i.i1286, %if.then303.i.i1285 ], [ %next_index.0388.i.i1161, %for.end297.i.i1202 ]
+  %inc309.i.i1210 = add nuw i64 %i.4386.i.i1163, 1
+  %exitcond404.not.i.i1211 = icmp eq i64 %inc309.i.i1210, %retval.0.i.i920
+  br i1 %exitcond404.not.i.i1211, label %for.end310.i.i1212, label %for.body254.i.i1160, !llvm.loop !107
+
+for.end310.i.i1212:                               ; preds = %for.inc308.i.i1208, %for.cond251.preheader.i.i1153
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call46.i.i1012) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond224408.i.i1148) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %all_histograms.0.lcssa.i.i1129) #7
+  %types_alloc_size.i.i1213 = getelementptr inbounds i8, ptr %dist_split, i64 32
+  %270 = load i64, ptr %types_alloc_size.i.i1213, align 8
+  %cmp311.i.i1214 = icmp ult i64 %270, %retval.0.i.i920
+  br i1 %cmp311.i.i1214, label %if.then313.i.i1271, label %if.end349.i.i1215
+
+if.then313.i.i1271:                               ; preds = %for.end310.i.i1212
+  %cmp316.i.i1272 = icmp eq i64 %270, 0
+  %num_blocks..i.i1273 = select i1 %cmp316.i.i1272, i64 %retval.0.i.i920, i64 %270
+  br label %while.cond324.i.i1274
+
+while.cond324.i.i1274:                            ; preds = %while.cond324.i.i1274, %if.then313.i.i1271
+  %_new_size314.0.i.i1275 = phi i64 [ %num_blocks..i.i1273, %if.then313.i.i1271 ], [ %mul328.i.i1277, %while.cond324.i.i1274 ]
+  %cmp325.i.i1276 = icmp ult i64 %_new_size314.0.i.i1275, %retval.0.i.i920
+  %mul328.i.i1277 = shl i64 %_new_size314.0.i.i1275, 1
+  br i1 %cmp325.i.i1276, label %while.cond324.i.i1274, label %cond.end336.i.i1278, !llvm.loop !108
+
+cond.end336.i.i1278:                              ; preds = %while.cond324.i.i1274
+  %call334.i.i1279 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %_new_size314.0.i.i1275) #7
+  %271 = load i64, ptr %types_alloc_size.i.i1213, align 8
+  %cmp339.not.i.i1280 = icmp eq i64 %271, 0
+  br i1 %cmp339.not.i.i1280, label %if.end344.i.i1283, label %if.then341.i.i1281
+
+if.then341.i.i1281:                               ; preds = %cond.end336.i.i1278
+  %types.i.i1282 = getelementptr inbounds i8, ptr %dist_split, i64 16
+  %272 = load ptr, ptr %types.i.i1282, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call334.i.i1279, ptr align 1 %272, i64 %271, i1 false)
+  br label %if.end344.i.i1283
+
+if.end344.i.i1283:                                ; preds = %if.then341.i.i1281, %cond.end336.i.i1278
+  %types345.i.i1284 = getelementptr inbounds i8, ptr %dist_split, i64 16
+  %273 = load ptr, ptr %types345.i.i1284, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %273) #7
+  store ptr %call334.i.i1279, ptr %types345.i.i1284, align 8
+  store i64 %_new_size314.0.i.i1275, ptr %types_alloc_size.i.i1213, align 8
+  br label %if.end349.i.i1215
+
+if.end349.i.i1215:                                ; preds = %if.end344.i.i1283, %for.end310.i.i1212
+  %lengths_alloc_size.i.i1216 = getelementptr inbounds i8, ptr %dist_split, i64 40
+  %274 = load i64, ptr %lengths_alloc_size.i.i1216, align 8
+  %cmp350.i.i1217 = icmp ult i64 %274, %retval.0.i.i920
+  br i1 %cmp350.i.i1217, label %if.then352.i.i1255, label %if.end388.i.i1218
+
+if.then352.i.i1255:                               ; preds = %if.end349.i.i1215
+  %cmp355.i.i1256 = icmp eq i64 %274, 0
+  %num_blocks.290.i.i1257 = select i1 %cmp355.i.i1256, i64 %retval.0.i.i920, i64 %274
+  br label %while.cond363.i.i1258
+
+while.cond363.i.i1258:                            ; preds = %while.cond363.i.i1258, %if.then352.i.i1255
+  %_new_size353.0.i.i1259 = phi i64 [ %num_blocks.290.i.i1257, %if.then352.i.i1255 ], [ %mul367.i.i1261, %while.cond363.i.i1258 ]
+  %cmp364.i.i1260 = icmp ult i64 %_new_size353.0.i.i1259, %retval.0.i.i920
+  %mul367.i.i1261 = shl i64 %_new_size353.0.i.i1259, 1
+  br i1 %cmp364.i.i1260, label %while.cond363.i.i1258, label %cond.end375.i.i1262, !llvm.loop !109
+
+cond.end375.i.i1262:                              ; preds = %while.cond363.i.i1258
+  %mul372.i.i1263 = shl i64 %_new_size353.0.i.i1259, 2
+  %call373.i.i1264 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul372.i.i1263) #7
+  %275 = load i64, ptr %lengths_alloc_size.i.i1216, align 8
+  %cmp378.not.i.i1265 = icmp eq i64 %275, 0
+  br i1 %cmp378.not.i.i1265, label %if.end388.thread.i.i1269, label %if.then380.i.i1266
+
+if.then380.i.i1266:                               ; preds = %cond.end375.i.i1262
+  %lengths.i.i1267 = getelementptr inbounds i8, ptr %dist_split, i64 24
+  %276 = load ptr, ptr %lengths.i.i1267, align 8
+  %mul382.i.i1268 = shl i64 %275, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call373.i.i1264, ptr align 4 %276, i64 %mul382.i.i1268, i1 false)
+  br label %if.end388.thread.i.i1269
+
+if.end388.thread.i.i1269:                         ; preds = %if.then380.i.i1266, %cond.end375.i.i1262
+  %lengths384.i.i1270 = getelementptr inbounds i8, ptr %dist_split, i64 24
+  %277 = load ptr, ptr %lengths384.i.i1270, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %277) #7
+  store ptr %call373.i.i1264, ptr %lengths384.i.i1270, align 8
+  store i64 %_new_size353.0.i.i1259, ptr %lengths_alloc_size.i.i1216, align 8
+  br label %for.body393.lr.ph.i.i1219
+
+if.end388.i.i1218:                                ; preds = %if.end349.i.i1215
+  br i1 %cmp.not.i.i972, label %ClusterBlocksDistance.exit.i, label %for.body393.lr.ph.i.i1219
+
+for.body393.lr.ph.i.i1219:                        ; preds = %if.end388.i.i1218, %if.end388.thread.i.i1269
+  %types410.i.i1220 = getelementptr inbounds i8, ptr %dist_split, i64 16
+  %lengths412.i.i1221 = getelementptr inbounds i8, ptr %dist_split, i64 24
+  br label %for.body393.i.i1222
+
+for.body393.i.i1222:                              ; preds = %for.inc417.i.i1247, %for.body393.lr.ph.i.i1219
+  %max_type.0393.i.i1223 = phi i8 [ 0, %for.body393.lr.ph.i.i1219 ], [ %max_type.1.i.i1250, %for.inc417.i.i1247 ]
+  %block_idx389.0392.i.i1224 = phi i64 [ 0, %for.body393.lr.ph.i.i1219 ], [ %block_idx389.1.i.i1249, %for.inc417.i.i1247 ]
+  %cur_length.0391.i.i1225 = phi i32 [ 0, %for.body393.lr.ph.i.i1219 ], [ %cur_length.1.i.i1248, %for.inc417.i.i1247 ]
+  %i.5390.i.i1226 = phi i64 [ 0, %for.body393.lr.ph.i.i1219 ], [ %add396.i.i1229, %for.inc417.i.i1247 ]
+  %arrayidx394.i.i1227 = getelementptr inbounds i32, ptr %add.ptr45.i.i1011, i64 %i.5390.i.i1226
+  %278 = load i32, ptr %arrayidx394.i.i1227, align 4
+  %add395.i.i1228 = add i32 %278, %cur_length.0391.i.i1225
+  %add396.i.i1229 = add nuw i64 %i.5390.i.i1226, 1
+  %cmp397.i.i1230 = icmp eq i64 %add396.i.i1229, %retval.0.i.i920
+  %arrayidx406.phi.trans.insert.i.i1231 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %i.5390.i.i1226
+  %.pre.i.i1232 = load i32, ptr %arrayidx406.phi.trans.insert.i.i1231, align 4
+  br i1 %cmp397.i.i1230, label %if.then405.i.i1236, label %lor.lhs.false399.i.i1233
+
+lor.lhs.false399.i.i1233:                         ; preds = %for.body393.i.i1222
+  %arrayidx402.i.i1234 = getelementptr inbounds i32, ptr %cond295308323.i.i999, i64 %add396.i.i1229
+  %279 = load i32, ptr %arrayidx402.i.i1234, align 4
+  %cmp403.not.i.i1235 = icmp eq i32 %.pre.i.i1232, %279
+  br i1 %cmp403.not.i.i1235, label %for.inc417.i.i1247, label %if.then405.i.i1236
+
+if.then405.i.i1236:                               ; preds = %lor.lhs.false399.i.i1233, %for.body393.i.i1222
+  %idxprom407.i.i1237 = zext i32 %.pre.i.i1232 to i64
+  %arrayidx408.i.i1238 = getelementptr inbounds i32, ptr %cond242410.i.i1154, i64 %idxprom407.i.i1237
+  %280 = load i32, ptr %arrayidx408.i.i1238, align 4
+  %conv409.i.i1239 = trunc i32 %280 to i8
+  %281 = load ptr, ptr %types410.i.i1220, align 8
+  %arrayidx411.i.i1240 = getelementptr inbounds i8, ptr %281, i64 %block_idx389.0392.i.i1224
+  store i8 %conv409.i.i1239, ptr %arrayidx411.i.i1240, align 1
+  %282 = load ptr, ptr %lengths412.i.i1221, align 8
+  %arrayidx413.i.i1241 = getelementptr inbounds i32, ptr %282, i64 %block_idx389.0392.i.i1224
+  store i32 %add395.i.i1228, ptr %arrayidx413.i.i1241, align 4
+  %conv.i.i175.i1242 = zext i8 %max_type.0393.i.i1223 to i32
+  %conv1.i.i.i1243 = and i32 %280, 255
+  %cond.i448.i.i1244 = tail call i32 @llvm.umax.i32(i32 %conv1.i.i.i1243, i32 %conv.i.i175.i1242)
+  %conv5.i.i.i1245 = trunc i32 %cond.i448.i.i1244 to i8
+  %inc415.i.i1246 = add i64 %block_idx389.0392.i.i1224, 1
+  br label %for.inc417.i.i1247
+
+for.inc417.i.i1247:                               ; preds = %if.then405.i.i1236, %lor.lhs.false399.i.i1233
+  %cur_length.1.i.i1248 = phi i32 [ 0, %if.then405.i.i1236 ], [ %add395.i.i1228, %lor.lhs.false399.i.i1233 ]
+  %block_idx389.1.i.i1249 = phi i64 [ %inc415.i.i1246, %if.then405.i.i1236 ], [ %block_idx389.0392.i.i1224, %lor.lhs.false399.i.i1233 ]
+  %max_type.1.i.i1250 = phi i8 [ %conv5.i.i.i1245, %if.then405.i.i1236 ], [ %max_type.0393.i.i1223, %lor.lhs.false399.i.i1233 ]
+  br i1 %cmp397.i.i1230, label %for.end419.loopexit.i.i1251, label %for.body393.i.i1222, !llvm.loop !110
+
+for.end419.loopexit.i.i1251:                      ; preds = %for.inc417.i.i1247
+  %283 = zext i8 %max_type.1.i.i1250 to i64
+  %284 = add nuw nsw i64 %283, 1
   br label %ClusterBlocksDistance.exit.i
 
-ClusterBlocksDistance.exit.i:                     ; preds = %for.end419.loopexit.i.i1288, %if.end388.i.i1255
-  %block_idx389.0.lcssa.i.i1289 = phi i64 [ 0, %if.end388.i.i1255 ], [ %block_idx389.1.i.i1286, %for.end419.loopexit.i.i1288 ]
-  %max_type.0.lcssa.i.i1290 = phi i64 [ 1, %if.end388.i.i1255 ], [ %285, %for.end419.loopexit.i.i1288 ]
-  %num_blocks420.i.i1291 = getelementptr inbounds %struct.BlockSplit, ptr %dist_split, i64 0, i32 1
-  store i64 %block_idx389.0.lcssa.i.i1289, ptr %num_blocks420.i.i1291, align 8
-  store i64 %max_type.0.lcssa.i.i1290, ptr %dist_split, align 8
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond242410.i.i1191) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond8310322.i.i1037) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond295308323.i.i1036) #7
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call97.i825) #7
+ClusterBlocksDistance.exit.i:                     ; preds = %for.end419.loopexit.i.i1251, %if.end388.i.i1218
+  %block_idx389.0.lcssa.i.i1252 = phi i64 [ 0, %if.end388.i.i1218 ], [ %block_idx389.1.i.i1249, %for.end419.loopexit.i.i1251 ]
+  %max_type.0.lcssa.i.i1253 = phi i64 [ 1, %if.end388.i.i1218 ], [ %284, %for.end419.loopexit.i.i1251 ]
+  %num_blocks420.i.i1254 = getelementptr inbounds i8, ptr %dist_split, i64 8
+  store i64 %block_idx389.0.lcssa.i.i1252, ptr %num_blocks420.i.i1254, align 8
+  store i64 %max_type.0.lcssa.i.i1253, ptr %dist_split, align 8
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond242410.i.i1154) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond8310322.i.i1000) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond295308323.i.i999) #7
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %call97.i788) #7
   br label %SplitByteVectorDistance.exit
 
-SplitByteVectorDistance.exit:                     ; preds = %if.then2.i1418, %if.end74.i1378, %ClusterBlocksDistance.exit.i
-  %cond17146814771482 = phi ptr [ %cond17146814771483, %if.then2.i1418 ], [ %call14, %if.end74.i1378 ], [ %call14, %ClusterBlocksDistance.exit.i ]
-  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond17146814771482) #7
+SplitByteVectorDistance.exit:                     ; preds = %if.then2.i1381, %if.end74.i1341, %ClusterBlocksDistance.exit.i
+  %cond17143114401445 = phi ptr [ %cond17143114401446, %if.then2.i1381 ], [ %call14, %if.end74.i1341 ], [ %call14, %ClusterBlocksDistance.exit.i ]
+  tail call void @BrotliFree(ptr noundef %m, ptr noundef %cond17143114401445) #7
   ret void
 }
 

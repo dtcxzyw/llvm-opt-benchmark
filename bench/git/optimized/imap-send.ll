@@ -13,15 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.imap_cmd_cb = type { ptr, ptr, ptr, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.imap_store = type { ptr, i32, ptr, ptr }
-%struct.imap = type { i32, i32, i32, i32, i32, i32, ptr, ptr, %struct.imap_buffer }
-%struct.imap_buffer = type { %struct.imap_socket, i32, i32, [1024 x i8] }
-%struct.imap_socket = type { [2 x i32], ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.imap_cmd = type { ptr, %struct.imap_cmd_cb, ptr, i32 }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -261,7 +253,7 @@ _.exit:                                           ; preds = %if.then18, %if.end3
   br label %return
 
 if.end22:                                         ; preds = %if.end16
-  %len = getelementptr inbounds %struct.strbuf, ptr %all_msgs, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %all_msgs, i64 8
   %10 = load i64, ptr %len, align 8
   %cmp23 = icmp eq i64 %10, 0
   br i1 %cmp23, label %if.then24, label %if.end26
@@ -377,13 +369,13 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   %21 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 2), align 8
   %call.i25.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #21
   call void @strbuf_add(ptr noundef nonnull %path.i.i, ptr noundef %21, i64 noundef %call.i25.i.i) #18
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %path.i.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %path.i.i, i64 8
   %22 = load i64, ptr %len.i.i, align 8
   %tobool7.not.i.i = icmp eq i64 %22, 0
   br i1 %tobool7.not.i.i, label %if.then11.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %path.i.i, i64 0, i32 2
+  %buf.i.i = getelementptr inbounds i8, ptr %path.i.i, i64 16
   %23 = load ptr, ptr %buf.i.i, align 8
   %24 = getelementptr i8, ptr %23, i64 %22
   %arrayidx.i.i = getelementptr i8, ptr %24, i64 -1
@@ -408,7 +400,7 @@ if.then.i.i.i:                                    ; preds = %if.then11.i.i
 strbuf_addch.exit.i.i:                            ; preds = %if.then.i.i.i, %if.then11.i.i
   %inc.pre-phi.i.i.i = phi i64 [ %.pre8.i.i.i, %if.then.i.i.i ], [ %.neg.i.i.i, %if.then11.i.i ]
   %27 = phi i64 [ %.pre.i.i.i, %if.then.i.i.i ], [ %22, %if.then11.i.i ]
-  %buf.i.i.i = getelementptr inbounds %struct.strbuf, ptr %path.i.i, i64 0, i32 2
+  %buf.i.i.i = getelementptr inbounds i8, ptr %path.i.i, i64 16
   %28 = load ptr, ptr %buf.i.i.i, align 8
   store i64 %inc.pre-phi.i.i.i, ptr %len.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %28, i64 %27
@@ -433,7 +425,7 @@ if.end16.i.i:                                     ; preds = %if.end12.i.i
   %call.i26.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call13.i.i) #21
   call void @strbuf_add(ptr noundef nonnull %path.i.i, ptr noundef nonnull %call13.i.i, i64 noundef %call.i26.i.i) #18
   call void @curl_free(ptr noundef nonnull %call13.i.i) #18
-  %buf17.i.i = getelementptr inbounds %struct.strbuf, ptr %path.i.i, i64 0, i32 2
+  %buf17.i.i = getelementptr inbounds i8, ptr %path.i.i, i64 16
   %32 = load ptr, ptr %buf17.i.i, align 8
   %call18.i.i = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %call1.i.i, i32 noundef 10002, ptr noundef %32) #18
   call void @strbuf_release(ptr noundef nonnull %path.i.i) #18
@@ -486,14 +478,14 @@ setup_curl.exit.i:                                ; preds = %if.then38.i.i, %lor
   %call2.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.32, i32 noundef %count.2.i, ptr noundef nonnull %cond.i) #20
   %40 = load ptr, ptr @stderr, align 8
   %call36.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.34, i32 noundef 0, i32 noundef 0, i32 noundef %count.2.i) #20
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %msgbuf.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 8
   %41 = load i64, ptr %len, align 8
   %cmp.not.i147.not.i = icmp eq i64 %41, 0
   br i1 %cmp.not.i147.not.i, label %while.end.i, label %if.end.i15.lr.ph.i
 
 if.end.i15.lr.ph.i:                               ; preds = %setup_curl.exit.i
   %42 = load i64, ptr %len.i, align 8
-  %buf.i25.i = getelementptr inbounds %struct.strbuf, ptr %msgbuf.i, i64 0, i32 2
+  %buf.i25.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 16
   br label %if.end.i15.i
 
 while.body.i9:                                    ; preds = %lf_to_crlf.exit.i
@@ -655,7 +647,7 @@ while.end.i:                                      ; preds = %lor.lhs.false.i18.i
   %fputc.i = call i32 @fputc(i32 10, ptr %62)
   call void @curl_easy_cleanup(ptr noundef nonnull %call1.i.i) #18
   call void @curl_global_cleanup() #18
-  %username.i = getelementptr inbounds %struct.credential, ptr %cred.i, i64 0, i32 3
+  %username.i = getelementptr inbounds i8, ptr %cred.i, i64 72
   %63 = load ptr, ptr %username.i, align 8
   %tobool23.not.i = icmp eq ptr %63, null
   br i1 %tobool23.not.i, label %curl_append_msgs_to_imap.exit, label %if.then24.i
@@ -865,14 +857,14 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %cred.i, ptr noundef nonnull align 8 dereferenceable(128) @__const.curl_append_msgs_to_imap.cred, i64 128, i1 false)
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #18
   %call1.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 1088) #18
-  %imap2.i = getelementptr inbounds %struct.imap_store, ptr %call.i, i64 0, i32 2
+  %imap2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call1.i, ptr %imap2.i, align 8
-  %buf.i = getelementptr inbounds %struct.imap, ptr %call1.i, i64 0, i32 8
-  %arrayidx.i = getelementptr inbounds %struct.imap, ptr %call1.i, i64 0, i32 8, i32 0, i32 0, i64 1
+  %buf.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %arrayidx.i = getelementptr inbounds i8, ptr %call1.i, i64 44
   store i32 -1, ptr %arrayidx.i, align 4
   store i32 -1, ptr %buf.i, align 8
-  %in_progress.i = getelementptr inbounds %struct.imap, ptr %call1.i, i64 0, i32 6
-  %in_progress_append.i = getelementptr inbounds %struct.imap, ptr %call1.i, i64 0, i32 7
+  %in_progress.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %in_progress_append.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store ptr %in_progress.i, ptr %in_progress_append.i, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 1), align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -883,13 +875,13 @@ if.then.i:                                        ; preds = %entry
   tail call void (ptr, ...) @imap_info(ptr noundef nonnull @.str.36, ptr noundef nonnull %1)
   %2 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 1), align 8
   %call10.i = call ptr @strvec_push(ptr noundef nonnull %tunnel7.i, ptr noundef %2) #18
-  %use_shell.i = getelementptr inbounds %struct.child_process, ptr %tunnel7.i, i64 0, i32 11
+  %use_shell.i = getelementptr inbounds i8, ptr %tunnel7.i, i64 104
   %bf.load.i = load i16, ptr %use_shell.i, align 8
   %bf.set.i = or i16 %bf.load.i, 32
   store i16 %bf.set.i, ptr %use_shell.i, align 8
-  %in.i = getelementptr inbounds %struct.child_process, ptr %tunnel7.i, i64 0, i32 7
+  %in.i = getelementptr inbounds i8, ptr %tunnel7.i, i64 80
   store i32 -1, ptr %in.i, align 8
-  %out.i = getelementptr inbounds %struct.child_process, ptr %tunnel7.i, i64 0, i32 8
+  %out.i = getelementptr inbounds i8, ptr %tunnel7.i, i64 84
   store i32 -1, ptr %out.i, align 4
   %call11.i = call i32 @start_command(ptr noundef nonnull %tunnel7.i) #18
   %tobool12.not.i = icmp eq i32 %call11.i, 0
@@ -911,9 +903,9 @@ if.else.i:                                        ; preds = %entry
   %6 = load i32, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 3), align 8
   %call25.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %portstr.i, i64 noundef 6, ptr noundef nonnull @.str.39, i32 noundef %6) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints.i, i8 0, i64 48, i1 false)
-  %ai_socktype.i = getelementptr inbounds %struct.addrinfo, ptr %hints.i, i64 0, i32 2
+  %ai_socktype.i = getelementptr inbounds i8, ptr %hints.i, i64 8
   store i32 1, ptr %ai_socktype.i, align 8
-  %ai_protocol.i = getelementptr inbounds %struct.addrinfo, ptr %hints.i, i64 0, i32 3
+  %ai_protocol.i = getelementptr inbounds i8, ptr %hints.i, i64 12
   store i32 6, ptr %ai_protocol.i, align 4
   %7 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 2), align 8
   call void (ptr, ...) @imap_info(ptr noundef nonnull @.str.40, ptr noundef %7)
@@ -936,11 +928,11 @@ if.end33.i:                                       ; preds = %if.else.i
 
 for.body.i:                                       ; preds = %if.end33.i, %for.inc.i
   %11 = phi ptr [ %22, %for.inc.i ], [ %10, %if.end33.i ]
-  %ai_family.i = getelementptr inbounds %struct.addrinfo, ptr %11, i64 0, i32 1
+  %ai_family.i = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i32, ptr %ai_family.i, align 4
-  %ai_socktype35.i = getelementptr inbounds %struct.addrinfo, ptr %11, i64 0, i32 2
+  %ai_socktype35.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i32, ptr %ai_socktype35.i, align 8
-  %ai_protocol36.i = getelementptr inbounds %struct.addrinfo, ptr %11, i64 0, i32 3
+  %ai_protocol36.i = getelementptr inbounds i8, ptr %11, i64 12
   %14 = load i32, ptr %ai_protocol36.i, align 4
   %call37.i = call i32 @socket(i32 noundef %12, i32 noundef %13, i32 noundef %14) #18
   %cmp.i = icmp slt i32 %call37.i, 0
@@ -948,16 +940,16 @@ for.body.i:                                       ; preds = %if.end33.i, %for.in
 
 if.end39.i:                                       ; preds = %for.body.i
   %15 = load ptr, ptr %ai.i, align 8
-  %ai_addr.i = getelementptr inbounds %struct.addrinfo, ptr %15, i64 0, i32 5
+  %ai_addr.i = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %ai_addr.i, align 8
-  %ai_addrlen.i = getelementptr inbounds %struct.addrinfo, ptr %15, i64 0, i32 4
+  %ai_addrlen.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i32, ptr %ai_addrlen.i, align 8
   %call41.i = call i32 @getnameinfo(ptr noundef %16, i32 noundef %17, ptr noundef nonnull %addr.i, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #18
   call void (ptr, ...) @imap_info(ptr noundef nonnull @.str.42, ptr noundef nonnull %addr.i, ptr noundef nonnull %portstr.i)
   %18 = load ptr, ptr %ai.i, align 8
-  %ai_addr44.i = getelementptr inbounds %struct.addrinfo, ptr %18, i64 0, i32 5
+  %ai_addr44.i = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %ai_addr44.i, align 8
-  %ai_addrlen45.i = getelementptr inbounds %struct.addrinfo, ptr %18, i64 0, i32 4
+  %ai_addrlen45.i = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load i32, ptr %ai_addrlen45.i, align 8
   %call46.i = call i32 @connect(i32 noundef %call37.i, ptr %19, i32 noundef %20) #18
   %cmp47.i = icmp slt i32 %call46.i, 0
@@ -970,7 +962,7 @@ if.then48.i:                                      ; preds = %if.end39.i
 
 for.inc.i:                                        ; preds = %if.then48.i, %for.body.i
   %21 = load ptr, ptr %ai.i, align 8
-  %ai_next.i = getelementptr inbounds %struct.addrinfo, ptr %21, i64 0, i32 7
+  %ai_next.i = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load ptr, ptr %ai_next.i, align 8
   store ptr %22, ptr %ai.i, align 8
   %tobool34.not.i = icmp eq ptr %22, null
@@ -1195,7 +1187,7 @@ if.then97.i:                                      ; preds = %if.else93.i
 
 if.end100.i:                                      ; preds = %if.else93.i, %if.end89.i
   %call101.i = call fastcc i32 @parse_response_code(ptr noundef %call.i, ptr noundef null, ptr noundef %60), !range !12
-  %caps.i = getelementptr inbounds %struct.imap, ptr %call1.i, i64 0, i32 1
+  %caps.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   %63 = load i32, ptr %caps.i, align 4
   %tobool102.not.i = icmp eq i32 %63, 0
   br i1 %tobool102.not.i, label %land.lhs.true103.i, label %if.end108.i
@@ -1292,7 +1284,7 @@ if.then162.i:                                     ; preds = %if.else158.i
   br label %bail.i
 
 if.end165.i:                                      ; preds = %if.else158.i
-  %ssl.i = getelementptr inbounds %struct.imap, ptr %call1.i, i64 0, i32 8, i32 0, i32 1
+  %ssl.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %80 = load ptr, ptr %ssl.i, align 8
   %tobool168.not.i = icmp eq ptr %80, null
   br i1 %tobool168.not.i, label %if.then169.i, label %if.end170.i
@@ -1314,7 +1306,7 @@ if.then175.i:                                     ; preds = %if.end170.i
   br label %bail.i
 
 if.end179.i:                                      ; preds = %if.end170.i, %if.end147.i, %if.end108.i
-  %username.i = getelementptr inbounds %struct.credential, ptr %cred.i, i64 0, i32 3
+  %username.i = getelementptr inbounds i8, ptr %cred.i, i64 72
   %85 = load ptr, ptr %username.i, align 8
   %tobool180.not.i = icmp eq ptr %85, null
   br i1 %tobool180.not.i, label %if.end182.i, label %if.then181.i
@@ -1353,7 +1345,7 @@ if.else193.i:                                     ; preds = %sw.bb187.i
   br label %if.then
 
 bail.i:                                           ; preds = %if.then175.i, %if.then162.i, %if.else154.i, %if.then151.i, %if.then144.i, %if.end128.i, %if.end121.i, %if.then116.i, %land.lhs.true103.i, %if.then97.i, %if.then87.i, %if.then76.i, %if.then69.i, %if.then52.i, %if.then30.i
-  %username196.i = getelementptr inbounds %struct.credential, ptr %cred.i, i64 0, i32 3
+  %username196.i = getelementptr inbounds i8, ptr %cred.i, i64 72
   %91 = load ptr, ptr %username196.i, align 8
   %tobool197.not.i = icmp eq ptr %91, null
   br i1 %tobool197.not.i, label %if.end199.i, label %if.then198.i
@@ -1381,7 +1373,7 @@ if.then:                                          ; preds = %sw.bb185.i, %if.els
   br label %return
 
 if.end:                                           ; preds = %if.then192.i, %if.end182.i
-  %prefix.i = getelementptr inbounds %struct.imap_store, ptr %call.i, i64 0, i32 3
+  %prefix.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr @.str, ptr %prefix.i, align 8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %cred.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rsp.i)
@@ -1397,19 +1389,19 @@ if.end:                                           ; preds = %if.then192.i, %if.e
   %cmp.not = icmp eq i32 %total, 1
   %cond = select i1 %cmp.not, ptr @.str, ptr @.str.33
   %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.32, i32 noundef %total, ptr noundef nonnull %cond) #20
-  %buf.i14 = getelementptr inbounds %struct.strbuf, ptr %all_msgs, i64 0, i32 2
+  %buf.i14 = getelementptr inbounds i8, ptr %all_msgs, i64 16
   %96 = load ptr, ptr @stderr, align 8
   %call420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.34, i32 noundef 0, i32 noundef 0, i32 noundef %total) #20
-  %len1.i = getelementptr inbounds %struct.strbuf, ptr %all_msgs, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %all_msgs, i64 8
   %97 = load i64, ptr %len1.i, align 8
   %cmp.not.i21.not = icmp eq i64 %97, 0
   br i1 %cmp.not.i21.not, label %while.end, label %if.end.i13.lr.ph
 
 if.end.i13.lr.ph:                                 ; preds = %if.end
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %msg, i64 0, i32 1
-  %buf.i.i = getelementptr inbounds %struct.strbuf, ptr %msg, i64 0, i32 2
-  %dlen.i = getelementptr inbounds %struct.imap_cmd_cb, ptr %cb.i19, i64 0, i32 3
-  %data.i = getelementptr inbounds %struct.imap_cmd_cb, ptr %cb.i19, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %msg, i64 8
+  %buf.i.i = getelementptr inbounds i8, ptr %msg, i64 16
+  %dlen.i = getelementptr inbounds i8, ptr %cb.i19, i64 24
+  %data.i = getelementptr inbounds i8, ptr %cb.i19, i64 16
   br label %if.end.i13
 
 while.body:                                       ; preds = %imap_store_msg.exit
@@ -1568,9 +1560,9 @@ cond.false.i:                                     ; preds = %lf_to_crlf.exit.i
 imap_store_msg.exit:                              ; preds = %lf_to_crlf.exit.i, %cond.false.i
   %cond.i = phi ptr [ %116, %cond.false.i ], [ @.str, %lf_to_crlf.exit.i ]
   %call4.i = call i32 (ptr, ptr, ptr, ...) @imap_exec_m(ptr noundef nonnull %call.i, ptr noundef nonnull %cb.i19, ptr nonnull poison, ptr noundef %cond.i, ptr noundef %115), !range !14
-  %rcaps.i = getelementptr inbounds %struct.imap, ptr %105, i64 0, i32 2
+  %rcaps.i = getelementptr inbounds i8, ptr %105, i64 8
   %117 = load i32, ptr %rcaps.i, align 8
-  %caps.i25 = getelementptr inbounds %struct.imap, ptr %105, i64 0, i32 1
+  %caps.i25 = getelementptr inbounds i8, ptr %105, i64 4
   store i32 %117, ptr %caps.i25, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cb.i19)
   %cmp13.not = icmp eq i32 %call4.i, 0
@@ -1617,7 +1609,7 @@ define internal fastcc void @wrap_in_html(ptr noundef %msg) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.setup_curl.path, i64 24, i1 false)
-  %buf1 = getelementptr inbounds %struct.strbuf, ptr %msg, i64 0, i32 2
+  %buf1 = getelementptr inbounds i8, ptr %msg, i64 16
   %0 = load ptr, ptr %buf1, align 8
   %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.130) #21
   %tobool.not = icmp eq ptr %call, null
@@ -1636,7 +1628,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.end
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %3 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %3, 1
   %tobool.not.i = icmp eq i64 %2, %.neg.i
@@ -1644,7 +1636,7 @@ strbuf_avail.exit.i:                              ; preds = %if.end
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.end
   call void @strbuf_grow(ptr noundef nonnull %buf, i64 noundef 1) #18
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -1652,9 +1644,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %4 = phi i64 [ %.pre.i, %if.then.i ], [ %3, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
   %5 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 %4
   store i8 10, ptr %arrayidx.i, align 1
@@ -1676,16 +1668,16 @@ return:                                           ; preds = %entry, %strbuf_addc
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @imap_close_store(ptr noundef %ctx) unnamed_addr #0 {
 entry:
-  %imap1.i = getelementptr inbounds %struct.imap_store, ptr %ctx, i64 0, i32 2
+  %imap1.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %imap1.i, align 8
-  %buf.i = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8
+  %buf.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %buf.i, align 8
   %cmp.not.i = icmp eq i32 %1, -1
   br i1 %cmp.not.i, label %imap_close_server.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call i32 (ptr, ptr, ptr, ...) @imap_exec(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef nonnull @.str.133), !range !13
-  %ssl.i.i = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 1
+  %ssl.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %2 = load ptr, ptr %ssl.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %socket_shutdown.exit.i, label %if.then.i.i
@@ -1699,7 +1691,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 socket_shutdown.exit.i:                           ; preds = %if.then.i.i, %if.then.i
   %4 = load i32, ptr %buf.i, align 8
   %call3.i.i = tail call i32 @close(i32 noundef %4) #18
-  %arrayidx5.i.i = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %0, i64 44
   %5 = load i32, ptr %arrayidx5.i.i, align 4
   %call6.i.i = tail call i32 @close(i32 noundef %5) #18
   br label %imap_close_server.exit
@@ -1825,7 +1817,7 @@ if.then16:                                        ; preds = %if.end13
 
 if.end17:                                         ; preds = %if.end13
   %call18 = tail call ptr @SSL_new(ptr noundef nonnull %call3) #18
-  %ssl = getelementptr inbounds %struct.imap_socket, ptr %sock, i64 0, i32 1
+  %ssl = getelementptr inbounds i8, ptr %sock, i64 8
   store ptr %call18, ptr %ssl, align 8
   %tobool20.not = icmp eq ptr %call18, null
   br i1 %tobool20.not, label %if.then21, label %if.end22
@@ -1852,7 +1844,7 @@ if.then26:                                        ; preds = %if.end22
 
 if.end27:                                         ; preds = %if.end22
   %6 = load ptr, ptr %ssl, align 8
-  %arrayidx30 = getelementptr inbounds [2 x i32], ptr %sock, i64 0, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %sock, i64 4
   %7 = load i32, ptr %arrayidx30, align 4
   %call31 = tail call i32 @SSL_set_wfd(ptr noundef %6, i32 noundef %7) #18
   %tobool32.not = icmp eq i32 %call31, 0
@@ -1919,15 +1911,15 @@ return:                                           ; preds = %if.end54, %if.end60
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @buffer_gets(ptr noundef %b, ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
-  %offset = getelementptr inbounds %struct.imap_buffer, ptr %b, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %b, i64 20
   %0 = load i32, ptr %offset, align 4
-  %buf = getelementptr inbounds %struct.imap_buffer, ptr %b, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %b, i64 24
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %idx.ext
   store ptr %add.ptr, ptr %s, align 8
-  %bytes = getelementptr inbounds %struct.imap_buffer, ptr %b, i64 0, i32 1
-  %ssl.i = getelementptr inbounds %struct.imap_socket, ptr %b, i64 0, i32 1
-  %arrayidx11.i = getelementptr inbounds [2 x i32], ptr %b, i64 0, i64 1
+  %bytes = getelementptr inbounds i8, ptr %b, i64 16
+  %ssl.i = getelementptr inbounds i8, ptr %b, i64 8
+  %arrayidx11.i = getelementptr inbounds i8, ptr %b, i64 4
   %.pre = load i32, ptr %offset, align 4
   %.pre33 = load i32, ptr %bytes, align 8
   br label %for.cond
@@ -2018,7 +2010,7 @@ if.end33:                                         ; preds = %if.end30, %for.cond
   %12 = phi i32 [ %add32, %if.end30 ], [ %1, %for.cond ]
   %start.2 = phi i32 [ 0, %if.end30 ], [ %start.0, %for.cond ]
   %idxprom = sext i32 %11 to i64
-  %arrayidx = getelementptr inbounds %struct.imap_buffer, ptr %b, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %idxprom
   %13 = load i8, ptr %arrayidx, align 1
   %cmp37 = icmp eq i8 %13, 13
   %add42 = add nsw i32 %11, 1
@@ -2026,13 +2018,13 @@ if.end33:                                         ; preds = %if.end30, %for.cond
 
 if.then39:                                        ; preds = %if.end33
   %idxprom43 = sext i32 %add42 to i64
-  %arrayidx44 = getelementptr inbounds %struct.imap_buffer, ptr %b, i64 0, i32 3, i64 %idxprom43
+  %arrayidx44 = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %idxprom43
   %14 = load i8, ptr %arrayidx44, align 1
   %cmp46 = icmp eq i8 %14, 10
   br i1 %cmp46, label %if.then48, label %if.end61
 
 if.then48:                                        ; preds = %if.then39
-  %arrayidx.le = getelementptr inbounds %struct.imap_buffer, ptr %b, i64 0, i32 3, i64 %idxprom
+  %arrayidx.le = getelementptr inbounds [1024 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx.le, align 1
   %15 = load i32, ptr %offset, align 4
   %add54 = add nsw i32 %15, 2
@@ -2150,7 +2142,7 @@ return:                                           ; preds = %return.sink.split, 
 define internal fastcc noundef i32 @parse_response_code(ptr nocapture noundef %ctx, ptr noundef readonly %cb, ptr noundef %s) unnamed_addr #7 {
 entry:
   %s.addr = alloca ptr, align 8
-  %imap1 = getelementptr inbounds %struct.imap_store, ptr %ctx, i64 0, i32 2
+  %imap1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %imap1, align 8
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -2336,7 +2328,7 @@ if.end29.i38:                                     ; preds = %if.then25.i34
 lor.lhs.false18:                                  ; preds = %while.body20.i50, %if.end29.i38, %if.then25.i34, %if.end23.i30
   %retval.0.i42102 = phi ptr [ %incdec.ptr10.i31, %if.end23.i30 ], [ %ret.039.i35, %if.then25.i34 ], [ %ret.039.i35, %if.end29.i38 ], [ %s.promoted33.i29, %while.body20.i50 ]
   %call19 = tail call i32 @atoi(ptr nocapture noundef nonnull %retval.0.i42102) #21
-  %uidvalidity = getelementptr inbounds %struct.imap_store, ptr %ctx, i64 0, i32 1
+  %uidvalidity = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %call19, ptr %uidvalidity, align 8
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.then21, label %return
@@ -2470,7 +2462,7 @@ if.else48:                                        ; preds = %if.else39
   br i1 %tobool49.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else48
-  %ctx50 = getelementptr inbounds %struct.imap_cmd_cb, ptr %cb, i64 0, i32 1
+  %ctx50 = getelementptr inbounds i8, ptr %cb, i64 8
   %55 = load ptr, ptr %ctx50, align 8
   %tobool51.not = icmp eq ptr %55, null
   br i1 %tobool51.not, label %return, label %land.lhs.true52
@@ -2487,7 +2479,7 @@ if.then55:                                        ; preds = %land.lhs.true52
 
 lor.lhs.false58:                                  ; preds = %if.then55
   %call59 = call i32 @atoi(ptr nocapture noundef nonnull %call56) #21
-  %uidvalidity60 = getelementptr inbounds %struct.imap_store, ptr %ctx, i64 0, i32 1
+  %uidvalidity60 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %call59, ptr %uidvalidity60, align 8
   %tobool61.not = icmp eq i32 %call59, 0
   br i1 %tobool61.not, label %if.then69, label %lor.lhs.false62
@@ -2548,11 +2540,11 @@ if.end:                                           ; preds = %entry
   %tobool2.not = icmp eq i32 %2, 0
   %cond = select i1 %tobool2.not, ptr @.str.121, ptr @.str.120
   %call = tail call ptr @xstrdup(ptr noundef nonnull %cond) #18
-  %protocol = getelementptr inbounds %struct.credential, ptr %cred, i64 0, i32 5
+  %protocol = getelementptr inbounds i8, ptr %cred, i64 88
   store ptr %call, ptr %protocol, align 8
   %3 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 2), align 8
   %call3 = tail call ptr @xstrdup(ptr noundef %3) #18
-  %host4 = getelementptr inbounds %struct.credential, ptr %cred, i64 0, i32 6
+  %host4 = getelementptr inbounds i8, ptr %cred, i64 96
   store ptr %call3, ptr %host4, align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 5), align 8
   %tobool.not.i = icmp eq ptr %4, null
@@ -2564,7 +2556,7 @@ cond.true.i:                                      ; preds = %if.end
 
 xstrdup_or_null.exit:                             ; preds = %if.end, %cond.true.i
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %if.end ]
-  %username = getelementptr inbounds %struct.credential, ptr %cred, i64 0, i32 3
+  %username = getelementptr inbounds i8, ptr %cred, i64 72
   store ptr %cond.i, ptr %username, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 6), align 8
   %tobool.not.i16 = icmp eq ptr %5, null
@@ -2576,7 +2568,7 @@ cond.true.i17:                                    ; preds = %xstrdup_or_null.exi
 
 xstrdup_or_null.exit20:                           ; preds = %xstrdup_or_null.exit, %cond.true.i17
   %cond.i19 = phi ptr [ %call.i18, %cond.true.i17 ], [ null, %xstrdup_or_null.exit ]
-  %password = getelementptr inbounds %struct.credential, ptr %cred, i64 0, i32 4
+  %password = getelementptr inbounds i8, ptr %cred, i64 80
   store ptr %cond.i19, ptr %password, align 8
   tail call void @credential_fill(ptr noundef nonnull %cred) #18
   %6 = load ptr, ptr getelementptr inbounds (%struct.imap_server_conf, ptr @server, i64 0, i32 5), align 8
@@ -2640,7 +2632,7 @@ if.then10.i:                                      ; preds = %if.end.i
   unreachable
 
 if.end11.i:                                       ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds [33 x i8], ptr %hex.i, i64 0, i64 32
+  %arrayidx.i = getelementptr inbounds i8, ptr %hex.i, i64 32
   store i8 0, ptr %arrayidx.i, align 16
   br label %for.body.i
 
@@ -2688,12 +2680,12 @@ if.then38.i:                                      ; preds = %for.end.i
 cram.exit:                                        ; preds = %for.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %hash.i)
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %hex.i)
-  %imap = getelementptr inbounds %struct.imap_store, ptr %ctx, i64 0, i32 2
+  %imap = getelementptr inbounds i8, ptr %ctx, i64 16
   %7 = load ptr, ptr %imap, align 8
-  %buf = getelementptr inbounds %struct.imap, ptr %7, i64 0, i32 8
+  %buf = getelementptr inbounds i8, ptr %7, i64 40
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call34.i) #21
   %conv = trunc i64 %call1 to i32
-  %ssl.i = getelementptr inbounds %struct.imap, ptr %7, i64 0, i32 8, i32 0, i32 1
+  %ssl.i = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %ssl.i, align 8
   %tobool.not.i4 = icmp eq ptr %8, null
   br i1 %tobool.not.i4, label %if.else.i, label %if.then.i5
@@ -2703,7 +2695,7 @@ if.then.i5:                                       ; preds = %cram.exit
   br label %if.end.i7
 
 if.else.i:                                        ; preds = %cram.exit
-  %arrayidx.i8 = getelementptr inbounds %struct.imap, ptr %7, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx.i8 = getelementptr inbounds i8, ptr %7, i64 44
   %9 = load i32, ptr %arrayidx.i8, align 4
   %sext = shl i64 %call1, 32
   %conv.i9 = ashr exact i64 %sext, 32
@@ -2721,7 +2713,7 @@ if.then5.i:                                       ; preds = %if.end.i7
   call fastcc void @socket_perror(ptr noundef nonnull @.str.109, ptr %sock.val.i, i32 noundef %n.0.i)
   %10 = load i32, ptr %buf, align 8
   %call8.i = call i32 @close(i32 noundef %10) #18
-  %arrayidx10.i = getelementptr inbounds %struct.imap, ptr %7, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %7, i64 44
   %11 = load i32, ptr %arrayidx10.i, align 4
   %call11.i = call i32 @close(i32 noundef %11) #18
   store i32 -1, ptr %arrayidx10.i, align 4
@@ -2874,9 +2866,9 @@ for.body:                                         ; preds = %if.then, %for.inc
   br i1 %cmp6, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %call5, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call5, i64 8
   %1 = load ptr, ptr %d, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
   %3 = load i32, ptr %1, align 8
@@ -3050,7 +3042,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @parse_capability(ptr nocapture noundef %imap, ptr noundef %cmd) unnamed_addr #9 {
 entry:
-  %caps = getelementptr inbounds %struct.imap, ptr %imap, i64 0, i32 1
+  %caps = getelementptr inbounds i8, ptr %imap, i64 4
   store i32 -2147483648, ptr %caps, align 4
   %tobool1.not.i12 = icmp eq ptr %cmd, null
   br i1 %tobool1.not.i12, label %while.end, label %while.cond.preheader.i
@@ -3161,7 +3153,7 @@ while.end.loopexit:                               ; preds = %while.cond.loopexit
 
 while.end:                                        ; preds = %while.end.loopexit, %entry
   %17 = phi i32 [ %.pre, %while.end.loopexit ], [ -2147483648, %entry ]
-  %rcaps = getelementptr inbounds %struct.imap, ptr %imap, i64 0, i32 2
+  %rcaps = getelementptr inbounds i8, ptr %imap, i64 8
   store i32 %17, ptr %rcaps, align 8
   ret void
 }
@@ -3171,10 +3163,10 @@ define internal fastcc ptr @issue_imap_cmd(ptr noundef %ctx, ptr noundef readonl
 entry:
   %tmp.i = alloca [8192 x i8], align 16
   %buf = alloca [1024 x i8], align 16
-  %imap1 = getelementptr inbounds %struct.imap_store, ptr %ctx, i64 0, i32 2
+  %imap1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %imap1, align 8
   %call = tail call ptr @xmalloc(i64 noundef 56) #18
-  %cmd2 = getelementptr inbounds %struct.imap_cmd, ptr %call, i64 0, i32 2
+  %cmd2 = getelementptr inbounds i8, ptr %call, i64 40
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %tmp.i)
   %call.i = call i32 @vsnprintf(ptr noundef nonnull %tmp.i, i64 noundef 8192, ptr noundef %fmt, ptr noundef %ap) #18
   %cmp.i = icmp slt i32 %call.i, 0
@@ -3197,14 +3189,14 @@ nfvasprintf.exit:                                 ; preds = %if.end.i
   %call7.i = call ptr @xmemdupz(ptr noundef nonnull %tmp.i, i64 noundef %conv.i) #18
   store ptr %call7.i, ptr %cmd2, align 8
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %tmp.i)
-  %nexttag = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 3
+  %nexttag = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %nexttag, align 4
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %nexttag, align 4
-  %tag = getelementptr inbounds %struct.imap_cmd, ptr %call, i64 0, i32 3
+  %tag = getelementptr inbounds i8, ptr %call, i64 48
   store i32 %inc, ptr %tag, align 8
   %tobool.not = icmp eq ptr %cb, null
-  %cb5 = getelementptr inbounds %struct.imap_cmd, ptr %call, i64 0, i32 1
+  %cb5 = getelementptr inbounds i8, ptr %call, i64 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %nfvasprintf.exit
@@ -3216,7 +3208,7 @@ if.else:                                          ; preds = %nfvasprintf.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %literal_pending = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 5
+  %literal_pending = getelementptr inbounds i8, ptr %0, i64 20
   %2 = load i32, ptr %literal_pending, align 4
   %tobool6.not85 = icmp eq i32 %2, 0
   br i1 %tobool6.not85, label %while.end, label %while.body
@@ -3228,8 +3220,8 @@ while.body:                                       ; preds = %if.end, %while.body
   br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %while.body, %if.end
-  %cb8 = getelementptr inbounds %struct.imap_cmd, ptr %call, i64 0, i32 1
-  %data = getelementptr inbounds %struct.imap_cmd, ptr %call, i64 0, i32 1, i32 2
+  %cb8 = getelementptr inbounds i8, ptr %call, i64 8
+  %data = getelementptr inbounds i8, ptr %call, i64 24
   %4 = load ptr, ptr %data, align 8
   %tobool9.not = icmp eq ptr %4, null
   %5 = load i32, ptr %tag, align 8
@@ -3241,9 +3233,9 @@ if.then10:                                        ; preds = %while.end
   br label %if.end21
 
 if.else14:                                        ; preds = %while.end
-  %dlen = getelementptr inbounds %struct.imap_cmd, ptr %call, i64 0, i32 1, i32 3
+  %dlen = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load i32, ptr %dlen, align 8
-  %caps = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 1
+  %caps = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %caps, align 4
   %and = and i32 %8, 4
   %tobool19.not = icmp eq i32 %and, 0
@@ -3258,7 +3250,7 @@ if.end21:                                         ; preds = %if.else14, %if.then
   br i1 %cmp, label %if.then22, label %if.end38
 
 if.then22:                                        ; preds = %if.end21
-  %num_in_progress = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 4
+  %num_in_progress = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i32, ptr %num_in_progress, align 8
   %tobool23.not = icmp eq i32 %10, 0
   br i1 %tobool23.not, label %if.end27, label %if.then24
@@ -3283,8 +3275,8 @@ if.else34:                                        ; preds = %if.end27
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then31, %if.else34, %if.end21
-  %buf39 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8
-  %ssl.i = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 1
+  %buf39 = getelementptr inbounds i8, ptr %0, i64 40
+  %ssl.i = getelementptr inbounds i8, ptr %0, i64 48
   %13 = load ptr, ptr %ssl.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i46
@@ -3294,7 +3286,7 @@ if.then.i46:                                      ; preds = %if.end38
   br label %if.end.i48
 
 if.else.i:                                        ; preds = %if.end38
-  %arrayidx.i = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 44
   %14 = load i32, ptr %arrayidx.i, align 4
   %conv.i49 = zext nneg i32 %bufl.0 to i64
   %call2.i = call i64 @write_in_full(i32 noundef %14, ptr noundef nonnull %buf, i64 noundef %conv.i49) #18
@@ -3311,7 +3303,7 @@ if.then43:                                        ; preds = %if.end.i48
   call fastcc void @socket_perror(ptr noundef nonnull @.str.109, ptr %sock.val.i, i32 noundef %n.0.i)
   %15 = load i32, ptr %buf39, align 8
   %call8.i = call i32 @close(i32 noundef %15) #18
-  %arrayidx10.i = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx10.i = getelementptr inbounds i8, ptr %0, i64 44
   %16 = load i32, ptr %arrayidx10.i, align 4
   %call11.i = call i32 @close(i32 noundef %16) #18
   store i32 -1, ptr %arrayidx10.i, align 4
@@ -3322,7 +3314,7 @@ if.then43:                                        ; preds = %if.end.i48
   br i1 %tobool.not, label %return, label %if.then46
 
 if.then46:                                        ; preds = %if.then43
-  %data47 = getelementptr inbounds %struct.imap_cmd_cb, ptr %cb, i64 0, i32 2
+  %data47 = getelementptr inbounds i8, ptr %cb, i64 16
   %18 = load ptr, ptr %data47, align 8
   call void @free(ptr noundef %18) #18
   br label %return
@@ -3333,14 +3325,14 @@ if.end49:                                         ; preds = %if.end.i48
   br i1 %tobool52.not, label %if.else82, label %if.then53
 
 if.then53:                                        ; preds = %if.end49
-  %caps54 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 1
+  %caps54 = getelementptr inbounds i8, ptr %0, i64 4
   %20 = load i32, ptr %caps54, align 4
   %and55 = and i32 %20, 4
   %tobool56.not = icmp eq i32 %and55, 0
   br i1 %tobool56.not, label %if.else79, label %if.then57
 
 if.then57:                                        ; preds = %if.then53
-  %dlen63 = getelementptr inbounds %struct.imap_cmd, ptr %call, i64 0, i32 1, i32 3
+  %dlen63 = getelementptr inbounds i8, ptr %call, i64 32
   %21 = load i32, ptr %dlen63, align 8
   %22 = load ptr, ptr %ssl.i, align 8
   %tobool.not.i51 = icmp eq ptr %22, null
@@ -3351,7 +3343,7 @@ if.then.i52:                                      ; preds = %if.then57
   br label %if.end.i54
 
 if.else.i62:                                      ; preds = %if.then57
-  %arrayidx.i63 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx.i63 = getelementptr inbounds i8, ptr %0, i64 44
   %23 = load i32, ptr %arrayidx.i63, align 4
   %conv.i64 = sext i32 %21 to i64
   %call2.i65 = call i64 @write_in_full(i32 noundef %23, ptr noundef nonnull %19, i64 noundef %conv.i64) #18
@@ -3368,7 +3360,7 @@ if.then5.i57:                                     ; preds = %if.end.i54
   call fastcc void @socket_perror(ptr noundef nonnull @.str.109, ptr %sock.val.i58, i32 noundef %n.0.i55)
   %24 = load i32, ptr %buf39, align 8
   %call8.i59 = call i32 @close(i32 noundef %24) #18
-  %arrayidx10.i60 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx10.i60 = getelementptr inbounds i8, ptr %0, i64 44
   %25 = load i32, ptr %arrayidx10.i60, align 4
   %call11.i61 = call i32 @close(i32 noundef %25) #18
   store i32 -1, ptr %arrayidx10.i60, align 4
@@ -3392,7 +3384,7 @@ if.then.i70:                                      ; preds = %lor.lhs.false
   br label %if.end.i72
 
 if.else.i80:                                      ; preds = %lor.lhs.false
-  %arrayidx.i81 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx.i81 = getelementptr inbounds i8, ptr %0, i64 44
   %29 = load i32, ptr %arrayidx.i81, align 4
   %call2.i82 = call i64 @write_in_full(i32 noundef %29, ptr noundef nonnull @.str.104, i64 noundef 2) #18
   %conv3.i83 = trunc i64 %call2.i82 to i32
@@ -3408,7 +3400,7 @@ socket_write.exit84:                              ; preds = %if.end.i72
   call fastcc void @socket_perror(ptr noundef nonnull @.str.109, ptr %sock.val.i76, i32 noundef %n.0.i73)
   %30 = load i32, ptr %buf39, align 8
   %call8.i77 = call i32 @close(i32 noundef %30) #18
-  %arrayidx10.i78 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %arrayidx10.i78 = getelementptr inbounds i8, ptr %0, i64 44
   %31 = load i32, ptr %arrayidx10.i78, align 4
   %call11.i79 = call i32 @close(i32 noundef %31) #18
   store i32 -1, ptr %arrayidx10.i78, align 4
@@ -3440,11 +3432,11 @@ if.then85:                                        ; preds = %if.else82
 
 if.end88:                                         ; preds = %if.else82, %if.then85, %if.end76, %if.else79
   store ptr null, ptr %call, align 8
-  %in_progress_append = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 7
+  %in_progress_append = getelementptr inbounds i8, ptr %0, i64 32
   %34 = load ptr, ptr %in_progress_append, align 8
   store ptr %call, ptr %34, align 8
   store ptr %call, ptr %in_progress_append, align 8
-  %num_in_progress91 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 4
+  %num_in_progress91 = getelementptr inbounds i8, ptr %0, i64 16
   %35 = load i32, ptr %num_in_progress91, align 8
   %inc92 = add nsw i32 %35, 1
   store i32 %inc92, ptr %num_in_progress91, align 8
@@ -3459,21 +3451,21 @@ return:                                           ; preds = %if.then43, %if.then
 define internal fastcc i32 @get_cmd_result(ptr noundef %ctx, ptr noundef readnone %tcmd) unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
-  %imap1 = getelementptr inbounds %struct.imap_store, ptr %ctx, i64 0, i32 2
+  %imap1 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %imap1, align 8
-  %buf = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8
+  %buf = getelementptr inbounds i8, ptr %0, i64 40
   %call260 = call fastcc i32 @buffer_gets(ptr noundef nonnull %buf, ptr noundef nonnull %cmd), !range !9
   %tobool.not261 = icmp eq i32 %call260, 0
   br i1 %tobool.not261, label %if.end.lr.ph, label %return
 
 if.end.lr.ph:                                     ; preds = %entry
-  %in_progress = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 6
-  %in_progress_append117 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 7
-  %num_in_progress = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 4
-  %literal_pending127 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 5
+  %in_progress = getelementptr inbounds i8, ptr %0, i64 24
+  %in_progress_append117 = getelementptr inbounds i8, ptr %0, i64 32
+  %num_in_progress = getelementptr inbounds i8, ptr %0, i64 16
+  %literal_pending127 = getelementptr inbounds i8, ptr %0, i64 20
   %tobool166.not = icmp eq ptr %tcmd, null
-  %ssl.i = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 1
-  %arrayidx.i135 = getelementptr inbounds %struct.imap, ptr %0, i64 0, i32 8, i32 0, i32 0, i64 1
+  %ssl.i = getelementptr inbounds i8, ptr %0, i64 48
+  %arrayidx.i135 = getelementptr inbounds i8, ptr %0, i64 44
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end174
@@ -3805,14 +3797,14 @@ if.else52:                                        ; preds = %if.else47
 
 if.then56:                                        ; preds = %if.else52
   %55 = load ptr, ptr %in_progress_append117, align 8
-  %cb = getelementptr inbounds %struct.imap_cmd, ptr %55, i64 0, i32 1
-  %data = getelementptr inbounds %struct.imap_cmd, ptr %55, i64 0, i32 1, i32 2
+  %cb = getelementptr inbounds i8, ptr %55, i64 8
+  %data = getelementptr inbounds i8, ptr %55, i64 24
   %56 = load ptr, ptr %data, align 8
   %tobool57.not = icmp eq ptr %56, null
   br i1 %tobool57.not, label %if.else74, label %if.then58
 
 if.then58:                                        ; preds = %if.then56
-  %dlen = getelementptr inbounds %struct.imap_cmd, ptr %55, i64 0, i32 1, i32 3
+  %dlen = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load i32, ptr %dlen, align 8
   %58 = load ptr, ptr %ssl.i, align 8
   %tobool.not.i = icmp eq ptr %58, null
@@ -3922,7 +3914,7 @@ for.cond106:                                      ; preds = %for.body, %if.else1
   br i1 %tobool107.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond106
-  %tag108 = getelementptr inbounds %struct.imap_cmd, ptr %72, i64 0, i32 3
+  %tag108 = getelementptr inbounds i8, ptr %72, i64 48
   %73 = load i32, ptr %tag108, align 8
   %cmp109 = icmp eq i32 %73, %call104
   br i1 %cmp109, label %gottag, label %for.cond106, !llvm.loop !22
@@ -3946,13 +3938,13 @@ if.end118:                                        ; preds = %if.then116, %gottag
   %76 = load i32, ptr %num_in_progress, align 8
   %dec = add nsw i32 %76, -1
   store i32 %dec, ptr %num_in_progress, align 8
-  %cb119 = getelementptr inbounds %struct.imap_cmd, ptr %72, i64 0, i32 1
+  %cb119 = getelementptr inbounds i8, ptr %72, i64 8
   %77 = load ptr, ptr %cb119, align 8
   %tobool121.not = icmp eq ptr %77, null
   br i1 %tobool121.not, label %lor.lhs.false122, label %if.then126
 
 lor.lhs.false122:                                 ; preds = %if.end118
-  %data124 = getelementptr inbounds %struct.imap_cmd, ptr %72, i64 0, i32 1, i32 2
+  %data124 = getelementptr inbounds i8, ptr %72, i64 24
   %78 = load ptr, ptr %data124, align 8
   %tobool125.not = icmp eq ptr %78, null
   br i1 %tobool125.not, label %if.end128, label %if.then126
@@ -4056,7 +4048,7 @@ if.else136:                                       ; preds = %next_arg.exit188
   %tobool138.not = icmp eq i32 %call137, 0
   %. = select i1 %tobool138.not, i32 1, i32 2
   %94 = load ptr, ptr @stderr, align 8
-  %cmd142 = getelementptr inbounds %struct.imap_cmd, ptr %72, i64 0, i32 2
+  %cmd142 = getelementptr inbounds i8, ptr %72, i64 40
   %95 = load ptr, ptr %cmd142, align 8
   %call143 = tail call i32 @starts_with(ptr noundef %95, ptr noundef nonnull @.str.101) #18
   %tobool144.not = icmp eq i32 %call143, 0
@@ -4076,10 +4068,10 @@ cond.end148:                                      ; preds = %if.else136, %cond.t
 if.end156:                                        ; preds = %next_arg.exit188, %cond.end148
   %resp.1 = phi i32 [ %., %cond.end148 ], [ 0, %next_arg.exit188 ]
   %call158 = tail call fastcc i32 @parse_response_code(ptr noundef %ctx, ptr noundef nonnull %cb119, ptr noundef %93), !range !12
-  %data164 = getelementptr inbounds %struct.imap_cmd, ptr %72, i64 0, i32 1, i32 2
+  %data164 = getelementptr inbounds i8, ptr %72, i64 24
   %97 = load ptr, ptr %data164, align 8
   tail call void @free(ptr noundef %97) #18
-  %cmd165 = getelementptr inbounds %struct.imap_cmd, ptr %72, i64 0, i32 2
+  %cmd165 = getelementptr inbounds i8, ptr %72, i64 40
   %98 = load ptr, ptr %cmd165, align 8
   tail call void @free(ptr noundef %98) #18
   tail call void @free(ptr noundef %72) #18

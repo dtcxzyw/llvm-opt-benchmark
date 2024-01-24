@@ -3,13 +3,10 @@ source_filename = "bench/libquic/original/pcy_data.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
-%struct.POLICYINFO_st = type { ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @policy_data_free(ptr nocapture noundef %data) local_unnamed_addr #0 {
 entry:
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %valid_policy, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %0) #4
   %1 = load i32, ptr %data, align 8
@@ -18,13 +15,13 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %qualifier_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 2
+  %qualifier_set = getelementptr inbounds i8, ptr %data, i64 16
   %2 = load ptr, ptr %qualifier_set, align 8
   tail call void @sk_pop_free(ptr noundef %2, ptr noundef nonnull @POLICYQUALINFO_free) #4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %data, i64 24
   %3 = load ptr, ptr %expected_policy_set, align 8
   tail call void @sk_pop_free(ptr noundef %3, ptr noundef nonnull @ASN1_OBJECT_free) #4
   tail call void @free(ptr noundef nonnull %data) #4
@@ -64,7 +61,7 @@ if.end7:                                          ; preds = %if.end, %if.then3
 
 if.end11:                                         ; preds = %if.end7
   %call12 = tail call ptr @sk_new_null() #4
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call8, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %call8, i64 24
   store ptr %call12, ptr %expected_policy_set, align 8
   %tobool14.not = icmp eq ptr %call12, null
   br i1 %tobool14.not, label %if.then15, label %if.end19
@@ -87,26 +84,26 @@ if.end19:                                         ; preds = %if.end11
 
 if.end30.thread:                                  ; preds = %if.end19
   %0 = load ptr, ptr %policy, align 8
-  %valid_policy28 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call8, i64 0, i32 1
+  %valid_policy28 = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %0, ptr %valid_policy28, align 8
   store ptr null, ptr %policy, align 8
   br label %if.then32
 
 if.end30:                                         ; preds = %if.end19
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call8, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %call8, i64 8
   store ptr %id.0, ptr %valid_policy, align 8
   br i1 %tobool, label %if.then32, label %if.else34
 
 if.then32:                                        ; preds = %if.end30.thread, %if.end30
-  %qualifiers = getelementptr inbounds %struct.POLICYINFO_st, ptr %policy, i64 0, i32 1
+  %qualifiers = getelementptr inbounds i8, ptr %policy, i64 8
   %1 = load ptr, ptr %qualifiers, align 8
-  %qualifier_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call8, i64 0, i32 2
+  %qualifier_set = getelementptr inbounds i8, ptr %call8, i64 16
   store ptr %1, ptr %qualifier_set, align 8
   store ptr null, ptr %qualifiers, align 8
   br label %return
 
 if.else34:                                        ; preds = %if.end30
-  %qualifier_set35 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call8, i64 0, i32 2
+  %qualifier_set35 = getelementptr inbounds i8, ptr %call8, i64 16
   store ptr null, ptr %qualifier_set35, align 8
   br label %return
 

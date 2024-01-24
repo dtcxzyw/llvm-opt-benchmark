@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.HMAC_params = type { ptr, ptr, ptr, i32, i32, i32 }
 %struct.DES_ks = type { [16 x %union.anon] }
 %union.anon = type { [2 x i32] }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
 
 @Curl_ntlm_core_mk_lm_hash.magic = internal constant [8 x i8] c"KGS!@#$%", align 1
 @Curl_cmalloc = external local_unnamed_addr global ptr, align 8
@@ -337,7 +336,7 @@ define hidden i32 @Curl_ntlm_core_mk_ntlmv2_resp(ptr noundef %ntlmv2hash, ptr no
 entry:
   %hmac_output = alloca [16 x i8], align 16
   %call = tail call i64 @time(ptr noundef null) #8
-  %target_info_len = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 2
+  %target_info_len = getelementptr inbounds i8, ptr %ntlm, i64 12
   %0 = load i32, ptr %target_info_len, align 4
   %add2 = add i32 %0, 48
   %1 = load ptr, ptr @Curl_ccalloc, align 8
@@ -378,7 +377,7 @@ if.end:                                           ; preds = %entry
 
 if.then34:                                        ; preds = %if.end
   %add.ptr35 = getelementptr inbounds i8, ptr %call3, i64 44
-  %target_info = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 3
+  %target_info = getelementptr inbounds i8, ptr %ntlm, i64 16
   %6 = load ptr, ptr %target_info, align 8
   %conv37 = zext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr35, ptr align 1 %6, i64 %conv37, i1 false)
@@ -386,7 +385,7 @@ if.then34:                                        ; preds = %if.end
 
 if.end38:                                         ; preds = %if.then34, %if.end
   %add.ptr39 = getelementptr inbounds i8, ptr %call3, i64 8
-  %nonce = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %ntlm, i64 4
   %7 = load i64, ptr %nonce, align 4
   store i64 %7, ptr %add.ptr39, align 1
   %8 = load i32, ptr %target_info_len, align 4
@@ -427,7 +426,7 @@ entry:
   %hmac_output = alloca [16 x i8], align 16
   %0 = load i64, ptr %challenge_server, align 1
   store i64 %0, ptr %data, align 16
-  %arrayidx1 = getelementptr inbounds [16 x i8], ptr %data, i64 0, i64 8
+  %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 8
   %1 = load i64, ptr %challenge_client, align 1
   store i64 %1, ptr %arrayidx1, align 8
   %call = call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %ntlmv2hash, i64 noundef 16, ptr noundef nonnull %data, i64 noundef 16, ptr noundef nonnull %hmac_output) #8

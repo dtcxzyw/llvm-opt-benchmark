@@ -120,7 +120,8 @@ while.body.i.i:                                   ; preds = %if.end5.i, %if.end1
   %div.i.i = sdiv i32 %sub.i.i, 2
   %add.i.i = add nsw i32 %div.i.i, %min.016.i.i
   %idxprom4.i.i = sext i32 %add.i.i to i64
-  %last6.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i, i32 1
+  %arrayidx5.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i
+  %last6.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 4
   %3 = load i32, ptr %last6.i.i, align 4
   %cmp7.i.i = icmp ult i32 %3, %call
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else.i.i
@@ -130,7 +131,6 @@ if.then8.i.i:                                     ; preds = %while.body.i.i
   br label %if.end18.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
-  %arrayidx5.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i
   %4 = load i32, ptr %arrayidx5.i.i, align 8
   %cmp13.i.i = icmp ugt i32 %4, %call
   br i1 %cmp13.i.i, label %if.then14.i.i, label %return
@@ -157,22 +157,22 @@ while.body.i10.i:                                 ; preds = %if.end7.i, %if.end1
   %div.i14.i = sdiv i32 %sub.i13.i, 2
   %add.i15.i = add nsw i32 %div.i14.i, %min.016.i11.i
   %idxprom4.i16.i = sext i32 %add.i15.i to i64
-  %last6.i17.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i, i32 1
-  %6 = load i32, ptr %last6.i17.i, align 4
-  %cmp7.i18.i = icmp ult i32 %6, %call
-  br i1 %cmp7.i18.i, label %if.then8.i29.i, label %if.else.i19.i
+  %arrayidx5.i17.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i
+  %last6.i18.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i, i64 4
+  %6 = load i32, ptr %last6.i18.i, align 4
+  %cmp7.i19.i = icmp ult i32 %6, %call
+  br i1 %cmp7.i19.i, label %if.then8.i29.i, label %if.else.i20.i
 
 if.then8.i29.i:                                   ; preds = %while.body.i10.i
   %add9.i30.i = add nsw i32 %add.i15.i, 1
   br label %if.end18.i25.i
 
-if.else.i19.i:                                    ; preds = %while.body.i10.i
-  %arrayidx5.i20.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i
-  %7 = load i32, ptr %arrayidx5.i20.i, align 8
+if.else.i20.i:                                    ; preds = %while.body.i10.i
+  %7 = load i32, ptr %arrayidx5.i17.i, align 8
   %cmp13.i21.i = icmp ugt i32 %7, %call
   br i1 %cmp13.i21.i, label %if.then14.i23.i, label %return
 
-if.then14.i23.i:                                  ; preds = %if.else.i19.i
+if.then14.i23.i:                                  ; preds = %if.else.i20.i
   %sub15.i24.i = add nsw i32 %add.i15.i, -1
   br label %if.end18.i25.i
 
@@ -182,8 +182,8 @@ if.end18.i25.i:                                   ; preds = %if.then14.i23.i, %i
   %cmp3.not.i28.i = icmp slt i32 %max.addr.1.i26.i, %min.1.i27.i
   br i1 %cmp3.not.i28.i, label %return, label %while.body.i10.i, !llvm.loop !8
 
-return:                                           ; preds = %if.else.i.i, %if.end18.i25.i, %if.else.i19.i, %if.end7.i, %if.end5.i, %if.end.i, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end.i ], [ 1, %if.end7.i ], [ 1, %if.end5.i ], [ 2, %if.else.i19.i ], [ 1, %if.end18.i25.i ], [ 0, %if.else.i.i ]
+return:                                           ; preds = %if.else.i.i, %if.end18.i25.i, %if.else.i20.i, %if.end7.i, %if.end5.i, %if.end.i, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ -1, %if.end.i ], [ 1, %if.end7.i ], [ 1, %if.end5.i ], [ 2, %if.else.i20.i ], [ 1, %if.end18.i25.i ], [ 0, %if.else.i.i ]
   ret i32 %retval.0
 }
 
@@ -472,7 +472,8 @@ while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.en
   %div.i.i.i = sdiv i32 %sub.i.i.i, 2
   %add.i.i.i = add nsw i32 %div.i.i.i, %min.016.i.i.i
   %idxprom4.i.i.i = sext i32 %add.i.i.i to i64
-  %last6.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i, i32 1
+  %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
+  %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
   %10 = load i32, ptr %last6.i.i.i, align 4
   %cmp7.i.i.i = icmp ult i32 %10, %call.i
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
@@ -482,7 +483,6 @@ if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
   br label %if.end18.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %11 = load i32, ptr %arrayidx5.i.i.i, align 8
   %cmp13.i.i.i = icmp ugt i32 %11, %call.i
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %utf8_width.exit
@@ -509,22 +509,22 @@ while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.en
   %div.i14.i.i = sdiv i32 %sub.i13.i.i, 2
   %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.016.i11.i.i
   %idxprom4.i16.i.i = sext i32 %add.i15.i.i to i64
-  %last6.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i, i32 1
-  %13 = load i32, ptr %last6.i17.i.i, align 4
-  %cmp7.i18.i.i = icmp ult i32 %13, %call.i
-  br i1 %cmp7.i18.i.i, label %if.then8.i29.i.i, label %if.else.i19.i.i
+  %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
+  %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
+  %13 = load i32, ptr %last6.i18.i.i, align 4
+  %cmp7.i19.i.i = icmp ult i32 %13, %call.i
+  br i1 %cmp7.i19.i.i, label %if.then8.i29.i.i, label %if.else.i20.i.i
 
 if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
   %add9.i30.i.i = add nsw i32 %add.i15.i.i, 1
   br label %if.end18.i25.i.i
 
-if.else.i19.i.i:                                  ; preds = %while.body.i10.i.i
-  %arrayidx5.i20.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
-  %14 = load i32, ptr %arrayidx5.i20.i.i, align 8
+if.else.i20.i.i:                                  ; preds = %while.body.i10.i.i
+  %14 = load i32, ptr %arrayidx5.i17.i.i, align 8
   %cmp13.i21.i.i = icmp ugt i32 %14, %call.i
   br i1 %cmp13.i21.i.i, label %if.then14.i23.i.i, label %.loopexit
 
-if.then14.i23.i.i:                                ; preds = %if.else.i19.i.i
+if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
   %sub15.i24.i.i = add nsw i32 %add.i15.i.i, -1
   br label %if.end18.i25.i.i
 
@@ -534,8 +534,8 @@ if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, 
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
   br i1 %cmp3.not.i28.i.i, label %.loopexit, label %while.body.i10.i.i, !llvm.loop !8
 
-.loopexit:                                        ; preds = %if.else.i19.i.i, %if.end18.i25.i.i, %if.end7.i.i, %if.end5.i.i
-  %retval.0.i5.ph = phi i64 [ 1, %if.end5.i.i ], [ 1, %if.end7.i.i ], [ 2, %if.else.i19.i.i ], [ 1, %if.end18.i25.i.i ]
+.loopexit:                                        ; preds = %if.else.i20.i.i, %if.end18.i25.i.i, %if.end7.i.i, %if.end5.i.i
+  %retval.0.i5.ph = phi i64 [ 1, %if.end5.i.i ], [ 1, %if.end7.i.i ], [ 2, %if.else.i20.i.i ], [ 1, %if.end18.i25.i.i ]
   %add12 = add i64 %retval.0.i5.ph, %width.027
   br label %utf8_width.exit
 
@@ -632,7 +632,7 @@ define dso_local void @strbuf_add_wrapped_text(ptr noundef %buf, ptr noundef %te
 entry:
   %text.addr = alloca ptr, align 8
   store ptr %text, ptr %text.addr, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load i64, ptr %len, align 8
   %cmp = icmp slt i32 %width, 1
   br i1 %cmp, label %if.then, label %retry.preheader
@@ -640,7 +640,7 @@ entry:
 retry.preheader:                                  ; preds = %entry
   %cmp1 = icmp slt i32 %indent1, 0
   %spec.select31 = tail call i32 @llvm.abs.i32(i32 %indent1, i1 true)
-  %buf.i46 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf.i46 = getelementptr inbounds i8, ptr %buf, i64 16
   %spec.select = select i1 %cmp1, ptr %text, ptr null
   br label %retry
 
@@ -1005,7 +1005,8 @@ while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.en
   %div.i.i.i = sdiv i32 %sub.i.i.i, 2
   %add.i.i.i = add nsw i32 %div.i.i.i, %min.016.i.i.i
   %idxprom4.i.i.i = sext i32 %add.i.i.i to i64
-  %last6.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i, i32 1
+  %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
+  %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
   %49 = load i32, ptr %last6.i.i.i, align 4
   %cmp7.i.i.i = icmp ult i32 %49, %call.i71
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
@@ -1015,7 +1016,6 @@ if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
   br label %if.end18.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %50 = load i32, ptr %arrayidx5.i.i.i, align 8
   %cmp13.i.i.i = icmp ugt i32 %50, %call.i71
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %utf8_width.exit
@@ -1042,22 +1042,22 @@ while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.en
   %div.i14.i.i = sdiv i32 %sub.i13.i.i, 2
   %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.016.i11.i.i
   %idxprom4.i16.i.i = sext i32 %add.i15.i.i to i64
-  %last6.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i, i32 1
-  %52 = load i32, ptr %last6.i17.i.i, align 4
-  %cmp7.i18.i.i = icmp ult i32 %52, %call.i71
-  br i1 %cmp7.i18.i.i, label %if.then8.i29.i.i, label %if.else.i19.i.i
+  %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
+  %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
+  %52 = load i32, ptr %last6.i18.i.i, align 4
+  %cmp7.i19.i.i = icmp ult i32 %52, %call.i71
+  br i1 %cmp7.i19.i.i, label %if.then8.i29.i.i, label %if.else.i20.i.i
 
 if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
   %add9.i30.i.i = add nsw i32 %add.i15.i.i, 1
   br label %if.end18.i25.i.i
 
-if.else.i19.i.i:                                  ; preds = %while.body.i10.i.i
-  %arrayidx5.i20.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
-  %53 = load i32, ptr %arrayidx5.i20.i.i, align 8
+if.else.i20.i.i:                                  ; preds = %while.body.i10.i.i
+  %53 = load i32, ptr %arrayidx5.i17.i.i, align 8
   %cmp13.i21.i.i = icmp ugt i32 %53, %call.i71
   br i1 %cmp13.i21.i.i, label %if.then14.i23.i.i, label %utf8_width.exit
 
-if.then14.i23.i.i:                                ; preds = %if.else.i19.i.i
+if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
   %sub15.i24.i.i = add nsw i32 %add.i15.i.i, -1
   br label %if.end18.i25.i.i
 
@@ -1067,8 +1067,8 @@ if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, 
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
   br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !8
 
-utf8_width.exit:                                  ; preds = %if.else.i.i.i, %if.else.i19.i.i, %if.end18.i25.i.i, %if.end62, %if.end7.i.i
-  %retval.0.i74 = phi i32 [ 0, %if.end62 ], [ 1, %if.end7.i.i ], [ 1, %if.end18.i25.i.i ], [ 2, %if.else.i19.i.i ], [ 0, %if.else.i.i.i ]
+utf8_width.exit:                                  ; preds = %if.else.i.i.i, %if.else.i20.i.i, %if.end18.i25.i.i, %if.end62, %if.end7.i.i
+  %retval.0.i74 = phi i32 [ 0, %if.end62 ], [ 1, %if.end7.i.i ], [ 1, %if.end18.i25.i.i ], [ 2, %if.else.i20.i.i ], [ 0, %if.else.i.i.i ]
   br i1 %tobool.not.i72, label %if.then67, label %if.end72
 
 if.then67:                                        ; preds = %utf8_width.exit
@@ -1130,10 +1130,10 @@ entry:
   %_swap_buffer.i = alloca [24 x i8], align 16
   %src = alloca ptr, align 8
   %dst = alloca %struct.strbuf, align 8
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb_src, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb_src, i64 16
   %0 = load ptr, ptr %buf, align 8
   store ptr %0, ptr %src, align 8
-  %len = getelementptr inbounds %struct.strbuf, ptr %sb_src, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %sb_src, i64 8
   %1 = load i64, ptr %len, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   call void @strbuf_init(ptr noundef nonnull %dst, i64 noundef %1) #22
@@ -1223,7 +1223,8 @@ while.body.i.i.i:                                 ; preds = %if.end5.i.i, %if.en
   %div.i.i.i = sdiv i32 %sub.i.i.i, 2
   %add.i.i.i = add nsw i32 %div.i.i.i, %min.016.i.i.i
   %idxprom4.i.i.i = sext i32 %add.i.i.i to i64
-  %last6.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i, i32 1
+  %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
+  %last6.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i.i, i64 4
   %11 = load i32, ptr %last6.i.i.i, align 4
   %cmp7.i.i.i = icmp ult i32 %11, %call.i
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
@@ -1233,7 +1234,6 @@ if.then8.i.i.i:                                   ; preds = %while.body.i.i.i
   br label %if.end18.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %arrayidx5.i.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %idxprom4.i.i.i
   %12 = load i32, ptr %arrayidx5.i.i.i, align 8
   %cmp13.i.i.i = icmp ugt i32 %12, %call.i
   br i1 %cmp13.i.i.i, label %if.then14.i.i.i, label %utf8_width.exit
@@ -1260,22 +1260,22 @@ while.body.i10.i.i:                               ; preds = %if.end7.i.i, %if.en
   %div.i14.i.i = sdiv i32 %sub.i13.i.i, 2
   %add.i15.i.i = add nsw i32 %div.i14.i.i, %min.016.i11.i.i
   %idxprom4.i16.i.i = sext i32 %add.i15.i.i to i64
-  %last6.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i, i32 1
-  %14 = load i32, ptr %last6.i17.i.i, align 4
-  %cmp7.i18.i.i = icmp ult i32 %14, %call.i
-  br i1 %cmp7.i18.i.i, label %if.then8.i29.i.i, label %if.else.i19.i.i
+  %arrayidx5.i17.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
+  %last6.i18.i.i = getelementptr inbounds i8, ptr %arrayidx5.i17.i.i, i64 4
+  %14 = load i32, ptr %last6.i18.i.i, align 4
+  %cmp7.i19.i.i = icmp ult i32 %14, %call.i
+  br i1 %cmp7.i19.i.i, label %if.then8.i29.i.i, label %if.else.i20.i.i
 
 if.then8.i29.i.i:                                 ; preds = %while.body.i10.i.i
   %add9.i30.i.i = add nsw i32 %add.i15.i.i, 1
   br label %if.end18.i25.i.i
 
-if.else.i19.i.i:                                  ; preds = %while.body.i10.i.i
-  %arrayidx5.i20.i.i = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %idxprom4.i16.i.i
-  %15 = load i32, ptr %arrayidx5.i20.i.i, align 8
+if.else.i20.i.i:                                  ; preds = %while.body.i10.i.i
+  %15 = load i32, ptr %arrayidx5.i17.i.i, align 8
   %cmp13.i21.i.i = icmp ugt i32 %15, %call.i
   br i1 %cmp13.i21.i.i, label %if.then14.i23.i.i, label %utf8_width.exit
 
-if.then14.i23.i.i:                                ; preds = %if.else.i19.i.i
+if.then14.i23.i.i:                                ; preds = %if.else.i20.i.i
   %sub15.i24.i.i = add nsw i32 %add.i15.i.i, -1
   br label %if.end18.i25.i.i
 
@@ -1285,8 +1285,8 @@ if.end18.i25.i.i:                                 ; preds = %if.then14.i23.i.i, 
   %cmp3.not.i28.i.i = icmp slt i32 %max.addr.1.i26.i.i, %min.1.i27.i.i
   br i1 %cmp3.not.i28.i.i, label %utf8_width.exit, label %while.body.i10.i.i, !llvm.loop !8
 
-utf8_width.exit:                                  ; preds = %if.else.i.i.i, %if.else.i19.i.i, %if.end18.i25.i.i, %if.end, %if.end7.i.i
-  %retval.0.i16 = phi i32 [ 0, %if.end ], [ 1, %if.end7.i.i ], [ 1, %if.end18.i25.i.i ], [ 2, %if.else.i19.i.i ], [ 0, %if.else.i.i.i ]
+utf8_width.exit:                                  ; preds = %if.else.i.i.i, %if.else.i20.i.i, %if.end18.i25.i.i, %if.end, %if.end7.i.i
+  %retval.0.i16 = phi i32 [ 0, %if.end ], [ 1, %if.end7.i.i ], [ 1, %if.end18.i25.i.i ], [ 2, %if.else.i20.i.i ], [ 0, %if.else.i.i.i ]
   br i1 %tobool.not.i, label %out, label %if.end10
 
 if.end10:                                         ; preds = %if.end5.i.i, %if.end.i.i, %utf8_width.exit
@@ -1503,7 +1503,7 @@ entry:
   call void @llvm.va_start(ptr nonnull %arg)
   call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %format, ptr noundef nonnull %arg) #22
   call void @llvm.va_end(ptr nonnull %arg)
-  %buf3 = getelementptr inbounds %struct.strbuf, ptr %buf, i64 0, i32 2
+  %buf3 = getelementptr inbounds i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf3, align 8
   %call = call i32 @fputs(ptr noundef %0, ptr noundef %stream)
   %cmp = icmp sgt i32 %call, -1

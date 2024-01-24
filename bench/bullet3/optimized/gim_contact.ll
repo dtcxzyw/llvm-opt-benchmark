@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %class.gim_array.0 = type { ptr, i32, i32 }
 %class.btVector3 = type { [4 x float] }
-%class.gim_array = type { ptr, i32, i32 }
 %class.GIM_CONTACT = type { %class.btVector3, %class.btVector3, float, float, i32, i32 }
 %struct.GIM_RSORT_TOKEN = type { i32, i32 }
 
@@ -22,7 +21,7 @@ define dso_local void @_ZN17gim_contact_array14merge_contactsERKS_b(ptr nocaptur
 entry:
   %keycontacts = alloca %class.gim_array.0, align 8
   %coincident_normals = alloca [8 x %class.btVector3], align 16
-  %m_size.i = getelementptr inbounds %class.gim_array, ptr %this, i64 0, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_size.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit, label %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
@@ -32,14 +31,14 @@ _ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i: ; preds = %entry
   br label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
 
 _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %entry, %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
-  %m_size.i31 = getelementptr inbounds %class.gim_array, ptr %contacts, i64 0, i32 1
+  %m_size.i31 = getelementptr inbounds i8, ptr %contacts, i64 8
   %1 = load i32, ptr %m_size.i31, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
   %2 = load ptr, ptr %contacts, align 8
-  %m_allocated_size.i.i = getelementptr inbounds %class.gim_array, ptr %this, i64 0, i32 2
+  %m_allocated_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %m_allocated_size.i.i, align 4
   %cmp.not.i.i.not = icmp eq i32 %3, 0
   br i1 %cmp.not.i.i.not, label %if.end12.i.i.i, label %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i
@@ -73,23 +72,23 @@ if.end:                                           ; preds = %_ZN9gim_arrayI11GIM
   br i1 %cmp.not.i.not.i, label %_ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit.thread, label %_ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit
 
 _ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit.thread: ; preds = %if.end
-  %m_size.i40171 = getelementptr inbounds %class.gim_array.0, ptr %keycontacts, i64 0, i32 1
+  %m_size.i40171 = getelementptr inbounds i8, ptr %keycontacts, i64 8
   br label %for.end
 
 _ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit:        ; preds = %if.end
-  %m_allocated_size.i = getelementptr inbounds %class.gim_array.0, ptr %keycontacts, i64 0, i32 2
+  %m_allocated_size.i = getelementptr inbounds i8, ptr %keycontacts, i64 12
   %conv8.i.i.i36 = zext i32 %1 to i64
   %mul9.i.i.i37 = shl nuw nsw i64 %conv8.i.i.i36, 3
   %call10.i.i.i38 = tail call noundef ptr @_Z9gim_allocm(i64 noundef %mul9.i.i.i37)
   store ptr %call10.i.i.i38, ptr %keycontacts, align 8
   store i32 %1, ptr %m_allocated_size.i, align 4
   %.pre = load i32, ptr %m_size.i31, align 8
-  %m_size.i40 = getelementptr inbounds %class.gim_array.0, ptr %keycontacts, i64 0, i32 1
+  %m_size.i40 = getelementptr inbounds i8, ptr %keycontacts, i64 8
   %cmp.i41.not = icmp eq i32 %.pre, 0
   br i1 %cmp.i41.not, label %for.end, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit
-  %m_allocated_size.i.i42 = getelementptr inbounds %class.gim_array.0, ptr %keycontacts, i64 0, i32 2
+  %m_allocated_size.i.i42 = getelementptr inbounds i8, ptr %keycontacts, i64 12
   %cmp.not.i.i43 = icmp ult i32 %1, %.pre
   br i1 %cmp.not.i.i43, label %if.else.i.i.i54, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread180
 
@@ -123,11 +122,11 @@ invoke.cont12:                                    ; preds = %invoke.cont12.prehe
   %9 = load float, ptr %arrayidx.i61, align 4
   %10 = tail call float @llvm.fmuladd.f32(float %9, float 1.000000e+03, float 1.000000e+00)
   %conv.i = fptosi float %10 to i32
-  %arrayidx4.i = getelementptr inbounds float, ptr %arrayidx.i61, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i61, i64 4
   %11 = load float, ptr %arrayidx4.i, align 4
   %mul.i = fmul float %11, 1.333000e+03
   %conv5.i = fptosi float %mul.i to i32
-  %arrayidx9.i = getelementptr inbounds float, ptr %arrayidx.i61, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %arrayidx.i61, i64 8
   %12 = load float, ptr %arrayidx9.i, align 4
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 2.133000e+03, float 3.000000e+00)
   %conv11.i = fptosi float %13 to i32
@@ -176,12 +175,12 @@ for.end:                                          ; preds = %_ZN9gim_arrayI15GIM
 arrayctor.loop.preheader:                         ; preds = %for.end
   %20 = load ptr, ptr %keycontacts, align 8
   %21 = load i32, ptr %20, align 4
-  %m_value31 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %20, i64 0, i32 1
+  %m_value31 = getelementptr inbounds i8, ptr %20, i64 4
   %22 = load i32, ptr %m_value31, align 4
   %conv32 = zext i32 %22 to i64
   %23 = load ptr, ptr %contacts, align 8
   %arrayidx.i65 = getelementptr inbounds %class.GIM_CONTACT, ptr %23, i64 %conv32
-  %m_allocated_size.i.i66 = getelementptr inbounds %class.gim_array, ptr %this, i64 0, i32 2
+  %m_allocated_size.i.i66 = getelementptr inbounds i8, ptr %this, i64 12
   %24 = load i32, ptr %m_allocated_size.i.i66, align 4
   %25 = load i32, ptr %m_size.i, align 8
   %cmp.not.i.i68 = icmp ugt i32 %24, %25
@@ -264,7 +263,7 @@ for.body42:                                       ; preds = %for.body42.preheade
   %coincident_count.0155 = phi i32 [ 0, %for.body42.preheader ], [ %coincident_count.2, %if.end83 ]
   %arrayidx.i103 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %20, i64 %indvars.iv161
   %34 = load i32, ptr %arrayidx.i103, align 4
-  %m_value50 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %20, i64 %indvars.iv161, i32 1
+  %m_value50 = getelementptr inbounds i8, ptr %arrayidx.i103, i64 4
   %35 = load i32, ptr %m_value50, align 4
   %conv51 = zext i32 %35 to i64
   %36 = load ptr, ptr %contacts, align 8
@@ -273,10 +272,10 @@ for.body42:                                       ; preds = %for.body42.preheade
   br i1 %cmp54, label %if.then55, label %if.else74
 
 if.then55:                                        ; preds = %for.body42
-  %m_depth = getelementptr inbounds %class.GIM_CONTACT, ptr %pcontact.0157, i64 0, i32 2
+  %m_depth = getelementptr inbounds i8, ptr %pcontact.0157, i64 32
   %37 = load float, ptr %m_depth, align 4
   %sub = fadd float %37, 0xBEE4F8B580000000
-  %m_depth56 = getelementptr inbounds %class.GIM_CONTACT, ptr %36, i64 %conv51, i32 2
+  %m_depth56 = getelementptr inbounds i8, ptr %arrayidx.i105, i64 32
   %38 = load float, ptr %m_depth56, align 4
   %cmp57 = fcmp ogt float %sub, %38
   br i1 %cmp57, label %if.then58, label %if.else
@@ -297,7 +296,7 @@ if.then59:                                        ; preds = %if.else
   br i1 %or.cond1, label %if.then68, label %if.end83
 
 if.then68:                                        ; preds = %if.then59
-  %m_normal = getelementptr inbounds %class.GIM_CONTACT, ptr %36, i64 %conv51, i32 1
+  %m_normal = getelementptr inbounds i8, ptr %arrayidx.i105, i64 16
   %idxprom = zext nneg i32 %coincident_count.0155 to i64
   %arrayidx = getelementptr inbounds [8 x %class.btVector3], ptr %coincident_normals, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, i64 16, i1 false)
@@ -310,9 +309,9 @@ if.else74:                                        ; preds = %for.body42
   br i1 %or.cond, label %for.body.preheader.i, label %if.end79
 
 for.body.preheader.i:                             ; preds = %if.else74
-  %m_normal.i = getelementptr inbounds %class.GIM_CONTACT, ptr %pcontact.0157, i64 0, i32 1
+  %m_normal.i = getelementptr inbounds i8, ptr %pcontact.0157, i64 16
   %40 = load <2 x float>, ptr %m_normal.i, align 4
-  %vec_sum.sroa.9.0.m_normal.sroa_idx.i = getelementptr inbounds %class.GIM_CONTACT, ptr %pcontact.0157, i64 0, i32 1, i32 0, i64 2
+  %vec_sum.sroa.9.0.m_normal.sroa_idx.i = getelementptr inbounds i8, ptr %pcontact.0157, i64 24
   %vec_sum.sroa.9.0.copyload.i = load float, ptr %vec_sum.sroa.9.0.m_normal.sroa_idx.i, align 4
   %wide.trip.count.i = zext i32 %coincident_count.0155 to i64
   br label %for.body.i
@@ -324,7 +323,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i106 = getelementptr inbounds %class.btVector3, ptr %coincident_normals, i64 %indvars.iv.i
   %42 = load <2 x float>, ptr %arrayidx.i106, align 16
   %43 = fadd <2 x float> %41, %42
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i106, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i106, i64 8
   %44 = load float, ptr %arrayidx10.i.i, align 8
   %add13.i.i = fadd float %vec_sum.sroa.9.011.i, %44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -473,30 +472,29 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jT0_(ptr noundef %pArr, i32 noundef %element_count) local_unnamed_addr #1 comdat {
 entry:
   %div10 = lshr i32 %element_count, 1
-  %cmp.not45 = icmp ult i32 %element_count, 2
-  br i1 %cmp.not45, label %while.end, label %for.body.lr.ph
+  %cmp.not39 = icmp ult i32 %element_count, 2
+  br i1 %cmp.not39, label %while.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %invariant.gep.i = getelementptr %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %pArr, i64 -8
   br label %for.body
 
 while.body.lr.ph:                                 ; preds = %while.end.loopexit.i
-  %invariant.gep.i14 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 -1
+  %invariant.gep.i12 = getelementptr i8, ptr %pArr, i64 -8
   %0 = zext i32 %element_count to i64
   br label %while.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end.loopexit.i
-  %k.046 = phi i32 [ %div10, %for.body.lr.ph ], [ %sub.i, %while.end.loopexit.i ]
-  %sub.i = add nsw i32 %k.046, -1
+  %k.040 = phi i32 [ %div10, %for.body.lr.ph ], [ %sub.i, %while.end.loopexit.i ]
+  %sub.i = add nsw i32 %k.040, -1
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom.i
-  %1 = load i32, ptr %arrayidx.i, align 4
-  %m_value.i.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom.i, i32 1
-  %2 = load i32, ptr %m_value.i.i, align 4
+  %1 = load i64, ptr %arrayidx.i, align 4
+  %2 = trunc i64 %1 to i32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.body, %if.then13.i
-  %k.addr.022.i = phi i32 [ %child.0.i, %if.then13.i ], [ %k.046, %for.body ]
+  %k.addr.022.i = phi i32 [ %child.0.i, %if.then13.i ], [ %k.040, %for.body ]
   %mul.i = shl nuw i32 %k.addr.022.i, 1
   %cmp1.i = icmp slt i32 %mul.i, %element_count
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.end.i
@@ -504,7 +502,7 @@ while.body.i:                                     ; preds = %for.body, %if.then1
 land.lhs.true.i:                                  ; preds = %while.body.i
   %3 = sext i32 %mul.i to i64
   %4 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %3
-  %arrayidx4.i = getelementptr %struct.GIM_RSORT_TOKEN, ptr %4, i64 -1
+  %arrayidx4.i = getelementptr i8, ptr %4, i64 -8
   %5 = load i32, ptr %arrayidx4.i, align 4
   %6 = load i32, ptr %4, align 4
   %sub.i.i = sub i32 %5, %6
@@ -517,7 +515,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %w
   %8 = sext i32 %child.0.i to i64
   %gep.i = getelementptr %struct.GIM_RSORT_TOKEN, ptr %invariant.gep.i, i64 %8
   %9 = load i32, ptr %gep.i, align 4
-  %sub.i19.i = sub i32 %1, %9
+  %sub.i19.i = sub i32 %2, %9
   %cmp12.i = icmp slt i32 %sub.i19.i, 0
   br i1 %cmp12.i, label %if.then13.i, label %while.end.loopexit.i
 
@@ -535,16 +533,12 @@ while.end.loopexit.i:                             ; preds = %if.then13.i, %if.en
   %.pre.i = add i32 %k.addr.0.lcssa.ph.i, -1
   %.pre24.i = zext i32 %.pre.i to i64
   %arrayidx23.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i
-  %temp.sroa.3.0.insert.ext.i = zext i32 %2 to i64
-  %temp.sroa.3.0.insert.shift.i = shl nuw i64 %temp.sroa.3.0.insert.ext.i, 32
-  %temp.sroa.0.0.insert.ext.i = zext i32 %1 to i64
-  %temp.sroa.0.0.insert.insert.i = or disjoint i64 %temp.sroa.3.0.insert.shift.i, %temp.sroa.0.0.insert.ext.i
-  store i64 %temp.sroa.0.0.insert.insert.i, ptr %arrayidx23.i, align 4
+  store i64 %1, ptr %arrayidx23.i, align 4
   %cmp.not = icmp eq i32 %sub.i, 0
   br i1 %cmp.not, label %while.body.lr.ph, label %for.body, !llvm.loop !10
 
-while.body:                                       ; preds = %while.body.lr.ph, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44
-  %indvars.iv = phi i64 [ %0, %while.body.lr.ph ], [ %indvars.iv.next, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44 ]
+while.body:                                       ; preds = %while.body.lr.ph, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit38
+  %indvars.iv = phi i64 [ %0, %while.body.lr.ph ], [ %indvars.iv.next, %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit38 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   %conv = and i64 %indvars.iv.next, 4294967295
@@ -555,55 +549,55 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 %11, ptr %arrayidx1.i, align 4
   %13 = load i64, ptr %pArr, align 4
   %14 = trunc i64 %13 to i32
-  %div18.i13 = lshr i32 %indvars, 1
-  %cmp.not21.i15 = icmp eq i64 %indvars.iv, 2
-  br i1 %cmp.not21.i15, label %while.end, label %while.body.i16
+  %div18.i11 = lshr i32 %indvars, 1
+  %cmp.not21.i13 = icmp eq i64 %indvars.iv, 2
+  br i1 %cmp.not21.i13, label %while.end, label %while.body.i14
 
-while.body.i16:                                   ; preds = %while.body, %if.then13.i35
-  %k.addr.022.i17 = phi i32 [ %child.0.i21, %if.then13.i35 ], [ 1, %while.body ]
-  %mul.i18 = shl nuw i32 %k.addr.022.i17, 1
-  %cmp1.i19 = icmp slt i32 %mul.i18, %indvars
-  br i1 %cmp1.i19, label %land.lhs.true.i40, label %if.end.i20
+while.body.i14:                                   ; preds = %while.body, %if.then13.i29
+  %k.addr.022.i15 = phi i32 [ %child.0.i19, %if.then13.i29 ], [ 1, %while.body ]
+  %mul.i16 = shl nuw i32 %k.addr.022.i15, 1
+  %cmp1.i17 = icmp slt i32 %mul.i16, %indvars
+  br i1 %cmp1.i17, label %land.lhs.true.i34, label %if.end.i18
 
-land.lhs.true.i40:                                ; preds = %while.body.i16
-  %15 = sext i32 %mul.i18 to i64
+land.lhs.true.i34:                                ; preds = %while.body.i14
+  %15 = sext i32 %mul.i16 to i64
   %16 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %15
-  %arrayidx4.i41 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %16, i64 -1
-  %17 = load i32, ptr %arrayidx4.i41, align 4
+  %arrayidx4.i35 = getelementptr i8, ptr %16, i64 -8
+  %17 = load i32, ptr %arrayidx4.i35, align 4
   %18 = load i32, ptr %16, align 4
-  %sub.i.i42 = sub i32 %17, %18
-  %19 = lshr i32 %sub.i.i42, 31
-  %spec.select.i43 = or disjoint i32 %19, %mul.i18
-  br label %if.end.i20
+  %sub.i.i36 = sub i32 %17, %18
+  %19 = lshr i32 %sub.i.i36, 31
+  %spec.select.i37 = or disjoint i32 %19, %mul.i16
+  br label %if.end.i18
 
-if.end.i20:                                       ; preds = %land.lhs.true.i40, %while.body.i16
-  %child.0.i21 = phi i32 [ %mul.i18, %while.body.i16 ], [ %spec.select.i43, %land.lhs.true.i40 ]
-  %20 = sext i32 %child.0.i21 to i64
-  %gep.i22 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %invariant.gep.i14, i64 %20
-  %21 = load i32, ptr %gep.i22, align 4
-  %sub.i19.i23 = sub i32 %14, %21
-  %cmp12.i24 = icmp slt i32 %sub.i19.i23, 0
-  br i1 %cmp12.i24, label %if.then13.i35, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44
+if.end.i18:                                       ; preds = %land.lhs.true.i34, %while.body.i14
+  %child.0.i19 = phi i32 [ %mul.i16, %while.body.i14 ], [ %spec.select.i37, %land.lhs.true.i34 ]
+  %20 = sext i32 %child.0.i19 to i64
+  %gep.i20 = getelementptr %struct.GIM_RSORT_TOKEN, ptr %invariant.gep.i12, i64 %20
+  %21 = load i32, ptr %gep.i20, align 4
+  %sub.i19.i21 = sub i32 %14, %21
+  %cmp12.i22 = icmp slt i32 %sub.i19.i21, 0
+  br i1 %cmp12.i22, label %if.then13.i29, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit38
 
-if.then13.i35:                                    ; preds = %if.end.i20
-  %sub17.i36 = add nsw i32 %k.addr.022.i17, -1
-  %idxprom18.i37 = zext i32 %sub17.i36 to i64
-  %arrayidx19.i38 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i37
-  %22 = load i64, ptr %gep.i22, align 4
-  store i64 %22, ptr %arrayidx19.i38, align 4
-  %cmp.not.i39 = icmp ugt i32 %child.0.i21, %div18.i13
-  br i1 %cmp.not.i39, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44, label %while.body.i16, !llvm.loop !9
+if.then13.i29:                                    ; preds = %if.end.i18
+  %sub17.i30 = add nsw i32 %k.addr.022.i15, -1
+  %idxprom18.i31 = zext i32 %sub17.i30 to i64
+  %arrayidx19.i32 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i31
+  %22 = load i64, ptr %gep.i20, align 4
+  store i64 %22, ptr %arrayidx19.i32, align 4
+  %cmp.not.i33 = icmp ugt i32 %child.0.i19, %div18.i11
+  br i1 %cmp.not.i33, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit38, label %while.body.i14, !llvm.loop !9
 
-_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44: ; preds = %if.end.i20, %if.then13.i35
-  %k.addr.0.lcssa.ph.i26 = phi i32 [ %child.0.i21, %if.then13.i35 ], [ %k.addr.022.i17, %if.end.i20 ]
-  %.pre.i27 = add i32 %k.addr.0.lcssa.ph.i26, -1
-  %.pre24.i28 = zext i32 %.pre.i27 to i64
-  %arrayidx23.i30 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i28
-  store i64 %13, ptr %arrayidx23.i30, align 4
+_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit38: ; preds = %if.end.i18, %if.then13.i29
+  %k.addr.0.lcssa.ph.i24 = phi i32 [ %child.0.i19, %if.then13.i29 ], [ %k.addr.022.i15, %if.end.i18 ]
+  %.pre.i25 = add i32 %k.addr.0.lcssa.ph.i24, -1
+  %.pre24.i26 = zext i32 %.pre.i25 to i64
+  %arrayidx23.i28 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i26
+  store i64 %13, ptr %arrayidx23.i28, align 4
   %cmp1 = icmp ugt i32 %indvars, 1
   br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !11
 
-while.end:                                        ; preds = %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit44, %while.body, %entry
+while.end:                                        ; preds = %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit38, %while.body, %entry
   ret void
 }
 
@@ -613,7 +607,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9gim_arrayI15GIM_RSORT_TOKENED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds %class.gim_array.0, ptr %this, i64 0, i32 1
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_size.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 0
   br i1 %cmp.i.i, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE5clearEv.exit.i, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE11clear_rangeEj.exit.i.i
@@ -623,7 +617,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE11clear_rangeEj.exit.i.i: ; preds = %entry
   br label %_ZN9gim_arrayI15GIM_RSORT_TOKENE5clearEv.exit.i
 
 _ZN9gim_arrayI15GIM_RSORT_TOKENE5clearEv.exit.i:  ; preds = %_ZN9gim_arrayI15GIM_RSORT_TOKENE11clear_rangeEj.exit.i.i, %entry
-  %m_allocated_size.i.i = getelementptr inbounds %class.gim_array.0, ptr %this, i64 0, i32 2
+  %m_allocated_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_allocated_size.i.i, align 4
   %1 = load ptr, ptr %this, align 8
   %cmp.i1.i = icmp eq ptr %1, null
@@ -651,7 +645,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17gim_contact_array21merge_contacts_uniqueERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %contacts) local_unnamed_addr #0 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.gim_array, ptr %this, i64 0, i32 1
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_size.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit, label %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
@@ -661,14 +655,14 @@ _ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i: ; preds = %entry
   br label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
 
 _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %entry, %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
-  %m_size.i12 = getelementptr inbounds %class.gim_array, ptr %contacts, i64 0, i32 1
+  %m_size.i12 = getelementptr inbounds i8, ptr %contacts, i64 8
   %1 = load i32, ptr %m_size.i12, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
   %2 = load ptr, ptr %contacts, align 8
-  %m_allocated_size.i.i = getelementptr inbounds %class.gim_array, ptr %this, i64 0, i32 2
+  %m_allocated_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %m_allocated_size.i.i, align 4
   %cmp.not.i.i.not = icmp eq i32 %3, 0
   br i1 %cmp.not.i.i.not, label %if.end12.i.i.i, label %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i

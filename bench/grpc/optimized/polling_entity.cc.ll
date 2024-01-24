@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%struct.grpc_polling_entity = type <{ %union.anon, i32, [4 x i8] }>
-%union.anon = type { ptr }
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.0 }
@@ -50,7 +48,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_Z27grpc_polling_entity_pollsetP19grpc_polling_entity(ptr nocapture noundef readonly %pollent) local_unnamed_addr #4 {
 entry:
-  %tag = getelementptr inbounds %struct.grpc_polling_entity, ptr %pollent, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %pollent, i64 8
   %0 = load i32, ptr %tag, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %return
@@ -67,7 +65,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_Z31grpc_polling_entity_pollset_setP19grpc_polling_entity(ptr nocapture noundef readonly %pollent) local_unnamed_addr #4 {
 entry:
-  %tag = getelementptr inbounds %struct.grpc_polling_entity, ptr %pollent, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %pollent, i64 8
   %0 = load i32, ptr %tag, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %return
@@ -84,7 +82,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z28grpc_polling_entity_is_emptyPK19grpc_polling_entity(ptr nocapture noundef readonly %pollent) local_unnamed_addr #4 {
 entry:
-  %tag = getelementptr inbounds %struct.grpc_polling_entity, ptr %pollent, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %pollent, i64 8
   %0 = load i32, ptr %tag, align 8
   %cmp = icmp eq i32 %0, 0
   ret i1 %cmp
@@ -95,7 +93,7 @@ define void @_Z38grpc_polling_entity_add_to_pollset_setP19grpc_polling_entityP16
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %tag = getelementptr inbounds %struct.grpc_polling_entity, ptr %pollent, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %pollent, i64 8
   %0 = load i32, ptr %tag, align 8
   switch i32 %0, label %if.else13 [
     i32 1, label %if.then
@@ -129,7 +127,7 @@ if.else13:                                        ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %0 to i64
   %3 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %3, ptr %ref.tmp.i, align 8, !noalias !4
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !4
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.2, i64 36, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -175,7 +173,7 @@ define void @_Z40grpc_polling_entity_del_from_pollset_setP19grpc_polling_entityP
 entry:
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %tag = getelementptr inbounds %struct.grpc_polling_entity, ptr %pollent, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %pollent, i64 8
   %0 = load i32, ptr %tag, align 8
   switch i32 %0, label %if.else16 [
     i32 1, label %do.body
@@ -213,7 +211,7 @@ if.else16:                                        ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %0 to i64
   %3 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %3, ptr %ref.tmp.i, align 8, !noalias !7
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !7
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.2, i64 36, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -246,7 +244,7 @@ entry:
   %ref.tmp.i14 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i7 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
-  %tag = getelementptr inbounds %struct.grpc_polling_entity, ptr %pollent, i64 0, i32 1
+  %tag = getelementptr inbounds i8, ptr %pollent, i64 8
   %0 = load i32, ptr %tag, align 8
   switch i32 %0, label %if.else7 [
     i32 1, label %if.then
@@ -257,7 +255,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %1 = load ptr, ptr %pollent, align 8, !noalias !10
   store ptr %1, ptr %ref.tmp.i, align 8, !noalias !10
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINS1_7VoidPtrEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !10
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.4, i64 10, ptr nonnull %ref.tmp.i, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -267,7 +265,7 @@ if.then4:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i7)
   %2 = load ptr, ptr %pollent, align 8, !noalias !13
   store ptr %2, ptr %ref.tmp.i7, align 8, !noalias !13
-  %dispatcher_.i.i.i11 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i7, i64 0, i32 1
+  %dispatcher_.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i7, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINS1_7VoidPtrEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i11, align 8, !noalias !13
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.5, i64 14, ptr nonnull %ref.tmp.i7, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i7)
@@ -278,7 +276,7 @@ if.else7:                                         ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %0 to i64
   %3 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %3, ptr %ref.tmp.i14, align 8, !noalias !16
-  %dispatcher_.i.i.i18 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i14, i64 0, i32 1
+  %dispatcher_.i.i.i18 = getelementptr inbounds i8, ptr %ref.tmp.i14, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i18, align 8, !noalias !16
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.6, i64 14, ptr nonnull %ref.tmp.i14, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i14)

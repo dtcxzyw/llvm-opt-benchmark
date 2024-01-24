@@ -12,60 +12,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %struct.solver_params = type { ptr, %class.params_ref }
-%struct.smt_params = type { %struct.preprocessor_params.base, %struct.dyn_ack_params, %struct.qi_params, %struct.theory_arith_params.base, i8, %struct.theory_array_params.base, %struct.theory_bv_params, %struct.theory_str_params.base, %struct.theory_seq_params, %struct.theory_pb_params.base, %struct.theory_datatype_params, i8, i8, i8, i8, i8, i8, i32, i8, i32, double, double, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i32, i8, i8, i8, i8, i8, %class.symbol, i32, i32, i8, i8, i8, i8, i32, i8, i32, i32, double, i8, double, double, i32, i8, i32, i32, double, i32, i32, i32, i32, i32, double, i8, i8, i8, %class.symbol, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, double, i8, %class.symbol }
-%struct.preprocessor_params.base = type <{ %struct.pattern_inference_params.base, %struct.bit_blaster_params, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%struct.pattern_inference_params.base = type <{ i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i8, i8 }>
-%struct.bit_blaster_params = type { i8, i8 }
-%struct.dyn_ack_params = type { i32, i8, double, i32, i32, double }
-%struct.qi_params = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", double, double, i32, i32, i8, i32, i32, i8, i8, i32, i8, i8, i8, i8, i32, i32, i32, i8, i32, ptr }
-%struct.theory_arith_params.base = type <{ i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i32, i8, i8, [2 x i8], i32, i32, i8, [3 x i8], i32, i32, i8, [3 x i8], double, double, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i8, i8, i8 }>
-%struct.theory_array_params.base = type <{ i8, i8, [2 x i8], i32, i8, i8, [2 x i8], i32, i8, i8, i8, i8, i32, i8 }>
-%struct.theory_bv_params = type { i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32 }
-%struct.theory_str_params.base = type <{ i8, i8, i8, i8, i8, i8, i8, i8, double, i32, i32, i32, i32, i32, i8, i8 }>
-%struct.theory_seq_params = type { i8, i8, i32, i32 }
-%struct.theory_pb_params.base = type <{ i32, i8 }>
-%struct.theory_datatype_params = type { i32 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
-%class.context_params = type { i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string" }
-%struct.preprocessor_params = type <{ %struct.pattern_inference_params.base, %struct.bit_blaster_params, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%struct.static_features = type { ptr, %class.arith_util, %class.bv_util, %class.array_util, %class.fpa_util, %class.seq_util, i32, i32, i32, i32, i32, %class.ast_mark, %class.ast_mark, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %class.rational, i32, i32, i32, i32, i32, i32, i32, i32, i32, %class.svector, %class.svector, %class.svector, %class.svector, %class.svector, i32, %class.svector, %class.svector, i32, [4 x i8], %class.u_map, %class.u_map, %class.u_map, i32, %class.svector.3, %class.symbol, %class.symbol, %class.symbol, %class.svector.5 }
-%class.arith_util = type { ptr, ptr }
-%class.bv_util = type { %class.bv_recognizers, ptr, ptr }
-%class.bv_recognizers = type { i32 }
-%class.array_util = type { %class.array_recognizers, ptr }
-%class.array_recognizers = type { i32 }
-%class.fpa_util = type { ptr, ptr, i32, %class.arith_util, %class.bv_util }
-%class.seq_util = type { ptr, ptr, ptr, i32, [4 x i8], %"class.seq_util::str", %"class.seq_util::rex" }
-%"class.seq_util::str" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.seq_util::rex" = type { ptr, ptr, i32, %class.vector, %class.ref_vector, %"struct.seq_util::rex::info", %"struct.seq_util::rex::info" }
-%class.vector = type { ptr }
-%class.ref_vector = type { %class.ref_vector_core }
-%class.ref_vector_core = type { %class.ref_manager_wrapper, %class.ptr_vector }
-%class.ref_manager_wrapper = type { ptr }
-%class.ptr_vector = type { %class.vector.0 }
-%class.vector.0 = type { ptr }
-%"struct.seq_util::rex::info" = type { i32, i8, i32, i32 }
-%class.ast_mark = type { ptr, %class.obj_mark, %class.obj_mark.1 }
-%class.obj_mark = type { %struct.default_t2uint, %class.bit_vector }
-%struct.default_t2uint = type { i8 }
-%class.bit_vector = type { i32, i32, ptr }
-%class.obj_mark.1 = type { %"struct.ast_mark::decl2uint", %class.bit_vector }
-%"struct.ast_mark::decl2uint" = type { i8 }
-%class.svector = type { %class.vector.2 }
-%class.vector.2 = type { ptr }
-%class.u_map = type { %class.map }
-%class.map = type { %class.table2map }
-%class.table2map = type { %class.core_hashtable }
-%class.core_hashtable = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%class.svector.3 = type { %class.vector.4 }
-%class.vector.4 = type { ptr }
-%class.svector.5 = type { %class.vector.6 }
-%class.vector.6 = type { ptr }
-%struct.pattern_inference_params = type <{ i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i8, i8, [2 x i8] }>
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -230,7 +179,7 @@ entry:
   %ref.tmp46 = alloca %"class.std::allocator", align 1
   %sp = alloca %struct.solver_params, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.smt_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.87)
   %0 = load ptr, ptr %p, align 8
   %call.i12 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
@@ -246,14 +195,14 @@ land.rhs:                                         ; preds = %invoke.cont
 cleanup.action:                                   ; preds = %land.rhs
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.1) #14
   %cmp.i = icmp eq i32 %call.i, 0
-  %m_auto_config = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 85
+  %m_auto_config = getelementptr inbounds i8, ptr %this, i64 771
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %m_auto_config, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %cleanup.done
 
 cleanup.done.critedge:                            ; preds = %invoke.cont
-  %m_auto_config.c = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 85
+  %m_auto_config.c = getelementptr inbounds i8, ptr %this, i64 771
   store i8 0, ptr %m_auto_config.c, align 1
   br label %cleanup.done
 
@@ -263,21 +212,21 @@ cleanup.done:                                     ; preds = %cleanup.done.crited
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %cleanup.done
-  %m_random_seed = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 19
+  %m_random_seed = getelementptr inbounds i8, ptr %this, i64 520
   store i32 %call.i1415, ptr %m_random_seed, align 8
   %2 = load ptr, ptr %p, align 8
   %call.i1718 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.89, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 2)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 %call.i1718, ptr %m_relevancy_lvl, align 8
   %3 = load ptr, ptr %p, align 8
   %call.i2021 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.90, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %m_ematching = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 38
+  %m_ematching = getelementptr inbounds i8, ptr %this, i64 602
   %frombool15 = zext i1 %call.i2021 to i8
   store i8 %frombool15, ptr %m_ematching, align 2
   %4 = load ptr, ptr %p, align 8
@@ -285,7 +234,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %m_induction = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 39
+  %m_induction = getelementptr inbounds i8, ptr %this, i64 603
   %frombool18 = zext i1 %call.i2324 to i8
   store i8 %frombool18, ptr %m_induction, align 1
   %5 = load ptr, ptr %p, align 8
@@ -293,7 +242,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont16
-  %m_clause_proof = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 40
+  %m_clause_proof = getelementptr inbounds i8, ptr %this, i64 604
   %frombool21 = zext i1 %call.i2627 to i8
   store i8 %frombool21, ptr %m_clause_proof, align 4
   %6 = load ptr, ptr %p, align 8
@@ -301,7 +250,7 @@ invoke.cont19:                                    ; preds = %invoke.cont16
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont19
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 %call.i2930, ptr %m_phase_selection, align 8
   %cmp = icmp sgt i32 %call.i2930, 7
   br i1 %cmp, label %if.then, label %if.end
@@ -314,7 +263,7 @@ if.then:                                          ; preds = %invoke.cont22
 
 invoke.cont28:                                    ; preds = %if.then
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup
@@ -344,21 +293,21 @@ if.end:                                           ; preds = %invoke.cont22
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %if.end
-  %m_phase_caching_on = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 25
+  %m_phase_caching_on = getelementptr inbounds i8, ptr %this, i64 556
   store i32 %call.i3233, ptr %m_phase_caching_on, align 4
   %11 = load ptr, ptr %p, align 8
   %call.i3536 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.95, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 100)
           to label %invoke.cont37 unwind label %lpad
 
 invoke.cont37:                                    ; preds = %invoke.cont35
-  %m_phase_caching_off = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 26
+  %m_phase_caching_off = getelementptr inbounds i8, ptr %this, i64 560
   store i32 %call.i3536, ptr %m_phase_caching_off, align 8
   %12 = load ptr, ptr %p, align 8
   %call.i3839 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.96, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 %call.i3839, ptr %m_restart_strategy, align 4
   %cmp42 = icmp sgt i32 %call.i3839, 4
   br i1 %cmp42, label %if.then43, label %if.end58
@@ -371,7 +320,7 @@ if.then43:                                        ; preds = %invoke.cont39
 
 invoke.cont48:                                    ; preds = %if.then43
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception44, align 8
-  %m_msg.i40 = getelementptr inbounds %class.default_exception, ptr %exception44, i64 0, i32 1
+  %m_msg.i40 = getelementptr inbounds i8, ptr %exception44, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45) #14
   invoke void @__cxa_throw(ptr nonnull %exception44, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup53
@@ -396,21 +345,21 @@ if.end58:                                         ; preds = %invoke.cont39
           to label %invoke.cont59 unwind label %lpad
 
 invoke.cont59:                                    ; preds = %if.end58
-  %m_restart_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 52
+  %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   store double %call.i4243, ptr %m_restart_factor, align 8
   %16 = load ptr, ptr %p, align 8
   %call.i4546 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.98, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont61 unwind label %lpad
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %m_case_split_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 42
+  %m_case_split_strategy = getelementptr inbounds i8, ptr %this, i64 616
   store i32 %call.i4546, ptr %m_case_split_strategy, align 8
   %17 = load ptr, ptr %p, align 8
   %call.i4849 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.99, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont63 unwind label %lpad
 
 invoke.cont63:                                    ; preds = %invoke.cont61
-  %m_theory_case_split = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 45
+  %m_theory_case_split = getelementptr inbounds i8, ptr %this, i64 625
   %frombool65 = zext i1 %call.i4849 to i8
   store i8 %frombool65, ptr %m_theory_case_split, align 1
   %18 = load ptr, ptr %p, align 8
@@ -418,7 +367,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %invoke.cont66 unwind label %lpad
 
 invoke.cont66:                                    ; preds = %invoke.cont63
-  %m_theory_aware_branching = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 46
+  %m_theory_aware_branching = getelementptr inbounds i8, ptr %this, i64 626
   %frombool68 = zext i1 %call.i5152 to i8
   store i8 %frombool68, ptr %m_theory_aware_branching, align 2
   %19 = load ptr, ptr %p, align 8
@@ -426,7 +375,7 @@ invoke.cont66:                                    ; preds = %invoke.cont63
           to label %invoke.cont69 unwind label %lpad
 
 invoke.cont69:                                    ; preds = %invoke.cont66
-  %m_delay_units = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 47
+  %m_delay_units = getelementptr inbounds i8, ptr %this, i64 627
   %frombool71 = zext i1 %call.i5455 to i8
   store i8 %frombool71, ptr %m_delay_units, align 1
   %20 = load ptr, ptr %p, align 8
@@ -434,13 +383,13 @@ invoke.cont69:                                    ; preds = %invoke.cont66
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %invoke.cont69
-  %m_delay_units_threshold = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 48
+  %m_delay_units_threshold = getelementptr inbounds i8, ptr %this, i64 628
   store i32 %call.i5758, ptr %m_delay_units_threshold, align 4
   %call75 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %_p, ptr noundef nonnull @.str.4, i1 noundef zeroext true)
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %invoke.cont72
-  %m_preprocess = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 79
+  %m_preprocess = getelementptr inbounds i8, ptr %this, i64 765
   %frombool76 = zext i1 %call75 to i8
   store i8 %frombool76, ptr %m_preprocess, align 1
   %21 = load ptr, ptr %p, align 8
@@ -448,52 +397,52 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %invoke.cont77 unwind label %lpad
 
 invoke.cont77:                                    ; preds = %invoke.cont74
-  %m_max_conflicts = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 28
+  %m_max_conflicts = getelementptr inbounds i8, ptr %this, i64 568
   store i32 %call.i6061, ptr %m_max_conflicts, align 8
   %22 = load ptr, ptr %p, align 8
   %call.i6364 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.104, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef -1)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %invoke.cont77
-  %m_restart_max = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 29
+  %m_restart_max = getelementptr inbounds i8, ptr %this, i64 572
   store i32 %call.i6364, ptr %m_restart_max, align 4
   %23 = load ptr, ptr %p, align 8
   %call.i6667 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull @.str.105, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont81 unwind label %lpad
 
 invoke.cont81:                                    ; preds = %invoke.cont79
-  %m_cube_depth = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 30
+  %m_cube_depth = getelementptr inbounds i8, ptr %this, i64 576
   store i32 %call.i6667, ptr %m_cube_depth, align 8
   %24 = load ptr, ptr %p, align 8
   %call.i6970 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull @.str.106, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont83 unwind label %lpad
 
 invoke.cont83:                                    ; preds = %invoke.cont81
-  %m_threads = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 31
+  %m_threads = getelementptr inbounds i8, ptr %this, i64 580
   store i32 %call.i6970, ptr %m_threads, align 4
   %25 = load ptr, ptr %p, align 8
   %call.i7273 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.107, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 400)
           to label %invoke.cont85 unwind label %lpad
 
 invoke.cont85:                                    ; preds = %invoke.cont83
-  %m_threads_max_conflicts = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 32
+  %m_threads_max_conflicts = getelementptr inbounds i8, ptr %this, i64 584
   store i32 %call.i7273, ptr %m_threads_max_conflicts, align 8
   %26 = load ptr, ptr %p, align 8
   %call.i7576 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.108, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 2)
           to label %invoke.cont87 unwind label %lpad
 
 invoke.cont87:                                    ; preds = %invoke.cont85
-  %m_threads_cube_frequency = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 33
+  %m_threads_cube_frequency = getelementptr inbounds i8, ptr %this, i64 588
   store i32 %call.i7576, ptr %m_threads_cube_frequency, align 4
   %27 = load ptr, ptr %p, align 8
   %call.i7879 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.109, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont89 unwind label %lpad
 
 invoke.cont89:                                    ; preds = %invoke.cont87
-  %m_core_validate = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 78
+  %m_core_validate = getelementptr inbounds i8, ptr %this, i64 764
   %frombool91 = zext i1 %call.i7879 to i8
   store i8 %frombool91, ptr %m_core_validate, align 4
-  %m_logic = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 70
+  %m_logic = getelementptr inbounds i8, ptr %this, i64 744
   %call94 = invoke ptr @_ZNK10params_ref7get_symEPKcRK6symbol(ptr noundef nonnull align 8 dereferenceable(8) %_p, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %m_logic)
           to label %invoke.cont93 unwind label %lpad
 
@@ -510,7 +459,7 @@ invoke.cont93:                                    ; preds = %invoke.cont89
 
 invoke.cont97:                                    ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %m_string_solver = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 89
+  %m_string_solver = getelementptr inbounds i8, ptr %this, i64 792
   store ptr %call.i8182, ptr %m_string_solver, align 8
   invoke void @_ZNK10smt_params22validate_string_solverERK6symbol(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %m_string_solver)
           to label %invoke.cont101 unwind label %lpad
@@ -541,14 +490,14 @@ if.end111:                                        ; preds = %if.end111.sink.spli
           to label %invoke.cont113 unwind label %lpad
 
 invoke.cont113:                                   ; preds = %if.end111
-  %m_dump_benchmarks = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 86
+  %m_dump_benchmarks = getelementptr inbounds i8, ptr %this, i64 772
   store i8 0, ptr %m_dump_benchmarks, align 4
-  %m_dump_min_time = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 87
+  %m_dump_min_time = getelementptr inbounds i8, ptr %this, i64 776
   store double 5.000000e-01, ptr %m_dump_min_time, align 8
-  %m_dump_recheck = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 88
+  %m_dump_recheck = getelementptr inbounds i8, ptr %this, i64 784
   store i8 0, ptr %m_dump_recheck, align 8
   store ptr %_p, ptr %sp, align 8
-  %g.i83 = getelementptr inbounds %struct.solver_params, ptr %sp, i64 0, i32 1
+  %g.i83 = getelementptr inbounds i8, ptr %sp, i64 8
   invoke void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i83, ptr noundef nonnull @.str.111)
           to label %invoke.cont114 unwind label %lpad
 
@@ -558,7 +507,7 @@ invoke.cont114:                                   ; preds = %invoke.cont113
           to label %invoke.cont116 unwind label %lpad115
 
 invoke.cont116:                                   ; preds = %invoke.cont114
-  %m_axioms2files = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 67
+  %m_axioms2files = getelementptr inbounds i8, ptr %this, i64 736
   %frombool118 = zext i1 %call.i8687 to i8
   store i8 %frombool118, ptr %m_axioms2files, align 8
   %30 = load ptr, ptr %sp, align 8
@@ -566,7 +515,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %invoke.cont119 unwind label %lpad115
 
 invoke.cont119:                                   ; preds = %invoke.cont116
-  %m_lemmas2console = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 68
+  %m_lemmas2console = getelementptr inbounds i8, ptr %this, i64 737
   %frombool121 = zext i1 %call.i8990 to i8
   store i8 %frombool121, ptr %m_lemmas2console, align 1
   %31 = load ptr, ptr %sp, align 8
@@ -574,7 +523,7 @@ invoke.cont119:                                   ; preds = %invoke.cont116
           to label %invoke.cont122 unwind label %lpad115
 
 invoke.cont122:                                   ; preds = %invoke.cont119
-  %m_instantiations2console = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 69
+  %m_instantiations2console = getelementptr inbounds i8, ptr %this, i64 738
   %frombool124 = zext i1 %call.i9293 to i8
   store i8 %frombool124, ptr %m_instantiations2console, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i94)
@@ -588,7 +537,7 @@ invoke.cont122:                                   ; preds = %invoke.cont119
 
 invoke.cont126:                                   ; preds = %.noexc97
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i94)
-  %m_proof_log = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 41
+  %m_proof_log = getelementptr inbounds i8, ptr %this, i64 608
   store ptr %call.i9698, ptr %m_proof_log, align 8
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i83) #14
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #14
@@ -656,7 +605,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #14
   ret void
 }
@@ -866,7 +815,7 @@ if.end:                                           ; preds = %if.end11.i54, %_Zeq
 
 invoke.cont:                                      ; preds = %if.end
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup
@@ -912,7 +861,7 @@ entry:
   tail call void @_ZN16theory_pb_params11updt_paramsERK10params_ref(ptr noundef nonnull align 4 dereferenceable(5) %add.ptr5, ptr noundef nonnull align 8 dereferenceable(8) %p)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
   store ptr %p, ptr %p.i, align 8
-  %g.i.i = getelementptr inbounds %struct.smt_params_helper, ptr %p.i, i64 0, i32 1
+  %g.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i.i, ptr noundef nonnull @.str.87)
   %0 = load ptr, ptr %p.i, align 8
   %call.i2.i = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.117, ptr noundef nonnull align 8 dereferenceable(8) %g.i.i, i32 noundef 1)
@@ -952,15 +901,15 @@ declare void @_ZN17theory_str_params11updt_paramsERK10params_ref(ptr noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10smt_params11updt_paramsERK14context_params(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %p) local_unnamed_addr #5 align 2 {
 entry:
-  %m_auto_config = getelementptr inbounds %class.context_params, ptr %p, i64 0, i32 4
+  %m_auto_config = getelementptr inbounds i8, ptr %p, i64 72
   %0 = load i8, ptr %m_auto_config, align 8
   %1 = and i8 %0, 1
-  %m_auto_config2 = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 85
+  %m_auto_config2 = getelementptr inbounds i8, ptr %this, i64 771
   store i8 %1, ptr %m_auto_config2, align 1
-  %m_model = getelementptr inbounds %class.context_params, ptr %p, i64 0, i32 9
+  %m_model = getelementptr inbounds i8, ptr %p, i64 77
   %2 = load i8, ptr %m_model, align 1
   %3 = and i8 %2, 1
-  %m_model4 = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 74
+  %m_model4 = getelementptr inbounds i8, ptr %this, i64 755
   store i8 %3, ptr %m_model4, align 1
   ret void
 }
@@ -989,180 +938,180 @@ entry:
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 440
   tail call void @_ZNK17theory_str_params7displayERSo(ptr noundef nonnull align 8 dereferenceable(38) %add.ptr8, ptr noundef nonnull align 8 dereferenceable(8) %out)
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %m_display_proof = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 11
+  %m_display_proof = getelementptr inbounds i8, ptr %this, i64 504
   %1 = load i8, ptr %m_display_proof, align 8
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call, i1 noundef zeroext %tobool)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call9, i8 noundef signext 10)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.9)
-  %m_display_dot_proof = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 12
+  %m_display_dot_proof = getelementptr inbounds i8, ptr %this, i64 505
   %3 = load i8, ptr %m_display_dot_proof, align 1
   %4 = and i8 %3, 1
   %tobool12 = icmp ne i8 %4, 0
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call11, i1 noundef zeroext %tobool12)
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call13, i8 noundef signext 10)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
-  %m_display_unsat_core = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 13
+  %m_display_unsat_core = getelementptr inbounds i8, ptr %this, i64 506
   %5 = load i8, ptr %m_display_unsat_core, align 2
   %6 = and i8 %5, 1
   %tobool16 = icmp ne i8 %6, 0
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call15, i1 noundef zeroext %tobool16)
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call17, i8 noundef signext 10)
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11)
-  %m_check_proof = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 14
+  %m_check_proof = getelementptr inbounds i8, ptr %this, i64 507
   %7 = load i8, ptr %m_check_proof, align 1
   %8 = and i8 %7, 1
   %tobool20 = icmp ne i8 %8, 0
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call19, i1 noundef zeroext %tobool20)
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call21, i8 noundef signext 10)
   %call23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.12)
-  %m_eq_propagation = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 15
+  %m_eq_propagation = getelementptr inbounds i8, ptr %this, i64 508
   %9 = load i8, ptr %m_eq_propagation, align 4
   %10 = and i8 %9, 1
   %tobool24 = icmp ne i8 %10, 0
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call23, i1 noundef zeroext %tobool24)
   %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call25, i8 noundef signext 10)
   %call27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.13)
-  %m_binary_clause_opt = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 16
+  %m_binary_clause_opt = getelementptr inbounds i8, ptr %this, i64 509
   %11 = load i8, ptr %m_binary_clause_opt, align 1
   %12 = and i8 %11, 1
   %tobool28 = icmp ne i8 %12, 0
   %call29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call27, i1 noundef zeroext %tobool28)
   %call30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call29, i8 noundef signext 10)
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.14)
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   %13 = load i32, ptr %m_relevancy_lvl, align 8
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call31, i32 noundef %13)
   %call33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call32, i8 noundef signext 10)
   %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.15)
-  %m_relevancy_lemma = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 18
+  %m_relevancy_lemma = getelementptr inbounds i8, ptr %this, i64 516
   %14 = load i8, ptr %m_relevancy_lemma, align 4
   %15 = and i8 %14, 1
   %tobool35 = icmp ne i8 %15, 0
   %call36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call34, i1 noundef zeroext %tobool35)
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call36, i8 noundef signext 10)
   %call38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.16)
-  %m_random_seed = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 19
+  %m_random_seed = getelementptr inbounds i8, ptr %this, i64 520
   %16 = load i32, ptr %m_random_seed, align 8
   %call39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call38, i32 noundef %16)
   %call40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call39, i8 noundef signext 10)
   %call41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.17)
-  %m_random_var_freq = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 20
+  %m_random_var_freq = getelementptr inbounds i8, ptr %this, i64 528
   %17 = load double, ptr %m_random_var_freq, align 8
   %call42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call41, double noundef %17)
   %call43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call42, i8 noundef signext 10)
   %call44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.18)
-  %m_inv_decay = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 21
+  %m_inv_decay = getelementptr inbounds i8, ptr %this, i64 536
   %18 = load double, ptr %m_inv_decay, align 8
   %call45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call44, double noundef %18)
   %call46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call45, i8 noundef signext 10)
   %call47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.19)
-  %m_clause_decay = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 22
+  %m_clause_decay = getelementptr inbounds i8, ptr %this, i64 544
   %19 = load i32, ptr %m_clause_decay, align 8
   %call48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call47, i32 noundef %19)
   %call49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call48, i8 noundef signext 10)
   %call50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.20)
-  %m_random_initial_activity = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 23
+  %m_random_initial_activity = getelementptr inbounds i8, ptr %this, i64 548
   %20 = load i32, ptr %m_random_initial_activity, align 4
   %call51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call50, i32 noundef %20)
   %call52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call51, i8 noundef signext 10)
   %call53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.21)
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   %21 = load i32, ptr %m_phase_selection, align 8
   %call54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call53, i32 noundef %21)
   %call55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call54, i8 noundef signext 10)
   %call56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.22)
-  %m_phase_caching_on = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 25
+  %m_phase_caching_on = getelementptr inbounds i8, ptr %this, i64 556
   %22 = load i32, ptr %m_phase_caching_on, align 4
   %call57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call56, i32 noundef %22)
   %call58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call57, i8 noundef signext 10)
   %call59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.23)
-  %m_phase_caching_off = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 26
+  %m_phase_caching_off = getelementptr inbounds i8, ptr %this, i64 560
   %23 = load i32, ptr %m_phase_caching_off, align 8
   %call60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call59, i32 noundef %23)
   %call61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call60, i8 noundef signext 10)
   %call62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.24)
-  %m_minimize_lemmas = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 27
+  %m_minimize_lemmas = getelementptr inbounds i8, ptr %this, i64 564
   %24 = load i8, ptr %m_minimize_lemmas, align 4
   %25 = and i8 %24, 1
   %tobool63 = icmp ne i8 %25, 0
   %call64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call62, i1 noundef zeroext %tobool63)
   %call65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call64, i8 noundef signext 10)
   %call66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.25)
-  %m_max_conflicts = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 28
+  %m_max_conflicts = getelementptr inbounds i8, ptr %this, i64 568
   %26 = load i32, ptr %m_max_conflicts, align 8
   %call67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call66, i32 noundef %26)
   %call68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call67, i8 noundef signext 10)
   %call69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.26)
-  %m_cube_depth = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 30
+  %m_cube_depth = getelementptr inbounds i8, ptr %this, i64 576
   %27 = load i32, ptr %m_cube_depth, align 8
   %call70 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call69, i32 noundef %27)
   %call71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call70, i8 noundef signext 10)
   %call72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.27)
-  %m_threads = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 31
+  %m_threads = getelementptr inbounds i8, ptr %this, i64 580
   %28 = load i32, ptr %m_threads, align 4
   %call73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call72, i32 noundef %28)
   %call74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call73, i8 noundef signext 10)
   %call75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.28)
-  %m_threads_max_conflicts = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 32
+  %m_threads_max_conflicts = getelementptr inbounds i8, ptr %this, i64 584
   %29 = load i32, ptr %m_threads_max_conflicts, align 8
   %call76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call75, i32 noundef %29)
   %call77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call76, i8 noundef signext 10)
   %call78 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.29)
-  %m_threads_cube_frequency = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 33
+  %m_threads_cube_frequency = getelementptr inbounds i8, ptr %this, i64 588
   %30 = load i32, ptr %m_threads_cube_frequency, align 4
   %call79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call78, i32 noundef %30)
   %call80 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call79, i8 noundef signext 10)
   %call81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.30)
-  %m_simplify_clauses = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 34
+  %m_simplify_clauses = getelementptr inbounds i8, ptr %this, i64 592
   %31 = load i8, ptr %m_simplify_clauses, align 8
   %32 = and i8 %31, 1
   %tobool82 = icmp ne i8 %32, 0
   %call83 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call81, i1 noundef zeroext %tobool82)
   %call84 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call83, i8 noundef signext 10)
   %call85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.31)
-  %m_tick = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 35
+  %m_tick = getelementptr inbounds i8, ptr %this, i64 596
   %33 = load i32, ptr %m_tick, align 4
   %call86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call85, i32 noundef %33)
   %call87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call86, i8 noundef signext 10)
   %call88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.32)
-  %m_display_features = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 36
+  %m_display_features = getelementptr inbounds i8, ptr %this, i64 600
   %34 = load i8, ptr %m_display_features, align 8
   %35 = and i8 %34, 1
   %tobool89 = icmp ne i8 %35, 0
   %call90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call88, i1 noundef zeroext %tobool89)
   %call91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call90, i8 noundef signext 10)
   %call92 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.33)
-  %m_new_core2th_eq = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 37
+  %m_new_core2th_eq = getelementptr inbounds i8, ptr %this, i64 601
   %36 = load i8, ptr %m_new_core2th_eq, align 1
   %37 = and i8 %36, 1
   %tobool93 = icmp ne i8 %37, 0
   %call94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call92, i1 noundef zeroext %tobool93)
   %call95 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call94, i8 noundef signext 10)
   %call96 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.34)
-  %m_ematching = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 38
+  %m_ematching = getelementptr inbounds i8, ptr %this, i64 602
   %38 = load i8, ptr %m_ematching, align 2
   %39 = and i8 %38, 1
   %tobool97 = icmp ne i8 %39, 0
   %call98 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call96, i1 noundef zeroext %tobool97)
   %call99 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call98, i8 noundef signext 10)
   %call100 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.35)
-  %m_induction = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 39
+  %m_induction = getelementptr inbounds i8, ptr %this, i64 603
   %40 = load i8, ptr %m_induction, align 1
   %41 = and i8 %40, 1
   %tobool101 = icmp ne i8 %41, 0
   %call102 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call100, i1 noundef zeroext %tobool101)
   %call103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call102, i8 noundef signext 10)
   %call104 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.36)
-  %m_clause_proof = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 40
+  %m_clause_proof = getelementptr inbounds i8, ptr %this, i64 604
   %42 = load i8, ptr %m_clause_proof, align 4
   %43 = and i8 %42, 1
   %tobool105 = icmp ne i8 %43, 0
   %call106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call104, i1 noundef zeroext %tobool105)
   %call107 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call106, i8 noundef signext 10)
   %call108 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.37)
-  %m_proof_log = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 41
+  %m_proof_log = getelementptr inbounds i8, ptr %this, i64 608
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %m_proof_log, align 8
   %44 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
   %and.i = and i64 %44, 7
@@ -1191,146 +1140,146 @@ if.else5.i:                                       ; preds = %entry
 _ZlsRSo6symbol.exit:                              ; preds = %if.then2.i, %if.else.i, %if.else5.i
   %call110 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call108, i8 noundef signext 10)
   %call111 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.38)
-  %m_case_split_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 42
+  %m_case_split_strategy = getelementptr inbounds i8, ptr %this, i64 616
   %45 = load i32, ptr %m_case_split_strategy, align 8
   %call112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call111, i32 noundef %45)
   %call113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call112, i8 noundef signext 10)
   %call114 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.39)
-  %m_rel_case_split_order = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 43
+  %m_rel_case_split_order = getelementptr inbounds i8, ptr %this, i64 620
   %46 = load i32, ptr %m_rel_case_split_order, align 4
   %call115 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call114, i32 noundef %46)
   %call116 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call115, i8 noundef signext 10)
   %call117 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.40)
-  %m_lookahead_diseq = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 44
+  %m_lookahead_diseq = getelementptr inbounds i8, ptr %this, i64 624
   %47 = load i8, ptr %m_lookahead_diseq, align 8
   %48 = and i8 %47, 1
   %tobool118 = icmp ne i8 %48, 0
   %call119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call117, i1 noundef zeroext %tobool118)
   %call120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call119, i8 noundef signext 10)
   %call121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.41)
-  %m_delay_units = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 47
+  %m_delay_units = getelementptr inbounds i8, ptr %this, i64 627
   %49 = load i8, ptr %m_delay_units, align 1
   %50 = and i8 %49, 1
   %tobool122 = icmp ne i8 %50, 0
   %call123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call121, i1 noundef zeroext %tobool122)
   %call124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call123, i8 noundef signext 10)
   %call125 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.42)
-  %m_delay_units_threshold = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 48
+  %m_delay_units_threshold = getelementptr inbounds i8, ptr %this, i64 628
   %51 = load i32, ptr %m_delay_units_threshold, align 4
   %call126 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call125, i32 noundef %51)
   %call127 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call126, i8 noundef signext 10)
   %call128 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.43)
-  %m_theory_resolve = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 49
+  %m_theory_resolve = getelementptr inbounds i8, ptr %this, i64 632
   %52 = load i8, ptr %m_theory_resolve, align 8
   %53 = and i8 %52, 1
   %tobool129 = icmp ne i8 %53, 0
   %call130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call128, i1 noundef zeroext %tobool129)
   %call131 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call130, i8 noundef signext 10)
   %call132 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.44)
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   %54 = load i32, ptr %m_restart_strategy, align 4
   %call133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call132, i32 noundef %54)
   %call134 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call133, i8 noundef signext 10)
   %call135 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.45)
-  %m_restart_initial = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 51
+  %m_restart_initial = getelementptr inbounds i8, ptr %this, i64 640
   %55 = load i32, ptr %m_restart_initial, align 8
   %call136 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call135, i32 noundef %55)
   %call137 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call136, i8 noundef signext 10)
   %call138 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.46)
-  %m_restart_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 52
+  %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   %56 = load double, ptr %m_restart_factor, align 8
   %call139 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call138, double noundef %56)
   %call140 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call139, i8 noundef signext 10)
   %call141 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.47)
-  %m_restart_adaptive = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 53
+  %m_restart_adaptive = getelementptr inbounds i8, ptr %this, i64 656
   %57 = load i8, ptr %m_restart_adaptive, align 8
   %58 = and i8 %57, 1
   %tobool142 = icmp ne i8 %58, 0
   %call143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call141, i1 noundef zeroext %tobool142)
   %call144 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call143, i8 noundef signext 10)
   %call145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.48)
-  %m_agility_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 54
+  %m_agility_factor = getelementptr inbounds i8, ptr %this, i64 664
   %59 = load double, ptr %m_agility_factor, align 8
   %call146 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call145, double noundef %59)
   %call147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call146, i8 noundef signext 10)
   %call148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.49)
-  %m_restart_agility_threshold = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 55
+  %m_restart_agility_threshold = getelementptr inbounds i8, ptr %this, i64 672
   %60 = load double, ptr %m_restart_agility_threshold, align 8
   %call149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call148, double noundef %60)
   %call150 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call149, i8 noundef signext 10)
   %call151 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.50)
-  %m_lemma_gc_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 56
+  %m_lemma_gc_strategy = getelementptr inbounds i8, ptr %this, i64 680
   %61 = load i32, ptr %m_lemma_gc_strategy, align 8
   %call152 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call151, i32 noundef %61)
   %call153 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call152, i8 noundef signext 10)
   %call154 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.51)
-  %m_lemma_gc_half = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 57
+  %m_lemma_gc_half = getelementptr inbounds i8, ptr %this, i64 684
   %62 = load i8, ptr %m_lemma_gc_half, align 4
   %63 = and i8 %62, 1
   %tobool155 = icmp ne i8 %63, 0
   %call156 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call154, i1 noundef zeroext %tobool155)
   %call157 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call156, i8 noundef signext 10)
   %call158 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.52)
-  %m_recent_lemmas_size = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 58
+  %m_recent_lemmas_size = getelementptr inbounds i8, ptr %this, i64 688
   %64 = load i32, ptr %m_recent_lemmas_size, align 8
   %call159 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call158, i32 noundef %64)
   %call160 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call159, i8 noundef signext 10)
   %call161 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.53)
-  %m_lemma_gc_initial = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 59
+  %m_lemma_gc_initial = getelementptr inbounds i8, ptr %this, i64 692
   %65 = load i32, ptr %m_lemma_gc_initial, align 4
   %call162 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call161, i32 noundef %65)
   %call163 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call162, i8 noundef signext 10)
   %call164 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.54)
-  %m_lemma_gc_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 60
+  %m_lemma_gc_factor = getelementptr inbounds i8, ptr %this, i64 696
   %66 = load double, ptr %m_lemma_gc_factor, align 8
   %call165 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call164, double noundef %66)
   %call166 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call165, i8 noundef signext 10)
   %call167 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.55)
-  %m_new_old_ratio = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 61
+  %m_new_old_ratio = getelementptr inbounds i8, ptr %this, i64 704
   %67 = load i32, ptr %m_new_old_ratio, align 8
   %call168 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call167, i32 noundef %67)
   %call169 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call168, i8 noundef signext 10)
   %call170 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.56)
-  %m_new_clause_activity = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 62
+  %m_new_clause_activity = getelementptr inbounds i8, ptr %this, i64 708
   %68 = load i32, ptr %m_new_clause_activity, align 4
   %call171 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call170, i32 noundef %68)
   %call172 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call171, i8 noundef signext 10)
   %call173 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.57)
-  %m_old_clause_activity = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 63
+  %m_old_clause_activity = getelementptr inbounds i8, ptr %this, i64 712
   %69 = load i32, ptr %m_old_clause_activity, align 8
   %call174 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call173, i32 noundef %69)
   %call175 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call174, i8 noundef signext 10)
   %call176 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.58)
-  %m_new_clause_relevancy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 64
+  %m_new_clause_relevancy = getelementptr inbounds i8, ptr %this, i64 716
   %70 = load i32, ptr %m_new_clause_relevancy, align 4
   %call177 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call176, i32 noundef %70)
   %call178 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call177, i8 noundef signext 10)
   %call179 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.59)
-  %m_old_clause_relevancy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 65
+  %m_old_clause_relevancy = getelementptr inbounds i8, ptr %this, i64 720
   %71 = load i32, ptr %m_old_clause_relevancy, align 8
   %call180 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call179, i32 noundef %71)
   %call181 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call180, i8 noundef signext 10)
   %call182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.60)
-  %m_inv_clause_decay = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 66
+  %m_inv_clause_decay = getelementptr inbounds i8, ptr %this, i64 728
   %72 = load double, ptr %m_inv_clause_decay, align 8
   %call183 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call182, double noundef %72)
   %call184 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call183, i8 noundef signext 10)
   %call185 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.61)
-  %m_axioms2files = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 67
+  %m_axioms2files = getelementptr inbounds i8, ptr %this, i64 736
   %73 = load i8, ptr %m_axioms2files, align 8
   %74 = and i8 %73, 1
   %tobool186 = icmp ne i8 %74, 0
   %call187 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call185, i1 noundef zeroext %tobool186)
   %call188 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call187, i8 noundef signext 10)
   %call189 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.62)
-  %m_lemmas2console = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 68
+  %m_lemmas2console = getelementptr inbounds i8, ptr %this, i64 737
   %75 = load i8, ptr %m_lemmas2console, align 1
   %76 = and i8 %75, 1
   %tobool190 = icmp ne i8 %76, 0
   %call191 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call189, i1 noundef zeroext %tobool190)
   %call192 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call191, i8 noundef signext 10)
   %call193 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.63)
-  %m_logic = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 70
+  %m_logic = getelementptr inbounds i8, ptr %this, i64 744
   %agg.tmp194.sroa.0.0.copyload = load ptr, ptr %m_logic, align 8
   %77 = ptrtoint ptr %agg.tmp194.sroa.0.0.copyload to i64
   %and.i82 = and i64 %77, 7
@@ -1359,7 +1308,7 @@ if.else5.i84:                                     ; preds = %_ZlsRSo6symbol.exit
 _ZlsRSo6symbol.exit95:                            ; preds = %if.then2.i91, %if.else.i93, %if.else5.i84
   %call197 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call193, i8 noundef signext 10)
   %call198 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.64)
-  %m_string_solver = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 89
+  %m_string_solver = getelementptr inbounds i8, ptr %this, i64 792
   %agg.tmp199.sroa.0.0.copyload = load ptr, ptr %m_string_solver, align 8
   %78 = ptrtoint ptr %agg.tmp199.sroa.0.0.copyload to i64
   %and.i96 = and i64 %78, 7
@@ -1388,103 +1337,103 @@ if.else5.i98:                                     ; preds = %_ZlsRSo6symbol.exit
 _ZlsRSo6symbol.exit109:                           ; preds = %if.then2.i105, %if.else.i107, %if.else5.i98
   %call202 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call198, i8 noundef signext 10)
   %call203 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.65)
-  %m_profile_res_sub = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 71
+  %m_profile_res_sub = getelementptr inbounds i8, ptr %this, i64 752
   %79 = load i8, ptr %m_profile_res_sub, align 8
   %80 = and i8 %79, 1
   %tobool204 = icmp ne i8 %80, 0
   %call205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call203, i1 noundef zeroext %tobool204)
   %call206 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call205, i8 noundef signext 10)
   %call207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.66)
-  %m_display_bool_var2expr = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 72
+  %m_display_bool_var2expr = getelementptr inbounds i8, ptr %this, i64 753
   %81 = load i8, ptr %m_display_bool_var2expr, align 1
   %82 = and i8 %81, 1
   %tobool208 = icmp ne i8 %82, 0
   %call209 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call207, i1 noundef zeroext %tobool208)
   %call210 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call209, i8 noundef signext 10)
   %call211 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.67)
-  %m_display_ll_bool_var2expr = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 73
+  %m_display_ll_bool_var2expr = getelementptr inbounds i8, ptr %this, i64 754
   %83 = load i8, ptr %m_display_ll_bool_var2expr, align 2
   %84 = and i8 %83, 1
   %tobool212 = icmp ne i8 %84, 0
   %call213 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call211, i1 noundef zeroext %tobool212)
   %call214 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call213, i8 noundef signext 10)
   %call215 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.68)
-  %m_model = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 74
+  %m_model = getelementptr inbounds i8, ptr %this, i64 755
   %85 = load i8, ptr %m_model, align 1
   %86 = and i8 %85, 1
   %tobool216 = icmp ne i8 %86, 0
   %call217 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call215, i1 noundef zeroext %tobool216)
   %call218 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call217, i8 noundef signext 10)
   %call219 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.69)
-  %m_model_on_timeout = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 75
+  %m_model_on_timeout = getelementptr inbounds i8, ptr %this, i64 756
   %87 = load i8, ptr %m_model_on_timeout, align 4
   %88 = and i8 %87, 1
   %tobool220 = icmp ne i8 %88, 0
   %call221 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call219, i1 noundef zeroext %tobool220)
   %call222 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call221, i8 noundef signext 10)
   %call223 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.70)
-  %m_model_on_final_check = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 76
+  %m_model_on_final_check = getelementptr inbounds i8, ptr %this, i64 757
   %89 = load i8, ptr %m_model_on_final_check, align 1
   %90 = and i8 %89, 1
   %tobool224 = icmp ne i8 %90, 0
   %call225 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call223, i1 noundef zeroext %tobool224)
   %call226 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call225, i8 noundef signext 10)
   %call227 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.71)
-  %m_progress_sampling_freq = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 77
+  %m_progress_sampling_freq = getelementptr inbounds i8, ptr %this, i64 760
   %91 = load i32, ptr %m_progress_sampling_freq, align 8
   %call228 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call227, i32 noundef %91)
   %call229 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call228, i8 noundef signext 10)
   %call230 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.72)
-  %m_core_validate = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 78
+  %m_core_validate = getelementptr inbounds i8, ptr %this, i64 764
   %92 = load i8, ptr %m_core_validate, align 4
   %93 = and i8 %92, 1
   %tobool231 = icmp ne i8 %93, 0
   %call232 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call230, i1 noundef zeroext %tobool231)
   %call233 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call232, i8 noundef signext 10)
   %call234 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.73)
-  %m_preprocess = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 79
+  %m_preprocess = getelementptr inbounds i8, ptr %this, i64 765
   %94 = load i8, ptr %m_preprocess, align 1
   %95 = and i8 %94, 1
   %tobool235 = icmp ne i8 %95, 0
   %call236 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call234, i1 noundef zeroext %tobool235)
   %call237 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call236, i8 noundef signext 10)
   %call238 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.74)
-  %m_user_theory_preprocess_axioms = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 80
+  %m_user_theory_preprocess_axioms = getelementptr inbounds i8, ptr %this, i64 766
   %96 = load i8, ptr %m_user_theory_preprocess_axioms, align 2
   %97 = and i8 %96, 1
   %tobool239 = icmp ne i8 %97, 0
   %call240 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call238, i1 noundef zeroext %tobool239)
   %call241 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call240, i8 noundef signext 10)
   %call242 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.75)
-  %m_user_theory_persist_axioms = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 81
+  %m_user_theory_persist_axioms = getelementptr inbounds i8, ptr %this, i64 767
   %98 = load i8, ptr %m_user_theory_persist_axioms, align 1
   %99 = and i8 %98, 1
   %tobool243 = icmp ne i8 %99, 0
   %call244 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call242, i1 noundef zeroext %tobool243)
   %call245 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call244, i8 noundef signext 10)
   %call246 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.76)
-  %m_at_labels_cex = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 82
+  %m_at_labels_cex = getelementptr inbounds i8, ptr %this, i64 768
   %100 = load i8, ptr %m_at_labels_cex, align 8
   %101 = and i8 %100, 1
   %tobool247 = icmp ne i8 %101, 0
   %call248 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call246, i1 noundef zeroext %tobool247)
   %call249 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call248, i8 noundef signext 10)
   %call250 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.77)
-  %m_check_at_labels = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 83
+  %m_check_at_labels = getelementptr inbounds i8, ptr %this, i64 769
   %102 = load i8, ptr %m_check_at_labels, align 1
   %103 = and i8 %102, 1
   %tobool251 = icmp ne i8 %103, 0
   %call252 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call250, i1 noundef zeroext %tobool251)
   %call253 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call252, i8 noundef signext 10)
   %call254 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.78)
-  %m_dump_goal_as_smt = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 84
+  %m_dump_goal_as_smt = getelementptr inbounds i8, ptr %this, i64 770
   %104 = load i8, ptr %m_dump_goal_as_smt, align 2
   %105 = and i8 %104, 1
   %tobool255 = icmp ne i8 %105, 0
   %call256 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call254, i1 noundef zeroext %tobool255)
   %call257 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call256, i8 noundef signext 10)
   %call258 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.79)
-  %m_auto_config = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 85
+  %m_auto_config = getelementptr inbounds i8, ptr %this, i64 771
   %106 = load i8, ptr %m_auto_config, align 1
   %107 = and i8 %106, 1
   %tobool259 = icmp ne i8 %107, 0
@@ -1524,15 +1473,15 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params11setup_QF_UFEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 2, ptr %m_restart_strategy, align 4
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 4, ptr %m_phase_selection, align 8
-  %m_random_initial_activity = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 23
+  %m_random_initial_activity = getelementptr inbounds i8, ptr %this, i64 548
   store i32 2, ptr %m_random_initial_activity, align 4
   ret void
 }
@@ -1540,7 +1489,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params12setup_QF_RDLEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %add.ptr, align 8
@@ -1548,7 +1497,7 @@ entry:
   store i8 0, ptr %m_arith_reflect, align 4
   %m_arith_propagate_eqs = getelementptr inbounds i8, ptr %this, i64 264
   store i8 0, ptr %m_arith_propagate_eqs, align 8
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   ret void
 }
@@ -1562,7 +1511,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params12setup_QF_IDLEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %add.ptr, align 8
@@ -1572,7 +1521,7 @@ entry:
   store i8 0, ptr %m_arith_propagate_eqs, align 8
   %m_arith_small_lemma_size = getelementptr inbounds i8, ptr %this, i64 280
   store i32 30, ptr %m_arith_small_lemma_size, align 8
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   ret void
 }
@@ -1586,7 +1535,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params12setup_QF_LRAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %add.ptr, align 8
@@ -1594,11 +1543,11 @@ entry:
   store i8 0, ptr %m_arith_reflect, align 4
   %m_arith_propagate_eqs = getelementptr inbounds i8, ptr %this, i64 264
   store i8 0, ptr %m_arith_propagate_eqs, align 8
-  %m_eliminate_term_ite = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 6
+  %m_eliminate_term_ite = getelementptr inbounds i8, ptr %this, i64 50
   store i8 1, ptr %m_eliminate_term_ite, align 2
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 7, ptr %m_phase_selection, align 8
   ret void
 }
@@ -1610,7 +1559,7 @@ entry:
   %ref.tmp4 = alloca %class.rational, align 8
   %ref.tmp7 = alloca %class.rational, align 8
   %ref.tmp10 = alloca %class.rational, align 8
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %add.ptr, align 8
@@ -1618,25 +1567,25 @@ entry:
   store i8 0, ptr %m_arith_reflect, align 4
   %m_arith_propagate_eqs = getelementptr inbounds i8, ptr %this, i64 264
   store i8 0, ptr %m_arith_propagate_eqs, align 8
-  %m_eliminate_term_ite = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 6
+  %m_eliminate_term_ite = getelementptr inbounds i8, ptr %this, i64 50
   store i8 1, ptr %m_eliminate_term_ite, align 2
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
-  %m_arith_k_sum = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52
+  %m_arith_k_sum = getelementptr inbounds i8, ptr %st, i64 528
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store i32 0, ptr %ref.tmp, align 8, !alias.scope !4
-  %m_kind.i.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp, i64 0, i32 1
+  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i8 0, ptr %m_kind.i.i.i.i, align 4, !alias.scope !4
-  %m_ptr.i.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp, i64 0, i32 2
+  %m_ptr.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %m_ptr.i.i.i.i, align 8, !alias.scope !4
-  %m_den.i.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1
+  %m_den.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !4
-  %m_kind.i1.i.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
   store i8 0, ptr %m_kind.i1.i.i.i, align 4, !alias.scope !4
-  %m_ptr.i4.i.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr null, ptr %m_ptr.i4.i.i.i, align 8, !alias.scope !4
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !4
-  %m_kind.i.i.i.i.i.i = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52, i32 0, i32 0, i32 1
+  %m_kind.i.i.i.i.i.i = getelementptr inbounds i8, ptr %st, i64 532
   %bf.load.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i, align 4, !noalias !4
   %bf.clear.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i = icmp eq i8 %bf.clear.i.i.i.i.i.i, 0
@@ -1668,18 +1617,18 @@ lpad.i:                                           ; preds = %_ZN11mpq_managerILb
 
 _Z9numeratorRK8rational.exit:                     ; preds = %_ZN11mpq_managerILb1EE13get_numeratorERK3mpqR3mpz.exit.i.i
   store i32 1, ptr %m_den.i.i.i, align 8, !alias.scope !4
-  %m_kind.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp4, i64 0, i32 1
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i, -4
-  %m_ptr.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp4, i64 0, i32 2
+  %m_ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr null, ptr %m_ptr.i.i.i, align 8
-  %m_den.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp4, i64 0, i32 1
+  %m_den.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i32 1, ptr %m_den.i.i, align 8
-  %m_kind.i1.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp4, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 20
   %bf.load.i2.i.i = load i8, ptr %m_kind.i1.i.i, align 4
   %bf.clear3.i3.i.i = and i8 %bf.load.i2.i.i, -4
   store i8 %bf.clear3.i3.i.i, ptr %m_kind.i1.i.i, align 4
-  %m_ptr.i4.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp4, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 24
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %3 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   store i32 2000000, ptr %ref.tmp4, align 8
@@ -1740,23 +1689,23 @@ invoke.cont6:                                     ; preds = %if.else.i.i.i
 land.rhs:                                         ; preds = %call4.i.i.i.i.i.noexc, %if.then.i.i.i.i.i11, %invoke.cont6
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store i32 0, ptr %ref.tmp7, align 8, !alias.scope !7
-  %m_kind.i.i.i.i14 = getelementptr inbounds %class.mpz, ptr %ref.tmp7, i64 0, i32 1
+  %m_kind.i.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp7, i64 4
   %bf.load.i.i.i.i15 = load i8, ptr %m_kind.i.i.i.i14, align 4, !alias.scope !7
   %bf.clear3.i.i.i.i16 = and i8 %bf.load.i.i.i.i15, -4
   store i8 %bf.clear3.i.i.i.i16, ptr %m_kind.i.i.i.i14, align 4, !alias.scope !7
-  %m_ptr.i.i.i.i17 = getelementptr inbounds %class.mpz, ptr %ref.tmp7, i64 0, i32 2
+  %m_ptr.i.i.i.i17 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store ptr null, ptr %m_ptr.i.i.i.i17, align 8, !alias.scope !7
-  %m_den.i.i.i18 = getelementptr inbounds %class.mpq, ptr %ref.tmp7, i64 0, i32 1
+  %m_den.i.i.i18 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   store i32 1, ptr %m_den.i.i.i18, align 8, !alias.scope !7
-  %m_kind.i1.i.i.i19 = getelementptr inbounds %class.mpq, ptr %ref.tmp7, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp7, i64 20
   %bf.load.i2.i.i.i20 = load i8, ptr %m_kind.i1.i.i.i19, align 4, !alias.scope !7
   %bf.clear3.i3.i.i.i21 = and i8 %bf.load.i2.i.i.i20, -4
   store i8 %bf.clear3.i3.i.i.i21, ptr %m_kind.i1.i.i.i19, align 4, !alias.scope !7
-  %m_ptr.i4.i.i.i22 = getelementptr inbounds %class.mpq, ptr %ref.tmp7, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
   store ptr null, ptr %m_ptr.i4.i.i.i22, align 8, !alias.scope !7
   %9 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !noalias !7
-  %m_den.i.i1.i = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52, i32 0, i32 1
-  %m_kind.i.i.i.i.i.i23 = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52, i32 0, i32 1, i32 1
+  %m_den.i.i1.i = getelementptr inbounds i8, ptr %st, i64 544
+  %m_kind.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %st, i64 548
   %bf.load.i.i.i.i.i.i24 = load i8, ptr %m_kind.i.i.i.i.i.i23, align 4, !noalias !7
   %bf.clear.i.i.i.i.i.i25 = and i8 %bf.load.i.i.i.i.i.i24, 1
   %cmp.i.i.i.i.i.i26 = icmp eq i8 %bf.clear.i.i.i.i.i.i25, 0
@@ -1784,18 +1733,18 @@ lpad.i28:                                         ; preds = %_ZN11mpq_managerILb
 
 invoke.cont9:                                     ; preds = %_ZN11mpq_managerILb1EE15get_denominatorERK3mpqR3mpz.exit.i.i
   store i32 1, ptr %m_den.i.i.i18, align 8, !alias.scope !7
-  %m_kind.i.i.i30 = getelementptr inbounds %class.mpz, ptr %ref.tmp10, i64 0, i32 1
+  %m_kind.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp10, i64 4
   %bf.load.i.i.i31 = load i8, ptr %m_kind.i.i.i30, align 4
   %bf.clear3.i.i.i32 = and i8 %bf.load.i.i.i31, -4
-  %m_ptr.i.i.i33 = getelementptr inbounds %class.mpz, ptr %ref.tmp10, i64 0, i32 2
+  %m_ptr.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   store ptr null, ptr %m_ptr.i.i.i33, align 8
-  %m_den.i.i34 = getelementptr inbounds %class.mpq, ptr %ref.tmp10, i64 0, i32 1
+  %m_den.i.i34 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
   store i32 1, ptr %m_den.i.i34, align 8
-  %m_kind.i1.i.i35 = getelementptr inbounds %class.mpq, ptr %ref.tmp10, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i35 = getelementptr inbounds i8, ptr %ref.tmp10, i64 20
   %bf.load.i2.i.i36 = load i8, ptr %m_kind.i1.i.i35, align 4
   %bf.clear3.i3.i.i37 = and i8 %bf.load.i2.i.i36, -4
   store i8 %bf.clear3.i3.i.i37, ptr %m_kind.i1.i.i35, align 4
-  %m_ptr.i4.i.i38 = getelementptr inbounds %class.mpq, ptr %ref.tmp10, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i38 = getelementptr inbounds i8, ptr %ref.tmp10, i64 24
   store ptr null, ptr %m_ptr.i4.i.i38, align 8
   %12 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   store i32 500, ptr %ref.tmp10, align 8
@@ -1921,7 +1870,7 @@ _ZN8rationalD2Ev.exit86:                          ; preds = %.noexc.i84
 
 if.then:                                          ; preds = %_ZN8rationalD2Ev.exit86
   store i32 2, ptr %m_relevancy_lvl, align 8
-  %m_relevancy_lemma = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 18
+  %m_relevancy_lemma = getelementptr inbounds i8, ptr %this, i64 516
   store i8 0, ptr %m_relevancy_lemma, align 4
   br label %if.end
 
@@ -1957,20 +1906,20 @@ ehcleanup26:                                      ; preds = %lpad5, %lpad.i28, %
   br label %common.resume
 
 if.end:                                           ; preds = %if.then, %_ZN8rationalD2Ev.exit86
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 7, ptr %m_phase_selection, align 8
-  %m_cnf = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 13
+  %m_cnf = getelementptr inbounds i8, ptr %st, i64 400
   %35 = load i8, ptr %m_cnf, align 8
   %36 = and i8 %35, 1
   %tobool.not = icmp eq i8 %36, 0
   br i1 %tobool.not, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.end
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 0, ptr %m_restart_strategy, align 4
   %m_arith_stronger_lemmas = getelementptr inbounds i8, ptr %this, i64 272
   store i8 0, ptr %m_arith_stronger_lemmas, align 8
-  %m_restart_adaptive = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 53
+  %m_restart_adaptive = getelementptr inbounds i8, ptr %this, i64 656
   store i8 0, ptr %m_restart_adaptive, align 8
   br label %if.end31
 
@@ -1988,7 +1937,7 @@ entry:
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
-  %m_den.i = getelementptr inbounds %class.mpq, ptr %this, i64 0, i32 1
+  %m_den.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2006,7 +1955,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params12setup_QF_LIAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %add.ptr, align 8
@@ -2014,7 +1963,7 @@ entry:
   store i8 0, ptr %m_arith_reflect, align 4
   %m_arith_propagate_eqs = getelementptr inbounds i8, ptr %this, i64 264
   store i8 0, ptr %m_arith_propagate_eqs, align 8
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   ret void
 }
@@ -2023,7 +1972,7 @@ entry:
 define hidden void @_ZN10smt_params12setup_QF_LIAERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this, ptr noundef nonnull align 8 dereferenceable(792) %st) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %add.ptr, align 8
@@ -2031,27 +1980,27 @@ entry:
   store i8 0, ptr %m_arith_reflect, align 4
   %m_arith_propagate_eqs = getelementptr inbounds i8, ptr %this, i64 264
   store i8 0, ptr %m_arith_propagate_eqs, align 8
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
-  %m_max_ite_tree_depth = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 28
+  %m_max_ite_tree_depth = getelementptr inbounds i8, ptr %st, i64 460
   %0 = load i32, ptr %m_max_ite_tree_depth, align 4
   %cmp = icmp ugt i32 %0, 50
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %add.ptr, align 8
-  %m_pull_cheap_ite = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 4
+  %m_pull_cheap_ite = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %m_pull_cheap_ite, align 8
   store i8 1, ptr %m_arith_propagate_eqs, align 8
   store i32 2, ptr %m_relevancy_lvl, align 8
-  %m_relevancy_lemma = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 18
+  %m_relevancy_lemma = getelementptr inbounds i8, ptr %this, i64 516
   store i8 0, ptr %m_relevancy_lemma, align 4
   br label %if.end18
 
 if.else:                                          ; preds = %entry
-  %m_num_clauses = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 20
+  %m_num_clauses = getelementptr inbounds i8, ptr %st, i64 428
   %1 = load i32, ptr %m_num_clauses, align 4
-  %m_num_units = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 22
+  %m_num_units = getelementptr inbounds i8, ptr %st, i64 436
   %2 = load i32, ptr %m_num_units, align 4
   %cmp9 = icmp eq i32 %1, %2
   br i1 %cmp9, label %if.then10, label %if.else16
@@ -2063,49 +2012,49 @@ if.then10:                                        ; preds = %if.else
   store i32 4, ptr %m_arith_branch_cut_ratio, align 4
   store i32 2, ptr %m_relevancy_lvl, align 8
   store i8 1, ptr %add.ptr, align 8
-  %m_eliminate_term_ite = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 6
+  %m_eliminate_term_ite = getelementptr inbounds i8, ptr %this, i64 50
   store i8 1, ptr %m_eliminate_term_ite, align 2
   br label %if.end18
 
 if.else16:                                        ; preds = %if.else
-  %m_eliminate_term_ite17 = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 6
+  %m_eliminate_term_ite17 = getelementptr inbounds i8, ptr %this, i64 50
   store i8 1, ptr %m_eliminate_term_ite17, align 2
-  %m_restart_adaptive = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 53
+  %m_restart_adaptive = getelementptr inbounds i8, ptr %this, i64 656
   store i8 0, ptr %m_restart_adaptive, align 8
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 0, ptr %m_restart_strategy, align 4
-  %m_restart_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 52
+  %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   store double 1.500000e+00, ptr %m_restart_factor, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then10, %if.else16, %if.then
-  %m_num_bin_clauses = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 21
+  %m_num_bin_clauses = getelementptr inbounds i8, ptr %st, i64 432
   %3 = load i32, ptr %m_num_bin_clauses, align 8
-  %m_num_units19 = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 22
+  %m_num_units19 = getelementptr inbounds i8, ptr %st, i64 436
   %4 = load i32, ptr %m_num_units19, align 4
   %add = add i32 %4, %3
-  %m_num_clauses20 = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 20
+  %m_num_clauses20 = getelementptr inbounds i8, ptr %st, i64 428
   %5 = load i32, ptr %m_num_clauses20, align 4
   %cmp21 = icmp eq i32 %add, %5
   br i1 %cmp21, label %land.lhs.true, label %if.end28
 
 land.lhs.true:                                    ; preds = %if.end18
-  %m_cnf = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 13
+  %m_cnf = getelementptr inbounds i8, ptr %st, i64 400
   %6 = load i8, ptr %m_cnf, align 8
   %7 = and i8 %6, 1
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.end28, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %m_arith_k_sum = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52
-  %m_kind.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp, i64 0, i32 1
-  %m_ptr.i.i.i = getelementptr inbounds %class.mpz, ptr %ref.tmp, i64 0, i32 2
+  %m_arith_k_sum = getelementptr inbounds i8, ptr %st, i64 528
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %m_ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %m_ptr.i.i.i, align 8
-  %m_den.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1
+  %m_den.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 1, ptr %m_den.i.i, align 8
-  %m_kind.i1.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1, i32 1
+  %m_kind.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
   store i8 0, ptr %m_kind.i1.i.i, align 4
-  %m_ptr.i4.i.i = getelementptr inbounds %class.mpq, ptr %ref.tmp, i64 0, i32 1, i32 2
+  %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr null, ptr %m_ptr.i4.i.i, align 8
   %8 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   store i32 100000, ptr %ref.tmp, align 8
@@ -2119,8 +2068,8 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i.i.i.i.i.i.i, label %land.lhs.true.i.i.i, label %if.else.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %land.rhs
-  %m_den.i5.i.i.i = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52, i32 0, i32 1
-  %m_kind.i.i.i.i6.i.i.i = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52, i32 0, i32 1, i32 1
+  %m_den.i5.i.i.i = getelementptr inbounds i8, ptr %st, i64 544
+  %m_kind.i.i.i.i6.i.i.i = getelementptr inbounds i8, ptr %st, i64 548
   %bf.load.i.i.i.i7.i.i.i = load i8, ptr %m_kind.i.i.i.i6.i.i.i, align 4
   %bf.clear.i.i.i.i8.i.i.i = and i8 %bf.load.i.i.i.i7.i.i.i, 1
   %cmp.i.i.i.i9.i.i.i = icmp eq i8 %bf.clear.i.i.i.i8.i.i.i, 0
@@ -2136,7 +2085,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i11.i.i.i, label %land.lhs.true.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %if.then.i.i.i
-  %m_kind.i5.i.i.i.i.i = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 52, i32 0, i32 0, i32 1
+  %m_kind.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %st, i64 532
   %bf.load.i6.i.i.i.i.i = load i8, ptr %m_kind.i5.i.i.i.i.i, align 4
   %bf.clear.i7.i.i.i.i.i = and i8 %bf.load.i6.i.i.i.i.i, 1
   %cmp.i8.i.i.i.i.i = icmp eq i8 %bf.clear.i7.i.i.i.i.i, 0
@@ -2200,21 +2149,21 @@ if.end28:                                         ; preds = %if.end18, %land.lhs
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params14setup_QF_UFIDLEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 248
   %m_arith_reflect = getelementptr inbounds i8, ptr %this, i64 284
   store i8 0, ptr %m_arith_reflect, align 4
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   %m_arith_eq_bounds = getelementptr inbounds i8, ptr %this, i64 360
   store i8 1, ptr %m_arith_eq_bounds, align 8
   store i8 1, ptr %add.ptr, align 8
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 0, ptr %m_restart_strategy, align 4
-  %m_restart_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 52
+  %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   store double 1.500000e+00, ptr %m_restart_factor, align 8
-  %m_restart_adaptive = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 53
+  %m_restart_adaptive = getelementptr inbounds i8, ptr %this, i64 656
   store i8 0, ptr %m_restart_adaptive, align 8
   ret void
 }
@@ -2222,11 +2171,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params14setup_QF_UFLIAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %m_arith_reflect = getelementptr inbounds i8, ptr %this, i64 284
   store i8 0, ptr %m_arith_reflect, align 4
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   %m_arith_propagation_threshold = getelementptr inbounds i8, ptr %this, i64 344
   store i32 1000, ptr %m_arith_propagation_threshold, align 8
@@ -2236,11 +2185,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params14setup_QF_UFLRAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %m_arith_reflect = getelementptr inbounds i8, ptr %this, i64 284
   store i8 0, ptr %m_arith_reflect, align 4
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   ret void
 }
@@ -2248,7 +2197,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params11setup_QF_BVEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %m_arith_reflect = getelementptr inbounds i8, ptr %this, i64 284
   store i8 0, ptr %m_arith_reflect, align 4
@@ -2256,7 +2205,7 @@ entry:
   store i8 0, ptr %m_bv_cc, align 1
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 38
   store i8 1, ptr %add.ptr3, align 2
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   ret void
 }
@@ -2266,13 +2215,13 @@ define hidden void @_ZN10smt_params14setup_QF_AUFBVEv(ptr nocapture noundef nonn
 entry:
   %m_array_mode = getelementptr inbounds i8, ptr %this, i64 396
   store i32 1, ptr %m_array_mode, align 4
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %m_bv_cc = getelementptr inbounds i8, ptr %this, i64 427
   store i8 0, ptr %m_bv_cc, align 1
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 38
   store i8 1, ptr %add.ptr3, align 2
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   ret void
 }
@@ -2282,7 +2231,7 @@ define hidden void @_ZN10smt_params11setup_QF_AXEv(ptr nocapture noundef nonnull
 entry:
   %m_array_mode = getelementptr inbounds i8, ptr %this, i64 396
   store i32 1, ptr %m_array_mode, align 4
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
   ret void
 }
@@ -2290,30 +2239,30 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10smt_params11setup_QF_AXERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %st) local_unnamed_addr #5 align 2 {
 entry:
-  %m_has_ext_arrays = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 51
+  %m_has_ext_arrays = getelementptr inbounds i8, ptr %st, i64 525
   %0 = load i8, ptr %m_has_ext_arrays, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, i32 1, i32 3
   %m_array_mode = getelementptr inbounds i8, ptr %this, i64 396
   store i32 %cond, ptr %m_array_mode, align 4
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
-  %m_num_clauses = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 20
+  %m_num_clauses = getelementptr inbounds i8, ptr %st, i64 428
   %2 = load i32, ptr %m_num_clauses, align 4
-  %m_num_units = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 22
+  %m_num_units = getelementptr inbounds i8, ptr %st, i64 436
   %3 = load i32, ptr %m_num_units, align 4
   %cmp = icmp eq i32 %2, %3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 0, ptr %m_phase_selection, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   %.sink = phi i32 [ 0, %if.then ], [ 2, %entry ]
-  %4 = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %4 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 %.sink, ptr %4, align 8
   ret void
 }
@@ -2323,15 +2272,15 @@ define hidden void @_ZN10smt_params15setup_QF_AUFLIAEv(ptr nocapture noundef non
 entry:
   %m_array_mode = getelementptr inbounds i8, ptr %this, i64 396
   store i32 1, ptr %m_array_mode, align 4
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 2, ptr %m_relevancy_lvl, align 8
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 0, ptr %m_restart_strategy, align 4
-  %m_restart_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 52
+  %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   store double 1.500000e+00, ptr %m_restart_factor, align 8
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 4, ptr %m_phase_selection, align 8
   ret void
 }
@@ -2341,14 +2290,14 @@ define hidden void @_ZN10smt_params15setup_QF_AUFLIAERK15static_features(ptr noc
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %m_has_ext_arrays = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 51
+  %m_has_ext_arrays = getelementptr inbounds i8, ptr %st, i64 525
   %0 = load i8, ptr %m_has_ext_arrays, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, i32 1, i32 3
   %m_array_mode = getelementptr inbounds i8, ptr %this, i64 396
   store i32 %cond, ptr %m_array_mode, align 4
-  %m_has_real = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 44
+  %m_has_real = getelementptr inbounds i8, ptr %st, i64 518
   %2 = load i8, ptr %m_has_real, align 2
   %3 = and i8 %2, 1
   %tobool2.not = icmp eq i8 %3, 0
@@ -2362,7 +2311,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #15
           to label %unreachable unwind label %ehcleanup
@@ -2382,29 +2331,29 @@ cleanup.action:                                   ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %m_nnf_cnf = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 14
+  %m_nnf_cnf = getelementptr inbounds i8, ptr %this, i64 58
   store i8 0, ptr %m_nnf_cnf, align 2
-  %m_num_clauses = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 20
+  %m_num_clauses = getelementptr inbounds i8, ptr %st, i64 428
   %6 = load i32, ptr %m_num_clauses, align 4
-  %m_num_units = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 22
+  %m_num_units = getelementptr inbounds i8, ptr %st, i64 436
   %7 = load i32, ptr %m_num_units, align 4
   %cmp = icmp eq i32 %6, %7
   br i1 %cmp, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 0, ptr %m_restart_strategy, align 4
-  %m_restart_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 52
+  %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   store double 1.500000e+00, ptr %m_restart_factor, align 8
-  %m_random_initial_activity = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 23
+  %m_random_initial_activity = getelementptr inbounds i8, ptr %this, i64 548
   store i32 0, ptr %m_random_initial_activity, align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.else
   %.sink = phi i32 [ 4, %if.else ], [ 0, %if.end ]
-  %8 = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %8 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %9 = getelementptr inbounds i8, ptr %this, i64 552
   store i32 %.sink, ptr %9, align 8
   ret void
 
@@ -2422,15 +2371,15 @@ entry:
   %cond = select i1 %simple_array, i32 1, i32 3
   %m_array_mode = getelementptr inbounds i8, ptr %this, i64 396
   store i32 %cond, ptr %m_array_mode, align 4
-  %m_pi_use_database = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 7
+  %m_pi_use_database = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %m_pi_use_database, align 8
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 0, ptr %m_phase_selection, align 8
-  %m_restart_strategy = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 50
+  %m_restart_strategy = getelementptr inbounds i8, ptr %this, i64 636
   store i32 0, ptr %m_restart_strategy, align 4
-  %m_restart_factor = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 52
+  %m_restart_factor = getelementptr inbounds i8, ptr %this, i64 648
   store double 1.500000e+00, ptr %m_restart_factor, align 8
-  %m_eliminate_bounds = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 12
+  %m_eliminate_bounds = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_eliminate_bounds, align 8
   %m_qi_quick_checker = getelementptr inbounds i8, ptr %this, i64 200
   store i32 1, ptr %m_qi_quick_checker, align 8
@@ -2438,7 +2387,7 @@ entry:
   store double 2.000000e+01, ptr %m_qi_lazy_threshold, align 8
   %m_mbqi = getelementptr inbounds i8, ptr %this, i64 215
   store i8 1, ptr %m_mbqi, align 1
-  %m_ng_lift_ite = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 3
+  %m_ng_lift_ite = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %m_ng_lift_ite, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2454,7 +2403,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10smt_params12setup_AUFLIAERK15static_features(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %st) local_unnamed_addr #5 align 2 {
 entry:
-  %m_num_quantifiers_with_patterns = getelementptr inbounds %struct.static_features, ptr %st, i64 0, i32 18
+  %m_num_quantifiers_with_patterns = getelementptr inbounds i8, ptr %st, i64 420
   %0 = load i32, ptr %m_num_quantifiers_with_patterns, align 4
   %cmp = icmp eq i32 %0, 0
   %cond = select i1 %cmp, i32 5, i32 7
@@ -2470,17 +2419,17 @@ entry:
   %cond = select i1 %simple_array, i32 1, i32 3
   %m_array_mode = getelementptr inbounds i8, ptr %this, i64 396
   store i32 %cond, ptr %m_array_mode, align 4
-  %m_phase_selection = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 24
+  %m_phase_selection = getelementptr inbounds i8, ptr %this, i64 552
   store i32 0, ptr %m_phase_selection, align 8
-  %m_eliminate_bounds = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 12
+  %m_eliminate_bounds = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_eliminate_bounds, align 8
   %m_qi_quick_checker = getelementptr inbounds i8, ptr %this, i64 200
   store i32 1, ptr %m_qi_quick_checker, align 8
   %m_qi_eager_threshold = getelementptr inbounds i8, ptr %this, i64 168
   store <2 x double> <double 5.000000e+00, double 2.000000e+01>, ptr %m_qi_eager_threshold, align 8
-  %m_macro_finder = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 7
+  %m_macro_finder = getelementptr inbounds i8, ptr %this, i64 51
   store i8 1, ptr %m_macro_finder, align 1
-  %m_ng_lift_ite = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 3
+  %m_ng_lift_ite = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %m_ng_lift_ite, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2490,7 +2439,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_pi_max_multi_patterns = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 2
+  %m_pi_max_multi_patterns = getelementptr inbounds i8, ptr %this, i64 4
   store i32 10, ptr %m_pi_max_multi_patterns, align 4
   %m_array_lazy_ieq = getelementptr inbounds i8, ptr %this, i64 411
   store i8 1, ptr %m_array_lazy_ieq, align 1
@@ -2504,13 +2453,13 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10smt_params9setup_LRAEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(800) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_relevancy_lvl = getelementptr inbounds %struct.smt_params, ptr %this, i64 0, i32 17
+  %m_relevancy_lvl = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %m_relevancy_lvl, align 8
   %m_arith_reflect = getelementptr inbounds i8, ptr %this, i64 284
   store i8 0, ptr %m_arith_reflect, align 4
   %m_arith_propagate_eqs = getelementptr inbounds i8, ptr %this, i64 264
   store i8 0, ptr %m_arith_propagate_eqs, align 8
-  %m_eliminate_term_ite = getelementptr inbounds %struct.preprocessor_params, ptr %this, i64 0, i32 6
+  %m_eliminate_term_ite = getelementptr inbounds i8, ptr %this, i64 50
   store i8 1, ptr %m_eliminate_term_ite, align 2
   ret void
 }

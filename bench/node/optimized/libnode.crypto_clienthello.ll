@@ -3,7 +3,6 @@ source_filename = "bench/node/original/libnode.crypto_clienthello.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.node::crypto::ClientHelloParser" = type { i32, ptr, ptr, ptr, i64, i64, i64, i8, ptr, i16, ptr, i16, ptr }
 %"class.node::crypto::ClientHelloParser::ClientHello" = type { i8, ptr, i8, i8, ptr }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -34,24 +33,24 @@ if.then14.i:                                      ; preds = %if.end.i
   %4 = load i8, ptr %arrayidx17.i, align 1
   %conv18.i = zext i8 %4 to i64
   %add.i = or disjoint i64 %shl.i, %conv18.i
-  %frame_len_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 4
+  %frame_len_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %add.i, ptr %frame_len_.i, align 8
   store i32 1, ptr %this, align 8
-  %body_offset_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 5
+  %body_offset_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 5, ptr %body_offset_.i, align 8
   %cmp22.i = icmp ugt i64 %add.i, 16388
   br i1 %cmp22.i, label %if.end.i7.i, label %sw.bb2
 
 if.end.i.i:                                       ; preds = %if.end.i
   store i32 3, ptr %this, align 8
-  %onend_cb_.i.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %onend_cb_.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i.i, label %sw.epilog, label %return.sink.split.i
 
 if.end.i7.i:                                      ; preds = %if.then14.i
   store i32 3, ptr %this, align 8
-  %onend_cb_.i8.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i8.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %onend_cb_.i8.i, align 8
   %cmp3.not.i9.i = icmp eq ptr %6, null
   br i1 %cmp3.not.i9.i, label %sw.epilog, label %return.sink.split.i
@@ -59,7 +58,7 @@ if.end.i7.i:                                      ; preds = %if.then14.i
 return.sink.split.i:                              ; preds = %if.end.i7.i, %if.end.i.i
   %.sink13.i = phi ptr [ %5, %if.end.i.i ], [ %6, %if.end.i7.i ]
   %onend_cb_.i8.sink.i = phi ptr [ %onend_cb_.i.i, %if.end.i.i ], [ %onend_cb_.i8.i, %if.end.i7.i ]
-  %cb_arg_.i11.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_.i11.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %cb_arg_.i11.i, align 8
   tail call void %.sink13.i(ptr noundef %7) #2
   store ptr null, ptr %onend_cb_.i8.sink.i, align 8
@@ -94,10 +93,10 @@ if.then14:                                        ; preds = %if.end
   %3 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %3 to i64
   %add = or disjoint i64 %shl, %conv18
-  %frame_len_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 4
+  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %add, ptr %frame_len_, align 8
   store i32 1, ptr %this, align 8
-  %body_offset_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 5
+  %body_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 5, ptr %body_offset_, align 8
   %cmp22 = icmp ugt i64 %add, 16388
   br i1 %cmp22, label %if.end.i7, label %return
@@ -109,14 +108,14 @@ if.else:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.else
   store i32 3, ptr %this, align 8
-  %onend_cb_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %onend_cb_.i, align 8
   %cmp3.not.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i, label %return, label %return.sink.split
 
 if.end.i7:                                        ; preds = %if.then14
   store i32 3, ptr %this, align 8
-  %onend_cb_.i8 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i8 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %onend_cb_.i8, align 8
   %cmp3.not.i9 = icmp eq ptr %6, null
   br i1 %cmp3.not.i9, label %return, label %return.sink.split
@@ -124,7 +123,7 @@ if.end.i7:                                        ; preds = %if.then14
 return.sink.split:                                ; preds = %if.end.i7, %if.end.i
   %.sink13 = phi ptr [ %5, %if.end.i ], [ %6, %if.end.i7 ]
   %onend_cb_.i8.sink = phi ptr [ %onend_cb_.i, %if.end.i ], [ %onend_cb_.i8, %if.end.i7 ]
-  %cb_arg_.i11 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_.i11 = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %cb_arg_.i11, align 8
   tail call void %.sink13(ptr noundef %7) #2
   store ptr null, ptr %onend_cb_.i8.sink, align 8
@@ -139,7 +138,7 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local void @_ZN4node6crypto17ClientHelloParser11ParseHeaderEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #0 align 2 {
 entry:
   %hello = alloca %"class.node::crypto::ClientHelloParser::ClientHello", align 8
-  %frame_len_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 4
+  %frame_len_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %frame_len_, align 8
   %cmp = icmp ult i64 %0, 6
   br i1 %cmp, label %if.then, label %if.end
@@ -151,20 +150,20 @@ if.then:                                          ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then
   store i32 3, ptr %this, align 8
-  %onend_cb_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %onend_cb_.i, align 8
   %cmp3.not.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i, label %return, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %cb_arg_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %cb_arg_.i, align 8
   tail call void %2(ptr noundef %3) #2
   store ptr null, ptr %onend_cb_.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %body_offset_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 5
+  %body_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load i64, ptr %body_offset_, align 8
   %add = add i64 %4, %0
   %cmp3 = icmp ugt i64 %add, %avail
@@ -191,13 +190,13 @@ if.then20:                                        ; preds = %lor.lhs.false, %if.
 
 if.end.i11:                                       ; preds = %if.then20
   store i32 3, ptr %this, align 8
-  %onend_cb_.i12 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i12 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %onend_cb_.i12, align 8
   %cmp3.not.i13 = icmp eq ptr %10, null
   br i1 %cmp3.not.i13, label %return, label %if.then4.i14
 
 if.then4.i14:                                     ; preds = %if.end.i11
-  %cb_arg_.i15 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_.i15 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %cb_arg_.i15, align 8
   tail call void %10(ptr noundef %11) #2
   store ptr null, ptr %onend_cb_.i12, align 8
@@ -209,9 +208,9 @@ if.end21:                                         ; preds = %lor.lhs.false
   br i1 %cmp25, label %if.then26, label %if.end21.if.end44_crit_edge
 
 if.end21.if.end44_crit_edge:                      ; preds = %if.end21
-  %session_id_46.phi.trans.insert = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 8
+  %session_id_46.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 64
   %.pre = load ptr, ptr %session_id_46.phi.trans.insert, align 8
-  %session_size_48.phi.trans.insert = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 7
+  %session_size_48.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 56
   %.pre38 = load i8, ptr %session_size_48.phi.trans.insert, align 8
   br label %if.end44
 
@@ -233,13 +232,13 @@ if.then29:                                        ; preds = %if.then28
 
 if.end.i18:                                       ; preds = %if.then29
   store i32 3, ptr %this, align 8
-  %onend_cb_.i19 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i19 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %onend_cb_.i19, align 8
   %cmp3.not.i20 = icmp eq ptr %15, null
   br i1 %cmp3.not.i20, label %return, label %if.then4.i21
 
 if.then4.i21:                                     ; preds = %if.end.i18
-  %cb_arg_.i22 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_.i22 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %cb_arg_.i22, align 8
   tail call void %15(ptr noundef %16) #2
   store ptr null, ptr %onend_cb_.i19, align 8
@@ -247,26 +246,26 @@ if.then4.i21:                                     ; preds = %if.end.i18
 
 if.end.i25:                                       ; preds = %if.then26
   store i32 3, ptr %this, align 8
-  %onend_cb_.i26 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i26 = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %onend_cb_.i26, align 8
   %cmp3.not.i27 = icmp eq ptr %17, null
   br i1 %cmp3.not.i27, label %return, label %if.then4.i28
 
 if.then4.i28:                                     ; preds = %if.end.i25
-  %cb_arg_.i29 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_.i29 = getelementptr inbounds i8, ptr %this, i64 24
   %18 = load ptr, ptr %cb_arg_.i29, align 8
   tail call void %17(ptr noundef %18) #2
   store ptr null, ptr %onend_cb_.i26, align 8
   br label %return
 
 if.end31:                                         ; preds = %if.then28
-  %session_id_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 8
+  %session_id_ = getelementptr inbounds i8, ptr %this, i64 64
   %19 = load ptr, ptr %session_id_, align 8
   %cmp32 = icmp eq ptr %19, null
   br i1 %cmp32, label %if.then42, label %lor.lhs.false33
 
 lor.lhs.false33:                                  ; preds = %if.end31
-  %session_size_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 7
+  %session_size_ = getelementptr inbounds i8, ptr %this, i64 56
   %20 = load i8, ptr %session_size_, align 8
   %cmp35 = icmp ugt i8 %20, 32
   %idx.ext = zext nneg i8 %20 to i64
@@ -283,13 +282,13 @@ if.then42:                                        ; preds = %lor.lhs.false33, %i
 
 if.end.i32:                                       ; preds = %if.then42
   store i32 3, ptr %this, align 8
-  %onend_cb_.i33 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 2
+  %onend_cb_.i33 = getelementptr inbounds i8, ptr %this, i64 16
   %22 = load ptr, ptr %onend_cb_.i33, align 8
   %cmp3.not.i34 = icmp eq ptr %22, null
   br i1 %cmp3.not.i34, label %return, label %if.then4.i35
 
 if.then4.i35:                                     ; preds = %if.end.i32
-  %cb_arg_.i36 = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_.i36 = getelementptr inbounds i8, ptr %this, i64 24
   %23 = load ptr, ptr %cb_arg_.i36, align 8
   tail call void %22(ptr noundef %23) #2
   store ptr null, ptr %onend_cb_.i33, align 8
@@ -299,31 +298,31 @@ if.end44:                                         ; preds = %if.end21.if.end44_c
   %24 = phi i8 [ %.pre38, %if.end21.if.end44_crit_edge ], [ %20, %lor.lhs.false33 ]
   %25 = phi ptr [ %.pre, %if.end21.if.end44_crit_edge ], [ %19, %lor.lhs.false33 ]
   store i32 2, ptr %this, align 8
-  %session_id_47 = getelementptr inbounds %"class.node::crypto::ClientHelloParser::ClientHello", ptr %hello, i64 0, i32 1
+  %session_id_47 = getelementptr inbounds i8, ptr %hello, i64 8
   store ptr %25, ptr %session_id_47, align 8
   store i8 %24, ptr %hello, align 8
-  %tls_ticket_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 12
+  %tls_ticket_ = getelementptr inbounds i8, ptr %this, i64 96
   %26 = load ptr, ptr %tls_ticket_, align 8
   %cmp50.not = icmp ne ptr %26, null
-  %tls_ticket_size_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 11
+  %tls_ticket_size_ = getelementptr inbounds i8, ptr %this, i64 88
   %27 = load i16, ptr %tls_ticket_size_, align 8
   %cmp52 = icmp ne i16 %27, 0
   %narrow = select i1 %cmp50.not, i1 %cmp52, i1 false
   %frombool = zext i1 %narrow to i8
-  %has_ticket_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser::ClientHello", ptr %hello, i64 0, i32 2
+  %has_ticket_ = getelementptr inbounds i8, ptr %hello, i64 16
   store i8 %frombool, ptr %has_ticket_, align 8
-  %servername_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 10
+  %servername_ = getelementptr inbounds i8, ptr %this, i64 80
   %28 = load ptr, ptr %servername_, align 8
-  %servername_53 = getelementptr inbounds %"class.node::crypto::ClientHelloParser::ClientHello", ptr %hello, i64 0, i32 4
+  %servername_53 = getelementptr inbounds i8, ptr %hello, i64 24
   store ptr %28, ptr %servername_53, align 8
-  %servername_size_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 9
+  %servername_size_ = getelementptr inbounds i8, ptr %this, i64 72
   %29 = load i16, ptr %servername_size_, align 8
   %conv54 = trunc i16 %29 to i8
-  %servername_size_55 = getelementptr inbounds %"class.node::crypto::ClientHelloParser::ClientHello", ptr %hello, i64 0, i32 3
+  %servername_size_55 = getelementptr inbounds i8, ptr %hello, i64 17
   store i8 %conv54, ptr %servername_size_55, align 1
-  %onhello_cb_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 1
+  %onhello_cb_ = getelementptr inbounds i8, ptr %this, i64 8
   %30 = load ptr, ptr %onhello_cb_, align 8
-  %cb_arg_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 3
+  %cb_arg_ = getelementptr inbounds i8, ptr %this, i64 24
   %31 = load ptr, ptr %cb_arg_, align 8
   call void %30(ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %hello) #2
   br label %return
@@ -335,7 +334,7 @@ return:                                           ; preds = %if.then26, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN4node6crypto17ClientHelloParser19ParseTLSClientHelloEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #1 align 2 {
 entry:
-  %body_offset_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 5
+  %body_offset_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %body_offset_, align 8
   %add4 = add i64 %0, 39
   %cmp.not = icmp ult i64 %add4, %avail
@@ -345,10 +344,10 @@ if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %data, i64 %0
   %add.ptr = getelementptr i8, ptr %1, i64 38
   %2 = load i8, ptr %add.ptr, align 1
-  %session_size_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 7
+  %session_size_ = getelementptr inbounds i8, ptr %this, i64 56
   store i8 %2, ptr %session_size_, align 8
   %add.ptr5 = getelementptr i8, ptr %1, i64 39
-  %session_id_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 8
+  %session_id_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr5, ptr %session_id_, align 8
   %conv = zext i8 %2 to i64
   %add8 = add i64 %add4, %conv
@@ -389,10 +388,10 @@ if.end34:                                         ; preds = %if.end31
   br i1 %cmp3640, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end34
-  %tls_ticket_size_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 11
-  %tls_ticket_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 12
-  %servername_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 10
-  %servername_size_.i = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 9
+  %tls_ticket_size_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %tls_ticket_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %servername_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %servername_size_.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit
@@ -528,8 +527,8 @@ if.end:                                           ; preds = %sw.bb
   br i1 %or.cond, label %for.body.lr.ph, label %sw.epilog
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %servername_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 10
-  %servername_size_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 9
+  %servername_ = getelementptr inbounds i8, ptr %this, i64 80
+  %servername_size_ = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end36
@@ -567,10 +566,10 @@ if.end36:                                         ; preds = %if.end21
 
 sw.bb39:                                          ; preds = %entry
   %conv40 = trunc i64 %len to i16
-  %tls_ticket_size_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 11
+  %tls_ticket_size_ = getelementptr inbounds i8, ptr %this, i64 88
   store i16 %conv40, ptr %tls_ticket_size_, align 8
   %add.ptr41 = getelementptr inbounds i8, ptr %data, i64 %len
-  %tls_ticket_ = getelementptr inbounds %"class.node::crypto::ClientHelloParser", ptr %this, i64 0, i32 12
+  %tls_ticket_ = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %add.ptr41, ptr %tls_ticket_, align 8
   br label %sw.epilog
 

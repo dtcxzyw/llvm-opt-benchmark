@@ -22,9 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
-%struct.dh_st = type { ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
 
 $_ZNSt6vectorIhSaIhEEC2EmRKS0_ = comdat any
 
@@ -195,7 +192,7 @@ if.end32.i:                                       ; preds = %if.then29.i, %if.en
 invoke.cont36.i:                                  ; preds = %if.end32.i
   %call39.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6)
   %8 = load ptr, ptr @stdout, align 8
-  %g.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %9 = load ptr, ptr %g.i, align 8
   %call42.i = invoke i32 @BN_print_fp(ptr noundef %8, ptr noundef %9)
           to label %invoke.cont41.i unwind label %lpad.i
@@ -222,7 +219,7 @@ invoke.cont53.i:                                  ; preds = %if.end49.i
           to label %invoke.cont59.i unwind label %lpad52.i
 
 invoke.cont59.i:                                  ; preds = %invoke.cont53.i
-  %g62.i = getelementptr inbounds %struct.dh_st, ptr %call46.i, i64 0, i32 1
+  %g62.i = getelementptr inbounds i8, ptr %call46.i, i64 8
   store ptr %call60.i, ptr %g62.i, align 8
   %12 = load ptr, ptr %call46.i, align 8
   %cmp.i = icmp eq ptr %12, null
@@ -246,7 +243,7 @@ invoke.cont72.i:                                  ; preds = %if.end70.i
 if.end76.i:                                       ; preds = %invoke.cont72.i
   %call78.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8)
   %14 = load ptr, ptr @stdout, align 8
-  %priv_key.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 3
+  %priv_key.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %15 = load ptr, ptr %priv_key.i, align 8
   %call81.i = invoke i32 @BN_print_fp(ptr noundef %14, ptr noundef %15)
           to label %invoke.cont80.i unwind label %lpad52.i
@@ -254,7 +251,7 @@ if.end76.i:                                       ; preds = %invoke.cont72.i
 invoke.cont80.i:                                  ; preds = %if.end76.i
   %call83.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
   %16 = load ptr, ptr @stdout, align 8
-  %pub_key.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 2
+  %pub_key.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %17 = load ptr, ptr %pub_key.i, align 8
   %call86.i = invoke i32 @BN_print_fp(ptr noundef %16, ptr noundef %17)
           to label %invoke.cont85.i unwind label %lpad52.i
@@ -271,7 +268,7 @@ invoke.cont90.i:                                  ; preds = %invoke.cont85.i
 if.end94.i:                                       ; preds = %invoke.cont90.i
   %call96.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
   %18 = load ptr, ptr @stdout, align 8
-  %priv_key98.i = getelementptr inbounds %struct.dh_st, ptr %call46.i, i64 0, i32 3
+  %priv_key98.i = getelementptr inbounds i8, ptr %call46.i, i64 24
   %19 = load ptr, ptr %priv_key98.i, align 8
   %call100.i = invoke i32 @BN_print_fp(ptr noundef %18, ptr noundef %19)
           to label %invoke.cont99.i unwind label %lpad52.i
@@ -279,7 +276,7 @@ if.end94.i:                                       ; preds = %invoke.cont90.i
 invoke.cont99.i:                                  ; preds = %if.end94.i
   %call102.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
   %20 = load ptr, ptr @stdout, align 8
-  %pub_key104.i = getelementptr inbounds %struct.dh_st, ptr %call46.i, i64 0, i32 2
+  %pub_key104.i = getelementptr inbounds i8, ptr %call46.i, i64 16
   %21 = load ptr, ptr %pub_key104.i, align 8
   %call106.i = invoke i32 @BN_print_fp(ptr noundef %20, ptr noundef %21)
           to label %invoke.cont105.i unwind label %lpad52.i
@@ -313,7 +310,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 call5.i.i.i.i1.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i1.i.i66, ptr %key1.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i66, i64 %conv.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %key1.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %key1.i, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i.i66, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i66, i64 1
@@ -328,7 +325,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call5.i.i.i.i1.i.i.
 invoke.cont113.i:                                 ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc
   %22 = phi ptr [ %call5.i.i.i.i1.i.i66, %call5.i.i.i.i1.i.i.noexc ], [ %call5.i.i.i.i1.i.i66, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i1.i.i.noexc ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %key1.i, i64 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %key1.i, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
   %23 = load ptr, ptr %pub_key104.i, align 8
   %call120.i = invoke i32 @DH_compute_key(ptr noundef %22, ptr noundef %23, ptr noundef nonnull %call.i)
@@ -419,7 +416,7 @@ if.end152.i:                                      ; preds = %invoke.cont148.i
 
 invoke.cont154.i:                                 ; preds = %if.end152.i
   %call156.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
-  %_M_finish.i19.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %key2.i, i64 0, i32 1
+  %_M_finish.i19.i = getelementptr inbounds i8, ptr %key2.i, i64 8
   %37 = load ptr, ptr %_M_finish.i19.i, align 8
   %38 = load ptr, ptr %key2.i, align 8
   %cmp16059.not.i = icmp eq ptr %37, %38
@@ -593,45 +590,45 @@ lpad5.i:                                          ; preds = %if.end54.i, %lor.lh
   br label %ehcleanup118.i
 
 if.end.i10:                                       ; preds = %invoke.cont.i5
-  %xA.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 1
+  %xA.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %59 = load ptr, ptr %xA.i, align 8
-  %xA_len.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 2
+  %xA_len.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %60 = load i64, ptr %xA_len.i, align 8
   %call9.i = invoke ptr @BN_bin2bn(ptr noundef %59, i64 noundef %60, ptr noundef null)
           to label %invoke.cont8.i unwind label %lpad5.i
 
 invoke.cont8.i:                                   ; preds = %if.end.i10
-  %priv_key.i12 = getelementptr inbounds %struct.dh_st, ptr %call.i2, i64 0, i32 3
+  %priv_key.i12 = getelementptr inbounds i8, ptr %call.i2, i64 24
   store ptr %call9.i, ptr %priv_key.i12, align 8
-  %yA.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 3
+  %yA.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %61 = load ptr, ptr %yA.i, align 8
-  %yA_len.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 4
+  %yA_len.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %62 = load i64, ptr %yA_len.i, align 8
   %call12.i = invoke ptr @BN_bin2bn(ptr noundef %61, i64 noundef %62, ptr noundef null)
           to label %invoke.cont11.i unwind label %lpad5.i
 
 invoke.cont11.i:                                  ; preds = %invoke.cont8.i
-  %pub_key.i13 = getelementptr inbounds %struct.dh_st, ptr %call.i2, i64 0, i32 2
+  %pub_key.i13 = getelementptr inbounds i8, ptr %call.i2, i64 16
   store ptr %call12.i, ptr %pub_key.i13, align 8
-  %xB.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 5
+  %xB.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %63 = load ptr, ptr %xB.i, align 8
-  %xB_len.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 6
+  %xB_len.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 48
   %64 = load i64, ptr %xB_len.i, align 8
   %call15.i = invoke ptr @BN_bin2bn(ptr noundef %63, i64 noundef %64, ptr noundef null)
           to label %invoke.cont14.i unwind label %lpad5.i
 
 invoke.cont14.i:                                  ; preds = %invoke.cont11.i
-  %priv_key17.i = getelementptr inbounds %struct.dh_st, ptr %call2.i, i64 0, i32 3
+  %priv_key17.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr %call15.i, ptr %priv_key17.i, align 8
-  %yB.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 7
+  %yB.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 56
   %65 = load ptr, ptr %yB.i, align 8
-  %yB_len.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 8
+  %yB_len.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
   %66 = load i64, ptr %yB_len.i, align 8
   %call19.i = invoke ptr @BN_bin2bn(ptr noundef %65, i64 noundef %66, ptr noundef null)
           to label %invoke.cont18.i unwind label %lpad5.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont14.i
-  %pub_key21.i = getelementptr inbounds %struct.dh_st, ptr %call2.i, i64 0, i32 2
+  %pub_key21.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr %call19.i, ptr %pub_key21.i, align 8
   %67 = load ptr, ptr %priv_key.i12, align 8
   %tobool.not.i14 = icmp eq ptr %67, null
@@ -657,7 +654,7 @@ if.then36.i:                                      ; preds = %lor.lhs.false28.i, 
   br label %if.then.i.i6
 
 if.end40.i:                                       ; preds = %lor.lhs.false28.i
-  %Z_len.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 10
+  %Z_len.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 80
   %73 = load i64, ptr %Z_len.i, align 8
   %call43.i = invoke i32 @DH_size(ptr noundef nonnull %call.i2)
           to label %invoke.cont42.i unwind label %lpad5.i
@@ -812,7 +809,7 @@ if.end89.i:                                       ; preds = %invoke.cont80.i21
   br i1 %cmp92.not.i, label %lor.lhs.false93.i, label %if.then108.i
 
 lor.lhs.false93.i:                                ; preds = %if.end89.i
-  %Z.i = getelementptr inbounds %struct.RFC5114TestData, ptr @_ZL12kRFCTestData, i64 %indvars.iv.i, i32 9
+  %Z.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 72
   %81 = load ptr, ptr %Z.i, align 8
   %bcmp.i = call i32 @bcmp(ptr %Z1.sroa.0.1.i, ptr %81, i64 %73)
   %cmp97.not.i = icmp eq i32 %bcmp.i, 0
@@ -1186,7 +1183,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %__n) #18
   store ptr %call5.i.i.i.i1.i, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %__n
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1
@@ -1200,7 +1197,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread
   %__first.addr.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread ]
-  %_M_finish.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i, ptr %_M_finish.i.i7, align 8
   ret void
 }
@@ -1210,7 +1207,7 @@ declare i32 @DH_compute_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1221,7 +1218,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i

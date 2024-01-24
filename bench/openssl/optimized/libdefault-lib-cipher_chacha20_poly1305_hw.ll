@@ -5,20 +5,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_chacha_aead_st = type { %struct.prov_cipher_hw_st, ptr, ptr, ptr, ptr }
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.PROV_CHACHA20_POLY1305_CTX = type { %struct.prov_cipher_ctx_st, %struct.PROV_CHACHA20_CTX, %struct.poly1305_context, [3 x i32], [16 x i8], [16 x i8], %struct.anon.1, i8, i64, i64, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.PROV_CHACHA20_CTX = type { %struct.prov_cipher_ctx_st, %union.anon.0, [4 x i32], [64 x i8], i32 }
-%union.anon.0 = type { double, [24 x i8] }
-%struct.poly1305_context = type { [24 x double], [4 x i32], [16 x i8], i64, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.anon.1 = type { i64, i64 }
 
 @chacha20poly1305_hw = internal constant %struct.prov_cipher_hw_chacha_aead_st { %struct.prov_cipher_hw_st { ptr @chacha20_poly1305_initkey, ptr null, ptr null }, ptr @chacha20_poly1305_aead_cipher, ptr @chacha20_poly1305_initiv, ptr @chacha_poly1305_tls_init, ptr @chacha_poly1305_tls_iv_set_fixed }, align 8
 @zero = internal constant [128 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_prov_cipher_hw_chacha20_poly1305(i64 noundef %keybits) local_unnamed_addr #0 {
+define noundef nonnull ptr @ossl_prov_cipher_hw_chacha20_poly1305(i64 noundef %keybits) local_unnamed_addr #0 {
 entry:
   ret ptr @chacha20poly1305_hw
 }
@@ -26,27 +18,27 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha20_poly1305_initkey(ptr noundef %bctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %len = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
-  %aad2 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %bctx, i64 800
+  %aad2 = getelementptr inbounds i8, ptr %bctx, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len, i8 0, i64 16, i1 false)
   %bf.load = load i8, ptr %aad2, align 8
   %bf.clear4 = and i8 %bf.load, -4
   store i8 %bf.clear4, ptr %aad2, align 8
-  %tls_payload_length = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 9
+  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
   store i64 -1, ptr %tls_payload_length, align 8
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load6 = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load6, 2
   %tobool.not = icmp eq i8 %0, 0
-  %chacha8 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1
+  %chacha8 = getelementptr inbounds i8, ptr %bctx, i64 192
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @ossl_chacha20_einit(ptr noundef nonnull %chacha8, ptr noundef %key, i64 noundef %keylen, ptr noundef null, i64 noundef 0, ptr noundef null) #8
+  %call = tail call i32 @ossl_chacha20_einit(ptr noundef nonnull %chacha8, ptr noundef %key, i64 noundef %keylen, ptr noundef null, i64 noundef 0, ptr noundef null) #7
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call9 = tail call i32 @ossl_chacha20_dinit(ptr noundef nonnull %chacha8, ptr noundef %key, i64 noundef %keylen, ptr noundef null, i64 noundef 0, ptr noundef null) #8
+  %call9 = tail call i32 @ossl_chacha20_dinit(ptr noundef nonnull %chacha8, ptr noundef %key, i64 noundef %keylen, ptr noundef null, i64 noundef 0, ptr noundef null) #7
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -59,10 +51,10 @@ define internal i32 @chacha20_poly1305_aead_cipher(ptr noundef %bctx, ptr nounde
 entry:
   %storage.i = alloca [160 x i8], align 16
   %temp = alloca [16 x i8], align 16
-  %poly1305 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 2
-  %tls_payload_length = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 9
+  %poly1305 = getelementptr inbounds i8, ptr %bctx, i64 504
+  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
   %0 = load i64, ptr %tls_payload_length, align 8
-  %mac_inited = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 7
+  %mac_inited = getelementptr inbounds i8, ptr %bctx, i64 816
   %bf.load = load i8, ptr %mac_inited, align 8
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
@@ -84,23 +76,23 @@ if.end:                                           ; preds = %if.then2
   %add.ptr2.i = getelementptr inbounds i8, ptr %storage.i, i64 64
   %add.ptr4.i = getelementptr inbounds i8, ptr %storage.i, i64 48
   %cmp.i = icmp ult i64 %0, 65
-  %counter.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2
+  %counter.i = getelementptr inbounds i8, ptr %bctx, i64 416
   store i32 0, ptr %counter.i, align 8
-  %key.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 1
+  %key.i = getelementptr inbounds i8, ptr %bctx, i64 384
   br i1 %cmp.i, label %if.then.i, label %if.else44.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef 128, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #8
-  call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %storage.i) #8
-  %partial_len.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 4
+  call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef 128, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #7
+  call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %storage.i) #7
+  %partial_len.i = getelementptr inbounds i8, ptr %bctx, i64 496
   store i32 0, ptr %partial_len.i, align 8
-  %tls_aad.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 5
+  %tls_aad.i = getelementptr inbounds i8, ptr %bctx, i64 780
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(16) %tls_aad.i, i64 16, i1 false)
-  %len12.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
+  %len12.i = getelementptr inbounds i8, ptr %bctx, i64 800
   store i64 13, ptr %len12.i, align 8
-  %text.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6, i32 1
+  %text.i = getelementptr inbounds i8, ptr %bctx, i64 808
   store i64 %0, ptr %text.i, align 8
-  %enc.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc.i = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load.i = load i8, ptr %enc.i, align 4
   %2 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %2, 0
@@ -152,37 +144,37 @@ if.end.i:                                         ; preds = %for.body.i, %for.bo
   br label %if.end90.i
 
 if.else44.i:                                      ; preds = %if.end
-  call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #8
-  call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %storage.i) #8
+  call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #7
+  call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %storage.i) #7
   store i32 1, ptr %counter.i, align 8
-  %partial_len58.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 4
+  %partial_len58.i = getelementptr inbounds i8, ptr %bctx, i64 496
   store i32 0, ptr %partial_len58.i, align 8
-  %tls_aad59.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 5
-  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tls_aad59.i, i64 noundef 16) #8
-  %len61.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
+  %tls_aad59.i = getelementptr inbounds i8, ptr %bctx, i64 780
+  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tls_aad59.i, i64 noundef 16) #7
+  %len61.i = getelementptr inbounds i8, ptr %bctx, i64 800
   store i64 13, ptr %len61.i, align 8
-  %text64.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6, i32 1
+  %text64.i = getelementptr inbounds i8, ptr %bctx, i64 808
   store i64 %0, ptr %text64.i, align 8
-  %enc65.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc65.i = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load66.i = load i8, ptr %enc65.i, align 4
   %8 = and i8 %bf.load66.i, 2
   %tobool70.not.i = icmp eq i8 %8, 0
   br i1 %tobool70.not.i, label %if.else78.i, label %if.then71.i
 
 if.then71.i:                                      ; preds = %if.else44.i
-  call void @ChaCha20_ctr32(ptr noundef nonnull %out, ptr noundef %in, i64 noundef %0, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #8
-  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %out, i64 noundef %0) #8
+  call void @ChaCha20_ctr32(ptr noundef nonnull %out, ptr noundef %in, i64 noundef %0, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #7
+  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %out, i64 noundef %0) #7
   br label %if.end85.i
 
 if.else78.i:                                      ; preds = %if.else44.i
-  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef %in, i64 noundef %0) #8
-  call void @ChaCha20_ctr32(ptr noundef nonnull %out, ptr noundef %in, i64 noundef %0, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #8
+  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef %in, i64 noundef %0) #7
+  call void @ChaCha20_ctr32(ptr noundef nonnull %out, ptr noundef %in, i64 noundef %0, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #7
   br label %if.end85.i
 
 if.end85.i:                                       ; preds = %if.else78.i, %if.then71.i
   %sub88.i = sub i64 0, %0
   %and89.i = and i64 %sub88.i, 15
-  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %and89.i) #8
+  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %and89.i) #7
   br label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end85.i, %if.end.i
@@ -191,17 +183,17 @@ if.end90.i:                                       ; preds = %if.end85.i, %if.end
   %tohash.0.i = phi ptr [ %add.ptr4.i, %if.end.i ], [ %add.ptr2.i, %if.end85.i ]
   %ctr.0.i = phi ptr [ %add.ptr41.i, %if.end.i ], [ %add.ptr2.i, %if.end85.i ]
   %out.addr.0.i = getelementptr inbounds i8, ptr %out, i64 %0
-  %len91.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
+  %len91.i = getelementptr inbounds i8, ptr %bctx, i64 800
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ctr.0.i, ptr noundef nonnull align 8 dereferenceable(16) %len91.i, i64 16, i1 false)
-  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tohash.0.i, i64 noundef %tohash_len.0.i) #8
-  call void @OPENSSL_cleanse(ptr noundef nonnull %storage.i, i64 noundef %buf_len.0.i) #8
-  %enc93.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tohash.0.i, i64 noundef %tohash_len.0.i) #7
+  call void @OPENSSL_cleanse(ptr noundef nonnull %storage.i, i64 noundef %buf_len.0.i) #7
+  %enc93.i = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load94.i = load i8, ptr %enc93.i, align 4
   %9 = and i8 %bf.load94.i, 2
   %tobool98.not.i = icmp eq i8 %9, 0
-  %tag.i = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 4
+  %tag.i = getelementptr inbounds i8, ptr %bctx, i64 764
   %cond.i = select i1 %tobool98.not.i, ptr %tohash.0.i, ptr %tag.i
-  call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %cond.i) #8
+  call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %cond.i) #7
   store i64 -1, ptr %tls_payload_length, align 8
   %bf.load102.i = load i8, ptr %enc93.i, align 4
   %10 = and i8 %bf.load102.i, 2
@@ -214,7 +206,7 @@ if.then107.i:                                     ; preds = %if.end90.i
 
 if.else110.i:                                     ; preds = %if.end90.i
   %in.addr.0.i = getelementptr inbounds i8, ptr %in, i64 %0
-  %call.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %tohash.0.i, ptr noundef %in.addr.0.i, i64 noundef 16) #8
+  %call.i = call i32 @CRYPTO_memcmp(ptr noundef nonnull %tohash.0.i, ptr noundef %in.addr.0.i, i64 noundef 16) #7
   %tobool111.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool111.not.i, label %if.end120.i, label %if.then112.i
 
@@ -244,16 +236,16 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %if.then112.i, %if.t
   br label %return
 
 if.end5:                                          ; preds = %if.then
-  %counter = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2
+  %counter = getelementptr inbounds i8, ptr %bctx, i64 416
   store i32 0, ptr %counter, align 8
-  %buf = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 3
-  %key = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 1
-  tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %counter) #8
-  tail call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %buf) #8
+  %buf = getelementptr inbounds i8, ptr %bctx, i64 432
+  %key = getelementptr inbounds i8, ptr %bctx, i64 384
+  tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %counter) #7
+  tail call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %buf) #7
   store i32 1, ptr %counter, align 8
-  %partial_len = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 4
+  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 496
   store i32 0, ptr %partial_len, align 8
-  %len = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
+  %len = getelementptr inbounds i8, ptr %bctx, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len, i8 0, i64 16, i1 false)
   %bf.load21 = load i8, ptr %mac_inited, align 8
   %bf.set = or i8 %bf.load21, 2
@@ -261,8 +253,8 @@ if.end5:                                          ; preds = %if.then
   br i1 %cmp, label %if.then24, label %if.end33
 
 if.then24:                                        ; preds = %if.end5
-  %tls_aad = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 5
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tls_aad, i64 noundef 13) #8
+  %tls_aad = getelementptr inbounds i8, ptr %bctx, i64 780
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tls_aad, i64 noundef 13) #7
   store i64 13, ptr %len, align 8
   %bf.load29 = load i8, ptr %mac_inited, align 8
   %bf.set31 = or i8 %bf.load29, 1
@@ -283,8 +275,8 @@ if.then35:                                        ; preds = %if.end33
   br i1 %cmp36, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %if.then35
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %in, i64 noundef %inl) #8
-  %len38 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %in, i64 noundef %inl) #7
+  %len38 = getelementptr inbounds i8, ptr %bctx, i64 800
   %11 = load i64, ptr %len38, align 8
   %add40 = add i64 %11, %inl
   store i64 %add40, ptr %len38, align 8
@@ -299,7 +291,7 @@ if.else:                                          ; preds = %if.then35
   br i1 %tobool49.not, label %if.end61, label %if.then50
 
 if.then50:                                        ; preds = %if.else
-  %len51 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
+  %len51 = getelementptr inbounds i8, ptr %bctx, i64 800
   %12 = load i64, ptr %len51, align 8
   %rem53 = and i64 %12, 15
   %tobool54.not = icmp eq i64 %rem53, 0
@@ -307,7 +299,7 @@ if.then50:                                        ; preds = %if.else
 
 if.then55:                                        ; preds = %if.then50
   %sub = sub nuw nsw i64 16, %rem53
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %sub) #8
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %sub) #7
   %bf.load58.pre = load i8, ptr %mac_inited, align 8
   br label %if.end56
 
@@ -329,31 +321,31 @@ if.else65:                                        ; preds = %if.end61
 
 if.end70:                                         ; preds = %if.end61, %if.else65
   %plen.0 = phi i64 [ %0, %if.else65 ], [ %inl, %if.end61 ]
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load71 = load i8, ptr %enc, align 4
   %13 = and i8 %bf.load71, 2
   %tobool75.not = icmp eq i8 %13, 0
-  %text96 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6, i32 1
+  %text96 = getelementptr inbounds i8, ptr %bctx, i64 808
   br i1 %tobool75.not, label %if.else85, label %if.then76
 
 if.then76:                                        ; preds = %if.end70
-  %chacha77 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1
-  %hw = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 0, i32 19
+  %chacha77 = getelementptr inbounds i8, ptr %bctx, i64 192
+  %hw = getelementptr inbounds i8, ptr %bctx, i64 360
   %14 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %14, i64 0, i32 1
+  %cipher = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %cipher, align 8
-  %call80 = tail call i32 %15(ptr noundef nonnull %chacha77, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0) #8
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %out, i64 noundef %plen.0) #8
+  %call80 = tail call i32 %15(ptr noundef nonnull %chacha77, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0) #7
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %out, i64 noundef %plen.0) #7
   br label %if.end100
 
 if.else85:                                        ; preds = %if.end70
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %in, i64 noundef %plen.0) #8
-  %chacha86 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1
-  %hw88 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 0, i32 19
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %in, i64 noundef %plen.0) #7
+  %chacha86 = getelementptr inbounds i8, ptr %bctx, i64 192
+  %hw88 = getelementptr inbounds i8, ptr %bctx, i64 360
   %16 = load ptr, ptr %hw88, align 8
-  %cipher89 = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %16, i64 0, i32 1
+  %cipher89 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %cipher89, align 8
-  %call92 = tail call i32 %17(ptr noundef nonnull %chacha86, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0) #8
+  %call92 = tail call i32 %17(ptr noundef nonnull %chacha86, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0) #7
   br label %if.end100
 
 if.end100:                                        ; preds = %if.else85, %if.then76
@@ -380,7 +372,7 @@ if.then103:                                       ; preds = %if.end100.if.then10
   br i1 %tobool108.not, label %if.end121, label %if.then109
 
 if.then109:                                       ; preds = %if.then103
-  %len110 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
+  %len110 = getelementptr inbounds i8, ptr %bctx, i64 800
   %19 = load i64, ptr %len110, align 8
   %rem112 = and i64 %19, 15
   %tobool113.not = icmp eq i64 %rem112, 0
@@ -388,7 +380,7 @@ if.then109:                                       ; preds = %if.then103
 
 if.then114:                                       ; preds = %if.then109
   %sub115 = sub nuw nsw i64 16, %rem112
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %sub115) #8
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %sub115) #7
   %bf.load118.pre = load i8, ptr %mac_inited, align 8
   br label %if.end116
 
@@ -399,8 +391,8 @@ if.end116:                                        ; preds = %if.then114, %if.the
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end116, %if.then103
-  %len122 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
-  %text123 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6, i32 1
+  %len122 = getelementptr inbounds i8, ptr %bctx, i64 800
+  %text123 = getelementptr inbounds i8, ptr %bctx, i64 808
   %20 = load i64, ptr %text123, align 8
   %rem124 = and i64 %20, 15
   %tobool125.not = icmp eq i64 %rem124, 0
@@ -408,18 +400,18 @@ if.end121:                                        ; preds = %if.end116, %if.then
 
 if.then126:                                       ; preds = %if.end121
   %sub127 = sub nuw nsw i64 16, %rem124
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %sub127) #8
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull @zero, i64 noundef %sub127) #7
   br label %if.end128
 
 if.end128:                                        ; preds = %if.then126, %if.end121
-  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %len122, i64 noundef 16) #8
-  %enc130 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %len122, i64 noundef 16) #7
+  %enc130 = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load131 = load i8, ptr %enc130, align 4
   %21 = and i8 %bf.load131, 2
   %tobool135.not = icmp eq i8 %21, 0
-  %tag = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 4
+  %tag = getelementptr inbounds i8, ptr %bctx, i64 764
   %cond = select i1 %tobool135.not, ptr %temp, ptr %tag
-  call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %cond) #8
+  call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %cond) #7
   %bf.load139 = load i8, ptr %mac_inited, align 8
   %bf.clear140 = and i8 %bf.load139, -3
   store i8 %bf.clear140, ptr %mac_inited, align 8
@@ -438,7 +430,7 @@ if.then152:                                       ; preds = %if.then145
   br label %err
 
 if.else155:                                       ; preds = %if.then145
-  %call157 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %in.addr.0110, i64 noundef 16) #8
+  %call157 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %in.addr.0110, i64 noundef 16) #7
   %tobool158.not = icmp eq i32 %call157, 0
   br i1 %tobool158.not, label %if.end161, label %if.then159
 
@@ -456,9 +448,9 @@ if.else164:                                       ; preds = %if.end128
   br i1 %tobool170.not, label %if.then171, label %err
 
 if.then171:                                       ; preds = %if.else164
-  %tag_len = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 8
+  %tag_len = getelementptr inbounds i8, ptr %bctx, i64 824
   %23 = load i64, ptr %tag_len, align 8
-  %call175 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %tag, i64 noundef %23) #8
+  %call175 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %tag, i64 noundef %23) #7
   %tobool176.not = icmp eq i32 %call175, 0
   %spec.select = select i1 %tobool176.not, i64 %inl, i64 0
   %spec.select103 = zext i1 %tobool176.not to i32
@@ -480,40 +472,40 @@ define internal i32 @chacha20_poly1305_initiv(ptr noundef %bctx) #1 {
 entry:
   %tempiv = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tempiv, i8 0, i64 16, i1 false)
-  %len = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 6
-  %aad2 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %bctx, i64 800
+  %aad2 = getelementptr inbounds i8, ptr %bctx, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len, i8 0, i64 16, i1 false)
   %bf.load = load i8, ptr %aad2, align 8
   %bf.clear4 = and i8 %bf.load, -4
   store i8 %bf.clear4, ptr %aad2, align 8
-  %tls_payload_length = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 9
+  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
   store i64 -1, ptr %tls_payload_length, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %tempiv, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr6, ptr noundef nonnull align 8 dereferenceable(12) %bctx, i64 12, i1 false)
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load8 = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load8, 2
   %tobool.not = icmp eq i8 %0, 0
-  %chacha11 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1
+  %chacha11 = getelementptr inbounds i8, ptr %bctx, i64 192
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = call i32 @ossl_chacha20_einit(ptr noundef nonnull %chacha11, ptr noundef null, i64 noundef 0, ptr noundef nonnull %tempiv, i64 noundef 16, ptr noundef null) #8
+  %call = call i32 @ossl_chacha20_einit(ptr noundef nonnull %chacha11, ptr noundef null, i64 noundef 0, ptr noundef nonnull %tempiv, i64 noundef 16, ptr noundef null) #7
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call13 = call i32 @ossl_chacha20_dinit(ptr noundef nonnull %chacha11, ptr noundef null, i64 noundef 0, ptr noundef nonnull %tempiv, i64 noundef 16, ptr noundef null) #8
+  %call13 = call i32 @ossl_chacha20_dinit(ptr noundef nonnull %chacha11, ptr noundef null, i64 noundef 0, ptr noundef nonnull %tempiv, i64 noundef 16, ptr noundef null) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %ret.0 = phi i32 [ %call, %if.then ], [ %call13, %if.else ]
-  %arrayidx = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2, i64 1
-  %nonce = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 3
+  %arrayidx = getelementptr inbounds i8, ptr %bctx, i64 420
+  %nonce = getelementptr inbounds i8, ptr %bctx, i64 752
   %1 = load <2 x i32>, ptr %arrayidx, align 4
   store <2 x i32> %1, ptr %nonce, align 8
-  %arrayidx23 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %bctx, i64 428
   %2 = load i32, ptr %arrayidx23, align 4
-  %arrayidx25 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 3, i64 2
+  %arrayidx25 = getelementptr inbounds i8, ptr %bctx, i64 760
   store i32 %2, ptr %arrayidx25, align 8
   %bf.load26 = load i8, ptr %enc, align 4
   %bf.set28 = or i8 %bf.load26, 4
@@ -521,14 +513,14 @@ if.end:                                           ; preds = %if.else, %if.then
   ret i32 %ret.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @chacha_poly1305_tls_init(ptr nocapture noundef %bctx, ptr nocapture noundef readonly %aad, i64 noundef %alen) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal noundef i32 @chacha_poly1305_tls_init(ptr nocapture noundef %bctx, ptr nocapture noundef readonly %aad, i64 noundef %alen) #2 {
 entry:
   %cmp.not = icmp eq i64 %alen, 13
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tls_aad = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 5
+  %tls_aad = getelementptr inbounds i8, ptr %bctx, i64 780
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %tls_aad, ptr noundef nonnull align 1 dereferenceable(13) %aad, i64 13, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %aad, i64 11
   %0 = load i8, ptr %arrayidx, align 1
@@ -538,7 +530,7 @@ if.end:                                           ; preds = %entry
   %1 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %bctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %2 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %2, 0
@@ -552,29 +544,29 @@ if.end9:                                          ; preds = %if.then5
   %sub = add nsw i32 %or, -16
   %shr = lshr i32 %sub, 8
   %conv10 = trunc i32 %shr to i8
-  %arrayidx11 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 5, i64 11
+  %arrayidx11 = getelementptr inbounds i8, ptr %bctx, i64 791
   store i8 %conv10, ptr %arrayidx11, align 1
   %conv12 = trunc i32 %sub to i8
-  %arrayidx13 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 5, i64 12
+  %arrayidx13 = getelementptr inbounds i8, ptr %bctx, i64 792
   store i8 %conv12, ptr %arrayidx13, align 1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end9, %if.end
   %len.0 = phi i32 [ %or, %if.end ], [ %sub, %if.end9 ]
   %conv15 = zext nneg i32 %len.0 to i64
-  %tls_payload_length = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 9
+  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
   store i64 %conv15, ptr %tls_payload_length, align 8
-  %nonce = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 3
+  %nonce = getelementptr inbounds i8, ptr %bctx, i64 752
   %3 = load i32, ptr %nonce, align 8
-  %arrayidx17 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %bctx, i64 420
   store i32 %3, ptr %arrayidx17, align 4
-  %arrayidx19 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 3, i64 1
-  %arrayidx36 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2, i64 2
+  %arrayidx19 = getelementptr inbounds i8, ptr %bctx, i64 756
+  %arrayidx36 = getelementptr inbounds i8, ptr %bctx, i64 424
   %4 = load <2 x i32>, ptr %arrayidx19, align 4
   %5 = load <2 x i32>, ptr %tls_aad, align 1
   %6 = xor <2 x i32> %5, %4
   store <2 x i32> %6, ptr %arrayidx36, align 8
-  %mac_inited = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 7
+  %mac_inited = getelementptr inbounds i8, ptr %bctx, i64 816
   %bf.load60 = load i8, ptr %mac_inited, align 8
   %bf.clear61 = and i8 %bf.load60, -3
   store i8 %bf.clear61, ptr %mac_inited, align 8
@@ -586,7 +578,7 @@ return:                                           ; preds = %if.then5, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @chacha_poly1305_tls_iv_set_fixed(ptr nocapture noundef writeonly %bctx, ptr nocapture noundef readonly %fixed, i64 noundef %flen) #3 {
+define internal noundef i32 @chacha_poly1305_tls_iv_set_fixed(ptr nocapture noundef writeonly %bctx, ptr nocapture noundef readonly %fixed, i64 noundef %flen) #2 {
 entry:
   %cmp.not = icmp eq i64 %flen, 12
   br i1 %cmp.not, label %if.end, label %return
@@ -604,9 +596,9 @@ if.end:                                           ; preds = %entry
   %conv8 = zext i8 %3 to i32
   %shl9 = shl nuw i32 %conv8, 24
   %or10 = or disjoint i32 %or6, %shl9
-  %arrayidx11 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %bctx, i64 420
   store i32 %or10, ptr %arrayidx11, align 4
-  %nonce = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 3
+  %nonce = getelementptr inbounds i8, ptr %bctx, i64 752
   store i32 %or10, ptr %nonce, align 8
   %add.ptr = getelementptr inbounds i8, ptr %fixed, i64 4
   %4 = load i16, ptr %add.ptr, align 1
@@ -621,9 +613,9 @@ if.end:                                           ; preds = %entry
   %conv27 = zext i8 %7 to i32
   %shl28 = shl nuw i32 %conv27, 24
   %or29 = or disjoint i32 %or24, %shl28
-  %arrayidx32 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2, i64 2
+  %arrayidx32 = getelementptr inbounds i8, ptr %bctx, i64 424
   store i32 %or29, ptr %arrayidx32, align 8
-  %arrayidx34 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 3, i64 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %bctx, i64 756
   store i32 %or29, ptr %arrayidx34, align 4
   %add.ptr35 = getelementptr inbounds i8, ptr %fixed, i64 8
   %8 = load i16, ptr %add.ptr35, align 1
@@ -638,9 +630,9 @@ if.end:                                           ; preds = %entry
   %conv50 = zext i8 %11 to i32
   %shl51 = shl nuw i32 %conv50, 24
   %or52 = or disjoint i32 %or47, %shl51
-  %arrayidx55 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 1, i32 2, i64 3
+  %arrayidx55 = getelementptr inbounds i8, ptr %bctx, i64 428
   store i32 %or52, ptr %arrayidx55, align 4
-  %arrayidx57 = getelementptr inbounds %struct.PROV_CHACHA20_POLY1305_CTX, ptr %bctx, i64 0, i32 3, i64 2
+  %arrayidx57 = getelementptr inbounds i8, ptr %bctx, i64 760
   store i32 %or52, ptr %arrayidx57, align 8
   br label %return
 
@@ -649,43 +641,42 @@ return:                                           ; preds = %entry, %if.end
   ret i32 %retval.0
 }
 
-declare i32 @ossl_chacha20_einit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_chacha20_einit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ossl_chacha20_dinit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @ossl_chacha20_dinit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ChaCha20_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ChaCha20_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Poly1305_Init(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @Poly1305_Init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @Poly1305_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @Poly1305_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @Poly1305_Final(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @Poly1305_Final(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

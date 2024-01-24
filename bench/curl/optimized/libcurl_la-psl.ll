@@ -3,41 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-psl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PslCache = type { ptr, i64, i8 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_psl_destroy(ptr nocapture noundef %pslcache) local_unnamed_addr #0 {
 entry:
@@ -46,7 +11,7 @@ entry:
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dynamic = getelementptr inbounds %struct.PslCache, ptr %pslcache, i64 0, i32 2
+  %dynamic = getelementptr inbounds i8, ptr %pslcache, i64 16
   %1 = load i8, ptr %dynamic, align 8
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
@@ -70,7 +35,7 @@ declare void @psl_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @Curl_psl_use(ptr noundef %easy) local_unnamed_addr #0 {
 entry:
-  %psl = getelementptr inbounds %struct.Curl_easy, ptr %easy, i64 0, i32 15
+  %psl = getelementptr inbounds i8, ptr %easy, i64 216
   %0 = load ptr, ptr %psl, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -84,7 +49,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %2 = extractvalue { i64, i32 } %call.i, 0
-  %expires = getelementptr inbounds %struct.PslCache, ptr %0, i64 0, i32 1
+  %expires = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %expires, align 8
   %cmp.not = icmp sgt i64 %3, %2
   br i1 %cmp.not, label %return, label %if.then5
@@ -99,7 +64,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br i1 %tobool10.not, label %if.then14, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.then5
-  %expires12 = getelementptr inbounds %struct.PslCache, ptr %0, i64 0, i32 1
+  %expires12 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %expires12, align 8
   %cmp13.not = icmp sgt i64 %6, %4
   br i1 %cmp13.not, label %if.end36, label %if.then14
@@ -114,7 +79,7 @@ if.then14:                                        ; preds = %lor.lhs.false11, %i
   br i1 %cmp17, label %if.then26, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then14
-  %dynamic20 = getelementptr inbounds %struct.PslCache, ptr %0, i64 0, i32 2
+  %dynamic20 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i8, ptr %dynamic20, align 8
   %8 = and i8 %7, 1
   %tobool21.not = icmp eq i8 %8, 0
@@ -132,7 +97,7 @@ if.then26:                                        ; preds = %if.then14, %if.end2
   br i1 %tobool.not.i, label %Curl_psl_destroy.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then26
-  %dynamic.i = getelementptr inbounds %struct.PslCache, ptr %0, i64 0, i32 2
+  %dynamic.i = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i8, ptr %dynamic.i, align 8
   %11 = and i8 %10, 1
   %tobool1.not.i = icmp eq i8 %11, 0
@@ -144,9 +109,9 @@ if.then2.i:                                       ; preds = %if.then.i
 
 Curl_psl_destroy.exit:                            ; preds = %if.then.i, %if.then2.i, %if.then26
   store ptr %psl1.031, ptr %0, align 8
-  %dynamic29 = getelementptr inbounds %struct.PslCache, ptr %0, i64 0, i32 2
+  %dynamic29 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %frombool, ptr %dynamic29, align 8
-  %expires31 = getelementptr inbounds %struct.PslCache, ptr %0, i64 0, i32 1
+  %expires31 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %cond, ptr %expires31, align 8
   br label %if.end36
 

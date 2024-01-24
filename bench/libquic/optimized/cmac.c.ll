@@ -35,7 +35,7 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
 
 land.lhs.true:                                    ; preds = %sw.epilog
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %scratch.i)
-  %block_used.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 4
+  %block_used.i = getelementptr inbounds i8, ptr %ctx, i64 200
   %0 = load i32, ptr %block_used.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.end20.i, label %if.then.i
@@ -44,7 +44,7 @@ if.then.i:                                        ; preds = %land.lhs.true
   %sub.i = sub i32 16, %0
   %conv.i = zext i32 %sub.i to i64
   %spec.select.i = call i64 @llvm.umin.i64(i64 %conv.i, i64 %in_len)
-  %block.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %block.i = getelementptr inbounds i8, ptr %ctx, i64 184
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %block.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %in, i64 %spec.select.i, i1 false)
@@ -84,7 +84,7 @@ if.end28.i:                                       ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end28.i, %if.end20.i
   %in.addr.1.lcssa.i = phi ptr [ %in.addr.0.i, %if.end20.i ], [ %add.ptr29.i, %if.end28.i ]
   %in_len.addr.1.lcssa.i = phi i64 [ %in_len.addr.0.i, %if.end20.i ], [ %sub30.i, %if.end28.i ]
-  %block31.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %block31.i = getelementptr inbounds i8, ptr %ctx, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %block31.i, ptr align 1 %in.addr.1.lcssa.i, i64 %in_len.addr.1.lcssa.i, i1 false)
   %conv33.i = trunc i64 %in_len.addr.1.lcssa.i to i32
   store i32 %conv33.i, ptr %block_used.i, align 8
@@ -101,14 +101,13 @@ land.rhs:                                         ; preds = %while.end.i, %if.th
   br i1 %cmp.i, label %land.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.rhs
-  %k1.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 1
   %cmp1.not.i = icmp eq i32 %3, 16
   br i1 %cmp1.not.i, label %if.end10.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %block.i3 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %block.i3 = getelementptr inbounds i8, ptr %ctx, i64 184
   %idxprom.i = zext i32 %3 to i64
-  %arrayidx.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [16 x i8], ptr %block.i3, i64 0, i64 %idxprom.i
   store i8 -128, ptr %arrayidx.i, align 1
   %4 = load i32, ptr %block_used.i, align 8
   %idx.ext.i4 = zext i32 %4 to i64
@@ -117,20 +116,21 @@ if.then2.i:                                       ; preds = %if.end.i
   %sub.i6 = sub i32 15, %4
   %conv.i7 = zext i32 %sub.i6 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr7.i, i8 0, i64 %conv.i7, i1 false)
-  %k2.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 2
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then2.i, %if.end.i
-  %mask.0.i = phi ptr [ %k2.i, %if.then2.i ], [ %k1.i, %if.end.i ]
+  %5 = phi i64 [ 168, %if.then2.i ], [ 152, %if.end.i ]
+  %6 = getelementptr inbounds i8, ptr %ctx, i64 %5
+  %block13.i = getelementptr inbounds i8, ptr %ctx, i64 184
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end10.i
   %indvars.iv.i = phi i64 [ 0, %if.end10.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx15.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3, i64 %indvars.iv.i
-  %5 = load i8, ptr %arrayidx15.i, align 1
-  %arrayidx18.i = getelementptr inbounds i8, ptr %mask.0.i, i64 %indvars.iv.i
-  %6 = load i8, ptr %arrayidx18.i, align 1
-  %xor17.i = xor i8 %6, %5
+  %arrayidx15.i = getelementptr inbounds [16 x i8], ptr %block13.i, i64 0, i64 %indvars.iv.i
+  %7 = load i8, ptr %arrayidx15.i, align 1
+  %arrayidx18.i = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
+  %8 = load i8, ptr %arrayidx18.i, align 1
+  %xor17.i = xor i8 %8, %7
   %arrayidx22.i = getelementptr inbounds i8, ptr %out, i64 %indvars.iv.i
   store i8 %xor17.i, ptr %arrayidx22.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -139,19 +139,19 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 for.end.i:                                        ; preds = %for.body.i
   %call.i8 = call i32 @EVP_Cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef 16) #8
-  %7 = icmp ne i32 %call.i8, 0
-  %8 = zext i1 %7 to i32
+  %9 = icmp ne i32 %call.i8, 0
+  %10 = zext i1 %9 to i32
   br label %land.end
 
 land.end:                                         ; preds = %for.end.i, %land.rhs, %CMAC_Update.exit.thread, %sw.epilog
-  %land.ext = phi i32 [ 0, %sw.epilog ], [ 0, %CMAC_Update.exit.thread ], [ %8, %for.end.i ], [ 1, %land.rhs ]
+  %land.ext = phi i32 [ 0, %sw.epilog ], [ 0, %CMAC_Update.exit.thread ], [ %10, %for.end.i ], [ 1, %land.rhs ]
   %call.i10 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx) #8
-  %k1.i11 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 1
-  call void @OPENSSL_cleanse(ptr noundef nonnull %k1.i11, i64 noundef 16) #8
-  %k2.i12 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 2
-  call void @OPENSSL_cleanse(ptr noundef nonnull %k2.i12, i64 noundef 16) #8
-  %block.i13 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
-  call void @OPENSSL_cleanse(ptr noundef nonnull %block.i13, i64 noundef 16) #8
+  %k1.i = getelementptr inbounds i8, ptr %ctx, i64 152
+  call void @OPENSSL_cleanse(ptr noundef nonnull %k1.i, i64 noundef 16) #8
+  %k2.i = getelementptr inbounds i8, ptr %ctx, i64 168
+  call void @OPENSSL_cleanse(ptr noundef nonnull %k2.i, i64 noundef 16) #8
+  %block.i11 = getelementptr inbounds i8, ptr %ctx, i64 184
+  call void @OPENSSL_cleanse(ptr noundef nonnull %block.i11, i64 noundef 16) #8
   br label %return
 
 return:                                           ; preds = %entry, %land.end
@@ -193,7 +193,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false6
   br i1 %tobool13.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %k1 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %k1 = getelementptr inbounds i8, ptr %ctx, i64 152
   %.pre = load i8, ptr %scratch, align 16
   br label %for.body.i
 
@@ -216,9 +216,9 @@ binary_field_mul_x.exit:                          ; preds = %for.body.i
   %isneg.i = icmp slt i8 %.pre, 0
   %and.i = select i1 %isneg.i, i8 -121, i8 0
   %xor.i = xor i8 %shl14.i, %and.i
-  %arrayidx18.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 1, i64 15
+  %arrayidx18.i = getelementptr inbounds i8, ptr %ctx, i64 167
   store i8 %xor.i, ptr %arrayidx18.i, align 1
-  %k2 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 2
+  %k2 = getelementptr inbounds i8, ptr %ctx, i64 168
   %.pre24 = load i8, ptr %k1, align 1
   br label %for.body.i9
 
@@ -239,9 +239,9 @@ binary_field_mul_x.exit23:                        ; preds = %for.body.i9
   %isneg.i19 = icmp slt i8 %.pre24, 0
   %and.i20 = select i1 %isneg.i19, i8 -121, i8 0
   %xor.i21 = xor i8 %shl14.i18, %and.i20
-  %arrayidx18.i22 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 2, i64 15
+  %arrayidx18.i22 = getelementptr inbounds i8, ptr %ctx, i64 183
   store i8 %xor.i21, ptr %arrayidx18.i22, align 1
-  %block_used = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 4
+  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
   store i32 0, ptr %block_used, align 8
   br label %return
 
@@ -254,7 +254,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define hidden noundef i32 @CMAC_Update(ptr noundef %ctx, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %scratch = alloca [16 x i8], align 16
-  %block_used = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 4
+  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
   %0 = load i32, ptr %block_used, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end20, label %if.then
@@ -263,7 +263,7 @@ if.then:                                          ; preds = %entry
   %sub = sub i32 16, %0
   %conv = zext i32 %sub to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %conv, i64 %in_len)
-  %block = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %block = getelementptr inbounds i8, ptr %ctx, i64 184
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %block, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %spec.select, i1 false)
@@ -303,7 +303,7 @@ if.end28:                                         ; preds = %while.body
 while.end:                                        ; preds = %if.end28, %if.end20
   %in.addr.1.lcssa = phi ptr [ %in.addr.0, %if.end20 ], [ %add.ptr29, %if.end28 ]
   %in_len.addr.1.lcssa = phi i64 [ %in_len.addr.0, %if.end20 ], [ %sub30, %if.end28 ]
-  %block31 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %block31 = getelementptr inbounds i8, ptr %ctx, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %block31, ptr align 1 %in.addr.1.lcssa, i64 %in_len.addr.1.lcssa, i1 false)
   %conv33 = trunc i64 %in_len.addr.1.lcssa to i32
   store i32 %conv33, ptr %block_used, align 8
@@ -322,16 +322,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %k1 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 1
-  %block_used = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 4
+  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
   %0 = load i32, ptr %block_used, align 8
   %cmp1.not = icmp eq i32 %0, 16
   br i1 %cmp1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %block = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %block = getelementptr inbounds i8, ptr %ctx, i64 184
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %block, i64 0, i64 %idxprom
   store i8 -128, ptr %arrayidx, align 1
   %1 = load i32, ptr %block_used, align 8
   %idx.ext = zext i32 %1 to i64
@@ -340,20 +339,21 @@ if.then2:                                         ; preds = %if.end
   %sub = sub i32 15, %1
   %conv = zext i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr7, i8 0, i64 %conv, i1 false)
-  %k2 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 2
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then2, %if.end
-  %mask.0 = phi ptr [ %k2, %if.then2 ], [ %k1, %if.end ]
+  %2 = phi i64 [ 168, %if.then2 ], [ 152, %if.end ]
+  %3 = getelementptr inbounds i8, ptr %ctx, i64 %2
+  %block13 = getelementptr inbounds i8, ptr %ctx, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %if.end10, %for.body
   %indvars.iv = phi i64 [ 0, %if.end10 ], [ %indvars.iv.next, %for.body ]
-  %arrayidx15 = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3, i64 %indvars.iv
-  %2 = load i8, ptr %arrayidx15, align 1
-  %arrayidx18 = getelementptr inbounds i8, ptr %mask.0, i64 %indvars.iv
-  %3 = load i8, ptr %arrayidx18, align 1
-  %xor17 = xor i8 %3, %2
+  %arrayidx15 = getelementptr inbounds [16 x i8], ptr %block13, i64 0, i64 %indvars.iv
+  %4 = load i8, ptr %arrayidx15, align 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %5 = load i8, ptr %arrayidx18, align 1
+  %xor17 = xor i8 %5, %4
   %arrayidx22 = getelementptr inbounds i8, ptr %out, i64 %indvars.iv
   store i8 %xor17, ptr %arrayidx22, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -395,11 +395,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx) #8
-  %k1.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 1
+  %k1.i = getelementptr inbounds i8, ptr %ctx, i64 152
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k1.i, i64 noundef 16) #8
-  %k2.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 2
+  %k2.i = getelementptr inbounds i8, ptr %ctx, i64 168
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k2.i, i64 noundef 16) #8
-  %block.i = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 3
+  %block.i = getelementptr inbounds i8, ptr %ctx, i64 184
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %block.i, i64 noundef 16) #8
   tail call void @free(ptr noundef nonnull %ctx) #8
   br label %return
@@ -422,7 +422,7 @@ declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define hidden i32 @CMAC_Reset(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %block_used = getelementptr inbounds %struct.cmac_ctx_st, ptr %ctx, i64 0, i32 4
+  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
   store i32 0, ptr %block_used, align 8
   %call = tail call i32 @EVP_EncryptInit_ex(ptr noundef %ctx, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @kZeroIV) #8
   ret i32 %call

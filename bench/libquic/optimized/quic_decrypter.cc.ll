@@ -75,7 +75,7 @@ sw.default:                                       ; preds = %entry
 
 cond.false:                                       ; preds = %sw.default
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp10, ptr noundef nonnull @.str, i32 noundef 28, i32 noundef 3)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp10, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont14 unwind label %lpad11
 
@@ -144,10 +144,10 @@ entry:
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.base::BasicStringPiece", align 8
   store ptr %preliminary_key.coerce0, ptr %preliminary_key, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %preliminary_key, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %preliminary_key, i64 8
   store i64 %preliminary_key.coerce1, ptr %0, align 8
   store ptr %nonce_prefix.coerce0, ptr %nonce_prefix, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %nonce_prefix, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %nonce_prefix, i64 8
   store i64 %nonce_prefix.coerce1, ptr %1, align 8
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %preliminary_key)
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %nonce_prefix)
@@ -196,12 +196,12 @@ invoke.cont13:                                    ; preds = %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #7
-  %server_write_key_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2
+  %server_write_key_.i = getelementptr inbounds i8, ptr %hkdf, i64 40
   %retval.sroa.0.0.copyload.i = load ptr, ptr %server_write_key_.i, align 8
-  %retval.sroa.2.0.server_write_key_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 2, i32 1
+  %retval.sroa.2.0.server_write_key_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 48
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.server_write_key_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %ref.tmp16, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp16, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
   store i64 %retval.sroa.2.0.copyload.i, ptr %2, align 8
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp16)
           to label %invoke.cont20 unwind label %lpad17
@@ -209,12 +209,12 @@ invoke.cont13:                                    ; preds = %invoke.cont12
 invoke.cont20:                                    ; preds = %invoke.cont13
   %call21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %out_key, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #7
-  %server_write_iv_.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4
+  %server_write_iv_.i = getelementptr inbounds i8, ptr %hkdf, i64 72
   %retval.sroa.0.0.copyload.i8 = load ptr, ptr %server_write_iv_.i, align 8
-  %retval.sroa.2.0.server_write_iv_.sroa_idx.i = getelementptr inbounds %"class.crypto::HKDF", ptr %hkdf, i64 0, i32 4, i32 1
+  %retval.sroa.2.0.server_write_iv_.sroa_idx.i = getelementptr inbounds i8, ptr %hkdf, i64 80
   %retval.sroa.2.0.copyload.i9 = load i64, ptr %retval.sroa.2.0.server_write_iv_.sroa_idx.i, align 8
   store ptr %retval.sroa.0.0.copyload.i8, ptr %ref.tmp23, align 8
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp23, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
   store i64 %retval.sroa.2.0.copyload.i9, ptr %3, align 8
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23)
           to label %invoke.cont26 unwind label %lpad17

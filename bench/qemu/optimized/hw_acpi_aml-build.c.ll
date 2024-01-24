@@ -3,63 +3,12 @@ source_filename = "bench/qemu/original/hw_acpi_aml-build.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CrsRangeEntry = type { i64, i64 }
-%struct.CrsRangeSet = type { ptr, ptr, ptr }
-%struct._GPtrArray = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct._GArray = type { ptr, i32 }
-%struct.Aml = type { ptr, i8, i32 }
 %struct.AcpiTable = type { ptr, i8, ptr, ptr, ptr, i32 }
-%struct.AcpiBuildTables = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.AcpiRsdpData = type { ptr, i8, ptr, ptr }
-%struct.MachineState = type { %struct.Object, ptr, ptr, ptr, i32, ptr, i8, i8, i8, i8, ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, %struct.BootConfiguration, ptr, ptr, ptr, ptr, ptr, ptr, %struct.CpuTopology, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.BootConfiguration = type { ptr, ptr, i8, i8, ptr, i8, i64, i8, i64, i8, i8 }
-%struct.CpuTopology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.NumaState = type { i32, i8, i8, [128 x %struct.NodeInfo], [4 x [6 x ptr]], [128 x [4 x ptr]] }
 %struct.NodeInfo = type { i64, ptr, i8, i8, i8, i16, [128 x i8] }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
-%struct.CPUArchIdList = type { i32, [0 x %struct.CPUArchId] }
 %struct.CPUArchId = type { i64, i64, %struct.CpuInstanceProperties, ptr, ptr }
 %struct.CpuInstanceProperties = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
-%struct.AcpiFadtData = type { %struct.AcpiGenericAddress, %struct.AcpiGenericAddress, %struct.AcpiGenericAddress, %struct.AcpiGenericAddress, %struct.AcpiGenericAddress, %struct.AcpiGenericAddress, %struct.AcpiGenericAddress, i8, i8, i32, i32, i16, i8, i8, i8, i8, i16, i16, i16, i16, i8, ptr, ptr, ptr }
-%struct.AcpiGenericAddress = type { i8, i8, i8, i8, i64 }
-%struct.PCIHostState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, i32, i8, ptr, i8, %struct.anon.2 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.anon.2 = type { ptr, ptr }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon.3, %struct.anon.4, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.5 }
-%struct.anon.5 = type { ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.PCIReqIDCache = type { ptr, i32 }
 %struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.6, %union.anon.7 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
 
 @.str = private unnamed_addr constant [25 x i8] c"array->len == offset + 4\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"../qemu/hw/acpi/aml-build.c\00", align 1
@@ -151,7 +100,7 @@ define dso_local void @crs_range_insert(ptr noundef %ranges, i64 noundef %base, 
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %base, ptr %call, align 8
-  %limit3 = getelementptr inbounds %struct.CrsRangeEntry, ptr %call, i64 0, i32 1
+  %limit3 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %limit, ptr %limit3, align 8
   tail call void @g_ptr_array_add(ptr noundef %ranges, ptr noundef nonnull %call) #14
   ret void
@@ -168,10 +117,10 @@ entry:
   %call = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @crs_range_free) #14
   store ptr %call, ptr %range_set, align 8
   %call1 = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @crs_range_free) #14
-  %mem_ranges = getelementptr inbounds %struct.CrsRangeSet, ptr %range_set, i64 0, i32 1
+  %mem_ranges = getelementptr inbounds i8, ptr %range_set, i64 8
   store ptr %call1, ptr %mem_ranges, align 8
   %call2 = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @crs_range_free) #14
-  %mem_64bit_ranges = getelementptr inbounds %struct.CrsRangeSet, ptr %range_set, i64 0, i32 2
+  %mem_64bit_ranges = getelementptr inbounds i8, ptr %range_set, i64 16
   store ptr %call2, ptr %mem_64bit_ranges, align 8
   ret void
 }
@@ -190,10 +139,10 @@ define dso_local void @crs_range_set_free(ptr nocapture noundef readonly %range_
 entry:
   %0 = load ptr, ptr %range_set, align 8
   %call = tail call ptr @g_ptr_array_free(ptr noundef %0, i32 noundef 1) #14
-  %mem_ranges = getelementptr inbounds %struct.CrsRangeSet, ptr %range_set, i64 0, i32 1
+  %mem_ranges = getelementptr inbounds i8, ptr %range_set, i64 8
   %1 = load ptr, ptr %mem_ranges, align 8
   %call1 = tail call ptr @g_ptr_array_free(ptr noundef %1, i32 noundef 1) #14
-  %mem_64bit_ranges = getelementptr inbounds %struct.CrsRangeSet, ptr %range_set, i64 0, i32 2
+  %mem_64bit_ranges = getelementptr inbounds i8, ptr %range_set, i64 16
   %2 = load ptr, ptr %mem_64bit_ranges, align 8
   %call2 = tail call ptr @g_ptr_array_free(ptr noundef %2, i32 noundef 1) #14
   ret void
@@ -206,7 +155,7 @@ define dso_local void @crs_replace_with_free_ranges(ptr noundef %ranges, i64 nou
 entry:
   %call = tail call ptr @g_ptr_array_new() #14
   tail call void @g_ptr_array_sort(ptr noundef %ranges, ptr noundef nonnull @crs_range_compare) #14
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %ranges, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %ranges, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp22.not = icmp eq i32 %0, 0
   br i1 %cmp22.not, label %for.end, label %for.body
@@ -227,7 +176,7 @@ if.then:                                          ; preds = %for.body
   %sub = add i64 %4, -1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %free_base.024, ptr %call.i, align 8
-  %limit3.i = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i, i64 0, i32 1
+  %limit3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %sub, ptr %limit3.i, align 8
   tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef nonnull %call.i) #14
   %.pre = load i32, ptr %len, align 8
@@ -235,7 +184,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %5 = phi i32 [ %.pre, %if.then ], [ %1, %for.body ]
-  %limit = getelementptr inbounds %struct.CrsRangeEntry, ptr %3, i64 0, i32 1
+  %limit = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i64, ptr %limit, align 8
   %add = add i64 %6, 1
   %inc = add nuw i32 %i.023, 1
@@ -250,14 +199,14 @@ for.end:                                          ; preds = %if.end, %entry
 if.then4:                                         ; preds = %for.end
   %call.i20 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %free_base.0.lcssa, ptr %call.i20, align 8
-  %limit3.i21 = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i20, i64 0, i32 1
+  %limit3.i21 = getelementptr inbounds i8, ptr %call.i20, i64 8
   store i64 %end, ptr %limit3.i21, align 8
   tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef nonnull %call.i20) #14
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then4, %for.end
   tail call void @g_ptr_array_set_size(ptr noundef nonnull %ranges, i32 noundef 0) #14
-  %len7 = getelementptr inbounds %struct._GPtrArray, ptr %call, i64 0, i32 1
+  %len7 = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load i32, ptr %len7, align 8
   %cmp825.not = icmp eq i32 %7, 0
   br i1 %cmp825.not, label %for.end15, label %for.body9
@@ -385,7 +334,7 @@ entry:
   store i8 12, ptr %val.addr.i7, align 1
   %call.i8 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i7, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i7)
-  %len = getelementptr inbounds %struct._GArray, ptr %array, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %array, i64 8
   %0 = load i32, ptr %len, align 8
   br label %for.body.i
 
@@ -434,7 +383,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %seg_count.074 = phi i32 [ %inc, %while.body ], [ 0, %entry ]
   %segs_iter.073 = phi ptr [ %incdec.ptr, %while.body ], [ %call1, %entry ]
-  %incdec.ptr = getelementptr ptr, ptr %segs_iter.073, i64 1
+  %incdec.ptr = getelementptr i8, ptr %segs_iter.073, i64 8
   %inc = add i32 %seg_count.074, 1
   %1 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -516,7 +465,7 @@ build_append_nameseg.exit43:                      ; preds = %sw.bb16
   %call2.i40 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %s.0, i32 noundef %conv.i37) #14
   %sub.i41 = sub i32 4, %conv.i37
   %call3.i42 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull @.str.49, i32 noundef %sub.i41) #14
-  %arrayidx = getelementptr ptr, ptr %call1, i64 1
+  %arrayidx = getelementptr i8, ptr %call1, i64 8
   %3 = load ptr, ptr %arrayidx, align 8
   %call.i44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %conv.i45 = trunc i64 %call.i44 to i32
@@ -555,7 +504,7 @@ build_append_nameseg.exit63:                      ; preds = %sw.default
   %call2.i60 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %s.0, i32 noundef %conv.i57) #14
   %sub.i61 = sub i32 4, %conv.i57
   %call3.i62 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull @.str.49, i32 noundef %sub.i61) #14
-  %segs_iter.175 = getelementptr ptr, ptr %call1, i64 1
+  %segs_iter.175 = getelementptr i8, ptr %call1, i64 8
   %4 = load ptr, ptr %segs_iter.175, align 8
   %tobool19.not76 = icmp eq ptr %4, null
   br i1 %tobool19.not76, label %sw.epilog, label %while.body20
@@ -576,7 +525,7 @@ build_append_nameseg.exit71:                      ; preds = %while.body20
   %call2.i68 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %5, i32 noundef %conv.i65) #14
   %sub.i69 = sub i32 4, %conv.i65
   %call3.i70 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull @.str.49, i32 noundef %sub.i69) #14
-  %segs_iter.1 = getelementptr ptr, ptr %segs_iter.177, i64 1
+  %segs_iter.1 = getelementptr i8, ptr %segs_iter.177, i64 8
   %6 = load ptr, ptr %segs_iter.1, align 8
   %tobool19.not = icmp eq ptr %6, null
   br i1 %tobool19.not, label %sw.epilog, label %while.body20, !llvm.loop !11
@@ -593,7 +542,7 @@ declare void @llvm.va_end(ptr) #4
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @init_aml_allocator() local_unnamed_addr #0 {
+define dso_local noundef ptr @init_aml_allocator() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @alloc_list, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -609,7 +558,7 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %1 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %1, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -654,7 +603,7 @@ entry:
   %1 = getelementptr i8, ptr %0, i64 8
   %.val14 = load i32, ptr %1, align 8
   %call.i16 = tail call ptr @g_array_append_vals(ptr noundef %call.i, ptr noundef %.val, i32 noundef %.val14) #14
-  %block_flags = getelementptr inbounds %struct.Aml, ptr %child, i64 0, i32 2
+  %block_flags = getelementptr inbounds i8, ptr %child, i64 12
   %2 = load i32, ptr %block_flags, align 4
   switch i32 %2, label %sw.default [
     i32 1, label %sw.bb
@@ -667,7 +616,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %3 = load ptr, ptr %parent_ctx, align 8
-  %op = getelementptr inbounds %struct.Aml, ptr %child, i64 0, i32 1
+  %op = getelementptr inbounds i8, ptr %child, i64 8
   %4 = load i8, ptr %op, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i)
   store i8 %4, ptr %val.addr.i, align 1
@@ -676,9 +625,9 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %op4 = getelementptr inbounds %struct.Aml, ptr %child, i64 0, i32 1
+  %op4 = getelementptr inbounds i8, ptr %child, i64 8
   %5 = load i8, ptr %op4, align 8
-  %len.i.i = getelementptr inbounds %struct._GArray, ptr %call.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %6 = load i32, ptr %len.i.i, align 8
   tail call fastcc void @build_prepend_package_length(ptr noundef %call.i, i32 noundef %6, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i.i)
@@ -692,9 +641,9 @@ sw.bb3:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %op6 = getelementptr inbounds %struct.Aml, ptr %child, i64 0, i32 1
+  %op6 = getelementptr inbounds i8, ptr %child, i64 8
   %7 = load i8, ptr %op6, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %call.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %8 = load i32, ptr %len.i, align 8
   tail call fastcc void @build_prepend_package_length(ptr noundef %call.i, i32 noundef %8, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i18)
@@ -715,15 +664,15 @@ sw.bb7:                                           ; preds = %entry
   br label %sw.bb8
 
 sw.bb8:                                           ; preds = %sw.bb7, %entry
-  %op9 = getelementptr inbounds %struct.Aml, ptr %child, i64 0, i32 1
+  %op9 = getelementptr inbounds i8, ptr %child, i64 8
   %9 = load i8, ptr %op9, align 8
   %call.i.i25 = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
-  %len.i26 = getelementptr inbounds %struct._GArray, ptr %call.i, i64 0, i32 1
+  %len.i26 = getelementptr inbounds i8, ptr %call.i, i64 8
   %10 = load i32, ptr %len.i26, align 8
   %conv.i = zext i32 %10 to i64
   call fastcc void @build_append_int(ptr noundef %call.i.i25, i64 noundef %conv.i)
   %11 = load ptr, ptr %call.i.i25, align 8
-  %len2.i = getelementptr inbounds %struct._GArray, ptr %call.i.i25, i64 0, i32 1
+  %len2.i = getelementptr inbounds i8, ptr %call.i.i25, i64 8
   %12 = load i32, ptr %len2.i, align 8
   %call3.i = call ptr @g_array_prepend_vals(ptr noundef %call.i, ptr noundef %11, i32 noundef %12) #14
   %call.i6.i = call ptr @g_array_free(ptr noundef nonnull %call.i.i25, i32 noundef 1) #14
@@ -750,17 +699,17 @@ sw.epilog:                                        ; preds = %entry, %sw.bb8, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_scope(ptr noundef %name_format, ...) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_scope(ptr noundef %name_format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 16, ptr %op1.i, align 8
   store i32 2, ptr %block_flags.i.i, align 4
   call void @llvm.va_start(ptr nonnull %ap)
@@ -771,16 +720,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_return(ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_return(ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -92, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %val)
@@ -788,14 +737,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_debug() local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_debug() local_unnamed_addr #0 {
 entry:
   %val.addr.i4 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -812,12 +761,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_int(i64 noundef %val) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_int(i64 noundef %val) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -946,13 +895,13 @@ if.end16:                                         ; preds = %for.body.i49, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_name(ptr noundef %name_format, ...) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_name(ptr noundef %name_format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -964,16 +913,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_name_decl(ptr noundef %name, ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_name_decl(ptr noundef %name, ptr nocapture noundef readonly %val) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 8, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void (ptr, ptr, ...) @build_append_namestring(ptr noundef %call.i.i.i, ptr nonnull poison, ptr noundef %name)
@@ -992,7 +941,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_arg(i32 noundef %pos) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_arg(i32 noundef %pos) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %pos, 7
   br i1 %cmp, label %if.end, label %if.else
@@ -1007,28 +956,28 @@ if.end:                                           ; preds = %entry
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %1 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %1, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 %conv, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   ret ptr %call.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_to_integer(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_integer(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -103, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg)
@@ -1041,17 +990,17 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_to_hexstring(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_hexstring(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -104, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %src)
@@ -1075,17 +1024,17 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_to_buffer(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_buffer(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -106, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %src)
@@ -1109,17 +1058,17 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_to_decimalstring(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_to_decimalstring(ptr nocapture noundef readonly %src, ptr noundef readonly %dst) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -105, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %src)
@@ -1143,16 +1092,16 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_store(ptr nocapture noundef readonly %val, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_store(ptr nocapture noundef readonly %val, ptr nocapture noundef readonly %target) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 112, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %val)
@@ -1161,24 +1110,24 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_and(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_and(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 123, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext %op, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef readonly %dst) unnamed_addr #0 {
+define internal fastcc noundef ptr @build_opcode_2arg_dst(i8 noundef zeroext %op, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef readonly %dst) unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 %op, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg1)
@@ -1203,23 +1152,23 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_or(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_or(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 125, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_land(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_land(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -112, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg1)
@@ -1228,16 +1177,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_lor(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lor(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -111, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg1)
@@ -1246,17 +1195,17 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_shiftleft(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %count) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_shiftleft(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %count) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i.i) #14
-  %block_flags.i.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 2
+  %block_flags.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 0, ptr %block_flags.i.i.i, align 4
   %call.i.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i.i, ptr %call.i.i.i, align 8
-  %op1.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 1
+  %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 121, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %arg1)
@@ -1270,23 +1219,23 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_shiftright(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %count, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_shiftright(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %count, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 122, ptr noundef %arg1, ptr noundef %count, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_lless(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lless(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -107, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg1)
@@ -1295,30 +1244,30 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_add(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_add(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 114, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_subtract(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_subtract(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr noundef %dst) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 116, ptr noundef %arg1, ptr noundef %arg2, ptr noundef %dst)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_increment(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_increment(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 117, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg)
@@ -1326,16 +1275,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_decrement(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_decrement(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 118, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg)
@@ -1343,17 +1292,17 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_index(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %idx) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_index(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %idx) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i.i) #14
-  %block_flags.i.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 2
+  %block_flags.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 0, ptr %block_flags.i.i.i, align 4
   %call.i.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i.i, ptr %call.i.i.i, align 8
-  %op1.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 1
+  %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -120, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %arg1)
@@ -1367,16 +1316,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_notify(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_notify(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -122, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg1)
@@ -1385,28 +1334,28 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_break() local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_break() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -91, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   ret ptr %call.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_call0(ptr noundef %method) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call0(ptr noundef %method) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1415,12 +1364,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_call1(ptr noundef %method, ptr nocapture noundef readonly %arg1) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call1(ptr noundef %method, ptr nocapture noundef readonly %arg1) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1430,12 +1379,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_call2(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call2(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1446,12 +1395,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_call3(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call3(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1463,12 +1412,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_call4(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call4(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1481,12 +1430,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_call5(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4, ptr nocapture noundef readonly %arg5) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call5(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4, ptr nocapture noundef readonly %arg5) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1500,12 +1449,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_call6(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4, ptr nocapture noundef readonly %arg5, ptr nocapture noundef readonly %arg6) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_call6(ptr noundef %method, ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2, ptr nocapture noundef readonly %arg3, ptr nocapture noundef readonly %arg4, ptr nocapture noundef readonly %arg5, ptr nocapture noundef readonly %arg6) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1520,7 +1469,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_gpio_int(i32 noundef %con_and_pro, i32 noundef %edge_level, i32 noundef %active_level, i32 noundef %shared, i32 noundef %pin_config, i16 noundef zeroext %debounce_timeout, ptr nocapture noundef readonly %pin_list, i32 noundef %pin_count, ptr noundef %resource_source_name, ptr noundef %vendor_data, i16 noundef zeroext %vendor_data_len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_gpio_int(i32 noundef %con_and_pro, i32 noundef %edge_level, i32 noundef %active_level, i32 noundef %shared, i32 noundef %pin_config, i16 noundef zeroext %debounce_timeout, ptr nocapture noundef readonly %pin_list, i32 noundef %pin_count, ptr noundef %resource_source_name, ptr noundef %vendor_data, i16 noundef zeroext %vendor_data_len) local_unnamed_addr #0 {
 entry:
   %val.addr.i130.i = alloca i8, align 1
   %val.addr.i.i120.i = alloca i8, align 1
@@ -1546,7 +1495,7 @@ entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
@@ -1792,7 +1741,7 @@ aml_gpio_connection.exit:                         ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_memory32_fixed(i32 noundef %addr, i32 noundef %size, i32 noundef %read_and_write) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_memory32_fixed(i32 noundef %addr, i32 noundef %size, i32 noundef %read_and_write) local_unnamed_addr #0 {
 entry:
   %val.addr.i50 = alloca i8, align 1
   %val.addr.i47 = alloca i8, align 1
@@ -1809,7 +1758,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1891,7 +1840,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_interrupt(i32 noundef %con_and_pro, i32 noundef %level_and_edge, i32 noundef %high_and_low, i32 noundef %shared, ptr nocapture noundef readonly %irq_list, i8 noundef zeroext %irq_count) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_interrupt(i32 noundef %con_and_pro, i32 noundef %level_and_edge, i32 noundef %high_and_low, i32 noundef %shared, ptr nocapture noundef readonly %irq_list, i8 noundef zeroext %irq_count) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %val.addr.i20 = alloca i8, align 1
@@ -1902,7 +1851,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -1981,7 +1930,7 @@ for.end:                                          ; preds = %build_append_int_no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_io(i32 noundef %dec, i16 noundef zeroext %min_base, i16 noundef zeroext %max_base, i8 noundef zeroext %aln, i8 noundef zeroext %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_io(i32 noundef %dec, i16 noundef zeroext %min_base, i16 noundef zeroext %max_base, i8 noundef zeroext %aln, i8 noundef zeroext %len) local_unnamed_addr #0 {
 entry:
   %val.addr.i24 = alloca i8, align 1
   %val.addr.i22 = alloca i8, align 1
@@ -1994,7 +1943,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2048,7 +1997,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_irq_no_flags(i8 noundef zeroext %irq) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_irq_no_flags(i8 noundef zeroext %irq) local_unnamed_addr #0 {
 entry:
   %val.addr.i9 = alloca i8, align 1
   %val.addr.i7 = alloca i8, align 1
@@ -2056,7 +2005,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2091,16 +2040,16 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_lnot(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lnot(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -110, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg)
@@ -2108,16 +2057,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_equal(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_equal(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -109, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg1)
@@ -2126,16 +2075,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_lgreater(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lgreater(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -108, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg1)
@@ -2144,17 +2093,17 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_lgreater_equal(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_lgreater_equal(ptr nocapture noundef readonly %arg1, ptr nocapture noundef readonly %arg2) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -110, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i)
@@ -2167,16 +2116,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_if(ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_if(ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -96, ptr %op1.i, align 8
   store i32 2, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %predicate)
@@ -2184,32 +2133,32 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_else() local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_else() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -95, ptr %op1.i, align 8
   store i32 2, ptr %block_flags.i.i, align 4
   ret ptr %call.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_while(ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_while(ptr nocapture noundef readonly %predicate) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -94, ptr %op1.i, align 8
   store i32 2, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %predicate)
@@ -2217,17 +2166,17 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_method(ptr noundef %name, i32 noundef %arg_count, i32 noundef %sflag) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_method(ptr noundef %name, i32 noundef %arg_count, i32 noundef %sflag) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 20, ptr %op1.i, align 8
   store i32 2, ptr %block_flags.i.i, align 4
   %cmp = icmp slt i32 %arg_count, 8
@@ -2251,17 +2200,17 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_device(ptr noundef %name_format, ...) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_device(ptr noundef %name_format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -126, ptr %op1.i, align 8
   store i32 3, ptr %block_flags.i.i, align 4
   call void @llvm.va_start(ptr nonnull %ap)
@@ -2272,34 +2221,34 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_resource_template() local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_resource_template() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 17, ptr %op1.i, align 8
   store i32 5, ptr %block_flags.i.i, align 4
   ret ptr %call.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_buffer(i32 noundef %buffer_size, ptr noundef readonly %byte_list) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_buffer(i32 noundef %buffer_size, ptr noundef readonly %byte_list) local_unnamed_addr #0 {
 entry:
   %val.addr.i6 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 17, ptr %op1.i, align 8
   store i32 4, ptr %block_flags.i.i, align 4
   %cmp8 = icmp sgt i32 %buffer_size, 0
@@ -2342,17 +2291,17 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_package(i8 noundef zeroext %num_elements) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_package(i8 noundef zeroext %num_elements) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 18, ptr %op1.i, align 8
   store i32 2, ptr %block_flags.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i)
@@ -2363,7 +2312,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_operation_region(ptr noundef %name, i32 noundef %rs, ptr nocapture noundef readonly %offset, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_operation_region(ptr noundef %name, i32 noundef %rs, ptr nocapture noundef readonly %offset, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %val.addr.i10 = alloca i8, align 1
   %val.addr.i8 = alloca i8, align 1
@@ -2371,7 +2320,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2400,12 +2349,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_named_field(ptr noundef %name, i32 noundef %length) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_named_field(ptr noundef %name, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2434,13 +2383,13 @@ build_append_nameseg.exit:                        ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_reserved_field(i32 noundef %length) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_reserved_field(i32 noundef %length) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2460,17 +2409,17 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_field(ptr noundef %name, i32 noundef %type, i32 noundef %lock, i32 noundef %rule) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_field(ptr noundef %name, i32 noundef %type, i32 noundef %lock, i32 noundef %rule) local_unnamed_addr #0 {
 entry:
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -127, ptr %op1.i, align 8
   store i32 3, ptr %block_flags.i.i, align 4
   %shl = shl i32 %rule, 5
@@ -2488,14 +2437,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_create_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %bit_index, ptr nocapture noundef readonly %num_bits, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_create_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %bit_index, ptr nocapture noundef readonly %num_bits, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %val.addr.i8 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2517,16 +2466,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_create_dword_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %index, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_create_dword_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %index, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i.i) #14
-  %block_flags.i.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 2
+  %block_flags.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 0, ptr %block_flags.i.i.i, align 4
   %call.i.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i.i, ptr %call.i.i.i, align 8
-  %op1.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 1
+  %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -118, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %srcbuf)
@@ -2537,16 +2486,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_create_qword_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %index, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_create_qword_field(ptr nocapture noundef readonly %srcbuf, ptr nocapture noundef readonly %index, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i.i) #14
-  %block_flags.i.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 2
+  %block_flags.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 0, ptr %block_flags.i.i.i, align 4
   %call.i.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i.i, ptr %call.i.i.i, align 8
-  %op1.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 1
+  %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 -113, ptr %op1.i.i, align 8
   store i32 1, ptr %block_flags.i.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %srcbuf)
@@ -2557,18 +2506,18 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_string(ptr noundef %name_format, ...) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_string(ptr noundef %name_format, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %s = alloca ptr, align 8
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 13, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   call void @llvm.va_start(ptr nonnull %ap)
@@ -2590,7 +2539,7 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_local(i32 noundef %num) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_local(i32 noundef %num) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %num, 8
   br i1 %cmp, label %if.end, label %if.else
@@ -2605,27 +2554,27 @@ if.end:                                           ; preds = %entry
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %1 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %1, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 %conv, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   ret ptr %call.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_varpackage(i32 noundef %num_elements) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_varpackage(i32 noundef %num_elements) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 19, ptr %op1.i, align 8
   store i32 2, ptr %block_flags.i.i, align 4
   %conv = zext i32 %num_elements to i64
@@ -2634,7 +2583,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_processor(i8 noundef zeroext %proc_id, i32 noundef %pblk_addr, i8 noundef zeroext %pblk_len, ptr noundef %name_format, ...) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_processor(i8 noundef zeroext %proc_id, i32 noundef %pblk_addr, i8 noundef zeroext %pblk_len, ptr noundef %name_format, ...) local_unnamed_addr #0 {
 entry:
   %val.addr.i6 = alloca i8, align 1
   %val.addr.i.i = alloca i8, align 1
@@ -2643,11 +2592,11 @@ entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -125, ptr %op1.i, align 8
   store i32 3, ptr %block_flags.i.i, align 4
   call void @llvm.va_start(ptr nonnull %ap)
@@ -2685,14 +2634,14 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_eisaid(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_eisaid(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2786,14 +2735,14 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_word_bus_number(i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_word_bus_number(i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @aml_word_as_desc(i32 noundef 2, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len, i8 noundef zeroext 0)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @aml_word_as_desc(i32 noundef %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
+define internal fastcc noundef ptr @aml_word_as_desc(i32 noundef %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
 entry:
   %val.addr.i.i49 = alloca i8, align 1
   %val.addr.i.i39 = alloca i8, align 1
@@ -2809,7 +2758,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2833,7 +2782,7 @@ entry:
   %call.i.i15 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %3 = load ptr, ptr @alloc_list, align 8
   call void @g_ptr_array_add(ptr noundef %3, ptr noundef %call.i.i15) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i15, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i15, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i15, align 8
@@ -2942,7 +2891,7 @@ build_append_int_noprefix.exit58:                 ; preds = %for.body.i50
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_word_io(i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %isa_ranges, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_word_io(i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %isa_ranges, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len) local_unnamed_addr #0 {
 entry:
   %conv = trunc i32 %isa_ranges to i8
   %call = tail call fastcc ptr @aml_word_as_desc(i32 noundef 1, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i16 noundef zeroext %addr_gran, i16 noundef zeroext %addr_min, i16 noundef zeroext %addr_max, i16 noundef zeroext %addr_trans, i16 noundef zeroext %len, i8 noundef zeroext %conv)
@@ -2950,7 +2899,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_dword_io(i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %isa_ranges, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_dword_io(i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %isa_ranges, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %conv = trunc i32 %isa_ranges to i8
   %call = tail call fastcc ptr @aml_dword_as_desc(i32 noundef 1, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len, i8 noundef zeroext %conv)
@@ -2958,7 +2907,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @aml_dword_as_desc(i32 noundef %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
+define internal fastcc noundef ptr @aml_dword_as_desc(i32 noundef %type, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %dec, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len, i8 noundef zeroext %type_flags) unnamed_addr #0 {
 entry:
   %val.addr.i.i49 = alloca i8, align 1
   %val.addr.i.i39 = alloca i8, align 1
@@ -2974,7 +2923,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -2998,7 +2947,7 @@ entry:
   %call.i.i15 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %3 = load ptr, ptr @alloc_list, align 8
   call void @g_ptr_array_add(ptr noundef %3, ptr noundef %call.i.i15) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i15, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i15, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i15, align 8
@@ -3107,7 +3056,7 @@ build_append_int_noprefix.exit58:                 ; preds = %for.body.i50
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_dword_memory(i32 noundef %dec, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %cacheable, i32 noundef %read_and_write, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_dword_memory(i32 noundef %dec, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %cacheable, i32 noundef %read_and_write, i32 noundef %addr_gran, i32 noundef %addr_min, i32 noundef %addr_max, i32 noundef %addr_trans, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %shl = shl i32 %cacheable, 1
   %or = or i32 %shl, %read_and_write
@@ -3117,7 +3066,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_qword_memory(i32 noundef %dec, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %cacheable, i32 noundef %read_and_write, i64 noundef %addr_gran, i64 noundef %addr_min, i64 noundef %addr_max, i64 noundef %addr_trans, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_qword_memory(i32 noundef %dec, i32 noundef %min_fixed, i32 noundef %max_fixed, i32 noundef %cacheable, i32 noundef %read_and_write, i64 noundef %addr_gran, i64 noundef %addr_min, i64 noundef %addr_max, i64 noundef %addr_trans, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i49.i = alloca i8, align 1
   %val.addr.i.i39.i = alloca i8, align 1
@@ -3136,7 +3085,7 @@ entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
@@ -3160,7 +3109,7 @@ entry:
   %call.i.i15.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %3 = load ptr, ptr @alloc_list, align 8
   call void @g_ptr_array_add(ptr noundef %3, ptr noundef %call.i.i15.i) #14
-  %block_flags.i.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i15.i, i64 0, i32 2
+  %block_flags.i.i.i = getelementptr inbounds i8, ptr %call.i.i15.i, i64 12
   store i32 0, ptr %block_flags.i.i.i, align 4
   %call.i.i.i.i = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i.i, ptr %call.i.i15.i, align 8
@@ -3268,7 +3217,7 @@ aml_qword_as_desc.exit:                           ; preds = %for.body.i50.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_dma(i32 noundef %typ, i32 noundef %bm, i32 noundef %sz, i8 noundef zeroext %channel) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_dma(i32 noundef %typ, i32 noundef %bm, i32 noundef %sz, i8 noundef zeroext %channel) local_unnamed_addr #0 {
 entry:
   %val.addr.i8 = alloca i8, align 1
   %val.addr.i6 = alloca i8, align 1
@@ -3276,7 +3225,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -3314,14 +3263,14 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_sleep(i64 noundef %msec) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_sleep(i64 noundef %msec) local_unnamed_addr #0 {
 entry:
   %val.addr.i5 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -3337,7 +3286,7 @@ entry:
   %call.i.i7 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %2 = load ptr, ptr @alloc_list, align 8
   call void @g_ptr_array_add(ptr noundef %2, ptr noundef %call.i.i7) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i7, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i7, align 8
@@ -3347,7 +3296,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_touuid(ptr nocapture noundef readonly %uuid) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_touuid(ptr nocapture noundef readonly %uuid) local_unnamed_addr #0 {
 entry:
   %val.addr.i275 = alloca i8, align 1
   %val.addr.i259 = alloca i8, align 1
@@ -3368,11 +3317,11 @@ entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 17, ptr %op1.i, align 8
   store i32 4, ptr %block_flags.i.i, align 4
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %uuid) #16
@@ -3954,18 +3903,18 @@ Hex2Byte.exit274:                                 ; preds = %if.end6.i266
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_unicode(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_unicode(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %val.addr.i6 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 17, ptr %op1.i, align 8
   store i32 4, ptr %block_flags.i.i, align 4
   br label %do.body
@@ -3996,16 +3945,16 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_refof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_refof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 113, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg)
@@ -4013,16 +3962,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_derefof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_derefof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -125, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg)
@@ -4030,16 +3979,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_sizeof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_sizeof(ptr nocapture noundef readonly %arg) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -121, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %arg)
@@ -4047,7 +3996,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_mutex(ptr noundef %name, i8 noundef zeroext %sync_level) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_mutex(ptr noundef %name, i8 noundef zeroext %sync_level) local_unnamed_addr #0 {
 entry:
   %val.addr.i9 = alloca i8, align 1
   %val.addr.i7 = alloca i8, align 1
@@ -4055,7 +4004,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -4087,7 +4036,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_acquire(ptr nocapture noundef readonly %mutex, i16 noundef zeroext %timeout) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_acquire(ptr nocapture noundef readonly %mutex, i16 noundef zeroext %timeout) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i8, align 1
   %val.addr.i6 = alloca i8, align 1
@@ -4095,7 +4044,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -4130,14 +4079,14 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_release(ptr nocapture noundef readonly %mutex) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_release(ptr nocapture noundef readonly %mutex) local_unnamed_addr #0 {
 entry:
   %val.addr.i5 = alloca i8, align 1
   %val.addr.i = alloca i8, align 1
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i) #14
-  %block_flags.i = getelementptr inbounds %struct.Aml, ptr %call.i, i64 0, i32 2
+  %block_flags.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %block_flags.i, align 4
   %call.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i, ptr %call.i, align 8
@@ -4155,16 +4104,16 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_alias(ptr noundef %source_object, ptr noundef %alias_object) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_alias(ptr noundef %source_object, ptr noundef %alias_object) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 6, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   %call1 = tail call ptr (ptr, ...) @aml_name(ptr noundef nonnull @.str.4, ptr noundef %source_object)
@@ -4175,23 +4124,23 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_concatenate(ptr nocapture noundef readonly %source1, ptr nocapture noundef readonly %source2, ptr noundef %target) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_concatenate(ptr nocapture noundef readonly %source1, ptr nocapture noundef readonly %source2, ptr noundef %target) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @build_opcode_2arg_dst(i8 noundef zeroext 115, ptr noundef %source1, ptr noundef %source2, ptr noundef %target)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_object_type(ptr nocapture noundef readonly %object) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_object_type(ptr nocapture noundef readonly %object) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
-  %op1.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 1
+  %op1.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i8 -114, ptr %op1.i, align 8
   store i32 1, ptr %block_flags.i.i, align 4
   tail call void @aml_append(ptr noundef nonnull %call.i.i, ptr noundef %object)
@@ -4208,11 +4157,11 @@ entry:
   %val.addr.i.i27 = alloca i8, align 1
   %val.addr.i.i17 = alloca i8, align 1
   %val.addr.i.i = alloca i8, align 1
-  %array1 = getelementptr inbounds %struct.AcpiTable, ptr %desc, i64 0, i32 4
+  %array1 = getelementptr inbounds i8, ptr %desc, i64 32
   store ptr %array, ptr %array1, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %array, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %array, i64 8
   %0 = load i32, ptr %len, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %desc, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %desc, i64 40
   store i32 %0, ptr %table_offset, align 8
   %1 = load ptr, ptr %desc, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
@@ -4238,7 +4187,7 @@ for.body.i:                                       ; preds = %for.body.i, %do.end
   br i1 %exitcond.not.i, label %build_append_int_noprefix.exit, label %for.body.i, !llvm.loop !8
 
 build_append_int_noprefix.exit:                   ; preds = %for.body.i
-  %rev = getelementptr inbounds %struct.AcpiTable, ptr %desc, i64 0, i32 1
+  %rev = getelementptr inbounds i8, ptr %desc, i64 8
   %2 = load i8, ptr %rev, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i17)
   store i8 %2, ptr %val.addr.i.i17, align 1
@@ -4248,7 +4197,7 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
   store i8 0, ptr %val.addr.i.i27, align 1
   %call.i.i32 = call ptr @g_array_append_vals(ptr noundef %array, ptr noundef nonnull %val.addr.i.i27, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i27)
-  %oem_id = getelementptr inbounds %struct.AcpiTable, ptr %desc, i64 0, i32 2
+  %oem_id = getelementptr inbounds i8, ptr %desc, i64 16
   %3 = load ptr, ptr %oem_id, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %pad.addr.i)
   store i8 0, ptr %pad.addr.i, align 1
@@ -4279,7 +4228,7 @@ for.body.i38:                                     ; preds = %for.body.i38.prehea
 
 build_append_padded_str.exit:                     ; preds = %for.body.i38, %do.end.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %pad.addr.i)
-  %oem_table_id = getelementptr inbounds %struct.AcpiTable, ptr %desc, i64 0, i32 3
+  %oem_table_id = getelementptr inbounds i8, ptr %desc, i64 24
   %4 = load ptr, ptr %oem_table_id, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %pad.addr.i39)
   store i8 0, ptr %pad.addr.i39, align 1
@@ -4345,11 +4294,11 @@ build_append_int_noprefix.exit73:                 ; preds = %for.body.i65
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @acpi_table_end(ptr noundef %linker, ptr nocapture noundef readonly %desc) local_unnamed_addr #0 {
 entry:
-  %array = getelementptr inbounds %struct.AcpiTable, ptr %desc, i64 0, i32 4
+  %array = getelementptr inbounds i8, ptr %desc, i64 32
   %0 = load ptr, ptr %array, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %desc, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %desc, i64 40
   %2 = load i32, ptr %table_offset, align 8
   %sub = sub i32 %1, %2
   %3 = load ptr, ptr %0, align 8
@@ -4368,7 +4317,7 @@ declare void @bios_linker_loader_add_checksum(ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @acpi_data_push(ptr noundef %table_data, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds %struct._GArray, ptr %table_data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %table_data, i64 8
   %0 = load i32, ptr %len, align 8
   %add = add i32 %0, %size
   %call = tail call ptr @g_array_set_size(ptr noundef %table_data, i32 noundef %add) #14
@@ -4392,7 +4341,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %len = getelementptr inbounds %struct._GArray, ptr %table, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %table, i64 8
   %0 = load i32, ptr %len, align 8
   ret i32 %0
 }
@@ -4403,7 +4352,7 @@ declare i32 @g_array_get_element_size(ptr noundef) local_unnamed_addr #2
 define dso_local void @acpi_add_table(ptr noundef %table_offsets, ptr nocapture noundef readonly %table_data) local_unnamed_addr #0 {
 entry:
   %offset = alloca i32, align 4
-  %len = getelementptr inbounds %struct._GArray, ptr %table_data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %table_data, i64 8
   %0 = load i32, ptr %len, align 8
   store i32 %0, ptr %offset, align 4
   %call = call ptr @g_array_append_vals(ptr noundef %table_offsets, ptr noundef nonnull %offset, i32 noundef 1) #14
@@ -4414,21 +4363,21 @@ entry:
 define dso_local void @acpi_build_tables_init(ptr nocapture noundef writeonly %tables) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
-  %rsdp = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 1
+  %rsdp = getelementptr inbounds i8, ptr %tables, i64 8
   store ptr %call, ptr %rsdp, align 8
   %call1 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call1, ptr %tables, align 8
   %call2 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
-  %tcpalog = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 2
+  %tcpalog = getelementptr inbounds i8, ptr %tables, i64 16
   store ptr %call2, ptr %tcpalog, align 8
   %call3 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
-  %vmgenid = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 3
+  %vmgenid = getelementptr inbounds i8, ptr %tables, i64 24
   store ptr %call3, ptr %vmgenid, align 8
   %call4 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
-  %hardware_errors = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 4
+  %hardware_errors = getelementptr inbounds i8, ptr %tables, i64 32
   store ptr %call4, ptr %hardware_errors, align 8
   %call5 = tail call ptr @bios_linker_loader_init() #14
-  %linker = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 5
+  %linker = getelementptr inbounds i8, ptr %tables, i64 40
   store ptr %call5, ptr %linker, align 8
   ret void
 }
@@ -4440,22 +4389,22 @@ declare ptr @bios_linker_loader_init() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @acpi_build_tables_cleanup(ptr nocapture noundef readonly %tables, i1 noundef zeroext %mfre) local_unnamed_addr #0 {
 entry:
-  %linker = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 5
+  %linker = getelementptr inbounds i8, ptr %tables, i64 40
   %0 = load ptr, ptr %linker, align 8
   tail call void @bios_linker_loader_cleanup(ptr noundef %0) #14
-  %rsdp = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 1
+  %rsdp = getelementptr inbounds i8, ptr %tables, i64 8
   %1 = load ptr, ptr %rsdp, align 8
   %call = tail call ptr @g_array_free(ptr noundef %1, i32 noundef 1) #14
   %2 = load ptr, ptr %tables, align 8
   %call1 = tail call ptr @g_array_free(ptr noundef %2, i32 noundef 1) #14
-  %tcpalog = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 2
+  %tcpalog = getelementptr inbounds i8, ptr %tables, i64 16
   %3 = load ptr, ptr %tcpalog, align 8
   %conv = zext i1 %mfre to i32
   %call2 = tail call ptr @g_array_free(ptr noundef %3, i32 noundef %conv) #14
-  %vmgenid = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 3
+  %vmgenid = getelementptr inbounds i8, ptr %tables, i64 24
   %4 = load ptr, ptr %vmgenid, align 8
   %call5 = tail call ptr @g_array_free(ptr noundef %4, i32 noundef %conv) #14
-  %hardware_errors = getelementptr inbounds %struct.AcpiBuildTables, ptr %tables, i64 0, i32 4
+  %hardware_errors = getelementptr inbounds i8, ptr %tables, i64 32
   %5 = load ptr, ptr %hardware_errors, align 8
   %call8 = tail call ptr @g_array_free(ptr noundef %5, i32 noundef %conv) #14
   ret void
@@ -4475,9 +4424,9 @@ entry:
   %val.addr.i.i36 = alloca i8, align 1
   %val.addr.i.i26 = alloca i8, align 1
   %val.addr.i.i = alloca i8, align 1
-  %len = getelementptr inbounds %struct._GArray, ptr %tbl, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %tbl, i64 8
   %0 = load i32, ptr %len, align 8
-  %revision = getelementptr inbounds %struct.AcpiRsdpData, ptr %rsdp_data, i64 0, i32 1
+  %revision = getelementptr inbounds i8, ptr %rsdp_data, i64 8
   %1 = load i8, ptr %revision, align 8
   switch i8 %1, label %do.body8 [
     i8 0, label %do.body
@@ -4485,7 +4434,7 @@ entry:
   ]
 
 do.body:                                          ; preds = %entry
-  %rsdt_tbl_offset = getelementptr inbounds %struct.AcpiRsdpData, ptr %rsdp_data, i64 0, i32 2
+  %rsdt_tbl_offset = getelementptr inbounds i8, ptr %rsdp_data, i64 16
   %2 = load ptr, ptr %rsdt_tbl_offset, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %sw.epilog
@@ -4495,7 +4444,7 @@ if.else:                                          ; preds = %do.body
   unreachable
 
 do.body2:                                         ; preds = %entry
-  %xsdt_tbl_offset = getelementptr inbounds %struct.AcpiRsdpData, ptr %rsdp_data, i64 0, i32 3
+  %xsdt_tbl_offset = getelementptr inbounds i8, ptr %rsdp_data, i64 24
   %3 = load ptr, ptr %xsdt_tbl_offset, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.else5, label %sw.epilog
@@ -4535,7 +4484,7 @@ for.body.i37:                                     ; preds = %sw.epilog, %for.bod
   br i1 %exitcond.not.i44, label %build_append_int_noprefix.exit45, label %for.body.i37, !llvm.loop !8
 
 build_append_int_noprefix.exit45:                 ; preds = %for.body.i37
-  %rsdt_tbl_offset13 = getelementptr inbounds %struct.AcpiRsdpData, ptr %rsdp_data, i64 0, i32 2
+  %rsdt_tbl_offset13 = getelementptr inbounds i8, ptr %rsdp_data, i64 16
   %6 = load ptr, ptr %rsdt_tbl_offset13, align 8
   %tobool14.not = icmp eq ptr %6, null
   br i1 %tobool14.not, label %if.end17, label %if.then15
@@ -4575,7 +4524,7 @@ for.body.i57:                                     ; preds = %for.body.i47, %for.
 
 build_append_int_noprefix.exit65:                 ; preds = %for.body.i57
   %add23 = add i32 %0, 24
-  %xsdt_tbl_offset24 = getelementptr inbounds %struct.AcpiRsdpData, ptr %rsdp_data, i64 0, i32 3
+  %xsdt_tbl_offset24 = getelementptr inbounds i8, ptr %rsdp_data, i64 24
   %9 = load ptr, ptr %xsdt_tbl_offset24, align 8
   %10 = load i32, ptr %9, align 4
   call void @bios_linker_loader_add_pointer(ptr noundef %linker, ptr noundef nonnull @.str.24, i32 noundef %add23, i8 noundef zeroext 8, ptr noundef nonnull @.str.20, i32 noundef %10) #14
@@ -4613,25 +4562,25 @@ entry:
   %val.addr.i.i = alloca i8, align 1
   %table = alloca %struct.AcpiTable, align 8
   store ptr @.str.26, ptr %table, align 8
-  %rev = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 1
+  %rev = getelementptr inbounds i8, ptr %table, i64 8
   store i8 1, ptr %rev, align 8
-  %oem_id1 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 2
+  %oem_id1 = getelementptr inbounds i8, ptr %table, i64 16
   store ptr %oem_id, ptr %oem_id1, align 8
-  %oem_table_id2 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 3
+  %oem_table_id2 = getelementptr inbounds i8, ptr %table, i64 24
   store ptr %oem_table_id, ptr %oem_table_id2, align 8
-  %array = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 4
+  %array = getelementptr inbounds i8, ptr %table, i64 32
   store ptr null, ptr %array, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %table, i64 40
   store i32 0, ptr %table_offset, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table, ptr noundef %table_data)
-  %len = getelementptr inbounds %struct._GArray, ptr %table_offsets, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %table_offsets, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp5.not = icmp eq i32 %0, 0
   %.pre = load ptr, ptr %array, align 8
   br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %len4 = getelementptr inbounds %struct._GArray, ptr %.pre, i64 0, i32 1
+  %len4 = getelementptr inbounds i8, ptr %.pre, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %build_append_int_noprefix.exit
@@ -4661,7 +4610,7 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %build_append_int_noprefix.exit, %entry
-  %len.i = getelementptr inbounds %struct._GArray, ptr %.pre, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %.pre, i64 8
   %5 = load i32, ptr %len.i, align 8
   %6 = load i32, ptr %table_offset, align 8
   %sub.i = sub i32 %5, %6
@@ -4681,25 +4630,25 @@ entry:
   %val.addr.i.i = alloca i8, align 1
   %table = alloca %struct.AcpiTable, align 8
   store ptr @.str.27, ptr %table, align 8
-  %rev = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 1
+  %rev = getelementptr inbounds i8, ptr %table, i64 8
   store i8 1, ptr %rev, align 8
-  %oem_id1 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 2
+  %oem_id1 = getelementptr inbounds i8, ptr %table, i64 16
   store ptr %oem_id, ptr %oem_id1, align 8
-  %oem_table_id2 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 3
+  %oem_table_id2 = getelementptr inbounds i8, ptr %table, i64 24
   store ptr %oem_table_id, ptr %oem_table_id2, align 8
-  %array = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 4
+  %array = getelementptr inbounds i8, ptr %table, i64 32
   store ptr null, ptr %array, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %table, i64 40
   store i32 0, ptr %table_offset, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table, ptr noundef %table_data)
-  %len = getelementptr inbounds %struct._GArray, ptr %table_offsets, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %table_offsets, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp5.not = icmp eq i32 %0, 0
   %.pre = load ptr, ptr %array, align 8
   br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %len4 = getelementptr inbounds %struct._GArray, ptr %.pre, i64 0, i32 1
+  %len4 = getelementptr inbounds i8, ptr %.pre, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %build_append_int_noprefix.exit
@@ -4729,7 +4678,7 @@ build_append_int_noprefix.exit:                   ; preds = %for.body.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %build_append_int_noprefix.exit, %entry
-  %len.i = getelementptr inbounds %struct._GArray, ptr %.pre, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %.pre, i64 8
   %5 = load i32, ptr %len.i, align 8
   %6 = load i32, ptr %table_offset, align 8
   %sub.i = sub i32 %5, %6
@@ -4894,19 +4843,19 @@ entry:
   %val.addr.i.i14 = alloca i8, align 1
   %val.addr.i.i = alloca i8, align 1
   %table = alloca %struct.AcpiTable, align 8
-  %numa_state = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 31
+  %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
   %1 = load i32, ptr %0, align 8
   store ptr @.str.28, ptr %table, align 8
-  %rev = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 1
+  %rev = getelementptr inbounds i8, ptr %table, i64 8
   store i8 1, ptr %rev, align 8
-  %oem_id1 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 2
+  %oem_id1 = getelementptr inbounds i8, ptr %table, i64 16
   store ptr %oem_id, ptr %oem_id1, align 8
-  %oem_table_id2 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 3
+  %oem_table_id2 = getelementptr inbounds i8, ptr %table, i64 24
   store ptr %oem_table_id, ptr %oem_table_id2, align 8
-  %array = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 4
+  %array = getelementptr inbounds i8, ptr %table, i64 32
   store ptr null, ptr %array, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %table, i64 40
   store i32 0, ptr %table_offset, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table, ptr noundef %table_data)
   %conv = sext i32 %1 to i64
@@ -4937,8 +4886,9 @@ for.cond4.preheader.us:                           ; preds = %for.cond.preheader,
 for.body7.us:                                     ; preds = %for.cond4.preheader.us, %for.body.i15.us.preheader
   %j.025.us = phi i32 [ 0, %for.cond4.preheader.us ], [ %inc.us, %for.body.i15.us.preheader ]
   %2 = load ptr, ptr %numa_state, align 8
+  %nodes.us = getelementptr inbounds i8, ptr %2, i64 8
   %idxprom9.us = zext nneg i32 %j.025.us to i64
-  %arrayidx10.us = getelementptr %struct.NumaState, ptr %2, i64 0, i32 3, i64 %idxprom.us, i32 6, i64 %idxprom9.us
+  %arrayidx10.us = getelementptr [128 x %struct.NodeInfo], ptr %nodes.us, i64 0, i64 %idxprom.us, i32 6, i64 %idxprom9.us
   %3 = load i8, ptr %arrayidx10.us, align 1
   %tobool.not.us = icmp eq i8 %3, 0
   br i1 %tobool.not.us, label %if.else, label %for.body.i15.us.preheader
@@ -4963,7 +4913,7 @@ if.else:                                          ; preds = %for.body7.us
 
 for.end21:                                        ; preds = %for.cond4.for.inc19_crit_edge.us, %for.cond.preheader
   %4 = load ptr, ptr %array, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %4, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %len.i, align 8
   %6 = load i32, ptr %table_offset, align 8
   %sub.i = sub i32 %5, %6
@@ -4983,20 +4933,20 @@ entry:
   %table = alloca %struct.AcpiTable, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %ms) #14
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #14
-  %possible_cpus = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 28
+  %possible_cpus = getelementptr inbounds i8, ptr %ms, i64 280
   %0 = load ptr, ptr %possible_cpus, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %table_data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %table_data, i64 8
   %1 = load i32, ptr %len, align 8
   store ptr @.str.30, ptr %table, align 8
-  %rev = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 1
+  %rev = getelementptr inbounds i8, ptr %table, i64 8
   store i8 2, ptr %rev, align 8
-  %oem_id1 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 2
+  %oem_id1 = getelementptr inbounds i8, ptr %table, i64 16
   store ptr %oem_id, ptr %oem_id1, align 8
-  %oem_table_id2 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 3
+  %oem_table_id2 = getelementptr inbounds i8, ptr %table, i64 24
   store ptr %oem_table_id, ptr %oem_table_id2, align 8
-  %array = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 4
+  %array = getelementptr inbounds i8, ptr %table, i64 32
   store ptr null, ptr %array, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %table, i64 40
   store i32 0, ptr %table_offset, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table, ptr noundef %table_data)
   %2 = load i32, ptr %0, align 8
@@ -5004,9 +4954,10 @@ entry:
   br i1 %cmp46, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %clusters_supported = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 2
-  %has_clusters = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 42, i32 3
-  %threads = getelementptr inbounds %struct.MachineState, ptr %ms, i64 0, i32 29, i32 7
+  %cpus4 = getelementptr inbounds i8, ptr %0, i64 8
+  %clusters_supported = getelementptr inbounds i8, ptr %call1.i, i64 298
+  %has_clusters = getelementptr inbounds i8, ptr %call1.i, i64 299
+  %threads = getelementptr inbounds i8, ptr %ms, i64 316
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -5017,7 +4968,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %socket_offset.049 = phi i32 [ 0, %for.body.lr.ph ], [ %socket_offset.1, %for.inc ]
   %core_id.048 = phi i64 [ -1, %for.body.lr.ph ], [ %core_id.4, %for.inc ]
   %cluster_id.047 = phi i64 [ -1, %for.body.lr.ph ], [ %cluster_id.2, %for.inc ]
-  %socket_id5 = getelementptr %struct.CPUArchIdList, ptr %0, i64 0, i32 1, i64 %indvars.iv, i32 2, i32 7
+  %props = getelementptr [0 x %struct.CPUArchId], ptr %cpus4, i64 0, i64 %indvars.iv, i32 2
+  %socket_id5 = getelementptr inbounds i8, ptr %props, i64 56
   %3 = load i64, ptr %socket_id5, align 8
   %cmp6.not = icmp eq i64 %3, %socket_id.052
   br i1 %cmp6.not, label %if.end20, label %if.then
@@ -5054,7 +5006,7 @@ land.lhs.true:                                    ; preds = %if.end20
   br i1 %tobool23.not, label %if.end54, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true
-  %cluster_id30 = getelementptr %struct.CPUArchIdList, ptr %0, i64 0, i32 1, i64 %indvars.iv, i32 2, i32 11
+  %cluster_id30 = getelementptr inbounds i8, ptr %props, i64 88
   %9 = load i64, ptr %cluster_id30, align 8
   %cmp31.not = icmp eq i64 %9, %cluster_id.1
   br i1 %cmp31.not, label %if.end54, label %if.then33
@@ -5088,7 +5040,7 @@ if.then57:                                        ; preds = %if.end54
   br label %for.inc
 
 if.else58:                                        ; preds = %if.end54
-  %core_id63 = getelementptr %struct.CPUArchIdList, ptr %0, i64 0, i32 1, i64 %indvars.iv, i32 2, i32 13
+  %core_id63 = getelementptr inbounds i8, ptr %props, i64 104
   %13 = load i64, ptr %core_id63, align 8
   %cmp64.not = icmp eq i64 %13, %core_id.2
   br i1 %cmp64.not, label %if.end85, label %if.then66
@@ -5126,7 +5078,7 @@ for.inc:                                          ; preds = %if.then57, %if.end8
 
 for.end:                                          ; preds = %for.inc, %entry
   %18 = load ptr, ptr %array, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %18, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load i32, ptr %len.i, align 8
   %20 = load i32, ptr %table_offset, align 8
   %sub.i = sub i32 %19, %20
@@ -5294,20 +5246,20 @@ entry:
   %val.addr.i.i = alloca i8, align 1
   %table = alloca %struct.AcpiTable, align 8
   store ptr @.str.34, ptr %table, align 8
-  %rev = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 1
-  %rev1 = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 8
+  %rev = getelementptr inbounds i8, ptr %table, i64 8
+  %rev1 = getelementptr inbounds i8, ptr %f, i64 113
   %0 = load i8, ptr %rev1, align 1
   store i8 %0, ptr %rev, align 8
-  %oem_id2 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 2
+  %oem_id2 = getelementptr inbounds i8, ptr %table, i64 16
   store ptr %oem_id, ptr %oem_id2, align 8
-  %oem_table_id3 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 3
+  %oem_table_id3 = getelementptr inbounds i8, ptr %table, i64 24
   store ptr %oem_table_id, ptr %oem_table_id3, align 8
-  %array = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 4
+  %array = getelementptr inbounds i8, ptr %table, i64 32
   store ptr null, ptr %array, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %table, i64 40
   store i32 0, ptr %table_offset, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table, ptr noundef %tbl)
-  %len = getelementptr inbounds %struct._GArray, ptr %tbl, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %tbl, i64 8
   %1 = load i32, ptr %len, align 8
   br label %for.body.i
 
@@ -5322,7 +5274,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %build_append_int_noprefix.exit, label %for.body.i, !llvm.loop !8
 
 build_append_int_noprefix.exit:                   ; preds = %for.body.i
-  %facs_tbl_offset = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 21
+  %facs_tbl_offset = getelementptr inbounds i8, ptr %f, i64 144
   %2 = load ptr, ptr %facs_tbl_offset, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -5347,7 +5299,7 @@ for.body.i111:                                    ; preds = %for.body.i111, %if.
   br i1 %exitcond.not.i118, label %build_append_int_noprefix.exit119, label %for.body.i111, !llvm.loop !8
 
 build_append_int_noprefix.exit119:                ; preds = %for.body.i111
-  %dsdt_tbl_offset = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 22
+  %dsdt_tbl_offset = getelementptr inbounds i8, ptr %f, i64 152
   %5 = load ptr, ptr %dsdt_tbl_offset, align 8
   %tobool6.not = icmp eq ptr %5, null
   br i1 %tobool6.not, label %if.end9, label %if.then7
@@ -5358,7 +5310,7 @@ if.then7:                                         ; preds = %build_append_int_no
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %build_append_int_noprefix.exit119
-  %int_model = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 12
+  %int_model = getelementptr inbounds i8, ptr %f, i64 126
   %7 = load i8, ptr %int_model, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i120)
   store i8 %7, ptr %val.addr.i.i120, align 1
@@ -5368,7 +5320,7 @@ if.end9:                                          ; preds = %if.then7, %build_ap
   store i8 0, ptr %val.addr.i.i130, align 1
   %call.i.i135 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i130, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i130)
-  %sci_int = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 11
+  %sci_int = getelementptr inbounds i8, ptr %f, i64 124
   %8 = load i16, ptr %sci_int, align 4
   br label %for.body.i141
 
@@ -5386,7 +5338,7 @@ for.body.i141:                                    ; preds = %for.body.i141, %if.
   br i1 %exitcond.not.i148, label %build_append_int_noprefix.exit149, label %for.body.i141, !llvm.loop !8
 
 build_append_int_noprefix.exit149:                ; preds = %for.body.i141
-  %smi_cmd = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 10
+  %smi_cmd = getelementptr inbounds i8, ptr %f, i64 120
   %9 = load i32, ptr %smi_cmd, align 8
   br label %for.body.i151
 
@@ -5404,13 +5356,13 @@ for.body.i151:                                    ; preds = %for.body.i151, %bui
   br i1 %exitcond.not.i158, label %build_append_int_noprefix.exit159, label %for.body.i151, !llvm.loop !8
 
 build_append_int_noprefix.exit159:                ; preds = %for.body.i151
-  %acpi_enable_cmd = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 13
+  %acpi_enable_cmd = getelementptr inbounds i8, ptr %f, i64 127
   %10 = load i8, ptr %acpi_enable_cmd, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i160)
   store i8 %10, ptr %val.addr.i.i160, align 1
   %call.i.i165 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i160, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i160)
-  %acpi_disable_cmd = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 14
+  %acpi_disable_cmd = getelementptr inbounds i8, ptr %f, i64 128
   %11 = load i8, ptr %acpi_disable_cmd, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i170)
   store i8 %11, ptr %val.addr.i.i170, align 1
@@ -5424,7 +5376,7 @@ build_append_int_noprefix.exit159:                ; preds = %for.body.i151
   store i8 0, ptr %val.addr.i.i190, align 1
   %call.i.i195 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i190, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i190)
-  %address = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 1, i32 4
+  %address = getelementptr inbounds i8, ptr %f, i64 24
   %12 = load i64, ptr %address, align 8
   br label %for.body.i201
 
@@ -5452,7 +5404,7 @@ for.body.i211:                                    ; preds = %for.body.i201, %for
   br i1 %exitcond.not.i218, label %build_append_int_noprefix.exit219, label %for.body.i211, !llvm.loop !8
 
 build_append_int_noprefix.exit219:                ; preds = %for.body.i211
-  %address14 = getelementptr inbounds %struct.AcpiGenericAddress, ptr %f, i64 0, i32 4
+  %address14 = getelementptr inbounds i8, ptr %f, i64 8
   %13 = load i64, ptr %address14, align 8
   br label %for.body.i221
 
@@ -5490,8 +5442,8 @@ for.body.i241:                                    ; preds = %for.body.i231, %for
   br i1 %exitcond.not.i248, label %build_append_int_noprefix.exit249, label %for.body.i241, !llvm.loop !8
 
 build_append_int_noprefix.exit249:                ; preds = %for.body.i241
-  %pm1a_evt = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 1
-  %address15 = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 2, i32 4
+  %pm1a_evt = getelementptr inbounds i8, ptr %f, i64 16
+  %address15 = getelementptr inbounds i8, ptr %f, i64 40
   %14 = load i64, ptr %address15, align 8
   br label %for.body.i251
 
@@ -5509,8 +5461,8 @@ for.body.i251:                                    ; preds = %for.body.i251, %bui
   br i1 %exitcond.not.i258, label %build_append_int_noprefix.exit259, label %for.body.i251, !llvm.loop !8
 
 build_append_int_noprefix.exit259:                ; preds = %for.body.i251
-  %pm_tmr = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 2
-  %address16 = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 3, i32 4
+  %pm_tmr = getelementptr inbounds i8, ptr %f, i64 32
+  %address16 = getelementptr inbounds i8, ptr %f, i64 56
   %15 = load i64, ptr %address16, align 8
   br label %for.body.i261
 
@@ -5538,14 +5490,14 @@ for.body.i271:                                    ; preds = %for.body.i261, %for
   br i1 %exitcond.not.i278, label %build_append_int_noprefix.exit279, label %for.body.i271, !llvm.loop !8
 
 build_append_int_noprefix.exit279:                ; preds = %for.body.i271
-  %bit_width = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 1, i32 1
+  %bit_width = getelementptr inbounds i8, ptr %f, i64 17
   %16 = load i8, ptr %bit_width, align 1
   %17 = lshr i8 %16, 3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i280)
   store i8 %17, ptr %val.addr.i.i280, align 1
   %call.i.i285 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i280, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i280)
-  %bit_width21 = getelementptr inbounds %struct.AcpiGenericAddress, ptr %f, i64 0, i32 1
+  %bit_width21 = getelementptr inbounds i8, ptr %f, i64 1
   %18 = load i8, ptr %bit_width21, align 1
   %19 = lshr i8 %18, 3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i290)
@@ -5556,14 +5508,14 @@ build_append_int_noprefix.exit279:                ; preds = %for.body.i271
   store i8 0, ptr %val.addr.i.i300, align 1
   %call.i.i305 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i300, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i300)
-  %bit_width26 = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 2, i32 1
+  %bit_width26 = getelementptr inbounds i8, ptr %f, i64 33
   %20 = load i8, ptr %bit_width26, align 1
   %21 = lshr i8 %20, 3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i310)
   store i8 %21, ptr %val.addr.i.i310, align 1
   %call.i.i315 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i310, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i310)
-  %bit_width31 = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 3, i32 1
+  %bit_width31 = getelementptr inbounds i8, ptr %f, i64 49
   %22 = load i8, ptr %bit_width31, align 1
   %23 = lshr i8 %22, 3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i320)
@@ -5582,7 +5534,7 @@ build_append_int_noprefix.exit279:                ; preds = %for.body.i271
   store i8 0, ptr %val.addr.i.i350, align 1
   %call.i.i355 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i350, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i350)
-  %plvl2_lat = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 16
+  %plvl2_lat = getelementptr inbounds i8, ptr %f, i64 130
   %24 = load i16, ptr %plvl2_lat, align 2
   br label %for.body.i361
 
@@ -5600,7 +5552,7 @@ for.body.i361:                                    ; preds = %for.body.i361, %bui
   br i1 %exitcond.not.i368, label %build_append_int_noprefix.exit369, label %for.body.i361, !llvm.loop !8
 
 build_append_int_noprefix.exit369:                ; preds = %for.body.i361
-  %plvl3_lat = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 17
+  %plvl3_lat = getelementptr inbounds i8, ptr %f, i64 132
   %25 = load i16, ptr %plvl3_lat, align 4
   br label %for.body.i371
 
@@ -5654,13 +5606,13 @@ for.body.i401.preheader:                          ; preds = %for.body.i391
   store i8 0, ptr %val.addr.i.i430, align 1
   %call.i.i435 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i430, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i430)
-  %rtc_century = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 15
+  %rtc_century = getelementptr inbounds i8, ptr %f, i64 129
   %26 = load i8, ptr %rtc_century, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i440)
   store i8 %26, ptr %val.addr.i.i440, align 1
   %call.i.i445 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i440, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i440)
-  %gpe0_blk = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 3
+  %gpe0_blk = getelementptr inbounds i8, ptr %f, i64 48
   %27 = load i8, ptr %rev1, align 1
   %cmp = icmp eq i8 %27, 1
   br i1 %cmp, label %for.body.i451, label %if.else
@@ -5676,7 +5628,7 @@ for.body.i451:                                    ; preds = %for.body.i401.prehe
   br i1 %exitcond.not.i458, label %if.end43, label %for.body.i451, !llvm.loop !8
 
 if.else:                                          ; preds = %for.body.i401.preheader
-  %iapc_boot_arch = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 19
+  %iapc_boot_arch = getelementptr inbounds i8, ptr %f, i64 136
   %28 = load i16, ptr %iapc_boot_arch, align 8
   br label %for.body.i461
 
@@ -5698,7 +5650,7 @@ if.end43:                                         ; preds = %for.body.i461, %for
   store i8 0, ptr %val.addr.i.i470, align 1
   %call.i.i475 = call ptr @g_array_append_vals(ptr noundef %tbl, ptr noundef nonnull %val.addr.i.i470, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i470)
-  %flags = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 9
+  %flags = getelementptr inbounds i8, ptr %f, i64 116
   %29 = load i32, ptr %flags, align 4
   br label %for.body.i481
 
@@ -5721,9 +5673,9 @@ build_append_int_noprefix.exit489:                ; preds = %for.body.i481
   br i1 %cmp47, label %done, label %if.end50
 
 if.end50:                                         ; preds = %build_append_int_noprefix.exit489
-  %reset_reg = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 4
+  %reset_reg = getelementptr inbounds i8, ptr %f, i64 64
   call fastcc void @build_append_gas_from_struct(ptr noundef %tbl, ptr noundef nonnull %reset_reg)
-  %reset_val = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 7
+  %reset_val = getelementptr inbounds i8, ptr %f, i64 112
   %31 = load i8, ptr %reset_val, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i490)
   store i8 %31, ptr %val.addr.i.i490, align 1
@@ -5741,13 +5693,13 @@ for.body.i521.preheader:                          ; preds = %land.lhs.true, %lor
   br label %for.body.i521
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %minor_ver = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 20
+  %minor_ver = getelementptr inbounds i8, ptr %f, i64 138
   %33 = load i8, ptr %minor_ver, align 2
   %cmp61.not = icmp eq i8 %33, 0
   br i1 %cmp61.not, label %for.body.i521.preheader, label %if.then63
 
 if.then63:                                        ; preds = %land.lhs.true, %if.end50
-  %arm_boot_arch = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 18
+  %arm_boot_arch = getelementptr inbounds i8, ptr %f, i64 134
   %34 = load i16, ptr %arm_boot_arch, align 2
   br label %for.body.i501
 
@@ -5765,7 +5717,7 @@ for.body.i501:                                    ; preds = %for.body.i501, %if.
   br i1 %exitcond.not.i508, label %build_append_int_noprefix.exit509, label %for.body.i501, !llvm.loop !8
 
 build_append_int_noprefix.exit509:                ; preds = %for.body.i501
-  %minor_ver65 = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 20
+  %minor_ver65 = getelementptr inbounds i8, ptr %f, i64 138
   %35 = load i8, ptr %minor_ver65, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i510)
   store i8 %35, ptr %val.addr.i.i510, align 1
@@ -5811,7 +5763,7 @@ for.body.i541:                                    ; preds = %for.body.i541, %bui
   br i1 %exitcond.not.i548, label %build_append_int_noprefix.exit549, label %for.body.i541, !llvm.loop !8
 
 build_append_int_noprefix.exit549:                ; preds = %for.body.i541
-  %xdsdt_tbl_offset = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 23
+  %xdsdt_tbl_offset = getelementptr inbounds i8, ptr %f, i64 160
   %37 = load ptr, ptr %xdsdt_tbl_offset, align 8
   %tobool70.not = icmp eq ptr %37, null
   br i1 %tobool70.not, label %if.end73, label %if.then71
@@ -5947,9 +5899,9 @@ build_append_gas.exit603:                         ; preds = %for.body.i36.i595
   br i1 %cmp80, label %done, label %if.end83
 
 if.end83:                                         ; preds = %build_append_gas.exit603
-  %sleep_ctl = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 5
+  %sleep_ctl = getelementptr inbounds i8, ptr %f, i64 80
   call fastcc void @build_append_gas_from_struct(ptr noundef %tbl, ptr noundef nonnull %sleep_ctl)
-  %sleep_sts = getelementptr inbounds %struct.AcpiFadtData, ptr %f, i64 0, i32 6
+  %sleep_sts = getelementptr inbounds i8, ptr %f, i64 96
   call fastcc void @build_append_gas_from_struct(ptr noundef %tbl, ptr noundef nonnull %sleep_sts)
   %40 = load i8, ptr %rev1, align 1
   %cmp86 = icmp eq i8 %40, 5
@@ -5980,7 +5932,7 @@ if.else95:                                        ; preds = %build_append_padded
 
 done:                                             ; preds = %build_append_padded_str.exit, %if.end83, %build_append_gas.exit603, %build_append_int_noprefix.exit489
   %42 = load ptr, ptr %array, align 8
-  %len.i = getelementptr inbounds %struct._GArray, ptr %42, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load i32, ptr %len.i, align 8
   %44 = load i32, ptr %table_offset, align 8
   %sub.i606 = sub i32 %43, %44
@@ -6003,13 +5955,13 @@ entry:
   %val.addr.i.i5.i = alloca i8, align 1
   %val.addr.i.i.i = alloca i8, align 1
   %0 = load i8, ptr %s, align 8
-  %bit_width = getelementptr inbounds %struct.AcpiGenericAddress, ptr %s, i64 0, i32 1
+  %bit_width = getelementptr inbounds i8, ptr %s, i64 1
   %1 = load i8, ptr %bit_width, align 1
-  %bit_offset = getelementptr inbounds %struct.AcpiGenericAddress, ptr %s, i64 0, i32 2
+  %bit_offset = getelementptr inbounds i8, ptr %s, i64 2
   %2 = load i8, ptr %bit_offset, align 2
-  %access_width = getelementptr inbounds %struct.AcpiGenericAddress, ptr %s, i64 0, i32 3
+  %access_width = getelementptr inbounds i8, ptr %s, i64 3
   %3 = load i8, ptr %access_width, align 1
-  %address = getelementptr inbounds %struct.AcpiGenericAddress, ptr %s, i64 0, i32 4
+  %address = getelementptr inbounds i8, ptr %s, i64 8
   %4 = load i64, ptr %address, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i.i)
   store i8 %0, ptr %val.addr.i.i.i, align 1
@@ -6062,15 +6014,15 @@ entry:
   %call.i = tail call ptr @object_resolve_path_type(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef null) #14
   %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef 69, ptr noundef nonnull @__func__.tpm_find) #14
   store ptr @.str.37, ptr %table, align 8
-  %rev = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 1
+  %rev = getelementptr inbounds i8, ptr %table, i64 8
   store i8 4, ptr %rev, align 8
-  %oem_id1 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 2
+  %oem_id1 = getelementptr inbounds i8, ptr %table, i64 16
   store ptr %oem_id, ptr %oem_id1, align 8
-  %oem_table_id2 = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 3
+  %oem_table_id2 = getelementptr inbounds i8, ptr %table, i64 24
   store ptr %oem_table_id, ptr %oem_table_id2, align 8
-  %array = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 4
+  %array = getelementptr inbounds i8, ptr %table, i64 32
   store ptr null, ptr %array, align 8
-  %table_offset = getelementptr inbounds %struct.AcpiTable, ptr %table, i64 0, i32 5
+  %table_offset = getelementptr inbounds i8, ptr %table, i64 40
   store i32 0, ptr %table_offset, align 8
   call void @acpi_table_begin(ptr noundef nonnull %table, ptr noundef %table_data)
   br label %for.body.i
@@ -6173,12 +6125,12 @@ for.body.i55:                                     ; preds = %for.body.i55, %buil
   br i1 %exitcond.not.i62, label %build_append_int_noprefix.exit63, label %for.body.i55, !llvm.loop !8
 
 build_append_int_noprefix.exit63:                 ; preds = %for.body.i55
-  %len.i = getelementptr inbounds %struct._GArray, ptr %tcpalog, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %tcpalog, i64 8
   %0 = load i32, ptr %len.i, align 8
   %add.i = add i32 %0, 65536
   %call.i64 = call ptr @g_array_set_size(ptr noundef %tcpalog, i32 noundef %add.i) #14
   call void @bios_linker_loader_alloc(ptr noundef %linker, ptr noundef nonnull @.str.41, ptr noundef %tcpalog, i32 noundef 1, i1 noundef zeroext false) #14
-  %len = getelementptr inbounds %struct._GArray, ptr %table_data, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %table_data, i64 8
   %1 = load i32, ptr %len, align 8
   br label %for.body.i66
 
@@ -6195,7 +6147,7 @@ for.body.i66:                                     ; preds = %for.body.i66, %buil
 build_append_int_noprefix.exit74:                 ; preds = %for.body.i66
   call void @bios_linker_loader_add_pointer(ptr noundef %linker, ptr noundef nonnull @.str.20, i32 noundef %1, i8 noundef zeroext 8, ptr noundef nonnull @.str.41, i32 noundef 0) #14
   %2 = load ptr, ptr %array, align 8
-  %len.i75 = getelementptr inbounds %struct._GArray, ptr %2, i64 0, i32 1
+  %len.i75 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %len.i75, align 8
   %4 = load i32, ptr %table_offset, align 8
   %sub.i = sub i32 %3, %4
@@ -6215,19 +6167,19 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @build_crs(ptr nocapture noundef readonly %host, ptr nocapture noundef readonly %range_set, i32 noundef %io_offset, i32 noundef %mmio32_offset, i64 noundef %mmio64_offset, i16 noundef zeroext %bus_nr_offset) local_unnamed_addr #0 {
+define dso_local noundef ptr @build_crs(ptr nocapture noundef readonly %host, ptr nocapture noundef readonly %range_set, i32 noundef %io_offset, i32 noundef %mmio32_offset, i64 noundef %mmio64_offset, i16 noundef zeroext %bus_nr_offset) local_unnamed_addr #0 {
 entry:
   %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %0 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %0, ptr noundef %call.i.i.i) #14
-  %block_flags.i.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 2
+  %block_flags.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 0, ptr %block_flags.i.i.i, align 4
   %call.i.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i.i, ptr %call.i.i.i, align 8
-  %op1.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i.i, i64 0, i32 1
+  %op1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i8 17, ptr %op1.i.i, align 8
   store i32 5, ptr %block_flags.i.i.i, align 4
-  %bus = getelementptr inbounds %struct.PCIHostState, ptr %host, i64 0, i32 6
+  %bus = getelementptr inbounds i8, ptr %host, i64 1640
   %1 = load ptr, ptr %bus, align 8
   %call2 = tail call i32 @pci_bus_num(ptr noundef %1) #14
   %conv = trunc i32 %call2 to i8
@@ -6240,16 +6192,21 @@ for.body:                                         ; preds = %entry, %for.inc100
   %indvars.iv157 = phi i64 [ 0, %entry ], [ %indvars.iv.next158, %for.inc100 ]
   %max_bus.0147 = phi i8 [ %conv, %entry ], [ %max_bus.2, %for.inc100 ]
   %2 = load ptr, ptr %bus, align 8
-  %arrayidx = getelementptr %struct.PCIBus, ptr %2, i64 0, i32 10, i64 %indvars.iv157
+  %devices = getelementptr inbounds i8, ptr %2, i64 184
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv157
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %for.inc100, label %for.body9
+  br i1 %tobool.not, label %for.inc100, label %for.cond6.preheader
 
-for.body9:                                        ; preds = %for.body, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body ]
-  %arrayidx11 = getelementptr %struct.PCIDevice, ptr %3, i64 0, i32 11, i64 %indvars.iv
+for.cond6.preheader:                              ; preds = %for.body
+  %io_regions = getelementptr inbounds i8, ptr %3, i64 296
+  br label %for.body9
+
+for.body9:                                        ; preds = %for.cond6.preheader, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.cond6.preheader ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx11 = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %indvars.iv
   %4 = load i64, ptr %arrayidx11, align 8
-  %size = getelementptr %struct.PCIDevice, ptr %3, i64 0, i32 11, i64 %indvars.iv, i32 1
+  %size = getelementptr inbounds i8, ptr %arrayidx11, i64 8
   %5 = load i64, ptr %size, align 8
   %add = add i64 %5, %4
   %add.fr = freeze i64 %add
@@ -6259,7 +6216,7 @@ for.body9:                                        ; preds = %for.body, %for.inc
   br i1 %or.cond97.not, label %if.end17, label %for.inc
 
 if.end17:                                         ; preds = %for.body9
-  %type18 = getelementptr %struct.PCIDevice, ptr %3, i64 0, i32 11, i64 %indvars.iv, i32 2
+  %type18 = getelementptr inbounds i8, ptr %arrayidx11, i64 16
   %7 = load i8, ptr %type18, align 8
   %8 = and i8 %7, 1
   %tobool20.not = icmp eq i8 %8, 0
@@ -6268,7 +6225,7 @@ if.end17:                                         ; preds = %for.body9
 if.then21:                                        ; preds = %if.end17
   %call.i101 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %4, ptr %call.i101, align 8
-  %limit3.i = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i101, i64 0, i32 1
+  %limit3.i = getelementptr inbounds i8, ptr %call.i101, i64 8
   store i64 %sub, ptr %limit3.i, align 8
   tail call void @g_ptr_array_add(ptr noundef %call.i, ptr noundef nonnull %call.i101) #14
   br label %for.inc
@@ -6279,7 +6236,7 @@ if.else:                                          ; preds = %if.end17
   %or.cond = icmp ult i64 %10, 4294967296
   %call.i102 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %4, ptr %call.i102, align 8
-  %limit3.i103 = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i102, i64 0, i32 1
+  %limit3.i103 = getelementptr inbounds i8, ptr %call.i102, i64 8
   store i64 %sub, ptr %limit3.i103, align 8
   br i1 %or.cond, label %if.then28, label %if.else29
 
@@ -6297,7 +6254,7 @@ for.inc:                                          ; preds = %if.then21, %if.else
   br i1 %exitcond.not, label %for.end, label %for.body9, !llvm.loop !22
 
 for.end:                                          ; preds = %for.inc
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %3, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %3, i64 168
   %11 = load ptr, ptr %config, align 8
   %arrayidx32 = getelementptr i8, ptr %11, i64 14
   %12 = load i8, ptr %arrayidx32, align 1
@@ -6319,7 +6276,7 @@ if.then39:                                        ; preds = %for.end
 if.then54:                                        ; preds = %if.then39
   %call.i106 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %call48, ptr %call.i106, align 8
-  %limit3.i107 = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i106, i64 0, i32 1
+  %limit3.i107 = getelementptr inbounds i8, ptr %call.i106, i64 8
   store i64 %15, ptr %limit3.i107, align 8
   tail call void @g_ptr_array_add(ptr noundef %call.i, ptr noundef nonnull %call.i106) #14
   br label %if.end56
@@ -6340,7 +6297,7 @@ if.then63:                                        ; preds = %if.end56
   %or.cond1 = select i1 %cmp67, i1 %cmp70, i1 false
   %call.i108 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %call57, ptr %call.i108, align 8
-  %limit3.i109 = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i108, i64 0, i32 1
+  %limit3.i109 = getelementptr inbounds i8, ptr %call.i108, i64 8
   store i64 %17, ptr %limit3.i109, align 8
   %call1.i.call2.i = select i1 %or.cond1, ptr %call1.i, ptr %call2.i
   tail call void @g_ptr_array_add(ptr noundef %call1.i.call2.i, ptr noundef nonnull %call.i108) #14
@@ -6362,7 +6319,7 @@ if.then84:                                        ; preds = %if.end77
   %or.cond2 = select i1 %cmp88, i1 %cmp91, i1 false
   %call.i112 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %call78, ptr %call.i112, align 8
-  %limit3.i113 = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i112, i64 0, i32 1
+  %limit3.i113 = getelementptr inbounds i8, ptr %call.i112, i64 8
   store i64 %19, ptr %limit3.i113, align 8
   %call1.i.call2.i161 = select i1 %or.cond2, ptr %call1.i, ptr %call2.i
   tail call void @g_ptr_array_add(ptr noundef %call1.i.call2.i161, ptr noundef nonnull %call.i112) #14
@@ -6376,7 +6333,7 @@ for.inc100:                                       ; preds = %if.then84, %for.end
 
 for.end102:                                       ; preds = %for.inc100
   tail call fastcc void @crs_range_merge(ptr noundef %call.i)
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %call.i, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %call.i, i64 8
   %21 = load i32, ptr %len, align 8
   %cmp106148.not = icmp eq i32 %21, 0
   br i1 %cmp106148.not, label %for.end125, label %for.body108
@@ -6389,13 +6346,13 @@ for.body108:                                      ; preds = %for.end102, %for.bo
   %23 = load ptr, ptr %arrayidx111, align 8
   %24 = load i64, ptr %23, align 8
   %conv112 = trunc i64 %24 to i32
-  %limit = getelementptr inbounds %struct.CrsRangeEntry, ptr %23, i64 0, i32 1
+  %limit = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i64, ptr %limit, align 8
   %conv113 = trunc i64 %25 to i32
   %sub116 = sub i64 %25, %24
   %26 = trunc i64 %sub116 to i32
   %conv118 = add i32 %26, 1
-  %call.i116 = tail call fastcc ptr @aml_dword_as_desc(i32 noundef 1, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %conv112, i32 noundef %conv113, i32 noundef %io_offset, i32 noundef %conv118, i8 noundef zeroext 3)
+  %call.i116 = tail call fastcc noundef ptr @aml_dword_as_desc(i32 noundef 1, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %conv112, i32 noundef %conv113, i32 noundef %io_offset, i32 noundef %conv118, i8 noundef zeroext 3)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call.i116)
   %27 = load ptr, ptr %range_set, align 8
   %28 = load <2 x i64>, ptr %23, align 8
@@ -6409,13 +6366,13 @@ for.body108:                                      ; preds = %for.end102, %for.bo
 
 for.end125:                                       ; preds = %for.body108, %for.end102
   tail call fastcc void @crs_range_merge(ptr noundef %call1.i)
-  %len129 = getelementptr inbounds %struct._GPtrArray, ptr %call1.i, i64 0, i32 1
+  %len129 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %30 = load i32, ptr %len129, align 8
   %cmp130150.not = icmp eq i32 %30, 0
   br i1 %cmp130150.not, label %for.end165, label %for.body132.lr.ph
 
 for.body132.lr.ph:                                ; preds = %for.end125
-  %mem_ranges160 = getelementptr inbounds %struct.CrsRangeSet, ptr %range_set, i64 0, i32 1
+  %mem_ranges160 = getelementptr inbounds i8, ptr %range_set, i64 8
   br label %for.body132
 
 for.body132:                                      ; preds = %for.body132.lr.ph, %if.end149
@@ -6424,7 +6381,7 @@ for.body132:                                      ; preds = %for.body132.lr.ph, 
   %idxprom135 = sext i32 %i.2151 to i64
   %arrayidx136 = getelementptr ptr, ptr %31, i64 %idxprom135
   %32 = load ptr, ptr %arrayidx136, align 8
-  %limit137 = getelementptr inbounds %struct.CrsRangeEntry, ptr %32, i64 0, i32 1
+  %limit137 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i64, ptr %limit137, align 8
   %cmp138 = icmp ult i64 %33, 4294967296
   br i1 %cmp138, label %land.lhs.true140, label %if.else148
@@ -6444,7 +6401,7 @@ if.end149:                                        ; preds = %land.lhs.true140
   %conv151 = trunc i64 %34 to i32
   %conv153 = trunc i64 %33 to i32
   %conv158 = trunc i64 %add144 to i32
-  %call.i119 = tail call fastcc ptr @aml_dword_as_desc(i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %conv151, i32 noundef %conv153, i32 noundef %mmio32_offset, i32 noundef %conv158, i8 noundef zeroext 1)
+  %call.i119 = tail call fastcc noundef ptr @aml_dword_as_desc(i32 noundef 0, i32 noundef 4, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef %conv151, i32 noundef %conv153, i32 noundef %mmio32_offset, i32 noundef %conv158, i8 noundef zeroext 1)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call.i119)
   %35 = load ptr, ptr %mem_ranges160, align 8
   %36 = load <2 x i64>, ptr %32, align 8
@@ -6458,13 +6415,13 @@ if.end149:                                        ; preds = %land.lhs.true140
 
 for.end165:                                       ; preds = %if.end149, %for.end125
   tail call fastcc void @crs_range_merge(ptr noundef %call2.i)
-  %len169 = getelementptr inbounds %struct._GPtrArray, ptr %call2.i, i64 0, i32 1
+  %len169 = getelementptr inbounds i8, ptr %call2.i, i64 8
   %38 = load i32, ptr %len169, align 8
   %cmp170152.not = icmp eq i32 %38, 0
   br i1 %cmp170152.not, label %for.end189, label %for.body172.lr.ph
 
 for.body172.lr.ph:                                ; preds = %for.end165
-  %mem_64bit_ranges184 = getelementptr inbounds %struct.CrsRangeSet, ptr %range_set, i64 0, i32 2
+  %mem_64bit_ranges184 = getelementptr inbounds i8, ptr %range_set, i64 16
   br label %for.body172
 
 for.body172:                                      ; preds = %for.body172.lr.ph, %for.body172
@@ -6474,7 +6431,7 @@ for.body172:                                      ; preds = %for.body172.lr.ph, 
   %arrayidx176 = getelementptr ptr, ptr %39, i64 %idxprom175
   %40 = load ptr, ptr %arrayidx176, align 8
   %41 = load i64, ptr %40, align 8
-  %limit178 = getelementptr inbounds %struct.CrsRangeEntry, ptr %40, i64 0, i32 1
+  %limit178 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load i64, ptr %limit178, align 8
   %reass.sub155 = sub i64 %42, %41
   %add182 = add i64 %reass.sub155, 1
@@ -6504,7 +6461,7 @@ for.end189:                                       ; preds = %for.body172, %for.e
   %sub197 = sub i32 %conv194, %call196
   %48 = trunc i32 %sub197 to i16
   %conv199 = add i16 %48, 1
-  %call.i129 = tail call fastcc ptr @aml_word_as_desc(i32 noundef 2, i32 noundef 4, i32 noundef 8, i32 noundef 0, i16 noundef zeroext 0, i16 noundef zeroext %conv192, i16 noundef zeroext %conv193, i16 noundef zeroext %bus_nr_offset, i16 noundef zeroext %conv199, i8 noundef zeroext 0)
+  %call.i129 = tail call fastcc noundef ptr @aml_word_as_desc(i32 noundef 2, i32 noundef 4, i32 noundef 8, i32 noundef 0, i16 noundef zeroext 0, i16 noundef zeroext %conv192, i16 noundef zeroext %conv193, i16 noundef zeroext %bus_nr_offset, i16 noundef zeroext %conv199, i8 noundef zeroext 0)
   tail call void @aml_append(ptr noundef nonnull %call.i.i.i, ptr noundef %call.i129)
   ret ptr %call.i.i.i
 }
@@ -6519,7 +6476,7 @@ declare i64 @pci_bridge_get_limit(ptr noundef, i8 noundef zeroext) local_unnamed
 define internal fastcc void @crs_range_merge(ptr noundef %range) unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_ptr_array_new_with_free_func(ptr noundef nonnull @crs_range_free) #14
-  %len = getelementptr inbounds %struct._GPtrArray, ptr %range, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %range, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -6529,7 +6486,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %range, align 8
   %2 = load ptr, ptr %1, align 8
   %3 = load i64, ptr %2, align 8
-  %range_limit.0.in30 = getelementptr inbounds %struct.CrsRangeEntry, ptr %2, i64 0, i32 1
+  %range_limit.0.in30 = getelementptr inbounds i8, ptr %2, i64 8
   %range_limit.031 = load i64, ptr %range_limit.0.in30, align 8
   %4 = load i32, ptr %len, align 8
   %cmp32 = icmp ugt i32 %4, 1
@@ -6552,7 +6509,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 if.else:                                          ; preds = %for.body
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %range_base.033, ptr %call.i, align 8
-  %limit3.i = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i, i64 0, i32 1
+  %limit3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %range_limit.035, ptr %limit3.i, align 8
   tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef nonnull %call.i) #14
   %9 = load i64, ptr %7, align 8
@@ -6563,7 +6520,7 @@ for.inc:                                          ; preds = %for.body, %if.else
   %10 = phi i32 [ %.pre, %if.else ], [ %5, %for.body ]
   %range_base.1 = phi i64 [ %9, %if.else ], [ %range_base.033, %for.body ]
   %inc = add nuw i32 %i.034, 1
-  %range_limit.0.in = getelementptr inbounds %struct.CrsRangeEntry, ptr %7, i64 0, i32 1
+  %range_limit.0.in = getelementptr inbounds i8, ptr %7, i64 8
   %range_limit.0 = load i64, ptr %range_limit.0.in, align 8
   %cmp = icmp ult i32 %inc, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !27
@@ -6573,11 +6530,11 @@ for.end:                                          ; preds = %for.inc, %if.end
   %range_limit.0.lcssa = phi i64 [ %range_limit.031, %if.end ], [ %range_limit.0, %for.inc ]
   %call.i26 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i64 %range_base.0.lcssa, ptr %call.i26, align 8
-  %limit3.i27 = getelementptr inbounds %struct.CrsRangeEntry, ptr %call.i26, i64 0, i32 1
+  %limit3.i27 = getelementptr inbounds i8, ptr %call.i26, i64 8
   store i64 %range_limit.0.lcssa, ptr %limit3.i27, align 8
   tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef nonnull %call.i26) #14
   tail call void @g_ptr_array_set_size(ptr noundef nonnull %range, i32 noundef 0) #14
-  %len13 = getelementptr inbounds %struct._GPtrArray, ptr %call, i64 0, i32 1
+  %len13 = getelementptr inbounds i8, ptr %call, i64 8
   %11 = load i32, ptr %len13, align 8
   %cmp1437.not = icmp eq i32 %11, 0
   br i1 %cmp1437.not, label %for.end23, label %for.body15
@@ -6606,7 +6563,7 @@ return:                                           ; preds = %entry, %for.end23
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @aml_i2c_serial_bus_device(i16 noundef zeroext %address, ptr noundef %resource_source) local_unnamed_addr #0 {
+define dso_local noundef ptr @aml_i2c_serial_bus_device(i16 noundef zeroext %address, ptr noundef %resource_source) local_unnamed_addr #0 {
 entry:
   %val.addr.i.i8 = alloca i8, align 1
   %val.addr.i.i6 = alloca i8, align 1
@@ -6624,7 +6581,7 @@ entry:
   %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #17
   %1 = load ptr, ptr @alloc_list, align 8
   tail call void @g_ptr_array_add(ptr noundef %1, ptr noundef %call.i.i) #14
-  %block_flags.i.i = getelementptr inbounds %struct.Aml, ptr %call.i.i, i64 0, i32 2
+  %block_flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %block_flags.i.i, align 4
   %call.i.i.i = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 1) #14
   store ptr %call.i.i.i, ptr %call.i.i, align 8
@@ -6776,15 +6733,15 @@ if.else:                                          ; preds = %entry
 if.else4:                                         ; preds = %if.else
   %add5 = add i32 %length, 3
   %cmp6 = icmp ult i32 %add5, 1048576
-  br i1 %cmp6, label %if.end10.thread43, label %sw.bb14
+  br i1 %cmp6, label %if.end10.thread42, label %sw.bb14
 
-if.end10.thread43:                                ; preds = %if.else4
-  %spec.select46 = select i1 %incl_self, i32 %add5, i32 %length
+if.end10.thread42:                                ; preds = %if.else4
+  %spec.select45 = select i1 %incl_self, i32 %add5, i32 %length
   br label %sw.bb16
 
 if.end10:                                         ; preds = %if.else
   %spec.select = select i1 %incl_self, i32 %add1, i32 %length
-  br label %sw.epilog
+  br label %sw.bb20
 
 sw.bb:                                            ; preds = %entry
   %add1231 = zext i1 %incl_self to i32
@@ -6808,9 +6765,9 @@ sw.bb14:                                          ; preds = %if.else4
   %and = and i32 %spec.select37, 1048575
   br label %sw.bb16
 
-sw.bb16:                                          ; preds = %if.end10.thread43, %sw.bb14
-  %length_bytes.039 = phi i32 [ 448, %sw.bb14 ], [ 384, %if.end10.thread43 ]
-  %length.addr.1 = phi i32 [ %and, %sw.bb14 ], [ %spec.select46, %if.end10.thread43 ]
+sw.bb16:                                          ; preds = %if.end10.thread42, %sw.bb14
+  %length_bytes.039 = phi i32 [ 448, %sw.bb14 ], [ 384, %if.end10.thread42 ]
+  %length.addr.1 = phi i32 [ %and, %sw.bb14 ], [ %spec.select45, %if.end10.thread42 ]
   %shr17 = lshr i32 %length.addr.1, 12
   %conv18 = trunc i32 %shr17 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i24)
@@ -6818,9 +6775,9 @@ sw.bb16:                                          ; preds = %if.end10.thread43, 
   %call.i25 = call ptr @g_array_prepend_vals(ptr noundef %package, ptr noundef nonnull %val.addr.i24, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i24)
   %and19 = and i32 %length.addr.1, 4095
-  br label %sw.epilog
+  br label %sw.bb20
 
-sw.epilog:                                        ; preds = %sw.bb16, %if.end10
+sw.bb20:                                          ; preds = %if.end10, %sw.bb16
   %length_bytes.038 = phi i32 [ 320, %if.end10 ], [ %length_bytes.039, %sw.bb16 ]
   %length.addr.2 = phi i32 [ %spec.select, %if.end10 ], [ %and19, %sw.bb16 ]
   %shr21 = lshr i32 %length.addr.2, 4
@@ -6830,7 +6787,7 @@ sw.epilog:                                        ; preds = %sw.bb16, %if.end10
   %call.i27 = call ptr @g_array_prepend_vals(ptr noundef %package, ptr noundef nonnull %val.addr.i26, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i26)
   %and23 = and i32 %length.addr.2, 15
-  %or = or i32 %and23, %length_bytes.038
+  %or = or disjoint i32 %and23, %length_bytes.038
   %conv24 = trunc i32 %or to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i28)
   store i8 %conv24, ptr %val.addr.i28, align 1
@@ -6838,7 +6795,7 @@ sw.epilog:                                        ; preds = %sw.bb16, %if.end10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i28)
   br label %return
 
-return:                                           ; preds = %sw.epilog, %sw.bb
+return:                                           ; preds = %sw.bb20, %sw.bb
   ret void
 }
 

@@ -106,7 +106,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.legacy_query = private unnamed_addr constant [4 x ptr] [ptr @legacy_digests, ptr @legacy_ciphers, ptr null, ptr @legacy_kdfs], align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @OSSL_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
+define noundef i32 @OSSL_provider_init(ptr noundef %handle, ptr noundef %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef %provctx) local_unnamed_addr #0 {
 entry:
   %c_pop_error_to_mark.promoted = load ptr, ptr @c_pop_error_to_mark, align 8
   %c_clear_last_error_mark.promoted = load ptr, ptr @c_clear_last_error_mark, align 8
@@ -226,7 +226,7 @@ for.inc:                                          ; preds = %for.cond, %if.else,
   %tmp.0.val3343 = phi ptr [ %tmp.0.val3344, %for.cond ], [ %tmp.0.val3344, %if.else ], [ %tmp.0.val3344, %if.then ], [ %tmp.0.val3344, %if.else11 ], [ %tmp.0.val3344, %if.then9 ], [ %tmp.0.val3344, %if.else21 ], [ %tmp.0.val3344, %if.then19 ], [ %tmp.0.val3344, %if.else31 ], [ %tmp.0.val33, %if.then29 ], [ %tmp.0.val3344, %if.else41 ], [ %tmp.0.val3344, %if.then39 ], [ %tmp.0.val3344, %if.else51 ], [ %tmp.0.val3344, %if.then49 ]
   %tmp.0.val3541 = phi ptr [ %tmp.0.val3542, %for.cond ], [ %tmp.0.val3542, %if.else ], [ %tmp.0.val3542, %if.then ], [ %tmp.0.val3542, %if.else11 ], [ %tmp.0.val3542, %if.then9 ], [ %tmp.0.val3542, %if.else21 ], [ %tmp.0.val3542, %if.then19 ], [ %tmp.0.val3542, %if.else31 ], [ %tmp.0.val3542, %if.then29 ], [ %tmp.0.val3542, %if.else41 ], [ %tmp.0.val35, %if.then39 ], [ %tmp.0.val3542, %if.else51 ], [ %tmp.0.val3542, %if.then49 ]
   %tmp.0.val3739 = phi ptr [ %tmp.0.val3740, %for.cond ], [ %tmp.0.val3740, %if.else ], [ %tmp.0.val3740, %if.then ], [ %tmp.0.val3740, %if.else11 ], [ %tmp.0.val3740, %if.then9 ], [ %tmp.0.val3740, %if.else21 ], [ %tmp.0.val3740, %if.then19 ], [ %tmp.0.val3740, %if.else31 ], [ %tmp.0.val3740, %if.then29 ], [ %tmp.0.val3740, %if.else41 ], [ %tmp.0.val3740, %if.then39 ], [ %tmp.0.val3740, %if.else51 ], [ %tmp.0.val37, %if.then49 ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %tmp.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -359,13 +359,13 @@ declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 declare void @ossl_prov_ctx_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @legacy_gettable_params(ptr nocapture readnone %provctx) #3 {
+define internal noundef nonnull ptr @legacy_gettable_params(ptr nocapture readnone %provctx) #3 {
 entry:
   ret ptr @legacy_param_types
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @legacy_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
+define internal noundef i32 @legacy_get_params(ptr nocapture readnone %provctx, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str) #5
   %cmp.not = icmp eq ptr %call, null
@@ -416,7 +416,7 @@ return:                                           ; preds = %land.lhs.true18, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal ptr @legacy_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #4 {
+define internal noundef ptr @legacy_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #4 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %switch.tableidx = add i32 %operation_id, -1

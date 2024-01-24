@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.LTM_STATUS_S = type <{ [19 x %struct.__toku_engine_status_row], i8, [7 x i8] }>
 %struct.__toku_engine_status_row = type { ptr, ptr, ptr, i32, i32, %union.anon }
 %union.anon = type { double, [24 x i8] }
-%struct.__toku_dbt = type { ptr, i64, i64, i32 }
 
 @lock_request_m_wait_cond_key = local_unnamed_addr global %class.toku_instr_key zeroinitializer, align 1
 @manager_m_escalator_done_key = local_unnamed_addr global %class.toku_instr_key zeroinitializer, align 1
@@ -138,7 +137,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12LTM_STATUS_S4initEv(ptr noundef nonnull align 8 dereferenceable(1217) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_initialized = getelementptr inbounds %class.LTM_STATUS_S, ptr %this, i64 0, i32 1
+  %m_initialized = getelementptr inbounds i8, ptr %this, i64 1216
   %0 = load i8, ptr %m_initialized, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -146,193 +145,193 @@ entry:
 
 do.body:                                          ; preds = %entry
   store ptr @.str, ptr %this, align 8
-  %columnname = getelementptr inbounds %struct.__toku_engine_status_row, ptr %this, i64 0, i32 1
+  %columnname = getelementptr inbounds i8, ptr %this, i64 8
   store ptr @.str.10, ptr %columnname, align 8
-  %type = getelementptr inbounds %struct.__toku_engine_status_row, ptr %this, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %this, i64 24
   store i32 1, ptr %type, align 8
-  %legend = getelementptr inbounds %struct.__toku_engine_status_row, ptr %this, i64 0, i32 2
+  %legend = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.11, ptr %legend, align 8
-  %include = getelementptr inbounds %struct.__toku_engine_status_row, ptr %this, i64 0, i32 4
+  %include = getelementptr inbounds i8, ptr %this, i64 28
   store i32 3, ptr %include, align 4
-  %arrayidx12 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr @.str.12, ptr %arrayidx12, align 8
-  %columnname16 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 1, i32 1
+  %columnname16 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr @.str.13, ptr %columnname16, align 8
-  %type19 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 1, i32 3
+  %type19 = getelementptr inbounds i8, ptr %this, i64 88
   store i32 1, ptr %type19, align 8
-  %legend22 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 1, i32 2
+  %legend22 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr @.str.14, ptr %legend22, align 8
-  %include25 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 1, i32 4
+  %include25 = getelementptr inbounds i8, ptr %this, i64 92
   store i32 3, ptr %include25, align 4
-  %arrayidx29 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 2
+  %arrayidx29 = getelementptr inbounds i8, ptr %this, i64 128
   store ptr @.str.15, ptr %arrayidx29, align 8
-  %columnname33 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 2, i32 1
+  %columnname33 = getelementptr inbounds i8, ptr %this, i64 136
   store ptr @.str.16, ptr %columnname33, align 8
-  %type36 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 2, i32 3
+  %type36 = getelementptr inbounds i8, ptr %this, i64 152
   store i32 1, ptr %type36, align 8
-  %legend39 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 2, i32 2
+  %legend39 = getelementptr inbounds i8, ptr %this, i64 144
   store ptr @.str.17, ptr %legend39, align 8
-  %include42 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 2, i32 4
+  %include42 = getelementptr inbounds i8, ptr %this, i64 156
   store i32 3, ptr %include42, align 4
-  %arrayidx46 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 3
+  %arrayidx46 = getelementptr inbounds i8, ptr %this, i64 192
   store ptr @.str.18, ptr %arrayidx46, align 8
-  %columnname50 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 3, i32 1
+  %columnname50 = getelementptr inbounds i8, ptr %this, i64 200
   store ptr @.str.19, ptr %columnname50, align 8
-  %type53 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 3, i32 3
+  %type53 = getelementptr inbounds i8, ptr %this, i64 216
   store i32 4, ptr %type53, align 8
-  %legend56 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 3, i32 2
+  %legend56 = getelementptr inbounds i8, ptr %this, i64 208
   store ptr @.str.20, ptr %legend56, align 8
-  %include59 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 3, i32 4
+  %include59 = getelementptr inbounds i8, ptr %this, i64 220
   store i32 3, ptr %include59, align 4
-  %arrayidx63 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 4
+  %arrayidx63 = getelementptr inbounds i8, ptr %this, i64 256
   store ptr @.str.21, ptr %arrayidx63, align 8
-  %columnname67 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 4, i32 1
+  %columnname67 = getelementptr inbounds i8, ptr %this, i64 264
   store ptr @.str.22, ptr %columnname67, align 8
-  %type70 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 4, i32 3
+  %type70 = getelementptr inbounds i8, ptr %this, i64 280
   store i32 1, ptr %type70, align 8
-  %legend73 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 4, i32 2
+  %legend73 = getelementptr inbounds i8, ptr %this, i64 272
   store ptr @.str.23, ptr %legend73, align 8
-  %include76 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 4, i32 4
+  %include76 = getelementptr inbounds i8, ptr %this, i64 284
   store i32 3, ptr %include76, align 4
-  %arrayidx80 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 5
+  %arrayidx80 = getelementptr inbounds i8, ptr %this, i64 320
   store ptr @.str.24, ptr %arrayidx80, align 8
-  %columnname84 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 5, i32 1
+  %columnname84 = getelementptr inbounds i8, ptr %this, i64 328
   store ptr @.str.25, ptr %columnname84, align 8
-  %type87 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 5, i32 3
+  %type87 = getelementptr inbounds i8, ptr %this, i64 344
   store i32 1, ptr %type87, align 8
-  %legend90 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 5, i32 2
+  %legend90 = getelementptr inbounds i8, ptr %this, i64 336
   store ptr @.str.26, ptr %legend90, align 8
-  %include93 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 5, i32 4
+  %include93 = getelementptr inbounds i8, ptr %this, i64 348
   store i32 3, ptr %include93, align 4
-  %arrayidx97 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 6
+  %arrayidx97 = getelementptr inbounds i8, ptr %this, i64 384
   store ptr @.str.27, ptr %arrayidx97, align 8
-  %columnname101 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 6, i32 1
+  %columnname101 = getelementptr inbounds i8, ptr %this, i64 392
   store ptr @.str.28, ptr %columnname101, align 8
-  %type104 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 6, i32 3
+  %type104 = getelementptr inbounds i8, ptr %this, i64 408
   store i32 1, ptr %type104, align 8
-  %legend107 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 6, i32 2
+  %legend107 = getelementptr inbounds i8, ptr %this, i64 400
   store ptr @.str.29, ptr %legend107, align 8
-  %include110 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 6, i32 4
+  %include110 = getelementptr inbounds i8, ptr %this, i64 412
   store i32 3, ptr %include110, align 4
-  %arrayidx114 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 7
+  %arrayidx114 = getelementptr inbounds i8, ptr %this, i64 448
   store ptr @.str.30, ptr %arrayidx114, align 8
-  %columnname118 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 7, i32 1
+  %columnname118 = getelementptr inbounds i8, ptr %this, i64 456
   store ptr @.str.31, ptr %columnname118, align 8
-  %type121 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 7, i32 3
+  %type121 = getelementptr inbounds i8, ptr %this, i64 472
   store i32 1, ptr %type121, align 8
-  %legend124 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 7, i32 2
+  %legend124 = getelementptr inbounds i8, ptr %this, i64 464
   store ptr @.str.32, ptr %legend124, align 8
-  %include127 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 7, i32 4
+  %include127 = getelementptr inbounds i8, ptr %this, i64 476
   store i32 3, ptr %include127, align 4
-  %arrayidx131 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 8
+  %arrayidx131 = getelementptr inbounds i8, ptr %this, i64 512
   store ptr @.str.33, ptr %arrayidx131, align 8
-  %columnname135 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 8, i32 1
+  %columnname135 = getelementptr inbounds i8, ptr %this, i64 520
   store ptr @.str.34, ptr %columnname135, align 8
-  %type138 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 8, i32 3
+  %type138 = getelementptr inbounds i8, ptr %this, i64 536
   store i32 1, ptr %type138, align 8
-  %legend141 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 8, i32 2
+  %legend141 = getelementptr inbounds i8, ptr %this, i64 528
   store ptr @.str.35, ptr %legend141, align 8
-  %include144 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 8, i32 4
+  %include144 = getelementptr inbounds i8, ptr %this, i64 540
   store i32 3, ptr %include144, align 4
-  %arrayidx148 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 9
+  %arrayidx148 = getelementptr inbounds i8, ptr %this, i64 576
   store ptr @.str.36, ptr %arrayidx148, align 8
-  %columnname152 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 9, i32 1
+  %columnname152 = getelementptr inbounds i8, ptr %this, i64 584
   store ptr @.str.37, ptr %columnname152, align 8
-  %type155 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 9, i32 3
+  %type155 = getelementptr inbounds i8, ptr %this, i64 600
   store i32 4, ptr %type155, align 8
-  %legend158 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 9, i32 2
+  %legend158 = getelementptr inbounds i8, ptr %this, i64 592
   store ptr @.str.38, ptr %legend158, align 8
-  %include161 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 9, i32 4
+  %include161 = getelementptr inbounds i8, ptr %this, i64 604
   store i32 3, ptr %include161, align 4
-  %arrayidx165 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 10
+  %arrayidx165 = getelementptr inbounds i8, ptr %this, i64 640
   store ptr @.str.39, ptr %arrayidx165, align 8
-  %columnname169 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 10, i32 1
+  %columnname169 = getelementptr inbounds i8, ptr %this, i64 648
   store ptr @.str.40, ptr %columnname169, align 8
-  %type172 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 10, i32 3
+  %type172 = getelementptr inbounds i8, ptr %this, i64 664
   store i32 1, ptr %type172, align 8
-  %legend175 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 10, i32 2
+  %legend175 = getelementptr inbounds i8, ptr %this, i64 656
   store ptr @.str.41, ptr %legend175, align 8
-  %include178 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 10, i32 4
+  %include178 = getelementptr inbounds i8, ptr %this, i64 668
   store i32 3, ptr %include178, align 4
-  %arrayidx182 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 11
+  %arrayidx182 = getelementptr inbounds i8, ptr %this, i64 704
   store ptr @.str.42, ptr %arrayidx182, align 8
-  %columnname186 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 11, i32 1
+  %columnname186 = getelementptr inbounds i8, ptr %this, i64 712
   store ptr @.str.43, ptr %columnname186, align 8
-  %type189 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 11, i32 3
+  %type189 = getelementptr inbounds i8, ptr %this, i64 728
   store i32 1, ptr %type189, align 8
-  %legend192 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 11, i32 2
+  %legend192 = getelementptr inbounds i8, ptr %this, i64 720
   store ptr @.str.44, ptr %legend192, align 8
-  %include195 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 11, i32 4
+  %include195 = getelementptr inbounds i8, ptr %this, i64 732
   store i32 3, ptr %include195, align 4
-  %arrayidx199 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 12
+  %arrayidx199 = getelementptr inbounds i8, ptr %this, i64 768
   store ptr @.str.45, ptr %arrayidx199, align 8
-  %columnname203 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 12, i32 1
+  %columnname203 = getelementptr inbounds i8, ptr %this, i64 776
   store ptr @.str.46, ptr %columnname203, align 8
-  %type206 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 12, i32 3
+  %type206 = getelementptr inbounds i8, ptr %this, i64 792
   store i32 1, ptr %type206, align 8
-  %legend209 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 12, i32 2
+  %legend209 = getelementptr inbounds i8, ptr %this, i64 784
   store ptr @.str.47, ptr %legend209, align 8
-  %include212 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 12, i32 4
+  %include212 = getelementptr inbounds i8, ptr %this, i64 796
   store i32 3, ptr %include212, align 4
-  %arrayidx216 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 13
+  %arrayidx216 = getelementptr inbounds i8, ptr %this, i64 832
   store ptr @.str.48, ptr %arrayidx216, align 8
-  %columnname220 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 13, i32 1
+  %columnname220 = getelementptr inbounds i8, ptr %this, i64 840
   store ptr @.str.49, ptr %columnname220, align 8
-  %type223 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 13, i32 3
+  %type223 = getelementptr inbounds i8, ptr %this, i64 856
   store i32 1, ptr %type223, align 8
-  %legend226 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 13, i32 2
+  %legend226 = getelementptr inbounds i8, ptr %this, i64 848
   store ptr @.str.50, ptr %legend226, align 8
-  %include229 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 13, i32 4
+  %include229 = getelementptr inbounds i8, ptr %this, i64 860
   store i32 3, ptr %include229, align 4
-  %arrayidx233 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 14
+  %arrayidx233 = getelementptr inbounds i8, ptr %this, i64 896
   store ptr @.str.51, ptr %arrayidx233, align 8
-  %columnname237 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 14, i32 1
+  %columnname237 = getelementptr inbounds i8, ptr %this, i64 904
   store ptr @.str.52, ptr %columnname237, align 8
-  %type240 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 14, i32 3
+  %type240 = getelementptr inbounds i8, ptr %this, i64 920
   store i32 1, ptr %type240, align 8
-  %legend243 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 14, i32 2
+  %legend243 = getelementptr inbounds i8, ptr %this, i64 912
   store ptr @.str.53, ptr %legend243, align 8
-  %include246 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 14, i32 4
+  %include246 = getelementptr inbounds i8, ptr %this, i64 924
   store i32 3, ptr %include246, align 4
-  %arrayidx250 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 15
+  %arrayidx250 = getelementptr inbounds i8, ptr %this, i64 960
   store ptr @.str.54, ptr %arrayidx250, align 8
-  %columnname254 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 15, i32 1
+  %columnname254 = getelementptr inbounds i8, ptr %this, i64 968
   store ptr @.str.55, ptr %columnname254, align 8
-  %type257 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 15, i32 3
+  %type257 = getelementptr inbounds i8, ptr %this, i64 984
   store i32 1, ptr %type257, align 8
-  %legend260 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 15, i32 2
+  %legend260 = getelementptr inbounds i8, ptr %this, i64 976
   store ptr @.str.56, ptr %legend260, align 8
-  %include263 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 15, i32 4
+  %include263 = getelementptr inbounds i8, ptr %this, i64 988
   store i32 3, ptr %include263, align 4
-  %arrayidx267 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 16
+  %arrayidx267 = getelementptr inbounds i8, ptr %this, i64 1024
   store ptr @.str.57, ptr %arrayidx267, align 8
-  %columnname271 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 16, i32 1
+  %columnname271 = getelementptr inbounds i8, ptr %this, i64 1032
   store ptr @.str.58, ptr %columnname271, align 8
-  %type274 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 16, i32 3
+  %type274 = getelementptr inbounds i8, ptr %this, i64 1048
   store i32 1, ptr %type274, align 8
-  %legend277 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 16, i32 2
+  %legend277 = getelementptr inbounds i8, ptr %this, i64 1040
   store ptr @.str.59, ptr %legend277, align 8
-  %include280 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 16, i32 4
+  %include280 = getelementptr inbounds i8, ptr %this, i64 1052
   store i32 3, ptr %include280, align 4
-  %arrayidx284 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 17
+  %arrayidx284 = getelementptr inbounds i8, ptr %this, i64 1088
   store ptr @.str.60, ptr %arrayidx284, align 8
-  %columnname288 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 17, i32 1
+  %columnname288 = getelementptr inbounds i8, ptr %this, i64 1096
   store ptr @.str.61, ptr %columnname288, align 8
-  %type291 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 17, i32 3
+  %type291 = getelementptr inbounds i8, ptr %this, i64 1112
   store i32 1, ptr %type291, align 8
-  %legend294 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 17, i32 2
+  %legend294 = getelementptr inbounds i8, ptr %this, i64 1104
   store ptr @.str.62, ptr %legend294, align 8
-  %include297 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 17, i32 4
+  %include297 = getelementptr inbounds i8, ptr %this, i64 1116
   store i32 3, ptr %include297, align 4
-  %arrayidx301 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 18
+  %arrayidx301 = getelementptr inbounds i8, ptr %this, i64 1152
   store ptr @.str.63, ptr %arrayidx301, align 8
-  %columnname305 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 18, i32 1
+  %columnname305 = getelementptr inbounds i8, ptr %this, i64 1160
   store ptr @.str.64, ptr %columnname305, align 8
-  %type308 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 18, i32 3
+  %type308 = getelementptr inbounds i8, ptr %this, i64 1176
   store i32 1, ptr %type308, align 8
-  %legend311 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 18, i32 2
+  %legend311 = getelementptr inbounds i8, ptr %this, i64 1168
   store ptr @.str.65, ptr %legend311, align 8
-  %include314 = getelementptr inbounds [19 x %struct.__toku_engine_status_row], ptr %this, i64 0, i64 18, i32 4
+  %include314 = getelementptr inbounds i8, ptr %this, i64 1180
   store i32 3, ptr %include314, align 4
   store i8 1, ptr %m_initialized, align 8
   br label %return
@@ -376,10 +375,10 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define noundef i32 @_Z24toku_builtin_compare_funPK10__toku_dbtS1_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %size = getelementptr inbounds %struct.__toku_dbt, ptr %a, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i64, ptr %size, align 8
   %2 = load ptr, ptr %b, align 8
-  %size2 = getelementptr inbounds %struct.__toku_dbt, ptr %b, i64 0, i32 1
+  %size2 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %size2, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
   %call.i = tail call i32 @memcmp(ptr noundef %0, ptr noundef %2, i64 noundef %cond.i) #18

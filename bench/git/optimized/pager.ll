@@ -109,11 +109,11 @@ define dso_local void @prepare_pager_args(ptr noundef %pager_process, ptr nounde
 entry:
   %argv.i = alloca ptr, align 8
   %call = tail call ptr @strvec_push(ptr noundef %pager_process, ptr noundef %pager) #12
-  %use_shell = getelementptr inbounds %struct.child_process, ptr %pager_process, i64 0, i32 11
+  %use_shell = getelementptr inbounds i8, ptr %pager_process, i64 104
   %bf.load = load i16, ptr %use_shell, align 8
   %bf.set = or i16 %bf.load, 32
   store i16 %bf.set, ptr %use_shell, align 8
-  %env = getelementptr inbounds %struct.child_process, ptr %pager_process, i64 0, i32 1
+  %env = getelementptr inbounds i8, ptr %pager_process, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %argv.i)
   %call.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.13) #12
   %call1.i = call i32 @split_cmdline(ptr noundef %call.i, ptr noundef nonnull %argv.i) #12
@@ -173,7 +173,7 @@ setup_pager_env.exit:                             ; preds = %for.inc.i, %for.con
   %6 = load ptr, ptr %argv.i, align 8
   call void @free(ptr noundef %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argv.i)
-  %trace2_child_class = getelementptr inbounds %struct.child_process, ptr %pager_process, i64 0, i32 5
+  %trace2_child_class = getelementptr inbounds i8, ptr %pager_process, i64 64
   store ptr @.str.4, ptr %trace2_child_class, align 8
   ret void
 }
@@ -248,7 +248,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i4
   %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #12
   %tobool5.i = icmp eq i32 %call4.i, 0
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %ws.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
   %3 = load i16, ptr %ws_col.i, align 2
   %tobool7.i = icmp ne i16 %3, 0
   %or.cond.i = select i1 %tobool5.i, i1 %tobool7.i, i1 false
@@ -341,7 +341,7 @@ if.then3:                                         ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true, %if.end
   %call4 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws) #12
   %tobool5 = icmp eq i32 %call4, 0
-  %ws_col = getelementptr inbounds %struct.winsize, ptr %ws, i64 0, i32 1
+  %ws_col = getelementptr inbounds i8, ptr %ws, i64 2
   %1 = load i16, ptr %ws_col, align 2
   %tobool7 = icmp ne i16 %1, 0
   %or.cond = select i1 %tobool5, i1 %tobool7, i1 false
@@ -453,7 +453,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #12
   %tobool5.i = icmp eq i32 %call4.i, 0
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %ws.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
   %2 = load i16, ptr %ws_col.i, align 2
   %tobool7.i = icmp ne i16 %2, 0
   %or.cond.i = select i1 %tobool5.i, i1 %tobool7.i, i1 false
@@ -512,9 +512,9 @@ define dso_local i32 @check_pager_config(ptr noundef %cmd) local_unnamed_addr #0
 entry:
   %data = alloca %struct.pager_command_config_data, align 8
   store ptr %cmd, ptr %data, align 8
-  %want = getelementptr inbounds %struct.pager_command_config_data, ptr %data, i64 0, i32 1
+  %want = getelementptr inbounds i8, ptr %data, i64 8
   store i32 -1, ptr %want, align 8
-  %value = getelementptr inbounds %struct.pager_command_config_data, ptr %data, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %data, i64 16
   store ptr null, ptr %value, align 8
   call void @read_early_config(ptr noundef nonnull @pager_command_config, ptr noundef nonnull %data) #12
   %0 = load ptr, ptr %value, align 8
@@ -564,7 +564,7 @@ land.lhs.true:                                    ; preds = %skip_prefix.exit
 if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call i32 @git_parse_maybe_bool(ptr noundef %value) #12
   %cmp = icmp sgt i32 %call3, -1
-  %want = getelementptr inbounds %struct.pager_command_config_data, ptr %vdata, i64 0, i32 1
+  %want = getelementptr inbounds i8, ptr %vdata, i64 8
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -574,7 +574,7 @@ if.then4:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   store i32 1, ptr %want, align 8
   %call6 = tail call ptr @xstrdup(ptr noundef %value) #12
-  %value7 = getelementptr inbounds %struct.pager_command_config_data, ptr %vdata, i64 0, i32 2
+  %value7 = getelementptr inbounds i8, ptr %vdata, i64 16
   store ptr %call6, ptr %value7, align 8
   br label %if.end8
 

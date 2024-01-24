@@ -3,16 +3,6 @@ source_filename = "bench/libzmq/original/address.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.zmq::address_t" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", ptr, %union.anon.0 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%union.anon.0 = type { ptr }
-%"class.zmq::ws_address_t" = type { %"union.zmq::ip_addr_t", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"union.zmq::ip_addr_t" = type { %struct.sockaddr_in6 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.1 }
-%union.anon.1 = type { [4 x i32] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -20,6 +10,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -39,14 +32,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN3zmq9address_tC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_PNS_5ctx_tE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %protocol_, ptr noundef nonnull align 8 dereferenceable(32) %address_, ptr noundef %parent_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %protocol_)
-  %address = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 1
+  %address = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %address, ptr noundef nonnull align 8 dereferenceable(32) %address_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %parent = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 2
+  %parent = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %parent_, ptr %parent, align 8
-  %resolved2 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved2 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr null, ptr %resolved2, align 8
   ret void
 
@@ -72,7 +65,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %resolved = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %resolved, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %if.end56.sink.split, label %delete.notnull
@@ -87,14 +80,14 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i7, label %if.then6, label %if.else12
 
 if.then6:                                         ; preds = %if.else
-  %resolved7 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved7 = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %resolved7, align 8
   %isnull8 = icmp eq ptr %1, null
   br i1 %isnull8, label %if.end56.sink.split, label %delete.notnull9
 
 delete.notnull9:                                  ; preds = %if.then6
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(104) %1) #5
   br label %if.end56.sink.split
@@ -105,15 +98,15 @@ if.else12:                                        ; preds = %if.else
   br i1 %cmp.i9, label %if.then16, label %if.else22
 
 if.then16:                                        ; preds = %if.else12
-  %resolved17 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved17 = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %resolved17, align 8
   %isnull18 = icmp eq ptr %3, null
   br i1 %isnull18, label %if.end56.sink.split, label %delete.notnull19
 
 delete.notnull19:                                 ; preds = %if.then16
-  %_path.i = getelementptr inbounds %"class.zmq::ws_address_t", ptr %3, i64 0, i32 2
+  %_path.i = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_path.i) #5
-  %_host.i = getelementptr inbounds %"class.zmq::ws_address_t", ptr %3, i64 0, i32 1
+  %_host.i = getelementptr inbounds i8, ptr %3, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_host.i) #5
   tail call void @_ZdlPv(ptr noundef nonnull %3) #6
   br label %if.end56.sink.split
@@ -124,15 +117,15 @@ if.else22:                                        ; preds = %if.else12
   br i1 %cmp.i11, label %if.then26, label %if.else32
 
 if.then26:                                        ; preds = %if.else22
-  %resolved27 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved27 = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %resolved27, align 8
   %isnull28 = icmp eq ptr %4, null
   br i1 %isnull28, label %if.end56.sink.split, label %delete.notnull29
 
 delete.notnull29:                                 ; preds = %if.then26
-  %_path.i12 = getelementptr inbounds %"class.zmq::ws_address_t", ptr %4, i64 0, i32 2
+  %_path.i12 = getelementptr inbounds i8, ptr %4, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_path.i12) #5
-  %_host.i13 = getelementptr inbounds %"class.zmq::ws_address_t", ptr %4, i64 0, i32 1
+  %_host.i13 = getelementptr inbounds i8, ptr %4, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_host.i13) #5
   tail call void @_ZdlPv(ptr noundef nonnull %4) #6
   br label %if.end56.sink.split
@@ -143,7 +136,7 @@ if.else32:                                        ; preds = %if.else22
   br i1 %cmp.i15, label %if.then36, label %if.else42
 
 if.then36:                                        ; preds = %if.else32
-  %resolved37 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved37 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %resolved37, align 8
   %isnull38 = icmp eq ptr %5, null
   br i1 %isnull38, label %if.end56.sink.split, label %delete.notnull39
@@ -159,7 +152,7 @@ if.else42:                                        ; preds = %if.else32
   br i1 %cmp.i17, label %if.then46, label %if.end56
 
 if.then46:                                        ; preds = %if.else42
-  %resolved47 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved47 = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %resolved47, align 8
   %isnull48 = icmp eq ptr %6, null
   br i1 %isnull48, label %if.end56.sink.split, label %delete.notnull49
@@ -174,7 +167,7 @@ if.end56.sink.split:                              ; preds = %if.then46, %delete.
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end56.sink.split, %if.else42
-  %address = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 1
+  %address = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address) #5
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #5
   ret void
@@ -196,7 +189,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %resolved = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %resolved, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -211,14 +204,14 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp.i14, label %land.lhs.true6, label %if.end12
 
 land.lhs.true6:                                   ; preds = %if.end
-  %resolved7 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved7 = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %resolved7, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true6
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(32) %addr_)
   br label %return
@@ -229,7 +222,7 @@ if.end12:                                         ; preds = %land.lhs.true6, %if
   br i1 %cmp.i16, label %land.lhs.true15, label %if.end21
 
 land.lhs.true15:                                  ; preds = %if.end12
-  %resolved16 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved16 = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %resolved16, align 8
   %tobool17.not = icmp eq ptr %3, null
   br i1 %tobool17.not, label %if.end21, label %if.then18
@@ -244,7 +237,7 @@ if.end21:                                         ; preds = %land.lhs.true15, %i
   br i1 %cmp.i18, label %land.lhs.true24, label %if.end30
 
 land.lhs.true24:                                  ; preds = %if.end21
-  %resolved25 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved25 = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load ptr, ptr %resolved25, align 8
   %tobool26.not = icmp eq ptr %4, null
   br i1 %tobool26.not, label %if.end30, label %if.then27
@@ -259,7 +252,7 @@ if.end30:                                         ; preds = %land.lhs.true24, %i
   br i1 %cmp.i20, label %land.lhs.true33, label %if.end39
 
 land.lhs.true33:                                  ; preds = %if.end30
-  %resolved34 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved34 = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %resolved34, align 8
   %tobool35.not = icmp eq ptr %5, null
   br i1 %tobool35.not, label %if.end39, label %if.then36
@@ -274,7 +267,7 @@ if.end39:                                         ; preds = %land.lhs.true33, %i
   br i1 %cmp.i22, label %land.lhs.true42, label %if.end48
 
 land.lhs.true42:                                  ; preds = %if.end39
-  %resolved43 = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 3
+  %resolved43 = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %resolved43, align 8
   %tobool44.not = icmp eq ptr %6, null
   br i1 %tobool44.not, label %if.end48, label %if.then45
@@ -288,7 +281,7 @@ if.end48:                                         ; preds = %land.lhs.true42, %i
   br i1 %call50, label %if.end63, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.end48
-  %address = getelementptr inbounds %"struct.zmq::address_t", ptr %this, i64 0, i32 1
+  %address = getelementptr inbounds i8, ptr %this, i64 32
   %call52 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %address) #5
   br i1 %call52, label %if.end63, label %if.then53
 

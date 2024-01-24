@@ -94,7 +94,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %_ZN5eastl6chrono12system_clock3nowEv.exit
 
 _ZN5eastl6chrono12system_clock3nowEv.exit:        ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
   %1 = load i64, ptr %tv_nsec.i.i, align 8
   %2 = load i64, ptr %ts.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i)
@@ -114,7 +114,7 @@ if.then.i.i12:                                    ; preds = %land.lhs.true.i.i9
   br label %_ZN5eastl6chrono12system_clock3nowEv.exit14
 
 _ZN5eastl6chrono12system_clock3nowEv.exit14:      ; preds = %_ZN5eastl6chrono12system_clock3nowEv.exit, %land.lhs.true.i.i9, %if.then.i.i12
-  %tv_nsec.i.i6 = getelementptr inbounds %struct.timespec, ptr %ts.i.i3, i64 0, i32 1
+  %tv_nsec.i.i6 = getelementptr inbounds i8, ptr %ts.i.i3, i64 8
   %4 = load i64, ptr %tv_nsec.i.i6, align 8
   %5 = load i64, ptr %ts.i.i3, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i3)
@@ -167,7 +167,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %_ZN5eastl6chrono12system_clock3nowEv.exit
 
 _ZN5eastl6chrono12system_clock3nowEv.exit:        ; preds = %entry, %land.lhs.true.i.i, %if.then.i.i
-  %tv_nsec.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i, i64 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
   %1 = load i64, ptr %tv_nsec.i.i, align 8
   %2 = load i64, ptr %ts.i.i, align 8
   %mul.i.i = mul i64 %2, 1000000000
@@ -191,7 +191,7 @@ if.then.i.i10:                                    ; preds = %land.lhs.true.i.i7
   br label %_ZN5eastl6chrono12steady_clock3nowEv.exit
 
 _ZN5eastl6chrono12steady_clock3nowEv.exit:        ; preds = %_ZN5eastl6chrono12system_clock3nowEv.exit, %land.lhs.true.i.i7, %if.then.i.i10
-  %tv_nsec.i.i4 = getelementptr inbounds %struct.timespec, ptr %ts.i.i1, i64 0, i32 1
+  %tv_nsec.i.i4 = getelementptr inbounds i8, ptr %ts.i.i1, i64 8
   %4 = load i64, ptr %tv_nsec.i.i4, align 8
   %5 = load i64, ptr %ts.i.i1, align 8
   %mul.i.i5 = mul i64 %5, 1000000000
@@ -215,7 +215,7 @@ if.then.i.i22:                                    ; preds = %land.lhs.true.i.i19
   br label %_ZN5eastl6chrono12system_clock3nowEv.exit24
 
 _ZN5eastl6chrono12system_clock3nowEv.exit24:      ; preds = %_ZN5eastl6chrono12steady_clock3nowEv.exit, %land.lhs.true.i.i19, %if.then.i.i22
-  %tv_nsec.i.i16 = getelementptr inbounds %struct.timespec, ptr %ts.i.i13, i64 0, i32 1
+  %tv_nsec.i.i16 = getelementptr inbounds i8, ptr %ts.i.i13, i64 8
   %7 = load i64, ptr %tv_nsec.i.i16, align 8
   %8 = load i64, ptr %ts.i.i13, align 8
   %mul.i.i17 = mul i64 %8, 1000000000
@@ -239,7 +239,7 @@ if.then.i.i35:                                    ; preds = %land.lhs.true.i.i32
   br label %_ZN5eastl6chrono12system_clock3nowEv.exit37
 
 _ZN5eastl6chrono12system_clock3nowEv.exit37:      ; preds = %_ZN5eastl6chrono12system_clock3nowEv.exit24, %land.lhs.true.i.i32, %if.then.i.i35
-  %tv_nsec.i.i29 = getelementptr inbounds %struct.timespec, ptr %ts.i.i26, i64 0, i32 1
+  %tv_nsec.i.i29 = getelementptr inbounds i8, ptr %ts.i.i26, i64 8
   %10 = load i64, ptr %tv_nsec.i.i29, align 8
   %11 = load i64, ptr %ts.i.i26, align 8
   %mul.i.i30 = mul i64 %11, 1000000000
@@ -261,7 +261,7 @@ if.then.i.i47:                                    ; preds = %land.lhs.true.i.i44
   br label %_ZN5eastl6chrono12system_clock3nowEv.exit49
 
 _ZN5eastl6chrono12system_clock3nowEv.exit49:      ; preds = %_ZN5eastl6chrono12system_clock3nowEv.exit37, %land.lhs.true.i.i44, %if.then.i.i47
-  %tv_nsec.i.i41 = getelementptr inbounds %struct.timespec, ptr %ts.i.i38, i64 0, i32 1
+  %tv_nsec.i.i41 = getelementptr inbounds i8, ptr %ts.i.i38, i64 8
   %13 = load i64, ptr %tv_nsec.i.i41, align 8
   %14 = load i64, ptr %ts.i.i38, align 8
   %mul.i.i42 = mul i64 %14, 1000000000
@@ -285,7 +285,7 @@ if.then.i.i59:                                    ; preds = %land.lhs.true.i.i56
   br label %_ZN5eastl6chrono12steady_clock3nowEv.exit61
 
 _ZN5eastl6chrono12steady_clock3nowEv.exit61:      ; preds = %_ZN5eastl6chrono12system_clock3nowEv.exit49, %land.lhs.true.i.i56, %if.then.i.i59
-  %tv_nsec.i.i53 = getelementptr inbounds %struct.timespec, ptr %ts.i.i50, i64 0, i32 1
+  %tv_nsec.i.i53 = getelementptr inbounds i8, ptr %ts.i.i50, i64 8
   %16 = load i64, ptr %tv_nsec.i.i53, align 8
   %17 = load i64, ptr %ts.i.i50, align 8
   %mul.i.i54 = mul i64 %17, 1000000000
@@ -307,7 +307,7 @@ if.then.i.i71:                                    ; preds = %land.lhs.true.i.i68
   br label %_ZN5eastl6chrono12steady_clock3nowEv.exit73
 
 _ZN5eastl6chrono12steady_clock3nowEv.exit73:      ; preds = %_ZN5eastl6chrono12steady_clock3nowEv.exit61, %land.lhs.true.i.i68, %if.then.i.i71
-  %tv_nsec.i.i65 = getelementptr inbounds %struct.timespec, ptr %ts.i.i62, i64 0, i32 1
+  %tv_nsec.i.i65 = getelementptr inbounds i8, ptr %ts.i.i62, i64 8
   %19 = load i64, ptr %tv_nsec.i.i65, align 8
   %20 = load i64, ptr %ts.i.i62, align 8
   %mul.i.i66 = mul i64 %20, 1000000000
@@ -331,7 +331,7 @@ if.then.i.i86:                                    ; preds = %land.lhs.true.i.i83
   br label %_ZN5eastl6chrono12system_clock3nowEv.exit88
 
 _ZN5eastl6chrono12system_clock3nowEv.exit88:      ; preds = %_ZN5eastl6chrono12steady_clock3nowEv.exit73, %land.lhs.true.i.i83, %if.then.i.i86
-  %tv_nsec.i.i80 = getelementptr inbounds %struct.timespec, ptr %ts.i.i77, i64 0, i32 1
+  %tv_nsec.i.i80 = getelementptr inbounds i8, ptr %ts.i.i77, i64 8
   %22 = load i64, ptr %tv_nsec.i.i80, align 8
   %23 = load i64, ptr %ts.i.i77, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i77)
@@ -353,7 +353,7 @@ if.then.i.i98:                                    ; preds = %land.lhs.true.i.i95
 _ZN5eastl6chrono12system_clock3nowEv.exit100:     ; preds = %_ZN5eastl6chrono12system_clock3nowEv.exit88, %land.lhs.true.i.i95, %if.then.i.i98
   %mul.i.i81 = mul i64 %23, 1000000000
   %add.i.i82 = add i64 %mul.i.i81, %22
-  %tv_nsec.i.i92 = getelementptr inbounds %struct.timespec, ptr %ts.i.i89, i64 0, i32 1
+  %tv_nsec.i.i92 = getelementptr inbounds i8, ptr %ts.i.i89, i64 8
   %25 = load i64, ptr %tv_nsec.i.i92, align 8
   %26 = load i64, ptr %ts.i.i89, align 8
   %mul.i.i93 = mul i64 %26, 1000000000

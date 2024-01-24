@@ -3,22 +3,22 @@ source_filename = "bench/folly/original/StreamHandlerFactory.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.folly::StreamHandlerFactory::WriterFactory" = type { %"class.folly::StandardLogHandlerFactory::WriterFactory", %"class.std::__cxx11::basic_string", %"class.folly::FileWriterFactory" }
-%"class.folly::StandardLogHandlerFactory::WriterFactory" = type { %"class.folly::StandardLogHandlerFactory::OptionProcessor" }
-%"class.folly::StandardLogHandlerFactory::OptionProcessor" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.folly::FileWriterFactory" = type { i8, [7 x i8], %"class.folly::Optional" }
-%"class.folly::Optional" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.3, i8, [7 x i8] }>
-%union.anon.3 = type { i64 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
 %"class.folly::File" = type <{ i32, i8, [3 x i8] }>
 %"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
 %"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
+%"class.folly::StreamHandlerFactory::WriterFactory" = type { %"class.folly::StandardLogHandlerFactory::WriterFactory", %"class.std::__cxx11::basic_string", %"class.folly::FileWriterFactory" }
+%"class.folly::StandardLogHandlerFactory::WriterFactory" = type { %"class.folly::StandardLogHandlerFactory::OptionProcessor" }
+%"class.folly::StandardLogHandlerFactory::OptionProcessor" = type { ptr }
+%"class.folly::FileWriterFactory" = type { i8, [7 x i8], %"class.folly::Optional" }
+%"class.folly::Optional" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
+%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.3, i8, [7 x i8] }>
+%union.anon.3 = type { i64 }
 %"class.std::shared_ptr.6" = type { %"class.std::__shared_ptr.7" }
 %"class.std::__shared_ptr.7" = type { ptr, %"class.std::__shared_count" }
 
@@ -78,14 +78,14 @@ $_ZTIN5folly17LogHandlerFactoryE = comdat any
 define linkonce_odr void @_ZN5folly20StreamHandlerFactory13WriterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %stream_ = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_, align 8, !tbaa !10
-  %1 = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !16
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -103,14 +103,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr void @_ZN5folly20StreamHandlerFactory13WriterFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
-  %stream_.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1
+  %stream_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_.i, align 8, !tbaa !10
-  %1 = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 2
+  %1 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -182,7 +182,7 @@ if.then:                                          ; preds = %for.cond.i.i.4, %fo
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %value.coerce1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %value.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %6, ptr %ref.tmp, align 8, !tbaa !24, !alias.scope !25
   %cmp.i.i.i5 = icmp eq ptr %value.coerce0, null
   %7 = icmp ne ptr %value.coerce1, null
@@ -224,20 +224,20 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 
 _ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit:          ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %11 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !26, !noalias !25
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %11, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !16, !alias.scope !25
   %12 = load ptr, ptr %ref.tmp, align 8, !tbaa !10, !alias.scope !25
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 %11
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #13, !noalias !25
-  %stream_ = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %stream_, align 8, !tbaa !10
-  %14 = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 2
+  %14 = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i, label %if.end.i, label %if.end.thread.i
 
 if.end.i:                                         ; preds = %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit
-  %_M_string_length.i.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !16
   %cmp3.i.i = icmp ult i64 %15, 16
   call void @llvm.assume(i1 %cmp3.i.i)
@@ -274,7 +274,7 @@ if.end.i.i.i6:                                    ; preds = %if.then16.i
 
 if.end24.i:                                       ; preds = %if.end.i.i.i6, %if.then.i63.i, %if.then16.i
   %20 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !16
-  %_M_string_length.i.i65.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i.i65.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %20, ptr %_M_string_length.i.i65.i, align 8, !tbaa !16
   %21 = load ptr, ptr %stream_, align 8, !tbaa !10
   %arrayidx.i.i = getelementptr inbounds i8, ptr %21, i64 %20
@@ -293,7 +293,7 @@ if.end32.thread.i:                                ; preds = %if.end.i
 if.end32.i:                                       ; preds = %if.end.thread.i
   %24 = load i64, ptr %14, align 8, !tbaa !17
   store ptr %17, ptr %stream_, align 8, !tbaa !10
-  %_M_string_length.i72.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 1
+  %_M_string_length.i72.i = getelementptr inbounds i8, ptr %this, i64 16
   %25 = load <2 x i64>, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !17
   store <2 x i64> %25, ptr %_M_string_length.i72.i, align 8, !tbaa !17
   %tobool35.not.i = icmp eq ptr %13, null
@@ -331,7 +331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br label %return
 
 if.end:                                           ; preds = %for.cond.i.i.4, %for.cond.i.i.3, %for.cond.i.i.2, %for.cond.i.i.1, %for.cond.i.i, %for.body.i.i.preheader, %entry
-  %fileWriterFactory_ = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 2
+  %fileWriterFactory_ = getelementptr inbounds i8, ptr %this, i64 40
   %call4 = tail call noundef zeroext i1 @_ZN5folly17FileWriterFactory13processOptionENS_5RangeIPKcEES4_(ptr noundef nonnull align 8 dereferenceable(24) %fileWriterFactory_, ptr %name.coerce0, ptr %name.coerce1, ptr %value.coerce0, ptr %value.coerce1)
   br label %return
 
@@ -350,10 +350,10 @@ entry:
   %agg.tmp = alloca %"class.folly::File", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %outputFile) #13
   store i32 -1, ptr %outputFile, align 4, !tbaa !28
-  %ownsFd_.i = getelementptr inbounds %"class.folly::File", ptr %outputFile, i64 0, i32 1
+  %ownsFd_.i = getelementptr inbounds i8, ptr %outputFile, i64 4
   store i8 0, ptr %ownsFd_.i, align 4, !tbaa !32
-  %stream_ = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1
-  %_M_string_length.i.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 1, i32 1
+  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !16
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then, label %if.else
@@ -449,12 +449,12 @@ lpad25:                                           ; preds = %invoke.cont26, %inv
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load ptr, ptr %ref.tmp21, align 8, !tbaa !10
-  %8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp21, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
   %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad25
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp21, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   %9 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !16
   %cmp3.i.i.i = icmp ult i64 %9, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -472,7 +472,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %ehcleanup33
 
 if.end29:                                         ; preds = %invoke.cont17, %invoke.cont8
-  %fileWriterFactory_ = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %this, i64 0, i32 2
+  %fileWriterFactory_ = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(5) %outputFile) #13
   invoke void @_ZN5folly17FileWriterFactory12createWriterENS_4FileE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %fileWriterFactory_, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont31 unwind label %lpad30
@@ -525,21 +525,21 @@ entry:
   %ref.tmp = alloca %"class.std::shared_ptr.6", align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %writerFactory) #13
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %writerFactory, align 8, !tbaa !7
-  %stream_.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %writerFactory, i64 0, i32 1
-  %0 = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %writerFactory, i64 0, i32 1, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %writerFactory, i64 8
+  %0 = getelementptr inbounds i8, ptr %writerFactory, i64 24
   store ptr %0, ptr %stream_.i, align 8, !tbaa !24
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %writerFactory, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %writerFactory, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
   store i8 0, ptr %0, align 8, !tbaa !17
-  %fileWriterFactory_.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %writerFactory, i64 0, i32 2
+  %fileWriterFactory_.i = getelementptr inbounds i8, ptr %writerFactory, i64 40
   store i8 1, ptr %fileWriterFactory_.i, align 8, !tbaa !33
-  %maxBufferSize_.i.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %writerFactory, i64 0, i32 2, i32 2
+  %maxBufferSize_.i.i = getelementptr inbounds i8, ptr %writerFactory, i64 48
   store i8 0, ptr %maxBufferSize_.i.i, align 8, !tbaa !17
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.folly::StreamHandlerFactory::WriterFactory", ptr %writerFactory, i64 0, i32 2, i32 2, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %writerFactory, i64 56
   store i8 0, ptr %hasValue.i.i.i.i, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #13
   %vtable = load ptr, ptr %this, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = invoke { ptr, ptr } %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %invoke.cont unwind label %lpad
@@ -601,7 +601,7 @@ _ZN5folly20StreamHandlerFactory13WriterFactoryD2Ev.exit13: ; preds = %if.then.i.
 define linkonce_odr void @_ZN5folly17LogHandlerFactory13updateHandlerERKSt10shared_ptrINS_10LogHandlerEERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_St4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SC_EEE(ptr noalias sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %existingHandler, ptr noundef nonnull align 8 dereferenceable(56) %options) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !7
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(56) %options)
   ret void
@@ -654,14 +654,14 @@ declare void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5))
 define linkonce_odr void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA17_cS6_A36_cEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISA_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSD_EEEE5valueESA_E4typeEDpRKSC_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(17) %vs, ptr noundef nonnull align 8 dereferenceable(32) %vs1, ptr noundef nonnull align 1 dereferenceable(36) %vs3) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !24
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !16
   store i8 0, ptr %0, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #13
   store ptr %agg.result, ptr %ref.tmp, align 8, !tbaa !38
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %vs1, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %vs1, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !16
   %add.2.i.i.i = add i64 %1, 53
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add.2.i.i.i)
@@ -714,7 +714,7 @@ define linkonce_odr void @_ZN5folly6detail18ToAppendStrImplAllISt16integer_seque
 entry:
   %0 = load ptr, ptr %v5, align 8, !tbaa !38
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %v) #13
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
   %sub3.i.i.i = sub i64 4611686018427387903, %1
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %call.i.i.i
@@ -726,7 +726,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit: ; preds = %entry
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %v, i64 noundef %call.i.i.i)
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %v1, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %v1, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !16
   %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !16
   %sub3.i.i.i.i = sub i64 4611686018427387903, %3

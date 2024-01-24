@@ -23,7 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.zmq_poll_select_fds_t_ = type <{ %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", %"class.zmq::optimized_fd_set_t", i32, [4 x i8] }>
 %"class.zmq::optimized_fd_set_t" = type { %struct.fd_set }
 %struct.fd_set = type { [16 x i64] }
-%struct.timeval = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
 
 @_ZSt7nothrow = external global %"struct.std::nothrow_t", align 1
@@ -1003,14 +1002,14 @@ if.then2:                                         ; preds = %if.end
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %flags_.addr.024 = phi i32 [ %flags_, %for.cond.preheader ], [ %spec.select, %for.inc ]
   %i.023 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %a_, i64 %i.023, i32 1
+  %arrayidx = getelementptr inbounds %struct.iovec, ptr %a_, i64 %i.023
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %iov_len, align 8
   %call.i16 = call noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 dereferenceable(64) %msg, i64 noundef %1)
   %cmp7.not = icmp eq i32 %call.i16, 0
   br i1 %cmp7.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds %struct.iovec, ptr %a_, i64 %i.023
   %call.i17 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i64, ptr %iov_len, align 8
@@ -1299,7 +1298,7 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit: ; preds = %do.end
   %call.i.i = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %call.i29 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %msg)
   %arrayidx = getelementptr inbounds %struct.iovec, ptr %a_, i64 %i.038
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %a_, i64 %i.038, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %call.i29, ptr %iov_len, align 8
   %call38 = call noalias ptr @malloc(i64 noundef %call.i29) #23
   store ptr %call38, ptr %arrayidx, align 8
@@ -1664,9 +1663,9 @@ for.body.i:                                       ; preds = %do.end.i, %for.inc9
   %indvars.iv260.i = phi i64 [ %indvars.iv.next261.i, %for.inc93.i ], [ 0, %do.end.i ]
   %repeat_items.0180.i = phi i8 [ %19, %for.inc93.i ], [ 0, %do.end.i ]
   %arrayidx.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv260.i
-  %revents.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv260.i, i32 3
+  %revents.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 14
   store i16 0, ptr %revents.i, align 2
-  %events7.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv260.i, i32 2
+  %events7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %7 = load i16, ptr %events7.i, align 4
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool10.not.i = icmp eq ptr %8, null
@@ -1680,7 +1679,7 @@ for.cond47.preheader.i:                           ; preds = %for.body.i
   br i1 %cmp48171.not.i, label %if.else79.i, label %for.body49.lr.ph.i
 
 for.body49.lr.ph.i:                               ; preds = %for.cond47.preheader.i
-  %fd58.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv260.i, i32 1
+  %fd58.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   br label %for.body49.i
 
 for.body14.i:                                     ; preds = %for.cond12.preheader.i, %for.inc.i
@@ -1694,7 +1693,7 @@ for.body14.i:                                     ; preds = %for.cond12.preheade
   br i1 %cmp21.i, label %if.then22.i, label %for.inc.i
 
 if.then22.i:                                      ; preds = %for.body14.i
-  %events25.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv.i, i32 2
+  %events25.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 12
   %10 = load i16, ptr %events25.i, align 4
   %or80.i = or i16 %10, %e.0167.i
   br label %for.inc.i
@@ -1789,14 +1788,14 @@ for.body49.i:                                     ; preds = %for.inc69.i, %for.b
   br i1 %tobool53.not.i, label %land.lhs.true.i, label %for.inc69.i
 
 land.lhs.true.i:                                  ; preds = %for.body49.i
-  %fd.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv256.i, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %arrayidx51.i, i64 8
   %13 = load i32, ptr %fd.i, align 8
   %14 = load i32, ptr %fd58.i, align 8
   %cmp59.i = icmp eq i32 %13, %14
   br i1 %cmp59.i, label %if.then60.i, label %for.inc69.i
 
 if.then60.i:                                      ; preds = %land.lhs.true.i
-  %events63.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv256.i, i32 2
+  %events63.i = getelementptr inbounds i8, ptr %arrayidx51.i, i64 12
   %15 = load i16, ptr %events63.i, align 4
   %or6679.i = or i16 %15, %e.2174.i
   br label %for.inc69.i
@@ -1837,7 +1836,7 @@ if.end.i110.i:                                    ; preds = %lor.lhs.false.i106.
 if.else79.i:                                      ; preds = %for.end71.i, %for.cond47.preheader.i
   %e.2.lcssa311.i = phi i16 [ %e.3.i, %for.end71.i ], [ %7, %for.cond47.preheader.i ]
   %repeat_items.3.lcssa310.i = phi i8 [ %repeat_items.4.i, %for.end71.i ], [ %repeat_items.0180.i, %for.cond47.preheader.i ]
-  %fd82.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv260.i, i32 1
+  %fd82.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %18 = load i32, ptr %fd82.i, align 8
   %call.i.i.i127.i = invoke noundef zeroext i1 @_ZNK3zmq15socket_poller_t9check_tagEv(ptr noundef nonnull align 8 dereferenceable(56) %poller.i)
           to label %call.i.i.i.noexc126.i unwind label %lpad.loopexit.i
@@ -1942,7 +1941,7 @@ for.body115.lr.ph.us.i:                           ; preds = %for.cond113.prehead
   %arrayidx117.us.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv292.i
   %23 = load ptr, ptr %arrayidx117.us.i, align 8
   %tobool119.not.us.i = icmp eq ptr %23, null
-  %fd140.us.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv292.i, i32 1
+  %fd140.us.i = getelementptr inbounds i8, ptr %arrayidx117.us.i, i64 8
   %idxprom133.us.us.us.i = sext i32 %j_start.0197.us.i to i64
   %arrayidx134.us.us.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %idxprom133.us.us.us.i
   %24 = load ptr, ptr %arrayidx134.us.us.us.i, align 8
@@ -1951,10 +1950,10 @@ for.body115.lr.ph.us.i:                           ; preds = %for.cond113.prehead
 if.then145.us.i:                                  ; preds = %land.lhs.true137.us.us.us.i, %for.body115.lr.ph.split.split.us.us.i
   %events148.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %idxprom133.us.us.us.i, i32 3
   %25 = load i16, ptr %events148.us.i, align 8
-  %events152.us.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv292.i, i32 2
+  %events152.us.i = getelementptr inbounds i8, ptr %arrayidx117.us.i, i64 12
   %26 = load i16, ptr %events152.us.i, align 4
   %and78.us.i = and i16 %26, %25
-  %revents157.us.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv292.i, i32 3
+  %revents157.us.i = getelementptr inbounds i8, ptr %arrayidx117.us.i, i64 14
   store i16 %and78.us.i, ptr %revents157.us.i, align 2
   %spec.select.us.i = add i32 %j_start.0197.us.i, %22
   br label %for.inc169.us.i
@@ -1969,7 +1968,7 @@ for.body115.lr.ph.split.split.us.us.i:            ; preds = %for.body115.lr.ph.u
 
 land.lhs.true137.us.us.us.i:                      ; preds = %for.body115.lr.ph.split.us.us.i
   %27 = load i32, ptr %fd140.us.i, align 8
-  %fd143.us.us.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %idxprom133.us.us.us.i, i32 1
+  %fd143.us.us.us.i = getelementptr inbounds i8, ptr %arrayidx134.us.us.us.i, i64 8
   %28 = load i32, ptr %fd143.us.us.us.i, align 8
   %cmp144.us.us.us.i = icmp eq i32 %27, %28
   br i1 %cmp144.us.us.us.i, label %if.then145.us.i, label %for.inc169.us.i
@@ -1998,7 +1997,7 @@ for.cond113.preheader.i:                          ; preds = %for.cond113.prehead
   %arrayidx117.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv273.i
   %31 = load ptr, ptr %arrayidx117.i, align 8
   %tobool119.not.i = icmp eq ptr %31, null
-  %fd140.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv273.i, i32 1
+  %fd140.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 8
   br i1 %tobool119.not.i, label %for.body115.us.i, label %for.body115.i
 
 for.body115.us.i:                                 ; preds = %for.cond113.preheader.i, %if.end162.us.i
@@ -2010,7 +2009,7 @@ for.body115.us.i:                                 ; preds = %for.cond113.prehead
 
 land.lhs.true137.us.i:                            ; preds = %for.body115.us.i
   %33 = load i32, ptr %fd140.i, align 8
-  %fd143.us.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %indvars.iv268.i, i32 1
+  %fd143.us.i = getelementptr inbounds i8, ptr %arrayidx134.us.i, i64 8
   %34 = load i32, ptr %fd143.us.i, align 8
   %cmp144.us.i = icmp eq i32 %33, %34
   br i1 %cmp144.us.i, label %if.then145.i, label %if.end162.us.i
@@ -2033,10 +2032,10 @@ if.then145.i:                                     ; preds = %for.body115.i, %lan
   %idxprom146.i = ashr exact i64 %sext.i, 32
   %events148.i = getelementptr inbounds %struct.zmq_poller_event_t, ptr %call.i80, i64 %idxprom146.i, i32 3
   %36 = load i16, ptr %events148.i, align 8
-  %events152.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv273.i, i32 2
+  %events152.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 12
   %37 = load i16, ptr %events152.i, align 4
   %and78.i = and i16 %37, %36
-  %revents157.i = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv273.i, i32 3
+  %revents157.i = getelementptr inbounds i8, ptr %arrayidx117.i, i64 14
   store i16 %and78.i, ptr %revents157.i, align 2
   br label %for.inc169.i
 
@@ -2097,7 +2096,7 @@ if.then.i85:                                      ; preds = %if.end25
   %39 = shl nuw nsw i64 %conv26, 3
   %call.i86 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
   %new.isnull.i87 = icmp eq ptr %call.i86, null
-  %_buf.i = getelementptr inbounds %"class.zmq::fast_vector_t", ptr %pollfds, i64 0, i32 1
+  %_buf.i = getelementptr inbounds i8, ptr %pollfds, i64 128
   store ptr %call.i86, ptr %_buf.i, align 8
   br i1 %new.isnull.i87, label %if.then4.i, label %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit
 
@@ -2110,12 +2109,12 @@ if.then4.i:                                       ; preds = %if.then.i85
   br label %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit
 
 if.else.i84:                                      ; preds = %if.end25
-  %_buf8.i = getelementptr inbounds %"class.zmq::fast_vector_t", ptr %pollfds, i64 0, i32 1
+  %_buf8.i = getelementptr inbounds i8, ptr %pollfds, i64 128
   store ptr %pollfds, ptr %_buf8.i, align 8
   br label %_ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit
 
 _ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit:    ; preds = %if.then.i85, %if.then4.i, %if.else.i84
-  %_buf.i88 = getelementptr inbounds %"class.zmq::fast_vector_t", ptr %pollfds, i64 0, i32 1
+  %_buf.i88 = getelementptr inbounds i8, ptr %pollfds, i64 128
   br label %for.body30
 
 while.cond.preheader:                             ; preds = %for.inc89
@@ -2181,19 +2180,19 @@ delete.notnull.i96:                               ; preds = %lpad
   br label %common.resume
 
 if.end45:                                         ; preds = %invoke.cont41
-  %events = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv191, i32 2
+  %events = getelementptr inbounds i8, ptr %arrayidx32, i64 12
   %45 = load i16, ptr %events, align 4
   %tobool48.not = icmp ne i16 %45, 0
   %conv49 = zext i1 %tobool48.not to i16
   br label %for.inc89
 
 if.else54:                                        ; preds = %for.body30
-  %fd57 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv191, i32 1
+  %fd57 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
   %46 = load i32, ptr %fd57, align 8
   %47 = load ptr, ptr %_buf.i88, align 8
   %arrayidx.i101 = getelementptr inbounds %struct.pollfd, ptr %47, i64 %indvars.iv191
   store i32 %46, ptr %arrayidx.i101, align 4
-  %events64 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv191, i32 2
+  %events64 = getelementptr inbounds i8, ptr %arrayidx32, i64 12
   %48 = load i16, ptr %events64, align 4
   %conv65 = sext i16 %48 to i32
   %and = and i32 %conv65, 1
@@ -2261,7 +2260,7 @@ for.body119:                                      ; preds = %for.body119.prehead
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %if.end230 ], [ 0, %for.body119.preheader ]
   %nevents.1174 = phi i32 [ %spec.select, %if.end230 ], [ 0, %for.body119.preheader ]
   %arrayidx121 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv194
-  %revents = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv194, i32 3
+  %revents = getelementptr inbounds i8, ptr %arrayidx121, i64 14
   store i16 0, ptr %revents, align 2
   %55 = load ptr, ptr %arrayidx121, align 8
   %tobool125.not = icmp eq ptr %55, null
@@ -2284,7 +2283,7 @@ invoke.cont130:                                   ; preds = %if.end.i110
   br i1 %cmp132, label %cleanup, label %if.end134
 
 if.end134:                                        ; preds = %invoke.cont130
-  %events137 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv194, i32 2
+  %events137 = getelementptr inbounds i8, ptr %arrayidx121, i64 12
   %56 = load i16, ptr %events137, align 4
   %57 = and i16 %56, 2
   %tobool140.not = icmp eq i16 %57, 0
@@ -2512,13 +2511,13 @@ do.end.thread:                                    ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %call1 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
-  %maxfd.i39 = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %agg.result, i64 0, i32 6
+  %maxfd.i39 = getelementptr inbounds i8, ptr %agg.result, i64 768
   store i32 0, ptr %maxfd.i39, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %agg.result, i8 0, i64 384, i1 false)
   br label %for.body.lr.ph
 
 do.end:                                           ; preds = %entry
-  %maxfd.i = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %agg.result, i64 0, i32 6
+  %maxfd.i = getelementptr inbounds i8, ptr %agg.result, i64 768
   store i32 0, ptr %maxfd.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %agg.result, i8 0, i64 384, i1 false)
   %cmp2.not35 = icmp eq i32 %nitems_, 0
@@ -2526,8 +2525,8 @@ do.end:                                           ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %do.end.thread, %do.end
   %maxfd.i41 = phi ptr [ %maxfd.i39, %do.end.thread ], [ %maxfd.i, %do.end ]
-  %pollset_out = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %agg.result, i64 0, i32 1
-  %pollset_err = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %agg.result, i64 0, i32 2
+  %pollset_out = getelementptr inbounds i8, ptr %agg.result, i64 128
+  %pollset_err = getelementptr inbounds i8, ptr %agg.result, i64 256
   %2 = zext i32 %nitems_ to i64
   br label %for.body
 
@@ -2554,7 +2553,7 @@ zmq_getsockopt.exit:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %zmq_getsockopt.exit
-  %events = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 2
+  %events = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %4 = load i16, ptr %events, align 4
   %tobool13.not = icmp eq i16 %4, 0
   br i1 %tobool13.not, label %for.inc, label %if.then14
@@ -2575,14 +2574,14 @@ if.then14:                                        ; preds = %if.end10
   br i1 %cmp18, label %for.inc.sink.split, label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %events25 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 2
+  %events25 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %8 = load i16, ptr %events25, align 4
   %9 = and i16 %8, 1
   %tobool26.not = icmp eq i16 %9, 0
   br i1 %tobool26.not, label %if.end43, label %if.then27
 
 if.then27:                                        ; preds = %if.else
-  %fd = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 1
+  %fd = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %fd, align 8
   %rem30 = srem i32 %10, 64
   %sh_prom31 = zext nneg i32 %rem30 to i64
@@ -2601,7 +2600,7 @@ if.end43:                                         ; preds = %if.then27, %if.else
   br i1 %tobool49.not, label %if.end66, label %if.then50
 
 if.then50:                                        ; preds = %if.end43
-  %fd53 = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 1
+  %fd53 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load i32, ptr %fd53, align 8
   %rem54 = srem i32 %13, 64
   %sh_prom55 = zext nneg i32 %rem54 to i64
@@ -2617,7 +2616,7 @@ if.then50:                                        ; preds = %if.end43
 if.end66:                                         ; preds = %if.then50, %if.end43
   %15 = and i16 %8, 4
   %tobool72.not = icmp eq i16 %15, 0
-  %fd93.phi.trans.insert = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 1
+  %fd93.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %.pre = load i32, ptr %fd93.phi.trans.insert, align 8
   br i1 %tobool72.not, label %if.end89, label %if.then73
 
@@ -2673,7 +2672,7 @@ if.else2:                                         ; preds = %if.else
   store i64 %div, ptr %timeout, align 8
   %rem = urem i64 %sub, 1000
   %mul = mul nuw nsw i64 %rem, 1000
-  %tv_usec5 = getelementptr inbounds %struct.timeval, ptr %timeout, i64 0, i32 1
+  %tv_usec5 = getelementptr inbounds i8, ptr %timeout, i64 8
   store i64 %mul, ptr %tv_usec5, align 8
   br label %if.end6
 
@@ -2701,7 +2700,7 @@ if.else2:                                         ; preds = %if.else
   store i64 %div, ptr %timeout, align 8
   %rem = urem i64 %sub, 1000
   %mul = mul nuw nsw i64 %rem, 1000000
-  %tv_nsec5 = getelementptr inbounds %struct.timespec, ptr %timeout, i64 0, i32 1
+  %tv_nsec5 = getelementptr inbounds i8, ptr %timeout, i64 8
   store i64 %mul, ptr %tv_nsec5, align 8
   br label %if.end6
 
@@ -2719,16 +2718,16 @@ entry:
   br i1 %cmp.not40, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %inset = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 3
-  %outset = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 4
-  %errset = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 5
+  %inset = getelementptr inbounds i8, ptr %fds, i64 384
+  %outset = getelementptr inbounds i8, ptr %fds, i64 512
+  %errset = getelementptr inbounds i8, ptr %fds, i64 640
   %0 = zext i32 %nitems_ to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv
-  %revents = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 3
+  %revents = getelementptr inbounds i8, ptr %arrayidx, i64 14
   store i16 0, ptr %revents, align 2
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -2750,7 +2749,7 @@ zmq_getsockopt.exit:                              ; preds = %lor.lhs.false.i.i
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %zmq_getsockopt.exit
-  %events = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 2
+  %events = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %2 = load i16, ptr %events, align 4
   %3 = and i16 %2, 2
   %tobool10.not = icmp eq i16 %3, 0
@@ -2789,7 +2788,7 @@ if.then29:                                        ; preds = %land.lhs.true26
   br label %if.then108.sink.split
 
 if.else:                                          ; preds = %for.body
-  %fd = getelementptr inbounds %struct.zmq_pollitem_t, ptr %items_, i64 %indvars.iv, i32 1
+  %fd = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %fd, align 8
   %div = sdiv i32 %10, 64
   %idxprom40 = sext i32 %div to i64
@@ -2955,13 +2954,13 @@ if.end:                                           ; preds = %_Z21zmq_poll_check_
 
 if.end3:                                          ; preds = %if.end
   store i32 0, ptr %nevents, align 4
-  %inset = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 3
-  %outset = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 4
-  %pollset_out = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 1
-  %errset = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 5
-  %pollset_err = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 2
-  %maxfd = getelementptr inbounds %struct.zmq_poll_select_fds_t_, ptr %fds, i64 0, i32 6
-  %tv_nsec5.i = getelementptr inbounds %struct.timespec, ptr %timeout, i64 0, i32 1
+  %inset = getelementptr inbounds i8, ptr %fds, i64 384
+  %outset = getelementptr inbounds i8, ptr %fds, i64 512
+  %pollset_out = getelementptr inbounds i8, ptr %fds, i64 128
+  %errset = getelementptr inbounds i8, ptr %fds, i64 640
+  %pollset_err = getelementptr inbounds i8, ptr %fds, i64 256
+  %maxfd = getelementptr inbounds i8, ptr %fds, i64 768
+  %tv_nsec5.i = getelementptr inbounds i8, ptr %timeout, i64 8
   %cmp.i10.not.not = icmp eq i64 %timeout_, 0
   br i1 %cmp.i10.not.not, label %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us, label %while.body.outer.outer.split.us.lr.ph
 
@@ -3181,8 +3180,8 @@ _ZL12check_pollerPv.exit.thread:                  ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false.i
-  %_items.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %poller_, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.zmq::socket_poller_t", ptr %poller_, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_items.i = getelementptr inbounds i8, ptr %poller_, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %poller_, i64 24
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %_items.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3468,11 +3467,11 @@ zmq_poller_wait_all.exit:                         ; preds = %_ZL12check_pollerPv
 
 if.then:                                          ; preds = %zmq_poller_wait_all.exit
   store ptr null, ptr %event_, align 8
-  %fd = getelementptr inbounds %struct.zmq_poller_event_t, ptr %event_, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %event_, i64 8
   store i32 -1, ptr %fd, align 8
-  %user_data = getelementptr inbounds %struct.zmq_poller_event_t, ptr %event_, i64 0, i32 2
+  %user_data = getelementptr inbounds i8, ptr %event_, i64 16
   store ptr null, ptr %user_data, align 8
-  %events = getelementptr inbounds %struct.zmq_poller_event_t, ptr %event_, i64 0, i32 3
+  %events = getelementptr inbounds i8, ptr %event_, i64 24
   store i16 0, ptr %events, align 8
   br label %if.end
 
@@ -3569,7 +3568,7 @@ _ZL16as_socket_base_tPv.exit.thread:              ; preds = %entry, %lor.lhs.fal
 
 if.end:                                           ; preds = %lor.lhs.false.i
   %vtable = load ptr, ptr %s_, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(1825) %s_, ptr noundef %routing_id_, i64 noundef %routing_id_size_)
   br label %return

@@ -53,7 +53,7 @@ define hidden zeroext i1 @"_ZN10serde_json5value10partial_eq7eq_bool28_$u7b$$u7b
 define hidden zeroext i1 @"_ZN10serde_json5value10partial_eq6eq_str28_$u7b$$u7b$closure$u7d$$u7d$17hefee38af8887bf3eE"(ptr align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %5, align 8
   %6 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %6)

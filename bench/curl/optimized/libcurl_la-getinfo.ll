@@ -3,48 +3,7 @@ source_filename = "bench/curl/original/libcurl_la-getinfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.connectdata = type { %struct.Curl_llist_element, ptr, ptr, i64, ptr, ptr, %struct.hostname, ptr, ptr, %struct.hostname, %struct.proxy_info, %struct.proxy_info, [46 x i8], ptr, ptr, ptr, ptr, ptr, %struct.curltime, %struct.curltime, %struct.curltime, [2 x i32], [2 x ptr], [2 x ptr], [2 x ptr], %struct.ssl_primary_config, %struct.ssl_primary_config, %struct.ConnectBits, ptr, ptr, %struct.curltime, i32, i32, %struct.Curl_llist, ptr, ptr, i32, i32, %struct.ntlmdata, %struct.ntlmdata, %union.anon.2, ptr, ptr, ptr, i16, i32, i32, i32, i32, i32, i16, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.hostname = type { ptr, ptr, ptr, ptr }
-%struct.proxy_info = type { %struct.hostname, i32, i8, ptr, ptr }
-%struct.ConnectBits = type { i32 }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-%union.anon.2 = type { %struct.ftp_conn }
-%struct.ftp_conn = type { %struct.pingpong, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, ptr, i64, i32, i32, i32, i32, i32, i16, i8, i8, i8, i8, i8 }
-%struct.pingpong = type { ptr, i64, i64, ptr, i8, ptr, i64, i64, %struct.curltime, i64, %struct.dynbuf, ptr, ptr }
 
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -59,46 +18,46 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Curl_initinfo(ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %info1 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
-  %t_nslookup = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 12
-  %timespent = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 8
+  %info1 = getelementptr inbounds i8, ptr %data, i64 5056
+  %t_nslookup = getelementptr inbounds i8, ptr %data, i64 2832
+  %timespent = getelementptr inbounds i8, ptr %data, i64 2800
   store i64 0, ptr %timespent, align 8
-  %is_t_startransfer_set = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 29
+  %is_t_startransfer_set = getelementptr inbounds i8, ptr %data, i64 3140
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %t_nslookup, i8 0, i64 48, i1 false)
   %bf.load = load i8, ptr %is_t_startransfer_set, align 4
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %is_t_startransfer_set, align 4
   store i32 0, ptr %info1, align 8
-  %httpproxycode = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 1
+  %httpproxycode = getelementptr inbounds i8, ptr %data, i64 5060
   store i32 0, ptr %httpproxycode, align 4
-  %httpversion = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 2
+  %httpversion = getelementptr inbounds i8, ptr %data, i64 5064
   store i32 0, ptr %httpversion, align 8
-  %filetime = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 3
+  %filetime = getelementptr inbounds i8, ptr %data, i64 5072
   store i64 -1, ptr %filetime, align 8
-  %timecond = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 21
+  %timecond = getelementptr inbounds i8, ptr %data, i64 5284
   %bf.load2 = load i8, ptr %timecond, align 4
   %bf.clear3 = and i8 %bf.load2, -2
   store i8 %bf.clear3, ptr %timecond, align 4
-  %header_size = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 11
+  %header_size = getelementptr inbounds i8, ptr %data, i64 5136
   store i32 0, ptr %header_size, align 8
-  %request_size = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 4
+  %request_size = getelementptr inbounds i8, ptr %data, i64 5080
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %request_size, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr @Curl_cfree, align 8
-  %contenttype = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 8
+  %contenttype = getelementptr inbounds i8, ptr %data, i64 5112
   %1 = load ptr, ptr %contenttype, align 8
   tail call void %0(ptr noundef %1) #4
   store ptr null, ptr %contenttype, align 8
   %2 = load ptr, ptr @Curl_cfree, align 8
-  %wouldredirect = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 9
+  %wouldredirect = getelementptr inbounds i8, ptr %data, i64 5120
   %3 = load ptr, ptr %wouldredirect, align 8
   tail call void %2(ptr noundef %3) #4
-  %conn_primary_ip = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 12
+  %conn_primary_ip = getelementptr inbounds i8, ptr %data, i64 5140
   store i8 0, ptr %conn_primary_ip, align 4
-  %conn_local_ip = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 15
+  %conn_local_ip = getelementptr inbounds i8, ptr %data, i64 5196
   store i8 0, ptr %conn_local_ip, align 4
-  %conn_primary_port = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 13
+  %conn_primary_port = getelementptr inbounds i8, ptr %data, i64 5188
   store i32 0, ptr %conn_primary_port, align 4
-  %conn_local_port = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 16
+  %conn_local_port = getelementptr inbounds i8, ptr %data, i64 5244
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wouldredirect, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %conn_local_port, i8 0, i64 16, i1 false)
   tail call void @Curl_ssl_free_certinfo(ptr noundef %data) #4
@@ -134,7 +93,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %sw.bb
-  %2 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %arg, i64 16
   %reg_save_area = load ptr, ptr %2, align 16
   %3 = zext nneg i32 %gp_offset to i64
   %4 = getelementptr i8, ptr %reg_save_area, i64 %3
@@ -143,7 +102,7 @@ vaarg.in_reg:                                     ; preds = %sw.bb
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %sw.bb
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 2
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %arg, i64 8
   %overflow_arg_area = load ptr, ptr %overflow_arg_area_p, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
@@ -173,72 +132,72 @@ if.then3:                                         ; preds = %vaarg.end
   ]
 
 sw.bb.i:                                          ; preds = %if.then3
-  %url.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 46
+  %url.i = getelementptr inbounds i8, ptr %data, i64 4696
   %7 = load ptr, ptr %url.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   %spec.select.i = select i1 %tobool.not.i, ptr @.str, ptr %7
   br label %return.sink.split.i
 
 sw.bb3.i:                                         ; preds = %if.then3
-  %arrayidx.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 6
+  %arrayidx.i = getelementptr inbounds i8, ptr %data, i64 1864
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool4.not.i = icmp eq ptr %8, null
   br i1 %tobool4.not.i, label %if.then.i, label %return.sink.split.i
 
 if.then.i:                                        ; preds = %sw.bb3.i
-  %opt_no_body.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %opt_no_body.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i = load i64, ptr %opt_no_body.i, align 2
   %9 = and i64 %bf.load.i, 268435456
   %tobool6.not.i = icmp eq i64 %9, 0
   br i1 %tobool6.not.i, label %if.else.i, label %return.sink.split.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %httpreq.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 61
+  %httpreq.i = getelementptr inbounds i8, ptr %data, i64 5042
   %10 = load i8, ptr %httpreq.i, align 2
   %switch.tableidx = add i8 %10, -1
   %11 = icmp ult i8 %switch.tableidx, 5
   br i1 %11, label %switch.lookup, label %return.sink.split.i
 
 sw.bb14.i:                                        ; preds = %if.then3
-  %contenttype.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 8
+  %contenttype.i = getelementptr inbounds i8, ptr %data, i64 5112
   %12 = load ptr, ptr %contenttype.i, align 8
   br label %return.sink.split.i
 
 sw.bb16.i:                                        ; preds = %if.then3
-  %private_data.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 76
+  %private_data.i = getelementptr inbounds i8, ptr %data, i64 1744
   %13 = load ptr, ptr %private_data.i, align 8
   br label %return.sink.split.i
 
 sw.bb18.i:                                        ; preds = %if.then3
-  %most_recent_ftp_entrypath.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 32
+  %most_recent_ftp_entrypath.i = getelementptr inbounds i8, ptr %data, i64 4504
   %14 = load ptr, ptr %most_recent_ftp_entrypath.i, align 8
   br label %return.sink.split.i
 
 sw.bb20.i:                                        ; preds = %if.then3
-  %wouldredirect.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 9
+  %wouldredirect.i = getelementptr inbounds i8, ptr %data, i64 5120
   %15 = load ptr, ptr %wouldredirect.i, align 8
   br label %return.sink.split.i
 
 sw.bb22.i:                                        ; preds = %if.then3
-  %referer.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 47
+  %referer.i = getelementptr inbounds i8, ptr %data, i64 4704
   %16 = load ptr, ptr %referer.i, align 8
   br label %return.sink.split.i
 
 sw.bb24.i:                                        ; preds = %if.then3
-  %conn_primary_ip.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 12
+  %conn_primary_ip.i = getelementptr inbounds i8, ptr %data, i64 5140
   br label %return.sink.split.i
 
 sw.bb26.i:                                        ; preds = %if.then3
-  %conn_local_ip.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 15
+  %conn_local_ip.i = getelementptr inbounds i8, ptr %data, i64 5196
   br label %return.sink.split.i
 
 sw.bb29.i:                                        ; preds = %if.then3
-  %arrayidx32.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 93, i64 48
+  %arrayidx32.i = getelementptr inbounds i8, ptr %data, i64 2200
   %17 = load ptr, ptr %arrayidx32.i, align 8
   br label %return.sink.split.i
 
 sw.bb33.i:                                        ; preds = %if.then3
-  %conn_scheme.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 17
+  %conn_scheme.i = getelementptr inbounds i8, ptr %data, i64 5248
   %18 = load ptr, ptr %conn_scheme.i, align 8
   br label %return.sink.split.i
 
@@ -262,7 +221,7 @@ sw.bb5:                                           ; preds = %if.end
   br i1 %fits_in_gp9, label %vaarg.in_reg10, label %vaarg.in_mem12
 
 vaarg.in_reg10:                                   ; preds = %sw.bb5
-  %20 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 3
+  %20 = getelementptr inbounds i8, ptr %arg, i64 16
   %reg_save_area11 = load ptr, ptr %20, align 16
   %21 = zext nneg i32 %gp_offset8 to i64
   %22 = getelementptr i8, ptr %reg_save_area11, i64 %21
@@ -271,7 +230,7 @@ vaarg.in_reg10:                                   ; preds = %sw.bb5
   br label %vaarg.end16
 
 vaarg.in_mem12:                                   ; preds = %sw.bb5
-  %overflow_arg_area_p13 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 2
+  %overflow_arg_area_p13 = getelementptr inbounds i8, ptr %arg, i64 8
   %overflow_arg_area14 = load ptr, ptr %overflow_arg_area_p13, align 8
   %overflow_arg_area.next15 = getelementptr i8, ptr %overflow_arg_area14, i64 8
   store ptr %overflow_arg_area.next15, ptr %overflow_arg_area_p13, align 8
@@ -310,66 +269,66 @@ if.then19:                                        ; preds = %vaarg.end16
   ]
 
 sw.bb.i32:                                        ; preds = %if.then19
-  %info1.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
+  %info1.i = getelementptr inbounds i8, ptr %data, i64 5056
   %25 = load i32, ptr %info1.i, align 8
   %conv.i = sext i32 %25 to i64
   br label %return.sink.split.i24
 
 sw.bb2.i:                                         ; preds = %if.then19
-  %httpproxycode.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 1
+  %httpproxycode.i = getelementptr inbounds i8, ptr %data, i64 5060
   %26 = load i32, ptr %httpproxycode.i, align 4
   %conv4.i = sext i32 %26 to i64
   br label %return.sink.split.i24
 
 sw.bb5.i:                                         ; preds = %if.then19
-  %filetime.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 3
+  %filetime.i = getelementptr inbounds i8, ptr %data, i64 5072
   %27 = load i64, ptr %filetime.i, align 8
   br label %return.sink.split.i24
 
 sw.bb17.i:                                        ; preds = %if.then19
-  %header_size.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 11
+  %header_size.i = getelementptr inbounds i8, ptr %data, i64 5136
   %28 = load i32, ptr %header_size.i, align 8
   %conv19.i = zext i32 %28 to i64
   br label %return.sink.split.i24
 
 sw.bb20.i31:                                      ; preds = %if.then19
-  %request_size.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 4
+  %request_size.i = getelementptr inbounds i8, ptr %data, i64 5080
   %29 = load i64, ptr %request_size.i, align 8
   br label %return.sink.split.i24
 
 sw.bb22.i30:                                      ; preds = %if.then19
-  %certverifyresult.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 64, i32 1
+  %certverifyresult.i = getelementptr inbounds i8, ptr %data, i64 1424
   %30 = load i64, ptr %certverifyresult.i, align 8
   br label %return.sink.split.i24
 
 sw.bb23.i:                                        ; preds = %if.then19
-  %certverifyresult25.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 65, i32 1
+  %certverifyresult25.i = getelementptr inbounds i8, ptr %data, i64 1624
   %31 = load i64, ptr %certverifyresult25.i, align 8
   br label %return.sink.split.i24
 
 sw.bb26.i29:                                      ; preds = %if.then19
-  %followlocation.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 19
+  %followlocation.i = getelementptr inbounds i8, ptr %data, i64 3424
   %32 = load i64, ptr %followlocation.i, align 8
   br label %return.sink.split.i24
 
 sw.bb27.i:                                        ; preds = %if.then19
-  %httpauthavail.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 6
+  %httpauthavail.i = getelementptr inbounds i8, ptr %data, i64 5096
   %33 = load i64, ptr %httpauthavail.i, align 8
   br label %return.sink.split.i24
 
 sw.bb29.i28:                                      ; preds = %if.then19
-  %proxyauthavail.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 5
+  %proxyauthavail.i = getelementptr inbounds i8, ptr %data, i64 5088
   %34 = load i64, ptr %proxyauthavail.i, align 8
   br label %return.sink.split.i24
 
 sw.bb31.i:                                        ; preds = %if.then19
-  %os_errno.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 17
+  %os_errno.i = getelementptr inbounds i8, ptr %data, i64 3412
   %35 = load i32, ptr %os_errno.i, align 4
   %conv33.i = sext i32 %35 to i64
   br label %return.sink.split.i24
 
 sw.bb34.i:                                        ; preds = %if.then19
-  %numconnects.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 7
+  %numconnects.i = getelementptr inbounds i8, ptr %data, i64 5104
   %36 = load i64, ptr %numconnects.i, align 8
   br label %return.sink.split.i24
 
@@ -379,53 +338,53 @@ sw.bb36.i27:                                      ; preds = %if.then19
   br label %return.sink.split.i24
 
 sw.bb43.i:                                        ; preds = %if.then19
-  %conn_primary_port.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 13
+  %conn_primary_port.i = getelementptr inbounds i8, ptr %data, i64 5188
   %37 = load i32, ptr %conn_primary_port.i, align 4
   %conv45.i = sext i32 %37 to i64
   br label %return.sink.split.i24
 
 sw.bb46.i:                                        ; preds = %if.then19
-  %conn_local_port.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 16
+  %conn_local_port.i = getelementptr inbounds i8, ptr %data, i64 5244
   %38 = load i32, ptr %conn_local_port.i, align 4
   %conv48.i = sext i32 %38 to i64
   br label %return.sink.split.i24
 
 sw.bb49.i:                                        ; preds = %if.then19
-  %pxcode.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 20
+  %pxcode.i = getelementptr inbounds i8, ptr %data, i64 5280
   %39 = load i32, ptr %pxcode.i, align 8
   %conv51.i = zext i32 %39 to i64
   br label %return.sink.split.i24
 
 sw.bb52.i:                                        ; preds = %if.then19
-  %info53.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24
+  %info53.i = getelementptr inbounds i8, ptr %data, i64 5056
   %40 = load i32, ptr %info53.i, align 8
   %cmp55.i = icmp eq i32 %40, 304
   br i1 %cmp55.i, label %return.sink.split.i24, label %if.else58.i
 
 if.else58.i:                                      ; preds = %sw.bb52.i
-  %timecond.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 21
+  %timecond.i = getelementptr inbounds i8, ptr %data, i64 5284
   %bf.load.i26 = load i8, ptr %timecond.i, align 4
   %bf.clear.i = and i8 %bf.load.i26, 1
   %cond.i = zext nneg i8 %bf.clear.i to i64
   br label %return.sink.split.i24
 
 sw.bb61.i:                                        ; preds = %if.then19
-  %rtsp_next_client_CSeq.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 37
+  %rtsp_next_client_CSeq.i = getelementptr inbounds i8, ptr %data, i64 4544
   %41 = load i64, ptr %rtsp_next_client_CSeq.i, align 8
   br label %return.sink.split.i24
 
 sw.bb63.i:                                        ; preds = %if.then19
-  %rtsp_next_server_CSeq.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 38
+  %rtsp_next_server_CSeq.i = getelementptr inbounds i8, ptr %data, i64 4552
   %42 = load i64, ptr %rtsp_next_server_CSeq.i, align 8
   br label %return.sink.split.i24
 
 sw.bb65.i:                                        ; preds = %if.then19
-  %rtsp_CSeq_recv.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 39
+  %rtsp_CSeq_recv.i = getelementptr inbounds i8, ptr %data, i64 4560
   %43 = load i64, ptr %rtsp_CSeq_recv.i, align 8
   br label %return.sink.split.i24
 
 sw.bb67.i:                                        ; preds = %if.then19
-  %httpversion.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 2
+  %httpversion.i = getelementptr inbounds i8, ptr %data, i64 5064
   %44 = load i32, ptr %httpversion.i, align 8
   switch i32 %44, label %sw.default.i [
     i32 10, label %return.sink.split.i24
@@ -447,7 +406,7 @@ sw.default.i:                                     ; preds = %sw.bb67.i
   br label %return.sink.split.i24
 
 sw.bb73.i:                                        ; preds = %if.then19
-  %conn_protocol.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 18
+  %conn_protocol.i = getelementptr inbounds i8, ptr %data, i64 5256
   %45 = load i32, ptr %conn_protocol.i, align 8
   %conv75.i = zext i32 %45 to i64
   br label %return.sink.split.i24
@@ -463,7 +422,7 @@ sw.bb22:                                          ; preds = %if.end
   br i1 %fits_in_gp26, label %vaarg.in_reg27, label %vaarg.in_mem29
 
 vaarg.in_reg27:                                   ; preds = %sw.bb22
-  %46 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 3
+  %46 = getelementptr inbounds i8, ptr %arg, i64 16
   %reg_save_area28 = load ptr, ptr %46, align 16
   %47 = zext nneg i32 %gp_offset25 to i64
   %48 = getelementptr i8, ptr %reg_save_area28, i64 %47
@@ -472,7 +431,7 @@ vaarg.in_reg27:                                   ; preds = %sw.bb22
   br label %vaarg.end33
 
 vaarg.in_mem29:                                   ; preds = %sw.bb22
-  %overflow_arg_area_p30 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 2
+  %overflow_arg_area_p30 = getelementptr inbounds i8, ptr %arg, i64 8
   %overflow_arg_area31 = load ptr, ptr %overflow_arg_area_p30, align 8
   %overflow_arg_area.next32 = getelementptr i8, ptr %overflow_arg_area31, i64 8
   store ptr %overflow_arg_area.next32, ptr %overflow_arg_area_p30, align 8
@@ -502,99 +461,99 @@ if.then36:                                        ; preds = %vaarg.end33
   ]
 
 sw.bb.i42:                                        ; preds = %if.then36
-  %timespent.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 8
+  %timespent.i = getelementptr inbounds i8, ptr %data, i64 2800
   %51 = load i64, ptr %timespent.i, align 8
   %conv.i43 = sitofp i64 %51 to double
   %div.i = fdiv double %conv.i43, 1.000000e+06
   br label %return.sink.split.i33
 
 sw.bb1.i:                                         ; preds = %if.then36
-  %t_nslookup.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 12
+  %t_nslookup.i = getelementptr inbounds i8, ptr %data, i64 2832
   %52 = load i64, ptr %t_nslookup.i, align 8
   %conv3.i = sitofp i64 %52 to double
   %div4.i = fdiv double %conv3.i, 1.000000e+06
   br label %return.sink.split.i33
 
 sw.bb5.i41:                                       ; preds = %if.then36
-  %t_connect.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 13
+  %t_connect.i = getelementptr inbounds i8, ptr %data, i64 2840
   %53 = load i64, ptr %t_connect.i, align 8
   %conv7.i = sitofp i64 %53 to double
   %div8.i = fdiv double %conv7.i, 1.000000e+06
   br label %return.sink.split.i33
 
 sw.bb9.i:                                         ; preds = %if.then36
-  %t_appconnect.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 14
+  %t_appconnect.i = getelementptr inbounds i8, ptr %data, i64 2848
   %54 = load i64, ptr %t_appconnect.i, align 8
   %conv11.i = sitofp i64 %54 to double
   %div12.i = fdiv double %conv11.i, 1.000000e+06
   br label %return.sink.split.i33
 
 sw.bb13.i:                                        ; preds = %if.then36
-  %t_pretransfer.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 15
+  %t_pretransfer.i = getelementptr inbounds i8, ptr %data, i64 2856
   %55 = load i64, ptr %t_pretransfer.i, align 8
   %conv15.i = sitofp i64 %55 to double
   %div16.i = fdiv double %conv15.i, 1.000000e+06
   br label %return.sink.split.i33
 
 sw.bb17.i39:                                      ; preds = %if.then36
-  %t_starttransfer.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 16
+  %t_starttransfer.i = getelementptr inbounds i8, ptr %data, i64 2864
   %56 = load i64, ptr %t_starttransfer.i, align 8
   %conv19.i40 = sitofp i64 %56 to double
   %div20.i = fdiv double %conv19.i40, 1.000000e+06
   br label %return.sink.split.i33
 
 sw.bb21.i:                                        ; preds = %if.then36
-  %uploaded.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 4
+  %uploaded.i = getelementptr inbounds i8, ptr %data, i64 2776
   %57 = load i64, ptr %uploaded.i, align 8
   %conv23.i = sitofp i64 %57 to double
   br label %return.sink.split.i33
 
 sw.bb24.i38:                                      ; preds = %if.then36
-  %downloaded.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 3
+  %downloaded.i = getelementptr inbounds i8, ptr %data, i64 2768
   %58 = load i64, ptr %downloaded.i, align 8
   %conv26.i = sitofp i64 %58 to double
   br label %return.sink.split.i33
 
 sw.bb27.i37:                                      ; preds = %if.then36
-  %dlspeed.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 9
+  %dlspeed.i = getelementptr inbounds i8, ptr %data, i64 2808
   %59 = load i64, ptr %dlspeed.i, align 8
   %conv29.i = sitofp i64 %59 to double
   br label %return.sink.split.i33
 
 sw.bb30.i:                                        ; preds = %if.then36
-  %ulspeed.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 10
+  %ulspeed.i = getelementptr inbounds i8, ptr %data, i64 2816
   %60 = load i64, ptr %ulspeed.i, align 8
   %conv32.i = sitofp i64 %60 to double
   br label %return.sink.split.i33
 
 sw.bb33.i35:                                      ; preds = %if.then36
-  %flags.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %data, i64 2796
   %61 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %61, 64
   %tobool.not.i36 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i36, label %return.sink.split.i33, label %cond.true.i
 
 cond.true.i:                                      ; preds = %sw.bb33.i35
-  %size_dl.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 1
+  %size_dl.i = getelementptr inbounds i8, ptr %data, i64 2752
   %62 = load i64, ptr %size_dl.i, align 8
   %conv36.i = sitofp i64 %62 to double
   br label %return.sink.split.i33
 
 sw.bb37.i:                                        ; preds = %if.then36
-  %flags39.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 7
+  %flags39.i = getelementptr inbounds i8, ptr %data, i64 2796
   %63 = load i32, ptr %flags39.i, align 4
   %and40.i = and i32 %63, 32
   %tobool41.not.i = icmp eq i32 %and40.i, 0
   br i1 %tobool41.not.i, label %return.sink.split.i33, label %cond.true42.i
 
 cond.true42.i:                                    ; preds = %sw.bb37.i
-  %size_ul.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 2
+  %size_ul.i = getelementptr inbounds i8, ptr %data, i64 2760
   %64 = load i64, ptr %size_ul.i, align 8
   %conv44.i = sitofp i64 %64 to double
   br label %return.sink.split.i33
 
 sw.bb48.i:                                        ; preds = %if.then36
-  %t_redirect.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 17
+  %t_redirect.i = getelementptr inbounds i8, ptr %data, i64 2872
   %65 = load i64, ptr %t_redirect.i, align 8
   %conv50.i = sitofp i64 %65 to double
   %div51.i = fdiv double %conv50.i, 1.000000e+06
@@ -611,7 +570,7 @@ sw.bb39:                                          ; preds = %if.end
   br i1 %fits_in_gp43, label %vaarg.in_reg44, label %vaarg.in_mem46
 
 vaarg.in_reg44:                                   ; preds = %sw.bb39
-  %66 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 3
+  %66 = getelementptr inbounds i8, ptr %arg, i64 16
   %reg_save_area45 = load ptr, ptr %66, align 16
   %67 = zext nneg i32 %gp_offset42 to i64
   %68 = getelementptr i8, ptr %reg_save_area45, i64 %67
@@ -620,7 +579,7 @@ vaarg.in_reg44:                                   ; preds = %sw.bb39
   br label %vaarg.end50
 
 vaarg.in_mem46:                                   ; preds = %sw.bb39
-  %overflow_arg_area_p47 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 2
+  %overflow_arg_area_p47 = getelementptr inbounds i8, ptr %arg, i64 8
   %overflow_arg_area48 = load ptr, ptr %overflow_arg_area_p47, align 8
   %overflow_arg_area.next49 = getelementptr i8, ptr %overflow_arg_area48, i64 8
   store ptr %overflow_arg_area.next49, ptr %overflow_arg_area_p47, align 8
@@ -655,93 +614,93 @@ if.then53:                                        ; preds = %vaarg.end50
   ]
 
 sw.bb.i74:                                        ; preds = %if.then53
-  %filetime.i75 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 3
+  %filetime.i75 = getelementptr inbounds i8, ptr %data, i64 5072
   br label %return.sink.split.sink.split.i
 
 sw.bb2.i72:                                       ; preds = %if.then53
-  %uploaded.i73 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 4
+  %uploaded.i73 = getelementptr inbounds i8, ptr %data, i64 2776
   br label %return.sink.split.sink.split.i
 
 sw.bb3.i70:                                       ; preds = %if.then53
-  %downloaded.i71 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 3
+  %downloaded.i71 = getelementptr inbounds i8, ptr %data, i64 2768
   br label %return.sink.split.sink.split.i
 
 sw.bb5.i68:                                       ; preds = %if.then53
-  %dlspeed.i69 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 9
+  %dlspeed.i69 = getelementptr inbounds i8, ptr %data, i64 2808
   br label %return.sink.split.sink.split.i
 
 sw.bb7.i:                                         ; preds = %if.then53
-  %ulspeed.i67 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 10
+  %ulspeed.i67 = getelementptr inbounds i8, ptr %data, i64 2816
   br label %return.sink.split.sink.split.i
 
 sw.bb9.i61:                                       ; preds = %if.then53
-  %flags.i62 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 7
+  %flags.i62 = getelementptr inbounds i8, ptr %data, i64 2796
   %71 = load i32, ptr %flags.i62, align 4
   %and.i63 = and i32 %71, 64
   %tobool.not.i64 = icmp eq i32 %and.i63, 0
   br i1 %tobool.not.i64, label %return.sink.split.i44, label %cond.true.i65
 
 cond.true.i65:                                    ; preds = %sw.bb9.i61
-  %size_dl.i66 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 1
+  %size_dl.i66 = getelementptr inbounds i8, ptr %data, i64 2752
   br label %return.sink.split.sink.split.i
 
 sw.bb12.i59:                                      ; preds = %if.then53
-  %flags14.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 7
+  %flags14.i = getelementptr inbounds i8, ptr %data, i64 2796
   %72 = load i32, ptr %flags14.i, align 4
   %and15.i = and i32 %72, 32
   %tobool16.not.i = icmp eq i32 %and15.i, 0
   br i1 %tobool16.not.i, label %return.sink.split.i44, label %cond.true17.i
 
 cond.true17.i:                                    ; preds = %sw.bb12.i59
-  %size_ul.i60 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 2
+  %size_ul.i60 = getelementptr inbounds i8, ptr %data, i64 2760
   br label %return.sink.split.sink.split.i
 
 sw.bb22.i57:                                      ; preds = %if.then53
-  %timespent.i58 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 8
+  %timespent.i58 = getelementptr inbounds i8, ptr %data, i64 2800
   br label %return.sink.split.sink.split.i
 
 sw.bb24.i55:                                      ; preds = %if.then53
-  %t_nslookup.i56 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 12
+  %t_nslookup.i56 = getelementptr inbounds i8, ptr %data, i64 2832
   br label %return.sink.split.sink.split.i
 
 sw.bb26.i53:                                      ; preds = %if.then53
-  %t_connect.i54 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 13
+  %t_connect.i54 = getelementptr inbounds i8, ptr %data, i64 2840
   br label %return.sink.split.sink.split.i
 
 sw.bb28.i:                                        ; preds = %if.then53
-  %t_appconnect.i52 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 14
+  %t_appconnect.i52 = getelementptr inbounds i8, ptr %data, i64 2848
   br label %return.sink.split.sink.split.i
 
 sw.bb30.i50:                                      ; preds = %if.then53
-  %t_pretransfer.i51 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 15
+  %t_pretransfer.i51 = getelementptr inbounds i8, ptr %data, i64 2856
   br label %return.sink.split.sink.split.i
 
 sw.bb32.i:                                        ; preds = %if.then53
-  %t_starttransfer.i49 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 16
+  %t_starttransfer.i49 = getelementptr inbounds i8, ptr %data, i64 2864
   br label %return.sink.split.sink.split.i
 
 sw.bb34.i48:                                      ; preds = %if.then53
-  %t_postqueue.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 11
+  %t_postqueue.i = getelementptr inbounds i8, ptr %data, i64 2824
   br label %return.sink.split.sink.split.i
 
 sw.bb36.i46:                                      ; preds = %if.then53
-  %t_redirect.i47 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 21, i32 17
+  %t_redirect.i47 = getelementptr inbounds i8, ptr %data, i64 2872
   br label %return.sink.split.sink.split.i
 
 sw.bb38.i:                                        ; preds = %if.then53
-  %retry_after.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 10
+  %retry_after.i = getelementptr inbounds i8, ptr %data, i64 5128
   br label %return.sink.split.sink.split.i
 
 sw.bb40.i:                                        ; preds = %if.then53
-  %id.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 1
+  %id.i = getelementptr inbounds i8, ptr %data, i64 8
   br label %return.sink.split.sink.split.i
 
 sw.bb41.i:                                        ; preds = %if.then53
-  %conn.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %conn.i = getelementptr inbounds i8, ptr %data, i64 32
   %73 = load ptr, ptr %conn.i, align 8
   %tobool42.not.i = icmp eq ptr %73, null
-  %connection_id.i = getelementptr inbounds %struct.connectdata, ptr %73, i64 0, i32 3
-  %recent_conn_id.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 3
+  %connection_id.i = getelementptr inbounds i8, ptr %73, i64 40
+  %recent_conn_id.i = getelementptr inbounds i8, ptr %data, i64 3176
   %cond47.in.i = select i1 %tobool42.not.i, ptr %recent_conn_id.i, ptr %connection_id.i
   br label %return.sink.split.sink.split.i
 
@@ -761,7 +720,7 @@ sw.bb56:                                          ; preds = %if.end
   br i1 %fits_in_gp60, label %vaarg.in_reg61, label %vaarg.in_mem63
 
 vaarg.in_reg61:                                   ; preds = %sw.bb56
-  %75 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 3
+  %75 = getelementptr inbounds i8, ptr %arg, i64 16
   %reg_save_area62 = load ptr, ptr %75, align 16
   %76 = zext nneg i32 %gp_offset59 to i64
   %77 = getelementptr i8, ptr %reg_save_area62, i64 %76
@@ -770,7 +729,7 @@ vaarg.in_reg61:                                   ; preds = %sw.bb56
   br label %vaarg.end67
 
 vaarg.in_mem63:                                   ; preds = %sw.bb56
-  %overflow_arg_area_p64 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 2
+  %overflow_arg_area_p64 = getelementptr inbounds i8, ptr %arg, i64 8
   %overflow_arg_area65 = load ptr, ptr %overflow_arg_area_p64, align 8
   %overflow_arg_area.next66 = getelementptr i8, ptr %overflow_arg_area65, i64 8
   store ptr %overflow_arg_area.next66, ptr %overflow_arg_area_p64, align 8
@@ -802,18 +761,18 @@ sw.bb1.i81:                                       ; preds = %if.then70
   br label %sw.epilog
 
 sw.bb3.i80:                                       ; preds = %if.then70
-  %certs.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 24, i32 19
+  %certs.i = getelementptr inbounds i8, ptr %data, i64 5264
   store ptr %certs.i, ptr %79, align 8
   br label %sw.epilog
 
 sw.bb5.i76:                                       ; preds = %if.then70, %if.then70
-  %tsi6.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 25
-  %conn7.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 4
+  %tsi6.i = getelementptr inbounds i8, ptr %data, i64 5288
+  %conn7.i = getelementptr inbounds i8, ptr %data, i64 32
   %80 = load ptr, ptr %conn7.i, align 8
   store ptr %tsi6.i, ptr %79, align 8
   %call8.i = call i32 @Curl_ssl_backend() #4
   store i32 %call8.i, ptr %tsi6.i, align 8
-  %internals.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 25, i32 1
+  %internals.i = getelementptr inbounds i8, ptr %data, i64 5296
   store ptr null, ptr %internals.i, align 8
   %tobool.not.i77 = icmp eq ptr %80, null
   %cmp.not.i = icmp eq i32 %call8.i, 0
@@ -831,7 +790,7 @@ sw.bb73:                                          ; preds = %if.end
   br i1 %fits_in_gp77, label %vaarg.in_reg78, label %vaarg.in_mem80
 
 vaarg.in_reg78:                                   ; preds = %sw.bb73
-  %81 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 3
+  %81 = getelementptr inbounds i8, ptr %arg, i64 16
   %reg_save_area79 = load ptr, ptr %81, align 16
   %82 = zext nneg i32 %gp_offset76 to i64
   %83 = getelementptr i8, ptr %reg_save_area79, i64 %82
@@ -840,7 +799,7 @@ vaarg.in_reg78:                                   ; preds = %sw.bb73
   br label %vaarg.end84
 
 vaarg.in_mem80:                                   ; preds = %sw.bb73
-  %overflow_arg_area_p81 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 2
+  %overflow_arg_area_p81 = getelementptr inbounds i8, ptr %arg, i64 8
   %overflow_arg_area82 = load ptr, ptr %overflow_arg_area_p81, align 8
   %overflow_arg_area.next83 = getelementptr i8, ptr %overflow_arg_area82, i64 8
   store ptr %overflow_arg_area.next83, ptr %overflow_arg_area_p81, align 8

@@ -49,7 +49,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call noundef i32 @_Z12FileTestMainPFbP8FileTestPvES1_PKc(ptr noundef nonnull @_ZL8TestHMACP8FileTestPv, ptr noundef null, ptr noundef %2)
   br label %return
@@ -286,13 +286,13 @@ ehcleanup62:                                      ; preds = %ehcleanup61, %lpad1
 
 if.end64:                                         ; preds = %cleanup.done42.thread
   %9 = load ptr, ptr %key, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %key, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %key, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %11 = load ptr, ptr %input, align 8
-  %_M_finish.i37 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %input, i64 0, i32 1
+  %_M_finish.i37 = getelementptr inbounds i8, ptr %input, i64 8
   %12 = load ptr, ptr %_M_finish.i37, align 8
   %sub.ptr.lhs.cast.i38 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i39 = ptrtoint ptr %11 to i64
@@ -306,7 +306,7 @@ invoke.cont70:                                    ; preds = %if.end64
 
 lor.lhs.false73:                                  ; preds = %invoke.cont70
   %13 = load ptr, ptr %output, align 8
-  %_M_finish.i41 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %output, i64 0, i32 1
+  %_M_finish.i41 = getelementptr inbounds i8, ptr %output, i64 8
   %14 = load ptr, ptr %_M_finish.i41, align 8
   %sub.ptr.lhs.cast.i42 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i43 = ptrtoint ptr %13 to i64

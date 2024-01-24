@@ -23,24 +23,24 @@ entry:
   %xor1.i.i = xor i64 %npub.val, %k.val
   %xor84.i.i = xor i64 %npub.val21, %k.val20
   %tmp5.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 8
-  %arrayidx7.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 1
-  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 1, i32 2
-  %arrayidx8.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 2
-  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 2, i32 2
-  %arrayidx9.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 3
-  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 3, i32 2
-  %arrayidx10.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 4
-  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 4, i32 2
-  %arrayidx13.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 5
+  %arrayidx7.i = getelementptr inbounds i8, ptr %state, i64 16
+  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 24
+  %arrayidx8.i = getelementptr inbounds i8, ptr %state, i64 32
+  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 40
+  %arrayidx9.i = getelementptr inbounds i8, ptr %state, i64 48
+  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 56
+  %arrayidx10.i = getelementptr inbounds i8, ptr %state, i64 64
+  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 72
+  %arrayidx13.i = getelementptr inbounds i8, ptr %state, i64 80
   %xor1.i39.i = xor i64 %k.val, 939006032783409408
   %xor84.i40.i = xor i64 %k.val20, 7095959494080274965
-  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 5, i32 2
-  %arrayidx16.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 6
+  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 88
+  %arrayidx16.i = getelementptr inbounds i8, ptr %state, i64 96
   %xor1.i43.i = xor i64 %k.val, -1067420811828642341
   %xor84.i44.i = xor i64 %k.val20, -2510557285622673120
-  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 6, i32 2
-  %arrayidx19.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 7
-  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 7, i32 2
+  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 104
+  %arrayidx19.i = getelementptr inbounds i8, ptr %state, i64 112
+  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 120
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -562,24 +562,24 @@ entry:
   %xor1.i.i = xor i64 %npub.val, %k.val
   %xor84.i.i = xor i64 %npub.val37, %k.val36
   %tmp5.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 8
-  %arrayidx7.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 1
-  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 1, i32 2
-  %arrayidx8.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 2
-  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 2, i32 2
-  %arrayidx9.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 3
-  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 3, i32 2
-  %arrayidx10.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 4
-  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 4, i32 2
-  %arrayidx13.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 5
+  %arrayidx7.i = getelementptr inbounds i8, ptr %state, i64 16
+  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 24
+  %arrayidx8.i = getelementptr inbounds i8, ptr %state, i64 32
+  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 40
+  %arrayidx9.i = getelementptr inbounds i8, ptr %state, i64 48
+  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 56
+  %arrayidx10.i = getelementptr inbounds i8, ptr %state, i64 64
+  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 72
+  %arrayidx13.i = getelementptr inbounds i8, ptr %state, i64 80
   %xor1.i39.i = xor i64 %k.val, 939006032783409408
   %xor84.i40.i = xor i64 %k.val36, 7095959494080274965
-  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 5, i32 2
-  %arrayidx16.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 6
+  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 88
+  %arrayidx16.i = getelementptr inbounds i8, ptr %state, i64 96
   %xor1.i43.i = xor i64 %k.val, -1067420811828642341
   %xor84.i44.i = xor i64 %k.val36, -2510557285622673120
-  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 6, i32 2
-  %arrayidx19.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 7
-  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds %struct.SoftAesBlock, ptr %state, i64 7, i32 2
+  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 104
+  %arrayidx19.i = getelementptr inbounds i8, ptr %state, i64 112
+  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 120
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -1359,9 +1359,9 @@ define internal fastcc noundef i32 @aegis128l_mac(ptr nocapture noundef writeonl
 entry:
   %shl = shl i64 %mlen, 3
   %shl2 = shl i64 %adlen, 3
-  %arrayidx = getelementptr %struct.SoftAesBlock, ptr %state, i64 2
+  %arrayidx = getelementptr i8, ptr %state, i64 32
   %0 = load i64, ptr %arrayidx, align 4
-  %1 = getelementptr %struct.SoftAesBlock, ptr %state, i64 2, i32 2
+  %1 = getelementptr i8, ptr %state, i64 40
   %2 = load i64, ptr %1, align 4
   %xor1.i = xor i64 %0, %shl2
   %xor84.i = xor i64 %2, %shl
@@ -1381,30 +1381,30 @@ for.end:                                          ; preds = %for.body
   ]
 
 if.then:                                          ; preds = %for.end
-  %arrayidx7 = getelementptr %struct.SoftAesBlock, ptr %state, i64 6
-  %arrayidx8 = getelementptr %struct.SoftAesBlock, ptr %state, i64 5
-  %arrayidx9 = getelementptr %struct.SoftAesBlock, ptr %state, i64 4
+  %arrayidx7 = getelementptr i8, ptr %state, i64 96
+  %arrayidx8 = getelementptr i8, ptr %state, i64 80
+  %arrayidx9 = getelementptr i8, ptr %state, i64 64
   %3 = load i64, ptr %arrayidx8, align 4
-  %4 = getelementptr %struct.SoftAesBlock, ptr %state, i64 5, i32 2
+  %4 = getelementptr i8, ptr %state, i64 88
   %5 = load i64, ptr %4, align 4
   %6 = load i64, ptr %arrayidx9, align 4
-  %7 = getelementptr %struct.SoftAesBlock, ptr %state, i64 4, i32 2
+  %7 = getelementptr i8, ptr %state, i64 72
   %8 = load i64, ptr %7, align 4
   %9 = load i64, ptr %arrayidx7, align 4
-  %10 = getelementptr %struct.SoftAesBlock, ptr %state, i64 6, i32 2
+  %10 = getelementptr i8, ptr %state, i64 104
   %11 = load i64, ptr %10, align 4
-  %arrayidx14 = getelementptr %struct.SoftAesBlock, ptr %state, i64 3
+  %arrayidx14 = getelementptr i8, ptr %state, i64 48
   %12 = load i64, ptr %arrayidx14, align 4
-  %13 = getelementptr %struct.SoftAesBlock, ptr %state, i64 3, i32 2
+  %13 = getelementptr i8, ptr %state, i64 56
   %14 = load i64, ptr %13, align 4
   %15 = load i64, ptr %arrayidx, align 4
   %16 = load i64, ptr %1, align 4
-  %arrayidx20 = getelementptr %struct.SoftAesBlock, ptr %state, i64 1
+  %arrayidx20 = getelementptr i8, ptr %state, i64 16
   %17 = load i64, ptr %arrayidx20, align 4
-  %18 = getelementptr %struct.SoftAesBlock, ptr %state, i64 1, i32 2
+  %18 = getelementptr i8, ptr %state, i64 24
   %19 = load i64, ptr %18, align 4
   %20 = load i64, ptr %state, align 4
-  %21 = getelementptr inbounds { i64, i64 }, ptr %state, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %state, i64 8
   %22 = load i64, ptr %21, align 4
   %xor1.i59 = xor i64 %6, %3
   %xor1.i51 = xor i64 %xor1.i59, %9
@@ -1434,18 +1434,18 @@ if.then:                                          ; preds = %for.end
   br label %return
 
 if.then25:                                        ; preds = %for.end
-  %arrayidx27 = getelementptr %struct.SoftAesBlock, ptr %state, i64 3
+  %arrayidx27 = getelementptr i8, ptr %state, i64 48
   %23 = load i64, ptr %arrayidx27, align 4
-  %24 = getelementptr %struct.SoftAesBlock, ptr %state, i64 3, i32 2
+  %24 = getelementptr i8, ptr %state, i64 56
   %25 = load i64, ptr %24, align 4
   %26 = load i64, ptr %arrayidx, align 4
   %27 = load i64, ptr %1, align 4
-  %arrayidx32 = getelementptr %struct.SoftAesBlock, ptr %state, i64 1
+  %arrayidx32 = getelementptr i8, ptr %state, i64 16
   %28 = load i64, ptr %arrayidx32, align 4
-  %29 = getelementptr %struct.SoftAesBlock, ptr %state, i64 1, i32 2
+  %29 = getelementptr i8, ptr %state, i64 24
   %30 = load i64, ptr %29, align 4
   %31 = load i64, ptr %state, align 4
-  %32 = getelementptr inbounds { i64, i64 }, ptr %state, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %state, i64 8
   %33 = load i64, ptr %32, align 4
   %xor1.i71 = xor i64 %26, %23
   %xor1.i67 = xor i64 %xor1.i71, %28
@@ -1466,21 +1466,21 @@ if.then25:                                        ; preds = %for.end
   store i32 %in.sroa.3.8.extract.trunc.i82, ptr %add.ptr2.i86, align 1
   %add.ptr3.i87 = getelementptr i8, ptr %mac, i64 12
   store i32 %in.sroa.5.8.extract.trunc.i84, ptr %add.ptr3.i87, align 1
-  %arrayidx37 = getelementptr %struct.SoftAesBlock, ptr %state, i64 7
-  %arrayidx38 = getelementptr %struct.SoftAesBlock, ptr %state, i64 6
+  %arrayidx37 = getelementptr i8, ptr %state, i64 112
+  %arrayidx38 = getelementptr i8, ptr %state, i64 96
   %34 = load i64, ptr %arrayidx37, align 4
-  %35 = getelementptr %struct.SoftAesBlock, ptr %state, i64 7, i32 2
+  %35 = getelementptr i8, ptr %state, i64 120
   %36 = load i64, ptr %35, align 4
   %37 = load i64, ptr %arrayidx38, align 4
-  %38 = getelementptr %struct.SoftAesBlock, ptr %state, i64 6, i32 2
+  %38 = getelementptr i8, ptr %state, i64 104
   %39 = load i64, ptr %38, align 4
-  %arrayidx42 = getelementptr %struct.SoftAesBlock, ptr %state, i64 5
-  %arrayidx43 = getelementptr %struct.SoftAesBlock, ptr %state, i64 4
+  %arrayidx42 = getelementptr i8, ptr %state, i64 80
+  %arrayidx43 = getelementptr i8, ptr %state, i64 64
   %40 = load i64, ptr %arrayidx42, align 4
-  %41 = getelementptr %struct.SoftAesBlock, ptr %state, i64 5, i32 2
+  %41 = getelementptr i8, ptr %state, i64 88
   %42 = load i64, ptr %41, align 4
   %43 = load i64, ptr %arrayidx43, align 4
-  %44 = getelementptr %struct.SoftAesBlock, ptr %state, i64 4, i32 2
+  %44 = getelementptr i8, ptr %state, i64 72
   %45 = load i64, ptr %44, align 4
   %xor1.i92 = xor i64 %37, %34
   %xor1.i88 = xor i64 %xor1.i92, %40
@@ -1516,22 +1516,22 @@ return:                                           ; preds = %if.then, %if.then25
 ; Function Attrs: nounwind ssp uwtable
 define internal fastcc void @aegis128l_update(ptr nocapture noundef %state, i64 %d1.coerce0, i64 %d1.coerce1, i64 %d2.coerce0, i64 %d2.coerce1) unnamed_addr #0 {
 entry:
-  %arrayidx = getelementptr %struct.SoftAesBlock, ptr %state, i64 7
+  %arrayidx = getelementptr i8, ptr %state, i64 112
   %tmp.sroa.0.0.copyload = load i64, ptr %arrayidx, align 4
-  %tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr %struct.SoftAesBlock, ptr %state, i64 7, i32 2
+  %tmp.sroa.2.0.arrayidx.sroa_idx = getelementptr i8, ptr %state, i64 120
   %tmp.sroa.2.0.copyload = load i64, ptr %tmp.sroa.2.0.arrayidx.sroa_idx, align 4
-  %arrayidx3 = getelementptr %struct.SoftAesBlock, ptr %state, i64 6
+  %arrayidx3 = getelementptr i8, ptr %state, i64 96
   %0 = load i64, ptr %arrayidx3, align 4
-  %1 = getelementptr %struct.SoftAesBlock, ptr %state, i64 6, i32 2
+  %1 = getelementptr i8, ptr %state, i64 104
   %2 = load i64, ptr %1, align 4
   %call = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %0, i64 %2, i64 %tmp.sroa.0.0.copyload, i64 %tmp.sroa.2.0.copyload) #5
   %3 = extractvalue { i64, i64 } %call, 0
   %4 = extractvalue { i64, i64 } %call, 1
   store i64 %3, ptr %arrayidx, align 4
   store i64 %4, ptr %tmp.sroa.2.0.arrayidx.sroa_idx, align 4
-  %arrayidx7 = getelementptr %struct.SoftAesBlock, ptr %state, i64 5
+  %arrayidx7 = getelementptr i8, ptr %state, i64 80
   %5 = load i64, ptr %arrayidx7, align 4
-  %6 = getelementptr %struct.SoftAesBlock, ptr %state, i64 5, i32 2
+  %6 = getelementptr i8, ptr %state, i64 88
   %7 = load i64, ptr %6, align 4
   %8 = load i64, ptr %arrayidx3, align 4
   %9 = load i64, ptr %1, align 4
@@ -1540,9 +1540,9 @@ entry:
   %11 = extractvalue { i64, i64 } %call9, 1
   store i64 %10, ptr %arrayidx3, align 4
   store i64 %11, ptr %1, align 4
-  %arrayidx12 = getelementptr %struct.SoftAesBlock, ptr %state, i64 4
+  %arrayidx12 = getelementptr i8, ptr %state, i64 64
   %12 = load i64, ptr %arrayidx12, align 4
-  %13 = getelementptr %struct.SoftAesBlock, ptr %state, i64 4, i32 2
+  %13 = getelementptr i8, ptr %state, i64 72
   %14 = load i64, ptr %13, align 4
   %15 = load i64, ptr %arrayidx7, align 4
   %16 = load i64, ptr %6, align 4
@@ -1551,9 +1551,9 @@ entry:
   %18 = extractvalue { i64, i64 } %call14, 1
   store i64 %17, ptr %arrayidx7, align 4
   store i64 %18, ptr %6, align 4
-  %arrayidx17 = getelementptr %struct.SoftAesBlock, ptr %state, i64 3
+  %arrayidx17 = getelementptr i8, ptr %state, i64 48
   %19 = load i64, ptr %arrayidx17, align 4
-  %20 = getelementptr %struct.SoftAesBlock, ptr %state, i64 3, i32 2
+  %20 = getelementptr i8, ptr %state, i64 56
   %21 = load i64, ptr %20, align 4
   %22 = load i64, ptr %arrayidx12, align 4
   %23 = load i64, ptr %13, align 4
@@ -1562,9 +1562,9 @@ entry:
   %25 = extractvalue { i64, i64 } %call19, 1
   store i64 %24, ptr %arrayidx12, align 4
   store i64 %25, ptr %13, align 4
-  %arrayidx22 = getelementptr %struct.SoftAesBlock, ptr %state, i64 2
+  %arrayidx22 = getelementptr i8, ptr %state, i64 32
   %26 = load i64, ptr %arrayidx22, align 4
-  %27 = getelementptr %struct.SoftAesBlock, ptr %state, i64 2, i32 2
+  %27 = getelementptr i8, ptr %state, i64 40
   %28 = load i64, ptr %27, align 4
   %29 = load i64, ptr %arrayidx17, align 4
   %30 = load i64, ptr %20, align 4
@@ -1573,9 +1573,9 @@ entry:
   %32 = extractvalue { i64, i64 } %call24, 1
   store i64 %31, ptr %arrayidx17, align 4
   store i64 %32, ptr %20, align 4
-  %arrayidx27 = getelementptr %struct.SoftAesBlock, ptr %state, i64 1
+  %arrayidx27 = getelementptr i8, ptr %state, i64 16
   %33 = load i64, ptr %arrayidx27, align 4
-  %34 = getelementptr %struct.SoftAesBlock, ptr %state, i64 1, i32 2
+  %34 = getelementptr i8, ptr %state, i64 24
   %35 = load i64, ptr %34, align 4
   %36 = load i64, ptr %arrayidx22, align 4
   %37 = load i64, ptr %27, align 4
@@ -1585,7 +1585,7 @@ entry:
   store i64 %38, ptr %arrayidx22, align 4
   store i64 %39, ptr %27, align 4
   %40 = load i64, ptr %state, align 4
-  %41 = getelementptr inbounds { i64, i64 }, ptr %state, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %state, i64 8
   %42 = load i64, ptr %41, align 4
   %43 = load i64, ptr %arrayidx27, align 4
   %44 = load i64, ptr %34, align 4

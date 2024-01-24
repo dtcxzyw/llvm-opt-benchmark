@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/x509type.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_st = type { i32, i32, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
-%struct.crypto_ex_data_st = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_certificate_type(ptr noundef %x, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
@@ -26,7 +21,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end, %if.end3
   %pk.015 = phi ptr [ %call, %if.end3 ], [ %pkey, %if.end ]
-  %type = getelementptr inbounds %struct.evp_pkey_st, ptr %pk.015, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %pk.015, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %sw.epilog [
     i32 6, label %sw.bb
@@ -54,7 +49,7 @@ sw.bb10:                                          ; preds = %if.end6, %if.end6
 
 sw.epilog:                                        ; preds = %if.end6, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb
   %ret.0 = phi i32 [ 0, %if.end6 ], [ 80, %sw.bb10 ], [ 68, %sw.bb9 ], [ 88, %sw.bb8 ], [ 18, %sw.bb7 ], [ 49, %sw.bb ]
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load ptr, ptr %sig_alg, align 8
   %2 = load ptr, ptr %1, align 8
   %call11 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #2

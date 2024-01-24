@@ -3,12 +3,8 @@ source_filename = "bench/icu/original/dictionarydata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UCharsDictionaryMatcher" = type { %"class.icu_75::DictionaryMatcher", ptr, ptr }
-%"class.icu_75::DictionaryMatcher" = type { ptr }
 %"class.icu_75::UCharsTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.icu_75::BytesDictionaryMatcher" = type { %"class.icu_75::DictionaryMatcher", ptr, i32, ptr }
 %"class.icu_75::BytesTrie" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-%struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -66,7 +62,7 @@ declare void @llvm.trap() #2
 define void @_ZN6icu_7523UCharsDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %file = getelementptr inbounds %"class.icu_75::UCharsDictionaryMatcher", ptr %this, i64 0, i32 2
+  %file = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %file, align 8
   invoke void @udata_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -118,14 +114,14 @@ entry:
 define noundef i32 @_ZNK6icu_7523UCharsDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %uct = alloca %"class.icu_75::UCharsTrie", align 8
-  %characters = getelementptr inbounds %"class.icu_75::UCharsDictionaryMatcher", ptr %this, i64 0, i32 1
+  %characters = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %characters, align 8
   store ptr null, ptr %uct, align 8
-  %uchars_.i = getelementptr inbounds %"class.icu_75::UCharsTrie", ptr %uct, i64 0, i32 1
+  %uchars_.i = getelementptr inbounds i8, ptr %uct, i64 8
   store ptr %0, ptr %uchars_.i, align 8
-  %pos_.i = getelementptr inbounds %"class.icu_75::UCharsTrie", ptr %uct, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %uct, i64 16
   store ptr %0, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::UCharsTrie", ptr %uct, i64 0, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %uct, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #11, !srcloc !4
   %call = invoke i64 @utext_getNativeIndex_75(ptr noundef %text)
@@ -396,7 +392,7 @@ if.then:                                          ; preds = %invoke.cont11
 
 if.then16:                                        ; preds = %if.then
   %5 = load ptr, ptr %pos_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 2
   %6 = load i16, ptr %5, align 2
   %conv.i = zext i16 %6 to i32
   %tobool.not.i = icmp sgt i16 %6, -1
@@ -420,7 +416,7 @@ if.else3.i.i:                                     ; preds = %if.else.i.i
   %7 = load i16, ptr %incdec.ptr.i, align 2
   %conv4.i.i = zext i16 %7 to i32
   %shl5.i.i = shl nuw i32 %conv4.i.i, 16
-  %arrayidx6.i.i = getelementptr inbounds i16, ptr %5, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %5, i64 4
   br label %if.end9.sink.split.i.i
 
 if.end9.sink.split.i.i:                           ; preds = %if.else3.i.i, %if.then2.i.i
@@ -457,7 +453,7 @@ if.else4.i.i:                                     ; preds = %if.else.i6.i
   %10 = load i16, ptr %incdec.ptr.i, align 2
   %conv5.i.i = zext i16 %10 to i32
   %shl6.i.i = shl nuw i32 %conv5.i.i, 16
-  %arrayidx7.i.i = getelementptr inbounds i16, ptr %5, i64 2
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %5, i64 4
   %11 = load i16, ptr %arrayidx7.i.i, align 2
   %conv8.i.i = zext i16 %11 to i32
   %or9.i.i = or disjoint i32 %shl6.i.i, %conv8.i.i
@@ -548,7 +544,7 @@ declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereference
 define void @_ZN6icu_7522BytesDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %file = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this, i64 0, i32 3
+  %file = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %file, align 8
   invoke void @udata_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -575,7 +571,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher9transformEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %c) local_unnamed_addr #8 align 2 {
 entry:
-  %transformConstant = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this, i64 0, i32 2
+  %transformConstant = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %transformConstant, align 8
   %and = and i32 %0, 2130706432
   %cmp = icmp eq i32 %and, 16777216
@@ -612,14 +608,14 @@ entry:
 define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bt = alloca %"class.icu_75::BytesTrie", align 8
-  %characters = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this, i64 0, i32 1
+  %characters = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %characters, align 8
   store ptr null, ptr %bt, align 8
-  %bytes_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %bt, i64 0, i32 1
+  %bytes_.i = getelementptr inbounds i8, ptr %bt, i64 8
   store ptr %0, ptr %bytes_.i, align 8
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %bt, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %bt, i64 16
   store ptr %0, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %bt, i64 0, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %bt, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   %call = invoke i64 @utext_getNativeIndex_75(ptr noundef %text)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
@@ -630,7 +626,7 @@ invoke.cont:                                      ; preds = %entry
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont
-  %transformConstant.i24 = getelementptr inbounds %"class.icu_75::BytesDictionaryMatcher", ptr %this, i64 0, i32 2
+  %transformConstant.i24 = getelementptr inbounds i8, ptr %this, i64 16
   %cmp17.not = icmp eq ptr %values, null
   %cmp21.not = icmp eq ptr %lengths, null
   %cmp26.not = icmp eq ptr %cpLengths, null
@@ -905,7 +901,7 @@ for.body:                                         ; preds = %if.end47, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %arrayidx53 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 3
+  %arrayidx53 = getelementptr inbounds i8, ptr %indexes, i64 12
   %11 = load i32, ptr %arrayidx53, align 4
   %cmp54 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp54, label %if.then55, label %if.end81
@@ -929,10 +925,10 @@ do.body:                                          ; preds = %if.end58
   br label %if.end62
 
 if.end62:                                         ; preds = %do.body, %if.end58
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %12 = load ptr, ptr %swapArray32, align 8
   %call63 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef 32, ptr noundef %cond, ptr noundef nonnull %pErrorCode)
-  %arrayidx64 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 4
+  %arrayidx64 = getelementptr inbounds i8, ptr %indexes, i64 16
   %13 = load i32, ptr %arrayidx64, align 16
   %and = and i32 %13, 7
   switch i32 %and, label %if.else76 [
@@ -941,9 +937,9 @@ if.end62:                                         ; preds = %do.body, %if.end58
   ]
 
 if.then67:                                        ; preds = %if.end62
-  %arrayidx65 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 1
+  %arrayidx65 = getelementptr inbounds i8, ptr %indexes, i64 4
   %14 = load i32, ptr %arrayidx65, align 4
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %15 = load ptr, ptr %swapArray16, align 8
   %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr38, i64 32
   %sub70 = add nsw i32 %14, -32

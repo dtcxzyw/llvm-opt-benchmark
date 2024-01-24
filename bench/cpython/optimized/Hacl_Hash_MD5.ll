@@ -18,30 +18,30 @@ entry:
   %0 = load i32, ptr %s, align 4
   store i32 %0, ptr %dst, align 1
   %add.ptr3 = getelementptr i8, ptr %dst, i64 4
-  %arrayidx5 = getelementptr i32, ptr %s, i64 1
+  %arrayidx5 = getelementptr i8, ptr %s, i64 4
   %1 = load i32, ptr %arrayidx5, align 4
   store i32 %1, ptr %add.ptr3, align 1
   %add.ptr10 = getelementptr i8, ptr %dst, i64 8
-  %arrayidx12 = getelementptr i32, ptr %s, i64 2
+  %arrayidx12 = getelementptr i8, ptr %s, i64 8
   %2 = load i32, ptr %arrayidx12, align 4
   store i32 %2, ptr %add.ptr10, align 1
   %add.ptr17 = getelementptr i8, ptr %dst, i64 12
-  %arrayidx19 = getelementptr i32, ptr %s, i64 3
+  %arrayidx19 = getelementptr i8, ptr %s, i64 12
   %3 = load i32, ptr %arrayidx19, align 4
   store i32 %3, ptr %add.ptr17, align 1
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Hash_MD5_legacy_update_multi(ptr nocapture noundef %s, ptr nocapture noundef readonly %blocks, i32 noundef %n_blocks) local_unnamed_addr #2 {
 entry:
   %cmp3.not = icmp eq i32 %n_blocks, 0
   br i1 %cmp3.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx1.i = getelementptr i32, ptr %s, i64 1
-  %arrayidx2.i = getelementptr i32, ptr %s, i64 2
-  %arrayidx3.i = getelementptr i32, ptr %s, i64 3
+  %arrayidx1.i = getelementptr i8, ptr %s, i64 4
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 8
+  %arrayidx3.i = getelementptr i8, ptr %s, i64 12
   %s.promoted = load i32, ptr %s, align 4
   %arrayidx1.i.promoted = load i32, ptr %arrayidx1.i, align 4
   %arrayidx2.i.promoted = load i32, ptr %arrayidx2.i, align 4
@@ -740,7 +740,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Hash_MD5_legacy_update_last(ptr nocapture noundef %s, i64 noundef %prev_len, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #2 {
 entry:
   %tmp_twoblocks = alloca [128 x i8], align 16
@@ -790,7 +790,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Hash_MD5_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #2 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
@@ -850,7 +850,7 @@ Hacl_Hash_MD5_legacy_update_last.exit:            ; preds = %entry, %for.body.pr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias ptr @Hacl_Streaming_MD5_legacy_create_in() local_unnamed_addr #5 {
+define hidden noalias noundef ptr @Hacl_Streaming_MD5_legacy_create_in() local_unnamed_addr #5 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #15
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 4, i64 noundef 4) #15
@@ -884,8 +884,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i8 @Hacl_Streaming_MD5_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
 entry:
   %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
@@ -1002,7 +1002,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i8 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Hacl_Streaming_MD5_legacy_finish(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst) local_unnamed_addr #9 {
 entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
@@ -1084,7 +1084,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias ptr @Hacl_Streaming_MD5_legacy_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #12 {
+define hidden noalias noundef ptr @Hacl_Streaming_MD5_legacy_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
@@ -1104,7 +1104,7 @@ entry:
   ret ptr %call7
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @Hacl_Streaming_MD5_legacy_hash(ptr nocapture noundef readonly %input, i32 noundef %input_len, ptr nocapture noundef writeonly %dst) local_unnamed_addr #2 {
 entry:
   tail call void @Hacl_Hash_MD5_legacy_hash(ptr noundef %input, i32 noundef %input_len, ptr noundef %dst)
@@ -1122,14 +1122,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

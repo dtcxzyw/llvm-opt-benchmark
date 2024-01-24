@@ -506,10 +506,10 @@ lpad.i129.i:                                      ; preds = %if.end36.i
 invoke.cont42.i:                                  ; preds = %if.end36.i
   store ptr %call5.i.i.i.i2.i.i, ptr %ref.tmp.i, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %call3.i61.i, ptr %call5.i.i.i.i2.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8
   %call45.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i87.i, ptr noundef nonnull align 8 dereferenceable(24) %empty.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i64 noundef 0)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit139.i
@@ -541,10 +541,10 @@ lpad.i141.i:                                      ; preds = %if.end49.i
 invoke.cont61.i:                                  ; preds = %if.end49.i
   store ptr %call5.i.i.i.i2.i140.i, ptr %ref.tmp51.i, align 8
   %add.ptr.i1.i145.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i140.i, i64 8
-  %_M_end_of_storage.i.i146.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp51.i, i64 0, i32 2
+  %_M_end_of_storage.i.i146.i = getelementptr inbounds i8, ptr %ref.tmp51.i, i64 16
   store ptr %add.ptr.i1.i145.i, ptr %_M_end_of_storage.i.i146.i, align 8
   store ptr %call3.i36.i, ptr %call5.i.i.i.i2.i140.i, align 8
-  %_M_finish.i.i149.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp51.i, i64 0, i32 1
+  %_M_finish.i.i149.i = getelementptr inbounds i8, ptr %ref.tmp51.i, i64 8
   store ptr %add.ptr.i1.i145.i, ptr %_M_finish.i.i149.i, align 8
   %call5.i.i.i.i2.i152.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %invoke.cont72.i unwind label %lpad.i153.i
@@ -557,10 +557,10 @@ lpad.i153.i:                                      ; preds = %invoke.cont61.i
 invoke.cont72.i:                                  ; preds = %invoke.cont61.i
   store ptr %call5.i.i.i.i2.i152.i, ptr %ref.tmp62.i, align 8
   %add.ptr.i1.i157.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i152.i, i64 8
-  %_M_end_of_storage.i.i158.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp62.i, i64 0, i32 2
+  %_M_end_of_storage.i.i158.i = getelementptr inbounds i8, ptr %ref.tmp62.i, i64 16
   store ptr %add.ptr.i1.i157.i, ptr %_M_end_of_storage.i.i158.i, align 8
   store ptr %call3.i61.i, ptr %call5.i.i.i.i2.i152.i, align 8
-  %_M_finish.i.i161.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp62.i, i64 0, i32 1
+  %_M_finish.i.i161.i = getelementptr inbounds i8, ptr %ref.tmp62.i, i64 8
   store ptr %add.ptr.i1.i157.i, ptr %_M_finish.i.i161.i, align 8
   %call75.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i87.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp62.i, i64 noundef 0)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit173.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit178.i
@@ -603,10 +603,10 @@ lpad.i185.i:                                      ; preds = %if.end84.i
 invoke.cont96.i:                                  ; preds = %if.end84.i
   store ptr %call5.i.i.i.i2.i184.i, ptr %ref.tmp86.i, align 8
   %add.ptr.i1.i189.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i184.i, i64 8
-  %_M_end_of_storage.i.i190.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp86.i, i64 0, i32 2
+  %_M_end_of_storage.i.i190.i = getelementptr inbounds i8, ptr %ref.tmp86.i, i64 16
   store ptr %add.ptr.i1.i189.i, ptr %_M_end_of_storage.i.i190.i, align 8
   store ptr %call3.i.i, ptr %call5.i.i.i.i2.i184.i, align 8
-  %_M_finish.i.i193.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp86.i, i64 0, i32 1
+  %_M_finish.i.i193.i = getelementptr inbounds i8, ptr %ref.tmp86.i, i64 8
   store ptr %add.ptr.i1.i189.i, ptr %_M_finish.i.i193.i, align 8
   %call5.i.i.i.i2.i196.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
           to label %invoke.cont108.i unwind label %lpad.i197.i
@@ -619,12 +619,12 @@ lpad.i197.i:                                      ; preds = %invoke.cont96.i
 invoke.cont108.i:                                 ; preds = %invoke.cont96.i
   store ptr %call5.i.i.i.i2.i196.i, ptr %ref.tmp97.i, align 8
   %add.ptr.i1.i201.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i196.i, i64 16
-  %_M_end_of_storage.i.i202.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp97.i, i64 0, i32 2
+  %_M_end_of_storage.i.i202.i = getelementptr inbounds i8, ptr %ref.tmp97.i, i64 16
   store ptr %add.ptr.i1.i201.i, ptr %_M_end_of_storage.i.i202.i, align 8
   store ptr %call3.i61.i, ptr %call5.i.i.i.i2.i196.i, align 8
   %ref.tmp99.sroa.2.0.call5.i.i.i.i2.i196.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i196.i, i64 8
   store ptr %call3.i48.i, ptr %ref.tmp99.sroa.2.0.call5.i.i.i.i2.i196.sroa_idx.i, align 8
-  %_M_finish.i.i205.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp97.i, i64 0, i32 1
+  %_M_finish.i.i205.i = getelementptr inbounds i8, ptr %ref.tmp97.i, i64 8
   store ptr %add.ptr.i1.i201.i, ptr %_M_finish.i.i205.i, align 8
   %call111.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i87.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp86.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp97.i, i64 noundef 0)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit217.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit222.i
@@ -667,12 +667,12 @@ lpad.i229.i:                                      ; preds = %if.end121.i
 invoke.cont135.i:                                 ; preds = %if.end121.i
   store ptr %call5.i.i.i.i2.i228.i, ptr %ref.tmp123.i, align 8
   %add.ptr.i1.i233.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i228.i, i64 16
-  %_M_end_of_storage.i.i234.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp123.i, i64 0, i32 2
+  %_M_end_of_storage.i.i234.i = getelementptr inbounds i8, ptr %ref.tmp123.i, i64 16
   store ptr %add.ptr.i1.i233.i, ptr %_M_end_of_storage.i.i234.i, align 8
   store ptr %call3.i.i, ptr %call5.i.i.i.i2.i228.i, align 8
   %ref.tmp125.sroa.2.0.call5.i.i.i.i2.i228.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i228.i, i64 8
   store ptr %call3.i36.i, ptr %ref.tmp125.sroa.2.0.call5.i.i.i.i2.i228.sroa_idx.i, align 8
-  %_M_finish.i.i237.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp123.i, i64 0, i32 1
+  %_M_finish.i.i237.i = getelementptr inbounds i8, ptr %ref.tmp123.i, i64 8
   store ptr %add.ptr.i1.i233.i, ptr %_M_finish.i.i237.i, align 8
   %call5.i.i.i.i2.i240.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
           to label %invoke.cont148.i unwind label %lpad.i241.i
@@ -685,12 +685,12 @@ lpad.i241.i:                                      ; preds = %invoke.cont135.i
 invoke.cont148.i:                                 ; preds = %invoke.cont135.i
   store ptr %call5.i.i.i.i2.i240.i, ptr %ref.tmp136.i, align 8
   %add.ptr.i1.i245.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i240.i, i64 16
-  %_M_end_of_storage.i.i246.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp136.i, i64 0, i32 2
+  %_M_end_of_storage.i.i246.i = getelementptr inbounds i8, ptr %ref.tmp136.i, i64 16
   store ptr %add.ptr.i1.i245.i, ptr %_M_end_of_storage.i.i246.i, align 8
   store ptr %call3.i61.i, ptr %call5.i.i.i.i2.i240.i, align 8
   %ref.tmp138.sroa.2.0.call5.i.i.i.i2.i240.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i240.i, i64 8
   store ptr %call3.i48.i, ptr %ref.tmp138.sroa.2.0.call5.i.i.i.i2.i240.sroa_idx.i, align 8
-  %_M_finish.i.i249.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp136.i, i64 0, i32 1
+  %_M_finish.i.i249.i = getelementptr inbounds i8, ptr %ref.tmp136.i, i64 8
   store ptr %add.ptr.i1.i245.i, ptr %_M_finish.i.i249.i, align 8
   %call151.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i87.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp123.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp136.i, i64 noundef 0)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit261.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit266.i
@@ -733,10 +733,10 @@ lpad.i273.i:                                      ; preds = %if.end161.i
 invoke.cont173.i:                                 ; preds = %if.end161.i
   store ptr %call5.i.i.i.i2.i272.i, ptr %ref.tmp163.i, align 8
   %add.ptr.i1.i277.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i272.i, i64 8
-  %_M_end_of_storage.i.i278.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp163.i, i64 0, i32 2
+  %_M_end_of_storage.i.i278.i = getelementptr inbounds i8, ptr %ref.tmp163.i, i64 16
   store ptr %add.ptr.i1.i277.i, ptr %_M_end_of_storage.i.i278.i, align 8
   store ptr %call3.i36.i, ptr %call5.i.i.i.i2.i272.i, align 8
-  %_M_finish.i.i281.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp163.i, i64 0, i32 1
+  %_M_finish.i.i281.i = getelementptr inbounds i8, ptr %ref.tmp163.i, i64 8
   store ptr %add.ptr.i1.i277.i, ptr %_M_finish.i.i281.i, align 8
   %call5.i.i.i.i2.i284.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
           to label %invoke.cont186.i unwind label %lpad.i285.i
@@ -749,12 +749,12 @@ lpad.i285.i:                                      ; preds = %invoke.cont173.i
 invoke.cont186.i:                                 ; preds = %invoke.cont173.i
   store ptr %call5.i.i.i.i2.i284.i, ptr %ref.tmp174.i, align 8
   %add.ptr.i1.i289.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i284.i, i64 16
-  %_M_end_of_storage.i.i290.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp174.i, i64 0, i32 2
+  %_M_end_of_storage.i.i290.i = getelementptr inbounds i8, ptr %ref.tmp174.i, i64 16
   store ptr %add.ptr.i1.i289.i, ptr %_M_end_of_storage.i.i290.i, align 8
   store ptr %call3.i61.i, ptr %call5.i.i.i.i2.i284.i, align 8
   %ref.tmp176.sroa.2.0.call5.i.i.i.i2.i284.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i284.i, i64 8
   store ptr %call3.i48.i, ptr %ref.tmp176.sroa.2.0.call5.i.i.i.i2.i284.sroa_idx.i, align 8
-  %_M_finish.i.i293.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp174.i, i64 0, i32 1
+  %_M_finish.i.i293.i = getelementptr inbounds i8, ptr %ref.tmp174.i, i64 8
   store ptr %add.ptr.i1.i289.i, ptr %_M_finish.i.i293.i, align 8
   %call189.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i87.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp163.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp174.i, i64 noundef 0)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit305.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit310.i
@@ -797,10 +797,10 @@ lpad.i317.i:                                      ; preds = %if.end199.i
 invoke.cont211.i:                                 ; preds = %if.end199.i
   store ptr %call5.i.i.i.i2.i316.i, ptr %ref.tmp201.i, align 8
   %add.ptr.i1.i321.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i316.i, i64 8
-  %_M_end_of_storage.i.i322.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp201.i, i64 0, i32 2
+  %_M_end_of_storage.i.i322.i = getelementptr inbounds i8, ptr %ref.tmp201.i, i64 16
   store ptr %add.ptr.i1.i321.i, ptr %_M_end_of_storage.i.i322.i, align 8
   store ptr %call3.i36.i, ptr %call5.i.i.i.i2.i316.i, align 8
-  %_M_finish.i.i325.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp201.i, i64 0, i32 1
+  %_M_finish.i.i325.i = getelementptr inbounds i8, ptr %ref.tmp201.i, i64 8
   store ptr %add.ptr.i1.i321.i, ptr %_M_finish.i.i325.i, align 8
   %call5.i.i.i.i2.i328.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
           to label %invoke.cont224.i unwind label %lpad.i329.i
@@ -813,12 +813,12 @@ lpad.i329.i:                                      ; preds = %invoke.cont211.i
 invoke.cont224.i:                                 ; preds = %invoke.cont211.i
   store ptr %call5.i.i.i.i2.i328.i, ptr %ref.tmp212.i, align 8
   %add.ptr.i1.i333.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i328.i, i64 16
-  %_M_end_of_storage.i.i334.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp212.i, i64 0, i32 2
+  %_M_end_of_storage.i.i334.i = getelementptr inbounds i8, ptr %ref.tmp212.i, i64 16
   store ptr %add.ptr.i1.i333.i, ptr %_M_end_of_storage.i.i334.i, align 8
   store ptr %call3.i61.i, ptr %call5.i.i.i.i2.i328.i, align 8
   %ref.tmp214.sroa.2.0.call5.i.i.i.i2.i328.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i328.i, i64 8
   store ptr %call3.i48.i, ptr %ref.tmp214.sroa.2.0.call5.i.i.i.i2.i328.sroa_idx.i, align 8
-  %_M_finish.i.i337.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp212.i, i64 0, i32 1
+  %_M_finish.i.i337.i = getelementptr inbounds i8, ptr %ref.tmp212.i, i64 8
   store ptr %add.ptr.i1.i333.i, ptr %_M_finish.i.i337.i, align 8
   %call227.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i87.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp201.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp212.i, i64 noundef 1048576)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit349.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit354.i
@@ -856,10 +856,10 @@ lpad.i361.i:                                      ; preds = %if.end235.i
 invoke.cont247.i:                                 ; preds = %if.end235.i
   store ptr %call5.i.i.i.i2.i360.i, ptr %ref.tmp237.i, align 8
   %add.ptr.i1.i365.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i360.i, i64 8
-  %_M_end_of_storage.i.i366.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp237.i, i64 0, i32 2
+  %_M_end_of_storage.i.i366.i = getelementptr inbounds i8, ptr %ref.tmp237.i, i64 16
   store ptr %add.ptr.i1.i365.i, ptr %_M_end_of_storage.i.i366.i, align 8
   store ptr %call3.i74.i, ptr %call5.i.i.i.i2.i360.i, align 8
-  %_M_finish.i.i369.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp237.i, i64 0, i32 1
+  %_M_finish.i.i369.i = getelementptr inbounds i8, ptr %ref.tmp237.i, i64 8
   store ptr %add.ptr.i1.i365.i, ptr %_M_finish.i.i369.i, align 8
   %call5.i.i.i.i2.i372.i = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
           to label %invoke.cont258.i unwind label %lpad.i373.i
@@ -872,10 +872,10 @@ lpad.i373.i:                                      ; preds = %invoke.cont247.i
 invoke.cont258.i:                                 ; preds = %invoke.cont247.i
   store ptr %call5.i.i.i.i2.i372.i, ptr %ref.tmp248.i, align 8
   %add.ptr.i1.i377.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i372.i, i64 8
-  %_M_end_of_storage.i.i378.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp248.i, i64 0, i32 2
+  %_M_end_of_storage.i.i378.i = getelementptr inbounds i8, ptr %ref.tmp248.i, i64 16
   store ptr %add.ptr.i1.i377.i, ptr %_M_end_of_storage.i.i378.i, align 8
   store ptr %call3.i100.i, ptr %call5.i.i.i.i2.i372.i, align 8
-  %_M_finish.i.i381.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp248.i, i64 0, i32 1
+  %_M_finish.i.i381.i = getelementptr inbounds i8, ptr %ref.tmp248.i, i64 8
   store ptr %add.ptr.i1.i377.i, ptr %_M_finish.i.i381.i, align 8
   %call261.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i113.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp237.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp248.i, i64 noundef 0)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit393.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit398.i
@@ -913,12 +913,12 @@ lpad.i405.i:                                      ; preds = %if.end269.i
 invoke.cont283.i:                                 ; preds = %if.end269.i
   store ptr %call5.i.i.i.i2.i404.i, ptr %ref.tmp271.i, align 8
   %add.ptr.i1.i409.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i404.i, i64 16
-  %_M_end_of_storage.i.i410.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp271.i, i64 0, i32 2
+  %_M_end_of_storage.i.i410.i = getelementptr inbounds i8, ptr %ref.tmp271.i, i64 16
   store ptr %add.ptr.i1.i409.i, ptr %_M_end_of_storage.i.i410.i, align 8
   store ptr %call3.i74.i, ptr %call5.i.i.i.i2.i404.i, align 8
   %ref.tmp273.sroa.2.0.call5.i.i.i.i2.i404.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i404.i, i64 8
   store ptr %call3.i48.i, ptr %ref.tmp273.sroa.2.0.call5.i.i.i.i2.i404.sroa_idx.i, align 8
-  %_M_finish.i.i413.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp271.i, i64 0, i32 1
+  %_M_finish.i.i413.i = getelementptr inbounds i8, ptr %ref.tmp271.i, i64 8
   store ptr %add.ptr.i1.i409.i, ptr %_M_finish.i.i413.i, align 8
   %call5.i.i.i.i2.i416.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
           to label %invoke.cont296.i unwind label %lpad.i417.i
@@ -931,12 +931,12 @@ lpad.i417.i:                                      ; preds = %invoke.cont283.i
 invoke.cont296.i:                                 ; preds = %invoke.cont283.i
   store ptr %call5.i.i.i.i2.i416.i, ptr %ref.tmp284.i, align 8
   %add.ptr.i1.i421.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i416.i, i64 16
-  %_M_end_of_storage.i.i422.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp284.i, i64 0, i32 2
+  %_M_end_of_storage.i.i422.i = getelementptr inbounds i8, ptr %ref.tmp284.i, i64 16
   store ptr %add.ptr.i1.i421.i, ptr %_M_end_of_storage.i.i422.i, align 8
   store ptr %call3.i100.i, ptr %call5.i.i.i.i2.i416.i, align 8
   %ref.tmp286.sroa.2.0.call5.i.i.i.i2.i416.sroa_idx.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i416.i, i64 8
   store ptr %call3.i61.i, ptr %ref.tmp286.sroa.2.0.call5.i.i.i.i2.i416.sroa_idx.i, align 8
-  %_M_finish.i.i425.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %ref.tmp284.i, i64 0, i32 1
+  %_M_finish.i.i425.i = getelementptr inbounds i8, ptr %ref.tmp284.i, i64 8
   store ptr %add.ptr.i1.i421.i, ptr %_M_finish.i.i425.i, align 8
   %call299.i = invoke fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef nonnull %call3.i113.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp271.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp284.i, i64 noundef 0)
           to label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit437.i unwind label %_ZNSt6vectorIP7x509_stSaIS1_EED2Ev.exit442.i
@@ -1796,7 +1796,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %certs, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<x509_st *, std::allocator<x509_st *>>::_Vector_impl_data", ptr %certs, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %certs, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i3.not9 = icmp eq ptr %0, %1
   br i1 %cmp.i3.not9, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit, label %for.body
@@ -1822,7 +1822,7 @@ if.end10:                                         ; preds = %invoke.cont
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.end10
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__begin1.sroa.0.010, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 8
   %cmp.i3.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i3.not, label %_ZNSt10unique_ptrI13stack_st_X50919OpenSSLStackDeleterIS0_7x509_stXadL_Z9X509_freeEEEED2Ev.exit, label %for.body
 

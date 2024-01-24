@@ -48,7 +48,7 @@ define align 8 ptr @_ZN10serde_json3map5Entry3key17h3c49b8e3777ba78eE(ptr align 
   br label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64, {} }, ptr, {}, {} } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = tail call align 8 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3key17hbb2f794a669afd88E"(ptr nonnull align 8 %6)
   br label %8
 
@@ -79,7 +79,7 @@ define align 8 ptr @_ZN10serde_json3map5Entry9or_insert17h1f6e274b6f311a01E(ptr 
   br label %13
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i64], { { { { ptr, i64 }, i64, {} }, ptr, {}, {} } } }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   %12 = invoke align 8 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$8into_mut17h4abf5517dd5228ffE"(ptr nonnull align 8 %3)

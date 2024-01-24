@@ -98,7 +98,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hb35d41a4a62d4ef5E(p
   %.fca.0.extract = extractvalue { ptr, ptr } %13, 0
   store ptr %.fca.0.extract, ptr %9, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %13, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %14 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5ed2a00918755414E"(ptr nonnull align 8 %9)
   br i1 %14, label %19, label %16
@@ -158,7 +158,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hb35d41a4a62d4ef5E(p
 
 29:                                               ; preds = %25
   call void @_ZN14regex_automata4util9prefilter6memmem6Memmem3new17hfeac8dea2165f71aE(ptr nonnull sret({ [32 x i64], i64, [3 x i64] }) align 32 %8, i1 zeroext %1, ptr align 8 %2, i64 %3)
-  %30 = getelementptr inbounds { [32 x i64], i64, [3 x i64] }, ptr %8, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %8, i64 256
   %31 = load i64, ptr %30, align 32, !range !8, !noundef !5
   %.not44 = icmp eq i64 %31, 2
   br i1 %.not44, label %33, label %32
@@ -174,7 +174,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hb35d41a4a62d4ef5E(p
 33:                                               ; preds = %29
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$regex_automata..util..prefilter..memmem..Memmem$GT$$GT$17h3310810613036f02E"(ptr nonnull align 32 %8)
   call void @_ZN14regex_automata4util9prefilter5teddy5Teddy3new17h454029e1f06636f4E(ptr nonnull sret({ [520 x i8], i8, [7 x i8] }) align 8 %7, i1 zeroext %1, ptr align 8 %2, i64 %3)
-  %34 = getelementptr inbounds { [520 x i8], i8, [7 x i8] }, ptr %7, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %7, i64 520
   %35 = load i8, ptr %34, align 8, !range !9, !noundef !5
   %.not45 = icmp eq i8 %35, 3
   br i1 %.not45, label %37, label %36
@@ -202,7 +202,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hb35d41a4a62d4ef5E(p
 
 40:                                               ; preds = %37
   call void @_ZN14regex_automata4util9prefilter12aho_corasick11AhoCorasick3new17h57425e1591987461E(ptr nonnull sret({ [17 x i8], i8, [6 x i8] }) align 8 %5, i1 zeroext %1, ptr align 8 %2, i64 %3)
-  %41 = getelementptr inbounds { [17 x i8], i8, [6 x i8] }, ptr %5, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %5, i64 17
   %42 = load i8, ptr %41, align 1, !range !9, !noundef !5
   %.not47 = icmp eq i8 %42, 3
   br i1 %.not47, label %44, label %43
@@ -243,7 +243,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hd03de84fd654bd2dE(p
   %.fca.0.extract = extractvalue { ptr, ptr } %13, 0
   store ptr %.fca.0.extract, ptr %9, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %13, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %14 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h2b4632b4e49c75adE"(ptr nonnull align 8 %9)
   br i1 %14, label %19, label %16
@@ -303,7 +303,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hd03de84fd654bd2dE(p
 
 29:                                               ; preds = %25
   call void @_ZN14regex_automata4util9prefilter6memmem6Memmem3new17h0b0c6ca2b5979b0bE(ptr nonnull sret({ [32 x i64], i64, [3 x i64] }) align 32 %8, i1 zeroext %1, ptr align 8 %2, i64 %3)
-  %30 = getelementptr inbounds { [32 x i64], i64, [3 x i64] }, ptr %8, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %8, i64 256
   %31 = load i64, ptr %30, align 32, !range !8, !noundef !5
   %.not44 = icmp eq i64 %31, 2
   br i1 %.not44, label %33, label %32
@@ -319,7 +319,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hd03de84fd654bd2dE(p
 33:                                               ; preds = %29
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$regex_automata..util..prefilter..memmem..Memmem$GT$$GT$17h3310810613036f02E"(ptr nonnull align 32 %8)
   call void @_ZN14regex_automata4util9prefilter5teddy5Teddy3new17h47b999ea4db4a740E(ptr nonnull sret({ [520 x i8], i8, [7 x i8] }) align 8 %7, i1 zeroext %1, ptr align 8 %2, i64 %3)
-  %34 = getelementptr inbounds { [520 x i8], i8, [7 x i8] }, ptr %7, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %7, i64 520
   %35 = load i8, ptr %34, align 8, !range !9, !noundef !5
   %.not45 = icmp eq i8 %35, 3
   br i1 %.not45, label %37, label %36
@@ -347,7 +347,7 @@ define void @_ZN14regex_automata4util9prefilter6Choice3new17hd03de84fd654bd2dE(p
 
 40:                                               ; preds = %37
   call void @_ZN14regex_automata4util9prefilter12aho_corasick11AhoCorasick3new17h9c73ccd5b6e31f5cE(ptr nonnull sret({ [17 x i8], i8, [6 x i8] }) align 8 %5, i1 zeroext %1, ptr align 8 %2, i64 %3)
-  %41 = getelementptr inbounds { [17 x i8], i8, [6 x i8] }, ptr %5, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %5, i64 17
   %42 = load i8, ptr %41, align 1, !range !9, !noundef !5
   %.not47 = icmp eq i8 %42, 3
   br i1 %.not47, label %44, label %43
@@ -415,7 +415,7 @@ define void @_ZN14regex_automata4util9prefilter8prefixes17h060182e5728c1131E(ptr
   %13 = extractvalue { ptr, ptr } %10, 0
   %14 = extractvalue { ptr, ptr } %10, 1
   store ptr %13, ptr %6, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %14, ptr %15, align 8
   br label %16
 
@@ -509,7 +509,7 @@ define hidden void @_ZN14regex_automata4util9prefilter8suffixes17ha09fd09dd142df
   %13 = extractvalue { ptr, ptr } %10, 0
   %14 = extractvalue { ptr, ptr } %10, 1
   store ptr %13, ptr %6, align 8
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %14, ptr %15, align 8
   br label %16
 

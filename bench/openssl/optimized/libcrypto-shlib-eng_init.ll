@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-eng_init.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @global_engine_lock = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/engine/eng_init.c\00", align 1
 @__func__.engine_unlocked_finish = private unnamed_addr constant [23 x i8] c"engine_unlocked_finish\00", align 1
@@ -18,13 +14,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @engine_unlocked_init(ptr noundef %e) local_unnamed_addr #0 {
 entry:
-  %funct_ref = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 21
+  %funct_ref = getelementptr inbounds i8, ptr %e, i64 160
   %0 = load i32, ptr %funct_ref, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.then3
 
 land.lhs.true:                                    ; preds = %entry
-  %init = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 12
+  %init = getelementptr inbounds i8, ptr %e, i64 96
   %1 = load ptr, ptr %init, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then3, label %if.end
@@ -41,7 +37,7 @@ if.end.if.then3_crit_edge:                        ; preds = %if.end
 if.then3:                                         ; preds = %if.end.if.then3_crit_edge, %entry, %land.lhs.true
   %2 = phi i32 [ %.pre, %if.end.if.then3_crit_edge ], [ 0, %land.lhs.true ], [ %0, %entry ]
   %to_return.011 = phi i32 [ %call, %if.end.if.then3_crit_edge ], [ 1, %land.lhs.true ], [ 1, %entry ]
-  %struct_ref = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 20
+  %struct_ref = getelementptr inbounds i8, ptr %e, i64 156
   %3 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %funct_ref, align 8
@@ -55,7 +51,7 @@ return:                                           ; preds = %if.end, %if.then3
 ; Function Attrs: nounwind uwtable
 define i32 @engine_unlocked_finish(ptr noundef %e, i32 noundef %unlock_for_handlers) local_unnamed_addr #0 {
 entry:
-  %funct_ref = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 21
+  %funct_ref = getelementptr inbounds i8, ptr %e, i64 160
   %0 = load i32, ptr %funct_ref, align 8
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %funct_ref, align 8
@@ -63,7 +59,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %entry
-  %finish = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 13
+  %finish = getelementptr inbounds i8, ptr %e, i64 104
   %1 = load ptr, ptr %finish, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end16, label %if.then
@@ -151,13 +147,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %funct_ref.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 21
+  %funct_ref.i = getelementptr inbounds i8, ptr %e, i64 160
   %2 = load i32, ptr %funct_ref.i, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then3.i
 
 land.lhs.true.i:                                  ; preds = %if.end7
-  %init.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 12
+  %init.i = getelementptr inbounds i8, ptr %e, i64 96
   %3 = load ptr, ptr %init.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then3.i, label %if.end.i
@@ -174,7 +170,7 @@ if.end.if.then3_crit_edge.i:                      ; preds = %if.end.i
 if.then3.i:                                       ; preds = %if.end.if.then3_crit_edge.i, %land.lhs.true.i, %if.end7
   %4 = phi i32 [ %.pre.i, %if.end.if.then3_crit_edge.i ], [ 0, %land.lhs.true.i ], [ %2, %if.end7 ]
   %to_return.011.i = phi i32 [ %call.i, %if.end.if.then3_crit_edge.i ], [ 1, %land.lhs.true.i ], [ 1, %if.end7 ]
-  %struct_ref.i = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 20
+  %struct_ref.i = getelementptr inbounds i8, ptr %e, i64 156
   %5 = atomicrmw add ptr %struct_ref.i, i32 1 monotonic, align 4
   %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %funct_ref.i, align 8

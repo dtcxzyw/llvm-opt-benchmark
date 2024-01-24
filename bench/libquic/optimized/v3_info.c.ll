@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.ACCESS_DESCRIPTION_st = type { ptr, ptr }
 %struct.conf_value_st = type { ptr, ptr, ptr }
 
 @AUTHORITY_INFO_ACCESS_it = hidden constant %struct.ASN1_ITEM_st { i8 0, i64 -1, ptr @AUTHORITY_INFO_ACCESS_item_tt, i64 0, ptr null, i64 0, ptr @.str.1 }, align 8
@@ -38,7 +37,7 @@ for.body:                                         ; preds = %entry, %if.end14
   %ret.addr.027 = phi ptr [ %call2, %if.end14 ], [ %ret, %entry ]
   %i.026 = phi i64 [ %inc, %if.end14 ], [ 0, %entry ]
   %call1 = call ptr @sk_value(ptr noundef %ainfo, i64 noundef %i.026) #6
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call1, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %location, align 8
   %call2 = call ptr @i2v_GENERAL_NAME(ptr noundef %method, ptr noundef %0, ptr noundef %ret.addr.027) #6
   %tobool.not = icmp eq ptr %call2, null
@@ -49,7 +48,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %call1, align 8
   %call5 = call i32 @i2t_ASN1_OBJECT(ptr noundef nonnull %objtmp, i32 noundef 80, ptr noundef %1) #6
   %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %objtmp) #7
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call3, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call3, i64 8
   %2 = load ptr, ptr %name, align 8
   %call8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %add = add i64 %call8, %call7
@@ -104,8 +103,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp24.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %name14 = getelementptr inbounds %struct.conf_value_st, ptr %ctmp, i64 0, i32 1
-  %value15 = getelementptr inbounds %struct.conf_value_st, ptr %ctmp, i64 0, i32 2
+  %name14 = getelementptr inbounds i8, ptr %ctmp, i64 8
+  %value15 = getelementptr inbounds i8, ptr %ctmp, i64 16
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -129,7 +128,7 @@ if.then7:                                         ; preds = %lor.lhs.false, %for
   br label %err
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %name = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call2, i64 8
   %0 = load ptr, ptr %name, align 8
   %call9 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 59) #7
   %tobool10.not = icmp eq ptr %call9, null
@@ -142,10 +141,10 @@ if.then11:                                        ; preds = %if.end8
 if.end12:                                         ; preds = %if.end8
   %add.ptr = getelementptr inbounds i8, ptr %call9, i64 1
   store ptr %add.ptr, ptr %name14, align 8
-  %value = getelementptr inbounds %struct.conf_value_st, ptr %call2, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call2, i64 16
   %1 = load ptr, ptr %value, align 8
   store ptr %1, ptr %value15, align 8
-  %location = getelementptr inbounds %struct.ACCESS_DESCRIPTION_st, ptr %call.i, i64 0, i32 1
+  %location = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %location, align 8
   %call16 = call ptr @v2i_GENERAL_NAME_ex(ptr noundef %2, ptr noundef %method, ptr noundef %ctx, ptr noundef nonnull %ctmp, i32 noundef 0) #6
   %tobool17.not = icmp eq ptr %call16, null

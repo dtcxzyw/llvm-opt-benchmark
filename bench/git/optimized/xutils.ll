@@ -4,13 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.s_mmbuffer = type { ptr, i64 }
-%struct.s_xdemitcb = type { ptr, ptr, ptr }
 %struct.s_mmfile = type { ptr, i64 }
-%struct.s_chastore = type { ptr, ptr, i64, i64, ptr, ptr, i64 }
-%struct.s_chanode = type { ptr, i64 }
 %struct.s_xdfenv = type { %struct.s_xdfile, %struct.s_xdfile }
 %struct.s_xdfile = type { %struct.s_chastore, i64, i32, ptr, i64, i64, ptr, ptr, ptr, i64, ptr }
-%struct.s_xrecord = type { ptr, ptr, i64, i64 }
+%struct.s_chastore = type { ptr, ptr, i64, i64, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [30 x i8] c"\0A\\ No newline at end of file\0A\00", align 1
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
@@ -41,11 +38,11 @@ define dso_local i32 @xdl_emit_diffrec(ptr noundef %rec, i64 noundef %size, ptr 
 entry:
   %mb = alloca [3 x %struct.s_mmbuffer], align 16
   store ptr %pre, ptr %mb, align 16
-  %size2 = getelementptr inbounds %struct.s_mmbuffer, ptr %mb, i64 0, i32 1
+  %size2 = getelementptr inbounds i8, ptr %mb, i64 8
   store i64 %psize, ptr %size2, align 8
-  %arrayidx3 = getelementptr inbounds [3 x %struct.s_mmbuffer], ptr %mb, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %mb, i64 16
   store ptr %rec, ptr %arrayidx3, align 16
-  %size6 = getelementptr inbounds [3 x %struct.s_mmbuffer], ptr %mb, i64 0, i64 1, i32 1
+  %size6 = getelementptr inbounds i8, ptr %mb, i64 24
   store i64 %size, ptr %size6, align 8
   %cmp = icmp sgt i64 %size, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -58,15 +55,15 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx10 = getelementptr inbounds [3 x %struct.s_mmbuffer], ptr %mb, i64 0, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %mb, i64 32
   store ptr @.str, ptr %arrayidx10, align 16
-  %size15 = getelementptr inbounds [3 x %struct.s_mmbuffer], ptr %mb, i64 0, i64 2, i32 1
+  %size15 = getelementptr inbounds i8, ptr %mb, i64 40
   store i64 29, ptr %size15, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %i.0 = phi i32 [ 3, %if.then ], [ 2, %land.lhs.true ], [ 2, %entry ]
-  %out_line = getelementptr inbounds %struct.s_xdemitcb, ptr %ecb, i64 0, i32 2
+  %out_line = getelementptr inbounds i8, ptr %ecb, i64 16
   %2 = load ptr, ptr %out_line, align 8
   %3 = load ptr, ptr %ecb, align 8
   %call16 = call i32 %2(ptr noundef %3, ptr noundef nonnull %mb, i32 noundef %i.0) #18
@@ -77,7 +74,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local ptr @xdl_mmfile_first(ptr nocapture noundef readonly %mmf, ptr nocapture noundef writeonly %size) local_unnamed_addr #2 {
 entry:
-  %size1 = getelementptr inbounds %struct.s_mmfile, ptr %mmf, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %mmf, i64 8
   %0 = load i64, ptr %size1, align 8
   store i64 %0, ptr %size, align 8
   %1 = load ptr, ptr %mmf, align 8
@@ -87,7 +84,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @xdl_mmfile_size(ptr nocapture noundef readonly %mmf) local_unnamed_addr #3 {
 entry:
-  %size = getelementptr inbounds %struct.s_mmfile, ptr %mmf, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %mmf, i64 8
   %0 = load i64, ptr %size, align 8
   ret i64 %0
 }
@@ -95,13 +92,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local noundef i32 @xdl_cha_init(ptr nocapture noundef writeonly %cha, i64 noundef %isize, i64 noundef %icount) local_unnamed_addr #4 {
 entry:
-  %isize1 = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 2
+  %isize1 = getelementptr inbounds i8, ptr %cha, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cha, i8 0, i64 16, i1 false)
   store i64 %isize, ptr %isize1, align 8
   %mul = mul nsw i64 %icount, %isize
-  %nsize = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 3
+  %nsize = getelementptr inbounds i8, ptr %cha, i64 24
   store i64 %mul, ptr %nsize, align 8
-  %ancur = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 4
+  %ancur = getelementptr inbounds i8, ptr %cha, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ancur, i8 0, i64 24, i1 false)
   ret i32 0
 }
@@ -130,20 +127,20 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @xdl_cha_alloc(ptr nocapture noundef %cha) local_unnamed_addr #1 {
 entry:
-  %ancur1 = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 4
+  %ancur1 = getelementptr inbounds i8, ptr %cha, i64 32
   %0 = load ptr, ptr %ancur1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %entry.if.then_crit_edge, label %lor.lhs.false
 
 entry.if.then_crit_edge:                          ; preds = %entry
-  %nsize2.phi.trans.insert = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 3
+  %nsize2.phi.trans.insert = getelementptr inbounds i8, ptr %cha, i64 24
   %.pre = load i64, ptr %nsize2.phi.trans.insert, align 8
   br label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %icurr = getelementptr inbounds %struct.s_chanode, ptr %0, i64 0, i32 1
+  %icurr = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %icurr, align 8
-  %nsize = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 3
+  %nsize = getelementptr inbounds i8, ptr %cha, i64 24
   %2 = load i64, ptr %nsize, align 8
   %cmp = icmp eq i64 %1, %2
   br i1 %cmp, label %if.then, label %if.end17
@@ -156,8 +153,8 @@ if.then:                                          ; preds = %entry.if.then_crit_
   br i1 %tobool3.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %icurr5 = getelementptr inbounds %struct.s_chanode, ptr %call, i64 0, i32 1
-  %tail = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 1
+  %icurr5 = getelementptr inbounds i8, ptr %call, i64 8
+  %tail = getelementptr inbounds i8, ptr %cha, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %tail, align 8
   %tobool6.not = icmp eq ptr %4, null
@@ -186,9 +183,9 @@ if.end17:                                         ; preds = %if.end14, %lor.lhs.
   %6 = phi i64 [ %.pre20, %if.end14 ], [ %1, %lor.lhs.false ]
   %ancur.0 = phi ptr [ %call, %if.end14 ], [ %0, %lor.lhs.false ]
   %add.ptr = getelementptr inbounds i8, ptr %ancur.0, i64 16
-  %icurr18 = getelementptr inbounds %struct.s_chanode, ptr %ancur.0, i64 0, i32 1
+  %icurr18 = getelementptr inbounds i8, ptr %ancur.0, i64 8
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 %6
-  %isize = getelementptr inbounds %struct.s_chastore, ptr %cha, i64 0, i32 2
+  %isize = getelementptr inbounds i8, ptr %cha, i64 16
   %7 = load i64, ptr %isize, align 8
   %add21 = add nsw i64 %7, %6
   store i64 %add21, ptr %icurr18, align 8
@@ -204,7 +201,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @xdl_guess_lines(ptr nocapture noundef readonly %mf, i64 noundef %sample) local_unnamed_addr #7 {
 entry:
-  %size1.i = getelementptr inbounds %struct.s_mmfile, ptr %mf, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %mf, i64 8
   %0 = load i64, ptr %size1.i, align 8
   %1 = load ptr, ptr %mf, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -1091,7 +1088,7 @@ entry:
   %buf.i.i = alloca [32 x i8], align 16
   %mb.i = alloca %struct.s_mmbuffer, align 8
   %buf.i = alloca [128 x i8], align 16
-  %out_hunk = getelementptr inbounds %struct.s_xdemitcb, ptr %ecb, i64 0, i32 1
+  %out_hunk = getelementptr inbounds i8, ptr %ecb, i64 8
   %0 = load ptr, ptr %out_hunk, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -1414,9 +1411,9 @@ xdl_format_hunk_hdr.exit:                         ; preds = %if.end38.i, %if.the
   store i8 10, ptr %arrayidx64.i, align 1
   store ptr %buf.i, ptr %mb.i, align 8
   %conv66.i = sext i32 %inc62.i to i64
-  %size.i = getelementptr inbounds %struct.s_mmbuffer, ptr %mb.i, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %mb.i, i64 8
   store i64 %conv66.i, ptr %size.i, align 8
-  %out_line.i = getelementptr inbounds %struct.s_xdemitcb, ptr %ecb, i64 0, i32 2
+  %out_line.i = getelementptr inbounds i8, ptr %ecb, i64 16
   %18 = load ptr, ptr %out_line.i, align 8
   %19 = load ptr, ptr %ecb, align 8
   %call67.i = call i32 %18(ptr noundef %19, ptr noundef nonnull %mb.i, i32 noundef 1) #18
@@ -1447,72 +1444,72 @@ entry:
   %subfile1 = alloca %struct.s_mmfile, align 8
   %subfile2 = alloca %struct.s_mmfile, align 8
   %env = alloca %struct.s_xdfenv, align 8
-  %recs = getelementptr inbounds %struct.s_xdfile, ptr %diff_env, i64 0, i32 6
+  %recs = getelementptr inbounds i8, ptr %diff_env, i64 96
   %0 = load ptr, ptr %recs, align 8
   %1 = sext i32 %line1 to i64
   %2 = getelementptr ptr, ptr %0, i64 %1
-  %arrayidx = getelementptr ptr, ptr %2, i64 -1
+  %arrayidx = getelementptr i8, ptr %2, i64 -8
   %3 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.s_xrecord, ptr %3, i64 0, i32 1
+  %ptr = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr, align 8
   store ptr %4, ptr %subfile1, align 8
   %add = add nsw i32 %count1, %line1
   %5 = sext i32 %add to i64
   %6 = getelementptr ptr, ptr %0, i64 %5
-  %arrayidx6 = getelementptr ptr, ptr %6, i64 -2
+  %arrayidx6 = getelementptr i8, ptr %6, i64 -16
   %7 = load ptr, ptr %arrayidx6, align 8
-  %ptr7 = getelementptr inbounds %struct.s_xrecord, ptr %7, i64 0, i32 1
+  %ptr7 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr7, align 8
-  %size = getelementptr inbounds %struct.s_xrecord, ptr %7, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 %9
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %size15 = getelementptr inbounds %struct.s_mmfile, ptr %subfile1, i64 0, i32 1
+  %size15 = getelementptr inbounds i8, ptr %subfile1, i64 8
   store i64 %sub.ptr.sub, ptr %size15, align 8
-  %recs16 = getelementptr inbounds %struct.s_xdfenv, ptr %diff_env, i64 0, i32 1, i32 6
+  %recs16 = getelementptr inbounds i8, ptr %diff_env, i64 232
   %10 = load ptr, ptr %recs16, align 8
   %11 = sext i32 %line2 to i64
   %12 = getelementptr ptr, ptr %10, i64 %11
-  %arrayidx19 = getelementptr ptr, ptr %12, i64 -1
+  %arrayidx19 = getelementptr i8, ptr %12, i64 -8
   %13 = load ptr, ptr %arrayidx19, align 8
-  %ptr20 = getelementptr inbounds %struct.s_xrecord, ptr %13, i64 0, i32 1
+  %ptr20 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %ptr20, align 8
   store ptr %14, ptr %subfile2, align 8
   %add24 = add nsw i32 %count2, %line2
   %15 = sext i32 %add24 to i64
   %16 = getelementptr ptr, ptr %10, i64 %15
-  %arrayidx27 = getelementptr ptr, ptr %16, i64 -2
+  %arrayidx27 = getelementptr i8, ptr %16, i64 -16
   %17 = load ptr, ptr %arrayidx27, align 8
-  %ptr28 = getelementptr inbounds %struct.s_xrecord, ptr %17, i64 0, i32 1
+  %ptr28 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %ptr28, align 8
-  %size35 = getelementptr inbounds %struct.s_xrecord, ptr %17, i64 0, i32 2
+  %size35 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i64, ptr %size35, align 8
   %add.ptr36 = getelementptr inbounds i8, ptr %18, i64 %19
   %sub.ptr.lhs.cast38 = ptrtoint ptr %add.ptr36 to i64
   %sub.ptr.rhs.cast39 = ptrtoint ptr %14 to i64
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
-  %size41 = getelementptr inbounds %struct.s_mmfile, ptr %subfile2, i64 0, i32 1
+  %size41 = getelementptr inbounds i8, ptr %subfile2, i64 8
   store i64 %sub.ptr.sub40, ptr %size41, align 8
   %call = call i32 @xdl_do_diff(ptr noundef nonnull %subfile1, ptr noundef nonnull %subfile2, ptr noundef %xpp, ptr noundef nonnull %env) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rchg = getelementptr inbounds %struct.s_xdfile, ptr %diff_env, i64 0, i32 7
+  %rchg = getelementptr inbounds i8, ptr %diff_env, i64 104
   %20 = load ptr, ptr %rchg, align 8
   %add.ptr43 = getelementptr inbounds i8, ptr %20, i64 %1
   %add.ptr44 = getelementptr inbounds i8, ptr %add.ptr43, i64 -1
-  %rchg46 = getelementptr inbounds %struct.s_xdfile, ptr %env, i64 0, i32 7
+  %rchg46 = getelementptr inbounds i8, ptr %env, i64 104
   %21 = load ptr, ptr %rchg46, align 8
   %conv = sext i32 %count1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr44, ptr align 1 %21, i64 %conv, i1 false)
-  %rchg48 = getelementptr inbounds %struct.s_xdfenv, ptr %diff_env, i64 0, i32 1, i32 7
+  %rchg48 = getelementptr inbounds i8, ptr %diff_env, i64 240
   %22 = load ptr, ptr %rchg48, align 8
   %add.ptr50 = getelementptr inbounds i8, ptr %22, i64 %11
   %add.ptr51 = getelementptr inbounds i8, ptr %add.ptr50, i64 -1
-  %rchg53 = getelementptr inbounds %struct.s_xdfenv, ptr %env, i64 0, i32 1, i32 7
+  %rchg53 = getelementptr inbounds i8, ptr %env, i64 240
   %23 = load ptr, ptr %rchg53, align 8
   %conv54 = sext i32 %count2 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr51, ptr align 1 %23, i64 %conv54, i1 false)

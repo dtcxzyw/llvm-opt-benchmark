@@ -9,44 +9,36 @@ define void @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$
   %.fca.0.extract.i = extractvalue { i32, ptr } %3, 0
   %.fca.1.extract.i = extractvalue { i32, ptr } %3, 1
   %4 = icmp eq ptr %.fca.1.extract.i, null
-  br i1 %4, label %9, label %5
+  br i1 %4, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h06d966983cfff939E.exit", label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { { { ptr, ptr }, { i64, i64 } }, { ptr, ptr }, i64, i64, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82d888cfb1e40749E"(ptr nonnull align 8 %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %11
+  br i1 %8, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h06d966983cfff939E.exit", label %9
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %10, align 8
-  br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h06d966983cfff939E.exit"
-
-11:                                               ; preds = %5
+9:                                                ; preds = %5
   store i32 %.fca.0.extract.i, ptr %0, align 8
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.fca.1.extract.i, ptr %.sroa.210.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %7, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h06d966983cfff939E.exit"
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %13, align 8
-  br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h06d966983cfff939E.exit"
-
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h06d966983cfff939E.exit": ; preds = %9, %11, %12
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h06d966983cfff939E.exit": ; preds = %2, %5, %9
+  %.sink20.i = phi i64 [ 16, %9 ], [ 8, %2 ], [ 8, %5 ]
+  %.sink.i = phi ptr [ %7, %9 ], [ null, %2 ], [ null, %5 ]
+  %10 = getelementptr inbounds i8, ptr %0, i64 %.sink20.i
+  store ptr %.sink.i, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h084a0a56c0b95ac0E"(ptr nocapture writeonly sret({ { { ptr, ptr }, { i64, i64 } }, { ptr, ptr }, i64, i64, i64 }) align 8 %0, ptr nocapture readonly align 8 %1, ptr %2, ptr %3) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %5 = getelementptr inbounds { { { ptr, ptr }, { i64, i64 } }, { ptr, ptr }, i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds { { { ptr, ptr }, { i64, i64 } }, { ptr, ptr }, i64, i64, i64 }, ptr %0, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds { { { ptr, ptr }, { i64, i64 } }, { ptr, ptr }, i64, i64, i64 }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   ret void
 }
@@ -57,33 +49,25 @@ define void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$
   %.fca.0.extract = extractvalue { i32, ptr } %3, 0
   %.fca.1.extract = extractvalue { i32, ptr } %3, 1
   %4 = icmp eq ptr %.fca.1.extract, null
-  br i1 %4, label %9, label %5
+  br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { { { ptr, ptr }, { i64, i64 } }, { ptr, ptr }, i64, i64, i64 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82d888cfb1e40749E"(ptr nonnull align 8 %6)
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %12, label %11
+  br i1 %8, label %10, label %9
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %10, align 8
-  br label %14
-
-11:                                               ; preds = %5
+9:                                                ; preds = %5
   store i32 %.fca.0.extract, ptr %0, align 8
   %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.fca.1.extract, ptr %.sroa.210.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %7, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %14
+  br label %10
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %13, align 8
-  br label %14
-
-14:                                               ; preds = %9, %12, %11
+10:                                               ; preds = %5, %2, %9
+  %.sink20 = phi i64 [ 16, %9 ], [ 8, %2 ], [ 8, %5 ]
+  %.sink = phi ptr [ %7, %9 ], [ null, %2 ], [ null, %5 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.sink20
+  store ptr %.sink, ptr %11, align 8
   ret void
 }
 

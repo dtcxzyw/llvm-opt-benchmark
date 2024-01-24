@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::theory::quantifiers::inst::IMGenerator" = type { %"class.cvc5::internal::EnvObj", ptr, ptr, ptr }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
-%"class.cvc5::internal::theory::quantifiers::inst::Trigger" = type { %"class.cvc5::internal::EnvObj", %"class.std::vector", %"class.cvc5::internal::NodeTemplate", %"class.std::vector", ptr, ptr, ptr, ptr, %"class.cvc5::internal::NodeTemplate", ptr, %"class.cvc5::internal::theory::quantifiers::InstMatch" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.cvc5::internal::theory::quantifiers::InstMatch" = type { %"class.cvc5::internal::EnvObj", ptr, ptr, %"class.std::vector", %"class.cvc5::internal::NodeTemplate", ptr }
 
 $_ZN4cvc58internal6theory11quantifiers4inst11IMGeneratorD2Ev = comdat any
 
@@ -64,14 +55,14 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers4inst11IMGeneratorC2ERN
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst11IMGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_tparent = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this, i64 0, i32 1
+  %d_tparent = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %tparent, ptr %d_tparent, align 8
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this, i64 0, i32 2
-  %d_qstate2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::Trigger", ptr %tparent, i64 0, i32 4
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 24
+  %d_qstate2 = getelementptr inbounds i8, ptr %tparent, i64 72
   %0 = load ptr, ptr %d_qstate2, align 8
   store ptr %0, ptr %d_qstate, align 8
-  %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this, i64 0, i32 3
-  %d_treg3 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::Trigger", ptr %tparent, i64 0, i32 7
+  %d_treg = getelementptr inbounds i8, ptr %this, i64 32
+  %d_treg3 = getelementptr inbounds i8, ptr %tparent, i64 96
   %1 = load ptr, ptr %d_treg3, align 8
   store ptr %1, ptr %d_treg, align 8
   ret void
@@ -82,10 +73,10 @@ declare void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers4inst11IMGenerator17sendInstantiationERSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EENS1_11InferenceIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %terms, i32 noundef %id) local_unnamed_addr #3 align 2 {
 entry:
-  %d_tparent = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::IMGenerator", ptr %this, i64 0, i32 1
+  %d_tparent = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_tparent, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(24) %terms, i32 noundef %id)
   ret i1 %call

@@ -102,7 +102,7 @@ define i24 @_ZN14regex_automata4util9prefilter6memchr7Memchr23new17h454586e12d91
   %.fca.0.extract = extractvalue { ptr, ptr } %7, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %7, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h4377e065a3c051c0E"(ptr nonnull align 8 %4)
   br i1 %8, label %10, label %9
@@ -129,7 +129,7 @@ define i24 @_ZN14regex_automata4util9prefilter6memchr7Memchr23new17h454586e12d91
 13:                                               ; preds = %10
   %14 = extractvalue { ptr, i64 } %11, 0
   %15 = load i8, ptr %14, align 1, !noundef !6
-  %16 = getelementptr inbounds [0 x { ptr, i64 }], ptr %1, i64 0, i64 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h4ddb5b9f1f432a71E"(ptr nonnull align 8 %16)
   %18 = extractvalue { ptr, i64 } %17, 1
   %.not5 = icmp eq i64 %18, 0
@@ -160,7 +160,7 @@ define i24 @_ZN14regex_automata4util9prefilter6memchr7Memchr23new17hcd6b2aa20859
   %.fca.0.extract = extractvalue { ptr, ptr } %7, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %7, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h8a89b911a1e204abE"(ptr nonnull align 8 %4)
   br i1 %8, label %10, label %9
@@ -187,7 +187,7 @@ define i24 @_ZN14regex_automata4util9prefilter6memchr7Memchr23new17hcd6b2aa20859
 13:                                               ; preds = %10
   %14 = extractvalue { ptr, i64 } %11, 0
   %15 = load i8, ptr %14, align 1, !noundef !6
-  %16 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i8, [7 x i8] }], ptr %1, i64 0, i64 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = call { ptr, i64 } @"_ZN96_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17h30cc874ec891d617E"(ptr nonnull align 8 %16)
   %18 = extractvalue { ptr, i64 } %17, 1
   %.not5 = icmp eq i64 %18, 0
@@ -246,7 +246,7 @@ define i32 @_ZN14regex_automata4util9prefilter6memchr7Memchr33new17h21596e7b650f
   %.fca.0.extract = extractvalue { ptr, ptr } %7, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %7, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h25da9f1028cc6b32E"(ptr nonnull align 8 %4)
   br i1 %8, label %10, label %9
@@ -266,7 +266,7 @@ define i32 @_ZN14regex_automata4util9prefilter6memchr7Memchr33new17h21596e7b650f
 13:                                               ; preds = %10
   %14 = extractvalue { ptr, i64 } %11, 0
   %15 = load i8, ptr %14, align 1, !noundef !6
-  %16 = getelementptr inbounds [0 x { ptr, i64 }], ptr %1, i64 0, i64 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h4ddb5b9f1f432a71E"(ptr nonnull align 8 %16)
   %18 = extractvalue { ptr, i64 } %17, 1
   %.not6 = icmp eq i64 %18, 0
@@ -279,7 +279,7 @@ define i32 @_ZN14regex_automata4util9prefilter6memchr7Memchr33new17h21596e7b650f
 20:                                               ; preds = %13
   %21 = extractvalue { ptr, i64 } %17, 0
   %22 = load i8, ptr %21, align 1, !noundef !6
-  %23 = getelementptr inbounds [0 x { ptr, i64 }], ptr %1, i64 0, i64 2
+  %23 = getelementptr inbounds i8, ptr %1, i64 32
   %24 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h4ddb5b9f1f432a71E"(ptr nonnull align 8 %23)
   %25 = extractvalue { ptr, i64 } %24, 1
   %.not7 = icmp eq i64 %25, 0
@@ -318,7 +318,7 @@ define i32 @_ZN14regex_automata4util9prefilter6memchr7Memchr33new17hc4d459068ded
   %.fca.0.extract = extractvalue { ptr, ptr } %7, 0
   store ptr %.fca.0.extract, ptr %4, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %7, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h4be30665c8f8ff0eE"(ptr nonnull align 8 %4)
   br i1 %8, label %10, label %9
@@ -338,7 +338,7 @@ define i32 @_ZN14regex_automata4util9prefilter6memchr7Memchr33new17hc4d459068ded
 13:                                               ; preds = %10
   %14 = extractvalue { ptr, i64 } %11, 0
   %15 = load i8, ptr %14, align 1, !noundef !6
-  %16 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i8, [7 x i8] }], ptr %1, i64 0, i64 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = call { ptr, i64 } @"_ZN96_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17h30cc874ec891d617E"(ptr nonnull align 8 %16)
   %18 = extractvalue { ptr, i64 } %17, 1
   %.not6 = icmp eq i64 %18, 0
@@ -351,7 +351,7 @@ define i32 @_ZN14regex_automata4util9prefilter6memchr7Memchr33new17hc4d459068ded
 20:                                               ; preds = %13
   %21 = extractvalue { ptr, i64 } %17, 0
   %22 = load i8, ptr %21, align 1, !noundef !6
-  %23 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i8, [7 x i8] }], ptr %1, i64 0, i64 2
+  %23 = getelementptr inbounds i8, ptr %1, i64 64
   %24 = call { ptr, i64 } @"_ZN96_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17h30cc874ec891d617E"(ptr nonnull align 8 %23)
   %25 = extractvalue { ptr, i64 } %24, 1
   %.not7 = icmp eq i64 %25, 0

@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyType_Slot = type { i32, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct.gc_visit_state_basic = type { ptr, i32 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.PyVarObject = type { %struct._object, i64 }
 
 @test_methods = internal global [6 x %struct.PyMethodDef] [%struct.PyMethodDef { ptr @.str, ptr @test_gc_control, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.1, ptr @test_gc_visit_objects_basic, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.2, ptr @test_gc_visit_objects_exit_early, i32 4, ptr null }, %struct.PyMethodDef { ptr @.str.3, ptr @without_gc, i32 8, ptr null }, %struct.PyMethodDef { ptr @.str.4, ptr @with_tp_del, i32 1, ptr null }, %struct.PyMethodDef zeroinitializer], align 16
 @ObjExtraData_TypeSpec = internal global %struct.PyType_Spec { ptr @.str.25, i32 16, i32 0, i32 17408, ptr @ObjExtraData_Slots }, align 8
@@ -100,7 +98,7 @@ declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @test_gc_control(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_gc_control(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call i32 @PyGC_IsEnabled() #7
   %call1 = tail call i32 @PyGC_Enable() #7
@@ -172,7 +170,7 @@ return:                                           ; preds = %if.end20, %if.end26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @test_gc_visit_objects_basic(ptr nocapture readnone %_unused_self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @test_gc_visit_objects_basic(ptr nocapture readnone %_unused_self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %state = alloca %struct.gc_visit_state_basic, align 8
   %call = tail call ptr @PyList_New(i64 noundef 0) #7
@@ -181,7 +179,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %call, ptr %state, align 8
-  %found = getelementptr inbounds %struct.gc_visit_state_basic, ptr %state, i64 0, i32 1
+  %found = getelementptr inbounds i8, ptr %state, i64 8
   store i32 0, ptr %found, align 8
   call void @PyUnstable_GC_VisitObjects(ptr noundef nonnull @gc_visit_callback_basic, ptr noundef nonnull %state) #7
   %0 = load i64, ptr %call, align 8
@@ -215,7 +213,7 @@ return:                                           ; preds = %Py_DECREF.exit, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @test_gc_visit_objects_exit_early(ptr nocapture readnone %_unused_self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @test_gc_visit_objects_exit_early(ptr nocapture readnone %_unused_self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %visited_i = alloca i32, align 4
   store i32 0, ptr %visited_i, align 4
@@ -264,9 +262,9 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then6:                                         ; preds = %if.end
   %sub = add nsw i64 %obj.val, -16384
   store i64 %sub, ptr %2, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %obj, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %obj, i64 320
   store ptr @PyObject_Free, ptr %tp_free, align 8
-  %tp_traverse = getelementptr inbounds %struct._typeobject, ptr %obj, i64 0, i32 21
+  %tp_traverse = getelementptr inbounds i8, ptr %obj, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tp_traverse, i8 0, i64 16, i1 false)
   br label %if.end7
 
@@ -326,7 +324,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %tp_del = getelementptr inbounds %struct._typeobject, ptr %0, i64 0, i32 45
+  %tp_del = getelementptr inbounds i8, ptr %0, i64 376
   store ptr @slot_tp_del, ptr %tp_del, align 8
   %6 = load i32, ptr %0, align 8
   %add.i.i = add i32 %6, 1
@@ -355,14 +353,14 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare void @PyUnstable_GC_VisitObjects(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @gc_visit_callback_basic(ptr noundef readnone %obj, ptr nocapture noundef %arg) #2 {
+define internal noundef i32 @gc_visit_callback_basic(ptr noundef readnone %obj, ptr nocapture noundef %arg) #2 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %cmp = icmp eq ptr %0, %obj
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %found = getelementptr inbounds %struct.gc_visit_state_basic, ptr %arg, i64 0, i32 1
+  %found = getelementptr inbounds i8, ptr %arg, i64 8
   store i32 1, ptr %found, align 8
   br label %return
 
@@ -539,7 +537,7 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #7
   %self.val.i.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i.i = getelementptr inbounds %struct._typeobject, ptr %self.val.i.i, i64 0, i32 2
+  %tp_basicsize.i.i = getelementptr inbounds i8, ptr %self.val.i.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i.i, align 8
@@ -564,7 +562,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %obj_extra_data_clear.exit
 
 obj_extra_data_clear.exit:                        ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #7
   %6 = load i64, ptr %self.val, align 8
@@ -591,7 +589,7 @@ define internal i32 @obj_extra_data_traverse(ptr nocapture noundef readonly %sel
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds %struct._typeobject, ptr %self.val.i, i64 0, i32 2
+  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8
@@ -612,11 +610,11 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @obj_extra_data_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @obj_extra_data_clear(ptr nocapture noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds %struct._typeobject, ptr %self.val.i, i64 0, i32 2
+  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8
@@ -671,7 +669,7 @@ define internal ptr @obj_extra_data_get(ptr nocapture noundef readonly %self, pt
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds %struct._typeobject, ptr %self.val.i, i64 0, i32 2
+  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8
@@ -694,11 +692,11 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @obj_extra_data_set(ptr nocapture noundef %self, ptr noundef %newval, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef i32 @obj_extra_data_set(ptr nocapture noundef %self, ptr noundef %newval, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds %struct._typeobject, ptr %self.val.i, i64 0, i32 2
+  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8

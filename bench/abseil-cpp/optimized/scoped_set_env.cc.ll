@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::allocator" = type { i8 }
-%"class.absl::base_internal::ScopedSetEnv" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -58,9 +54,9 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #9
-  %old_value_ = getelementptr inbounds %"class.absl::base_internal::ScopedSetEnv", ptr %this, i64 0, i32 1
+  %old_value_ = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %old_value_) #9
-  %was_unset_ = getelementptr inbounds %"class.absl::base_internal::ScopedSetEnv", ptr %this, i64 0, i32 2
+  %was_unset_ = getelementptr inbounds i8, ptr %this, i64 64
   store i8 0, ptr %was_unset_, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
   %call3 = call ptr @getenv(ptr noundef %call) #9
@@ -139,14 +135,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN4absl13base_internal12ScopedSetEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
-  %was_unset_ = getelementptr inbounds %"class.absl::base_internal::ScopedSetEnv", ptr %this, i64 0, i32 2
+  %was_unset_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %was_unset_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %cond.end, label %if.then.i
 
 cond.end:                                         ; preds = %entry
-  %old_value_ = getelementptr inbounds %"class.absl::base_internal::ScopedSetEnv", ptr %this, i64 0, i32 1
+  %old_value_ = getelementptr inbounds i8, ptr %this, i64 32
   %call2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_value_) #9
   %cmp.i = icmp eq ptr %call2, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -160,7 +156,7 @@ if.else.i:                                        ; preds = %cond.end
   br label %_ZN4absl13base_internal12_GLOBAL__N_19SetEnvVarEPKcS3_.exit
 
 _ZN4absl13base_internal12_GLOBAL__N_19SetEnvVarEPKcS3_.exit: ; preds = %if.then.i, %if.else.i
-  %old_value_3 = getelementptr inbounds %"class.absl::base_internal::ScopedSetEnv", ptr %this, i64 0, i32 1
+  %old_value_3 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %old_value_3) #9
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #9
   ret void

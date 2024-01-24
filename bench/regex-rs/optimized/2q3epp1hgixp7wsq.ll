@@ -302,13 +302,13 @@ define { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20
 define i32 @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hae93793243c470eeE"(ptr align 4 %0, ptr align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 4, !range !5, !noundef !6
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %6, label %.critedge
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %0, align 4, !noundef !6
   %9 = load i32, ptr %7, align 4, !noundef !6
   %.not12 = icmp ugt i32 %8, %9
@@ -369,8 +369,8 @@ define { i8, i8 } @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$
   br i1 %.not, label %3, label %.thread
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { i8, i8, i8 }, ptr %0, i64 0, i32 1
-  %5 = getelementptr inbounds { i8, i8, i8 }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 2
   %6 = load i8, ptr %4, align 1, !noundef !6
   %7 = load i8, ptr %5, align 1, !noundef !6
   %.not4 = icmp ugt i8 %6, %7
@@ -400,13 +400,13 @@ define { i8, i8 } @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef i32 @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17he937c256d7a5e8e8E"(ptr nocapture align 4 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %4, label %.critedge
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %0, align 4, !range !8, !noundef !6
   %7 = load i32, ptr %5, align 4, !range !8, !noundef !6
   %.not6 = icmp ugt i32 %6, %7
@@ -546,13 +546,13 @@ define { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h69bde074231734ceE"(ptr nocapture readonly align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !6
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %10, 0
   %11 = add nuw i64 %6, 1
@@ -590,13 +590,13 @@ define { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h2006523004914195E"(ptr nocapture readonly align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !6
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %10, 0
   %11 = add nuw i64 %6, 1
@@ -634,13 +634,13 @@ define { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6134d35b739ebb49E"(ptr nocapture readonly align 8 %0, ptr align 1 %1, i64 %2, ptr align 8 %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !6
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %10, 0
   %11 = add nuw i64 %6, 1
@@ -678,13 +678,13 @@ define { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he3e87be9db7c2711E"(ptr nocapture readonly align 8 %0, ptr align 4 %1, i64 %2, ptr align 8 %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !6
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %10, 0
   %11 = add nuw i64 %6, 1
@@ -747,9 +747,9 @@ define { ptr, i64 } @"_ZN117_$LT$core..ops..range..RangeToInclusive$LT$usize$GT$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN4core3ops5range25RangeInclusive$LT$Idx$GT$3new17h384ef17d46cca7e0E"(ptr nocapture writeonly sret({ i32, i32, i8, [3 x i8] }) align 4 %0, i32 %1, i32 %2) unnamed_addr #2 {
   store i32 %1, ptr %0, align 4
-  %4 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
-  %5 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %5, align 4
   ret void
 }
@@ -767,9 +767,9 @@ define i24 @"_ZN4core3ops5range25RangeInclusive$LT$Idx$GT$3new17he1ba0838b16cd33
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN4core3ops5range25RangeInclusive$LT$Idx$GT$3new17hf1d02b5647b1a669E"(ptr nocapture writeonly sret({ i32, i32, i8, [3 x i8] }) align 4 %0, i32 %1, i32 %2) unnamed_addr #2 {
   store i32 %1, ptr %0, align 4
-  %4 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
-  %5 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %5, align 4
   ret void
 }
@@ -786,7 +786,7 @@ define i24 @"_ZN4core3ops5range25RangeInclusive$LT$Idx$GT$3new17hfb7cd696bd5a7b4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17h3e2ead23d801baa3E"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8, !noundef !6
   %4 = load i64, ptr %2, align 8, !noundef !6
   %5 = icmp ult i64 %3, %4
@@ -806,7 +806,7 @@ define { i64, i64 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..it
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i32, i32 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17ha85fb70b8eeb66b6E"(ptr nocapture align 4 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !noundef !6
   %4 = load i32, ptr %2, align 4, !noundef !6
   %5 = icmp ult i32 %3, %4
@@ -826,13 +826,13 @@ define { i32, i32 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..it
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef i32 @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$4next17h40d6c598feddb98bE"(ptr nocapture align 4 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
   %.not.i = icmp eq i8 %3, 0
   br i1 %.not.i, label %4, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17he937c256d7a5e8e8E.exit"
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %0, align 4, !range !8, !noundef !6
   %7 = load i32, ptr %5, align 4, !range !8, !noundef !6
   %.not6.i = icmp ugt i32 %6, %7
@@ -864,8 +864,8 @@ define { i8, i8 } @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iter
   br i1 %.not.i, label %3, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17hc4dc5986f4a0b7d1E.exit"
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { i8, i8, i8 }, ptr %0, i64 0, i32 1
-  %5 = getelementptr inbounds { i8, i8, i8 }, ptr %0, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 2
   %6 = load i8, ptr %4, align 1, !noundef !6
   %7 = load i8, ptr %5, align 1, !noundef !6
   %.not4.i = icmp ugt i8 %6, %7
@@ -901,7 +901,7 @@ define i32 @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..I
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN4core4iter5range116_$LT$impl$u20$core..iter..traits..double_ended..DoubleEndedIterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9next_back17h5a69bf5c12195367E"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8, !noundef !6
   %4 = load i64, ptr %2, align 8, !noundef !6
   %5 = icmp ult i64 %3, %4
@@ -922,7 +922,7 @@ define { i64, i64 } @"_ZN4core4iter5range116_$LT$impl$u20$core..iter..traits..do
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h086586fd075e2351E(ptr nocapture align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %8, %2
@@ -999,25 +999,25 @@ define void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$G
 define zeroext i1 @"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h4fcdd8637733963eE"(ptr align 1 %0, ptr align 8 %1) unnamed_addr #4 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds { i8, i8, i8 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = tail call zeroext i1 @"_ZN62_$LT$regex_syntax..debug..Byte$u20$as$u20$core..fmt..Debug$GT$3fmt17h5251045ba223a612E"(ptr nonnull align 1 %5, ptr align 8 %1)
   br i1 %6, label %24, label %7
 
 7:                                                ; preds = %2
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.1, ptr %4, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.2, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8
   %12 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds { i8, i8, i8 }, ptr %0, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %0, i64 2
   %15 = call zeroext i1 @"_ZN62_$LT$regex_syntax..debug..Byte$u20$as$u20$core..fmt..Debug$GT$3fmt17h5251045ba223a612E"(ptr nonnull align 1 %14, ptr align 8 %1)
   br i1 %15, label %24, label %16
 
@@ -1028,13 +1028,13 @@ define zeroext i1 @"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as
 
 18:                                               ; preds = %16
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.4, ptr %3, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1, ptr %19, align 8
-  %20 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %3, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %3, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.2, ptr %21, align 8
-  %22 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %22, align 8
   %23 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %3)
   br label %24
@@ -1053,37 +1053,37 @@ define zeroext i1 @"_ZN80_$LT$core..ops..range..RangeInclusive$LT$Idx$GT$$u20$as
 
 6:                                                ; preds = %2
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.1, ptr %4, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.2, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %10, align 8
   %11 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 4
   %14 = call zeroext i1 @"_ZN41_$LT$char$u20$as$u20$core..fmt..Debug$GT$3fmt17h1769a29d32e7201aE"(ptr nonnull align 4 %13, ptr align 8 %1)
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds { i32, i32, i8, [3 x i8] }, ptr %0, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i8, ptr %16, align 4, !range !5, !noundef !6
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %24, label %18
 
 18:                                               ; preds = %15
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.4, ptr %3, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 1, ptr %19, align 8
-  %20 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %3, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %3, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr @anon.1c38c08a967e7043671b6e1428d79b6a.2, ptr %21, align 8
-  %22 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %3, i64 0, i32 1, i32 1
+  %22 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %22, align 8
   %23 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %3)
   br label %24
@@ -1105,7 +1105,7 @@ define { i64, ptr } @"_ZN86_$LT$core..ops..range..RangeFull$u20$as$u20$core..ops
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17hbe2364171e6beb1aE"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8, !noundef !6
   %4 = load i64, ptr %2, align 8, !noundef !6
   %5 = icmp ult i64 %3, %4
@@ -1126,7 +1126,7 @@ define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17h81c5ff62e48de56eE"(ptr nocapture align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8, !noundef !6
   %4 = load i64, ptr %2, align 8, !noundef !6
   %5 = icmp ult i64 %3, %4
@@ -1146,7 +1146,7 @@ define { i64, i64 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { i32, i32 } @"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$9spec_next17hfeaa7886e4b09a8fE"(ptr nocapture align 4 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !noundef !6
   %4 = load i32, ptr %2, align 4, !noundef !6
   %5 = icmp ult i32 %3, %4

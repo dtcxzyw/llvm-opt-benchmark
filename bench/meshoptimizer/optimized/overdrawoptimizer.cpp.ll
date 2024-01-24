@@ -40,7 +40,7 @@ if.then3:                                         ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then3
-  %count.i = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %allocator, i64 192
   store i64 1, ptr %count.i, align 8
   store ptr %call.i41, ptr %allocator, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i41, ptr align 4 %destination, i64 %mul.i, i1 false)
@@ -63,7 +63,7 @@ if.end4:                                          ; preds = %invoke.cont, %if.en
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end4
-  %count.i45 = getelementptr inbounds %class.meshopt_Allocator, ptr %allocator, i64 0, i32 1
+  %count.i45 = getelementptr inbounds i8, ptr %allocator, i64 192
   %inc.i46 = add nuw nsw i64 %2, 1
   store i64 %inc.i46, ptr %count.i45, align 8
   %arrayidx.i47 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %2
@@ -92,9 +92,9 @@ for.body.i:                                       ; preds = %invoke.cont7, %for.
   %mul1.i = mul nuw i64 %i.016.i, 3
   %arrayidx.i59 = getelementptr inbounds i32, ptr %indices.addr.0, i64 %mul1.i
   %5 = load i32, ptr %arrayidx.i59, align 4
-  %arrayidx5.i = getelementptr i32, ptr %arrayidx.i59, i64 1
+  %arrayidx5.i = getelementptr i8, ptr %arrayidx.i59, i64 4
   %6 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx8.i = getelementptr i32, ptr %arrayidx.i59, i64 2
+  %arrayidx8.i = getelementptr i8, ptr %arrayidx.i59, i64 8
   %7 = load i32, ptr %arrayidx8.i, align 4
   %idxprom.i.i = zext i32 %5 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %call.i48, i64 %idxprom.i.i
@@ -176,7 +176,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   %arrayidx.i66 = getelementptr inbounds [24 x ptr], ptr %allocator, i64 0, i64 %inc.i54
   store ptr %call.i67, ptr %arrayidx.i66, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %call.i48, i8 0, i64 %mul.i43, i1 false)
-  %invariant.gep.i = getelementptr i32, ptr %call.i67, i64 -1
+  %invariant.gep.i = getelementptr i8, ptr %call.i67, i64 -4
   %cmp91.not.i = icmp eq i64 %result.0.lcssa.i, 0
   br i1 %cmp91.not.i, label %_ZN7meshoptL22generateSoftBoundariesEPjPKjmmS2_mjfS0_.exit.thread, label %for.body.i71
 
@@ -210,9 +210,9 @@ for.body9.i:                                      ; preds = %cond.end.i, %_ZN7me
   %mul10.i = mul nuw i64 %i.080.i, 3
   %arrayidx12.i77 = getelementptr inbounds i32, ptr %indices.addr.0, i64 %mul10.i
   %14 = load i32, ptr %arrayidx12.i77, align 4
-  %arrayidx15.i = getelementptr i32, ptr %arrayidx12.i77, i64 1
+  %arrayidx15.i = getelementptr i8, ptr %arrayidx12.i77, i64 4
   %15 = load i32, ptr %arrayidx15.i, align 4
-  %arrayidx18.i = getelementptr i32, ptr %arrayidx12.i77, i64 2
+  %arrayidx18.i = getelementptr i8, ptr %arrayidx12.i77, i64 8
   %16 = load i32, ptr %arrayidx18.i, align 4
   %idxprom.i.i78 = zext i32 %14 to i64
   %arrayidx.i.i79 = getelementptr inbounds i32, ptr %call.i48, i64 %idxprom.i.i78
@@ -289,9 +289,9 @@ for.body33.i:                                     ; preds = %for.end.i, %for.inc
   %mul35.i = mul nuw i64 %i30.087.i, 3
   %arrayidx37.i = getelementptr inbounds i32, ptr %indices.addr.0, i64 %mul35.i
   %20 = load i32, ptr %arrayidx37.i, align 4
-  %arrayidx40.i = getelementptr i32, ptr %arrayidx37.i, i64 1
+  %arrayidx40.i = getelementptr i8, ptr %arrayidx37.i, i64 4
   %21 = load i32, ptr %arrayidx40.i, align 4
-  %arrayidx43.i = getelementptr i32, ptr %arrayidx37.i, i64 2
+  %arrayidx43.i = getelementptr i8, ptr %arrayidx37.i, i64 8
   %22 = load i32, ptr %arrayidx43.i, align 4
   %idxprom.i42.i = zext i32 %20 to i64
   %arrayidx.i43.i = getelementptr inbounds i32, ptr %call.i48, i64 %idxprom.i42.i
@@ -410,7 +410,7 @@ for.body.i115:                                    ; preds = %invoke.cont16, %for
   %add.ptr.i = getelementptr inbounds float, ptr %vertex_positions, i64 %mul.i118
   %32 = load float, ptr %add.ptr.i, align 4
   %add.i119 = fadd float %mesh_centroid.sroa.0.099.i, %32
-  %arrayidx3.i120 = getelementptr inbounds float, ptr %add.ptr.i, i64 1
+  %arrayidx3.i120 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %33 = load <2 x float>, ptr %arrayidx3.i120, align 4
   %34 = fadd <2 x float> %30, %33
   %inc.i121 = add nuw i64 %i.096.i, 1
@@ -461,12 +461,12 @@ for.body33.i126:                                  ; preds = %cond.end.i124, %for
   %conv36.i = zext i32 %41 to i64
   %mul37.i = mul i64 %div93.i, %conv36.i
   %add.ptr38.i = getelementptr inbounds float, ptr %vertex_positions, i64 %mul37.i
-  %arrayidx40.i127 = getelementptr i32, ptr %arrayidx35.i, i64 1
+  %arrayidx40.i127 = getelementptr i8, ptr %arrayidx35.i, i64 4
   %42 = load i32, ptr %arrayidx40.i127, align 4
   %conv41.i = zext i32 %42 to i64
   %mul42.i = mul i64 %div93.i, %conv41.i
   %add.ptr43.i = getelementptr inbounds float, ptr %vertex_positions, i64 %mul42.i
-  %arrayidx45.i = getelementptr i32, ptr %arrayidx35.i, i64 2
+  %arrayidx45.i = getelementptr i8, ptr %arrayidx35.i, i64 8
   %43 = load i32, ptr %arrayidx45.i, align 4
   %conv46.i = zext i32 %43 to i64
   %mul47.i = mul i64 %div93.i, %conv46.i
@@ -474,9 +474,9 @@ for.body33.i126:                                  ; preds = %cond.end.i124, %for
   %44 = load float, ptr %add.ptr43.i, align 4
   %45 = load float, ptr %add.ptr38.i, align 4
   %sub.i128 = fsub float %44, %45
-  %arrayidx51.i = getelementptr inbounds float, ptr %add.ptr43.i, i64 1
-  %arrayidx52.i = getelementptr inbounds float, ptr %add.ptr38.i, i64 1
-  %arrayidx67.i = getelementptr inbounds float, ptr %add.ptr48.i, i64 2
+  %arrayidx51.i = getelementptr inbounds i8, ptr %add.ptr43.i, i64 4
+  %arrayidx52.i = getelementptr inbounds i8, ptr %add.ptr38.i, i64 4
+  %arrayidx67.i = getelementptr inbounds i8, ptr %add.ptr48.i, i64 8
   %46 = load float, ptr %arrayidx67.i, align 4
   %47 = load <2 x float>, ptr %arrayidx51.i, align 4
   %48 = load <2 x float>, ptr %arrayidx52.i, align 4
@@ -757,7 +757,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %count = getelementptr inbounds %class.meshopt_Allocator, ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i64, ptr %count, align 8
   br label %for.cond
 

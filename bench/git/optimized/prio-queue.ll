@@ -3,7 +3,6 @@ source_filename = "bench/git/original/prio-queue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.prio_queue = type { ptr, i32, ptr, i32, i32, ptr }
 %struct.prio_queue_entry = type { i32, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"prio-queue.c\00", align 1
@@ -19,7 +18,7 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %nr = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %queue, i64 28
   %1 = load i32, ptr %nr, align 4
   %sub16 = add i32 %1, -1
   %cmp7 = icmp sgt i32 %sub16, 0
@@ -64,11 +63,11 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @clear_prio_queue(ptr nocapture noundef %queue) local_unnamed_addr #2 {
 entry:
-  %array = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %queue, i64 32
   %0 = load ptr, ptr %array, align 8
   tail call void @free(ptr noundef %0) #10
-  %alloc = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 3
-  %insertion_ctr = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %queue, i64 24
+  %insertion_ctr = getelementptr inbounds i8, ptr %queue, i64 8
   store i32 0, ptr %insertion_ctr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alloc, i8 0, i64 16, i1 false)
   ret void
@@ -81,15 +80,15 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 define dso_local void @prio_queue_put(ptr nocapture noundef %queue, ptr noundef %thing) local_unnamed_addr #0 {
 entry:
   %_swap_buffer.i = alloca [16 x i8], align 16
-  %nr = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %queue, i64 28
   %0 = load i32, ptr %nr, align 4
-  %alloc = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 3
+  %alloc = getelementptr inbounds i8, ptr %queue, i64 24
   %1 = load i32, ptr %alloc, align 8
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %entry.do.end_crit_edge, label %if.then
 
 entry.do.end_crit_edge:                           ; preds = %entry
-  %array19.phi.trans.insert = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 5
+  %array19.phi.trans.insert = getelementptr inbounds i8, ptr %queue, i64 32
   %.pre = load ptr, ptr %array19.phi.trans.insert, align 8
   br label %do.end
 
@@ -110,7 +109,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then
-  %array = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %queue, i64 32
   %3 = load ptr, ptr %array, align 8
   %mul.i = shl nuw nsw i64 %conv, 4
   %call16 = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i) #10
@@ -121,11 +120,11 @@ st_mult.exit:                                     ; preds = %if.then
 do.end:                                           ; preds = %entry.do.end_crit_edge, %st_mult.exit
   %4 = phi i32 [ %0, %entry.do.end_crit_edge ], [ %.pre31, %st_mult.exit ]
   %5 = phi ptr [ %.pre, %entry.do.end_crit_edge ], [ %call16, %st_mult.exit ]
-  %insertion_ctr = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 1
+  %insertion_ctr = getelementptr inbounds i8, ptr %queue, i64 8
   %6 = load i32, ptr %insertion_ctr, align 8
   %inc = add i32 %6, 1
   store i32 %inc, ptr %insertion_ctr, align 8
-  %array19 = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 5
+  %array19 = getelementptr inbounds i8, ptr %queue, i64 32
   %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds %struct.prio_queue_entry, ptr %5, i64 %idxprom
   store i32 %6, ptr %arrayidx, align 8
@@ -144,7 +143,7 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   br i1 %or.cond, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
-  %cb_data.i = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 2
+  %cb_data.i = getelementptr inbounds i8, ptr %queue, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37
@@ -200,7 +199,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 define dso_local ptr @prio_queue_get(ptr nocapture noundef %queue) local_unnamed_addr #0 {
 entry:
   %_swap_buffer.i = alloca [16 x i8], align 16
-  %nr = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %queue, i64 28
   %0 = load i32, ptr %nr, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -208,7 +207,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %queue, align 8
   %tobool1.not = icmp eq ptr %1, null
-  %array = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %queue, i64 32
   %2 = load ptr, ptr %array, align 8
   br i1 %tobool1.not, label %if.then2, label %if.end4
 
@@ -221,7 +220,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %data7 = getelementptr inbounds %struct.prio_queue_entry, ptr %2, i64 0, i32 1
+  %data7 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %data7, align 8
   %dec9 = add nsw i32 %0, -1
   store i32 %dec9, ptr %nr, align 4
@@ -237,7 +236,7 @@ if.end12:                                         ; preds = %if.end4
   br i1 %cmp42, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end12
-  %cb_data.i = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 2
+  %cb_data.i = getelementptr inbounds i8, ptr %queue, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end32
@@ -333,7 +332,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @prio_queue_peek(ptr nocapture noundef readonly %queue) local_unnamed_addr #6 {
 entry:
-  %nr = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 4
+  %nr = getelementptr inbounds i8, ptr %queue, i64 28
   %0 = load i32, ptr %nr, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -341,12 +340,12 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %queue, align 8
   %tobool1.not = icmp eq ptr %1, null
-  %array = getelementptr inbounds %struct.prio_queue, ptr %queue, i64 0, i32 5
+  %array = getelementptr inbounds i8, ptr %queue, i64 32
   %2 = load ptr, ptr %array, align 8
-  %data7 = getelementptr inbounds %struct.prio_queue_entry, ptr %2, i64 0, i32 1
+  %data7 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = sext i32 %0 to i64
   %4 = getelementptr %struct.prio_queue_entry, ptr %2, i64 %3
-  %data = getelementptr %struct.prio_queue_entry, ptr %4, i64 -1, i32 1
+  %data = getelementptr i8, ptr %4, i64 -8
   %data7.sink = select i1 %tobool1.not, ptr %data, ptr %data7
   %5 = load ptr, ptr %data7.sink, align 8
   br label %return

@@ -34,11 +34,11 @@ define hidden void @_ZN3syn3lit7parsing18parse_negative_lit17h9bdc4708f7c12b51E(
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %4
-  %26 = getelementptr inbounds { [1 x i64], { { { ptr, [2 x i64] }, {} }, { ptr, ptr } } }, ptr %21, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds { [1 x i64], { { { ptr, [2 x i64] }, {} }, { ptr, ptr } } }, ptr %21, i64 0, i32 1, i32 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 32
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { { { ptr, [2 x i64] }, {} }, { ptr, ptr } } }, ptr %21, i64 0, i32 1, i32 1, i32 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 40
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %27 = invoke i32 @_ZN11proc_macro25Punct4span17h2f73436d2d4a6287E(ptr align 4 %1)
           to label %32 unwind label %30
@@ -108,17 +108,17 @@ define hidden void @_ZN3syn3lit7parsing18parse_negative_lit17h9bdc4708f7c12b51E(
   br i1 %.not, label %62, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds { ptr, i64 }, ptr %17, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %17, i64 8
   %54 = load i64, ptr %53, align 8, !noundef !6
   store ptr %51, ptr %16, align 8
-  %55 = getelementptr inbounds { ptr, i64 }, ptr %16, i64 0, i32 1
+  %55 = getelementptr inbounds i8, ptr %16, i64 8
   store i64 %54, ptr %55, align 8
-  %56 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %17, i64 0, i32 1
+  %56 = getelementptr inbounds i8, ptr %17, i64 16
   %57 = load ptr, ptr %56, align 8, !nonnull !6, !align !7, !noundef !6
-  %58 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %17, i64 0, i32 1, i32 1
+  %58 = getelementptr inbounds i8, ptr %17, i64 24
   %59 = load i64, ptr %58, align 8, !noundef !6
   store ptr %57, ptr %15, align 8
-  %60 = getelementptr inbounds { ptr, i64 }, ptr %15, i64 0, i32 1
+  %60 = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %59, ptr %60, align 8
   %61 = invoke { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h6f1138f09e0c1d1eE"(ptr nonnull align 8 %18)
           to label %64 unwind label %.thread
@@ -148,18 +148,18 @@ define hidden void @_ZN3syn3lit7parsing18parse_negative_lit17h9bdc4708f7c12b51E(
           to label %70 unwind label %87
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { ptr, [2 x i64] }, {} } }, ptr %12, i64 0, i32 2
+  %71 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   %72 = load ptr, ptr %16, align 8, !nonnull !6, !align !7, !noundef !6
   %73 = load i64, ptr %55, align 8, !noundef !6
   %74 = load ptr, ptr %15, align 8, !nonnull !6, !align !7, !noundef !6
   %75 = load i64, ptr %60, align 8, !noundef !6
   store ptr %72, ptr %12, align 8
-  %76 = getelementptr inbounds { ptr, i64 }, ptr %12, i64 0, i32 1
+  %76 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %73, ptr %76, align 8
-  %77 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { ptr, [2 x i64] }, {} } }, ptr %12, i64 0, i32 1
+  %77 = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %74, ptr %77, align 8
-  %78 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { ptr, [2 x i64] }, {} } }, ptr %12, i64 0, i32 1, i32 1
+  %78 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 %75, ptr %78, align 8
   %79 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 56, i64 8)
           to label %84 unwind label %80
@@ -241,10 +241,10 @@ define hidden void @_ZN3syn3lit7parsing18parse_negative_lit17h9bdc4708f7c12b51E(
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %99, ptr %11, align 8
-  %101 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 0, i32 1
+  %101 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %.sroa.210.0.copyload, ptr %101, align 8
   store ptr %.sroa.311.0.copyload, ptr %10, align 8
-  %102 = getelementptr inbounds { ptr, i64 }, ptr %10, i64 0, i32 1
+  %102 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %.sroa.4.0.copyload, ptr %102, align 8
   %103 = invoke { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h6f1138f09e0c1d1eE"(ptr nonnull align 8 %18)
           to label %106 unwind label %.thread68
@@ -274,18 +274,18 @@ define hidden void @_ZN3syn3lit7parsing18parse_negative_lit17h9bdc4708f7c12b51E(
           to label %112 unwind label %130
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { ptr, [2 x i64] }, {} } }, ptr %5, i64 0, i32 2
+  %113 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %114 = load ptr, ptr %11, align 8, !nonnull !6, !align !7, !noundef !6
   %115 = load i64, ptr %101, align 8, !noundef !6
   %116 = load ptr, ptr %10, align 8, !nonnull !6, !align !7, !noundef !6
   %117 = load i64, ptr %102, align 8, !noundef !6
   store ptr %114, ptr %5, align 8
-  %118 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %118 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %115, ptr %118, align 8
-  %119 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { ptr, [2 x i64] }, {} } }, ptr %5, i64 0, i32 1
+  %119 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %116, ptr %119, align 8
-  %120 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { { ptr, [2 x i64] }, {} } }, ptr %5, i64 0, i32 1, i32 1
+  %120 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %117, ptr %120, align 8
   %121 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1ec22df16cdad93bE(i64 56, i64 8)
           to label %126 unwind label %122

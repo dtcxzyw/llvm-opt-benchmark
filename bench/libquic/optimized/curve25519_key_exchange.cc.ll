@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.base::BasicStringPiece" = type { ptr, i64 }
-%"class.net::Curve25519KeyExchange" = type { %"class.net::KeyExchange", [32 x i8], [32 x i8] }
-%"class.net::KeyExchange" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -54,7 +52,7 @@ define dso_local noundef ptr @_ZN3net21Curve25519KeyExchange3NewEN4base16BasicSt
 entry:
   %private_key = alloca %"class.base::BasicStringPiece", align 8
   store ptr %private_key.coerce0, ptr %private_key, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %private_key, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %private_key, i64 8
   store i64 %private_key.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %private_key)
   %cmp.not = icmp eq i64 %call, 32
@@ -63,10 +61,10 @@ entry:
 if.end:                                           ; preds = %entry
   %call1 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #11
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
-  %private_key_ = getelementptr inbounds %"class.net::Curve25519KeyExchange", ptr %call1, i64 0, i32 1
+  %private_key_ = getelementptr inbounds i8, ptr %call1, i64 8
   %call2 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %private_key)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %private_key_, ptr noundef nonnull align 1 dereferenceable(32) %call2, i64 32, i1 false)
-  %public_key_ = getelementptr inbounds %"class.net::Curve25519KeyExchange", ptr %call1, i64 0, i32 2
+  %public_key_ = getelementptr inbounds i8, ptr %call1, i64 40
   call void @_ZN6crypto10curve2551914ScalarBaseMultEPKhPh(ptr noundef nonnull %private_key_, ptr noundef nonnull %public_key_)
   br label %return
 
@@ -95,13 +93,13 @@ entry:
   %private_key = alloca [32 x i8], align 16
   %ref.tmp = alloca %"class.std::allocator", align 1
   %vtable = load ptr, ptr %rand, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(8) %rand, ptr noundef nonnull %private_key, i64 noundef 32)
   %1 = load i8, ptr %private_key, align 16
   %2 = and i8 %1, -8
   store i8 %2, ptr %private_key, align 16
-  %arrayidx2 = getelementptr inbounds [32 x i8], ptr %private_key, i64 0, i64 31
+  %arrayidx2 = getelementptr inbounds i8, ptr %private_key, i64 31
   %3 = load i8, ptr %arrayidx2, align 1
   %4 = and i8 %3, 63
   %5 = or disjoint i8 %4, 64
@@ -140,13 +138,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %private_key.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   %vtable.i = load ptr, ptr %rand, align 8, !noalias !5
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8, !noalias !5
   call void %0(ptr noundef nonnull align 8 dereferenceable(8) %rand, ptr noundef nonnull %private_key.i, i64 noundef 32), !noalias !5
   %1 = load i8, ptr %private_key.i, align 16, !noalias !5
   %2 = and i8 %1, -8
   store i8 %2, ptr %private_key.i, align 16, !noalias !5
-  %arrayidx2.i = getelementptr inbounds [32 x i8], ptr %private_key.i, i64 0, i64 31
+  %arrayidx2.i = getelementptr inbounds i8, ptr %private_key.i, i64 31
   %3 = load i8, ptr %arrayidx2.i, align 1, !noalias !5
   %4 = and i8 %3, 63
   %5 = or disjoint i8 %4, 64
@@ -174,11 +172,11 @@ _ZN3net21Curve25519KeyExchange13NewPrivateKeyB5cxx11EPNS_10QuicRandomE.exit: ; p
 
 invoke.cont:                                      ; preds = %_ZN3net21Curve25519KeyExchange13NewPrivateKeyB5cxx11EPNS_10QuicRandomE.exit
   %7 = load ptr, ptr %agg.tmp, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %9 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %private_key.i1)
   store ptr %7, ptr %private_key.i1, align 8
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %private_key.i1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %private_key.i1, i64 8
   store i64 %9, ptr %10, align 8
   %call.i2 = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %private_key.i1)
           to label %call.i.noexc unwind label %lpad
@@ -197,9 +195,9 @@ call1.i.noexc:                                    ; preds = %if.end.i
           to label %call2.i.noexc unwind label %lpad
 
 call2.i.noexc:                                    ; preds = %call1.i.noexc
-  %private_key_.i = getelementptr inbounds %"class.net::Curve25519KeyExchange", ptr %call1.i3, i64 0, i32 1
+  %private_key_.i = getelementptr inbounds i8, ptr %call1.i3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %private_key_.i, ptr noundef nonnull align 1 dereferenceable(32) %call2.i4, i64 32, i1 false)
-  %public_key_.i = getelementptr inbounds %"class.net::Curve25519KeyExchange", ptr %call1.i3, i64 0, i32 2
+  %public_key_.i = getelementptr inbounds i8, ptr %call1.i3, i64 40
   invoke void @_ZN6crypto10curve2551914ScalarBaseMultEPKhPh(ptr noundef nonnull %private_key_.i, ptr noundef nonnull %public_key_.i)
           to label %invoke.cont2 unwind label %lpad
 
@@ -227,14 +225,14 @@ entry:
   %peer_public_value = alloca %"class.base::BasicStringPiece", align 8
   %result = alloca [32 x i8], align 16
   store ptr %peer_public_value.coerce0, ptr %peer_public_value, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %peer_public_value, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %peer_public_value, i64 8
   store i64 %peer_public_value.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %peer_public_value)
   %cmp.not = icmp eq i64 %call, 32
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %private_key_ = getelementptr inbounds %"class.net::Curve25519KeyExchange", ptr %this, i64 0, i32 1
+  %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %peer_public_value)
   %call4 = call noundef zeroext i1 @_ZN6crypto10curve2551910ScalarMultEPKhS2_Ph(ptr noundef nonnull %private_key_, ptr noundef %call2, ptr noundef nonnull %result)
   br i1 %call4, label %if.end6, label %return
@@ -256,11 +254,11 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define dso_local { ptr, i64 } @_ZNK3net21Curve25519KeyExchange12public_valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
-  %public_key_ = getelementptr inbounds %"class.net::Curve25519KeyExchange", ptr %this, i64 0, i32 2
+  %public_key_ = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull %public_key_, i64 noundef 32)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert

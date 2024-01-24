@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, ptr, i32 }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.pkcs8_priv_key_info_st = type { i32, ptr, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @PKCS8_PRIV_KEY_INFO_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.1, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.2, ptr @X509_ALGOR_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.3, ptr @ASN1_ANY_it }, %struct.ASN1_TEMPLATE_st { i64 139, i64 0, i64 32, ptr @.str.4, ptr @X509_ATTRIBUTE_it }], align 16
 @PKCS8_PRIV_KEY_INFO_aux = internal constant %struct.ASN1_AUX_st { ptr null, i32 0, i32 0, ptr @pkey_cb, i32 0 }, align 8
@@ -68,7 +64,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
-  %pkey = getelementptr inbounds %struct.pkcs8_priv_key_info_st, ptr %0, i64 0, i32 3
+  %pkey = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %pkey, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
@@ -79,13 +75,13 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp2, label %land.lhs.true3, label %if.end11
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %1, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %value, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true3
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i32, ptr %3, align 8
   %conv = sext i32 %5 to i64

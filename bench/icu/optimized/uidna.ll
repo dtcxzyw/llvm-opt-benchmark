@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL10ACE_PREFIX = internal constant [4 x i16] [i16 120, i16 110, i16 45, i16 45], align 2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uidna_toASCII_75(ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @uidna_toASCII_75(ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -327,7 +327,7 @@ if.then123:                                       ; preds = %if.end121
 
 if.end124:                                        ; preds = %if.end121
   %call125 = call ptr @u_memcpy_75(ptr noundef %dest, ptr noundef nonnull @_ZL10ACE_PREFIX, i32 noundef 4)
-  %add.ptr = getelementptr inbounds i16, ptr %dest, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %dest, i64 8
   %call126 = call ptr @u_memcpy_75(ptr noundef nonnull %add.ptr, ptr noundef nonnull %b2.0, i32 noundef %b2Len.0)
   br label %if.end129
 
@@ -382,7 +382,7 @@ if.end140:                                        ; preds = %if.then139, %if.end
 declare void @usprep_close_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uidna_toUnicode_75(ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #0 {
+define noundef i32 @uidna_toUnicode_75(ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %options, ptr noundef %parseError, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -535,7 +535,7 @@ for.body.i:                                       ; preds = %if.end42, %for.cond
   br i1 %cmp6.not.i, label %for.cond.i, label %if.else80
 
 if.then45:                                        ; preds = %for.cond.i
-  %add.ptr = getelementptr inbounds i16, ptr %b1.1, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %b1.1, i64 8
   %sub = add nsw i32 %b1Len.1, -4
   %call46 = call i32 @u_strFromPunycode_75(ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef nonnull %b2Stack, i32 noundef 100, ptr noundef null, ptr noundef %status)
   %11 = load i32, ptr %status, align 4
@@ -821,7 +821,7 @@ if.then2.i:                                       ; preds = %for.cond.i
 if.then5.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
   %arrayidx.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
   %4 = trunc i64 %indvars.iv43.i to i32
-  %add.ptr7.i = getelementptr i16, ptr %arrayidx.i.le, i64 1
+  %add.ptr7.i = getelementptr i8, ptr %arrayidx.i.le, i64 2
   br label %if.then20
 
 for.inc.i:                                        ; preds = %for.cond.i
@@ -842,7 +842,7 @@ for.body.i:                                       ; preds = %for.inc21.i, %for.b
 if.then16.i:                                      ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
   %arrayidx13.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv.i
   %6 = trunc i64 %indvars.iv.i to i32
-  %add.ptr19.i = getelementptr i16, ptr %arrayidx13.i.le, i64 1
+  %add.ptr19.i = getelementptr i8, ptr %arrayidx13.i.le, i64 2
   br label %if.then20
 
 for.inc21.i:                                      ; preds = %for.body.i
@@ -911,7 +911,7 @@ if.end35:                                         ; preds = %if.end25.thread, %i
   br i1 %cmp36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end35
-  %incdec.ptr = getelementptr inbounds i16, ptr %currentDest.185, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %currentDest.185, i64 2
   store i16 46, ptr %currentDest.185, align 2
   %dec = add nsw i32 %remainingDestCapacity.286, -1
   br label %if.end38
@@ -1026,7 +1026,7 @@ if.then2.i:                                       ; preds = %for.cond.i
 if.then5.i:                                       ; preds = %for.cond.i, %for.cond.i, %for.cond.i, %for.cond.i
   %arrayidx.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv43.i
   %4 = trunc i64 %indvars.iv43.i to i32
-  %add.ptr7.i = getelementptr i16, ptr %arrayidx.i.le, i64 1
+  %add.ptr7.i = getelementptr i8, ptr %arrayidx.i.le, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 for.inc.i:                                        ; preds = %for.cond.i
@@ -1047,7 +1047,7 @@ for.body.i:                                       ; preds = %for.inc21.i, %for.b
 if.then16.i:                                      ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i
   %arrayidx13.i.le = getelementptr inbounds i16, ptr %labelStart.0, i64 %indvars.iv.i
   %6 = trunc i64 %indvars.iv.i to i32
-  %add.ptr19.i = getelementptr i16, ptr %arrayidx13.i.le, i64 1
+  %add.ptr19.i = getelementptr i8, ptr %arrayidx13.i.le, i64 2
   br label %_ZL16getNextSeparatorPDsiPS_Pa.exit
 
 for.inc21.i:                                      ; preds = %for.body.i
@@ -1097,7 +1097,7 @@ if.then32:                                        ; preds = %if.end30
   %idx.ext33 = sext i32 %retval.0.i to i64
   %add.ptr34 = getelementptr inbounds i16, ptr %labelStart.0, i64 %idx.ext33
   %8 = load i16, ptr %add.ptr34, align 2
-  %incdec.ptr = getelementptr inbounds i16, ptr %currentDest.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %currentDest.1, i64 2
   store i16 %8, ptr %currentDest.1, align 2
   %dec = add nsw i32 %remainingDestCapacity.2, -1
   br label %if.end35

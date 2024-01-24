@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.whitespace_rule = type { ptr, i32, i8 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.attr_check = type { i32, i32, ptr, i32, ptr, ptr }
-%struct.attr_check_item = type { ptr, ptr }
 
 @whitespace_rule_cfg = dso_local local_unnamed_addr global i32 1224, align 4
 @.str = private unnamed_addr constant [6 x i8] c", \09\0A\0D\00", align 1
@@ -74,7 +72,7 @@ for.body:                                         ; preds = %while.body, %for.co
   br i1 %tobool10.not, label %if.end12, label %for.cond
 
 if.end12:                                         ; preds = %for.body
-  %rule_bits = getelementptr inbounds [7 x %struct.whitespace_rule], ptr @whitespace_rule_names, i64 0, i64 %indvars.iv, i32 1
+  %rule_bits = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %rule_bits, align 8
   br i1 %cmp.not, label %if.then14, label %if.else
 
@@ -183,9 +181,9 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %call, %if.then ], [ %0, %entry ]
   tail call void @git_check_attr(ptr noundef %istate, ptr noundef %pathname, ptr noundef %1) #11
   %2 = load ptr, ptr @whitespace_rule.attr_whitespace_rule, align 8
-  %items = getelementptr inbounds %struct.attr_check, ptr %2, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %items, align 8
-  %value1 = getelementptr inbounds %struct.attr_check_item, ptr %3, i64 0, i32 1
+  %value1 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %value1, align 8
   %cmp = icmp eq ptr %4, @git_attr__true
   br i1 %cmp, label %if.then2, label %if.else
@@ -198,20 +196,21 @@ if.then2:                                         ; preds = %if.end
 for.body:                                         ; preds = %if.then2, %for.inc
   %indvars.iv = phi i64 [ 0, %if.then2 ], [ %indvars.iv.next, %for.inc ]
   %all_rule.09 = phi i32 [ %and, %if.then2 ], [ %all_rule.1, %for.inc ]
-  %6 = trunc i64 %indvars.iv to i32
-  switch i32 %6, label %if.then13 [
-    i32 3, label %for.inc
-    i32 6, label %for.inc
-  ]
+  %arrayidx5 = getelementptr inbounds [7 x %struct.whitespace_rule], ptr @whitespace_rule_names, i64 0, i64 %indvars.iv
+  %loosens_error = getelementptr inbounds i8, ptr %arrayidx5, i64 12
+  %bf.load = load i8, ptr %loosens_error, align 4
+  %6 = and i8 %bf.load, 3
+  %or.cond = icmp eq i8 %6, 0
+  br i1 %or.cond, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %for.body
-  %rule_bits = getelementptr inbounds [7 x %struct.whitespace_rule], ptr @whitespace_rule_names, i64 0, i64 %indvars.iv, i32 1
+  %rule_bits = getelementptr inbounds i8, ptr %arrayidx5, i64 8
   %7 = load i32, ptr %rule_bits, align 8
   %or = or i32 %7, %all_rule.09
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %for.body, %if.then13
-  %all_rule.1 = phi i32 [ %all_rule.09, %for.body ], [ %or, %if.then13 ], [ %all_rule.09, %for.body ]
+for.inc:                                          ; preds = %for.body, %if.then13
+  %all_rule.1 = phi i32 [ %all_rule.09, %for.body ], [ %or, %if.then13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
@@ -274,7 +273,7 @@ if.end:                                           ; preds = %if.then2, %if.else
   br i1 %tobool4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %len = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %err, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool6.not = icmp eq i64 %0, 0
   br i1 %tobool6.not, label %if.end8, label %if.then7
@@ -293,7 +292,7 @@ if.end10:                                         ; preds = %if.end, %if.end8, %
   br i1 %tobool12.not, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %len14 = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 1
+  %len14 = getelementptr inbounds i8, ptr %err, i64 8
   %1 = load i64, ptr %len14, align 8
   %tobool15.not = icmp eq i64 %1, 0
   br i1 %tobool15.not, label %if.end17, label %if.then16
@@ -312,7 +311,7 @@ if.end18:                                         ; preds = %if.end17, %if.end10
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
-  %len22 = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 1
+  %len22 = getelementptr inbounds i8, ptr %err, i64 8
   %2 = load i64, ptr %len22, align 8
   %tobool23.not = icmp eq i64 %2, 0
   br i1 %tobool23.not, label %if.end25, label %if.then24
@@ -331,7 +330,7 @@ if.end26:                                         ; preds = %if.end25, %if.end18
   br i1 %tobool28.not, label %if.end34, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %len30 = getelementptr inbounds %struct.strbuf, ptr %err, i64 0, i32 1
+  %len30 = getelementptr inbounds i8, ptr %err, i64 8
   %3 = load i64, ptr %len30, align 8
   %tobool31.not = icmp eq i64 %3, 0
   br i1 %tobool31.not, label %if.end33, label %if.then32
@@ -1064,8 +1063,8 @@ if.then78:                                        ; preds = %for.end
   br i1 %cmp91.not234, label %while.end118, label %for.body93.lr.ph
 
 for.body93.lr.ph:                                 ; preds = %if.then78
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %buf.i = getelementptr inbounds i8, ptr %dst, i64 16
   %and104 = and i32 %ws_rule, 63
   %wide.trip.count272 = zext i32 %last.0 to i64
   br label %for.body93
@@ -1075,8 +1074,8 @@ while.cond113.preheader:                          ; preds = %for.inc110
   br i1 %cmp115238, label %while.body117.lr.ph, label %while.end118
 
 while.body117.lr.ph:                              ; preds = %while.cond113.preheader
-  %len.i.i90 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
-  %buf.i94 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %len.i.i90 = getelementptr inbounds i8, ptr %dst, i64 8
+  %buf.i94 = getelementptr inbounds i8, ptr %dst, i64 16
   br label %while.body117
 
 for.body93:                                       ; preds = %for.body93.lr.ph, %for.inc110
@@ -1194,9 +1193,9 @@ if.else120:                                       ; preds = %for.inc.us.us, %for
   br i1 %or.cond1, label %if.then126, label %if.end159
 
 if.then126:                                       ; preds = %if.else120
-  %len127 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len127 = getelementptr inbounds i8, ptr %dst, i64 8
   %33 = load i64, ptr %len127, align 8
-  %buf.i124 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %buf.i124 = getelementptr inbounds i8, ptr %dst, i64 16
   %sext = shl i64 %33, 32
   %conv142 = ashr exact i64 %sext, 32
   %and144 = and i32 %ws_rule, 63
@@ -1311,7 +1310,7 @@ if.then162:                                       ; preds = %if.end159
   br i1 %tobool.not.i.i133, label %if.then.i143, label %strbuf_avail.exit.i134
 
 strbuf_avail.exit.i134:                           ; preds = %if.then162
-  %len.i.i135 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len.i.i135 = getelementptr inbounds i8, ptr %dst, i64 8
   %50 = load i64, ptr %len.i.i135, align 8
   %.neg.i136 = add i64 %50, 1
   %tobool.not.i137 = icmp eq i64 %49, %.neg.i136
@@ -1319,7 +1318,7 @@ strbuf_avail.exit.i134:                           ; preds = %if.then162
 
 if.then.i143:                                     ; preds = %strbuf_avail.exit.i134, %if.then162
   tail call void @strbuf_grow(ptr noundef nonnull %dst, i64 noundef 1) #11
-  %len.phi.trans.insert.i144 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len.phi.trans.insert.i144 = getelementptr inbounds i8, ptr %dst, i64 8
   %.pre.i145 = load i64, ptr %len.phi.trans.insert.i144, align 8
   %.pre8.i146 = add i64 %.pre.i145, 1
   br label %strbuf_addch.exit147
@@ -1327,9 +1326,9 @@ if.then.i143:                                     ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit147:                             ; preds = %strbuf_avail.exit.i134, %if.then.i143
   %inc.pre-phi.i138 = phi i64 [ %.pre8.i146, %if.then.i143 ], [ %.neg.i136, %strbuf_avail.exit.i134 ]
   %51 = phi i64 [ %.pre.i145, %if.then.i143 ], [ %50, %strbuf_avail.exit.i134 ]
-  %buf.i139 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %buf.i139 = getelementptr inbounds i8, ptr %dst, i64 16
   %52 = load ptr, ptr %buf.i139, align 8
-  %len.i140 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len.i140 = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %inc.pre-phi.i138, ptr %len.i140, align 8
   %arrayidx.i141 = getelementptr inbounds i8, ptr %52, i64 %51
   store i8 13, ptr %arrayidx.i141, align 1
@@ -1351,7 +1350,7 @@ if.then165:                                       ; preds = %if.end163
   br i1 %tobool.not.i.i148, label %if.then.i158, label %strbuf_avail.exit.i149
 
 strbuf_avail.exit.i149:                           ; preds = %if.then165
-  %len.i.i150 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len.i.i150 = getelementptr inbounds i8, ptr %dst, i64 8
   %56 = load i64, ptr %len.i.i150, align 8
   %.neg.i151 = add i64 %56, 1
   %tobool.not.i152 = icmp eq i64 %55, %.neg.i151
@@ -1359,7 +1358,7 @@ strbuf_avail.exit.i149:                           ; preds = %if.then165
 
 if.then.i158:                                     ; preds = %strbuf_avail.exit.i149, %if.then165
   tail call void @strbuf_grow(ptr noundef nonnull %dst, i64 noundef 1) #11
-  %len.phi.trans.insert.i159 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len.phi.trans.insert.i159 = getelementptr inbounds i8, ptr %dst, i64 8
   %.pre.i160 = load i64, ptr %len.phi.trans.insert.i159, align 8
   %.pre8.i161 = add i64 %.pre.i160, 1
   br label %strbuf_addch.exit162
@@ -1367,9 +1366,9 @@ if.then.i158:                                     ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit162:                             ; preds = %strbuf_avail.exit.i149, %if.then.i158
   %inc.pre-phi.i153 = phi i64 [ %.pre8.i161, %if.then.i158 ], [ %.neg.i151, %strbuf_avail.exit.i149 ]
   %57 = phi i64 [ %.pre.i160, %if.then.i158 ], [ %56, %strbuf_avail.exit.i149 ]
-  %buf.i154 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 2
+  %buf.i154 = getelementptr inbounds i8, ptr %dst, i64 16
   %58 = load ptr, ptr %buf.i154, align 8
-  %len.i155 = getelementptr inbounds %struct.strbuf, ptr %dst, i64 0, i32 1
+  %len.i155 = getelementptr inbounds i8, ptr %dst, i64 8
   store i64 %inc.pre-phi.i153, ptr %len.i155, align 8
   %arrayidx.i156 = getelementptr inbounds i8, ptr %58, i64 %57
   store i8 10, ptr %arrayidx.i156, align 1

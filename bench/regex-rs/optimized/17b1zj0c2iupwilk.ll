@@ -13,23 +13,18 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 
 6:                                                ; preds = %2
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !5
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
   store i64 %8, ptr %0, align 8
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %4, ptr %.sroa.25.0..sroa_idx, align 8
   %.sroa.25.sroa.2.0..sroa.25.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.25.sroa.2.0..sroa.25.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.29.0..sroa_idx, i64 16, i1 false)
-  br label %12
+  br label %10
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i64], ptr, [2 x i64] }, ptr %0, i64 0, i32 1
-  store ptr null, ptr %11, align 8
-  br label %12
-
-12:                                               ; preds = %6, %10
+10:                                               ; preds = %2, %6
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %4, ptr %11, align 8
   ret void
 }
 

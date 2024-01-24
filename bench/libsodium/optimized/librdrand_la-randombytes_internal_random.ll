@@ -31,7 +31,7 @@ entry:
 define internal i32 @randombytes_internal_random() #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
-  %rnd32_outleft = getelementptr inbounds %struct.InternalRandom_, ptr %0, i64 0, i32 1
+  %rnd32_outleft = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %rnd32_outleft, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -56,9 +56,9 @@ if.then2.i:                                       ; preds = %if.else.i
   unreachable
 
 randombytes_internal_random_stir_if_needed.exit:  ; preds = %if.then.i, %if.else.i
-  %rnd32 = getelementptr inbounds %struct.InternalRandom_, ptr %0, i64 0, i32 3
-  %nonce = getelementptr inbounds %struct.InternalRandom_, ptr %0, i64 0, i32 4
-  %key = getelementptr inbounds %struct.InternalRandom_, ptr %0, i64 0, i32 2
+  %rnd32 = getelementptr inbounds i8, ptr %0, i64 48
+  %nonce = getelementptr inbounds i8, ptr %0, i64 560
+  %key = getelementptr inbounds i8, ptr %0, i64 16
   %call = tail call i32 @crypto_stream_chacha20(ptr noundef nonnull %rnd32, i64 noundef 512, ptr noundef nonnull %nonce, ptr noundef nonnull %key) #7
   store i64 480, ptr %rnd32_outleft, align 8
   %4 = load i32, ptr @global.4, align 4
@@ -68,7 +68,7 @@ randombytes_internal_random_stir_if_needed.exit:  ; preds = %if.then.i, %if.else
 if.end.i:                                         ; preds = %randombytes_internal_random_stir_if_needed.exit
   %5 = tail call { i32, i32 } @llvm.x86.rdrand.32()
   %6 = extractvalue { i32, i32 } %5, 0
-  %arrayidx.i = getelementptr %struct.InternalRandom_, ptr %0, i64 0, i32 2, i64 28
+  %arrayidx.i = getelementptr i8, ptr %0, i64 44
   %7 = load i32, ptr %arrayidx.i, align 4
   %xor.i = xor i32 %7, %6
   store i32 %xor.i, ptr %arrayidx.i, align 4
@@ -77,7 +77,7 @@ if.end.i:                                         ; preds = %randombytes_interna
 
 randombytes_internal_random_xorhwrand.exit:       ; preds = %randombytes_internal_random_stir_if_needed.exit, %if.end.i
   %8 = phi i64 [ 480, %randombytes_internal_random_stir_if_needed.exit ], [ %.pre, %if.end.i ]
-  %arrayidx = getelementptr %struct.InternalRandom_, ptr %0, i64 0, i32 3, i64 %8
+  %arrayidx = getelementptr [512 x i8], ptr %rnd32, i64 0, i64 %8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %randombytes_internal_random_xorhwrand.exit
@@ -104,7 +104,8 @@ if.end:                                           ; preds = %randombytes_interna
   %12 = phi i64 [ %.pre3, %randombytes_internal_random_xorkey.exit ], [ %1, %entry ]
   %sub = add i64 %12, -4
   store i64 %sub, ptr %rnd32_outleft, align 8
-  %arrayidx12 = getelementptr %struct.InternalRandom_, ptr %0, i64 0, i32 3, i64 %sub
+  %rnd3210 = getelementptr inbounds i8, ptr %0, i64 48
+  %arrayidx12 = getelementptr [512 x i8], ptr %rnd3210, i64 0, i64 %sub
   %val.0.copyload = load i32, ptr %arrayidx12, align 1
   store i32 0, ptr %arrayidx12, align 1
   ret i32 %val.0.copyload
@@ -129,16 +130,16 @@ if.then.i:                                        ; preds = %entry
 sodium_hrtime.exit:                               ; preds = %entry
   %0 = load i64, ptr %tv.i, align 8
   %mul.i = mul i64 %0, 1000000
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %tv.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
   %1 = load i64, ptr %tv_usec.i, align 8
   %add.i = add i64 %mul.i, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
-  %nonce = getelementptr inbounds %struct.InternalRandom_, ptr %2, i64 0, i32 4
+  %nonce = getelementptr inbounds i8, ptr %2, i64 560
   store i64 %add.i, ptr %nonce, align 8
-  %rnd32 = getelementptr inbounds %struct.InternalRandom_, ptr %2, i64 0, i32 3
+  %rnd32 = getelementptr inbounds i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %rnd32, i8 0, i64 512, i1 false)
-  %rnd32_outleft = getelementptr inbounds %struct.InternalRandom_, ptr %2, i64 0, i32 1
+  %rnd32_outleft = getelementptr inbounds i8, ptr %2, i64 8
   store i64 0, ptr %rnd32_outleft, align 8
   %.b = load i1, ptr @global.0, align 4
   br i1 %.b, label %if.end, label %if.then
@@ -167,9 +168,9 @@ if.end.i:                                         ; preds = %if.then
 
 if.end.i.i.i:                                     ; preds = %if.end.i
   store i32 %call.i.i2.i, ptr %pfd.i.i.i, align 4
-  %events.i.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i.i, i64 0, i32 1
+  %events.i.i.i = getelementptr inbounds i8, ptr %pfd.i.i.i, i64 4
   store i16 1, ptr %events.i.i.i, align 4
-  %revents.i.i.i = getelementptr inbounds %struct.pollfd, ptr %pfd.i.i.i, i64 0, i32 2
+  %revents.i.i.i = getelementptr inbounds i8, ptr %pfd.i.i.i, i64 6
   store i16 0, ptr %revents.i.i.i, align 2
   %call27.i.i.i = call i32 @poll(ptr noundef nonnull %pfd.i.i.i, i64 noundef 1, i32 noundef -1) #7
   %cmp38.i.i.i = icmp slt i32 %call27.i.i.i, 0
@@ -209,7 +210,7 @@ do.body.critedge.i.i:                             ; preds = %if.end.i
   br label %do.body.preheader.i.i
 
 do.body.preheader.i.i:                            ; preds = %do.body.critedge.i.i, %if.end12.i.i.i
-  %st_mode.i.i = getelementptr inbounds %struct.stat, ptr %st.i.i, i64 0, i32 3
+  %st_mode.i.i = getelementptr inbounds i8, ptr %st.i.i, i64 24
   br label %do.body.i4.i
 
 do.body.i4.i:                                     ; preds = %do.cond.i.i, %do.body.preheader.i.i
@@ -240,7 +241,7 @@ if.else.i.i:                                      ; preds = %do.body.i4.i
   br i1 %cmp13.i.i, label %do.cond.i.i, label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.else.i.i, %if.end10.i.i
-  %incdec.ptr.i.i = getelementptr ptr, ptr %device.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %device.0.i.i, i64 8
   %.pre12.i.i = load ptr, ptr %incdec.ptr.i.i, align 8
   br label %do.cond.i.i
 
@@ -279,7 +280,7 @@ if.end:                                           ; preds = %randombytes_interna
   br i1 %.b1, label %do.body.i, label %if.end9
 
 do.body.i:                                        ; preds = %if.end
-  %key = getelementptr inbounds %struct.InternalRandom_, ptr %2, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %2, i64 16
   %call.i.i = call i32 @getentropy(ptr noundef nonnull %key, i64 noundef 32) #7
   %cmp.not.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i.not.i, label %if.end9, label %if.then7
@@ -318,8 +319,8 @@ if.then2.i:                                       ; preds = %if.else.i
   unreachable
 
 randombytes_internal_random_stir_if_needed.exit:  ; preds = %if.then.i, %if.else.i
-  %nonce = getelementptr inbounds %struct.InternalRandom_, ptr %0, i64 0, i32 4
-  %key = getelementptr inbounds %struct.InternalRandom_, ptr %0, i64 0, i32 2
+  %nonce = getelementptr inbounds i8, ptr %0, i64 560
+  %key = getelementptr inbounds i8, ptr %0, i64 16
   %call = tail call i32 @crypto_stream_chacha20(ptr noundef %buf, i64 noundef %size, ptr noundef nonnull %nonce, ptr noundef nonnull %key) #7
   br label %for.body
 
@@ -327,7 +328,7 @@ for.body:                                         ; preds = %randombytes_interna
   %i.06 = phi i64 [ 0, %randombytes_internal_random_stir_if_needed.exit ], [ %inc, %for.body ]
   %arrayidx = getelementptr i8, ptr %size.addr, i64 %i.06
   %3 = load i8, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr %struct.InternalRandom_, ptr %0, i64 0, i32 2, i64 %i.06
+  %arrayidx2 = getelementptr [32 x i8], ptr %key, i64 0, i64 %i.06
   %4 = load i8, ptr %arrayidx2, align 1
   %xor4 = xor i8 %4, %3
   store i8 %xor4, ptr %arrayidx2, align 1
@@ -343,7 +344,7 @@ for.end:                                          ; preds = %for.body
 if.end.i:                                         ; preds = %for.end
   %6 = tail call { i32, i32 } @llvm.x86.rdrand.32()
   %7 = extractvalue { i32, i32 } %6, 0
-  %arrayidx.i = getelementptr %struct.InternalRandom_, ptr %0, i64 0, i32 2, i64 28
+  %arrayidx.i = getelementptr i8, ptr %0, i64 44
   %8 = load i32, ptr %arrayidx.i, align 4
   %xor.i = xor i32 %8, %7
   store i32 %xor.i, ptr %arrayidx.i, align 4

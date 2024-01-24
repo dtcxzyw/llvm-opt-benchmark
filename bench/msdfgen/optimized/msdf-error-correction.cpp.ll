@@ -8,12 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.msdfgen::Projection" = type { %"struct.msdfgen::Vector2", %"struct.msdfgen::Vector2" }
 %"struct.msdfgen::Vector2" = type { double, double }
 %"struct.msdfgen::BitmapConstRef" = type { ptr, i32, i32 }
-%"struct.msdfgen::MSDFGeneratorConfig" = type { %"struct.msdfgen::GeneratorConfig", %"struct.msdfgen::ErrorCorrectionConfig" }
-%"struct.msdfgen::GeneratorConfig" = type { i8 }
-%"struct.msdfgen::ErrorCorrectionConfig" = type { i32, i32, double, double, ptr }
-%"struct.msdfgen::BitmapRef" = type { ptr, i32, i32 }
 %"struct.msdfgen::BitmapConstRef.2" = type { ptr, i32, i32 }
-%"struct.msdfgen::BitmapRef.0" = type { ptr, i32, i32 }
 %"struct.std::pair" = type { i32, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -33,18 +28,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp41.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp61.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp64.i)
-  %errorCorrection.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1
+  %errorCorrection.i = getelementptr inbounds i8, ptr %config, i64 8
   %0 = load i32, ptr %errorCorrection.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN7msdfgenL24msdfErrorCorrectionInnerILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %buffer.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 4
+  %buffer.i = getelementptr inbounds i8, ptr %config, i64 32
   %1 = load ptr, ptr %buffer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %sdf, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %sdf, i64 8
   %2 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %sdf, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %sdf, i64 12
   %3 = load i32, ptr %height.i, align 4
   br i1 %tobool.not.i, label %if.then2.i, label %cond.end.i
 
@@ -71,21 +66,21 @@ cond.end.i:                                       ; preds = %if.then2.i, %if.end
   %stencilBuffer.sroa.0.157.i = phi ptr [ %call.i26.i, %if.then2.i ], [ null, %if.end.i ]
   %cond.i = phi ptr [ %call.i26.i, %if.then2.i ], [ %1, %if.end.i ]
   store ptr %cond.i, ptr %stencil.i, align 8
-  %width15.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %stencil.i, i64 0, i32 1
+  %width15.i = getelementptr inbounds i8, ptr %stencil.i, i64 8
   store i32 %2, ptr %width15.i, align 8
-  %height17.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %stencil.i, i64 0, i32 2
+  %height17.i = getelementptr inbounds i8, ptr %stencil.i, i64 12
   store i32 %3, ptr %height17.i, align 4
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %stencil.i, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont18.i unwind label %lpad.i
 
 invoke.cont18.i:                                  ; preds = %cond.end.i
-  %minDeviationRatio.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 2
+  %minDeviationRatio.i = getelementptr inbounds i8, ptr %config, i64 16
   %5 = load double, ptr %minDeviationRatio.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection20setMinDeviationRatioEd(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, double noundef %5)
           to label %invoke.cont20.i unwind label %lpad.i
 
 invoke.cont20.i:                                  ; preds = %invoke.cont18.i
-  %minImproveRatio.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 3
+  %minImproveRatio.i = getelementptr inbounds i8, ptr %config, i64 24
   %6 = load double, ptr %minImproveRatio.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection18setMinImproveRatioEd(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, double noundef %6)
           to label %invoke.cont22.i unwind label %lpad.i
@@ -104,7 +99,7 @@ sw.bb25.i:                                        ; preds = %invoke.cont22.i
 invoke.cont26.i:                                  ; preds = %sw.bb25.i
   %8 = load ptr, ptr %sdf, align 8
   store ptr %8, ptr %ref.tmp27.i, align 8
-  %width.i.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp27.i, i64 0, i32 1
+  %width.i.i = getelementptr inbounds i8, ptr %ref.tmp27.i, i64 8
   %9 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %9, ptr %width.i.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection12protectEdgesILi3EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27.i)
@@ -115,7 +110,7 @@ sw.bb30.i:                                        ; preds = %invoke.cont22.i
           to label %sw.epilog.i unwind label %lpad.i
 
 sw.epilog.i:                                      ; preds = %sw.bb30.i, %invoke.cont26.i, %invoke.cont22.i
-  %distanceCheckMode.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 1
+  %distanceCheckMode.i = getelementptr inbounds i8, ptr %config, i64 12
   %10 = load i32, ptr %distanceCheckMode.i, align 4
   switch i32 %10, label %if.end50.i [
     i32 0, label %if.then40.i
@@ -130,7 +125,7 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i
 if.then40.i:                                      ; preds = %land.lhs.true.i, %sw.epilog.i
   %12 = load ptr, ptr %sdf, align 8
   store ptr %12, ptr %ref.tmp41.i, align 8
-  %width.i34.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp41.i, i64 0, i32 1
+  %width.i34.i = getelementptr inbounds i8, ptr %ref.tmp41.i, i64 8
   %13 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %13, ptr %width.i34.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi3EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp41.i)
@@ -164,7 +159,7 @@ if.then58.i:                                      ; preds = %if.end50.i, %land.l
 
 if.then60.i:                                      ; preds = %if.then58.i
   store ptr %18, ptr %ref.tmp61.i, align 8
-  %width.i38.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp61.i, i64 0, i32 1
+  %width.i38.i = getelementptr inbounds i8, ptr %ref.tmp61.i, i64 8
   %19 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %19, ptr %width.i38.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_26OverlappingContourCombinerELi3EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -172,7 +167,7 @@ if.then60.i:                                      ; preds = %if.then58.i
 
 if.else.i:                                        ; preds = %if.then58.i
   store ptr %18, ptr %ref.tmp64.i, align 8
-  %width.i42.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp64.i, i64 0, i32 1
+  %width.i42.i = getelementptr inbounds i8, ptr %ref.tmp64.i, i64 8
   %20 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %20, ptr %width.i42.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_21SimpleContourCombinerELi3EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp64.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -215,18 +210,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp38.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp58.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp61.i)
-  %errorCorrection.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1
+  %errorCorrection.i = getelementptr inbounds i8, ptr %config, i64 8
   %0 = load i32, ptr %errorCorrection.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN7msdfgenL24msdfErrorCorrectionInnerILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %buffer.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 4
+  %buffer.i = getelementptr inbounds i8, ptr %config, i64 32
   %1 = load ptr, ptr %buffer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %sdf, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %sdf, i64 8
   %2 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %sdf, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %sdf, i64 12
   %3 = load i32, ptr %height.i, align 4
   br i1 %tobool.not.i, label %if.then2.i, label %cond.end.i
 
@@ -253,21 +248,21 @@ cond.end.i:                                       ; preds = %if.then2.i, %if.end
   %stencilBuffer.sroa.0.157.i = phi ptr [ %call.i26.i, %if.then2.i ], [ null, %if.end.i ]
   %cond.i = phi ptr [ %call.i26.i, %if.then2.i ], [ %1, %if.end.i ]
   store ptr %cond.i, ptr %stencil.i, align 8
-  %width12.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %stencil.i, i64 0, i32 1
+  %width12.i = getelementptr inbounds i8, ptr %stencil.i, i64 8
   store i32 %2, ptr %width12.i, align 8
-  %height14.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.1", ptr %stencil.i, i64 0, i32 2
+  %height14.i = getelementptr inbounds i8, ptr %stencil.i, i64 12
   store i32 %3, ptr %height14.i, align 4
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %stencil.i, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont15.i unwind label %lpad.i
 
 invoke.cont15.i:                                  ; preds = %cond.end.i
-  %minDeviationRatio.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 2
+  %minDeviationRatio.i = getelementptr inbounds i8, ptr %config, i64 16
   %5 = load double, ptr %minDeviationRatio.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection20setMinDeviationRatioEd(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, double noundef %5)
           to label %invoke.cont17.i unwind label %lpad.i
 
 invoke.cont17.i:                                  ; preds = %invoke.cont15.i
-  %minImproveRatio.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 3
+  %minImproveRatio.i = getelementptr inbounds i8, ptr %config, i64 24
   %6 = load double, ptr %minImproveRatio.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection18setMinImproveRatioEd(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, double noundef %6)
           to label %invoke.cont19.i unwind label %lpad.i
@@ -286,7 +281,7 @@ sw.bb22.i:                                        ; preds = %invoke.cont19.i
 invoke.cont23.i:                                  ; preds = %sw.bb22.i
   %8 = load ptr, ptr %sdf, align 8
   store ptr %8, ptr %ref.tmp24.i, align 8
-  %width.i.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %ref.tmp24.i, i64 0, i32 1
+  %width.i.i = getelementptr inbounds i8, ptr %ref.tmp24.i, i64 8
   %9 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %9, ptr %width.i.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection12protectEdgesILi4EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24.i)
@@ -297,7 +292,7 @@ sw.bb27.i:                                        ; preds = %invoke.cont19.i
           to label %sw.epilog.i unwind label %lpad.i
 
 sw.epilog.i:                                      ; preds = %sw.bb27.i, %invoke.cont23.i, %invoke.cont19.i
-  %distanceCheckMode.i = getelementptr inbounds %"struct.msdfgen::MSDFGeneratorConfig", ptr %config, i64 0, i32 1, i32 1
+  %distanceCheckMode.i = getelementptr inbounds i8, ptr %config, i64 12
   %10 = load i32, ptr %distanceCheckMode.i, align 4
   switch i32 %10, label %if.end47.i [
     i32 0, label %if.then37.i
@@ -312,7 +307,7 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i
 if.then37.i:                                      ; preds = %land.lhs.true.i, %sw.epilog.i
   %12 = load ptr, ptr %sdf, align 8
   store ptr %12, ptr %ref.tmp38.i, align 8
-  %width.i34.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %ref.tmp38.i, i64 0, i32 1
+  %width.i34.i = getelementptr inbounds i8, ptr %ref.tmp38.i, i64 8
   %13 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %13, ptr %width.i34.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi4EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp38.i)
@@ -346,7 +341,7 @@ if.then55.i:                                      ; preds = %if.end47.i, %land.l
 
 if.then57.i:                                      ; preds = %if.then55.i
   store ptr %18, ptr %ref.tmp58.i, align 8
-  %width.i38.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %ref.tmp58.i, i64 0, i32 1
+  %width.i38.i = getelementptr inbounds i8, ptr %ref.tmp58.i, i64 8
   %19 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %19, ptr %width.i38.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_26OverlappingContourCombinerELi4EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp58.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -354,7 +349,7 @@ if.then57.i:                                      ; preds = %if.then55.i
 
 if.else.i:                                        ; preds = %if.then55.i
   store ptr %18, ptr %ref.tmp61.i, align 8
-  %width.i42.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %ref.tmp61.i, i64 0, i32 1
+  %width.i42.i = getelementptr inbounds i8, ptr %ref.tmp61.i, i64 8
   %20 = load <2 x i32>, ptr %width.i, align 8
   store <2 x i32> %20, ptr %width.i42.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsINS_21SimpleContourCombinerELi4EEEvRKNS_14BitmapConstRefIfXT0_EEERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(72) %ec.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61.i, ptr noundef nonnull align 8 dereferenceable(25) %shape)
@@ -395,9 +390,9 @@ invoke.cont:
   %ec = alloca %"class.msdfgen::MSDFErrorCorrection", align 8
   %ref.tmp = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ref.tmp4 = alloca %"struct.msdfgen::BitmapConstRef", align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %sdf, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %1 = load i32, ptr %height, align 4
   %mul4.i = mul nsw i32 %1, %0
   %conv.i = sext i32 %mul4.i to i64
@@ -407,7 +402,7 @@ invoke.cont:
   %stencilBuffer.sroa.4.8.insert.ext = zext i32 %0 to i64
   %stencilBuffer.sroa.4.8.insert.insert = or disjoint i64 %stencilBuffer.sroa.6.8.insert.shift, %stencilBuffer.sroa.4.8.insert.ext
   store ptr %call.i, ptr %ref.tmp, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %stencilBuffer.sroa.4.8.insert.insert, ptr %2, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
@@ -432,7 +427,7 @@ _ZN7msdfgen6BitmapIhLi1EED2Ev.exit:               ; preds = %invoke.cont6, %if.e
 if.end:                                           ; preds = %if.then, %invoke.cont2
   %4 = load ptr, ptr %sdf, align 8
   store ptr %4, ptr %ref.tmp4, align 8
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef", ptr %ref.tmp4, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %5 = load <2 x i32>, ptr %width, align 8
   store <2 x i32> %5, ptr %width.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi3EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
@@ -460,9 +455,9 @@ invoke.cont:
   %ec = alloca %"class.msdfgen::MSDFErrorCorrection", align 8
   %ref.tmp = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ref.tmp4 = alloca %"struct.msdfgen::BitmapConstRef.2", align 8
-  %width = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %sdf, i64 0, i32 1
+  %width = getelementptr inbounds i8, ptr %sdf, i64 8
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %sdf, i64 0, i32 2
+  %height = getelementptr inbounds i8, ptr %sdf, i64 12
   %1 = load i32, ptr %height, align 4
   %mul4.i = mul nsw i32 %1, %0
   %conv.i = sext i32 %mul4.i to i64
@@ -472,7 +467,7 @@ invoke.cont:
   %stencilBuffer.sroa.4.8.insert.ext = zext i32 %0 to i64
   %stencilBuffer.sroa.4.8.insert.insert = or disjoint i64 %stencilBuffer.sroa.6.8.insert.shift, %stencilBuffer.sroa.4.8.insert.ext
   store ptr %call.i, ptr %ref.tmp, align 8
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %stencilBuffer.sroa.4.8.insert.insert, ptr %2, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
@@ -497,7 +492,7 @@ _ZN7msdfgen6BitmapIhLi1EED2Ev.exit:               ; preds = %invoke.cont6, %if.e
 if.end:                                           ; preds = %if.then, %invoke.cont2
   %4 = load ptr, ptr %sdf, align 8
   store ptr %4, ptr %ref.tmp4, align 8
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapConstRef.2", ptr %ref.tmp4, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %5 = load <2 x i32>, ptr %width, align 8
   store <2 x i32> %5, ptr %width.i, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrection10findErrorsILi4EEEvRKNS_14BitmapConstRefIfXT_EEE(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
@@ -529,16 +524,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen26msdfErrorCorrection_legacyERKNS_9BitmapRefIfLi3EEERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %output, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapRef", ptr %output, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %output, i64 12
   %1 = load i32, ptr %height.i, align 4
   %cmp586.i = icmp sgt i32 %1, 0
   br i1 %cmp586.i, label %for.cond1.preheader.lr.ph.i, label %_ZN7msdfgenL31msdfErrorCorrectionInner_legacyILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_7Vector2E.exit
 
 for.cond1.preheader.lr.ph.i:                      ; preds = %entry
   %cmp2578.i = icmp sgt i32 %0, 0
-  %y28.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %threshold, i64 0, i32 1
+  %y28.i = getelementptr inbounds i8, ptr %threshold, i64 8
   br i1 %cmp2578.i, label %for.cond1.preheader.us.preheader.i, label %_ZN7msdfgenL31msdfErrorCorrectionInner_legacyILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_7Vector2E.exit
 
 for.cond1.preheader.us.preheader.i:               ; preds = %for.cond1.preheader.lr.ph.i
@@ -585,9 +580,9 @@ land.lhs.true.us.i:                               ; preds = %for.body3.us.i
   %idx.ext.i75.us.i = sext i32 %mul2.i74.us.i to i64
   %add.ptr.i76.us.i = getelementptr inbounds float, ptr %7, i64 %idx.ext.i75.us.i
   %10 = load double, ptr %threshold, align 8
-  %arrayidx2.i.us.i = getelementptr inbounds float, ptr %add.ptr.i.us.i, i64 2
+  %arrayidx2.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i.us.i, i64 8
   %11 = load float, ptr %arrayidx2.i.us.i, align 4
-  %arrayidx5.i.us.i = getelementptr inbounds float, ptr %add.ptr.i76.us.i, i64 2
+  %arrayidx5.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i76.us.i, i64 8
   %12 = load float, ptr %arrayidx5.i.us.i, align 4
   %13 = load <2 x float>, ptr %add.ptr.i.us.i, align 4
   %14 = load <2 x float>, ptr %add.ptr.i76.us.i, align 4
@@ -666,9 +661,9 @@ land.lhs.true12.us.i:                             ; preds = %lor.lhs.false.us.i
   %idx.ext.i87.us.i = sext i32 %mul2.i86.us.i to i64
   %add.ptr.i88.us.i = getelementptr inbounds float, ptr %27, i64 %idx.ext.i87.us.i
   %30 = load double, ptr %threshold, align 8
-  %arrayidx2.i90.us.i = getelementptr inbounds float, ptr %add.ptr.i82.us.i, i64 2
+  %arrayidx2.i90.us.i = getelementptr inbounds i8, ptr %add.ptr.i82.us.i, i64 8
   %31 = load float, ptr %arrayidx2.i90.us.i, align 4
-  %arrayidx5.i92.us.i = getelementptr inbounds float, ptr %add.ptr.i88.us.i, i64 2
+  %arrayidx5.i92.us.i = getelementptr inbounds i8, ptr %add.ptr.i88.us.i, i64 8
   %32 = load float, ptr %arrayidx5.i92.us.i, align 4
   %33 = load <2 x float>, ptr %add.ptr.i82.us.i, align 4
   %34 = load <2 x float>, ptr %add.ptr.i88.us.i, align 4
@@ -748,9 +743,9 @@ land.lhs.true22.us.i:                             ; preds = %lor.lhs.false20.us.
   %idx.ext.i136.us.i = sext i32 %mul2.i135.us.i to i64
   %add.ptr.i137.us.i = getelementptr inbounds float, ptr %47, i64 %idx.ext.i136.us.i
   %50 = load double, ptr %y28.i, align 8
-  %arrayidx2.i139.us.i = getelementptr inbounds float, ptr %add.ptr.i131.us.i, i64 2
+  %arrayidx2.i139.us.i = getelementptr inbounds i8, ptr %add.ptr.i131.us.i, i64 8
   %51 = load float, ptr %arrayidx2.i139.us.i, align 4
-  %arrayidx5.i141.us.i = getelementptr inbounds float, ptr %add.ptr.i137.us.i, i64 2
+  %arrayidx5.i141.us.i = getelementptr inbounds i8, ptr %add.ptr.i137.us.i, i64 8
   %52 = load float, ptr %arrayidx5.i141.us.i, align 4
   %53 = load <2 x float>, ptr %add.ptr.i131.us.i, align 4
   %54 = load <2 x float>, ptr %add.ptr.i137.us.i, align 4
@@ -830,9 +825,9 @@ land.lhs.true34.us.i:                             ; preds = %lor.lhs.false31.us.
   %idx.ext.i185.us.i = sext i32 %mul2.i184.us.i to i64
   %add.ptr.i186.us.i = getelementptr inbounds float, ptr %67, i64 %idx.ext.i185.us.i
   %70 = load double, ptr %y28.i, align 8
-  %arrayidx2.i188.us.i = getelementptr inbounds float, ptr %add.ptr.i180.us.i, i64 2
+  %arrayidx2.i188.us.i = getelementptr inbounds i8, ptr %add.ptr.i180.us.i, i64 8
   %71 = load float, ptr %arrayidx2.i188.us.i, align 4
-  %arrayidx5.i190.us.i = getelementptr inbounds float, ptr %add.ptr.i186.us.i, i64 2
+  %arrayidx5.i190.us.i = getelementptr inbounds i8, ptr %add.ptr.i186.us.i, i64 8
   %72 = load float, ptr %arrayidx5.i190.us.i, align 4
   %73 = load <2 x float>, ptr %add.ptr.i180.us.i, align 4
   %74 = load <2 x float>, ptr %add.ptr.i186.us.i, align 4
@@ -901,7 +896,7 @@ invoke.cont43.us.i:                               ; preds = %_ZN7msdfgenL11detec
 
 if.then.i.i.us.i:                                 ; preds = %invoke.cont43.us.i
   store i64 %retval.sroa.0.0.insert.insert.i.us.i, ptr %clashes.sroa.10.1580.us.i, align 4
-  %incdec.ptr.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %clashes.sroa.10.1580.us.i, i64 1
+  %incdec.ptr.i.i.us.i = getelementptr inbounds i8, ptr %clashes.sroa.10.1580.us.i, i64 8
   br label %for.inc.us.i
 
 if.else.i.i.us.i:                                 ; preds = %invoke.cont43.us.i
@@ -940,14 +935,14 @@ for.body.i.i.i.i.i.i.us.i:                        ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %88 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !8, !noalias !5
   store i64 %88, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !5, !noalias !8
-  %incdec.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i.us.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i.us.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i.us.i, i64 8
+  %incdec.ptr1.i.i.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.us.i, i64 8
   %cmp.not.i.i.i.i.i.i.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.us.i, %clashes.sroa.10.1580.us.i
   br i1 %cmp.not.i.i.i.i.i.i.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i.us.i, label %for.body.i.i.i.i.i.i.us.i, !llvm.loop !10
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i.us.i: ; preds = %for.body.i.i.i.i.i.i.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i.us.i
   %__cur.0.lcssa.i.i.i.i.i.i.us.i = phi ptr [ %cond.i10.i.i.i.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i.us.i ], [ %incdec.ptr1.i.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.i.us.i ]
-  %incdec.ptr.i.i.i.us.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i.us.i, i64 1
+  %incdec.ptr.i.i.i.us.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.us.i, i64 8
   %tobool.not.i.i.i.i.us.i = icmp eq ptr %clashes.sroa.0.1581.us.i, null
   br i1 %tobool.not.i.i.i.i.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.us.i, label %if.then.i20.i.i.i.us.i
 
@@ -1050,9 +1045,9 @@ land.lhs.true82.us.i:                             ; preds = %for.body78.us.i
   %96 = load double, ptr %threshold, align 8
   %97 = load double, ptr %y28.i, align 8
   %add91.us.i = fadd double %96, %97
-  %arrayidx2.i246.us.i = getelementptr inbounds float, ptr %add.ptr.i238.us.i, i64 2
+  %arrayidx2.i246.us.i = getelementptr inbounds i8, ptr %add.ptr.i238.us.i, i64 8
   %98 = load float, ptr %arrayidx2.i246.us.i, align 4
-  %arrayidx5.i248.us.i = getelementptr inbounds float, ptr %add.ptr.i244.us.i, i64 2
+  %arrayidx5.i248.us.i = getelementptr inbounds i8, ptr %add.ptr.i244.us.i, i64 8
   %99 = load float, ptr %arrayidx5.i248.us.i, align 4
   %100 = load <2 x float>, ptr %add.ptr.i238.us.i, align 4
   %101 = load <2 x float>, ptr %add.ptr.i244.us.i, align 4
@@ -1137,9 +1132,9 @@ land.lhs.true99.us.i:                             ; preds = %lor.lhs.false94.us.
   %118 = load double, ptr %threshold, align 8
   %119 = load double, ptr %y28.i, align 8
   %add108.us.i = fadd double %118, %119
-  %arrayidx2.i295.us.i = getelementptr inbounds float, ptr %add.ptr.i287.us.i, i64 2
+  %arrayidx2.i295.us.i = getelementptr inbounds i8, ptr %add.ptr.i287.us.i, i64 8
   %120 = load float, ptr %arrayidx2.i295.us.i, align 4
-  %arrayidx5.i297.us.i = getelementptr inbounds float, ptr %add.ptr.i293.us.i, i64 2
+  %arrayidx5.i297.us.i = getelementptr inbounds i8, ptr %add.ptr.i293.us.i, i64 8
   %121 = load float, ptr %arrayidx5.i297.us.i, align 4
   %122 = load <2 x float>, ptr %add.ptr.i287.us.i, align 4
   %123 = load <2 x float>, ptr %add.ptr.i293.us.i, align 4
@@ -1223,9 +1218,9 @@ land.lhs.true116.us.i:                            ; preds = %lor.lhs.false111.us
   %140 = load double, ptr %threshold, align 8
   %141 = load double, ptr %y28.i, align 8
   %add125.us.i = fadd double %140, %141
-  %arrayidx2.i344.us.i = getelementptr inbounds float, ptr %add.ptr.i336.us.i, i64 2
+  %arrayidx2.i344.us.i = getelementptr inbounds i8, ptr %add.ptr.i336.us.i, i64 8
   %142 = load float, ptr %arrayidx2.i344.us.i, align 4
-  %arrayidx5.i346.us.i = getelementptr inbounds float, ptr %add.ptr.i342.us.i, i64 2
+  %arrayidx5.i346.us.i = getelementptr inbounds i8, ptr %add.ptr.i342.us.i, i64 8
   %143 = load float, ptr %arrayidx5.i346.us.i, align 4
   %144 = load <2 x float>, ptr %add.ptr.i336.us.i, align 4
   %145 = load <2 x float>, ptr %add.ptr.i342.us.i, align 4
@@ -1309,9 +1304,9 @@ land.lhs.true134.us.i:                            ; preds = %lor.lhs.false128.us
   %162 = load double, ptr %threshold, align 8
   %163 = load double, ptr %y28.i, align 8
   %add143.us.i = fadd double %162, %163
-  %arrayidx2.i393.us.i = getelementptr inbounds float, ptr %add.ptr.i385.us.i, i64 2
+  %arrayidx2.i393.us.i = getelementptr inbounds i8, ptr %add.ptr.i385.us.i, i64 8
   %164 = load float, ptr %arrayidx2.i393.us.i, align 4
-  %arrayidx5.i395.us.i = getelementptr inbounds float, ptr %add.ptr.i391.us.i, i64 2
+  %arrayidx5.i395.us.i = getelementptr inbounds i8, ptr %add.ptr.i391.us.i, i64 8
   %165 = load float, ptr %arrayidx5.i395.us.i, align 4
   %166 = load <2 x float>, ptr %add.ptr.i385.us.i, align 4
   %167 = load <2 x float>, ptr %add.ptr.i391.us.i, align 4
@@ -1380,7 +1375,7 @@ invoke.cont148.us.i:                              ; preds = %_ZN7msdfgenL11detec
 
 if.then.i.i436.us.i:                              ; preds = %invoke.cont148.us.i
   store i64 %retval.sroa.0.0.insert.insert.i432.us.i, ptr %clashes.sroa.10.6603.us.i, align 4
-  %incdec.ptr.i.i437.us.i = getelementptr inbounds %"struct.std::pair", ptr %clashes.sroa.10.6603.us.i, i64 1
+  %incdec.ptr.i.i437.us.i = getelementptr inbounds i8, ptr %clashes.sroa.10.6603.us.i, i64 8
   br label %for.inc152.us.i
 
 if.else.i.i438.us.i:                              ; preds = %invoke.cont148.us.i
@@ -1419,14 +1414,14 @@ for.body.i.i.i.i.i.i456.us.i:                     ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %181 = load i64, ptr %__first.addr.06.i.i.i.i.i.i458.us.i, align 4, !alias.scope !17, !noalias !14
   store i64 %181, ptr %__cur.07.i.i.i.i.i.i457.us.i, align 4, !alias.scope !14, !noalias !17
-  %incdec.ptr.i.i.i.i.i.i459.us.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i458.us.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i460.us.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i457.us.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i459.us.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i458.us.i, i64 8
+  %incdec.ptr1.i.i.i.i.i.i460.us.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i457.us.i, i64 8
   %cmp.not.i.i.i.i.i.i461.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i459.us.i, %clashes.sroa.10.6603.us.i
   br i1 %cmp.not.i.i.i.i.i.i461.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i462.us.i, label %for.body.i.i.i.i.i.i456.us.i, !llvm.loop !10
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i462.us.i: ; preds = %for.body.i.i.i.i.i.i456.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i452.us.i
   %__cur.0.lcssa.i.i.i.i.i.i463.us.i = phi ptr [ %cond.i10.i.i.i453.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i452.us.i ], [ %incdec.ptr1.i.i.i.i.i.i460.us.i, %for.body.i.i.i.i.i.i456.us.i ]
-  %incdec.ptr.i.i.i464.us.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i463.us.i, i64 1
+  %incdec.ptr.i.i.i464.us.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i463.us.i, i64 8
   %tobool.not.i.i.i.i465.us.i = icmp eq ptr %clashes.sroa.0.6604.us.i, null
   br i1 %tobool.not.i.i.i.i465.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i467.us.i, label %if.then.i20.i.i.i466.us.i
 
@@ -1458,7 +1453,7 @@ lpad.loopexit.split.us.i:                         ; preds = %cond.true.i.i.i.i45
 invoke.cont63.i:                                  ; preds = %for.cond51.preheader.i, %invoke.cont63.i
   %clash.sroa.0.0600.i = phi ptr [ %incdec.ptr.i.i, %invoke.cont63.i ], [ %clashes.sroa.0.4.us.i, %for.cond51.preheader.i ]
   %182 = load i32, ptr %clash.sroa.0.0600.i, align 4
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %clash.sroa.0.0600.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %clash.sroa.0.0600.i, i64 4
   %183 = load i32, ptr %second.i, align 4
   %184 = load ptr, ptr %output, align 8
   %185 = load i32, ptr %width.i, align 8
@@ -1468,8 +1463,8 @@ invoke.cont63.i:                                  ; preds = %for.cond51.preheade
   %idx.ext.i230.i = sext i32 %mul2.i229.i to i64
   %add.ptr.i231.i = getelementptr inbounds float, ptr %184, i64 %idx.ext.i230.i
   %186 = load float, ptr %add.ptr.i231.i, align 4
-  %arrayidx61.i = getelementptr inbounds float, ptr %add.ptr.i231.i, i64 1
-  %arrayidx62.i = getelementptr inbounds float, ptr %add.ptr.i231.i, i64 2
+  %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr.i231.i, i64 4
+  %arrayidx62.i = getelementptr inbounds i8, ptr %add.ptr.i231.i, i64 8
   %187 = load <2 x float>, ptr %arrayidx61.i, align 4
   %188 = extractelement <2 x float> %187, i64 0
   %cmp.i3.i.i = fcmp olt float %186, %188
@@ -1485,7 +1480,7 @@ invoke.cont63.i:                                  ; preds = %for.cond51.preheade
   store float %cond.i8.i.i, ptr %add.ptr.i231.i, align 4
   store float %cond.i8.i.i, ptr %arrayidx61.i, align 4
   store float %cond.i8.i.i, ptr %arrayidx62.i, align 4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %clash.sroa.0.0600.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %clash.sroa.0.0600.i, i64 8
   %cmp.i225.not.i = icmp eq ptr %incdec.ptr.i.i, %clashes.sroa.10.3.us.i
   br i1 %cmp.i225.not.i, label %for.cond76.preheader.us.i.preheader, label %invoke.cont63.i, !llvm.loop !21
 
@@ -1503,7 +1498,7 @@ if.then.i.i.i.i469.i:                             ; preds = %if.else.i.i438.us.i
 invoke.cont179.i:                                 ; preds = %for.cond162.preheader.i, %invoke.cont179.i
   %clash158.sroa.0.0623.i = phi ptr [ %incdec.ptr.i490.i, %invoke.cont179.i ], [ %clashes.sroa.0.8.us.i, %for.cond162.preheader.i ]
   %195 = load i32, ptr %clash158.sroa.0.0623.i, align 4
-  %second172.i = getelementptr inbounds %"struct.std::pair", ptr %clash158.sroa.0.0623.i, i64 0, i32 1
+  %second172.i = getelementptr inbounds i8, ptr %clash158.sroa.0.0623.i, i64 4
   %196 = load i32, ptr %second172.i, align 4
   %197 = load ptr, ptr %output, align 8
   %198 = load i32, ptr %width.i, align 8
@@ -1513,8 +1508,8 @@ invoke.cont179.i:                                 ; preds = %for.cond162.prehead
   %idx.ext.i480.i = sext i32 %mul2.i479.i to i64
   %add.ptr.i481.i = getelementptr inbounds float, ptr %197, i64 %idx.ext.i480.i
   %199 = load float, ptr %add.ptr.i481.i, align 4
-  %arrayidx177.i = getelementptr inbounds float, ptr %add.ptr.i481.i, i64 1
-  %arrayidx178.i = getelementptr inbounds float, ptr %add.ptr.i481.i, i64 2
+  %arrayidx177.i = getelementptr inbounds i8, ptr %add.ptr.i481.i, i64 4
+  %arrayidx178.i = getelementptr inbounds i8, ptr %add.ptr.i481.i, i64 8
   %200 = load <2 x float>, ptr %arrayidx177.i, align 4
   %201 = extractelement <2 x float> %200, i64 0
   %cmp.i3.i484.i = fcmp olt float %199, %201
@@ -1530,7 +1525,7 @@ invoke.cont179.i:                                 ; preds = %for.cond162.prehead
   store float %cond.i8.i489.i, ptr %add.ptr.i481.i, align 4
   store float %cond.i8.i489.i, ptr %arrayidx177.i, align 4
   store float %cond.i8.i489.i, ptr %arrayidx178.i, align 4
-  %incdec.ptr.i490.i = getelementptr inbounds %"struct.std::pair", ptr %clash158.sroa.0.0623.i, i64 1
+  %incdec.ptr.i490.i = getelementptr inbounds i8, ptr %clash158.sroa.0.0623.i, i64 8
   %cmp.i475.not.i = icmp eq ptr %incdec.ptr.i490.i, %clashes.sroa.10.8.us.i
   br i1 %cmp.i475.not.i, label %for.end186.i, label %invoke.cont179.i, !llvm.loop !22
 
@@ -1549,16 +1544,16 @@ _ZN7msdfgenL31msdfErrorCorrectionInner_legacyILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7msdfgen26msdfErrorCorrection_legacyERKNS_9BitmapRefIfLi4EEERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %threshold) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %width.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 1
+  %width.i = getelementptr inbounds i8, ptr %output, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds %"struct.msdfgen::BitmapRef.0", ptr %output, i64 0, i32 2
+  %height.i = getelementptr inbounds i8, ptr %output, i64 12
   %1 = load i32, ptr %height.i, align 4
   %cmp586.i = icmp sgt i32 %1, 0
   br i1 %cmp586.i, label %for.cond1.preheader.lr.ph.i, label %_ZN7msdfgenL31msdfErrorCorrectionInner_legacyILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_7Vector2E.exit
 
 for.cond1.preheader.lr.ph.i:                      ; preds = %entry
   %cmp2578.i = icmp sgt i32 %0, 0
-  %y26.i = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %threshold, i64 0, i32 1
+  %y26.i = getelementptr inbounds i8, ptr %threshold, i64 8
   br i1 %cmp2578.i, label %for.cond1.preheader.us.preheader.i, label %_ZN7msdfgenL31msdfErrorCorrectionInner_legacyILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_7Vector2E.exit
 
 for.cond1.preheader.us.preheader.i:               ; preds = %for.cond1.preheader.lr.ph.i
@@ -1605,9 +1600,9 @@ land.lhs.true.us.i:                               ; preds = %for.body3.us.i
   %idx.ext.i75.us.i = sext i32 %mul2.i74.us.i to i64
   %add.ptr.i76.us.i = getelementptr inbounds float, ptr %7, i64 %idx.ext.i75.us.i
   %10 = load double, ptr %threshold, align 8
-  %arrayidx2.i.us.i = getelementptr inbounds float, ptr %add.ptr.i.us.i, i64 2
+  %arrayidx2.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i.us.i, i64 8
   %11 = load float, ptr %arrayidx2.i.us.i, align 4
-  %arrayidx5.i.us.i = getelementptr inbounds float, ptr %add.ptr.i76.us.i, i64 2
+  %arrayidx5.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i76.us.i, i64 8
   %12 = load float, ptr %arrayidx5.i.us.i, align 4
   %13 = load <2 x float>, ptr %add.ptr.i.us.i, align 4
   %14 = load <2 x float>, ptr %add.ptr.i76.us.i, align 4
@@ -1686,9 +1681,9 @@ land.lhs.true11.us.i:                             ; preds = %lor.lhs.false.us.i
   %idx.ext.i87.us.i = sext i32 %mul2.i86.us.i to i64
   %add.ptr.i88.us.i = getelementptr inbounds float, ptr %27, i64 %idx.ext.i87.us.i
   %30 = load double, ptr %threshold, align 8
-  %arrayidx2.i90.us.i = getelementptr inbounds float, ptr %add.ptr.i82.us.i, i64 2
+  %arrayidx2.i90.us.i = getelementptr inbounds i8, ptr %add.ptr.i82.us.i, i64 8
   %31 = load float, ptr %arrayidx2.i90.us.i, align 4
-  %arrayidx5.i92.us.i = getelementptr inbounds float, ptr %add.ptr.i88.us.i, i64 2
+  %arrayidx5.i92.us.i = getelementptr inbounds i8, ptr %add.ptr.i88.us.i, i64 8
   %32 = load float, ptr %arrayidx5.i92.us.i, align 4
   %33 = load <2 x float>, ptr %add.ptr.i82.us.i, align 4
   %34 = load <2 x float>, ptr %add.ptr.i88.us.i, align 4
@@ -1768,9 +1763,9 @@ land.lhs.true20.us.i:                             ; preds = %lor.lhs.false18.us.
   %idx.ext.i136.us.i = sext i32 %mul2.i135.us.i to i64
   %add.ptr.i137.us.i = getelementptr inbounds float, ptr %47, i64 %idx.ext.i136.us.i
   %50 = load double, ptr %y26.i, align 8
-  %arrayidx2.i139.us.i = getelementptr inbounds float, ptr %add.ptr.i131.us.i, i64 2
+  %arrayidx2.i139.us.i = getelementptr inbounds i8, ptr %add.ptr.i131.us.i, i64 8
   %51 = load float, ptr %arrayidx2.i139.us.i, align 4
-  %arrayidx5.i141.us.i = getelementptr inbounds float, ptr %add.ptr.i137.us.i, i64 2
+  %arrayidx5.i141.us.i = getelementptr inbounds i8, ptr %add.ptr.i137.us.i, i64 8
   %52 = load float, ptr %arrayidx5.i141.us.i, align 4
   %53 = load <2 x float>, ptr %add.ptr.i131.us.i, align 4
   %54 = load <2 x float>, ptr %add.ptr.i137.us.i, align 4
@@ -1850,9 +1845,9 @@ land.lhs.true31.us.i:                             ; preds = %lor.lhs.false28.us.
   %idx.ext.i185.us.i = sext i32 %mul2.i184.us.i to i64
   %add.ptr.i186.us.i = getelementptr inbounds float, ptr %67, i64 %idx.ext.i185.us.i
   %70 = load double, ptr %y26.i, align 8
-  %arrayidx2.i188.us.i = getelementptr inbounds float, ptr %add.ptr.i180.us.i, i64 2
+  %arrayidx2.i188.us.i = getelementptr inbounds i8, ptr %add.ptr.i180.us.i, i64 8
   %71 = load float, ptr %arrayidx2.i188.us.i, align 4
-  %arrayidx5.i190.us.i = getelementptr inbounds float, ptr %add.ptr.i186.us.i, i64 2
+  %arrayidx5.i190.us.i = getelementptr inbounds i8, ptr %add.ptr.i186.us.i, i64 8
   %72 = load float, ptr %arrayidx5.i190.us.i, align 4
   %73 = load <2 x float>, ptr %add.ptr.i180.us.i, align 4
   %74 = load <2 x float>, ptr %add.ptr.i186.us.i, align 4
@@ -1921,7 +1916,7 @@ invoke.cont39.us.i:                               ; preds = %_ZN7msdfgenL11detec
 
 if.then.i.i.us.i:                                 ; preds = %invoke.cont39.us.i
   store i64 %retval.sroa.0.0.insert.insert.i.us.i, ptr %clashes.sroa.10.1580.us.i, align 4
-  %incdec.ptr.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %clashes.sroa.10.1580.us.i, i64 1
+  %incdec.ptr.i.i.us.i = getelementptr inbounds i8, ptr %clashes.sroa.10.1580.us.i, i64 8
   br label %for.inc.us.i
 
 if.else.i.i.us.i:                                 ; preds = %invoke.cont39.us.i
@@ -1960,14 +1955,14 @@ for.body.i.i.i.i.i.i.us.i:                        ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %88 = load i64, ptr %__first.addr.06.i.i.i.i.i.i.us.i, align 4, !alias.scope !26, !noalias !23
   store i64 %88, ptr %__cur.07.i.i.i.i.i.i.us.i, align 4, !alias.scope !23, !noalias !26
-  %incdec.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i.us.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.us.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i.us.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i.us.i, i64 8
+  %incdec.ptr1.i.i.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.us.i, i64 8
   %cmp.not.i.i.i.i.i.i.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.us.i, %clashes.sroa.10.1580.us.i
   br i1 %cmp.not.i.i.i.i.i.i.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i.us.i, label %for.body.i.i.i.i.i.i.us.i, !llvm.loop !10
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i.us.i: ; preds = %for.body.i.i.i.i.i.i.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i.us.i
   %__cur.0.lcssa.i.i.i.i.i.i.us.i = phi ptr [ %cond.i10.i.i.i.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i.us.i ], [ %incdec.ptr1.i.i.i.i.i.i.us.i, %for.body.i.i.i.i.i.i.us.i ]
-  %incdec.ptr.i.i.i.us.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i.us.i, i64 1
+  %incdec.ptr.i.i.i.us.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.us.i, i64 8
   %tobool.not.i.i.i.i.us.i = icmp eq ptr %clashes.sroa.0.1581.us.i, null
   br i1 %tobool.not.i.i.i.i.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.us.i, label %if.then.i20.i.i.i.us.i
 
@@ -2070,9 +2065,9 @@ land.lhs.true78.us.i:                             ; preds = %for.body74.us.i
   %96 = load double, ptr %threshold, align 8
   %97 = load double, ptr %y26.i, align 8
   %add87.us.i = fadd double %96, %97
-  %arrayidx2.i246.us.i = getelementptr inbounds float, ptr %add.ptr.i238.us.i, i64 2
+  %arrayidx2.i246.us.i = getelementptr inbounds i8, ptr %add.ptr.i238.us.i, i64 8
   %98 = load float, ptr %arrayidx2.i246.us.i, align 4
-  %arrayidx5.i248.us.i = getelementptr inbounds float, ptr %add.ptr.i244.us.i, i64 2
+  %arrayidx5.i248.us.i = getelementptr inbounds i8, ptr %add.ptr.i244.us.i, i64 8
   %99 = load float, ptr %arrayidx5.i248.us.i, align 4
   %100 = load <2 x float>, ptr %add.ptr.i238.us.i, align 4
   %101 = load <2 x float>, ptr %add.ptr.i244.us.i, align 4
@@ -2157,9 +2152,9 @@ land.lhs.true94.us.i:                             ; preds = %lor.lhs.false89.us.
   %118 = load double, ptr %threshold, align 8
   %119 = load double, ptr %y26.i, align 8
   %add103.us.i = fadd double %118, %119
-  %arrayidx2.i295.us.i = getelementptr inbounds float, ptr %add.ptr.i287.us.i, i64 2
+  %arrayidx2.i295.us.i = getelementptr inbounds i8, ptr %add.ptr.i287.us.i, i64 8
   %120 = load float, ptr %arrayidx2.i295.us.i, align 4
-  %arrayidx5.i297.us.i = getelementptr inbounds float, ptr %add.ptr.i293.us.i, i64 2
+  %arrayidx5.i297.us.i = getelementptr inbounds i8, ptr %add.ptr.i293.us.i, i64 8
   %121 = load float, ptr %arrayidx5.i297.us.i, align 4
   %122 = load <2 x float>, ptr %add.ptr.i287.us.i, align 4
   %123 = load <2 x float>, ptr %add.ptr.i293.us.i, align 4
@@ -2243,9 +2238,9 @@ land.lhs.true110.us.i:                            ; preds = %lor.lhs.false105.us
   %140 = load double, ptr %threshold, align 8
   %141 = load double, ptr %y26.i, align 8
   %add119.us.i = fadd double %140, %141
-  %arrayidx2.i344.us.i = getelementptr inbounds float, ptr %add.ptr.i336.us.i, i64 2
+  %arrayidx2.i344.us.i = getelementptr inbounds i8, ptr %add.ptr.i336.us.i, i64 8
   %142 = load float, ptr %arrayidx2.i344.us.i, align 4
-  %arrayidx5.i346.us.i = getelementptr inbounds float, ptr %add.ptr.i342.us.i, i64 2
+  %arrayidx5.i346.us.i = getelementptr inbounds i8, ptr %add.ptr.i342.us.i, i64 8
   %143 = load float, ptr %arrayidx5.i346.us.i, align 4
   %144 = load <2 x float>, ptr %add.ptr.i336.us.i, align 4
   %145 = load <2 x float>, ptr %add.ptr.i342.us.i, align 4
@@ -2329,9 +2324,9 @@ land.lhs.true127.us.i:                            ; preds = %lor.lhs.false121.us
   %162 = load double, ptr %threshold, align 8
   %163 = load double, ptr %y26.i, align 8
   %add136.us.i = fadd double %162, %163
-  %arrayidx2.i393.us.i = getelementptr inbounds float, ptr %add.ptr.i385.us.i, i64 2
+  %arrayidx2.i393.us.i = getelementptr inbounds i8, ptr %add.ptr.i385.us.i, i64 8
   %164 = load float, ptr %arrayidx2.i393.us.i, align 4
-  %arrayidx5.i395.us.i = getelementptr inbounds float, ptr %add.ptr.i391.us.i, i64 2
+  %arrayidx5.i395.us.i = getelementptr inbounds i8, ptr %add.ptr.i391.us.i, i64 8
   %165 = load float, ptr %arrayidx5.i395.us.i, align 4
   %166 = load <2 x float>, ptr %add.ptr.i385.us.i, align 4
   %167 = load <2 x float>, ptr %add.ptr.i391.us.i, align 4
@@ -2400,7 +2395,7 @@ invoke.cont140.us.i:                              ; preds = %_ZN7msdfgenL11detec
 
 if.then.i.i436.us.i:                              ; preds = %invoke.cont140.us.i
   store i64 %retval.sroa.0.0.insert.insert.i432.us.i, ptr %clashes.sroa.10.6603.us.i, align 4
-  %incdec.ptr.i.i437.us.i = getelementptr inbounds %"struct.std::pair", ptr %clashes.sroa.10.6603.us.i, i64 1
+  %incdec.ptr.i.i437.us.i = getelementptr inbounds i8, ptr %clashes.sroa.10.6603.us.i, i64 8
   br label %for.inc144.us.i
 
 if.else.i.i438.us.i:                              ; preds = %invoke.cont140.us.i
@@ -2439,14 +2434,14 @@ for.body.i.i.i.i.i.i456.us.i:                     ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %181 = load i64, ptr %__first.addr.06.i.i.i.i.i.i458.us.i, align 4, !alias.scope !33, !noalias !30
   store i64 %181, ptr %__cur.07.i.i.i.i.i.i457.us.i, align 4, !alias.scope !30, !noalias !33
-  %incdec.ptr.i.i.i.i.i.i459.us.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i458.us.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i460.us.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i457.us.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i459.us.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i458.us.i, i64 8
+  %incdec.ptr1.i.i.i.i.i.i460.us.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i457.us.i, i64 8
   %cmp.not.i.i.i.i.i.i461.us.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i459.us.i, %clashes.sroa.10.6603.us.i
   br i1 %cmp.not.i.i.i.i.i.i461.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i462.us.i, label %for.body.i.i.i.i.i.i456.us.i, !llvm.loop !10
 
 _ZNSt6vectorISt4pairIiiESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i462.us.i: ; preds = %for.body.i.i.i.i.i.i456.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i452.us.i
   %__cur.0.lcssa.i.i.i.i.i.i463.us.i = phi ptr [ %cond.i10.i.i.i453.us.i, %_ZNSt12_Vector_baseISt4pairIiiESaIS1_EE11_M_allocateEm.exit.i.i.i452.us.i ], [ %incdec.ptr1.i.i.i.i.i.i460.us.i, %for.body.i.i.i.i.i.i456.us.i ]
-  %incdec.ptr.i.i.i464.us.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i463.us.i, i64 1
+  %incdec.ptr.i.i.i464.us.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i463.us.i, i64 8
   %tobool.not.i.i.i.i465.us.i = icmp eq ptr %clashes.sroa.0.6604.us.i, null
   br i1 %tobool.not.i.i.i.i465.us.i, label %_ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i467.us.i, label %if.then.i20.i.i.i466.us.i
 
@@ -2478,7 +2473,7 @@ lpad.loopexit.split.us.i:                         ; preds = %cond.true.i.i.i.i45
 invoke.cont59.i:                                  ; preds = %for.cond47.preheader.i, %invoke.cont59.i
   %clash.sroa.0.0600.i = phi ptr [ %incdec.ptr.i.i, %invoke.cont59.i ], [ %clashes.sroa.0.4.us.i, %for.cond47.preheader.i ]
   %182 = load i32, ptr %clash.sroa.0.0600.i, align 4
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %clash.sroa.0.0600.i, i64 0, i32 1
+  %second.i = getelementptr inbounds i8, ptr %clash.sroa.0.0600.i, i64 4
   %183 = load i32, ptr %second.i, align 4
   %184 = load ptr, ptr %output, align 8
   %185 = load i32, ptr %width.i, align 8
@@ -2488,8 +2483,8 @@ invoke.cont59.i:                                  ; preds = %for.cond47.preheade
   %idx.ext.i230.i = sext i32 %mul2.i229.i to i64
   %add.ptr.i231.i = getelementptr inbounds float, ptr %184, i64 %idx.ext.i230.i
   %186 = load float, ptr %add.ptr.i231.i, align 4
-  %arrayidx57.i = getelementptr inbounds float, ptr %add.ptr.i231.i, i64 1
-  %arrayidx58.i = getelementptr inbounds float, ptr %add.ptr.i231.i, i64 2
+  %arrayidx57.i = getelementptr inbounds i8, ptr %add.ptr.i231.i, i64 4
+  %arrayidx58.i = getelementptr inbounds i8, ptr %add.ptr.i231.i, i64 8
   %187 = load <2 x float>, ptr %arrayidx57.i, align 4
   %188 = extractelement <2 x float> %187, i64 0
   %cmp.i3.i.i = fcmp olt float %186, %188
@@ -2505,7 +2500,7 @@ invoke.cont59.i:                                  ; preds = %for.cond47.preheade
   store float %cond.i8.i.i, ptr %add.ptr.i231.i, align 4
   store float %cond.i8.i.i, ptr %arrayidx57.i, align 4
   store float %cond.i8.i.i, ptr %arrayidx58.i, align 4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %clash.sroa.0.0600.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %clash.sroa.0.0600.i, i64 8
   %cmp.i225.not.i = icmp eq ptr %incdec.ptr.i.i, %clashes.sroa.10.3.us.i
   br i1 %cmp.i225.not.i, label %for.cond72.preheader.us.i.preheader, label %invoke.cont59.i, !llvm.loop !37
 
@@ -2523,7 +2518,7 @@ if.then.i.i.i.i469.i:                             ; preds = %if.else.i.i438.us.i
 invoke.cont171.i:                                 ; preds = %for.cond154.preheader.i, %invoke.cont171.i
   %clash150.sroa.0.0623.i = phi ptr [ %incdec.ptr.i490.i, %invoke.cont171.i ], [ %clashes.sroa.0.8.us.i, %for.cond154.preheader.i ]
   %195 = load i32, ptr %clash150.sroa.0.0623.i, align 4
-  %second164.i = getelementptr inbounds %"struct.std::pair", ptr %clash150.sroa.0.0623.i, i64 0, i32 1
+  %second164.i = getelementptr inbounds i8, ptr %clash150.sroa.0.0623.i, i64 4
   %196 = load i32, ptr %second164.i, align 4
   %197 = load ptr, ptr %output, align 8
   %198 = load i32, ptr %width.i, align 8
@@ -2533,8 +2528,8 @@ invoke.cont171.i:                                 ; preds = %for.cond154.prehead
   %idx.ext.i480.i = sext i32 %mul2.i479.i to i64
   %add.ptr.i481.i = getelementptr inbounds float, ptr %197, i64 %idx.ext.i480.i
   %199 = load float, ptr %add.ptr.i481.i, align 4
-  %arrayidx169.i = getelementptr inbounds float, ptr %add.ptr.i481.i, i64 1
-  %arrayidx170.i = getelementptr inbounds float, ptr %add.ptr.i481.i, i64 2
+  %arrayidx169.i = getelementptr inbounds i8, ptr %add.ptr.i481.i, i64 4
+  %arrayidx170.i = getelementptr inbounds i8, ptr %add.ptr.i481.i, i64 8
   %200 = load <2 x float>, ptr %arrayidx169.i, align 4
   %201 = extractelement <2 x float> %200, i64 0
   %cmp.i3.i484.i = fcmp olt float %199, %201
@@ -2550,7 +2545,7 @@ invoke.cont171.i:                                 ; preds = %for.cond154.prehead
   store float %cond.i8.i489.i, ptr %add.ptr.i481.i, align 4
   store float %cond.i8.i489.i, ptr %arrayidx169.i, align 4
   store float %cond.i8.i489.i, ptr %arrayidx170.i, align 4
-  %incdec.ptr.i490.i = getelementptr inbounds %"struct.std::pair", ptr %clash150.sroa.0.0623.i, i64 1
+  %incdec.ptr.i490.i = getelementptr inbounds i8, ptr %clash150.sroa.0.0623.i, i64 8
   %cmp.i475.not.i = icmp eq ptr %incdec.ptr.i490.i, %clashes.sroa.10.8.us.i
   br i1 %cmp.i475.not.i, label %for.end178.i, label %invoke.cont171.i, !llvm.loop !38
 

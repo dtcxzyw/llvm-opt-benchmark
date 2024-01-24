@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/cmp-test-bin-cmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_cmp_ctx_st = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_msg_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [57 x i8] c"assertion failed: (size_t)BIO_write(in, buf, len) == len\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"../openssl/fuzz/cmp.c\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -18,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.process_pollReq = private unnamed_addr constant [16 x i8] c"process_pollReq\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerInitialize(ptr nocapture noundef readnone %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 {
 entry:
   tail call void @FuzzerSetRand() #4
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #4
@@ -36,7 +33,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare i32 @CRYPTO_free_ex_index(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
@@ -74,14 +71,14 @@ if.then9:                                         ; preds = %cond.end
 if.then20:                                        ; preds = %if.then9
   %call.i = tail call ptr @X509_NAME_new() #4
   %call1.i = tail call ptr @ASN1_INTEGER_new() #4
-  %unprotectedSend.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 27
+  %unprotectedSend.i = getelementptr inbounds i8, ptr %call13, i64 192
   store i32 1, ptr %unprotectedSend.i, align 8
-  %disableConfirm.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 45
+  %disableConfirm.i = getelementptr inbounds i8, ptr %call13, i64 324
   store i32 1, ptr %disableConfirm.i, align 4
-  %popoMethod.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 59
+  %popoMethod.i = getelementptr inbounds i8, ptr %call13, i64 420
   store i32 -1, ptr %popoMethod.i, align 4
   %call2.i = tail call ptr @X509_new() #4
-  %oldCert.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 60
+  %oldCert.i = getelementptr inbounds i8, ptr %call13, i64 424
   store ptr %call2.i, ptr %oldCert.i, align 8
   %call3.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef nonnull %call13, ptr noundef nonnull @.str.2, i32 noundef 0) #4
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -112,7 +109,7 @@ if.end.i:                                         ; preds = %lor.lhs.false13.i
   %call18.i = tail call i32 @OSSL_CMP_CTX_set_transfer_cb_arg(ptr noundef nonnull %call13, ptr noundef nonnull %call6) #4
   %call19.i = tail call i32 @OSSL_CMP_CTX_set_log_cb(ptr noundef nonnull %call13, ptr noundef nonnull @print_noop) #4
   store i32 0, ptr @num_responses, align 4
-  %body.i = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %call6, i64 0, i32 1
+  %body.i = getelementptr inbounds i8, ptr %call6, i64 8
   %2 = load ptr, ptr %body.i, align 8
   %cmp20.not.i = icmp eq ptr %2, null
   br i1 %cmp20.not.i, label %sw.default.i, label %cond.end.i
@@ -142,7 +139,7 @@ sw.bb26.i:                                        ; preds = %cond.end.i
   br label %cmp_client_process_response.exit
 
 sw.bb28.i:                                        ; preds = %cond.end.i
-  %status.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 64
+  %status.i = getelementptr inbounds i8, ptr %call13, i64 456
   store i32 3, ptr %status.i, align 8
   %call29.i = tail call i32 @OSSL_CMP_try_certreq(ptr noundef nonnull %call13, i32 noundef 2, ptr noundef null, ptr noundef null) #4
   br label %cmp_client_process_response.exit
@@ -230,7 +227,7 @@ declare i32 @OSSL_CMP_CTX_set_log_cb(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @OSSL_CMP_SRV_CTX_get0_cmp_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @print_noop(ptr nocapture readnone %func, ptr nocapture readnone %file, i32 %line, i32 %level, ptr nocapture readnone %msg) #3 {
+define internal noundef i32 @print_noop(ptr nocapture readnone %func, ptr nocapture readnone %file, i32 %line, i32 %level, ptr nocapture readnone %msg) #3 {
 entry:
   ret i32 1
 }
@@ -238,7 +235,7 @@ entry:
 declare i32 @OSSL_CMP_SRV_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @process_cert_request(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %cert_req, i32 %certReqId, ptr nocapture readnone %crm, ptr nocapture readnone %p10cr, ptr nocapture readnone %certOut, ptr nocapture readnone %chainOut, ptr nocapture readnone %caPubs) #0 {
+define internal noalias noundef ptr @process_cert_request(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %cert_req, i32 %certReqId, ptr nocapture readnone %crm, ptr nocapture readnone %p10cr, ptr nocapture readnone %certOut, ptr nocapture readnone %chainOut, ptr nocapture readnone %caPubs) #0 {
 entry:
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 111, ptr noundef nonnull @__func__.process_cert_request) #4
@@ -247,7 +244,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @process_rr(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %rr, ptr nocapture readnone %issuer, ptr nocapture readnone %serial) #0 {
+define internal noalias noundef ptr @process_rr(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %rr, ptr nocapture readnone %issuer, ptr nocapture readnone %serial) #0 {
 entry:
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.process_rr) #4
@@ -256,7 +253,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @process_genm(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %genm, ptr nocapture readnone %in, ptr nocapture readnone %out) #0 {
+define internal noundef i32 @process_genm(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %genm, ptr nocapture readnone %in, ptr nocapture readnone %out) #0 {
 entry:
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 129, ptr noundef nonnull @__func__.process_genm) #4
@@ -274,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @process_certConf(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %certConf, i32 %certReqId, ptr nocapture readnone %certHash, ptr nocapture readnone %si) #0 {
+define internal noundef i32 @process_certConf(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %certConf, i32 %certReqId, ptr nocapture readnone %certHash, ptr nocapture readnone %si) #0 {
 entry:
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__func__.process_certConf) #4
@@ -283,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @process_pollReq(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %pollReq, i32 %certReqId, ptr nocapture readnone %certReq, ptr nocapture readnone %check_after) #0 {
+define internal noundef i32 @process_pollReq(ptr nocapture readnone %srv_ctx, ptr nocapture readnone %pollReq, i32 %certReqId, ptr nocapture readnone %certReq, ptr nocapture readnone %check_after) #0 {
 entry:
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.process_pollReq) #4
@@ -358,7 +355,7 @@ declare void @OSSL_CMP_ITAV_free(ptr noundef) #1
 declare i32 @ossl_cmp_msg_check_update(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @allow_unprotected(ptr nocapture readnone %ctx, ptr nocapture readnone %rep, i32 %invalid_protection, i32 %expected_type) #3 {
+define internal noundef i32 @allow_unprotected(ptr nocapture readnone %ctx, ptr nocapture readnone %rep, i32 %invalid_protection, i32 %expected_type) #3 {
 entry:
   ret i32 1
 }

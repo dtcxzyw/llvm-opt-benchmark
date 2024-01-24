@@ -126,7 +126,7 @@ for.cond.preheader.i:                             ; preds = %if.end6, %if.end67
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %previous, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ 64, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i.not = icmp eq i32 %sub8.i, 0
@@ -135,7 +135,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 for.body.i51:                                     ; preds = %for.body.i, %for.body.i51
   %w.017.i52 = phi ptr [ %incdec.ptr7.i54, %for.body.i51 ], [ %current, %for.body.i ]
   %len.addr.016.i53 = phi i32 [ %sub8.i55, %for.body.i51 ], [ 64, %for.body.i ]
-  %incdec.ptr7.i54 = getelementptr inbounds i64, ptr %w.017.i52, i64 1
+  %incdec.ptr7.i54 = getelementptr inbounds i8, ptr %w.017.i52, i64 8
   store volatile i64 0, ptr %w.017.i52, align 8
   %sub8.i55 = add nsw i32 %len.addr.016.i53, -8
   %cmp5.i56.not = icmp eq i32 %sub8.i55, 0
@@ -144,7 +144,7 @@ for.body.i51:                                     ; preds = %for.body.i, %for.bo
 for.body.i80:                                     ; preds = %for.body.i51, %for.body.i80
   %w.017.i81 = phi ptr [ %incdec.ptr7.i83, %for.body.i80 ], [ %hmac, %for.body.i51 ]
   %len.addr.016.i82 = phi i32 [ %sub8.i84, %for.body.i80 ], [ 784, %for.body.i51 ]
-  %incdec.ptr7.i83 = getelementptr inbounds i64, ptr %w.017.i81, i64 1
+  %incdec.ptr7.i83 = getelementptr inbounds i8, ptr %w.017.i81, i64 8
   store volatile i64 0, ptr %w.017.i81, align 8
   %sub8.i84 = add nsw i32 %len.addr.016.i82, -8
   %cmp5.i85.not = icmp eq i32 %sub8.i84, 0
@@ -221,9 +221,9 @@ for.body.i.i:                                     ; preds = %while.end.i, %for.b
   %tpb.sroa.0.0.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %digest, %while.end.i ]
   %tpm.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %sha_result, %while.end.i ]
   %i.03.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %while.end.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %tpm.sroa.0.0.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %tpm.sroa.0.0.i, i64 8
   %1 = load i64, ptr %tpm.sroa.0.0.i, align 8
-  %incdec.ptr1.i.i = getelementptr inbounds i64, ptr %tpb.sroa.0.0.i, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %tpb.sroa.0.0.i, i64 8
   %2 = load i64, ptr %tpb.sroa.0.0.i, align 8
   %xor.i.i = xor i64 %2, %1
   store i64 %xor.i.i, ptr %tpb.sroa.0.0.i, align 8
@@ -273,7 +273,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i24, %for.
 for.body.i24:                                     ; preds = %for.cond.preheader.i, %for.body.i24
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i24 ], [ %sha_result, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i24 ], [ %digLen, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -408,16 +408,16 @@ if.end:                                           ; preds = %entry
   %conv = trunc i32 %shr to i8
   store i8 %conv, ptr %data, align 16
   %conv3 = trunc i32 %okmLen to i8
-  %arrayidx6 = getelementptr inbounds [111 x i8], ptr %data, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %data, i64 1
   store i8 %conv3, ptr %arrayidx6, align 1
   %conv8 = trunc i32 %add to i8
-  %arrayidx11 = getelementptr inbounds [111 x i8], ptr %data, i64 0, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %data, i64 2
   store i8 %conv8, ptr %arrayidx11, align 2
   %cmp12.not = icmp eq i32 %protocolLen, 0
   br i1 %cmp12.not, label %if.end19, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %arrayidx16 = getelementptr inbounds [111 x i8], ptr %data, i64 0, i64 3
+  %arrayidx16 = getelementptr inbounds i8, ptr %data, i64 3
   %conv17 = zext i32 %protocolLen to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx16, ptr align 1 %protocol, i64 %conv17, i1 false)
   %add18 = add i32 %protocolLen, 3
@@ -469,7 +469,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i, %if.end
 for.body.i:                                       ; preds = %if.end39, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %data, %if.end39 ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %idx.2, %if.end39 ]
-  %incdec.ptr7.i = getelementptr inbounds i64, ptr %w.017.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -507,16 +507,16 @@ if.end.i:                                         ; preds = %entry
   %conv.i = trunc i32 %shr.i to i8
   store i8 %conv.i, ptr %data.i, align 16
   %conv3.i = trunc i32 %okmLen to i8
-  %arrayidx6.i = getelementptr inbounds [111 x i8], ptr %data.i, i64 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %data.i, i64 1
   store i8 %conv3.i, ptr %arrayidx6.i, align 1
   %conv8.i = trunc i32 %add.i to i8
-  %arrayidx11.i = getelementptr inbounds [111 x i8], ptr %data.i, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %data.i, i64 2
   store i8 %conv8.i, ptr %arrayidx11.i, align 2
   %cmp12.not.i = icmp eq i32 %protocolLen, 0
   br i1 %cmp12.not.i, label %if.end19.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i
-  %arrayidx16.i = getelementptr inbounds [111 x i8], ptr %data.i, i64 0, i64 3
+  %arrayidx16.i = getelementptr inbounds i8, ptr %data.i, i64 3
   %conv17.i = zext i32 %protocolLen to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx16.i, ptr align 1 %protocol, i64 %conv17.i, i1 false)
   %add18.i = add i32 %protocolLen, 3
@@ -568,7 +568,7 @@ while.cond9.preheader.i.i:                        ; preds = %for.body.i.i, %if.e
 for.body.i.i:                                     ; preds = %if.end39.i, %for.body.i.i
   %w.017.i.i = phi ptr [ %incdec.ptr7.i.i, %for.body.i.i ], [ %data.i, %if.end39.i ]
   %len.addr.016.i.i = phi i32 [ %sub8.i.i, %for.body.i.i ], [ %idx.2.i, %if.end39.i ]
-  %incdec.ptr7.i.i = getelementptr inbounds i64, ptr %w.017.i.i, i64 1
+  %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %w.017.i.i, i64 8
   store volatile i64 0, ptr %w.017.i.i, align 8
   %sub8.i.i = add i32 %len.addr.016.i.i, -8
   %cmp5.i.i = icmp ugt i32 %sub8.i.i, 7

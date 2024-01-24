@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [2 x i8] c":\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ECPKParameters_print_fp(ptr noundef %fp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
+define noundef i32 @ECPKParameters_print_fp(ptr noundef %fp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #4
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #4
@@ -66,7 +66,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ECPKParameters_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
+define noundef i32 @ECPKParameters_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off) local_unnamed_addr #0 {
 entry:
   %gen_buf = alloca ptr, align 8
   store ptr null, ptr %gen_buf, align 8
@@ -398,7 +398,7 @@ if.end11:                                         ; preds = %entry, %if.then2
   br i1 %cmp13, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end11
-  %arrayidx22 = getelementptr inbounds [133 x i8], ptr %str, i64 0, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %str, i64 1
   %add = add nuw nsw i32 %off.addr.0, 4
   %conv23 = zext nneg i32 %add to i64
   %add26 = add nuw nsw i32 %off.addr.0, 5

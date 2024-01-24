@@ -39,7 +39,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZNSt17_Function_handlerIFvRN4llvh11raw_ostreamEEPS3_E9_M_invokeERKSt9_Any_dataS2_ = comdat any
 
@@ -61,8 +60,8 @@ entry:
   store i32 %argc, ptr %argc.addr, align 4
   store ptr %argv, ptr %argv.addr, align 8
   call void @_ZN4llvh8InitLLVMC2ERiRPPKc(ptr noundef nonnull align 8 dereferenceable(152) %initLLVM, ptr noundef nonnull align 4 dereferenceable(4) %argc.addr, ptr noundef nonnull align 8 dereferenceable(8) %argv.addr) #5
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN6hermes6driver26printHermesCompilerVersionERN4llvh11raw_ostreamE, ptr %agg.tmp, align 8
@@ -87,9 +86,9 @@ _ZNSt8functionIFvRN4llvh11raw_ostreamEEED2Ev.exit: ; preds = %entry, %if.then.i.
 
 if.then:                                          ; preds = %_ZNSt8functionIFvRN4llvh11raw_ostreamEEED2Ev.exit
   %call3 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #5
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %call3, i64 16
   %4 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call3, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %call3, i64 24
   %5 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %5 to i64
@@ -110,9 +109,9 @@ if.then4.i.i:                                     ; preds = %if.then
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i6, %if.then4.i.i
   %call5 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #5
-  %OutBufEnd.i5.i8 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call5, i64 0, i32 2
+  %OutBufEnd.i5.i8 = getelementptr inbounds i8, ptr %call5, i64 16
   %7 = load ptr, ptr %OutBufEnd.i5.i8, align 8
-  %OutBufCur.i6.i9 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call5, i64 0, i32 3
+  %OutBufCur.i6.i9 = getelementptr inbounds i8, ptr %call5, i64 24
   %8 = load ptr, ptr %OutBufCur.i6.i9, align 8
   %sub.ptr.lhs.cast.i7.i10 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i8.i11 = ptrtoint ptr %8 to i64
@@ -133,16 +132,16 @@ if.then4.i.i16:                                   ; preds = %_ZN4llvh11raw_ostre
 
 if.end:                                           ; preds = %_ZNSt8functionIFvRN4llvh11raw_ostreamEEED2Ev.exit
   call void @_ZN6hermes6driver29compileFromCommandLineOptionsEv(ptr nonnull sret(%"struct.hermes::driver::CompileResult") align 8 %res) #5
-  %bytecodeProvider = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %res, i64 0, i32 1
+  %bytecodeProvider = getelementptr inbounds i8, ptr %res, i64 8
   %10 = load ptr, ptr %bytecodeProvider, align 8
   %cmp.i.not = icmp eq ptr %10, null
   br i1 %cmp.i.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %if.end
   %call9 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #5
-  %OutBufEnd.i5.i23 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call9, i64 0, i32 2
+  %OutBufEnd.i5.i23 = getelementptr inbounds i8, ptr %call9, i64 16
   %11 = load ptr, ptr %OutBufEnd.i5.i23, align 8
-  %OutBufCur.i6.i24 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call9, i64 0, i32 3
+  %OutBufCur.i6.i24 = getelementptr inbounds i8, ptr %call9, i64 24
   %12 = load ptr, ptr %OutBufCur.i6.i24, align 8
   %sub.ptr.lhs.cast.i7.i25 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i8.i26 = ptrtoint ptr %12 to i64
@@ -167,7 +166,7 @@ if.end11:                                         ; preds = %if.end
 
 cleanup:                                          ; preds = %if.then4.i.i31, %if.then.i.i34, %if.end11
   %retval.0 = phi i32 [ %14, %if.end11 ], [ 1, %if.then.i.i34 ], [ 1, %if.then4.i.i31 ]
-  %filename.i.i = getelementptr inbounds %"struct.hermes::driver::CompileResult", ptr %res, i64 0, i32 2, i32 3
+  %filename.i.i = getelementptr inbounds i8, ptr %res, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i) #5
   %15 = load ptr, ptr %bytecodeProvider, align 8
   %cmp.not.i.i = icmp eq ptr %15, null
@@ -175,7 +174,7 @@ cleanup:                                          ; preds = %if.then4.i.i31, %if
 
 _ZNKSt14default_deleteIN6hermes3hbc14BCProviderBaseEEclEPS2_.exit.i.i: ; preds = %cleanup
   %vtable.i.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 9
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 72
   %16 = load ptr, ptr %vfn.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(280) %15) #5
   br label %_ZN6hermes6driver13CompileResultD2Ev.exit

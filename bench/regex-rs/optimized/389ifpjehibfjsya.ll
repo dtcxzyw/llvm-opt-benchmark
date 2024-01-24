@@ -35,7 +35,7 @@ define void @_ZN6memchr6memmem13FinderBuilder13build_forward17h26bd355ceefc2dbaE
   resume { ptr, i32 } %10
 
 _ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hd7725e03fbdac369E.exit: ; preds = %4
-  %14 = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull align 32 dereferenceable(256) %5, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
@@ -64,7 +64,7 @@ define void @_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17hd7725
           to label %15 unwind label %13
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull align 32 dereferenceable(256) %5, i64 256, i1 false)
   ret void
@@ -110,7 +110,7 @@ define void @_ZN6memchr6memmem6Finder3new17h6eabf5ffb781727cE(ptr nocapture writ
   resume { ptr, i32 } %8
 
 _ZN6memchr6memmem13FinderBuilder13build_forward17h26bd355ceefc2dbaE.exit: ; preds = %3
-  %12 = getelementptr inbounds { { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(256) %0, ptr noundef nonnull align 32 dereferenceable(256) %4, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)

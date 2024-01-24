@@ -13,12 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.absl::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.absl::cord_internal::CordRep" = type { i64, %"class.absl::cord_internal::RefcountAndFlags", i8, [3 x i8] }
-%"class.absl::cord_internal::RefcountAndFlags" = type { %"struct.std::atomic.2" }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { i32 }
-%"struct.absl::cord_internal::CordRepExternal" = type { %"struct.absl::cord_internal::CordRep", ptr, ptr }
-%"struct.absl::cord_internal::CordRepSubstring" = type { %"struct.absl::cord_internal::CordRep", i64, ptr }
 
 @_ZN4absl13cord_internal24shallow_subcords_enabledE = dso_local local_unnamed_addr global %"struct.std::atomic" zeroinitializer, align 1
 @.str = private unnamed_addr constant [138 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/abseil-cpp/abseil-cpp/absl/strings/internal/cord_internal.cc\00", align 1
@@ -32,18 +26,18 @@ entry:
   %ref.tmp3 = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp4 = alloca %"class.absl::AlphaNum", align 8
   store i64 22, ptr %ref.tmp3, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp3, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr @.str.1, ptr %0, align 8
-  %tag = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %rep, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %rep, i64 12
   %1 = load i8, ptr %tag, align 4
   %conv = zext i8 %1 to i32
-  %digits_.i = getelementptr inbounds %"class.absl::AlphaNum", ptr %ref.tmp4, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   %call.i = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %conv, ptr noundef nonnull %digits_.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %digits_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp4, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp4, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
   call void @_ZN4absl6StrCatB5cxx11ERKNS_8AlphaNumES2_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4)
   %2 = load atomic i64, ptr @_ZN4absl16raw_log_internal21internal_log_functionB5cxx11E acquire, align 8
@@ -76,7 +70,7 @@ entry:
 
 while.body:                                       ; preds = %while.body.backedge, %entry
   %rep.addr.0 = phi ptr [ %rep, %entry ], [ %2, %while.body.backedge ]
-  %tag = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %rep.addr.0, i64 0, i32 2
+  %tag = getelementptr inbounds i8, ptr %rep.addr.0, i64 12
   %0 = load i8, ptr %tag, align 4
   switch i8 %0, label %if.else19 [
     i8 3, label %if.then
@@ -90,16 +84,16 @@ if.then:                                          ; preds = %while.body
   br label %return
 
 if.then4:                                         ; preds = %while.body
-  %releaser_invoker.i = getelementptr inbounds %"struct.absl::cord_internal::CordRepExternal", ptr %rep.addr.0, i64 0, i32 2
+  %releaser_invoker.i = getelementptr inbounds i8, ptr %rep.addr.0, i64 24
   %1 = load ptr, ptr %releaser_invoker.i, align 8
   tail call void %1(ptr noundef nonnull %rep.addr.0)
   br label %return
 
 delete.end:                                       ; preds = %while.body
-  %child = getelementptr inbounds %"struct.absl::cord_internal::CordRepSubstring", ptr %rep.addr.0, i64 0, i32 2
+  %child = getelementptr inbounds i8, ptr %rep.addr.0, i64 24
   %2 = load ptr, ptr %child, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %rep.addr.0) #6
-  %refcount = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %2, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i32, ptr %refcount acquire, align 4
   %cmp.not.i = icmp eq i32 %3, 2
   br i1 %cmp.not.i, label %while.body.backedge, label %acqrel.i.i

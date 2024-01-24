@@ -3,10 +3,6 @@ source_filename = "bench/git/original/fuzz-commit-graph.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-
 @the_repository = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
@@ -14,11 +10,11 @@ define dso_local noundef i32 @LLVMFuzzerTestOneInput(ptr noundef %data, i64 noun
 entry:
   tail call void @initialize_the_repository() #2
   %0 = load ptr, ptr @the_repository, align 8
-  %commit_graph_generation_version = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 10, i32 2
+  %commit_graph_generation_version = getelementptr inbounds i8, ptr %0, i64 152
   store i32 2, ptr %commit_graph_generation_version, align 8
-  %commit_graph_read_changed_paths = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 10, i32 3
+  %commit_graph_read_changed_paths = getelementptr inbounds i8, ptr %0, i64 156
   store i32 1, ptr %commit_graph_read_changed_paths, align 4
-  %settings2 = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 10
+  %settings2 = getelementptr inbounds i8, ptr %0, i64 144
   %call = tail call ptr @parse_commit_graph(ptr noundef nonnull %settings2, ptr noundef %data, i64 noundef %size) #2
   %1 = load ptr, ptr @the_repository, align 8
   tail call void @repo_clear(ptr noundef %1) #2

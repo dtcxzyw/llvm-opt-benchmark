@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @crypto_hash_sha256_init(ptr nocapture noundef nonnull writeonly %state) local_unnamed_addr #0 {
 entry:
-  %count = getelementptr inbounds %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %state, i64 32
   store i64 0, ptr %count, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
   ret i32 0
@@ -30,7 +30,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   fence acquire
-  %count = getelementptr inbounds %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %state, i64 32
   %0 = load i64, ptr %count, align 8
   %shr = lshr i64 %0, 3
   %and = and i64 %shr, 63
@@ -39,6 +39,7 @@ if.end:                                           ; preds = %entry
   store i64 %add, ptr %count, align 8
   %sub = sub nuw nsw i64 64, %and
   %cmp2 = icmp ugt i64 %sub, %inlen
+  %buf = getelementptr inbounds i8, ptr %state, i64 40
   br i1 %cmp2, label %for.body, label %for.body11
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -46,7 +47,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %arrayidx = getelementptr i8, ptr %in, i64 %i.044
   %1 = load i8, ptr %arrayidx, align 1
   %add5 = add nuw nsw i64 %i.044, %and
-  %arrayidx6 = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 %add5
+  %arrayidx6 = getelementptr [64 x i8], ptr %buf, i64 0, i64 %add5
   store i8 %1, ptr %arrayidx6, align 1
   %inc = add nuw nsw i64 %i.044, 1
   %exitcond46.not = icmp eq i64 %inc, %inlen
@@ -57,16 +58,15 @@ for.body11:                                       ; preds = %if.end, %for.body11
   %arrayidx12 = getelementptr i8, ptr %in, i64 %i.137
   %2 = load i8, ptr %arrayidx12, align 1
   %add14 = add nuw nsw i64 %i.137, %and
-  %arrayidx15 = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 %add14
+  %arrayidx15 = getelementptr [64 x i8], ptr %buf, i64 0, i64 %add14
   store i8 %2, ptr %arrayidx15, align 1
   %inc17 = add nuw nsw i64 %i.137, 1
   %exitcond.not = icmp eq i64 %inc17, %sub
   br i1 %exitcond.not, label %for.end18, label %for.body11, !llvm.loop !6
 
 for.end18:                                        ; preds = %for.body11
-  %buf20 = getelementptr inbounds %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2
-  %arrayidx23 = getelementptr inbounds [72 x i32], ptr %tmp32, i64 0, i64 64
-  call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf20, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx23)
+  %arrayidx23 = getelementptr inbounds i8, ptr %tmp32, i64 256
+  call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx23)
   %add.ptr = getelementptr i8, ptr %in, i64 %sub
   %sub26 = sub i64 %inlen, %sub
   %cmp2738 = icmp ugt i64 %sub26, 63
@@ -91,7 +91,7 @@ for.body37:                                       ; preds = %for.cond35.preheade
   %i.243 = phi i64 [ %inc42, %for.body37 ], [ 0, %for.cond35.preheader ]
   %arrayidx38 = getelementptr i8, ptr %in.addr.0.lcssa, i64 %i.243
   %3 = load i8, ptr %arrayidx38, align 1
-  %arrayidx40 = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 %i.243
+  %arrayidx40 = getelementptr [64 x i8], ptr %buf, i64 0, i64 %i.243
   store i8 %3, ptr %arrayidx40, align 1
   %inc42 = add nuw nsw i64 %i.243, 1
   %exitcond45.not = icmp eq i64 %inc42, %inlen.addr.0.lcssa
@@ -139,13 +139,13 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 be32dec_vect.exit:                                ; preds = %for.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %S, ptr noundef nonnull align 4 dereferenceable(32) %state, i64 32, i1 false)
-  %arrayidx = getelementptr i32, ptr %S, i64 4
-  %arrayidx7 = getelementptr i32, ptr %S, i64 5
-  %arrayidx8 = getelementptr i32, ptr %S, i64 6
-  %arrayidx19 = getelementptr i32, ptr %S, i64 7
-  %arrayidx22 = getelementptr i32, ptr %S, i64 3
-  %arrayidx33 = getelementptr i32, ptr %S, i64 1
-  %arrayidx34 = getelementptr i32, ptr %S, i64 2
+  %arrayidx = getelementptr i8, ptr %S, i64 16
+  %arrayidx7 = getelementptr i8, ptr %S, i64 20
+  %arrayidx8 = getelementptr i8, ptr %S, i64 24
+  %arrayidx19 = getelementptr i8, ptr %S, i64 28
+  %arrayidx22 = getelementptr i8, ptr %S, i64 12
+  %arrayidx33 = getelementptr i8, ptr %S, i64 4
+  %arrayidx34 = getelementptr i8, ptr %S, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %be32dec_vect.exit
@@ -693,7 +693,7 @@ if.end:                                           ; preds = %for.body
   %add847 = add i32 %64, %61
   %add865 = add i32 %add847, %xor842
   %add869 = add i32 %add865, %xor864
-  %arrayidx873 = getelementptr i32, ptr %arrayidx13, i64 17
+  %arrayidx873 = getelementptr i8, ptr %arrayidx13, i64 68
   store i32 %add869, ptr %arrayidx873, align 4
   %or.i960 = tail call i32 @llvm.fshl.i32(i32 %add821, i32 %add821, i32 15)
   %or.i963 = tail call i32 @llvm.fshl.i32(i32 %add821, i32 %add821, i32 13)
@@ -710,7 +710,7 @@ if.end:                                           ; preds = %for.body
   %add895 = add i32 %66, %65
   %add913 = add i32 %add895, %xor890
   %add917 = add i32 %add913, %xor912
-  %arrayidx921 = getelementptr i32, ptr %arrayidx13, i64 18
+  %arrayidx921 = getelementptr i8, ptr %arrayidx13, i64 72
   store i32 %add917, ptr %arrayidx921, align 4
   %or.i972 = tail call i32 @llvm.fshl.i32(i32 %add869, i32 %add869, i32 15)
   %or.i975 = tail call i32 @llvm.fshl.i32(i32 %add869, i32 %add869, i32 13)
@@ -727,7 +727,7 @@ if.end:                                           ; preds = %for.body
   %add943 = add i32 %68, %67
   %add961 = add i32 %add943, %xor938
   %add965 = add i32 %add961, %xor960
-  %arrayidx969 = getelementptr i32, ptr %arrayidx13, i64 19
+  %arrayidx969 = getelementptr i8, ptr %arrayidx13, i64 76
   store i32 %add965, ptr %arrayidx969, align 4
   %or.i984 = tail call i32 @llvm.fshl.i32(i32 %add917, i32 %add917, i32 15)
   %or.i987 = tail call i32 @llvm.fshl.i32(i32 %add917, i32 %add917, i32 13)
@@ -744,7 +744,7 @@ if.end:                                           ; preds = %for.body
   %add991 = add i32 %70, %69
   %add1009 = add i32 %add991, %xor986
   %add1013 = add i32 %add1009, %xor1008
-  %arrayidx1017 = getelementptr i32, ptr %arrayidx13, i64 20
+  %arrayidx1017 = getelementptr i8, ptr %arrayidx13, i64 80
   store i32 %add1013, ptr %arrayidx1017, align 4
   %or.i996 = tail call i32 @llvm.fshl.i32(i32 %add965, i32 %add965, i32 15)
   %or.i999 = tail call i32 @llvm.fshl.i32(i32 %add965, i32 %add965, i32 13)
@@ -760,7 +760,7 @@ if.end:                                           ; preds = %for.body
   %add1039 = add i32 %71, %59
   %add1057 = add i32 %add1039, %xor1034
   %add1061 = add i32 %add1057, %xor1056
-  %arrayidx1065 = getelementptr i32, ptr %arrayidx13, i64 21
+  %arrayidx1065 = getelementptr i8, ptr %arrayidx13, i64 84
   store i32 %add1061, ptr %arrayidx1065, align 4
   %or.i1008 = tail call i32 @llvm.fshl.i32(i32 %add1013, i32 %add1013, i32 15)
   %or.i1011 = tail call i32 @llvm.fshl.i32(i32 %add1013, i32 %add1013, i32 13)
@@ -776,7 +776,7 @@ if.end:                                           ; preds = %for.body
   %add1087 = add i32 %72, %63
   %add1105 = add i32 %add1087, %xor1104
   %add1109 = add i32 %add1105, %xor1082
-  %arrayidx1113 = getelementptr i32, ptr %arrayidx13, i64 22
+  %arrayidx1113 = getelementptr i8, ptr %arrayidx13, i64 88
   store i32 %add1109, ptr %arrayidx1113, align 4
   %or.i1020 = tail call i32 @llvm.fshl.i32(i32 %add1061, i32 %add1061, i32 15)
   %or.i1023 = tail call i32 @llvm.fshl.i32(i32 %add1061, i32 %add1061, i32 13)
@@ -792,7 +792,7 @@ if.end:                                           ; preds = %for.body
   %add1135 = add i32 %73, %add821
   %add1153 = add i32 %add1135, %xor1152
   %add1157 = add i32 %add1153, %xor1130
-  %arrayidx1161 = getelementptr i32, ptr %arrayidx13, i64 23
+  %arrayidx1161 = getelementptr i8, ptr %arrayidx13, i64 92
   store i32 %add1157, ptr %arrayidx1161, align 4
   %or.i1032 = tail call i32 @llvm.fshl.i32(i32 %add1109, i32 %add1109, i32 15)
   %or.i1035 = tail call i32 @llvm.fshl.i32(i32 %add1109, i32 %add1109, i32 13)
@@ -807,7 +807,7 @@ if.end:                                           ; preds = %for.body
   %add1183 = add i32 %add869, %xor1200
   %add1201 = add i32 %add1183, %74
   %add1205 = add i32 %add1201, %xor1178
-  %arrayidx1209 = getelementptr i32, ptr %arrayidx13, i64 24
+  %arrayidx1209 = getelementptr i8, ptr %arrayidx13, i64 96
   store i32 %add1205, ptr %arrayidx1209, align 4
   %or.i1044 = tail call i32 @llvm.fshl.i32(i32 %add1157, i32 %add1157, i32 15)
   %or.i1047 = tail call i32 @llvm.fshl.i32(i32 %add1157, i32 %add1157, i32 13)
@@ -822,7 +822,7 @@ if.end:                                           ; preds = %for.body
   %add1231 = add i32 %xor1248, %60
   %add1249 = add i32 %add1231, %add917
   %add1253 = add i32 %add1249, %xor1226
-  %arrayidx1257 = getelementptr i32, ptr %arrayidx13, i64 25
+  %arrayidx1257 = getelementptr i8, ptr %arrayidx13, i64 100
   store i32 %add1253, ptr %arrayidx1257, align 4
   %or.i1056 = tail call i32 @llvm.fshl.i32(i32 %add1205, i32 %add1205, i32 15)
   %or.i1059 = tail call i32 @llvm.fshl.i32(i32 %add1205, i32 %add1205, i32 13)
@@ -837,7 +837,7 @@ if.end:                                           ; preds = %for.body
   %add1279 = add i32 %xor1296, %64
   %add1297 = add i32 %add1279, %add965
   %add1301 = add i32 %add1297, %xor1274
-  %arrayidx1305 = getelementptr i32, ptr %arrayidx13, i64 26
+  %arrayidx1305 = getelementptr i8, ptr %arrayidx13, i64 104
   store i32 %add1301, ptr %arrayidx1305, align 4
   %or.i1068 = tail call i32 @llvm.fshl.i32(i32 %add1253, i32 %add1253, i32 15)
   %or.i1071 = tail call i32 @llvm.fshl.i32(i32 %add1253, i32 %add1253, i32 13)
@@ -852,7 +852,7 @@ if.end:                                           ; preds = %for.body
   %add1327 = add i32 %xor1344, %66
   %add1345 = add i32 %add1327, %add1013
   %add1349 = add i32 %add1345, %xor1322
-  %arrayidx1353 = getelementptr i32, ptr %arrayidx13, i64 27
+  %arrayidx1353 = getelementptr i8, ptr %arrayidx13, i64 108
   store i32 %add1349, ptr %arrayidx1353, align 4
   %or.i1080 = tail call i32 @llvm.fshl.i32(i32 %add1301, i32 %add1301, i32 15)
   %or.i1083 = tail call i32 @llvm.fshl.i32(i32 %add1301, i32 %add1301, i32 13)
@@ -867,7 +867,7 @@ if.end:                                           ; preds = %for.body
   %add1375 = add i32 %xor1392, %68
   %add1393 = add i32 %add1375, %add1061
   %add1397 = add i32 %add1393, %xor1370
-  %arrayidx1401 = getelementptr i32, ptr %arrayidx13, i64 28
+  %arrayidx1401 = getelementptr i8, ptr %arrayidx13, i64 112
   store i32 %add1397, ptr %arrayidx1401, align 4
   %or.i1092 = tail call i32 @llvm.fshl.i32(i32 %add1349, i32 %add1349, i32 15)
   %or.i1095 = tail call i32 @llvm.fshl.i32(i32 %add1349, i32 %add1349, i32 13)
@@ -882,7 +882,7 @@ if.end:                                           ; preds = %for.body
   %add1423 = add i32 %70, %xor1440
   %add1441 = add i32 %add1423, %add1109
   %add1445 = add i32 %add1441, %xor1418
-  %arrayidx1449 = getelementptr i32, ptr %arrayidx13, i64 29
+  %arrayidx1449 = getelementptr i8, ptr %arrayidx13, i64 116
   store i32 %add1445, ptr %arrayidx1449, align 4
   %or.i1104 = tail call i32 @llvm.fshl.i32(i32 %add1397, i32 %add1397, i32 15)
   %or.i1107 = tail call i32 @llvm.fshl.i32(i32 %add1397, i32 %add1397, i32 13)
@@ -897,7 +897,7 @@ if.end:                                           ; preds = %for.body
   %add1471 = add i32 %xor1488, %59
   %add1489 = add i32 %add1471, %add1157
   %add1493 = add i32 %add1489, %xor1466
-  %arrayidx1497 = getelementptr i32, ptr %arrayidx13, i64 30
+  %arrayidx1497 = getelementptr i8, ptr %arrayidx13, i64 120
   store i32 %add1493, ptr %arrayidx1497, align 4
   %or.i1116 = tail call i32 @llvm.fshl.i32(i32 %add1445, i32 %add1445, i32 15)
   %or.i1119 = tail call i32 @llvm.fshl.i32(i32 %add1445, i32 %add1445, i32 13)
@@ -912,7 +912,7 @@ if.end:                                           ; preds = %for.body
   %add1519 = add i32 %xor1536, %63
   %add1537 = add i32 %add1519, %add1205
   %add1541 = add i32 %add1537, %xor1514
-  %arrayidx1545 = getelementptr i32, ptr %arrayidx13, i64 31
+  %arrayidx1545 = getelementptr i8, ptr %arrayidx13, i64 124
   store i32 %add1541, ptr %arrayidx1545, align 4
   br label %for.body
 
@@ -939,13 +939,13 @@ define noundef i32 @crypto_hash_sha256_final(ptr noundef nonnull %state, ptr noc
 entry:
   %tmp32 = alloca [72 x i32], align 16
   fence acquire
-  %count.i = getelementptr inbounds %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %state, i64 32
   %0 = load i64, ptr %count.i, align 8
   %1 = trunc i64 %0 to i32
   %2 = lshr i32 %1, 3
   %conv.i = and i32 %2, 63
   %cmp.i = icmp ult i32 %conv.i, 56
-  br i1 %cmp.i, label %for.body.preheader.i, label %for.cond6.preheader.i
+  br i1 %cmp.i, label %for.body.lr.ph.i, label %for.cond6.preheader.i
 
 for.cond6.preheader.i:                            ; preds = %entry
   %sub7.i = sub nuw nsw i32 64, %conv.i
@@ -954,13 +954,13 @@ for.cond6.preheader.i:                            ; preds = %entry
   %scevgep.i = getelementptr i8, ptr %4, i64 40
   %5 = zext nneg i32 %sub7.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %5, i1 false)
-  %buf21.i = getelementptr inbounds %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2
-  %arrayidx24.i = getelementptr inbounds i32, ptr %tmp32, i64 64
+  %buf21.i = getelementptr inbounds i8, ptr %state, i64 40
+  %arrayidx24.i = getelementptr inbounds i8, ptr %tmp32, i64 256
   call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf21.i, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx24.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %buf21.i, i8 0, i64 56, i1 false)
   br label %SHA256_Pad.exit
 
-for.body.preheader.i:                             ; preds = %entry
+for.body.lr.ph.i:                                 ; preds = %entry
   %6 = zext nneg i32 %conv.i to i64
   %7 = getelementptr i8, ptr %state, i64 %6
   %scevgep29.i = getelementptr i8, ptr %7, i64 40
@@ -970,41 +970,41 @@ for.body.preheader.i:                             ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep29.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %10, i1 false)
   br label %SHA256_Pad.exit
 
-SHA256_Pad.exit:                                  ; preds = %for.cond6.preheader.i, %for.body.preheader.i
-  %buf27.i = getelementptr inbounds %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2
-  %arrayidx28.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 56
+SHA256_Pad.exit:                                  ; preds = %for.cond6.preheader.i, %for.body.lr.ph.i
+  %buf27.i = getelementptr inbounds i8, ptr %state, i64 40
+  %arrayidx28.i = getelementptr i8, ptr %state, i64 96
   %11 = load i64, ptr %count.i, align 8
   %conv.i.i = trunc i64 %11 to i8
-  %arrayidx.i.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 63
+  %arrayidx.i.i = getelementptr i8, ptr %state, i64 103
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   %shr.i.i = lshr i64 %11, 8
   %conv1.i.i = trunc i64 %shr.i.i to i8
-  %arrayidx2.i.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 62
+  %arrayidx2.i.i = getelementptr i8, ptr %state, i64 102
   store i8 %conv1.i.i, ptr %arrayidx2.i.i, align 1
   %shr3.i.i = lshr i64 %11, 16
   %conv4.i.i = trunc i64 %shr3.i.i to i8
-  %arrayidx5.i.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 61
+  %arrayidx5.i.i = getelementptr i8, ptr %state, i64 101
   store i8 %conv4.i.i, ptr %arrayidx5.i.i, align 1
   %shr6.i.i = lshr i64 %11, 24
   %conv7.i.i = trunc i64 %shr6.i.i to i8
-  %arrayidx8.i.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 60
+  %arrayidx8.i.i = getelementptr i8, ptr %state, i64 100
   store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
   %shr9.i.i = lshr i64 %11, 32
   %conv10.i.i = trunc i64 %shr9.i.i to i8
-  %arrayidx11.i.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 59
+  %arrayidx11.i.i = getelementptr i8, ptr %state, i64 99
   store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %shr12.i.i = lshr i64 %11, 40
   %conv13.i.i = trunc i64 %shr12.i.i to i8
-  %arrayidx14.i.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 58
+  %arrayidx14.i.i = getelementptr i8, ptr %state, i64 98
   store i8 %conv13.i.i, ptr %arrayidx14.i.i, align 1
   %shr15.i.i = lshr i64 %11, 48
   %conv16.i.i = trunc i64 %shr15.i.i to i8
-  %arrayidx17.i.i = getelementptr %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 2, i64 57
+  %arrayidx17.i.i = getelementptr i8, ptr %state, i64 97
   store i8 %conv16.i.i, ptr %arrayidx17.i.i, align 1
   %shr18.i.i = lshr i64 %11, 56
   %conv19.i.i = trunc i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %arrayidx28.i, align 1
-  %arrayidx35.i = getelementptr inbounds i32, ptr %tmp32, i64 64
+  %arrayidx35.i = getelementptr inbounds i8, ptr %tmp32, i64 256
   call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf27.i, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx35.i)
   br label %for.body.i
 
@@ -1042,7 +1042,7 @@ be32enc_vect.exit:                                ; preds = %for.body.i
 define noundef i32 @crypto_hash_sha256(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #2 {
 entry:
   %state = alloca %struct.crypto_hash_sha256_state, align 8
-  %count.i = getelementptr inbounds %struct.crypto_hash_sha256_state, ptr %state, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %state, i64 32
   store i64 0, ptr %count.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
   %call1 = call i32 @crypto_hash_sha256_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen)

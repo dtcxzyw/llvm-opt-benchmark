@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.icu_75::DisplayOptions::Builder" = type { i32, i32, i32, i32, i32, i32, i32 }
-%"class.icu_75::DisplayOptions" = type { i32, i32, i32, i32, i32, i32, i32 }
 
 @_ZN12_GLOBAL__N_118grammaticalCaseIdsE = internal unnamed_addr constant [15 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 16
 @_ZN12_GLOBAL__N_117pluralCategoryIdsE = internal unnamed_addr constant [7 x ptr] [ptr @.str, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20], align 16
@@ -61,34 +60,34 @@ define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr nocapture noundef 
 entry:
   %0 = load i32, ptr %builder, align 4
   store i32 %0, ptr %this, align 4
-  %nounClass = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 1
+  %nounClass = getelementptr inbounds i8, ptr %builder, i64 4
   %1 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 1
+  %nounClass3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %1, ptr %nounClass3, align 4
-  %pluralCategory = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 2
+  %pluralCategory = getelementptr inbounds i8, ptr %builder, i64 8
   %2 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 2
+  %pluralCategory4 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %pluralCategory4, align 4
-  %capitalization = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 3
+  %capitalization = getelementptr inbounds i8, ptr %builder, i64 12
   %3 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 3
+  %capitalization5 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %capitalization5, align 4
-  %nameStyle = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 4
+  %nameStyle = getelementptr inbounds i8, ptr %builder, i64 16
   %4 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 4
+  %nameStyle6 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %nameStyle6, align 4
-  %displayLength = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 5
+  %displayLength = getelementptr inbounds i8, ptr %builder, i64 20
   %5 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 5
+  %displayLength7 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %5, ptr %displayLength7, align 4
-  %substituteHandling = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %builder, i64 0, i32 6
+  %substituteHandling = getelementptr inbounds i8, ptr %builder, i64 24
   %6 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %this, i64 0, i32 6
+  %substituteHandling8 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %6, ptr %substituteHandling8, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7514DisplayOptions7BuilderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, i8 0, i64 28, i1 false)
@@ -100,29 +99,29 @@ define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr nocapture noundef no
 entry:
   %0 = load i32, ptr %displayOptions, align 4
   store i32 %0, ptr %this, align 4
-  %nounClass = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 1
+  %nounClass = getelementptr inbounds i8, ptr %displayOptions, i64 4
   %1 = load i32, ptr %nounClass, align 4
-  %nounClass3 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 1
+  %nounClass3 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %1, ptr %nounClass3, align 4
-  %pluralCategory = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 2
+  %pluralCategory = getelementptr inbounds i8, ptr %displayOptions, i64 8
   %2 = load i32, ptr %pluralCategory, align 4
-  %pluralCategory4 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 2
+  %pluralCategory4 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %pluralCategory4, align 4
-  %capitalization = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 3
+  %capitalization = getelementptr inbounds i8, ptr %displayOptions, i64 12
   %3 = load i32, ptr %capitalization, align 4
-  %capitalization5 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 3
+  %capitalization5 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %3, ptr %capitalization5, align 4
-  %nameStyle = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 4
+  %nameStyle = getelementptr inbounds i8, ptr %displayOptions, i64 16
   %4 = load i32, ptr %nameStyle, align 4
-  %nameStyle6 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 4
+  %nameStyle6 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %nameStyle6, align 4
-  %displayLength = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 5
+  %displayLength = getelementptr inbounds i8, ptr %displayOptions, i64 20
   %5 = load i32, ptr %displayLength, align 4
-  %displayLength7 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 5
+  %displayLength7 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %5, ptr %displayLength7, align 4
-  %substituteHandling = getelementptr inbounds %"class.icu_75::DisplayOptions", ptr %displayOptions, i64 0, i32 6
+  %substituteHandling = getelementptr inbounds i8, ptr %displayOptions, i64 24
   %6 = load i32, ptr %substituteHandling, align 4
-  %substituteHandling8 = getelementptr inbounds %"class.icu_75::DisplayOptions::Builder", ptr %this, i64 0, i32 6
+  %substituteHandling8 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %6, ptr %substituteHandling8, align 4
   ret void
 }
@@ -267,7 +266,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

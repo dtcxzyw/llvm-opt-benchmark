@@ -9,10 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::fbstring_core" = type { %union.anon.0 }
 %union.anon.0 = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::type_info" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -36,14 +32,14 @@ entry:
   %buffer.i = alloca [20 x i8], align 16
   %ref.tmp = alloca %"class.folly::basic_fbstring", align 8
   %tobool.not = icmp eq ptr %type, null
-  %_M_string_length.i.i.i37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 1
+  %_M_string_length.i.i.i37 = getelementptr inbounds i8, ptr %result, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i37, align 8, !tbaa !7
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %add.i = add i64 %0, 1
   %1 = load ptr, ptr %result, align 8, !tbaa !14
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %result, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
@@ -72,7 +68,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %add.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #9
-  %__name.i.i = getelementptr inbounds %"class.std::type_info", ptr %type, i64 0, i32 1
+  %__name.i.i = getelementptr inbounds i8, ptr %type, i64 8
   %6 = load ptr, ptr %__name.i.i, align 8, !tbaa !16, !noalias !18
   %7 = load i8, ptr %6, align 1, !tbaa !15, !noalias !18
   %cmp.i.i = icmp eq i8 %7, 42
@@ -82,9 +78,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 23
   %8 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !15
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %ref.tmp, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %size_.i.i.i, align 8, !tbaa !15
   %conv.i.i.i = zext i8 %8 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -236,7 +232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit55: ; preds
   br i1 %cmp39.not.i, label %_ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit55
-  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 2
+  %27 = getelementptr inbounds i8, ptr %result, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit38.i, %for.body.lr.ph.i
@@ -350,7 +346,7 @@ _ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %49 = load i64, ptr %_M_string_length.i.i.i37, align 8, !tbaa !7
   %add.i65 = add i64 %49, 1
   %50 = load ptr, ptr %result, align 8, !tbaa !14
-  %51 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %result, i64 0, i32 2
+  %51 = getelementptr inbounds i8, ptr %result, i64 16
   %cmp.i.i.i66 = icmp eq ptr %50, %51
   br i1 %cmp.i.i.i66, label %if.then.i.i.i74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i67
 
@@ -431,7 +427,7 @@ declare void @_ZN5folly8demangleEPKc(ptr sret(%"class.folly::basic_fbstring") al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13fbstring_coreIcE18destroyMediumLargeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 23
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1, !tbaa !15
   %1 = and i8 %0, -64
   %cmp = icmp eq i8 %1, -128

@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
 %struct.X509_POLICY_NODE_st = type { ptr, ptr, i32 }
-%struct.X509_POLICY_LEVEL_st = type { ptr, ptr, ptr, i32 }
-%struct.X509_POLICY_TREE_st = type { i64, i64, ptr, i32, ptr, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/pcy_node.c\00", align 1
 @__func__.ossl_policy_level_add_node = private unnamed_addr constant [27 x i8] c"ossl_policy_level_add_node\00", align 1
@@ -25,11 +23,11 @@ define internal i32 @node_cmp(ptr nocapture noundef readonly %a, ptr nocapture n
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %0, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %1, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %valid_policy, align 8
   %3 = load ptr, ptr %b, align 8
   %4 = load ptr, ptr %3, align 8
-  %valid_policy2 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %4, i64 0, i32 1
+  %valid_policy2 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %valid_policy2, align 8
   %call = tail call i32 @OBJ_cmp(ptr noundef %2, ptr noundef %5) #2
   ret i32 %call
@@ -40,7 +38,7 @@ define ptr @ossl_policy_tree_find_sk(ptr noundef %nodes, ptr noundef %id) local_
 entry:
   %n = alloca %struct.X509_POLICY_DATA_st, align 8
   %l = alloca %struct.X509_POLICY_NODE_st, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %n, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %n, i64 8
   store ptr %id, ptr %valid_policy, align 8
   store ptr %n, ptr %l, align 8
   %call2 = call i32 @OPENSSL_sk_find(ptr noundef %nodes, ptr noundef nonnull %l) #2
@@ -55,7 +53,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_policy_level_find_node(ptr nocapture noundef readonly %level, ptr noundef readnone %parent, ptr noundef %id) local_unnamed_addr #0 {
 entry:
-  %nodes = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 1
+  %nodes = getelementptr inbounds i8, ptr %level, i64 8
   %0 = load ptr, ptr %nodes, align 8
   %call16 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #2
   %cmp7 = icmp sgt i32 %call16, 0
@@ -65,14 +63,14 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.08 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
   %1 = load ptr, ptr %nodes, align 8
   %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %i.08) #2
-  %parent5 = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call4, i64 0, i32 1
+  %parent5 = getelementptr inbounds i8, ptr %call4, i64 8
   %2 = load ptr, ptr %parent5, align 8
   %cmp6 = icmp eq ptr %2, %parent
   br i1 %cmp6, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
   %3 = load ptr, ptr %call4, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %3, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %valid_policy, align 8
   %call7 = tail call i32 @OBJ_cmp(ptr noundef %4, ptr noundef %id) #2
   %tobool.not = icmp eq i32 %call7, 0
@@ -97,7 +95,7 @@ declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_policy_level_add_node(ptr noundef %level, ptr noundef %data, ptr noundef %parent, ptr nocapture noundef %tree, i32 noundef %extra_data) local_unnamed_addr #0 {
 entry:
-  %node_maximum = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %tree, i64 0, i32 1
+  %node_maximum = getelementptr inbounds i8, ptr %tree, i64 8
   %0 = load i64, ptr %node_maximum, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -114,20 +112,20 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.end5:                                          ; preds = %if.end
   store ptr %data, ptr %call, align 8
-  %parent7 = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %call, i64 0, i32 1
+  %parent7 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %parent, ptr %parent7, align 8
   %cmp8.not = icmp eq ptr %level, null
   br i1 %cmp8.not, label %if.end33, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load ptr, ptr %valid_policy, align 8
   %call10 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #2
   %cmp11 = icmp eq i32 %call10, 746
   br i1 %cmp11, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then9
-  %anyPolicy = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 2
+  %anyPolicy = getelementptr inbounds i8, ptr %level, i64 16
   %3 = load ptr, ptr %anyPolicy, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end14, label %node_error
@@ -137,7 +135,7 @@ if.end14:                                         ; preds = %if.then12
   br label %if.end33
 
 if.else:                                          ; preds = %if.then9
-  %nodes = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 1
+  %nodes = getelementptr inbounds i8, ptr %level, i64 8
   %4 = load ptr, ptr %nodes, align 8
   %cmp16 = icmp eq ptr %4, null
   br i1 %cmp16, label %if.end20, label %if.end24
@@ -171,7 +169,7 @@ if.end33:                                         ; preds = %if.end14, %if.end24
   br i1 %tobool34.not, label %if.end51, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %extra_data36 = getelementptr inbounds %struct.X509_POLICY_TREE_st, ptr %tree, i64 0, i32 4
+  %extra_data36 = getelementptr inbounds i8, ptr %tree, i64 32
   %6 = load ptr, ptr %extra_data36, align 8
   %cmp37 = icmp eq ptr %6, null
   br i1 %cmp37, label %if.end41, label %if.end45
@@ -196,7 +194,7 @@ if.end51:                                         ; preds = %if.end45, %if.end33
   br i1 %tobool53.not, label %return, label %if.then54
 
 if.then54:                                        ; preds = %if.end51
-  %nchild = getelementptr inbounds %struct.X509_POLICY_NODE_st, ptr %parent, i64 0, i32 2
+  %nchild = getelementptr inbounds i8, ptr %parent, i64 16
   %9 = load i32, ptr %nchild, align 8
   %inc55 = add nsw i32 %9, 1
   store i32 %inc55, ptr %nchild, align 8
@@ -210,7 +208,7 @@ extra_data_error:                                 ; preds = %if.end45, %if.end41
   br i1 %cmp8.not, label %node_error, label %if.then58
 
 if.then58:                                        ; preds = %extra_data_error
-  %anyPolicy59 = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 2
+  %anyPolicy59 = getelementptr inbounds i8, ptr %level, i64 16
   %10 = load ptr, ptr %anyPolicy59, align 8
   %cmp60 = icmp eq ptr %10, %call
   br i1 %cmp60, label %if.then61, label %if.else63
@@ -220,7 +218,7 @@ if.then61:                                        ; preds = %if.then58
   br label %node_error
 
 if.else63:                                        ; preds = %if.then58
-  %nodes64 = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %level, i64 0, i32 1
+  %nodes64 = getelementptr inbounds i8, ptr %level, i64 8
   %11 = load ptr, ptr %nodes64, align 8
   %call66 = tail call ptr @OPENSSL_sk_pop(ptr noundef %11) #2
   br label %node_error
@@ -261,7 +259,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define i32 @ossl_policy_node_match(ptr nocapture noundef readonly %lvl, ptr nocapture noundef readonly %node, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %node, align 8
-  %flags = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %lvl, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %lvl, i64 24
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1024
   %tobool.not = icmp eq i32 %and, 0
@@ -274,14 +272,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool3.not, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %expected_policy_set, align 8
   %call87 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #2
   %cmp8 = icmp sgt i32 %call87, 0
   br i1 %cmp8, label %for.body, label %return
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %valid_policy, align 8
   %call = tail call i32 @OBJ_cmp(ptr noundef %4, ptr noundef %oid) #2
   %tobool4.not = icmp eq i32 %call, 0

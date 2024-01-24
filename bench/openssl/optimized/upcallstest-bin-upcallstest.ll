@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.30 = private unnamed_addr constant [12 x i8] c"NonsenseAlg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @obj_create_test) #3
   ret i32 1
@@ -50,7 +50,7 @@ entry:
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @obj_create_test() #0 {
+define internal noundef i32 @obj_create_test() #0 {
 entry:
   %digestnid = alloca i32, align 4
   %signid = alloca i32, align 4
@@ -235,7 +235,7 @@ for.inc.sink.split:                               ; preds = %for.cond, %sw.bb2
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond
@@ -313,7 +313,7 @@ declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias ptr @obj_query(ptr nocapture readnone %provctx, i32 %operation_id, ptr nocapture noundef writeonly %no_cache) #2 {
+define internal noalias noundef ptr @obj_query(ptr nocapture readnone %provctx, i32 %operation_id, ptr nocapture noundef writeonly %no_cache) #2 {
 entry:
   store i32 0, ptr %no_cache, align 4
   ret ptr null

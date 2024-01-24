@@ -19,7 +19,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd7d655
 define hidden void @"_ZN14regex_automata3nfa8thompson9backtrack6Config9overwrite28_$u7b$$u7b$closure$u7d$$u7d$17h7b4f73f4399658a5E"(ptr sret({ [16 x i8], i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { i64, i64 }, { [16 x i8], i8, [7 x i8] } }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha22c105cac8bcec5E"(ptr sret({ [16 x i8], i8, [7 x i8] }) align 8 %0, ptr nonnull align 8 %4)
   ret void
 }
@@ -29,7 +29,7 @@ define void @_ZN14regex_automata3nfa8thompson9backtrack7Builder10build_many17h45
   %5 = alloca { { { i32, [31 x i32] } } }, align 8
   %6 = alloca { i32, [31 x i32] }, align 8
   %7 = alloca { i32, [31 x i32] }, align 8
-  %8 = getelementptr inbounds { { { i64, i64 }, { [16 x i8], i8, [7 x i8] } }, { { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, { i64, { { { i64, i64 }, { i32, i32 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, i8, i8, i8, [5 x i8] } } }, { i64, { { { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, { { ptr, i64 }, i64 } } } }, { i64, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { i64, { { { ptr, i64 }, i64 } } }, { i64, { { { ptr, i64 }, i64 } } } } } }, { i64, { { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] } } } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 40
   call void @_ZN14regex_automata3nfa8thompson8compiler8Compiler10build_many17he89d0727a5651be1E(ptr nonnull sret({ i32, [31 x i32] }) align 8 %6, ptr nonnull align 8 %8, ptr align 8 %2, i64 %3)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h39adc2af1b8eb3b0E"(ptr nonnull sret({ i32, [31 x i32] }) align 8 %7, ptr nonnull align 8 %6)
   %9 = load i32, ptr %7, align 8, !range !7, !noundef !5
@@ -37,7 +37,7 @@ define void @_ZN14regex_automata3nfa8thompson9backtrack7Builder10build_many17h45
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
   call void @_ZN14regex_automata3nfa8thompson9backtrack7Builder14build_from_nfa17h5fc5f4863d74f0c7E(ptr sret({ i32, [31 x i32] }) align 8 %0, ptr align 8 %1, ptr nonnull %13)
   br label %15
@@ -67,7 +67,7 @@ define void @_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker12try
 define zeroext i1 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker12try_is_match28_$u7b$$u7b$closure$u7d$$u7d$17h9c04c7948e82c342E"(i32 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca { i32, i32 }, align 4
   store i32 %0, ptr %3, align 4
-  %4 = getelementptr inbounds { i32, i32 }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %1, ptr %4, align 4
   %5 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h1cb5bc1762aaf73eE"(ptr nonnull align 4 %3)
   ret i1 %5
@@ -77,7 +77,7 @@ define zeroext i1 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktrack
 define i32 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16try_search_slots28_$u7b$$u7b$closure$u7d$$u7d$17h7d5e292004f1521eE"(i64 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca { i64, i32 }, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds { i64, i32 }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @_ZN14regex_automata4util6search9HalfMatch7pattern17hb501fd973067c685E(ptr nonnull align 8 %3)
   ret i32 %5
@@ -87,7 +87,7 @@ define i32 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16try
 define i32 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16try_search_slots28_$u7b$$u7b$closure$u7d$$u7d$17h2e70bfbfbc4bad63E"(i64 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca { i64, i32 }, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds { i64, i32 }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @_ZN14regex_automata4util6search9HalfMatch7pattern17hb501fd973067c685E(ptr nonnull align 8 %3)
   ret i32 %5
@@ -97,7 +97,7 @@ define i32 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16try
 define i32 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16try_search_slots28_$u7b$$u7b$closure$u7d$$u7d$17h71d2072ecbabe7f0E"(i64 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca { i64, i32 }, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds { i64, i32 }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @_ZN14regex_automata4util6search9HalfMatch7pattern17hb501fd973067c685E(ptr nonnull align 8 %3)
   ret i32 %5
@@ -107,7 +107,7 @@ define i32 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16try
 define i32 @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16try_search_slots28_$u7b$$u7b$closure$u7d$$u7d$17h99406768e0f22a81E"(i64 %0, i32 %1) unnamed_addr #1 {
   %3 = alloca { i64, i32 }, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds { i64, i32 }, ptr %3, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @_ZN14regex_automata4util6search9HalfMatch7pattern17hb501fd973067c685E(ptr nonnull align 8 %3)
   ret i32 %5
@@ -120,11 +120,11 @@ define hidden void @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktrac
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
   %8 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
-  %9 = getelementptr inbounds { ptr, ptr, { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !align !6, !noundef !5
-  %11 = getelementptr inbounds { ptr, ptr, { ptr, i64 } }, ptr %1, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !6, !noundef !5
-  %13 = getelementptr inbounds { ptr, ptr, { ptr, i64 } }, ptr %1, i64 0, i32 2, i32 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8, !noundef !5
   call void @_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker10search_imp17hfc7eaea4c96c6144E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr nonnull align 8 %8, ptr nonnull align 8 %10, ptr align 8 %2, ptr nonnull align 8 %12, i64 %14)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h512bf38f68fe7761E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, ptr nonnull align 8 %5)
@@ -139,7 +139,7 @@ define hidden void @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktrac
   br label %20
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds { [1 x i64], ptr }, ptr %6, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !5, !align !6, !noundef !5
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hba1f84575b0003d0E"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr nonnull align 8 %19, ptr nonnull align 8 @anon.54fcabf51c76c07998252632c93f0135.3)
   br label %20
@@ -152,13 +152,13 @@ define hidden void @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktrac
 define hidden void @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker20try_search_slots_imp28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8427511195d8f6bbE"(ptr nocapture writeonly sret({ { i64, i32 }, i64 }) align 8 %0, i64 %1, i32 %2) unnamed_addr #1 {
   %4 = alloca { i64, i32 }, align 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds { i64, i32 }, ptr %4, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %2, ptr %5, align 8
   %6 = call i64 @_ZN14regex_automata4util6search9HalfMatch6offset17hf0af348b59984ef7E(ptr nonnull align 8 %4)
   store i64 %1, ptr %0, align 8
-  %7 = getelementptr inbounds { i64, i32 }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %7, align 8
-  %8 = getelementptr inbounds { { i64, i32 }, i64 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %6, ptr %8, align 8
   ret void
 }
@@ -167,9 +167,9 @@ define hidden void @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktrac
 define hidden void @"_ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker4step28_$u7b$$u7b$closure$u7d$$u7d$17hf28774a270c33fbdE"(ptr nocapture writeonly sret({ i32, [3 x i32] }) align 8 %0, ptr nocapture readonly align 8 %1, i32 %2) unnamed_addr #2 {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !6, !noundef !5
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { [1 x i32], i32, i64 }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %6, align 4
-  %7 = getelementptr inbounds { [1 x i32], i32, i64 }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %5, ptr %7, align 8
   store i32 0, ptr %0, align 8
   ret void

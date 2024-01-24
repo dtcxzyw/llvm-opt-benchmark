@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @attr_recursive = internal global %union.pthread_mutexattr_t zeroinitializer, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evthread_use_pthreads_with_flags(i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local noundef i32 @evthread_use_pthreads_with_flags(i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.evthread_lock_callbacks, align 8
   %cond_cbs = alloca %struct.evthread_condition_callbacks, align 8
@@ -206,9 +206,9 @@ if.then:                                          ; preds = %entry
   %0 = load i64, ptr %now, align 8
   %1 = load i64, ptr %tv, align 8
   %add = add nsw i64 %1, %0
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %now, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %now, i64 8
   %2 = load i64, ptr %tv_usec, align 8
-  %tv_usec3 = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec3 = getelementptr inbounds i8, ptr %tv, i64 8
   %3 = load i64, ptr %tv_usec3, align 8
   %add4 = add nsw i64 %3, %2
   %cmp = icmp sgt i64 %add4, 999999
@@ -218,7 +218,7 @@ if.then:                                          ; preds = %entry
   %abstime.sroa.0.0 = add nsw i64 %add, %inc
   store i64 %abstime.sroa.0.0, ptr %ts, align 8
   %mul = mul nsw i64 %abstime.sroa.4.0, 1000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   store i64 %mul, ptr %tv_nsec, align 8
   %call13 = call i32 @pthread_cond_timedwait(ptr noundef %cond_, ptr noundef %lock_, ptr noundef nonnull %ts) #7
   %switch.selectcmp = icmp ne i32 %call13, 0
@@ -267,7 +267,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evthread_use_pthreads() local_unnamed_addr #0 {
+define dso_local noundef i32 @evthread_use_pthreads() local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @evthread_use_pthreads_with_flags(i32 noundef 0), !range !5
   ret i32 %call

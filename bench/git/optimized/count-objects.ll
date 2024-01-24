@@ -5,14 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.packed_git = type { %struct.hashmap_entry, ptr, %struct.list_head, ptr, i64, ptr, i64, i32, i64, %struct.oidset, i32, i64, i32, i32, i8, [32 x i8], ptr, ptr, ptr, i64, ptr, i64, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.list_head = type { ptr, ptr }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.object_directory = type { ptr, [8 x i32], ptr, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"verbose\00", align 1
 @verbose = internal global i32 0, align 4
@@ -62,39 +56,39 @@ entry:
   %buf62 = alloca %struct.strbuf, align 8
   store i32 0, ptr %human_readable, align 4
   store i32 8, ptr %opts, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %opts, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %opts, i64 4
   store i32 118, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %opts, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %opts, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %opts, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %opts, i64 16
   store ptr @verbose, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %opts, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %opts, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %opts, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %opts, i64 32
   store ptr @.str.1, ptr %help, align 16
-  %flags = getelementptr inbounds %struct.option, ptr %opts, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %opts, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %opts, i64 0, i32 7
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %opts, i64 1
+  %callback = getelementptr inbounds i8, ptr %opts, i64 48
+  %arrayinit.element = getelementptr inbounds i8, ptr %opts, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 1
+  %short_name2 = getelementptr inbounds i8, ptr %opts, i64 92
   store i32 72, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 2
+  %long_name3 = getelementptr inbounds i8, ptr %opts, i64 96
   store ptr @.str.2, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 3
+  %value4 = getelementptr inbounds i8, ptr %opts, i64 104
   store ptr %human_readable, ptr %value4, align 8
-  %argh5 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 4
+  %argh5 = getelementptr inbounds i8, ptr %opts, i64 112
   store ptr null, ptr %argh5, align 16
-  %help6 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 5
+  %help6 = getelementptr inbounds i8, ptr %opts, i64 120
   store ptr @.str.3, ptr %help6, align 8
-  %flags7 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 6
+  %flags7 = getelementptr inbounds i8, ptr %opts, i64 128
   store i32 2, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 7
+  %callback8 = getelementptr inbounds i8, ptr %opts, i64 136
   store ptr null, ptr %callback8, align 8
-  %defval9 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 8
+  %defval9 = getelementptr inbounds i8, ptr %opts, i64 144
   store i64 1, ptr %defval9, align 16
-  %ll_callback10 = getelementptr inbounds %struct.option, ptr %opts, i64 1, i32 9
+  %ll_callback10 = getelementptr inbounds i8, ptr %opts, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback10, i8 0, i64 112, i1 false)
   call void @git_config(ptr noundef nonnull @git_default_config, ptr noundef null) #6
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %opts, ptr noundef nonnull @count_objects_usage, i32 noundef 0) #6
@@ -135,7 +129,7 @@ for.body:                                         ; preds = %if.then33, %for.inc
   %size_pack.014 = phi i64 [ %size_pack.1, %for.inc ], [ 0, %if.then33 ]
   %num_pack.013 = phi i64 [ %num_pack.1, %for.inc ], [ 0, %if.then33 ]
   %p.012 = phi ptr [ %7, %for.inc ], [ %call34, %if.then33 ]
-  %pack_local = getelementptr inbounds %struct.packed_git, ptr %p.012, i64 0, i32 14
+  %pack_local = getelementptr inbounds i8, ptr %p.012, i64 152
   %bf.load = load i8, ptr %pack_local, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool36.not = icmp eq i8 %bf.clear, 0
@@ -147,15 +141,15 @@ if.end38:                                         ; preds = %for.body
   br i1 %tobool40.not, label %if.end42, label %for.inc
 
 if.end42:                                         ; preds = %if.end38
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p.012, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p.012, i64 72
   %3 = load i32, ptr %num_objects, align 8
   %conv = zext i32 %3 to i64
   %4 = load i64, ptr @packed, align 8
   %add = add i64 %4, %conv
   store i64 %add, ptr @packed, align 8
-  %pack_size = getelementptr inbounds %struct.packed_git, ptr %p.012, i64 0, i32 4
+  %pack_size = getelementptr inbounds i8, ptr %p.012, i64 48
   %5 = load i64, ptr %pack_size, align 8
-  %index_size = getelementptr inbounds %struct.packed_git, ptr %p.012, i64 0, i32 6
+  %index_size = getelementptr inbounds i8, ptr %p.012, i64 64
   %6 = load i64, ptr %index_size, align 8
   %add43 = add i64 %5, %size_pack.014
   %add44 = add i64 %add43, %6
@@ -165,7 +159,7 @@ if.end42:                                         ; preds = %if.end38
 for.inc:                                          ; preds = %if.end38, %for.body, %if.end42
   %num_pack.1 = phi i64 [ %num_pack.013, %if.end38 ], [ %inc, %if.end42 ], [ %num_pack.013, %for.body ]
   %size_pack.1 = phi i64 [ %size_pack.014, %if.end38 ], [ %add44, %if.end42 ], [ %size_pack.014, %for.body ]
-  %next = getelementptr inbounds %struct.packed_git, ptr %p.012, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %p.012, i64 16
   %7 = load ptr, ptr %next, align 8
   %tobool35.not = icmp eq ptr %7, null
   br i1 %tobool35.not, label %for.end, label %for.body, !llvm.loop !5
@@ -198,20 +192,20 @@ if.else:                                          ; preds = %for.end
 if.end49:                                         ; preds = %if.else, %if.then46
   %12 = load i64, ptr @loose, align 8
   %call50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %12)
-  %buf = getelementptr inbounds %struct.strbuf, ptr %loose_buf, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %loose_buf, i64 16
   %13 = load ptr, ptr %buf, align 8
   %call51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %13)
   %14 = load i64, ptr @packed, align 8
   %call52 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i64 noundef %14)
   %call53 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i64 noundef %num_pack.0.lcssa)
-  %buf54 = getelementptr inbounds %struct.strbuf, ptr %pack_buf, i64 0, i32 2
+  %buf54 = getelementptr inbounds i8, ptr %pack_buf, i64 16
   %15 = load ptr, ptr %buf54, align 8
   %call55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %15)
   %16 = load i64, ptr @packed_loose, align 8
   %call56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i64 noundef %16)
   %17 = load i64, ptr @garbage, align 8
   %call57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i64 noundef %17)
-  %buf58 = getelementptr inbounds %struct.strbuf, ptr %garbage_buf, i64 0, i32 2
+  %buf58 = getelementptr inbounds i8, ptr %garbage_buf, i64 16
   %18 = load ptr, ptr %buf58, align 8
   %call59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %18)
   %call60 = call i32 @foreach_alt_odb(ptr noundef nonnull @print_alternate, ptr noundef null) #6
@@ -237,7 +231,7 @@ if.else65:                                        ; preds = %if.else61
 
 if.end67:                                         ; preds = %if.else65, %if.then64
   %21 = load i64, ptr @loose, align 8
-  %buf68 = getelementptr inbounds %struct.strbuf, ptr %buf62, i64 0, i32 2
+  %buf68 = getelementptr inbounds i8, ptr %buf62, i64 16
   %22 = load ptr, ptr %buf68, align 8
   %call69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %21, ptr noundef %22)
   br label %if.end70
@@ -283,7 +277,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %tobool2.not, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %switch.lookup
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %3 = load i64, ptr %st_size, align 8
   %4 = load i64, ptr @size_garbage, align 8
   %add = add nsw i64 %4, %3
@@ -316,7 +310,7 @@ entry:
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp = icmp eq i32 %and, 32768
@@ -333,7 +327,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end6
 
 if.else:                                          ; preds = %lor.lhs.false
-  %st_blocks = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 10
+  %st_blocks = getelementptr inbounds i8, ptr %st, i64 64
   %3 = load i64, ptr %st_blocks, align 8
   %mul = shl nsw i64 %3, 9
   %4 = load i64, ptr @loose_size, align 8
@@ -397,7 +391,7 @@ declare i32 @foreach_alt_odb(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal noundef i32 @print_alternate(ptr nocapture noundef readonly %odb, ptr nocapture readnone %data) #0 {
 entry:
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21)
-  %path = getelementptr inbounds %struct.object_directory, ptr %odb, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %odb, i64 56
   %0 = load ptr, ptr %path, align 8
   %1 = load ptr, ptr @stdout, align 8
   %call1 = tail call i64 @quote_c_style(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef 0) #6

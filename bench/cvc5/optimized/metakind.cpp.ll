@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::FatalStream" = type { i8 }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"class.cvc5::internal::FloatingPointSize" = type { i32, i32 }
 %"struct.cvc5::internal::AbstractTypeHashFunction" = type { i8 }
 %"struct.cvc5::internal::GenericOpHashFunction" = type { i8 }
@@ -25,25 +24,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.cvc5::internal::SequenceHashFunction" = type { i8 }
 %"struct.cvc5::internal::RegExpRepeatHashFunction" = type { i8 }
 %"struct.cvc5::internal::RegExpLoopHashFunction" = type { i8 }
-%"class.cvc5::internal::UninterpretedSortValue" = type { %"class.std::unique_ptr", %"class.cvc5::internal::Integer" }
+%"class.cvc5::internal::BitVector" = type { i32, %"class.cvc5::internal::Integer" }
+%"class.cvc5::internal::Integer" = type { %class.__gmp_expr }
+%class.__gmp_expr = type { [1 x %struct.__mpz_struct] }
+%struct.__mpz_struct = type { i32, i32, ptr }
+%"class.cvc5::internal::AscriptionType" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.cvc5::internal::Integer" = type { %class.__gmp_expr }
-%class.__gmp_expr = type { [1 x %struct.__mpz_struct] }
-%struct.__mpz_struct = type { i32, i32, ptr }
-%"struct.cvc5::internal::BitVectorExtract" = type { i32, i32 }
-%struct.__mpq_struct = type { %struct.__mpz_struct, %struct.__mpz_struct }
-%"class.cvc5::internal::BitVector" = type { i32, %"class.cvc5::internal::Integer" }
-%"class.cvc5::internal::AscriptionType" = type { %"class.std::unique_ptr" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cvc5::internal::FiniteFieldValue" = type { %"struct.cvc5::internal::FfSize", %"class.cvc5::internal::Integer" }
-%"struct.cvc5::internal::FfSize" = type { %"class.cvc5::internal::Integer" }
 
 $_ZN4cvc58internal4kind8metakind16NodeValueCompare7compareILb1EEEbPKNS0_4expr9NodeValueES8_ = comdat any
 
@@ -292,9 +286,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind16NodeValueCompare7compareILb1EEEbPKNS0_4expr9NodeValueES8_(ptr noundef %nv1, ptr noundef %nv2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
-  %d_kind = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 1
+  %d_kind = getelementptr inbounds i8, ptr %nv1, i64 8
   %bf.load = load i16, ptr %d_kind, align 8
-  %d_kind1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 1
+  %d_kind1 = getelementptr inbounds i8, ptr %nv2, i64 8
   %bf.load2 = load i16, ptr %d_kind1, align 8
   %0 = xor i16 %bf.load2, %bf.load
   %1 = and i16 %0, 1023
@@ -625,9 +619,9 @@ lpad:                                             ; preds = %invoke.cont123, %in
   unreachable
 
 if.end133:                                        ; preds = %if.end
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load134 = load i32, ptr %d_nchildren, align 4
-  %d_nchildren136 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren136 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load137 = load i32, ptr %d_nchildren136, align 4
   %4 = xor i32 %bf.load137, %bf.load134
   %5 = and i32 %4, 67108863
@@ -644,7 +638,7 @@ if.end141:                                        ; preds = %if.end133
   br i1 %cmp145.not126, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end141
-  %d_children.i124 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i124 = getelementptr inbounds i8, ptr %nv2, i64 16
   %d_children.i.ptr = getelementptr inbounds i8, ptr %nv1, i64 16
   br label %while.body
 
@@ -654,8 +648,8 @@ while.body:                                       ; preds = %while.body, %while.
   %8 = load ptr, ptr %i.0127, align 8
   %9 = load ptr, ptr %j.0128, align 8
   %cmp146.not = icmp eq ptr %8, %9
-  %incdec.ptr = getelementptr inbounds ptr, ptr %i.0127, i64 1
-  %incdec.ptr149 = getelementptr inbounds ptr, ptr %j.0128, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %i.0127, i64 8
+  %incdec.ptr149 = getelementptr inbounds i8, ptr %j.0128, i64 8
   %cmp145.not = icmp ne ptr %incdec.ptr, %add.ptr.i.ptr
   %or.cond.not = select i1 %cmp146.not, i1 %cmp145.not, i1 false
   br i1 %or.cond.not, label %while.body, label %return, !llvm.loop !4
@@ -673,19 +667,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -697,7 +691,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal22UninterpretedSortValueeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -712,7 +706,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit14
@@ -737,19 +731,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -762,7 +756,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -776,7 +770,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit14: ; pr
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit
@@ -801,19 +795,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -826,7 +820,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -840,7 +834,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit14: ; 
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit
@@ -865,19 +859,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -889,7 +883,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal12AbstractTypeeqERKS1_(ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br label %return
@@ -904,7 +898,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit14
@@ -929,19 +923,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -953,7 +947,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9GenericOpeqERKS1_(ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br label %return
@@ -968,7 +962,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit14
@@ -993,19 +987,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -1018,7 +1012,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i8, ptr %cond-lvalue.i, align 1
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -1032,7 +1026,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit14: ; preds = %if.end10,
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i8, ptr %cond-lvalue.i13, align 1
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit
@@ -1059,19 +1053,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1083,7 +1077,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal21CardinalityConstrainteqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -1098,7 +1092,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit14
@@ -1123,19 +1117,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1147,7 +1141,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal29CombinedCardinalityConstrainteqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %return
@@ -1162,7 +1156,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit14
@@ -1187,19 +1181,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1211,7 +1205,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal18FunctionArrayConsteqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %return
@@ -1226,7 +1220,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit14
@@ -1251,19 +1245,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -1276,7 +1270,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -1290,7 +1284,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit14: 
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit
@@ -1315,19 +1309,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1339,7 +1333,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call.i = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %return
@@ -1354,7 +1348,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit14
@@ -1379,19 +1373,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1403,7 +1397,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call.i.i.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %cond-lvalue.i, ptr noundef nonnull %1) #15
   br label %return
@@ -1418,7 +1412,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit14
@@ -1444,19 +1438,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1468,7 +1462,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call.i.i.i = tail call i32 @__gmpq_equal(ptr noundef nonnull %cond-lvalue.i, ptr noundef nonnull %1) #15
   br label %return
@@ -1483,7 +1477,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit14
@@ -1509,19 +1503,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1533,7 +1527,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumbereqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %return
@@ -1548,7 +1542,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit14
@@ -1573,19 +1567,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1597,7 +1591,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -1610,7 +1604,7 @@ cond.false.i13:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit15: ; preds = %if.end8, %cond.false.i13
   %cond-lvalue.i14 = phi ptr [ %1, %cond.false.i13 ], [ %d_children.i, %if.end8 ]
   %cmp.i19 = icmp eq i32 %bf.clear3, 0
-  %d_children.i20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i20 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i19, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit15, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit
@@ -1636,19 +1630,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -1661,7 +1655,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -1675,7 +1669,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit14: ; preds =
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit
@@ -1700,19 +1694,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -1725,7 +1719,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -1739,7 +1733,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit14: ;
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit
@@ -1764,19 +1758,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1788,7 +1782,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -1803,7 +1797,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit14
@@ -1828,19 +1822,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1852,7 +1846,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -1865,7 +1859,7 @@ cond.false.i13:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit15: ; preds = %if.end8, %cond.false.i13
   %cond-lvalue.i14 = phi ptr [ %1, %cond.false.i13 ], [ %d_children.i, %if.end8 ]
   %cmp.i19 = icmp eq i32 %bf.clear3, 0
-  %d_children.i20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i20 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i19, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit15, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit
@@ -1891,19 +1885,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -1915,7 +1909,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -1928,7 +1922,7 @@ cond.false.i13:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit15: ; preds = %if.end8, %cond.false.i13
   %cond-lvalue.i14 = phi ptr [ %1, %cond.false.i13 ], [ %d_children.i, %if.end8 ]
   %cmp.i19 = icmp eq i32 %bf.clear3, 0
-  %d_children.i20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i20 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i19, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit15, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit
@@ -1957,19 +1951,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -1982,7 +1976,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -1996,7 +1990,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit14:
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit
@@ -2021,19 +2015,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -2046,7 +2040,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -2060,7 +2054,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exi
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit
@@ -2085,19 +2079,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -2110,7 +2104,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -2124,7 +2118,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.ex
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit
@@ -2149,19 +2143,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -2174,7 +2168,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -2188,7 +2182,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exi
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit
@@ -2213,19 +2207,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -2238,7 +2232,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -2252,7 +2246,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exi
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit
@@ -2277,19 +2271,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2301,7 +2295,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call.i = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %return
@@ -2316,7 +2310,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit14
@@ -2341,19 +2335,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2365,7 +2359,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_16FiniteFieldValueES3_(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %return
@@ -2380,7 +2374,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit14
@@ -2405,19 +2399,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2429,7 +2423,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal13FloatingPointeqERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %return
@@ -2444,7 +2438,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit14
@@ -2469,19 +2463,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2494,7 +2488,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -2508,7 +2502,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit14: ; 
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit
@@ -2533,19 +2527,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2557,7 +2551,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -2570,7 +2564,7 @@ cond.false.i13:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit15: ; preds = %if.end8, %cond.false.i13
   %cond-lvalue.i14 = phi ptr [ %1, %cond.false.i13 ], [ %d_children.i, %if.end8 ]
   %cmp.i19 = icmp eq i32 %bf.clear3, 0
-  %d_children.i20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i20 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i19, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit15, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit
@@ -2599,19 +2593,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2623,7 +2617,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -2636,7 +2630,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %1, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit
@@ -2665,19 +2659,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2689,7 +2683,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -2702,7 +2696,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %1, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit
@@ -2731,19 +2725,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2755,7 +2749,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -2768,7 +2762,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %1, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit
@@ -2797,19 +2791,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2821,7 +2815,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -2834,7 +2828,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %1, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit
@@ -2863,19 +2857,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -2887,7 +2881,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end8:                                          ; preds = %if.else
@@ -2900,7 +2894,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %1, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit
@@ -2929,19 +2923,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -2954,7 +2948,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -2968,7 +2962,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
@@ -2993,19 +2987,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -3018,7 +3012,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -3032,7 +3026,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit
@@ -3057,19 +3051,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -3082,7 +3076,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -3096,7 +3090,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
@@ -3121,19 +3115,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.else
@@ -3146,7 +3140,7 @@ cond.false.i:                                     ; preds = %if.then5
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
   %1 = load i32, ptr %cond-lvalue.i, align 4
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   br label %return.sink.split
 
 if.end10:                                         ; preds = %if.else
@@ -3160,7 +3154,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end10 ]
   %3 = load i32, ptr %cond-lvalue.i13, align 4
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit14, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit
@@ -3185,19 +3179,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3209,7 +3203,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal13ArrayStoreAlleqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %return
@@ -3224,7 +3218,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit14
@@ -3249,19 +3243,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3273,7 +3267,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal14AscriptionTypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %return
@@ -3288,7 +3282,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit14
@@ -3313,19 +3307,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3337,7 +3331,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3352,7 +3346,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -3377,19 +3371,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3401,7 +3395,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal23CodatatypeBoundVariableeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3416,7 +3410,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit14
@@ -3441,19 +3435,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3465,7 +3459,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal8EmptySeteqERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %return
@@ -3480,7 +3474,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit14
@@ -3505,19 +3499,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3529,7 +3523,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3544,7 +3538,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -3569,19 +3563,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3593,7 +3587,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3608,7 +3602,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -3633,19 +3627,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3657,7 +3651,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3672,7 +3666,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -3697,19 +3691,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3721,7 +3715,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal8EmptyBageqERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %return
@@ -3736,7 +3730,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit14
@@ -3761,19 +3755,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3785,7 +3779,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3800,7 +3794,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -3825,19 +3819,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3849,7 +3843,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3864,7 +3858,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -3889,19 +3883,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3913,7 +3907,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3928,7 +3922,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -3953,19 +3947,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -3977,7 +3971,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -3992,7 +3986,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit14
@@ -4017,19 +4011,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -4041,7 +4035,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal6String3cmpERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(24) %1)
   br label %return
@@ -4056,7 +4050,7 @@ cond.false.i13:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit15: ; preds = %if.end8, %cond.false.i13
   %cond-lvalue.i14 = phi ptr [ %2, %cond.false.i13 ], [ %d_children.i, %if.end8 ]
   %cmp.i19 = icmp eq i32 %bf.clear3, 0
-  %d_children.i20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i20 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i19, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit23, label %cond.false.i21
 
 cond.false.i21:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit15
@@ -4082,19 +4076,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -4106,7 +4100,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call.i = tail call noundef i32 @_ZNK4cvc58internal8Sequence3cmpERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %return
@@ -4121,7 +4115,7 @@ cond.false.i13:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit15: ; preds = %if.end8, %cond.false.i13
   %cond-lvalue.i14 = phi ptr [ %2, %cond.false.i13 ], [ %d_children.i, %if.end8 ]
   %cmp.i19 = icmp eq i32 %bf.clear3, 0
-  %d_children.i20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i20 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i19, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit23, label %cond.false.i21
 
 cond.false.i21:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit15
@@ -4147,19 +4141,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -4171,7 +4165,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal12RegExpRepeateqERKS1_(ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br label %return
@@ -4186,7 +4180,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit14
@@ -4211,19 +4205,19 @@ entry:
 tailrecurse:                                      ; preds = %tailrecurse, %entry
   %x.tr = phi ptr [ %x, %entry ], [ %y.tr, %tailrecurse ]
   %y.tr = phi ptr [ %y, %entry ], [ %x.tr, %tailrecurse ]
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %x.tr, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 1
   br i1 %cmp, label %tailrecurse, label %if.else
 
 if.else:                                          ; preds = %tailrecurse
-  %d_nchildren1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 2
+  %d_nchildren1 = getelementptr inbounds i8, ptr %y.tr, i64 12
   %bf.load2 = load i32, ptr %d_nchildren1, align 4
   %bf.clear3 = and i32 %bf.load2, 67108863
   %cmp4 = icmp eq i32 %bf.clear3, 1
   %cmp.i = icmp eq i32 %bf.clear, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x.tr, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x.tr, i64 16
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
@@ -4235,7 +4229,7 @@ cond.false.i:                                     ; preds = %if.then5
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit: ; preds = %if.then5, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %if.then5 ]
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %y.tr, i64 16
   %1 = load ptr, ptr %d_children, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK4cvc58internal10RegExpLoopeqERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull align 4 dereferenceable(8) %1)
   br label %return
@@ -4250,7 +4244,7 @@ cond.false.i12:                                   ; preds = %if.end8
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit14: ; preds = %if.end8, %cond.false.i12
   %cond-lvalue.i13 = phi ptr [ %2, %cond.false.i12 ], [ %d_children.i, %if.end8 ]
   %cmp.i18 = icmp eq i32 %bf.clear3, 0
-  %d_children.i19 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y.tr, i64 0, i32 3
+  %d_children.i19 = getelementptr inbounds i8, ptr %y.tr, i64 16
   br i1 %cmp.i18, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit22, label %cond.false.i20
 
 cond.false.i20:                                   ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit14
@@ -4284,9 +4278,9 @@ declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 der
 define weak_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind16NodeValueCompare7compareILb0EEEbPKNS0_4expr9NodeValueES8_(ptr noundef %nv1, ptr noundef %nv2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
-  %d_kind = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 1
+  %d_kind = getelementptr inbounds i8, ptr %nv1, i64 8
   %bf.load = load i16, ptr %d_kind, align 8
-  %d_kind1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 1
+  %d_kind1 = getelementptr inbounds i8, ptr %nv2, i64 8
   %bf.load2 = load i16, ptr %d_kind1, align 8
   %0 = xor i16 %bf.load2, %bf.load
   %1 = and i16 %0, 1023
@@ -4369,11 +4363,11 @@ sw.bb:                                            ; preds = %if.then6
   br label %return
 
 sw.bb12:                                          ; preds = %if.then6
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i124 = load i32, ptr %d_nchildren.i.i, align 4
   %bf.clear.i.i125 = and i32 %bf.load.i.i124, 67108863
   %cmp.i.i = icmp eq i32 %bf.clear.i.i125, 0
-  %d_children.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %sw.bb12
@@ -4383,11 +4377,11 @@ cond.false.i.i:                                   ; preds = %sw.bb12
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit.i: ; preds = %cond.false.i.i, %sw.bb12
   %cond-lvalue.i.i = phi ptr [ %3, %cond.false.i.i ], [ %d_children.i.i, %sw.bb12 ]
   %4 = load i32, ptr %cond-lvalue.i.i, align 4
-  %d_nchildren.i1.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i = load i32, ptr %d_nchildren.i1.i, align 4
   %bf.clear.i3.i = and i32 %bf.load.i2.i, 67108863
   %cmp.i4.i = icmp eq i32 %bf.clear.i3.i, 0
-  %d_children.i5.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE4ES4_Lb0EE7compareEPKNS0_4expr9NodeValueES9_.exit, label %cond.false.i6.i
 
 cond.false.i6.i:                                  ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit.i
@@ -4401,11 +4395,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE4ES4_Lb0EE7c
   br label %return
 
 sw.bb14:                                          ; preds = %if.then6
-  %d_nchildren.i.i126 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i126 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i127 = load i32, ptr %d_nchildren.i.i126, align 4
   %bf.clear.i.i128 = and i32 %bf.load.i.i127, 67108863
   %cmp.i.i129 = icmp eq i32 %bf.clear.i.i128, 0
-  %d_children.i.i130 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i130 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i129, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit.i, label %cond.false.i.i131
 
 cond.false.i.i131:                                ; preds = %sw.bb14
@@ -4415,11 +4409,11 @@ cond.false.i.i131:                                ; preds = %sw.bb14
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit.i: ; preds = %cond.false.i.i131, %sw.bb14
   %cond-lvalue.i.i132 = phi ptr [ %7, %cond.false.i.i131 ], [ %d_children.i.i130, %sw.bb14 ]
   %8 = load i32, ptr %cond-lvalue.i.i132, align 4
-  %d_nchildren.i1.i133 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i133 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i134 = load i32, ptr %d_nchildren.i1.i133, align 4
   %bf.clear.i3.i135 = and i32 %bf.load.i2.i134, 67108863
   %cmp.i4.i136 = icmp eq i32 %bf.clear.i3.i135, 0
-  %d_children.i5.i137 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i137 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i136, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE12ENS0_12TypeConstantELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i138
 
 cond.false.i6.i138:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit.i
@@ -4441,11 +4435,11 @@ sw.bb18:                                          ; preds = %if.then6
   br label %return
 
 sw.bb20:                                          ; preds = %if.then6
-  %d_nchildren.i.i141 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i141 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i142 = load i32, ptr %d_nchildren.i.i141, align 4
   %bf.clear.i.i143 = and i32 %bf.load.i.i142, 67108863
   %cmp.i.i144 = icmp eq i32 %bf.clear.i.i143, 0
-  %d_children.i.i145 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i145 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i144, label %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit.i, label %cond.false.i.i146
 
 cond.false.i.i146:                                ; preds = %sw.bb20
@@ -4455,11 +4449,11 @@ cond.false.i.i146:                                ; preds = %sw.bb20
 _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit.i: ; preds = %cond.false.i.i146, %sw.bb20
   %cond-lvalue.i.i147 = phi ptr [ %11, %cond.false.i.i146 ], [ %d_children.i.i145, %sw.bb20 ]
   %12 = load i8, ptr %cond-lvalue.i.i147, align 1
-  %d_nchildren.i1.i148 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i148 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i149 = load i32, ptr %d_nchildren.i1.i148, align 4
   %bf.clear.i3.i150 = and i32 %bf.load.i2.i149, 67108863
   %cmp.i4.i151 = icmp eq i32 %bf.clear.i3.i150, 0
-  %d_children.i5.i152 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i152 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i151, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE17EbLb0EE7compareEPKNS0_4expr9NodeValueES9_.exit, label %cond.false.i6.i153
 
 cond.false.i6.i153:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit.i
@@ -4487,11 +4481,11 @@ sw.bb26:                                          ; preds = %if.then6
   br label %return
 
 sw.bb28:                                          ; preds = %if.then6
-  %d_nchildren.i.i156 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i156 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i157 = load i32, ptr %d_nchildren.i.i156, align 4
   %bf.clear.i.i158 = and i32 %bf.load.i.i157, 67108863
   %cmp.i.i159 = icmp eq i32 %bf.clear.i.i158, 0
-  %d_children.i.i160 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i160 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i159, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit.i, label %cond.false.i.i161
 
 cond.false.i.i161:                                ; preds = %sw.bb28
@@ -4501,11 +4495,11 @@ cond.false.i.i161:                                ; preds = %sw.bb28
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit.i: ; preds = %cond.false.i.i161, %sw.bb28
   %cond-lvalue.i.i162 = phi ptr [ %17, %cond.false.i.i161 ], [ %d_children.i.i160, %sw.bb28 ]
   %18 = load i32, ptr %cond-lvalue.i.i162, align 4
-  %d_nchildren.i1.i163 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i163 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i164 = load i32, ptr %d_nchildren.i1.i163, align 4
   %bf.clear.i3.i165 = and i32 %bf.load.i2.i164, 67108863
   %cmp.i4.i166 = icmp eq i32 %bf.clear.i3.i165, 0
-  %d_children.i5.i167 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i167 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i166, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE34ENS0_14IntToBitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i168
 
 cond.false.i6.i168:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit.i
@@ -4535,11 +4529,11 @@ sw.bb36:                                          ; preds = %if.then6
   br label %return
 
 sw.bb38:                                          ; preds = %if.then6
-  %d_nchildren.i.i171 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i171 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i172 = load i32, ptr %d_nchildren.i.i171, align 4
   %bf.clear.i.i173 = and i32 %bf.load.i.i172, 67108863
   %cmp.i.i174 = icmp eq i32 %bf.clear.i.i173, 0
-  %d_children.i.i175 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i175 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i174, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit.i, label %cond.false.i.i176
 
 cond.false.i.i176:                                ; preds = %sw.bb38
@@ -4548,11 +4542,11 @@ cond.false.i.i176:                                ; preds = %sw.bb38
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit.i: ; preds = %cond.false.i.i176, %sw.bb38
   %cond-lvalue.i.i177 = phi ptr [ %21, %cond.false.i.i176 ], [ %d_children.i.i175, %sw.bb38 ]
-  %d_nchildren.i1.i178 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i178 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i179 = load i32, ptr %d_nchildren.i1.i178, align 4
   %bf.clear.i3.i180 = and i32 %bf.load.i2.i179, 67108863
   %cmp.i4.i181 = icmp eq i32 %bf.clear.i3.i180, 0
-  %d_children.i5.i182 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i182 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i181, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE74ENS0_20IndexedRootPredicateELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i183
 
 cond.false.i6.i183:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit.i
@@ -4567,11 +4561,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE74ENS0_20Ind
   br label %return
 
 sw.bb40:                                          ; preds = %if.then6
-  %d_nchildren.i.i185 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i185 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i186 = load i32, ptr %d_nchildren.i.i185, align 4
   %bf.clear.i.i187 = and i32 %bf.load.i.i186, 67108863
   %cmp.i.i188 = icmp eq i32 %bf.clear.i.i187, 0
-  %d_children.i.i189 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i189 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i188, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit.i, label %cond.false.i.i190
 
 cond.false.i.i190:                                ; preds = %sw.bb40
@@ -4581,11 +4575,11 @@ cond.false.i.i190:                                ; preds = %sw.bb40
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit.i: ; preds = %cond.false.i.i190, %sw.bb40
   %cond-lvalue.i.i191 = phi ptr [ %25, %cond.false.i.i190 ], [ %d_children.i.i189, %sw.bb40 ]
   %26 = load i32, ptr %cond-lvalue.i.i191, align 4
-  %d_nchildren.i1.i192 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i192 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i193 = load i32, ptr %d_nchildren.i1.i192, align 4
   %bf.clear.i3.i194 = and i32 %bf.load.i2.i193, 67108863
   %cmp.i4.i195 = icmp eq i32 %bf.clear.i3.i194, 0
-  %d_children.i5.i196 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i196 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i195, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE80ENS0_6IntAndELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i197
 
 cond.false.i6.i197:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit.i
@@ -4599,11 +4593,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE80ENS0_6IntA
   br label %return
 
 sw.bb42:                                          ; preds = %if.then6
-  %d_nchildren.i.i200 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i200 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i201 = load i32, ptr %d_nchildren.i.i200, align 4
   %bf.clear.i.i202 = and i32 %bf.load.i.i201, 67108863
   %cmp.i.i203 = icmp eq i32 %bf.clear.i.i202, 0
-  %d_children.i.i204 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i204 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i203, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit.i, label %cond.false.i.i205
 
 cond.false.i.i205:                                ; preds = %sw.bb42
@@ -4613,11 +4607,11 @@ cond.false.i.i205:                                ; preds = %sw.bb42
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit.i: ; preds = %cond.false.i.i205, %sw.bb42
   %cond-lvalue.i.i206 = phi ptr [ %29, %cond.false.i.i205 ], [ %d_children.i.i204, %sw.bb42 ]
   %30 = load i32, ptr %cond-lvalue.i.i206, align 4
-  %d_nchildren.i1.i207 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i207 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i208 = load i32, ptr %d_nchildren.i1.i207, align 4
   %bf.clear.i3.i209 = and i32 %bf.load.i2.i208, 67108863
   %cmp.i4.i210 = icmp eq i32 %bf.clear.i3.i209, 0
-  %d_children.i5.i211 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i211 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i210, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE82ENS0_13BitVectorSizeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i212
 
 cond.false.i6.i212:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit.i
@@ -4635,11 +4629,11 @@ sw.bb44:                                          ; preds = %if.then6
   br label %return
 
 sw.bb46:                                          ; preds = %if.then6
-  %d_nchildren.i.i215 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i215 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i216 = load i32, ptr %d_nchildren.i.i215, align 4
   %bf.clear.i.i217 = and i32 %bf.load.i.i216, 67108863
   %cmp.i.i218 = icmp eq i32 %bf.clear.i.i217, 0
-  %d_children.i.i219 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i219 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i218, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit.i, label %cond.false.i.i220
 
 cond.false.i.i220:                                ; preds = %sw.bb46
@@ -4648,11 +4642,11 @@ cond.false.i.i220:                                ; preds = %sw.bb46
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit.i: ; preds = %cond.false.i.i220, %sw.bb46
   %cond-lvalue.i.i221 = phi ptr [ %33, %cond.false.i.i220 ], [ %d_children.i.i219, %sw.bb46 ]
-  %d_nchildren.i1.i222 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i222 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i223 = load i32, ptr %d_nchildren.i1.i222, align 4
   %bf.clear.i3.i224 = and i32 %bf.load.i2.i223, 67108863
   %cmp.i4.i225 = icmp eq i32 %bf.clear.i3.i224, 0
-  %d_children.i5.i226 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i226 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i225, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE130ENS0_14BitVectorBitOfELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i227
 
 cond.false.i6.i227:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit.i
@@ -4671,11 +4665,11 @@ sw.bb48:                                          ; preds = %if.then6
   br label %return
 
 sw.bb50:                                          ; preds = %if.then6
-  %d_nchildren.i.i230 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i230 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i231 = load i32, ptr %d_nchildren.i.i230, align 4
   %bf.clear.i.i232 = and i32 %bf.load.i.i231, 67108863
   %cmp.i.i233 = icmp eq i32 %bf.clear.i.i232, 0
-  %d_children.i.i234 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i234 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i233, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit.i, label %cond.false.i.i235
 
 cond.false.i.i235:                                ; preds = %sw.bb50
@@ -4685,11 +4679,11 @@ cond.false.i.i235:                                ; preds = %sw.bb50
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit.i: ; preds = %cond.false.i.i235, %sw.bb50
   %cond-lvalue.i.i236 = phi ptr [ %37, %cond.false.i.i235 ], [ %d_children.i.i234, %sw.bb50 ]
   %38 = load i32, ptr %cond-lvalue.i.i236, align 4
-  %d_nchildren.i1.i237 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i237 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i238 = load i32, ptr %d_nchildren.i1.i237, align 4
   %bf.clear.i3.i239 = and i32 %bf.load.i2.i238, 67108863
   %cmp.i4.i240 = icmp eq i32 %bf.clear.i3.i239, 0
-  %d_children.i5.i241 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i241 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i240, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE134ENS0_15BitVectorRepeatELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i242
 
 cond.false.i6.i242:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit.i
@@ -4703,11 +4697,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE134ENS0_15Bi
   br label %return
 
 sw.bb52:                                          ; preds = %if.then6
-  %d_nchildren.i.i245 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i245 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i246 = load i32, ptr %d_nchildren.i.i245, align 4
   %bf.clear.i.i247 = and i32 %bf.load.i.i246, 67108863
   %cmp.i.i248 = icmp eq i32 %bf.clear.i.i247, 0
-  %d_children.i.i249 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i249 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i248, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit.i, label %cond.false.i.i250
 
 cond.false.i.i250:                                ; preds = %sw.bb52
@@ -4717,11 +4711,11 @@ cond.false.i.i250:                                ; preds = %sw.bb52
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit.i: ; preds = %cond.false.i.i250, %sw.bb52
   %cond-lvalue.i.i251 = phi ptr [ %41, %cond.false.i.i250 ], [ %d_children.i.i249, %sw.bb52 ]
   %42 = load i32, ptr %cond-lvalue.i.i251, align 4
-  %d_nchildren.i1.i252 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i252 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i253 = load i32, ptr %d_nchildren.i1.i252, align 4
   %bf.clear.i3.i254 = and i32 %bf.load.i2.i253, 67108863
   %cmp.i4.i255 = icmp eq i32 %bf.clear.i3.i254, 0
-  %d_children.i5.i256 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i256 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i255, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE136ENS0_19BitVectorRotateLeftELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i257
 
 cond.false.i6.i257:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit.i
@@ -4735,11 +4729,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE136ENS0_19Bi
   br label %return
 
 sw.bb54:                                          ; preds = %if.then6
-  %d_nchildren.i.i260 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i260 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i261 = load i32, ptr %d_nchildren.i.i260, align 4
   %bf.clear.i.i262 = and i32 %bf.load.i.i261, 67108863
   %cmp.i.i263 = icmp eq i32 %bf.clear.i.i262, 0
-  %d_children.i.i264 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i264 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i263, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit.i, label %cond.false.i.i265
 
 cond.false.i.i265:                                ; preds = %sw.bb54
@@ -4749,11 +4743,11 @@ cond.false.i.i265:                                ; preds = %sw.bb54
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit.i: ; preds = %cond.false.i.i265, %sw.bb54
   %cond-lvalue.i.i266 = phi ptr [ %45, %cond.false.i.i265 ], [ %d_children.i.i264, %sw.bb54 ]
   %46 = load i32, ptr %cond-lvalue.i.i266, align 4
-  %d_nchildren.i1.i267 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i267 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i268 = load i32, ptr %d_nchildren.i1.i267, align 4
   %bf.clear.i3.i269 = and i32 %bf.load.i2.i268, 67108863
   %cmp.i4.i270 = icmp eq i32 %bf.clear.i3.i269, 0
-  %d_children.i5.i271 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i271 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i270, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE138ENS0_20BitVectorRotateRightELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i272
 
 cond.false.i6.i272:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit.i
@@ -4767,11 +4761,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE138ENS0_20Bi
   br label %return
 
 sw.bb56:                                          ; preds = %if.then6
-  %d_nchildren.i.i275 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i275 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i276 = load i32, ptr %d_nchildren.i.i275, align 4
   %bf.clear.i.i277 = and i32 %bf.load.i.i276, 67108863
   %cmp.i.i278 = icmp eq i32 %bf.clear.i.i277, 0
-  %d_children.i.i279 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i279 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i278, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit.i, label %cond.false.i.i280
 
 cond.false.i.i280:                                ; preds = %sw.bb56
@@ -4781,11 +4775,11 @@ cond.false.i.i280:                                ; preds = %sw.bb56
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit.i: ; preds = %cond.false.i.i280, %sw.bb56
   %cond-lvalue.i.i281 = phi ptr [ %49, %cond.false.i.i280 ], [ %d_children.i.i279, %sw.bb56 ]
   %50 = load i32, ptr %cond-lvalue.i.i281, align 4
-  %d_nchildren.i1.i282 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i282 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i283 = load i32, ptr %d_nchildren.i1.i282, align 4
   %bf.clear.i3.i284 = and i32 %bf.load.i2.i283, 67108863
   %cmp.i4.i285 = icmp eq i32 %bf.clear.i3.i284, 0
-  %d_children.i5.i286 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i286 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i285, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE140ENS0_19BitVectorSignExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i287
 
 cond.false.i6.i287:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit.i
@@ -4799,11 +4793,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE140ENS0_19Bi
   br label %return
 
 sw.bb58:                                          ; preds = %if.then6
-  %d_nchildren.i.i290 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i290 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i291 = load i32, ptr %d_nchildren.i.i290, align 4
   %bf.clear.i.i292 = and i32 %bf.load.i.i291, 67108863
   %cmp.i.i293 = icmp eq i32 %bf.clear.i.i292, 0
-  %d_children.i.i294 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i294 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i293, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit.i, label %cond.false.i.i295
 
 cond.false.i.i295:                                ; preds = %sw.bb58
@@ -4813,11 +4807,11 @@ cond.false.i.i295:                                ; preds = %sw.bb58
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit.i: ; preds = %cond.false.i.i295, %sw.bb58
   %cond-lvalue.i.i296 = phi ptr [ %53, %cond.false.i.i295 ], [ %d_children.i.i294, %sw.bb58 ]
   %54 = load i32, ptr %cond-lvalue.i.i296, align 4
-  %d_nchildren.i1.i297 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i297 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i298 = load i32, ptr %d_nchildren.i1.i297, align 4
   %bf.clear.i3.i299 = and i32 %bf.load.i2.i298, 67108863
   %cmp.i4.i300 = icmp eq i32 %bf.clear.i3.i299, 0
-  %d_children.i5.i301 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i301 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i300, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE142ENS0_19BitVectorZeroExtendELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i302
 
 cond.false.i6.i302:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit.i
@@ -4843,11 +4837,11 @@ sw.bb64:                                          ; preds = %if.then6
   br label %return
 
 sw.bb66:                                          ; preds = %if.then6
-  %d_nchildren.i.i305 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i305 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i306 = load i32, ptr %d_nchildren.i.i305, align 4
   %bf.clear.i.i307 = and i32 %bf.load.i.i306, 67108863
   %cmp.i.i308 = icmp eq i32 %bf.clear.i.i307, 0
-  %d_children.i.i309 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i309 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i308, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit.i, label %cond.false.i.i310
 
 cond.false.i.i310:                                ; preds = %sw.bb66
@@ -4857,11 +4851,11 @@ cond.false.i.i310:                                ; preds = %sw.bb66
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit.i: ; preds = %cond.false.i.i310, %sw.bb66
   %cond-lvalue.i.i311 = phi ptr [ %57, %cond.false.i.i310 ], [ %d_children.i.i309, %sw.bb66 ]
   %58 = load i32, ptr %cond-lvalue.i.i311, align 4
-  %d_nchildren.i1.i312 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i312 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i313 = load i32, ptr %d_nchildren.i1.i312, align 4
   %bf.clear.i3.i314 = and i32 %bf.load.i2.i313, 67108863
   %cmp.i4.i315 = icmp eq i32 %bf.clear.i3.i314, 0
-  %d_children.i5.i316 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i316 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i315, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE151ENS0_12RoundingModeELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i317
 
 cond.false.i6.i317:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit.i
@@ -4899,11 +4893,11 @@ sw.bb78:                                          ; preds = %if.then6
   br label %return
 
 sw.bb80:                                          ; preds = %if.then6
-  %d_nchildren.i.i320 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i320 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i321 = load i32, ptr %d_nchildren.i.i320, align 4
   %bf.clear.i.i322 = and i32 %bf.load.i.i321, 67108863
   %cmp.i.i323 = icmp eq i32 %bf.clear.i.i322, 0
-  %d_children.i.i324 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i324 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i323, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit.i, label %cond.false.i.i325
 
 cond.false.i.i325:                                ; preds = %sw.bb80
@@ -4913,11 +4907,11 @@ cond.false.i.i325:                                ; preds = %sw.bb80
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit.i: ; preds = %cond.false.i.i325, %sw.bb80
   %cond-lvalue.i.i326 = phi ptr [ %61, %cond.false.i.i325 ], [ %d_children.i.i324, %sw.bb80 ]
   %62 = load i32, ptr %cond-lvalue.i.i326, align 4
-  %d_nchildren.i1.i327 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i327 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i328 = load i32, ptr %d_nchildren.i1.i327, align 4
   %bf.clear.i3.i329 = and i32 %bf.load.i2.i328, 67108863
   %cmp.i4.i330 = icmp eq i32 %bf.clear.i3.i329, 0
-  %d_children.i5.i331 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i331 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i330, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE190ENS0_18FloatingPointToUBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i332
 
 cond.false.i6.i332:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit.i
@@ -4931,11 +4925,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE190ENS0_18Fl
   br label %return
 
 sw.bb82:                                          ; preds = %if.then6
-  %d_nchildren.i.i335 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i335 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i336 = load i32, ptr %d_nchildren.i.i335, align 4
   %bf.clear.i.i337 = and i32 %bf.load.i.i336, 67108863
   %cmp.i.i338 = icmp eq i32 %bf.clear.i.i337, 0
-  %d_children.i.i339 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i339 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i338, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit.i, label %cond.false.i.i340
 
 cond.false.i.i340:                                ; preds = %sw.bb82
@@ -4945,11 +4939,11 @@ cond.false.i.i340:                                ; preds = %sw.bb82
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit.i: ; preds = %cond.false.i.i340, %sw.bb82
   %cond-lvalue.i.i341 = phi ptr [ %65, %cond.false.i.i340 ], [ %d_children.i.i339, %sw.bb82 ]
   %66 = load i32, ptr %cond-lvalue.i.i341, align 4
-  %d_nchildren.i1.i342 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i342 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i343 = load i32, ptr %d_nchildren.i1.i342, align 4
   %bf.clear.i3.i344 = and i32 %bf.load.i2.i343, 67108863
   %cmp.i4.i345 = icmp eq i32 %bf.clear.i3.i344, 0
-  %d_children.i5.i346 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i346 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i345, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE192ENS0_23FloatingPointToUBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i347
 
 cond.false.i6.i347:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit.i
@@ -4963,11 +4957,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE192ENS0_23Fl
   br label %return
 
 sw.bb84:                                          ; preds = %if.then6
-  %d_nchildren.i.i350 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i350 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i351 = load i32, ptr %d_nchildren.i.i350, align 4
   %bf.clear.i.i352 = and i32 %bf.load.i.i351, 67108863
   %cmp.i.i353 = icmp eq i32 %bf.clear.i.i352, 0
-  %d_children.i.i354 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i354 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i353, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit.i, label %cond.false.i.i355
 
 cond.false.i.i355:                                ; preds = %sw.bb84
@@ -4977,11 +4971,11 @@ cond.false.i.i355:                                ; preds = %sw.bb84
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit.i: ; preds = %cond.false.i.i355, %sw.bb84
   %cond-lvalue.i.i356 = phi ptr [ %69, %cond.false.i.i355 ], [ %d_children.i.i354, %sw.bb84 ]
   %70 = load i32, ptr %cond-lvalue.i.i356, align 4
-  %d_nchildren.i1.i357 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i357 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i358 = load i32, ptr %d_nchildren.i1.i357, align 4
   %bf.clear.i3.i359 = and i32 %bf.load.i2.i358, 67108863
   %cmp.i4.i360 = icmp eq i32 %bf.clear.i3.i359, 0
-  %d_children.i5.i361 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i361 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i360, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE194ENS0_18FloatingPointToSBVELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i362
 
 cond.false.i6.i362:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit.i
@@ -4995,11 +4989,11 @@ _ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE194ENS0_18Fl
   br label %return
 
 sw.bb86:                                          ; preds = %if.then6
-  %d_nchildren.i.i365 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren.i.i365 = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load.i.i366 = load i32, ptr %d_nchildren.i.i365, align 4
   %bf.clear.i.i367 = and i32 %bf.load.i.i366, 67108863
   %cmp.i.i368 = icmp eq i32 %bf.clear.i.i367, 0
-  %d_children.i.i369 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 3
+  %d_children.i.i369 = getelementptr inbounds i8, ptr %nv1, i64 16
   br i1 %cmp.i.i368, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit.i, label %cond.false.i.i370
 
 cond.false.i.i370:                                ; preds = %sw.bb86
@@ -5009,11 +5003,11 @@ cond.false.i.i370:                                ; preds = %sw.bb86
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit.i: ; preds = %cond.false.i.i370, %sw.bb86
   %cond-lvalue.i.i371 = phi ptr [ %73, %cond.false.i.i370 ], [ %d_children.i.i369, %sw.bb86 ]
   %74 = load i32, ptr %cond-lvalue.i.i371, align 4
-  %d_nchildren.i1.i372 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren.i1.i372 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load.i2.i373 = load i32, ptr %d_nchildren.i1.i372, align 4
   %bf.clear.i3.i374 = and i32 %bf.load.i2.i373, 67108863
   %cmp.i4.i375 = icmp eq i32 %bf.clear.i3.i374, 0
-  %d_children.i5.i376 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i5.i376 = getelementptr inbounds i8, ptr %nv2, i64 16
   br i1 %cmp.i4.i375, label %_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE196ENS0_23FloatingPointToSBVTotalELb0EE7compareEPKNS0_4expr9NodeValueESA_.exit, label %cond.false.i6.i377
 
 cond.false.i6.i377:                               ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit.i
@@ -5123,9 +5117,9 @@ lpad:                                             ; preds = %invoke.cont123, %in
   unreachable
 
 if.end133:                                        ; preds = %if.end
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv1, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %nv1, i64 12
   %bf.load134 = load i32, ptr %d_nchildren, align 4
-  %d_nchildren136 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 2
+  %d_nchildren136 = getelementptr inbounds i8, ptr %nv2, i64 12
   %bf.load137 = load i32, ptr %d_nchildren136, align 4
   %78 = xor i32 %bf.load137, %bf.load134
   %79 = and i32 %78, 67108863
@@ -5142,7 +5136,7 @@ if.end141:                                        ; preds = %if.end133
   br i1 %cmp145.not383, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end141
-  %d_children.i381 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv2, i64 0, i32 3
+  %d_children.i381 = getelementptr inbounds i8, ptr %nv2, i64 16
   %d_children.i.ptr = getelementptr inbounds i8, ptr %nv1, i64 16
   br label %while.body
 
@@ -5152,8 +5146,8 @@ while.body:                                       ; preds = %while.body, %while.
   %82 = load ptr, ptr %i.0384, align 8
   %83 = load ptr, ptr %j.0385, align 8
   %cmp146.not = icmp eq ptr %82, %83
-  %incdec.ptr = getelementptr inbounds ptr, ptr %i.0384, i64 1
-  %incdec.ptr149 = getelementptr inbounds ptr, ptr %j.0385, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %i.0384, i64 8
+  %incdec.ptr149 = getelementptr inbounds i8, ptr %j.0385, i64 8
   %cmp145.not = icmp ne ptr %incdec.ptr, %add.ptr.i.ptr
   %or.cond.not = select i1 %cmp146.not, i1 %cmp145.not, i1 false
   br i1 %or.cond.not, label %while.body, label %return, !llvm.loop !6
@@ -5166,11 +5160,11 @@ return:                                           ; preds = %while.body, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE3ENS0_22UninterpretedSortValueELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5179,11 +5173,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit
@@ -5199,11 +5193,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE14ENS0_12AbstractTypeELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5212,11 +5206,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit
@@ -5232,11 +5226,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit8: ; p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE15ENS0_9GenericOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5245,11 +5239,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit
@@ -5265,11 +5259,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE28ENS0_21CardinalityConstraintELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5278,11 +5272,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit
@@ -5298,11 +5292,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE30ENS0_29CombinedCardinalityConstraintELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5311,11 +5305,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit
@@ -5331,11 +5325,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE32ENS0_18FunctionArrayConstELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5344,11 +5338,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit
@@ -5364,11 +5358,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE65ENS0_9DivisibleELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5377,11 +5371,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit
@@ -5397,11 +5391,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE66ENS0_8RationalELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5410,11 +5404,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit
@@ -5431,11 +5425,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit8: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE67ENS0_8RationalELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5444,11 +5438,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit
@@ -5465,11 +5459,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit8: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE68ENS0_19RealAlgebraicNumberELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5478,11 +5472,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit
@@ -5498,11 +5492,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE83ENS0_9BitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5511,11 +5505,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit
@@ -5531,11 +5525,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE132ENS0_16BitVectorExtractELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5544,11 +5538,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit
@@ -5569,11 +5563,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit8:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE144ENS0_6FfSizeELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5582,11 +5576,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit
@@ -5602,11 +5596,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit8: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE145ENS0_16FiniteFieldValueELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5615,11 +5609,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit
@@ -5635,11 +5629,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit8:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE150ENS0_13FloatingPointELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5648,11 +5642,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit
@@ -5668,11 +5662,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit8: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE152ENS0_17FloatingPointSizeELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5681,11 +5675,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit
@@ -5706,11 +5700,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE180ENS0_30FloatingPointToFPIEEEBitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5719,11 +5713,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit
@@ -5744,11 +5738,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE182ENS0_30FloatingPointToFPFloatingPointELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5757,11 +5751,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit
@@ -5782,11 +5776,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE184ENS0_21FloatingPointToFPRealELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5795,11 +5789,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit
@@ -5820,11 +5814,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE186ENS0_32FloatingPointToFPSignedBitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5833,11 +5827,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit
@@ -5858,11 +5852,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVecto
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE188ENS0_34FloatingPointToFPUnsignedBitVectorELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5871,11 +5865,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit
@@ -5896,11 +5890,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVec
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE211ENS0_13ArrayStoreAllELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5909,11 +5903,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit
@@ -5929,11 +5923,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit8: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE225ENS0_14AscriptionTypeELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5942,11 +5936,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit
@@ -5962,11 +5956,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit8: ;
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE234ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -5975,11 +5969,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -5995,11 +5989,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE236ENS0_23CodatatypeBoundVariableELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6008,11 +6002,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit
@@ -6028,11 +6022,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE243ENS0_8EmptySetELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6041,11 +6035,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit
@@ -6061,11 +6055,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit8: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE261ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6074,11 +6068,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -6094,11 +6088,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE263ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6107,11 +6101,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -6127,11 +6121,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE265ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6140,11 +6134,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -6160,11 +6154,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE273ENS0_8EmptyBagELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6173,11 +6167,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit
@@ -6193,11 +6187,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit8: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE295ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6206,11 +6200,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -6226,11 +6220,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE297ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6239,11 +6233,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -6259,11 +6253,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE299ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6272,11 +6266,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -6292,11 +6286,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE301ENS0_9ProjectOpELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6305,11 +6299,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
@@ -6325,11 +6319,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit8: ; preds
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE329ENS0_6StringELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6338,11 +6332,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit
@@ -6359,11 +6353,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit8: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE331ENS0_8SequenceELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6372,11 +6366,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit
@@ -6393,11 +6387,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit8: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE347ENS0_12RegExpRepeatELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6406,11 +6400,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit
@@ -6426,11 +6420,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit8: ; p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal4kind8metakind21NodeValueConstCompareILNS1_6Kind_tE349ENS0_10RegExpLoopELb0EE7compareEPKNS0_4expr9NodeValueESA_(ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %x, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %x, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %x, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
@@ -6439,11 +6433,11 @@ cond.false.i:                                     ; preds = %entry
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit: ; preds = %entry, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %entry ]
-  %d_nchildren.i1 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 2
+  %d_nchildren.i1 = getelementptr inbounds i8, ptr %y, i64 12
   %bf.load.i2 = load i32, ptr %d_nchildren.i1, align 4
   %bf.clear.i3 = and i32 %bf.load.i2, 67108863
   %cmp.i4 = icmp eq i32 %bf.clear.i3, 0
-  %d_children.i5 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %y, i64 0, i32 3
+  %d_children.i5 = getelementptr inbounds i8, ptr %y, i64 16
   br i1 %cmp.i4, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit8, label %cond.false.i6
 
 cond.false.i6:                                    ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit
@@ -6459,11 +6453,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit8: ; pre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6478,11 +6472,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6497,11 +6491,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6516,11 +6510,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6535,11 +6529,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6554,11 +6548,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 1 dereferenceable(1) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6573,11 +6567,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6592,11 +6586,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6611,11 +6605,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6630,11 +6624,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6649,11 +6643,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6668,11 +6662,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6687,11 +6681,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6706,11 +6700,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6725,11 +6719,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6744,11 +6738,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6763,11 +6757,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6782,11 +6776,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6801,11 +6795,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6820,11 +6814,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6839,11 +6833,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6858,11 +6852,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6877,11 +6871,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6896,11 +6890,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6915,11 +6909,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6934,11 +6928,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6953,11 +6947,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6972,11 +6966,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -6991,11 +6985,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7010,11 +7004,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7029,11 +7023,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7048,11 +7042,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7067,11 +7061,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7086,11 +7080,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7105,11 +7099,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7124,11 +7118,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7143,11 +7137,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7162,11 +7156,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7181,11 +7175,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7200,11 +7194,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7219,11 +7213,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7238,11 +7232,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7257,11 +7251,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7276,11 +7270,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7295,11 +7289,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7314,11 +7308,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7333,11 +7327,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7352,11 +7346,11 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v(ptr noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 2
+  %d_nchildren = getelementptr inbounds i8, ptr %this, i64 12
   %bf.load = load i32, ptr %d_nchildren, align 4
   %bf.clear = and i32 %bf.load, 67108863
   %cmp = icmp eq i32 %bf.clear, 0
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
@@ -7413,7 +7407,7 @@ entry:
   %ref.tmp215 = alloca %"struct.cvc5::internal::RegExpRepeatHashFunction", align 1
   %ref.tmp219 = alloca %"struct.cvc5::internal::RegExpLoopHashFunction", align 1
   %ref.tmp222 = alloca %"class.cvc5::internal::FatalStream", align 1
-  %d_kind = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 1
+  %d_kind = getelementptr inbounds i8, ptr %nv, i64 8
   %bf.load = load i16, ptr %d_kind, align 8
   %bf.clear = and i16 %bf.load, 1023
   switch i16 %bf.clear, label %sw.default [
@@ -7476,11 +7470,11 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %sw.bb
@@ -7489,16 +7483,16 @@ cond.false.i:                                     ; preds = %sw.bb
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit: ; preds = %sw.bb, %cond.false.i
   %cond-lvalue.i = phi ptr [ %0, %cond.false.i ], [ %d_children.i, %sw.bb ]
-  %d_index.i.i = getelementptr inbounds %"class.cvc5::internal::UninterpretedSortValue", ptr %cond-lvalue.i, i64 0, i32 1
+  %d_index.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 8
   %call.i.i = tail call noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %d_index.i.i)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %d_nchildren.i58 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i58 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i59 = load i32, ptr %d_nchildren.i58, align 4
   %bf.clear.i60 = and i32 %bf.load.i59, 67108863
   %cmp.i61 = icmp eq i32 %bf.clear.i60, 0
-  %d_children.i62 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i62 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i61, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit, label %cond.false.i63
 
 cond.false.i63:                                   ; preds = %sw.bb2
@@ -7512,11 +7506,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit: ; pred
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %d_nchildren.i65 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i65 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i66 = load i32, ptr %d_nchildren.i65, align 4
   %bf.clear.i67 = and i32 %bf.load.i66, 67108863
   %cmp.i68 = icmp eq i32 %bf.clear.i67, 0
-  %d_children.i69 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i69 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i68, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit, label %cond.false.i70
 
 cond.false.i70:                                   ; preds = %sw.bb6
@@ -7530,11 +7524,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit: ; pr
   br label %return
 
 sw.bb10:                                          ; preds = %entry
-  %d_nchildren.i73 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i73 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i74 = load i32, ptr %d_nchildren.i73, align 4
   %bf.clear.i75 = and i32 %bf.load.i74, 67108863
   %cmp.i76 = icmp eq i32 %bf.clear.i75, 0
-  %d_children.i77 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i77 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i76, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit, label %cond.false.i78
 
 cond.false.i78:                                   ; preds = %sw.bb10
@@ -7547,11 +7541,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit: ; pr
   br label %return
 
 sw.bb14:                                          ; preds = %entry
-  %d_nchildren.i80 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i80 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i81 = load i32, ptr %d_nchildren.i80, align 4
   %bf.clear.i82 = and i32 %bf.load.i81, 67108863
   %cmp.i83 = icmp eq i32 %bf.clear.i82, 0
-  %d_children.i84 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i84 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i83, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit, label %cond.false.i85
 
 cond.false.i85:                                   ; preds = %sw.bb14
@@ -7564,11 +7558,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit: ; preds 
   br label %return
 
 sw.bb18:                                          ; preds = %entry
-  %d_nchildren.i87 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i87 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i88 = load i32, ptr %d_nchildren.i87, align 4
   %bf.clear.i89 = and i32 %bf.load.i88, 67108863
   %cmp.i90 = icmp eq i32 %bf.clear.i89, 0
-  %d_children.i91 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i91 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i90, label %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit, label %cond.false.i92
 
 cond.false.i92:                                   ; preds = %sw.bb18
@@ -7583,11 +7577,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit: ; preds = %sw.bb18, %c
   br label %return
 
 sw.bb22:                                          ; preds = %entry
-  %d_nchildren.i95 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i95 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i96 = load i32, ptr %d_nchildren.i95, align 4
   %bf.clear.i97 = and i32 %bf.load.i96, 67108863
   %cmp.i98 = icmp eq i32 %bf.clear.i97, 0
-  %d_children.i99 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i99 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i98, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit, label %cond.false.i100
 
 cond.false.i100:                                  ; preds = %sw.bb22
@@ -7600,11 +7594,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.e
   br label %return
 
 sw.bb26:                                          ; preds = %entry
-  %d_nchildren.i102 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i102 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i103 = load i32, ptr %d_nchildren.i102, align 4
   %bf.clear.i104 = and i32 %bf.load.i103, 67108863
   %cmp.i105 = icmp eq i32 %bf.clear.i104, 0
-  %d_children.i106 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i106 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i105, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit, label %cond.false.i107
 
 cond.false.i107:                                  ; preds = %sw.bb26
@@ -7617,11 +7611,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEE
   br label %return
 
 sw.bb30:                                          ; preds = %entry
-  %d_nchildren.i109 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i109 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i110 = load i32, ptr %d_nchildren.i109, align 4
   %bf.clear.i111 = and i32 %bf.load.i110, 67108863
   %cmp.i112 = icmp eq i32 %bf.clear.i111, 0
-  %d_children.i113 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i113 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i112, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit, label %cond.false.i114
 
 cond.false.i114:                                  ; preds = %sw.bb30
@@ -7634,11 +7628,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit
   br label %return
 
 sw.bb34:                                          ; preds = %entry
-  %d_nchildren.i116 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i116 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i117 = load i32, ptr %d_nchildren.i116, align 4
   %bf.clear.i118 = and i32 %bf.load.i117, 67108863
   %cmp.i119 = icmp eq i32 %bf.clear.i118, 0
-  %d_children.i120 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i120 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i119, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit, label %cond.false.i121
 
 cond.false.i121:                                  ; preds = %sw.bb34
@@ -7652,11 +7646,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit: ; 
   br label %return
 
 sw.bb38:                                          ; preds = %entry
-  %d_nchildren.i124 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i124 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i125 = load i32, ptr %d_nchildren.i124, align 4
   %bf.clear.i126 = and i32 %bf.load.i125, 67108863
   %cmp.i127 = icmp eq i32 %bf.clear.i126, 0
-  %d_children.i128 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i128 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i127, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit, label %cond.false.i129
 
 cond.false.i129:                                  ; preds = %sw.bb38
@@ -7669,11 +7663,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit: ; preds 
   br label %return
 
 sw.bb42:                                          ; preds = %entry
-  %d_nchildren.i131 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i131 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i132 = load i32, ptr %d_nchildren.i131, align 4
   %bf.clear.i133 = and i32 %bf.load.i132, 67108863
   %cmp.i134 = icmp eq i32 %bf.clear.i133, 0
-  %d_children.i135 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i135 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i134, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit, label %cond.false.i136
 
 cond.false.i136:                                  ; preds = %sw.bb42
@@ -7686,11 +7680,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit: ; preds =
   br label %return
 
 sw.bb46:                                          ; preds = %entry
-  %d_nchildren.i138 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i138 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i139 = load i32, ptr %d_nchildren.i138, align 4
   %bf.clear.i140 = and i32 %bf.load.i139, 67108863
   %cmp.i141 = icmp eq i32 %bf.clear.i140, 0
-  %d_children.i142 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i142 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i141, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit145, label %cond.false.i143
 
 cond.false.i143:                                  ; preds = %sw.bb46
@@ -7703,11 +7697,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit145: ; pred
   br label %return
 
 sw.bb50:                                          ; preds = %entry
-  %d_nchildren.i146 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i146 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i147 = load i32, ptr %d_nchildren.i146, align 4
   %bf.clear.i148 = and i32 %bf.load.i147, 67108863
   %cmp.i149 = icmp eq i32 %bf.clear.i148, 0
-  %d_children.i150 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i150 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i149, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit, label %cond.false.i151
 
 cond.false.i151:                                  ; preds = %sw.bb50
@@ -7720,11 +7714,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exi
   br label %return
 
 sw.bb54:                                          ; preds = %entry
-  %d_nchildren.i153 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i153 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i154 = load i32, ptr %d_nchildren.i153, align 4
   %bf.clear.i155 = and i32 %bf.load.i154, 67108863
   %cmp.i156 = icmp eq i32 %bf.clear.i155, 0
-  %d_children.i157 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i157 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i156, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit, label %cond.false.i158
 
 cond.false.i158:                                  ; preds = %sw.bb54
@@ -7737,11 +7731,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.ex
   br label %return
 
 sw.bb58:                                          ; preds = %entry
-  %d_nchildren.i160 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i160 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i161 = load i32, ptr %d_nchildren.i160, align 4
   %bf.clear.i162 = and i32 %bf.load.i161, 67108863
   %cmp.i163 = icmp eq i32 %bf.clear.i162, 0
-  %d_children.i164 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i164 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i163, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit, label %cond.false.i165
 
 cond.false.i165:                                  ; preds = %sw.bb58
@@ -7755,11 +7749,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit: ; preds = %
   br label %return
 
 sw.bb62:                                          ; preds = %entry
-  %d_nchildren.i168 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i168 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i169 = load i32, ptr %d_nchildren.i168, align 4
   %bf.clear.i170 = and i32 %bf.load.i169, 67108863
   %cmp.i171 = icmp eq i32 %bf.clear.i170, 0
-  %d_children.i172 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i172 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i171, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit, label %cond.false.i173
 
 cond.false.i173:                                  ; preds = %sw.bb62
@@ -7773,11 +7767,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit: ; p
   br label %return
 
 sw.bb66:                                          ; preds = %entry
-  %d_nchildren.i176 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i176 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i177 = load i32, ptr %d_nchildren.i176, align 4
   %bf.clear.i178 = and i32 %bf.load.i177, 67108863
   %cmp.i179 = icmp eq i32 %bf.clear.i178, 0
-  %d_children.i180 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i180 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i179, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit, label %cond.false.i181
 
 cond.false.i181:                                  ; preds = %sw.bb66
@@ -7790,11 +7784,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit: ; preds 
   br label %return
 
 sw.bb70:                                          ; preds = %entry
-  %d_nchildren.i184 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i184 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i185 = load i32, ptr %d_nchildren.i184, align 4
   %bf.clear.i186 = and i32 %bf.load.i185, 67108863
   %cmp.i187 = icmp eq i32 %bf.clear.i186, 0
-  %d_children.i188 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i188 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i187, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit, label %cond.false.i189
 
 cond.false.i189:                                  ; preds = %sw.bb70
@@ -7808,11 +7802,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit: ; 
   br label %return
 
 sw.bb74:                                          ; preds = %entry
-  %d_nchildren.i192 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i192 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i193 = load i32, ptr %d_nchildren.i192, align 4
   %bf.clear.i194 = and i32 %bf.load.i193, 67108863
   %cmp.i195 = icmp eq i32 %bf.clear.i194, 0
-  %d_children.i196 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i196 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i195, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit, label %cond.false.i197
 
 cond.false.i197:                                  ; preds = %sw.bb74
@@ -7821,7 +7815,7 @@ cond.false.i197:                                  ; preds = %sw.bb74
 
 _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit: ; preds = %sw.bb74, %cond.false.i197
   %cond-lvalue.i198 = phi ptr [ %28, %cond.false.i197 ], [ %d_children.i196, %sw.bb74 ]
-  %d_low.i = getelementptr inbounds %"struct.cvc5::internal::BitVectorExtract", ptr %cond-lvalue.i198, i64 0, i32 1
+  %d_low.i = getelementptr inbounds i8, ptr %cond-lvalue.i198, i64 4
   %29 = load i32, ptr %d_low.i, align 4
   %conv.i199 = zext i32 %29 to i64
   %30 = load i32, ptr %cond-lvalue.i198, align 4
@@ -7835,11 +7829,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit: 
   br label %return
 
 sw.bb78:                                          ; preds = %entry
-  %d_nchildren.i200 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i200 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i201 = load i32, ptr %d_nchildren.i200, align 4
   %bf.clear.i202 = and i32 %bf.load.i201, 67108863
   %cmp.i203 = icmp eq i32 %bf.clear.i202, 0
-  %d_children.i204 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i204 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i203, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit, label %cond.false.i205
 
 cond.false.i205:                                  ; preds = %sw.bb78
@@ -7853,11 +7847,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit: ;
   br label %return
 
 sw.bb82:                                          ; preds = %entry
-  %d_nchildren.i208 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i208 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i209 = load i32, ptr %d_nchildren.i208, align 4
   %bf.clear.i210 = and i32 %bf.load.i209, 67108863
   %cmp.i211 = icmp eq i32 %bf.clear.i210, 0
-  %d_children.i212 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i212 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i211, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit, label %cond.false.i213
 
 cond.false.i213:                                  ; preds = %sw.bb82
@@ -7871,11 +7865,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exi
   br label %return
 
 sw.bb86:                                          ; preds = %entry
-  %d_nchildren.i216 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i216 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i217 = load i32, ptr %d_nchildren.i216, align 4
   %bf.clear.i218 = and i32 %bf.load.i217, 67108863
   %cmp.i219 = icmp eq i32 %bf.clear.i218, 0
-  %d_children.i220 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i220 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i219, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit, label %cond.false.i221
 
 cond.false.i221:                                  ; preds = %sw.bb86
@@ -7889,11 +7883,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.ex
   br label %return
 
 sw.bb90:                                          ; preds = %entry
-  %d_nchildren.i224 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i224 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i225 = load i32, ptr %d_nchildren.i224, align 4
   %bf.clear.i226 = and i32 %bf.load.i225, 67108863
   %cmp.i227 = icmp eq i32 %bf.clear.i226, 0
-  %d_children.i228 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i228 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i227, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit, label %cond.false.i229
 
 cond.false.i229:                                  ; preds = %sw.bb90
@@ -7907,11 +7901,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exi
   br label %return
 
 sw.bb94:                                          ; preds = %entry
-  %d_nchildren.i232 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i232 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i233 = load i32, ptr %d_nchildren.i232, align 4
   %bf.clear.i234 = and i32 %bf.load.i233, 67108863
   %cmp.i235 = icmp eq i32 %bf.clear.i234, 0
-  %d_children.i236 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i236 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i235, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit, label %cond.false.i237
 
 cond.false.i237:                                  ; preds = %sw.bb94
@@ -7925,11 +7919,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exi
   br label %return
 
 sw.bb98:                                          ; preds = %entry
-  %d_nchildren.i240 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i240 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i241 = load i32, ptr %d_nchildren.i240, align 4
   %bf.clear.i242 = and i32 %bf.load.i241, 67108863
   %cmp.i243 = icmp eq i32 %bf.clear.i242, 0
-  %d_children.i244 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i244 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i243, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit, label %cond.false.i245
 
 cond.false.i245:                                  ; preds = %sw.bb98
@@ -7942,11 +7936,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit: ; preds = %
   br label %return
 
 sw.bb102:                                         ; preds = %entry
-  %d_nchildren.i248 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i248 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i249 = load i32, ptr %d_nchildren.i248, align 4
   %bf.clear.i250 = and i32 %bf.load.i249, 67108863
   %cmp.i251 = icmp eq i32 %bf.clear.i250, 0
-  %d_children.i252 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i252 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i251, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit, label %cond.false.i253
 
 cond.false.i253:                                  ; preds = %sw.bb102
@@ -7959,11 +7953,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit: 
   br label %return
 
 sw.bb106:                                         ; preds = %entry
-  %d_nchildren.i256 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i256 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i257 = load i32, ptr %d_nchildren.i256, align 4
   %bf.clear.i258 = and i32 %bf.load.i257, 67108863
   %cmp.i259 = icmp eq i32 %bf.clear.i258, 0
-  %d_children.i260 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i260 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i259, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit, label %cond.false.i261
 
 cond.false.i261:                                  ; preds = %sw.bb106
@@ -7976,11 +7970,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit: ; p
   br label %return
 
 sw.bb110:                                         ; preds = %entry
-  %d_nchildren.i263 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i263 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i264 = load i32, ptr %d_nchildren.i263, align 4
   %bf.clear.i265 = and i32 %bf.load.i264, 67108863
   %cmp.i266 = icmp eq i32 %bf.clear.i265, 0
-  %d_children.i267 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i267 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i266, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit, label %cond.false.i268
 
 cond.false.i268:                                  ; preds = %sw.bb110
@@ -7994,11 +7988,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit: ; pr
   br label %return
 
 sw.bb114:                                         ; preds = %entry
-  %d_nchildren.i271 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i271 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i272 = load i32, ptr %d_nchildren.i271, align 4
   %bf.clear.i273 = and i32 %bf.load.i272, 67108863
   %cmp.i274 = icmp eq i32 %bf.clear.i273, 0
-  %d_children.i275 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i275 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i274, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit, label %cond.false.i276
 
 cond.false.i276:                                  ; preds = %sw.bb114
@@ -8010,18 +8004,18 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit:
   %47 = load i32, ptr %cond-lvalue.i277, align 4
   %conv.i278 = zext i32 %47 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i278, 16
-  %d_sig_size.i.i = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %cond-lvalue.i277, i64 0, i32 1
+  %d_sig_size.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i277, i64 4
   %48 = load i32, ptr %d_sig_size.i.i, align 4
   %conv4.i = zext i32 %48 to i64
   %or.i = or i64 %shl.i.i, %conv4.i
   br label %return
 
 sw.bb118:                                         ; preds = %entry
-  %d_nchildren.i279 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i279 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i280 = load i32, ptr %d_nchildren.i279, align 4
   %bf.clear.i281 = and i32 %bf.load.i280, 67108863
   %cmp.i282 = icmp eq i32 %bf.clear.i281, 0
-  %d_children.i283 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i283 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i282, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit, label %cond.false.i284
 
 cond.false.i284:                                  ; preds = %sw.bb118
@@ -8035,7 +8029,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorE
   %50 = load i32, ptr %ref.tmp.i, align 4
   %conv.i.i = zext i32 %50 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i, 16
-  %d_sig_size.i.i.i = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %ref.tmp.i, i64 0, i32 1
+  %d_sig_size.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   %51 = load i32, ptr %d_sig_size.i.i.i, align 4
   %conv4.i.i = zext i32 %51 to i64
   %or.i.i = or i64 %shl.i.i.i, %conv4.i.i
@@ -8044,11 +8038,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorE
   br label %return
 
 sw.bb122:                                         ; preds = %entry
-  %d_nchildren.i287 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i287 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i288 = load i32, ptr %d_nchildren.i287, align 4
   %bf.clear.i289 = and i32 %bf.load.i288, 67108863
   %cmp.i290 = icmp eq i32 %bf.clear.i289, 0
-  %d_children.i291 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i291 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i290, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, label %cond.false.i292
 
 cond.false.i292:                                  ; preds = %sw.bb122
@@ -8062,7 +8056,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointE
   %53 = load i32, ptr %ref.tmp.i294, align 4
   %conv.i.i295 = zext i32 %53 to i64
   %shl.i.i.i296 = shl nuw nsw i64 %conv.i.i295, 16
-  %d_sig_size.i.i.i297 = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %ref.tmp.i294, i64 0, i32 1
+  %d_sig_size.i.i.i297 = getelementptr inbounds i8, ptr %ref.tmp.i294, i64 4
   %54 = load i32, ptr %d_sig_size.i.i.i297, align 4
   %conv4.i.i298 = zext i32 %54 to i64
   %or.i.i299 = or i64 %shl.i.i.i296, %conv4.i.i298
@@ -8071,11 +8065,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointE
   br label %return
 
 sw.bb126:                                         ; preds = %entry
-  %d_nchildren.i301 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i301 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i302 = load i32, ptr %d_nchildren.i301, align 4
   %bf.clear.i303 = and i32 %bf.load.i302, 67108863
   %cmp.i304 = icmp eq i32 %bf.clear.i303, 0
-  %d_children.i305 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i305 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i304, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, label %cond.false.i306
 
 cond.false.i306:                                  ; preds = %sw.bb126
@@ -8089,7 +8083,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.e
   %56 = load i32, ptr %ref.tmp.i308, align 4
   %conv.i.i309 = zext i32 %56 to i64
   %shl.i.i.i310 = shl nuw nsw i64 %conv.i.i309, 16
-  %d_sig_size.i.i.i311 = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %ref.tmp.i308, i64 0, i32 1
+  %d_sig_size.i.i.i311 = getelementptr inbounds i8, ptr %ref.tmp.i308, i64 4
   %57 = load i32, ptr %d_sig_size.i.i.i311, align 4
   %conv4.i.i312 = zext i32 %57 to i64
   %or.i.i313 = or i64 %shl.i.i.i310, %conv4.i.i312
@@ -8098,11 +8092,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.e
   br label %return
 
 sw.bb130:                                         ; preds = %entry
-  %d_nchildren.i315 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i315 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i316 = load i32, ptr %d_nchildren.i315, align 4
   %bf.clear.i317 = and i32 %bf.load.i316, 67108863
   %cmp.i318 = icmp eq i32 %bf.clear.i317, 0
-  %d_children.i319 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i319 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i318, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, label %cond.false.i320
 
 cond.false.i320:                                  ; preds = %sw.bb130
@@ -8116,7 +8110,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVecto
   %59 = load i32, ptr %ref.tmp.i322, align 4
   %conv.i.i323 = zext i32 %59 to i64
   %shl.i.i.i324 = shl nuw nsw i64 %conv.i.i323, 16
-  %d_sig_size.i.i.i325 = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %ref.tmp.i322, i64 0, i32 1
+  %d_sig_size.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp.i322, i64 4
   %60 = load i32, ptr %d_sig_size.i.i.i325, align 4
   %conv4.i.i326 = zext i32 %60 to i64
   %or.i.i327 = or i64 %shl.i.i.i324, %conv4.i.i326
@@ -8125,11 +8119,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVecto
   br label %return
 
 sw.bb134:                                         ; preds = %entry
-  %d_nchildren.i329 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i329 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i330 = load i32, ptr %d_nchildren.i329, align 4
   %bf.clear.i331 = and i32 %bf.load.i330, 67108863
   %cmp.i332 = icmp eq i32 %bf.clear.i331, 0
-  %d_children.i333 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i333 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i332, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, label %cond.false.i334
 
 cond.false.i334:                                  ; preds = %sw.bb134
@@ -8143,7 +8137,7 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVec
   %62 = load i32, ptr %ref.tmp.i336, align 4
   %conv.i.i337 = zext i32 %62 to i64
   %shl.i.i.i338 = shl nuw nsw i64 %conv.i.i337, 16
-  %d_sig_size.i.i.i339 = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %ref.tmp.i336, i64 0, i32 1
+  %d_sig_size.i.i.i339 = getelementptr inbounds i8, ptr %ref.tmp.i336, i64 4
   %63 = load i32, ptr %d_sig_size.i.i.i339, align 4
   %conv4.i.i340 = zext i32 %63 to i64
   %or.i.i341 = or i64 %shl.i.i.i338, %conv4.i.i340
@@ -8152,11 +8146,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVec
   br label %return
 
 sw.bb138:                                         ; preds = %entry
-  %d_nchildren.i343 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i343 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i344 = load i32, ptr %d_nchildren.i343, align 4
   %bf.clear.i345 = and i32 %bf.load.i344, 67108863
   %cmp.i346 = icmp eq i32 %bf.clear.i345, 0
-  %d_children.i347 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i347 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i346, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit, label %cond.false.i348
 
 cond.false.i348:                                  ; preds = %sw.bb138
@@ -8171,11 +8165,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
   br label %return
 
 sw.bb142:                                         ; preds = %entry
-  %d_nchildren.i351 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i351 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i352 = load i32, ptr %d_nchildren.i351, align 4
   %bf.clear.i353 = and i32 %bf.load.i352, 67108863
   %cmp.i354 = icmp eq i32 %bf.clear.i353, 0
-  %d_children.i355 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i355 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i354, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit, label %cond.false.i356
 
 cond.false.i356:                                  ; preds = %sw.bb142
@@ -8190,11 +8184,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v
   br label %return
 
 sw.bb146:                                         ; preds = %entry
-  %d_nchildren.i359 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i359 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i360 = load i32, ptr %d_nchildren.i359, align 4
   %bf.clear.i361 = and i32 %bf.load.i360, 67108863
   %cmp.i362 = icmp eq i32 %bf.clear.i361, 0
-  %d_children.i363 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i363 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i362, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit, label %cond.false.i364
 
 cond.false.i364:                                  ; preds = %sw.bb146
@@ -8209,11 +8203,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
   br label %return
 
 sw.bb150:                                         ; preds = %entry
-  %d_nchildren.i367 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i367 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i368 = load i32, ptr %d_nchildren.i367, align 4
   %bf.clear.i369 = and i32 %bf.load.i368, 67108863
   %cmp.i370 = icmp eq i32 %bf.clear.i369, 0
-  %d_children.i371 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i371 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i370, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit, label %cond.false.i372
 
 cond.false.i372:                                  ; preds = %sw.bb150
@@ -8228,11 +8222,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v
   br label %return
 
 sw.bb154:                                         ; preds = %entry
-  %d_nchildren.i375 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i375 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i376 = load i32, ptr %d_nchildren.i375, align 4
   %bf.clear.i377 = and i32 %bf.load.i376, 67108863
   %cmp.i378 = icmp eq i32 %bf.clear.i377, 0
-  %d_children.i379 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i379 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i378, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, label %cond.false.i380
 
 cond.false.i380:                                  ; preds = %sw.bb154
@@ -8245,11 +8239,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit: ; p
   br label %return
 
 sw.bb158:                                         ; preds = %entry
-  %d_nchildren.i382 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i382 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i383 = load i32, ptr %d_nchildren.i382, align 4
   %bf.clear.i384 = and i32 %bf.load.i383, 67108863
   %cmp.i385 = icmp eq i32 %bf.clear.i384, 0
-  %d_children.i386 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i386 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i385, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, label %cond.false.i387
 
 cond.false.i387:                                  ; preds = %sw.bb158
@@ -8262,11 +8256,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit: ; 
   br label %return
 
 sw.bb162:                                         ; preds = %entry
-  %d_nchildren.i389 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i389 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i390 = load i32, ptr %d_nchildren.i389, align 4
   %bf.clear.i391 = and i32 %bf.load.i390, 67108863
   %cmp.i392 = icmp eq i32 %bf.clear.i391, 0
-  %d_children.i393 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i393 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i392, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i394
 
 cond.false.i394:                                  ; preds = %sw.bb162
@@ -8279,11 +8273,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds 
   br label %return
 
 sw.bb166:                                         ; preds = %entry
-  %d_nchildren.i396 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i396 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i397 = load i32, ptr %d_nchildren.i396, align 4
   %bf.clear.i398 = and i32 %bf.load.i397, 67108863
   %cmp.i399 = icmp eq i32 %bf.clear.i398, 0
-  %d_children.i400 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i400 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i399, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, label %cond.false.i401
 
 cond.false.i401:                                  ; preds = %sw.bb166
@@ -8296,11 +8290,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v
   br label %return
 
 sw.bb170:                                         ; preds = %entry
-  %d_nchildren.i403 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i403 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i404 = load i32, ptr %d_nchildren.i403, align 4
   %bf.clear.i405 = and i32 %bf.load.i404, 67108863
   %cmp.i406 = icmp eq i32 %bf.clear.i405, 0
-  %d_children.i407 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i407 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i406, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, label %cond.false.i408
 
 cond.false.i408:                                  ; preds = %sw.bb170
@@ -8313,11 +8307,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit: ; preds =
   br label %return
 
 sw.bb174:                                         ; preds = %entry
-  %d_nchildren.i410 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i410 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i411 = load i32, ptr %d_nchildren.i410, align 4
   %bf.clear.i412 = and i32 %bf.load.i411, 67108863
   %cmp.i413 = icmp eq i32 %bf.clear.i412, 0
-  %d_children.i414 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i414 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i413, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit417, label %cond.false.i415
 
 cond.false.i415:                                  ; preds = %sw.bb174
@@ -8330,11 +8324,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit417: ; pre
   br label %return
 
 sw.bb178:                                         ; preds = %entry
-  %d_nchildren.i418 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i418 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i419 = load i32, ptr %d_nchildren.i418, align 4
   %bf.clear.i420 = and i32 %bf.load.i419, 67108863
   %cmp.i421 = icmp eq i32 %bf.clear.i420, 0
-  %d_children.i422 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i422 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i421, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit425, label %cond.false.i423
 
 cond.false.i423:                                  ; preds = %sw.bb178
@@ -8347,11 +8341,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit425: ; pre
   br label %return
 
 sw.bb182:                                         ; preds = %entry
-  %d_nchildren.i426 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i426 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i427 = load i32, ptr %d_nchildren.i426, align 4
   %bf.clear.i428 = and i32 %bf.load.i427, 67108863
   %cmp.i429 = icmp eq i32 %bf.clear.i428, 0
-  %d_children.i430 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i430 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i429, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit433, label %cond.false.i431
 
 cond.false.i431:                                  ; preds = %sw.bb182
@@ -8364,11 +8358,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit433: ; pre
   br label %return
 
 sw.bb186:                                         ; preds = %entry
-  %d_nchildren.i434 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i434 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i435 = load i32, ptr %d_nchildren.i434, align 4
   %bf.clear.i436 = and i32 %bf.load.i435, 67108863
   %cmp.i437 = icmp eq i32 %bf.clear.i436, 0
-  %d_children.i438 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i438 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i437, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, label %cond.false.i439
 
 cond.false.i439:                                  ; preds = %sw.bb186
@@ -8381,11 +8375,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit: ; preds =
   br label %return
 
 sw.bb190:                                         ; preds = %entry
-  %d_nchildren.i441 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i441 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i442 = load i32, ptr %d_nchildren.i441, align 4
   %bf.clear.i443 = and i32 %bf.load.i442, 67108863
   %cmp.i444 = icmp eq i32 %bf.clear.i443, 0
-  %d_children.i445 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i445 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i444, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit448, label %cond.false.i446
 
 cond.false.i446:                                  ; preds = %sw.bb190
@@ -8398,11 +8392,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit448: ; pre
   br label %return
 
 sw.bb194:                                         ; preds = %entry
-  %d_nchildren.i449 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i449 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i450 = load i32, ptr %d_nchildren.i449, align 4
   %bf.clear.i451 = and i32 %bf.load.i450, 67108863
   %cmp.i452 = icmp eq i32 %bf.clear.i451, 0
-  %d_children.i453 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i453 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i452, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit456, label %cond.false.i454
 
 cond.false.i454:                                  ; preds = %sw.bb194
@@ -8415,11 +8409,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit456: ; pre
   br label %return
 
 sw.bb198:                                         ; preds = %entry
-  %d_nchildren.i457 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i457 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i458 = load i32, ptr %d_nchildren.i457, align 4
   %bf.clear.i459 = and i32 %bf.load.i458, 67108863
   %cmp.i460 = icmp eq i32 %bf.clear.i459, 0
-  %d_children.i461 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i461 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i460, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit464, label %cond.false.i462
 
 cond.false.i462:                                  ; preds = %sw.bb198
@@ -8432,11 +8426,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit464: ; pre
   br label %return
 
 sw.bb202:                                         ; preds = %entry
-  %d_nchildren.i465 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i465 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i466 = load i32, ptr %d_nchildren.i465, align 4
   %bf.clear.i467 = and i32 %bf.load.i466, 67108863
   %cmp.i468 = icmp eq i32 %bf.clear.i467, 0
-  %d_children.i469 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i469 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i468, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit472, label %cond.false.i470
 
 cond.false.i470:                                  ; preds = %sw.bb202
@@ -8449,11 +8443,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit472: ; pre
   br label %return
 
 sw.bb206:                                         ; preds = %entry
-  %d_nchildren.i473 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i473 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i474 = load i32, ptr %d_nchildren.i473, align 4
   %bf.clear.i475 = and i32 %bf.load.i474, 67108863
   %cmp.i476 = icmp eq i32 %bf.clear.i475, 0
-  %d_children.i477 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i477 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i476, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, label %cond.false.i478
 
 cond.false.i478:                                  ; preds = %sw.bb206
@@ -8466,11 +8460,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit: ; preds = %
   br label %return
 
 sw.bb210:                                         ; preds = %entry
-  %d_nchildren.i480 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i480 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i481 = load i32, ptr %d_nchildren.i480, align 4
   %bf.clear.i482 = and i32 %bf.load.i481, 67108863
   %cmp.i483 = icmp eq i32 %bf.clear.i482, 0
-  %d_children.i484 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i484 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i483, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, label %cond.false.i485
 
 cond.false.i485:                                  ; preds = %sw.bb210
@@ -8483,11 +8477,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit: ; preds =
   br label %return
 
 sw.bb214:                                         ; preds = %entry
-  %d_nchildren.i487 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i487 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i488 = load i32, ptr %d_nchildren.i487, align 4
   %bf.clear.i489 = and i32 %bf.load.i488, 67108863
   %cmp.i490 = icmp eq i32 %bf.clear.i489, 0
-  %d_children.i491 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i491 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i490, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, label %cond.false.i492
 
 cond.false.i492:                                  ; preds = %sw.bb214
@@ -8500,11 +8494,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit: ; pr
   br label %return
 
 sw.bb218:                                         ; preds = %entry
-  %d_nchildren.i494 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i494 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i495 = load i32, ptr %d_nchildren.i494, align 4
   %bf.clear.i496 = and i32 %bf.load.i495, 67108863
   %cmp.i497 = icmp eq i32 %bf.clear.i496, 0
-  %d_children.i498 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i498 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i497, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, label %cond.false.i499
 
 cond.false.i499:                                  ; preds = %sw.bb218
@@ -8583,7 +8577,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i: ; preds = %for.body.i.i, %entry
   %hash.0.lcssa.i.i = phi i64 [ 0, %entry ], [ %xor.i.i, %for.body.i.i ]
-  %_mp_den.i.i = getelementptr inbounds %struct.__mpq_struct, ptr %r, i64 0, i32 1
+  %_mp_den.i.i = getelementptr inbounds i8, ptr %r, i64 16
   %call.i1.i = tail call i64 @__gmpz_size(ptr noundef nonnull %_mp_den.i.i) #15
   %conv.i2.i = trunc i64 %call.i1.i to i32
   %cmp6.i3.i = icmp sgt i32 %conv.i2.i, 0
@@ -8617,14 +8611,14 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
   %call = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK4cvc58internal13FloatingPoint7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %fp)
   %0 = load i32, ptr %call, align 4
-  %d_sig_size.i.i = getelementptr inbounds %"class.cvc5::internal::FloatingPointSize", ptr %call, i64 0, i32 1
+  %d_sig_size.i.i = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %d_sig_size.i.i, align 4
   call void @_ZNK4cvc58internal13FloatingPoint4packEv(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %fp)
   %call.i2 = invoke noundef i64 @_ZNK4cvc58internal9BitVector4hashEv(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -8646,7 +8640,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %ref.tmp, i64 0, i32 1
+  %d_value.i3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i3)
           to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %terminate.lpad.i.i.i4
 
@@ -8686,7 +8680,7 @@ define hidden void @_ZN4cvc58internal4kind8metakind25nodeValueConstantToStreamER
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::AscriptionType", align 8
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
-  %d_kind = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 1
+  %d_kind = getelementptr inbounds i8, ptr %nv, i64 8
   %bf.load = load i16, ptr %d_kind, align 8
   %bf.clear = and i16 %bf.load, 1023
   switch i16 %bf.clear, label %sw.default [
@@ -8749,11 +8743,11 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %sw.bb
@@ -8766,11 +8760,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %d_nchildren.i113 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i113 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i114 = load i32, ptr %d_nchildren.i113, align 4
   %bf.clear.i115 = and i32 %bf.load.i114, 67108863
   %cmp.i116 = icmp eq i32 %bf.clear.i115, 0
-  %d_children.i117 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i117 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i116, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit, label %cond.false.i118
 
 cond.false.i118:                                  ; preds = %sw.bb2
@@ -8784,11 +8778,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit: ; pred
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %d_nchildren.i120 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i120 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i121 = load i32, ptr %d_nchildren.i120, align 4
   %bf.clear.i122 = and i32 %bf.load.i121, 67108863
   %cmp.i123 = icmp eq i32 %bf.clear.i122, 0
-  %d_children.i124 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i124 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i123, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit, label %cond.false.i125
 
 cond.false.i125:                                  ; preds = %sw.bb5
@@ -8802,11 +8796,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit: ; pr
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %d_nchildren.i127 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i127 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i128 = load i32, ptr %d_nchildren.i127, align 4
   %bf.clear.i129 = and i32 %bf.load.i128, 67108863
   %cmp.i130 = icmp eq i32 %bf.clear.i129, 0
-  %d_children.i131 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i131 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i130, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit, label %cond.false.i132
 
 cond.false.i132:                                  ; preds = %sw.bb8
@@ -8819,11 +8813,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit: ; pr
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %d_nchildren.i134 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i134 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i135 = load i32, ptr %d_nchildren.i134, align 4
   %bf.clear.i136 = and i32 %bf.load.i135, 67108863
   %cmp.i137 = icmp eq i32 %bf.clear.i136, 0
-  %d_children.i138 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i138 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i137, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit, label %cond.false.i139
 
 cond.false.i139:                                  ; preds = %sw.bb11
@@ -8836,11 +8830,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit: ; preds 
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %d_nchildren.i141 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i141 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i142 = load i32, ptr %d_nchildren.i141, align 4
   %bf.clear.i143 = and i32 %bf.load.i142, 67108863
   %cmp.i144 = icmp eq i32 %bf.clear.i143, 0
-  %d_children.i145 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i145 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i144, label %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit, label %cond.false.i146
 
 cond.false.i146:                                  ; preds = %sw.bb14
@@ -8856,11 +8850,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit: ; preds = %sw.bb14, %c
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
-  %d_nchildren.i148 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i148 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i149 = load i32, ptr %d_nchildren.i148, align 4
   %bf.clear.i150 = and i32 %bf.load.i149, 67108863
   %cmp.i151 = icmp eq i32 %bf.clear.i150, 0
-  %d_children.i152 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i152 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i151, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit, label %cond.false.i153
 
 cond.false.i153:                                  ; preds = %sw.bb17
@@ -8873,11 +8867,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.e
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
-  %d_nchildren.i155 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i155 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i156 = load i32, ptr %d_nchildren.i155, align 4
   %bf.clear.i157 = and i32 %bf.load.i156, 67108863
   %cmp.i158 = icmp eq i32 %bf.clear.i157, 0
-  %d_children.i159 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i159 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i158, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit, label %cond.false.i160
 
 cond.false.i160:                                  ; preds = %sw.bb20
@@ -8890,11 +8884,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEE
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
-  %d_nchildren.i162 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i162 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i163 = load i32, ptr %d_nchildren.i162, align 4
   %bf.clear.i164 = and i32 %bf.load.i163, 67108863
   %cmp.i165 = icmp eq i32 %bf.clear.i164, 0
-  %d_children.i166 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i166 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i165, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit, label %cond.false.i167
 
 cond.false.i167:                                  ; preds = %sw.bb23
@@ -8907,11 +8901,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry
-  %d_nchildren.i169 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i169 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i170 = load i32, ptr %d_nchildren.i169, align 4
   %bf.clear.i171 = and i32 %bf.load.i170, 67108863
   %cmp.i172 = icmp eq i32 %bf.clear.i171, 0
-  %d_children.i173 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i173 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i172, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit, label %cond.false.i174
 
 cond.false.i174:                                  ; preds = %sw.bb26
@@ -8924,11 +8918,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit: ; 
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
-  %d_nchildren.i176 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i176 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i177 = load i32, ptr %d_nchildren.i176, align 4
   %bf.clear.i178 = and i32 %bf.load.i177, 67108863
   %cmp.i179 = icmp eq i32 %bf.clear.i178, 0
-  %d_children.i180 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i180 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i179, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit, label %cond.false.i181
 
 cond.false.i181:                                  ; preds = %sw.bb29
@@ -8941,11 +8935,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit: ; preds 
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %entry
-  %d_nchildren.i183 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i183 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i184 = load i32, ptr %d_nchildren.i183, align 4
   %bf.clear.i185 = and i32 %bf.load.i184, 67108863
   %cmp.i186 = icmp eq i32 %bf.clear.i185, 0
-  %d_children.i187 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i187 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i186, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit, label %cond.false.i188
 
 cond.false.i188:                                  ; preds = %sw.bb32
@@ -8958,11 +8952,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit: ; preds =
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %entry
-  %d_nchildren.i190 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i190 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i191 = load i32, ptr %d_nchildren.i190, align 4
   %bf.clear.i192 = and i32 %bf.load.i191, 67108863
   %cmp.i193 = icmp eq i32 %bf.clear.i192, 0
-  %d_children.i194 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i194 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i193, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit197, label %cond.false.i195
 
 cond.false.i195:                                  ; preds = %sw.bb35
@@ -8975,11 +8969,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit197: ; pred
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
-  %d_nchildren.i198 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i198 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i199 = load i32, ptr %d_nchildren.i198, align 4
   %bf.clear.i200 = and i32 %bf.load.i199, 67108863
   %cmp.i201 = icmp eq i32 %bf.clear.i200, 0
-  %d_children.i202 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i202 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i201, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit, label %cond.false.i203
 
 cond.false.i203:                                  ; preds = %sw.bb38
@@ -8992,11 +8986,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exi
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %entry
-  %d_nchildren.i205 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i205 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i206 = load i32, ptr %d_nchildren.i205, align 4
   %bf.clear.i207 = and i32 %bf.load.i206, 67108863
   %cmp.i208 = icmp eq i32 %bf.clear.i207, 0
-  %d_children.i209 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i209 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i208, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit, label %cond.false.i210
 
 cond.false.i210:                                  ; preds = %sw.bb41
@@ -9009,11 +9003,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.ex
   br label %sw.epilog
 
 sw.bb44:                                          ; preds = %entry
-  %d_nchildren.i212 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i212 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i213 = load i32, ptr %d_nchildren.i212, align 4
   %bf.clear.i214 = and i32 %bf.load.i213, 67108863
   %cmp.i215 = icmp eq i32 %bf.clear.i214, 0
-  %d_children.i216 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i216 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i215, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit, label %cond.false.i217
 
 cond.false.i217:                                  ; preds = %sw.bb44
@@ -9026,11 +9020,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit: ; preds = %
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %entry
-  %d_nchildren.i219 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i219 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i220 = load i32, ptr %d_nchildren.i219, align 4
   %bf.clear.i221 = and i32 %bf.load.i220, 67108863
   %cmp.i222 = icmp eq i32 %bf.clear.i221, 0
-  %d_children.i223 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i223 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i222, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit, label %cond.false.i224
 
 cond.false.i224:                                  ; preds = %sw.bb47
@@ -9044,11 +9038,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit: ; p
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %entry
-  %d_nchildren.i226 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i226 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i227 = load i32, ptr %d_nchildren.i226, align 4
   %bf.clear.i228 = and i32 %bf.load.i227, 67108863
   %cmp.i229 = icmp eq i32 %bf.clear.i228, 0
-  %d_children.i230 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i230 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i229, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit, label %cond.false.i231
 
 cond.false.i231:                                  ; preds = %sw.bb51
@@ -9061,11 +9055,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit: ; preds 
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %entry
-  %d_nchildren.i233 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i233 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i234 = load i32, ptr %d_nchildren.i233, align 4
   %bf.clear.i235 = and i32 %bf.load.i234, 67108863
   %cmp.i236 = icmp eq i32 %bf.clear.i235, 0
-  %d_children.i237 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i237 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i236, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit, label %cond.false.i238
 
 cond.false.i238:                                  ; preds = %sw.bb54
@@ -9078,11 +9072,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit: ; 
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %entry
-  %d_nchildren.i240 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i240 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i241 = load i32, ptr %d_nchildren.i240, align 4
   %bf.clear.i242 = and i32 %bf.load.i241, 67108863
   %cmp.i243 = icmp eq i32 %bf.clear.i242, 0
-  %d_children.i244 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i244 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i243, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit, label %cond.false.i245
 
 cond.false.i245:                                  ; preds = %sw.bb57
@@ -9095,11 +9089,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit: 
   br label %sw.epilog
 
 sw.bb60:                                          ; preds = %entry
-  %d_nchildren.i247 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i247 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i248 = load i32, ptr %d_nchildren.i247, align 4
   %bf.clear.i249 = and i32 %bf.load.i248, 67108863
   %cmp.i250 = icmp eq i32 %bf.clear.i249, 0
-  %d_children.i251 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i251 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i250, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit, label %cond.false.i252
 
 cond.false.i252:                                  ; preds = %sw.bb60
@@ -9113,11 +9107,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit: ;
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %entry
-  %d_nchildren.i254 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i254 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i255 = load i32, ptr %d_nchildren.i254, align 4
   %bf.clear.i256 = and i32 %bf.load.i255, 67108863
   %cmp.i257 = icmp eq i32 %bf.clear.i256, 0
-  %d_children.i258 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i258 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i257, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit, label %cond.false.i259
 
 cond.false.i259:                                  ; preds = %sw.bb64
@@ -9131,11 +9125,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exi
   br label %sw.epilog
 
 sw.bb68:                                          ; preds = %entry
-  %d_nchildren.i261 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i261 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i262 = load i32, ptr %d_nchildren.i261, align 4
   %bf.clear.i263 = and i32 %bf.load.i262, 67108863
   %cmp.i264 = icmp eq i32 %bf.clear.i263, 0
-  %d_children.i265 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i265 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i264, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit, label %cond.false.i266
 
 cond.false.i266:                                  ; preds = %sw.bb68
@@ -9149,11 +9143,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.ex
   br label %sw.epilog
 
 sw.bb72:                                          ; preds = %entry
-  %d_nchildren.i268 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i268 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i269 = load i32, ptr %d_nchildren.i268, align 4
   %bf.clear.i270 = and i32 %bf.load.i269, 67108863
   %cmp.i271 = icmp eq i32 %bf.clear.i270, 0
-  %d_children.i272 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i272 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i271, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit, label %cond.false.i273
 
 cond.false.i273:                                  ; preds = %sw.bb72
@@ -9167,11 +9161,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exi
   br label %sw.epilog
 
 sw.bb76:                                          ; preds = %entry
-  %d_nchildren.i275 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i275 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i276 = load i32, ptr %d_nchildren.i275, align 4
   %bf.clear.i277 = and i32 %bf.load.i276, 67108863
   %cmp.i278 = icmp eq i32 %bf.clear.i277, 0
-  %d_children.i279 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i279 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i278, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit, label %cond.false.i280
 
 cond.false.i280:                                  ; preds = %sw.bb76
@@ -9185,11 +9179,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exi
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %entry
-  %d_nchildren.i282 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i282 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i283 = load i32, ptr %d_nchildren.i282, align 4
   %bf.clear.i284 = and i32 %bf.load.i283, 67108863
   %cmp.i285 = icmp eq i32 %bf.clear.i284, 0
-  %d_children.i286 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i286 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i285, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit, label %cond.false.i287
 
 cond.false.i287:                                  ; preds = %sw.bb80
@@ -9202,11 +9196,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit: ; preds = %
   br label %sw.epilog
 
 sw.bb83:                                          ; preds = %entry
-  %d_nchildren.i289 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i289 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i290 = load i32, ptr %d_nchildren.i289, align 4
   %bf.clear.i291 = and i32 %bf.load.i290, 67108863
   %cmp.i292 = icmp eq i32 %bf.clear.i291, 0
-  %d_children.i293 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i293 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i292, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit, label %cond.false.i294
 
 cond.false.i294:                                  ; preds = %sw.bb83
@@ -9219,11 +9213,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit: 
   br label %sw.epilog
 
 sw.bb86:                                          ; preds = %entry
-  %d_nchildren.i296 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i296 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i297 = load i32, ptr %d_nchildren.i296, align 4
   %bf.clear.i298 = and i32 %bf.load.i297, 67108863
   %cmp.i299 = icmp eq i32 %bf.clear.i298, 0
-  %d_children.i300 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i300 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i299, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit, label %cond.false.i301
 
 cond.false.i301:                                  ; preds = %sw.bb86
@@ -9236,11 +9230,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit: ; p
   br label %sw.epilog
 
 sw.bb89:                                          ; preds = %entry
-  %d_nchildren.i303 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i303 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i304 = load i32, ptr %d_nchildren.i303, align 4
   %bf.clear.i305 = and i32 %bf.load.i304, 67108863
   %cmp.i306 = icmp eq i32 %bf.clear.i305, 0
-  %d_children.i307 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i307 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i306, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit, label %cond.false.i308
 
 cond.false.i308:                                  ; preds = %sw.bb89
@@ -9254,11 +9248,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit: ; pr
   br label %sw.epilog
 
 sw.bb92:                                          ; preds = %entry
-  %d_nchildren.i310 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i310 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i311 = load i32, ptr %d_nchildren.i310, align 4
   %bf.clear.i312 = and i32 %bf.load.i311, 67108863
   %cmp.i313 = icmp eq i32 %bf.clear.i312, 0
-  %d_children.i314 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i314 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i313, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit, label %cond.false.i315
 
 cond.false.i315:                                  ; preds = %sw.bb92
@@ -9271,11 +9265,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit:
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %entry
-  %d_nchildren.i317 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i317 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i318 = load i32, ptr %d_nchildren.i317, align 4
   %bf.clear.i319 = and i32 %bf.load.i318, 67108863
   %cmp.i320 = icmp eq i32 %bf.clear.i319, 0
-  %d_children.i321 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i321 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i320, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit, label %cond.false.i322
 
 cond.false.i322:                                  ; preds = %sw.bb95
@@ -9288,11 +9282,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorE
   br label %sw.epilog
 
 sw.bb98:                                          ; preds = %entry
-  %d_nchildren.i324 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i324 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i325 = load i32, ptr %d_nchildren.i324, align 4
   %bf.clear.i326 = and i32 %bf.load.i325, 67108863
   %cmp.i327 = icmp eq i32 %bf.clear.i326, 0
-  %d_children.i328 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i328 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i327, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, label %cond.false.i329
 
 cond.false.i329:                                  ; preds = %sw.bb98
@@ -9305,11 +9299,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointE
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %entry
-  %d_nchildren.i331 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i331 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i332 = load i32, ptr %d_nchildren.i331, align 4
   %bf.clear.i333 = and i32 %bf.load.i332, 67108863
   %cmp.i334 = icmp eq i32 %bf.clear.i333, 0
-  %d_children.i335 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i335 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i334, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, label %cond.false.i336
 
 cond.false.i336:                                  ; preds = %sw.bb101
@@ -9322,11 +9316,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.e
   br label %sw.epilog
 
 sw.bb104:                                         ; preds = %entry
-  %d_nchildren.i338 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i338 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i339 = load i32, ptr %d_nchildren.i338, align 4
   %bf.clear.i340 = and i32 %bf.load.i339, 67108863
   %cmp.i341 = icmp eq i32 %bf.clear.i340, 0
-  %d_children.i342 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i342 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i341, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, label %cond.false.i343
 
 cond.false.i343:                                  ; preds = %sw.bb104
@@ -9339,11 +9333,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVecto
   br label %sw.epilog
 
 sw.bb107:                                         ; preds = %entry
-  %d_nchildren.i345 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i345 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i346 = load i32, ptr %d_nchildren.i345, align 4
   %bf.clear.i347 = and i32 %bf.load.i346, 67108863
   %cmp.i348 = icmp eq i32 %bf.clear.i347, 0
-  %d_children.i349 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i349 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i348, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, label %cond.false.i350
 
 cond.false.i350:                                  ; preds = %sw.bb107
@@ -9356,11 +9350,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVec
   br label %sw.epilog
 
 sw.bb110:                                         ; preds = %entry
-  %d_nchildren.i352 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i352 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i353 = load i32, ptr %d_nchildren.i352, align 4
   %bf.clear.i354 = and i32 %bf.load.i353, 67108863
   %cmp.i355 = icmp eq i32 %bf.clear.i354, 0
-  %d_children.i356 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i356 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i355, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit, label %cond.false.i357
 
 cond.false.i357:                                  ; preds = %sw.bb110
@@ -9374,11 +9368,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
   br label %sw.epilog
 
 sw.bb114:                                         ; preds = %entry
-  %d_nchildren.i359 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i359 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i360 = load i32, ptr %d_nchildren.i359, align 4
   %bf.clear.i361 = and i32 %bf.load.i360, 67108863
   %cmp.i362 = icmp eq i32 %bf.clear.i361, 0
-  %d_children.i363 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i363 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i362, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit, label %cond.false.i364
 
 cond.false.i364:                                  ; preds = %sw.bb114
@@ -9392,11 +9386,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %entry
-  %d_nchildren.i366 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i366 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i367 = load i32, ptr %d_nchildren.i366, align 4
   %bf.clear.i368 = and i32 %bf.load.i367, 67108863
   %cmp.i369 = icmp eq i32 %bf.clear.i368, 0
-  %d_children.i370 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i370 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i369, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit, label %cond.false.i371
 
 cond.false.i371:                                  ; preds = %sw.bb118
@@ -9410,11 +9404,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
   br label %sw.epilog
 
 sw.bb122:                                         ; preds = %entry
-  %d_nchildren.i373 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i373 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i374 = load i32, ptr %d_nchildren.i373, align 4
   %bf.clear.i375 = and i32 %bf.load.i374, 67108863
   %cmp.i376 = icmp eq i32 %bf.clear.i375, 0
-  %d_children.i377 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i377 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i376, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit, label %cond.false.i378
 
 cond.false.i378:                                  ; preds = %sw.bb122
@@ -9428,11 +9422,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v
   br label %sw.epilog
 
 sw.bb126:                                         ; preds = %entry
-  %d_nchildren.i380 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i380 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i381 = load i32, ptr %d_nchildren.i380, align 4
   %bf.clear.i382 = and i32 %bf.load.i381, 67108863
   %cmp.i383 = icmp eq i32 %bf.clear.i382, 0
-  %d_children.i384 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i384 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i383, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, label %cond.false.i385
 
 cond.false.i385:                                  ; preds = %sw.bb126
@@ -9445,11 +9439,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit: ; p
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %entry
-  %d_nchildren.i387 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i387 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i388 = load i32, ptr %d_nchildren.i387, align 4
   %bf.clear.i389 = and i32 %bf.load.i388, 67108863
   %cmp.i390 = icmp eq i32 %bf.clear.i389, 0
-  %d_children.i391 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i391 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i390, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, label %cond.false.i392
 
 cond.false.i392:                                  ; preds = %sw.bb129
@@ -9473,11 +9467,11 @@ lpad:                                             ; preds = %_ZNK4cvc58internal4
   resume { ptr, i32 } %56
 
 sw.bb132:                                         ; preds = %entry
-  %d_nchildren.i394 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i394 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i395 = load i32, ptr %d_nchildren.i394, align 4
   %bf.clear.i396 = and i32 %bf.load.i395, 67108863
   %cmp.i397 = icmp eq i32 %bf.clear.i396, 0
-  %d_children.i398 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i398 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i397, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i399
 
 cond.false.i399:                                  ; preds = %sw.bb132
@@ -9490,11 +9484,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds 
   br label %sw.epilog
 
 sw.bb135:                                         ; preds = %entry
-  %d_nchildren.i401 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i401 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i402 = load i32, ptr %d_nchildren.i401, align 4
   %bf.clear.i403 = and i32 %bf.load.i402, 67108863
   %cmp.i404 = icmp eq i32 %bf.clear.i403, 0
-  %d_children.i405 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i405 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i404, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, label %cond.false.i406
 
 cond.false.i406:                                  ; preds = %sw.bb135
@@ -9507,11 +9501,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v
   br label %sw.epilog
 
 sw.bb138:                                         ; preds = %entry
-  %d_nchildren.i408 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i408 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i409 = load i32, ptr %d_nchildren.i408, align 4
   %bf.clear.i410 = and i32 %bf.load.i409, 67108863
   %cmp.i411 = icmp eq i32 %bf.clear.i410, 0
-  %d_children.i412 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i412 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i411, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, label %cond.false.i413
 
 cond.false.i413:                                  ; preds = %sw.bb138
@@ -9524,11 +9518,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit: ; preds =
   br label %sw.epilog
 
 sw.bb141:                                         ; preds = %entry
-  %d_nchildren.i415 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i415 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i416 = load i32, ptr %d_nchildren.i415, align 4
   %bf.clear.i417 = and i32 %bf.load.i416, 67108863
   %cmp.i418 = icmp eq i32 %bf.clear.i417, 0
-  %d_children.i419 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i419 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i418, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit422, label %cond.false.i420
 
 cond.false.i420:                                  ; preds = %sw.bb141
@@ -9541,11 +9535,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit422: ; pre
   br label %sw.epilog
 
 sw.bb144:                                         ; preds = %entry
-  %d_nchildren.i423 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i423 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i424 = load i32, ptr %d_nchildren.i423, align 4
   %bf.clear.i425 = and i32 %bf.load.i424, 67108863
   %cmp.i426 = icmp eq i32 %bf.clear.i425, 0
-  %d_children.i427 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i427 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i426, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit430, label %cond.false.i428
 
 cond.false.i428:                                  ; preds = %sw.bb144
@@ -9558,11 +9552,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit430: ; pre
   br label %sw.epilog
 
 sw.bb147:                                         ; preds = %entry
-  %d_nchildren.i431 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i431 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i432 = load i32, ptr %d_nchildren.i431, align 4
   %bf.clear.i433 = and i32 %bf.load.i432, 67108863
   %cmp.i434 = icmp eq i32 %bf.clear.i433, 0
-  %d_children.i435 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i435 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i434, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit438, label %cond.false.i436
 
 cond.false.i436:                                  ; preds = %sw.bb147
@@ -9575,11 +9569,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit438: ; pre
   br label %sw.epilog
 
 sw.bb150:                                         ; preds = %entry
-  %d_nchildren.i439 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i439 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i440 = load i32, ptr %d_nchildren.i439, align 4
   %bf.clear.i441 = and i32 %bf.load.i440, 67108863
   %cmp.i442 = icmp eq i32 %bf.clear.i441, 0
-  %d_children.i443 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i443 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i442, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, label %cond.false.i444
 
 cond.false.i444:                                  ; preds = %sw.bb150
@@ -9592,11 +9586,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit: ; preds =
   br label %sw.epilog
 
 sw.bb153:                                         ; preds = %entry
-  %d_nchildren.i446 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i446 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i447 = load i32, ptr %d_nchildren.i446, align 4
   %bf.clear.i448 = and i32 %bf.load.i447, 67108863
   %cmp.i449 = icmp eq i32 %bf.clear.i448, 0
-  %d_children.i450 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i450 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i449, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit453, label %cond.false.i451
 
 cond.false.i451:                                  ; preds = %sw.bb153
@@ -9609,11 +9603,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit453: ; pre
   br label %sw.epilog
 
 sw.bb156:                                         ; preds = %entry
-  %d_nchildren.i454 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i454 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i455 = load i32, ptr %d_nchildren.i454, align 4
   %bf.clear.i456 = and i32 %bf.load.i455, 67108863
   %cmp.i457 = icmp eq i32 %bf.clear.i456, 0
-  %d_children.i458 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i458 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i457, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit461, label %cond.false.i459
 
 cond.false.i459:                                  ; preds = %sw.bb156
@@ -9626,11 +9620,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit461: ; pre
   br label %sw.epilog
 
 sw.bb159:                                         ; preds = %entry
-  %d_nchildren.i462 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i462 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i463 = load i32, ptr %d_nchildren.i462, align 4
   %bf.clear.i464 = and i32 %bf.load.i463, 67108863
   %cmp.i465 = icmp eq i32 %bf.clear.i464, 0
-  %d_children.i466 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i466 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i465, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit469, label %cond.false.i467
 
 cond.false.i467:                                  ; preds = %sw.bb159
@@ -9643,11 +9637,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit469: ; pre
   br label %sw.epilog
 
 sw.bb162:                                         ; preds = %entry
-  %d_nchildren.i470 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i470 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i471 = load i32, ptr %d_nchildren.i470, align 4
   %bf.clear.i472 = and i32 %bf.load.i471, 67108863
   %cmp.i473 = icmp eq i32 %bf.clear.i472, 0
-  %d_children.i474 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i474 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i473, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit477, label %cond.false.i475
 
 cond.false.i475:                                  ; preds = %sw.bb162
@@ -9660,11 +9654,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit477: ; pre
   br label %sw.epilog
 
 sw.bb165:                                         ; preds = %entry
-  %d_nchildren.i478 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i478 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i479 = load i32, ptr %d_nchildren.i478, align 4
   %bf.clear.i480 = and i32 %bf.load.i479, 67108863
   %cmp.i481 = icmp eq i32 %bf.clear.i480, 0
-  %d_children.i482 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i482 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i481, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, label %cond.false.i483
 
 cond.false.i483:                                  ; preds = %sw.bb165
@@ -9677,11 +9671,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit: ; preds = %
   br label %sw.epilog
 
 sw.bb168:                                         ; preds = %entry
-  %d_nchildren.i485 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i485 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i486 = load i32, ptr %d_nchildren.i485, align 4
   %bf.clear.i487 = and i32 %bf.load.i486, 67108863
   %cmp.i488 = icmp eq i32 %bf.clear.i487, 0
-  %d_children.i489 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i489 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i488, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, label %cond.false.i490
 
 cond.false.i490:                                  ; preds = %sw.bb168
@@ -9694,11 +9688,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit: ; preds =
   br label %sw.epilog
 
 sw.bb171:                                         ; preds = %entry
-  %d_nchildren.i492 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i492 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i493 = load i32, ptr %d_nchildren.i492, align 4
   %bf.clear.i494 = and i32 %bf.load.i493, 67108863
   %cmp.i495 = icmp eq i32 %bf.clear.i494, 0
-  %d_children.i496 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i496 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i495, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, label %cond.false.i497
 
 cond.false.i497:                                  ; preds = %sw.bb171
@@ -9711,11 +9705,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit: ; pr
   br label %sw.epilog
 
 sw.bb174:                                         ; preds = %entry
-  %d_nchildren.i499 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i499 = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i500 = load i32, ptr %d_nchildren.i499, align 4
   %bf.clear.i501 = and i32 %bf.load.i500, 67108863
   %cmp.i502 = icmp eq i32 %bf.clear.i501, 0
-  %d_children.i503 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i503 = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i502, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, label %cond.false.i504
 
 cond.false.i504:                                  ; preds = %sw.bb174
@@ -9868,7 +9862,7 @@ entry:
   %0 = load i32, ptr %bv, align 4
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef nonnull @.str.8)
-  %d_low = getelementptr inbounds %"struct.cvc5::internal::BitVectorExtract", ptr %bv, i64 0, i32 1
+  %d_low = getelementptr inbounds i8, ptr %bv, i64 4
   %1 = load i32, ptr %d_low, align 4
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call2, i32 noundef %1)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @.str.3)
@@ -9916,7 +9910,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoR
 define hidden void @_ZN4cvc58internal4kind8metakind23deleteNodeValueConstantEPNS0_4expr9NodeValueE(ptr noundef %nv) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
-  %d_kind = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 1
+  %d_kind = getelementptr inbounds i8, ptr %nv, i64 8
   %bf.load = load i16, ptr %d_kind, align 8
   %bf.clear = and i16 %bf.load, 1023
   switch i16 %bf.clear, label %sw.default [
@@ -9979,27 +9973,27 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal22UninterpretedSortValueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_children) #16
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %d_children17 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children17 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal21CardinalityConstraintD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_children17) #16
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %d_children20 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children20 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal29CombinedCardinalityConstraintD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_children20) #16
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %entry
-  %d_children23 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children23 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal18FunctionArrayConstD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_children23) #16
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
-  %d_children29 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children29 = getelementptr inbounds i8, ptr %nv, i64 16
   invoke void @__gmpz_clear(ptr noundef nonnull %d_children29)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i.i
 
@@ -10011,7 +10005,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %sw.bb28
   unreachable
 
 sw.bb31:                                          ; preds = %entry
-  %d_children32 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children32 = getelementptr inbounds i8, ptr %nv, i64 16
   invoke void @__gmpq_clear(ptr noundef nonnull %d_children32)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i
 
@@ -10023,7 +10017,7 @@ terminate.lpad.i.i.i:                             ; preds = %sw.bb31
   unreachable
 
 sw.bb34:                                          ; preds = %entry
-  %d_children35 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children35 = getelementptr inbounds i8, ptr %nv, i64 16
   invoke void @__gmpq_clear(ptr noundef nonnull %d_children35)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i58
 
@@ -10035,7 +10029,7 @@ terminate.lpad.i.i.i58:                           ; preds = %sw.bb34
   unreachable
 
 sw.bb37:                                          ; preds = %entry
-  %d_children38 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children38 = getelementptr inbounds i8, ptr %nv, i64 16
   invoke void @__gmpq_clear(ptr noundef nonnull %d_children38)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i.i60
 
@@ -10047,7 +10041,7 @@ terminate.lpad.i.i.i.i60:                         ; preds = %sw.bb37
   unreachable
 
 sw.bb49:                                          ; preds = %entry
-  %d_value.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 1, i32 1
+  %d_value.i.i = getelementptr inbounds i8, ptr %nv, i64 24
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i.i)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i.i61
 
@@ -10059,7 +10053,7 @@ terminate.lpad.i.i.i.i61:                         ; preds = %sw.bb49
   unreachable
 
 sw.bb73:                                          ; preds = %entry
-  %d_children74 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children74 = getelementptr inbounds i8, ptr %nv, i64 16
   invoke void @__gmpz_clear(ptr noundef nonnull %d_children74)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i.i62
 
@@ -10071,27 +10065,27 @@ terminate.lpad.i.i.i.i62:                         ; preds = %sw.bb73
   unreachable
 
 sw.bb76:                                          ; preds = %entry
-  %d_children77 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children77 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZSt10destroy_atIN4cvc58internal16FiniteFieldValueEEvPT_(ptr noundef nonnull %d_children77)
   br label %sw.epilog
 
 sw.bb79:                                          ; preds = %entry
-  %d_children80 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children80 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal13FloatingPointD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_children80) #16
   br label %sw.epilog
 
 sw.bb115:                                         ; preds = %entry
-  %d_children116 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children116 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal13ArrayStoreAllD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_children116) #16
   br label %sw.epilog
 
 sw.bb118:                                         ; preds = %entry
-  %d_children119 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children119 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal14AscriptionTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_children119) #16
   br label %sw.epilog
 
 sw.bb121:                                         ; preds = %entry
-  %d_children122 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children122 = getelementptr inbounds i8, ptr %nv, i64 16
   %12 = load ptr, ptr %d_children122, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i, label %sw.epilog, label %if.then.i.i.i.i.i
@@ -10101,17 +10095,17 @@ if.then.i.i.i.i.i:                                ; preds = %sw.bb121
   br label %sw.epilog
 
 sw.bb124:                                         ; preds = %entry
-  %d_children125 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children125 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal23CodatatypeBoundVariableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_children125) #16
   br label %sw.epilog
 
 sw.bb127:                                         ; preds = %entry
-  %d_children128 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children128 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal8EmptySetD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_children128) #16
   br label %sw.epilog
 
 sw.bb130:                                         ; preds = %entry
-  %d_children131 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children131 = getelementptr inbounds i8, ptr %nv, i64 16
   %13 = load ptr, ptr %d_children131, align 8
   %tobool.not.i.i.i.i.i63 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i.i63, label %sw.epilog, label %if.then.i.i.i.i.i64
@@ -10121,7 +10115,7 @@ if.then.i.i.i.i.i64:                              ; preds = %sw.bb130
   br label %sw.epilog
 
 sw.bb133:                                         ; preds = %entry
-  %d_children134 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children134 = getelementptr inbounds i8, ptr %nv, i64 16
   %14 = load ptr, ptr %d_children134, align 8
   %tobool.not.i.i.i.i.i66 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i66, label %sw.epilog, label %if.then.i.i.i.i.i67
@@ -10131,7 +10125,7 @@ if.then.i.i.i.i.i67:                              ; preds = %sw.bb133
   br label %sw.epilog
 
 sw.bb136:                                         ; preds = %entry
-  %d_children137 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children137 = getelementptr inbounds i8, ptr %nv, i64 16
   %15 = load ptr, ptr %d_children137, align 8
   %tobool.not.i.i.i.i.i69 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i.i.i69, label %sw.epilog, label %if.then.i.i.i.i.i70
@@ -10141,12 +10135,12 @@ if.then.i.i.i.i.i70:                              ; preds = %sw.bb136
   br label %sw.epilog
 
 sw.bb139:                                         ; preds = %entry
-  %d_children140 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children140 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal8EmptyBagD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_children140) #16
   br label %sw.epilog
 
 sw.bb142:                                         ; preds = %entry
-  %d_children143 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children143 = getelementptr inbounds i8, ptr %nv, i64 16
   %16 = load ptr, ptr %d_children143, align 8
   %tobool.not.i.i.i.i.i72 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i.i72, label %sw.epilog, label %if.then.i.i.i.i.i73
@@ -10156,7 +10150,7 @@ if.then.i.i.i.i.i73:                              ; preds = %sw.bb142
   br label %sw.epilog
 
 sw.bb145:                                         ; preds = %entry
-  %d_children146 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children146 = getelementptr inbounds i8, ptr %nv, i64 16
   %17 = load ptr, ptr %d_children146, align 8
   %tobool.not.i.i.i.i.i75 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i75, label %sw.epilog, label %if.then.i.i.i.i.i76
@@ -10166,7 +10160,7 @@ if.then.i.i.i.i.i76:                              ; preds = %sw.bb145
   br label %sw.epilog
 
 sw.bb148:                                         ; preds = %entry
-  %d_children149 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children149 = getelementptr inbounds i8, ptr %nv, i64 16
   %18 = load ptr, ptr %d_children149, align 8
   %tobool.not.i.i.i.i.i78 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i78, label %sw.epilog, label %if.then.i.i.i.i.i79
@@ -10176,7 +10170,7 @@ if.then.i.i.i.i.i79:                              ; preds = %sw.bb148
   br label %sw.epilog
 
 sw.bb151:                                         ; preds = %entry
-  %d_children152 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children152 = getelementptr inbounds i8, ptr %nv, i64 16
   %19 = load ptr, ptr %d_children152, align 8
   %tobool.not.i.i.i.i.i81 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i81, label %sw.epilog, label %if.then.i.i.i.i.i82
@@ -10186,7 +10180,7 @@ if.then.i.i.i.i.i82:                              ; preds = %sw.bb151
   br label %sw.epilog
 
 sw.bb154:                                         ; preds = %entry
-  %d_children155 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children155 = getelementptr inbounds i8, ptr %nv, i64 16
   %20 = load ptr, ptr %d_children155, align 8
   %tobool.not.i.i.i.i.i84 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.i.i84, label %sw.epilog, label %if.then.i.i.i.i.i85
@@ -10196,7 +10190,7 @@ if.then.i.i.i.i.i85:                              ; preds = %sw.bb154
   br label %sw.epilog
 
 sw.bb157:                                         ; preds = %entry
-  %d_children158 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children158 = getelementptr inbounds i8, ptr %nv, i64 16
   tail call void @_ZN4cvc58internal8SequenceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_children158) #16
   br label %sw.epilog
 
@@ -10235,7 +10229,7 @@ sw.epilog:                                        ; preds = %entry, %entry, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt10destroy_atIN4cvc58internal16FiniteFieldValueEEvPT_(ptr noundef %__location) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %d_value.i = getelementptr inbounds %"class.cvc5::internal::FiniteFieldValue", ptr %__location, i64 0, i32 1
+  %d_value.i = getelementptr inbounds i8, ptr %__location, i64 16
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -10282,7 +10276,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN4cvc58internal4kind14operatorToKindEPNS0_4expr9NodeValueE(ptr nocapture noundef readonly %nv) local_unnamed_addr #8 {
 entry:
-  %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 1
+  %d_kind.i = getelementptr inbounds i8, ptr %nv, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
@@ -10334,11 +10328,11 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %d_nchildren.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 2
+  %d_nchildren.i = getelementptr inbounds i8, ptr %nv, i64 12
   %bf.load.i4 = load i32, ptr %d_nchildren.i, align 4
   %bf.clear.i5 = and i32 %bf.load.i4, 67108863
   %cmp.i = icmp eq i32 %bf.clear.i5, 0
-  %d_children.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %nv, i64 0, i32 3
+  %d_children.i = getelementptr inbounds i8, ptr %nv, i64 16
   br i1 %cmp.i, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then

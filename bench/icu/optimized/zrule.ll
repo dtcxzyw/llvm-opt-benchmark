@@ -20,7 +20,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %rule, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %rule) #6
   br label %delete.end
@@ -30,10 +30,10 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @zrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
+define noundef signext i8 @zrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
 entry:
   %vtable = load ptr, ptr %rule1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %rule1, ptr noundef nonnull align 8 dereferenceable(80) %rule2)
   %conv = zext i1 %call to i8
@@ -62,9 +62,9 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad1
 
 invoke.cont5:                                     ; preds = %invoke.cont2
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %s, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %conv1.i = zext i16 %1 to i32
   %and.i = and i32 %conv1.i, 17
@@ -81,7 +81,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %3 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -129,7 +129,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zrule_getRawOffset_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
+define noundef i32 @zrule_getRawOffset_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %rule)
   ret i32 %call
@@ -138,7 +138,7 @@ entry:
 declare noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @zrule_getDSTSavings_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
+define noundef i32 @zrule_getDSTSavings_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %rule)
   ret i32 %call
@@ -147,7 +147,7 @@ entry:
 declare noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @zrule_isEquivalentTo_75(ptr noundef nonnull %rule1, ptr noundef nonnull %rule2) local_unnamed_addr #1 {
+define noundef signext i8 @zrule_isEquivalentTo_75(ptr noundef nonnull %rule1, ptr noundef nonnull %rule2) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %rule1, ptr noundef nonnull align 8 dereferenceable(80) %rule2)
   ret i8 %call
@@ -156,7 +156,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @izrule_open_75(ptr noundef %name, i32 noundef %nameLength, i32 noundef %rawOffset, i32 noundef %dstSavings) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @izrule_open_75(ptr noundef %name, i32 noundef %nameLength, i32 noundef %rawOffset, i32 noundef %dstSavings) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -216,7 +216,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %rule, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %rule) #6
   br label %delete.end
@@ -226,7 +226,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @izrule_clone_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
+define noundef ptr @izrule_clone_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7519InitialTimeZoneRule5cloneEv(ptr noundef nonnull align 8 dereferenceable(80) %rule)
   ret ptr %call
@@ -235,10 +235,10 @@ entry:
 declare noundef ptr @_ZNK6icu_7519InitialTimeZoneRule5cloneEv(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @izrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
+define noundef signext i8 @izrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
 entry:
   %vtable = load ptr, ptr %rule1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %rule1, ptr noundef nonnull align 8 dereferenceable(80) %rule2)
   %conv = zext i1 %call to i8
@@ -250,7 +250,7 @@ define void @izrule_getName_75(ptr noundef nonnull %rule, ptr nocapture noundef 
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %s, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512TimeZoneRule7getNameERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) %rule, ptr noundef nonnull align 8 dereferenceable(64) %s)
           to label %invoke.cont1 unwind label %lpad
@@ -260,7 +260,7 @@ invoke.cont1:                                     ; preds = %entry
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %nameLength, align 4
@@ -286,7 +286,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -309,21 +309,21 @@ lpad:                                             ; preds = %invoke.cont1, %entr
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define i32 @izrule_getRawOffset_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
+define noundef i32 @izrule_getRawOffset_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull align 8 dereferenceable(80) %rule)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @izrule_getDSTSavings_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
+define noundef i32 @izrule_getDSTSavings_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull align 8 dereferenceable(80) %rule)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @izrule_isEquivalentTo_75(ptr noundef nonnull %rule1, ptr noundef nonnull %rule2) local_unnamed_addr #1 {
+define noundef signext i8 @izrule_isEquivalentTo_75(ptr noundef nonnull %rule1, ptr noundef nonnull %rule2) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(80) %rule1, ptr noundef nonnull align 8 dereferenceable(80) %rule2)
   ret i8 %call
@@ -332,7 +332,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule14isEquivalentToERKNS_12TimeZoneRuleE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @izrule_getFirstStart_75(ptr noundef nonnull %rule, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
+define noundef signext i8 @izrule_getFirstStart_75(ptr noundef nonnull %rule, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFirstStartEiiRd(ptr noundef nonnull align 8 dereferenceable(80) %rule, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result)
   ret i8 %call
@@ -341,7 +341,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFirstStartEiiRd(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @izrule_getFinalStart_75(ptr noundef nonnull %rule, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
+define noundef signext i8 @izrule_getFinalStart_75(ptr noundef nonnull %rule, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFinalStartEiiRd(ptr noundef nonnull align 8 dereferenceable(80) %rule, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 dereferenceable(8) %result)
   ret i8 %call
@@ -350,7 +350,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFinalStartEiiRd(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @izrule_getNextStart_75(ptr noundef nonnull %rule, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
+define noundef signext i8 @izrule_getNextStart_75(ptr noundef nonnull %rule, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule12getNextStartEdiiaRd(ptr noundef nonnull align 8 dereferenceable(80) %rule, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %result)
   ret i8 %call
@@ -359,7 +359,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule12getNextStartEdiiaRd(ptr noundef nonnull align 8 dereferenceable(80), double noundef, i32 noundef, i32 noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define signext i8 @izrule_getPreviousStart_75(ptr noundef nonnull %rule, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
+define noundef signext i8 @izrule_getPreviousStart_75(ptr noundef nonnull %rule, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule16getPreviousStartEdiiaRd(ptr noundef nonnull align 8 dereferenceable(80) %rule, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull align 8 dereferenceable(8) %result)
   ret i8 %call
@@ -368,7 +368,7 @@ entry:
 declare noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule16getPreviousStartEdiiaRd(ptr noundef nonnull align 8 dereferenceable(80), double noundef, i32 noundef, i32 noundef, i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @izrule_getStaticClassID_75(ptr nocapture noundef readnone %rule) local_unnamed_addr #1 {
+define noundef ptr @izrule_getStaticClassID_75(ptr nocapture noundef readnone %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_7519InitialTimeZoneRule16getStaticClassIDEv()
   ret ptr %call
@@ -377,7 +377,7 @@ entry:
 declare noundef ptr @_ZN6icu_7519InitialTimeZoneRule16getStaticClassIDEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @izrule_getDynamicClassID_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
+define noundef ptr @izrule_getDynamicClassID_75(ptr noundef nonnull %rule) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7519InitialTimeZoneRule17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(80) %rule)
   ret ptr %call

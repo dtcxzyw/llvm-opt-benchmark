@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_word.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define i64 @BN_mod_word(ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
 entry:
@@ -26,7 +24,7 @@ if.end5:                                          ; preds = %if.then2
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp817 = icmp sgt i32 %0, 0
   br i1 %cmp817, label %for.body.lr.ph, label %return
@@ -65,7 +63,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end2
@@ -113,7 +111,7 @@ land.lhs.true:                                    ; preds = %for.end
   %6 = load ptr, ptr %a, align 8
   %7 = zext nneg i32 %.pre to i64
   %8 = getelementptr i64, ptr %6, i64 %7
-  %arrayidx24 = getelementptr i64, ptr %8, i64 -1
+  %arrayidx24 = getelementptr i8, ptr %8, i64 -8
   %9 = load i64, ptr %arrayidx24, align 8
   %cmp25 = icmp eq i64 %9, 0
   br i1 %cmp25, label %if.then26, label %if.end29.thread
@@ -135,7 +133,7 @@ if.end29:                                         ; preds = %if.end6, %if.then26
   br i1 %tobool32.not, label %if.then33, label %return
 
 if.then33:                                        ; preds = %if.end29
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   store i32 0, ptr %neg, align 8
   br label %return
 
@@ -168,13 +166,13 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool5.not = icmp eq i32 %0, 0
   br i1 %tobool5.not, label %for.cond.preheader, label %if.then6
 
 for.cond.preheader:                               ; preds = %if.end4
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   br label %land.rhs
 
 if.then6:                                         ; preds = %if.end4
@@ -260,7 +258,7 @@ if.then4:                                         ; preds = %if.then2
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool7.not = icmp eq i32 %0, 0
   br i1 %tobool7.not, label %if.end12, label %if.then8
@@ -272,7 +270,7 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end12:                                         ; preds = %if.end6
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i32, ptr %top, align 8
   %cmp13 = icmp eq i32 %1, 1
   %.pre = load ptr, ptr %a, align 8
@@ -345,9 +343,9 @@ declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @BN_set_negative(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @BN_mul_word(ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
+define noundef i32 @BN_mul_word(ptr noundef %a, i64 noundef %w) local_unnamed_addr #0 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.then

@@ -12,9 +12,9 @@ define void @_ZN3std9panicking11begin_panic17h10067ca52ba559b4E(ptr align 1 %0, 
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   store ptr %0, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %6, align 8
-  %7 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %4, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %2, ptr %7, align 8
   call void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17hb7a220e7f8841d6fE(ptr nonnull align 8 %4) #6
   unreachable
@@ -24,12 +24,12 @@ define void @_ZN3std9panicking11begin_panic17h10067ca52ba559b4E(ptr align 1 %0, 
 define void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17hf37d59a729680d4bE"(ptr nocapture readonly align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   store ptr %3, ptr %2, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %5, ptr %6, align 8
-  %7 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !7, !noundef !5
   call void @_ZN3std9panicking20rust_panic_with_hook17h2b5517d590cab22eE(ptr nonnull align 1 %2, ptr nonnull align 8 @anon.9086022de42134b02de66485313ef3bb.0, ptr align 8 null, ptr nonnull align 8 %8, i1 zeroext true, i1 zeroext false) #6
   unreachable
@@ -54,7 +54,7 @@ define { ptr, ptr } @"_ZN91_$LT$std..panicking..begin_panic..Payload$LT$A$GT$$u2
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN91_$LT$std..panicking..begin_panic..Payload$LT$A$GT$$u20$as$u20$core..panic..PanicPayload$GT$8take_box17hf2f28464c6d887c9E"(ptr nocapture align 8 %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !align !6, !noundef !5
-  %3 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   store ptr null, ptr %0, align 8
   %5 = icmp eq ptr %2, null
@@ -67,7 +67,7 @@ define { ptr, ptr } @"_ZN91_$LT$std..panicking..begin_panic..Payload$LT$A$GT$$u2
 7:                                                ; preds = %1
   %8 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17h6e9eabd51dcad604E(i64 16, i64 8)
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %4, ptr %9, align 8
   %10 = insertvalue { ptr, ptr } poison, ptr %8, 0
   %11 = insertvalue { ptr, ptr } %10, ptr @anon.9086022de42134b02de66485313ef3bb.1, 1

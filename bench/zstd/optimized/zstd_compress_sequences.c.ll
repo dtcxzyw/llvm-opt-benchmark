@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.FSE_symbolCompressionTransform = type { i32, i32 }
-%struct.ZSTD_BuildCTableWksp = type { [53 x i16], [285 x i32] }
 %struct.seqDef_s = type { i32, i16, i16 }
 
 @kInverseProbabilityLog256 = internal unnamed_addr constant [256 x i32] [i32 0, i32 2048, i32 1792, i32 1642, i32 1536, i32 1453, i32 1386, i32 1329, i32 1280, i32 1236, i32 1197, i32 1162, i32 1130, i32 1100, i32 1073, i32 1047, i32 1024, i32 1001, i32 980, i32 960, i32 941, i32 923, i32 906, i32 889, i32 874, i32 859, i32 844, i32 830, i32 817, i32 804, i32 791, i32 779, i32 768, i32 756, i32 745, i32 734, i32 724, i32 714, i32 704, i32 694, i32 685, i32 676, i32 667, i32 658, i32 650, i32 642, i32 633, i32 626, i32 618, i32 610, i32 603, i32 595, i32 588, i32 581, i32 574, i32 567, i32 561, i32 554, i32 548, i32 542, i32 535, i32 529, i32 523, i32 517, i32 512, i32 506, i32 500, i32 495, i32 489, i32 484, i32 478, i32 473, i32 468, i32 463, i32 458, i32 453, i32 448, i32 443, i32 438, i32 434, i32 429, i32 424, i32 420, i32 415, i32 411, i32 407, i32 402, i32 398, i32 394, i32 390, i32 386, i32 382, i32 377, i32 373, i32 370, i32 366, i32 362, i32 358, i32 354, i32 350, i32 347, i32 343, i32 339, i32 336, i32 332, i32 329, i32 325, i32 322, i32 318, i32 315, i32 311, i32 308, i32 305, i32 302, i32 298, i32 295, i32 292, i32 289, i32 286, i32 282, i32 279, i32 276, i32 273, i32 270, i32 267, i32 264, i32 261, i32 258, i32 256, i32 253, i32 250, i32 247, i32 244, i32 241, i32 239, i32 236, i32 233, i32 230, i32 228, i32 225, i32 222, i32 220, i32 217, i32 215, i32 212, i32 209, i32 207, i32 204, i32 202, i32 199, i32 197, i32 194, i32 192, i32 190, i32 187, i32 185, i32 182, i32 180, i32 178, i32 175, i32 173, i32 171, i32 168, i32 166, i32 164, i32 162, i32 159, i32 157, i32 155, i32 153, i32 151, i32 149, i32 146, i32 144, i32 142, i32 140, i32 138, i32 136, i32 134, i32 132, i32 130, i32 128, i32 126, i32 123, i32 121, i32 119, i32 117, i32 115, i32 114, i32 112, i32 110, i32 108, i32 106, i32 104, i32 102, i32 100, i32 98, i32 96, i32 94, i32 93, i32 91, i32 89, i32 87, i32 85, i32 83, i32 82, i32 80, i32 78, i32 76, i32 74, i32 73, i32 71, i32 69, i32 67, i32 66, i32 64, i32 62, i32 61, i32 59, i32 57, i32 55, i32 54, i32 52, i32 50, i32 49, i32 47, i32 46, i32 44, i32 42, i32 41, i32 39, i32 37, i32 36, i32 34, i32 33, i32 31, i32 30, i32 28, i32 26, i32 25, i32 23, i32 22, i32 20, i32 19, i32 17, i32 16, i32 14, i32 13, i32 11, i32 10, i32 8, i32 7, i32 5, i32 4, i32 2, i32 1], align 16
@@ -17,7 +16,7 @@ define i64 @ZSTD_fseBitCost(ptr nocapture noundef readonly %ctable, ptr nocaptur
 entry:
   %ct.val.i = load i16, ptr %ctable, align 1
   %conv.i = zext i16 %ct.val.i to i32
-  %add.ptr.i = getelementptr inbounds i16, ptr %ctable, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %ctable, i64 4
   %tobool.not.i = icmp eq i16 %ct.val.i, 0
   %sub.i = add nsw i32 %conv.i, -1
   %shl2.i = shl nuw i32 1, %sub.i
@@ -34,8 +33,8 @@ for.cond.preheader:                               ; preds = %entry
   %shl1.i = shl nuw i32 1, %conv.i
   %add = shl nuw nsw i32 %conv.i, 8
   %shl = add nuw nsw i32 %add, 256
-  %2 = add i32 %max, 1
-  %wide.trip.count = zext i32 %2 to i64
+  %2 = add nuw nsw i32 %max, 1
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -83,8 +82,8 @@ return:                                           ; preds = %if.end5, %entry, %f
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
-define i64 @ZSTD_crossEntropyCost(ptr nocapture noundef readonly %norm, i32 noundef %accuracyLog, ptr nocapture noundef readonly %count, i32 noundef %max) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i64 @ZSTD_crossEntropyCost(ptr nocapture noundef readonly %norm, i32 noundef %accuracyLog, ptr nocapture noundef readonly %count, i32 noundef %max) local_unnamed_addr #0 {
 entry:
   %sub = sub i32 8, %accuracyLog
   %0 = add i32 %max, 1
@@ -119,7 +118,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ZSTD_selectEncodingType(ptr nocapture noundef %repeatMode, ptr noundef %count, i32 noundef %max, i64 noundef %mostFrequent, i64 noundef %nbSeq, i32 noundef %FSELog, ptr nocapture noundef readonly %prevCTable, ptr nocapture noundef readonly %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %isDefaultAllowed, i32 noundef %strategy) local_unnamed_addr #2 {
+define noundef i32 @ZSTD_selectEncodingType(ptr nocapture noundef %repeatMode, ptr noundef %count, i32 noundef %max, i64 noundef %mostFrequent, i64 noundef %nbSeq, i32 noundef %FSELog, ptr nocapture noundef readonly %prevCTable, ptr nocapture noundef readonly %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %isDefaultAllowed, i32 noundef %strategy) local_unnamed_addr #1 {
 entry:
   %wksp.i = alloca [512 x i8], align 16
   %norm.i = alloca [53 x i16], align 16
@@ -212,7 +211,7 @@ cond.end:                                         ; preds = %if.else, %ZSTD_cros
 cond.true34:                                      ; preds = %cond.end
   %ct.val.i.i = load i16, ptr %prevCTable, align 1
   %conv.i.i = zext i16 %ct.val.i.i to i32
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %prevCTable, i64 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %prevCTable, i64 4
   %tobool.not.i.i = icmp eq i16 %ct.val.i.i, 0
   %sub.i.i = add nsw i32 %conv.i.i, -1
   %shl2.i.i = shl nuw i32 1, %sub.i.i
@@ -229,8 +228,8 @@ for.cond.preheader.i:                             ; preds = %cond.true34
   %shl1.i.i = shl nuw i32 1, %conv.i.i
   %add.i31 = shl nuw nsw i32 %conv.i.i, 8
   %shl.i32 = add nuw nsw i32 %add.i31, 256
-  %8 = add i32 %max, 1
-  %wide.trip.count.i33 = zext i32 %8 to i64
+  %8 = add nuw nsw i32 %max, 1
+  %wide.trip.count.i33 = zext nneg i32 %8 to i64
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %for.inc.i, %for.cond.preheader.i
@@ -277,15 +276,15 @@ cond.end37:                                       ; preds = %if.end5.i, %for.end
   %cond38 = phi i64 [ -1, %cond.end ], [ %shr.i39, %for.end.i ], [ -1, %cond.true34 ], [ -1, %if.end5.i ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %wksp.i)
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %norm.i)
-  %call.i = tail call i32 @FSE_optimalTableLog(i32 noundef %FSELog, i64 noundef %nbSeq, i32 noundef %max) #9
+  %call.i = tail call i32 @FSE_optimalTableLog(i32 noundef %FSELog, i64 noundef %nbSeq, i32 noundef %max) #8
   %cmp.i.i = icmp ugt i64 %nbSeq, 2047
   %conv.i.i40 = zext i1 %cmp.i.i to i32
-  %call2.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call.i, ptr noundef %count, i64 noundef %nbSeq, i32 noundef %max, i32 noundef %conv.i.i40) #9
+  %call2.i = call i64 @FSE_normalizeCount(ptr noundef nonnull %norm.i, i32 noundef %call.i, ptr noundef %count, i64 noundef %nbSeq, i32 noundef %max, i32 noundef %conv.i.i40) #8
   %cmp.i7.i = icmp ult i64 %call2.i, -119
   br i1 %cmp.i7.i, label %do.end11.i, label %ZSTD_NCountCost.exit
 
 do.end11.i:                                       ; preds = %cond.end37
-  %call14.i = call i64 @FSE_writeNCount(ptr noundef nonnull %wksp.i, i64 noundef 512, ptr noundef nonnull %norm.i, i32 noundef %max, i32 noundef %call.i) #9
+  %call14.i = call i64 @FSE_writeNCount(ptr noundef nonnull %wksp.i, i64 noundef 512, ptr noundef nonnull %norm.i, i32 noundef %max, i32 noundef %call.i) #8
   br label %ZSTD_NCountCost.exit
 
 ZSTD_NCountCost.exit:                             ; preds = %cond.end37, %do.end11.i
@@ -345,7 +344,7 @@ return:                                           ; preds = %if.end55, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_buildCTable(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %nextCTable, i32 noundef %FSELog, i32 noundef %type, ptr noundef %count, i32 noundef %max, ptr nocapture noundef readonly %codeTable, i64 noundef %nbSeq, ptr noundef %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %defaultMax, ptr nocapture noundef readonly %prevCTable, i64 noundef %prevCTableSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize) local_unnamed_addr #2 {
+define i64 @ZSTD_buildCTable(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %nextCTable, i32 noundef %FSELog, i32 noundef %type, ptr noundef %count, i32 noundef %max, ptr nocapture noundef readonly %codeTable, i64 noundef %nbSeq, ptr noundef %defaultNorm, i32 noundef %defaultNormLog, i32 noundef %defaultMax, ptr nocapture noundef readonly %prevCTable, i64 noundef %prevCTableSize, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize) local_unnamed_addr #1 {
 entry:
   switch i32 %type, label %sw.epilog [
     i32 1, label %do.body1
@@ -356,7 +355,7 @@ entry:
 
 do.body1:                                         ; preds = %entry
   %conv = trunc i32 %max to i8
-  %call = tail call i64 @FSE_buildCTable_rle(ptr noundef %nextCTable, i8 noundef zeroext %conv) #9
+  %call = tail call i64 @FSE_buildCTable_rle(ptr noundef %nextCTable, i8 noundef zeroext %conv) #8
   %cmp.i = icmp ult i64 %call, -119
   br i1 %cmp.i, label %do.body12, label %sw.epilog
 
@@ -374,13 +373,13 @@ sw.bb25:                                          ; preds = %entry
   br label %sw.epilog
 
 do.body27:                                        ; preds = %entry
-  %call29 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %nextCTable, ptr noundef %defaultNorm, i32 noundef %defaultMax, i32 noundef %defaultNormLog, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize) #9
+  %call29 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %nextCTable, ptr noundef %defaultNorm, i32 noundef %defaultMax, i32 noundef %defaultNormLog, ptr noundef %entropyWorkspace, i64 noundef %entropyWorkspaceSize) #8
   %cmp.i33 = icmp ult i64 %call29, -119
   %.call29 = select i1 %cmp.i33, i64 0, i64 %call29
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %entry
-  %call44 = tail call i32 @FSE_optimalTableLog(i32 noundef %FSELog, i64 noundef %nbSeq, i32 noundef %max) #9
+  %call44 = tail call i32 @FSE_optimalTableLog(i32 noundef %FSELog, i64 noundef %nbSeq, i32 noundef %max) #8
   %1 = getelementptr i8, ptr %codeTable, i64 %nbSeq
   %arrayidx45 = getelementptr i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx45, align 1
@@ -400,18 +399,18 @@ do.body56:                                        ; preds = %sw.bb43, %if.then49
   %nbSeq_1.0 = phi i64 [ %dec54, %if.then49 ], [ %nbSeq, %sw.bb43 ]
   %cmp.i35 = icmp ugt i64 %nbSeq_1.0, 2047
   %conv.i36 = zext i1 %cmp.i35 to i32
-  %call59 = tail call i64 @FSE_normalizeCount(ptr noundef %entropyWorkspace, i32 noundef %call44, ptr noundef nonnull %count, i64 noundef %nbSeq_1.0, i32 noundef %max, i32 noundef %conv.i36) #9
+  %call59 = tail call i64 @FSE_normalizeCount(ptr noundef %entropyWorkspace, i32 noundef %call44, ptr noundef nonnull %count, i64 noundef %nbSeq_1.0, i32 noundef %max, i32 noundef %conv.i36) #8
   %cmp.i37 = icmp ult i64 %call59, -119
   br i1 %cmp.i37, label %do.end72, label %sw.epilog
 
 do.end72:                                         ; preds = %do.body56
-  %call75 = tail call i64 @FSE_writeNCount(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %entropyWorkspace, i32 noundef %max, i32 noundef %call44) #9
+  %call75 = tail call i64 @FSE_writeNCount(ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %entropyWorkspace, i32 noundef %max, i32 noundef %call44) #8
   %cmp.i39 = icmp ult i64 %call75, -119
   br i1 %cmp.i39, label %do.body91, label %sw.epilog
 
 do.body91:                                        ; preds = %do.end72
-  %wksp95 = getelementptr inbounds %struct.ZSTD_BuildCTableWksp, ptr %entropyWorkspace, i64 0, i32 1
-  %call97 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %nextCTable, ptr noundef %entropyWorkspace, i32 noundef %max, i32 noundef %call44, ptr noundef nonnull %wksp95, i64 noundef 1140) #9
+  %wksp95 = getelementptr inbounds i8, ptr %entropyWorkspace, i64 108
+  %call97 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %nextCTable, ptr noundef %entropyWorkspace, i32 noundef %max, i32 noundef %call44, ptr noundef nonnull %wksp95, i64 noundef 1140) #8
   %cmp.i41 = icmp ult i64 %call97, -119
   %call75.call97 = select i1 %cmp.i41, i64 %call75, i64 %call97
   br label %sw.epilog
@@ -421,21 +420,21 @@ sw.epilog:                                        ; preds = %entry, %do.body91, 
   ret i64 %retval.0
 }
 
-declare i64 @FSE_buildCTable_rle(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare i64 @FSE_buildCTable_rle(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-declare i64 @FSE_buildCTable_wksp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @FSE_buildCTable_wksp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @FSE_optimalTableLog(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @FSE_optimalTableLog(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @FSE_normalizeCount(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @FSE_normalizeCount(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @FSE_writeNCount(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @FSE_writeNCount(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @ZSTD_encodeSequences(ptr noundef %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %CTable_MatchLength, ptr nocapture noundef readonly %mlCodeTable, ptr nocapture noundef readonly %CTable_OffsetBits, ptr nocapture noundef readonly %ofCodeTable, ptr nocapture noundef readonly %CTable_LitLength, ptr nocapture noundef readonly %llCodeTable, ptr nocapture noundef readonly %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets, i32 noundef %bmi2) local_unnamed_addr #5 {
+define noundef i64 @ZSTD_encodeSequences(ptr noundef %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %CTable_MatchLength, ptr nocapture noundef readonly %mlCodeTable, ptr nocapture noundef readonly %CTable_OffsetBits, ptr nocapture noundef readonly %ofCodeTable, ptr nocapture noundef readonly %CTable_LitLength, ptr nocapture noundef readonly %llCodeTable, ptr nocapture noundef readonly %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets, i32 noundef %bmi2) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i32 %bmi2, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -456,7 +455,7 @@ if.end.i.i:                                       ; preds = %if.end
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %ct.val.i.i.i = load i16, ptr %CTable_MatchLength, align 1
   %conv.i.i.i = zext i16 %ct.val.i.i.i to i32
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %CTable_MatchLength, i64 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %CTable_MatchLength, i64 4
   %tobool.not.i.i.i = icmp eq i16 %ct.val.i.i.i, 0
   %sub.i.i.i = add nsw i32 %conv.i.i.i, -1
   %shl2.i.i.i = shl nuw i32 1, %sub.i.i.i
@@ -484,7 +483,7 @@ if.end.i.i:                                       ; preds = %if.end
   %conv14.i.i = zext i8 %4 to i32
   %ct.val.i.i73.i = load i16, ptr %CTable_OffsetBits, align 1
   %conv.i.i74.i = zext i16 %ct.val.i.i73.i to i32
-  %add.ptr.i.i77.i = getelementptr inbounds i16, ptr %CTable_OffsetBits, i64 2
+  %add.ptr.i.i77.i = getelementptr inbounds i8, ptr %CTable_OffsetBits, i64 4
   %tobool.not.i.i79.i = icmp eq i16 %ct.val.i.i73.i, 0
   %sub.i.i80.i = add nsw i32 %conv.i.i74.i, -1
   %shl2.i.i81.i = shl nuw i32 1, %sub.i.i80.i
@@ -511,7 +510,7 @@ if.end.i.i:                                       ; preds = %if.end
   %8 = load i8, ptr %arrayidx16.i.i, align 1
   %ct.val.i.i101.i = load i16, ptr %CTable_LitLength, align 1
   %conv.i.i102.i = zext i16 %ct.val.i.i101.i to i32
-  %add.ptr.i.i105.i = getelementptr inbounds i16, ptr %CTable_LitLength, i64 2
+  %add.ptr.i.i105.i = getelementptr inbounds i8, ptr %CTable_LitLength, i64 4
   %tobool.not.i.i107.i = icmp eq i16 %ct.val.i.i101.i, 0
   %sub.i.i108.i = add nsw i32 %conv.i.i102.i, -1
   %shl2.i.i109.i = shl nuw i32 1, %sub.i.i108.i
@@ -535,7 +534,7 @@ if.end.i.i:                                       ; preds = %if.end
   %arrayidx8.i127.i = getelementptr i16, ptr %10, i64 %conv6.i126.i
   %11 = load i16, ptr %arrayidx8.i127.i, align 2
   %arrayidx19.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %sub.i.i
-  %litLength.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %sub.i.i, i32 1
+  %litLength.i.i = getelementptr inbounds i8, ptr %arrayidx19.i.i, i64 4
   %12 = load i16, ptr %litLength.i.i, align 4
   %arrayidx23.i.i = getelementptr inbounds [36 x i8], ptr @LL_bits, i64 0, i64 %idxprom.i114.i
   %13 = load i8, ptr %arrayidx23.i.i, align 1
@@ -546,7 +545,7 @@ if.end.i.i:                                       ; preds = %if.end
   %15 = zext i16 %12 to i32
   %16 = and i32 %14, %15
   %and.i.i.i = zext nneg i32 %16 to i64
-  %mlBase.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %sub.i.i, i32 2
+  %mlBase.i.i = getelementptr inbounds i8, ptr %arrayidx19.i.i, i64 6
   %17 = load i16, ptr %mlBase.i.i, align 2
   %arrayidx35.i.i = getelementptr inbounds [53 x i8], ptr @ML_bits, i64 0, i64 %idxprom.i67.i
   %18 = load i8, ptr %arrayidx35.i.i, align 1
@@ -757,7 +756,7 @@ if.end104.i.i:                                    ; preds = %if.then103.i.i, %fo
   %blockStream.i.sroa.61.3.i = phi i32 [ %and.i254.i, %if.then103.i.i ], [ %add.i.i241.i, %for.body.i.i ]
   %blockStream.i.sroa.124.3.i = phi ptr [ %spec.store.select.i253.i, %if.then103.i.i ], [ %blockStream.i.sroa.124.2528.i, %for.body.i.i ]
   %arrayidx105.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %n.i.0529.i
-  %litLength106.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %n.i.0529.i, i32 1
+  %litLength106.i.i = getelementptr inbounds i8, ptr %arrayidx105.i.i, i64 4
   %44 = load i16, ptr %litLength106.i.i, align 4
   %idxprom.i.i257.i = zext i8 %31 to i64
   %arrayidx.i.i258.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i257.i
@@ -769,7 +768,7 @@ if.end104.i.i:                                    ; preds = %if.then103.i.i, %fo
   %shl.i263.i = shl i64 %and.i.i260.i, %sh_prom.i262.i
   %or.i264.i = or i64 %shl.i263.i, %blockStream.i.sroa.0.3.i
   %add.i265.i = add nuw nsw i32 %blockStream.i.sroa.61.3.i, %conv83.i.i
-  %mlBase116.i.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %n.i.0529.i, i32 2
+  %mlBase116.i.i = getelementptr inbounds i8, ptr %arrayidx105.i.i, i64 6
   %48 = load i16, ptr %mlBase116.i.i, align 2
   %idxprom.i.i266.i = zext i8 %32 to i64
   %arrayidx.i.i267.i = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i266.i
@@ -979,7 +978,7 @@ return:                                           ; preds = %BIT_closeCStream.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @ZSTD_encodeSequences_bmi2(ptr noundef %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %CTable_MatchLength, ptr nocapture noundef readonly %mlCodeTable, ptr nocapture noundef readonly %CTable_OffsetBits, ptr nocapture noundef readonly %ofCodeTable, ptr nocapture noundef readonly %CTable_LitLength, ptr nocapture noundef readonly %llCodeTable, ptr nocapture noundef readonly %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets) unnamed_addr #6 {
+define internal fastcc noundef i64 @ZSTD_encodeSequences_bmi2(ptr noundef %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %CTable_MatchLength, ptr nocapture noundef readonly %mlCodeTable, ptr nocapture noundef readonly %CTable_OffsetBits, ptr nocapture noundef readonly %ofCodeTable, ptr nocapture noundef readonly %CTable_LitLength, ptr nocapture noundef readonly %llCodeTable, ptr nocapture noundef readonly %sequences, i64 noundef %nbSeq, i32 noundef %longOffsets) unnamed_addr #5 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %dst, i64 %dstCapacity
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
@@ -992,7 +991,7 @@ if.end.i:                                         ; preds = %entry
   %0 = load i8, ptr %arrayidx.i, align 1
   %ct.val.i.i = load i16, ptr %CTable_MatchLength, align 1
   %conv.i.i = zext i16 %ct.val.i.i to i32
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %CTable_MatchLength, i64 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %CTable_MatchLength, i64 4
   %tobool.not.i.i = icmp eq i16 %ct.val.i.i, 0
   %sub.i.i = add nsw i32 %conv.i.i, -1
   %shl2.i.i = shl nuw i32 1, %sub.i.i
@@ -1020,7 +1019,7 @@ if.end.i:                                         ; preds = %entry
   %conv14.i = zext i8 %4 to i32
   %ct.val.i.i73 = load i16, ptr %CTable_OffsetBits, align 1
   %conv.i.i74 = zext i16 %ct.val.i.i73 to i32
-  %add.ptr.i.i77 = getelementptr inbounds i16, ptr %CTable_OffsetBits, i64 2
+  %add.ptr.i.i77 = getelementptr inbounds i8, ptr %CTable_OffsetBits, i64 4
   %tobool.not.i.i79 = icmp eq i16 %ct.val.i.i73, 0
   %sub.i.i80 = add nsw i32 %conv.i.i74, -1
   %shl2.i.i81 = shl nuw i32 1, %sub.i.i80
@@ -1047,7 +1046,7 @@ if.end.i:                                         ; preds = %entry
   %8 = load i8, ptr %arrayidx16.i, align 1
   %ct.val.i.i101 = load i16, ptr %CTable_LitLength, align 1
   %conv.i.i102 = zext i16 %ct.val.i.i101 to i32
-  %add.ptr.i.i105 = getelementptr inbounds i16, ptr %CTable_LitLength, i64 2
+  %add.ptr.i.i105 = getelementptr inbounds i8, ptr %CTable_LitLength, i64 4
   %tobool.not.i.i107 = icmp eq i16 %ct.val.i.i101, 0
   %sub.i.i108 = add nsw i32 %conv.i.i102, -1
   %shl2.i.i109 = shl nuw i32 1, %sub.i.i108
@@ -1071,7 +1070,7 @@ if.end.i:                                         ; preds = %entry
   %arrayidx8.i127 = getelementptr i16, ptr %10, i64 %conv6.i126
   %11 = load i16, ptr %arrayidx8.i127, align 2
   %arrayidx19.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %sub.i
-  %litLength.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %sub.i, i32 1
+  %litLength.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 4
   %12 = load i16, ptr %litLength.i, align 4
   %arrayidx23.i = getelementptr inbounds [36 x i8], ptr @LL_bits, i64 0, i64 %idxprom.i114
   %13 = load i8, ptr %arrayidx23.i, align 1
@@ -1082,7 +1081,7 @@ if.end.i:                                         ; preds = %entry
   %15 = zext i16 %12 to i32
   %16 = and i32 %14, %15
   %and.i.i = zext nneg i32 %16 to i64
-  %mlBase.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %sub.i, i32 2
+  %mlBase.i = getelementptr inbounds i8, ptr %arrayidx19.i, i64 6
   %17 = load i16, ptr %mlBase.i, align 2
   %arrayidx35.i = getelementptr inbounds [53 x i8], ptr @ML_bits, i64 0, i64 %idxprom.i67
   %18 = load i8, ptr %arrayidx35.i, align 1
@@ -1293,7 +1292,7 @@ if.end104.i:                                      ; preds = %if.then103.i, %for.
   %blockStream.i.sroa.61.3 = phi i32 [ %and.i254, %if.then103.i ], [ %add.i.i241, %for.body.i ]
   %blockStream.i.sroa.124.3 = phi ptr [ %spec.store.select.i253, %if.then103.i ], [ %blockStream.i.sroa.124.2528, %for.body.i ]
   %arrayidx105.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %n.i.0529
-  %litLength106.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %n.i.0529, i32 1
+  %litLength106.i = getelementptr inbounds i8, ptr %arrayidx105.i, i64 4
   %44 = load i16, ptr %litLength106.i, align 4
   %idxprom.i.i257 = zext i8 %31 to i64
   %arrayidx.i.i258 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i257
@@ -1305,7 +1304,7 @@ if.end104.i:                                      ; preds = %if.then103.i, %for.
   %shl.i263 = shl i64 %and.i.i260, %sh_prom.i262
   %or.i264 = or i64 %shl.i263, %blockStream.i.sroa.0.3
   %add.i265 = add nuw nsw i32 %blockStream.i.sroa.61.3, %conv83.i
-  %mlBase116.i = getelementptr inbounds %struct.seqDef_s, ptr %sequences, i64 %n.i.0529, i32 2
+  %mlBase116.i = getelementptr inbounds i8, ptr %arrayidx105.i, i64 6
   %48 = load i16, ptr %mlBase116.i, align 2
   %idxprom.i.i266 = zext i8 %32 to i64
   %arrayidx.i.i267 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %idxprom.i.i266
@@ -1515,24 +1514,23 @@ ZSTD_encodeSequences_body.exit:                   ; preds = %BIT_closeCStream.ex
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
+attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

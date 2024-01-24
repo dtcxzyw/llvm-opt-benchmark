@@ -4,56 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.gnutls_datum_t = type { ptr, i32 }
-%"class.zmq::wss_engine_t" = type { %"class.zmq::ws_engine_t", i8, ptr, ptr }
-%"class.zmq::ws_engine_t" = type { %"class.zmq::stream_engine_base_t.base", i8, %"class.zmq::ws_address_t", i32, i32, [8192 x i8], [8192 x i8], [1025 x i8], i32, [2049 x i8], i32, i8, i8, [256 x i8], [2049 x i8], [2049 x i8], i32, %"class.zmq::msg_t" }
-%"class.zmq::stream_engine_base_t.base" = type <{ %"class.zmq::io_object_t", %"struct.zmq::i_engine", %"struct.zmq::options_t", ptr, i64, ptr, ptr, i64, ptr, ptr, { i64, i64 }, { i64, i64 }, ptr, i8, i8, [6 x i8], %"struct.zmq::endpoint_uri_pair_t", i8, i8, i8, i8, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8], ptr, i8, i8, [6 x i8], %"class.zmq::msg_t", i8, [7 x i8], ptr, ptr, i8 }>
-%"class.zmq::io_object_t" = type { %"struct.zmq::i_poll_events", ptr }
-%"struct.zmq::i_poll_events" = type { ptr }
-%"struct.zmq::i_engine" = type { ptr }
-%"struct.zmq::options_t" = type { i32, i32, i64, i8, [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, %"struct.zmq::atomic_value_t", i32, i32, i32, i32, i32, i32, i64, i32, i32, i8, i32, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, i32, %"class.std::vector", %"class.std::set", %"class.std::set", %"class.std::set.6", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", [32 x i8], [32 x i8], [32 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i8, i32, i8, i32, i8, i16, i32, i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i32, i32, i8, i32, %"class.std::map", i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, %"class.std::vector.21", i8, i32, i8, i32, i32, i32, i32, i32, i8, i32 }
-%"struct.zmq::atomic_value_t" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<zmq::tcp_address_mask_t, std::allocator<zmq::tcp_address_mask_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::set.6" = type { %"class.std::_Rb_tree.7" }
-%"class.std::_Rb_tree.7" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.11", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.11" = type { %"struct.std::less.12" }
-%"struct.std::less.12" = type { i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree.14" }
-%"class.std::_Rb_tree.14" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.18", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.18" = type { %"struct.std::less.19" }
-%"struct.std::less.19" = type { i8 }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.zmq::endpoint_uri_pair_t" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.zmq::ws_address_t" = type { %"union.zmq::ip_addr_t", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"union.zmq::ip_addr_t" = type { %struct.sockaddr_in6 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.34 }
-%union.anon.34 = type { [4 x i32] }
-%"class.zmq::msg_t" = type { %union.anon.26 }
-%union.anon.26 = type { %struct.anon }
-%struct.anon = type { ptr, [34 x i8], i8, i8, i32, %"union.zmq::msg_t::group_t" }
-%"union.zmq::msg_t::group_t" = type { %struct.anon.28 }
-%struct.anon.28 = type { i8, ptr }
-%"class.zmq::stream_engine_base_t" = type <{ %"class.zmq::io_object_t", %"struct.zmq::i_engine", %"struct.zmq::options_t", ptr, i64, ptr, ptr, i64, ptr, ptr, { i64, i64 }, { i64, i64 }, ptr, i8, i8, [6 x i8], %"struct.zmq::endpoint_uri_pair_t", i8, i8, i8, i8, [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8], ptr, i8, i8, [6 x i8], %"class.zmq::msg_t", i8, [7 x i8], ptr, ptr, i8, [7 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -87,9 +37,9 @@ entry:
   store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %_established = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 1
+  %_established = getelementptr inbounds i8, ptr %this, i64 25696
   store i8 0, ptr %_established, align 8
-  %_tls_client_cred = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 2
+  %_tls_client_cred = getelementptr inbounds i8, ptr %this, i64 25704
   store ptr null, ptr %_tls_client_cred, align 8
   br i1 %client_, label %if.then, label %do.body86
 
@@ -116,7 +66,7 @@ lpad:                                             ; preds = %if.then122.invoke, 
   resume { ptr, i32 } %2
 
 do.end:                                           ; preds = %if.then4, %invoke.cont
-  %wss_trust_system = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 77
+  %wss_trust_system = getelementptr inbounds i8, ptr %options_, i64 1200
   %3 = load i8, ptr %wss_trust_system, align 8
   %4 = and i8 %3, 1
   %tobool10.not = icmp eq i8 %4, 0
@@ -128,7 +78,7 @@ if.then11:                                        ; preds = %do.end
           to label %if.end15 unwind label %lpad
 
 if.end15:                                         ; preds = %if.then11, %do.end
-  %wss_trust_pem = getelementptr inbounds %"struct.zmq::options_t", ptr %options_, i64 0, i32 75
+  %wss_trust_pem = getelementptr inbounds i8, ptr %options_, i64 1136
   %call16 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %wss_trust_pem) #11
   %cmp17.not = icmp eq i64 %call16, 0
   br i1 %cmp17.not, label %if.end39, label %if.then18
@@ -136,7 +86,7 @@ if.end15:                                         ; preds = %if.then11, %do.end
 if.then18:                                        ; preds = %if.end15
   %call20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %wss_trust_pem) #11
   store ptr %call20, ptr %trust, align 8
-  %size = getelementptr inbounds %struct.gnutls_datum_t, ptr %trust, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %trust, i64 8
   %call22 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %wss_trust_pem) #11
   %conv = trunc i64 %call22 to i32
   store i32 %conv, ptr %size, align 8
@@ -162,7 +112,7 @@ if.end39:                                         ; preds = %invoke.cont24, %if.
           to label %invoke.cont41 unwind label %lpad
 
 invoke.cont41:                                    ; preds = %if.end39
-  %_tls_session = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 3
+  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
   %call43 = invoke i32 @gnutls_init(ptr noundef nonnull %_tls_session, i32 noundef 10)
           to label %invoke.cont42 unwind label %lpad
 
@@ -233,7 +183,7 @@ if.then90:                                        ; preds = %do.body86
           to label %do.end98 unwind label %lpad
 
 do.end98:                                         ; preds = %if.then90, %do.body86
-  %_tls_session99 = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 3
+  %_tls_session99 = getelementptr inbounds i8, ptr %this, i64 25712
   %call101 = invoke i32 @gnutls_init(ptr noundef nonnull %_tls_session99, i32 noundef 9)
           to label %invoke.cont100 unwind label %lpad
 
@@ -270,7 +220,7 @@ if.then122.invoke:                                ; preds = %if.then77, %if.then
           to label %if.end131 unwind label %lpad
 
 if.end131:                                        ; preds = %if.then122.invoke, %invoke.cont116, %invoke.cont71
-  %_tls_session132 = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 3
+  %_tls_session132 = getelementptr inbounds i8, ptr %this, i64 25712
   %25 = load ptr, ptr %_tls_session132, align 8
   %call134 = invoke i32 @gnutls_set_default_priority(ptr noundef %25)
           to label %invoke.cont133 unwind label %lpad
@@ -361,13 +311,13 @@ entry:
   store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %_tls_session = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 3
+  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   invoke void @gnutls_deinit(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_tls_client_cred = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 2
+  %_tls_client_cred = getelementptr inbounds i8, ptr %this, i64 25704
   %1 = load ptr, ptr %_tls_client_cred, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -434,7 +384,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12wss_engine_t13plug_internalEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) unnamed_addr #0 align 2 {
 entry:
-  %_handle.i = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 25
+  %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %0 = load ptr, ptr %_handle.i, align 8
   tail call void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
   tail call void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align 8 dereferenceable(1689) %this)
@@ -446,7 +396,7 @@ declare void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12wss_engine_t9out_eventEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) unnamed_addr #0 align 2 {
 entry:
-  %_established = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 1
+  %_established = getelementptr inbounds i8, ptr %this, i64 25696
   %0 = load i8, ptr %_established, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -469,10 +419,10 @@ declare void @_ZN3zmq20stream_engine_base_t9out_eventEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq12wss_engine_t12do_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_tls_session = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 3
+  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   %call = tail call i32 @gnutls_handshake(ptr noundef %0)
-  %_handle.i = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 25
+  %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
   %1 = load ptr, ptr %_handle.i, align 8
   tail call void @_ZN3zmq11io_object_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %1)
   switch i32 %call, label %if.else12 [
@@ -484,7 +434,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN3zmq11ws_engine_t18start_ws_handshakeEv(ptr noundef nonnull align 8 dereferenceable(25696) %this)
-  %_established = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 1
+  %_established = getelementptr inbounds i8, ptr %this, i64 25696
   store i8 1, ptr %_established, align 8
   br label %return
 
@@ -501,7 +451,7 @@ if.then7:                                         ; preds = %if.then3
 
 if.else12:                                        ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(1689) %this, i32 noundef 1)
   br label %return
@@ -519,7 +469,7 @@ declare i32 @gnutls_record_get_direction(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq12wss_engine_t9handshakeEv(ptr noundef nonnull align 8 dereferenceable(25720) %this) unnamed_addr #0 align 2 {
 entry:
-  %_established = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 1
+  %_established = getelementptr inbounds i8, ptr %this, i64 25696
   %0 = load i8, ptr %_established, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -543,7 +493,7 @@ declare noundef zeroext i1 @_ZN3zmq11ws_engine_t9handshakeEv(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq12wss_engine_t4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
 entry:
-  %_tls_session = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 3
+  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   %call = tail call i64 @gnutls_record_recv(ptr noundef %0, ptr noundef %data_, i64 noundef %size_)
   switch i64 %call, label %if.end15 [
@@ -601,7 +551,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq12wss_engine_t5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25720) %this, ptr noundef %data_, i64 noundef %size_) unnamed_addr #0 align 2 {
 entry:
-  %_tls_session = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this, i64 0, i32 3
+  %_tls_session = getelementptr inbounds i8, ptr %this, i64 25712
   %0 = load ptr, ptr %_tls_session, align 8
   %call = tail call i64 @gnutls_record_send(ptr noundef %0, ptr noundef %data_, i64 noundef %size_)
   switch i64 %call, label %if.end [
@@ -634,7 +584,7 @@ declare void @_ZN3zmq20stream_engine_base_t11timer_eventEi(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_has_handshake_stage = getelementptr inbounds %"class.zmq::stream_engine_base_t", ptr %this, i64 0, i32 34
+  %_has_handshake_stage = getelementptr inbounds i8, ptr %this, i64 1688
   %0 = load i8, ptr %_has_handshake_stage, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0

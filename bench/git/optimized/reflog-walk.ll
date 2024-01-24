@@ -4,13 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.reflog_walk_info = type { ptr, i64, i64, %struct.string_list, ptr }
-%struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
-%struct.complete_reflogs = type { ptr, ptr, ptr, i32, i32 }
 %struct.reflog_info = type { %struct.object_id, %struct.object_id, ptr, i64, i32, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.commit_reflog = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [27 x i8] c"cannot walk reflogs for %s\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"HEAD\00", align 1
@@ -31,7 +26,7 @@ define dso_local void @init_reflog_walk(ptr nocapture noundef writeonly %info) l
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 72) #11
   store ptr %call, ptr %info, align 8
-  %strdup_strings = getelementptr inbounds %struct.reflog_walk_info, ptr %call, i64 0, i32 3, i32 3
+  %strdup_strings = getelementptr inbounds i8, ptr %call, i64 48
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
@@ -47,7 +42,7 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr = getelementptr inbounds %struct.reflog_walk_info, ptr %info, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp8.not = icmp eq i64 %0, 0
   br i1 %cmp8.not, label %for.end, label %for.body
@@ -64,7 +59,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %complete_reflogs = getelementptr inbounds %struct.reflog_walk_info, ptr %info, i64 0, i32 3
+  %complete_reflogs = getelementptr inbounds i8, ptr %info, i64 24
   tail call void @string_list_clear_func(ptr noundef nonnull %complete_reflogs, ptr noundef nonnull @complete_reflogs_clear) #11
   %4 = load ptr, ptr %info, align 8
   tail call void @free(ptr noundef %4) #11
@@ -138,13 +133,13 @@ if.end16:                                         ; preds = %if.end, %land.lhs.t
   %recno.0 = phi i32 [ -1, %if.then11 ], [ %conv7, %if.else ], [ 0, %land.lhs.true ], [ 0, %if.end ]
   %timestamp.0 = phi i64 [ %call13, %if.then11 ], [ 0, %if.else ], [ 0, %land.lhs.true ], [ 0, %if.end ]
   %selector.0 = phi i32 [ 2, %if.then11 ], [ 1, %if.else ], [ 0, %land.lhs.true ], [ 0, %if.end ]
-  %complete_reflogs = getelementptr inbounds %struct.reflog_walk_info, ptr %info, i64 0, i32 3
+  %complete_reflogs = getelementptr inbounds i8, ptr %info, i64 24
   %call17 = tail call ptr @string_list_lookup(ptr noundef nonnull %complete_reflogs, ptr noundef %call1) #11
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %if.else20, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %util = getelementptr inbounds %struct.string_list_item, ptr %call17, i64 0, i32 1
+  %util = getelementptr inbounds i8, ptr %call17, i64 8
   %4 = load ptr, ptr %util, align 8
   br label %if.end59
 
@@ -170,7 +165,7 @@ if.end29:                                         ; preds = %if.then24, %if.else
   br i1 %tobool31.not, label %if.then34, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end29
-  %nr = getelementptr inbounds %struct.complete_reflogs, ptr %call30, i64 0, i32 3
+  %nr = getelementptr inbounds i8, ptr %call30, i64 24
   %6 = load i32, ptr %nr, align 8
   %cmp32 = icmp eq i32 %6, 0
   br i1 %cmp32, label %if.then34, label %if.end55
@@ -205,7 +200,7 @@ if.end48:                                         ; preds = %if.then40, %if.then
   br i1 %tobool49.not, label %if.then54, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end48
-  %nr51.phi.trans.insert = getelementptr inbounds %struct.complete_reflogs, ptr %reflogs.0, i64 0, i32 3
+  %nr51.phi.trans.insert = getelementptr inbounds i8, ptr %reflogs.0, i64 24
   %.pre = load i32, ptr %nr51.phi.trans.insert, align 8
   %9 = icmp eq i32 %.pre, 0
   br i1 %9, label %lor.lhs.false50.split, label %if.end55
@@ -222,7 +217,7 @@ if.end55:                                         ; preds = %lor.lhs.false, %lor
   %reflogs.05668 = phi ptr [ %reflogs.0, %lor.lhs.false50 ], [ %call30, %lor.lhs.false ]
   %branch.15867 = phi ptr [ %branch.1, %lor.lhs.false50 ], [ %branch.0, %lor.lhs.false ]
   %call57 = call ptr @string_list_insert(ptr noundef nonnull %complete_reflogs, ptr noundef %branch.15867) #11
-  %util58 = getelementptr inbounds %struct.string_list_item, ptr %call57, i64 0, i32 1
+  %util58 = getelementptr inbounds i8, ptr %call57, i64 8
   store ptr %reflogs.05668, ptr %util58, align 8
   br label %if.end59
 
@@ -232,12 +227,12 @@ if.end59:                                         ; preds = %if.end55, %if.then1
   call void @free(ptr noundef %branch.2) #11
   %call60 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #11
   %cmp61 = icmp slt i32 %recno.0, 0
-  %nr.i = getelementptr inbounds %struct.complete_reflogs, ptr %reflogs.1, i64 0, i32 3
+  %nr.i = getelementptr inbounds i8, ptr %reflogs.1, i64 24
   %10 = load i32, ptr %nr.i, align 8
   br i1 %cmp61, label %if.then63, label %if.else71
 
 if.then63:                                        ; preds = %if.end59
-  %items.i = getelementptr inbounds %struct.complete_reflogs, ptr %reflogs.1, i64 0, i32 2
+  %items.i = getelementptr inbounds i8, ptr %reflogs.1, i64 16
   %11 = zext i32 %10 to i64
   br label %for.cond.i
 
@@ -273,14 +268,14 @@ if.else71:                                        ; preds = %if.end59
   br label %if.end75
 
 if.end75:                                         ; preds = %get_reflog_recno_by_time.exit, %if.else71
-  %selector76 = getelementptr inbounds %struct.commit_reflog, ptr %call60, i64 0, i32 1
+  %selector76 = getelementptr inbounds i8, ptr %call60, i64 4
   store i32 %selector.0, ptr %selector76, align 4
-  %reflogs77 = getelementptr inbounds %struct.commit_reflog, ptr %call60, i64 0, i32 2
+  %reflogs77 = getelementptr inbounds i8, ptr %call60, i64 8
   store ptr %reflogs.1, ptr %reflogs77, align 8
-  %nr78 = getelementptr inbounds %struct.reflog_walk_info, ptr %info, i64 0, i32 1
+  %nr78 = getelementptr inbounds i8, ptr %info, i64 8
   %16 = load i64, ptr %nr78, align 8
   %add = add i64 %16, 1
-  %alloc = getelementptr inbounds %struct.reflog_walk_info, ptr %info, i64 0, i32 2
+  %alloc = getelementptr inbounds i8, ptr %info, i64 16
   %17 = load i64, ptr %alloc, align 8
   %cmp79 = icmp ugt i64 %add, %17
   br i1 %cmp79, label %if.then81, label %if.end75.do.end_crit_edge
@@ -349,7 +344,7 @@ entry:
   %call1 = tail call ptr @xstrdup(ptr noundef %ref) #11
   store ptr %call1, ptr %call, align 8
   %call3 = tail call i32 @for_each_reflog_ent(ptr noundef %ref, ptr noundef nonnull @read_one_reflog, ptr noundef nonnull %call) #11
-  %nr = getelementptr inbounds %struct.complete_reflogs, ptr %call, i64 0, i32 3
+  %nr = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load i32, ptr %nr, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end19
@@ -403,13 +398,13 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nr = getelementptr inbounds %struct.complete_reflogs, ptr %array, i64 0, i32 3
+  %nr = getelementptr inbounds i8, ptr %array, i64 24
   %0 = load i32, ptr %nr, align 8
   %cmp11 = icmp sgt i32 %0, 0
   br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %items = getelementptr inbounds %struct.complete_reflogs, ptr %array, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %array, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -429,12 +424,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %items4 = getelementptr inbounds %struct.complete_reflogs, ptr %array, i64 0, i32 2
+  %items4 = getelementptr inbounds i8, ptr %array, i64 16
   %7 = load ptr, ptr %items4, align 8
   tail call void @free(ptr noundef %7) #11
   %8 = load ptr, ptr %array, align 8
   tail call void @free(ptr noundef %8) #11
-  %short_ref = getelementptr inbounds %struct.complete_reflogs, ptr %array, i64 0, i32 1
+  %short_ref = getelementptr inbounds i8, ptr %array, i64 8
   %9 = load ptr, ptr %short_ref, align 8
   tail call void @free(ptr noundef %9) #11
   tail call void @free(ptr noundef nonnull %array) #11
@@ -451,19 +446,19 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @get_reflog_selector(ptr noundef %sb, ptr nocapture noundef readonly %reflog_info, ptr noundef %dmode, i32 noundef %force_date, i32 noundef %shorten) local_unnamed_addr #0 {
 entry:
-  %last_commit_reflog = getelementptr inbounds %struct.reflog_walk_info, ptr %reflog_info, i64 0, i32 4
+  %last_commit_reflog = getelementptr inbounds i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %tobool1.not = icmp eq i32 %shorten, 0
-  %reflogs11 = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 2
+  %reflogs11 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reflogs11, align 8
   br i1 %tobool1.not, label %if.end13, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %short_ref = getelementptr inbounds %struct.complete_reflogs, ptr %1, i64 0, i32 1
+  %short_ref = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %short_ref, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.then4, label %if.end8
@@ -472,21 +467,21 @@ if.then4:                                         ; preds = %if.then2
   %3 = load ptr, ptr %1, align 8
   %call = tail call ptr @shorten_unambiguous_ref(ptr noundef %3, i32 noundef 0) #11
   %4 = load ptr, ptr %reflogs11, align 8
-  %short_ref7 = getelementptr inbounds %struct.complete_reflogs, ptr %4, i64 0, i32 1
+  %short_ref7 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %call, ptr %short_ref7, align 8
   %.pre = load ptr, ptr %reflogs11, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %if.then2
   %5 = phi ptr [ %.pre, %if.then4 ], [ %1, %if.then2 ]
-  %short_ref10 = getelementptr inbounds %struct.complete_reflogs, ptr %5, i64 0, i32 1
+  %short_ref10 = getelementptr inbounds i8, ptr %5, i64 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %if.end8
   %printed_ref.0.in = phi ptr [ %short_ref10, %if.end8 ], [ %1, %if.end ]
   %printed_ref.0 = load ptr, ptr %printed_ref.0.in, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.3, ptr noundef %printed_ref.0) #11
-  %selector = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 1
+  %selector = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %selector, align 4
   %cmp = icmp eq i32 %6, 2
   br i1 %cmp, label %if.then17, label %lor.lhs.false
@@ -498,16 +493,16 @@ lor.lhs.false:                                    ; preds = %if.end13
   br i1 %or.cond, label %if.then17, label %if.else20
 
 if.then17:                                        ; preds = %lor.lhs.false, %if.end13
-  %reflogs18 = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 2
+  %reflogs18 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %reflogs18, align 8
-  %items = getelementptr inbounds %struct.complete_reflogs, ptr %7, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %items, align 8
   %9 = load i32, ptr %0, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr %struct.reflog_info, ptr %8, i64 %10
-  %timestamp = getelementptr %struct.reflog_info, ptr %11, i64 1, i32 3
+  %timestamp = getelementptr i8, ptr %11, i64 184
   %12 = load i64, ptr %timestamp, align 8
-  %tz = getelementptr %struct.reflog_info, ptr %11, i64 1, i32 4
+  %tz = getelementptr i8, ptr %11, i64 192
   %13 = load i32, ptr %tz, align 8
   %call19 = tail call ptr @show_date(i64 noundef %12, i32 noundef %13, ptr noundef %dmode) #11
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call19) #12
@@ -515,9 +510,9 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end24
 
 if.else20:                                        ; preds = %lor.lhs.false
-  %reflogs21 = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 2
+  %reflogs21 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %reflogs21, align 8
-  %nr = getelementptr inbounds %struct.complete_reflogs, ptr %14, i64 0, i32 3
+  %nr = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load i32, ptr %nr, align 8
   %sub = add nsw i32 %15, -2
   %16 = load i32, ptr %0, align 8
@@ -531,7 +526,7 @@ if.end24:                                         ; preds = %if.else20, %if.then
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.end24
-  %len.i.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %sb, i64 8
   %18 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %18, 1
   %tobool.not.i = icmp eq i64 %17, %.neg.i
@@ -539,7 +534,7 @@ strbuf_avail.exit.i:                              ; preds = %if.end24
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.end24
   tail call void @strbuf_grow(ptr noundef nonnull %sb, i64 noundef 1) #11
-  %len.phi.trans.insert.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %sb, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -547,9 +542,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %19 = phi i64 [ %.pre.i, %if.then.i ], [ %18, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %sb, i64 16
   %20 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %20, i64 %19
   store i8 125, ptr %arrayidx.i, align 1
@@ -572,20 +567,20 @@ declare ptr @show_date(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @get_reflog_message(ptr noundef %sb, ptr nocapture noundef readonly %reflog_info) local_unnamed_addr #0 {
 entry:
-  %last_commit_reflog = getelementptr inbounds %struct.reflog_walk_info, ptr %reflog_info, i64 0, i32 4
+  %last_commit_reflog = getelementptr inbounds i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %reflogs = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 2
+  %reflogs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reflogs, align 8
-  %items = getelementptr inbounds %struct.complete_reflogs, ptr %1, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %items, align 8
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr %struct.reflog_info, ptr %2, i64 %4
-  %message = getelementptr %struct.reflog_info, ptr %5, i64 1, i32 5
+  %message = getelementptr i8, ptr %5, i64 200
   %6 = load ptr, ptr %message, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %call, i64 1)
@@ -601,20 +596,20 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @get_reflog_ident(ptr nocapture noundef readonly %reflog_info) local_unnamed_addr #6 {
 entry:
-  %last_commit_reflog = getelementptr inbounds %struct.reflog_walk_info, ptr %reflog_info, i64 0, i32 4
+  %last_commit_reflog = getelementptr inbounds i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %reflogs = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 2
+  %reflogs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reflogs, align 8
-  %items = getelementptr inbounds %struct.complete_reflogs, ptr %1, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %items, align 8
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr %struct.reflog_info, ptr %2, i64 %4
-  %email = getelementptr %struct.reflog_info, ptr %5, i64 1, i32 2
+  %email = getelementptr i8, ptr %5, i64 176
   %6 = load ptr, ptr %email, align 8
   br label %return
 
@@ -626,20 +621,20 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @get_reflog_timestamp(ptr nocapture noundef readonly %reflog_info) local_unnamed_addr #6 {
 entry:
-  %last_commit_reflog = getelementptr inbounds %struct.reflog_walk_info, ptr %reflog_info, i64 0, i32 4
+  %last_commit_reflog = getelementptr inbounds i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %reflogs = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 2
+  %reflogs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reflogs, align 8
-  %items = getelementptr inbounds %struct.complete_reflogs, ptr %1, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %items, align 8
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr %struct.reflog_info, ptr %2, i64 %4
-  %timestamp = getelementptr %struct.reflog_info, ptr %5, i64 1, i32 3
+  %timestamp = getelementptr i8, ptr %5, i64 184
   %6 = load i64, ptr %timestamp, align 8
   br label %return
 
@@ -656,36 +651,36 @@ entry:
   br i1 %tobool.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %last_commit_reflog = getelementptr inbounds %struct.reflog_walk_info, ptr %reflog_info, i64 0, i32 4
+  %last_commit_reflog = getelementptr inbounds i8, ptr %reflog_info, i64 64
   %0 = load ptr, ptr %last_commit_reflog, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %selector, ptr noundef nonnull align 8 dereferenceable(24) @__const.show_reflog_message.selector, i64 24, i1 false)
-  %reflogs = getelementptr inbounds %struct.commit_reflog, ptr %0, i64 0, i32 2
+  %reflogs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reflogs, align 8
-  %items = getelementptr inbounds %struct.complete_reflogs, ptr %1, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %items, align 8
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr %struct.reflog_info, ptr %2, i64 %4
   call void @get_reflog_selector(ptr noundef nonnull %selector, ptr noundef nonnull %reflog_info, ptr noundef %dmode, i32 noundef %force_date, i32 noundef 0)
   %tobool3.not = icmp eq i32 %oneline, 0
-  %buf5 = getelementptr inbounds %struct.strbuf, ptr %selector, i64 0, i32 2
+  %buf5 = getelementptr inbounds i8, ptr %selector, i64 16
   %6 = load ptr, ptr %buf5, align 8
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %message = getelementptr %struct.reflog_info, ptr %5, i64 1, i32 5
+  %message = getelementptr i8, ptr %5, i64 200
   %7 = load ptr, ptr %message, align 8
   %call = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %6, ptr noundef %7)
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %email = getelementptr %struct.reflog_info, ptr %5, i64 1, i32 2
+  %email = getelementptr i8, ptr %5, i64 176
   %8 = load ptr, ptr %email, align 8
-  %message6 = getelementptr %struct.reflog_info, ptr %5, i64 1, i32 5
+  %message6 = getelementptr i8, ptr %5, i64 200
   %9 = load ptr, ptr %message6, align 8
   %call7 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %6, ptr noundef %8, ptr noundef %9)
   br label %if.end
@@ -713,7 +708,7 @@ entry:
   br i1 %tobool.not, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %nr = getelementptr inbounds %struct.reflog_walk_info, ptr %info, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool1.not = icmp eq i64 %0, 0
   %1 = zext i1 %tobool1.not to i32
@@ -727,7 +722,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @next_reflog_entry(ptr nocapture noundef %walk) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds %struct.reflog_walk_info, ptr %walk, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %walk, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp20.not = icmp eq i64 %0, 0
   br i1 %cmp20.not, label %return, label %for.body
@@ -744,13 +739,13 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp6.i, label %for.body.lr.ph.i, label %for.inc
 
 for.body.lr.ph.i:                                 ; preds = %for.body
-  %reflogs.i = getelementptr %struct.commit_reflog, ptr %2, i64 0, i32 2
+  %reflogs.i = getelementptr i8, ptr %2, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %3 = phi i32 [ %.pr.i, %for.body.lr.ph.i ], [ %dec.i, %for.inc.i ]
   %4 = load ptr, ptr %reflogs.i, align 8
-  %items.i = getelementptr inbounds %struct.complete_reflogs, ptr %4, i64 0, i32 2
+  %items.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %items.i, align 8
   %idxprom.i = zext nneg i32 %3 to i64
   %6 = load ptr, ptr @the_repository, align 8
@@ -814,7 +809,7 @@ if.then8:                                         ; preds = %for.end
   %15 = load i32, ptr %best.1, align 8
   %dec = add nsw i32 %15, -1
   store i32 %dec, ptr %best.1, align 8
-  %last_commit_reflog = getelementptr inbounds %struct.reflog_walk_info, ptr %walk, i64 0, i32 4
+  %last_commit_reflog = getelementptr inbounds i8, ptr %walk, i64 64
   store ptr %best.1, ptr %last_commit_reflog, align 8
   br label %return
 
@@ -828,15 +823,15 @@ declare i32 @for_each_reflog_ent(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @read_one_reflog(ptr nocapture noundef readonly %ooid, ptr nocapture noundef readonly %noid, ptr noundef %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr nocapture noundef %cb_data) #0 {
 entry:
-  %nr = getelementptr inbounds %struct.complete_reflogs, ptr %cb_data, i64 0, i32 3
+  %nr = getelementptr inbounds i8, ptr %cb_data, i64 24
   %0 = load i32, ptr %nr, align 8
-  %alloc = getelementptr inbounds %struct.complete_reflogs, ptr %cb_data, i64 0, i32 4
+  %alloc = getelementptr inbounds i8, ptr %cb_data, i64 28
   %1 = load i32, ptr %alloc, align 4
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %entry.do.end_crit_edge, label %if.then
 
 entry.do.end_crit_edge:                           ; preds = %entry
-  %items19.phi.trans.insert = getelementptr inbounds %struct.complete_reflogs, ptr %cb_data, i64 0, i32 2
+  %items19.phi.trans.insert = getelementptr inbounds i8, ptr %cb_data, i64 16
   %.pre = load ptr, ptr %items19.phi.trans.insert, align 8
   br label %do.end
 
@@ -857,7 +852,7 @@ if.then.i:                                        ; preds = %if.then
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then
-  %items = getelementptr inbounds %struct.complete_reflogs, ptr %cb_data, i64 0, i32 2
+  %items = getelementptr inbounds i8, ptr %cb_data, i64 16
   %3 = load ptr, ptr %items, align 8
   %mul.i = mul nuw nsw i64 %conv, 104
   %call16 = tail call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i) #11
@@ -871,25 +866,25 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %add.ptr, ptr noundef nonnull align 4 dereferenceable(32) %ooid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %ooid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %ooid, i64 32
   %6 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object_id, ptr %add.ptr, i64 0, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store i32 %6, ptr %algo3.i, align 4
-  %noid22 = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext, i32 1
+  %noid22 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %noid22, ptr noundef nonnull align 4 dereferenceable(32) %noid, i64 32, i1 false)
-  %algo.i19 = getelementptr inbounds %struct.object_id, ptr %noid, i64 0, i32 1
+  %algo.i19 = getelementptr inbounds i8, ptr %noid, i64 32
   %7 = load i32, ptr %algo.i19, align 4
-  %algo3.i20 = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext, i32 1, i32 1
+  %algo3.i20 = getelementptr inbounds i8, ptr %add.ptr, i64 68
   store i32 %7, ptr %algo3.i20, align 4
   %call23 = tail call ptr @xstrdup(ptr noundef %email) #11
-  %email24 = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext, i32 2
+  %email24 = getelementptr inbounds i8, ptr %add.ptr, i64 72
   store ptr %call23, ptr %email24, align 8
-  %timestamp25 = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext, i32 3
+  %timestamp25 = getelementptr inbounds i8, ptr %add.ptr, i64 80
   store i64 %timestamp, ptr %timestamp25, align 8
-  %tz26 = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext, i32 4
+  %tz26 = getelementptr inbounds i8, ptr %add.ptr, i64 88
   store i32 %tz, ptr %tz26, align 8
   %call27 = tail call ptr @xstrdup(ptr noundef %message) #11
-  %message28 = getelementptr inbounds %struct.reflog_info, ptr %5, i64 %idx.ext, i32 5
+  %message28 = getelementptr inbounds i8, ptr %add.ptr, i64 96
   store ptr %call27, ptr %message28, align 8
   %8 = load i32, ptr %nr, align 8
   %inc = add nsw i32 %8, 1

@@ -3,25 +3,20 @@ source_filename = "bench/libquic/original/ecdsa.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_key_st = type { ptr, ptr, ptr, i32, i32, i32, ptr, %struct.crypto_ex_data_st }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ecdsa_method_st = type { %struct.openssl_method_common_st, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.openssl_method_common_st = type { i32, i8 }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
-%struct.ecdsa_sig_st = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/ecdsa/ecdsa.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ECDSA_sign(i32 noundef %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr noundef %sig_len, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
-  %ecdsa_meth = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 6
+  %ecdsa_meth = getelementptr inbounds i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sign = getelementptr inbounds %struct.ecdsa_method_st, ptr %0, i64 0, i32 5
+  %sign = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -44,13 +39,13 @@ define hidden noundef i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest, i64 nou
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %len = alloca i64, align 8
-  %ecdsa_meth = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 6
+  %ecdsa_meth = getelementptr inbounds i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sign = getelementptr inbounds %struct.ecdsa_method_st, ptr %0, i64 0, i32 5
+  %sign = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -213,7 +208,7 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false24
   br i1 %cmp31, label %if.then43, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false28
-  %s = getelementptr inbounds %struct.ecdsa_sig_st, ptr %sig, i64 0, i32 1
+  %s = getelementptr inbounds i8, ptr %sig, i64 8
   %9 = load ptr, ptr %s, align 8
   %call33 = tail call i32 @BN_is_zero(ptr noundef %9) #4
   %tobool34.not = icmp eq i32 %call33, 0
@@ -342,13 +337,13 @@ define hidden ptr @ECDSA_do_sign_ex(ptr noundef %digest, i64 noundef %digest_len
 entry:
   %kinv = alloca ptr, align 8
   store ptr null, ptr %kinv, align 8
-  %ecdsa_meth = getelementptr inbounds %struct.ec_key_st, ptr %eckey, i64 0, i32 6
+  %ecdsa_meth = getelementptr inbounds i8, ptr %eckey, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %sign = getelementptr inbounds %struct.ecdsa_method_st, ptr %0, i64 0, i32 5
+  %sign = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -379,7 +374,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %s11 = getelementptr inbounds %struct.ecdsa_sig_st, ptr %call7, i64 0, i32 1
+  %s11 = getelementptr inbounds i8, ptr %call7, i64 8
   %2 = load ptr, ptr %s11, align 8
   %call12 = tail call ptr @BN_CTX_new() #4
   %cmp13 = icmp eq ptr %call12, null

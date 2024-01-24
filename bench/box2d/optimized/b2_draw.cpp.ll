@@ -3,8 +3,6 @@ source_filename = "bench/box2d/original/b2_draw.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.b2Draw = type <{ ptr, i32, [4 x i8] }>
-
 $_ZN6b2DrawD2Ev = comdat any
 
 $_ZN6b2DrawD0Ev = comdat any
@@ -24,7 +22,7 @@ $_ZTI6b2Draw = comdat any
 define void @_ZN6b2DrawC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV6b2Draw, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_drawFlags = getelementptr inbounds %class.b2Draw, ptr %this, i64 0, i32 1
+  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_drawFlags, align 8
   ret void
 }
@@ -32,7 +30,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6b2Draw8SetFlagsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %flags) local_unnamed_addr #0 align 2 {
 entry:
-  %m_drawFlags = getelementptr inbounds %class.b2Draw, ptr %this, i64 0, i32 1
+  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %flags, ptr %m_drawFlags, align 8
   ret void
 }
@@ -40,7 +38,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6b2Draw8GetFlagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %m_drawFlags = getelementptr inbounds %class.b2Draw, ptr %this, i64 0, i32 1
+  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_drawFlags, align 8
   ret i32 %0
 }
@@ -48,7 +46,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6b2Draw11AppendFlagsEj(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %flags) local_unnamed_addr #2 align 2 {
 entry:
-  %m_drawFlags = getelementptr inbounds %class.b2Draw, ptr %this, i64 0, i32 1
+  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_drawFlags, align 8
   %or = or i32 %0, %flags
   store i32 %or, ptr %m_drawFlags, align 8
@@ -59,7 +57,7 @@ entry:
 define void @_ZN6b2Draw10ClearFlagsEj(ptr nocapture noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %flags) local_unnamed_addr #2 align 2 {
 entry:
   %not = xor i32 %flags, -1
-  %m_drawFlags = getelementptr inbounds %class.b2Draw, ptr %this, i64 0, i32 1
+  %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_drawFlags, align 8
   %and = and i32 %0, %not
   store i32 %and, ptr %m_drawFlags, align 8

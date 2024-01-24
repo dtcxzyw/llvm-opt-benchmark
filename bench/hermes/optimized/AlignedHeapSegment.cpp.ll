@@ -3,16 +3,6 @@ source_filename = "bench/hermes/original/AlignedHeapSegment.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::vm::AlignedHeapSegment" = type { %"struct.hermes::vm::AlignedStorage", ptr, ptr }
-%"struct.hermes::vm::AlignedStorage" = type { ptr, ptr }
-%"class.hermes::vm::AlignedHeapSegment::Contents" = type <{ %"class.hermes::vm::CardTable", %"class.hermes::vm::MarkBitArrayNC", [4096 x i8], [1 x i8], [7 x i8] }>
-%"class.hermes::vm::CardTable" = type { %"struct.std::array", [8192 x i8] }
-%"struct.std::array" = type { [8192 x %"struct.std::atomic"] }
-%"struct.std::atomic" = type { i8 }
-%"class.hermes::vm::MarkBitArrayNC" = type { %"class.hermes::BitArray" }
-%"class.hermes::BitArray" = type { %"struct.std::array.0" }
-%"struct.std::array.0" = type { [8192 x i64] }
-
 $_ZN6hermes2vm18AlignedHeapSegment8setLevelILNS0_12AdviseUnusedE1EEEvPc = comdat any
 
 $_ZN6hermes2vm18AlignedHeapSegment8setLevelILNS0_12AdviseUnusedE0EEEvPc = comdat any
@@ -27,7 +17,7 @@ $_ZN6hermes2vm18AlignedHeapSegment10resetLevelILNS0_12AdviseUnusedE0EEEvv = comd
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN6hermes2vm18AlignedHeapSegment8setLevelILNS0_12AdviseUnusedE1EEEvPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %lvl) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %level_ = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment", ptr %this, i64 0, i32 1
+  %level_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %level_, align 8
   %cmp = icmp ugt ptr %0, %lvl
   br i1 %cmp, label %if.then, label %if.end
@@ -47,7 +37,7 @@ if.then:                                          ; preds = %entry
   %add2.i7 = sub i64 %sub1.i5, %6
   %7 = inttoptr i64 %add2.i7 to ptr
   %8 = load ptr, ptr %this, align 8
-  %paddedGuardPage_.i.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %8, i64 0, i32 2
+  %paddedGuardPage_.i.i = getelementptr inbounds i8, ptr %8, i64 81920
   %call.i.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #6
   %9 = ptrtoint ptr %paddedGuardPage_.i.i to i64
   %rem.i.i = urem i64 %9, %call.i.i
@@ -63,7 +53,7 @@ if.then.i.i:                                      ; preds = %if.then
 _ZN6hermes2vm18AlignedHeapSegment8Contents16protectGuardPageENS_8oscompat11ProtectModeE.exit.i: ; preds = %if.then.i.i, %if.then
   tail call void @_ZN6hermes2vm14AlignedStorage10markUnusedEPcS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %3, ptr noundef %7) #6
   %10 = load ptr, ptr %this, align 8
-  %paddedGuardPage_.i1.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %10, i64 0, i32 2
+  %paddedGuardPage_.i1.i = getelementptr inbounds i8, ptr %10, i64 81920
   %call.i2.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #6
   %11 = ptrtoint ptr %paddedGuardPage_.i1.i to i64
   %rem.i3.i = urem i64 %11, %call.i2.i
@@ -87,7 +77,7 @@ declare noundef i64 @_ZN6hermes8oscompat9page_sizeEv() local_unnamed_addr #1
 define hidden void @_ZN6hermes2vm18AlignedHeapSegment10markUnusedEPcS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %start, ptr noundef %end) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %paddedGuardPage_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %0, i64 0, i32 2
+  %paddedGuardPage_.i = getelementptr inbounds i8, ptr %0, i64 81920
   %call.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #6
   %1 = ptrtoint ptr %paddedGuardPage_.i to i64
   %rem.i = urem i64 %1, %call.i
@@ -103,7 +93,7 @@ if.then.i:                                        ; preds = %entry
 _ZN6hermes2vm18AlignedHeapSegment8Contents16protectGuardPageENS_8oscompat11ProtectModeE.exit: ; preds = %entry, %if.then.i
   tail call void @_ZN6hermes2vm14AlignedStorage10markUnusedEPcS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %start, ptr noundef %end) #6
   %2 = load ptr, ptr %this, align 8
-  %paddedGuardPage_.i1 = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %2, i64 0, i32 2
+  %paddedGuardPage_.i1 = getelementptr inbounds i8, ptr %2, i64 81920
   %call.i2 = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #6
   %3 = ptrtoint ptr %paddedGuardPage_.i1 to i64
   %rem.i3 = urem i64 %3, %call.i2
@@ -123,7 +113,7 @@ _ZN6hermes2vm18AlignedHeapSegment8Contents16protectGuardPageENS_8oscompat11Prote
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden void @_ZN6hermes2vm18AlignedHeapSegment8setLevelILNS0_12AdviseUnusedE0EEEvPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %lvl) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %level_ = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment", ptr %this, i64 0, i32 1
+  %level_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %lvl, ptr %level_, align 8
   ret void
 }
@@ -132,7 +122,7 @@ entry:
 define weak_odr hidden void @_ZN6hermes2vm18AlignedHeapSegment10resetLevelILNS0_12AdviseUnusedE1EEEvv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %allocRegion_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %0, i64 0, i32 3
+  %allocRegion_.i = getelementptr inbounds i8, ptr %0, i64 86016
   tail call void @_ZN6hermes2vm18AlignedHeapSegment8setLevelILNS0_12AdviseUnusedE1EEEvPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %allocRegion_.i)
   ret void
 }
@@ -141,8 +131,8 @@ entry:
 define weak_odr hidden void @_ZN6hermes2vm18AlignedHeapSegment10resetLevelILNS0_12AdviseUnusedE0EEEvv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %allocRegion_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %0, i64 0, i32 3
-  %level_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment", ptr %this, i64 0, i32 1
+  %allocRegion_.i = getelementptr inbounds i8, ptr %0, i64 86016
+  %level_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %allocRegion_.i, ptr %level_.i, align 8
   ret void
 }
@@ -150,7 +140,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm18AlignedHeapSegment8Contents16protectGuardPageENS_8oscompat11ProtectModeE(ptr noundef nonnull align 8 dereferenceable(86017) %this, i32 noundef %mode) local_unnamed_addr #0 align 2 {
 entry:
-  %paddedGuardPage_ = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %this, i64 0, i32 2
+  %paddedGuardPage_ = getelementptr inbounds i8, ptr %this, i64 81920
   %call = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #6
   %0 = ptrtoint ptr %paddedGuardPage_ to i64
   %rem = urem i64 %0, %call
@@ -173,12 +163,12 @@ declare noundef zeroext i1 @_ZN6hermes8oscompat10vm_protectEPvmNS0_11ProtectMode
 define hidden void @_ZN6hermes2vm18AlignedHeapSegmentC2ENS0_14AlignedStorageE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %storage) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes2vm14AlignedStorageC1EOS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %storage) #6
-  %level_ = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment", ptr %this, i64 0, i32 1
+  %level_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %this, align 8
-  %allocRegion_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %0, i64 0, i32 3
+  %allocRegion_.i = getelementptr inbounds i8, ptr %0, i64 86016
   store ptr %allocRegion_.i, ptr %level_, align 8
-  %effectiveEnd_ = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment", ptr %this, i64 0, i32 2
-  %add.ptr.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %0, i64 48, i32 1, i32 0, i32 0, i32 0, i64 6096
+  %effectiveEnd_ = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 4194304
   store ptr %add.ptr.i, ptr %effectiveEnd_, align 8
   %tobool.i.i.not = icmp eq ptr %0, null
   br i1 %tobool.i.i.not, label %if.end, label %if.then
@@ -186,7 +176,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(86024) %0, i8 0, i64 86024, i1 false)
   %1 = load ptr, ptr %this, align 8
-  %paddedGuardPage_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %1, i64 0, i32 2
+  %paddedGuardPage_.i = getelementptr inbounds i8, ptr %1, i64 81920
   %call.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #6
   %2 = ptrtoint ptr %paddedGuardPage_.i to i64
   %rem.i = urem i64 %2, %call.i
@@ -216,7 +206,7 @@ entry:
   br i1 %cmp, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %paddedGuardPage_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %0, i64 0, i32 2
+  %paddedGuardPage_.i = getelementptr inbounds i8, ptr %0, i64 81920
   %call.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #6
   %1 = ptrtoint ptr %paddedGuardPage_.i to i64
   %rem.i = urem i64 %1, %call.i
@@ -242,7 +232,7 @@ declare void @_ZN6hermes2vm14AlignedStorage10markUnusedEPcS2_(ptr noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6hermes2vm18AlignedHeapSegment15setEffectiveEndEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %effectiveEnd) local_unnamed_addr #4 align 2 {
 entry:
-  %effectiveEnd_ = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment", ptr %this, i64 0, i32 2
+  %effectiveEnd_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %effectiveEnd, ptr %effectiveEnd_, align 8
   ret void
 }
@@ -251,8 +241,8 @@ entry:
 define hidden void @_ZN6hermes2vm18AlignedHeapSegment25clearExternalMemoryChargeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment::Contents", ptr %0, i64 48, i32 1, i32 0, i32 0, i32 0, i64 6096
-  %effectiveEnd_.i = getelementptr inbounds %"class.hermes::vm::AlignedHeapSegment", ptr %this, i64 0, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 4194304
+  %effectiveEnd_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i, ptr %effectiveEnd_.i, align 8
   ret void
 }

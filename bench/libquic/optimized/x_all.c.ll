@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type opaque
-%struct.x509_st = type { ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.x509_cinf_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_req_st = type { ptr, ptr, ptr, i32 }
-%struct.X509_crl_info_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_crl_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, [20 x i8], ptr, ptr, ptr }
-%struct.Netscape_spki_st = type { ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @X509_CINF_it = external constant %struct.ASN1_ITEM_st, align 1
 @X509_REQ_INFO_it = external constant %struct.ASN1_ITEM_st, align 1
@@ -26,10 +17,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_verify(ptr nocapture noundef readonly %a, ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
   %1 = load ptr, ptr %a, align 8
-  %signature = getelementptr inbounds %struct.x509_cinf_st, ptr %1, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %signature, align 8
   %call = tail call i32 @X509_ALGOR_cmp(ptr noundef %0, ptr noundef %2) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -37,7 +28,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %sig_alg, align 8
-  %signature2 = getelementptr inbounds %struct.x509_st, ptr %a, i64 0, i32 2
+  %signature2 = getelementptr inbounds i8, ptr %a, i64 16
   %4 = load ptr, ptr %signature2, align 8
   %5 = load ptr, ptr %a, align 8
   %call4 = tail call i32 @ASN1_item_verify(ptr noundef nonnull @X509_CINF_it, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %r) #2
@@ -55,9 +46,9 @@ declare i32 @ASN1_item_verify(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_REQ_verify(ptr nocapture noundef readonly %a, ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds %struct.X509_req_st, ptr %a, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
-  %signature = getelementptr inbounds %struct.X509_req_st, ptr %a, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load ptr, ptr %signature, align 8
   %2 = load ptr, ptr %a, align 8
   %call = tail call i32 @ASN1_item_verify(ptr noundef nonnull @X509_REQ_INFO_it, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %r) #2
@@ -68,14 +59,14 @@ entry:
 define hidden i32 @X509_sign(ptr nocapture noundef readonly %x, ptr noundef %pkey, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
-  %modified = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 10, i32 2
+  %modified = getelementptr inbounds i8, ptr %0, i64 96
   store i32 1, ptr %modified, align 8
   %1 = load ptr, ptr %x, align 8
-  %signature = getelementptr inbounds %struct.x509_cinf_st, ptr %1, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %signature, align 8
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %3 = load ptr, ptr %sig_alg, align 8
-  %signature2 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 2
+  %signature2 = getelementptr inbounds i8, ptr %x, i64 16
   %4 = load ptr, ptr %signature2, align 8
   %call = tail call i32 @ASN1_item_sign(ptr noundef nonnull @X509_CINF_it, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %1, ptr noundef %pkey, ptr noundef %md) #2
   ret i32 %call
@@ -87,14 +78,14 @@ declare i32 @ASN1_item_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 define hidden i32 @X509_sign_ctx(ptr nocapture noundef readonly %x, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
-  %modified = getelementptr inbounds %struct.x509_cinf_st, ptr %0, i64 0, i32 10, i32 2
+  %modified = getelementptr inbounds i8, ptr %0, i64 96
   store i32 1, ptr %modified, align 8
   %1 = load ptr, ptr %x, align 8
-  %signature = getelementptr inbounds %struct.x509_cinf_st, ptr %1, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %signature, align 8
-  %sig_alg = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %3 = load ptr, ptr %sig_alg, align 8
-  %signature2 = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 2
+  %signature2 = getelementptr inbounds i8, ptr %x, i64 16
   %4 = load ptr, ptr %signature2, align 8
   %call = tail call i32 @ASN1_item_sign_ctx(ptr noundef nonnull @X509_CINF_it, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %1, ptr noundef %ctx) #2
   ret i32 %call
@@ -105,9 +96,9 @@ declare i32 @ASN1_item_sign_ctx(ptr noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_REQ_sign(ptr nocapture noundef readonly %x, ptr noundef %pkey, ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
-  %signature = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load ptr, ptr %signature, align 8
   %2 = load ptr, ptr %x, align 8
   %call = tail call i32 @ASN1_item_sign(ptr noundef nonnull @X509_REQ_INFO_it, ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %pkey, ptr noundef %md) #2
@@ -117,9 +108,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_REQ_sign_ctx(ptr nocapture noundef readonly %x, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
-  %signature = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load ptr, ptr %signature, align 8
   %2 = load ptr, ptr %x, align 8
   %call = tail call i32 @ASN1_item_sign_ctx(ptr noundef nonnull @X509_REQ_INFO_it, ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %ctx) #2
@@ -130,14 +121,14 @@ entry:
 define hidden i32 @X509_CRL_sign(ptr nocapture noundef readonly %x, ptr noundef %pkey, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
-  %modified = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 7, i32 2
+  %modified = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %modified, align 8
   %1 = load ptr, ptr %x, align 8
-  %sig_alg = getelementptr inbounds %struct.X509_crl_info_st, ptr %1, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %sig_alg, align 8
-  %sig_alg2 = getelementptr inbounds %struct.X509_crl_st, ptr %x, i64 0, i32 1
+  %sig_alg2 = getelementptr inbounds i8, ptr %x, i64 8
   %3 = load ptr, ptr %sig_alg2, align 8
-  %signature = getelementptr inbounds %struct.X509_crl_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call = tail call i32 @ASN1_item_sign(ptr noundef nonnull @X509_CRL_INFO_it, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %1, ptr noundef %pkey, ptr noundef %md) #2
   ret i32 %call
@@ -147,14 +138,14 @@ entry:
 define hidden i32 @X509_CRL_sign_ctx(ptr nocapture noundef readonly %x, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %x, align 8
-  %modified = getelementptr inbounds %struct.X509_crl_info_st, ptr %0, i64 0, i32 7, i32 2
+  %modified = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %modified, align 8
   %1 = load ptr, ptr %x, align 8
-  %sig_alg = getelementptr inbounds %struct.X509_crl_info_st, ptr %1, i64 0, i32 1
+  %sig_alg = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %sig_alg, align 8
-  %sig_alg2 = getelementptr inbounds %struct.X509_crl_st, ptr %x, i64 0, i32 1
+  %sig_alg2 = getelementptr inbounds i8, ptr %x, i64 8
   %3 = load ptr, ptr %sig_alg2, align 8
-  %signature = getelementptr inbounds %struct.X509_crl_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %4 = load ptr, ptr %signature, align 8
   %call = tail call i32 @ASN1_item_sign_ctx(ptr noundef nonnull @X509_CRL_INFO_it, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %1, ptr noundef %ctx) #2
   ret i32 %call
@@ -163,9 +154,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @NETSCAPE_SPKI_sign(ptr nocapture noundef readonly %x, ptr noundef %pkey, ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %sig_algor = getelementptr inbounds %struct.Netscape_spki_st, ptr %x, i64 0, i32 1
+  %sig_algor = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %sig_algor, align 8
-  %signature = getelementptr inbounds %struct.Netscape_spki_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load ptr, ptr %signature, align 8
   %2 = load ptr, ptr %x, align 8
   %call = tail call i32 @ASN1_item_sign(ptr noundef nonnull @NETSCAPE_SPKAC_it, ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %2, ptr noundef %pkey, ptr noundef %md) #2
@@ -175,9 +166,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @NETSCAPE_SPKI_verify(ptr nocapture noundef readonly %x, ptr noundef %pkey) local_unnamed_addr #0 {
 entry:
-  %sig_algor = getelementptr inbounds %struct.Netscape_spki_st, ptr %x, i64 0, i32 1
+  %sig_algor = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %sig_algor, align 8
-  %signature = getelementptr inbounds %struct.Netscape_spki_st, ptr %x, i64 0, i32 2
+  %signature = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load ptr, ptr %signature, align 8
   %2 = load ptr, ptr %x, align 8
   %call = tail call i32 @ASN1_item_verify(ptr noundef nonnull @NETSCAPE_SPKAC_it, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %pkey) #2
@@ -522,7 +513,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data1 = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data1 = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %data1, align 8
   %1 = load i32, ptr %call, align 8
   %conv = sext i32 %1 to i64

@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
-%struct.x509_attributes_st = type { ptr, i32, %union.anon }
-%union.anon = type { ptr }
 
 @X509_ATTRIBUTE_SET_ch_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 2, i64 0, i64 16, ptr @.str.1, ptr @ASN1_ANY_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.2, ptr @ASN1_ANY_it }], align 16
 @.str = private unnamed_addr constant [15 x i8] c"X509_ATTRIBUTE\00", align 1
@@ -74,10 +72,10 @@ entry:
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #2
   store ptr %call1, ptr %call.i, align 8
-  %single = getelementptr inbounds %struct.x509_attributes_st, ptr %call.i, i64 0, i32 1
+  %single = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %single, align 8
   %call2 = tail call ptr @sk_new_null() #2
-  %value3 = getelementptr inbounds %struct.x509_attributes_st, ptr %call.i, i64 0, i32 2
+  %value3 = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2, ptr %value3, align 8
   %cmp4 = icmp eq ptr %call2, null
   br i1 %cmp4, label %if.then16.thread, label %if.end6

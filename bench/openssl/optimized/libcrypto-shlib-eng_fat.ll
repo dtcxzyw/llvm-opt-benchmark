@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-eng_fat.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/engine/eng_fat.c\00", align 1
 @__func__.ENGINE_set_default_string = private unnamed_addr constant [26 x i8] c"ENGINE_set_default_string\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"str=%s\00", align 1
@@ -23,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [10 x i8] c"PKEY_ASN1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef i32 @ENGINE_set_default(ptr noundef %e, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 64
   %tobool.not = icmp eq i32 %and, 0
@@ -141,7 +137,7 @@ declare i32 @ENGINE_set_default_pkey_meths(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_set_default_pkey_asn1_meths(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ENGINE_set_default_string(ptr noundef %e, ptr noundef %def_list) local_unnamed_addr #0 {
+define noundef i32 @ENGINE_set_default_string(ptr noundef %e, ptr noundef %def_list) local_unnamed_addr #0 {
 entry:
   %flags = alloca i32, align 4
   store i32 0, ptr %flags, align 4
@@ -168,7 +164,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal i32 @int_def_cb(ptr noundef readonly %alg, i32 noundef %len, ptr nocapture noundef %arg) #2 {
+define internal noundef i32 @int_def_cb(ptr noundef readonly %alg, i32 noundef %len, ptr nocapture noundef %arg) #2 {
 entry:
   %cmp = icmp eq ptr %alg, null
   br i1 %cmp, label %return, label %if.end
@@ -248,7 +244,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ENGINE_register_complete(ptr noundef %e) local_unnamed_addr #0 {
+define noundef i32 @ENGINE_register_complete(ptr noundef %e) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ENGINE_register_ciphers(ptr noundef %e) #4
   %call1 = tail call i32 @ENGINE_register_digests(ptr noundef %e) #4
@@ -281,7 +277,7 @@ declare i32 @ENGINE_register_pkey_meths(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_register_pkey_asn1_meths(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ENGINE_register_all_complete() local_unnamed_addr #0 {
+define noundef i32 @ENGINE_register_all_complete() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ENGINE_get_first() #4
   %tobool.not4 = icmp eq ptr %call, null
@@ -289,7 +285,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %e.05 = phi ptr [ %call3, %for.inc ], [ %call, %entry ]
-  %flags = getelementptr inbounds %struct.engine_st, ptr %e.05, i64 0, i32 19
+  %flags = getelementptr inbounds i8, ptr %e.05, i64 152
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 8
   %tobool1.not = icmp eq i32 %and, 0

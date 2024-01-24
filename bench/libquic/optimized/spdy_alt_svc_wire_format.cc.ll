@@ -3,7 +3,7 @@ source_filename = "bench/libquic/original/spdy_alt_svc_wire_format.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.net::SpdyAltSvcWireFormat::AlternativeService" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i16, i32, %"class.std::vector" }
+%"class.base::BasicStringPiece" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -11,9 +11,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.base::BasicStringPiece" = type { ptr, i64 }
-%"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
+%"struct.net::SpdyAltSvcWireFormat::AlternativeService" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i16, i32, %"class.std::vector" }
 %struct._Guard = type { ptr }
 
 $_ZSt4findIPKccET_S2_S2_RKT0_ = comdat any
@@ -55,13 +54,13 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define dso_local void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
-  %host = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host) #13
-  %port = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 2
+  %port = getelementptr inbounds i8, ptr %this, i64 64
   store i16 0, ptr %port, align 8
-  %max_age = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 3
+  %max_age = getelementptr inbounds i8, ptr %this, i64 68
   store i32 86400, ptr %max_age, align 4
-  %version = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4
+  %version = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %version, i8 0, i64 24, i1 false)
   ret void
 }
@@ -73,17 +72,17 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define dso_local void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_tjSt6vectorItSaItEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %protocol_id, ptr noundef nonnull align 8 dereferenceable(32) %host, i16 noundef zeroext %port, i32 noundef %max_age, ptr nocapture noundef readonly %version) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %protocol_id)
-  %host3 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 1
+  %host3 = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host3, ptr noundef nonnull align 8 dereferenceable(32) %host)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %port4 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 2
+  %port4 = getelementptr inbounds i8, ptr %this, i64 64
   store i16 %port, ptr %port4, align 8
-  %max_age5 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 3
+  %max_age5 = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %max_age, ptr %max_age5, align 4
-  %version6 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %version, i64 0, i32 1
+  %version6 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %version, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %version, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -112,10 +111,10 @@ _ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit.i.i.i.i, %invoke.cont
   %cond.i.i.i.i = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i2, %_ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %version6, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i16, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %version, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -161,7 +160,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %version = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4
+  %version = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %version, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %if.then.i.i.i
@@ -171,7 +170,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %host = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   ret void
@@ -181,19 +180,19 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 define dso_local void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other)
-  %host = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 1
-  %host3 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %other, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %this, i64 32
+  %host3 = getelementptr inbounds i8, ptr %other, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %host3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %port = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 2
-  %port4 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %other, i64 0, i32 2
+  %port = getelementptr inbounds i8, ptr %this, i64 64
+  %port4 = getelementptr inbounds i8, ptr %other, i64 64
   %0 = load i64, ptr %port4, align 8
   store i64 %0, ptr %port, align 8
-  %version = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4
-  %version5 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %other, i64 0, i32 4
-  %_M_finish.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %other, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %version = getelementptr inbounds i8, ptr %this, i64 72
+  %version5 = getelementptr inbounds i8, ptr %other, i64 72
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %other, i64 80
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %version5, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -222,10 +221,10 @@ _ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit.i.i.i.i: ; preds = %cond.true
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit.i.i.i.i, %invoke.cont
   %cond.i.i.i.i = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i5, %_ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %version, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i16, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %3 = load ptr, ptr %version5, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -275,21 +274,21 @@ entry:
   %ref.tmp168 = alloca i8, align 1
   %ref.tmp179 = alloca i8, align 1
   store ptr %value.coerce0, ptr %value, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %value, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %value, i64 8
   store i64 %value.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %altsvc_vector, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data", ptr %altsvc_vector, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %altsvc_vector, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, %1
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE5clearEv.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.end, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i.i.i ], [ %1, %if.end ]
-  %version.i.i.i.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 4
+  %version.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 72
   %3 = load ptr, ptr %version.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -299,10 +298,10 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
   br label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %host.i.i.i.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %host.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i.i.i) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !5
 
@@ -317,9 +316,9 @@ _ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE5clearEv.ex
 
 if.end3:                                          ; preds = %_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE5clearEv.exit
   %call4 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %version, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %version, i64 0, i32 2
-  %_M_end_of_storage.i138 = getelementptr inbounds %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data", ptr %altsvc_vector, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %version, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %version, i64 16
+  %_M_end_of_storage.i138 = getelementptr inbounds i8, ptr %altsvc_vector, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %cleanup231, %if.end3
@@ -1077,7 +1076,7 @@ if.end198:                                        ; preds = %invoke.cont195
 if.then.i:                                        ; preds = %if.end198
   store i16 %conv18.i.i, ptr %56, align 2
   %58 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i131 = getelementptr inbounds i16, ptr %58, i64 1
+  %incdec.ptr.i131 = getelementptr inbounds i8, ptr %58, i64 2
   store ptr %incdec.ptr.i131, ptr %_M_finish.i, align 8
   br label %invoke.cont199
 
@@ -1124,7 +1123,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i134 = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i134 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 2
   %tobool.not.i.i.i = icmp eq ptr %59, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
@@ -1167,7 +1166,7 @@ if.then.i140:                                     ; preds = %while.end208
 
 .noexc144:                                        ; preds = %if.then.i140
   %63 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i141 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %63, i64 1
+  %incdec.ptr.i141 = getelementptr inbounds i8, ptr %63, i64 96
   store ptr %incdec.ptr.i141, ptr %_M_finish.i.i, align 8
   br label %for.cond211.preheader
 
@@ -1646,7 +1645,7 @@ define dso_local void @_ZN3net20SpdyAltSvcWireFormat25SerializeHeaderFieldValueB
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load ptr, ptr %altsvc_vector, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data", ptr %altsvc_vector, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %altsvc_vector, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.then, label %if.end
@@ -1795,7 +1794,7 @@ invoke.cont33:                                    ; preds = %for.end
           to label %invoke.cont34 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont34:                                    ; preds = %invoke.cont33
-  %host = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__begin1.sroa.0.053, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 32
   %call37 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #13
   %call40 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #13
   %cmp.i23.not48 = icmp eq ptr %call37, %call40
@@ -1823,14 +1822,14 @@ for.inc54:                                        ; preds = %if.end52
   br i1 %cmp.i23.not, label %for.end56, label %for.body44
 
 for.end56:                                        ; preds = %for.inc54, %invoke.cont34
-  %port = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__begin1.sroa.0.053, i64 0, i32 2
+  %port = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 64
   %11 = load i16, ptr %port, align 8
   %conv57 = zext i16 %11 to i32
   invoke void (ptr, ptr, ...) @_ZN4base13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.4, i32 noundef %conv57)
           to label %invoke.cont58 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont58:                                    ; preds = %for.end56
-  %max_age = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__begin1.sroa.0.053, i64 0, i32 3
+  %max_age = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 68
   %12 = load i32, ptr %max_age, align 4
   %cmp59.not = icmp eq i32 %12, 86400
   br i1 %cmp59.not, label %if.end63, label %if.then60
@@ -1840,9 +1839,9 @@ if.then60:                                        ; preds = %invoke.cont58
           to label %if.end63 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end63:                                         ; preds = %if.then60, %invoke.cont58
-  %version = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__begin1.sroa.0.053, i64 0, i32 4
+  %version = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 72
   %13 = load ptr, ptr %version, align 8
-  %_M_finish.i.i25 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__begin1.sroa.0.053, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i25 = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 80
   %14 = load ptr, ptr %_M_finish.i.i25, align 8
   %cmp.i.i26 = icmp eq ptr %13, %14
   br i1 %cmp.i.i26, label %for.inc96, label %if.then65
@@ -1874,7 +1873,7 @@ if.end86:                                         ; preds = %if.then83, %for.bod
           to label %for.inc90 unwind label %lpad8.loopexit
 
 for.inc90:                                        ; preds = %if.end86
-  %incdec.ptr.i30 = getelementptr inbounds i16, ptr %it.sroa.0.051, i64 1
+  %incdec.ptr.i30 = getelementptr inbounds i8, ptr %it.sroa.0.051, i64 2
   %19 = load ptr, ptr %_M_finish.i.i25, align 8
   %cmp.i28.not = icmp eq ptr %incdec.ptr.i30, %19
   br i1 %cmp.i28.not, label %for.end92, label %for.body77, !llvm.loop !20
@@ -1884,7 +1883,7 @@ for.end92:                                        ; preds = %for.inc90, %invoke.
           to label %for.inc96 unwind label %lpad8.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.inc96:                                        ; preds = %if.end63, %for.end92
-  %incdec.ptr.i31 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__begin1.sroa.0.053, i64 1
+  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 96
   %cmp.i.not = icmp eq ptr %incdec.ptr.i31, %5
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -1955,7 +1954,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i
   %__first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i ], [ %__first, %entry ]
-  %version.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i, i64 0, i32 4
+  %version.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 72
   %1 = load ptr, ptr %version.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1965,10 +1964,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i
   br label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i
-  %host.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i, i64 0, i32 1
+  %host.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i) #13
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 96
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvT_S4_.exit, label %for.body.i.i, !llvm.loop !5
 
@@ -1984,7 +1983,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i ], [ %__first, %entry ]
-  %version.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i, i64 0, i32 4
+  %version.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 72
   %0 = load ptr, ptr %version.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i, label %if.then.i.i.i.i.i.i
@@ -1994,10 +1993,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i
   br label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i
 
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i
-  %host.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i, i64 0, i32 1
+  %host.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i) #13
-  %incdec.ptr.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 96
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceEEEvT_S6_.exit, label %for.body.i, !llvm.loop !5
 
@@ -2011,7 +2010,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_RtRjRS_ItSaItEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 2 dereferenceable(2) %__args3, ptr noundef nonnull align 4 dereferenceable(4) %__args5, ptr noundef nonnull align 8 dereferenceable(24) %__args7) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2059,8 +2058,8 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.09.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__cur.010.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 96
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont18, label %for.body.i.i.i.i.i, !llvm.loop !21
 
@@ -2099,7 +2098,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 
 invoke.cont18:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %cmp.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont22, label %for.body.i.i.i.i.i21
 
@@ -2110,8 +2109,8 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont18, %for
           to label %for.inc.i.i.i.i.i30 unwind label %lpad.i.i.i.i.i24
 
 for.inc.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i21
-  %incdec.ptr.i.i.i.i.i31 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.09.i.i.i.i.i23, i64 1
-  %incdec.ptr1.i.i.i.i.i32 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__cur.010.i.i.i.i.i22, i64 1
+  %incdec.ptr.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 96
+  %incdec.ptr1.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 96
   %cmp.not.i.i.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i.i.i31, %0
   br i1 %cmp.not.i.i.i.i.i33, label %invoke.cont22, label %for.body.i.i.i.i.i21, !llvm.loop !21
 
@@ -2155,7 +2154,7 @@ invoke.cont22:                                    ; preds = %for.inc.i.i.i.i.i30
 
 for.body.i.i.i:                                   ; preds = %invoke.cont22, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i ], [ %1, %invoke.cont22 ]
-  %version.i.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i, i64 0, i32 4
+  %version.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 72
   %19 = load ptr, ptr %version.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2165,10 +2164,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   br label %_ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %host.i.i.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %host.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #13
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !5
 
@@ -2181,7 +2180,7 @@ if.then.i39:                                      ; preds = %_ZSt8_DestroyIPN3ne
   br label %_ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN3net20SpdyAltSvcWireFormat18AlternativeServiceES2_EvT_S4_RSaIT0_E.exit, %if.then.i39
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<net::SpdyAltSvcWireFormat::AlternativeService, std::allocator<net::SpdyAltSvcWireFormat::AlternativeService>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i34, ptr %_M_finish.i.i, align 8
   %add.ptr37 = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %cond.i19, i64 %cond.i
@@ -2243,7 +2242,7 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %0 = load i16, ptr %__args3, align 2
   %1 = load i32, ptr %__args5, align 4
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %__args7, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__args7, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %__args7, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -2254,9 +2253,9 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
-  %_M_finish.i.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 1
+  %_M_finish.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i.i9 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i8, ptr %_M_end_of_storage.i.i.i9, align 8
   br label %_ZNSt6vectorItSaItEEC2ERKS1_.exit
@@ -2272,10 +2271,10 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #15
   store ptr %call5.i.i.i.i2.i6.i, ptr %agg.tmp, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %call5.i.i.i.i2.i6.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i2.i6.i, ptr align 2 %3, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZNSt6vectorItSaItEEC2ERKS1_.exit
@@ -2316,7 +2315,7 @@ _ZNSt6vectorItSaItEED2Ev.exit5:                   ; preds = %lpad, %if.then.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN3net20SpdyAltSvcWireFormat18AlternativeServiceEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %version.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__p, i64 0, i32 4
+  %version.i.i = getelementptr inbounds i8, ptr %__p, i64 72
   %0 = load ptr, ptr %version.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt15__new_allocatorIN3net20SpdyAltSvcWireFormat18AlternativeServiceEE7destroyIS2_EEvPT_.exit, label %if.then.i.i.i.i.i
@@ -2326,7 +2325,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br label %_ZNSt15__new_allocatorIN3net20SpdyAltSvcWireFormat18AlternativeServiceEE7destroyIS2_EEvPT_.exit
 
 _ZNSt15__new_allocatorIN3net20SpdyAltSvcWireFormat18AlternativeServiceEE7destroyIS2_EEvPT_.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  %host.i.i = getelementptr inbounds %"struct.net::SpdyAltSvcWireFormat::AlternativeService", ptr %__p, i64 0, i32 1
+  %host.i.i = getelementptr inbounds i8, ptr %__p, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__p) #13
   ret void

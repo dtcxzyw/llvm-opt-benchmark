@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.hs_compile_error = type { ptr, i32 }
-%"class.ue2::CompileError" = type { ptr, %"class.std::__cxx11::basic_string", i8, i32 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 @_ZL15failureNoMemory = internal constant [27 x i8] c"Unable to allocate memory.\00", align 16
 @hs_enomem = hidden constant %struct.hs_compile_error { ptr @_ZL15failureNoMemory, i32 0 }, align 8
@@ -67,7 +63,7 @@ lor.lhs.false:                                    ; preds = %if.else.i
   %add13 = add i64 %call12, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4, ptr align 1 %call11, i64 %add13, i1 false)
   store ptr %call4, ptr %call, align 8
-  %expression21 = getelementptr inbounds %struct.hs_compile_error, ptr %call, i64 0, i32 1
+  %expression21 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %expression, ptr %expression21, align 8
   br label %return
 
@@ -88,14 +84,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN3ue220generateCompileErrorERKNS_12CompileErrorE(ptr noundef nonnull align 8 dereferenceable(48) %e) local_unnamed_addr #0 {
 entry:
-  %hasIndex = getelementptr inbounds %"class.ue2::CompileError", ptr %e, i64 0, i32 2
+  %hasIndex = getelementptr inbounds i8, ptr %e, i64 40
   %0 = load i8, ptr %hasIndex, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %index = getelementptr inbounds %"class.ue2::CompileError", ptr %e, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %e, i64 44
   %2 = load i32, ptr %index, align 4
   %cond = select i1 %tobool.not, i32 -1, i32 %2
-  %reason = getelementptr inbounds %"class.ue2::CompileError", ptr %e, i64 0, i32 1
+  %reason = getelementptr inbounds i8, ptr %e, i64 8
   %3 = load ptr, ptr @hs_misc_alloc, align 8
   %call.i = tail call ptr %3(i64 noundef 16)
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -142,7 +138,7 @@ lor.lhs.false.i:                                  ; preds = %if.else.i.i
   %add13.i = add i64 %call12.i, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call4.i, ptr align 1 %call11.i, i64 %add13.i, i1 false)
   store ptr %call4.i, ptr %call.i, align 8
-  %expression21.i = getelementptr inbounds %struct.hs_compile_error, ptr %call.i, i64 0, i32 1
+  %expression21.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %cond, ptr %expression21.i, align 8
   br label %_ZN3ue220generateCompileErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit
 

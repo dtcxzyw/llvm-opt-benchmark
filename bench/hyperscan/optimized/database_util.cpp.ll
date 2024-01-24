@@ -19,11 +19,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__basic_file" = type <{ ptr, i8, [7 x i8] }>
 %struct.__mbstate_t = type { i32, %union.anon }
 %union.anon = type { i32 }
-%"class.std::ctype" = type <{ %"class.std::locale::facet.base", [4 x i8], ptr, i8, [7 x i8], ptr, ptr, ptr, i8, [256 x i8], [256 x i8], i8, [6 x i8] }>
-%"class.std::locale::facet.base" = type <{ ptr, i32 }>
 %"class.std::basic_ifstream" = type { %"class.std::basic_istream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
-%"class.std::basic_istream" = type { ptr, i64, %"class.std::basic_ios" }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -66,7 +63,7 @@ if.then.i:                                        ; preds = %if.then
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset.i
-  %_M_streambuf_state.i.i.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i, i64 0, i32 5
+  %_M_streambuf_state.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i.i, align 8
   %or.i.i.i = or i32 %0, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef %or.i.i.i)
@@ -82,7 +79,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %if.else
   %vbase.offset.ptr.i25 = getelementptr i8, ptr %vtable.i24, i64 -24
   %vbase.offset.i26 = load i64, ptr %vbase.offset.ptr.i25, align 8
   %add.ptr.i27 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset.i26
-  %_M_ctype.i.i = getelementptr inbounds %"class.std::basic_ios", ptr %add.ptr.i27, i64 0, i32 5
+  %_M_ctype.i.i = getelementptr inbounds i8, ptr %add.ptr.i27, i64 240
   %1 = load ptr, ptr %_M_ctype.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
@@ -92,20 +89,20 @@ if.then.i.i.i:                                    ; preds = %_ZStlsISt11char_tra
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", ptr %1, i64 0, i32 8
+  %_M_widen_ok.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load i8, ptr %_M_widen_ok.i.i.i, align 8
   %tobool.not.i3.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i
 
 if.then.i4.i.i:                                   ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", ptr %1, i64 0, i32 9, i64 10
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 67
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
 if.end.i.i.i:                                     ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %1)
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = tail call noundef signext i8 %4(ptr noundef nonnull align 8 dereferenceable(570) %1, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -134,7 +131,7 @@ if.end5:                                          ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end5
-  %_M_filebuf.i = getelementptr inbounds %"class.std::basic_ofstream", ptr %out, i64 0, i32 1
+  %_M_filebuf.i = getelementptr inbounds i8, ptr %out, i64 8
   %call.i1423 = invoke noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(240) %_M_filebuf.i)
           to label %call.i14.noexc unwind label %lpad
 
@@ -147,7 +144,7 @@ if.then.i16:                                      ; preds = %call.i14.noexc
   %vbase.offset.ptr.i18 = getelementptr i8, ptr %vtable.i17, i64 -24
   %vbase.offset.i19 = load i64, ptr %vbase.offset.ptr.i18, align 8
   %add.ptr.i20 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset.i19
-  %_M_streambuf_state.i.i.i21 = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i20, i64 0, i32 5
+  %_M_streambuf_state.i.i.i21 = getelementptr inbounds i8, ptr %add.ptr.i20, i64 32
   %7 = load i32, ptr %_M_streambuf_state.i.i.i21, align 8
   %or.i.i.i22 = or i32 %7, 4
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i20, i32 noundef %or.i.i.i22)
@@ -223,7 +220,7 @@ if.then.i:                                        ; preds = %if.then
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset.i
-  %_M_streambuf_state.i.i.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i, i64 0, i32 5
+  %_M_streambuf_state.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i.i, align 8
   %or.i.i.i = or i32 %0, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef %or.i.i.i)
@@ -239,7 +236,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %if.else
   %vbase.offset.ptr.i191 = getelementptr i8, ptr %vtable.i190, i64 -24
   %vbase.offset.i192 = load i64, ptr %vbase.offset.ptr.i191, align 8
   %add.ptr.i193 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset.i192
-  %_M_ctype.i.i = getelementptr inbounds %"class.std::basic_ios", ptr %add.ptr.i193, i64 0, i32 5
+  %_M_ctype.i.i = getelementptr inbounds i8, ptr %add.ptr.i193, i64 240
   %1 = load ptr, ptr %_M_ctype.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
@@ -249,20 +246,20 @@ if.then.i.i.i:                                    ; preds = %_ZStlsISt11char_tra
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %_M_widen_ok.i.i.i = getelementptr inbounds %"class.std::ctype", ptr %1, i64 0, i32 8
+  %_M_widen_ok.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load i8, ptr %_M_widen_ok.i.i.i, align 8
   %tobool.not.i3.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i3.i.i, label %if.end.i.i.i, label %if.then.i4.i.i
 
 if.then.i4.i.i:                                   ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %arrayidx.i.i.i = getelementptr inbounds %"class.std::ctype", ptr %1, i64 0, i32 9, i64 10
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 67
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
 if.end.i.i.i:                                     ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %1)
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = tail call noundef signext i8 %4(ptr noundef nonnull align 8 dereferenceable(570) %1, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -276,7 +273,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
 if.end:                                           ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %entry
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %is) #13
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %is)
-  %_M_filebuf.i = getelementptr inbounds %"class.std::basic_ifstream", ptr %is, i64 0, i32 1
+  %_M_filebuf.i = getelementptr inbounds i8, ptr %is, i64 16
   %call2.i109 = invoke noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(240) %_M_filebuf.i, ptr noundef %filename, i32 noundef 12)
           to label %call2.i.noexc unwind label %lpad
 
@@ -289,7 +286,7 @@ call2.i.noexc:                                    ; preds = %if.end
   br i1 %tobool.not.i101, label %if.then.i106, label %if.end.i
 
 if.then.i106:                                     ; preds = %call2.i.noexc
-  %_M_streambuf_state.i.i.i107 = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i105, i64 0, i32 5
+  %_M_streambuf_state.i.i.i107 = getelementptr inbounds i8, ptr %add.ptr.i105, i64 32
   %5 = load i32, ptr %_M_streambuf_state.i.i.i107, align 8
   %or.i.i.i108 = or i32 %5, 4
   br label %if.end.i
@@ -300,7 +297,7 @@ if.end.i:                                         ; preds = %if.then.i106, %call
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %if.end.i
-  %_M_file.i.i = getelementptr inbounds %"class.std::basic_ifstream", ptr %is, i64 0, i32 1, i32 2
+  %_M_file.i.i = getelementptr inbounds i8, ptr %is, i64 120
   %call.i.i110 = call noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull align 8 dereferenceable(9) %_M_file.i.i) #15
   br i1 %call.i.i110, label %if.end8, label %cleanup78
 
@@ -338,7 +335,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
   %vbase.offset.ptr.i197 = getelementptr i8, ptr %vtable.i196, i64 -24
   %vbase.offset.i198 = load i64, ptr %vbase.offset.ptr.i197, align 8
   %add.ptr.i199 = getelementptr inbounds i8, ptr %call.i117118, i64 %vbase.offset.i198
-  %_M_ctype.i.i200 = getelementptr inbounds %"class.std::basic_ios", ptr %add.ptr.i199, i64 0, i32 5
+  %_M_ctype.i.i200 = getelementptr inbounds i8, ptr %add.ptr.i199, i64 240
   %8 = load ptr, ptr %_M_ctype.i.i200, align 8
   %tobool.not.i.i.i201 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i201, label %if.then.i.i.i214, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202
@@ -351,13 +348,13 @@ if.then.i.i.i214:                                 ; preds = %invoke.cont23
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202: ; preds = %invoke.cont23
-  %_M_widen_ok.i.i.i203 = getelementptr inbounds %"class.std::ctype", ptr %8, i64 0, i32 8
+  %_M_widen_ok.i.i.i203 = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load i8, ptr %_M_widen_ok.i.i.i203, align 8
   %tobool.not.i3.i.i204 = icmp eq i8 %9, 0
   br i1 %tobool.not.i3.i.i204, label %if.end.i.i.i210, label %if.then.i4.i.i205
 
 if.then.i4.i.i205:                                ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i202
-  %arrayidx.i.i.i206 = getelementptr inbounds %"class.std::ctype", ptr %8, i64 0, i32 9, i64 10
+  %arrayidx.i.i.i206 = getelementptr inbounds i8, ptr %8, i64 67
   %10 = load i8, ptr %arrayidx.i.i.i206, align 1
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i
 
@@ -367,7 +364,7 @@ if.end.i.i.i210:                                  ; preds = %_ZSt13__check_facet
 
 .noexc216:                                        ; preds = %if.end.i.i.i210
   %vtable.i.i.i211 = load ptr, ptr %8, align 8
-  %vfn.i.i.i212 = getelementptr inbounds ptr, ptr %vtable.i.i.i211, i64 6
+  %vfn.i.i.i212 = getelementptr inbounds i8, ptr %vtable.i.i.i211, i64 48
   %11 = load ptr, ptr %vfn.i.i.i212, align 8
   %call.i.i.i213217 = invoke noundef signext i8 %11(ptr noundef nonnull align 8 dereferenceable(570) %8, i8 noundef signext 10)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i unwind label %lpad18
@@ -416,7 +413,7 @@ if.then.i131:                                     ; preds = %call.i128.noexc
   %vbase.offset.ptr.i133 = getelementptr i8, ptr %vtable.i132, i64 -24
   %vbase.offset.i134 = load i64, ptr %vbase.offset.ptr.i133, align 8
   %add.ptr.i135 = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i134
-  %_M_streambuf_state.i.i.i136 = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i135, i64 0, i32 5
+  %_M_streambuf_state.i.i.i136 = getelementptr inbounds i8, ptr %add.ptr.i135, i64 32
   %14 = load i32, ptr %_M_streambuf_state.i.i.i136, align 8
   %or.i.i.i137 = or i32 %14, 4
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i135, i32 noundef %or.i.i.i137)
@@ -448,13 +445,13 @@ invoke.cont44:                                    ; preds = %invoke.cont42
   %vbase.offset.ptr.i222 = getelementptr i8, ptr %vtable.i221, i64 -24
   %vbase.offset.i223 = load i64, ptr %vbase.offset.ptr.i222, align 8
   %add.ptr.i224 = getelementptr inbounds i8, ptr %call45, i64 %vbase.offset.i223
-  %_M_ctype.i.i225 = getelementptr inbounds %"class.std::basic_ios", ptr %add.ptr.i224, i64 0, i32 5
+  %_M_ctype.i.i225 = getelementptr inbounds i8, ptr %add.ptr.i224, i64 240
   %15 = load ptr, ptr %_M_ctype.i.i225, align 8
   %tobool.not.i.i.i226 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i226, label %if.then.i.i.i292.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i227
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i227: ; preds = %invoke.cont44
-  %_M_widen_ok.i.i.i228 = getelementptr inbounds %"class.std::ctype", ptr %15, i64 0, i32 8
+  %_M_widen_ok.i.i.i228 = getelementptr inbounds i8, ptr %15, i64 56
   %16 = load i8, ptr %_M_widen_ok.i.i.i228, align 8
   %tobool.not.i3.i.i229 = icmp eq i8 %16, 0
   br i1 %tobool.not.i3.i.i229, label %if.end.i.i.i236, label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i284.invoke.sink.split
@@ -465,7 +462,7 @@ if.end.i.i.i236:                                  ; preds = %_ZSt13__check_facet
 
 .noexc242:                                        ; preds = %if.end.i.i.i236
   %vtable.i.i.i237 = load ptr, ptr %15, align 8
-  %vfn.i.i.i238 = getelementptr inbounds ptr, ptr %vtable.i.i.i237, i64 6
+  %vfn.i.i.i238 = getelementptr inbounds i8, ptr %vtable.i.i.i237, i64 48
   %17 = load ptr, ptr %vfn.i.i.i238, align 8
   %call.i.i.i239243 = invoke noundef signext i8 %17(ptr noundef nonnull align 8 dereferenceable(570) %15, i8 noundef signext 10)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i284.invoke unwind label %lpad37
@@ -495,7 +492,7 @@ if.then.i159:                                     ; preds = %invoke.cont50
   %vbase.offset.ptr.i161 = getelementptr i8, ptr %vtable.i160, i64 -24
   %vbase.offset.i162 = load i64, ptr %vbase.offset.ptr.i161, align 8
   %add.ptr.i163 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset.i162
-  %_M_streambuf_state.i.i.i164 = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i163, i64 0, i32 5
+  %_M_streambuf_state.i.i.i164 = getelementptr inbounds i8, ptr %add.ptr.i163, i64 32
   %21 = load i32, ptr %_M_streambuf_state.i.i.i164, align 8
   %or.i.i.i165 = or i32 %21, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i163, i32 noundef %or.i.i.i165)
@@ -511,19 +508,19 @@ invoke.cont52:                                    ; preds = %if.else.i155, %if.t
   %vbase.offset.ptr.i248 = getelementptr i8, ptr %vtable.i247, i64 -24
   %vbase.offset.i249 = load i64, ptr %vbase.offset.ptr.i248, align 8
   %add.ptr.i250 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset.i249
-  %_M_ctype.i.i251 = getelementptr inbounds %"class.std::basic_ios", ptr %add.ptr.i250, i64 0, i32 5
+  %_M_ctype.i.i251 = getelementptr inbounds i8, ptr %add.ptr.i250, i64 240
   %22 = load ptr, ptr %_M_ctype.i.i251, align 8
   %tobool.not.i.i.i252 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i252, label %if.then.i.i.i292.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i253
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i253: ; preds = %invoke.cont52
-  %_M_widen_ok.i.i.i254 = getelementptr inbounds %"class.std::ctype", ptr %22, i64 0, i32 8
+  %_M_widen_ok.i.i.i254 = getelementptr inbounds i8, ptr %22, i64 56
   %23 = load i8, ptr %_M_widen_ok.i.i.i254, align 8
   %tobool.not.i3.i.i255 = icmp eq i8 %23, 0
   br i1 %tobool.not.i3.i.i255, label %if.end.i.i.i262, label %if.then.i4.i.i256
 
 if.then.i4.i.i256:                                ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i253
-  %arrayidx.i.i.i257 = getelementptr inbounds %"class.std::ctype", ptr %22, i64 0, i32 9, i64 10
+  %arrayidx.i.i.i257 = getelementptr inbounds i8, ptr %22, i64 67
   %24 = load i8, ptr %arrayidx.i.i.i257, align 1
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i258
 
@@ -533,7 +530,7 @@ if.end.i.i.i262:                                  ; preds = %_ZSt13__check_facet
 
 .noexc268:                                        ; preds = %if.end.i.i.i262
   %vtable.i.i.i263 = load ptr, ptr %22, align 8
-  %vfn.i.i.i264 = getelementptr inbounds ptr, ptr %vtable.i.i.i263, i64 6
+  %vfn.i.i.i264 = getelementptr inbounds i8, ptr %vtable.i.i.i263, i64 48
   %25 = load ptr, ptr %vfn.i.i.i264, align 8
   %call.i.i.i265269 = invoke noundef signext i8 %25(ptr noundef nonnull align 8 dereferenceable(570) %22, i8 noundef signext 10)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i258 unwind label %lpad37
@@ -561,7 +558,7 @@ invoke.cont57:                                    ; preds = %if.else56
   %vbase.offset.ptr.i274 = getelementptr i8, ptr %vtable.i273, i64 -24
   %vbase.offset.i275 = load i64, ptr %vbase.offset.ptr.i274, align 8
   %add.ptr.i276 = getelementptr inbounds i8, ptr @_ZSt4cout, i64 %vbase.offset.i275
-  %_M_ctype.i.i277 = getelementptr inbounds %"class.std::basic_ios", ptr %add.ptr.i276, i64 0, i32 5
+  %_M_ctype.i.i277 = getelementptr inbounds i8, ptr %add.ptr.i276, i64 240
   %27 = load ptr, ptr %_M_ctype.i.i277, align 8
   %tobool.not.i.i.i278 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i278, label %if.then.i.i.i292.invoke, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i279
@@ -574,7 +571,7 @@ if.then.i.i.i292.cont:                            ; preds = %if.then.i.i.i292.in
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i279: ; preds = %invoke.cont57
-  %_M_widen_ok.i.i.i280 = getelementptr inbounds %"class.std::ctype", ptr %27, i64 0, i32 8
+  %_M_widen_ok.i.i.i280 = getelementptr inbounds i8, ptr %27, i64 56
   %28 = load i8, ptr %_M_widen_ok.i.i.i280, align 8
   %tobool.not.i3.i.i281 = icmp eq i8 %28, 0
   br i1 %tobool.not.i3.i.i281, label %if.end.i.i.i288, label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i284.invoke.sink.split
@@ -585,7 +582,7 @@ if.end.i.i.i288:                                  ; preds = %_ZSt13__check_facet
 
 .noexc294:                                        ; preds = %if.end.i.i.i288
   %vtable.i.i.i289 = load ptr, ptr %27, align 8
-  %vfn.i.i.i290 = getelementptr inbounds ptr, ptr %vtable.i.i.i289, i64 6
+  %vfn.i.i.i290 = getelementptr inbounds i8, ptr %vtable.i.i.i289, i64 48
   %29 = load ptr, ptr %vfn.i.i.i290, align 8
   %call.i.i.i291295 = invoke noundef signext i8 %29(ptr noundef nonnull align 8 dereferenceable(570) %27, i8 noundef signext 10)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i284.invoke unwind label %lpad37
@@ -593,7 +590,7 @@ if.end.i.i.i288:                                  ; preds = %_ZSt13__check_facet
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i284.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i279, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i227
   %.sink = phi ptr [ %15, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i227 ], [ %27, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i279 ]
   %.ph = phi ptr [ %call45, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i227 ], [ @_ZSt4cout, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i279 ]
-  %arrayidx.i.i.i231 = getelementptr inbounds %"class.std::ctype", ptr %.sink, i64 0, i32 9, i64 10
+  %arrayidx.i.i.i231 = getelementptr inbounds i8, ptr %.sink, i64 67
   %30 = load i8, ptr %arrayidx.i.i.i231, align 1
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i284.invoke
 
@@ -635,7 +632,7 @@ invoke.cont71:                                    ; preds = %invoke.cont69
   %vbase.offset.ptr.i300 = getelementptr i8, ptr %vtable.i299, i64 -24
   %vbase.offset.i301 = load i64, ptr %vbase.offset.ptr.i300, align 8
   %add.ptr.i302 = getelementptr inbounds i8, ptr %call72, i64 %vbase.offset.i301
-  %_M_ctype.i.i303 = getelementptr inbounds %"class.std::basic_ios", ptr %add.ptr.i302, i64 0, i32 5
+  %_M_ctype.i.i303 = getelementptr inbounds i8, ptr %add.ptr.i302, i64 240
   %35 = load ptr, ptr %_M_ctype.i.i303, align 8
   %tobool.not.i.i.i304 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i304, label %if.then.i.i.i318, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i305
@@ -648,13 +645,13 @@ if.then.i.i.i318:                                 ; preds = %invoke.cont71
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i305: ; preds = %invoke.cont71
-  %_M_widen_ok.i.i.i306 = getelementptr inbounds %"class.std::ctype", ptr %35, i64 0, i32 8
+  %_M_widen_ok.i.i.i306 = getelementptr inbounds i8, ptr %35, i64 56
   %36 = load i8, ptr %_M_widen_ok.i.i.i306, align 8
   %tobool.not.i3.i.i307 = icmp eq i8 %36, 0
   br i1 %tobool.not.i3.i.i307, label %if.end.i.i.i314, label %if.then.i4.i.i308
 
 if.then.i4.i.i308:                                ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i305
-  %arrayidx.i.i.i309 = getelementptr inbounds %"class.std::ctype", ptr %35, i64 0, i32 9, i64 10
+  %arrayidx.i.i.i309 = getelementptr inbounds i8, ptr %35, i64 67
   %37 = load i8, ptr %arrayidx.i.i.i309, align 1
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i310
 
@@ -664,7 +661,7 @@ if.end.i.i.i314:                                  ; preds = %_ZSt13__check_facet
 
 .noexc320:                                        ; preds = %if.end.i.i.i314
   %vtable.i.i.i315 = load ptr, ptr %35, align 8
-  %vfn.i.i.i316 = getelementptr inbounds ptr, ptr %vtable.i.i.i315, i64 6
+  %vfn.i.i.i316 = getelementptr inbounds i8, ptr %vtable.i.i.i315, i64 48
   %38 = load ptr, ptr %vfn.i.i.i316, align 8
   %call.i.i.i317321 = invoke noundef signext i8 %38(ptr noundef nonnull align 8 dereferenceable(570) %35, i8 noundef signext 10)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i310 unwind label %lpad65
@@ -710,7 +707,7 @@ cleanup78:                                        ; preds = %cleanup, %invoke.co
   %vbase.offset.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i.i.i
   store ptr %44, ptr %add.ptr.i.i.i, align 8
-  %_M_gcount.i.i.i = getelementptr inbounds %"class.std::basic_istream", ptr %is, i64 0, i32 1
+  %_M_gcount.i.i.i = getelementptr inbounds i8, ptr %is, i64 8
   store i64 0, ptr %_M_gcount.i.i.i, align 8
   %45 = getelementptr inbounds i8, ptr %is, i64 256
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %45) #13

@@ -3,16 +3,15 @@ source_filename = "bench/git/original/decorate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.decoration = type { ptr, i32, i32, ptr }
 %struct.decoration_entry = type { ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @add_decoration(ptr nocapture noundef %n, ptr noundef %obj, ptr noundef %decoration) local_unnamed_addr #0 {
 entry:
-  %nr1 = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 2
+  %nr1 = getelementptr inbounds i8, ptr %n, i64 12
   %0 = load i32, ptr %nr1, align 4
   %add = add i32 %0, 1
-  %size = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %n, i64 8
   %1 = load i32, ptr %size, align 8
   %mul = shl i32 %1, 1
   %div = udiv i32 %mul, 3
@@ -20,7 +19,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %entries.i = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 3
+  %entries.i = getelementptr inbounds i8, ptr %n, i64 16
   %2 = load ptr, ptr %entries.i, align 8
   %3 = mul i32 %1, 3
   %mul.i = add i32 %3, 3000
@@ -39,24 +38,24 @@ for.body.preheader.i:                             ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %decoration8.i = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %indvars.iv.i
+  %decoration8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %decoration8.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %6 = load i32, ptr %size, align 8
   %7 = load ptr, ptr %entries.i, align 8
   %8 = getelementptr i8, ptr %5, i64 4
   %base.val.i.i = load i32, ptr %8, align 4
   %rem.i.i.i = urem i32 %base.val.i.i, %6
-  %idxprom20.i.i = zext i32 %rem.i.i.i to i64
-  %arrayidx21.i.i = getelementptr inbounds %struct.decoration_entry, ptr %7, i64 %idxprom20.i.i
-  %9 = load ptr, ptr %arrayidx21.i.i, align 8
-  %tobool.not22.i.i = icmp eq ptr %9, null
-  br i1 %tobool.not22.i.i, label %while.end.i.i, label %while.body.i.preheader.i
+  %idxprom19.i.i = zext i32 %rem.i.i.i to i64
+  %arrayidx20.i.i = getelementptr inbounds %struct.decoration_entry, ptr %7, i64 %idxprom19.i.i
+  %9 = load ptr, ptr %arrayidx20.i.i, align 8
+  %tobool.not21.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not21.i.i, label %while.end.i.i, label %while.body.i.preheader.i
 
 while.body.i.preheader.i:                         ; preds = %if.end.i
   %cmp.i15.i = icmp eq ptr %9, %5
@@ -67,14 +66,14 @@ while.body.i.i:                                   ; preds = %if.end.i.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i, !llvm.loop !5
 
 if.then.i.i:                                      ; preds = %while.body.i.i, %while.body.i.preheader.i
-  %idxprom24.i.lcssa.i = phi i64 [ %idxprom20.i.i, %while.body.i.preheader.i ], [ %idxprom.i.i, %while.body.i.i ]
-  %decoration9.i.i = getelementptr inbounds %struct.decoration_entry, ptr %7, i64 %idxprom24.i.lcssa.i, i32 1
+  %.lcssa.i = phi i64 [ %idxprom19.i.i, %while.body.i.preheader.i ], [ %idxprom.i.i, %while.body.i.i ]
+  %decoration9.i.i = getelementptr inbounds %struct.decoration_entry, ptr %7, i64 %.lcssa.i, i32 1
   store ptr %4, ptr %decoration9.i.i, align 8
   br label %for.inc.i
 
 if.end.i.i:                                       ; preds = %while.body.i.preheader.i, %while.body.i.i
-  %j.023.i16.i = phi i32 [ %spec.store.select.i.i, %while.body.i.i ], [ %rem.i.i.i, %while.body.i.preheader.i ]
-  %inc.i.i = add i32 %j.023.i16.i, 1
+  %j.022.i16.i = phi i32 [ %spec.store.select.i.i, %while.body.i.i ], [ %rem.i.i.i, %while.body.i.preheader.i ]
+  %inc.i.i = add i32 %j.022.i16.i, 1
   %cmp13.not.i.i = icmp ult i32 %inc.i.i, %6
   %spec.store.select.i.i = select i1 %cmp13.not.i.i, i32 %inc.i.i, i32 0
   %idxprom.i.i = zext i32 %spec.store.select.i.i to i64
@@ -84,10 +83,9 @@ if.end.i.i:                                       ; preds = %while.body.i.prehea
   br i1 %tobool.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %if.end.i
-  %idxprom.lcssa.i.i = phi i64 [ %idxprom20.i.i, %if.end.i ], [ %idxprom.i.i, %if.end.i.i ]
-  %arrayidx.lcssa.i.i = phi ptr [ %arrayidx21.i.i, %if.end.i ], [ %arrayidx.i.i, %if.end.i.i ]
+  %arrayidx.lcssa.i.i = phi ptr [ %arrayidx20.i.i, %if.end.i ], [ %arrayidx.i.i, %if.end.i.i ]
   store ptr %5, ptr %arrayidx.lcssa.i.i, align 8
-  %decoration21.i.i = getelementptr inbounds %struct.decoration_entry, ptr %7, i64 %idxprom.lcssa.i.i, i32 1
+  %decoration21.i.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.i.i, i64 8
   store ptr %4, ptr %decoration21.i.i, align 8
   %11 = load i32, ptr %nr1, align 4
   %inc22.i.i = add i32 %11, 1
@@ -106,16 +104,16 @@ grow_decoration.exit:                             ; preds = %for.inc.i, %if.then
 
 if.end:                                           ; preds = %grow_decoration.exit, %entry
   %12 = phi i32 [ %.pre, %grow_decoration.exit ], [ %1, %entry ]
-  %entries2.i = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 3
+  %entries2.i = getelementptr inbounds i8, ptr %n, i64 16
   %13 = load ptr, ptr %entries2.i, align 8
   %14 = getelementptr i8, ptr %obj, i64 4
   %base.val.i = load i32, ptr %14, align 4
   %rem.i.i = urem i32 %base.val.i, %12
-  %idxprom20.i = zext i32 %rem.i.i to i64
-  %arrayidx21.i = getelementptr inbounds %struct.decoration_entry, ptr %13, i64 %idxprom20.i
-  %15 = load ptr, ptr %arrayidx21.i, align 8
-  %tobool.not22.i = icmp eq ptr %15, null
-  br i1 %tobool.not22.i, label %while.end.i, label %while.body.i.preheader
+  %idxprom19.i = zext i32 %rem.i.i to i64
+  %arrayidx20.i = getelementptr inbounds %struct.decoration_entry, ptr %13, i64 %idxprom19.i
+  %15 = load ptr, ptr %arrayidx20.i, align 8
+  %tobool.not21.i = icmp eq ptr %15, null
+  br i1 %tobool.not21.i, label %while.end.i, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %if.end
   %cmp.i11 = icmp eq ptr %15, %obj
@@ -126,15 +124,15 @@ while.body.i:                                     ; preds = %if.end.i4
   br i1 %cmp.i, label %if.then.i, label %if.end.i4, !llvm.loop !5
 
 if.then.i:                                        ; preds = %while.body.i, %while.body.i.preheader
-  %idxprom24.i.lcssa = phi i64 [ %idxprom20.i, %while.body.i.preheader ], [ %idxprom.i, %while.body.i ]
-  %decoration9.i = getelementptr inbounds %struct.decoration_entry, ptr %13, i64 %idxprom24.i.lcssa, i32 1
+  %.lcssa = phi i64 [ %idxprom19.i, %while.body.i.preheader ], [ %idxprom.i, %while.body.i ]
+  %decoration9.i = getelementptr inbounds %struct.decoration_entry, ptr %13, i64 %.lcssa, i32 1
   %16 = load ptr, ptr %decoration9.i, align 8
   store ptr %decoration, ptr %decoration9.i, align 8
   br label %insert_decoration.exit
 
 if.end.i4:                                        ; preds = %while.body.i.preheader, %while.body.i
-  %j.023.i12 = phi i32 [ %spec.store.select.i, %while.body.i ], [ %rem.i.i, %while.body.i.preheader ]
-  %inc.i = add i32 %j.023.i12, 1
+  %j.022.i12 = phi i32 [ %spec.store.select.i, %while.body.i ], [ %rem.i.i, %while.body.i.preheader ]
+  %inc.i = add i32 %j.022.i12, 1
   %cmp13.not.i = icmp ult i32 %inc.i, %12
   %spec.store.select.i = select i1 %cmp13.not.i, i32 %inc.i, i32 0
   %idxprom.i = zext i32 %spec.store.select.i to i64
@@ -144,10 +142,9 @@ if.end.i4:                                        ; preds = %while.body.i.prehea
   br i1 %tobool.not.i6, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %if.end.i4, %if.end
-  %idxprom.lcssa.i = phi i64 [ %idxprom20.i, %if.end ], [ %idxprom.i, %if.end.i4 ]
-  %arrayidx.lcssa.i = phi ptr [ %arrayidx21.i, %if.end ], [ %arrayidx.i5, %if.end.i4 ]
+  %arrayidx.lcssa.i = phi ptr [ %arrayidx20.i, %if.end ], [ %arrayidx.i5, %if.end.i4 ]
   store ptr %obj, ptr %arrayidx.lcssa.i, align 8
-  %decoration21.i = getelementptr inbounds %struct.decoration_entry, ptr %13, i64 %idxprom.lcssa.i, i32 1
+  %decoration21.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.i, i64 8
   store ptr %decoration, ptr %decoration21.i, align 8
   %18 = load i32, ptr %nr1, align 4
   %inc22.i = add i32 %18, 1
@@ -162,7 +159,7 @@ insert_decoration.exit:                           ; preds = %if.then.i, %while.e
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @lookup_decoration(ptr nocapture noundef readonly %n, ptr noundef readonly %obj) local_unnamed_addr #1 {
 entry:
-  %size = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %n, i64 8
   %0 = load i32, ptr %size, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -171,38 +168,38 @@ if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %obj, i64 4
   %obj.val = load i32, ptr %1, align 4
   %rem.i = urem i32 %obj.val, %0
-  %entries = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %n, i64 16
   %2 = load ptr, ptr %entries, align 8
-  %idx.ext11 = zext i32 %rem.i to i64
-  %add.ptr12 = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %idx.ext11
-  %3 = load ptr, ptr %add.ptr12, align 8
-  %cmp13 = icmp eq ptr %3, %obj
-  br i1 %cmp13, label %if.then2, label %if.end3
+  %idx.ext10 = zext i32 %rem.i to i64
+  %add.ptr11 = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %idx.ext10
+  %3 = load ptr, ptr %add.ptr11, align 8
+  %cmp12 = icmp eq ptr %3, %obj
+  br i1 %cmp12, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end7, %if.end
-  %idx.ext.lcssa = phi i64 [ %idx.ext11, %if.end ], [ %idx.ext, %if.end7 ]
-  %decoration = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %idx.ext.lcssa, i32 1
-  %4 = load ptr, ptr %decoration, align 8
+  %4 = phi i64 [ %idx.ext10, %if.end ], [ %idx.ext, %if.end7 ]
+  %decoration = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %4, i32 1
+  %5 = load ptr, ptr %decoration, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.end, %if.end7
-  %5 = phi ptr [ %6, %if.end7 ], [ %3, %if.end ]
-  %j.014 = phi i32 [ %spec.store.select, %if.end7 ], [ %rem.i, %if.end ]
-  %tobool5.not = icmp eq ptr %5, null
+  %6 = phi ptr [ %7, %if.end7 ], [ %3, %if.end ]
+  %j.013 = phi i32 [ %spec.store.select, %if.end7 ], [ %rem.i, %if.end ]
+  %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %inc = add i32 %j.014, 1
+  %inc = add i32 %j.013, 1
   %cmp9 = icmp eq i32 %inc, %0
   %spec.store.select = select i1 %cmp9, i32 0, i32 %inc
   %idx.ext = zext i32 %spec.store.select to i64
   %add.ptr = getelementptr inbounds %struct.decoration_entry, ptr %2, i64 %idx.ext
-  %6 = load ptr, ptr %add.ptr, align 8
-  %cmp = icmp eq ptr %6, %obj
+  %7 = load ptr, ptr %add.ptr, align 8
+  %cmp = icmp eq ptr %7, %obj
   br i1 %cmp, label %if.then2, label %if.end3
 
 return:                                           ; preds = %if.end3, %entry, %if.then2
-  %retval.0 = phi ptr [ %4, %if.then2 ], [ null, %entry ], [ null, %if.end3 ]
+  %retval.0 = phi ptr [ %5, %if.then2 ], [ null, %entry ], [ null, %if.end3 ]
   ret ptr %retval.0
 }
 
@@ -213,13 +210,13 @@ entry:
   br i1 %tobool.not, label %do.body, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %size = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %n, i64 8
   %0 = load i32, ptr %size, align 8
   %cmp10.not = icmp eq i32 %0, 0
   br i1 %cmp10.not, label %do.body, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %entries = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 3
+  %entries = getelementptr inbounds i8, ptr %n, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -244,10 +241,10 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !8
 
 do.body:                                          ; preds = %for.inc, %for.cond.preheader, %entry
-  %entries4 = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 3
+  %entries4 = getelementptr inbounds i8, ptr %n, i64 16
   %6 = load ptr, ptr %entries4, align 8
   tail call void @free(ptr noundef %6) #5
-  %size6 = getelementptr inbounds %struct.decoration, ptr %n, i64 0, i32 1
+  %size6 = getelementptr inbounds i8, ptr %n, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size6, i8 0, i64 16, i1 false)
   ret void
 }

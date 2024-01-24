@@ -22,7 +22,7 @@ define hidden void @_ZN14regex_automata3dfa8remapper8Remapper3new17he060f682bc5a
   call void @_ZN4core4iter6traits8iterator8Iterator7collect17he117bc298d3e046dE(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %4, ptr nonnull align 8 %3)
   %8 = load i64, ptr %5, align 8, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %8, ptr %9, align 8
   ret void
 }
@@ -50,7 +50,7 @@ define hidden void @_ZN14regex_automata3dfa8remapper8Remapper4swap17h2470bf9920e
   %11 = call { ptr, i64 } @"_ZN75_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h55a0b6ba26ef5c36E"(ptr align 8 %0)
   %12 = extractvalue { ptr, i64 } %11, 0
   %13 = extractvalue { ptr, i64 } %11, 1
-  %14 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   %15 = load i32, ptr %6, align 4, !noundef !5
   %16 = call i64 @_ZN14regex_automata3dfa8remapper11IndexMapper8to_index17h7d6db76c754ddf8aE(ptr nonnull align 8 %14, i32 %15)
   %17 = load i32, ptr %5, align 4, !noundef !5
@@ -114,9 +114,9 @@ define hidden void @_ZN14regex_automata3dfa8remapper8Remapper5remap17h75dd95c904
   %16 = extractvalue { i64, i64 } %14, 0
   %17 = extractvalue { i64, i64 } %14, 1
   store i64 %16, ptr %6, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %6, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds { { { ptr, i64 }, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %15
@@ -213,7 +213,7 @@ define hidden void @_ZN14regex_automata3dfa8remapper8Remapper5remap17h75dd95c904
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef i32 @"_ZN14regex_automata3dfa8remapper8Remapper5remap28_$u7b$$u7b$closure$u7d$$u7d$17h25596154bdfc4a1bE"(ptr nocapture readonly align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
   %6 = tail call i64 @_ZN14regex_automata3dfa8remapper11IndexMapper8to_index17h7d6db76c754ddf8aE(ptr nonnull align 8 %5, i32 %1)
   %7 = tail call align 4 ptr @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h126546d799b9956bE"(ptr nonnull align 8 %3, i64 %6, ptr nonnull align 8 @anon.525f6d704000c9bfc4608035cc954b1a.5)

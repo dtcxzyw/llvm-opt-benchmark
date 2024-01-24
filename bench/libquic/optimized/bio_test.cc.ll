@@ -104,7 +104,7 @@ _ZL17TestSocketConnectv.exit.thread:              ; preds = %entry
 if.end.i:                                         ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin.i, i8 0, i64 16, i1 false)
   store i16 2, ptr %sin.i, align 4
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %sin.i, i64 0, i32 2
+  %sin_addr.i = getelementptr inbounds i8, ptr %sin.i, i64 4
   %call1.i = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef nonnull %sin_addr.i) #16
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.then2.i, label %if.end3.i
@@ -150,7 +150,7 @@ if.then17.i:                                      ; preds = %if.end13.i
   br label %cleanup64.i
 
 if.end19.i:                                       ; preds = %if.end13.i
-  %sin_port.i = getelementptr inbounds %struct.sockaddr_in, ptr %sin.i, i64 0, i32 1
+  %sin_port.i = getelementptr inbounds i8, ptr %sin.i, i64 2
   %2 = load i16, ptr %sin_port.i, align 2
   %call20.i = call zeroext i16 @ntohs(i16 noundef zeroext %2) #18
   %conv21.i = zext i16 %call20.i to i32

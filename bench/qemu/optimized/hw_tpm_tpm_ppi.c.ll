@@ -7,14 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.GuestPhysBlockList = type { i32, %union.anon.2 }
 %union.anon.2 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.TPMPPI = type { %struct.MemoryRegion, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.GuestPhysBlock = type { i64, i64, ptr, ptr, %union.anon.3 }
-%union.anon.3 = type { %struct.QTailQLink }
 
 @qemu_host_page_size = external local_unnamed_addr global i64, align 8
 @.str = private unnamed_addr constant [8 x i8] c"tpm-ppi\00", align 1
@@ -33,7 +25,7 @@ define dso_local void @tpm_ppi_reset(ptr nocapture noundef readonly %tpmppi) loc
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %guest_phys_blocks = alloca %struct.GuestPhysBlockList, align 8
-  %buf = getelementptr inbounds %struct.TPMPPI, ptr %tpmppi, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %tpmppi, i64 272
   %0 = load ptr, ptr %buf, align 16
   %arrayidx = getelementptr i8, ptr %0, i64 346
   %1 = load i8, ptr %arrayidx, align 1
@@ -44,27 +36,27 @@ entry:
 if.then:                                          ; preds = %entry
   call void @guest_phys_blocks_init(ptr noundef nonnull %guest_phys_blocks) #6
   call void @guest_phys_blocks_append(ptr noundef nonnull %guest_phys_blocks) #6
-  %head = getelementptr inbounds %struct.GuestPhysBlockList, ptr %guest_phys_blocks, i64 0, i32 1
+  %head = getelementptr inbounds i8, ptr %guest_phys_blocks, i64 8
   %3 = load ptr, ptr %head, align 8
   %tobool1.not13 = icmp eq ptr %3, null
   br i1 %tobool1.not13, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_tpm_ppi_memset.exit
   %block.014 = phi ptr [ %3, %for.body.lr.ph ], [ %22, %trace_tpm_ppi_memset.exit ]
-  %host_addr = getelementptr inbounds %struct.GuestPhysBlock, ptr %block.014, i64 0, i32 2
+  %host_addr = getelementptr inbounds i8, ptr %block.014, i64 16
   %4 = load ptr, ptr %host_addr, align 8
-  %mr = getelementptr inbounds %struct.GuestPhysBlock, ptr %block.014, i64 0, i32 3
+  %mr = getelementptr inbounds i8, ptr %block.014, i64 24
   %5 = load ptr, ptr %mr, align 8
   %call = call ptr @memory_region_get_ram_ptr(ptr noundef %5) #6
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %6 = load ptr, ptr %host_addr, align 8
-  %target_end = getelementptr inbounds %struct.GuestPhysBlock, ptr %block.014, i64 0, i32 1
+  %target_end = getelementptr inbounds i8, ptr %block.014, i64 8
   %7 = load i64, ptr %target_end, align 8
   %8 = load i64, ptr %block.014, align 8
   %sub = sub i64 %7, %8
@@ -112,7 +104,7 @@ trace_tpm_ppi_memset.exit:                        ; preds = %for.body, %land.lhs
   %21 = load i64, ptr %block.014, align 8
   %sub10 = sub i64 %20, %21
   call void @memory_region_set_dirty(ptr noundef %19, i64 noundef %sub.ptr.sub, i64 noundef %sub10) #6
-  %next = getelementptr inbounds %struct.GuestPhysBlock, ptr %block.014, i64 0, i32 4
+  %next = getelementptr inbounds i8, ptr %block.014, i64 32
   %22 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %22, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !5
@@ -148,7 +140,7 @@ entry:
   %sub1 = sub i64 0, %0
   %and = and i64 %sub, %sub1
   %call2 = tail call ptr @qemu_memalign(i64 noundef %conv.i, i64 noundef %and) #6
-  %buf = getelementptr inbounds %struct.TPMPPI, ptr %tpmppi, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %tpmppi, i64 272
   store ptr %call2, ptr %buf, align 16
   tail call void @memory_region_init_ram_device_ptr(ptr noundef %tpmppi, ptr noundef %obj, ptr noundef nonnull @.str, i64 noundef 1024, ptr noundef %call2) #6
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6

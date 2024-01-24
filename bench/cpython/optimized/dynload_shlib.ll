@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [33 x i8] c".cpython-313-x86_64-linux-gnu.so\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c".abi3.so\00", align 1
@@ -49,7 +45,7 @@ if.then6:                                         ; preds = %if.end
 if.end12:                                         ; preds = %if.then6, %if.end
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call14 = call i32 @_PyImport_GetDLOpenFlags(ptr noundef %2) #7
   %call15 = call ptr @dlopen(ptr noundef %pathname.addr.0, i32 noundef %call14) #7

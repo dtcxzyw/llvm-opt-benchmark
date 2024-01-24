@@ -12,16 +12,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %heap1 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 5
+  %heap1 = getelementptr inbounds i8, ptr %sha, i64 96
   store ptr %heap, ptr %heap1, align 8
-  %digest.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4
+  %digest.i = getelementptr inbounds i8, ptr %sha, i64 76
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest.i, align 4
-  %arrayidx8.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %sha, i64 92
   store i32 -1009589776, ptr %arrayidx8.i, align 4
   store i32 0, ptr %sha, align 8
-  %loLen.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 1
+  %loLen.i = getelementptr inbounds i8, ptr %sha, i64 4
   store i32 0, ptr %loLen.i, align 4
-  %hiLen.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 2
+  %hiLen.i = getelementptr inbounds i8, ptr %sha, i64 8
   store i32 0, ptr %hiLen.i, align 8
   br label %return
 
@@ -53,7 +53,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp8, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %loLen.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 1
+  %loLen.i = getelementptr inbounds i8, ptr %sha, i64 4
   %1 = load i32, ptr %loLen.i, align 4
   %add.i = add i32 %1, %len
   store i32 %add.i, ptr %loLen.i, align 4
@@ -61,14 +61,14 @@ if.end10:                                         ; preds = %if.end7
   br i1 %cmp.i, label %if.then.i, label %AddLength.exit
 
 if.then.i:                                        ; preds = %if.end10
-  %hiLen.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 2
+  %hiLen.i = getelementptr inbounds i8, ptr %sha, i64 8
   %2 = load i32, ptr %hiLen.i, align 8
   %inc.i = add i32 %2, 1
   store i32 %inc.i, ptr %hiLen.i, align 8
   br label %AddLength.exit
 
 AddLength.exit:                                   ; preds = %if.end10, %if.then.i
-  %buffer = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 3
+  %buffer = getelementptr inbounds i8, ptr %sha, i64 12
   %cmp12.not = icmp eq i32 %0, 0
   br i1 %cmp12.not, label %if.end33, label %if.then13
 
@@ -199,15 +199,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @Transform(ptr nocapture noundef %sha, ptr nocapture noundef readonly %data) unnamed_addr #3 {
 entry:
-  %digest = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4
+  %digest = getelementptr inbounds i8, ptr %sha, i64 76
   %0 = load i32, ptr %digest, align 4
-  %arrayidx2 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 80
   %1 = load i32, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %sha, i64 84
   %2 = load i32, ptr %arrayidx4, align 4
-  %arrayidx6 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4, i64 3
+  %arrayidx6 = getelementptr inbounds i8, ptr %sha, i64 88
   %3 = load i32, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4, i64 4
+  %arrayidx8 = getelementptr inbounds i8, ptr %sha, i64 92
   %4 = load i32, ptr %arrayidx8, align 4
   %xor = xor i32 %3, %2
   %and = and i32 %xor, %1
@@ -1219,7 +1219,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digest2 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4
+  %digest2 = getelementptr inbounds i8, ptr %sha, i64 76
   %0 = ptrtoint ptr %digest2 to i64
   %1 = and i64 %0, 3
   %or.cond.i = icmp eq i64 %1, 0
@@ -1265,7 +1265,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buffer = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 3
+  %buffer = getelementptr inbounds i8, ptr %sha, i64 12
   %0 = load i32, ptr %sha, align 8
   %cmp2 = icmp ugt i32 %0, 63
   br i1 %cmp2, label %return, label %if.end4
@@ -1353,20 +1353,20 @@ for.body9.i41:                                    ; preds = %if.end25, %for.body
   br i1 %cmp8.i48, label %for.body9.i41, label %ByteReverseWords.exit57, !llvm.loop !6
 
 ByteReverseWords.exit57:                          ; preds = %for.body9.i41, %for.body.i50
-  %loLen = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 1
+  %loLen = getelementptr inbounds i8, ptr %sha, i64 4
   %6 = load i32, ptr %loLen, align 4
-  %hiLen = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 2
+  %hiLen = getelementptr inbounds i8, ptr %sha, i64 8
   %7 = load i32, ptr %hiLen, align 8
   %add36 = tail call i32 @llvm.fshl.i32(i32 %7, i32 %6, i32 3)
   store i32 %add36, ptr %hiLen, align 8
   %shl39 = shl i32 %6, 3
   store i32 %shl39, ptr %loLen, align 4
-  %arrayidx41 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 3, i64 14
+  %arrayidx41 = getelementptr inbounds i8, ptr %sha, i64 68
   store i32 %add36, ptr %arrayidx41, align 1
-  %arrayidx43 = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 3, i64 15
+  %arrayidx43 = getelementptr inbounds i8, ptr %sha, i64 72
   store i32 %shl39, ptr %arrayidx43, align 1
   tail call fastcc void @Transform(ptr noundef nonnull %sha, ptr noundef nonnull %buffer)
-  %digest = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4
+  %digest = getelementptr inbounds i8, ptr %sha, i64 76
   %8 = ptrtoint ptr %digest to i64
   %9 = and i64 %8, 3
   %or.cond.i58 = icmp eq i64 %9, 0
@@ -1395,7 +1395,7 @@ for.body9.i60:                                    ; preds = %ByteReverseWords.ex
 ByteReverseWords.exit76:                          ; preds = %for.body9.i60, %for.body.i69
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %hash, ptr noundef nonnull align 4 dereferenceable(20) %digest, i64 20, i1 false)
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest, align 4
-  %arrayidx8.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4, i64 4
+  %arrayidx8.i = getelementptr inbounds i8, ptr %sha, i64 92
   store i32 -1009589776, ptr %arrayidx8.i, align 4
   store i32 0, ptr %sha, align 8
   store i32 0, ptr %loLen, align 4
@@ -1417,16 +1417,16 @@ entry:
   br i1 %cmp.i, label %wc_InitSha_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %heap1.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 5
+  %heap1.i = getelementptr inbounds i8, ptr %sha, i64 96
   store ptr null, ptr %heap1.i, align 8
-  %digest.i.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4
+  %digest.i.i = getelementptr inbounds i8, ptr %sha, i64 76
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %digest.i.i, align 4
-  %arrayidx8.i.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 4, i64 4
+  %arrayidx8.i.i = getelementptr inbounds i8, ptr %sha, i64 92
   store i32 -1009589776, ptr %arrayidx8.i.i, align 4
   store i32 0, ptr %sha, align 8
-  %loLen.i.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 1
+  %loLen.i.i = getelementptr inbounds i8, ptr %sha, i64 4
   store i32 0, ptr %loLen.i.i, align 4
-  %hiLen.i.i = getelementptr inbounds %struct.wc_Sha, ptr %sha, i64 0, i32 2
+  %hiLen.i.i = getelementptr inbounds i8, ptr %sha, i64 8
   store i32 0, ptr %hiLen.i.i, align 8
   br label %wc_InitSha_ex.exit
 

@@ -49,7 +49,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.false.i:                                     ; preds = %if.then.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2.i, i64 0, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -88,7 +88,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.false.i:                                     ; preds = %if.then.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2.i, i64 0, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -127,7 +127,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.false.i:                                     ; preds = %if.then.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2.i, i64 0, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -166,7 +166,7 @@ if.then.i:                                        ; preds = %entry
 
 cond.false.i:                                     ; preds = %if.then.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2.i, i64 0, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -207,7 +207,7 @@ if.then.i:                                        ; preds = %if.end
 
 cond.false.i:                                     ; preds = %if.then.i
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2.i, i64 0, i32 2
+  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
   %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4.i unwind label %lpad.i
 
@@ -250,7 +250,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4 unwind label %lpad
 

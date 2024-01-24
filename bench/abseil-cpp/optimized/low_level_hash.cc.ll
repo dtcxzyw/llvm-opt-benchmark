@@ -3,7 +3,7 @@ source_filename = "bench/abseil-cpp/original/low_level_hash.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: mustprogress nofree nosync nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
 define dso_local noundef i64 @_ZN4absl13hash_internal12LowLevelHashEPKvmmPKm(ptr nocapture noundef readonly %data, i64 noundef %len, i64 noundef %seed, ptr nocapture noundef readonly %salt) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.prefetch.p0(ptr %data, i32 0, i32 3, i32 1)
@@ -13,13 +13,13 @@ entry:
   br i1 %cmp, label %do.body.preheader, label %if.end
 
 do.body.preheader:                                ; preds = %entry
-  %arrayidx15 = getelementptr inbounds i64, ptr %salt, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %salt, i64 8
   %1 = load i64, ptr %arrayidx15, align 8
-  %arrayidx19 = getelementptr inbounds i64, ptr %salt, i64 2
+  %arrayidx19 = getelementptr inbounds i8, ptr %salt, i64 16
   %2 = load i64, ptr %arrayidx19, align 8
-  %arrayidx24 = getelementptr inbounds i64, ptr %salt, i64 3
+  %arrayidx24 = getelementptr inbounds i8, ptr %salt, i64 24
   %3 = load i64, ptr %arrayidx24, align 8
-  %arrayidx28 = getelementptr inbounds i64, ptr %salt, i64 4
+  %arrayidx28 = getelementptr inbounds i8, ptr %salt, i64 32
   %4 = load i64, ptr %arrayidx28, align 8
   br label %do.body
 
@@ -91,7 +91,7 @@ if.end:                                           ; preds = %do.end, %entry
   br i1 %cmp3698, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %arrayidx42 = getelementptr inbounds i64, ptr %salt, i64 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %salt, i64 8
   %11 = load i64, ptr %arrayidx42, align 8
   br label %while.body
 
@@ -166,7 +166,7 @@ if.then65:                                        ; preds = %if.else63
 if.end79:                                         ; preds = %if.else63, %if.then57, %if.then65, %if.then51
   %a48.0 = phi i64 [ %t.0.copyload.i80, %if.then51 ], [ %conv, %if.then57 ], [ %or74, %if.then65 ], [ 0, %if.else63 ]
   %b49.0 = phi i64 [ %t.0.copyload.i81, %if.then51 ], [ %conv62, %if.then57 ], [ 0, %if.then65 ], [ 0, %if.else63 ]
-  %arrayidx80 = getelementptr inbounds i64, ptr %salt, i64 1
+  %arrayidx80 = getelementptr inbounds i8, ptr %salt, i64 8
   %15 = load i64, ptr %arrayidx80, align 8
   %xor81 = xor i64 %15, %a48.0
   %xor82 = xor i64 %b49.0, %current_state.2.lcssa
@@ -188,7 +188,7 @@ if.end79:                                         ; preds = %if.else63, %if.then
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #1
 
-attributes #0 = { mustprogress nofree nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

@@ -105,7 +105,7 @@ invoke.cont3.thread:                              ; preds = %call.i.noexc10
 
 if.end.i8:                                        ; preds = %call.i.noexc10
   store i8 0, ptr %SCOPE_EXIT_STATE1.i, align 8, !alias.scope !4
-  %function_.i.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE1.i, i64 0, i32 1
+  %function_.i.i.i.i = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE1.i, i64 8
   %2 = ptrtoint ptr %fd.i to i64
   store i64 %2, ptr %function_.i.i.i.i, align 8, !alias.scope !4
   %call1.i = invoke noundef zeroext i1 @_ZN5folly8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_m(i32 noundef %call.i11, ptr noundef nonnull align 8 dereferenceable(32) %appName, i64 noundef -1)
@@ -270,7 +270,7 @@ lpad:                                             ; preds = %call.i.noexc, %if.t
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %hostbuf, i64 0, i64 255
+  %arrayidx = getelementptr inbounds i8, ptr %hostbuf, i64 255
   store i8 0, ptr %arrayidx, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #15
   %call.i7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
@@ -394,7 +394,7 @@ entry:
   %call = call i32 @clock_gettime(i32 noundef 3, ptr noundef nonnull %ts) #15
   %0 = load i64, ptr %ts, align 8
   %mul = mul nsw i64 %0, 1000000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %1 = load i64, ptr %tv_nsec, align 8
   %add = add nsw i64 %mul, %1
   ret i64 %add
@@ -552,16 +552,16 @@ entry:
   %buf = alloca %struct.stat, align 8
   store i64 0, ptr %soFar, align 8
   store i8 0, ptr %SCOPE_EXIT_STATE0, align 8, !alias.scope !7
-  %function_.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.0", ptr %SCOPE_EXIT_STATE0, i64 0, i32 1
+  %function_.i.i.i = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE0, i64 8
   store ptr %out, ptr %function_.i.i.i, align 8
-  %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.0", ptr %SCOPE_EXIT_STATE0, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE0, i64 16
   store ptr %soFar, ptr %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx, align 8
   %call = call i32 @fstat(i32 noundef %fd, ptr noundef nonnull %buf) #15
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then.i, label %if.end
 
 if.end:                                           ; preds = %entry
-  %st_size = getelementptr inbounds %struct.stat, ptr %buf, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %buf, i64 48
   %0 = load i64, ptr %st_size, align 8
   %cmp2 = icmp sgt i64 %0, 0
   %add = add i64 %0, 1
@@ -649,7 +649,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %function_.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1
+  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %function_.i, align 8
   %3 = load i32, ptr %2, align 4
   %call.i.i = invoke noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef %3)
@@ -687,9 +687,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %function_.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.0", ptr %this, i64 0, i32 1
+  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %function_.i, align 8
-  %3 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl.0", ptr %this, i64 0, i32 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %5)

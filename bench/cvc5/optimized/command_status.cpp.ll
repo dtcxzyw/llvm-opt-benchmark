@@ -3,13 +3,6 @@ source_filename = "bench/cvc5/original/command_status.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.cvc5::parser::CommandFailure" = type { %"class.cvc5::parser::CommandStatus", %"class.std::__cxx11::basic_string" }
-%"class.cvc5::parser::CommandStatus" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.cvc5::parser::CommandRecoverableFailure" = type { %"class.cvc5::parser::CommandStatus", %"class.std::__cxx11::basic_string" }
-
 $_ZN4cvc56parser18CommandUnsupportedD2Ev = comdat any
 
 $_ZN4cvc56parser18CommandUnsupportedD0Ev = comdat any
@@ -80,7 +73,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc56parserlsERSoRKNS0_13CommandStatusE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(8) %s) local_unnamed_addr #2 {
 entry:
   %vtable = load ptr, ptr %s, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(8) %out)
   ret ptr %out
@@ -98,7 +91,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %vtable.i = load ptr, ptr %s, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef nonnull align 8 dereferenceable(8) %out)
   br label %if.end
@@ -114,7 +107,7 @@ define void @_ZNK4cvc56parser14CommandSuccess8toStreamERSo(ptr nocapture nonnull
 entry:
   %call = tail call noundef ptr @_ZN4cvc58internal7Printer10getPrinterERSo(ptr noundef nonnull align 8 dereferenceable(8) %out)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %out)
   ret void
@@ -127,7 +120,7 @@ define void @_ZNK4cvc56parser18CommandInterrupted8toStreamERSo(ptr nocapture non
 entry:
   %call = tail call noundef ptr @_ZN4cvc58internal7Printer10getPrinterERSo(ptr noundef nonnull align 8 dereferenceable(8) %out)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %out)
   ret void
@@ -138,7 +131,7 @@ define void @_ZNK4cvc56parser18CommandUnsupported8toStreamERSo(ptr nocapture non
 entry:
   %call = tail call noundef ptr @_ZN4cvc58internal7Printer10getPrinterERSo(ptr noundef nonnull align 8 dereferenceable(8) %out)
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %out)
   ret void
@@ -148,9 +141,9 @@ entry:
 define void @_ZNK4cvc56parser14CommandFailure8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN4cvc58internal7Printer10getPrinterERSo(ptr noundef nonnull align 8 dereferenceable(8) %out)
-  %d_message = getelementptr inbounds %"class.cvc5::parser::CommandFailure", ptr %this, i64 0, i32 1
+  %d_message = getelementptr inbounds i8, ptr %this, i64 8
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %d_message)
   ret void
@@ -160,9 +153,9 @@ entry:
 define void @_ZNK4cvc56parser25CommandRecoverableFailure8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN4cvc58internal7Printer10getPrinterERSo(ptr noundef nonnull align 8 dereferenceable(8) %out)
-  %d_message = getelementptr inbounds %"class.cvc5::parser::CommandRecoverableFailure", ptr %this, i64 0, i32 1
+  %d_message = getelementptr inbounds i8, ptr %this, i64 8
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %d_message)
   ret void
@@ -193,7 +186,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc56parser14CommandFailureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser14CommandFailureE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_message = getelementptr inbounds %"class.cvc5::parser::CommandFailure", ptr %this, i64 0, i32 1
+  %d_message = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_message) #9
   ret void
 }
@@ -202,7 +195,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc56parser14CommandFailureD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser14CommandFailureE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_message.i = getelementptr inbounds %"class.cvc5::parser::CommandFailure", ptr %this, i64 0, i32 1
+  %d_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_message.i) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #7
   ret void
@@ -213,8 +206,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZNK
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser14CommandFailureE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %d_message.i = getelementptr inbounds %"class.cvc5::parser::CommandFailure", ptr %call, i64 0, i32 1
-  %d_message2.i = getelementptr inbounds %"class.cvc5::parser::CommandFailure", ptr %this, i64 0, i32 1
+  %d_message.i = getelementptr inbounds i8, ptr %call, i64 8
+  %d_message2.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_message.i, ptr noundef nonnull align 8 dereferenceable(32) %d_message2.i)
           to label %invoke.cont unwind label %lpad
 
@@ -232,7 +225,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr hidden void @_ZN4cvc56parser25CommandRecoverableFailureD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser25CommandRecoverableFailureE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_message = getelementptr inbounds %"class.cvc5::parser::CommandRecoverableFailure", ptr %this, i64 0, i32 1
+  %d_message = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_message) #9
   ret void
 }
@@ -241,7 +234,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc56parser25CommandRecoverableFailureD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser25CommandRecoverableFailureE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_message.i = getelementptr inbounds %"class.cvc5::parser::CommandRecoverableFailure", ptr %this, i64 0, i32 1
+  %d_message.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_message.i) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #7
   ret void
@@ -252,8 +245,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZNK
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc56parser25CommandRecoverableFailureE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %d_message.i = getelementptr inbounds %"class.cvc5::parser::CommandRecoverableFailure", ptr %call, i64 0, i32 1
-  %d_message2.i = getelementptr inbounds %"class.cvc5::parser::CommandRecoverableFailure", ptr %this, i64 0, i32 1
+  %d_message.i = getelementptr inbounds i8, ptr %call, i64 8
+  %d_message2.i = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_message.i, ptr noundef nonnull align 8 dereferenceable(32) %d_message2.i)
           to label %invoke.cont unwind label %lpad
 

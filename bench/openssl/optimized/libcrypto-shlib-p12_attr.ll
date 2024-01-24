@@ -3,16 +3,10 @@ source_filename = "bench/openssl/original/libcrypto-shlib-p12_attr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PKCS12_SAFEBAG_st = type { ptr, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS12_add_localkeyid(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 157, i32 noundef 4, ptr noundef %name, i32 noundef %namelen) #3
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -36,7 +30,7 @@ declare i32 @PKCS8_pkey_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS12_add_friendlyname_asc(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 156, i32 noundef 4097, ptr noundef %name, i32 noundef %namelen) #3
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -46,7 +40,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS12_add_friendlyname_utf8(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 156, i32 noundef 4096, ptr noundef %name, i32 noundef %namelen) #3
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -56,7 +50,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS12_add_friendlyname_uni(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 156, i32 noundef 4098, ptr noundef %name, i32 noundef %namelen) #3
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -66,7 +60,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS12_add_CSPName_asc(ptr noundef %bag, ptr noundef %name, i32 noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef 417, i32 noundef 4097, ptr noundef %name, i32 noundef %namelen) #3
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -76,7 +70,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS12_add1_attr_by_NID(ptr noundef %bag, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attrib, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #3
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -86,7 +80,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @PKCS12_add1_attr_by_txt(ptr noundef %bag, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %attrib, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #3
   %cmp.not = icmp ne ptr %call, null
   %. = zext i1 %cmp.not to i32
@@ -131,9 +125,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %1, align 8
   %call5 = tail call ptr @OPENSSL_uni2utf8(ptr noundef %2, i32 noundef %3) #3
@@ -151,7 +145,7 @@ declare ptr @OPENSSL_uni2utf8(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @PKCS12_SAFEBAG_get0_attrs(ptr nocapture noundef readonly %bag) local_unnamed_addr #2 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %0 = load ptr, ptr %attrib, align 8
   ret ptr %0
 }
@@ -159,7 +153,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @PKCS12_SAFEBAG_set0_attrs(ptr nocapture noundef %bag, ptr noundef %attrs) local_unnamed_addr #0 {
 entry:
-  %attrib = getelementptr inbounds %struct.PKCS12_SAFEBAG_st, ptr %bag, i64 0, i32 2
+  %attrib = getelementptr inbounds i8, ptr %bag, i64 16
   %0 = load ptr, ptr %attrib, align 8
   %cmp.not = icmp eq ptr %0, %attrs
   br i1 %cmp.not, label %if.end, label %if.then

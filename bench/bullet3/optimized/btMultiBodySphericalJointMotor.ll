@@ -3,29 +3,13 @@ source_filename = "bench/bullet3/original/btMultiBodySphericalJointMotor.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btMultiBody = type { ptr, ptr, ptr, %class.btVector3, %class.btVector3, %class.btQuaternion, %class.btQuaternion, float, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8], %class.btAlignedObjectArray.0, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray, %class.btAlignedObjectArray.4, %class.btAlignedObjectArray.8, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, %class.btMatrix3x3, i8, i8, i8, i8, i8, float, float, float, ptr, i32, i32, i32, float, float, i8, float, float, i8, i8, i32, i32, i8, i8, i8, i8 }
+%struct.btMultibodyLink = type { float, %class.btVector3, i32, %class.btQuaternion, %class.btVector3, %class.btVector3, %struct.btSpatialMotionVector, %struct.btSpatialMotionVector, [6 x %struct.btSpatialMotionVector], i32, i32, %class.btQuaternion, %class.btVector3, %class.btQuaternion, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [7 x float], [7 x float], [6 x float], ptr, i32, i32, i32, i32, ptr, %class.btTransform, ptr, ptr, ptr, float, float, float, float, float, float }
+%struct.btSpatialMotionVector = type { %class.btVector3, %class.btVector3 }
 %class.btQuaternion = type { %class.btQuadWord }
 %class.btQuadWord = type { [4 x float] }
 %class.btVector3 = type { [4 x float] }
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.btAlignedObjectArray.8 = type <{ %class.btAlignedAllocator.9, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.9 = type { i8 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%struct.btMultibodyLink = type { float, %class.btVector3, i32, %class.btQuaternion, %class.btVector3, %class.btVector3, %struct.btSpatialMotionVector, %struct.btSpatialMotionVector, [6 x %struct.btSpatialMotionVector], i32, i32, %class.btQuaternion, %class.btVector3, %class.btQuaternion, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [7 x float], [7 x float], [6 x float], ptr, i32, i32, i32, i32, ptr, %class.btTransform, ptr, ptr, ptr, float, float, float, float, float, float }
-%struct.btSpatialMotionVector = type { %class.btVector3, %class.btVector3 }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMultiBodySphericalJointMotor = type <{ %class.btMultiBodyConstraint, %class.btVector3, %class.btQuaternion, i8, [3 x i8], %class.btVector3, %class.btVector3, float, float, %class.btVector3, %class.btVector3, [4 x i8] }>
-%class.btMultiBodyConstraint = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i32, float, %class.btAlignedObjectArray }
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray.12, i32, %class.btVector3, [4 x i8] }>
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
+%class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %struct.btMultiBodySolverConstraint = type <{ i32, i32, i32, i32, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, float, float, float, float, float, [4 x i8], %union.anon.20, i32, i32, i32, [4 x i8], ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
 %union.anon.20 = type { ptr }
 
@@ -70,36 +54,36 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN30btMultiBodySphericalJointMotorC2EP11btMultiBodyif(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef %body, i32 noundef %link, float noundef %maxMotorImpulse) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %body, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %body, i64 192
   %0 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %link to i64
   %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %0, i64 %idxprom.i.i, i32 2
   %1 = load i32, ptr %m_parent, align 4
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %body, ptr noundef nonnull %body, i32 noundef %link, i32 noundef %1, i32 noundef 3, i1 noundef zeroext true, i32 noundef 8)
   store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV30btMultiBodySphericalJointMotor, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_desiredVelocity = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 1
-  %arrayidx7.i.i = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 3
+  %m_desiredVelocity = getelementptr inbounds i8, ptr %this, i64 96
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_desiredVelocity, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %arrayidx7.i.i, align 4
-  %m_use_multi_dof_params = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 3
+  %m_use_multi_dof_params = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %m_use_multi_dof_params, align 8
-  %m_kd = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 5
+  %m_kd = getelementptr inbounds i8, ptr %this, i64 132
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_kd, align 4
-  %m_kp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 6
+  %m_kp = getelementptr inbounds i8, ptr %this, i64 148
   store <4 x float> <float 0x3FC99999A0000000, float 0x3FC99999A0000000, float 0x3FC99999A0000000, float 0.000000e+00>, ptr %m_kp, align 4
-  %m_erp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 7
+  %m_erp = getelementptr inbounds i8, ptr %this, i64 164
   store <2 x float> <float 1.000000e+00, float 0x47EFFFFFE0000000>, ptr %m_erp, align 4
-  %m_maxAppliedImpulseMultiDof = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 9
+  %m_maxAppliedImpulseMultiDof = getelementptr inbounds i8, ptr %this, i64 172
   store float %maxMotorImpulse, ptr %m_maxAppliedImpulseMultiDof, align 4
-  %arrayidx3.i10 = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 9, i32 0, i64 1
+  %arrayidx3.i10 = getelementptr inbounds i8, ptr %this, i64 176
   store float %maxMotorImpulse, ptr %arrayidx3.i10, align 8
-  %arrayidx5.i11 = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 9, i32 0, i64 2
+  %arrayidx5.i11 = getelementptr inbounds i8, ptr %this, i64 180
   store float %maxMotorImpulse, ptr %arrayidx5.i11, align 4
-  %arrayidx7.i12 = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 9, i32 0, i64 3
+  %arrayidx7.i12 = getelementptr inbounds i8, ptr %this, i64 184
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx7.i12, align 8
-  %arrayidx7.i15 = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 10, i32 0, i64 3
+  %arrayidx7.i15 = getelementptr inbounds i8, ptr %this, i64 200
   store float 0.000000e+00, ptr %arrayidx7.i15, align 8
-  %m_maxAppliedImpulse = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 12
+  %m_maxAppliedImpulse = getelementptr inbounds i8, ptr %this, i64 60
   store float %maxMotorImpulse, ptr %m_maxAppliedImpulse, align 4
   ret void
 }
@@ -115,20 +99,20 @@ declare void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 derefer
 define dso_local void @_ZN30btMultiBodySphericalJointMotor16finalizeMultiDofEv(ptr noundef nonnull align 8 dereferenceable(204) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN21btMultiBodyConstraint25allocateJacobiansMultiDofEv(ptr noundef nonnull align 8 dereferenceable(96) %this)
-  %m_bodyA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 1
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_linkA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 3
+  %m_linkA = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %0, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %0, i64 192
   %2 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %1 to i64
   %m_dofOffset = getelementptr inbounds %struct.btMultibodyLink, ptr %2, i64 %idxprom.i.i, i32 9
   %3 = load i32, ptr %m_dofOffset, align 8
   %add2 = add nsw i32 %3, 6
-  %m_numRows.i = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 6
+  %m_numRows.i = getelementptr inbounds i8, ptr %this, i64 36
   %4 = load i32, ptr %m_numRows.i, align 4
-  %m_jacSizeBoth.i = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 8
-  %m_data.i.i1 = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 13, i32 5
+  %m_jacSizeBoth.i = getelementptr inbounds i8, ptr %this, i64 44
+  %m_data.i.i1 = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load ptr, ptr %m_data.i.i1, align 8
   %idxprom.i.i2 = sext i32 %4 to i64
   %arrayidx.i.i3 = getelementptr inbounds float, ptr %5, i64 %idxprom.i.i2
@@ -136,7 +120,7 @@ entry:
   %arrayidx = getelementptr inbounds float, ptr %arrayidx.i.i3, i64 %idxprom
   store float 1.000000e+00, ptr %arrayidx, align 4
   %6 = load i32, ptr %m_jacSizeBoth.i, align 4
-  %m_numDofsFinalized = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 11
+  %m_numDofsFinalized = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %6, ptr %m_numDofsFinalized, align 8
   ret void
 }
@@ -171,21 +155,21 @@ _ZN21btMultiBodyConstraintdlEPv.exit:             ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK30btMultiBodySphericalJointMotor12getIslandIdAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_linkA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 3
+  %m_linkA = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_linkA, align 8
   %cmp = icmp slt i32 %0, 0
-  %m_bodyA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 1
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_bodyA, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_baseCollider.i = getelementptr inbounds %class.btMultiBody, ptr %1, i64 0, i32 1
+  %m_baseCollider.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %m_baseCollider.i, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %1, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %1, i64 192
   %3 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = zext nneg i32 %0 to i64
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %3, i64 %idxprom.i.i, i32 22
@@ -195,7 +179,7 @@ if.else:                                          ; preds = %entry
 
 return.sink.split:                                ; preds = %if.else, %if.then
   %.sink = phi ptr [ %2, %if.then ], [ %4, %if.else ]
-  %m_islandTag1.i5 = getelementptr inbounds %class.btCollisionObject, ptr %.sink, i64 0, i32 13
+  %m_islandTag1.i5 = getelementptr inbounds i8, ptr %.sink, i64 228
   %5 = load i32, ptr %m_islandTag1.i5, align 4
   br label %return
 
@@ -207,21 +191,21 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK30btMultiBodySphericalJointMotor12getIslandIdBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_linkB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 4
+  %m_linkB = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_linkB, align 4
   %cmp = icmp slt i32 %0, 0
-  %m_bodyB = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 2
+  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_bodyB, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_baseCollider.i = getelementptr inbounds %class.btMultiBody, ptr %1, i64 0, i32 1
+  %m_baseCollider.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %m_baseCollider.i, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %return.sink.split
 
 if.else:                                          ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %1, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %1, i64 192
   %3 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = zext nneg i32 %0 to i64
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %3, i64 %idxprom.i.i, i32 22
@@ -231,7 +215,7 @@ if.else:                                          ; preds = %entry
 
 return.sink.split:                                ; preds = %if.else, %if.then
   %.sink = phi ptr [ %2, %if.then ], [ %4, %if.else ]
-  %m_islandTag1.i5 = getelementptr inbounds %class.btCollisionObject, ptr %.sink, i64 0, i32 13
+  %m_islandTag1.i5 = getelementptr inbounds i8, ptr %.sink, i64 228
   %5 = load i32, ptr %m_islandTag1.i5, align 4
   br label %return
 
@@ -250,16 +234,16 @@ entry:
   %ref.tmp60 = alloca %class.btMatrix3x3, align 4
   %constraintNormalAng = alloca %class.btVector3, align 8
   %ref.tmp104 = alloca %class.btVector3, align 4
-  %m_numDofsFinalized = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 11
+  %m_numDofsFinalized = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %m_numDofsFinalized, align 8
-  %m_jacSizeBoth = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 8
+  %m_jacSizeBoth = getelementptr inbounds i8, ptr %this, i64 44
   %1 = load i32, ptr %m_jacSizeBoth, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(204) %this)
   %.pre = load i32, ptr %m_numDofsFinalized, align 8
@@ -268,36 +252,36 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end6, label %for.end
 
 if.end6:                                          ; preds = %entry, %if.end
-  %m_maxAppliedImpulse = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 12
+  %m_maxAppliedImpulse = getelementptr inbounds i8, ptr %this, i64 60
   %3 = load float, ptr %m_maxAppliedImpulse, align 4
   %cmp7 = fcmp oeq float %3, 0.000000e+00
   br i1 %cmp7, label %for.end, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %m_desiredPosition = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 2
+  %m_desiredPosition = getelementptr inbounds i8, ptr %this, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %dummy, i8 0, i64 16, i1 false)
-  %desiredQuat.sroa.3.0.m_desiredPosition.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %desiredQuat.sroa.3.0.m_desiredPosition.sroa_idx = getelementptr inbounds i8, ptr %this, i64 120
   %desiredQuat.sroa.3.0.copyload = load float, ptr %desiredQuat.sroa.3.0.m_desiredPosition.sroa_idx, align 8
-  %desiredQuat.sroa.4.0.m_desiredPosition.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 3
+  %desiredQuat.sroa.4.0.m_desiredPosition.sroa_idx = getelementptr inbounds i8, ptr %this, i64 124
   %desiredQuat.sroa.4.0.copyload = load float, ptr %desiredQuat.sroa.4.0.m_desiredPosition.sroa_idx, align 4
-  %m_bodyA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 1
+  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_bodyA, align 8
-  %m_linkA = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 3
+  %m_linkA = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %m_linkA, align 8
   %6 = load <2 x float>, ptr %m_desiredPosition, align 8
   %call = tail call noundef ptr @_ZN11btMultiBody19getJointPosMultiDofEi(ptr noundef nonnull align 8 dereferenceable(640) %4, i32 noundef %5)
   %7 = load ptr, ptr %m_bodyA, align 8
   %8 = load i32, ptr %m_linkA, align 8
   %call24 = tail call noundef ptr @_ZN11btMultiBody19getJointPosMultiDofEi(ptr noundef nonnull align 8 dereferenceable(640) %7, i32 noundef %8)
-  %arrayidx25 = getelementptr inbounds float, ptr %call24, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %call24, i64 4
   %9 = load ptr, ptr %m_bodyA, align 8
   %10 = load i32, ptr %m_linkA, align 8
   %call28 = tail call noundef ptr @_ZN11btMultiBody19getJointPosMultiDofEi(ptr noundef nonnull align 8 dereferenceable(640) %9, i32 noundef %10)
-  %arrayidx29 = getelementptr inbounds float, ptr %call28, i64 2
+  %arrayidx29 = getelementptr inbounds i8, ptr %call28, i64 8
   %11 = load ptr, ptr %m_bodyA, align 8
   %12 = load i32, ptr %m_linkA, align 8
   %call32 = tail call noundef ptr @_ZN11btMultiBody19getJointPosMultiDofEi(ptr noundef nonnull align 8 dereferenceable(640) %11, i32 noundef %12)
-  %arrayidx33 = getelementptr inbounds float, ptr %call32, i64 3
+  %arrayidx33 = getelementptr inbounds i8, ptr %call32, i64 12
   %13 = load float, ptr %call, align 4
   %14 = load float, ptr %arrayidx25, align 4
   %15 = load float, ptr %arrayidx29, align 4
@@ -373,50 +357,50 @@ if.end9:                                          ; preds = %if.end6
   %add41.i.i = fadd float %mul14.i.i, %63
   %sub42.i.i = fsub float 1.000000e+00, %add41.i.i
   store <2 x float> %61, ptr %ref.tmp40, align 8
-  %arrayidx5.i.i.i.i = getelementptr inbounds [4 x float], ptr %ref.tmp40, i64 0, i64 2
+  %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 8
   store float %add28.i.i, ptr %arrayidx5.i.i.i.i, align 8
-  %arrayidx7.i.i38.i.i = getelementptr inbounds [4 x float], ptr %ref.tmp40, i64 0, i64 3
+  %arrayidx7.i.i38.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i.i38.i.i, align 4
-  %arrayidx3.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 16
   store float %add30.i.i, ptr %arrayidx3.i.i.i, align 8
-  %arrayidx3.i1.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 1, i32 0, i64 1
+  %arrayidx3.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 20
   store float %sub33.i.i, ptr %arrayidx3.i1.i.i.i, align 4
-  %arrayidx5.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 1, i32 0, i64 2
+  %arrayidx5.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 24
   store float %sub35.i.i, ptr %arrayidx5.i2.i.i.i, align 8
-  %arrayidx7.i3.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 1, i32 0, i64 3
+  %arrayidx7.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 28
   store float 0.000000e+00, ptr %arrayidx7.i3.i.i.i, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 32
   store float %sub37.i.i, ptr %arrayidx5.i.i.i, align 8
-  %arrayidx3.i4.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 2, i32 0, i64 1
+  %arrayidx3.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 36
   store float %add39.i.i, ptr %arrayidx3.i4.i.i.i, align 4
-  %arrayidx5.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 2, i32 0, i64 2
+  %arrayidx5.i5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 40
   store float %sub42.i.i, ptr %arrayidx5.i5.i.i.i, align 8
-  %arrayidx7.i6.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp40, i64 0, i64 2, i32 0, i64 3
+  %arrayidx7.i6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 44
   store float 0.000000e+00, ptr %arrayidx7.i6.i.i.i, align 4
   %call41 = call noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXYZERK11btMatrix3x3R9btVector3(ptr noundef nonnull align 4 dereferenceable(48) %ref.tmp40, ptr noundef nonnull align 4 dereferenceable(16) %angleDiff)
-  %m_numRows.i = getelementptr inbounds %class.btMultiBodyConstraint, ptr %this, i64 0, i32 6
+  %m_numRows.i = getelementptr inbounds i8, ptr %this, i64 36
   %64 = load i32, ptr %m_numRows.i, align 4
   %cmp4357 = icmp sgt i32 %64, 0
   br i1 %cmp4357, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end9
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 2
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 3
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 5
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray.16, ptr %constraintRows, i64 0, i32 6
-  %arrayidx3.i.i.i33 = getelementptr inbounds [4 x float], ptr %frameAworld, i64 0, i64 1
-  %arrayidx3.i1.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %frameAworld, i64 0, i64 1, i32 0, i64 1
-  %arrayidx5.i2.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %frameAworld, i64 0, i64 1, i32 0, i64 2
-  %arrayidx5.i5.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %frameAworld, i64 0, i64 2, i32 0, i64 2
-  %arrayidx5.i34 = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp60, i64 0, i64 1
-  %arrayidx7.i35 = getelementptr inbounds [3 x %class.btVector3], ptr %frameAworld, i64 0, i64 1
-  %arrayidx9.i = getelementptr inbounds [3 x %class.btVector3], ptr %ref.tmp60, i64 0, i64 2
-  %arrayidx11.i36 = getelementptr inbounds [3 x %class.btVector3], ptr %frameAworld, i64 0, i64 2
-  %m_use_multi_dof_params = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 3
-  %65 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %constraintNormalAng, i64 0, i32 1
-  %m_kp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 6
-  %m_maxAppliedImpulseMultiDof = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 9
-  %m_damping = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 10
+  %m_size.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 4
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 8
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 16
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %constraintRows, i64 24
+  %arrayidx3.i.i.i33 = getelementptr inbounds i8, ptr %frameAworld, i64 4
+  %arrayidx3.i1.i.i = getelementptr inbounds i8, ptr %frameAworld, i64 20
+  %arrayidx5.i2.i.i = getelementptr inbounds i8, ptr %frameAworld, i64 24
+  %arrayidx5.i5.i.i = getelementptr inbounds i8, ptr %frameAworld, i64 40
+  %arrayidx5.i34 = getelementptr inbounds i8, ptr %ref.tmp60, i64 16
+  %arrayidx7.i35 = getelementptr inbounds i8, ptr %frameAworld, i64 16
+  %arrayidx9.i = getelementptr inbounds i8, ptr %ref.tmp60, i64 32
+  %arrayidx11.i36 = getelementptr inbounds i8, ptr %frameAworld, i64 32
+  %m_use_multi_dof_params = getelementptr inbounds i8, ptr %this, i64 128
+  %65 = getelementptr inbounds i8, ptr %constraintNormalAng, i64 8
+  %m_kp = getelementptr inbounds i8, ptr %this, i64 148
+  %m_maxAppliedImpulseMultiDof = getelementptr inbounds i8, ptr %this, i64 172
+  %m_damping = getelementptr inbounds i8, ptr %this, i64 188
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -509,7 +493,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx11.i36, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx9.i, i64 16, i1 false)
   %79 = load ptr, ptr %m_bodyA, align 8
   %80 = load i32, ptr %m_linkA, align 8
-  %m_data.i.i = getelementptr inbounds %class.btMultiBody, ptr %79, i64 0, i32 14, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %79, i64 192
   %81 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %80 to i64
   %m_jointType = getelementptr inbounds %struct.btMultibodyLink, ptr %81, i64 %idxprom.i.i, i32 26
@@ -561,9 +545,9 @@ cond.end101:                                      ; preds = %cond.end82.thread, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp104, i8 0, i64 16, i1 false)
   %90 = load float, ptr %arrayidx113, align 4
   %call114 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(220) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(204) %data, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %constraintNormalAng, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp104, ptr noundef nonnull align 4 dereferenceable(16) %dummy, ptr noundef nonnull align 4 dereferenceable(16) %dummy, float noundef %conv9156, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %conv108, float noundef %cond102, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %90)
-  %m_orgConstraint = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %74, i64 %idxprom.i, i32 31
+  %m_orgConstraint = getelementptr inbounds i8, ptr %arrayidx.i, i64 208
   store ptr %this, ptr %m_orgConstraint, align 8
-  %m_orgDofIndex = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %74, i64 %idxprom.i, i32 32
+  %m_orgDofIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 216
   store i32 %row.058, ptr %m_orgDofIndex, align 8
   br label %for.inc
 
@@ -629,7 +613,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30btMultiBodySphericalJointMotor6setErpEf(ptr noundef nonnull align 8 dereferenceable(204) %this, float noundef %erp) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_erp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 7
+  %m_erp = getelementptr inbounds i8, ptr %this, i64 164
   store float %erp, ptr %m_erp, align 4
   ret void
 }
@@ -637,17 +621,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN30btMultiBodySphericalJointMotor17setVelocityTargetERK9btVector3f(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 4 dereferenceable(16) %velTarget, float noundef %kd) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_desiredVelocity = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 1
+  %m_desiredVelocity = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_desiredVelocity, ptr noundef nonnull align 4 dereferenceable(16) %velTarget, i64 16, i1 false)
-  %m_kd = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 5
+  %m_kd = getelementptr inbounds i8, ptr %this, i64 132
   store float %kd, ptr %m_kd, align 4
-  %ref.tmp.sroa.2.0.m_kd.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 5, i32 0, i64 1
+  %ref.tmp.sroa.2.0.m_kd.sroa_idx = getelementptr inbounds i8, ptr %this, i64 136
   store float %kd, ptr %ref.tmp.sroa.2.0.m_kd.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.m_kd.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 5, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_kd.sroa_idx = getelementptr inbounds i8, ptr %this, i64 140
   store float %kd, ptr %ref.tmp.sroa.3.0.m_kd.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.m_kd.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 5, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_kd.sroa_idx = getelementptr inbounds i8, ptr %this, i64 144
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_kd.sroa_idx, align 8
-  %m_use_multi_dof_params = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 3
+  %m_use_multi_dof_params = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %m_use_multi_dof_params, align 8
   ret void
 }
@@ -655,11 +639,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30btMultiBodySphericalJointMotor25setVelocityTargetMultiDofERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 4 dereferenceable(16) %velTarget, ptr noundef nonnull align 4 dereferenceable(16) %kd) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_desiredVelocity = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 1
+  %m_desiredVelocity = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_desiredVelocity, ptr noundef nonnull align 4 dereferenceable(16) %velTarget, i64 16, i1 false)
-  %m_kd = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 5
+  %m_kd = getelementptr inbounds i8, ptr %this, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_kd, ptr noundef nonnull align 4 dereferenceable(16) %kd, i64 16, i1 false)
-  %m_use_multi_dof_params = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 3
+  %m_use_multi_dof_params = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %m_use_multi_dof_params, align 8
   ret void
 }
@@ -667,17 +651,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN30btMultiBodySphericalJointMotor17setPositionTargetERK12btQuaternionf(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 4 dereferenceable(16) %posTarget, float noundef %kp) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_desiredPosition = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 2
+  %m_desiredPosition = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_desiredPosition, ptr noundef nonnull align 4 dereferenceable(16) %posTarget, i64 16, i1 false)
-  %m_kp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 6
+  %m_kp = getelementptr inbounds i8, ptr %this, i64 148
   store float %kp, ptr %m_kp, align 4
-  %ref.tmp.sroa.2.0.m_kp.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 6, i32 0, i64 1
+  %ref.tmp.sroa.2.0.m_kp.sroa_idx = getelementptr inbounds i8, ptr %this, i64 152
   store float %kp, ptr %ref.tmp.sroa.2.0.m_kp.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.m_kp.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 6, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_kp.sroa_idx = getelementptr inbounds i8, ptr %this, i64 156
   store float %kp, ptr %ref.tmp.sroa.3.0.m_kp.sroa_idx, align 4
-  %ref.tmp.sroa.4.0.m_kp.sroa_idx = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 6, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_kp.sroa_idx = getelementptr inbounds i8, ptr %this, i64 160
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_kp.sroa_idx, align 8
-  %m_use_multi_dof_params = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 3
+  %m_use_multi_dof_params = getelementptr inbounds i8, ptr %this, i64 128
   store i8 0, ptr %m_use_multi_dof_params, align 8
   ret void
 }
@@ -685,11 +669,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30btMultiBodySphericalJointMotor25setPositionTargetMultiDofERK12btQuaternionRK9btVector3(ptr noundef nonnull align 8 dereferenceable(204) %this, ptr noundef nonnull align 4 dereferenceable(16) %posTarget, ptr noundef nonnull align 4 dereferenceable(16) %kp) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_desiredPosition = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 2
+  %m_desiredPosition = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_desiredPosition, ptr noundef nonnull align 4 dereferenceable(16) %posTarget, i64 16, i1 false)
-  %m_kp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 6
+  %m_kp = getelementptr inbounds i8, ptr %this, i64 148
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_kp, ptr noundef nonnull align 4 dereferenceable(16) %kp, i64 16, i1 false)
-  %m_use_multi_dof_params = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 3
+  %m_use_multi_dof_params = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %m_use_multi_dof_params, align 8
   ret void
 }
@@ -697,7 +681,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK30btMultiBodySphericalJointMotor6getErpEv(ptr noundef nonnull align 8 dereferenceable(204) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_erp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 7
+  %m_erp = getelementptr inbounds i8, ptr %this, i64 164
   %0 = load float, ptr %m_erp, align 4
   ret float %0
 }
@@ -705,7 +689,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN30btMultiBodySphericalJointMotor11setRhsClampEf(ptr noundef nonnull align 8 dereferenceable(204) %this, float noundef %rhsClamp) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_rhsClamp = getelementptr inbounds %class.btMultiBodySphericalJointMotor, ptr %this, i64 0, i32 8
+  %m_rhsClamp = getelementptr inbounds i8, ptr %this, i64 168
   store float %rhsClamp, ptr %m_rhsClamp, align 8
   ret void
 }

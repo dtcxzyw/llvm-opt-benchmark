@@ -3,9 +3,6 @@ source_filename = "bench/bullet3/original/btConcaveShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-%class.btConcaveShape = type <{ %class.btCollisionShape, float, [4 x i8] }>
-
 $_ZNK16btCollisionShape38getAnisotropicRollingFrictionDirectionEv = comdat any
 
 $_ZN14btConcaveShape9setMarginEf = comdat any
@@ -26,16 +23,16 @@ $_ZNK16btCollisionShape28calculateSerializeBufferSizeEv = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN14btConcaveShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_shapeType.i = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 35, ptr %m_shapeType.i, align 8
-  %m_userPointer.i = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 2
+  %m_userPointer.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_userPointer.i, align 8
-  %m_userIndex.i = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 3
+  %m_userIndex.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %m_userIndex.i, align 8
-  %m_userIndex2.i = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 4
+  %m_userIndex2.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 -1, ptr %m_userIndex2.i, align 4
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV14btConcaveShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   store float 0.000000e+00, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -73,7 +70,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14btConcaveShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(36) %this, float noundef %collisionMargin) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   store float %collisionMargin, ptr %m_collisionMargin, align 8
   ret void
 }
@@ -81,7 +78,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZNK14btConcaveShape9getMarginEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_collisionMargin = getelementptr inbounds %class.btConcaveShape, ptr %this, i64 0, i32 1
+  %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load float, ptr %m_collisionMargin, align 8
   ret float %0
 }

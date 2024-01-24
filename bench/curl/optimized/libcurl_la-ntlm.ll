@@ -3,41 +3,6 @@ source_filename = "bench/curl/original/libcurl_la-ntlm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.ntlmdata = type { i32, [8 x i8], i32, ptr }
-
 @Curl_auth_decode_ntlm_type2_message.type2_marker = internal constant [4 x i8] c"\02\00\00\00", align 1
 @.str = private unnamed_addr constant [8 x i8] c"NTLMSSP\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"NTLM handshake failure (bad type-2 message)\00", align 1
@@ -82,7 +47,7 @@ do.body:                                          ; preds = %entry, %lor.lhs.fal
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool7.not = icmp eq i64 %0, 0
@@ -96,7 +61,7 @@ if.end9:                                          ; preds = %lor.lhs.false4
   %arrayidx = getelementptr inbounds i8, ptr %call, i64 20
   %call10 = tail call i32 @Curl_read32_le(ptr noundef nonnull %arrayidx) #7
   store i32 %call10, ptr %ntlm, align 8
-  %nonce = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %ntlm, i64 4
   %arrayidx12 = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %arrayidx12, align 1
   store i64 %1, ptr %nonce, align 4
@@ -137,7 +102,7 @@ do.body.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
-  %verbose.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load.i = load i64, ptr %verbose.i, align 2
   %2 = and i64 %bf.load.i, 536870912
   %tobool19.not.i = icmp eq i64 %2, 0
@@ -149,7 +114,7 @@ if.then20.i:                                      ; preds = %land.lhs.true.i
 
 if.end21.i:                                       ; preds = %lor.lhs.false.i
   %3 = load ptr, ptr @Curl_cfree, align 8
-  %target_info.i = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 3
+  %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
   %4 = load ptr, ptr %target_info.i, align 8
   tail call void %3(ptr noundef %4) #7
   %arrayidx22.i = getelementptr inbounds i8, ptr %call.i, i64 %conv8.i
@@ -162,7 +127,7 @@ if.end21.i:                                       ; preds = %lor.lhs.false.i
 ntlm_decode_type2_target.exit:                    ; preds = %if.then15, %if.then.i, %if.end21.i
   %target_info_len.0.i = phi i16 [ %call2.i, %if.end21.i ], [ 0, %if.then.i ], [ 0, %if.then15 ]
   %conv32.i = zext i16 %target_info_len.0.i to i32
-  %target_info_len33.i = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 2
+  %target_info_len33.i = getelementptr inbounds i8, ptr %ntlm, i64 12
   store i32 %conv32.i, ptr %target_info_len33.i, align 4
   br label %return
 
@@ -172,7 +137,7 @@ do.body19:                                        ; preds = %if.end21.i
 
 land.lhs.true21:                                  ; preds = %if.then20.i, %land.lhs.true.i, %do.body19
   %retval.0.i.ph24 = phi i32 [ 27, %do.body19 ], [ 61, %land.lhs.true.i ], [ 61, %if.then20.i ]
-  %verbose23 = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 129
+  %verbose23 = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load24 = load i64, ptr %verbose23, align 2
   %5 = and i64 %bf.load24, 536870912
   %tobool28.not = icmp eq i64 %5, 0
@@ -202,11 +167,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden noundef i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %userp, ptr nocapture noundef readnone %passwdp, ptr nocapture noundef readnone %service, ptr nocapture noundef readnone %hostname, ptr nocapture noundef %ntlm, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
-  %target_info.i = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 3
+  %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
   %1 = load ptr, ptr %target_info.i, align 8
   tail call void %0(ptr noundef %1) #7
   store ptr null, ptr %target_info.i, align 8
-  %target_info_len.i = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 2
+  %target_info_len.i = getelementptr inbounds i8, ptr %ntlm, i64 12
   store i32 0, ptr %target_info_len.i, align 4
   %call = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 6, i32 noundef 130, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #7
   %tobool.not = icmp eq ptr %call, null
@@ -225,11 +190,11 @@ return:                                           ; preds = %entry, %if.end
 define hidden void @Curl_auth_cleanup_ntlm(ptr nocapture noundef %ntlm) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
-  %target_info = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 3
+  %target_info = getelementptr inbounds i8, ptr %ntlm, i64 16
   %1 = load ptr, ptr %target_info, align 8
   tail call void %0(ptr noundef %1) #7
   store ptr null, ptr %target_info, align 8
-  %target_info_len = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 2
+  %target_info_len = getelementptr inbounds i8, ptr %ntlm, i64 12
   store i32 0, ptr %target_info_len, align 4
   ret void
 }
@@ -303,7 +268,7 @@ if.end24:                                         ; preds = %if.end19
   br i1 %tobool28.not, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end24
-  %nonce = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 1
+  %nonce = getelementptr inbounds i8, ptr %ntlm, i64 4
   %call35 = call i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef nonnull %ntlmv2hash, ptr noundef nonnull %entropy, ptr noundef nonnull %nonce, ptr noundef nonnull %lmresp) #7
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.end38, label %return
@@ -325,7 +290,7 @@ if.else45:                                        ; preds = %if.end
   br i1 %tobool49.not, label %if.end51, label %return
 
 if.end51:                                         ; preds = %if.else45
-  %nonce53 = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 1
+  %nonce53 = getelementptr inbounds i8, ptr %ntlm, i64 4
   call void @Curl_ntlm_core_lm_resp(ptr noundef nonnull %ntbuffer46, ptr noundef nonnull %nonce53, ptr noundef nonnull %ntresp) #7
   %call57 = call i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %passwdp, ptr noundef nonnull %lmbuffer) #7
   %tobool58.not = icmp eq i32 %call57, 0
@@ -504,11 +469,11 @@ if.end208:                                        ; preds = %for.body.i113, %if.
   %add209 = add i64 %add197131, %hostlen.0
   %call211 = call i32 @Curl_bufref_memdup(ptr noundef %out, ptr noundef nonnull %ntlmbuf, i64 noundef %add209) #7
   %21 = load ptr, ptr @Curl_cfree, align 8
-  %target_info.i = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 3
+  %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
   %22 = load ptr, ptr %target_info.i, align 8
   call void %21(ptr noundef %22) #7
   store ptr null, ptr %target_info.i, align 8
-  %target_info_len.i = getelementptr inbounds %struct.ntlmdata, ptr %ntlm, i64 0, i32 2
+  %target_info_len.i = getelementptr inbounds i8, ptr %ntlm, i64 12
   store i32 0, ptr %target_info_len.i, align 4
   br label %return
 

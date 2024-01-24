@@ -22,7 +22,7 @@ define noundef ptr @_ZN3std2io5Write9write_all17h8670cea93f971038E(ptr align 8 %
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds { [1 x i64], ptr }, ptr %4, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %28
@@ -234,12 +234,12 @@ define hidden align 8 ptr @"_ZN10serde_json5value5Value7pointer28_$u7b$$u7b$clos
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = invoke { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h224e1fdb175ff698E"(ptr align 8 %2)
           to label %13 unwind label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = invoke align 8 ptr @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$3get17h36b9744f1a23d2c7E"(ptr nonnull align 8 %9, ptr align 8 %2)
           to label %21 unwind label %11
 
@@ -329,12 +329,12 @@ define hidden align 8 ptr @"_ZN10serde_json5value5Value11pointer_mut28_$u7b$$u7b
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = invoke { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h224e1fdb175ff698E"(ptr align 8 %2)
           to label %13 unwind label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = invoke align 8 ptr @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$7get_mut17h0fe82b4dbb443c8dE"(ptr nonnull align 8 %9, ptr align 8 %2)
           to label %21 unwind label %11
 
@@ -476,19 +476,19 @@ default.unreachable8:                             ; preds = %2
   br label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1, !range !9, !noundef !6
   %13 = icmp ne i8 %12, 0
   %14 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17hfaa0cdc5b57e62f4E"(ptr align 8 %1, i1 zeroext %13)
   br label %.loopexit
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = tail call align 8 ptr @"_ZN68_$LT$serde_json..number..Number$u20$as$u20$serde..ser..Serialize$GT$9serialize17hc85b2ec8ee3c162cE"(ptr nonnull align 8 %16, ptr align 8 %1)
   br label %.loopexit
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = tail call { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h224e1fdb175ff698E"(ptr nonnull align 8 %19)
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
@@ -496,15 +496,15 @@ default.unreachable8:                             ; preds = %2
   br label %.loopexit
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = tail call align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17hbfcc54cdd25ef22bE"(ptr nonnull align 8 %25, ptr align 8 %1)
   br label %.loopexit
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = tail call i64 @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$3len17hccf40cac1e2ae662E"(ptr nonnull align 8 %28)
   call void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17hde749d1035e4f334E"(ptr nonnull sret({ [8 x i8], i8, [7 x i8] }) align 8 %5, ptr align 8 %1, i64 1, i64 %29)
-  %30 = getelementptr inbounds { [8 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
   %31 = load i8, ptr %30, align 8, !range !10, !noundef !6
   %.not = icmp eq i8 %31, 3
   %32 = load ptr, ptr %5, align 8, !nonnull !6, !align !7, !noundef !6
@@ -516,7 +516,7 @@ default.unreachable8:                             ; preds = %2
 
 33:                                               ; preds = %27
   store ptr %32, ptr %6, align 8
-  %34 = getelementptr inbounds { ptr, i8 }, ptr %6, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 %31, ptr %34, align 8
   call void @"_ZN142_$LT$$RF$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb46927205fcf9490E"(ptr nonnull sret({ { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }) align 8 %4, ptr nonnull align 8 %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
@@ -567,19 +567,19 @@ default.unreachable8:                             ; preds = %2
   br label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1, !range !9, !noundef !6
   %13 = icmp ne i8 %12, 0
   %14 = tail call align 8 ptr @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17he685e529ccac6e8dE"(ptr align 8 %1, i1 zeroext %13)
   br label %.loopexit
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = tail call align 8 ptr @"_ZN68_$LT$serde_json..number..Number$u20$as$u20$serde..ser..Serialize$GT$9serialize17hda62fb7f69ad97ccE"(ptr nonnull align 8 %16, ptr align 8 %1)
   br label %.loopexit
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
   %20 = tail call { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h224e1fdb175ff698E"(ptr nonnull align 8 %19)
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
@@ -587,15 +587,15 @@ default.unreachable8:                             ; preds = %2
   br label %.loopexit
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = tail call align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h06691c2d6ea7259fE"(ptr nonnull align 8 %25, ptr align 8 %1)
   br label %.loopexit
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = tail call i64 @"_ZN10serde_json3map59Map$LT$alloc..string..String$C$serde_json..value..Value$GT$3len17hccf40cac1e2ae662E"(ptr nonnull align 8 %28)
   call void @"_ZN95_$LT$$RF$mut$u20$serde_json..ser..Serializer$LT$W$C$F$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h1e23aa67bcd7f602E"(ptr nonnull sret({ [8 x i8], i8, [7 x i8] }) align 8 %5, ptr align 8 %1, i64 1, i64 %29)
-  %30 = getelementptr inbounds { [8 x i8], i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %5, i64 8
   %31 = load i8, ptr %30, align 8, !range !10, !noundef !6
   %.not = icmp eq i8 %31, 3
   %32 = load ptr, ptr %5, align 8, !nonnull !6, !align !7, !noundef !6
@@ -607,7 +607,7 @@ default.unreachable8:                             ; preds = %2
 
 33:                                               ; preds = %27
   store ptr %32, ptr %6, align 8
-  %34 = getelementptr inbounds { ptr, i8 }, ptr %6, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 %31, ptr %34, align 8
   call void @"_ZN142_$LT$$RF$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb46927205fcf9490E"(ptr nonnull sret({ { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }) align 8 %4, ptr nonnull align 8 %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)

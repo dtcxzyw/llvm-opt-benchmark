@@ -25,19 +25,19 @@ define void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17heaa
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 4
+  %5 = getelementptr inbounds i8, ptr %3, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %3, i64 48
   store i32 32, ptr %6, align 8
-  %7 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 5
+  %7 = getelementptr inbounds i8, ptr %3, i64 56
   store i8 3, ptr %7, align 8
   store i64 0, ptr %3, align 8
-  %8 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %3, i64 0, i32 2, i32 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr @anon.512639c154d20ea7814f22eb010c89ea.0, ptr %10, align 8
   %11 = invoke zeroext i1 @"_ZN56_$LT$syn..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17he9457e0229a33cbdE"(ptr align 8 %1, ptr nonnull align 8 %3)
           to label %14 unwind label %12
@@ -106,12 +106,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
   store ptr %9, ptr %7, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %7, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17h170d152167b49150E"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
@@ -204,9 +204,9 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8into_vec17hce0361ecdd0177d4E"(ptr nocapture writeonly sret({ { ptr, i64 }, i64 }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   ret void
 }
@@ -216,7 +216,7 @@ define void @_ZN3syn5error5Error3new17h314b779131f59f5fE(ptr sret({ { { ptr, i64
   %5 = alloca { { { ptr, i64 }, i64 } }, align 8
   %6 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %3, ptr %7, align 8
   call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h385f82e8aedb7eacE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %5, ptr nonnull align 8 %6)
   call void @_ZN3syn5error5Error3new3new17hcc97fdc6497814eaE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, i32 %1, ptr nonnull align 8 %5)
@@ -290,19 +290,19 @@ define void @_ZN3syn5error5Error3new17hcd3e3950084e1d67E(ptr sret({ { { ptr, i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %4, i64 0, i32 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %4, i64 0, i32 3
+  %8 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 32, ptr %8, align 8
-  %9 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %4, i64 0, i32 5
+  %9 = getelementptr inbounds i8, ptr %4, i64 56
   store i8 3, ptr %9, align 8
   store i64 0, ptr %4, align 8
-  %10 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %4, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %5, ptr %11, align 8
-  %12 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, ptr %4, i64 0, i32 2, i32 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr @anon.512639c154d20ea7814f22eb010c89ea.0, ptr %12, align 8
   %13 = invoke zeroext i1 @"_ZN56_$LT$syn..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17he9457e0229a33cbdE"(ptr align 8 %2, ptr nonnull align 8 %4)
           to label %16 unwind label %14
@@ -431,7 +431,7 @@ define void @_ZN3syn5error6new_at17h7bfabe5ce356804fE(ptr sret({ { { ptr, i64 },
   %17 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %17)
   store ptr %4, ptr %9, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h1674d033b44ed6b5E", ptr %18, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %10, ptr nonnull align 8 @anon.512639c154d20ea7814f22eb010c89ea.7, i64 1, ptr nonnull align 8 %9, i64 1)
           to label %26 unwind label %.body.thread16
@@ -526,7 +526,7 @@ define void @_ZN3syn5error6new_at17hb81dd7e849ce3d7dE(ptr sret({ { { ptr, i64 },
   %12 = alloca { { { ptr, i64 }, i64 } }, align 8
   %13 = alloca { ptr, i64 }, align 8
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %13, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %5, ptr %14, align 8
   %15 = tail call zeroext i1 @_ZN3syn6buffer6Cursor3eof17h47951f4c41175520E(ptr %2, ptr %3)
   br i1 %15, label %19, label %16
@@ -536,7 +536,7 @@ define void @_ZN3syn5error6new_at17hb81dd7e849ce3d7dE(ptr sret({ { { ptr, i64 },
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %4, ptr %9, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %9, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %5, ptr %18, align 8
   call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h385f82e8aedb7eacE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %8, ptr nonnull align 8 %9)
   call void @_ZN3syn5error5Error3new3new17hcc97fdc6497814eaE(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, i32 %17, ptr nonnull align 8 %8)
@@ -546,7 +546,7 @@ define void @_ZN3syn5error6new_at17hb81dd7e849ce3d7dE(ptr sret({ { { ptr, i64 },
 
 19:                                               ; preds = %6
   store ptr %13, ptr %10, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h208391be79799fb4E", ptr %20, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %11, ptr nonnull align 8 @anon.512639c154d20ea7814f22eb010c89ea.7, i64 1, ptr nonnull align 8 %10, i64 1)
   call void @_ZN5alloc3fmt6format17ha9206275cba0f92aE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %12, ptr nonnull align 8 %11)
@@ -606,7 +606,7 @@ define void @_ZN3syn5error6new_at17hc7af4ad4b518ccd9E(ptr sret({ { { ptr, i64 },
   %16 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %16)
   store ptr %4, ptr %9, align 8
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr @"_ZN59_$LT$core..fmt..Arguments$u20$as$u20$core..fmt..Display$GT$3fmt17h06b87cccfa9a5ea4E", ptr %17, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %10, ptr nonnull align 8 @anon.512639c154d20ea7814f22eb010c89ea.7, i64 1, ptr nonnull align 8 %9, i64 1)
   call void @_ZN5alloc3fmt6format17ha9206275cba0f92aE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %11, ptr nonnull align 8 %10)
@@ -677,7 +677,7 @@ define void @_ZN3syn5error4new217ha094994027b163acE(ptr sret({ { { ptr, i64 }, i
   %6 = alloca { { { ptr, i64 }, i64 } }, align 8
   %7 = alloca { ptr, i64 }, align 8
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %4, ptr %8, align 8
   call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h385f82e8aedb7eacE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %6, ptr nonnull align 8 %7)
   call void @_ZN3syn5error4new24new217h05ae6c3664ad6f85E(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, i32 %1, i32 %2, ptr nonnull align 8 %6)

@@ -6,11 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_AUX_st = type { ptr, i32, i32, i32, ptr, i32, ptr }
-%struct.X509_req_st = type { %struct.X509_req_info_st, %struct.X509_algor_st, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr }
-%struct.X509_req_info_st = type { %struct.ASN1_ENCODING_st, ptr, ptr, ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @X509_REQ_INFO_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_REQ_INFO_seq_tt, i64 4, ptr @X509_REQ_INFO_aux, i64 56, ptr @.str }, align 8
 @X509_REQ_INFO_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.3, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 32, ptr @.str.4, ptr @X509_NAME_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 40, ptr @.str.5, ptr @X509_PUBKEY_it }, %struct.ASN1_TEMPLATE_st { i64 139, i64 0, i64 48, ptr @.str.6, ptr @X509_ATTRIBUTE_it }], align 16
@@ -31,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.req_cb = private unnamed_addr constant [7 x i8] c"req_cb\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_REQ_INFO_it() #0 {
+define noundef nonnull ptr @X509_REQ_INFO_it() #0 {
 entry:
   ret ptr @X509_REQ_INFO_it.local_it
 }
@@ -73,7 +68,7 @@ entry:
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @X509_REQ_it() local_unnamed_addr #0 {
+define noundef nonnull ptr @X509_REQ_it() local_unnamed_addr #0 {
 entry:
   ret ptr @X509_REQ_it.local_it
 }
@@ -118,7 +113,7 @@ declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @X509_REQ_set0_distinguishing_id(ptr nocapture noundef %x, ptr noundef %d_id) local_unnamed_addr #1 {
 entry:
-  %distinguishing_id = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 5
+  %distinguishing_id = getelementptr inbounds i8, ptr %x, i64 96
   %0 = load ptr, ptr %distinguishing_id, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %0) #4
   store ptr %d_id, ptr %distinguishing_id, align 8
@@ -130,21 +125,21 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_REQ_get0_distinguishing_id(ptr nocapture noundef readonly %x) local_unnamed_addr #3 {
 entry:
-  %distinguishing_id = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 5
+  %distinguishing_id = getelementptr inbounds i8, ptr %x, i64 96
   %0 = load ptr, ptr %distinguishing_id, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x509_req_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
+define noundef i32 @ossl_x509_req_set0_libctx(ptr noundef %x, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %x, null
   br i1 %cmp.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %libctx1 = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 6
+  %libctx1 = getelementptr inbounds i8, ptr %x, i64 104
   store ptr %libctx, ptr %libctx1, align 8
-  %propq2 = getelementptr inbounds %struct.X509_req_st, ptr %x, i64 0, i32 7
+  %propq2 = getelementptr inbounds i8, ptr %x, i64 112
   %0 = load ptr, ptr %propq2, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 152) #4
   store ptr null, ptr %propq2, align 8
@@ -177,9 +172,9 @@ entry:
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %libctx1.i = getelementptr inbounds %struct.X509_req_st, ptr %call1, i64 0, i32 6
+  %libctx1.i = getelementptr inbounds i8, ptr %call1, i64 104
   store ptr %libctx, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.X509_req_st, ptr %call1, i64 0, i32 7
+  %propq2.i = getelementptr inbounds i8, ptr %call1, i64 112
   %0 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 152) #4
   store ptr null, ptr %propq2.i, align 8
@@ -210,7 +205,7 @@ declare ptr @X509_PUBKEY_it() #2
 declare ptr @X509_ATTRIBUTE_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
+define internal noundef i32 @rinf_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture readnone %exarg) #1 {
 entry:
   %cmp = icmp eq i32 %operation, 1
   br i1 %cmp, label %if.then, label %if.end3
@@ -218,7 +213,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pval, align 8
   %call = tail call ptr @OPENSSL_sk_new_null() #4
-  %attributes = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 4
+  %attributes = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %call, ptr %attributes, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end3
@@ -238,7 +233,7 @@ declare ptr @X509_ALGOR_it() #2
 declare ptr @ASN1_BIT_STRING_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @req_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
+define internal noundef i32 @req_cb(i32 noundef %operation, ptr nocapture noundef readonly %pval, ptr nocapture readnone %it, ptr nocapture noundef %exarg) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   switch i32 %operation, label %return [
@@ -251,37 +246,37 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %distinguishing_id = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 5
+  %distinguishing_id = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %distinguishing_id, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %1) #4
   br label %sw.bb1
 
 sw.bb1:                                           ; preds = %sw.bb, %entry
-  %distinguishing_id2 = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 5
+  %distinguishing_id2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %distinguishing_id2, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %distinguishing_id4 = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 5
+  %distinguishing_id4 = getelementptr inbounds i8, ptr %0, i64 96
   %2 = load ptr, ptr %distinguishing_id4, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %2) #4
-  %propq = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 7
+  %propq = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 63) #4
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %propq6 = getelementptr inbounds %struct.X509_req_st, ptr %exarg, i64 0, i32 7
+  %propq6 = getelementptr inbounds i8, ptr %exarg, i64 112
   %4 = load ptr, ptr %propq6, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb5
-  %libctx = getelementptr inbounds %struct.X509_req_st, ptr %exarg, i64 0, i32 6
+  %libctx = getelementptr inbounds i8, ptr %exarg, i64 104
   %5 = load ptr, ptr %libctx, align 8
-  %libctx1.i = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 6
+  %libctx1.i = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %5, ptr %libctx1.i, align 8
-  %propq2.i = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 7
+  %propq2.i = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %propq2.i, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 152) #4
   store ptr null, ptr %propq2.i, align 8
@@ -295,7 +290,7 @@ if.then5.i:                                       ; preds = %if.then.i
   br i1 %cmp8.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then5.i, %if.then.i, %sw.bb5
-  %pubkey = getelementptr inbounds %struct.X509_req_info_st, ptr %exarg, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %exarg, i64 40
   %7 = load ptr, ptr %pubkey, align 8
   %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %return, label %if.then7
@@ -317,7 +312,7 @@ if.then15:                                        ; preds = %if.then12
   br label %return
 
 if.end16:                                         ; preds = %if.then12
-  %pubkey18 = getelementptr inbounds %struct.X509_req_info_st, ptr %0, i64 0, i32 3
+  %pubkey18 = getelementptr inbounds i8, ptr %0, i64 40
   %call19 = tail call i32 @X509_PUBKEY_set(ptr noundef nonnull %pubkey18, ptr noundef nonnull %call13) #4
   %tobool20.not = icmp eq i32 %call19, 0
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call13) #4
@@ -330,13 +325,13 @@ if.then21:                                        ; preds = %if.end16
   br label %return
 
 sw.bb25:                                          ; preds = %entry
-  %libctx27 = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 6
+  %libctx27 = getelementptr inbounds i8, ptr %0, i64 104
   %8 = load ptr, ptr %libctx27, align 8
   store ptr %8, ptr %exarg, align 8
   br label %return
 
 sw.bb28:                                          ; preds = %entry
-  %propq30 = getelementptr inbounds %struct.X509_req_st, ptr %0, i64 0, i32 7
+  %propq30 = getelementptr inbounds i8, ptr %0, i64 112
   %9 = load ptr, ptr %propq30, align 8
   store ptr %9, ptr %exarg, align 8
   br label %return

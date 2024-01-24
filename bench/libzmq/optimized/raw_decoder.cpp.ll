@@ -3,19 +3,6 @@ source_filename = "bench/libzmq/original/raw_decoder.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.zmq::raw_decoder_t" = type { %"class.zmq::i_decoder", %"class.zmq::msg_t", %"class.zmq::shared_message_memory_allocator" }
-%"class.zmq::i_decoder" = type { ptr }
-%"class.zmq::msg_t" = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, [34 x i8], i8, i8, i32, %"union.zmq::msg_t::group_t" }
-%"union.zmq::msg_t::group_t" = type { %struct.anon.1 }
-%struct.anon.1 = type { i8, ptr }
-%"class.zmq::shared_message_memory_allocator" = type { ptr, i64, i64, ptr, i64 }
-%"struct.zmq::msg_t::content_t" = type { ptr, i64, ptr, ptr, %"class.zmq::atomic_counter_t" }
-%"class.zmq::atomic_counter_t" = type { %"struct.std::atomic", [4 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-
 $__clang_call_terminate = comdat any
 
 $_ZN3zmq13raw_decoder_t13resize_bufferEm = comdat any
@@ -44,9 +31,9 @@ $_ZTIN3zmq9i_decoderE = comdat any
 define void @_ZN3zmq13raw_decoder_tC2Em(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3zmq13raw_decoder_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_allocator = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 2
+  %_allocator = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN3zmq31shared_message_memory_allocatorC1Emm(ptr noundef nonnull align 8 dereferenceable(40) %_allocator, i64 noundef %bufsize_, i64 noundef 1)
-  %_in_progress2 = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 1
+  %_in_progress2 = getelementptr inbounds i8, ptr %this, i64 8
   %call = invoke noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -101,7 +88,7 @@ declare void @_ZN3zmq31shared_message_memory_allocatorD1Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq13raw_decoder_tD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_in_progress = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 1
+  %_in_progress = getelementptr inbounds i8, ptr %this, i64 8
   %call = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -121,7 +108,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %do.end unwind label %terminate.lpad
 
 do.end:                                           ; preds = %if.then, %invoke.cont
-  %_allocator = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 2
+  %_allocator = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN3zmq31shared_message_memory_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %_allocator) #9
   ret void
 
@@ -160,7 +147,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq13raw_decoder_t10get_bufferEPPhPm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef writeonly %data_, ptr nocapture noundef writeonly %size_) unnamed_addr #0 align 2 {
 entry:
-  %_allocator = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 2
+  %_allocator = getelementptr inbounds i8, ptr %this, i64 72
   %call = tail call noundef ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator)
   store ptr %call, ptr %data_, align 8
   %call3 = tail call noundef i64 @_ZNK3zmq31shared_message_memory_allocator4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator)
@@ -175,10 +162,10 @@ declare noundef i64 @_ZNK3zmq31shared_message_memory_allocator4sizeEv(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq13raw_decoder_t6decodeEPKhmRm(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %data_, i64 noundef %size_, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %bytes_used_) unnamed_addr #0 align 2 {
 entry:
-  %_in_progress = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 1
-  %_allocator = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 2
+  %_in_progress = getelementptr inbounds i8, ptr %this, i64 8
+  %_allocator = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_allocator, align 8
-  %_msg_content.i = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 2, i32 3
+  %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %_msg_content.i, align 8
   %call4 = tail call noundef i32 @_ZN3zmq5msg_t4initEPvmPFvS1_S1_ES1_PNS0_9content_tE(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress, ptr noundef %data_, i64 noundef %size_, ptr noundef nonnull @_ZN3zmq31shared_message_memory_allocator12call_dec_refEPvS1_, ptr noundef %0, ptr noundef %1)
   %call6 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t8is_zcmsgEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
@@ -186,7 +173,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %_msg_content.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.zmq::msg_t::content_t", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %incdec.ptr.i, ptr %_msg_content.i, align 8
   %call9 = tail call noundef ptr @_ZN3zmq31shared_message_memory_allocator7releaseEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator)
   br label %do.body
@@ -228,7 +215,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN3zmq13raw_decoder_t3msgEv(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %_in_progress = getelementptr inbounds %"class.zmq::raw_decoder_t", ptr %this, i64 0, i32 1
+  %_in_progress = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %_in_progress
 }
 

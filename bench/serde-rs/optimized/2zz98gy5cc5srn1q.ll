@@ -17,7 +17,7 @@ define void @_ZN3syn5error5Error11new_spanned17h3773a978274d2b83E(ptr sret({ { {
   %6 = alloca { { ptr, [3 x i64] }, {} }, align 8
   %7 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %3, ptr %8, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$17into_token_stream17h6c5ecd398b3c8606E"(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %6, ptr align 8 %1)
   invoke void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h5363892b911ffd7aE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %5, ptr nonnull align 8 %7)
@@ -149,7 +149,7 @@ define void @_ZN3syn5error5Error11new_spanned17hdd8e3f0d2a55f9d8E(ptr sret({ { {
   %6 = alloca { { ptr, [3 x i64] }, {} }, align 8
   %7 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %3, ptr %8, align 8
   call void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$17into_token_stream17h6c5ecd398b3c8606E"(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %6, ptr align 8 %1)
   invoke void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb991085fea96fb15E"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %5, ptr nonnull align 8 %7)

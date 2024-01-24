@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, ptr, i32, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, i32, i32, i32, [32 x i8] }
 
 @rc4 = internal constant %struct.evp_cipher_st { i32 5, i32 1, i32 16, i32 0, i32 1032, i32 64, ptr null, ptr @rc4_init_key, ptr @rc4_cipher, ptr null, ptr null }, align 8
 
@@ -17,7 +16,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @rc4_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   %call = tail call i32 @EVP_CIPHER_CTX_key_length(ptr noundef %ctx) #3
   tail call void @RC4_set_key(ptr noundef %0, i32 noundef %call, ptr noundef %key) #3
@@ -27,7 +26,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @rc4_cipher(ptr nocapture noundef readonly %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %in_len) #1 {
 entry:
-  %cipher_data = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
   tail call void @RC4(ptr noundef %0, i64 noundef %in_len, ptr noundef %in, ptr noundef %out) #3
   ret i32 1

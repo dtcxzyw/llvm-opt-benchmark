@@ -5,13 +5,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he82559ada807fc92E"(ptr align 8 %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, i8, {}, [7 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8, !range !5, !noundef !6
   %.not.i = icmp eq i8 %4, 0
   br i1 %.not.i, label %5, label %.sink.split.i
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, i8, {}, [7 x i8] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 57
   %7 = tail call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce851d0bbc767c78E(ptr nonnull align 8 %0, i64 %1, ptr nonnull align 1 %6, ptr nonnull align 1 %3)
   %.fca.0.extract.i = extractvalue { i64, i64 } %7, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %7, 1
@@ -30,13 +30,13 @@ define i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he38b9dbf258f37c2E"(ptr align 8 %0, i64 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds { { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, i8, {}, [7 x i8] }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8, !range !5, !noundef !6
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %5, label %.sink.split
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, i8, {}, [7 x i8] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 57
   %7 = tail call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce851d0bbc767c78E(ptr nonnull align 8 %0, i64 %1, ptr nonnull align 1 %6, ptr nonnull align 1 %3)
   %.fca.0.extract = extractvalue { i64, i64 } %7, 0
   %.fca.1.extract = extractvalue { i64, i64 } %7, 1
@@ -57,14 +57,14 @@ define i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$
 define { i64, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h891d4d39dd5fbe3aE"(ptr align 8 %0, i64 %1, ptr align 1 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr }, align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8, !nonnull !6, !align !7, !noundef !6
   %8 = call zeroext i1 @"_ZN14regex_automata3nfa8thompson8compiler12Utf8Compiler3add28_$u7b$$u7b$closure$u7d$$u7d$17h807662d63e727805E"(ptr nonnull align 1 %7, ptr nonnull align 8 %5)
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !6, !align !7, !noundef !6
   store i8 1, ptr %11, align 1
   %12 = call i64 @"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17he0ba9bc70ebd625dE"(i64 %1)
@@ -88,13 +88,13 @@ define { i64, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i64 @_ZN4core4iter6traits8iterator8Iterator5count17h5c2f176f40ed106dE(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds { { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, i8, {}, [7 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   %.not.i.i = icmp eq i8 %3, 0
   br i1 %.not.i.i, label %4, label %.sink.split.i.i
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, i8, {}, [7 x i8] }, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 57
   %6 = tail call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce851d0bbc767c78E(ptr nonnull align 8 %0, i64 0, ptr nonnull align 1 %5, ptr nonnull align 1 %2)
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %6, 0
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %6, 1

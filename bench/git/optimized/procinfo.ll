@@ -28,7 +28,7 @@ entry:
 sw.bb1:                                           ; preds = %entry
   %call2 = tail call i32 @getppid() #8
   call fastcc void @push_ancestry_name(ptr noundef nonnull %names, i32 noundef %call2)
-  %nr = getelementptr inbounds %struct.strvec, ptr %names, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %names, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool3.not = icmp eq i64 %0, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
@@ -64,7 +64,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %procfs_path.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.stat_parent_pid.sb, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.stat_parent_pid.sb, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %procfs_path.i, ptr noundef nonnull @.str.1, i32 noundef %pid) #8
-  %buf.i = getelementptr inbounds %struct.strbuf, ptr %procfs_path.i, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %procfs_path.i, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %call.i = call ptr @git_fopen(ptr noundef %0, ptr noundef nonnull @.str.2) #8
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -128,7 +128,7 @@ stat_parent_pid.exit:                             ; preds = %entry, %if.then9.i
   br i1 %ret.08.i, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %stat_parent_pid.exit
-  %buf = getelementptr inbounds %struct.strbuf, ptr %name, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %name, i64 16
   %5 = load ptr, ptr %buf, align 8
   %call1 = call ptr @strvec_push(ptr noundef %names, ptr noundef %5) #8
   %tobool.not = icmp eq i32 %ppid.1, 0

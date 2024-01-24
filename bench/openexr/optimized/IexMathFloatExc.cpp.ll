@@ -3,8 +3,6 @@ source_filename = "bench/openexr/original/IexMathFloatExc.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Iex_3_2::MathExcOn" = type { i8, i32 }
-
 $__clang_call_terminate = comdat any
 
 @_ZTIN7Iex_3_211OverflowExcE = external constant ptr
@@ -139,7 +137,7 @@ define void @_ZN7Iex_3_29MathExcOnC2Ei(ptr nocapture noundef nonnull writeonly a
 entry:
   store i8 0, ptr %this, align 4
   %call.i = tail call noundef i32 @_ZN7Iex_3_212fpExceptionsEv()
-  %_saved = getelementptr inbounds %"class.Iex_3_2::MathExcOn", ptr %this, i64 0, i32 1
+  %_saved = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %call.i, ptr %_saved, align 4
   %cmp.not = icmp eq i32 %call.i, %when
   br i1 %cmp.not, label %if.end, label %if.then
@@ -163,7 +161,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_saved = getelementptr inbounds %"class.Iex_3_2::MathExcOn", ptr %this, i64 0, i32 1
+  %_saved = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %_saved, align 4
   invoke void @_ZN7Iex_3_215setFpExceptionsEi(i32 noundef %2)
           to label %.noexc unwind label %terminate.lpad

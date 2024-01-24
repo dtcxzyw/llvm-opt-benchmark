@@ -3,14 +3,8 @@ source_filename = "bench/git/original/csum-file.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.hashfile = type { i32, i32, i32, %union.git_hash_ctx, i64, ptr, ptr, i32, i32, i64, ptr, ptr, i32 }
 %union.git_hash_ctx = type { %struct.SHA1_CTX }
 %struct.SHA1_CTX = type { i64, [5 x i32], [64 x i8], i32, i32, i32, i32, i32, ptr, [5 x i32], [5 x i32], [80 x i32], [80 x i32], [80 x [5 x i32]] }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.hashfile_checkpoint = type { i64, %union.git_hash_ctx }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [29 x i8] c"%s: sha1 file error on close\00", align 1
@@ -26,32 +20,32 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @hashflush(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %offset1 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 2
+  %offset1 = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load i32, ptr %offset1, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %skip_hash = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 12
+  %skip_hash = getelementptr inbounds i8, ptr %f, i64 2472
   %1 = load i32, ptr %skip_hash, align 8
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo, align 8
-  %update_fn = getelementptr inbounds %struct.git_hash_algo, ptr %3, i64 0, i32 7
+  %update_fn = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %update_fn, align 8
-  %ctx = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 3
-  %buffer = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %ctx = getelementptr inbounds i8, ptr %f, i64 16
+  %buffer = getelementptr inbounds i8, ptr %f, i64 2456
   %5 = load ptr, ptr %buffer, align 8
   %conv = zext i32 %0 to i64
   tail call void %4(ptr noundef nonnull %ctx, ptr noundef %5, i64 noundef %conv) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %buffer4 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer4 = getelementptr inbounds i8, ptr %f, i64 2456
   %6 = load ptr, ptr %buffer4, align 8
   tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %6, i32 noundef %0)
   store i32 0, ptr %offset1, align 8
@@ -64,7 +58,7 @@ if.end6:                                          ; preds = %if.end, %entry
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @flush(ptr nocapture noundef %f, ptr noundef %buf, i32 noundef %count) unnamed_addr #0 {
 entry:
-  %check_fd = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 1
+  %check_fd = getelementptr inbounds i8, ptr %f, i64 4
   %0 = load i32, ptr %check_fd, align 4
   %cmp = icmp sgt i32 %0, -1
   %tobool = icmp ne i32 %count, 0
@@ -76,7 +70,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %check_buffer.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 11
+  %check_buffer.i = getelementptr inbounds i8, ptr %f, i64 2464
   %1 = load ptr, ptr %check_buffer.i, align 8
   %conv.i = zext i32 %count to i64
   %call.i = tail call i64 @read_in_full(i32 noundef %0, ptr noundef %1, i64 noundef %conv.i) #11
@@ -84,7 +78,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %name.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name.i = getelementptr inbounds i8, ptr %f, i64 2432
   %2 = load ptr, ptr %name.i, align 8
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.6, ptr noundef %2) #12
   unreachable
@@ -94,7 +88,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp3.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %name6.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name6.i = getelementptr inbounds i8, ptr %f, i64 2432
   %3 = load ptr, ptr %name6.i, align 8
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.7, ptr noundef %3) #12
   unreachable
@@ -106,7 +100,7 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %tobool.not.i, label %if.end, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end7.i
-  %name12.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name12.i = getelementptr inbounds i8, ptr %f, i64 2432
   %5 = load ptr, ptr %name12.i, align 8
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %5) #12
   unreachable
@@ -122,7 +116,7 @@ if.then3:                                         ; preds = %if.end
   %call4 = tail call ptr @__errno_location() #13
   %7 = load i32, ptr %call4, align 4
   %cmp5 = icmp eq i32 %7, 28
-  %name = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %f, i64 2432
   %8 = load ptr, ptr %name, align 8
   br i1 %cmp5, label %if.then7, label %if.end8
 
@@ -135,11 +129,11 @@ if.end8:                                          ; preds = %if.then3
   unreachable
 
 if.end10:                                         ; preds = %if.end
-  %total = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 4
+  %total = getelementptr inbounds i8, ptr %f, i64 2416
   %9 = load i64, ptr %total, align 8
   %add = add nsw i64 %9, %conv.pre-phi
   store i64 %add, ptr %total, align 8
-  %tp = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 5
+  %tp = getelementptr inbounds i8, ptr %f, i64 2424
   %10 = load ptr, ptr %tp, align 8
   tail call void @display_throughput(ptr noundef %10, i64 noundef %add) #11
   ret void
@@ -149,63 +143,63 @@ if.end10:                                         ; preds = %if.end
 define dso_local i32 @finalize_hashfile(ptr noundef %f, ptr noundef writeonly %result, i32 noundef %component, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %discard = alloca i8, align 1
-  %offset1.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 2
+  %offset1.i = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load i32, ptr %offset1.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %hashflush.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %skip_hash.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 12
+  %skip_hash.i = getelementptr inbounds i8, ptr %f, i64 2472
   %1 = load i32, ptr %skip_hash.i, align 8
   %tobool2.not.i = icmp eq i32 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo.i, align 8
-  %update_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %3, i64 0, i32 7
+  %update_fn.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %update_fn.i, align 8
-  %ctx.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 3
-  %buffer.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %ctx.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buffer.i = getelementptr inbounds i8, ptr %f, i64 2456
   %5 = load ptr, ptr %buffer.i, align 8
   %conv.i = zext i32 %0 to i64
   tail call void %4(ptr noundef nonnull %ctx.i, ptr noundef %5, i64 noundef %conv.i) #11
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
-  %buffer4.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer4.i = getelementptr inbounds i8, ptr %f, i64 2456
   %6 = load ptr, ptr %buffer4.i, align 8
   tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %6, i32 noundef %0)
   store i32 0, ptr %offset1.i, align 8
   br label %hashflush.exit
 
 hashflush.exit:                                   ; preds = %entry, %if.end.i
-  %skip_hash = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 12
+  %skip_hash = getelementptr inbounds i8, ptr %f, i64 2472
   %7 = load i32, ptr %skip_hash, align 8
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %hashflush.exit
-  %buffer = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer = getelementptr inbounds i8, ptr %f, i64 2456
   %8 = load ptr, ptr %buffer, align 8
   %9 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i24 = getelementptr inbounds %struct.repository, ptr %9, i64 0, i32 15
+  %hash_algo.i24 = getelementptr inbounds i8, ptr %9, i64 256
   %10 = load ptr, ptr %hash_algo.i24, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %10, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i64, ptr %rawsz.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %11, i1 false)
   br label %if.end
 
 if.else:                                          ; preds = %hashflush.exit
   %12 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %12, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %12, i64 256
   %13 = load ptr, ptr %hash_algo, align 8
-  %final_fn = getelementptr inbounds %struct.git_hash_algo, ptr %13, i64 0, i32 8
+  %final_fn = getelementptr inbounds i8, ptr %13, i64 64
   %14 = load ptr, ptr %final_fn, align 8
-  %buffer1 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer1 = getelementptr inbounds i8, ptr %f, i64 2456
   %15 = load ptr, ptr %buffer1, align 8
-  %ctx = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 3
+  %ctx = getelementptr inbounds i8, ptr %f, i64 16
   tail call void %14(ptr noundef %15, ptr noundef nonnull %ctx) #11
   br label %if.end
 
@@ -214,12 +208,12 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %buffer4 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer4 = getelementptr inbounds i8, ptr %f, i64 2456
   %16 = load ptr, ptr %buffer4, align 8
   %17 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i25 = getelementptr inbounds %struct.repository, ptr %17, i64 0, i32 15
+  %hash_algo.i25 = getelementptr inbounds i8, ptr %17, i64 256
   %18 = load ptr, ptr %hash_algo.i25, align 8
-  %rawsz.i26 = getelementptr inbounds %struct.git_hash_algo, ptr %18, i64 0, i32 2
+  %rawsz.i26 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load i64, ptr %rawsz.i26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %result, ptr align 1 %16, i64 %19, i1 false)
   br label %if.end5
@@ -230,12 +224,12 @@ if.end5:                                          ; preds = %if.then3, %if.end
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %buffer8 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer8 = getelementptr inbounds i8, ptr %f, i64 2456
   %20 = load ptr, ptr %buffer8, align 8
   %21 = load ptr, ptr @the_repository, align 8
-  %hash_algo9 = getelementptr inbounds %struct.repository, ptr %21, i64 0, i32 15
+  %hash_algo9 = getelementptr inbounds i8, ptr %21, i64 256
   %22 = load ptr, ptr %hash_algo9, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %22, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load i64, ptr %rawsz, align 8
   %conv = trunc i64 %23 to i32
   tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %20, i32 noundef %conv)
@@ -248,7 +242,7 @@ if.end10:                                         ; preds = %if.then7, %if.end5
 
 if.then13:                                        ; preds = %if.end10
   %24 = load i32, ptr %f, align 8
-  %name = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %f, i64 2432
   %25 = load ptr, ptr %name, align 8
   tail call void @fsync_component_or_die(i32 noundef %component, i32 noundef %24, ptr noundef %25) #11
   br label %if.end15
@@ -265,14 +259,14 @@ if.then18:                                        ; preds = %if.end15
   br i1 %tobool20.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.then18
-  %name22 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name22 = getelementptr inbounds i8, ptr %f, i64 2432
   %27 = load ptr, ptr %name22, align 8
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str, ptr noundef %27) #12
   unreachable
 
 if.end26:                                         ; preds = %if.end15, %if.then18
   %fd.0 = phi i32 [ 0, %if.then18 ], [ %26, %if.end15 ]
-  %check_fd = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 1
+  %check_fd = getelementptr inbounds i8, ptr %f, i64 4
   %28 = load i32, ptr %check_fd, align 4
   %cmp = icmp sgt i32 %28, -1
   br i1 %cmp, label %if.then28, label %if.end47
@@ -284,7 +278,7 @@ if.then28:                                        ; preds = %if.end26
   br i1 %cmp32, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.then28
-  %name35 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name35 = getelementptr inbounds i8, ptr %f, i64 2432
   %29 = load ptr, ptr %name35, align 8
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.1, ptr noundef %29) #12
   unreachable
@@ -294,7 +288,7 @@ if.end36:                                         ; preds = %if.then28
   br i1 %tobool37.not, label %if.end40, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
-  %name39 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name39 = getelementptr inbounds i8, ptr %f, i64 2432
   %30 = load ptr, ptr %name39, align 8
   call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %30) #12
   unreachable
@@ -306,16 +300,16 @@ if.end40:                                         ; preds = %if.end36
   br i1 %tobool43.not, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.end40
-  %name45 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 6
+  %name45 = getelementptr inbounds i8, ptr %f, i64 2432
   %32 = load ptr, ptr %name45, align 8
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str, ptr noundef %32) #12
   unreachable
 
 if.end47:                                         ; preds = %if.end40, %if.end26
-  %buffer.i27 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer.i27 = getelementptr inbounds i8, ptr %f, i64 2456
   %33 = load ptr, ptr %buffer.i27, align 8
   call void @free(ptr noundef %33) #11
-  %check_buffer.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 11
+  %check_buffer.i = getelementptr inbounds i8, ptr %f, i64 2464
   %34 = load ptr, ptr %check_buffer.i, align 8
   call void @free(ptr noundef %34) #11
   call void @free(ptr noundef nonnull %f) #11
@@ -341,13 +335,13 @@ entry:
   br i1 %tobool.not31, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %buffer_len = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 9
-  %offset = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 2
-  %do_crc = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 7
-  %crc32 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 8
-  %buffer = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
-  %skip_hash.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 12
-  %ctx.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 3
+  %buffer_len = getelementptr inbounds i8, ptr %f, i64 2448
+  %offset = getelementptr inbounds i8, ptr %f, i64 8
+  %do_crc = getelementptr inbounds i8, ptr %f, i64 2440
+  %crc32 = getelementptr inbounds i8, ptr %f, i64 2444
+  %buffer = getelementptr inbounds i8, ptr %f, i64 2456
+  %skip_hash.i = getelementptr inbounds i8, ptr %f, i64 2472
+  %ctx.i = getelementptr inbounds i8, ptr %f, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end23
@@ -384,9 +378,9 @@ if.then11:                                        ; preds = %if.end
 
 if.then13:                                        ; preds = %if.then11
   %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %7, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %7, i64 256
   %8 = load ptr, ptr %hash_algo, align 8
-  %update_fn = getelementptr inbounds %struct.git_hash_algo, ptr %8, i64 0, i32 7
+  %update_fn = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load ptr, ptr %update_fn, align 8
   tail call void %9(ptr noundef nonnull %ctx.i, ptr noundef %buf.addr.033, i64 noundef %5) #11
   br label %if.end15
@@ -416,9 +410,9 @@ if.then.i:                                        ; preds = %if.else
 
 if.then3.i:                                       ; preds = %if.then.i
   %14 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %14, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %14, i64 256
   %15 = load ptr, ptr %hash_algo.i, align 8
-  %update_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %15, i64 0, i32 7
+  %update_fn.i = getelementptr inbounds i8, ptr %15, i64 56
   %16 = load ptr, ptr %update_fn.i, align 8
   %17 = load ptr, ptr %buffer, align 8
   %conv.i = zext i32 %add to i64
@@ -453,31 +447,31 @@ entry:
   %call1 = tail call i32 (ptr, i32, ...) @xopen(ptr noundef %name, i32 noundef 0) #11
   %call.i.i = tail call ptr @xmalloc(i64 noundef 2480) #11
   store i32 %call, ptr %call.i.i, align 8
-  %check_fd.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 1
+  %check_fd.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 -1, ptr %check_fd.i.i, align 4
-  %offset.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 2
+  %offset.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 0, ptr %offset.i.i, align 8
-  %total.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 4
-  %name3.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 6
+  %total.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2416
+  %name3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total.i.i, i8 0, i64 16, i1 false)
   store ptr %name, ptr %name3.i.i, align 8
-  %do_crc.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 7
+  %do_crc.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2440
   store i32 0, ptr %do_crc.i.i, align 8
-  %skip_hash.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 12
+  %skip_hash.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2472
   store i32 0, ptr %skip_hash.i.i, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo.i.i, align 8
-  %init_fn.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 5
+  %init_fn.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %init_fn.i.i, align 8
-  %ctx.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 3
+  %ctx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void %2(ptr noundef nonnull %ctx.i.i) #11
-  %buffer_len4.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 9
+  %buffer_len4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2448
   store i64 131072, ptr %buffer_len4.i.i, align 8
   %call5.i.i = tail call ptr @xmalloc(i64 noundef 131072) #11
-  %buffer.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 10
+  %buffer.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2456
   store ptr %call5.i.i, ptr %buffer.i.i, align 8
-  %check_buffer.i.i = getelementptr inbounds %struct.hashfile, ptr %call.i.i, i64 0, i32 11
+  %check_buffer.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2464
   store ptr null, ptr %check_buffer.i.i, align 8
   store i32 %call1, ptr %check_fd.i.i, align 4
   %3 = load i64, ptr %buffer_len4.i.i, align 8
@@ -493,31 +487,31 @@ define dso_local noundef ptr @hashfd(i32 noundef %fd, ptr noundef %name) local_u
 entry:
   %call.i = tail call ptr @xmalloc(i64 noundef 2480) #11
   store i32 %fd, ptr %call.i, align 8
-  %check_fd.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 1
+  %check_fd.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 -1, ptr %check_fd.i, align 4
-  %offset.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %offset.i, align 8
-  %total.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 4
-  %name3.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 6
+  %total.i = getelementptr inbounds i8, ptr %call.i, i64 2416
+  %name3.i = getelementptr inbounds i8, ptr %call.i, i64 2432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total.i, i8 0, i64 16, i1 false)
   store ptr %name, ptr %name3.i, align 8
-  %do_crc.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 7
+  %do_crc.i = getelementptr inbounds i8, ptr %call.i, i64 2440
   store i32 0, ptr %do_crc.i, align 8
-  %skip_hash.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 12
+  %skip_hash.i = getelementptr inbounds i8, ptr %call.i, i64 2472
   store i32 0, ptr %skip_hash.i, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo.i, align 8
-  %init_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 5
+  %init_fn.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %init_fn.i, align 8
-  %ctx.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 3
+  %ctx.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void %2(ptr noundef nonnull %ctx.i) #11
-  %buffer_len4.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 9
+  %buffer_len4.i = getelementptr inbounds i8, ptr %call.i, i64 2448
   store i64 131072, ptr %buffer_len4.i, align 8
   %call5.i = tail call ptr @xmalloc(i64 noundef 131072) #11
-  %buffer.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 10
+  %buffer.i = getelementptr inbounds i8, ptr %call.i, i64 2456
   store ptr %call5.i, ptr %buffer.i, align 8
-  %check_buffer.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 11
+  %check_buffer.i = getelementptr inbounds i8, ptr %call.i, i64 2464
   store ptr null, ptr %check_buffer.i, align 8
   ret ptr %call.i
 }
@@ -529,33 +523,33 @@ define dso_local noundef ptr @hashfd_throughput(i32 noundef %fd, ptr noundef %na
 entry:
   %call.i = tail call ptr @xmalloc(i64 noundef 2480) #11
   store i32 %fd, ptr %call.i, align 8
-  %check_fd.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 1
+  %check_fd.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 -1, ptr %check_fd.i, align 4
-  %offset.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %offset.i, align 8
-  %total.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 4
+  %total.i = getelementptr inbounds i8, ptr %call.i, i64 2416
   store i64 0, ptr %total.i, align 8
-  %tp2.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 5
+  %tp2.i = getelementptr inbounds i8, ptr %call.i, i64 2424
   store ptr %tp, ptr %tp2.i, align 8
-  %name3.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 6
+  %name3.i = getelementptr inbounds i8, ptr %call.i, i64 2432
   store ptr %name, ptr %name3.i, align 8
-  %do_crc.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 7
+  %do_crc.i = getelementptr inbounds i8, ptr %call.i, i64 2440
   store i32 0, ptr %do_crc.i, align 8
-  %skip_hash.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 12
+  %skip_hash.i = getelementptr inbounds i8, ptr %call.i, i64 2472
   store i32 0, ptr %skip_hash.i, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo.i, align 8
-  %init_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 5
+  %init_fn.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %init_fn.i, align 8
-  %ctx.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 3
+  %ctx.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void %2(ptr noundef nonnull %ctx.i) #11
-  %buffer_len4.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 9
+  %buffer_len4.i = getelementptr inbounds i8, ptr %call.i, i64 2448
   store i64 8192, ptr %buffer_len4.i, align 8
   %call5.i = tail call ptr @xmalloc(i64 noundef 8192) #11
-  %buffer.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 10
+  %buffer.i = getelementptr inbounds i8, ptr %call.i, i64 2456
   store ptr %call5.i, ptr %buffer.i, align 8
-  %check_buffer.i = getelementptr inbounds %struct.hashfile, ptr %call.i, i64 0, i32 11
+  %check_buffer.i = getelementptr inbounds i8, ptr %call.i, i64 2464
   store ptr null, ptr %check_buffer.i, align 8
   ret ptr %call.i
 }
@@ -563,48 +557,48 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @hashfile_checkpoint(ptr noundef %f, ptr noundef %checkpoint) local_unnamed_addr #0 {
 entry:
-  %offset1.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 2
+  %offset1.i = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load i32, ptr %offset1.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %hashflush.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %skip_hash.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 12
+  %skip_hash.i = getelementptr inbounds i8, ptr %f, i64 2472
   %1 = load i32, ptr %skip_hash.i, align 8
   %tobool2.not.i = icmp eq i32 %1, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo.i, align 8
-  %update_fn.i = getelementptr inbounds %struct.git_hash_algo, ptr %3, i64 0, i32 7
+  %update_fn.i = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load ptr, ptr %update_fn.i, align 8
-  %ctx.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 3
-  %buffer.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %ctx.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buffer.i = getelementptr inbounds i8, ptr %f, i64 2456
   %5 = load ptr, ptr %buffer.i, align 8
   %conv.i = zext i32 %0 to i64
   tail call void %4(ptr noundef nonnull %ctx.i, ptr noundef %5, i64 noundef %conv.i) #11
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
-  %buffer4.i = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 10
+  %buffer4.i = getelementptr inbounds i8, ptr %f, i64 2456
   %6 = load ptr, ptr %buffer4.i, align 8
   tail call fastcc void @flush(ptr noundef nonnull %f, ptr noundef %6, i32 noundef %0)
   store i32 0, ptr %offset1.i, align 8
   br label %hashflush.exit
 
 hashflush.exit:                                   ; preds = %entry, %if.end.i
-  %total = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 4
+  %total = getelementptr inbounds i8, ptr %f, i64 2416
   %7 = load i64, ptr %total, align 8
   store i64 %7, ptr %checkpoint, align 8
   %8 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %8, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %8, i64 256
   %9 = load ptr, ptr %hash_algo, align 8
-  %clone_fn = getelementptr inbounds %struct.git_hash_algo, ptr %9, i64 0, i32 6
+  %clone_fn = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load ptr, ptr %clone_fn, align 8
-  %ctx = getelementptr inbounds %struct.hashfile_checkpoint, ptr %checkpoint, i64 0, i32 1
-  %ctx1 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 3
+  %ctx = getelementptr inbounds i8, ptr %checkpoint, i64 8
+  %ctx1 = getelementptr inbounds i8, ptr %f, i64 16
   tail call void %10(ptr noundef nonnull %ctx, ptr noundef nonnull %ctx1) #11
   ret void
 }
@@ -625,17 +619,17 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %total = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 4
+  %total = getelementptr inbounds i8, ptr %f, i64 2416
   store i64 %0, ptr %total, align 8
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo, align 8
-  %clone_fn = getelementptr inbounds %struct.git_hash_algo, ptr %4, i64 0, i32 6
+  %clone_fn = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %clone_fn, align 8
-  %ctx = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 3
-  %ctx4 = getelementptr inbounds %struct.hashfile_checkpoint, ptr %checkpoint, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %f, i64 16
+  %ctx4 = getelementptr inbounds i8, ptr %checkpoint, i64 8
   tail call void %5(ptr noundef nonnull %ctx, ptr noundef nonnull %ctx4) #11
-  %offset5 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 2
+  %offset5 = getelementptr inbounds i8, ptr %f, i64 8
   store i32 0, ptr %offset5, align 8
   br label %return
 
@@ -655,9 +649,9 @@ define dso_local void @crc32_begin(ptr nocapture noundef writeonly %f) local_unn
 entry:
   %call = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   %conv = trunc i64 %call to i32
-  %crc32 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 8
+  %crc32 = getelementptr inbounds i8, ptr %f, i64 2444
   store i32 %conv, ptr %crc32, align 4
-  %do_crc = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 7
+  %do_crc = getelementptr inbounds i8, ptr %f, i64 2440
   store i32 1, ptr %do_crc, align 8
   ret void
 }
@@ -665,9 +659,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @crc32_end(ptr nocapture noundef %f) local_unnamed_addr #5 {
 entry:
-  %do_crc = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 7
+  %do_crc = getelementptr inbounds i8, ptr %f, i64 2440
   store i32 0, ptr %do_crc, align 8
-  %crc32 = getelementptr inbounds %struct.hashfile, ptr %f, i64 0, i32 8
+  %crc32 = getelementptr inbounds i8, ptr %f, i64 2444
   %0 = load i32, ptr %crc32, align 4
   ret i32 %0
 }
@@ -678,33 +672,33 @@ entry:
   %got = alloca [32 x i8], align 16
   %ctx = alloca %union.git_hash_ctx, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz, align 8
   %cmp = icmp ugt i64 %2, %total_len
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %sub = sub i64 %total_len, %2
-  %init_fn = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 5
+  %init_fn = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %init_fn, align 8
   call void %3(ptr noundef nonnull %ctx) #11
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo4 = getelementptr inbounds %struct.repository, ptr %4, i64 0, i32 15
+  %hash_algo4 = getelementptr inbounds i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo4, align 8
-  %update_fn = getelementptr inbounds %struct.git_hash_algo, ptr %5, i64 0, i32 7
+  %update_fn = getelementptr inbounds i8, ptr %5, i64 56
   %6 = load ptr, ptr %update_fn, align 8
   call void %6(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %sub) #11
   %7 = load ptr, ptr @the_repository, align 8
-  %hash_algo5 = getelementptr inbounds %struct.repository, ptr %7, i64 0, i32 15
+  %hash_algo5 = getelementptr inbounds i8, ptr %7, i64 256
   %8 = load ptr, ptr %hash_algo5, align 8
-  %final_fn = getelementptr inbounds %struct.git_hash_algo, ptr %8, i64 0, i32 8
+  %final_fn = getelementptr inbounds i8, ptr %8, i64 64
   %9 = load ptr, ptr %final_fn, align 8
   call void %9(ptr noundef nonnull %got, ptr noundef nonnull %ctx) #11
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %sub
   %10 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %10, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %10, i64 256
   %11 = load ptr, ptr %hash_algo.i, align 8
   %12 = getelementptr i8, ptr %11, i64 16
   %.val.i = load i64, ptr %12, align 8

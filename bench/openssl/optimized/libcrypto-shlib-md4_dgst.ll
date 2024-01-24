@@ -3,39 +3,37 @@ source_filename = "bench/openssl/original/libcrypto-shlib-md4_dgst.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.MD4state_st = type { i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
-
-; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @MD4_Update(ptr nocapture noundef %c, ptr nocapture noundef readonly %data_, i64 noundef %len) local_unnamed_addr #0 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define noundef i32 @MD4_Update(ptr nocapture noundef %c, ptr nocapture noundef readonly %data_, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Nl = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 4
+  %Nl = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load i32, ptr %Nl, align 4
   %conv = trunc i64 %len to i32
   %shl = shl i32 %conv, 3
   %add = add i32 %0, %shl
   %cmp4 = icmp ult i32 %add, %0
-  %Nh = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 5
+  %Nh = getelementptr inbounds i8, ptr %c, i64 20
   %1 = load i32, ptr %Nh, align 4
   %inc = zext i1 %cmp4 to i32
   %2 = add i32 %1, %inc
   %shr = lshr i64 %len, 29
   %conv8 = trunc i64 %shr to i32
-  %Nh9 = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 5
+  %Nh9 = getelementptr inbounds i8, ptr %c, i64 20
   %add10 = add i32 %2, %conv8
   store i32 %add10, ptr %Nh9, align 4
   store i32 %add, ptr %Nl, align 4
-  %num = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 7
+  %num = getelementptr inbounds i8, ptr %c, i64 88
   %3 = load i32, ptr %num, align 4
   %conv12 = zext i32 %3 to i64
   %cmp13.not = icmp eq i32 %3, 0
   br i1 %cmp13.not, label %if.end32, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  %data16 = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 6
+  %data16 = getelementptr inbounds i8, ptr %c, i64 24
   %cmp17 = icmp ugt i64 %len, 63
   %add19 = add nuw nsw i64 %conv12, %len
   %cmp20 = icmp ugt i64 %add19, 63
@@ -80,7 +78,7 @@ if.end38:                                         ; preds = %if.then35, %if.end3
   br i1 %cmp39.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %if.end38
-  %data42 = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 6
+  %data42 = getelementptr inbounds i8, ptr %c, i64 24
   %conv44 = trunc i64 %len.addr.1 to i32
   store i32 %conv44, ptr %num, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data42, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
@@ -93,12 +91,12 @@ return:                                           ; preds = %if.end38, %if.then4
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @md4_block_data_order(ptr nocapture noundef %c, ptr nocapture noundef readonly %data_, i64 noundef %num) local_unnamed_addr #2 {
 entry:
-  %B2 = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 1
-  %C3 = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 2
-  %D4 = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 3
+  %B2 = getelementptr inbounds i8, ptr %c, i64 4
+  %C3 = getelementptr inbounds i8, ptr %c, i64 8
+  %D4 = getelementptr inbounds i8, ptr %c, i64 12
   %tobool.not534 = icmp eq i64 %num, 0
   br i1 %tobool.not534, label %for.end, label %for.body.lr.ph
 
@@ -662,7 +660,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @MD4_Transform(ptr nocapture noundef %c, ptr nocapture noundef readonly %data) local_unnamed_addr #2 {
 entry:
   tail call void @md4_block_data_order(ptr noundef %c, ptr noundef %data, i64 noundef 1)
@@ -670,10 +668,10 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @MD4_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #4 {
+define noundef i32 @MD4_Final(ptr nocapture noundef writeonly %md, ptr noundef %c) local_unnamed_addr #4 {
 entry:
-  %data = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 6
-  %num = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 7
+  %data = getelementptr inbounds i8, ptr %c, i64 24
+  %num = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %num, align 4
   %conv = zext i32 %0 to i64
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %conv
@@ -694,8 +692,8 @@ if.end:                                           ; preds = %if.then, %entry
   %add.ptr2 = getelementptr inbounds i8, ptr %data, i64 %n.0
   %sub3 = sub nuw nsw i64 56, %n.0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr2, i8 0, i64 %sub3, i1 false)
-  %add.ptr4 = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 6, i64 14
-  %Nl = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 4
+  %add.ptr4 = getelementptr inbounds i8, ptr %c, i64 80
+  %Nl = getelementptr inbounds i8, ptr %c, i64 16
   %1 = load i32, ptr %Nl, align 4
   %conv5 = trunc i32 %1 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %c, i64 81
@@ -712,7 +710,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv18 = trunc i32 %shr16 to i8
   %incdec.ptr19 = getelementptr inbounds i8, ptr %c, i64 84
   store i8 %conv18, ptr %incdec.ptr14, align 1
-  %Nh = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 5
+  %Nh = getelementptr inbounds i8, ptr %c, i64 20
   %2 = load i32, ptr %Nh, align 4
   %conv22 = trunc i32 %2 to i8
   %incdec.ptr23 = getelementptr inbounds i8, ptr %c, i64 85
@@ -747,7 +745,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv56 = trunc i32 %shr54 to i8
   %incdec.ptr57 = getelementptr inbounds i8, ptr %md, i64 4
   store i8 %conv56, ptr %incdec.ptr53, align 1
-  %B = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 1
+  %B = getelementptr inbounds i8, ptr %c, i64 4
   %4 = load i32, ptr %B, align 4
   %conv60 = trunc i32 %4 to i8
   %incdec.ptr61 = getelementptr inbounds i8, ptr %md, i64 5
@@ -764,7 +762,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv72 = trunc i32 %shr70 to i8
   %incdec.ptr73 = getelementptr inbounds i8, ptr %md, i64 8
   store i8 %conv72, ptr %incdec.ptr69, align 1
-  %C = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 2
+  %C = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load i32, ptr %C, align 4
   %conv76 = trunc i32 %5 to i8
   %incdec.ptr77 = getelementptr inbounds i8, ptr %md, i64 9
@@ -781,7 +779,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv88 = trunc i32 %shr86 to i8
   %incdec.ptr89 = getelementptr inbounds i8, ptr %md, i64 12
   store i8 %conv88, ptr %incdec.ptr85, align 1
-  %D = getelementptr inbounds %struct.MD4state_st, ptr %c, i64 0, i32 3
+  %D = getelementptr inbounds i8, ptr %c, i64 12
   %6 = load i32, ptr %D, align 4
   %conv92 = trunc i32 %6 to i8
   %incdec.ptr93 = getelementptr inbounds i8, ptr %md, i64 13
@@ -802,8 +800,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @MD4_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @MD4_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr inbounds i8, ptr %c, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)
@@ -814,13 +812,13 @@ entry:
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
-attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

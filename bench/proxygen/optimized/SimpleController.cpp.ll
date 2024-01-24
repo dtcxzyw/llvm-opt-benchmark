@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.proxygen::SimpleController" = type { %"class.proxygen::HTTPSessionController", ptr }
-%"class.proxygen::HTTPSessionController" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
@@ -14,127 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.proxygen::HTTPException" = type { %"class.proxygen::Exception", i32, i32, %"class.folly::Optional.183", %"class.folly::Optional.185", i32, %"class.std::unique_ptr.134", %"class.std::unique_ptr.187" }
-%"class.proxygen::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string", i32, i32 }
-%"class.std::exception" = type { ptr }
-%"class.folly::Optional.183" = type { %"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::HTTP3::ErrorCode>::StorageTriviallyDestructible" = type <{ %union.anon.184, i8, [7 x i8] }>
-%union.anon.184 = type { i64 }
-%"class.folly::Optional.185" = type { %"struct.folly::Optional<proxygen::ErrorCode>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::ErrorCode>::StorageTriviallyDestructible" = type { %union.anon.186, i8 }
-%union.anon.186 = type { i8 }
-%"class.std::unique_ptr.134" = type { %"struct.std::__uniq_ptr_data.135" }
-%"struct.std::__uniq_ptr_data.135" = type { %"class.std::__uniq_ptr_impl.136" }
-%"class.std::__uniq_ptr_impl.136" = type { %"class.std::tuple.137" }
-%"class.std::tuple.137" = type { %"struct.std::_Tuple_impl.138" }
-%"struct.std::_Tuple_impl.138" = type { %"struct.std::_Head_base.141" }
-%"struct.std::_Head_base.141" = type { ptr }
-%"class.std::unique_ptr.187" = type { %"struct.std::__uniq_ptr_data.188" }
-%"struct.std::__uniq_ptr_data.188" = type { %"class.std::__uniq_ptr_impl.189" }
-%"class.std::__uniq_ptr_impl.189" = type { %"class.std::tuple.190" }
-%"class.std::tuple.190" = type { %"struct.std::_Tuple_impl.191" }
-%"struct.std::_Tuple_impl.191" = type { %"struct.std::_Head_base.194" }
-%"struct.std::_Head_base.194" = type { ptr }
-%"class.wangle::Acceptor" = type { %"class.folly::AsyncServerSocket::AcceptCallback", %"class.wangle::ConnectionManager::Callback", %"class.folly::AsyncUDPServerSocket::Callback", ptr, %"struct.wangle::ServerSocketConfig", %"class.std::map", %"class.std::shared_ptr.56", %"class.wangle::SecurityProtocolContextManager", %"class.wangle::TLSPlaintextPeekingCallback", %"class.wangle::DefaultToSSLPeekingCallback", %"class.wangle::DefaultToFizzPeekingCallback", %"class.std::unique_ptr", %"class.std::shared_ptr.75", %"struct.wangle::TLSTicketKeySeeds", %"class.std::shared_ptr.78", i32, i64, i8, %"class.std::chrono::duration", %"class.wangle::Acceptor::AcceptObserverList" }
-%"class.folly::AsyncServerSocket::AcceptCallback" = type { ptr }
-%"class.wangle::ConnectionManager::Callback" = type { ptr }
-%"class.folly::AsyncUDPServerSocket::Callback" = type { ptr }
-%"struct.wangle::ServerSocketConfig" = type { %"class.std::__cxx11::basic_string", i32, i32, %"class.std::chrono::duration", %"class.std::chrono::duration", %"class.std::chrono::duration", %"class.folly::SocketAddress", %"struct.wangle::SSLCacheOptions", i8, %"struct.wangle::TLSTicketKeySeeds", %"class.std::vector.6", %"class.std::vector.11", i8, i32, i8, i8, i32, i32, i8, %"struct.wangle::FizzConfig", i8, %"class.std::unordered_map", %"class.std::map" }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"struct.wangle::SSLCacheOptions" = type { %"class.std::chrono::duration.2", i64, i64, %"class.std::chrono::duration.2" }
-%"class.std::chrono::duration.2" = type { i64 }
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl" }
-%"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl" = type { %"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<wangle::SSLContextConfig, std::allocator<wangle::SSLContextConfig>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl" }
-%"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl" = type { %"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<wangle::SNIConfig, std::allocator<wangle::SNIConfig>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.wangle::FizzConfig" = type { i8, %"class.std::vector.16", %"class.std::vector.21", %"class.std::vector.26", %"class.std::vector.31", %"class.std::vector.36", i8, i8, i8, i8, i8, i8, %"class.folly::Optional", %"class.folly::Optional", %"class.std::vector.42", %"struct.fizz::AsyncFizzBase::TransportOptions" }
-%"class.std::vector.16" = type { %"struct.std::_Vector_base.17" }
-%"struct.std::_Vector_base.17" = type { %"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::ProtocolVersion, std::allocator<fizz::ProtocolVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<fizz::CipherSuite>, std::allocator<std::vector<fizz::CipherSuite>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
-%"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::SignatureScheme, std::allocator<fizz::SignatureScheme>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::NamedGroup, std::allocator<fizz::NamedGroup>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.36" = type { %"struct.std::_Vector_base.37" }
-%"struct.std::_Vector_base.37" = type { %"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::PskKeyExchangeMode, std::allocator<fizz::PskKeyExchangeMode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::Optional" = type { %"struct.folly::Optional<unsigned short>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned short>::StorageTriviallyDestructible" = type <{ %union.anon.41, i8, i8 }>
-%union.anon.41 = type { i16 }
-%"class.std::vector.42" = type { %"struct.std::_Vector_base.43" }
-%"struct.std::_Vector_base.43" = type { %"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl" }
-%"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl" = type { %"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<fizz::CertificateCompressionAlgorithm, std::allocator<fizz::CertificateCompressionAlgorithm>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.fizz::AsyncFizzBase::TransportOptions" = type { i8, i8, %"class.std::shared_ptr", i64, i64, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::shared_ptr.56" = type { %"class.std::__shared_ptr.57" }
-%"class.std::__shared_ptr.57" = type { ptr, %"class.std::__shared_count" }
-%"class.wangle::SecurityProtocolContextManager" = type { %"class.std::vector.59", i64 }
-%"class.std::vector.59" = type { %"struct.std::_Vector_base.60" }
-%"struct.std::_Vector_base.60" = type { %"struct.std::_Vector_base<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *, std::allocator<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *>>::_Vector_impl" }
-%"struct.std::_Vector_base<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *, std::allocator<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *>>::_Vector_impl" = type { %"struct.std::_Vector_base<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *, std::allocator<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *, std::allocator<wangle::PeekingAcceptorHandshakeHelper::PeekCallback *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.wangle::TLSPlaintextPeekingCallback" = type { %"class.wangle::PeekingAcceptorHandshakeHelper::PeekCallback" }
-%"class.wangle::PeekingAcceptorHandshakeHelper::PeekCallback" = type { ptr, i64 }
-%"class.wangle::DefaultToSSLPeekingCallback" = type { %"class.wangle::PeekingAcceptorHandshakeHelper::PeekCallback" }
-%"class.wangle::DefaultToFizzPeekingCallback" = type { %"class.wangle::PeekingAcceptorHandshakeHelper::PeekCallback", %"class.std::shared_ptr.64", %"class.std::shared_ptr.67", %"class.wangle::FizzHandshakeOptions", %"struct.fizz::AsyncFizzBase::TransportOptions" }
-%"class.std::shared_ptr.64" = type { %"class.std::__shared_ptr.65" }
-%"class.std::__shared_ptr.65" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.67" = type { %"class.std::__shared_ptr.68" }
-%"class.std::__shared_ptr.68" = type { ptr, %"class.std::__shared_count" }
-%"class.wangle::FizzHandshakeOptions" = type <{ %"class.std::shared_ptr.70", ptr, i8, i8, [6 x i8] }>
-%"class.std::shared_ptr.70" = type { %"class.std::__shared_ptr.71" }
-%"class.std::__shared_ptr.71" = type { ptr, %"class.std::__shared_count" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.74" }
-%"struct.std::_Head_base.74" = type { ptr }
-%"class.std::shared_ptr.75" = type { %"class.std::__shared_ptr.76" }
-%"class.std::__shared_ptr.76" = type { ptr, %"class.std::__shared_count" }
-%"struct.wangle::TLSTicketKeySeeds" = type { %"class.std::vector", %"class.std::vector", %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.78" = type { %"class.std::__shared_ptr.79" }
-%"class.std::__shared_ptr.79" = type { ptr, %"class.std::__shared_count" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.wangle::Acceptor::AcceptObserverList" = type { ptr, %"class.std::vector.81" }
-%"class.std::vector.81" = type { %"struct.std::_Vector_base.82" }
-%"struct.std::_Vector_base.82" = type { %"struct.std::_Vector_base<wangle::AcceptObserver *, std::allocator<wangle::AcceptObserver *>>::_Vector_impl" }
-%"struct.std::_Vector_base<wangle::AcceptObserver *, std::allocator<wangle::AcceptObserver *>>::_Vector_impl" = type { %"struct.std::_Vector_base<wangle::AcceptObserver *, std::allocator<wangle::AcceptObserver *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<wangle::AcceptObserver *, std::allocator<wangle::AcceptObserver *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct._Guard = type { ptr }
 
 $_ZN8proxygen16SimpleControllerD2Ev = comdat any
@@ -189,7 +66,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen16SimpleControllerC2EPNS_19HTTPSessionAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %acceptor) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN8proxygen16SimpleControllerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %acceptor_ = getelementptr inbounds %"class.proxygen::SimpleController", ptr %this, i64 0, i32 1
+  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %acceptor, ptr %acceptor_, align 8
   ret void
 }
@@ -198,7 +75,7 @@ entry:
 define noundef ptr @_ZN8proxygen16SimpleController17getRequestHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  %acceptor_ = getelementptr inbounds %"class.proxygen::SimpleController", ptr %this, i64 0, i32 1
+  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cleanup.done
@@ -228,7 +105,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 
 cleanup.done:                                     ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 49
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %2 = load ptr, ptr %vfn, align 8
   %call12 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(1928) %0, ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef %msg) #14
   ret ptr %call12
@@ -250,7 +127,7 @@ define noundef ptr @_ZN8proxygen16SimpleController20getParseErrorHandlerEPNS_15H
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::allocator", align 1
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %error, i64 0, i32 4, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %error, i64 73
   %1 = load i8, ptr %hasValue.i.i, align 1
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -258,7 +135,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
-  %codecStatusCode_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %error, i64 0, i32 4
+  %codecStatusCode_.i = getelementptr inbounds i8, ptr %error, i64 72
   %3 = load i8, ptr %codecStatusCode_.i, align 8
   invoke void @_ZN8proxygen25CodecErrorResponseHandlerC1ENS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 noundef zeroext %3)
           to label %return unwind label %lpad
@@ -270,21 +147,21 @@ lpad:                                             ; preds = %invoke.cont
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %acceptor_ = getelementptr inbounds %"class.proxygen::SimpleController", ptr %this, i64 0, i32 1
+  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %6 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(1928) %5, ptr noundef nonnull align 8 dereferenceable(27) %localAddress)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi ptr [ %call6, %cond.true ], [ null, %if.end ]
-  %httpStatusCode_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %error, i64 0, i32 2
+  %httpStatusCode_.i = getelementptr inbounds i8, ptr %error, i64 52
   %7 = load i32, ptr %httpStatusCode_.i, align 4
   %cmp.i.not = icmp eq i32 %7, 0
   %spec.select = select i1 %cmp.i.not, i32 400, i32 %7
@@ -393,14 +270,14 @@ define noundef ptr @_ZN8proxygen16SimpleController28getTransactionTimeoutHandler
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  %acceptor_ = getelementptr inbounds %"class.proxygen::SimpleController", ptr %this, i64 0, i32 1
+  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(1928) %1, ptr noundef nonnull align 8 dereferenceable(27) %localAddress)
   br label %cond.end
@@ -482,13 +359,13 @@ declare void @_ZN8proxygen25HTTPDirectResponseHandlerC1EjRKNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @_ZNK8proxygen16SimpleController26getGracefulShutdownTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
-  %acceptor_ = getelementptr inbounds %"class.proxygen::SimpleController", ptr %this, i64 0, i32 1
+  %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %acceptor_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %gracefulShutdownTimeout_.i = getelementptr inbounds %"class.wangle::Acceptor", ptr %0, i64 0, i32 18
+  %gracefulShutdownTimeout_.i = getelementptr inbounds i8, ptr %0, i64 1032
   %retval.sroa.0.0.copyload.i = load i64, ptr %gracefulShutdownTimeout_.i, align 8
   br label %cond.end
 

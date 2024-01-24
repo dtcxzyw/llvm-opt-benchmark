@@ -145,7 +145,7 @@ if.end18:                                         ; preds = %if.then17, %if.end1
   br i1 %cmp19, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end18
-  %arrayidx22 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %argv, i64 8
   %8 = load ptr, ptr %arrayidx22, align 8
   br label %if.end23
 
@@ -919,7 +919,7 @@ for.cond9.preheader.us.i.i.i:                     ; preds = %for.inc28.us.i.i.i,
   br i1 %cmp1431.us.not.i.i.i, label %for.inc28.us.i.i.i, label %for.body16.lr.ph.us.i.i.i
 
 for.body16.lr.ph.us.i.i.i:                        ; preds = %for.cond9.preheader.us.i.i.i
-  %aliases.us.i.i.i = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv52.i.i.i, i32 2, i64 %indvars.iv47.i.i.i, i32 1
+  %aliases.us.i.i.i = getelementptr inbounds i8, ptr %arrayidx12.us.i.i.i, i64 8
   %129 = load ptr, ptr %aliases.us.i.i.i, align 8
   %wide.trip.count.i.i.i = zext i16 %128 to i64
   br label %for.body16.us.i.i.i
@@ -950,7 +950,7 @@ for.cond40.preheader.i.i.i:                       ; preds = %for.inc70.i.i.i, %f
   br i1 %cmp4938.not.i.i.i, label %for.inc70.i.i.i, label %for.body51.lr.ph.i.i.i
 
 for.body51.lr.ph.i.i.i:                           ; preds = %for.cond40.preheader.i.i.i
-  %aliases58.i.i.i = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 0, i32 2, i64 %indvars.iv62.i.i.i, i32 1
+  %aliases58.i.i.i = getelementptr inbounds i8, ptr %arrayidx46.i.i.i, i64 8
   %133 = load ptr, ptr %aliases58.i.i.i, align 16
   %wide.trip.count60.i.i.i = zext i16 %132 to i64
   br label %for.body51.i.i.i
@@ -1055,7 +1055,7 @@ for.cond9.preheader.us.i71.i.i:                   ; preds = %for.inc28.us.i85.i.
   br i1 %cmp1431.us.not.i74.i.i, label %for.inc28.us.i85.i.i, label %for.body16.lr.ph.us.i75.i.i
 
 for.body16.lr.ph.us.i75.i.i:                      ; preds = %for.cond9.preheader.us.i71.i.i
-  %aliases.us.i76.i.i = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv52.i70.i.i, i32 2, i64 %indvars.iv47.i72.i.i, i32 1
+  %aliases.us.i76.i.i = getelementptr inbounds i8, ptr %arrayidx12.us.i73.i.i, i64 8
   %144 = load ptr, ptr %aliases.us.i76.i.i, align 8
   %wide.trip.count.i77.i.i = zext i16 %143 to i64
   br label %for.body16.us.i78.i.i
@@ -1086,7 +1086,7 @@ for.cond40.preheader.i41.i.i:                     ; preds = %for.inc70.i55.i.i, 
   br i1 %cmp4938.not.i44.i.i, label %for.inc70.i55.i.i, label %for.body51.lr.ph.i45.i.i
 
 for.body51.lr.ph.i45.i.i:                         ; preds = %for.cond40.preheader.i41.i.i
-  %aliases58.i46.i.i = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 0, i32 2, i64 %indvars.iv62.i42.i.i, i32 1
+  %aliases58.i46.i.i = getelementptr inbounds i8, ptr %arrayidx46.i43.i.i, i64 8
   %148 = load ptr, ptr %aliases58.i46.i.i, align 16
   %wide.trip.count60.i47.i.i = zext i16 %147 to i64
   br label %for.body51.i48.i.i
@@ -1279,6 +1279,7 @@ for.cond16.preheader.i:                           ; preds = %for.inc21.i, %for.c
 
 for.body20.lr.ph.i:                               ; preds = %for.cond16.preheader.i
   %arrayidx.i.i32 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv138.i
+  %aliasList1.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i32, i64 8
   %cmp31.i.i = icmp eq i64 %indvars.iv138.i, 0
   br i1 %cmp31.i.i, label %for.body20.lr.ph.split.us.i, label %for.body20.i
 
@@ -1291,7 +1292,7 @@ for.body20.us.i:                                  ; preds = %createOneAliasList.
   %aliasListsSize.promoted155.i = phi i16 [ %aliasListsSize.promoted156.i, %createOneAliasList.exit.us.i ], [ %aliasListsSize.promoted.i, %for.body20.lr.ph.split.us.i ]
   %indvars.iv135.i = phi i64 [ %indvars.iv.next136.i, %createOneAliasList.exit.us.i ], [ 0, %for.body20.lr.ph.split.us.i ]
   %inc46.us.i.lcssa101.us113.i = phi i16 [ %inc46.us.i.lcssa101.us112.i, %createOneAliasList.exit.us.i ], [ %aliasListsSize.promoted.i, %for.body20.lr.ph.split.us.i ]
-  %arrayidx3.i.us.i = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 0, i32 2, i64 %indvars.iv135.i
+  %arrayidx3.i.us.i = getelementptr inbounds [4095 x %struct.AliasList], ptr %aliasList1.i.i, i64 0, i64 %indvars.iv135.i
   %173 = load i16, ptr %arrayidx3.i.us.i, align 8
   %cmp.i.us.i = icmp eq i16 %173, 0
   br i1 %cmp.i.us.i, label %if.then.i59.us.i, label %for.body.lr.ph.i.us.i
@@ -1304,8 +1305,8 @@ for.body.lr.ph.i.us.i:                            ; preds = %for.body20.us.i
   store i16 %173, ptr %arrayidx10.i.us.i, align 2
   %arrayidx15.i.us.i = getelementptr inbounds i16, ptr %call.i26, i64 %indvars.iv135.i
   store i16 %inc.i.us.i, ptr %arrayidx15.i.us.i, align 2
-  %aliases.i.us.i = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 0, i32 2, i64 %indvars.iv135.i, i32 1
-  %174 = load ptr, ptr %aliases.i.us.i, align 16
+  %aliases.i.us.i = getelementptr inbounds i8, ptr %arrayidx3.i.us.i, i64 8
+  %174 = load ptr, ptr %aliases.i.us.i, align 8
   %175 = zext i16 %173 to i64
   br label %for.body.us.i.us.i
 
@@ -1352,7 +1353,7 @@ for.body20.i:                                     ; preds = %for.body20.lr.ph.i,
   %179 = phi i16 [ %201, %createOneAliasList.exit.i ], [ %170, %for.body20.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %createOneAliasList.exit.i ], [ 0, %for.body20.lr.ph.i ]
   %conv17111.in.i = phi i16 [ %200, %createOneAliasList.exit.i ], [ %171, %for.body20.lr.ph.i ]
-  %arrayidx3.i.i33 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv138.i, i32 2, i64 %indvars.iv.i
+  %arrayidx3.i.i33 = getelementptr inbounds [4095 x %struct.AliasList], ptr %aliasList1.i.i, i64 0, i64 %indvars.iv.i
   %180 = load i16, ptr %arrayidx3.i.i33, align 8
   %cmp.i.i34 = icmp eq i16 %180, 0
   br i1 %cmp.i.i34, label %if.then.i59.i, label %for.body.lr.ph.i.i
@@ -1376,7 +1377,7 @@ for.body.lr.ph.i.i:                               ; preds = %for.body20.i
   %186 = getelementptr i16, ptr %call.i26, i64 %185
   %arrayidx15.i.i = getelementptr i16, ptr %186, i64 %indvars.iv.i
   store i16 %inc.i.i35, ptr %arrayidx15.i.i, align 2
-  %aliases.i.i = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %indvars.iv138.i, i32 2, i64 %indvars.iv.i, i32 1
+  %aliases.i.i = getelementptr inbounds i8, ptr %arrayidx3.i.i33, i64 8
   %arrayidx40.i.i = getelementptr inbounds [4095 x %struct.Converter], ptr @converters, i64 0, i64 %indvars.iv.i
   br label %for.body.i50.i
 
@@ -1919,12 +1920,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %length.addr.0 = phi i32 [ %conv, %if.then ], [ %length, %entry ]
-  %top1 = getelementptr inbounds %struct.StringBlock, ptr %block, i64 0, i32 1
+  %top1 = getelementptr inbounds i8, ptr %block, i64 8
   %0 = load i32, ptr %top1, align 8
   %1 = and i32 %length.addr.0, -2
   %and = add nsw i32 %1, 2
   %add3 = add i32 %and, %0
-  %max = getelementptr inbounds %struct.StringBlock, ptr %block, i64 0, i32 2
+  %max = getelementptr inbounds i8, ptr %block, i64 12
   %2 = load i32, ptr %max, align 4
   %cmp4.not = icmp ult i32 %add3, %2
   br i1 %cmp4.not, label %if.end8, label %if.then6
@@ -2022,8 +2023,9 @@ if.then5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.end
   %idxprom = zext nneg i16 %standard to i64
   %arrayidx = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom
+  %aliasList8 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %idxprom9 = zext nneg i16 %converter to i64
-  %arrayidx10 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom, i32 2, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [4095 x %struct.AliasList], ptr %aliasList8, i64 0, i64 %idxprom9
   %call11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %alias, i32 noundef 125) #20
   %tobool.not = icmp eq ptr %call11, null
   br i1 %tobool.not, label %if.end14, label %if.then12
@@ -2100,13 +2102,13 @@ if.then46:                                        ; preds = %if.end42
 
 for.cond57.preheader:                             ; preds = %for.cond57.preheader.lr.ph, %for.inc138
   %indvars.iv63 = phi i64 [ 0, %for.cond57.preheader.lr.ph ], [ %indvars.iv.next64, %for.inc138 ]
-  %arrayidx62 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom, i32 2, i64 %indvars.iv63
+  %arrayidx62 = getelementptr inbounds [4095 x %struct.AliasList], ptr %aliasList8, i64 0, i64 %indvars.iv63
   %21 = load i16, ptr %arrayidx62, align 8
   %cmp6556.not = icmp eq i16 %21, 0
   br i1 %cmp6556.not, label %for.inc138, label %for.body67.lr.ph
 
 for.body67.lr.ph:                                 ; preds = %for.cond57.preheader
-  %aliases = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom, i32 2, i64 %indvars.iv63, i32 1
+  %aliases = getelementptr inbounds i8, ptr %arrayidx62, i64 8
   br label %for.body67
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc
@@ -2203,7 +2205,7 @@ if.then146:                                       ; preds = %if.end141
 
 if.end149:                                        ; preds = %if.then146, %if.end141
   %41 = phi i16 [ 1, %if.then146 ], [ %40, %if.end141 ]
-  %aliases150 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom, i32 2, i64 %idxprom9, i32 1
+  %aliases150 = getelementptr inbounds i8, ptr %arrayidx10, i64 8
   %42 = load ptr, ptr %aliases150, align 8
   %conv152 = zext i16 %41 to i64
   %add153 = shl nuw nsw i64 %conv152, 1
@@ -2271,7 +2273,7 @@ if.end202:                                        ; preds = %if.else192, %if.end
   %50 = load i16, ptr %totalAliasCount, align 2
   %inc205 = add i16 %50, 1
   store i16 %inc205, ptr %totalAliasCount, align 2
-  %totalAliasCount208 = getelementptr inbounds [63 x %struct.Tag], ptr @tags, i64 0, i64 %idxprom, i32 1
+  %totalAliasCount208 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %51 = load i16, ptr %totalAliasCount208, align 2
   %inc209 = add i16 %51, 1
   store i16 %inc209, ptr %totalAliasCount208, align 2

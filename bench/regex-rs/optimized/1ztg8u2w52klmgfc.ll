@@ -107,14 +107,14 @@ define align 8 ptr @_ZN12regex_syntax3ast5Error4kind17hc15dd2033cac7cf3E(ptr rea
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_ZN12regex_syntax3ast5Error7pattern17h3f9b316cfd921cb1E(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { i32, [13 x i32] }, { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = tail call { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1dd5b82f5ba9ed73E"(ptr nonnull align 8 %2)
   ret { ptr, i64 } %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define nonnull align 8 ptr @_ZN12regex_syntax3ast5Error4span17hc4768de401d6d9c1E(ptr readnone align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { i32, [13 x i32] }, { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 80
   ret ptr %2
 }
 
@@ -128,15 +128,15 @@ define align 8 ptr @_ZN12regex_syntax3ast5Error14auxiliary_span17h22d29b6cea3fa2
   ]
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   br label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %1, %7, %5, %3
@@ -234,7 +234,7 @@ default.unreachable3:                             ; preds = %2
 
 41:                                               ; preds = %2
   store ptr @anon.cfd4944b58470739bc5188cdd806d3b6.3, ptr %38, align 8
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %38, i64 0, i32 1
+  %42 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17hd2fe031fb1b1da63E", ptr %42, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %39, ptr nonnull align 8 @anon.cfd4944b58470739bc5188cdd806d3b6.2, i64 2, ptr nonnull align 8 %38, i64 1)
   br label %79
@@ -328,11 +328,11 @@ default.unreachable3:                             ; preds = %2
   br label %79
 
 65:                                               ; preds = %2
-  %66 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 4
   %67 = load i32, ptr %66, align 4, !noundef !6
   store i32 %67, ptr %15, align 4
   store ptr %15, ptr %13, align 8
-  %68 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17hd2fe031fb1b1da63E", ptr %68, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %14, ptr nonnull align 8 @anon.cfd4944b58470739bc5188cdd806d3b6.49, i64 2, ptr nonnull align 8 %13, i64 1)
   br label %79
@@ -389,13 +389,13 @@ define zeroext i1 @"_ZN60_$LT$regex_syntax..ast..Span$u20$as$u20$core..fmt..Debu
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %0, ptr %3, align 8
-  %7 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN64_$LT$regex_syntax..ast..Position$u20$as$u20$core..fmt..Debug$GT$3fmt17hf6781ee5672bb254E", ptr %7, align 8
-  %8 = getelementptr inbounds [2 x { ptr, ptr }], ptr %3, i64 0, i64 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %6, ptr %8, align 8
-  %9 = getelementptr inbounds [2 x { ptr, ptr }], ptr %3, i64 0, i64 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr @"_ZN64_$LT$regex_syntax..ast..Position$u20$as$u20$core..fmt..Debug$GT$3fmt17hf6781ee5672bb254E", ptr %9, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.cfd4944b58470739bc5188cdd806d3b6.72, i64 3, ptr nonnull align 8 %3, i64 2)
   %10 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -406,13 +406,13 @@ define zeroext i1 @"_ZN60_$LT$regex_syntax..ast..Span$u20$as$u20$core..fmt..Debu
 define i8 @"_ZN58_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..Ord$GT$3cmp17h2957e0180322ef37E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca { ptr, ptr }, align 8
-  %5 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %0, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %1, ptr %3, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
   %9 = call i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$U$C$T$RP$$GT$3cmp17hf1f3105bc5eff5f6E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3), !range !7
   ret i8 %9
@@ -424,13 +424,13 @@ define i8 @"_ZN65_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialOrd$G
   %4 = alloca { ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %5 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %0, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %1, ptr %3, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
   %9 = call i8 @"_ZN4core5tuple58_$LT$impl$u20$core..cmp..Ord$u20$for$u20$$LP$U$C$T$RP$$GT$3cmp17hf1f3105bc5eff5f6E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3), !range !7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -444,18 +444,18 @@ define zeroext i1 @"_ZN64_$LT$regex_syntax..ast..Position$u20$as$u20$core..fmt..
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 0, i32 1
-  %7 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %0, ptr %3, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17hb17ec8be10c4f91dE", ptr %8, align 8
-  %9 = getelementptr inbounds [3 x { ptr, ptr }], ptr %3, i64 0, i64 1
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds [3 x { ptr, ptr }], ptr %3, i64 0, i64 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17hb17ec8be10c4f91dE", ptr %10, align 8
-  %11 = getelementptr inbounds [3 x { ptr, ptr }], ptr %3, i64 0, i64 2
+  %11 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %7, ptr %11, align 8
-  %12 = getelementptr inbounds [3 x { ptr, ptr }], ptr %3, i64 0, i64 2, i32 1
+  %12 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17hb17ec8be10c4f91dE", ptr %12, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hace331f03f852dd2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.cfd4944b58470739bc5188cdd806d3b6.76, i64 4, ptr nonnull align 8 %3, i64 3)
   %13 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -477,7 +477,7 @@ define i8 @"_ZN69_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialO
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12regex_syntax3ast4Span3new17he424aa6a25670affE(ptr nocapture writeonly sret({ { i64, i64, i64 }, { i64, i64, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %4 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   ret void
 }
@@ -487,7 +487,7 @@ define void @_ZN12regex_syntax3ast4Span5splat17h4f4fd509ad9b3c09E(ptr nocapture 
   %3 = alloca { i64, i64, i64 }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %4 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 }
@@ -495,8 +495,8 @@ define void @_ZN12regex_syntax3ast4Span5splat17h4f4fd509ad9b3c09E(ptr nocapture 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12regex_syntax3ast4Span10with_start17h891c786d19ca8049E(ptr nocapture writeonly sret({ { i64, i64, i64 }, { i64, i64, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %4 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %1, i64 0, i32 1
-  %5 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   ret void
 }
@@ -504,16 +504,16 @@ define void @_ZN12regex_syntax3ast4Span10with_start17h891c786d19ca8049E(ptr noca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12regex_syntax3ast4Span8with_end17h1ca18fbf23de7af7E(ptr nocapture writeonly sret({ { i64, i64, i64 }, { i64, i64, i64 } }) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %4 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12regex_syntax3ast4Span11is_one_line17ha679a4a05d343c5cE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !6
-  %4 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = icmp eq i64 %3, %5
   ret i1 %6
@@ -522,7 +522,7 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast4Span11is_one_line17ha679a4a05d3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12regex_syntax3ast4Span8is_empty17hc1f21c548b4c42f3E(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !noundef !6
-  %3 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !6
   %5 = icmp eq i64 %2, %4
   ret i1 %5
@@ -531,9 +531,9 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast4Span8is_empty17hc1f21c548b4c42f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN12regex_syntax3ast8Position3new17h11e5ea3180e28b08E(ptr nocapture writeonly sret({ i64, i64, i64 }) align 8 %0, i64 %1, i64 %2, i64 %3) unnamed_addr #4 {
   store i64 %1, ptr %0, align 8
-  %5 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %3, ptr %6, align 8
   ret void
 }
@@ -767,7 +767,7 @@ define { i64, ptr } @_ZN12regex_syntax3ast3Ast6concat17hb4ef5d0e6f0caf27E(ptr al
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 8 ptr @_ZN12regex_syntax3ast3Ast4span17h2caf9b481f52e5aaE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !8, !noundef !6
-  %3 = getelementptr inbounds { i64, ptr }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !6, !align !9, !noundef !6
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %15
@@ -788,23 +788,23 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 72
   br label %15
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %4, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %4, i64 56
   br label %15
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds { { i8, [87 x i8] }, ptr, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %4, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %4, i64 96
   br label %15
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %4, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 24
   br label %15
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %4, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 24
   br label %15
 
 15:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %13, %11, %9, %7, %5
@@ -865,7 +865,7 @@ define { i64, ptr } @_ZN12regex_syntax3ast11Alternation8into_ast17h4618846cf6a9c
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   %14 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h5580a252798f3bb8E(i64 48, i64 8)
@@ -956,7 +956,7 @@ define { i64, ptr } @_ZN12regex_syntax3ast6Concat8into_ast17hd05c35e82773b91bE(p
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false)
   %14 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h5580a252798f3bb8E(i64 48, i64 8)
@@ -1018,19 +1018,19 @@ _ZN12regex_syntax3ast3Ast5empty17h2925b5af90b0a29aE.exit: ; preds = %12
 
 ; Function Attrs: nonlazybind uwtable
 define { i8, i8 } @_ZN12regex_syntax3ast7Literal4byte17h6959f2c24cfd9533E(ptr nocapture readonly align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i8, ptr %2, align 4, !range !10, !noundef !6
   %4 = icmp eq i8 %3, 4
   br i1 %4, label %5, label %19
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 2, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 53
   %7 = load i8, ptr %6, align 1, !range !11, !noundef !6
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8, !range !12, !noundef !6
   %12 = tail call { i8, i8 } @"_ZN4core4char7convert67_$LT$impl$u20$core..convert..TryFrom$LT$char$GT$$u20$for$u20$u8$GT$8try_from17he2188046ead79580E"(i32 %11)
   %13 = extractvalue { i8, i8 } %12, 0
@@ -1131,18 +1131,18 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast12ClassUnicode10is_negated17hd04
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i8], i8, [6 x i8], { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1, !range !11, !noundef !6
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4, %1
-  %9 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 104
   %10 = load i8, ptr %9, align 8, !range !13, !noundef !6
   br label %15
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 104
   %13 = load i8, ptr %12, align 8, !range !13, !noundef !6
   %14 = xor i8 %13, 1
   br label %15
@@ -1172,7 +1172,7 @@ define void @_ZN12regex_syntax3ast8ClassSet5union17h8a9eafe26950f093E(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @_ZN12regex_syntax3ast8ClassSet4span17h39885c2a937fc0c1E(ptr readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8, !range !14, !noundef !6
   %.not = icmp eq i32 %3, 1114120
   br i1 %.not, label %14, label %4
@@ -1196,7 +1196,7 @@ define align 8 ptr @_ZN12regex_syntax3ast8ClassSet4span17h39885c2a937fc0c1E(ptr 
   unreachable
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 56
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit
 
 10:                                               ; preds = %4
@@ -1204,11 +1204,11 @@ define align 8 ptr @_ZN12regex_syntax3ast8ClassSet4span17h39885c2a937fc0c1E(ptr 
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds { ptr, ptr, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %0, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit
 
 _ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit: ; preds = %12, %10, %8, %4, %4, %4, %4, %4, %14
@@ -1218,7 +1218,7 @@ _ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit: ; preds = %12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN12regex_syntax3ast8ClassSet8is_empty17hf599f442b300b959E(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8, !range !14, !noundef !6
   %4 = icmp eq i32 %3, 1114112
   ret i1 %4
@@ -1226,7 +1226,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3ast8ClassSet8is_empty17hf599
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E(ptr readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8, !range !15, !noundef !6
   %4 = add nsw i32 %3, -1114112
   %5 = icmp ult i32 %4, 8
@@ -1246,7 +1246,7 @@ define align 8 ptr @_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 56
   br label %13
 
 9:                                                ; preds = %1
@@ -1254,7 +1254,7 @@ define align 8 ptr @_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E
   br label %13
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   br label %13
 
 13:                                               ; preds = %1, %1, %1, %1, %1, %11, %9, %7
@@ -1264,9 +1264,9 @@ define align 8 ptr @_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12regex_syntax3ast13ClassSetRange8is_valid17h324df4a9ac393e6dE(ptr nocapture readonly align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] }, { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] } }, ptr %0, i64 0, i32 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !range !12, !noundef !6
-  %4 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] }, { { { i64, i64, i64 }, { i64, i64, i64 } }, i32, { i8, i8 }, [2 x i8] } }, ptr %0, i64 0, i32 2, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8, !range !12, !noundef !6
   %6 = icmp ule i32 %3, %5
   ret i1 %6
@@ -1282,7 +1282,7 @@ define void @_ZN12regex_syntax3ast13ClassSetUnion4push17h17424baec81b853eE(ptr a
   br i1 %4, label %18, label %6
 
 6:                                                ; preds = %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit3, %5
-  %7 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 152
   %8 = load i32, ptr %7, align 8, !range !15, !noundef !6
   %9 = add nsw i32 %8, -1114112
   %10 = icmp ult i32 %9, 8
@@ -1302,7 +1302,7 @@ define void @_ZN12regex_syntax3ast13ClassSetUnion4push17h17424baec81b853eE(ptr a
   unreachable
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %1, i64 56
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit
 
 14:                                               ; preds = %6
@@ -1310,11 +1310,11 @@ define void @_ZN12regex_syntax3ast13ClassSetUnion4push17h17424baec81b853eE(ptr a
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %1, i64 24
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %1, i64 152
   %20 = load i32, ptr %19, align 8, !range !15, !noundef !6
   %21 = add nsw i32 %20, -1114112
   %22 = icmp ult i32 %21, 8
@@ -1334,7 +1334,7 @@ define void @_ZN12regex_syntax3ast13ClassSetUnion4push17h17424baec81b853eE(ptr a
   unreachable
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds { { i8, [55 x i8] }, { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %1, i64 56
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit3
 
 26:                                               ; preds = %18
@@ -1342,19 +1342,19 @@ define void @_ZN12regex_syntax3ast13ClassSetUnion4push17h17424baec81b853eE(ptr a
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit3
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %1, i64 24
   br label %_ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit3
 
 _ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit3: ; preds = %28, %26, %24, %18, %18, %18, %18, %18
   %.0.i2 = phi ptr [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %1, %18 ], [ %1, %18 ], [ %1, %18 ], [ %1, %18 ], [ %1, %18 ]
-  %30 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %.0.i2, i64 24, i1 false)
   br label %6
 
 _ZN12regex_syntax3ast12ClassSetItem4span17hf5e0a0844571dff0E.exit: ; preds = %16, %14, %12, %6, %6, %6, %6, %6
   %.0.i = phi ptr [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %1, %6 ], [ %1, %6 ], [ %1, %6 ], [ %1, %6 ], [ %1, %6 ]
-  %31 = getelementptr inbounds { { i64, i64, i64 }, { i64, i64, i64 } }, ptr %.0.i, i64 0, i32 1
-  %32 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 160, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha055c7009b3dffc7E"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
@@ -1396,14 +1396,14 @@ define void @_ZN12regex_syntax3ast13ClassSetUnion9into_item17h07200e440dd7c7c2E(
 
 .critedge:                                        ; preds = %7
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
-  %8 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 1114119, ptr %8, align 8
   br label %14
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
-  %11 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 1114112, ptr %11, align 8
   br label %15
 
@@ -1439,8 +1439,8 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast15RepetitionRange8is_valid17h6cc
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i32], i32, i32 }, ptr %0, i64 0, i32 1
-  %6 = getelementptr inbounds { [1 x i32], i32, i32 }, ptr %0, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %5, align 4, !noundef !6
   %8 = load i32, ptr %6, align 4, !noundef !6
   %9 = icmp ule i32 %7, %8
@@ -1455,7 +1455,7 @@ define noundef zeroext i1 @_ZN12regex_syntax3ast15RepetitionRange8is_valid17h6cc
 define align 8 ptr @_ZN12regex_syntax3ast5Group5flags17he06a5823bdffd6caE(ptr readonly align 8 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !11, !noundef !6
   %3 = icmp eq i8 %2, 2
-  %4 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 }, { { i64, i64, i64 }, { i64, i64, i64 } } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -1480,12 +1480,12 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !6
   br label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds { [1 x i8], i8, [6 x i8], { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] } }, ptr %0, i64 0, i32 3, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i32, ptr %7, align 8, !noundef !6
   br label %9
 
@@ -1518,7 +1518,7 @@ define { i64, i64 } @_ZN12regex_syntax3ast5Flags8add_item17h384ef0a0ad492b30E(pt
   br i1 %14, label %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90b63f7e04bd8baeE.exit._crit_edge", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %15 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %1, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %1, i64 48
   br label %16
 
 "_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90b63f7e04bd8baeE.exit._crit_edge": ; preds = %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90b63f7e04bd8baeE.exit.backedge", %2
@@ -1530,7 +1530,7 @@ define { i64, i64 } @_ZN12regex_syntax3ast5Flags8add_item17h384ef0a0ad492b30E(pt
 16:                                               ; preds = %.lr.ph, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90b63f7e04bd8baeE.exit.backedge"
   %.fca.1.extract6 = phi ptr [ %.fca.1.extract5, %.lr.ph ], [ %.fca.1.extract, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90b63f7e04bd8baeE.exit.backedge" ]
   %17 = phi { i64, ptr } [ %13, %.lr.ph ], [ %25, %"_ZN73_$LT$regex_syntax..ast..FlagsItemKind$u20$as$u20$core..cmp..PartialEq$GT$2eq17h90b63f7e04bd8baeE.exit.backedge" ]
-  %18 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %.fca.1.extract6, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %.fca.1.extract6, i64 48
   %.val = load i8, ptr %18, align 1, !range !17, !noundef !6
   %.val3 = load i8, ptr %15, align 8, !range !17, !noundef !6
   %19 = icmp ne i8 %.val, 7
@@ -1570,7 +1570,7 @@ define noundef i8 @_ZN12regex_syntax3ast5Flags10flag_state17h949c0c6deed06d17E(p
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1
   store ptr %8, ptr %5, align 8
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
   br label %.outer
 
@@ -1584,7 +1584,7 @@ define noundef i8 @_ZN12regex_syntax3ast5Flags10flag_state17h949c0c6deed06d17E(p
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds { { { i64, i64, i64 }, { i64, i64, i64 } }, i8, [7 x i8] }, ptr %12, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %12, i64 48
   %16 = load i8, ptr %15, align 8, !range !17, !noundef !6
   %17 = icmp eq i8 %16, 7
   br i1 %17, label %.outer, label %18
@@ -1627,152 +1627,152 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$regex_syntax..ast..ErrorKind$u20$as
   ret i1 %.0.shrunk
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
-  %9 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %8, align 8, !noundef !6
   %11 = load i64, ptr %9, align 8, !noundef !6
   %12 = icmp eq i64 %10, %11
   br i1 %12, label %13, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !6
-  %16 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !6
   %18 = icmp eq i64 %15, %17
   br i1 %18, label %"_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i", label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 "_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i": ; preds = %13
-  %19 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8, !noundef !6
-  %21 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 0, i32 2
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8, !noundef !6
   %23 = icmp eq i64 %20, %22
   br i1 %23, label %24, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 24:                                               ; preds = %"_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i"
-  %25 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1
-  %26 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1
+  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds i8, ptr %1, i64 32
   %27 = load i64, ptr %25, align 8, !noundef !6
   %28 = load i64, ptr %26, align 8, !noundef !6
   %29 = icmp eq i64 %27, %28
   br i1 %29, label %30, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
   %32 = load i64, ptr %31, align 8, !noundef !6
-  %33 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1, i32 1
+  %33 = getelementptr inbounds i8, ptr %1, i64 40
   %34 = load i64, ptr %33, align 8, !noundef !6
   %35 = icmp eq i64 %32, %34
   br i1 %35, label %36, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 2
+  %37 = getelementptr inbounds i8, ptr %0, i64 48
   %38 = load i64, ptr %37, align 8, !noundef !6
-  %39 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1, i32 2
+  %39 = getelementptr inbounds i8, ptr %1, i64 48
   %40 = load i64, ptr %39, align 8, !noundef !6
   %41 = icmp eq i64 %38, %40
   br label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 42:                                               ; preds = %6
-  %43 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
-  %44 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
   %45 = load i64, ptr %43, align 8, !noundef !6
   %46 = load i64, ptr %44, align 8, !noundef !6
   %47 = icmp eq i64 %45, %46
   br i1 %47, label %48, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %49 = getelementptr inbounds i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !6
-  %51 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %51 = getelementptr inbounds i8, ptr %1, i64 16
   %52 = load i64, ptr %51, align 8, !noundef !6
   %53 = icmp eq i64 %50, %52
   br i1 %53, label %"_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i15", label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 "_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i15": ; preds = %48
-  %54 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 0, i32 2
+  %54 = getelementptr inbounds i8, ptr %0, i64 24
   %55 = load i64, ptr %54, align 8, !noundef !6
-  %56 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 0, i32 2
+  %56 = getelementptr inbounds i8, ptr %1, i64 24
   %57 = load i64, ptr %56, align 8, !noundef !6
   %58 = icmp eq i64 %55, %57
   br i1 %58, label %59, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 59:                                               ; preds = %"_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i15"
-  %60 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1
-  %61 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1
+  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds i8, ptr %1, i64 32
   %62 = load i64, ptr %60, align 8, !noundef !6
   %63 = load i64, ptr %61, align 8, !noundef !6
   %64 = icmp eq i64 %62, %63
   br i1 %64, label %65, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 40
   %67 = load i64, ptr %66, align 8, !noundef !6
-  %68 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1, i32 1
+  %68 = getelementptr inbounds i8, ptr %1, i64 40
   %69 = load i64, ptr %68, align 8, !noundef !6
   %70 = icmp eq i64 %67, %69
   br i1 %70, label %71, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 2
+  %72 = getelementptr inbounds i8, ptr %0, i64 48
   %73 = load i64, ptr %72, align 8, !noundef !6
-  %74 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1, i32 2
+  %74 = getelementptr inbounds i8, ptr %1, i64 48
   %75 = load i64, ptr %74, align 8, !noundef !6
   %76 = icmp eq i64 %73, %75
   br label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 77:                                               ; preds = %6
-  %78 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1
-  %79 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1
+  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds i8, ptr %1, i64 8
   %80 = load i64, ptr %78, align 8, !noundef !6
   %81 = load i64, ptr %79, align 8, !noundef !6
   %82 = icmp eq i64 %80, %81
   br i1 %82, label %83, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load i64, ptr %84, align 8, !noundef !6
-  %86 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 0, i32 1
+  %86 = getelementptr inbounds i8, ptr %1, i64 16
   %87 = load i64, ptr %86, align 8, !noundef !6
   %88 = icmp eq i64 %85, %87
   br i1 %88, label %"_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i18", label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 "_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i18": ; preds = %83
-  %89 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 0, i32 2
+  %89 = getelementptr inbounds i8, ptr %0, i64 24
   %90 = load i64, ptr %89, align 8, !noundef !6
-  %91 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 0, i32 2
+  %91 = getelementptr inbounds i8, ptr %1, i64 24
   %92 = load i64, ptr %91, align 8, !noundef !6
   %93 = icmp eq i64 %90, %92
   br i1 %93, label %94, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 94:                                               ; preds = %"_ZN68_$LT$regex_syntax..ast..Position$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd05649c9171424b1E.exit.i18"
-  %95 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1
-  %96 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1
+  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  %96 = getelementptr inbounds i8, ptr %1, i64 32
   %97 = load i64, ptr %95, align 8, !noundef !6
   %98 = load i64, ptr %96, align 8, !noundef !6
   %99 = icmp eq i64 %97, %98
   br i1 %99, label %100, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 100:                                              ; preds = %94
-  %101 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 1
+  %101 = getelementptr inbounds i8, ptr %0, i64 40
   %102 = load i64, ptr %101, align 8, !noundef !6
-  %103 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1, i32 1
+  %103 = getelementptr inbounds i8, ptr %1, i64 40
   %104 = load i64, ptr %103, align 8, !noundef !6
   %105 = icmp eq i64 %102, %104
   br i1 %105, label %106, label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %0, i64 0, i32 1, i32 1, i32 2
+  %107 = getelementptr inbounds i8, ptr %0, i64 48
   %108 = load i64, ptr %107, align 8, !noundef !6
-  %109 = getelementptr inbounds { [1 x i64], { { i64, i64, i64 }, { i64, i64, i64 } } }, ptr %1, i64 0, i32 1, i32 1, i32 2
+  %109 = getelementptr inbounds i8, ptr %1, i64 48
   %110 = load i64, ptr %109, align 8, !noundef !6
   %111 = icmp eq i64 %108, %110
   br label %"_ZN64_$LT$regex_syntax..ast..Span$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8086b061e7607515E.exit"
 
 112:                                              ; preds = %6
-  %113 = getelementptr inbounds { [1 x i32], i32 }, ptr %0, i64 0, i32 1
-  %114 = getelementptr inbounds { [1 x i32], i32 }, ptr %1, i64 0, i32 1
+  %113 = getelementptr inbounds i8, ptr %0, i64 4
+  %114 = getelementptr inbounds i8, ptr %1, i64 4
   %115 = load i32, ptr %113, align 4, !noundef !6
   %116 = load i32, ptr %114, align 4, !noundef !6
   %117 = icmp eq i32 %115, %116
@@ -1793,17 +1793,17 @@ define hidden noundef zeroext i1 @"_ZN68_$LT$regex_syntax..ast..Position$u20$as$
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !6
-  %9 = getelementptr inbounds { i64, i64, i64 }, ptr %1, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !6
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !6
-  %15 = getelementptr inbounds { i64, i64, i64 }, ptr %1, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !6
   %17 = icmp eq i64 %14, %16
   br label %18
@@ -1823,15 +1823,15 @@ define hidden void @_ZN12regex_syntax3ast8ClassSet4Item17h0d738a37222c1192E(ptr 
 define hidden void @"_ZN69_$LT$regex_syntax..ast..CaptureName$u20$as$u20$core..clone..Clone$GT$5clone17he34779e115a2f95aE"(ptr nocapture writeonly sret({ { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] }) align 8 %0, ptr align 8 %1) unnamed_addr #7 {
   %3 = alloca { { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { { i64, i64, i64 }, { i64, i64, i64 } }, align 8
-  %5 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hec36f09858d8a4fdE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %3, ptr align 8 %1)
-  %6 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] }, ptr %1, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %1, i64 72
   %7 = load i32, ptr %6, align 8, !noundef !6
-  %8 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %9 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { i64, i64, i64 }, { i64, i64, i64 } }, i32, [1 x i32] }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %7, ptr %9, align 8
   ret void
 }

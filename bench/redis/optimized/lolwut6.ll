@@ -3,12 +3,7 @@ source_filename = "bench/redis/original/lolwut6.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lwCanvas = type { i32, i32, ptr }
 %struct.skyscraper = type { i32, i32, i32, i32, i32 }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [124 x i8] c"\0ADedicated to the 8 bit game developers of past and present.\0AOriginal 8 bit image from Plaguemon by hikikomori. Redis ver. \00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"255.255.255\00", align 1
@@ -24,10 +19,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @generateSkyscraper(ptr noundef %canvas, ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
 entry:
-  %height = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 1
+  %height = getelementptr inbounds i8, ptr %canvas, i64 4
   %0 = load i32, ptr %height, align 4
   %sub = add nsw i32 %0, -1
-  %height1 = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 2
+  %height1 = getelementptr inbounds i8, ptr %si, i64 8
   %1 = load i32, ptr %height1, align 4
   %sub2 = sub nsw i32 %sub, %1
   %add = add nsw i32 %sub2, 1
@@ -35,9 +30,9 @@ entry:
   br i1 %cmp.not.not45, label %for.body.lr.ph, label %for.end58
 
 for.body.lr.ph:                                   ; preds = %entry
-  %width = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 1
-  %color17 = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 4
-  %windows = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 3
+  %width = getelementptr inbounds i8, ptr %si, i64 4
+  %color17 = getelementptr inbounds i8, ptr %si, i64 16
+  %windows = getelementptr inbounds i8, ptr %si, i64 12
   %add29 = add nsw i32 %sub2, 2
   %sub32 = add nsw i32 %0, -2
   %.pre = load i32, ptr %si, align 4
@@ -209,11 +204,11 @@ declare void @lwDrawPixel(ptr noundef, i32 noundef, i32 noundef, i32 noundef) lo
 define dso_local void @generateSkyline(ptr noundef %canvas) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.skyscraper, align 4
-  %color1 = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 4
-  %width8 = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 1
-  %height16 = getelementptr inbounds %struct.lwCanvas, ptr %canvas, i64 0, i32 1
-  %height23 = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 2
-  %windows = getelementptr inbounds %struct.skyscraper, ptr %si, i64 0, i32 3
+  %color1 = getelementptr inbounds i8, ptr %si, i64 16
+  %width8 = getelementptr inbounds i8, ptr %si, i64 4
+  %height16 = getelementptr inbounds i8, ptr %canvas, i64 4
+  %height23 = getelementptr inbounds i8, ptr %si, i64 8
+  %windows = getelementptr inbounds i8, ptr %si, i64 12
   %0 = load i32, ptr %canvas, align 8
   %1 = icmp sgt i32 %0, -10
   br i1 %1, label %for.body, label %for.end69
@@ -342,15 +337,15 @@ entry:
   %rows = alloca i64, align 8
   store i64 80, ptr %cols, align 8
   store i64 20, ptr %rows, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %entry
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull %cols, ptr noundef null) #3
   %cmp1.not = icmp eq i32 %call, 0
@@ -363,7 +358,7 @@ if.end:                                           ; preds = %land.lhs.true
 
 land.lhs.true4:                                   ; preds = %if.end
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %3, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %rows, ptr noundef null) #3
   %cmp8.not = icmp eq i32 %call7, 0
@@ -412,7 +407,7 @@ if.end22:                                         ; preds = %entry, %if.end19.th
   %call24 = call ptr @lwCreateCanvas(i32 noundef %conv, i32 noundef %conv23, i32 noundef 3) #3
   call void @generateSkyline(ptr noundef %call24)
   %call.i = call ptr @sdsempty() #3
-  %height.i = getelementptr inbounds %struct.lwCanvas, ptr %call24, i64 0, i32 1
+  %height.i = getelementptr inbounds i8, ptr %call24, i64 4
   %8 = load i32, ptr %height.i, align 4
   %cmp14.i = icmp sgt i32 %8, 0
   br i1 %cmp14.i, label %for.cond1.preheader.i, label %renderCanvas.exit

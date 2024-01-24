@@ -64,7 +64,7 @@ define zeroext i1 @"_ZN84_$LT$regex_automata..util..determinize..state..State$u2
   call void @llvm.assume(i1 %7)
   store ptr %6, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %5, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = call align 8 ptr @_ZN4core3fmt8builders10DebugTuple5field17h175a19968a28d4dcE(ptr nonnull align 8 %4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.4659deb10840cb258bdda44fe5441814.4)
   %9 = call zeroext i1 @_ZN4core3fmt8builders10DebugTuple6finish17he18e3fd4f6694a75E(ptr align 8 %8)
@@ -228,7 +228,7 @@ define i64 @_ZN14regex_automata4util11determinize5state5State9match_len17h706636
   tail call void @llvm.assume(i1 %5)
   store ptr %4, ptr %2, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %3, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %2, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %.not.i.i = icmp eq i64 %.fca.1.extract, 0
   br i1 %.not.i.i, label %6, label %_ZN14regex_automata4util11determinize5state4Repr8is_match17had313c384b44f7d2E.exit.i, !prof !5
@@ -358,7 +358,7 @@ define zeroext i1 @"_ZN98_$LT$regex_automata..util..determinize..state..StateBui
   call void @llvm.assume(i1 %7)
   store ptr %6, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %5, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = call align 8 ptr @_ZN4core3fmt8builders10DebugTuple5field17h175a19968a28d4dcE(ptr nonnull align 8 %4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.4659deb10840cb258bdda44fe5441814.4)
   %9 = call zeroext i1 @_ZN4core3fmt8builders10DebugTuple6finish17he18e3fd4f6694a75E(ptr align 8 %8)
@@ -447,7 +447,7 @@ _ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17hdb3f1a161c19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %30 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %30, align 8
   ret void
 
@@ -613,7 +613,7 @@ define zeroext i1 @"_ZN94_$LT$regex_automata..util..determinize..state..StateBui
   call void @llvm.assume(i1 %7)
   store ptr %6, ptr %3, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %5, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %8 = call align 8 ptr @_ZN4core3fmt8builders10DebugTuple5field17h175a19968a28d4dcE(ptr nonnull align 8 %4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.4659deb10840cb258bdda44fe5441814.4)
   %9 = call zeroext i1 @_ZN4core3fmt8builders10DebugTuple6finish17he18e3fd4f6694a75E(ptr align 8 %8)
@@ -676,7 +676,7 @@ define hidden i32 @_ZN14regex_automata4util11determinize5state15StateBuilderNFA9
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17ha36b98be9c40d482E(ptr align 8 %0, i32 %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, [1 x i32] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %1, ptr %3, align 4
   %5 = call i32 @_ZN14regex_automata4util10primitives7StateID6as_i3217h8f70d723c7be4ce4E(ptr nonnull align 4 %3)
@@ -725,7 +725,7 @@ define hidden align 8 ptr @_ZN14regex_automata4util11determinize5state15StateBui
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN14regex_automata4util11determinize5state4Repr8is_match17had313c384b44f7d2E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !6
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %4, !prof !5
@@ -744,7 +744,7 @@ define hidden noundef zeroext i1 @_ZN14regex_automata4util11determinize5state4Re
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17hdb3f1a161c1960b6E(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !6
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %4, !prof !5
@@ -785,7 +785,7 @@ define hidden i64 @_ZN14regex_automata4util11determinize5state4Repr18pattern_off
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc i64 @_ZN14regex_automata4util11determinize5state4Repr19encoded_pattern_len17had24d33463c9b91eE(ptr nocapture readonly align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !6
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %4, label %_ZN14regex_automata4util11determinize5state4Repr15has_pattern_ids17hdb3f1a161c1960b6E.exit, !prof !5
@@ -852,7 +852,7 @@ define zeroext i1 @"_ZN83_$LT$regex_automata..util..determinize..state..Repr$u20
           to label %15 unwind label %12
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !6
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %.invoke, label %18, !prof !5

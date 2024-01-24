@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.s_mmbuffer = type { ptr, i64 }
 %struct.s_mmfile = type { ptr, i64 }
-%struct.object = type { i32, %struct.object_id }
-%struct.object_id = type { [32 x i8], i32 }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -40,7 +38,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %spec.select = select i1 %tobool, ptr %our, ptr %their
   %0 = load ptr, ptr @the_repository, align 8
-  %oid = getelementptr inbounds %struct.object, ptr %spec.select, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %spec.select, i64 4
   %call = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef nonnull %oid, ptr noundef nonnull %type, ptr noundef %size) #4
   br label %return
 
@@ -48,7 +46,7 @@ if.end7:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i)
   %1 = load ptr, ptr @the_repository, align 8
-  %oid.i = getelementptr inbounds %struct.object, ptr %our, i64 0, i32 1
+  %oid.i = getelementptr inbounds i8, ptr %our, i64 4
   %call.i = call ptr @repo_read_object_file(ptr noundef %1, ptr noundef nonnull %oid.i, ptr noundef nonnull %type.i, ptr noundef nonnull %size.i) #4
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %fill_mmfile_blob.exit.thread, label %if.end.i
@@ -70,14 +68,14 @@ fill_mmfile_blob.exit.thread:                     ; preds = %if.then1.i, %if.end
 if.end10:                                         ; preds = %if.end.i
   store ptr %call.i, ptr %f1, align 8
   %3 = load i64, ptr %size.i, align 8
-  %size3.i = getelementptr inbounds %struct.s_mmfile, ptr %f1, i64 0, i32 1
+  %size3.i = getelementptr inbounds i8, ptr %f1, i64 8
   store i64 %3, ptr %size3.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i10)
   %4 = load ptr, ptr @the_repository, align 8
-  %oid.i11 = getelementptr inbounds %struct.object, ptr %their, i64 0, i32 1
+  %oid.i11 = getelementptr inbounds i8, ptr %their, i64 4
   %call.i12 = call ptr @repo_read_object_file(ptr noundef %4, ptr noundef nonnull %oid.i11, ptr noundef nonnull %type.i10, ptr noundef nonnull %size.i9) #4
   %tobool.not.i13 = icmp eq ptr %call.i12, null
   br i1 %tobool.not.i13, label %fill_mmfile_blob.exit20.thread, label %if.end.i14
@@ -99,7 +97,7 @@ fill_mmfile_blob.exit20.thread:                   ; preds = %if.then1.i16, %if.e
 if.end14:                                         ; preds = %if.end.i14
   store ptr %call.i12, ptr %f2, align 8
   %6 = load i64, ptr %size.i9, align 8
-  %size3.i19 = getelementptr inbounds %struct.s_mmfile, ptr %f2, i64 0, i32 1
+  %size3.i19 = getelementptr inbounds i8, ptr %f2, i64 8
   store i64 %6, ptr %size3.i19, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i10)
@@ -110,7 +108,7 @@ if.then16:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i21)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i22)
   %7 = load ptr, ptr @the_repository, align 8
-  %oid.i23 = getelementptr inbounds %struct.object, ptr %base, i64 0, i32 1
+  %oid.i23 = getelementptr inbounds i8, ptr %base, i64 4
   %call.i24 = call ptr @repo_read_object_file(ptr noundef %7, ptr noundef nonnull %oid.i23, ptr noundef nonnull %type.i22, ptr noundef nonnull %size.i21) #4
   %tobool.not.i25 = icmp eq ptr %call.i24, null
   br i1 %tobool.not.i25, label %fill_mmfile_blob.exit32.thread, label %if.end.i26
@@ -132,7 +130,7 @@ fill_mmfile_blob.exit32.thread:                   ; preds = %if.then1.i28, %if.t
 fill_mmfile_blob.exit32:                          ; preds = %if.end.i26
   store ptr %call.i24, ptr %common, align 8
   %9 = load i64, ptr %size.i21, align 8
-  %size3.i31 = getelementptr inbounds %struct.s_mmfile, ptr %common, i64 0, i32 1
+  %size3.i31 = getelementptr inbounds i8, ptr %common, i64 8
   store i64 %9, ptr %size3.i31, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i22)
@@ -141,7 +139,7 @@ fill_mmfile_blob.exit32:                          ; preds = %if.end.i26
 if.else:                                          ; preds = %if.end14
   %call21 = call ptr @xstrdup(ptr noundef nonnull @.str) #4
   store ptr %call21, ptr %common, align 8
-  %size22 = getelementptr inbounds %struct.s_mmfile, ptr %common, i64 0, i32 1
+  %size22 = getelementptr inbounds i8, ptr %common, i64 8
   store i64 0, ptr %size22, align 8
   br label %if.end23
 
@@ -160,7 +158,7 @@ if.then2.i:                                       ; preds = %if.end.i34
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then2.i, %if.end.i34
-  %size4.i = getelementptr inbounds %struct.s_mmbuffer, ptr %res.i, i64 0, i32 1
+  %size4.i = getelementptr inbounds i8, ptr %res.i, i64 8
   %10 = load i64, ptr %size4.i, align 8
   store i64 %10, ptr %size, align 8
   %11 = load ptr, ptr %res.i, align 8

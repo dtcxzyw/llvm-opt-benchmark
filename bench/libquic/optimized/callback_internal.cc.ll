@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/callback_internal.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.base::internal::BindStateBase" = type { ptr, i32, ptr, ptr }
-
 $__clang_call_terminate = comdat any
 
 @_ZN4base8internal13BindStateBaseC1EPFvvEPFvPS1_E = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4base8internal13BindStateBaseC2EPFvvEPFvPS1_E
@@ -20,11 +18,11 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN4base8internal13BindStateBaseC2EPFvvEPFvPS1_E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %polymorphic_invoke, ptr noundef %destructor) unnamed_addr #0 align 2 {
 entry:
   store ptr %polymorphic_invoke, ptr %this, align 8
-  %ref_count_.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 1
+  %ref_count_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %ref_count_.i, align 8
-  %destructor_.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 2
+  %destructor_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %destructor, ptr %destructor_.i, align 8
-  %is_cancelled_.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 3
+  %is_cancelled_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr @_ZN4base8internal12_GLOBAL__N_111ReturnFalseEPKNS0_13BindStateBaseE, ptr %is_cancelled_.i, align 8
   ret void
 }
@@ -39,11 +37,11 @@ entry:
 define dso_local void @_ZN4base8internal13BindStateBaseC2EPFvvEPFvPS1_EPFbPKS1_E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %polymorphic_invoke, ptr noundef %destructor, ptr noundef %is_cancelled) unnamed_addr #0 align 2 {
 entry:
   store ptr %polymorphic_invoke, ptr %this, align 8
-  %ref_count_ = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 1
+  %ref_count_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %ref_count_, align 8
-  %destructor_ = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 2
+  %destructor_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %destructor, ptr %destructor_, align 8
-  %is_cancelled_ = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 3
+  %is_cancelled_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %is_cancelled, ptr %is_cancelled_, align 8
   ret void
 }
@@ -51,7 +49,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_ZN4base8internal13BindStateBase6AddRefEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %ref_count_ = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 1
+  %ref_count_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw volatile add ptr %ref_count_, i32 1 monotonic, align 4
   ret void
 }
@@ -59,13 +57,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base8internal13BindStateBase7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %ref_count_ = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 1
+  %ref_count_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw volatile add ptr %ref_count_, i32 -1 seq_cst, align 4
   %cmp.i.i.not = icmp eq i32 %0, 1
   br i1 %cmp.i.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %destructor_ = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %this, i64 0, i32 2
+  %destructor_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %destructor_, align 8
   tail call void %1(ptr noundef nonnull %this)
   br label %if.end
@@ -94,13 +92,13 @@ entry:
   br i1 %tobool.not.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSEOS3_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %ref_count_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %1, i64 0, i32 1
+  %ref_count_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw volatile add ptr %ref_count_.i.i.i.i, i32 -1 seq_cst, align 4
   %cmp.i.i.not.i.i.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i.not.i.i.i.i, label %if.then.i.i.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSEOS3_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  %destructor_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %1, i64 0, i32 2
+  %destructor_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %destructor_.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull %1)
           to label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSEOS3_.exit unwind label %terminate.lpad.i.i
@@ -125,7 +123,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEC2ERKS3_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ref_count_.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 1
+  %ref_count_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw volatile add ptr %ref_count_.i.i.i, i32 1 monotonic, align 4
   br label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEC2ERKS3_.exit
 
@@ -141,7 +139,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %ref_count_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 1
+  %ref_count_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw volatile add ptr %ref_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %if.end.i.i
 
@@ -152,13 +150,13 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   br i1 %tobool3.not.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSERKS3_.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %ref_count_.i.i4.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %2, i64 0, i32 1
+  %ref_count_.i.i4.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw volatile add ptr %ref_count_.i.i4.i.i, i32 -1 seq_cst, align 4
   %cmp.i.i.not.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.not.i.i.i.i, label %if.then.i.i.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSERKS3_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  %destructor_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %2, i64 0, i32 2
+  %destructor_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %destructor_.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull %2)
   br label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSERKS3_.exit
@@ -176,13 +174,13 @@ entry:
   br i1 %tobool3.not.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSEPS2_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
-  %ref_count_.i.i4.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 1
+  %ref_count_.i.i4.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw volatile add ptr %ref_count_.i.i4.i, i32 -1 seq_cst, align 4
   %cmp.i.i.not.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.not.i.i.i, label %if.then.i.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSEPS2_.exit
 
 if.then.i.i.i:                                    ; preds = %if.then4.i
-  %destructor_.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 2
+  %destructor_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %destructor_.i.i.i, align 8
   tail call void %2(ptr noundef nonnull %0)
   br label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSEPS2_.exit
@@ -195,7 +193,7 @@ _ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSEPS2_.exit: ; preds = %entr
 define dso_local noundef zeroext i1 @_ZNK4base8internal12CallbackBaseILNS0_8CopyModeE0EE11IsCancelledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %is_cancelled_.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 3
+  %is_cancelled_.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %is_cancelled_.i, align 8
   %call.i = tail call noundef zeroext i1 %1(ptr noundef nonnull %0)
   ret i1 %call.i
@@ -218,7 +216,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEC2EPS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ref_count_.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %bind_state, i64 0, i32 1
+  %ref_count_.i.i.i = getelementptr inbounds i8, ptr %bind_state, i64 8
   %0 = atomicrmw volatile add ptr %ref_count_.i.i.i, i32 1 monotonic, align 4
   br label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEC2EPS2_.exit
 
@@ -234,13 +232,13 @@ entry:
   br i1 %tobool.not.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ref_count_.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 1
+  %ref_count_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw volatile add ptr %ref_count_.i.i.i, i32 -1 seq_cst, align 4
   %cmp.i.i.not.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.not.i.i.i, label %if.then.i.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %destructor_.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 2
+  %destructor_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %destructor_.i.i.i, align 8
   invoke void %2(ptr noundef nonnull %0)
           to label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEED2Ev.exit unwind label %terminate.lpad.i
@@ -265,7 +263,7 @@ entry:
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %ref_count_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 1
+  %ref_count_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw volatile add ptr %ref_count_.i.i.i.i, i32 1 monotonic, align 4
   %.pr = load ptr, ptr %this, align 8
   store ptr %0, ptr %this, align 8
@@ -273,13 +271,13 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool3.not.i.i, label %invoke.cont, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %ref_count_.i.i4.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %.pr, i64 0, i32 1
+  %ref_count_.i.i4.i.i = getelementptr inbounds i8, ptr %.pr, i64 8
   %2 = atomicrmw volatile add ptr %ref_count_.i.i4.i.i, i32 -1 seq_cst, align 4
   %cmp.i.i.not.i.i.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i.not.i.i.i.i, label %if.then.i.i.i.i, label %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  %destructor_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %.pr, i64 0, i32 2
+  %destructor_.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 16
   %3 = load ptr, ptr %destructor_.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull %.pr)
           to label %invoke.cont unwind label %lpad
@@ -313,7 +311,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %ref_count_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %0, i64 0, i32 1
+  %ref_count_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw volatile add ptr %ref_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %if.end.i.i
 
@@ -324,13 +322,13 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   br i1 %tobool3.not.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSERKS3_.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  %ref_count_.i.i4.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %2, i64 0, i32 1
+  %ref_count_.i.i4.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw volatile add ptr %ref_count_.i.i4.i.i, i32 -1 seq_cst, align 4
   %cmp.i.i.not.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.not.i.i.i.i, label %if.then.i.i.i.i, label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSERKS3_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
-  %destructor_.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %2, i64 0, i32 2
+  %destructor_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %destructor_.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull %2)
   br label %_ZN13scoped_refptrIN4base8internal13BindStateBaseEEaSERKS3_.exit
@@ -350,13 +348,13 @@ entry:
   br i1 %tobool.not.i.i.i, label %_ZN4base8internal12CallbackBaseILNS0_8CopyModeE0EEaSEOS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %ref_count_.i.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %1, i64 0, i32 1
+  %ref_count_.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw volatile add ptr %ref_count_.i.i.i.i.i, i32 -1 seq_cst, align 4
   %cmp.i.i.not.i.i.i.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN4base8internal12CallbackBaseILNS0_8CopyModeE0EEaSEOS3_.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %destructor_.i.i.i.i.i = getelementptr inbounds %"class.base::internal::BindStateBase", ptr %1, i64 0, i32 2
+  %destructor_.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %destructor_.i.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull %1)
           to label %_ZN4base8internal12CallbackBaseILNS0_8CopyModeE0EEaSEOS3_.exit unwind label %terminate.lpad.i.i.i

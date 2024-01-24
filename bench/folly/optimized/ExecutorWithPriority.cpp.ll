@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.folly::Executor::KeepAlive" = type { i64 }
-%"class.folly::detail::ExecutorWithPriorityImpl" = type <{ %"class.folly::Executor", %"struct.std::atomic", %"class.folly::Executor::KeepAlive", %class.anon, [7 x i8] }>
-%"class.folly::Executor" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%class.anon = type { i8 }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
@@ -41,12 +36,12 @@ entry:
 _ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit:   ; preds = %entry
   %1 = inttoptr i64 %and.i.i to ptr
   %vtable.i.i = load ptr, ptr %1, align 8, !tbaa !12, !noalias !14
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %2 = load ptr, ptr %vfn.i.i, align 8, !noalias !14
   %call.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #11, !noalias !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !12, !noalias !20
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 5
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 40
   %3 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !20
   %call.i.i.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %1) #11, !noalias !20
   %not.call.i.i.i = xor i1 %call.i.i.i, true
@@ -69,7 +64,7 @@ call.i.noexc.i:                                   ; preds = %_ZN5folly8Executor9
 if.end.i.i.i.i:                                   ; preds = %call.i.noexc.i
   %4 = inttoptr i64 %and.i.i.i.i to ptr
   %vtable.i.i.i.i = load ptr, ptr %4, align 8, !tbaa !12, !noalias !23
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 5
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 40
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !23
   %call.i.i.i.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #11, !noalias !23
   %not.call.i.i.i.i = xor i1 %call.i.i.i.i, true
@@ -80,11 +75,11 @@ if.end.i.i.i.i:                                   ; preds = %call.i.noexc.i
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i, %call.i.noexc.i
   %.sink.i.i.i.i = phi i64 [ 0, %call.i.noexc.i ], [ %spec.select.i.i.i.i, %if.end.i.i.i.i ]
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 0, inrange i32 0, i64 9), ptr %call.i2.i, align 8, !tbaa !12, !noalias !28
-  %keepAliveCounter_.i.i.i = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %call.i2.i, i64 0, i32 1
+  %keepAliveCounter_.i.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 8
   store i64 1, ptr %keepAliveCounter_.i.i.i, align 8, !tbaa !29, !noalias !28
-  %executor_.i.i.i = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %call.i2.i, i64 0, i32 2
+  %executor_.i.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 16
   store i64 %.sink.i.i.i.i, ptr %executor_.i.i.i, align 8, !tbaa !7, !noalias !28
-  %callback_.i.i.i = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %call.i2.i, i64 0, i32 3
+  %callback_.i.i.i = getelementptr inbounds i8, ptr %call.i2.i, i64 24
   store i8 %priority, ptr %callback_.i.i.i, align 8, !tbaa !31, !noalias !28
   %6 = ptrtoint ptr %call.i2.i to i64
   %and.i.i3.i = and i64 %6, -4
@@ -113,7 +108,7 @@ cast.notnull.i.i:                                 ; preds = %invoke.cont.i
 if.then5.i.i12.i:                                 ; preds = %"_ZN5folly8Executor9KeepAliveINS_6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS1_IS0_EEaE3$_0EEED2Ev.exit.i"
   %10 = inttoptr i64 %and.i.i.i.i to ptr
   %vtable.i.i13.i = load ptr, ptr %10, align 8, !tbaa !12, !noalias !17
-  %vfn.i.i14.i = getelementptr inbounds ptr, ptr %vtable.i.i13.i, i64 6
+  %vfn.i.i14.i = getelementptr inbounds i8, ptr %vtable.i.i13.i, i64 48
   %11 = load ptr, ptr %vfn.i.i14.i, align 8, !noalias !17
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #11, !noalias !17
   br label %invoke.cont
@@ -131,7 +126,7 @@ lpad.i:                                           ; preds = %_ZN5folly8Executor9
 if.then5.i.i20.i:                                 ; preds = %lpad.i
   %13 = inttoptr i64 %and.i.i.i15.i to ptr
   %vtable.i.i21.i = load ptr, ptr %13, align 8, !tbaa !12, !noalias !17
-  %vfn.i.i22.i = getelementptr inbounds ptr, ptr %vtable.i.i21.i, i64 6
+  %vfn.i.i22.i = getelementptr inbounds i8, ptr %vtable.i.i21.i, i64 48
   %14 = load ptr, ptr %vfn.i.i22.i, align 8, !noalias !17
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #11, !noalias !17
   %.sink.i.i23.not = xor i1 %.sink.i.i23, true
@@ -145,7 +140,7 @@ invoke.cont:                                      ; preds = %if.then5.i.i12.i, %
 
 if.then5.i.i:                                     ; preds = %invoke.cont
   %vtable.i.i7 = load ptr, ptr %and.i.i.i25, align 8, !tbaa !12
-  %vfn.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i7, i64 6
+  %vfn.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i7, i64 48
   %15 = load ptr, ptr %vfn.i.i8, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i25) #11
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
@@ -160,7 +155,7 @@ lpad.body:                                        ; preds = %lpad.i
 
 if.then5.i.i14:                                   ; preds = %lpad.body, %if.then5.i.i20.i
   %vtable.i.i15 = load ptr, ptr %and.i.i.i25, align 8, !tbaa !12
-  %vfn.i.i16 = getelementptr inbounds ptr, ptr %vtable.i.i15, i64 6
+  %vfn.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i15, i64 48
   %16 = load ptr, ptr %vfn.i.i16, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i25) #11
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit17
@@ -187,7 +182,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED1Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 0, inrange i32 0, i64 9), ptr %this, align 8, !tbaa !12
-  %executor_.i = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %this, i64 0, i32 2
+  %executor_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %executor_.i, align 8, !tbaa !32
   %and.i.i.i.i = and i64 %0, -4
   %1 = inttoptr i64 %and.i.i.i.i to ptr
@@ -202,7 +197,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !12
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   br label %"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED2Ev.exit"
@@ -215,7 +210,7 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 0, inrange i32 0, i64 9), ptr %this, align 8, !tbaa !12
-  %executor_.i.i = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %this, i64 0, i32 2
+  %executor_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %executor_.i.i, align 8, !tbaa !32
   %and.i.i.i.i.i = and i64 %0, -4
   %1 = inttoptr i64 %and.i.i.i.i.i to ptr
@@ -230,7 +225,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then5.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !12
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 6
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 48
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #11
   br label %"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED1Ev.exit"
@@ -244,19 +239,19 @@ if.then5.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0E3addENS_8FunctionIFvvEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef %func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
-  %callback_ = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %this, i64 0, i32 3
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load i8, ptr %callback_, align 8, !tbaa !33
-  %executor_ = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %this, i64 0, i32 2
+  %executor_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %executor_, align 8, !tbaa !7
   %and.i.i = and i64 %0, -4
   %1 = inttoptr i64 %and.i.i to ptr
   store ptr null, ptr %agg.tmp, align 16, !tbaa !31
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %call_2.i = getelementptr inbounds %"class.folly::Function", ptr %func, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %call_2.i = getelementptr inbounds i8, ptr %func, i64 48
   %2 = load ptr, ptr %call_2.i, align 16, !tbaa !35
   store ptr %2, ptr %call_.i, align 16, !tbaa !35
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
-  %exec_3.i = getelementptr inbounds %"class.folly::Function", ptr %func, i64 0, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
+  %exec_3.i = getelementptr inbounds i8, ptr %func, i64 56
   %3 = load ptr, ptr %exec_3.i, align 8, !tbaa !38
   store ptr %3, ptr %exec_.i, align 8, !tbaa !38
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !35
@@ -270,7 +265,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
   %vtable = load ptr, ptr %1, align 8, !tbaa !12
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %agg.tmp, i8 noundef signext %callback_.val)
           to label %invoke.cont unwind label %lpad
@@ -313,7 +308,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0E16keepAliveAcquireEv"(ptr nocapture noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %keepAliveCounter_ = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %this, i64 0, i32 1
+  %keepAliveCounter_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %keepAliveCounter_, i64 1 monotonic, align 8
   ret i1 true
 }
@@ -321,14 +316,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0E16keepAliveReleaseEv"(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %keepAliveCounter_ = getelementptr inbounds %"class.folly::detail::ExecutorWithPriorityImpl", ptr %this, i64 0, i32 1
+  %keepAliveCounter_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %keepAliveCounter_, i64 1 acq_rel, align 8
   %cmp12.not = icmp eq i64 %0, 1
   br i1 %cmp12.not, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !12
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(25) %this) #11
   br label %if.end

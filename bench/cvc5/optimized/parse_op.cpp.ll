@@ -16,15 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.cvc5::ParseOp" = type { i32, %"class.std::__cxx11::basic_string", %"class.cvc5::Term", %"class.std::vector" }
-%"class.cvc5::Term" = type { ptr, %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"(ParseOp\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c" :expr \00", align 1
@@ -46,7 +37,7 @@ entry:
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %d_expr = getelementptr inbounds %"struct.cvc5::ParseOp", ptr %p, i64 0, i32 2
+  %d_expr = getelementptr inbounds i8, ptr %p, i64 40
   %call2 = invoke noundef zeroext i1 @_ZNK4cvc54Term6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %d_expr)
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp
 
@@ -86,7 +77,7 @@ invoke.cont11:                                    ; preds = %if.then9
           to label %if.end16 unwind label %lpad.loopexit.split-lp
 
 if.end16:                                         ; preds = %invoke.cont11, %if.end
-  %d_name = getelementptr inbounds %"struct.cvc5::ParseOp", ptr %p, i64 0, i32 1
+  %d_name = getelementptr inbounds i8, ptr %p, i64 8
   %call17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #3
   br i1 %call17, label %if.end25, label %if.then18
 
@@ -99,9 +90,9 @@ invoke.cont20:                                    ; preds = %if.then18
           to label %if.end25 unwind label %lpad.loopexit.split-lp
 
 if.end25:                                         ; preds = %invoke.cont20, %if.end16
-  %d_indices = getelementptr inbounds %"struct.cvc5::ParseOp", ptr %p, i64 0, i32 3
+  %d_indices = getelementptr inbounds i8, ptr %p, i64 64
   %2 = load ptr, ptr %d_indices, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.cvc5::ParseOp", ptr %p, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %p, i64 72
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.end49, label %if.then27
@@ -131,7 +122,7 @@ if.end41:                                         ; preds = %if.then37, %for.bod
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %if.end41
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %__begin2.sroa.0.015, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i.not, label %for.end, label %for.body
 

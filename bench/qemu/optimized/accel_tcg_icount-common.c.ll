@@ -6,38 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.TimersState = type { i64, i64, %struct.QemuSeqLock, %struct.QemuSpin, i16, i16, i64, i64, i64, i64, i64, ptr, ptr, ptr }
 %struct.QemuSeqLock = type { i32 }
 %struct.QemuSpin = type { i32 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 
 @timers_state = external global %struct.TimersState, align 8
 @.str = private unnamed_addr constant [34 x i8] c"../qemu/accel/tcg/icount-common.c\00", align 1
@@ -92,12 +60,12 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
   store atomic i32 %add.i.i, ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   fence release
-  %icount_budget.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 21
+  %icount_budget.i.i = getelementptr inbounds i8, ptr %cpu, i64 224
   %5 = load i64, ptr %icount_budget.i.i, align 16
-  %icount_decr.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 1
+  %icount_decr.i.i = getelementptr inbounds i8, ptr %cpu, i64 10160
   %6 = load i16, ptr %icount_decr.i.i, align 16
   %conv.i.i = zext i16 %6 to i64
-  %icount_extra.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 22
+  %icount_extra.i.i = getelementptr inbounds i8, ptr %cpu, i64 232
   %7 = load i64, ptr %icount_extra.i.i, align 8
   %8 = add i64 %7, %conv.i.i
   %sub.i.i = sub i64 %5, %8
@@ -130,14 +98,14 @@ do.body:                                          ; preds = %icount_get_raw_lock
   br i1 %tobool.not.i, label %icount_get_raw_locked.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body
-  %running.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 6
+  %running.i = getelementptr inbounds i8, ptr %2, i64 188
   %3 = load i8, ptr %running.i, align 4
   %4 = and i8 %3, 1
   %tobool1.not.i = icmp eq i8 %4, 0
   br i1 %tobool1.not.i, label %icount_get_raw_locked.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %can_do_io.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 65, i32 2
+  %can_do_io.i = getelementptr inbounds i8, ptr %2, i64 10164
   %5 = load i8, ptr %can_do_io.i, align 4
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -149,12 +117,12 @@ if.then3.i:                                       ; preds = %if.then.i
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
-  %icount_budget.i.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 21
+  %icount_budget.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   %7 = load i64, ptr %icount_budget.i.i.i, align 16
-  %icount_decr.i.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i = getelementptr inbounds i8, ptr %2, i64 10160
   %8 = load i16, ptr %icount_decr.i.i.i, align 16
   %conv.i.i.i = zext i16 %8 to i64
-  %icount_extra.i.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 22
+  %icount_extra.i.i.i = getelementptr inbounds i8, ptr %2, i64 232
   %9 = load i64, ptr %icount_extra.i.i.i, align 8
   %10 = add i64 %9, %conv.i.i.i
   %sub.i.i.i = sub i64 %7, %10
@@ -192,14 +160,14 @@ do.body:                                          ; preds = %icount_get_locked.e
   br i1 %tobool.not.i.i, label %icount_get_locked.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %do.body
-  %running.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 6
+  %running.i.i = getelementptr inbounds i8, ptr %2, i64 188
   %3 = load i8, ptr %running.i.i, align 4
   %4 = and i8 %3, 1
   %tobool1.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool1.not.i.i, label %icount_get_locked.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %can_do_io.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 65, i32 2
+  %can_do_io.i.i = getelementptr inbounds i8, ptr %2, i64 10164
   %5 = load i8, ptr %can_do_io.i.i, align 4
   %6 = and i8 %5, 1
   %tobool2.not.i.i = icmp eq i8 %6, 0
@@ -211,12 +179,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %icount_budget.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 21
+  %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   %7 = load i64, ptr %icount_budget.i.i.i.i, align 16
-  %icount_decr.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 10160
   %8 = load i16, ptr %icount_decr.i.i.i.i, align 16
   %conv.i.i.i.i = zext i16 %8 to i64
-  %icount_extra.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %2, i64 0, i32 22
+  %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 232
   %9 = load i64, ptr %icount_extra.i.i.i.i, align 8
   %10 = add i64 %9, %conv.i.i.i.i
   %sub.i.i.i.i = sub i64 %7, %10
@@ -532,14 +500,14 @@ cond.true:                                        ; preds = %if.then4
   br i1 %tobool.not.i, label %icount_get_raw_locked.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %cond.true
-  %running.i = getelementptr inbounds %struct.CPUState, ptr %10, i64 0, i32 6
+  %running.i = getelementptr inbounds i8, ptr %10, i64 188
   %11 = load i8, ptr %running.i, align 4
   %12 = and i8 %11, 1
   %tobool1.not.i = icmp eq i8 %12, 0
   br i1 %tobool1.not.i, label %icount_get_raw_locked.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %can_do_io.i = getelementptr inbounds %struct.CPUState, ptr %10, i64 0, i32 65, i32 2
+  %can_do_io.i = getelementptr inbounds i8, ptr %10, i64 10164
   %13 = load i8, ptr %can_do_io.i, align 4
   %14 = and i8 %13, 1
   %tobool2.not.i = icmp eq i8 %14, 0
@@ -551,12 +519,12 @@ if.then3.i:                                       ; preds = %if.then.i
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
-  %icount_budget.i.i.i = getelementptr inbounds %struct.CPUState, ptr %10, i64 0, i32 21
+  %icount_budget.i.i.i = getelementptr inbounds i8, ptr %10, i64 224
   %15 = load i64, ptr %icount_budget.i.i.i, align 16
-  %icount_decr.i.i.i = getelementptr inbounds %struct.CPUState, ptr %10, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i = getelementptr inbounds i8, ptr %10, i64 10160
   %16 = load i16, ptr %icount_decr.i.i.i, align 16
   %conv.i.i.i = zext i16 %16 to i64
-  %icount_extra.i.i.i = getelementptr inbounds %struct.CPUState, ptr %10, i64 0, i32 22
+  %icount_extra.i.i.i = getelementptr inbounds i8, ptr %10, i64 232
   %17 = load i64, ptr %icount_extra.i.i.i, align 8
   %18 = add i64 %17, %conv.i.i.i
   %sub.i.i.i = sub i64 %15, %18
@@ -579,14 +547,14 @@ cond.true9:                                       ; preds = %if.then4
   br i1 %tobool.not.i8, label %icount_get_raw_locked.exit23, label %land.lhs.true.i9
 
 land.lhs.true.i9:                                 ; preds = %cond.true9
-  %running.i10 = getelementptr inbounds %struct.CPUState, ptr %22, i64 0, i32 6
+  %running.i10 = getelementptr inbounds i8, ptr %22, i64 188
   %23 = load i8, ptr %running.i10, align 4
   %24 = and i8 %23, 1
   %tobool1.not.i11 = icmp eq i8 %24, 0
   br i1 %tobool1.not.i11, label %icount_get_raw_locked.exit23, label %if.then.i12
 
 if.then.i12:                                      ; preds = %land.lhs.true.i9
-  %can_do_io.i13 = getelementptr inbounds %struct.CPUState, ptr %22, i64 0, i32 65, i32 2
+  %can_do_io.i13 = getelementptr inbounds i8, ptr %22, i64 10164
   %25 = load i8, ptr %can_do_io.i13, align 4
   %26 = and i8 %25, 1
   %tobool2.not.i14 = icmp eq i8 %26, 0
@@ -598,12 +566,12 @@ if.then3.i22:                                     ; preds = %if.then.i12
   unreachable
 
 if.end.i15:                                       ; preds = %if.then.i12
-  %icount_budget.i.i.i16 = getelementptr inbounds %struct.CPUState, ptr %22, i64 0, i32 21
+  %icount_budget.i.i.i16 = getelementptr inbounds i8, ptr %22, i64 224
   %27 = load i64, ptr %icount_budget.i.i.i16, align 16
-  %icount_decr.i.i.i17 = getelementptr inbounds %struct.CPUState, ptr %22, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i17 = getelementptr inbounds i8, ptr %22, i64 10160
   %28 = load i16, ptr %icount_decr.i.i.i17, align 16
   %conv.i.i.i18 = zext i16 %28 to i64
-  %icount_extra.i.i.i19 = getelementptr inbounds %struct.CPUState, ptr %22, i64 0, i32 22
+  %icount_extra.i.i.i19 = getelementptr inbounds i8, ptr %22, i64 232
   %29 = load i64, ptr %icount_extra.i.i.i19, align 8
   %30 = add i64 %29, %conv.i.i.i18
   %sub.i.i.i20 = sub i64 %27, %30
@@ -641,14 +609,14 @@ if.then18:                                        ; preds = %cond.end15
   br i1 %tobool.not.i.i, label %icount_get_locked.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then18
-  %running.i.i = getelementptr inbounds %struct.CPUState, ptr %36, i64 0, i32 6
+  %running.i.i = getelementptr inbounds i8, ptr %36, i64 188
   %37 = load i8, ptr %running.i.i, align 4
   %38 = and i8 %37, 1
   %tobool1.not.i.i = icmp eq i8 %38, 0
   br i1 %tobool1.not.i.i, label %icount_get_locked.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %can_do_io.i.i = getelementptr inbounds %struct.CPUState, ptr %36, i64 0, i32 65, i32 2
+  %can_do_io.i.i = getelementptr inbounds i8, ptr %36, i64 10164
   %39 = load i8, ptr %can_do_io.i.i, align 4
   %40 = and i8 %39, 1
   %tobool2.not.i.i = icmp eq i8 %40, 0
@@ -660,12 +628,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %icount_budget.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %36, i64 0, i32 21
+  %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 224
   %41 = load i64, ptr %icount_budget.i.i.i.i, align 16
-  %icount_decr.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %36, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 10160
   %42 = load i16, ptr %icount_decr.i.i.i.i, align 16
   %conv.i.i.i.i = zext i16 %42 to i64
-  %icount_extra.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %36, i64 0, i32 22
+  %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 232
   %43 = load i64, ptr %icount_extra.i.i.i.i, align 8
   %44 = add i64 %43, %conv.i.i.i.i
   %sub.i.i.i.i = sub i64 %41, %44
@@ -964,14 +932,14 @@ cond.true:                                        ; preds = %qemu_spin_lock.exit
   br i1 %tobool.not.i, label %icount_get_raw_locked.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %cond.true
-  %running.i = getelementptr inbounds %struct.CPUState, ptr %7, i64 0, i32 6
+  %running.i = getelementptr inbounds i8, ptr %7, i64 188
   %8 = load i8, ptr %running.i, align 4
   %9 = and i8 %8, 1
   %tobool1.not.i = icmp eq i8 %9, 0
   br i1 %tobool1.not.i, label %icount_get_raw_locked.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %can_do_io.i = getelementptr inbounds %struct.CPUState, ptr %7, i64 0, i32 65, i32 2
+  %can_do_io.i = getelementptr inbounds i8, ptr %7, i64 10164
   %10 = load i8, ptr %can_do_io.i, align 4
   %11 = and i8 %10, 1
   %tobool2.not.i = icmp eq i8 %11, 0
@@ -983,12 +951,12 @@ if.then3.i:                                       ; preds = %if.then.i
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
-  %icount_budget.i.i.i = getelementptr inbounds %struct.CPUState, ptr %7, i64 0, i32 21
+  %icount_budget.i.i.i = getelementptr inbounds i8, ptr %7, i64 224
   %12 = load i64, ptr %icount_budget.i.i.i, align 16
-  %icount_decr.i.i.i = getelementptr inbounds %struct.CPUState, ptr %7, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i = getelementptr inbounds i8, ptr %7, i64 10160
   %13 = load i16, ptr %icount_decr.i.i.i, align 16
   %conv.i.i.i = zext i16 %13 to i64
-  %icount_extra.i.i.i = getelementptr inbounds %struct.CPUState, ptr %7, i64 0, i32 22
+  %icount_extra.i.i.i = getelementptr inbounds i8, ptr %7, i64 232
   %14 = load i64, ptr %icount_extra.i.i.i, align 8
   %15 = add i64 %14, %conv.i.i.i
   %sub.i.i.i = sub i64 %12, %15
@@ -1011,14 +979,14 @@ cond.true5:                                       ; preds = %qemu_spin_lock.exit
   br i1 %tobool.not.i9, label %icount_get_raw_locked.exit24, label %land.lhs.true.i10
 
 land.lhs.true.i10:                                ; preds = %cond.true5
-  %running.i11 = getelementptr inbounds %struct.CPUState, ptr %19, i64 0, i32 6
+  %running.i11 = getelementptr inbounds i8, ptr %19, i64 188
   %20 = load i8, ptr %running.i11, align 4
   %21 = and i8 %20, 1
   %tobool1.not.i12 = icmp eq i8 %21, 0
   br i1 %tobool1.not.i12, label %icount_get_raw_locked.exit24, label %if.then.i13
 
 if.then.i13:                                      ; preds = %land.lhs.true.i10
-  %can_do_io.i14 = getelementptr inbounds %struct.CPUState, ptr %19, i64 0, i32 65, i32 2
+  %can_do_io.i14 = getelementptr inbounds i8, ptr %19, i64 10164
   %22 = load i8, ptr %can_do_io.i14, align 4
   %23 = and i8 %22, 1
   %tobool2.not.i15 = icmp eq i8 %23, 0
@@ -1030,12 +998,12 @@ if.then3.i23:                                     ; preds = %if.then.i13
   unreachable
 
 if.end.i16:                                       ; preds = %if.then.i13
-  %icount_budget.i.i.i17 = getelementptr inbounds %struct.CPUState, ptr %19, i64 0, i32 21
+  %icount_budget.i.i.i17 = getelementptr inbounds i8, ptr %19, i64 224
   %24 = load i64, ptr %icount_budget.i.i.i17, align 16
-  %icount_decr.i.i.i18 = getelementptr inbounds %struct.CPUState, ptr %19, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i18 = getelementptr inbounds i8, ptr %19, i64 10160
   %25 = load i16, ptr %icount_decr.i.i.i18, align 16
   %conv.i.i.i19 = zext i16 %25 to i64
-  %icount_extra.i.i.i20 = getelementptr inbounds %struct.CPUState, ptr %19, i64 0, i32 22
+  %icount_extra.i.i.i20 = getelementptr inbounds i8, ptr %19, i64 232
   %26 = load i64, ptr %icount_extra.i.i.i20, align 8
   %27 = add i64 %26, %conv.i.i.i19
   %sub.i.i.i21 = sub i64 %24, %27
@@ -1063,14 +1031,14 @@ cond.end11:                                       ; preds = %icount_get_raw_lock
   br i1 %tobool.not.i.i, label %icount_get_locked.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %cond.end11
-  %running.i.i = getelementptr inbounds %struct.CPUState, ptr %30, i64 0, i32 6
+  %running.i.i = getelementptr inbounds i8, ptr %30, i64 188
   %31 = load i8, ptr %running.i.i, align 4
   %32 = and i8 %31, 1
   %tobool1.not.i.i = icmp eq i8 %32, 0
   br i1 %tobool1.not.i.i, label %icount_get_locked.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %can_do_io.i.i = getelementptr inbounds %struct.CPUState, ptr %30, i64 0, i32 65, i32 2
+  %can_do_io.i.i = getelementptr inbounds i8, ptr %30, i64 10164
   %33 = load i8, ptr %can_do_io.i.i, align 4
   %34 = and i8 %33, 1
   %tobool2.not.i.i = icmp eq i8 %34, 0
@@ -1082,12 +1050,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %icount_budget.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %30, i64 0, i32 21
+  %icount_budget.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 224
   %35 = load i64, ptr %icount_budget.i.i.i.i, align 16
-  %icount_decr.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %30, i64 0, i32 65, i32 1
+  %icount_decr.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 10160
   %36 = load i16, ptr %icount_decr.i.i.i.i, align 16
   %conv.i.i.i.i = zext i16 %36 to i64
-  %icount_extra.i.i.i.i = getelementptr inbounds %struct.CPUState, ptr %30, i64 0, i32 22
+  %icount_extra.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 232
   %37 = load i64, ptr %icount_extra.i.i.i.i, align 8
   %38 = add i64 %37, %conv.i.i.i.i
   %sub.i.i.i.i = sub i64 %35, %38

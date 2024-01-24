@@ -5,18 +5,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.s_mmfile = type { ptr, i64 }
-%struct.s_xdemitconf = type { i64, i64, i64, ptr, ptr, ptr }
 %struct.xdiff_emit_state = type { ptr, ptr, ptr, %struct.strbuf }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.s_xdemitcb = type { ptr, ptr, ptr }
 %struct.s_mmbuffer = type { ptr, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.ff_regs = type { i32, ptr }
 %struct.ff_reg = type { %struct.re_pattern_buffer, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
 %struct.regmatch_t = type { i32, i32 }
@@ -53,13 +47,13 @@ entry:
   %b = alloca %struct.s_mmfile, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %mf1, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %mf2, i64 16, i1 false)
-  %size = getelementptr inbounds %struct.s_mmfile, ptr %mf1, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %mf1, i64 8
   %0 = load i64, ptr %size, align 8
   %cmp = icmp ugt i64 %0, 1072693248
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %size1 = getelementptr inbounds %struct.s_mmfile, ptr %mf2, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %mf2, i64 8
   %1 = load i64, ptr %size1, align 8
   %cmp2 = icmp ugt i64 %1, 1072693248
   br i1 %cmp2, label %return, label %if.end
@@ -70,18 +64,18 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool.not, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %if.end
-  %flags = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %xecfg, i64 16
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, 4
   %tobool3.not = icmp eq i64 %and, 0
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %land.lhs.true
-  %size.i = getelementptr inbounds %struct.s_mmfile, ptr %a, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %a, i64 8
   %4 = load i64, ptr %size.i, align 8
   %5 = load ptr, ptr %a, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %4
-  %size3.i = getelementptr inbounds %struct.s_mmfile, ptr %b, i64 0, i32 1
+  %size3.i = getelementptr inbounds i8, ptr %b, i64 8
   %6 = load i64, ptr %size3.i, align 8
   %7 = load ptr, ptr %b, align 8
   %add.ptr8.i = getelementptr inbounds i8, ptr %7, i64 %6
@@ -151,9 +145,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %state, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false)
   store ptr %hunk_fn, ptr %state, align 8
-  %line_fn2 = getelementptr inbounds %struct.xdiff_emit_state, ptr %state, i64 0, i32 1
+  %line_fn2 = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %line_fn, ptr %line_fn2, align 8
-  %consume_callback_data3 = getelementptr inbounds %struct.xdiff_emit_state, ptr %state, i64 0, i32 2
+  %consume_callback_data3 = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %consume_callback_data, ptr %consume_callback_data3, align 8
   %1 = getelementptr inbounds i8, ptr %ecb, i64 8
   store i64 0, ptr %1, align 8
@@ -161,27 +155,27 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %out_hunk = getelementptr inbounds %struct.s_xdemitcb, ptr %ecb, i64 0, i32 1
+  %out_hunk = getelementptr inbounds i8, ptr %ecb, i64 8
   store ptr @xdiff_out_hunk, ptr %out_hunk, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %out_line = getelementptr inbounds %struct.s_xdemitcb, ptr %ecb, i64 0, i32 2
+  %out_line = getelementptr inbounds i8, ptr %ecb, i64 16
   store ptr @xdiff_outf, ptr %out_line, align 8
   store ptr %state, ptr %ecb, align 8
-  %remainder = getelementptr inbounds %struct.xdiff_emit_state, ptr %state, i64 0, i32 3
+  %remainder = getelementptr inbounds i8, ptr %state, i64 24
   call void @strbuf_init(ptr noundef nonnull %remainder, i64 noundef 0) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %b.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a.i, ptr noundef nonnull align 8 dereferenceable(16) %mf1, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %b.i, ptr noundef nonnull align 8 dereferenceable(16) %mf2, i64 16, i1 false)
-  %size.i = getelementptr inbounds %struct.s_mmfile, ptr %mf1, i64 0, i32 1
+  %size.i = getelementptr inbounds i8, ptr %mf1, i64 8
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp ugt i64 %2, 1072693248
   br i1 %cmp.i, label %xdi_diff.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %size1.i = getelementptr inbounds %struct.s_mmfile, ptr %mf2, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %mf2, i64 8
   %3 = load i64, ptr %size1.i, align 8
   %cmp2.i = icmp ugt i64 %3, 1072693248
   br i1 %cmp2.i, label %xdi_diff.exit, label %if.end.i
@@ -192,18 +186,18 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end5.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %flags.i = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 2
+  %flags.i = getelementptr inbounds i8, ptr %xecfg, i64 16
   %5 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %5, 4
   %tobool3.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool3.not.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %size.i.i = getelementptr inbounds %struct.s_mmfile, ptr %a.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %a.i, i64 8
   %6 = load i64, ptr %size.i.i, align 8
   %7 = load ptr, ptr %a.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 %6
-  %size3.i.i = getelementptr inbounds %struct.s_mmfile, ptr %b.i, i64 0, i32 1
+  %size3.i.i = getelementptr inbounds i8, ptr %b.i, i64 8
   %8 = load i64, ptr %size3.i.i, align 8
   %9 = load ptr, ptr %b.i, align 8
   %add.ptr8.i.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -267,7 +261,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @xdiff_out_hunk(ptr nocapture noundef readonly %priv_, i64 noundef %old_begin, i64 noundef %old_nr, i64 noundef %new_begin, i64 noundef %new_nr, ptr noundef %func, i64 noundef %funclen) #0 {
 entry:
-  %len = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 3, i32 1
+  %len = getelementptr inbounds i8, ptr %priv_, i64 32
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -278,7 +272,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %priv_, align 8
-  %consume_callback_data = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 2
+  %consume_callback_data = getelementptr inbounds i8, ptr %priv_, i64 16
   %2 = load ptr, ptr %consume_callback_data, align 8
   tail call void %1(ptr noundef %2, i64 noundef %old_begin, i64 noundef %old_nr, i64 noundef %new_begin, i64 noundef %new_nr, ptr noundef %func, i64 noundef %funclen) #13
   ret i32 0
@@ -287,7 +281,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @xdiff_outf(ptr noundef %priv_, ptr nocapture noundef readonly %mb, i32 noundef %nbuf) #0 {
 entry:
-  %line_fn = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 1
+  %line_fn = getelementptr inbounds i8, ptr %priv_, i64 8
   %0 = load ptr, ptr %line_fn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -297,10 +291,10 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp84, label %for.body.lr.ph, label %if.end41
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %remainder = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 3
-  %len = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 3, i32 1
-  %buf = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 3, i32 2
-  %consume_callback_data.i35 = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 2
+  %remainder = getelementptr inbounds i8, ptr %priv_, i64 24
+  %len = getelementptr inbounds i8, ptr %priv_, i64 32
+  %buf = getelementptr inbounds i8, ptr %priv_, i64 40
+  %consume_callback_data.i35 = getelementptr inbounds i8, ptr %priv_, i64 16
   %wide.trip.count = zext nneg i32 %nbuf to i64
   br label %for.body
 
@@ -313,7 +307,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end3:                                          ; preds = %for.body
   %arrayidx = getelementptr inbounds %struct.s_mmbuffer, ptr %mb, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
-  %size = getelementptr inbounds %struct.s_mmbuffer, ptr %mb, i64 %indvars.iv, i32 1
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %size, align 8
   %3 = getelementptr i8, ptr %1, i64 %2
   %arrayidx6 = getelementptr i8, ptr %3, i64 -1
@@ -410,15 +404,15 @@ for.end:                                          ; preds = %for.inc
   br i1 %13, label %if.end41, label %return
 
 if.end41:                                         ; preds = %for.cond.preheader, %for.end
-  %len43 = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 3, i32 1
+  %len43 = getelementptr inbounds i8, ptr %priv_, i64 32
   %14 = load i64, ptr %len43, align 8
   %tobool44.not = icmp eq i64 %14, 0
   br i1 %tobool44.not, label %if.end52.thread, label %while.body.lr.ph.i55
 
 while.body.lr.ph.i55:                             ; preds = %if.end41
-  %buf47 = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 3, i32 2
+  %buf47 = getelementptr inbounds i8, ptr %priv_, i64 40
   %15 = load ptr, ptr %buf47, align 8
-  %consume_callback_data.i57 = getelementptr inbounds %struct.xdiff_emit_state, ptr %priv_, i64 0, i32 2
+  %consume_callback_data.i57 = getelementptr inbounds i8, ptr %priv_, i64 16
   br label %while.body.i58
 
 while.body.i58:                                   ; preds = %while.body.i58, %while.body.lr.ph.i55
@@ -490,7 +484,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %st_size = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %st, i64 48
   %0 = load i64, ptr %st_size, align 8
   %cmp.i = icmp slt i64 %0, 0
   br i1 %cmp.i, label %if.then.i, label %xsize_t.exit
@@ -518,7 +512,7 @@ if.then16:                                        ; preds = %land.lhs.true
 
 if.end20:                                         ; preds = %land.lhs.true, %xsize_t.exit
   %call21 = tail call i32 @fclose(ptr noundef nonnull %call3)
-  %size = getelementptr inbounds %struct.s_mmfile, ptr %ptr, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %ptr, i64 8
   store i64 %0, ptr %size, align 8
   br label %return
 
@@ -550,14 +544,14 @@ entry:
   %size = alloca i64, align 8
   %type = alloca i32, align 4
   %call = tail call ptr @null_oid() #13
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
@@ -612,7 +606,7 @@ if.end11:                                         ; preds = %if.end
 
 return:                                           ; preds = %if.end11, %if.then
   %.sink = phi i64 [ %6, %if.end11 ], [ 0, %if.then ]
-  %size12 = getelementptr inbounds %struct.s_mmfile, ptr %ptr, i64 0, i32 1
+  %size12 = getelementptr inbounds i8, ptr %ptr, i64 8
   store i64 %.sink, ptr %size12, align 8
   ret void
 }
@@ -644,10 +638,10 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local void @xdiff_set_find_func(ptr nocapture noundef writeonly %xecfg, ptr noundef %value, i32 noundef %cflags) local_unnamed_addr #0 {
 entry:
-  %find_func = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 3
+  %find_func = getelementptr inbounds i8, ptr %xecfg, i64 24
   store ptr @ff_regexp, ptr %find_func, align 8
   %call = tail call ptr @xmalloc(i64 noundef 16) #13
-  %find_func_priv = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 4
+  %find_func_priv = getelementptr inbounds i8, ptr %xecfg, i64 32
   store ptr %call, ptr %find_func_priv, align 8
   store i32 1, ptr %call, align 8
   br label %for.cond
@@ -684,7 +678,7 @@ if.then.i:                                        ; preds = %for.end
 st_mult.exit:                                     ; preds = %for.end
   %mul.i = mul nuw nsw i64 %conv7, 72
   %call9 = tail call ptr @xmalloc(i64 noundef %mul.i) #13
-  %array = getelementptr inbounds %struct.ff_regs, ptr %call, i64 0, i32 1
+  %array = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call9, ptr %array, align 8
   %3 = load i32, ptr %call, align 8
   %cmp1233 = icmp sgt i32 %3, 0
@@ -707,7 +701,7 @@ if.end18:                                         ; preds = %for.body14
   %5 = load i8, ptr %value.addr.035, align 1
   %cmp21 = icmp eq i8 %5, 33
   %conv22 = zext i1 %cmp21 to i32
-  %negate = getelementptr inbounds %struct.ff_reg, ptr %4, i64 %indvars.iv41, i32 1
+  %negate = getelementptr inbounds i8, ptr %add.ptr, i64 64
   store i32 %conv22, ptr %negate, align 8
   br i1 %cmp21, label %land.lhs.true, label %if.end29
 
@@ -798,9 +792,9 @@ if.end13:                                         ; preds = %land.lhs.true5, %if
   br i1 %cmp1429, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %array = getelementptr inbounds %struct.ff_regs, ptr %priv, i64 0, i32 1
+  %array = getelementptr inbounds i8, ptr %priv, i64 8
   %conv.i = trunc i64 %len.addr.0 to i32
-  %rm_eo.i = getelementptr inbounds %struct.regmatch_t, ptr %pmatch, i64 0, i32 1
+  %rm_eo.i = getelementptr inbounds i8, ptr %pmatch, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -814,7 +808,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.then16, label %for.inc
 
 if.then16:                                        ; preds = %for.body
-  %negate = getelementptr inbounds %struct.ff_reg, ptr %4, i64 %indvars.iv, i32 1
+  %negate = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %5 = load i32, ptr %negate, align 8
   %tobool17.not = icmp eq i32 %5, 0
   br i1 %tobool17.not, label %if.then16.for.end_crit_edge, label %return
@@ -838,7 +832,7 @@ for.end:                                          ; preds = %for.inc, %if.then16
   br i1 %cmp22.not, label %if.end25, label %return
 
 if.end25:                                         ; preds = %for.end
-  %arrayidx26 = getelementptr inbounds [2 x %struct.regmatch_t], ptr %pmatch, i64 0, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %pmatch, i64 8
   %9 = load i32, ptr %arrayidx26, align 8
   %cmp27 = icmp sgt i32 %9, -1
   %idxprom = zext i1 %cmp27 to i64
@@ -846,7 +840,7 @@ if.end25:                                         ; preds = %for.end
   %10 = load i32, ptr %arrayidx29, align 8
   %idx.ext31 = sext i32 %10 to i64
   %add.ptr32 = getelementptr inbounds i8, ptr %line, i64 %idx.ext31
-  %rm_eo = getelementptr inbounds [2 x %struct.regmatch_t], ptr %pmatch, i64 0, i64 %idxprom, i32 1
+  %rm_eo = getelementptr inbounds i8, ptr %arrayidx29, i64 4
   %11 = load i32, ptr %rm_eo, align 4
   %sub38 = sub nsw i32 %11, %10
   %conv39 = sext i32 %sub38 to i64
@@ -901,20 +895,20 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define dso_local void @xdiff_clear_find_func(ptr nocapture noundef %xecfg) local_unnamed_addr #0 {
 entry:
-  %find_func = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 3
+  %find_func = getelementptr inbounds i8, ptr %xecfg, i64 24
   %0 = load ptr, ptr %find_func, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %find_func_priv = getelementptr inbounds %struct.s_xdemitconf, ptr %xecfg, i64 0, i32 4
+  %find_func_priv = getelementptr inbounds i8, ptr %xecfg, i64 32
   %1 = load ptr, ptr %find_func_priv, align 8
   %2 = load i32, ptr %1, align 8
   %cmp9 = icmp sgt i32 %2, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %array = getelementptr inbounds %struct.ff_regs, ptr %1, i64 0, i32 1
+  %array = getelementptr inbounds i8, ptr %1, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -929,7 +923,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %if.then
-  %array1 = getelementptr inbounds %struct.ff_regs, ptr %1, i64 0, i32 1
+  %array1 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %array1, align 8
   tail call void @free(ptr noundef %6) #13
   tail call void @free(ptr noundef nonnull %1) #13

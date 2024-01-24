@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.OpenColorIO_v2_4dev::GradingRGBMSW" = type { double, double, double, double, double, double }
-%"struct.OpenColorIO_v2_4dev::GradingTone" = type { %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", double }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -17,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.OpenColorIO_v2_4dev::GradingTonePreRender" = type { double, double, double, double, double, double, double, double, [4 x [6 x float]], [4 x [6 x float]], [4 x [6 x float]], [2 x [4 x [3 x float]]], [2 x [4 x [3 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x [2 x float]]], [2 x [4 x float]], [2 x [4 x float]], [2 x [4 x float]], [2 x [2 x float]], float, float, float, float, i8, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -68,41 +65,41 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 1
+  %m_green = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green, align 8
-  %m_green2 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 1
+  %m_green2 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2, align 8
   %cmp3 = fcmp oeq double %2, %3
   br i1 %cmp3, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 2
+  %m_blue = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue, align 8
-  %m_blue5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 2
+  %m_blue5 = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5, align 8
   %cmp6 = fcmp oeq double %4, %5
   br i1 %cmp6, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 3
+  %m_master = getelementptr inbounds i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master, align 8
-  %m_master8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 3
+  %m_master8 = getelementptr inbounds i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8, align 8
   %cmp9 = fcmp oeq double %6, %7
   br i1 %cmp9, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 4
+  %m_start = getelementptr inbounds i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start, align 8
-  %m_start11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 4
+  %m_start11 = getelementptr inbounds i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11, align 8
   %cmp12 = fcmp oeq double %8, %9
   br i1 %cmp12, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true10
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 5
+  %m_width = getelementptr inbounds i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width, align 8
-  %m_width13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 5
+  %m_width13 = getelementptr inbounds i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13, align 8
   %cmp14 = fcmp oeq double %10, %11
   br label %land.end
@@ -121,41 +118,41 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 1
+  %m_green.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green.i, align 8
-  %m_green2.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 1
+  %m_green2.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2.i, align 8
   %cmp3.i = fcmp oeq double %2, %3
   br i1 %cmp3.i, label %land.lhs.true4.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 2
+  %m_blue.i = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue.i, align 8
-  %m_blue5.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 2
+  %m_blue5.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5.i, align 8
   %cmp6.i = fcmp oeq double %4, %5
   br i1 %cmp6.i, label %land.lhs.true7.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 3
+  %m_master.i = getelementptr inbounds i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master.i, align 8
-  %m_master8.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 3
+  %m_master8.i = getelementptr inbounds i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8.i, align 8
   %cmp9.i = fcmp oeq double %6, %7
   br i1 %cmp9.i, label %land.lhs.true10.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %m_start.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 4
+  %m_start.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start.i, align 8
-  %m_start11.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 4
+  %m_start11.i = getelementptr inbounds i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11.i, align 8
   %cmp12.i = fcmp oeq double %8, %9
   br i1 %cmp12.i, label %land.rhs.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
 
 land.rhs.i:                                       ; preds = %land.lhs.true10.i
-  %m_width.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 5
+  %m_width.i = getelementptr inbounds i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width.i, align 8
-  %m_width13.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 5
+  %m_width13.i = getelementptr inbounds i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13.i, align 8
   %cmp14.i = fcmp une double %10, %11
   br label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
@@ -174,241 +171,241 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %land.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 1
+  %m_green.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load double, ptr %m_green.i, align 8
-  %m_green2.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 1
+  %m_green2.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load double, ptr %m_green2.i, align 8
   %cmp3.i = fcmp oeq double %2, %3
   br i1 %cmp3.i, label %land.lhs.true4.i, label %land.end
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 2
+  %m_blue.i = getelementptr inbounds i8, ptr %lhs, i64 16
   %4 = load double, ptr %m_blue.i, align 8
-  %m_blue5.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 2
+  %m_blue5.i = getelementptr inbounds i8, ptr %rhs, i64 16
   %5 = load double, ptr %m_blue5.i, align 8
   %cmp6.i = fcmp oeq double %4, %5
   br i1 %cmp6.i, label %land.lhs.true7.i, label %land.end
 
 land.lhs.true7.i:                                 ; preds = %land.lhs.true4.i
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 3
+  %m_master.i = getelementptr inbounds i8, ptr %lhs, i64 24
   %6 = load double, ptr %m_master.i, align 8
-  %m_master8.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 3
+  %m_master8.i = getelementptr inbounds i8, ptr %rhs, i64 24
   %7 = load double, ptr %m_master8.i, align 8
   %cmp9.i = fcmp oeq double %6, %7
   br i1 %cmp9.i, label %land.lhs.true10.i, label %land.end
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true7.i
-  %m_start.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 4
+  %m_start.i = getelementptr inbounds i8, ptr %lhs, i64 32
   %8 = load double, ptr %m_start.i, align 8
-  %m_start11.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 4
+  %m_start11.i = getelementptr inbounds i8, ptr %rhs, i64 32
   %9 = load double, ptr %m_start11.i, align 8
   %cmp12.i = fcmp oeq double %8, %9
   br i1 %cmp12.i, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit: ; preds = %land.lhs.true10.i
-  %m_width.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %lhs, i64 0, i32 5
+  %m_width.i = getelementptr inbounds i8, ptr %lhs, i64 40
   %10 = load double, ptr %m_width.i, align 8
-  %m_width13.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %rhs, i64 0, i32 5
+  %m_width13.i = getelementptr inbounds i8, ptr %rhs, i64 40
   %11 = load double, ptr %m_width13.i, align 8
   %cmp14.i = fcmp oeq double %10, %11
   br i1 %cmp14.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4
-  %m_whites2 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4
+  %m_whites = getelementptr inbounds i8, ptr %lhs, i64 192
+  %m_whites2 = getelementptr inbounds i8, ptr %rhs, i64 192
   %12 = load double, ptr %m_whites, align 8
   %13 = load double, ptr %m_whites2, align 8
   %cmp.i11 = fcmp oeq double %12, %13
   br i1 %cmp.i11, label %land.lhs.true.i12, label %land.end
 
 land.lhs.true.i12:                                ; preds = %land.lhs.true
-  %m_green.i13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 1
+  %m_green.i13 = getelementptr inbounds i8, ptr %lhs, i64 200
   %14 = load double, ptr %m_green.i13, align 8
-  %m_green2.i14 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 1
+  %m_green2.i14 = getelementptr inbounds i8, ptr %rhs, i64 200
   %15 = load double, ptr %m_green2.i14, align 8
   %cmp3.i15 = fcmp oeq double %14, %15
   br i1 %cmp3.i15, label %land.lhs.true4.i16, label %land.end
 
 land.lhs.true4.i16:                               ; preds = %land.lhs.true.i12
-  %m_blue.i17 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 2
+  %m_blue.i17 = getelementptr inbounds i8, ptr %lhs, i64 208
   %16 = load double, ptr %m_blue.i17, align 8
-  %m_blue5.i18 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 2
+  %m_blue5.i18 = getelementptr inbounds i8, ptr %rhs, i64 208
   %17 = load double, ptr %m_blue5.i18, align 8
   %cmp6.i19 = fcmp oeq double %16, %17
   br i1 %cmp6.i19, label %land.lhs.true7.i20, label %land.end
 
 land.lhs.true7.i20:                               ; preds = %land.lhs.true4.i16
-  %m_master.i21 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 3
+  %m_master.i21 = getelementptr inbounds i8, ptr %lhs, i64 216
   %18 = load double, ptr %m_master.i21, align 8
-  %m_master8.i22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 3
+  %m_master8.i22 = getelementptr inbounds i8, ptr %rhs, i64 216
   %19 = load double, ptr %m_master8.i22, align 8
   %cmp9.i23 = fcmp oeq double %18, %19
   br i1 %cmp9.i23, label %land.lhs.true10.i24, label %land.end
 
 land.lhs.true10.i24:                              ; preds = %land.lhs.true7.i20
-  %m_start.i25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 4
+  %m_start.i25 = getelementptr inbounds i8, ptr %lhs, i64 224
   %20 = load double, ptr %m_start.i25, align 8
-  %m_start11.i26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 4
+  %m_start11.i26 = getelementptr inbounds i8, ptr %rhs, i64 224
   %21 = load double, ptr %m_start11.i26, align 8
   %cmp12.i27 = fcmp oeq double %20, %21
   br i1 %cmp12.i27, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32: ; preds = %land.lhs.true10.i24
-  %m_width.i29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 4, i32 5
+  %m_width.i29 = getelementptr inbounds i8, ptr %lhs, i64 232
   %22 = load double, ptr %m_width.i29, align 8
-  %m_width13.i30 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 4, i32 5
+  %m_width13.i30 = getelementptr inbounds i8, ptr %rhs, i64 232
   %23 = load double, ptr %m_width13.i30, align 8
   %cmp14.i31 = fcmp oeq double %22, %23
   br i1 %cmp14.i31, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit32
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3
-  %m_highlights5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3
+  %m_highlights = getelementptr inbounds i8, ptr %lhs, i64 144
+  %m_highlights5 = getelementptr inbounds i8, ptr %rhs, i64 144
   %24 = load double, ptr %m_highlights, align 8
   %25 = load double, ptr %m_highlights5, align 8
   %cmp.i33 = fcmp oeq double %24, %25
   br i1 %cmp.i33, label %land.lhs.true.i34, label %land.end
 
 land.lhs.true.i34:                                ; preds = %land.lhs.true4
-  %m_green.i35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 1
+  %m_green.i35 = getelementptr inbounds i8, ptr %lhs, i64 152
   %26 = load double, ptr %m_green.i35, align 8
-  %m_green2.i36 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 1
+  %m_green2.i36 = getelementptr inbounds i8, ptr %rhs, i64 152
   %27 = load double, ptr %m_green2.i36, align 8
   %cmp3.i37 = fcmp oeq double %26, %27
   br i1 %cmp3.i37, label %land.lhs.true4.i38, label %land.end
 
 land.lhs.true4.i38:                               ; preds = %land.lhs.true.i34
-  %m_blue.i39 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 2
+  %m_blue.i39 = getelementptr inbounds i8, ptr %lhs, i64 160
   %28 = load double, ptr %m_blue.i39, align 8
-  %m_blue5.i40 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 2
+  %m_blue5.i40 = getelementptr inbounds i8, ptr %rhs, i64 160
   %29 = load double, ptr %m_blue5.i40, align 8
   %cmp6.i41 = fcmp oeq double %28, %29
   br i1 %cmp6.i41, label %land.lhs.true7.i42, label %land.end
 
 land.lhs.true7.i42:                               ; preds = %land.lhs.true4.i38
-  %m_master.i43 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 3
+  %m_master.i43 = getelementptr inbounds i8, ptr %lhs, i64 168
   %30 = load double, ptr %m_master.i43, align 8
-  %m_master8.i44 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 3
+  %m_master8.i44 = getelementptr inbounds i8, ptr %rhs, i64 168
   %31 = load double, ptr %m_master8.i44, align 8
   %cmp9.i45 = fcmp oeq double %30, %31
   br i1 %cmp9.i45, label %land.lhs.true10.i46, label %land.end
 
 land.lhs.true10.i46:                              ; preds = %land.lhs.true7.i42
-  %m_start.i47 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 4
+  %m_start.i47 = getelementptr inbounds i8, ptr %lhs, i64 176
   %32 = load double, ptr %m_start.i47, align 8
-  %m_start11.i48 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 4
+  %m_start11.i48 = getelementptr inbounds i8, ptr %rhs, i64 176
   %33 = load double, ptr %m_start11.i48, align 8
   %cmp12.i49 = fcmp oeq double %32, %33
   br i1 %cmp12.i49, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54: ; preds = %land.lhs.true10.i46
-  %m_width.i51 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 3, i32 5
+  %m_width.i51 = getelementptr inbounds i8, ptr %lhs, i64 184
   %34 = load double, ptr %m_width.i51, align 8
-  %m_width13.i52 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 3, i32 5
+  %m_width13.i52 = getelementptr inbounds i8, ptr %rhs, i64 184
   %35 = load double, ptr %m_width13.i52, align 8
   %cmp14.i53 = fcmp oeq double %34, %35
   br i1 %cmp14.i53, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit54
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2
-  %m_midtones8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2
+  %m_midtones = getelementptr inbounds i8, ptr %lhs, i64 96
+  %m_midtones8 = getelementptr inbounds i8, ptr %rhs, i64 96
   %36 = load double, ptr %m_midtones, align 8
   %37 = load double, ptr %m_midtones8, align 8
   %cmp.i55 = fcmp oeq double %36, %37
   br i1 %cmp.i55, label %land.lhs.true.i56, label %land.end
 
 land.lhs.true.i56:                                ; preds = %land.lhs.true7
-  %m_green.i57 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 1
+  %m_green.i57 = getelementptr inbounds i8, ptr %lhs, i64 104
   %38 = load double, ptr %m_green.i57, align 8
-  %m_green2.i58 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 1
+  %m_green2.i58 = getelementptr inbounds i8, ptr %rhs, i64 104
   %39 = load double, ptr %m_green2.i58, align 8
   %cmp3.i59 = fcmp oeq double %38, %39
   br i1 %cmp3.i59, label %land.lhs.true4.i60, label %land.end
 
 land.lhs.true4.i60:                               ; preds = %land.lhs.true.i56
-  %m_blue.i61 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 2
+  %m_blue.i61 = getelementptr inbounds i8, ptr %lhs, i64 112
   %40 = load double, ptr %m_blue.i61, align 8
-  %m_blue5.i62 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 2
+  %m_blue5.i62 = getelementptr inbounds i8, ptr %rhs, i64 112
   %41 = load double, ptr %m_blue5.i62, align 8
   %cmp6.i63 = fcmp oeq double %40, %41
   br i1 %cmp6.i63, label %land.lhs.true7.i64, label %land.end
 
 land.lhs.true7.i64:                               ; preds = %land.lhs.true4.i60
-  %m_master.i65 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 3
+  %m_master.i65 = getelementptr inbounds i8, ptr %lhs, i64 120
   %42 = load double, ptr %m_master.i65, align 8
-  %m_master8.i66 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 3
+  %m_master8.i66 = getelementptr inbounds i8, ptr %rhs, i64 120
   %43 = load double, ptr %m_master8.i66, align 8
   %cmp9.i67 = fcmp oeq double %42, %43
   br i1 %cmp9.i67, label %land.lhs.true10.i68, label %land.end
 
 land.lhs.true10.i68:                              ; preds = %land.lhs.true7.i64
-  %m_start.i69 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 4
+  %m_start.i69 = getelementptr inbounds i8, ptr %lhs, i64 128
   %44 = load double, ptr %m_start.i69, align 8
-  %m_start11.i70 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 4
+  %m_start11.i70 = getelementptr inbounds i8, ptr %rhs, i64 128
   %45 = load double, ptr %m_start11.i70, align 8
   %cmp12.i71 = fcmp oeq double %44, %45
   br i1 %cmp12.i71, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76: ; preds = %land.lhs.true10.i68
-  %m_width.i73 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 2, i32 5
+  %m_width.i73 = getelementptr inbounds i8, ptr %lhs, i64 136
   %46 = load double, ptr %m_width.i73, align 8
-  %m_width13.i74 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 2, i32 5
+  %m_width13.i74 = getelementptr inbounds i8, ptr %rhs, i64 136
   %47 = load double, ptr %m_width13.i74, align 8
   %cmp14.i75 = fcmp oeq double %46, %47
   br i1 %cmp14.i75, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit76
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1
-  %m_shadows11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1
+  %m_shadows = getelementptr inbounds i8, ptr %lhs, i64 48
+  %m_shadows11 = getelementptr inbounds i8, ptr %rhs, i64 48
   %48 = load double, ptr %m_shadows, align 8
   %49 = load double, ptr %m_shadows11, align 8
   %cmp.i77 = fcmp oeq double %48, %49
   br i1 %cmp.i77, label %land.lhs.true.i78, label %land.end
 
 land.lhs.true.i78:                                ; preds = %land.lhs.true10
-  %m_green.i79 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 1
+  %m_green.i79 = getelementptr inbounds i8, ptr %lhs, i64 56
   %50 = load double, ptr %m_green.i79, align 8
-  %m_green2.i80 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 1
+  %m_green2.i80 = getelementptr inbounds i8, ptr %rhs, i64 56
   %51 = load double, ptr %m_green2.i80, align 8
   %cmp3.i81 = fcmp oeq double %50, %51
   br i1 %cmp3.i81, label %land.lhs.true4.i82, label %land.end
 
 land.lhs.true4.i82:                               ; preds = %land.lhs.true.i78
-  %m_blue.i83 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 2
+  %m_blue.i83 = getelementptr inbounds i8, ptr %lhs, i64 64
   %52 = load double, ptr %m_blue.i83, align 8
-  %m_blue5.i84 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 2
+  %m_blue5.i84 = getelementptr inbounds i8, ptr %rhs, i64 64
   %53 = load double, ptr %m_blue5.i84, align 8
   %cmp6.i85 = fcmp oeq double %52, %53
   br i1 %cmp6.i85, label %land.lhs.true7.i86, label %land.end
 
 land.lhs.true7.i86:                               ; preds = %land.lhs.true4.i82
-  %m_master.i87 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 3
+  %m_master.i87 = getelementptr inbounds i8, ptr %lhs, i64 72
   %54 = load double, ptr %m_master.i87, align 8
-  %m_master8.i88 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 3
+  %m_master8.i88 = getelementptr inbounds i8, ptr %rhs, i64 72
   %55 = load double, ptr %m_master8.i88, align 8
   %cmp9.i89 = fcmp oeq double %54, %55
   br i1 %cmp9.i89, label %land.lhs.true10.i90, label %land.end
 
 land.lhs.true10.i90:                              ; preds = %land.lhs.true7.i86
-  %m_start.i91 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 4
+  %m_start.i91 = getelementptr inbounds i8, ptr %lhs, i64 80
   %56 = load double, ptr %m_start.i91, align 8
-  %m_start11.i92 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 4
+  %m_start11.i92 = getelementptr inbounds i8, ptr %rhs, i64 80
   %57 = load double, ptr %m_start11.i92, align 8
   %cmp12.i93 = fcmp oeq double %56, %57
   br i1 %cmp12.i93, label %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98, label %land.end
 
 _ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98: ; preds = %land.lhs.true10.i90
-  %m_width.i95 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 1, i32 5
+  %m_width.i95 = getelementptr inbounds i8, ptr %lhs, i64 88
   %58 = load double, ptr %m_width.i95, align 8
-  %m_width13.i96 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 1, i32 5
+  %m_width13.i96 = getelementptr inbounds i8, ptr %rhs, i64 88
   %59 = load double, ptr %m_width13.i96, align 8
   %cmp14.i97 = fcmp oeq double %58, %59
   br i1 %cmp14.i97, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZN19OpenColorIO_v2_4deveqERKNS_13GradingRGBMSWES2_.exit98
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %lhs, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %lhs, i64 240
   %60 = load double, ptr %m_scontrast, align 8
-  %m_scontrast13 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %rhs, i64 0, i32 5
+  %m_scontrast13 = getelementptr inbounds i8, ptr %rhs, i64 240
   %61 = load double, ptr %m_scontrast13, align 8
   %cmp = fcmp oeq double %60, %61
   br label %land.end
@@ -468,19 +465,19 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 1
+  %m_green = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load double, ptr %m_green, align 8
   %cmp2 = fcmp olt double %1, 9.999900e-02
   br i1 %cmp2, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 2
+  %m_blue = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load double, ptr %m_blue, align 8
   %cmp4 = fcmp olt double %2, 9.999900e-02
   br i1 %cmp4, label %if.then, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 3
+  %m_master = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load double, ptr %m_master, align 8
   %cmp6 = fcmp olt double %3, 9.999900e-02
   br i1 %cmp6, label %if.then, label %if.end
@@ -507,23 +504,23 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %oss)
           to label %invoke.cont16 unwind label %ehcleanup.thread
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
+  %call17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %call17)
           to label %invoke.cont19 unwind label %ehcleanup.thread148
 
 ehcleanup.thread148:                              ; preds = %invoke.cont16
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %cleanup.action
 
 invoke.cont19:                                    ; preds = %invoke.cont16
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont, %if.then
@@ -539,16 +536,16 @@ ehcleanup.thread:                                 ; preds = %invoke.cont13
 ehcleanup:                                        ; preds = %invoke.cont19
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   br label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup.thread148, %ehcleanup.thread
   %.pn127147 = phi { ptr, i32 } [ %6, %ehcleanup.thread ], [ %4, %ehcleanup.thread148 ]
-  call void @__cxa_free_exception(ptr %exception) #17
+  call void @__cxa_free_exception(ptr %exception) #15
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %this, i64 0, i32 5
+  %m_width = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load double, ptr %m_width, align 8
   %cmp21 = fcmp olt double %8, 0x3F847A5B0FF10ECC
   br i1 %cmp21, label %if.then22, label %if.end50
@@ -576,23 +573,23 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %invoke.cont34 unwind label %lpad24
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %exception36 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception36 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(112) %oss23)
           to label %invoke.cont39 unwind label %ehcleanup45.thread
 
 invoke.cont39:                                    ; preds = %invoke.cont34
-  %call40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #17
+  %call40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception36, ptr noundef %call40)
           to label %invoke.cont42 unwind label %ehcleanup45.thread153
 
 ehcleanup45.thread153:                            ; preds = %invoke.cont39
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #15
   br label %cleanup.action47
 
 invoke.cont42:                                    ; preds = %invoke.cont39
-  invoke void @__cxa_throw(ptr nonnull %exception36, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception36, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup45
 
 lpad24:                                           ; preds = %invoke.cont32, %invoke.cont30, %invoke.cont28, %invoke.cont25, %if.then22
@@ -608,12 +605,12 @@ ehcleanup45.thread:                               ; preds = %invoke.cont34
 ehcleanup45:                                      ; preds = %invoke.cont42
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #15
   br label %eh.resume
 
 cleanup.action47:                                 ; preds = %ehcleanup45.thread153, %ehcleanup45.thread
   %.pn124152 = phi { ptr, i32 } [ %12, %ehcleanup45.thread ], [ %10, %ehcleanup45.thread153 ]
-  call void @__cxa_free_exception(ptr %exception36) #17
+  call void @__cxa_free_exception(ptr %exception36) #15
   br label %eh.resume
 
 if.end50:                                         ; preds = %if.end
@@ -648,23 +645,23 @@ invoke.cont71:                                    ; preds = %invoke.cont69
           to label %invoke.cont73 unwind label %lpad64
 
 invoke.cont73:                                    ; preds = %invoke.cont71
-  %exception75 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception75 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(112) %oss63)
           to label %invoke.cont78 unwind label %ehcleanup84.thread
 
 invoke.cont78:                                    ; preds = %invoke.cont73
-  %call79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #17
+  %call79 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception75, ptr noundef %call79)
           to label %invoke.cont81 unwind label %ehcleanup84.thread158
 
 ehcleanup84.thread158:                            ; preds = %invoke.cont78
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #15
   br label %cleanup.action86
 
 invoke.cont81:                                    ; preds = %invoke.cont78
-  invoke void @__cxa_throw(ptr nonnull %exception75, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception75, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup84
 
 lpad64:                                           ; preds = %invoke.cont71, %invoke.cont69, %invoke.cont67, %invoke.cont65, %if.then62
@@ -680,34 +677,34 @@ ehcleanup84.thread:                               ; preds = %invoke.cont73
 ehcleanup84:                                      ; preds = %invoke.cont81
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #15
   br label %eh.resume
 
 cleanup.action86:                                 ; preds = %ehcleanup84.thread158, %ehcleanup84.thread
   %.pn121157 = phi { ptr, i32 } [ %16, %ehcleanup84.thread ], [ %14, %ehcleanup84.thread158 ]
-  call void @__cxa_free_exception(ptr %exception75) #17
+  call void @__cxa_free_exception(ptr %exception75) #15
   br label %eh.resume
 
 if.end89:                                         ; preds = %if.end50
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2
+  %m_midtones = getelementptr inbounds i8, ptr %this, i64 96
   %18 = load double, ptr %m_midtones, align 8
   %cmp91 = fcmp olt double %18, 9.999900e-02
   br i1 %cmp91, label %if.then101, label %lor.lhs.false92
 
 lor.lhs.false92:                                  ; preds = %if.end89
-  %m_green93 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 1
+  %m_green93 = getelementptr inbounds i8, ptr %this, i64 104
   %19 = load double, ptr %m_green93, align 8
   %cmp94 = fcmp olt double %19, 9.999900e-02
   br i1 %cmp94, label %if.then101, label %lor.lhs.false95
 
 lor.lhs.false95:                                  ; preds = %lor.lhs.false92
-  %m_blue96 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 2
+  %m_blue96 = getelementptr inbounds i8, ptr %this, i64 112
   %20 = load double, ptr %m_blue96, align 8
   %cmp97 = fcmp olt double %20, 9.999900e-02
   br i1 %cmp97, label %if.then101, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %lor.lhs.false95
-  %m_master99 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 3
+  %m_master99 = getelementptr inbounds i8, ptr %this, i64 120
   %21 = load double, ptr %m_master99, align 8
   %cmp100 = fcmp olt double %21, 9.999900e-02
   br i1 %cmp100, label %if.then101, label %if.end128
@@ -734,23 +731,23 @@ invoke.cont110:                                   ; preds = %invoke.cont108
           to label %invoke.cont112 unwind label %lpad103
 
 invoke.cont112:                                   ; preds = %invoke.cont110
-  %exception114 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception114 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(112) %oss102)
           to label %invoke.cont117 unwind label %ehcleanup123.thread
 
 invoke.cont117:                                   ; preds = %invoke.cont112
-  %call118 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #17
+  %call118 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception114, ptr noundef %call118)
           to label %invoke.cont120 unwind label %ehcleanup123.thread163
 
 ehcleanup123.thread163:                           ; preds = %invoke.cont117
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #15
   br label %cleanup.action125
 
 invoke.cont120:                                   ; preds = %invoke.cont117
-  invoke void @__cxa_throw(ptr nonnull %exception114, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception114, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup123
 
 lpad103:                                          ; preds = %invoke.cont110, %invoke.cont108, %invoke.cont106, %invoke.cont104, %if.then101
@@ -766,16 +763,16 @@ ehcleanup123.thread:                              ; preds = %invoke.cont112
 ehcleanup123:                                     ; preds = %invoke.cont120
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #15
   br label %eh.resume
 
 cleanup.action125:                                ; preds = %ehcleanup123.thread163, %ehcleanup123.thread
   %.pn118162 = phi { ptr, i32 } [ %24, %ehcleanup123.thread ], [ %22, %ehcleanup123.thread163 ]
-  call void @__cxa_free_exception(ptr %exception114) #17
+  call void @__cxa_free_exception(ptr %exception114) #15
   br label %eh.resume
 
 if.end128:                                        ; preds = %lor.lhs.false98
-  %m_width129 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 2, i32 5
+  %m_width129 = getelementptr inbounds i8, ptr %this, i64 136
   %26 = load double, ptr %m_width129, align 8
   %cmp130 = fcmp olt double %26, 0x3F847A5B0FF10ECC
   br i1 %cmp130, label %if.then131, label %if.end159
@@ -803,23 +800,23 @@ invoke.cont141:                                   ; preds = %invoke.cont139
           to label %invoke.cont143 unwind label %lpad133
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  %exception145 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception145 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp146, ptr noundef nonnull align 8 dereferenceable(112) %oss132)
           to label %invoke.cont148 unwind label %ehcleanup154.thread
 
 invoke.cont148:                                   ; preds = %invoke.cont143
-  %call149 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #17
+  %call149 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception145, ptr noundef %call149)
           to label %invoke.cont151 unwind label %ehcleanup154.thread168
 
 ehcleanup154.thread168:                           ; preds = %invoke.cont148
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #15
   br label %cleanup.action156
 
 invoke.cont151:                                   ; preds = %invoke.cont148
-  invoke void @__cxa_throw(ptr nonnull %exception145, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception145, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup154
 
 lpad133:                                          ; preds = %invoke.cont141, %invoke.cont139, %invoke.cont137, %invoke.cont134, %if.then131
@@ -835,12 +832,12 @@ ehcleanup154.thread:                              ; preds = %invoke.cont143
 ehcleanup154:                                     ; preds = %invoke.cont151
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146) #15
   br label %eh.resume
 
 cleanup.action156:                                ; preds = %ehcleanup154.thread168, %ehcleanup154.thread
   %.pn115167 = phi { ptr, i32 } [ %30, %ehcleanup154.thread ], [ %28, %ehcleanup154.thread168 ]
-  call void @__cxa_free_exception(ptr %exception145) #17
+  call void @__cxa_free_exception(ptr %exception145) #15
   br label %eh.resume
 
 if.end159:                                        ; preds = %if.end128
@@ -875,23 +872,23 @@ invoke.cont180:                                   ; preds = %invoke.cont178
           to label %invoke.cont182 unwind label %lpad173
 
 invoke.cont182:                                   ; preds = %invoke.cont180
-  %exception184 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception184 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp185, ptr noundef nonnull align 8 dereferenceable(112) %oss172)
           to label %invoke.cont187 unwind label %ehcleanup193.thread
 
 invoke.cont187:                                   ; preds = %invoke.cont182
-  %call188 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp185) #17
+  %call188 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp185) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception184, ptr noundef %call188)
           to label %invoke.cont190 unwind label %ehcleanup193.thread173
 
 ehcleanup193.thread173:                           ; preds = %invoke.cont187
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp185) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp185) #15
   br label %cleanup.action195
 
 invoke.cont190:                                   ; preds = %invoke.cont187
-  invoke void @__cxa_throw(ptr nonnull %exception184, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception184, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup193
 
 lpad173:                                          ; preds = %invoke.cont180, %invoke.cont178, %invoke.cont176, %invoke.cont174, %if.then171
@@ -907,34 +904,34 @@ ehcleanup193.thread:                              ; preds = %invoke.cont182
 ehcleanup193:                                     ; preds = %invoke.cont190
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp185) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp185) #15
   br label %eh.resume
 
 cleanup.action195:                                ; preds = %ehcleanup193.thread173, %ehcleanup193.thread
   %.pn112172 = phi { ptr, i32 } [ %34, %ehcleanup193.thread ], [ %32, %ehcleanup193.thread173 ]
-  call void @__cxa_free_exception(ptr %exception184) #17
+  call void @__cxa_free_exception(ptr %exception184) #15
   br label %eh.resume
 
 if.end198:                                        ; preds = %if.end159
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4
+  %m_whites = getelementptr inbounds i8, ptr %this, i64 192
   %36 = load double, ptr %m_whites, align 8
   %cmp200 = fcmp olt double %36, 9.999900e-02
   br i1 %cmp200, label %if.then210, label %lor.lhs.false201
 
 lor.lhs.false201:                                 ; preds = %if.end198
-  %m_green202 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 1
+  %m_green202 = getelementptr inbounds i8, ptr %this, i64 200
   %37 = load double, ptr %m_green202, align 8
   %cmp203 = fcmp olt double %37, 9.999900e-02
   br i1 %cmp203, label %if.then210, label %lor.lhs.false204
 
 lor.lhs.false204:                                 ; preds = %lor.lhs.false201
-  %m_blue205 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 2
+  %m_blue205 = getelementptr inbounds i8, ptr %this, i64 208
   %38 = load double, ptr %m_blue205, align 8
   %cmp206 = fcmp olt double %38, 9.999900e-02
   br i1 %cmp206, label %if.then210, label %lor.lhs.false207
 
 lor.lhs.false207:                                 ; preds = %lor.lhs.false204
-  %m_master208 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 3
+  %m_master208 = getelementptr inbounds i8, ptr %this, i64 216
   %39 = load double, ptr %m_master208, align 8
   %cmp209 = fcmp olt double %39, 9.999900e-02
   br i1 %cmp209, label %if.then210, label %if.end237
@@ -961,23 +958,23 @@ invoke.cont219:                                   ; preds = %invoke.cont217
           to label %invoke.cont221 unwind label %lpad212
 
 invoke.cont221:                                   ; preds = %invoke.cont219
-  %exception223 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception223 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp224, ptr noundef nonnull align 8 dereferenceable(112) %oss211)
           to label %invoke.cont226 unwind label %ehcleanup232.thread
 
 invoke.cont226:                                   ; preds = %invoke.cont221
-  %call227 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #17
+  %call227 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception223, ptr noundef %call227)
           to label %invoke.cont229 unwind label %ehcleanup232.thread178
 
 ehcleanup232.thread178:                           ; preds = %invoke.cont226
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #15
   br label %cleanup.action234
 
 invoke.cont229:                                   ; preds = %invoke.cont226
-  invoke void @__cxa_throw(ptr nonnull %exception223, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception223, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup232
 
 lpad212:                                          ; preds = %invoke.cont219, %invoke.cont217, %invoke.cont215, %invoke.cont213, %if.then210
@@ -993,16 +990,16 @@ ehcleanup232.thread:                              ; preds = %invoke.cont221
 ehcleanup232:                                     ; preds = %invoke.cont229
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp224) #15
   br label %eh.resume
 
 cleanup.action234:                                ; preds = %ehcleanup232.thread178, %ehcleanup232.thread
   %.pn109177 = phi { ptr, i32 } [ %42, %ehcleanup232.thread ], [ %40, %ehcleanup232.thread178 ]
-  call void @__cxa_free_exception(ptr %exception223) #17
+  call void @__cxa_free_exception(ptr %exception223) #15
   br label %eh.resume
 
 if.end237:                                        ; preds = %lor.lhs.false207
-  %m_width238 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 4, i32 5
+  %m_width238 = getelementptr inbounds i8, ptr %this, i64 232
   %44 = load double, ptr %m_width238, align 8
   %cmp239 = fcmp olt double %44, 0x3F847A5B0FF10ECC
   br i1 %cmp239, label %if.then240, label %if.end268
@@ -1030,23 +1027,23 @@ invoke.cont250:                                   ; preds = %invoke.cont248
           to label %invoke.cont252 unwind label %lpad242
 
 invoke.cont252:                                   ; preds = %invoke.cont250
-  %exception254 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception254 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp255, ptr noundef nonnull align 8 dereferenceable(112) %oss241)
           to label %invoke.cont257 unwind label %ehcleanup263.thread
 
 invoke.cont257:                                   ; preds = %invoke.cont252
-  %call258 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #17
+  %call258 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception254, ptr noundef %call258)
           to label %invoke.cont260 unwind label %ehcleanup263.thread183
 
 ehcleanup263.thread183:                           ; preds = %invoke.cont257
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #15
   br label %cleanup.action265
 
 invoke.cont260:                                   ; preds = %invoke.cont257
-  invoke void @__cxa_throw(ptr nonnull %exception254, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception254, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup263
 
 lpad242:                                          ; preds = %invoke.cont250, %invoke.cont248, %invoke.cont246, %invoke.cont243, %if.then240
@@ -1062,12 +1059,12 @@ ehcleanup263.thread:                              ; preds = %invoke.cont252
 ehcleanup263:                                     ; preds = %invoke.cont260
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #15
   br label %eh.resume
 
 cleanup.action265:                                ; preds = %ehcleanup263.thread183, %ehcleanup263.thread
   %.pn106182 = phi { ptr, i32 } [ %48, %ehcleanup263.thread ], [ %46, %ehcleanup263.thread183 ]
-  call void @__cxa_free_exception(ptr %exception254) #17
+  call void @__cxa_free_exception(ptr %exception254) #15
   br label %eh.resume
 
 if.end268:                                        ; preds = %if.end237
@@ -1102,23 +1099,23 @@ invoke.cont289:                                   ; preds = %invoke.cont287
           to label %invoke.cont291 unwind label %lpad282
 
 invoke.cont291:                                   ; preds = %invoke.cont289
-  %exception293 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception293 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp294, ptr noundef nonnull align 8 dereferenceable(112) %oss281)
           to label %invoke.cont296 unwind label %ehcleanup302.thread
 
 invoke.cont296:                                   ; preds = %invoke.cont291
-  %call297 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294) #17
+  %call297 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception293, ptr noundef %call297)
           to label %invoke.cont299 unwind label %ehcleanup302.thread188
 
 ehcleanup302.thread188:                           ; preds = %invoke.cont296
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294) #15
   br label %cleanup.action304
 
 invoke.cont299:                                   ; preds = %invoke.cont296
-  invoke void @__cxa_throw(ptr nonnull %exception293, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception293, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup302
 
 lpad282:                                          ; preds = %invoke.cont289, %invoke.cont287, %invoke.cont285, %invoke.cont283, %if.then280
@@ -1134,34 +1131,34 @@ ehcleanup302.thread:                              ; preds = %invoke.cont291
 ehcleanup302:                                     ; preds = %invoke.cont299
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp294) #15
   br label %eh.resume
 
 cleanup.action304:                                ; preds = %ehcleanup302.thread188, %ehcleanup302.thread
   %.pn103187 = phi { ptr, i32 } [ %52, %ehcleanup302.thread ], [ %50, %ehcleanup302.thread188 ]
-  call void @__cxa_free_exception(ptr %exception293) #17
+  call void @__cxa_free_exception(ptr %exception293) #15
   br label %eh.resume
 
 if.end307:                                        ; preds = %if.end268
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1
+  %m_shadows = getelementptr inbounds i8, ptr %this, i64 48
   %54 = load double, ptr %m_shadows, align 8
   %cmp309 = fcmp olt double %54, 1.999990e-01
   br i1 %cmp309, label %if.then319, label %lor.lhs.false310
 
 lor.lhs.false310:                                 ; preds = %if.end307
-  %m_green311 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 1
+  %m_green311 = getelementptr inbounds i8, ptr %this, i64 56
   %55 = load double, ptr %m_green311, align 8
   %cmp312 = fcmp olt double %55, 1.999990e-01
   br i1 %cmp312, label %if.then319, label %lor.lhs.false313
 
 lor.lhs.false313:                                 ; preds = %lor.lhs.false310
-  %m_blue314 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 2
+  %m_blue314 = getelementptr inbounds i8, ptr %this, i64 64
   %56 = load double, ptr %m_blue314, align 8
   %cmp315 = fcmp olt double %56, 1.999990e-01
   br i1 %cmp315, label %if.then319, label %lor.lhs.false316
 
 lor.lhs.false316:                                 ; preds = %lor.lhs.false313
-  %m_master317 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 3
+  %m_master317 = getelementptr inbounds i8, ptr %this, i64 72
   %57 = load double, ptr %m_master317, align 8
   %cmp318 = fcmp olt double %57, 1.999990e-01
   br i1 %cmp318, label %if.then319, label %if.end346
@@ -1188,23 +1185,23 @@ invoke.cont328:                                   ; preds = %invoke.cont326
           to label %invoke.cont330 unwind label %lpad321
 
 invoke.cont330:                                   ; preds = %invoke.cont328
-  %exception332 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception332 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp333, ptr noundef nonnull align 8 dereferenceable(112) %oss320)
           to label %invoke.cont335 unwind label %ehcleanup341.thread
 
 invoke.cont335:                                   ; preds = %invoke.cont330
-  %call336 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333) #17
+  %call336 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception332, ptr noundef %call336)
           to label %invoke.cont338 unwind label %ehcleanup341.thread193
 
 ehcleanup341.thread193:                           ; preds = %invoke.cont335
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333) #15
   br label %cleanup.action343
 
 invoke.cont338:                                   ; preds = %invoke.cont335
-  invoke void @__cxa_throw(ptr nonnull %exception332, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception332, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup341
 
 lpad321:                                          ; preds = %invoke.cont328, %invoke.cont326, %invoke.cont324, %invoke.cont322, %if.then319
@@ -1220,18 +1217,18 @@ ehcleanup341.thread:                              ; preds = %invoke.cont330
 ehcleanup341:                                     ; preds = %invoke.cont338
   %61 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp333) #15
   br label %eh.resume
 
 cleanup.action343:                                ; preds = %ehcleanup341.thread193, %ehcleanup341.thread
   %.pn100192 = phi { ptr, i32 } [ %60, %ehcleanup341.thread ], [ %58, %ehcleanup341.thread193 ]
-  call void @__cxa_free_exception(ptr %exception332) #17
+  call void @__cxa_free_exception(ptr %exception332) #15
   br label %eh.resume
 
 if.end346:                                        ; preds = %lor.lhs.false316
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 4
+  %m_start = getelementptr inbounds i8, ptr %this, i64 80
   %62 = load double, ptr %m_start, align 8
-  %m_width347 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 1, i32 5
+  %m_width347 = getelementptr inbounds i8, ptr %this, i64 88
   %63 = load double, ptr %m_width347, align 8
   %add = fadd double %63, 0x3F847A5B0FF10ECC
   %cmp348 = fcmp olt double %62, %add
@@ -1269,23 +1266,23 @@ invoke.cont364:                                   ; preds = %invoke.cont362
           to label %invoke.cont366 unwind label %lpad351
 
 invoke.cont366:                                   ; preds = %invoke.cont364
-  %exception368 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception368 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp369, ptr noundef nonnull align 8 dereferenceable(112) %oss350)
           to label %invoke.cont371 unwind label %ehcleanup377.thread
 
 invoke.cont371:                                   ; preds = %invoke.cont366
-  %call372 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #17
+  %call372 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception368, ptr noundef %call372)
           to label %invoke.cont374 unwind label %ehcleanup377.thread198
 
 ehcleanup377.thread198:                           ; preds = %invoke.cont371
   %66 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #15
   br label %cleanup.action379
 
 invoke.cont374:                                   ; preds = %invoke.cont371
-  invoke void @__cxa_throw(ptr nonnull %exception368, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception368, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup377
 
 lpad351:                                          ; preds = %invoke.cont364, %invoke.cont362, %invoke.cont360, %invoke.cont357, %invoke.cont355, %invoke.cont352, %if.then349
@@ -1301,12 +1298,12 @@ ehcleanup377.thread:                              ; preds = %invoke.cont366
 ehcleanup377:                                     ; preds = %invoke.cont374
   %69 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #15
   br label %eh.resume
 
 cleanup.action379:                                ; preds = %ehcleanup377.thread198, %ehcleanup377.thread
   %.pn97197 = phi { ptr, i32 } [ %68, %ehcleanup377.thread ], [ %66, %ehcleanup377.thread198 ]
-  call void @__cxa_free_exception(ptr %exception368) #17
+  call void @__cxa_free_exception(ptr %exception368) #15
   br label %eh.resume
 
 if.end382:                                        ; preds = %if.end346
@@ -1341,23 +1338,23 @@ invoke.cont403:                                   ; preds = %invoke.cont401
           to label %invoke.cont405 unwind label %lpad396
 
 invoke.cont405:                                   ; preds = %invoke.cont403
-  %exception407 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception407 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp408, ptr noundef nonnull align 8 dereferenceable(112) %oss395)
           to label %invoke.cont410 unwind label %ehcleanup416.thread
 
 invoke.cont410:                                   ; preds = %invoke.cont405
-  %call411 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp408) #17
+  %call411 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp408) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception407, ptr noundef %call411)
           to label %invoke.cont413 unwind label %ehcleanup416.thread203
 
 ehcleanup416.thread203:                           ; preds = %invoke.cont410
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp408) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp408) #15
   br label %cleanup.action418
 
 invoke.cont413:                                   ; preds = %invoke.cont410
-  invoke void @__cxa_throw(ptr nonnull %exception407, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception407, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup416
 
 lpad396:                                          ; preds = %invoke.cont403, %invoke.cont401, %invoke.cont399, %invoke.cont397, %if.then394
@@ -1373,34 +1370,34 @@ ehcleanup416.thread:                              ; preds = %invoke.cont405
 ehcleanup416:                                     ; preds = %invoke.cont413
   %73 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp408) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp408) #15
   br label %eh.resume
 
 cleanup.action418:                                ; preds = %ehcleanup416.thread203, %ehcleanup416.thread
   %.pn94202 = phi { ptr, i32 } [ %72, %ehcleanup416.thread ], [ %70, %ehcleanup416.thread203 ]
-  call void @__cxa_free_exception(ptr %exception407) #17
+  call void @__cxa_free_exception(ptr %exception407) #15
   br label %eh.resume
 
 if.end421:                                        ; preds = %if.end382
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3
+  %m_highlights = getelementptr inbounds i8, ptr %this, i64 144
   %74 = load double, ptr %m_highlights, align 8
   %cmp423 = fcmp olt double %74, 1.999990e-01
   br i1 %cmp423, label %if.then433, label %lor.lhs.false424
 
 lor.lhs.false424:                                 ; preds = %if.end421
-  %m_green425 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 1
+  %m_green425 = getelementptr inbounds i8, ptr %this, i64 152
   %75 = load double, ptr %m_green425, align 8
   %cmp426 = fcmp olt double %75, 1.999990e-01
   br i1 %cmp426, label %if.then433, label %lor.lhs.false427
 
 lor.lhs.false427:                                 ; preds = %lor.lhs.false424
-  %m_blue428 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 2
+  %m_blue428 = getelementptr inbounds i8, ptr %this, i64 160
   %76 = load double, ptr %m_blue428, align 8
   %cmp429 = fcmp olt double %76, 1.999990e-01
   br i1 %cmp429, label %if.then433, label %lor.lhs.false430
 
 lor.lhs.false430:                                 ; preds = %lor.lhs.false427
-  %m_master431 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 3
+  %m_master431 = getelementptr inbounds i8, ptr %this, i64 168
   %77 = load double, ptr %m_master431, align 8
   %cmp432 = fcmp olt double %77, 1.999990e-01
   br i1 %cmp432, label %if.then433, label %if.end460
@@ -1427,23 +1424,23 @@ invoke.cont442:                                   ; preds = %invoke.cont440
           to label %invoke.cont444 unwind label %lpad435
 
 invoke.cont444:                                   ; preds = %invoke.cont442
-  %exception446 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception446 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp447, ptr noundef nonnull align 8 dereferenceable(112) %oss434)
           to label %invoke.cont449 unwind label %ehcleanup455.thread
 
 invoke.cont449:                                   ; preds = %invoke.cont444
-  %call450 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447) #17
+  %call450 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception446, ptr noundef %call450)
           to label %invoke.cont452 unwind label %ehcleanup455.thread208
 
 ehcleanup455.thread208:                           ; preds = %invoke.cont449
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447) #15
   br label %cleanup.action457
 
 invoke.cont452:                                   ; preds = %invoke.cont449
-  invoke void @__cxa_throw(ptr nonnull %exception446, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception446, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup455
 
 lpad435:                                          ; preds = %invoke.cont442, %invoke.cont440, %invoke.cont438, %invoke.cont436, %if.then433
@@ -1459,18 +1456,18 @@ ehcleanup455.thread:                              ; preds = %invoke.cont444
 ehcleanup455:                                     ; preds = %invoke.cont452
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp447) #15
   br label %eh.resume
 
 cleanup.action457:                                ; preds = %ehcleanup455.thread208, %ehcleanup455.thread
   %.pn91207 = phi { ptr, i32 } [ %80, %ehcleanup455.thread ], [ %78, %ehcleanup455.thread208 ]
-  call void @__cxa_free_exception(ptr %exception446) #17
+  call void @__cxa_free_exception(ptr %exception446) #15
   br label %eh.resume
 
 if.end460:                                        ; preds = %lor.lhs.false430
-  %m_start461 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 4
+  %m_start461 = getelementptr inbounds i8, ptr %this, i64 176
   %82 = load double, ptr %m_start461, align 8
-  %m_width462 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 3, i32 5
+  %m_width462 = getelementptr inbounds i8, ptr %this, i64 184
   %83 = load double, ptr %m_width462, align 8
   %sub = fadd double %83, 0xBF847A5B0FF10ECC
   %cmp463 = fcmp ogt double %82, %sub
@@ -1508,23 +1505,23 @@ invoke.cont479:                                   ; preds = %invoke.cont477
           to label %invoke.cont481 unwind label %lpad466
 
 invoke.cont481:                                   ; preds = %invoke.cont479
-  %exception483 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception483 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp484, ptr noundef nonnull align 8 dereferenceable(112) %oss465)
           to label %invoke.cont486 unwind label %ehcleanup492.thread
 
 invoke.cont486:                                   ; preds = %invoke.cont481
-  %call487 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484) #17
+  %call487 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception483, ptr noundef %call487)
           to label %invoke.cont489 unwind label %ehcleanup492.thread213
 
 ehcleanup492.thread213:                           ; preds = %invoke.cont486
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484) #15
   br label %cleanup.action494
 
 invoke.cont489:                                   ; preds = %invoke.cont486
-  invoke void @__cxa_throw(ptr nonnull %exception483, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception483, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup492
 
 lpad466:                                          ; preds = %invoke.cont479, %invoke.cont477, %invoke.cont475, %invoke.cont472, %invoke.cont470, %invoke.cont467, %if.then464
@@ -1540,12 +1537,12 @@ ehcleanup492.thread:                              ; preds = %invoke.cont481
 ehcleanup492:                                     ; preds = %invoke.cont489
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp484) #15
   br label %eh.resume
 
 cleanup.action494:                                ; preds = %ehcleanup492.thread213, %ehcleanup492.thread
   %.pn88212 = phi { ptr, i32 } [ %88, %ehcleanup492.thread ], [ %86, %ehcleanup492.thread213 ]
-  call void @__cxa_free_exception(ptr %exception483) #17
+  call void @__cxa_free_exception(ptr %exception483) #15
   br label %eh.resume
 
 if.end497:                                        ; preds = %if.end460
@@ -1580,23 +1577,23 @@ invoke.cont518:                                   ; preds = %invoke.cont516
           to label %invoke.cont520 unwind label %lpad511
 
 invoke.cont520:                                   ; preds = %invoke.cont518
-  %exception522 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception522 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp523, ptr noundef nonnull align 8 dereferenceable(112) %oss510)
           to label %invoke.cont525 unwind label %ehcleanup531.thread
 
 invoke.cont525:                                   ; preds = %invoke.cont520
-  %call526 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp523) #17
+  %call526 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp523) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception522, ptr noundef %call526)
           to label %invoke.cont528 unwind label %ehcleanup531.thread218
 
 ehcleanup531.thread218:                           ; preds = %invoke.cont525
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp523) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp523) #15
   br label %cleanup.action533
 
 invoke.cont528:                                   ; preds = %invoke.cont525
-  invoke void @__cxa_throw(ptr nonnull %exception522, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception522, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup531
 
 lpad511:                                          ; preds = %invoke.cont518, %invoke.cont516, %invoke.cont514, %invoke.cont512, %if.then509
@@ -1612,16 +1609,16 @@ ehcleanup531.thread:                              ; preds = %invoke.cont520
 ehcleanup531:                                     ; preds = %invoke.cont528
   %93 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp523) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp523) #15
   br label %eh.resume
 
 cleanup.action533:                                ; preds = %ehcleanup531.thread218, %ehcleanup531.thread
   %.pn85217 = phi { ptr, i32 } [ %92, %ehcleanup531.thread ], [ %90, %ehcleanup531.thread218 ]
-  call void @__cxa_free_exception(ptr %exception522) #17
+  call void @__cxa_free_exception(ptr %exception522) #15
   br label %eh.resume
 
 if.end536:                                        ; preds = %if.end497
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %this, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %this, i64 240
   %94 = load double, ptr %m_scontrast, align 8
   %cmp537 = fcmp olt double %94, 0x3F847A5B0FF10ECC
   br i1 %cmp537, label %if.then538, label %if.end566
@@ -1649,23 +1646,23 @@ invoke.cont548:                                   ; preds = %invoke.cont546
           to label %invoke.cont550 unwind label %lpad540
 
 invoke.cont550:                                   ; preds = %invoke.cont548
-  %exception552 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception552 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp553, ptr noundef nonnull align 8 dereferenceable(112) %oss539)
           to label %invoke.cont555 unwind label %ehcleanup561.thread
 
 invoke.cont555:                                   ; preds = %invoke.cont550
-  %call556 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp553) #17
+  %call556 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp553) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception552, ptr noundef %call556)
           to label %invoke.cont558 unwind label %ehcleanup561.thread223
 
 ehcleanup561.thread223:                           ; preds = %invoke.cont555
   %96 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp553) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp553) #15
   br label %cleanup.action563
 
 invoke.cont558:                                   ; preds = %invoke.cont555
-  invoke void @__cxa_throw(ptr nonnull %exception552, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception552, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup561
 
 lpad540:                                          ; preds = %invoke.cont548, %invoke.cont546, %invoke.cont544, %invoke.cont541, %if.then538
@@ -1681,12 +1678,12 @@ ehcleanup561.thread:                              ; preds = %invoke.cont550
 ehcleanup561:                                     ; preds = %invoke.cont558
   %99 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp553) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp553) #15
   br label %eh.resume
 
 cleanup.action563:                                ; preds = %ehcleanup561.thread223, %ehcleanup561.thread
   %.pn82222 = phi { ptr, i32 } [ %98, %ehcleanup561.thread ], [ %96, %ehcleanup561.thread223 ]
-  call void @__cxa_free_exception(ptr %exception552) #17
+  call void @__cxa_free_exception(ptr %exception552) #15
   br label %eh.resume
 
 if.end566:                                        ; preds = %if.end536
@@ -1716,23 +1713,23 @@ invoke.cont579:                                   ; preds = %invoke.cont577
           to label %invoke.cont581 unwind label %lpad571
 
 invoke.cont581:                                   ; preds = %invoke.cont579
-  %exception583 = call ptr @__cxa_allocate_exception(i64 16) #17
+  %exception583 = call ptr @__cxa_allocate_exception(i64 16) #15
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp584, ptr noundef nonnull align 8 dereferenceable(112) %oss570)
           to label %invoke.cont586 unwind label %ehcleanup592.thread
 
 invoke.cont586:                                   ; preds = %invoke.cont581
-  %call587 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp584) #17
+  %call587 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp584) #15
   invoke void @_ZN19OpenColorIO_v2_4dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception583, ptr noundef %call587)
           to label %invoke.cont589 unwind label %ehcleanup592.thread228
 
 ehcleanup592.thread228:                           ; preds = %invoke.cont586
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp584) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp584) #15
   br label %cleanup.action594
 
 invoke.cont589:                                   ; preds = %invoke.cont586
-  invoke void @__cxa_throw(ptr nonnull %exception583, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception583, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
           to label %unreachable unwind label %ehcleanup592
 
 lpad571:                                          ; preds = %invoke.cont579, %invoke.cont577, %invoke.cont575, %invoke.cont572, %if.then569
@@ -1748,12 +1745,12 @@ ehcleanup592.thread:                              ; preds = %invoke.cont581
 ehcleanup592:                                     ; preds = %invoke.cont589
   %104 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp584) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp584) #15
   br label %eh.resume
 
 cleanup.action594:                                ; preds = %ehcleanup592.thread228, %ehcleanup592.thread
   %.pn227 = phi { ptr, i32 } [ %103, %ehcleanup592.thread ], [ %101, %ehcleanup592.thread228 ]
-  call void @__cxa_free_exception(ptr %exception583) #17
+  call void @__cxa_free_exception(ptr %exception583) #15
   br label %eh.resume
 
 if.end597:                                        ; preds = %if.end566
@@ -1762,7 +1759,7 @@ if.end597:                                        ; preds = %if.end566
 eh.resume:                                        ; preds = %lpad571, %cleanup.action594, %ehcleanup592, %lpad540, %cleanup.action563, %ehcleanup561, %lpad511, %cleanup.action533, %ehcleanup531, %lpad466, %cleanup.action494, %ehcleanup492, %lpad435, %cleanup.action457, %ehcleanup455, %lpad396, %cleanup.action418, %ehcleanup416, %lpad351, %cleanup.action379, %ehcleanup377, %lpad321, %cleanup.action343, %ehcleanup341, %lpad282, %cleanup.action304, %ehcleanup302, %lpad242, %cleanup.action265, %ehcleanup263, %lpad212, %cleanup.action234, %ehcleanup232, %lpad173, %cleanup.action195, %ehcleanup193, %lpad133, %cleanup.action156, %ehcleanup154, %lpad103, %cleanup.action125, %ehcleanup123, %lpad64, %cleanup.action86, %ehcleanup84, %lpad24, %cleanup.action47, %ehcleanup45, %lpad, %cleanup.action, %ehcleanup
   %oss570.sink = phi ptr [ %oss, %ehcleanup ], [ %oss, %cleanup.action ], [ %oss, %lpad ], [ %oss23, %ehcleanup45 ], [ %oss23, %cleanup.action47 ], [ %oss23, %lpad24 ], [ %oss63, %ehcleanup84 ], [ %oss63, %cleanup.action86 ], [ %oss63, %lpad64 ], [ %oss102, %ehcleanup123 ], [ %oss102, %cleanup.action125 ], [ %oss102, %lpad103 ], [ %oss132, %ehcleanup154 ], [ %oss132, %cleanup.action156 ], [ %oss132, %lpad133 ], [ %oss172, %ehcleanup193 ], [ %oss172, %cleanup.action195 ], [ %oss172, %lpad173 ], [ %oss211, %ehcleanup232 ], [ %oss211, %cleanup.action234 ], [ %oss211, %lpad212 ], [ %oss241, %ehcleanup263 ], [ %oss241, %cleanup.action265 ], [ %oss241, %lpad242 ], [ %oss281, %ehcleanup302 ], [ %oss281, %cleanup.action304 ], [ %oss281, %lpad282 ], [ %oss320, %ehcleanup341 ], [ %oss320, %cleanup.action343 ], [ %oss320, %lpad321 ], [ %oss350, %ehcleanup377 ], [ %oss350, %cleanup.action379 ], [ %oss350, %lpad351 ], [ %oss395, %ehcleanup416 ], [ %oss395, %cleanup.action418 ], [ %oss395, %lpad396 ], [ %oss434, %ehcleanup455 ], [ %oss434, %cleanup.action457 ], [ %oss434, %lpad435 ], [ %oss465, %ehcleanup492 ], [ %oss465, %cleanup.action494 ], [ %oss465, %lpad466 ], [ %oss510, %ehcleanup531 ], [ %oss510, %cleanup.action533 ], [ %oss510, %lpad511 ], [ %oss539, %ehcleanup561 ], [ %oss539, %cleanup.action563 ], [ %oss539, %lpad540 ], [ %oss570, %ehcleanup592 ], [ %oss570, %cleanup.action594 ], [ %oss570, %lpad571 ]
   %.pn127.pn.pn = phi { ptr, i32 } [ %7, %ehcleanup ], [ %.pn127147, %cleanup.action ], [ %5, %lpad ], [ %13, %ehcleanup45 ], [ %.pn124152, %cleanup.action47 ], [ %11, %lpad24 ], [ %17, %ehcleanup84 ], [ %.pn121157, %cleanup.action86 ], [ %15, %lpad64 ], [ %25, %ehcleanup123 ], [ %.pn118162, %cleanup.action125 ], [ %23, %lpad103 ], [ %31, %ehcleanup154 ], [ %.pn115167, %cleanup.action156 ], [ %29, %lpad133 ], [ %35, %ehcleanup193 ], [ %.pn112172, %cleanup.action195 ], [ %33, %lpad173 ], [ %43, %ehcleanup232 ], [ %.pn109177, %cleanup.action234 ], [ %41, %lpad212 ], [ %49, %ehcleanup263 ], [ %.pn106182, %cleanup.action265 ], [ %47, %lpad242 ], [ %53, %ehcleanup302 ], [ %.pn103187, %cleanup.action304 ], [ %51, %lpad282 ], [ %61, %ehcleanup341 ], [ %.pn100192, %cleanup.action343 ], [ %59, %lpad321 ], [ %69, %ehcleanup377 ], [ %.pn97197, %cleanup.action379 ], [ %67, %lpad351 ], [ %73, %ehcleanup416 ], [ %.pn94202, %cleanup.action418 ], [ %71, %lpad396 ], [ %81, %ehcleanup455 ], [ %.pn91207, %cleanup.action457 ], [ %79, %lpad435 ], [ %89, %ehcleanup492 ], [ %.pn88212, %cleanup.action494 ], [ %87, %lpad466 ], [ %93, %ehcleanup531 ], [ %.pn85217, %cleanup.action533 ], [ %91, %lpad511 ], [ %99, %ehcleanup561 ], [ %.pn82222, %cleanup.action563 ], [ %97, %lpad540 ], [ %104, %ehcleanup592 ], [ %.pn227, %cleanup.action594 ], [ %102, %lpad571 ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss570.sink) #17
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss570.sink) #15
   resume { ptr, i32 } %.pn127.pn.pn
 
 unreachable:                                      ; preds = %invoke.cont589, %invoke.cont558, %invoke.cont528, %invoke.cont489, %invoke.cont452, %invoke.cont413, %invoke.cont374, %invoke.cont338, %invoke.cont299, %invoke.cont260, %invoke.cont229, %invoke.cont190, %invoke.cont151, %invoke.cont120, %invoke.cont81, %invoke.cont42, %invoke.cont19
@@ -1817,19 +1814,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.then2:                                         ; preds = %entry
-  %m_green = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %value, i64 0, i32 1
+  %m_green = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load double, ptr %m_green, align 8
   %conv3 = fptrunc double %1 to float
   br label %return
 
 if.then6:                                         ; preds = %entry
-  %m_blue = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %value, i64 0, i32 2
+  %m_blue = getelementptr inbounds i8, ptr %value, i64 16
   %2 = load double, ptr %m_blue, align 8
   %conv7 = fptrunc double %2 to float
   br label %return
 
 if.then11:                                        ; preds = %entry
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %value, i64 0, i32 3
+  %m_master = getelementptr inbounds i8, ptr %value, i64 24
   %3 = load double, ptr %m_master, align 8
   %conv12 = fptrunc double %3 to float
   br label %return
@@ -1850,7 +1847,7 @@ entry:
   br i1 %3, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 1
+  %m_shadows = getelementptr inbounds i8, ptr %value, i64 48
   %4 = load <4 x double>, ptr %m_shadows, align 8
   %.fr54 = freeze <4 x double> %4
   %5 = fcmp une <4 x double> %.fr54, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1859,7 +1856,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %7, label %land.lhs.true2, label %land.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 2
+  %m_midtones = getelementptr inbounds i8, ptr %value, i64 96
   %8 = load <4 x double>, ptr %m_midtones, align 8
   %.fr55 = freeze <4 x double> %8
   %9 = fcmp une <4 x double> %.fr55, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1868,7 +1865,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
   br i1 %11, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 3
+  %m_highlights = getelementptr inbounds i8, ptr %value, i64 144
   %12 = load <4 x double>, ptr %m_highlights, align 8
   %.fr56 = freeze <4 x double> %12
   %13 = fcmp une <4 x double> %.fr56, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1877,7 +1874,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true2
   br i1 %15, label %land.lhs.true6, label %land.end
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 4
+  %m_whites = getelementptr inbounds i8, ptr %value, i64 192
   %16 = load <4 x double>, ptr %m_whites, align 8
   %.fr57 = freeze <4 x double> %16
   %17 = fcmp une <4 x double> %.fr57, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
@@ -1886,7 +1883,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true4
   br i1 %19, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true6
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %value, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %value, i64 240
   %20 = load double, ptr %m_scontrast, align 8
   %cmp = fcmp oeq double %20, 1.000000e+00
   br label %land.end
@@ -1896,15 +1893,15 @@ land.end:                                         ; preds = %land.lhs.true6, %la
   ret i1 %21
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, i32 noundef %style) unnamed_addr #5 align 2 {
 entry:
-  %m_top = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 21
+  %m_top = getelementptr inbounds i8, ptr %this, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 0, i64 912, i1 false)
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0x3FD99999A0000000>, ptr %m_top, align 8
-  %m_localBypass = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 25
+  %m_localBypass = getelementptr inbounds i8, ptr %this, i64 928
   store i8 0, ptr %m_localBypass, align 8
-  %m_style = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 26
+  %m_style = getelementptr inbounds i8, ptr %this, i64 932
   store i32 0, ptr %m_style, align 4
   %cmp.not.i = icmp eq i32 %style, 0
   br i1 %cmp.not.i, label %_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE.exit, label %if.then.i
@@ -1934,7 +1931,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender8setStyleENS_12GradingStyleE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, i32 noundef %style) local_unnamed_addr #7 align 2 {
 entry:
-  %m_style = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 26
+  %m_style = getelementptr inbounds i8, ptr %this, i64 932
   %0 = load i32, ptr %m_style, align 4
   %cmp.not = icmp eq i32 %0, %style
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1945,10 +1942,10 @@ if.then:                                          ; preds = %entry
   br i1 %1, label %switch.lookup, label %if.end
 
 switch.lookup:                                    ; preds = %if.then
-  %m_pivot = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 24
-  %m_bottom = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 23
-  %m_topSC = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 22
-  %m_top = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 21
+  %m_pivot = getelementptr inbounds i8, ptr %this, i64 924
+  %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
+  %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
+  %m_top = getelementptr inbounds i8, ptr %this, i64 912
   %2 = zext nneg i32 %style to i64
   %switch.gep = getelementptr inbounds [3 x float], ptr @switch.table._ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_, i64 0, i64 %2
   %switch.load = load float, ptr %switch.gep, align 4
@@ -1972,7 +1969,7 @@ if.end:                                           ; preds = %if.then, %switch.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_(i32 noundef %style, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %top, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %topSC, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %bottom, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %pivot) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender9FromStyleENS_12GradingStyleERfS2_S2_S2_(i32 noundef %style, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %top, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %topSC, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %bottom, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %pivot) local_unnamed_addr #5 align 2 {
 entry:
   %0 = icmp ult i32 %style, 3
   br i1 %0, label %switch.lookup, label %sw.epilog
@@ -2001,79 +1998,79 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(248) %v)
-  %m_localBypass = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 25
+  %m_localBypass = getelementptr inbounds i8, ptr %this, i64 928
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %m_localBypass, align 8
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_master = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 3
+  %m_master = getelementptr inbounds i8, ptr %v, i64 168
   %0 = load double, ptr %m_master, align 8
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 4
+  %m_start = getelementptr inbounds i8, ptr %v, i64 176
   %1 = load double, ptr %m_start, align 8
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 5
+  %m_width = getelementptr inbounds i8, ptr %v, i64 184
   %2 = load double, ptr %m_width, align 8
-  %m_start5 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 4
+  %m_start5 = getelementptr inbounds i8, ptr %v, i64 224
   %3 = load double, ptr %m_start5, align 8
-  %m_width7 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 5
+  %m_width7 = getelementptr inbounds i8, ptr %v, i64 232
   %4 = load double, ptr %m_width7, align 8
   %sub = fadd double %2, -1.000000e-02
   %cmp = fcmp ogt double %1, %sub
   %cond = select i1 %cmp, double %sub, double %1
-  %m_highlightsStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 2
+  %m_highlightsStart = getelementptr inbounds i8, ptr %this, i64 16
   store double %cond, ptr %m_highlightsStart, align 8
-  %m_highlightsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 3
+  %m_highlightsWidth = getelementptr inbounds i8, ptr %this, i64 24
   store double %2, ptr %m_highlightsWidth, align 8
   %call11 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %3, double noundef %cond, double noundef %2, double noundef %0)
   %add = fadd double %3, %4
   %5 = load double, ptr %m_highlightsStart, align 8
   %6 = load double, ptr %m_highlightsWidth, align 8
   %call14 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %add, double noundef %5, double noundef %6, double noundef %0)
-  %m_whitesStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 6
+  %m_whitesStart = getelementptr inbounds i8, ptr %this, i64 48
   store double %call11, ptr %m_whitesStart, align 8
   %sub15 = fsub double %call14, %call11
-  %m_whitesWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 7
+  %m_whitesWidth = getelementptr inbounds i8, ptr %this, i64 56
   store double %sub15, ptr %m_whitesWidth, align 8
-  %m_master17 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 3
+  %m_master17 = getelementptr inbounds i8, ptr %v, i64 72
   %7 = load double, ptr %m_master17, align 8
-  %m_start20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 4
+  %m_start20 = getelementptr inbounds i8, ptr %v, i64 80
   %8 = load double, ptr %m_start20, align 8
-  %m_width23 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 5
+  %m_width23 = getelementptr inbounds i8, ptr %v, i64 88
   %9 = load double, ptr %m_width23, align 8
-  %m_start24 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 4
+  %m_start24 = getelementptr inbounds i8, ptr %v, i64 32
   %10 = load double, ptr %m_start24, align 8
-  %m_width26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 5
+  %m_width26 = getelementptr inbounds i8, ptr %v, i64 40
   %11 = load double, ptr %m_width26, align 8
   %add27 = fadd double %9, 1.000000e-02
   %cmp28 = fcmp olt double %8, %add27
   %cond33 = select i1 %cmp28, double %add27, double %8
   store double %cond33, ptr %this, align 8
-  %m_shadowsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 1
+  %m_shadowsWidth = getelementptr inbounds i8, ptr %this, i64 8
   store double %9, ptr %m_shadowsWidth, align 8
   %call37 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %10, double noundef %9, double noundef %cond33, double noundef %7)
   %sub39 = fsub double %10, %11
   %12 = load double, ptr %m_shadowsWidth, align 8
   %13 = load double, ptr %this, align 8
   %call42 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %sub39, double noundef %12, double noundef %13, double noundef %7)
-  %m_blacksStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 4
+  %m_blacksStart = getelementptr inbounds i8, ptr %this, i64 32
   store double %call37, ptr %m_blacksStart, align 8
   %sub43 = fsub double %call37, %call42
-  %m_blacksWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 5
+  %m_blacksWidth = getelementptr inbounds i8, ptr %this, i64 40
   store double %sub43, ptr %m_blacksWidth, align 8
-  %m_top = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 21
+  %m_top = getelementptr inbounds i8, ptr %this, i64 912
   %14 = load float, ptr %m_top, align 8
-  %m_bottom = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 23
+  %m_bottom = getelementptr inbounds i8, ptr %this, i64 920
   %15 = load float, ptr %m_bottom, align 8
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v, float noundef %14, float noundef %15)
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v)
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v)
-  %m_topSC = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 22
+  %m_topSC = getelementptr inbounds i8, ptr %this, i64 916
   %16 = load float, ptr %m_topSC, align 4
   %17 = load float, ptr %m_bottom, align 8
-  %m_pivot = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 24
+  %m_pivot = getelementptr inbounds i8, ptr %this, i64 924
   %18 = load float, ptr %m_pivot, align 4
   tail call void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull align 8 dereferenceable(936) %this, ptr noundef nonnull align 8 dereferenceable(248) %v, float noundef %16, float noundef %17, float noundef %18)
   br label %return
@@ -2083,7 +2080,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %t, double noundef %start, double noundef %pivot, double noundef %val) unnamed_addr #10 {
+define internal fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %t, double noundef %start, double noundef %pivot, double noundef %val) unnamed_addr #9 {
 entry:
   %sub = fsub double %pivot, %start
   %0 = tail call double @llvm.fmuladd.f64(double %sub, double 5.000000e-01, double %start)
@@ -2173,7 +2170,7 @@ if.else:                                          ; preds = %entry
   %26 = fmul double %25, -4.000000e+00
   %neg20.i = fmul double %sub10.i24, %26
   %27 = tail call double @llvm.fmuladd.f64(double %sub1.i18, double %sub1.i18, double %neg20.i)
-  %call.i = tail call double @sqrt(double noundef %27) #17
+  %call.i = tail call double @sqrt(double noundef %27) #15
   %sub26.i26 = fsub double %mul.i23, %t
   %neg29.i = fmul double %mul.i23, -2.000000e+00
   %28 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg29.i)
@@ -2184,7 +2181,7 @@ if.else:                                          ; preds = %entry
   %31 = fmul double %30, -4.000000e+00
   %neg39.i = fmul double %sub26.i26, %31
   %32 = tail call double @llvm.fmuladd.f64(double %29, double %29, double %neg39.i)
-  %call40.i = tail call double @sqrt(double noundef %32) #17
+  %call40.i = tail call double @sqrt(double noundef %32) #15
   %cmp47.i = fcmp olt double %t, %start
   br i1 %cmp47.i, label %cond.true48.i, label %cond.false52.i
 
@@ -2223,7 +2220,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %t, double noundef %start, double noundef %pivot, double noundef %val) unnamed_addr #10 {
+define internal fastcc noundef double @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %t, double noundef %start, double noundef %pivot, double noundef %val) unnamed_addr #9 {
 entry:
   %sub = fsub double %pivot, %start
   %0 = tail call double @llvm.fmuladd.f64(double %sub, double 5.000000e-01, double %start)
@@ -2305,7 +2302,7 @@ if.else:                                          ; preds = %entry
   %25 = fmul double %24, -4.000000e+00
   %neg20.i = fmul double %sub10.i23, %25
   %26 = tail call double @llvm.fmuladd.f64(double %mul3.i20, double %mul3.i20, double %neg20.i)
-  %call.i = tail call double @sqrt(double noundef %26) #17
+  %call.i = tail call double @sqrt(double noundef %26) #15
   %sub26.i25 = fsub double %mul.i22, %t
   %neg29.i = fmul double %mul.i22, -2.000000e+00
   %27 = tail call double @llvm.fmuladd.f64(double %pivot, double 2.000000e+00, double %neg29.i)
@@ -2315,7 +2312,7 @@ if.else:                                          ; preds = %entry
   %30 = fmul double %29, -4.000000e+00
   %neg39.i = fmul double %sub26.i25, %30
   %31 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %neg39.i)
-  %call40.i = tail call double @sqrt(double noundef %31) #17
+  %call40.i = tail call double @sqrt(double noundef %31) #15
   %cmp47.i = fcmp olt double %t, %start
   br i1 %cmp47.i, label %cond.true48.i, label %cond.false52.i
 
@@ -2349,19 +2346,22 @@ return:                                           ; preds = %cond.false52.i, %co
   ret double %cond62.i
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %top, float noundef %bottom) local_unnamed_addr #11 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %top, float noundef %bottom) local_unnamed_addr #10 align 2 {
 entry:
   %ref.tmp2 = alloca [4 x i32], align 16
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp2, align 16
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 3
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 2
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 1
-  %m_midtones = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2
+  %m_midX = getelementptr inbounds i8, ptr %this, i64 64
+  %m_midY = getelementptr inbounds i8, ptr %this, i64 160
+  %m_midM = getelementptr inbounds i8, ptr %this, i64 256
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 120
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 112
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 104
+  %m_midtones = getelementptr inbounds i8, ptr %v, i64 96
   %sub = fsub float %top, %bottom
   %mul = fmul float %sub, 0x3FEE666660000000
-  %m_width = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 5
-  %m_start = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 2, i32 4
+  %m_width = getelementptr inbounds i8, ptr %v, i64 136
+  %m_start = getelementptr inbounds i8, ptr %v, i64 128
   %add96 = fadd float %top, %bottom
   %mul97 = fmul float %add96, 5.000000e-01
   br label %for.body
@@ -2371,24 +2371,24 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin1.0.idx138
   %0 = load i32, ptr %__begin1.0.ptr, align 4
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom
-  %arrayidx10 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 1
-  %arrayidx14 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 2
-  %arrayidx18 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 3
-  %arrayidx22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 4
-  %arrayidx26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 8, i64 %idxprom, i64 5
-  %arrayidx28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom
-  %arrayidx33 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 1
-  %arrayidx37 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 2
-  %arrayidx41 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 3
-  %arrayidx45 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 4
-  %arrayidx49 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 9, i64 %idxprom, i64 5
-  %arrayidx51 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom
-  %arrayidx56 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 1
-  %arrayidx60 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 2
-  %arrayidx64 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 3
-  %arrayidx68 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 4
-  %arrayidx72 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 10, i64 %idxprom, i64 5
+  %arrayidx = getelementptr inbounds [4 x [6 x float]], ptr %m_midX, i64 0, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx14 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %arrayidx22 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx26 = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %arrayidx28 = getelementptr inbounds [4 x [6 x float]], ptr %m_midY, i64 0, i64 %idxprom
+  %arrayidx33 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
+  %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx28, i64 8
+  %arrayidx41 = getelementptr inbounds i8, ptr %arrayidx28, i64 12
+  %arrayidx45 = getelementptr inbounds i8, ptr %arrayidx28, i64 16
+  %arrayidx49 = getelementptr inbounds i8, ptr %arrayidx28, i64 20
+  %arrayidx51 = getelementptr inbounds [4 x [6 x float]], ptr %m_midM, i64 0, i64 %idxprom
+  %arrayidx56 = getelementptr inbounds i8, ptr %arrayidx51, i64 4
+  %arrayidx60 = getelementptr inbounds i8, ptr %arrayidx51, i64 8
+  %arrayidx64 = getelementptr inbounds i8, ptr %arrayidx51, i64 12
+  %arrayidx68 = getelementptr inbounds i8, ptr %arrayidx51, i64 16
+  %arrayidx72 = getelementptr inbounds i8, ptr %arrayidx51, i64 20
   switch i32 %0, label %_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingRGBMSWENS_11RGBMChannelE.exit [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
@@ -2580,29 +2580,25 @@ for.end:                                          ; preds = %for.inc
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #11 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #10 align 2 {
 entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   %ref.tmp5 = alloca [4 x i32], align 16
   store i8 0, ptr %ref.tmp2, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
   store i8 1, ptr %arrayinit.element, align 1
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 3
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 2
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1, i32 1
-  %m_shadows = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 1
-  %m_master.i77 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 3
-  %m_blue.i81 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 2
-  %m_green.i84 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3, i32 1
-  %m_highlights = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 3
-  %m_highlightsStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 2
-  %m_highlightsStart.val = load double, ptr %m_highlightsStart, align 8
-  %this.val = load double, ptr %this, align 8
-  %m_shadowsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 1
-  %m_highlightsWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 3
-  %m_highlightsWidth.val = load double, ptr %m_highlightsWidth, align 8
-  %m_shadowsWidth.val = load double, ptr %m_shadowsWidth, align 8
+  %m_hsX = getelementptr inbounds i8, ptr %this, i64 352
+  %m_hsY = getelementptr inbounds i8, ptr %this, i64 448
+  %m_hsM = getelementptr inbounds i8, ptr %this, i64 544
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 72
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 64
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 56
+  %m_shadows = getelementptr inbounds i8, ptr %v, i64 48
+  %m_master.i77 = getelementptr inbounds i8, ptr %v, i64 168
+  %m_blue.i81 = getelementptr inbounds i8, ptr %v, i64 160
+  %m_green.i84 = getelementptr inbounds i8, ptr %v, i64 152
+  %m_highlights = getelementptr inbounds i8, ptr %v, i64 144
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc168
@@ -2613,33 +2609,31 @@ for.body:                                         ; preds = %entry, %for.inc168
   %tobool.not.not = icmp eq i8 %1, 0
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp5, align 16
   %idxprom = zext nneg i8 %1 to i64
-  %cond87 = select i1 %tobool.not.not, double %m_highlightsStart.val, double %this.val
-  %conv = fptrunc double %cond87 to float
-  %cond92 = select i1 %tobool.not.not, double %m_highlightsWidth.val, double %m_shadowsWidth.val
-  %conv93 = fptrunc double %cond92 to float
-  %cond98 = select i1 %tobool.not.not, float %conv, float %conv93
-  %cond103 = select i1 %tobool.not.not, float %conv93, float %conv
-  %sub104 = fsub float %cond103, %cond98
-  %2 = tail call float @llvm.fmuladd.f32(float %sub104, float 5.000000e-01, float %cond98)
+  %2 = shl nuw nsw i8 %1, 4
+  %3 = xor i8 %2, 16
+  %cond87.in.idx = zext nneg i8 %3 to i64
+  %cond87.in = getelementptr inbounds i8, ptr %this, i64 %cond87.in.idx
+  %cond92.in.v = select i1 %tobool.not.not, i64 24, i64 8
+  %cond92.in = getelementptr inbounds i8, ptr %this, i64 %cond92.in.v
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.idx105 = phi i64 [ 0, %for.body ], [ %__begin2.0.add, %for.inc ]
   %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx105
-  %3 = load i32, ptr %__begin2.0.ptr, align 4
-  %idxprom19 = zext i32 %3 to i64
-  %arrayidx20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 11, i64 %idxprom, i64 %idxprom19
-  %arrayidx29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 11, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx37 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 11, i64 %idxprom, i64 %idxprom19, i64 2
-  %arrayidx43 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 12, i64 %idxprom, i64 %idxprom19
-  %arrayidx52 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 12, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx60 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 12, i64 %idxprom, i64 %idxprom19, i64 2
-  %arrayidx66 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 13, i64 %idxprom, i64 %idxprom19
-  %arrayidx75 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 13, i64 %idxprom, i64 %idxprom19, i64 1
+  %4 = load i32, ptr %__begin2.0.ptr, align 4
+  %idxprom19 = zext i32 %4 to i64
+  %arrayidx20 = getelementptr inbounds [2 x [4 x [3 x float]]], ptr %m_hsX, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  %arrayidx37 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
+  %arrayidx43 = getelementptr inbounds [2 x [4 x [3 x float]]], ptr %m_hsY, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx52 = getelementptr inbounds i8, ptr %arrayidx43, i64 4
+  %arrayidx60 = getelementptr inbounds i8, ptr %arrayidx43, i64 8
+  %arrayidx66 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_hsM, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx75 = getelementptr inbounds i8, ptr %arrayidx66, i64 4
   br i1 %tobool.not.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %for.body17
-  switch i32 %3, label %cond.end [
+  switch i32 %4, label %cond.end [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
     i32 2, label %if.then6.i
@@ -2647,27 +2641,27 @@ cond.true:                                        ; preds = %for.body17
   ]
 
 if.then.i:                                        ; preds = %cond.true
-  %4 = load double, ptr %m_shadows, align 8
-  %conv.i = fptrunc double %4 to float
+  %5 = load double, ptr %m_shadows, align 8
+  %conv.i = fptrunc double %5 to float
   br label %cond.end
 
 if.then2.i:                                       ; preds = %cond.true
-  %5 = load double, ptr %m_green.i, align 8
-  %conv3.i = fptrunc double %5 to float
+  %6 = load double, ptr %m_green.i, align 8
+  %conv3.i = fptrunc double %6 to float
   br label %cond.end
 
 if.then6.i:                                       ; preds = %cond.true
-  %6 = load double, ptr %m_blue.i, align 8
-  %conv7.i = fptrunc double %6 to float
+  %7 = load double, ptr %m_blue.i, align 8
+  %conv7.i = fptrunc double %7 to float
   br label %cond.end
 
 if.then11.i:                                      ; preds = %cond.true
-  %7 = load double, ptr %m_master.i, align 8
-  %conv12.i = fptrunc double %7 to float
+  %8 = load double, ptr %m_master.i, align 8
+  %conv12.i = fptrunc double %8 to float
   br label %cond.end
 
 cond.false:                                       ; preds = %for.body17
-  switch i32 %3, label %cond.end [
+  switch i32 %4, label %cond.end [
     i32 0, label %if.then.i86
     i32 1, label %if.then2.i83
     i32 2, label %if.then6.i80
@@ -2675,23 +2669,23 @@ cond.false:                                       ; preds = %for.body17
   ]
 
 if.then.i86:                                      ; preds = %cond.false
-  %8 = load double, ptr %m_highlights, align 8
-  %conv.i87 = fptrunc double %8 to float
+  %9 = load double, ptr %m_highlights, align 8
+  %conv.i87 = fptrunc double %9 to float
   br label %cond.end
 
 if.then2.i83:                                     ; preds = %cond.false
-  %9 = load double, ptr %m_green.i84, align 8
-  %conv3.i85 = fptrunc double %9 to float
+  %10 = load double, ptr %m_green.i84, align 8
+  %conv3.i85 = fptrunc double %10 to float
   br label %cond.end
 
 if.then6.i80:                                     ; preds = %cond.false
-  %10 = load double, ptr %m_blue.i81, align 8
-  %conv7.i82 = fptrunc double %10 to float
+  %11 = load double, ptr %m_blue.i81, align 8
+  %conv7.i82 = fptrunc double %11 to float
   br label %cond.end
 
 if.then11.i76:                                    ; preds = %cond.false
-  %11 = load double, ptr %m_master.i77, align 8
-  %conv12.i78 = fptrunc double %11 to float
+  %12 = load double, ptr %m_master.i77, align 8
+  %conv12.i78 = fptrunc double %12 to float
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then11.i76, %if.then6.i80, %if.then2.i83, %if.then.i86, %cond.false, %if.then11.i, %if.then6.i, %if.then2.i, %if.then.i, %cond.true
@@ -2702,11 +2696,19 @@ cond.end:                                         ; preds = %if.then11.i76, %if.
   br i1 %cmp81, label %if.then82, label %for.inc
 
 if.then82:                                        ; preds = %cond.end
+  %cond87 = load double, ptr %cond87.in, align 8
+  %conv = fptrunc double %cond87 to float
+  %cond92 = load double, ptr %cond92.in, align 8
+  %conv93 = fptrunc double %cond92 to float
+  %cond98 = select i1 %tobool.not.not, float %conv, float %conv93
   store float %cond98, ptr %arrayidx20, align 4
+  %cond103 = select i1 %tobool.not.not, float %conv93, float %conv
   store float %cond103, ptr %arrayidx37, align 4
   store float %cond98, ptr %arrayidx43, align 4
   store float %cond103, ptr %arrayidx60, align 4
-  store float %2, ptr %arrayidx29, align 4
+  %sub104 = fsub float %cond103, %cond98
+  %13 = tail call float @llvm.fmuladd.f32(float %sub104, float 5.000000e-01, float %cond98)
+  store float %13, ptr %arrayidx29, align 4
   %cmp105 = fcmp olt float %storemerge, 1.000000e+00
   br i1 %cmp105, label %if.then106, label %if.else
 
@@ -2728,23 +2730,23 @@ cond.end119:                                      ; preds = %cond.true108, %cond
   %cond120 = phi float [ %.sroa.speculated96, %cond.false116.critedge ], [ 1.000000e+00, %cond.true108 ]
   store float %.sroa.speculated98.sink, ptr %arrayidx66, align 8
   store float %cond120, ptr %arrayidx75, align 4
-  %12 = load float, ptr %arrayidx37, align 4
-  %13 = load float, ptr %arrayidx20, align 4
-  %sub121 = fsub float %12, %13
+  %14 = load float, ptr %arrayidx37, align 4
+  %15 = load float, ptr %arrayidx20, align 4
+  %sub121 = fsub float %14, %15
   %div = fdiv float 5.000000e-01, %sub121
-  %14 = load float, ptr %arrayidx43, align 4
-  %15 = load float, ptr %arrayidx29, align 4
-  %sub122 = fsub float %15, %13
+  %16 = load float, ptr %arrayidx43, align 4
+  %17 = load float, ptr %arrayidx29, align 4
+  %sub122 = fsub float %17, %15
   %mul123 = fmul float %.sroa.speculated98.sink, %sub122
-  %16 = tail call float @llvm.fmuladd.f32(float %14, float 2.000000e+00, float %mul123)
-  %sub124 = fsub float %12, %15
-  %17 = load float, ptr %arrayidx60, align 4
-  %18 = fneg float %cond120
-  %neg = fmul float %sub124, %18
-  %19 = tail call float @llvm.fmuladd.f32(float %17, float 2.000000e+00, float %neg)
-  %mul129 = fmul float %sub122, %19
-  %20 = tail call float @llvm.fmuladd.f32(float %16, float %sub124, float %mul129)
-  %mul = fmul float %div, %20
+  %18 = tail call float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float %mul123)
+  %sub124 = fsub float %14, %17
+  %19 = load float, ptr %arrayidx60, align 4
+  %20 = fneg float %cond120
+  %neg = fmul float %sub124, %20
+  %21 = tail call float @llvm.fmuladd.f32(float %19, float 2.000000e+00, float %neg)
+  %mul129 = fmul float %sub122, %21
+  %22 = tail call float @llvm.fmuladd.f32(float %18, float %sub124, float %mul129)
+  %mul = fmul float %div, %22
   br label %for.inc.sink.split
 
 if.else:                                          ; preds = %if.then82
@@ -2770,23 +2772,23 @@ cond.end148:                                      ; preds = %cond.true133, %cond
   %cond149 = phi float [ %.sroa.speculated, %cond.false143.critedge ], [ 1.000000e+00, %cond.true133 ]
   store float %.sroa.speculated95.sink, ptr %arrayidx66, align 8
   store float %cond149, ptr %arrayidx75, align 4
-  %21 = load float, ptr %arrayidx37, align 4
-  %22 = load float, ptr %arrayidx29, align 4
-  %sub150 = fsub float %21, %22
-  %23 = load float, ptr %arrayidx20, align 4
-  %sub151 = fsub float %22, %23
+  %23 = load float, ptr %arrayidx37, align 4
+  %24 = load float, ptr %arrayidx29, align 4
+  %sub150 = fsub float %23, %24
+  %25 = load float, ptr %arrayidx20, align 4
+  %sub151 = fsub float %24, %25
   %add = fadd float %sub150, %sub151
   %div152 = fdiv float 5.000000e-01, %add
-  %24 = load float, ptr %arrayidx43, align 4
+  %26 = load float, ptr %arrayidx43, align 4
   %mul155 = fmul float %sub151, %.sroa.speculated95.sink
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float 2.000000e+00, float %mul155)
-  %26 = load float, ptr %arrayidx60, align 4
-  %27 = fneg float %cond149
-  %neg161 = fmul float %sub150, %27
-  %28 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %neg161)
-  %mul163 = fmul float %sub151, %28
-  %29 = tail call float @llvm.fmuladd.f32(float %25, float %sub150, float %mul163)
-  %mul164 = fmul float %div152, %29
+  %27 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %mul155)
+  %28 = load float, ptr %arrayidx60, align 4
+  %29 = fneg float %cond149
+  %neg161 = fmul float %sub150, %29
+  %30 = tail call float @llvm.fmuladd.f32(float %28, float 2.000000e+00, float %neg161)
+  %mul163 = fmul float %sub151, %30
+  %31 = tail call float @llvm.fmuladd.f32(float %27, float %sub150, float %mul163)
+  %mul164 = fmul float %div152, %31
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.end119, %cond.end148
@@ -2808,29 +2810,25 @@ for.end170:                                       ; preds = %for.inc168
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #11 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #10 align 2 {
 entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   %ref.tmp5 = alloca [4 x i32], align 16
   store i8 0, ptr %ref.tmp2, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
   store i8 1, ptr %arrayinit.element, align 1
-  %m_blacksStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 4
-  %m_whitesStart = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 6
-  %m_whitesStart.val = load double, ptr %m_whitesStart, align 8
-  %m_blacksStart.val = load double, ptr %m_blacksStart, align 8
-  %m_blacksWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 5
-  %m_whitesWidth = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 7
-  %m_whitesWidth.val = load double, ptr %m_whitesWidth, align 8
-  %m_blacksWidth.val = load double, ptr %m_blacksWidth, align 8
-  %m_master.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 3
-  %m_blue.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 2
-  %m_green.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingRGBMSW", ptr %v, i64 0, i32 1
-  %m_master.i76 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 3
-  %m_blue.i80 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 2
-  %m_green.i83 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4, i32 1
-  %m_whites = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 4
+  %m_wbX = getelementptr inbounds i8, ptr %this, i64 608
+  %m_wbY = getelementptr inbounds i8, ptr %this, i64 672
+  %m_wbM = getelementptr inbounds i8, ptr %this, i64 736
+  %m_wbGain = getelementptr inbounds i8, ptr %this, i64 800
+  %m_master.i = getelementptr inbounds i8, ptr %v, i64 24
+  %m_blue.i = getelementptr inbounds i8, ptr %v, i64 16
+  %m_green.i = getelementptr inbounds i8, ptr %v, i64 8
+  %m_master.i76 = getelementptr inbounds i8, ptr %v, i64 216
+  %m_blue.i80 = getelementptr inbounds i8, ptr %v, i64 208
+  %m_green.i83 = getelementptr inbounds i8, ptr %v, i64 200
+  %m_whites = getelementptr inbounds i8, ptr %v, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc133
@@ -2841,10 +2839,14 @@ for.body:                                         ; preds = %entry, %for.inc133
   %tobool.not.not = icmp eq i8 %1, 0
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %ref.tmp5, align 16
   %idxprom = zext nneg i8 %1 to i64
-  %cond67 = select i1 %tobool.not.not, double %m_whitesStart.val, double %m_blacksStart.val
-  %conv = fptrunc double %cond67 to float
-  %cond72 = select i1 %tobool.not.not, double %m_whitesWidth.val, double %m_blacksWidth.val
-  %conv73 = fptrunc double %cond72 to float
+  %cond67.in.v = select i1 %tobool.not.not, i64 48, i64 32
+  %cond67.in = getelementptr inbounds i8, ptr %this, i64 %cond67.in.v
+  %cond72.in.v = select i1 %tobool.not.not, i64 56, i64 40
+  %cond72.in = getelementptr inbounds i8, ptr %this, i64 %cond72.in.v
+  %cond67.pre = load double, ptr %cond67.in, align 8
+  %cond72.pre = load double, ptr %cond72.in, align 8
+  %conv = fptrunc double %cond67.pre to float
+  %conv73 = fptrunc double %cond72.pre to float
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body, %for.inc
@@ -2852,13 +2854,13 @@ for.body17:                                       ; preds = %for.body, %for.inc
   %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp5, i64 %__begin2.0.idx104
   %2 = load i32, ptr %__begin2.0.ptr, align 4
   %idxprom19 = zext i32 %2 to i64
-  %arrayidx20 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 14, i64 %idxprom, i64 %idxprom19
-  %arrayidx29 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 14, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx35 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 15, i64 %idxprom, i64 %idxprom19
-  %arrayidx44 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 15, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx50 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 16, i64 %idxprom, i64 %idxprom19
-  %arrayidx59 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 16, i64 %idxprom, i64 %idxprom19, i64 1
-  %arrayidx65 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 17, i64 %idxprom, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbX, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  %arrayidx35 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbY, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx44 = getelementptr inbounds i8, ptr %arrayidx35, i64 4
+  %arrayidx50 = getelementptr inbounds [2 x [4 x [2 x float]]], ptr %m_wbM, i64 0, i64 %idxprom, i64 %idxprom19
+  %arrayidx59 = getelementptr inbounds i8, ptr %arrayidx50, i64 4
+  %arrayidx65 = getelementptr inbounds [2 x [4 x float]], ptr %m_wbGain, i64 0, i64 %idxprom, i64 %idxprom19
   br i1 %tobool.not.not, label %cond.false77, label %cond.true75
 
 cond.true75:                                      ; preds = %for.body17
@@ -3009,10 +3011,10 @@ for.end135:                                       ; preds = %for.inc133
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %topSC, float noundef %bottom, float noundef %pivot) local_unnamed_addr #12 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v, float noundef %topSC, float noundef %bottom, float noundef %pivot) local_unnamed_addr #7 align 2 {
 entry:
-  %m_scontrast = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTone", ptr %v, i64 0, i32 5
+  %m_scontrast = getelementptr inbounds i8, ptr %v, i64 240
   %0 = load double, ptr %m_scontrast, align 8
   %conv = fptrunc double %0 to float
   %cmp = fcmp une float %conv, 1.000000e+00
@@ -3037,16 +3039,16 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi float [ %div, %cond.true ], [ %2, %cond.false ]
-  %m_scX = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18
-  %arrayidx8 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 0, i64 1
-  %arrayidx11 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 0, i64 2
-  %arrayidx14 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 0, i64 3
-  %m_scY = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19
-  %arrayidx19 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 0, i64 1
-  %arrayidx22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 0, i64 2
-  %arrayidx25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 0, i64 3
-  %m_scM = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20
-  %arrayidx30 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20, i64 0, i64 1
+  %m_scX = getelementptr inbounds i8, ptr %this, i64 832
+  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 836
+  %arrayidx11 = getelementptr inbounds i8, ptr %this, i64 840
+  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 844
+  %m_scY = getelementptr inbounds i8, ptr %this, i64 864
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 868
+  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 872
+  %arrayidx25 = getelementptr inbounds i8, ptr %this, i64 876
+  %m_scM = getelementptr inbounds i8, ptr %this, i64 896
+  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 900
   store float %topSC, ptr %arrayidx14, align 4
   store float %topSC, ptr %arrayidx25, align 4
   %sub = fsub float %topSC, %pivot
@@ -3109,16 +3111,16 @@ if.end58:                                         ; preds = %if.else, %if.then48
   %mul61 = fmul float %add59, %sub60
   %13 = tail call float @llvm.fmuladd.f32(float %mul61, float 5.000000e-01, float %3)
   store float %13, ptr %arrayidx22, align 8
-  %arrayidx65 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1
-  %arrayidx70 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1, i64 1
-  %arrayidx74 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1, i64 2
-  %arrayidx78 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 18, i64 1, i64 3
-  %arrayidx81 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1
-  %arrayidx86 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1, i64 1
-  %arrayidx90 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1, i64 2
-  %arrayidx94 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 19, i64 1, i64 3
-  %arrayidx97 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20, i64 1
-  %arrayidx102 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::GradingTonePreRender", ptr %this, i64 0, i32 20, i64 1, i64 1
+  %arrayidx65 = getelementptr inbounds i8, ptr %this, i64 848
+  %arrayidx70 = getelementptr inbounds i8, ptr %this, i64 852
+  %arrayidx74 = getelementptr inbounds i8, ptr %this, i64 856
+  %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 860
+  %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 880
+  %arrayidx86 = getelementptr inbounds i8, ptr %this, i64 884
+  %arrayidx90 = getelementptr inbounds i8, ptr %this, i64 888
+  %arrayidx94 = getelementptr inbounds i8, ptr %this, i64 892
+  %arrayidx97 = getelementptr inbounds i8, ptr %this, i64 904
+  %arrayidx102 = getelementptr inbounds i8, ptr %this, i64 908
   store float %bottom, ptr %arrayidx65, align 8
   store float %bottom, ptr %arrayidx81, align 8
   %sub103 = fsub float %pivot, %bottom
@@ -3187,44 +3189,42 @@ if.end147:                                        ; preds = %if.end141, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #13
+declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
+declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #14
+declare double @sqrt(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_GradingTone.cpp() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_GradingTone.cpp() #13 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #16
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn }
+attributes #8 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -3,44 +3,11 @@ source_filename = "bench/libquic/original/quic_received_packet_manager.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicReceivedPacketManager::EntropyTracker" = type { %"class.std::deque", i8, i64, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"struct.std::pair" = type { i8, i8 }
-%"class.net::QuicReceivedPacketManager" = type { %"class.net::QuicReceivedEntropyHashCalculatorInterface", %"class.net::QuicReceivedPacketManager::EntropyTracker", i64, %"struct.net::QuicAckFrame", i8, %"class.net::QuicTime", ptr }
-%"class.net::QuicReceivedEntropyHashCalculatorInterface" = type { ptr }
-%"struct.net::QuicAckFrame" = type <{ i64, %"class.net::QuicTime::Delta", %"class.std::vector", %"class.net::PacketNumberQueue", i8, i8, i8, i8, [4 x i8] }>
-%"class.net::QuicTime::Delta" = type { %"class.base::TimeDelta", i64 }
-%"class.base::TimeDelta" = type { i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned long, net::QuicTime>, std::allocator<std::pair<unsigned long, net::QuicTime>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.net::PacketNumberQueue" = type { %"class.net::IntervalSet" }
-%"class.net::IntervalSet" = type { %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<net::Interval<unsigned long>, net::Interval<unsigned long>, std::_Identity<net::Interval<unsigned long>>, net::IntervalSet<unsigned long>::IntervalComparator>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.net::IntervalSet<unsigned long>::IntervalComparator" }
-%"struct.net::IntervalSet<unsigned long>::IntervalComparator" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.net::QuicTime" = type { i64 }
-%"struct.net::QuicPacketHeader" = type <{ %"struct.net::QuicPacketPublicHeader", i64, i8, i8, i8, i8, [4 x i8] }>
-%"struct.net::QuicPacketPublicHeader" = type { i64, i32, i8, i8, i8, i8, %"class.std::vector.12", ptr }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl" = type { %"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<net::QuicVersion, std::allocator<net::QuicVersion>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.net::QuicConnectionStats" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.net::QuicBandwidth", i64, i64, i64, i32, %"class.net::QuicTime" }
-%"class.net::QuicBandwidth" = type { i64 }
 %"struct.std::pair.17" = type { i64, %"class.net::QuicTime" }
+%"class.net::QuicTime" = type { i64 }
 %"struct.net::QuicFrame" = type { i32, %union.anon.19 }
 %union.anon.19 = type { ptr }
-%"struct.net::QuicStopWaitingFrame" = type { i8, i8, i64 }
 
 $_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE17_M_initialize_mapEm = comdat any
 
@@ -74,11 +41,11 @@ define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTrackerC2Ev(pt
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 0)
-  %packets_entropy_hash_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 1
+  %packets_entropy_hash_ = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %packets_entropy_hash_, align 8
-  %first_gap_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 2
+  %first_gap_ = getelementptr inbounds i8, ptr %this, i64 88
   store i64 1, ptr %first_gap_, align 8
-  %largest_observed_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 3
+  %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %largest_observed_, align 8
   ret void
 }
@@ -91,11 +58,11 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNSt5dequeISt4pairIhbESaIS1_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_node5.i.i6.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
-  %_M_node5.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node5.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i = icmp ult ptr %1, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i
 
@@ -103,7 +70,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %if.then.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #14
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %2
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, !llvm.loop !5
 
@@ -123,25 +90,25 @@ _ZNSt5dequeISt4pairIhbESaIS1_EED2Ev.exit:         ; preds = %entry, %_ZNSt11_Deq
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, i64 noundef %packet_number) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %largest_observed_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 3
+  %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i64, ptr %largest_observed_, align 8
   %cmp = icmp eq i64 %0, %packet_number
   br i1 %cmp, label %if.then4, label %for.body.preheader
 
 if.then4:                                         ; preds = %if.end
-  %packets_entropy_hash_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 1
+  %packets_entropy_hash_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i8, ptr %packets_entropy_hash_, align 8
   br label %return
 
 for.body.preheader:                               ; preds = %if.end
   %sub = sub i64 %0, %packet_number
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !7
-  %_M_first3.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !7
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %_M_finish.i, align 8, !noalias !7
-  %packets_entropy_hash_26 = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 1
+  %packets_entropy_hash_26 = getelementptr inbounds i8, ptr %this, i64 80
   %5 = load i8, ptr %packets_entropy_hash_26, align 8
   br label %for.body
 
@@ -155,14 +122,14 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.i.i, label %if.then.i.i13, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit: ; preds = %for.body
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %it.sroa.0.033, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.033, i64 -2
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit
 
 if.then.i.i13:                                    ; preds = %for.body
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %it.sroa.10.031, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.10.031, i64 -8
   %6 = load ptr, ptr %add.ptr.i.i, align 8
-  %incdec.ptr.i.i23 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 255
-  %add.ptr.i.i.i15 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 256
+  %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %6, i64 510
+  %add.ptr.i.i.i15 = getelementptr inbounds i8, ptr %6, i64 512
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit
 
 _ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit, %if.then.i.i13
@@ -173,7 +140,7 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit: ; p
   %.pn = load i8, ptr %.pn.in, align 1
   %xor426 = xor i8 %.pn, %hash.034
   %inc28 = add nuw i64 %i.035, 1
-  %incdec.ptr.i.i12 = getelementptr inbounds %"struct.std::pair", ptr %7, i64 -1
+  %incdec.ptr.i.i12 = getelementptr inbounds i8, ptr %7, i64 -2
   %exitcond.not = icmp eq i64 %inc28, %sub
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
@@ -189,25 +156,25 @@ define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker23Recor
 entry:
   %ref.tmp = alloca %"struct.std::pair", align 2
   %ref.tmp22 = alloca %"struct.std::pair", align 2
-  %first_gap_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 2
+  %first_gap_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %first_gap_, align 8
   %cmp = icmp ugt i64 %0, %packet_number
   br i1 %cmp, label %if.end34, label %if.end
 
 if.end:                                           ; preds = %entry
-  %packets_entropy_hash_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 1
+  %packets_entropy_hash_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load i8, ptr %packets_entropy_hash_, align 8
   %xor8 = xor i8 %1, %entropy_hash
   store i8 %xor8, ptr %packets_entropy_hash_, align 8
-  %largest_observed_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 3
+  %largest_observed_ = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load i64, ptr %largest_observed_, align 8
   %add = add i64 %2, 1
   %cmp4 = icmp eq i64 %add, %packet_number
   br i1 %cmp4, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
@@ -228,9 +195,9 @@ for.cond.preheader:                               ; preds = %if.end8
   br i1 %cmp1439.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %ref.tmp, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %second.i = getelementptr inbounds i8, ptr %ref.tmp, i64 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit
@@ -239,7 +206,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store i8 0, ptr %second.i, align 1
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   %7 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %7, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 -2
   %cmp.not.i.i = icmp eq ptr %6, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -247,7 +214,7 @@ if.then.i.i:                                      ; preds = %for.body
   %8 = load i16, ptr %ref.tmp, align 2
   store i16 %8, ptr %6, align 1
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 2
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit
 
@@ -267,18 +234,18 @@ for.end:                                          ; preds = %_ZNSt5dequeISt4pair
   %retval.sroa.0.0.insert.ext.i11 = zext i8 %entropy_hash to i16
   %retval.sroa.0.0.insert.insert.i12 = or disjoint i16 %retval.sroa.0.0.insert.ext.i11, 256
   store i16 %retval.sroa.0.0.insert.insert.i12, ptr %ref.tmp22, align 2
-  %_M_finish.i.i13 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish.i.i13 = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load ptr, ptr %_M_finish.i.i13, align 8
-  %_M_last.i.i14 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i.i14 = getelementptr inbounds i8, ptr %this, i64 64
   %13 = load ptr, ptr %_M_last.i.i14, align 8
-  %add.ptr.i.i15 = getelementptr inbounds %"struct.std::pair", ptr %13, i64 -1
+  %add.ptr.i.i15 = getelementptr inbounds i8, ptr %13, i64 -2
   %cmp.not.i.i16 = icmp eq ptr %12, %add.ptr.i.i15
   br i1 %cmp.not.i.i16, label %if.else.i.i19, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %for.end
   store i16 %retval.sroa.0.0.insert.insert.i12, ptr %12, align 1
   %14 = load ptr, ptr %_M_finish.i.i13, align 8
-  %incdec.ptr.i.i18 = getelementptr inbounds %"struct.std::pair", ptr %14, i64 1
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %14, i64 2
   store ptr %incdec.ptr.i.i18, ptr %_M_finish.i.i13, align 8
   br label %if.end34.sink.split
 
@@ -288,11 +255,11 @@ if.else.i.i19:                                    ; preds = %for.end
 
 if.else:                                          ; preds = %if.end8
   %sub31 = sub i64 %packet_number, %0
-  %_M_start.i25 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_start.i25 = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %_M_start.i25, align 8, !noalias !12
-  %_M_first3.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !12
-  %_M_node5.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %17 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !12
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %16 to i64
@@ -330,22 +297,22 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
 _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %if.then.i.i.i.i, %cond.end.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %add.ptr15.i.i.i.i, %cond.end.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ]
   store i8 %entropy_hash, ptr %storemerge.i.i.i.i, align 1
-  %second3.i27 = getelementptr inbounds %"struct.std::pair", ptr %storemerge.i.i.i.i, i64 0, i32 1
+  %second3.i27 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 1
   store i8 1, ptr %second3.i27, align 1
-  %_M_finish.i.i28 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish.i.i28 = getelementptr inbounds i8, ptr %this, i64 48
   %19 = load ptr, ptr %_M_finish.i.i28, align 8
   %20 = load ptr, ptr %_M_start.i25, align 8
   %cmp.i.i2.i = icmp eq ptr %19, %20
   br i1 %cmp.i.i2.i, label %if.end34, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit
-  %_M_last.i.i29 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i29 = getelementptr inbounds i8, ptr %this, i64 32
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i, %land.rhs.lr.ph.i
   %21 = phi ptr [ %19, %land.rhs.lr.ph.i ], [ %30, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
   %22 = phi ptr [ %20, %land.rhs.lr.ph.i ], [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ]
-  %second.i30 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 0, i32 1
+  %second.i30 = getelementptr inbounds i8, ptr %22, i64 1
   %23 = load i8, ptr %second.i30, align 1
   %24 = and i8 %23, 1
   %tobool.not.i = icmp eq i8 %24, 0
@@ -356,23 +323,23 @@ while.body.i:                                     ; preds = %land.rhs.i
   %inc.i = add i64 %25, 1
   store i64 %inc.i, ptr %first_gap_, align 8
   %26 = load ptr, ptr %_M_last.i.i29, align 8
-  %add.ptr.i.i31 = getelementptr inbounds %"struct.std::pair", ptr %26, i64 -1
+  %add.ptr.i.i31 = getelementptr inbounds i8, ptr %26, i64 -2
   %cmp.not.i.i32 = icmp eq ptr %22, %add.ptr.i.i31
   br i1 %cmp.not.i.i32, label %if.else.i.i35, label %if.then.i.i33
 
 if.then.i.i33:                                    ; preds = %while.body.i
-  %incdec.ptr.i.i34 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 1
+  %incdec.ptr.i.i34 = getelementptr inbounds i8, ptr %22, i64 2
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 if.else.i.i35:                                    ; preds = %while.body.i
   %27 = load ptr, ptr %_M_first3.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %27) #14
   %28 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %28, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_node5.i.i.i.i, align 8
   %29 = load ptr, ptr %add.ptr.i.i.i, align 8
   store ptr %29, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i36 = getelementptr inbounds %"struct.std::pair", ptr %29, i64 256
+  %add.ptr.i.i.i.i36 = getelementptr inbounds i8, ptr %29, i64 512
   store ptr %add.ptr.i.i.i.i36, ptr %_M_last.i.i29, align 8
   %.pre.i = load ptr, ptr %_M_finish.i.i28, align 8
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
@@ -395,24 +362,24 @@ if.end34:                                         ; preds = %_ZNSt5dequeISt4pair
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker42AdvanceFirstGapAndGarbageCollectEntropyMapEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i2 = icmp eq ptr %0, %1
   br i1 %cmp.i.i2, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %first_gap_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 2
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %first_gap_ = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
   %2 = phi ptr [ %0, %land.rhs.lr.ph ], [ %11, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit ]
   %3 = phi ptr [ %1, %land.rhs.lr.ph ], [ %storemerge.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit ]
-  %second = getelementptr inbounds %"struct.std::pair", ptr %3, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %3, i64 1
   %4 = load i8, ptr %second, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -423,23 +390,23 @@ while.body:                                       ; preds = %land.rhs
   %inc = add i64 %6, 1
   store i64 %inc, ptr %first_gap_, align 8
   %7 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %7, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 -2
   %cmp.not.i = icmp eq ptr %3, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 2
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %while.body
   %8 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %8) #14
   %9 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %10 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %10, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %10, i64 256
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8
   %.pre = load ptr, ptr %_M_finish.i, align 8
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
@@ -458,7 +425,7 @@ while.end:                                        ; preds = %land.rhs, %_ZNSt5de
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEntropyUpToEmh(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %packet_number, i8 noundef zeroext %entropy_hash) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %first_gap_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 2
+  %first_gap_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %first_gap_, align 8
   %cmp = icmp ugt i64 %0, %packet_number
   br i1 %cmp, label %return, label %while.cond.preheader
@@ -468,16 +435,16 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp730, label %while.body.lr.ph, label %while.cond.preheader.while.end_crit_edge
 
 while.cond.preheader.while.end_crit_edge:         ; preds = %while.cond.preheader
-  %_M_start.i4.phi.trans.insert = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %.pre35 = load ptr, ptr %_M_start.i4.phi.trans.insert, align 8
+  %_M_start.i4.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
+  %.pre37 = load ptr, ptr %_M_start.i4.phi.trans.insert, align 8
   br label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %_M_start.i, align 8
   %3 = icmp eq ptr %1, %2
@@ -499,23 +466,23 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then10:                                        ; preds = %while.body
   %8 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 -2
   %cmp.not.i = icmp eq ptr %5, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then10
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 2
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.then10
   %9 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %9) #14
   %10 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %10, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %11 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %11, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 256
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8
   %.pre.pre = load i64, ptr %first_gap_, align 8
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit
@@ -534,92 +501,92 @@ if.end12:                                         ; preds = %_ZNSt5dequeISt4pair
   br i1 %cmp7, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end12, %while.cond.preheader.while.end_crit_edge, %while.body.us.preheader
-  %15 = phi ptr [ %.pre35, %while.cond.preheader.while.end_crit_edge ], [ %1, %while.body.us.preheader ], [ %12, %if.end12 ]
-  %packets_entropy_hash_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager::EntropyTracker", ptr %this, i64 0, i32 1
+  %15 = phi ptr [ %.pre37, %while.cond.preheader.while.end_crit_edge ], [ %1, %while.body.us.preheader ], [ %12, %if.end12 ]
+  %packets_entropy_hash_ = getelementptr inbounds i8, ptr %this, i64 80
   store i8 %entropy_hash, ptr %packets_entropy_hash_, align 8
-  %_M_start.i4 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_first3.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_start.i4 = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_first3.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %_M_last4.i.i, align 8
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load ptr, ptr %_M_finish.i8, align 8
-  %cmp.i.i15.not31 = icmp eq ptr %15, %17
-  br i1 %cmp.i.i15.not31, label %return, label %for.body.preheader
+  %cmp.i.i15.not32 = icmp eq ptr %15, %17
+  br i1 %cmp.i.i15.not32, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %while.end
   %18 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !18
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
-  %it.sroa.11.034 = phi ptr [ %it.sroa.11.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %18, %for.body.preheader ]
-  %it.sroa.8.033 = phi ptr [ %it.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %16, %for.body.preheader ]
-  %it.sroa.0.032 = phi ptr [ %it.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %15, %for.body.preheader ]
-  %19 = phi i8 [ %xor2, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %entropy_hash, %for.body.preheader ]
-  %20 = load i8, ptr %it.sroa.0.032, align 1
-  %xor2 = xor i8 %19, %20
+  %it.sroa.11.036 = phi ptr [ %it.sroa.11.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %18, %for.body.preheader ]
+  %it.sroa.8.035 = phi ptr [ %it.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %16, %for.body.preheader ]
+  %it.sroa.0.034 = phi ptr [ %it.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %15, %for.body.preheader ]
+  %xor23133 = phi i8 [ %xor2, %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit ], [ %entropy_hash, %for.body.preheader ]
+  %19 = load i8, ptr %it.sroa.0.034, align 1
+  %xor2 = xor i8 %xor23133, %19
   store i8 %xor2, ptr %packets_entropy_hash_, align 8
-  %incdec.ptr.i16 = getelementptr inbounds %"struct.std::pair", ptr %it.sroa.0.032, i64 1
-  %cmp.i = icmp eq ptr %incdec.ptr.i16, %it.sroa.8.033
+  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %it.sroa.0.034, i64 2
+  %cmp.i = icmp eq ptr %incdec.ptr.i16, %it.sroa.8.035
   br i1 %cmp.i, label %if.then.i18, label %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
 
 if.then.i18:                                      ; preds = %for.body
-  %add.ptr.i20 = getelementptr inbounds ptr, ptr %it.sroa.11.034, i64 1
-  %21 = load ptr, ptr %add.ptr.i20, align 8
-  %add.ptr.i.i22 = getelementptr inbounds %"struct.std::pair", ptr %21, i64 256
+  %add.ptr.i20 = getelementptr inbounds i8, ptr %it.sroa.11.036, i64 8
+  %20 = load ptr, ptr %add.ptr.i20, align 8
+  %add.ptr.i.i22 = getelementptr inbounds i8, ptr %20, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit: ; preds = %for.body, %if.then.i18
-  %it.sroa.0.1 = phi ptr [ %21, %if.then.i18 ], [ %incdec.ptr.i16, %for.body ]
-  %it.sroa.8.1 = phi ptr [ %add.ptr.i.i22, %if.then.i18 ], [ %it.sroa.8.033, %for.body ]
-  %it.sroa.11.1 = phi ptr [ %add.ptr.i20, %if.then.i18 ], [ %it.sroa.11.034, %for.body ]
+  %it.sroa.0.1 = phi ptr [ %20, %if.then.i18 ], [ %incdec.ptr.i16, %for.body ]
+  %it.sroa.8.1 = phi ptr [ %add.ptr.i.i22, %if.then.i18 ], [ %it.sroa.8.035, %for.body ]
+  %it.sroa.11.1 = phi ptr [ %add.ptr.i20, %if.then.i18 ], [ %it.sroa.11.036, %for.body ]
   %cmp.i.i15.not = icmp eq ptr %it.sroa.0.1, %17
   br i1 %cmp.i.i15.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %_ZNSt15_Deque_iteratorISt4pairIhbERKS1_PS2_EppEv.exit
-  br i1 %cmp.i.i15.not31, label %return, label %land.rhs.i
+  br i1 %cmp.i.i15.not32, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.end, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
-  %22 = phi ptr [ %31, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %16, %for.end ]
-  %23 = phi ptr [ %32, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %17, %for.end ]
-  %24 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %15, %for.end ]
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %24, i64 0, i32 1
-  %25 = load i8, ptr %second.i, align 1
-  %26 = and i8 %25, 1
-  %tobool.not.i24 = icmp eq i8 %26, 0
+  %21 = phi ptr [ %30, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %16, %for.end ]
+  %22 = phi ptr [ %31, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %17, %for.end ]
+  %23 = phi ptr [ %storemerge.i.i, %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i ], [ %15, %for.end ]
+  %second.i = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = load i8, ptr %second.i, align 1
+  %25 = and i8 %24, 1
+  %tobool.not.i24 = icmp eq i8 %25, 0
   br i1 %tobool.not.i24, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %27 = load i64, ptr %first_gap_, align 8
-  %inc.i = add i64 %27, 1
+  %26 = load i64, ptr %first_gap_, align 8
+  %inc.i = add i64 %26, 1
   store i64 %inc.i, ptr %first_gap_, align 8
-  %add.ptr.i.i25 = getelementptr inbounds %"struct.std::pair", ptr %22, i64 -1
-  %cmp.not.i.i = icmp eq ptr %24, %add.ptr.i.i25
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %21, i64 -2
+  %cmp.not.i.i = icmp eq ptr %23, %add.ptr.i.i25
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %24, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %23, i64 2
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 if.else.i.i:                                      ; preds = %while.body.i
-  %28 = load ptr, ptr %_M_first3.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %28) #14
-  %29 = load ptr, ptr %_M_node5.i.i, align 8
-  %add.ptr.i.i.i26 = getelementptr inbounds ptr, ptr %29, i64 1
+  %27 = load ptr, ptr %_M_first3.i.i, align 8
+  tail call void @_ZdlPv(ptr noundef %27) #14
+  %28 = load ptr, ptr %_M_node5.i.i, align 8
+  %add.ptr.i.i.i26 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %add.ptr.i.i.i26, ptr %_M_node5.i.i, align 8
-  %30 = load ptr, ptr %add.ptr.i.i.i26, align 8
-  store ptr %30, ptr %_M_first3.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %30, i64 256
+  %29 = load ptr, ptr %add.ptr.i.i.i26, align 8
+  store ptr %29, ptr %_M_first3.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 512
   store ptr %add.ptr.i.i.i.i, ptr %_M_last4.i.i, align 8
   %.pre.i = load ptr, ptr %_M_finish.i8, align 8
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i
 
 _ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i: ; preds = %if.else.i.i, %if.then.i.i
-  %31 = phi ptr [ %22, %if.then.i.i ], [ %add.ptr.i.i.i.i, %if.else.i.i ]
-  %32 = phi ptr [ %23, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %30, %if.else.i.i ]
+  %30 = phi ptr [ %21, %if.then.i.i ], [ %add.ptr.i.i.i.i, %if.else.i.i ]
+  %31 = phi ptr [ %22, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
+  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %29, %if.else.i.i ]
   store ptr %storemerge.i.i, ptr %_M_start.i4, align 8
-  %cmp.i.i.i = icmp eq ptr %32, %storemerge.i.i
+  %cmp.i.i.i = icmp eq ptr %31, %storemerge.i.i
   br i1 %cmp.i.i.i, label %return, label %land.rhs.i, !llvm.loop !15
 
 return:                                           ; preds = %_ZNSt5dequeISt4pairIhbESaIS1_EE9pop_frontEv.exit.i, %land.rhs.i, %while.end, %for.end, %if.end
@@ -630,28 +597,28 @@ return:                                           ; preds = %_ZNSt5dequeISt4pair
 define dso_local void @_ZN3net25QuicReceivedPacketManagerC2EPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %entropy_tracker_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1
+  %entropy_tracker_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %entropy_tracker_, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %entropy_tracker_, i64 noundef 0)
-  %packets_entropy_hash_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 1
+  %packets_entropy_hash_.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 0, ptr %packets_entropy_hash_.i, align 8
-  %first_gap_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 2
+  %first_gap_.i = getelementptr inbounds i8, ptr %this, i64 96
   store i64 1, ptr %first_gap_.i, align 8
-  %largest_observed_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 3
-  %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
+  %largest_observed_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %largest_observed_.i, i8 0, i64 16, i1 false)
   invoke void @_ZN3net12QuicAckFrameC1Ev(ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_)
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %entry
-  %ack_frame_updated_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 4
+  %ack_frame_updated_ = getelementptr inbounds i8, ptr %this, i64 224
   store i8 0, ptr %ack_frame_updated_, align 8
-  %time_largest_observed_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 5
+  %time_largest_observed_ = getelementptr inbounds i8, ptr %this, i64 232
   store i64 0, ptr %time_largest_observed_, align 8
-  %stats_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 6
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 240
   store ptr %stats, ptr %stats_, align 8
   store i64 0, ptr %ack_frame_, align 8
-  %entropy_hash = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 5
+  %entropy_hash = getelementptr inbounds i8, ptr %this, i64 217
   store i8 0, ptr %entropy_hash, align 1
   ret void
 
@@ -671,19 +638,19 @@ declare void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferencea
 define dso_local void @_ZN3net25QuicReceivedPacketManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
+  %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_) #15
-  %entropy_tracker_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1
+  %entropy_tracker_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %entropy_tracker_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN3net25QuicReceivedPacketManager14EntropyTrackerD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_node5.i.i6.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i
 
@@ -691,7 +658,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.then.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #14
-  %incdec.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %2
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, !llvm.loop !5
 
@@ -712,19 +679,19 @@ _ZN3net25QuicReceivedPacketManager14EntropyTrackerD2Ev.exit: ; preds = %entry, %
 define dso_local void @_ZN3net25QuicReceivedPacketManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %ack_frame_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
+  %ack_frame_.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_.i) #15
-  %entropy_tracker_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1
+  %entropy_tracker_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %entropy_tracker_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN3net25QuicReceivedPacketManagerD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_node5.i.i6.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node5.i.i.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i6.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i.i
   br i1 %cmp3.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i
 
@@ -732,7 +699,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   %__n.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #14
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i.i, !llvm.loop !5
 
@@ -756,18 +723,18 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net25QuicReceivedPacketManager20RecordPacketReceivedEmRKNS_16QuicPacketHeaderENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 %bytes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %header, i64 %receipt_time.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %packet_number2 = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 1
+  %packet_number2 = getelementptr inbounds i8, ptr %header, i64 48
   %0 = load i64, ptr %packet_number2, align 8
-  %ack_frame_updated_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 4
+  %ack_frame_updated_ = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load i8, ptr %ack_frame_updated_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %received_packet_times = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 2
+  %received_packet_times = getelementptr inbounds i8, ptr %this, i64 144
   %3 = load ptr, ptr %received_packet_times, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, %3
   br i1 %tobool.not.i.i, label %if.end, label %invoke.cont.i.i
@@ -778,18 +745,18 @@ invoke.cont.i.i:                                  ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont.i.i, %if.then, %entry
   store i8 1, ptr %ack_frame_updated_, align 8
-  %ack_frame_4 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
-  %missing = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 7
+  %ack_frame_4 = getelementptr inbounds i8, ptr %this, i64 120
+  %missing = getelementptr inbounds i8, ptr %this, i64 219
   %5 = load i8, ptr %missing, align 1
   %6 = and i8 %5, 1
   %tobool5.not = icmp eq i8 %6, 0
-  %packets10 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets10 = getelementptr inbounds i8, ptr %this, i64 168
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %7 = load i64, ptr %ack_frame_4, align 8
   %add = add i64 %7, 1
-  %peer_least_packet_awaiting_ack_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 2
+  %peer_least_packet_awaiting_ack_ = getelementptr inbounds i8, ptr %this, i64 112
   %8 = load i64, ptr %peer_least_packet_awaiting_ack_, align 8
   %.sroa.speculated17 = tail call i64 @llvm.umax.i64(i64 %add, i64 %8)
   tail call void @_ZN3net17PacketNumberQueue3AddEmm(ptr noundef nonnull align 8 dereferenceable(48) %packets10, i64 noundef %.sroa.speculated17, i64 noundef %0)
@@ -812,29 +779,29 @@ if.then15:                                        ; preds = %if.end12
   br i1 %tobool18.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.then15
-  %packets21 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets21 = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @_ZN3net17PacketNumberQueue6RemoveEm(ptr noundef nonnull align 8 dereferenceable(48) %packets21, i64 noundef %0)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %if.then15
-  %stats_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 6
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 240
   %13 = load ptr, ptr %stats_, align 8
-  %packets_reordered = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %13, i64 0, i32 26
+  %packets_reordered = getelementptr inbounds i8, ptr %13, i64 208
   %14 = load i64, ptr %packets_reordered, align 8
   %inc = add i64 %14, 1
   store i64 %inc, ptr %packets_reordered, align 8
   %15 = load ptr, ptr %stats_, align 8
-  %max_sequence_reordering = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %15, i64 0, i32 27
+  %max_sequence_reordering = getelementptr inbounds i8, ptr %15, i64 216
   %16 = load i64, ptr %ack_frame_4, align 8
   %sub = sub i64 %16, %0
   %17 = load i64, ptr %max_sequence_reordering, align 8
   %.sroa.speculated14 = tail call i64 @llvm.umax.i64(i64 %17, i64 %sub)
   store i64 %.sroa.speculated14, ptr %max_sequence_reordering, align 8
-  %time_largest_observed_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 5
+  %time_largest_observed_ = getelementptr inbounds i8, ptr %this, i64 232
   %agg.tmp31.sroa.0.0.copyload = load i64, ptr %time_largest_observed_, align 8
   %sub.i = sub nsw i64 %receipt_time.coerce, %agg.tmp31.sroa.0.0.copyload
   %18 = load ptr, ptr %stats_, align 8
-  %max_time_reordering_us = getelementptr inbounds %"struct.net::QuicConnectionStats", ptr %18, i64 0, i32 28
+  %max_time_reordering_us = getelementptr inbounds i8, ptr %18, i64 224
   %19 = load i64, ptr %max_time_reordering_us, align 8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %19, i64 %sub.i)
   store i64 %.sroa.speculated, ptr %max_time_reordering_us, align 8
@@ -848,7 +815,7 @@ if.end40:                                         ; preds = %if.end22, %if.end12
 
 if.then44:                                        ; preds = %if.end40
   store i64 %0, ptr %ack_frame_4, align 8
-  %time_largest_observed_47 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 5
+  %time_largest_observed_47 = getelementptr inbounds i8, ptr %this, i64 232
   store i64 %receipt_time.coerce, ptr %time_largest_observed_47, align 8
   br label %if.end48
 
@@ -859,17 +826,17 @@ if.end48:                                         ; preds = %if.then44, %if.end4
   br i1 %tobool51.not, label %if.end53, label %if.then52
 
 if.then52:                                        ; preds = %if.end48
-  %entropy_tracker_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1
-  %entropy_hash = getelementptr inbounds %"struct.net::QuicPacketHeader", ptr %header, i64 0, i32 4
+  %entropy_tracker_ = getelementptr inbounds i8, ptr %this, i64 8
+  %entropy_hash = getelementptr inbounds i8, ptr %header, i64 58
   %23 = load i8, ptr %entropy_hash, align 2
   tail call void @_ZN3net25QuicReceivedPacketManager14EntropyTracker23RecordPacketEntropyHashEmh(ptr noundef nonnull align 8 dereferenceable(104) %entropy_tracker_, i64 noundef %0, i8 noundef zeroext %23)
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %if.end48
-  %received_packet_times55 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 2
-  %_M_finish.i.i9 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 1
+  %received_packet_times55 = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_finish.i.i9 = getelementptr inbounds i8, ptr %this, i64 152
   %24 = load ptr, ptr %_M_finish.i.i9, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %25 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %24, %25
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -879,7 +846,7 @@ if.then.i.i:                                      ; preds = %if.end53
   %ref.tmp56.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
   store i64 %receipt_time.coerce, ptr %ref.tmp56.sroa.3.0..sroa_idx, align 8
   %26 = load ptr, ptr %_M_finish.i.i9, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %26, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i9, align 8
   br label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE9push_backEOS3_.exit
 
@@ -923,14 +890,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %27, %_ZNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !22
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %24
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !26
 
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairImN3net8QuicTimeEESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.std::pair.17", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -961,25 +928,25 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager9IsMissingEm(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 noundef %packet_number) unnamed_addr #0 align 2 {
 entry:
-  %missing = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 7
+  %missing = getelementptr inbounds i8, ptr %this, i64 219
   %0 = load i8, ptr %missing, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %packets = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets = getelementptr inbounds i8, ptr %this, i64 168
   %call = tail call noundef zeroext i1 @_ZNK3net17PacketNumberQueue8ContainsEm(ptr noundef nonnull align 8 dereferenceable(48) %packets, i64 noundef %packet_number)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
+  %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load i64, ptr %ack_frame_, align 8
   %cmp = icmp ugt i64 %2, %packet_number
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end
-  %packets5 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets5 = getelementptr inbounds i8, ptr %this, i64 168
   %call6 = tail call noundef zeroext i1 @_ZNK3net17PacketNumberQueue8ContainsEm(ptr noundef nonnull align 8 dereferenceable(48) %packets5, i64 noundef %packet_number)
   %lnot = xor i1 %call6, true
   br label %return
@@ -994,8 +961,8 @@ declare noundef zeroext i1 @_ZNK3net17PacketNumberQueue8ContainsEm(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager16IsAwaitingPacketEm(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 noundef %packet_number) unnamed_addr #0 align 2 {
 entry:
-  %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
-  %peer_least_packet_awaiting_ack_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 2
+  %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
+  %peer_least_packet_awaiting_ack_ = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load i64, ptr %peer_least_packet_awaiting_ack_, align 8
   %call = tail call noundef zeroext i1 @_ZN3net16IsAwaitingPacketERKNS_12QuicAckFrameEmm(ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_, i64 noundef %packet_number, i64 noundef %0)
   ret i1 %call
@@ -1007,10 +974,10 @@ declare noundef zeroext i1 @_ZN3net16IsAwaitingPacketERKNS_12QuicAckFrameEmm(ptr
 define dso_local { i32, ptr } @_ZN3net25QuicReceivedPacketManager18GetUpdatedAckFrameENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 %approximate_now.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %retval = alloca %"struct.net::QuicFrame", align 8
-  %ack_frame_updated_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 4
+  %ack_frame_updated_ = getelementptr inbounds i8, ptr %this, i64 224
   store i8 0, ptr %ack_frame_updated_, align 8
-  %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
-  %missing = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 7
+  %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
+  %missing = getelementptr inbounds i8, ptr %this, i64 219
   %0 = load i8, ptr %missing, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1019,28 +986,28 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %ack_frame_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i8 %3(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 noundef %2)
-  %entropy_hash = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 5
+  %entropy_hash = getelementptr inbounds i8, ptr %this, i64 217
   store i8 %call, ptr %entropy_hash, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %time_largest_observed_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 5
+  %time_largest_observed_ = getelementptr inbounds i8, ptr %this, i64 232
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %time_largest_observed_, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload, 0
   %cmp.i2 = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, %approximate_now.coerce
   %sub.i = sub nsw i64 %approximate_now.coerce, %agg.tmp.sroa.0.0.copyload
   %ref.tmp14.sroa.3.0 = select i1 %cmp.i2, i64 0, i64 %sub.i
   %ref.tmp14.sroa.3.0.sink = select i1 %cmp.i, i64 9223372036854775807, i64 %ref.tmp14.sroa.3.0
-  %4 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 1
+  %4 = getelementptr inbounds i8, ptr %this, i64 128
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %this, i64 136
   store i64 %ref.tmp14.sroa.3.0.sink, ptr %5, align 8
-  %received_packet_times = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 2
+  %received_packet_times = getelementptr inbounds i8, ptr %this, i64 144
   %6 = load ptr, ptr %received_packet_times, align 8
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %7 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not10 = icmp eq ptr %6, %7
   br i1 %cmp.i6.not10, label %for.end, label %for.body
@@ -1060,7 +1027,7 @@ if.then45:                                        ; preds = %for.body
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %add.ptr.i.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i, %8
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit, label %if.then.i.i
 
@@ -1078,12 +1045,12 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %for.b
   %__first.addr.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i ]
   %12 = load i64, ptr %__first.addr.07.i.i.i.i.i.i.i, align 8
   store i64 %12, ptr %__result.addr.08.i.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %__first.addr.07.i.i.i.i.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %__result.addr.08.i.i.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 8
+  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 8
   %13 = load i64, ptr %second.i.i.i.i.i.i.i.i, align 8
   store i64 %13, ptr %second3.i.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %__first.addr.07.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %__result.addr.08.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i.i.i, i64 16
   %dec.i.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %if.end.loopexit.i.i, !llvm.loop !27
@@ -1094,12 +1061,12 @@ if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.
 
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit: ; preds = %if.then45, %if.then.i.i, %if.end.loopexit.i.i
   %14 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %8, %if.then.i.i ], [ %8, %if.then45 ]
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair.17", ptr %14, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 -16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
   br label %if.end55
 
 if.else53:                                        ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair.17", ptr %it.sroa.0.011, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 16
   br label %if.end55
 
 if.end55:                                         ; preds = %if.else53, %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit
@@ -1112,7 +1079,7 @@ for.end:                                          ; preds = %if.end55, %if.end
   call void @_ZN3net9QuicFrameC1EPNS_12QuicAckFrameE(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull %ack_frame_)
   %.fca.0.load = load i32, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i32, ptr }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load ptr, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.fca.1.load, 1
   ret { i32, ptr } %.fca.1.insert
@@ -1123,25 +1090,25 @@ declare void @_ZN3net9QuicFrameC1EPNS_12QuicAckFrameE(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i8 @_ZNK3net25QuicReceivedPacketManager11EntropyHashEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this, i64 noundef %packet_number) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %largest_observed_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 3
+  %largest_observed_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i64, ptr %largest_observed_.i, align 8
   %cmp.i = icmp eq i64 %0, %packet_number
   br i1 %cmp.i, label %if.then4.i, label %for.body.preheader.i
 
 if.then4.i:                                       ; preds = %entry
-  %packets_entropy_hash_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 1
+  %packets_entropy_hash_.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i8, ptr %packets_entropy_hash_.i, align 8
   br label %_ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm.exit
 
 for.body.preheader.i:                             ; preds = %entry
   %sub.i = sub i64 %0, %packet_number
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !29
-  %_M_first3.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !29
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !29
-  %packets_entropy_hash_26.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 1
+  %packets_entropy_hash_26.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load i8, ptr %packets_entropy_hash_26.i, align 8
   br label %for.body.i
 
@@ -1155,14 +1122,14 @@ for.body.i:                                       ; preds = %_ZNSt16reverse_iter
   br i1 %cmp.i.i.i, label %if.then.i.i13.i, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit.i
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit.i: ; preds = %for.body.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %it.sroa.0.033.i, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.033.i, i64 -2
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit.i
 
 if.then.i.i13.i:                                  ; preds = %for.body.i
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %it.sroa.10.031.i, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.10.031.i, i64 -8
   %6 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %incdec.ptr.i.i23.i = getelementptr inbounds %"struct.std::pair", ptr %6, i64 255
-  %add.ptr.i.i.i15.i = getelementptr inbounds %"struct.std::pair", ptr %6, i64 256
+  %incdec.ptr.i.i23.i = getelementptr inbounds i8, ptr %6, i64 510
+  %add.ptr.i.i.i15.i = getelementptr inbounds i8, ptr %6, i64 512
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit.i
 
 _ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit.i: ; preds = %if.then.i.i13.i, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEptEv.exit.i
@@ -1173,7 +1140,7 @@ _ZNSt16reverse_iteratorISt15_Deque_iteratorISt4pairIhbERKS2_PS3_EEppEv.exit.i: ;
   %.pn.i = load i8, ptr %.pn.in.i, align 1
   %xor426.i = xor i8 %.pn.i, %hash.034.i
   %inc28.i = add nuw i64 %i.035.i, 1
-  %incdec.ptr.i.i12.i = getelementptr inbounds %"struct.std::pair", ptr %7, i64 -1
+  %incdec.ptr.i.i12.i = getelementptr inbounds i8, ptr %7, i64 -2
   %exitcond.not.i = icmp eq i64 %inc28.i, %sub.i
   br i1 %exitcond.not.i, label %_ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm.exit, label %for.body.i, !llvm.loop !10
 
@@ -1185,9 +1152,9 @@ _ZNK3net25QuicReceivedPacketManager14EntropyTracker11EntropyHashEm.exit: ; preds
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net25QuicReceivedPacketManager24DontWaitForPacketsBeforeEm(ptr noundef nonnull align 8 dereferenceable(248) %this, i64 noundef %least_unacked) local_unnamed_addr #0 align 2 {
 entry:
-  %peer_least_packet_awaiting_ack_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 2
+  %peer_least_packet_awaiting_ack_ = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %least_unacked, ptr %peer_least_packet_awaiting_ack_, align 8
-  %packets = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets = getelementptr inbounds i8, ptr %this, i64 168
   %call = tail call noundef zeroext i1 @_ZN3net17PacketNumberQueue10RemoveUpToEm(ptr noundef nonnull align 8 dereferenceable(48) %packets, i64 noundef %least_unacked)
   ret i1 %call
 }
@@ -1197,36 +1164,36 @@ declare noundef zeroext i1 @_ZN3net17PacketNumberQueue10RemoveUpToEm(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net25QuicReceivedPacketManager33UpdatePacketInformationSentByPeerERKNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stop_waiting) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %least_unacked = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %stop_waiting, i64 0, i32 2
+  %least_unacked = getelementptr inbounds i8, ptr %stop_waiting, i64 8
   %0 = load i64, ptr %least_unacked, align 8
-  %peer_least_packet_awaiting_ack_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 2
+  %peer_least_packet_awaiting_ack_ = getelementptr inbounds i8, ptr %this, i64 112
   %1 = load i64, ptr %peer_least_packet_awaiting_ack_, align 8
   %cmp = icmp ugt i64 %0, %1
   br i1 %cmp, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %if.end
   store i64 %0, ptr %peer_least_packet_awaiting_ack_, align 8
-  %packets.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets.i = getelementptr inbounds i8, ptr %this, i64 168
   %call.i = tail call noundef zeroext i1 @_ZN3net17PacketNumberQueue10RemoveUpToEm(ptr noundef nonnull align 8 dereferenceable(48) %packets.i, i64 noundef %0)
   br i1 %call.i, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %if.then4
-  %missing = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 7
+  %missing = getelementptr inbounds i8, ptr %this, i64 219
   %2 = load i8, ptr %missing, align 1
   %3 = and i8 %2, 1
   %tobool8.not = icmp eq i8 %3, 0
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %entropy_tracker_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1
+  %entropy_tracker_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %least_unacked, align 8
-  %entropy_hash = getelementptr inbounds %"struct.net::QuicStopWaitingFrame", ptr %stop_waiting, i64 0, i32 1
+  %entropy_hash = getelementptr inbounds i8, ptr %stop_waiting, i64 1
   %5 = load i8, ptr %entropy_hash, align 1
   tail call void @_ZN3net25QuicReceivedPacketManager14EntropyTracker24SetCumulativeEntropyUpToEmh(ptr noundef nonnull align 8 dereferenceable(104) %entropy_tracker_, i64 noundef %4, i8 noundef zeroext %5)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.then7
-  %ack_frame_updated_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 4
+  %ack_frame_updated_ = getelementptr inbounds i8, ptr %this, i64 224
   store i8 1, ptr %ack_frame_updated_, align 8
   br label %if.end13
 
@@ -1237,11 +1204,11 @@ if.end13:                                         ; preds = %if.then4, %if.end11
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %missing = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 7
+  %missing = getelementptr inbounds i8, ptr %this, i64 219
   %0 = load i8, ptr %missing, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %packets4 = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets4 = getelementptr inbounds i8, ptr %this, i64 168
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1260,7 +1227,7 @@ lor.rhs:                                          ; preds = %if.end
 
 land.rhs:                                         ; preds = %lor.rhs
   %call11 = tail call noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align 8 dereferenceable(48) %packets4)
-  %peer_least_packet_awaiting_ack_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 2
+  %peer_least_packet_awaiting_ack_ = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load i64, ptr %peer_least_packet_awaiting_ack_, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   %cmp13 = icmp ugt i64 %call11, %.sroa.speculated
@@ -1280,12 +1247,12 @@ declare noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager20HasNewMissingPacketsEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 {
 entry:
-  %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
-  %missing = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 7
+  %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
+  %missing = getelementptr inbounds i8, ptr %this, i64 219
   %0 = load i8, ptr %missing, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %packets4.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 3
+  %packets4.i = getelementptr inbounds i8, ptr %this, i64 168
   br i1 %tobool.not, label %if.end.i, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1310,7 +1277,7 @@ lor.rhs.i:                                        ; preds = %if.end.i
 
 _ZNK3net25QuicReceivedPacketManager17HasMissingPacketsEv.exit: ; preds = %lor.rhs.i
   %call11.i = tail call noundef i64 @_ZNK3net17PacketNumberQueue3MinEv(ptr noundef nonnull align 8 dereferenceable(48) %packets4.i)
-  %peer_least_packet_awaiting_ack_.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 2
+  %peer_least_packet_awaiting_ack_.i = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load i64, ptr %peer_least_packet_awaiting_ack_.i, align 8
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
   %cmp13.i = icmp ugt i64 %call11.i, %.sroa.speculated.i
@@ -1333,11 +1300,11 @@ declare noundef i64 @_ZNK3net17PacketNumberQueue18LastIntervalLengthEv(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net25QuicReceivedPacketManager17NumTrackedPacketsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_node.i.i.i, align 8
-  %_M_node1.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_node1.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1348,14 +1315,14 @@ entry:
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.i.i.i, 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_first.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %_M_first.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
   %sub.ptr.div6.i.i.i = ashr exact i64 %sub.ptr.sub5.i.i.i, 1
   %add.i.i.i = add nsw i64 %mul.i.i.i, %sub.ptr.div6.i.i.i
-  %_M_last.i.i.i = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %_M_last.i.i.i, align 8
   %5 = load ptr, ptr %_M_start.i.i, align 8
   %sub.ptr.lhs.cast8.i.i.i = ptrtoint ptr %4 to i64
@@ -1370,7 +1337,7 @@ entry:
 define dso_local void @_ZN3net25QuicReceivedPacketManager10SetVersionENS_11QuicVersionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this, i32 noundef %version) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %version, 34
-  %missing = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3, i32 7
+  %missing = getelementptr inbounds i8, ptr %this, i64 219
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %missing, align 1
   ret void
@@ -1379,7 +1346,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net25QuicReceivedPacketManager17ack_frame_updatedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 {
 entry:
-  %ack_frame_updated_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 4
+  %ack_frame_updated_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i8, ptr %ack_frame_updated_, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1389,7 +1356,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net25QuicReceivedPacketManager18GetLargestObservedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this, i64 0, i32 3
+  %ack_frame_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %ack_frame_, align 8
   ret i64 %0
 }
@@ -1401,7 +1368,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
@@ -1419,7 +1386,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !32
 
@@ -1435,7 +1402,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #14
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairIhbESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i, !llvm.loop !5
 
@@ -1475,24 +1442,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %12, i64 256
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"struct.std::pair", ptr %13, i64 256
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 255
@@ -1541,11 +1508,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeISt4pairIhbESaIS1_EE16_M_push_back_auxIJS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 1 dereferenceable(2) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1556,14 +1523,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 1
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -1579,7 +1546,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1597,18 +1564,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeISt4pairIhbESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #17
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i16, ptr %__args, align 1
   store i16 %10, ptr %9, align 1
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %11, i64 1
+  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %12, i64 256
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -1620,9 +1587,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeISt4pairIhbESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -1630,7 +1597,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -1644,7 +1611,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -1697,7 +1664,7 @@ _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %if.el
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit30, label %if.then.i.i.i.i.i28
 
@@ -1718,19 +1685,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i22
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 256
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 256
-  %_M_last.i34 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<unsigned char, bool>, std::allocator<std::pair<unsigned char, bool>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }

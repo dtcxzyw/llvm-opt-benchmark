@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.mdc2_ctx_st = type { i32, [8 x i8], [8 x i8], [8 x i8], i32 }
 
 @ossl_mdc2_functions = local_unnamed_addr constant [11 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @mdc2_newctx }, %struct.ossl_dispatch_st { i32 3, ptr @MDC2_Update }, %struct.ossl_dispatch_st { i32 4, ptr @mdc2_internal_final }, %struct.ossl_dispatch_st { i32 6, ptr @mdc2_freectx }, %struct.ossl_dispatch_st { i32 7, ptr @mdc2_dupctx }, %struct.ossl_dispatch_st { i32 8, ptr @mdc2_get_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_digest_default_gettable_params }, %struct.ossl_dispatch_st { i32 2, ptr @mdc2_internal_init }, %struct.ossl_dispatch_st { i32 12, ptr @mdc2_settable_ctx_params }, %struct.ossl_dispatch_st { i32 9, ptr @mdc2_set_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [57 x i8] c"../openssl/providers/implementations/digests/mdc2_prov.c\00", align 1
@@ -32,7 +31,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @MDC2_Update(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mdc2_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
+define internal noundef i32 @mdc2_internal_final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool = icmp ne i32 %call, 0
@@ -92,7 +91,7 @@ entry:
 declare ptr @ossl_digest_default_gettable_params(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mdc2_internal_init(ptr noundef %ctx, ptr noundef %params) #0 {
+define internal noundef i32 @mdc2_internal_init(ptr noundef %ctx, ptr noundef %params) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -115,7 +114,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
-  %pad_type.i = getelementptr inbounds %struct.mdc2_ctx_st, ptr %ctx, i64 0, i32 4
+  %pad_type.i = getelementptr inbounds i8, ptr %ctx, i64 28
   %call5.i = tail call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call.i, ptr noundef nonnull %pad_type.i) #4
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %if.then6.i, label %land.end
@@ -132,13 +131,13 @@ land.end:                                         ; preds = %if.then6.i, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @mdc2_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @mdc2_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #2 {
 entry:
   ret ptr @known_mdc2_settable_ctx_params
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mdc2_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
+define internal noundef i32 @mdc2_set_ctx_params(ptr noundef %vctx, ptr noundef %params) #0 {
 entry:
   %cmp = icmp eq ptr %vctx, null
   br i1 %cmp, label %return, label %if.end
@@ -153,7 +152,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %pad_type = getelementptr inbounds %struct.mdc2_ctx_st, ptr %vctx, i64 0, i32 4
+  %pad_type = getelementptr inbounds i8, ptr %vctx, i64 28
   %call5 = tail call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call, ptr noundef nonnull %pad_type) #4
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.then6, label %return

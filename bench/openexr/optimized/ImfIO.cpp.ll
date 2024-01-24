@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::allocator" = type { i8 }
-%"class.Imf_3_2::IStream" = type { ptr, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.Imf_3_2::OStream" = type { ptr, %"class.std::__cxx11::basic_string" }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
@@ -36,7 +31,7 @@ define void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceab
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_27IStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_fileName = getelementptr inbounds %"class.Imf_3_2::IStream", ptr %this, i64 0, i32 1
+  %_fileName = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_fileName)
           to label %call.i.noexc unwind label %lpad
@@ -95,7 +90,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN7Imf_3_27IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_27IStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_fileName = getelementptr inbounds %"class.Imf_3_2::IStream", ptr %this, i64 0, i32 1
+  %_fileName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_fileName) #11
   ret void
 }
@@ -157,7 +152,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK7Imf_3_27IStream8fileNameEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_fileName = getelementptr inbounds %"class.Imf_3_2::IStream", ptr %this, i64 0, i32 1
+  %_fileName = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_fileName) #11
   ret ptr %call
 }
@@ -170,7 +165,7 @@ define void @_ZN7Imf_3_27OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceab
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_27OStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_fileName = getelementptr inbounds %"class.Imf_3_2::OStream", ptr %this, i64 0, i32 1
+  %_fileName = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_fileName)
           to label %call.i.noexc unwind label %lpad
@@ -221,7 +216,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define void @_ZN7Imf_3_27OStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7Imf_3_27OStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_fileName = getelementptr inbounds %"class.Imf_3_2::OStream", ptr %this, i64 0, i32 1
+  %_fileName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_fileName) #11
   ret void
 }
@@ -236,7 +231,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK7Imf_3_27OStream8fileNameEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %_fileName = getelementptr inbounds %"class.Imf_3_2::OStream", ptr %this, i64 0, i32 1
+  %_fileName = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %_fileName) #11
   ret ptr %call
 }

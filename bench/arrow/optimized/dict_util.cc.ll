@@ -3,38 +3,14 @@ source_filename = "bench/arrow/original/dict_util.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.arrow::ArraySpan" = type { ptr, i64, i64, i64, [3 x %"struct.arrow::BufferSpan"], %"class.std::vector" }
-%"struct.arrow::BufferSpan" = type { ptr, i64, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl" }
-%"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.arrow::DictionaryType" = type <{ %"class.arrow::FixedWidthType", %"class.std::shared_ptr", %"class.std::shared_ptr", i8, [7 x i8] }>
-%"class.arrow::FixedWidthType" = type { %"class.arrow::DataType" }
-%"class.arrow::DataType" = type { %"class.arrow::detail::Fingerprintable", %"class.std::enable_shared_from_this", i32, %"class.std::vector.0" }
-%"class.arrow::detail::Fingerprintable" = type { ptr, %"struct.std::atomic", %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
-%"class.std::enable_shared_from_this" = type { %"class.std::weak_ptr" }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<arrow::Field>, std::allocator<std::shared_ptr<arrow::Field>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5arrow9dict_util16LogicalNullCountERKNS_9ArraySpanE(ptr noundef nonnull align 8 dereferenceable(128) %span) local_unnamed_addr #0 {
 entry:
-  %child_data.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 5
+  %child_data.i = getelementptr inbounds i8, ptr %span, i64 104
   %0 = load ptr, ptr %child_data.i, align 8
   %call1 = tail call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
   %cmp = icmp eq i64 %call1, 0
-  %length = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %span, i64 8
   %1 = load i64, ptr %length, align 8
   %cmp2 = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
@@ -46,18 +22,18 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %span, align 8
-  %index_type_.i = getelementptr inbounds %"class.arrow::DictionaryType", ptr %2, i64 0, i32 1
+  %index_type_.i = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load ptr, ptr %index_type_.i, align 8
-  %id_.i = getelementptr inbounds %"class.arrow::DataType", ptr %3, i64 0, i32 2
+  %id_.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i32, ptr %id_.i, align 8
-  %buffers.i322 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 4
+  %buffers.i322 = getelementptr inbounds i8, ptr %span, i64 32
   %5 = load ptr, ptr %buffers.i322, align 8
   %6 = load ptr, ptr %child_data.i, align 8
-  %buffers1.i324 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 4
+  %buffers1.i324 = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %buffers1.i324, align 8
-  %offset.i.i325 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 3
+  %offset.i.i325 = getelementptr inbounds i8, ptr %span, i64 24
   %8 = load i64, ptr %offset.i.i325, align 8
-  %arrayidx.i.i.i326 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %span, i64 0, i32 4, i64 1
+  %arrayidx.i.i.i326 = getelementptr inbounds i8, ptr %span, i64 56
   %9 = load ptr, ptr %arrayidx.i.i.i326, align 8
   %cmp17.i329 = icmp sgt i64 %1, 0
   switch i32 %4, label %sw.default [
@@ -76,7 +52,7 @@ sw.bb:                                            ; preds = %if.end
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
   %cmp5.not.i = icmp eq ptr %5, null
-  %offset8.i = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i, label %for.body.lr.ph.split.us.i, label %for.body.i
 
 for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
@@ -151,7 +127,7 @@ sw.bb9:                                           ; preds = %if.end
 
 for.body.lr.ph.i21:                               ; preds = %sw.bb9
   %cmp5.not.i22 = icmp eq ptr %5, null
-  %offset8.i23 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i23 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i22, label %for.body.lr.ph.split.us.i48, label %for.body.i24
 
 for.body.lr.ph.split.us.i48:                      ; preds = %for.body.lr.ph.i21
@@ -226,7 +202,7 @@ sw.bb11:                                          ; preds = %if.end
 
 for.body.lr.ph.i73:                               ; preds = %sw.bb11
   %cmp5.not.i74 = icmp eq ptr %5, null
-  %offset8.i75 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i75 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i74, label %for.body.lr.ph.split.us.i100, label %for.body.i76
 
 for.body.lr.ph.split.us.i100:                     ; preds = %for.body.lr.ph.i73
@@ -301,7 +277,7 @@ sw.bb13:                                          ; preds = %if.end
 
 for.body.lr.ph.i125:                              ; preds = %sw.bb13
   %cmp5.not.i126 = icmp eq ptr %5, null
-  %offset8.i127 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i127 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i126, label %for.body.lr.ph.split.us.i152, label %for.body.i128
 
 for.body.lr.ph.split.us.i152:                     ; preds = %for.body.lr.ph.i125
@@ -376,7 +352,7 @@ sw.bb15:                                          ; preds = %if.end
 
 for.body.lr.ph.i177:                              ; preds = %sw.bb15
   %cmp5.not.i178 = icmp eq ptr %5, null
-  %offset8.i179 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i179 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i178, label %for.body.lr.ph.split.us.i204, label %for.body.i180
 
 for.body.lr.ph.split.us.i204:                     ; preds = %for.body.lr.ph.i177
@@ -451,7 +427,7 @@ sw.bb17:                                          ; preds = %if.end
 
 for.body.lr.ph.i229:                              ; preds = %sw.bb17
   %cmp5.not.i230 = icmp eq ptr %5, null
-  %offset8.i231 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i231 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i230, label %for.body.lr.ph.split.us.i256, label %for.body.i232
 
 for.body.lr.ph.split.us.i256:                     ; preds = %for.body.lr.ph.i229
@@ -526,7 +502,7 @@ sw.bb19:                                          ; preds = %if.end
 
 for.body.lr.ph.i281:                              ; preds = %sw.bb19
   %cmp5.not.i282 = icmp eq ptr %5, null
-  %offset8.i283 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i283 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i282, label %for.body.lr.ph.split.us.i307, label %for.body.i284
 
 for.body.lr.ph.split.us.i307:                     ; preds = %for.body.lr.ph.i281
@@ -599,7 +575,7 @@ sw.default:                                       ; preds = %if.end
 
 for.body.lr.ph.i331:                              ; preds = %sw.default
   %cmp5.not.i332 = icmp eq ptr %5, null
-  %offset8.i333 = getelementptr inbounds %"struct.arrow::ArraySpan", ptr %6, i64 0, i32 3
+  %offset8.i333 = getelementptr inbounds i8, ptr %6, i64 24
   br i1 %cmp5.not.i332, label %for.body.lr.ph.split.us.i357, label %for.body.i334
 
 for.body.lr.ph.split.us.i357:                     ; preds = %for.body.lr.ph.i331

@@ -14,7 +14,7 @@ _ZN5folly8Executor9KeepAliveIS0_EC2EPS0_.exit:
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %vbase.offset
   %vtable.i.i = load ptr, ptr %add.ptr, align 8, !tbaa !7, !noalias !10
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !10
   %call.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #2, !noalias !10
   %1 = ptrtoint ptr %add.ptr to i64

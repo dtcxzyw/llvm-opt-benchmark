@@ -45,9 +45,9 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb5c20c
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator9enumerate17h37fdd42f053a0999E(ptr nocapture writeonly sret({ { ptr, ptr }, i64 }) align 8 %0, ptr %1, ptr %2) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -82,9 +82,9 @@ define hidden void @"_ZN14regex_automata4util8captures8Captures4iter28_$u7b$$u7b
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %0, align 8
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8
   ret void
 }
@@ -102,13 +102,13 @@ define hidden void @"_ZN14regex_automata4util8captures8Captures23interpolate_str
   ret void
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !5
-  %12 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
-  %14 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !8, !noundef !5
-  %16 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !5
   %18 = call { ptr, i64 } @"_ZN14regex_automata4util6search99_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..search..Span$GT$$u20$for$u20$str$GT$5index17hcd2eba511ce86d09E"(ptr nonnull align 1 %15, i64 %17, i64 %11, i64 %13, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.2)
   %19 = extractvalue { ptr, i64 } %18, 0
@@ -157,13 +157,13 @@ define hidden void @"_ZN14regex_automata4util8captures8Captures22interpolate_byt
   ret void
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !5
-  %12 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
-  %14 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !8, !noundef !5
-  %16 = getelementptr inbounds { ptr, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !5
   %18 = call { ptr, i64 } @"_ZN14regex_automata4util6search108_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..search..Span$GT$$u20$for$u20$$u5b$u8$u5d$$GT$5index17h3e86cc444039cba3E"(ptr nonnull align 1 %15, i64 %17, i64 %11, i64 %13, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.3)
   %19 = extractvalue { ptr, i64 } %18, 0
@@ -265,11 +265,11 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17h142b1c9e92be95cbE
 
 46:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
-  %47 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %39, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %39, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
-  %48 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %39, i64 0, i32 2
+  %48 = getelementptr inbounds i8, ptr %39, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
-  %49 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %39, i64 0, i32 3
+  %49 = getelementptr inbounds i8, ptr %39, i64 72
   store i64 0, ptr %49, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   invoke void @"_ZN4core5array4iter94_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$9into_iter17h0430421a017bbce2E"(ptr nonnull sret({ [1 x { [2 x i64] }], { i64, i64 } }) align 8 %33, ptr nonnull align 8 %32)
@@ -290,14 +290,14 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17h142b1c9e92be95cbE
 
 52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %35, i64 40, i1 false)
-  %53 = getelementptr inbounds { [1 x i64], { i64, [1 x { ptr, i64 }] } }, ptr %30, i64 0, i32 1
-  %54 = getelementptr inbounds { [1 x i64], { i64, [1 x { ptr, i64 }] } }, ptr %30, i64 0, i32 1, i32 1
-  %55 = getelementptr inbounds { [1 x i32], i32 }, ptr %28, i64 0, i32 1
-  %56 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %21, i64 0, i32 1, i32 1
-  %57 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %15, i64 0, i32 1
-  %58 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %15, i64 0, i32 1, i32 1
-  %59 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %15, i64 0, i32 1, i32 1, i32 1
-  %60 = getelementptr inbounds { [1 x i32], i32 }, ptr %13, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %30, i64 8
+  %54 = getelementptr inbounds i8, ptr %30, i64 16
+  %55 = getelementptr inbounds i8, ptr %28, i64 4
+  %56 = getelementptr inbounds i8, ptr %21, i64 16
+  %57 = getelementptr inbounds i8, ptr %15, i64 8
+  %58 = getelementptr inbounds i8, ptr %15, i64 16
+  %59 = getelementptr inbounds i8, ptr %15, i64 24
+  %60 = getelementptr inbounds i8, ptr %13, i64 4
   br label %61
 
 61:                                               ; preds = %114, %52
@@ -347,7 +347,7 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17h142b1c9e92be95cbE
   %76 = call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h28bc4dc45001b727E"(ptr nonnull align 8 %3)
   %77 = icmp ne ptr %76, null
   call void @llvm.assume(i1 %77)
-  %78 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %78 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %76, ptr %78, align 8
   store i32 5, ptr %0, align 8
   br label %80
@@ -636,11 +636,11 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17hbf438de8717e960cE
 
 38:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
-  %39 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %31, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %31, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
-  %40 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %31, i64 0, i32 2
+  %40 = getelementptr inbounds i8, ptr %31, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
-  %41 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %31, i64 0, i32 3
+  %41 = getelementptr inbounds i8, ptr %31, i64 72
   store i64 0, ptr %41, align 8
   invoke void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9eb77b7d2c2e0fcdE"()
           to label %42 unwind label %.thread21
@@ -660,12 +660,12 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17hbf438de8717e960cE
 
 46:                                               ; preds = %44
   store i64 %45, ptr %27, align 8
-  %47 = getelementptr inbounds { [1 x i32], i32 }, ptr %25, i64 0, i32 1
-  %48 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %20, i64 0, i32 1, i32 1
-  %49 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %14, i64 0, i32 1
-  %50 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %14, i64 0, i32 1, i32 1
-  %51 = getelementptr inbounds { [1 x i64], { i64, { ptr, i64 } } }, ptr %14, i64 0, i32 1, i32 1, i32 1
-  %52 = getelementptr inbounds { [1 x i32], i32 }, ptr %12, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %25, i64 4
+  %48 = getelementptr inbounds i8, ptr %20, i64 16
+  %49 = getelementptr inbounds i8, ptr %14, i64 8
+  %50 = getelementptr inbounds i8, ptr %14, i64 16
+  %51 = getelementptr inbounds i8, ptr %14, i64 24
+  %52 = getelementptr inbounds i8, ptr %12, i64 4
   br label %53
 
 53:                                               ; preds = %107, %46
@@ -705,7 +705,7 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17hbf438de8717e960cE
   %66 = call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h28bc4dc45001b727E"(ptr nonnull align 8 %2)
   %67 = icmp ne ptr %66, null
   call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %68 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %66, ptr %68, align 8
   store i32 5, ptr %0, align 8
   br label %70
@@ -994,11 +994,11 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17he91e9023a8c4eea2E
 
 43:                                               ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  %44 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %36, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %36, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
-  %45 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %36, i64 0, i32 2
+  %45 = getelementptr inbounds i8, ptr %36, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
-  %46 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %36, i64 0, i32 3
+  %46 = getelementptr inbounds i8, ptr %36, i64 72
   store i64 0, ptr %46, align 8
   %47 = invoke { ptr, ptr } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h593f4576eb4360adE"(ptr %1, ptr %2)
           to label %48 unwind label %.thread13
@@ -1020,13 +1020,13 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17he91e9023a8c4eea2E
 
 52:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
-  %53 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %29, i64 0, i32 1
-  %54 = getelementptr inbounds { [1 x i64], ptr, [1 x i64] }, ptr %29, i64 0, i32 2
-  %55 = getelementptr inbounds { [1 x i32], i32 }, ptr %27, i64 0, i32 1
-  %56 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %22, i64 0, i32 1, i32 1
-  %57 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %16, i64 0, i32 1
-  %58 = getelementptr inbounds { [1 x i64], { i64, ptr } }, ptr %16, i64 0, i32 1, i32 1
-  %59 = getelementptr inbounds { [1 x i32], i32 }, ptr %14, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %29, i64 8
+  %54 = getelementptr inbounds i8, ptr %29, i64 16
+  %55 = getelementptr inbounds i8, ptr %27, i64 4
+  %56 = getelementptr inbounds i8, ptr %22, i64 16
+  %57 = getelementptr inbounds i8, ptr %16, i64 8
+  %58 = getelementptr inbounds i8, ptr %16, i64 16
+  %59 = getelementptr inbounds i8, ptr %14, i64 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %52
@@ -1067,7 +1067,7 @@ define void @_ZN14regex_automata4util8captures9GroupInfo3new17he91e9023a8c4eea2E
   %74 = call ptr @"_ZN5alloc4sync12Arc$LT$T$GT$3new17h28bc4dc45001b727E"(ptr nonnull align 8 %4)
   %75 = icmp ne ptr %74, null
   call void @llvm.assume(i1 %75)
-  %76 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %76 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %74, ptr %76, align 8
   store i32 5, ptr %0, align 8
   br label %78
@@ -1346,7 +1346,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   store i32 %2, ptr %20, align 4
   store i32 %3, ptr %19, align 4
   %21 = tail call align 4 ptr @"_ZN14regex_automata4util10primitives132_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17h62f28358cc534872E"(ptr align 8 %1, i32 %2, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.8)
-  %22 = getelementptr inbounds { i32, i32 }, ptr %21, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %21, i64 4
   %23 = tail call i64 @_ZN14regex_automata4util10primitives10SmallIndex8as_usize17hdee2dbf45ef0e453E(ptr nonnull align 4 %22)
   %24 = add i64 %23, 2
   call void @_ZN14regex_automata4util10primitives10SmallIndex3new17h53f87982eba15d8dE(ptr nonnull sret({ i32, [3 x i32] }) align 8 %16, i64 %24)
@@ -1360,7 +1360,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   resume { ptr, i32 } %lpad.thr_comm
 
 28:                                               ; preds = %5
-  %29 = getelementptr inbounds { [1 x i32], i32 }, ptr %18, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %18, i64 4
   %30 = load i32, ptr %29, align 4, !noundef !5
   store i32 %30, ptr %22, align 4
   %.not = icmp eq ptr %4, null
@@ -1380,19 +1380,19 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   %.fca.0.extract = extractvalue { ptr, i64 } %36, 0
   store ptr %.fca.0.extract, ptr %13, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %36, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %13, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %37 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %1, i64 24
   %38 = load i32, ptr %20, align 4, !noundef !5
   %39 = invoke align 8 ptr @"_ZN14regex_automata4util10primitives129_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17hb96ec1e6fc73cc71E"(ptr nonnull align 8 %37, i32 %38, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.9)
           to label %47 unwind label %94
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %1, i64 48
   %42 = load i32, ptr %20, align 4, !noundef !5
   %43 = call align 8 ptr @"_ZN14regex_automata4util10primitives132_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17ha602a9ca0d134cbcE"(ptr nonnull align 8 %41, i32 %42, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.12)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0f11681ca8ea0ff6E"(ptr align 8 %43, ptr null, i64 undef)
-  %44 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 3
+  %44 = getelementptr inbounds i8, ptr %1, i64 72
   %45 = load i64, ptr %44, align 8, !noundef !5
   %46 = add i64 %45, 16
   store i64 %46, ptr %44, align 8
@@ -1443,7 +1443,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
           to label %73 unwind label %94
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 2
+  %74 = getelementptr inbounds i8, ptr %1, i64 48
   %75 = load i32, ptr %20, align 4, !noundef !5
   %76 = invoke align 8 ptr @"_ZN14regex_automata4util10primitives132_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17ha602a9ca0d134cbcE"(ptr nonnull align 8 %74, i32 %75, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.11)
           to label %77 unwind label %94
@@ -1453,7 +1453,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   %79 = load i64, ptr %.fca.1.gep, align 8, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0f11681ca8ea0ff6E"(ptr align 8 %76, ptr nonnull %78, i64 %79)
   %80 = shl i64 %62, 1
-  %81 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 3
+  %81 = getelementptr inbounds i8, ptr %1, i64 72
   %82 = load i64, ptr %81, align 8, !noundef !5
   %83 = add i64 %80, 36
   %84 = add i64 %83, %82
@@ -1500,7 +1500,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
 98:                                               ; preds = %85
   %99 = call i64 @_ZN14regex_automata4util10primitives10SmallIndex8one_more17h21a8c86c99e98f94E(ptr nonnull align 4 %19)
   store i64 %99, ptr %8, align 8
-  %100 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 2
+  %100 = getelementptr inbounds i8, ptr %1, i64 48
   %101 = load i32, ptr %20, align 4, !noundef !5
   %102 = call align 8 ptr @"_ZN14regex_automata4util10primitives129_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h98459405fa614761E"(ptr nonnull align 8 %100, i32 %101, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.14)
   %103 = call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hfcf8ca36a4315d11E"(ptr align 8 %102)
@@ -1541,7 +1541,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   store i32 %2, ptr %21, align 4
   store i32 %3, ptr %20, align 4
   %22 = tail call align 4 ptr @"_ZN14regex_automata4util10primitives132_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17h62f28358cc534872E"(ptr align 8 %1, i32 %2, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.8)
-  %23 = getelementptr inbounds { i32, i32 }, ptr %22, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = tail call i64 @_ZN14regex_automata4util10primitives10SmallIndex8as_usize17hdee2dbf45ef0e453E(ptr nonnull align 4 %23)
   %25 = add i64 %24, 2
   call void @_ZN14regex_automata4util10primitives10SmallIndex3new17h53f87982eba15d8dE(ptr nonnull sret({ i32, [3 x i32] }) align 8 %17, i64 %25)
@@ -1555,7 +1555,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   resume { ptr, i32 } %lpad.thr_comm
 
 29:                                               ; preds = %6
-  %30 = getelementptr inbounds { [1 x i32], i32 }, ptr %19, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %19, i64 4
   %31 = load i32, ptr %30, align 4, !noundef !5
   store i32 %31, ptr %23, align 4
   %.not = icmp eq ptr %4, null
@@ -1568,7 +1568,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
 
 33:                                               ; preds = %29
   store ptr %4, ptr %15, align 8
-  %34 = getelementptr inbounds { ptr, i64 }, ptr %15, i64 0, i32 1
+  %34 = getelementptr inbounds i8, ptr %15, i64 8
   store i64 %5, ptr %34, align 8
   %35 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hfddcf95709eaae07E"(ptr nonnull align 8 %15)
   %36 = extractvalue { ptr, i64 } %35, 0
@@ -1577,19 +1577,19 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   %.fca.0.extract = extractvalue { ptr, i64 } %38, 0
   store ptr %.fca.0.extract, ptr %14, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %38, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %14, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %14, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %39 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 1
+  %39 = getelementptr inbounds i8, ptr %1, i64 24
   %40 = load i32, ptr %21, align 4, !noundef !5
   %41 = invoke align 8 ptr @"_ZN14regex_automata4util10primitives129_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17hb96ec1e6fc73cc71E"(ptr nonnull align 8 %39, i32 %40, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.9)
           to label %49 unwind label %96
 
 42:                                               ; preds = %29
-  %43 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 2
+  %43 = getelementptr inbounds i8, ptr %1, i64 48
   %44 = load i32, ptr %21, align 4, !noundef !5
   %45 = call align 8 ptr @"_ZN14regex_automata4util10primitives132_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17ha602a9ca0d134cbcE"(ptr nonnull align 8 %43, i32 %44, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.12)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0f11681ca8ea0ff6E"(ptr align 8 %45, ptr null, i64 undef)
-  %46 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 3
+  %46 = getelementptr inbounds i8, ptr %1, i64 72
   %47 = load i64, ptr %46, align 8, !noundef !5
   %48 = add i64 %47, 16
   store i64 %48, ptr %46, align 8
@@ -1640,7 +1640,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
           to label %75 unwind label %96
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 2
+  %76 = getelementptr inbounds i8, ptr %1, i64 48
   %77 = load i32, ptr %21, align 4, !noundef !5
   %78 = invoke align 8 ptr @"_ZN14regex_automata4util10primitives132_$LT$impl$u20$core..ops..index..IndexMut$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9index_mut17ha602a9ca0d134cbcE"(ptr nonnull align 8 %76, i32 %77, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.11)
           to label %79 unwind label %96
@@ -1650,7 +1650,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
   %81 = load i64, ptr %.fca.1.gep, align 8, !noundef !5
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0f11681ca8ea0ff6E"(ptr align 8 %78, ptr nonnull %80, i64 %81)
   %82 = shl i64 %64, 1
-  %83 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 3
+  %83 = getelementptr inbounds i8, ptr %1, i64 72
   %84 = load i64, ptr %83, align 8, !noundef !5
   %85 = add i64 %82, 36
   %86 = add i64 %85, %84
@@ -1697,7 +1697,7 @@ define void @_ZN14regex_automata4util8captures14GroupInfoInner18add_explicit_gro
 100:                                              ; preds = %87
   %101 = call i64 @_ZN14regex_automata4util10primitives10SmallIndex8one_more17h21a8c86c99e98f94E(ptr nonnull align 4 %20)
   store i64 %101, ptr %9, align 8
-  %102 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, ptr %1, i64 0, i32 2
+  %102 = getelementptr inbounds i8, ptr %1, i64 48
   %103 = load i32, ptr %21, align 4, !noundef !5
   %104 = call align 8 ptr @"_ZN14regex_automata4util10primitives129_$LT$impl$u20$core..ops..index..Index$LT$regex_automata..util..primitives..PatternID$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$5index17h98459405fa614761E"(ptr nonnull align 8 %102, i32 %103, ptr nonnull align 8 @anon.75edf33725aa7d746dedb156ba94c9b3.14)
   %105 = call i64 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3len17hfcf8ca36a4315d11E"(ptr align 8 %104)
@@ -1756,7 +1756,7 @@ define hidden void @"_ZN14regex_automata4util8captures14GroupInfoInner17fixup_sl
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @"_ZN14regex_automata4util8captures14GroupInfoInner14small_slot_len28_$u7b$$u7b$closure$u7d$$u7d$17h61675346758627cbE"(ptr nocapture readonly align 4 %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds { i32, i32 }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !noundef !5
   ret i32 %3
 }

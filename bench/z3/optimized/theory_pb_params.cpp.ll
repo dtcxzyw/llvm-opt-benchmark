@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.smt_params_helper = type { ptr, %class.params_ref }
 %class.params_ref = type { ptr }
-%struct.theory_pb_params = type <{ i32, i8, [3 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -30,7 +29,7 @@ define hidden void @_ZN16theory_pb_params11updt_paramsERK10params_ref(ptr nocapt
 entry:
   %p = alloca %struct.smt_params_helper, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.smt_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.2)
   %0 = load ptr, ptr %p, align 8
   %call.i2 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1000)
@@ -43,7 +42,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_pb_learn_complements = getelementptr inbounds %struct.theory_pb_params, ptr %this, i64 0, i32 1
+  %m_pb_learn_complements = getelementptr inbounds i8, ptr %this, i64 4
   %frombool = zext i1 %call.i4 to i8
   store i8 %frombool, ptr %m_pb_learn_complements, align 4
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #5
@@ -66,7 +65,7 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call2, i8 noundef signext 10)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
-  %m_pb_learn_complements = getelementptr inbounds %struct.theory_pb_params, ptr %this, i64 0, i32 1
+  %m_pb_learn_complements = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i8, ptr %m_pb_learn_complements, align 4
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0

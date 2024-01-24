@@ -176,11 +176,11 @@ define hidden void @_ZN3syn3lit5value13parse_lit_str17hde442094dc3e3d46E(ptr noc
   %29 = extractvalue { ptr, i64 } %28, 0
   %30 = extractvalue { ptr, i64 } %28, 1
   call void @_ZN5alloc6string6String3new17h13e463f4456c52d1E(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %17), !noalias !5
-  %31 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %14, i64 0, i32 2
-  %32 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %14, i64 0, i32 2, i32 1
-  %33 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %16, i64 0, i32 2
-  %34 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %16, i64 0, i32 2, i32 1
-  %.fca.1.gep.i.i = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %31 = getelementptr inbounds i8, ptr %14, i64 8
+  %32 = getelementptr inbounds i8, ptr %14, i64 16
+  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %34 = getelementptr inbounds i8, ptr %16, i64 16
+  %.fca.1.gep.i.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %27
@@ -240,7 +240,7 @@ define hidden void @_ZN3syn3lit5value13parse_lit_str17hde442094dc3e3d46E(ptr noc
   %.fca.0.extract.i = extractvalue { ptr, i64 } %51, 0
   store ptr %.fca.0.extract.i, ptr %7, align 8, !noalias !5
   %.fca.1.extract.i = extractvalue { ptr, i64 } %51, 1
-  %.fca.1.gep.i = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8, !noalias !5
   %52 = invoke { ptr, i64 } @"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h756ad9e668ce99d9E"(ptr nonnull align 1 %.sroa.0.0.i, i64 %.sroa.23.0.i, i64 1, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.8)
           to label %56 unwind label %54
@@ -297,7 +297,7 @@ define hidden void @_ZN3syn3lit5value13parse_lit_str17hde442094dc3e3d46E(ptr noc
 68:                                               ; preds = %65
   store i8 %45, ptr %13, align 1, !noalias !5
   store ptr %13, ptr %11, align 8, !noalias !5
-  %69 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %69 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17hb67ad9e7d9f4438cE", ptr %69, align 8, !noalias !5
   invoke void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %12, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.17, i64 2, ptr nonnull align 8 %11, i64 1)
           to label %.invoke.i unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !5
@@ -471,11 +471,11 @@ _ZN3syn3lit5value20parse_lit_str_cooked17h694f8d868e0486e8E.exit: ; preds = %59
   %124 = load ptr, ptr %7, align 8, !noalias !5, !nonnull !8, !align !9, !noundef !8
   %125 = load i64, ptr %.fca.1.gep.i, align 8, !noalias !5, !noundef !8
   store ptr %124, ptr %0, align 8, !alias.scope !5
-  %126 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %126 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %125, ptr %126, align 8, !alias.scope !5
-  %127 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %127 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %122, ptr %127, align 8, !alias.scope !5
-  %128 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %128 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %123, ptr %128, align 8, !alias.scope !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -569,7 +569,7 @@ define internal fastcc void @_ZN3syn3lit5value17parse_lit_str_raw17hff4a98022bec
   %45 = extractvalue { ptr, ptr } %44, 0
   %46 = extractvalue { ptr, ptr } %44, 1
   store ptr %45, ptr %9, align 8
-  %47 = getelementptr inbounds { ptr, ptr }, ptr %9, i64 0, i32 1
+  %47 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %46, ptr %47, align 8
   br label %48
 
@@ -589,7 +589,7 @@ define internal fastcc void @_ZN3syn3lit5value17parse_lit_str_raw17hff4a98022bec
   %.fca.0.extract33 = extractvalue { ptr, i64 } %56, 0
   store ptr %.fca.0.extract33, ptr %6, align 8
   %.fca.1.extract34 = extractvalue { ptr, i64 } %56, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.fca.1.extract34, ptr %.fca.1.gep, align 8
   %57 = invoke { ptr, i64 } @"_ZN4core3str6traits66_$LT$impl$u20$core..ops..index..Index$LT$I$GT$$u20$for$u20$str$GT$5index17h756ad9e668ce99d9E"(ptr nonnull align 1 %20, i64 %21, i64 %37, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.32)
           to label %62 unwind label %60
@@ -622,11 +622,11 @@ define internal fastcc void @_ZN3syn3lit5value17parse_lit_str_raw17hff4a98022bec
   %70 = load ptr, ptr %6, align 8, !nonnull !8, !align !9, !noundef !8
   %71 = load i64, ptr %.fca.1.gep, align 8, !noundef !8
   store ptr %70, ptr %0, align 8
-  %72 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %72 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %71, ptr %72, align 8
-  %73 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %73 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %68, ptr %73, align 8
-  %74 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %74 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %69, ptr %74, align 8
   ret void
 
@@ -738,8 +738,8 @@ define hidden void @_ZN3syn3lit5value18parse_lit_byte_str17h4d249c8aedb5085cE(pt
   %46 = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %46)
   call void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hfd984a55f23ed8beE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %20), !noalias !12
-  %47 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %19, i64 0, i32 2
-  %48 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %19, i64 0, i32 2, i32 1
+  %47 = getelementptr inbounds i8, ptr %19, i64 8
+  %48 = getelementptr inbounds i8, ptr %19, i64 16
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %42
@@ -851,7 +851,7 @@ define hidden void @_ZN3syn3lit5value18parse_lit_byte_str17h4d249c8aedb5085cE(pt
 79:                                               ; preds = %76
   store i8 %57, ptr %18, align 1, !noalias !12
   store ptr %18, ptr %16, align 8, !noalias !12
-  %80 = getelementptr inbounds { ptr, ptr }, ptr %16, i64 0, i32 1
+  %80 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17hb67ad9e7d9f4438cE", ptr %80, align 8, !noalias !12
   invoke void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %17, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.17, i64 2, ptr nonnull align 8 %16, i64 1)
           to label %101 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !12
@@ -979,9 +979,9 @@ _ZN3syn3lit5value25parse_lit_byte_str_cooked17hfaa003d2d4622670E.exit: ; preds =
   %120 = extractvalue { ptr, i64 } %73, 0
   %121 = extractvalue { ptr, i64 } %73, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  %122 = getelementptr inbounds { { { ptr, i64 }, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %122 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %120, ptr %122, align 8, !alias.scope !12
-  %123 = getelementptr inbounds { { { ptr, i64 }, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %123 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %121, ptr %123, align 8, !alias.scope !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -1024,14 +1024,14 @@ _ZN3syn3lit5value25parse_lit_byte_str_cooked17hfaa003d2d4622670E.exit: ; preds =
   %131 = extractvalue { ptr, i64 } %129, 1
   call fastcc void @_ZN3syn3lit5value17parse_lit_str_raw17hff4a98022bec3efaE(ptr noalias nonnull align 8 %6, ptr align 1 %130, i64 %131)
   %132 = load ptr, ptr %6, align 8, !noalias !15, !nonnull !8, !align !9, !noundef !8
-  %133 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %133 = getelementptr inbounds i8, ptr %6, i64 8
   %134 = load i64, ptr %133, align 8, !noalias !15, !noundef !8
-  %135 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %135 = getelementptr inbounds i8, ptr %6, i64 16
   %136 = load ptr, ptr %135, align 8, !noalias !15, !nonnull !8, !align !9, !noundef !8
-  %137 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %137 = getelementptr inbounds i8, ptr %6, i64 24
   %138 = load i64, ptr %137, align 8, !noalias !15, !noundef !8
   store ptr %136, ptr %7, align 8, !noalias !15
-  %139 = getelementptr inbounds { ptr, i64 }, ptr %7, i64 0, i32 1
+  %139 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %138, ptr %139, align 8, !noalias !15
   invoke void @"_ZN97_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$alloc..boxed..Box$LT$str$GT$$GT$$GT$4from17hc4791563a7c44853E"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr nonnull align 1 %132, i64 %134)
           to label %142 unwind label %140, !noalias !15
@@ -1054,9 +1054,9 @@ _ZN3syn3lit5value25parse_lit_byte_str_cooked17hfaa003d2d4622670E.exit: ; preds =
 
 _ZN3syn3lit5value22parse_lit_byte_str_raw17h7b4e41347e527276E.exit: ; preds = %142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %145 = getelementptr inbounds { { { ptr, i64 }, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %145 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %136, ptr %145, align 8, !alias.scope !15
-  %146 = getelementptr inbounds { { { ptr, i64 }, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %146 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %138, ptr %146, align 8, !alias.scope !15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1139,7 +1139,7 @@ define hidden void @_ZN3syn3lit5value14parse_lit_byte17h47aa6d4be1cf8be7E(ptr no
 36:                                               ; preds = %27
   store i8 %28, ptr %9, align 1
   store ptr %9, ptr %7, align 8
-  %37 = getelementptr inbounds { ptr, ptr }, ptr %7, i64 0, i32 1
+  %37 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17hb67ad9e7d9f4438cE", ptr %37, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %8, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.17, i64 2, ptr nonnull align 8 %7, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %8, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.56) #8
@@ -1150,9 +1150,9 @@ define hidden void @_ZN3syn3lit5value14parse_lit_byte17h47aa6d4be1cf8be7E(ptr no
   tail call void @llvm.assume(i1 %39)
   call void @_ZN3syn3lit5value11backslash_x17hc573fd5fe540818fE(ptr nonnull sret({ i8, [7 x i8], { ptr, i64 } }) align 8 %10, ptr nonnull align 1 %30, i64 %31)
   %40 = load i8, ptr %10, align 8, !noundef !8
-  %41 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %10, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %10, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !8, !align !9, !noundef !8
-  %43 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %10, i64 0, i32 2, i32 1
+  %43 = getelementptr inbounds i8, ptr %10, i64 16
   %44 = load i64, ptr %43, align 8, !noundef !8
   br label %51
 
@@ -1202,9 +1202,9 @@ define hidden void @_ZN3syn3lit5value14parse_lit_byte17h47aa6d4be1cf8be7E(ptr no
   %63 = extractvalue { ptr, i64 } %62, 0
   %64 = extractvalue { ptr, i64 } %62, 1
   store i8 %.0, ptr %0, align 8
-  %65 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %65 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %63, ptr %65, align 8
-  %66 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %0, i64 0, i32 2, i32 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %64, ptr %66, align 8
   ret void
 }
@@ -1268,7 +1268,7 @@ define hidden void @_ZN3syn3lit5value14parse_lit_char17h0a449d933ae112b4E(ptr no
   %.fca.0.extract.i = extractvalue { ptr, ptr } %33, 0
   store ptr %.fca.0.extract.i, ptr %4, align 8
   %.fca.1.extract.i = extractvalue { ptr, ptr } %33, 1
-  %.fca.1.gep.i = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8
   %34 = call i32 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h67c98bf5c7a6ba5eE"(ptr nonnull align 8 %4), !range !10
   %35 = call i32 @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h70bc43074f8efdc1E"(i32 %34, i32 0), !range !11
@@ -1282,7 +1282,7 @@ define hidden void @_ZN3syn3lit5value14parse_lit_char17h0a449d933ae112b4E(ptr no
 40:                                               ; preds = %27
   store i8 %28, ptr %10, align 1
   store ptr %10, ptr %8, align 8
-  %41 = getelementptr inbounds { ptr, ptr }, ptr %8, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17hb67ad9e7d9f4438cE", ptr %41, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %9, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.17, i64 2, ptr nonnull align 8 %8, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %9, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.65) #8
@@ -1301,9 +1301,9 @@ define hidden void @_ZN3syn3lit5value14parse_lit_char17h0a449d933ae112b4E(ptr no
   tail call void @llvm.assume(i1 %47)
   call fastcc void @_ZN3syn3lit5value11backslash_u17hb5b77ec290e1366bE(ptr noalias nonnull align 8 %11, ptr nonnull align 1 %30, i64 %31)
   %48 = load i32, ptr %11, align 8, !range !11, !noundef !8
-  %49 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %11, i64 0, i32 2
+  %49 = getelementptr inbounds i8, ptr %11, i64 8
   %50 = load ptr, ptr %49, align 8, !nonnull !8, !align !9, !noundef !8
-  %51 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %11, i64 0, i32 2, i32 1
+  %51 = getelementptr inbounds i8, ptr %11, i64 16
   %52 = load i64, ptr %51, align 8, !noundef !8
   br label %68
 
@@ -1331,9 +1331,9 @@ define hidden void @_ZN3syn3lit5value14parse_lit_char17h0a449d933ae112b4E(ptr no
   unreachable
 
 60:                                               ; preds = %42
-  %61 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %13, i64 0, i32 2, i32 1
+  %61 = getelementptr inbounds i8, ptr %13, i64 16
   %62 = load i64, ptr %61, align 8, !noundef !8
-  %63 = getelementptr inbounds { i8, [7 x i8], { ptr, i64 } }, ptr %13, i64 0, i32 2
+  %63 = getelementptr inbounds i8, ptr %13, i64 8
   %64 = load ptr, ptr %63, align 8, !nonnull !8, !align !9, !noundef !8
   %65 = zext i8 %44 to i32
   %66 = call i32 @_ZN4core4char8from_u3217hdd662265c3a427edE(i32 %65), !range !10
@@ -1365,9 +1365,9 @@ define hidden void @_ZN3syn3lit5value14parse_lit_char17h0a449d933ae112b4E(ptr no
   %78 = extractvalue { ptr, i64 } %77, 0
   %79 = extractvalue { ptr, i64 } %77, 1
   store i32 %.0, ptr %0, align 8
-  %80 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %80 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %78, ptr %80, align 8
-  %81 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %0, i64 0, i32 2, i32 1
+  %81 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %79, ptr %81, align 8
   ret void
 }
@@ -1499,15 +1499,15 @@ define internal fastcc void @_ZN3syn3lit5value11backslash_u17hb5b77ec290e1366bE(
   %44 = icmp ne ptr %43, null
   tail call void @llvm.assume(i1 %44)
   store i32 %39, ptr %0, align 8
-  %45 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %43, ptr %45, align 8
-  %46 = getelementptr inbounds { i32, [1 x i32], { ptr, i64 } }, ptr %0, i64 0, i32 2, i32 1
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %42, ptr %46, align 8
   ret void
 
 47:                                               ; preds = %37
   store ptr %9, ptr %4, align 8
-  %48 = getelementptr inbounds { ptr, ptr }, ptr %4, i64 0, i32 1
+  %48 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u32$GT$3fmt17h8aa9b32b51a0ac8aE", ptr %48, align 8
   call void @_ZN4core3fmt9Arguments6new_v117hdf8179cb463011b0E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %5, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.77, i64 2, ptr nonnull align 8 %4, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %5, ptr nonnull align 8 @anon.afc29425d0b741c4f48bbd8e7ef40284.78) #8
@@ -1789,8 +1789,8 @@ define hidden void @_ZN3syn3lit5value13parse_lit_int17he34835ebb5ea5d5dE(ptr noc
 
 80:                                               ; preds = %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  %81 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %8, i64 0, i32 1
-  %82 = getelementptr inbounds { [1 x i64], { i64, i8 } }, ptr %8, i64 0, i32 1, i32 1
+  %81 = getelementptr inbounds i8, ptr %8, i64 8
+  %82 = getelementptr inbounds i8, ptr %8, i64 16
   br label %.outer
 
 .outer:                                           ; preds = %90, %80
@@ -1889,7 +1889,7 @@ define hidden void @_ZN3syn3lit5value13parse_lit_int17he34835ebb5ea5d5dE(ptr noc
   %.fca.0.extract = extractvalue { ptr, i64 } %114, 0
   store ptr %.fca.0.extract, ptr %6, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %114, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
   invoke void @"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h33307716048b8a2bE"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr nonnull align 1 %.sroa.0.2114, i64 %.sroa.20.2131)
           to label %121 unwind label %119
@@ -2014,7 +2014,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h590bd8ba0fe1cd75E(ptr s
   br i1 %or.cond, label %.preheader, label %.sink.split
 
 .preheader:                                       ; preds = %34
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %11, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %11, i64 8
   br label %.outer
 
 .sink.split:                                      ; preds = %.split175, %52, %67, %67, %34, %.loopexit106, %87
@@ -2283,7 +2283,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h590bd8ba0fe1cd75E(ptr s
   %.fca.0.extract30 = extractvalue { ptr, i64 } %113, 0
   store ptr %.fca.0.extract30, ptr %6, align 8
   %.fca.1.extract32 = extractvalue { ptr, i64 } %113, 1
-  %.fca.1.gep33 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %.fca.1.gep33 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %.fca.1.extract32, ptr %.fca.1.gep33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %120 = invoke { ptr, i64 } @_ZN5alloc6string6String14into_boxed_str17h74474b78c2449003E(ptr nonnull align 8 %4)

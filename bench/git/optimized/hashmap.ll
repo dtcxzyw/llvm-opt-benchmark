@@ -4,9 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.hashmap_iter = type { ptr, ptr, i32 }
 %struct.pool_entry = type { %struct.hashmap_entry, i64, [0 x i8] }
+%struct.hashmap_entry = type { ptr, i32 }
 
 @memintern.map = internal global %struct.hashmap zeroinitializer, align 8
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu + %lu\00", align 1
@@ -146,7 +145,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @hashmap_bucket(ptr nocapture noundef readonly %map, i32 noundef %hash) local_unnamed_addr #1 {
 entry:
-  %tablesize = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 4
+  %tablesize = getelementptr inbounds i8, ptr %map, i64 28
   %0 = load i32, ptr %tablesize, align 4
   %sub = add i32 %0, -1
   %and = and i32 %sub, %hash
@@ -159,9 +158,9 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %map, i8 0, i64 48, i1 false)
   %tobool.not = icmp eq ptr %equals_function, null
   %cond = select i1 %tobool.not, ptr @always_equal, ptr %equals_function
-  %cmpfn = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 1
+  %cmpfn = getelementptr inbounds i8, ptr %map, i64 8
   store ptr %cond, ptr %cmpfn, align 8
-  %cmpfn_data1 = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 2
+  %cmpfn_data1 = getelementptr inbounds i8, ptr %map, i64 16
   store ptr %cmpfn_data, ptr %cmpfn_data1, align 8
   %mul = mul i64 %initial_size, 100
   %div = udiv i64 %mul, 80
@@ -176,21 +175,21 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.cond
-  %tablesize.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 4
+  %tablesize.i = getelementptr inbounds i8, ptr %map, i64 28
   store i32 %size.0, ptr %tablesize.i, align 4
   %call.i = tail call ptr @xcalloc(i64 noundef %conv3, i64 noundef 8) #14
   store ptr %call.i, ptr %map, align 8
   %mul.i = mul nuw nsw i64 %conv3, 80
   %div.i = udiv i64 %mul.i, 100
   %conv2.i = trunc i64 %div.i to i32
-  %grow_at.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 5
+  %grow_at.i = getelementptr inbounds i8, ptr %map, i64 32
   store i32 %conv2.i, ptr %grow_at.i, align 8
   %cmp.i = icmp ult i32 %size.0, 65
   %div5.i = udiv i32 %conv2.i, 5
   %div5.sink.i = select i1 %cmp.i, i32 0, i32 %div5.i
-  %0 = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 6
+  %0 = getelementptr inbounds i8, ptr %map, i64 36
   store i32 %div5.sink.i, ptr %0, align 4
-  %do_count_items = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 7
+  %do_count_items = getelementptr inbounds i8, ptr %map, i64 40
   %bf.load = load i8, ptr %do_count_items, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %do_count_items, align 8
@@ -219,7 +218,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %cmp = icmp sgt i64 %entry_offset, -1
-  %tablesize.i.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 4
+  %tablesize.i.i = getelementptr inbounds i8, ptr %map, i64 28
   br i1 %cmp, label %if.then2, label %if.end.if.end3_crit_edge
 
 if.end.if.end3_crit_edge:                         ; preds = %if.end
@@ -274,9 +273,9 @@ if.end3:                                          ; preds = %if.end.i.i, %if.end
   %conv = zext i32 %5 to i64
   %mul = shl nuw nsw i64 %conv, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %mul, i1 false)
-  %shrink_at = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 6
+  %shrink_at = getelementptr inbounds i8, ptr %map, i64 36
   store i32 0, ptr %shrink_at, align 4
-  %private_size = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 3
+  %private_size = getelementptr inbounds i8, ptr %map, i64 24
   store i32 0, ptr %private_size, align 8
   br label %return
 
@@ -300,7 +299,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %tablesize.i.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 4
+  %tablesize.i.i = getelementptr inbounds i8, ptr %map, i64 28
   %idx.neg.i = sub nsw i64 0, %entry_offset
   br label %while.cond.i
 
@@ -371,7 +370,7 @@ if.end:                                           ; preds = %entry
   %and.i.i = and i32 %sub.i.i, %key.val.i
   %idxprom.i = zext i32 %and.i.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
-  %cmpfn.i.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 1
+  %cmpfn.i.i = getelementptr inbounds i8, ptr %map, i64 8
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not12.i = icmp eq ptr %3, null
   %cmp.i13.i = icmp eq ptr %3, %key
@@ -379,13 +378,13 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond14.i, label %return, label %lor.rhs.i.lr.ph.i
 
 lor.rhs.i.lr.ph.i:                                ; preds = %if.end
-  %cmpfn_data.i.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 2
+  %cmpfn_data.i.i = getelementptr inbounds i8, ptr %map, i64 16
   br label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %while.body.i, %lor.rhs.i.lr.ph.i
   %4 = phi ptr [ %3, %lor.rhs.i.lr.ph.i ], [ %10, %while.body.i ]
   %e.015.i = phi ptr [ %arrayidx.i, %lor.rhs.i.lr.ph.i ], [ %9, %while.body.i ]
-  %hash.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %4, i64 0, i32 1
+  %hash.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %hash.i.i, align 8
   %6 = load i32, ptr %2, align 8
   %cmp2.i.i = icmp eq i32 %5, %6
@@ -415,9 +414,9 @@ return:                                           ; preds = %while.body.i, %entr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @hashmap_get_next(ptr nocapture noundef readonly %map, ptr noundef %entry1) local_unnamed_addr #2 {
 entry:
-  %hash.i = getelementptr inbounds %struct.hashmap_entry, ptr %entry1, i64 0, i32 1
-  %cmpfn.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 1
-  %cmpfn_data.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 2
+  %hash.i = getelementptr inbounds i8, ptr %entry1, i64 8
+  %cmpfn.i = getelementptr inbounds i8, ptr %map, i64 8
+  %cmpfn_data.i = getelementptr inbounds i8, ptr %map, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %entry_equals.exit, %entry
@@ -430,7 +429,7 @@ for.cond:                                         ; preds = %entry_equals.exit, 
 
 lor.rhs.i:                                        ; preds = %for.cond
   %0 = load i32, ptr %hash.i, align 8
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %e.0, i64 0, i32 1
+  %hash1.i = getelementptr inbounds i8, ptr %e.0, i64 8
   %1 = load i32, ptr %hash1.i, align 8
   %cmp2.i = icmp eq i32 %0, %1
   br i1 %cmp2.i, label %land.rhs.i, label %entry_equals.exit
@@ -460,13 +459,13 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %tablesize.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 4
+  %tablesize.i = getelementptr inbounds i8, ptr %map, i64 28
   store i32 64, ptr %tablesize.i, align 4
   %call.i = tail call ptr @xcalloc(i64 noundef 64, i64 noundef 8) #14
   store ptr %call.i, ptr %map, align 8
-  %grow_at.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 5
+  %grow_at.i = getelementptr inbounds i8, ptr %map, i64 32
   store i32 51, ptr %grow_at.i, align 8
-  %1 = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 6
+  %1 = getelementptr inbounds i8, ptr %map, i64 36
   store i32 0, ptr %1, align 4
   br label %if.end
 
@@ -485,18 +484,18 @@ if.end:                                           ; preds = %if.then, %entry
   %6 = load ptr, ptr %map, align 8
   %arrayidx5 = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   store ptr %entry1, ptr %arrayidx5, align 8
-  %do_count_items = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 7
+  %do_count_items = getelementptr inbounds i8, ptr %map, i64 40
   %bf.load = load i8, ptr %do_count_items, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool6.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %private_size = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 3
+  %private_size = getelementptr inbounds i8, ptr %map, i64 24
   %7 = load i32, ptr %private_size, align 8
   %inc = add i32 %7, 1
   store i32 %inc, ptr %private_size, align 8
-  %grow_at = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 5
+  %grow_at = getelementptr inbounds i8, ptr %map, i64 32
   %8 = load i32, ptr %grow_at, align 8
   %cmp = icmp ugt i32 %inc, %8
   br i1 %cmp, label %if.then9, label %if.end11
@@ -516,7 +515,7 @@ if.then9:                                         ; preds = %if.then7
   %cmp.i.i = icmp ult i32 %shl, 65
   %div5.i.i = udiv i32 %conv2.i.i, 5
   %div5.sink.i.i = select i1 %cmp.i.i, i32 0, i32 %div5.i.i
-  %11 = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 6
+  %11 = getelementptr inbounds i8, ptr %map, i64 36
   store i32 %div5.sink.i.i, ptr %11, align 4
   %cmp16.not.i = icmp eq i32 %9, 0
   br i1 %cmp16.not.i, label %rehash.exit, label %for.body.preheader.i
@@ -580,7 +579,7 @@ if.end:                                           ; preds = %entry
   %and.i.i = and i32 %sub.i.i, %key.val.i
   %idxprom.i = zext i32 %and.i.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
-  %cmpfn.i.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 1
+  %cmpfn.i.i = getelementptr inbounds i8, ptr %map, i64 8
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not12.i = icmp eq ptr %3, null
   %cmp.i13.i = icmp eq ptr %3, %key
@@ -588,13 +587,13 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond14.i, label %find_entry_ptr.exit, label %lor.rhs.i.lr.ph.i
 
 lor.rhs.i.lr.ph.i:                                ; preds = %if.end
-  %cmpfn_data.i.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 2
+  %cmpfn_data.i.i = getelementptr inbounds i8, ptr %map, i64 16
   br label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %while.body.i, %lor.rhs.i.lr.ph.i
   %4 = phi ptr [ %3, %lor.rhs.i.lr.ph.i ], [ %10, %while.body.i ]
   %e.015.i = phi ptr [ %arrayidx.i, %lor.rhs.i.lr.ph.i ], [ %9, %while.body.i ]
-  %hash.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %4, i64 0, i32 1
+  %hash.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %hash.i.i, align 8
   %6 = load i32, ptr %2, align 8
   %cmp2.i.i = icmp eq i32 %5, %6
@@ -626,18 +625,18 @@ if.end3:                                          ; preds = %find_entry_ptr.exit
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %e.0.lcssa.i, align 8
   store ptr null, ptr %11, align 8
-  %do_count_items = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 7
+  %do_count_items = getelementptr inbounds i8, ptr %map, i64 40
   %bf.load = load i8, ptr %do_count_items, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool5.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  %private_size = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 3
+  %private_size = getelementptr inbounds i8, ptr %map, i64 24
   %13 = load i32, ptr %private_size, align 8
   %dec = add i32 %13, -1
   store i32 %dec, ptr %private_size, align 8
-  %shrink_at = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 6
+  %shrink_at = getelementptr inbounds i8, ptr %map, i64 36
   %14 = load i32, ptr %shrink_at, align 4
   %cmp = icmp ult i32 %dec, %14
   br i1 %cmp, label %if.then8, label %return
@@ -653,7 +652,7 @@ if.then8:                                         ; preds = %if.then6
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 80
   %div.i.i = udiv i64 %mul.i.i, 100
   %conv2.i.i = trunc i64 %div.i.i to i32
-  %grow_at.i.i = getelementptr inbounds %struct.hashmap, ptr %map, i64 0, i32 5
+  %grow_at.i.i = getelementptr inbounds i8, ptr %map, i64 32
   store i32 %conv2.i.i, ptr %grow_at.i.i, align 8
   %cmp.i.i13 = icmp ult i32 %15, 260
   %div5.i.i = udiv i32 %conv2.i.i, 5
@@ -718,9 +717,9 @@ entry:
 define dso_local void @hashmap_iter_init(ptr noundef %map, ptr nocapture noundef writeonly %iter) local_unnamed_addr #6 {
 entry:
   store ptr %map, ptr %iter, align 8
-  %tablepos = getelementptr inbounds %struct.hashmap_iter, ptr %iter, i64 0, i32 2
+  %tablepos = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 0, ptr %tablepos, align 8
-  %next = getelementptr inbounds %struct.hashmap_iter, ptr %iter, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iter, i64 8
   store ptr null, ptr %next, align 8
   ret void
 }
@@ -728,15 +727,15 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @hashmap_iter_next(ptr nocapture noundef %iter) local_unnamed_addr #7 {
 entry:
-  %next = getelementptr inbounds %struct.hashmap_iter, ptr %iter, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %iter, i64 8
   %current.010 = load ptr, ptr %next, align 8
   %tobool.not11 = icmp eq ptr %current.010, null
   br i1 %tobool.not11, label %if.end.lr.ph, label %if.then
 
 if.end.lr.ph:                                     ; preds = %entry
-  %tablepos = getelementptr inbounds %struct.hashmap_iter, ptr %iter, i64 0, i32 2
+  %tablepos = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load ptr, ptr %iter, align 8
-  %tablesize = getelementptr inbounds %struct.hashmap, ptr %0, i64 0, i32 4
+  %tablesize = getelementptr inbounds i8, ptr %0, i64 28
   %.pre = load i32, ptr %tablepos, align 8
   br label %if.end
 
@@ -807,10 +806,10 @@ while.body.i:                                     ; preds = %if.end, %while.body
 
 memhash.exit:                                     ; preds = %while.body.i, %if.end
   %hash.0.lcssa.i = phi i32 [ -2128831035, %if.end ], [ %xor.i, %while.body.i ]
-  %hash1.i = getelementptr inbounds %struct.hashmap_entry, ptr %key, i64 0, i32 1
+  %hash1.i = getelementptr inbounds i8, ptr %key, i64 8
   store i32 %hash.0.lcssa.i, ptr %hash1.i, align 8
   store ptr null, ptr %key, align 8
-  %len1 = getelementptr inbounds %struct.pool_entry, ptr %key, i64 0, i32 1
+  %len1 = getelementptr inbounds i8, ptr %key, i64 16
   store i64 %len, ptr %len1, align 8
   %2 = load ptr, ptr @memintern.map, align 8
   %tobool.not.i12 = icmp eq ptr %2, null
@@ -831,7 +830,7 @@ if.end.i:                                         ; preds = %memhash.exit
 lor.rhs.i.i.i:                                    ; preds = %if.end.i, %while.body.i.i
   %4 = phi ptr [ %10, %while.body.i.i ], [ %3, %if.end.i ]
   %e.015.i.i = phi ptr [ %9, %while.body.i.i ], [ %arrayidx.i.i, %if.end.i ]
-  %hash.i.i.i = getelementptr inbounds %struct.hashmap_entry, ptr %4, i64 0, i32 1
+  %hash.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %hash.i.i.i, align 8
   %6 = load i32, ptr %hash1.i, align 8
   %cmp2.i.i.i = icmp eq i32 %5, %6
@@ -877,34 +876,34 @@ if.then.i17:                                      ; preds = %st_add.exit
 st_add.exit18:                                    ; preds = %st_add.exit
   %add.i16 = add nuw i64 %len, 25
   %call9 = call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i16) #14
-  %data10 = getelementptr inbounds %struct.pool_entry, ptr %call9, i64 0, i32 2
+  %data10 = getelementptr inbounds i8, ptr %call9, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data10, ptr align 1 %data, i64 %len, i1 false)
   %11 = load i32, ptr %hash1.i, align 8
-  %hash1.i19 = getelementptr inbounds %struct.hashmap_entry, ptr %call9, i64 0, i32 1
+  %hash1.i19 = getelementptr inbounds i8, ptr %call9, i64 8
   store i32 %11, ptr %hash1.i19, align 8
   store ptr null, ptr %call9, align 8
-  %len13 = getelementptr inbounds %struct.pool_entry, ptr %call9, i64 0, i32 1
+  %len13 = getelementptr inbounds i8, ptr %call9, i64 16
   store i64 %len, ptr %len13, align 8
   call void @hashmap_add(ptr noundef nonnull @memintern.map, ptr noundef nonnull %call9)
   br label %if.end15
 
 if.end15:                                         ; preds = %st_add.exit18, %hashmap_get.exit
   %e.0 = phi ptr [ %retval.0.i, %hashmap_get.exit ], [ %call9, %st_add.exit18 ]
-  %data16 = getelementptr inbounds %struct.pool_entry, ptr %e.0, i64 0, i32 2
+  %data16 = getelementptr inbounds i8, ptr %e.0, i64 24
   ret ptr %data16
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pool_entry_cmp(ptr nocapture readnone %cmp_data, ptr noundef readonly %eptr, ptr nocapture noundef readonly %entry_or_key, ptr noundef readonly %keydata) #8 {
 entry:
-  %data = getelementptr inbounds %struct.pool_entry, ptr %eptr, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %eptr, i64 24
   %cmp.not = icmp eq ptr %data, %keydata
   br i1 %cmp.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %len = getelementptr inbounds %struct.pool_entry, ptr %eptr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %eptr, i64 16
   %0 = load i64, ptr %len, align 8
-  %len2 = getelementptr inbounds %struct.pool_entry, ptr %entry_or_key, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %entry_or_key, i64 16
   %1 = load i64, ptr %len2, align 8
   %cmp3.not = icmp eq i64 %0, %1
   br i1 %cmp3.not, label %lor.rhs, label %land.end

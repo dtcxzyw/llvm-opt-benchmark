@@ -33,13 +33,13 @@ define hidden void @_ZN3syn8verbatim7between17h9f573f1feeb8039dE(ptr nocapture w
   %.fca.0.extract = extractvalue { ptr, ptr } %17, 0
   store ptr %.fca.0.extract, ptr %16, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %17, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %16, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %18 = tail call { ptr, ptr } @_ZN3syn5parse11ParseBuffer6cursor17h55f28a4c290b8622E(ptr align 8 %1)
   %.fca.0.extract1 = extractvalue { ptr, ptr } %18, 0
   store ptr %.fca.0.extract1, ptr %15, align 16
   %.fca.1.extract3 = extractvalue { ptr, ptr } %18, 1
-  %.fca.1.gep4 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 0, i32 1
+  %.fca.1.gep4 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %.fca.1.extract3, ptr %.fca.1.gep4, align 8
   %19 = tail call zeroext i1 @_ZN3syn6buffer11same_buffer17h37c9f1a014170ef0E(ptr %.fca.0.extract, ptr %.fca.1.extract, ptr %.fca.0.extract1, ptr %.fca.1.extract3)
   br i1 %19, label %21, label %20
@@ -50,11 +50,11 @@ define hidden void @_ZN3syn8verbatim7between17h9f573f1feeb8039dE(ptr nocapture w
 
 21:                                               ; preds = %3
   call void @_ZN11proc_macro211TokenStream3new17he031674f5d616f85E(ptr nonnull sret({ { ptr, [3 x i64] }, {} }) align 8 %14)
-  %22 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, { ptr, ptr } }, ptr %11, i64 0, i32 1
-  %23 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] }, { ptr, ptr } }, ptr %11, i64 0, i32 1, i32 1
-  %24 = getelementptr inbounds { ptr, ptr }, ptr %12, i64 0, i32 1
-  %25 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %8, i64 0, i32 1
-  %26 = getelementptr inbounds { [1 x i64], { { ptr, ptr }, { { [2 x i32], i32 }, {} }, [1 x i32], { ptr, ptr } } }, ptr %8, i64 0, i32 1, i32 3
+  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds i8, ptr %11, i64 40
+  %24 = getelementptr inbounds i8, ptr %12, i64 8
+  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %26 = getelementptr inbounds i8, ptr %8, i64 40
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %21

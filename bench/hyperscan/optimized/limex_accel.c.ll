@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %union.AccelAux = type { %struct.anon.5 }
 %struct.anon.5 = type { i8, i8, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64> }
-%struct.LimExNFA128 = type { [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, <2 x i64>, [8 x <2 x i64>], i32, [8 x i8], [36 x i8], %struct.m512, %struct.m512, %struct.m512 }
-%struct.m512 = type { %struct.m256, %struct.m256 }
-%struct.m256 = type { <2 x i64>, <2 x i64> }
-%struct.LimExNFA256 = type { [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [20 x i8], %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, %struct.m256, [8 x %struct.m256], i32, [8 x i8], [20 x i8], %struct.m512, %struct.m512, %struct.m512 }
-%struct.LimExNFA384 = type { [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, %struct.m384, [8 x %struct.m384], i32, [8 x i8], [36 x i8], %struct.m512, %struct.m512, %struct.m512 }
-%struct.m384 = type { <2 x i64>, <2 x i64>, <2 x i64> }
-%struct.LimExNFA512 = type { [256 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [52 x i8], %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, %struct.m512, [8 x %struct.m512], i32, [8 x i8], [52 x i8], %struct.m512, %struct.m512, %struct.m512 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @doAccel32(i32 noundef %s, i32 noundef %accel, ptr nocapture noundef readonly %accelTable, ptr noundef %aux, ptr noundef %input, i64 noundef %i, i64 noundef %end) local_unnamed_addr #0 {
@@ -116,9 +109,9 @@ accelScanWrapper.exit:                            ; preds = %entry, %if.end.i, %
 define hidden i64 @doAccel128(ptr nocapture noundef readonly %state, ptr nocapture noundef readonly %limex, ptr nocapture noundef readonly %accelTable, ptr noundef %aux, ptr noundef %input, i64 noundef %i, i64 noundef %end) local_unnamed_addr #1 {
 entry:
   %0 = load <16 x i8>, ptr %state, align 16
-  %accelPermute = getelementptr inbounds %struct.LimExNFA128, ptr %limex, i64 0, i32 25
+  %accelPermute = getelementptr inbounds i8, ptr %limex, i64 416
   %1 = load <16 x i8>, ptr %accelPermute, align 32
-  %accelCompare = getelementptr inbounds %struct.LimExNFA128, ptr %limex, i64 0, i32 26
+  %accelCompare = getelementptr inbounds i8, ptr %limex, i64 432
   %2 = load <16 x i8>, ptr %accelCompare, align 16
   %3 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %0, <16 x i8> %1)
   %4 = and <16 x i8> %3, %2
@@ -157,13 +150,13 @@ entry:
   %s.sroa.0.0.copyload11 = load <16 x i8>, ptr %state, align 32
   %s.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %state, i64 16
   %s.sroa.2.0.copyload12 = load <16 x i8>, ptr %s.sroa.2.0..sroa_idx, align 16
-  %accelPermute = getelementptr inbounds %struct.LimExNFA256, ptr %limex, i64 0, i32 26
+  %accelPermute = getelementptr inbounds i8, ptr %limex, i64 512
   %accelPerm.sroa.0.0.copyload13 = load <16 x i8>, ptr %accelPermute, align 64
-  %accelPerm.sroa.2.0.accelPermute.sroa_idx = getelementptr inbounds %struct.LimExNFA256, ptr %limex, i64 0, i32 26, i32 1
+  %accelPerm.sroa.2.0.accelPermute.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 528
   %accelPerm.sroa.2.0.copyload14 = load <16 x i8>, ptr %accelPerm.sroa.2.0.accelPermute.sroa_idx, align 16
-  %accelCompare = getelementptr inbounds %struct.LimExNFA256, ptr %limex, i64 0, i32 27
+  %accelCompare = getelementptr inbounds i8, ptr %limex, i64 544
   %accelComp.sroa.0.0.copyload15 = load <16 x i8>, ptr %accelCompare, align 32
-  %accelComp.sroa.2.0.accelCompare.sroa_idx = getelementptr inbounds %struct.LimExNFA256, ptr %limex, i64 0, i32 27, i32 1
+  %accelComp.sroa.2.0.accelCompare.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 560
   %accelComp.sroa.2.0.copyload16 = load <16 x i8>, ptr %accelComp.sroa.2.0.accelCompare.sroa_idx, align 16
   %0 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %s.sroa.0.0.copyload11, <16 x i8> %accelPerm.sroa.0.0.copyload13)
   %1 = and <16 x i8> %0, %accelComp.sroa.0.0.copyload15
@@ -208,17 +201,17 @@ entry:
   %s.sroa.2.0.copyload13 = load <16 x i8>, ptr %s.sroa.2.0..sroa_idx, align 16
   %s.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %state, i64 32
   %s.sroa.3.0.copyload14 = load <16 x i8>, ptr %s.sroa.3.0..sroa_idx, align 16
-  %accelPermute = getelementptr inbounds %struct.LimExNFA384, ptr %limex, i64 0, i32 25
+  %accelPermute = getelementptr inbounds i8, ptr %limex, i64 576
   %accelPerm.sroa.0.0.copyload15 = load <16 x i8>, ptr %accelPermute, align 64
-  %accelPerm.sroa.2.0.accelPermute.sroa_idx = getelementptr inbounds %struct.LimExNFA384, ptr %limex, i64 0, i32 25, i32 1
+  %accelPerm.sroa.2.0.accelPermute.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 592
   %accelPerm.sroa.2.0.copyload16 = load <16 x i8>, ptr %accelPerm.sroa.2.0.accelPermute.sroa_idx, align 16
-  %accelPerm.sroa.3.0.accelPermute.sroa_idx = getelementptr inbounds %struct.LimExNFA384, ptr %limex, i64 0, i32 25, i32 2
+  %accelPerm.sroa.3.0.accelPermute.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 608
   %accelPerm.sroa.3.0.copyload17 = load <16 x i8>, ptr %accelPerm.sroa.3.0.accelPermute.sroa_idx, align 32
-  %accelCompare = getelementptr inbounds %struct.LimExNFA384, ptr %limex, i64 0, i32 26
+  %accelCompare = getelementptr inbounds i8, ptr %limex, i64 624
   %accelComp.sroa.0.0.copyload18 = load <16 x i8>, ptr %accelCompare, align 16
-  %accelComp.sroa.2.0.accelCompare.sroa_idx = getelementptr inbounds %struct.LimExNFA384, ptr %limex, i64 0, i32 26, i32 1
+  %accelComp.sroa.2.0.accelCompare.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 640
   %accelComp.sroa.2.0.copyload19 = load <16 x i8>, ptr %accelComp.sroa.2.0.accelCompare.sroa_idx, align 16
-  %accelComp.sroa.3.0.accelCompare.sroa_idx = getelementptr inbounds %struct.LimExNFA384, ptr %limex, i64 0, i32 26, i32 2
+  %accelComp.sroa.3.0.accelCompare.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 656
   %accelComp.sroa.3.0.copyload20 = load <16 x i8>, ptr %accelComp.sroa.3.0.accelCompare.sroa_idx, align 16
   %0 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %s.sroa.0.0.copyload12, <16 x i8> %accelPerm.sroa.0.0.copyload15)
   %1 = and <16 x i8> %0, %accelComp.sroa.0.0.copyload18
@@ -269,21 +262,21 @@ entry:
   %s.sroa.3.0.copyload15 = load <16 x i8>, ptr %s.sroa.3.0..sroa_idx, align 32
   %s.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %state, i64 48
   %s.sroa.4.0.copyload16 = load <16 x i8>, ptr %s.sroa.4.0..sroa_idx, align 16
-  %accelPermute = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 26
+  %accelPermute = getelementptr inbounds i8, ptr %limex, i64 704
   %accelPerm.sroa.0.0.copyload17 = load <16 x i8>, ptr %accelPermute, align 64
-  %accelPerm.sroa.2.0.accelPermute.sroa_idx = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 26, i32 0, i32 1
+  %accelPerm.sroa.2.0.accelPermute.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 720
   %accelPerm.sroa.2.0.copyload18 = load <16 x i8>, ptr %accelPerm.sroa.2.0.accelPermute.sroa_idx, align 16
-  %accelPerm.sroa.3.0.accelPermute.sroa_idx = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 26, i32 1
+  %accelPerm.sroa.3.0.accelPermute.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 736
   %accelPerm.sroa.3.0.copyload19 = load <16 x i8>, ptr %accelPerm.sroa.3.0.accelPermute.sroa_idx, align 32
-  %accelPerm.sroa.4.0.accelPermute.sroa_idx = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 26, i32 1, i32 1
+  %accelPerm.sroa.4.0.accelPermute.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 752
   %accelPerm.sroa.4.0.copyload20 = load <16 x i8>, ptr %accelPerm.sroa.4.0.accelPermute.sroa_idx, align 16
-  %accelCompare = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 27
+  %accelCompare = getelementptr inbounds i8, ptr %limex, i64 768
   %accelComp.sroa.0.0.copyload21 = load <16 x i8>, ptr %accelCompare, align 64
-  %accelComp.sroa.2.0.accelCompare.sroa_idx = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 27, i32 0, i32 1
+  %accelComp.sroa.2.0.accelCompare.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 784
   %accelComp.sroa.2.0.copyload22 = load <16 x i8>, ptr %accelComp.sroa.2.0.accelCompare.sroa_idx, align 16
-  %accelComp.sroa.3.0.accelCompare.sroa_idx = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 27, i32 1
+  %accelComp.sroa.3.0.accelCompare.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 800
   %accelComp.sroa.3.0.copyload23 = load <16 x i8>, ptr %accelComp.sroa.3.0.accelCompare.sroa_idx, align 32
-  %accelComp.sroa.4.0.accelCompare.sroa_idx = getelementptr inbounds %struct.LimExNFA512, ptr %limex, i64 0, i32 27, i32 1, i32 1
+  %accelComp.sroa.4.0.accelCompare.sroa_idx = getelementptr inbounds i8, ptr %limex, i64 816
   %accelComp.sroa.4.0.copyload24 = load <16 x i8>, ptr %accelComp.sroa.4.0.accelCompare.sroa_idx, align 16
   %0 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %s.sroa.0.0.copyload13, <16 x i8> %accelPerm.sroa.0.0.copyload17)
   %1 = and <16 x i8> %0, %accelComp.sroa.0.0.copyload21

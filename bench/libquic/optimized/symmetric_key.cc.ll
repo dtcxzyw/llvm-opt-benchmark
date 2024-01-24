@@ -3,10 +3,6 @@ source_filename = "bench/libquic/original/symmetric_key.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.crypto::SymmetricKey" = type { ptr, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -33,7 +29,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN6crypto12SymmetricKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6crypto12SymmetricKeyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %key_ = getelementptr inbounds %"class.crypto::SymmetricKey", ptr %this, i64 0, i32 1
+  %key_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %key_) #8
   %call4 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %key_) #8
   %tobool.not.i.i.i.i = icmp eq ptr %call4, %call
@@ -77,7 +73,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN6crypto12SymmetricKeyD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6crypto12SymmetricKeyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %key_.i = getelementptr inbounds %"class.crypto::SymmetricKey", ptr %this, i64 0, i32 1
+  %key_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #8
   %call4.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #8
   %tobool.not.i.i.i.i.i = icmp eq ptr %call4.i, %call.i
@@ -124,7 +120,7 @@ if.end18:                                         ; preds = %if.end, %if.end
 
 invoke.cont22:                                    ; preds = %if.end18
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6crypto12SymmetricKeyE, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
-  %key_.i = getelementptr inbounds %"class.crypto::SymmetricKey", ptr %call23, i64 0, i32 1
+  %key_.i = getelementptr inbounds i8, ptr %call23, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #8
   %add = add nuw nsw i64 %div5, 1
   %call29 = invoke noundef ptr @_ZN4base9WriteIntoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %key_.i, i64 noundef %add)
@@ -140,7 +136,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
 
 _ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i: ; preds = %invoke.cont31
   %vtable.i.i = load ptr, ptr %call23, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %0 = load ptr, ptr %vfn.i.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(40) %call23) #8
   br label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit
@@ -167,7 +163,7 @@ _ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit13: ; 
   %4 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i11 = load ptr, ptr %call23, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 1
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 8
   %5 = load ptr, ptr %vfn.i.i12, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(40) %call23) #8
   br label %ehcleanup
@@ -231,7 +227,7 @@ if.end11:                                         ; preds = %if.then, %if.then, 
 
 invoke.cont15:                                    ; preds = %if.end11
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6crypto12SymmetricKeyE, i64 0, inrange i32 0, i64 2), ptr %call16, align 8
-  %key_.i = getelementptr inbounds %"class.crypto::SymmetricKey", ptr %call16, i64 0, i32 1
+  %key_.i = getelementptr inbounds i8, ptr %call16, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #8
   %add = add nuw nsw i64 %div721, 1
   %call22 = invoke noundef ptr @_ZN4base9WriteIntoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %key_.i, i64 noundef %add)
@@ -252,7 +248,7 @@ invoke.cont27:                                    ; preds = %invoke.cont21
 
 _ZNKSt14default_deleteIN6crypto12SymmetricKeyEEclEPS1_.exit.i: ; preds = %invoke.cont27
   %vtable.i.i = load ptr, ptr %call16, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %0 = load ptr, ptr %vfn.i.i, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(40) %call16) #8
   br label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit
@@ -279,7 +275,7 @@ _ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit13: ; 
   %4 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i11 = load ptr, ptr %call16, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 1
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 8
   %5 = load ptr, ptr %vfn.i.i12, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(40) %call16) #8
   br label %ehcleanup
@@ -338,7 +334,7 @@ if.then4:                                         ; preds = %land.lhs.true
 if.end5:                                          ; preds = %if.then, %land.lhs.true, %entry
   %call6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6crypto12SymmetricKeyE, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
-  %key_.i = getelementptr inbounds %"class.crypto::SymmetricKey", ptr %call6, i64 0, i32 1
+  %key_.i = getelementptr inbounds i8, ptr %call6, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #8
   store ptr %call6, ptr %agg.result, align 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %key_.i, ptr noundef nonnull align 8 dereferenceable(32) %raw_key)
@@ -348,7 +344,7 @@ _ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit: ; pr
   %0 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(40) %call6) #8
   store ptr null, ptr %agg.result, align 8
@@ -366,7 +362,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN6crypto12SymmetricKey9GetRawKeyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %raw_key) local_unnamed_addr #4 align 2 {
 entry:
-  %key_ = getelementptr inbounds %"class.crypto::SymmetricKey", ptr %this, i64 0, i32 1
+  %key_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %raw_key, ptr noundef nonnull align 8 dereferenceable(32) %key_)
   ret i1 true
 }
@@ -375,7 +371,7 @@ entry:
 define dso_local void @_ZN6crypto12SymmetricKeyC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6crypto12SymmetricKeyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %key_ = getelementptr inbounds %"class.crypto::SymmetricKey", ptr %this, i64 0, i32 1
+  %key_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_) #8
   ret void
 }

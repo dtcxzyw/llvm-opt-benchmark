@@ -3,7 +3,6 @@ source_filename = "bench/libzmq/original/clock.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.zmq::clock_t" = type { i64, i64 }
 %struct.timespec = type { i64, i64 }
 %struct.timeval = type { i64, i64 }
 
@@ -24,7 +23,7 @@ entry:
   %conv2.i = zext i32 %asmresult.i to i64
   %or.i = or disjoint i64 %shl.i, %conv2.i
   store i64 %or.i, ptr %this, align 8
-  %_last_time = getelementptr inbounds %"class.zmq::clock_t", ptr %this, i64 0, i32 1
+  %_last_time = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = tail call noundef i64 @_ZN3zmq7clock_t6now_usEv()
   %div = udiv i64 %call2, 1000
   store i64 %div, ptr %_last_time, align 8
@@ -72,7 +71,7 @@ if.then5:                                         ; preds = %if.then
 do.end:                                           ; preds = %if.then, %if.then5
   %3 = load i64, ptr %tv1, align 8
   %mul = mul i64 %3, 1000000
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv1, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv1, i64 8
   %4 = load i64, ptr %tv_usec, align 8
   %add = add i64 %mul, %4
   br label %return
@@ -80,7 +79,7 @@ do.end:                                           ; preds = %if.then, %if.then5
 if.end10:                                         ; preds = %entry
   %5 = load i64, ptr %tv, align 8
   %mul12 = mul i64 %5, 1000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %tv, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %tv, i64 8
   %6 = load i64, ptr %tv_nsec, align 8
   %div = udiv i64 %6, 1000
   %add13 = add i64 %div, %mul12
@@ -138,7 +137,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %_last_time = getelementptr inbounds %"class.zmq::clock_t", ptr %this, i64 0, i32 1
+  %_last_time = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_last_time, align 8
   br label %return
 
@@ -146,7 +145,7 @@ if.end6:                                          ; preds = %if.end
   store i64 %or.i, ptr %this, align 8
   %call8 = tail call noundef i64 @_ZN3zmq7clock_t6now_usEv()
   %div9 = udiv i64 %call8, 1000
-  %_last_time10 = getelementptr inbounds %"class.zmq::clock_t", ptr %this, i64 0, i32 1
+  %_last_time10 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %div9, ptr %_last_time10, align 8
   br label %return
 

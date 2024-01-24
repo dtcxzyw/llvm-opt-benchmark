@@ -41,7 +41,7 @@ define hidden noundef { ptr, i64 } @"_ZN87_$LT$regex..regex..string..Captures$u2
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   store ptr %0, ptr %2, align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %5, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h4c7b5efb93374e33E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.5adf33d82290defad4e663d127c74bb6.2, i64 2, ptr nonnull align 8 %2, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.5adf33d82290defad4e663d127c74bb6.4) #5
@@ -61,7 +61,7 @@ define hidden noundef { ptr, i64 } @"_ZN89_$LT$regex..regex..string..Captures$u2
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   store ptr %0, ptr %2, align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hcef95978faf75989E", ptr %5, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h4c7b5efb93374e33E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %3, ptr nonnull align 8 @anon.5adf33d82290defad4e663d127c74bb6.6, i64 2, ptr nonnull align 8 %2, i64 1)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.5adf33d82290defad4e663d127c74bb6.7) #5
@@ -79,11 +79,11 @@ define hidden void @_ZN5regex5regex6string12no_expansion17h6611348a4b627a2cE(ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %5, ptr %.sroa.3.0..sroa_idx, align 8
   br label %10
 
@@ -104,11 +104,11 @@ define hidden void @_ZN5regex5regex6string12no_expansion17h91e1138a32e8db23E(ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %5, ptr %.sroa.3.0..sroa_idx, align 8
   br label %10
 
@@ -129,11 +129,11 @@ define hidden void @_ZN5regex5regex6string12no_expansion17h9eea1df44f9a9b89E(ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %5, ptr %.sroa.3.0..sroa_idx, align 8
   br label %10
 
@@ -154,11 +154,11 @@ define hidden void @_ZN5regex5regex6string12no_expansion17hdf634f433e1e7848E(ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %5, ptr %.sroa.3.0..sroa_idx, align 8
   br label %10
 
@@ -179,11 +179,11 @@ define hidden void @_ZN5regex5regex6string12no_expansion17he2b72d503bfa1850E(ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1
+  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %4, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds { [1 x i64], { ptr, [2 x i64] } }, ptr %0, i64 0, i32 1, i32 1, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %5, ptr %.sroa.3.0..sroa_idx, align 8
   br label %10
 

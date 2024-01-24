@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.url::RawCanonOutput" = type { %"class.url::RawCanonOutputT" }
 %"class.url::RawCanonOutputT" = type { %"class.url::CanonOutputT", [1024 x i8] }
 %"class.url::CanonOutputT" = type { ptr, ptr, i32, i32 }
-%"struct.url::Component" = type { i32, i32 }
 
 $_ZN3url14RawCanonOutputILi1024EED2Ev = comdat any
 
@@ -91,7 +90,7 @@ define dso_local void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16Chars
 entry:
   %utf16.i.i.i = alloca %"class.url::RawCanonOutputW", align 8
   %eight_bit.i.i = alloca %"class.url::RawCanonOutput", align 8
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %query, i64 4
   %0 = load i32, ptr %len.i, align 4
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -101,9 +100,9 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS5_.exit
 
 if.end.i:                                         ; preds = %entry
-  %cur_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %1 = load i32, ptr %cur_len_.i.i, align 4
-  %buffer_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
+  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %2 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp slt i32 %1, %2
   br i1 %cmp.i.i, label %return.sink.split.i.i, label %if.end.i.i
@@ -125,7 +124,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
   %4 = load i32, ptr %cur_len_.i.i, align 4
@@ -133,7 +132,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i.i
 
 return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.end.i
   %.sink2.i.i = phi i32 [ %4, %if.end5.i.i ], [ %1, %if.end.i ]
-  %.sink.in.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idxprom8.i.i = sext i32 %.sink2.i.i to i64
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom8.i.i
@@ -172,7 +171,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
 
 if.then.i13.i:                                    ; preds = %for.cond.i.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %spec, i64 %7
-  %.sink.in.i.i.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i.i.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %query.val8.i to i64
   br label %for.body.i15.i.i
 
@@ -214,7 +213,7 @@ if.end.i.i.i.i.i:                                 ; preds = %do.body.i.i.i.i.i
 
 if.end5.i.i.i.i:                                  ; preds = %if.end.i.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i.i.i)
   %16 = load i32, ptr %cur_len_.i.i, align 4
@@ -241,17 +240,17 @@ if.else.i.i:                                      ; preds = %for.body.i.i.i
   br i1 %tobool.not.i.i, label %if.else6.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.else.i.i
-  %buffer_.i.i.i.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %eight_bit.i.i, i64 0, i32 1
-  %18 = getelementptr inbounds %"class.url::CanonOutputT", ptr %eight_bit.i.i, i64 0, i32 2
+  %buffer_.i.i.i.i.i = getelementptr inbounds i8, ptr %eight_bit.i.i, i64 8
+  %18 = getelementptr inbounds i8, ptr %eight_bit.i.i, i64 16
   store i64 1024, ptr %18, align 8
-  %fixed_buffer_.i.i.i.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %eight_bit.i.i, i64 0, i32 1
+  %fixed_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %eight_bit.i.i, i64 24
   store ptr %fixed_buffer_.i.i.i.i, ptr %buffer_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 0, inrange i32 0, i64 2), ptr %eight_bit.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %utf16.i.i.i)
-  %buffer_.i.i.i.i.i.i = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %utf16.i.i.i, i64 0, i32 1
-  %19 = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %utf16.i.i.i, i64 0, i32 2
+  %buffer_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %utf16.i.i.i, i64 8
+  %19 = getelementptr inbounds i8, ptr %utf16.i.i.i, i64 16
   store i64 1024, ptr %19, align 8
-  %fixed_buffer_.i.i.i.i.i = getelementptr inbounds %"class.url::RawCanonOutputT.0", ptr %utf16.i.i.i, i64 0, i32 1
+  %fixed_buffer_.i.i.i.i.i = getelementptr inbounds i8, ptr %utf16.i.i.i, i64 24
   store ptr %fixed_buffer_.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputWILi1024EEE, i64 0, inrange i32 0, i64 2), ptr %utf16.i.i.i, align 8
   %arrayidx.i19.i.i = getelementptr inbounds i8, ptr %spec, i64 %7
@@ -260,10 +259,10 @@ if.then1.i.i:                                     ; preds = %if.else.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then1.i.i
   %20 = load ptr, ptr %buffer_.i.i.i.i.i.i, align 8
-  %cur_len_.i.i20.i.i = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %utf16.i.i.i, i64 0, i32 3
+  %cur_len_.i.i20.i.i = getelementptr inbounds i8, ptr %utf16.i.i.i, i64 20
   %21 = load i32, ptr %cur_len_.i.i20.i.i, align 4
   %vtable.i.i10.i = load ptr, ptr %converter, align 8
-  %vfn.i.i11.i = getelementptr inbounds ptr, ptr %vtable.i.i10.i, i64 2
+  %vfn.i.i11.i = getelementptr inbounds i8, ptr %vtable.i.i10.i, i64 16
   %22 = load ptr, ptr %vfn.i.i11.i, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %converter, ptr noundef %20, i32 noundef %21, ptr noundef nonnull %eight_bit.i.i)
           to label %invoke.cont5.i.i.i unwind label %lpad.i.i.i
@@ -297,13 +296,13 @@ delete.notnull.i.i8.i.i.i:                        ; preds = %lpad.i.i.i
 invoke.cont.i.i:                                  ; preds = %delete.notnull.i.i.i.i.i, %invoke.cont5.i.i.i
   call void @llvm.lifetime.end.p0(i64 2072, ptr nonnull %utf16.i.i.i)
   %26 = load ptr, ptr %buffer_.i.i.i.i.i, align 8
-  %cur_len_.i.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %eight_bit.i.i, i64 0, i32 3
+  %cur_len_.i.i.i = getelementptr inbounds i8, ptr %eight_bit.i.i, i64 20
   %27 = load i32, ptr %cur_len_.i.i.i, align 4
   %cmp8.i21.i.i = icmp sgt i32 %27, 0
   br i1 %cmp8.i21.i.i, label %for.body.lr.ph.i22.i.i, label %invoke.cont5.i.i
 
 for.body.lr.ph.i22.i.i:                           ; preds = %invoke.cont.i.i
-  %.sink.in.i.i25.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i.i25.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %wide.trip.count.i26.i.i = zext nneg i32 %27 to i64
   br label %for.body.i27.i.i
 
@@ -345,7 +344,7 @@ if.end.i.i.i44.i.i:                               ; preds = %do.body.i.i.i38.i.i
 
 if.end5.i.i47.i.i:                                ; preds = %if.end.i.i.i44.i.i
   %vtable.i.i.i48.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i49.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i48.i.i, i64 2
+  %vfn.i.i.i49.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i48.i.i, i64 16
   %33 = load ptr, ptr %vfn.i.i.i49.i.i, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i45.i.i)
           to label %.noexc57.i.i unwind label %lpad.i.i
@@ -417,7 +416,7 @@ _ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIchEEvPKT_RKNS_9ComponentEPNS_16C
   %39 = load i32, ptr %cur_len_.i.i, align 4
   %40 = load i32, ptr %out_query, align 4
   %sub.i = sub nsw i32 %39, %40
-  %len3.i = getelementptr inbounds %"struct.url::Component", ptr %out_query, i64 0, i32 1
+  %len3.i = getelementptr inbounds i8, ptr %out_query, i64 4
   store i32 %sub.i, ptr %len3.i, align 4
   br label %_ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIchEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS5_.exit
 
@@ -428,7 +427,7 @@ _ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIchEEvPKT_RKNS_9ComponentEPNS_16Charse
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %query, ptr noundef %converter, ptr noundef %output, ptr nocapture noundef %out_query) local_unnamed_addr #0 {
 entry:
-  %len.i = getelementptr inbounds %"struct.url::Component", ptr %query, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %query, i64 4
   %0 = load i32, ptr %len.i, align 4
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -438,9 +437,9 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS5_.exit
 
 if.end.i:                                         ; preds = %entry
-  %cur_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %1 = load i32, ptr %cur_len_.i.i, align 4
-  %buffer_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
+  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %2 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp slt i32 %1, %2
   br i1 %cmp.i.i, label %return.sink.split.i.i, label %if.end.i.i
@@ -462,7 +461,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
   %4 = load i32, ptr %cur_len_.i.i, align 4
@@ -470,7 +469,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i.i
 
 return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.end.i
   %.sink2.i.i = phi i32 [ %4, %if.end5.i.i ], [ %1, %if.end.i ]
-  %.sink.in.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idxprom8.i.i = sext i32 %.sink2.i.i to i64
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom8.i.i
@@ -489,7 +488,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %do.body.i.i.i, %ret
   %7 = load i32, ptr %cur_len_.i.i, align 4
   %8 = load i32, ptr %out_query, align 4
   %sub.i = sub nsw i32 %7, %8
-  %len3.i = getelementptr inbounds %"struct.url::Component", ptr %out_query, i64 0, i32 1
+  %len3.i = getelementptr inbounds i8, ptr %out_query, i64 4
   store i32 %sub.i, ptr %len3.i, align 4
   br label %_ZN3url12_GLOBAL__N_119DoCanonicalizeQueryIttEEvPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS5_.exit
 
@@ -534,9 +533,9 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
 
 if.then:                                          ; preds = %for.cond.i
   %arrayidx = getelementptr inbounds i16, ptr %spec, i64 %0
-  %cur_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
-  %buffer_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
-  %.sink.in.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
+  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %wide.trip.count.i = zext nneg i32 %query.4.val to i64
   br label %for.body.i15
 
@@ -580,7 +579,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
   %9 = load i32, ptr %cur_len_.i.i, align 4
@@ -607,30 +606,30 @@ if.else:                                          ; preds = %for.body.i
   br i1 %tobool.not, label %if.else5, label %if.then1
 
 if.then1:                                         ; preds = %if.else
-  %buffer_.i.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %eight_bit, i64 0, i32 1
-  %11 = getelementptr inbounds %"class.url::CanonOutputT", ptr %eight_bit, i64 0, i32 2
+  %buffer_.i.i.i = getelementptr inbounds i8, ptr %eight_bit, i64 8
+  %11 = getelementptr inbounds i8, ptr %eight_bit, i64 16
   store i64 1024, ptr %11, align 8
-  %fixed_buffer_.i.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %eight_bit, i64 0, i32 1
+  %fixed_buffer_.i.i = getelementptr inbounds i8, ptr %eight_bit, i64 24
   store ptr %fixed_buffer_.i.i, ptr %buffer_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 0, inrange i32 0, i64 2), ptr %eight_bit, align 8
   %arrayidx.i19 = getelementptr inbounds i16, ptr %spec, i64 %0
   %vtable.i = load ptr, ptr %converter, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %12 = load ptr, ptr %vfn.i, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %converter, ptr noundef %arrayidx.i19, i32 noundef %query.4.val, ptr noundef nonnull %eight_bit)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then1
   %13 = load ptr, ptr %buffer_.i.i.i, align 8
-  %cur_len_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %eight_bit, i64 0, i32 3
+  %cur_len_.i = getelementptr inbounds i8, ptr %eight_bit, i64 20
   %14 = load i32, ptr %cur_len_.i, align 4
   %cmp8.i20 = icmp sgt i32 %14, 0
   br i1 %cmp8.i20, label %for.body.lr.ph.i21, label %invoke.cont4
 
 for.body.lr.ph.i21:                               ; preds = %invoke.cont
-  %cur_len_.i.i22 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
-  %buffer_len_.i.i23 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
-  %.sink.in.i.i24 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %cur_len_.i.i22 = getelementptr inbounds i8, ptr %output, i64 20
+  %buffer_len_.i.i23 = getelementptr inbounds i8, ptr %output, i64 16
+  %.sink.in.i.i24 = getelementptr inbounds i8, ptr %output, i64 8
   %wide.trip.count.i25 = zext nneg i32 %14 to i64
   br label %for.body.i26
 
@@ -672,7 +671,7 @@ if.end.i.i.i43:                                   ; preds = %do.body.i.i.i37
 
 if.end5.i.i46:                                    ; preds = %if.end.i.i.i43
   %vtable.i.i.i47 = load ptr, ptr %output, align 8
-  %vfn.i.i.i48 = getelementptr inbounds ptr, ptr %vtable.i.i.i47, i64 2
+  %vfn.i.i.i48 = getelementptr inbounds i8, ptr %vtable.i.i.i47, i64 16
   %20 = load ptr, ptr %vfn.i.i.i48, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i44)
           to label %.noexc56 unwind label %lpad.loopexit
@@ -757,9 +756,9 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_ZN3url14RawCanonOutputILi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %fixed_buffer_.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i = icmp eq ptr %0, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i
@@ -778,9 +777,9 @@ declare void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOu
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %ch, ptr noundef %output) local_unnamed_addr #0 comdat {
 entry:
-  %cur_len_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i = getelementptr inbounds i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i, align 4
-  %buffer_len_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
+  %buffer_len_.i = getelementptr inbounds i8, ptr %output, i64 16
   %1 = load i32, ptr %buffer_len_.i, align 8
   %cmp.i = icmp slt i32 %0, %1
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
@@ -802,7 +801,7 @@ if.end.i.i:                                       ; preds = %do.body.i.i
 
 if.end5.i:                                        ; preds = %if.end.i.i
   %vtable.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i)
   %3 = load i32, ptr %cur_len_.i, align 4
@@ -810,7 +809,7 @@ if.end5.i:                                        ; preds = %if.end.i.i
 
 return.sink.split.i:                              ; preds = %entry, %if.end5.i
   %.sink2.i = phi i32 [ %3, %if.end5.i ], [ %0, %entry ]
-  %.sink.in.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
   %idxprom8.i = sext i32 %.sink2.i to i64
   %arrayidx9.i = getelementptr inbounds i8, ptr %.sink.i, i64 %idxprom8.i
@@ -849,7 +848,7 @@ if.end.i.i13:                                     ; preds = %do.body.i.i10
 
 if.end5.i16:                                      ; preds = %if.end.i.i13
   %vtable.i.i17 = load ptr, ptr %output, align 8
-  %vfn.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i17, i64 2
+  %vfn.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i17, i64 16
   %8 = load ptr, ptr %vfn.i.i18, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i14)
   %9 = load i32, ptr %cur_len_.i, align 4
@@ -857,7 +856,7 @@ if.end5.i16:                                      ; preds = %if.end.i.i13
 
 return.sink.split.i19:                            ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit, %if.end5.i16
   %.sink2.i20 = phi i32 [ %9, %if.end5.i16 ], [ %6, %_ZN3url12CanonOutputTIcE9push_backEc.exit ]
-  %.sink.in.i21 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i21 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i22 = load ptr, ptr %.sink.in.i21, align 8
   %idxprom8.i23 = sext i32 %.sink2.i20 to i64
   %arrayidx9.i24 = getelementptr inbounds i8, ptr %.sink.i22, i64 %idxprom8.i23
@@ -895,7 +894,7 @@ if.end.i.i37:                                     ; preds = %do.body.i.i34
 
 if.end5.i40:                                      ; preds = %if.end.i.i37
   %vtable.i.i41 = load ptr, ptr %output, align 8
-  %vfn.i.i42 = getelementptr inbounds ptr, ptr %vtable.i.i41, i64 2
+  %vfn.i.i42 = getelementptr inbounds i8, ptr %vtable.i.i41, i64 16
   %14 = load ptr, ptr %vfn.i.i42, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i38)
   %15 = load i32, ptr %cur_len_.i, align 4
@@ -903,7 +902,7 @@ if.end5.i40:                                      ; preds = %if.end.i.i37
 
 return.sink.split.i43:                            ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit27, %if.end5.i40
   %.sink2.i44 = phi i32 [ %15, %if.end5.i40 ], [ %12, %_ZN3url12CanonOutputTIcE9push_backEc.exit27 ]
-  %.sink.in.i45 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i45 = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i46 = load ptr, ptr %.sink.in.i45, align 8
   %idxprom8.i47 = sext i32 %.sink2.i44 to i64
   %arrayidx9.i48 = getelementptr inbounds i8, ptr %.sink.i46, i64 %idxprom8.i47
@@ -921,9 +920,9 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit51:      ; preds = %do.body.i.i34, %ret
 define linkonce_odr dso_local void @_ZN3url14RawCanonOutputILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i.i, align 8
-  %fixed_buffer_.i.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i.i = icmp eq ptr %0, %fixed_buffer_.i.i
   %isnull.i.i = icmp eq ptr %0, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %isnull.i.i
@@ -943,14 +942,14 @@ define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(
 entry:
   %conv = sext i32 %sz to i64
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #9
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_, align 8
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 3
+  %cur_len_ = getelementptr inbounds i8, ptr %this, i64 20
   %1 = load i32, ptr %cur_len_, align 4
   %.sz = tail call i32 @llvm.smin.i32(i32 %1, i32 %sz)
   %conv3 = sext i32 %.sz to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %0, i64 %conv3, i1 false)
-  %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp5.not = icmp eq ptr %0, %fixed_buffer_
   %isnull = icmp eq ptr %0, null
   %or.cond = or i1 %cmp5.not, %isnull
@@ -962,7 +961,7 @@ delete.notnull:                                   ; preds = %entry
 
 if.end:                                           ; preds = %delete.notnull, %entry
   store ptr %call, ptr %buffer_, align 8
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 2
+  %buffer_len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sz, ptr %buffer_len_, align 8
   ret void
 }
@@ -971,9 +970,9 @@ if.end:                                           ; preds = %delete.notnull, %en
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_, align 8
-  %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not = icmp eq ptr %0, %fixed_buffer_
   %isnull = icmp eq ptr %0, null
   %or.cond = or i1 %cmp.not, %isnull
@@ -991,9 +990,9 @@ if.end:                                           ; preds = %delete.notnull, %en
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %this, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %fixed_buffer_.i = getelementptr inbounds %"class.url::RawCanonOutputT", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i = icmp eq ptr %0, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i
@@ -1023,9 +1022,9 @@ declare noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTIt
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputWILi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(2072) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %this, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %fixed_buffer_.i = getelementptr inbounds %"class.url::RawCanonOutputT.0", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i = icmp eq ptr %0, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i
@@ -1043,9 +1042,9 @@ _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit:      ; preds = %entry, %delete.notn
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputWILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i.i = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %this, i64 0, i32 1
+  %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i.i, align 8
-  %fixed_buffer_.i.i = getelementptr inbounds %"class.url::RawCanonOutputT.0", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i.i = icmp eq ptr %0, %fixed_buffer_.i.i
   %isnull.i.i = icmp eq ptr %0, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %isnull.i.i
@@ -1068,15 +1067,15 @@ entry:
   %1 = shl nuw nsw i64 %conv, 1
   %2 = select i1 %0, i64 -1, i64 %1
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #9
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %this, i64 0, i32 1
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %buffer_, align 8
-  %cur_len_ = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %this, i64 0, i32 3
+  %cur_len_ = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %cur_len_, align 4
   %.sz = tail call i32 @llvm.smin.i32(i32 %4, i32 %sz)
   %conv3 = sext i32 %.sz to i64
   %mul = shl nsw i64 %conv3, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call, ptr align 2 %3, i64 %mul, i1 false)
-  %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT.0", ptr %this, i64 0, i32 1
+  %fixed_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp5.not = icmp eq ptr %3, %fixed_buffer_
   %isnull = icmp eq ptr %3, null
   %or.cond = or i1 %cmp5.not, %isnull
@@ -1088,7 +1087,7 @@ delete.notnull:                                   ; preds = %entry
 
 if.end:                                           ; preds = %delete.notnull, %entry
   store ptr %call, ptr %buffer_, align 8
-  %buffer_len_ = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %this, i64 0, i32 2
+  %buffer_len_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %sz, ptr %buffer_len_, align 8
   ret void
 }
@@ -1097,9 +1096,9 @@ if.end:                                           ; preds = %delete.notnull, %en
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTItLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(2072) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_ = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %this, i64 0, i32 1
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_, align 8
-  %fixed_buffer_ = getelementptr inbounds %"class.url::RawCanonOutputT.0", ptr %this, i64 0, i32 1
+  %fixed_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not = icmp eq ptr %0, %fixed_buffer_
   %isnull = icmp eq ptr %0, null
   %or.cond = or i1 %cmp.not, %isnull
@@ -1117,9 +1116,9 @@ if.end:                                           ; preds = %delete.notnull, %en
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTItLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %buffer_.i = getelementptr inbounds %"class.url::CanonOutputT.1", ptr %this, i64 0, i32 1
+  %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
-  %fixed_buffer_.i = getelementptr inbounds %"class.url::RawCanonOutputT.0", ptr %this, i64 0, i32 1
+  %fixed_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.not.i = icmp eq ptr %0, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %0, null
   %or.cond.i = or i1 %cmp.not.i, %isnull.i

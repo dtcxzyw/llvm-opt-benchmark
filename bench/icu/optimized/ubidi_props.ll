@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UBiDiProps = type { ptr, ptr, ptr, ptr, ptr, %struct.UTrie2, [4 x i8] }
 %struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
-%struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @_ZL21ubidi_props_singleton = internal constant %struct.UBiDiProps { ptr null, ptr @_ZL19ubidi_props_indexes, ptr @_ZL19ubidi_props_mirrors, ptr @_ZL19ubidi_props_jgArray, ptr @_ZL20ubidi_props_jgArray2, %struct.UTrie2 { ptr @_ZL21ubidi_props_trieIndex, ptr getelementptr (i8, ptr @_ZL21ubidi_props_trieIndex, i64 7224), ptr null, i32 3612, i32 9396, i16 416, i16 3740, i32 0, i32 0, i32 1114112, i32 13004, ptr null, i32 0, i8 0, i8 0, i16 0, ptr null }, [4 x i8] c"\02\02\00\00" }, align 8
 @_ZL19ubidi_props_indexes = internal constant [16 x i32] [i32 16, i32 27552, i32 26032, i32 40, i32 1568, i32 2252, i32 68288, i32 68900, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 6750902], align 16
@@ -23,11 +22,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @utrie2_enum_75(ptr noundef nonnull getelementptr inbounds (%struct.UBiDiProps, ptr @_ZL21ubidi_props_singleton, i64 0, i32 5), ptr noundef null, ptr noundef nonnull @_ZL24_enumPropertyStartsRangePKviij, ptr noundef %sa)
-  %addRange = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 2
+  %addRange = getelementptr inbounds i8, ptr %sa, i64 16
   br label %for.body
 
 for.cond4.preheader:                              ; preds = %for.body
-  %add9 = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add9 = getelementptr inbounds i8, ptr %sa, i64 8
   br label %for.cond4
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -102,7 +101,7 @@ declare void @utrie2_enum_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL24_enumPropertyStartsRangePKviij(ptr nocapture noundef readonly %context, i32 noundef %start, i32 %end, i32 %value) #0 {
 entry:
-  %add = getelementptr inbounds %struct.USetAdder, ptr %context, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %context, i64 8
   %0 = load ptr, ptr %add, align 8
   %1 = load ptr, ptr %context, align 8
   tail call void %0(ptr noundef %1, i32 noundef %start)
@@ -110,7 +109,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @ubidi_getMaxValue_75(i32 noundef %which) local_unnamed_addr #2 {
+define noundef i32 @ubidi_getMaxValue_75(i32 noundef %which) local_unnamed_addr #2 {
 entry:
   switch i32 %which, label %sw.default [
     i32 4096, label %return
@@ -165,7 +164,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -223,7 +222,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -282,7 +281,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -372,7 +371,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -431,7 +430,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -490,7 +489,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -576,7 +575,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -635,7 +634,7 @@ cond.false19:                                     ; preds = %cond.false13
   %shr20 = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20 to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23 = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23 = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23, align 2
   %conv24 = zext i16 %2 to i32
   %shr25 = lshr i32 %c, 5
@@ -730,7 +729,7 @@ cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -788,7 +787,7 @@ cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -847,7 +846,7 @@ cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5
@@ -937,7 +936,7 @@ cond.false19.i:                                   ; preds = %cond.false13.i
   %shr20.i = lshr i32 %c, 11
   %0 = zext nneg i32 %shr20.i to i64
   %1 = getelementptr i16, ptr @_ZL21ubidi_props_trieIndex, i64 %0
-  %arrayidx23.i = getelementptr i16, ptr %1, i64 2080
+  %arrayidx23.i = getelementptr i8, ptr %1, i64 4160
   %2 = load i16, ptr %arrayidx23.i, align 2
   %conv24.i = zext i16 %2 to i32
   %shr25.i = lshr i32 %c, 5

@@ -49,9 +49,9 @@ define dso_local void @aio_wait_bh_oneshot(ptr noundef %ctx, ptr noundef %cb, pt
 entry:
   %data = alloca %struct.AioWaitBHData, align 8
   store i8 0, ptr %data, align 8
-  %cb1 = getelementptr inbounds %struct.AioWaitBHData, ptr %data, i64 0, i32 1
+  %cb1 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %cb, ptr %cb1, align 8
-  %opaque2 = getelementptr inbounds %struct.AioWaitBHData, ptr %data, i64 0, i32 2
+  %opaque2 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %opaque, ptr %opaque2, align 8
   %call = tail call ptr @qemu_get_current_aio_context() #4
   %call3 = tail call ptr @qemu_get_aio_context() #4
@@ -102,9 +102,9 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @aio_wait_bh(ptr nocapture noundef %opaque) #0 {
 entry:
-  %cb = getelementptr inbounds %struct.AioWaitBHData, ptr %opaque, i64 0, i32 1
+  %cb = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %cb, align 8
-  %opaque1 = getelementptr inbounds %struct.AioWaitBHData, ptr %opaque, i64 0, i32 2
+  %opaque1 = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %opaque1, align 8
   tail call void %0(ptr noundef %1) #4
   store i8 1, ptr %opaque, align 8

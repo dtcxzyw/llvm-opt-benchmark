@@ -3,7 +3,7 @@ source_filename = "bench/qemu/original/util_bitops.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @find_next_bit(ptr nocapture noundef readonly %addr, i64 noundef %size, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %div36 = lshr i64 %offset, 6
@@ -19,7 +19,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end10, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   %0 = load i64, ptr %add.ptr, align 8
   %shl = shl nsw i64 -1, %rem
   %and2 = and i64 %0, %shl
@@ -51,11 +51,11 @@ while.body:                                       ; preds = %if.end10, %if.end21
   br i1 %tobool15.not, label %if.end17, label %found_middle
 
 if.end17:                                         ; preds = %while.body
-  %add.ptr14 = getelementptr i64, ptr %p.146, i64 3
+  %add.ptr14 = getelementptr i8, ptr %p.146, i64 24
   %2 = load i64, ptr %add.ptr14, align 8
-  %add.ptr13 = getelementptr i64, ptr %p.146, i64 2
+  %add.ptr13 = getelementptr i8, ptr %p.146, i64 16
   %3 = load i64, ptr %add.ptr13, align 8
-  %add.ptr12 = getelementptr i64, ptr %p.146, i64 1
+  %add.ptr12 = getelementptr i8, ptr %p.146, i64 8
   %4 = load i64, ptr %add.ptr12, align 8
   %or = or i64 %3, %2
   %or18 = or i64 %or, %4
@@ -63,7 +63,7 @@ if.end17:                                         ; preds = %while.body
   br i1 %tobool19.not, label %if.end21, label %while.body27.preheader
 
 if.end21:                                         ; preds = %if.end17
-  %add.ptr22 = getelementptr i64, ptr %p.146, i64 4
+  %add.ptr22 = getelementptr i8, ptr %p.146, i64 32
   %add23 = add i64 %result.147, 256
   %sub24 = add i64 %size.addr.148, -256
   %cmp11 = icmp ugt i64 %sub24, 255
@@ -91,7 +91,7 @@ while.body27:                                     ; preds = %while.body27.prehea
   br i1 %tobool29.not, label %if.end31, label %found_middle
 
 if.end31:                                         ; preds = %while.body27
-  %incdec.ptr28 = getelementptr i64, ptr %p.255, i64 1
+  %incdec.ptr28 = getelementptr i8, ptr %p.255, i64 8
   %add32 = add i64 %result.256, 64
   %sub33 = add i64 %size.addr.257, -64
   %cmp26 = icmp ugt i64 %sub33, 63
@@ -134,7 +134,7 @@ return:                                           ; preds = %while.end34, %entry
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @find_next_zero_bit(ptr nocapture noundef readonly %addr, i64 noundef %size, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %div26 = lshr i64 %offset, 6
@@ -150,7 +150,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end10, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr i64, ptr %add.ptr, i64 1
+  %incdec.ptr = getelementptr i8, ptr %add.ptr, i64 8
   %0 = load i64, ptr %add.ptr, align 8
   %sub2 = sub nuw nsw i64 64, %rem
   %shr = lshr i64 -1, %sub2
@@ -183,7 +183,7 @@ while.body:                                       ; preds = %if.end10, %if.end17
   br i1 %tobool15.not, label %if.end17, label %found_middle
 
 if.end17:                                         ; preds = %while.body
-  %incdec.ptr13 = getelementptr i64, ptr %p.132, i64 1
+  %incdec.ptr13 = getelementptr i8, ptr %p.132, i64 8
   %add18 = add i64 %result.133, 64
   %sub19 = add i64 %size.addr.131, -64
   %tobool12.not = icmp ult i64 %sub19, 64
@@ -226,7 +226,7 @@ return:                                           ; preds = %while.end, %entry, 
   ret i64 %retval.0
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
 define dso_local i64 @find_last_bit(ptr nocapture noundef readonly %addr, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   %div10 = lshr i64 %size, 6
@@ -278,8 +278,8 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #2
 
-attributes #0 = { nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

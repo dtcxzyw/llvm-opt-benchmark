@@ -3,17 +3,15 @@ source_filename = "bench/coremark/original/core_matrix.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.MAT_PARAMS_S = type { i32, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @core_bench_matrix(ptr nocapture noundef readonly %p, i16 noundef signext %seed, i16 noundef zeroext %crc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 8
-  %C2 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 3
+  %C2 = getelementptr inbounds i8, ptr %p, i64 24
   %1 = load ptr, ptr %C2, align 8
-  %A3 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 1
+  %A3 = getelementptr inbounds i8, ptr %p, i64 8
   %2 = load ptr, ptr %A3, align 8
-  %B4 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 2
+  %B4 = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load ptr, ptr %B4, align 8
   %call = tail call signext i16 @matrix_test(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef signext %seed)
   %call5 = tail call zeroext i16 @crc16(i16 noundef signext %call, i16 noundef zeroext %crc) #6
@@ -27,7 +25,14 @@ define dso_local signext i16 @matrix_test(i32 noundef %N, ptr nocapture noundef 
 entry:
   %or = or i16 %val, -4096
   %cmp8.not.i = icmp eq i32 %N, 0
-  br i1 %cmp8.not.i, label %matrix_sum.exit.thread, label %for.cond1.preheader.preheader.i
+  br i1 %cmp8.not.i, label %matrix_mul_vect.exit.thread, label %for.cond1.preheader.preheader.i
+
+matrix_mul_vect.exit.thread:                      ; preds = %entry
+  %call2212 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext 0) #6
+  %call4218 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext %call2212) #6
+  %call6224 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext %call4218) #6
+  %call8230 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext %call6224) #6
+  br label %matrix_add_const.exit210
 
 for.cond1.preheader.preheader.i:                  ; preds = %entry
   %wide.trip.count.i = zext i32 %N to i64
@@ -121,21 +126,14 @@ for.body3.i49:                                    ; preds = %for.body3.i49, %for
 for.inc15.i:                                      ; preds = %for.body3.i49
   %inc16.i = add nuw i32 %i.020.i, 1
   %exitcond21.not.i = icmp eq i32 %inc16.i, %N
-  br i1 %exitcond21.not.i, label %matrix_sum.exit, label %for.cond1.preheader.i47, !llvm.loop !11
+  br i1 %exitcond21.not.i, label %for.body.preheader.i, label %for.cond1.preheader.i47, !llvm.loop !11
 
-matrix_sum.exit.thread:                           ; preds = %entry
-  %call2212 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext 0) #6
-  %call4218 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext %call2212) #6
-  %call6224 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext %call4218) #6
-  %call8230 = tail call zeroext i16 @crc16(i16 noundef signext 0, i16 noundef zeroext %call6224) #6
-  br label %matrix_add_const.exit210
-
-matrix_sum.exit:                                  ; preds = %for.inc15.i
+for.body.preheader.i:                             ; preds = %for.inc15.i
   %call2 = tail call zeroext i16 @crc16(i16 noundef signext %ret.2.i, i16 noundef zeroext 0) #6
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc13.i, %matrix_sum.exit
-  %indvars.iv15.i = phi i64 [ 0, %matrix_sum.exit ], [ %indvars.iv.next16.i, %for.inc13.i ]
+for.body.i:                                       ; preds = %for.inc13.i, %for.body.preheader.i
+  %indvars.iv15.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next16.i, %for.inc13.i ]
   %arrayidx.i56 = getelementptr inbounds i32, ptr %C, i64 %indvars.iv15.i
   store i32 0, ptr %arrayidx.i56, align 4
   %6 = trunc i64 %indvars.iv15.i to i32
@@ -198,14 +196,14 @@ for.body3.i74:                                    ; preds = %for.body3.i74, %for
 for.inc15.i91:                                    ; preds = %for.body3.i74
   %inc16.i92 = add nuw i32 %i.020.i69, 1
   %exitcond21.not.i93 = icmp eq i32 %inc16.i92, %N
-  br i1 %exitcond21.not.i93, label %matrix_sum.exit95, label %for.cond1.preheader.i68, !llvm.loop !11
+  br i1 %exitcond21.not.i93, label %for.cond1.preheader.preheader.i96, label %for.cond1.preheader.i68, !llvm.loop !11
 
-matrix_sum.exit95:                                ; preds = %for.inc15.i91
+for.cond1.preheader.preheader.i96:                ; preds = %for.inc15.i91
   %call4 = tail call zeroext i16 @crc16(i16 noundef signext %ret.2.i88, i16 noundef zeroext %call2) #6
   br label %for.cond1.preheader.i97
 
-for.cond1.preheader.i97:                          ; preds = %for.inc25.i, %matrix_sum.exit95
-  %i.022.i = phi i32 [ %inc26.i, %for.inc25.i ], [ 0, %matrix_sum.exit95 ]
+for.cond1.preheader.i97:                          ; preds = %for.inc25.i, %for.cond1.preheader.preheader.i96
+  %i.022.i = phi i32 [ %inc26.i, %for.inc25.i ], [ 0, %for.cond1.preheader.preheader.i96 ]
   %mul.i98 = mul i32 %i.022.i, %N
   br label %for.body3.i99
 
@@ -282,14 +280,14 @@ for.body3.i118:                                   ; preds = %for.body3.i118, %fo
 for.inc15.i135:                                   ; preds = %for.body3.i118
   %inc16.i136 = add nuw i32 %i.020.i113, 1
   %exitcond21.not.i137 = icmp eq i32 %inc16.i136, %N
-  br i1 %exitcond21.not.i137, label %matrix_sum.exit139, label %for.cond1.preheader.i112, !llvm.loop !11
+  br i1 %exitcond21.not.i137, label %for.cond1.preheader.preheader.i140, label %for.cond1.preheader.i112, !llvm.loop !11
 
-matrix_sum.exit139:                               ; preds = %for.inc15.i135
+for.cond1.preheader.preheader.i140:               ; preds = %for.inc15.i135
   %call6 = tail call zeroext i16 @crc16(i16 noundef signext %ret.2.i132, i16 noundef zeroext %call4) #6
   br label %for.cond1.preheader.i141
 
-for.cond1.preheader.i141:                         ; preds = %for.inc28.i, %matrix_sum.exit139
-  %i.023.i = phi i32 [ %inc29.i, %for.inc28.i ], [ 0, %matrix_sum.exit139 ]
+for.cond1.preheader.i141:                         ; preds = %for.inc28.i, %for.cond1.preheader.preheader.i140
+  %i.023.i = phi i32 [ %inc29.i, %for.inc28.i ], [ 0, %for.cond1.preheader.preheader.i140 ]
   %mul.i142 = mul i32 %i.023.i, %N
   br label %for.body3.i143
 
@@ -371,14 +369,14 @@ for.body3.i171:                                   ; preds = %for.body3.i171, %fo
 for.inc15.i188:                                   ; preds = %for.body3.i171
   %inc16.i189 = add nuw i32 %i.020.i166, 1
   %exitcond21.not.i190 = icmp eq i32 %inc16.i189, %N
-  br i1 %exitcond21.not.i190, label %matrix_sum.exit192, label %for.cond1.preheader.i165, !llvm.loop !11
+  br i1 %exitcond21.not.i190, label %for.cond1.preheader.preheader.i194, label %for.cond1.preheader.i165, !llvm.loop !11
 
-matrix_sum.exit192:                               ; preds = %for.inc15.i188
+for.cond1.preheader.preheader.i194:               ; preds = %for.inc15.i188
   %call8 = tail call zeroext i16 @crc16(i16 noundef signext %ret.2.i185, i16 noundef zeroext %call6) #6
   br label %for.cond1.preheader.i196
 
-for.cond1.preheader.i196:                         ; preds = %for.inc7.i207, %matrix_sum.exit192
-  %i.09.i197 = phi i32 [ %inc8.i208, %for.inc7.i207 ], [ 0, %matrix_sum.exit192 ]
+for.cond1.preheader.i196:                         ; preds = %for.inc7.i207, %for.cond1.preheader.preheader.i194
+  %i.09.i197 = phi i32 [ %inc8.i208, %for.inc7.i207 ], [ 0, %for.cond1.preheader.preheader.i194 ]
   %mul.i198 = mul i32 %i.09.i197, %N
   br label %for.body3.i199
 
@@ -400,8 +398,8 @@ for.inc7.i207:                                    ; preds = %for.body3.i199
   %exitcond11.not.i209 = icmp eq i32 %inc8.i208, %N
   br i1 %exitcond11.not.i209, label %matrix_add_const.exit210, label %for.cond1.preheader.i196, !llvm.loop !7
 
-matrix_add_const.exit210:                         ; preds = %for.inc7.i207, %matrix_sum.exit.thread
-  %call8232 = phi i16 [ %call8230, %matrix_sum.exit.thread ], [ %call8, %for.inc7.i207 ]
+matrix_add_const.exit210:                         ; preds = %for.inc7.i207, %matrix_mul_vect.exit.thread
+  %call8232 = phi i16 [ %call8230, %matrix_mul_vect.exit.thread ], [ %call8, %for.inc7.i207 ]
   ret i16 %call8232
 }
 
@@ -703,7 +701,7 @@ for.end30:                                        ; preds = %for.inc28, %entry
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define dso_local i32 @core_init_matrix(i32 noundef %blksize, ptr noundef %memblk, i32 noundef %seed, ptr nocapture noundef writeonly %p) local_unnamed_addr #4 {
 entry:
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %seed, i32 1)
@@ -715,7 +713,7 @@ while.end.thread:                                 ; preds = %entry
   %add49 = add i64 %0, 3
   %conv50 = and i64 %add49, 4294967292
   %1 = inttoptr i64 %conv50 to ptr
-  %add.ptr53 = getelementptr inbounds i16, ptr %1, i64 1
+  %add.ptr53 = getelementptr inbounds i8, ptr %1, i64 2
   br label %for.cond8.preheader.preheader
 
 while.body:                                       ; preds = %entry, %while.body
@@ -785,16 +783,16 @@ for.end34:                                        ; preds = %for.inc32, %while.e
   %idx.ext58 = phi i64 [ %idx.ext, %while.end ], [ %idx.ext57, %for.inc32 ]
   %7 = phi ptr [ %3, %while.end ], [ %4, %for.inc32 ]
   %i.0.lcssa56 = phi i32 [ 0, %while.end ], [ %i.0.lcssa55, %for.inc32 ]
-  %A35 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 1
+  %A35 = getelementptr inbounds i8, ptr %p, i64 8
   store ptr %7, ptr %A35, align 8
-  %B36 = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 2
+  %B36 = getelementptr inbounds i8, ptr %p, i64 16
   store ptr %add.ptr60, ptr %B36, align 8
   %add.ptr39 = getelementptr inbounds i16, ptr %add.ptr60, i64 %idx.ext58
   %8 = ptrtoint ptr %add.ptr39 to i64
   %add42 = add nuw nsw i64 %8, 3
   %conv43 = and i64 %add42, 4294967292
   %9 = inttoptr i64 %conv43 to ptr
-  %C = getelementptr inbounds %struct.MAT_PARAMS_S, ptr %p, i64 0, i32 3
+  %C = getelementptr inbounds i8, ptr %p, i64 24
   store ptr %9, ptr %C, align 8
   store i32 %i.0.lcssa56, ptr %p, align 8
   ret i32 %i.0.lcssa56
@@ -807,7 +805,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

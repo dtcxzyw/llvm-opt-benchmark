@@ -104,7 +104,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.89 = private unnamed_addr constant [26 x i8] c"../openssl/apps/ecparam.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ecparam_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
+define dso_local noundef i32 @ecparam_main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #0 {
 entry:
   %params_key = alloca ptr, align 8
   %key = alloca ptr, align 8
@@ -304,14 +304,14 @@ if.end84.sink.split:                              ; preds = %if.else, %if.then74
 
 if.end84:                                         ; preds = %if.end84.sink.split, %if.else
   %curve_name.2 = phi ptr [ %curve_name.0, %if.else ], [ %curve_name.2.ph, %if.end84.sink.split ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.54, ptr noundef nonnull %curve_name.2, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %cmp85.not = icmp eq ptr %asn1_encoding.0, null
   br i1 %cmp85.not, label %if.end89, label %if.then86
 
 if.then86:                                        ; preds = %if.end84
-  %incdec.ptr87 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp88, ptr noundef nonnull @.str.55, ptr noundef nonnull %asn1_encoding.0, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp88, i64 40, i1 false)
   br label %if.end89
@@ -322,7 +322,7 @@ if.end89:                                         ; preds = %if.then86, %if.end8
   br i1 %cmp90.not, label %if.end94, label %if.then91
 
 if.then91:                                        ; preds = %if.end89
-  %incdec.ptr92 = getelementptr inbounds %struct.ossl_param_st, ptr %p.0, i64 1
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %p.0, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp93, ptr noundef nonnull @.str.56, ptr noundef nonnull %point_format.0, i64 noundef 0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp93, i64 40, i1 false)
   br label %if.end94
@@ -612,7 +612,7 @@ declare i32 @app_RAND_load() local_unnamed_addr #1
 declare ptr @bio_open_owner(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @list_builtin_curves(ptr noundef %out) unnamed_addr #0 {
+define internal fastcc noundef i32 @list_builtin_curves(ptr noundef %out) unnamed_addr #0 {
 entry:
   %call = tail call i64 @EC_get_builtin_curves(ptr noundef null, i64 noundef 0) #4
   %mul = shl i64 %call, 4
@@ -628,7 +628,7 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %n.014 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds %struct.EC_builtin_curve, ptr %call1, i64 %n.014
-  %comment3 = getelementptr inbounds %struct.EC_builtin_curve, ptr %call1, i64 %n.014, i32 1
+  %comment3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %comment3, align 8
   %1 = load i32, ptr %arrayidx, align 8
   %call5 = tail call ptr @OBJ_nid2sn(i32 noundef %1) #4

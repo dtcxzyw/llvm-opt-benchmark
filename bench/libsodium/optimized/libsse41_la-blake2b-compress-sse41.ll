@@ -3,8 +3,6 @@ source_filename = "bench/libsodium/original/libsse41_la-blake2b-compress-sse41.l
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.blake2b_state = type <{ [8 x i64], [2 x i64], [2 x i64], [256 x i8], i64, i8 }>
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @_sodium_blake2b_compress_sse41(ptr nocapture noundef %S, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
 entry:
@@ -24,15 +22,15 @@ entry:
   %add.ptr15 = getelementptr i8, ptr %block, i64 112
   %7 = load <2 x i64>, ptr %add.ptr15, align 1
   %8 = load <2 x i64>, ptr %S, align 1
-  %arrayidx19 = getelementptr [8 x i64], ptr %S, i64 0, i64 2
+  %arrayidx19 = getelementptr i8, ptr %S, i64 16
   %9 = load <2 x i64>, ptr %arrayidx19, align 1
-  %arrayidx22 = getelementptr [8 x i64], ptr %S, i64 0, i64 4
+  %arrayidx22 = getelementptr i8, ptr %S, i64 32
   %10 = load <2 x i64>, ptr %arrayidx22, align 1
-  %arrayidx25 = getelementptr [8 x i64], ptr %S, i64 0, i64 6
+  %arrayidx25 = getelementptr i8, ptr %S, i64 48
   %11 = load <2 x i64>, ptr %arrayidx25, align 1
-  %t = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 1
+  %t = getelementptr inbounds i8, ptr %S, i64 64
   %12 = load <2 x i64>, ptr %t, align 1
-  %f = getelementptr inbounds %struct.blake2b_state, ptr %S, i64 0, i32 2
+  %f = getelementptr inbounds i8, ptr %S, i64 80
   %13 = load <2 x i64>, ptr %f, align 1
   %shuffle.i1993 = shufflevector <2 x i64> %0, <2 x i64> %1, <2 x i32> <i32 0, i32 2>
   %shuffle.i1990 = shufflevector <2 x i64> %2, <2 x i64> %3, <2 x i32> <i32 0, i32 2>

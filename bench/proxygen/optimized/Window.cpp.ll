@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::Window" = type { i32, i32 }
 
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/proxygen/proxygen/proxygen/lib/http/Window.cpp\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"Check failed: setCapacity(capacity) \00", align 1
@@ -42,7 +41,7 @@ define void @_ZN8proxygen6WindowC2Ej(ptr nocapture noundef nonnull align 4 deref
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   store i32 0, ptr %this, align 4
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %capacity_, align 4
   %call = tail call noundef zeroext i1 @_ZN8proxygen6Window11setCapacityEj(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %capacity)
   br i1 %call, label %cleanup.done, label %cond.false
@@ -57,13 +56,13 @@ invoke.cont:                                      ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #7
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #6
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #7
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp2) #6
   unreachable
 
 cleanup.done:                                     ; preds = %entry
@@ -102,7 +101,7 @@ invoke.cont:                                      ; preds = %cond.false6
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #7
   br label %return
 
 lpad:                                             ; preds = %invoke.cont, %cond.false6
@@ -111,7 +110,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %capacity_, align 4
   %sub = sub nsw i32 %capacity, %3
   %cmp16 = icmp sgt i32 %sub, 0
@@ -150,7 +149,7 @@ invoke.cont41:                                    ; preds = %cond.false36
           to label %cleanup.action48 unwind label %lpad40
 
 cleanup.action48:                                 ; preds = %invoke.cont41
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38) #7
   br label %return
 
 lpad40:                                           ; preds = %invoke.cont41, %cond.false36
@@ -169,7 +168,7 @@ return:                                           ; preds = %cond.true27, %cond.
 eh.resume:                                        ; preds = %lpad40, %lpad
   %ref.tmp38.sink = phi ptr [ %ref.tmp38, %lpad40 ], [ %ref.tmp7, %lpad ]
   %.pn = phi { ptr, i32 } [ %7, %lpad40 ], [ %2, %lpad ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38.sink) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp38.sink) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -187,17 +186,17 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_, align 4
   %1 = load i32, ptr %this, align 4
   %sub = sub nsw i32 %0, %1
   ret i32 %sub
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen6Window18getNonNegativeSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef i32 @_ZNK8proxygen6Window18getNonNegativeSizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %capacity_.i = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_.i, align 4
   %1 = load i32, ptr %this, align 4
   %sub.i = sub nsw i32 %0, %1
@@ -208,13 +207,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %capacity_, align 4
   ret i32 %0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen6Window14getOutstandingEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define noundef i32 @_ZNK8proxygen6Window14getOutstandingEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
@@ -262,7 +261,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont12
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp8) #7
   br label %return
 
 lpad:                                             ; preds = %invoke.cont12, %invoke.cont10, %invoke.cont, %cond.false7
@@ -302,7 +301,7 @@ invoke.cont43:                                    ; preds = %cond.false38
           to label %cleanup.action50 unwind label %lpad42
 
 cleanup.action50:                                 ; preds = %invoke.cont43
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp40) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp40) #7
   br label %return
 
 lpad42:                                           ; preds = %invoke.cont43, %cond.false38
@@ -315,7 +314,7 @@ if.end55:                                         ; preds = %if.end
   br i1 %strict, label %land.lhs.true58, label %if.end101
 
 land.lhs.true58:                                  ; preds = %if.end55
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %7 = load i32, ptr %capacity_, align 4
   %cmp59 = icmp sgt i32 %add, %7
   br i1 %cmp59, label %if.then60, label %if.end101
@@ -365,7 +364,7 @@ invoke.cont89:                                    ; preds = %invoke.cont86
           to label %cleanup.action96 unwind label %lpad77
 
 cleanup.action96:                                 ; preds = %invoke.cont89
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp75) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp75) #7
   br label %return
 
 lpad77:                                           ; preds = %invoke.cont89, %invoke.cont86, %invoke.cont84, %invoke.cont82, %invoke.cont80, %invoke.cont78, %cond.false73
@@ -384,7 +383,7 @@ return:                                           ; preds = %cond.true64, %cond.
 eh.resume:                                        ; preds = %lpad77, %lpad42, %lpad
   %ref.tmp75.sink = phi ptr [ %ref.tmp75, %lpad77 ], [ %ref.tmp40, %lpad42 ], [ %ref.tmp8, %lpad ]
   %.pn = phi { ptr, i32 } [ %11, %lpad77 ], [ %6, %lpad42 ], [ %2, %lpad ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp75.sink) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp75.sink) #7
   resume { ptr, i32 } %.pn
 }
 
@@ -395,7 +394,7 @@ declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
+declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #4
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
@@ -440,7 +439,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont11
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #7
   br label %return
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont, %cond.false6
@@ -480,7 +479,7 @@ invoke.cont42:                                    ; preds = %cond.false37
           to label %cleanup.action49 unwind label %lpad41
 
 cleanup.action49:                                 ; preds = %invoke.cont42
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp39) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp39) #7
   br label %return
 
 lpad41:                                           ; preds = %invoke.cont42, %cond.false37
@@ -490,7 +489,7 @@ lpad41:                                           ; preds = %invoke.cont42, %con
 
 if.end54:                                         ; preds = %if.end
   %sub = sub i32 %3, %amount
-  %capacity_ = getelementptr inbounds %"class.proxygen::Window", ptr %this, i64 0, i32 1
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 4
   %7 = load i32, ptr %capacity_, align 4
   %sub57 = add nsw i32 %7, -2147483647
   %cmp58 = icmp slt i32 %sub, %sub57
@@ -520,7 +519,7 @@ invoke.cont77:                                    ; preds = %cond.false72
           to label %cleanup.action84 unwind label %lpad76
 
 cleanup.action84:                                 ; preds = %invoke.cont77
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp74) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp74) #7
   br label %return
 
 lpad76:                                           ; preds = %invoke.cont77, %cond.false72
@@ -539,22 +538,21 @@ return:                                           ; preds = %cond.true63, %cond.
 eh.resume:                                        ; preds = %lpad76, %lpad41, %lpad
   %ref.tmp74.sink = phi ptr [ %ref.tmp74, %lpad76 ], [ %ref.tmp39, %lpad41 ], [ %ref.tmp7, %lpad ]
   %.pn = phi { ptr, i32 } [ %10, %lpad76 ], [ %6, %lpad41 ], [ %2, %lpad ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp74.sink) #8
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp74.sink) #7
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

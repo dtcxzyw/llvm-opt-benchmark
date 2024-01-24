@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 %struct.string_list_item = type { ptr, ptr }
 
 @cmd_mailsplit.stdin_only = internal unnamed_addr global [2 x ptr] [ptr @.str, ptr null], align 16
@@ -61,7 +60,7 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %argp.097 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %argp.097 = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %argp.097, align 8
   %tobool1.not98 = icmp eq ptr %0, null
   br i1 %tobool1.not98, label %if.then78, label %for.body
@@ -164,7 +163,7 @@ land.lhs.true64:                                  ; preds = %if.else59
   br i1 %tobool66.not, label %if.then67, label %if.else68
 
 if.then67:                                        ; preds = %land.lhs.true64
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv.pn102, i64 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv.pn102, i64 16
   br label %for.end
 
 if.else68:                                        ; preds = %land.lhs.true64, %if.else59
@@ -176,7 +175,7 @@ for.inc:                                          ; preds = %land.lhs.true49, %l
   %allow_bare.1 = phi i32 [ %allow_bare.0100, %if.then9 ], [ %allow_bare.0100, %if.then22 ], [ %allow_bare.0100, %if.then58 ], [ %allow_bare.0100, %if.then43 ], [ 1, %land.lhs.true ], [ %allow_bare.0100, %land.lhs.true49 ]
   %dir.1 = phi ptr [ %dir.0101, %if.then9 ], [ %dir.0101, %if.then22 ], [ %dir.0101, %if.then58 ], [ %dir.0101, %if.then43 ], [ %dir.0101, %land.lhs.true ], [ %arrayidx50, %land.lhs.true49 ]
   %nr.1 = phi i32 [ %nr.0103, %if.then9 ], [ %conv25, %if.then22 ], [ %nr.0103, %if.then58 ], [ %nr.0103, %if.then43 ], [ %nr.0103, %land.lhs.true ], [ %nr.0103, %land.lhs.true49 ]
-  %argp.0 = getelementptr inbounds ptr, ptr %argp.0104, i64 1
+  %argp.0 = getelementptr inbounds i8, ptr %argp.0104, i64 8
   %8 = load ptr, ptr %argp.0, align 8
   %tobool1.not = icmp eq ptr %8, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !5
@@ -213,7 +212,7 @@ sw.bb:                                            ; preds = %if.then78
 sw.bb81:                                          ; preds = %if.then78
   %10 = load ptr, ptr %argp.1164, align 8
   store ptr %10, ptr @cmd_mailsplit.stdin_only, align 16
-  %arrayidx83 = getelementptr inbounds ptr, ptr %argp.1164, i64 1
+  %arrayidx83 = getelementptr inbounds i8, ptr %argp.1164, i64 8
   %11 = load ptr, ptr %arrayidx83, align 8
   br label %if.end88
 
@@ -247,10 +246,10 @@ if.end88:                                         ; preds = %if.end88thread-pre-
   br i1 %tobool89.not115, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end88
-  %st_mode = getelementptr inbounds %struct.stat, ptr %argstat, i64 0, i32 3
-  %14 = getelementptr inbounds %struct.string_list, ptr %list.i, i64 0, i32 3
-  %cmp.i = getelementptr inbounds %struct.string_list, ptr %list.i, i64 0, i32 4
-  %nr.i = getelementptr inbounds %struct.string_list, ptr %list.i, i64 0, i32 1
+  %st_mode = getelementptr inbounds i8, ptr %argstat, i64 24
+  %14 = getelementptr inbounds i8, ptr %list.i, i64 24
+  %cmp.i = getelementptr inbounds i8, ptr %list.i, i64 32
+  %nr.i = getelementptr inbounds i8, ptr %list.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -258,7 +257,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %nr.2118 = phi i32 [ %nr.078162, %while.body.lr.ph ], [ %call102.sink, %while.cond.backedge ]
   %argp.3117 = phi ptr [ %argp.2, %while.body.lr.ph ], [ %incdec.ptr91, %while.cond.backedge ]
   %num.0116 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %while.cond.backedge ]
-  %incdec.ptr91 = getelementptr inbounds ptr, ptr %argp.3117, i64 1
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %argp.3117, i64 8
   %16 = load i8, ptr %15, align 1
   %cmp94 = icmp eq i8 %16, 45
   br i1 %cmp94, label %land.lhs.true96, label %if.end110
@@ -335,13 +334,13 @@ while.cond.i.i:                                   ; preds = %while.cond.outer.i.
   br i1 %cmp9.not.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %d_name.i.i = getelementptr inbounds %struct.dirent, ptr %call8.i.i, i64 0, i32 4
+  %d_name.i.i = getelementptr inbounds i8, ptr %call8.i.i, i64 19
   %22 = load i8, ptr %d_name.i.i, align 1
   %cmp10.i.i = icmp eq i8 %22, 46
   br i1 %cmp10.i.i, label %while.cond.i.i, label %if.end13.i.i, !llvm.loop !8
 
 if.end13.i.i:                                     ; preds = %while.body.i.i
-  %d_name.i.i.le = getelementptr inbounds %struct.dirent, ptr %call8.i.i, i64 0, i32 4
+  %d_name.i.i.le = getelementptr inbounds i8, ptr %call8.i.i, i64 19
   call void @free(ptr noundef %name.1.ph.i.i) #16
   %call16.i.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.25, ptr noundef nonnull %20, ptr noundef nonnull %d_name.i.i.le) #16
   %call17.i.i = call ptr @string_list_insert(ptr noundef nonnull %list.i, ptr noundef %call16.i.i) #16
@@ -357,7 +356,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 
 for.inc.i.i:                                      ; preds = %while.end.i.i, %if.then.i.i
   %name.2.i.i = phi ptr [ %name.1.ph.i.i, %while.end.i.i ], [ %call.i.i, %if.then.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %sub.013.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %sub.013.i.i, i64 8
   %23 = load ptr, ptr %incdec.ptr.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i, label %populate_maildir_list.exit.i, label %for.body.i.i, !llvm.loop !9

@@ -938,7 +938,7 @@ while.cond351.preheader:                          ; preds = %if.end346
   br i1 %cmp352.not620, label %if.end365, label %while.body353
 
 while.cond351:                                    ; preds = %if.end357
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv.addr.0621, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.0621, i64 8
   %17 = load ptr, ptr %incdec.ptr, align 8
   %cmp352.not = icmp eq ptr %17, null
   br i1 %cmp352.not, label %if.end365, label %while.body353, !llvm.loop !7

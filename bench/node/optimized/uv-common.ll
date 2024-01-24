@@ -18,37 +18,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.4 = type { [4 x ptr] }
 %struct.anon.5 = type { ptr, ptr, ptr, i32 }
 %struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-%struct.uv_passwd_s = type { ptr, i64, i64, ptr, ptr }
-%struct.uv_group_s = type { ptr, i64, ptr }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.uv_tcp_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.0, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr }
-%union.anon.0 = type { [4 x ptr] }
-%struct.uv_udp_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.1, ptr, i32, i64, i64, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue }
-%union.anon.1 = type { [4 x ptr] }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.uv_handle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.6, ptr, i32 }
-%union.anon.6 = type { [4 x ptr] }
 %struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_fs_event_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.7, ptr, i32, ptr, ptr, %struct.uv__queue, i32 }
-%union.anon.7 = type { [4 x ptr] }
-%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
-%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
-%struct.uv_timespec_t = type { i64, i64 }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 %struct.uv_dirent_s = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.uv_stream_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.8, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr }
-%union.anon.8 = type { [4 x ptr] }
 %struct.uv_env_item_s = type { ptr, ptr }
-%struct.uv__loop_internal_fields_s = type { i32, %struct.uv__loop_metrics_s, i32, %struct.uv__iou, %struct.uv__iou, ptr }
-%struct.uv__loop_metrics_s = type { %struct.uv_metrics_s, i64, i64, %union.pthread_mutex_t }
-%struct.uv_metrics_s = type { i64, i64, i64, [13 x ptr] }
-%struct.uv__iou = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, i32, i32, i32 }
 
 @uv__allocator.0 = internal unnamed_addr global ptr @malloc, align 8
 @uv__allocator.1 = internal unnamed_addr global ptr @realloc, align 8
@@ -257,14 +231,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @uv__strdup(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #23
   %add = add i64 %call, 1
   %cmp.not.i = icmp eq i64 %add, 0
   br i1 %cmp.not.i, label %return, label %uv__malloc.exit
 
 uv__malloc.exit:                                  ; preds = %entry
   %0 = load ptr, ptr @uv__allocator.0, align 8
-  %call.i = tail call ptr %0(i64 noundef %add) #25
+  %call.i = tail call ptr %0(i64 noundef %add) #24
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -288,7 +262,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @uv__allocator.0, align 8
-  %call = tail call ptr %0(i64 noundef %size) #25
+  %call = tail call ptr %0(i64 noundef %size) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -302,7 +276,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden ptr @uv__strndup(ptr nocapture noundef readonly %s, i64 noundef %n) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #23
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call, i64 %n)
   %add = add i64 %spec.select, 1
   %cmp.not.i = icmp eq i64 %add, 0
@@ -310,7 +284,7 @@ entry:
 
 uv__malloc.exit:                                  ; preds = %entry
   %0 = load ptr, ptr @uv__allocator.0, align 8
-  %call.i = tail call ptr %0(i64 noundef %add) #25
+  %call.i = tail call ptr %0(i64 noundef %add) #24
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %return, label %if.end4
 
@@ -328,10 +302,10 @@ return:                                           ; preds = %entry, %uv__malloc.
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__free(ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @__errno_location() #26
+  %call = tail call ptr @__errno_location() #25
   %0 = load i32, ptr %call, align 4
   %1 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %1(ptr noundef %ptr) #25
+  tail call void %1(ptr noundef %ptr) #24
   store i32 %0, ptr %call, align 4
   ret void
 }
@@ -343,7 +317,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 define hidden ptr @uv__calloc(i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @uv__allocator.2, align 8
-  %call = tail call ptr %0(i64 noundef %count, i64 noundef %size) #25
+  %call = tail call ptr %0(i64 noundef %count, i64 noundef %size) #24
   ret ptr %call
 }
 
@@ -355,14 +329,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @uv__allocator.1, align 8
-  %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #25
+  %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #24
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @__errno_location() #26
+  %call.i = tail call ptr @__errno_location() #25
   %1 = load i32, ptr %call.i, align 4
   %2 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %2(ptr noundef %ptr) #25
+  tail call void %2(ptr noundef %ptr) #24
   store i32 %1, ptr %call.i, align 4
   br label %return
 
@@ -379,15 +353,15 @@ entry:
 
 uv__realloc.exit:                                 ; preds = %entry
   %0 = load ptr, ptr @uv__allocator.1, align 8
-  %call.i = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #25
+  %call.i = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #24
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.end3.sink.split, label %if.end3
 
 if.end3.sink.split:                               ; preds = %uv__realloc.exit, %entry
-  %call.i4 = tail call ptr @__errno_location() #26
+  %call.i4 = tail call ptr @__errno_location() #25
   %1 = load i32, ptr %call.i4, align 4
   %2 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %2(ptr noundef %ptr) #25
+  tail call void %2(ptr noundef %ptr) #24
   store i32 %1, ptr %call.i4, align 4
   br label %if.end3
 
@@ -397,7 +371,7 @@ if.end3:                                          ; preds = %if.end3.sink.split,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @uv_replace_allocator(ptr noundef %malloc_func, ptr noundef %realloc_func, ptr noundef %calloc_func, ptr noundef %free_func) local_unnamed_addr #4 {
+define dso_local noundef i32 @uv_replace_allocator(ptr noundef %malloc_func, ptr noundef %realloc_func, ptr noundef %calloc_func, ptr noundef %free_func) local_unnamed_addr #4 {
 entry:
   %0 = insertelement <4 x ptr> poison, ptr %realloc_func, i64 0
   %1 = insertelement <4 x ptr> %0, ptr %malloc_func, i64 1
@@ -428,13 +402,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %pwd, align 8
-  %call.i = tail call ptr @__errno_location() #26
+  %call.i = tail call ptr @__errno_location() #25
   %1 = load i32, ptr %call.i, align 4
   %2 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %2(ptr noundef %0) #25
+  tail call void %2(ptr noundef %0) #24
   store i32 %1, ptr %call.i, align 4
   store ptr null, ptr %pwd, align 8
-  %shell = getelementptr inbounds %struct.uv_passwd_s, ptr %pwd, i64 0, i32 3
+  %shell = getelementptr inbounds i8, ptr %pwd, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shell, i8 0, i64 16, i1 false)
   br label %return
 
@@ -449,12 +423,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %members = getelementptr inbounds %struct.uv_group_s, ptr %grp, i64 0, i32 2
+  %members = getelementptr inbounds i8, ptr %grp, i64 16
   %0 = load ptr, ptr %members, align 8
-  %call.i = tail call ptr @__errno_location() #26
+  %call.i = tail call ptr @__errno_location() #25
   %1 = load i32, ptr %call.i, align 4
   %2 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %2(ptr noundef %0) #25
+  tail call void %2(ptr noundef %0) #24
   store i32 %1, ptr %call.i, align 4
   store ptr null, ptr %members, align 8
   store ptr null, ptr %grp, align 8
@@ -465,7 +439,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @uv_handle_size(i32 noundef %type) local_unnamed_addr #5 {
+define dso_local noundef i64 @uv_handle_size(i32 noundef %type) local_unnamed_addr #5 {
 entry:
   %switch.tableidx = add i32 %type, -1
   %0 = icmp ult i32 %switch.tableidx, 16
@@ -483,7 +457,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @uv_req_size(i32 noundef %type) local_unnamed_addr #5 {
+define dso_local noundef i64 @uv_req_size(i32 noundef %type) local_unnamed_addr #5 {
 entry:
   %switch.tableidx = add i32 %type, -1
   %0 = icmp ult i32 %switch.tableidx, 10
@@ -501,7 +475,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @uv_loop_size() local_unnamed_addr #5 {
+define dso_local noundef i64 @uv_loop_size() local_unnamed_addr #5 {
 entry:
   ret i64 848
 }
@@ -516,7 +490,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @uv_err_name_r(i32 noundef %err, ptr noundef returned %buf, i64 noundef %buflen) local_unnamed_addr #0 {
+define dso_local noundef ptr @uv_err_name_r(i32 noundef %err, ptr noundef returned %buf, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   switch i32 %err, label %sw.default [
     i32 -7, label %sw.bb
@@ -606,343 +580,343 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str, i64 noundef %buflen) #25
+  %call = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %call2 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.1, i64 noundef %buflen) #25
+  %call2 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.1, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %call4 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.2, i64 noundef %buflen) #25
+  %call4 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.2, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %call6 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.3, i64 noundef %buflen) #25
+  %call6 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.3, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %call8 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.4, i64 noundef %buflen) #25
+  %call8 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.4, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %call10 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.5, i64 noundef %buflen) #25
+  %call10 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.5, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %call12 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.6, i64 noundef %buflen) #25
+  %call12 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.6, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %call14 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.7, i64 noundef %buflen) #25
+  %call14 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.7, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %call16 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.8, i64 noundef %buflen) #25
+  %call16 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.8, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
-  %call18 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.9, i64 noundef %buflen) #25
+  %call18 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.9, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %call20 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.10, i64 noundef %buflen) #25
+  %call20 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.10, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %call22 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.11, i64 noundef %buflen) #25
+  %call22 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.11, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
-  %call24 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.12, i64 noundef %buflen) #25
+  %call24 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.12, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
-  %call26 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.13, i64 noundef %buflen) #25
+  %call26 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.13, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
-  %call28 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.14, i64 noundef %buflen) #25
+  %call28 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.14, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
-  %call30 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.15, i64 noundef %buflen) #25
+  %call30 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.15, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
-  %call32 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.16, i64 noundef %buflen) #25
+  %call32 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.16, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %entry
-  %call34 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.17, i64 noundef %buflen) #25
+  %call34 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.17, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %entry
-  %call36 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.18, i64 noundef %buflen) #25
+  %call36 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.18, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %entry
-  %call38 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.19, i64 noundef %buflen) #25
+  %call38 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.19, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %entry
-  %call40 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.20, i64 noundef %buflen) #25
+  %call40 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.20, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %entry
-  %call42 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.21, i64 noundef %buflen) #25
+  %call42 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.21, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %entry
-  %call44 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.22, i64 noundef %buflen) #25
+  %call44 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.22, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb45:                                          ; preds = %entry
-  %call46 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.23, i64 noundef %buflen) #25
+  %call46 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.23, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %entry
-  %call48 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.24, i64 noundef %buflen) #25
+  %call48 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.24, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %entry
-  %call50 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.25, i64 noundef %buflen) #25
+  %call50 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.25, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %entry
-  %call52 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.26, i64 noundef %buflen) #25
+  %call52 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.26, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %entry
-  %call54 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.27, i64 noundef %buflen) #25
+  %call54 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.27, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %entry
-  %call56 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.28, i64 noundef %buflen) #25
+  %call56 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.28, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %entry
-  %call58 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.29, i64 noundef %buflen) #25
+  %call58 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.29, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %entry
-  %call60 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.30, i64 noundef %buflen) #25
+  %call60 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.30, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %entry
-  %call62 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.31, i64 noundef %buflen) #25
+  %call62 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.31, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %entry
-  %call64 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.32, i64 noundef %buflen) #25
+  %call64 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.32, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb65:                                          ; preds = %entry
-  %call66 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.33, i64 noundef %buflen) #25
+  %call66 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.33, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb67:                                          ; preds = %entry
-  %call68 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.34, i64 noundef %buflen) #25
+  %call68 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.34, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb69:                                          ; preds = %entry
-  %call70 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.35, i64 noundef %buflen) #25
+  %call70 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.35, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb71:                                          ; preds = %entry
-  %call72 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.36, i64 noundef %buflen) #25
+  %call72 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.36, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb73:                                          ; preds = %entry
-  %call74 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.37, i64 noundef %buflen) #25
+  %call74 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.37, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb75:                                          ; preds = %entry
-  %call76 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.38, i64 noundef %buflen) #25
+  %call76 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.38, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb77:                                          ; preds = %entry
-  %call78 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.39, i64 noundef %buflen) #25
+  %call78 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.39, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb79:                                          ; preds = %entry
-  %call80 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.40, i64 noundef %buflen) #25
+  %call80 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.40, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %entry
-  %call82 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.41, i64 noundef %buflen) #25
+  %call82 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.41, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb83:                                          ; preds = %entry
-  %call84 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.42, i64 noundef %buflen) #25
+  %call84 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.42, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb85:                                          ; preds = %entry
-  %call86 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.43, i64 noundef %buflen) #25
+  %call86 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.43, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb87:                                          ; preds = %entry
-  %call88 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.44, i64 noundef %buflen) #25
+  %call88 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.44, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb89:                                          ; preds = %entry
-  %call90 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.45, i64 noundef %buflen) #25
+  %call90 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.45, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb91:                                          ; preds = %entry
-  %call92 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.46, i64 noundef %buflen) #25
+  %call92 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.46, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb93:                                          ; preds = %entry
-  %call94 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.47, i64 noundef %buflen) #25
+  %call94 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.47, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %entry
-  %call96 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.48, i64 noundef %buflen) #25
+  %call96 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.48, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb97:                                          ; preds = %entry
-  %call98 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.49, i64 noundef %buflen) #25
+  %call98 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.49, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb99:                                          ; preds = %entry
-  %call100 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.50, i64 noundef %buflen) #25
+  %call100 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.50, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %entry
-  %call102 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.51, i64 noundef %buflen) #25
+  %call102 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.51, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb103:                                         ; preds = %entry
-  %call104 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.52, i64 noundef %buflen) #25
+  %call104 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.52, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb105:                                         ; preds = %entry
-  %call106 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.53, i64 noundef %buflen) #25
+  %call106 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.53, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb107:                                         ; preds = %entry
-  %call108 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.54, i64 noundef %buflen) #25
+  %call108 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.54, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb109:                                         ; preds = %entry
-  %call110 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.55, i64 noundef %buflen) #25
+  %call110 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.55, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb111:                                         ; preds = %entry
-  %call112 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.56, i64 noundef %buflen) #25
+  %call112 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.56, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb113:                                         ; preds = %entry
-  %call114 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.57, i64 noundef %buflen) #25
+  %call114 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.57, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb115:                                         ; preds = %entry
-  %call116 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.58, i64 noundef %buflen) #25
+  %call116 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.58, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb117:                                         ; preds = %entry
-  %call118 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.59, i64 noundef %buflen) #25
+  %call118 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.59, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb119:                                         ; preds = %entry
-  %call120 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.60, i64 noundef %buflen) #25
+  %call120 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.60, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb121:                                         ; preds = %entry
-  %call122 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.61, i64 noundef %buflen) #25
+  %call122 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.61, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb123:                                         ; preds = %entry
-  %call124 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.62, i64 noundef %buflen) #25
+  %call124 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.62, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb125:                                         ; preds = %entry
-  %call126 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.63, i64 noundef %buflen) #25
+  %call126 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.63, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb127:                                         ; preds = %entry
-  %call128 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.64, i64 noundef %buflen) #25
+  %call128 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.64, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %entry
-  %call130 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.65, i64 noundef %buflen) #25
+  %call130 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.65, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb131:                                         ; preds = %entry
-  %call132 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.66, i64 noundef %buflen) #25
+  %call132 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.66, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb133:                                         ; preds = %entry
-  %call134 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.67, i64 noundef %buflen) #25
+  %call134 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.67, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb135:                                         ; preds = %entry
-  %call136 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.68, i64 noundef %buflen) #25
+  %call136 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.68, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb137:                                         ; preds = %entry
-  %call138 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.69, i64 noundef %buflen) #25
+  %call138 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.69, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb139:                                         ; preds = %entry
-  %call140 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.70, i64 noundef %buflen) #25
+  %call140 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.70, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb141:                                         ; preds = %entry
-  %call142 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.71, i64 noundef %buflen) #25
+  %call142 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.71, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb143:                                         ; preds = %entry
-  %call144 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.72, i64 noundef %buflen) #25
+  %call144 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.72, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb145:                                         ; preds = %entry
-  %call146 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.73, i64 noundef %buflen) #25
+  %call146 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.73, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb147:                                         ; preds = %entry
-  %call148 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.74, i64 noundef %buflen) #25
+  %call148 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.74, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb149:                                         ; preds = %entry
-  %call150 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.75, i64 noundef %buflen) #25
+  %call150 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.75, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb151:                                         ; preds = %entry
-  %call152 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.76, i64 noundef %buflen) #25
+  %call152 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.76, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb153:                                         ; preds = %entry
-  %call154 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.77, i64 noundef %buflen) #25
+  %call154 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.77, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb155:                                         ; preds = %entry
-  %call156 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.78, i64 noundef %buflen) #25
+  %call156 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.78, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb157:                                         ; preds = %entry
-  %call158 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.79, i64 noundef %buflen) #25
+  %call158 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.79, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb159:                                         ; preds = %entry
-  %call160 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.80, i64 noundef %buflen) #25
+  %call160 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.80, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb161:                                         ; preds = %entry
-  %call162 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.81, i64 noundef %buflen) #25
+  %call162 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.81, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb163:                                         ; preds = %entry
-  %call164 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.82, i64 noundef %buflen) #25
+  %call164 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.82, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.bb165:                                         ; preds = %entry
-  %call166 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.83, i64 noundef %buflen) #25
+  %call166 = tail call i64 @uv__strscpy(ptr noundef %buf, ptr noundef nonnull @.str.83, i64 noundef %buflen) #24
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %call167 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.84, i32 noundef %err) #25
+  %call167 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.84, i32 noundef %err) #24
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb165, %sw.bb163, %sw.bb161, %sw.bb159, %sw.bb157, %sw.bb155, %sw.bb153, %sw.bb151, %sw.bb149, %sw.bb147, %sw.bb145, %sw.bb143, %sw.bb141, %sw.bb139, %sw.bb137, %sw.bb135, %sw.bb133, %sw.bb131, %sw.bb129, %sw.bb127, %sw.bb125, %sw.bb123, %sw.bb121, %sw.bb119, %sw.bb117, %sw.bb115, %sw.bb113, %sw.bb111, %sw.bb109, %sw.bb107, %sw.bb105, %sw.bb103, %sw.bb101, %sw.bb99, %sw.bb97, %sw.bb95, %sw.bb93, %sw.bb91, %sw.bb89, %sw.bb87, %sw.bb85, %sw.bb83, %sw.bb81, %sw.bb79, %sw.bb77, %sw.bb75, %sw.bb73, %sw.bb71, %sw.bb69, %sw.bb67, %sw.bb65, %sw.bb63, %sw.bb61, %sw.bb59, %sw.bb57, %sw.bb55, %sw.bb53, %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
@@ -1306,15 +1280,15 @@ return:                                           ; preds = %entry, %sw.epilog, 
 define internal fastcc ptr @uv__unknown_err_code(i32 noundef %err) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.84, i32 noundef %err) #25
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #24
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.84, i32 noundef %err) #24
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #23
   %add.i = add i64 %call.i, 1
   %cmp.not.i.i = icmp eq i64 %add.i, 0
   br i1 %cmp.not.i.i, label %uv__strdup.exit, label %uv__malloc.exit.i
 
 uv__malloc.exit.i:                                ; preds = %entry
   %0 = load ptr, ptr @uv__allocator.0, align 8
-  %call.i.i = tail call ptr %0(i64 noundef %add.i) #25
+  %call.i.i = tail call ptr %0(i64 noundef %add.i) #24
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %uv__strdup.exit, label %if.end.i
 
@@ -1330,7 +1304,7 @@ uv__strdup.exit:                                  ; preds = %entry, %uv__malloc.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local ptr @uv_strerror_r(i32 noundef %err, ptr noundef returned writeonly %buf, i64 noundef %buflen) local_unnamed_addr #8 {
+define dso_local noundef ptr @uv_strerror_r(i32 noundef %err, ptr noundef returned writeonly %buf, i64 noundef %buflen) local_unnamed_addr #8 {
 entry:
   switch i32 %err, label %sw.default [
     i32 -7, label %sw.bb
@@ -1420,343 +1394,343 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86) #25
+  %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86) #24
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %call2 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.87) #25
+  %call2 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.87) #24
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %call4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.88) #25
+  %call4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.88) #24
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %call6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.89) #25
+  %call6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.89) #24
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %call8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.90) #25
+  %call8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.90) #24
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %call10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.91) #25
+  %call10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.91) #24
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %call12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.90) #25
+  %call12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.90) #24
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %call14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.92) #25
+  %call14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.92) #24
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %call16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.93) #25
+  %call16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.93) #24
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
-  %call18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.94) #25
+  %call18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.94) #24
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %call20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.95) #25
+  %call20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.95) #24
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %call22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.96) #25
+  %call22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.96) #24
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
-  %call24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.97) #25
+  %call24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.97) #24
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
-  %call26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.98) #25
+  %call26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.98) #24
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
-  %call28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.99) #25
+  %call28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.99) #24
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
-  %call30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.100) #25
+  %call30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.100) #24
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
-  %call32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.101) #25
+  %call32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.101) #24
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %entry
-  %call34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.102) #25
+  %call34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.102) #24
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %entry
-  %call36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.103) #25
+  %call36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.103) #24
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %entry
-  %call38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104) #25
+  %call38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104) #24
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %entry
-  %call40 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.105) #25
+  %call40 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.105) #24
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %entry
-  %call42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.106) #25
+  %call42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.106) #24
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %entry
-  %call44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.107) #25
+  %call44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.107) #24
   br label %sw.epilog
 
 sw.bb45:                                          ; preds = %entry
-  %call46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.108) #25
+  %call46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.108) #24
   br label %sw.epilog
 
 sw.bb47:                                          ; preds = %entry
-  %call48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.109) #25
+  %call48 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.109) #24
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %entry
-  %call50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.110) #25
+  %call50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.110) #24
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %entry
-  %call52 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.111) #25
+  %call52 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.111) #24
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %entry
-  %call54 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.112) #25
+  %call54 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.112) #24
   br label %sw.epilog
 
 sw.bb55:                                          ; preds = %entry
-  %call56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.113) #25
+  %call56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.113) #24
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %entry
-  %call58 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.114) #25
+  %call58 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.114) #24
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %entry
-  %call60 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.115) #25
+  %call60 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.115) #24
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %entry
-  %call62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.116) #25
+  %call62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.116) #24
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %entry
-  %call64 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.117) #25
+  %call64 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.117) #24
   br label %sw.epilog
 
 sw.bb65:                                          ; preds = %entry
-  %call66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.118) #25
+  %call66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.118) #24
   br label %sw.epilog
 
 sw.bb67:                                          ; preds = %entry
-  %call68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.119) #25
+  %call68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.119) #24
   br label %sw.epilog
 
 sw.bb69:                                          ; preds = %entry
-  %call70 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.120) #25
+  %call70 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.120) #24
   br label %sw.epilog
 
 sw.bb71:                                          ; preds = %entry
-  %call72 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.121) #25
+  %call72 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.121) #24
   br label %sw.epilog
 
 sw.bb73:                                          ; preds = %entry
-  %call74 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.122) #25
+  %call74 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.122) #24
   br label %sw.epilog
 
 sw.bb75:                                          ; preds = %entry
-  %call76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.123) #25
+  %call76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.123) #24
   br label %sw.epilog
 
 sw.bb77:                                          ; preds = %entry
-  %call78 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.124) #25
+  %call78 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.124) #24
   br label %sw.epilog
 
 sw.bb79:                                          ; preds = %entry
-  %call80 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.125) #25
+  %call80 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.125) #24
   br label %sw.epilog
 
 sw.bb81:                                          ; preds = %entry
-  %call82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.126) #25
+  %call82 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.126) #24
   br label %sw.epilog
 
 sw.bb83:                                          ; preds = %entry
-  %call84 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.127) #25
+  %call84 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.127) #24
   br label %sw.epilog
 
 sw.bb85:                                          ; preds = %entry
-  %call86 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.128) #25
+  %call86 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.128) #24
   br label %sw.epilog
 
 sw.bb87:                                          ; preds = %entry
-  %call88 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.129) #25
+  %call88 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.129) #24
   br label %sw.epilog
 
 sw.bb89:                                          ; preds = %entry
-  %call90 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.130) #25
+  %call90 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.130) #24
   br label %sw.epilog
 
 sw.bb91:                                          ; preds = %entry
-  %call92 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.131) #25
+  %call92 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.131) #24
   br label %sw.epilog
 
 sw.bb93:                                          ; preds = %entry
-  %call94 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.132) #25
+  %call94 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.132) #24
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %entry
-  %call96 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.133) #25
+  %call96 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.133) #24
   br label %sw.epilog
 
 sw.bb97:                                          ; preds = %entry
-  %call98 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.134) #25
+  %call98 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.134) #24
   br label %sw.epilog
 
 sw.bb99:                                          ; preds = %entry
-  %call100 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.135) #25
+  %call100 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.135) #24
   br label %sw.epilog
 
 sw.bb101:                                         ; preds = %entry
-  %call102 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.136) #25
+  %call102 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.136) #24
   br label %sw.epilog
 
 sw.bb103:                                         ; preds = %entry
-  %call104 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.137) #25
+  %call104 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.137) #24
   br label %sw.epilog
 
 sw.bb105:                                         ; preds = %entry
-  %call106 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.138) #25
+  %call106 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.138) #24
   br label %sw.epilog
 
 sw.bb107:                                         ; preds = %entry
-  %call108 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.139) #25
+  %call108 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.139) #24
   br label %sw.epilog
 
 sw.bb109:                                         ; preds = %entry
-  %call110 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.140) #25
+  %call110 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.140) #24
   br label %sw.epilog
 
 sw.bb111:                                         ; preds = %entry
-  %call112 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.141) #25
+  %call112 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.141) #24
   br label %sw.epilog
 
 sw.bb113:                                         ; preds = %entry
-  %call114 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.142) #25
+  %call114 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.142) #24
   br label %sw.epilog
 
 sw.bb115:                                         ; preds = %entry
-  %call116 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.143) #25
+  %call116 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.143) #24
   br label %sw.epilog
 
 sw.bb117:                                         ; preds = %entry
-  %call118 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.144) #25
+  %call118 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.144) #24
   br label %sw.epilog
 
 sw.bb119:                                         ; preds = %entry
-  %call120 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.145) #25
+  %call120 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.145) #24
   br label %sw.epilog
 
 sw.bb121:                                         ; preds = %entry
-  %call122 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.146) #25
+  %call122 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.146) #24
   br label %sw.epilog
 
 sw.bb123:                                         ; preds = %entry
-  %call124 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.147) #25
+  %call124 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.147) #24
   br label %sw.epilog
 
 sw.bb125:                                         ; preds = %entry
-  %call126 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.148) #25
+  %call126 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.148) #24
   br label %sw.epilog
 
 sw.bb127:                                         ; preds = %entry
-  %call128 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.149) #25
+  %call128 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.149) #24
   br label %sw.epilog
 
 sw.bb129:                                         ; preds = %entry
-  %call130 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.150) #25
+  %call130 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.150) #24
   br label %sw.epilog
 
 sw.bb131:                                         ; preds = %entry
-  %call132 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.151) #25
+  %call132 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.151) #24
   br label %sw.epilog
 
 sw.bb133:                                         ; preds = %entry
-  %call134 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.152) #25
+  %call134 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.152) #24
   br label %sw.epilog
 
 sw.bb135:                                         ; preds = %entry
-  %call136 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.153) #25
+  %call136 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.153) #24
   br label %sw.epilog
 
 sw.bb137:                                         ; preds = %entry
-  %call138 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.154) #25
+  %call138 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.154) #24
   br label %sw.epilog
 
 sw.bb139:                                         ; preds = %entry
-  %call140 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.155) #25
+  %call140 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.155) #24
   br label %sw.epilog
 
 sw.bb141:                                         ; preds = %entry
-  %call142 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.156) #25
+  %call142 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.156) #24
   br label %sw.epilog
 
 sw.bb143:                                         ; preds = %entry
-  %call144 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.157) #25
+  %call144 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.157) #24
   br label %sw.epilog
 
 sw.bb145:                                         ; preds = %entry
-  %call146 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.158) #25
+  %call146 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.158) #24
   br label %sw.epilog
 
 sw.bb147:                                         ; preds = %entry
-  %call148 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.159) #25
+  %call148 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.159) #24
   br label %sw.epilog
 
 sw.bb149:                                         ; preds = %entry
-  %call150 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.160) #25
+  %call150 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.160) #24
   br label %sw.epilog
 
 sw.bb151:                                         ; preds = %entry
-  %call152 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.161) #25
+  %call152 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.161) #24
   br label %sw.epilog
 
 sw.bb153:                                         ; preds = %entry
-  %call154 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.162) #25
+  %call154 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.162) #24
   br label %sw.epilog
 
 sw.bb155:                                         ; preds = %entry
-  %call156 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.163) #25
+  %call156 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.163) #24
   br label %sw.epilog
 
 sw.bb157:                                         ; preds = %entry
-  %call158 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.164) #25
+  %call158 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.164) #24
   br label %sw.epilog
 
 sw.bb159:                                         ; preds = %entry
-  %call160 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.165) #25
+  %call160 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.165) #24
   br label %sw.epilog
 
 sw.bb161:                                         ; preds = %entry
-  %call162 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104) #25
+  %call162 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.104) #24
   br label %sw.epilog
 
 sw.bb163:                                         ; preds = %entry
-  %call164 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.166) #25
+  %call164 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.166) #24
   br label %sw.epilog
 
 sw.bb165:                                         ; preds = %entry
-  %call166 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.167) #25
+  %call166 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.167) #24
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %call167 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.84, i32 noundef %err) #25
+  %call167 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull @.str.84, i32 noundef %err) #24
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb165, %sw.bb163, %sw.bb161, %sw.bb159, %sw.bb157, %sw.bb155, %sw.bb153, %sw.bb151, %sw.bb149, %sw.bb147, %sw.bb145, %sw.bb143, %sw.bb141, %sw.bb139, %sw.bb137, %sw.bb135, %sw.bb133, %sw.bb131, %sw.bb129, %sw.bb127, %sw.bb125, %sw.bb123, %sw.bb121, %sw.bb119, %sw.bb117, %sw.bb115, %sw.bb113, %sw.bb111, %sw.bb109, %sw.bb107, %sw.bb105, %sw.bb103, %sw.bb101, %sw.bb99, %sw.bb97, %sw.bb95, %sw.bb93, %sw.bb91, %sw.bb89, %sw.bb87, %sw.bb85, %sw.bb83, %sw.bb81, %sw.bb79, %sw.bb77, %sw.bb75, %sw.bb73, %sw.bb71, %sw.bb69, %sw.bb67, %sw.bb65, %sw.bb63, %sw.bb61, %sw.bb59, %sw.bb57, %sw.bb55, %sw.bb53, %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb35, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb1, %sw.bb
@@ -2118,11 +2092,11 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 12, i1 false)
   store i16 2, ptr %addr, align 4
   %conv = trunc i32 %port to i16
-  %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #26
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 1
+  %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #25
+  %sin_port = getelementptr inbounds i8, ptr %addr, i64 2
   store i16 %call, ptr %sin_port, align 2
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 2
-  %call1 = tail call i32 @uv_inet_pton(i32 noundef 2, ptr noundef %ip, ptr noundef nonnull %sin_addr) #25
+  %sin_addr = getelementptr inbounds i8, ptr %addr, i64 4
+  %call1 = tail call i32 @uv_inet_pton(i32 noundef 2, ptr noundef %ip, ptr noundef nonnull %sin_addr) #24
   ret i32 %call1
 }
 
@@ -2142,10 +2116,10 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 24, i1 false)
   store i16 10, ptr %addr, align 4
   %conv = trunc i32 %port to i16
-  %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #26
-  %sin6_port = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 1
+  %call = tail call zeroext i16 @htons(i16 noundef zeroext %conv) #25
+  %sin6_port = getelementptr inbounds i8, ptr %addr, i64 2
   store i16 %call, ptr %sin6_port, align 2
-  %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ip, i32 noundef 37) #24
+  %call1 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %ip, i32 noundef 37) #23
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %if.end8, label %if.then
 
@@ -2158,15 +2132,15 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds [40 x i8], ptr %address_part, i64 0, i64 %spec.store.select
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %call1, i64 1
-  %call7 = tail call i32 @if_nametoindex(ptr noundef nonnull %incdec.ptr) #25
-  %sin6_scope_id = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 4
+  %call7 = tail call i32 @if_nametoindex(ptr noundef nonnull %incdec.ptr) #24
+  %sin6_scope_id = getelementptr inbounds i8, ptr %addr, i64 24
   store i32 %call7, ptr %sin6_scope_id, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %entry
   %ip.addr.0 = phi ptr [ %address_part, %if.then ], [ %ip, %entry ]
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 3
-  %call9 = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef %ip.addr.0, ptr noundef nonnull %sin6_addr) #25
+  %sin6_addr = getelementptr inbounds i8, ptr %addr, i64 8
+  %call9 = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef %ip.addr.0, ptr noundef nonnull %sin6_addr) #24
   ret i32 %call9
 }
 
@@ -2179,8 +2153,8 @@ declare i32 @if_nametoindex(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_ip4_name(ptr noundef %src, ptr noundef %dst, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %src, i64 0, i32 2
-  %call = tail call i32 @uv_inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef %dst, i64 noundef %size) #25
+  %sin_addr = getelementptr inbounds i8, ptr %src, i64 4
+  %call = tail call i32 @uv_inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef %dst, i64 noundef %size) #24
   ret i32 %call
 }
 
@@ -2189,8 +2163,8 @@ declare i32 @uv_inet_ntop(i32 noundef, ptr noundef, ptr noundef, i64 noundef) lo
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_ip6_name(ptr noundef %src, ptr noundef %dst, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %src, i64 0, i32 3
-  %call = tail call i32 @uv_inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef %dst, i64 noundef %size) #25
+  %sin6_addr = getelementptr inbounds i8, ptr %src, i64 8
+  %call = tail call i32 @uv_inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef %dst, i64 noundef %size) #24
   ret i32 %call
 }
 
@@ -2199,35 +2173,35 @@ define dso_local i32 @uv_ip_name(ptr noundef %src, ptr noundef %dst, i64 noundef
 entry:
   %0 = load i16, ptr %src, align 2
   switch i16 %0, label %return [
-    i16 2, label %sw.bb
+    i16 2, label %return.sink.split
     i16 10, label %sw.bb1
   ]
 
-sw.bb:                                            ; preds = %entry
-  %sin_addr = getelementptr inbounds %struct.sockaddr_in, ptr %src, i64 0, i32 2
-  %call = tail call i32 @uv_inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef %dst, i64 noundef %size) #25
-  br label %return
-
 sw.bb1:                                           ; preds = %entry
-  %sin6_addr = getelementptr inbounds %struct.sockaddr_in6, ptr %src, i64 0, i32 3
-  %call2 = tail call i32 @uv_inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef %dst, i64 noundef %size) #25
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %entry, %sw.bb1
+  %.sink5 = phi i64 [ 8, %sw.bb1 ], [ 4, %entry ]
+  %.sink = phi i32 [ 10, %sw.bb1 ], [ 2, %entry ]
+  %sin6_addr = getelementptr inbounds i8, ptr %src, i64 %.sink5
+  %call2 = tail call i32 @uv_inet_ntop(i32 noundef %.sink, ptr noundef nonnull %sin6_addr, ptr noundef %dst, i64 noundef %size) #24
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb1, %sw.bb
-  %retval.0 = phi i32 [ %call2, %sw.bb1 ], [ %call, %sw.bb ], [ -97, %entry ]
+return:                                           ; preds = %return.sink.split, %entry
+  %retval.0 = phi i32 [ -97, %entry ], [ %call2, %return.sink.split ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_bind(ptr noundef %handle, ptr noundef %addr, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_tcp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 12
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %flags1 = getelementptr inbounds %struct.uv_tcp_s, ptr %handle, i64 0, i32 7
+  %flags1 = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags1, align 8
   %and = and i32 %1, 3
   %cmp2.not = icmp eq i32 %and, 0
@@ -2245,7 +2219,7 @@ if.then12:                                        ; preds = %if.end4
 
 if.end15:                                         ; preds = %if.end4, %if.then12
   %addrlen.0 = phi i32 [ 28, %if.then12 ], [ 16, %if.end4 ]
-  %call = tail call i32 @uv__tcp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0, i32 noundef %flags) #25
+  %call = tail call i32 @uv__tcp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0, i32 noundef %flags) #24
   br label %return
 
 return:                                           ; preds = %if.end4, %if.end, %entry, %if.end15
@@ -2268,14 +2242,14 @@ entry:
   br i1 %or.cond11, label %if.end7, label %return
 
 if.end7:                                          ; preds = %entry
-  %call = tail call i32 @uv__udp_init_ex(ptr noundef %loop, ptr noundef %handle, i32 noundef %flags, i32 noundef %and) #25
+  %call = tail call i32 @uv__udp_init_ex(ptr noundef %loop, ptr noundef %handle, i32 noundef %flags, i32 noundef %and) #24
   %cmp8 = icmp ne i32 %call, 0
   %tobool11.not = icmp ult i32 %flags, 256
   %or.cond10 = or i1 %tobool11.not, %cmp8
   br i1 %or.cond10, label %return, label %if.then12
 
 if.then12:                                        ; preds = %if.end7
-  %flags13 = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags13 = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags13, align 8
   %or = or i32 %1, 67108864
   store i32 %or, ptr %flags13, align 8
@@ -2291,14 +2265,14 @@ declare i32 @uv__udp_init_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_init(ptr noundef %loop, ptr noundef %handle) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @uv__udp_init_ex(ptr noundef %loop, ptr noundef %handle, i32 noundef 0, i32 noundef 0) #25
+  %call.i = tail call i32 @uv__udp_init_ex(ptr noundef %loop, ptr noundef %handle, i32 noundef 0, i32 noundef 0) #24
   ret i32 %call.i
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_bind(ptr noundef %handle, ptr noundef %addr, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
@@ -2315,7 +2289,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end, %if.then8
   %addrlen.0 = phi i32 [ 28, %if.then8 ], [ 16, %if.end ]
-  %call = tail call i32 @uv__udp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0, i32 noundef %flags) #25
+  %call = tail call i32 @uv__udp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0, i32 noundef %flags) #24
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end11
@@ -2328,7 +2302,7 @@ declare i32 @uv__udp_bind(ptr noundef, ptr noundef, i32 noundef, i32 noundef) lo
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_connect(ptr noundef %req, ptr noundef %handle, ptr noundef %addr, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_tcp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 12
   br i1 %cmp.not, label %if.end, label %return
@@ -2345,7 +2319,7 @@ if.then8:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end, %if.then8
   %addrlen.0 = phi i32 [ 28, %if.then8 ], [ 16, %if.end ]
-  %call = tail call i32 @uv__tcp_connect(ptr noundef %req, ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0, ptr noundef %cb) #25
+  %call = tail call i32 @uv__tcp_connect(ptr noundef %req, ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0, ptr noundef %cb) #24
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end11
@@ -2358,7 +2332,7 @@ declare i32 @uv__tcp_connect(ptr noundef, ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_connect(ptr noundef %handle, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
@@ -2368,14 +2342,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 33554432
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.then2
-  %call = tail call i32 @uv__udp_disconnect(ptr noundef nonnull %handle) #25
+  %call = tail call i32 @uv__udp_disconnect(ptr noundef nonnull %handle) #24
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -2390,14 +2364,14 @@ if.then13:                                        ; preds = %if.end5
 
 if.end16:                                         ; preds = %if.end5, %if.then13
   %addrlen.0 = phi i32 [ 28, %if.then13 ], [ 16, %if.end5 ]
-  %flags17 = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags17 = getelementptr inbounds i8, ptr %handle, i64 88
   %3 = load i32, ptr %flags17, align 8
   %and18 = and i32 %3, 33554432
   %tobool19.not = icmp eq i32 %and18, 0
   br i1 %tobool19.not, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end16
-  %call22 = tail call i32 @uv__udp_connect(ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0) #25
+  %call22 = tail call i32 @uv__udp_connect(ptr noundef nonnull %handle, ptr noundef nonnull %addr, i32 noundef %addrlen.0) #24
   br label %return
 
 return:                                           ; preds = %if.end16, %if.end5, %if.then2, %entry, %if.end21, %if.end4
@@ -2414,14 +2388,14 @@ define hidden i32 @uv__udp_is_connected(ptr noundef %handle) local_unnamed_addr 
 entry:
   %addr = alloca %struct.sockaddr_storage, align 8
   %addrlen = alloca i32, align 4
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store i32 128, ptr %addrlen, align 4
-  %call = call i32 @uv_udp_getpeername(ptr noundef nonnull %handle, ptr noundef nonnull %addr, ptr noundef nonnull %addrlen) #25
+  %call = call i32 @uv_udp_getpeername(ptr noundef nonnull %handle, ptr noundef nonnull %addr, ptr noundef nonnull %addrlen) #24
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end3, label %return
 
@@ -2441,14 +2415,14 @@ declare i32 @uv_udp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @uv__udp_check_before_send(ptr nocapture noundef readonly %handle, ptr noundef readonly %addr) local_unnamed_addr #11 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %cond = icmp eq ptr %addr, null
-  %flags6 = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags6 = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags6, align 8
   %and7 = and i32 %1, 33554432
   %tobool8.not = icmp eq i32 %and7, 0
@@ -2486,14 +2460,14 @@ return:                                           ; preds = %land.lhs.true5, %if
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_send(ptr noundef %req, ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, ptr noundef %send_cb) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type.i, align 8
   %cmp.not.i = icmp eq i32 %0, 15
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
   %cond.i = icmp eq ptr %addr, null
-  %flags6.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags6.i = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags6.i, align 8
   %and7.i = and i32 %1, 33554432
   %tobool8.not.i = icmp eq i32 %and7.i, 0
@@ -2521,7 +2495,7 @@ if.end32.i:                                       ; preds = %if.then12.i
 
 if.end:                                           ; preds = %if.then12.i, %if.end32.i, %if.then26.i, %land.lhs.true5.i
   %retval.0.i = phi i32 [ 0, %land.lhs.true5.i ], [ 110, %if.then26.i ], [ 16, %if.end32.i ], [ 28, %if.then12.i ]
-  %call1 = tail call i32 @uv__udp_send(ptr noundef %req, ptr noundef nonnull %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, i32 noundef %retval.0.i, ptr noundef %send_cb) #25
+  %call1 = tail call i32 @uv__udp_send(ptr noundef %req, ptr noundef nonnull %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, i32 noundef %retval.0.i, ptr noundef %send_cb) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true5.i, %if.then12.i, %land.lhs.true.i, %entry, %if.end
@@ -2534,14 +2508,14 @@ declare i32 @uv__udp_send(ptr noundef, ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_try_send(ptr noundef %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type.i, align 8
   %cmp.not.i = icmp eq i32 %0, 15
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
   %cond.i = icmp eq ptr %addr, null
-  %flags6.i = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 7
+  %flags6.i = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags6.i, align 8
   %and7.i = and i32 %1, 33554432
   %tobool8.not.i = icmp eq i32 %and7.i, 0
@@ -2569,7 +2543,7 @@ if.end32.i:                                       ; preds = %if.then12.i
 
 if.end:                                           ; preds = %if.then12.i, %if.end32.i, %if.then26.i, %land.lhs.true5.i
   %retval.0.i = phi i32 [ 0, %land.lhs.true5.i ], [ 110, %if.then26.i ], [ 16, %if.end32.i ], [ 28, %if.then12.i ]
-  %call1 = tail call i32 @uv__udp_try_send(ptr noundef nonnull %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, i32 noundef %retval.0.i) #25
+  %call1 = tail call i32 @uv__udp_try_send(ptr noundef nonnull %handle, ptr noundef %bufs, i32 noundef %nbufs, ptr noundef %addr, i32 noundef %retval.0.i) #24
   br label %return
 
 return:                                           ; preds = %land.lhs.true5.i, %if.then12.i, %land.lhs.true.i, %entry, %if.end
@@ -2582,7 +2556,7 @@ declare i32 @uv__udp_try_send(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_recv_start(ptr noundef %handle, ptr noundef %alloc_cb, ptr noundef %recv_cb) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp = icmp ne i32 %0, 15
   %cmp1 = icmp eq ptr %alloc_cb, null
@@ -2592,7 +2566,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %call = tail call i32 @uv__udp_recv_start(ptr noundef nonnull %handle, ptr noundef nonnull %alloc_cb, ptr noundef nonnull %recv_cb) #25
+  %call = tail call i32 @uv__udp_recv_start(ptr noundef nonnull %handle, ptr noundef nonnull %alloc_cb, ptr noundef nonnull %recv_cb) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.else
@@ -2605,13 +2579,13 @@ declare i32 @uv__udp_recv_start(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_recv_stop(ptr noundef %handle) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp.not = icmp eq i32 %0, 15
   br i1 %cmp.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %call = tail call i32 @uv__udp_recv_stop(ptr noundef nonnull %handle) #25
+  %call = tail call i32 @uv__udp_recv_stop(ptr noundef nonnull %handle) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.else
@@ -2625,19 +2599,19 @@ declare i32 @uv__udp_recv_stop(ptr noundef) local_unnamed_addr #6
 define dso_local void @uv_walk(ptr noundef %loop, ptr nocapture noundef readonly %walk_cb, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %queue = alloca %struct.uv__queue, align 8
-  %handle_queue = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2
+  %handle_queue = getelementptr inbounds i8, ptr %loop, i64 16
   %0 = load ptr, ptr %handle_queue, align 8
   %cmp.i.not.i = icmp eq ptr %0, %handle_queue
   br i1 %cmp.i.not.i, label %while.end, label %uv__queue_move.exit
 
 uv__queue_move.exit:                              ; preds = %entry
-  %prev.i4.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2, i32 1
+  %prev.i4.i = getelementptr inbounds i8, ptr %loop, i64 24
   %1 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds %struct.uv__queue, ptr %queue, i64 0, i32 1
+  %prev1.i.i = getelementptr inbounds i8, ptr %queue, i64 8
   store ptr %1, ptr %prev1.i.i, align 8
   store ptr %queue, ptr %1, align 8
   store ptr %0, ptr %queue, align 8
-  %prev4.i.i = getelementptr inbounds %struct.uv__queue, ptr %0, i64 0, i32 1
+  %prev4.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %prev4.i.i, align 8
   store ptr %2, ptr %prev.i4.i, align 8
   store ptr %handle_queue, ptr %2, align 8
@@ -2647,17 +2621,17 @@ uv__queue_move.exit:                              ; preds = %entry
   br i1 %cmp.i.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %uv__queue_move.exit
-  %prev.i5 = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2, i32 1
+  %prev.i5 = getelementptr inbounds i8, ptr %loop, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %3 = phi ptr [ %.pre, %while.body.lr.ph ], [ %9, %while.cond.backedge ]
   %4 = load ptr, ptr %3, align 8
-  %prev.i = getelementptr inbounds %struct.uv__queue, ptr %3, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %prev.i, align 8
   store ptr %4, ptr %5, align 8
   %6 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds %struct.uv__queue, ptr %4, i64 0, i32 1
+  %prev4.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %6, ptr %prev4.i, align 8
   store ptr %handle_queue, ptr %3, align 8
   %7 = load ptr, ptr %prev.i5, align 8
@@ -2672,7 +2646,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.end:                                           ; preds = %while.body
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 -32
-  call void %walk_cb(ptr noundef nonnull %add.ptr, ptr noundef %arg) #25
+  call void %walk_cb(ptr noundef nonnull %add.ptr, ptr noundef %arg) #24
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end, %while.body
@@ -2703,7 +2677,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %if.then
-  %call.i = tail call i32 @uv_loop_init(ptr noundef nonnull @default_loop_struct) #25
+  %call.i = tail call i32 @uv_loop_init(ptr noundef nonnull @default_loop_struct) #24
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end2.i, label %if.end
 
@@ -2716,7 +2690,7 @@ if.end:                                           ; preds = %if.end2.i, %if.end.
   %cmp1 = icmp eq ptr %stream, null
   %1 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %cmp1, ptr %1, ptr %stream
-  %handle_queue = getelementptr inbounds %struct.uv_loop_s, ptr %loop.addr.0, i64 0, i32 2
+  %handle_queue = getelementptr inbounds i8, ptr %loop.addr.0, i64 16
   %q.011 = load ptr, ptr %handle_queue, align 8
   %cmp5.not12 = icmp eq ptr %q.011, %handle_queue
   br i1 %cmp5.not12, label %for.end, label %for.body.lr.ph
@@ -2830,7 +2804,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @uv_ref(ptr nocapture noundef %handle) local_unnamed_addr #12 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 8
   %cmp.not = icmp eq i32 %and, 0
@@ -2844,9 +2818,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.not, label %do.body11, label %do.end13
 
 do.body11:                                        ; preds = %if.end
-  %loop = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %2 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds %struct.uv_loop_s, ptr %2, i64 0, i32 1
+  %active_handles = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %active_handles, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %active_handles, align 8
@@ -2859,7 +2833,7 @@ do.end13:                                         ; preds = %do.body11, %if.end,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @uv_unref(ptr nocapture noundef %handle) local_unnamed_addr #12 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 8
   %cmp = icmp eq i32 %and, 0
@@ -2873,9 +2847,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.not, label %do.body12, label %do.end14
 
 do.body12:                                        ; preds = %if.end
-  %loop = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %2 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds %struct.uv_loop_s, ptr %2, i64 0, i32 1
+  %active_handles = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %active_handles, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %active_handles, align 8
@@ -2888,7 +2862,7 @@ do.end14:                                         ; preds = %do.body12, %if.end,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @uv_has_ref(ptr nocapture noundef readonly %handle) local_unnamed_addr #11 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 3
   %and.lobit = and i32 %and, 1
@@ -2898,7 +2872,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @uv_stop(ptr nocapture noundef writeonly %loop) local_unnamed_addr #13 {
 entry:
-  %stop_flag = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 5
+  %stop_flag = getelementptr inbounds i8, ptr %loop, i64 48
   store i32 1, ptr %stop_flag, align 8
   ret void
 }
@@ -2906,7 +2880,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @uv_now(ptr nocapture noundef readonly %loop) local_unnamed_addr #11 {
 entry:
-  %time = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 28
+  %time = getelementptr inbounds i8, ptr %loop, i64 544
   %0 = load i64, ptr %time, align 8
   ret i64 %0
 }
@@ -2939,7 +2913,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_recv_buffer_size(ptr noundef %handle, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uv__socket_sockopt(ptr noundef %handle, i32 noundef 8, ptr noundef %value) #25
+  %call = tail call i32 @uv__socket_sockopt(ptr noundef %handle, i32 noundef 8, ptr noundef %value) #24
   ret i32 %call
 }
 
@@ -2948,14 +2922,14 @@ declare i32 @uv__socket_sockopt(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_send_buffer_size(ptr noundef %handle, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uv__socket_sockopt(ptr noundef %handle, i32 noundef 7, ptr noundef %value) #25
+  %call = tail call i32 @uv__socket_sockopt(ptr noundef %handle, i32 noundef 7, ptr noundef %value) #24
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @uv_fs_event_getpath(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #15 {
+define dso_local noundef i32 @uv_fs_event_getpath(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef %size) local_unnamed_addr #15 {
 entry:
-  %flags = getelementptr inbounds %struct.uv_fs_event_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 4
   %cmp.not = icmp eq i32 %and, 0
@@ -2966,9 +2940,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %path = getelementptr inbounds %struct.uv_fs_event_s, ptr %handle, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %handle, i64 96
   %1 = load ptr, ptr %path, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
   %2 = load i64, ptr %size, align 8
   %cmp1.not = icmp ult i64 %call, %2
   br i1 %cmp1.not, label %if.end3, label %if.then2
@@ -2993,15 +2967,15 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__fs_scandir_cleanup(ptr nocapture noundef %req) local_unnamed_addr #0 {
 entry:
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
   %cmp = icmp sgt i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %1 = load ptr, ptr %ptr, align 8
-  %nbufs.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 14
+  %nbufs.i = getelementptr inbounds i8, ptr %req, i64 292
   %2 = load i32, ptr %nbufs.i, align 4
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %conv = trunc i64 %0 to i32
@@ -3017,15 +2991,15 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %3, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
-  tail call void @free(ptr noundef %5) #25
+  tail call void @free(ptr noundef %5) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp4 = icmp ult i64 %indvars.iv.next, %4
   br i1 %cmp4, label %for.body, label %if.end6
 
 if.end6:                                          ; preds = %for.body, %if.then, %entry
-  %ptr7 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr7 = getelementptr inbounds i8, ptr %req, i64 96
   %6 = load ptr, ptr %ptr7, align 8
-  tail call void @free(ptr noundef %6) #25
+  tail call void @free(ptr noundef %6) #24
   store ptr null, ptr %ptr7, align 8
   ret void
 }
@@ -3036,7 +3010,7 @@ declare void @free(ptr allocptr nocapture noundef) #16
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local i32 @uv_fs_scandir_next(ptr nocapture noundef %req, ptr nocapture noundef writeonly %ent) local_unnamed_addr #17 {
 entry:
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
   %cmp = icmp slt i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -3046,13 +3020,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %1 = load ptr, ptr %ptr, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %nbufs.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 14
+  %nbufs.i = getelementptr inbounds i8, ptr %req, i64 292
   %2 = load i32, ptr %nbufs.i, align 4
   %cmp5.not = icmp eq i32 %2, 0
   br i1 %cmp5.not, label %if.end8, label %if.then7
@@ -3062,7 +3036,7 @@ if.then7:                                         ; preds = %if.end3
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
-  tail call void @free(ptr noundef %3) #25
+  tail call void @free(ptr noundef %3) #24
   %.pre = load i32, ptr %nbufs.i, align 4
   %.pre16 = load i64, ptr %result, align 8
   br label %if.end8
@@ -3075,7 +3049,7 @@ if.end8:                                          ; preds = %if.then7, %if.end3
   br i1 %cmp11, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end8
-  tail call void @free(ptr noundef nonnull %1) #25
+  tail call void @free(ptr noundef nonnull %1) #24
   store ptr null, ptr %ptr, align 8
   br label %return
 
@@ -3085,9 +3059,9 @@ if.end15:                                         ; preds = %if.end8
   %idxprom16 = zext i32 %5 to i64
   %arrayidx17 = getelementptr inbounds ptr, ptr %1, i64 %idxprom16
   %6 = load ptr, ptr %arrayidx17, align 8
-  %d_name = getelementptr inbounds %struct.dirent, ptr %6, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %6, i64 19
   store ptr %d_name, ptr %ent, align 8
-  %d_type.i = getelementptr inbounds %struct.dirent, ptr %6, i64 0, i32 3
+  %d_type.i = getelementptr inbounds i8, ptr %6, i64 18
   %7 = load i8, ptr %d_type.i, align 2
   %switch.tableidx = add i8 %7, -1
   %8 = icmp ult i8 %switch.tableidx, 12
@@ -3101,7 +3075,7 @@ switch.lookup:                                    ; preds = %if.end15
 
 uv__fs_get_dirent_type.exit:                      ; preds = %if.end15, %switch.lookup
   %type.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end15 ]
-  %type = getelementptr inbounds %struct.uv_dirent_s, ptr %ent, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %ent, i64 8
   store i32 %type.0.i, ptr %type, align 8
   br label %return
 
@@ -3111,9 +3085,9 @@ return:                                           ; preds = %if.end, %uv__fs_get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @uv__fs_get_dirent_type(ptr nocapture noundef readonly %dent) local_unnamed_addr #11 {
+define hidden noundef i32 @uv__fs_get_dirent_type(ptr nocapture noundef readonly %dent) local_unnamed_addr #11 {
 entry:
-  %d_type = getelementptr inbounds %struct.dirent, ptr %dent, i64 0, i32 3
+  %d_type = getelementptr inbounds i8, ptr %dent, i64 18
   %0 = load i8, ptr %d_type, align 2
   %switch.tableidx = add i8 %0, -1
   %1 = icmp ult i8 %switch.tableidx, 12
@@ -3133,7 +3107,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__fs_readdir_cleanup(ptr nocapture noundef %req) local_unnamed_addr #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %for.end, label %if.end
@@ -3145,13 +3119,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %2 = load i64, ptr %result, align 8
   %cmp710 = icmp sgt i64 %2, 0
   br i1 %cmp710, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %call.i = tail call ptr @__errno_location() #26
+  %call.i = tail call ptr @__errno_location() #25
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3160,7 +3134,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i32, ptr %call.i, align 4
   %5 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %5(ptr noundef %3) #25
+  tail call void %5(ptr noundef %3) #24
   store i32 %4, ptr %call.i, align 4
   store ptr null, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3177,7 +3151,7 @@ define dso_local i32 @uv_loop_configure(ptr noundef %loop, i32 noundef %option, 
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %call = call i32 @uv__loop_configure(ptr noundef %loop, i32 noundef %option, ptr noundef nonnull %ap) #25
+  %call = call i32 @uv__loop_configure(ptr noundef %loop, i32 noundef %option, ptr noundef nonnull %ap) #24
   call void @llvm.va_end(ptr nonnull %ap)
   ret i32 %call
 }
@@ -3198,7 +3172,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @uv_loop_init(ptr noundef nonnull @default_loop_struct) #25
+  %call = tail call i32 @uv_loop_init(ptr noundef nonnull @default_loop_struct) #24
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end2, label %return
 
@@ -3217,20 +3191,20 @@ declare i32 @uv_loop_init(ptr noundef) local_unnamed_addr #6
 define dso_local ptr @uv_loop_new() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @uv__allocator.0, align 8
-  %call.i = tail call ptr %0(i64 noundef 848) #25
+  %call.i = tail call ptr %0(i64 noundef 848) #24
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @uv_loop_init(ptr noundef nonnull %call.i) #25
+  %call1 = tail call i32 @uv_loop_init(ptr noundef nonnull %call.i) #24
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call.i4 = tail call ptr @__errno_location() #26
+  %call.i4 = tail call ptr @__errno_location() #25
   %1 = load i32, ptr %call.i4, align 4
   %2 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %2(ptr noundef nonnull %call.i) #25
+  tail call void %2(ptr noundef nonnull %call.i) #24
   store i32 %1, ptr %call.i4, align 4
   br label %return
 
@@ -3240,15 +3214,15 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_loop_close(ptr noundef %loop) local_unnamed_addr #0 {
+define dso_local noundef i32 @uv_loop_close(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
-  %active_reqs = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %handle_queue = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2
+  %handle_queue = getelementptr inbounds i8, ptr %loop, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.end
@@ -3265,7 +3239,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool.not, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  tail call void @uv__loop_close(ptr noundef %loop) #25
+  tail call void @uv__loop_close(ptr noundef %loop) #24
   %2 = load ptr, ptr @default_loop_ptr, align 8
   %cmp6 = icmp eq ptr %2, %loop
   br i1 %cmp6, label %if.then7, label %return
@@ -3285,13 +3259,13 @@ declare void @uv__loop_close(ptr noundef) local_unnamed_addr #6
 define dso_local void @uv_loop_delete(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @default_loop_ptr, align 8
-  %active_reqs.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 3
+  %active_reqs.i = getelementptr inbounds i8, ptr %loop, i64 32
   %1 = load i32, ptr %active_reqs.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %uv_loop_close.exit
 
 if.end.i:                                         ; preds = %entry
-  %handle_queue.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2
+  %handle_queue.i = getelementptr inbounds i8, ptr %loop, i64 16
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.body.i, %if.end.i
@@ -3308,7 +3282,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i, label %uv_loop_close.exit, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i
-  tail call void @uv__loop_close(ptr noundef %loop) #25
+  tail call void @uv__loop_close(ptr noundef %loop) #24
   %3 = load ptr, ptr @default_loop_ptr, align 8
   %cmp6.i = icmp eq ptr %3, %loop
   br i1 %cmp6.i, label %if.then7.i, label %uv_loop_close.exit
@@ -3322,10 +3296,10 @@ uv_loop_close.exit:                               ; preds = %for.body.i, %entry,
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %uv_loop_close.exit
-  %call.i = tail call ptr @__errno_location() #26
+  %call.i = tail call ptr @__errno_location() #25
   %4 = load i32, ptr %call.i, align 4
   %5 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %5(ptr noundef %loop) #25
+  tail call void %5(ptr noundef %loop) #24
   store i32 %4, ptr %call.i, align 4
   br label %if.end
 
@@ -3344,7 +3318,7 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.uv_stream_s, ptr %stream, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %stream, i64 88
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -3361,7 +3335,7 @@ if.end10:                                         ; preds = %if.end5
   br i1 %tobool13.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end10
-  %call = tail call i32 @uv__read_start(ptr noundef nonnull %stream, ptr noundef nonnull %alloc_cb, ptr noundef nonnull %read_cb) #25
+  %call = tail call i32 @uv__read_start(ptr noundef nonnull %stream, ptr noundef nonnull %alloc_cb, ptr noundef nonnull %read_cb) #24
   br label %return
 
 return:                                           ; preds = %if.end10, %if.end5, %if.end, %entry, %if.end15
@@ -3375,7 +3349,7 @@ declare i32 @uv__read_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 define dso_local void @uv_os_free_environ(ptr noundef %envitems, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %cmp5 = icmp sgt i32 %count, 0
-  %call.i = tail call ptr @__errno_location() #26
+  %call.i = tail call ptr @__errno_location() #25
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
@@ -3388,7 +3362,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds %struct.uv_env_item_s, ptr %envitems, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %1(ptr noundef %0) #25
+  tail call void %1(ptr noundef %0) #24
   store i32 %.pre, ptr %call.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3397,7 +3371,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %entry
   %2 = load i32, ptr %call.i, align 4
   %3 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %3(ptr noundef %envitems) #25
+  tail call void %3(ptr noundef %envitems) #24
   store i32 %2, ptr %call.i, align 4
   ret void
 }
@@ -3405,10 +3379,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv_free_cpu_info(ptr noundef %cpu_infos, i32 noundef %count) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @__errno_location() #26
+  %call.i = tail call ptr @__errno_location() #25
   %0 = load i32, ptr %call.i, align 4
   %1 = load ptr, ptr @uv__allocator.3, align 8
-  tail call void %1(ptr noundef %cpu_infos) #25
+  tail call void %1(ptr noundef %cpu_infos) #24
   store i32 %0, ptr %call.i, align 4
   ret void
 }
@@ -3421,9 +3395,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @uv__process_title_cleanup() #25
-  tail call void @uv__signal_cleanup() #25
-  tail call void @uv__threadpool_cleanup() #25
+  tail call void @uv__process_title_cleanup() #24
+  tail call void @uv__signal_cleanup() #24
+  tail call void @uv__threadpool_cleanup() #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -3439,7 +3413,7 @@ declare void @uv__threadpool_cleanup() local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__metrics_update_idle_time(ptr nocapture noundef readonly %loop) local_unnamed_addr #0 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
   %1 = load i32, ptr %0, align 8
   %and = and i32 %1, 1
@@ -3447,23 +3421,23 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %provider_entry_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 1
+  %provider_entry_time = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i64, ptr %provider_entry_time, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call = tail call i64 @uv_hrtime() #25
-  %lock = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 3
-  tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #25
+  %call = tail call i64 @uv_hrtime() #24
+  %lock = getelementptr inbounds i8, ptr %0, i64 152
+  tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #24
   %3 = load i64, ptr %provider_entry_time, align 8
   store i64 0, ptr %provider_entry_time, align 8
   %sub = sub i64 %call, %3
-  %provider_idle_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 2
+  %provider_idle_time = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load i64, ptr %provider_idle_time, align 8
   %add = add i64 %sub, %4
   store i64 %add, ptr %provider_idle_time, align 8
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #25
+  tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #24
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -3479,7 +3453,7 @@ declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__metrics_set_provider_entry_time(ptr nocapture noundef readonly %loop) local_unnamed_addr #0 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
   %1 = load i32, ptr %0, align 8
   %and = and i32 %1, 1
@@ -3487,25 +3461,25 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @uv_hrtime() #25
+  %call = tail call i64 @uv_hrtime() #24
   %2 = load ptr, ptr %internal_fields, align 8
-  %lock = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %2, i64 0, i32 1, i32 3
-  tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #25
-  %provider_entry_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %2, i64 0, i32 1, i32 1
+  %lock = getelementptr inbounds i8, ptr %2, i64 152
+  tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #24
+  %provider_entry_time = getelementptr inbounds i8, ptr %2, i64 136
   store i64 %call, ptr %provider_entry_time, align 8
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #25
+  tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #24
   br label %return
 
 return:                                           ; preds = %entry, %if.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @uv_metrics_info(ptr nocapture noundef readonly %loop, ptr nocapture noundef writeonly %metrics) local_unnamed_addr #19 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local noundef i32 @uv_metrics_info(ptr nocapture noundef readonly %loop, ptr nocapture noundef writeonly %metrics) local_unnamed_addr #12 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
-  %loop_metrics = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1
+  %loop_metrics = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %metrics, ptr noundef nonnull align 8 dereferenceable(128) %loop_metrics, i64 128, i1 false)
   ret i32 0
 }
@@ -3513,20 +3487,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uv_metrics_idle_time(ptr nocapture noundef readonly %loop) local_unnamed_addr #0 {
 entry:
-  %internal_fields = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 4
+  %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
-  %lock = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 3
-  tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #25
-  %provider_idle_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 2
+  %lock = getelementptr inbounds i8, ptr %0, i64 152
+  tail call void @uv_mutex_lock(ptr noundef nonnull %lock) #24
+  %provider_idle_time = getelementptr inbounds i8, ptr %0, i64 144
   %1 = load i64, ptr %provider_idle_time, align 8
-  %provider_entry_time = getelementptr inbounds %struct.uv__loop_internal_fields_s, ptr %0, i64 0, i32 1, i32 1
+  %provider_entry_time = getelementptr inbounds i8, ptr %0, i64 136
   %2 = load i64, ptr %provider_entry_time, align 8
-  tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #25
+  tail call void @uv_mutex_unlock(ptr noundef nonnull %lock) #24
   %cmp.not = icmp eq i64 %2, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @uv_hrtime() #25
+  %call = tail call i64 @uv_hrtime() #24
   %sub = sub i64 %1, %2
   %add = add i64 %sub, %call
   br label %if.end
@@ -3537,22 +3511,22 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) #20
+declare noalias noundef ptr @malloc(i64 noundef) #19
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #21
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) #22
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #23
+declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #23
+declare i32 @llvm.usub.sat.i32(i32, i32) #22
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3573,14 +3547,13 @@ attributes #15 = { mustprogress nofree nounwind willreturn memory(readwrite, ina
 attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { nounwind }
-attributes #26 = { nounwind willreturn memory(none) }
+attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

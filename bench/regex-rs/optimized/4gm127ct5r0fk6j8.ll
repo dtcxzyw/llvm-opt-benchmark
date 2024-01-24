@@ -20,7 +20,7 @@ define align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$1
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h05edcde8a8b2f851E"(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   switch i8 %3, label %default.unreachable2 [
     i8 0, label %4
@@ -46,7 +46,7 @@ default.unreachable2:                             ; preds = %1
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h20aa330d3e63165aE"(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   switch i8 %3, label %default.unreachable2 [
     i8 0, label %4
@@ -74,7 +74,7 @@ default.unreachable2:                             ; preds = %1
 define align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h3e124f64ff9d181fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !7, !noundef !6
   %4 = icmp eq i64 %3, 0
-  %5 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %4, label %6, label %8
 
 6:                                                ; preds = %2
@@ -90,7 +90,7 @@ define align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3
 define align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h5c8bc00542aad13fE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !7, !noundef !6
   %4 = icmp eq i64 %3, 0
-  %5 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %4, label %6, label %8
 
 6:                                                ; preds = %2
@@ -123,7 +123,7 @@ define void @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h55085
   %.fca.0.extract = extractvalue { ptr, ptr } %7, 0
   store ptr %.fca.0.extract, ptr %5, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %7, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %.not = icmp eq ptr %.fca.0.extract, null
   br i1 %.not, label %12, label %11
@@ -177,7 +177,7 @@ define void @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h711c9
   %.fca.0.extract = extractvalue { ptr, ptr } %7, 0
   store ptr %.fca.0.extract, ptr %5, align 8
   %.fca.1.extract = extractvalue { ptr, ptr } %7, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
   %.not = icmp eq ptr %.fca.0.extract, null
   br i1 %.not, label %12, label %11
@@ -217,7 +217,7 @@ define void @"_ZN3std3sys6common12thread_local10fast_local13destroy_value28_$u7b
   store i64 0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
   %5 = load ptr, ptr %4, align 8, !noundef !6
-  %6 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 16
   store i8 2, ptr %6, align 1
   ret void
 }
@@ -229,7 +229,7 @@ define void @"_ZN3std3sys6common12thread_local10fast_local13destroy_value28_$u7b
   store i64 0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !6, !align !8, !noundef !6
   %5 = load ptr, ptr %4, align 8, !noundef !6
-  %6 = getelementptr inbounds { { { { i64, [2 x i64] } } }, i8, [7 x i8] }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 24
   store i8 2, ptr %6, align 1
   ret void
 }

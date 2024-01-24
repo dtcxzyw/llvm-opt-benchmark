@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/x_pkey.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.private_key_st = type { i32, ptr, ptr, ptr, i32, ptr, i32, %struct.evp_cipher_info_st }
-%struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-
 @.str = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x_pkey.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -17,14 +14,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @X509_ALGOR_new() #4
-  %enc_algor = getelementptr inbounds %struct.private_key_st, ptr %calloc, i64 0, i32 1
+  %enc_algor = getelementptr inbounds i8, ptr %calloc, i64 8
   store ptr %call1, ptr %enc_algor, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %X509_PKEY_free.exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @ASN1_STRING_type_new(i32 noundef 4) #4
-  %enc_pkey = getelementptr inbounds %struct.private_key_st, ptr %calloc, i64 0, i32 2
+  %enc_pkey = getelementptr inbounds i8, ptr %calloc, i64 16
   store ptr %call6, ptr %enc_pkey, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %if.then2.i, label %return
@@ -59,7 +56,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %enc_algor = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 1
+  %enc_algor = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %enc_algor, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end4, label %if.then2
@@ -69,7 +66,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %enc_pkey = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 2
+  %enc_pkey = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load ptr, ptr %enc_pkey, align 8
   %cmp5.not = icmp eq ptr %1, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
@@ -79,7 +76,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
-  %dec_pkey = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 3
+  %dec_pkey = getelementptr inbounds i8, ptr %x, i64 24
   %2 = load ptr, ptr %dec_pkey, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end12, label %if.then10
@@ -89,13 +86,13 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %key_data = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 5
+  %key_data = getelementptr inbounds i8, ptr %x, i64 40
   %3 = load ptr, ptr %key_data, align 8
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %if.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end12
-  %key_free = getelementptr inbounds %struct.private_key_st, ptr %x, i64 0, i32 6
+  %key_free = getelementptr inbounds i8, ptr %x, i64 48
   %4 = load i32, ptr %key_free, align 8
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end16, label %if.then14

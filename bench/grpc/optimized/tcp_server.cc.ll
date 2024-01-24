@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%struct.grpc_tcp_server_vtable = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -33,7 +32,7 @@ entry:
 define void @_Z21grpc_tcp_server_startP15grpc_tcp_serverPKSt6vectorIP12grpc_pollsetSaIS3_EE(ptr noundef %server, ptr noundef %pollsets) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %start = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %start, align 8
   tail call void %1(ptr noundef %server, ptr noundef %pollsets)
   ret void
@@ -43,7 +42,7 @@ entry:
 define void @_Z24grpc_tcp_server_add_portP15grpc_tcp_serverPK21grpc_resolved_addressPi(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %addr, ptr noundef %out_port) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %add_port = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 2
+  %add_port = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %add_port, align 8
   tail call void %1(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %addr, ptr noundef %out_port)
   ret void
@@ -53,7 +52,7 @@ entry:
 define noundef ptr @_Z33grpc_tcp_server_create_fd_handlerP15grpc_tcp_server(ptr noundef %s) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %create_fd_handler = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 3
+  %create_fd_handler = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %create_fd_handler, align 8
   %call = tail call noundef ptr %1(ptr noundef %s)
   ret ptr %call
@@ -63,7 +62,7 @@ entry:
 define noundef i32 @_Z29grpc_tcp_server_port_fd_countP15grpc_tcp_serverj(ptr noundef %s, i32 noundef %port_index) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %port_fd_count = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 4
+  %port_fd_count = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %port_fd_count, align 8
   %call = tail call noundef i32 %1(ptr noundef %s, i32 noundef %port_index)
   ret i32 %call
@@ -73,7 +72,7 @@ entry:
 define noundef i32 @_Z23grpc_tcp_server_port_fdP15grpc_tcp_serverjj(ptr noundef %s, i32 noundef %port_index, i32 noundef %fd_index) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %port_fd = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 5
+  %port_fd = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %port_fd, align 8
   %call = tail call noundef i32 %1(ptr noundef %s, i32 noundef %port_index, i32 noundef %fd_index)
   ret i32 %call
@@ -83,7 +82,7 @@ entry:
 define noundef ptr @_Z19grpc_tcp_server_refP15grpc_tcp_server(ptr noundef %s) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %ref = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 6
+  %ref = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %ref, align 8
   %call = tail call noundef ptr %1(ptr noundef %s)
   ret ptr %call
@@ -93,7 +92,7 @@ entry:
 define void @_Z37grpc_tcp_server_shutdown_starting_addP15grpc_tcp_serverP12grpc_closure(ptr noundef %s, ptr noundef %shutdown_starting) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %shutdown_starting_add = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 7
+  %shutdown_starting_add = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %shutdown_starting_add, align 8
   tail call void %1(ptr noundef %s, ptr noundef %shutdown_starting)
   ret void
@@ -103,7 +102,7 @@ entry:
 define void @_Z21grpc_tcp_server_unrefP15grpc_tcp_server(ptr noundef %s) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %unref = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 8
+  %unref = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %unref, align 8
   tail call void %1(ptr noundef %s)
   ret void
@@ -113,7 +112,7 @@ entry:
 define void @_Z34grpc_tcp_server_shutdown_listenersP15grpc_tcp_server(ptr noundef %s) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %shutdown_listeners = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 9
+  %shutdown_listeners = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %shutdown_listeners, align 8
   tail call void %1(ptr noundef %s)
   ret void
@@ -123,7 +122,7 @@ entry:
 define noundef i32 @_Z32grpc_tcp_server_pre_allocated_fdP15grpc_tcp_server(ptr noundef %s) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %pre_allocated_fd = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 10
+  %pre_allocated_fd = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %pre_allocated_fd, align 8
   %call = tail call noundef i32 %1(ptr noundef %s)
   ret i32 %call
@@ -133,7 +132,7 @@ entry:
 define void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %s, i32 noundef %fd) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @grpc_tcp_server_impl, align 8
-  %set_pre_allocated_fd = getelementptr inbounds %struct.grpc_tcp_server_vtable, ptr %0, i64 0, i32 11
+  %set_pre_allocated_fd = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %set_pre_allocated_fd, align 8
   tail call void %1(ptr noundef %s, i32 noundef %fd)
   ret void

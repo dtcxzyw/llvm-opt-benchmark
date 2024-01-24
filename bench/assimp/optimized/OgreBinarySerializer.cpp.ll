@@ -8,14 +8,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.pugi::xml_node" = type { ptr }
 %"class.pugi::xml_attribute" = type { ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"class.Assimp::Ogre::OgreBinarySerializer" = type <{ i32, [4 x i8], ptr, i32, [4 x i8] }>
-%"class.Assimp::StreamReader" = type <{ %"class.std::shared_ptr", ptr, ptr, ptr, ptr, i8, [7 x i8] }>
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.Assimp::Ogre::OgreBinarySerializer" = type <{ i32, [4 x i8], ptr, i32, [4 x i8] }>
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -25,80 +21,24 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.Assimp::Ogre::Mesh" = type { i8, %"class.std::__cxx11::basic_string", ptr, ptr, %"class.std::vector.7", %"class.std::vector.12", %"class.std::vector.17" }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<Assimp::Ogre::SubMesh *, std::allocator<Assimp::Ogre::SubMesh *>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::SubMesh *, std::allocator<Assimp::Ogre::SubMesh *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::SubMesh *, std::allocator<Assimp::Ogre::SubMesh *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::SubMesh *, std::allocator<Assimp::Ogre::SubMesh *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<Assimp::Ogre::Animation *, std::allocator<Assimp::Ogre::Animation *>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::Animation *, std::allocator<Assimp::Ogre::Animation *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::Animation *, std::allocator<Assimp::Ogre::Animation *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::Animation *, std::allocator<Assimp::Ogre::Animation *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<Assimp::Ogre::Pose *, std::allocator<Assimp::Ogre::Pose *>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::Pose *, std::allocator<Assimp::Ogre::Pose *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::Pose *, std::allocator<Assimp::Ogre::Pose *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::Pose *, std::allocator<Assimp::Ogre::Pose *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Assimp::Ogre::ISubMesh" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i8, [3 x i8], i32, [4 x i8] }>
-%"class.Assimp::Ogre::SubMesh" = type { %"class.Assimp::Ogre::ISubMesh.base", ptr, ptr }
-%"class.Assimp::Ogre::ISubMesh.base" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i8, [3 x i8], i32 }>
-%"class.Assimp::Ogre::IndexData" = type { i32, i32, i8, %"class.std::shared_ptr.48" }
-%"class.std::shared_ptr.48" = type { %"class.std::__shared_ptr.49" }
-%"class.std::__shared_ptr.49" = type { ptr, %"class.std::__shared_count" }
-%"class.Assimp::MemoryIOStream" = type <{ %"class.Assimp::IOStream", ptr, i64, i64, i8, [7 x i8] }>
-%"class.Assimp::IOStream" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.Assimp::Ogre::IVertexData" = type { i32, %"class.std::vector.22", %"class.std::map", %"class.std::map.30" }
-%"class.std::vector.22" = type { %"struct.std::_Vector_base.23" }
-%"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<Assimp::Ogre::VertexBoneAssignment, std::allocator<Assimp::Ogre::VertexBoneAssignment>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::VertexBoneAssignment, std::allocator<Assimp::Ogre::VertexBoneAssignment>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::VertexBoneAssignment, std::allocator<Assimp::Ogre::VertexBoneAssignment>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::VertexBoneAssignment, std::allocator<Assimp::Ogre::VertexBoneAssignment>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<unsigned int>>, std::_Select1st<std::pair<const unsigned int, std::vector<unsigned int>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<unsigned int>>, std::_Select1st<std::pair<const unsigned int, std::vector<unsigned int>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.Assimp::Ogre::VertexBoneAssignment" = type { i32, i16, float }
+%"class.std::set" = type { %"class.std::_Rb_tree.51" }
+%"class.std::_Rb_tree.51" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
 %"struct.std::less" = type { i8 }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::map.30" = type { %"class.std::_Rb_tree.31" }
-%"class.std::_Rb_tree.31" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<Assimp::Ogre::VertexBoneAssignment>>, std::_Select1st<std::pair<const unsigned int, std::vector<Assimp::Ogre::VertexBoneAssignment>>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<Assimp::Ogre::VertexBoneAssignment>>, std::_Select1st<std::pair<const unsigned int, std::vector<Assimp::Ogre::VertexBoneAssignment>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.Assimp::Ogre::VertexBoneAssignment" = type { i32, i16, float }
-%"class.Assimp::Ogre::Pose" = type { %"class.std::__cxx11::basic_string", i16, i8, %"class.std::map.56" }
-%"class.std::map.56" = type { %"class.std::_Rb_tree.57" }
-%"class.std::_Rb_tree.57" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, Assimp::Ogre::Pose::Vertex>, std::_Select1st<std::pair<const unsigned int, Assimp::Ogre::Pose::Vertex>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, Assimp::Ogre::Pose::Vertex>, std::_Select1st<std::pair<const unsigned int, Assimp::Ogre::Pose::Vertex>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.Assimp::Ogre::Animation" = type { ptr, ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", float, float, %"class.std::vector.61" }
-%"class.std::vector.61" = type { %"struct.std::_Vector_base.62" }
-%"struct.std::_Vector_base.62" = type { %"struct.std::_Vector_base<Assimp::Ogre::VertexAnimationTrack, std::allocator<Assimp::Ogre::VertexAnimationTrack>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::VertexAnimationTrack, std::allocator<Assimp::Ogre::VertexAnimationTrack>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::VertexAnimationTrack, std::allocator<Assimp::Ogre::VertexAnimationTrack>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::VertexAnimationTrack, std::allocator<Assimp::Ogre::VertexAnimationTrack>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree.51" }
-%"class.std::_Rb_tree.51" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_node" = type <{ %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf", [4 x i8] }>
-%"struct.__gnu_cxx::__aligned_membuf" = type { [4 x i8] }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
 %"class.std::tuple.130" = type { i8 }
-%"class.Assimp::Ogre::VertexData" = type { %"class.Assimp::Ogre::IVertexData", %"class.std::vector.35", %"class.std::map.40" }
-%"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
-%"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<Assimp::Ogre::VertexElement, std::allocator<Assimp::Ogre::VertexElement>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::VertexElement, std::allocator<Assimp::Ogre::VertexElement>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::VertexElement, std::allocator<Assimp::Ogre::VertexElement>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::VertexElement, std::allocator<Assimp::Ogre::VertexElement>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.40" = type { %"class.std::_Rb_tree.41" }
-%"class.std::_Rb_tree.41" = type { %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>, std::_Select1st<std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>>, std::less<unsigned short>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>, std::_Select1st<std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>>, std::less<unsigned short>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.45", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.45" = type { %"struct.std::less.46" }
-%"struct.std::less.46" = type { i8 }
-%"struct.std::_Rb_tree_node.131" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.132" }
-%"struct.__gnu_cxx::__aligned_membuf.132" = type { [24 x i8] }
+%"class.std::shared_ptr.48" = type { %"class.std::__shared_ptr.49" }
+%"class.std::__shared_ptr.49" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.Assimp::Ogre::VertexElement" = type { i16, i16, i16, i32, i32 }
 %"struct.Assimp::Ogre::Pose::Vertex" = type { i32, %class.aiVector3t, %class.aiVector3t }
 %class.aiVector3t = type { float, float, float }
-%"struct.std::_Rb_tree_node.143" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.144" }
-%"struct.__gnu_cxx::__aligned_membuf.144" = type { [32 x i8] }
 %"struct.Assimp::Ogre::VertexAnimationTrack" = type { i32, i16, %"class.std::__cxx11::basic_string", %"class.std::vector.66", %"class.std::vector.71", %"class.std::vector.76" }
 %"class.std::vector.66" = type { %"struct.std::_Vector_base.67" }
 %"struct.std::_Vector_base.67" = type { %"struct.std::_Vector_base<Assimp::Ogre::PoseKeyFrame, std::allocator<Assimp::Ogre::PoseKeyFrame>>::_Vector_impl" }
@@ -122,30 +62,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator.3" = type { i8 }
 %"class.std::shared_ptr.86" = type { %"class.std::__shared_ptr.87" }
 %"class.std::__shared_ptr.87" = type { ptr, %"class.std::__shared_count" }
-%"class.Assimp::Ogre::Skeleton" = type <{ %"class.std::vector.89", %"class.std::vector.12", i32, [4 x i8] }>
-%"class.std::vector.89" = type { %"struct.std::_Vector_base.90" }
-%"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<Assimp::Ogre::Bone *, std::allocator<Assimp::Ogre::Bone *>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::Bone *, std::allocator<Assimp::Ogre::Bone *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::Bone *, std::allocator<Assimp::Ogre::Bone *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::Bone *, std::allocator<Assimp::Ogre::Bone *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Assimp::Ogre::MeshXml" = type { %"class.std::__cxx11::basic_string", ptr, ptr, %"class.std::vector.94" }
-%"class.std::vector.94" = type { %"struct.std::_Vector_base.95" }
-%"struct.std::_Vector_base.95" = type { %"struct.std::_Vector_base<Assimp::Ogre::SubMeshXml *, std::allocator<Assimp::Ogre::SubMeshXml *>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Ogre::SubMeshXml *, std::allocator<Assimp::Ogre::SubMeshXml *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Ogre::SubMeshXml *, std::allocator<Assimp::Ogre::SubMeshXml *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Ogre::SubMeshXml *, std::allocator<Assimp::Ogre::SubMeshXml *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::_Sp_counted_ptr.156" = type { %"class.std::_Sp_counted_base", ptr }
-%"class.Assimp::Ogre::Bone" = type { i16, %"class.std::__cxx11::basic_string", ptr, i32, %"class.std::vector.99", %class.aiVector3t, %class.aiQuaterniont, %class.aiVector3t, %class.aiMatrix4x4t, %class.aiMatrix4x4t }
-%"class.std::vector.99" = type { %"struct.std::_Vector_base.100" }
-%"struct.std::_Vector_base.100" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.aiQuaterniont = type { float, float, float, float }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
 %"struct.Assimp::Ogre::TransformKeyFrame" = type { float, %class.aiQuaterniont, %class.aiVector3t, %class.aiVector3t }
+%class.aiQuaterniont = type { float, float, float, float }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator.110" }
 %"class.__gnu_cxx::__normal_iterator.110" = type { ptr }
 %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>, std::_Select1st<std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>>, std::less<unsigned short>>::_Auto_node" = type { ptr, ptr }
 %struct._Guard = type { ptr }
-%"class.std::_Sp_counted_ptr.157" = type { %"class.std::_Sp_counted_base", ptr }
 
 $_ZN4pugi14xpath_node_setD2Ev = comdat any
 
@@ -593,9 +515,9 @@ $_ZTISt15_Sp_counted_ptrIPN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4pugi14xpath_node_setD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_begin = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 2
+  %_begin = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
-  %_storage = getelementptr inbounds %"class.pugi::xpath_node_set", ptr %this, i64 0, i32 1
+  %_storage = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not = icmp eq ptr %0, %_storage
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -611,7 +533,7 @@ terminate.lpad:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #19
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 }
 
@@ -621,34 +543,34 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %numBytes
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i, align 8
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ult ptr %2, %add.ptr.i.i
-  %mBuffer.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i, align 8
   %cmp4.i.i.i = icmp ugt ptr %3, %add.ptr.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
@@ -659,34 +581,34 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %numBytes
   store ptr %add.ptr.i, ptr %mCurrent.i.i, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ult ptr %2, %add.ptr.i
-  %mBuffer.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i, align 8
   %cmp4.i.i = icmp ugt ptr %3, %add.ptr.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
@@ -697,34 +619,34 @@ _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %dest, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %numBytes
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i, align 8
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ult ptr %2, %add.ptr.i.i
-  %mBuffer.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i, align 8
   %cmp4.i.i.i = icmp ugt ptr %3, %add.ptr.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
@@ -735,35 +657,35 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPvm.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %numBytes) #22
-  %m_reader.i.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %numBytes) #21
+  %m_reader.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i.i, align 8
-  %mCurrent.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %numBytes
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i.i, align 8
-  %mLimit.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult ptr %2, %add.ptr.i.i.i
-  %mBuffer.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i.i, align 8
   %cmp4.i.i.i.i = icmp ugt ptr %3, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEPhm.exit: ; preds = %entry
@@ -777,34 +699,34 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %vec) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 12
   store ptr %add.ptr.i, ptr %mCurrent.i.i, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ult ptr %2, %add.ptr.i
-  %mBuffer.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i, align 8
   %cmp4.i.i = icmp ugt ptr %3, %add.ptr.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
@@ -815,34 +737,34 @@ _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %quat) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %add.ptr.i, ptr %mCurrent.i.i, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ult ptr %2, %add.ptr.i
-  %mBuffer.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i, align 8
   %cmp4.i.i = icmp ugt ptr %3, %add.ptr.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
@@ -855,11 +777,11 @@ _ZN6Assimp12StreamReaderILb0ELb0EE14CopyAndAdvanceEPvm.exit: ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp4Ogre20OgreBinarySerializer5AtEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_reader = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
-  %mEnd.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i, align 8
-  %mCurrent.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
@@ -872,7 +794,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadStringB5cxx11Em(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %len) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %len)
           to label %invoke.cont unwind label %lpad
 
@@ -881,28 +803,28 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_reader.i.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i.i, align 8
-  %mCurrent.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %len
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i.i, align 8
-  %mLimit.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult ptr %2, %add.ptr.i.i.i
-  %mBuffer.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %mBuffer.i.i.i.i, align 8
   %cmp4.i.i.i.i = icmp ugt ptr %3, %add.ptr.i.i.i
   %or.cond.i.i.i.i = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %nrvo.skipdtor
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2
-  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont.i.i.i.i
@@ -911,7 +833,7 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #19
   br label %lpad.body
 
 lpad:                                             ; preds = %invoke.cont.i.i.i.i, %invoke.cont, %entry
@@ -921,7 +843,7 @@ lpad:                                             ; preds = %invoke.cont.i.i.i.i
 
 lpad.body:                                        ; preds = %lpad.i.i.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %4, %lpad.i.i.i.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   resume { ptr, i32 } %eh.lpad-body
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont2
@@ -944,15 +866,15 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry, %if.end
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -963,18 +885,18 @@ invoke.cont:                                      ; preds = %entry, %if.end
 
 while.body:                                       ; preds = %invoke.cont
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 1
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont2
 
 if.then.i.i.i:                                    ; preds = %while.body
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont.i.i.i
@@ -983,7 +905,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %lpad.body
 
 invoke.cont2:                                     ; preds = %while.body
@@ -1004,7 +926,7 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont.i.i.i
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad.i.i.i ], [ %lpad.loopexit3, %lpad.loopexit ], [ %lpad.loopexit.split-lp4, %lpad.loopexit.split-lp ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %invoke.cont2
@@ -1020,29 +942,29 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext %readLen) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i.i8, %lpad.i.i.i
   %exception.i.i.i7.sink = phi ptr [ %exception.i.i.i7, %lpad.i.i.i8 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i.i.i8 ], [ %3, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i7.sink) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i7.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -1057,21 +979,21 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i2 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i2 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i2, align 8
   %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr %6, i64 4
-  %mLimit.i.i.i4 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i4 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i4, align 8
   %cmp.i.i.i5 = icmp ugt ptr %add.ptr.i.i.i3, %7
   br i1 %cmp.i.i.i5, label %if.then.i.i.i6, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
 
 if.then.i.i.i6:                                   ; preds = %if.then
-  %exception.i.i.i7 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i7 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i7, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i9 unwind label %lpad.i.i.i8
 
 invoke.cont.i.i.i9:                               ; preds = %if.then.i.i.i6
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i7, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i7, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i8:                                      ; preds = %if.then.i.i.i6
@@ -1092,30 +1014,30 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
-  %mCurrent.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 -6
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
-  %mLimit.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i, align 8
   %cmp.i = icmp ugt ptr %add.ptr.i, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit
 
 if.then.i:                                        ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i) #19
   resume { ptr, i32 } %3
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %entry
@@ -1125,30 +1047,30 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i64 noundef %numBytes) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader, align 8
-  %mCurrent.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %numBytes
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
-  %mLimit.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i, align 8
   %cmp.i = icmp ugt ptr %add.ptr.i, %2
   br i1 %cmp.i, label %if.then.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit
 
 if.then.i:                                        ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i) #19
   resume { ptr, i32 } %3
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %entry
@@ -1161,25 +1083,25 @@ entry:
   %serializer = alloca %"class.Assimp::Ogre::OgreBinarySerializer", align 8
   %version = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 0, ptr %serializer, align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %serializer, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %serializer, i64 8
   store ptr %stream, ptr %m_reader.i, align 8
-  %assetMode.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %serializer, i64 0, i32 3
+  %assetMode.i = getelementptr inbounds i8, ptr %serializer, i64 16
   store i32 0, ptr %assetMode.i, align 8
-  %mCurrent.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %stream, i64 0, i32 2
+  %mCurrent.i.i.i.i = getelementptr inbounds i8, ptr %stream, i64 24
   %0 = load ptr, ptr %mCurrent.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 2
-  %mLimit.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %stream, i64 0, i32 4
+  %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %stream, i64 40
   %1 = load ptr, ptr %mLimit.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i, %1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad, %ehcleanup, %lpad.i.i.i.i
@@ -1189,7 +1111,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup, %
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %entry
@@ -1199,33 +1121,33 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %entry
   br i1 %cmp.not, label %invoke.cont2, label %if.then
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr %exception) #19
   br label %common.resume
 
 invoke.cont2:                                     ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %version, ptr noundef nonnull align 8 dereferenceable(20) %serializer)
-  %call.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull @.str.1) #20
+  %call.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull @.str.1) #19
   %cmp.i.i.not = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %invoke.cont2
-  %exception5 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception5 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2IJRA14_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA86_S1_RA22_S1_RKPS1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception5, ptr noundef nonnull align 1 dereferenceable(14) @.str.2, ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull align 1 dereferenceable(86) @.str.3, ptr noundef nonnull align 1 dereferenceable(22) @.str.4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6Assimp4OgreL16MESH_VERSION_1_8E)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %if.then4
-  invoke void @__cxa_throw(ptr nonnull %exception5, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception5, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %unreachable unwind label %lpad1.loopexit.split-lp
 
 lpad1.loopexit:                                   ; preds = %while.body, %sw.bb
@@ -1241,11 +1163,11 @@ lpad1.loopexit.split-lp:                          ; preds = %invoke.cont7, %if.e
 lpad6:                                            ; preds = %if.then4
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception5) #20
+  call void @__cxa_free_exception(ptr %exception5) #19
   br label %ehcleanup
 
 if.end8:                                          ; preds = %invoke.cont2
-  %call10 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #22
+  %call10 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #21
           to label %invoke.cont9 unwind label %lpad1.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %if.end8
@@ -1253,7 +1175,7 @@ invoke.cont9:                                     ; preds = %if.end8
           to label %invoke.cont13.preheader unwind label %lpad11
 
 invoke.cont13.preheader:                          ; preds = %invoke.cont9
-  %mEnd.i.i7 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %stream, i64 0, i32 3
+  %mEnd.i.i7 = getelementptr inbounds i8, ptr %stream, i64 32
   %6 = load ptr, ptr %mEnd.i.i7, align 8
   %7 = load ptr, ptr %mCurrent.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i9 = ptrtoint ptr %6 to i64
@@ -1274,7 +1196,7 @@ invoke.cont15:                                    ; preds = %while.body
 lpad11:                                           ; preds = %invoke.cont9
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call10) #23
+  call void @_ZdlPv(ptr noundef nonnull %call10) #22
   br label %ehcleanup
 
 sw.bb:                                            ; preds = %invoke.cont15
@@ -1283,9 +1205,9 @@ sw.bb:                                            ; preds = %invoke.cont15
 
 sw.epilog:                                        ; preds = %sw.bb, %invoke.cont15
   %9 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %9, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %9, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
@@ -1295,12 +1217,12 @@ sw.epilog:                                        ; preds = %sw.bb, %invoke.cont
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %sw.epilog, %invoke.cont13.preheader
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #19
   ret ptr %call10
 
 ehcleanup:                                        ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %lpad11, %lpad6
   %.pn = phi { ptr, i32 } [ %5, %lpad6 ], [ %8, %lpad11 ], [ %lpad.loopexit, %lpad1.loopexit ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #19
   br label %common.resume
 
 unreachable:                                      ; preds = %invoke.cont7
@@ -1320,14 +1242,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -1336,7 +1258,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17DeadlyImportErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
   ret void
 }
 
@@ -1351,14 +1273,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -1375,23 +1297,23 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadMeshEPNS0_4MeshE(p
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca ptr, align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 1
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i60, %lpad.i.i.i51, %lpad, %lpad.i.i.i
@@ -1401,7 +1323,7 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %entry
@@ -1420,9 +1342,9 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %entry
   store ptr %cond, ptr %ref.tmp, align 8
   call void @_ZN6Assimp6Logger12verboseDebugIJRA26_KcPS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call3, ptr noundef nonnull align 1 dereferenceable(26) @.str.6, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %7 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
@@ -1434,9 +1356,9 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %entry
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
   %call6 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %10 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i3893 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 3
+  %mEnd.i.i3893 = getelementptr inbounds i8, ptr %10, i64 32
   %11 = load ptr, ptr %mEnd.i.i3893, align 8
-  %mCurrent.i.i3994 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 2
+  %mCurrent.i.i3994 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %mCurrent.i.i3994, align 8
   %sub.ptr.lhs.cast.i.i4095 = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i4196 = ptrtoint ptr %12 to i64
@@ -1446,8 +1368,8 @@ if.then:                                          ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp.i4499, label %if.end56, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then
-  %sharedVertexData42 = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 3
-  %skeletonRef.i = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 1
+  %sharedVertexData42 = getelementptr inbounds i8, ptr %mesh, i64 48
+  %skeletonRef.i = getelementptr inbounds i8, ptr %mesh, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
@@ -1490,7 +1412,7 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %call37 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #22
+  %call37 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #21
   invoke void @_ZN6Assimp4Ogre10VertexDataC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %call37)
           to label %invoke.cont unwind label %lpad
 
@@ -1502,7 +1424,7 @@ invoke.cont:                                      ; preds = %sw.bb
 lpad:                                             ; preds = %sw.bb
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call37) #23
+  call void @_ZdlPv(ptr noundef nonnull %call37) #22
   br label %common.resume
 
 sw.bb39:                                          ; preds = %while.body
@@ -1512,8 +1434,8 @@ sw.bb39:                                          ; preds = %while.body
 sw.bb40:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %sw.epilog
 
@@ -1529,24 +1451,24 @@ sw.bb43:                                          ; preds = %while.body
 sw.bb44:                                          ; preds = %while.body
   %add.ptr.i.i.i46 = getelementptr inbounds i8, ptr %13, i64 28
   store ptr %add.ptr.i.i.i46, ptr %mCurrent.i.i39101, align 8
-  %mLimit.i.i.i47 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %14, i64 0, i32 4
+  %mLimit.i.i.i47 = getelementptr inbounds i8, ptr %14, i64 40
   %21 = load ptr, ptr %mLimit.i.i.i47, align 8
   %cmp.i.i.i48 = icmp ugt ptr %add.ptr.i.i.i46, %21
   br i1 %cmp.i.i.i48, label %if.then.i.i.i49, label %sw.epilog
 
 if.then.i.i.i49:                                  ; preds = %sw.bb44
-  %exception.i.i.i50 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i50 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i50, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i52 unwind label %lpad.i.i.i51
 
 invoke.cont.i.i.i52:                              ; preds = %if.then.i.i.i49
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i50, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i50, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i51:                                     ; preds = %if.then.i.i.i49
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i50) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i50) #19
   br label %common.resume
 
 sw.bb45:                                          ; preds = %while.body
@@ -1571,31 +1493,31 @@ sw.bb49:                                          ; preds = %while.body
   %24 = getelementptr i8, ptr %13, i64 %conv.i
   %add.ptr.i.i.i55 = getelementptr i8, ptr %24, i64 -6
   store ptr %add.ptr.i.i.i55, ptr %mCurrent.i.i39101, align 8
-  %mLimit.i.i.i56 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %14, i64 0, i32 4
+  %mLimit.i.i.i56 = getelementptr inbounds i8, ptr %14, i64 40
   %25 = load ptr, ptr %mLimit.i.i.i56, align 8
   %cmp.i.i.i57 = icmp ugt ptr %add.ptr.i.i.i55, %25
   br i1 %cmp.i.i.i57, label %if.then.i.i.i58, label %sw.epilog
 
 if.then.i.i.i58:                                  ; preds = %sw.bb49
-  %exception.i.i.i59 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i59 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i59, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i61 unwind label %lpad.i.i.i60
 
 invoke.cont.i.i.i61:                              ; preds = %if.then.i.i.i58
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i59, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i59, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i60:                                     ; preds = %if.then.i.i.i58
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i59) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i59) #19
   br label %common.resume
 
 sw.epilog:                                        ; preds = %sw.bb49, %sw.bb44, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb40, %sw.bb39, %invoke.cont, %while.body
   %27 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i63 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %27, i64 0, i32 3
+  %mEnd.i.i63 = getelementptr inbounds i8, ptr %27, i64 32
   %28 = load ptr, ptr %mEnd.i.i63, align 8
-  %mCurrent.i.i64 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %27, i64 0, i32 2
+  %mCurrent.i.i64 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %mCurrent.i.i64, align 8
   %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i.i66 = ptrtoint ptr %29 to i64
@@ -1607,9 +1529,9 @@ sw.epilog:                                        ; preds = %sw.bb49, %sw.bb44, 
 if.then51:                                        ; preds = %sw.epilog
   %call52 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i38.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre115 = load ptr, ptr %mEnd.i.i38.phi.trans.insert, align 8
-  %mCurrent.i.i39.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i39.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre116 = load ptr, ptr %mCurrent.i.i39.phi.trans.insert, align 8
   %.pre117 = ptrtoint ptr %.pre115 to i64
   %.pre118 = ptrtoint ptr %.pre116 to i64
@@ -1621,7 +1543,7 @@ if.end:                                           ; preds = %if.then51, %sw.epil
   %30 = phi ptr [ %.pre116, %if.then51 ], [ %29, %sw.epilog ]
   %31 = phi ptr [ %.pre, %if.then51 ], [ %27, %sw.epilog ]
   %id.1 = phi i16 [ %call52, %if.then51 ], [ %id.0100, %sw.epilog ]
-  %mCurrent.i.i39 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %31, i64 0, i32 2
+  %mCurrent.i.i39 = getelementptr inbounds i8, ptr %31, i64 24
   %conv2.i.i43 = and i64 %sub.ptr.sub.i.i42.pre-phi, 4294967295
   %cmp.i44 = icmp eq i64 %conv2.i.i43, 0
   br i1 %cmp.i44, label %if.end56, label %land.rhs, !llvm.loop !7
@@ -1629,28 +1551,28 @@ if.end:                                           ; preds = %if.then51, %sw.epil
 if.then54:                                        ; preds = %land.rhs
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i39101, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %14, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
   %32 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %32
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end56
 
 if.then.i.i:                                      ; preds = %if.then54
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %common.resume
 
 if.end56:                                         ; preds = %if.end, %if.then, %if.then54, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
-  %sharedVertexData57 = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 3
+  %sharedVertexData57 = getelementptr inbounds i8, ptr %mesh, i64 48
   %34 = load ptr, ptr %sharedVertexData57, align 8
   call void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nonnull align 8 poison, ptr noundef %34)
   ret void
@@ -1671,7 +1593,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad4, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad4 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -1684,13 +1606,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA26_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA26_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA26_cEERKT_.exit
@@ -1701,7 +1623,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad4:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -1710,29 +1632,29 @@ declare void @_ZN6Assimp4Ogre10VertexDataC1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadGeometryEPNS0_10VertexDataE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %19, %lpad.i.i ], [ %3, %lpad.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -1747,9 +1669,9 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %entry
   %call2 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger12verboseDebugIJRA25_KcRjRA10_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call2, ptr noundef nonnull align 1 dereferenceable(25) @.str.28, ptr noundef nonnull align 4 dereferenceable(4) %dest, ptr noundef nonnull align 1 dereferenceable(10) @.str.29)
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -1761,9 +1683,9 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %entry
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
   %call5 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %8 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i837 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 3
+  %mEnd.i.i837 = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %mEnd.i.i837, align 8
-  %mCurrent.i.i938 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 2
+  %mCurrent.i.i938 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %mCurrent.i.i938, align 8
   %sub.ptr.lhs.cast.i.i1039 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i1140 = ptrtoint ptr %10 to i64
@@ -1791,9 +1713,9 @@ sw.bb10:                                          ; preds = %land.rhs
 
 sw.epilog:                                        ; preds = %sw.bb10, %sw.bb
   %13 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i16 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 3
+  %mEnd.i.i16 = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load ptr, ptr %mEnd.i.i16, align 8
-  %mCurrent.i.i17 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 2
+  %mCurrent.i.i17 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %mCurrent.i.i17, align 8
   %sub.ptr.lhs.cast.i.i18 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i19 = ptrtoint ptr %15 to i64
@@ -1805,9 +1727,9 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb
 if.then12:                                        ; preds = %sw.epilog
   %call13 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i8.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i8.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre48 = load ptr, ptr %mEnd.i.i8.phi.trans.insert, align 8
-  %mCurrent.i.i9.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i9.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre49 = load ptr, ptr %mCurrent.i.i9.phi.trans.insert, align 8
   %.pre50 = ptrtoint ptr %.pre48 to i64
   %.pre51 = ptrtoint ptr %.pre49 to i64
@@ -1824,21 +1746,21 @@ if.end:                                           ; preds = %if.then12, %sw.epil
   br i1 %cmp.i14, label %if.end17, label %land.rhs, !llvm.loop !8
 
 if.then15:                                        ; preds = %land.rhs
-  %mCurrent.i.i9.le = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 2
+  %mCurrent.i.i9.le = getelementptr inbounds i8, ptr %12, i64 24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i9.le, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %12, i64 40
   %18 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %18
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end17
 
 if.then.i.i:                                      ; preds = %if.then15
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -1859,32 +1781,32 @@ entry:
   %ref.tmp12 = alloca i64, align 8
   %ref.tmp17 = alloca ptr, align 8
   %numBytes = alloca i32, align 4
-  %call = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #22
+  %call = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #21
   invoke void @_ZN6Assimp4Ogre7SubMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %materialRef = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %call, i64 0, i32 3
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %materialRef, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %materialRef = getelementptr inbounds i8, ptr %call, i64 40
+  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %materialRef, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 1
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad52, %lpad56, %lpad3.i.i.i.i, %lpad.i.i, %lpad.i.i.i.i51, %lpad.i.i.i.i.i, %lpad.i.i.i26, %lpad.i.i.i16, %lpad.i.i.i
@@ -1894,73 +1816,73 @@ common.resume:                                    ; preds = %lpad, %lpad52, %lpa
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %invoke.cont
   %4 = load i8, ptr %1, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   %cmp.i = icmp ne i8 %4, 0
-  %usesSharedVertexData = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %call, i64 0, i32 7
+  %usesSharedVertexData = getelementptr inbounds i8, ptr %call, i64 140
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %usesSharedVertexData, align 4
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i10 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i10 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i10, align 8
   %add.ptr.i.i.i11 = getelementptr inbounds i8, ptr %6, i64 4
-  %mLimit.i.i.i12 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i12 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i12, align 8
   %cmp.i.i.i13 = icmp ugt ptr %add.ptr.i.i.i11, %7
   br i1 %cmp.i.i.i13, label %if.then.i.i.i14, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
 
 if.then.i.i.i14:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
-  %exception.i.i.i15 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i15 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i15, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i17 unwind label %lpad.i.i.i16
 
 invoke.cont.i.i.i17:                              ; preds = %if.then.i.i.i14
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i15, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i15, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i16:                                     ; preds = %if.then.i.i.i14
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i15) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i15) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
   %9 = load i32, ptr %6, align 1
   store ptr %add.ptr.i.i.i11, ptr %mCurrent.i.i.i10, align 8
-  %indexData = getelementptr inbounds %"class.Assimp::Ogre::SubMesh", ptr %call, i64 0, i32 2
+  %indexData = getelementptr inbounds i8, ptr %call, i64 160
   %10 = load ptr, ptr %indexData, align 8
   store i32 %9, ptr %10, align 8
   %11 = load ptr, ptr %indexData, align 8
   %12 = load i32, ptr %11, align 8
   %div = udiv i32 %12, 3
-  %faceCount = getelementptr inbounds %"class.Assimp::Ogre::IndexData", ptr %11, i64 0, i32 1
+  %faceCount = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %div, ptr %faceCount, align 4
   %13 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i19 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 2
+  %mCurrent.i.i.i19 = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %mCurrent.i.i.i19, align 8
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %14, i64 1
-  %mLimit.i.i.i21 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 4
+  %mLimit.i.i.i21 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %mLimit.i.i.i21, align 8
   %cmp.i.i.i22 = icmp ugt ptr %add.ptr.i.i.i20, %15
   br i1 %cmp.i.i.i22, label %if.then.i.i.i24, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit28
 
 if.then.i.i.i24:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
-  %exception.i.i.i25 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i25 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i25, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i27 unwind label %lpad.i.i.i26
 
 invoke.cont.i.i.i27:                              ; preds = %if.then.i.i.i24
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i25, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i25, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i26:                                     ; preds = %if.then.i.i.i24
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i25) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i25) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit28: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
@@ -1968,12 +1890,12 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit28: ; preds = %_ZN6Assimp4
   store ptr %add.ptr.i.i.i20, ptr %mCurrent.i.i.i19, align 8
   %cmp.i23 = icmp ne i8 %17, 0
   %18 = load ptr, ptr %indexData, align 8
-  %is32bit = getelementptr inbounds %"class.Assimp::Ogre::IndexData", ptr %18, i64 0, i32 2
+  %is32bit = getelementptr inbounds i8, ptr %18, i64 8
   %frombool10 = zext i1 %cmp.i23 to i8
   store i8 %frombool10, ptr %is32bit, align 8
   %call11 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  %subMeshes = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 4
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %subMeshes = getelementptr inbounds i8, ptr %mesh, i64 56
+  %_M_finish.i = getelementptr inbounds i8, ptr %mesh, i64 64
   %19 = load ptr, ptr %_M_finish.i, align 8
   %20 = load ptr, ptr %subMeshes, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %19 to i64
@@ -1997,7 +1919,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit28: ; preds = %_ZN6Assimp4
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit28
-  %is32bit24 = getelementptr inbounds %"class.Assimp::Ogre::IndexData", ptr %23, i64 0, i32 2
+  %is32bit24 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr %is32bit24, align 8
   %26 = and i8 %25, 1
   %tobool25.not = icmp eq i8 %26, 0
@@ -2005,34 +1927,34 @@ if.then:                                          ; preds = %_ZN6Assimp4Ogre20Og
   %mul = shl i32 %24, %27
   store i32 %mul, ptr %numBytes, align 4
   %conv28 = zext i32 %mul to i64
-  %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv28) #22
+  %call.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv28) #21
   %28 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %28, i64 0, i32 2
+  %mCurrent.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load ptr, ptr %mCurrent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 %conv28
   store ptr %add.ptr.i.i.i.i, ptr %mCurrent.i.i.i.i.i, align 8
-  %mLimit.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %28, i64 0, i32 4
+  %mLimit.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %30 = load ptr, ptr %mLimit.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult ptr %30, %add.ptr.i.i.i.i
-  %mBuffer.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %28, i64 0, i32 1
+  %mBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
   %31 = load ptr, ptr %mBuffer.i.i.i.i.i, align 8
   %cmp4.i.i.i.i.i = icmp ugt ptr %31, %add.ptr.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then
-  %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit: ; preds = %if.then
@@ -2041,27 +1963,27 @@ _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit: ; preds = %if.then
   %33 = load i32, ptr %numBytes, align 4
   %conv32 = zext i32 %33 to i64
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp14MemoryIOStreamE, i64 0, inrange i32 0, i64 2), ptr %call31, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call31, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %call31, i64 8
   store ptr %call.i, ptr %buffer.i, align 8
-  %length.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call31, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %call31, i64 16
   store i64 %conv32, ptr %length.i, align 8
-  %pos.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call31, i64 0, i32 3
+  %pos.i = getelementptr inbounds i8, ptr %call31, i64 24
   store i64 0, ptr %pos.i, align 8
-  %own2.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call31, i64 0, i32 4
+  %own2.i = getelementptr inbounds i8, ptr %call31, i64 32
   store i8 1, ptr %own2.i, align 8
-  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit unwind label %delete.end.i.i.i.i
 
 delete.end.i.i.i.i:                               ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  %36 = call ptr @__cxa_begin_catch(ptr %35) #20
+  %36 = call ptr @__cxa_begin_catch(ptr %35) #19
   %vtable.i.i.i.i = load ptr, ptr %call31, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %37 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %37(ptr noundef nonnull align 8 dereferenceable(33) %call31) #20
-  invoke void @__cxa_rethrow() #21
+  call void %37(ptr noundef nonnull align 8 dereferenceable(33) %call31) #19
+  invoke void @__cxa_rethrow() #20
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %delete.end.i.i.i.i
@@ -2074,31 +1996,31 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #19
+  call void @__clang_call_terminate(ptr %40) #18
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %delete.end.i.i.i.i
   unreachable
 
 _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8
-  %_M_ptr.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call31, ptr %_M_ptr.i.i.i.i.i, align 8
   %41 = load ptr, ptr %indexData, align 8
-  %buffer = getelementptr inbounds %"class.Assimp::Ogre::IndexData", ptr %41, i64 0, i32 3
+  %buffer = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %call31, ptr %buffer, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::IndexData", ptr %41, i64 0, i32 3, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %41, i64 24
   %42 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %42, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i29 = icmp eq i64 %43, 4294967297
   %44 = trunc i64 %43 to i32
@@ -2106,12 +2028,12 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %42, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %42, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %45 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %42) #20
+  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %42) #19
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -2135,10 +2057,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %42, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %48 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %42) #20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %42, i64 0, i32 2
+  call void %48(ptr noundef nonnull align 8 dereferenceable(16) %42) #19
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 12
   %49 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %49, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2160,16 +2082,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i30
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %42, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %52 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %42) #20
+  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %42) #19
   br label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit
 
 _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit
   %call37 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   %53 = load ptr, ptr %indexData, align 8
-  %faceCount39 = getelementptr inbounds %"class.Assimp::Ogre::IndexData", ptr %53, i64 0, i32 1
-  %is32bit43 = getelementptr inbounds %"class.Assimp::Ogre::IndexData", ptr %53, i64 0, i32 2
+  %faceCount39 = getelementptr inbounds i8, ptr %53, i64 4
+  %is32bit43 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load i8, ptr %is32bit43, align 8
   %55 = and i8 %54, 1
   %tobool44.not = icmp eq i8 %55, 0
@@ -2180,7 +2102,7 @@ _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %if.end8.sink.s
 lpad:                                             ; preds = %entry
   %56 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #22
   br label %common.resume
 
 if.end:                                           ; preds = %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit28
@@ -2195,27 +2117,27 @@ if.then47:                                        ; preds = %if.end
   br i1 %cmp50.not, label %if.end54, label %if.then51
 
 if.then51:                                        ; preds = %if.then47
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.23)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %if.then51
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad52:                                           ; preds = %if.then51
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #20
+  call void @__cxa_free_exception(ptr %exception) #19
   br label %common.resume
 
 if.end54:                                         ; preds = %if.then47
-  %call55 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #22
+  %call55 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #21
   invoke void @_ZN6Assimp4Ogre10VertexDataC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %call55)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %if.end54
-  %vertexData = getelementptr inbounds %"class.Assimp::Ogre::SubMesh", ptr %call, i64 0, i32 1
+  %vertexData = getelementptr inbounds i8, ptr %call, i64 152
   store ptr %call55, ptr %vertexData, align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadGeometryEPNS0_10VertexDataE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %call55)
   br label %if.end59
@@ -2223,14 +2145,14 @@ invoke.cont57:                                    ; preds = %if.end54
 lpad56:                                           ; preds = %if.end54
   %60 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call55) #23
+  call void @_ZdlPv(ptr noundef nonnull %call55) #22
   br label %common.resume
 
 if.end59:                                         ; preds = %invoke.cont57, %if.end
   %61 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %61, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %61, i64 32
   %62 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %61, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %62 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %63 to i64
@@ -2242,9 +2164,9 @@ if.end59:                                         ; preds = %invoke.cont57, %if.
 if.then61:                                        ; preds = %if.end59
   %call62 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %64 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i41109 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %64, i64 0, i32 3
+  %mEnd.i.i41109 = getelementptr inbounds i8, ptr %64, i64 32
   %65 = load ptr, ptr %mEnd.i.i41109, align 8
-  %mCurrent.i.i42110 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %64, i64 0, i32 2
+  %mCurrent.i.i42110 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %mCurrent.i.i42110, align 8
   %sub.ptr.lhs.cast.i.i43111 = ptrtoint ptr %65 to i64
   %sub.ptr.rhs.cast.i.i44112 = ptrtoint ptr %66 to i64
@@ -2254,10 +2176,10 @@ if.then61:                                        ; preds = %if.end59
   br i1 %cmp.i47115, label %if.end81, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then61
-  %textureAliasName.i = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %call, i64 0, i32 4
-  %textureAliasRef.i = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %call, i64 0, i32 5
-  %vertexData72 = getelementptr inbounds %"class.Assimp::Ogre::SubMesh", ptr %call, i64 0, i32 1
-  %operationType.i = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %call, i64 0, i32 9
+  %textureAliasName.i = getelementptr inbounds i8, ptr %call, i64 72
+  %textureAliasRef.i = getelementptr inbounds i8, ptr %call, i64 104
+  %vertexData72 = getelementptr inbounds i8, ptr %call, i64 152
+  %operationType.i = getelementptr inbounds i8, ptr %call, i64 144
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end77
@@ -2273,24 +2195,24 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
 
 sw.bb:                                            ; preds = %land.rhs
   %add.ptr.i.i.i.i48 = getelementptr inbounds i8, ptr %67, i64 2
-  %mLimit.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %68, i64 0, i32 4
+  %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %68, i64 40
   %69 = load ptr, ptr %mLimit.i.i.i.i, align 8
   %cmp.i.i.i.i49 = icmp ugt ptr %add.ptr.i.i.i.i48, %69
   br i1 %cmp.i.i.i.i49, label %if.then.i.i.i.i50, label %_ZN6Assimp4Ogre20OgreBinarySerializer20ReadSubMeshOperationEPNS0_7SubMeshE.exit
 
 if.then.i.i.i.i50:                                ; preds = %sw.bb
-  %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i51
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i50
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i.i51:                                   ; preds = %if.then.i.i.i.i50
   %70 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer20ReadSubMeshOperationEPNS0_7SubMeshE.exit: ; preds = %sw.bb
@@ -2309,20 +2231,20 @@ sw.bb73:                                          ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2.i)
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %call.i52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasName.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  %call.i52 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasName.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #20
+  %call3.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasRef.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb73, %sw.bb71, %_ZN6Assimp4Ogre20OgreBinarySerializer20ReadSubMeshOperationEPNS0_7SubMeshE.exit
   %73 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i54 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %73, i64 0, i32 3
+  %mEnd.i.i54 = getelementptr inbounds i8, ptr %73, i64 32
   %74 = load ptr, ptr %mEnd.i.i54, align 8
-  %mCurrent.i.i55 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %73, i64 0, i32 2
+  %mCurrent.i.i55 = getelementptr inbounds i8, ptr %73, i64 24
   %75 = load ptr, ptr %mCurrent.i.i55, align 8
   %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %74 to i64
   %sub.ptr.rhs.cast.i.i57 = ptrtoint ptr %75 to i64
@@ -2334,9 +2256,9 @@ sw.epilog:                                        ; preds = %sw.bb73, %sw.bb71, 
 if.then75:                                        ; preds = %sw.epilog
   %call76 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i41.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i41.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre125 = load ptr, ptr %mEnd.i.i41.phi.trans.insert, align 8
-  %mCurrent.i.i42.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i42.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre126 = load ptr, ptr %mCurrent.i.i42.phi.trans.insert, align 8
   %.pre127 = ptrtoint ptr %.pre125 to i64
   %.pre128 = ptrtoint ptr %.pre126 to i64
@@ -2348,7 +2270,7 @@ if.end77:                                         ; preds = %if.then75, %sw.epil
   %76 = phi ptr [ %.pre126, %if.then75 ], [ %75, %sw.epilog ]
   %77 = phi ptr [ %.pre, %if.then75 ], [ %73, %sw.epilog ]
   %id.1 = phi i16 [ %call76, %if.then75 ], [ %id.0116, %sw.epilog ]
-  %mCurrent.i.i42 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %77, i64 0, i32 2
+  %mCurrent.i.i42 = getelementptr inbounds i8, ptr %77, i64 24
   %conv2.i.i46 = and i64 %sub.ptr.sub.i.i45.pre-phi, 4294967295
   %cmp.i47 = icmp eq i64 %conv2.i.i46, 0
   br i1 %cmp.i47, label %if.end81, label %land.rhs, !llvm.loop !9
@@ -2356,28 +2278,28 @@ if.end77:                                         ; preds = %if.then75, %sw.epil
 if.then79:                                        ; preds = %land.rhs
   %add.ptr.i.i = getelementptr inbounds i8, ptr %67, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i42117, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %68, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %68, i64 40
   %78 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %78
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end81
 
 if.then.i.i:                                      ; preds = %if.then79
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %79 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %common.resume
 
 if.end81:                                         ; preds = %if.end77, %if.then61, %if.then79, %if.end59
-  %vertexData82 = getelementptr inbounds %"class.Assimp::Ogre::SubMesh", ptr %call, i64 0, i32 1
+  %vertexData82 = getelementptr inbounds i8, ptr %call, i64 152
   %80 = load ptr, ptr %vertexData82, align 8
   call void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nonnull align 8 poison, ptr noundef %80)
   %81 = load ptr, ptr %_M_finish.i, align 8
@@ -2388,7 +2310,7 @@ if.end81:                                         ; preds = %if.end77, %if.then6
   %sub.ptr.div.i75 = ashr exact i64 %sub.ptr.sub.i74, 3
   %conv85 = trunc i64 %sub.ptr.div.i75 to i32
   store i32 %conv85, ptr %call, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %mesh, i64 72
   %83 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %81, %83
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2396,7 +2318,7 @@ if.end81:                                         ; preds = %if.end77, %if.then6
 if.then.i:                                        ; preds = %if.end81
   store ptr %call, ptr %81, align 8
   %84 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %84, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %84, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE9push_backERKS3_.exit
 
@@ -2405,7 +2327,7 @@ if.else.i:                                        ; preds = %if.end81
   br i1 %cmp.i.i.i77, label %if.then.i.i.i82, label %_ZNKSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i82:                                  ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -2419,7 +2341,7 @@ _ZNKSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; pre
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIPN6Assimp4Ogre7SubMeshESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN6Assimp4Ogre7SubMeshESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -2435,12 +2357,12 @@ if.then.i.i.i.i.i81:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i81, %_ZNSt12_Vector_baseIPN6Assimp4Ogre7SubMeshESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i74
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %82, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %82) #23
+  call void @_ZdlPv(ptr noundef nonnull %82) #22
   br label %_ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6Assimp4Ogre7SubMeshESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -2459,9 +2381,9 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer20ReadMeshSkeletonLinkE
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %skeletonRef = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 1
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %skeletonRef = getelementptr inbounds i8, ptr %mesh, i64 8
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   ret void
 }
 
@@ -2472,18 +2394,18 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.12)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i.i18, %lpad.i.i.i9, %lpad.i.i.i, %lpad
   %exception.i.i.i17.sink = phi ptr [ %exception.i.i.i17, %lpad.i.i.i18 ], [ %exception.i.i.i8, %lpad.i.i.i9 ], [ %exception.i.i.i, %lpad.i.i.i ], [ %exception, %lpad ]
   %common.resume.op = phi { ptr, i32 } [ %14, %lpad.i.i.i18 ], [ %9, %lpad.i.i.i9 ], [ %4, %lpad.i.i.i ], [ %0, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i17.sink) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i17.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad:                                             ; preds = %if.then
@@ -2492,23 +2414,23 @@ lpad:                                             ; preds = %if.then
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -2520,21 +2442,21 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %if.end
   %5 = load i32, ptr %2, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   %6 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i3 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %6, i64 0, i32 2
+  %mCurrent.i.i.i3 = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %mCurrent.i.i.i3, align 8
   %add.ptr.i.i.i4 = getelementptr inbounds i8, ptr %7, i64 2
-  %mLimit.i.i.i5 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %6, i64 0, i32 4
+  %mLimit.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %mLimit.i.i.i5, align 8
   %cmp.i.i.i6 = icmp ugt ptr %add.ptr.i.i.i4, %8
   br i1 %cmp.i.i.i6, label %if.then.i.i.i7, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i7:                                   ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
-  %exception.i.i.i8 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i8 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i8, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i10 unwind label %lpad.i.i.i9
 
 invoke.cont.i.i.i10:                              ; preds = %if.then.i.i.i7
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i9:                                      ; preds = %if.then.i.i.i7
@@ -2546,21 +2468,21 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %_ZN6Assimp4Og
   %10 = load i16, ptr %7, align 1
   store ptr %add.ptr.i.i.i4, ptr %mCurrent.i.i.i3, align 8
   %11 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i12 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 2
+  %mCurrent.i.i.i12 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %mCurrent.i.i.i12, align 8
   %add.ptr.i.i.i13 = getelementptr inbounds i8, ptr %12, i64 4
-  %mLimit.i.i.i14 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 4
+  %mLimit.i.i.i14 = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load ptr, ptr %mLimit.i.i.i14, align 8
   %cmp.i.i.i15 = icmp ugt ptr %add.ptr.i.i.i13, %13
   br i1 %cmp.i.i.i15, label %if.then.i.i.i16, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
 
 if.then.i.i.i16:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception.i.i.i17 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i17 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i17, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i19 unwind label %lpad.i.i.i18
 
 invoke.cont.i.i.i19:                              ; preds = %if.then.i.i.i16
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i17, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i17, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i18:                                     ; preds = %if.then.i.i.i16
@@ -2571,10 +2493,10 @@ lpad.i.i.i18:                                     ; preds = %if.then.i.i.i16
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
   %15 = load float, ptr %12, align 1
   store ptr %add.ptr.i.i.i13, ptr %mCurrent.i.i.i12, align 8
-  %boneAssignments = getelementptr inbounds %"class.Assimp::Ogre::IVertexData", ptr %dest, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::IVertexData", ptr %dest, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %boneAssignments = getelementptr inbounds i8, ptr %dest, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %dest, i64 16
   %16 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::IVertexData", ptr %dest, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %dest, i64 24
   %17 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %16, %17
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2586,7 +2508,7 @@ if.then.i:                                        ; preds = %_ZN6Assimp4Ogre20Og
   %ba.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
   store float %15, ptr %ba.sroa.425.0..sroa_idx, align 4
   %18 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %18, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 12
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE9push_backERKS2_.exit
 
@@ -2599,7 +2521,7 @@ if.else.i:                                        ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp.i.i.i20, label %if.then.i.i.i21, label %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i21:                                  ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -2614,7 +2536,7 @@ _ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.ex
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 12
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -2634,12 +2556,12 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 12
   %tobool.not.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %19) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %19) #22
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN6Assimp4Ogre20VertexBoneAssignmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
@@ -2659,30 +2581,30 @@ entry:
   %agg.tmp.ensured = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.ensured15 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured) #20
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured) #19
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i.i.i, %lpad.i.i.i8.i, %lpad, %lpad12, %lpad25, %lpad.i44, %lpad.i.i.i35, %lpad.i.i.i25, %lpad.i, %lpad.i.i.i14, %lpad.i.i.i
   %exception.sink = phi ptr [ %exception, %lpad ], [ %exception11, %lpad12 ], [ %exception24, %lpad25 ], [ %exception.i43, %lpad.i44 ], [ %exception.i.i.i34, %lpad.i.i.i35 ], [ %exception.i.i.i24, %lpad.i.i.i25 ], [ %exception.i, %lpad.i ], [ %exception.i.i.i13, %lpad.i.i.i14 ], [ %exception.i.i.i, %lpad.i.i.i ], [ %exception.i.i.i7.i, %lpad.i.i.i8.i ], [ %exception.i.i.i.i, %lpad.i.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %33, %lpad ], [ %38, %lpad12 ], [ %41, %lpad25 ], [ %44, %lpad.i44 ], [ %43, %lpad.i.i.i35 ], [ %42, %lpad.i.i.i25 ], [ %37, %lpad.i ], [ %8, %lpad.i.i.i14 ], [ %3, %lpad.i.i.i ], [ %40, %lpad.i.i.i8.i ], [ %39, %lpad.i.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.sink) #20
+  call void @__cxa_free_exception(ptr %exception.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -2694,21 +2616,21 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
   %4 = load i16, ptr %1, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i8 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i8 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i8, align 8
   %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %6, i64 1
-  %mLimit.i.i.i10 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i10 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i10, align 8
   %cmp.i.i.i11 = icmp ugt ptr %add.ptr.i.i.i9, %7
   br i1 %cmp.i.i.i11, label %if.then.i.i.i12, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
 
 if.then.i.i.i12:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception.i.i.i13 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i13 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i13, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i15 unwind label %lpad.i.i.i14
 
 invoke.cont.i.i.i15:                              ; preds = %if.then.i.i.i12
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i13, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i13, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i14:                                     ; preds = %if.then.i.i.i12
@@ -2736,11 +2658,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.end.us:                                        ; preds = %for.body.us
   %10 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 2
+  %mCurrent.i.us = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %mCurrent.i.us, align 8
   %add.ptr.i.us = getelementptr inbounds i8, ptr %11, i64 4
   store ptr %add.ptr.i.us, ptr %mCurrent.i.us, align 8
-  %mLimit.i.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 4
+  %mLimit.i.us = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %mLimit.i.us, align 8
   %cmp.i16.us = icmp ugt ptr %add.ptr.i.us, %12
   br i1 %cmp.i16.us, label %if.then.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.us
@@ -2753,10 +2675,10 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.us: ; preds = %if.end.us
 for.body19.us:                                    ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.us, %for.inc.us
   %si.048.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.us ]
   %13 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i.i.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 2
+  %mCurrent.i.i.i.i.us = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %mCurrent.i.i.i.i.us, align 8
   %add.ptr.i.i.i.i.us = getelementptr inbounds i8, ptr %14, i64 2
-  %mLimit.i.i.i.i.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 4
+  %mLimit.i.i.i.i.us = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %mLimit.i.i.i.i.us, align 8
   %cmp.i.i.i.i.us = icmp ugt ptr %add.ptr.i.i.i.i.us, %15
   br i1 %cmp.i.i.i.i.us, label %if.then.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit.i.us
@@ -2765,10 +2687,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit.i.us: ; preds = %for.body
   %16 = load i16, ptr %14, align 1
   store ptr %add.ptr.i.i.i.i.us, ptr %mCurrent.i.i.i.i.us, align 8
   %17 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i2.i.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 2
+  %mCurrent.i.i.i2.i.us = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %mCurrent.i.i.i2.i.us, align 8
   %add.ptr.i.i.i3.i.us = getelementptr inbounds i8, ptr %18, i64 4
-  %mLimit.i.i.i4.i.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 4
+  %mLimit.i.i.i4.i.us = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %mLimit.i.i.i4.i.us, align 8
   %cmp.i.i.i5.i.us = icmp ugt ptr %add.ptr.i.i.i3.i.us, %19
   br i1 %cmp.i.i.i5.i.us, label %if.then.i.i.i6.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit.us
@@ -2782,10 +2704,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit.us: ; preds = %_ZN6Assi
 
 if.end27.us:                                      ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit.us
   %21 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i19.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %21, i64 0, i32 2
+  %mCurrent.i.i.i19.us = getelementptr inbounds i8, ptr %21, i64 24
   %22 = load ptr, ptr %mCurrent.i.i.i19.us, align 8
   %add.ptr.i.i.i20.us = getelementptr inbounds i8, ptr %22, i64 4
-  %mLimit.i.i.i21.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %21, i64 0, i32 4
+  %mLimit.i.i.i21.us = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %mLimit.i.i.i21.us, align 8
   %cmp.i.i.i22.us = icmp ugt ptr %add.ptr.i.i.i20.us, %23
   br i1 %cmp.i.i.i22.us, label %if.then.i.i.i23, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit.us
@@ -2794,10 +2716,10 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit.us: ; preds = %if.end27.u
   %24 = load i32, ptr %22, align 1
   store ptr %add.ptr.i.i.i20.us, ptr %mCurrent.i.i.i19.us, align 8
   %25 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i28.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %25, i64 0, i32 2
+  %mCurrent.i.i.i28.us = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %mCurrent.i.i.i28.us, align 8
   %add.ptr.i.i.i29.us = getelementptr inbounds i8, ptr %26, i64 1
-  %mLimit.i.i.i30.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %25, i64 0, i32 4
+  %mLimit.i.i.i30.us = getelementptr inbounds i8, ptr %25, i64 40
   %27 = load ptr, ptr %mLimit.i.i.i30.us, align 8
   %cmp.i.i.i31.us = icmp ugt ptr %add.ptr.i.i.i29.us, %27
   br i1 %cmp.i.i.i31.us, label %if.then.i.i.i33, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit37.us
@@ -2814,11 +2736,11 @@ if.then32.us:                                     ; preds = %_ZN6Assimp4Ogre20Og
   %mul.us = shl i32 %24, %29
   %30 = load ptr, ptr %m_reader.i, align 8
   %conv37.us = zext i32 %mul.us to i64
-  %mCurrent.i38.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %30, i64 0, i32 2
+  %mCurrent.i38.us = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load ptr, ptr %mCurrent.i38.us, align 8
   %add.ptr.i39.us = getelementptr inbounds i8, ptr %31, i64 %conv37.us
   store ptr %add.ptr.i39.us, ptr %mCurrent.i38.us, align 8
-  %mLimit.i40.us = getelementptr inbounds %"class.Assimp::StreamReader", ptr %30, i64 0, i32 4
+  %mLimit.i40.us = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i40.us, align 8
   %cmp.i41.us = icmp ugt ptr %add.ptr.i39.us, %32
   br i1 %cmp.i41.us, label %if.then.i42, label %for.inc.us
@@ -2840,12 +2762,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body, %for.body.us
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -2855,22 +2777,22 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %for.body
   %34 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %34, i64 0, i32 2
+  %mCurrent.i = getelementptr inbounds i8, ptr %34, i64 24
   %35 = load ptr, ptr %mCurrent.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %35, i64 4
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
-  %mLimit.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %34, i64 0, i32 4
+  %mLimit.i = getelementptr inbounds i8, ptr %34, i64 40
   %36 = load ptr, ptr %mLimit.i, align 8
   %cmp.i16 = icmp ugt ptr %add.ptr.i, %36
   br i1 %cmp.i16, label %if.then.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit
 
 if.then.i:                                        ; preds = %if.end, %if.end.us
-  %exception.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
@@ -2884,12 +2806,12 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %if.end
   br i1 %cmp9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit
-  %exception11 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception11 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception11, ptr noundef nonnull @.str.10)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then10
-  call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad12:                                           ; preds = %if.then10
@@ -2899,18 +2821,18 @@ lpad12:                                           ; preds = %if.then10
 
 if.end14:                                         ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured15, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured15) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured15) #19
   %inc41 = add nuw nsw i64 %i.050, 1
   %exitcond.not = icmp eq i64 %inc41, %conv
   br i1 %exitcond.not, label %for.end42, label %for.body, !llvm.loop !11
 
 if.then.i.i.i.i:                                  ; preds = %for.body19.us
-  %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
@@ -2919,12 +2841,12 @@ lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   br label %common.resume
 
 if.then.i.i.i6.i:                                 ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit.i.us
-  %exception.i.i.i7.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i7.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i7.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i9.i unwind label %lpad.i.i.i8.i
 
 invoke.cont.i.i.i9.i:                             ; preds = %if.then.i.i.i6.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i7.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i7.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i8.i:                                    ; preds = %if.then.i.i.i6.i
@@ -2933,12 +2855,12 @@ lpad.i.i.i8.i:                                    ; preds = %if.then.i.i.i6.i
   br label %common.resume
 
 if.then23:                                        ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit.us
-  %exception24 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception24 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception24, ptr noundef nonnull @.str.11)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.then23
-  call void @__cxa_throw(ptr nonnull %exception24, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception24, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad25:                                           ; preds = %if.then23
@@ -2947,12 +2869,12 @@ lpad25:                                           ; preds = %if.then23
   br label %common.resume
 
 if.then.i.i.i23:                                  ; preds = %if.end27.us
-  %exception.i.i.i24 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i24 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i24, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i26 unwind label %lpad.i.i.i25
 
 invoke.cont.i.i.i26:                              ; preds = %if.then.i.i.i23
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i24, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i24, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i25:                                     ; preds = %if.then.i.i.i23
@@ -2961,12 +2883,12 @@ lpad.i.i.i25:                                     ; preds = %if.then.i.i.i23
   br label %common.resume
 
 if.then.i.i.i33:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit.us
-  %exception.i.i.i34 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i34 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i34, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i36 unwind label %lpad.i.i.i35
 
 invoke.cont.i.i.i36:                              ; preds = %if.then.i.i.i33
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i34, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i34, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i35:                                     ; preds = %if.then.i.i.i33
@@ -2975,12 +2897,12 @@ lpad.i.i.i35:                                     ; preds = %if.then.i.i.i33
   br label %common.resume
 
 if.then.i42:                                      ; preds = %if.then32.us
-  %exception.i43 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i43 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i43, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i45 unwind label %lpad.i44
 
 invoke.cont.i45:                                  ; preds = %if.then.i42
-  call void @__cxa_throw(ptr nonnull %exception.i43, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i43, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i44:                                         ; preds = %if.then.i42
@@ -2995,30 +2917,30 @@ for.end42:                                        ; preds = %if.end14, %for.inc4
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadMeshBoundsEPNS0_4MeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 28
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
@@ -3030,11 +2952,11 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadSubMeshNamesEPNS0
 entry:
   %submeshIndex = alloca i16, align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -3046,9 +2968,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %3 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i540 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 3
+  %mEnd.i.i540 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %mEnd.i.i540, align 8
-  %mCurrent.i.i641 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 2
+  %mCurrent.i.i641 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %mCurrent.i.i641, align 8
   %sub.ptr.lhs.cast.i.i742 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i843 = ptrtoint ptr %5 to i64
@@ -3064,24 +2986,24 @@ while.body:                                       ; preds = %if.then, %if.end14
   %mCurrent.i.i649 = phi ptr [ %mCurrent.i.i6, %if.end14 ], [ %mCurrent.i.i641, %if.then ]
   %7 = phi ptr [ %.pre, %if.end14 ], [ %3, %if.then ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %while.body
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception, %lpad ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %16, %lpad.i.i ], [ %11, %lpad ], [ %9, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.sink) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -3099,12 +3021,12 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %while.body
   br i1 %tobool.not, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2IJRA36_KcRtRA64_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 1 dereferenceable(36) @.str.24, ptr noundef nonnull align 2 dereferenceable(2) %submeshIndex, ptr noundef nonnull align 1 dereferenceable(64) @.str.25)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then7
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then7
@@ -3114,15 +3036,15 @@ lpad:                                             ; preds = %if.then7
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %name = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %call6, i64 0, i32 2
-  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %name = getelementptr inbounds i8, ptr %call6, i64 8
+  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %call9 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger12verboseDebugIJRA13_KcRjRA8_S2_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call9, ptr noundef nonnull align 1 dereferenceable(13) @.str.26, ptr noundef nonnull align 4 dereferenceable(4) %call6, ptr noundef nonnull align 1 dereferenceable(8) @.str.27, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 1 dereferenceable(2) @.str.15)
   %12 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i14 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 3
+  %mEnd.i.i14 = getelementptr inbounds i8, ptr %12, i64 32
   %13 = load ptr, ptr %mEnd.i.i14, align 8
-  %mCurrent.i.i15 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 2
+  %mCurrent.i.i15 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %mCurrent.i.i15, align 8
   %sub.ptr.lhs.cast.i.i16 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i17 = ptrtoint ptr %14 to i64
@@ -3134,15 +3056,15 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
 if.end14:                                         ; preds = %if.end
   %call13 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i5.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i5.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre57 = load ptr, ptr %mEnd.i.i5.phi.trans.insert, align 8
-  %mCurrent.i.i6.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i6.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre58 = load ptr, ptr %mCurrent.i.i6.phi.trans.insert, align 8
   %.pre59 = ptrtoint ptr %.pre57 to i64
   %.pre60 = ptrtoint ptr %.pre58 to i64
   %.pre61 = sub i64 %.pre59, %.pre60
   %.pre62 = and i64 %.pre61, 4294967295
-  %mCurrent.i.i6 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i6 = getelementptr inbounds i8, ptr %.pre, i64 24
   %cmp.i11 = icmp eq i64 %.pre62, 0
   %cmp = icmp ne i16 %call13, -24320
   %.not = or i1 %cmp, %cmp.i11
@@ -3158,18 +3080,18 @@ while.end:                                        ; preds = %if.end14, %if.then
 if.then16:                                        ; preds = %while.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i6.lcssa, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa37, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa37, i64 40
   %15 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %15
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end18
 
 if.then.i.i:                                      ; preds = %if.then16
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -3184,11 +3106,11 @@ if.end18:                                         ; preds = %if.end, %if.then16,
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadEdgeListEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture readnone %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -3200,9 +3122,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %4 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i4151 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %4, i64 0, i32 3
+  %mEnd.i.i4151 = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %mEnd.i.i4151, align 8
-  %mCurrent.i.i5152 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %4, i64 0, i32 2
+  %mCurrent.i.i5152 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %mCurrent.i.i5152, align 8
   %sub.ptr.lhs.cast.i.i6153 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i7154 = ptrtoint ptr %6 to i64
@@ -3219,24 +3141,24 @@ while.body:                                       ; preds = %if.then, %if.end31
   %8 = phi ptr [ %.pre, %if.end31 ], [ %4, %if.then ]
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 2
   store ptr %add.ptr.i, ptr %mCurrent.i.i5161, align 8
-  %mLimit.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 4
+  %mLimit.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %mLimit.i, align 8
   %cmp.i11 = icmp ugt ptr %add.ptr.i, %9
   br i1 %cmp.i11, label %if.then.i, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit
 
 if.then.i:                                        ; preds = %while.body
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i.i.i, %lpad.i.i.i8.i, %lpad.i.i, %lpad.i77, %lpad.i.i.i68, %lpad.i58, %lpad, %lpad.i48, %lpad.i.i.i39, %lpad.i.i.i30, %lpad.i20, %lpad.i.i.i, %lpad.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i76, %lpad.i77 ], [ %exception.i.i.i67, %lpad.i.i.i68 ], [ %exception.i57, %lpad.i58 ], [ %exception, %lpad ], [ %exception.i47, %lpad.i48 ], [ %exception.i.i.i38, %lpad.i.i.i39 ], [ %exception.i.i.i29, %lpad.i.i.i30 ], [ %exception.i19, %lpad.i20 ], [ %exception.i.i.i, %lpad.i.i.i ], [ %exception.i, %lpad.i ], [ %exception.i.i.i7.i, %lpad.i.i.i8.i ], [ %exception.i.i.i.i, %lpad.i.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %62, %lpad.i.i ], [ %57, %lpad.i77 ], [ %52, %lpad.i.i.i68 ], [ %48, %lpad.i58 ], [ %44, %lpad ], [ %33, %lpad.i48 ], [ %28, %lpad.i.i.i39 ], [ %23, %lpad.i.i.i30 ], [ %19, %lpad.i20 ], [ %14, %lpad.i.i.i ], [ %10, %lpad.i ], [ %42, %lpad.i.i.i8.i ], [ %37, %lpad.i.i.i.i ]
-  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %if.then.i
@@ -3246,21 +3168,21 @@ lpad.i:                                           ; preds = %if.then.i
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit: ; preds = %while.body
   %11 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 1
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %13
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -3276,22 +3198,22 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %_ZN6Assimp12S
 
 if.then5:                                         ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
   %16 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i14 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %16, i64 0, i32 2
+  %mCurrent.i14 = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %mCurrent.i14, align 8
   %add.ptr.i15 = getelementptr inbounds i8, ptr %17, i64 1
   store ptr %add.ptr.i15, ptr %mCurrent.i14, align 8
-  %mLimit.i16 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %16, i64 0, i32 4
+  %mLimit.i16 = getelementptr inbounds i8, ptr %16, i64 40
   %18 = load ptr, ptr %mLimit.i16, align 8
   %cmp.i17 = icmp ugt ptr %add.ptr.i15, %18
   br i1 %cmp.i17, label %if.then.i18, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit22
 
 if.then.i18:                                      ; preds = %if.then5
-  %exception.i19 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i19 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i19, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i21 unwind label %lpad.i20
 
 invoke.cont.i21:                                  ; preds = %if.then.i18
-  tail call void @__cxa_throw(ptr nonnull %exception.i19, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i19, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i20:                                         ; preds = %if.then.i18
@@ -3301,21 +3223,21 @@ lpad.i20:                                         ; preds = %if.then.i18
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit22: ; preds = %if.then5
   %20 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i24 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %20, i64 0, i32 2
+  %mCurrent.i.i.i24 = getelementptr inbounds i8, ptr %20, i64 24
   %21 = load ptr, ptr %mCurrent.i.i.i24, align 8
   %add.ptr.i.i.i25 = getelementptr inbounds i8, ptr %21, i64 4
-  %mLimit.i.i.i26 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %20, i64 0, i32 4
+  %mLimit.i.i.i26 = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i.i26, align 8
   %cmp.i.i.i27 = icmp ugt ptr %add.ptr.i.i.i25, %22
   br i1 %cmp.i.i.i27, label %if.then.i.i.i28, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
 
 if.then.i.i.i28:                                  ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit22
-  %exception.i.i.i29 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i29 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i29, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i31 unwind label %lpad.i.i.i30
 
 invoke.cont.i.i.i31:                              ; preds = %if.then.i.i.i28
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i29, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i29, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i30:                                     ; preds = %if.then.i.i.i28
@@ -3327,21 +3249,21 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %_ZN6Assimp12S
   %24 = load i32, ptr %21, align 1
   store ptr %add.ptr.i.i.i25, ptr %mCurrent.i.i.i24, align 8
   %25 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i33 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %25, i64 0, i32 2
+  %mCurrent.i.i.i33 = getelementptr inbounds i8, ptr %25, i64 24
   %26 = load ptr, ptr %mCurrent.i.i.i33, align 8
   %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr %26, i64 4
-  %mLimit.i.i.i35 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %25, i64 0, i32 4
+  %mLimit.i.i.i35 = getelementptr inbounds i8, ptr %25, i64 40
   %27 = load ptr, ptr %mLimit.i.i.i35, align 8
   %cmp.i.i.i36 = icmp ugt ptr %add.ptr.i.i.i34, %27
   br i1 %cmp.i.i.i36, label %if.then.i.i.i37, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit41
 
 if.then.i.i.i37:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
-  %exception.i.i.i38 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i38 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i38, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i40 unwind label %lpad.i.i.i39
 
 invoke.cont.i.i.i40:                              ; preds = %if.then.i.i.i37
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i39:                                     ; preds = %if.then.i.i.i37
@@ -3355,11 +3277,11 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit41: ; preds = %_ZN6Assimp4
   %conv9 = zext i32 %24 to i64
   %mul = mul nuw nsw i64 %conv9, 48
   %30 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i42 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %30, i64 0, i32 2
+  %mCurrent.i42 = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load ptr, ptr %mCurrent.i42, align 8
   %add.ptr.i43 = getelementptr inbounds i8, ptr %31, i64 %mul
   store ptr %add.ptr.i43, ptr %mCurrent.i42, align 8
-  %mLimit.i44 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %30, i64 0, i32 4
+  %mLimit.i44 = getelementptr inbounds i8, ptr %30, i64 40
   %32 = load ptr, ptr %mLimit.i44, align 8
   %cmp.i45 = icmp ugt ptr %add.ptr.i43, %32
   br i1 %cmp.i45, label %if.then.i46, label %for.cond.preheader
@@ -3370,12 +3292,12 @@ for.cond.preheader:                               ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp12149.not, label %if.end27, label %for.body
 
 if.then.i46:                                      ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit41
-  %exception.i47 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i47 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i47, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i49 unwind label %lpad.i48
 
 invoke.cont.i49:                                  ; preds = %if.then.i46
-  tail call void @__cxa_throw(ptr nonnull %exception.i47, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i47, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i48:                                         ; preds = %if.then.i46
@@ -3386,21 +3308,21 @@ lpad.i48:                                         ; preds = %if.then.i46
 for.body:                                         ; preds = %for.cond.preheader, %for.inc24
   %i.0150 = phi i64 [ %inc25, %for.inc24 ], [ 0, %for.cond.preheader ]
   %34 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %34, i64 0, i32 2
+  %mCurrent.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 24
   %35 = load ptr, ptr %mCurrent.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 2
-  %mLimit.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %34, i64 0, i32 4
+  %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 40
   %36 = load ptr, ptr %mLimit.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i, %36
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
@@ -3412,21 +3334,21 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit.i: ; preds = %for.body
   %38 = load i16, ptr %35, align 1
   store ptr %add.ptr.i.i.i.i, ptr %mCurrent.i.i.i.i, align 8
   %39 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i2.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %39, i64 0, i32 2
+  %mCurrent.i.i.i2.i = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load ptr, ptr %mCurrent.i.i.i2.i, align 8
   %add.ptr.i.i.i3.i = getelementptr inbounds i8, ptr %40, i64 4
-  %mLimit.i.i.i4.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %39, i64 0, i32 4
+  %mLimit.i.i.i4.i = getelementptr inbounds i8, ptr %39, i64 40
   %41 = load ptr, ptr %mLimit.i.i.i4.i, align 8
   %cmp.i.i.i5.i = icmp ugt ptr %add.ptr.i.i.i3.i, %41
   br i1 %cmp.i.i.i5.i, label %if.then.i.i.i6.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
 
 if.then.i.i.i6.i:                                 ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit.i
-  %exception.i.i.i7.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i7.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i7.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i9.i unwind label %lpad.i.i.i8.i
 
 invoke.cont.i.i.i9.i:                             ; preds = %if.then.i.i.i6.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i7.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i7.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i8.i:                                    ; preds = %if.then.i.i.i6.i
@@ -3442,12 +3364,12 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %_ZN6Assimp4
   br i1 %cmp15.not, label %if.end, label %if.then16
 
 if.then16:                                        ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.38)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then16
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then16
@@ -3457,22 +3379,22 @@ lpad:                                             ; preds = %if.then16
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
   %45 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i52 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %45, i64 0, i32 2
+  %mCurrent.i52 = getelementptr inbounds i8, ptr %45, i64 24
   %46 = load ptr, ptr %mCurrent.i52, align 8
   %add.ptr.i53 = getelementptr inbounds i8, ptr %46, i64 12
   store ptr %add.ptr.i53, ptr %mCurrent.i52, align 8
-  %mLimit.i54 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %45, i64 0, i32 4
+  %mLimit.i54 = getelementptr inbounds i8, ptr %45, i64 40
   %47 = load ptr, ptr %mLimit.i54, align 8
   %cmp.i55 = icmp ugt ptr %add.ptr.i53, %47
   br i1 %cmp.i55, label %if.then.i56, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit60
 
 if.then.i56:                                      ; preds = %if.end
-  %exception.i57 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i57 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i57, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i59 unwind label %lpad.i58
 
 invoke.cont.i59:                                  ; preds = %if.then.i56
-  tail call void @__cxa_throw(ptr nonnull %exception.i57, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i57, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i58:                                         ; preds = %if.then.i56
@@ -3482,21 +3404,21 @@ lpad.i58:                                         ; preds = %if.then.i56
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit60: ; preds = %if.end
   %49 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i62 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %49, i64 0, i32 2
+  %mCurrent.i.i.i62 = getelementptr inbounds i8, ptr %49, i64 24
   %50 = load ptr, ptr %mCurrent.i.i.i62, align 8
   %add.ptr.i.i.i63 = getelementptr inbounds i8, ptr %50, i64 4
-  %mLimit.i.i.i64 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %49, i64 0, i32 4
+  %mLimit.i.i.i64 = getelementptr inbounds i8, ptr %49, i64 40
   %51 = load ptr, ptr %mLimit.i.i.i64, align 8
   %cmp.i.i.i65 = icmp ugt ptr %add.ptr.i.i.i63, %51
   br i1 %cmp.i.i.i65, label %if.then.i.i.i66, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit70
 
 if.then.i.i.i66:                                  ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit60
-  %exception.i.i.i67 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i67 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i67, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i69 unwind label %lpad.i.i.i68
 
 invoke.cont.i.i.i69:                              ; preds = %if.then.i.i.i66
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i67, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i67, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i68:                                     ; preds = %if.then.i.i.i66
@@ -3519,22 +3441,22 @@ for.cond19:                                       ; preds = %for.body22
 for.body22:                                       ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit70, %for.cond19
   %j.0148 = phi i64 [ %inc, %for.cond19 ], [ 0, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit70 ]
   %54 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i71 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %54, i64 0, i32 2
+  %mCurrent.i71 = getelementptr inbounds i8, ptr %54, i64 24
   %55 = load ptr, ptr %mCurrent.i71, align 8
   %add.ptr.i72 = getelementptr inbounds i8, ptr %55, i64 25
   store ptr %add.ptr.i72, ptr %mCurrent.i71, align 8
-  %mLimit.i73 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %54, i64 0, i32 4
+  %mLimit.i73 = getelementptr inbounds i8, ptr %54, i64 40
   %56 = load ptr, ptr %mLimit.i73, align 8
   %cmp.i74 = icmp ugt ptr %add.ptr.i72, %56
   br i1 %cmp.i74, label %if.then.i75, label %for.cond19
 
 if.then.i75:                                      ; preds = %for.body22
-  %exception.i76 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i76 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i76, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i78 unwind label %lpad.i77
 
 invoke.cont.i78:                                  ; preds = %if.then.i75
-  tail call void @__cxa_throw(ptr nonnull %exception.i76, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i76, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i77:                                         ; preds = %if.then.i75
@@ -3549,9 +3471,9 @@ for.inc24:                                        ; preds = %for.cond19, %_ZN6As
 
 if.end27:                                         ; preds = %for.inc24, %for.cond.preheader, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
   %58 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i81 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %58, i64 0, i32 3
+  %mEnd.i.i81 = getelementptr inbounds i8, ptr %58, i64 32
   %59 = load ptr, ptr %mEnd.i.i81, align 8
-  %mCurrent.i.i82 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %58, i64 0, i32 2
+  %mCurrent.i.i82 = getelementptr inbounds i8, ptr %58, i64 24
   %60 = load ptr, ptr %mCurrent.i.i82, align 8
   %sub.ptr.lhs.cast.i.i83 = ptrtoint ptr %59 to i64
   %sub.ptr.rhs.cast.i.i84 = ptrtoint ptr %60 to i64
@@ -3563,15 +3485,15 @@ if.end27:                                         ; preds = %for.inc24, %for.con
 if.end31:                                         ; preds = %if.end27
   %call30 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i4.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i4.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre170 = load ptr, ptr %mEnd.i.i4.phi.trans.insert, align 8
-  %mCurrent.i.i5.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i5.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre171 = load ptr, ptr %mCurrent.i.i5.phi.trans.insert, align 8
   %.pre172 = ptrtoint ptr %.pre170 to i64
   %.pre173 = ptrtoint ptr %.pre171 to i64
   %.pre174 = sub i64 %.pre172, %.pre173
   %.pre175 = and i64 %.pre174, 4294967295
-  %mCurrent.i.i5 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i5 = getelementptr inbounds i8, ptr %.pre, i64 24
   %cmp.i10 = icmp eq i64 %.pre175, 0
   %cmp = icmp ne i16 %call30, -20224
   %.not = or i1 %cmp.i10, %cmp
@@ -3587,18 +3509,18 @@ while.end:                                        ; preds = %if.end31, %if.then
 if.then33:                                        ; preds = %while.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i5.lcssa, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa134, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa134, i64 40
   %61 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %61
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end35
 
 if.then.i.i:                                      ; preds = %if.then33
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -3614,11 +3536,11 @@ if.end35:                                         ; preds = %if.end27, %if.then3
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer9ReadPosesEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -3630,9 +3552,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %3 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i259 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 3
+  %mEnd.i.i259 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %mEnd.i.i259, align 8
-  %mCurrent.i.i360 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 2
+  %mCurrent.i.i360 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %mCurrent.i.i360, align 8
   %sub.ptr.lhs.cast.i.i461 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i562 = ptrtoint ptr %5 to i64
@@ -3644,53 +3566,53 @@ if.then:                                          ; preds = %entry
   br i1 %.not67, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %poses = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 6
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
+  %poses = getelementptr inbounds i8, ptr %mesh, i64 104
+  %_M_finish.i = getelementptr inbounds i8, ptr %mesh, i64 112
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %mesh, i64 120
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %call4 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call4) #20
-  %target.i = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %call4, i64 0, i32 1
+  %call4 = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call4) #19
+  %target.i = getelementptr inbounds i8, ptr %call4, i64 32
   store i16 0, ptr %target.i, align 8
-  %hasNormals.i = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %call4, i64 0, i32 2
+  %hasNormals.i = getelementptr inbounds i8, ptr %call4, i64 34
   store i8 0, ptr %hasNormals.i, align 2
-  %6 = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %call4, i64 0, i32 3, i32 0, i32 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %call4, i64 48
   store i32 0, ptr %6, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %call4, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 56
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %call4, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 64
   store ptr %6, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %call4, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 72
   store ptr %6, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %call4, i64 0, i32 3, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call4, i64 80
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %7 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %9 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %9
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %while.body
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i18, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i17, %lpad.i.i.i18 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %26, %lpad.i.i ], [ %15, %lpad.i.i.i18 ], [ %10, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.sink) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -3703,21 +3625,21 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %while.body
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   store i16 %11, ptr %target.i, align 8
   %12 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i11 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 2
+  %mCurrent.i.i.i11 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %mCurrent.i.i.i11, align 8
   %add.ptr.i.i.i12 = getelementptr inbounds i8, ptr %13, i64 1
-  %mLimit.i.i.i13 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 4
+  %mLimit.i.i.i13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %mLimit.i.i.i13, align 8
   %cmp.i.i.i14 = icmp ugt ptr %add.ptr.i.i.i12, %14
   br i1 %cmp.i.i.i14, label %if.then.i.i.i16, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
 
 if.then.i.i.i16:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception.i.i.i17 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i17 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i17, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i19 unwind label %lpad.i.i.i18
 
 invoke.cont.i.i.i19:                              ; preds = %if.then.i.i.i16
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i17, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i17, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i18:                                     ; preds = %if.then.i.i.i16
@@ -3740,7 +3662,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit: ; preds = %_ZN6Assimp4Og
 if.then.i:                                        ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
   store ptr %call4, ptr %17, align 8
   %19 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %19, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit
 
@@ -3753,7 +3675,7 @@ if.else.i:                                        ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp.i.i.i20, label %if.then.i.i.i21, label %_ZNKSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i21:                                  ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -3768,7 +3690,7 @@ _ZNKSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIPN6Assimp4Ogre4PoseESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN6Assimp4Ogre4PoseESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -3784,12 +3706,12 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN6Assimp4Ogre4PoseESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %20) #23
+  call void @_ZdlPv(ptr noundef nonnull %20) #22
   br label %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -3801,9 +3723,9 @@ _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_c
 
 _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %22 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i23 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %22, i64 0, i32 3
+  %mEnd.i.i23 = getelementptr inbounds i8, ptr %22, i64 32
   %23 = load ptr, ptr %mEnd.i.i23, align 8
-  %mCurrent.i.i24 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %22, i64 0, i32 2
+  %mCurrent.i.i24 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %mCurrent.i.i24, align 8
   %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %24 to i64
@@ -3815,9 +3737,9 @@ _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit: ; preds = %if.th
 if.end:                                           ; preds = %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit
   %call10 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i2.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i2.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre74 = load ptr, ptr %mEnd.i.i2.phi.trans.insert, align 8
-  %mCurrent.i.i3.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i3.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre75 = load ptr, ptr %mCurrent.i.i3.phi.trans.insert, align 8
   %.pre76 = ptrtoint ptr %.pre74 to i64
   %.pre77 = ptrtoint ptr %.pre75 to i64
@@ -3835,21 +3757,21 @@ while.end:                                        ; preds = %if.end, %if.then
   br i1 %cmp.i8.lcssa, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %while.end
-  %mCurrent.i.i3.le = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa58, i64 0, i32 2
+  %mCurrent.i.i3.le = getelementptr inbounds i8, ptr %.lcssa58, i64 24
   %add.ptr.i.i40 = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i40, ptr %mCurrent.i.i3.le, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa58, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa58, i64 40
   %25 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i40, %25
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end14
 
 if.then.i.i:                                      ; preds = %if.then12
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -3865,11 +3787,11 @@ if.end14:                                         ; preds = %_ZNSt6vectorIPN6Ass
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadAnimationsEPNS0_4MeshE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %mesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -3881,9 +3803,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %3 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i351 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 3
+  %mEnd.i.i351 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %mEnd.i.i351, align 8
-  %mCurrent.i.i452 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 2
+  %mCurrent.i.i452 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %mCurrent.i.i452, align 8
   %sub.ptr.lhs.cast.i.i553 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i654 = ptrtoint ptr %5 to i64
@@ -3895,37 +3817,37 @@ if.then:                                          ; preds = %entry
   br i1 %.not59, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %animations = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 5
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %animations = getelementptr inbounds i8, ptr %mesh, i64 80
+  %_M_finish.i = getelementptr inbounds i8, ptr %mesh, i64 88
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %mesh, i64 96
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %call4 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22
+  %call4 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #21
   invoke void @_ZN6Assimp4Ogre9AnimationC1EPNS0_4MeshE(ptr noundef nonnull align 8 dereferenceable(112) %call4, ptr noundef %mesh)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %name = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call4, i64 0, i32 2
-  %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %name = getelementptr inbounds i8, ptr %call4, i64 16
+  %call5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %6 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %6, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %7 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %6, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad, %lpad.i.i.i
@@ -3935,13 +3857,13 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad, %l
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %invoke.cont
   %10 = load float, ptr %7, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
-  %length = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call4, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %call4, i64 80
   store float %10, ptr %length, align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer13ReadAnimationEPNS0_9AnimationE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %call4)
   %11 = load ptr, ptr %_M_finish.i, align 8
@@ -3952,7 +3874,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %invoke.cont
 if.then.i:                                        ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
   store ptr %call4, ptr %11, align 8
   %13 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %13, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit
 
@@ -3965,7 +3887,7 @@ if.else.i:                                        ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp.i.i.i11, label %if.then.i.i.i12, label %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i12:                                  ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -3980,7 +3902,7 @@ _ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; p
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIPN6Assimp4Ogre9AnimationESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN6Assimp4Ogre9AnimationESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -3996,12 +3918,12 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN6Assimp4Ogre9AnimationESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %14) #23
+  call void @_ZdlPv(ptr noundef nonnull %14) #22
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -4013,9 +3935,9 @@ _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__
 
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %16 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i14 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %16, i64 0, i32 3
+  %mEnd.i.i14 = getelementptr inbounds i8, ptr %16, i64 32
   %17 = load ptr, ptr %mEnd.i.i14, align 8
-  %mCurrent.i.i15 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %16, i64 0, i32 2
+  %mCurrent.i.i15 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %mCurrent.i.i15, align 8
   %sub.ptr.lhs.cast.i.i16 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i17 = ptrtoint ptr %18 to i64
@@ -4027,15 +3949,15 @@ _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit: ; preds = %
 lpad:                                             ; preds = %while.body
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call4) #23
+  call void @_ZdlPv(ptr noundef nonnull %call4) #22
   br label %common.resume
 
 if.end:                                           ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit
   %call9 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i3.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i3.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre69 = load ptr, ptr %mEnd.i.i3.phi.trans.insert, align 8
-  %mCurrent.i.i4.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i4.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre70 = load ptr, ptr %mCurrent.i.i4.phi.trans.insert, align 8
   %.pre71 = ptrtoint ptr %.pre69 to i64
   %.pre72 = ptrtoint ptr %.pre70 to i64
@@ -4053,27 +3975,27 @@ while.end:                                        ; preds = %if.end, %if.then
   br i1 %cmp.i9.lcssa, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %while.end
-  %mCurrent.i.i4.le = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa50, i64 0, i32 2
+  %mCurrent.i.i4.le = getelementptr inbounds i8, ptr %.lcssa50, i64 24
   %add.ptr.i.i31 = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i31, ptr %mCurrent.i.i4.le, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa50, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa50, i64 40
   %20 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i31, %20
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end13
 
 if.then.i.i:                                      ; preds = %if.then11
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %common.resume
 
 if.end13:                                         ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit, %if.then11, %while.end, %entry
@@ -4085,31 +4007,31 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadMeshExtremesEPNS0
 entry:
   %1 = load i32, ptr %this, align 8
   %conv = zext i32 %1 to i64
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %2, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %mCurrent.i.i, align 8
   %4 = getelementptr i8, ptr %3, i64 %conv
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %2, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #19
   resume { ptr, i32 } %6
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
@@ -4124,9 +4046,9 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %boneAssignments = getelementptr inbounds %"class.Assimp::Ogre::IVertexData", ptr %vertexData, i64 0, i32 1
+  %boneAssignments = getelementptr inbounds i8, ptr %vertexData, i64 8
   %0 = load ptr, ptr %boneAssignments, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::Ogre::IVertexData", ptr %vertexData, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %vertexData, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
@@ -4153,12 +4075,11 @@ for.body:                                         ; preds = %if.end, %invoke.con
 
 while.body.i.i.i:                                 ; preds = %for.body, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %for.body ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %3 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %.pre.i.pre.pre.i.i, %3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !18
@@ -4173,8 +4094,8 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %f
   br i1 %cmp.i4.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #24
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i.i.i, i64 0, i32 1
+  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #23
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre.i.i = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 4
   br label %if.end12.i.i.i
 
@@ -4190,34 +4111,34 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %6 = load i32, ptr %_M_storage.i.i.i.i6.i.i, align 4
   %cmp.i.i7.i.i = icmp ult i32 %.pre.i.pre.pre.i.i, %6
   br label %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
 
 _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
   %7 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
-  %call5.i.i.i.i.i.i.i.i15 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %call5.i.i.i.i.i.i.i.i15 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i15, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i15, i64 32
   store i32 %.pre.i.pre.pre.i.i, ptr %_M_storage.i.i.i.i.i.i.i, align 4
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i15, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2) #20
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i15, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %8 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %inc.i.i.i = add i64 %8, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %call5.i.i.i.i.i.i.i.i.noexc, %if.end12.i.i.i
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %baIter.sroa.0.032, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %baIter.sroa.0.032, i64 12
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !19
 
 lpad:                                             ; preds = %_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIjEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %influencedVertices) #20
+  call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %influencedVertices) #19
   resume { ptr, i32 } %9
 
 for.end:                                          ; preds = %invoke.cont
@@ -4227,7 +4148,7 @@ for.end:                                          ; preds = %invoke.cont
 
 for.body18:                                       ; preds = %for.end, %for.inc64
   %__begin2.sroa.0.039 = phi ptr [ %call.i, %for.inc64 ], [ %10, %for.end ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.039, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.039, i64 32
   %11 = load i32, ptr %_M_storage.i.i, align 4
   %12 = load ptr, ptr %boneAssignments, align 8
   %13 = load ptr, ptr %_M_finish.i.i, align 8
@@ -4242,14 +4163,14 @@ for.body33:                                       ; preds = %for.body18, %for.in
   br i1 %cmp, label %if.then36, label %for.inc39
 
 if.then36:                                        ; preds = %for.body33
-  %weight = getelementptr inbounds %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %baIter21.sroa.0.034, i64 0, i32 2
+  %weight = getelementptr inbounds i8, ptr %baIter21.sroa.0.034, i64 8
   %15 = load float, ptr %weight, align 4
   %add = fadd float %sum.035, %15
   br label %for.inc39
 
 for.inc39:                                        ; preds = %for.body33, %if.then36
   %sum.1 = phi float [ %add, %if.then36 ], [ %sum.035, %for.body33 ]
-  %incdec.ptr.i19 = getelementptr inbounds %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %baIter21.sroa.0.034, i64 1
+  %incdec.ptr.i19 = getelementptr inbounds i8, ptr %baIter21.sroa.0.034, i64 12
   %cmp.i18.not = icmp eq ptr %incdec.ptr.i19, %13
   br i1 %cmp.i18.not, label %for.end41, label %for.body33, !llvm.loop !20
 
@@ -4267,19 +4188,19 @@ for.body53:                                       ; preds = %for.end41, %for.inc
   br i1 %cmp56, label %if.then57, label %for.inc60
 
 if.then57:                                        ; preds = %for.body53
-  %weight58 = getelementptr inbounds %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %__begin4.sroa.0.037, i64 0, i32 2
+  %weight58 = getelementptr inbounds i8, ptr %__begin4.sroa.0.037, i64 8
   %17 = load float, ptr %weight58, align 4
   %div = fdiv float %17, %sum.1
   store float %div, ptr %weight58, align 4
   br label %for.inc60
 
 for.inc60:                                        ; preds = %for.body53, %if.then57
-  %incdec.ptr.i22 = getelementptr inbounds %"struct.Assimp::Ogre::VertexBoneAssignment", ptr %__begin4.sroa.0.037, i64 1
+  %incdec.ptr.i22 = getelementptr inbounds i8, ptr %__begin4.sroa.0.037, i64 12
   %cmp.i21.not = icmp eq ptr %incdec.ptr.i22, %13
   br i1 %cmp.i21.not, label %for.inc64, label %for.body53
 
 for.inc64:                                        ; preds = %for.inc60, %for.body18, %for.end41
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.039) #24
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.039) #23
   %cmp.i16.not = icmp eq ptr %call.i, %2
   br i1 %cmp.i16.not, label %for.end66, label %for.body18
 
@@ -4292,7 +4213,7 @@ terminate.lpad.i.i:                               ; preds = %for.end66
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  call void @__clang_call_terminate(ptr %20) #18
   unreachable
 
 return:                                           ; preds = %for.end66, %entry, %lor.lhs.false
@@ -4317,7 +4238,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad4, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad4 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4330,13 +4251,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA17_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA17_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA17_cEERKT_.exit
@@ -4347,7 +4268,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad4:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -4362,7 +4283,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad6 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4375,13 +4296,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA16_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA16_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA16_cEERKT_.exit
@@ -4392,7 +4313,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad6:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -4407,7 +4328,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad4, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad4 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4420,13 +4341,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA27_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA27_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA27_cEERKT_.exit
@@ -4437,7 +4358,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad4:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -4449,13 +4370,13 @@ declare void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef) local_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.49", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4463,12 +4384,12 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -4492,10 +4413,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4517,9 +4438,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt12__shared_ptrIN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -4537,7 +4458,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad16, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad16 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4550,13 +4471,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exi
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exit
@@ -4567,43 +4488,43 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad16:                                           ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer20ReadSubMeshOperationEPNS0_7SubMeshE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef writeonly %submesh) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   resume { ptr, i32 } %3
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
   %4 = load i16, ptr %1, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   %conv = zext i16 %4 to i32
-  %operationType = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %submesh, i64 0, i32 9
+  %operationType = getelementptr inbounds i8, ptr %submesh, i64 144
   store i32 %conv, ptr %operationType, align 8
   ret void
 }
@@ -4614,13 +4535,13 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %textureAliasName = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %submesh, i64 0, i32 4
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %textureAliasName = getelementptr inbounds i8, ptr %submesh, i64 72
+  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %textureAliasRef = getelementptr inbounds %"class.Assimp::Ogre::ISubMesh", ptr %submesh, i64 0, i32 5
-  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasRef, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #20
+  %textureAliasRef = getelementptr inbounds i8, ptr %submesh, i64 104
+  %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %textureAliasRef, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
   ret void
 }
 
@@ -4636,7 +4557,7 @@ terminate.lpad.i:                                 ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #19
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 
 _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEED2Ev.exit: ; preds = %entry
@@ -4654,14 +4575,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -4676,7 +4597,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad10, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad10 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4689,13 +4610,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA13_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA13_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA13_cEERKT_.exit
@@ -4706,7 +4627,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad10:                                           ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -4721,7 +4642,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad6 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -4734,13 +4655,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA25_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA25_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA25_cEERKT_.exit
@@ -4751,18 +4672,18 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad6:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer29ReadGeometryVertexDeclarationEPNS0_10VertexDataE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr nocapture noundef %dest) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -4774,9 +4695,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %3 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i229 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 3
+  %mEnd.i.i229 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %mEnd.i.i229, align 8
-  %mCurrent.i.i330 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 2
+  %mCurrent.i.i330 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %mCurrent.i.i330, align 8
   %sub.ptr.lhs.cast.i.i431 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i532 = ptrtoint ptr %5 to i64
@@ -4790,9 +4711,9 @@ if.then:                                          ; preds = %entry
 while.body:                                       ; preds = %if.then, %if.end
   tail call void @_ZN6Assimp4Ogre20OgreBinarySerializer25ReadGeometryVertexElementEPNS0_10VertexDataE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %dest)
   %6 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i10 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %6, i64 0, i32 3
+  %mEnd.i.i10 = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %mEnd.i.i10, align 8
-  %mCurrent.i.i11 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %6, i64 0, i32 2
+  %mCurrent.i.i11 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %mCurrent.i.i11, align 8
   %sub.ptr.lhs.cast.i.i12 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i13 = ptrtoint ptr %8 to i64
@@ -4804,9 +4725,9 @@ while.body:                                       ; preds = %if.then, %if.end
 if.end:                                           ; preds = %while.body
   %call6 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i2.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i2.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre44 = load ptr, ptr %mEnd.i.i2.phi.trans.insert, align 8
-  %mCurrent.i.i3.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i3.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre45 = load ptr, ptr %mCurrent.i.i3.phi.trans.insert, align 8
   %.pre46 = ptrtoint ptr %.pre44 to i64
   %.pre47 = ptrtoint ptr %.pre45 to i64
@@ -4824,27 +4745,27 @@ while.end:                                        ; preds = %if.end, %if.then
   br i1 %cmp.i8.lcssa, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %while.end
-  %mCurrent.i.i3.le = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa28, i64 0, i32 2
+  %mCurrent.i.i3.le = getelementptr inbounds i8, ptr %.lcssa28, i64 24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i3.le, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa28, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa28, i64 40
   %9 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %9
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end10
 
 if.then.i.i:                                      ; preds = %if.then8
-  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i) #19
   resume { ptr, i32 } %10
 
 if.end10:                                         ; preds = %while.body, %if.then8, %while.end, %entry
@@ -4859,23 +4780,23 @@ entry:
   %bindIndex = alloca i16, align 2
   %numBytes = alloca i64, align 8
   %ref.tmp = alloca %"class.std::shared_ptr.48", align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad9, %lpad18, %lpad3.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i.i12, %lpad.i.i.i
@@ -4885,7 +4806,7 @@ common.resume:                                    ; preds = %lpad, %lpad9, %lpad
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
@@ -4893,27 +4814,27 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   store i16 %4, ptr %bindIndex, align 2
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i6 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i6 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i6, align 8
   %add.ptr.i.i.i7 = getelementptr inbounds i8, ptr %6, i64 2
-  %mLimit.i.i.i8 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i8 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i8, align 8
   %cmp.i.i.i9 = icmp ugt ptr %add.ptr.i.i.i7, %7
   br i1 %cmp.i.i.i9, label %if.then.i.i.i10, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit14
 
 if.then.i.i.i10:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception.i.i.i11 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i11 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i11, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i13 unwind label %lpad.i.i.i12
 
 invoke.cont.i.i.i13:                              ; preds = %if.then.i.i.i10
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i12:                                     ; preds = %if.then.i.i.i10
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i11) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i11) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit14: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
@@ -4924,18 +4845,18 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit14: ; preds = %_ZN6Assimp4
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit14
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.34)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr %exception) #19
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit14
@@ -4945,18 +4866,18 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %exception8 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception8 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception8, ptr noundef nonnull @.str.35)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.then7
-  tail call void @__cxa_throw(ptr nonnull %exception8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad9:                                            ; preds = %if.then7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception8) #20
+  tail call void @__cxa_free_exception(ptr %exception8) #19
   br label %common.resume
 
 if.end11:                                         ; preds = %if.end
@@ -4964,63 +4885,63 @@ if.end11:                                         ; preds = %if.end
   %mul = mul i32 %12, %call4
   %conv13 = zext i32 %mul to i64
   store i64 %conv13, ptr %numBytes, align 8
-  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv13) #22
+  %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv13) #21
   %13 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 2
+  %mCurrent.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %mCurrent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %conv13
   store ptr %add.ptr.i.i.i.i, ptr %mCurrent.i.i.i.i.i, align 8
-  %mLimit.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 4
+  %mLimit.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %mLimit.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult ptr %15, %add.ptr.i.i.i.i
-  %mBuffer.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %13, i64 0, i32 1
+  %mBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load ptr, ptr %mBuffer.i.i.i.i.i, align 8
   %cmp4.i.i.i.i.i = icmp ugt ptr %16, %add.ptr.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.end11
-  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit: ; preds = %if.end11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr align 1 %14, i64 %conv13, i1 false)
   %call15 = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 40)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp14MemoryIOStreamE, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call15, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %call15, i64 8
   store ptr %call.i, ptr %buffer.i, align 8
-  %length.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call15, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %call15, i64 16
   store i64 %conv13, ptr %length.i, align 8
-  %pos.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call15, i64 0, i32 3
+  %pos.i = getelementptr inbounds i8, ptr %call15, i64 24
   store i64 0, ptr %pos.i, align 8
-  %own2.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call15, i64 0, i32 4
+  %own2.i = getelementptr inbounds i8, ptr %call15, i64 32
   store i8 1, ptr %own2.i, align 8
   store ptr %call15, ptr %ref.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.49", ptr %ref.tmp, i64 0, i32 1
-  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit unwind label %delete.end.i.i.i.i
 
 delete.end.i.i.i.i:                               ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #20
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #19
   %vtable.i.i.i.i = load ptr, ptr %call15, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %21 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(33) %call15) #20
-  invoke void @__cxa_rethrow() #21
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(33) %call15) #19
+  invoke void @__cxa_rethrow() #20
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %delete.end.i.i.i.i
@@ -5033,40 +4954,39 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #19
+  tail call void @__clang_call_terminate(ptr %24) #18
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %delete.end.i.i.i.i
   unreachable
 
 _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer9ReadBytesEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8
-  %_M_ptr.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call15, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
-  %vertexBindings = getelementptr inbounds %"class.Assimp::Ogre::VertexData", ptr %dest, i64 0, i32 2
+  %vertexBindings = getelementptr inbounds i8, ptr %dest, i64 152
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::VertexData", ptr %dest, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %dest, i64 168
   %25 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i15 = getelementptr inbounds %"class.Assimp::Ogre::VertexData", ptr %dest, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i15 = getelementptr inbounds i8, ptr %dest, i64 160
   %cmp.not5.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %25, %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i15, %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEC2IS1_vEEPT_.exit ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %26 = load i16, ptr %_M_storage.i.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i16 = icmp ult i16 %26, %4
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i16, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i16, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i16, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapItSt10shared_ptrIN6Assimp14MemoryIOStreamEESt4lessItESaISt4pairIKtS3_EEE11lower_boundERS7_.exit.i, label %while.body.i.i.i.i, !llvm.loop !22
@@ -5076,7 +4996,7 @@ _ZNSt3mapItSt10shared_ptrIN6Assimp14MemoryIOStreamEESt4lessItESaISt4pairIKtS3_EE
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapItSt10shared_ptrIN6Assimp14MemoryIOStreamEESt4lessItESaISt4pairIKtS3_EEE11lower_boundERS7_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %27 = load i16, ptr %_M_storage.i.i.i, align 2
   %cmp.i3.i = icmp ult i16 %4, %27
   br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont19
@@ -5089,19 +5009,19 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 
 invoke.cont19:                                    ; preds = %lor.rhs.i, %if.then.i
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call12.i17, %if.then.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr %call15, ptr %second.i, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 16
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 48
   %28 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i18 = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i.i18, label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEaSEOS2_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont19
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %28, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i19 = icmp eq i64 %29, 4294967297
   %30 = trunc i64 %29 to i32
@@ -5109,12 +5029,12 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont19
 
 if.then.i.i.i.i.i20:                              ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %28, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %28, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %31 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %28) #20
+  call void %31(ptr noundef nonnull align 8 dereferenceable(16) %28) #19
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -5138,10 +5058,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %28, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %34 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %28) #20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %28, i64 0, i32 2
+  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %28) #19
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 12
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -5163,9 +5083,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i20
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %28, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %38 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #20
+  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #19
   br label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEaSEOS2_.exit
 
 _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEaSEOS2_.exit: ; preds = %invoke.cont19, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
@@ -5174,7 +5094,7 @@ _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEaSEOS2_.exit: ; preds = %invoke.cont
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit, label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEaSEOS2_.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %39, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %40, 4294967297
   %41 = trunc i64 %40 to i32
@@ -5182,12 +5102,12 @@ if.then.i.i.i22:                                  ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i25:                                ; preds = %if.then.i.i.i22
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %39, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i26 = load ptr, ptr %39, align 8
-  %vfn.i.i.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i26, i64 2
+  %vfn.i.i.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i.i.i26, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i27, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
+  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i22
@@ -5211,10 +5131,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %39, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %45 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
-  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %39, i64 0, i32 2
+  call void %45(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
+  %_M_weak_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %39, i64 12
   %46 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %46, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -5236,9 +5156,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i25
   %vtable2.i.i.i.i.i.i = load ptr, ptr %39, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %49 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #20
+  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
   br label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit
 
 _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEEaSEOS2_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -5249,7 +5169,7 @@ _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %_ZNSt10shared_
 lpad18:                                           ; preds = %if.then.i
   %50 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #20
+  call void @_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -5260,23 +5180,23 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6Assimp4Ogre13VertexElementC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %element)
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %ehcleanup, %lpad.i.i.i39, %lpad.i.i.i29, %lpad.i.i.i19, %lpad.i.i.i9, %lpad.i.i.i
@@ -5286,125 +5206,125 @@ common.resume:                                    ; preds = %ehcleanup, %lpad.i.
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
   %4 = load i16, ptr %1, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
-  %source = getelementptr inbounds %"class.Assimp::Ogre::VertexElement", ptr %element, i64 0, i32 1
+  %source = getelementptr inbounds i8, ptr %element, i64 2
   store i16 %4, ptr %source, align 2
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i3 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i3 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i3, align 8
   %add.ptr.i.i.i4 = getelementptr inbounds i8, ptr %6, i64 2
-  %mLimit.i.i.i5 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i5, align 8
   %cmp.i.i.i6 = icmp ugt ptr %add.ptr.i.i.i4, %7
   br i1 %cmp.i.i.i6, label %if.then.i.i.i7, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit11
 
 if.then.i.i.i7:                                   ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception.i.i.i8 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i8 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i8, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i10 unwind label %lpad.i.i.i9
 
 invoke.cont.i.i.i10:                              ; preds = %if.then.i.i.i7
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i9:                                      ; preds = %if.then.i.i.i7
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i8) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i8) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit11: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
   %9 = load i16, ptr %6, align 1
   store ptr %add.ptr.i.i.i4, ptr %mCurrent.i.i.i3, align 8
   %conv = zext i16 %9 to i32
-  %type = getelementptr inbounds %"class.Assimp::Ogre::VertexElement", ptr %element, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %element, i64 8
   store i32 %conv, ptr %type, align 4
   %10 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i13 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 2
+  %mCurrent.i.i.i13 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %mCurrent.i.i.i13, align 8
   %add.ptr.i.i.i14 = getelementptr inbounds i8, ptr %11, i64 2
-  %mLimit.i.i.i15 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 4
+  %mLimit.i.i.i15 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %mLimit.i.i.i15, align 8
   %cmp.i.i.i16 = icmp ugt ptr %add.ptr.i.i.i14, %12
   br i1 %cmp.i.i.i16, label %if.then.i.i.i17, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit21
 
 if.then.i.i.i17:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit11
-  %exception.i.i.i18 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i18 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i18, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i20 unwind label %lpad.i.i.i19
 
 invoke.cont.i.i.i20:                              ; preds = %if.then.i.i.i17
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i18, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i18, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i19:                                     ; preds = %if.then.i.i.i17
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i18) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i18) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit21: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit11
   %14 = load i16, ptr %11, align 1
   store ptr %add.ptr.i.i.i14, ptr %mCurrent.i.i.i13, align 8
   %conv4 = zext i16 %14 to i32
-  %semantic = getelementptr inbounds %"class.Assimp::Ogre::VertexElement", ptr %element, i64 0, i32 4
+  %semantic = getelementptr inbounds i8, ptr %element, i64 12
   store i32 %conv4, ptr %semantic, align 4
   %15 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i23 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %15, i64 0, i32 2
+  %mCurrent.i.i.i23 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %mCurrent.i.i.i23, align 8
   %add.ptr.i.i.i24 = getelementptr inbounds i8, ptr %16, i64 2
-  %mLimit.i.i.i25 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %15, i64 0, i32 4
+  %mLimit.i.i.i25 = getelementptr inbounds i8, ptr %15, i64 40
   %17 = load ptr, ptr %mLimit.i.i.i25, align 8
   %cmp.i.i.i26 = icmp ugt ptr %add.ptr.i.i.i24, %17
   br i1 %cmp.i.i.i26, label %if.then.i.i.i27, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit31
 
 if.then.i.i.i27:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit21
-  %exception.i.i.i28 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i28 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i28, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i30 unwind label %lpad.i.i.i29
 
 invoke.cont.i.i.i30:                              ; preds = %if.then.i.i.i27
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i29:                                     ; preds = %if.then.i.i.i27
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i28) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i28) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit31: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit21
   %19 = load i16, ptr %16, align 1
   store ptr %add.ptr.i.i.i24, ptr %mCurrent.i.i.i23, align 8
-  %offset = getelementptr inbounds %"class.Assimp::Ogre::VertexElement", ptr %element, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %element, i64 4
   store i16 %19, ptr %offset, align 4
   %20 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i33 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %20, i64 0, i32 2
+  %mCurrent.i.i.i33 = getelementptr inbounds i8, ptr %20, i64 24
   %21 = load ptr, ptr %mCurrent.i.i.i33, align 8
   %add.ptr.i.i.i34 = getelementptr inbounds i8, ptr %21, i64 2
-  %mLimit.i.i.i35 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %20, i64 0, i32 4
+  %mLimit.i.i.i35 = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i.i35, align 8
   %cmp.i.i.i36 = icmp ugt ptr %add.ptr.i.i.i34, %22
   br i1 %cmp.i.i.i36, label %if.then.i.i.i37, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit41
 
 if.then.i.i.i37:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit31
-  %exception.i.i.i38 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i38 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i38, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i40 unwind label %lpad.i.i.i39
 
 invoke.cont.i.i.i40:                              ; preds = %if.then.i.i.i37
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i38, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i39:                                     ; preds = %if.then.i.i.i37
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i38) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i38) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit41: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit31
@@ -5421,12 +5341,12 @@ invoke.cont:                                      ; preds = %_ZN6Assimp4Ogre20Og
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  %vertexElements = getelementptr inbounds %"class.Assimp::Ogre::VertexData", ptr %dest, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::VertexData", ptr %dest, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  %vertexElements = getelementptr inbounds i8, ptr %dest, i64 128
+  %_M_finish.i = getelementptr inbounds i8, ptr %dest, i64 136
   %25 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::VertexData", ptr %dest, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %dest, i64 144
   %26 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %25, %26
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5434,7 +5354,7 @@ invoke.cont12:                                    ; preds = %invoke.cont
 if.then.i:                                        ; preds = %invoke.cont12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %element, i64 16, i1 false)
   %27 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.Assimp::Ogre::VertexElement", ptr %27, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE9push_backERKS2_.exit
 
@@ -5447,7 +5367,7 @@ if.else.i:                                        ; preds = %invoke.cont12
   br i1 %cmp.i.i.i42, label %if.then.i.i.i43, label %_ZNKSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i43:                                  ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -5462,7 +5382,7 @@ _ZNKSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE12_M_check_lenEmPKc.exit.i.i:
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre13VertexElementESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre13VertexElementESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -5476,19 +5396,19 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp4Ogre13VertexElementESaIS2_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %28, %_ZNSt12_Vector_baseIN6Assimp4Ogre13VertexElementESaIS2_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !23
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::VertexElement", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.Assimp::Ogre::VertexElement", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %25
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !27
 
 _ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp4Ogre13VertexElementESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp4Ogre13VertexElementESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.Assimp::Ogre::VertexElement", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %28) #23
+  call void @_ZdlPv(ptr noundef nonnull %28) #22
   br label %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN6Assimp4Ogre13VertexElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
@@ -5509,12 +5429,12 @@ lpad:                                             ; preds = %_ZN6Assimp4Ogre20Og
 lpad11:                                           ; preds = %invoke.cont
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad11, %lpad
   %.pn = phi { ptr, i32 } [ %31, %lpad11 ], [ %30, %lpad ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -5531,7 +5451,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad16, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad16 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -5544,13 +5464,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA22_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA22_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA22_cEERKT_.exit
@@ -5561,7 +5481,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad16:                                           ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -5582,7 +5502,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad10, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad10 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -5595,13 +5515,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA37_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA37_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA37_cEERKT_.exit
@@ -5612,7 +5532,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad10:                                           ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -5620,11 +5540,11 @@ lpad10:                                           ; preds = %invoke.cont
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadPoseVerticesEPNS0_4PoseE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %pose) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"struct.Assimp::Ogre::Pose::Vertex", align 4
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -5636,9 +5556,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %3 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i364 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 3
+  %mEnd.i.i364 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %mEnd.i.i364, align 8
-  %mCurrent.i.i465 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 2
+  %mCurrent.i.i465 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %mCurrent.i.i465, align 8
   %sub.ptr.lhs.cast.i.i566 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i667 = ptrtoint ptr %5 to i64
@@ -5650,10 +5570,10 @@ if.then:                                          ; preds = %entry
   br i1 %.not72, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %offset.i = getelementptr inbounds %"struct.Assimp::Ogre::Pose::Vertex", ptr %v, i64 0, i32 1
-  %hasNormals = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %pose, i64 0, i32 2
-  %normal = getelementptr inbounds %"struct.Assimp::Ogre::Pose::Vertex", ptr %v, i64 0, i32 2
-  %vertices = getelementptr inbounds %"class.Assimp::Ogre::Pose", ptr %pose, i64 0, i32 3
+  %offset.i = getelementptr inbounds i8, ptr %v, i64 4
+  %hasNormals = getelementptr inbounds i8, ptr %pose, i64 34
+  %normal = getelementptr inbounds i8, ptr %v, i64 16
+  %vertices = getelementptr inbounds i8, ptr %pose, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end11
@@ -5662,24 +5582,24 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %offset.i, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %mCurrent.i.i473, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %6, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %8 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %while.body
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i29, %lpad.i.i.i17, %lpad.i.i.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %lpad.i.i ], [ %exception.i.i.i28, %lpad.i.i.i29 ], [ %exception.i.i.i16, %lpad.i.i.i17 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %27, %lpad.i.i ], [ %22, %lpad.i.i.i29 ], [ %15, %lpad.i.i.i17 ], [ %9, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.sink) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -5692,26 +5612,26 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit: ; preds = %while.body
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i473, align 8
   store i32 %10, ptr %v, align 4
   %11 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i12 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 2
+  %mCurrent.i.i.i12 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %mCurrent.i.i.i12, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 12
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i12, align 8
-  %mLimit.i.i.i13 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 4
+  %mLimit.i.i.i13 = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load ptr, ptr %mLimit.i.i.i13, align 8
   %cmp.i.i.i14 = icmp ult ptr %13, %add.ptr.i.i
-  %mBuffer.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 1
+  %mBuffer.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load ptr, ptr %mBuffer.i.i.i, align 8
   %cmp4.i.i.i = icmp ugt ptr %14, %add.ptr.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i14, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i15, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
 
 if.then.i.i.i15:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIjEET_v.exit
-  %exception.i.i.i16 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i16 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i16, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i18 unwind label %lpad.i.i.i17
 
 invoke.cont.i.i.i18:                              ; preds = %if.then.i.i.i15
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i16, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i16, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i17:                                     ; preds = %if.then.i.i.i15
@@ -5728,26 +5648,26 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds
 
 if.then5:                                         ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
   %18 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i20 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 2
+  %mCurrent.i.i.i20 = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %mCurrent.i.i.i20, align 8
   %add.ptr.i.i21 = getelementptr inbounds i8, ptr %19, i64 12
   store ptr %add.ptr.i.i21, ptr %mCurrent.i.i.i20, align 8
-  %mLimit.i.i.i22 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 4
+  %mLimit.i.i.i22 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %mLimit.i.i.i22, align 8
   %cmp.i.i.i23 = icmp ult ptr %20, %add.ptr.i.i21
-  %mBuffer.i.i.i24 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 1
+  %mBuffer.i.i.i24 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load ptr, ptr %mBuffer.i.i.i24, align 8
   %cmp4.i.i.i25 = icmp ugt ptr %21, %add.ptr.i.i21
   %or.cond.i.i.i26 = select i1 %cmp.i.i.i23, i1 true, i1 %cmp4.i.i.i25
   br i1 %or.cond.i.i.i26, label %if.then.i.i.i27, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit31
 
 if.then.i.i.i27:                                  ; preds = %if.then5
-  %exception.i.i.i28 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i28 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i28, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i30 unwind label %lpad.i.i.i29
 
 invoke.cont.i.i.i30:                              ; preds = %if.then.i.i.i27
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i28, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i29:                                     ; preds = %if.then.i.i.i27
@@ -5763,9 +5683,9 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
   %call7 = call noundef nonnull align 4 dereferenceable(28) ptr @_ZNSt3mapIjN6Assimp4Ogre4Pose6VertexESt4lessIjESaISt4pairIKjS3_EEEixERS7_(ptr noundef nonnull align 8 dereferenceable(48) %vertices, ptr noundef nonnull align 4 dereferenceable(4) %v)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %call7, ptr noundef nonnull align 4 dereferenceable(28) %v, i64 28, i1 false)
   %23 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i33 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %23, i64 0, i32 3
+  %mEnd.i.i33 = getelementptr inbounds i8, ptr %23, i64 32
   %24 = load ptr, ptr %mEnd.i.i33, align 8
-  %mCurrent.i.i34 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %23, i64 0, i32 2
+  %mCurrent.i.i34 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %mCurrent.i.i34, align 8
   %sub.ptr.lhs.cast.i.i35 = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i.i36 = ptrtoint ptr %25 to i64
@@ -5777,15 +5697,15 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
 if.end11:                                         ; preds = %if.end
   %call10 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i3.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i3.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre81 = load ptr, ptr %mEnd.i.i3.phi.trans.insert, align 8
-  %mCurrent.i.i4.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i4.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre82 = load ptr, ptr %mCurrent.i.i4.phi.trans.insert, align 8
   %.pre83 = ptrtoint ptr %.pre81 to i64
   %.pre84 = ptrtoint ptr %.pre82 to i64
   %.pre85 = sub i64 %.pre83, %.pre84
   %.pre86 = and i64 %.pre85, 4294967295
-  %mCurrent.i.i4 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i4 = getelementptr inbounds i8, ptr %.pre, i64 24
   %cmp.i9 = icmp eq i64 %.pre86, 0
   %cmp = icmp ne i16 %call10, -16111
   %.not = or i1 %cmp, %cmp.i9
@@ -5801,18 +5721,18 @@ while.end:                                        ; preds = %if.end11, %if.then
 if.then13:                                        ; preds = %while.end
   %add.ptr.i.i50 = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i50, ptr %mCurrent.i.i4.lcssa, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa60, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa60, i64 40
   %26 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i50, %26
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end15
 
 if.then.i.i:                                      ; preds = %if.then13
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
@@ -5837,13 +5757,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ult i32 %1, %.pre
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapIjN6Assimp4Ogre4Pose6VertexESt4lessIjESaISt4pairIKjS3_EEE11lower_boundERS7_.exit, label %while.body.i.i.i, !llvm.loop !29
@@ -5853,17 +5772,17 @@ _ZNSt3mapIjN6Assimp4Ogre4Pose6VertexESt4lessIjESaISt4pairIKjS3_EEE11lower_boundE
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapIjN6Assimp4Ogre4Pose6VertexESt4lessIjESaISt4pairIKjS3_EEE11lower_boundERS7_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i, align 4
   %cmp.i3 = icmp ult i32 %.pre, %2
   br i1 %cmp.i3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt3mapIjN6Assimp4Ogre4Pose6VertexESt4lessIjESaISt4pairIKjS3_EEE11lower_boundERS7_.exit, %lor.rhs
   %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapIjN6Assimp4Ogre4Pose6VertexESt4lessIjESaISt4pairIKjS3_EEE11lower_boundERS7_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
-  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
-  %_M_storage.i.i.i.i.i4 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
+  %_M_storage.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
   store i32 %.pre, ptr %_M_storage.i.i.i.i.i4, align 4
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %second.i.i.i.i.i.i.i.i, i8 0, i64 28, i1 false)
   %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjN6Assimp4Ogre4Pose6VertexEESt10_Select1stIS6_ESt4lessIjESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i4)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIjSt4pairIKjN6Assimp4Ogre4Pose6VertexEESt10_Select1stIS6_ESt4lessIjESaIS6_EE10_Auto_nodeD2Ev.exit.i
@@ -5881,7 +5800,7 @@ if.then.i:                                        ; preds = %invoke.cont7.i
   br i1 %or.cond.i.i.i, label %cleanup.thread.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i.i4, align 4
   %6 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i6 = icmp ult i32 %5, %6
@@ -5889,7 +5808,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i
 
 cleanup.thread.i:                                 ; preds = %lor.rhs.i.i.i, %if.then.i
   %7 = phi i1 [ true, %if.then.i ], [ %cmp.i.i.i.i6, %lor.rhs.i.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #20
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #19
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %8, 1
@@ -5899,16 +5818,16 @@ cleanup.thread.i:                                 ; preds = %lor.rhs.i.i.i, %if.
 _ZNSt8_Rb_treeIjSt4pairIKjN6Assimp4Ogre4Pose6VertexEESt10_Select1stIS6_ESt4lessIjESaIS6_EE10_Auto_nodeD2Ev.exit.i: ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #22
   resume { ptr, i32 } %9
 
 if.then.i7.i:                                     ; preds = %invoke.cont7.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i7.i, %cleanup.thread.i, %lor.rhs
   %__i.sroa.0.0 = phi ptr [ %__y.addr.1.i.i.i, %lor.rhs ], [ %call5.i.i.i.i.i.i, %cleanup.thread.i ], [ %3, %if.then.i7.i ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__i.sroa.0.0, i64 0, i32 1, i32 0, i64 4
+  %second = getelementptr inbounds i8, ptr %__i.sroa.0.0, i64 36
   ret ptr %second
 }
 
@@ -5922,11 +5841,11 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer13ReadAnimationEPNS0_9A
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %track = alloca %"struct.Assimp::Ogre::VertexAnimationTrack", align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -5942,25 +5861,25 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %baseName = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %anim, i64 0, i32 3
-  %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %baseName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %baseName = getelementptr inbounds i8, ptr %anim, i64 48
+  %call4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %baseName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %3 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %5
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %if.then3
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.body, %lpad.i.i.i
@@ -5970,13 +5889,13 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad.bod
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %if.then3
   %7 = load float, ptr %4, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
-  %baseTime = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %anim, i64 0, i32 5
+  %baseTime = getelementptr inbounds i8, ptr %anim, i64 84
   store float %7, ptr %baseTime, align 4
   %call6 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   br label %if.end
@@ -5984,9 +5903,9 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %if.then3
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit, %if.then
   %id.0 = phi i16 [ %call6, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit ], [ %call2, %if.then ]
   %8 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i772 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 3
+  %mEnd.i.i772 = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %mEnd.i.i772, align 8
-  %mCurrent.i.i873 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 2
+  %mCurrent.i.i873 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %mCurrent.i.i873, align 8
   %sub.ptr.lhs.cast.i.i974 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i1075 = ptrtoint ptr %10 to i64
@@ -5998,31 +5917,31 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %.not80, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %target = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %anim, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %anim, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
-  %tracks = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %anim, i64 0, i32 6
+  %target = getelementptr inbounds i8, ptr %track, i64 4
+  %_M_finish.i = getelementptr inbounds i8, ptr %anim, i64 96
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %anim, i64 104
+  %tracks = getelementptr inbounds i8, ptr %anim, i64 88
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end21
   call void @_ZN6Assimp4Ogre20VertexAnimationTrackC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %track)
   %11 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i15 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 2
+  %mCurrent.i.i.i15 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %mCurrent.i.i.i15, align 8
   %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %12, i64 2
-  %mLimit.i.i.i17 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 4
+  %mLimit.i.i.i17 = getelementptr inbounds i8, ptr %11, i64 40
   %13 = load ptr, ptr %mLimit.i.i.i17, align 8
   %cmp.i.i.i18 = icmp ugt ptr %add.ptr.i.i.i16, %13
   br i1 %cmp.i.i.i18, label %if.then.i.i.i19, label %invoke.cont
 
 if.then.i.i.i19:                                  ; preds = %while.body
-  %exception.i.i.i20 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i20 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i20, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i22.invoke unwind label %lpad.i.i.i21
 
 invoke.cont.i.i.i22.invoke:                       ; preds = %if.then.i.i.i28, %if.then.i.i.i19
   %14 = phi ptr [ %exception.i.i.i20, %if.then.i.i.i19 ], [ %exception.i.i.i29, %if.then.i.i.i28 ]
-  invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %invoke.cont.i.i.i22.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont.i.i.i22.cont:                         ; preds = %invoke.cont.i.i.i22.invoke
@@ -6031,7 +5950,7 @@ invoke.cont.i.i.i22.cont:                         ; preds = %invoke.cont.i.i.i22
 lpad.i.i.i21:                                     ; preds = %if.then.i.i.i19
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i20) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i20) #19
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %while.body
@@ -6040,23 +5959,23 @@ invoke.cont:                                      ; preds = %while.body
   %conv11 = zext i16 %16 to i32
   store i32 %conv11, ptr %track, align 8
   %17 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i24 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 2
+  %mCurrent.i.i.i24 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %mCurrent.i.i.i24, align 8
   %add.ptr.i.i.i25 = getelementptr inbounds i8, ptr %18, i64 2
-  %mLimit.i.i.i26 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 4
+  %mLimit.i.i.i26 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %mLimit.i.i.i26, align 8
   %cmp.i.i.i27 = icmp ugt ptr %add.ptr.i.i.i25, %19
   br i1 %cmp.i.i.i27, label %if.then.i.i.i28, label %invoke.cont12
 
 if.then.i.i.i28:                                  ; preds = %invoke.cont
-  %exception.i.i.i29 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i29 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i29, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i22.invoke unwind label %lpad.i.i.i30
 
 lpad.i.i.i30:                                     ; preds = %if.then.i.i.i28
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i29) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i29) #19
   br label %lpad.body
 
 invoke.cont12:                                    ; preds = %invoke.cont
@@ -6078,7 +5997,7 @@ if.then.i:                                        ; preds = %invoke.cont14
 
 .noexc36:                                         ; preds = %if.then.i
   %24 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %24, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %24, i64 112
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont16
 
@@ -6088,9 +6007,9 @@ if.else.i:                                        ; preds = %invoke.cont14
 
 invoke.cont16:                                    ; preds = %if.else.i, %.noexc36
   %25 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i39 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %25, i64 0, i32 3
+  %mEnd.i.i39 = getelementptr inbounds i8, ptr %25, i64 32
   %26 = load ptr, ptr %mEnd.i.i39, align 8
-  %mCurrent.i.i40 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %25, i64 0, i32 2
+  %mCurrent.i.i40 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %mCurrent.i.i40, align 8
   %sub.ptr.lhs.cast.i.i41 = ptrtoint ptr %26 to i64
   %sub.ptr.rhs.cast.i.i42 = ptrtoint ptr %27 to i64
@@ -6115,16 +6034,16 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont.i.i.i22
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i.i30, %lpad.i.i.i21
   %eh.lpad-body = phi { ptr, i32 } [ %15, %lpad.i.i.i21 ], [ %20, %lpad.i.i.i30 ], [ %lpad.loopexit56, %lpad.loopexit ], [ %lpad.loopexit.split-lp57, %lpad.loopexit.split-lp ]
-  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #20
+  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #19
   br label %common.resume
 
 if.end21:                                         ; preds = %if.then18, %invoke.cont16
   %id.2 = phi i16 [ -12016, %invoke.cont16 ], [ %call20, %if.then18 ]
-  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #20
+  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #19
   %28 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i7 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %28, i64 0, i32 3
+  %mEnd.i.i7 = getelementptr inbounds i8, ptr %28, i64 32
   %29 = load ptr, ptr %mEnd.i.i7, align 8
-  %mCurrent.i.i8 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %28, i64 0, i32 2
+  %mCurrent.i.i8 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %mCurrent.i.i8, align 8
   %sub.ptr.lhs.cast.i.i9 = ptrtoint ptr %29 to i64
   %sub.ptr.rhs.cast.i.i10 = ptrtoint ptr %30 to i64
@@ -6142,27 +6061,27 @@ while.end:                                        ; preds = %if.end21, %if.end
   br i1 %cmp.i13.lcssa, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %while.end
-  %mCurrent.i.i8.le = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa71, i64 0, i32 2
+  %mCurrent.i.i8.le = getelementptr inbounds i8, ptr %.lcssa71, i64 24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i8.le, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa71, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa71, i64 40
   %31 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %31
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end25
 
 if.then.i.i:                                      ; preds = %if.then23
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %common.resume
 
 if.end25:                                         ; preds = %if.then23, %while.end, %entry
@@ -6176,11 +6095,11 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer22ReadAnimationKeyFrame
 entry:
   %kf = alloca %"struct.Assimp::Ogre::MorphKeyFrame", align 8
   %kf29 = alloca %"struct.Assimp::Ogre::PoseKeyFrame", align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -6192,9 +6111,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %3 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i10316 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 3
+  %mEnd.i.i10316 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %mEnd.i.i10316, align 8
-  %mCurrent.i.i11317 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %3, i64 0, i32 2
+  %mCurrent.i.i11317 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %mCurrent.i.i11317, align 8
   %sub.ptr.lhs.cast.i.i12318 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i13319 = ptrtoint ptr %5 to i64
@@ -6204,17 +6123,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i16322, label %if.end75, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then
-  %references.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %kf29, i64 0, i32 1
-  %_M_finish.i132 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %kf29, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i133 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %kf29, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_finish.i169 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i170 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %poseKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 3
-  %buffer.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %kf, i64 0, i32 1
-  %_M_refcount3.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %kf, i64 0, i32 1, i32 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %morphKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 4
+  %references.i = getelementptr inbounds i8, ptr %kf29, i64 8
+  %_M_finish.i132 = getelementptr inbounds i8, ptr %kf29, i64 16
+  %_M_end_of_storage.i133 = getelementptr inbounds i8, ptr %kf29, i64 24
+  %_M_finish.i169 = getelementptr inbounds i8, ptr %track, i64 48
+  %_M_end_of_storage.i170 = getelementptr inbounds i8, ptr %track, i64 56
+  %poseKeyFrames = getelementptr inbounds i8, ptr %track, i64 40
+  %buffer.i = getelementptr inbounds i8, ptr %kf, i64 8
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %kf, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %track, i64 72
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %track, i64 80
+  %morphKeyFrames = getelementptr inbounds i8, ptr %track, i64 64
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end70
@@ -6236,19 +6155,19 @@ while.body:                                       ; preds = %land.rhs
 if.then8:                                         ; preds = %while.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer.i, i8 0, i64 16, i1 false)
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %10 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %10
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont
 
 if.then.i.i.i:                                    ; preds = %if.then8
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i.invoke unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i.invoke:                         ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i24, %if.then.i.i.i
   %11 = phi ptr [ %exception.i.i.i, %if.then.i.i.i ], [ %exception.i.i.i25, %if.then.i.i.i24 ], [ %exception.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %invoke.cont.i.i.i.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont.i.i.i.cont:                           ; preds = %invoke.cont.i.i.i.invoke
@@ -6257,7 +6176,7 @@ invoke.cont.i.i.i.cont:                           ; preds = %invoke.cont.i.i.i.i
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %lpad.body
 
 invoke.cont:                                      ; preds = %if.then8
@@ -6265,23 +6184,23 @@ invoke.cont:                                      ; preds = %if.then8
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i11325, align 8
   store float %13, ptr %kf, align 8
   %14 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i19 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %14, i64 0, i32 2
+  %mCurrent.i.i.i19 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %mCurrent.i.i.i19, align 8
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %15, i64 1
-  %mLimit.i.i.i21 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %14, i64 0, i32 4
+  %mLimit.i.i.i21 = getelementptr inbounds i8, ptr %14, i64 40
   %16 = load ptr, ptr %mLimit.i.i.i21, align 8
   %cmp.i.i.i22 = icmp ugt ptr %add.ptr.i.i.i20, %16
   br i1 %cmp.i.i.i22, label %if.then.i.i.i24, label %invoke.cont10
 
 if.then.i.i.i24:                                  ; preds = %invoke.cont
-  %exception.i.i.i25 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i25 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i25, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i.invoke unwind label %lpad.i.i.i26
 
 lpad.i.i.i26:                                     ; preds = %if.then.i.i.i24
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i25) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i25) #19
   br label %lpad.body
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -6296,33 +6215,33 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   %conv14 = zext i32 %19 to i64
   %mul = select i1 %cmp.i23.not, i64 12, i64 24
   %mul16 = mul nuw nsw i64 %mul, %conv14
-  %call.i31 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %mul16) #22
+  %call.i31 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %mul16) #21
           to label %call.i.noexc unwind label %lpad.loopexit216
 
 call.i.noexc:                                     ; preds = %invoke.cont12
   %20 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %20, i64 0, i32 2
+  %mCurrent.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 24
   %21 = load ptr, ptr %mCurrent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 %mul16
   store ptr %add.ptr.i.i.i.i, ptr %mCurrent.i.i.i.i.i, align 8
-  %mLimit.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %20, i64 0, i32 4
+  %mLimit.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 40
   %22 = load ptr, ptr %mLimit.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult ptr %22, %add.ptr.i.i.i.i
-  %mBuffer.i.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %20, i64 0, i32 1
+  %mBuffer.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load ptr, ptr %mBuffer.i.i.i.i.i, align 8
   %cmp4.i.i.i.i.i = icmp ugt ptr %23, %add.ptr.i.i.i.i
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.then.i.i.i.i.i, label %invoke.cont17
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.noexc
-  %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i.invoke unwind label %lpad.i.i.i.i.i
 
 lpad.i.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i.i.i) #19
   br label %lpad.body
 
 invoke.cont17:                                    ; preds = %call.i.noexc
@@ -6332,27 +6251,27 @@ invoke.cont17:                                    ; preds = %call.i.noexc
 
 invoke.cont19:                                    ; preds = %invoke.cont17
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp14MemoryIOStreamE, i64 0, inrange i32 0, i64 2), ptr %call20, align 8
-  %buffer.i35 = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call20, i64 0, i32 1
+  %buffer.i35 = getelementptr inbounds i8, ptr %call20, i64 8
   store ptr %call.i31, ptr %buffer.i35, align 8
-  %length.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call20, i64 0, i32 2
+  %length.i = getelementptr inbounds i8, ptr %call20, i64 16
   store i64 %mul16, ptr %length.i, align 8
-  %pos.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call20, i64 0, i32 3
+  %pos.i = getelementptr inbounds i8, ptr %call20, i64 24
   store i64 0, ptr %pos.i, align 8
-  %own2.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %call20, i64 0, i32 4
+  %own2.i = getelementptr inbounds i8, ptr %call20, i64 32
   store i8 1, ptr %own2.i, align 8
-  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %invoke.cont23 unwind label %delete.end.i.i.i.i
 
 delete.end.i.i.i.i:                               ; preds = %invoke.cont19
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  %27 = call ptr @__cxa_begin_catch(ptr %26) #20
+  %27 = call ptr @__cxa_begin_catch(ptr %26) #19
   %vtable.i.i.i.i = load ptr, ptr %call20, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %28 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(33) %call20) #20
-  invoke void @__cxa_rethrow() #21
+  call void %28(ptr noundef nonnull align 8 dereferenceable(33) %call20) #19
+  invoke void @__cxa_rethrow() #20
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %delete.end.i.i.i.i
@@ -6365,19 +6284,19 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #19
+  call void @__clang_call_terminate(ptr %31) #18
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %delete.end.i.i.i.i
   unreachable
 
 invoke.cont23:                                    ; preds = %invoke.cont19
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8
-  %_M_ptr.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call20, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call20, ptr %buffer.i, align 8
   %32 = load ptr, ptr %_M_refcount3.i.i.i, align 8
@@ -6386,7 +6305,7 @@ invoke.cont23:                                    ; preds = %invoke.cont19
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont23
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i38 = icmp eq i64 %33, 4294967297
   %34 = trunc i64 %33 to i32
@@ -6394,12 +6313,12 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont23
 
 if.then.i.i.i.i.i39:                              ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %32, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %35 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %32) #20
+  call void %35(ptr noundef nonnull align 8 dereferenceable(16) %32) #19
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -6423,10 +6342,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %32, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %38 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %32) #20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 2
+  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %32) #19
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 12
   %39 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %39, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -6448,9 +6367,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i39
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %32, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %42 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #20
+  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #19
   br label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit
 
 _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %invoke.cont23
@@ -6462,17 +6381,17 @@ _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %if.end8.sink.s
 if.then.i:                                        ; preds = %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit
   %45 = load float, ptr %kf, align 8
   store float %45, ptr %43, align 8
-  %buffer.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %43, i64 0, i32 1
+  %buffer.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
   %46 = load ptr, ptr %buffer.i, align 8
   store ptr %46, ptr %buffer.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %43, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 16
   %47 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %47, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %47, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i.i47
 
 if.then.i.i.i.i.i.i.i47:                          ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %47, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -6489,7 +6408,7 @@ if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %if.then.i
   %51 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %51, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %51, i64 24
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont25
 
@@ -6503,7 +6422,7 @@ invoke.cont25:                                    ; preds = %_ZNSt16allocator_tr
   br i1 %cmp.not.i.i.i.i49, label %if.end66, label %if.then.i.i.i.i50
 
 if.then.i.i.i.i50:                                ; preds = %invoke.cont25
-  %_M_use_count.i.i.i.i.i51 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %52, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i51 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load atomic i64, ptr %_M_use_count.i.i.i.i.i51 acquire, align 8
   %cmp.i.i.i.i.i52 = icmp eq i64 %53, 4294967297
   %54 = trunc i64 %53 to i32
@@ -6511,12 +6430,12 @@ if.then.i.i.i.i50:                                ; preds = %invoke.cont25
 
 if.then.i.i.i.i.i75:                              ; preds = %if.then.i.i.i.i50
   store i32 0, ptr %_M_use_count.i.i.i.i.i51, align 8
-  %_M_weak_count.i.i.i.i.i76 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %52, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i76 = getelementptr inbounds i8, ptr %52, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i76, align 4
   %vtable.i.i.i.i.i77 = load ptr, ptr %52, align 8
-  %vfn.i.i.i.i.i78 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i77, i64 2
+  %vfn.i.i.i.i.i78 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i77, i64 16
   %55 = load ptr, ptr %vfn.i.i.i.i.i78, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #20
+  call void %55(ptr noundef nonnull align 8 dereferenceable(16) %52) #19
   br label %if.end8.sink.split.i.i.i.i.i70
 
 if.end.i.i.i.i.i53:                               ; preds = %if.then.i.i.i.i50
@@ -6540,10 +6459,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57: ; preds = %if.e
 
 if.then7.i.i.i.i.i60:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57
   %vtable.i.i.i.i.i.i.i61 = load ptr, ptr %52, align 8
-  %vfn.i.i.i.i.i.i.i62 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i61, i64 2
+  %vfn.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i61, i64 16
   %58 = load ptr, ptr %vfn.i.i.i.i.i.i.i62, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #20
-  %_M_weak_count.i.i.i.i.i.i.i63 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %52, i64 0, i32 2
+  call void %58(ptr noundef nonnull align 8 dereferenceable(16) %52) #19
+  %_M_weak_count.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %52, i64 12
   %59 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i64 = icmp eq i8 %59, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i64, label %if.else.i.i.i.i.i.i.i.i73, label %if.then.i.i.i.i.i.i.i.i65
@@ -6565,9 +6484,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i70:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67, %if.then.i.i.i.i.i75
   %vtable2.i.i.i.i.i.i.i71 = load ptr, ptr %52, align 8
-  %vfn3.i.i.i.i.i.i.i72 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i71, i64 3
+  %vfn3.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i71, i64 24
   %62 = load ptr, ptr %vfn3.i.i.i.i.i.i.i72, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #20
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %52) #19
   br label %if.end66
 
 lpad.loopexit216:                                 ; preds = %invoke.cont10, %invoke.cont17, %invoke.cont12, %if.else.i
@@ -6582,27 +6501,27 @@ lpad.loopexit.split-lp:                           ; preds = %invoke.cont.i.i.i.i
 
 lpad.body:                                        ; preds = %lpad.loopexit216, %lpad.loopexit.split-lp, %lpad.i.i.i26, %lpad3.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i ], [ %17, %lpad.i.i.i26 ], [ %24, %lpad.i.i.i.i.i ], [ %29, %lpad3.i.i.i.i ], [ %lpad.loopexit217, %lpad.loopexit216 ], [ %lpad.loopexit.split-lp218, %lpad.loopexit.split-lp ]
-  call void @_ZN6Assimp4Ogre13MorphKeyFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %kf) #20
+  call void @_ZN6Assimp4Ogre13MorphKeyFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %kf) #19
   br label %common.resume
 
 if.then28:                                        ; preds = %while.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %references.i, i8 0, i64 24, i1 false)
   %63 = load ptr, ptr %mCurrent.i.i11325, align 8
   %add.ptr.i.i.i81 = getelementptr inbounds i8, ptr %63, i64 4
-  %mLimit.i.i.i82 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 4
+  %mLimit.i.i.i82 = getelementptr inbounds i8, ptr %7, i64 40
   %64 = load ptr, ptr %mLimit.i.i.i82, align 8
   %cmp.i.i.i83 = icmp ugt ptr %add.ptr.i.i.i81, %64
   br i1 %cmp.i.i.i83, label %if.then.i.i.i84, label %invoke.cont34
 
 if.then.i.i.i84:                                  ; preds = %if.then28
-  %exception.i.i.i85 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i85 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i85, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.invoke unwind label %lpad.i.i.i86
 
 lpad.i.i.i86:                                     ; preds = %if.then.i.i.i84
   %65 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i85) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i85) #19
   br label %lpad30.body
 
 invoke.cont34:                                    ; preds = %if.then28
@@ -6610,9 +6529,9 @@ invoke.cont34:                                    ; preds = %if.then28
   store ptr %add.ptr.i.i.i81, ptr %mCurrent.i.i11325, align 8
   store float %66, ptr %kf29, align 8
   %67 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i92 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %67, i64 0, i32 3
+  %mEnd.i.i92 = getelementptr inbounds i8, ptr %67, i64 32
   %68 = load ptr, ptr %mEnd.i.i92, align 8
-  %mCurrent.i.i93 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %67, i64 0, i32 2
+  %mCurrent.i.i93 = getelementptr inbounds i8, ptr %67, i64 24
   %69 = load ptr, ptr %mCurrent.i.i93, align 8
   %sub.ptr.lhs.cast.i.i94 = ptrtoint ptr %68 to i64
   %sub.ptr.rhs.cast.i.i95 = ptrtoint ptr %69 to i64
@@ -6627,9 +6546,9 @@ if.then36:                                        ; preds = %invoke.cont34
 
 invoke.cont40.preheader:                          ; preds = %if.then36
   %70 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i100300 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %70, i64 0, i32 3
+  %mEnd.i.i100300 = getelementptr inbounds i8, ptr %70, i64 32
   %71 = load ptr, ptr %mEnd.i.i100300, align 8
-  %mCurrent.i.i101301 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %70, i64 0, i32 2
+  %mCurrent.i.i101301 = getelementptr inbounds i8, ptr %70, i64 24
   %72 = load ptr, ptr %mCurrent.i.i101301, align 8
   %sub.ptr.lhs.cast.i.i102302 = ptrtoint ptr %71 to i64
   %sub.ptr.rhs.cast.i.i103303 = ptrtoint ptr %72 to i64
@@ -6646,20 +6565,20 @@ while.body46:                                     ; preds = %invoke.cont40.prehe
   %74 = phi ptr [ %.pre, %if.end ], [ %70, %invoke.cont40.preheader ]
   %pr.sroa.0.1309 = phi i32 [ %pr.sroa.0.0.insert.insert, %if.end ], [ %pr.sroa.0.0323, %invoke.cont40.preheader ]
   %add.ptr.i.i.i109 = getelementptr inbounds i8, ptr %73, i64 2
-  %mLimit.i.i.i110 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %74, i64 0, i32 4
+  %mLimit.i.i.i110 = getelementptr inbounds i8, ptr %74, i64 40
   %75 = load ptr, ptr %mLimit.i.i.i110, align 8
   %cmp.i.i.i111 = icmp ugt ptr %add.ptr.i.i.i109, %75
   br i1 %cmp.i.i.i111, label %if.then.i.i.i112, label %invoke.cont47
 
 if.then.i.i.i112:                                 ; preds = %while.body46
-  %exception.i.i.i113 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i113 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i113, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.invoke unwind label %lpad.i.i.i114
 
 lpad.i.i.i114:                                    ; preds = %if.then.i.i.i112
   %76 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i113) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i113) #19
   br label %lpad30.body
 
 invoke.cont47:                                    ; preds = %while.body46
@@ -6669,23 +6588,23 @@ invoke.cont47:                                    ; preds = %while.body46
   %pr.sroa.0.0.insert.mask = and i32 %pr.sroa.0.1309, -65536
   %pr.sroa.0.0.insert.insert = or disjoint i32 %pr.sroa.0.0.insert.mask, %pr.sroa.0.0.insert.ext
   %78 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i120 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %78, i64 0, i32 2
+  %mCurrent.i.i.i120 = getelementptr inbounds i8, ptr %78, i64 24
   %79 = load ptr, ptr %mCurrent.i.i.i120, align 8
   %add.ptr.i.i.i121 = getelementptr inbounds i8, ptr %79, i64 4
-  %mLimit.i.i.i122 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %78, i64 0, i32 4
+  %mLimit.i.i.i122 = getelementptr inbounds i8, ptr %78, i64 40
   %80 = load ptr, ptr %mLimit.i.i.i122, align 8
   %cmp.i.i.i123 = icmp ugt ptr %add.ptr.i.i.i121, %80
   br i1 %cmp.i.i.i123, label %if.then.i.i.i124, label %invoke.cont49
 
 if.then.i.i.i124:                                 ; preds = %invoke.cont47
-  %exception.i.i.i125 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i125 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i125, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.invoke unwind label %lpad.i.i.i126
 
 lpad.i.i.i126:                                    ; preds = %if.then.i.i.i124
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i125) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i125) #19
   br label %lpad30.body
 
 invoke.cont49:                                    ; preds = %invoke.cont47
@@ -6701,7 +6620,7 @@ if.then.i135:                                     ; preds = %invoke.cont49
   %.sroa_idx = getelementptr inbounds i8, ptr %83, i64 4
   store float %82, ptr %.sroa_idx, align 4
   %85 = load ptr, ptr %_M_finish.i132, align 8
-  %incdec.ptr.i136 = getelementptr inbounds %"struct.Assimp::Ogre::PoseRef", ptr %85, i64 1
+  %incdec.ptr.i136 = getelementptr inbounds i8, ptr %85, i64 8
   store ptr %incdec.ptr.i136, ptr %_M_finish.i132, align 8
   br label %invoke.cont52
 
@@ -6714,7 +6633,7 @@ if.else.i137:                                     ; preds = %invoke.cont49
   br i1 %cmp.i.i.i138, label %if.then.i.i.i142, label %_ZNKSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i142:                                 ; preds = %if.else.i137
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
           to label %.noexc143 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp
 
 .noexc143:                                        ; preds = %if.then.i.i.i142
@@ -6732,7 +6651,7 @@ _ZNKSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; pred
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i144 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i144 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
           to label %_ZNSt12_Vector_baseIN6Assimp4Ogre7PoseRefESaIS2_EE11_M_allocateEm.exit.i.i unwind label %lpad30.loopexit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre7PoseRefESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -6750,12 +6669,12 @@ if.then.i.i.i.i.i141:                             ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i: ; preds = %if.then.i.i.i.i.i141, %_ZNSt12_Vector_baseIN6Assimp4Ogre7PoseRefESaIS2_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseRef", ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %86, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %86) #23
+  call void @_ZdlPv(ptr noundef nonnull %86) #22
   br label %_ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
@@ -6767,9 +6686,9 @@ _ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
 
 invoke.cont52:                                    ; preds = %if.then.i135, %_ZNSt6vectorIN6Assimp4Ogre7PoseRefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
   %88 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i146 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %88, i64 0, i32 3
+  %mEnd.i.i146 = getelementptr inbounds i8, ptr %88, i64 32
   %89 = load ptr, ptr %mEnd.i.i146, align 8
-  %mCurrent.i.i147 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %88, i64 0, i32 2
+  %mCurrent.i.i147 = getelementptr inbounds i8, ptr %88, i64 24
   %90 = load ptr, ptr %mCurrent.i.i147, align 8
   %sub.ptr.lhs.cast.i.i148 = ptrtoint ptr %89 to i64
   %sub.ptr.rhs.cast.i.i149 = ptrtoint ptr %90 to i64
@@ -6804,20 +6723,20 @@ lpad30.body:                                      ; preds = %lpad30.loopexit, %l
   br i1 %tobool.not.i.i.i.i, label %common.resume, label %if.then.i.i.i.i154
 
 if.then.i.i.i.i154:                               ; preds = %lpad30.body
-  call void @_ZdlPv(ptr noundef nonnull %91) #23
+  call void @_ZdlPv(ptr noundef nonnull %91) #22
   br label %common.resume
 
 if.end:                                           ; preds = %if.then54
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i100.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i100.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre377 = load ptr, ptr %mEnd.i.i100.phi.trans.insert, align 8
-  %mCurrent.i.i101.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i101.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre378 = load ptr, ptr %mCurrent.i.i101.phi.trans.insert, align 8
   %.pre386 = ptrtoint ptr %.pre377 to i64
   %.pre387 = ptrtoint ptr %.pre378 to i64
   %.pre388 = sub i64 %.pre386, %.pre387
   %.pre389 = and i64 %.pre388, 4294967295
-  %mCurrent.i.i101 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i101 = getelementptr inbounds i8, ptr %.pre, i64 24
   %cmp.i106 = icmp eq i64 %.pre389, 0
   %cmp44 = icmp ne i16 %call56, -12013
   %.not = or i1 %cmp44, %cmp.i106
@@ -6835,19 +6754,19 @@ invoke.cont57:                                    ; preds = %if.end, %invoke.con
 if.then59:                                        ; preds = %invoke.cont57
   %add.ptr.i.i165 = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i165, ptr %mCurrent.i.i101.lcssa, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa232, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa232, i64 40
   %92 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i165, %92
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end62
 
 if.then.i.i:                                      ; preds = %if.then59
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.invoke unwind label %lpad.i.i
 
 invoke.cont.i.i.invoke:                           ; preds = %if.then.i.i.i124, %if.then.i.i.i112, %if.then.i.i.i84, %if.then.i.i
   %93 = phi ptr [ %exception.i.i, %if.then.i.i ], [ %exception.i.i.i85, %if.then.i.i.i84 ], [ %exception.i.i.i113, %if.then.i.i.i112 ], [ %exception.i.i.i125, %if.then.i.i.i124 ]
-  invoke void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %invoke.cont.i.i.cont unwind label %lpad30.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont.i.i.cont:                             ; preds = %invoke.cont.i.i.invoke
@@ -6856,7 +6775,7 @@ invoke.cont.i.i.cont:                             ; preds = %invoke.cont.i.i.inv
 lpad.i.i:                                         ; preds = %if.then.i.i
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %lpad30.body
 
 if.end62:                                         ; preds = %invoke.cont52, %if.then59, %invoke.cont57, %invoke.cont34
@@ -6870,7 +6789,7 @@ if.end62:                                         ; preds = %invoke.cont52, %if.
 if.then.i172:                                     ; preds = %if.end62
   %97 = load float, ptr %kf29, align 8
   store float %97, ptr %95, align 8
-  %references.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %95, i64 0, i32 1
+  %references.i.i.i.i = getelementptr inbounds i8, ptr %95, i64 8
   %98 = load ptr, ptr %_M_finish.i132, align 8
   %99 = load ptr, ptr %references.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %98 to i64
@@ -6886,23 +6805,23 @@ cond.true.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i172
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i.i.i.i:                     ; preds = %cond.true.i.i.i.i.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
           to label %.noexc176 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp
 
 .noexc176:                                        ; preds = %if.then3.i.i.i.i.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i.i
-  %call5.i.i.i.i2.i6.i.i.i.i.i177 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #22
+  %call5.i.i.i.i2.i6.i.i.i.i.i177 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #21
           to label %invoke.cont.i.i.i.i.i173 unwind label %lpad30.loopexit.split-lp.loopexit
 
 invoke.cont.i.i.i.i.i173:                         ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i, %if.then.i172
   %cond.i.i.i.i.i.i.i.i = phi ptr [ null, %if.then.i172 ], [ %call5.i.i.i.i2.i6.i.i.i.i.i177, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i.i.i ]
   store ptr %cond.i.i.i.i.i.i.i.i, ptr %references.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %95, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %95, i64 16
   store ptr %cond.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseRef", ptr %cond.i.i.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %95, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %95, i64 24
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   %100 = load ptr, ptr %references.i, align 8
   %101 = load ptr, ptr %_M_finish.i132, align 8
@@ -6920,7 +6839,7 @@ _ZNSt16allocator_traitsISaIN6Assimp4Ogre12PoseKeyFrameEEE9constructIS2_JRKS2_EEE
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %102 = load ptr, ptr %_M_finish.i169, align 8
-  %incdec.ptr.i174 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %102, i64 1
+  %incdec.ptr.i174 = getelementptr inbounds i8, ptr %102, i64 32
   store ptr %incdec.ptr.i174, ptr %_M_finish.i169, align 8
   br label %invoke.cont63
 
@@ -6938,16 +6857,16 @@ invoke.cont63:                                    ; preds = %if.else.i175.invoke
   br i1 %tobool.not.i.i.i.i180, label %if.end66, label %if.then.i.i.i.i181
 
 if.then.i.i.i.i181:                               ; preds = %invoke.cont63
-  call void @_ZdlPv(ptr noundef nonnull %103) #23
+  call void @_ZdlPv(ptr noundef nonnull %103) #22
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then.i.i.i.i181, %invoke.cont63, %if.end8.sink.split.i.i.i.i.i70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57, %invoke.cont25, %while.body
   %pr.sroa.0.3 = phi i32 [ %pr.sroa.0.0323, %while.body ], [ %pr.sroa.0.0323, %invoke.cont25 ], [ %pr.sroa.0.0323, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57 ], [ %pr.sroa.0.0323, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67 ], [ %pr.sroa.0.0323, %if.end8.sink.split.i.i.i.i.i70 ], [ %pr.sroa.0.2, %invoke.cont63 ], [ %pr.sroa.0.2, %if.then.i.i.i.i181 ]
   %id.4 = phi i16 [ %id.0324, %while.body ], [ -12015, %invoke.cont25 ], [ -12015, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57 ], [ -12015, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67 ], [ -12015, %if.end8.sink.split.i.i.i.i.i70 ], [ %id.3, %invoke.cont63 ], [ %id.3, %if.then.i.i.i.i181 ]
   %104 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i184 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %104, i64 0, i32 3
+  %mEnd.i.i184 = getelementptr inbounds i8, ptr %104, i64 32
   %105 = load ptr, ptr %mEnd.i.i184, align 8
-  %mCurrent.i.i185 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %104, i64 0, i32 2
+  %mCurrent.i.i185 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = load ptr, ptr %mCurrent.i.i185, align 8
   %sub.ptr.lhs.cast.i.i186 = ptrtoint ptr %105 to i64
   %sub.ptr.rhs.cast.i.i187 = ptrtoint ptr %106 to i64
@@ -6959,9 +6878,9 @@ if.end66:                                         ; preds = %if.then.i.i.i.i181,
 if.then68:                                        ; preds = %if.end66
   %call69 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre380 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i10.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre380, i64 0, i32 3
+  %mEnd.i.i10.phi.trans.insert = getelementptr inbounds i8, ptr %.pre380, i64 32
   %.pre381 = load ptr, ptr %mEnd.i.i10.phi.trans.insert, align 8
-  %mCurrent.i.i11.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre380, i64 0, i32 2
+  %mCurrent.i.i11.phi.trans.insert = getelementptr inbounds i8, ptr %.pre380, i64 24
   %.pre382 = load ptr, ptr %mCurrent.i.i11.phi.trans.insert, align 8
   %.pre383 = ptrtoint ptr %.pre381 to i64
   %.pre384 = ptrtoint ptr %.pre382 to i64
@@ -6973,7 +6892,7 @@ if.end70:                                         ; preds = %if.then68, %if.end6
   %107 = phi ptr [ %.pre382, %if.then68 ], [ %106, %if.end66 ]
   %108 = phi ptr [ %.pre380, %if.then68 ], [ %104, %if.end66 ]
   %id.5 = phi i16 [ %call69, %if.then68 ], [ %id.4, %if.end66 ]
-  %mCurrent.i.i11 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %108, i64 0, i32 2
+  %mCurrent.i.i11 = getelementptr inbounds i8, ptr %108, i64 24
   %conv2.i.i15 = and i64 %sub.ptr.sub.i.i14.pre-phi, 4294967295
   %cmp.i16 = icmp eq i64 %conv2.i.i15, 0
   br i1 %cmp.i16, label %if.end75, label %land.rhs, !llvm.loop !32
@@ -6981,18 +6900,18 @@ if.end70:                                         ; preds = %if.then68, %if.end6
 if.then73:                                        ; preds = %land.rhs
   %add.ptr.i.i201 = getelementptr inbounds i8, ptr %6, i64 -6
   store ptr %add.ptr.i.i201, ptr %mCurrent.i.i11325, align 8
-  %mLimit.i.i202 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 4
+  %mLimit.i.i202 = getelementptr inbounds i8, ptr %7, i64 40
   %109 = load ptr, ptr %mLimit.i.i202, align 8
   %cmp.i.i203 = icmp ugt ptr %add.ptr.i.i201, %109
   br i1 %cmp.i.i203, label %if.then.i.i204, label %if.end75
 
 if.then.i.i204:                                   ; preds = %if.then73
-  %exception.i.i205 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i205 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i205, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i207 unwind label %lpad.i.i206
 
 invoke.cont.i.i207:                               ; preds = %if.then.i.i204
-  call void @__cxa_throw(ptr nonnull %exception.i.i205, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i205, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.body, %lpad30.body, %if.then.i.i.i.i154, %lpad.i.i206
@@ -7002,7 +6921,7 @@ common.resume:                                    ; preds = %lpad.body, %lpad30.
 lpad.i.i206:                                      ; preds = %if.then.i.i204
   %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i205) #20
+  call void @__cxa_free_exception(ptr %exception.i.i205) #19
   br label %common.resume
 
 if.end75:                                         ; preds = %if.end70, %if.then, %if.then73, %entry
@@ -7012,32 +6931,32 @@ if.end75:                                         ; preds = %if.end70, %if.then,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %transformKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 5
+  %transformKeyFrames = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %transformKeyFrames, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  %morphKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 4
+  %morphKeyFrames = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %morphKeyFrames, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EED2Ev.exit, %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i.i ], [ %1, %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EED2Ev.exit ]
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %3 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -7045,12 +6964,12 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -7074,10 +6993,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -7099,13 +7018,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !33
 
@@ -7119,30 +7038,30 @@ invoke.cont.i:                                    ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i1, label %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %14) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %14) #22
   br label %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i2
-  %poseKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 3
+  %poseKeyFrames = getelementptr inbounds i8, ptr %this, i64 40
   %15 = load ptr, ptr %poseKeyFrames, align 8
-  %_M_finish.i3 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i3 = getelementptr inbounds i8, ptr %this, i64 48
   %16 = load ptr, ptr %_M_finish.i3, align 8
   %cmp.not3.i.i.i.i4 = icmp eq ptr %15, %16
   br i1 %cmp.not3.i.i.i.i4, label %invoke.cont.i12, label %for.body.i.i.i.i5
 
 for.body.i.i.i.i5:                                ; preds = %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit, %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i6 = phi ptr [ %incdec.ptr.i.i.i.i8, %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i.i ], [ %15, %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit ]
-  %references.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.04.i.i.i.i6, i64 0, i32 1
+  %references.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i6, i64 8
   %17 = load ptr, ptr %references.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i7
 
 if.then.i.i.i.i.i.i.i.i.i7:                       ; preds = %for.body.i.i.i.i5
-  tail call void @_ZdlPv(ptr noundef nonnull %17) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #22
   br label %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i7, %for.body.i.i.i.i5
-  %incdec.ptr.i.i.i.i8 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.04.i.i.i.i6, i64 1
+  %incdec.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i6, i64 32
   %cmp.not.i.i.i.i9 = icmp eq ptr %incdec.ptr.i.i.i.i8, %16
   br i1 %cmp.not.i.i.i.i9, label %invoke.contthread-pre-split.i10, label %for.body.i.i.i.i5, !llvm.loop !34
 
@@ -7156,12 +7075,12 @@ invoke.cont.i12:                                  ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i13, label %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %invoke.cont.i12
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #22
   br label %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i12, %if.then.i.i.i14
-  %boneName = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %boneName) #20
+  %boneName = getelementptr inbounds i8, ptr %this, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %boneName) #19
   ret void
 }
 
@@ -7170,13 +7089,13 @@ declare noundef ptr @_ZNK6Assimp4Ogre9Animation20AssociatedVertexDataEPNS0_20Ver
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4Ogre13MorphKeyFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -7184,12 +7103,12 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -7213,10 +7132,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7238,9 +7157,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit
 
 _ZNSt10shared_ptrIN6Assimp14MemoryIOStreamEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -7258,12 +7177,12 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %skeletonRef = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 1
-  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef) #20
+  %skeletonRef = getelementptr inbounds i8, ptr %mesh, i64 8
+  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %skeletonRef) #19
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
   %call.i12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
 
@@ -7278,7 +7197,7 @@ call.i.noexc:                                     ; preds = %if.end
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -7286,8 +7205,8 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
   br i1 %call5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %invoke.cont4
@@ -7302,12 +7221,12 @@ lpad:                                             ; preds = %call.i.noexc, %if.e
 lpad3:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad3
   %.pn = phi { ptr, i32 } [ %2, %lpad3 ], [ %1, %lpad ], [ %0, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #19
   br label %eh.resume
 
 if.end8:                                          ; preds = %invoke.cont4
@@ -7317,7 +7236,7 @@ if.end8:                                          ; preds = %invoke.cont4
   br i1 %cmp.i, label %if.end12, label %cleanup
 
 if.end12:                                         ; preds = %if.end8
-  %call15 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
+  %call15 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %if.end12
@@ -7327,15 +7246,15 @@ invoke.cont14:                                    ; preds = %if.end12
 invoke.cont17:                                    ; preds = %invoke.cont14
   %4 = load ptr, ptr %reader, align 8
   store i32 0, ptr %serializer, align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %serializer, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %serializer, i64 8
   store ptr %4, ptr %m_reader.i, align 8
-  %assetMode.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %serializer, i64 0, i32 3
+  %assetMode.i = getelementptr inbounds i8, ptr %serializer, i64 16
   store i32 1, ptr %assetMode.i, align 8
   invoke void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadSkeletonEPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(20) %serializer, ptr noundef nonnull %call15)
           to label %invoke.cont21 unwind label %lpad13
 
 invoke.cont21:                                    ; preds = %invoke.cont17
-  %skeleton22 = getelementptr inbounds %"class.Assimp::Ogre::Mesh", ptr %mesh, i64 0, i32 2
+  %skeleton22 = getelementptr inbounds i8, ptr %mesh, i64 40
   store ptr %call15, ptr %skeleton22, align 8
   br label %cleanup
 
@@ -7347,17 +7266,17 @@ lpad13:                                           ; preds = %invoke.cont17, %if.
 lpad16:                                           ; preds = %invoke.cont14
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call15) #23
+  call void @_ZdlPv(ptr noundef nonnull %call15) #22
   br label %ehcleanup23
 
 cleanup:                                          ; preds = %if.end8, %invoke.cont21
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.87", ptr %reader, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %reader, i64 8
   %7 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -7365,12 +7284,12 @@ if.then.i.i.i:                                    ; preds = %cleanup
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -7394,10 +7313,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7419,14 +7338,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #20
+  call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   br label %return
 
 ehcleanup23:                                      ; preds = %lpad16, %lpad13
   %.pn9 = phi { ptr, i32 } [ %5, %lpad13 ], [ %6, %lpad16 ]
-  call void @_ZNSt10shared_ptrIN6Assimp12StreamReaderILb0ELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %reader) #20
+  call void @_ZNSt10shared_ptrIN6Assimp12StreamReaderILb0ELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %reader) #19
   br label %eh.resume
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %cleanup, %entry, %lor.lhs.false, %if.then6
@@ -7447,16 +7366,16 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %sSuffix = alloca %"class.std::__cxx11::basic_string", align 8
-  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #20
+  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #19
   br i1 %call, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #20
+  %call1 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #19
   br i1 %call1, label %return, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #20
-  %call3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #20
+  %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #19
+  %call3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #19
   %cmp = icmp ult i64 %call2, %call3
   br i1 %cmp, label %return, label %if.end5
 
@@ -7473,7 +7392,7 @@ invoke.cont:                                      ; preds = %if.then6
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   br label %return.sink.split
 
 lpad:                                             ; preds = %if.then6
@@ -7484,29 +7403,29 @@ lpad:                                             ; preds = %if.then6
 lpad8:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad8, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad8 ], [ %0, %lpad ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   resume { ptr, i32 } %.pn
 
 if.end11:                                         ; preds = %if.end5
-  %call12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #20
-  %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #20
+  %call12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #19
+  %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #19
   %sub = sub i64 %call13, %call12
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %sSuffix, ptr noundef nonnull align 8 dereferenceable(32) %s, i64 noundef %sub, i64 noundef %call12)
-  %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #20
+  %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #19
   %conv.i = trunc i64 %call.i to i32
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %sSuffix) #20
+  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %sSuffix) #19
   %conv2.i = trunc i64 %call1.i to i32
   %tobool.not.i = icmp eq i32 %conv.i, %conv2.i
   br i1 %tobool.not.i, label %cond.false.i, label %return.sink.split
 
 cond.false.i:                                     ; preds = %if.end11
-  %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %sSuffix) #20
-  %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #20
+  %call3.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %sSuffix) #19
+  %call4.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %suffix) #19
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %cond.false.i
@@ -7515,11 +7434,11 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %cond.
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s1.addr.0.i.i, i64 1
   %2 = load i8, ptr %s1.addr.0.i.i, align 1
   %conv.i.i = zext i8 %2 to i32
-  %call.i.i = call i32 @tolower(i32 noundef %conv.i.i) #24
+  %call.i.i = call i32 @tolower(i32 noundef %conv.i.i) #23
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %s2.addr.0.i.i, i64 1
   %3 = load i8, ptr %s2.addr.0.i.i, align 1
   %conv3.i.i = zext i8 %3 to i32
-  %call4.i.i = call i32 @tolower(i32 noundef %conv3.i.i) #24
+  %call4.i.i = call i32 @tolower(i32 noundef %conv3.i.i) #23
   %4 = and i32 %call.i.i, 255
   %tobool.i.i = icmp ne i32 %4, 0
   %cmp.i.i.unshifted = xor i32 %call.i.i, %call4.i.i
@@ -7531,7 +7450,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %cond.
 return.sink.split:                                ; preds = %do.body.i.i, %if.end11, %invoke.cont9
   %sSuffix.sink = phi ptr [ %ref.tmp, %invoke.cont9 ], [ %sSuffix, %if.end11 ], [ %sSuffix, %do.body.i.i ]
   %retval.0.ph = phi i1 [ %call10, %invoke.cont9 ], [ false, %if.end11 ], [ %cmp.i.i, %do.body.i.i ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sSuffix.sink) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sSuffix.sink) #19
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else, %entry, %lor.lhs.false
@@ -7554,7 +7473,7 @@ entry:
   %ref.tmp1 = alloca %"class.std::allocator.3", align 1
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator.3", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   %call.i13 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
 
@@ -7569,7 +7488,7 @@ call.i.noexc:                                     ; preds = %entry
 lpad.i:                                           ; preds = %.noexc
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
@@ -7577,8 +7496,8 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont3
@@ -7595,18 +7514,18 @@ lpad:                                             ; preds = %call.i.noexc, %entr
 lpad2:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad2
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ], [ %0, %lpad.i ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #19
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont3
-  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #20
+  %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #19
   %vtable.i = load ptr, ptr %pIOHandler, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %pIOHandler, ptr noundef %call.i)
   br i1 %call2.i, label %if.end8, label %if.then6
@@ -7618,7 +7537,7 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #20
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #19
   %call.i1418 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9)
           to label %call.i14.noexc unwind label %lpad11
 
@@ -7633,31 +7552,31 @@ call.i14.noexc:                                   ; preds = %if.end8
 lpad.i17:                                         ; preds = %.noexc19
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #20
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #19
   br label %ehcleanup17
 
 invoke.cont12:                                    ; preds = %.noexc19
-  %call.i22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #20
-  %call2.i23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #20
+  %call.i22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #19
+  %call2.i23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #19
   %vtable.i24 = load ptr, ptr %pIOHandler, align 8
-  %vfn.i25 = getelementptr inbounds ptr, ptr %vtable.i24, i64 4
+  %vfn.i25 = getelementptr inbounds i8, ptr %vtable.i24, i64 32
   %5 = load ptr, ptr %vfn.i25, align 8
   %call3.i26 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(32) %pIOHandler, ptr noundef %call.i22, ptr noundef %call2.i23)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #20
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #19
   %tobool.not = icmp eq ptr %call3.i26, null
   br i1 %tobool.not, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %invoke.cont14
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2IJRA30_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 1 dereferenceable(30) @.str.46, ptr noundef nonnull align 8 dereferenceable(32) %filename)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %if.then18
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad11:                                           ; preds = %call.i14.noexc, %if.end8
@@ -7668,35 +7587,35 @@ lpad11:                                           ; preds = %call.i14.noexc, %if
 lpad13:                                           ; preds = %invoke.cont12
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #19
   br label %ehcleanup17
 
 ehcleanup17:                                      ; preds = %lpad11, %lpad.i17, %lpad13
   %.pn9 = phi { ptr, i32 } [ %7, %lpad13 ], [ %6, %lpad11 ], [ %4, %lpad.i17 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #19
   br label %eh.resume
 
 lpad19:                                           ; preds = %if.then18
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #20
+  call void @__cxa_free_exception(ptr %exception) #19
   br label %eh.resume
 
 if.end22:                                         ; preds = %invoke.cont14
-  %call23 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
+  %call23 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
   invoke void @_ZN6Assimp12StreamReaderILb0ELb0EEC2EPNS_8IOStreamEb(ptr noundef nonnull align 8 dereferenceable(49) %call23, ptr noundef nonnull %call3.i26, i1 noundef zeroext false)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %if.end22
   store ptr %call23, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.87", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN6Assimp12StreamReaderILb0ELb0EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i, ptr noundef nonnull %call23)
   br label %return
 
 lpad24:                                           ; preds = %if.end22
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call23) #23
+  call void @_ZdlPv(ptr noundef nonnull %call23) #22
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont25, %if.then6, %if.then
@@ -7714,23 +7633,23 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadSkeletonEPNS0_8Sk
 entry:
   %agg.tmp.ensured.i = alloca %"class.std::__cxx11::basic_string", align 8
   %version = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_reader.i.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i.i, align 8
-  %mCurrent.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i, %2
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad, %ehcleanup, %lpad.i.i.i.i
@@ -7740,7 +7659,7 @@ common.resume:                                    ; preds = %lpad, %ehcleanup, %
 lpad.i.i.i.i:                                     ; preds = %if.then.i.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %entry
@@ -7750,33 +7669,33 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit: ; preds = %entry
   br i1 %cmp.not, label %invoke.cont3, label %if.then
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.47)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #20
+  tail call void @__cxa_free_exception(ptr %exception) #19
   br label %common.resume
 
 invoke.cont3:                                     ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb.exit
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %version, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %call.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull @.str.48) #20
+  %call.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull @.str.48) #19
   %cmp.i.i.not = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.i.not, label %if.end11, label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %call.i.i15 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull @.str.49) #20
+  %call.i.i15 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull @.str.49) #19
   %cmp.i.i16.not = icmp eq i32 %call.i.i15, 0
   br i1 %cmp.i.i16.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %invoke.cont5
-  %exception8 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception8 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2IJRA18_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA33_S1_RA22_S1_RKPS1_RA6_S1_SH_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception8, ptr noundef nonnull align 1 dereferenceable(18) @.str.50, ptr noundef nonnull align 8 dereferenceable(32) %version, ptr noundef nonnull align 1 dereferenceable(33) @.str.51, ptr noundef nonnull align 1 dereferenceable(22) @.str.4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6Assimp4OgreL20SKELETON_VERSION_1_8E, ptr noundef nonnull align 1 dereferenceable(6) @.str.52, ptr noundef nonnull align 8 dereferenceable(8) @_ZN6Assimp4OgreL20SKELETON_VERSION_1_1E)
           to label %invoke.cont.i.i.i26.invoke unwind label %lpad9
 
@@ -7798,7 +7717,7 @@ lpad2.loopexit.split-lp.loopexit.split-lp:        ; preds = %invoke.cont.i.i.i26
 lpad9:                                            ; preds = %if.then7
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception8) #20
+  call void @__cxa_free_exception(ptr %exception8) #19
   br label %ehcleanup
 
 if.end11:                                         ; preds = %invoke.cont5, %invoke.cont3
@@ -7811,9 +7730,9 @@ invoke.cont12:                                    ; preds = %if.end11
 
 invoke.cont15.preheader:                          ; preds = %invoke.cont12
   %7 = load ptr, ptr %m_reader.i.i, align 8
-  %mEnd.i.i34 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 3
+  %mEnd.i.i34 = getelementptr inbounds i8, ptr %7, i64 32
   %8 = load ptr, ptr %mEnd.i.i34, align 8
-  %mCurrent.i.i35 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %7, i64 0, i32 2
+  %mCurrent.i.i35 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %mCurrent.i.i35, align 8
   %sub.ptr.lhs.cast.i.i36 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i37 = ptrtoint ptr %9 to i64
@@ -7823,7 +7742,7 @@ invoke.cont15.preheader:                          ; preds = %invoke.cont12
   br i1 %cmp.i40, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %invoke.cont15.preheader
-  %blendMode = getelementptr inbounds %"class.Assimp::Ogre::Skeleton", ptr %skeleton, i64 0, i32 2
+  %blendMode = getelementptr inbounds i8, ptr %skeleton, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -7843,23 +7762,23 @@ invoke.cont17:                                    ; preds = %while.body
 
 sw.bb:                                            ; preds = %invoke.cont17
   %10 = load ptr, ptr %m_reader.i.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %12
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont20
 
 if.then.i.i.i:                                    ; preds = %sw.bb
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i26.invoke unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %sw.bb
@@ -7915,25 +7834,25 @@ sw.bb40:                                          ; preds = %invoke.cont17
           to label %.noexc27 unwind label %lpad2.loopexit.split-lp.loopexit
 
 .noexc27:                                         ; preds = %sw.bb40
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured.i) #19
   %17 = load ptr, ptr %m_reader.i.i, align 8
-  %mCurrent.i.i.i19 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 2
+  %mCurrent.i.i.i19 = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %mCurrent.i.i.i19, align 8
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %18, i64 12
   store ptr %add.ptr.i.i.i20, ptr %mCurrent.i.i.i19, align 8
-  %mLimit.i.i.i21 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 4
+  %mLimit.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 40
   %19 = load ptr, ptr %mLimit.i.i.i21, align 8
   %cmp.i.i.i22 = icmp ugt ptr %add.ptr.i.i.i20, %19
   br i1 %cmp.i.i.i22, label %if.then.i.i.i23, label %_ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimationLinkEPNS0_8SkeletonE.exit
 
 if.then.i.i.i23:                                  ; preds = %.noexc27
-  %exception.i.i.i24 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i24 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i24, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i26.invoke unwind label %lpad.i.i.i25
 
 invoke.cont.i.i.i26.invoke:                       ; preds = %if.then7, %if.then.i.i.i23, %if.then.i.i.i
   %20 = phi ptr [ %exception.i.i.i, %if.then.i.i.i ], [ %exception.i.i.i24, %if.then.i.i.i23 ], [ %exception8, %if.then7 ]
-  invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %invoke.cont.i.i.i26.cont unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont.i.i.i26.cont:                         ; preds = %invoke.cont.i.i.i26.invoke
@@ -7942,7 +7861,7 @@ invoke.cont.i.i.i26.cont:                         ; preds = %invoke.cont.i.i.i26
 lpad.i.i.i25:                                     ; preds = %if.then.i.i.i23
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i24) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i24) #19
   br label %ehcleanup
 
 _ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimationLinkEPNS0_8SkeletonE.exit: ; preds = %.noexc27
@@ -7953,9 +7872,9 @@ sw.epilog:                                        ; preds = %_ZN6Assimp4Ogre20Og
   %firstBone.2 = phi i8 [ %firstBone.041, %invoke.cont17 ], [ %firstBone.041, %_ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimationLinkEPNS0_8SkeletonE.exit ], [ %firstBone.041, %if.end38 ], [ %firstBone.041, %sw.bb30 ], [ %firstBone.1, %if.end28 ], [ %firstBone.041, %invoke.cont20 ]
   %firstAnim.2 = phi i8 [ %firstAnim.042, %invoke.cont17 ], [ %firstAnim.042, %_ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimationLinkEPNS0_8SkeletonE.exit ], [ %firstAnim.1, %if.end38 ], [ %firstAnim.042, %sw.bb30 ], [ %firstAnim.042, %if.end28 ], [ %firstAnim.042, %invoke.cont20 ]
   %22 = load ptr, ptr %m_reader.i.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %22, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %22, i64 32
   %23 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %22, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %24 to i64
@@ -7965,7 +7884,7 @@ sw.epilog:                                        ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp.i, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %sw.epilog, %invoke.cont15.preheader
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::Bone *, std::allocator<Assimp::Ogre::Bone *>>::_Vector_impl_data", ptr %skeleton, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %skeleton, i64 8
   %25 = load ptr, ptr %_M_finish.i, align 8
   %26 = load ptr, ptr %skeleton, align 8
   %cmp4343.not = icmp eq ptr %25, %26
@@ -8000,25 +7919,25 @@ for.inc:                                          ; preds = %invoke.cont46, %if.
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
 for.end:                                          ; preds = %for.inc, %while.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #19
   ret void
 
 ehcleanup:                                        ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit, %lpad.i.i.i, %lpad.i.i.i25, %lpad9
   %.pn = phi { ptr, i32 } [ %6, %lpad9 ], [ %13, %lpad.i.i.i ], [ %21, %lpad.i.i.i25 ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit31, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp32, %lpad2.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #19
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN6Assimp12StreamReaderILb0ELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.87", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -8026,12 +7945,12 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -8055,10 +7974,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8080,9 +7999,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt12__shared_ptrIN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -8098,7 +8017,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %mesh) #20
+  %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %mesh) #19
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -8108,7 +8027,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool3.not, label %if.end5, label %cleanup
 
 if.end5:                                          ; preds = %if.end
-  %call6 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
+  %call6 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end5
@@ -8118,15 +8037,15 @@ invoke.cont:                                      ; preds = %if.end5
 invoke.cont8:                                     ; preds = %invoke.cont
   %1 = load ptr, ptr %reader, align 8
   store i32 0, ptr %serializer, align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %serializer, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %serializer, i64 8
   store ptr %1, ptr %m_reader.i, align 8
-  %assetMode.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %serializer, i64 0, i32 3
+  %assetMode.i = getelementptr inbounds i8, ptr %serializer, i64 16
   store i32 1, ptr %assetMode.i, align 8
   invoke void @_ZN6Assimp4Ogre20OgreBinarySerializer12ReadSkeletonEPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(20) %serializer, ptr noundef nonnull %call6)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont8
-  %skeleton12 = getelementptr inbounds %"class.Assimp::Ogre::MeshXml", ptr %mesh, i64 0, i32 1
+  %skeleton12 = getelementptr inbounds i8, ptr %mesh, i64 32
   store ptr %call6, ptr %skeleton12, align 8
   br label %cleanup
 
@@ -8138,17 +8057,17 @@ lpad:                                             ; preds = %invoke.cont8, %if.e
 lpad7:                                            ; preds = %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call6) #23
+  call void @_ZdlPv(ptr noundef nonnull %call6) #22
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.end, %invoke.cont11
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.87", ptr %reader, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %reader, i64 8
   %4 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -8156,12 +8075,12 @@ if.then.i.i.i:                                    ; preds = %cleanup
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -8185,10 +8104,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 2
+  call void %10(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -8210,14 +8129,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
+  call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   br label %return
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad7 ]
-  call void @_ZNSt10shared_ptrIN6Assimp12StreamReaderILb0ELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %reader) #20
+  call void @_ZNSt10shared_ptrIN6Assimp12StreamReaderILb0ELb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %reader) #19
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %cleanup, %entry, %lor.lhs.false
@@ -8236,7 +8155,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad6 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -8249,13 +8168,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA46_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA46_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA46_cEERKT_.exit
@@ -8266,7 +8185,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad6:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -8281,7 +8200,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad6, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad6 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -8294,13 +8213,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA31_cEERKT_.ex
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA31_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA31_cEERKT_.exit
@@ -8311,7 +8230,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad6:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -8324,14 +8243,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -8339,28 +8258,28 @@ lpad:                                             ; preds = %entry
 define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EEC2EPNS_8IOStreamEb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %stream, i1 noundef zeroext %le) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %stream, ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
-  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2IS1_vEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #19
   %isnull.i.i.i.i = icmp eq ptr %stream, null
   br i1 %isnull.i.i.i.i, label %delete.end.i.i.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %lpad.i.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %stream, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %stream) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %stream) #19
   br label %delete.end.i.i.i.i
 
 delete.end.i.i.i.i:                               ; preds = %delete.notnull.i.i.i.i, %lpad.i.i.i.i
-  invoke void @__cxa_rethrow() #21
+  invoke void @__cxa_rethrow() #20
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %delete.end.i.i.i.i
@@ -8377,7 +8296,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #19
+  tail call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %delete.end.i.i.i.i
@@ -8385,16 +8304,16 @@ unreachable.i.i.i.i:                              ; preds = %delete.end.i.i.i.i
 
 _ZNSt10shared_ptrIN6Assimp8IOStreamEEC2IS1_vEEPT_.exit: ; preds = %entry
   %frombool = zext i1 %le to i8
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8
-  %_M_ptr.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr.156", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %stream, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
-  %mBuffer = getelementptr inbounds %"class.Assimp::StreamReader", ptr %this, i64 0, i32 1
-  %mLe = getelementptr inbounds %"class.Assimp::StreamReader", ptr %this, i64 0, i32 5
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 16
+  %mLe = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mBuffer, i8 0, i64 32, i1 false)
   store i8 %frombool, ptr %mLe, align 8
   invoke void @_ZN6Assimp12StreamReaderILb0ELb0EE11InternBeginEv(ptr noundef nonnull align 8 dereferenceable(49) %this)
@@ -8406,7 +8325,7 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
 lpad:                                             ; preds = %_ZNSt10shared_ptrIN6Assimp8IOStreamEEC2IS1_vEEPT_.exit
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt10shared_ptrIN6Assimp8IOStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
+  tail call void @_ZNSt10shared_ptrIN6Assimp8IOStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
   br label %common.resume
 }
 
@@ -8419,14 +8338,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -8434,32 +8353,32 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadBoneEPNS0_8SkeletonE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef %skeleton) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %call = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #22
+  %call = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #21
   invoke void @_ZN6Assimp4Ogre4BoneC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %call)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %name = getelementptr inbounds %"class.Assimp::Ogre::Bone", ptr %call, i64 0, i32 1
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call, i64 8
+  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad10, %lpad.i.i.i33, %lpad.i.i.i21, %lpad.i.i.i9, %lpad.i.i.i
@@ -8469,7 +8388,7 @@ common.resume:                                    ; preds = %lpad, %lpad10, %lpa
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %invoke.cont
@@ -8477,68 +8396,68 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %invoke.cont
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   store i16 %4, ptr %call, align 8
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i4 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i4 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i4, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i4, align 8
-  %mLimit.i.i.i5 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i5, align 8
   %cmp.i.i.i6 = icmp ult ptr %7, %add.ptr.i.i
-  %mBuffer.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 1
+  %mBuffer.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %mBuffer.i.i.i, align 8
   %cmp4.i.i.i = icmp ugt ptr %8, %add.ptr.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i6, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i7, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
 
 if.then.i.i.i7:                                   ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception.i.i.i8 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i8 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i8, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i10 unwind label %lpad.i.i.i9
 
 invoke.cont.i.i.i10:                              ; preds = %if.then.i.i.i7
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i8, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i9:                                      ; preds = %if.then.i.i.i7
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i8) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i8) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %position = getelementptr inbounds %"class.Assimp::Ogre::Bone", ptr %call, i64 0, i32 5
+  %position = getelementptr inbounds i8, ptr %call, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %position, ptr noundef nonnull align 1 dereferenceable(12) %6, i64 12, i1 false)
   %10 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i12 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 2
+  %mCurrent.i.i.i12 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %mCurrent.i.i.i12, align 8
   %add.ptr.i.i13 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %add.ptr.i.i13, ptr %mCurrent.i.i.i12, align 8
-  %mLimit.i.i.i14 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 4
+  %mLimit.i.i.i14 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %mLimit.i.i.i14, align 8
   %cmp.i.i.i15 = icmp ult ptr %12, %add.ptr.i.i13
-  %mBuffer.i.i.i16 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %10, i64 0, i32 1
+  %mBuffer.i.i.i16 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load ptr, ptr %mBuffer.i.i.i16, align 8
   %cmp4.i.i.i17 = icmp ugt ptr %13, %add.ptr.i.i13
   %or.cond.i.i.i18 = select i1 %cmp.i.i.i15, i1 true, i1 %cmp4.i.i.i17
   br i1 %or.cond.i.i.i18, label %if.then.i.i.i19, label %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
 
 if.then.i.i.i19:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
-  %exception.i.i.i20 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i20 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i20, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i22 unwind label %lpad.i.i.i21
 
 invoke.cont.i.i.i22:                              ; preds = %if.then.i.i.i19
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i20, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i20, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i21:                                     ; preds = %if.then.i.i.i19
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i20) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i20) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
-  %rotation = getelementptr inbounds %"class.Assimp::Ogre::Bone", ptr %call, i64 0, i32 6
+  %rotation = getelementptr inbounds i8, ptr %call, i64 92
   %15 = load <4 x float>, ptr %11, align 1
   %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   store <4 x float> %16, ptr %rotation, align 4
@@ -8548,49 +8467,49 @@ _ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit: 
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
   %18 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i24 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 2
+  %mCurrent.i.i.i24 = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %mCurrent.i.i.i24, align 8
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %19, i64 12
   store ptr %add.ptr.i.i25, ptr %mCurrent.i.i.i24, align 8
-  %mLimit.i.i.i26 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 4
+  %mLimit.i.i.i26 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %mLimit.i.i.i26, align 8
   %cmp.i.i.i27 = icmp ult ptr %20, %add.ptr.i.i25
-  %mBuffer.i.i.i28 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 1
+  %mBuffer.i.i.i28 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load ptr, ptr %mBuffer.i.i.i28, align 8
   %cmp4.i.i.i29 = icmp ugt ptr %21, %add.ptr.i.i25
   %or.cond.i.i.i30 = select i1 %cmp.i.i.i27, i1 true, i1 %cmp4.i.i.i29
   br i1 %or.cond.i.i.i30, label %if.then.i.i.i31, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit35
 
 if.then.i.i.i31:                                  ; preds = %if.then
-  %exception.i.i.i32 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i32 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i32, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i34 unwind label %lpad.i.i.i33
 
 invoke.cont.i.i.i34:                              ; preds = %if.then.i.i.i31
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i32, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i32, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i33:                                     ; preds = %if.then.i.i.i31
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i32) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i32) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit35: ; preds = %if.then
-  %scale = getelementptr inbounds %"class.Assimp::Ogre::Bone", ptr %call, i64 0, i32 7
+  %scale = getelementptr inbounds i8, ptr %call, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scale, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %entry
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #22
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit35, %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
   %24 = load i16, ptr %call, align 8
   %conv5 = zext i16 %24 to i64
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::Bone *, std::allocator<Assimp::Ogre::Bone *>>::_Vector_impl_data", ptr %skeleton, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %skeleton, i64 8
   %25 = load ptr, ptr %_M_finish.i, align 8
   %26 = load ptr, ptr %skeleton, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %25 to i64
@@ -8601,25 +8520,25 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
   br i1 %cmp7.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %exception = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2IJRA64_KcRtEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 1 dereferenceable(64) @.str.56, ptr noundef nonnull align 2 dereferenceable(2) %call)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %if.then8
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad10:                                           ; preds = %if.then8
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #20
+  call void @__cxa_free_exception(ptr %exception) #19
   br label %common.resume
 
 if.end12:                                         ; preds = %if.end
   %call13 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger12verboseDebugIJRA5_KcRtRA2_S2_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %call13, ptr noundef nonnull align 1 dereferenceable(5) @.str.57, ptr noundef nonnull align 2 dereferenceable(2) %call, ptr noundef nonnull align 1 dereferenceable(2) @.str.58, ptr noundef nonnull align 8 dereferenceable(32) %name)
   %28 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::Bone *, std::allocator<Assimp::Ogre::Bone *>>::_Vector_impl_data", ptr %skeleton, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %skeleton, i64 16
   %29 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %28, %29
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -8627,7 +8546,7 @@ if.end12:                                         ; preds = %if.end
 if.then.i:                                        ; preds = %if.end12
   store ptr %call, ptr %28, align 8
   %30 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %30, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE9push_backERKS3_.exit
 
@@ -8640,7 +8559,7 @@ if.else.i:                                        ; preds = %if.end12
   br i1 %cmp.i.i.i37, label %if.then.i.i.i39, label %_ZNKSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i39:                                  ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -8655,7 +8574,7 @@ _ZNKSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds 
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIPN6Assimp4Ogre4BoneESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN6Assimp4Ogre4BoneESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -8671,12 +8590,12 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN6Assimp4Ogre4BoneESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %31) #23
+  call void @_ZdlPv(ptr noundef nonnull %31) #22
   br label %_ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6Assimp4Ogre4BoneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -8695,23 +8614,23 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer14ReadBoneParentEPNS0_8
 entry:
   %childId = alloca i16, align 2
   %parentId = alloca i16, align 2
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad.i.i.i11, %lpad.i.i.i
@@ -8721,7 +8640,7 @@ common.resume:                                    ; preds = %lpad, %lpad.i.i.i11
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
@@ -8729,27 +8648,27 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   store i16 %4, ptr %childId, align 2
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i5 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i5, align 8
   %add.ptr.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 2
-  %mLimit.i.i.i7 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i7 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i7, align 8
   %cmp.i.i.i8 = icmp ugt ptr %add.ptr.i.i.i6, %7
   br i1 %cmp.i.i.i8, label %if.then.i.i.i9, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit13
 
 if.then.i.i.i9:                                   ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception.i.i.i10 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i10 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i10, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i12 unwind label %lpad.i.i.i11
 
 invoke.cont.i.i.i12:                              ; preds = %if.then.i.i.i9
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i10, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i10, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i11:                                     ; preds = %if.then.i.i.i9
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i10) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i10) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit13: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
@@ -8768,18 +8687,18 @@ if.then:                                          ; preds = %_ZN6Assimp4Ogre20Og
   ret void
 
 if.else:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit13
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2IJRA46_KcRtRA16_S1_S4_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 1 dereferenceable(46) @.str.59, ptr noundef nonnull align 2 dereferenceable(2) %childId, ptr noundef nonnull align 1 dereferenceable(16) @.str.60, ptr noundef nonnull align 2 dereferenceable(2) %parentId)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.else
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #20
+  call void @__cxa_free_exception(ptr %exception) #19
   br label %common.resume
 }
 
@@ -8789,32 +8708,32 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp25 = alloca i64, align 8
-  %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22
+  %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #21
   invoke void @_ZN6Assimp4Ogre9AnimationC1EPNS0_8SkeletonE(ptr noundef nonnull align 8 dereferenceable(112) %call, ptr noundef %skeleton)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %name = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call, i64 0, i32 2
-  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call, i64 16
+  %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad, %lpad.i.i.i12, %lpad.i.i.i
@@ -8824,18 +8743,18 @@ common.resume:                                    ; preds = %lpad.i.i, %lpad, %l
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %invoke.cont
   %4 = load float, ptr %1, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
-  %length = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call, i64 0, i32 4
+  %length = getelementptr inbounds i8, ptr %call, i64 80
   store float %4, ptr %length, align 8
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 3
+  %mEnd.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %mEnd.i.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %mCurrent.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
@@ -8851,37 +8770,37 @@ if.then:                                          ; preds = %_ZN6Assimp4Ogre20Og
 
 if.then6:                                         ; preds = %if.then
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %baseName = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call, i64 0, i32 3
-  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %baseName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #20
+  %baseName = getelementptr inbounds i8, ptr %call, i64 48
+  %call8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %baseName, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   %8 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i6 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 2
+  %mCurrent.i.i.i6 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %mCurrent.i.i.i6, align 8
   %add.ptr.i.i.i7 = getelementptr inbounds i8, ptr %9, i64 4
-  %mLimit.i.i.i8 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 4
+  %mLimit.i.i.i8 = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %mLimit.i.i.i8, align 8
   %cmp.i.i.i9 = icmp ugt ptr %add.ptr.i.i.i7, %10
   br i1 %cmp.i.i.i9, label %if.then.i.i.i10, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit14
 
 if.then.i.i.i10:                                  ; preds = %if.then6
-  %exception.i.i.i11 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i11 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i11, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i13 unwind label %lpad.i.i.i12
 
 invoke.cont.i.i.i13:                              ; preds = %if.then.i.i.i10
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i12:                                     ; preds = %if.then.i.i.i10
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i.i11) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i11) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit14: ; preds = %if.then6
   %12 = load float, ptr %9, align 1
   store ptr %add.ptr.i.i.i7, ptr %mCurrent.i.i.i6, align 8
-  %baseTime = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call, i64 0, i32 5
+  %baseTime = getelementptr inbounds i8, ptr %call, i64 84
   store float %12, ptr %baseTime, align 4
   %call10 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   br label %if.end
@@ -8889,15 +8808,15 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit14: ; preds = %if.then6
 lpad:                                             ; preds = %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %call) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call) #22
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit14, %if.then
   %id.0 = phi i16 [ %call10, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit14 ], [ %call5, %if.then ]
   %14 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i1654 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %14, i64 0, i32 3
+  %mEnd.i.i1654 = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load ptr, ptr %mEnd.i.i1654, align 8
-  %mCurrent.i.i1755 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %14, i64 0, i32 2
+  %mCurrent.i.i1755 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %mCurrent.i.i1755, align 8
   %sub.ptr.lhs.cast.i.i1856 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i1957 = ptrtoint ptr %16 to i64
@@ -8911,9 +8830,9 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
 while.body:                                       ; preds = %if.end, %if.end17
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer26ReadSkeletonAnimationTrackEPNS0_8SkeletonEPNS0_9AnimationE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr poison, ptr noundef nonnull %call)
   %17 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i24 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 3
+  %mEnd.i.i24 = getelementptr inbounds i8, ptr %17, i64 32
   %18 = load ptr, ptr %mEnd.i.i24, align 8
-  %mCurrent.i.i25 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %17, i64 0, i32 2
+  %mCurrent.i.i25 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %mCurrent.i.i25, align 8
   %sub.ptr.lhs.cast.i.i26 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i27 = ptrtoint ptr %19 to i64
@@ -8925,9 +8844,9 @@ while.body:                                       ; preds = %if.end, %if.end17
 if.end17:                                         ; preds = %while.body
   %call16 = call noundef zeroext i16 @_ZN6Assimp4Ogre20OgreBinarySerializer10ReadHeaderEb(ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i16.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i16.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre69 = load ptr, ptr %mEnd.i.i16.phi.trans.insert, align 8
-  %mCurrent.i.i17.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i17.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre70 = load ptr, ptr %mCurrent.i.i17.phi.trans.insert, align 8
   %.pre71 = ptrtoint ptr %.pre69 to i64
   %.pre72 = ptrtoint ptr %.pre70 to i64
@@ -8945,34 +8864,34 @@ while.end:                                        ; preds = %if.end17, %if.end
   br i1 %cmp.i22.lcssa, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %while.end
-  %mCurrent.i.i17.le = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa53, i64 0, i32 2
+  %mCurrent.i.i17.le = getelementptr inbounds i8, ptr %.lcssa53, i64 24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i17.le, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa53, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa53, i64 40
   %20 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %20
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end21
 
 if.then.i.i:                                      ; preds = %if.then19
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %common.resume
 
 if.end21:                                         ; preds = %while.body, %if.then19, %while.end, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
-  %animations = getelementptr inbounds %"class.Assimp::Ogre::Skeleton", ptr %skeleton, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::Skeleton", ptr %skeleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %animations = getelementptr inbounds i8, ptr %skeleton, i64 24
+  %_M_finish.i = getelementptr inbounds i8, ptr %skeleton, i64 32
   %22 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::Skeleton", ptr %skeleton, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %skeleton, i64 40
   %23 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %22, %23
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -8980,7 +8899,7 @@ if.end21:                                         ; preds = %while.body, %if.the
 if.then.i:                                        ; preds = %if.end21
   store ptr %call, ptr %22, align 8
   %24 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %24, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit
 
@@ -8993,7 +8912,7 @@ if.else.i:                                        ; preds = %if.end21
   br i1 %cmp.i.i.i41, label %if.then.i.i.i43, label %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i43:                                  ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -9008,7 +8927,7 @@ _ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; p
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIPN6Assimp4Ogre9AnimationESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN6Assimp4Ogre9AnimationESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -9024,12 +8943,12 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN6Assimp4Ogre9AnimationESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %25) #23
+  call void @_ZdlPv(ptr noundef nonnull %25) #22
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -9041,8 +8960,8 @@ _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__
 
 _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit: ; preds = %if.then.i, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
   %call22 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-  %tracks = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call, i64 0, i32 6
-  %_M_finish.i44 = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %call, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %tracks = getelementptr inbounds i8, ptr %call, i64 88
+  %_M_finish.i44 = getelementptr inbounds i8, ptr %call, i64 96
   %27 = load ptr, ptr %_M_finish.i44, align 8
   %28 = load ptr, ptr %tracks, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
@@ -9059,31 +8978,31 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer25ReadSkeletonAnimation
 entry:
   %agg.tmp.ensured = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN6Assimp4Ogre20OgreBinarySerializer8ReadLineB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(20) %this)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured) #20
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured) #19
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 2
+  %mCurrent.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %mCurrent.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %3
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   resume { ptr, i32 } %4
 
 _ZN6Assimp4Ogre20OgreBinarySerializer9SkipBytesEm.exit: ; preds = %entry
@@ -9105,14 +9024,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -9127,7 +9046,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad8, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad8 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -9140,13 +9059,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exi
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exit
@@ -9157,7 +9076,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad8:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -9174,14 +9093,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -9192,23 +9111,23 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer26ReadSkeletonAnimation
 entry:
   %boneId = alloca i16, align 2
   %track = alloca %"struct.Assimp::Ogre::VertexAnimationTrack", align 8
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 2
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %1, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad3.body, %lpad.i.i.i
@@ -9218,39 +9137,39 @@ common.resume:                                    ; preds = %lpad, %lpad3.body, 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #20
+  tail call void @__cxa_free_exception(ptr %exception.i.i.i) #19
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %entry
   %5 = load i16, ptr %2, align 1
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   store i16 %5, ptr %boneId, align 2
-  %parentSkeleton = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %dest, i64 0, i32 1
+  %parentSkeleton = getelementptr inbounds i8, ptr %dest, i64 8
   %6 = load ptr, ptr %parentSkeleton, align 8
   %call2 = tail call noundef ptr @_ZNK6Assimp4Ogre8Skeleton8BoneByIdEt(ptr noundef nonnull align 8 dereferenceable(52) %6, i16 noundef zeroext %5)
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2IJRA42_KcRtRA24_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 1 dereferenceable(42) @.str.64, ptr noundef nonnull align 2 dereferenceable(2) %boneId, ptr noundef nonnull align 1 dereferenceable(24) @.str.65)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception) #20
+  call void @__cxa_free_exception(ptr %exception) #19
   br label %common.resume
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
   call void @_ZN6Assimp4Ogre20VertexAnimationTrackC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %track)
   store i32 3, ptr %track, align 8
-  %name = getelementptr inbounds %"class.Assimp::Ogre::Bone", ptr %call2, i64 0, i32 1
-  %boneName = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %track, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call2, i64 8
+  %boneName = getelementptr inbounds i8, ptr %track, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %boneName, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %invoke.cont4 unwind label %lpad3.loopexit.split-lp
 
@@ -9260,9 +9179,9 @@ invoke.cont4:                                     ; preds = %if.end
 
 invoke.cont8.preheader:                           ; preds = %invoke.cont4
   %8 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i31 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 3
+  %mEnd.i.i31 = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %mEnd.i.i31, align 8
-  %mCurrent.i.i32 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %8, i64 0, i32 2
+  %mCurrent.i.i32 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %mCurrent.i.i32, align 8
   %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %10 to i64
@@ -9279,9 +9198,9 @@ while.body:                                       ; preds = %invoke.cont8.prehea
 
 invoke.cont11:                                    ; preds = %while.body
   %11 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i6 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 3
+  %mEnd.i.i6 = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %mEnd.i.i6, align 8
-  %mCurrent.i.i7 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %11, i64 0, i32 2
+  %mCurrent.i.i7 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %mCurrent.i.i7, align 8
   %sub.ptr.lhs.cast.i.i8 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i9 = ptrtoint ptr %13 to i64
@@ -9306,14 +9225,14 @@ lpad3.loopexit.split-lp:                          ; preds = %if.end, %invoke.con
 
 lpad3.body:                                       ; preds = %lpad3.loopexit, %lpad3.loopexit.split-lp, %lpad.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %15, %lpad.i.i ], [ %lpad.loopexit, %lpad3.loopexit ], [ %lpad.loopexit.split-lp, %lpad3.loopexit.split-lp ]
-  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #20
+  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #19
   br label %common.resume
 
 if.end16:                                         ; preds = %if.then13
   %.pre = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 3
+  %mEnd.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
   %.pre46 = load ptr, ptr %mEnd.i.i.phi.trans.insert, align 8
-  %mCurrent.i.i.phi.trans.insert = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.pre, i64 0, i32 2
+  %mCurrent.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
   %.pre47 = load ptr, ptr %mCurrent.i.i.phi.trans.insert, align 8
   %.pre48 = ptrtoint ptr %.pre46 to i64
   %.pre49 = ptrtoint ptr %.pre47 to i64
@@ -9331,21 +9250,21 @@ invoke.cont17:                                    ; preds = %if.end16, %invoke.c
   br i1 %cmp.i.lcssa, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %invoke.cont17
-  %mCurrent.i.i.le = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa30, i64 0, i32 2
+  %mCurrent.i.i.le = getelementptr inbounds i8, ptr %.lcssa30, i64 24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %.lcssa, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.le, align 8
-  %mLimit.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %.lcssa30, i64 0, i32 4
+  %mLimit.i.i = getelementptr inbounds i8, ptr %.lcssa30, i64 40
   %14 = load ptr, ptr %mLimit.i.i, align 8
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end21
 
 if.then.i.i:                                      ; preds = %if.then19
-  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
           to label %.noexc unwind label %lpad3.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont.i.i
@@ -9354,13 +9273,13 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 lpad.i.i:                                         ; preds = %if.then.i.i
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr %exception.i.i) #20
+  call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %lpad3.body
 
 if.end21:                                         ; preds = %invoke.cont11, %if.then19, %invoke.cont17
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %dest, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %dest, i64 96
   %16 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %dest, i64 0, i32 6, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %dest, i64 104
   %17 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %16, %17
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -9371,17 +9290,17 @@ if.then.i:                                        ; preds = %if.end21
 
 .noexc23:                                         ; preds = %if.then.i
   %18 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %18, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %18, i64 112
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont22
 
 if.else.i:                                        ; preds = %if.end21
-  %tracks = getelementptr inbounds %"class.Assimp::Ogre::Animation", ptr %dest, i64 0, i32 6
+  %tracks = getelementptr inbounds i8, ptr %dest, i64 88
   invoke void @_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %tracks, ptr %16, ptr noundef nonnull align 8 dereferenceable(112) %track)
           to label %invoke.cont22 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont22:                                    ; preds = %.noexc23, %if.else.i
-  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #20
+  call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %track) #19
   ret void
 }
 
@@ -9396,7 +9315,7 @@ entry:
 
 common.resume:                                    ; preds = %lpad, %lpad14, %lpad.i
   %common.resume.op = phi { ptr, i32 } [ %0, %lpad.i ], [ %2, %lpad14 ], [ %1, %lpad ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %entry
@@ -9409,13 +9328,13 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exi
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exit
-  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef %call)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2IA5_cEERKT_.exit
@@ -9426,7 +9345,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 lpad14:                                           ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %common.resume
 }
 
@@ -9439,14 +9358,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %0
 }
 
@@ -9457,29 +9376,29 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer29ReadSkeletonAnimation
 entry:
   %keyframe = alloca %"struct.Assimp::Ogre::TransformKeyFrame", align 4
   call void @_ZN6Assimp4Ogre17TransformKeyFrameC1Ev(ptr noundef nonnull align 4 dereferenceable(44) %keyframe)
-  %m_reader.i = getelementptr inbounds %"class.Assimp::Ogre::OgreBinarySerializer", ptr %this, i64 0, i32 2
+  %m_reader.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 2
+  %mCurrent.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %mCurrent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
-  %mLimit.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 4
+  %mLimit.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %2 = load ptr, ptr %mLimit.i.i.i, align 8
   %cmp.i.i.i = icmp ugt ptr %add.ptr.i.i.i, %2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull @.str.66)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i.i31, %lpad.i.i.i19, %lpad.i.i.i7, %lpad.i.i.i
   %exception.i.i.i30.sink = phi ptr [ %exception.i.i.i30, %lpad.i.i.i31 ], [ %exception.i.i.i18, %lpad.i.i.i19 ], [ %exception.i.i.i6, %lpad.i.i.i7 ], [ %exception.i.i.i, %lpad.i.i.i ]
   %common.resume.op = phi { ptr, i32 } [ %22, %lpad.i.i.i31 ], [ %16, %lpad.i.i.i19 ], [ %9, %lpad.i.i.i7 ], [ %3, %lpad.i.i.i ]
-  call void @__cxa_free_exception(ptr %exception.i.i.i30.sink) #20
+  call void @__cxa_free_exception(ptr %exception.i.i.i30.sink) #19
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -9492,26 +9411,26 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit: ; preds = %entry
   store ptr %add.ptr.i.i.i, ptr %mCurrent.i.i.i, align 8
   store float %4, ptr %keyframe, align 4
   %5 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i2 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 2
+  %mCurrent.i.i.i2 = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %mCurrent.i.i.i2, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i.i2, align 8
-  %mLimit.i.i.i3 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 4
+  %mLimit.i.i.i3 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load ptr, ptr %mLimit.i.i.i3, align 8
   %cmp.i.i.i4 = icmp ult ptr %7, %add.ptr.i.i
-  %mBuffer.i.i.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %5, i64 0, i32 1
+  %mBuffer.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %8 = load ptr, ptr %mBuffer.i.i.i, align 8
   %cmp4.i.i.i = icmp ugt ptr %8, %add.ptr.i.i
   %or.cond.i.i.i = select i1 %cmp.i.i.i4, i1 true, i1 %cmp4.i.i.i
   br i1 %or.cond.i.i.i, label %if.then.i.i.i5, label %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
 
 if.then.i.i.i5:                                   ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
-  %exception.i.i.i6 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i6 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i6, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i8 unwind label %lpad.i.i.i7
 
 invoke.cont.i.i.i8:                               ; preds = %if.then.i.i.i5
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i6, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i6, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i7:                                      ; preds = %if.then.i.i.i5
@@ -9520,31 +9439,31 @@ lpad.i.i.i7:                                      ; preds = %if.then.i.i.i5
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
-  %rotation = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %keyframe, i64 0, i32 1
+  %rotation = getelementptr inbounds i8, ptr %keyframe, i64 4
   %10 = load <4 x float>, ptr %6, align 1
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   store <4 x float> %11, ptr %rotation, align 4
   %12 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i10 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 2
+  %mCurrent.i.i.i10 = getelementptr inbounds i8, ptr %12, i64 24
   %13 = load ptr, ptr %mCurrent.i.i.i10, align 8
   %add.ptr.i.i11 = getelementptr inbounds i8, ptr %13, i64 12
   store ptr %add.ptr.i.i11, ptr %mCurrent.i.i.i10, align 8
-  %mLimit.i.i.i12 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 4
+  %mLimit.i.i.i12 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %mLimit.i.i.i12, align 8
   %cmp.i.i.i13 = icmp ult ptr %14, %add.ptr.i.i11
-  %mBuffer.i.i.i14 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %12, i64 0, i32 1
+  %mBuffer.i.i.i14 = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load ptr, ptr %mBuffer.i.i.i14, align 8
   %cmp4.i.i.i15 = icmp ugt ptr %15, %add.ptr.i.i11
   %or.cond.i.i.i16 = select i1 %cmp.i.i.i13, i1 true, i1 %cmp4.i.i.i15
   br i1 %or.cond.i.i.i16, label %if.then.i.i.i17, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
 
 if.then.i.i.i17:                                  ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
-  %exception.i.i.i18 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i18 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i18, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i20 unwind label %lpad.i.i.i19
 
 invoke.cont.i.i.i20:                              ; preds = %if.then.i.i.i17
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i18, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i18, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i19:                                     ; preds = %if.then.i.i.i17
@@ -9553,7 +9472,7 @@ lpad.i.i.i19:                                     ; preds = %if.then.i.i.i17
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14ReadQuaternionER13aiQuaterniontIfE.exit
-  %position = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %keyframe, i64 0, i32 2
+  %position = getelementptr inbounds i8, ptr %keyframe, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %position, ptr noundef nonnull align 1 dereferenceable(12) %13, i64 12, i1 false)
   %17 = load i32, ptr %this, align 8
   %cmp = icmp ugt i32 %17, 38
@@ -9561,26 +9480,26 @@ _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit: ; preds
 
 if.then:                                          ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
   %18 = load ptr, ptr %m_reader.i, align 8
-  %mCurrent.i.i.i22 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 2
+  %mCurrent.i.i.i22 = getelementptr inbounds i8, ptr %18, i64 24
   %19 = load ptr, ptr %mCurrent.i.i.i22, align 8
   %add.ptr.i.i23 = getelementptr inbounds i8, ptr %19, i64 12
   store ptr %add.ptr.i.i23, ptr %mCurrent.i.i.i22, align 8
-  %mLimit.i.i.i24 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 4
+  %mLimit.i.i.i24 = getelementptr inbounds i8, ptr %18, i64 40
   %20 = load ptr, ptr %mLimit.i.i.i24, align 8
   %cmp.i.i.i25 = icmp ult ptr %20, %add.ptr.i.i23
-  %mBuffer.i.i.i26 = getelementptr inbounds %"class.Assimp::StreamReader", ptr %18, i64 0, i32 1
+  %mBuffer.i.i.i26 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load ptr, ptr %mBuffer.i.i.i26, align 8
   %cmp4.i.i.i27 = icmp ugt ptr %21, %add.ptr.i.i23
   %or.cond.i.i.i28 = select i1 %cmp.i.i.i25, i1 true, i1 %cmp4.i.i.i27
   br i1 %or.cond.i.i.i28, label %if.then.i.i.i29, label %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit33
 
 if.then.i.i.i29:                                  ; preds = %if.then
-  %exception.i.i.i30 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception.i.i.i30 = call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i30, ptr noundef nonnull @.str.68)
           to label %invoke.cont.i.i.i32 unwind label %lpad.i.i.i31
 
 invoke.cont.i.i.i32:                              ; preds = %if.then.i.i.i29
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i30, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i30, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad.i.i.i31:                                     ; preds = %if.then.i.i.i29
@@ -9589,15 +9508,15 @@ lpad.i.i.i31:                                     ; preds = %if.then.i.i.i29
   br label %common.resume
 
 _ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit33: ; preds = %if.then
-  %scale = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %keyframe, i64 0, i32 3
+  %scale = getelementptr inbounds i8, ptr %keyframe, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scale, ptr noundef nonnull align 1 dereferenceable(12) %19, i64 12, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit33, %_ZN6Assimp4Ogre20OgreBinarySerializer10ReadVectorER10aiVector3tIfE.exit
-  %transformKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %dest, i64 0, i32 5
-  %_M_finish.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %dest, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %transformKeyFrames = getelementptr inbounds i8, ptr %dest, i64 88
+  %_M_finish.i = getelementptr inbounds i8, ptr %dest, i64 96
   %23 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %dest, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %dest, i64 104
   %24 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %23, %24
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -9605,7 +9524,7 @@ if.end:                                           ; preds = %_ZN6Assimp4Ogre20Og
 if.then.i:                                        ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %23, ptr noundef nonnull align 4 dereferenceable(44) %keyframe, i64 44, i1 false)
   %25 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %25, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %25, i64 44
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE9push_backERKS2_.exit
 
@@ -9618,7 +9537,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp.i.i.i34, label %if.then.i.i.i36, label %_ZNKSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i36:                                  ; preds = %if.else.i
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -9633,7 +9552,7 @@ _ZNKSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit.
 
 cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %mul.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i, 44
-  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #22
+  %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -9647,19 +9566,19 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(44) %__first.addr.06.i.i.i.i.i, i64 44, i1 false), !alias.scope !40
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 44
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 44
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %23
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !44
 
 _ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.Assimp::Ogre::TransformKeyFrame", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 44
   %tobool.not.i.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %26) #23
+  call void @_ZdlPv(ptr noundef nonnull %26) #22
   br label %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN6Assimp4Ogre17TransformKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i
@@ -9677,8 +9596,8 @@ declare void @_ZN6Assimp4Ogre17TransformKeyFrameC1Ev(ptr noundef nonnull align 4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -9689,7 +9608,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4pugi4impl18default_deallocateEPv(ptr noundef %ptr) #0 comdat {
 entry:
-  tail call void @free(ptr noundef %ptr) #20
+  tail call void @free(ptr noundef %ptr) #19
   ret void
 }
 
@@ -9720,22 +9639,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -9747,8 +9666,8 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17DeadlyImportErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -9775,20 +9694,20 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr hidden void @_ZN6Assimp14MemoryIOStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp14MemoryIOStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %own = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 4
+  %own = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %own, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buffer = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer, align 8
   %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #22
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %delete.notnull, %entry
@@ -9799,39 +9718,39 @@ if.end:                                           ; preds = %if.then, %delete.no
 define linkonce_odr hidden void @_ZN6Assimp14MemoryIOStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp14MemoryIOStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %own.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 4
+  %own.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %own.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN6Assimp14MemoryIOStreamD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %buffer.i = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer.i, align 8
   %isnull.i = icmp eq ptr %2, null
   br i1 %isnull.i, label %_ZN6Assimp14MemoryIOStreamD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %2) #22
   br label %_ZN6Assimp14MemoryIOStreamD2Ev.exit
 
 _ZN6Assimp14MemoryIOStreamD2Ev.exit:              ; preds = %entry, %if.then.i, %delete.notnull.i
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %this) #20
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %this) #19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN6Assimp14MemoryIOStream4ReadEPvmm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #2 comdat align 2 {
 entry:
-  %length = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %length, align 8
-  %pos = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %pos, align 8
   %sub = sub i64 %0, %1
   %div = udiv i64 %sub, %pSize
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %div, i64 %pCount)
   %mul = mul i64 %.sroa.speculated, %pSize
-  %buffer = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %buffer, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %pvBuffer, ptr align 1 %add.ptr, i64 %mul, i1 false)
@@ -9856,33 +9775,33 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %length = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %length, align 8
   %cmp2 = icmp ult i64 %0, %pOffset
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %pos = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %pOffset, ptr %pos, align 8
   br label %return
 
 if.then5:                                         ; preds = %entry
-  %length6 = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 2
+  %length6 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %length6, align 8
   %cmp7 = icmp ult i64 %1, %pOffset
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then5
   %sub = sub i64 %1, %pOffset
-  %pos11 = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 3
+  %pos11 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %sub, ptr %pos11, align 8
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %pos13 = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 3
+  %pos13 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %pos13, align 8
   %add = add i64 %2, %pOffset
-  %length14 = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 2
+  %length14 = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %length14, align 8
   %cmp15 = icmp ugt i64 %add, %3
   br i1 %cmp15, label %return, label %if.end17
@@ -9899,7 +9818,7 @@ return:                                           ; preds = %if.end, %if.end17, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6Assimp14MemoryIOStream4TellEv(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %pos = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 3
+  %pos = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %pos, align 8
   ret i64 %0
 }
@@ -9907,7 +9826,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6Assimp14MemoryIOStream8FileSizeEv(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %length = getelementptr inbounds %"class.Assimp::MemoryIOStream", ptr %this, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %length, align 8
   ret i64 %0
 }
@@ -9929,12 +9848,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #22
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !45
 
@@ -9946,20 +9865,20 @@ while.end:                                        ; preds = %while.body, %entry
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::MorphKeyFrame, std::allocator<Assimp::Ogre::MorphKeyFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.04.i.i.i, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -9967,12 +9886,12 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -9996,10 +9915,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -10021,13 +9940,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   br label %_ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN6Assimp4Ogre13MorphKeyFrameEEvPT_.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !33
 
@@ -10041,7 +9960,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %13) #22
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10052,24 +9971,24 @@ _ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev.exit: ; preds = %i
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::PoseKeyFrame, std::allocator<Assimp::Ogre::PoseKeyFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %references.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %references.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %2 = load ptr, ptr %references.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   br label %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !34
 
@@ -10083,7 +10002,7 @@ invoke.cont:                                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -10102,9 +10021,9 @@ entry:
   %agg.tmp2.i = alloca %"class.std::reverse_iterator", align 8
   %agg.tmp3.i = alloca %"class.std::reverse_iterator", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %in)
-  %call.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  %call4.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  %call7.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  %call.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  %call4.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  %call7.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   %call.i.i.i1 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZ12ai_trim_leftRS8_EUlhE_EEET_SF_SF_T0_St26random_access_iterator_tag(ptr %call4.i, ptr %call7.i)
           to label %call.i.i.i.noexc unwind label %lpad
 
@@ -10116,8 +10035,8 @@ invoke.cont:                                      ; preds = %call.i.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %agg.tmp2.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr nonnull sret(%"class.std::reverse_iterator") align 8 %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   %0 = load i64, ptr %agg.tmp2.i, align 8, !noalias !46
   %1 = load i64, ptr %agg.tmp3.i, align 8, !noalias !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !46
@@ -10131,7 +10050,7 @@ invoke.cont:                                      ; preds = %call.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp1.i.i.i), !noalias !46
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %ref.tmp1.i, align 8
-  %call7.i3 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  %call7.i3 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   %call11.i4 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr %retval.sroa.0.0.copyload.i.i, ptr %call7.i3)
           to label %invoke.cont1 unwind label %lpad
 
@@ -10139,9 +10058,9 @@ invoke.cont1:                                     ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp3.i)
-  %call = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  %call3 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
-  %call6 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  %call = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  %call3 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
+  %call6 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   %cmp.i.not5.i = icmp eq ptr %call, %call3
   br i1 %cmp.i.not5.i, label %nrvo.skipdtor, label %for.body.i
 
@@ -10162,7 +10081,7 @@ for.body.i:                                       ; preds = %invoke.cont1, %for.
 lpad:                                             ; preds = %.noexc, %invoke.cont, %call.i.i.i.noexc, %entry
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   resume { ptr, i32 } %4
 
 nrvo.skipdtor:                                    ; preds = %for.body.i, %invoke.cont1
@@ -10201,7 +10120,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %__first.sroa.0.056 = phi ptr [ %incdec.ptr.i20, %if.end22 ], [ %__first.coerce, %for.body.preheader ]
   %1 = load i8, ptr %__first.sroa.0.056, align 1
   %conv.i.i = zext i8 %1 to i32
-  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #24
+  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #23
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end
 
@@ -10209,7 +10128,7 @@ if.end:                                           ; preds = %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.056, i64 1
   %2 = load i8, ptr %incdec.ptr.i, align 1
   %conv.i.i9 = zext i8 %2 to i32
-  %call.i.i10 = tail call i32 @isspace(i32 noundef %conv.i.i9) #24
+  %call.i.i10 = tail call i32 @isspace(i32 noundef %conv.i.i9) #23
   %tobool.not.i.i11 = icmp eq i32 %call.i.i10, 0
   br i1 %tobool.not.i.i11, label %return.loopexit.split.loop.exit, label %if.end10
 
@@ -10217,7 +10136,7 @@ if.end10:                                         ; preds = %if.end
   %incdec.ptr.i12 = getelementptr inbounds i8, ptr %__first.sroa.0.056, i64 2
   %3 = load i8, ptr %incdec.ptr.i12, align 1
   %conv.i.i13 = zext i8 %3 to i32
-  %call.i.i14 = tail call i32 @isspace(i32 noundef %conv.i.i13) #24
+  %call.i.i14 = tail call i32 @isspace(i32 noundef %conv.i.i13) #23
   %tobool.not.i.i15 = icmp eq i32 %call.i.i14, 0
   br i1 %tobool.not.i.i15, label %return.loopexit.split.loop.exit62, label %if.end16
 
@@ -10225,7 +10144,7 @@ if.end16:                                         ; preds = %if.end10
   %incdec.ptr.i16 = getelementptr inbounds i8, ptr %__first.sroa.0.056, i64 3
   %4 = load i8, ptr %incdec.ptr.i16, align 1
   %conv.i.i17 = zext i8 %4 to i32
-  %call.i.i18 = tail call i32 @isspace(i32 noundef %conv.i.i17) #24
+  %call.i.i18 = tail call i32 @isspace(i32 noundef %conv.i.i17) #23
   %tobool.not.i.i19 = icmp eq i32 %call.i.i18, 0
   br i1 %tobool.not.i.i19, label %return.loopexit.split.loop.exit64, label %if.end22
 
@@ -10252,7 +10171,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 sw.bb:                                            ; preds = %for.end
   %5 = load i8, ptr %__first.sroa.0.0.lcssa, align 1
   %conv.i.i24 = zext i8 %5 to i32
-  %call.i.i25 = tail call i32 @isspace(i32 noundef %conv.i.i24) #24
+  %call.i.i25 = tail call i32 @isspace(i32 noundef %conv.i.i24) #23
   %tobool.not.i.i26 = icmp eq i32 %call.i.i25, 0
   br i1 %tobool.not.i.i26, label %return, label %if.end29
 
@@ -10264,7 +10183,7 @@ sw.bb31:                                          ; preds = %if.end29, %for.end
   %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i27, %if.end29 ]
   %6 = load i8, ptr %__first.sroa.0.1, align 1
   %conv.i.i28 = zext i8 %6 to i32
-  %call.i.i29 = tail call i32 @isspace(i32 noundef %conv.i.i28) #24
+  %call.i.i29 = tail call i32 @isspace(i32 noundef %conv.i.i28) #23
   %tobool.not.i.i30 = icmp eq i32 %call.i.i29, 0
   br i1 %tobool.not.i.i30, label %return, label %if.end36
 
@@ -10276,7 +10195,7 @@ sw.bb38:                                          ; preds = %if.end36, %for.end
   %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end ], [ %incdec.ptr.i31, %if.end36 ]
   %7 = load i8, ptr %__first.sroa.0.2, align 1
   %conv.i.i32 = zext i8 %7 to i32
-  %call.i.i33 = tail call i32 @isspace(i32 noundef %conv.i.i32) #24
+  %call.i.i33 = tail call i32 @isspace(i32 noundef %conv.i.i32) #23
   %tobool.not.i.i34 = icmp eq i32 %call.i.i33, 0
   %spec.select = select i1 %tobool.not.i.i34, ptr %__first.sroa.0.2, ptr %__last.coerce
   br label %return
@@ -10327,7 +10246,7 @@ for.body:                                         ; preds = %entry, %if.end17
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %incdec.ptr.i.i.i, align 1
   %conv.i.i = zext i8 %3 to i32
-  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #24
+  %call.i.i = tail call i32 @isspace(i32 noundef %conv.i.i) #23
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end
 
@@ -10337,7 +10256,7 @@ if.end:                                           ; preds = %for.body
   %incdec.ptr.i.i.i2 = getelementptr inbounds i8, ptr %0, i64 -2
   %4 = load i8, ptr %incdec.ptr.i.i.i2, align 1
   %conv.i.i3 = zext i8 %4 to i32
-  %call.i.i4 = tail call i32 @isspace(i32 noundef %conv.i.i3) #24
+  %call.i.i4 = tail call i32 @isspace(i32 noundef %conv.i.i3) #23
   %tobool.not.i.i5 = icmp eq i32 %call.i.i4, 0
   br i1 %tobool.not.i.i5, label %if.then6, label %if.end7
 
@@ -10352,7 +10271,7 @@ if.end7:                                          ; preds = %if.end
   %incdec.ptr.i.i.i7 = getelementptr inbounds i8, ptr %0, i64 -3
   %5 = load i8, ptr %incdec.ptr.i.i.i7, align 1
   %conv.i.i8 = zext i8 %5 to i32
-  %call.i.i9 = tail call i32 @isspace(i32 noundef %conv.i.i8) #24
+  %call.i.i9 = tail call i32 @isspace(i32 noundef %conv.i.i8) #23
   %tobool.not.i.i10 = icmp eq i32 %call.i.i9, 0
   br i1 %tobool.not.i.i10, label %if.then11, label %if.end12
 
@@ -10367,7 +10286,7 @@ if.end12:                                         ; preds = %if.end7
   %incdec.ptr.i.i.i12 = getelementptr inbounds i8, ptr %0, i64 -4
   %6 = load i8, ptr %incdec.ptr.i.i.i12, align 1
   %conv.i.i13 = zext i8 %6 to i32
-  %call.i.i14 = tail call i32 @isspace(i32 noundef %conv.i.i13) #24
+  %call.i.i14 = tail call i32 @isspace(i32 noundef %conv.i.i13) #23
   %tobool.not.i.i15 = icmp eq i32 %call.i.i14, 0
   br i1 %tobool.not.i.i15, label %if.then16, label %if.end17
 
@@ -10405,7 +10324,7 @@ sw.bb:                                            ; preds = %for.end
   %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %12, i64 -1
   %13 = load i8, ptr %incdec.ptr.i.i.i22, align 1
   %conv.i.i23 = zext i8 %13 to i32
-  %call.i.i24 = tail call i32 @isspace(i32 noundef %conv.i.i23) #24
+  %call.i.i24 = tail call i32 @isspace(i32 noundef %conv.i.i23) #23
   %tobool.not.i.i25 = icmp eq i32 %call.i.i24, 0
   br i1 %tobool.not.i.i25, label %return, label %if.end23
 
@@ -10422,7 +10341,7 @@ sw.bb25:                                          ; preds = %if.end23, %for.end
   %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %17, i64 -1
   %18 = load i8, ptr %incdec.ptr.i.i.i27, align 1
   %conv.i.i28 = zext i8 %18 to i32
-  %call.i.i29 = tail call i32 @isspace(i32 noundef %conv.i.i28) #24
+  %call.i.i29 = tail call i32 @isspace(i32 noundef %conv.i.i28) #23
   %tobool.not.i.i30 = icmp eq i32 %call.i.i29, 0
   br i1 %tobool.not.i.i30, label %return, label %if.end29
 
@@ -10439,7 +10358,7 @@ sw.bb31:                                          ; preds = %if.end29, %for.end
   %incdec.ptr.i.i.i32 = getelementptr inbounds i8, ptr %22, i64 -1
   %23 = load i8, ptr %incdec.ptr.i.i.i32, align 1
   %conv.i.i33 = zext i8 %23 to i32
-  %call.i.i34 = tail call i32 @isspace(i32 noundef %conv.i.i33) #24
+  %call.i.i34 = tail call i32 @isspace(i32 noundef %conv.i.i33) #23
   %tobool.not.i.i35 = icmp eq i32 %call.i.i34, 0
   br i1 %tobool.not.i.i35, label %return, label %if.end35
 
@@ -10500,22 +10419,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA86_KcRA22_S1_RKPS1_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN6Assimp9Formatter15basic_formatterIcSC_SD_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 1 dereferenceable(86) %args1, ptr noundef nonnull align 1 dereferenceable(22) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10547,22 +10466,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA22_KcRKPS1_ERA86_S1_EEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(86) %args, ptr noundef nonnull align 1 dereferenceable(22) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10594,22 +10513,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRKPKcERA22_S1_EEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(22) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10641,22 +10560,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJERKPKcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10689,22 +10608,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10737,22 +10656,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10788,22 +10707,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10837,22 +10756,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERA2_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(2) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10884,22 +10803,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -10917,23 +10836,23 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this, i64 0, i32 1
+  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0) #20
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -10943,7 +10862,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN6Assimp14MemoryIOStreamELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -10977,22 +10896,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRjRA7_KcRA13_S3_S2_S5_ES7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(13) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 1 dereferenceable(7) %args3, ptr noundef nonnull align 1 dereferenceable(13) %args5, ptr noundef nonnull align 4 dereferenceable(4) %args7, ptr noundef nonnull align 1 dereferenceable(7) %args9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11024,22 +10943,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA7_KcRA13_S2_RjS4_ES7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 1 dereferenceable(7) %args1, ptr noundef nonnull align 1 dereferenceable(13) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5, ptr noundef nonnull align 1 dereferenceable(7) %args7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11072,22 +10991,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA13_KcRjRA7_S2_ES7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(7) %args, ptr noundef nonnull align 1 dereferenceable(13) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 1 dereferenceable(7) %args5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11119,22 +11038,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRjRA7_KcERA13_S3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(13) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 1 dereferenceable(7) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11166,22 +11085,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA7_KcERjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS9_SA_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 1 dereferenceable(7) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11214,22 +11133,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERA7_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(7) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11261,22 +11180,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11319,22 +11238,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA64_KcERtEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 2 dereferenceable(2) %args, ptr noundef nonnull align 1 dereferenceable(64) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11367,22 +11286,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJERA64_KcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(64) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11414,22 +11333,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11464,22 +11383,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_KcERA8_S9_EES7_NS_9Formatter15basic_formatterIcS5_S6_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 1 dereferenceable(2) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11511,22 +11430,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA2_KcERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_NS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 1 dereferenceable(2) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11559,22 +11478,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERA10_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(10) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11606,22 +11525,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11653,22 +11572,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA8_KcRtRA9_S8_SB_ERA10_S8_EES7_NS_9Formatter15basic_formatterIcS5_S6_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(10) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 1 dereferenceable(8) %args3, ptr noundef nonnull align 2 dereferenceable(2) %args5, ptr noundef nonnull align 1 dereferenceable(9) %args7, ptr noundef nonnull align 2 dereferenceable(2) %args9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11700,22 +11619,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA8_KcRtRA9_S2_S5_ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESD_NS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 1 dereferenceable(8) %args1, ptr noundef nonnull align 2 dereferenceable(2) %args3, ptr noundef nonnull align 1 dereferenceable(9) %args5, ptr noundef nonnull align 2 dereferenceable(2) %args7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11747,22 +11666,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRtRA9_KcS2_ERA8_S3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(8) %args, ptr noundef nonnull align 2 dereferenceable(2) %args1, ptr noundef nonnull align 1 dereferenceable(9) %args3, ptr noundef nonnull align 2 dereferenceable(2) %args5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11794,22 +11713,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA9_KcRtES5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS9_SA_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 2 dereferenceable(2) %args, ptr noundef nonnull align 1 dereferenceable(9) %args1, ptr noundef nonnull align 2 dereferenceable(2) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11842,22 +11761,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRtERA9_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS9_SA_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(9) %args, ptr noundef nonnull align 2 dereferenceable(2) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11889,22 +11808,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERtEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS6_S7_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 2 dereferenceable(2) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11937,22 +11856,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -11966,14 +11885,14 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assim
 invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>, std::_Select1st<std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>>, std::less<unsigned short>>::_Auto_node", align 8
   store ptr %this, ptr %__z, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>, std::_Select1st<std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>>, std::less<unsigned short>>::_Auto_node", ptr %__z, i64 0, i32 1
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load i16, ptr %1, align 2
   store i16 %2, ptr %_M_storage.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 2 dereferenceable(2) %_M_storage.i.i.i.i)
@@ -11993,7 +11912,7 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i16, ptr %_M_storage.i.i.i.i, align 2
   %6 = load i16, ptr %_M_storage.i.i.i.i.i, align 2
   %cmp.i.i.i = icmp ult i16 %5, %6
@@ -12001,7 +11920,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
 
 cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i
   %7 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #20
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %7, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #19
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i64, ptr %_M_node_count.i.i, align 8
   %inc.i.i = add i64 %8, 1
@@ -12011,17 +11930,17 @@ cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i
 lpad:                                             ; preds = %invoke.cont
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__z) #20
+  call void @_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__z) #19
   resume { ptr, i32 } %9
 
 if.then.i:                                        ; preds = %invoke.cont7
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   %10 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %11, 4294967297
   %12 = trunc i64 %11 to i32
@@ -12029,12 +11948,12 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -12058,10 +11977,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %10, i64 0, i32 2
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 12
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12083,13 +12002,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %10, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %20 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #19
   br label %_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit.i
 
 _ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #22
   br label %_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE10_Auto_nodeD2Ev.exit
 
 _ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE10_Auto_nodeD2Ev.exit: ; preds = %cleanup.thread, %_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit.i
@@ -12113,7 +12032,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i16, ptr %_M_storage.i.i.i, align 2
   %3 = load i16, ptr %__k, align 2
   %cmp.i = icmp ult i16 %2, %3
@@ -12131,12 +12050,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i16, ptr %_M_storage.i.i.i10, align 2
   %cmp.i.i = icmp ult i16 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !55
@@ -12152,15 +12070,15 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #24
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i16, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 2
-  %.pre117 = load i16, ptr %__k, align 2
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #23
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i16, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 2
+  %.pre115 = load i16, ptr %__k, align 2
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i16 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i16 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i16 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i16 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i16 %8, %7
@@ -12169,7 +12087,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i16, ptr %__k, align 2
   %10 = load i16, ptr %_M_storage.i.i.i11, align 2
   %cmp.i12 = icmp ult i16 %9, %10
@@ -12182,132 +12100,130 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #24
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call.i, i64 0, i32 1
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i16, ptr %_M_storage.i.i.i16, align 2
   %cmp.i17 = icmp ult i16 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i16, ptr %_M_storage.i.i.i28, align 2
   %cmp.i.i29 = icmp ult i16 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !55
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !55
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #24
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i16, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 2
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #23
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i16, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 2
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i16 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i16 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i16 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i16 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i16 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i16 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #24
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call.i59, i64 0, i32 1
-  %17 = load i16, ptr %_M_storage.i.i.i60, align 2
-  %cmp.i61 = icmp ult i16 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i16, ptr %_M_storage.i.i.i59, align 2
+  %cmp.i60 = icmp ult i16 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i16, ptr %_M_storage.i.i.i72, align 2
-  %cmp.i.i73 = icmp ult i16 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !55
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i16, ptr %_M_storage.i.i.i71, align 2
+  %cmp.i.i72 = icmp ult i16 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !55
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #24
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i16, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 2
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #23
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i16, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 2
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i16 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i16 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i16 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i16 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -12316,19 +12232,19 @@ return:                                           ; preds = %if.end12.i80, %if.t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>, std::_Select1st<std::pair<const unsigned short, std::shared_ptr<Assimp::MemoryIOStream>>>, std::less<unsigned short>>::_Auto_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.131", ptr %0, i64 0, i32 1, i32 0, i64 16
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -12336,12 +12252,12 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i.i.i
@@ -12365,10 +12281,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -12390,13 +12306,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
 
 _ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit: ; preds = %if.then, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt8_Rb_treeItSt4pairIKtSt10shared_ptrIN6Assimp14MemoryIOStreamEEESt10_Select1stIS6_ESt4lessItESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit, %entry
@@ -12430,22 +12346,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRmRA7_KcERA5_S3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(5) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(7) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -12477,22 +12393,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA7_KcERmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS9_SA_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(7) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -12525,22 +12441,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERA7_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(7) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -12565,7 +12481,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i, align 4
   %3 = load i32, ptr %__k, align 4
   %cmp.i = icmp ult i32 %2, %3
@@ -12583,12 +12499,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i10, align 4
   %cmp.i.i = icmp ult i32 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !56
@@ -12604,15 +12519,15 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #24
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
-  %.pre117 = load i32, ptr %__k, align 4
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #23
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4
+  %.pre115 = load i32, ptr %__k, align 4
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i32 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i32 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i32 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i32 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i32 %8, %7
@@ -12621,7 +12536,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i32, ptr %__k, align 4
   %10 = load i32, ptr %_M_storage.i.i.i11, align 4
   %cmp.i12 = icmp ult i32 %9, %10
@@ -12634,132 +12549,130 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #24
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i, i64 0, i32 1
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i32, ptr %_M_storage.i.i.i16, align 4
   %cmp.i17 = icmp ult i32 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i32, ptr %_M_storage.i.i.i28, align 4
   %cmp.i.i29 = icmp ult i32 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !56
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !56
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #24
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i32, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 4
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #23
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i32, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 4
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i32 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i32 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i32 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i32 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i32 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i32 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #24
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i59, i64 0, i32 1
-  %17 = load i32, ptr %_M_storage.i.i.i60, align 4
-  %cmp.i61 = icmp ult i32 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #23
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i32, ptr %_M_storage.i.i.i59, align 4
+  %cmp.i60 = icmp ult i32 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i32, ptr %_M_storage.i.i.i72, align 4
-  %cmp.i.i73 = icmp ult i32 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !56
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i32, ptr %_M_storage.i.i.i71, align 4
+  %cmp.i.i72 = icmp ult i32 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !56
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #24
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.143", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i32, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 4
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #23
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i32, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 4
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i32 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i32 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i32 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i32 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -12771,7 +12684,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(112) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::VertexAnimationTrack, std::allocator<Assimp::Ogre::VertexAnimationTrack>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -12781,7 +12694,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -12799,7 +12712,7 @@ _ZNKSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE12_M_check_lenEmPKc.ex
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 112
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
@@ -12818,45 +12731,45 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(6) %__first.addr.06.i.i.i, i64 6, i1 false), !alias.scope !62
-  %boneName.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %boneName3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %boneName.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %boneName3.i.i.i.i.i.i.i) #20
-  %poseKeyFrames.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 0, i32 3
-  %poseKeyFrames4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 0, i32 3
+  %boneName.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %boneName3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %boneName.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %boneName3.i.i.i.i.i.i.i) #19
+  %poseKeyFrames.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
+  %poseKeyFrames4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
   %3 = load <2 x ptr>, ptr %poseKeyFrames4.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
   store <2 x ptr> %3, ptr %poseKeyFrames.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 56
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 56
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %poseKeyFrames4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
-  %morphKeyFrames.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 0, i32 4
-  %morphKeyFrames5.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 0, i32 4
+  %morphKeyFrames.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
+  %morphKeyFrames5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
   %5 = load <2 x ptr>, ptr %morphKeyFrames5.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
   store <2 x ptr> %5, ptr %morphKeyFrames.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
-  %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 80
+  %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 80
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %morphKeyFrames5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
-  %transformKeyFrames.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 0, i32 5
-  %transformKeyFrames6.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 0, i32 5
+  %transformKeyFrames.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 88
+  %transformKeyFrames6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 88
   %7 = load <2 x ptr>, ptr %transformKeyFrames6.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
   store <2 x ptr> %7, ptr %transformKeyFrames.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
-  %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 104
+  %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 104
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i, align 8, !alias.scope !60, !noalias !57
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i, align 8, !alias.scope !57, !noalias !60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %transformKeyFrames6.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !60, !noalias !57
-  tail call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i) #20
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i, i64 1
+  tail call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i) #19
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 112
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 112
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !63
 
 _ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 112
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46, label %for.body.i.i.i19
 
@@ -12866,39 +12779,39 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN6Assi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(6) %__first.addr.06.i.i.i21, i64 6, i1 false), !alias.scope !69
-  %boneName.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 0, i32 2
-  %boneName3.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 0, i32 2
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %boneName.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %boneName3.i.i.i.i.i.i.i23) #20
-  %poseKeyFrames.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 0, i32 3
-  %poseKeyFrames4.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 0, i32 3
+  %boneName.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 8
+  %boneName3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %boneName.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %boneName3.i.i.i.i.i.i.i23) #19
+  %poseKeyFrames.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 40
+  %poseKeyFrames4.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 40
   %9 = load <2 x ptr>, ptr %poseKeyFrames4.i.i.i.i.i.i.i25, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %9, ptr %poseKeyFrames.i.i.i.i.i.i.i24, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 56
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 56
   %10 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i29, align 8, !alias.scope !67, !noalias !64
   store ptr %10, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %poseKeyFrames4.i.i.i.i.i.i.i25, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %morphKeyFrames.i.i.i.i.i.i.i30 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 0, i32 4
-  %morphKeyFrames5.i.i.i.i.i.i.i31 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 0, i32 4
+  %morphKeyFrames.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 64
+  %morphKeyFrames5.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 64
   %11 = load <2 x ptr>, ptr %morphKeyFrames5.i.i.i.i.i.i.i31, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %11, ptr %morphKeyFrames.i.i.i.i.i.i.i30, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i34 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i35 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 80
+  %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 80
   %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8.i.i.i.i.i.i.i35, align 8, !alias.scope !67, !noalias !64
   store ptr %12, ptr %_M_end_of_storage.i.i.i.i7.i.i.i.i.i.i.i34, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %morphKeyFrames5.i.i.i.i.i.i.i31, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  %transformKeyFrames.i.i.i.i.i.i.i36 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 0, i32 5
-  %transformKeyFrames6.i.i.i.i.i.i.i37 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 0, i32 5
+  %transformKeyFrames.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 88
+  %transformKeyFrames6.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 88
   %13 = load <2 x ptr>, ptr %transformKeyFrames6.i.i.i.i.i.i.i37, align 8, !alias.scope !67, !noalias !64
   store <2 x ptr> %13, ptr %transformKeyFrames.i.i.i.i.i.i.i36, align 8, !alias.scope !64, !noalias !67
-  %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i40 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i41 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 104
+  %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 104
   %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i41, align 8, !alias.scope !67, !noalias !64
   store ptr %14, ptr %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i40, align 8, !alias.scope !64, !noalias !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %transformKeyFrames6.i.i.i.i.i.i.i37, i8 0, i64 24, i1 false), !alias.scope !67, !noalias !64
-  tail call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i21) #20
-  %incdec.ptr.i.i.i42 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i43 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %__cur.07.i.i.i20, i64 1
+  tail call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.06.i.i.i21) #19
+  %incdec.ptr.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 112
+  %incdec.ptr1.i.i.i43 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 112
   %cmp.not.i.i.i44 = icmp eq ptr %incdec.ptr.i.i.i42, %0
   br i1 %cmp.not.i.i.i44, label %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46, label %for.body.i.i.i19, !llvm.loop !63
 
@@ -12908,11 +12821,11 @@ _ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i47
 
 if.then.i47:                                      ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46, %if.then.i47
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::VertexAnimationTrack, std::allocator<Assimp::Ogre::VertexAnimationTrack>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i45, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %cond.i17, i64 %cond.i
@@ -12923,12 +12836,12 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #20
+  %17 = tail call ptr @__cxa_begin_catch(ptr %16) #19
   %tobool.not = icmp eq ptr %cond.i17, null
   br i1 %tobool.not, label %if.end.thread, label %if.then.i49
 
 if.end.thread:                                    ; preds = %lpad
-  tail call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr) #20
+  tail call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr) #19
   br label %invoke.cont19
 
 lpad17:                                           ; preds = %invoke.cont19
@@ -12938,11 +12851,11 @@ lpad17:                                           ; preds = %invoke.cont19
           to label %eh.resume unwind label %terminate.lpad
 
 if.then.i49:                                      ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #22
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.then.i49, %if.end.thread
-  invoke void @__cxa_rethrow() #21
+  invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
@@ -12952,7 +12865,7 @@ terminate.lpad:                                   ; preds = %lpad17
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #19
+  tail call void @__clang_call_terminate(ptr %20) #18
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -12963,12 +12876,12 @@ unreachable:                                      ; preds = %invoke.cont19
 define linkonce_odr hidden void @_ZN6Assimp4Ogre20VertexAnimationTrackC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %this, ptr noundef nonnull align 8 dereferenceable(6) %0, i64 6, i1 false)
-  %boneName = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 2
-  %boneName3 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %0, i64 0, i32 2
+  %boneName = getelementptr inbounds i8, ptr %this, i64 8
+  %boneName3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %boneName, ptr noundef nonnull align 8 dereferenceable(32) %boneName3)
-  %poseKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 3
-  %poseKeyFrames4 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %0, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %0, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %poseKeyFrames = getelementptr inbounds i8, ptr %this, i64 40
+  %poseKeyFrames4 = getelementptr inbounds i8, ptr %0, i64 40
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %poseKeyFrames4, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -12984,23 +12897,23 @@ cond.true.i.i.i.i:                                ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre12PoseKeyFrameEEE8allocateERS3_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN6Assimp4Ogre12PoseKeyFrameEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #22
+  %call5.i.i.i.i2.i6.i7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #21
           to label %invoke.cont.i unwind label %lpad
 
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre12PoseKeyFrameEEE8allocateERS3_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i7, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre12PoseKeyFrameEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %poseKeyFrames, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %3 = load ptr, ptr %poseKeyFrames4, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -13015,14 +12928,14 @@ lpad10.i:                                         ; preds = %invoke.cont.i
   br i1 %tobool.not.i.i.i, label %ehcleanup11, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad10.i
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #22
   br label %ehcleanup11
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   store ptr %call.i.i.i8.i, ptr %_M_finish.i.i.i, align 8
-  %morphKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 4
-  %morphKeyFrames5 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %0, i64 0, i32 4
-  %_M_finish.i.i8 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %0, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %morphKeyFrames = getelementptr inbounds i8, ptr %this, i64 64
+  %morphKeyFrames5 = getelementptr inbounds i8, ptr %0, i64 64
+  %_M_finish.i.i8 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %_M_finish.i.i8, align 8
   %8 = load ptr, ptr %morphKeyFrames5, align 8
   %sub.ptr.lhs.cast.i.i9 = ptrtoint ptr %7 to i64
@@ -13038,23 +12951,23 @@ cond.true.i.i.i.i14:                              ; preds = %invoke.cont
   br i1 %cmp.i.i.i.i.i.i15, label %if.then3.i.i.i.i.i.i21, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE8allocateERS3_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i21:                           ; preds = %cond.true.i.i.i.i14
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
           to label %.noexc22 unwind label %lpad6
 
 .noexc22:                                         ; preds = %if.then3.i.i.i.i.i.i21
   unreachable
 
 _ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i14
-  %call5.i.i.i.i2.i6.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i11) #22
+  %call5.i.i.i.i2.i6.i24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i11) #21
           to label %invoke.cont.i16 unwind label %lpad6
 
 invoke.cont.i16:                                  ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE8allocateERS3_m.exit.i.i.i.i, %invoke.cont
   %cond.i.i.i.i17 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i24, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i17, ptr %morphKeyFrames, align 8
-  %_M_finish.i.i.i18 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %cond.i.i.i.i17, ptr %_M_finish.i.i.i18, align 8
   %add.ptr.i.i.i19 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %cond.i.i.i.i17, i64 %sub.ptr.div.i.i12
-  %_M_end_of_storage.i.i.i20 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i20 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i19, ptr %_M_end_of_storage.i.i.i20, align 8
   %9 = load ptr, ptr %morphKeyFrames5, align 8
   %10 = load ptr, ptr %_M_finish.i.i8, align 8
@@ -13066,19 +12979,19 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i16, %_
   %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructIN6Assimp4Ogre13MorphKeyFrameEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %9, %invoke.cont.i16 ]
   %11 = load float, ptr %__first.sroa.0.06.i.i.i.i.i, align 8
   store float %11, ptr %__cur.07.i.i.i.i.i, align 8
-  %buffer.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1
-  %buffer3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.sroa.0.06.i.i.i.i.i, i64 0, i32 1
+  %buffer.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
+  %buffer3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
   %12 = load ptr, ptr %buffer3.i.i.i.i.i.i.i, align 8
   store ptr %12, ptr %buffer.i.i.i.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.07.i.i.i.i.i, i64 0, i32 1, i32 0, i32 1
-  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.sroa.0.06.i.i.i.i.i, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
   store ptr %13, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN6Assimp4Ogre13MorphKeyFrameEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %13, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -13094,17 +13007,17 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   br label %_ZSt10_ConstructIN6Assimp4Ogre13MorphKeyFrameEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN6Assimp4Ogre13MorphKeyFrameEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.sroa.0.06.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %10
   br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i.i, !llvm.loop !70
 
 invoke.cont7:                                     ; preds = %_ZSt10_ConstructIN6Assimp4Ogre13MorphKeyFrameEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i, %invoke.cont.i16
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i17, %invoke.cont.i16 ], [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructIN6Assimp4Ogre13MorphKeyFrameEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i18, align 8
-  %transformKeyFrames = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 5
-  %transformKeyFrames8 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %0, i64 0, i32 5
-  %_M_finish.i.i25 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %0, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %transformKeyFrames = getelementptr inbounds i8, ptr %this, i64 88
+  %transformKeyFrames8 = getelementptr inbounds i8, ptr %0, i64 88
+  %_M_finish.i.i25 = getelementptr inbounds i8, ptr %0, i64 96
   %17 = load ptr, ptr %_M_finish.i.i25, align 8
   %18 = load ptr, ptr %transformKeyFrames8, align 8
   %sub.ptr.lhs.cast.i.i26 = ptrtoint ptr %17 to i64
@@ -13120,23 +13033,23 @@ cond.true.i.i.i.i31:                              ; preds = %invoke.cont7
   br i1 %cmp.i.i.i.i.i.i32, label %if.then3.i.i.i.i.i.i46, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre17TransformKeyFrameEEE8allocateERS3_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i46:                           ; preds = %cond.true.i.i.i.i31
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
           to label %.noexc47 unwind label %lpad9
 
 .noexc47:                                         ; preds = %if.then3.i.i.i.i.i.i46
   unreachable
 
 _ZNSt16allocator_traitsISaIN6Assimp4Ogre17TransformKeyFrameEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i31
-  %call5.i.i.i.i2.i6.i49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i28) #22
+  %call5.i.i.i.i2.i6.i49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i28) #21
           to label %invoke.cont.i33 unwind label %lpad9
 
 invoke.cont.i33:                                  ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre17TransformKeyFrameEEE8allocateERS3_m.exit.i.i.i.i, %invoke.cont7
   %cond.i.i.i.i34 = phi ptr [ null, %invoke.cont7 ], [ %call5.i.i.i.i2.i6.i49, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre17TransformKeyFrameEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i34, ptr %transformKeyFrames, align 8
-  %_M_finish.i.i.i35 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %cond.i.i.i.i34, ptr %_M_finish.i.i.i35, align 8
   %add.ptr.i.i.i36 = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %cond.i.i.i.i34, i64 %sub.ptr.div.i.i29
-  %_M_end_of_storage.i.i.i37 = getelementptr inbounds %"struct.Assimp::Ogre::VertexAnimationTrack", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %add.ptr.i.i.i36, ptr %_M_end_of_storage.i.i.i37, align 8
   %19 = load ptr, ptr %transformKeyFrames8, align 8
   %20 = load ptr, ptr %_M_finish.i.i25, align 8
@@ -13147,8 +13060,8 @@ for.body.i.i.i.i.i39:                             ; preds = %invoke.cont.i33, %f
   %__cur.07.i.i.i.i.i40 = phi ptr [ %incdec.ptr.i.i.i.i.i43, %for.body.i.i.i.i.i39 ], [ %cond.i.i.i.i34, %invoke.cont.i33 ]
   %__first.sroa.0.06.i.i.i.i.i41 = phi ptr [ %incdec.ptr.i.i.i.i.i.i42, %for.body.i.i.i.i.i39 ], [ %19, %invoke.cont.i33 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %__cur.07.i.i.i.i.i40, ptr noundef nonnull align 4 dereferenceable(44) %__first.sroa.0.06.i.i.i.i.i41, i64 44, i1 false)
-  %incdec.ptr.i.i.i.i.i.i42 = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %__first.sroa.0.06.i.i.i.i.i41, i64 1
-  %incdec.ptr.i.i.i.i.i43 = getelementptr inbounds %"struct.Assimp::Ogre::TransformKeyFrame", ptr %__cur.07.i.i.i.i.i40, i64 1
+  %incdec.ptr.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i41, i64 44
+  %incdec.ptr.i.i.i.i.i43 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i40, i64 44
   %cmp.i.not.i.i.i.i.i44 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i42, %20
   br i1 %cmp.i.not.i.i.i.i.i44, label %invoke.cont10, label %for.body.i.i.i.i.i39, !llvm.loop !71
 
@@ -13170,17 +13083,17 @@ lpad6:                                            ; preds = %_ZNSt16allocator_tr
 lpad9:                                            ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre17TransformKeyFrameEEE8allocateERS3_m.exit.i.i.i.i, %if.then3.i.i.i.i.i.i46
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %morphKeyFrames) #20
+  tail call void @_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %morphKeyFrames) #19
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad9, %lpad6
   %.pn = phi { ptr, i32 } [ %23, %lpad9 ], [ %22, %lpad6 ]
-  tail call void @_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %poseKeyFrames) #20
+  tail call void @_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %poseKeyFrames) #19
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad, %if.then.i.i.i, %lpad10.i, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %21, %lpad ], [ %5, %if.then.i.i.i ], [ %5, %lpad10.i ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %boneName) #20
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %boneName) #19
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -13195,9 +13108,9 @@ for.body:                                         ; preds = %entry, %for.inc
   %__first.sroa.0.014 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %__first.coerce, %entry ]
   %0 = load float, ptr %__first.sroa.0.014, align 8
   store float %0, ptr %__cur.015, align 8
-  %references.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.015, i64 0, i32 1
-  %references3.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.sroa.0.014, i64 0, i32 1
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.sroa.0.014, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %references.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 8
+  %references3.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %2 = load ptr, ptr %references3.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -13213,23 +13126,23 @@ cond.true.i.i.i.i.i.i:                            ; preds = %for.body
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i.i:                         ; preds = %cond.true.i.i.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
           to label %.noexc unwind label %lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i
-  %call5.i.i.i.i2.i6.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i) #22
+  %call5.i.i.i.i2.i6.i.i.i5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i) #21
           to label %invoke.cont.i.i.i unwind label %lpad.loopexit
 
 invoke.cont.i.i.i:                                ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i, %for.body
   %cond.i.i.i.i.i.i = phi ptr [ null, %for.body ], [ %call5.i.i.i.i2.i6.i.i.i5, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i ]
   store ptr %cond.i.i.i.i.i.i, ptr %references.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.015, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 16
   store ptr %cond.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseRef", ptr %cond.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.015, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 24
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %3 = load ptr, ptr %references3.i.i, align 8
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -13246,8 +13159,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont.i.i.i
 for.inc:                                          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.sroa.0.014, i64 1
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.015, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.015, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %__last.coerce
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !72
 
@@ -13264,28 +13177,28 @@ lpad.loopexit.split-lp:                           ; preds = %if.then3.i.i.i.i.i.
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   %5 = extractvalue { ptr, i32 } %lpad.phi, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #20
+  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #19
   %cmp.not3.i.i = icmp eq ptr %__cur.015, %__result
   br i1 %cmp.not3.i.i, label %invoke.cont5, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad, %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i
   %__first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i ], [ %__result, %lpad ]
-  %references.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.04.i.i, i64 0, i32 1
+  %references.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 8
   %7 = load ptr, ptr %references.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__cur.015
   br i1 %cmp.not.i.i, label %invoke.cont5, label %for.body.i.i, !llvm.loop !34
 
 invoke.cont5:                                     ; preds = %_ZSt8_DestroyIN6Assimp4Ogre12PoseKeyFrameEEvPT_.exit.i.i, %lpad
-  invoke void @__cxa_rethrow() #21
+  invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad4
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -13305,7 +13218,7 @@ terminate.lpad:                                   ; preds = %lpad4
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #18
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont5
@@ -13315,7 +13228,7 @@ unreachable:                                      ; preds = %invoke.cont5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::MorphKeyFrame, std::allocator<Assimp::Ogre::MorphKeyFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -13325,7 +13238,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -13338,26 +13251,32 @@ _ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit: ; p
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %cmp.not.i = icmp ne i64 %cond.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i)
+  %cmp.not.i = icmp eq i64 %cond.i, 0
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_M_allocateEm.exit, label %cond.true.i
+
+cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 24
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
+  br label %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_M_allocateEm.exit
+
+_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %add.ptr = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %cond.i10, i64 %sub.ptr.div.i
   %3 = load float, ptr %__args, align 8
   store float %3, ptr %add.ptr, align 8
-  %buffer.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
-  %buffer3.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__args, i64 0, i32 1
+  %buffer.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %buffer3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %4 = load ptr, ptr %buffer3.i.i.i, align 8
   store ptr %4, ptr %buffer.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1, i32 0, i32 1
-  %_M_refcount3.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__args, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
   store ptr %5, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_M_allocateEm.exit
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -13372,32 +13291,32 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   %8 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit, %if.then.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_M_allocateEm.exit, %if.then.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i10, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %9 = load float, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !76, !noalias !73
   store float %9, ptr %__cur.07.i.i.i, align 8, !alias.scope !73, !noalias !76
-  %buffer.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %buffer3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.06.i.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 1
+  %buffer.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %buffer3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %10 = load <2 x ptr>, ptr %buffer3.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !73
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !73
   store <2 x ptr> %10, ptr %buffer.i.i.i.i.i.i.i, align 8, !alias.scope !73, !noalias !76
   store ptr null, ptr %buffer3.i.i.i.i.i.i.i, align 8, !alias.scope !76, !noalias !73
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !78
 
 _ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
-  %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, label %for.body.i.i.i12
 
@@ -13408,15 +13327,15 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6Assi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %11 = load float, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !82, !noalias !79
   store float %11, ptr %__cur.07.i.i.i13, align 8, !alias.scope !79, !noalias !82
-  %buffer.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %buffer3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.06.i.i.i14, i64 0, i32 1, i32 0, i32 1
+  %buffer.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
+  %buffer3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %_M_refcount4.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %12 = load <2 x ptr>, ptr %buffer3.i.i.i.i.i.i.i16, align 8, !alias.scope !82, !noalias !79
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !82, !noalias !79
   store <2 x ptr> %12, ptr %buffer.i.i.i.i.i.i.i15, align 8, !alias.scope !79, !noalias !82
   store ptr null, ptr %buffer3.i.i.i.i.i.i.i16, align 8, !alias.scope !82, !noalias !79
-  %incdec.ptr.i.i.i19 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i20 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %incdec.ptr1.i.i.i20 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %cmp.not.i.i.i21 = icmp eq ptr %incdec.ptr.i.i.i19, %0
   br i1 %cmp.not.i.i.i21, label %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, label %for.body.i.i.i12, !llvm.loop !78
 
@@ -13426,14 +13345,14 @@ _ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i24
 
 if.then.i24:                                      ; preds = %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, %if.then.i24
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::MorphKeyFrame, std::allocator<Assimp::Ogre::MorphKeyFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  store ptr %call5.i.i.i, ptr %this, align 8
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i22, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds %"struct.Assimp::Ogre::MorphKeyFrame", ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -13441,7 +13360,7 @@ _ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE13_M_deallocateEPS2_m.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::PoseKeyFrame, std::allocator<Assimp::Ogre::PoseKeyFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -13451,7 +13370,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #20
   unreachable
 
 _ZNKSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -13469,7 +13388,7 @@ _ZNKSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit: ; pr
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
@@ -13477,9 +13396,9 @@ _ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_M_allocateEm.exit: ; 
   %add.ptr = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i17, i64 %sub.ptr.div.i
   %3 = load float, ptr %__args, align 8
   store float %3, ptr %add.ptr, align 8
-  %references.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
-  %references3.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__args, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__args, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %references.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %references3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %5 = load ptr, ptr %references3.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %4 to i64
@@ -13490,9 +13409,9 @@ _ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_M_allocateEm.exit: ; 
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.thread, label %cond.true.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %_ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_M_allocateEm.exit
-  %_M_finish.i.i.i.i.i.i42 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %add.ptr.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i44 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %references.i.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i43, ptr %_M_end_of_storage.i.i.i.i.i.i44, align 8
   br label %invoke.cont
@@ -13502,22 +13421,22 @@ cond.true.i.i.i.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i.i.i:                       ; preds = %cond.true.i.i.i.i.i.i.i
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #21
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
           to label %.noexc unwind label %invoke.cont19
 
 .noexc:                                           ; preds = %if.then3.i.i.i.i.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i.i
-  %call5.i.i.i.i2.i6.i.i.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #22
+  %call5.i.i.i.i2.i6.i.i.i.i18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i) #21
           to label %if.then.i.i.i.i.i.i.i.i.i.i.i.i unwind label %invoke.cont19
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt16allocator_traitsISaIN6Assimp4Ogre7PoseRefEEE8allocateERS3_m.exit.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i.i.i.i18, ptr %references.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store ptr %call5.i.i.i.i2.i6.i.i.i.i18, ptr %_M_finish.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i.i.i.i18, i64 %sub.ptr.sub.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i.i.i.i18, ptr align 4 %5, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %invoke.cont
@@ -13537,23 +13456,23 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %6 = load float, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !87, !noalias !84
   store float %6, ptr %__cur.07.i.i.i, align 8, !alias.scope !84, !noalias !87
-  %references.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %references3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %references.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
+  %references3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %7 = load <2 x ptr>, ptr %references3.i.i.i.i.i.i.i, align 8, !alias.scope !87, !noalias !84
   store <2 x ptr> %7, ptr %references.i.i.i.i.i.i.i, align 8, !alias.scope !84, !noalias !87
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.07.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.06.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !87, !noalias !84
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !84, !noalias !87
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %references3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !87, !noalias !84
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !89
 
 _ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, label %for.body.i.i.i20
 
@@ -13564,17 +13483,17 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN6Assi
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %9 = load float, ptr %__first.addr.06.i.i.i22, align 8, !alias.scope !93, !noalias !90
   store float %9, ptr %__cur.07.i.i.i21, align 8, !alias.scope !90, !noalias !93
-  %references.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.07.i.i.i21, i64 0, i32 1
-  %references3.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.06.i.i.i22, i64 0, i32 1
+  %references.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 8
+  %references3.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 8
   %10 = load <2 x ptr>, ptr %references3.i.i.i.i.i.i.i24, align 8, !alias.scope !93, !noalias !90
   store <2 x ptr> %10, ptr %references.i.i.i.i.i.i.i23, align 8, !alias.scope !90, !noalias !93
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.07.i.i.i21, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.06.i.i.i22, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 24
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 24
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i28, align 8, !alias.scope !93, !noalias !90
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i27, align 8, !alias.scope !90, !noalias !93
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %references3.i.i.i.i.i.i.i24, i8 0, i64 24, i1 false), !alias.scope !93, !noalias !90
-  %incdec.ptr.i.i.i29 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__first.addr.06.i.i.i22, i64 1
-  %incdec.ptr1.i.i.i30 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %__cur.07.i.i.i21, i64 1
+  %incdec.ptr.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 32
+  %incdec.ptr1.i.i.i30 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 32
   %cmp.not.i.i.i31 = icmp eq ptr %incdec.ptr.i.i.i29, %0
   br i1 %cmp.not.i.i.i31, label %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, label %for.body.i.i.i20, !llvm.loop !89
 
@@ -13584,11 +13503,11 @@ _ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit, label %if.then.i34
 
 if.then.i34:                                      ; preds = %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   br label %_ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp4Ogre12PoseKeyFrameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %if.then.i34
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<Assimp::Ogre::PoseKeyFrame, std::allocator<Assimp::Ogre::PoseKeyFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i32, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"struct.Assimp::Ogre::PoseKeyFrame", ptr %cond.i17, i64 %cond.i
@@ -13605,9 +13524,9 @@ invoke.cont19:                                    ; preds = %if.then3.i.i.i.i.i.
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #23
-  invoke void @__cxa_rethrow() #21
+  %15 = tail call ptr @__cxa_begin_catch(ptr %14) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %cond.i17) #22
+  invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad17
 
 eh.resume:                                        ; preds = %lpad17
@@ -13617,7 +13536,7 @@ terminate.lpad:                                   ; preds = %lpad17
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #19
+  tail call void @__clang_call_terminate(ptr %17) #18
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont19
@@ -13655,7 +13574,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #19
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -13664,7 +13583,7 @@ if.end:                                           ; preds = %if.else, %if.then
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #19
   store ptr null, ptr %__guard, align 8
   %3 = load i64, ptr %__dnew, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %3)
@@ -13676,7 +13595,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 lpad:                                             ; preds = %invoke.cont, %if.end
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #20
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %__guard) #19
   resume { ptr, i32 } %4
 }
 
@@ -13711,7 +13630,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #19
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -13745,22 +13664,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERA17_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(17) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -13792,22 +13711,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -13839,22 +13758,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERA39_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(39) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -13886,22 +13805,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -13933,22 +13852,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN6Assimp9Formatter15basic_formatterIcS4_S5_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -13980,22 +13899,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14012,12 +13931,12 @@ entry:
   br i1 %cmp.i.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.70)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -14027,24 +13946,24 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %3 = load ptr, ptr %this, align 8
   %vtable7 = load ptr, ptr %3, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 5
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 40
   %4 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %cmp = icmp eq i64 %call4, %call9
   br i1 %cmp, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end
-  %exception11 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  %exception11 = tail call ptr @__cxa_allocate_exception(i64 16) #19
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception11, ptr noundef nonnull @.str.71)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then10
-  tail call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #21
+  tail call void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #20
   unreachable
 
 lpad12:                                           ; preds = %if.then10
@@ -14054,41 +13973,41 @@ lpad12:                                           ; preds = %if.then10
 
 if.end14:                                         ; preds = %if.end
   %sub = sub i64 %call4, %call9
-  %call15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %sub) #22
-  %mBuffer = getelementptr inbounds %"class.Assimp::StreamReader", ptr %this, i64 0, i32 1
+  %call15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %sub) #21
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call15, ptr %mBuffer, align 8
-  %mCurrent = getelementptr inbounds %"class.Assimp::StreamReader", ptr %this, i64 0, i32 2
+  %mCurrent = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call15, ptr %mCurrent, align 8
   %6 = load ptr, ptr %this, align 8
   %vtable19 = load ptr, ptr %6, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 2
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 16
   %7 = load ptr, ptr %vfn20, align 8
   %call21 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %call15, i64 noundef 1, i64 noundef %sub)
   %8 = load ptr, ptr %mBuffer, align 8
   %9 = getelementptr i8, ptr %8, i64 %call21
-  %mLimit = getelementptr inbounds %"class.Assimp::StreamReader", ptr %this, i64 0, i32 4
+  %mLimit = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %9, ptr %mLimit, align 8
-  %mEnd = getelementptr inbounds %"class.Assimp::StreamReader", ptr %this, i64 0, i32 3
+  %mEnd = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %9, ptr %mEnd, align 8
   ret void
 
 eh.resume:                                        ; preds = %lpad12, %lpad
   %exception11.sink = phi ptr [ %exception11, %lpad12 ], [ %exception, %lpad ]
   %.pn = phi { ptr, i32 } [ %5, %lpad12 ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception11.sink) #20
+  tail call void @__cxa_free_exception(ptr %exception11.sink) #19
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN6Assimp8IOStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -14096,12 +14015,12 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
@@ -14125,10 +14044,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -14150,9 +14069,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.end8.sink.split.i.i.i
@@ -14168,23 +14087,23 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.156", ptr %this, i64 0, i32 1
+  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
-  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -14194,7 +14113,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6Assimp8IOStreamELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -14208,16 +14127,16 @@ entry:
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN6Assimp12StreamReaderILb0ELb0EEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %call = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  %call = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call, i64 0, i32 1
+  %_M_use_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %_M_use_count.i.i, align 8
-  %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call, i64 0, i32 2
+  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_ptr.i = getelementptr inbounds %"class.std::_Sp_counted_ptr.157", ptr %call, i64 0, i32 1
+  %_M_ptr.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %__p, ptr %_M_ptr.i, align 8
   store ptr %call, ptr %this, align 8
   ret void
@@ -14226,17 +14145,17 @@ lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #19
   %isnull = icmp eq ptr %__p, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %lpad
-  tail call void @_ZN6Assimp12StreamReaderILb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %__p) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %__p) #23
+  tail call void @_ZN6Assimp12StreamReaderILb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %__p) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__p) #22
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %lpad
-  invoke void @__cxa_rethrow() #21
+  invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %delete.end
@@ -14252,7 +14171,7 @@ terminate.lpad:                                   ; preds = %lpad3
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #19
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 
 unreachable:                                      ; preds = %delete.end
@@ -14262,23 +14181,23 @@ unreachable:                                      ; preds = %delete.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mBuffer = getelementptr inbounds %"class.Assimp::StreamReader", ptr %this, i64 0, i32 1
+  %mBuffer = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mBuffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZdaPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %0) #22
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6Assimp8IOStreamEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %delete.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -14286,12 +14205,12 @@ if.then.i.i.i:                                    ; preds = %delete.end
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -14315,10 +14234,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -14340,9 +14259,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %1) #19
   br label %_ZNSt10shared_ptrIN6Assimp8IOStreamEED2Ev.exit
 
 _ZNSt10shared_ptrIN6Assimp8IOStreamEED2Ev.exit:   ; preds = %delete.end, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -14358,36 +14277,36 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.157", ptr %this, i64 0, i32 1
+  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %mBuffer.i = getelementptr inbounds %"class.Assimp::StreamReader", ptr %0, i64 0, i32 1
+  %mBuffer.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %mBuffer.i, align 8
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %delete.notnull
-  tail call void @_ZdaPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdaPv(ptr noundef nonnull %1) #22
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %delete.notnull
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %0, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.end.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -14395,12 +14314,12 @@ if.then.i.i.i.i:                                  ; preds = %delete.end.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -14424,10 +14343,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -14449,13 +14368,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #20
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   br label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit
 
 _ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit:      ; preds = %delete.end.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit, %entry
@@ -14465,7 +14384,7 @@ delete.end:                                       ; preds = %_ZN6Assimp12StreamR
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -14498,22 +14417,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA33_KcRA22_S1_RKPS1_RA6_S1_S8_ERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN6Assimp9Formatter15basic_formatterIcSE_SF_EEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args, ptr noundef nonnull align 1 dereferenceable(33) %args1, ptr noundef nonnull align 1 dereferenceable(22) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5, ptr noundef nonnull align 1 dereferenceable(6) %args7, ptr noundef nonnull align 8 dereferenceable(8) %args9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14545,22 +14464,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA22_KcRKPS1_RA6_S1_S6_ERA33_S1_EEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(33) %args, ptr noundef nonnull align 1 dereferenceable(22) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3, ptr noundef nonnull align 1 dereferenceable(6) %args5, ptr noundef nonnull align 8 dereferenceable(8) %args7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14592,22 +14511,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRKPKcRA6_S1_S4_ERA22_S1_EEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(22) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(6) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14639,22 +14558,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA6_KcRKPS1_ES6_EEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(6) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14687,22 +14606,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRKPKcERA6_S1_EEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(6) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14734,22 +14653,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJERKPKcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14781,22 +14700,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJERtEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 2 dereferenceable(2) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14829,22 +14748,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14877,22 +14796,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERA2_KcEES7_NS_9Formatter15basic_formatterIcS5_S6_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(2) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14924,22 +14843,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_9Formatter15basic_formatterIcS5_S6_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -14971,22 +14890,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15018,22 +14937,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA16_KcRtES4_EEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 2 dereferenceable(2) %args, ptr noundef nonnull align 1 dereferenceable(16) %args1, ptr noundef nonnull align 2 dereferenceable(2) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15066,22 +14985,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRtERA16_KcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(16) %args, ptr noundef nonnull align 2 dereferenceable(2) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15113,22 +15032,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJERtEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 2 dereferenceable(2) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15160,22 +15079,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRfRA7_KcmRA9_S3_ERA3_S3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSD_SE_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(3) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1, ptr noundef nonnull align 1 dereferenceable(7) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5, ptr noundef nonnull align 1 dereferenceable(9) %args7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15207,22 +15126,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA7_KcmRA9_S2_ERfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSB_SC_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 1 dereferenceable(7) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3, ptr noundef nonnull align 1 dereferenceable(9) %args5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15255,22 +15174,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJmRA9_KcERA7_S2_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcSA_SB_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(7) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(9) %args3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15302,22 +15221,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJRA9_KcEmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 1 dereferenceable(9) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15350,22 +15269,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN6Assimp6Logger13formatMessageIJERA9_KcEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Formatter15basic_formatterIcS8_S9_EEOT0_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(9) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15397,22 +15316,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15446,22 +15365,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJRA24_KcERtEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 2 dereferenceable(2) %args, ptr noundef nonnull align 1 dereferenceable(24) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15494,22 +15413,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %3, %lpad ], [ %2, %lpad3.i ], [ %1, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2IJERA24_KcEEN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEEOT0_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 1 dereferenceable(24) %args)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15541,22 +15460,22 @@ lpad.i:                                           ; preds = %entry
 lpad3.i:                                          ; preds = %invoke.cont.i
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad3.i, %lpad
   %common.resume.op = phi { ptr, i32 } [ %2, %lpad ], [ %1, %lpad3.i ], [ %0, %lpad.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   resume { ptr, i32 } %common.resume.op
 
 _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit: ; preds = %invoke.cont.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN15DeadlyErrorBaseC2EN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #20
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp) #19
   ret void
 
 lpad:                                             ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEC2EOS5_.exit
@@ -15572,7 +15491,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.pugi::xpath_node_set", ptr @_ZN4pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (%"class.pugi::xpath_node_set", ptr @_ZN4pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.pugi::xpath_node_set", ptr @_ZN4pugi4implL14dummy_node_setE, i64 0, i32 2), align 8
   store ptr getelementptr inbounds (%"class.pugi::xpath_node_set", ptr @_ZN4pugi4implL14dummy_node_setE, i64 0, i32 1, i64 0, i32 0, i32 0), ptr getelementptr inbounds (%"class.pugi::xpath_node_set", ptr @_ZN4pugi4implL14dummy_node_setE, i64 0, i32 3), align 8
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pugi14xpath_node_setD2Ev, ptr nonnull @_ZN4pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #20
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN4pugi14xpath_node_setD2Ev, ptr nonnull @_ZN4pugi4implL14dummy_node_setE, ptr nonnull @__dso_handle) #19
   ret void
 }
 
@@ -15597,9 +15516,6 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
-
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15618,13 +15534,12 @@ attributes #14 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

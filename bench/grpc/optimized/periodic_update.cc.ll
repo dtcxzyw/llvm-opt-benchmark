@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.grpc_core::PeriodicUpdate" = type { %"struct.std::atomic", %"class.grpc_core::Duration", %"class.grpc_core::Timestamp", i64 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::Duration" = type { i64 }
-%"class.grpc_core::Timestamp" = type { i64 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -26,7 +21,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: uwtable
 define noundef zeroext i1 @_ZN9grpc_core14PeriodicUpdate14MaybeEndPeriodEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr %f.coerce0, ptr nocapture readonly %f.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %period_start_ = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this, i64 0, i32 2
+  %period_start_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %period_start_, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.then, label %if.end
@@ -92,13 +87,13 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
   br label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit.thread:    ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit15, %if.then.i.i.i
-  %period_29 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this, i64 0, i32 1
+  %period_29 = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp16.sroa.0.0.copyload30 = load i64, ptr %period_29, align 8
   br label %if.end37
 
 _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %if.end.i.i, %if.else.i.i.i, %if.end7.i.i.i
   %retval.0.i.i = phi i64 [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
-  %period_ = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this, i64 0, i32 1
+  %period_ = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp16.sroa.0.0.copyload = load i64, ptr %period_, align 8
   %cmp.i16 = icmp slt i64 %retval.0.i.i, %agg.tmp16.sroa.0.0.copyload
   br i1 %cmp.i16, label %if.then19, label %if.end37
@@ -108,7 +103,7 @@ if.then19:                                        ; preds = %_ZN9grpc_coremiENS_
   br i1 %cmp, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.then19
-  %expected_updates_per_period_ = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this, i64 0, i32 3
+  %expected_updates_per_period_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load i64, ptr %expected_updates_per_period_, align 8
   %mul = shl nsw i64 %9, 1
   br label %if.end34
@@ -125,7 +120,7 @@ if.else:                                          ; preds = %if.then19
   %cmp1.i = fcmp ogt double %div, 2.000000e+00
   %max.val.i = select i1 %cmp1.i, double 2.000000e+00, double %div
   %retval.0.i = select i1 %cmp.i19, double 1.010000e+00, double %max.val.i
-  %expected_updates_per_period_26 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this, i64 0, i32 3
+  %expected_updates_per_period_26 = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load i64, ptr %expected_updates_per_period_26, align 8
   %conv = sitofp i64 %16 to double
   %mul27 = fmul double %retval.0.i, %conv
@@ -146,7 +141,7 @@ if.end37:                                         ; preds = %_ZN9grpc_coremiENS_
   %retval.0.i.i32 = phi i64 [ 9223372036854775807, %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread ], [ %retval.0.i.i, %_ZN9grpc_coremiENS_9TimestampES0_.exit ]
   %conv.i20 = sitofp i64 %agg.tmp16.sroa.0.0.copyload33 to double
   %div.i21 = fdiv double %conv.i20, 1.000000e+03
-  %expected_updates_per_period_40 = getelementptr inbounds %"class.grpc_core::PeriodicUpdate", ptr %this, i64 0, i32 3
+  %expected_updates_per_period_40 = getelementptr inbounds i8, ptr %this, i64 24
   %18 = load i64, ptr %expected_updates_per_period_40, align 8
   %conv41 = sitofp i64 %18 to double
   %mul42 = fmul double %div.i21, %conv41

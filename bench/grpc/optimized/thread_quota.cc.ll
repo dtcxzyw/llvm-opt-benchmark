@@ -3,14 +3,6 @@ source_filename = "bench/grpc/original/thread_quota.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::ThreadQuota" = type { %"class.grpc_core::RefCounted", %"class.absl::lts_20230802::Mutex", i64, i64 }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-
 $__clang_call_terminate = comdat any
 
 $_ZTSN9grpc_core10RefCountedINS_11ThreadQuotaENS_19PolymorphicRefCountENS_11UnrefDeleteEEE = comdat any
@@ -36,14 +28,14 @@ $_ZTIN9grpc_core10RefCountedINS_11ThreadQuotaENS_19PolymorphicRefCountENS_11Unre
 @_ZN9grpc_core11ThreadQuotaC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core11ThreadQuotaC2Ev
 @_ZN9grpc_core11ThreadQuotaD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core11ThreadQuotaD2Ev
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN9grpc_core11ThreadQuotaC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refs_.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this, i64 0, i32 1
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 1
-  %max_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 3
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
+  %max_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu_, i8 0, i64 16, i1 false)
   store i64 -1, ptr %max_, align 8
   ret void
@@ -55,7 +47,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN9grpc_core11ThreadQuotaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mu_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #9
   ret void
 }
@@ -77,9 +69,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core11ThreadQuota6SetMaxEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %new_max) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %max_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 3
+  %max_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %new_max, ptr %max_, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -98,12 +90,12 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN9grpc_core11ThreadQuota7ReserveEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %num_threads) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %allocated_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 2
+  %allocated_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %allocated_, align 8
   %add = add i64 %0, %num_threads
-  %max_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 3
+  %max_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %max_, align 8
   %cmp = icmp ule i64 %add, %1
   br i1 %cmp, label %if.end, label %cleanup
@@ -130,9 +122,9 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core11ThreadQuota7ReleaseEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %num_threads) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 1
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %allocated_ = getelementptr inbounds %"class.grpc_core::ThreadQuota", ptr %this, i64 0, i32 2
+  %allocated_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %allocated_, align 8
   %cmp.not = icmp ult i64 %0, %num_threads
   br i1 %cmp.not, label %if.then, label %do.end
@@ -198,7 +190,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

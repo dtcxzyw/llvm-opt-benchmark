@@ -10,9 +10,9 @@ define void @"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h1ee7c88d5b539925E"(pt
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !align !6, !noundef !5
-  %8 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !5
   tail call void @"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17hc1405e2624829f2aE"(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr nonnull align 1 %7, i64 %9)
   br label %11

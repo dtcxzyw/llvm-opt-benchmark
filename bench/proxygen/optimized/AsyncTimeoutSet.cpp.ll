@@ -5,31 +5,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.proxygen::SimpleTimeoutClock" = type { %"class.proxygen::AsyncTimeoutSet::TimeoutClock" }
 %"class.proxygen::AsyncTimeoutSet::TimeoutClock" = type { ptr }
-%"class.proxygen::AsyncTimeoutSet::Callback" = type { ptr, %"class.std::shared_ptr", ptr, ptr, ptr, %"class.std::chrono::duration" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::chrono::duration" = type { i64 }
-%"class.proxygen::AsyncTimeoutSet" = type <{ %"class.folly::AsyncTimeout", %"class.folly::DelayedDestruction.base", [3 x i8], ptr, ptr, ptr, %"class.std::chrono::duration", %"class.std::chrono::duration", i8, [7 x i8] }>
-%"class.folly::AsyncTimeout" = type { ptr, %"class.folly::EventBaseEvent", ptr, %"class.std::shared_ptr" }
-%"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, i16, i16, ptr, %union.anon.2, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%"struct.folly::EventCallback" = type { i32, %union.anon.7 }
-%union.anon.7 = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"class.folly::RequestContextScopeGuard" = type { %"class.std::shared_ptr" }
-%"class.folly::DelayedDestruction" = type { %"class.folly::DelayedDestructionBase.base", i8, [3 x i8] }
 
 $_ZN8proxygen18SimpleTimeoutClockD2Ev = comdat any
 
@@ -119,19 +98,19 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define void @_ZN8proxygen15AsyncTimeoutSet8CallbackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSet8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %timeoutSet_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 2
+  %timeoutSet_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %timeoutSet_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %next_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  %prev_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 3
+  %prev_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 3
-  %tail_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %0, i64 0, i32 5
+  %prev_4.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %tail_.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %prev_4.sink.i.i = select i1 %cmp.i.i, ptr %tail_.i.i, ptr %prev_4.i.i
   store ptr %2, ptr %prev_4.sink.i.i, align 8
   %cmp6.i.i = icmp eq ptr %2, null
@@ -140,14 +119,14 @@ if.end.i:                                         ; preds = %entry
 
 if.then7.i.i:                                     ; preds = %if.end.i
   %4 = load ptr, ptr %timeoutSet_.i, align 8
-  %head_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %4, i64 0, i32 4
+  %head_.i.i = getelementptr inbounds i8, ptr %4, i64 216
   store ptr %3, ptr %head_.i.i, align 8
   %5 = load ptr, ptr %timeoutSet_.i, align 8
   invoke void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %5)
           to label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit unwind label %terminate.lpad
 
 if.else11.i.i:                                    ; preds = %if.end.i
-  %next_14.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %2, i64 0, i32 4
+  %next_14.i.i = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit
 
@@ -156,13 +135,13 @@ _ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit: ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit, %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -170,10 +149,10 @@ if.then.i.i.i:                                    ; preds = %if.end
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -199,10 +178,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -224,7 +203,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
@@ -254,13 +233,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -268,10 +247,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %if.end8.sink.split.i.i.i
@@ -297,10 +276,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -322,7 +301,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -344,23 +323,23 @@ declare void @llvm.trap() #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15AsyncTimeoutSet8Callback12setScheduledEPS0_PS1_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %timeoutSet, ptr noundef %prev) local_unnamed_addr #6 align 2 {
 entry:
-  %timeoutSet_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 2
+  %timeoutSet_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %timeoutSet, ptr %timeoutSet_, align 8
-  %prev_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 3
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %prev, ptr %prev_, align 8
-  %next_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 4
+  %next_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %next_, align 8
-  %timeoutClock_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %timeoutSet, i64 0, i32 3
+  %timeoutClock_ = getelementptr inbounds i8, ptr %timeoutSet, i64 208
   %0 = load ptr, ptr %timeoutClock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = load ptr, ptr %timeoutSet_, align 8
-  %interval_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %2, i64 0, i32 6
+  %interval_.i = getelementptr inbounds i8, ptr %2, i64 232
   %retval.sroa.0.0.copyload.i = load i64, ptr %interval_.i, align 8
   %add.i = add nsw i64 %retval.sroa.0.0.copyload.i, %call
-  %expiration_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 5
+  %expiration_ = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %add.i, ptr %expiration_, align 8
   ret void
 }
@@ -368,15 +347,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %next_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 4
+  %next_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_, align 8
   %cmp = icmp eq ptr %0, null
-  %prev_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 3
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %prev_, align 8
-  %prev_4 = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %0, i64 0, i32 3
-  %timeoutSet_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 2
+  %prev_4 = getelementptr inbounds i8, ptr %0, i64 32
+  %timeoutSet_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %timeoutSet_, align 8
-  %tail_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %2, i64 0, i32 5
+  %tail_ = getelementptr inbounds i8, ptr %2, i64 224
   %prev_4.sink = select i1 %cmp, ptr %tail_, ptr %prev_4
   store ptr %1, ptr %prev_4.sink, align 8
   %cmp6 = icmp eq ptr %1, null
@@ -384,21 +363,21 @@ entry:
   br i1 %cmp6, label %if.then7, label %if.else11
 
 if.then7:                                         ; preds = %entry
-  %timeoutSet_9 = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 2
+  %timeoutSet_9 = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %timeoutSet_9, align 8
-  %head_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %4, i64 0, i32 4
+  %head_ = getelementptr inbounds i8, ptr %4, i64 216
   store ptr %3, ptr %head_, align 8
   %5 = load ptr, ptr %timeoutSet_9, align 8
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %5)
   br label %if.end15
 
 if.else11:                                        ; preds = %entry
-  %next_14 = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 4
+  %next_14 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %3, ptr %next_14, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else11, %if.then7
-  %timeoutSet_16 = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %this, i64 0, i32 2
+  %timeoutSet_16 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %timeoutSet_16, i8 0, i64 32, i1 false)
   ret void
 }
@@ -407,14 +386,14 @@ if.end15:                                         ; preds = %if.else11, %if.then
 define void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
-  %inTimeoutExpired_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 8
+  %inTimeoutExpired_ = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load i8, ptr %inTimeoutExpired_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.end10
 
 if.end:                                           ; preds = %entry
-  %head_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 4
+  %head_ = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load ptr, ptr %head_, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.then3, label %if.else
@@ -424,13 +403,13 @@ if.then3:                                         ; preds = %if.end
   br label %if.end10
 
 if.else:                                          ; preds = %if.end
-  %timeoutClock_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 3
+  %timeoutClock_ = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %timeoutClock_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %expiration_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %2, i64 0, i32 5
+  %expiration_.i = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load i64, ptr %expiration_.i, align 8
   %cmp.i.i.not.i = icmp sgt i64 %5, %call
   %sub.i.i = sub nsw i64 %5, %call
@@ -440,15 +419,15 @@ if.else:                                          ; preds = %if.end
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !5
   %7 = load ptr, ptr %call.i, align 8, !noalias !5
   store ptr %7, ptr %ref.tmp, align 8, !alias.scope !5
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %call.i, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !5
   store ptr %8, ptr %_M_refcount.i.i.i, align 8, !alias.scope !5
   %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !5
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -473,7 +452,7 @@ invoke.cont:                                      ; preds = %_ZN5folly14RequestC
   br i1 %cmp.not.i.i.i, label %if.end10, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %13, 4294967297
   %14 = trunc i64 %13 to i32
@@ -481,10 +460,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 
 if.then.i.i.i.i1:                                 ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -510,10 +489,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -535,7 +514,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i1
   %vtable2.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %22 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   br label %if.end10
@@ -581,15 +560,15 @@ invoke.cont.i:                                    ; preds = %init.check.i
 
 cond.end:                                         ; preds = %invoke.cont.i, %init.check.i, %cond.false, %invoke.cont
   %cond-lvalue = phi ptr [ %timeoutClock, %invoke.cont ], [ @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, %cond.false ], [ @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, %init.check.i ], [ @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, %invoke.cont.i ]
-  %timeoutClock_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 3
+  %timeoutClock_ = getelementptr inbounds i8, ptr %this, i64 208
   store ptr %cond-lvalue, ptr %timeoutClock_, align 8
-  %head_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 4
-  %interval_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 6
+  %head_ = getelementptr inbounds i8, ptr %this, i64 216
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_, i8 0, i64 16, i1 false)
   store i64 %intervalMS.coerce, ptr %interval_, align 8
-  %atMostEveryN_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 7
+  %atMostEveryN_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %atMostEveryN.coerce, ptr %atMostEveryN_, align 8
-  %inTimeoutExpired_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 8
+  %inTimeoutExpired_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 0, ptr %inTimeoutExpired_, align 8
   ret void
 }
@@ -628,15 +607,15 @@ invoke.cont.i:                                    ; preds = %init.check.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont.i, %init.check.i, %invoke.cont
-  %timeoutClock_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 3
+  %timeoutClock_ = getelementptr inbounds i8, ptr %this, i64 208
   store ptr @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, ptr %timeoutClock_, align 8
-  %head_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 4
-  %interval_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 6
+  %head_ = getelementptr inbounds i8, ptr %this, i64 216
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_, i8 0, i64 16, i1 false)
   store i64 %intervalMS.coerce, ptr %interval_, align 8
-  %atMostEveryN_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 7
+  %atMostEveryN_ = getelementptr inbounds i8, ptr %this, i64 240
   store i64 %atMostEveryN.coerce, ptr %atMostEveryN_, align 8
-  %inTimeoutExpired_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 8
+  %inTimeoutExpired_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 0, ptr %inTimeoutExpired_, align 8
   ret void
 }
@@ -685,26 +664,26 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15AsyncTimeoutSet7destroyEv(ptr noundef nonnull align 8 dereferenceable(249) %this) unnamed_addr #6 align 2 {
 entry:
-  %tail_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 5
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %tail_, align 8
   %cmp.not2 = icmp eq ptr %0, null
   br i1 %cmp.not2, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit
   %1 = phi ptr [ %8, %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit ], [ %0, %entry ]
-  %timeoutSet_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 2
+  %timeoutSet_.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %timeoutSet_.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
-  %next_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %next_.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, null
-  %prev_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 3
+  %prev_.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %3, i64 0, i32 3
-  %tail_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %2, i64 0, i32 5
+  %prev_4.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %tail_.i.i = getelementptr inbounds i8, ptr %2, i64 224
   %prev_4.sink.i.i = select i1 %cmp.i.i, ptr %tail_.i.i, ptr %prev_4.i.i
   store ptr %4, ptr %prev_4.sink.i.i, align 8
   %cmp6.i.i = icmp eq ptr %4, null
@@ -713,14 +692,14 @@ if.end.i:                                         ; preds = %while.body
 
 if.then7.i.i:                                     ; preds = %if.end.i
   %6 = load ptr, ptr %timeoutSet_.i, align 8
-  %head_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %6, i64 0, i32 4
+  %head_.i.i = getelementptr inbounds i8, ptr %6, i64 216
   store ptr %5, ptr %head_.i.i, align 8
   %7 = load ptr, ptr %timeoutSet_.i, align 8
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %7)
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
 
 if.else11.i.i:                                    ; preds = %if.end.i
-  %next_14.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %4, i64 0, i32 4
+  %next_14.i.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %5, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
 
@@ -748,7 +727,7 @@ if.then.i:                                        ; preds = %while.end
 if.else.i:                                        ; preds = %while.end
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 192
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(13) %add.ptr, i1 noundef zeroext false)
   br label %_ZN5folly18DelayedDestruction7destroyEv.exit
@@ -767,19 +746,19 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit.i
   %1 = phi ptr [ %8, %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit.i ], [ %0, %entry ]
-  %timeoutSet_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 2
+  %timeoutSet_.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %timeoutSet_.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
-  %next_.i.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 4
+  %next_.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %next_.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
-  %prev_.i.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 3
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %prev_.i.i.i, align 8
-  %prev_4.i.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %3, i64 0, i32 3
-  %tail_.i.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %2, i64 0, i32 5
+  %prev_4.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %tail_.i.i.i = getelementptr inbounds i8, ptr %2, i64 224
   %prev_4.sink.i.i.i = select i1 %cmp.i.i.i, ptr %tail_.i.i.i, ptr %prev_4.i.i.i
   store ptr %4, ptr %prev_4.sink.i.i.i, align 8
   %cmp6.i.i.i = icmp eq ptr %4, null
@@ -788,14 +767,14 @@ if.end.i.i:                                       ; preds = %while.body.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i
   %6 = load ptr, ptr %timeoutSet_.i.i, align 8
-  %head_.i.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %6, i64 0, i32 4
+  %head_.i.i.i = getelementptr inbounds i8, ptr %6, i64 216
   store ptr %5, ptr %head_.i.i.i, align 8
   %7 = load ptr, ptr %timeoutSet_.i.i, align 8
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %7)
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i.i
 
 if.else11.i.i.i:                                  ; preds = %if.end.i.i
-  %next_14.i.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %4, i64 0, i32 4
+  %next_14.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %5, ptr %next_14.i.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i.i
 
@@ -822,7 +801,7 @@ if.then.i.i:                                      ; preds = %while.end.i
 
 if.else.i.i:                                      ; preds = %while.end.i
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %_ZN8proxygen15AsyncTimeoutSet7destroyEv.exit
@@ -835,19 +814,19 @@ _ZN8proxygen15AsyncTimeoutSet7destroyEv.exit:     ; preds = %if.then.i.i, %if.el
 define void @_ZN8proxygen15AsyncTimeoutSet15scheduleTimeoutEPNS0_8CallbackE(ptr noundef nonnull align 8 dereferenceable(249) %this, ptr noundef %callback) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.std::shared_ptr", align 8
-  %timeoutSet_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 2
+  %timeoutSet_.i = getelementptr inbounds i8, ptr %callback, i64 24
   %0 = load ptr, ptr %timeoutSet_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %next_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %callback, i64 40
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  %prev_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 3
+  %prev_.i.i = getelementptr inbounds i8, ptr %callback, i64 32
   %2 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %1, i64 0, i32 3
-  %tail_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %0, i64 0, i32 5
+  %prev_4.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %tail_.i.i = getelementptr inbounds i8, ptr %0, i64 224
   %prev_4.sink.i.i = select i1 %cmp.i.i, ptr %tail_.i.i, ptr %prev_4.i.i
   store ptr %2, ptr %prev_4.sink.i.i, align 8
   %cmp6.i.i = icmp eq ptr %2, null
@@ -856,14 +835,14 @@ if.end.i:                                         ; preds = %entry
 
 if.then7.i.i:                                     ; preds = %if.end.i
   %4 = load ptr, ptr %timeoutSet_.i, align 8
-  %head_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %4, i64 0, i32 4
+  %head_.i.i = getelementptr inbounds i8, ptr %4, i64 216
   store ptr %3, ptr %head_.i.i, align 8
   %5 = load ptr, ptr %timeoutSet_.i, align 8
   tail call void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %5)
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
 
 if.else11.i.i:                                    ; preds = %if.end.i
-  %next_14.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %2, i64 0, i32 4
+  %next_14.i.i = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %3, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
 
@@ -874,13 +853,13 @@ _ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i: ; preds = %i
 _ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit: ; preds = %entry, %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !10
   %6 = load ptr, ptr %call.i, align 8, !noalias !10
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %call.i, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -896,16 +875,16 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZN5folly14RequestContext11saveContextEv.exit
 
 _ZN5folly14RequestContext11saveContextEv.exit:    ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %context_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %6, ptr %context_, align 8
-  %_M_refcount3.i.i.i7 = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount3.i.i.i7 = getelementptr inbounds i8, ptr %callback, i64 16
   %11 = load ptr, ptr %_M_refcount3.i.i.i7, align 8
   store ptr %7, ptr %_M_refcount3.i.i.i7, align 8
   %cmp.not.i.i.i.i8 = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i8, label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit, label %if.then.i.i.i.i9
 
 if.then.i.i.i.i9:                                 ; preds = %_ZN5folly14RequestContext11saveContextEv.exit
-  %_M_use_count.i.i.i.i.i10 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i10 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i.i10 acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -913,10 +892,10 @@ if.then.i.i.i.i9:                                 ; preds = %_ZN5folly14RequestC
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i9
   store i32 0, ptr %_M_use_count.i.i.i.i.i10, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
   br label %if.end8.sink.split.i.i.i.i.i
@@ -942,10 +921,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -967,43 +946,43 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %11, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
 
 _ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN5folly14RequestContext11saveContextEv.exit
-  %tail_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 5
+  %tail_ = getelementptr inbounds i8, ptr %this, i64 224
   %22 = load ptr, ptr %tail_, align 8
-  %head_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 4
+  %head_ = getelementptr inbounds i8, ptr %this, i64 216
   %23 = load ptr, ptr %head_, align 8
   %cmp = icmp eq ptr %23, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
-  %inTimeoutExpired_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 8
+  %inTimeoutExpired_ = getelementptr inbounds i8, ptr %this, i64 248
   %24 = load i8, ptr %inTimeoutExpired_, align 8
   %25 = and i8 %24, 1
   %tobool.not = icmp eq i8 %25, 0
   br i1 %tobool.not, label %if.then2, label %if.end10
 
 if.then2:                                         ; preds = %if.then
-  %interval_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 6
+  %interval_ = getelementptr inbounds i8, ptr %this, i64 232
   %26 = load i64, ptr %interval_, align 8
   %conv = trunc i64 %26 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %call.i16 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !13
   %27 = load ptr, ptr %call.i16, align 8, !noalias !13
   store ptr %27, ptr %ref.tmp4, align 8, !alias.scope !13
-  %_M_refcount.i.i.i17 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp4, i64 0, i32 1
-  %_M_refcount3.i.i.i18 = getelementptr inbounds %"class.std::__shared_ptr", ptr %call.i16, i64 0, i32 1
+  %_M_refcount.i.i.i17 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %_M_refcount3.i.i.i18 = getelementptr inbounds i8, ptr %call.i16, i64 8
   %28 = load ptr, ptr %_M_refcount3.i.i.i18, align 8, !noalias !13
   store ptr %28, ptr %_M_refcount.i.i.i17, align 8, !alias.scope !13
   %cmp.not.i.i.i.i19 = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i.i19, label %_ZN5folly14RequestContext11saveContextEv.exit26, label %if.then.i.i.i.i20
 
 if.then.i.i.i.i20:                                ; preds = %if.then2
-  %_M_use_count.i.i.i.i.i21 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %28, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %tobool.i.i.not.i.i.i.i.i22 = icmp eq i8 %29, 0
   br i1 %tobool.i.i.not.i.i.i.i.i22, label %if.else.i.i.i.i.i.i25, label %if.then.i.i.i.i.i.i23
@@ -1028,7 +1007,7 @@ invoke.cont:                                      ; preds = %_ZN5folly14RequestC
   br i1 %cmp.not.i.i.i28, label %if.end10, label %if.then.i.i.i29
 
 if.then.i.i.i29:                                  ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i30 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 1
+  %_M_use_count.i.i.i.i30 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load atomic i64, ptr %_M_use_count.i.i.i.i30 acquire, align 8
   %cmp.i.i.i.i31 = icmp eq i64 %33, 4294967297
   %34 = trunc i64 %33 to i32
@@ -1036,10 +1015,10 @@ if.then.i.i.i29:                                  ; preds = %invoke.cont
 
 if.then.i.i.i.i54:                                ; preds = %if.then.i.i.i29
   store i32 0, ptr %_M_use_count.i.i.i.i30, align 8
-  %_M_weak_count.i.i.i.i55 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 2
+  %_M_weak_count.i.i.i.i55 = getelementptr inbounds i8, ptr %32, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i55, align 4
   %vtable.i.i.i.i56 = load ptr, ptr %32, align 8
-  %vfn.i.i.i.i57 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i56, i64 2
+  %vfn.i.i.i.i57 = getelementptr inbounds i8, ptr %vtable.i.i.i.i56, i64 16
   %35 = load ptr, ptr %vfn.i.i.i.i57, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %32) #14
   br label %if.end8.sink.split.i.i.i.i49
@@ -1065,10 +1044,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36: ; preds = %if.els
 
 if.then7.i.i.i.i39:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36
   %vtable.i.i.i.i.i.i40 = load ptr, ptr %32, align 8
-  %vfn.i.i.i.i.i.i41 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i40, i64 2
+  %vfn.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i40, i64 16
   %38 = load ptr, ptr %vfn.i.i.i.i.i.i41, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(16) %32) #14
-  %_M_weak_count.i.i.i.i.i.i42 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %32, i64 12
   %39 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i43 = icmp eq i8 %39, 0
   br i1 %tobool.i.not.i.i.i.i.i.i43, label %if.else.i.i.i.i.i.i.i52, label %if.then.i.i.i.i.i.i.i44
@@ -1090,7 +1069,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46: ; preds = %if
 
 if.end8.sink.split.i.i.i.i49:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46, %if.then.i.i.i.i54
   %vtable2.i.i.i.i.i.i50 = load ptr, ptr %32, align 8
-  %vfn3.i.i.i.i.i.i51 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i50, i64 3
+  %vfn3.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i50, i64 24
   %42 = load ptr, ptr %vfn3.i.i.i.i.i.i51, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #14
   br label %if.end10
@@ -1102,7 +1081,7 @@ lpad:                                             ; preds = %_ZN5folly14RequestC
   resume { ptr, i32 } %43
 
 if.else:                                          ; preds = %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
-  %next_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %22, i64 0, i32 4
+  %next_ = getelementptr inbounds i8, ptr %22, i64 40
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then, %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i46, %if.end8.sink.split.i.i.i.i49, %if.else
@@ -1110,21 +1089,21 @@ if.end10:                                         ; preds = %if.then, %invoke.co
   store ptr %callback, ptr %next_.sink, align 8
   store ptr %callback, ptr %tail_, align 8
   store ptr %this, ptr %timeoutSet_.i, align 8
-  %prev_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 3
+  %prev_.i = getelementptr inbounds i8, ptr %callback, i64 32
   store ptr %22, ptr %prev_.i, align 8
-  %next_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 4
+  %next_.i = getelementptr inbounds i8, ptr %callback, i64 40
   store ptr null, ptr %next_.i, align 8
-  %timeoutClock_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 3
+  %timeoutClock_.i = getelementptr inbounds i8, ptr %this, i64 208
   %44 = load ptr, ptr %timeoutClock_.i, align 8
   %vtable.i = load ptr, ptr %44, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %45 = load ptr, ptr %vfn.i, align 8
   %call.i60 = call i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %46 = load ptr, ptr %timeoutSet_.i, align 8
-  %interval_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %46, i64 0, i32 6
+  %interval_.i.i = getelementptr inbounds i8, ptr %46, i64 232
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %interval_.i.i, align 8
   %add.i.i = add nsw i64 %retval.sroa.0.0.copyload.i.i, %call.i60
-  %expiration_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %callback, i64 0, i32 5
+  %expiration_.i = getelementptr inbounds i8, ptr %callback, i64 48
   store i64 %add.i.i, ptr %expiration_.i, align 8
   ret void
 }
@@ -1143,25 +1122,25 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %inTimeoutExpired_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 8
+  %inTimeoutExpired_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %inTimeoutExpired_, align 8
-  %timeoutClock_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 3
+  %timeoutClock_ = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %timeoutClock_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call = invoke i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %while.cond.preheader unwind label %terminate.lpad.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %entry
-  %head_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 4
+  %head_ = getelementptr inbounds i8, ptr %this, i64 216
   %3 = load ptr, ptr %head_, align 8
   %cmp.not16 = icmp eq ptr %3, null
   br i1 %cmp.not16, label %if.then.i9, label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %while.cond.preheader, %invoke.cont28
   %4 = phi ptr [ %30, %invoke.cont28 ], [ %3, %while.cond.preheader ]
-  %expiration_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %4, i64 0, i32 5
+  %expiration_.i = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load i64, ptr %expiration_.i, align 8
   %cmp.i.i.not.i = icmp sgt i64 %5, %call
   %sub.i.i = sub nsw i64 %5, %call
@@ -1170,7 +1149,7 @@ invoke.cont12:                                    ; preds = %while.cond.preheade
   br i1 %cmp.i.i, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %invoke.cont12
-  %atMostEveryN_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %this, i64 0, i32 7
+  %atMostEveryN_ = getelementptr inbounds i8, ptr %this, i64 240
   %6 = load i64, ptr %atMostEveryN_, align 8
   %cmp.i = icmp slt i64 %spec.select.i, %6
   %spec.select = select i1 %cmp.i, i64 %6, i64 %sub.i.i
@@ -1181,15 +1160,15 @@ if.then:                                          ; preds = %invoke.cont12
 call.i.noexc:                                     ; preds = %if.then
   %7 = load ptr, ptr %call.i3, align 8, !noalias !16
   store ptr %7, ptr %ref.tmp20, align 8, !alias.scope !16
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp20, i64 0, i32 1
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %call.i3, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 8
   %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
   store ptr %8, ptr %_M_refcount.i.i.i, align 8, !alias.scope !16
   %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont21, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1215,7 +1194,7 @@ invoke.cont22:                                    ; preds = %invoke.cont21
   br i1 %cmp.not.i.i.i, label %if.then.i9, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont22
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %13, 4294967297
   %14 = trunc i64 %13 to i32
@@ -1223,10 +1202,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont22
 
 if.then.i.i.i.i4:                                 ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -1252,10 +1231,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1277,25 +1256,25 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i4
   %vtable2.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %22 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   br label %if.then.i9
 
 if.end24:                                         ; preds = %invoke.cont12
-  %timeoutSet_.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %4, i64 0, i32 2
+  %timeoutSet_.i = getelementptr inbounds i8, ptr %4, i64 24
   %23 = load ptr, ptr %timeoutSet_.i, align 8
   %cmp.i5 = icmp eq ptr %23, null
   br i1 %cmp.i5, label %invoke.cont27, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
-  %next_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %4, i64 0, i32 4
+  %next_.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %24 = load ptr, ptr %next_.i.i, align 8
   %cmp.i.i6 = icmp eq ptr %24, null
-  %prev_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %4, i64 0, i32 3
+  %prev_.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %25 = load ptr, ptr %prev_.i.i, align 8
-  %prev_4.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %24, i64 0, i32 3
-  %tail_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %23, i64 0, i32 5
+  %prev_4.i.i = getelementptr inbounds i8, ptr %24, i64 32
+  %tail_.i.i = getelementptr inbounds i8, ptr %23, i64 224
   %prev_4.sink.i.i = select i1 %cmp.i.i6, ptr %tail_.i.i, ptr %prev_4.i.i
   store ptr %25, ptr %prev_4.sink.i.i, align 8
   %cmp6.i.i = icmp eq ptr %25, null
@@ -1304,14 +1283,14 @@ if.end.i:                                         ; preds = %if.end24
 
 if.then7.i.i:                                     ; preds = %if.end.i
   %27 = load ptr, ptr %timeoutSet_.i, align 8
-  %head_.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet", ptr %27, i64 0, i32 4
+  %head_.i.i = getelementptr inbounds i8, ptr %27, i64 216
   store ptr %26, ptr %head_.i.i, align 8
   %28 = load ptr, ptr %timeoutSet_.i, align 8
   invoke void @_ZN8proxygen15AsyncTimeoutSet11headChangedEv(ptr noundef nonnull align 8 dereferenceable(249) %28)
           to label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i unwind label %terminate.lpad.loopexit
 
 if.else11.i.i:                                    ; preds = %if.end.i
-  %next_14.i.i = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %25, i64 0, i32 4
+  %next_14.i.i = getelementptr inbounds i8, ptr %25, i64 40
   store ptr %26, ptr %next_14.i.i, align 8
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
 
@@ -1320,13 +1299,13 @@ _ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i: ; preds = %i
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i, %if.end24
-  %context_ = getelementptr inbounds %"class.proxygen::AsyncTimeoutSet::Callback", ptr %4, i64 0, i32 1
+  %context_ = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZN5folly14RequestContext10setContextERKSt10shared_ptrIS0_E(ptr nonnull sret(%"class.std::shared_ptr") align 8 %rctxScopeGuard, ptr noundef nonnull align 8 dereferenceable(16) %context_)
           to label %invoke.cont28 unwind label %terminate.lpad.loopexit
 
 invoke.cont28:                                    ; preds = %invoke.cont27
   %vtable29 = load ptr, ptr %4, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 2
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 16
   %29 = load ptr, ptr %vfn30, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
   call void @_ZN5folly24RequestContextScopeGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %rctxScopeGuard) #14
@@ -1344,7 +1323,7 @@ if.then.i9:                                       ; preds = %invoke.cont28, %whi
 
 if.then6.i:                                       ; preds = %if.then.i9
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %32 = load ptr, ptr %vfn.i, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -1384,13 +1363,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.ensured, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1398,10 +1377,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %if.end8.sink.split.i.i.i.i
@@ -1427,10 +1406,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1452,19 +1431,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
 
 _ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit32, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i5 = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -1472,10 +1451,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i28:                                ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i29 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i29, align 4
   %vtable.i.i.i.i30 = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i30, i64 2
+  %vfn.i.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i.i30, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i31, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
   br label %if.end8.sink.split.i.i.i.i23
@@ -1501,10 +1480,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %if.els
 
 if.then7.i.i.i.i13:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
   %vtable.i.i.i.i.i.i14 = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i14, i64 2
+  %vfn.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i14, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i15, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
-  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %11, i64 12
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i17 = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i.i.i17, label %if.else.i.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i.i18
@@ -1526,7 +1505,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20: ; preds = %if
 
 if.end8.sink.split.i.i.i.i23:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.then.i.i.i.i28
   %vtable2.i.i.i.i.i.i24 = load ptr, ptr %11, align 8
-  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i24, i64 3
+  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i24, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i25, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
   br label %_ZNSt10shared_ptrIN5folly14RequestContextEED2Ev.exit32
@@ -1550,17 +1529,17 @@ entry:
   br i1 %delayed, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4
   %1 = and i8 %0, 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %delete.end, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %destroyPending_3 = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_3 = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %destroyPending_3, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(13) %this) #14
   br label %delete.end

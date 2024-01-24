@@ -13,9 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::fbstring_core" = type { %union.anon }
 %union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
 %"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
-%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::locale" = type { ptr }
 %"class.folly::Optional" = type { %"struct.folly::Optional<folly::ExecutorBlockingContext>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<folly::ExecutorBlockingContext>::StorageTriviallyDestructible" = type <{ %union.anon.1, i8, [7 x i8] }>
 %union.anon.1 = type { %"struct.folly::ExecutorBlockingContext" }
@@ -165,7 +162,7 @@ if.then.i:                                        ; preds = %invoke.cont1
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %vbase.offset.i
-  %_M_streambuf_state.i.i.i = getelementptr inbounds %"class.std::ios_base", ptr %add.ptr.i, i64 0, i32 5
+  %_M_streambuf_state.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %0 = load i32, ptr %_M_streambuf_state.i.i.i, align 8, !tbaa !10
   %or.i.i.i = or i32 %0, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr.i, i32 noundef %or.i.i.i)
@@ -187,11 +184,11 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 
 invoke.cont7:                                     ; preds = %invoke.cont4
   %1 = load ptr, ptr %ref.tmp6, align 8, !tbaa !20
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [24 x i8], ptr %ref.tmp6, i64 0, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 23
   %2 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !20
   %cmp.i.i.i.i = icmp ult i8 %2, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %ref.tmp6, ptr %1
-  %size_.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %ref.tmp6, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %3 = load i64, ptr %size_.i.i.i, align 8, !tbaa !20
   %conv.i.i.i = zext i8 %2 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -312,12 +309,12 @@ declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 der
 ; Function Attrs: noreturn nounwind
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly26getExecutorBlockingContextEv(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
-  %curr = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %1, i64 0, i32 1
+  %curr = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr %curr, align 8, !tbaa !24, !range !29, !noundef !30
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %cond.true, label %cond.false
@@ -332,7 +329,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %.sink = phi i8 [ 0, %cond.true ], [ 1, %cond.false ]
-  %3 = getelementptr inbounds %"struct.folly::Optional<folly::ExecutorBlockingContext>::StorageTriviallyDestructible", ptr %agg.result, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 %.sink, ptr %3, align 8
   ret void
 }
@@ -343,42 +340,42 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_9PermitTagE(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %ex.i.i = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 2
+  %ex.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ex.i.i, i8 0, i64 24, i1 false)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !33
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   store ptr %2, ptr %this, align 8, !tbaa !34
-  %curr = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1
+  %curr = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %curr, align 8, !tbaa !36
   store ptr %this, ptr %0, align 8, !tbaa !23
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_8TrackTagEPNS_8ExecutorENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ex, ptr %tag.coerce0, ptr %tag.coerce1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %ex.i.i = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 2
+  %ex.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ex.i.i, i8 0, i64 24, i1 false)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !33
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   store ptr %2, ptr %this, align 8, !tbaa !34
-  %curr = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1
+  %curr = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %curr, align 8, !tbaa !36
   store ptr %ex, ptr %ex.i.i, align 8, !tbaa !37
   %cmp.i = icmp eq ptr %tag.coerce0, %tag.coerce1
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %tag11 = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 3
+  %tag11 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %tag.coerce0, ptr %tag11, align 8, !tbaa.struct !38
-  %tag.sroa.3.0.tag11.sroa_idx = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 3, i32 1
+  %tag.sroa.3.0.tag11.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %tag.coerce1, ptr %tag.sroa.3.0.tag11.sroa_idx, align 8, !tbaa.struct !39
   br label %if.end
 
@@ -387,28 +384,28 @@ if.end:                                           ; preds = %if.then, %invoke.co
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly21ExecutorBlockingGuardC2ENS0_11ProhibitTagEPNS_8ExecutorENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ex, ptr %tag.coerce0, ptr %tag.coerce1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %ex.i.i = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 2
+  %ex.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ex.i.i, i8 0, i64 24, i1 false)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !33
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   store ptr %2, ptr %this, align 8, !tbaa !34
-  %curr = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1
+  %curr = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %curr, align 8, !tbaa !36
   store ptr %ex, ptr %ex.i.i, align 8, !tbaa !37
-  %allowTerminationOnBlocking = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 1
+  %allowTerminationOnBlocking = getelementptr inbounds i8, ptr %this, i64 9
   store i8 1, ptr %allowTerminationOnBlocking, align 1, !tbaa !40
   %cmp.i = icmp eq ptr %tag.coerce0, %tag.coerce1
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %tag12 = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 3
+  %tag12 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %tag.coerce0, ptr %tag12, align 8, !tbaa.struct !38
-  %tag.sroa.3.0.tag12.sroa_idx = getelementptr inbounds %"struct.folly::ExecutorBlockingList", ptr %this, i64 0, i32 1, i32 3, i32 1
+  %tag.sroa.3.0.tag12.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %tag.coerce1, ptr %tag.sroa.3.0.tag12.sroa_idx, align 8, !tbaa.struct !39
   br label %if.end
 
@@ -499,7 +496,7 @@ attributes #8 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-pro
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { cold mustprogress noreturn nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -110,9 +110,10 @@ for.end.thread:                                   ; preds = %entry
 for.body:                                         ; preds = %entry, %for.body
   %sum.050 = phi i64 [ %add2, %for.body ], [ 0, %entry ]
   %i.049 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %namelen = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.049, i32 2
+  %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.049
+  %namelen = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load i64, ptr %namelen, align 8
-  %valuelen = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.049, i32 3
+  %valuelen = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %valuelen, align 8
   %add = add i64 %0, %sum.050
   %add2 = add i64 %add, %1
@@ -128,14 +129,14 @@ for.body5:                                        ; preds = %for.body5.preheader
   %i.152 = phi i64 [ %inc17, %for.body5 ], [ 0, %for.body5.preheader ]
   %arrayidx6 = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.152
   %2 = load ptr, ptr %arrayidx6, align 8
-  %namelen8 = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.152, i32 2
+  %namelen8 = getelementptr inbounds i8, ptr %arrayidx6, i64 16
   %3 = load i64, ptr %namelen8, align 8
   %4 = load ptr, ptr @stdout, align 8
   %call9 = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %4)
   %call10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16)
-  %value = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.152, i32 1
+  %value = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %5 = load ptr, ptr %value, align 8
-  %valuelen13 = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.152, i32 3
+  %valuelen13 = getelementptr inbounds i8, ptr %arrayidx6, i64 24
   %6 = load i64, ptr %valuelen13, align 8
   %7 = load ptr, ptr @stdout, align 8
   %call14 = tail call i64 @fwrite(ptr noundef %5, i64 noundef 1, i64 noundef %6, ptr noundef %7)
@@ -203,9 +204,9 @@ for.end51:                                        ; preds = %for.inc49, %if.end
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %nv.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %inflate_flags.i)
-  %namelen.i = getelementptr inbounds %struct.nghttp2_nv, ptr %nv.i, i64 0, i32 2
-  %value.i = getelementptr inbounds %struct.nghttp2_nv, ptr %nv.i, i64 0, i32 1
-  %valuelen.i = getelementptr inbounds %struct.nghttp2_nv, ptr %nv.i, i64 0, i32 3
+  %namelen.i = getelementptr inbounds i8, ptr %nv.i, i64 16
+  %value.i = getelementptr inbounds i8, ptr %nv.i, i64 8
+  %valuelen.i = getelementptr inbounds i8, ptr %nv.i, i64 24
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end12.i, %for.end51

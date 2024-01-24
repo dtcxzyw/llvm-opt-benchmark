@@ -3,8 +3,6 @@ source_filename = "bench/qemu/original/rtas.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-
 @.str = private unnamed_addr constant [16 x i8] c"get-time-of-day\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"ibm,read-pci-config\00", align 1
 @.str.2 = private unnamed_addr constant [21 x i8] c"ibm,write-pci-config\00", align 1
@@ -40,17 +38,17 @@ if.end:                                           ; preds = %qrtas_call.exit
   %0 = load i32, ptr %ret, align 16
   %1 = getelementptr inbounds i8, ptr %tm, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 32, i1 false)
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr %ret, i64 0, i64 1
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %ret, i64 4
+  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
   %2 = load <2 x i32>, ptr %arrayidx2, align 4
   %3 = add <2 x i32> %2, <i32 -1900, i32 -1>
   %4 = shufflevector <2 x i32> %3, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %4, ptr %tm_mon, align 8
-  %arrayidx5 = getelementptr inbounds [8 x i32], ptr %ret, i64 0, i64 3
+  %arrayidx5 = getelementptr inbounds i8, ptr %ret, i64 12
   %5 = load <4 x i32>, ptr %arrayidx5, align 4
   %6 = shufflevector <4 x i32> %5, <4 x i32> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x i32> %6, ptr %tm, align 8
-  %arrayidx9 = getelementptr inbounds [8 x i32], ptr %ret, i64 0, i64 7
+  %arrayidx9 = getelementptr inbounds i8, ptr %ret, i64 28
   %7 = load i32, ptr %arrayidx9, align 4
   store i32 %7, ptr %ns, align 4
   br label %return
@@ -116,12 +114,12 @@ entry:
   store i32 %addr, ptr %args, align 16
   %shr = lshr i64 %buid, 32
   %conv = trunc i64 %shr to i32
-  %arrayidx1 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 4
   store i32 %conv, ptr %arrayidx1, align 4
   %conv2 = trunc i64 %buid to i32
-  %arrayidx3 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %args, i64 8
   store i32 %conv2, ptr %arrayidx3, align 8
-  %arrayidx4 = getelementptr inbounds [4 x i32], ptr %args, i64 0, i64 3
+  %arrayidx4 = getelementptr inbounds i8, ptr %args, i64 12
   store i32 %size, ptr %arrayidx4, align 4
   %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.1, i32 noundef 4, ptr noundef nonnull %args, i32 noundef 2, ptr noundef nonnull %ret)
   %0 = and i64 %call, 4294967295
@@ -129,7 +127,7 @@ entry:
   %1 = load i32, ptr %ret, align 4
   %cmp9.not = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp.not, i1 %cmp9.not, i1 false
-  %arrayidx13 = getelementptr inbounds [2 x i32], ptr %ret, i64 0, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %ret, i64 4
   %2 = load i32, ptr %arrayidx13, align 4
   %retval.0 = select i1 %or.cond, i32 %2, i32 -1
   ret i32 %retval.0
@@ -143,14 +141,14 @@ entry:
   store i32 %addr, ptr %args, align 16
   %shr = lshr i64 %buid, 32
   %conv = trunc i64 %shr to i32
-  %arrayidx1 = getelementptr inbounds [5 x i32], ptr %args, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 4
   store i32 %conv, ptr %arrayidx1, align 4
   %conv2 = trunc i64 %buid to i32
-  %arrayidx3 = getelementptr inbounds [5 x i32], ptr %args, i64 0, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %args, i64 8
   store i32 %conv2, ptr %arrayidx3, align 8
-  %arrayidx4 = getelementptr inbounds [5 x i32], ptr %args, i64 0, i64 3
+  %arrayidx4 = getelementptr inbounds i8, ptr %args, i64 12
   store i32 %size, ptr %arrayidx4, align 4
-  %arrayidx5 = getelementptr inbounds [5 x i32], ptr %args, i64 0, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %args, i64 16
   store i32 %val, ptr %arrayidx5, align 16
   %call = call fastcc i64 @qrtas_call(ptr noundef %qts, ptr noundef %alloc, ptr noundef nonnull @.str.2, i32 noundef 5, ptr noundef nonnull %args, i32 noundef 1, ptr noundef nonnull %ret)
   %0 = and i64 %call, 4294967295

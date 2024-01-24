@@ -3,11 +3,6 @@ source_filename = "bench/assimp/original/DefaultIOStream.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::DefaultIOStream" = type { %"class.Assimp::IOStream", ptr, %"class.std::__cxx11::basic_string", i64 }
-%"class.Assimp::IOStream" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -35,7 +30,7 @@ $_ZTIN6Assimp8IOStreamE = comdat any
 define void @_ZN6Assimp15DefaultIOStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -45,7 +40,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %mFilename = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 2
+  %mFilename = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mFilename) #4
   ret void
 }
@@ -76,7 +71,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %cond.true
@@ -96,7 +91,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN6Assimp15DefaultIOStream5WriteEPKvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #3 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -116,7 +111,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i32 @_ZN6Assimp15DefaultIOStream4SeekEm8aiOrigin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #3 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -135,7 +130,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZNK6Assimp15DefaultIOStream4TellEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -153,18 +148,18 @@ return:                                           ; preds = %entry, %if.end
 define noundef i64 @_ZNK6Assimp15DefaultIOStream8FileSizeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   %fileStat = alloca %struct.stat, align 8
-  %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %mFilename = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 2
+  %mFilename = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %mFilename) #4
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %mCachedSize = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 3
+  %mCachedSize = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %mCachedSize, align 8
   %cmp = icmp eq i64 %1, -1
   br i1 %cmp, label %if.then2, label %return
@@ -176,7 +171,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then2
-  %st_size = getelementptr inbounds %struct.stat, ptr %fileStat, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %fileStat, i64 48
   %2 = load i64, ptr %st_size, align 8
   store i64 %2, ptr %mCachedSize, align 8
   br label %return
@@ -198,7 +193,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN6Assimp15DefaultIOStream5FlushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::DefaultIOStream", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

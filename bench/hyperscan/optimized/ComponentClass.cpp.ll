@@ -20,17 +20,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.boost::icl::exclusive_less_than" = type { i8 }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.ue2::ParseMode" = type { i8, i8, i8, i8, i8, i8 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%"class.ue2::ComponentClass" = type <{ %"class.ue2::Component", i8, %"struct.ue2::ParseMode", i8, i32, i8, [3 x i8] }>
-%"class.ue2::Component" = type { ptr, i32, i32 }
+%"struct.ue2::ParseMode" = type { i8, i8, i8, i8, i8, i8 }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -392,7 +388,7 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %dotall = getelementptr inbounds %"struct.ue2::ParseMode", ptr %mode, i64 0, i32 1
+  %dotall = getelementptr inbounds i8, ptr %mode, i64 1
   %0 = load i8, ptr %dotall, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -477,7 +473,7 @@ _ZN3ue29CharReachC2Ehh.exit74:                    ; preds = %entry
   %7 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false)
   store i64 -8589934592, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i.i72 = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 1
+  %arrayidx.i.i.i.i.i72 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 9223372036854775807, ptr %arrayidx.i.i.i.i.i72, align 8
   br label %return
 
@@ -539,7 +535,7 @@ _ZN3ue29CharReachC2Ehh.exit92:                    ; preds = %entry
   %12 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 16, i1 false)
   store i64 -4294967296, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i.i90 = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 1
+  %arrayidx.i.i.i.i.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 9223372036854775807, ptr %arrayidx.i.i.i.i.i90, align 8
   br label %return
 
@@ -890,8 +886,8 @@ sw.bb263:                                         ; preds = %entry, %entry
   %22 = load <2 x i64>, ptr %agg.result, align 8, !alias.scope !32
   %23 = or <2 x i64> %22, %21
   store <2 x i64> %23, ptr %agg.result, align 8, !alias.scope !32
-  %arrayidx.i.i21.i.i185 = getelementptr inbounds [4 x i64], ptr %ref.tmp265, i64 0, i64 2
-  %arrayidx.i.i22.i.i186 = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 2
+  %arrayidx.i.i21.i.i185 = getelementptr inbounds i8, ptr %ref.tmp265, i64 16
+  %arrayidx.i.i22.i.i186 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %24 = load <2 x i64>, ptr %arrayidx.i.i21.i.i185, align 16, !noalias !32
   %25 = load <2 x i64>, ptr %arrayidx.i.i22.i.i186, align 8, !alias.scope !32
   %26 = or <2 x i64> %25, %24
@@ -1583,14 +1579,14 @@ entry:
 
 for.body:                                         ; preds = %entry, %_ZN3ue29CharReach8setRangeEhh.exit
   %__begin1.sroa.0.010 = phi ptr [ %call.i, %_ZN3ue29CharReach8setRangeEhh.exit ], [ %0, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.010, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 32
   %1 = load i32, ptr %_M_storage.i.i, align 4
   %cmp = icmp ugt i32 %1, 255
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
   %conv7 = zext nneg i32 %1 to i64
-  %_upb.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.010, i64 0, i32 1, i32 0, i64 4
+  %_upb.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 36
   %2 = load i32, ptr %_upb.i.i.i, align 4
   %spec.select8 = tail call i32 @llvm.umin.i32(i32 %2, i32 255)
   %spec.select = zext nneg i32 %spec.select8 to i64
@@ -1973,7 +1969,7 @@ declare void @_ZN3ue28getUcpYiEv(ptr sret(%"class.ue2::CodePointSet") align 8) l
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %utf8 = getelementptr inbounds %"struct.ue2::ParseMode", ptr %mode, i64 0, i32 5
+  %utf8 = getelementptr inbounds i8, ptr %mode, i64 5
   %0 = load i8, ptr %utf8, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2015,7 +2011,7 @@ return:                                           ; preds = %if.else, %if.then
 define hidden void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %c, i1 noundef zeroext %negate, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %utf8.i = getelementptr inbounds %"struct.ue2::ParseMode", ptr %mode, i64 0, i32 5
+  %utf8.i = getelementptr inbounds i8, ptr %mode, i64 5
   %0 = load i8, ptr %utf8.i, align 1, !noalias !45
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -2055,14 +2051,14 @@ _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %if.then.i, %if.else
   %storemerge.i = phi ptr [ %call.i.i, %if.then.i ], [ %call.i3.i, %if.else.i ]
   store ptr %storemerge.i, ptr %agg.result, align 8, !alias.scope !45
   %vtable = load ptr, ptr %storemerge.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i, i32 noundef %c, i1 noundef zeroext %negate)
           to label %invoke.cont unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
 
 invoke.cont:                                      ; preds = %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
   %vtable2 = load ptr, ptr %storemerge.i, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 18
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 144
   %5 = load ptr, ptr %vfn3, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i)
           to label %nrvo.skipdtor unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
@@ -2071,7 +2067,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; pre
   %6 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %storemerge.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(29) %storemerge.i) #18
   store ptr null, ptr %agg.result, align 8
@@ -2106,7 +2102,7 @@ common.resume.i:                                  ; preds = %if.else.i
 
 _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %if.else.i
   %vtable.pre = load ptr, ptr %call.i3.i, align 8
-  %vfn.phi.trans.insert = getelementptr inbounds ptr, ptr %vtable.pre, i64 17
+  %vfn.phi.trans.insert = getelementptr inbounds i8, ptr %vtable.pre, i64 136
   %.pre = load ptr, ptr %vfn.phi.trans.insert, align 8
   store ptr %call.i3.i, ptr %agg.result, align 8, !alias.scope !54
   %conv = zext i8 %c to i32
@@ -2115,7 +2111,7 @@ _ZN3ue217getComponentClassERKNS_9ParseModeE.exit: ; preds = %if.else.i
 
 invoke.cont:                                      ; preds = %_ZN3ue217getComponentClassERKNS_9ParseModeE.exit
   %vtable3 = load ptr, ptr %call.i3.i, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 18
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 144
   %2 = load ptr, ptr %vfn4, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(29) %call.i3.i)
           to label %nrvo.skipdtor unwind label %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit
@@ -2124,7 +2120,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit: ; pre
   %3 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i = load ptr, ptr %call.i3.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(29) %call.i3.i) #18
   store ptr null, ptr %agg.result, align 8
@@ -2139,15 +2135,15 @@ define hidden void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnu
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue214ComponentClassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_negate = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 1
+  %m_negate = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %m_negate, align 8
-  %mode = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %this, i64 17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mode, ptr noundef nonnull align 1 dereferenceable(6) %mode_in, i64 6, i1 false)
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 3
+  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   store i8 0, ptr %in_cand_range, align 1
-  %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 4
+  %range_start = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %range_start, align 8
-  %finalized = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 5
+  %finalized = getelementptr inbounds i8, ptr %this, i64 28
   store i8 0, ptr %finalized, align 4
   ret void
 }
@@ -2177,14 +2173,14 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue214ComponentClass7addDashEv(ptr noundef nonnull align 8 dereferenceable(29) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %in_cand_range = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 3
+  %in_cand_range = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %in_cand_range, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.else4
 
 if.then:                                          ; preds = %entry
-  %range_start = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 4
+  %range_start = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %range_start, align 8
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.else, label %if.then2
@@ -2195,7 +2191,7 @@ if.then2:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(29) %this, i32 noundef 45)
   br label %if.end8
@@ -2203,7 +2199,7 @@ if.else:                                          ; preds = %if.then
 if.else4:                                         ; preds = %entry
   store i8 0, ptr %in_cand_range, align 1
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 19
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 152
   %4 = load ptr, ptr %vfn7, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(29) %this, i32 noundef 45)
   br label %if.end8
@@ -2215,7 +2211,7 @@ if.end8:                                          ; preds = %if.then2, %if.else,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3ue214ComponentClass6negateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_negate = getelementptr inbounds %"class.ue2::ComponentClass", ptr %this, i64 0, i32 1
+  %m_negate = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %m_negate, align 8
   ret void
 }
@@ -2265,10 +2261,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #23
   %cmp.not = icmp eq ptr %1, null

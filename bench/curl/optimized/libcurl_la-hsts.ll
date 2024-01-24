@@ -3,45 +3,9 @@ source_filename = "bench/curl/original/libcurl_la-hsts.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Curl_llist_element = type { ptr, ptr, ptr }
-%struct.stsentry = type { %struct.Curl_llist_element, ptr, i8, i64 }
-%struct.hsts = type { %struct.Curl_llist, ptr, i32 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
 %struct.curl_hstsentry = type { ptr, i64, i8, [18 x i8] }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.curl_index = type { i64, i64 }
-%struct.Curl_easy = type { i32, i64, ptr, ptr, ptr, %struct.Curl_llist_element, %struct.Curl_llist_element, i32, i32, %struct.Curl_message, %struct.easy_pollset, %struct.Names, ptr, ptr, ptr, ptr, %struct.SingleRequest, %struct.UserDefined, ptr, ptr, ptr, %struct.Progress, %struct.UrlState, ptr, %struct.PureInfo, %struct.curl_tlssessioninfo }
-%struct.Curl_message = type { %struct.Curl_llist_element, %struct.CURLMsg }
-%struct.CURLMsg = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
-%struct.easy_pollset = type { [5 x i32], i32, [5 x i8] }
-%struct.Names = type { ptr, i32 }
-%struct.SingleRequest = type <{ i64, i64, i64, i64, i64, %struct.curltime, i32, i32, i32, i32, i64, i32, i32, %struct.curltime, i32, i32, ptr, i64, i64, ptr, ptr, i64, ptr, %union.anon.0, ptr, [2 x i8], i8, i16, [3 x i8] }>
-%struct.curltime = type { i64, i32 }
-%union.anon.0 = type { ptr }
-%struct.UserDefined = type <{ ptr, ptr, ptr, ptr, ptr, ptr, i16, [6 x i8], i64, i64, i64, ptr, ptr, i64, i16, i16, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.curl_mimepart, ptr, ptr, ptr, i64, i8, i8, i8, [5 x i8], %struct.ssl_config_data, %struct.ssl_config_data, ptr, i16, i8, i8, [4 x i8], %struct.ssl_general_config, i32, i32, i32, [4 x i8], ptr, ptr, i8, [7 x i8], i64, i8, i8, i8, i8, i32, ptr, ptr, ptr, i8, i8, [2 x i8], i32, [80 x ptr], [8 x ptr], i32, i32, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, i8, [3 x i8], i32, i8, i8, i56, [6 x i8] }>
-%struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
-%struct.mime_state = type { i32, ptr, i64 }
-%struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
-%struct.ssl_config_data = type { %struct.ssl_primary_config, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.ssl_primary_config = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i8 }
-%struct.ssl_general_config = type { i64, i32 }
-%struct.Progress = type { i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, %struct.curltime, i64, %struct.curltime, i64, [6 x i64], [6 x %struct.curltime], i32, i8 }
-%struct.UrlState = type { ptr, %struct.curltime, i64, i64, %struct.dynbuf, ptr, ptr, ptr, i64, ptr, i32, i32, i32, ptr, i64, [3 x %struct.tempbuf], i32, i32, ptr, i64, i32, ptr, %struct.digestdata, %struct.digestdata, %struct.auth, %struct.auth, %struct.Curl_async, ptr, %struct.curltime, %struct.Curl_tree, %struct.Curl_llist, [15 x %struct.time_node], ptr, i8, i64, ptr, i64, i64, i64, i64, [32 x i8], i64, ptr, ptr, ptr, %struct.urlpieces, ptr, ptr, ptr, ptr, ptr, i64, %struct.dynbuf, %struct.Curl_llist, [2 x %struct.curl_header], ptr, i32, ptr, %struct.dynamically_allocated_data, i8, i8, i8, i8, i24 }
-%struct.tempbuf = type { %struct.dynbuf, i32, i8 }
-%struct.digestdata = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8 }
-%struct.auth = type { i64, i64, i64, i8 }
-%struct.Curl_async = type { ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.Curl_tree = type { ptr, ptr, ptr, ptr, %struct.curltime, ptr }
-%struct.time_node = type { %struct.Curl_llist_element, %struct.curltime, i32 }
-%struct.urlpieces = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.dynbuf = type { ptr, i64, i64, i64 }
-%struct.curl_header = type { ptr, ptr, i64, i64, i32, ptr }
-%struct.dynamically_allocated_data = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PureInfo = type { i32, i32, i32, i64, i64, i64, i64, i64, ptr, ptr, i64, i32, [46 x i8], i32, i32, [46 x i8], i32, ptr, i32, %struct.curl_certinfo, i32, i8 }
-%struct.curl_certinfo = type { i32, ptr }
-%struct.curl_tlssessioninfo = type { i32, ptr }
-%struct.curl_slist = type { ptr, ptr }
 
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
@@ -92,10 +56,10 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.body
   %e.08 = phi ptr [ %3, %for.body ], [ %1, %if.then ]
   %2 = load ptr, ptr %e.08, align 8
-  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.08, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %e.08, i64 16
   %3 = load ptr, ptr %next, align 8
   %4 = load ptr, ptr @Curl_cfree, align 8
-  %host.i = getelementptr inbounds %struct.stsentry, ptr %2, i64 0, i32 1
+  %host.i = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %host.i, align 8
   tail call void %4(ptr noundef %5) #9
   %6 = load ptr, ptr @Curl_cfree, align 8
@@ -105,7 +69,7 @@ for.body:                                         ; preds = %if.then, %for.body
 
 for.end:                                          ; preds = %for.body, %if.then
   %7 = load ptr, ptr @Curl_cfree, align 8
-  %filename = getelementptr inbounds %struct.hsts, ptr %0, i64 0, i32 1
+  %filename = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %filename, align 8
   tail call void %7(ptr noundef %8) #9
   %9 = load ptr, ptr @Curl_cfree, align 8
@@ -270,7 +234,7 @@ if.then101:                                       ; preds = %if.end99
 if.then104:                                       ; preds = %if.then101
   call void @Curl_llist_remove(ptr noundef %h, ptr noundef nonnull %call102, ptr noundef null) #9
   %11 = load ptr, ptr @Curl_cfree, align 8
-  %host.i = getelementptr inbounds %struct.stsentry, ptr %call102, i64 0, i32 1
+  %host.i = getelementptr inbounds i8, ptr %call102, i64 24
   %12 = load ptr, ptr %host.i, align 8
   call void %11(ptr noundef %12) #9
   %13 = load ptr, ptr @Curl_cfree, align 8
@@ -289,10 +253,10 @@ if.end106:                                        ; preds = %if.end99
 
 if.then114:                                       ; preds = %if.end106
   %14 = load i64, ptr %expires, align 8
-  %expires115 = getelementptr inbounds %struct.stsentry, ptr %call112, i64 0, i32 3
+  %expires115 = getelementptr inbounds i8, ptr %call112, i64 40
   store i64 %14, ptr %expires115, align 8
   %15 = and i8 %subdomains.1, 1
-  %includeSubDomains = getelementptr inbounds %struct.stsentry, ptr %call112, i64 0, i32 2
+  %includeSubDomains = getelementptr inbounds i8, ptr %call112, i64 32
   store i8 %15, ptr %includeSubDomains, align 8
   br label %return
 
@@ -333,13 +297,13 @@ if.then12.i:                                      ; preds = %if.end9.i
   br label %return
 
 if.end13.i:                                       ; preds = %if.end9.i
-  %host.i43 = getelementptr inbounds %struct.stsentry, ptr %call.i.i, i64 0, i32 1
+  %host.i43 = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %call10.i, ptr %host.i43, align 8
-  %expires14.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i, i64 0, i32 3
+  %expires14.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i64 %17, ptr %expires14.i, align 8
-  %includeSubDomains.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i, i64 0, i32 2
+  %includeSubDomains.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store i8 %16, ptr %includeSubDomains.i, align 8
-  %tail.i = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 1
+  %tail.i = getelementptr inbounds i8, ptr %h, i64 8
   %22 = load ptr, ptr %tail.i, align 8
   call void @Curl_llist_insert_next(ptr noundef %h, ptr noundef %22, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i) #9
   br label %return
@@ -391,9 +355,9 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %e.029.us = phi ptr [ %5, %for.inc.us ], [ %3, %for.body.lr.ph ]
   %4 = load ptr, ptr %e.029.us, align 8
-  %next.us = getelementptr inbounds %struct.Curl_llist_element, ptr %e.029.us, i64 0, i32 2
+  %next.us = getelementptr inbounds i8, ptr %e.029.us, i64 16
   %5 = load ptr, ptr %next.us, align 8
-  %expires.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 3
+  %expires.us = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load i64, ptr %expires.us, align 8
   %cmp11.not.us = icmp sgt i64 %6, %call
   br i1 %cmp11.not.us, label %if.end15.us, label %if.then13.us
@@ -401,7 +365,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 if.then13.us:                                     ; preds = %for.body.us
   call void @Curl_llist_remove(ptr noundef nonnull %h, ptr noundef nonnull %4, ptr noundef null) #9
   %7 = load ptr, ptr @Curl_cfree, align 8
-  %host.i.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 1
+  %host.i.us = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load ptr, ptr %host.i.us, align 8
   call void %7(ptr noundef %8) #9
   %9 = load ptr, ptr @Curl_cfree, align 8
@@ -409,14 +373,14 @@ if.then13.us:                                     ; preds = %for.body.us
   br label %for.inc.us
 
 if.end15.us:                                      ; preds = %for.body.us
-  %includeSubDomains.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 2
+  %includeSubDomains.us = getelementptr inbounds i8, ptr %4, i64 32
   %10 = load i8, ptr %includeSubDomains.us, align 8
   %11 = and i8 %10, 1
   %tobool18.not.us = icmp eq i8 %11, 0
   br i1 %tobool18.not.us, label %if.end39.us, label %if.then20.us
 
 if.then20.us:                                     ; preds = %if.end15.us
-  %host.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 1
+  %host.us = getelementptr inbounds i8, ptr %4, i64 24
   %12 = load ptr, ptr %host.us, align 8
   %call21.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #10
   %cmp22.us = icmp ult i64 %call21.us, %spec.select
@@ -436,7 +400,7 @@ land.lhs.true31.us:                               ; preds = %if.then24.us
   br i1 %tobool35.not.us, label %if.end39.us, label %return
 
 if.end39.us:                                      ; preds = %land.lhs.true31.us, %if.then24.us, %if.then20.us, %if.end15.us
-  %host40.us = getelementptr inbounds %struct.stsentry, ptr %4, i64 0, i32 1
+  %host40.us = getelementptr inbounds i8, ptr %4, i64 24
   %15 = load ptr, ptr %host40.us, align 8
   %call41.us = call i32 @curl_strequal(ptr noundef nonnull %buffer, ptr noundef %15) #9
   %tobool42.not.us = icmp eq i32 %call41.us, 0
@@ -449,9 +413,9 @@ for.inc.us:                                       ; preds = %if.end39.us, %if.th
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %e.029 = phi ptr [ %17, %for.inc ], [ %3, %for.body.lr.ph ]
   %16 = load ptr, ptr %e.029, align 8
-  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.029, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %e.029, i64 16
   %17 = load ptr, ptr %next, align 8
-  %expires = getelementptr inbounds %struct.stsentry, ptr %16, i64 0, i32 3
+  %expires = getelementptr inbounds i8, ptr %16, i64 40
   %18 = load i64, ptr %expires, align 8
   %cmp11.not = icmp sgt i64 %18, %call
   br i1 %cmp11.not, label %if.end15, label %if.then13
@@ -459,7 +423,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then13:                                        ; preds = %for.body
   call void @Curl_llist_remove(ptr noundef nonnull %h, ptr noundef nonnull %16, ptr noundef null) #9
   %19 = load ptr, ptr @Curl_cfree, align 8
-  %host.i = getelementptr inbounds %struct.stsentry, ptr %16, i64 0, i32 1
+  %host.i = getelementptr inbounds i8, ptr %16, i64 24
   %20 = load ptr, ptr %host.i, align 8
   call void %19(ptr noundef %20) #9
   %21 = load ptr, ptr @Curl_cfree, align 8
@@ -467,7 +431,7 @@ if.then13:                                        ; preds = %for.body
   br label %for.inc
 
 if.end15:                                         ; preds = %for.body
-  %host40 = getelementptr inbounds %struct.stsentry, ptr %16, i64 0, i32 1
+  %host40 = getelementptr inbounds i8, ptr %16, i64 24
   %22 = load ptr, ptr %host40, align 8
   %call41 = call i32 @curl_strequal(ptr noundef nonnull %buffer, ptr noundef %22) #9
   %tobool42.not = icmp eq i32 %call41, 0
@@ -510,13 +474,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %if.end
-  %filename = getelementptr inbounds %struct.hsts, ptr %h, i64 0, i32 1
+  %filename = getelementptr inbounds i8, ptr %h, i64 32
   %0 = load ptr, ptr %filename, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
   %file.addr.0 = phi ptr [ %file, %if.end ], [ %0, %land.lhs.true ]
-  %flags = getelementptr inbounds %struct.hsts, ptr %h, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %h, i64 40
   %1 = load i32, ptr %flags, align 8
   %2 = and i32 %1, 2
   %tobool6 = icmp eq i32 %2, 0
@@ -542,21 +506,21 @@ if.then13:                                        ; preds = %if.end11
   br i1 %tobool15.not52, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then13
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 5
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 4
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 3
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 2
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %stamp.i, i64 0, i32 1
+  %tm_year.i = getelementptr inbounds i8, ptr %stamp.i, i64 20
+  %tm_mon.i = getelementptr inbounds i8, ptr %stamp.i, i64 16
+  %tm_mday.i = getelementptr inbounds i8, ptr %stamp.i, i64 12
+  %tm_hour.i = getelementptr inbounds i8, ptr %stamp.i, i64 8
+  %tm_min.i = getelementptr inbounds i8, ptr %stamp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %hsts_out.exit
   %e.053 = phi ptr [ %6, %for.body.lr.ph ], [ %8, %hsts_out.exit ]
   %7 = load ptr, ptr %e.053, align 8
-  %next = getelementptr inbounds %struct.Curl_llist_element, ptr %e.053, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %e.053, i64 16
   %8 = load ptr, ptr %next, align 8
   %9 = load ptr, ptr %out, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %stamp.i)
-  %expires.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 3
+  %expires.i = getelementptr inbounds i8, ptr %7, i64 40
   %10 = load i64, ptr %expires.i, align 8
   %cmp.not.i = icmp eq i64 %10, 9223372036854775807
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -571,12 +535,12 @@ hsts_out.exit.thread:                             ; preds = %if.then.i
   br label %for.end
 
 if.end.i:                                         ; preds = %if.then.i
-  %includeSubDomains.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 2
+  %includeSubDomains.i = getelementptr inbounds i8, ptr %7, i64 32
   %11 = load i8, ptr %includeSubDomains.i, align 8
   %12 = and i8 %11, 1
   %tobool3.not.i = icmp eq i8 %12, 0
   %cond.i = select i1 %tobool3.not.i, ptr @.str.5, ptr @.str.4
-  %host.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 1
+  %host.i = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load ptr, ptr %host.i, align 8
   %14 = load i32, ptr %tm_year.i, align 4
   %add.i = add nsw i32 %14, 1900
@@ -590,12 +554,12 @@ if.end.i:                                         ; preds = %if.then.i
   br label %hsts_out.exit
 
 if.else.i:                                        ; preds = %for.body
-  %includeSubDomains6.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 2
+  %includeSubDomains6.i = getelementptr inbounds i8, ptr %7, i64 32
   %20 = load i8, ptr %includeSubDomains6.i, align 8
   %21 = and i8 %20, 1
   %tobool7.not.i = icmp eq i8 %21, 0
   %cond8.i = select i1 %tobool7.not.i, ptr @.str.5, ptr @.str.4
-  %host9.i = getelementptr inbounds %struct.stsentry, ptr %7, i64 0, i32 1
+  %host9.i = getelementptr inbounds i8, ptr %7, i64 24
   %22 = load ptr, ptr %host9.i, align 8
   %call10.i = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %9, ptr noundef nonnull @.str.6, ptr noundef nonnull %cond8.i, ptr noundef %22, ptr noundef nonnull @.str.7) #9
   br label %hsts_out.exit
@@ -643,15 +607,15 @@ if.end35:                                         ; preds = %if.end28, %if.then3
 
 skipsave:                                         ; preds = %if.end5, %lor.lhs.false8, %if.end35
   %result.4 = phi i32 [ %result.3, %if.end35 ], [ 0, %lor.lhs.false8 ], [ 0, %if.end5 ]
-  %hsts_write = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 36
+  %hsts_write = getelementptr inbounds i8, ptr %data, i64 680
   %28 = load ptr, ptr %hsts_write, align 8
   %tobool36.not = icmp eq ptr %28, null
   br i1 %tobool36.not, label %return, label %if.then37
 
 if.then37:                                        ; preds = %skipsave
-  %size = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %h, i64 24
   %29 = load i64, ptr %size, align 8
-  %total = getelementptr inbounds %struct.curl_index, ptr %i, i64 0, i32 1
+  %total = getelementptr inbounds i8, ptr %i, i64 8
   store i64 %29, ptr %total, align 8
   store i64 0, ptr %i, align 8
   %30 = load ptr, ptr %h, align 8
@@ -659,34 +623,34 @@ if.then37:                                        ; preds = %skipsave
   br i1 %tobool42.not54, label %return, label %for.body43.lr.ph
 
 for.body43.lr.ph:                                 ; preds = %if.then37
-  %namelen.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 1
-  %includeSubDomains2.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 2
-  %expire.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 3
-  %tm_year.i39 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 5
-  %tm_mon.i41 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 4
-  %tm_mday.i42 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 3
-  %tm_hour.i43 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 2
-  %tm_min.i44 = getelementptr inbounds %struct.tm, ptr %stamp.i29, i64 0, i32 1
-  %hsts_write_userp.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 37
+  %namelen.i = getelementptr inbounds i8, ptr %e.i, i64 8
+  %includeSubDomains2.i = getelementptr inbounds i8, ptr %e.i, i64 16
+  %expire.i = getelementptr inbounds i8, ptr %e.i, i64 17
+  %tm_year.i39 = getelementptr inbounds i8, ptr %stamp.i29, i64 20
+  %tm_mon.i41 = getelementptr inbounds i8, ptr %stamp.i29, i64 16
+  %tm_mday.i42 = getelementptr inbounds i8, ptr %stamp.i29, i64 12
+  %tm_hour.i43 = getelementptr inbounds i8, ptr %stamp.i29, i64 8
+  %tm_min.i44 = getelementptr inbounds i8, ptr %stamp.i29, i64 4
+  %hsts_write_userp.i = getelementptr inbounds i8, ptr %data, i64 688
   br label %for.body43
 
 for.body43:                                       ; preds = %for.body43.lr.ph, %if.end53
   %e.155 = phi ptr [ %30, %for.body43.lr.ph ], [ %32, %if.end53 ]
   %31 = load ptr, ptr %e.155, align 8
-  %next46 = getelementptr inbounds %struct.Curl_llist_element, ptr %e.155, i64 0, i32 2
+  %next46 = getelementptr inbounds i8, ptr %e.155, i64 16
   %32 = load ptr, ptr %next46, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %e.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %stamp.i29)
-  %host.i30 = getelementptr inbounds %struct.stsentry, ptr %31, i64 0, i32 1
+  %host.i30 = getelementptr inbounds i8, ptr %31, i64 24
   %33 = load ptr, ptr %host.i30, align 8
   store ptr %33, ptr %e.i, align 8
   %call.i31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #10
   store i64 %call.i31, ptr %namelen.i, align 8
-  %includeSubDomains.i32 = getelementptr inbounds %struct.stsentry, ptr %31, i64 0, i32 2
+  %includeSubDomains.i32 = getelementptr inbounds i8, ptr %31, i64 32
   %34 = load i8, ptr %includeSubDomains.i32, align 8
   %35 = and i8 %34, 1
   store i8 %35, ptr %includeSubDomains2.i, align 8
-  %expires.i33 = getelementptr inbounds %struct.stsentry, ptr %31, i64 0, i32 3
+  %expires.i33 = getelementptr inbounds i8, ptr %31, i64 40
   %36 = load i64, ptr %expires.i33, align 8
   %cmp.not.i34 = icmp eq i64 %36, 9223372036854775807
   br i1 %cmp.not.i34, label %if.else.i46, label %if.then.i35
@@ -759,7 +723,7 @@ entry:
   %host.i.i = alloca [257 x i8], align 16
   %date.i.i = alloca [65 x i8], align 16
   %0 = load ptr, ptr @Curl_cfree, align 8
-  %filename.i = getelementptr inbounds %struct.hsts, ptr %h, i64 0, i32 1
+  %filename.i = getelementptr inbounds i8, ptr %h, i64 32
   %1 = load ptr, ptr %filename.i, align 8
   tail call void %0(ptr noundef %1) #9
   %2 = load ptr, ptr @Curl_cstrdup, align 8
@@ -785,7 +749,7 @@ while.cond.preheader.i:                           ; preds = %if.then5.i
   br i1 %tobool11.not20.i, label %while.end26.i, label %while.cond12.preheader.lr.ph.i
 
 while.cond12.preheader.lr.ph.i:                   ; preds = %while.cond.preheader.i
-  %tail.i.i.i = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 1
+  %tail.i.i.i = getelementptr inbounds i8, ptr %h, i64 8
   br label %while.cond12.i
 
 while.cond12.i:                                   ; preds = %while.cond12.i.backedge, %while.cond12.preheader.lr.ph.i
@@ -867,18 +831,18 @@ if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   br label %hsts_add.exit.i
 
 if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
-  %host.i.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i.i, i64 0, i32 1
+  %host.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store ptr %call10.i.i.i, ptr %host.i.i.i, align 8
-  %expires14.i.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i.i, i64 0, i32 3
+  %expires14.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
   store i64 %cond.i.i, ptr %expires14.i.i.i, align 8
-  %includeSubDomains.i.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i.i, i64 0, i32 2
+  %includeSubDomains.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i8 %frombool.i.i.i, ptr %includeSubDomains.i.i.i, align 8
   %10 = load ptr, ptr %tail.i.i.i, align 8
   call void @Curl_llist_insert_next(ptr noundef %h, ptr noundef %10, ptr noundef nonnull %call.i.i.i.i, ptr noundef nonnull %call.i.i.i.i) #9
   br label %hsts_add.exit.i
 
 if.else.i.i:                                      ; preds = %cond.end.i.i
-  %expires16.i.i = getelementptr inbounds %struct.stsentry, ptr %call11.i.i, i64 0, i32 3
+  %expires16.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 40
   %11 = load i64, ptr %expires16.i.i, align 8
   %cmp17.i.i = icmp sgt i64 %cond.i.i, %11
   br i1 %cmp17.i.i, label %if.then19.i.i, label %hsts_add.exit.i
@@ -927,16 +891,16 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %buffer.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %e.i)
-  %hsts_read.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 34
+  %hsts_read.i = getelementptr inbounds i8, ptr %data, i64 664
   %0 = load ptr, ptr %hsts_read.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %hsts_pull.exit, label %do.body1.preheader.i
 
 do.body1.preheader.i:                             ; preds = %if.then
-  %namelen.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 1
-  %includeSubDomains.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 2
-  %expire.i = getelementptr inbounds %struct.curl_hstsentry, ptr %e.i, i64 0, i32 3
-  %hsts_read_userp.i = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 17, i32 35
+  %namelen.i = getelementptr inbounds i8, ptr %e.i, i64 8
+  %includeSubDomains.i = getelementptr inbounds i8, ptr %e.i, i64 16
+  %expire.i = getelementptr inbounds i8, ptr %e.i, i64 17
+  %hsts_read_userp.i = getelementptr inbounds i8, ptr %data, i64 672
   store ptr %buffer.i, ptr %e.i, align 8
   store i64 256, ptr %namelen.i, align 8
   store i8 0, ptr %includeSubDomains.i, align 8
@@ -948,7 +912,7 @@ do.body1.preheader.i:                             ; preds = %if.then
   br i1 %cmp18.i, label %do.end9.lr.ph.i, label %if.else32.i
 
 do.end9.lr.ph.i:                                  ; preds = %do.body1.preheader.i
-  %tail.i.i = getelementptr inbounds %struct.Curl_llist, ptr %h, i64 0, i32 1
+  %tail.i.i = getelementptr inbounds i8, ptr %h, i64 8
   br label %do.end9.i
 
 do.end9.i:                                        ; preds = %hsts_create.exit.i, %do.end9.lr.ph.i
@@ -1006,11 +970,11 @@ if.then12.i.i:                                    ; preds = %if.end9.i.i
   br label %hsts_pull.exit
 
 if.end13.i.i:                                     ; preds = %if.end9.i.i
-  %host.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i, i64 0, i32 1
+  %host.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr %call10.i.i, ptr %host.i.i, align 8
-  %expires14.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i, i64 0, i32 3
+  %expires14.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   store i64 %expires.0.i, ptr %expires14.i.i, align 8
-  %includeSubDomains.i.i = getelementptr inbounds %struct.stsentry, ptr %call.i.i.i, i64 0, i32 2
+  %includeSubDomains.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i8 %bf.clear25.i, ptr %includeSubDomains.i.i, align 8
   %10 = load ptr, ptr %tail.i.i, align 8
   call void @Curl_llist_insert_next(ptr noundef nonnull %h, ptr noundef %10, ptr noundef nonnull %call.i.i.i, ptr noundef nonnull %call.i.i.i) #9
@@ -1051,14 +1015,14 @@ return:                                           ; preds = %entry, %hsts_pull.e
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_hsts_loadfiles(ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %hstslist = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 22, i32 5
+  %hstslist = getelementptr inbounds i8, ptr %data, i64 3216
   %0 = load ptr, ptr %hstslist, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @Curl_share_lock(ptr noundef nonnull %data, i32 noundef 7, i32 noundef 2) #9
-  %hsts = getelementptr inbounds %struct.Curl_easy, ptr %data, i64 0, i32 19
+  %hsts = getelementptr inbounds i8, ptr %data, i64 2728
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
@@ -1066,7 +1030,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load ptr, ptr %hsts, align 8
   %2 = load ptr, ptr %l.08, align 8
   %call3 = tail call i32 @Curl_hsts_loadfile(ptr nonnull poison, ptr noundef %1, ptr noundef %2), !range !15
-  %next = getelementptr inbounds %struct.curl_slist, ptr %l.08, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %l.08, i64 8
   %3 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %3, null
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !16

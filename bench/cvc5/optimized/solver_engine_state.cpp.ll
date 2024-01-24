@@ -4,183 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::smt::SolverEngineState" = type <{ %"class.cvc5::internal::EnvObj", i8, i8, [6 x i8], %"class.cvc5::internal::Result", %"class.cvc5::internal::Result", i32, [4 x i8] }>
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
 %"class.cvc5::internal::Result" = type { i32, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cvc5::internal::Options" = type { %"class.std::unique_ptr.45", %"class.std::unique_ptr.53", %"class.std::unique_ptr.61", %"class.std::unique_ptr.69", %"class.std::unique_ptr.77", %"class.std::unique_ptr.85", %"class.std::unique_ptr.93", %"class.std::unique_ptr.101", %"class.std::unique_ptr.109", %"class.std::unique_ptr.117", %"class.std::unique_ptr.125", %"class.std::unique_ptr.133", %"class.std::unique_ptr.141", %"class.std::unique_ptr.149", %"class.std::unique_ptr.157", %"class.std::unique_ptr.165", %"class.std::unique_ptr.173", %"class.std::unique_ptr.181", %"class.std::unique_ptr.189", %"class.std::unique_ptr.197", %"class.std::unique_ptr.205", %"class.std::unique_ptr.213", %"class.std::unique_ptr.221", %"class.std::unique_ptr.229", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::unique_ptr.237" }
-%"class.std::unique_ptr.45" = type { %"struct.std::__uniq_ptr_data.46" }
-%"struct.std::__uniq_ptr_data.46" = type { %"class.std::__uniq_ptr_impl.47" }
-%"class.std::__uniq_ptr_impl.47" = type { %"class.std::tuple.48" }
-%"class.std::tuple.48" = type { %"struct.std::_Tuple_impl.49" }
-%"struct.std::_Tuple_impl.49" = type { %"struct.std::_Head_base.52" }
-%"struct.std::_Head_base.52" = type { ptr }
-%"class.std::unique_ptr.53" = type { %"struct.std::__uniq_ptr_data.54" }
-%"struct.std::__uniq_ptr_data.54" = type { %"class.std::__uniq_ptr_impl.55" }
-%"class.std::__uniq_ptr_impl.55" = type { %"class.std::tuple.56" }
-%"class.std::tuple.56" = type { %"struct.std::_Tuple_impl.57" }
-%"struct.std::_Tuple_impl.57" = type { %"struct.std::_Head_base.60" }
-%"struct.std::_Head_base.60" = type { ptr }
-%"class.std::unique_ptr.61" = type { %"struct.std::__uniq_ptr_data.62" }
-%"struct.std::__uniq_ptr_data.62" = type { %"class.std::__uniq_ptr_impl.63" }
-%"class.std::__uniq_ptr_impl.63" = type { %"class.std::tuple.64" }
-%"class.std::tuple.64" = type { %"struct.std::_Tuple_impl.65" }
-%"struct.std::_Tuple_impl.65" = type { %"struct.std::_Head_base.68" }
-%"struct.std::_Head_base.68" = type { ptr }
-%"class.std::unique_ptr.69" = type { %"struct.std::__uniq_ptr_data.70" }
-%"struct.std::__uniq_ptr_data.70" = type { %"class.std::__uniq_ptr_impl.71" }
-%"class.std::__uniq_ptr_impl.71" = type { %"class.std::tuple.72" }
-%"class.std::tuple.72" = type { %"struct.std::_Tuple_impl.73" }
-%"struct.std::_Tuple_impl.73" = type { %"struct.std::_Head_base.76" }
-%"struct.std::_Head_base.76" = type { ptr }
-%"class.std::unique_ptr.77" = type { %"struct.std::__uniq_ptr_data.78" }
-%"struct.std::__uniq_ptr_data.78" = type { %"class.std::__uniq_ptr_impl.79" }
-%"class.std::__uniq_ptr_impl.79" = type { %"class.std::tuple.80" }
-%"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
-%"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
-%"struct.std::_Head_base.84" = type { ptr }
-%"class.std::unique_ptr.85" = type { %"struct.std::__uniq_ptr_data.86" }
-%"struct.std::__uniq_ptr_data.86" = type { %"class.std::__uniq_ptr_impl.87" }
-%"class.std::__uniq_ptr_impl.87" = type { %"class.std::tuple.88" }
-%"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
-%"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
-%"struct.std::_Head_base.92" = type { ptr }
-%"class.std::unique_ptr.93" = type { %"struct.std::__uniq_ptr_data.94" }
-%"struct.std::__uniq_ptr_data.94" = type { %"class.std::__uniq_ptr_impl.95" }
-%"class.std::__uniq_ptr_impl.95" = type { %"class.std::tuple.96" }
-%"class.std::tuple.96" = type { %"struct.std::_Tuple_impl.97" }
-%"struct.std::_Tuple_impl.97" = type { %"struct.std::_Head_base.100" }
-%"struct.std::_Head_base.100" = type { ptr }
-%"class.std::unique_ptr.101" = type { %"struct.std::__uniq_ptr_data.102" }
-%"struct.std::__uniq_ptr_data.102" = type { %"class.std::__uniq_ptr_impl.103" }
-%"class.std::__uniq_ptr_impl.103" = type { %"class.std::tuple.104" }
-%"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
-%"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.108" }
-%"struct.std::_Head_base.108" = type { ptr }
-%"class.std::unique_ptr.109" = type { %"struct.std::__uniq_ptr_data.110" }
-%"struct.std::__uniq_ptr_data.110" = type { %"class.std::__uniq_ptr_impl.111" }
-%"class.std::__uniq_ptr_impl.111" = type { %"class.std::tuple.112" }
-%"class.std::tuple.112" = type { %"struct.std::_Tuple_impl.113" }
-%"struct.std::_Tuple_impl.113" = type { %"struct.std::_Head_base.116" }
-%"struct.std::_Head_base.116" = type { ptr }
-%"class.std::unique_ptr.117" = type { %"struct.std::__uniq_ptr_data.118" }
-%"struct.std::__uniq_ptr_data.118" = type { %"class.std::__uniq_ptr_impl.119" }
-%"class.std::__uniq_ptr_impl.119" = type { %"class.std::tuple.120" }
-%"class.std::tuple.120" = type { %"struct.std::_Tuple_impl.121" }
-%"struct.std::_Tuple_impl.121" = type { %"struct.std::_Head_base.124" }
-%"struct.std::_Head_base.124" = type { ptr }
-%"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
-%"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
-%"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
-%"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
-%"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
-%"struct.std::_Head_base.132" = type { ptr }
-%"class.std::unique_ptr.133" = type { %"struct.std::__uniq_ptr_data.134" }
-%"struct.std::__uniq_ptr_data.134" = type { %"class.std::__uniq_ptr_impl.135" }
-%"class.std::__uniq_ptr_impl.135" = type { %"class.std::tuple.136" }
-%"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
-%"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.140" }
-%"struct.std::_Head_base.140" = type { ptr }
-%"class.std::unique_ptr.141" = type { %"struct.std::__uniq_ptr_data.142" }
-%"struct.std::__uniq_ptr_data.142" = type { %"class.std::__uniq_ptr_impl.143" }
-%"class.std::__uniq_ptr_impl.143" = type { %"class.std::tuple.144" }
-%"class.std::tuple.144" = type { %"struct.std::_Tuple_impl.145" }
-%"struct.std::_Tuple_impl.145" = type { %"struct.std::_Head_base.148" }
-%"struct.std::_Head_base.148" = type { ptr }
-%"class.std::unique_ptr.149" = type { %"struct.std::__uniq_ptr_data.150" }
-%"struct.std::__uniq_ptr_data.150" = type { %"class.std::__uniq_ptr_impl.151" }
-%"class.std::__uniq_ptr_impl.151" = type { %"class.std::tuple.152" }
-%"class.std::tuple.152" = type { %"struct.std::_Tuple_impl.153" }
-%"struct.std::_Tuple_impl.153" = type { %"struct.std::_Head_base.156" }
-%"struct.std::_Head_base.156" = type { ptr }
-%"class.std::unique_ptr.157" = type { %"struct.std::__uniq_ptr_data.158" }
-%"struct.std::__uniq_ptr_data.158" = type { %"class.std::__uniq_ptr_impl.159" }
-%"class.std::__uniq_ptr_impl.159" = type { %"class.std::tuple.160" }
-%"class.std::tuple.160" = type { %"struct.std::_Tuple_impl.161" }
-%"struct.std::_Tuple_impl.161" = type { %"struct.std::_Head_base.164" }
-%"struct.std::_Head_base.164" = type { ptr }
-%"class.std::unique_ptr.165" = type { %"struct.std::__uniq_ptr_data.166" }
-%"struct.std::__uniq_ptr_data.166" = type { %"class.std::__uniq_ptr_impl.167" }
-%"class.std::__uniq_ptr_impl.167" = type { %"class.std::tuple.168" }
-%"class.std::tuple.168" = type { %"struct.std::_Tuple_impl.169" }
-%"struct.std::_Tuple_impl.169" = type { %"struct.std::_Head_base.172" }
-%"struct.std::_Head_base.172" = type { ptr }
-%"class.std::unique_ptr.173" = type { %"struct.std::__uniq_ptr_data.174" }
-%"struct.std::__uniq_ptr_data.174" = type { %"class.std::__uniq_ptr_impl.175" }
-%"class.std::__uniq_ptr_impl.175" = type { %"class.std::tuple.176" }
-%"class.std::tuple.176" = type { %"struct.std::_Tuple_impl.177" }
-%"struct.std::_Tuple_impl.177" = type { %"struct.std::_Head_base.180" }
-%"struct.std::_Head_base.180" = type { ptr }
-%"class.std::unique_ptr.181" = type { %"struct.std::__uniq_ptr_data.182" }
-%"struct.std::__uniq_ptr_data.182" = type { %"class.std::__uniq_ptr_impl.183" }
-%"class.std::__uniq_ptr_impl.183" = type { %"class.std::tuple.184" }
-%"class.std::tuple.184" = type { %"struct.std::_Tuple_impl.185" }
-%"struct.std::_Tuple_impl.185" = type { %"struct.std::_Head_base.188" }
-%"struct.std::_Head_base.188" = type { ptr }
-%"class.std::unique_ptr.189" = type { %"struct.std::__uniq_ptr_data.190" }
-%"struct.std::__uniq_ptr_data.190" = type { %"class.std::__uniq_ptr_impl.191" }
-%"class.std::__uniq_ptr_impl.191" = type { %"class.std::tuple.192" }
-%"class.std::tuple.192" = type { %"struct.std::_Tuple_impl.193" }
-%"struct.std::_Tuple_impl.193" = type { %"struct.std::_Head_base.196" }
-%"struct.std::_Head_base.196" = type { ptr }
-%"class.std::unique_ptr.197" = type { %"struct.std::__uniq_ptr_data.198" }
-%"struct.std::__uniq_ptr_data.198" = type { %"class.std::__uniq_ptr_impl.199" }
-%"class.std::__uniq_ptr_impl.199" = type { %"class.std::tuple.200" }
-%"class.std::tuple.200" = type { %"struct.std::_Tuple_impl.201" }
-%"struct.std::_Tuple_impl.201" = type { %"struct.std::_Head_base.204" }
-%"struct.std::_Head_base.204" = type { ptr }
-%"class.std::unique_ptr.205" = type { %"struct.std::__uniq_ptr_data.206" }
-%"struct.std::__uniq_ptr_data.206" = type { %"class.std::__uniq_ptr_impl.207" }
-%"class.std::__uniq_ptr_impl.207" = type { %"class.std::tuple.208" }
-%"class.std::tuple.208" = type { %"struct.std::_Tuple_impl.209" }
-%"struct.std::_Tuple_impl.209" = type { %"struct.std::_Head_base.212" }
-%"struct.std::_Head_base.212" = type { ptr }
-%"class.std::unique_ptr.213" = type { %"struct.std::__uniq_ptr_data.214" }
-%"struct.std::__uniq_ptr_data.214" = type { %"class.std::__uniq_ptr_impl.215" }
-%"class.std::__uniq_ptr_impl.215" = type { %"class.std::tuple.216" }
-%"class.std::tuple.216" = type { %"struct.std::_Tuple_impl.217" }
-%"struct.std::_Tuple_impl.217" = type { %"struct.std::_Head_base.220" }
-%"struct.std::_Head_base.220" = type { ptr }
-%"class.std::unique_ptr.221" = type { %"struct.std::__uniq_ptr_data.222" }
-%"struct.std::__uniq_ptr_data.222" = type { %"class.std::__uniq_ptr_impl.223" }
-%"class.std::__uniq_ptr_impl.223" = type { %"class.std::tuple.224" }
-%"class.std::tuple.224" = type { %"struct.std::_Tuple_impl.225" }
-%"struct.std::_Tuple_impl.225" = type { %"struct.std::_Head_base.228" }
-%"struct.std::_Head_base.228" = type { ptr }
-%"class.std::unique_ptr.229" = type { %"struct.std::__uniq_ptr_data.230" }
-%"struct.std::__uniq_ptr_data.230" = type { %"class.std::__uniq_ptr_impl.231" }
-%"class.std::__uniq_ptr_impl.231" = type { %"class.std::tuple.232" }
-%"class.std::tuple.232" = type { %"struct.std::_Tuple_impl.233" }
-%"struct.std::_Tuple_impl.233" = type { %"struct.std::_Head_base.236" }
-%"struct.std::_Head_base.236" = type { ptr }
-%"class.std::unique_ptr.237" = type { %"struct.std::__uniq_ptr_data.238" }
-%"struct.std::__uniq_ptr_data.238" = type { %"class.std::__uniq_ptr_impl.239" }
-%"class.std::__uniq_ptr_impl.239" = type { %"class.std::tuple.240" }
-%"class.std::tuple.240" = type { %"struct.std::_Tuple_impl.241" }
-%"struct.std::_Tuple_impl.241" = type { %"struct.std::_Head_base.244" }
-%"struct.std::_Head_base.244" = type { ptr }
-%"struct.cvc5::internal::options::HolderDRIVER" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.cvc5::internal::options::HolderBASE" = type <{ %"class.cvc5::internal::ManagedErr", i8, [7 x i8], %"class.cvc5::internal::ManagedIn", i8, i8, i8, i8, i32, i8, [7 x i8], %"class.cvc5::internal::ManagedOut", i8, i8, i8, i8, i8, [3 x i8], i64, i8, [7 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], %"class.std::bitset", i8, [7 x i8], %"class.std::vector.257", i8, [7 x i8] }>
-%"class.cvc5::internal::ManagedErr" = type { %"class.cvc5::internal::ManagedStream" }
-%"class.cvc5::internal::ManagedStream" = type { ptr, ptr, %"class.std::shared_ptr", %"class.std::__cxx11::basic_string" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.cvc5::internal::ManagedIn" = type { %"class.cvc5::internal::ManagedStream.253" }
-%"class.cvc5::internal::ManagedStream.253" = type { ptr, ptr, %"class.std::shared_ptr.254", %"class.std::__cxx11::basic_string" }
-%"class.std::shared_ptr.254" = type { %"class.std::__shared_ptr.255" }
-%"class.std::__shared_ptr.255" = type { ptr, %"class.std::__shared_count" }
-%"class.cvc5::internal::ManagedOut" = type { %"class.cvc5::internal::ManagedStream" }
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { i64 }
-%"class.std::vector.257" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
 %"class.cvc5::internal::FatalStream" = type { i8 }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
@@ -261,25 +88,25 @@ define hidden void @_ZN4cvc58internal3smt17SolverEngineStateC2ERNS0_3EnvE(ptr no
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt17SolverEngineStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_fullyInited = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 1
+  %d_fullyInited = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %d_fullyInited, align 8
-  %d_queryMade = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 2
+  %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
   store i8 0, ptr %d_queryMade, align 1
-  %d_status = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4
+  %d_status = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %d_status)
-  %d_expectedStatus = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 5
+  %d_expectedStatus = getelementptr inbounds i8, ptr %this, i64 64
   invoke void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %d_expectedStatus)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
-  %d_smtMode = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %d_smtMode, align 8
   ret void
 
 lpad2:                                            ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i) #13
   resume { ptr, i32 } %0
 }
@@ -296,19 +123,19 @@ entry:
   %ref.tmp = alloca %"class.cvc5::internal::Result", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %driver = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call, i64 0, i32 35
+  %driver = getelementptr inbounds i8, ptr %call, i64 280
   %0 = load ptr, ptr %driver, align 8
-  %filename = getelementptr inbounds %"struct.cvc5::internal::options::HolderDRIVER", ptr %0, i64 0, i32 16
+  %filename = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %filename)
   invoke void @_ZN4cvc58internal6ResultC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_expectedStatus = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 5
+  %d_expectedStatus = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %ref.tmp, align 8
   store i64 %1, ptr %d_expectedStatus, align 8
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 5, i32 2
-  %d_inputName3.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp, i64 0, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 72
+  %d_inputName3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
@@ -333,7 +160,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyDeclarationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_smtMode = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -341,7 +168,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState14notifyCheckSatEv(ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_queryMade = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 2
+  %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %d_queryMade, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -349,9 +176,9 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %call, i64 208
   %2 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %2, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %2, i64 137
   %3 = load i8, ptr %incrementalSolving, align 1
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
@@ -374,7 +201,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   store i8 1, ptr %d_queryMade, align 1
-  %d_smtMode = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -395,7 +222,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
   ret void
@@ -408,13 +235,13 @@ define hidden void @_ZN4cvc58internal3smt17SolverEngineState20notifyCheckSatResu
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   %ref.tmp24 = alloca %"class.cvc5::internal::Result", align 8
-  %d_status = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4
+  %d_status = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %r, align 8
   store i64 %0, ptr %d_status, align 8
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4, i32 2
-  %d_inputName3.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %r, i64 0, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_inputName3.i = getelementptr inbounds i8, ptr %r, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i)
-  %d_expectedStatus = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 5
+  %d_expectedStatus = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i32, ptr %d_expectedStatus, align 8
   switch i32 %1, label %land.lhs.true [
     i32 0, label %if.end23
@@ -465,12 +292,12 @@ if.end23:                                         ; preds = %entry, %entry, %lan
   call void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp24)
   %4 = load i64, ptr %ref.tmp24, align 8
   store i64 %4, ptr %d_expectedStatus, align 8
-  %d_inputName.i2 = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 5, i32 2
-  %d_inputName3.i3 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp24, i64 0, i32 2
+  %d_inputName.i2 = getelementptr inbounds i8, ptr %this, i64 72
+  %d_inputName3.i3 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   %call.i4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i2, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i3) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i3) #13
   %5 = load i32, ptr %d_status, align 8
-  %d_smtMode31 = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %d_smtMode31 = getelementptr inbounds i8, ptr %this, i64 104
   %switch.selectcmp = icmp eq i32 %5, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 3
   %switch.selectcmp6 = icmp eq i32 %5, 1
@@ -498,7 +325,7 @@ entry:
   %call = tail call noundef i32 @_ZNK4cvc58internal11SynthResult9getStatusEv(ptr noundef nonnull align 4 dereferenceable(8) %r)
   %cmp = icmp eq i32 %call, 1
   %spec.select = select i1 %cmp, i32 7, i32 1
-  %0 = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %0 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -509,7 +336,7 @@ declare noundef i32 @_ZNK4cvc58internal11SynthResult9getStatusEv(ptr noundef non
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyGetAbductEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 5, i32 1
-  %0 = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %0 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -518,7 +345,7 @@ entry:
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState17notifyGetInterpolEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 6, i32 1
-  %0 = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %0 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -527,7 +354,7 @@ entry:
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState15notifyFindSynthEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this, i1 noundef zeroext %success) local_unnamed_addr #4 align 2 {
 entry:
   %spec.select = select i1 %success, i32 8, i32 1
-  %0 = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %0 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -535,7 +362,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState14markFinishInitEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %d_fullyInited = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 1
+  %d_fullyInited = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %d_fullyInited, align 8
   ret void
 }
@@ -544,9 +371,9 @@ entry:
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState14notifyUserPushEv(ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %call, i64 208
   %0 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %0, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -568,7 +395,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %entry
-  %d_smtMode = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -577,9 +404,9 @@ if.end:                                           ; preds = %entry
 define hidden void @_ZN4cvc58internal3smt17SolverEngineState13notifyUserPopEv(ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %base = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call, i64 0, i32 26
+  %base = getelementptr inbounds i8, ptr %call, i64 208
   %0 = load ptr, ptr %base, align 8
-  %incrementalSolving = getelementptr inbounds %"struct.cvc5::internal::options::HolderBASE", ptr %0, i64 0, i32 5
+  %incrementalSolving = getelementptr inbounds i8, ptr %0, i64 137
   %1 = load i8, ptr %incrementalSolving, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -601,7 +428,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %entry
-  %d_smtMode = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
   store i32 1, ptr %d_smtMode, align 8
   ret void
 }
@@ -609,11 +436,11 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal3smt17SolverEngineState9getStatusEv(ptr noalias sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_status = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4
+  %d_status = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %d_status, align 8
   store i64 %0, ptr %agg.result, align 8
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i)
   ret void
 }
@@ -621,7 +448,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState13isFullyInitedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_fullyInited = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 1
+  %d_fullyInited = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %d_fullyInited, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -631,7 +458,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal3smt17SolverEngineState11isQueryMadeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_queryMade = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 2
+  %d_queryMade = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %d_queryMade, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -641,7 +468,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal3smt17SolverEngineState7getModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_smtMode = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 6
+  %d_smtMode = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i32, ptr %d_smtMode, align 8
   ret i32 %0
 }
@@ -650,9 +477,9 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal3smt17SolverEngineStateD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt17SolverEngineStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 5, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i) #13
-  %d_inputName.i1 = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4, i32 2
+  %d_inputName.i1 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i1) #13
   ret void
 }
@@ -661,9 +488,9 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal3smt17SolverEngineStateD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt17SolverEngineStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_inputName.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 5, i32 2
+  %d_inputName.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i.i) #13
-  %d_inputName.i1.i = getelementptr inbounds %"class.cvc5::internal::smt::SolverEngineState", ptr %this, i64 0, i32 4, i32 2
+  %d_inputName.i1.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i1.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
@@ -677,7 +504,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2EPKc(ptr noundef n
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -729,7 +556,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal14ModalExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -739,7 +566,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds %"class.cvc5::internal::Exception", ptr %this, i64 0, i32 1
+  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #13
   ret ptr %call
 }

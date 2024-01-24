@@ -8,7 +8,7 @@ define zeroext i1 @_ZN3syn4path4Path8is_ident17hb57892c0706fe75fE(ptr align 8 %0
   %4 = alloca ptr, align 8
   %5 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
   %7 = tail call align 8 ptr @_ZN3syn4path4Path9get_ident17h997a16a904130a04E(ptr align 8 %0)
   %8 = icmp eq ptr %7, null

@@ -3,9 +3,6 @@ source_filename = "bench/nghttp2/original/nghttp2_rcbuf.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.nghttp2_mem = type { ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_rcbuf = type { ptr, ptr, ptr, i64, i32 }
-
 @.str = private unnamed_addr constant [15 x i8] c"rcbuf->ref > 0\00", align 1
 @.str.1 = private unnamed_addr constant [113 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/nghttp2/nghttp2/lib/nghttp2_rcbuf.c\00", align 1
 @__PRETTY_FUNCTION__.nghttp2_rcbuf_decref = private unnamed_addr constant [43 x i8] c"void nghttp2_rcbuf_decref(nghttp2_rcbuf *)\00", align 1
@@ -22,20 +19,20 @@ if.end:                                           ; preds = %entry
   store ptr %call, ptr %rcbuf_ptr, align 8
   %0 = load ptr, ptr %mem, align 8
   store ptr %0, ptr %call, align 8
-  %free = getelementptr inbounds %struct.nghttp2_mem, ptr %mem, i64 0, i32 2
+  %free = getelementptr inbounds i8, ptr %mem, i64 16
   %1 = load ptr, ptr %free, align 8
   %2 = load ptr, ptr %rcbuf_ptr, align 8
-  %free2 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %2, i64 0, i32 1
+  %free2 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %free2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 40
   %3 = load ptr, ptr %rcbuf_ptr, align 8
-  %base = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %3, i64 0, i32 2
+  %base = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %add.ptr, ptr %base, align 8
   %4 = load ptr, ptr %rcbuf_ptr, align 8
-  %len = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %4, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %size, ptr %len, align 8
   %5 = load ptr, ptr %rcbuf_ptr, align 8
-  %ref = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %5, i64 0, i32 4
+  %ref = getelementptr inbounds i8, ptr %5, i64 32
   store i32 1, ptr %ref, align 8
   br label %return
 
@@ -59,26 +56,26 @@ if.end:                                           ; preds = %entry
   store ptr %call.i, ptr %rcbuf_ptr, align 8
   %0 = load ptr, ptr %mem, align 8
   store ptr %0, ptr %call.i, align 8
-  %free.i = getelementptr inbounds %struct.nghttp2_mem, ptr %mem, i64 0, i32 2
+  %free.i = getelementptr inbounds i8, ptr %mem, i64 16
   %1 = load ptr, ptr %free.i, align 8
   %2 = load ptr, ptr %rcbuf_ptr, align 8
-  %free2.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %2, i64 0, i32 1
+  %free2.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %free2.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %3 = load ptr, ptr %rcbuf_ptr, align 8
-  %base.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %3, i64 0, i32 2
+  %base.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %add.ptr.i, ptr %base.i, align 8
   %4 = load ptr, ptr %rcbuf_ptr, align 8
-  %len.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %4, i64 0, i32 3
+  %len.i = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %add, ptr %len.i, align 8
   %5 = load ptr, ptr %rcbuf_ptr, align 8
-  %ref.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %5, i64 0, i32 4
+  %ref.i = getelementptr inbounds i8, ptr %5, i64 32
   store i32 1, ptr %ref.i, align 8
   %6 = load ptr, ptr %rcbuf_ptr, align 8
-  %len = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %6, i64 0, i32 3
+  %len = getelementptr inbounds i8, ptr %6, i64 24
   store i64 %srclen, ptr %len, align 8
   %7 = load ptr, ptr %rcbuf_ptr, align 8
-  %base = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %7, i64 0, i32 2
+  %base = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %base, align 8
   %call1 = tail call ptr @nghttp2_cpymem(ptr noundef %8, ptr noundef %src, i64 noundef %srclen) #5
   store i8 0, ptr %call1, align 1
@@ -94,7 +91,7 @@ declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_rcbuf_del(ptr noundef %rcbuf) local_unnamed_addr #0 {
 entry:
-  %free = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %rcbuf, i64 0, i32 1
+  %free = getelementptr inbounds i8, ptr %rcbuf, i64 8
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %rcbuf, align 8
   tail call void @nghttp2_mem_free2(ptr noundef %0, ptr noundef nonnull %rcbuf, ptr noundef %1) #5
@@ -106,7 +103,7 @@ declare void @nghttp2_mem_free2(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @nghttp2_rcbuf_incref(ptr nocapture noundef %rcbuf) local_unnamed_addr #2 {
 entry:
-  %ref = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %rcbuf, i64 0, i32 4
+  %ref = getelementptr inbounds i8, ptr %rcbuf, i64 32
   %0 = load i32, ptr %ref, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -127,7 +124,7 @@ entry:
   br i1 %cmp, label %if.end9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ref = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %rcbuf, i64 0, i32 4
+  %ref = getelementptr inbounds i8, ptr %rcbuf, i64 32
   %0 = load i32, ptr %ref, align 8
   %cmp1 = icmp eq i32 %0, -1
   br i1 %cmp1, label %if.end9, label %if.end
@@ -147,7 +144,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end5
-  %free.i = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %rcbuf, i64 0, i32 1
+  %free.i = getelementptr inbounds i8, ptr %rcbuf, i64 8
   %1 = load ptr, ptr %free.i, align 8
   %2 = load ptr, ptr %rcbuf, align 8
   tail call void @nghttp2_mem_free2(ptr noundef %1, ptr noundef nonnull %rcbuf, ptr noundef %2) #5
@@ -163,9 +160,9 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @nghttp2_rcbuf_get_buf(ptr nocapture noundef readonly %rcbuf) local_unnamed_addr #4 {
 entry:
-  %base1 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %rcbuf, i64 0, i32 2
+  %base1 = getelementptr inbounds i8, ptr %rcbuf, i64 16
   %0 = load ptr, ptr %base1, align 8
-  %len2 = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %rcbuf, i64 0, i32 3
+  %len2 = getelementptr inbounds i8, ptr %rcbuf, i64 24
   %1 = load i64, ptr %len2, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %1, 1
@@ -175,7 +172,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @nghttp2_rcbuf_is_static(ptr nocapture noundef readonly %rcbuf) local_unnamed_addr #4 {
 entry:
-  %ref = getelementptr inbounds %struct.nghttp2_rcbuf, ptr %rcbuf, i64 0, i32 4
+  %ref = getelementptr inbounds i8, ptr %rcbuf, i64 32
   %0 = load i32, ptr %ref, align 8
   %cmp = icmp eq i32 %0, -1
   %conv = zext i1 %cmp to i32

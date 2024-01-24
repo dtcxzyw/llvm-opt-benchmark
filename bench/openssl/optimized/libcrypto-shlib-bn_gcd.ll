@@ -78,9 +78,9 @@ if.end20.i:                                       ; preds = %if.end16.i
   br i1 %cmp22.i, label %err.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end20.i
-  %neg.i = getelementptr inbounds %struct.bignum_st, ptr %call.i, i64 0, i32 3
+  %neg.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 0, ptr %neg.i, align 8
-  %neg25.i = getelementptr inbounds %struct.bignum_st, ptr %call1.i, i64 0, i32 3
+  %neg25.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %0 = load i32, ptr %neg25.i, align 8
   %tobool26.not.i = icmp eq i32 %0, 0
   br i1 %tobool26.not.i, label %lor.lhs.false.i, label %if.then29.i
@@ -150,7 +150,7 @@ if.end55.i:                                       ; preds = %if.then50.i, %while
   br i1 %tobool57.not.i, label %if.else74.i, label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.end55.i
-  %neg59.i = getelementptr inbounds %struct.bignum_st, ptr %Y.0.lcssa82.i, i64 0, i32 3
+  %neg59.i = getelementptr inbounds i8, ptr %Y.0.lcssa82.i, i64 16
   %2 = load i32, ptr %neg59.i, align 8
   %tobool60.not.i = icmp eq i32 %2, 0
   br i1 %tobool60.not.i, label %land.lhs.true.i, label %if.else68.i
@@ -234,9 +234,9 @@ if.end34:                                         ; preds = %if.end30
   br i1 %cmp36, label %err, label %if.end38
 
 if.end38:                                         ; preds = %if.end34
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %call10, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %call10, i64 16
   store i32 0, ptr %neg, align 8
-  %neg39 = getelementptr inbounds %struct.bignum_st, ptr %call11, i64 0, i32 3
+  %neg39 = getelementptr inbounds i8, ptr %call11, i64 16
   %3 = load i32, ptr %neg39, align 8
   %tobool40.not = icmp eq i32 %3, 0
   br i1 %tobool40.not, label %lor.lhs.false41, label %if.then44
@@ -371,7 +371,7 @@ if.else129:                                       ; preds = %land.lhs.true, %if.
   br i1 %tobool132.not181, label %while.body134.lr.ph, label %if.then251
 
 while.body134.lr.ph:                              ; preds = %if.else129
-  %top = getelementptr inbounds %struct.bignum_st, ptr %call13, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %call13, i64 8
   br label %while.body134
 
 while.body134:                                    ; preds = %while.body134.lr.ph, %if.end247
@@ -540,7 +540,7 @@ if.end256:                                        ; preds = %if.then251, %if.end
   br i1 %tobool258.not, label %if.else276, label %if.then259
 
 if.then259:                                       ; preds = %if.end256
-  %neg260 = getelementptr inbounds %struct.bignum_st, ptr %Y.1158, i64 0, i32 3
+  %neg260 = getelementptr inbounds i8, ptr %Y.1158, i64 16
   %8 = load i32, ptr %neg260, align 8
   %tobool261.not = icmp eq i32 %8, 0
   br i1 %tobool261.not, label %land.lhs.true262, label %if.else270
@@ -734,7 +734,7 @@ if.then:                                          ; preds = %entry
   %call1 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef %in_a) #4
   %cmp = icmp ne ptr %call1, null
   %conv = zext i1 %cmp to i32
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %r, i64 16
   store i32 0, ptr %neg, align 8
   br label %return
 
@@ -747,7 +747,7 @@ if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @BN_copy(ptr noundef %r, ptr noundef %in_b) #4
   %cmp6 = icmp ne ptr %call5, null
   %conv7 = zext i1 %cmp6 to i32
-  %neg8 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg8 = getelementptr inbounds i8, ptr %r, i64 16
   store i32 0, ptr %neg8, align 8
   br label %return
 
@@ -769,13 +769,13 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false
   br i1 %tobool18.not, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false16
-  %dmax = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 2
+  %dmax = getelementptr inbounds i8, ptr %r, i64 12
   %0 = load i32, ptr %dmax, align 4
   %cmp2183 = icmp sgt i32 %0, 0
   br i1 %cmp2183, label %land.rhs.lr.ph, label %for.end37
 
 land.rhs.lr.ph:                                   ; preds = %for.cond.preheader
-  %dmax23 = getelementptr inbounds %struct.bignum_st, ptr %call11, i64 0, i32 2
+  %dmax23 = getelementptr inbounds i8, ptr %call11, i64 12
   %1 = load i32, ptr %dmax23, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -830,9 +830,9 @@ lor.lhs.false40:                                  ; preds = %for.end37
   br i1 %tobool42.not, label %err, label %if.end44
 
 if.end44:                                         ; preds = %lor.lhs.false40
-  %top45 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 1
+  %top45 = getelementptr inbounds i8, ptr %r, i64 8
   %7 = load i32, ptr %top45, align 8
-  %top46 = getelementptr inbounds %struct.bignum_st, ptr %call11, i64 0, i32 1
+  %top46 = getelementptr inbounds i8, ptr %call11, i64 8
   %8 = load i32, ptr %top46, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %7, i32 %8)
   %add52 = add nsw i32 %., 1
@@ -864,7 +864,7 @@ if.end65:                                         ; preds = %lor.lhs.false60
 
 for.body82.lr.ph:                                 ; preds = %if.end65
   %mul = mul i32 %cond77, 3
-  %neg102 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg102 = getelementptr inbounds i8, ptr %r, i64 16
   %11 = add i32 %mul, 3
   %smax95 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
   br label %for.body82
@@ -919,7 +919,7 @@ if.end108:                                        ; preds = %for.body82
   br i1 %tobool119.not, label %err, label %for.cond79
 
 for.end124:                                       ; preds = %for.cond79, %if.end65
-  %neg125 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg125 = getelementptr inbounds i8, ptr %r, i64 16
   store i32 0, ptr %neg125, align 8
   %call126 = tail call i32 @BN_lshift(ptr noundef nonnull %r, ptr noundef nonnull %r, i32 noundef %shifts.0.lcssa) #4
   %tobool127.not = icmp eq i32 %call126, 0

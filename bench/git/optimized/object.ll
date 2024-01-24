@@ -4,29 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.parsed_object_pool = type { ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i32, ptr }
-%struct.object_id = type { [32 x i8], i32 }
-%struct.object = type { i32, %struct.object_id }
-%struct.tree = type { %struct.object, ptr, i64 }
-%struct.raw_object_store = type { ptr, ptr, ptr, i32, ptr, ptr, i8, %union.pthread_mutex_t, ptr, i8, ptr, ptr, %struct.list_head, %struct.anon, %struct.hashmap, i64, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.list_head = type { ptr, ptr }
-%struct.anon = type { ptr, i32 }
-%struct.hashmap = type { ptr, ptr, ptr, i32, i32, i32, i32, i8 }
-%struct.object_list = type { ptr, ptr }
-%struct.object_array = type { i32, i32, ptr }
 %struct.object_array_entry = type { ptr, ptr, ptr, i32 }
-%struct.packed_git = type { %struct.hashmap_entry, ptr, %struct.list_head, ptr, i64, ptr, i64, i32, i64, %struct.oidset, i32, i64, i32, i32, i8, [32 x i8], ptr, ptr, ptr, i64, ptr, i64, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.object_directory = type { ptr, [8 x i32], ptr, i32, i32, ptr }
-%struct.kh_odb_path_map = type { i32, i32, i32, i32, ptr, ptr, ptr }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @object_type_strings = internal unnamed_addr constant [5 x ptr] [ptr null, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10], align 16
@@ -51,9 +29,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @get_max_object_index() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %parsed_objects, align 8
-  %obj_hash_size = getelementptr inbounds %struct.parsed_object_pool, ptr %1, i64 0, i32 2
+  %obj_hash_size = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %obj_hash_size, align 4
   ret i32 %2
 }
@@ -62,7 +40,7 @@ entry:
 define dso_local ptr @get_indexed_object(i32 noundef %idx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %parsed_objects, align 8
   %2 = load ptr, ptr %1, align 8
   %idxprom = zext i32 %idx to i64
@@ -172,14 +150,14 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @lookup_object(ptr nocapture noundef readonly %r, ptr nocapture noundef readonly %oid) local_unnamed_addr #5 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %obj_hash_size = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 2
+  %obj_hash_size = getelementptr inbounds i8, ptr %0, i64 12
   %2 = load i32, ptr %obj_hash_size, align 4
   %oid.val = load i32, ptr %oid, align 4
   %sub.i = add i32 %2, -1
@@ -192,19 +170,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not22, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %5 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
   %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %6, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %6, i64 256
   %7 = load ptr, ptr %hash_algo.i, align 8
   %8 = getelementptr i8, ptr %7, i64 16
   %algop.0.val.i.us = load i64, ptr %8, align 8
   %cmp.i.i.us = icmp eq i64 %algop.0.val.i.us, 32
-  %oid4.us.us72 = getelementptr inbounds %struct.object, ptr %3, i64 0, i32 1
+  %oid4.us.us72 = getelementptr inbounds i8, ptr %3, i64 4
   br i1 %cmp.i.i.us, label %while.body.lr.ph.split.us.split.us, label %while.body.lr.ph.split.us.split
 
 while.body.lr.ph.split.us.split.us:               ; preds = %while.body.lr.ph.split.us
@@ -213,7 +191,7 @@ while.body.lr.ph.split.us.split.us:               ; preds = %while.body.lr.ph.sp
   br i1 %retval.0.in.i.i.not.us.us74, label %return, label %if.end8.us.us
 
 while.body.us.us:                                 ; preds = %if.end8.us.us
-  %oid4.us.us = getelementptr inbounds %struct.object, ptr %9, i64 0, i32 1
+  %oid4.us.us = getelementptr inbounds i8, ptr %9, i64 4
   %bcmp3.i.i.us.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %oid4.us.us, i64 32)
   %retval.0.in.i.i.not.us.us = icmp eq i32 %bcmp3.i.i.us.us, 0
   br i1 %retval.0.in.i.i.not.us.us, label %while.end, label %if.end8.us.us, !llvm.loop !7
@@ -235,7 +213,7 @@ while.body.lr.ph.split.us.split:                  ; preds = %while.body.lr.ph.sp
   br i1 %retval.0.in.i.i.not.us67, label %return, label %if.end8.us
 
 while.body.us:                                    ; preds = %if.end8.us
-  %oid4.us = getelementptr inbounds %struct.object, ptr %10, i64 0, i32 1
+  %oid4.us = getelementptr inbounds i8, ptr %10, i64 4
   %bcmp.i.i.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %oid4.us, i64 20)
   %retval.0.in.i.i.not.us = icmp eq i32 %bcmp.i.i.us, 0
   br i1 %retval.0.in.i.i.not.us, label %while.end, label %if.end8.us, !llvm.loop !7
@@ -256,7 +234,7 @@ while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   %11 = getelementptr [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i, i32 2
   %algop.0.val.i = load i64, ptr %11, align 8
   %cmp.i.i = icmp eq i64 %algop.0.val.i, 32
-  %oid4.us3055 = getelementptr inbounds %struct.object, ptr %3, i64 0, i32 1
+  %oid4.us3055 = getelementptr inbounds i8, ptr %3, i64 4
   br i1 %cmp.i.i, label %while.body.lr.ph.split.split.us, label %while.body.lr.ph.split.split
 
 while.body.lr.ph.split.split.us:                  ; preds = %while.body.lr.ph.split
@@ -265,7 +243,7 @@ while.body.lr.ph.split.split.us:                  ; preds = %while.body.lr.ph.sp
   br i1 %retval.0.in.i.i.not.us3557, label %return, label %if.end8.us36
 
 while.body.us27:                                  ; preds = %if.end8.us36
-  %oid4.us30 = getelementptr inbounds %struct.object, ptr %12, i64 0, i32 1
+  %oid4.us30 = getelementptr inbounds i8, ptr %12, i64 4
   %bcmp3.i.i.us32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid, ptr noundef nonnull dereferenceable(32) %oid4.us30, i64 32)
   %retval.0.in.i.i.not.us35 = icmp eq i32 %bcmp3.i.i.us32, 0
   br i1 %retval.0.in.i.i.not.us35, label %while.end, label %if.end8.us36, !llvm.loop !7
@@ -287,7 +265,7 @@ while.body.lr.ph.split.split:                     ; preds = %while.body.lr.ph.sp
   br i1 %retval.0.in.i.i.not51, label %return, label %if.end8
 
 while.body:                                       ; preds = %if.end8
-  %oid4 = getelementptr inbounds %struct.object, ptr %13, i64 0, i32 1
+  %oid4 = getelementptr inbounds i8, ptr %13, i64 4
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid, ptr noundef nonnull dereferenceable(20) %oid4, i64 20)
   %retval.0.in.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %retval.0.in.i.i.not, label %while.end, label %if.end8, !llvm.loop !7
@@ -331,18 +309,18 @@ entry:
   %bf.load = load i32, ptr %o, align 4
   %bf.clear2 = and i32 %bf.load, 14
   store i32 %bf.clear2, ptr %o, align 4
-  %oid4 = getelementptr inbounds %struct.object, ptr %o, i64 0, i32 1
+  %oid4 = getelementptr inbounds i8, ptr %o, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid4, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds %struct.object, ptr %o, i64 0, i32 1, i32 1
+  %algo3.i = getelementptr inbounds i8, ptr %o, i64 36
   store i32 %0, ptr %algo3.i, align 4
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %1 = load ptr, ptr %parsed_objects, align 8
-  %obj_hash_size = getelementptr inbounds %struct.parsed_object_pool, ptr %1, i64 0, i32 2
+  %obj_hash_size = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %obj_hash_size, align 4
   %sub = add i32 %2, -1
-  %nr_objs = getelementptr inbounds %struct.parsed_object_pool, ptr %1, i64 0, i32 1
+  %nr_objs = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %nr_objs, align 8
   %mul = shl nsw i32 %3, 1
   %cmp.not = icmp sgt i32 %sub, %mul
@@ -355,7 +333,7 @@ if.then:                                          ; preds = %entry
   %conv.i = zext nneg i32 %spec.select.i to i64
   %call.i = tail call ptr @xcalloc(i64 noundef %conv.i, i64 noundef 8) #19
   %4 = load ptr, ptr %parsed_objects, align 8
-  %obj_hash_size414.i = getelementptr inbounds %struct.parsed_object_pool, ptr %4, i64 0, i32 2
+  %obj_hash_size414.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = load i32, ptr %obj_hash_size414.i, align 4
   %cmp515.i = icmp sgt i32 %5, 0
   br i1 %cmp515.i, label %for.body.lr.ph.i, label %grow_object_hash.exit
@@ -374,7 +352,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %oid.i.i = getelementptr inbounds %struct.object, ptr %8, i64 0, i32 1
+  %oid.i.i = getelementptr inbounds i8, ptr %8, i64 4
   %oid.val.i.i = load i32, ptr %oid.i.i, align 4
   %and.i.i.i = and i32 %oid.val.i.i, %sub.i.i.i
   %idxprom7.i.i = zext i32 %and.i.i.i to i64
@@ -404,7 +382,7 @@ insert_obj_hash.exit.i:                           ; preds = %while.body.i.i, %if
 for.inc.i:                                        ; preds = %insert_obj_hash.exit.i, %for.body.i
   %11 = phi ptr [ %6, %for.body.i ], [ %.pre.i, %insert_obj_hash.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %obj_hash_size4.i = getelementptr inbounds %struct.parsed_object_pool, ptr %11, i64 0, i32 2
+  %obj_hash_size4.i = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i32, ptr %obj_hash_size4.i, align 4
   %13 = sext i32 %12 to i64
   %cmp5.i = icmp slt i64 %indvars.iv.next.i, %13
@@ -417,10 +395,10 @@ grow_object_hash.exit:                            ; preds = %for.inc.i, %if.then
   %15 = load ptr, ptr %parsed_objects, align 8
   store ptr %call.i, ptr %15, align 8
   %16 = load ptr, ptr %parsed_objects, align 8
-  %obj_hash_size13.i = getelementptr inbounds %struct.parsed_object_pool, ptr %16, i64 0, i32 2
+  %obj_hash_size13.i = getelementptr inbounds i8, ptr %16, i64 12
   store i32 %spec.select.i, ptr %obj_hash_size13.i, align 4
   %.pre = load ptr, ptr %parsed_objects, align 8
-  %obj_hash_size8.phi.trans.insert = getelementptr inbounds %struct.parsed_object_pool, ptr %.pre, i64 0, i32 2
+  %obj_hash_size8.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 12
   %.pre12 = load i32, ptr %obj_hash_size8.phi.trans.insert, align 4
   %.pre13 = add i32 %.pre12, -1
   br label %if.end
@@ -454,7 +432,7 @@ insert_obj_hash.exit:                             ; preds = %while.body.i, %if.e
   %arrayidx.le.i = getelementptr inbounds ptr, ptr %19, i64 %idxprom.lcssa.i
   store ptr %o, ptr %arrayidx.le.i, align 8
   %22 = load ptr, ptr %parsed_objects, align 8
-  %nr_objs10 = getelementptr inbounds %struct.parsed_object_pool, ptr %22, i64 0, i32 1
+  %nr_objs10 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i32, ptr %nr_objs10, align 8
   %inc = add nsw i32 %23, 1
   store i32 %inc, ptr %nr_objs10, align 8
@@ -505,7 +483,7 @@ if.end3.i:                                        ; preds = %if.then12
 
 _.exit:                                           ; preds = %if.then12, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.1, %if.then12 ]
-  %oid = getelementptr inbounds %struct.object, ptr %obj, i64 0, i32 1
+  %oid = getelementptr inbounds i8, ptr %obj, i64 4
   %call13 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #19
   %bf.load14 = load i32, ptr %obj, align 4
   %bf.lshr15 = lshr i32 %bf.load14, 1
@@ -637,7 +615,7 @@ if.then3:                                         ; preds = %entry
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  %buffer8 = getelementptr inbounds %struct.tree, ptr %call4, i64 0, i32 1
+  %buffer8 = getelementptr inbounds i8, ptr %call4, i64 40
   %0 = load ptr, ptr %buffer8, align 8
   %tobool9.not = icmp eq ptr %0, null
   %bf.load14.pre = load i32, ptr %call4, align 8
@@ -788,18 +766,18 @@ entry:
   br i1 %tobool.not.i, label %lookup_replace_object.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %objects.i = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 2
+  %objects.i = getelementptr inbounds i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects.i, align 8
-  %replace_map_initialized.i = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 6
+  %replace_map_initialized.i = getelementptr inbounds i8, ptr %0, i64 48
   %bf.load.i = load i8, ptr %replace_map_initialized.i, align 8
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool1.not.i = icmp eq i8 %bf.clear.i, 0
   br i1 %tobool1.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %replace_map.i = getelementptr inbounds %struct.raw_object_store, ptr %0, i64 0, i32 5
+  %replace_map.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %replace_map.i, align 8
-  %tablesize.i = getelementptr inbounds %struct.hashmap, ptr %1, i64 0, i32 4
+  %tablesize.i = getelementptr inbounds i8, ptr %1, i64 28
   %2 = load i32, ptr %tablesize.i, align 4
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %lookup_replace_object.exit, label %if.end.i
@@ -938,7 +916,7 @@ entry:
   %call = tail call ptr @xmalloc(i64 noundef 16) #19
   store ptr %item, ptr %call, align 8
   %0 = load ptr, ptr %list_p, align 8
-  %next = getelementptr inbounds %struct.object_list, ptr %call, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %next, align 8
   store ptr %call, ptr %list_p, align 8
   ret ptr %call
@@ -959,7 +937,7 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %next = getelementptr inbounds %struct.object_list, ptr %list.addr.04, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %list.addr.04, i64 8
   %1 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !10
@@ -978,7 +956,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %3, %while.body ], [ %0, %entry ]
-  %next = getelementptr inbounds %struct.object_list, ptr %1, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %next, align 8
   store ptr %2, ptr %list, align 8
   tail call void @free(ptr noundef nonnull %1) #19
@@ -1004,9 +982,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define dso_local void @add_object_array_with_path(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef %array, i32 noundef %mode, ptr noundef %path) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %array, align 8
-  %alloc2 = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 1
+  %alloc2 = getelementptr inbounds i8, ptr %array, i64 4
   %1 = load i32, ptr %alloc2, align 4
-  %objects3 = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 2
+  %objects3 = getelementptr inbounds i8, ptr %array, i64 8
   %2 = load ptr, ptr %objects3, align 8
   %cmp.not = icmp ult i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1040,9 +1018,9 @@ if.else13:                                        ; preds = %if.else
 
 if.end17:                                         ; preds = %if.else, %if.end, %if.else13
   %object_array_slopbuf.sink = phi ptr [ %call14, %if.else13 ], [ null, %if.end ], [ @object_array_slopbuf, %if.else ]
-  %name12 = getelementptr inbounds %struct.object_array_entry, ptr %objects.0, i64 %idxprom, i32 1
+  %name12 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %object_array_slopbuf.sink, ptr %name12, align 8
-  %mode18 = getelementptr inbounds %struct.object_array_entry, ptr %objects.0, i64 %idxprom, i32 3
+  %mode18 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i32 %mode, ptr %mode18, align 8
   %tobool19.not = icmp eq ptr %path, null
   br i1 %tobool19.not, label %if.end25, label %if.then20
@@ -1053,7 +1031,7 @@ if.then20:                                        ; preds = %if.end17
 
 if.end25:                                         ; preds = %if.end17, %if.then20
   %call21.sink = phi ptr [ %call21, %if.then20 ], [ null, %if.end17 ]
-  %4 = getelementptr inbounds %struct.object_array_entry, ptr %objects.0, i64 %idxprom, i32 2
+  %4 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %call21.sink, ptr %4, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %array, align 8
@@ -1068,9 +1046,9 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #7
 define dso_local void @add_object_array(ptr noundef %obj, ptr noundef %name, ptr nocapture noundef %array) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %array, align 8
-  %alloc2.i = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 1
+  %alloc2.i = getelementptr inbounds i8, ptr %array, i64 4
   %1 = load i32, ptr %alloc2.i, align 4
-  %objects3.i = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 2
+  %objects3.i = getelementptr inbounds i8, ptr %array, i64 8
   %2 = load ptr, ptr %objects3.i, align 8
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -1104,11 +1082,11 @@ if.else13.i:                                      ; preds = %if.else.i
 
 add_object_array_with_path.exit:                  ; preds = %if.end.i, %if.else.i, %if.else13.i
   %object_array_slopbuf.sink.i = phi ptr [ %call14.i, %if.else13.i ], [ null, %if.end.i ], [ @object_array_slopbuf, %if.else.i ]
-  %name12.i = getelementptr inbounds %struct.object_array_entry, ptr %objects.0.i, i64 %idxprom.i, i32 1
+  %name12.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %object_array_slopbuf.sink.i, ptr %name12.i, align 8
-  %mode18.i = getelementptr inbounds %struct.object_array_entry, ptr %objects.0.i, i64 %idxprom.i, i32 3
+  %mode18.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   store i32 12288, ptr %mode18.i, align 8
-  %4 = getelementptr inbounds %struct.object_array_entry, ptr %objects.0.i, i64 %idxprom.i, i32 2
+  %4 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store ptr null, ptr %4, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %array, align 8
@@ -1123,13 +1101,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %objects = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %array, i64 8
   %1 = load ptr, ptr %objects, align 8
   %sub = add i32 %0, -1
   %idxprom = zext i32 %sub to i64
   %arrayidx = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %name.i = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %idxprom, i32 1
+  %name.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %name.i, align 8
   %cmp.not.i = icmp eq ptr %3, @object_array_slopbuf
   br i1 %cmp.not.i, label %object_array_release_entry.exit, label %if.then.i
@@ -1139,7 +1117,7 @@ if.then.i:                                        ; preds = %if.end
   br label %object_array_release_entry.exit
 
 object_array_release_entry.exit:                  ; preds = %if.end, %if.then.i
-  %path.i = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %idxprom, i32 2
+  %path.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %path.i, align 8
   tail call void @free(ptr noundef %4) #19
   %5 = load i32, ptr %array, align 8
@@ -1156,7 +1134,7 @@ return:                                           ; preds = %entry, %object_arra
 define dso_local void @object_array_filter(ptr nocapture noundef %array, ptr nocapture noundef readonly %want, ptr noundef %cb_data) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %array, align 8
-  %objects2 = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 2
+  %objects2 = getelementptr inbounds i8, ptr %array, i64 8
   %1 = load ptr, ptr %objects2, align 8
   %cmp14.not = icmp eq i32 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body.preheader
@@ -1188,7 +1166,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %name.i = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv, i32 1
+  %name.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %name.i, align 8
   %cmp.not.i = icmp eq ptr %3, @object_array_slopbuf
   br i1 %cmp.not.i, label %object_array_release_entry.exit, label %if.then.i
@@ -1198,7 +1176,7 @@ if.then.i:                                        ; preds = %if.else
   br label %object_array_release_entry.exit
 
 object_array_release_entry.exit:                  ; preds = %if.else, %if.then.i
-  %path.i = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv, i32 2
+  %path.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %path.i, align 8
   tail call void @free(ptr noundef %4) #19
   br label %for.inc
@@ -1223,13 +1201,14 @@ entry:
   br i1 %cmp8.not, label %do.body, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %objects = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 2
+  %objects = getelementptr inbounds i8, ptr %array, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %object_array_release_entry.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %object_array_release_entry.exit ]
   %1 = load ptr, ptr %objects, align 8
-  %name.i = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv
+  %name.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %name.i, align 8
   %cmp.not.i = icmp eq ptr %2, @object_array_slopbuf
   br i1 %cmp.not.i, label %object_array_release_entry.exit, label %if.then.i
@@ -1239,7 +1218,7 @@ if.then.i:                                        ; preds = %for.body
   br label %object_array_release_entry.exit
 
 object_array_release_entry.exit:                  ; preds = %for.body, %if.then.i
-  %path.i = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv, i32 2
+  %path.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %path.i, align 8
   tail call void @free(ptr noundef %3) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1249,7 +1228,7 @@ object_array_release_entry.exit:                  ; preds = %for.body, %if.then.
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !13
 
 do.body:                                          ; preds = %object_array_release_entry.exit, %entry
-  %objects1 = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 2
+  %objects1 = getelementptr inbounds i8, ptr %array, i64 8
   %6 = load ptr, ptr %objects1, align 8
   tail call void @free(ptr noundef %6) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %array, i8 0, i64 16, i1 false)
@@ -1260,7 +1239,7 @@ do.body:                                          ; preds = %object_array_releas
 define dso_local void @object_array_remove_duplicates(ptr nocapture noundef %array) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %array, align 8
-  %objects2 = getelementptr inbounds %struct.object_array, ptr %array, i64 0, i32 2
+  %objects2 = getelementptr inbounds i8, ptr %array, i64 8
   %1 = load ptr, ptr %objects2, align 8
   store i32 0, ptr %array, align 8
   %cmp20.not = icmp eq i32 %0, 0
@@ -1279,7 +1258,7 @@ for.body:                                         ; preds = %for.bodythread-pre-
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %name = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv, i32 1
+  %name = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %name, align 8
   %cmp1.not.i = icmp eq i32 %array.val, 0
   br i1 %cmp1.not.i, label %if.then, label %for.body.i.preheader
@@ -1296,7 +1275,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   br i1 %cmp3.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %name4.i = getelementptr inbounds %struct.object_array_entry, ptr %object.03.i, i64 0, i32 1
+  %name4.i = getelementptr inbounds i8, ptr %object.03.i, i64 8
   %5 = load ptr, ptr %name4.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %3) #17
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1304,7 +1283,7 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw i32 %i.02.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.object_array_entry, ptr %object.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %object.03.i, i64 32
   %exitcond.not.i = icmp eq i32 %inc.i, %array.val
   br i1 %exitcond.not.i, label %if.then, label %for.body.i, !llvm.loop !14
 
@@ -1334,7 +1313,7 @@ if.then.i:                                        ; preds = %if.else
   br label %object_array_release_entry.exit
 
 object_array_release_entry.exit:                  ; preds = %if.else, %if.then.i
-  %path.i = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv, i32 2
+  %path.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %8 = load ptr, ptr %path.i, align 8
   tail call void @free(ptr noundef %8) #19
   br label %for.inc
@@ -1352,9 +1331,9 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @clear_object_flags(i32 noundef %flags) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %parsed_objects7 = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 3
+  %parsed_objects7 = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %parsed_objects7, align 8
-  %obj_hash_size8 = getelementptr inbounds %struct.parsed_object_pool, ptr %1, i64 0, i32 2
+  %obj_hash_size8 = getelementptr inbounds i8, ptr %1, i64 12
   %2 = load i32, ptr %obj_hash_size8, align 4
   %cmp9 = icmp sgt i32 %2, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
@@ -1385,9 +1364,9 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %7 = phi ptr [ %3, %for.body ], [ %.pre, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %7, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %parsed_objects, align 8
-  %obj_hash_size = getelementptr inbounds %struct.parsed_object_pool, ptr %8, i64 0, i32 2
+  %obj_hash_size = getelementptr inbounds i8, ptr %8, i64 12
   %9 = load i32, ptr %obj_hash_size, align 4
   %10 = sext i32 %9 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %10
@@ -1400,9 +1379,9 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @repo_clear_commit_marks(ptr nocapture noundef readonly %r, i32 noundef %flags) local_unnamed_addr #13 {
 entry:
-  %parsed_objects = getelementptr inbounds %struct.repository, ptr %r, i64 0, i32 3
+  %parsed_objects = getelementptr inbounds i8, ptr %r, i64 24
   %0 = load ptr, ptr %parsed_objects, align 8
-  %obj_hash_size9 = getelementptr inbounds %struct.parsed_object_pool, ptr %0, i64 0, i32 2
+  %obj_hash_size9 = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %obj_hash_size9, align 4
   %cmp10 = icmp sgt i32 %1, 0
   br i1 %cmp10, label %for.body.lr.ph, label %for.end
@@ -1437,7 +1416,7 @@ if.then:                                          ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
   %6 = phi ptr [ %2, %for.body ], [ %2, %land.lhs.true ], [ %.pre, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %obj_hash_size = getelementptr inbounds %struct.parsed_object_pool, ptr %6, i64 0, i32 2
+  %obj_hash_size = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %obj_hash_size, align 4
   %8 = sext i32 %7 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %8
@@ -1453,27 +1432,27 @@ entry:
   %call = tail call ptr @xmalloc(i64 noundef 112) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %call, i8 0, i64 112, i1 false)
   %call1 = tail call ptr @allocate_alloc_state() #19
-  %blob_state = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 3
+  %blob_state = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %blob_state, align 8
   %call2 = tail call ptr @allocate_alloc_state() #19
-  %tree_state = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 4
+  %tree_state = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call2, ptr %tree_state, align 8
   %call3 = tail call ptr @allocate_alloc_state() #19
-  %commit_state = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 5
+  %commit_state = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call3, ptr %commit_state, align 8
   %call4 = tail call ptr @allocate_alloc_state() #19
-  %tag_state = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 6
+  %tag_state = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call4, ptr %tag_state, align 8
   %call5 = tail call ptr @allocate_alloc_state() #19
-  %object_state = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 7
+  %object_state = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call5, ptr %object_state, align 8
-  %is_shallow = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 11
+  %is_shallow = getelementptr inbounds i8, ptr %call, i64 72
   store i32 -1, ptr %is_shallow, align 8
   %call6 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #19
-  %shallow_stat = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 12
+  %shallow_stat = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %call6, ptr %shallow_stat, align 8
   %call7 = tail call ptr @allocate_commit_buffer_slab() #19
-  %buffer_slab = getelementptr inbounds %struct.parsed_object_pool, ptr %call, i64 0, i32 16
+  %buffer_slab = getelementptr inbounds i8, ptr %call, i64 104
   store ptr %call7, ptr %buffer_slab, align 8
   ret ptr %call
 }
@@ -1489,13 +1468,13 @@ define dso_local noundef ptr @raw_object_store_new() local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @xmalloc(i64 noundef 224) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %call, i8 0, i64 224, i1 false)
-  %packed_git_mru = getelementptr inbounds %struct.raw_object_store, ptr %call, i64 0, i32 12
-  %prev = getelementptr inbounds %struct.raw_object_store, ptr %call, i64 0, i32 12, i32 1
+  %packed_git_mru = getelementptr inbounds i8, ptr %call, i64 128
+  %prev = getelementptr inbounds i8, ptr %call, i64 136
   store ptr %packed_git_mru, ptr %prev, align 8
   store ptr %packed_git_mru, ptr %packed_git_mru, align 8
-  %pack_map = getelementptr inbounds %struct.raw_object_store, ptr %call, i64 0, i32 14
+  %pack_map = getelementptr inbounds i8, ptr %call, i64 160
   tail call void @hashmap_init(ptr noundef nonnull %pack_map, ptr noundef nonnull @pack_map_entry_cmp, ptr noundef null, i64 noundef 0) #19
-  %replace_mutex = getelementptr inbounds %struct.raw_object_store, ptr %call, i64 0, i32 7
+  %replace_mutex = getelementptr inbounds i8, ptr %call, i64 56
   %call3 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %replace_mutex, ptr noundef null) #19
   ret ptr %call
 }
@@ -1505,9 +1484,9 @@ declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @pack_map_entry_cmp(ptr nocapture readnone %cmp_data, ptr nocapture noundef readonly %entry1, ptr nocapture noundef readonly %entry2, ptr noundef readonly %keydata) #14 {
 entry:
-  %pack_name = getelementptr inbounds %struct.packed_git, ptr %entry1, i64 0, i32 22
+  %pack_name = getelementptr inbounds i8, ptr %entry1, i64 240
   %tobool.not = icmp eq ptr %keydata, null
-  %pack_name3 = getelementptr inbounds %struct.packed_git, ptr %entry2, i64 0, i32 22
+  %pack_name3 = getelementptr inbounds i8, ptr %entry2, i64 240
   %cond = select i1 %tobool.not, ptr %pack_name3, ptr %keydata
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %pack_name, ptr noundef nonnull dereferenceable(1) %cond) #17
   ret i32 %call
@@ -1519,7 +1498,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #15
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_object_directory(ptr noundef %odb) local_unnamed_addr #2 {
 entry:
-  %path = getelementptr inbounds %struct.object_directory, ptr %odb, i64 0, i32 5
+  %path = getelementptr inbounds i8, ptr %odb, i64 56
   %0 = load ptr, ptr %path, align 8
   tail call void @free(ptr noundef %0) #19
   tail call void @odb_clear_loose_cache(ptr noundef %odb) #19
@@ -1532,23 +1511,23 @@ declare void @odb_clear_loose_cache(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local void @raw_object_store_clear(ptr noundef %o) local_unnamed_addr #2 {
 entry:
-  %alternate_db = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 4
+  %alternate_db = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load ptr, ptr %alternate_db, align 8
   tail call void @free(ptr noundef %0) #19
   store ptr null, ptr %alternate_db, align 8
-  %replace_map = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 5
+  %replace_map = getelementptr inbounds i8, ptr %o, i64 40
   %1 = load ptr, ptr %replace_map, align 8
   tail call void @oidmap_free(ptr noundef %1, i32 noundef 1) #19
   %2 = load ptr, ptr %replace_map, align 8
   tail call void @free(ptr noundef %2) #19
   store ptr null, ptr %replace_map, align 8
-  %replace_mutex = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 7
+  %replace_mutex = getelementptr inbounds i8, ptr %o, i64 56
   %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %replace_mutex) #19
-  %commit_graph = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 8
+  %commit_graph = getelementptr inbounds i8, ptr %o, i64 96
   %3 = load ptr, ptr %commit_graph, align 8
   tail call void @free_commit_graph(ptr noundef %3) #19
   store ptr null, ptr %commit_graph, align 8
-  %commit_graph_attempted = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 9
+  %commit_graph_attempted = getelementptr inbounds i8, ptr %o, i64 104
   %bf.load = load i8, ptr %commit_graph_attempted, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %commit_graph_attempted, align 8
@@ -1559,7 +1538,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %while.body.i
   %4 = phi ptr [ %5, %while.body.i ], [ %.pr.i, %entry ]
   %5 = load ptr, ptr %4, align 8
-  %path.i.i = getelementptr inbounds %struct.object_directory, ptr %4, i64 0, i32 5
+  %path.i.i = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load ptr, ptr %path.i.i, align 8
   tail call void @free(ptr noundef %6) #19
   tail call void @odb_clear_loose_cache(ptr noundef nonnull %4) #19
@@ -1569,35 +1548,35 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !18
 
 while.end.i:                                      ; preds = %while.body.i, %entry
-  %odb_by_path.i = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 2
+  %odb_by_path.i = getelementptr inbounds i8, ptr %o, i64 16
   %7 = load ptr, ptr %odb_by_path.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %free_object_directories.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i
-  %flags.i.i.i = getelementptr inbounds %struct.kh_odb_path_map, ptr %7, i64 0, i32 4
+  %flags.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %flags.i.i.i, align 8
   tail call void @free(ptr noundef %8) #19
-  %keys.i.i.i = getelementptr inbounds %struct.kh_odb_path_map, ptr %7, i64 0, i32 5
+  %keys.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %keys.i.i.i, align 8
   tail call void @free(ptr noundef %9) #19
-  %vals.i.i.i = getelementptr inbounds %struct.kh_odb_path_map, ptr %7, i64 0, i32 6
+  %vals.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %10 = load ptr, ptr %vals.i.i.i, align 8
   tail call void @free(ptr noundef %10) #19
   tail call void @free(ptr noundef nonnull %7) #19
   br label %free_object_directories.exit
 
 free_object_directories.exit:                     ; preds = %while.end.i, %if.then.i.i
-  %odb_tail = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 1
-  %packed_git_mru = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 12
-  %prev = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 12, i32 1
+  %odb_tail = getelementptr inbounds i8, ptr %o, i64 8
+  %packed_git_mru = getelementptr inbounds i8, ptr %o, i64 128
+  %prev = getelementptr inbounds i8, ptr %o, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %odb_tail, i8 0, i64 20, i1 false)
   store ptr %packed_git_mru, ptr %prev, align 8
   store ptr %packed_git_mru, ptr %packed_git_mru, align 8
   tail call void @close_object_store(ptr noundef nonnull %o) #19
-  %packed_git = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 11
+  %packed_git = getelementptr inbounds i8, ptr %o, i64 120
   store ptr null, ptr %packed_git, align 8
-  %pack_map = getelementptr inbounds %struct.raw_object_store, ptr %o, i64 0, i32 14
+  %pack_map = getelementptr inbounds i8, ptr %o, i64 160
   tail call void @hashmap_clear_(ptr noundef nonnull %pack_map, i64 noundef -1) #19
   ret void
 }
@@ -1616,7 +1595,7 @@ declare void @hashmap_clear_(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local void @parsed_object_pool_clear(ptr noundef %o) local_unnamed_addr #2 {
 entry:
-  %obj_hash_size = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 2
+  %obj_hash_size = getelementptr inbounds i8, ptr %o, i64 12
   %0 = load i32, ptr %obj_hash_size, align 4
   %cmp34.not = icmp eq i32 %0, 0
   br i1 %cmp34.not, label %do.body, label %for.body
@@ -1663,26 +1642,26 @@ do.body:                                          ; preds = %for.inc, %entry
   tail call void @free(ptr noundef %5) #19
   store ptr null, ptr %o, align 8
   store i32 0, ptr %obj_hash_size, align 4
-  %buffer_slab = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 16
+  %buffer_slab = getelementptr inbounds i8, ptr %o, i64 104
   %6 = load ptr, ptr %buffer_slab, align 8
   tail call void @free_commit_buffer_slab(ptr noundef %6) #19
   store ptr null, ptr %buffer_slab, align 8
-  %blob_state = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 3
+  %blob_state = getelementptr inbounds i8, ptr %o, i64 16
   %7 = load ptr, ptr %blob_state, align 8
   tail call void @clear_alloc_state(ptr noundef %7) #19
-  %tree_state = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 4
+  %tree_state = getelementptr inbounds i8, ptr %o, i64 24
   %8 = load ptr, ptr %tree_state, align 8
   tail call void @clear_alloc_state(ptr noundef %8) #19
-  %commit_state = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 5
+  %commit_state = getelementptr inbounds i8, ptr %o, i64 32
   %9 = load ptr, ptr %commit_state, align 8
   tail call void @clear_alloc_state(ptr noundef %9) #19
-  %tag_state = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 6
+  %tag_state = getelementptr inbounds i8, ptr %o, i64 40
   %10 = load ptr, ptr %tag_state, align 8
   tail call void @clear_alloc_state(ptr noundef %10) #19
-  %object_state = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 7
+  %object_state = getelementptr inbounds i8, ptr %o, i64 48
   %11 = load ptr, ptr %object_state, align 8
   tail call void @clear_alloc_state(ptr noundef %11) #19
-  %shallow_stat = getelementptr inbounds %struct.parsed_object_pool, ptr %o, i64 0, i32 12
+  %shallow_stat = getelementptr inbounds i8, ptr %o, i64 80
   %12 = load ptr, ptr %shallow_stat, align 8
   tail call void @stat_validity_clear(ptr noundef %12) #19
   %13 = load ptr, ptr %blob_state, align 8

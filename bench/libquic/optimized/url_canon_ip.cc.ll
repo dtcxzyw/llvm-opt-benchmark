@@ -3,9 +3,7 @@ source_filename = "bench/libquic/original/url_canon_ip.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.url::CanonOutputT" = type { ptr, ptr, i32, i32 }
 %"struct.url::Component" = type { i32, i32 }
-%"struct.url::CanonHostInfo" = type { i32, i32, %"struct.url::Component", [16 x i8] }
 %"struct.url::(anonymous namespace)::IPv6Parsed" = type { [8 x %"struct.url::Component"], i32, i32, %"struct.url::Component" }
 
 @_ZN3url20kSharedCharTypeTableE = external local_unnamed_addr constant [256 x i8], align 16
@@ -14,9 +12,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr nocapture noundef readonly %address, ptr noundef %output) local_unnamed_addr #0 {
 entry:
   %str = alloca [16 x i8], align 16
-  %cur_len_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
-  %buffer_len_.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
-  %.sink.in.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %cur_len_.i = getelementptr inbounds i8, ptr %output, i64 20
+  %buffer_len_.i = getelementptr inbounds i8, ptr %output, i64 16
+  %.sink.in.i = getelementptr inbounds i8, ptr %output, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc10
@@ -58,7 +56,7 @@ if.end.i.i:                                       ; preds = %do.body.i.i
 
 if.end5.i:                                        ; preds = %if.end.i.i
   %vtable.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i)
   %6 = load i32, ptr %cur_len_.i, align 4
@@ -110,7 +108,7 @@ if.end.i.i16:                                     ; preds = %do.body.i.i13
 
 if.end5.i19:                                      ; preds = %if.end.i.i16
   %vtable.i.i20 = load ptr, ptr %output, align 8
-  %vfn.i.i21 = getelementptr inbounds ptr, ptr %vtable.i.i20, i64 2
+  %vfn.i.i21 = getelementptr inbounds i8, ptr %vtable.i.i20, i64 16
   %12 = load ptr, ptr %vfn.i.i21, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i17)
   %13 = load i32, ptr %cur_len_.i, align 4
@@ -190,9 +188,9 @@ for.inc.i:                                        ; preds = %if.then11.i, %if.th
 
 for.cond.preheader:                               ; preds = %for.inc.i
   %cmp2 = icmp sgt i32 %max_range.sroa.3.2.i, 0
-  %cur_len_.i42 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
-  %buffer_len_.i43 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
-  %.sink.in.i59 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %cur_len_.i42 = getelementptr inbounds i8, ptr %output, i64 20
+  %buffer_len_.i43 = getelementptr inbounds i8, ptr %output, i64 16
+  %.sink.in.i59 = getelementptr inbounds i8, ptr %output, i64 8
   %add.i = add nsw i32 %max_range.sroa.3.2.i, %max_range.sroa.0.2.i
   %cmp3 = icmp eq i32 %max_range.sroa.0.2.i, 0
   br label %for.body
@@ -229,7 +227,7 @@ if.end.i.i:                                       ; preds = %do.body.i.i
 
 if.end5.i:                                        ; preds = %if.end.i.i
   %vtable.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i)
   %6 = load i32, ptr %cur_len_.i42, align 4
@@ -313,7 +311,7 @@ if.end.i.i51:                                     ; preds = %do.body.i.i48
 
 if.end5.i54:                                      ; preds = %if.end.i.i51
   %vtable.i.i55 = load ptr, ptr %output, align 8
-  %vfn.i.i56 = getelementptr inbounds ptr, ptr %vtable.i.i55, i64 2
+  %vfn.i.i56 = getelementptr inbounds i8, ptr %vtable.i.i55, i64 16
   %16 = load ptr, ptr %vfn.i.i56, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i52)
   %17 = load i32, ptr %cur_len_.i42, align 4
@@ -367,7 +365,7 @@ if.end21.sink.split.sink.split:                   ; preds = %if.end.i.i75, %if.e
   %mul.i.i76.lcssa.sink = phi i32 [ %mul.i.i27, %if.end.i.i26 ], [ %mul.i.i76, %if.end.i.i75 ]
   %i.1.ph.ph = phi i32 [ %add.i, %if.end.i.i26 ], [ %add8, %if.end.i.i75 ]
   %vtable.i.i79 = load ptr, ptr %output, align 8
-  %vfn.i.i80 = getelementptr inbounds ptr, ptr %vtable.i.i79, i64 2
+  %vfn.i.i80 = getelementptr inbounds i8, ptr %vtable.i.i79, i64 16
   %23 = load ptr, ptr %vfn.i.i80, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i76.lcssa.sink)
   %24 = load i32, ptr %cur_len_.i42, align 4
@@ -613,8 +611,8 @@ _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit: 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef %host_info) local_unnamed_addr #0 {
 entry:
-  %address.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 3
-  %num_ipv4_components.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 1
+  %address.i = getelementptr inbounds i8, ptr %host_info, i64 16
+  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
   %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
   store i32 %call.i, ptr %host_info, align 4
   switch i32 %call.i, label %if.end [
@@ -623,15 +621,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %cur_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
-  %out_host.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2
+  %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
   store i32 %0, ptr %out_host.i, align 4
   tail call void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef nonnull %address.i, ptr noundef nonnull %output)
   %1 = load i32, ptr %cur_len_.i.i, align 4
   %2 = load i32, ptr %out_host.i, align 4
   %sub.i = sub nsw i32 %1, %2
-  %len.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2, i32 1
+  %len.i = getelementptr inbounds i8, ptr %host_info, i64 12
   store i32 %sub.i, ptr %len.i, align 4
   br label %if.end3
 
@@ -640,7 +638,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i6, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %host, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %host, i64 4
   %3 = load i32, ptr %len.i.i, align 4
   %cmp45.i = icmp sgt i32 %3, 0
   br i1 %cmp45.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
@@ -668,11 +666,11 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit, !llvm.loop !16
 
 if.end.i:                                         ; preds = %if.end
-  %cur_len_.i.i8 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i.i8 = getelementptr inbounds i8, ptr %output, i64 20
   %8 = load i32, ptr %cur_len_.i.i8, align 4
-  %out_host.i9 = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2
+  %out_host.i9 = getelementptr inbounds i8, ptr %host_info, i64 8
   store i32 %8, ptr %out_host.i9, align 4
-  %buffer_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
+  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %9 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp slt i32 %8, %9
   br i1 %cmp.i.i, label %return.sink.split.i.i, label %if.end.i.i
@@ -694,7 +692,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
   %11 = load i32, ptr %cur_len_.i.i8, align 4
@@ -702,7 +700,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i.i
 
 return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.end.i
   %.sink2.i.i = phi i32 [ %11, %if.end5.i.i ], [ %8, %if.end.i ]
-  %.sink.in.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idxprom8.i.i = sext i32 %.sink2.i.i to i64
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom8.i.i
@@ -736,7 +734,7 @@ if.end.i.i27.i:                                   ; preds = %do.body.i.i24.i
 
 if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
   %vtable.i.i31.i = load ptr, ptr %output, align 8
-  %vfn.i.i32.i = getelementptr inbounds ptr, ptr %vtable.i.i31.i, i64 2
+  %vfn.i.i32.i = getelementptr inbounds i8, ptr %vtable.i.i31.i, i64 16
   %15 = load ptr, ptr %vfn.i.i32.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i28.i)
   %16 = load i32, ptr %cur_len_.i.i8, align 4
@@ -744,7 +742,7 @@ if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
 
 return.sink.split.i33.i:                          ; preds = %if.end5.i30.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   %.sink2.i34.i = phi i32 [ %16, %if.end5.i30.i ], [ %13, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
-  %.sink.in.i35.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i35.i = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i36.i = load ptr, ptr %.sink.in.i35.i, align 8
   %idxprom8.i37.i = sext i32 %.sink2.i34.i to i64
   %arrayidx9.i38.i = getelementptr inbounds i8, ptr %.sink.i36.i, i64 %idxprom8.i37.i
@@ -758,7 +756,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit41.i:    ; preds = %do.body.i.i24.i, %r
   %18 = phi i32 [ %inc11.i39.i, %return.sink.split.i33.i ], [ %13, %do.body.i.i24.i ]
   %19 = load i32, ptr %out_host.i9, align 4
   %sub.i10 = sub nsw i32 %18, %19
-  %len.i11 = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2, i32 1
+  %len.i11 = getelementptr inbounds i8, ptr %host_info, i64 12
   store i32 %sub.i10, ptr %len.i11, align 4
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
 
@@ -774,8 +772,8 @@ if.end3:                                          ; preds = %entry, %sw.bb.i, %_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3url21CanonicalizeIPAddressEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %host, ptr noundef %output, ptr nocapture noundef %host_info) local_unnamed_addr #0 {
 entry:
-  %address.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 3
-  %num_ipv4_components.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 1
+  %address.i = getelementptr inbounds i8, ptr %host_info, i64 16
+  %num_ipv4_components.i = getelementptr inbounds i8, ptr %host_info, i64 4
   %call.i = tail call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef %spec, ptr noundef nonnull align 4 dereferenceable(8) %host, ptr noundef nonnull %address.i, ptr noundef nonnull %num_ipv4_components.i)
   store i32 %call.i, ptr %host_info, align 4
   switch i32 %call.i, label %if.end [
@@ -784,15 +782,15 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %cur_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
-  %out_host.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2
+  %out_host.i = getelementptr inbounds i8, ptr %host_info, i64 8
   store i32 %0, ptr %out_host.i, align 4
   tail call void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef nonnull %address.i, ptr noundef nonnull %output)
   %1 = load i32, ptr %cur_len_.i.i, align 4
   %2 = load i32, ptr %out_host.i, align 4
   %sub.i = sub nsw i32 %1, %2
-  %len.i = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2, i32 1
+  %len.i = getelementptr inbounds i8, ptr %host_info, i64 12
   store i32 %sub.i, ptr %len.i, align 4
   br label %if.end3
 
@@ -801,7 +799,7 @@ if.end:                                           ; preds = %entry
   br i1 %call.i6, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %host, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %host, i64 4
   %3 = load i32, ptr %len.i.i, align 4
   %cmp45.i = icmp sgt i32 %3, 0
   br i1 %cmp45.i, label %for.body.preheader.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
@@ -829,11 +827,11 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i, label %for.body.i, label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit, !llvm.loop !17
 
 if.end.i:                                         ; preds = %if.end
-  %cur_len_.i.i8 = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 3
+  %cur_len_.i.i8 = getelementptr inbounds i8, ptr %output, i64 20
   %8 = load i32, ptr %cur_len_.i.i8, align 4
-  %out_host.i9 = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2
+  %out_host.i9 = getelementptr inbounds i8, ptr %host_info, i64 8
   store i32 %8, ptr %out_host.i9, align 4
-  %buffer_len_.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 2
+  %buffer_len_.i.i = getelementptr inbounds i8, ptr %output, i64 16
   %9 = load i32, ptr %buffer_len_.i.i, align 8
   %cmp.i.i = icmp slt i32 %8, %9
   br i1 %cmp.i.i, label %return.sink.split.i.i, label %if.end.i.i
@@ -855,7 +853,7 @@ if.end.i.i.i:                                     ; preds = %do.body.i.i.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i.i
   %vtable.i.i.i = load ptr, ptr %output, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i.i)
   %11 = load i32, ptr %cur_len_.i.i8, align 4
@@ -863,7 +861,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i.i
 
 return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.end.i
   %.sink2.i.i = phi i32 [ %11, %if.end5.i.i ], [ %8, %if.end.i ]
-  %.sink.in.i.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8
   %idxprom8.i.i = sext i32 %.sink2.i.i to i64
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom8.i.i
@@ -897,7 +895,7 @@ if.end.i.i27.i:                                   ; preds = %do.body.i.i24.i
 
 if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
   %vtable.i.i31.i = load ptr, ptr %output, align 8
-  %vfn.i.i32.i = getelementptr inbounds ptr, ptr %vtable.i.i31.i, i64 2
+  %vfn.i.i32.i = getelementptr inbounds i8, ptr %vtable.i.i31.i, i64 16
   %15 = load ptr, ptr %vfn.i.i32.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %output, i32 noundef %mul.i.i28.i)
   %16 = load i32, ptr %cur_len_.i.i8, align 4
@@ -905,7 +903,7 @@ if.end5.i30.i:                                    ; preds = %if.end.i.i27.i
 
 return.sink.split.i33.i:                          ; preds = %if.end5.i30.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   %.sink2.i34.i = phi i32 [ %16, %if.end5.i30.i ], [ %13, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
-  %.sink.in.i35.i = getelementptr inbounds %"class.url::CanonOutputT", ptr %output, i64 0, i32 1
+  %.sink.in.i35.i = getelementptr inbounds i8, ptr %output, i64 8
   %.sink.i36.i = load ptr, ptr %.sink.in.i35.i, align 8
   %idxprom8.i37.i = sext i32 %.sink2.i34.i to i64
   %arrayidx9.i38.i = getelementptr inbounds i8, ptr %.sink.i36.i, i64 %idxprom8.i37.i
@@ -919,7 +917,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit41.i:    ; preds = %do.body.i.i24.i, %r
   %18 = phi i32 [ %inc11.i39.i, %return.sink.split.i33.i ], [ %13, %do.body.i.i24.i ]
   %19 = load i32, ptr %out_host.i9, align 4
   %sub.i10 = sub nsw i32 %18, %19
-  %len.i11 = getelementptr inbounds %"struct.url::CanonHostInfo", ptr %host_info, i64 0, i32 2, i32 1
+  %len.i11 = getelementptr inbounds i8, ptr %host_info, i64 12
   store i32 %sub.i10, ptr %len.i11, align 4
   br label %_ZN3url12_GLOBAL__N_125DoCanonicalizeIPv6AddressIttEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE.exit
 
@@ -949,7 +947,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %components.i, i64 %arrayctor.cur.idx.i
   store i32 0, ptr %arrayctor.cur.ptr.i, align 8
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %arrayctor.cur.ptr.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 4
   store i32 -1, ptr %len.i.i, align 4
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 8
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 32
@@ -1060,13 +1058,13 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %broken.016.i = phi i8 [ %broken.2.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %existing_components.015.i = phi i32 [ %existing_components.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %len.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
+  %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %12 = load i32, ptr %len.i, align 4
   %cmp1.i = icmp slt i32 %12, 1
   br i1 %cmp1.i, label %for.inc.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
   %idxprom6.i = sext i32 %existing_components.015.i to i64
   %arrayidx7.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom6.i
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 8
@@ -1305,7 +1303,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
   %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %components.i, i64 %arrayctor.cur.idx.i
   store i32 0, ptr %arrayctor.cur.ptr.i, align 8
-  %len.i.i = getelementptr inbounds %"struct.url::Component", ptr %arrayctor.cur.ptr.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i, i64 4
   store i32 -1, ptr %len.i.i, align 4
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 8
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 32
@@ -1416,13 +1414,13 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %broken.016.i = phi i8 [ %broken.2.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %existing_components.015.i = phi i32 [ %existing_components.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %len.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
+  %len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %12 = load i32, ptr %len.i, align 4
   %cmp1.i = icmp slt i32 %12, 1
   br i1 %cmp1.i, label %for.inc.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds [4 x %"struct.url::Component"], ptr %components.i, i64 0, i64 %indvars.iv.i
   %idxprom6.i = sext i32 %existing_components.015.i to i64
   %arrayidx7.i = getelementptr inbounds [4 x i32], ptr %component_values.i, i64 0, i64 %idxprom6.i
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 8
@@ -1436,7 +1434,7 @@ if.end3.i:                                        ; preds = %for.body.i
   br i1 %or.cond.i.i, label %if.end18.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end3.i
-  %arrayidx5.i.i = getelementptr i16, ptr %arrayidx.i.i, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 2
   %14 = load i16, ptr %arrayidx5.i.i, align 2
   switch i16 %14, label %if.else15.i.i [
     i16 88, label %if.end18.i.i
@@ -1680,7 +1678,7 @@ arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %
   %arrayctor.cur.idx.i.i = phi i64 [ %arrayctor.cur.add.i.i, %arrayctor.loop.i.i ], [ 0, %lor.lhs.false2.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 4
-  %len.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %arrayctor.cur.ptr.i.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i, i64 4
   store i32 -1, ptr %len.i.i.i, align 4
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 8
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 64
@@ -1688,10 +1686,10 @@ arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %
 
 _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %arrayctor.loop.i.i
   %add.i = add nsw i32 %host.val, 1
-  %ipv4_component.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 3
-  %len.i1.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 3, i32 1
-  %num_hex_components.i.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 1
-  %index_of_contraction.i.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 2
+  %ipv4_component.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 72
+  %len.i1.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 76
+  %num_hex_components.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 64
+  %index_of_contraction.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 68
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %num_hex_components.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %host.val1, 2
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
@@ -2033,7 +2031,7 @@ lor.lhs.false.i:                                  ; preds = %entry
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %2 = sext i32 %add.i.i to i64
   %3 = getelementptr i16, ptr %spec, i64 %2
-  %arrayidx4.i = getelementptr i16, ptr %3, i64 -1
+  %arrayidx4.i = getelementptr i8, ptr %3, i64 -2
   %4 = load i16, ptr %arrayidx4.i, align 2
   %cmp6.not.i = icmp eq i16 %4, 93
   br i1 %cmp6.not.i, label %arrayctor.loop.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
@@ -2042,7 +2040,7 @@ arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %
   %arrayctor.cur.idx.i.i = phi i64 [ %arrayctor.cur.add.i.i, %arrayctor.loop.i.i ], [ 0, %lor.lhs.false2.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 %arrayctor.cur.idx.i.i
   store i32 0, ptr %arrayctor.cur.ptr.i.i, align 4
-  %len.i.i.i = getelementptr inbounds %"struct.url::Component", ptr %arrayctor.cur.ptr.i.i, i64 0, i32 1
+  %len.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i, i64 4
   store i32 -1, ptr %len.i.i.i, align 4
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 8
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 64
@@ -2050,10 +2048,10 @@ arrayctor.loop.i.i:                               ; preds = %lor.lhs.false2.i, %
 
 _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %arrayctor.loop.i.i
   %add.i = add nsw i32 %host.val, 1
-  %ipv4_component.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 3
-  %len.i1.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 3, i32 1
-  %num_hex_components.i.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 1
-  %index_of_contraction.i.i.i = getelementptr inbounds %"struct.url::(anonymous namespace)::IPv6Parsed", ptr %ipv6_parsed.i, i64 0, i32 2
+  %ipv4_component.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 72
+  %len.i1.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 76
+  %num_hex_components.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 64
+  %index_of_contraction.i.i.i = getelementptr inbounds i8, ptr %ipv6_parsed.i, i64 68
   store <4 x i32> <i32 0, i32 -1, i32 0, i32 -1>, ptr %num_hex_components.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %host.val1, 2
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
@@ -2080,7 +2078,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i.outer,
   br i1 %or.cond.i.i, label %land.end.thread.i.i, label %land.end.i.i
 
 land.end.thread.i.i:                              ; preds = %for.cond.i.i
-  %arrayidx5.i.i = getelementptr i16, ptr %arrayidx.i.i, i64 1
+  %arrayidx5.i.i = getelementptr i8, ptr %arrayidx.i.i, i64 2
   %6 = load i16, ptr %arrayidx5.i.i, align 2
   %cmp7.i.i = icmp eq i16 %6, 58
   %cmp1053.i.i = icmp eq i32 %i.0.i.i, %add.i.i.i

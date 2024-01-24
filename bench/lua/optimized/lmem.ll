@@ -3,17 +3,6 @@ source_filename = "bench/lua/original/lmem.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lua_State = type { ptr, i8, i8, i8, i8, i16, %union.StkIdRel, ptr, ptr, %union.StkIdRel, %union.StkIdRel, ptr, %union.StkIdRel, ptr, ptr, ptr, %struct.CallInfo, ptr, i64, i32, i32, i32, i32, i32 }
-%union.StkIdRel = type { ptr }
-%struct.CallInfo = type { %union.StkIdRel, %union.StkIdRel, ptr, ptr, %union.anon, %union.anon.1, i16, i16 }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, i64, i64 }
-%union.anon.1 = type { i32 }
-%struct.global_State = type { ptr, ptr, i64, i64, i64, i64, %struct.stringtable, %struct.TValue, %struct.TValue, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [25 x ptr], [9 x ptr], [53 x [2 x ptr]], ptr, ptr }
-%struct.stringtable = type { ptr, i32, i32 }
-%struct.TValue = type { %union.Value, i8 }
-%union.Value = type { ptr }
-
 @.str = private unnamed_addr constant [26 x i8] c"too many %s (limit is %d)\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"memory allocation error: block too big\00", align 1
 
@@ -49,10 +38,10 @@ if.end13:                                         ; preds = %if.then2, %if.else
   %mul16 = mul nsw i64 %conv14, %conv15
   %conv17 = sext i32 %size.0 to i64
   %mul19 = mul nsw i64 %conv17, %conv15
-  %l_G.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %l_G.i.i = getelementptr inbounds i8, ptr %L, i64 24
   %1 = load ptr, ptr %l_G.i.i, align 8
   %2 = load ptr, ptr %1, align 8
-  %ud.i.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 1
+  %ud.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %ud.i.i, align 8
   %call.i.i = tail call ptr %2(ptr noundef %3, ptr noundef %block, i64 noundef %mul16, i64 noundef %mul19) #6
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -62,14 +51,14 @@ if.end13:                                         ; preds = %if.then2, %if.else
 
 if.then.i.i:                                      ; preds = %if.end13
   %5 = load ptr, ptr %l_G.i.i, align 8
-  %tt_.i.i.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 8, i32 1
+  %tt_.i.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load i8, ptr %tt_.i.i.i, align 8
   %7 = and i8 %6, 15
   %cmp.i.i.i = icmp eq i8 %7, 0
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %luaM_realloc_.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
-  %gcstopem.i.i.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 13
+  %gcstopem.i.i.i = getelementptr inbounds i8, ptr %5, i64 103
   %8 = load i8, ptr %gcstopem.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i.i, label %tryagain.exit.i.i, label %luaM_realloc_.exit.i
@@ -77,7 +66,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
 tryagain.exit.i.i:                                ; preds = %land.lhs.true.i.i.i
   tail call void @luaC_fullgc(ptr noundef nonnull %L, i32 noundef 1) #6
   %9 = load ptr, ptr %5, align 8
-  %ud.i.i.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 1
+  %ud.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load ptr, ptr %ud.i.i.i, align 8
   %call.i.i.i = tail call ptr %9(ptr noundef %10, ptr noundef %block, i64 noundef %mul16, i64 noundef %mul19) #6
   %cmp5.i.i = icmp eq ptr %call.i.i.i, null
@@ -85,7 +74,7 @@ tryagain.exit.i.i:                                ; preds = %land.lhs.true.i.i.i
 
 if.end8.i.i:                                      ; preds = %tryagain.exit.i.i, %if.end13
   %newblock.0.i.i = phi ptr [ %call.i.i.i, %tryagain.exit.i.i ], [ %call.i.i, %if.end13 ]
-  %GCdebt.i.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 3
+  %GCdebt.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %GCdebt.i.i, align 8
   %add.i.i = sub nsw i64 %mul19, %mul16
   %sub.i.i = add i64 %add.i.i, %11
@@ -117,10 +106,10 @@ declare hidden void @luaG_runerror(ptr noundef, ptr noundef, ...) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaM_saferealloc_(ptr noundef %L, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) local_unnamed_addr #0 {
 entry:
-  %l_G.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %l_G.i = getelementptr inbounds i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %ud.i = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 1
+  %ud.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %ud.i, align 8
   %call.i = tail call ptr %1(ptr noundef %2, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -130,14 +119,14 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %4 = load ptr, ptr %l_G.i, align 8
-  %tt_.i.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 8, i32 1
+  %tt_.i.i = getelementptr inbounds i8, ptr %4, i64 88
   %5 = load i8, ptr %tt_.i.i, align 8
   %6 = and i8 %5, 15
   %cmp.i.i = icmp eq i8 %6, 0
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %luaM_realloc_.exit
 
 land.lhs.true.i.i:                                ; preds = %if.then.i
-  %gcstopem.i.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 13
+  %gcstopem.i.i = getelementptr inbounds i8, ptr %4, i64 103
   %7 = load i8, ptr %gcstopem.i.i, align 1
   %tobool.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i.i, label %tryagain.exit.i, label %luaM_realloc_.exit
@@ -145,7 +134,7 @@ land.lhs.true.i.i:                                ; preds = %if.then.i
 tryagain.exit.i:                                  ; preds = %land.lhs.true.i.i
   tail call void @luaC_fullgc(ptr noundef nonnull %L, i32 noundef 1) #6
   %8 = load ptr, ptr %4, align 8
-  %ud.i.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 1
+  %ud.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr %ud.i.i, align 8
   %call.i.i = tail call ptr %8(ptr noundef %9, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) #6
   %cmp5.i = icmp eq ptr %call.i.i, null
@@ -153,7 +142,7 @@ tryagain.exit.i:                                  ; preds = %land.lhs.true.i.i
 
 if.end8.i:                                        ; preds = %tryagain.exit.i, %entry
   %newblock.0.i = phi ptr [ %call.i.i, %tryagain.exit.i ], [ %call.i, %entry ]
-  %GCdebt.i = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 3
+  %GCdebt.i = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %GCdebt.i, align 8
   %add.i = sub i64 %nsize, %osize
   %sub.i = add i64 %add.i, %10
@@ -182,10 +171,10 @@ entry:
   %conv = sext i32 %mul to i64
   %mul1 = mul nsw i32 %size_elem, %final_n
   %conv2 = sext i32 %mul1 to i64
-  %l_G.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %l_G.i.i = getelementptr inbounds i8, ptr %L, i64 24
   %1 = load ptr, ptr %l_G.i.i, align 8
   %2 = load ptr, ptr %1, align 8
-  %ud.i.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 1
+  %ud.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %ud.i.i, align 8
   %call.i.i = tail call ptr %2(ptr noundef %3, ptr noundef %block, i64 noundef %conv, i64 noundef %conv2) #6
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -195,14 +184,14 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %5 = load ptr, ptr %l_G.i.i, align 8
-  %tt_.i.i.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 8, i32 1
+  %tt_.i.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load i8, ptr %tt_.i.i.i, align 8
   %7 = and i8 %6, 15
   %cmp.i.i.i = icmp eq i8 %7, 0
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %luaM_realloc_.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
-  %gcstopem.i.i.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 13
+  %gcstopem.i.i.i = getelementptr inbounds i8, ptr %5, i64 103
   %8 = load i8, ptr %gcstopem.i.i.i, align 1
   %tobool.not.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i.i, label %tryagain.exit.i.i, label %luaM_realloc_.exit.i
@@ -210,7 +199,7 @@ land.lhs.true.i.i.i:                              ; preds = %if.then.i.i
 tryagain.exit.i.i:                                ; preds = %land.lhs.true.i.i.i
   tail call void @luaC_fullgc(ptr noundef nonnull %L, i32 noundef 1) #6
   %9 = load ptr, ptr %5, align 8
-  %ud.i.i.i = getelementptr inbounds %struct.global_State, ptr %5, i64 0, i32 1
+  %ud.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load ptr, ptr %ud.i.i.i, align 8
   %call.i.i.i = tail call ptr %9(ptr noundef %10, ptr noundef %block, i64 noundef %conv, i64 noundef %conv2) #6
   %cmp5.i.i = icmp eq ptr %call.i.i.i, null
@@ -218,7 +207,7 @@ tryagain.exit.i.i:                                ; preds = %land.lhs.true.i.i.i
 
 if.end8.i.i:                                      ; preds = %tryagain.exit.i.i, %entry
   %newblock.0.i.i = phi ptr [ %call.i.i.i, %tryagain.exit.i.i ], [ %call.i.i, %entry ]
-  %GCdebt.i.i = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 3
+  %GCdebt.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %GCdebt.i.i, align 8
   %add.i.i = sub nsw i64 %conv2, %conv
   %sub.i.i = add i64 %add.i.i, %11
@@ -250,13 +239,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @luaM_free_(ptr nocapture noundef readonly %L, ptr noundef %block, i64 noundef %osize) local_unnamed_addr #0 {
 entry:
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %l_G = getelementptr inbounds i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G, align 8
   %1 = load ptr, ptr %0, align 8
-  %ud = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 1
+  %ud = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %ud, align 8
   %call = tail call ptr %1(ptr noundef %2, ptr noundef %block, i64 noundef %osize, i64 noundef 0) #6
-  %GCdebt = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 3
+  %GCdebt = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %GCdebt, align 8
   %sub = sub i64 %3, %osize
   store i64 %sub, ptr %GCdebt, align 8
@@ -266,10 +255,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaM_realloc_(ptr noundef %L, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) local_unnamed_addr #0 {
 entry:
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %l_G = getelementptr inbounds i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G, align 8
   %1 = load ptr, ptr %0, align 8
-  %ud = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 1
+  %ud = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %ud, align 8
   %call = tail call ptr %1(ptr noundef %2, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) #6
   %cmp = icmp eq ptr %call, null
@@ -279,14 +268,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %l_G, align 8
-  %tt_.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 8, i32 1
+  %tt_.i = getelementptr inbounds i8, ptr %4, i64 88
   %5 = load i8, ptr %tt_.i, align 8
   %6 = and i8 %5, 15
   %cmp.i = icmp eq i8 %6, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %gcstopem.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 13
+  %gcstopem.i = getelementptr inbounds i8, ptr %4, i64 103
   %7 = load i8, ptr %gcstopem.i, align 1
   %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %tryagain.exit, label %return
@@ -294,7 +283,7 @@ land.lhs.true.i:                                  ; preds = %if.then
 tryagain.exit:                                    ; preds = %land.lhs.true.i
   tail call void @luaC_fullgc(ptr noundef nonnull %L, i32 noundef 1) #6
   %8 = load ptr, ptr %4, align 8
-  %ud.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 1
+  %ud.i = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr %ud.i, align 8
   %call.i = tail call ptr %8(ptr noundef %9, ptr noundef %block, i64 noundef %osize, i64 noundef %nsize) #6
   %cmp5 = icmp eq ptr %call.i, null
@@ -302,7 +291,7 @@ tryagain.exit:                                    ; preds = %land.lhs.true.i
 
 if.end8:                                          ; preds = %tryagain.exit, %entry
   %newblock.0 = phi ptr [ %call.i, %tryagain.exit ], [ %call, %entry ]
-  %GCdebt = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 3
+  %GCdebt = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %GCdebt, align 8
   %add = sub i64 %nsize, %osize
   %sub = add i64 %add, %10
@@ -324,10 +313,10 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %l_G = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 7
+  %l_G = getelementptr inbounds i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G, align 8
   %1 = load ptr, ptr %0, align 8
-  %ud = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 1
+  %ud = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %ud, align 8
   %conv = sext i32 %tag to i64
   %call = tail call ptr %1(ptr noundef %2, ptr noundef null, i64 noundef %conv, i64 noundef %size) #6
@@ -336,14 +325,14 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %3 = load ptr, ptr %l_G, align 8
-  %tt_.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 8, i32 1
+  %tt_.i = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load i8, ptr %tt_.i, align 8
   %5 = and i8 %4, 15
   %cmp.i = icmp eq i8 %5, 0
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then11
 
 land.lhs.true.i:                                  ; preds = %if.then6
-  %gcstopem.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 13
+  %gcstopem.i = getelementptr inbounds i8, ptr %3, i64 103
   %6 = load i8, ptr %gcstopem.i, align 1
   %tobool.not.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i, label %tryagain.exit, label %if.then11
@@ -351,7 +340,7 @@ land.lhs.true.i:                                  ; preds = %if.then6
 tryagain.exit:                                    ; preds = %land.lhs.true.i
   tail call void @luaC_fullgc(ptr noundef nonnull %L, i32 noundef 1) #6
   %7 = load ptr, ptr %3, align 8
-  %ud.i = getelementptr inbounds %struct.global_State, ptr %3, i64 0, i32 1
+  %ud.i = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load ptr, ptr %ud.i, align 8
   %call.i = tail call ptr %7(ptr noundef %8, ptr noundef null, i64 noundef %conv, i64 noundef %size) #6
   %cmp9 = icmp eq ptr %call.i, null
@@ -363,7 +352,7 @@ if.then11:                                        ; preds = %if.then6, %land.lhs
 
 if.end12:                                         ; preds = %tryagain.exit, %if.else
   %newblock.0 = phi ptr [ %call.i, %tryagain.exit ], [ %call, %if.else ]
-  %GCdebt = getelementptr inbounds %struct.global_State, ptr %0, i64 0, i32 3
+  %GCdebt = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i64, ptr %GCdebt, align 8
   %add = add i64 %9, %size
   store i64 %add, ptr %GCdebt, align 8

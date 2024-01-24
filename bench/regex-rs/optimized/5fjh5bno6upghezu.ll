@@ -1168,9 +1168,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h1fd9df33ed7c68aeE"(ptr nocapture readnone align 1 %0, ptr readonly align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !6, !noundef !5
-  %6 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = insertvalue { ptr, i64 } poison, ptr %5, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
@@ -1183,7 +1183,7 @@ define hidden i8 @"_ZN12regex_syntax7unicode16SimpleCaseFolder8overlaps28_$u7b$$
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %5 = load i32, ptr %4, align 4, !range !7, !noundef !5
   %.not = icmp ugt i32 %5, %3
-  %.phi.trans.insert = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre3 = load i32, ptr %.pre, align 4, !range !7
   %.not2 = icmp ugt i32 %3, %.pre3
@@ -1203,7 +1203,7 @@ define hidden noundef i32 @"_ZN12regex_syntax7unicode16SimpleCaseFolder3get28_$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { i32, i32 } @"_ZN12regex_syntax7unicode9hir_class28_$u7b$$u7b$closure$u7d$$u7d$17h41368135e533aa19E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 4 %1) unnamed_addr #3 {
   %3 = load i32, ptr %1, align 4, !range !7, !noundef !5
-  %4 = getelementptr inbounds { i32, i32 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !range !7, !noundef !5
   %6 = tail call { i32, i32 } @_ZN12regex_syntax3hir17ClassUnicodeRange3new17ha5d153d77e8a91fbE(i32 %3, i32 %5)
   ret { i32, i32 } %6
@@ -1218,7 +1218,7 @@ define hidden noundef i8 @"_ZN12regex_syntax7unicode17is_word_character3imp28_$u
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i32, i32 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !range !7, !noundef !5
   %.not2 = icmp ugt i32 %5, %8
   %spec.select = sext i1 %.not2 to i8
@@ -1232,7 +1232,7 @@ define hidden noundef i8 @"_ZN12regex_syntax7unicode17is_word_character3imp28_$u
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode14canonical_prop3imp28_$u7b$$u7b$closure$u7d$$u7d$17hba9c0959b9bb417eE"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !8, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -1247,7 +1247,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode14canonical_prop3imp28_$u7
 3:                                                ; preds = %1
   %4 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.8cbea322233a3903e9724aeca122bc4b.383, i64 0, i64 %0, i32 1
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !8, !noundef !5
-  %6 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.8cbea322233a3903e9724aeca122bc4b.383, i64 0, i64 %0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = insertvalue { ptr, i64 } poison, ptr %5, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
@@ -1261,7 +1261,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode14canonical_prop3imp28_$u7
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode15canonical_value28_$u7b$$u7b$closure$u7d$$u7d$17h6a77a1c35ecc28a1E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !8, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -1278,7 +1278,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode15canonical_value28_$u7b$$
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %0, i64 0, i64 %2, i32 1
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !8, !noundef !5
-  %9 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %0, i64 0, i64 %2, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = insertvalue { ptr, i64 } poison, ptr %8, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %10, 1
@@ -1292,7 +1292,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode15canonical_value28_$u7b$$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode15property_values3imp28_$u7b$$u7b$closure$u7d$$u7d$17h2e335286de89b1aaE"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !8, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -1307,7 +1307,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode15property_values3imp28_$u
 3:                                                ; preds = %1
   %4 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.8cbea322233a3903e9724aeca122bc4b.1157, i64 0, i64 %0, i32 1
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !align !10, !noundef !5
-  %6 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr @anon.8cbea322233a3903e9724aeca122bc4b.1157, i64 0, i64 %0, i32 1, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !5
   %8 = insertvalue { ptr, i64 } poison, ptr %5, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
@@ -1321,7 +1321,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode15property_values3imp28_$u
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode12property_set28_$u7b$$u7b$closure$u7d$$u7d$17hb687d2e0274650a2E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !8, !noundef !5
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -1338,7 +1338,7 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode12property_set28_$u7b$$u7b
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %0, i64 0, i64 %2, i32 1
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !6, !noundef !5
-  %9 = getelementptr inbounds [0 x { { ptr, i64 }, { ptr, i64 } }], ptr %0, i64 0, i64 %2, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = insertvalue { ptr, i64 } poison, ptr %8, 0
   %12 = insertvalue { ptr, i64 } %11, i64 %10, 1
@@ -1353,10 +1353,10 @@ define hidden { ptr, i64 } @"_ZN12regex_syntax7unicode12property_set28_$u7b$$u7b
 define hidden zeroext i1 @"_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closure$u7d$$u7d$17hfe74e9c8e70a4612E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !8, !noundef !5
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   store ptr %4, ptr %3, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8, !nonnull !5, !align !10, !noundef !5
   %9 = call zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h722bd559f881ef34E"(ptr nonnull align 8 %8, ptr nonnull align 8 %3)
@@ -1365,9 +1365,9 @@ define hidden zeroext i1 @"_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closur
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN12regex_syntax7unicode4ages3imp28_$u7b$$u7b$closure$u7d$$u7d$17hfd37fc1652777880E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !align !6, !noundef !5
-  %5 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = insertvalue { ptr, i64 } poison, ptr %4, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %6, 1

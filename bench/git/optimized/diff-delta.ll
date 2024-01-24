@@ -3,10 +3,6 @@ source_filename = "bench/git/original/diff-delta.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.unpacked_index_entry = type { %struct.index_entry, ptr }
-%struct.index_entry = type { ptr, i32 }
-%struct.delta_index = type { i64, ptr, i64, i32, [0 x ptr] }
-
 @T = internal unnamed_addr constant [256 x i32] [i32 0, i32 -1420184367, i32 1454598562, i32 -34939533, i32 104818581, i32 -1385770172, i32 1351355959, i32 -69879066, i32 209637162, i32 -1490584581, i32 1523426952, i32 -241954215, i32 172075199, i32 -1592255378, i32 1559413021, i32 -139758132, i32 419274324, i32 -1281086843, i32 1313798134, i32 -451460313, i32 516094401, i32 -1248113392, i32 1215402083, i32 -483908430, i32 344150398, i32 -1076173393, i32 1110456540, i32 -378958835, i32 314324715, i32 -1176141254, i32 1141858121, i32 -279516264, i32 838548648, i32 -1700624263, i32 1732793610, i32 -871243301, i32 935615293, i32 -1667371028, i32 1635201695, i32 -902920626, i32 1032188802, i32 -1763948717, i32 1798740512, i32 -1066455311, i32 1002083351, i32 -1864163130, i32 1829371317, i32 -967816860, i32 688300796, i32 -2107697619, i32 2142620510, i32 -722698353, i32 792315241, i32 -2074054216, i32 2039131339, i32 -757917670, i32 628649430, i32 -1910384377, i32 1942684788, i32 -661475163, i32 591858243, i32 -2011251054, i32 1978950625, i32 -559032528, i32 1677097296, i32 -928002687, i32 893718770, i32 -1642290141, i32 1707679429, i32 -829380076, i32 863663975, i32 -1742486602, i32 1871230586, i32 -992935253, i32 960225240, i32 -1839043831, i32 1773654511, i32 -1024563906, i32 1057273933, i32 -1805841252, i32 2064377604, i32 -799910955, i32 767069862, i32 -2032059785, i32 2100592785, i32 -697486272, i32 730327347, i32 -2132910622, i32 2004166702, i32 -601056001, i32 566641036, i32 -1969228451, i32 1900695483, i32 -636224662, i32 670639641, i32 -1935633720, i32 1376601592, i32 -111873751, i32 79572058, i32 -1343776629, i32 1412571757, i32 -9726276, i32 42027983, i32 -1445396706, i32 1584630482, i32 -181780989, i32 146858864, i32 -1550231647, i32 1481436487, i32 -216704618, i32 251626725, i32 -1515835340, i32 1257298860, i32 -508989571, i32 474198542, i32 -1223031073, i32 1288682553, i32 -409597720, i32 444388763, i32 -1322950326, i32 1183716486, i32 -304635817, i32 272465188, i32 -1151022603, i32 1085371155, i32 -337066046, i32 369236657, i32 -1118065056, i32 1823819377, i32 -940772704, i32 973483987, i32 -1856005374, i32 1787437540, i32 -1043098315, i32 1010387014, i32 -1755251561, i32 1623951707, i32 -879608438, i32 913891577, i32 -1658760152, i32 1727327950, i32 -844277217, i32 809994092, i32 -1692519491, i32 1950930981, i32 -552506124, i32 586920327, i32 -1985870506, i32 1920450480, i32 -651293855, i32 616879634, i32 -1885510973, i32 2016810767, i32 -747658274, i32 780500653, i32 -2049127812, i32 2114547866, i32 -716127157, i32 683284792, i32 -2082230807, i32 1565424345, i32 -166212088, i32 201134971, i32 -1599821910, i32 1534139724, i32 -265770595, i32 230847726, i32 -1499742145, i32 1362146803, i32 -93781726, i32 126082129, i32 -1394972544, i32 1460654694, i32 -61446473, i32 29146052, i32 -1427828971, i32 1169417357, i32 -286633892, i32 318803247, i32 -1202112002, i32 1133282072, i32 -388679735, i32 356510394, i32 -1100587413, i32 1238182823, i32 -493576330, i32 528368133, i32 -1272449324, i32 1341279282, i32 -458491677, i32 423699856, i32 -1307012799, i32 256065313, i32 -1541764112, i32 1508923011, i32 -223747502, i32 159144116, i32 -1574572955, i32 1607414038, i32 -191461945, i32 54390795, i32 -1469823782, i32 1435408809, i32 -19452552, i32 84055966, i32 -1369758897, i32 1404173884, i32 -118994195, i32 398369141, i32 -1125706332, i32 1091422423, i32 -363561978, i32 293717728, i32 -1160220111, i32 1194504002, i32 -328524909, i32 465595999, i32 -1332094322, i32 1299384317, i32 -433409236, i32 503253450, i32 -1230586597, i32 1263296616, i32 -535440199, i32 1052246921, i32 -1780369576, i32 1745578539, i32 -1017979142, i32 948397084, i32 -1814114099, i32 1848905150, i32 -982664849, i32 851889315, i32 -1717602190, i32 1685431553, i32 -819195440, i32 888777526, i32 -1616896025, i32 1649066644, i32 -921471419, i32 642096605, i32 -1927534324, i32 1895232639, i32 -609271634, i32 544930376, i32 -1960620391, i32 1992922090, i32 -577755333, i32 708530935, i32 -2124224986, i32 2089302869, i32 -674132092, i32 738473314, i32 -2023915085, i32 2058837184, i32 -772872175], align 16
 @U = internal unnamed_addr constant [256 x i32] [i32 0, i32 2125799437, i32 1446245579, i32 679924934, i32 121527623, i32 2039184714, i32 1359849868, i32 800622977, i32 243055246, i32 1892260483, i32 1481592389, i32 653946440, i32 155379657, i32 2012727236, i32 1601245954, i32 566506255, i32 486110492, i32 1649169681, i32 1254785495, i32 880779738, i32 466036827, i32 1701972054, i32 1307892880, i32 859962525, i32 310759314, i32 1815146399, i32 1152793433, i32 973282132, i32 364614357, i32 1796125400, i32 1133012510, i32 1027425811, i32 972220984, i32 1195887157, i32 1874927347, i32 292830974, i32 1053603711, i32 1081710450, i32 1761559476, i32 373973945, i32 932073654, i32 1228632251, i32 1639818365, i32 520651888, i32 816844273, i32 1308962300, i32 1719925050, i32 406247735, i32 621518628, i32 1539227433, i32 1933077487, i32 227363810, i32 573948515, i32 1551950446, i32 1946564264, i32 179508901, i32 729228714, i32 1438778791, i32 2101662049, i32 66187628, i32 743012589, i32 1392269536, i32 2054851622, i32 80718891, i32 1944441968, i32 223409277, i32 634790075, i32 1533214902, i32 1960544567, i32 175024442, i32 585661948, i32 1549622769, i32 2107207422, i32 53235443, i32 732600885, i32 1428142648, i32 2057778105, i32 68293556, i32 747947890, i32 1377953663, i32 1864147308, i32 296321377, i32 959403431, i32 1201305002, i32 1747123243, i32 379051046, i32 1041303776, i32 1084500205, i32 1633688546, i32 534068207, i32 928247593, i32 1239863076, i32 1717454501, i32 418080424, i32 812495470, i32 1322816099, i32 1243037256, i32 883039813, i32 472173187, i32 1653729934, i32 1294557967, i32 865878786, i32 454727620, i32 1706014665, i32 1147897030, i32 987669707, i32 307785741, i32 1827491840, i32 1129699713, i32 1038154124, i32 359017802, i32 1808993607, i32 1458457428, i32 677079897, i32 14532511, i32 2120785810, i32 1372591635, i32 795162142, i32 132375256, i32 2035729109, i32 1486025178, i32 640143831, i32 245433617, i32 1880368412, i32 1605151901, i32 555322512, i32 161437782, i32 1999272027, i32 1284643889, i32 841432124, i32 446818554, i32 1679083767, i32 1269580150, i32 890855803, i32 497006013, i32 1663735216, i32 1122936511, i32 1012631218, i32 350048884, i32 1785229945, i32 1171323896, i32 996531189, i32 333647667, i32 1834364734, i32 1349216557, i32 786319648, i32 106470886, i32 2028846571, i32 1465201770, i32 702551143, i32 23511201, i32 2144592044, i32 1578619811, i32 547550126, i32 136587112, i32 1989216101, i32 1495895780, i32 664579817, i32 253393455, i32 1907317282, i32 1969288713, i32 198563332, i32 592642754, i32 1575363279, i32 1918806862, i32 216763203, i32 611147653, i32 1524137864, i32 2065452167, i32 94989450, i32 758102092, i32 1402640449, i32 2082607552, i32 43463117, i32 705815819, i32 1420084486, i32 1771668245, i32 388801304, i32 1068136414, i32 1092573139, i32 1856495186, i32 269680223, i32 949234329, i32 1176570516, i32 1743075739, i32 424679830, i32 836160848, i32 1331948893, i32 1624990940, i32 510543057, i32 921210903, i32 1214099482, i32 1064814657, i32 1103292492, i32 1766079626, i32 401677447, i32 944346374, i32 1190966539, i32 1853514189, i32 282018240, i32 822833871, i32 1337873090, i32 1731757572, i32 428713481, i32 909455240, i32 1216352133, i32 1611062083, i32 515111758, i32 596557149, i32 1564187984, i32 1975339414, i32 185100699, i32 615571482, i32 1510326295, i32 1921193169, i32 204879068, i32 770836435, i32 1397172190, i32 2076308248, i32 91542293, i32 718035604, i32 1417247385, i32 2097131103, i32 38440530, i32 109388409, i32 2016412276, i32 1354159794, i32 772011711, i32 29065022, i32 2131648307, i32 1468566517, i32 691907576, i32 150575351, i32 1984739578, i32 1590324284, i32 545213489, i32 264750512, i32 1903355325, i32 1509175675, i32 658575734, i32 444356453, i32 1690924904, i32 1280287662, i32 855278499, i32 490867234, i32 1677142575, i32 1265762025, i32 902094564, i32 335605227, i32 1790299622, i32 1110645024, i32 1015429421, i32 322875564, i32 1837863073, i32 1158497383, i32 1001940074], align 16
 
@@ -97,7 +93,7 @@ for.end42:                                        ; preds = %for.body35
   br i1 %cmp43, label %if.then45, label %if.else
 
 if.then45:                                        ; preds = %for.end42
-  %arrayidx47 = getelementptr inbounds %struct.unpacked_index_entry, ptr %entry1.0105, i64 -1
+  %arrayidx47 = getelementptr inbounds i8, ptr %entry1.0105, i64 -24
   store ptr %add.ptr26.pn102, ptr %arrayidx47, align 8
   %dec = add i32 %entries.0104, -1
   br label %for.inc62
@@ -105,14 +101,14 @@ if.then45:                                        ; preds = %for.end42
 if.else:                                          ; preds = %for.end42
   %and = and i32 %xor, %sub10
   store ptr %add.ptr26.pn102, ptr %entry1.0105, align 8
-  %val53 = getelementptr inbounds %struct.index_entry, ptr %entry1.0105, i64 0, i32 1
+  %val53 = getelementptr inbounds i8, ptr %entry1.0105, i64 8
   store i32 %xor, ptr %val53, align 8
   %idxprom54 = zext i32 %and to i64
   %arrayidx55 = getelementptr inbounds ptr, ptr %call, i64 %idxprom54
   %2 = load ptr, ptr %arrayidx55, align 8
-  %next = getelementptr inbounds %struct.unpacked_index_entry, ptr %entry1.0105, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %entry1.0105, i64 16
   store ptr %2, ptr %next, align 8
-  %incdec.ptr = getelementptr inbounds %struct.unpacked_index_entry, ptr %entry1.0105, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %entry1.0105, i64 24
   store ptr %entry1.0105, ptr %arrayidx55, align 8
   %arrayidx59 = getelementptr inbounds i32, ptr %call20, i64 %idxprom54
   %3 = load i32, ptr %arrayidx59, align 4
@@ -154,23 +150,23 @@ do.body:                                          ; preds = %if.end95, %if.end74
   br i1 %cmp85, label %do.body88, label %do.body.if.end95_crit_edge
 
 do.body.if.end95_crit_edge:                       ; preds = %do.body
-  %next96.phi.trans.insert = getelementptr inbounds %struct.unpacked_index_entry, ptr %entry1.2, i64 0, i32 1
+  %next96.phi.trans.insert = getelementptr inbounds i8, ptr %entry1.2, i64 16
   %.pre = load ptr, ptr %next96.phi.trans.insert, align 8
   br label %if.end95
 
 do.body88:                                        ; preds = %do.body, %do.body88
   %entry1.3 = phi ptr [ %6, %do.body88 ], [ %entry1.2, %do.body ]
   %acc.1 = phi i32 [ %sub90, %do.body88 ], [ %add84, %do.body ]
-  %next89 = getelementptr inbounds %struct.unpacked_index_entry, ptr %entry1.3, i64 0, i32 1
+  %next89 = getelementptr inbounds i8, ptr %entry1.3, i64 16
   %6 = load ptr, ptr %next89, align 8
   %sub90 = add nsw i32 %acc.1, -64
   %cmp91 = icmp ugt i32 %acc.1, 64
   br i1 %cmp91, label %do.body88, label %do.end, !llvm.loop !9
 
 do.end:                                           ; preds = %do.body88
-  %next93 = getelementptr inbounds %struct.unpacked_index_entry, ptr %6, i64 0, i32 1
+  %next93 = getelementptr inbounds i8, ptr %6, i64 16
   %7 = load ptr, ptr %next93, align 8
-  %next94 = getelementptr inbounds %struct.unpacked_index_entry, ptr %entry1.2, i64 0, i32 1
+  %next94 = getelementptr inbounds i8, ptr %entry1.2, i64 16
   store ptr %7, ptr %next94, align 8
   br label %if.end95
 
@@ -209,13 +205,13 @@ if.then112:                                       ; preds = %for.end102
 
 if.end113:                                        ; preds = %for.end102
   store i64 %add109, ptr %call110, align 8
-  %src_buf = getelementptr inbounds %struct.delta_index, ptr %call110, i64 0, i32 1
+  %src_buf = getelementptr inbounds i8, ptr %call110, i64 8
   store ptr %buf, ptr %src_buf, align 8
-  %src_size = getelementptr inbounds %struct.delta_index, ptr %call110, i64 0, i32 2
+  %src_size = getelementptr inbounds i8, ptr %call110, i64 16
   store i64 %bufsize, ptr %src_size, align 8
-  %hash_mask = getelementptr inbounds %struct.delta_index, ptr %call110, i64 0, i32 3
+  %hash_mask = getelementptr inbounds i8, ptr %call110, i64 24
   store i32 %sub10, ptr %hash_mask, align 8
-  %hash115 = getelementptr inbounds %struct.delta_index, ptr %call110, i64 0, i32 4
+  %hash115 = getelementptr inbounds i8, ptr %call110, i64 32
   %add.ptr118 = getelementptr inbounds ptr, ptr %hash115, i64 %conv104
   br label %for.body122
 
@@ -232,9 +228,9 @@ for.body122:                                      ; preds = %if.end113, %for.inc
 for.body129:                                      ; preds = %for.body122, %for.body129
   %entry1.5112 = phi ptr [ %entry1.5, %for.body129 ], [ %entry1.5109, %for.body122 ]
   %packed_entry.1111 = phi ptr [ %incdec.ptr130, %for.body129 ], [ %packed_entry.0114, %for.body122 ]
-  %incdec.ptr130 = getelementptr inbounds %struct.index_entry, ptr %packed_entry.1111, i64 1
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %packed_entry.1111, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %packed_entry.1111, ptr noundef nonnull align 8 dereferenceable(16) %entry1.5112, i64 16, i1 false)
-  %next133 = getelementptr inbounds %struct.unpacked_index_entry, ptr %entry1.5112, i64 0, i32 1
+  %next133 = getelementptr inbounds i8, ptr %entry1.5112, i64 16
   %entry1.5 = load ptr, ptr %next133, align 8
   %tobool128.not = icmp eq ptr %entry1.5, null
   br i1 %tobool128.not, label %for.inc135, label %for.body129, !llvm.loop !12
@@ -314,7 +310,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %src_size = getelementptr inbounds %struct.delta_index, ptr %index, i64 0, i32 2
+  %src_size = getelementptr inbounds i8, ptr %index, i64 16
   %0 = load i64, ptr %src_size, align 8
   %cmp9190 = icmp ugt i64 %0, 127
   br i1 %cmp9190, label %while.body, label %while.end
@@ -360,7 +356,7 @@ while.end22:                                      ; preds = %while.body16, %whil
   %conv23 = trunc i64 %l.1.lcssa to i8
   %arrayidx25 = getelementptr inbounds i8, ptr %call, i64 %outpos.1.lcssa
   store i8 %conv23, ptr %arrayidx25, align 1
-  %src_buf = getelementptr inbounds %struct.delta_index, ptr %index, i64 0, i32 1
+  %src_buf = getelementptr inbounds i8, ptr %index, i64 8
   %3 = load ptr, ptr %src_buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %0
   %add.ptr27 = getelementptr inbounds i8, ptr %trg_buf, i64 %trg_size
@@ -389,7 +385,8 @@ while.cond40.preheader:                           ; preds = %for.body, %while.en
   br i1 %cmp41227, label %while.body43.lr.ph, label %while.end292
 
 while.body43.lr.ph:                               ; preds = %while.cond40.preheader
-  %hash_mask = getelementptr inbounds %struct.delta_index, ptr %index, i64 0, i32 3
+  %hash_mask = getelementptr inbounds i8, ptr %index, i64 24
+  %hash = getelementptr inbounds i8, ptr %index, i64 32
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.lhs.cast76 = ptrtoint ptr %add.ptr27 to i64
   %sub.ptr.rhs.cast117 = ptrtoint ptr %3 to i64
@@ -450,11 +447,11 @@ if.then46:                                        ; preds = %while.body43
   %17 = load i32, ptr %hash_mask, align 8
   %and = and i32 %xor58, %17
   %idxprom59 = zext i32 %and to i64
-  %arrayidx60 = getelementptr inbounds %struct.delta_index, ptr %index, i64 0, i32 4, i64 %idxprom59
+  %arrayidx60 = getelementptr inbounds [0 x ptr], ptr %hash, i64 0, i64 %idxprom59
   %18 = load ptr, ptr %arrayidx60, align 8
   %add63 = add i32 %and, 1
   %idxprom64 = zext i32 %add63 to i64
-  %arrayidx65 = getelementptr inbounds %struct.delta_index, ptr %index, i64 0, i32 4, i64 %idxprom64
+  %arrayidx65 = getelementptr inbounds [0 x ptr], ptr %hash, i64 0, i64 %idxprom64
   %19 = load ptr, ptr %arrayidx65, align 8
   %cmp66217 = icmp ult ptr %18, %19
   br i1 %cmp66217, label %for.body68.lr.ph, label %if.end127
@@ -468,7 +465,7 @@ for.body68:                                       ; preds = %for.body68.lr.ph, %
   %entry47.0220 = phi ptr [ %18, %for.body68.lr.ph ], [ %incdec.ptr125, %for.inc124 ]
   %moff.1219 = phi i64 [ %moff.0231, %for.body68.lr.ph ], [ %moff.2, %for.inc124 ]
   %msize.1218 = phi i64 [ %msize.0229, %for.body68.lr.ph ], [ %msize.2, %for.inc124 ]
-  %val70 = getelementptr inbounds %struct.index_entry, ptr %entry47.0220, i64 0, i32 1
+  %val70 = getelementptr inbounds i8, ptr %entry47.0220, i64 8
   %20 = load i32, ptr %val70, align 8
   %cmp71.not = icmp eq i32 %20, %xor58
   br i1 %cmp71.not, label %if.end74, label %for.inc124
@@ -531,7 +528,7 @@ if.then110:                                       ; preds = %while.end103
 for.inc124:                                       ; preds = %while.end103, %if.then110, %for.body68
   %msize.2 = phi i64 [ %msize.1218, %for.body68 ], [ %sub.ptr.sub107, %if.then110 ], [ %msize.1218, %while.end103 ]
   %moff.2 = phi i64 [ %moff.1219, %for.body68 ], [ %sub.ptr.sub118, %if.then110 ], [ %moff.1219, %while.end103 ]
-  %incdec.ptr125 = getelementptr inbounds %struct.index_entry, ptr %entry47.0220, i64 1
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %entry47.0220, i64 16
   %cmp66 = icmp ult ptr %incdec.ptr125, %19
   br i1 %cmp66, label %for.body68, label %if.end127, !llvm.loop !18
 

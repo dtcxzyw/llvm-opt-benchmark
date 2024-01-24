@@ -5,11 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.packed_git = type { %struct.hashmap_entry, ptr, %struct.list_head, ptr, i64, ptr, i64, i32, i64, %struct.oidset, i32, i64, i32, i32, i8, [32 x i8], ptr, ptr, ptr, i64, ptr, i64, [0 x i8] }
-%struct.hashmap_entry = type { ptr, i32 }
-%struct.list_head = type { ptr, ptr }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"pack-mtimes.c\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"pack .mtimes file not loaded for %s\00", align 1
@@ -30,13 +25,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i32 @load_pack_mtimes(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
-  %is_cruft = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 14
+  %is_cruft = getelementptr inbounds i8, ptr %p, i64 152
   %bf.load = load i8, ptr %is_cruft, align 8
   %tobool.not = icmp sgt i8 %bf.load, -1
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mtimes_map = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 20
+  %mtimes_map = getelementptr inbounds i8, ptr %p, i64 224
   %0 = load ptr, ptr %mtimes_map, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end3, label %return
@@ -47,7 +42,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %cleanup, label %if.end5
 
 if.end5:                                          ; preds = %if.end3
-  %pack_name.i = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name.i = getelementptr inbounds i8, ptr %p, i64 240
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pack_name.i) #10
   %cmp.i.i.i = icmp ult i64 %call.i.i, 5
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
@@ -66,9 +61,9 @@ if.then.i:                                        ; preds = %lor.lhs.false.i.i.i
 pack_mtimes_filename.exit:                        ; preds = %lor.lhs.false.i.i.i
   %conv.i = trunc i64 %sub.i.i.i to i32
   %call3.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, i32 noundef %conv.i, ptr noundef nonnull %pack_name.i) #9
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %1 = load i32, ptr %num_objects, align 8
-  %mtimes_size = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 21
+  %mtimes_size = getelementptr inbounds i8, ptr %p, i64 232
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   %call.i = tail call i32 @git_open_cloexec(ptr noundef %call3.i, i32 noundef 0) #9
   %cmp.i = icmp slt i32 %call.i, 0
@@ -94,7 +89,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   br label %if.then68.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %st_size.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 8
+  %st_size.i = getelementptr inbounds i8, ptr %st.i, i64 48
   %3 = load i64, ptr %st_size.i, align 8
   %cmp.i.i = icmp slt i64 %3, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %xsize_t.exit.i
@@ -125,10 +120,10 @@ if.end13.i:                                       ; preds = %xsize_t.exit.i
   %call14.i = tail call ptr @xmmap(ptr noundef null, i64 noundef %3, i32 noundef 1, i32 noundef 2, i32 noundef %call.i, i64 noundef 0) #9
   %5 = load i32, ptr %call14.i, align 4
   %6 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %5) #12, !srcloc !5
-  %arrayidx16.i = getelementptr inbounds i32, ptr %call14.i, i64 1
+  %arrayidx16.i = getelementptr inbounds i8, ptr %call14.i, i64 4
   %7 = load i32, ptr %arrayidx16.i, align 4
   %8 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %7) #12, !srcloc !5
-  %arrayidx18.i = getelementptr inbounds i32, ptr %call14.i, i64 2
+  %arrayidx18.i = getelementptr inbounds i8, ptr %call14.i, i64 8
   %9 = load i32, ptr %arrayidx18.i, align 4
   %10 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %9) #12, !srcloc !5
   %cmp21.not.i = icmp eq i32 %6, 1297370437
@@ -247,18 +242,18 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @nth_packed_mtime(ptr noundef %p, i32 noundef %pos) local_unnamed_addr #0 {
 entry:
-  %mtimes_map = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 20
+  %mtimes_map = getelementptr inbounds i8, ptr %p, i64 224
   %0 = load ptr, ptr %mtimes_map, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pack_name = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 22
+  %pack_name = getelementptr inbounds i8, ptr %p, i64 240
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @.str.1, ptr noundef nonnull %pack_name) #11
   unreachable
 
 if.end:                                           ; preds = %entry
-  %num_objects = getelementptr inbounds %struct.packed_git, ptr %p, i64 0, i32 7
+  %num_objects = getelementptr inbounds i8, ptr %p, i64 72
   %1 = load i32, ptr %num_objects, align 8
   %cmp.not = icmp ugt i32 %1, %pos
   br i1 %cmp.not, label %if.end3, label %if.then1
@@ -270,7 +265,7 @@ if.then1:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %idx.ext = zext i32 %pos to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
-  %add.ptr5 = getelementptr inbounds i32, ptr %add.ptr, i64 3
+  %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %2 = load i8, ptr %add.ptr5, align 1
   %conv.i = zext i8 %2 to i32
   %shl.i = shl nuw i32 %conv.i, 24

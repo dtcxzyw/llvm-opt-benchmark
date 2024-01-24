@@ -21,7 +21,7 @@ define void @"_ZN121_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf751eb8623fa692bE"(ptr nonnull sret({ { { i64, [4 x i64] }, {} }, ptr }) align 8 %4, ptr nonnull align 8 %3)
   %12 = call ptr @_ZN4core4iter6traits8iterator8Iterator7collect17h6e1119254a456ae7E(ptr nonnull align 8 %4)
-  %13 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
   store ptr null, ptr %0, align 8
   br label %16
@@ -63,9 +63,9 @@ define zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..Part
   %.fca.0.extract = extractvalue { ptr, i64 } %6, 0
   store ptr %.fca.0.extract, ptr %5, align 8
   %.fca.1.extract = extractvalue { ptr, i64 } %6, 1
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %7 = getelementptr inbounds { [24 x i8], i8, [7 x i8] }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 2
   br i1 %9, label %10, label %12

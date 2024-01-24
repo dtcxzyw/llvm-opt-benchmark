@@ -13,9 +13,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10serde_json4read9Reference8Borrowed17h578e89195fb7cd4aE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   store i64 0, ptr %0, align 8
   ret void
@@ -23,9 +23,9 @@ define void @_ZN10serde_json4read9Reference8Borrowed17h578e89195fb7cd4aE(ptr noc
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10serde_json4read9Reference8Borrowed17h87e394840117a683E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   store i64 0, ptr %0, align 8
   ret void
@@ -33,9 +33,9 @@ define void @_ZN10serde_json4read9Reference8Borrowed17h87e394840117a683E(ptr noc
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10serde_json4read9Reference6Copied17h8227c3596da4bcffE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   store i64 1, ptr %0, align 8
   ret void
@@ -43,9 +43,9 @@ define void @_ZN10serde_json4read9Reference6Copied17h8227c3596da4bcffE(ptr nocap
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN10serde_json4read9Reference6Copied17h9d074f0b3b89af42E(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   store i64 1, ptr %0, align 8
   ret void
@@ -59,8 +59,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17h5aba11fdea
   %8 = alloca { ptr, [1 x i64] }, align 8
   %9 = alloca { ptr, [1 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !5
   %.promoted55 = load i64, ptr %11, align 8
   %14 = icmp ult i64 %.promoted55, %13
@@ -179,7 +179,7 @@ _ZN10serde_json4read5error17h208b431ba896d338E.exit: ; preds = %50
   %57 = extractvalue { i64, i64 } %51, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %58 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %6, i64 %56, i64 %57)
-  %59 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %58, ptr %59, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -229,7 +229,7 @@ _ZN10serde_json4read5error17h208b431ba896d338E.exit: ; preds = %50
   %82 = icmp ne ptr %80, null
   tail call void @llvm.assume(i1 %82)
   store ptr %80, ptr %8, align 8, !alias.scope !8
-  %83 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 0, i32 1
+  %83 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %81, ptr %83, align 8, !alias.scope !8
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h89f2ee09230a451dE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %8)
   br label %104
@@ -244,7 +244,7 @@ _ZN10serde_json4read5error17h208b431ba896d338E.exit: ; preds = %50
   %90 = icmp ne ptr %86, null
   tail call void @llvm.assume(i1 %90)
   store ptr %86, ptr %9, align 8, !alias.scope !11
-  %91 = getelementptr inbounds { ptr, i64 }, ptr %9, i64 0, i32 1
+  %91 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %87, ptr %91, align 8, !alias.scope !11
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha210d28cc07468f1E"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %9)
   br label %104
@@ -257,7 +257,7 @@ _ZN10serde_json4read5error17h208b431ba896d338E.exit: ; preds = %50
 
 .split63.us:                                      ; preds = %.split44, %.split44.us.us
   %.us-phi64 = phi ptr [ %35, %.split44.us.us ], [ %71, %.split44 ]
-  %95 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %95 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.us-phi64, ptr %95, align 8
   store i64 2, ptr %0, align 8
   br label %104
@@ -279,7 +279,7 @@ _ZN10serde_json4read5error17h208b431ba896d338E.exit20: ; preds = %.split68.us
   %101 = extractvalue { i64, i64 } %40, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %102 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %5, i64 %100, i64 %101)
-  %103 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %103 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %102, ptr %103, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -297,8 +297,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17ha7512e584c
   %8 = alloca { ptr, [1 x i64] }, align 8
   %9 = alloca { ptr, [1 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !5
   %.promoted55 = load i64, ptr %11, align 8
   %14 = icmp ult i64 %.promoted55, %13
@@ -417,7 +417,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit: ; preds = %50
   %57 = extractvalue { i64, i64 } %51, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %58 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %6, i64 %56, i64 %57)
-  %59 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %58, ptr %59, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -471,7 +471,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit: ; preds = %50
   %84 = extractvalue { ptr, i64 } %83, 0
   %85 = extractvalue { ptr, i64 } %83, 1
   store ptr %84, ptr %8, align 8, !alias.scope !14
-  %86 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 0, i32 1
+  %86 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %85, ptr %86, align 8, !alias.scope !14
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcdb78ab8a24768bdE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %8)
   br label %110
@@ -490,7 +490,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit: ; preds = %50
   %95 = extractvalue { ptr, i64 } %94, 0
   %96 = extractvalue { ptr, i64 } %94, 1
   store ptr %95, ptr %9, align 8, !alias.scope !17
-  %97 = getelementptr inbounds { ptr, i64 }, ptr %9, i64 0, i32 1
+  %97 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %96, ptr %97, align 8, !alias.scope !17
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17he9d5ffbfddf0d59fE"(ptr sret({ i64, [2 x i64] }) align 8 %0, ptr nonnull align 8 %9)
   br label %110
@@ -503,7 +503,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit: ; preds = %50
 
 .split63.us:                                      ; preds = %.split44, %.split44.us.us
   %.us-phi64 = phi ptr [ %35, %.split44.us.us ], [ %71, %.split44 ]
-  %101 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %101 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.us-phi64, ptr %101, align 8
   store i64 2, ptr %0, align 8
   br label %110
@@ -525,7 +525,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit20: ; preds = %.split68.us
   %107 = extractvalue { i64, i64 } %40, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %108 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %5, i64 %106, i64 %107)
-  %109 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %109 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %108, ptr %109, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -543,8 +543,8 @@ define hidden void @_ZN10serde_json4read9SliceRead15parse_str_bytes17hebeec78a1f
   %8 = alloca { ptr, [1 x i64] }, align 8
   %9 = alloca { ptr, [1 x i64] }, align 8
   %10 = alloca { i64, [2 x i64] }, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %1, i64 0, i32 1
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !5
   %.promoted55 = load i64, ptr %11, align 8
   %14 = icmp ult i64 %.promoted55, %13
@@ -663,7 +663,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit: ; preds = %50
   %57 = extractvalue { i64, i64 } %51, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %58 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %6, i64 %56, i64 %57)
-  %59 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %58, ptr %59, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -737,7 +737,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit: ; preds = %50
 
 .split63.us:                                      ; preds = %.split44, %.split44.us.us
   %.us-phi64 = phi ptr [ %35, %.split44.us.us ], [ %71, %.split44 ]
-  %93 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.us-phi64, ptr %93, align 8
   store i64 2, ptr %0, align 8
   br label %102
@@ -759,7 +759,7 @@ _ZN10serde_json4read5error17h71a585efa683ce4dE.exit20: ; preds = %.split68.us
   %99 = extractvalue { i64, i64 } %40, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %100 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %5, i64 %98, i64 %99)
-  %101 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %101 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %100, ptr %101, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -780,15 +780,15 @@ define void @_ZN10serde_json4read11next_or_eof17h63aabf45baeae591E(ptr nocapture
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1, !range !7, !noundef !5
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %16, label %27
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !align !20, !noundef !5
-  %15 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
   store i8 1, ptr %0, align 8
   br label %31
@@ -819,16 +819,16 @@ _ZN10serde_json4read5error17hb2af2d0b07cb5d2bE.exit: ; preds = %16
   %24 = extractvalue { i64, i64 } %17, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %25 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %3, i64 %23, i64 %24)
-  %26 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %25, ptr %26, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %31
 
 27:                                               ; preds = %8
-  %28 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1, i32 1
+  %28 = getelementptr inbounds i8, ptr %5, i64 2
   %29 = load i8, ptr %28, align 2
-  %30 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %29, ptr %30, align 1
   store i8 0, ptr %0, align 8
   br label %31
@@ -848,15 +848,15 @@ define void @_ZN10serde_json4read11peek_or_eof17h348e45b389a0dab7E(ptr nocapture
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1, !range !7, !noundef !5
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %16, label %27
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !5, !align !20, !noundef !5
-  %15 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
   store i8 1, ptr %0, align 8
   br label %31
@@ -887,16 +887,16 @@ _ZN10serde_json4read5error17hb2af2d0b07cb5d2bE.exit: ; preds = %16
   %24 = extractvalue { i64, i64 } %17, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %25 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %3, i64 %23, i64 %24)
-  %26 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %25, ptr %26, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %31
 
 27:                                               ; preds = %8
-  %28 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1, i32 1
+  %28 = getelementptr inbounds i8, ptr %5, i64 2
   %29 = load i8, ptr %28, align 2
-  %30 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %30 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %29, ptr %30, align 1
   store i8 0, ptr %0, align 8
   br label %31
@@ -916,7 +916,7 @@ define void @_ZN10serde_json4read5error17h001a193602852638E(ptr nocapture writeo
   %8 = extractvalue { i64, i64 } %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %9 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 %7, i64 %8)
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   store ptr null, ptr %0, align 8
   ret void
@@ -948,7 +948,7 @@ define void @_ZN10serde_json4read5error17h208b431ba896d338E(ptr nocapture writeo
   %8 = extractvalue { i64, i64 } %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %9 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 %7, i64 %8)
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
@@ -980,7 +980,7 @@ define void @_ZN10serde_json4read5error17h4924eb355f3d7430E(ptr nocapture writeo
   %8 = extractvalue { i64, i64 } %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %9 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 %7, i64 %8)
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   store i16 1, ptr %0, align 8
   ret void
@@ -1041,7 +1041,7 @@ define void @_ZN10serde_json4read5error17h71a585efa683ce4dE(ptr nocapture writeo
   %8 = extractvalue { i64, i64 } %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %9 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 %7, i64 %8)
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   store i64 2, ptr %0, align 8
   ret void
@@ -1073,7 +1073,7 @@ define void @_ZN10serde_json4read5error17hb2af2d0b07cb5d2bE(ptr nocapture writeo
   %8 = extractvalue { i64, i64 } %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %9 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 %7, i64 %8)
-  %10 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   store i8 1, ptr %0, align 8
   ret void
@@ -1135,7 +1135,7 @@ _ZN10serde_json4read5error17h001a193602852638E.exit: ; preds = %3
   %14 = extractvalue { i64, i64 } %7, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %15 = call align 8 ptr @_ZN10serde_json5error5Error6syntax17h6e293b122ab5844fE(ptr nonnull align 8 %4, i64 %13, i64 %14)
-  %16 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -1167,13 +1167,13 @@ define align 8 ptr @_ZN10serde_json4read12parse_escape17hf1f5b4b07ba237f0E(ptr a
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %7, i64 1
   %23 = load i8, ptr %22, align 1, !range !7, !noundef !5
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %28, label %37
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %7, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !5, !align !20, !noundef !5
   br label %40
 
@@ -1208,7 +1208,7 @@ _ZN10serde_json4read5error17hb2af2d0b07cb5d2bE.exit.i: ; preds = %28
   br label %40
 
 37:                                               ; preds = %21
-  %38 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %7, i64 0, i32 1, i32 1
+  %38 = getelementptr inbounds i8, ptr %7, i64 2
   %39 = load i8, ptr %38, align 2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1297,7 +1297,7 @@ _ZN10serde_json4read5error17h6316cd01b842fff7E.exit: ; preds = %42
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds { [1 x i16], i16 }, ptr %18, i64 0, i32 1
+  %63 = getelementptr inbounds i8, ptr %18, i64 2
   %64 = load i16, ptr %63, align 2, !noundef !5
   %65 = and i16 %64, -1024
   switch i16 %65, label %70 [
@@ -1306,7 +1306,7 @@ _ZN10serde_json4read5error17h6316cd01b842fff7E.exit: ; preds = %42
   ]
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds { [1 x i64], ptr }, ptr %18, i64 0, i32 1
+  %67 = getelementptr inbounds i8, ptr %18, i64 8
   %68 = load ptr, ptr %67, align 8, !nonnull !5, !align !20, !noundef !5
   br label %124
 
@@ -1335,13 +1335,13 @@ _ZN10serde_json4read5error17h6316cd01b842fff7E.exit: ; preds = %42
   br label %124
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds { [1 x i8], i8 }, ptr %16, i64 0, i32 1
+  %82 = getelementptr inbounds i8, ptr %16, i64 1
   %83 = load i8, ptr %82, align 1, !noundef !5
   %84 = icmp eq i8 %83, 92
   br i1 %84, label %88, label %91
 
 85:                                               ; preds = %74
-  %86 = getelementptr inbounds { [1 x i64], ptr }, ptr %16, i64 0, i32 1
+  %86 = getelementptr inbounds i8, ptr %16, i64 8
   %87 = load ptr, ptr %86, align 8, !nonnull !5, !align !20, !noundef !5
   br label %124
 
@@ -1356,13 +1356,13 @@ _ZN10serde_json4read5error17h6316cd01b842fff7E.exit: ; preds = %42
   br i1 %1, label %130, label %129
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds { [1 x i8], i8 }, ptr %14, i64 0, i32 1
+  %93 = getelementptr inbounds i8, ptr %14, i64 1
   %94 = load i8, ptr %93, align 1, !noundef !5
   %95 = icmp eq i8 %94, 117
   br i1 %95, label %99, label %102
 
 96:                                               ; preds = %88
-  %97 = getelementptr inbounds { [1 x i64], ptr }, ptr %14, i64 0, i32 1
+  %97 = getelementptr inbounds i8, ptr %14, i64 8
   %98 = load ptr, ptr %97, align 8, !nonnull !5, !align !20, !noundef !5
   br label %124
 
@@ -1377,14 +1377,14 @@ _ZN10serde_json4read5error17h6316cd01b842fff7E.exit: ; preds = %42
   br i1 %1, label %127, label %125
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds { [1 x i16], i16 }, ptr %12, i64 0, i32 1
+  %104 = getelementptr inbounds i8, ptr %12, i64 2
   %105 = load i16, ptr %104, align 2, !noundef !5
   %106 = add i16 %105, 8192
   %or.cond2 = icmp ult i16 %106, -1024
   br i1 %or.cond2, label %110, label %112
 
 107:                                              ; preds = %99
-  %108 = getelementptr inbounds { [1 x i64], ptr }, ptr %12, i64 0, i32 1
+  %108 = getelementptr inbounds i8, ptr %12, i64 8
   %109 = load ptr, ptr %108, align 8, !nonnull !5, !align !20, !noundef !5
   br label %124
 
@@ -1461,13 +1461,13 @@ define align 8 ptr @_ZN10serde_json4read13ignore_escape17h717ff538559c06d9E(ptr 
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %5, i64 1
   %12 = load i8, ptr %11, align 1, !range !7, !noundef !5
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %17, label %26
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds { [1 x i64], ptr }, ptr %5, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !5, !align !20, !noundef !5
   br label %29
 
@@ -1502,7 +1502,7 @@ _ZN10serde_json4read5error17hb2af2d0b07cb5d2bE.exit.i: ; preds = %17
   br label %29
 
 26:                                               ; preds = %10
-  %27 = getelementptr inbounds { [1 x i8], { i8, i8 } }, ptr %5, i64 0, i32 1, i32 1
+  %27 = getelementptr inbounds i8, ptr %5, i64 2
   %28 = load i8, ptr %27, align 2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -1559,7 +1559,7 @@ _ZN10serde_json4read5error17h6316cd01b842fff7E.exit: ; preds = %31
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds { [1 x i64], ptr }, ptr %7, i64 0, i32 1
+  %44 = getelementptr inbounds i8, ptr %7, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !align !20, !noundef !5
   br label %46
 

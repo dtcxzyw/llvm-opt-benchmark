@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%"class.rocksdb::Logger" = type <{ ptr, i64, i8, i8, [6 x i8] }>
 
 $_ZN7rocksdb6Logger9LogHeaderEPKcP13__va_list_tag = comdat any
 
@@ -59,7 +58,7 @@ entry:
   %t = alloca %struct.tm, align 8
   %call = tail call noundef ptr @_ZN7rocksdb3Env7DefaultEv()
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 81
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 648
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(72) %call)
   %call.i = call i32 @gettimeofday(ptr noundef nonnull %now_tv, ptr noundef null) #7
@@ -67,20 +66,20 @@ entry:
   store i64 %1, ptr %seconds, align 8
   %call.i1 = call noundef ptr @localtime_r(ptr noundef nonnull %seconds, ptr noundef nonnull %t) #7
   %2 = load ptr, ptr @stderr, align 8
-  %tm_year = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %t, i64 20
   %3 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %3, 1900
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %t, i64 16
   %4 = load i32, ptr %tm_mon, align 8
   %add4 = add nsw i32 %4, 1
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %t, i64 12
   %5 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %t, i64 8
   %6 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %t, i64 4
   %7 = load i32, ptr %tm_min, align 4
   %8 = load i32, ptr %t, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %now_tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %now_tv, i64 8
   %9 = load i64, ptr %tv_usec, align 8
   %conv = trunc i64 %9 to i32
   %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef %add, i32 noundef %add4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %conv, i64 noundef %call2) #9
@@ -105,7 +104,7 @@ declare void @_ZN7rocksdb6Logger5CloseEv(ptr sret(%"class.rocksdb::Status") alig
 define linkonce_odr void @_ZN7rocksdb6Logger9LogHeaderEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef %format, ptr noundef %ap) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(18) %this, i8 noundef zeroext 1, ptr noundef %format, ptr noundef %ap)
   ret void
@@ -116,7 +115,7 @@ declare void @_ZN7rocksdb6Logger4LogvENS_12InfoLogLevelEPKcP13__va_list_tag(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb6Logger14GetLogFileSizeEv(ptr noundef nonnull align 8 dereferenceable(18) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %kDoNotSupportGetLogFileSize = getelementptr inbounds %"class.rocksdb::Logger", ptr %this, i64 0, i32 1
+  %kDoNotSupportGetLogFileSize = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %kDoNotSupportGetLogFileSize, align 8
   ret i64 %0
 }
@@ -130,7 +129,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK7rocksdb6Logger15GetInfoLogLevelEv(ptr noundef nonnull align 8 dereferenceable(18) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %log_level_ = getelementptr inbounds %"class.rocksdb::Logger", ptr %this, i64 0, i32 3
+  %log_level_ = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %log_level_, align 1
   ret i8 %0
 }
@@ -138,7 +137,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb6Logger15SetInfoLogLevelENS_12InfoLogLevelE(ptr noundef nonnull align 8 dereferenceable(18) %this, i8 noundef zeroext %log_level) unnamed_addr #0 comdat align 2 {
 entry:
-  %log_level_ = getelementptr inbounds %"class.rocksdb::Logger", ptr %this, i64 0, i32 3
+  %log_level_ = getelementptr inbounds i8, ptr %this, i64 17
   store i8 %log_level, ptr %log_level_, align 1
   ret void
 }

@@ -11,16 +11,16 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN12aho_corasick4util6search5Input3new17hfd614ba3e1d64033E(ptr nocapture writeonly sret({ { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %2, ptr %5, align 8
   store i64 0, ptr %0, align 8
-  %6 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 3
+  %8 = getelementptr inbounds i8, ptr %0, i64 33
   store i8 0, ptr %8, align 1
   ret void
 }
@@ -39,9 +39,9 @@ define void @_ZN12aho_corasick4util6search5Input4span17h2b492bc0a1b6ee81E(ptr no
   %.fca.0.extract.i = extractvalue { i64, i64 } %9, 0
   store i64 %.fca.0.extract.i, ptr %8, align 8
   %.fca.1.extract.i = extractvalue { i64, i64 } %9, 1
-  %.fca.1.gep.i = getelementptr inbounds { i64, i64 }, ptr %8, i64 0, i32 1
+  %.fca.1.gep.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.fca.1.extract.i, ptr %.fca.1.gep.i, align 8
-  %10 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %1, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !5
   %.not.i = icmp ugt i64 %.fca.1.extract.i, %11
   %12 = add i64 %.fca.1.extract.i, 1
@@ -52,11 +52,11 @@ define void @_ZN12aho_corasick4util6search5Input4span17h2b492bc0a1b6ee81E(ptr no
 13:                                               ; preds = %4
   store i64 %11, ptr %5, align 8
   store ptr %8, ptr %6, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN69_$LT$aho_corasick..util..search..Span$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4f175f79910cffeE", ptr %14, align 8
-  %15 = getelementptr inbounds [2 x { ptr, ptr }], ptr %6, i64 0, i64 1
+  %15 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %15, align 8
-  %16 = getelementptr inbounds [2 x { ptr, ptr }], ptr %6, i64 0, i64 1, i32 1
+  %16 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %16, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr nonnull align 8 @anon.d1129deba568b35df0b9190d9d4b6bc0.2, i64 2, ptr nonnull align 8 %6, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.d1129deba568b35df0b9190d9d4b6bc0.4) #7
@@ -64,7 +64,7 @@ define void @_ZN12aho_corasick4util6search5Input4span17h2b492bc0a1b6ee81E(ptr no
 
 _ZN12aho_corasick4util6search5Input8set_span17h0e4d009ead1b9f67E.exit: ; preds = %4
   store i64 %.fca.0.extract.i, ptr %1, align 8
-  %17 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %.fca.1.extract.i, ptr %17, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -84,9 +84,9 @@ define void @_ZN12aho_corasick4util6search5Input8set_span17h0e4d009ead1b9f67E(pt
   %.fca.0.extract = extractvalue { i64, i64 } %8, 0
   store i64 %.fca.0.extract, ptr %7, align 8
   %.fca.1.extract = extractvalue { i64, i64 } %8, 1
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %7, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %9 = getelementptr inbounds { { i64, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !5
   %.not = icmp ugt i64 %.fca.1.extract, %10
   %11 = add i64 %.fca.1.extract, 1
@@ -97,11 +97,11 @@ define void @_ZN12aho_corasick4util6search5Input8set_span17h0e4d009ead1b9f67E(pt
 12:                                               ; preds = %3
   store i64 %10, ptr %4, align 8
   store ptr %7, ptr %5, align 8
-  %13 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN69_$LT$aho_corasick..util..search..Span$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4f175f79910cffeE", ptr %13, align 8
-  %14 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1
+  %14 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %4, ptr %14, align 8
-  %15 = getelementptr inbounds [2 x { ptr, ptr }], ptr %5, i64 0, i64 1, i32 1
+  %15 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17ha1a895f323c363e4E", ptr %15, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h051e31f362cb8353E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 8 @anon.d1129deba568b35df0b9190d9d4b6bc0.2, i64 2, ptr nonnull align 8 %5, i64 2)
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.d1129deba568b35df0b9190d9d4b6bc0.4) #7
@@ -109,7 +109,7 @@ define void @_ZN12aho_corasick4util6search5Input8set_span17h0e4d009ead1b9f67E(pt
 
 16:                                               ; preds = %3
   store i64 %.fca.0.extract, ptr %0, align 8
-  %17 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.fca.1.extract, ptr %17, align 8
   ret void
 }

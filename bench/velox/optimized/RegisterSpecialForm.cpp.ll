@@ -13,8 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.facebook::velox::exec::ConjunctCallToSpecialForm" = type <{ %"class.facebook::velox::exec::FunctionCallToSpecialForm", i8, [7 x i8] }>
-%"class.facebook::velox::exec::FunctionCallToSpecialForm" = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
@@ -95,7 +93,7 @@ invoke.cont:                                      ; preds = %.noexc
 
 invoke.cont5:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i30, align 8, !noalias !4
-  %isAnd_.i.i = getelementptr inbounds %"class.facebook::velox::exec::ConjunctCallToSpecialForm", ptr %call.i30, i64 0, i32 1
+  %isAnd_.i.i = getelementptr inbounds i8, ptr %call.i30, i64 8
   store i8 1, ptr %isAnd_.i.i, align 8, !noalias !4
   store ptr %call.i30, ptr %agg.tmp, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %agg.tmp)
@@ -108,7 +106,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i: ; preds = %invoke.cont7
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec25ConjunctCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -152,7 +150,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i45: ; preds = %invoke.cont18
   %vtable.i.i46 = load ptr, ptr %4, align 8
-  %vfn.i.i47 = getelementptr inbounds ptr, ptr %vtable.i.i46, i64 1
+  %vfn.i.i47 = getelementptr inbounds i8, ptr %vtable.i.i46, i64 8
   %5 = load ptr, ptr %vfn.i.i47, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec21CastCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -196,7 +194,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i63: ; preds = %invoke.cont32
   %vtable.i.i64 = load ptr, ptr %7, align 8
-  %vfn.i.i65 = getelementptr inbounds ptr, ptr %vtable.i.i64, i64 1
+  %vfn.i.i65 = getelementptr inbounds i8, ptr %vtable.i.i64, i64 8
   %8 = load ptr, ptr %vfn.i.i65, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec24TryCastCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -240,7 +238,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i81: ; preds = %invoke.cont46
   %vtable.i.i82 = load ptr, ptr %10, align 8
-  %vfn.i.i83 = getelementptr inbounds ptr, ptr %vtable.i.i82, i64 1
+  %vfn.i.i83 = getelementptr inbounds i8, ptr %vtable.i.i82, i64 8
   %11 = load ptr, ptr %vfn.i.i83, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec25CoalesceCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -284,7 +282,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i99: ; preds = %invoke.cont60
   %vtable.i.i100 = load ptr, ptr %13, align 8
-  %vfn.i.i101 = getelementptr inbounds ptr, ptr %vtable.i.i100, i64 1
+  %vfn.i.i101 = getelementptr inbounds i8, ptr %vtable.i.i100, i64 8
   %14 = load ptr, ptr %vfn.i.i101, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec19IfCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -317,7 +315,7 @@ invoke.cont68:                                    ; preds = %.noexc111
 
 invoke.cont73:                                    ; preds = %invoke.cont68
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i116, align 8, !noalias !19
-  %isAnd_.i.i114 = getelementptr inbounds %"class.facebook::velox::exec::ConjunctCallToSpecialForm", ptr %call.i116, i64 0, i32 1
+  %isAnd_.i.i114 = getelementptr inbounds i8, ptr %call.i116, i64 8
   store i8 0, ptr %isAnd_.i.i114, align 8, !noalias !19
   store ptr %call.i116, ptr %agg.tmp69, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65, ptr noundef nonnull %agg.tmp69)
@@ -330,7 +328,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i119: ; preds = %invoke.cont75
   %vtable.i.i120 = load ptr, ptr %16, align 8
-  %vfn.i.i121 = getelementptr inbounds ptr, ptr %vtable.i.i120, i64 1
+  %vfn.i.i121 = getelementptr inbounds i8, ptr %vtable.i.i120, i64 8
   %17 = load ptr, ptr %vfn.i.i121, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec25ConjunctCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit127
@@ -374,7 +372,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i139: ; preds = %invoke.cont89
   %vtable.i.i140 = load ptr, ptr %19, align 8
-  %vfn.i.i141 = getelementptr inbounds ptr, ptr %vtable.i.i140, i64 1
+  %vfn.i.i141 = getelementptr inbounds i8, ptr %vtable.i.i140, i64 8
   %20 = load ptr, ptr %vfn.i.i141, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec23SwitchCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -418,7 +416,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i157: ; preds = %invoke.cont103
   %vtable.i.i158 = load ptr, ptr %22, align 8
-  %vfn.i.i159 = getelementptr inbounds ptr, ptr %vtable.i.i158, i64 1
+  %vfn.i.i159 = getelementptr inbounds i8, ptr %vtable.i.i158, i64 8
   %23 = load ptr, ptr %vfn.i.i159, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec20TryCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -462,7 +460,7 @@ invoke.cont117:                                   ; preds = %invoke.cont115
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i175: ; preds = %invoke.cont117
   %vtable.i.i176 = load ptr, ptr %25, align 8
-  %vfn.i.i177 = getelementptr inbounds ptr, ptr %vtable.i.i176, i64 1
+  %vfn.i.i177 = getelementptr inbounds i8, ptr %vtable.i.i176, i64 8
   %26 = load ptr, ptr %vfn.i.i177, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec31RowConstructorCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit
@@ -492,7 +490,7 @@ lpad6:                                            ; preds = %invoke.cont5
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i183: ; preds = %lpad6
   %vtable.i.i184 = load ptr, ptr %30, align 8
-  %vfn.i.i185 = getelementptr inbounds ptr, ptr %vtable.i.i184, i64 1
+  %vfn.i.i185 = getelementptr inbounds i8, ptr %vtable.i.i184, i64 8
   %31 = load ptr, ptr %vfn.i.i185, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec25ConjunctCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit191
@@ -525,7 +523,7 @@ lpad17:                                           ; preds = %invoke.cont16
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i193: ; preds = %lpad17
   %vtable.i.i194 = load ptr, ptr %35, align 8
-  %vfn.i.i195 = getelementptr inbounds ptr, ptr %vtable.i.i194, i64 1
+  %vfn.i.i195 = getelementptr inbounds i8, ptr %vtable.i.i194, i64 8
   %36 = load ptr, ptr %vfn.i.i195, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %35) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec21CastCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit201
@@ -558,7 +556,7 @@ lpad31:                                           ; preds = %invoke.cont30
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i203: ; preds = %lpad31
   %vtable.i.i204 = load ptr, ptr %40, align 8
-  %vfn.i.i205 = getelementptr inbounds ptr, ptr %vtable.i.i204, i64 1
+  %vfn.i.i205 = getelementptr inbounds i8, ptr %vtable.i.i204, i64 8
   %41 = load ptr, ptr %vfn.i.i205, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec24TryCastCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit211
@@ -591,7 +589,7 @@ lpad45:                                           ; preds = %invoke.cont44
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i213: ; preds = %lpad45
   %vtable.i.i214 = load ptr, ptr %45, align 8
-  %vfn.i.i215 = getelementptr inbounds ptr, ptr %vtable.i.i214, i64 1
+  %vfn.i.i215 = getelementptr inbounds i8, ptr %vtable.i.i214, i64 8
   %46 = load ptr, ptr %vfn.i.i215, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(8) %45) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec25CoalesceCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit221
@@ -624,7 +622,7 @@ lpad59:                                           ; preds = %invoke.cont58
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i223: ; preds = %lpad59
   %vtable.i.i224 = load ptr, ptr %50, align 8
-  %vfn.i.i225 = getelementptr inbounds ptr, ptr %vtable.i.i224, i64 1
+  %vfn.i.i225 = getelementptr inbounds i8, ptr %vtable.i.i224, i64 8
   %51 = load ptr, ptr %vfn.i.i225, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %50) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec19IfCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit231
@@ -657,7 +655,7 @@ lpad74:                                           ; preds = %invoke.cont73
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i233: ; preds = %lpad74
   %vtable.i.i234 = load ptr, ptr %55, align 8
-  %vfn.i.i235 = getelementptr inbounds ptr, ptr %vtable.i.i234, i64 1
+  %vfn.i.i235 = getelementptr inbounds i8, ptr %vtable.i.i234, i64 8
   %56 = load ptr, ptr %vfn.i.i235, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(8) %55) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec25ConjunctCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit241
@@ -690,7 +688,7 @@ lpad88:                                           ; preds = %invoke.cont87
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i243: ; preds = %lpad88
   %vtable.i.i244 = load ptr, ptr %60, align 8
-  %vfn.i.i245 = getelementptr inbounds ptr, ptr %vtable.i.i244, i64 1
+  %vfn.i.i245 = getelementptr inbounds i8, ptr %vtable.i.i244, i64 8
   %61 = load ptr, ptr %vfn.i.i245, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(8) %60) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec23SwitchCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit251
@@ -723,7 +721,7 @@ lpad102:                                          ; preds = %invoke.cont101
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i253: ; preds = %lpad102
   %vtable.i.i254 = load ptr, ptr %65, align 8
-  %vfn.i.i255 = getelementptr inbounds ptr, ptr %vtable.i.i254, i64 1
+  %vfn.i.i255 = getelementptr inbounds i8, ptr %vtable.i.i254, i64 8
   %66 = load ptr, ptr %vfn.i.i255, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %65) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec20TryCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit261
@@ -756,7 +754,7 @@ lpad116:                                          ; preds = %invoke.cont115
 
 _ZNKSt14default_deleteIN8facebook5velox4exec25FunctionCallToSpecialFormEEclEPS3_.exit.i263: ; preds = %lpad116
   %vtable.i.i264 = load ptr, ptr %70, align 8
-  %vfn.i.i265 = getelementptr inbounds ptr, ptr %vtable.i.i264, i64 1
+  %vfn.i.i265 = getelementptr inbounds i8, ptr %vtable.i.i264, i64 8
   %71 = load ptr, ptr %vfn.i.i265, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(8) %70) #6
   br label %_ZNSt10unique_ptrIN8facebook5velox4exec31RowConstructorCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit271

@@ -27,10 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
 %"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
 %"struct.std::_Head_base.9" = type { ptr }
-%struct.dh_st = type { ptr, ptr, ptr, ptr, i32, %union.crypto_mutex_st, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, %struct.crypto_ex_data_st }
-%union.crypto_mutex_st = type { double, [48 x i8] }
-%struct.crypto_ex_data_st = type { ptr }
-%struct.ssl_ctx_st = type { ptr, %union.crypto_mutex_st, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, i32, i64, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, i16, ptr, ptr, [16 x i8], [16 x i8], [16 x i8], ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i8, ptr, i32 }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 %struct.in_addr = type { i32 }
 %"class.std::unique_ptr.74" = type { %"struct.std::__uniq_ptr_data.75" }
@@ -63,8 +59,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.18" = type { i8 }
-%struct.TestState = type <{ ptr, %struct.timeval, %struct.timeval, %"class.std::unique_ptr.10", i8, [7 x i8], %"class.std::unique_ptr.2", %"class.std::unique_ptr.2", i8, i8, [6 x i8], %"class.std::unique_ptr.10", %"class.std::vector", i32, i8, [3 x i8] }>
-%struct.timeval = type { i64, i64 }
 %struct.cbs_st = type { ptr, i64 }
 %"class.std::unique_ptr.31" = type { %"struct.std::__uniq_ptr_data.32" }
 %"struct.std::__uniq_ptr_data.32" = type { %"class.std::__uniq_ptr_impl.33" }
@@ -72,15 +66,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.34" = type { %"struct.std::_Tuple_impl.35" }
 %"struct.std::_Tuple_impl.35" = type { %"struct.std::_Head_base.38" }
 %"struct.std::_Head_base.38" = type { ptr }
-%struct.x509_store_ctx_st = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st }
-%struct.ssl_st = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.crypto_ex_data_st, ptr, i32, i32, i32, i32, i16, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i8, i8, i32 }
 %"class.std::unique_ptr.63" = type { %"struct.std::__uniq_ptr_data.64" }
 %"struct.std::__uniq_ptr_data.64" = type { %"class.std::__uniq_ptr_impl.65" }
 %"class.std::__uniq_ptr_impl.65" = type { %"class.std::tuple.66" }
 %"class.std::tuple.66" = type { %"struct.std::_Tuple_impl.67" }
 %"struct.std::_Tuple_impl.67" = type { %"struct.std::_Head_base.70" }
 %"struct.std::_Head_base.70" = type { ptr }
-%struct.ssl_session_st = type { i32, i32, i32, i32, [48 x i8], i32, [32 x i8], i32, [32 x i8], ptr, ptr, ptr, i64, i64, i64, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64, i64, ptr, i64, ptr, [32 x i8], [64 x i8], i32, i32, i8 }
 
 $_ZN10TestConfigC2Ev = comdat any
 
@@ -233,7 +224,7 @@ lpad:                                             ; preds = %invoke.cont1, %invo
 if.end:                                           ; preds = %invoke.cont3
   call void @_ZN10TestConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %config) #25
   %sub = add nsw i32 %argc, -1
-  %add.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   %call8 = invoke noundef zeroext i1 @_Z11ParseConfigiPPcP10TestConfig(i32 noundef %sub, ptr noundef nonnull %add.ptr, ptr noundef nonnull %config)
           to label %invoke.cont7 unwind label %lpad6
 
@@ -257,7 +248,7 @@ if.end12:                                         ; preds = %invoke.cont7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cipher_list.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dh.i)
-  %is_dtls.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 2
+  %is_dtls.i = getelementptr inbounds i8, ptr %config, i64 5
   %5 = load i8, ptr %is_dtls.i, align 1, !noalias !7
   %6 = and i8 %5, 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -296,7 +287,7 @@ if.end.i:                                         ; preds = %call2.i.noexc
 
 invoke.cont.i:                                    ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #25, !noalias !7
-  %cipher.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 57
+  %cipher.i = getelementptr inbounds i8, ptr %config, i64 728
   %call4.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %cipher.i) #25, !noalias !7
   br i1 %call4.i, label %if.end13.i, label %if.then5.i
 
@@ -329,7 +320,7 @@ invoke.cont16.i:                                  ; preds = %if.end13.i
   br i1 %tobool18.not.i, label %cleanup157.thread31.i, label %if.end20.i
 
 if.end20.i:                                       ; preds = %invoke.cont16.i
-  %cipher_tls10.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 58
+  %cipher_tls10.i = getelementptr inbounds i8, ptr %config, i64 760
   %call21.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %cipher_tls10.i) #25, !noalias !7
   br i1 %call21.i, label %if.end29.i, label %land.lhs.true.i
 
@@ -343,7 +334,7 @@ invoke.cont25.i:                                  ; preds = %land.lhs.true.i
   br i1 %tobool27.not.i, label %cleanup157.thread31.i, label %if.end29.i
 
 if.end29.i:                                       ; preds = %invoke.cont25.i, %if.end20.i
-  %cipher_tls11.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 59
+  %cipher_tls11.i = getelementptr inbounds i8, ptr %config, i64 792
   %call30.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %cipher_tls11.i) #25, !noalias !7
   br i1 %call30.i, label %if.end39.i, label %land.lhs.true31.i
 
@@ -370,7 +361,7 @@ cleanup.thread.i:                                 ; preds = %invoke.cont40.i
   br label %cleanup157.i
 
 if.end44.i:                                       ; preds = %invoke.cont40.i
-  %use_sparse_dh_prime.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 92
+  %use_sparse_dh_prime.i = getelementptr inbounds i8, ptr %config, i64 998
   %9 = load i8, ptr %use_sparse_dh_prime.i, align 2, !noalias !7
   %10 = and i8 %9, 1
   %tobool45.not.i = icmp eq i8 %10, 0
@@ -385,7 +376,7 @@ invoke.cont49.i:                                  ; preds = %if.then46.i
   br i1 %cmp.i, label %if.then55.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont49.i
-  %g.i = getelementptr inbounds %struct.dh_st, ptr %call41.i, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   %11 = load ptr, ptr %g.i, align 8, !noalias !7
   %call53.i = invoke i32 @BN_set_word(ptr noundef %11, i64 noundef 2)
           to label %invoke.cont52.i unwind label %lpad48.i, !noalias !7
@@ -405,14 +396,14 @@ lpad48.i:                                         ; preds = %land.lhs.true145.i,
   br label %ehcleanup.i
 
 if.end56.i:                                       ; preds = %invoke.cont52.i
-  %q.i = getelementptr inbounds %struct.dh_st, ptr %call41.i, i64 0, i32 7
+  %q.i = getelementptr inbounds i8, ptr %call41.i, i64 104
   %13 = load ptr, ptr %q.i, align 8, !noalias !7
   invoke void @BN_free(ptr noundef %13)
           to label %invoke.cont58.i unwind label %lpad48.i, !noalias !7
 
 invoke.cont58.i:                                  ; preds = %if.end56.i
   store ptr null, ptr %q.i, align 8, !noalias !7
-  %priv_length.i = getelementptr inbounds %struct.dh_st, ptr %call41.i, i64 0, i32 4
+  %priv_length.i = getelementptr inbounds i8, ptr %call41.i, i64 32
   store i32 0, ptr %priv_length.i, align 8, !noalias !7
   br label %if.end62.i
 
@@ -429,14 +420,14 @@ if.then68.i:                                      ; preds = %invoke.cont65.i
   br label %cleanup.i
 
 if.end69.i:                                       ; preds = %invoke.cont65.i
-  %async.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 17
+  %async.i = getelementptr inbounds i8, ptr %config, i64 280
   %14 = load i8, ptr %async.i, align 8, !noalias !7
   %15 = and i8 %14, 1
   %tobool70.not.i = icmp eq i8 %15, 0
   br i1 %tobool70.not.i, label %if.else.i, label %land.lhs.true71.i
 
 land.lhs.true71.i:                                ; preds = %if.end69.i
-  %is_server.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 1
+  %is_server.i = getelementptr inbounds i8, ptr %config, i64 4
   %16 = load i8, ptr %is_server.i, align 4, !noalias !7
   %17 = and i8 %16, 1
   %tobool72.not.i = icmp eq i8 %17, 0
@@ -459,7 +450,7 @@ if.end82.i:                                       ; preds = %if.else.i, %invoke.
           to label %invoke.cont84.i unwind label %lpad48.i, !noalias !7
 
 invoke.cont84.i:                                  ; preds = %if.end82.i
-  %use_old_client_cert_callback.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 95
+  %use_old_client_cert_callback.i = getelementptr inbounds i8, ptr %config, i64 1004
   %18 = load i8, ptr %use_old_client_cert_callback.i, align 4, !noalias !7
   %19 = and i8 %18, 1
   %tobool85.not.i = icmp eq i8 %19, 0
@@ -474,7 +465,7 @@ if.end89.i:                                       ; preds = %if.then86.i, %invok
           to label %invoke.cont91.i unwind label %lpad48.i, !noalias !7
 
 invoke.cont91.i:                                  ; preds = %if.end89.i
-  %select_next_proto.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 16
+  %select_next_proto.i = getelementptr inbounds i8, ptr %config, i64 248
   %call92.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %select_next_proto.i) #25, !noalias !7
   br i1 %call92.i, label %if.end96.i, label %if.then93.i
 
@@ -483,12 +474,12 @@ if.then93.i:                                      ; preds = %invoke.cont91.i
           to label %if.end96.i unwind label %lpad48.i, !noalias !7
 
 if.end96.i:                                       ; preds = %if.then93.i, %invoke.cont91.i
-  %select_alpn.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 33
+  %select_alpn.i = getelementptr inbounds i8, ptr %config, i64 488
   %call97.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %select_alpn.i) #25, !noalias !7
   br i1 %call97.i, label %lor.lhs.false98.i, label %if.then100.i
 
 lor.lhs.false98.i:                                ; preds = %if.end96.i
-  %decline_alpn.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 34
+  %decline_alpn.i = getelementptr inbounds i8, ptr %config, i64 520
   %20 = load i8, ptr %decline_alpn.i, align 8, !noalias !7
   %21 = and i8 %20, 1
   %tobool99.not.i = icmp eq i8 %21, 0
@@ -507,7 +498,7 @@ invoke.cont105.i:                                 ; preds = %if.end103.i
           to label %invoke.cont108.i unwind label %lpad48.i, !noalias !7
 
 invoke.cont108.i:                                 ; preds = %invoke.cont105.i
-  %current_time_cb.i = getelementptr inbounds %struct.ssl_ctx_st, ptr %call2.i8, i64 0, i32 72
+  %current_time_cb.i = getelementptr inbounds i8, ptr %call2.i8, i64 640
   store ptr @_ZL19CurrentTimeCallbackPK6ssl_stP7timeval, ptr %current_time_cb.i, align 8, !noalias !7
   invoke void @SSL_CTX_set_info_callback(ptr noundef nonnull %call2.i8, ptr noundef nonnull @_ZL12InfoCallbackPK6ssl_stii)
           to label %invoke.cont111.i unwind label %lpad48.i, !noalias !7
@@ -517,7 +508,7 @@ invoke.cont111.i:                                 ; preds = %invoke.cont108.i
           to label %invoke.cont113.i unwind label %lpad48.i, !noalias !7
 
 invoke.cont113.i:                                 ; preds = %invoke.cont111.i
-  %use_ticket_callback.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 69
+  %use_ticket_callback.i = getelementptr inbounds i8, ptr %config, i64 900
   %22 = load i8, ptr %use_ticket_callback.i, align 4, !noalias !7
   %23 = and i8 %22, 1
   %tobool114.not.i = icmp eq i8 %23, 0
@@ -528,7 +519,7 @@ if.then115.i:                                     ; preds = %invoke.cont113.i
           to label %if.end119.i unwind label %lpad48.i, !noalias !7
 
 if.end119.i:                                      ; preds = %if.then115.i, %invoke.cont113.i
-  %enable_client_custom_extension.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 71
+  %enable_client_custom_extension.i = getelementptr inbounds i8, ptr %config, i64 902
   %24 = load i8, ptr %enable_client_custom_extension.i, align 2, !noalias !7
   %25 = and i8 %24, 1
   %tobool120.not.i = icmp eq i8 %25, 0
@@ -552,7 +543,7 @@ if.then126.i:                                     ; preds = %invoke.cont123.i
 
 if.end127.i:                                      ; preds = %invoke.cont123.i.if.end127.i_crit_edge, %if.end119.i
   %.pre16 = phi ptr [ %.pre16.pre, %invoke.cont123.i.if.end127.i_crit_edge ], [ %call2.i8, %if.end119.i ]
-  %enable_server_custom_extension.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 72
+  %enable_server_custom_extension.i = getelementptr inbounds i8, ptr %config, i64 903
   %26 = load i8, ptr %enable_server_custom_extension.i, align 1, !noalias !7
   %27 = and i8 %26, 1
   %tobool128.not.i = icmp eq i8 %27, 0
@@ -576,7 +567,7 @@ if.then134.i:                                     ; preds = %invoke.cont131.i
 
 if.end135.i:                                      ; preds = %invoke.cont131.i.if.end135.i_crit_edge, %if.end127.i
   %28 = phi ptr [ %.pre, %invoke.cont131.i.if.end135.i_crit_edge ], [ %.pre16, %if.end127.i ]
-  %verify_fail.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 79
+  %verify_fail.i = getelementptr inbounds i8, ptr %config, i64 946
   %29 = load i8, ptr %verify_fail.i, align 2, !noalias !7
   %30 = and i8 %29, 1
   %tobool136.not.i = icmp eq i8 %30, 0
@@ -586,7 +577,7 @@ if.end135.i:                                      ; preds = %invoke.cont131.i.if
 
 if.end143.i:                                      ; preds = %if.end135.i
   %31 = ptrtoint ptr %28 to i64
-  %signed_cert_timestamps.i = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 83
+  %signed_cert_timestamps.i = getelementptr inbounds i8, ptr %config, i64 952
   %call144.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %signed_cert_timestamps.i) #25, !noalias !7
   br i1 %call144.i, label %if.end155.i, label %land.lhs.true145.i
 
@@ -696,7 +687,7 @@ lpad20:                                           ; preds = %if.then30.invoke, %
   br label %ehcleanup
 
 if.end25:                                         ; preds = %invoke.cont21
-  %resume = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 3
+  %resume = getelementptr inbounds i8, ptr %config, i64 6
   %43 = load i8, ptr %resume, align 2
   %44 = and i8 %43, 1
   %tobool.not = icmp eq i8 %44, 0
@@ -805,93 +796,93 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10TestConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %digest_prefs = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 5
+  %digest_prefs = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %this, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %digest_prefs) #25
-  %key_file = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 6
+  %key_file = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_file) #25
-  %cert_file = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 7
+  %cert_file = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_file) #25
-  %expected_server_name = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 8
+  %expected_server_name = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_server_name) #25
-  %expected_certificate_types = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 9
+  %expected_certificate_types = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_certificate_types) #25
-  %require_any_client_certificate = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 10
+  %require_any_client_certificate = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %require_any_client_certificate, align 8
-  %advertise_npn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 12
+  %advertise_npn = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %advertise_npn) #25
-  %expected_next_proto = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 13
+  %expected_next_proto = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_next_proto) #25
-  %false_start = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 14
+  %false_start = getelementptr inbounds i8, ptr %this, i64 240
   store i8 0, ptr %false_start, align 8
-  %select_next_proto = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 16
+  %select_next_proto = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %select_next_proto) #25
-  %async = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 17
-  %expected_channel_id = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 25
+  %async = getelementptr inbounds i8, ptr %this, i64 280
+  %expected_channel_id = getelementptr inbounds i8, ptr %this, i64 288
   store i64 0, ptr %async, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_channel_id) #25
-  %send_channel_id = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 26
+  %send_channel_id = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id) #25
-  %shim_writes_first = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 27
+  %shim_writes_first = getelementptr inbounds i8, ptr %this, i64 352
   store i8 0, ptr %shim_writes_first, align 8
-  %host_name = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 29
+  %host_name = getelementptr inbounds i8, ptr %this, i64 360
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host_name) #25
-  %advertise_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 30
+  %advertise_alpn = getelementptr inbounds i8, ptr %this, i64 392
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %advertise_alpn) #25
-  %expected_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 31
+  %expected_alpn = getelementptr inbounds i8, ptr %this, i64 424
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_alpn) #25
-  %expected_advertised_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 32
+  %expected_advertised_alpn = getelementptr inbounds i8, ptr %this, i64 456
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_advertised_alpn) #25
-  %select_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 33
+  %select_alpn = getelementptr inbounds i8, ptr %this, i64 488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %select_alpn) #25
-  %decline_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 34
+  %decline_alpn = getelementptr inbounds i8, ptr %this, i64 520
   store i8 0, ptr %decline_alpn, align 8
-  %expect_session_miss = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 35
+  %expect_session_miss = getelementptr inbounds i8, ptr %this, i64 521
   store i8 0, ptr %expect_session_miss, align 1
-  %expect_extended_master_secret = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 36
+  %expect_extended_master_secret = getelementptr inbounds i8, ptr %this, i64 522
   store i8 0, ptr %expect_extended_master_secret, align 2
-  %psk = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 38
+  %psk = getelementptr inbounds i8, ptr %this, i64 528
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %psk) #25
-  %psk_identity = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 39
+  %psk_identity = getelementptr inbounds i8, ptr %this, i64 560
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %psk_identity) #25
-  %srtp_profiles = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 40
+  %srtp_profiles = getelementptr inbounds i8, ptr %this, i64 592
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %srtp_profiles) #25
-  %enable_ocsp_stapling = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 41
+  %enable_ocsp_stapling = getelementptr inbounds i8, ptr %this, i64 624
   store i8 0, ptr %enable_ocsp_stapling, align 8
-  %expected_ocsp_response = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 43
+  %expected_ocsp_response = getelementptr inbounds i8, ptr %this, i64 632
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_ocsp_response) #25
-  %enable_signed_cert_timestamps = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 44
+  %enable_signed_cert_timestamps = getelementptr inbounds i8, ptr %this, i64 664
   store i8 0, ptr %enable_signed_cert_timestamps, align 8
-  %expected_signed_cert_timestamps = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 46
+  %expected_signed_cert_timestamps = getelementptr inbounds i8, ptr %this, i64 672
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_signed_cert_timestamps) #25
-  %min_version = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 47
-  %cipher = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 57
+  %min_version = getelementptr inbounds i8, ptr %this, i64 704
+  %cipher = getelementptr inbounds i8, ptr %this, i64 728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %min_version, i8 0, i64 18, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher) #25
-  %cipher_tls10 = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 58
+  %cipher_tls10 = getelementptr inbounds i8, ptr %this, i64 760
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher_tls10) #25
-  %cipher_tls11 = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 59
+  %cipher_tls11 = getelementptr inbounds i8, ptr %this, i64 792
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher_tls11) #25
-  %handshake_never_done = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 60
+  %handshake_never_done = getelementptr inbounds i8, ptr %this, i64 824
   store i8 0, ptr %handshake_never_done, align 8
-  %export_keying_material = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 62
+  %export_keying_material = getelementptr inbounds i8, ptr %this, i64 828
   store i32 0, ptr %export_keying_material, align 4
-  %export_label = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 63
+  %export_label = getelementptr inbounds i8, ptr %this, i64 832
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %export_label) #25
-  %export_context = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 64
+  %export_context = getelementptr inbounds i8, ptr %this, i64 864
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %export_context) #25
-  %use_export_context = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 65
-  %ocsp_response = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 76
+  %use_export_context = getelementptr inbounds i8, ptr %this, i64 896
+  %ocsp_response = getelementptr inbounds i8, ptr %this, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %use_export_context, i8 0, i64 10, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ocsp_response) #25
-  %check_close_notify = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 77
-  %signed_cert_timestamps = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 83
+  %check_close_notify = getelementptr inbounds i8, ptr %this, i64 944
+  %signed_cert_timestamps = getelementptr inbounds i8, ptr %this, i64 952
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %check_close_notify, i8 0, i64 5, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %signed_cert_timestamps) #25
-  %expect_total_renegotiations = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 84
-  %expect_key_exchange_info = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 94
+  %expect_total_renegotiations = getelementptr inbounds i8, ptr %this, i64 984
+  %expect_key_exchange_info = getelementptr inbounds i8, ptr %this, i64 1000
   store i32 0, ptr %expect_key_exchange_info, align 8
-  %use_old_client_cert_callback = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 95
+  %use_old_client_cert_callback = getelementptr inbounds i8, ptr %this, i64 1004
   store i8 0, ptr %use_old_client_cert_callback, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %expect_total_renegotiations, i8 0, i64 15, i1 false)
   ret void
@@ -941,8 +932,8 @@ lor.rhs:                                          ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %lor.rhs
-  %session.i = getelementptr inbounds %struct.TestState, ptr %call6, i64 0, i32 6
-  %private_key.i = getelementptr inbounds %struct.TestState, ptr %call6, i64 0, i32 11
+  %session.i = getelementptr inbounds i8, ptr %call6, i64 56
+  %private_key.i = getelementptr inbounds i8, ptr %call6, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %call6, i8 0, i64 49, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %session.i, i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %private_key.i, i8 0, i64 37, i1 false)
@@ -974,7 +965,7 @@ lpad10:                                           ; preds = %invoke.cont5
 
 if.end20:                                         ; preds = %call1.i.noexc
   store ptr null, ptr %agg.tmp, align 8
-  %fallback_scsv = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 4
+  %fallback_scsv = getelementptr inbounds i8, ptr %config, i64 7
   %4 = load i8, ptr %fallback_scsv, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -989,21 +980,21 @@ invoke.cont22:                                    ; preds = %land.lhs.true
   br i1 %tobool24.not, label %cleanup627, label %if.end26
 
 if.end26:                                         ; preds = %invoke.cont22, %if.end20
-  %use_early_callback = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 51
+  %use_early_callback = getelementptr inbounds i8, ptr %config, i64 717
   %6 = load i8, ptr %use_early_callback, align 1
   %7 = and i8 %6, 1
   %tobool27.not = icmp eq i8 %7, 0
   br i1 %tobool27.not, label %land.lhs.true28, label %if.end41
 
 land.lhs.true28:                                  ; preds = %if.end26
-  %use_old_client_cert_callback = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 95
+  %use_old_client_cert_callback = getelementptr inbounds i8, ptr %config, i64 1004
   %8 = load i8, ptr %use_old_client_cert_callback, align 4
   %9 = and i8 %8, 1
   %tobool29.not = icmp eq i8 %9, 0
   br i1 %tobool29.not, label %if.then30, label %if.end41
 
 if.then30:                                        ; preds = %land.lhs.true28
-  %async = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %config, i64 280
   %10 = load i8, ptr %async, align 8
   %11 = and i8 %10, 1
   %tobool31.not = icmp eq i8 %11, 0
@@ -1021,7 +1012,7 @@ invoke.cont36:                                    ; preds = %if.else
   br i1 %call37, label %if.end41, label %cleanup627
 
 if.end41:                                         ; preds = %if.then32, %invoke.cont36, %land.lhs.true28, %if.end26
-  %require_any_client_certificate = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 10
+  %require_any_client_certificate = getelementptr inbounds i8, ptr %config, i64 168
   %12 = load i8, ptr %require_any_client_certificate, align 8
   %13 = and i8 %12, 1
   %tobool42.not = icmp eq i8 %13, 0
@@ -1032,7 +1023,7 @@ if.then43:                                        ; preds = %if.end41
           to label %if.end46 unwind label %lpad
 
 if.end46:                                         ; preds = %if.then43, %if.end41
-  %verify_peer = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 80
+  %verify_peer = getelementptr inbounds i8, ptr %config, i64 947
   %14 = load i8, ptr %verify_peer, align 1
   %15 = and i8 %14, 1
   %tobool47.not = icmp eq i8 %15, 0
@@ -1043,7 +1034,7 @@ if.then48:                                        ; preds = %if.end46
           to label %if.end51 unwind label %lpad
 
 if.end51:                                         ; preds = %if.then48, %if.end46
-  %false_start = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 14
+  %false_start = getelementptr inbounds i8, ptr %config, i64 240
   %16 = load i8, ptr %false_start, align 8
   %17 = and i8 %16, 1
   %tobool52.not = icmp eq i8 %17, 0
@@ -1054,7 +1045,7 @@ if.then53:                                        ; preds = %if.end51
           to label %if.end57 unwind label %lpad
 
 if.end57:                                         ; preds = %if.then53, %if.end51
-  %cbc_record_splitting = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 19
+  %cbc_record_splitting = getelementptr inbounds i8, ptr %config, i64 282
   %18 = load i8, ptr %cbc_record_splitting, align 2
   %19 = and i8 %18, 1
   %tobool58.not = icmp eq i8 %19, 0
@@ -1065,7 +1056,7 @@ if.then59:                                        ; preds = %if.end57
           to label %if.end63 unwind label %lpad
 
 if.end63:                                         ; preds = %if.then59, %if.end57
-  %partial_write = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 20
+  %partial_write = getelementptr inbounds i8, ptr %config, i64 283
   %20 = load i8, ptr %partial_write, align 1
   %21 = and i8 %20, 1
   %tobool64.not = icmp eq i8 %21, 0
@@ -1076,7 +1067,7 @@ if.then65:                                        ; preds = %if.end63
           to label %if.end69 unwind label %lpad
 
 if.end69:                                         ; preds = %if.then65, %if.end63
-  %no_tls12 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 21
+  %no_tls12 = getelementptr inbounds i8, ptr %config, i64 284
   %22 = load i8, ptr %no_tls12, align 4
   %23 = and i8 %22, 1
   %tobool70.not = icmp eq i8 %23, 0
@@ -1087,7 +1078,7 @@ if.then71:                                        ; preds = %if.end69
           to label %if.end75 unwind label %lpad
 
 if.end75:                                         ; preds = %if.then71, %if.end69
-  %no_tls11 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 22
+  %no_tls11 = getelementptr inbounds i8, ptr %config, i64 285
   %24 = load i8, ptr %no_tls11, align 1
   %25 = and i8 %24, 1
   %tobool76.not = icmp eq i8 %25, 0
@@ -1098,7 +1089,7 @@ if.then77:                                        ; preds = %if.end75
           to label %if.end81 unwind label %lpad
 
 if.end81:                                         ; preds = %if.then77, %if.end75
-  %no_tls1 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 23
+  %no_tls1 = getelementptr inbounds i8, ptr %config, i64 286
   %26 = load i8, ptr %no_tls1, align 2
   %27 = and i8 %26, 1
   %tobool82.not = icmp eq i8 %27, 0
@@ -1109,7 +1100,7 @@ if.then83:                                        ; preds = %if.end81
           to label %if.end87 unwind label %lpad
 
 if.end87:                                         ; preds = %if.then83, %if.end81
-  %no_ssl3 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 24
+  %no_ssl3 = getelementptr inbounds i8, ptr %config, i64 287
   %28 = load i8, ptr %no_ssl3, align 1
   %29 = and i8 %28, 1
   %tobool88.not = icmp eq i8 %29, 0
@@ -1120,7 +1111,7 @@ if.then89:                                        ; preds = %if.end87
           to label %if.end93 unwind label %lpad
 
 if.end93:                                         ; preds = %if.then89, %if.end87
-  %expected_channel_id = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 25
+  %expected_channel_id = getelementptr inbounds i8, ptr %config, i64 288
   %call94 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_channel_id) #25
   br i1 %call94, label %if.end99, label %if.then95
 
@@ -1129,7 +1120,7 @@ if.then95:                                        ; preds = %if.end93
           to label %if.end99 unwind label %lpad
 
 if.end99:                                         ; preds = %if.then95, %if.end93
-  %send_channel_id = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 26
+  %send_channel_id = getelementptr inbounds i8, ptr %config, i64 320
   %call100 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id) #25
   br i1 %call100, label %if.end120, label %if.then101
 
@@ -1138,7 +1129,7 @@ if.then101:                                       ; preds = %if.end99
           to label %invoke.cont103 unwind label %lpad
 
 invoke.cont103:                                   ; preds = %if.then101
-  %async105 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 17
+  %async105 = getelementptr inbounds i8, ptr %config, i64 280
   %30 = load i8, ptr %async105, align 8
   %31 = and i8 %30, 1
   %tobool106.not = icmp eq i8 %31, 0
@@ -1192,7 +1183,7 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
   br label %cleanup627
 
 if.end120:                                        ; preds = %if.end118, %invoke.cont103, %if.end99
-  %host_name = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 29
+  %host_name = getelementptr inbounds i8, ptr %config, i64 360
   %call121 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %host_name) #25
   br i1 %call121, label %if.end130, label %land.lhs.true122
 
@@ -1206,7 +1197,7 @@ invoke.cont126:                                   ; preds = %land.lhs.true122
   br i1 %tobool128.not, label %cleanup627, label %if.end130
 
 if.end130:                                        ; preds = %invoke.cont126, %if.end120
-  %advertise_alpn = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 30
+  %advertise_alpn = getelementptr inbounds i8, ptr %config, i64 392
   %call131 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %advertise_alpn) #25
   br i1 %call131, label %if.end141, label %land.lhs.true132
 
@@ -1222,7 +1213,7 @@ invoke.cont138:                                   ; preds = %land.lhs.true132
   br i1 %cmp.not, label %if.end141, label %cleanup627
 
 if.end141:                                        ; preds = %invoke.cont138, %if.end130
-  %psk = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 38
+  %psk = getelementptr inbounds i8, ptr %config, i64 528
   %call142 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %psk) #25
   br i1 %call142, label %if.end148, label %if.then143
 
@@ -1235,7 +1226,7 @@ invoke.cont145:                                   ; preds = %if.then143
           to label %if.end148 unwind label %lpad
 
 if.end148:                                        ; preds = %invoke.cont145, %if.end141
-  %psk_identity = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 39
+  %psk_identity = getelementptr inbounds i8, ptr %config, i64 560
   %call149 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %psk_identity) #25
   br i1 %call149, label %if.end158, label %land.lhs.true150
 
@@ -1249,7 +1240,7 @@ invoke.cont154:                                   ; preds = %land.lhs.true150
   br i1 %tobool156.not, label %cleanup627, label %if.end158
 
 if.end158:                                        ; preds = %invoke.cont154, %if.end148
-  %srtp_profiles = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 40
+  %srtp_profiles = getelementptr inbounds i8, ptr %config, i64 592
   %call159 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %srtp_profiles) #25
   br i1 %call159, label %if.end168, label %land.lhs.true160
 
@@ -1263,7 +1254,7 @@ invoke.cont164:                                   ; preds = %land.lhs.true160
   br i1 %tobool166.not, label %cleanup627, label %if.end168
 
 if.end168:                                        ; preds = %invoke.cont164, %if.end158
-  %enable_ocsp_stapling = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 41
+  %enable_ocsp_stapling = getelementptr inbounds i8, ptr %config, i64 624
   %36 = load i8, ptr %enable_ocsp_stapling, align 8
   %37 = and i8 %36, 1
   %tobool169.not = icmp eq i8 %37, 0
@@ -1278,7 +1269,7 @@ invoke.cont172:                                   ; preds = %land.lhs.true170
   br i1 %tobool174.not, label %cleanup627, label %if.end176
 
 if.end176:                                        ; preds = %invoke.cont172, %if.end168
-  %enable_signed_cert_timestamps = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 44
+  %enable_signed_cert_timestamps = getelementptr inbounds i8, ptr %config, i64 664
   %38 = load i8, ptr %enable_signed_cert_timestamps, align 8
   %39 = and i8 %38, 1
   %tobool177.not = icmp eq i8 %39, 0
@@ -1293,7 +1284,7 @@ invoke.cont180:                                   ; preds = %land.lhs.true178
   br i1 %tobool182.not, label %cleanup627, label %if.end184
 
 if.end184:                                        ; preds = %invoke.cont180, %if.end176
-  %min_version = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 47
+  %min_version = getelementptr inbounds i8, ptr %config, i64 704
   %40 = load i32, ptr %min_version, align 8
   %cmp185.not = icmp eq i32 %40, 0
   br i1 %cmp185.not, label %if.end191, label %if.then186
@@ -1304,7 +1295,7 @@ if.then186:                                       ; preds = %if.end184
           to label %if.end191 unwind label %lpad
 
 if.end191:                                        ; preds = %if.then186, %if.end184
-  %max_version = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 48
+  %max_version = getelementptr inbounds i8, ptr %config, i64 708
   %41 = load i32, ptr %max_version, align 4
   %cmp192.not = icmp eq i32 %41, 0
   br i1 %cmp192.not, label %if.end198, label %if.then193
@@ -1315,7 +1306,7 @@ if.then193:                                       ; preds = %if.end191
           to label %if.end198 unwind label %lpad
 
 if.end198:                                        ; preds = %if.then193, %if.end191
-  %mtu = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 49
+  %mtu = getelementptr inbounds i8, ptr %config, i64 712
   %42 = load i32, ptr %mtu, align 8
   %cmp199.not = icmp eq i32 %42, 0
   br i1 %cmp199.not, label %if.end208, label %if.then200
@@ -1330,7 +1321,7 @@ invoke.cont202:                                   ; preds = %if.then200
           to label %if.end208 unwind label %lpad
 
 if.end208:                                        ; preds = %invoke.cont202, %if.end198
-  %install_ddos_callback = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 53
+  %install_ddos_callback = getelementptr inbounds i8, ptr %config, i64 719
   %44 = load i8, ptr %install_ddos_callback, align 1
   %45 = and i8 %44, 1
   %tobool209.not = icmp eq i8 %45, 0
@@ -1341,7 +1332,7 @@ if.then210:                                       ; preds = %if.end208
           to label %if.end212 unwind label %lpad
 
 if.end212:                                        ; preds = %if.then210, %if.end208
-  %renegotiate_once = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 85
+  %renegotiate_once = getelementptr inbounds i8, ptr %config, i64 988
   %46 = load i8, ptr %renegotiate_once, align 4
   %47 = and i8 %46, 1
   %tobool213.not = icmp eq i8 %47, 0
@@ -1352,7 +1343,7 @@ if.then214:                                       ; preds = %if.end212
           to label %if.end217 unwind label %lpad
 
 if.end217:                                        ; preds = %if.then214, %if.end212
-  %renegotiate_freely = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 86
+  %renegotiate_freely = getelementptr inbounds i8, ptr %config, i64 989
   %48 = load i8, ptr %renegotiate_freely, align 1
   %49 = and i8 %48, 1
   %tobool218.not = icmp eq i8 %49, 0
@@ -1363,7 +1354,7 @@ if.then219:                                       ; preds = %if.end217
           to label %if.end222 unwind label %lpad
 
 if.end222:                                        ; preds = %if.then219, %if.end217
-  %renegotiate_ignore = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 87
+  %renegotiate_ignore = getelementptr inbounds i8, ptr %config, i64 990
   %50 = load i8, ptr %renegotiate_ignore, align 2
   %51 = and i8 %50, 1
   %tobool223.not = icmp eq i8 %51, 0
@@ -1374,7 +1365,7 @@ if.then224:                                       ; preds = %if.end222
           to label %if.end227 unwind label %lpad
 
 if.end227:                                        ; preds = %if.then224, %if.end222
-  %check_close_notify = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 77
+  %check_close_notify = getelementptr inbounds i8, ptr %config, i64 944
   %52 = load i8, ptr %check_close_notify, align 8
   %53 = and i8 %52, 1
   %tobool228.not = icmp eq i8 %53, 0
@@ -1385,7 +1376,7 @@ if.then229:                                       ; preds = %if.end227
           to label %if.end232 unwind label %lpad
 
 if.end232:                                        ; preds = %if.then229, %if.end227
-  %disable_npn = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 88
+  %disable_npn = getelementptr inbounds i8, ptr %config, i64 991
   %54 = load i8, ptr %disable_npn, align 1
   %55 = and i8 %54, 1
   %tobool233.not = icmp eq i8 %55, 0
@@ -1396,7 +1387,7 @@ if.then234:                                       ; preds = %if.end232
           to label %if.end238 unwind label %lpad
 
 if.end238:                                        ; preds = %if.then234, %if.end232
-  %p384_only = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 90
+  %p384_only = getelementptr inbounds i8, ptr %config, i64 996
   %56 = load i8, ptr %p384_only, align 4
   %57 = and i8 %56, 1
   %tobool239.not = icmp eq i8 %57, 0
@@ -1412,7 +1403,7 @@ invoke.cont242:                                   ; preds = %if.then240
   br i1 %tobool244.not, label %cleanup627, label %if.end247
 
 if.end247:                                        ; preds = %invoke.cont242, %if.end238
-  %enable_all_curves = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 91
+  %enable_all_curves = getelementptr inbounds i8, ptr %config, i64 997
   %58 = load i8, ptr %enable_all_curves, align 1
   %59 = and i8 %58, 1
   %tobool248.not = icmp eq i8 %59, 0
@@ -1450,7 +1441,7 @@ if.end5.i:                                        ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %61, i8 0, i64 12, i1 false)
   store i16 2, ptr %sin.i, align 4
   %call6.i = call zeroext i16 @htons(i16 noundef zeroext %conv257) #30
-  %sin_port.i = getelementptr inbounds %struct.sockaddr_in, ptr %sin.i, i64 0, i32 1
+  %sin_port.i = getelementptr inbounds i8, ptr %sin.i, i64 2
   store i16 %call6.i, ptr %sin_port.i, align 2
   %call7.i = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull @.str.37, ptr noundef nonnull %61) #25
   %tobool.not.i = icmp eq i32 %call7.i, 0
@@ -1493,7 +1484,7 @@ lpad264:                                          ; preds = %if.end262
   br label %ehcleanup626
 
 if.end269:                                        ; preds = %invoke.cont265
-  %is_dtls = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 2
+  %is_dtls = getelementptr inbounds i8, ptr %config, i64 5
   %64 = load i8, ptr %is_dtls, align 1
   %65 = and i8 %64, 1
   %tobool270.not = icmp eq i8 %65, 0
@@ -1505,7 +1496,7 @@ if.then271:                                       ; preds = %if.end269
           to label %invoke.cont274 unwind label %lpad273.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont274:                                   ; preds = %if.then271
-  %clock_delta = getelementptr inbounds %struct.TestState, ptr %call.i132133, i64 0, i32 2
+  %clock_delta = getelementptr inbounds i8, ptr %call.i132133, i64 24
   invoke void @_Z17PacketedBioCreateP7timeval(ptr nonnull sret(%"class.std::unique_ptr.54") align 8 %packeted, ptr noundef nonnull %clock_delta)
           to label %invoke.cont276 unwind label %lpad273.loopexit.split-lp.loopexit.split-lp
 
@@ -1547,7 +1538,7 @@ lpad282:                                          ; preds = %if.end279
   br label %ehcleanup
 
 if.end289:                                        ; preds = %invoke.cont283, %if.end269
-  %async290 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 17
+  %async290 = getelementptr inbounds i8, ptr %config, i64 280
   %70 = load i8, ptr %async290, align 8
   %71 = and i8 %70, 1
   %tobool291.not = icmp eq i8 %71, 0
@@ -1607,7 +1598,7 @@ invoke.cont317:                                   ; preds = %if.end313
   br i1 %cmp319.not, label %if.end340, label %if.then320
 
 if.then320:                                       ; preds = %invoke.cont317
-  %is_server = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 1
+  %is_server = getelementptr inbounds i8, ptr %config, i64 4
   %80 = load i8, ptr %is_server, align 4
   %81 = and i8 %80, 1
   %tobool321.not = icmp eq i8 %81, 0
@@ -1637,7 +1628,7 @@ invoke.cont334:                                   ; preds = %if.then332
           to label %invoke.cont336 unwind label %lpad273.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont336:                                   ; preds = %invoke.cont334
-  %pending_session = getelementptr inbounds %struct.TestState, ptr %call.i139140, i64 0, i32 7
+  %pending_session = getelementptr inbounds i8, ptr %call.i139140, i64 64
   call void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE5resetEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %pending_session, ptr noundef %call337) #25
   br label %if.end340
 
@@ -1655,11 +1646,11 @@ if.then345:                                       ; preds = %invoke.cont342
   br label %cleanup624
 
 if.end348:                                        ; preds = %invoke.cont342
-  %implicit_handshake = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 50
+  %implicit_handshake = getelementptr inbounds i8, ptr %config, i64 716
   %87 = load i8, ptr %implicit_handshake, align 4
   %88 = and i8 %87, 1
   %tobool349.not = icmp eq i8 %88, 0
-  %is_server361 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 1
+  %is_server361 = getelementptr inbounds i8, ptr %config, i64 4
   br i1 %tobool349.not, label %do.body, label %if.then350
 
 if.then350:                                       ; preds = %if.end348
@@ -1721,12 +1712,12 @@ if.end384:                                        ; preds = %invoke.cont381
           to label %invoke.cont386 unwind label %lpad273.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont386:                                   ; preds = %if.end384
-  %got_new_session = getelementptr inbounds %struct.TestState, ptr %call.i142143, i64 0, i32 14
+  %got_new_session = getelementptr inbounds i8, ptr %call.i142143, i64 116
   store i8 0, ptr %got_new_session, align 4
   br label %if.end388
 
 if.end388:                                        ; preds = %if.then353, %if.else356, %invoke.cont386
-  %export_keying_material = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 62
+  %export_keying_material = getelementptr inbounds i8, ptr %config, i64 828
   %96 = load i32, ptr %export_keying_material, align 4
   %cmp389 = icmp sgt i32 %96, 0
   br i1 %cmp389, label %if.then390, label %if.end425
@@ -1738,18 +1729,18 @@ if.then390:                                       ; preds = %if.end388
 
 invoke.cont394:                                   ; preds = %if.then390
   %97 = load ptr, ptr %result, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %result, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %result, i64 8
   %98 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %98 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %export_label = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 63
+  %export_label = getelementptr inbounds i8, ptr %config, i64 832
   %call398 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %export_label) #25
   %call400 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %export_label) #25
-  %export_context = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 64
+  %export_context = getelementptr inbounds i8, ptr %config, i64 864
   %call401 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %export_context) #25
   %call403 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %export_context) #25
-  %use_export_context = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 65
+  %use_export_context = getelementptr inbounds i8, ptr %config, i64 896
   %99 = load i8, ptr %use_export_context, align 8
   %100 = and i8 %99, 1
   %conv405 = zext nneg i8 %100 to i32
@@ -1810,7 +1801,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit154:                 ; preds = %invoke.cont417, %if
   br i1 %cmp419, label %if.end425, label %cleanup624
 
 if.end425:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit154, %if.end388
-  %tls_unique = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 66
+  %tls_unique = getelementptr inbounds i8, ptr %config, i64 897
   %110 = load i8, ptr %tls_unique, align 1
   %111 = and i8 %110, 1
   %tobool426.not = icmp eq i8 %111, 0
@@ -1849,7 +1840,7 @@ invoke.cont445:                                   ; preds = %if.end442
   br i1 %cmp447, label %cleanup624, label %if.end450
 
 if.end450:                                        ; preds = %invoke.cont445, %if.end425
-  %write_different_record_sizes = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 18
+  %write_different_record_sizes = getelementptr inbounds i8, ptr %config, i64 281
   %116 = load i8, ptr %write_different_record_sizes, align 1
   %117 = and i8 %116, 1
   %tobool451.not = icmp eq i8 %117, 0
@@ -1897,7 +1888,7 @@ invoke.cont471:                                   ; preds = %if.end468
   br i1 %cmp473, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit178, label %for.cond
 
 if.else479:                                       ; preds = %if.end450
-  %shim_writes_first = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 27
+  %shim_writes_first = getelementptr inbounds i8, ptr %config, i64 352
   %124 = load i8, ptr %shim_writes_first, align 8
   %125 = and i8 %124, 1
   %tobool480.not = icmp eq i8 %125, 0
@@ -1912,7 +1903,7 @@ invoke.cont483:                                   ; preds = %if.then481
   br i1 %cmp485, label %cleanup624, label %if.end488
 
 if.end488:                                        ; preds = %invoke.cont483, %if.else479
-  %shim_shuts_down = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 78
+  %shim_shuts_down = getelementptr inbounds i8, ptr %config, i64 945
   %126 = load i8, ptr %shim_shuts_down, align 1
   %127 = and i8 %126, 1
   %tobool489.not = icmp eq i8 %127, 0
@@ -1986,7 +1977,7 @@ if.end530:                                        ; preds = %if.end525
           to label %invoke.cont532 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit164
 
 invoke.cont532:                                   ; preds = %if.end530
-  %handshake_done = getelementptr inbounds %struct.TestState, ptr %call.i165166, i64 0, i32 9
+  %handshake_done = getelementptr inbounds i8, ptr %call.i165166, i64 73
   %138 = load i8, ptr %handshake_done, align 1
   %139 = and i8 %138, 1
   %tobool534.not = icmp eq i8 %139, 0
@@ -2033,7 +2024,7 @@ if.end564.sink.split:                             ; preds = %for.cond, %lor.lhs.
   br label %if.end564
 
 if.end564:                                        ; preds = %if.end564.sink.split, %if.end488
-  %is_server565 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 1
+  %is_server565 = getelementptr inbounds i8, ptr %config, i64 4
   %144 = load i8, ptr %is_server565, align 4
   %145 = and i8 %144, 1
   %tobool566.not = icmp eq i8 %145, 0
@@ -2057,7 +2048,7 @@ land.lhs.true573:                                 ; preds = %land.lhs.true570
           to label %invoke.cont575 unwind label %lpad273.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont575:                                   ; preds = %land.lhs.true573
-  %got_new_session577 = getelementptr inbounds %struct.TestState, ptr %call.i172173, i64 0, i32 14
+  %got_new_session577 = getelementptr inbounds i8, ptr %call.i172173, i64 116
   %151 = load i8, ptr %got_new_session577, align 4
   %152 = and i8 %151, 1
   %tobool578.not = icmp eq i8 %152, 0
@@ -2085,7 +2076,7 @@ if.end588:                                        ; preds = %invoke.cont586, %if
           to label %invoke.cont590 unwind label %lpad273.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont590:                                   ; preds = %if.end588
-  %shim_shuts_down592 = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 78
+  %shim_shuts_down592 = getelementptr inbounds i8, ptr %config, i64 945
   %155 = load i8, ptr %shim_shuts_down592, align 1
   %156 = and i8 %155, 1
   %tobool593.not = icmp eq i8 %156, 0
@@ -2125,7 +2116,7 @@ if.end611:                                        ; preds = %if.end606
           to label %invoke.cont613 unwind label %lpad273.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont613:                                   ; preds = %if.end611
-  %expect_total_renegotiations = getelementptr inbounds %struct.TestConfig, ptr %config, i64 0, i32 84
+  %expect_total_renegotiations = getelementptr inbounds i8, ptr %config, i64 984
   %161 = load i32, ptr %expect_total_renegotiations, align 8
   %cmp615.not = icmp eq i32 %call614, %161
   br i1 %cmp615.not, label %cleanup624, label %if.then616
@@ -2243,59 +2234,59 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10TestConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(1005) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %signed_cert_timestamps = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 83
+  %signed_cert_timestamps = getelementptr inbounds i8, ptr %this, i64 952
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %signed_cert_timestamps) #25
-  %ocsp_response = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 76
+  %ocsp_response = getelementptr inbounds i8, ptr %this, i64 912
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ocsp_response) #25
-  %export_context = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 64
+  %export_context = getelementptr inbounds i8, ptr %this, i64 864
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %export_context) #25
-  %export_label = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 63
+  %export_label = getelementptr inbounds i8, ptr %this, i64 832
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %export_label) #25
-  %cipher_tls11 = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 59
+  %cipher_tls11 = getelementptr inbounds i8, ptr %this, i64 792
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher_tls11) #25
-  %cipher_tls10 = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 58
+  %cipher_tls10 = getelementptr inbounds i8, ptr %this, i64 760
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher_tls10) #25
-  %cipher = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 57
+  %cipher = getelementptr inbounds i8, ptr %this, i64 728
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cipher) #25
-  %expected_signed_cert_timestamps = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 46
+  %expected_signed_cert_timestamps = getelementptr inbounds i8, ptr %this, i64 672
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_signed_cert_timestamps) #25
-  %expected_ocsp_response = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 43
+  %expected_ocsp_response = getelementptr inbounds i8, ptr %this, i64 632
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_ocsp_response) #25
-  %srtp_profiles = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 40
+  %srtp_profiles = getelementptr inbounds i8, ptr %this, i64 592
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %srtp_profiles) #25
-  %psk_identity = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 39
+  %psk_identity = getelementptr inbounds i8, ptr %this, i64 560
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %psk_identity) #25
-  %psk = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 38
+  %psk = getelementptr inbounds i8, ptr %this, i64 528
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %psk) #25
-  %select_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 33
+  %select_alpn = getelementptr inbounds i8, ptr %this, i64 488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %select_alpn) #25
-  %expected_advertised_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 32
+  %expected_advertised_alpn = getelementptr inbounds i8, ptr %this, i64 456
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_advertised_alpn) #25
-  %expected_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 31
+  %expected_alpn = getelementptr inbounds i8, ptr %this, i64 424
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_alpn) #25
-  %advertise_alpn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 30
+  %advertise_alpn = getelementptr inbounds i8, ptr %this, i64 392
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %advertise_alpn) #25
-  %host_name = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 29
+  %host_name = getelementptr inbounds i8, ptr %this, i64 360
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host_name) #25
-  %send_channel_id = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 26
+  %send_channel_id = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id) #25
-  %expected_channel_id = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 25
+  %expected_channel_id = getelementptr inbounds i8, ptr %this, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_channel_id) #25
-  %select_next_proto = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 16
+  %select_next_proto = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %select_next_proto) #25
-  %expected_next_proto = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 13
+  %expected_next_proto = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_next_proto) #25
-  %advertise_npn = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 12
+  %advertise_npn = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %advertise_npn) #25
-  %expected_certificate_types = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 9
+  %expected_certificate_types = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_certificate_types) #25
-  %expected_server_name = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 8
+  %expected_server_name = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expected_server_name) #25
-  %cert_file = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 7
+  %cert_file = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cert_file) #25
-  %key_file = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 6
+  %key_file = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_file) #25
-  %digest_prefs = getelementptr inbounds %struct.TestConfig, ptr %this, i64 0, i32 5
+  %digest_prefs = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %digest_prefs) #25
   ret void
 }
@@ -2303,7 +2294,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9TestStateD2Ev(ptr noundef nonnull align 8 dereferenceable(117) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %private_key_result = getelementptr inbounds %struct.TestState, ptr %this, i64 0, i32 12
+  %private_key_result = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %private_key_result, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -2313,7 +2304,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %private_key = getelementptr inbounds %struct.TestState, ptr %this, i64 0, i32 11
+  %private_key = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %private_key, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, label %if.then.i
@@ -2331,7 +2322,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %if.then.i
   store ptr null, ptr %private_key, align 8
-  %pending_session = getelementptr inbounds %struct.TestState, ptr %this, i64 0, i32 7
+  %pending_session = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %pending_session, align 8
   %cmp.not.i1 = icmp eq ptr %4, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit, label %if.then.i2
@@ -2349,7 +2340,7 @@ terminate.lpad.i3:                                ; preds = %if.then.i2
 
 _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %if.then.i2
   store ptr null, ptr %pending_session, align 8
-  %session = getelementptr inbounds %struct.TestState, ptr %this, i64 0, i32 6
+  %session = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %session, align 8
   %cmp.not.i4 = icmp eq ptr %7, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit7, label %if.then.i5
@@ -2367,7 +2358,7 @@ terminate.lpad.i6:                                ; preds = %if.then.i5
 
 _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit7: ; preds = %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit, %if.then.i5
   store ptr null, ptr %session, align 8
-  %channel_id = getelementptr inbounds %struct.TestState, ptr %this, i64 0, i32 3
+  %channel_id = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load ptr, ptr %channel_id, align 8
   %cmp.not.i8 = icmp eq ptr %10, null
   br i1 %cmp.not.i8, label %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit11, label %if.then.i9
@@ -2484,7 +2475,7 @@ define internal noundef ptr @_ZL18GetSessionCallbackP6ssl_stPhiPi(ptr noundef %s
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %session = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 6
+  %session = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load ptr, ptr %session, align 8
   %cmp.i.not = icmp eq ptr %1, null
   br i1 %cmp.i.not, label %if.else, label %if.then
@@ -2496,7 +2487,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %pending_session = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 7
+  %pending_session = getelementptr inbounds i8, ptr %call.i, i64 64
   %3 = load ptr, ptr %pending_session, align 8
   %cmp.i3.not = icmp eq ptr %3, null
   br i1 %cmp.i3.not, label %return, label %if.then5
@@ -2527,9 +2518,9 @@ entry:
   %2 = load ptr, ptr %ctx, align 8
   %3 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i9 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %2, i32 noundef %3)
-  %early_callback_called = getelementptr inbounds %struct.TestState, ptr %call.i9, i64 0, i32 8
+  %early_callback_called = getelementptr inbounds i8, ptr %call.i9, i64 72
   store i8 1, ptr %early_callback_called, align 8
-  %expected_server_name = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 8
+  %expected_server_name = getelementptr inbounds i8, ptr %call.i, i64 104
   %call3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_server_name) #25
   br i1 %call3, label %if.end33, label %if.then
 
@@ -2592,21 +2583,21 @@ if.then30:                                        ; preds = %if.end23
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end23, %if.then30, %entry
-  %fail_early_callback = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 52
+  %fail_early_callback = getelementptr inbounds i8, ptr %call.i, i64 718
   %13 = load i8, ptr %fail_early_callback, align 2
   %14 = and i8 %13, 1
   %tobool34.not = icmp eq i8 %14, 0
   br i1 %tobool34.not, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.end33
-  %use_early_callback = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 51
+  %use_early_callback = getelementptr inbounds i8, ptr %call.i, i64 717
   %15 = load i8, ptr %use_early_callback, align 1
   %16 = and i8 %15, 1
   %tobool37.not = icmp eq i8 %16, 0
   br i1 %tobool37.not, label %if.end46, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
-  %async = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %call.i, i64 280
   %17 = load i8, ptr %async, align 8
   %18 = and i8 %17, 1
   %tobool39.not = icmp eq i8 %18, 0
@@ -2634,7 +2625,7 @@ entry:
   %pkey = alloca %"class.std::unique_ptr.10", align 8
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %async = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %call.i, i64 280
   %1 = load i8, ptr %async, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -2643,7 +2634,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %3 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i3 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %3)
-  %cert_ready = getelementptr inbounds %struct.TestState, ptr %call.i3, i64 0, i32 4
+  %cert_ready = getelementptr inbounds i8, ptr %call.i3, i64 48
   %4 = load i8, ptr %cert_ready, align 8
   %5 = and i8 %4, 1
   %tobool2.not = icmp eq i8 %5, 0
@@ -2721,7 +2712,7 @@ define internal noundef i32 @_ZL28NextProtosAdvertisedCallbackP6ssl_stPPKhPjPv(p
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %advertise_npn = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 12
+  %advertise_npn = getelementptr inbounds i8, ptr %call.i, i64 176
   %call1 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %advertise_npn) #25
   br i1 %call1, label %return, label %if.end
 
@@ -2745,7 +2736,7 @@ define internal noundef i32 @_ZL23NextProtoSelectCallbackP6ssl_stPPhS1_PKhjPv(pt
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %select_next_proto = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 16
+  %select_next_proto = getelementptr inbounds i8, ptr %call.i, i64 248
   %call1 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %select_next_proto) #25
   br i1 %call1, label %return, label %if.end
 
@@ -2769,14 +2760,14 @@ define internal noundef i32 @_ZL18AlpnSelectCallbackP6ssl_stPPKhPhS2_jPv(ptr nou
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %decline_alpn = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 34
+  %decline_alpn = getelementptr inbounds i8, ptr %call.i, i64 520
   %1 = load i8, ptr %decline_alpn, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %expected_advertised_alpn = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 32
+  %expected_advertised_alpn = getelementptr inbounds i8, ptr %call.i, i64 456
   %call1 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_advertised_alpn) #25
   br i1 %call1, label %if.end11, label %land.lhs.true
 
@@ -2799,7 +2790,7 @@ if.then9:                                         ; preds = %lor.lhs.false, %lan
   unreachable
 
 if.end11:                                         ; preds = %lor.lhs.false, %if.end
-  %select_alpn = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 33
+  %select_alpn = getelementptr inbounds i8, ptr %call.i, i64 488
   %call12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %select_alpn) #25
   store ptr %call12, ptr %out, align 8
   %call14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %select_alpn) #25
@@ -2821,7 +2812,7 @@ define internal void @_ZL17ChannelIdCallbackP6ssl_stPP11evp_pkey_st(ptr noundef 
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %channel_id = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 3
+  %channel_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %1 = load ptr, ptr %channel_id, align 8
   store ptr null, ptr %channel_id, align 8
   store ptr %1, ptr %out_pkey, align 8
@@ -2833,7 +2824,7 @@ define internal void @_ZL19CurrentTimeCallbackPK6ssl_stP7timeval(ptr noundef %ss
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %clock = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 1
+  %clock = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %out_clock, ptr noundef nonnull align 8 dereferenceable(16) %clock, i64 16, i1 false)
   ret void
 }
@@ -2849,7 +2840,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %handshake_never_done = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 60
+  %handshake_never_done = getelementptr inbounds i8, ptr %call.i, i64 824
   %1 = load i8, ptr %handshake_never_done, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -2864,7 +2855,7 @@ if.then1:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then
   %5 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i2 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %5)
-  %handshake_done = getelementptr inbounds %struct.TestState, ptr %call.i2, i64 0, i32 9
+  %handshake_done = getelementptr inbounds i8, ptr %call.i2, i64 73
   store i8 1, ptr %handshake_done, align 1
   br label %if.end4
 
@@ -2879,7 +2870,7 @@ define internal noundef i32 @_ZL18NewSessionCallbackP6ssl_stP14ssl_session_st(pt
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %got_new_session = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 14
+  %got_new_session = getelementptr inbounds i8, ptr %call.i, i64 116
   store i8 1, ptr %got_new_session, align 4
   tail call void @SSL_SESSION_free(ptr noundef %session)
   ret i32 1
@@ -2920,7 +2911,7 @@ lor.lhs.false:                                    ; preds = %if.end3
 if.then13:                                        ; preds = %lor.lhs.false
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %renew_ticket = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 70
+  %renew_ticket = getelementptr inbounds i8, ptr %call.i, i64 901
   %1 = load i8, ptr %renew_ticket, align 1
   %2 = and i8 %1, 1
   %tobool15.not = icmp eq i8 %2, 0
@@ -2949,7 +2940,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %custom_extension_skip = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 73
+  %custom_extension_skip = getelementptr inbounds i8, ptr %call.i, i64 904
   %1 = load i8, ptr %custom_extension_skip, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -2958,7 +2949,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %3 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i2 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %3)
-  %custom_extension_fail_add = getelementptr inbounds %struct.TestConfig, ptr %call.i2, i64 0, i32 74
+  %custom_extension_fail_add = getelementptr inbounds i8, ptr %call.i2, i64 905
   %4 = load i8, ptr %custom_extension_fail_add, align 1
   %5 = and i8 %4, 1
   %tobool5.not = icmp eq i8 %5, 0
@@ -3029,7 +3020,7 @@ declare void @SSL_CTX_set_cert_verify_callback(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @_ZL10VerifyFailP17x509_store_ctx_stPv(ptr nocapture noundef writeonly %store_ctx, ptr nocapture readnone %arg) #8 {
 entry:
-  %error = getelementptr inbounds %struct.x509_store_ctx_st, ptr %store_ctx, i64 0, i32 25
+  %error = getelementptr inbounds i8, ptr %store_ctx, i64 184
   store i32 50, ptr %error, align 8
   ret i32 0
 }
@@ -3043,7 +3034,7 @@ entry:
   %call1 = tail call ptr @X509_STORE_CTX_get_ex_data(ptr noundef %store_ctx, i32 noundef %call)
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %call1, i32 noundef %0)
-  %expected_ocsp_response = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 43
+  %expected_ocsp_response = getelementptr inbounds i8, ptr %call.i, i64 632
   %call3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_ocsp_response) #25
   br i1 %call3, label %return, label %if.then
 
@@ -3152,14 +3143,14 @@ invoke.cont3:                                     ; preds = %if.then2
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %async = getelementptr inbounds %struct.TestConfig, ptr %call.i7, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %call.i7, i64 280
   %3 = load i8, ptr %async, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %invoke.cont5
-  %private_key = getelementptr inbounds %struct.TestState, ptr %call.i6, i64 0, i32 11
+  %private_key = getelementptr inbounds i8, ptr %call.i6, i64 80
   store ptr null, ptr %pkey, align 8
   %5 = load ptr, ptr %private_key, align 8
   store ptr %.pre, ptr %private_key, align 8
@@ -3259,7 +3250,7 @@ entry:
   %ref.tmp44 = alloca %"class.std::allocator", align 1
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %digest_prefs = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 5
+  %digest_prefs = getelementptr inbounds i8, ptr %call.i, i64 8
   %call1 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %digest_prefs) #25
   br i1 %call1, label %if.end21, label %if.then
 
@@ -3347,7 +3338,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %if.then.i.i, %_ZNSt
   %digest_list.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %digest_list.sroa.0.064, %if.then.i.i ]
   %add.ptr.i.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %digest_list.sroa.8.065, %if.then.i.i ]
   %digest_list.sroa.14.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %digest_list.sroa.14.066, %if.then.i.i ]
-  %digest_list.sroa.8.1 = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 1
+  %digest_list.sroa.8.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 4
   %cmp.i.i = icmp eq ptr %digest_list.sroa.0.1, %digest_list.sroa.8.1
   %spec.select = select i1 %cmp.i.i, ptr %call5, ptr null
   %call8 = tail call ptr @strtok(ptr noundef %spec.select, ptr noundef nonnull @.str.6) #25
@@ -3414,7 +3405,7 @@ _ZNSt10unique_ptrIc4FreeIcEED2Ev.exit25:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %tobool.not.not, label %return, label %if.end21
 
 if.end21:                                         ; preds = %_ZNSt10unique_ptrIc4FreeIcEED2Ev.exit25, %entry
-  %key_file = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 6
+  %key_file = getelementptr inbounds i8, ptr %call.i, i64 40
   %call22 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %key_file) #25
   br i1 %call22, label %if.end37, label %if.then23
 
@@ -3472,7 +3463,7 @@ ehcleanup:                                        ; preds = %lpad31, %lpad29
   br label %eh.resume
 
 if.end37:                                         ; preds = %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit, %if.end21
-  %cert_file = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 7
+  %cert_file = getelementptr inbounds i8, ptr %call.i, i64 72
   %call38 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %cert_file) #25
   br i1 %call38, label %if.end55, label %if.then39
 
@@ -3574,12 +3565,12 @@ ehcleanup51:                                      ; preds = %lpad47.body, %lpad4
   br label %eh.resume
 
 if.end55:                                         ; preds = %_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit, %if.end37
-  %ocsp_response = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 76
+  %ocsp_response = getelementptr inbounds i8, ptr %call.i, i64 912
   %call56 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %ocsp_response) #25
   br i1 %call56, label %if.end64, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end55
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 31
+  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
   %18 = load ptr, ptr %ctx, align 8
   %call58 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ocsp_response) #25
   %call60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ocsp_response) #25
@@ -3769,7 +3760,7 @@ define internal noundef i32 @_ZL19AsyncPrivateKeyTypeP6ssl_st(ptr noundef %ssl) 
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %private_key = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 11
+  %private_key = getelementptr inbounds i8, ptr %call.i, i64 80
   %1 = load ptr, ptr %private_key, align 8
   %call2 = tail call i32 @EVP_PKEY_id(ptr noundef %1)
   ret i32 %call2
@@ -3780,7 +3771,7 @@ define internal noundef i64 @_ZL30AsyncPrivateKeyMaxSignatureLenP6ssl_st(ptr nou
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %private_key = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 11
+  %private_key = getelementptr inbounds i8, ptr %call.i, i64 80
   %1 = load ptr, ptr %private_key, align 8
   %call2 = tail call i32 @EVP_PKEY_size(ptr noundef %1)
   %conv = sext i32 %call2 to i64
@@ -3794,9 +3785,9 @@ entry:
   %len = alloca i64, align 8
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %private_key_result = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12
+  %private_key_result = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %private_key_result, align 8
-  %_M_finish.i.i = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -3808,7 +3799,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %private_key = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 11
+  %private_key = getelementptr inbounds i8, ptr %call.i, i64 80
   %5 = load ptr, ptr %private_key, align 8
   %call4 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef %5, ptr noundef null)
   store ptr %call4, ptr %ctx, align 8
@@ -3887,9 +3878,9 @@ define internal noundef i32 @_ZL27AsyncPrivateKeySignCompleteP6ssl_stPhPmm(ptr n
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %private_key_result = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12
+  %private_key_result = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %private_key_result, align 8
-  %_M_finish.i.i = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then, label %if.end
@@ -3901,7 +3892,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %private_key_retries = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 13
+  %private_key_retries = getelementptr inbounds i8, ptr %call.i, i64 112
   %5 = load i32, ptr %private_key_retries, align 8
   %cmp = icmp ult i32 %5, 2
   br i1 %cmp, label %return, label %if.end4
@@ -3949,9 +3940,9 @@ define internal noundef i32 @_ZL22AsyncPrivateKeyDecryptP6ssl_stPhPmmPKhm(ptr no
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %private_key_result = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12
+  %private_key_result = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %private_key_result, align 8
-  %_M_finish.i.i = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -3963,7 +3954,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %private_key = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 11
+  %private_key = getelementptr inbounds i8, ptr %call.i, i64 80
   %5 = load ptr, ptr %private_key, align 8
   %call4 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %5)
   %cmp = icmp eq ptr %call4, null
@@ -4001,9 +3992,9 @@ define internal noundef i32 @_ZL30AsyncPrivateKeyDecryptCompleteP6ssl_stPhPmm(pt
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %private_key_result = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12
+  %private_key_result = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %private_key_result, align 8
-  %_M_finish.i.i = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then, label %if.end
@@ -4015,7 +4006,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %private_key_retries = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 13
+  %private_key_retries = getelementptr inbounds i8, ptr %call.i, i64 112
   %5 = load i32, ptr %private_key_retries, align 8
   %cmp = icmp ult i32 %5, 2
   br i1 %cmp, label %return, label %if.end4
@@ -4078,7 +4069,7 @@ declare i32 @EVP_PKEY_sign(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -4089,7 +4080,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.lhs.cast.i
@@ -4264,7 +4255,7 @@ define internal noundef i32 @_ZL12CertCallbackP6ssl_stPv(ptr noundef %ssl, ptr n
 entry:
   %0 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %cert_ready = getelementptr inbounds %struct.TestState, ptr %call.i, i64 0, i32 4
+  %cert_ready = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load i8, ptr %cert_ready, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -4301,7 +4292,7 @@ entry:
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
   %tobool.not = icmp eq ptr %hint, null
   %cond = select i1 %tobool.not, ptr @.str.31, ptr %hint
-  %psk_identity = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 39
+  %psk_identity = getelementptr inbounds i8, ptr %call.i, i64 560
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %psk_identity) #25
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %cond, ptr noundef nonnull dereferenceable(1) %call1) #32
   %cmp.not = icmp eq i32 %call2, 0
@@ -4319,7 +4310,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6.not, label %lor.lhs.false, label %if.then10
 
 lor.lhs.false:                                    ; preds = %if.end
-  %psk = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 38
+  %psk = getelementptr inbounds i8, ptr %call.i, i64 528
   %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %psk) #25
   %conv8 = zext i32 %max_psk_len to i64
   %cmp9 = icmp ugt i64 %call7, %conv8
@@ -4352,7 +4343,7 @@ define internal noundef i32 @_ZL17PskServerCallbackP6ssl_stPKcPhj(ptr noundef %s
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %psk_identity = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 39
+  %psk_identity = getelementptr inbounds i8, ptr %call.i, i64 560
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %psk_identity) #25
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %identity, ptr noundef nonnull dereferenceable(1) %call1) #32
   %cmp.not = icmp eq i32 %call2, 0
@@ -4364,7 +4355,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %psk = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 38
+  %psk = getelementptr inbounds i8, ptr %call.i, i64 528
   %call4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %psk) #25
   %conv = zext i32 %max_psk_len to i64
   %cmp5 = icmp ugt i64 %call4, %conv
@@ -4413,14 +4404,14 @@ entry:
   %2 = load i32, ptr @_ZZL12DDoSCallbackPK22ssl_early_callback_ctxE12callback_num, align 4
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr @_ZZL12DDoSCallbackPK22ssl_early_callback_ctxE12callback_num, align 4
-  %fail_ddos_callback = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 54
+  %fail_ddos_callback = getelementptr inbounds i8, ptr %call.i, i64 720
   %3 = load i8, ptr %fail_ddos_callback, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %fail_second_ddos_callback = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 55
+  %fail_second_ddos_callback = getelementptr inbounds i8, ptr %call.i, i64 721
   %5 = load i8, ptr %fail_second_ddos_callback, align 1
   %6 = and i8 %5, 1
   %tobool1 = icmp eq i8 %6, 0
@@ -4526,8 +4517,8 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
   %1 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i26 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %1)
-  %clock_delta = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 2
-  %tv_usec = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 2, i32 1
+  %clock_delta = getelementptr inbounds i8, ptr %call.i26, i64 24
+  %tv_usec = getelementptr inbounds i8, ptr %call.i26, i64 32
   %2 = load i64, ptr %tv_usec, align 8
   %cmp2.not = icmp eq i64 %2, 0
   %.pre = load i64, ptr %clock_delta, align 8
@@ -4536,8 +4527,8 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end34, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %clock = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 1
-  %tv_usec8 = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 1, i32 1
+  %clock = getelementptr inbounds i8, ptr %call.i26, i64 8
+  %tv_usec8 = getelementptr inbounds i8, ptr %call.i26, i64 16
   %3 = load i64, ptr %tv_usec8, align 8
   %add = add nsw i64 %3, %2
   %div = sdiv i64 %add, 1000000
@@ -4548,7 +4539,7 @@ if.then5:                                         ; preds = %if.end
   %add20 = add nsw i64 %.pre, %add13
   store i64 %add20, ptr %clock, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %clock_delta, i8 0, i64 16, i1 false)
-  %async = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %call.i, i64 280
   %5 = load i8, ptr %async, align 8
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -4605,14 +4596,14 @@ sw.bb37:                                          ; preds = %if.end34
 sw.bb39:                                          ; preds = %if.end34
   %15 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i27 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %15)
-  %send_channel_id = getelementptr inbounds %struct.TestConfig, ptr %call.i27, i64 0, i32 26
+  %send_channel_id = getelementptr inbounds i8, ptr %call.i27, i64 320
   call fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %pkey, ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id)
   %16 = load ptr, ptr %pkey, align 8
   %cmp.i = icmp ne ptr %16, null
   br i1 %cmp.i, label %if.end43, label %cleanup
 
 if.end43:                                         ; preds = %sw.bb39
-  %channel_id = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 3
+  %channel_id = getelementptr inbounds i8, ptr %call.i26, i64 40
   %call44 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %channel_id, ptr noundef nonnull align 8 dereferenceable(8) %pkey) #25
   br label %cleanup
 
@@ -4621,13 +4612,13 @@ cleanup:                                          ; preds = %sw.bb39, %if.end43
   br label %return
 
 sw.bb45:                                          ; preds = %if.end34
-  %cert_ready = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 4
+  %cert_ready = getelementptr inbounds i8, ptr %call.i26, i64 48
   store i8 1, ptr %cert_ready, align 8
   br label %return
 
 sw.bb46:                                          ; preds = %if.end34
-  %pending_session = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 7
-  %session = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 6
+  %pending_session = getelementptr inbounds i8, ptr %call.i26, i64 64
+  %session = getelementptr inbounds i8, ptr %call.i26, i64 56
   %call47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(8) %session, ptr noundef nonnull align 8 dereferenceable(8) %pending_session) #25
   br label %return
 
@@ -4636,7 +4627,7 @@ sw.bb48:                                          ; preds = %if.end34
   br label %return
 
 sw.bb50:                                          ; preds = %if.end34
-  %private_key_retries = getelementptr inbounds %struct.TestState, ptr %call.i26, i64 0, i32 13
+  %private_key_retries = getelementptr inbounds i8, ptr %call.i26, i64 112
   %17 = load i32, ptr %private_key_retries, align 8
   %inc = add i32 %17, 1
   store i32 %inc, ptr %private_key_retries, align 8
@@ -4677,7 +4668,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end
   %call3 = tail call i32 @SSL_session_reused(ptr noundef %ssl)
   %tobool4 = icmp ne i32 %call3, 0
-  %expect_session_miss = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 35
+  %expect_session_miss = getelementptr inbounds i8, ptr %call.i, i64 521
   %3 = load i8, ptr %expect_session_miss, align 1
   %4 = and i8 %3, 1
   %5 = icmp eq i8 %4, 0
@@ -4693,7 +4684,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %return
 
 lor.rhs:                                          ; preds = %if.end
-  %false_start = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 14
+  %false_start = getelementptr inbounds i8, ptr %call.i, i64 240
   %7 = load i8, ptr %false_start, align 8
   %8 = and i8 %7, 1
   %tobool15.not = icmp eq i8 %8, 0
@@ -4703,7 +4694,7 @@ lor.end:                                          ; preds = %land.lhs.true, %lor
   %9 = phi i1 [ %tobool15.not, %lor.rhs ], [ true, %land.lhs.true ]
   %10 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i72 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %10)
-  %handshake_done = getelementptr inbounds %struct.TestState, ptr %call.i72, i64 0, i32 9
+  %handshake_done = getelementptr inbounds i8, ptr %call.i72, i64 73
   %11 = load i8, ptr %handshake_done, align 1
   %12 = and i8 %11, 1
   %13 = icmp eq i8 %12, 0
@@ -4714,7 +4705,7 @@ if.then24:                                        ; preds = %lor.end
   %14 = load ptr, ptr @stderr, align 8
   %15 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i73 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %15)
-  %handshake_done26 = getelementptr inbounds %struct.TestState, ptr %call.i73, i64 0, i32 9
+  %handshake_done26 = getelementptr inbounds i8, ptr %call.i73, i64 73
   %16 = load i8, ptr %handshake_done26, align 1
   %17 = and i8 %16, 1
   %tobool27.not = icmp eq i8 %17, 0
@@ -4726,14 +4717,14 @@ if.end30:                                         ; preds = %lor.end
   br i1 %9, label %land.lhs.true32, label %if.end55
 
 land.lhs.true32:                                  ; preds = %if.end30
-  %is_server = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 1
+  %is_server = getelementptr inbounds i8, ptr %call.i, i64 4
   %18 = load i8, ptr %is_server, align 4
   %19 = and i8 %18, 1
   %tobool33.not = icmp eq i8 %19, 0
   br i1 %tobool33.not, label %if.then34, label %if.end55
 
 if.then34:                                        ; preds = %land.lhs.true32
-  %expect_no_session = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 68
+  %expect_no_session = getelementptr inbounds i8, ptr %call.i, i64 899
   %20 = load i8, ptr %expect_no_session, align 1
   %21 = and i8 %20, 1
   %tobool35.not = icmp eq i8 %21, 0
@@ -4745,7 +4736,7 @@ land.rhs:                                         ; preds = %if.then34
   br i1 %tobool37.not, label %land.end, label %lor.rhs38
 
 lor.rhs38:                                        ; preds = %land.rhs
-  %expect_ticket_renewal = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 67
+  %expect_ticket_renewal = getelementptr inbounds i8, ptr %call.i, i64 898
   %22 = load i8, ptr %expect_ticket_renewal, align 2
   %23 = and i8 %22, 1
   %tobool39 = icmp ne i8 %23, 0
@@ -4755,7 +4746,7 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs3
   %24 = phi i1 [ false, %if.then34 ], [ true, %land.rhs ], [ %tobool39, %lor.rhs38 ]
   %25 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i74 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %25)
-  %got_new_session = getelementptr inbounds %struct.TestState, ptr %call.i74, i64 0, i32 14
+  %got_new_session = getelementptr inbounds i8, ptr %call.i74, i64 116
   %26 = load i8, ptr %got_new_session, align 4
   %27 = and i8 %26, 1
   %28 = icmp eq i8 %27, 0
@@ -4766,7 +4757,7 @@ if.then48:                                        ; preds = %land.end
   %29 = load ptr, ptr @stderr, align 8
   %30 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i75 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %30)
-  %got_new_session50 = getelementptr inbounds %struct.TestState, ptr %call.i75, i64 0, i32 14
+  %got_new_session50 = getelementptr inbounds i8, ptr %call.i75, i64 116
   %31 = load i8, ptr %got_new_session50, align 4
   %32 = and i8 %31, 1
   %tobool51.not = icmp eq i8 %32, 0
@@ -4775,7 +4766,7 @@ if.then48:                                        ; preds = %land.end
   br label %return
 
 if.end55:                                         ; preds = %land.end, %land.lhs.true32, %if.end30
-  %is_server56 = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 1
+  %is_server56 = getelementptr inbounds i8, ptr %call.i, i64 4
   %33 = load i8, ptr %is_server56, align 4
   %34 = and i8 %33, 1
   %tobool57.not = icmp eq i8 %34, 0
@@ -4784,7 +4775,7 @@ if.end55:                                         ; preds = %land.end, %land.lhs
 land.lhs.true58:                                  ; preds = %if.end55
   %35 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i76 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %35)
-  %early_callback_called = getelementptr inbounds %struct.TestState, ptr %call.i76, i64 0, i32 8
+  %early_callback_called = getelementptr inbounds i8, ptr %call.i76, i64 72
   %36 = load i8, ptr %early_callback_called, align 8
   %37 = and i8 %36, 1
   %tobool60.not = icmp eq i8 %37, 0
@@ -4796,7 +4787,7 @@ if.then61:                                        ; preds = %land.lhs.true58
   br label %return
 
 if.end63:                                         ; preds = %land.lhs.true58, %if.end55
-  %expected_server_name = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 8
+  %expected_server_name = getelementptr inbounds i8, ptr %call.i, i64 104
   %call64 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_server_name) #25
   br i1 %call64, label %if.end74, label %if.then65
 
@@ -4813,7 +4804,7 @@ if.then69:                                        ; preds = %if.then65
   br label %return
 
 if.end74:                                         ; preds = %if.then65, %if.end63
-  %expected_certificate_types = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 9
+  %expected_certificate_types = getelementptr inbounds i8, ptr %call.i, i64 136
   %call75 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_certificate_types) #25
   br i1 %call75, label %if.end88, label %if.then76
 
@@ -4836,7 +4827,7 @@ if.then85:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end88:                                         ; preds = %lor.lhs.false, %if.end74
-  %expected_next_proto = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 13
+  %expected_next_proto = getelementptr inbounds i8, ptr %call.i, i64 208
   %call89 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_next_proto) #25
   br i1 %call89, label %if.end104, label %if.then90
 
@@ -4863,7 +4854,7 @@ if.then101:                                       ; preds = %lor.lhs.false95, %i
   br label %return
 
 if.end104:                                        ; preds = %lor.lhs.false95, %if.end88
-  %expected_alpn = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 31
+  %expected_alpn = getelementptr inbounds i8, ptr %call.i, i64 424
   %call105 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_alpn) #25
   br i1 %call105, label %if.end120, label %if.then106
 
@@ -4890,7 +4881,7 @@ if.then117:                                       ; preds = %lor.lhs.false111, %
   br label %return
 
 if.end120:                                        ; preds = %lor.lhs.false111, %if.end104
-  %expected_channel_id = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 25
+  %expected_channel_id = getelementptr inbounds i8, ptr %call.i, i64 288
   %call121 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_channel_id) #25
   br i1 %call121, label %if.end140, label %if.then122
 
@@ -4921,16 +4912,16 @@ if.then137:                                       ; preds = %lor.lhs.false131, %
   br label %return
 
 if.end140:                                        ; preds = %lor.lhs.false131, %if.end120
-  %expect_extended_master_secret = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 36
+  %expect_extended_master_secret = getelementptr inbounds i8, ptr %call.i, i64 522
   %58 = load i8, ptr %expect_extended_master_secret, align 2
   %59 = and i8 %58, 1
   %tobool141.not = icmp eq i8 %59, 0
   br i1 %tobool141.not, label %if.end147, label %if.then142
 
 if.then142:                                       ; preds = %if.end140
-  %session = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 25
+  %session = getelementptr inbounds i8, ptr %ssl, i64 184
   %60 = load ptr, ptr %session, align 8
-  %extended_master_secret = getelementptr inbounds %struct.ssl_session_st, ptr %60, i64 0, i32 30
+  %extended_master_secret = getelementptr inbounds i8, ptr %60, i64 376
   %bf.load = load i8, ptr %extended_master_secret, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool143.not = icmp eq i8 %bf.clear, 0
@@ -4942,7 +4933,7 @@ if.then144:                                       ; preds = %if.then142
   br label %return
 
 if.end147:                                        ; preds = %if.then142, %if.end140
-  %expected_ocsp_response = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 43
+  %expected_ocsp_response = getelementptr inbounds i8, ptr %call.i, i64 632
   %call148 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_ocsp_response) #25
   br i1 %call148, label %if.end161, label %if.then149
 
@@ -4967,7 +4958,7 @@ if.then158:                                       ; preds = %lor.lhs.false153, %
   br label %return
 
 if.end161:                                        ; preds = %lor.lhs.false153, %if.end147
-  %expected_signed_cert_timestamps = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 46
+  %expected_signed_cert_timestamps = getelementptr inbounds i8, ptr %call.i, i64 672
   %call162 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %expected_signed_cert_timestamps) #25
   br i1 %call162, label %if.end177, label %if.then163
 
@@ -4992,14 +4983,14 @@ if.then174:                                       ; preds = %lor.lhs.false169, %
   br label %return
 
 if.end177:                                        ; preds = %lor.lhs.false169, %if.end161
-  %expect_verify_result = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 81
+  %expect_verify_result = getelementptr inbounds i8, ptr %call.i, i64 948
   %73 = load i8, ptr %expect_verify_result, align 4
   %74 = and i8 %73, 1
   %tobool178.not = icmp eq i8 %74, 0
   br i1 %tobool178.not, label %if.end188, label %if.then179
 
 if.then179:                                       ; preds = %if.end177
-  %verify_fail = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 79
+  %verify_fail = getelementptr inbounds i8, ptr %call.i, i64 946
   %75 = load i8, ptr %verify_fail, align 2
   %76 = and i8 %75, 1
   %tobool180.not = icmp eq i8 %76, 0
@@ -5014,7 +5005,7 @@ if.then185:                                       ; preds = %if.then179
   br label %return
 
 if.end188:                                        ; preds = %if.then179, %if.end177
-  %expect_server_key_exchange_hash = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 89
+  %expect_server_key_exchange_hash = getelementptr inbounds i8, ptr %call.i, i64 992
   %79 = load i32, ptr %expect_server_key_exchange_hash, align 8
   %cmp189.not = icmp eq i32 %79, 0
   br i1 %cmp189.not, label %if.end200, label %land.lhs.true190
@@ -5034,7 +5025,7 @@ if.then195:                                       ; preds = %land.lhs.true190
   br label %return
 
 if.end200:                                        ; preds = %land.lhs.true190, %if.end188
-  %expect_key_exchange_info = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 94
+  %expect_key_exchange_info = getelementptr inbounds i8, ptr %call.i, i64 1000
   %82 = load i32, ptr %expect_key_exchange_info, align 8
   %cmp201.not = icmp eq i32 %82, 0
   br i1 %cmp201.not, label %if.end211, label %if.then202
@@ -5058,7 +5049,7 @@ if.end211:                                        ; preds = %if.then202, %if.end
   br i1 %tobool213.not, label %if.then214, label %return
 
 if.then214:                                       ; preds = %if.end211
-  %psk = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 38
+  %psk = getelementptr inbounds i8, ptr %call.i, i64 528
   %call215 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %psk) #25
   %call217 = call ptr @SSL_get_peer_cert_chain(ptr noundef %ssl)
   %cmp218 = icmp eq ptr %call217, null
@@ -5108,7 +5099,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIhSaIhE
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %__n) #29
   store ptr %call5.i.i.i.i1.i, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %__n
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   store i8 0, ptr %call5.i.i.i.i1.i, align 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 1
@@ -5122,7 +5113,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread
   %__first.addr.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread ]
-  %_M_finish.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i, ptr %_M_finish.i.i7, align 8
   ret void
 }
@@ -5134,7 +5125,7 @@ define internal fastcc noundef i32 @_ZL8WriteAllP6ssl_stPKhm(ptr noundef %ssl, p
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %async = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %call.i, i64 280
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
@@ -5183,7 +5174,7 @@ entry:
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
   %1 = load i32, ptr @_ZL13g_state_index, align 4
   %call.i8 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %1)
-  %async = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %call.i, i64 280
   %conv = trunc i64 %max_out to i32
   br label %do.body
 
@@ -5230,7 +5221,7 @@ define internal fastcc noundef i32 @_ZL10DoShutdownP6ssl_st(ptr noundef %ssl) un
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)
-  %async = getelementptr inbounds %struct.TestConfig, ptr %call.i, i64 0, i32 17
+  %async = getelementptr inbounds i8, ptr %call.i, i64 280
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %entry

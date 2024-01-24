@@ -176,7 +176,7 @@ entry:
   %inc = add i32 %0, 1
   store i32 %inc, ptr @g_once_init_called, align 4
   store i64 0, ptr %req, align 8
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %req, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %req, i64 8
   store i64 1000000, ptr %tv_nsec, align 8
   %call = call i32 @nanosleep(ptr noundef nonnull %req, ptr noundef null) #9
   ret void

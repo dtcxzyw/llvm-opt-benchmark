@@ -33,7 +33,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %entry
-  %nr = getelementptr inbounds %struct.strvec, ptr %args, i64 0, i32 1
+  %nr = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load i64, ptr %nr, align 8
   %conv = trunc i64 %1 to i32
   %2 = load ptr, ptr %args, align 8

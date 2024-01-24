@@ -9,31 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::detail::ScopeGuardImpl" = type { %"class.folly::detail::ScopeGuardImplBase", %class.anon }
 %"class.folly::detail::ScopeGuardImplBase" = type { i8 }
 %class.anon = type { ptr, ptr }
-%"struct.folly::futures::Barrier::ControlBlockAndPromise" = type { %"struct.folly::futures::Barrier::ControlBlock", [1 x %"class.folly::Promise"] }
-%"struct.folly::futures::Barrier::ControlBlock" = type { %"struct.std::atomic.0" }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
 %"class.folly::Promise" = type { i8, ptr }
-%"class.folly::futures::detail::CoreBase" = type { ptr, [8 x i8], %"class.folly::Function", %"struct.std::atomic.4", %"struct.std::atomic.5", %"struct.std::atomic.5", %"class.folly::futures::detail::KeepAliveOrDeferred", %"class.std::shared_ptr", %"struct.std::atomic.0", ptr, [8 x i8] }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"struct.std::atomic.4" = type { i8 }
-%"struct.std::atomic.5" = type { %"struct.std::__atomic_base.6" }
-%"struct.std::__atomic_base.6" = type { i8 }
-%"class.folly::futures::detail::KeepAliveOrDeferred" = type { i32, %union.anon.7 }
-%union.anon.7 = type { %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.folly::futures::Barrier" = type { i32, %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.10 }
@@ -57,6 +33,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Future" = type { %"class.folly::futures::detail::FutureBase" }
 %"class.folly::futures::detail::FutureBase" = type { ptr }
 %"class.folly::SemiFuture" = type { %"class.folly::futures::detail::FutureBase" }
+%"class.folly::futures::detail::KeepAliveOrDeferred" = type { i32, %union.anon.7 }
+%union.anon.7 = type { %"class.std::unique_ptr" }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
+%"struct.std::_Head_base.9" = type { ptr }
 %"class.folly::FutureAlreadyRetrieved" = type { %"class.folly::PromiseException" }
 %"class.folly::FutureInvalid" = type { %"class.folly::FutureException" }
 %"class.folly::FutureException" = type { %"class.folly::static_what_exception" }
@@ -276,14 +260,14 @@ entry:
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i.i, i64 8) ]
   store i64 0, ptr %call.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i) #16
-  %promises.i.i = getelementptr inbounds %"struct.folly::futures::Barrier::ControlBlockAndPromise", ptr %call.i.i, i64 0, i32 1
+  %promises.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %promises.i.i, ptr %p.i, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i.i) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rollback.i) #16
   store i8 0, ptr %rollback.i, align 8, !tbaa !19, !alias.scope !22
-  %function_.i.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %rollback.i, i64 0, i32 1
+  %function_.i.i.i.i = getelementptr inbounds i8, ptr %rollback.i, i64 8
   store ptr %i.i, ptr %function_.i.i.i.i, align 8, !tbaa.struct !25
-  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %rollback.i, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %rollback.i, i64 16
   store ptr %p.i, ptr %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx.i, align 8, !tbaa.struct !26
   %cmp9.not.i = icmp eq i32 %n, 0
   br i1 %cmp9.not.i, label %_ZN5folly7futures7Barrier20allocateControlBlockEv.exit, label %for.body.i
@@ -298,21 +282,21 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
   %core_.i.i = getelementptr inbounds %"class.folly::Promise", ptr %0, i64 %indvars.iv.i, i32 1
-  %callback_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 2
+  %callback_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i, align 16, !tbaa !29
-  %call_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i, align 16, !tbaa !30
-  %exec_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !32
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 3
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 80
   store i8 1, ptr %state_.i.i.i.i.i, align 1, !tbaa !33
-  %attached_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 4
+  %attached_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 81
   store i8 2, ptr %attached_.i.i.i.i.i, align 1, !tbaa !36
-  %callbackReferences_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !tbaa !36
-  %executor_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 6
+  %executor_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !tbaa !38
-  %1 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 6, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i.i7.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIbEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i7.i, align 16, !tbaa !41
   store ptr %call.i.i7.i, ptr %core_.i.i, align 8, !tbaa !43
@@ -332,7 +316,7 @@ lpad.i:                                           ; preds = %for.body.i
   resume { ptr, i32 } %2
 
 _ZN5folly7futures7Barrier20allocateControlBlockEv.exit: ; preds = %for.inc.i, %entry
-  %controlBlock_ = getelementptr inbounds %"class.folly::futures::Barrier", ptr %this, i64 0, i32 1
+  %controlBlock_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rollback.i) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i) #16
@@ -354,14 +338,14 @@ entry:
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 8) ]
   store i64 0, ptr %call.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p) #16
-  %promises.i = getelementptr inbounds %"struct.folly::futures::Barrier::ControlBlockAndPromise", ptr %call.i, i64 0, i32 1
+  %promises.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %promises.i, ptr %p, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rollback) #16
   store i8 0, ptr %rollback, align 8, !tbaa !19, !alias.scope !48
-  %function_.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %rollback, i64 0, i32 1
+  %function_.i.i.i = getelementptr inbounds i8, ptr %rollback, i64 8
   store ptr %i, ptr %function_.i.i.i, align 8, !tbaa.struct !25
-  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %rollback, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %rollback, i64 16
   store ptr %p, ptr %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx, align 8, !tbaa.struct !26
   %cmp9.not = icmp eq i32 %0, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -376,21 +360,21 @@ for.body:                                         ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %for.body
   %core_.i = getelementptr inbounds %"class.folly::Promise", ptr %1, i64 %indvars.iv, i32 1
-  %callback_.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 2
+  %callback_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 16
   store ptr null, ptr %callback_.i.i.i.i, align 16, !tbaa !29
-  %call_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i, align 16, !tbaa !30
-  %exec_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i, align 8, !tbaa !32
-  %state_.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 3
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 80
   store i8 1, ptr %state_.i.i.i.i, align 1, !tbaa !33
-  %attached_.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 4
+  %attached_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 81
   store i8 2, ptr %attached_.i.i.i.i, align 1, !tbaa !36
-  %callbackReferences_.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 5
+  %callbackReferences_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i, align 1, !tbaa !36
-  %executor_.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 6
+  %executor_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7, i64 88
   store i32 0, ptr %executor_.i.i.i.i, align 8, !tbaa !38
-  %2 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7, i64 0, i32 6, i32 1
+  %2 = getelementptr inbounds i8, ptr %call.i.i7, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIbEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i7, align 16, !tbaa !41
   store ptr %call.i.i7, ptr %core_.i, align 8, !tbaa !43
@@ -421,12 +405,12 @@ define void @_ZN5folly7futures7BarrierD2Ev(ptr nocapture noundef nonnull readonl
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::runtime_error", align 8
   %agg.tmp = alloca %"class.folly::exception_wrapper", align 8
-  %controlBlock_ = getelementptr inbounds %"class.folly::futures::Barrier", ptr %this, i64 0, i32 1
+  %controlBlock_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %controlBlock_ monotonic, align 8
   %atomic-temp.0.i.i = inttoptr i64 %0 to ptr
   %1 = load atomic i64, ptr %atomic-temp.0.i.i monotonic, align 8
   %and = and i64 %1, 4294967295
-  %promises.i = getelementptr inbounds %"struct.folly::futures::Barrier::ControlBlockAndPromise", ptr %atomic-temp.0.i.i, i64 0, i32 1
+  %promises.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i, i64 8
   %cmp29.not = icmp eq i64 %and, 0
   br i1 %cmp29.not, label %for.cond.cleanup, label %for.body.preheader
 
@@ -437,7 +421,7 @@ for.body.preheader:                               ; preds = %entry
 for.cond.cleanup:                                 ; preds = %_ZN5folly17exception_wrapperD2Ev.exit, %entry
   %2 = load atomic i64, ptr %controlBlock_ seq_cst, align 8
   %atomic-temp.0.i.i.i = inttoptr i64 %2 to ptr
-  %promises.i.i = getelementptr inbounds %"struct.folly::futures::Barrier::ControlBlockAndPromise", ptr %atomic-temp.0.i.i.i, i64 0, i32 1
+  %promises.i.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i.i, i64 8
   %3 = load i32, ptr %this, align 8, !tbaa !7
   %cmp.not7.i = icmp eq i32 %3, 0
   br i1 %cmp.not7.i, label %_ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE.exit, label %for.body.preheader.i
@@ -556,7 +540,7 @@ entry:
   %0 = load i64, ptr %ew, align 8, !noalias !64
   store i64 0, ptr %ew, align 8, !noalias !64
   store i32 1, ptr %ref.tmp, align 8, !tbaa !67
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   store i64 %0, ptr %1, align 8, !alias.scope !70
   store i64 0, ptr %agg.tmp, align 8, !noalias !70
@@ -617,7 +601,7 @@ _ZN5folly17exception_wrapperD2Ev.exit10:          ; preds = %if.then.i.i9, %_ZN5
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %block) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %promises.i = getelementptr inbounds %"struct.folly::futures::Barrier::ControlBlockAndPromise", ptr %block, i64 0, i32 1
+  %promises.i = getelementptr inbounds i8, ptr %block, i64 8
   %0 = load i32, ptr %this, align 8, !tbaa !7
   %cmp.not7 = icmp eq i32 %0, 0
   br i1 %cmp.not7, label %for.cond.cleanup, label %for.body.preheader
@@ -674,7 +658,7 @@ _ZN5folly7PromiseIbED2Ev.exit:                    ; preds = %.noexc.i, %for.body
 define linkonce_odr void @_ZN5folly7PromiseIbE6setTryEONS_3TryIbEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %t) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::Executor::KeepAlive", align 8
-  %core_.i.i = getelementptr inbounds %"class.folly::Promise", ptr %this, i64 0, i32 1
+  %core_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %core_.i.i, align 8, !tbaa !43
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZNK5folly7PromiseIbE7getCoreEv.exit.i
@@ -705,14 +689,14 @@ _ZNK5folly7PromiseIbE16throwIfFulfilledEv.exit:   ; preds = %_ZNK5folly7PromiseI
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK5folly7PromiseIbE16throwIfFulfilledEv.exit
   %3 = getelementptr inbounds i8, ptr %1, i64 144
-  %4 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %t, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %t, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !77, !range !52, !noundef !53
   store i8 %5, ptr %3, align 1, !tbaa !77
   br label %_ZN5folly3TryIbEC2EOS1_.exit.i.i
 
 if.then6.i.i.i.i:                                 ; preds = %_ZNK5folly7PromiseIbE16throwIfFulfilledEv.exit
   %6 = getelementptr inbounds i8, ptr %1, i64 144
-  %7 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %t, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %t, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %8 = load i64, ptr %7, align 8, !noalias !78
   store i64 %8, ptr %6, align 8, !alias.scope !78
@@ -738,7 +722,7 @@ if.then.i.i.i3:                                   ; preds = %invoke.cont.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i3
   %vtable.i.i.i = load ptr, ptr %10, align 8, !tbaa !41
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %11 = load ptr, ptr %vfn.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   br label %_ZN5folly7futures6detail4CoreIbE9setResultEONS_3TryIbEE.exit
@@ -760,7 +744,7 @@ if.then.i.i5.i:                                   ; preds = %lpad.i
 
 if.then5.i.i8.i:                                  ; preds = %if.then.i.i5.i
   %vtable.i.i9.i = load ptr, ptr %14, align 8, !tbaa !41
-  %vfn.i.i10.i = getelementptr inbounds ptr, ptr %vtable.i.i9.i, i64 6
+  %vfn.i.i10.i = getelementptr inbounds i8, ptr %vtable.i.i9.i, i64 48
   %15 = load ptr, ptr %vfn.i.i10.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit11.i
@@ -811,9 +795,9 @@ define linkonce_odr void @_ZN5folly14PromiseInvalidC2Ev(ptr noundef nonnull alig
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !82
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !84
   store i8 0, ptr %0, align 8, !tbaa !29
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -857,7 +841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.3, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
   ret void
@@ -869,8 +853,8 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly14PromiseInvalidC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !87
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
@@ -890,7 +874,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5folly21static_what_exceptionISt11logic_errorE4whatEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %msg_ = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %msg_, align 8, !tbaa !87
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -949,9 +933,9 @@ define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedC2Ev(ptr noundef non
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !82
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !84
   store i8 0, ptr %0, align 8, !tbaa !29
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -995,7 +979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.4, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
   ret void
@@ -1005,8 +989,8 @@ _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_I
 define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !87
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
@@ -1060,14 +1044,14 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %function_.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1
+  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %function_.i, align 8, !tbaa !92
   %2 = load i32, ptr %1, align 4, !tbaa !46
   %cmp.not2.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then
-  %3 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5folly7PromiseIbED2Ev.exit.i.i, %for.body.lr.ph.i.i
@@ -1135,7 +1119,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreIbED2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_ monotonic, align 16
   switch i8 %0, label %sw.default [
     i8 2, label %sw.bb15
@@ -1161,7 +1145,7 @@ if.then.i.i.i:                                    ; preds = %if.then7.i
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %proxy_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_ = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_, align 16, !tbaa !96
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #16
   br label %sw.epilog
@@ -1178,7 +1162,7 @@ sw.epilog:                                        ; preds = %sw.bb16, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreIbED0Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_.i monotonic, align 16
   switch i8 %0, label %sw.default.i [
     i8 2, label %sw.bb15.i
@@ -1204,7 +1188,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then7.i.i
   br label %_ZN5folly7futures6detail4CoreIbED2Ev.exit
 
 sw.bb16.i:                                        ; preds = %entry
-  %proxy_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_.i, align 16, !tbaa !96
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #16
   br label %_ZN5folly7futures6detail4CoreIbED2Ev.exit
@@ -1320,9 +1304,9 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp1) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #16
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i.i, align 8, !tbaa !82
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !84
   store i8 0, ptr %0, align 8, !tbaa !29
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
@@ -1370,19 +1354,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i.i: ; preds =
 
 _ZN5folly3TryIbEC2EOS1_.exit.i.i:                 ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #16
-  %msg_.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %ref.tmp1, i64 0, i32 1
+  %msg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store ptr @_ZZN5folly13BrokenPromise13error_messageIbEEPKcvE3str, ptr %msg_.i.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp1, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #16
-  %msg_.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %agg.tmp.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %6 = load ptr, ptr %msg_.i.i.i, align 8, !tbaa !87
   store ptr %6, ptr %msg_.i.i.i.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp.i.i, align 8, !tbaa !41
   %call.i.i.i = call ptr @__cxa_allocate_exception(i64 noundef 24) #16, !noalias !103
   %call1.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i, ptr noundef nonnull @_ZTIN5folly13BrokenPromiseE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5folly13BrokenPromiseEEEvPv) #16, !noalias !103
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #16, !noalias !103
-  %msg_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %call.i.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %7 = load ptr, ptr %msg_.i.i.i.i.i, align 8, !tbaa !87, !noalias !103
   store ptr %7, ptr %msg_.i.i.i.i.i.i, align 8, !tbaa !87, !noalias !103
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !41, !noalias !103
@@ -1390,7 +1374,7 @@ _ZN5folly3TryIbEC2EOS1_.exit.i.i:                 ; preds = %if.then.i.i.i.i.i, 
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   store i32 1, ptr %ref.tmp, align 8, !tbaa !67
-  %8 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %9 = load i64, ptr %agg.tmp, align 8, !noalias !106
   store i64 0, ptr %agg.tmp, align 8, !noalias !106
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #16
@@ -1438,7 +1422,7 @@ if.then7.i14.thread:                              ; preds = %lpad.i, %if.then.i.
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit11.i:   ; preds = %if.then.i.i5.i
   %vtable.i.i9.i = load ptr, ptr %15, align 8, !tbaa !41
-  %vfn.i.i10.i = getelementptr inbounds ptr, ptr %vtable.i.i9.i, i64 6
+  %vfn.i.i10.i = getelementptr inbounds i8, ptr %vtable.i.i9.i, i64 48
   %16 = load ptr, ptr %vfn.i.i10.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #16
   %.pre = load i32, ptr %ref.tmp, align 8, !tbaa !67
@@ -1452,7 +1436,7 @@ if.then7.i.thread:                                ; preds = %invoke.cont.i, %if.
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %12, align 8, !tbaa !41
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %18 = load ptr, ptr %vfn.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
   %.pre21 = load i32, ptr %ref.tmp, align 8, !tbaa !67
@@ -1544,10 +1528,10 @@ entry:
   %p.i = alloca ptr, align 8
   %i.i = alloca i32, align 4
   %rollback.i = alloca %"class.folly::detail::ScopeGuardImpl", align 8
-  %controlBlock_ = getelementptr inbounds %"class.folly::futures::Barrier", ptr %this, i64 0, i32 1
+  %controlBlock_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load atomic i64, ptr %controlBlock_ acquire, align 8
   %atomic-temp.0.i.i = inttoptr i64 %0 to ptr
-  %promises.i = getelementptr inbounds %"struct.folly::futures::Barrier::ControlBlockAndPromise", ptr %atomic-temp.0.i.i, i64 0, i32 1
+  %promises.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i, i64 8
   %1 = atomicrmw add ptr %atomic-temp.0.i.i, i64 4294967297 acquire, align 8
   %conv = trunc i64 %1 to i32
   %idxprom = and i64 %1, 4294967295
@@ -1569,14 +1553,14 @@ call.i.i.noexc:                                   ; preds = %if.then
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i.i52, i64 8) ]
   store i64 0, ptr %call.i.i52, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %p.i) #16
-  %promises.i.i = getelementptr inbounds %"struct.folly::futures::Barrier::ControlBlockAndPromise", ptr %call.i.i52, i64 0, i32 1
+  %promises.i.i = getelementptr inbounds i8, ptr %call.i.i52, i64 8
   store ptr %promises.i.i, ptr %p.i, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i.i) #16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rollback.i) #16
   store i8 0, ptr %rollback.i, align 8, !tbaa !19, !alias.scope !115
-  %function_.i.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %rollback.i, i64 0, i32 1
+  %function_.i.i.i.i = getelementptr inbounds i8, ptr %rollback.i, i64 8
   store ptr %i.i, ptr %function_.i.i.i.i, align 8, !tbaa.struct !25
-  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %rollback.i, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %rollback.i, i64 16
   store ptr %p.i, ptr %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx.i, align 8, !tbaa.struct !26
   %cmp9.not.i = icmp eq i32 %add, 0
   br i1 %cmp9.not.i, label %invoke.cont17, label %for.body.i
@@ -1591,21 +1575,21 @@ for.body.i:                                       ; preds = %call.i.i.noexc, %fo
 
 for.inc.i:                                        ; preds = %for.body.i
   %core_.i.i = getelementptr inbounds %"class.folly::Promise", ptr %3, i64 %indvars.iv.i, i32 1
-  %callback_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 2
+  %callback_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i, align 16, !tbaa !29
-  %call_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i, align 16, !tbaa !30
-  %exec_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !32
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 3
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 80
   store i8 1, ptr %state_.i.i.i.i.i, align 1, !tbaa !33
-  %attached_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 4
+  %attached_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 81
   store i8 2, ptr %attached_.i.i.i.i.i, align 1, !tbaa !36
-  %callbackReferences_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !tbaa !36
-  %executor_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 6
+  %executor_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !tbaa !38
-  %4 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i7.i, i64 0, i32 6, i32 1
+  %4 = getelementptr inbounds i8, ptr %call.i.i7.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIbEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i7.i, align 16, !tbaa !41
   store ptr %call.i.i7.i, ptr %core_.i.i, align 8, !tbaa !43
@@ -1632,7 +1616,7 @@ invoke.cont17:                                    ; preds = %for.inc.i, %call.i.
   store atomic i64 %7, ptr %controlBlock_ release, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i) #16
   store i32 0, ptr %ref.tmp.i, align 8, !tbaa !67
-  %8 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i8 1, ptr %8, align 8, !tbaa !29
   invoke void @_ZN5folly7PromiseIbE6setTryEONS_3TryIbEE(ptr noundef nonnull align 8 dereferenceable(16) %promises.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i53
@@ -1678,7 +1662,7 @@ invoke.cont22:                                    ; preds = %if.then.i.i.i.i, %i
   br i1 %cmp2473, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %invoke.cont22
-  %15 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp.i55, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i55, i64 8
   br label %for.body
 
 lpad16:                                           ; preds = %if.then
@@ -1827,7 +1811,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   store i8 1, ptr %this, align 8, !tbaa !27, !noalias !123
-  %core_.i.i = getelementptr inbounds %"class.folly::Promise", ptr %this, i64 0, i32 1
+  %core_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %core_.i.i, align 8, !tbaa !43, !noalias !123
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZN5folly7PromiseIbE13getSemiFutureEv.exit
@@ -1854,7 +1838,7 @@ invoke.cont:                                      ; preds = %cond.false.i, %_ZN5
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %cond-lvalue.i, i64 %vbase.offset
   %vtable.i.i = load ptr, ptr %add.ptr, align 8, !tbaa !41, !noalias !126
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %3 = load ptr, ptr %vfn.i.i, align 8, !noalias !126
   %call.i.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr) #16, !noalias !126
   %not.call.i.i = xor i1 %call.i.i, true
@@ -1880,7 +1864,7 @@ if.then.i.i:                                      ; preds = %invoke.cont3
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
   %vtable.i.i11 = load ptr, ptr %6, align 8, !tbaa !41
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 6
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 48
   %7 = load ptr, ptr %vfn.i.i12, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #16
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
@@ -1927,7 +1911,7 @@ if.then.i.i17:                                    ; preds = %lpad2
 
 if.then5.i.i20:                                   ; preds = %if.then.i.i17
   %vtable.i.i21 = load ptr, ptr %14, align 8, !tbaa !41
-  %vfn.i.i22 = getelementptr inbounds ptr, ptr %vtable.i.i21, i64 6
+  %vfn.i.i22 = getelementptr inbounds i8, ptr %vtable.i.i21, i64 48
   %15 = load ptr, ptr %vfn.i.i22, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #16
   br label %ehcleanup
@@ -1952,7 +1936,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNK5folly7futures6detail10FutureBaseIbE7getCoreEv.exit.i: ; preds = %entry
-  %executor_.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %0, i64 0, i32 6
+  %executor_.i.i = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %executor_.i.i, align 8, !tbaa !38
   %cmp.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZNK5folly7futures6detail10FutureBaseIbE11getExecutorEv.exit
@@ -1985,7 +1969,7 @@ if.then.i.i.i22:                                  ; preds = %if.end
   unreachable
 
 _ZNK5folly7futures6detail10FutureBaseIbE7getCoreEv.exit.i16: ; preds = %if.end
-  %executor_.i.i17 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %5, i64 0, i32 6
+  %executor_.i.i17 = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load i32, ptr %executor_.i.i17, align 8, !tbaa !38
   %cmp.i.i.i18 = icmp eq i32 %6, 0
   br i1 %cmp.i.i.i18, label %_ZNK5folly7futures6detail10FutureBaseIbE19getDeferredExecutorEv.exit, label %if.end6
@@ -2014,7 +1998,7 @@ cond.false.i:                                     ; preds = %if.then5
 if.end.i.i23:                                     ; preds = %cond.false.i
   %8 = inttoptr i64 %and.i5.i to ptr
   %vtable.i.i = load ptr, ptr %8, align 8, !tbaa !41, !noalias !132
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 5
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 40
   %9 = load ptr, ptr %vfn.i.i, align 8, !noalias !132
   %call.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #16, !noalias !132
   %not.call.i.i = xor i1 %call.i.i, true
@@ -2043,7 +2027,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
   %vtable.i.i26 = load ptr, ptr %11, align 8, !tbaa !41
-  %vfn.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i26, i64 6
+  %vfn.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i26, i64 48
   %12 = load ptr, ptr %vfn.i.i27, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #16
   br label %if.end6
@@ -2065,7 +2049,7 @@ if.then.i.i30:                                    ; preds = %lpad
 
 if.then5.i.i33:                                   ; preds = %if.then.i.i30
   %vtable.i.i34 = load ptr, ptr %15, align 8, !tbaa !41
-  %vfn.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i34, i64 6
+  %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 48
   %16 = load ptr, ptr %vfn.i.i35, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #16
   br label %eh.resume
@@ -2077,7 +2061,7 @@ if.end6:                                          ; preds = %if.then5.i.i, %if.t
   %18 = load i64, ptr %executor, align 8, !tbaa !81
   store i64 0, ptr %executor, align 8, !tbaa !81
   store i32 1, ptr %agg.tmp8, align 8, !tbaa !38
-  %19 = getelementptr inbounds %"class.folly::futures::detail::KeepAliveOrDeferred", ptr %agg.tmp8, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   store i64 %18, ptr %19, align 8, !tbaa !75
   %tobool.not.i.i.i37 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i37, label %if.then.i.i.i39, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit48
@@ -2090,7 +2074,7 @@ if.then.i.i.i39:                                  ; preds = %if.end6
   unreachable
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit48:     ; preds = %if.end6
-  %executor_.i.i38 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %17, i64 0, i32 6
+  %executor_.i.i38 = getelementptr inbounds i8, ptr %17, i64 88
   %call19.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly7futures6detail19KeepAliveOrDeferredaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %executor_.i.i38, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8) #16
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8) #16
   ret void
@@ -2168,9 +2152,9 @@ define linkonce_odr void @_ZN5folly22FutureAlreadyRetrievedC2Ev(ptr noundef nonn
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !82
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !84
   store i8 0, ptr %0, align 8, !tbaa !29
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -2214,7 +2198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.10, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
   ret void
@@ -2224,8 +2208,8 @@ _ZN5folly16PromiseExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_I
 define linkonce_odr void @_ZN5folly22FutureAlreadyRetrievedC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !87
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
@@ -2282,9 +2266,9 @@ define linkonce_odr void @_ZN5folly13FutureInvalidC2Ev(ptr noundef nonnull align
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !82
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !84
   store i8 0, ptr %0, align 8, !tbaa !29
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -2328,7 +2312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.11, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13FutureInvalidE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
   ret void
@@ -2338,8 +2322,8 @@ _ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS
 define linkonce_odr void @_ZN5folly13FutureInvalidC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !87
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13FutureInvalidE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
@@ -2391,9 +2375,9 @@ define linkonce_odr void @_ZN5folly16FutureNoExecutorC2Ev(ptr noundef nonnull al
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %0, ptr %ref.tmp.i.i, align 8, !tbaa !82
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !84
   store i8 0, ptr %0, align 8, !tbaa !29
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i)
@@ -2437,7 +2421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i.i: ; preds = %
 
 _ZN5folly15FutureExceptionCI2NS_21static_what_exceptionISt11logic_errorEEENS1_IS2_E15static_lifetimeEPKc.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.12, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly16FutureNoExecutorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
   ret void
@@ -2450,8 +2434,8 @@ declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr void @_ZN5folly16FutureNoExecutorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8, !tbaa !87
   store ptr %1, ptr %msg_.i.i, align 8, !tbaa !87
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly16FutureNoExecutorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !41
@@ -2483,7 +2467,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %core, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %core, i64 80
   %0 = load atomic i8, ptr %state_.i acquire, align 1
   %and3.i.i = and i8 %0, 108
   %cmp.i.not = icmp eq i8 %and3.i.i, 0

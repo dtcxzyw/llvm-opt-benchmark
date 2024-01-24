@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %class.btVector3 = type { [4 x float] }
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
-%struct.btCollisionShapeData = type { ptr, i32, [4 x i8] }
-%class.btChunk = type { i32, i32, ptr, i32, i32 }
 
 $_ZN16btCollisionShapeD2Ev = comdat any
 
@@ -38,23 +35,23 @@ entry:
   %aabbMin = alloca %class.btVector3, align 8
   %aabbMax = alloca %class.btVector3, align 8
   store float 1.000000e+00, ptr %tr, align 4
-  %arrayidx3.i.i.i.i = getelementptr inbounds [4 x float], ptr %tr, i64 0, i64 1
-  %arrayidx3.i1.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 1, i32 0, i64 1
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %tr, i64 4
+  %arrayidx3.i1.i.i.i = getelementptr inbounds i8, ptr %tr, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx3.i1.i.i.i, align 4
-  %arrayidx5.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 1, i32 0, i64 2
-  %arrayidx5.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 2, i32 0, i64 2
+  %arrayidx5.i2.i.i.i = getelementptr inbounds i8, ptr %tr, i64 24
+  %arrayidx5.i5.i.i.i = getelementptr inbounds i8, ptr %tr, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i2.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i, align 4
-  %arrayidx7.i6.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 2, i32 0, i64 3
+  %arrayidx7.i6.i.i.i = getelementptr inbounds i8, ptr %tr, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i6.i.i.i, i8 0, i64 20, i1 false)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %tr, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %aabbMax, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
   %1 = load float, ptr %arrayidx11.i, align 8
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %aabbMin, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
   %2 = load float, ptr %arrayidx13.i, align 8
   %sub14.i = fsub float %1, %2
   %add14.i = fadd float %1, %2
@@ -84,7 +81,7 @@ entry:
 define dso_local noundef float @_ZNK16btCollisionShape27getContactBreakingThresholdEf(ptr noundef nonnull align 8 dereferenceable(32) %this, float noundef %defaultContactThreshold) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %mul = fmul float %call, %defaultContactThreshold
@@ -97,15 +94,15 @@ entry:
   %center = alloca %class.btVector3, align 4
   %disc = alloca float, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(16) %center, ptr noundef nonnull align 4 dereferenceable(4) %disc)
   %1 = load float, ptr %center, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %center, i64 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %center, i64 4
   %2 = load float, ptr %arrayidx5.i.i.i, align 4
   %mul8.i.i.i = fmul float %2, %2
   %3 = call float @llvm.fmuladd.f32(float %1, float %1, float %mul8.i.i.i)
-  %arrayidx10.i.i.i = getelementptr inbounds [4 x float], ptr %center, i64 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %center, i64 8
   %4 = load float, ptr %arrayidx10.i.i.i, align 4
   %5 = call noundef float @llvm.fmuladd.f32(float %4, float %4, float %3)
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %5)
@@ -118,14 +115,14 @@ entry:
 define dso_local void @_ZNK16btCollisionShape21calculateTemporalAabbERK11btTransformRK9btVector3S5_fRS3_S6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linvel, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angvel, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMax) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMax)
-  %arrayidx.i11 = getelementptr inbounds [4 x float], ptr %temporalAabbMax, i64 0, i64 2
+  %arrayidx.i11 = getelementptr inbounds i8, ptr %temporalAabbMax, i64 8
   %1 = load float, ptr %arrayidx.i11, align 4
-  %arrayidx.i13 = getelementptr inbounds [4 x float], ptr %temporalAabbMin, i64 0, i64 2
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %temporalAabbMin, i64 8
   %2 = load float, ptr %arrayidx.i13, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %linvel, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %linvel, i64 8
   %3 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %3, %timeStep
   %cmp22 = fcmp ogt float %mul8.i, 0.000000e+00
@@ -134,16 +131,16 @@ entry:
   %add25 = select i1 %cmp22, float %mul8.i, float -0.000000e+00
   %temporalAabbMaxz.0 = fadd float %1, %add25
   %4 = load float, ptr %angvel, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %angvel, i64 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %angvel, i64 4
   %5 = load float, ptr %arrayidx5.i.i.i, align 4
   %mul8.i.i.i = fmul float %5, %5
   %6 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %mul8.i.i.i)
-  %arrayidx10.i.i.i = getelementptr inbounds [4 x float], ptr %angvel, i64 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %angvel, i64 8
   %7 = load float, ptr %arrayidx10.i.i.i, align 4
   %8 = tail call noundef float @llvm.fmuladd.f32(float %7, float %7, float %6)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %8)
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 4
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 32
   %9 = load ptr, ptr %vfn32, align 8
   %10 = load <2 x float>, ptr %temporalAabbMin, align 4
   %11 = load <2 x float>, ptr %linvel, align 4
@@ -188,11 +185,11 @@ entry:
 define dso_local noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly %dataBuffer, ptr noundef %serializer) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %serializer, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %serializer, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 7
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 56
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call)
   store ptr %call4, ptr %dataBuffer, align 8
@@ -201,17 +198,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable6 = load ptr, ptr %serializer, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 12
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 96
   %2 = load ptr, ptr %vfn7, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this, i64 0, i32 1
+  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %m_shapeType, align 8
-  %m_shapeType8 = getelementptr inbounds %struct.btCollisionShapeData, ptr %dataBuffer, i64 0, i32 1
+  %m_shapeType8 = getelementptr inbounds i8, ptr %dataBuffer, i64 8
   store i32 %3, ptr %m_shapeType8, align 8
-  %m_padding = getelementptr inbounds %struct.btCollisionShapeData, ptr %dataBuffer, i64 0, i32 2
+  %m_padding = getelementptr inbounds i8, ptr %dataBuffer, i64 12
   store i32 0, ptr %m_padding, align 4
   ret ptr @.str
 }
@@ -223,22 +220,22 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define dso_local void @_ZNK16btCollisionShape20serializeSingleShapeEP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %serializer) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %conv = sext i32 %call to i64
   %vtable2 = load ptr, ptr %serializer, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 4
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef %conv, i32 noundef 1)
-  %m_oldPtr = getelementptr inbounds %class.btChunk, ptr %call4, i64 0, i32 2
+  %m_oldPtr = getelementptr inbounds i8, ptr %call4, i64 8
   %2 = load ptr, ptr %m_oldPtr, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 14
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 112
   %3 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %2, ptr noundef nonnull %serializer)
   %vtable8 = load ptr, ptr %serializer, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 5
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
   %4 = load ptr, ptr %vfn9, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call4, ptr noundef %call7, i32 noundef 1346455635, ptr noundef nonnull %this)
   ret void

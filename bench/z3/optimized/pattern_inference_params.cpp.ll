@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.pattern_inference_params_helper = type { ptr, %class.params_ref }
 %class.params_ref = type { ptr }
-%struct.pattern_inference_params = type <{ i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i8, i8, [2 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -48,7 +47,7 @@ define hidden void @_ZN24pattern_inference_params11updt_paramsERK10params_ref(pt
 entry:
   %p = alloca %struct.pattern_inference_params_helper, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.pattern_inference_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.12)
   %0 = load ptr, ptr %p, align 8
   %call.i2 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.13, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
@@ -62,14 +61,14 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_pi_max_multi_patterns = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 2
+  %m_pi_max_multi_patterns = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %call.i4, ptr %m_pi_max_multi_patterns, align 4
   %2 = load ptr, ptr %p, align 8
   %call.i6 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %m_pi_block_loop_patterns = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 3
+  %m_pi_block_loop_patterns = getelementptr inbounds i8, ptr %this, i64 8
   %frombool6 = zext i1 %call.i6 to i8
   store i8 %frombool6, ptr %m_pi_block_loop_patterns, align 4
   %3 = load ptr, ptr %p, align 8
@@ -77,7 +76,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %m_pi_decompose_patterns = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 4
+  %m_pi_decompose_patterns = getelementptr inbounds i8, ptr %this, i64 9
   %frombool9 = zext i1 %call.i8 to i8
   store i8 %frombool9, ptr %m_pi_decompose_patterns, align 1
   %4 = load ptr, ptr %p, align 8
@@ -85,14 +84,14 @@ invoke.cont7:                                     ; preds = %invoke.cont4
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  %m_pi_arith = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 6
+  %m_pi_arith = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %call.i10, ptr %m_pi_arith, align 4
   %5 = load ptr, ptr %p, align 8
   %call.i12 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %m_pi_use_database = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 7
+  %m_pi_use_database = getelementptr inbounds i8, ptr %this, i64 16
   %frombool14 = zext i1 %call.i12 to i8
   store i8 %frombool14, ptr %m_pi_use_database, align 4
   %6 = load ptr, ptr %p, align 8
@@ -100,21 +99,21 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %m_pi_arith_weight = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 9
+  %m_pi_arith_weight = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %call.i14, ptr %m_pi_arith_weight, align 4
   %7 = load ptr, ptr %p, align 8
   %call.i16 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 10)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %m_pi_non_nested_arith_weight = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 10
+  %m_pi_non_nested_arith_weight = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %call.i16, ptr %m_pi_non_nested_arith_weight, align 4
   %8 = load ptr, ptr %p, align 8
   %call.i18 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  %m_pi_pull_quantifiers = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 11
+  %m_pi_pull_quantifiers = getelementptr inbounds i8, ptr %this, i64 28
   %frombool21 = zext i1 %call.i18 to i8
   store i8 %frombool21, ptr %m_pi_pull_quantifiers, align 4
   %9 = load ptr, ptr %p, align 8
@@ -122,7 +121,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %invoke.cont19
-  %m_pi_warnings = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 15
+  %m_pi_warnings = getelementptr inbounds i8, ptr %this, i64 37
   %frombool24 = zext i1 %call.i20 to i8
   store i8 %frombool24, ptr %m_pi_warnings, align 1
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #5
@@ -147,67 +146,67 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call, i1 noundef zeroext %tobool)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call2, i8 noundef signext 10)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
-  %m_pi_max_multi_patterns = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 2
+  %m_pi_max_multi_patterns = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %m_pi_max_multi_patterns, align 4
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call4, i32 noundef %2)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call5, i8 noundef signext 10)
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
-  %m_pi_block_loop_patterns = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 3
+  %m_pi_block_loop_patterns = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i8, ptr %m_pi_block_loop_patterns, align 4
   %4 = and i8 %3, 1
   %tobool8 = icmp ne i8 %4, 0
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call7, i1 noundef zeroext %tobool8)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call9, i8 noundef signext 10)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
-  %m_pi_decompose_patterns = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 4
+  %m_pi_decompose_patterns = getelementptr inbounds i8, ptr %this, i64 9
   %5 = load i8, ptr %m_pi_decompose_patterns, align 1
   %6 = and i8 %5, 1
   %tobool12 = icmp ne i8 %6, 0
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call11, i1 noundef zeroext %tobool12)
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call13, i8 noundef signext 10)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
-  %m_pi_arith = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 6
+  %m_pi_arith = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %m_pi_arith, align 4
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %7)
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call16, i8 noundef signext 10)
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
-  %m_pi_use_database = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 7
+  %m_pi_use_database = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i8, ptr %m_pi_use_database, align 4
   %9 = and i8 %8, 1
   %tobool19 = icmp ne i8 %9, 0
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call18, i1 noundef zeroext %tobool19)
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call20, i8 noundef signext 10)
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
-  %m_pi_arith_weight = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 9
+  %m_pi_arith_weight = getelementptr inbounds i8, ptr %this, i64 20
   %10 = load i32, ptr %m_pi_arith_weight, align 4
   %call23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call22, i32 noundef %10)
   %call24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call23, i8 noundef signext 10)
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.7)
-  %m_pi_non_nested_arith_weight = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 10
+  %m_pi_non_nested_arith_weight = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load i32, ptr %m_pi_non_nested_arith_weight, align 4
   %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call25, i32 noundef %11)
   %call27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call26, i8 noundef signext 10)
   %call28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %m_pi_pull_quantifiers = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 11
+  %m_pi_pull_quantifiers = getelementptr inbounds i8, ptr %this, i64 28
   %12 = load i8, ptr %m_pi_pull_quantifiers, align 4
   %13 = and i8 %12, 1
   %tobool29 = icmp ne i8 %13, 0
   %call30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call28, i1 noundef zeroext %tobool29)
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call30, i8 noundef signext 10)
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.9)
-  %m_pi_nopat_weight = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 13
+  %m_pi_nopat_weight = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i32, ptr %m_pi_nopat_weight, align 4
   %call33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call32, i32 noundef %14)
   %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call33, i8 noundef signext 10)
   %call35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.10)
-  %m_pi_avoid_skolems = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 14
+  %m_pi_avoid_skolems = getelementptr inbounds i8, ptr %this, i64 36
   %15 = load i8, ptr %m_pi_avoid_skolems, align 4
   %16 = and i8 %15, 1
   %tobool36 = icmp ne i8 %16, 0
   %call37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call35, i1 noundef zeroext %tobool36)
   %call38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call37, i8 noundef signext 10)
   %call39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.11)
-  %m_pi_warnings = getelementptr inbounds %struct.pattern_inference_params, ptr %this, i64 0, i32 15
+  %m_pi_warnings = getelementptr inbounds i8, ptr %this, i64 37
   %17 = load i8, ptr %m_pi_warnings, align 1
   %18 = and i8 %17, 1
   %tobool40 = icmp ne i8 %18, 0

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTVN6icu_7513FieldPositionE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ufieldpositer_open_75(ptr nocapture noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @ufieldpositer_open_75(ptr nocapture noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -57,7 +57,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %fpositer, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(20) %fpositer) #4
   br label %delete.end
@@ -71,11 +71,11 @@ define i32 @ufieldpositer_next_75(ptr noundef nonnull %fpositer, ptr noundef wri
 entry:
   %fp = alloca %"class.icu_75::FieldPosition", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
-  %fField.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 1
+  %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   store i32 -1, ptr %fField.i, align 8
-  %fBeginIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 2
+  %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
   store i32 0, ptr %fBeginIndex.i, align 4
-  %fEndIndex.i = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %fp, i64 0, i32 3
+  %fEndIndex.i = getelementptr inbounds i8, ptr %fp, i64 16
   store i32 0, ptr %fEndIndex.i, align 8
   %call = invoke noundef signext i8 @_ZN6icu_7521FieldPositionIterator4nextERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(20) %fpositer, ptr noundef nonnull align 8 dereferenceable(20) %fp)
           to label %invoke.cont unwind label %lpad

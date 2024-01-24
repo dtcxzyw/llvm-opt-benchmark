@@ -16,22 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::cord_internal::InlineData::Rep" = type { %union.anon.5 }
 %union.anon.5 = type { %"struct.absl::cord_internal::InlineData::Rep::AsTree" }
 %"struct.absl::cord_internal::InlineData::Rep::AsTree" = type { i64, ptr }
-%"struct.absl::cord_internal::CordRep" = type { i64, %"class.absl::cord_internal::RefcountAndFlags", i8, [3 x i8] }
-%"class.absl::cord_internal::RefcountAndFlags" = type { %"struct.std::atomic.6" }
-%"struct.std::atomic.6" = type { %"struct.std::__atomic_base.7" }
-%"struct.std::__atomic_base.7" = type { i32 }
-%"class.absl::cord_internal::CordzInfo" = type <{ %"class.absl::cord_internal::CordzHandle", ptr, %"struct.std::atomic", %"struct.std::atomic", %"class.absl::Mutex", ptr, [64 x ptr], [64 x ptr], i64, i64, i32, i32, %"class.absl::cord_internal::CordzUpdateTracker", %"class.absl::Time", [4 x i8] }>
-%"class.absl::cord_internal::CordzHandle" = type { ptr, i8, ptr, ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
-%"class.absl::Mutex" = type { %"struct.std::atomic.3" }
-%"struct.std::atomic.3" = type { %"struct.std::__atomic_base.4" }
-%"struct.std::__atomic_base.4" = type { i64 }
-%"class.absl::cord_internal::CordzUpdateTracker" = type { [25 x %"class.absl::cord_internal::CordzUpdateTracker::Counter"] }
-%"class.absl::cord_internal::CordzUpdateTracker::Counter" = type { %"struct.std::atomic.3" }
-%"class.absl::Time" = type { %"class.absl::Duration" }
-%"class.absl::Duration" = type { %"class.absl::Duration::HiRep", i32 }
-%"class.absl::Duration::HiRep" = type { i32, i32 }
 %struct._Guard = type { ptr }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -338,17 +322,17 @@ define internal void @_ZN4absl13cord_internal12_GLOBAL__N_142CordzUpdateScopeTes
 entry:
   %cord = alloca %"struct.absl::TestCordData", align 8
   %call4.i.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #16
-  %refcount.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %call4.i.i.i.i, i64 0, i32 1
+  %refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i.i.i, align 4
-  %tag.i.i.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %call4.i.i.i.i, i64 0, i32 2
+  %tag.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 12
   store i8 17, ptr %tag.i.i.i.i, align 4
   store ptr %call4.i.i.i.i, ptr %cord, align 8
   store i64 100, ptr %call4.i.i.i.i, align 8
-  %storage.i.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %call4.i.i.i.i, i64 0, i32 3
+  %storage.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(100) %storage.i.i.i, i8 1, i64 100, i1 false)
-  %data.i = getelementptr inbounds %"struct.absl::TestCordData", ptr %cord, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %cord, i64 8
   store i64 1, ptr %data.i, align 8
-  %rep.i.i.i.i = getelementptr inbounds %"struct.absl::TestCordData", ptr %cord, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %rep.i.i.i.i = getelementptr inbounds i8, ptr %cord, i64 16
   store ptr %call4.i.i.i.i, ptr %rep.i.i.i.i, align 8
   invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %data.i, i32 noundef 9)
           to label %invoke.cont3 unwind label %lpad
@@ -372,7 +356,7 @@ if.then.i4:                                       ; preds = %if.then.i
   %2 = load i64, ptr %data.i, align 8
   %sub.i2 = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i2 to ptr
-  %rep_.i = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %3, i64 0, i32 5
+  %rep_.i = getelementptr inbounds i8, ptr %3, i64 64
   store ptr null, ptr %rep_.i, align 8
   invoke void @_ZN4absl13cord_internal9CordzInfo6UnlockEv(ptr noundef nonnull align 8 dereferenceable(1332) %1)
           to label %_ZN4absl13cord_internal16CordzUpdateScopeD2Ev.exit unwind label %terminate.lpad.i
@@ -386,7 +370,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i4
 
 _ZN4absl13cord_internal16CordzUpdateScopeD2Ev.exit: ; preds = %invoke.cont9.thread, %if.then.i4
   %6 = load ptr, ptr %cord, align 8
-  %refcount.i.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %6, i64 0, i32 1
+  %refcount.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = atomicrmw sub ptr %refcount.i.i.i, i32 2 acq_rel, align 4
   %cmp.i.not.i.i.i = icmp eq i32 %7, 2
   br i1 %cmp.i.not.i.i.i, label %if.then.i.i.i, label %_ZN4absl12TestCordDataD2Ev.exit
@@ -418,7 +402,7 @@ declare void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_
 define linkonce_odr dso_local void @_ZN4absl12TestCordDataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %refcount.i.i = getelementptr inbounds %"struct.absl::cord_internal::CordRep", ptr %0, i64 0, i32 1
+  %refcount.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refcount.i.i, i32 2 acq_rel, align 4
   %cmp.i.not.i.i = icmp eq i32 %1, 2
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZN4absl11TestCordRepD2Ev.exit
@@ -587,7 +571,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i, i64 0, i32 1
+  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
   store i32 34, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i
@@ -670,7 +654,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds %"struct.testing::internal::CodeLocation", ptr %agg.tmp.i1, i64 0, i32 1
+  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
   store i32 38, ptr %line.i.i14, align 8
   %call.i15 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i17 unwind label %lpad4.i16

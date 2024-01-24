@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.anon = type { ptr, i64, i32, i32 }
-%struct.strbuf = type { i64, i64, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @color_stdout_is_tty = dso_local local_unnamed_addr global i32 -1, align 4
@@ -437,34 +436,32 @@ if.then.i12.i:                                    ; preds = %land.lhs.true.i8.i
   br label %if.end.i69
 
 if.end.i69:                                       ; preds = %if.then.i12.i, %land.lhs.true.i8.i, %if.then.i74, %land.lhs.true.i.i, %if.end55
-  %retval.0.i21.i = phi i1 [ true, %if.then.i74 ], [ true, %land.lhs.true.i8.i ], [ true, %if.then.i12.i ], [ false, %land.lhs.true.i.i ], [ false, %if.end55 ]
+  %retval.0.i21.i = phi i64 [ 20, %if.then.i74 ], [ 20, %land.lhs.true.i8.i ], [ 20, %if.then.i12.i ], [ 16, %land.lhs.true.i.i ], [ 16, %if.end55 ]
   %name.addr.2.i = phi ptr [ %add.ptr.i.i, %if.then.i74 ], [ %add.ptr.i.i, %land.lhs.true.i8.i ], [ %add.ptr.i13.i, %if.then.i12.i ], [ %ptr.1319, %land.lhs.true.i.i ], [ %ptr.1319, %if.end55 ]
   %len.addr.2.i = phi i64 [ 0, %if.then.i74 ], [ %sub.i.i75, %land.lhs.true.i8.i ], [ %sub.i14.i, %if.then.i12.i ], [ %idx.ext, %land.lhs.true.i.i ], [ %idx.ext, %if.end55 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i69
   %indvars.iv.i = phi i64 [ 0, %if.end.i69 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %len3.i = getelementptr inbounds [7 x %struct.anon], ptr @parse_attr.attrs, i64 0, i64 %indvars.iv.i, i32 1
+  %arrayidx.i70 = getelementptr inbounds [7 x %struct.anon], ptr @parse_attr.attrs, i64 0, i64 %indvars.iv.i
+  %len3.i = getelementptr inbounds i8, ptr %arrayidx.i70, i64 8
   %34 = load i64, ptr %len3.i, align 8
   %cmp4.i = icmp eq i64 %34, %len.addr.2.i
-  br i1 %cmp4.i, label %land.lhs.true.i71, label %for.inc.i
+  br i1 %cmp4.i, label %land.lhs.true.i72, label %for.inc.i
 
-land.lhs.true.i71:                                ; preds = %for.body.i
-  %arrayidx.i72 = getelementptr inbounds [7 x %struct.anon], ptr @parse_attr.attrs, i64 0, i64 %indvars.iv.i
-  %35 = load ptr, ptr %arrayidx.i72, align 8
+land.lhs.true.i72:                                ; preds = %for.body.i
+  %35 = load ptr, ptr %arrayidx.i70, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %35, ptr %name.addr.2.i, i64 %len.addr.2.i)
   %tobool.not.i73 = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i73, label %parse_attr.exit, label %for.inc.i
 
-for.inc.i:                                        ; preds = %land.lhs.true.i71, %for.body.i
+for.inc.i:                                        ; preds = %land.lhs.true.i72, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
   br i1 %exitcond.not.i, label %bad, label %for.body.i, !llvm.loop !12
 
-parse_attr.exit:                                  ; preds = %land.lhs.true.i71
-  %neg.i = getelementptr inbounds [7 x %struct.anon], ptr @parse_attr.attrs, i64 0, i64 %indvars.iv.i, i32 3
-  %val.i = getelementptr inbounds [7 x %struct.anon], ptr @parse_attr.attrs, i64 0, i64 %indvars.iv.i, i32 2
-  %cond.in.i = select i1 %retval.0.i21.i, ptr %neg.i, ptr %val.i
+parse_attr.exit:                                  ; preds = %land.lhs.true.i72
+  %cond.in.i = getelementptr inbounds i8, ptr %arrayidx.i70, i64 %retval.0.i21.i
   %cond.i = load i32, ptr %cond.in.i, align 4
   %cmp58 = icmp sgt i32 %cond.i, -1
   br i1 %cmp58, label %if.then60, label %bad
@@ -908,7 +905,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %buf = getelementptr inbounds %struct.strbuf, ptr %sb, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %sb, i64 16
   %1 = load ptr, ptr %buf, align 8
   %fputs5 = tail call i32 @fputs(ptr %1, ptr %fp)
   %2 = load i8, ptr %color, align 1

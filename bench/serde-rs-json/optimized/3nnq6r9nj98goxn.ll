@@ -259,9 +259,9 @@ define { i64, i64 } @"_ZN4core6option15Option$LT$T$GT$9unwrap_or17hd1a4cc5684697
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !6
-  %9 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !6
   br label %11
 
@@ -301,8 +301,8 @@ define zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$
   ret i1 %.0
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
-  %9 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = tail call zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17h9600d5078851a024E"(ptr nonnull align 8 %8, ptr nonnull align 8 %9)
   br label %6
 }
@@ -319,8 +319,8 @@ define zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp
   br i1 %brmerge.i, label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17hc61f877e5a63e58fE.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds { i64, i64 }, ptr %0, i64 0, i32 1
-  %8 = getelementptr inbounds { i64, i64 }, ptr %1, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = tail call zeroext i1 @"_ZN4core3cmp5impls56_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$usize$GT$2eq17h9600d5078851a024E"(ptr nonnull align 8 %7, ptr nonnull align 8 %8)
   br label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17hc61f877e5a63e58fE.exit"
 

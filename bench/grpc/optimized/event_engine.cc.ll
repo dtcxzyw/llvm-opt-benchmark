@@ -27,9 +27,9 @@ entry:
   %0 = load i64, ptr %lhs, align 8
   %1 = load i64, ptr %rhs, align 8
   %cmp = icmp eq i64 %0, %1
-  %arrayidx4 = getelementptr inbounds [2 x i64], ptr %lhs, i64 0, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i64, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [2 x i64], ptr %rhs, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i64, ptr %arrayidx6, align 8
   %cmp7 = icmp eq i64 %2, %3
   %4 = select i1 %cmp, i1 %cmp7, i1 false
@@ -42,9 +42,9 @@ entry:
   %0 = load i64, ptr %lhs, align 8
   %1 = load i64, ptr %rhs, align 8
   %cmp.i = icmp ne i64 %0, %1
-  %arrayidx4.i = getelementptr inbounds [2 x i64], ptr %lhs, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i64, ptr %arrayidx4.i, align 8
-  %arrayidx6.i = getelementptr inbounds [2 x i64], ptr %rhs, i64 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i64, ptr %arrayidx6.i, align 8
   %cmp7.i = icmp ne i64 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp7.i
@@ -57,9 +57,9 @@ entry:
   %0 = load i64, ptr %lhs, align 8
   %1 = load i64, ptr %rhs, align 8
   %cmp = icmp eq i64 %0, %1
-  %arrayidx4 = getelementptr inbounds [2 x i64], ptr %lhs, i64 0, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i64, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds [2 x i64], ptr %rhs, i64 0, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i64, ptr %arrayidx6, align 8
   %cmp7 = icmp eq i64 %2, %3
   %4 = select i1 %cmp, i1 %cmp7, i1 false
@@ -72,9 +72,9 @@ entry:
   %0 = load i64, ptr %lhs, align 8
   %1 = load i64, ptr %rhs, align 8
   %cmp.i = icmp ne i64 %0, %1
-  %arrayidx4.i = getelementptr inbounds [2 x i64], ptr %lhs, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %2 = load i64, ptr %arrayidx4.i, align 8
-  %arrayidx6.i = getelementptr inbounds [2 x i64], ptr %rhs, i64 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %3 = load i64, ptr %arrayidx6.i, align 8
   %cmp7.i = icmp ne i64 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp7.i

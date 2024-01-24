@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.object_id = type { [32 x i8], i32 }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @hash_algos = external constant [3 x %struct.git_hash_algo], align 16
@@ -20,9 +16,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef i32 @get_hash_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %sha1) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz.i, align 8
   %cmp4.not.i = icmp eq i64 %2, 0
   br i1 %cmp4.not.i, label %get_hash_hex_algop.exit, label %for.body.i
@@ -73,7 +69,7 @@ get_hash_hex_algop.exit:                          ; preds = %hex2chr.exit.i, %if
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @get_oid_hex_algop(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid, ptr noundef %algop) local_unnamed_addr #0 {
 entry:
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %algop, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %algop, i64 16
   %0 = load i64, ptr %rawsz.i, align 8
   %cmp4.not.i = icmp eq i64 %0, 0
   br i1 %cmp4.not.i, label %if.then, label %for.body.i
@@ -121,7 +117,7 @@ if.then:                                          ; preds = %if.end.i, %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %conv.i.i = trunc i64 %sub.ptr.div.i.i to i32
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
   br label %if.end
 
@@ -181,7 +177,7 @@ if.end.i.i:                                       ; preds = %hex2chr.exit.i.i
   br i1 %exitcond.not, label %get_oid_hex_algop.exit.thread, label %for.body.i.i, !llvm.loop !5
 
 get_oid_hex_algop.exit.thread:                    ; preds = %for.body, %if.end.i.i
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %i.010, ptr %algo.i.i, align 4
   br label %return
 
@@ -199,9 +195,9 @@ return:                                           ; preds = %for.inc, %get_oid_h
 define dso_local noundef i32 @get_oid_hex(ptr nocapture noundef readonly %hex, ptr nocapture noundef writeonly %oid) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz.i.i, align 8
   %cmp4.not.i.i = icmp eq i64 %2, 0
   br i1 %cmp4.not.i.i, label %if.then.i, label %for.body.i.i
@@ -249,7 +245,7 @@ if.then.i:                                        ; preds = %if.end.i.i, %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %conv.i.i.i, ptr %algo.i.i, align 4
   br label %get_oid_hex_algop.exit
 
@@ -261,7 +257,7 @@ get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i, %
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @parse_oid_hex_algop(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end, ptr noundef %algop) local_unnamed_addr #0 {
 entry:
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %algop, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %algop, i64 16
   %0 = load i64, ptr %rawsz.i.i, align 8
   %cmp4.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp4.not.i.i, label %if.then, label %for.body.i.i
@@ -309,9 +305,9 @@ if.then:                                          ; preds = %if.end.i.i, %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 104
   %conv.i.i.i = trunc i64 %sub.ptr.div.i.i.i to i32
-  %algo.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %conv.i.i.i, ptr %algo.i.i, align 4
-  %hexsz = getelementptr inbounds %struct.git_hash_algo, ptr %algop, i64 0, i32 3
+  %hexsz = getelementptr inbounds i8, ptr %algop, i64 24
   %6 = load i64, ptr %hexsz, align 8
   %add.ptr = getelementptr inbounds i8, ptr %hex, i64 %6
   store ptr %add.ptr, ptr %end, align 8
@@ -336,7 +332,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   br i1 %cmp4.not.i.i.i, label %get_oid_hex_any.exit.thread7, label %for.body.i.i.i
 
 get_oid_hex_any.exit.thread7:                     ; preds = %for.body.i
-  %algo.i.i.i8 = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i.i8 = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %i.010.i, ptr %algo.i.i.i8, align 4
   br label %if.then
 
@@ -383,7 +379,7 @@ for.inc.i:                                        ; preds = %hex2chr.exit.i.i.i
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !7
 
 get_oid_hex_any.exit:                             ; preds = %if.end.i.i.i
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %i.010.i, ptr %algo.i.i.i, align 4
   %tobool.not = icmp eq i32 %i.010.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -404,9 +400,9 @@ if.end:                                           ; preds = %for.inc.i, %if.then
 define dso_local noundef i32 @parse_oid_hex(ptr noundef %hex, ptr nocapture noundef writeonly %oid, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
-  %rawsz.i.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz.i.i.i, align 8
   %cmp4.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp4.not.i.i.i, label %if.then.i, label %for.body.i.i.i
@@ -454,9 +450,9 @@ if.then.i:                                        ; preds = %if.end.i.i.i, %entr
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, ptrtoint (ptr @hash_algos to i64)
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 104
   %conv.i.i.i.i = trunc i64 %sub.ptr.div.i.i.i.i to i32
-  %algo.i.i.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i.i.i = getelementptr inbounds i8, ptr %oid, i64 32
   store i32 %conv.i.i.i.i, ptr %algo.i.i.i, align 4
-  %hexsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 3
+  %hexsz.i = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %hexsz.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %hex, i64 %8
   store ptr %add.ptr.i, ptr %end, align 8
@@ -475,13 +471,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %algop.addr.0 = phi ptr [ %1, %if.then ], [ %algop, %entry ]
-  %rawsz = getelementptr inbounds %struct.git_hash_algo, ptr %algop.addr.0, i64 0, i32 2
+  %rawsz = getelementptr inbounds i8, ptr %algop.addr.0, i64 16
   %2 = load i64, ptr %rawsz, align 8
   %cmp17.not = icmp eq i64 %2, 0
   br i1 %cmp17.not, label %for.end, label %for.body
@@ -519,7 +515,7 @@ for.end:                                          ; preds = %for.body, %if.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @oid_to_hex_r(ptr noundef returned writeonly %buffer, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
 entry:
-  %algo = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo, align 4
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
@@ -528,13 +524,13 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %algop.addr.0.i = phi ptr [ %2, %if.then.i ], [ %arrayidx, %entry ]
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %algop.addr.0.i, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %algop.addr.0.i, i64 16
   %3 = load i64, ptr %rawsz.i, align 8
   %cmp17.not.i = icmp eq i64 %3, 0
   br i1 %cmp17.not.i, label %hash_to_hex_algop_r.exit, label %for.body.i
@@ -583,13 +579,13 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   %algop.addr.0.i = phi ptr [ %3, %if.then.i ], [ %algop, %entry ]
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %algop.addr.0.i, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %algop.addr.0.i, i64 16
   %4 = load i64, ptr %rawsz.i, align 8
   %cmp17.not.i = icmp eq i64 %4, 0
   br i1 %cmp17.not.i, label %hash_to_hex_algop_r.exit, label %for.body.i
@@ -628,7 +624,7 @@ hash_to_hex_algop_r.exit:                         ; preds = %for.body.i, %if.end
 define dso_local nonnull ptr @hash_to_hex(ptr nocapture noundef readonly %hash) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo = getelementptr inbounds %struct.repository, ptr %0, i64 0, i32 15
+  %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo, align 8
   %2 = load i32, ptr @hash_to_hex_algop.bufno, align 4
   %add.i = add nuw nsw i32 %2, 1
@@ -636,7 +632,7 @@ entry:
   store i32 %3, ptr @hash_to_hex_algop.bufno, align 4
   %idxprom.i = zext nneg i32 %3 to i64
   %arrayidx.i = getelementptr inbounds [4 x [65 x i8]], ptr @hash_to_hex_algop.hexbuffer, i64 0, i64 %idxprom.i
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %1, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %rawsz.i.i, align 8
   %cmp17.not.i.i = icmp eq i64 %4, 0
   br i1 %cmp17.not.i.i, label %hash_to_hex_algop.exit, label %for.body.i.i
@@ -674,7 +670,7 @@ hash_to_hex_algop.exit:                           ; preds = %for.body.i.i, %entr
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local nonnull ptr @oid_to_hex(ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
 entry:
-  %algo = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo, align 4
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom
@@ -689,13 +685,13 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds %struct.repository, ptr %3, i64 0, i32 15
+  %hash_algo.i.i = getelementptr inbounds i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
   %algop.addr.0.i.i = phi ptr [ %4, %if.then.i.i ], [ %arrayidx, %entry ]
-  %rawsz.i.i = getelementptr inbounds %struct.git_hash_algo, ptr %algop.addr.0.i.i, i64 0, i32 2
+  %rawsz.i.i = getelementptr inbounds i8, ptr %algop.addr.0.i.i, i64 16
   %5 = load i64, ptr %rawsz.i.i, align 8
   %cmp17.not.i.i = icmp eq i64 %5, 0
   br i1 %cmp17.not.i.i, label %hash_to_hex_algop.exit, label %for.body.i.i

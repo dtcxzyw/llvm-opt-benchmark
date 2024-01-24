@@ -4,14 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.oidtree = type { %struct.cb_tree, %struct.mem_pool }
-%struct.cb_tree = type { ptr }
-%struct.mem_pool = type { ptr, i64, i64 }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i8 }
-%struct.repo_path_cache = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.repo_settings = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32 }
-%struct.cb_node = type { [2 x ptr], i32, i8, [0 x i8] }
 %struct.oidtree_iter_data = type { ptr, ptr, ptr, i32, i8 }
 
 @.str = private unnamed_addr constant [10 x i8] c"oidtree.c\00", align 1
@@ -23,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @oidtree_init(ptr noundef %ot) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %ot, align 8
-  %mem_pool = getelementptr inbounds %struct.oidtree, ptr %ot, i64 0, i32 1
+  %mem_pool = getelementptr inbounds i8, ptr %ot, i64 8
   tail call void @mem_pool_init(ptr noundef nonnull %mem_pool, i64 noundef 0) #5
   ret void
 }
@@ -37,7 +30,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mem_pool = getelementptr inbounds %struct.oidtree, ptr %ot, i64 0, i32 1
+  %mem_pool = getelementptr inbounds i8, ptr %ot, i64 8
   tail call void @mem_pool_discard(ptr noundef nonnull %mem_pool, i32 noundef 0) #5
   store ptr null, ptr %ot, align 8
   tail call void @mem_pool_init(ptr noundef nonnull %mem_pool, i64 noundef 0) #5
@@ -53,7 +46,7 @@ declare void @mem_pool_discard(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local void @oidtree_insert(ptr noundef %ot, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
 entry:
   %k = alloca %struct.object_id, align 4
-  %algo = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -63,7 +56,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %mem_pool = getelementptr inbounds %struct.oidtree, ptr %ot, i64 0, i32 1
+  %mem_pool = getelementptr inbounds i8, ptr %ot, i64 8
   %call = tail call ptr @mem_pool_alloc(ptr noundef nonnull %mem_pool, i64 noundef 60) #5
   %1 = load i32, ptr %algo, align 4
   %tobool.not.i = icmp eq i32 %1, 0
@@ -71,9 +64,9 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %2 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %2, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %2, i64 256
   %3 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %3, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %3, i64 16
   br label %oidcpy_with_padding.exit
 
 if.else.i:                                        ; preds = %if.end
@@ -88,9 +81,9 @@ oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else
   %add.ptr.i = getelementptr inbounds i8, ptr %k, i64 %hashsz.0.i
   %sub.i = sub i64 32, %hashsz.0.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
-  %algo8.i = getelementptr inbounds %struct.object_id, ptr %k, i64 0, i32 1
+  %algo8.i = getelementptr inbounds i8, ptr %k, i64 32
   store i32 %1, ptr %algo8.i, align 4
-  %k1 = getelementptr inbounds %struct.cb_node, ptr %call, i64 0, i32 3
+  %k1 = getelementptr inbounds i8, ptr %call, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %k1, ptr noundef nonnull align 4 dereferenceable(36) %k, i64 36, i1 false)
   %call2 = tail call ptr @cb_insert(ptr noundef %ot, ptr noundef %call, i64 noundef 36) #5
   ret void
@@ -110,16 +103,16 @@ declare ptr @cb_insert(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 define dso_local i32 @oidtree_contains(ptr noundef %ot, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
 entry:
   %k = alloca %struct.object_id, align 4
-  %algo.i = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds %struct.repository, ptr %1, i64 0, i32 15
+  %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds %struct.git_hash_algo, ptr %2, i64 0, i32 2
+  %rawsz.i = getelementptr inbounds i8, ptr %2, i64 16
   br label %oidcpy_with_padding.exit
 
 if.else.i:                                        ; preds = %entry
@@ -135,7 +128,7 @@ oidcpy_with_padding.exit:                         ; preds = %if.then.i, %if.else
   %add.ptr.i = getelementptr inbounds i8, ptr %k, i64 %hashsz.0.i
   %sub.i = sub i64 32, %hashsz.0.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 0, i64 %sub.i, i1 false)
-  %algo8.i = getelementptr inbounds %struct.object_id, ptr %k, i64 0, i32 1
+  %algo8.i = getelementptr inbounds i8, ptr %k, i64 32
   store i32 %0, ptr %algo8.i, align 4
   %call = call ptr @cb_lookup(ptr noundef %ot, ptr noundef nonnull %k, i64 noundef %spec.select) #5
   %tobool.not = icmp ne ptr %call, null
@@ -155,11 +148,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %x, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store ptr %fn, ptr %x, align 8
-  %arg2 = getelementptr inbounds %struct.oidtree_iter_data, ptr %x, i64 0, i32 1
+  %arg2 = getelementptr inbounds i8, ptr %x, i64 8
   store ptr %arg, ptr %arg2, align 8
-  %algo = getelementptr inbounds %struct.object_id, ptr %oid, i64 0, i32 1
+  %algo = getelementptr inbounds i8, ptr %oid, i64 32
   %1 = load i32, ptr %algo, align 4
-  %algo3 = getelementptr inbounds %struct.oidtree_iter_data, ptr %x, i64 0, i32 3
+  %algo3 = getelementptr inbounds i8, ptr %x, i64 24
   store i32 %1, ptr %algo3, align 8
   %and = and i64 %oidhexsz, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -168,9 +161,9 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds [32 x i8], ptr %oid, i64 0, i64 %div4
   %2 = load i8, ptr %arrayidx, align 1
-  %last_byte = getelementptr inbounds %struct.oidtree_iter_data, ptr %x, i64 0, i32 4
+  %last_byte = getelementptr inbounds i8, ptr %x, i64 28
   store i8 %2, ptr %last_byte, align 4
-  %last_nibble_at = getelementptr inbounds %struct.oidtree_iter_data, ptr %x, i64 0, i32 2
+  %last_nibble_at = getelementptr inbounds i8, ptr %x, i64 16
   store ptr %klen, ptr %last_nibble_at, align 8
   br label %if.end
 
@@ -188,19 +181,19 @@ declare void @cb_each(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr no
 define internal i32 @iter(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %k = alloca %struct.object_id, align 4
-  %k1 = getelementptr inbounds %struct.cb_node, ptr %n, i64 0, i32 3
+  %k1 = getelementptr inbounds i8, ptr %n, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %k, ptr noundef nonnull align 1 dereferenceable(36) %k1, i64 36, i1 false)
-  %algo = getelementptr inbounds %struct.oidtree_iter_data, ptr %arg, i64 0, i32 3
+  %algo = getelementptr inbounds i8, ptr %arg, i64 24
   %0 = load i32, ptr %algo, align 8
   %cmp.not = icmp eq i32 %0, 0
-  %algo3 = getelementptr inbounds %struct.object_id, ptr %k, i64 0, i32 1
+  %algo3 = getelementptr inbounds i8, ptr %k, i64 32
   %1 = load i32, ptr %algo3, align 4
   %cmp4.not = icmp eq i32 %0, %1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp4.not
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %last_nibble_at = getelementptr inbounds %struct.oidtree_iter_data, ptr %arg, i64 0, i32 2
+  %last_nibble_at = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load ptr, ptr %last_nibble_at, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end11, label %if.then5
@@ -209,7 +202,7 @@ if.then5:                                         ; preds = %if.end
   %3 = load i64, ptr %2, align 8
   %arrayidx = getelementptr inbounds [32 x i8], ptr %k, i64 0, i64 %3
   %4 = load i8, ptr %arrayidx, align 1
-  %last_byte = getelementptr inbounds %struct.oidtree_iter_data, ptr %arg, i64 0, i32 4
+  %last_byte = getelementptr inbounds i8, ptr %arg, i64 28
   %5 = load i8, ptr %last_byte, align 4
   %xor8 = xor i8 %5, %4
   %tobool8.not = icmp ult i8 %xor8, 16
@@ -217,7 +210,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.then5, %if.end
   %6 = load ptr, ptr %arg, align 8
-  %arg12 = getelementptr inbounds %struct.oidtree_iter_data, ptr %arg, i64 0, i32 1
+  %arg12 = getelementptr inbounds i8, ptr %arg, i64 8
   %7 = load ptr, ptr %arg12, align 8
   %call = call i32 %6(ptr noundef nonnull %k, ptr noundef %7) #5
   br label %return

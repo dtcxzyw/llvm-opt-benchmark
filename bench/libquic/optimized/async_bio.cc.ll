@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.bio_st = type { ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, i64, i64 }
-%"struct.(anonymous namespace)::AsyncBio" = type { i8, i8, i64, i64 }
 
 @_ZN12_GLOBAL__N_118g_async_bio_methodE = internal constant %struct.bio_method_st { i32 512, ptr @.str, ptr @_ZN12_GLOBAL__N_110AsyncWriteEP6bio_stPKci, ptr @_ZN12_GLOBAL__N_19AsyncReadEP6bio_stPci, ptr null, ptr null, ptr @_ZN12_GLOBAL__N_19AsyncCtrlEP6bio_stilPv, ptr @_ZN12_GLOBAL__N_18AsyncNewEP6bio_st, ptr @_ZN12_GLOBAL__N_19AsyncFreeEP6bio_st, ptr @_ZN12_GLOBAL__N_117AsyncCallbackCtrlEP6bio_stiPFlS1_iPKcillE }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"async bio\00", align 1
@@ -37,7 +35,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %call, align 8
   %cmp.not.i = icmp eq ptr %0, @_ZN12_GLOBAL__N_118g_async_bio_methodE
   tail call void @llvm.assume(i1 %cmp.not.i)
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %call, i64 0, i32 9
+  %ptr.i = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load ptr, ptr %ptr.i, align 8
   store i8 1, ptr %1, align 8
   br label %_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev.exit
@@ -57,13 +55,13 @@ entry:
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit, label %return
 
 _ZN12_GLOBAL__N_17GetDataEP6bio_st.exit:          ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr.i = getelementptr inbounds i8, ptr %bio, i64 48
   %1 = load ptr, ptr %ptr.i, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit
-  %read_quota = getelementptr inbounds %"struct.(anonymous namespace)::AsyncBio", ptr %1, i64 0, i32 2
+  %read_quota = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %read_quota, align 8
   %add = add i64 %2, %count
   store i64 %add, ptr %read_quota, align 8
@@ -81,13 +79,13 @@ entry:
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit, label %return
 
 _ZN12_GLOBAL__N_17GetDataEP6bio_st.exit:          ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr.i = getelementptr inbounds i8, ptr %bio, i64 48
   %1 = load ptr, ptr %ptr.i, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit
-  %write_quota = getelementptr inbounds %"struct.(anonymous namespace)::AsyncBio", ptr %1, i64 0, i32 3
+  %write_quota = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %write_quota, align 8
   %add = add i64 %2, %count
   store i64 %add, ptr %write_quota, align 8
@@ -105,14 +103,14 @@ entry:
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit, label %return
 
 _ZN12_GLOBAL__N_17GetDataEP6bio_st.exit:          ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr.i = getelementptr inbounds i8, ptr %bio, i64 48
   %1 = load ptr, ptr %ptr.i, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit
   %frombool = zext i1 %enforce to i8
-  %enforce_write_quota = getelementptr inbounds %"struct.(anonymous namespace)::AsyncBio", ptr %1, i64 0, i32 1
+  %enforce_write_quota = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %frombool, ptr %enforce_write_quota, align 1
   br label %return
 
@@ -128,19 +126,19 @@ entry:
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit, label %return
 
 _ZN12_GLOBAL__N_17GetDataEP6bio_st.exit:          ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr.i = getelementptr inbounds i8, ptr %bio, i64 48
   %1 = load ptr, ptr %ptr.i, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %2 = load ptr, ptr %next_bio, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %enforce_write_quota = getelementptr inbounds %"struct.(anonymous namespace)::AsyncBio", ptr %1, i64 0, i32 1
+  %enforce_write_quota = getelementptr inbounds i8, ptr %1, i64 1
   %3 = load i8, ptr %enforce_write_quota, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -152,7 +150,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   tail call void @BIO_clear_retry_flags(ptr noundef nonnull %bio)
-  %write_quota = getelementptr inbounds %"struct.(anonymous namespace)::AsyncBio", ptr %1, i64 0, i32 3
+  %write_quota = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %write_quota, align 8
   %cmp6 = icmp eq i64 %5, 0
   br i1 %cmp6, label %if.then7, label %if.end9
@@ -205,20 +203,20 @@ entry:
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit, label %return
 
 _ZN12_GLOBAL__N_17GetDataEP6bio_st.exit:          ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr.i = getelementptr inbounds i8, ptr %bio, i64 48
   %1 = load ptr, ptr %ptr.i, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZN12_GLOBAL__N_17GetDataEP6bio_st.exit
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %2 = load ptr, ptr %next_bio, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   tail call void @BIO_clear_retry_flags(ptr noundef nonnull %bio)
-  %read_quota = getelementptr inbounds %"struct.(anonymous namespace)::AsyncBio", ptr %1, i64 0, i32 2
+  %read_quota = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i64, ptr %read_quota, align 8
   %cmp2 = icmp eq i64 %3, 0
   br i1 %cmp2, label %if.then3, label %if.end5
@@ -266,7 +264,7 @@ return:                                           ; preds = %entry, %if.then15, 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN12_GLOBAL__N_19AsyncCtrlEP6bio_stilPv(ptr noundef %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -293,11 +291,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %enforce_write_quota = getelementptr inbounds %"struct.(anonymous namespace)::AsyncBio", ptr %calloc, i64 0, i32 1
+  %enforce_write_quota = getelementptr inbounds i8, ptr %calloc, i64 1
   store i8 1, ptr %enforce_write_quota, align 1
-  %init = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 1, ptr %init, align 8
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %bio, i64 48
   store ptr %calloc, ptr %ptr, align 8
   br label %return
 
@@ -313,13 +311,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 9
+  %ptr = getelementptr inbounds i8, ptr %bio, i64 48
   %0 = load ptr, ptr %ptr, align 8
   tail call void @free(ptr noundef %0) #11
   store ptr null, ptr %ptr, align 8
-  %init = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 3
+  %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 0, ptr %init, align 8
-  %flags = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 5
+  %flags = getelementptr inbounds i8, ptr %bio, i64 32
   store i32 0, ptr %flags, align 8
   br label %return
 
@@ -331,7 +329,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define internal noundef i64 @_ZN12_GLOBAL__N_117AsyncCallbackCtrlEP6bio_stiPFlS1_iPKcillE(ptr nocapture noundef readonly %bio, i32 noundef %cmd, ptr noundef %fp) #0 {
 entry:
-  %next_bio = getelementptr inbounds %struct.bio_st, ptr %bio, i64 0, i32 10
+  %next_bio = getelementptr inbounds i8, ptr %bio, i64 56
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

@@ -20,13 +20,13 @@ entry:
   %stream = alloca %"class.facebook::velox::ByteOutputStream", align 8
   %tmp = alloca %"struct.std::pair", align 8
   store ptr %allocator, ptr %stream, align 8
-  %isBits_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 1
+  %isBits_.i = getelementptr inbounds i8, ptr %stream, i64 8
   store i8 0, ptr %isBits_.i, align 8
-  %isReverseBitOrder_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 2
+  %isReverseBitOrder_.i = getelementptr inbounds i8, ptr %stream, i64 9
   store i8 0, ptr %isReverseBitOrder_.i, align 1
-  %isReversed_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 3
+  %isReversed_.i = getelementptr inbounds i8, ptr %stream, i64 10
   store i8 0, ptr %isReversed_.i, align 2
-  %ranges_.i = getelementptr inbounds %"class.facebook::velox::ByteOutputStream", ptr %stream, i64 0, i32 5
+  %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %ranges_.i, i8 0, i64 44, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
@@ -115,7 +115,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, inrange i32 0, i64 2), ptr %stream, align 8
-  %ranges_.i = getelementptr inbounds %"class.facebook::velox::ByteInputStream", ptr %stream, i64 0, i32 1
+  %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 8
   %2 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox15ByteInputStreamD2Ev.exit, label %if.then.i.i.i.i
@@ -131,7 +131,7 @@ lpad:                                             ; preds = %if.end
   %3 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, inrange i32 0, i64 2), ptr %stream, align 8
-  %ranges_.i1 = getelementptr inbounds %"class.facebook::velox::ByteInputStream", ptr %stream, i64 0, i32 1
+  %ranges_.i1 = getelementptr inbounds i8, ptr %stream, i64 8
   %4 = load ptr, ptr %ranges_.i1, align 8
   %tobool.not.i.i.i.i2 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i2, label %_ZN8facebook5velox15ByteInputStreamD2Ev.exit4, label %if.then.i.i.i.i3
@@ -178,7 +178,7 @@ if.end:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.end
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, inrange i32 0, i64 2), ptr %stream, align 8
-  %ranges_.i = getelementptr inbounds %"class.facebook::velox::ByteInputStream", ptr %stream, i64 0, i32 1
+  %ranges_.i = getelementptr inbounds i8, ptr %stream, i64 8
   %1 = load ptr, ptr %ranges_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox15ByteInputStreamD2Ev.exit, label %if.then.i.i.i.i
@@ -194,7 +194,7 @@ lpad:                                             ; preds = %if.end
   %2 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox15ByteInputStreamE, i64 0, inrange i32 0, i64 2), ptr %stream, align 8
-  %ranges_.i1 = getelementptr inbounds %"class.facebook::velox::ByteInputStream", ptr %stream, i64 0, i32 1
+  %ranges_.i1 = getelementptr inbounds i8, ptr %stream, i64 8
   %3 = load ptr, ptr %ranges_.i1, align 8
   %tobool.not.i.i.i.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i2, label %_ZN8facebook5velox15ByteInputStreamD2Ev.exit4, label %if.then.i.i.i.i3

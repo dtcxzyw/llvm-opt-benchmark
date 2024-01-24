@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [42 x i8] c"EVP_DigestSignUpdate(ctx, ct, sizeof(ct))\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   tail call void @add_all_tests(ptr noundef nonnull @.str, ptr noundef nonnull @test_hmac_md5, i32 noundef 4, i32 noundef 1) #5
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_hmac_single_shot) #5
@@ -76,10 +76,10 @@ entry:
   %call = tail call ptr @EVP_md5() #5
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %idxprom
-  %key_len = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %idxprom, i32 1
+  %key_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load i32, ptr %key_len, align 16
-  %data = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %idxprom, i32 2
-  %data_len = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %idxprom, i32 3
+  %data = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %data_len = getelementptr inbounds i8, ptr %arrayidx, i64 84
   %1 = load i32, ptr %data_len, align 4
   %conv = sext i32 %1 to i64
   %call8 = tail call ptr @HMAC(ptr noundef %call, ptr noundef nonnull %arrayidx, i32 noundef %0, ptr noundef nonnull %data, i64 noundef %conv, ptr noundef null, ptr noundef null) #5
@@ -105,7 +105,7 @@ pt.exit:                                          ; preds = %for.body.i, %entry
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %pt.exit
-  %digest = getelementptr inbounds [8 x %struct.test_st], ptr @test, i64 0, i64 %idxprom, i32 4
+  %digest = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %3 = load ptr, ptr %digest, align 8
   %call13 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.6, i32 noundef 103, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %retval.0.i, ptr noundef %3) #5
   %tobool14 = icmp ne i32 %call13, 0
@@ -650,7 +650,7 @@ err:                                              ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @pt(ptr noundef readonly %md, i32 noundef %len) unnamed_addr #2 {
+define internal fastcc noundef ptr @pt(ptr noundef readonly %md, i32 noundef %len) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %md, null
   br i1 %cmp, label %return, label %for.cond.preheader

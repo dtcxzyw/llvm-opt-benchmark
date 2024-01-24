@@ -6,10 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.pbrt::DigitPermutation" = type { i32, i32, ptr }
 %"class.std::allocator" = type { i8 }
-%"class.pstd::vector" = type { %"class.pstd::pmr::polymorphic_allocator.0", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.0" = type { ptr }
+%"class.pbrt::DigitPermutation" = type { i32, i32, ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -98,7 +96,7 @@ entry:
   %digitIndex = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
-  %nDigits = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %this, i64 0, i32 1
+  %nDigits = getelementptr inbounds i8, ptr %this, i64 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #10
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKiJS3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %s, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %nDigits)
           to label %for.cond.preheader unwind label %lpad.i
@@ -110,7 +108,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp19, label %for.body.lr.ph, label %for.end23
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %permutations = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %this, i64 0, i32 2
+  %permutations = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 common.resume:                                    ; preds = %lpad3, %lpad12, %lpad.i6, %lpad.i9, %lpad.i5, %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit, %lpad.i
@@ -395,17 +393,17 @@ define dso_local noundef ptr @_ZN4pbrt33ComputeRadicalInversePermutationsEjN4pst
 if.end.i.i:
   %ref.tmp = alloca %"class.pbrt::DigitPermutation", align 8
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 32, i64 noundef 8)
   %1 = ptrtoint ptr %alloc.coerce to i64
   store i64 %1, ptr %call.i.i.i.i, align 8
-  %ptr.i.i.i = getelementptr inbounds %"class.pstd::vector", ptr %call.i.i.i.i, i64 0, i32 1
+  %ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr.i.i.i, i8 0, i64 24, i1 false)
-  %nStored.i.i = getelementptr inbounds %"class.pstd::vector", ptr %call.i.i.i.i, i64 0, i32 3
-  %nAlloc.i.i = getelementptr inbounds %"class.pstd::vector", ptr %call.i.i.i.i, i64 0, i32 2
+  %nStored.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
+  %nAlloc.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %vtable.i.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef 16000, i64 noundef 8)
   %.pre.i = load i64, ptr %nStored.i.i, align 8
@@ -434,7 +432,7 @@ if.end.i.i.i9.i.i:                                ; preds = %for.end.i.i
   %mul.i10.i.i = shl i64 %6, 4
   %7 = load ptr, ptr %call.i.i.i.i, align 8
   %vtable.i.i.i11.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i12.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i11.i.i, i64 3
+  %vfn.i.i.i12.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i11.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5, i64 noundef %mul.i10.i.i, i64 noundef 8)
   %.pre16.pre.i = load i64, ptr %nStored.i.i, align 8
@@ -495,21 +493,21 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %nDigits = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %this, i64 0, i32 1
+  %nDigits = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %nDigits, align 4
   %conv = sitofp i32 %base to float
   %div = fdiv float 1.000000e+00, %conv
   %sub = add nsw i32 %base, -1
   %conv3 = sitofp i32 %sub to float
-  %sub417 = fsub float 1.000000e+00, %conv3
-  %cmp518 = fcmp olt float %sub417, 1.000000e+00
-  br i1 %cmp518, label %while.body, label %while.end
+  %sub418 = fsub float 1.000000e+00, %conv3
+  %cmp519 = fcmp olt float %sub418, 1.000000e+00
+  br i1 %cmp519, label %while.body, label %while.end
 
 while.body:                                       ; preds = %do.end, %while.body
-  %invBaseM.019 = phi float [ %mul7, %while.body ], [ 1.000000e+00, %do.end ]
-  %0 = phi i32 [ %inc, %while.body ], [ 0, %do.end ]
-  %inc = add nuw nsw i32 %0, 1
-  %mul7 = fmul float %div, %invBaseM.019
+  %invBaseM.021 = phi float [ %mul7, %while.body ], [ 1.000000e+00, %do.end ]
+  %inc1720 = phi i32 [ %inc, %while.body ], [ 0, %do.end ]
+  %inc = add nuw nsw i32 %inc1720, 1
+  %mul7 = fmul float %div, %invBaseM.021
   %mul = fmul float %mul7, %conv3
   %sub4 = fsub float 1.000000e+00, %mul
   %cmp5 = fcmp olt float %sub4, 1.000000e+00
@@ -520,8 +518,8 @@ while.cond.while.end_crit_edge:                   ; preds = %while.body
   br label %while.end
 
 while.end:                                        ; preds = %while.cond.while.end_crit_edge, %do.end
-  %1 = phi i32 [ %inc, %while.cond.while.end_crit_edge ], [ 0, %do.end ]
-  %mul9 = mul nsw i32 %1, %base
+  %0 = phi i32 [ %inc, %while.cond.while.end_crit_edge ], [ 0, %do.end ]
+  %mul9 = mul nsw i32 %0, %base
   %cmp.i.i.i = icmp eq i32 %mul9, 0
   br i1 %cmp.i.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit, label %if.end.i.i.i
 
@@ -529,24 +527,24 @@ if.end.i.i.i:                                     ; preds = %while.end
   %conv10 = sext i32 %mul9 to i64
   %mul.i = shl nsw i64 %conv10, 1
   %vtable.i.i.i = load ptr, ptr %alloc.coerce, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
-  %2 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i, i64 noundef 2)
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %1 = load ptr, ptr %vfn.i.i.i, align 8
+  %call.i.i.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i, i64 noundef 2)
   %.pre = load i32, ptr %nDigits, align 4
   br label %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit
 
 _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; preds = %while.end, %if.end.i.i.i
-  %3 = phi i32 [ %.pre, %if.end.i.i.i ], [ %1, %while.end ]
+  %2 = phi i32 [ %.pre, %if.end.i.i.i ], [ %0, %while.end ]
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.end.i.i.i ], [ null, %while.end ]
-  %permutations = getelementptr inbounds %"class.pbrt::DigitPermutation", ptr %this, i64 0, i32 2
+  %permutations = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retval.0.i.i.i, ptr %permutations, align 8
-  %cmp1222 = icmp sgt i32 %3, 0
-  br i1 %cmp1222, label %for.body.lr.ph, label %for.end25
+  %cmp1224 = icmp sgt i32 %2, 0
+  br i1 %cmp1224, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit
   %buf.sroa.0.0.insert.ext.i = zext i32 %base to i64
-  %4 = zext i32 %seed to i64
-  %cmp1520 = icmp sgt i32 %base, 0
+  %3 = zext i32 %seed to i64
+  %cmp1522 = icmp sgt i32 %base, 0
   %shr.i = lshr i32 %sub, 1
   %or.i = or i32 %shr.i, %sub
   %shr1.i = lshr i32 %or.i, 2
@@ -557,11 +555,11 @@ for.body.lr.ph:                                   ; preds = %_ZN4pstd3pmr21polym
   %or6.i = or i32 %shr5.i, %or4.i
   %shr7.i = lshr i32 %or6.i, 16
   %or8.i = or i32 %shr7.i, %or6.i
-  br i1 %cmp1520, label %for.body.us, label %for.end25
+  br i1 %cmp1522, label %for.body.us, label %for.end25
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond14.for.inc23_crit_edge.us
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %for.cond14.for.inc23_crit_edge.us ], [ 0, %for.body.lr.ph ]
-  %buf.sroa.2.0.insert.shift.i.us = shl nuw nsw i64 %indvars.iv27, 32
+  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %for.cond14.for.inc23_crit_edge.us ], [ 0, %for.body.lr.ph ]
+  %buf.sroa.2.0.insert.shift.i.us = shl nuw nsw i64 %indvars.iv29, 32
   %buf.sroa.0.0.insert.insert.i.us = or disjoint i64 %buf.sroa.2.0.insert.shift.i.us, %buf.sroa.0.0.insert.ext.i
   %mul3.i.i.us = mul i64 %buf.sroa.0.0.insert.insert.i.us, -4132994306676758123
   %shr.i.i.us = lshr i64 %mul3.i.i.us, 47
@@ -569,7 +567,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %mul5.i.i.us = mul i64 %xor4.i.i.us, -4132994306676758123
   %xor6.i.i.us = xor i64 %mul5.i.i.us, 5744300541007557372
   %mul7.i.i.us = mul i64 %xor6.i.i.us, -4132994306676758123
-  %xor37.i.i.us = xor i64 %mul7.i.i.us, %4
+  %xor37.i.i.us = xor i64 %mul7.i.i.us, %3
   %mul38.i.i.us = mul i64 %xor37.i.i.us, -4132994306676758123
   %shr39.i.i.us = lshr i64 %mul38.i.i.us, 47
   %xor40.i.i.us = xor i64 %shr39.i.i.us, %mul38.i.i.us
@@ -583,25 +581,25 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %shr21.i.us = lshr i32 %conv18.us, 27
   %or22.i.us = or i32 %shr21.i.us, 1
   %mul23.i.us = mul i32 %or22.i.us, 1765145193
-  %5 = trunc i64 %indvars.iv27 to i32
-  %6 = mul i32 %5, %base
-  %7 = zext i32 %6 to i64
+  %4 = trunc i64 %indvars.iv29 to i32
+  %5 = mul i32 %4, %base
+  %6 = zext i32 %5 to i64
   br label %for.body16.us
 
 for.body16.us:                                    ; preds = %for.body.us, %_ZN4pbrt18PermutationElementEjjj.exit.us
   %indvars.iv = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next, %_ZN4pbrt18PermutationElementEjjj.exit.us ]
-  %8 = trunc i64 %indvars.iv to i32
+  %7 = trunc i64 %indvars.iv to i32
   br label %do.body.i.us
 
 do.body.i.us:                                     ; preds = %do.body.i.us, %for.body16.us
-  %i.addr.0.i.us = phi i32 [ %8, %for.body16.us ], [ %xor39.i.us, %do.body.i.us ]
+  %i.addr.0.i.us = phi i32 [ %7, %for.body16.us ], [ %xor39.i.us, %do.body.i.us ]
   %xor.i.us = xor i32 %i.addr.0.i.us, %conv18.us
   %mul.i16.us = mul i32 %xor.i.us, -512718531
   %xor10.i.us = xor i32 %mul.i16.us, %shr9.i.us
   %and.i.us = and i32 %xor10.i.us, %or8.i
   %shr11.i.us = lshr i32 %and.i.us, 4
-  %9 = xor i32 %shr13.i.us, %shr11.i.us
-  %xor14.i.us = xor i32 %9, %xor10.i.us
+  %8 = xor i32 %shr13.i.us, %shr11.i.us
+  %xor14.i.us = xor i32 %8, %xor10.i.us
   %mul15.i.us = mul i32 %xor14.i.us, 153742143
   %xor17.i.us = xor i32 %mul15.i.us, %shr16.i.us
   %and18.i.us = and i32 %xor17.i.us, %or8.i
@@ -630,19 +628,19 @@ _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %do.body.i.us
   %add.i.us = add i32 %xor39.i.us, %conv18.us
   %rem.i.us = urem i32 %add.i.us, %base
   %conv20.us = trunc i32 %rem.i.us to i16
-  %10 = load ptr, ptr %permutations, align 8
-  %11 = getelementptr i16, ptr %10, i64 %indvars.iv
-  %arrayidx.us = getelementptr i16, ptr %11, i64 %7
+  %9 = load ptr, ptr %permutations, align 8
+  %10 = getelementptr i16, ptr %9, i64 %indvars.iv
+  %arrayidx.us = getelementptr i16, ptr %10, i64 %6
   store i16 %conv20.us, ptr %arrayidx.us, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %buf.sroa.0.0.insert.ext.i
   br i1 %exitcond.not, label %for.cond14.for.inc23_crit_edge.us, label %for.body16.us, !llvm.loop !13
 
 for.cond14.for.inc23_crit_edge.us:                ; preds = %_ZN4pbrt18PermutationElementEjjj.exit.us
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %12 = load i32, ptr %nDigits, align 4
-  %13 = sext i32 %12 to i64
-  %cmp12.us = icmp slt i64 %indvars.iv.next28, %13
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %11 = load i32, ptr %nDigits, align 4
+  %12 = sext i32 %11 to i64
+  %cmp12.us = icmp slt i64 %indvars.iv.next30, %12
   br i1 %cmp12.us, label %for.body.us, label %for.end25, !llvm.loop !14
 
 for.end25:                                        ; preds = %for.cond14.for.inc23_crit_edge.us, %for.body.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit

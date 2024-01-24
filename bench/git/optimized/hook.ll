@@ -29,11 +29,11 @@ entry:
   store ptr null, ptr %fn, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %builtin_hook_options, i8 0, i64 176, i1 false)
   store i32 4, ptr %builtin_hook_options, align 16
-  %long_name = getelementptr inbounds %struct.option, ptr %builtin_hook_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %builtin_hook_options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %builtin_hook_options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %builtin_hook_options, i64 16
   store ptr %fn, ptr %value, align 16
-  %subcommand_fn = getelementptr inbounds %struct.option, ptr %builtin_hook_options, i64 0, i32 11
+  %subcommand_fn = getelementptr inbounds i8, ptr %builtin_hook_options, i64 80
   store ptr @run, ptr %subcommand_fn, align 16
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef null, ptr noundef nonnull %builtin_hook_options, ptr noundef nonnull @builtin_hook_usage, i32 noundef 0) #6
   %0 = load ptr, ptr %fn, align 8
@@ -53,40 +53,40 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %opt, ptr noundef nonnull align 8 dereferenceable(80) @__const.run.opt, i64 80, i1 false)
   store i32 0, ptr %ignore_missing, align 4
   store i32 9, ptr %run_options, align 16
-  %short_name = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 1
+  %short_name = getelementptr inbounds i8, ptr %run_options, i64 4
   store i32 0, ptr %short_name, align 4
-  %long_name = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 2
+  %long_name = getelementptr inbounds i8, ptr %run_options, i64 8
   store ptr @.str.1, ptr %long_name, align 8
-  %value = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %run_options, i64 16
   store ptr %ignore_missing, ptr %value, align 16
-  %argh = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 4
+  %argh = getelementptr inbounds i8, ptr %run_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 5
+  %help = getelementptr inbounds i8, ptr %run_options, i64 32
   store ptr @.str.2, ptr %help, align 16
-  %flags = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %run_options, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 7
+  %callback = getelementptr inbounds i8, ptr %run_options, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 8
+  %defval = getelementptr inbounds i8, ptr %run_options, i64 56
   store i64 1, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds %struct.option, ptr %run_options, i64 0, i32 9
-  %arrayinit.element = getelementptr inbounds %struct.option, ptr %run_options, i64 1
+  %ll_callback = getelementptr inbounds i8, ptr %run_options, i64 64
+  %arrayinit.element = getelementptr inbounds i8, ptr %run_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds %struct.option, ptr %run_options, i64 1, i32 1
+  %short_name2 = getelementptr inbounds i8, ptr %run_options, i64 92
   store i32 0, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds %struct.option, ptr %run_options, i64 1, i32 2
+  %long_name3 = getelementptr inbounds i8, ptr %run_options, i64 96
   store ptr @.str.3, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds %struct.option, ptr %run_options, i64 1, i32 3
-  %path_to_stdin = getelementptr inbounds %struct.run_hooks_opt, ptr %opt, i64 0, i32 5
+  %value4 = getelementptr inbounds i8, ptr %run_options, i64 104
+  %path_to_stdin = getelementptr inbounds i8, ptr %opt, i64 72
   store ptr %path_to_stdin, ptr %value4, align 8
-  %argh5 = getelementptr inbounds %struct.option, ptr %run_options, i64 1, i32 4
+  %argh5 = getelementptr inbounds i8, ptr %run_options, i64 112
   store ptr @.str.4, ptr %argh5, align 16
-  %help6 = getelementptr inbounds %struct.option, ptr %run_options, i64 1, i32 5
+  %help6 = getelementptr inbounds i8, ptr %run_options, i64 120
   store ptr @.str.5, ptr %help6, align 8
-  %flags7 = getelementptr inbounds %struct.option, ptr %run_options, i64 1, i32 6
+  %flags7 = getelementptr inbounds i8, ptr %run_options, i64 128
   store i32 0, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds %struct.option, ptr %run_options, i64 1, i32 7
+  %callback8 = getelementptr inbounds i8, ptr %run_options, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callback8, i8 0, i64 128, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %run_options, ptr noundef nonnull @builtin_hook_run_usage, i32 noundef 1) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -97,7 +97,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %for.end
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str.6) #7
   %tobool27.not = icmp eq i32 %call26, 0
@@ -113,7 +113,7 @@ if.end33:                                         ; preds = %land.lhs.true28, %l
   br i1 %cmp3411.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end33
-  %args = getelementptr inbounds %struct.run_hooks_opt, ptr %opt, i64 0, i32 1
+  %args = getelementptr inbounds i8, ptr %opt, i64 24
   %wide.trip.count = zext nneg i32 %call to i64
   br label %for.body
 
@@ -134,7 +134,7 @@ for.end:                                          ; preds = %for.body, %if.end, 
   br i1 %tobool38.not, label %if.then39, label %if.end40
 
 if.then39:                                        ; preds = %for.end
-  %error_if_missing = getelementptr inbounds %struct.run_hooks_opt, ptr %opt, i64 0, i32 2
+  %error_if_missing = getelementptr inbounds i8, ptr %opt, i64 48
   %bf.load = load i8, ptr %error_if_missing, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %error_if_missing, align 8

@@ -3,12 +3,6 @@ source_filename = "bench/libquic/original/x509_att.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_attributes_st = type { ptr, i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/x509/x509_att.c\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"name=\00", align 1
 
@@ -556,10 +550,10 @@ X509at_get_attr.exit:                             ; preds = %if.end5, %lor.lhs.f
   br i1 %cmp7, label %land.lhs.true8, label %if.end12
 
 land.lhs.true8:                                   ; preds = %X509at_get_attr.exit
-  %single.i = getelementptr inbounds %struct.x509_attributes_st, ptr %retval.0.i27, i64 0, i32 1
+  %single.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 8
   %8 = load i32, ptr %single.i, align 8
   %tobool.not.i = icmp eq i32 %8, 0
-  %value.i = getelementptr inbounds %struct.x509_attributes_st, ptr %retval.0.i27, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 16
   %9 = load ptr, ptr %value.i, align 8
   br i1 %tobool.not.i, label %if.then.i, label %X509_ATTRIBUTE_count.exit
 
@@ -578,10 +572,10 @@ if.end12:                                         ; preds = %X509at_get_attr.exi
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i, %X509_ATTRIBUTE_count.exit, %if.end12
-  %single.i.i.i = getelementptr inbounds %struct.x509_attributes_st, ptr %retval.0.i27, i64 0, i32 1
+  %single.i.i.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 8
   %12 = load i32, ptr %single.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %12, 0
-  %value.i.i.i = getelementptr inbounds %struct.x509_attributes_st, ptr %retval.0.i27, i64 0, i32 2
+  %value.i.i.i = getelementptr inbounds i8, ptr %retval.0.i27, i64 16
   %13 = load ptr, ptr %value.i.i.i, align 8
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %X509_ATTRIBUTE_count.exit.i.i
 
@@ -620,7 +614,7 @@ if.then2.i:                                       ; preds = %if.end.i34
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i34
-  %value.i35 = getelementptr inbounds %struct.asn1_type_st, ptr %retval.0.i.i, i64 0, i32 1
+  %value.i35 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %17 = load ptr, ptr %value.i35, align 8
   br label %return
 
@@ -632,10 +626,10 @@ return:                                           ; preds = %for.cond.i, %if.the
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_ATTRIBUTE_count(ptr nocapture noundef readonly %attr) local_unnamed_addr #0 {
 entry:
-  %single = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %single = getelementptr inbounds i8, ptr %attr, i64 8
   %0 = load i32, ptr %single, align 8
   %tobool.not = icmp eq i32 %0, 0
-  %value = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %attr, i64 16
   %1 = load ptr, ptr %value, align 8
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -661,10 +655,10 @@ entry:
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %single.i.i = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %single.i.i = getelementptr inbounds i8, ptr %attr, i64 8
   %0 = load i32, ptr %single.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %0, 0
-  %value.i.i = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 2
+  %value.i.i = getelementptr inbounds i8, ptr %attr, i64 16
   %1 = load ptr, ptr %value.i.i, align 8
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -709,7 +703,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %retval.0.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %4 = load ptr, ptr %value, align 8
   br label %return
 
@@ -765,7 +759,7 @@ if.then5:                                         ; preds = %if.then2
   br label %return
 
 if.end6:                                          ; preds = %if.then2
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call3, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call3, i64 4
   %1 = load i32, ptr %type, align 4
   br label %if.end17
 
@@ -787,13 +781,13 @@ if.end17:                                         ; preds = %if.end11, %if.else,
   %stmp.0 = phi ptr [ %call3, %if.end6 ], [ null, %if.else ], [ %call8, %if.end11 ]
   %atype.0 = phi i32 [ %1, %if.end6 ], [ 0, %if.else ], [ %attrtype, %if.end11 ]
   %call18 = tail call ptr @sk_new_null() #4
-  %value = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %attr, i64 16
   store ptr %call18, ptr %value, align 8
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %err, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
-  %single = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %single = getelementptr inbounds i8, ptr %attr, i64 8
   store i32 0, ptr %single, align 8
   %cmp22 = icmp eq i32 %attrtype, 0
   br i1 %cmp22, label %return, label %if.end24
@@ -876,10 +870,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %single.i = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 1
+  %single.i = getelementptr inbounds i8, ptr %attr, i64 8
   %0 = load i32, ptr %single.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
-  %value.i = getelementptr inbounds %struct.x509_attributes_st, ptr %attr, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %attr, i64 16
   %1 = load ptr, ptr %value.i, align 8
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 

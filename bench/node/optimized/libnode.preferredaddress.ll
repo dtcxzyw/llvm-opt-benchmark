@@ -5,179 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%"class.node::Environment" = type { %"class.node::MemoryRetainer", %"class.std::unordered_multimap", %"class.std::__cxx11::list", ptr, ptr, %struct.uv_timer_s, %struct.uv_check_s, %struct.uv_idle_s, %struct.uv_prepare_s, %struct.uv_check_s, %struct.uv_async_s, i64, %"struct.std::atomic", %"struct.std::atomic", %"class.node::AsyncHooks", %"class.node::ImmediateInfo", %"class.node::AliasedBufferBase.22", %"class.node::TickInfo", %"class.node::permission::Permission", i64, %"class.std::shared_ptr", i8, i8, i8, i8, i8, i8, i64, %"class.std::vector.47", %"class.std::unordered_set", %"class.std::unique_ptr", %"class.std::unique_ptr.73", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::unique_ptr.85", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::shared_ptr.93", %"class.std::shared_ptr.96", %"class.std::vector.99", %"class.std::vector.99", %"class.std::__cxx11::basic_string", i8, i32, i32, i8, i32, i32, i32, i32, %"class.node::AliasedBufferBase.22", %"class.node::AliasedBufferBase.12", i32, %"class.std::unique_ptr.104", %"class.node::AliasedBufferBase.22", i64, double, i64, %"class.std::unique_ptr.112", i8, i64, i64, %"class.std::unordered_set.120", %"class.std::unique_ptr.140", i8, %"class.std::__cxx11::list.148", %"class.node::ListHead", %"class.node::ListHead.153", %"class.std::__cxx11::list.155", i32, i32, %"class.node::EnabledDebugList", %"class.std::vector.160", %"class.std::__cxx11::list.165", %"class.node::MutexBase", %"class.std::__cxx11::list.170", %"class.node::CallbackQueue", %"class.node::MutexBase", %"class.node::CallbackQueue", %"class.node::CallbackQueue", i8, %"struct.std::atomic.185", %"class.node::CleanupQueue", i8, %"class.std::unordered_set.203", %"class.std::function", %"class.std::unique_ptr.218", %"class.node::builtins::BuiltinLoader", %"class.std::function.232", %"class.std::unordered_map.234" }
-%"class.node::MemoryRetainer" = type { ptr }
-%"class.std::unordered_multimap" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon = type { [4 x ptr] }
-%struct.uv_idle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.9, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.9 = type { [4 x ptr] }
-%struct.uv_prepare_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.10, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.10 = type { [4 x ptr] }
-%struct.uv_check_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.8, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.8 = type { [4 x ptr] }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.11, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.11 = type { [4 x ptr] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.node::AsyncHooks" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase", %"class.node::AliasedBufferBase.12", %"class.node::AliasedBufferBase", %"class.v8::Global.15", %"class.std::vector", ptr, %"struct.std::array" }
-%"class.node::AliasedBufferBase" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global", ptr }
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.v8::Global.15" = type { %"class.v8::PersistentBase.16" }
-%"class.v8::PersistentBase.16" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array" = type { [4 x %"class.v8::Global.20"] }
-%"class.v8::Global.20" = type { %"class.v8::PersistentBase.21" }
-%"class.v8::PersistentBase.21" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::ImmediateInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.12" }
-%"class.node::TickInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.25" }
-%"class.node::AliasedBufferBase.25" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.26", ptr }
-%"class.v8::Global.26" = type { %"class.v8::PersistentBase.27" }
-%"class.v8::PersistentBase.27" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::permission::Permission" = type <{ %"class.std::unordered_map", i8, [7 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.28" }
-%"class.std::_Hashtable.28" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector.47" = type { %"struct.std::_Vector_base.48" }
-%"struct.std::_Vector_base.48" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.52" }
-%"class.std::_Hashtable.52" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.72" }
-%"struct.std::_Head_base.72" = type { ptr }
-%"class.std::unique_ptr.73" = type { %"struct.std::__uniq_ptr_data.74" }
-%"struct.std::__uniq_ptr_data.74" = type { %"class.std::__uniq_ptr_impl.75" }
-%"class.std::__uniq_ptr_impl.75" = type { %"class.std::tuple.76" }
-%"class.std::tuple.76" = type { %"struct.std::_Tuple_impl.77" }
-%"struct.std::_Tuple_impl.77" = type { %"struct.std::_Head_base.80" }
-%"struct.std::_Head_base.80" = type { ptr }
-%"class.std::unique_ptr.85" = type { %"struct.std::__uniq_ptr_data.86" }
-%"struct.std::__uniq_ptr_data.86" = type { %"class.std::__uniq_ptr_impl.87" }
-%"class.std::__uniq_ptr_impl.87" = type { %"class.std::tuple.88" }
-%"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
-%"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
-%"struct.std::_Head_base.92" = type { ptr }
-%"class.std::shared_ptr.93" = type { %"class.std::__shared_ptr.94" }
-%"class.std::__shared_ptr.94" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.96" = type { %"class.std::__shared_ptr.97" }
-%"class.std::__shared_ptr.97" = type { ptr, %"class.std::__shared_count" }
-%"class.std::vector.99" = type { %"struct.std::_Vector_base.100" }
-%"struct.std::_Vector_base.100" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.84 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.84 = type { i64, [8 x i8] }
-%"class.node::AliasedBufferBase.12" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.13", ptr }
-%"class.v8::Global.13" = type { %"class.v8::PersistentBase.14" }
-%"class.v8::PersistentBase.14" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.104" = type { %"struct.std::__uniq_ptr_data.105" }
-%"struct.std::__uniq_ptr_data.105" = type { %"class.std::__uniq_ptr_impl.106" }
-%"class.std::__uniq_ptr_impl.106" = type { %"class.std::tuple.107" }
-%"class.std::tuple.107" = type { %"struct.std::_Tuple_impl.108" }
-%"struct.std::_Tuple_impl.108" = type { %"struct.std::_Head_base.111" }
-%"struct.std::_Head_base.111" = type { ptr }
-%"class.node::AliasedBufferBase.22" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.23", ptr }
-%"class.v8::Global.23" = type { %"class.v8::PersistentBase.24" }
-%"class.v8::PersistentBase.24" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.112" = type { %"struct.std::__uniq_ptr_data.113" }
-%"struct.std::__uniq_ptr_data.113" = type { %"class.std::__uniq_ptr_impl.114" }
-%"class.std::__uniq_ptr_impl.114" = type { %"class.std::tuple.115" }
-%"class.std::tuple.115" = type { %"struct.std::_Tuple_impl.116" }
-%"struct.std::_Tuple_impl.116" = type { %"struct.std::_Head_base.119" }
-%"struct.std::_Head_base.119" = type { ptr }
-%"class.std::unordered_set.120" = type { %"class.std::_Hashtable.121" }
-%"class.std::_Hashtable.121" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.140" = type { %"struct.std::__uniq_ptr_data.141" }
-%"struct.std::__uniq_ptr_data.141" = type { %"class.std::__uniq_ptr_impl.142" }
-%"class.std::__uniq_ptr_impl.142" = type { %"class.std::tuple.143" }
-%"class.std::tuple.143" = type { %"struct.std::_Tuple_impl.144" }
-%"struct.std::_Tuple_impl.144" = type { %"struct.std::_Head_base.147" }
-%"struct.std::_Head_base.147" = type { ptr }
-%"class.std::__cxx11::list.148" = type { %"class.std::__cxx11::_List_base.149" }
-%"class.std::__cxx11::_List_base.149" = type { %"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::ListHead" = type { %"class.node::ListNode" }
-%"class.node::ListNode" = type { ptr, ptr }
-%"class.node::ListHead.153" = type { %"class.node::ListNode.154" }
-%"class.node::ListNode.154" = type { ptr, ptr }
-%"class.std::__cxx11::list.155" = type { %"class.std::__cxx11::_List_base.156" }
-%"class.std::__cxx11::_List_base.156" = type { %"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::EnabledDebugList" = type { [75 x i8] }
-%"class.std::vector.160" = type { %"struct.std::_Vector_base.161" }
-%"struct.std::_Vector_base.161" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list.165" = type { %"class.std::__cxx11::_List_base.166" }
-%"class.std::__cxx11::_List_base.166" = type { %"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.170" = type { %"class.std::__cxx11::_List_base.171" }
-%"class.std::__cxx11::_List_base.171" = type { %"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::CallbackQueue" = type { %"struct.std::atomic.175", %"class.std::unique_ptr.177", ptr }
-%"struct.std::atomic.175" = type { %"struct.std::__atomic_base.176" }
-%"struct.std::__atomic_base.176" = type { i64 }
-%"class.std::unique_ptr.177" = type { %"struct.std::__uniq_ptr_data.178" }
-%"struct.std::__uniq_ptr_data.178" = type { %"class.std::__uniq_ptr_impl.179" }
-%"class.std::__uniq_ptr_impl.179" = type { %"class.std::tuple.180" }
-%"class.std::tuple.180" = type { %"struct.std::_Tuple_impl.181" }
-%"struct.std::_Tuple_impl.181" = type { %"struct.std::_Head_base.184" }
-%"struct.std::_Head_base.184" = type { ptr }
-%"struct.std::atomic.185" = type { %"struct.std::__atomic_base.186" }
-%"struct.std::__atomic_base.186" = type { ptr }
-%"class.node::CleanupQueue" = type { %"class.node::MemoryRetainer", %"class.std::unordered_set.187", i64 }
-%"class.std::unordered_set.187" = type { %"class.std::_Hashtable.188" }
-%"class.std::_Hashtable.188" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.203" = type { %"class.std::_Hashtable.204" }
-%"class.std::_Hashtable.204" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.218" = type { %"struct.std::__uniq_ptr_data.219" }
-%"struct.std::__uniq_ptr_data.219" = type { %"class.std::__uniq_ptr_impl.220" }
-%"class.std::__uniq_ptr_impl.220" = type { %"class.std::tuple.221" }
-%"class.std::tuple.221" = type { %"struct.std::_Tuple_impl.222" }
-%"struct.std::_Tuple_impl.222" = type { %"struct.std::_Head_base.225" }
-%"struct.std::_Head_base.225" = type { ptr }
-%"class.node::builtins::BuiltinLoader" = type { %"class.node::ThreadsafeCopyOnWrite", %"class.node::UnionBytes", %"class.std::shared_ptr.229" }
-%"class.node::ThreadsafeCopyOnWrite" = type { %"class.node::CopyOnWrite" }
-%"class.node::CopyOnWrite" = type { %"class.std::shared_ptr.226" }
-%"class.std::shared_ptr.226" = type { %"class.std::__shared_ptr.227" }
-%"class.std::__shared_ptr.227" = type { ptr, %"class.std::__shared_count" }
-%"class.node::UnionBytes" = type { ptr, ptr }
-%"class.std::shared_ptr.229" = type { %"class.std::__shared_ptr.230" }
-%"class.std::__shared_ptr.230" = type { ptr, %"class.std::__shared_count" }
-%"class.std::function.232" = type { %"class.std::_Function_base", ptr }
-%"class.std::unordered_map.234" = type { %"class.std::_Hashtable.235" }
-%"class.std::_Hashtable.235" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.node::quic::PreferredAddress" = type { ptr, ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
@@ -185,21 +12,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Optional_payload_base<const node::quic::PreferredAddress::AddressInfo>::_Storage" = type { %"struct.node::quic::PreferredAddress::AddressInfo" }
 %"struct.node::quic::PreferredAddress::AddressInfo" = type { [1025 x i8], i32, i16, %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
-%struct.ngtcp2_preferred_addr = type { %struct.ngtcp2_cid, i16, i16, [4 x i8], [16 x i8], i8, i8, [16 x i8] }
-%struct.ngtcp2_cid = type { i64, [20 x i8] }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<const node::quic::PreferredAddress::AddressInfo>::_Storage", i8, [7 x i8] }>
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.84 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.84 = type { i64, [8 x i8] }
 %struct.uv_getaddrinfo_s = type { ptr, i32, [6 x ptr], ptr, %struct.uv__work, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.ngtcp2_path = type { %struct.ngtcp2_addr, %struct.ngtcp2_addr, ptr }
-%struct.ngtcp2_addr = type { ptr, i32 }
-%struct.ngtcp2_transport_params = type { %struct.ngtcp2_preferred_addr, %struct.ngtcp2_cid, %struct.ngtcp2_cid, %struct.ngtcp2_cid, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i8, [16 x i8], i8, %struct.ngtcp2_version_info, i8 }
-%struct.ngtcp2_version_info = type { i32, ptr, i64 }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.284 }
-%union.anon.284 = type { [4 x i32] }
+%struct.uv__queue = type { ptr, ptr }
 %"class.std::allocator.81" = type { i8 }
 
 $_ZNSt7__cxx119to_stringEi = comdat any
@@ -293,10 +112,10 @@ do.body6:                                         ; preds = %entry
 
 do.end7:                                          ; preds = %entry
   store i32 0, ptr %val, align 4
-  %principal_realm_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 89
+  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call ptr %1(ptr noundef nonnull align 8 dereferenceable(872) %0) #17
   %call16 = tail call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce, ptr %call2.i) #17
@@ -317,7 +136,7 @@ sw.bb21:                                          ; preds = %if.then.i
   br label %return
 
 if.end24:                                         ; preds = %do.end7, %if.then.i
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %env, i64 88
   %3 = load ptr, ptr %isolate_.i.i, align 8
   %call.i.i = call ptr @_ZN4node21ERR_INVALID_ARG_VALUEIJRjEEEN2v85LocalINS2_5ValueEEEPNS2_7IsolateEPKcDpOT_(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %val)
   %call6.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr %call.i.i) #17
@@ -341,7 +160,7 @@ declare i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef non
 define dso_local void @_ZN4node4quic16PreferredAddressC2EP11ngtcp2_pathPK21ngtcp2_preferred_addr(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %dest, ptr noundef %paddr) unnamed_addr #5 align 2 {
 entry:
   store ptr %dest, ptr %this, align 8
-  %paddr_ = getelementptr inbounds %"class.node::quic::PreferredAddress", ptr %this, i64 0, i32 1
+  %paddr_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %paddr, ptr %paddr_, align 8
   ret void
 }
@@ -350,25 +169,25 @@ entry:
 define dso_local void @_ZNK4node4quic16PreferredAddress4ipv4Ev(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %address.i = alloca %"struct.node::quic::PreferredAddress::AddressInfo", align 8
-  %paddr_ = getelementptr inbounds %"class.node::quic::PreferredAddress", ptr %this, i64 0, i32 1
+  %paddr_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %paddr_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %address.i)
-  %ipv4_present.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %0, i64 0, i32 5
+  %ipv4_present.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i8, ptr %ipv4_present.i, align 8, !noalias !5
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN4node4quic12_GLOBAL__N_116get_address_infoILi2EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %address.i.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 3
+  %address.i.i = getelementptr inbounds i8, ptr %address.i, i64 1040
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address.i.i, i8 0, i64 16, i1 false), !noalias !5
-  %family.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 1
+  %family.i = getelementptr inbounds i8, ptr %address.i, i64 1028
   store i32 2, ptr %family.i, align 4, !noalias !5
-  %ipv4_port.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %0, i64 0, i32 1
+  %ipv4_port.i = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i16, ptr %ipv4_port.i, align 8, !noalias !5
-  %port.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 2
+  %port.i = getelementptr inbounds i8, ptr %address.i, i64 1032
   store i16 %2, ptr %port.i, align 8, !noalias !5
-  %ipv4_addr.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %0, i64 0, i32 3
+  %ipv4_addr.i = getelementptr inbounds i8, ptr %0, i64 36
   %call.i = call i32 @uv_inet_ntop(i32 noundef 2, ptr noundef nonnull %ipv4_addr.i, ptr noundef nonnull %address.i, i64 noundef 1025) #17, !noalias !5
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then2.i, label %if.end6.i
@@ -376,7 +195,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %address.i) #17, !noalias !5
   store i64 %call.i.i.i, ptr %address.i.i, align 8, !noalias !5
-  %ref.tmp.sroa.2.0.address5.sroa_idx.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 3, i32 1
+  %ref.tmp.sroa.2.0.address5.sroa_idx.i = getelementptr inbounds i8, ptr %address.i, i64 1048
   store ptr %address.i, ptr %ref.tmp.sroa.2.0.address5.sroa_idx.i, align 8, !noalias !5
   br label %if.end6.i
 
@@ -386,7 +205,7 @@ if.end6.i:                                        ; preds = %if.then2.i, %if.end
 
 _ZN4node4quic12_GLOBAL__N_116get_address_infoILi2EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit: ; preds = %entry, %if.end6.i
   %.sink.i = phi i8 [ 1, %if.end6.i ], [ 0, %entry ]
-  %_M_engaged.i.i.i.i3.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 1056
   store i8 %.sink.i, ptr %_M_engaged.i.i.i.i3.i, align 8, !alias.scope !5
   call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %address.i)
   ret void
@@ -396,25 +215,25 @@ _ZN4node4quic12_GLOBAL__N_116get_address_infoILi2EEESt8optionalIKNS0_16Preferred
 define dso_local void @_ZNK4node4quic16PreferredAddress4ipv6Ev(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %address.i = alloca %"struct.node::quic::PreferredAddress::AddressInfo", align 8
-  %paddr_ = getelementptr inbounds %"class.node::quic::PreferredAddress", ptr %this, i64 0, i32 1
+  %paddr_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %paddr_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %address.i)
-  %ipv6_present.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %0, i64 0, i32 6
+  %ipv6_present.i = getelementptr inbounds i8, ptr %0, i64 57
   %1 = load i8, ptr %ipv6_present.i, align 1, !noalias !8
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %_ZN4node4quic12_GLOBAL__N_116get_address_infoILi10EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %address.i.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 3
+  %address.i.i = getelementptr inbounds i8, ptr %address.i, i64 1040
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address.i.i, i8 0, i64 16, i1 false), !noalias !8
-  %family.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 1
+  %family.i = getelementptr inbounds i8, ptr %address.i, i64 1028
   store i32 10, ptr %family.i, align 4, !noalias !8
-  %ipv6_port.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %0, i64 0, i32 2
+  %ipv6_port.i = getelementptr inbounds i8, ptr %0, i64 34
   %2 = load i16, ptr %ipv6_port.i, align 2, !noalias !8
-  %port.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 2
+  %port.i = getelementptr inbounds i8, ptr %address.i, i64 1032
   store i16 %2, ptr %port.i, align 8, !noalias !8
-  %ipv6_addr.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %0, i64 0, i32 4
+  %ipv6_addr.i = getelementptr inbounds i8, ptr %0, i64 40
   %call.i = call i32 @uv_inet_ntop(i32 noundef 10, ptr noundef nonnull %ipv6_addr.i, ptr noundef nonnull %address.i, i64 noundef 1025) #17, !noalias !8
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then2.i, label %if.end6.i
@@ -422,7 +241,7 @@ if.end.i:                                         ; preds = %entry
 if.then2.i:                                       ; preds = %if.end.i
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %address.i) #17, !noalias !8
   store i64 %call.i.i.i, ptr %address.i.i, align 8, !noalias !8
-  %ref.tmp.sroa.2.0.address5.sroa_idx.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address.i, i64 0, i32 3, i32 1
+  %ref.tmp.sroa.2.0.address5.sroa_idx.i = getelementptr inbounds i8, ptr %address.i, i64 1048
   store ptr %address.i, ptr %ref.tmp.sroa.2.0.address5.sroa_idx.i, align 8, !noalias !8
   br label %if.end6.i
 
@@ -432,7 +251,7 @@ if.end6.i:                                        ; preds = %if.then2.i, %if.end
 
 _ZN4node4quic12_GLOBAL__N_116get_address_infoILi10EEESt8optionalIKNS0_16PreferredAddress11AddressInfoEERK21ngtcp2_preferred_addr.exit: ; preds = %entry, %if.end6.i
   %.sink.i = phi i8 [ 1, %if.end6.i ], [ 0, %entry ]
-  %_M_engaged.i.i.i.i3.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 1056
   store i8 %.sink.i, ptr %_M_engaged.i.i.i.i3.i, align 8, !alias.scope !8
   call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %address.i)
   ret void
@@ -449,12 +268,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %hints.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 40, i1 false)
   store i32 1028, ptr %hints.i, align 8
-  %family.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address, i64 0, i32 1
+  %family.i = getelementptr inbounds i8, ptr %address, i64 1028
   %1 = load i32, ptr %family.i, align 4
-  %ai_family.i = getelementptr inbounds %struct.addrinfo, ptr %hints.i, i64 0, i32 1
+  %ai_family.i = getelementptr inbounds i8, ptr %hints.i, i64 4
   store i32 %1, ptr %ai_family.i, align 4
   store i32 2, ptr %0, align 8
-  %port.i = getelementptr inbounds %"struct.node::quic::PreferredAddress::AddressInfo", ptr %address, i64 0, i32 2
+  %port.i = getelementptr inbounds i8, ptr %address, i64 1032
   %2 = load i16, ptr %port.i, align 8
   %conv.i = zext i16 %2 to i32
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %conv.i) #17
@@ -470,7 +289,7 @@ _ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_
   br label %if.then.i
 
 _ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_getaddrinfo_s.exit: ; preds = %entry
-  %addrinfo.i = getelementptr inbounds %struct.uv_getaddrinfo_s, ptr %req, i64 0, i32 9
+  %addrinfo.i = getelementptr inbounds i8, ptr %req, i64 144
   %3 = load ptr, ptr %addrinfo.i, align 8
   %cmp2.i.not = icmp eq ptr %3, null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
@@ -480,18 +299,18 @@ _ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_
 
 if.then:                                          ; preds = %_ZN4node4quic12_GLOBAL__N_17resolveERKNS0_16PreferredAddress11AddressInfoEP16uv_getaddrinfo_s.exit
   %4 = load ptr, ptr %addrinfo.i, align 8
-  %ai_addrlen = getelementptr inbounds %struct.addrinfo, ptr %4, i64 0, i32 4
+  %ai_addrlen = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i32, ptr %ai_addrlen, align 8
   %6 = load ptr, ptr %this, align 8
-  %addrlen = getelementptr inbounds %struct.ngtcp2_path, ptr %6, i64 0, i32 1, i32 1
+  %addrlen = getelementptr inbounds i8, ptr %6, i64 24
   store i32 %5, ptr %addrlen, align 8
   %7 = load ptr, ptr %this, align 8
-  %remote3 = getelementptr inbounds %struct.ngtcp2_path, ptr %7, i64 0, i32 1
+  %remote3 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %remote3, align 8
   %9 = load ptr, ptr %addrinfo.i, align 8
-  %ai_addr = getelementptr inbounds %struct.addrinfo, ptr %9, i64 0, i32 5
+  %ai_addr = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %ai_addr, align 8
-  %ai_addrlen6 = getelementptr inbounds %struct.addrinfo, ptr %9, i64 0, i32 4
+  %ai_addrlen6 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load i32, ptr %ai_addrlen6, align 8
   %conv = zext i32 %11 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %8, ptr align 2 %10, i64 %conv, i1 false)
@@ -524,14 +343,14 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %preferred_address_present.i = getelementptr inbounds %struct.ngtcp2_transport_params, ptr %params, i64 0, i32 19
+  %preferred_address_present.i = getelementptr inbounds i8, ptr %params, i64 275
   store i8 1, ptr %preferred_address_present.i, align 1
   %call.i = tail call noundef i32 @_ZN4node13SocketAddress7GetPortEPK8sockaddr(ptr noundef nonnull %addr)
   %conv.i = trunc i32 %call.i to i16
-  %ipv4_port.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %params, i64 0, i32 1
+  %ipv4_port.i = getelementptr inbounds i8, ptr %params, i64 32
   store i16 %conv.i, ptr %ipv4_port.i, align 8
-  %ipv4_addr.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %params, i64 0, i32 3
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 2
+  %ipv4_addr.i = getelementptr inbounds i8, ptr %params, i64 36
+  %sin_addr.i = getelementptr inbounds i8, ptr %addr, i64 4
   %1 = load i32, ptr %sin_addr.i, align 4
   store i32 %1, ptr %ipv4_addr.i, align 4
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic12_GLOBAL__N_124copy_to_transport_paramsILi2EEEvP23ngtcp2_transport_paramsPK8sockaddrE4args) #17
@@ -539,14 +358,14 @@ sw.bb:                                            ; preds = %entry
   unreachable
 
 sw.bb1:                                           ; preds = %entry
-  %preferred_address_present.i4 = getelementptr inbounds %struct.ngtcp2_transport_params, ptr %params, i64 0, i32 19
+  %preferred_address_present.i4 = getelementptr inbounds i8, ptr %params, i64 275
   store i8 1, ptr %preferred_address_present.i4, align 1
   %call.i5 = tail call noundef i32 @_ZN4node13SocketAddress7GetPortEPK8sockaddr(ptr noundef nonnull %addr)
   %conv.i6 = trunc i32 %call.i5 to i16
-  %ipv6_port.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %params, i64 0, i32 2
+  %ipv6_port.i = getelementptr inbounds i8, ptr %params, i64 34
   store i16 %conv.i6, ptr %ipv6_port.i, align 2
-  %ipv6_addr.i = getelementptr inbounds %struct.ngtcp2_preferred_addr, ptr %params, i64 0, i32 4
-  %sin6_addr.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addr, i64 0, i32 3
+  %ipv6_addr.i = getelementptr inbounds i8, ptr %params, i64 40
+  %sin6_addr.i = getelementptr inbounds i8, ptr %addr, i64 8
   %2 = load i32, ptr %sin6_addr.i, align 4
   store i32 %2, ptr %ipv6_addr.i, align 8
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic12_GLOBAL__N_124copy_to_transport_paramsILi10EEEvP23ngtcp2_transport_paramsPK8sockaddrE4args) #17
@@ -909,7 +728,7 @@ do.end4:                                          ; preds = %entry
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ret) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ret, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ret, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ret, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ret, ptr noundef %format, ptr noundef nonnull %call)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #17
@@ -1140,7 +959,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #17
   %call.i.i = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i6) #17
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i, i8 noundef signext %0) #17
   %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %i.09) #17
@@ -1197,7 +1016,7 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #17
   %call.i6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef %call.i6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12) #17
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp11, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 2
@@ -1430,16 +1249,16 @@ entry:
   %0 = load i16, ptr %addr, align 2
   %1 = and i16 %0, -9
   %spec.select.not = icmp eq i16 %1, 2
-  br i1 %spec.select.not, label %do.end8, label %do.body7
+  br i1 %spec.select.not, label %cond.end, label %do.body7
 
 do.body7:                                         ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node13SocketAddress7GetPortEPK8sockaddrE4args) #17
   tail call void @abort() #18
   unreachable
 
-do.end8:                                          ; preds = %entry
-  %sin_port = getelementptr inbounds %struct.sockaddr_in, ptr %addr, i64 0, i32 1
-  %cond = load i16, ptr %sin_port, align 2
+cond.end:                                         ; preds = %entry
+  %cond.in = getelementptr inbounds i8, ptr %addr, i64 2
+  %cond = load i16, ptr %cond.in, align 2
   %call = tail call zeroext i16 @ntohs(i16 noundef zeroext %cond) #21
   %conv12 = zext i16 %call to i32
   ret i32 %conv12

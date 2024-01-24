@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [8 x i8] c"missing\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @u_skipWhitespace(ptr noundef readonly %s) local_unnamed_addr #0 {
+define noundef ptr @u_skipWhitespace(ptr noundef readonly %s) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -328,7 +328,7 @@ while.cond68:                                     ; preds = %while.cond68, %whil
 while.end78:                                      ; preds = %while.cond68
   %arrayidx79 = getelementptr inbounds [2 x ptr], ptr %fields, i64 %indvars.iv
   store ptr %start.068, ptr %arrayidx79, align 8
-  %arrayidx83 = getelementptr inbounds [2 x ptr], ptr %fields, i64 %indvars.iv, i64 1
+  %arrayidx83 = getelementptr inbounds i8, ptr %arrayidx79, i64 8
   store ptr %limit.1, ptr %arrayidx83, align 8
   %15 = load i8, ptr %limit.1, align 1
   %cmp85.not = icmp eq i8 %15, 0
@@ -629,7 +629,7 @@ if.else60:                                        ; preds = %do.body
   %6 = and i16 %5, 1023
   %conv66 = or disjoint i16 %6, -9216
   %inc67 = add nsw i32 %destLength.0, 2
-  %arrayidx69 = getelementptr i16, ptr %arrayidx65, i64 1
+  %arrayidx69 = getelementptr i8, ptr %arrayidx65, i64 2
   store i16 %conv66, ptr %arrayidx69, align 2
   br label %for.cond.backedge
 

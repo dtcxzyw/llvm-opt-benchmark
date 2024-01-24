@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/buf.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.buf_mem_st = type { i64, ptr, i64 }
-
 @.str = private unnamed_addr constant [120 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/buf/buf.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -37,13 +35,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load ptr, ptr %data, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %max = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 2
+  %max = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load i64, ptr %max, align 8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %1) #11
   %2 = load ptr, ptr %data, align 8
@@ -82,13 +80,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %max = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 2
+  %max = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load i64, ptr %max, align 8
   %cmp2.not = icmp ult i64 %1, %len
   br i1 %cmp2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %buf, i64 8
   %2 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %0
   %sub = sub i64 %len, %0
@@ -116,7 +114,7 @@ if.then13:                                        ; preds = %if.end10
   br label %return
 
 if.end14:                                         ; preds = %if.end10
-  %data15 = getelementptr inbounds %struct.buf_mem_st, ptr %buf, i64 0, i32 1
+  %data15 = getelementptr inbounds i8, ptr %buf, i64 8
   %3 = load ptr, ptr %data15, align 8
   %cmp16 = icmp eq ptr %3, null
   br i1 %cmp16, label %if.then17, label %if.else

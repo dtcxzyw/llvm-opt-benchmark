@@ -6,13 +6,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hadc962d9e274a866E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
-  %3 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !5, !noundef !6
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %5, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he0b122c52856cde8E.exit"
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = tail call { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h6d9049ec8b564757E"(ptr nonnull align 8 %6)
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h83efc1f48b15805aE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 %6)
   %8 = load i64, ptr %2, align 8, !range !7, !noundef !6
@@ -26,13 +26,13 @@ define { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hadc962d9e
 
 12:                                               ; preds = %10
   store i8 1, ptr %3, align 1
-  %13 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
   %.not9.i = icmp eq i8 %14, 0
   br i1 %.not9.i, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !6
   %18 = load i64, ptr %0, align 8, !noundef !6
   %.not10.i = icmp eq i64 %17, %18
@@ -42,7 +42,7 @@ define { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hadc962d9e
   %20 = call { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h6d9049ec8b564757E"(ptr nonnull align 8 %6)
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = load i64, ptr %0, align 8, !noundef !6
-  %23 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !6
   %25 = getelementptr inbounds i8, ptr %21, i64 %22
   %26 = sub i64 %24, %22
@@ -50,9 +50,9 @@ define { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hadc962d9e
 
 27:                                               ; preds = %5
   %28 = extractvalue { ptr, i64 } %7, 0
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %2, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8, !noundef !6
-  %31 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %2, i64 0, i32 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %2, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !6
   %33 = load i64, ptr %0, align 8, !noundef !6
   %34 = getelementptr inbounds i8, ptr %28, i64 %33
@@ -70,31 +70,31 @@ define { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hadc962d9e
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17he0b122c52856cde8E"(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 4
+  %2 = getelementptr inbounds i8, ptr %0, i64 65
   %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %4, label %20
 
 4:                                                ; preds = %1
   store i8 1, ptr %2, align 1
-  %5 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %.not9 = icmp eq i8 %6, 0
   br i1 %.not9, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !6
   %10 = load i64, ptr %0, align 8, !noundef !6
   %.not10 = icmp eq i64 %9, %10
   br i1 %.not10, label %20, label %11
 
 11:                                               ; preds = %7, %4
-  %12 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = tail call { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h6d9049ec8b564757E"(ptr nonnull align 8 %12)
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = load i64, ptr %0, align 8, !noundef !6
-  %16 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !6
   %18 = getelementptr inbounds i8, ptr %14, i64 %15
   %19 = sub i64 %17, %15
@@ -120,9 +120,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator3zip17hb2a043325ac09b6dE(ptr 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN4core4iter6traits8iterator8Iterator9enumerate17h0a2472b25307d79aE(ptr nocapture writeonly sret({ { ptr, ptr }, i64 }) align 8 %0, ptr %1, ptr %2) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds { { ptr, ptr }, i64 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   ret void
 }
@@ -137,13 +137,13 @@ define void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$G
 define { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7892bab9e3f2e0cE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %3 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 4
+  %3 = getelementptr inbounds i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !range !5, !noundef !6
   %.not.i = icmp eq i8 %4, 0
   br i1 %.not.i, label %5, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hadc962d9e274a866E.exit"
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = tail call { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h6d9049ec8b564757E"(ptr nonnull align 8 %6)
   call void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h83efc1f48b15805aE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 %6)
   %8 = load i64, ptr %2, align 8, !range !7, !noundef !6
@@ -157,13 +157,13 @@ define { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core.
 
 12:                                               ; preds = %10
   store i8 1, ptr %3, align 1
-  %13 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
   %.not9.i.i = icmp eq i8 %14, 0
   br i1 %.not9.i.i, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !6
   %18 = load i64, ptr %0, align 8, !noundef !6
   %.not10.i.i = icmp eq i64 %17, %18
@@ -173,7 +173,7 @@ define { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core.
   %20 = call { ptr, i64 } @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$8haystack17h6d9049ec8b564757E"(ptr nonnull align 8 %6)
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = load i64, ptr %0, align 8, !noundef !6
-  %23 = getelementptr inbounds { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] }, ptr %0, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !6
   %25 = getelementptr inbounds i8, ptr %21, i64 %22
   %26 = sub i64 %24, %22
@@ -181,9 +181,9 @@ define { ptr, i64 } @"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core.
 
 27:                                               ; preds = %5
   %28 = extractvalue { ptr, i64 } %7, 0
-  %29 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %2, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8, !noundef !6
-  %31 = getelementptr inbounds { [1 x i64], { i64, i64 } }, ptr %2, i64 0, i32 1, i32 1
+  %31 = getelementptr inbounds i8, ptr %2, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !6
   %33 = load i64, ptr %0, align 8, !noundef !6
   %34 = getelementptr inbounds i8, ptr %28, i64 %33

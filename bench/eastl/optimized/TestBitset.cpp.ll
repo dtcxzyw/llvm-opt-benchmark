@@ -3,38 +3,22 @@ source_filename = "bench/eastl/original/TestBitset.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.eastl::bitset<1, unsigned char>::reference" = type { ptr, i64 }
-%"class.eastl::bitset<33, unsigned char>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.0" = type { %"struct.eastl::BitsetBase.1" }
 %"struct.eastl::BitsetBase.1" = type { [5 x i8] }
-%"class.eastl::bitset<65, unsigned char>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.2" = type { %"struct.eastl::BitsetBase.3" }
 %"struct.eastl::BitsetBase.3" = type { [9 x i8] }
-%"class.eastl::bitset<129, unsigned char>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.4" = type { %"struct.eastl::BitsetBase.5" }
 %"struct.eastl::BitsetBase.5" = type { [17 x i8] }
-%"class.eastl::bitset<1, unsigned short>::reference" = type { ptr, i64 }
-%"class.eastl::bitset<33, unsigned short>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.8" = type { %"struct.eastl::BitsetBase.9" }
 %"struct.eastl::BitsetBase.9" = type { [3 x i16] }
-%"class.eastl::bitset<65, unsigned short>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.10" = type { %"struct.eastl::BitsetBase.11" }
 %"struct.eastl::BitsetBase.11" = type { [5 x i16] }
-%"class.eastl::bitset<129, unsigned short>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.12" = type { %"struct.eastl::BitsetBase.13" }
 %"struct.eastl::BitsetBase.13" = type { [9 x i16] }
-%"class.eastl::bitset<1, unsigned int>::reference" = type { ptr, i64 }
-%"class.eastl::bitset<33, unsigned int>::reference" = type { ptr, i64 }
-%"class.eastl::bitset<65, unsigned int>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.18" = type { %"struct.eastl::BitsetBase.19" }
 %"struct.eastl::BitsetBase.19" = type { [3 x i32] }
-%"class.eastl::bitset<129, unsigned int>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.20" = type { %"struct.eastl::BitsetBase.21" }
 %"struct.eastl::BitsetBase.21" = type { [5 x i32] }
-%"class.eastl::bitset<1, unsigned __int128>::reference" = type { ptr, i64 }
-%"class.eastl::bitset<33, unsigned __int128>::reference" = type { ptr, i64 }
-%"class.eastl::bitset<65, unsigned __int128>::reference" = type { ptr, i64 }
-%"class.eastl::bitset<129, unsigned __int128>::reference" = type { ptr, i64 }
 %"class.eastl::bitset.26" = type { %"struct.eastl::BitsetBase.27" }
 %"struct.eastl::BitsetBase.27" = type { [2 x i128] }
 %"class.eastl::bitset.38" = type { %"struct.eastl::BitsetBase.39" }
@@ -1636,7 +1620,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EhE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EhE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -1645,7 +1629,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -1677,14 +1661,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned char>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<1, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -1716,7 +1700,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -1732,7 +1716,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -1745,7 +1729,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -2190,7 +2174,7 @@ entry:
   %shr.i = lshr i64 %i, 3
   %arrayidx.i = getelementptr inbounds [5 x i8], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -2199,7 +2183,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -2231,14 +2215,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned char>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<33, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -2270,7 +2254,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -2286,7 +2270,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -2299,7 +2283,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -2428,7 +2412,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 4
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 4
   %.pre.i = load i8, ptr %arrayidx13.phi.trans.insert.i, align 1
   br label %for.body11.i
 
@@ -2452,7 +2436,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm5EhElSEm.exit
 
 _ZN5eastl10BitsetBaseILm5EhElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   %5 = load i8, ptr %arrayidx, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx, align 1
@@ -2520,7 +2504,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !13
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 4
+  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i8, ptr %arrayidx27.i, align 1
   %sh_prom29.i = trunc i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
@@ -2539,7 +2523,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(5) ptr @_ZN5eastl6bitsetILm33EhE3setEv(ptr noundef nonnull align 1 dereferenceable(5) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 -1, ptr %this, align 1
-  %arrayidx = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %arrayidx, align 1
   ret ptr %this
 }
@@ -2622,7 +2606,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm5EhE4flipEv.exit, label %for.body.i, !llvm.loop !14
 
 _ZN5eastl10BitsetBaseILm5EhE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx, align 1
@@ -2668,7 +2652,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm33EhE4flipEv.exit, label %for.body.i.i, !llvm.loop !14
 
 _ZN5eastl6bitsetILm33EhE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %1 = load i8, ptr %arrayidx.i, align 4
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx.i, align 4
@@ -2914,7 +2898,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %.pre.i.i = load i8, ptr %arrayidx13.phi.trans.insert.i.i, align 4
   br label %for.body11.i.i
 
@@ -2938,7 +2922,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm5EhElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm5EhElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %5 = load i8, ptr %arrayidx.i, align 4
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx.i, align 4
@@ -3006,7 +2990,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !13
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %4 = load i8, ptr %arrayidx27.i.i, align 4
   %sh_prom29.i.i = trunc i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
@@ -3231,7 +3215,7 @@ entry:
   %shr.i = lshr i64 %i, 3
   %arrayidx.i = getelementptr inbounds [9 x i8], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -3240,7 +3224,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -3272,14 +3256,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned char>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<65, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -3311,7 +3295,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -3327,7 +3311,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -3340,7 +3324,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -3469,7 +3453,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 8
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i8, ptr %arrayidx13.phi.trans.insert.i, align 1
   br label %for.body11.i
 
@@ -3493,7 +3477,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm9EhElSEm.exit
 
 _ZN5eastl10BitsetBaseILm9EhElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i8, ptr %arrayidx, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx, align 1
@@ -3561,7 +3545,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !28
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 8
+  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %arrayidx27.i, align 1
   %sh_prom29.i = trunc i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
@@ -3580,7 +3564,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(9) ptr @_ZN5eastl6bitsetILm65EhE3setEv(ptr noundef nonnull align 1 dereferenceable(9) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i64 -1, ptr %this, align 1
-  %arrayidx = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %arrayidx, align 1
   ret ptr %this
 }
@@ -3663,7 +3647,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm9EhE4flipEv.exit, label %for.body.i, !llvm.loop !29
 
 _ZN5eastl10BitsetBaseILm9EhE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx, align 1
@@ -3709,7 +3693,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm65EhE4flipEv.exit, label %for.body.i.i, !llvm.loop !29
 
 _ZN5eastl6bitsetILm65EhE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load i8, ptr %arrayidx.i, align 8
   %2 = and i8 %1, 1
   %retval.sroa.0.0.copyload = load i64, ptr %ref.tmp, align 8
@@ -3956,7 +3940,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %.pre.i.i = load i8, ptr %arrayidx13.phi.trans.insert.i.i, align 8
   br label %for.body11.i.i
 
@@ -3980,7 +3964,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm9EhElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm9EhElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i8, ptr %arrayidx.i, align 8
   %6 = and i8 %5, 1
   %retval.sroa.0.0.copyload.pre = load i64, ptr %ref.tmp, align 8
@@ -4055,7 +4039,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !28
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i8, ptr %arrayidx27.i.i, align 8
   %sh_prom29.i.i = trunc i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
@@ -4282,7 +4266,7 @@ entry:
   %shr.i = lshr i64 %i, 3
   %arrayidx.i = getelementptr inbounds [17 x i8], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -4291,7 +4275,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -4323,14 +4307,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned char>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<129, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -4362,7 +4346,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -4378,7 +4362,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -4391,7 +4375,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned char>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -4417,7 +4401,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
-  %arrayidx = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %arrayidx, align 1
   ret void
 }
@@ -4522,7 +4506,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i8, ptr %arrayidx13.phi.trans.insert.i, align 1
   br label %for.body11.i
 
@@ -4546,7 +4530,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm17EhElSEm.exit
 
 _ZN5eastl10BitsetBaseILm17EhElSEm.exit:           ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i8, ptr %arrayidx, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx, align 1
@@ -4614,7 +4598,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !43
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i8, ptr %arrayidx27.i, align 1
   %sh_prom29.i = trunc i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
@@ -4633,7 +4617,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(17) ptr @_ZN5eastl6bitsetILm129EhE3setEv(ptr noundef nonnull align 1 dereferenceable(17) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %arrayidx, align 1
   ret ptr %this
 }
@@ -4716,7 +4700,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm17EhE4flipEv.exit, label %for.body.i, !llvm.loop !44
 
 _ZN5eastl10BitsetBaseILm17EhE4flipEv.exit:        ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx, align 1
@@ -4762,7 +4746,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm129EhE4flipEv.exit, label %for.body.i.i, !llvm.loop !44
 
 _ZN5eastl6bitsetILm129EhE4flipEv.exit:            ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 16
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx.i, align 1
@@ -4815,7 +4799,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
-  %arrayidx = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %arrayidx, align 1
   ret void
 }
@@ -4827,7 +4811,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i64 %value to i8
   store i8 %conv.i, ptr %this, align 1
-  %arrayidx = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 16
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %arrayidx, align 1
   ret void
 }
@@ -5012,7 +4996,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 16
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %.pre.i.i = load i8, ptr %arrayidx13.phi.trans.insert.i.i, align 1
   br label %for.body11.i.i
 
@@ -5036,7 +5020,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm17EhElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm17EhElSEm.exit.i:         ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 16
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %5 = load i8, ptr %arrayidx.i, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx.i, align 1
@@ -5107,7 +5091,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !43
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 16
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load i8, ptr %arrayidx27.i.i, align 1
   %sh_prom29.i.i = trunc i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
@@ -5330,7 +5314,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EtE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 2 dereferenceable(2) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EtE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -5339,7 +5323,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -5371,14 +5355,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned short>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<1, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -5410,7 +5394,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -5426,7 +5410,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -5439,7 +5423,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -5901,7 +5885,7 @@ entry:
   %shr.i = lshr i64 %i, 4
   %arrayidx.i = getelementptr inbounds [3 x i16], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -5910,7 +5894,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -5942,14 +5926,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned short>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<33, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -5981,7 +5965,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -5997,7 +5981,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -6010,7 +5994,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -6139,7 +6123,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 2
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 4
   %.pre.i = load i16, ptr %arrayidx13.phi.trans.insert.i, align 2
   br label %for.body11.i
 
@@ -6163,7 +6147,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm3EtElSEm.exit
 
 _ZN5eastl10BitsetBaseILm3EtElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx, align 2
@@ -6231,7 +6215,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %cmp9.i, label %for.body10.i, label %for.end25.i, !llvm.loop !59
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 2
+  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i16, ptr %arrayidx27.i, align 2
   %sh_prom29.i = trunc i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
@@ -6250,7 +6234,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 2 dereferenceable(6) ptr @_ZN5eastl6bitsetILm33EtE3setEv(ptr noundef nonnull align 2 dereferenceable(6) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 -1, ptr %this, align 2
-  %arrayidx = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   store i16 1, ptr %arrayidx, align 2
   ret ptr %this
 }
@@ -6333,7 +6317,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm3EtE4flipEv.exit, label %for.body.i, !llvm.loop !60
 
 _ZN5eastl10BitsetBaseILm3EtE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx, align 2
@@ -6379,7 +6363,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm33EtE4flipEv.exit, label %for.body.i.i, !llvm.loop !60
 
 _ZN5eastl6bitsetILm33EtE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %1 = load i16, ptr %arrayidx.i, align 4
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx.i, align 4
@@ -6625,7 +6609,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %.pre.i.i = load i16, ptr %arrayidx13.phi.trans.insert.i.i, align 4
   br label %for.body11.i.i
 
@@ -6649,7 +6633,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm3EtElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm3EtElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %5 = load i16, ptr %arrayidx.i, align 4
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx.i, align 4
@@ -6717,7 +6701,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %cmp9.i.i, label %for.body10.i.i, label %for.end25.i.i, !llvm.loop !59
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %4 = load i16, ptr %arrayidx27.i.i, align 4
   %sh_prom29.i.i = trunc i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
@@ -6964,7 +6948,7 @@ entry:
   %shr.i = lshr i64 %i, 4
   %arrayidx.i = getelementptr inbounds [5 x i16], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -6973,7 +6957,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -7005,14 +6989,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned short>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<65, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -7044,7 +7028,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -7060,7 +7044,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -7073,7 +7057,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -7202,7 +7186,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 4
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i16, ptr %arrayidx13.phi.trans.insert.i, align 2
   br label %for.body11.i
 
@@ -7226,7 +7210,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm5EtElSEm.exit
 
 _ZN5eastl10BitsetBaseILm5EtElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx, align 2
@@ -7294,7 +7278,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !74
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 4
+  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i16, ptr %arrayidx27.i, align 2
   %sh_prom29.i = trunc i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
@@ -7313,7 +7297,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 2 dereferenceable(10) ptr @_ZN5eastl6bitsetILm65EtE3setEv(ptr noundef nonnull align 2 dereferenceable(10) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i64 -1, ptr %this, align 2
-  %arrayidx = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   store i16 1, ptr %arrayidx, align 2
   ret ptr %this
 }
@@ -7396,7 +7380,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm5EtE4flipEv.exit, label %for.body.i, !llvm.loop !75
 
 _ZN5eastl10BitsetBaseILm5EtE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx, align 2
@@ -7442,7 +7426,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm65EtE4flipEv.exit, label %for.body.i.i, !llvm.loop !75
 
 _ZN5eastl6bitsetILm65EtE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load i16, ptr %arrayidx.i, align 8
   %2 = and i16 %1, 1
   %retval.sroa.0.0.copyload = load i64, ptr %ref.tmp, align 8
@@ -7689,7 +7673,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %.pre.i.i = load i16, ptr %arrayidx13.phi.trans.insert.i.i, align 8
   br label %for.body11.i.i
 
@@ -7713,7 +7697,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm5EtElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm5EtElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i16, ptr %arrayidx.i, align 8
   %6 = and i16 %5, 1
   %retval.sroa.0.0.copyload.pre = load i64, ptr %ref.tmp, align 8
@@ -7788,7 +7772,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !74
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i16, ptr %arrayidx27.i.i, align 8
   %sh_prom29.i.i = trunc i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
@@ -8037,7 +8021,7 @@ entry:
   %shr.i = lshr i64 %i, 4
   %arrayidx.i = getelementptr inbounds [9 x i16], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -8046,7 +8030,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -8078,14 +8062,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned short>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds %"class.eastl::bitset<129, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -8117,7 +8101,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -8133,7 +8117,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -8146,7 +8130,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned short>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -8172,7 +8156,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
-  %arrayidx = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i16 0, ptr %arrayidx, align 2
   ret void
 }
@@ -8277,7 +8261,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i16, ptr %arrayidx13.phi.trans.insert.i, align 2
   br label %for.body11.i
 
@@ -8301,7 +8285,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm9EtElSEm.exit
 
 _ZN5eastl10BitsetBaseILm9EtElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx, align 2
@@ -8369,7 +8353,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !89
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i16, ptr %arrayidx27.i, align 2
   %sh_prom29.i = trunc i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
@@ -8388,7 +8372,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 2 dereferenceable(18) ptr @_ZN5eastl6bitsetILm129EtE3setEv(ptr noundef nonnull align 2 dereferenceable(18) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i16 1, ptr %arrayidx, align 2
   ret ptr %this
 }
@@ -8471,7 +8455,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm9EtE4flipEv.exit, label %for.body.i, !llvm.loop !90
 
 _ZN5eastl10BitsetBaseILm9EtE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx, align 2
@@ -8517,7 +8501,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm129EtE4flipEv.exit, label %for.body.i.i, !llvm.loop !90
 
 _ZN5eastl6bitsetILm129EtE4flipEv.exit:            ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %1 = load i16, ptr %arrayidx.i, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx.i, align 2
@@ -8570,7 +8554,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
-  %arrayidx = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i16 0, ptr %arrayidx, align 2
   ret void
 }
@@ -8582,7 +8566,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i64 %value to i16
   store i16 %conv.i, ptr %this, align 2
-  %arrayidx = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i16 0, ptr %arrayidx, align 2
   ret void
 }
@@ -8767,7 +8751,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %.pre.i.i = load i16, ptr %arrayidx13.phi.trans.insert.i.i, align 2
   br label %for.body11.i.i
 
@@ -8791,7 +8775,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm9EtElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm9EtElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %5 = load i16, ptr %arrayidx.i, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx.i, align 2
@@ -8862,7 +8846,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !89
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 8
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load i16, ptr %arrayidx27.i.i, align 2
   %sh_prom29.i.i = trunc i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
@@ -9107,7 +9091,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EjE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EjE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -9116,7 +9100,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9147,14 +9131,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned int>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<1, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -9185,7 +9169,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EjE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9200,7 +9184,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EjE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9213,7 +9197,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9691,7 +9675,7 @@ entry:
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds [2 x i32], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -9700,7 +9684,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9731,14 +9715,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned int>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<33, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -9769,7 +9753,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9784,7 +9768,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9797,7 +9781,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9813,7 +9797,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EjEC5Ev) align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -9822,7 +9806,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjEC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EjEC5Ej) align 2 {
 entry:
   store i32 %value, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -9834,9 +9818,9 @@ entry:
   %1 = load i32, ptr %this, align 4
   %and.i = and i32 %1, %0
   store i32 %and.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds [2 x i32], ptr %x, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %and8.i = and i32 %3, %2
   store i32 %and8.i, ptr %arrayidx7.i, align 4
@@ -9850,9 +9834,9 @@ entry:
   %1 = load i32, ptr %this, align 4
   %or.i = or i32 %1, %0
   store i32 %or.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds [2 x i32], ptr %x, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %or8.i = or i32 %3, %2
   store i32 %or8.i, ptr %arrayidx7.i, align 4
@@ -9866,9 +9850,9 @@ entry:
   %1 = load i32, ptr %this, align 4
   %xor.i = xor i32 %1, %0
   store i32 %xor.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds [2 x i32], ptr %x, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %xor8.i = xor i32 %3, %2
   store i32 %xor8.i, ptr %arrayidx7.i, align 4
@@ -9886,7 +9870,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge, label %if.then.i
 
 if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge: ; preds = %if.then
-  %arrayidx.phi.trans.insert = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 4
   %.pre = load i32, ptr %arrayidx.phi.trans.insert, align 4
   br label %_ZN5eastl10BitsetBaseILm2EjElSEm.exit
 
@@ -9894,7 +9878,7 @@ if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp ugt i64 %n, 31
   %0 = load i32, ptr %this, align 4
   %sub.i = add nsw i64 %n, 4294967264
-  %arrayidx9.phi.trans.insert.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx9.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 4
   %.pre.i = load i32, ptr %arrayidx9.phi.trans.insert.i, align 4
   %1 = select i1 %cmp.i, i32 0, i32 %0
   %2 = select i1 %cmp.i, i32 %0, i32 %.pre.i
@@ -9910,14 +9894,14 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN5eastl10BitsetBaseILm2EjElSEm.exit:            ; preds = %if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge, %if.then.i
   %3 = phi i32 [ %.pre, %if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge ], [ %or.i, %if.then.i ]
-  %arrayidx = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   %and = and i32 %3, 1
   store i32 %and, ptr %arrayidx, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   br label %if.end
 
@@ -9937,7 +9921,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp eq i64 %n, 32
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %arrayidx.i, align 4
   %.pre.i = load i32, ptr %this, align 4
   %1 = select i1 %cmp.i, i32 0, i32 %0
@@ -9955,7 +9939,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   br label %if.end
 
@@ -9967,7 +9951,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl6bitsetILm33EjE3setEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 -1, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 1, ptr %arrayidx3.i, align 4
   ret ptr %this
 }
@@ -10009,7 +9993,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl6bitsetILm33EjE5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret ptr %this
 }
@@ -10042,7 +10026,7 @@ entry:
   %0 = load i32, ptr %this, align 4
   %not.i = xor i32 %0, -1
   store i32 %not.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx5.i, align 4
   %not6.i = and i32 %1, 1
   %and = xor i32 %not6.i, 1
@@ -10121,7 +10105,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjE11from_uint32Ej(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 %value, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -10131,7 +10115,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjE11from_uint64Em(ptr noun
 entry:
   %conv.i = trunc i64 %value to i32
   store i32 %conv.i, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -10160,9 +10144,9 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %x, align 4
   %cmp.i = icmp ne i32 %0, %1
-  %arrayidx5.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [2 x i32], ptr %x, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %x, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp ne i32 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp8.i
@@ -10196,7 +10180,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE3allEv(pt
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = tail call i32 @llvm.ctpop.i32(i32 %0), !range !98
-  %arrayidx4.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx4.i, align 4
   %3 = tail call i32 @llvm.ctpop.i32(i32 %2), !range !98
   %narrow.i = add nuw nsw i32 %3, %1
@@ -10208,7 +10192,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE4noneEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx3.i, align 4
   %or.i = or i32 %1, %0
   %cmp.i.not = icmp eq i32 %or.i, 0
@@ -10340,7 +10324,7 @@ _ZN5eastl11GetFirstBitEj.exit:                    ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx3 = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx3, align 4
   %tobool.not.i4 = icmp eq i32 %1, 0
   br i1 %tobool.not.i4, label %return, label %_ZN5eastl11GetFirstBitEj.exit32
@@ -10433,7 +10417,7 @@ _ZN5eastl11GetFirstBitEj.exit:                    ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %arrayidx5 = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx5, align 4
   %tobool.not.i9 = icmp eq i32 %1, 0
   br i1 %tobool.not.i9, label %return, label %_ZN5eastl11GetFirstBitEj.exit37
@@ -10473,7 +10457,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.else
-  %arrayidx15 = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx15, align 4
   %3 = trunc i64 %last_find to i32
   %sh_prom16 = add nsw i32 %3, -31
@@ -10520,7 +10504,7 @@ return:                                           ; preds = %if.then12, %if.end,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl6bitsetILm33EjE9find_lastEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZN5eastl10GetLastBitEj.exit.i
@@ -10615,7 +10599,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %arrayidx, align 4
   %1 = trunc i64 %last_find to i32
   %sh_prom = sub i32 64, %1
@@ -10752,7 +10736,7 @@ entry:
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds [3 x i32], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -10761,7 +10745,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -10792,14 +10776,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned int>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<65, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -10830,7 +10814,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -10845,7 +10829,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -10858,7 +10842,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -10986,7 +10970,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %sh_prom.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 2
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
   %.pre.i = load i32, ptr %arrayidx13.phi.trans.insert.i, align 4
   br label %for.body11.i
 
@@ -11010,7 +10994,7 @@ for.end24.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm3EjElSEm.exit
 
 _ZN5eastl10BitsetBaseILm3EjElSEm.exit:            ; preds = %if.end.i, %for.end24.i
-  %arrayidx = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %arrayidx, align 4
   %and = and i32 %4, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -11078,7 +11062,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %cmp9.i, label %for.body10.i, label %for.end23.i, !llvm.loop !105
 
 for.end23.i:                                      ; preds = %for.body10.i
-  %arrayidx25.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 2
+  %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %arrayidx25.i, align 4
   %sh_prom26.i = trunc i64 %and.i to i32
   %shr27.i = lshr i32 %3, %sh_prom26.i
@@ -11097,7 +11081,7 @@ if.end:                                           ; preds = %for.end23.i, %if.en
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN5eastl6bitsetILm65EjE3setEv(ptr noundef nonnull align 4 dereferenceable(12) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i64 -1, ptr %this, align 4
-  %arrayidx = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %arrayidx, align 4
   ret ptr %this
 }
@@ -11180,7 +11164,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm3EjE4flipEv.exit, label %for.body.i, !llvm.loop !106
 
 _ZN5eastl10BitsetBaseILm3EjE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %arrayidx, align 4
   %and = and i32 %1, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -11226,7 +11210,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm65EjE4flipEv.exit, label %for.body.i.i, !llvm.loop !106
 
 _ZN5eastl6bitsetILm65EjE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load i32, ptr %arrayidx.i, align 8
   %and.i = and i32 %1, 1
   %retval.sroa.0.0.copyload = load i64, ptr %ref.tmp, align 8
@@ -11470,7 +11454,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %sh_prom.i.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %.pre.i.i = load i32, ptr %arrayidx13.phi.trans.insert.i.i, align 8
   br label %for.body11.i.i
 
@@ -11494,7 +11478,7 @@ for.end24.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm3EjElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm3EjElSEm.exit.i:          ; preds = %for.end24.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i32, ptr %arrayidx.i, align 8
   %and.i = and i32 %4, 1
   %retval.sroa.0.0.copyload.pre = load i64, ptr %ref.tmp, align 8
@@ -11569,7 +11553,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %cmp9.i.i, label %for.body10.i.i, label %for.end23.i.i, !llvm.loop !105
 
 for.end23.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx25.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 2
+  %arrayidx25.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %3 = load i32, ptr %arrayidx25.i.i, align 8
   %sh_prom26.i.i = trunc i64 %and.i.i to i32
   %shr27.i.i = lshr i32 %3, %sh_prom26.i.i
@@ -11852,7 +11836,7 @@ entry:
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds [5 x i32], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -11861,7 +11845,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -11892,14 +11876,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned int>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<129, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -11930,7 +11914,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EjE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -11945,7 +11929,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EjE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -11958,7 +11942,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned int>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -11983,7 +11967,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   store i32 %value, ptr %this, align 4
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
   ret void
 }
@@ -12088,7 +12072,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %sh_prom.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %arrayidx13.phi.trans.insert.i, align 4
   br label %for.body11.i
 
@@ -12112,7 +12096,7 @@ for.end24.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm5EjElSEm.exit
 
 _ZN5eastl10BitsetBaseILm5EjElSEm.exit:            ; preds = %if.end.i, %for.end24.i
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %arrayidx, align 4
   %and = and i32 %4, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -12180,7 +12164,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end23.i, label %for.body10.i, !llvm.loop !120
 
 for.end23.i:                                      ; preds = %for.body10.i
-  %arrayidx25.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %arrayidx25.i, align 4
   %sh_prom26.i = trunc i64 %and.i to i32
   %shr27.i = lshr i32 %3, %sh_prom26.i
@@ -12199,7 +12183,7 @@ if.end:                                           ; preds = %for.end23.i, %if.en
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(20) ptr @_ZN5eastl6bitsetILm129EjE3setEv(ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i32 1, ptr %arrayidx, align 4
   ret ptr %this
 }
@@ -12282,7 +12266,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm5EjE4flipEv.exit, label %for.body.i, !llvm.loop !121
 
 _ZN5eastl10BitsetBaseILm5EjE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %arrayidx, align 4
   %and = and i32 %1, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -12328,7 +12312,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm129EjE4flipEv.exit, label %for.body.i.i, !llvm.loop !121
 
 _ZN5eastl6bitsetILm129EjE4flipEv.exit:            ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %1 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %1, 1
   store i32 %and.i, ptr %arrayidx.i, align 4
@@ -12379,7 +12363,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   store i32 %value, ptr %this, align 4
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
   ret void
 }
@@ -12391,7 +12375,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   %conv.i = trunc i64 %value to i32
   store i32 %conv.i, ptr %this, align 4
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 4
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
   ret void
 }
@@ -12575,7 +12559,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %sh_prom.i.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %.pre.i.i = load i32, ptr %arrayidx13.phi.trans.insert.i.i, align 4
   br label %for.body11.i.i
 
@@ -12599,7 +12583,7 @@ for.end24.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm5EjElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm5EjElSEm.exit.i:          ; preds = %for.end24.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %4 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %4, 1
   store i32 %and.i, ptr %arrayidx.i, align 4
@@ -12670,7 +12654,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end23.i.i, label %for.body10.i.i, !llvm.loop !120
 
 for.end23.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx25.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 4
+  %arrayidx25.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %3 = load i32, ptr %arrayidx25.i.i, align 4
   %sh_prom26.i.i = trunc i64 %and.i.i to i32
   %shr27.i.i = lshr i32 %3, %sh_prom26.i.i
@@ -12949,7 +12933,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EoE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EoE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -12958,7 +12942,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -12989,14 +12973,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned __int128>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<1, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -13027,7 +13011,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EoE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13042,7 +13026,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EoE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13055,7 +13039,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<1, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13609,7 +13593,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EoE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EoE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -13618,7 +13602,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13649,14 +13633,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned __int128>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<33, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -13687,7 +13671,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13702,7 +13686,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13715,7 +13699,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<33, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14299,7 +14283,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EoE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EoE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -14308,7 +14292,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14339,14 +14323,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned __int128>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<65, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -14377,7 +14361,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14392,7 +14376,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14405,7 +14389,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<65, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -15002,7 +14986,7 @@ entry:
   %shr.i = lshr i64 %i, 7
   %arrayidx.i = getelementptr inbounds [2 x i128], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -15011,7 +14995,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -15042,14 +15026,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned __int128>::reference", ptr %x, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds %"class.eastl::bitset<129, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -15080,7 +15064,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EoE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -15095,7 +15079,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EoE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -15108,7 +15092,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds %"class.eastl::bitset<129, unsigned __int128>::reference", ptr %this, i64 0, i32 1
+  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -15132,7 +15116,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm129EoEC2Ej(ptr noundef nonnul
 entry:
   %conv.i = zext i32 %value to i128
   store i128 %conv.i, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
   store i128 0, ptr %arrayidx3.i, align 16
   ret void
 }
@@ -15144,9 +15128,9 @@ entry:
   %1 = load i128, ptr %this, align 16
   %and.i = and i128 %1, %0
   store i128 %and.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds [2 x i128], ptr %x, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %and8.i = and i128 %3, %2
   store i128 %and8.i, ptr %arrayidx7.i, align 16
@@ -15160,9 +15144,9 @@ entry:
   %1 = load i128, ptr %this, align 16
   %or.i = or i128 %1, %0
   store i128 %or.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds [2 x i128], ptr %x, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %or8.i = or i128 %3, %2
   store i128 %or8.i, ptr %arrayidx7.i, align 16
@@ -15176,9 +15160,9 @@ entry:
   %1 = load i128, ptr %this, align 16
   %xor.i = xor i128 %1, %0
   store i128 %xor.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds [2 x i128], ptr %x, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %xor8.i = xor i128 %3, %2
   store i128 %xor8.i, ptr %arrayidx7.i, align 16
@@ -15196,7 +15180,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge, label %if.then.i
 
 if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge: ; preds = %if.then
-  %arrayidx.phi.trans.insert = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load i128, ptr %arrayidx.phi.trans.insert, align 16
   br label %_ZN5eastl10BitsetBaseILm2EoElSEm.exit
 
@@ -15204,7 +15188,7 @@ if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp ugt i64 %n, 127
   %0 = load i128, ptr %this, align 16
   %sub.i = add i64 %n, -128
-  %arrayidx9.phi.trans.insert.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx9.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
   %.pre.i = load i128, ptr %arrayidx9.phi.trans.insert.i, align 16
   %1 = select i1 %cmp.i, i128 0, i128 %0
   %2 = select i1 %cmp.i, i128 %0, i128 %.pre.i
@@ -15221,7 +15205,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN5eastl10BitsetBaseILm2EoElSEm.exit:            ; preds = %if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge, %if.then.i
   %3 = phi i128 [ %.pre, %if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge ], [ %or.i, %if.then.i ]
-  %arrayidx = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %and = and i128 %3, 1
   store i128 %and, ptr %arrayidx, align 16
   br label %if.end
@@ -15246,7 +15230,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp eq i64 %n, 128
-  %arrayidx.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i128, ptr %arrayidx.i, align 16
   %.pre.i = load i128, ptr %this, align 16
   %1 = select i1 %cmp.i, i128 0, i128 %0
@@ -15275,7 +15259,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 define weak_odr dso_local noundef nonnull align 16 dereferenceable(32) ptr @_ZN5eastl6bitsetILm129EoE3setEv(ptr noundef nonnull align 16 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   store i128 1, ptr %arrayidx, align 16
   ret ptr %this
 }
@@ -15348,7 +15332,7 @@ entry:
   %0 = load i128, ptr %this, align 16
   %not.i = xor i128 %0, -1
   store i128 %not.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx5.i, align 16
   %not6.i = and i128 %1, 1
   %and = xor i128 %not6.i, 1
@@ -15434,7 +15418,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm129EoE11from_uint32Ej(ptr nou
 entry:
   %conv.i = zext i32 %value to i128
   store i128 %conv.i, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
   store i128 0, ptr %arrayidx3.i, align 16
   ret void
 }
@@ -15444,7 +15428,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm129EoE11from_uint64Em(ptr nou
 entry:
   %conv.i = zext i64 %value to i128
   store i128 %conv.i, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
   store i128 0, ptr %arrayidx3.i, align 16
   ret void
 }
@@ -15461,9 +15445,9 @@ entry:
   %0 = load i128, ptr %this, align 16
   %1 = load i128, ptr %x, align 16
   %cmp.i = icmp eq i128 %0, %1
-  %arrayidx5.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds [2 x i128], ptr %x, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %x, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %cmp8.i = icmp eq i128 %2, %3
   %4 = select i1 %cmp.i, i1 %cmp8.i, i1 false
@@ -15476,9 +15460,9 @@ entry:
   %0 = load i128, ptr %this, align 16
   %1 = load i128, ptr %x, align 16
   %cmp.i = icmp ne i128 %0, %1
-  %arrayidx5.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds [2 x i128], ptr %x, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %x, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %cmp8.i = icmp ne i128 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp8.i
@@ -15517,7 +15501,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EoE4noneEv(ptr noundef nonnull align 16 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = load i128, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx3.i, align 16
   %or.i = or i128 %1, %0
   %cmp.i.not = icmp eq i128 %or.i, 0
@@ -15665,7 +15649,7 @@ if.then:                                          ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %entry, %_ZN5eastl11GetFirstBitEo.exit
-  %arrayidx3 = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx3, align 16
   %tobool.not.i8 = icmp eq i128 %1, 0
   br i1 %tobool.not.i8, label %return, label %_ZN5eastl11GetFirstBitEo.exit47
@@ -15792,7 +15776,7 @@ if.then3:                                         ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %if.then, %_ZN5eastl11GetFirstBitEo.exit
-  %arrayidx5 = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx5, align 16
   %tobool.not.i13 = icmp eq i128 %1, 0
   br i1 %tobool.not.i13, label %return, label %_ZN5eastl11GetFirstBitEo.exit52
@@ -15850,7 +15834,7 @@ if.else:                                          ; preds = %entry
 
 if.then13:                                        ; preds = %if.else
   %sub = add nsw i64 %last_find, -127
-  %arrayidx16 = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i128, ptr %arrayidx16, align 16
   %sh_prom17 = zext nneg i64 %sub to i128
   %shl18 = shl nsw i128 -1, %sh_prom17
@@ -15921,7 +15905,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK5eastl10BitsetBaseILm2EoE10DoFindLastEv(ptr noundef nonnull align 16 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i128, ptr %arrayidx, align 16
   %tobool.not.i = icmp eq i128 %0, 0
   br i1 %tobool.not.i, label %if.end, label %_ZN5eastl10GetLastBitEo.exit
@@ -16045,7 +16029,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i128, ptr %arrayidx, align 16
   %sub2 = sub i64 256, %last_find
   %sh_prom = zext nneg i64 %sub2 to i128
@@ -16349,7 +16333,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %b129A, i64 8
   store i64 0, ptr %0, align 8
   store i64 1, ptr %b129A, align 8
-  %arrayidx.i = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %b129A, i64 16
   store i64 0, ptr %arrayidx.i, align 8
   %call422 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 348, ptr noundef nonnull @.str.96)
   %1 = load i64, ptr %b129, align 16
@@ -16449,11 +16433,11 @@ _ZNK5eastl6bitsetILm129EmE4noneEv.exit303:        ; preds = %for.body.i.i283
   %call507 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 377, ptr noundef nonnull @.str.114)
   %call511 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @.str.115)
   %call514 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 379, ptr noundef nonnull @.str.116)
-  %arrayidx.i.i.i367 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 1
+  %arrayidx.i.i.i367 = getelementptr inbounds i8, ptr %b129, i64 8
   %10 = load <2 x i64>, ptr %b129, align 16
   %11 = or <2 x i64> %10, <i64 4294967297, i64 1>
   store <2 x i64> %11, ptr %b129, align 16
-  %arrayidx.i.i.i374 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 2
+  %arrayidx.i.i.i374 = getelementptr inbounds i8, ptr %b129, i64 16
   %12 = load i64, ptr %arrayidx.i.i.i374, align 16
   %or.i380 = or i64 %12, 1
   store i64 %or.i380, ptr %arrayidx.i.i.i374, align 16
@@ -16764,7 +16748,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   br i1 %exitcond.not.i.i.i, label %_ZNK5eastl6bitsetILm129EmEcoEv.exit, label %for.body.i.i.i, !llvm.loop !132
 
 _ZNK5eastl6bitsetILm129EmEcoEv.exit:              ; preds = %for.body.i.i.i
-  %arrayidx.i.i896 = getelementptr inbounds [3 x i64], ptr %ref.tmp.i, i64 0, i64 2
+  %arrayidx.i.i896 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %58 = load i64, ptr %arrayidx.i.i896, align 8, !noalias !133
   %and.i.i897 = and i64 %58, 1
   store i64 %and.i.i897, ptr %arrayidx.i.i896, align 8, !noalias !133
@@ -16793,12 +16777,12 @@ _ZNK5eastl6bitsetILm129EmEcoEv.exit:              ; preds = %for.body.i.i.i
   %and2.i940 = and i64 %63, 4294967296
   %cmp.i941.not = icmp eq i64 %and2.i940, 0
   %call1016 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i941.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 567, ptr noundef nonnull @.str.179)
-  %arrayidx.i.i.i942 = getelementptr inbounds [3 x i64], ptr %b129Not, i64 0, i64 1
+  %arrayidx.i.i.i942 = getelementptr inbounds i8, ptr %b129Not, i64 8
   %64 = load i64, ptr %arrayidx.i.i.i942, align 8
   %and2.i948 = and i64 %64, 1
   %cmp.i949.not = icmp eq i64 %and2.i948, 0
   %call1022 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i949.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 568, ptr noundef nonnull @.str.180)
-  %arrayidx.i.i.i950 = getelementptr inbounds [3 x i64], ptr %b129Not, i64 0, i64 2
+  %arrayidx.i.i.i950 = getelementptr inbounds i8, ptr %b129Not, i64 16
   %65 = load i64, ptr %arrayidx.i.i.i950, align 8
   %and2.i956 = and i64 %65, 1
   %cmp.i957.not = icmp eq i64 %and2.i956, 0
@@ -17063,7 +17047,7 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   br i1 %cmp9.i.i.i, label %for.body10.i.i.i, label %_ZNK5eastl6bitsetILm129EmErsEm.exit, !llvm.loop !137
 
 _ZNK5eastl6bitsetILm129EmErsEm.exit:              ; preds = %for.body10.i.i.i
-  %arrayidx24.i.i.i = getelementptr inbounds [3 x i64], ptr %ref.tmp.i1667, i64 0, i64 2
+  %arrayidx24.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1667, i64 16
   %96 = load i64, ptr %arrayidx24.i.i.i, align 8, !noalias !139
   %shr25.i.i.i = lshr i64 %96, 10
   store i64 %shr25.i.i.i, ptr %arrayidx24.i.i.i, align 8, !noalias !139
@@ -17076,7 +17060,7 @@ _ZNK5eastl6bitsetILm129EmErsEm.exit:              ; preds = %for.body10.i.i.i
   %and2.i1681 = and i64 %97, 18014398509481984
   %cmp.i1682 = icmp ne i64 %and2.i1681, 0
   %call1612 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1682, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 815, ptr noundef nonnull @.str.213)
-  %arrayidx.i.i.i1683 = getelementptr inbounds [3 x i64], ptr %b129Equal, i64 0, i64 1
+  %arrayidx.i.i.i1683 = getelementptr inbounds i8, ptr %b129Equal, i64 8
   %98 = load i64, ptr %arrayidx.i.i.i1683, align 8
   %and2.i1689 = and i64 %98, 18014398509481984
   %cmp.i1690 = icmp ne i64 %and2.i1689, 0
@@ -17086,7 +17070,7 @@ _ZNK5eastl6bitsetILm129EmErsEm.exit:              ; preds = %for.body10.i.i.i
   store i64 1, ptr %arrayidx.i.i.i374, align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i1717)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1717, ptr noundef nonnull align 16 dereferenceable(24) %b129, i64 24, i1 false), !noalias !142
-  %arrayidx13.phi.trans.insert.i.i.i = getelementptr inbounds [3 x i64], ptr %ref.tmp.i1717, i64 0, i64 2
+  %arrayidx13.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1717, i64 16
   %.pre.i.i.i1718 = load i64, ptr %arrayidx13.phi.trans.insert.i.i.i, align 8, !noalias !142
   br label %for.body11.i.i.i
 
@@ -17743,7 +17727,7 @@ for.end2135:                                      ; preds = %for.body2131, %_ZNK
   %cmp2154 = icmp ugt i64 %call.i3615, 78
   %call2155 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2154, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1035, ptr noundef nonnull @.str.241)
   store i64 -1, ptr %b79, align 8
-  %arrayidx.i3617 = getelementptr inbounds [2 x i64], ptr %b79, i64 0, i64 1
+  %arrayidx.i3617 = getelementptr inbounds i8, ptr %b79, i64 8
   store i64 32767, ptr %arrayidx.i3617, align 8
   %call.i3618 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE11DoFindFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %b79)
   %cmp2159.not6254 = icmp ugt i64 %call.i3618, 78
@@ -17870,9 +17854,9 @@ _ZNK5eastl6bitsetILm137EmE10find_firstEv.exit:    ; preds = %for.inc.i.i, %_ZNK5
   %cmp2201 = icmp eq i64 %165, 137
   %call2202 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2201, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1071, ptr noundef nonnull @.str.246)
   store i64 137573171201, ptr %b137, align 8
-  %arrayidx.i.i3694 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 1
+  %arrayidx.i.i3694 = getelementptr inbounds i8, ptr %b137, i64 8
   store i64 34359746560, ptr %arrayidx.i.i3694, align 8
-  %arrayidx.i.i3700 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 2
+  %arrayidx.i.i3700 = getelementptr inbounds i8, ptr %b137, i64 16
   store i64 256, ptr %arrayidx.i.i3700, align 8
   br label %for.body.i.i3702
 
@@ -18740,7 +18724,7 @@ for.end2374:                                      ; preds = %for.body2370, %_ZNK
   %cmp2394 = icmp ugt i64 %call.i5434, 78
   %call2395 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2394, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1215, ptr noundef nonnull @.str.241)
   store i64 -1, ptr %b792377, align 8
-  %arrayidx.i5436 = getelementptr inbounds [2 x i64], ptr %b792377, i64 0, i64 1
+  %arrayidx.i5436 = getelementptr inbounds i8, ptr %b792377, i64 8
   store i64 32767, ptr %arrayidx.i5436, align 8
   %call.i5437 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindLastEv(ptr noundef nonnull align 8 dereferenceable(16) %b792377)
   %cmp2399.not6274 = icmp ugt i64 %call.i5437, 78
@@ -18866,9 +18850,9 @@ _ZNK5eastl6bitsetILm137EmE9find_lastEv.exit:      ; preds = %for.inc.i.i5507, %_
   %cmp2443 = icmp eq i64 %193, 137
   %call2444 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2443, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.246)
   store i64 137573171201, ptr %b1372441, align 8
-  %arrayidx.i.i5516 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 1
+  %arrayidx.i.i5516 = getelementptr inbounds i8, ptr %b1372441, i64 8
   store i64 34359746560, ptr %arrayidx.i.i5516, align 8
-  %arrayidx.i.i5522 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 2
+  %arrayidx.i.i5522 = getelementptr inbounds i8, ptr %b1372441, i64 16
   store i64 256, ptr %arrayidx.i.i5522, align 8
   br label %for.body.i.i5524
 
@@ -19594,7 +19578,7 @@ if.then:                                          ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %entry, %_ZN5eastl11GetFirstBitEm.exit
-  %arrayidx3 = getelementptr inbounds [2 x i64], ptr %this, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %arrayidx3, align 8
   %tobool.not.i4 = icmp eq i64 %1, 0
   br i1 %tobool.not.i4, label %return, label %_ZN5eastl11GetFirstBitEm.exit39
@@ -19700,7 +19684,7 @@ if.then3:                                         ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %if.then, %_ZN5eastl11GetFirstBitEm.exit
-  %arrayidx5 = getelementptr inbounds [2 x i64], ptr %this, i64 0, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %arrayidx5, align 8
   %tobool.not.i9 = icmp eq i64 %1, 0
   br i1 %tobool.not.i9, label %return, label %_ZN5eastl11GetFirstBitEm.exit44
@@ -19752,7 +19736,7 @@ if.else:                                          ; preds = %entry
 
 if.then12:                                        ; preds = %if.else
   %sub = add nsw i64 %last_find, -63
-  %arrayidx15 = getelementptr inbounds [2 x i64], ptr %this, i64 0, i64 1
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %arrayidx15, align 8
   %shl16 = shl nsw i64 -1, %sub
   %and17 = and i64 %2, %shl16
@@ -19808,7 +19792,7 @@ return:                                           ; preds = %if.then12, %if.end,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindLastEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %arrayidx, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end, label %_ZN5eastl10GetLastBitEm.exit
@@ -19910,7 +19894,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds [2 x i64], ptr %this, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %arrayidx, align 8
   %sub2 = sub i64 128, %last_find
   %shr = lshr i64 -1, %sub2

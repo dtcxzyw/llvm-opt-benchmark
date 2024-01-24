@@ -39,7 +39,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(3) @.str) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -53,7 +53,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   tail call void @git_config(ptr noundef nonnull @git_diff_basic_config, ptr noundef null) #7
   %1 = load ptr, ptr @the_repository, align 8
   call void @repo_init_revisions(ptr noundef %1, ptr noundef nonnull %rev, ptr noundef %prefix) #7
-  %abbrev = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 20
+  %abbrev = getelementptr inbounds i8, ptr %rev, i64 328
   store i32 0, ptr %abbrev, align 8
   call void @diff_merges_suppress_m_parsing() #7
   %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #7
@@ -61,14 +61,14 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp318, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %match_missing = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 14
+  %match_missing = getelementptr inbounds i8, ptr %rev, i64 280
   %match_missing.promoted = load i64, ptr %match_missing, align 8
   %wide.trip.count = zext nneg i32 %call2 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %bf.set22 = phi i64 [ %match_missing.promoted, %for.body.lr.ph ], [ %bf.set21, %for.inc ]
+  %bf.load22 = phi i64 [ %match_missing.promoted, %for.body.lr.ph ], [ %bf.load21, %for.inc ]
   %option.019 = phi i32 [ 0, %for.body.lr.ph ], [ %option.1, %for.inc ]
   %arrayidx4 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx4, align 8
@@ -95,7 +95,7 @@ if.else12:                                        ; preds = %if.else
   br i1 %tobool14.not, label %if.then15, label %if.else16
 
 if.then15:                                        ; preds = %if.else12
-  %bf.set = or i64 %bf.set22, 140737488355328
+  %bf.set = or i64 %bf.load22, 140737488355328
   store i64 %bf.set, ptr %match_missing, align 8
   br label %for.inc
 
@@ -104,7 +104,7 @@ if.else16:                                        ; preds = %if.else12
   unreachable
 
 for.inc:                                          ; preds = %if.then7, %if.then15, %if.then10
-  %bf.set21 = phi i64 [ %bf.set, %if.then15 ], [ %bf.set22, %if.then10 ], [ %bf.set22, %if.then7 ]
+  %bf.load21 = phi i64 [ %bf.set, %if.then15 ], [ %bf.load22, %if.then10 ], [ %bf.load22, %if.then7 ]
   %option.1 = phi i32 [ %option.019, %if.then15 ], [ %or11, %if.then10 ], [ %or, %if.then7 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -112,8 +112,8 @@ for.inc:                                          ; preds = %if.then7, %if.then1
 
 for.end:                                          ; preds = %for.inc, %if.end
   %option.0.lcssa = phi i32 [ 0, %if.end ], [ %option.1, %for.inc ]
-  %diffopt = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52
-  %output_format = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52, i32 25
+  %diffopt = getelementptr inbounds i8, ptr %rev, i64 1472
+  %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
   %3 = load i32, ptr %output_format, align 4
   %tobool20.not = icmp eq i32 %3, 0
   br i1 %tobool20.not, label %if.then21, label %if.end24
@@ -123,20 +123,20 @@ if.then21:                                        ; preds = %for.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %for.end
-  %rotate_to_strict = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52, i32 3
+  %rotate_to_strict = getelementptr inbounds i8, ptr %rev, i64 1492
   store i32 1, ptr %rotate_to_strict, align 4
-  %pending = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 1
+  %pending = getelementptr inbounds i8, ptr %rev, i64 8
   %4 = load i32, ptr %pending, align 8
   %cmp26 = icmp ne i32 %4, 1
-  %max_count = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 43
+  %max_count = getelementptr inbounds i8, ptr %rev, i64 1412
   %5 = load i32, ptr %max_count, align 4
   %cmp27 = icmp ne i32 %5, -1
   %or.cond = select i1 %cmp26, i1 true, i1 %cmp27
-  %min_age = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 46
+  %min_age = getelementptr inbounds i8, ptr %rev, i64 1432
   %6 = load i64, ptr %min_age, align 8
   %cmp29 = icmp ne i64 %6, -1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp29
-  %max_age = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 44
+  %max_age = getelementptr inbounds i8, ptr %rev, i64 1416
   %7 = load i64, ptr %max_age, align 8
   %cmp31 = icmp ne i64 %7, -1
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp31
@@ -154,7 +154,7 @@ if.end33:                                         ; preds = %if.end24
 if.then35:                                        ; preds = %if.end33
   call void @setup_work_tree() #7
   %8 = load ptr, ptr @the_repository, align 8
-  %pathspec = getelementptr inbounds %struct.rev_info, ptr %rev, i64 0, i32 52, i32 59
+  %pathspec = getelementptr inbounds i8, ptr %rev, i64 1936
   %call37 = call i32 @repo_read_index_preload(ptr noundef %8, ptr noundef nonnull %pathspec, i32 noundef 0) #7
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %if.then39, label %if.end46

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bignum_st = type opaque
-%struct.dh_st = type { i32, i32, %struct.ffc_params_st, i32, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
 
 @ossl_bignum_dh1024_160_p = external constant %struct.bignum_st, align 1
 @ossl_bignum_dh1024_160_g = external constant %struct.bignum_st, align 1
@@ -28,13 +24,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh1024_160_p) #2
-  %params = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %params, align 8
   %call2 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh1024_160_g) #2
-  %g = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call2, ptr %g, align 8
   %call4 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh1024_160_q) #2
-  %q = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call4, ptr %q, align 8
   %0 = load ptr, ptr %params, align 8
   %cmp8 = icmp eq ptr %0, null
@@ -71,13 +67,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh2048_224_p) #2
-  %params = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %params, align 8
   %call2 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh2048_224_g) #2
-  %g = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call2, ptr %g, align 8
   %call4 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh2048_224_q) #2
-  %q = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call4, ptr %q, align 8
   %0 = load ptr, ptr %params, align 8
   %cmp8 = icmp eq ptr %0, null
@@ -108,13 +104,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh2048_256_p) #2
-  %params = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %params, align 8
   %call2 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh2048_256_g) #2
-  %g = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call2, ptr %g, align 8
   %call4 = tail call ptr @BN_dup(ptr noundef nonnull @ossl_bignum_dh2048_256_q) #2
-  %q = getelementptr inbounds %struct.dh_st, ptr %call, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call4, ptr %q, align 8
   %0 = load ptr, ptr %params, align 8
   %cmp8 = icmp eq ptr %0, null

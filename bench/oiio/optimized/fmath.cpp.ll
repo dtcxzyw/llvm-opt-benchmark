@@ -7,9 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.half::uif" = type { i32 }
 %"class.OpenImageIO_v2_6_0::simd::vint4" = type { %union.anon.1 }
 %union.anon.1 = type { <2 x i64> }
-%class.half = type { i16 }
 %"class.OpenImageIO_v2_6_0::simd::vfloat4" = type { %union.anon.0 }
 %union.anon.0 = type { <4 x float> }
+%class.half = type { i16 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -25,7 +25,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN18OpenImageIO_v2_6_012convert_typeI4halffEEvPKT_PT0_mS5_S5_(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dst, i64 noundef %n, float noundef %0, float noundef %1) local_unnamed_addr #3 {
 entry:
   %h.i.i = alloca %"class.OpenImageIO_v2_6_0::simd::vint4", align 16
@@ -73,8 +73,8 @@ _ZN18OpenImageIO_v2_6_04simd7vfloat4C2EPK4half.exit: ; preds = %for.body.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %h.i.i)
   store <4 x i32> %or.i.i, ptr %dst.addr.09, align 1
   %sub = add i64 %n.addr.08, -4
-  %add.ptr = getelementptr inbounds %class.half, ptr %src.addr.010, i64 4
-  %add.ptr2 = getelementptr inbounds float, ptr %dst.addr.09, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %src.addr.010, i64 8
+  %add.ptr2 = getelementptr inbounds i8, ptr %dst.addr.09, i64 16
   %cmp = icmp ugt i64 %sub, 3
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !6
 
@@ -83,12 +83,12 @@ while.body:                                       ; preds = %while.cond.preheade
   %dst.addr.115 = phi ptr [ %incdec.ptr3, %while.body ], [ %dst.addr.0.lcssa, %while.cond.preheader ]
   %n.addr.114 = phi i64 [ %dec, %while.body ], [ %n.addr.0.lcssa, %while.cond.preheader ]
   %dec = add i64 %n.addr.114, -1
-  %incdec.ptr = getelementptr inbounds %class.half, ptr %src.addr.116, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.116, i64 2
   %10 = load i16, ptr %src.addr.116, align 2
   %idxprom.i = zext i16 %10 to i64
   %arrayidx.i = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i
   %11 = load float, ptr %arrayidx.i, align 4
-  %incdec.ptr3 = getelementptr inbounds float, ptr %dst.addr.115, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %dst.addr.115, i64 4
   store float %11, ptr %dst.addr.115, align 4
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
@@ -165,8 +165,8 @@ _ZN4halfaSEf.exit:                                ; preds = %if.then.i.i, %if.th
 
 for.inc:                                          ; preds = %_ZN4halfaSEf.exit
   %sub = add i64 %n.addr.036, -4
-  %add.ptr = getelementptr inbounds float, ptr %src.addr.034, i64 4
-  %add.ptr3 = getelementptr inbounds %class.half, ptr %dst.addr.035, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %src.addr.034, i64 16
+  %add.ptr3 = getelementptr inbounds i8, ptr %dst.addr.035, i64 8
   %cmp = icmp ugt i64 %sub, 3
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !9
 
@@ -175,9 +175,9 @@ while.body:                                       ; preds = %while.cond.preheade
   %dst.addr.141 = phi ptr [ %incdec.ptr4, %_ZN4halfaSEf.exit31 ], [ %dst.addr.0.lcssa, %while.cond.preheader ]
   %src.addr.140 = phi ptr [ %incdec.ptr, %_ZN4halfaSEf.exit31 ], [ %src.addr.0.lcssa, %while.cond.preheader ]
   %dec = add i64 %n.addr.142, -1
-  %incdec.ptr = getelementptr inbounds float, ptr %src.addr.140, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.140, i64 4
   %5 = load float, ptr %src.addr.140, align 4
-  %incdec.ptr4 = getelementptr inbounds %class.half, ptr %dst.addr.141, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %dst.addr.141, i64 2
   %6 = bitcast float %5 to i32
   %cmp.i.i11 = fcmp oeq float %5, 0.000000e+00
   br i1 %cmp.i.i11, label %if.then.i.i28, label %if.else.i.i12
@@ -239,7 +239,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

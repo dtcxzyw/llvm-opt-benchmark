@@ -4,52 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"class.folly::TimerFDTimeoutManager" = type { %"class.folly::TimerFD.base", i8, %"class.std::map", %"class.boost::intrusive::list" }
-%"class.folly::TimerFD.base" = type <{ %"class.folly::EventHandler", %"class.folly::EventReadCallback", %"class.folly::DelayedDestruction.base", [3 x i8], %"class.std::unique_ptr", i32 }>
-%"class.folly::EventHandler" = type { ptr, %"class.folly::EventBaseEvent", ptr }
-%"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, ptr, %union.anon.2, i16, i16, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%"struct.folly::EventCallback" = type { i32, %union.anon.7 }
-%union.anon.7 = type { ptr }
-%"class.folly::EventReadCallback" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::chrono::duration<long, std::ratio<1, 1000000>>, std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>, std::_Select1st<std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>>, std::less<std::chrono::duration<long, std::ratio<1, 1000000>>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::chrono::duration<long, std::ratio<1, 1000000>>, std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>, std::_Select1st<std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>>, std::less<std::chrono::duration<long, std::ratio<1, 1000000>>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
 %"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::TimerFDTimeoutManager::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
 %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::TimerFDTimeoutManager::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::TimerFDTimeoutManager::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
 %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::TimerFDTimeoutManager::Callback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
 %"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
 %"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [24 x i8] }
-%"class.folly::TimerFD" = type <{ %"class.folly::EventHandler", %"class.folly::EventReadCallback", %"class.folly::DelayedDestruction.base", [3 x i8], %"class.std::unique_ptr", i32, [4 x i8] }>
-%"struct.folly::EventReadCallback::IoVec" = type { ptr, ptr, %struct.iovec, ptr, ptr }
-%struct.iovec = type { ptr, i64 }
-%"struct.folly::TimerFD::IoVec" = type { %"struct.folly::EventReadCallback::IoVec", i64 }
-%"class.folly::DelayedDestruction" = type { %"class.folly::DelayedDestructionBase.base", i8, [3 x i8] }
-%"class.folly::DelayedDestructionBase" = type <{ ptr, i32, [4 x i8] }>
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
 %"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
@@ -57,10 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.16" = type { ptr }
 %"class.std::tuple.17" = type { i8 }
 %"class.std::chrono::duration" = type { i64 }
-%"class.folly::TimerFDTimeoutManager::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::duration" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
 %"struct.std::_Rb_tree<std::chrono::duration<long, std::ratio<1, 1000000>>, std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>, std::_Select1st<std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>>, std::less<std::chrono::duration<long, std::ratio<1, 1000000>>>>::_Auto_node" = type { ptr, ptr }
 
 $_ZN5folly7TimerFD12allocateDataEv = comdat any
@@ -137,17 +93,17 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !7
   %cmp.i.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i.i, label %invoke.cont2, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont
-  %_M_left.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !15
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %div.i.i.i = sdiv i64 %call.i.i, 1000
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8, !tbaa !16
   %cmp.i.i24.i = icmp slt i64 %div.i.i.i, %2
   %sub.i.i = sub nsw i64 %2, %div.i.i.i
@@ -169,7 +125,7 @@ terminate.lpad:                                   ; preds = %if.end.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN5folly7TimerFD12allocateDataEv(ptr noundef nonnull align 8 dereferenceable(220) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ioVecPtr_ = getelementptr inbounds %"class.folly::TimerFD", ptr %this, i64 0, i32 4
+  %ioVecPtr_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %ioVecPtr_, align 8, !tbaa !17
   store ptr null, ptr %ioVecPtr_, align 8, !tbaa !17
   %tobool.not = icmp eq ptr %0, null
@@ -180,18 +136,18 @@ cond.false:                                       ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %cond.false
-  %arg_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 1
-  %freeFunc_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 3
+  %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8, !tbaa !18
-  %timerData_.i = getelementptr inbounds %"struct.folly::TimerFD::IoVec", ptr %call2, i64 0, i32 1
+  %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !20
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !24
   store ptr @_ZN5folly7TimerFD5IoVec4freeEPNS_17EventReadCallback5IoVecE, ptr %freeFunc_.i.i, align 8, !tbaa !25
-  %cbFunc_.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 4
+  %cbFunc_.i = getelementptr inbounds i8, ptr %call2, i64 40
   store ptr @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi, ptr %cbFunc_.i, align 8, !tbaa !26
-  %data_.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %call2, i64 16
   store ptr %timerData_.i, ptr %data_.i, align 8, !tbaa !27
-  %iov_len.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2, i64 0, i32 2, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %call2, i64 24
   store i64 8, ptr %iov_len.i, align 8, !tbaa !28
   br label %cond.end
 
@@ -239,18 +195,18 @@ cond.false.i:                                     ; preds = %entry
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %cond.false.i
-  %arg_.i.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 1
-  %freeFunc_.i.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 3
+  %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, inrange i32 0, i64 2), ptr %call2.i, align 8, !tbaa !18
-  %timerData_.i.i = getelementptr inbounds %"struct.folly::TimerFD::IoVec", ptr %call2.i, i64 0, i32 1
+  %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !20
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !24
   store ptr @_ZN5folly7TimerFD5IoVec4freeEPNS_17EventReadCallback5IoVecE, ptr %freeFunc_.i.i.i, align 8, !tbaa !25
-  %cbFunc_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 4
+  %cbFunc_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 40
   store ptr @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi, ptr %cbFunc_.i.i, align 8, !tbaa !26
-  %data_.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   store ptr %timerData_.i.i, ptr %data_.i.i, align 8, !tbaa !27
-  %iov_len.i.i = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %call2.i, i64 0, i32 2, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   store i64 8, ptr %iov_len.i.i, align 8, !tbaa !28
   br label %_ZN5folly7TimerFD12allocateDataEv.exit
 
@@ -286,7 +242,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #0 comdat align 2 {
 entry:
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4, !range !29
   %tobool2.not = icmp eq i8 %0, 0
   %or.cond = select i1 %delayed, i1 %tobool2.not, i1 false
@@ -295,7 +251,7 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 0, ptr %destroyPending_, align 4, !tbaa !30
   %vtable = load ptr, ptr %this, align 8, !tbaa !18
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #13
   br label %delete.end
@@ -307,19 +263,19 @@ delete.end:                                       ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %guardCount_.i = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this, i64 0, i32 1
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %guardCount_.i, align 8, !tbaa !35
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 1, ptr %destroyPending_, align 4, !tbaa !30
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8, !tbaa !18
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %if.end
@@ -337,21 +293,21 @@ invoke.cont:
   store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !18
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
   store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !18
-  %processingExpired_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 1
+  %processingExpired_ = getelementptr inbounds i8, ptr %this, i64 220
   store i8 0, ptr %processingExpired_, align 4, !tbaa !36
-  %0 = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 232
   store i32 0, ptr %0, align 8, !tbaa !66
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !67
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   store ptr %0, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !15
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
   store ptr %0, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !68
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !7
-  %inProgressList_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %inProgressList_ = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %inProgressList_, ptr %inProgressList_, align 8, !tbaa !69
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   store ptr %inProgressList_, ptr %prev_.i.i.i.i, align 8, !tbaa !70
   ret void
 }
@@ -391,12 +347,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISG_E.exit
   %__x.addr.07 = phi ptr [ %1, %_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISG_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !71
   tail call void @_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !72
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 40
   %2 = load ptr, ptr %second.i.i.i.i.i, align 8, !tbaa !69, !noalias !73
   %cmp.i.i.not12.i.i.i.i.i.i.i.i = icmp eq ptr %2, %second.i.i.i.i.i
   br i1 %cmp.i.i.not12.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISG_E.exit, label %while.body.i.i.i.i.i.i.i.i
@@ -436,7 +392,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %inProgressList_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %inProgressList_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %inProgressList_, align 8, !tbaa !69, !noalias !79
   %cmp.i.i.not12.i.i.i = icmp eq ptr %0, %inProgressList_
   br i1 %cmp.i.i.not12.i.i.i, label %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, label %while.body.i.i.i
@@ -450,8 +406,8 @@ while.body.i.i.i:                                 ; preds = %invoke.cont3, %whil
 
 _ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit: ; preds = %while.body.i.i.i, %invoke.cont3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %inProgressList_, i8 0, i64 16, i1 false)
-  %callbacks_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %callbacks_ = getelementptr inbounds i8, ptr %this, i64 224
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !67
   invoke void @_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE8_M_eraseEPSt13_Rb_tree_nodeISG_E(ptr noundef nonnull align 8 dereferenceable(48) %callbacks_, ptr noundef %2)
           to label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -479,20 +435,20 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 define noundef i64 @_ZN5folly21TimerFDTimeoutManager9cancelAllEv(ptr noundef nonnull align 8 dereferenceable(288) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %callbackList = alloca %"class.boost::intrusive::list", align 16
-  %callbackList.sroa.gep = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %callbackList, i64 0, i32 1
-  %_M_node_count.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %callbackList.sroa.gep = getelementptr inbounds i8, ptr %callbackList, i64 8
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !7
   %cmp.i.i56 = icmp eq i64 %0, 0
   br i1 %cmp.i.i56, label %while.cond21.preheader, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_M_left.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   br label %while.body
 
 while.cond21.preheader:                           ; preds = %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit, %entry
   %ret.0.lcssa = phi i64 [ 0, %entry ], [ %ret.1.lcssa, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit ]
-  %inProgressList_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 3
+  %inProgressList_ = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %inProgressList_, align 8, !tbaa !69
   %tobool.not.i.i4659 = icmp eq ptr %1, null
   %cmp.i.i4760 = icmp eq ptr %1, %inProgressList_
@@ -503,7 +459,7 @@ while.body:                                       ; preds = %_ZN5boost9intrusive
   %ret.057 = phi i64 [ 0, %while.body.lr.ph ], [ %ret.1.lcssa, %_ZN5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvED2Ev.exit ]
   %3 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %callbackList) #13
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %callbackList, ptr %callbackList, align 16, !tbaa !69
   store ptr %callbackList, ptr %callbackList.sroa.gep, align 8, !tbaa !70
   %cmp.i.i.i.i = icmp eq ptr %second, %callbackList
@@ -512,12 +468,12 @@ while.body:                                       ; preds = %_ZN5boost9intrusive
 if.end4.i.i.i.i:                                  ; preds = %while.body
   %4 = load ptr, ptr %second, align 8, !tbaa !69
   %tobool.not.i20.i.i.i.i = icmp eq ptr %4, null
-  %prev_.i.i21.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i64 0, i32 1, i32 0, i64 16
+  %prev_.i.i21.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   br i1 %tobool.not.i20.i.i.i.i, label %if.then6.i.i.i.i, label %if.end4.if.end7_crit_edge.i.i.i.i
 
 if.end4.if.end7_crit_edge.i.i.i.i:                ; preds = %if.end4.i.i.i.i
   %.pre39.i.i.i.i = load ptr, ptr %prev_.i.i21.i.i.i.i, align 8, !tbaa !70
-  %prev_.i2.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %4, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %.pre40.i.i.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !70
   %.pre41.i.i.i.i = load ptr, ptr %.pre39.i.i.i.i, align 8, !tbaa !69
   br label %if.end14.i.i.i.i
@@ -532,7 +488,7 @@ if.end14.i.i.i.i:                                 ; preds = %if.then6.i.i.i.i, %
   %6 = phi ptr [ %second, %if.then6.i.i.i.i ], [ %.pre40.i.i.i.i, %if.end4.if.end7_crit_edge.i.i.i.i ]
   %7 = phi ptr [ %second, %if.then6.i.i.i.i ], [ %.pre39.i.i.i.i, %if.end4.if.end7_crit_edge.i.i.i.i ]
   %8 = phi ptr [ %second, %if.then6.i.i.i.i ], [ %4, %if.end4.if.end7_crit_edge.i.i.i.i ]
-  %prev_.i2.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %8, i64 0, i32 1
+  %prev_.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %6, ptr %callbackList.sroa.gep, align 8, !tbaa !70
   store ptr %callbackList, ptr %prev_.i2.i.i.i.i.i, align 8, !tbaa !70
   store ptr %5, ptr %callbackList, align 16, !tbaa !69
@@ -549,7 +505,7 @@ if.then16.i.i.i.i:                                ; preds = %if.end14.i.i.i.i
 
 _ZN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS0_18constant_time_sizeILb0EEEEEC2EOS7_.exit: ; preds = %if.then16.i.i.i.i, %if.end14.i.i.i.i, %while.body
   %call.i4.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #13
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i4.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i4.i.i, i64 40
   %11 = load ptr, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !69, !noalias !83
   %cmp.i.i.not12.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %second.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.not12.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit, label %while.body.i.i.i.i.i.i.i.i.i.i.i
@@ -578,14 +534,14 @@ invoke.cont17:                                    ; preds = %_ZNSt3mapINSt6chron
   %inc = add i64 %ret.153, 1
   %sub.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !69
-  %prev_.i.i.i.i40 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %16, i64 0, i32 1
+  %prev_.i.i.i.i40 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %prev_.i.i.i.i40, align 8, !tbaa !70
   store ptr %17, ptr %18, align 8, !tbaa !69
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %17, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %18, ptr %prev_.i5.i.i.i, align 8, !tbaa !70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %vtable = load ptr, ptr %sub.ptr.i.i, align 8, !tbaa !18
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %19 = load ptr, ptr %vfn, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(40) %sub.ptr.i.i) #13
   %20 = load ptr, ptr %callbackList, align 16, !tbaa !69
@@ -619,14 +575,14 @@ while.body24:                                     ; preds = %while.cond21.prehea
   %inc25 = add i64 %ret.261, 1
   %sub.ptr.i.i48 = getelementptr inbounds i8, ptr %24, i64 -8
   %25 = load ptr, ptr %24, align 8, !tbaa !69
-  %prev_.i.i.i.i49 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %24, i64 0, i32 1
+  %prev_.i.i.i.i49 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %prev_.i.i.i.i49, align 8, !tbaa !70
   store ptr %25, ptr %26, align 8, !tbaa !69
-  %prev_.i5.i.i.i50 = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %25, i64 0, i32 1
+  %prev_.i5.i.i.i50 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %26, ptr %prev_.i5.i.i.i50, align 8, !tbaa !70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %vtable30 = load ptr, ptr %sub.ptr.i.i48, align 8, !tbaa !18
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 3
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 24
   %27 = load ptr, ptr %vfn31, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(40) %sub.ptr.i.i48) #13
   %28 = load ptr, ptr %inProgressList_, align 8, !tbaa !69
@@ -654,18 +610,18 @@ declare void @_ZN5folly7TimerFD5closeEv(ptr noundef nonnull align 8 dereferencea
 define void @_ZN5folly21TimerFDTimeoutManager20processExpiredTimersEv(ptr noundef nonnull align 8 dereferenceable(288) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp25 = alloca %"class.google::LogMessageFatal", align 8
-  %processingExpired_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 1
+  %processingExpired_ = getelementptr inbounds i8, ptr %this, i64 220
   store i8 1, ptr %processingExpired_, align 4, !tbaa !36
-  %_M_node_count.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !7
   %cmp.i.i64 = icmp eq i64 %0, 0
   br i1 %cmp.i.i64, label %while.end50, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %_M_left.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
-  %inProgressList_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 3
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %inProgressList_ = getelementptr inbounds i8, ptr %this, i64 272
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   br label %if.end
 
 while.body.loopexit:                              ; preds = %while.body44
@@ -677,13 +633,13 @@ if.end:                                           ; preds = %while.body.loopexit
   %1 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %div.i.i = sdiv i64 %call.i, 1000
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8, !tbaa !16
   %cmp.i.i53.not = icmp slt i64 %div.i.i, %2
   br i1 %cmp.i.i53.not, label %while.end50, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %1, i64 40
   %cmp.i.i.i.i = icmp eq ptr %second, %inProgressList_
   br i1 %cmp.i.i.i.i, label %_ZN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS0_18constant_time_sizeILb0EEEEEaSEOS7_.exit, label %if.end.i.i.i.i
 
@@ -701,13 +657,13 @@ if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 
 if.end4.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i, %if.end.i.i.i.i
   %5 = phi ptr [ %inProgressList_, %if.then3.i.i.i.i ], [ %3, %if.end.i.i.i.i ]
-  %prev_.i.i21.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 16
+  %prev_.i.i21.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
   br i1 %tobool.not.i20.i.i.i.i, label %if.then6.i.i.i.i, label %if.end4.if.end7_crit_edge.i.i.i.i
 
 if.end4.if.end7_crit_edge.i.i.i.i:                ; preds = %if.end4.i.i.i.i
   %.pre38.i.i.i.i = load ptr, ptr %second, align 8, !tbaa !69
   %.pre39.i.i.i.i = load ptr, ptr %prev_.i.i21.i.i.i.i, align 8, !tbaa !70
-  %prev_.i2.i.phi.trans.insert.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %.pre38.i.i.i.i, i64 0, i32 1
+  %prev_.i2.i.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %.pre38.i.i.i.i, i64 8
   %.pre40.i.i.i.i = load ptr, ptr %prev_.i2.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !70
   %.pre41.i.i.i.i = load ptr, ptr %.pre39.i.i.i.i, align 8, !tbaa !69
   br label %if.end7.i.i.i.i
@@ -725,9 +681,9 @@ if.end7.i.i.i.i:                                  ; preds = %if.then6.i.i.i.i, %
   %9 = phi ptr [ %second, %if.then6.i.i.i.i ], [ %.pre38.i.i.i.i, %if.end4.if.end7_crit_edge.i.i.i.i ]
   %10 = phi ptr [ %.pre.i.i.i.i, %if.then6.i.i.i.i ], [ %5, %if.end4.if.end7_crit_edge.i.i.i.i ]
   %11 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8, !tbaa !70
-  %prev_.i.i23.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %10, i64 0, i32 1
+  %prev_.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %prev_.i.i23.i.i.i.i, align 8, !tbaa !70
-  %prev_.i2.i.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %9, i64 0, i32 1
+  %prev_.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %7, ptr %prev_.i.i23.i.i.i.i, align 8, !tbaa !70
   store ptr %12, ptr %prev_.i2.i.i.i.i.i, align 8, !tbaa !70
   %13 = load ptr, ptr %11, align 8, !tbaa !69
@@ -752,7 +708,7 @@ if.then16.i.i.i.i:                                ; preds = %if.end14.i.i.i.i
 
 _ZN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS0_18constant_time_sizeILb0EEEEEaSEOS7_.exit: ; preds = %if.then16.i.i.i.i, %if.end14.i.i.i.i, %if.then14
   %call.i4.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #13
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i4.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i4.i.i, i64 40
   %16 = load ptr, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !69, !noalias !91
   %cmp.i.i.not12.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %16, %second.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.not12.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit, label %while.body.i.i.i.i.i.i.i.i.i.i.i
@@ -799,14 +755,14 @@ while.body44:                                     ; preds = %_ZNSt3mapINSt6chron
   %22 = phi ptr [ %26, %while.body44 ], [ %19, %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit ]
   %sub.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 -8
   %23 = load ptr, ptr %22, align 8, !tbaa !69
-  %prev_.i.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %22, i64 0, i32 1
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %prev_.i.i.i.i, align 8, !tbaa !70
   store ptr %23, ptr %24, align 8, !tbaa !69
-  %prev_.i5.i.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %23, i64 0, i32 1
+  %prev_.i5.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %24, ptr %prev_.i5.i.i.i, align 8, !tbaa !70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %vtable = load ptr, ptr %sub.ptr.i.i, align 8, !tbaa !18
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %25 = load ptr, ptr %vfn, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(40) %sub.ptr.i.i) #13
   %26 = load ptr, ptr %inProgressList_, align 8, !tbaa !69
@@ -823,17 +779,17 @@ while.end50:                                      ; preds = %if.end, %while.body
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly21TimerFDTimeoutManager17scheduleNextTimerEv(ptr noundef nonnull align 8 dereferenceable(288) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_M_node_count.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !7
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_left.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %div.i.i = sdiv i64 %call.i, 1000
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8, !tbaa !16
   %cmp.i.i24 = icmp slt i64 %div.i.i, %2
   %sub.i = sub nsw i64 %2, %div.i.i
@@ -866,16 +822,16 @@ if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %expirationTimeUsec) #13
   %div.i.i = sdiv i64 %add.i.i, 1000
   store i64 %div.i.i, ptr %expirationTimeUsec, align 8
-  %callbacks_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2
-  %_M_node_count.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %callbacks_ = getelementptr inbounds i8, ptr %this, i64 224
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !7
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %if.then24, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end
-  %_M_left.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %1 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8, !tbaa !16
   %cmp.i = icmp slt i64 %div.i.i, %2
   br i1 %cmp.i, label %if.then24, label %if.end26
@@ -885,22 +841,21 @@ if.then24:                                        ; preds = %lor.rhs, %if.end
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %lor.rhs
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !67
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %cmp.not9.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end26, %while.body.i.i.i.i
   %__x.addr.011.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %3, %if.end26 ]
   %__y.addr.010.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end26 ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8, !tbaa !16
   %cmp.i.i.i.i.i.i = icmp slt i64 %4, %div.i.i
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.010.i.i.i.i, ptr %__x.addr.011.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.i.i.i.i.v = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 %__x.addr.1.in.i.i.i.i.v
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8, !tbaa !17
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE11lower_boundERSH_.exit.i, label %while.body.i.i.i.i, !llvm.loop !97
@@ -910,7 +865,7 @@ _ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listI
   br i1 %cmp.i.i31, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE11lower_boundERSH_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i, align 8, !tbaa !16
   %cmp.i.i.i = icmp slt i64 %div.i.i, %5
   br i1 %cmp.i.i.i, label %if.then.i, label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEEixERSH_.exit
@@ -929,18 +884,18 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 _ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEEixERSH_.exit: ; preds = %if.then.i, %lor.rhs.i
   %6 = phi i64 [ %.pre, %if.then.i ], [ %div.i.i, %lor.rhs.i ]
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   %add.ptr.i.i = getelementptr inbounds i8, ptr %callback, i64 8
-  %prev_.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 16
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 48
   %7 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !70
   %prev_.i5.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store ptr %7, ptr %prev_.i5.i.i, align 8, !tbaa !70
   store ptr %second.i, ptr %add.ptr.i.i, align 8, !tbaa !69
   store ptr %add.ptr.i.i, ptr %prev_.i.i.i, align 8, !tbaa !70
   store ptr %add.ptr.i.i, ptr %7, align 8, !tbaa !69
-  %mgr_.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager::Callback", ptr %callback, i64 0, i32 2
+  %mgr_.i = getelementptr inbounds i8, ptr %callback, i64 24
   store ptr %this, ptr %mgr_.i, align 8, !tbaa !98
-  %expirationTime_.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager::Callback", ptr %callback, i64 0, i32 3
+  %expirationTime_.i = getelementptr inbounds i8, ptr %callback, i64 32
   store i64 %6, ptr %expirationTime_.i, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %expirationTimeUsec) #13
   ret void
@@ -960,31 +915,30 @@ _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvE
   %prev_.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %1 = load ptr, ptr %prev_.i.i.i, align 8, !tbaa !70
   store ptr %0, ptr %1, align 8, !tbaa !69
-  %prev_.i5.i.i = getelementptr inbounds %"struct.boost::intrusive::list_node", ptr %0, i64 0, i32 1
+  %prev_.i5.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %prev_.i5.i.i, align 8, !tbaa !70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
   %vtable = load ptr, ptr %callback, align 8, !tbaa !18
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %callback) #13
-  %expirationTime_.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager::Callback", ptr %callback, i64 0, i32 3
+  %expirationTime_.i = getelementptr inbounds i8, ptr %callback, i64 32
   %3 = load i64, ptr %expirationTime_.i, align 8, !tbaa !16
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !67
-  %add.ptr.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %cmp.not9.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not9.i.i.i, label %return, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit, %while.body.i.i.i
   %__x.addr.011.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %4, %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit ]
   %__y.addr.010.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EE6unlinkEv.exit ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !16
   %cmp.i.i.i.i.i = icmp slt i64 %5, %3
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.010.i.i.i, ptr %__x.addr.011.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.i.i.i.v = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i, i64 %__x.addr.1.in.i.i.i.v
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !17
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE14_M_lower_boundEPSt13_Rb_tree_nodeISG_EPSt18_Rb_tree_node_baseRS6_.exit.i.i, label %while.body.i.i.i, !llvm.loop !104
@@ -994,16 +948,16 @@ _ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boos
   br i1 %cmp.i.i.i, label %return, label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE4findERSH_.exit
 
 _ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE4findERSH_.exit: ; preds = %_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE14_M_lower_boundEPSt13_Rb_tree_nodeISG_EPSt18_Rb_tree_node_baseRS6_.exit.i.i
-  %_M_storage.i.i.i14.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i14.i.i, align 8, !tbaa !16
   %cmp.i.i.i.i = icmp slt i64 %3, %6
   br i1 %cmp.i.i.i.i, label %return, label %if.end10
 
 if.end10:                                         ; preds = %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE4findERSH_.exit
-  %_M_left.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %7 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
   %cmp.i66 = icmp ne ptr %__y.addr.1.i.i.i, %7
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %8 = load ptr, ptr %second, align 8, !tbaa !69
   %tobool.not.i.i67 = icmp eq ptr %8, null
   %cmp.i.i68 = icmp eq ptr %8, %second
@@ -1011,13 +965,13 @@ if.end10:                                         ; preds = %_ZNSt3mapINSt6chron
   br i1 %9, label %if.then18, label %if.end10.if.end23_crit_edge
 
 if.end10.if.end23_crit_edge:                      ; preds = %if.end10
-  %_M_node_count.i.i.phi.trans.insert = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 264
   %.pre = load i64, ptr %_M_node_count.i.i.phi.trans.insert, align 8
   br label %if.end23
 
 if.then18:                                        ; preds = %if.end10
   %call.i4.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %__y.addr.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #13
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i4.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i4.i.i, i64 40
   %10 = load ptr, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !69, !noalias !105
   %cmp.i.i.not12.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %second.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.not12.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit, label %while.body.i.i.i.i.i.i.i.i.i.i.i
@@ -1031,7 +985,7 @@ while.body.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then18, %while.b
 
 _ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit: ; preds = %while.body.i.i.i.i.i.i.i.i.i.i.i, %if.then18
   tail call void @_ZdlPv(ptr noundef nonnull %call.i4.i.i) #14
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %12 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !7
   %dec.i.i.i = add i64 %12, -1
   store i64 %dec.i.i.i, ptr %_M_node_count.i.i.i, align 8, !tbaa !7
@@ -1039,11 +993,11 @@ _ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listI
 
 if.end23:                                         ; preds = %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit, %if.end10.if.end23_crit_edge
   %13 = phi i64 [ %.pre, %if.end10.if.end23_crit_edge ], [ %dec.i.i.i, %_ZNSt3mapINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEN5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS6_18constant_time_sizeILb0EEEEEESt4lessIS4_ESaISt4pairIKS4_SD_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit ]
-  %processingExpired_ = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 1
+  %processingExpired_ = getelementptr inbounds i8, ptr %this, i64 220
   %14 = load i8, ptr %processingExpired_, align 4, !tbaa !36, !range !29, !noundef !109
   %tobool.not = icmp ne i8 %14, 0
   %brmerge = or i1 %cmp.i66, %tobool.not
-  %_M_node_count.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 264
   %cmp.i.i70 = icmp eq i64 %13, 0
   %or.cond = select i1 %brmerge, i1 true, i1 %cmp.i.i70
   br i1 %or.cond, label %if.end56, label %if.then28
@@ -1052,7 +1006,7 @@ if.then28:                                        ; preds = %if.end23
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #13
   %div.i.i = sdiv i64 %call.i, 1000
   %15 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
-  %_M_storage.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %15, i64 0, i32 1
+  %_M_storage.i.i72 = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load i64, ptr %_M_storage.i.i72, align 8, !tbaa !16
   %cmp.i.i73 = icmp slt i64 %16, %div.i.i
   br i1 %cmp.i.i73, label %if.then44, label %if.end56
@@ -1087,16 +1041,16 @@ invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<std::chrono::duration<long, std::ratio<1, 1000000>>, std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>, std::_Select1st<std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>>, std::less<std::chrono::duration<long, std::ratio<1, 1000000>>>>::_Auto_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z) #13
   store ptr %this, ptr %__z, align 8, !tbaa !17
-  %_M_node.i = getelementptr inbounds %"struct.std::_Rb_tree<std::chrono::duration<long, std::ratio<1, 1000000>>, std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>, std::_Select1st<std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>>, std::less<std::chrono::duration<long, std::ratio<1, 1000000>>>>::_Auto_node", ptr %__z, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8, !tbaa !17
   %1 = inttoptr i64 %0 to ptr
   %2 = load i64, ptr %1, align 8, !tbaa !16
   store i64 %2, ptr %_M_storage.i.i.i.i, align 8, !tbaa !16
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
   store ptr %second.i.i.i.i.i.i.i, ptr %second.i.i.i.i.i.i.i, align 8, !tbaa !69
-  %prev_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %prev_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
   store ptr %second.i.i.i.i.i.i.i, ptr %prev_.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !70
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8, !tbaa !110
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISG_ERS6_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i)
@@ -1116,7 +1070,7 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i.i, align 8, !tbaa !16
   %6 = load i64, ptr %_M_storage.i.i.i.i.i, align 8, !tbaa !16
   %cmp.i.i.i.i = icmp slt i64 %5, %6
@@ -1176,7 +1130,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8, !tbaa !17
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8, !tbaa !16
   %3 = load i64, ptr %__k, align 8, !tbaa !16
   %cmp.i.i = icmp slt i64 %2, %3
@@ -1194,12 +1148,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.043.i = phi ptr [ %__x.041.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i90 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.043.i, i64 0, i32 1
+  %_M_storage.i.i.i90 = getelementptr inbounds i8, ptr %__x.043.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i90, align 8, !tbaa !16
   %cmp.i.i.i = icmp slt i64 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.043.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.043.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.i.v = select i1 %cmp.i.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.043.i, i64 %cond.in.i.v
   %__x.0.i = load ptr, ptr %cond.in.i, align 8, !tbaa !17
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !116
@@ -1216,7 +1169,7 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa47.i) #17
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre197 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8, !tbaa !16
   %.pre198 = load i64, ptr %__k, align 8, !tbaa !16
   br label %if.end12.i
@@ -1232,7 +1185,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %cleanup80
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i92 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i92 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i64, ptr %__k, align 8, !tbaa !16
   %10 = load i64, ptr %_M_storage.i.i.i92, align 8, !tbaa !16
   %cmp.i.i93 = icmp slt i64 %9, %10
@@ -1246,13 +1199,13 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #17
-  %_M_storage.i.i.i97 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i97 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i97, align 8, !tbaa !16
   %cmp.i.i98 = icmp slt i64 %12, %9
   br i1 %cmp.i.i98, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i99 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i99 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i99, align 8, !tbaa !71
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
@@ -1267,12 +1220,11 @@ if.else42:                                        ; preds = %if.else25
 
 while.body.i107:                                  ; preds = %if.else42, %while.body.i107
   %__x.043.i108 = phi ptr [ %__x.0.i114, %while.body.i107 ], [ %__x.041.i104, %if.else42 ]
-  %_M_storage.i.i.i109 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.043.i108, i64 0, i32 1
+  %_M_storage.i.i.i109 = getelementptr inbounds i8, ptr %__x.043.i108, i64 32
   %14 = load i64, ptr %_M_storage.i.i.i109, align 8, !tbaa !16
   %cmp.i.i.i110 = icmp slt i64 %9, %14
-  %_M_left.i.i111 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.043.i108, i64 0, i32 2
-  %_M_right.i.i112 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.043.i108, i64 0, i32 3
-  %cond.in.i113 = select i1 %cmp.i.i.i110, ptr %_M_left.i.i111, ptr %_M_right.i.i112
+  %cond.in.i113.v = select i1 %cmp.i.i.i110, i64 16, i64 24
+  %cond.in.i113 = getelementptr inbounds i8, ptr %__x.043.i108, i64 %cond.in.i113.v
   %__x.0.i114 = load ptr, ptr %cond.in.i113, align 8, !tbaa !17
   %cmp.not.i115 = icmp eq ptr %__x.0.i114, null
   br i1 %cmp.not.i115, label %while.end.i116, label %while.body.i107, !llvm.loop !117
@@ -1287,7 +1239,7 @@ if.then.i128:                                     ; preds = %while.end.i116, %if
 
 if.else.i132:                                     ; preds = %if.then.i128
   %call.i.i133 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa47.i129) #17
-  %_M_storage.i.i.i.i120.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i133, i64 0, i32 1
+  %_M_storage.i.i.i.i120.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i133, i64 32
   %.pre196 = load i64, ptr %_M_storage.i.i.i.i120.phi.trans.insert, align 8, !tbaa !16
   br label %if.end12.i117
 
@@ -1312,13 +1264,13 @@ if.then50:                                        ; preds = %if.else44
 
 if.else57:                                        ; preds = %if.then50
   %call.i140 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #17
-  %_M_storage.i.i.i141 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i140, i64 0, i32 1
+  %_M_storage.i.i.i141 = getelementptr inbounds i8, ptr %call.i140, i64 32
   %17 = load i64, ptr %_M_storage.i.i.i141, align 8, !tbaa !16
   %cmp.i.i142 = icmp slt i64 %9, %17
   br i1 %cmp.i.i142, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i143 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
+  %_M_right.i143 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
   %18 = load ptr, ptr %_M_right.i143, align 8, !tbaa !71
   %cmp67 = icmp eq ptr %18, null
   %spec.select194 = select i1 %cmp67, ptr null, ptr %call.i140
@@ -1333,12 +1285,11 @@ if.else74:                                        ; preds = %if.else57
 
 while.body.i151:                                  ; preds = %if.else74, %while.body.i151
   %__x.043.i152 = phi ptr [ %__x.0.i158, %while.body.i151 ], [ %__x.041.i148, %if.else74 ]
-  %_M_storage.i.i.i153 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.043.i152, i64 0, i32 1
+  %_M_storage.i.i.i153 = getelementptr inbounds i8, ptr %__x.043.i152, i64 32
   %19 = load i64, ptr %_M_storage.i.i.i153, align 8, !tbaa !16
   %cmp.i.i.i154 = icmp slt i64 %9, %19
-  %_M_left.i.i155 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.043.i152, i64 0, i32 2
-  %_M_right.i.i156 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.043.i152, i64 0, i32 3
-  %cond.in.i157 = select i1 %cmp.i.i.i154, ptr %_M_left.i.i155, ptr %_M_right.i.i156
+  %cond.in.i157.v = select i1 %cmp.i.i.i154, i64 16, i64 24
+  %cond.in.i157 = getelementptr inbounds i8, ptr %__x.043.i152, i64 %cond.in.i157.v
   %__x.0.i158 = load ptr, ptr %cond.in.i157, align 8, !tbaa !17
   %cmp.not.i159 = icmp eq ptr %__x.0.i158, null
   br i1 %cmp.not.i159, label %while.end.i160, label %while.body.i151, !llvm.loop !118
@@ -1355,7 +1306,7 @@ if.then.i172:                                     ; preds = %while.end.i160, %if
 
 if.else.i176:                                     ; preds = %if.then.i172
   %call.i.i177 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa47.i173) #17
-  %_M_storage.i.i.i.i164.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i177, i64 0, i32 1
+  %_M_storage.i.i.i.i164.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i177, i64 32
   %.pre = load i64, ptr %_M_storage.i.i.i.i164.phi.trans.insert, align 8, !tbaa !16
   br label %if.end12.i161
 
@@ -1379,13 +1330,13 @@ cleanup80:                                        ; preds = %if.end12.i161, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree<std::chrono::duration<long, std::ratio<1, 1000000>>, std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>, std::_Select1st<std::pair<const std::chrono::duration<long, std::ratio<1, 1000000>>, boost::intrusive::list<folly::TimerFDTimeoutManager::Callback, boost::intrusive::constant_time_size<false>>>>, std::less<std::chrono::duration<long, std::ratio<1, 1000000>>>>::_Auto_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8, !tbaa !110
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %second.i.i.i.i.i, align 8, !tbaa !69, !noalias !119
   %cmp.i.i.not12.i.i.i.i.i.i.i.i = icmp eq ptr %1, %second.i.i.i.i.i
   br i1 %cmp.i.i.not12.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt4pairIKS4_N5boost9intrusive4listIN5folly21TimerFDTimeoutManager8CallbackEJNS8_18constant_time_sizeILb0EEEEEEESt10_Select1stISG_ESt4lessIS4_ESaISG_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISG_E.exit, label %while.body.i.i.i.i.i.i.i.i
@@ -1425,9 +1376,9 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define noundef i64 @_ZNK5folly21TimerFDTimeoutManager5countEv(ptr noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %_M_left.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::TimerFDTimeoutManager", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %cmp.i.not12 = icmp eq ptr %0, %add.ptr.i.i
   br i1 %cmp.i.not12, label %for.cond.cleanup, label %for.body
 
@@ -1438,7 +1389,7 @@ for.cond.cleanup:                                 ; preds = %_ZNK5boost9intrusiv
 for.body:                                         ; preds = %entry, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4sizeEv.exit
   %ret.014 = phi i64 [ %add, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4sizeEv.exit ], [ 0, %entry ]
   %__begin1.sroa.0.013 = phi ptr [ %call.i, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly21TimerFDTimeoutManager8CallbackENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE4sizeEv.exit ], [ %0, %entry ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.013, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.013, i64 40
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %for.body
@@ -1476,7 +1427,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %ioVec, align 8, !tbaa !18
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %ioVec) #13
   br label %delete.end
@@ -1488,7 +1439,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly7TimerFD5IoVec2cbEPNS_17EventReadCallback5IoVecEi(ptr noundef %ioVec, i32 noundef %res) #3 comdat align 2 {
 entry:
-  %arg_ = getelementptr inbounds %"struct.folly::EventReadCallback::IoVec", ptr %ioVec, i64 0, i32 1
+  %arg_ = getelementptr inbounds i8, ptr %ioVec, i64 8
   %0 = load ptr, ptr %arg_, align 8, !tbaa !24
   tail call void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(220) %0, ptr noundef %ioVec, i32 noundef %res)
   ret void

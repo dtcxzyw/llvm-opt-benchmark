@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::ImageChannel" = type { ptr, ptr, i32, i32, i8, i32, i32, i64 }
 %"struct.Imf_3_2::Channel" = type <{ i32, i32, i32, i8, [3 x i8] }>
-%"class.Imf_3_2::ImageLevel" = type { ptr, ptr, i32, i32, %"class.Imath_3_2::Box" }
-%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
-%"class.Imath_3_2::Vec2" = type { i32, i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -57,19 +53,19 @@ define void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr nocapture noun
 entry:
   %frombool = zext i1 %pLinear to i8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_212ImageChannelE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_level = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %level, ptr %_level, align 8
-  %_xSampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 2
+  %_xSampling = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %xSampling, ptr %_xSampling, align 8
-  %_ySampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 3
+  %_ySampling = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %ySampling, ptr %_ySampling, align 4
-  %_pLinear = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 4
+  %_pLinear = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool, ptr %_pLinear, align 8
-  %_pixelsPerRow = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 5
+  %_pixelsPerRow = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_pixelsPerRow, align 4
-  %_pixelsPerColumn = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 6
+  %_pixelsPerColumn = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %_pixelsPerColumn, align 8
-  %_numPixels = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 7
+  %_numPixels = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %_numPixels, align 8
   ret void
 }
@@ -97,18 +93,18 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_xSampling.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 2
+  %_xSampling.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 3
+  %_ySampling.i = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %_ySampling.i, align 4
-  %_pLinear.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 4
+  %_pLinear.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i8, ptr %_pLinear.i, align 8
   %4 = and i8 %3, 1
   %tobool.i = icmp ne i8 %4, 0
   call void @_ZN7Imf_3_27ChannelC1ENS_9PixelTypeEiib(ptr noundef nonnull align 4 dereferenceable(13) %retval, i32 noundef %call, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool.i)
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %retval, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -119,20 +115,20 @@ declare void @_ZN7Imf_3_27ChannelC1ENS_9PixelTypeEiib(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4
+  %_dataWindow.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %_dataWindow.i, align 4
-  %_xSampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 2
+  %_xSampling = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %_xSampling, align 8
   %rem = srem i32 %1, %2
   %tobool.not = icmp eq i32 %rem, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %y = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4, i32 0, i32 1
+  %y = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %y, align 4
-  %_ySampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 3
+  %_ySampling = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i32, ptr %_ySampling, align 4
   %rem4 = srem i32 %3, %4
   %tobool5.not = icmp eq i32 %rem4, 0
@@ -153,11 +149,11 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
-  %max = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4, i32 1
+  %max = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %max, align 4
   %sub = sub nsw i32 %6, %1
   %add = add nsw i32 %sub, 1
-  %y10 = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4, i32 1, i32 1
+  %y10 = getelementptr inbounds i8, ptr %0, i64 36
   %7 = load i32, ptr %y10, align 4
   %sub13 = sub nsw i32 %7, %3
   %add14 = add nsw i32 %sub13, 1
@@ -187,13 +183,13 @@ lpad24:                                           ; preds = %if.then22
   br label %eh.resume
 
 if.end26:                                         ; preds = %lor.lhs.false18
-  %_pixelsPerRow = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 5
+  %_pixelsPerRow = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %div, ptr %_pixelsPerRow, align 4
-  %_pixelsPerColumn = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 6
+  %_pixelsPerColumn = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %div29, ptr %_pixelsPerColumn, align 8
   %mul = mul nsw i32 %div29, %div
   %conv = sext i32 %mul to i64
-  %_numPixels = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 7
+  %_numPixels = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %conv, ptr %_numPixels, align 8
   ret void
 
@@ -222,20 +218,20 @@ define void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr nocapture noundef no
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %_iex_throw_s54 = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4
+  %_dataWindow.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %_dataWindow.i, align 4
   %cmp = icmp sgt i32 %1, %x
-  %max = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4, i32 1
+  %max = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i32, ptr %max, align 4
   %cmp5 = icmp slt i32 %2, %x
   %or.cond = select i1 %cmp, i1 true, i1 %cmp5
-  %y8 = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4, i32 0, i32 1
+  %y8 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %y8, align 4
   %cmp9 = icmp sgt i32 %3, %y
   %or.cond20 = select i1 %or.cond, i1 true, i1 %cmp9
-  %y12 = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4, i32 1, i32 1
+  %y12 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %y12, align 4
   %cmp13 = icmp slt i32 %4, %y
   %or.cond21 = select i1 %or.cond20, i1 true, i1 %cmp13
@@ -321,14 +317,14 @@ lpad47:                                           ; preds = %invoke.cont45
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
-  %_xSampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 2
+  %_xSampling = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i32, ptr %_xSampling, align 8
   %rem = srem i32 %x, %11
   %tobool.not = icmp eq i32 %rem, 0
   br i1 %tobool.not, label %lor.lhs.false49, label %do.body53
 
 lor.lhs.false49:                                  ; preds = %if.end
-  %_ySampling = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 3
+  %_ySampling = getelementptr inbounds i8, ptr %this, i64 20
   %12 = load i32, ptr %_ySampling, align 4
   %rem50 = srem i32 %y, %12
   %tobool51.not = icmp eq i32 %rem50, 0
@@ -367,7 +363,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
           to label %invoke.cont70 unwind label %lpad56
 
 invoke.cont70:                                    ; preds = %invoke.cont68
-  %_ySampling72 = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 3
+  %_ySampling72 = getelementptr inbounds i8, ptr %this, i64 20
   %14 = load i32, ptr %_ySampling72, align 4
   %call74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call71, i32 noundef %14)
           to label %invoke.cont73 unwind label %lpad56

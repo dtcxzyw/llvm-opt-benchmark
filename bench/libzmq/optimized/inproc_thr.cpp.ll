@@ -41,12 +41,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @atoi(ptr nocapture noundef %0) #10
   %conv = sext i32 %call1 to i64
   store i64 %conv, ptr @_ZL12message_size, align 8
-  %arrayidx2 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx2, align 8
   %call3 = tail call i32 @atoi(ptr nocapture noundef %1) #10
   store i32 %call3, ptr @_ZL13message_count, align 4

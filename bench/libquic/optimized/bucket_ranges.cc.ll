@@ -3,11 +3,6 @@ source_filename = "bench/libquic/original/bucket_ranges.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.base::BucketRanges" = type <{ %"class.std::vector", i32, [4 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -50,16 +45,16 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIiSaIiE
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #13
   store ptr %call5.i.i.i.i2.i.i1, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i1, i64 %num_ranges
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i1, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %if.end.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %_M_finish.i.i7.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retval.0.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %checksum_ = getelementptr inbounds %"class.base::BucketRanges", ptr %this, i64 0, i32 1
+  %checksum_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %checksum_, align 8
   ret void
 }
@@ -127,7 +122,7 @@ declare void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char
 define dso_local noundef i32 @_ZNK4base12BucketRanges17CalculateChecksumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #4 align 2 {
 entry:
   %converter.i = alloca %union.anon.3, align 4
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -183,7 +178,7 @@ for.end:                                          ; preds = %_ZN4baseL5Crc32Eji.
 define dso_local noundef zeroext i1 @_ZNK4base12BucketRanges16HasValidChecksumEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) local_unnamed_addr #4 align 2 {
 entry:
   %converter.i.i = alloca %union.anon.3, align 4
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -232,7 +227,7 @@ _ZN4baseL5Crc32Eji.exit.i:                        ; preds = %for.body.i.i
 
 _ZNK4base12BucketRanges17CalculateChecksumEv.exit: ; preds = %_ZN4baseL5Crc32Eji.exit.i, %entry
   %checksum.0.lcssa.i = phi i32 [ %conv.i, %entry ], [ %xor2.i.i, %_ZN4baseL5Crc32Eji.exit.i ]
-  %checksum_ = getelementptr inbounds %"class.base::BucketRanges", ptr %this, i64 0, i32 1
+  %checksum_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i32, ptr %checksum_, align 8
   %cmp = icmp eq i32 %checksum.0.lcssa.i, %5
   ret i1 %cmp
@@ -242,7 +237,7 @@ _ZNK4base12BucketRanges17CalculateChecksumEv.exit: ; preds = %_ZN4baseL5Crc32Eji
 define dso_local void @_ZN4base12BucketRanges13ResetChecksumEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #5 align 2 {
 entry:
   %converter.i.i = alloca %union.anon.3, align 4
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -291,7 +286,7 @@ _ZN4baseL5Crc32Eji.exit.i:                        ; preds = %for.body.i.i
 
 _ZNK4base12BucketRanges17CalculateChecksumEv.exit: ; preds = %_ZN4baseL5Crc32Eji.exit.i, %entry
   %checksum.0.lcssa.i = phi i32 [ %conv.i, %entry ], [ %xor2.i.i, %_ZN4baseL5Crc32Eji.exit.i ]
-  %checksum_ = getelementptr inbounds %"class.base::BucketRanges", ptr %this, i64 0, i32 1
+  %checksum_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %checksum.0.lcssa.i, ptr %checksum_, align 8
   ret void
 }
@@ -299,22 +294,22 @@ _ZNK4base12BucketRanges17CalculateChecksumEv.exit: ; preds = %_ZN4baseL5Crc32Eji
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4base12BucketRanges6EqualsEPKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr nocapture noundef readonly %other) local_unnamed_addr #4 align 2 {
 entry:
-  %checksum_ = getelementptr inbounds %"class.base::BucketRanges", ptr %this, i64 0, i32 1
+  %checksum_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %checksum_, align 8
-  %checksum_2 = getelementptr inbounds %"class.base::BucketRanges", ptr %other, i64 0, i32 1
+  %checksum_2 = getelementptr inbounds i8, ptr %other, i64 24
   %1 = load i32, ptr %checksum_2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %_M_finish.i6 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %other, i64 0, i32 1
+  %_M_finish.i6 = getelementptr inbounds i8, ptr %other, i64 8
   %4 = load ptr, ptr %_M_finish.i6, align 8
   %5 = load ptr, ptr %other, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %4 to i64

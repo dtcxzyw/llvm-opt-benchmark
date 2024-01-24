@@ -4,38 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.nghttp2_priority_spec = type { i32, i32, i8 }
-%struct.nghttp2_session = type { %struct.nghttp2_map, %struct.nghttp2_stream, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, %struct.nghttp2_outbound_queue, [8 x %struct.anon], %struct.nghttp2_active_outbound_item, %struct.nghttp2_inbound_frame, %struct.nghttp2_hd_deflater, %struct.nghttp2_hd_inflater, %struct.nghttp2_session_callbacks, %struct.nghttp2_mem, ptr, ptr, ptr, ptr, ptr, ptr, %struct.nghttp2_ratelim, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, %struct.nghttp2_settings_storage, %struct.nghttp2_settings_storage, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, [32 x i8] }
-%struct.nghttp2_map = type { ptr, ptr, i64, i32, i32 }
-%struct.nghttp2_stream = type { %struct.nghttp2_pq_entry, %struct.nghttp2_pq, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i32, i8, i8, i8, i8, i8, i8 }
-%struct.nghttp2_pq_entry = type { i64 }
-%struct.nghttp2_pq = type { ptr, ptr, i64, i64, ptr }
-%struct.nghttp2_outbound_queue = type { ptr, ptr, i64 }
-%struct.anon = type { %struct.nghttp2_pq }
-%struct.nghttp2_active_outbound_item = type { ptr, %struct.nghttp2_bufs, i32 }
-%struct.nghttp2_bufs = type { ptr, ptr, ptr, i64, i64, i64, i64, i64 }
-%struct.nghttp2_inbound_frame = type { %union.nghttp2_frame, %union.nghttp2_ext_frame_payload, ptr, %struct.nghttp2_buf, %struct.nghttp2_buf, ptr, i64, i64, i64, i64, i32, [32 x i8] }
-%union.nghttp2_frame = type { %struct.nghttp2_headers }
-%struct.nghttp2_headers = type { %struct.nghttp2_frame_hd, i64, %struct.nghttp2_priority_spec, ptr, i64, i32 }
-%struct.nghttp2_frame_hd = type { i64, i32, i8, i8, i8 }
-%union.nghttp2_ext_frame_payload = type { %struct.nghttp2_ext_altsvc }
-%struct.nghttp2_ext_altsvc = type { ptr, i64, ptr, i64 }
-%struct.nghttp2_buf = type { ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_hd_deflater = type { %struct.nghttp2_hd_context, %struct.nghttp2_hd_map, i64, i64, i8 }
-%struct.nghttp2_hd_context = type { %struct.nghttp2_hd_ringbuf, ptr, i64, i64, i32, i8 }
-%struct.nghttp2_hd_ringbuf = type { ptr, i64, i64, i64 }
-%struct.nghttp2_hd_map = type { [128 x ptr] }
-%struct.nghttp2_hd_inflater = type { %struct.nghttp2_hd_context, %struct.nghttp2_hd_huff_decode_context, %struct.nghttp2_buf, %struct.nghttp2_buf, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64, i32, i32, i8, i8, i8 }
-%struct.nghttp2_hd_huff_decode_context = type { i16 }
-%struct.nghttp2_session_callbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_mem = type { ptr, ptr, ptr, ptr, ptr }
-%struct.nghttp2_ratelim = type { i64, i64, i64, i64 }
-%struct.nghttp2_settings_storage = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.nghttp2_data_provider = type { %union.nghttp2_data_source, ptr }
-%union.nghttp2_data_source = type { ptr }
-%struct.nghttp2_outbound_item = type { %union.nghttp2_frame, %union.nghttp2_ext_frame_payload, %union.nghttp2_aux_data, i64, ptr, i8 }
-%union.nghttp2_aux_data = type { %struct.nghttp2_headers_aux_data }
-%struct.nghttp2_headers_aux_data = type { %struct.nghttp2_data_provider, ptr, i32, i8 }
-%struct.nghttp2_extension = type { %struct.nghttp2_frame_hd, ptr }
 %struct.nghttp2_origin_entry = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [83 x i8] c"(size_t)(p - (uint8_t *)ov_copy) == nov * sizeof(nghttp2_origin_entry) + len + nov\00", align 1
@@ -62,7 +30,7 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %session, i8 n
 entry:
   %nva_copy = alloca ptr, align 8
   %copy_pri_spec = alloca %struct.nghttp2_priority_spec, align 4
-  %mem1 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
+  %mem1 = getelementptr inbounds i8, ptr %session, i64 2528
   %tobool.not = icmp eq ptr %pri_spec, null
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -92,18 +60,18 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %cmp2.not.i, label %if.end6.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %read_callback.i = getelementptr inbounds %struct.nghttp2_data_provider, ptr %data_prd, i64 0, i32 1
+  %read_callback.i = getelementptr inbounds i8, ptr %data_prd, i64 8
   %1 = load ptr, ptr %read_callback.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %if.end6.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i
-  %aux_data.i = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call.i, i64 0, i32 2
+  %aux_data.i = getelementptr inbounds i8, ptr %call.i, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, ptr noundef nonnull align 8 dereferenceable(16) %data_prd, i64 16, i1 false)
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then4.i, %land.lhs.true.i, %if.end.i
-  %stream_user_data8.i = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call.i, i64 0, i32 2, i32 0, i32 1
+  %stream_user_data8.i = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr %stream_user_data, ptr %stream_user_data8.i, align 8
   %2 = and i8 %flags, 33
   %3 = or disjoint i8 %2, 4
@@ -111,7 +79,7 @@ if.end6.i:                                        ; preds = %if.then4.i, %land.l
   br i1 %cmp10.i, label %if.then12.i, label %if.end19.i
 
 if.then12.i:                                      ; preds = %if.end6.i
-  %next_stream_id.i = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 31
+  %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
   %4 = load i32, ptr %next_stream_id.i, align 8
   %cmp13.i = icmp slt i32 %4, 0
   br i1 %cmp13.i, label %fail.i, label %if.end16.i
@@ -156,7 +124,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end5, label %return
@@ -176,7 +144,7 @@ land.lhs.true:                                    ; preds = %if.end5
   br i1 %tobool8.not, label %land.lhs.true9, label %if.end21
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %no_rfc7540_priorities = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 44, i32 7
+  %no_rfc7540_priorities = getelementptr inbounds i8, ptr %session, i64 2824
   %2 = load i32, ptr %no_rfc7540_priorities, align 4
   %cmp10.not = icmp eq i32 %2, 1
   br i1 %cmp10.not, label %if.end21, label %if.then12
@@ -185,7 +153,7 @@ if.then12:                                        ; preds = %land.lhs.true9
   br i1 %cmp, label %if.then1.i, label %detect_self_dependency.exit
 
 if.then1.i:                                       ; preds = %if.then12
-  %next_stream_id.i = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 31
+  %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
   %3 = load i32, ptr %pri_spec, align 4
   br label %detect_self_dependency.exit
 
@@ -227,8 +195,8 @@ declare i32 @nghttp2_session_add_ping(ptr noundef, i8 noundef zeroext, ptr nound
 define i32 @nghttp2_submit_priority(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef readonly %pri_spec) local_unnamed_addr #0 {
 entry:
   %copy_pri_spec = alloca %struct.nghttp2_priority_spec, align 4
-  %mem1 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
-  %no_rfc7540_priorities = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 44, i32 7
+  %mem1 = getelementptr inbounds i8, ptr %session, i64 2528
+  %no_rfc7540_priorities = getelementptr inbounds i8, ptr %session, i64 2824
   %0 = load i32, ptr %no_rfc7540_priorities, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %return, label %if.end
@@ -305,7 +273,7 @@ declare i32 @nghttp2_session_add_rst_stream(ptr noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_goaway(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %last_stream_id, i32 noundef %error_code, ptr noundef %opaque_data, i64 noundef %opaque_data_len) local_unnamed_addr #0 {
 entry:
-  %goaway_flags = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 54
+  %goaway_flags = getelementptr inbounds i8, ptr %session, i64 2877
   %0 = load i8, ptr %goaway_flags, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -325,13 +293,13 @@ declare i32 @nghttp2_session_add_goaway(ptr noundef, i32 noundef, i32 noundef, p
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_shutdown_notice(ptr noundef %session) local_unnamed_addr #0 {
 entry:
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %goaway_flags = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 54
+  %goaway_flags = getelementptr inbounds i8, ptr %session, i64 2877
   %1 = load i8, ptr %goaway_flags, align 1
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %if.end3, label %return
@@ -358,7 +326,7 @@ declare i32 @nghttp2_session_add_settings(ptr noundef, i8 noundef zeroext, ptr n
 define i32 @nghttp2_submit_push_promise(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef %nva, i64 noundef %nvlen, ptr noundef %promised_stream_user_data) local_unnamed_addr #0 {
 entry:
   %nva_copy = alloca ptr, align 8
-  %mem1 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
+  %mem1 = getelementptr inbounds i8, ptr %session, i64 2528
   %cmp = icmp slt i32 %stream_id, 1
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -368,13 +336,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool2.not = icmp eq i8 %0, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %next_stream_id = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 31
+  %next_stream_id = getelementptr inbounds i8, ptr %session, i64 2744
   %1 = load i32, ptr %next_stream_id, align 8
   %cmp5 = icmp slt i32 %1, 0
   br i1 %cmp5, label %return, label %if.end7
@@ -386,7 +354,7 @@ if.end7:                                          ; preds = %if.end4
 
 if.end11:                                         ; preds = %if.end7
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call8) #6
-  %stream_user_data = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call8, i64 0, i32 2, i32 0, i32 1
+  %stream_user_data = getelementptr inbounds i8, ptr %call8, i64 112
   store ptr %promised_stream_user_data, ptr %stream_user_data, align 8
   %call13 = call i32 @nghttp2_nv_array_copy(ptr noundef nonnull %nva_copy, ptr noundef %nva, i64 noundef %nvlen, ptr noundef nonnull %mem1) #6
   %cmp14 = icmp slt i32 %call13, 0
@@ -437,9 +405,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %local_window_size = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 42
-  %recv_window_size = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 39
-  %recv_reduction = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 41
+  %local_window_size = getelementptr inbounds i8, ptr %session, i64 2788
+  %recv_window_size = getelementptr inbounds i8, ptr %session, i64 2776
+  %recv_reduction = getelementptr inbounds i8, ptr %session, i64 2784
   %call = call i32 @nghttp2_adjust_local_window_size(ptr noundef nonnull %local_window_size, ptr noundef nonnull %recv_window_size, ptr noundef nonnull %recv_reduction, ptr noundef nonnull %window_size_increment.addr) #6
   %cmp3.not = icmp eq i32 %call, 0
   br i1 %cmp3.not, label %if.end16, label %return
@@ -450,9 +418,9 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.else
-  %local_window_size9 = getelementptr inbounds %struct.nghttp2_stream, ptr %call6, i64 0, i32 22
-  %recv_window_size10 = getelementptr inbounds %struct.nghttp2_stream, ptr %call6, i64 0, i32 19
-  %recv_reduction11 = getelementptr inbounds %struct.nghttp2_stream, ptr %call6, i64 0, i32 21
+  %local_window_size9 = getelementptr inbounds i8, ptr %call6, i64 188
+  %recv_window_size10 = getelementptr inbounds i8, ptr %call6, i64 176
+  %recv_reduction11 = getelementptr inbounds i8, ptr %call6, i64 184
   %call12 = call i32 @nghttp2_adjust_local_window_size(ptr noundef nonnull %local_window_size9, ptr noundef nonnull %recv_window_size10, ptr noundef nonnull %recv_reduction11, ptr noundef nonnull %window_size_increment.addr) #6
   %cmp13.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not, label %if.end16.thread, label %return
@@ -468,11 +436,11 @@ if.end16.thread:                                  ; preds = %if.end8
   br i1 %cmp1722, label %if.else25, label %return
 
 if.then20:                                        ; preds = %if.end16
-  %consumed_size = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 40
+  %consumed_size = getelementptr inbounds i8, ptr %session, i64 2780
   br label %if.end36
 
 if.else25:                                        ; preds = %if.end16.thread
-  %consumed_size26 = getelementptr inbounds %struct.nghttp2_stream, ptr %call6, i64 0, i32 20
+  %consumed_size26 = getelementptr inbounds i8, ptr %call6, i64 180
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else25, %if.then20
@@ -508,7 +476,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %local_window_size = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 42
+  %local_window_size = getelementptr inbounds i8, ptr %session, i64 2788
   %0 = load i32, ptr %local_window_size, align 4
   %sub = sub nsw i32 %window_size, %0
   store i32 %sub, ptr %window_size_increment, align 4
@@ -517,8 +485,8 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then2
   %cmp6 = icmp slt i32 %sub, 0
-  %recv_window_size = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 39
-  %recv_reduction = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 41
+  %recv_window_size = getelementptr inbounds i8, ptr %session, i64 2776
+  %recv_reduction = getelementptr inbounds i8, ptr %session, i64 2784
   br i1 %cmp6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5
@@ -549,7 +517,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.else
-  %local_window_size26 = getelementptr inbounds %struct.nghttp2_stream, ptr %call22, i64 0, i32 22
+  %local_window_size26 = getelementptr inbounds i8, ptr %call22, i64 188
   %2 = load i32, ptr %local_window_size26, align 4
   %sub27 = sub nsw i32 %window_size, %2
   store i32 %sub27, ptr %window_size_increment, align 4
@@ -558,8 +526,8 @@ if.end25:                                         ; preds = %if.else
 
 if.end30:                                         ; preds = %if.end25
   %cmp31 = icmp slt i32 %sub27, 0
-  %recv_window_size34 = getelementptr inbounds %struct.nghttp2_stream, ptr %call22, i64 0, i32 19
-  %recv_reduction35 = getelementptr inbounds %struct.nghttp2_stream, ptr %call22, i64 0, i32 21
+  %recv_window_size34 = getelementptr inbounds i8, ptr %call22, i64 176
+  %recv_reduction35 = getelementptr inbounds i8, ptr %call22, i64 184
   br i1 %cmp31, label %if.then32, label %if.end37
 
 if.then32:                                        ; preds = %if.end30
@@ -598,8 +566,8 @@ declare i32 @nghttp2_session_update_recv_stream_window_size(ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_altsvc(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef %origin, i64 noundef %origin_len, ptr noundef %field_value, i64 noundef %field_value_len) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %mem1 = getelementptr inbounds i8, ptr %session, i64 2528
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -660,10 +628,10 @@ if.then30:                                        ; preds = %if.end26
 
 if.end31:                                         ; preds = %if.end26
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call28) #6
-  %aux_data = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call28, i64 0, i32 2
+  %aux_data = getelementptr inbounds i8, ptr %call28, i64 96
   store i8 1, ptr %aux_data, align 8
-  %ext_frame_payload = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call28, i64 0, i32 1
-  %payload = getelementptr inbounds %struct.nghttp2_extension, ptr %call28, i64 0, i32 1
+  %ext_frame_payload = getelementptr inbounds i8, ptr %call28, i64 64
+  %payload = getelementptr inbounds i8, ptr %call28, i64 16
   store ptr %ext_frame_payload, ptr %payload, align 8
   tail call void @nghttp2_frame_altsvc_init(ptr noundef nonnull %call28, i32 noundef %stream_id, ptr noundef nonnull %call3639, i64 noundef %origin_len, ptr noundef nonnull %incdec.ptr, i64 noundef %field_value_len) #6
   %call33 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call28) #6
@@ -692,8 +660,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_origin(ptr noundef %session, i8 noundef zeroext %flags, ptr nocapture noundef readonly %ov, i64 noundef %nov) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %mem1 = getelementptr inbounds i8, ptr %session, i64 2528
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -736,9 +704,9 @@ for.body17:                                       ; preds = %if.end13, %for.body
   %arrayidx18 = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %call, i64 %i.152
   store ptr %p.051, ptr %arrayidx18, align 8
   %arrayidx20 = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %ov, i64 %i.152
-  %origin_len21 = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %ov, i64 %i.152, i32 1
+  %origin_len21 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
   %2 = load i64, ptr %origin_len21, align 8
-  %origin_len23 = getelementptr inbounds %struct.nghttp2_origin_entry, ptr %call, i64 %i.152, i32 1
+  %origin_len23 = getelementptr inbounds i8, ptr %arrayidx18, i64 8
   store i64 %2, ptr %origin_len23, align 8
   %3 = load ptr, ptr %arrayidx20, align 8
   %call28 = tail call ptr @nghttp2_cpymem(ptr noundef %p.051, ptr noundef %3, i64 noundef %2) #6
@@ -771,10 +739,10 @@ if.then42:                                        ; preds = %if.end39
 
 if.end43:                                         ; preds = %if.end39
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call40) #6
-  %aux_data = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call40, i64 0, i32 2
+  %aux_data = getelementptr inbounds i8, ptr %call40, i64 96
   store i8 1, ptr %aux_data, align 8
-  %ext_frame_payload = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call40, i64 0, i32 1
-  %payload = getelementptr inbounds %struct.nghttp2_extension, ptr %call40, i64 0, i32 1
+  %ext_frame_payload = getelementptr inbounds i8, ptr %call40, i64 64
+  %payload = getelementptr inbounds i8, ptr %call40, i64 16
   store ptr %ext_frame_payload, ptr %payload, align 8
   tail call void @nghttp2_frame_origin_init(ptr noundef nonnull %call40, ptr noundef %ov_copy.0, i64 noundef %nov) #6
   %call45 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call40) #6
@@ -801,14 +769,14 @@ declare void @nghttp2_frame_origin_free(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_priority_update(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef %field_value, i64 noundef %field_value_len) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %mem1 = getelementptr inbounds i8, ptr %session, i64 2528
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %no_rfc7540_priorities = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 44, i32 7
+  %no_rfc7540_priorities = getelementptr inbounds i8, ptr %session, i64 2824
   %1 = load i32, ptr %no_rfc7540_priorities, align 4
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end3
@@ -847,10 +815,10 @@ if.then18:                                        ; preds = %if.end15
 
 if.end19:                                         ; preds = %if.end15
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call16) #6
-  %aux_data = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call16, i64 0, i32 2
+  %aux_data = getelementptr inbounds i8, ptr %call16, i64 96
   store i8 1, ptr %aux_data, align 8
-  %ext_frame_payload = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call16, i64 0, i32 1
-  %payload = getelementptr inbounds %struct.nghttp2_extension, ptr %call16, i64 0, i32 1
+  %ext_frame_payload = getelementptr inbounds i8, ptr %call16, i64 64
+  %payload = getelementptr inbounds i8, ptr %call16, i64 16
   store ptr %ext_frame_payload, ptr %payload, align 8
   tail call void @nghttp2_frame_priority_update_init(ptr noundef nonnull %call16, i32 noundef %stream_id, ptr noundef %buf.0, i64 noundef %field_value_len) #6
   %call21 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %session, ptr noundef nonnull %call16) #6
@@ -874,7 +842,7 @@ declare void @nghttp2_frame_priority_update_free(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_request(ptr noundef %session, ptr noundef %pri_spec, ptr noundef %nva, i64 noundef %nvlen, ptr noundef %data_prd, ptr noundef %stream_user_data) local_unnamed_addr #0 {
 entry:
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -889,13 +857,13 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool2.not, label %land.lhs.true3, label %if.end9
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %no_rfc7540_priorities = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 44, i32 7
+  %no_rfc7540_priorities = getelementptr inbounds i8, ptr %session, i64 2824
   %1 = load i32, ptr %no_rfc7540_priorities, align 4
   %cmp.not = icmp eq i32 %1, 1
   br i1 %cmp.not, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true3
-  %next_stream_id.i = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 31
+  %next_stream_id.i = getelementptr inbounds i8, ptr %session, i64 2744
   %2 = load i32, ptr %pri_spec, align 4
   %.sink.i = load i32, ptr %next_stream_id.i, align 4
   %cmp8.i.not = icmp eq i32 %.sink.i, %2
@@ -907,7 +875,7 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end9
-  %read_callback.i = getelementptr inbounds %struct.nghttp2_data_provider, ptr %data_prd, i64 0, i32 1
+  %read_callback.i = getelementptr inbounds i8, ptr %data_prd, i64 8
   %3 = load ptr, ptr %read_callback.i, align 8
   %cmp1.i = icmp eq ptr %3, null
   br i1 %cmp1.i, label %if.then.i, label %set_request_flags.exit
@@ -935,7 +903,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %server = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 53
+  %server = getelementptr inbounds i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end2
@@ -945,7 +913,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end2
-  %read_callback.i = getelementptr inbounds %struct.nghttp2_data_provider, ptr %data_prd, i64 0, i32 1
+  %read_callback.i = getelementptr inbounds i8, ptr %data_prd, i64 8
   %1 = load ptr, ptr %read_callback.i, align 8
   %cmp1.i = icmp eq ptr %1, null
   br i1 %cmp1.i, label %if.then.i, label %set_response_flags.exit
@@ -967,7 +935,7 @@ return:                                           ; preds = %if.end, %entry, %se
 define i32 @nghttp2_submit_data(ptr noundef %session, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr nocapture noundef readonly %data_prd) local_unnamed_addr #0 {
 entry:
   %0 = and i8 %flags, 1
-  %mem2 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
+  %mem2 = getelementptr inbounds i8, ptr %session, i64 2528
   %cmp = icmp eq i32 %stream_id, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -978,11 +946,11 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %call) #6
-  %aux_data9 = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call, i64 0, i32 2
+  %aux_data9 = getelementptr inbounds i8, ptr %call, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data9, ptr noundef nonnull align 8 dereferenceable(16) %data_prd, i64 16, i1 false)
   %eof = getelementptr inbounds i8, ptr %call, i64 113
   store i8 0, ptr %eof, align 1
-  %flags11 = getelementptr inbounds %struct.nghttp2_outbound_item, ptr %call, i64 0, i32 2, i32 0, i32 1
+  %flags11 = getelementptr inbounds i8, ptr %call, i64 112
   store i8 %0, ptr %flags11, align 8
   tail call void @nghttp2_frame_data_init(ptr noundef nonnull %call, i8 noundef zeroext 0, i32 noundef %stream_id) #6
   %call12 = tail call i32 @nghttp2_session_add_item(ptr noundef %session, ptr noundef nonnull %call) #6
@@ -1031,12 +999,12 @@ declare i64 @nghttp2_frame_pack_settings_payload(ptr noundef, ptr noundef, i64 n
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_extension(ptr noundef %session, i8 noundef zeroext %type, i8 noundef zeroext %flags, i32 noundef %stream_id, ptr noundef %payload) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 11
+  %mem1 = getelementptr inbounds i8, ptr %session, i64 2528
   %cmp = icmp ult i8 %type, 10
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pack_extension_callback = getelementptr inbounds %struct.nghttp2_session, ptr %session, i64 0, i32 10, i32 18
+  %pack_extension_callback = getelementptr inbounds i8, ptr %session, i64 2488
   %0 = load ptr, ptr %pack_extension_callback, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end4

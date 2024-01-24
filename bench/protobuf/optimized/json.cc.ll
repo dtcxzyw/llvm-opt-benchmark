@@ -5,13 +5,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%"struct.google::protobuf::json::PrintOptions" = type { i8, i8, i8, i8, i8 }
 %"class.google::protobuf::io::ArrayInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", ptr, i32, i32, i32, i32 }
 %"class.google::protobuf::io::ZeroCopyInputStream" = type { ptr }
 %"class.google::protobuf::io::StringOutputStream" = type { %"class.google::protobuf::io::ZeroCopyOutputStream", ptr }
 %"class.google::protobuf::io::ZeroCopyOutputStream" = type { ptr }
 %"struct.google::protobuf::json_internal::ParseOptions" = type <{ i8, i8, [2 x i8], i32, i8, [3 x i8] }>
-%"struct.google::protobuf::json::ParseOptions" = type { i8, i8 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -30,16 +28,16 @@ define void @_ZN6google8protobuf4json18BinaryToJsonStreamEPNS0_4util12TypeResolv
 entry:
   %0 = load i8, ptr %options, align 1
   %1 = and i8 %0, 1
-  %preserve_proto_field_names = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 3
+  %preserve_proto_field_names = getelementptr inbounds i8, ptr %options, i64 3
   %2 = load i8, ptr %preserve_proto_field_names, align 1
   %3 = and i8 %2, 1
-  %always_print_enums_as_ints = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 2
+  %always_print_enums_as_ints = getelementptr inbounds i8, ptr %options, i64 2
   %4 = load i8, ptr %always_print_enums_as_ints, align 1
   %5 = and i8 %4, 1
-  %always_print_primitive_fields = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 1
+  %always_print_primitive_fields = getelementptr inbounds i8, ptr %options, i64 1
   %6 = load i8, ptr %always_print_primitive_fields, align 1
   %7 = and i8 %6, 1
-  %unquote_int64_if_possible = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 4
+  %unquote_int64_if_possible = getelementptr inbounds i8, ptr %options, i64 4
   %8 = load i8, ptr %unquote_int64_if_possible, align 1
   %9 = and i8 %8, 1
   %opts.sroa.6.0.insert.ext = zext nneg i8 %9 to i48
@@ -74,16 +72,16 @@ entry:
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %output_stream, ptr noundef %json_output)
   %0 = load i8, ptr %options, align 1, !noalias !4
   %1 = and i8 %0, 1
-  %preserve_proto_field_names.i = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 3
+  %preserve_proto_field_names.i = getelementptr inbounds i8, ptr %options, i64 3
   %2 = load i8, ptr %preserve_proto_field_names.i, align 1, !noalias !4
   %3 = and i8 %2, 1
-  %always_print_enums_as_ints.i = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 2
+  %always_print_enums_as_ints.i = getelementptr inbounds i8, ptr %options, i64 2
   %4 = load i8, ptr %always_print_enums_as_ints.i, align 1, !noalias !4
   %5 = and i8 %4, 1
-  %always_print_primitive_fields.i = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 1
+  %always_print_primitive_fields.i = getelementptr inbounds i8, ptr %options, i64 1
   %6 = load i8, ptr %always_print_primitive_fields.i, align 1, !noalias !4
   %7 = and i8 %6, 1
-  %unquote_int64_if_possible.i = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 4
+  %unquote_int64_if_possible.i = getelementptr inbounds i8, ptr %options, i64 4
   %8 = load i8, ptr %unquote_int64_if_possible.i, align 1, !noalias !4
   %9 = and i8 %8, 1
   %opts.sroa.6.0.insert.ext.i = zext nneg i8 %9 to i48
@@ -122,7 +120,7 @@ entry:
   %agg.tmp = alloca %"struct.google::protobuf::json_internal::ParseOptions", align 8
   %0 = load i8, ptr %options, align 1
   %1 = and i8 %0, 1
-  %case_insensitive_enum_parsing = getelementptr inbounds %"struct.google::protobuf::json::ParseOptions", ptr %options, i64 0, i32 1
+  %case_insensitive_enum_parsing = getelementptr inbounds i8, ptr %options, i64 1
   %2 = load i8, ptr %case_insensitive_enum_parsing, align 1
   %3 = and i8 %2, 1
   store i8 %1, ptr %agg.tmp, align 8
@@ -150,7 +148,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %agg.tmp.i)
   %0 = load i8, ptr %options, align 1, !noalias !7
   %1 = and i8 %0, 1
-  %case_insensitive_enum_parsing.i = getelementptr inbounds %"struct.google::protobuf::json::ParseOptions", ptr %options, i64 0, i32 1
+  %case_insensitive_enum_parsing.i = getelementptr inbounds i8, ptr %options, i64 1
   %2 = load i8, ptr %case_insensitive_enum_parsing.i, align 1, !noalias !7
   %3 = and i8 %2, 1
   store i8 %1, ptr %agg.tmp.i, align 8, !noalias !7
@@ -170,16 +168,16 @@ define void @_ZN6google8protobuf4json19MessageToJsonStringERKNS0_7MessageEPNSt7_
 entry:
   %0 = load i8, ptr %options, align 1
   %1 = and i8 %0, 1
-  %preserve_proto_field_names = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 3
+  %preserve_proto_field_names = getelementptr inbounds i8, ptr %options, i64 3
   %2 = load i8, ptr %preserve_proto_field_names, align 1
   %3 = and i8 %2, 1
-  %always_print_enums_as_ints = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 2
+  %always_print_enums_as_ints = getelementptr inbounds i8, ptr %options, i64 2
   %4 = load i8, ptr %always_print_enums_as_ints, align 1
   %5 = and i8 %4, 1
-  %always_print_primitive_fields = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 1
+  %always_print_primitive_fields = getelementptr inbounds i8, ptr %options, i64 1
   %6 = load i8, ptr %always_print_primitive_fields, align 1
   %7 = and i8 %6, 1
-  %unquote_int64_if_possible = getelementptr inbounds %"struct.google::protobuf::json::PrintOptions", ptr %options, i64 0, i32 4
+  %unquote_int64_if_possible = getelementptr inbounds i8, ptr %options, i64 4
   %8 = load i8, ptr %unquote_int64_if_possible, align 1
   %9 = and i8 %8, 1
   %opts.sroa.6.0.insert.ext = zext nneg i8 %9 to i48
@@ -207,7 +205,7 @@ define void @_ZN6google8protobuf4json19JsonStringToMessageESt17basic_string_view
 entry:
   %0 = load i8, ptr %options, align 1
   %1 = and i8 %0, 1
-  %case_insensitive_enum_parsing = getelementptr inbounds %"struct.google::protobuf::json::ParseOptions", ptr %options, i64 0, i32 1
+  %case_insensitive_enum_parsing = getelementptr inbounds i8, ptr %options, i64 1
   %2 = load i8, ptr %case_insensitive_enum_parsing, align 1
   %3 = and i8 %2, 1
   %opts.sroa.3.0.insert.ext = zext nneg i8 %3 to i64

@@ -3,9 +3,6 @@ source_filename = "bench/libquic/original/ssl_stat.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ssl_st = type { i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, [32 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.crypto_ex_data_st, ptr, i32, i32, i32, i32, i16, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i8, i8, i32 }
-%struct.crypto_ex_data_st = type { ptr }
-
 @.str = private unnamed_addr constant [29 x i8] c"before accept initialization\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"before connect initialization\00", align 1
 @.str.2 = private unnamed_addr constant [38 x i8] c"SSL negotiation finished successfully\00", align 1
@@ -165,7 +162,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull ptr @SSL_state_string_long(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 9
+  %state = getelementptr inbounds i8, ptr %ssl, i64 52
   %0 = load i32, ptr %state, align 4
   switch i32 %0, label %sw.default [
     i32 8192, label %return
@@ -430,7 +427,7 @@ return:                                           ; preds = %entry, %sw.default,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull ptr @SSL_state_string(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds %struct.ssl_st, ptr %ssl, i64 0, i32 9
+  %state = getelementptr inbounds i8, ptr %ssl, i64 52
   %0 = load i32, ptr %state, align 4
   switch i32 %0, label %sw.default [
     i32 8192, label %return

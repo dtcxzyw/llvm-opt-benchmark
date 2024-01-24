@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::array" = type { [7 x i8] }
-%"class.google::protobuf::compiler::Subprocess" = type { i32, i32, i32 }
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
@@ -67,9 +66,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN6google8protobuf8compiler10SubprocessC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 -1, ptr %this, align 4
-  %child_stdin_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 1
+  %child_stdin_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %child_stdin_, align 4
-  %child_stdout_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 2
+  %child_stdout_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 -1, ptr %child_stdout_, align 4
   ret void
 }
@@ -77,7 +76,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8compiler10SubprocessD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %child_stdin_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 1
+  %child_stdin_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %child_stdin_, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -87,7 +86,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %child_stdout_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 2
+  %child_stdout_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %child_stdout_, align 4
   %cmp3.not = icmp eq i32 %1, -1
   br i1 %cmp3.not, label %if.end8, label %if.then4
@@ -165,7 +164,7 @@ if.then.i:                                        ; preds = %cleanup.done25
 
 _ZN6google8protobuf8compiler12_GLOBAL__N_115portable_strdupEPKc.exit: ; preds = %cleanup.done25, %if.then.i
   store ptr %call1.i, ptr %argv, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %argv, i64 8
   store ptr null, ptr %arrayinit.element, align 8
   %call31 = call i32 @fork() #22
   store i32 %call31, ptr %this, align 4
@@ -200,12 +199,12 @@ lpad36:                                           ; preds = %if.then, %invoke.co
 if.then49:                                        ; preds = %_ZN6google8protobuf8compiler12_GLOBAL__N_115portable_strdupEPKc.exit
   %2 = load i32, ptr %stdin_pipe, align 4
   %call50 = call i32 @dup2(i32 noundef %2, i32 noundef 0) #22
-  %arrayidx51 = getelementptr inbounds [2 x i32], ptr %stdout_pipe, i64 0, i64 1
+  %arrayidx51 = getelementptr inbounds i8, ptr %stdout_pipe, i64 4
   %3 = load i32, ptr %arrayidx51, align 4
   %call52 = call i32 @dup2(i32 noundef %3, i32 noundef 1) #22
   %4 = load i32, ptr %stdin_pipe, align 4
   %call54 = call i32 @close(i32 noundef %4)
-  %arrayidx55 = getelementptr inbounds [2 x i32], ptr %stdin_pipe, i64 0, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %stdin_pipe, i64 4
   %5 = load i32, ptr %arrayidx55, align 4
   %call56 = call i32 @close(i32 noundef %5)
   %6 = load i32, ptr %stdout_pipe, align 4
@@ -237,15 +236,15 @@ if.else75:                                        ; preds = %_ZN6google8protobuf
   call void @free(ptr noundef %call1.i) #22
   %9 = load i32, ptr %stdin_pipe, align 4
   %call78 = call i32 @close(i32 noundef %9)
-  %arrayidx79 = getelementptr inbounds [2 x i32], ptr %stdout_pipe, i64 0, i64 1
+  %arrayidx79 = getelementptr inbounds i8, ptr %stdout_pipe, i64 4
   %10 = load i32, ptr %arrayidx79, align 4
   %call80 = call i32 @close(i32 noundef %10)
-  %arrayidx81 = getelementptr inbounds [2 x i32], ptr %stdin_pipe, i64 0, i64 1
+  %arrayidx81 = getelementptr inbounds i8, ptr %stdin_pipe, i64 4
   %11 = load i32, ptr %arrayidx81, align 4
-  %child_stdin_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 1
+  %child_stdin_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %11, ptr %child_stdin_, align 4
   %12 = load i32, ptr %stdout_pipe, align 4
-  %child_stdout_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 2
+  %child_stdout_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %12, ptr %child_stdout_, align 4
   ret void
 }
@@ -272,7 +271,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr n
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIPcTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS6_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
-  %data_ = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8
   call void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view, ptr noundef nonnull align 1 %0)
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamView6streamEv(ptr noundef nonnull align 8 dereferenceable(120) %view)
@@ -347,7 +346,7 @@ entry:
   %ref.tmp226 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp228 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp229 = alloca %"class.std::__cxx11::basic_string", align 8
-  %child_stdin_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 1
+  %child_stdin_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %child_stdin_, align 4
   %cmp.not.i.i = icmp eq i32 %0, -1
   br i1 %cmp.not.i.i, label %while.body, label %while.end
@@ -391,7 +390,7 @@ lpad9:                                            ; preds = %if.then, %while.end
 
 if.end:                                           ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_data) #22
-  %child_stdout_ = getelementptr inbounds %"class.google::protobuf::compiler::Subprocess", ptr %this, i64 0, i32 2
+  %child_stdout_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i32, ptr %child_stdout_, align 4
   %cmp.not48 = icmp eq i32 %5, -1
   %.pre53 = load i32, ptr %child_stdin_, align 4
@@ -668,7 +667,7 @@ if.then188:                                       ; preds = %while.end184
   br i1 %cmp190.not, label %if.end219, label %if.then191
 
 if.then191:                                       ; preds = %if.then188
-  %scratch_.i = getelementptr inbounds %"class.absl::lts_20230802::substitute_internal::Arg", ptr %ref.tmp196, i64 0, i32 1
+  %scratch_.i = getelementptr inbounds i8, ptr %ref.tmp196, i64 16
   %call.i23 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %shr, ptr noundef nonnull %scratch_.i)
           to label %invoke.cont197 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp
 
@@ -677,14 +676,14 @@ invoke.cont197:                                   ; preds = %if.then191
   %sub.ptr.rhs.cast.i = ptrtoint ptr %scratch_.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %ref.tmp196, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp196, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp196, i64 8
   store ptr %scratch_.i, ptr %_M_str.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp194) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i), !noalias !7
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %ref.tmp196, align 8, !noalias !7
   %retval.sroa.2.0.copyload.i.i.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !7
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %args.i.i, align 16, !noalias !7
-  %26 = getelementptr inbounds { i64, ptr }, ptr %args.i.i, i64 0, i32 1
+  %26 = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i, ptr %26, align 8, !noalias !7
   invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull %ref.tmp194, i64 34, ptr nonnull @.str.10, ptr noundef nonnull %args.i.i, i64 noundef 1)
           to label %invoke.cont198 unwind label %lpad.i
@@ -707,7 +706,7 @@ if.else201:                                       ; preds = %while.end184
   br i1 %cmp207, label %if.then208, label %if.else216
 
 if.then208:                                       ; preds = %if.else201
-  %scratch_.i26 = getelementptr inbounds %"class.absl::lts_20230802::substitute_internal::Arg", ptr %ref.tmp212, i64 0, i32 1
+  %scratch_.i26 = getelementptr inbounds i8, ptr %ref.tmp212, i64 16
   %call.i31 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %and186, ptr noundef nonnull %scratch_.i26)
           to label %invoke.cont213 unwind label %lpad15.loopexit.split-lp.loopexit.split-lp
 
@@ -716,14 +715,14 @@ invoke.cont213:                                   ; preds = %if.then208
   %sub.ptr.rhs.cast.i28 = ptrtoint ptr %scratch_.i26 to i64
   %sub.ptr.sub.i29 = sub i64 %sub.ptr.lhs.cast.i27, %sub.ptr.rhs.cast.i28
   store i64 %sub.ptr.sub.i29, ptr %ref.tmp212, align 8
-  %_M_str.i.i30 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp212, i64 0, i32 1
+  %_M_str.i.i30 = getelementptr inbounds i8, ptr %ref.tmp212, i64 8
   store ptr %scratch_.i26, ptr %_M_str.i.i30, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i33), !noalias !10
   %retval.sroa.0.0.copyload.i.i.i34 = load i64, ptr %ref.tmp212, align 8, !noalias !10
   %retval.sroa.2.0.copyload.i.i.i36 = load ptr, ptr %_M_str.i.i30, align 8, !noalias !10
   store i64 %retval.sroa.0.0.copyload.i.i.i34, ptr %args.i.i33, align 16, !noalias !10
-  %28 = getelementptr inbounds { i64, ptr }, ptr %args.i.i33, i64 0, i32 1
+  %28 = getelementptr inbounds i8, ptr %args.i.i33, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i36, ptr %28, align 8, !noalias !10
   invoke void @_ZN4absl12lts_2023080219substitute_internal24SubstituteAndAppendArrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS5_EPKSA_m(ptr noundef nonnull %ref.tmp210, i64 27, ptr nonnull @.str.11, ptr noundef nonnull %args.i.i33, i64 noundef 1)
           to label %invoke.cont214 unwind label %lpad.i37
@@ -755,7 +754,7 @@ invoke.cont222:                                   ; preds = %if.end219
 
 invoke.cont227:                                   ; preds = %invoke.cont222
   store i64 30, ptr %ref.tmp226, align 8
-  %32 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp226, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %ref.tmp226, i64 8
   store ptr @.str.13, ptr %32, align 8
   %call231 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %output_data) #22
   %33 = extractvalue { i64, ptr } %call231, 0
@@ -767,7 +766,7 @@ invoke.cont232:                                   ; preds = %invoke.cont227
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp229) #22
   %35 = extractvalue { i64, ptr } %call.i, 0
   store i64 %35, ptr %ref.tmp228, align 8
-  %36 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp228, i64 0, i32 1
+  %36 = getelementptr inbounds i8, ptr %ref.tmp228, i64 8
   %37 = extractvalue { i64, ptr } %call.i, 1
   store ptr %37, ptr %36, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp225, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp226, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp228)

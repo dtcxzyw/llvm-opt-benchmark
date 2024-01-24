@@ -3,7 +3,6 @@ source_filename = "bench/arrow/original/formatting.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.arrow_vendored::double_conversion::DoubleToStringConverter" = type { i32, ptr, ptr, i8, i32, i32, i32, i32, i32 }
 %"class.arrow_vendored::double_conversion::StringBuilder" = type { %"class.arrow_vendored::double_conversion::Vector", i32, [4 x i8] }
 %"class.arrow_vendored::double_conversion::Vector" = type <{ ptr, i32, [4 x i8] }>
 
@@ -20,15 +19,15 @@ define void @_ZN5arrow8internal22FloatToStringFormatterC2Ev(ptr nocapture nounde
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #5
   store i32 1, ptr %call, align 8
-  %infinity_symbol_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 1
+  %infinity_symbol_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @.str, ptr %infinity_symbol_.i.i, align 8
-  %nan_symbol_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 2
+  %nan_symbol_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @.str.1, ptr %nan_symbol_.i.i, align 8
-  %exponent_character_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 3
+  %exponent_character_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i8 101, ptr %exponent_character_.i.i, align 8
-  %decimal_in_shortest_low_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 4
+  %decimal_in_shortest_low_.i.i = getelementptr inbounds i8, ptr %call, i64 28
   store <4 x i32> <i32 -6, i32 10, i32 6, i32 0>, ptr %decimal_in_shortest_low_.i.i, align 4
-  %min_exponent_width_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 8
+  %min_exponent_width_.i.i = getelementptr inbounds i8, ptr %call, i64 44
   store i32 0, ptr %min_exponent_width_.i.i, align 4
   store ptr %call, ptr %this, align 8
   ret void
@@ -47,21 +46,21 @@ define void @_ZN5arrow8internal22FloatToStringFormatterC2EiPKcS3_ciiii(ptr nocap
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #5
   store i32 %flags, ptr %call, align 8
-  %infinity_symbol_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 1
+  %infinity_symbol_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %inf_symbol, ptr %infinity_symbol_.i.i, align 8
-  %nan_symbol_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 2
+  %nan_symbol_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %nan_symbol, ptr %nan_symbol_.i.i, align 8
-  %exponent_character_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 3
+  %exponent_character_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i8 %exp_character, ptr %exponent_character_.i.i, align 8
-  %decimal_in_shortest_low_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 4
+  %decimal_in_shortest_low_.i.i = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %decimal_in_shortest_low, ptr %decimal_in_shortest_low_.i.i, align 4
-  %decimal_in_shortest_high_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 5
+  %decimal_in_shortest_high_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %decimal_in_shortest_high, ptr %decimal_in_shortest_high_.i.i, align 8
-  %max_leading_padding_zeroes_in_precision_mode_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 6
+  %max_leading_padding_zeroes_in_precision_mode_.i.i = getelementptr inbounds i8, ptr %call, i64 36
   store i32 %max_leading_padding_zeroes_in_precision_mode, ptr %max_leading_padding_zeroes_in_precision_mode_.i.i, align 4
-  %max_trailing_padding_zeroes_in_precision_mode_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 7
+  %max_trailing_padding_zeroes_in_precision_mode_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %max_trailing_padding_zeroes_in_precision_mode, ptr %max_trailing_padding_zeroes_in_precision_mode_.i.i, align 8
-  %min_exponent_width_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::DoubleToStringConverter", ptr %call, i64 0, i32 8
+  %min_exponent_width_.i.i = getelementptr inbounds i8, ptr %call, i64 44
   store i32 0, ptr %min_exponent_width_.i.i, align 4
   store ptr %call, ptr %this, align 8
   ret void
@@ -88,9 +87,9 @@ define noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci
 entry:
   %builder = alloca %"class.arrow_vendored::double_conversion::StringBuilder", align 8
   store ptr %out_buffer, ptr %builder, align 8
-  %length_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::Vector", ptr %builder, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %builder, i64 8
   store i32 %out_size, ptr %length_.i.i, align 8
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %builder, i64 16
   store i32 0, ptr %position_.i, align 8
   %0 = load ptr, ptr %this, align 8
   %conv.i = fpext float %v to double
@@ -135,9 +134,9 @@ define noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci
 entry:
   %builder = alloca %"class.arrow_vendored::double_conversion::StringBuilder", align 8
   store ptr %out_buffer, ptr %builder, align 8
-  %length_.i.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::Vector", ptr %builder, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %builder, i64 8
   store i32 %out_size, ptr %length_.i.i, align 8
-  %position_.i = getelementptr inbounds %"class.arrow_vendored::double_conversion::StringBuilder", ptr %builder, i64 0, i32 1
+  %position_.i = getelementptr inbounds i8, ptr %builder, i64 16
   store i32 0, ptr %position_.i, align 8
   %0 = load ptr, ptr %this, align 8
   %call.i1 = invoke noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS0_13StringBuilderENS1_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48) %0, double noundef %v, ptr noundef nonnull %builder, i32 noundef 0)

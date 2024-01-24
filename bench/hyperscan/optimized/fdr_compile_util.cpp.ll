@@ -3,21 +3,11 @@ source_filename = "bench/hyperscan/original/fdr_compile_util.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::_Vector_base<ue2::hwlmLiteral, std::allocator<ue2::hwlmLiteral>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::hwlmLiteral" = type { %"class.std::__cxx11::basic_string", i32, i8, i8, i32, i8, i64, %"class.std::vector.3", %"class.std::vector.3" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN3ue26maxLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lits) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %lits, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::hwlmLiteral, std::allocator<ue2::hwlmLiteral>>::_Vector_impl_data", ptr %lits, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %lits, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %0, %1
   br i1 %cmp.i.not8, label %for.end, label %for.body
@@ -27,7 +17,7 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %call5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.09) #4
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %rv.010, i64 %call5)
-  %incdec.ptr.i = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %__begin1.sroa.0.09, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 104
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -44,7 +34,7 @@ define hidden noundef i64 @_ZN3ue211minLenCountERKSt6vectorINS_11hwlmLiteralESaI
 entry:
   store i64 0, ptr %count, align 8
   %0 = load ptr, ptr %lits, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<ue2::hwlmLiteral, std::allocator<ue2::hwlmLiteral>>::_Vector_impl_data", ptr %lits, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %lits, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not10 = icmp eq ptr %0, %1
   br i1 %cmp.i.not10, label %for.end, label %for.body
@@ -74,7 +64,7 @@ for.inc.sink.split:                               ; preds = %for.body, %if.then1
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else
   %rv.1 = phi i64 [ %rv.012, %if.else ], [ %rv.1.ph, %for.inc.sink.split ]
-  %incdec.ptr.i = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %__begin1.sroa.0.011, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 104
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 

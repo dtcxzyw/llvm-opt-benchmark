@@ -3,13 +3,10 @@ source_filename = "bench/qemu/original/target_riscv_zce_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_cm_jalt(ptr noundef %env, i32 noundef %index) local_unnamed_addr #0 {
 entry:
-  %jvt = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 27
+  %jvt = getelementptr inbounds i8, ptr %env, i64 5040
   %0 = load i64, ptr %jvt, align 16
   %and1 = and i64 %0, -64
   %conv10 = and i64 %0, 63

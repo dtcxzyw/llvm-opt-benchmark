@@ -3,14 +3,8 @@ source_filename = "bench/libquic/original/quic_header_list.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::QuicHeaderList" = type { %"class.net::SpdyHeadersHandlerInterface", %"class.std::deque", i64 }
-%"class.net::SpdyHeadersHandlerInterface" = type { ptr }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"struct.std::_Deque_iterator.3" = type { ptr, ptr, ptr, ptr }
+%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -104,10 +98,10 @@ $_ZTIN3net27SpdyHeadersHandlerInterfaceE = comdat any
 define dso_local void @_ZN3net14QuicHeaderListC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, i64 noundef 0)
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 88
   store i64 0, ptr %uncompressed_header_bytes_, align 8
   ret void
 }
@@ -119,8 +113,8 @@ define dso_local void @_ZN3net14QuicHeaderListC2EOS0_(ptr noundef nonnull align 
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca { ptr, i64 }, align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
-  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_list_2 = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, i64 noundef 0)
   %0 = load ptr, ptr %header_list_2, align 8
@@ -130,17 +124,17 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %header_list_, i64 16, i1 false)
-  %_M_start3.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_last4.i.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
-  %_M_finish4.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_last4.i6.i.i.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
-  %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_last4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_last4.i6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   %1 = load <2 x ptr>, ptr %_M_start3.i.i.i.i.i.i, align 8
-  %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
   %2 = load <2 x ptr>, ptr %_M_last4.i.i.i.i.i.i.i, align 8
-  %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 56
   %3 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 72
   %4 = load <2 x ptr>, ptr %_M_last4.i6.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(80) %header_list_2, i64 80, i1 false)
@@ -153,8 +147,8 @@ if.then.i.i:                                      ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
-  %uncompressed_header_bytes_3 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 88
+  %uncompressed_header_bytes_3 = getelementptr inbounds i8, ptr %other, i64 88
   %5 = load i64, ptr %uncompressed_header_bytes_3, align 8
   store i64 %5, ptr %uncompressed_header_bytes_, align 8
   ret void
@@ -164,11 +158,11 @@ invoke.cont:                                      ; preds = %if.then.i.i, %entry
 define dso_local void @_ZN3net14QuicHeaderListC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
-  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_list_2 = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEC2ERKS9_(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(80) %header_list_2)
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
-  %uncompressed_header_bytes_3 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 88
+  %uncompressed_header_bytes_3 = getelementptr inbounds i8, ptr %other, i64 88
   %0 = load i64, ptr %uncompressed_header_bytes_3, align 8
   store i64 %0, ptr %uncompressed_header_bytes_, align 8
   ret void
@@ -181,11 +175,11 @@ entry:
   %agg.tmp1.i.i.i = alloca %"struct.std::_Deque_iterator.3", align 16
   %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %tmp = alloca %"struct.std::_Deque_iterator", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %__x, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %__x, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %__x, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -196,14 +190,14 @@ entry:
   %sub.ptr.div7.i.i = add i64 %sub.ptr.sub.i.i, %sub6.i.i
   %mul.i.i = and i64 %sub.ptr.div7.i.i, -8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %__x, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 6
   %add.i.i = add nsw i64 %sub.ptr.div6.i.i, %mul.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -213,25 +207,25 @@ entry:
   %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %add12.i.i)
-  %_M_last4.i.i13 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 2
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last4.i.i13 = getelementptr inbounds i8, ptr %__x, i64 64
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_last4.i = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !5
   %6 = load <2 x ptr>, ptr %_M_start.i, align 8, !noalias !10
   store <2 x ptr> %6, ptr %agg.tmp.i.i.i, align 16, !noalias !13
-  %_M_last.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %7 = load <2 x ptr>, ptr %_M_last.i.i, align 8, !noalias !10
   store <2 x ptr> %7, ptr %_M_last.i.i.i.i, align 16, !noalias !13
   %8 = load <2 x ptr>, ptr %_M_finish.i, align 8, !noalias !16
   store <2 x ptr> %8, ptr %agg.tmp1.i.i.i, align 16, !noalias !13
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   %9 = load <2 x ptr>, ptr %_M_last4.i.i13, align 8, !noalias !16
   store <2 x ptr> %9, ptr %_M_last.i3.i.i.i, align 16, !noalias !13
   %10 = load <2 x ptr>, ptr %_M_start, align 8
   store <2 x ptr> %10, ptr %agg.tmp2.i.i.i, align 16, !noalias !13
-  %_M_last.i9.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   %11 = load <2 x ptr>, ptr %_M_last4.i, align 8
   store <2 x ptr> %11, ptr %_M_last.i9.i.i.i, align 16, !noalias !13
   invoke void @_ZSt16__do_uninit_copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ES0_IS8_RS8_PS8_EET0_T_SH_SG_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
@@ -253,12 +247,12 @@ lpad6:                                            ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN3net14QuicHeaderListaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) local_unnamed_addr #0 align 2 {
 entry:
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
-  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_list_2 = getelementptr inbounds i8, ptr %other, i64 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(80) %header_list_2)
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %other, i64 88
   %0 = load i64, ptr %uncompressed_header_bytes_, align 8
-  %uncompressed_header_bytes_4 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
+  %uncompressed_header_bytes_4 = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %0, ptr %uncompressed_header_bytes_4, align 8
   ret ptr %this
 }
@@ -283,11 +277,11 @@ entry:
   br i1 %cmp.not, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -298,14 +292,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.div7.i.i = add i64 %sub.ptr.sub.i.i, %sub6.i.i
   %mul.i.i = and i64 %sub.ptr.div7.i.i, -8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 6
   %add.i.i = add nsw i64 %sub.ptr.div6.i.i, %mul.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -313,11 +307,11 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 6
   %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
-  %_M_finish.i8 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3
-  %_M_start.i9 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 2
-  %_M_node.i.i10 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 3
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %__x, i64 48
+  %_M_start.i9 = getelementptr inbounds i8, ptr %__x, i64 16
+  %_M_node.i.i10 = getelementptr inbounds i8, ptr %__x, i64 72
   %6 = load ptr, ptr %_M_node.i.i10, align 8
-  %_M_node1.i.i11 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 3
+  %_M_node1.i.i11 = getelementptr inbounds i8, ptr %__x, i64 40
   %7 = load ptr, ptr %_M_node1.i.i11, align 8
   %sub.ptr.lhs.cast.i.i12 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i13 = ptrtoint ptr %7 to i64
@@ -328,14 +322,14 @@ if.then:                                          ; preds = %entry
   %sub.ptr.div7.i.i18 = add i64 %sub.ptr.sub.i.i14, %sub6.i.i17
   %mul.i.i19 = and i64 %sub.ptr.div7.i.i18, -8
   %8 = load ptr, ptr %_M_finish.i8, align 8
-  %_M_first.i.i20 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 1
+  %_M_first.i.i20 = getelementptr inbounds i8, ptr %__x, i64 56
   %9 = load ptr, ptr %_M_first.i.i20, align 8
   %sub.ptr.lhs.cast3.i.i21 = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast4.i.i22 = ptrtoint ptr %9 to i64
   %sub.ptr.sub5.i.i23 = sub i64 %sub.ptr.lhs.cast3.i.i21, %sub.ptr.rhs.cast4.i.i22
   %sub.ptr.div6.i.i24 = ashr exact i64 %sub.ptr.sub5.i.i23, 6
   %add.i.i25 = add nsw i64 %sub.ptr.div6.i.i24, %mul.i.i19
-  %_M_last.i.i26 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 2
+  %_M_last.i.i26 = getelementptr inbounds i8, ptr %__x, i64 32
   %10 = load ptr, ptr %_M_last.i.i26, align 8
   %11 = load ptr, ptr %_M_start.i9, align 8
   %sub.ptr.lhs.cast8.i.i27 = ptrtoint ptr %10 to i64
@@ -344,65 +338,65 @@ if.then:                                          ; preds = %entry
   %sub.ptr.div11.i.i30 = ashr exact i64 %sub.ptr.sub10.i.i29, 6
   %add12.i.i31 = add nsw i64 %add.i.i25, %sub.ptr.div11.i.i30
   %cmp3.not = icmp ult i64 %add12.i.i, %add12.i.i31
-  %_M_first3.i.i52 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 2, i32 1
+  %_M_first3.i.i52 = getelementptr inbounds i8, ptr %__x, i64 24
   %12 = load ptr, ptr %_M_first3.i.i52, align 8, !noalias !19
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %_M_last4.i.i40 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 2
+  %_M_last4.i.i40 = getelementptr inbounds i8, ptr %__x, i64 64
   %13 = load ptr, ptr %_M_last4.i.i40, align 8, !noalias !20
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %this, i64 24
   %14 = load ptr, ptr %_M_first3.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !26
   store ptr %11, ptr %agg.tmp.i.i.i, align 8, !noalias !29
-  %_M_first.i.i25.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %12, ptr %_M_first.i.i25.i.i, align 8, !noalias !29
-  %_M_last.i.i27.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %10, ptr %_M_last.i.i27.i.i, align 8, !noalias !29
-  %_M_node.i.i29.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 3
+  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i.i29.i.i, align 8, !noalias !29
   store ptr %8, ptr %agg.tmp1.i.i.i, align 8, !noalias !29
-  %_M_first.i1.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 1
+  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
   store ptr %9, ptr %_M_first.i1.i.i.i, align 8, !noalias !29
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   store ptr %13, ptr %_M_last.i3.i.i.i, align 8, !noalias !29
-  %_M_node.i5.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 3
+  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
   store ptr %6, ptr %_M_node.i5.i.i.i, align 8, !noalias !29
   store ptr %5, ptr %agg.tmp2.i.i.i, align 8, !noalias !29
-  %_M_first.i7.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 1
+  %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %14, ptr %_M_first.i7.i.i.i, align 8, !noalias !29
-  %_M_last.i9.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %4, ptr %_M_last.i9.i.i.i, align 8, !noalias !29
-  %_M_node.i11.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 3
+  %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %1, ptr %_M_node.i11.i.i.i, align 8, !noalias !29
   call void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_St15_Deque_iteratorIS7_RS7_PS7_EET3_SB_IT0_T1_T2_ESJ_SF_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i), !noalias !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !26
   %15 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !32
-  %_M_first3.i.i32.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i, i64 0, i32 1
+  %_M_first3.i.i32.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %16 = load ptr, ptr %_M_first3.i.i32.i.i, align 8, !noalias !32
-  %_M_last4.i.i34.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i, i64 0, i32 2
+  %_M_last4.i.i34.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %17 = load ptr, ptr %_M_last4.i.i34.i.i, align 8, !noalias !32
-  %_M_node5.i.i36.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i, i64 0, i32 3
+  %_M_node5.i.i36.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   %18 = load ptr, ptr %_M_node5.i.i36.i.i, align 8, !noalias !32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !23
-  %_M_last4.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i)
   store ptr %15, ptr %agg.tmp.i.i46, align 8
-  %_M_first.i.i1.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i46, i64 0, i32 1
+  %_M_first.i.i1.i = getelementptr inbounds i8, ptr %agg.tmp.i.i46, i64 8
   store ptr %16, ptr %_M_first.i.i1.i, align 8
-  %_M_last.i.i3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i46, i64 0, i32 2
+  %_M_last.i.i3.i = getelementptr inbounds i8, ptr %agg.tmp.i.i46, i64 16
   store ptr %17, ptr %_M_last.i.i3.i, align 8
-  %_M_node.i.i5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i46, i64 0, i32 3
+  %_M_node.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp.i.i46, i64 24
   store ptr %18, ptr %_M_node.i.i5.i, align 8
   %19 = load <2 x ptr>, ptr %_M_finish.i, align 8, !noalias !35
   store <2 x ptr> %19, ptr %agg.tmp2.i.i, align 16
-  %_M_last.i3.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i, i64 0, i32 2
+  %_M_last.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 16
   %20 = load <2 x ptr>, ptr %_M_last4.i.i.i, align 8, !noalias !35
   store <2 x ptr> %20, ptr %_M_last.i3.i.i, align 16
   call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE19_M_destroy_data_auxESt15_Deque_iteratorIS7_RS7_PS7_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp.i.i46, ptr noundef nonnull %agg.tmp2.i.i)
@@ -414,7 +408,7 @@ if.then4:                                         ; preds = %if.then
 
 for.body.i.i:                                     ; preds = %if.then4, %for.body.i.i
   %__n.04.i.pn.i = phi ptr [ %__n.04.i.i, %for.body.i.i ], [ %18, %if.then4 ]
-  %__n.04.i.i = getelementptr inbounds ptr, ptr %__n.04.i.pn.i, i64 1
+  %__n.04.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i, i64 8
   %22 = load ptr, ptr %__n.04.i.i, align 8
   call void @_ZdlPv(ptr noundef %22) #15
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %21
@@ -455,7 +449,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %7, i64 %cond.i.i
   %23 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !40
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %23, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %23, i64 512
   %mul.i.i68 = shl nsw i64 %cond.i.i, 3
   %sub14.i.i = sub nsw i64 %add.i.i66, %mul.i.i68
   %add.ptr15.i.i = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %sub14.i.i
@@ -466,32 +460,32 @@ _ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
   %__mid.sroa.7.0 = phi ptr [ %10, %if.then.i.i ], [ %add.ptr.i.i.i, %cond.end.i.i ]
   %__mid.sroa.11.0 = phi ptr [ %7, %if.then.i.i ], [ %add.ptr11.i.i, %cond.end.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr15.i.i, %cond.end.i.i ]
-  %_M_first3.i83 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first3.i83 = getelementptr inbounds i8, ptr %this, i64 24
   %24 = load ptr, ptr %_M_first3.i83, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i91), !noalias !43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i88), !noalias !46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i89), !noalias !46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i90), !noalias !46
   store ptr %11, ptr %agg.tmp.i.i.i88, align 8, !noalias !49
-  %_M_first.i.i25.i.i101 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i88, i64 0, i32 1
+  %_M_first.i.i25.i.i101 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i88, i64 8
   store ptr %12, ptr %_M_first.i.i25.i.i101, align 8, !noalias !49
-  %_M_last.i.i27.i.i102 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i88, i64 0, i32 2
+  %_M_last.i.i27.i.i102 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i88, i64 16
   store ptr %10, ptr %_M_last.i.i27.i.i102, align 8, !noalias !49
-  %_M_node.i.i29.i.i103 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i88, i64 0, i32 3
+  %_M_node.i.i29.i.i103 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i88, i64 24
   store ptr %7, ptr %_M_node.i.i29.i.i103, align 8, !noalias !49
   store ptr %storemerge.i.i, ptr %agg.tmp1.i.i.i89, align 8, !noalias !49
-  %_M_first.i1.i.i.i104 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i89, i64 0, i32 1
+  %_M_first.i1.i.i.i104 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i89, i64 8
   store ptr %__mid.sroa.3.0, ptr %_M_first.i1.i.i.i104, align 8, !noalias !49
-  %_M_last.i3.i.i.i105 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i89, i64 0, i32 2
+  %_M_last.i3.i.i.i105 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i89, i64 16
   store ptr %__mid.sroa.7.0, ptr %_M_last.i3.i.i.i105, align 8, !noalias !49
-  %_M_node.i5.i.i.i106 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i89, i64 0, i32 3
+  %_M_node.i5.i.i.i106 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i89, i64 24
   store ptr %__mid.sroa.11.0, ptr %_M_node.i5.i.i.i106, align 8, !noalias !49
   store ptr %5, ptr %agg.tmp2.i.i.i90, align 8, !noalias !49
-  %_M_first.i7.i.i.i107 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i90, i64 0, i32 1
+  %_M_first.i7.i.i.i107 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i90, i64 8
   store ptr %24, ptr %_M_first.i7.i.i.i107, align 8, !noalias !49
-  %_M_last.i9.i.i.i108 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i90, i64 0, i32 2
+  %_M_last.i9.i.i.i108 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i90, i64 16
   store ptr %4, ptr %_M_last.i9.i.i.i108, align 8, !noalias !49
-  %_M_node.i11.i.i.i109 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i90, i64 0, i32 3
+  %_M_node.i11.i.i.i109 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i90, i64 24
   store ptr %1, ptr %_M_node.i11.i.i.i109, align 8, !noalias !49
   call void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_St15_Deque_iteratorIS7_RS7_PS7_EET3_SB_IT0_T1_T2_ESJ_SF_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i91, ptr noundef nonnull %agg.tmp.i.i.i88, ptr noundef nonnull %agg.tmp1.i.i.i89, ptr noundef nonnull %agg.tmp2.i.i.i90), !noalias !46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i88), !noalias !46
@@ -500,22 +494,22 @@ _ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i91), !noalias !43
   %25 = load <2 x ptr>, ptr %_M_finish.i, align 8
   store <2 x ptr> %25, ptr %agg.tmp13, align 16
-  %_M_last.i118 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp13, i64 0, i32 2
-  %_M_last4.i119 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i118 = getelementptr inbounds i8, ptr %agg.tmp13, i64 16
+  %_M_last4.i119 = getelementptr inbounds i8, ptr %this, i64 64
   %26 = load <2 x ptr>, ptr %_M_last4.i119, align 8
   store <2 x ptr> %26, ptr %_M_last.i118, align 16
   store ptr %storemerge.i.i, ptr %agg.tmp15, align 8
-  %_M_first.i122 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp15, i64 0, i32 1
+  %_M_first.i122 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   store ptr %__mid.sroa.3.0, ptr %_M_first.i122, align 8
-  %_M_last.i124 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp15, i64 0, i32 2
+  %_M_last.i124 = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   store ptr %__mid.sroa.7.0, ptr %_M_last.i124, align 8
-  %_M_node.i126 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp15, i64 0, i32 3
+  %_M_node.i126 = getelementptr inbounds i8, ptr %agg.tmp15, i64 24
   store ptr %__mid.sroa.11.0, ptr %_M_node.i126, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %27 = load <2 x ptr>, ptr %_M_finish.i8, align 8, !noalias !52
   store <2 x ptr> %27, ptr %agg.tmp16, align 16, !alias.scope !52
-  %_M_last.i.i131 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp16, i64 0, i32 2
-  %_M_last4.i.i132 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %__x, i64 0, i32 3, i32 2
+  %_M_last.i.i131 = getelementptr inbounds i8, ptr %agg.tmp16, i64 16
+  %_M_last4.i.i132 = getelementptr inbounds i8, ptr %__x, i64 64
   %28 = load <2 x ptr>, ptr %_M_last4.i.i132, align 8, !noalias !52
   store <2 x ptr> %28, ptr %_M_last.i.i131, align 16, !alias.scope !52
   call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE19_M_range_insert_auxISt15_Deque_iteratorIS7_RKS7_PSC_EEEvSB_IS7_RS7_PS7_ET_SJ_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp13, ptr noundef nonnull %agg.tmp15, ptr noundef nonnull %agg.tmp16)
@@ -528,12 +522,12 @@ if.end19:                                         ; preds = %_ZNSt5dequeISt4pair
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN3net14QuicHeaderListaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
-  %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 1
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_list_2 = getelementptr inbounds i8, ptr %other, i64 8
   tail call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE15_M_move_assign1EOS9_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(80) %header_list_2) #14
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %other, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %other, i64 88
   %0 = load i64, ptr %uncompressed_header_bytes_, align 8
-  %uncompressed_header_bytes_4 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
+  %uncompressed_header_bytes_4 = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %0, ptr %uncompressed_header_bytes_4, align 8
   ret ptr %this
 }
@@ -542,7 +536,7 @@ entry:
 define dso_local void @_ZN3net14QuicHeaderListD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %header_list_) #14
   ret void
 }
@@ -552,22 +546,22 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_strin
 entry:
   %agg.tmp.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i = alloca %"struct.std::_Deque_iterator", align 16
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_last4.i.i4 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_last4.i.i4 = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
   %0 = load <2 x ptr>, ptr %_M_start.i, align 8, !noalias !55
   store <2 x ptr> %0, ptr %agg.tmp.i, align 16
-  %_M_last.i.i9 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i, i64 0, i32 2
+  %_M_last.i.i9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %1 = load <2 x ptr>, ptr %_M_last4.i.i, align 8, !noalias !55
   store <2 x ptr> %1, ptr %_M_last.i.i9, align 16
   %2 = load <2 x ptr>, ptr %_M_finish.i, align 8, !noalias !58
   store <2 x ptr> %2, ptr %agg.tmp2.i, align 16
-  %_M_last.i3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i, i64 0, i32 2
+  %_M_last.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %3 = load <2 x ptr>, ptr %_M_last4.i.i4, align 8, !noalias !58
   store <2 x ptr> %3, ptr %_M_last.i3.i, align 16
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE19_M_destroy_data_auxESt15_Deque_iteratorIS7_RS7_PS7_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
@@ -583,7 +577,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   %5 = load ptr, ptr %_M_node5.i.i, align 8
   %6 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   %cmp3.i.i = icmp ult ptr %5, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i
 
@@ -591,7 +585,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %5, %if.then.i ]
   %7 = load ptr, ptr %__n.04.i.i, align 8
   call void @_ZdlPv(ptr noundef %7) #15
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %6
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit.i, !llvm.loop !38
 
@@ -619,7 +613,7 @@ terminate.lpad:                                   ; preds = %entry
 define dso_local void @_ZN3net14QuicHeaderListD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %header_list_.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
+  %header_list_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %header_list_.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
@@ -633,7 +627,7 @@ define dso_local void @_ZN3net14QuicHeaderList18OnHeaderBlockStartEv(ptr nocaptu
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
   %call = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %uncompressed_header_bytes_, align 8
   %cmp.not = icmp ne i64 %0, 0
   %or.cond.not = select i1 %call, i1 %cmp.not, i1 false
@@ -641,7 +635,7 @@ entry:
 
 cond.false:                                       ; preds = %entry
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 25, i32 noundef 2)
-  %stream_.i = getelementptr inbounds %"class.logging::LogMessage", ptr %ref.tmp2, i64 0, i32 2
+  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont4 unwind label %lpad
 
@@ -676,35 +670,35 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %name.coerce0, ptr %name, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %name, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
   store ptr %value.coerce0, ptr %value, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %value, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %value, i64 8
   store i64 %value.coerce1, ptr %1, align 8
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %name)
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_last.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %3, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 -64
   %cmp.not.i = icmp eq ptr %2, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #14
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %invoke.cont
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_push_back_auxIJS6_S6_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
           to label %if.end.i unwind label %lpad3
 
@@ -738,7 +732,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net14QuicHeaderList16OnHeaderBlockEndEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i64 noundef %uncompressed_header_bytes) unnamed_addr #5 align 2 {
 entry:
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %uncompressed_header_bytes, ptr %uncompressed_header_bytes_, align 8
   ret void
 }
@@ -748,30 +742,30 @@ define dso_local void @_ZN3net14QuicHeaderList5ClearEv(ptr noundef nonnull align
 entry:
   %agg.tmp.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp2.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
-  %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %header_list_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !61
-  %_M_first3.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !61
-  %_M_last4.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !61
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !61
-  %_M_finish.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
-  %_M_last4.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 2
-  %_M_node5.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_last4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
   store ptr %0, ptr %agg.tmp.i.i.i, align 8
-  %_M_first.i.i1.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_first.i.i1.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %1, ptr %_M_first.i.i1.i.i, align 8
-  %_M_last.i.i3.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %2, ptr %_M_last.i.i3.i.i, align 8
-  %_M_node.i.i5.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 3
+  %_M_node.i.i5.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i5.i.i, align 8
   %4 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8, !noalias !64
   store <2 x ptr> %4, ptr %agg.tmp2.i.i.i, align 16
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   %5 = load <2 x ptr>, ptr %_M_last4.i.i.i.i, align 8, !noalias !64
   store <2 x ptr> %5, ptr %_M_last.i3.i.i.i, align 16
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE19_M_destroy_data_auxESt15_Deque_iteratorIS7_RS7_PS7_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %header_list_, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
@@ -786,7 +780,7 @@ entry:
 
 for.body.i.i.i:                                   ; preds = %.noexc.i, %for.body.i.i.i
   %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %3, %.noexc.i ]
-  %__n.04.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.pn.i.i, i64 1
+  %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
   %7 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %7) #15
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %6
@@ -800,12 +794,12 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE5clearEv.exit: ; preds = %for.body.i.i.i, %.noexc.i
-  %_M_first3.i.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %0, ptr %_M_finish.i.i.i, align 8
   store ptr %1, ptr %_M_first3.i.i.i.i, align 8
   store ptr %2, ptr %_M_last4.i.i.i.i, align 8
   store ptr %3, ptr %_M_node5.i.i.i.i, align 8
-  %uncompressed_header_bytes_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 2
+  %uncompressed_header_bytes_ = getelementptr inbounds i8, ptr %this, i64 88
   store i64 0, ptr %uncompressed_header_bytes_, align 8
   ret void
 }
@@ -837,17 +831,17 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
-  %_M_start.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_start.i.i, align 8, !noalias !67
-  %_M_finish.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !72
   %cmp.i.i.not24 = icmp eq ptr %1, %2
   br i1 %cmp.i.i.not24, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %invoke.cont
-  %_M_node5.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !67
-  %_M_last4.i.i.i = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !67
   br label %for.body
 
@@ -869,7 +863,7 @@ lpad.i14:                                         ; preds = %.noexc15
   br label %ehcleanup21
 
 invoke.cont9:                                     ; preds = %.noexc15
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.025, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.025, i64 32
   %call.i1718 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -887,14 +881,14 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #14
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__begin1.sroa.0.025, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.025, i64 64
   %cmp.i = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.026
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
 
 if.then.i:                                        ; preds = %invoke.cont15
-  %add.ptr.i21 = getelementptr inbounds ptr, ptr %__begin1.sroa.11.027, i64 1
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %__begin1.sroa.11.027, i64 8
   %6 = load ptr, ptr %add.ptr.i21, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %6, i64 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit: ; preds = %invoke.cont15, %if.then.i
@@ -983,7 +977,7 @@ entry:
   %div16 = lshr i64 %__num_elements, 3
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %cmp.i.i.i = icmp ugt i64 %__num_elements, 9223372036854775783
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE15_M_allocate_mapEm.exit
@@ -1018,7 +1012,7 @@ for.body.i:                                       ; preds = %_ZNSt11_Deque_baseI
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !77
 
@@ -1034,7 +1028,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #15
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.i, !llvm.loop !38
 
@@ -1074,24 +1068,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %12, i64 8
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"struct.std::pair", ptr %13, i64 8
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 7
@@ -1150,11 +1144,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node, align 8
-  %_M_node4 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node4 = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_node4, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 8
   %cmp3.i = icmp ult ptr %1, %add.ptr
   br i1 %cmp3.i, label %for.body.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit
 
@@ -1162,7 +1156,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %__n.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %1, %if.then ]
   %3 = load ptr, ptr %__n.04.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #15
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__n.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__n.04.i, i64 8
   %cmp.i = icmp ult ptr %__n.04.i, %2
   br i1 %cmp.i, label %for.body.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit.loopexit, !llvm.loop !38
 
@@ -1182,10 +1176,10 @@ if.end:                                           ; preds = %_ZNSt11_Deque_baseI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE19_M_destroy_data_auxESt15_Deque_iteratorIS7_RS7_PS7_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 3
-  %__node.025 = getelementptr inbounds ptr, ptr %0, i64 1
+  %_M_node2 = getelementptr inbounds i8, ptr %__last, i64 24
+  %__node.025 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_node2, align 8
   %cmp26 = icmp ult ptr %__node.025, %1
   br i1 %cmp26, label %for.body, label %for.end
@@ -1198,7 +1192,7 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %for.body.i.i.i ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.ptr, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.ptr) #14
   %__first.addr.04.i.i.i.add = add nuw nsw i64 %__first.addr.04.i.i.i.idx, 64
@@ -1206,7 +1200,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !78
 
 _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit: ; preds = %for.body.i.i.i
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.027, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.027, i64 8
   %3 = load ptr, ptr %_M_node2, align 8
   %cmp = icmp ult ptr %__node.0, %3
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !79
@@ -1223,22 +1217,22 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp7.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %6 = load ptr, ptr %_M_last, align 8
   %cmp.not3.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit9, label %for.body.i.i.i4
 
 for.body.i.i.i4:                                  ; preds = %if.then, %for.body.i.i.i4
   %__first.addr.04.i.i.i5 = phi ptr [ %incdec.ptr.i.i.i7, %for.body.i.i.i4 ], [ %5, %if.then ]
-  %second.i.i.i.i.i6 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i5, i64 0, i32 1
+  %second.i.i.i.i.i6 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i6) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i5) #14
-  %incdec.ptr.i.i.i7 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i5, i64 1
+  %incdec.ptr.i.i.i7 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5, i64 64
   %cmp.not.i.i.i8 = icmp eq ptr %incdec.ptr.i.i.i7, %6
   br i1 %cmp.not.i.i.i8, label %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit9, label %for.body.i.i.i4, !llvm.loop !78
 
 _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit9: ; preds = %for.body.i.i.i4, %if.then
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %7 = load ptr, ptr %_M_first, align 8
   %8 = load ptr, ptr %__last, align 8
   %cmp.not3.i.i.i10 = icmp eq ptr %7, %8
@@ -1246,10 +1240,10 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES
 
 for.body.i.i.i11:                                 ; preds = %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit9, %for.body.i.i.i11
   %__first.addr.04.i.i.i12 = phi ptr [ %incdec.ptr.i.i.i14, %for.body.i.i.i11 ], [ %7, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EvT_S9_RSaIT0_E.exit9 ]
-  %second.i.i.i.i.i13 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i12, i64 0, i32 1
+  %second.i.i.i.i.i13 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i12, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i13) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i12) #14
-  %incdec.ptr.i.i.i14 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i12, i64 1
+  %incdec.ptr.i.i.i14 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i12, i64 64
   %cmp.not.i.i.i15 = icmp eq ptr %incdec.ptr.i.i.i14, %8
   br i1 %cmp.not.i.i.i15, label %if.end, label %for.body.i.i.i11, !llvm.loop !78
 
@@ -1260,10 +1254,10 @@ if.else:                                          ; preds = %for.end
 
 for.body.i.i.i18:                                 ; preds = %if.else, %for.body.i.i.i18
   %__first.addr.04.i.i.i19 = phi ptr [ %incdec.ptr.i.i.i21, %for.body.i.i.i18 ], [ %5, %if.else ]
-  %second.i.i.i.i.i20 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i19, i64 0, i32 1
+  %second.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i19, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i20) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i19) #14
-  %incdec.ptr.i.i.i21 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i19, i64 1
+  %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i19, i64 64
   %cmp.not.i.i.i22 = icmp eq ptr %incdec.ptr.i.i.i21, %9
   br i1 %cmp.not.i.i.i22, label %if.end, label %for.body.i.i.i18, !llvm.loop !78
 
@@ -1278,16 +1272,16 @@ entry:
   %agg.tmp5 = alloca %"struct.std::_Deque_iterator", align 16
   %0 = load ptr, ptr %__result, align 8
   store ptr %0, ptr %agg.result, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %1 = load ptr, ptr %_M_first3.i, align 8
   store ptr %1, ptr %_M_first.i, align 8
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   store ptr %2, ptr %_M_last.i, align 8
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   store ptr %3, ptr %_M_node.i, align 8
   %4 = load ptr, ptr %__first, align 8
@@ -1296,9 +1290,9 @@ entry:
   br i1 %cmp.i.i.not24, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_last.i1 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
-  %_M_node.i2 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 1
+  %_M_last.i1 = getelementptr inbounds i8, ptr %__first, i64 16
+  %_M_node.i2 = getelementptr inbounds i8, ptr %__first, i64 24
+  %_M_first.i.i = getelementptr inbounds i8, ptr %__first, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit
@@ -1310,8 +1304,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %7, i64 0, i32 1
-  %second3.i.i = getelementptr inbounds %"struct.std::pair", ptr %6, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %second3.i.i = getelementptr inbounds i8, ptr %6, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i)
           to label %for.inc unwind label %lpad.i.i
 
@@ -1323,7 +1317,7 @@ lpad.i.i:                                         ; preds = %.noexc
 
 for.inc:                                          ; preds = %.noexc
   %11 = load ptr, ptr %__first, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 64
   store ptr %incdec.ptr.i, ptr %__first, align 8
   %12 = load ptr, ptr %_M_last.i1, align 8
   %cmp.i = icmp eq ptr %incdec.ptr.i, %12
@@ -1331,28 +1325,28 @@ for.inc:                                          ; preds = %.noexc
 
 if.then.i:                                        ; preds = %for.inc
   %13 = load ptr, ptr %_M_node.i2, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr.i, ptr %_M_node.i2, align 8
   %14 = load ptr, ptr %add.ptr.i, align 8
   store ptr %14, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %14, i64 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 512
   store ptr %add.ptr.i.i, ptr %_M_last.i1, align 8
   store ptr %14, ptr %__first, align 8
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit: ; preds = %for.inc, %if.then.i
   %15 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %14, %if.then.i ]
-  %incdec.ptr.i3 = getelementptr inbounds %"struct.std::pair", ptr %7, i64 1
+  %incdec.ptr.i3 = getelementptr inbounds i8, ptr %7, i64 64
   store ptr %incdec.ptr.i3, ptr %agg.result, align 8
   %cmp.i5 = icmp eq ptr %incdec.ptr.i3, %8
   br i1 %cmp.i5, label %if.then.i6, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit
 
 if.then.i6:                                       ; preds = %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_EppEv.exit
-  %add.ptr.i8 = getelementptr inbounds ptr, ptr %9, i64 1
+  %add.ptr.i8 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %add.ptr.i8, ptr %_M_node.i, align 8
   %16 = load ptr, ptr %add.ptr.i8, align 8
   store ptr %16, ptr %_M_first.i, align 8
-  %add.ptr.i.i10 = getelementptr inbounds %"struct.std::pair", ptr %16, i64 8
+  %add.ptr.i.i10 = getelementptr inbounds i8, ptr %16, i64 512
   store ptr %add.ptr.i.i10, ptr %_M_last.i, align 8
   store ptr %16, ptr %agg.result, align 8
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit
@@ -1376,12 +1370,12 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %23 = tail call ptr @__cxa_begin_catch(ptr %22) #14
   %24 = load <2 x ptr>, ptr %__result, align 8
   store <2 x ptr> %24, ptr %agg.tmp, align 16
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp, i64 0, i32 2
+  %_M_last.i13 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %25 = load <2 x ptr>, ptr %_M_last4.i, align 8
   store <2 x ptr> %25, ptr %_M_last.i13, align 16
   %26 = load <2 x ptr>, ptr %agg.result, align 8
   store <2 x ptr> %26, ptr %agg.tmp5, align 16
-  %_M_last.i19 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp5, i64 0, i32 2
+  %_M_last.i19 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %27 = load <2 x ptr>, ptr %_M_last.i, align 8
   store <2 x ptr> %27, ptr %_M_last.i19, align 16
   invoke void @_ZSt8_DestroyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEvT_SC_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp5)
@@ -1423,9 +1417,9 @@ entry:
   br i1 %cmp.i.i.not1.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ERSA_PSA_EEEvT_SE_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %entry
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %2 = load ptr, ptr %_M_node5.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %3 = load ptr, ptr %_M_last4.i, align 8
   br label %for.body.i
 
@@ -1433,17 +1427,17 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %agg.tmp.sroa.0.0 = phi ptr [ %agg.tmp.sroa.0.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i ], [ %0, %for.body.i.preheader ]
   %agg.tmp.sroa.7.0 = phi ptr [ %agg.tmp.sroa.7.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i ], [ %3, %for.body.i.preheader ]
   %agg.tmp.sroa.10.0 = phi ptr [ %agg.tmp.sroa.10.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i ], [ %2, %for.body.i.preheader ]
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0) #14
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0, i64 64
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp.sroa.7.0
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i
 
 if.then.i.i:                                      ; preds = %for.body.i
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0, i64 8
   %4 = load ptr, ptr %add.ptr.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i: ; preds = %if.then.i.i, %for.body.i
@@ -1472,16 +1466,16 @@ entry:
   %agg.tmp43 = alloca %"struct.std::_Deque_iterator.3", align 8
   %agg.tmp44 = alloca %"struct.std::_Deque_iterator.3", align 8
   %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 1
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
+  %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %1 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %2 = load ptr, ptr %_M_node5.i, align 8
   %3 = load ptr, ptr %__last, align 8
-  %_M_first3.i5 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 1
+  %_M_first3.i5 = getelementptr inbounds i8, ptr %__last, i64 8
   %4 = load ptr, ptr %_M_first3.i5, align 8
-  %_M_last4.i7 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
-  %_M_node5.i9 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 3
+  %_M_last4.i7 = getelementptr inbounds i8, ptr %__last, i64 16
+  %_M_node5.i9 = getelementptr inbounds i8, ptr %__last, i64 24
   %5 = load ptr, ptr %_M_node5.i9, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %2 to i64
@@ -1502,13 +1496,13 @@ entry:
   %add.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i, %sub.ptr.div11.i.i.i
   %add12.i.i.i = add i64 %add.i.i.i, %mul.i.i.i
   %6 = load ptr, ptr %__pos, align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %_M_start, align 8
   %cmp = icmp eq ptr %6, %7
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_M_first.i10 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i10 = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %_M_first.i10, align 8, !noalias !82
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %8 to i64
@@ -1532,9 +1526,9 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   %sub.ptr.div.i.i.i.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %sub.ptr.div.i, %if.then ]
   %9 = phi ptr [ %.pre4.i, %if.then.i ], [ %8, %if.then ]
   %10 = phi ptr [ %.pre.i, %if.then.i ], [ %6, %if.then ]
-  %_M_last4.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !85
-  %_M_node5.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !85
   %sub.i.i.i = sub nsw i64 0, %add12.i.i.i
   %add.i.i.i.i = sub i64 %sub.ptr.div.i.i.i.pre-phi.i, %add12.i.i.i
@@ -1561,7 +1555,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div911.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %12, i64 %cond.i.i.i.i
   %13 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !85
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 512
   %mul.i.i.i.i = shl nsw i64 %cond.i.i.i.i, 3
   %sub14.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 %sub14.i.i.i.i
@@ -1577,20 +1571,20 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !88
   %14 = load <2 x ptr>, ptr %__first, align 8
   store <2 x ptr> %14, ptr %agg.tmp.i.i.i, align 16, !noalias !93
-  %_M_last.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %15 = load <2 x ptr>, ptr %_M_last4.i, align 8
   store <2 x ptr> %15, ptr %_M_last.i.i.i.i, align 16, !noalias !93
   %16 = load <2 x ptr>, ptr %__last, align 8
   store <2 x ptr> %16, ptr %agg.tmp1.i.i.i, align 16, !noalias !93
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   %17 = load <2 x ptr>, ptr %_M_last4.i7, align 8
   store <2 x ptr> %17, ptr %_M_last.i3.i.i.i, align 16, !noalias !93
   store ptr %storemerge.i.i.i.i, ptr %agg.tmp2.i.i.i, align 8, !noalias !93
-  %_M_first.i7.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 1
+  %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %__new_start.sroa.3.0, ptr %_M_first.i7.i.i.i, align 8, !noalias !93
-  %_M_last.i9.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %__new_start.sroa.6.0, ptr %_M_last.i9.i.i.i, align 8, !noalias !93
-  %_M_node.i11.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 3
+  %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %__new_start.sroa.9.0, ptr %_M_node.i11.i.i.i, align 8, !noalias !93
   invoke void @_ZSt16__do_uninit_copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ES0_IS8_RS8_PS8_EET0_T_SH_SG_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -1618,7 +1612,7 @@ for.body.i:                                       ; preds = %lpad, %for.body.i
   %__n.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %__new_start.sroa.9.0, %lpad ]
   %22 = load ptr, ptr %__n.04.i, align 8
   call void @_ZdlPv(ptr noundef %22) #15
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__n.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__n.04.i, i64 8
   %cmp.i33 = icmp ult ptr %incdec.ptr.i, %21
   br i1 %cmp.i33, label %for.body.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit, !llvm.loop !38
 
@@ -1633,13 +1627,13 @@ lpad13:                                           ; preds = %_ZNSt11_Deque_baseI
           to label %eh.resume unwind label %terminate.lpad
 
 if.else:                                          ; preds = %entry
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
   %24 = load ptr, ptr %_M_finish, align 8
   %cmp18 = icmp eq ptr %6, %24
   br i1 %cmp18, label %if.then19, label %if.else41
 
 if.then19:                                        ; preds = %if.else
-  %_M_last.i34 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
   %25 = load ptr, ptr %_M_last.i34, align 8
   %sub.ptr.lhs.cast.i35 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast.i36 = ptrtoint ptr %6 to i64
@@ -1661,9 +1655,9 @@ if.end.i41:                                       ; preds = %if.then.i51, %if.th
   %26 = phi ptr [ %.pre.i52, %if.then.i51 ], [ %6, %if.then19 ]
   %sub.ptr.lhs.cast.i.i.pre-phi.i = phi i64 [ %.pre5.i54, %if.then.i51 ], [ %sub.ptr.rhs.cast.i36, %if.then19 ]
   %27 = phi ptr [ %.pre4.i53, %if.then.i51 ], [ %25, %if.then19 ]
-  %_M_first3.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %28 = load ptr, ptr %_M_first3.i.i.i, align 8
-  %_M_node5.i.i.i45 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node5.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 72
   %29 = load ptr, ptr %_M_node5.i.i.i45, align 8
   %sub.ptr.rhs.cast.i.i.i46 = ptrtoint ptr %28 to i64
   %sub.ptr.sub.i.i.i47 = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi.i, %sub.ptr.rhs.cast.i.i.i46
@@ -1692,7 +1686,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %29, i64 %cond.i.i.i
   %30 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !99
-  %add.ptr.i.i.i.i49 = getelementptr inbounds %"struct.std::pair", ptr %30, i64 8
+  %add.ptr.i.i.i.i49 = getelementptr inbounds i8, ptr %30, i64 512
   %mul.i.i.i50 = shl nsw i64 %cond.i.i.i, 3
   %sub14.i.i.i = sub nsw i64 %add.i.i.i48, %mul.i.i.i50
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %30, i64 %sub14.i.i.i
@@ -1708,20 +1702,20 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i75), !noalias !102
   %31 = load <2 x ptr>, ptr %__first, align 8
   store <2 x ptr> %31, ptr %agg.tmp.i.i.i73, align 16, !noalias !107
-  %_M_last.i.i.i.i86 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i73, i64 0, i32 2
+  %_M_last.i.i.i.i86 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i73, i64 16
   %32 = load <2 x ptr>, ptr %_M_last4.i, align 8
   store <2 x ptr> %32, ptr %_M_last.i.i.i.i86, align 16, !noalias !107
   %33 = load <2 x ptr>, ptr %__last, align 8
   store <2 x ptr> %33, ptr %agg.tmp1.i.i.i74, align 16, !noalias !107
-  %_M_last.i3.i.i.i89 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i74, i64 0, i32 2
+  %_M_last.i3.i.i.i89 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i74, i64 16
   %34 = load <2 x ptr>, ptr %_M_last4.i7, align 8
   store <2 x ptr> %34, ptr %_M_last.i3.i.i.i89, align 16, !noalias !107
   store ptr %26, ptr %agg.tmp2.i.i.i75, align 8, !noalias !107
-  %_M_first.i7.i.i.i91 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i75, i64 0, i32 1
+  %_M_first.i7.i.i.i91 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i75, i64 8
   store ptr %28, ptr %_M_first.i7.i.i.i91, align 8, !noalias !107
-  %_M_last.i9.i.i.i92 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i75, i64 0, i32 2
+  %_M_last.i9.i.i.i92 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i75, i64 16
   store ptr %27, ptr %_M_last.i9.i.i.i92, align 8, !noalias !107
-  %_M_node.i11.i.i.i93 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i75, i64 0, i32 3
+  %_M_node.i11.i.i.i93 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i75, i64 24
   store ptr %29, ptr %_M_node.i11.i.i.i93, align 8, !noalias !107
   invoke void @_ZSt16__do_uninit_copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ES0_IS8_RS8_PS8_EET0_T_SH_SG_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp26, ptr noundef nonnull %agg.tmp.i.i.i73, ptr noundef nonnull %agg.tmp1.i.i.i74, ptr noundef nonnull %agg.tmp2.i.i.i75)
           to label %invoke.cont28 unwind label %lpad27
@@ -1747,7 +1741,7 @@ lpad27:                                           ; preds = %_ZNSt5dequeISt4pair
 
 for.body.i96:                                     ; preds = %lpad27, %for.body.i96
   %__n.04.i97.pn = phi ptr [ %__n.04.i97, %for.body.i96 ], [ %38, %lpad27 ]
-  %__n.04.i97 = getelementptr inbounds ptr, ptr %__n.04.i97.pn, i64 1
+  %__n.04.i97 = getelementptr inbounds i8, ptr %__n.04.i97.pn, i64 8
   %39 = load ptr, ptr %__n.04.i97, align 8
   call void @_ZdlPv(ptr noundef %39) #15
   %cmp.i99 = icmp ult ptr %__n.04.i97, %__new_finish.sroa.6.0
@@ -1765,29 +1759,29 @@ lpad38:                                           ; preds = %_ZNSt11_Deque_baseI
 
 if.else41:                                        ; preds = %if.else
   store ptr %6, ptr %agg.tmp42, align 8
-  %_M_first.i101 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp42, i64 0, i32 1
-  %_M_first3.i102 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 1
+  %_M_first.i101 = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
+  %_M_first3.i102 = getelementptr inbounds i8, ptr %__pos, i64 8
   %41 = load <2 x ptr>, ptr %_M_first3.i102, align 8
   store <2 x ptr> %41, ptr %_M_first.i101, align 8
-  %_M_node.i105 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp42, i64 0, i32 3
-  %_M_node5.i106 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 3
+  %_M_node.i105 = getelementptr inbounds i8, ptr %agg.tmp42, i64 24
+  %_M_node5.i106 = getelementptr inbounds i8, ptr %__pos, i64 24
   %42 = load ptr, ptr %_M_node5.i106, align 8
   store ptr %42, ptr %_M_node.i105, align 8
   store ptr %0, ptr %agg.tmp43, align 8
-  %_M_first.i107 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp43, i64 0, i32 1
+  %_M_first.i107 = getelementptr inbounds i8, ptr %agg.tmp43, i64 8
   %43 = load ptr, ptr %_M_first3.i, align 8
   store ptr %43, ptr %_M_first.i107, align 8
-  %_M_last.i109 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp43, i64 0, i32 2
+  %_M_last.i109 = getelementptr inbounds i8, ptr %agg.tmp43, i64 16
   store ptr %1, ptr %_M_last.i109, align 8
-  %_M_node.i111 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp43, i64 0, i32 3
+  %_M_node.i111 = getelementptr inbounds i8, ptr %agg.tmp43, i64 24
   store ptr %2, ptr %_M_node.i111, align 8
   store ptr %3, ptr %agg.tmp44, align 8
-  %_M_first.i113 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp44, i64 0, i32 1
+  %_M_first.i113 = getelementptr inbounds i8, ptr %agg.tmp44, i64 8
   store ptr %4, ptr %_M_first.i113, align 8
-  %_M_last.i115 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp44, i64 0, i32 2
+  %_M_last.i115 = getelementptr inbounds i8, ptr %agg.tmp44, i64 16
   %44 = load ptr, ptr %_M_last4.i7, align 8
   store ptr %44, ptr %_M_last.i115, align 8
-  %_M_node.i117 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp44, i64 0, i32 3
+  %_M_node.i117 = getelementptr inbounds i8, ptr %agg.tmp44, i64 24
   store ptr %5, ptr %_M_node.i117, align 8
   call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_insert_auxISt15_Deque_iteratorIS7_RKS7_PSC_EEEvSB_IS7_RS7_PS7_ET_SJ_m(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp42, ptr noundef nonnull %agg.tmp43, ptr noundef nonnull %agg.tmp44, i64 noundef %add12.i.i.i)
   br label %if.end45
@@ -1813,9 +1807,9 @@ unreachable:                                      ; preds = %_ZNSt11_Deque_baseI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_St15_Deque_iteratorIS7_RS7_PS7_EET3_SB_IT0_T1_T2_ESJ_SF_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 3
+  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   %2 = load ptr, ptr %__first, align 8
@@ -1823,14 +1817,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %3 = load ptr, ptr %_M_last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i158
@@ -1859,11 +1853,11 @@ for.body.i.i.i.i:                                 ; preds = %while.body.i, %for.
   %__result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %agg.tmp.sroa.0.0, %while.body.i ]
   %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.015.i, %while.body.i ]
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i), !noalias !110
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 32
+  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i, i64 32
   %call4.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i), !noalias !110
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 64
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i, i64 64
   %dec.i.i.i.i = add nsw i64 %__n.09.i.i.i.i, -1
   %cmp.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i, !llvm.loop !113
@@ -1896,7 +1890,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
   %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !110
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 3
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %sub14.i.i
@@ -1921,7 +1915,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %11 = load ptr, ptr %_M_node, align 8
-  %__node.0235 = getelementptr inbounds ptr, ptr %11, i64 1
+  %__node.0235 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8
   %cmp4.not236 = icmp eq ptr %__node.0235, %12
   br i1 %cmp4.not236, label %for.end, label %for.body
@@ -1956,11 +1950,11 @@ for.body.i.i.i.i59:                               ; preds = %while.body.i18, %fo
   %__result.addr.08.i.i.i.i61 = phi ptr [ %incdec.ptr1.i.i.i.i68, %for.body.i.i.i.i59 ], [ %agg.tmp7.sroa.0.0, %while.body.i18 ]
   %__first.addr.07.i.i.i.i62 = phi ptr [ %incdec.ptr.i.i.i.i67, %for.body.i.i.i.i59 ], [ %__first.addr.015.i19, %while.body.i18 ]
   %call.i.i.i.i.i63 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i62), !noalias !115
-  %second.i.i.i.i.i64 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i62, i64 0, i32 1
-  %second3.i.i.i.i.i65 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i61, i64 0, i32 1
+  %second.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i62, i64 32
+  %second3.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i61, i64 32
   %call4.i.i.i.i.i66 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i65, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i64), !noalias !115
-  %incdec.ptr.i.i.i.i67 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i62, i64 1
-  %incdec.ptr1.i.i.i.i68 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i61, i64 1
+  %incdec.ptr.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i62, i64 64
+  %incdec.ptr1.i.i.i.i68 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i61, i64 64
   %dec.i.i.i.i69 = add nsw i64 %__n.09.i.i.i.i60, -1
   %cmp.i.i.i.i70 = icmp ugt i64 %__n.09.i.i.i.i60, 1
   br i1 %cmp.i.i.i.i70, label %for.body.i.i.i.i59, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i28, !llvm.loop !113
@@ -1993,7 +1987,7 @@ cond.end.i.i37:                                   ; preds = %cond.false.i.i35, %
   %cond.i.i38 = phi i64 [ %div911.i.i56, %cond.true.i.i55 ], [ %sub10.i.i36, %cond.false.i.i35 ]
   %add.ptr11.i.i39 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i38
   %18 = load ptr, ptr %add.ptr11.i.i39, align 8, !noalias !115
-  %add.ptr.i.i.i40 = getelementptr inbounds %"struct.std::pair", ptr %18, i64 8
+  %add.ptr.i.i.i40 = getelementptr inbounds i8, ptr %18, i64 512
   %mul.i.i41 = shl nsw i64 %cond.i.i38, 3
   %sub14.i.i42 = sub nsw i64 %add.i.i33, %mul.i.i41
   %add.ptr15.i.i43 = getelementptr inbounds %"struct.std::pair", ptr %18, i64 %sub14.i.i42
@@ -2013,7 +2007,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.0237, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0237, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !118
@@ -2023,7 +2017,7 @@ for.end:                                          ; preds = %_ZSt14__copy_move_a
   %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit74 ]
   %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit74 ]
   %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %storemerge.i.i45, %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit74 ]
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %24 = load ptr, ptr %_M_first, align 8
   %25 = load ptr, ptr %__last, align 8
   %sub.ptr.lhs.cast.i81 = ptrtoint ptr %25 to i64
@@ -2054,11 +2048,11 @@ for.body.i.i.i.i135:                              ; preds = %while.body.i99, %fo
   %__result.addr.08.i.i.i.i137 = phi ptr [ %incdec.ptr1.i.i.i.i144, %for.body.i.i.i.i135 ], [ %agg.tmp9.sroa.0.0, %while.body.i99 ]
   %__first.addr.07.i.i.i.i138 = phi ptr [ %incdec.ptr.i.i.i.i143, %for.body.i.i.i.i135 ], [ %__first.addr.015.i100, %while.body.i99 ]
   %call.i.i.i.i.i139 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i137, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i138), !noalias !119
-  %second.i.i.i.i.i140 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i138, i64 0, i32 1
-  %second3.i.i.i.i.i141 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i137, i64 0, i32 1
+  %second.i.i.i.i.i140 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i138, i64 32
+  %second3.i.i.i.i.i141 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i137, i64 32
   %call4.i.i.i.i.i142 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i141, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i140), !noalias !119
-  %incdec.ptr.i.i.i.i143 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i138, i64 1
-  %incdec.ptr1.i.i.i.i144 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i137, i64 1
+  %incdec.ptr.i.i.i.i143 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i138, i64 64
+  %incdec.ptr1.i.i.i.i144 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i137, i64 64
   %dec.i.i.i.i145 = add nsw i64 %__n.09.i.i.i.i136, -1
   %cmp.i.i.i.i146 = icmp ugt i64 %__n.09.i.i.i.i136, 1
   br i1 %cmp.i.i.i.i146, label %for.body.i.i.i.i135, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i109, !llvm.loop !113
@@ -2091,7 +2085,7 @@ cond.end.i.i118:                                  ; preds = %cond.false.i.i116, 
   %cond.i.i119 = phi i64 [ %div911.i.i132, %cond.true.i.i131 ], [ %sub10.i.i117, %cond.false.i.i116 ]
   %add.ptr11.i.i120 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i119
   %26 = load ptr, ptr %add.ptr11.i.i120, align 8, !noalias !119
-  %add.ptr.i.i.i121 = getelementptr inbounds %"struct.std::pair", ptr %26, i64 8
+  %add.ptr.i.i.i121 = getelementptr inbounds i8, ptr %26, i64 512
   %mul.i.i122 = shl nsw i64 %cond.i.i119, 3
   %sub14.i.i123 = sub nsw i64 %add.i.i114, %mul.i.i122
   %add.ptr15.i.i124 = getelementptr inbounds %"struct.std::pair", ptr %26, i64 %sub14.i.i123
@@ -2109,11 +2103,11 @@ _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
   %28 = load ptr, ptr %__result, align 8
-  %_M_first3.i152 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i152 = getelementptr inbounds i8, ptr %__result, i64 8
   %29 = load ptr, ptr %_M_first3.i152, align 8
-  %_M_last4.i154 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i154 = getelementptr inbounds i8, ptr %__result, i64 16
   %30 = load ptr, ptr %_M_last4.i154, align 8
-  %_M_node5.i156 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i156 = getelementptr inbounds i8, ptr %__result, i64 24
   %31 = load ptr, ptr %_M_node5.i156, align 8
   %sub.ptr.lhs.cast.i157 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i159 = sub i64 %sub.ptr.lhs.cast.i157, %sub.ptr.rhs.cast.i158
@@ -2142,11 +2136,11 @@ for.body.i.i.i.i211:                              ; preds = %while.body.i175, %f
   %__result.addr.08.i.i.i.i213 = phi ptr [ %incdec.ptr1.i.i.i.i220, %for.body.i.i.i.i211 ], [ %agg.tmp12.sroa.0.0, %while.body.i175 ]
   %__first.addr.07.i.i.i.i214 = phi ptr [ %incdec.ptr.i.i.i.i219, %for.body.i.i.i.i211 ], [ %__first.addr.015.i176, %while.body.i175 ]
   %call.i.i.i.i.i215 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i213, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i214), !noalias !122
-  %second.i.i.i.i.i216 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i214, i64 0, i32 1
-  %second3.i.i.i.i.i217 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i213, i64 0, i32 1
+  %second.i.i.i.i.i216 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i214, i64 32
+  %second3.i.i.i.i.i217 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i213, i64 32
   %call4.i.i.i.i.i218 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i217, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i216), !noalias !122
-  %incdec.ptr.i.i.i.i219 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i214, i64 1
-  %incdec.ptr1.i.i.i.i220 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i213, i64 1
+  %incdec.ptr.i.i.i.i219 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i214, i64 64
+  %incdec.ptr1.i.i.i.i220 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i213, i64 64
   %dec.i.i.i.i221 = add nsw i64 %__n.09.i.i.i.i212, -1
   %cmp.i.i.i.i222 = icmp ugt i64 %__n.09.i.i.i.i212, 1
   br i1 %cmp.i.i.i.i222, label %for.body.i.i.i.i211, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i185, !llvm.loop !113
@@ -2179,7 +2173,7 @@ cond.end.i.i194:                                  ; preds = %cond.false.i.i192, 
   %cond.i.i195 = phi i64 [ %div911.i.i208, %cond.true.i.i207 ], [ %sub10.i.i193, %cond.false.i.i192 ]
   %add.ptr11.i.i196 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i195
   %32 = load ptr, ptr %add.ptr11.i.i196, align 8, !noalias !122
-  %add.ptr.i.i.i197 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 8
+  %add.ptr.i.i.i197 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i198 = shl nsw i64 %cond.i.i195, 3
   %sub14.i.i199 = sub nsw i64 %add.i.i190, %mul.i.i198
   %add.ptr15.i.i200 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 %sub14.i.i199
@@ -2200,11 +2194,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i201 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i125 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i201 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i125 ]
   store ptr %.sink238, ptr %agg.result, align 8
-  %_M_first.i8.i166 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
+  %_M_first.i8.i166 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i8.i166, align 8
-  %_M_last.i.i167 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
+  %_M_last.i.i167 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i167, align 8
-  %_M_node.i9.i169 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
+  %_M_node.i9.i169 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i169, align 8
   ret void
 }
@@ -2248,10 +2242,10 @@ entry:
   %agg.tmp34 = alloca %"struct.std::_Deque_iterator.3", align 8
   %agg.tmp35 = alloca %"struct.std::_Deque_iterator", align 8
   %tmp37 = alloca %"struct.std::_Deque_iterator", align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %__pos, i64 24
   %0 = load ptr, ptr %_M_node.i, align 8
-  %_M_node1.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -2262,14 +2256,14 @@ entry:
   %sub.ptr.div7.i = add i64 %sub.ptr.sub.i, %sub6.i
   %mul.i = and i64 %sub.ptr.div7.i, -8
   %2 = load ptr, ptr %__pos, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__pos, i64 0, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %__pos, i64 8
   %3 = load ptr, ptr %_M_first.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i = sub i64 %sub.ptr.lhs.cast3.i, %sub.ptr.rhs.cast4.i
   %sub.ptr.div6.i = ashr exact i64 %sub.ptr.sub5.i, 6
   %add.i = add nsw i64 %sub.ptr.div6.i, %mul.i
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i, align 8
   %5 = load ptr, ptr %_M_start, align 8
   %sub.ptr.lhs.cast8.i = ptrtoint ptr %4 to i64
@@ -2277,8 +2271,8 @@ entry:
   %sub.ptr.sub10.i = sub i64 %sub.ptr.lhs.cast8.i, %sub.ptr.rhs.cast9.i
   %sub.ptr.div11.i = ashr exact i64 %sub.ptr.sub10.i, 6
   %add12.i = add nsw i64 %add.i, %sub.ptr.div11.i
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %_M_node.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
@@ -2288,7 +2282,7 @@ entry:
   %sub.ptr.div7.i.i = add i64 %sub.ptr.sub.i.i, %sub6.i.i
   %mul.i.i = and i64 %sub.ptr.div7.i.i, -8
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %8 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %8 to i64
@@ -2301,7 +2295,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else51
 
 if.then:                                          ; preds = %entry
-  %_M_first.i18 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i18 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %_M_first.i18, align 8
   %sub.ptr.rhs.cast.i20 = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i21 = sub i64 %sub.ptr.rhs.cast9.i, %sub.ptr.rhs.cast.i20
@@ -2353,7 +2347,7 @@ cond.end.i.i.i.i:                                 ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi i64 [ %div911.i.i.i.i, %cond.true.i.i.i.i ], [ %sub10.i.i.i.i, %cond.false.i.i.i.i ]
   %add.ptr11.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 %cond.i.i.i.i
   %14 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !noalias !128
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %14, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 512
   %mul.i.i.i.i = shl nsw i64 %cond.i.i.i.i, 3
   %sub14.i.i.i.i = sub nsw i64 %add.i.i.i.i, %mul.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %14, i64 %sub14.i.i.i.i
@@ -2392,7 +2386,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %10, i64 %cond.i.i
   %15 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !131
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %15, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 512
   %mul.i.i32 = shl nsw i64 %cond.i.i, 3
   %sub14.i.i = sub nsw i64 %add.i.i31, %mul.i.i32
   %add.ptr15.i.i = getelementptr inbounds %"struct.std::pair", ptr %15, i64 %sub14.i.i
@@ -2444,7 +2438,7 @@ cond.end.i.i47:                                   ; preds = %cond.false.i.i45, %
   %cond.i.i48 = phi i64 [ %div911.i.i58, %cond.true.i.i57 ], [ %sub10.i.i46, %cond.false.i.i45 ]
   %add.ptr11.i.i49 = getelementptr inbounds ptr, ptr %19, i64 %cond.i.i48
   %20 = load ptr, ptr %add.ptr11.i.i49, align 8, !noalias !134
-  %add.ptr.i.i.i50 = getelementptr inbounds %"struct.std::pair", ptr %20, i64 8
+  %add.ptr.i.i.i50 = getelementptr inbounds i8, ptr %20, i64 512
   %mul.i.i51 = shl nsw i64 %cond.i.i48, 3
   %sub14.i.i52 = sub nsw i64 %add.i.i43, %mul.i.i51
   %add.ptr15.i.i53 = getelementptr inbounds %"struct.std::pair", ptr %20, i64 %sub14.i.i52
@@ -2466,31 +2460,31 @@ for.body.i.i.i.i.i:                               ; preds = %_ZStplRKSt15_Deque_
   %22 = phi ptr [ %27, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %__new_start.sroa.9.0, %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit61 ]
   %23 = phi ptr [ %26, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %__new_start.sroa.13.0, %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit61 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i) #14, !noalias !137
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %21, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 32
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #14, !noalias !137
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 64
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %agg.tmp.sroa.7.0.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i, i64 8
   %24 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !137
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %24, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
 
 _ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %agg.tmp.sroa.0.1.i.i.i.i = phi ptr [ %24, %if.then.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %agg.tmp.sroa.7.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.7.0.i.i.i.i, %for.body.i.i.i.i.i ]
   %agg.tmp.sroa.10.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %21, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 64
   %cmp.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %22
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %23, i64 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8, !noalias !137
-  %add.ptr.i.i3.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %25, i64 8
+  %add.ptr.i.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
@@ -2510,23 +2504,23 @@ invoke.cont:                                      ; preds = %_ZNSt15_Deque_itera
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !152
   store ptr %storemerge.i.i54, ptr %agg.tmp.i.i.i, align 8, !noalias !155
-  %_M_first.i.i25.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_first.i.i25.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %__start_n.sroa.3.0, ptr %_M_first.i.i25.i.i, align 8, !noalias !155
-  %_M_last.i.i27.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i27.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %__start_n.sroa.7.0, ptr %_M_last.i.i27.i.i, align 8, !noalias !155
-  %_M_node.i.i29.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 3
+  %_M_node.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %__start_n.sroa.11.0, ptr %_M_node.i.i29.i.i, align 8, !noalias !155
   %29 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %29, ptr %agg.tmp1.i.i.i, align 16, !noalias !155
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   %30 = load <2 x ptr>, ptr %ref.tmp.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %30, ptr %_M_last.i3.i.i.i, align 16, !noalias !155
   store ptr %13, ptr %agg.tmp2.i.i.i, align 8, !noalias !155
-  %_M_first.i7.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 1
+  %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %12, ptr %_M_first.i7.i.i.i, align 8, !noalias !155
-  %_M_last.i9.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %11, ptr %_M_last.i9.i.i.i, align 8, !noalias !155
-  %_M_node.i11.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 3
+  %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %10, ptr %_M_node.i11.i.i.i, align 8, !noalias !155
   invoke void @_ZSt15__copy_move_ditILb1ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_St15_Deque_iteratorIS7_S8_S9_EET3_SA_IT0_T1_T2_ESG_SC_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
           to label %invoke.cont22 unwind label %lpad
@@ -2537,10 +2531,10 @@ invoke.cont22:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !149
   %31 = load <2 x ptr>, ptr %__first, align 8
-  %_M_last4.i109 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last4.i109 = getelementptr inbounds i8, ptr %__first, i64 16
   %32 = load <2 x ptr>, ptr %_M_last4.i109, align 8
   %33 = load <2 x ptr>, ptr %__last, align 8
-  %_M_last4.i115 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
+  %_M_last4.i115 = getelementptr inbounds i8, ptr %__last, i64 16
   %34 = load <2 x ptr>, ptr %_M_last4.i115, align 8
   %35 = load ptr, ptr %__pos, align 8, !noalias !158
   %36 = load ptr, ptr %_M_first.i, align 8, !noalias !158
@@ -2574,7 +2568,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %38, i64 %cond.i.i.i
   %39 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !158
-  %add.ptr.i.i.i.i124 = getelementptr inbounds %"struct.std::pair", ptr %39, i64 8
+  %add.ptr.i.i.i.i124 = getelementptr inbounds i8, ptr %39, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 3
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %39, i64 %sub14.i.i.i
@@ -2590,17 +2584,17 @@ _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i127), !noalias !164
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i128), !noalias !164
   store <2 x ptr> %31, ptr %agg.tmp.i.i.i126, align 16, !noalias !167
-  %_M_last.i.i27.i.i140 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i126, i64 0, i32 2
+  %_M_last.i.i27.i.i140 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i126, i64 16
   store <2 x ptr> %32, ptr %_M_last.i.i27.i.i140, align 16, !noalias !167
   store <2 x ptr> %33, ptr %agg.tmp1.i.i.i127, align 16, !noalias !167
-  %_M_last.i3.i.i.i143 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i127, i64 0, i32 2
+  %_M_last.i3.i.i.i143 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i127, i64 16
   store <2 x ptr> %34, ptr %_M_last.i3.i.i.i143, align 16, !noalias !167
   store ptr %storemerge.i.i.i, ptr %agg.tmp2.i.i.i128, align 8, !noalias !167
-  %_M_first.i7.i.i.i145 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i128, i64 0, i32 1
+  %_M_first.i7.i.i.i145 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i128, i64 8
   store ptr %agg.tmp25.sroa.2.0, ptr %_M_first.i7.i.i.i145, align 8, !noalias !167
-  %_M_last.i9.i.i.i146 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i128, i64 0, i32 2
+  %_M_last.i9.i.i.i146 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i128, i64 16
   store ptr %agg.tmp25.sroa.5.0, ptr %_M_last.i9.i.i.i146, align 8, !noalias !167
-  %_M_node.i11.i.i.i147 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i128, i64 0, i32 3
+  %_M_node.i11.i.i.i147 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i128, i64 24
   store ptr %agg.tmp25.sroa.8.0, ptr %_M_node.i11.i.i.i147, align 8, !noalias !167
   invoke void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_St15_Deque_iteratorIS7_RS7_PS7_EET3_SB_IT0_T1_T2_ESJ_SF_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i129, ptr noundef nonnull %agg.tmp.i.i.i126, ptr noundef nonnull %agg.tmp1.i.i.i127, ptr noundef nonnull %agg.tmp2.i.i.i128)
           to label %_ZSt4copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ES0_IS8_RS8_PS8_EET0_T_SH_SG_.exit unwind label %lpad
@@ -2625,7 +2619,7 @@ for.body.i:                                       ; preds = %lpad, %for.body.i
   %__n.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %__new_start.sroa.13.0, %lpad ]
   %44 = load ptr, ptr %__n.04.i, align 8
   call void @_ZdlPv(ptr noundef %44) #15
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__n.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__n.04.i, i64 8
   %cmp.i154 = icmp ult ptr %incdec.ptr.i, %43
   br i1 %cmp.i154, label %for.body.i, label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_destroy_nodesEPPS7_SB_.exit, !llvm.loop !38
 
@@ -2635,11 +2629,11 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 
 if.else:                                          ; preds = %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit
   %45 = load ptr, ptr %__first, align 8
-  %_M_first3.i156 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 1
+  %_M_first3.i156 = getelementptr inbounds i8, ptr %__first, i64 8
   %46 = load ptr, ptr %_M_first3.i156, align 8
-  %_M_last4.i158 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last4.i158 = getelementptr inbounds i8, ptr %__first, i64 16
   %47 = load ptr, ptr %_M_last4.i158, align 8
-  %_M_node5.i160 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node5.i160 = getelementptr inbounds i8, ptr %__first, i64 24
   %48 = load ptr, ptr %_M_node5.i160, align 8
   %sub = sub nsw i64 %__n, %add12.i
   %sub.ptr.lhs.cast.i.i.i164 = ptrtoint ptr %45 to i64
@@ -2670,7 +2664,7 @@ cond.end.i.i.i171:                                ; preds = %cond.false.i.i.i169
   %cond.i.i.i172 = phi i64 [ %div911.i.i.i180, %cond.true.i.i.i179 ], [ %sub10.i.i.i170, %cond.false.i.i.i169 ]
   %add.ptr11.i.i.i173 = getelementptr inbounds ptr, ptr %48, i64 %cond.i.i.i172
   %49 = load ptr, ptr %add.ptr11.i.i.i173, align 8
-  %add.ptr.i.i17.i.i = getelementptr inbounds %"struct.std::pair", ptr %49, i64 8
+  %add.ptr.i.i17.i.i = getelementptr inbounds i8, ptr %49, i64 512
   %mul.i.i.i174 = shl nsw i64 %cond.i.i.i172, 3
   %sub14.i.i.i175 = sub nsw i64 %add.i.i.i168, %mul.i.i.i174
   %add.ptr15.i.i.i176 = getelementptr inbounds %"struct.std::pair", ptr %49, i64 %sub14.i.i.i175
@@ -2683,36 +2677,36 @@ invoke.cont28:                                    ; preds = %cond.end.i.i.i171, 
   %__mid.sroa.21.2 = phi ptr [ %add.ptr11.i.i.i173, %cond.end.i.i.i171 ], [ %48, %if.then.i19.i.i ]
   %50 = load <2 x ptr>, ptr %_M_start, align 8
   store <2 x ptr> %50, ptr %agg.tmp29, align 16
-  %_M_last.i190 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp29, i64 0, i32 2
+  %_M_last.i190 = getelementptr inbounds i8, ptr %agg.tmp29, i64 16
   %51 = load <2 x ptr>, ptr %_M_last.i, align 8
   store <2 x ptr> %51, ptr %_M_last.i190, align 16
   store ptr %storemerge.i.i, ptr %agg.tmp32, align 8
-  %_M_first.i194 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp32, i64 0, i32 1
+  %_M_first.i194 = getelementptr inbounds i8, ptr %agg.tmp32, i64 8
   store ptr %ref.tmp.sroa.2.0, ptr %_M_first.i194, align 8
-  %_M_last.i196 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp32, i64 0, i32 2
+  %_M_last.i196 = getelementptr inbounds i8, ptr %agg.tmp32, i64 16
   store ptr %ref.tmp.sroa.4.0, ptr %_M_last.i196, align 8
-  %_M_node.i198 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp32, i64 0, i32 3
+  %_M_node.i198 = getelementptr inbounds i8, ptr %agg.tmp32, i64 24
   store ptr %ref.tmp.sroa.6.0, ptr %_M_node.i198, align 8
   store ptr %45, ptr %agg.tmp33, align 8
-  %_M_first.i200 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp33, i64 0, i32 1
+  %_M_first.i200 = getelementptr inbounds i8, ptr %agg.tmp33, i64 8
   store ptr %46, ptr %_M_first.i200, align 8
-  %_M_last.i202 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp33, i64 0, i32 2
+  %_M_last.i202 = getelementptr inbounds i8, ptr %agg.tmp33, i64 16
   store ptr %47, ptr %_M_last.i202, align 8
-  %_M_node.i204 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp33, i64 0, i32 3
+  %_M_node.i204 = getelementptr inbounds i8, ptr %agg.tmp33, i64 24
   store ptr %48, ptr %_M_node.i204, align 8
   store ptr %__mid.sroa.0.0, ptr %agg.tmp34, align 8
-  %_M_first.i206 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp34, i64 0, i32 1
+  %_M_first.i206 = getelementptr inbounds i8, ptr %agg.tmp34, i64 8
   store ptr %__mid.sroa.7.2, ptr %_M_first.i206, align 8
-  %_M_last.i208 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp34, i64 0, i32 2
+  %_M_last.i208 = getelementptr inbounds i8, ptr %agg.tmp34, i64 16
   store ptr %__mid.sroa.14.2, ptr %_M_last.i208, align 8
-  %_M_node.i210 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp34, i64 0, i32 3
+  %_M_node.i210 = getelementptr inbounds i8, ptr %agg.tmp34, i64 24
   store ptr %__mid.sroa.21.2, ptr %_M_node.i210, align 8
   store ptr %storemerge.i.i.i.i, ptr %agg.tmp35, align 8
-  %_M_first.i212 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp35, i64 0, i32 1
+  %_M_first.i212 = getelementptr inbounds i8, ptr %agg.tmp35, i64 8
   store ptr %__new_start.sroa.5.0, ptr %_M_first.i212, align 8
-  %_M_last.i214 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp35, i64 0, i32 2
+  %_M_last.i214 = getelementptr inbounds i8, ptr %agg.tmp35, i64 16
   store ptr %__new_start.sroa.9.0, ptr %_M_last.i214, align 8
-  %_M_node.i216 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp35, i64 0, i32 3
+  %_M_node.i216 = getelementptr inbounds i8, ptr %agg.tmp35, i64 24
   store ptr %__new_start.sroa.13.0, ptr %_M_node.i216, align 8
   invoke void @_ZSt25__uninitialized_move_copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_ES0_IS8_RKS8_PSC_ESB_SaIS8_EET1_T_SI_T0_SJ_SH_RT2_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %tmp37, ptr noundef nonnull %agg.tmp29, ptr noundef nonnull %agg.tmp32, ptr noundef nonnull %agg.tmp33, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %invoke.cont38 unwind label %lpad
@@ -2722,29 +2716,29 @@ invoke.cont38:                                    ; preds = %invoke.cont28
   store ptr %__new_start.sroa.5.0, ptr %_M_first.i18, align 8
   store ptr %__new_start.sroa.9.0, ptr %_M_last.i, align 8
   store ptr %__new_start.sroa.13.0, ptr %_M_node1.i, align 8
-  %_M_last4.i227 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
+  %_M_last4.i227 = getelementptr inbounds i8, ptr %__last, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i239), !noalias !170
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i236), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i237), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i238), !noalias !173
   store ptr %__mid.sroa.0.0, ptr %agg.tmp.i.i.i236, align 8, !noalias !176
-  %_M_first.i.i25.i.i249 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i236, i64 0, i32 1
+  %_M_first.i.i25.i.i249 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i236, i64 8
   store ptr %__mid.sroa.7.2, ptr %_M_first.i.i25.i.i249, align 8, !noalias !176
-  %_M_last.i.i27.i.i250 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i236, i64 0, i32 2
+  %_M_last.i.i27.i.i250 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i236, i64 16
   store ptr %__mid.sroa.14.2, ptr %_M_last.i.i27.i.i250, align 8, !noalias !176
-  %_M_node.i.i29.i.i251 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i236, i64 0, i32 3
+  %_M_node.i.i29.i.i251 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i236, i64 24
   store ptr %__mid.sroa.21.2, ptr %_M_node.i.i29.i.i251, align 8, !noalias !176
   %52 = load <2 x ptr>, ptr %__last, align 8
   store <2 x ptr> %52, ptr %agg.tmp1.i.i.i237, align 16, !noalias !176
-  %_M_last.i3.i.i.i253 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i237, i64 0, i32 2
+  %_M_last.i3.i.i.i253 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i237, i64 16
   %53 = load <2 x ptr>, ptr %_M_last4.i227, align 8
   store <2 x ptr> %53, ptr %_M_last.i3.i.i.i253, align 16, !noalias !176
   store ptr %13, ptr %agg.tmp2.i.i.i238, align 8, !noalias !176
-  %_M_first.i7.i.i.i255 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i238, i64 0, i32 1
+  %_M_first.i7.i.i.i255 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i238, i64 8
   store ptr %12, ptr %_M_first.i7.i.i.i255, align 8, !noalias !176
-  %_M_last.i9.i.i.i256 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i238, i64 0, i32 2
+  %_M_last.i9.i.i.i256 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i238, i64 16
   store ptr %11, ptr %_M_last.i9.i.i.i256, align 8, !noalias !176
-  %_M_node.i11.i.i.i257 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i238, i64 0, i32 3
+  %_M_node.i11.i.i.i257 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i238, i64 24
   store ptr %10, ptr %_M_node.i11.i.i.i257, align 8, !noalias !176
   invoke void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_St15_Deque_iteratorIS7_RS7_PS7_EET3_SB_IT0_T1_T2_ESJ_SF_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i239, ptr noundef nonnull %agg.tmp.i.i.i236, ptr noundef nonnull %agg.tmp1.i.i.i237, ptr noundef nonnull %agg.tmp2.i.i.i238)
           to label %_ZSt4copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ES0_IS8_RS8_PS8_EET0_T_SH_SG_.exit264 unwind label %lpad
@@ -2763,7 +2757,7 @@ lpad49:                                           ; preds = %_ZNSt11_Deque_baseI
           to label %eh.resume unwind label %terminate.lpad
 
 if.else51:                                        ; preds = %entry
-  %_M_last.i266 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i266 = getelementptr inbounds i8, ptr %this, i64 64
   %55 = load ptr, ptr %_M_last.i266, align 8
   %sub.ptr.lhs.cast.i267 = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i269 = sub i64 %sub.ptr.lhs.cast.i267, %sub.ptr.lhs.cast3.i.i
@@ -2816,7 +2810,7 @@ cond.end.i.i.i285:                                ; preds = %cond.false.i.i.i283
   %cond.i.i.i286 = phi i64 [ %div911.i.i.i296, %cond.true.i.i.i295 ], [ %sub10.i.i.i284, %cond.false.i.i.i283 ]
   %add.ptr11.i.i.i287 = getelementptr inbounds ptr, ptr %56, i64 %cond.i.i.i286
   %60 = load ptr, ptr %add.ptr11.i.i.i287, align 8, !noalias !182
-  %add.ptr.i.i.i.i288 = getelementptr inbounds %"struct.std::pair", ptr %60, i64 8
+  %add.ptr.i.i.i.i288 = getelementptr inbounds i8, ptr %60, i64 512
   %mul.i.i.i289 = shl nsw i64 %cond.i.i.i286, 3
   %sub14.i.i.i290 = sub nsw i64 %add.i.i.i281, %mul.i.i.i289
   %add.ptr15.i.i.i291 = getelementptr inbounds %"struct.std::pair", ptr %60, i64 %sub14.i.i.i290
@@ -2856,7 +2850,7 @@ cond.end.i.i.i324:                                ; preds = %cond.false.i.i.i322
   %cond.i.i.i325 = phi i64 [ %div911.i.i.i335, %cond.true.i.i.i334 ], [ %sub10.i.i.i323, %cond.false.i.i.i322 ]
   %add.ptr11.i.i.i326 = getelementptr inbounds ptr, ptr %56, i64 %cond.i.i.i325
   %61 = load ptr, ptr %add.ptr11.i.i.i326, align 8, !noalias !185
-  %add.ptr.i.i.i.i327 = getelementptr inbounds %"struct.std::pair", ptr %61, i64 8
+  %add.ptr.i.i.i.i327 = getelementptr inbounds i8, ptr %61, i64 512
   %mul.i.i.i328 = shl nsw i64 %cond.i.i.i325, 3
   %sub14.i.i.i329 = sub nsw i64 %add.i.i.i320, %mul.i.i.i328
   %add.ptr15.i.i.i330 = getelementptr inbounds %"struct.std::pair", ptr %61, i64 %sub14.i.i.i329
@@ -2909,7 +2903,7 @@ cond.end.i.i.i354:                                ; preds = %cond.false.i.i.i352
   %cond.i.i.i355 = phi i64 [ %div911.i.i.i365, %cond.true.i.i.i364 ], [ %sub10.i.i.i353, %cond.false.i.i.i352 ]
   %add.ptr11.i.i.i356 = getelementptr inbounds ptr, ptr %65, i64 %cond.i.i.i355
   %66 = load ptr, ptr %add.ptr11.i.i.i356, align 8, !noalias !188
-  %add.ptr.i.i.i.i357 = getelementptr inbounds %"struct.std::pair", ptr %66, i64 8
+  %add.ptr.i.i.i.i357 = getelementptr inbounds i8, ptr %66, i64 512
   %mul.i.i.i358 = shl nsw i64 %cond.i.i.i355, 3
   %sub14.i.i.i359 = sub nsw i64 %add.i.i.i350, %mul.i.i.i358
   %add.ptr15.i.i.i360 = getelementptr inbounds %"struct.std::pair", ptr %66, i64 %sub14.i.i.i359
@@ -2931,31 +2925,31 @@ for.body.i.i.i.i.i396:                            ; preds = %_ZStmiRKSt15_Deque_
   %68 = phi ptr [ %73, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410 ], [ %64, %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit368 ]
   %69 = phi ptr [ %72, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410 ], [ %65, %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit368 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i397) #14, !noalias !191
-  %second.i.i.i.i.i.i.i400 = getelementptr inbounds %"struct.std::pair", ptr %67, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i401 = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i397, i64 0, i32 1
+  %second.i.i.i.i.i.i.i400 = getelementptr inbounds i8, ptr %67, i64 32
+  %second3.i.i.i.i.i.i.i401 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i397, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i400, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i401) #14, !noalias !191
-  %incdec.ptr.i.i.i.i.i.i.i402 = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i397, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i402 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i397, i64 64
   %cmp.i.i.i.i.i.i.i403 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i402, %agg.tmp.sroa.7.0.i.i.i.i398
   br i1 %cmp.i.i.i.i.i.i.i403, label %if.then.i.i.i.i.i.i.i415, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i404
 
 if.then.i.i.i.i.i.i.i415:                         ; preds = %for.body.i.i.i.i.i396
-  %add.ptr.i.i.i.i.i.i.i416 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i399, i64 1
+  %add.ptr.i.i.i.i.i.i.i416 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i399, i64 8
   %70 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i416, align 8, !noalias !191
-  %add.ptr.i.i.i.i.i.i.i.i417 = getelementptr inbounds %"struct.std::pair", ptr %70, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i417 = getelementptr inbounds i8, ptr %70, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i404
 
 _ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i404: ; preds = %if.then.i.i.i.i.i.i.i415, %for.body.i.i.i.i.i396
   %agg.tmp.sroa.0.1.i.i.i.i405 = phi ptr [ %70, %if.then.i.i.i.i.i.i.i415 ], [ %incdec.ptr.i.i.i.i.i.i.i402, %for.body.i.i.i.i.i396 ]
   %agg.tmp.sroa.7.1.i.i.i.i406 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i417, %if.then.i.i.i.i.i.i.i415 ], [ %agg.tmp.sroa.7.0.i.i.i.i398, %for.body.i.i.i.i.i396 ]
   %agg.tmp.sroa.10.1.i.i.i.i407 = phi ptr [ %add.ptr.i.i.i.i.i.i.i416, %if.then.i.i.i.i.i.i.i415 ], [ %agg.tmp.sroa.10.0.i.i.i.i399, %for.body.i.i.i.i.i396 ]
-  %incdec.ptr.i.i.i.i.i.i408 = getelementptr inbounds %"struct.std::pair", ptr %67, i64 1
+  %incdec.ptr.i.i.i.i.i.i408 = getelementptr inbounds i8, ptr %67, i64 64
   %cmp.i.i.i.i.i.i409 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i408, %68
   br i1 %cmp.i.i.i.i.i.i409, label %if.then.i.i.i.i.i.i412, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410
 
 if.then.i.i.i.i.i.i412:                           ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i404
-  %add.ptr.i.i.i.i.i.i413 = getelementptr inbounds ptr, ptr %69, i64 1
+  %add.ptr.i.i.i.i.i.i413 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %add.ptr.i.i.i.i.i.i413, align 8, !noalias !191
-  %add.ptr.i.i3.i.i.i.i.i414 = getelementptr inbounds %"struct.std::pair", ptr %71, i64 8
+  %add.ptr.i.i3.i.i.i.i.i414 = getelementptr inbounds i8, ptr %71, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i410: ; preds = %if.then.i.i.i.i.i.i412, %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i404
@@ -2976,22 +2970,22 @@ invoke.cont71:                                    ; preds = %_ZNSt15_Deque_itera
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i439), !noalias !205
   %75 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %75, ptr %agg.tmp.i.i.i437, align 16, !noalias !208
-  %_M_last.i.i27.i.i451 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i437, i64 0, i32 2
+  %_M_last.i.i27.i.i451 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i437, i64 16
   %76 = load <2 x ptr>, ptr %ref.tmp54.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %76, ptr %_M_last.i.i27.i.i451, align 16, !noalias !208
   store ptr %storemerge.i.i.i361, ptr %agg.tmp1.i.i.i438, align 8, !noalias !208
-  %_M_first.i1.i.i.i453 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i438, i64 0, i32 1
+  %_M_first.i1.i.i.i453 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i438, i64 8
   store ptr %__finish_n.sroa.3.0, ptr %_M_first.i1.i.i.i453, align 8, !noalias !208
-  %_M_last.i3.i.i.i454 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i438, i64 0, i32 2
+  %_M_last.i3.i.i.i454 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i438, i64 16
   store ptr %__finish_n.sroa.7.0, ptr %_M_last.i3.i.i.i454, align 8, !noalias !208
-  %_M_node.i5.i.i.i455 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp1.i.i.i438, i64 0, i32 3
+  %_M_node.i5.i.i.i455 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i438, i64 24
   store ptr %__finish_n.sroa.11.0, ptr %_M_node.i5.i.i.i455, align 8, !noalias !208
   store ptr %59, ptr %agg.tmp2.i.i.i439, align 8, !noalias !208
-  %_M_first.i7.i.i.i456 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i439, i64 0, i32 1
+  %_M_first.i7.i.i.i456 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i439, i64 8
   store ptr %57, ptr %_M_first.i7.i.i.i456, align 8, !noalias !208
-  %_M_last.i9.i.i.i457 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i439, i64 0, i32 2
+  %_M_last.i9.i.i.i457 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i439, i64 16
   store ptr %58, ptr %_M_last.i9.i.i.i457, align 8, !noalias !208
-  %_M_node.i11.i.i.i458 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i439, i64 0, i32 3
+  %_M_node.i11.i.i.i458 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i439, i64 24
   store ptr %56, ptr %_M_node.i11.i.i.i458, align 8, !noalias !208
   invoke void @_ZSt24__copy_move_backward_ditILb1ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_St15_Deque_iteratorIS7_S8_S9_EET3_SA_IT0_T1_T2_ESG_SC_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i440, ptr noundef nonnull %agg.tmp.i.i.i437, ptr noundef nonnull %agg.tmp1.i.i.i438, ptr noundef nonnull %agg.tmp2.i.i.i439)
           to label %invoke.cont78 unwind label %lpad70
@@ -3001,25 +2995,25 @@ invoke.cont78:                                    ; preds = %invoke.cont71
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i438), !noalias !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i439), !noalias !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i440), !noalias !202
-  %_M_last4.i468 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
-  %_M_last4.i474 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
+  %_M_last4.i468 = getelementptr inbounds i8, ptr %__first, i64 16
+  %_M_last4.i474 = getelementptr inbounds i8, ptr %__last, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i486), !noalias !211
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i483), !noalias !214
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i484), !noalias !214
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i485), !noalias !214
   %77 = load <2 x ptr>, ptr %__first, align 8
   store <2 x ptr> %77, ptr %agg.tmp.i.i.i483, align 16, !noalias !217
-  %_M_last.i.i27.i.i497 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i483, i64 0, i32 2
+  %_M_last.i.i27.i.i497 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i483, i64 16
   %78 = load <2 x ptr>, ptr %_M_last4.i468, align 8
   store <2 x ptr> %78, ptr %_M_last.i.i27.i.i497, align 16, !noalias !217
   %79 = load <2 x ptr>, ptr %__last, align 8
   store <2 x ptr> %79, ptr %agg.tmp1.i.i.i484, align 16, !noalias !217
-  %_M_last.i3.i.i.i500 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i484, i64 0, i32 2
+  %_M_last.i3.i.i.i500 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i484, i64 16
   %80 = load <2 x ptr>, ptr %_M_last4.i474, align 8
   store <2 x ptr> %80, ptr %_M_last.i3.i.i.i500, align 16, !noalias !217
   %81 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %81, ptr %agg.tmp2.i.i.i485, align 16, !noalias !217
-  %_M_last.i9.i.i.i503 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i485, i64 0, i32 2
+  %_M_last.i9.i.i.i503 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i485, i64 16
   %82 = load <2 x ptr>, ptr %ref.tmp54.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %82, ptr %_M_last.i9.i.i.i503, align 16, !noalias !217
   invoke void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_St15_Deque_iteratorIS7_RS7_PS7_EET3_SB_IT0_T1_T2_ESJ_SF_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i486, ptr noundef nonnull %agg.tmp.i.i.i483, ptr noundef nonnull %agg.tmp1.i.i.i484, ptr noundef nonnull %agg.tmp2.i.i.i485)
@@ -3043,7 +3037,7 @@ lpad70:                                           ; preds = %invoke.cont98, %inv
 
 for.body.i513:                                    ; preds = %lpad70, %for.body.i513
   %__n.04.i514.pn = phi ptr [ %__n.04.i514, %for.body.i513 ], [ %86, %lpad70 ]
-  %__n.04.i514 = getelementptr inbounds ptr, ptr %__n.04.i514.pn, i64 1
+  %__n.04.i514 = getelementptr inbounds i8, ptr %__n.04.i514.pn, i64 8
   %87 = load ptr, ptr %__n.04.i514, align 8
   call void @_ZdlPv(ptr noundef %87) #15
   %cmp.i516 = icmp ult ptr %__n.04.i514, %__new_finish.sroa.7.0
@@ -3055,11 +3049,11 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 
 if.else84:                                        ; preds = %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit338
   %88 = load ptr, ptr %__first, align 8
-  %_M_first3.i519 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 1
+  %_M_first3.i519 = getelementptr inbounds i8, ptr %__first, i64 8
   %89 = load ptr, ptr %_M_first3.i519, align 8
-  %_M_last4.i521 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 2
+  %_M_last4.i521 = getelementptr inbounds i8, ptr %__first, i64 16
   %90 = load ptr, ptr %_M_last4.i521, align 8
-  %_M_node5.i523 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first, i64 0, i32 3
+  %_M_node5.i523 = getelementptr inbounds i8, ptr %__first, i64 24
   %91 = load ptr, ptr %_M_node5.i523, align 8
   %sub.ptr.lhs.cast.i.i.i531 = ptrtoint ptr %88 to i64
   %sub.ptr.rhs.cast.i.i.i532 = ptrtoint ptr %89 to i64
@@ -3089,7 +3083,7 @@ cond.end.i.i.i539:                                ; preds = %cond.false.i.i.i537
   %cond.i.i.i540 = phi i64 [ %div911.i.i.i553, %cond.true.i.i.i552 ], [ %sub10.i.i.i538, %cond.false.i.i.i537 ]
   %add.ptr11.i.i.i542 = getelementptr inbounds ptr, ptr %91, i64 %cond.i.i.i540
   %92 = load ptr, ptr %add.ptr11.i.i.i542, align 8
-  %add.ptr.i.i17.i.i543 = getelementptr inbounds %"struct.std::pair", ptr %92, i64 8
+  %add.ptr.i.i17.i.i543 = getelementptr inbounds i8, ptr %92, i64 512
   %mul.i.i.i545 = shl nsw i64 %cond.i.i.i540, 3
   %sub14.i.i.i546 = sub nsw i64 %add.i.i.i535, %mul.i.i.i545
   %add.ptr15.i.i.i547 = getelementptr inbounds %"struct.std::pair", ptr %92, i64 %sub14.i.i.i546
@@ -3100,7 +3094,7 @@ invoke.cont86:                                    ; preds = %cond.end.i.i.i539, 
   %__mid85.sroa.7.2 = phi ptr [ %92, %cond.end.i.i.i539 ], [ %89, %if.then.i19.i.i554 ]
   %__mid85.sroa.14.2 = phi ptr [ %add.ptr.i.i17.i.i543, %cond.end.i.i.i539 ], [ %90, %if.then.i19.i.i554 ]
   %__mid85.sroa.21.2 = phi ptr [ %add.ptr11.i.i.i542, %cond.end.i.i.i539 ], [ %91, %if.then.i19.i.i554 ]
-  %_M_last4.i584 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last, i64 0, i32 2
+  %_M_last4.i584 = getelementptr inbounds i8, ptr %__last, i64 16
   %93 = load ptr, ptr %_M_finish.i, align 8
   %94 = load ptr, ptr %_M_node.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__mid.i)
@@ -3108,22 +3102,22 @@ invoke.cont86:                                    ; preds = %cond.end.i.i.i539, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i), !noalias !220
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i.i), !noalias !220
   store ptr %__mid85.sroa.0.0, ptr %agg.tmp.i.i.i.i, align 8, !noalias !227
-  %_M_first.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
+  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
   store ptr %__mid85.sroa.7.2, ptr %_M_first.i.i.i.i.i, align 8, !noalias !227
-  %_M_last.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i.i, i64 0, i32 2
+  %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
   store ptr %__mid85.sroa.14.2, ptr %_M_last.i.i.i.i.i, align 8, !noalias !227
-  %_M_node.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i.i, i64 0, i32 3
+  %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %__mid85.sroa.21.2, ptr %_M_node.i.i.i.i.i, align 8, !noalias !227
   %95 = load <2 x ptr>, ptr %__last, align 8
   store <2 x ptr> %95, ptr %agg.tmp1.i.i.i.i, align 16, !noalias !227
-  %_M_last.i3.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
   %96 = load <2 x ptr>, ptr %_M_last4.i584, align 8
   store <2 x ptr> %96, ptr %_M_last.i3.i.i.i.i, align 16, !noalias !227
   store ptr %93, ptr %agg.tmp2.i.i.i.i, align 8, !noalias !227
-  %_M_first.i7.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i.i, i64 0, i32 1
+  %_M_first.i7.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i, i64 8
   %97 = load <2 x ptr>, ptr %_M_first.i.i, align 8
   store <2 x ptr> %97, ptr %_M_first.i7.i.i.i.i, align 8, !noalias !227
-  %_M_node.i11.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i.i, i64 0, i32 3
+  %_M_node.i11.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i, i64 24
   store ptr %94, ptr %_M_node.i11.i.i.i.i, align 8, !noalias !227
   invoke void @_ZSt16__do_uninit_copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ES0_IS8_RS8_PS8_EET0_T_SH_SG_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %__mid.i, ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i.i)
           to label %.noexc unwind label %lpad70
@@ -3136,9 +3130,9 @@ invoke.cont86:                                    ; preds = %cond.end.i.i.i539, 
   br i1 %cmp.i.i.i.not16.i.i.i.i.i.i, label %invoke.cont98, label %for.body.i.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.i.preheader:                   ; preds = %.noexc
-  %_M_node5.i32.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__mid.i, i64 0, i32 3
+  %_M_node5.i32.i = getelementptr inbounds i8, ptr %__mid.i, i64 24
   %98 = load ptr, ptr %_M_node5.i32.i, align 8, !noalias !230
-  %_M_last4.i30.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__mid.i, i64 0, i32 2
+  %_M_last4.i30.i = getelementptr inbounds i8, ptr %__mid.i, i64 16
   %99 = load ptr, ptr %_M_last4.i30.i, align 8, !noalias !230
   %100 = load ptr, ptr %__mid.i, align 8, !noalias !230
   br label %for.body.i.i.i.i.i.i
@@ -3151,31 +3145,31 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %102 = phi ptr [ %107, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i ], [ %99, %for.body.i.i.i.i.i.i.preheader ]
   %103 = phi ptr [ %106, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i ], [ %98, %for.body.i.i.i.i.i.i.preheader ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i.i) #14, !noalias !231
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %101, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %101, i64 32
+  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i.i) #14, !noalias !231
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i.i, i64 64
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %agg.tmp.sroa.7.0.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i612 = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i.i.i.i612 = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i.i, i64 8
   %104 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i612, align 8, !noalias !231
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %104, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %104, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i.i
 
 _ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   %agg.tmp.sroa.0.1.i.i.i.i.i = phi ptr [ %104, %if.then.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %agg.tmp.sroa.7.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.7.0.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %agg.tmp.sroa.10.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i612, %if.then.i.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i.i608 = getelementptr inbounds %"struct.std::pair", ptr %101, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i608 = getelementptr inbounds i8, ptr %101, i64 64
   %cmp.i.i.i.i.i.i.i609 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i608, %102
   br i1 %cmp.i.i.i.i.i.i.i609, label %if.then.i.i.i.i.i.i.i610, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i610:                         ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i611 = getelementptr inbounds ptr, ptr %103, i64 1
+  %add.ptr.i.i.i.i.i.i.i611 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i611, align 8, !noalias !231
-  %add.ptr.i.i3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %105, i64 8
+  %add.ptr.i.i3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %105, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i610, %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i.i
@@ -3197,19 +3191,19 @@ invoke.cont98:                                    ; preds = %_ZNSt15_Deque_itera
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i633), !noalias !245
   %109 = load <2 x ptr>, ptr %__first, align 8
   store <2 x ptr> %109, ptr %agg.tmp.i.i.i631, align 16, !noalias !248
-  %_M_last.i.i27.i.i645 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i631, i64 0, i32 2
+  %_M_last.i.i27.i.i645 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i631, i64 16
   %110 = load <2 x ptr>, ptr %_M_last4.i521, align 8
   store <2 x ptr> %110, ptr %_M_last.i.i27.i.i645, align 16, !noalias !248
   store ptr %__mid85.sroa.0.0, ptr %agg.tmp1.i.i.i632, align 8, !noalias !248
-  %_M_first.i1.i.i.i647 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i632, i64 0, i32 1
+  %_M_first.i1.i.i.i647 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i632, i64 8
   store ptr %__mid85.sroa.7.2, ptr %_M_first.i1.i.i.i647, align 8, !noalias !248
-  %_M_last.i3.i.i.i648 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i632, i64 0, i32 2
+  %_M_last.i3.i.i.i648 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i632, i64 16
   store ptr %__mid85.sroa.14.2, ptr %_M_last.i3.i.i.i648, align 8, !noalias !248
-  %_M_node.i5.i.i.i649 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i632, i64 0, i32 3
+  %_M_node.i5.i.i.i649 = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i632, i64 24
   store ptr %__mid85.sroa.21.2, ptr %_M_node.i5.i.i.i649, align 8, !noalias !248
   %111 = load <2 x ptr>, ptr %__pos, align 8
   store <2 x ptr> %111, ptr %agg.tmp2.i.i.i633, align 16, !noalias !248
-  %_M_last.i9.i.i.i651 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i633, i64 0, i32 2
+  %_M_last.i9.i.i.i651 = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i633, i64 16
   %112 = load <2 x ptr>, ptr %ref.tmp54.sroa.4.0.__pos.sroa_idx, align 8
   store <2 x ptr> %112, ptr %_M_last.i9.i.i.i651, align 16, !noalias !248
   invoke void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_St15_Deque_iteratorIS7_RS7_PS7_EET3_SB_IT0_T1_T2_ESJ_SF_(ptr nonnull sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp.i.i634, ptr noundef nonnull %agg.tmp.i.i.i631, ptr noundef nonnull %agg.tmp1.i.i.i632, ptr noundef nonnull %agg.tmp2.i.i.i633)
@@ -3249,11 +3243,11 @@ unreachable:                                      ; preds = %_ZNSt11_Deque_baseI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE24_M_new_elements_at_frontEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__new_elems) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -3264,13 +3258,13 @@ entry:
   %sub.ptr.div7.i.i = add i64 %sub.ptr.sub.i.i, %sub6.i.i
   %mul.i.i = and i64 %sub.ptr.div7.i.i, -8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 6
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -3371,9 +3365,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -3381,7 +3375,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -3395,7 +3389,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -3448,7 +3442,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit30, label %if.then.i.i.i.i.i28
 
@@ -3469,19 +3463,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i22
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i22 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 8
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds %"struct.std::pair", ptr %6, i64 8
-  %_M_last.i34 = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 512
+  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }
@@ -3492,11 +3486,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE23_M_new_elements_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__new_elems) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -3507,13 +3501,13 @@ entry:
   %sub.ptr.div7.i.i = add i64 %sub.ptr.sub.i.i, %sub6.i.i
   %mul.i.i = and i64 %sub.ptr.div7.i.i, -8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 6
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -3533,7 +3527,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %sub4 = add i64 %__new_elems, 7
   %div9 = lshr i64 %sub4, 3
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %_M_map_size.i, align 8
   %9 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
@@ -3620,19 +3614,19 @@ entry:
   %0 = load ptr, ptr %__first1, align 8
   %1 = load ptr, ptr %__last1, align 8
   %2 = load ptr, ptr %__result, align 8
-  %_M_first3.i10 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i10 = getelementptr inbounds i8, ptr %__result, i64 8
   %3 = load ptr, ptr %_M_first3.i10, align 8
-  %_M_last4.i12 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i12 = getelementptr inbounds i8, ptr %__result, i64 16
   %4 = load ptr, ptr %_M_last4.i12, align 8
-  %_M_node5.i14 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i14 = getelementptr inbounds i8, ptr %__result, i64 24
   %5 = load ptr, ptr %_M_node5.i14, align 8
   %cmp.i.i.i.not16.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.not16.i.i.i.i.i, label %_ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_ESB_SaIS8_EET0_T_SE_SD_RT1_.exit, label %for.body.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %entry
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first1, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__first1, i64 24
   %6 = load ptr, ptr %_M_node5.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first1, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__first1, i64 16
   %7 = load ptr, ptr %_M_last4.i, align 8
   br label %for.body.i.i.i.i.i
 
@@ -3647,31 +3641,31 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   %9 = phi ptr [ %14, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %4, %for.body.i.i.i.i.i.preheader ]
   %10 = phi ptr [ %13, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ], [ %5, %for.body.i.i.i.i.i.preheader ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i.i.i.i) #14, !noalias !255
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i) #14, !noalias !255
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i.i, i64 64
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %agg.tmp.sroa.7.0.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i.i.i.i, i64 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i.i.i.i, i64 8
   %11 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8, !noalias !255
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 8
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   br label %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
 
 _ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %agg.tmp.sroa.0.1.i.i.i.i = phi ptr [ %11, %if.then.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %agg.tmp.sroa.7.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.7.0.i.i.i.i, %for.body.i.i.i.i.i ]
   %agg.tmp.sroa.10.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %agg.tmp.sroa.10.0.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 64
   %cmp.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %9
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %10, i64 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8, !noalias !255
-  %add.ptr.i.i3.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %12, i64 8
+  %add.ptr.i.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt13move_iteratorISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEppEv.exit.i.i.i.i.i
@@ -3689,27 +3683,27 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stri
   %__mid.sroa.5.2 = phi ptr [ %3, %entry ], [ %__mid.sroa.5.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ]
   %__mid.sroa.9.2 = phi ptr [ %4, %entry ], [ %__mid.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ]
   %__mid.sroa.13.2 = phi ptr [ %5, %entry ], [ %__mid.sroa.13.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i.i.i.i ]
-  %_M_last4.i18 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__first2, i64 0, i32 2
-  %_M_last4.i24 = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %__last2, i64 0, i32 2
+  %_M_last4.i18 = getelementptr inbounds i8, ptr %__first2, i64 16
+  %_M_last4.i24 = getelementptr inbounds i8, ptr %__last2, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !266
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i), !noalias !266
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !266
   %15 = load <2 x ptr>, ptr %__first2, align 8
   store <2 x ptr> %15, ptr %agg.tmp.i.i.i, align 16, !noalias !271
-  %_M_last.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %16 = load <2 x ptr>, ptr %_M_last4.i18, align 8
   store <2 x ptr> %16, ptr %_M_last.i.i.i.i, align 16, !noalias !271
   %17 = load <2 x ptr>, ptr %__last2, align 8
   store <2 x ptr> %17, ptr %agg.tmp1.i.i.i, align 16, !noalias !271
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator.3", ptr %agg.tmp1.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   %18 = load <2 x ptr>, ptr %_M_last4.i24, align 8
   store <2 x ptr> %18, ptr %_M_last.i3.i.i.i, align 16, !noalias !271
   store ptr %__mid.sroa.0.1, ptr %agg.tmp2.i.i.i, align 8, !noalias !271
-  %_M_first.i7.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 1
+  %_M_first.i7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %__mid.sroa.5.2, ptr %_M_first.i7.i.i.i, align 8, !noalias !271
-  %_M_last.i9.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i9.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %__mid.sroa.9.2, ptr %_M_last.i9.i.i.i, align 8, !noalias !271
-  %_M_node.i11.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 3
+  %_M_node.i11.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %__mid.sroa.13.2, ptr %_M_node.i11.i.i.i, align 8, !noalias !271
   invoke void @_ZSt16__do_uninit_copyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ES0_IS8_RS8_PS8_EET0_T_SH_SG_(ptr sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -3727,15 +3721,15 @@ lpad:                                             ; preds = %_ZSt22__uninitializ
   %21 = call ptr @__cxa_begin_catch(ptr %20) #14
   %22 = load <2 x ptr>, ptr %__result, align 8
   store <2 x ptr> %22, ptr %agg.tmp6, align 16
-  %_M_last.i37 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp6, i64 0, i32 2
+  %_M_last.i37 = getelementptr inbounds i8, ptr %agg.tmp6, i64 16
   %23 = load <2 x ptr>, ptr %_M_last4.i12, align 8
   store <2 x ptr> %23, ptr %_M_last.i37, align 16
   store ptr %__mid.sroa.0.1, ptr %agg.tmp7, align 8
-  %_M_first.i41 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp7, i64 0, i32 1
+  %_M_first.i41 = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   store ptr %__mid.sroa.5.2, ptr %_M_first.i41, align 8
-  %_M_last.i43 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp7, i64 0, i32 2
+  %_M_last.i43 = getelementptr inbounds i8, ptr %agg.tmp7, i64 16
   store ptr %__mid.sroa.9.2, ptr %_M_last.i43, align 8
-  %_M_node.i45 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp7, i64 0, i32 3
+  %_M_node.i45 = getelementptr inbounds i8, ptr %agg.tmp7, i64 24
   store ptr %__mid.sroa.13.2, ptr %_M_node.i45, align 8
   invoke void @_ZSt8_DestroyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_ES8_EvT_SC_RSaIT0_E(ptr noundef nonnull %agg.tmp6, ptr noundef nonnull %agg.tmp7, ptr noundef nonnull align 1 dereferenceable(1) %__alloc)
           to label %invoke.cont9 unwind label %lpad8
@@ -3770,9 +3764,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb1ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_St15_Deque_iteratorIS7_S8_S9_EET3_SA_IT0_T1_T2_ESG_SC_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 3
+  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   %2 = load ptr, ptr %__first, align 8
@@ -3780,14 +3774,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %3 = load ptr, ptr %_M_last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i158
@@ -3816,11 +3810,11 @@ for.body.i.i.i.i:                                 ; preds = %while.body.i, %for.
   %__result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %agg.tmp.sroa.0.0, %while.body.i ]
   %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.015.i, %while.body.i ]
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i) #14, !noalias !274
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 32
+  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i, i64 32
   %call4.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #14, !noalias !274
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i, i64 64
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i, i64 64
   %dec.i.i.i.i = add nsw i64 %__n.09.i.i.i.i, -1
   %cmp.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i, !llvm.loop !277
@@ -3853,7 +3847,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   %cond.i.i = phi i64 [ %div911.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %add.ptr11.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i
   %8 = load ptr, ptr %add.ptr11.i.i, align 8, !noalias !274
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 512
   %mul.i.i = shl nsw i64 %cond.i.i, 3
   %sub14.i.i = sub nsw i64 %add.i.i, %mul.i.i
   %add.ptr15.i.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %sub14.i.i
@@ -3878,7 +3872,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr %agg.tmp.sroa.8.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %11 = load ptr, ptr %_M_node, align 8
-  %__node.0235 = getelementptr inbounds ptr, ptr %11, i64 1
+  %__node.0235 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %_M_node1, align 8
   %cmp4.not236 = icmp eq ptr %__node.0235, %12
   br i1 %cmp4.not236, label %for.end, label %for.body
@@ -3913,11 +3907,11 @@ for.body.i.i.i.i59:                               ; preds = %while.body.i18, %fo
   %__result.addr.08.i.i.i.i61 = phi ptr [ %incdec.ptr1.i.i.i.i68, %for.body.i.i.i.i59 ], [ %agg.tmp7.sroa.0.0, %while.body.i18 ]
   %__first.addr.07.i.i.i.i62 = phi ptr [ %incdec.ptr.i.i.i.i67, %for.body.i.i.i.i59 ], [ %__first.addr.015.i19, %while.body.i18 ]
   %call.i.i.i.i.i63 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i62) #14, !noalias !279
-  %second.i.i.i.i.i64 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i62, i64 0, i32 1
-  %second3.i.i.i.i.i65 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i61, i64 0, i32 1
+  %second.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i62, i64 32
+  %second3.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i61, i64 32
   %call4.i.i.i.i.i66 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i65, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i64) #14, !noalias !279
-  %incdec.ptr.i.i.i.i67 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i62, i64 1
-  %incdec.ptr1.i.i.i.i68 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i61, i64 1
+  %incdec.ptr.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i62, i64 64
+  %incdec.ptr1.i.i.i.i68 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i61, i64 64
   %dec.i.i.i.i69 = add nsw i64 %__n.09.i.i.i.i60, -1
   %cmp.i.i.i.i70 = icmp ugt i64 %__n.09.i.i.i.i60, 1
   br i1 %cmp.i.i.i.i70, label %for.body.i.i.i.i59, label %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i28, !llvm.loop !277
@@ -3950,7 +3944,7 @@ cond.end.i.i37:                                   ; preds = %cond.false.i.i35, %
   %cond.i.i38 = phi i64 [ %div911.i.i56, %cond.true.i.i55 ], [ %sub10.i.i36, %cond.false.i.i35 ]
   %add.ptr11.i.i39 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i38
   %18 = load ptr, ptr %add.ptr11.i.i39, align 8, !noalias !279
-  %add.ptr.i.i.i40 = getelementptr inbounds %"struct.std::pair", ptr %18, i64 8
+  %add.ptr.i.i.i40 = getelementptr inbounds i8, ptr %18, i64 512
   %mul.i.i41 = shl nsw i64 %cond.i.i38, 3
   %sub14.i.i42 = sub nsw i64 %add.i.i33, %mul.i.i41
   %add.ptr15.i.i43 = getelementptr inbounds %"struct.std::pair", ptr %18, i64 %sub14.i.i42
@@ -3970,7 +3964,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr %agg.tmp7.sroa.4.1, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.7.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.0237, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0237, i64 8
   %19 = load ptr, ptr %_M_node1, align 8
   %cmp4.not = icmp eq ptr %__node.0, %19
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !282
@@ -3980,7 +3974,7 @@ for.end:                                          ; preds = %_ZSt14__copy_move_a
   %21 = phi ptr [ %agg.tmp.sroa.8.2, %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %agg.tmp7.sroa.7.1, %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit74 ]
   %22 = phi ptr [ %9, %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %agg.tmp7.sroa.4.1, %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit74 ]
   %23 = phi ptr [ %10, %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %storemerge.i.i45, %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit74 ]
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %24 = load ptr, ptr %_M_first, align 8
   %25 = load ptr, ptr %__last, align 8
   %sub.ptr.lhs.cast.i81 = ptrtoint ptr %25 to i64
@@ -4011,11 +4005,11 @@ for.body.i.i.i.i135:                              ; preds = %while.body.i99, %fo
   %__result.addr.08.i.i.i.i137 = phi ptr [ %incdec.ptr1.i.i.i.i144, %for.body.i.i.i.i135 ], [ %agg.tmp9.sroa.0.0, %while.body.i99 ]
   %__first.addr.07.i.i.i.i138 = phi ptr [ %incdec.ptr.i.i.i.i143, %for.body.i.i.i.i135 ], [ %__first.addr.015.i100, %while.body.i99 ]
   %call.i.i.i.i.i139 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i137, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i138) #14, !noalias !283
-  %second.i.i.i.i.i140 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i138, i64 0, i32 1
-  %second3.i.i.i.i.i141 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i137, i64 0, i32 1
+  %second.i.i.i.i.i140 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i138, i64 32
+  %second3.i.i.i.i.i141 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i137, i64 32
   %call4.i.i.i.i.i142 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i141, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i140) #14, !noalias !283
-  %incdec.ptr.i.i.i.i143 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i138, i64 1
-  %incdec.ptr1.i.i.i.i144 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i137, i64 1
+  %incdec.ptr.i.i.i.i143 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i138, i64 64
+  %incdec.ptr1.i.i.i.i144 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i137, i64 64
   %dec.i.i.i.i145 = add nsw i64 %__n.09.i.i.i.i136, -1
   %cmp.i.i.i.i146 = icmp ugt i64 %__n.09.i.i.i.i136, 1
   br i1 %cmp.i.i.i.i146, label %for.body.i.i.i.i135, label %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i109, !llvm.loop !277
@@ -4048,7 +4042,7 @@ cond.end.i.i118:                                  ; preds = %cond.false.i.i116, 
   %cond.i.i119 = phi i64 [ %div911.i.i132, %cond.true.i.i131 ], [ %sub10.i.i117, %cond.false.i.i116 ]
   %add.ptr11.i.i120 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i119
   %26 = load ptr, ptr %add.ptr11.i.i120, align 8, !noalias !283
-  %add.ptr.i.i.i121 = getelementptr inbounds %"struct.std::pair", ptr %26, i64 8
+  %add.ptr.i.i.i121 = getelementptr inbounds i8, ptr %26, i64 512
   %mul.i.i122 = shl nsw i64 %cond.i.i119, 3
   %sub14.i.i123 = sub nsw i64 %add.i.i114, %mul.i.i122
   %add.ptr15.i.i124 = getelementptr inbounds %"struct.std::pair", ptr %26, i64 %sub14.i.i123
@@ -4066,11 +4060,11 @@ _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 if.end:                                           ; preds = %entry
   %27 = load ptr, ptr %__last, align 8
   %28 = load ptr, ptr %__result, align 8
-  %_M_first3.i152 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i152 = getelementptr inbounds i8, ptr %__result, i64 8
   %29 = load ptr, ptr %_M_first3.i152, align 8
-  %_M_last4.i154 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i154 = getelementptr inbounds i8, ptr %__result, i64 16
   %30 = load ptr, ptr %_M_last4.i154, align 8
-  %_M_node5.i156 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i156 = getelementptr inbounds i8, ptr %__result, i64 24
   %31 = load ptr, ptr %_M_node5.i156, align 8
   %sub.ptr.lhs.cast.i157 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i159 = sub i64 %sub.ptr.lhs.cast.i157, %sub.ptr.rhs.cast.i158
@@ -4099,11 +4093,11 @@ for.body.i.i.i.i211:                              ; preds = %while.body.i175, %f
   %__result.addr.08.i.i.i.i213 = phi ptr [ %incdec.ptr1.i.i.i.i220, %for.body.i.i.i.i211 ], [ %agg.tmp12.sroa.0.0, %while.body.i175 ]
   %__first.addr.07.i.i.i.i214 = phi ptr [ %incdec.ptr.i.i.i.i219, %for.body.i.i.i.i211 ], [ %__first.addr.015.i176, %while.body.i175 ]
   %call.i.i.i.i.i215 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i213, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i214) #14, !noalias !286
-  %second.i.i.i.i.i216 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i214, i64 0, i32 1
-  %second3.i.i.i.i.i217 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i213, i64 0, i32 1
+  %second.i.i.i.i.i216 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i214, i64 32
+  %second3.i.i.i.i.i217 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i213, i64 32
   %call4.i.i.i.i.i218 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i217, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i216) #14, !noalias !286
-  %incdec.ptr.i.i.i.i219 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.07.i.i.i.i214, i64 1
-  %incdec.ptr1.i.i.i.i220 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.08.i.i.i.i213, i64 1
+  %incdec.ptr.i.i.i.i219 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i214, i64 64
+  %incdec.ptr1.i.i.i.i220 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i213, i64 64
   %dec.i.i.i.i221 = add nsw i64 %__n.09.i.i.i.i212, -1
   %cmp.i.i.i.i222 = icmp ugt i64 %__n.09.i.i.i.i212, 1
   br i1 %cmp.i.i.i.i222, label %for.body.i.i.i.i211, label %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i185, !llvm.loop !277
@@ -4136,7 +4130,7 @@ cond.end.i.i194:                                  ; preds = %cond.false.i.i192, 
   %cond.i.i195 = phi i64 [ %div911.i.i208, %cond.true.i.i207 ], [ %sub10.i.i193, %cond.false.i.i192 ]
   %add.ptr11.i.i196 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i195
   %32 = load ptr, ptr %add.ptr11.i.i196, align 8, !noalias !286
-  %add.ptr.i.i.i197 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 8
+  %add.ptr.i.i.i197 = getelementptr inbounds i8, ptr %32, i64 512
   %mul.i.i198 = shl nsw i64 %cond.i.i195, 3
   %sub14.i.i199 = sub nsw i64 %add.i.i190, %mul.i.i198
   %add.ptr15.i.i200 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 %sub14.i.i199
@@ -4157,11 +4151,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.8.2.sink = phi ptr [ %21, %for.end ], [ %30, %if.end ], [ %agg.tmp12.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i201 ], [ %agg.tmp9.sroa.8.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i125 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %20, %for.end ], [ %31, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i201 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i125 ]
   store ptr %.sink238, ptr %agg.result, align 8
-  %_M_first.i8.i166 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
+  %_M_first.i8.i166 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i8.i166, align 8
-  %_M_last.i.i167 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
+  %_M_last.i.i167 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.8.2.sink, ptr %_M_last.i.i167, align 8
-  %_M_node.i9.i169 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
+  %_M_node.i9.i169 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i9.i169, align 8
   ret void
 }
@@ -4178,9 +4172,9 @@ entry:
   br i1 %cmp.i.i.not1.i.i, label %_ZSt8_DestroyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERS8_PS8_EEvT_SC_.exit, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %entry
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %4 = load ptr, ptr %_M_last4.i, align 8
   br label %for.body.i.i
 
@@ -4188,17 +4182,17 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %agg.tmp.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.1.i, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i ], [ %1, %for.body.i.i.preheader ]
   %agg.tmp.sroa.7.0.i = phi ptr [ %agg.tmp.sroa.7.1.i, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i ], [ %4, %for.body.i.i.preheader ]
   %agg.tmp.sroa.10.0.i = phi ptr [ %agg.tmp.sroa.10.1.i, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i ], [ %3, %for.body.i.i.preheader ]
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.i) #14
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %agg.tmp.sroa.0.0.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i, i64 64
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp.sroa.7.0.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.10.0.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.10.0.i, i64 8
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EppEv.exit.i.i: ; preds = %if.then.i.i.i, %for.body.i.i
@@ -4215,23 +4209,23 @@ _ZSt8_DestroyISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_tr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1ESt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_St15_Deque_iteratorIS7_S8_S9_EET3_SA_IT0_T1_T2_ESG_SC_(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #0 comdat {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 3
+  %_M_node1 = getelementptr inbounds i8, ptr %__last, i64 24
   %1 = load ptr, ptr %_M_node1, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %2 = load ptr, ptr %_M_first, align 8
   %3 = load ptr, ptr %__last, align 8
   %4 = load ptr, ptr %__result, align 8
-  %_M_first3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i = getelementptr inbounds i8, ptr %__result, i64 8
   %5 = load ptr, ptr %_M_first3.i, align 8
-  %_M_last4.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i = getelementptr inbounds i8, ptr %__result, i64 16
   %6 = load ptr, ptr %_M_last4.i, align 8
-  %_M_node5.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i = getelementptr inbounds i8, ptr %__result, i64 24
   %7 = load ptr, ptr %_M_node5.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
@@ -4256,9 +4250,9 @@ while.body.i:                                     ; preds = %if.then, %_ZNSt15_D
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.12.0, i64 -8
   %9 = load ptr, ptr %add.ptr.i, align 8, !noalias !289
-  %add.ptr6.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 8
+  %add.ptr6.i = getelementptr inbounds i8, ptr %9, i64 512
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
@@ -4274,11 +4268,11 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i, %for.body
   %__n.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %for.body.i.i.i.i ], [ %.sroa.speculated.i, %if.end.i ]
   %__result.addr.06.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__rend.0.i, %if.end.i ]
   %__last.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__last.addr.012.i, %if.end.i ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__last.addr.05.i.i.i.i, i64 -1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.06.i.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i, i64 -64
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i, i64 -64
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i) #14, !noalias !289
-  %second.i.i.i.i.i = getelementptr %"struct.std::pair", ptr %__last.addr.05.i.i.i.i, i64 -1, i32 1
-  %second3.i.i.i.i.i = getelementptr %"struct.std::pair", ptr %__result.addr.06.i.i.i.i, i64 -1, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i, i64 -32
+  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i, i64 -32
   %call4.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #14, !noalias !289
   %dec.i.i.i.i = add nsw i64 %__n.07.i.i.i.i, -1
   %cmp.i.i.i.i = icmp ugt i64 %__n.07.i.i.i.i, 1
@@ -4317,7 +4311,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi i64 [ %div911.i.i.i, %cond.true.i.i.i ], [ %sub10.i.i.i, %cond.false.i.i.i ]
   %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %agg.tmp.sroa.12.0, i64 %cond.i.i.i
   %11 = load ptr, ptr %add.ptr11.i.i.i, align 8, !noalias !289
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 512
   %mul.i.i.i = shl nsw i64 %cond.i.i.i, 3
   %sub14.i.i.i = sub nsw i64 %add.i.i.i, %mul.i.i.i
   %add.ptr15.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 %sub14.i.i.i
@@ -4343,7 +4337,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_t
   store ptr %agg.tmp.sroa.9.2, ptr %_M_last4.i, align 8
   store ptr %agg.tmp.sroa.12.2, ptr %_M_node5.i, align 8
   %15 = load ptr, ptr %_M_node1, align 8
-  %__node.0267 = getelementptr inbounds ptr, ptr %15, i64 -1
+  %__node.0267 = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %_M_node, align 8
   %cmp4.not268 = icmp eq ptr %__node.0267, %16
   br i1 %cmp4.not268, label %for.end, label %for.body
@@ -4355,7 +4349,7 @@ for.body:                                         ; preds = %_ZSt23__copy_move_b
   %20 = phi ptr [ %storemerge.i.i.i49, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit85 ], [ %14, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ]
   %__node.0269 = phi ptr [ %__node.0, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit85 ], [ %__node.0267, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ]
   %21 = load ptr, ptr %__node.0269, align 8
-  %add.ptr6 = getelementptr inbounds %"struct.std::pair", ptr %21, i64 8
+  %add.ptr6 = getelementptr inbounds i8, ptr %21, i64 512
   br label %while.body.i20
 
 while.body.i20:                                   ; preds = %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit.i48, %for.body
@@ -4374,9 +4368,9 @@ while.body.i20:                                   ; preds = %_ZNSt15_Deque_itera
   br i1 %tobool.not.i27, label %if.then.i82, label %if.end.i28
 
 if.then.i82:                                      ; preds = %while.body.i20
-  %add.ptr.i83 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 -1
+  %add.ptr.i83 = getelementptr inbounds i8, ptr %agg.tmp7.sroa.11.0, i64 -8
   %23 = load ptr, ptr %add.ptr.i83, align 8, !noalias !294
-  %add.ptr6.i84 = getelementptr inbounds %"struct.std::pair", ptr %23, i64 8
+  %add.ptr6.i84 = getelementptr inbounds i8, ptr %23, i64 512
   br label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then.i82, %while.body.i20
@@ -4392,11 +4386,11 @@ for.body.i.i.i.i63:                               ; preds = %if.end.i28, %for.bo
   %__n.07.i.i.i.i64 = phi i64 [ %dec.i.i.i.i73, %for.body.i.i.i.i63 ], [ %.sroa.speculated.i31, %if.end.i28 ]
   %__result.addr.06.i.i.i.i65 = phi ptr [ %incdec.ptr1.i.i.i.i68, %for.body.i.i.i.i63 ], [ %__rend.0.i30, %if.end.i28 ]
   %__last.addr.05.i.i.i.i66 = phi ptr [ %incdec.ptr.i.i.i.i67, %for.body.i.i.i.i63 ], [ %__last.addr.012.i21, %if.end.i28 ]
-  %incdec.ptr.i.i.i.i67 = getelementptr inbounds %"struct.std::pair", ptr %__last.addr.05.i.i.i.i66, i64 -1
-  %incdec.ptr1.i.i.i.i68 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.06.i.i.i.i65, i64 -1
+  %incdec.ptr.i.i.i.i67 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i66, i64 -64
+  %incdec.ptr1.i.i.i.i68 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i65, i64 -64
   %call.i.i.i.i.i69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i67) #14, !noalias !294
-  %second.i.i.i.i.i70 = getelementptr %"struct.std::pair", ptr %__last.addr.05.i.i.i.i66, i64 -1, i32 1
-  %second3.i.i.i.i.i71 = getelementptr %"struct.std::pair", ptr %__result.addr.06.i.i.i.i65, i64 -1, i32 1
+  %second.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i66, i64 -32
+  %second3.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i65, i64 -32
   %call4.i.i.i.i.i72 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i70) #14, !noalias !294
   %dec.i.i.i.i73 = add nsw i64 %__n.07.i.i.i.i64, -1
   %cmp.i.i.i.i74 = icmp ugt i64 %__n.07.i.i.i.i64, 1
@@ -4435,7 +4429,7 @@ cond.end.i.i.i41:                                 ; preds = %cond.false.i.i.i39,
   %cond.i.i.i42 = phi i64 [ %div911.i.i.i60, %cond.true.i.i.i59 ], [ %sub10.i.i.i40, %cond.false.i.i.i39 ]
   %add.ptr11.i.i.i43 = getelementptr inbounds ptr, ptr %agg.tmp7.sroa.11.0, i64 %cond.i.i.i42
   %25 = load ptr, ptr %add.ptr11.i.i.i43, align 8, !noalias !294
-  %add.ptr.i.i.i.i44 = getelementptr inbounds %"struct.std::pair", ptr %25, i64 8
+  %add.ptr.i.i.i.i44 = getelementptr inbounds i8, ptr %25, i64 512
   %mul.i.i.i45 = shl nsw i64 %cond.i.i.i42, 3
   %sub14.i.i.i46 = sub nsw i64 %add.i.i.i37, %mul.i.i.i45
   %add.ptr15.i.i.i47 = getelementptr inbounds %"struct.std::pair", ptr %25, i64 %sub14.i.i.i46
@@ -4456,7 +4450,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_t
   store ptr %26, ptr %_M_first3.i, align 8
   store ptr %agg.tmp7.sroa.8.1, ptr %_M_last4.i, align 8
   store ptr %agg.tmp7.sroa.11.1, ptr %_M_node5.i, align 8
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.0269, i64 -1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.0269, i64 -8
   %27 = load ptr, ptr %_M_node, align 8
   %cmp4.not = icmp eq ptr %__node.0, %27
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !297
@@ -4467,7 +4461,7 @@ for.end:                                          ; preds = %_ZSt23__copy_move_b
   %30 = phi ptr [ %13, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %26, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit85 ]
   %31 = phi ptr [ %14, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit ], [ %storemerge.i.i.i49, %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES7_EN9__gnu_cxx11__enable_ifIXsr23__is_random_access_iterIT0_EE7__valueESt15_Deque_iteratorIT1_RSD_PSD_EE6__typeESB_SB_SG_.exit85 ]
   %32 = load ptr, ptr %__first, align 8
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %33 = load ptr, ptr %_M_last, align 8
   %sub.ptr.lhs.cast.i92 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i93 = ptrtoint ptr %32 to i64
@@ -4492,9 +4486,9 @@ while.body.i110:                                  ; preds = %for.end, %_ZNSt15_D
   br i1 %tobool.not.i117, label %if.then.i167, label %if.end.i118
 
 if.then.i167:                                     ; preds = %while.body.i110
-  %add.ptr.i168 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 -1
+  %add.ptr.i168 = getelementptr inbounds i8, ptr %agg.tmp9.sroa.12.0, i64 -8
   %35 = load ptr, ptr %add.ptr.i168, align 8, !noalias !298
-  %add.ptr6.i169 = getelementptr inbounds %"struct.std::pair", ptr %35, i64 8
+  %add.ptr6.i169 = getelementptr inbounds i8, ptr %35, i64 512
   br label %if.end.i118
 
 if.end.i118:                                      ; preds = %if.then.i167, %while.body.i110
@@ -4510,11 +4504,11 @@ for.body.i.i.i.i148:                              ; preds = %if.end.i118, %for.b
   %__n.07.i.i.i.i149 = phi i64 [ %dec.i.i.i.i158, %for.body.i.i.i.i148 ], [ %.sroa.speculated.i121, %if.end.i118 ]
   %__result.addr.06.i.i.i.i150 = phi ptr [ %incdec.ptr1.i.i.i.i153, %for.body.i.i.i.i148 ], [ %__rend.0.i120, %if.end.i118 ]
   %__last.addr.05.i.i.i.i151 = phi ptr [ %incdec.ptr.i.i.i.i152, %for.body.i.i.i.i148 ], [ %__last.addr.012.i111, %if.end.i118 ]
-  %incdec.ptr.i.i.i.i152 = getelementptr inbounds %"struct.std::pair", ptr %__last.addr.05.i.i.i.i151, i64 -1
-  %incdec.ptr1.i.i.i.i153 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.06.i.i.i.i150, i64 -1
+  %incdec.ptr.i.i.i.i152 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i151, i64 -64
+  %incdec.ptr1.i.i.i.i153 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i150, i64 -64
   %call.i.i.i.i.i154 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i153, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i152) #14, !noalias !298
-  %second.i.i.i.i.i155 = getelementptr %"struct.std::pair", ptr %__last.addr.05.i.i.i.i151, i64 -1, i32 1
-  %second3.i.i.i.i.i156 = getelementptr %"struct.std::pair", ptr %__result.addr.06.i.i.i.i150, i64 -1, i32 1
+  %second.i.i.i.i.i155 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i151, i64 -32
+  %second3.i.i.i.i.i156 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i150, i64 -32
   %call4.i.i.i.i.i157 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i156, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i155) #14, !noalias !298
   %dec.i.i.i.i158 = add nsw i64 %__n.07.i.i.i.i149, -1
   %cmp.i.i.i.i159 = icmp ugt i64 %__n.07.i.i.i.i149, 1
@@ -4553,7 +4547,7 @@ cond.end.i.i.i131:                                ; preds = %cond.false.i.i.i129
   %cond.i.i.i132 = phi i64 [ %div911.i.i.i145, %cond.true.i.i.i144 ], [ %sub10.i.i.i130, %cond.false.i.i.i129 ]
   %add.ptr11.i.i.i133 = getelementptr inbounds ptr, ptr %agg.tmp9.sroa.12.0, i64 %cond.i.i.i132
   %37 = load ptr, ptr %add.ptr11.i.i.i133, align 8, !noalias !298
-  %add.ptr.i.i.i.i134 = getelementptr inbounds %"struct.std::pair", ptr %37, i64 8
+  %add.ptr.i.i.i.i134 = getelementptr inbounds i8, ptr %37, i64 512
   %mul.i.i.i135 = shl nsw i64 %cond.i.i.i132, 3
   %sub14.i.i.i136 = sub nsw i64 %add.i.i.i127, %mul.i.i.i135
   %add.ptr15.i.i.i137 = getelementptr inbounds %"struct.std::pair", ptr %37, i64 %sub14.i.i.i136
@@ -4573,11 +4567,11 @@ if.end:                                           ; preds = %entry
   %39 = load ptr, ptr %__first, align 8
   %40 = load ptr, ptr %__last, align 8
   %41 = load ptr, ptr %__result, align 8
-  %_M_first3.i172 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 1
+  %_M_first3.i172 = getelementptr inbounds i8, ptr %__result, i64 8
   %42 = load ptr, ptr %_M_first3.i172, align 8
-  %_M_last4.i174 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 2
+  %_M_last4.i174 = getelementptr inbounds i8, ptr %__result, i64 16
   %43 = load ptr, ptr %_M_last4.i174, align 8
-  %_M_node5.i176 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__result, i64 0, i32 3
+  %_M_node5.i176 = getelementptr inbounds i8, ptr %__result, i64 24
   %44 = load ptr, ptr %_M_node5.i176, align 8
   %sub.ptr.lhs.cast.i177 = ptrtoint ptr %40 to i64
   %sub.ptr.rhs.cast.i178 = ptrtoint ptr %39 to i64
@@ -4602,9 +4596,9 @@ while.body.i195:                                  ; preds = %if.end, %_ZNSt15_De
   br i1 %tobool.not.i202, label %if.then.i252, label %if.end.i203
 
 if.then.i252:                                     ; preds = %while.body.i195
-  %add.ptr.i253 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 -1
+  %add.ptr.i253 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.12.0, i64 -8
   %46 = load ptr, ptr %add.ptr.i253, align 8, !noalias !301
-  %add.ptr6.i254 = getelementptr inbounds %"struct.std::pair", ptr %46, i64 8
+  %add.ptr6.i254 = getelementptr inbounds i8, ptr %46, i64 512
   br label %if.end.i203
 
 if.end.i203:                                      ; preds = %if.then.i252, %while.body.i195
@@ -4620,11 +4614,11 @@ for.body.i.i.i.i233:                              ; preds = %if.end.i203, %for.b
   %__n.07.i.i.i.i234 = phi i64 [ %dec.i.i.i.i243, %for.body.i.i.i.i233 ], [ %.sroa.speculated.i206, %if.end.i203 ]
   %__result.addr.06.i.i.i.i235 = phi ptr [ %incdec.ptr1.i.i.i.i238, %for.body.i.i.i.i233 ], [ %__rend.0.i205, %if.end.i203 ]
   %__last.addr.05.i.i.i.i236 = phi ptr [ %incdec.ptr.i.i.i.i237, %for.body.i.i.i.i233 ], [ %__last.addr.012.i196, %if.end.i203 ]
-  %incdec.ptr.i.i.i.i237 = getelementptr inbounds %"struct.std::pair", ptr %__last.addr.05.i.i.i.i236, i64 -1
-  %incdec.ptr1.i.i.i.i238 = getelementptr inbounds %"struct.std::pair", ptr %__result.addr.06.i.i.i.i235, i64 -1
+  %incdec.ptr.i.i.i.i237 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i236, i64 -64
+  %incdec.ptr1.i.i.i.i238 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i235, i64 -64
   %call.i.i.i.i.i239 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr1.i.i.i.i238, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i237) #14, !noalias !301
-  %second.i.i.i.i.i240 = getelementptr %"struct.std::pair", ptr %__last.addr.05.i.i.i.i236, i64 -1, i32 1
-  %second3.i.i.i.i.i241 = getelementptr %"struct.std::pair", ptr %__result.addr.06.i.i.i.i235, i64 -1, i32 1
+  %second.i.i.i.i.i240 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i236, i64 -32
+  %second3.i.i.i.i.i241 = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i235, i64 -32
   %call4.i.i.i.i.i242 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i241, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i240) #14, !noalias !301
   %dec.i.i.i.i243 = add nsw i64 %__n.07.i.i.i.i234, -1
   %cmp.i.i.i.i244 = icmp ugt i64 %__n.07.i.i.i.i234, 1
@@ -4663,7 +4657,7 @@ cond.end.i.i.i216:                                ; preds = %cond.false.i.i.i214
   %cond.i.i.i217 = phi i64 [ %div911.i.i.i230, %cond.true.i.i.i229 ], [ %sub10.i.i.i215, %cond.false.i.i.i214 ]
   %add.ptr11.i.i.i218 = getelementptr inbounds ptr, ptr %agg.tmp12.sroa.12.0, i64 %cond.i.i.i217
   %48 = load ptr, ptr %add.ptr11.i.i.i218, align 8, !noalias !301
-  %add.ptr.i.i.i.i219 = getelementptr inbounds %"struct.std::pair", ptr %48, i64 8
+  %add.ptr.i.i.i.i219 = getelementptr inbounds i8, ptr %48, i64 512
   %mul.i.i.i220 = shl nsw i64 %cond.i.i.i217, 3
   %sub14.i.i.i221 = sub nsw i64 %add.i.i.i212, %mul.i.i.i220
   %add.ptr15.i.i.i222 = getelementptr inbounds %"struct.std::pair", ptr %48, i64 %sub14.i.i.i221
@@ -4685,11 +4679,11 @@ return:                                           ; preds = %_ZNSt15_Deque_itera
   %agg.tmp12.sroa.9.2.sink = phi ptr [ %29, %for.end ], [ %43, %if.end ], [ %agg.tmp12.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit.i223 ], [ %agg.tmp9.sroa.9.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit.i138 ]
   %agg.tmp12.sroa.12.2.sink = phi ptr [ %28, %for.end ], [ %44, %if.end ], [ %agg.tmp12.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit.i223 ], [ %agg.tmp9.sroa.12.1, %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit.i138 ]
   store ptr %.sink276, ptr %agg.result, align 8
-  %_M_first.i.i186 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 1
+  %_M_first.i.i186 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %_M_first.i.i186, align 8
-  %_M_last.i.i187 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 2
+  %_M_last.i.i187 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp12.sroa.9.2.sink, ptr %_M_last.i.i187, align 8
-  %_M_node.i.i189 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.result, i64 0, i32 3
+  %_M_node.i.i189 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %agg.tmp12.sroa.12.2.sink, ptr %_M_node.i.i189, align 8
   ret void
 }
@@ -4702,21 +4696,21 @@ entry:
   %__tmp.sroa.0.i.i = alloca { ptr, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
-  %_M_start3.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
+  %_M_start3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_start3.i.i.i.i, align 8
-  %_M_first3.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8
-  %_M_last4.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last4.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_last4.i.i.i.i.i, align 8
-  %_M_node5.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8
-  %_M_finish4.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %_M_finish4.i.i.i.i, align 8
-  %_M_first3.i4.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %_M_first3.i4.i.i.i.i, align 8
-  %_M_last4.i6.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last4.i6.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_last4.i6.i.i.i.i, align 8
-  %_M_node5.i8.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node5.i8.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %_M_node5.i8.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %__x, i64 80, i1 false)
@@ -4741,18 +4735,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i)
   store ptr %0, ptr %agg.tmp.i.i.i, align 8
-  %_M_first.i.i1.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_first.i.i1.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   store ptr %1, ptr %_M_first.i.i1.i.i, align 8
-  %_M_last.i.i3.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 2
+  %_M_last.i.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   store ptr %2, ptr %_M_last.i.i3.i.i, align 8
-  %_M_node.i.i5.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i.i.i, i64 0, i32 3
+  %_M_node.i.i5.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i5.i.i, align 8
   store ptr %4, ptr %agg.tmp2.i.i.i, align 8
-  %_M_first.i1.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 1
+  %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 8
   store ptr %5, ptr %_M_first.i1.i.i.i, align 8
-  %_M_last.i3.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 2
+  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 16
   store ptr %6, ptr %_M_last.i3.i.i.i, align 8
-  %_M_node.i5.i.i.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i.i.i, i64 0, i32 3
+  %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i, align 8
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE19_M_destroy_data_auxESt15_Deque_iteratorIS7_RS7_PS7_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %__x, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp2.i.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -4766,7 +4760,7 @@ entry:
 
 for.body.i.i.i:                                   ; preds = %.noexc.i, %for.body.i.i.i
   %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %3, %.noexc.i ]
-  %__n.04.i.i.i = getelementptr inbounds ptr, ptr %__n.04.i.pn.i.i, i64 1
+  %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
   %9 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %9) #15
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %8
@@ -4790,11 +4784,11 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_push_back_auxIJS6_S6_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4805,14 +4799,14 @@ entry:
   %sub.ptr.div7.i.i = add i64 %sub.ptr.sub.i.i, %sub6.i.i
   %mul.i.i = and i64 %sub.ptr.div7.i.i, -8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 6
   %add.i.i = add nsw i64 %sub.ptr.div6.i.i, %mul.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -4828,7 +4822,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -4846,19 +4840,19 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #18
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %__args) #14
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %9, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1) #14
   %10 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr14 = getelementptr inbounds ptr, ptr %10, i64 1
+  %add.ptr14 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %add.ptr14, ptr %_M_node.i.i, align 8
   %11 = load ptr, ptr %add.ptr14, align 8
   store ptr %11, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 8
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %11, ptr %_M_finish.i, align 8
   ret void

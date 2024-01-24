@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/prr_sender.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.net::PrrSender" = type { i64, i64, i64, i64 }
-
 @_ZN3net9PrrSenderC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net9PrrSenderC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -27,9 +25,9 @@ entry:
 define dso_local void @_ZN3net9PrrSender12OnPacketLostEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i64 noundef %bytes_in_flight) local_unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %this, align 8
-  %bytes_in_flight_before_loss_ = getelementptr inbounds %"class.net::PrrSender", ptr %this, i64 0, i32 3
+  %bytes_in_flight_before_loss_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %bytes_in_flight, ptr %bytes_in_flight_before_loss_, align 8
-  %bytes_delivered_since_loss_ = getelementptr inbounds %"class.net::PrrSender", ptr %this, i64 0, i32 1
+  %bytes_delivered_since_loss_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes_delivered_since_loss_, i8 0, i64 16, i1 false)
   ret void
 }
@@ -37,7 +35,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net9PrrSender13OnPacketAckedEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %acked_bytes) local_unnamed_addr #1 align 2 {
 entry:
-  %bytes_delivered_since_loss_ = getelementptr inbounds %"class.net::PrrSender", ptr %this, i64 0, i32 1
+  %bytes_delivered_since_loss_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load <2 x i64>, ptr %bytes_delivered_since_loss_, align 8
   %1 = insertelement <2 x i64> <i64 poison, i64 1>, i64 %acked_bytes, i64 0
   %2 = add <2 x i64> %0, %1
@@ -56,12 +54,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp3 = icmp ugt i64 %congestion_window, %bytes_in_flight
-  %bytes_delivered_since_loss_ = getelementptr inbounds %"class.net::PrrSender", ptr %this, i64 0, i32 1
+  %bytes_delivered_since_loss_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %bytes_delivered_since_loss_, align 8
   br i1 %cmp3, label %if.then4, label %if.end11
 
 if.then4:                                         ; preds = %if.end
-  %ack_count_since_loss_ = getelementptr inbounds %"class.net::PrrSender", ptr %this, i64 0, i32 2
+  %ack_count_since_loss_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %ack_count_since_loss_, align 8
   %mul = mul i64 %2, 1460
   %add = add i64 %mul, %1
@@ -71,7 +69,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end
   %mul13 = mul i64 %1, %slowstart_threshold
-  %bytes_in_flight_before_loss_ = getelementptr inbounds %"class.net::PrrSender", ptr %this, i64 0, i32 3
+  %bytes_in_flight_before_loss_ = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %bytes_in_flight_before_loss_, align 8
   %mul15 = mul i64 %3, %0
   %cmp16 = icmp ugt i64 %mul13, %mul15

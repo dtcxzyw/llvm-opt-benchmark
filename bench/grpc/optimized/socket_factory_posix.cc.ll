@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %struct.grpc_arg_pointer_vtable = type { ptr, ptr, ptr }
-%struct.grpc_socket_factory = type { ptr, %struct.gpr_refcount }
-%struct.gpr_refcount = type { i64 }
-%struct.grpc_socket_factory_vtable = type { ptr, ptr, ptr, ptr }
 %struct.grpc_arg = type { i32, ptr, %"union.(anonymous struct)::grpc_arg_value" }
 %"union.(anonymous struct)::grpc_arg_value" = type { %"struct.(anonymous struct)::grpc_arg_value::grpc_arg_pointer" }
 %"struct.(anonymous struct)::grpc_arg_value::grpc_arg_pointer" = type { ptr, ptr }
@@ -30,7 +27,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_Z24grpc_socket_factory_initP19grpc_socket_factoryPK26grpc_socket_factory_vtable(ptr noundef %factory, ptr noundef %vtable) local_unnamed_addr #3 {
 entry:
   store ptr %vtable, ptr %factory, align 8
-  %refcount = getelementptr inbounds %struct.grpc_socket_factory, ptr %factory, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %factory, i64 8
   tail call void @gpr_ref_init(ptr noundef nonnull %refcount, i32 noundef 1)
   ret void
 }
@@ -50,7 +47,7 @@ entry:
 define noundef i32 @_Z24grpc_socket_factory_bindP19grpc_socket_factoryiPK21grpc_resolved_address(ptr noundef %factory, i32 noundef %sockfd, ptr noundef %addr) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %factory, align 8
-  %bind = getelementptr inbounds %struct.grpc_socket_factory_vtable, ptr %0, i64 0, i32 1
+  %bind = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %bind, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull %factory, i32 noundef %sockfd, ptr noundef %addr)
   ret i32 %call
@@ -73,7 +70,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.then
-  %compare = getelementptr inbounds %struct.grpc_socket_factory_vtable, ptr %0, i64 0, i32 2
+  %compare = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %compare, align 8
   %call6 = tail call noundef i32 %2(ptr noundef nonnull %a, ptr noundef nonnull %b)
   br label %if.end7
@@ -86,7 +83,7 @@ if.end7:                                          ; preds = %if.then, %if.then4,
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z23grpc_socket_factory_refP19grpc_socket_factory(ptr noundef returned %factory) local_unnamed_addr #3 {
 entry:
-  %refcount = getelementptr inbounds %struct.grpc_socket_factory, ptr %factory, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %factory, i64 8
   tail call void @gpr_ref(ptr noundef nonnull %refcount)
   ret ptr %factory
 }
@@ -96,14 +93,14 @@ declare void @gpr_ref(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define void @_Z25grpc_socket_factory_unrefP19grpc_socket_factory(ptr noundef %factory) local_unnamed_addr #3 {
 entry:
-  %refcount = getelementptr inbounds %struct.grpc_socket_factory, ptr %factory, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %factory, i64 8
   %call = tail call i32 @gpr_unref(ptr noundef nonnull %refcount)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %factory, align 8
-  %destroy = getelementptr inbounds %struct.grpc_socket_factory_vtable, ptr %0, i64 0, i32 3
+  %destroy = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %destroy, align 8
   tail call void %1(ptr noundef nonnull %factory)
   br label %if.end
@@ -126,7 +123,7 @@ declare void @_Z31grpc_channel_arg_pointer_createPcPvPK23grpc_arg_pointer_vtable
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL23socket_factory_arg_copyPv(ptr noundef returned %p) #3 {
 entry:
-  %refcount.i = getelementptr inbounds %struct.grpc_socket_factory, ptr %p, i64 0, i32 1
+  %refcount.i = getelementptr inbounds i8, ptr %p, i64 8
   tail call void @gpr_ref(ptr noundef nonnull %refcount.i)
   ret ptr %p
 }
@@ -134,14 +131,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL26socket_factory_arg_destroyPv(ptr noundef %p) #3 {
 entry:
-  %refcount.i = getelementptr inbounds %struct.grpc_socket_factory, ptr %p, i64 0, i32 1
+  %refcount.i = getelementptr inbounds i8, ptr %p, i64 8
   %call.i = tail call i32 @gpr_unref(ptr noundef nonnull %refcount.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_Z25grpc_socket_factory_unrefP19grpc_socket_factory.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr %p, align 8
-  %destroy.i = getelementptr inbounds %struct.grpc_socket_factory_vtable, ptr %0, i64 0, i32 3
+  %destroy.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %destroy.i, align 8
   tail call void %1(ptr noundef nonnull %p)
   br label %_Z25grpc_socket_factory_unrefP19grpc_socket_factory.exit
@@ -167,7 +164,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp3.i, label %if.then4.i, label %_Z27grpc_socket_factory_compareP19grpc_socket_factoryS0_.exit
 
 if.then4.i:                                       ; preds = %if.then.i
-  %compare.i = getelementptr inbounds %struct.grpc_socket_factory_vtable, ptr %0, i64 0, i32 2
+  %compare.i = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %compare.i, align 8
   %call6.i = tail call noundef i32 %2(ptr noundef nonnull %a, ptr noundef nonnull %b)
   br label %_Z27grpc_socket_factory_compareP19grpc_socket_factoryS0_.exit

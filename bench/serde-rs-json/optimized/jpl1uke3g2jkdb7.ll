@@ -41,10 +41,10 @@ define void @_ZN10serde_json5value2de15SeqDeserializer3new17h874a110c646cbcabE(p
 define { i64, i64 } @"_ZN79_$LT$serde_json..value..de..SeqDeserializer$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h92eaac15572b3cbdE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, { i64, i64 } }, align 8
   call void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5d22fc93e5590baaE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !7, !noundef !6
   %.not = icmp ne i64 %4, 0
-  %5 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %2, align 8
   %7 = load i64, ptr %5, align 8
   %8 = icmp eq i64 %6, %7
@@ -61,7 +61,7 @@ define void @_ZN10serde_json5value2de15MapDeserializer3new17hc5ae5f4fe155cfbfE(p
   %3 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} } }, align 8
   call void @"_ZN138_$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17haa79e04acd3d2029E"(ptr nonnull sret({ { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} } }) align 8 %3, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
-  %4 = getelementptr inbounds { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} } }, { i8, [31 x i8] } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 6, ptr %4, align 8
   ret void
 }
@@ -70,10 +70,10 @@ define void @_ZN10serde_json5value2de15MapDeserializer3new17hc5ae5f4fe155cfbfE(p
 define { i64, i64 } @"_ZN79_$LT$serde_json..value..de..MapDeserializer$u20$as$u20$serde..de..MapAccess$GT$9size_hint17he121187163f9126dE"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, { i64, i64 } }, align 8
   call void @"_ZN84_$LT$serde_json..map..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h45ef714819570963E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !7, !noundef !6
   %.not = icmp ne i64 %4, 0
-  %5 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %2, align 8
   %7 = load i64, ptr %5, align 8
   %8 = icmp eq i64 %6, %7
@@ -112,10 +112,10 @@ define { ptr, ptr } @_ZN10serde_json5value2de18SeqRefDeserializer3new17hb78c6dbe
 define { i64, i64 } @"_ZN82_$LT$serde_json..value..de..SeqRefDeserializer$u20$as$u20$serde..de..SeqAccess$GT$9size_hint17h71c575e67ad972d5E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, { i64, i64 } }, align 8
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4b1bc59dcd485707E"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !7, !noundef !6
   %.not = icmp ne i64 %4, 0
-  %5 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %2, align 8
   %7 = load i64, ptr %5, align 8
   %8 = icmp eq i64 %6, %7
@@ -132,7 +132,7 @@ define void @_ZN10serde_json5value2de18MapRefDeserializer3new17h66b16691c7077c89
   %3 = alloca { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, align 8
   call void @"_ZN142_$LT$$RF$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb46927205fcf9490E"(ptr nonnull sret({ { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }) align 8 %3, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
-  %4 = getelementptr inbounds { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } }, ptr }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr null, ptr %4, align 8
   ret void
 }
@@ -141,10 +141,10 @@ define void @_ZN10serde_json5value2de18MapRefDeserializer3new17h66b16691c7077c89
 define { i64, i64 } @"_ZN82_$LT$serde_json..value..de..MapRefDeserializer$u20$as$u20$serde..de..MapAccess$GT$9size_hint17h64db6a99ef958e65E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, { i64, i64 } }, align 8
   call void @"_ZN80_$LT$serde_json..map..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h102073066dd64cfbE"(ptr nonnull sret({ i64, { i64, i64 } }) align 8 %2, ptr align 8 %0)
-  %3 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !7, !noundef !6
   %.not = icmp ne i64 %4, 0
-  %5 = getelementptr inbounds { i64, { i64, i64 } }, ptr %2, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load i64, ptr %2, align 8
   %7 = load i64, ptr %5, align 8
   %8 = icmp eq i64 %6, %7

@@ -8,55 +8,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::SiteFlag" = type { ptr, ptr, i64, ptr }
 %"union.std::aligned_storage<32, 16>::type" = type { [32 x i8] }
 %"struct.folly::IOBufQueue::Options" = type { i8 }
-%"class.proxygen::HPACKEncoderBase" = type <{ ptr, %"class.proxygen::HPACKEncodeBuffer", i8, [7 x i8] }>
-%"class.proxygen::HPACKEncodeBuffer" = type <{ %"class.folly::IOBufQueue", ptr, %"class.folly::io::QueueAppender", i32, i32, i32, [4 x i8] }>
-%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
+%"struct.proxygen::QPACKEncoder::EncodeResult" = type { %"class.std::unique_ptr", %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
+%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
 %"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
 %"struct.std::pair" = type { ptr, ptr }
-%"class.folly::io::QueueAppender" = type { %"class.folly::IOBufQueue::WritableRangeCache", i64 }
-%"class.folly::IOBufQueue::WritableRangeCache" = type { %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"class.proxygen::QPACKEncoder" = type { %"class.proxygen::HPACKEncoderBase.base", [7 x i8], %"class.proxygen::QPACKContext.base", [4 x i8], %"class.proxygen::HPACKEncodeBuffer", %"class.std::unordered_map", %"struct.proxygen::QPACKEncoder::OutstandingBlock", i32, i32, i32, i32, i64, %"class.folly::IOBufQueue", i32, i32 }
-%"class.proxygen::HPACKEncoderBase.base" = type <{ ptr, %"class.proxygen::HPACKEncodeBuffer", i8 }>
-%"class.proxygen::QPACKContext.base" = type <{ %"class.proxygen::QPACKHeaderTable", i32, i32, i32 }>
-%"class.proxygen::QPACKHeaderTable" = type { %"class.proxygen::HeaderTable", i32, i32, i32, i32, %"class.std::unique_ptr.7" }
-%"class.proxygen::HeaderTable" = type { ptr, i32, i32, %"class.std::vector", i32, i32, i32, i8, %"class.folly::F14FastMap" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl" = type { %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.std::unique_ptr.7" = type { %"struct.std::__uniq_ptr_data.8" }
-%"struct.std::__uniq_ptr_data.8" = type { %"class.std::__uniq_ptr_impl.9" }
-%"class.std::__uniq_ptr_impl.9" = type { %"class.std::tuple.10" }
-%"class.std::tuple.10" = type { %"struct.std::_Tuple_impl.11" }
-%"struct.std::_Tuple_impl.11" = type { %"struct.std::_Head_base.14" }
-%"struct.std::_Head_base.14" = type { ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"struct.proxygen::QPACKEncoder::OutstandingBlock" = type <{ %"class.std::set", i8, [7 x i8] }>
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
-%"struct.proxygen::QPACKEncoder::EncodeResult" = type { %"class.std::unique_ptr", %"class.std::unique_ptr" }
 %"class.proxygen::HPACKHeaderName" = type { ptr }
 %"class.proxygen::HPACKHeader" = type { %"class.proxygen::HPACKHeaderName", %"class.folly::basic_fbstring" }
 %"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
@@ -68,9 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>, std::allocator<std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf.59" }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf.59" = type { [56 x i8] }
 %"class.std::tuple.39" = type { %"struct.std::_Tuple_impl.base", [3 x i8] }
 %"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.41", %"struct.std::_Head_base.45" }>
 %"struct.std::_Tuple_impl.41" = type { %"struct.std::_Tuple_impl.42", %"struct.std::_Head_base.44" }
@@ -79,21 +37,25 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.44" = type { i32 }
 %"struct.std::_Head_base.45" = type { i8 }
 %"class.std::allocator.53" = type { i8 }
-%"struct.folly::fbstring_core<char>::RefCounted" = type <{ %"struct.std::atomic.88", [1 x i8], [7 x i8] }>
-%"struct.std::atomic.88" = type { %"struct.std::__atomic_base.89" }
-%"struct.std::__atomic_base.89" = type { i64 }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.google::CheckOpString" = type { ptr }
-%"struct.std::_Rb_tree_node" = type <{ %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf", [4 x i8] }>
-%"struct.__gnu_cxx::__aligned_membuf" = type { [4 x i8] }
 %"class.folly::io::Cursor" = type { %"class.folly::io::detail::CursorBase" }
 %"class.folly::io::detail::CursorBase" = type { ptr, ptr, ptr, ptr, ptr, i64, i64 }
 %"class.proxygen::HPACKDecodeBuffer" = type <{ ptr, i32, i32, i32, i8, [3 x i8] }>
+%"struct.proxygen::QPACKEncoder::OutstandingBlock" = type <{ %"class.std::set", i8, [7 x i8] }>
+%"class.std::set" = type { %"class.std::_Rb_tree" }
+%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
+%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.std::pair.71" = type { %"class.proxygen::HPACKHeaderName", %"class.std::__cxx11::list.73" }
 %"class.std::__cxx11::list.73" = type { %"class.std::__cxx11::_List_base.74" }
 %"class.std::__cxx11::_List_base.74" = type { %"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %struct.Initializer = type { i8 }
 %struct.Initializer.87 = type { i8 }
 %struct.Initializer.86 = type { i8 }
@@ -264,9 +226,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen12QPACKEncoderC2Ebj(ptr noundef nonnull align 8 dereferenceable(624) %this, i1 noundef zeroext %huffman, i32 noundef %tableSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::IOBufQueue::Options", align 1
-  %streamBuffer_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN8proxygen17HPACKEncodeBufferC1Ejb(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_.i, i32 noundef 4000, i1 noundef zeroext %huffman)
-  %pendingContextUpdate_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 2
+  %pendingContextUpdate_.i = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %pendingContextUpdate_.i, align 8
   %call.i = invoke noundef ptr @_ZN8proxygen22HeaderIndexingStrategy18getDefaultInstanceEv()
           to label %invoke.cont.i unwind label %lpad.i
@@ -274,15 +236,15 @@ entry:
 invoke.cont.i:                                    ; preds = %entry
   store ptr %call.i, ptr %this, align 8
   %vtable.i = load ptr, ptr %call.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   %call5.i = invoke i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i)
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont.i
-  %huffMax_.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 5
+  %huffMax_.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load i32, ptr %huffMax_.i.i, align 8
-  %huffMin_.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 4
+  %huffMin_.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load i32, ptr %huffMin_.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %1, %2
   br i1 %cmp.not.i.i, label %_ZN8proxygen16HPACKEncoderBaseC2Eb.exit, label %if.then.i.i
@@ -311,53 +273,53 @@ _ZN8proxygen16HPACKEncoderBaseC2Eb.exit:          ; preds = %invoke.cont4.i, %if
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8proxygen16HPACKEncoderBaseC2Eb.exit
-  %controlBuffer_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4
+  %controlBuffer_ = getelementptr inbounds i8, ptr %this, i64 272
   invoke void @_ZN8proxygen17HPACKEncodeBufferC1Ejb(ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_, i32 noundef 4000, i1 noundef zeroext %huffman)
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %outstanding_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 5
+  %outstanding_ = getelementptr inbounds i8, ptr %this, i64 408
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %_M_single_bucket.i.i, ptr %outstanding_, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 424
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %5 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %this, i64 472
   store i32 0, ptr %5, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 480
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
   store ptr %5, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
   store ptr %5, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 504
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %vulnerable.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 1
+  %vulnerable.i = getelementptr inbounds i8, ptr %this, i64 512
   store i8 0, ptr %vulnerable.i, align 8
-  %maxDepends_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 7
+  %maxDepends_ = getelementptr inbounds i8, ptr %this, i64 520
   store i32 0, ptr %maxDepends_, align 8
-  %maxVulnerable_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 8
+  %maxVulnerable_ = getelementptr inbounds i8, ptr %this, i64 524
   store i32 100, ptr %maxVulnerable_, align 4
-  %numVulnerable_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_ = getelementptr inbounds i8, ptr %this, i64 528
   store i32 0, ptr %numVulnerable_, align 8
-  %maxTableSize_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 10
+  %maxTableSize_ = getelementptr inbounds i8, ptr %this, i64 532
   store i32 %tableSize, ptr %maxTableSize_, align 4
-  %maxEncoderStreamBytes_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 11
+  %maxEncoderStreamBytes_ = getelementptr inbounds i8, ptr %this, i64 536
   store i64 0, ptr %maxEncoderStreamBytes_, align 8
-  %decoderIngress_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12
+  %decoderIngress_ = getelementptr inbounds i8, ptr %this, i64 544
   store i8 1, ptr %ref.tmp, align 1
   invoke void @_ZN5folly10IOBufQueueC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %decoderIngress_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont7 unwind label %lpad5
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %numOutstandingBlocks_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 616
   store i32 0, ptr %numOutstandingBlocks_, align 8
-  %maxNumOutstandingBlocks_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 14
+  %maxNumOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 620
   store i32 256, ptr %maxNumOutstandingBlocks_, align 4
   ret void
 
@@ -374,7 +336,7 @@ lpad3:                                            ; preds = %invoke.cont
 lpad5:                                            ; preds = %invoke.cont6
   %8 = landingpad { ptr, i32 }
           cleanup
-  %curOutstanding_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6
+  %curOutstanding_ = getelementptr inbounds i8, ptr %this, i64 464
   call void @_ZN8proxygen12QPACKEncoder16OutstandingBlockD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %curOutstanding_) #24
   call void @_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %outstanding_) #24
   call void @_ZN8proxygen17HPACKEncodeBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_) #24
@@ -421,27 +383,27 @@ _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit:             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen17HPACKEncodeBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %attached.i.i = getelementptr inbounds %"class.proxygen::HPACKEncodeBuffer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %attached.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i8, ptr %attached.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i, label %_ZN5folly2io13QueueAppenderD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %queue_.i.i = getelementptr inbounds %"class.proxygen::HPACKEncodeBuffer", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %queue_.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %queue_.i.i, align 8
-  %tailStart_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 3
+  %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %tailStart_.i.i.i.i, align 8
-  %cachePtr_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 4
+  %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %cachePtr_.i.i.i.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, %5
   br i1 %cmp.not.i.i.i.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
-  %head_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 2
+  %head_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %head_.i.i.i.i, align 8
-  %prev_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %6, i64 0, i32 5
+  %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load ptr, ptr %prev_.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
@@ -449,7 +411,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   %8 = load i64, ptr %7, align 8
   %add.i.i.i.i.i = add i64 %8, %sub.ptr.sub.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %7, align 8
-  %chainLength_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 1
+  %chainLength_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i64, ptr %chainLength_.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %9, %sub.ptr.sub.i.i.i.i
   store i64 %add.i.i.i.i, ptr %chainLength_.i.i.i.i, align 8
@@ -461,21 +423,21 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i:  ; preds = %if.then.i.i.i.i, %if.then.i.i
   %11 = phi ptr [ %4, %if.then.i.i ], [ %.pre.i.i.i, %if.then.i.i.i.i ]
-  %localCache_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 5
+  %localCache_.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %cmp.not.i.i.i = icmp eq ptr %11, %localCache_.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5folly2io13QueueAppenderD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %localCache_.i.i.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %second.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %13, ptr %second3.i.i.i.i.i, align 8
-  %attached.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %11, i64 0, i32 1
+  %attached.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i8, ptr %attached.i.i.i.i, align 8
   %15 = and i8 %14, 1
-  %attached3.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
   store i8 %15, ptr %attached3.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %11, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i, ptr %cachePtr_.i.i.i.i, align 8
@@ -489,27 +451,27 @@ _ZN5folly2io13QueueAppenderD2Ev.exit:             ; preds = %entry, %_ZNK5folly1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen16HPACKEncoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(145) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %attached.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 1
+  %attached.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %attached.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i, label %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %queue_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 1
+  %queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %queue_.i.i.i, align 8
-  %tailStart_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 3
+  %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %tailStart_.i.i.i.i.i, align 8
-  %cachePtr_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8
   %5 = load ptr, ptr %4, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %head_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 2
+  %head_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %head_.i.i.i.i.i, align 8
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %6, i64 0, i32 5
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %3 to i64
@@ -517,7 +479,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %8 = load i64, ptr %7, align 8
   %add.i.i.i.i.i.i = add i64 %8, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i.i, ptr %7, align 8
-  %chainLength_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 1
+  %chainLength_.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i64, ptr %chainLength_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %9, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %chainLength_.i.i.i.i.i, align 8
@@ -529,28 +491,28 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   %11 = phi ptr [ %4, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ]
-  %localCache_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 5
+  %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %11, %localCache_.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %localCache_.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %11, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %13, ptr %second3.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %11, i64 0, i32 1
+  %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load i8, ptr %attached.i.i.i.i.i, align 8
   %15 = and i8 %14, 1
-  %attached3.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %2, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
   store i8 %15, ptr %attached3.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %11, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i, align 8
   br label %_ZN8proxygen17HPACKEncodeBufferD2Ev.exit
 
 _ZN8proxygen17HPACKEncodeBufferD2Ev.exit:         ; preds = %entry, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.then.i.i.i.i
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %streamBuffer_) #24
   ret void
 }
@@ -574,7 +536,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = load i32, ptr %insertCount_.i, align 8
   store i32 0, ptr %requiredInsertCount, align 4
   %1 = load ptr, ptr %headers, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<proxygen::HPACKHeader, std::allocator<proxygen::HPACKHeader>>::_Vector_impl_data", ptr %headers, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %headers, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not24 = icmp eq ptr %1, %2
   br i1 %cmp.i.not24, label %for.end, label %for.body
@@ -624,13 +586,13 @@ lpad.i.i:                                         ; preds = %call2.i.i.noexc
 invoke.cont14:                                    ; preds = %for.body, %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.if.else_crit_edge.i.i, %call2.i.i.noexc
   %storemerge.i.i = phi ptr [ %call2.i.i6, %call2.i.i.noexc ], [ %.pre.i.i, %_ZNK8proxygen15HPACKHeaderName11isAllocatedEv.exit.if.else_crit_edge.i.i ], [ null, %for.body ]
   store ptr %storemerge.i.i, ptr %agg.tmp, align 8
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.025, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %__begin1.sroa.0.025, i64 8
   %9 = load ptr, ptr %value, align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.025, i64 31
   %10 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %10, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %value, ptr %9
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.025, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.025, i64 16
   %11 = load i64, ptr %size_.i.i.i, align 8
   %conv.i.i.i = zext i8 %10 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -680,7 +642,7 @@ terminate.lpad.i:                                 ; preds = %_ZNK8proxygen15HPAC
 
 _ZN8proxygen15HPACKHeaderNameD2Ev.exit:           ; preds = %invoke.cont15, %call.i.i.i.i.noexc.i, %if.then.i.i16, %delete.notnull.i.i
   store ptr null, ptr %agg.tmp, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__begin1.sroa.0.025, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.025, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -702,18 +664,18 @@ lpad13:                                           ; preds = %invoke.cont14
 
 for.end:                                          ; preds = %_ZN8proxygen15HPACKHeaderNameD2Ev.exit, %invoke.cont
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %tailStart_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %controlQueue, i64 0, i32 3
+  %tailStart_.i.i.i = getelementptr inbounds i8, ptr %controlQueue, i64 24
   %20 = load ptr, ptr %tailStart_.i.i.i, align 8, !noalias !8
-  %cachePtr_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %controlQueue, i64 0, i32 4
+  %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %controlQueue, i64 32
   %21 = load ptr, ptr %cachePtr_.i.i.i, align 8, !noalias !5
   %22 = load ptr, ptr %21, align 8, !noalias !8
   %cmp.not.i.i.i = icmp eq ptr %20, %22
   br i1 %cmp.not.i.i.i, label %invoke.cont19, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end
-  %head_.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %controlQueue, i64 0, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %controlQueue, i64 16
   %23 = load ptr, ptr %head_.i.i.i, align 8, !noalias !8
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %23, i64 0, i32 5
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load ptr, ptr %prev_.i.i.i.i, align 8, !noalias !8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %20 to i64
@@ -726,11 +688,11 @@ if.then.i.i.i:                                    ; preds = %for.end
 
 invoke.cont19:                                    ; preds = %if.then.i.i.i, %for.end
   %26 = phi ptr [ %21, %for.end ], [ %.pre.i, %if.then.i.i.i ]
-  %head_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %controlQueue, i64 0, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %controlQueue, i64 16
   %27 = load i64, ptr %head_.i, align 8, !noalias !5
   store i64 %27, ptr %agg.tmp18, align 8, !alias.scope !5
-  %chainLength_.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %controlQueue, i64 0, i32 1
-  %reusableTail_5.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %controlQueue, i64 0, i32 6
+  %chainLength_.i = getelementptr inbounds i8, ptr %controlQueue, i64 8
+  %reusableTail_5.i.i.i.i.i = getelementptr inbounds i8, ptr %controlQueue, i64 64
   store ptr null, ptr %reusableTail_5.i.i.i.i.i, align 8, !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i, i8 0, i64 24, i1 false), !noalias !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !noalias !5
@@ -740,7 +702,7 @@ invoke.cont19:                                    ; preds = %if.then.i.i.i, %for
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont19
   store i64 %27, ptr %agg.result, align 8
-  %stream.i = getelementptr inbounds %"struct.proxygen::QPACKEncoder::EncodeResult", ptr %agg.result, i64 0, i32 1
+  %stream.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %29 = load i64, ptr %agg.tmp20, align 8
   store i64 %29, ptr %stream.i, align 8
   store ptr null, ptr %agg.tmp20, align 8
@@ -762,32 +724,32 @@ ehcleanup25:                                      ; preds = %lpad.loopexit, %lpa
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN8proxygen12QPACKEncoder11startEncodeERN5folly10IOBufQueueEjj(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(72) %controlQueue, i32 noundef %headroom, i32 noundef %maxEncoderStreamBytes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 344
   store ptr %controlQueue, ptr %0, align 8
-  %buf_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2
-  %growthSize_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 352
+  %growthSize_.i = getelementptr inbounds i8, ptr %this, i64 392
   %1 = load i32, ptr %growthSize_.i, align 8
-  %attached.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 0, i32 1
+  %attached.i.i.i = getelementptr inbounds i8, ptr %this, i64 368
   %2 = load i8, ptr %attached.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %queue_.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 1
+  %queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 376
   %4 = load ptr, ptr %queue_.i.i.i, align 8
-  %tailStart_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 3
+  %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %tailStart_.i.i.i.i.i, align 8
-  %cachePtr_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %6 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8
   %7 = load ptr, ptr %6, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %head_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 2
+  %head_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %head_.i.i.i.i.i, align 8
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %8, i64 0, i32 5
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %5 to i64
@@ -795,7 +757,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %10 = load i64, ptr %9, align 8
   %add.i.i.i.i.i.i = add i64 %10, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i.i, ptr %9, align 8
-  %chainLength_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 1
+  %chainLength_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %11 = load i64, ptr %chainLength_.i.i.i.i.i, align 8
   %add.i.i.i.i.i = add i64 %11, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %chainLength_.i.i.i.i.i, align 8
@@ -807,30 +769,30 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   %13 = phi ptr [ %6, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ]
-  %localCache_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5
+  %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %cmp.not.i.i.i.i = icmp eq ptr %13, %localCache_.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %localCache_.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %13, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
   store ptr %15, ptr %second3.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %13, i64 0, i32 1
+  %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i8, ptr %attached.i.i.i.i.i, align 8
   %17 = and i8 %16, 1
-  %attached3.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %4, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   store i8 %17, ptr %attached3.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %13, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i, align 8
   br label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %entry
-  %queue_2.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 1
+  %queue_2.i.i.i = getelementptr inbounds i8, ptr %this, i64 376
   store ptr %controlQueue, ptr %queue_2.i.i.i, align 8
-  %cachePtr_.i.i1.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %controlQueue, i64 0, i32 4
+  %cachePtr_.i.i1.i.i.i = getelementptr inbounds i8, ptr %controlQueue, i64 32
   %18 = load ptr, ptr %cachePtr_.i.i1.i.i.i, align 8
   %cmp.not.i.i2.i.i.i = icmp eq ptr %18, %buf_.i
   br i1 %cmp.not.i.i2.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit, label %if.then.i.i3.i.i.i
@@ -838,11 +800,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_
 if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %buf_.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %18, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 0, i32 0, i32 1
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 360
   store ptr %20, ptr %second3.i.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %18, i64 0, i32 1
+  %attached.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load i8, ptr %attached.i.i.i.i.i.i, align 8
   %22 = and i8 %21, 1
   store i8 %22, ptr %attached.i.i.i, align 8
@@ -852,20 +814,20 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
 
 _ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit: ; preds = %if.then5.i.i.i, %if.then.i.i3.i.i.i
   %conv.i = zext i32 %1 to i64
-  %growth_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 1
+  %growth_.i.i = getelementptr inbounds i8, ptr %this, i64 384
   store i64 %conv.i, ptr %growth_.i.i, align 8
   %tobool.not = icmp eq i32 %headroom, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN8proxygen17HPACKEncodeBuffer11addHeadroomEj(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_, i32 noundef %headroom)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN8proxygen17HPACKEncodeBuffer11setWriteBufEPN5folly10IOBufQueueE.exit
-  %controlBuffer_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4
+  %controlBuffer_ = getelementptr inbounds i8, ptr %this, i64 272
   %conv = zext i32 %maxEncoderStreamBytes to i64
-  %maxEncoderStreamBytes_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 11
+  %maxEncoderStreamBytes_ = getelementptr inbounds i8, ptr %this, i64 536
   store i64 %conv, ptr %maxEncoderStreamBytes_, align 8
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 160
   %23 = load i32, ptr %capacity_.i, align 8
@@ -901,7 +863,7 @@ if.then:                                          ; preds = %entry
   %2 = load i32, ptr %staticRefs_, align 8
   %inc = add i32 %2, 1
   store i32 %inc, ptr %staticRefs_, align 8
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %sub = add i64 %call6, 4294967295
   %conv8 = and i64 %sub, 4294967295
   %call9 = tail call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmhh(ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_, i64 noundef %conv8, i8 noundef zeroext -64, i8 noundef zeroext 6)
@@ -934,23 +896,23 @@ land.lhs.true.i:                                  ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %10 = load ptr, ptr %vfn.i, align 8
   %call6.i = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext false)
   br i1 %call6.i, label %_ZNK8proxygen12QPACKEncoder11shouldIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit, label %if.then36
 
 _ZNK8proxygen12QPACKEncoder11shouldIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit: ; preds = %land.lhs.true.i, %lor.lhs.false.i
-  %numOutstandingBlocks_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_.i.i = getelementptr inbounds i8, ptr %this, i64 616
   %11 = load i32, ptr %numOutstandingBlocks_.i.i, align 8
-  %maxNumOutstandingBlocks_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 14
+  %maxNumOutstandingBlocks_.i.i = getelementptr inbounds i8, ptr %this, i64 620
   %12 = load i32, ptr %maxNumOutstandingBlocks_.i.i, align 4
   %cmp.i.i15 = icmp ult i32 %11, %12
   br i1 %cmp.i.i15, label %if.then12, label %if.then36
 
 if.then12:                                        ; preds = %_ZNK8proxygen12QPACKEncoder11shouldIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit
-  %numVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 528
   %13 = load i32, ptr %numVulnerable_.i, align 8
-  %maxVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 8
+  %maxVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 524
   %14 = load i32, ptr %maxVulnerable_.i, align 4
   %cmp.i = icmp ult i32 %13, %14
   %call16 = tail call noundef i32 @_ZNK8proxygen16QPACKHeaderTable8getIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %cmp.i)
@@ -980,17 +942,17 @@ if.then36:                                        ; preds = %if.then12, %if.then
   br i1 %cmp.i17, label %land.lhs.true.i18, label %_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE.exit
 
 land.lhs.true.i18:                                ; preds = %if.then36
-  %numOutstandingBlocks_.i.i19 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_.i.i19 = getelementptr inbounds i8, ptr %this, i64 616
   %17 = load i32, ptr %numOutstandingBlocks_.i.i19, align 8, !noalias !11
-  %maxNumOutstandingBlocks_.i.i20 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 14
+  %maxNumOutstandingBlocks_.i.i20 = getelementptr inbounds i8, ptr %this, i64 620
   %18 = load i32, ptr %maxNumOutstandingBlocks_.i.i20, align 4, !noalias !11
   %cmp.i.i21 = icmp ult i32 %17, %18
   br i1 %cmp.i.i21, label %if.then.i, label %_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i18
-  %numVulnerable_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %19 = load i32, ptr %numVulnerable_.i.i, align 8, !noalias !11
-  %maxVulnerable_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 8
+  %maxVulnerable_.i.i = getelementptr inbounds i8, ptr %this, i64 524
   %20 = load i32, ptr %maxVulnerable_.i.i, align 4, !noalias !11
   %cmp.i2.i = icmp ult i32 %19, %20
   %call6.i22 = tail call noundef i32 @_ZNK8proxygen16QPACKHeaderTable9nameIndexERKNS_15HPACKHeaderNameEb(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %name, i1 noundef zeroext %cmp.i2.i), !noalias !11
@@ -1013,7 +975,7 @@ _ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE.exit: ; preds 
   %nameIndex.0.i = phi i32 [ 0, %if.then.i ], [ %call13.i, %if.then10.i ], [ 0, %land.lhs.true.i18 ], [ %call2.i, %if.then36 ], [ 0, %if.then8.i ]
   %tobool55 = phi i1 [ true, %if.then.i ], [ false, %if.then10.i ], [ true, %land.lhs.true.i18 ], [ true, %if.then36 ], [ true, %if.then8.i ]
   %isStatic.0.i = phi i8 [ 1, %if.then.i ], [ 0, %if.then10.i ], [ 1, %land.lhs.true.i18 ], [ 1, %if.then36 ], [ 1, %if.then8.i ]
-  %maxEncoderStreamBytes_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 11
+  %maxEncoderStreamBytes_ = getelementptr inbounds i8, ptr %this, i64 536
   %21 = load i64, ptr %maxEncoderStreamBytes_, align 8
   %cmp40 = icmp sgt i64 %21, 0
   %and4412 = and i1 %indexable.1.in65, %cmp40
@@ -1054,7 +1016,7 @@ _ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKc
   br i1 %call8.i, label %if.then53, label %if.else99
 
 if.then53:                                        ; preds = %land.rhs.i37, %_ZN8proxygen16QPACKHeaderTable8canIndexERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEE.exit
-  %controlBuffer_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4
+  %controlBuffer_.i = getelementptr inbounds i8, ptr %this, i64 272
   %call.i38 = tail call noundef i32 @_ZN8proxygen12QPACKEncoder20encodeLiteralQHelperERNS_17HPACKEncodeBufferERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjhRKNS_5HPACK11InstructionESE_(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_.i, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %tobool55, i32 noundef %nameIndex.0.i, i8 noundef zeroext 64, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL17Q_INSERT_NAME_REFE, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL20Q_INSERT_NO_NAME_REFE)
   %conv.i39 = zext i32 %call.i38 to i64
   %30 = load i64, ptr %maxEncoderStreamBytes_, align 8
@@ -1097,9 +1059,9 @@ lpad66:                                           ; preds = %invoke.cont67, %inv
 
 cleanup.done:                                     ; preds = %invoke.cont
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp58) #24
-  %numVulnerable_.i41 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_.i41 = getelementptr inbounds i8, ptr %this, i64 528
   %33 = load i32, ptr %numVulnerable_.i41, align 8
-  %maxVulnerable_.i42 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 8
+  %maxVulnerable_.i42 = getelementptr inbounds i8, ptr %this, i64 524
   %34 = load i32, ptr %maxVulnerable_.i42, align 4
   %cmp.i43 = icmp ult i32 %33, %34
   %35 = load i64, ptr %maxEncoderStreamBytes_, align 8
@@ -1146,7 +1108,7 @@ while.end124:                                     ; preds = %if.end103, %if.end3
   %index.3 = phi i32 [ %36, %if.end103 ], [ %ref.tmp23.sroa.247.0.extract.trunc, %if.end34 ]
   call void @_ZN8proxygen12QPACKEncoder14trackReferenceEjRj(ptr noundef nonnull align 8 dereferenceable(624) %this, i32 noundef %index.3, ptr noundef nonnull align 4 dereferenceable(4) %requiredInsertCount)
   %cmp125 = icmp ugt i32 %index.3, %baseIndex
-  %streamBuffer_127 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_127 = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp125, label %if.then126, label %if.else132
 
 if.then126:                                       ; preds = %while.end124
@@ -1228,23 +1190,23 @@ define void @_ZN8proxygen12QPACKEncoder14completeEncodeEmjj(ptr noalias sret(%"c
 entry:
   %__node5.i.i = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>, std::allocator<std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %streamBlock = alloca %"class.std::unique_ptr", align 8
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %bufQueuePtr_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1, i32 1
+  %bufQueuePtr_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %tailStart_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %0, i64 0, i32 3
+  %tailStart_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !20
-  %cachePtr_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %0, i64 0, i32 4
+  %cachePtr_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !23
   %3 = load ptr, ptr %2, align 8, !noalias !20
   %cmp.not.i.i.i.i = icmp eq ptr %1, %3
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen17HPACKEncodeBuffer7releaseEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %head_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %0, i64 0, i32 2
+  %head_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !20
-  %prev_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %4, i64 0, i32 5
+  %prev_.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !20
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -1257,11 +1219,11 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 _ZN8proxygen17HPACKEncodeBuffer7releaseEv.exit:   ; preds = %entry, %if.then.i.i.i.i
   %7 = phi ptr [ %2, %entry ], [ %.pre.i.i, %if.then.i.i.i.i ]
-  %head_.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %0, i64 0, i32 2
+  %head_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %head_.i.i, align 8, !noalias !23
   store i64 %8, ptr %streamBlock, align 8, !alias.scope !23
-  %chainLength_.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %0, i64 0, i32 1
-  %reusableTail_5.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %0, i64 0, i32 6
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %reusableTail_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !noalias !23
@@ -1282,7 +1244,7 @@ lpad:                                             ; preds = %invoke.cont9, %if.e
   br label %ehcleanup63
 
 if.else:                                          ; preds = %_ZN8proxygen17HPACKEncodeBuffer7releaseEv.exit
-  %maxTableSize_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 10
+  %maxTableSize_ = getelementptr inbounds i8, ptr %this, i64 532
   %10 = load i32, ptr %maxTableSize_, align 4
   %11 = lshr i32 %10, 4
   %mul = and i32 %11, 268435454
@@ -1307,18 +1269,18 @@ if.end24:                                         ; preds = %invoke.cont9, %invo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %15 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
-  %tailStart_.i.i.i.i9 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %15, i64 0, i32 3
+  %tailStart_.i.i.i.i9 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %tailStart_.i.i.i.i9, align 8, !noalias !30
-  %cachePtr_.i.i.i.i10 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %15, i64 0, i32 4
+  %cachePtr_.i.i.i.i10 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %cachePtr_.i.i.i.i10, align 8, !noalias !33
   %18 = load ptr, ptr %17, align 8, !noalias !30
   %cmp.not.i.i.i.i11 = icmp eq ptr %16, %18
   br i1 %cmp.not.i.i.i.i11, label %invoke.cont26, label %if.then.i.i.i.i12
 
 if.then.i.i.i.i12:                                ; preds = %if.end24
-  %head_.i.i.i.i13 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %15, i64 0, i32 2
+  %head_.i.i.i.i13 = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load ptr, ptr %head_.i.i.i.i13, align 8, !noalias !30
-  %prev_.i.i.i.i.i14 = getelementptr inbounds %"class.folly::IOBuf", ptr %19, i64 0, i32 5
+  %prev_.i.i.i.i.i14 = getelementptr inbounds i8, ptr %19, i64 40
   %20 = load ptr, ptr %prev_.i.i.i.i.i14, align 8, !noalias !30
   %sub.ptr.lhs.cast.i.i.i.i15 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i.i.i16 = ptrtoint ptr %16 to i64
@@ -1331,11 +1293,11 @@ if.then.i.i.i.i12:                                ; preds = %if.end24
 
 invoke.cont26:                                    ; preds = %if.then.i.i.i.i12, %if.end24
   %22 = phi ptr [ %17, %if.end24 ], [ %.pre.i.i19, %if.then.i.i.i.i12 ]
-  %head_.i.i20 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %15, i64 0, i32 2
+  %head_.i.i20 = getelementptr inbounds i8, ptr %15, i64 16
   %23 = load i64, ptr %head_.i.i20, align 8, !noalias !33
   store i64 %23, ptr %agg.result, align 8, !alias.scope !33
-  %chainLength_.i.i21 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %15, i64 0, i32 1
-  %reusableTail_5.i.i.i.i.i.i22 = getelementptr inbounds %"class.folly::IOBufQueue", ptr %15, i64 0, i32 6
+  %chainLength_.i.i21 = getelementptr inbounds i8, ptr %15, i64 8
+  %reusableTail_5.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %15, i64 64
   store ptr null, ptr %reusableTail_5.i.i.i.i.i.i22, align 8, !noalias !33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i21, i8 0, i64 24, i1 false), !noalias !33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !noalias !33
@@ -1359,33 +1321,33 @@ lpad30.body:                                      ; preds = %lpad.i.i, %lpad30
   br label %ehcleanup63
 
 if.end32:                                         ; preds = %if.then28, %invoke.cont26
-  %_M_node_count.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 504
   %27 = load i64, ptr %_M_node_count.i.i, align 8
   %cmp.i.i = icmp eq i64 %27, 0
   br i1 %cmp.i.i, label %if.end61, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %vulnerable = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 1
+  %vulnerable = getelementptr inbounds i8, ptr %this, i64 512
   %28 = load i8, ptr %vulnerable, align 8
   %29 = and i8 %28, 1
   %tobool.not = icmp eq i8 %29, 0
   br i1 %tobool.not, label %if.end52, label %while.end
 
 while.end:                                        ; preds = %if.then34
-  %numVulnerable_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_ = getelementptr inbounds i8, ptr %this, i64 528
   %30 = load i32, ptr %numVulnerable_, align 8
   %inc = add i32 %30, 1
   store i32 %inc, ptr %numVulnerable_, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %while.end, %if.then34
-  %numOutstandingBlocks_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 616
   %31 = load i32, ptr %numOutstandingBlocks_, align 8
   %inc53 = add i32 %31, 1
   store i32 %inc53, ptr %numOutstandingBlocks_, align 8
-  %outstanding_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5
+  %outstanding_ = getelementptr inbounds i8, ptr %this, i64 408
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node5.i.i)
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   %32 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %streamId, %32
   %33 = load ptr, ptr %outstanding_, align 8
@@ -1424,7 +1386,7 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i.i
           to label %call5.i.i.i.i.i.i.noexc unwind label %lpad30
 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %if.end.i.i
-  %_M_node.i.i.i = getelementptr inbounds %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>, std::allocator<std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %__node5.i.i, i64 0, i32 1
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %__node5.i.i, i64 8
   store ptr null, ptr %call5.i.i.i.i.i.i25, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i25, i64 8
   store i64 %streamId, ptr %add.ptr.i.i.i.i, align 8
@@ -1452,27 +1414,27 @@ invoke.cont54:                                    ; preds = %for.cond.i.i.i.i, %
           to label %call5.i.i.i.i.i.i.noexc26 unwind label %lpad30
 
 call5.i.i.i.i.i.i.noexc26:                        ; preds = %invoke.cont54
-  %40 = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 8
-  %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %40 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 24
+  %_M_parent.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 480
   %41 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.i.noexc26
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
   %42 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8
   store i32 %42, ptr %40, align 8
-  %_M_parent6.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 16
+  %_M_parent6.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 32
   store ptr %41, ptr %_M_parent6.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 2
-  %_M_left9.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 24
-  %_M_right.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_left.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
+  %_M_left9.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 40
+  %_M_right.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
   %43 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i, align 8
   store <2 x ptr> %43, ptr %_M_left9.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %41, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %40, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i, align 8
   %44 = load i64, ptr %_M_node_count.i.i, align 8
-  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 40
+  %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 56
   store i64 %44, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -1481,19 +1443,19 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.i.n
 
 if.else.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.i.i.noexc26
   store i32 0, ptr %40, align 8
-  %_M_parent.i2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 16
+  %_M_parent.i2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 32
   store ptr null, ptr %_M_parent.i2.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 24
+  %_M_left.i3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 40
   store ptr %40, ptr %_M_left.i3.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 32
+  %_M_right.i4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 48
   store ptr %40, ptr %_M_right.i4.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 40
+  %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 56
   br label %invoke.cont57
 
 invoke.cont57:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i.i.i ], [ %_M_node_count.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i, align 8
-  %vulnerable.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i27, i64 0, i32 1, i32 0, i64 48
+  %vulnerable.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i27, i64 64
   %45 = load i8, ptr %vulnerable, align 8
   %46 = and i8 %45, 1
   store i8 %46, ptr %vulnerable.i.i.i.i.i.i, align 8
@@ -1506,33 +1468,33 @@ invoke.cont57:                                    ; preds = %if.else.i.i.i.i.i.i
   br label %if.end61
 
 if.end61:                                         ; preds = %invoke.cont57, %if.end32
-  %controlBuffer_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4
-  %48 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 1
+  %controlBuffer_ = getelementptr inbounds i8, ptr %this, i64 272
+  %48 = getelementptr inbounds i8, ptr %this, i64 344
   store ptr %controlBuffer_, ptr %48, align 8
-  %buf_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2
-  %growthSize_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 352
+  %growthSize_.i = getelementptr inbounds i8, ptr %this, i64 392
   %49 = load i32, ptr %growthSize_.i, align 8
-  %attached.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 0, i32 1
+  %attached.i.i.i = getelementptr inbounds i8, ptr %this, i64 368
   %50 = load i8, ptr %attached.i.i.i, align 8
   %51 = and i8 %50, 1
   %tobool.not.i.i.i = icmp eq i8 %51, 0
   br i1 %tobool.not.i.i.i, label %if.then5.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end61
-  %queue_.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 1
+  %queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 376
   %52 = load ptr, ptr %queue_.i.i.i, align 8
-  %tailStart_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %52, i64 0, i32 3
+  %tailStart_.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 24
   %53 = load ptr, ptr %tailStart_.i.i.i.i.i, align 8
-  %cachePtr_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %52, i64 0, i32 4
+  %cachePtr_.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 32
   %54 = load ptr, ptr %cachePtr_.i.i.i.i.i, align 8
   %55 = load ptr, ptr %54, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %53, %55
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %head_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %52, i64 0, i32 2
+  %head_.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 16
   %56 = load ptr, ptr %head_.i.i.i.i.i, align 8
-  %prev_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %56, i64 0, i32 5
+  %prev_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 40
   %57 = load ptr, ptr %prev_.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %55 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %53 to i64
@@ -1540,7 +1502,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %58 = load i64, ptr %57, align 8
   %add.i.i.i.i.i.i = add i64 %58, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i.i, ptr %57, align 8
-  %chainLength_.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %52, i64 0, i32 1
+  %chainLength_.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 8
   %59 = load i64, ptr %chainLength_.i.i.i.i.i, align 8
   %add.i.i.i.i.i28 = add i64 %59, %sub.ptr.sub.i.i.i.i.i
   store i64 %add.i.i.i.i.i28, ptr %chainLength_.i.i.i.i.i, align 8
@@ -1552,30 +1514,30 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i
   %61 = phi ptr [ %54, %if.then.i.i.i ], [ %.pre.i.i.i.i, %if.then.i.i.i.i.i ]
-  %localCache_.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %52, i64 0, i32 5
+  %localCache_.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 40
   %cmp.not.i.i.i.i29 = icmp eq ptr %61, %localCache_.i.i.i.i
   br i1 %cmp.not.i.i.i.i29, label %if.then5.i.i.i, label %if.then.i.i.i.i30
 
 if.then.i.i.i.i30:                                ; preds = %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %localCache_.i.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %61, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %63 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %52, i64 0, i32 5, i32 0, i32 1
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 48
   store ptr %63, ptr %second3.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %61, i64 0, i32 1
+  %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 16
   %64 = load i8, ptr %attached.i.i.i.i.i, align 8
   %65 = and i8 %64, 1
-  %attached3.i.i.i.i.i = getelementptr inbounds %"class.folly::IOBufQueue", ptr %52, i64 0, i32 5, i32 1
+  %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 56
   store i8 %65, ptr %attached3.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %61, i8 0, i64 17, i1 false)
   store ptr %localCache_.i.i.i.i, ptr %cachePtr_.i.i.i.i.i, align 8
   br label %if.then5.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i30, %_ZNK5folly10IOBufQueue10flushCacheEv.exit.i.i.i.i, %if.end61
-  %queue_2.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 1
+  %queue_2.i.i.i = getelementptr inbounds i8, ptr %this, i64 376
   store ptr %controlBuffer_, ptr %queue_2.i.i.i, align 8
-  %cachePtr_.i.i1.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 0, i32 4
+  %cachePtr_.i.i1.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %66 = load ptr, ptr %cachePtr_.i.i1.i.i.i, align 8
   %cmp.not.i.i2.i.i.i = icmp eq ptr %66, %buf_.i
   br i1 %cmp.not.i.i2.i.i.i, label %nrvo.skipdtor, label %if.then.i.i3.i.i.i
@@ -1583,11 +1545,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i.i30, 
 if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %buf_.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %66, i64 0, i32 1
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 0, i32 0, i32 0, i32 1
+  %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 360
   store ptr %68, ptr %second3.i.i.i.i.i.i.i, align 8
-  %attached.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr %66, i64 0, i32 1
+  %attached.i.i.i.i.i.i = getelementptr inbounds i8, ptr %66, i64 16
   %69 = load i8, ptr %attached.i.i.i.i.i.i, align 8
   %70 = and i8 %69, 1
   store i8 %70, ptr %attached.i.i.i, align 8
@@ -1597,7 +1559,7 @@ if.then.i.i3.i.i.i:                               ; preds = %if.then5.i.i.i
 
 nrvo.skipdtor:                                    ; preds = %if.then.i.i3.i.i.i, %if.then5.i.i.i
   %conv.i = zext i32 %49 to i64
-  %growth_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4, i32 2, i32 1
+  %growth_.i.i = getelementptr inbounds i8, ptr %this, i64 384
   store i64 %conv.i, ptr %growth_.i.i, align 8
   %71 = load ptr, ptr %streamBlock, align 8
   %cmp.not.i = icmp eq ptr %71, null
@@ -1691,15 +1653,15 @@ land.lhs.true:                                    ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext false)
   br i1 %call6, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %lor.lhs.false, %land.lhs.true
-  %numOutstandingBlocks_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_.i = getelementptr inbounds i8, ptr %this, i64 616
   %8 = load i32, ptr %numOutstandingBlocks_.i, align 8
-  %maxNumOutstandingBlocks_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 14
+  %maxNumOutstandingBlocks_.i = getelementptr inbounds i8, ptr %this, i64 620
   %9 = load i32, ptr %maxNumOutstandingBlocks_.i, align 4
   %cmp.i = icmp ult i32 %8, %9
   br label %land.end
@@ -1717,9 +1679,9 @@ entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   %ref.tmp36 = alloca %"class.google::LogMessage", align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 152
-  %numVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i32, ptr %numVulnerable_.i, align 8
-  %maxVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 8
+  %maxVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 524
   %1 = load i32, ptr %maxVulnerable_.i, align 4
   %cmp.i = icmp ult i32 %0, %1
   %call2 = tail call i64 @_ZN8proxygen16QPACKHeaderTable14maybeDuplicateEjb(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr, i32 noundef %relativeIndex, i1 noundef zeroext %cmp.i)
@@ -1763,12 +1725,12 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %5 = load i32, ptr %duplications_, align 4
   %inc = add i32 %5, 1
   store i32 %inc, ptr %duplications_, align 4
-  %controlBuffer_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4
+  %controlBuffer_.i = getelementptr inbounds i8, ptr %this, i64 272
   %sub.i = add i32 %relativeIndex, -1
   %conv.i = zext i32 %sub.i to i64
   %call11.i = call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_.i, i64 noundef %conv.i, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL11Q_DUPLICATEE)
   %conv12.i = zext i32 %call11.i to i64
-  %maxEncoderStreamBytes_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 11
+  %maxEncoderStreamBytes_.i = getelementptr inbounds i8, ptr %this, i64 536
   %6 = load i64, ptr %maxEncoderStreamBytes_.i, align 8
   %sub13.i = sub nsw i64 %6, %conv12.i
   store i64 %sub13.i, ptr %maxEncoderStreamBytes_.i, align 8
@@ -1843,17 +1805,17 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %entry
-  %numOutstandingBlocks_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_.i = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load i32, ptr %numOutstandingBlocks_.i, align 8
-  %maxNumOutstandingBlocks_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 14
+  %maxNumOutstandingBlocks_.i = getelementptr inbounds i8, ptr %this, i64 620
   %1 = load i32, ptr %maxNumOutstandingBlocks_.i, align 4
   %cmp.i = icmp ult i32 %0, %1
   br i1 %cmp.i, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %land.lhs.true
-  %numVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 528
   %2 = load i32, ptr %numVulnerable_.i, align 8
-  %maxVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 8
+  %maxVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 524
   %3 = load i32, ptr %maxVulnerable_.i, align 4
   %cmp.i2 = icmp ult i32 %2, %3
   %call6 = tail call noundef i32 @_ZNK8proxygen16QPACKHeaderTable9nameIndexERKNS_15HPACKHeaderNameEb(ptr noundef nonnull align 8 dereferenceable(104) %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %headerName, i1 noundef zeroext %cmp.i2)
@@ -1886,10 +1848,10 @@ if.end15:                                         ; preds = %if.then8, %if.then,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen12QPACKEncoder13encodeInsertQERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbj(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %isStaticName, i32 noundef %nameIndex) local_unnamed_addr #3 align 2 {
 entry:
-  %controlBuffer_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4
+  %controlBuffer_ = getelementptr inbounds i8, ptr %this, i64 272
   %call = tail call noundef i32 @_ZN8proxygen12QPACKEncoder20encodeLiteralQHelperERNS_17HPACKEncodeBufferERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjhRKNS_5HPACK11InstructionESE_(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %isStaticName, i32 noundef %nameIndex, i8 noundef zeroext 64, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL17Q_INSERT_NAME_REFE, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL20Q_INSERT_NO_NAME_REFE)
   %conv = zext i32 %call to i64
-  %maxEncoderStreamBytes_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 11
+  %maxEncoderStreamBytes_ = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i64, ptr %maxEncoderStreamBytes_, align 8
   %sub = sub nsw i64 %0, %conv
   store i64 %sub, ptr %maxEncoderStreamBytes_, align 8
@@ -1907,7 +1869,7 @@ entry:
   %0 = load ptr, ptr %name_, align 8
   store ptr %0, ptr %this, align 8
   store ptr null, ptr %name_, align 8
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %value_.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %value_.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1930,16 +1892,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   ]
 
 sw.bb.i.i.i:                                      ; preds = %if.then.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds i64, ptr %value_.coerce0, i64 2
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %value_.coerce0, i64 16
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %1, ptr %capacity_.i.i.i, align 8
   br label %sw.bb2.i.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %sw.bb.i.i.i, %if.then.i.i.i
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %value_.coerce0, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %value_.coerce0, i64 8
   %2 = load i64, ptr %arrayidx3.i.i.i, align 8
-  %size_.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %2, ptr %size_.i.i.i, align 8
   br label %sw.bb4.i.i.i
 
@@ -1980,14 +1942,14 @@ _ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i.i: ; preds = %if.else.i.i
           to label %call.i.i.i.i.noexc unwind label %lpad3
 
 call.i.i.i.i.noexc:                               ; preds = %_ZN5folly13fbstring_coreIcE9initLargeEPKcm.exit.i.i
-  %data_.i.i.i.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::RefCounted", ptr %call.i.i.i.i1, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_.i.i.i.i, ptr align 1 %value_.coerce0, i64 %sub.ptr.sub.i, i1 false)
   store ptr %data_.i.i.i.i, ptr %value, align 8
-  %size_.i7.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %size_.i7.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %sub.ptr.sub.i, ptr %size_.i7.i.i, align 8
   %5 = load i64, ptr %effectiveCapacity.i.i.i, align 8
   %or.i.i.i.i = or i64 %5, 4611686018427387904
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i.i.i, ptr %capacity_.i.i.i.i, align 8
   %arrayidx.i8.i.i = getelementptr inbounds i8, ptr %data_.i.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i8.i.i, align 1
@@ -2016,7 +1978,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %value = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %this, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i.i = icmp eq i8 %1, -128
   %2 = load ptr, ptr %value, align 8
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -2166,7 +2128,7 @@ entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
-  %insertCount_ = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 6
+  %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %insertCount_, align 8
   %cmp.not.i = icmp ult i32 %0, %absIndex
   br i1 %cmp.not.i, label %if.else.i, label %while.end
@@ -2241,9 +2203,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2.not, label %lor.end, label %cleanup.done
 
 lor.end:                                          ; preds = %if.then
-  %numVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 528
   %0 = load i32, ptr %numVulnerable_.i, align 8
-  %maxVulnerable_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 8
+  %maxVulnerable_.i = getelementptr inbounds i8, ptr %this, i64 524
   %1 = load i32, ptr %maxVulnerable_.i, align 4
   %cmp.i.not = icmp ult i32 %0, %1
   br i1 %cmp.i.not, label %cleanup.done, label %cond.false
@@ -2277,7 +2239,7 @@ if.end:                                           ; preds = %cleanup.done, %entr
 
 if.then12:                                        ; preds = %if.end
   %sub = sub i32 %absoluteNameIndex, %baseIndex
-  %streamBuffer_.i = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %call13.i = tail call noundef i32 @_ZN8proxygen12QPACKEncoder20encodeLiteralQHelperERNS_17HPACKEncodeBufferERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjhRKNS_5HPACK11InstructionESE_(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_.i, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext false, i32 noundef %sub, i8 noundef zeroext 16, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL23Q_LITERAL_NAME_REF_POSTE, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL9Q_LITERALE)
   br label %return
 
@@ -2285,7 +2247,7 @@ if.else:                                          ; preds = %if.end
   %reass.sub = sub i32 %baseIndex, %absoluteNameIndex
   %add = add i32 %reass.sub, 1
   %cond = select i1 %isStaticName, i32 %nameIndex, i32 %add
-  %streamBuffer_.i11 = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_.i11 = getelementptr inbounds i8, ptr %this, i64 8
   %call13.i12 = tail call noundef i32 @_ZN8proxygen12QPACKEncoder20encodeLiteralQHelperERNS_17HPACKEncodeBufferERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjhRKNS_5HPACK11InstructionESE_(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_.i11, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %isStaticName, i32 noundef %cond, i8 noundef zeroext 16, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL18Q_LITERAL_NAME_REFE, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL9Q_LITERALE)
   br label %return
 
@@ -2375,25 +2337,24 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i4, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.then
-  %vulnerable = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 1
+  %vulnerable = getelementptr inbounds i8, ptr %this, i64 512
   store i8 1, ptr %vulnerable, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then, %if.then9, %while.end
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 480
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end10, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.end10 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i32 %5, %absoluteIndex
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !36
@@ -2403,14 +2364,14 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %if.end10
   %__y.0.lcssa25.i.i.i = phi ptr [ %__x.021.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i.i, %if.end10 ]
-  %_M_left.i3.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
   %6 = load ptr, ptr %_M_left.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i, %6
   br i1 %cmp.i4.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #28
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre.i.i = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 4
   br label %if.end12.i.i.i
 
@@ -2426,7 +2387,7 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %if.then13, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i.i6.i.i, align 4
   %cmp.i.i7.i.i = icmp ugt i32 %8, %absoluteIndex
   br label %if.then13
@@ -2434,10 +2395,10 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
 if.then13:                                        ; preds = %lor.rhs.i.i.i, %if.then.i.i
   %9 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i32 %absoluteIndex, ptr %_M_storage.i.i.i.i.i.i.i, align 4
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %9, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #24
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 504
   %10 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %10, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -2491,9 +2452,9 @@ declare noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK8proxygen12QPACKEncoder23dynamicReferenceAllowedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %numOutstandingBlocks_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 616
   %0 = load i32, ptr %numOutstandingBlocks_, align 8
-  %maxNumOutstandingBlocks_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 14
+  %maxNumOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 620
   %1 = load i32, ptr %maxNumOutstandingBlocks_, align 4
   %cmp = icmp ult i32 %0, %1
   ret i1 %cmp
@@ -2513,12 +2474,12 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen12QPACKEncoder15encodeDuplicateEj(ptr noundef nonnull align 8 dereferenceable(624) %this, i32 noundef %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %controlBuffer_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 4
+  %controlBuffer_ = getelementptr inbounds i8, ptr %this, i64 272
   %sub = add i32 %index, -1
   %conv = zext i32 %sub to i64
   %call11 = tail call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(132) %controlBuffer_, i64 noundef %conv, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL11Q_DUPLICATEE)
   %conv12 = zext i32 %call11 to i64
-  %maxEncoderStreamBytes_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 11
+  %maxEncoderStreamBytes_ = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i64, ptr %maxEncoderStreamBytes_, align 8
   %sub13 = sub nsw i64 %0, %conv12
   store i64 %sub13, ptr %maxEncoderStreamBytes_, align 8
@@ -2532,7 +2493,7 @@ declare noundef i32 @_ZNK8proxygen16QPACKHeaderTable9nameIndexERKNS_15HPACKHeade
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN8proxygen12QPACKEncoder14encodeLiteralQERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbbjRKNS_5HPACK11InstructionE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %isStaticName, i1 noundef zeroext %postBase, i32 noundef %nameIndex, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %idxInstr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %streamBuffer_ = getelementptr inbounds %"class.proxygen::HPACKEncoderBase", ptr %this, i64 0, i32 1
+  %streamBuffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %call13 = tail call noundef i32 @_ZN8proxygen12QPACKEncoder20encodeLiteralQHelperERNS_17HPACKEncodeBufferERKNS_15HPACKHeaderNameEN5folly5RangeIPKcEEbjhRKNS_5HPACK11InstructionESE_(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(132) %streamBuffer_, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr %value.coerce0, ptr %value.coerce1, i1 noundef zeroext %isStaticName, i32 noundef %nameIndex, i8 noundef zeroext 16, ptr noundef nonnull align 1 dereferenceable(2) %idxInstr, ptr noundef nonnull align 1 dereferenceable(2) @_ZN8proxygen5HPACKL9Q_LITERALE)
   %conv = zext i32 %call13 to i64
   ret i64 %conv
@@ -2600,14 +2561,14 @@ if.then32:                                        ; preds = %while.end30
 if.end:                                           ; preds = %if.then32, %while.end30
   %byte.0 = phi i8 [ %or13, %if.then32 ], [ %3, %while.end30 ]
   %conv35 = zext i32 %sub to i64
-  %prefixLength = getelementptr inbounds %"struct.proxygen::HPACK::Instruction", ptr %idxInstr, i64 0, i32 1
+  %prefixLength = getelementptr inbounds i8, ptr %idxInstr, i64 1
   %5 = load i8, ptr %prefixLength, align 1
   %call36 = call noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeIntegerEmhh(ptr noundef nonnull align 8 dereferenceable(132) %buffer, i64 noundef %conv35, i8 noundef zeroext %byte.0, i8 noundef zeroext %5)
   br label %if.end42
 
 if.else:                                          ; preds = %entry
   %6 = load i8, ptr %litInstr, align 1
-  %prefixLength38 = getelementptr inbounds %"struct.proxygen::HPACK::Instruction", ptr %litInstr, i64 0, i32 1
+  %prefixLength38 = getelementptr inbounds i8, ptr %litInstr, i64 1
   %7 = load i8, ptr %prefixLength38, align 1
   %8 = load ptr, ptr %name, align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
@@ -2634,20 +2595,20 @@ entry:
   %dbuf = alloca %"class.proxygen::HPACKDecodeBuffer", align 8
   %numInserts = alloca i64, align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
-  %decoderIngress_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12
+  %decoderIngress_ = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %decoderIngress_, ptr noundef nonnull align 8 dereferenceable(8) %buf, i1 noundef zeroext false, i1 noundef zeroext false)
-  %tailStart_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 3
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 568
   %0 = load ptr, ptr %tailStart_.i.i, align 8
-  %cachePtr_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 4
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 576
   %1 = load ptr, ptr %cachePtr_.i.i, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i.i = icmp eq ptr %0, %2
   br i1 %cmp.not.i.i, label %_ZNK5folly10IOBufQueue5frontEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %head_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 2
+  %head_.i.i = getelementptr inbounds i8, ptr %this, i64 560
   %3 = load ptr, ptr %head_.i.i, align 8
-  %prev_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %3, i64 0, i32 5
+  %prev_.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %prev_.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2655,7 +2616,7 @@ if.then.i.i:                                      ; preds = %entry
   %5 = load i64, ptr %4, align 8
   %add.i.i.i = add i64 %5, %sub.ptr.sub.i.i
   store i64 %add.i.i.i, ptr %4, align 8
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 1
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 552
   %6 = load i64, ptr %chainLength_.i.i, align 8
   %add.i.i = add i64 %6, %sub.ptr.sub.i.i
   store i64 %add.i.i, ptr %chainLength_.i.i, align 8
@@ -2666,22 +2627,22 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNK5folly10IOBufQueue5frontEv.exit:              ; preds = %entry, %if.then.i.i
   %8 = phi ptr [ %0, %entry ], [ %add.ptr22.i.i, %if.then.i.i ]
-  %head_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 560
   %9 = load ptr, ptr %head_.i, align 8
   store ptr %9, ptr %cursor, align 8
-  %buffer_.i.i = getelementptr inbounds %"class.folly::io::detail::CursorBase", ptr %cursor, i64 0, i32 1
+  %buffer_.i.i = getelementptr inbounds i8, ptr %cursor, i64 8
   store ptr %9, ptr %buffer_.i.i, align 8
-  %crtBegin_.i.i = getelementptr inbounds %"class.folly::io::detail::CursorBase", ptr %cursor, i64 0, i32 2
-  %remainingLen_.i.i = getelementptr inbounds %"class.folly::io::detail::CursorBase", ptr %cursor, i64 0, i32 6
+  %crtBegin_.i.i = getelementptr inbounds i8, ptr %cursor, i64 16
+  %remainingLen_.i.i = getelementptr inbounds i8, ptr %cursor, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %crtBegin_.i.i, i8 0, i64 32, i1 false)
   store i64 -1, ptr %remainingLen_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %_ZN5folly2io6CursorC2EPKNS_5IOBufE.exit, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %_ZNK5folly10IOBufQueue5frontEv.exit
-  %crtPos_.i.i = getelementptr inbounds %"class.folly::io::detail::CursorBase", ptr %cursor, i64 0, i32 4
-  %crtEnd_.i.i = getelementptr inbounds %"class.folly::io::detail::CursorBase", ptr %cursor, i64 0, i32 3
-  %data_.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %9, i64 0, i32 1
+  %crtPos_.i.i = getelementptr inbounds i8, ptr %cursor, i64 32
+  %crtEnd_.i.i = getelementptr inbounds i8, ptr %cursor, i64 24
+  %data_.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %data_.i.i.i, align 8
   store ptr %10, ptr %crtBegin_.i.i, align 8
   store ptr %10, ptr %crtPos_.i.i, align 8
@@ -2716,7 +2677,7 @@ lpad.i:                                           ; preds = %if.then.i
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %_ZN5folly2io6CursorC2EPKNS_5IOBufE.exit
-  %chainLength_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 1
+  %chainLength_.i = getelementptr inbounds i8, ptr %this, i64 552
   %15 = load i64, ptr %chainLength_.i, align 8
   %16 = load ptr, ptr %cachePtr_.i.i, align 8
   %17 = load ptr, ptr %16, align 8
@@ -2726,13 +2687,13 @@ _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %_ZN5folly2io6Cursor
   %add.i = sub i64 %sub.ptr.sub.i, %sub.ptr.rhs.cast.i
   %conv = trunc i64 %add.i to i32
   store ptr %cursor, ptr %dbuf, align 8
-  %totalBytes_.i = getelementptr inbounds %"class.proxygen::HPACKDecodeBuffer", ptr %dbuf, i64 0, i32 1
+  %totalBytes_.i = getelementptr inbounds i8, ptr %dbuf, i64 8
   store i32 %conv, ptr %totalBytes_.i, align 8
-  %remainingBytes_.i = getelementptr inbounds %"class.proxygen::HPACKDecodeBuffer", ptr %dbuf, i64 0, i32 2
+  %remainingBytes_.i = getelementptr inbounds i8, ptr %dbuf, i64 12
   store i32 %conv, ptr %remainingBytes_.i, align 4
-  %maxLiteralSize_.i = getelementptr inbounds %"class.proxygen::HPACKDecodeBuffer", ptr %dbuf, i64 0, i32 3
+  %maxLiteralSize_.i = getelementptr inbounds i8, ptr %dbuf, i64 16
   store i32 0, ptr %maxLiteralSize_.i, align 8
-  %endOfBufferIsError_.i = getelementptr inbounds %"class.proxygen::HPACKDecodeBuffer", ptr %dbuf, i64 0, i32 4
+  %endOfBufferIsError_.i = getelementptr inbounds i8, ptr %dbuf, i64 20
   store i8 0, ptr %endOfBufferIsError_.i, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 152
   br label %while.cond
@@ -2912,7 +2873,7 @@ declare void @_ZN5folly10IOBufQueue9trimStartEm(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i8 @_ZN8proxygen12QPACKEncoder16decoderStreamEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(624) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %head_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 560
   %0 = load ptr, ptr %head_.i, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread, label %lor.rhs.i
@@ -2922,10 +2883,10 @@ lor.rhs.i:                                        ; preds = %entry
   br i1 %call4.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit, label %_ZNK5folly10IOBufQueue5emptyEv.exit.thread2
 
 _ZNK5folly10IOBufQueue5emptyEv.exit:              ; preds = %lor.rhs.i
-  %cachePtr_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 4
+  %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 576
   %1 = load ptr, ptr %cachePtr_.i, align 8
   %2 = load ptr, ptr %1, align 8
-  %tailStart_.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 12, i32 3
+  %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 568
   %3 = load ptr, ptr %tailStart_.i, align 8
   %cmp.i = icmp eq ptr %2, %3
   %cond.fr = freeze i1 %cmp.i
@@ -2948,14 +2909,14 @@ entry:
   %block125 = alloca %"struct.proxygen::QPACKEncoder::OutstandingBlock", align 8
   %ref.tmp163 = alloca %"class.google::LogMessage", align 8
   %ref.tmp216 = alloca %"class.google::LogMessage", align 8
-  %outstanding_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5
-  %_M_element_count.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 3
+  %outstanding_ = getelementptr inbounds i8, ptr %this, i64 408
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 432
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -2971,7 +2932,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
   br i1 %cmp.i.i.i.i, label %while.end, label %for.cond.i.i, !llvm.loop !39
 
 if.end15.i.i:                                     ; preds = %entry
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %streamId, %2
   %3 = load ptr, ptr %outstanding_, align 8
@@ -3078,20 +3039,20 @@ if.then63:                                        ; preds = %cleanup.done58
 
 for.body.lr.ph:                                   ; preds = %if.then63
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 152
-  %numVulnerable_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_ = getelementptr inbounds i8, ptr %this, i64 528
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc115
   %__begin2.sroa.0.077 = phi ptr [ %__begin2.sroa.0.075, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %for.inc115 ]
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.077, i64 0, i32 1, i32 0, i64 24
+  %_M_left.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.077, i64 40
   %12 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i21 = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.077, i64 0, i32 1, i32 0, i64 8
+  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %__begin2.sroa.0.077, i64 24
   %cmp.i22.not73 = icmp eq ptr %12, %add.ptr.i.i21
   br i1 %cmp.i22.not73, label %for.end, label %for.body78
 
 for.body78:                                       ; preds = %for.body, %cleanup.done107
   %__begin3.sroa.0.074 = phi ptr [ %call.i, %cleanup.done107 ], [ %12, %for.body ]
-  %_M_storage.i.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin3.sroa.0.074, i64 0, i32 1
+  %_M_storage.i.i23 = getelementptr inbounds i8, ptr %__begin3.sroa.0.074, i64 32
   %13 = load i32, ptr %_M_storage.i.i23, align 4
   %14 = load ptr, ptr @_ZZN8proxygen12QPACKEncoder11onHeaderAckEmbE8vlocal___0, align 8
   %cmp82 = icmp eq ptr %14, null
@@ -3142,7 +3103,7 @@ lpad96:                                           ; preds = %invoke.cont99, %inv
   br label %eh.resume
 
 for.end:                                          ; preds = %cleanup.done107, %for.body
-  %vulnerable = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.077, i64 0, i32 1, i32 0, i64 48
+  %vulnerable = getelementptr inbounds i8, ptr %__begin2.sroa.0.077, i64 64
   %18 = load i8, ptr %vulnerable, align 8
   %19 = and i8 %18, 1
   %tobool112.not = icmp eq i8 %19, 0
@@ -3162,7 +3123,7 @@ for.inc115:                                       ; preds = %for.end, %if.then11
 for.end117:                                       ; preds = %for.inc115, %if.then63
   %_M_size.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 32
   %21 = load i64, ptr %_M_size.i.i.i, align 8
-  %numOutstandingBlocks_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 616
   %22 = load i32, ptr %numOutstandingBlocks_, align 8
   %23 = trunc i64 %21 to i32
   %conv121 = sub i32 %22, %23
@@ -3174,8 +3135,8 @@ for.end117:                                       ; preds = %for.inc115, %if.the
 while.body.i.i:                                   ; preds = %for.end117, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i
   %__cur.05.i.i = phi ptr [ %25, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i ], [ %24, %for.end117 ]
   %25 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 32
   %26 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i, ptr noundef %26)
           to label %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -3201,25 +3162,25 @@ if.end238.thread:                                 ; preds = %_ZNSt16allocator_tr
 
 if.else124:                                       ; preds = %cleanup.done58
   %29 = getelementptr inbounds i8, ptr %block125, i64 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.075, i64 0, i32 1, i32 0, i64 16
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.075, i64 32
   %30 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else124
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.075, i64 0, i32 1, i32 0, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.075, i64 24
   %31 = load i32, ptr %add.ptr.i.i.i.i, align 8
   store i32 %31, ptr %29, align 8
   %_M_parent6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %block125, i64 16
   store ptr %30, ptr %_M_parent6.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.075, i64 0, i32 1, i32 0, i64 24
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.075, i64 40
   %_M_left9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %block125, i64 24
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.075, i64 0, i32 1, i32 0, i64 32
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.075, i64 48
   %32 = load <2 x ptr>, ptr %_M_left.i.i.i.i.i.i, align 8
   store <2 x ptr> %32, ptr %_M_left9.i.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %30, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %29, ptr %_M_parent16.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.075, i64 0, i32 1, i32 0, i64 40
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.075, i64 56
   %33 = load i64, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %_M_node_count17.i.i.i.i.i.i = getelementptr inbounds i8, ptr %block125, i64 40
   store i64 %33, ptr %_M_node_count17.i.i.i.i.i.i, align 8
@@ -3242,12 +3203,12 @@ if.else.i.i.i.i.i:                                ; preds = %if.else124
 _ZN8proxygen12QPACKEncoder16OutstandingBlockC2EOS1_.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %_M_node_count.i5.sink.i.i.i.i.i = phi ptr [ %_M_node_count.i5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %_M_node_count.i.i.i.i.i.i, %if.then.i.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i, align 8
-  %vulnerable.i = getelementptr inbounds %"struct.proxygen::QPACKEncoder::OutstandingBlock", ptr %block125, i64 0, i32 1
-  %vulnerable3.i = getelementptr inbounds %"struct.std::_List_node", ptr %__begin2.sroa.0.075, i64 0, i32 1, i32 0, i64 48
+  %vulnerable.i = getelementptr inbounds i8, ptr %block125, i64 48
+  %vulnerable3.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.075, i64 64
   %34 = load i8, ptr %vulnerable3.i, align 8
   %35 = and i8 %34, 1
   store i8 %35, ptr %vulnerable.i, align 8
-  %numOutstandingBlocks_129 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 13
+  %numOutstandingBlocks_129 = getelementptr inbounds i8, ptr %this, i64 616
   %36 = load i32, ptr %numOutstandingBlocks_129, align 8
   %dec130 = add i32 %36, -1
   store i32 %dec130, ptr %numOutstandingBlocks_129, align 8
@@ -3257,8 +3218,8 @@ _ZN8proxygen12QPACKEncoder16OutstandingBlockC2EOS1_.exit: ; preds = %if.then.i.i
   %sub.i.i.i = add i64 %38, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i30, align 8
   call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #24
-  %_M_storage.i.i.i31 = getelementptr inbounds %"struct.std::_List_node", ptr %37, i64 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds %"struct.std::_List_node", ptr %37, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i.i31 = getelementptr inbounds i8, ptr %37, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %37, i64 32
   %39 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i32, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i31, ptr noundef %39)
           to label %_ZNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS3_EE9pop_frontEv.exit unwind label %terminate.lpad.i.i.i.i.i.i.i33
@@ -3283,7 +3244,7 @@ for.body143.lr.ph:                                ; preds = %_ZNSt7__cxx114listI
 
 for.body143:                                      ; preds = %for.body143.lr.ph, %for.inc184
   %__begin2135.sroa.0.072 = phi ptr [ %42, %for.body143.lr.ph ], [ %call.i38, %for.inc184 ]
-  %_M_storage.i.i37 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2135.sroa.0.072, i64 0, i32 1
+  %_M_storage.i.i37 = getelementptr inbounds i8, ptr %__begin2135.sroa.0.072, i64 32
   %43 = load i32, ptr %_M_storage.i.i37, align 4
   %44 = load ptr, ptr @_ZZN8proxygen12QPACKEncoder11onHeaderAckEmbE8vlocal___1, align 8
   %cmp148 = icmp eq ptr %44, null
@@ -3353,7 +3314,7 @@ for.end186:                                       ; preds = %for.inc184, %_ZNSt7
   br i1 %tobool188.not, label %if.end192, label %if.then189
 
 if.then189:                                       ; preds = %for.end186
-  %numVulnerable_190 = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 9
+  %numVulnerable_190 = getelementptr inbounds i8, ptr %this, i64 528
   %49 = load i32, ptr %numVulnerable_190, align 8
   %dec191 = add i32 %49, -1
   store i32 %dec191, ptr %numVulnerable_190, align 8
@@ -3367,7 +3328,7 @@ if.end192:                                        ; preds = %if.then189, %for.en
 
 if.then195:                                       ; preds = %if.end192
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %29) #28
-  %_M_storage.i.i.i39 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %51 = load i32, ptr %_M_storage.i.i.i39, align 4
   %52 = load ptr, ptr @_ZZN8proxygen12QPACKEncoder11onHeaderAckEmbE8vlocal___2, align 8
   %cmp202 = icmp eq ptr %52, null
@@ -3442,7 +3403,7 @@ if.end238:                                        ; preds = %if.end237
 
 if.then242:                                       ; preds = %if.end238.thread, %if.end238
   %add.ptr.i41 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i, i64 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   %58 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %59 = load i64, ptr %add.ptr.i41, align 8
   %rem.i.i.i.i.i.i = urem i64 %59, %58
@@ -3477,13 +3438,13 @@ entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp27 = alloca %"class.google::LogMessageFatal", align 8
-  %insertCount_ = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 6
+  %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %insertCount_, align 8
   %cmp = icmp ult i32 %0, %numInserts
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ackedInsertCount_ = getelementptr inbounds %"class.proxygen::QPACKHeaderTable", ptr %this, i64 0, i32 3
+  %ackedInsertCount_ = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %ackedInsertCount_, align 8
   %sub = sub i32 %0, %numInserts
   %cmp3 = icmp ugt i32 %1, %sub
@@ -3499,7 +3460,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %ackedInsertCount_6 = getelementptr inbounds %"class.proxygen::QPACKHeaderTable", ptr %this, i64 0, i32 3
+  %ackedInsertCount_6 = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i32, ptr %ackedInsertCount_6, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %2)
           to label %invoke.cont7 unwind label %lpad
@@ -3603,13 +3564,13 @@ entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
-  %ackedInsertCount_ = getelementptr inbounds %"class.proxygen::QPACKHeaderTable", ptr %this, i64 0, i32 3
+  %ackedInsertCount_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %ackedInsertCount_, align 8
   %cmp = icmp ugt i32 %0, %ackInsertCount
   br i1 %cmp, label %return, label %while.cond
 
 while.cond:                                       ; preds = %entry
-  %insertCount_ = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 6
+  %insertCount_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %insertCount_, align 8
   %cmp.not.i = icmp ult i32 %1, %ackInsertCount
   br i1 %cmp.not.i, label %if.else.i, label %while.end
@@ -3672,7 +3633,7 @@ return:                                           ; preds = %entry, %while.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8proxygen12QPACKEncoder26setMaxNumOutstandingBlocksEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(624) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
-  %maxNumOutstandingBlocks_ = getelementptr inbounds %"class.proxygen::QPACKEncoder", ptr %this, i64 0, i32 14
+  %maxNumOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 620
   store i32 %value, ptr %maxNumOutstandingBlocks_, align 4
   ret void
 }
@@ -3698,10 +3659,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #27
   %cmp.not = icmp eq ptr %1, null
@@ -3717,7 +3678,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i, label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit, label %while.body.i.i
@@ -3733,8 +3694,8 @@ while.body.i.i:                                   ; preds = %entry, %_ZNSt8__det
 while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i.i.i = phi ptr [ %3, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i ], [ %2, %while.body.i.i ]
   %3 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i.i.i, align 8
-  %_M_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i.i.i, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i.i.i, i64 32
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i.i.i.i.i.i, ptr noundef %4)
           to label %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3758,13 +3719,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmNSt7__cxx114listIN
 
 _ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS8_EEEELb0EEEEE18_M_deallocate_nodeEPSC_.exit.i.i, %entry
   %7 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %_M_bucket_count.i, align 8
   %mul.i = shl i64 %8, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 %mul.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
   br i1 %cmp.i.i.i, label %invoke.cont, label %if.end.i.i
 
@@ -3792,7 +3753,7 @@ declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull ali
 define linkonce_odr void @_ZN8proxygen16QPACKHeaderTableD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen16QPACKHeaderTableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %refCount_ = getelementptr inbounds %"class.proxygen::QPACKHeaderTable", ptr %this, i64 0, i32 5
+  %refCount_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %refCount_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrISt6vectorItSaItEESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i
@@ -3813,14 +3774,14 @@ _ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i: ; preds = %if.then.i.i.
 _ZNSt10unique_ptrISt6vectorItSaItEESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteISt6vectorItSaItEEEclEPS2_.exit.i
   store ptr null, ptr %refCount_, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11HeaderTableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %names_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8
-  %chunks_.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %names_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %chunks_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %chunks_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %2, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS2_vEENS_26HeterogeneousAccessEqualToIS2_vEESaISt4pairIKS2_S6_EEED2Ev.exit.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt10unique_ptrISt6vectorItSaItEESt14default_deleteIS2_EED2Ev.exit
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i, align 8
   %shr.i.i.i.i.i.i.i.i.i.i = lshr i64 %3, 8
   %cmp3.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %3, 256
@@ -3848,9 +3809,9 @@ _ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cx
   br label %_ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS2_vEENS_26HeterogeneousAccessEqualToIS2_vEESaISt4pairIKS2_S6_EEED2Ev.exit.i
 
 _ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS2_vEENS_26HeterogeneousAccessEqualToIS2_vEESaISt4pairIKS2_S6_EEED2Ev.exit.i: ; preds = %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit.i.i.i.i.i.i.i, %_ZNSt10unique_ptrISt6vectorItSaItEESt14default_deleteIS2_EED2Ev.exit
-  %table_.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 3
+  %table_.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %table_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.proxygen::HeaderTable", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -3858,7 +3819,7 @@ _ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23
 for.body.i.i.i.i.i:                               ; preds = %_ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS2_vEENS_26HeterogeneousAccessEqualToIS2_vEESaISt4pairIKS2_S6_EEED2Ev.exit.i, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %6, %_ZN5folly10F14FastMapIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEENS_23HeterogeneousAccessHashIS2_vEENS_26HeterogeneousAccessEqualToIS2_vEESaISt4pairIKS2_S6_EEED2Ev.exit.i ]
   tail call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #24
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HPACKHeader", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !45
 
@@ -3882,7 +3843,7 @@ _ZN8proxygen11HeaderTableD2Ev.exit:               ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairIKN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %second = getelementptr inbounds %"struct.std::pair.71", ptr %this, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %second, align 8
   %cmp.not4.i.i.i = icmp eq ptr %0, %second
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIjSaIjEED2Ev.exit, label %while.body.i.i.i
@@ -4023,11 +3984,11 @@ if.then:                                          ; preds = %_ZN5folly13checkedM
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN5folly13checkedMallocEm.exit
-  %size_ = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %size, ptr %size_, align 8
   %sub = add i64 %retval.0.i, 9223372036854775807
   %or.i = or i64 %sub, -9223372036854775808
-  %capacity_.i = getelementptr inbounds %"struct.folly::fbstring_core<char>::MediumLarge", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %or.i, ptr %capacity_.i, align 8
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %size
   store i8 0, ptr %arrayidx, align 1
@@ -4450,12 +4411,12 @@ declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSB_10_Hash_nodeIS9_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -4519,7 +4480,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %18 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %18, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -4553,7 +4514,7 @@ _ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16Outstand
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>, std::allocator<std::pair<const unsigned long, std::__cxx11::list<proxygen::QPACKEncoder::OutstandingBlock>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4567,8 +4528,8 @@ if.then:                                          ; preds = %entry
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.then, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i = phi ptr [ %2, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i ], [ %1, %if.then ]
   %2 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i, align 8
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i.i.i.i.i, i64 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i, i64 32
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i.i.i.i, ptr noundef %3)
           to label %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4610,7 +4571,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -4638,7 +4599,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmNSt7__cxx114listIN
 
 _ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS8_EEEELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS8_EEEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -4688,7 +4649,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -4697,7 +4658,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableImSt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS6_EEEESaIS9_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -4739,7 +4700,7 @@ if.then:                                          ; preds = %entry
 
 cond.end:                                         ; preds = %if.then
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i, align 8
   %4 = load i64, ptr %add.ptr, align 8
   %rem.i.i.i = urem i64 %4, %3
@@ -4757,7 +4718,7 @@ if.then3.i:                                       ; preds = %cond.end
 if.end.i:                                         ; preds = %if.then, %if.then3.i
   %5 = phi ptr [ %__prev_n, %if.then ], [ %.pre23, %if.then3.i ]
   %6 = phi ptr [ %0, %if.then ], [ %.pre, %if.then3.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx7.i = getelementptr inbounds ptr, ptr %6, i64 %__bkt
   %cmp8.i = icmp eq ptr %_M_before_begin.i, %5
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
@@ -4775,7 +4736,7 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %add.ptr8 = getelementptr inbounds i8, ptr %2, i64 8
-  %_M_bucket_count.i13 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i13 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %_M_bucket_count.i13, align 8
   %8 = load i64, ptr %add.ptr8, align 8
   %rem.i.i.i14 = urem i64 %8, %7
@@ -4798,8 +4759,8 @@ if.end15:                                         ; preds = %if.end11.i, %cond.e
 while.body.i.i.i.i.i.i.i:                         ; preds = %if.end15, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i
   %__cur.05.i.i.i.i.i.i.i = phi ptr [ %11, %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i ], [ %10, %if.end15 ]
   %11 = load ptr, ptr %__cur.05.i.i.i.i.i.i.i, align 8
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i.i.i.i.i, i64 0, i32 1
-  %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %__cur.05.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i.i.i.i.i.i, i64 32
   %12 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i.i.i.i.i, ptr noundef %12)
           to label %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4818,7 +4779,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingB
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmNSt7__cxx114listIN8proxygen12QPACKEncoder16OutstandingBlockESaIS8_EEEELb0EEEEE18_M_deallocate_nodeEPSC_.exit: ; preds = %_ZNSt16allocator_traitsISaISt10_List_nodeIN8proxygen12QPACKEncoder16OutstandingBlockEEEE7destroyIS3_EEvRS5_PT_.exit.i.i.i.i.i.i.i, %if.end15
   tail call void @_ZdlPv(ptr noundef %__n) #27
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load i64, ptr %_M_element_count, align 8
   %dec = add i64 %15, -1
   store i64 %dec, ptr %_M_element_count, align 8

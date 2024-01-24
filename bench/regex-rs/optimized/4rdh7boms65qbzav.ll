@@ -45,7 +45,7 @@ define hidden { i64, i64 } @_ZN6memchr6memchr7memchr217hc06205aab9124171E(i8 %0,
   store i8 %0, ptr %7, align 1
   store i8 %1, ptr %6, align 1
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %5, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 %3
   %10 = call { i64, ptr } @"_ZN6memchr6memchr7memchr228_$u7b$$u7b$closure$u7d$$u7d$17h6fcedd78305f9ea5E"(ptr nonnull align 8 %5, ptr %2, ptr %9)
@@ -85,9 +85,9 @@ define hidden { i64, i64 } @_ZN6memchr6memchr7memchr317h42eaa7470ceadc10E(i8 %0,
   store i8 %1, ptr %8, align 1
   store i8 %2, ptr %7, align 1
   store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds { ptr, ptr, ptr }, ptr %6, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds { ptr, ptr, ptr }, ptr %6, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %7, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 %4
   %13 = call { i64, ptr } @"_ZN6memchr6memchr7memchr328_$u7b$$u7b$closure$u7d$$u7d$17h7d59ab1cc435f560E"(ptr nonnull align 8 %6, ptr %3, ptr %12)

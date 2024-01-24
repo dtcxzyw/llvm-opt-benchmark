@@ -3,10 +3,7 @@ source_filename = "bench/hyperscan/original/sheng.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sstate_aux = type { i32, i32, i32, i32 }
-%struct.mq = type { ptr, i32, i32, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i8, ptr, ptr, [10 x %struct.mq_item] }
 %struct.mq_item = type { i32, i64, i64 }
-%struct.sheng = type { [256 x <2 x i64>], i32, i32, i32, i32, i8, i8, i8, i8, i32 }
 
 ; Function Attrs: nounwind uwtable
 define hidden signext i8 @nfaExecSheng_B(ptr noundef %n, i64 noundef %offset, ptr noundef %buffer, i64 noundef %length, ptr nocapture noundef readonly %cb, ptr noundef %context) local_unnamed_addr #0 {
@@ -43,7 +40,7 @@ if.then.i68:                                      ; preds = %if.then6.i
   %add.i.i2300 = add i32 %sub.i.i2295, %3
   %idx.ext.i.i2302 = zext i32 %add.i.i2300 to i64
   %add.ptr.i.i2303 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i.i2302
-  %accel.i2304 = getelementptr inbounds %struct.sstate_aux, ptr %add.ptr.i.i2303, i64 0, i32 2
+  %accel.i2304 = getelementptr inbounds i8, ptr %add.ptr.i.i2303, i64 8
   %5 = load i32, ptr %accel.i2304, align 4
   %idx.ext.i2305 = zext i32 %5 to i64
   %add.ptr.i2306 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i2305
@@ -1008,7 +1005,7 @@ if.then.i1321:                                    ; preds = %if.then16.i
   %add.i.i2168 = add i32 %sub.i.i2163, %109
   %idx.ext.i.i2170 = zext i32 %add.i.i2168 to i64
   %add.ptr.i.i2171 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i.i2170
-  %accel.i2172 = getelementptr inbounds %struct.sstate_aux, ptr %add.ptr.i.i2171, i64 0, i32 2
+  %accel.i2172 = getelementptr inbounds i8, ptr %add.ptr.i.i2171, i64 8
   %111 = load i32, ptr %accel.i2172, align 4
   %idx.ext.i2173 = zext i32 %111 to i64
   %add.ptr.i2174 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i2173
@@ -1941,7 +1938,7 @@ do.end16:                                         ; preds = %if.end44.i, %if.end
   %add.i = add i32 %sub.i, %213
   %idx.ext.i = zext i32 %add.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
-  %accept_eod = getelementptr inbounds %struct.sstate_aux, ptr %add.ptr.i, i64 0, i32 1
+  %accept_eod = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %214 = load i32, ptr %accept_eod, align 4
   %tobool.not = icmp eq i32 %214, 0
   br i1 %tobool.not, label %if.end22, label %do.end20
@@ -1993,15 +1990,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc signext i8 @runSheng(ptr noundef %sh, ptr nocapture noundef %q, i64 noundef %b_end, i32 noundef %mode) unnamed_addr #0 {
 entry:
-  %state1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state1 = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state1, align 8
   %1 = load i8, ptr %0, align 1
-  %flags = getelementptr inbounds %struct.sheng, ptr %sh, i64 0, i32 8
+  %flags = getelementptr inbounds i8, ptr %sh, i64 4115
   %2 = load i8, ptr %flags, align 1
   %and = and i8 %2, 2
   %and5 = and i8 %2, 4
   %3 = and i8 %2, 1
-  %report_current = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 11
+  %report_current = getelementptr inbounds i8, ptr %q, i64 80
   %4 = load i8, ptr %report_current, align 8
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end30, label %do.end12
@@ -2009,21 +2006,22 @@ entry:
 do.end12:                                         ; preds = %entry
   store i8 0, ptr %report_current, align 8
   %tobool14.not = icmp eq i8 %3, 0
-  %cb18 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb18 = getelementptr inbounds i8, ptr %q, i64 88
   %5 = load ptr, ptr %cb18, align 8
-  %context19 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context19 = getelementptr inbounds i8, ptr %q, i64 96
   %6 = load ptr, ptr %context19, align 8
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %do.end12
-  %report = getelementptr inbounds %struct.sheng, ptr %sh, i64 0, i32 9
+  %report = getelementptr inbounds i8, ptr %sh, i64 4116
   %7 = load i32, ptr %report, align 4
-  %offset.i246 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i246 = getelementptr inbounds i8, ptr %q, i64 32
   %8 = load i64, ptr %offset.i246, align 8
-  %cur.i248 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i247 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i248 = getelementptr inbounds i8, ptr %q, i64 8
   %9 = load i32, ptr %cur.i248, align 8
   %idxprom.i249 = zext i32 %9 to i64
-  %location.i251 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i249, i32 1
+  %location.i251 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i247, i64 0, i64 %idxprom.i249, i32 1
   %10 = load i64, ptr %location.i251, align 8
   %add.i252 = add i64 %10, %8
   %call.i257 = tail call i32 %5(i64 noundef 0, i64 noundef %add.i252, i32 noundef %7, ptr noundef %6) #10
@@ -2031,12 +2029,13 @@ if.then15:                                        ; preds = %do.end12
   br i1 %cmp.i258, label %return, label %if.end30
 
 if.else:                                          ; preds = %do.end12
-  %offset.i242 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i242 = getelementptr inbounds i8, ptr %q, i64 32
   %11 = load i64, ptr %offset.i242, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %12 = load i32, ptr %cur.i, align 8
   %idxprom.i243 = zext i32 %12 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i243, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i243, i32 1
   %13 = load i64, ptr %location.i, align 8
   %add.i244 = add i64 %13, %11
   %cmp.i237 = icmp eq i8 %1, 0
@@ -2048,7 +2047,7 @@ if.then.i239:                                     ; preds = %if.else
   br i1 %cmp5.i, label %return, label %if.end30
 
 cond.false.i:                                     ; preds = %if.else
-  %aux_offset.i.i = getelementptr inbounds %struct.sheng, ptr %sh, i64 0, i32 2
+  %aux_offset.i.i = getelementptr inbounds i8, ptr %sh, i64 4100
   %14 = load i32, ptr %aux_offset.i.i, align 4
   %15 = shl i8 %1, 4
   %mul.i.i = zext i8 %15 to i32
@@ -2094,24 +2093,25 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
 if.end30:                                         ; preds = %for.cond.i, %cond.false.i, %if.then15, %if.then.i239, %if.then21.i, %entry
   %cached_accept_id.2 = phi i32 [ 0, %entry ], [ 0, %if.then15 ], [ 0, %if.then.i239 ], [ %18, %if.then21.i ], [ %17, %cond.false.i ], [ 0, %for.cond.i ]
   %cached_accept_state.2 = phi i8 [ 0, %entry ], [ 0, %if.then15 ], [ 0, %if.then.i239 ], [ %1, %if.then21.i ], [ 0, %cond.false.i ], [ 0, %for.cond.i ]
-  %cur.i3344 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i3343 = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i3344 = getelementptr inbounds i8, ptr %q, i64 8
   %20 = load i32, ptr %cur.i3344, align 8
   %idxprom.i3345 = zext i32 %20 to i64
-  %location.i3347 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i3345, i32 1
+  %location.i3347 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom.i3345, i32 1
   %21 = load i64, ptr %location.i3347, align 8
   %cmp36 = icmp slt i64 %21, 0
   br i1 %cmp36, label %do.end42, label %do.end47
 
 do.end42:                                         ; preds = %if.end30
-  %history = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %q, i64 56
   %22 = load ptr, ptr %history, align 8
-  %hlength = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 9
+  %hlength = getelementptr inbounds i8, ptr %q, i64 64
   %23 = load i64, ptr %hlength, align 8
   %add.ptr = getelementptr inbounds i8, ptr %22, i64 %23
   br label %if.end48
 
 do.end47:                                         ; preds = %if.end30
-  %buffer = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
+  %buffer = getelementptr inbounds i8, ptr %q, i64 40
   %24 = load ptr, ptr %buffer, align 8
   br label %if.end48
 
@@ -2129,19 +2129,19 @@ do.end60:                                         ; preds = %if.end48
 if.end61:                                         ; preds = %if.end48
   %inc = add i32 %20, 1
   store i32 %inc, ptr %cur.i3344, align 8
-  %invariant.gep2898 = getelementptr inbounds %struct.sstate_aux, ptr %sh, i64 0, i32 2
+  %invariant.gep2898 = getelementptr inbounds i8, ptr %sh, i64 8
   %invariant.gep2900 = getelementptr i8, ptr %sh, i64 -64
-  %invariant.gep2918 = getelementptr inbounds %struct.sstate_aux, ptr %sh, i64 0, i32 3
-  %cb99 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
-  %context100 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
-  %offset101 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %invariant.gep2918 = getelementptr inbounds i8, ptr %sh, i64 12
+  %cb99 = getelementptr inbounds i8, ptr %q, i64 88
+  %context100 = getelementptr inbounds i8, ptr %q, i64 96
+  %offset101 = getelementptr inbounds i8, ptr %q, i64 32
   %tobool.i.not = icmp eq i8 %and, 0
   %tobool5.i.not = icmp eq i8 %and5, 0
-  %aux_offset.i.i2511 = getelementptr inbounds %struct.sheng, ptr %sh, i64 0, i32 2
+  %aux_offset.i.i2511 = getelementptr inbounds i8, ptr %sh, i64 4100
   %tobool97.i.not = icmp eq i8 %3, 0
-  %report.i285 = getelementptr inbounds %struct.sheng, ptr %sh, i64 0, i32 9
-  %buffer189 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 6
-  %anchored = getelementptr inbounds %struct.sheng, ptr %sh, i64 0, i32 6
+  %report.i285 = getelementptr inbounds i8, ptr %sh, i64 4116
+  %buffer189 = getelementptr inbounds i8, ptr %q, i64 40
+  %anchored = getelementptr inbounds i8, ptr %sh, i64 4113
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end61
@@ -2152,7 +2152,7 @@ while.body:                                       ; preds = %while.body.backedge
   %cur_buf.1 = phi ptr [ %cur_buf.0, %if.end61 ], [ %cur_buf.2, %while.body.backedge ]
   %cur_start.0 = phi i64 [ %21, %if.end61 ], [ %cur_start.1, %while.body.backedge ]
   %idxprom.i3333 = zext i32 %25 to i64
-  %location.i3335 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i3333, i32 1
+  %location.i3335 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom.i3333, i32 1
   %26 = load i64, ptr %location.i3335, align 8
   %cond = tail call i64 @llvm.smin.i64(i64 %26, i64 %b_end)
   %end.0 = select i1 %cmp49.not, i64 %cond, i64 %26
@@ -4869,13 +4869,13 @@ do.end134:                                        ; preds = %if.then85.i4617, %w
   %dec = add i32 %376, -1
   store i32 %dec, ptr %cur.i3344, align 8
   %idxprom138 = zext i32 %dec to i64
-  %arrayidx139 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom138
+  %arrayidx139 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom138
   store i32 0, ptr %arrayidx139, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %scanned.162334 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cur_buf.1 to i64
   %reass.sub2921 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add = add i64 %reass.sub2921, 1
-  %location144 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom138, i32 1
+  %location144 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom138, i32 1
   store i64 %add, ptr %location144, align 8
   %377 = load ptr, ptr %state1, align 8
   store i8 %state.212333, ptr %377, align 1
@@ -4891,7 +4891,7 @@ if.end154:                                        ; preds = %if.end44.i, %if.end
 land.lhs.true157:                                 ; preds = %if.end154
   %378 = load i32, ptr %cur.i3344, align 8
   %idxprom.i3327 = zext i32 %378 to i64
-  %location.i3329 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i3327, i32 1
+  %location.i3329 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom.i3327, i32 1
   %379 = load i64, ptr %location.i3329, align 8
   %cmp159 = icmp sgt i64 %379, %b_end
   br i1 %cmp159, label %do.end167, label %if.end181
@@ -4900,9 +4900,9 @@ do.end167:                                        ; preds = %land.lhs.true157
   %dec169 = add i32 %378, -1
   store i32 %dec169, ptr %cur.i3344, align 8
   %idxprom172 = zext i32 %dec169 to i64
-  %arrayidx173 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom172
+  %arrayidx173 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom172
   store i32 0, ptr %arrayidx173, align 8
-  %location179 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom172, i32 1
+  %location179 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom172, i32 1
   store i64 %b_end, ptr %location179, align 8
   %380 = load ptr, ptr %state1, align 8
   store i8 %state.23, ptr %380, align 1
@@ -4924,7 +4924,7 @@ if.end190:                                        ; preds = %do.end188, %if.end1
 
 if.end194:                                        ; preds = %if.end190
   %idxprom.i3405 = zext i32 %.pre.pre to i64
-  %arrayidx.i3406 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i3405
+  %arrayidx.i3406 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom.i3405
   %382 = load i32, ptr %arrayidx.i3406, align 8
   switch i32 %382, label %sw.epilog [
     i32 1, label %sw.bb
@@ -5000,7 +5000,7 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %state.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state.i, align 8
   %1 = load i8, ptr %0, align 1
   %aux_offset.i.i = getelementptr inbounds i8, ptr %n, i64 4164
@@ -5049,7 +5049,7 @@ return:                                           ; preds = %for.cond.i.i, %for.
 define hidden noundef signext i8 @nfaExecSheng_inAccept(ptr nocapture noundef readonly %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
 entry:
   %add.ptr.i3 = getelementptr inbounds i8, ptr %n, i64 64
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %1 = load i8, ptr %0, align 1
   %aux_offset.i = getelementptr inbounds i8, ptr %n, i64 4164
@@ -5098,7 +5098,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
 define hidden signext i8 @nfaExecSheng_inAnyAccept(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #3 {
 entry:
   %add.ptr.i3 = getelementptr inbounds i8, ptr %n, i64 64
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state, align 8
   %1 = load i8, ptr %0, align 1
   %aux_offset.i = getelementptr inbounds i8, ptr %n, i64 4164
@@ -5129,7 +5129,7 @@ entry:
   %add.i = add nuw nsw i64 %sub.i, %mul.i
   %idx.ext.i = and i64 %add.i, 4294967295
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i6, i64 %idx.ext.i
-  %accept_eod = getelementptr inbounds %struct.sstate_aux, ptr %add.ptr.i, i64 0, i32 1
+  %accept_eod = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %3 = load i32, ptr %accept_eod, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %return, label %cond.true.i
@@ -5169,11 +5169,11 @@ return:                                           ; preds = %for.cond.i, %for.bo
 define hidden noundef signext i8 @nfaExecSheng_reportCurrent(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %n, i64 64
-  %cb1 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 12
+  %cb1 = getelementptr inbounds i8, ptr %q, i64 88
   %0 = load ptr, ptr %cb1, align 8
-  %context = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 13
+  %context = getelementptr inbounds i8, ptr %q, i64 96
   %1 = load ptr, ptr %context, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %2 = load ptr, ptr %state, align 8
   %3 = load i8, ptr %2, align 1
   %aux_offset.i = getelementptr inbounds i8, ptr %n, i64 4164
@@ -5185,12 +5185,13 @@ entry:
   %add.i = add i32 %sub.i, %5
   %idx.ext.i = zext i32 %add.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
-  %offset.i11 = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 5
+  %offset.i11 = getelementptr inbounds i8, ptr %q, i64 32
   %6 = load i64, ptr %offset.i11, align 8
-  %cur.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 1
+  %items.i = getelementptr inbounds i8, ptr %q, i64 104
+  %cur.i = getelementptr inbounds i8, ptr %q, i64 8
   %7 = load i32, ptr %cur.i, align 8
   %idxprom.i12 = zext i32 %7 to i64
-  %location.i = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 14, i64 %idxprom.i12, i32 1
+  %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i, i64 0, i64 %idxprom.i12, i32 1
   %8 = load i64, ptr %location.i, align 8
   %add.i13 = add i64 %8, %6
   %9 = load i32, ptr %add.ptr.i, align 4
@@ -5271,7 +5272,7 @@ define hidden noundef signext i8 @nfaExecSheng_queueInitState(ptr nocapture noun
 entry:
   %floating = getelementptr inbounds i8, ptr %nfa, i64 4178
   %0 = load i8, ptr %floating, align 2
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state, align 8
   store i8 %0, ptr %1, align 1
   ret i8 0
@@ -5280,9 +5281,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @nfaExecSheng_queueCompressState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #6 {
 entry:
-  %streamState = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 4
+  %streamState = getelementptr inbounds i8, ptr %q, i64 24
   %0 = load ptr, ptr %streamState, align 8
-  %state = getelementptr inbounds %struct.mq, ptr %q, i64 0, i32 3
+  %state = getelementptr inbounds i8, ptr %q, i64 16
   %1 = load ptr, ptr %state, align 8
   %2 = load i8, ptr %1, align 1
   store i8 %2, ptr %0, align 1

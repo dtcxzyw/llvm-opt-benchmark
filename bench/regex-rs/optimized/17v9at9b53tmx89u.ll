@@ -22,7 +22,7 @@ define void @_ZN14regex_automata6hybrid5regex5Regex3new17hd28b59c5e3311359E(ptr 
   call void @_ZN14regex_automata6hybrid3dfa3DFA7builder17hfdc5009306cb3d6eE(ptr nonnull sret({ { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { { { i64, i64 }, { i8, i8 }, i8, i8, i8, i8, [2 x i8] }, { { i8, { i8, i8, i8, i8, i8, i8 }, i8 }, { i32, i8, i8, [2 x i8] } }, { i64, { { { i64, i64 }, { i32, i32 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64, i8, i8, i8, [5 x i8] } } }, { i64, { { { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] }, { { ptr, i64 }, i64 } } } }, { i64, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { i64, { { { ptr, i64 }, i64 } } }, { i64, { { { ptr, i64 }, i64 } } } } } }, { i64, { { { { ptr, i64 }, i64 }, i64, i16, [3 x i16] } } } } }) align 8 %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8
   invoke void @_ZN14regex_automata6hybrid5regex7Builder10build_many17hbe3c47aeb2759e04E(ptr sret({ i64, [171 x i64] }) align 8 %0, ptr nonnull align 8 %5, ptr nonnull align 8 %4, i64 1)
           to label %9 unwind label %7
@@ -65,7 +65,7 @@ define void @_ZN14regex_automata6hybrid5regex5Regex12create_cache17h416ae435e668
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4)
   call void @_ZN14regex_automata6hybrid3dfa5Cache3new17hb3afd08dc9cd282dE(ptr nonnull sret({ { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }) align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 704
   invoke void @_ZN14regex_automata6hybrid3dfa5Cache3new17hb3afd08dc9cd282dE(ptr nonnull sret({ { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }) align 8 %3, ptr nonnull align 8 %5)
           to label %_ZN14regex_automata6hybrid5regex5Cache3new17h50130f4ac9cae614E.exit unwind label %6
 
@@ -86,7 +86,7 @@ define void @_ZN14regex_automata6hybrid5regex5Regex12create_cache17h416ae435e668
 
 _ZN14regex_automata6hybrid5regex5Cache3new17h50130f4ac9cae614E.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
-  %11 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %11, ptr noundef nonnull align 8 dereferenceable(352) %3, i64 352, i1 false)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
@@ -96,8 +96,8 @@ _ZN14regex_automata6hybrid5regex5Cache3new17h50130f4ac9cae614E.exit: ; preds = %
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN14regex_automata6hybrid5regex5Regex11reset_cache17h975433e6fe491226E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   tail call void @_ZN14regex_automata6hybrid3dfa3DFA11reset_cache17h2e6e2a1b00da4d2fE(ptr align 8 %0, ptr align 8 %1)
-  %3 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %0, i64 0, i32 1
-  %4 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 704
+  %4 = getelementptr inbounds i8, ptr %1, i64 352
   tail call void @_ZN14regex_automata6hybrid3dfa3DFA11reset_cache17h2e6e2a1b00da4d2fE(ptr nonnull align 8 %3, ptr nonnull align 8 %4)
   ret void
 }
@@ -118,7 +118,7 @@ define hidden void @_ZN14regex_automata6hybrid5regex5Regex10try_search17hb13c31f
   %16 = alloca { i64, [2 x i64] }, align 8
   %17 = alloca { i64, [2 x i64] }, align 8
   %18 = alloca { i64, i32 }, align 8
-  %19 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %2, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %2, i64 352
   %20 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %20)
   call void @_ZN14regex_automata6hybrid3dfa3DFA14try_search_fwd17h5469a6c43f5e3a20E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %16, ptr align 8 %1, ptr nonnull align 8 %2, ptr align 8 %3)
@@ -130,7 +130,7 @@ define hidden void @_ZN14regex_automata6hybrid5regex5Regex10try_search17hb13c31f
   ]
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds { [1 x i64], ptr }, ptr %17, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %17, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd499a4905c224fa6E"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr nonnull align 8 %24, ptr nonnull align 8 @anon.137a6c2365c2458140309dca564c54b3.9)
   br label %31
@@ -145,7 +145,7 @@ define hidden void @_ZN14regex_automata6hybrid5regex5Regex10try_search17hb13c31f
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   store i64 %.sroa.22.0.copyload, ptr %18, align 8
-  %27 = getelementptr inbounds { i64, i32 }, ptr %18, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %.sroa.3.0.copyload, ptr %27, align 8
   %28 = call i64 @_ZN14regex_automata4util6search5Input5start17h51900e9e0de9a3ecE(ptr align 8 %3)
   %29 = call i64 @_ZN14regex_automata4util6search9HalfMatch6offset17hf0af348b59984ef7E(ptr nonnull align 8 %18)
@@ -183,7 +183,7 @@ _ZN14regex_automata6hybrid5regex5Regex11is_anchored17h11020b6a41dea9dcE.exit: ; 
   call void @_ZN14regex_automata4util6search5Input4span17h0d1d9f29fbaa58efE(ptr nonnull sret({ { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }) align 8 %11, ptr nonnull align 8 %10, i64 %41, i64 %42)
   call void @_ZN14regex_automata4util6search5Input8anchored17h5bec9d2f33b267bcE(ptr nonnull sret({ { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }) align 8 %12, ptr nonnull align 8 %11, i32 1, i32 undef)
   call void @_ZN14regex_automata4util6search5Input8earliest17hd510edbfb1e40b76E(ptr nonnull sret({ { i32, i32 }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }) align 8 %13, ptr nonnull align 8 %12, i1 zeroext false)
-  %43 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %1, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %1, i64 704
   call void @_ZN14regex_automata6hybrid3dfa3DFA14try_search_rev17hf1f23bc3e14e0e06E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %7, ptr nonnull align 8 %43, ptr nonnull align 8 %19, ptr nonnull align 8 %13)
   call void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h512bf38f68fe7761E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %8, ptr nonnull align 8 %7)
   %44 = load i64, ptr %8, align 8, !range !5, !noundef !6
@@ -206,7 +206,7 @@ _ZN14regex_automata6hybrid5regex5Regex11is_anchored17h11020b6a41dea9dcE.exit.thr
   %.fca.0.extract = extractvalue { i64, i32 } %49, 0
   store i64 %.fca.0.extract, ptr %9, align 8
   %.fca.1.extract = extractvalue { i64, i32 } %49, 1
-  %.fca.1.gep = getelementptr inbounds { i64, i32 }, ptr %9, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %.fca.1.extract, ptr %.fca.1.gep, align 8
   %50 = call i32 @_ZN14regex_automata4util6search9HalfMatch7pattern17hb501fd973067c685E(ptr nonnull align 8 %18)
   %51 = call i64 @_ZN14regex_automata4util6search9HalfMatch6offset17hf0af348b59984ef7E(ptr nonnull align 8 %9)
@@ -218,7 +218,7 @@ _ZN14regex_automata6hybrid5regex5Regex11is_anchored17h11020b6a41dea9dcE.exit.thr
   br label %31
 
 53:                                               ; preds = %40
-  %54 = getelementptr inbounds { [1 x i64], ptr }, ptr %8, i64 0, i32 1
+  %54 = getelementptr inbounds i8, ptr %8, i64 8
   %55 = load ptr, ptr %54, align 8, !nonnull !6, !align !7, !noundef !6
   call void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hd499a4905c224fa6E"(ptr sret({ i64, [3 x i64] }) align 8 %0, ptr nonnull align 8 %55, ptr nonnull align 8 @anon.137a6c2365c2458140309dca564c54b3.8)
   br label %31
@@ -248,7 +248,7 @@ define align 8 ptr @_ZN14regex_automata6hybrid5regex5Regex7forward17he6fd3a23f6f
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define nonnull align 8 ptr @_ZN14regex_automata6hybrid5regex5Regex7reverse17h08dca13b5d51dba9E(ptr readnone align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 704
   ret ptr %2
 }
 
@@ -259,7 +259,7 @@ define i64 @_ZN14regex_automata6hybrid5regex5Regex11pattern_len17h15eb2f10944fe9
   %4 = alloca i64, align 8
   %5 = tail call i64 @_ZN14regex_automata6hybrid3dfa3DFA11pattern_len17h4e129f9e4ee6ed1bE(ptr align 8 %0)
   store i64 %5, ptr %4, align 8
-  %6 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 704
   %7 = tail call i64 @_ZN14regex_automata6hybrid3dfa3DFA11pattern_len17h4e129f9e4ee6ed1bE(ptr nonnull align 8 %6)
   store i64 %7, ptr %3, align 8
   %8 = icmp eq i64 %5, %7
@@ -280,7 +280,7 @@ define void @_ZN14regex_automata6hybrid5regex5Cache3new17h50130f4ac9cae614E(ptr 
   %3 = alloca { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, align 8
   %4 = alloca { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, align 8
   call void @_ZN14regex_automata6hybrid3dfa5Cache3new17hb3afd08dc9cd282dE(ptr nonnull sret({ { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }) align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %1, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %1, i64 704
   invoke void @_ZN14regex_automata6hybrid3dfa5Cache3new17hb3afd08dc9cd282dE(ptr nonnull sret({ { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }) align 8 %3, ptr nonnull align 8 %5)
           to label %8 unwind label %6
 
@@ -292,7 +292,7 @@ define void @_ZN14regex_automata6hybrid5regex5Cache3new17h50130f4ac9cae614E(ptr 
 
 8:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
-  %9 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %9, ptr noundef nonnull align 8 dereferenceable(352) %3, i64 352, i1 false)
   ret void
 
@@ -309,8 +309,8 @@ define void @_ZN14regex_automata6hybrid5regex5Cache3new17h50130f4ac9cae614E(ptr 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN14regex_automata6hybrid5regex5Cache5reset17h83e7e8b5bac64544E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   tail call void @_ZN14regex_automata6hybrid3dfa5Cache5reset17h8ee5eea8e79f548cE(ptr align 8 %0, ptr align 8 %1)
-  %3 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
-  %4 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %1, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 352
+  %4 = getelementptr inbounds i8, ptr %1, i64 704
   tail call void @_ZN14regex_automata6hybrid3dfa5Cache5reset17h8ee5eea8e79f548cE(ptr nonnull align 8 %3, ptr nonnull align 8 %4)
   ret void
 }
@@ -322,7 +322,7 @@ define align 8 ptr @_ZN14regex_automata6hybrid5regex5Cache7forward17h4dee6f0a95e
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define nonnull align 8 ptr @_ZN14regex_automata6hybrid5regex5Cache7reverse17h703fe27cf41d6cd8E(ptr readnone align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 352
   ret ptr %2
 }
 
@@ -333,13 +333,13 @@ define align 8 ptr @_ZN14regex_automata6hybrid5regex5Cache11forward_mut17h87fdf7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define nonnull align 8 ptr @_ZN14regex_automata6hybrid5regex5Cache11reverse_mut17hfa5d0a7a89fe2108E(ptr readnone align 8 %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 352
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define { ptr, ptr } @_ZN14regex_automata6hybrid5regex5Cache8as_parts17hc5a25e85c79d47cbE(ptr align 8 %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = insertvalue { ptr, ptr } poison, ptr %0, 0
@@ -349,7 +349,7 @@ define { ptr, ptr } @_ZN14regex_automata6hybrid5regex5Cache8as_parts17hc5a25e85c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define { ptr, ptr } @_ZN14regex_automata6hybrid5regex5Cache12as_parts_mut17h40423ab013a9e743E(ptr align 8 %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = insertvalue { ptr, ptr } poison, ptr %0, 0
@@ -360,7 +360,7 @@ define { ptr, ptr } @_ZN14regex_automata6hybrid5regex5Cache12as_parts_mut17h4042
 ; Function Attrs: nonlazybind uwtable
 define i64 @_ZN14regex_automata6hybrid5regex5Cache12memory_usage17h7f186c0d358c7ae3E(ptr align 8 %0) unnamed_addr #0 {
   %2 = tail call i64 @_ZN14regex_automata6hybrid3dfa5Cache12memory_usage17hda35d8d1db7524c0E(ptr align 8 %0)
-  %3 = getelementptr inbounds { { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 }, { { i64, [2 x i64] }, { i32, [5 x i32] }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 }, { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, i64, i64, i64 } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 352
   %4 = tail call i64 @_ZN14regex_automata6hybrid3dfa5Cache12memory_usage17hda35d8d1db7524c0E(ptr nonnull align 8 %3)
   %5 = add i64 %4, %2
   ret i64 %5
@@ -378,7 +378,7 @@ define void @_ZN14regex_automata6hybrid5regex7Builder3new17hc861adbf840decd3E(pt
 define void @_ZN14regex_automata6hybrid5regex7Builder5build17h8507b36f57992ecbE(ptr sret({ i64, [171 x i64] }) align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca [1 x { ptr, i64 }], align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %5, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
   call void @_ZN14regex_automata6hybrid5regex7Builder10build_many17hbe3c47aeb2759e04E(ptr sret({ i64, [171 x i64] }) align 8 %0, ptr align 8 %1, ptr nonnull align 8 %5, i64 1)
   ret void
@@ -387,7 +387,7 @@ define void @_ZN14regex_automata6hybrid5regex7Builder5build17h8507b36f57992ecbE(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14regex_automata6hybrid5regex7Builder15build_from_dfas17hcbc84e3c7367a15cE(ptr nocapture writeonly sret({ { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }) align 8 %0, ptr nocapture readnone align 8 %1, ptr nocapture readonly align 8 %2, ptr nocapture readonly align 8 %3) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(688) %2, i64 688, i1 false)
-  %5 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 704
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(688) %5, ptr noundef nonnull align 8 dereferenceable(688) %3, i64 688, i1 false)
   ret void
 }
@@ -425,7 +425,7 @@ define void @"_ZN81_$LT$regex_automata..hybrid..regex..Builder$u20$as$u20$core..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN73_$LT$regex_automata..hybrid..regex..Regex$u20$as$u20$core..fmt..Debug$GT$3fmt17hefe30a411b16c229E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 }, { { { i64, [4 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { [16 x i8], i8, [7 x i8] }, i8, i8, i8, i8, i8, i8, [2 x i8] }, { [256 x i8] }, ptr, i64, { [256 x i8] }, { { [2 x i128] } }, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr %4, ptr %3, align 8
   %5 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h976633cb9325d9dfE(ptr align 8 %1, ptr nonnull align 1 @anon.137a6c2365c2458140309dca564c54b3.11, i64 5, ptr nonnull align 1 @anon.137a6c2365c2458140309dca564c54b3.12, i64 7, ptr align 1 %0, ptr nonnull align 8 @anon.137a6c2365c2458140309dca564c54b3.13, ptr nonnull align 1 @anon.137a6c2365c2458140309dca564c54b3.14, i64 7, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.137a6c2365c2458140309dca564c54b3.15)
   ret i1 %5

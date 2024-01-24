@@ -3,7 +3,6 @@ source_filename = "bench/libquic/original/a_d2i_fp.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.buf_mem_st = type { i64, ptr, i64 }
 %struct.asn1_const_ctx_st = type { ptr, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/libquic/libquic/boringssl/crypto/asn1/a_d2i_fp.c\00", align 1
@@ -33,7 +32,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %err.i, label %err.thread.i
 
 err.thread.i:                                     ; preds = %if.end
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %.pre.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %0 = load ptr, ptr %data.i, align 8
   store ptr %0, ptr %p.i, align 8
   %conv.i = zext nneg i32 %call.i to i64
@@ -81,7 +80,7 @@ entry:
   br i1 %cmp, label %err, label %err.thread
 
 err.thread:                                       ; preds = %entry
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %.pre, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %.pre, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %conv = zext nneg i32 %call to i64
@@ -118,11 +117,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @ERR_clear_error() #4
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
-  %slen = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 6
-  %tag = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 4
-  %xclass = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 5
-  %inf = getelementptr inbounds %struct.asn1_const_ctx_st, ptr %c, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call, i64 8
+  %slen = getelementptr inbounds i8, ptr %c, i64 32
+  %tag = getelementptr inbounds i8, ptr %c, i64 20
+  %xclass = getelementptr inbounds i8, ptr %c, i64 24
+  %inf = getelementptr inbounds i8, ptr %c, i64 16
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %if.end
@@ -370,7 +369,7 @@ entry:
   br i1 %cmp, label %err, label %err.thread
 
 err.thread:                                       ; preds = %entry
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %.pre, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %.pre, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %conv = zext nneg i32 %call to i64
@@ -418,7 +417,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %err.i, label %err.thread.i
 
 err.thread.i:                                     ; preds = %if.end
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %.pre.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
   %0 = load ptr, ptr %data.i, align 8
   store ptr %0, ptr %p.i, align 8
   %conv.i = zext nneg i32 %call.i to i64

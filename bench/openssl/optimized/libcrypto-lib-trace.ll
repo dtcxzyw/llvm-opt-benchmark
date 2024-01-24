@@ -42,7 +42,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end
-  %num12 = getelementptr inbounds [19 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %conv, i32 1
+  %num12 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %num12, align 8
   %cmp13 = icmp eq i32 %1, %num
   %spec.select = select i1 %cmp13, ptr %0, ptr null
@@ -59,26 +59,26 @@ entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.06 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [19 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %i.06
-  %0 = load ptr, ptr %arrayidx, align 16
-  %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %name, ptr noundef %0) #3
-  %cmp3 = icmp eq i32 %call, 0
-  br i1 %cmp3, label %if.then4, label %for.inc
-
-if.then4:                                         ; preds = %for.body
-  %num = getelementptr inbounds [19 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %i.06, i32 1
-  %1 = load i32, ptr %num, align 8
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.06, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.05, 1
   %exitcond.not = icmp eq i64 %inc, 19
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-return:                                           ; preds = %for.inc, %entry, %if.then4
-  %retval.0 = phi i32 [ %1, %if.then4 ], [ -1, %entry ], [ -1, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.05 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds [19 x %struct.trace_category_st], ptr @trace_categories, i64 0, i64 %i.05
+  %0 = load ptr, ptr %arrayidx, align 16
+  %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %name, ptr noundef %0) #3
+  %cmp3 = icmp eq i32 %call, 0
+  br i1 %cmp3, label %if.then4, label %for.cond
+
+if.then4:                                         ; preds = %for.body
+  %num = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %1 = load i32, ptr %num, align 8
+  br label %return
+
+return:                                           ; preds = %for.cond, %entry, %if.then4
+  %retval.0 = phi i32 [ %1, %if.then4 ], [ -1, %entry ], [ -1, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -91,37 +91,37 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OSSL_trace_set_channel(i32 noundef %category, ptr nocapture noundef readnone %channel) local_unnamed_addr #0 {
+define noundef i32 @OSSL_trace_set_channel(i32 noundef %category, ptr nocapture noundef readnone %channel) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OSSL_trace_set_callback(i32 noundef %category, ptr nocapture noundef readnone %callback, ptr nocapture noundef readnone %data) local_unnamed_addr #0 {
+define noundef i32 @OSSL_trace_set_callback(i32 noundef %category, ptr nocapture noundef readnone %callback, ptr nocapture noundef readnone %data) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OSSL_trace_set_prefix(i32 noundef %category, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
+define noundef i32 @OSSL_trace_set_prefix(i32 noundef %category, ptr nocapture noundef readnone %prefix) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OSSL_trace_set_suffix(i32 noundef %category, ptr nocapture noundef readnone %suffix) local_unnamed_addr #0 {
+define noundef i32 @OSSL_trace_set_suffix(i32 noundef %category, ptr nocapture noundef readnone %suffix) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @OSSL_trace_enabled(i32 noundef %category) local_unnamed_addr #0 {
+define noundef i32 @OSSL_trace_enabled(i32 noundef %category) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias ptr @OSSL_trace_begin(i32 noundef %category) local_unnamed_addr #0 {
+define noalias noundef ptr @OSSL_trace_begin(i32 noundef %category) local_unnamed_addr #0 {
 entry:
   ret ptr null
 }

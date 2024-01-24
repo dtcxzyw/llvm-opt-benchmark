@@ -3,22 +3,6 @@ source_filename = "bench/luajit/original/lj_obj_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.GCudata = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, i32, %struct.GCRef, i32 }
-%struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%union.TValue = type { i64 }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon, %struct.MRef, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.GCRef, %struct.GCRef }
-%struct.MRef = type { i64 }
-%struct.PRNGState = type { [4 x i64] }
-%struct.GCcdata = type { %struct.GCRef, i8, i8, i16 }
-
 @.str = private unnamed_addr constant [9 x i8] c"no value\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"nil\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"boolean\00", align 1
@@ -92,7 +76,7 @@ entry:
 if.then:                                          ; preds = %entry
   %and = and i64 %0, 140737488355327
   %1 = inttoptr i64 %and to ptr
-  %add.ptr = getelementptr inbounds %struct.GCudata, ptr %1, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 48
   br label %return
 
 if.then6:                                         ; preds = %entry
@@ -102,7 +86,7 @@ if.then6:                                         ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
-  %lightudseg.i = getelementptr inbounds %struct.global_State, ptr %g, i64 0, i32 2, i32 17
+  %lightudseg.i = getelementptr inbounds i8, ptr %g, i64 112
   %2 = load i64, ptr %lightudseg.i, align 8
   %3 = inttoptr i64 %2 to ptr
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %and.i
@@ -117,7 +101,7 @@ if.end.i:                                         ; preds = %if.then6
 if.then12:                                        ; preds = %entry
   %and14 = and i64 %0, 140737488355327
   %6 = inttoptr i64 %and14 to ptr
-  %add.ptr15 = getelementptr inbounds %struct.GCcdata, ptr %6, i64 1
+  %add.ptr15 = getelementptr inbounds i8, ptr %6, i64 16
   br label %return
 
 if.else16:                                        ; preds = %entry

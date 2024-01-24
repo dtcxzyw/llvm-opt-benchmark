@@ -3,18 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-pmeth_check.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon, %struct.anon.4, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.4 = type { ptr, ptr, i64, i8 }
-%struct.evp_pkey_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon.5 }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon.5 = type { i32, i32, i32 }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/evp/pmeth_check.c\00", align 1
 @__func__.EVP_PKEY_private_check = private unnamed_addr constant [23 x i8] c"EVP_PKEY_private_check\00", align 1
 @__func__.EVP_PKEY_pairwise_check = private unnamed_addr constant [24 x i8] c"EVP_PKEY_pairwise_check\00", align 1
@@ -33,7 +21,7 @@ entry:
 define internal fastcc i32 @evp_pkey_public_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 14
+  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -46,7 +34,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -57,9 +45,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 1
+  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -85,9 +73,9 @@ if.end4:                                          ; preds = %try_provided_check.
   br i1 %cmp5, label %not_supported, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %public_check = getelementptr inbounds %struct.evp_pkey_method_st, ptr %6, i64 0, i32 30
+  %public_check = getelementptr inbounds i8, ptr %6, i64 232
   %7 = load ptr, ptr %public_check, align 8
   %cmp8.not = icmp eq ptr %7, null
   br i1 %cmp8.not, label %if.end13, label %if.then9
@@ -97,13 +85,13 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end13:                                         ; preds = %if.end7
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %0, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %ameth, align 8
   %cmp14 = icmp eq ptr %8, null
   br i1 %cmp14, label %not_supported, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %pkey_public_check = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %8, i64 0, i32 30
+  %pkey_public_check = getelementptr inbounds i8, ptr %8, i64 232
   %9 = load ptr, ptr %pkey_public_check, align 8
   %cmp16 = icmp eq ptr %9, null
   br i1 %cmp16, label %not_supported, label %if.end18
@@ -141,7 +129,7 @@ entry:
 define internal fastcc i32 @evp_pkey_param_check_combined(ptr nocapture noundef readonly %ctx, i32 noundef %checktype) unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 14
+  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -154,7 +142,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -165,9 +153,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 1
+  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -193,9 +181,9 @@ if.end4:                                          ; preds = %try_provided_check.
   br i1 %cmp5, label %not_supported, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %param_check = getelementptr inbounds %struct.evp_pkey_method_st, ptr %6, i64 0, i32 31
+  %param_check = getelementptr inbounds i8, ptr %6, i64 240
   %7 = load ptr, ptr %param_check, align 8
   %cmp8.not = icmp eq ptr %7, null
   br i1 %cmp8.not, label %if.end13, label %if.then9
@@ -205,13 +193,13 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end13:                                         ; preds = %if.end7
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %0, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %ameth, align 8
   %cmp14 = icmp eq ptr %8, null
   br i1 %cmp14, label %not_supported, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %pkey_param_check = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %8, i64 0, i32 31
+  %pkey_param_check = getelementptr inbounds i8, ptr %8, i64 240
   %9 = load ptr, ptr %pkey_param_check, align 8
   %cmp16 = icmp eq ptr %9, null
   br i1 %cmp16, label %not_supported, label %if.end18
@@ -242,7 +230,7 @@ entry:
 define i32 @EVP_PKEY_private_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 14
+  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -255,7 +243,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -266,9 +254,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 1
+  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -316,7 +304,7 @@ entry:
 define i32 @EVP_PKEY_pairwise_check(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
   %keymgmt.i = alloca ptr, align 8
-  %pkey1 = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 14
+  %pkey1 = getelementptr inbounds i8, ptr %ctx, i64 136
   %0 = load ptr, ptr %pkey1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -329,7 +317,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keymgmt.i)
-  %keymgmt1.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 4
+  %keymgmt1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load ptr, ptr %keymgmt1.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %try_provided_check.exit.thread, label %if.end.i
@@ -340,9 +328,9 @@ try_provided_check.exit.thread:                   ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   store ptr %1, ptr %keymgmt.i, align 8
-  %libctx.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 1
+  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %libctx.i, align 8
-  %propquery.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 2
+  %propquery.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %propquery.i, align 8
   %call.i = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %keymgmt.i, ptr noundef %3) #3
   %cmp3.i = icmp eq ptr %call.i, null
@@ -368,9 +356,9 @@ if.end4:                                          ; preds = %try_provided_check.
   br i1 %cmp5, label %not_supported, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %pmeth = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %ctx, i64 0, i32 12
+  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
   %6 = load ptr, ptr %pmeth, align 8
-  %check = getelementptr inbounds %struct.evp_pkey_method_st, ptr %6, i64 0, i32 29
+  %check = getelementptr inbounds i8, ptr %6, i64 224
   %7 = load ptr, ptr %check, align 8
   %cmp8.not = icmp eq ptr %7, null
   br i1 %cmp8.not, label %if.end13, label %if.then9
@@ -380,13 +368,13 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end13:                                         ; preds = %if.end7
-  %ameth = getelementptr inbounds %struct.evp_pkey_st, ptr %0, i64 0, i32 2
+  %ameth = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %ameth, align 8
   %cmp14 = icmp eq ptr %8, null
   br i1 %cmp14, label %not_supported, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %pkey_check = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %8, i64 0, i32 29
+  %pkey_check = getelementptr inbounds i8, ptr %8, i64 224
   %9 = load ptr, ptr %pkey_check, align 8
   %cmp16 = icmp eq ptr %9, null
   br i1 %cmp16, label %not_supported, label %if.end18

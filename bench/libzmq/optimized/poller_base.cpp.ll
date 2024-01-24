@@ -3,28 +3,6 @@ source_filename = "bench/libzmq/original/poller_base.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.zmq::poller_base_t" = type { ptr, %"class.zmq::clock_t", %"class.std::multimap", %"class.zmq::atomic_counter_t" }
-%"class.zmq::clock_t" = type { i64, i64 }
-%"class.std::multimap" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>, std::_Select1st<std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>, std::_Select1st<std::pair<const unsigned long, zmq::poller_base_t::timer_info_t>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.zmq::atomic_counter_t" = type { %"struct.std::atomic", [4 x i8] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [24 x i8] }
-%"class.zmq::worker_poller_base_t" = type { %"class.zmq::poller_base_t", ptr, %"class.zmq::thread_t" }
-%"class.zmq::thread_t" = type { ptr, ptr, [16 x i8], i8, i64, i32, i32, %"class.std::set" }
-%"class.std::set" = type { %"class.std::_Rb_tree.0" }
-%"class.std::_Rb_tree.0" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.4", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.4" = type { %"struct.std::less.5" }
-%"struct.std::less.5" = type { i8 }
-
 $__clang_call_terminate = comdat any
 
 $_ZN3zmq20worker_poller_base_tD2Ev = comdat any
@@ -61,7 +39,7 @@ $_ZTIN3zmq20worker_poller_base_tE = comdat any
 define void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq13poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_load.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 3
+  %_load.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load atomic i32, ptr %_load.i seq_cst, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -75,8 +53,8 @@ if.then:                                          ; preds = %entry
           to label %do.end unwind label %terminate.lpad
 
 do.end:                                           ; preds = %if.then, %entry
-  %_timers = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_timers = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %_timers, ptr noundef %3)
           to label %_ZNSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -102,7 +80,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZNK3zmq13poller_base_t8get_loadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_load = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 3
+  %_load = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load atomic i32, ptr %_load seq_cst, align 8
   ret i32 %0
 }
@@ -146,7 +124,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_load = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 3
+  %_load = getelementptr inbounds i8, ptr %this, i64 72
   %0 = atomicrmw add ptr %_load, i32 %amount_ acq_rel, align 4
   br label %if.end6
 
@@ -155,7 +133,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.else
-  %_load4 = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 3
+  %_load4 = getelementptr inbounds i8, ptr %this, i64 72
   %sub = sub nsw i32 0, %amount_
   %1 = atomicrmw sub ptr %_load4, i32 %sub acq_rel, align 4
   br label %if.end6
@@ -167,24 +145,23 @@ if.end6:                                          ; preds = %if.else, %if.then3,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq13poller_base_t9add_timerEiPNS_13i_poll_eventsEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %timeout_, ptr noundef %sink_, i32 noundef %id_) local_unnamed_addr #6 align 2 {
 entry:
-  %_clock = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 1
+  %_clock = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %_clock)
   %conv = sext i32 %timeout_ to i64
   %add = add i64 %call, %conv
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %__x.05.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not6.i.i.i = icmp eq ptr %__x.05.i.i.i, null
   br i1 %cmp.not6.i.i.i, label %_ZNSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEE6insertEOS7_.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.07.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.05.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 32
   %0 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %add, %0
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.07.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.07.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.07.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !4
@@ -198,14 +175,14 @@ _ZNSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEE
   %__y.0.lcssa.i10.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %__x.07.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
   %1 = phi i1 [ true, %entry ], [ %spec.select11.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE23_M_get_insert_equal_posERS1_.exit.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %add, ptr %_M_storage.i.i.i.i.i.i.i, align 8
-  %ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 40
   store ptr %sink_, ptr %ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.sroa.2.0.ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %ref.tmp.sroa.3.sroa.2.0.ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 48
   store i32 %id_, ptr %ref.tmp.sroa.3.sroa.2.0.ref.tmp.sroa.3.0._M_storage.i.i.i.i.i.i.i.sroa_idx.sroa_idx, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %1, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %__y.0.lcssa.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #15
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %2, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -217,21 +194,21 @@ declare noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq13poller_base_t12cancel_timerEPNS_13i_poll_eventsEi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readnone %sink_, i32 noundef %id_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_left.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %cmp.i.not6 = icmp eq ptr %0, %add.ptr.i.i
   br i1 %cmp.i.not6, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %it.sroa.0.07 = phi ptr [ %call.i, %for.inc ], [ %0, %entry ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.07, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %it.sroa.0.07, i64 40
   %1 = load ptr, ptr %second, align 8
   %cmp = icmp eq ptr %1, %sink_
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %id = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.07, i64 0, i32 1, i32 0, i64 16
+  %id = getelementptr inbounds i8, ptr %it.sroa.0.07, i64 48
   %2 = load i32, ptr %id, align 8
   %cmp9 = icmp eq i32 %2, %id_
   br i1 %cmp9, label %if.then, label %for.inc
@@ -239,7 +216,7 @@ land.lhs.true:                                    ; preds = %for.body
 if.then:                                          ; preds = %land.lhs.true
   %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %it.sroa.0.07, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #16
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load i64, ptr %_M_node_count.i.i.i, align 8
   %dec.i.i.i = add i64 %3, -1
   store i64 %dec.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -257,21 +234,21 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN3zmq13poller_base_t14execute_timersEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node_count.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %_M_node_count.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_clock = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 1
+  %_clock = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = tail call noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 dereferenceable(16) %_clock)
-  %_M_left.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
-  %add.ptr.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   br label %do.body
 
 do.body:                                          ; preds = %if.end9, %if.end
   %1 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8
   %cmp = icmp ugt i64 %2, %call2
   br i1 %cmp, label %if.then6, label %if.end9
@@ -281,9 +258,9 @@ if.then6:                                         ; preds = %do.body
   br label %return
 
 if.end9:                                          ; preds = %do.body
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %1, i64 40
   %timer_temp.sroa.0.0.copyload = load ptr, ptr %second, align 8
-  %timer_temp.sroa.2.0.second.sroa_idx = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 16
+  %timer_temp.sroa.2.0.second.sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   %timer_temp.sroa.2.0.copyload = load i32, ptr %timer_temp.sroa.2.0.second.sroa_idx, align 8
   %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #16
@@ -291,7 +268,7 @@ if.end9:                                          ; preds = %do.body
   %dec.i.i.i = add i64 %3, -1
   store i64 %dec.i.i.i, ptr %_M_node_count.i.i, align 8
   %vtable = load ptr, ptr %timer_temp.sroa.0.0.copyload, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %timer_temp.sroa.0.0.copyload, i32 noundef %timer_temp.sroa.2.0.copyload)
   %5 = load i64, ptr %_M_node_count.i.i, align 8
@@ -307,42 +284,42 @@ return:                                           ; preds = %if.end9, %if.then6,
 define void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq13poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_clock.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 1
+  %_clock.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_clock.i)
-  %0 = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %0, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %0, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_load.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 3
+  %_load.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %_load.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_ctx = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 1
+  %_ctx = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %ctx_, ptr %_ctx, align 8
-  %_worker = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2
-  %_started.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 3
+  %_worker = getelementptr inbounds i8, ptr %this, i64 88
+  %_started.i = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %_started.i, align 8
-  %_thread_priority.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 5
+  %_thread_priority.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_worker, i8 0, i64 16, i1 false)
   store i32 -1, ptr %_thread_priority.i, align 8
-  %_thread_sched_policy.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 6
+  %_thread_sched_policy.i = getelementptr inbounds i8, ptr %this, i64 140
   store i32 -1, ptr %_thread_sched_policy.i, align 4
-  %1 = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 152
   store i32 0, ptr %1, align 8
-  %_M_parent.i.i.i.i.i.i1 = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 160
   store ptr null, ptr %_M_parent.i.i.i.i.i.i1, align 8
-  %_M_left.i.i.i.i.i.i2 = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %1, ptr %_M_left.i.i.i.i.i.i2, align 8
-  %_M_right.i.i.i.i.i.i3 = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %1, ptr %_M_right.i.i.i.i.i.i3, align 8
-  %_M_node_count.i.i.i.i.i.i4 = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 184
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i4, align 8
-  %_name.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 2
+  %_name.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_name.i, i8 0, i64 16, i1 false)
   ret void
 }
@@ -350,7 +327,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq20worker_poller_base_t11stop_workerEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_worker = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2
+  %_worker = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN3zmq8thread_t4stopEv(ptr noundef nonnull align 8 dereferenceable(104) %_worker)
   ret void
 }
@@ -360,7 +337,7 @@ declare void @_ZN3zmq8thread_t4stopEv(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %name_) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_load.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 3
+  %_load.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load atomic i32, ptr %_load.i seq_cst, align 8
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %if.then, label %do.end
@@ -374,9 +351,9 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %_ctx = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 1
+  %_ctx = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %_ctx, align 8
-  %_worker = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2
+  %_worker = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZNK3zmq12thread_ctx_t12start_threadERNS_8thread_tEPFvPvES3_PKc(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(104) %_worker, ptr noundef nonnull @_ZN3zmq20worker_poller_base_t14worker_routineEPv, ptr noundef nonnull %this, ptr noundef %name_)
   ret void
 }
@@ -387,7 +364,7 @@ declare void @_ZNK3zmq12thread_ctx_t12start_threadERNS_8thread_tEPFvPvES3_PKc(pt
 define void @_ZN3zmq20worker_poller_base_t14worker_routineEPv(ptr noundef %arg_) #6 align 2 {
 entry:
   %vtable = load ptr, ptr %arg_, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(192) %arg_)
   ret void
@@ -403,8 +380,8 @@ entry:
 define linkonce_odr void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_thread_affinity_cpus.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this, i64 0, i32 2, i32 7, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_thread_affinity_cpus.i = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %_thread_affinity_cpus.i, ptr noundef %0)
           to label %_ZN3zmq8thread_tD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -418,7 +395,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZN3zmq8thread_tD2Ev.exit:                        ; preds = %entry
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq13poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_load.i.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 3
+  %_load.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load atomic i32, ptr %_load.i.i seq_cst, align 8
   %cmp.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not.i, label %do.end.i, label %if.then.i
@@ -432,8 +409,8 @@ if.then.i:                                        ; preds = %_ZN3zmq8thread_tD2E
           to label %do.end.i unwind label %terminate.lpad.i
 
 do.end.i:                                         ; preds = %if.then.i, %_ZN3zmq8thread_tD2Ev.exit
-  %_timers.i = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i.i1 = getelementptr inbounds %"class.zmq::poller_base_t", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_timers.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i1, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %_timers.i, ptr noundef %6)
           to label %_ZN3zmq13poller_base_tD2Ev.exit unwind label %terminate.lpad.i.i.i2
@@ -473,10 +450,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null
@@ -511,10 +488,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #16
   %cmp.not = icmp eq ptr %1, null

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.curl_forms = type { i32, ptr }
-%struct.FormInfo = type { ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i8, i8, i8, i8 }
-%struct.curl_httppost = type { ptr, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i64 }
 %struct.curl_mimepart = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, %struct.mime_state, ptr, %struct.mime_encoder_state, i64 }
 %struct.mime_state = type { i32, ptr, i64 }
 %struct.mime_encoder_state = type { i64, i64, i64, [256 x i8] }
@@ -30,8 +27,8 @@ entry:
   br i1 %tobool.not.i, label %FormAdd.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %entry
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %arg, i64 0, i32 3
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %arg, i64 8
+  %1 = getelementptr inbounds i8, ptr %arg, i64 16
   br label %while.cond.outer.i
 
 while.cond.outer.i:                               ; preds = %while.cond.outer.i.backedge, %while.cond.preheader.i
@@ -59,9 +56,9 @@ while.body.i:                                     ; preds = %while.cond.i
 
 if.then3.i:                                       ; preds = %while.body.i
   %3 = load i32, ptr %forms.0.i, align 8
-  %value.i = getelementptr inbounds %struct.curl_forms, ptr %forms.0.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %forms.0.i, i64 8
   %4 = load ptr, ptr %value.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.curl_forms, ptr %forms.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %forms.0.i, i64 16
   %cmp5.i = icmp eq i32 %3, 17
   br i1 %cmp5.i, label %while.cond.i, label %if.end11.i, !llvm.loop !4
 
@@ -146,7 +143,7 @@ vaarg.end24.i:                                    ; preds = %vaarg.in_mem20.i, %
   br label %while.cond.outer.i.backedge
 
 sw.bb31.i:                                        ; preds = %if.end11.i
-  %flags.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %13 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %13, 4
   store i64 %or.i, ptr %flags.i, align 8
@@ -194,7 +191,7 @@ if.then50.i:                                      ; preds = %cond.end.i
   br label %while.cond.outer.i.backedge
 
 sw.bb55.i:                                        ; preds = %if.end11.i
-  %namelength.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 1
+  %namelength.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 8
   %19 = load i64, ptr %namelength.i, align 8
   %tobool56.not.i = icmp eq i64 %19, 0
   br i1 %tobool56.not.i, label %if.else58.i, label %while.cond.outer.i.backedge
@@ -236,14 +233,14 @@ cond.end73.i:                                     ; preds = %vaarg.end71.i, %con
   br label %while.cond.outer.i.backedge
 
 sw.bb77.i:                                        ; preds = %if.end11.i
-  %flags78.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags78.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %25 = load i64, ptr %flags78.i, align 8
   %or79.i = or i64 %25, 8
   store i64 %or79.i, ptr %flags78.i, align 8
   br label %sw.bb80.i
 
 sw.bb80.i:                                        ; preds = %sw.bb77.i, %if.end11.i
-  %value81.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 2
+  %value81.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 16
   %26 = load ptr, ptr %value81.i, align 8
   %tobool82.not.i = icmp eq ptr %26, null
   br i1 %tobool82.not.i, label %if.else84.i, label %while.cond.outer.i.backedge
@@ -317,12 +314,12 @@ vaarg.end121.i:                                   ; preds = %vaarg.in_mem117.i, 
 
 cond.end123.i:                                    ; preds = %vaarg.end121.i, %cond.true110.i
   %cond124.i = phi i64 [ %31, %cond.true110.i ], [ %35, %vaarg.end121.i ]
-  %contentslength.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 3
+  %contentslength.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 24
   store i64 %cond124.i, ptr %contentslength.i, align 8
   br label %while.cond.outer.i.backedge
 
 sw.bb125.i:                                       ; preds = %if.end11.i
-  %flags126.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags126.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %36 = load i64, ptr %flags126.i, align 8
   %or127.i = or i64 %36, 128
   store i64 %or127.i, ptr %flags126.i, align 8
@@ -358,12 +355,12 @@ vaarg.end140.i:                                   ; preds = %vaarg.in_mem136.i, 
 
 cond.end142.i:                                    ; preds = %vaarg.end140.i, %cond.true129.i
   %cond143.i = phi i64 [ %37, %cond.true129.i ], [ %41, %vaarg.end140.i ]
-  %contentslength144.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 3
+  %contentslength144.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 24
   store i64 %cond143.i, ptr %contentslength144.i, align 8
   br label %while.cond.outer.i.backedge
 
 sw.bb145.i:                                       ; preds = %if.end11.i
-  %flags146.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags146.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %42 = load i64, ptr %flags146.i, align 8
   %and.i = and i64 %42, 10
   %tobool147.not.i = icmp eq i64 %and.i, 0
@@ -404,7 +401,7 @@ cond.end164.i:                                    ; preds = %vaarg.end162.i, %if
 if.then167.i:                                     ; preds = %cond.end164.i
   %47 = load ptr, ptr @Curl_cstrdup, align 8
   %call168.i = call ptr %47(ptr noundef nonnull %cond165.i) #6
-  %value169.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 2
+  %value169.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 16
   store ptr %call168.i, ptr %value169.i, align 8
   %tobool171.not.i = icmp eq ptr %call168.i, null
   br i1 %tobool171.not.i, label %while.cond.outer.i.backedge, label %if.else173.i
@@ -413,7 +410,7 @@ if.else173.i:                                     ; preds = %if.then167.i
   %48 = load i64, ptr %flags146.i, align 8
   %or175.i = or i64 %48, 2
   store i64 %or175.i, ptr %flags146.i, align 8
-  %value_alloc.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 13
+  %value_alloc.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 97
   store i8 1, ptr %value_alloc.i, align 1
   br label %while.cond.outer.i.backedge
 
@@ -446,13 +443,13 @@ vaarg.end194.i:                                   ; preds = %vaarg.in_mem190.i, 
 
 cond.end196.i:                                    ; preds = %vaarg.end194.i, %sw.bb180.i
   %cond197.i = phi ptr [ %52, %vaarg.end194.i ], [ %array_value.1.i, %sw.bb180.i ]
-  %value198.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 2
+  %value198.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 16
   %53 = load ptr, ptr %value198.i, align 8
   %tobool199.not.i = icmp eq ptr %53, null
   br i1 %tobool199.not.i, label %if.else222.i, label %if.then200.i
 
 if.then200.i:                                     ; preds = %cond.end196.i
-  %flags201.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags201.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %54 = load i64, ptr %flags201.i, align 8
   %and202.i = and i64 %54, 1
   %tobool203.not.i = icmp eq i64 %and202.i, 0
@@ -480,16 +477,16 @@ if.then213.i:                                     ; preds = %if.else210.i
   br label %while.cond.outer.i.backedge
 
 if.else214.i:                                     ; preds = %if.else210.i
-  %value3.i.i = getelementptr inbounds %struct.FormInfo, ptr %call.i.i, i64 0, i32 2
+  %value3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call207.i, ptr %value3.i.i, align 8
-  %flags.i.i = getelementptr inbounds %struct.FormInfo, ptr %call.i.i, i64 0, i32 5
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i64 1, ptr %flags.i.i, align 8
-  %more.i.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 11
+  %more.i.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 88
   %58 = load ptr, ptr %more.i.i, align 8
-  %more11.i.i = getelementptr inbounds %struct.FormInfo, ptr %call.i.i, i64 0, i32 11
+  %more11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
   store ptr %58, ptr %more11.i.i, align 8
   store ptr %call.i.i, ptr %more.i.i, align 8
-  %value_alloc215.i = getelementptr inbounds %struct.FormInfo, ptr %call.i.i, i64 0, i32 13
+  %value_alloc215.i = getelementptr inbounds i8, ptr %call.i.i, i64 97
   store i8 1, ptr %value_alloc215.i, align 1
   br label %while.cond.outer.i.backedge
 
@@ -505,20 +502,20 @@ if.then224.i:                                     ; preds = %if.else222.i
   br i1 %tobool228.not.i, label %while.cond.outer.i.backedge, label %if.else230.i
 
 if.else230.i:                                     ; preds = %if.then224.i
-  %flags231.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags231.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %60 = load i64, ptr %flags231.i, align 8
   %or232.i = or i64 %60, 1
   store i64 %or232.i, ptr %flags231.i, align 8
-  %value_alloc233.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 13
+  %value_alloc233.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 97
   store i8 1, ptr %value_alloc233.i, align 1
   br label %while.cond.outer.i.backedge
 
 sw.bb238.i:                                       ; preds = %if.end11.i
-  %flags239.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags239.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %61 = load i64, ptr %flags239.i, align 8
   %or240.i = or i64 %61, 48
   store i64 %or240.i, ptr %flags239.i, align 8
-  %buffer.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 6
+  %buffer.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 48
   %62 = load ptr, ptr %buffer.i, align 8
   %tobool241.not.i = icmp eq ptr %62, null
   br i1 %tobool241.not.i, label %if.else243.i, label %while.cond.outer.i.backedge
@@ -557,12 +554,12 @@ cond.end259.i:                                    ; preds = %vaarg.end257.i, %if
 
 if.then262.i:                                     ; preds = %cond.end259.i
   store ptr %cond260.i, ptr %buffer.i, align 8
-  %value264.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 2
+  %value264.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 16
   store ptr %cond260.i, ptr %value264.i, align 8
   br label %while.cond.outer.i.backedge
 
 sw.bb268.i:                                       ; preds = %if.end11.i
-  %bufferlength.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 7
+  %bufferlength.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 56
   %67 = load i64, ptr %bufferlength.i, align 8
   %tobool269.not.i = icmp eq i64 %67, 0
   br i1 %tobool269.not.i, label %if.else271.i, label %while.cond.outer.i.backedge
@@ -604,11 +601,11 @@ cond.end286.i:                                    ; preds = %vaarg.end284.i, %co
   br label %while.cond.outer.i.backedge
 
 sw.bb290.i:                                       ; preds = %if.end11.i
-  %flags291.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags291.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %73 = load i64, ptr %flags291.i, align 8
   %or292.i = or i64 %73, 64
   store i64 %or292.i, ptr %flags291.i, align 8
-  %userp.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 9
+  %userp.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 72
   %74 = load ptr, ptr %userp.i, align 8
   %tobool293.not.i = icmp eq ptr %74, null
   br i1 %tobool293.not.i, label %if.else295.i, label %while.cond.outer.i.backedge
@@ -647,7 +644,7 @@ cond.end311.i:                                    ; preds = %vaarg.end309.i, %if
 
 if.then314.i:                                     ; preds = %cond.end311.i
   store ptr %cond312.i, ptr %userp.i, align 8
-  %value316.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 2
+  %value316.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 16
   store ptr %cond312.i, ptr %value316.i, align 8
   br label %while.cond.outer.i.backedge
 
@@ -680,13 +677,13 @@ vaarg.end333.i:                                   ; preds = %vaarg.in_mem329.i, 
 
 cond.end335.i:                                    ; preds = %vaarg.end333.i, %sw.bb320.i
   %cond336.i = phi ptr [ %82, %vaarg.end333.i ], [ %array_value.1.i, %sw.bb320.i ]
-  %contenttype337.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 4
+  %contenttype337.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 32
   %83 = load ptr, ptr %contenttype337.i, align 8
   %tobool338.not.i = icmp eq ptr %83, null
   br i1 %tobool338.not.i, label %if.else360.i, label %if.then339.i
 
 if.then339.i:                                     ; preds = %cond.end335.i
-  %flags340.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 5
+  %flags340.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 40
   %84 = load i64, ptr %flags340.i, align 8
   %and341.i = and i64 %84, 1
   %tobool342.not.i = icmp eq i64 %and341.i, 0
@@ -714,16 +711,16 @@ if.then352.i:                                     ; preds = %if.else349.i
   br label %while.cond.outer.i.backedge
 
 if.else353.i:                                     ; preds = %if.else349.i
-  %contenttype7.i.i = getelementptr inbounds %struct.FormInfo, ptr %call.i238.i, i64 0, i32 4
+  %contenttype7.i.i = getelementptr inbounds i8, ptr %call.i238.i, i64 32
   store ptr %call346.i, ptr %contenttype7.i.i, align 8
-  %flags.i242.i = getelementptr inbounds %struct.FormInfo, ptr %call.i238.i, i64 0, i32 5
+  %flags.i242.i = getelementptr inbounds i8, ptr %call.i238.i, i64 40
   store i64 1, ptr %flags.i242.i, align 8
-  %more.i243.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 11
+  %more.i243.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 88
   %88 = load ptr, ptr %more.i243.i, align 8
-  %more11.i244.i = getelementptr inbounds %struct.FormInfo, ptr %call.i238.i, i64 0, i32 11
+  %more11.i244.i = getelementptr inbounds i8, ptr %call.i238.i, i64 88
   store ptr %88, ptr %more11.i244.i, align 8
   store ptr %call.i238.i, ptr %more.i243.i, align 8
-  %contenttype_alloc.i = getelementptr inbounds %struct.FormInfo, ptr %call.i238.i, i64 0, i32 14
+  %contenttype_alloc.i = getelementptr inbounds i8, ptr %call.i238.i, i64 98
   store i8 1, ptr %contenttype_alloc.i, align 2
   br label %while.cond.outer.i.backedge
 
@@ -739,7 +736,7 @@ if.then362.i:                                     ; preds = %if.else360.i
   br i1 %tobool366.not.i, label %while.cond.outer.i.backedge, label %if.else368.i
 
 if.else368.i:                                     ; preds = %if.then362.i
-  %contenttype_alloc369.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 14
+  %contenttype_alloc369.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 98
   store i8 1, ptr %contenttype_alloc369.i, align 2
   br label %while.cond.outer.i.backedge
 
@@ -772,7 +769,7 @@ vaarg.end387.i:                                   ; preds = %vaarg.in_mem383.i, 
 
 cond.end389.i:                                    ; preds = %vaarg.end387.i, %sw.bb374.i
   %cond390.i = phi ptr [ %93, %vaarg.end387.i ], [ %array_value.1.i, %sw.bb374.i ]
-  %contentheader.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 10
+  %contentheader.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 80
   %94 = load ptr, ptr %contentheader.i, align 8
   %tobool391.not.i = icmp eq ptr %94, null
   br i1 %tobool391.not.i, label %if.else393.i, label %while.cond.outer.i.backedge
@@ -810,7 +807,7 @@ vaarg.end410.i:                                   ; preds = %vaarg.in_mem406.i, 
 
 cond.end412.i:                                    ; preds = %vaarg.end410.i, %sw.bb396.i
   %cond413.i = phi ptr [ %98, %vaarg.end410.i ], [ %array_value.1.i, %sw.bb396.i ]
-  %showfilename.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 8
+  %showfilename.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 64
   %99 = load ptr, ptr %showfilename.i, align 8
   %tobool414.not.i = icmp eq ptr %99, null
   br i1 %tobool414.not.i, label %if.else416.i, label %while.cond.outer.i.backedge
@@ -823,7 +820,7 @@ if.else416.i:                                     ; preds = %cond.end412.i
   br i1 %tobool420.not.i, label %while.cond.outer.i.backedge, label %if.else422.i
 
 if.else422.i:                                     ; preds = %if.else416.i
-  %showfilename_alloc.i = getelementptr inbounds %struct.FormInfo, ptr %current_form.0.ph.i, i64 0, i32 15
+  %showfilename_alloc.i = getelementptr inbounds i8, ptr %current_form.0.ph.i, i64 99
   store i8 1, ptr %showfilename_alloc.i, align 1
   br label %while.cond.outer.i.backedge
 
@@ -836,7 +833,7 @@ while.cond.outer.i.backedge:                      ; preds = %if.else422.i, %if.e
 
 for.body.i:                                       ; preds = %while.cond.i, %for.inc.i
   %ptr.0289.i = phi ptr [ %117, %for.inc.i ], [ %call.i, %while.cond.i ]
-  %name_alloc.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 12
+  %name_alloc.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 96
   %101 = load i8, ptr %name_alloc.i, align 8
   %102 = and i8 %101, 1
   %tobool428.not.i = icmp eq i8 %102, 0
@@ -851,7 +848,7 @@ do.body.i:                                        ; preds = %for.body.i
   br label %if.end433.i
 
 if.end433.i:                                      ; preds = %do.body.i, %for.body.i
-  %value_alloc434.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 13
+  %value_alloc434.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 97
   %105 = load i8, ptr %value_alloc434.i, align 1
   %106 = and i8 %105, 1
   %tobool435.not.i = icmp eq i8 %106, 0
@@ -859,7 +856,7 @@ if.end433.i:                                      ; preds = %do.body.i, %for.bod
 
 do.body437.i:                                     ; preds = %if.end433.i
   %107 = load ptr, ptr @Curl_cfree, align 8
-  %value438.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 2
+  %value438.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 16
   %108 = load ptr, ptr %value438.i, align 8
   call void %107(ptr noundef %108) #6
   store ptr null, ptr %value438.i, align 8
@@ -867,7 +864,7 @@ do.body437.i:                                     ; preds = %if.end433.i
   br label %if.end442.i
 
 if.end442.i:                                      ; preds = %do.body437.i, %if.end433.i
-  %contenttype_alloc443.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 14
+  %contenttype_alloc443.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 98
   %109 = load i8, ptr %contenttype_alloc443.i, align 2
   %110 = and i8 %109, 1
   %tobool444.not.i = icmp eq i8 %110, 0
@@ -875,7 +872,7 @@ if.end442.i:                                      ; preds = %do.body437.i, %if.e
 
 do.body446.i:                                     ; preds = %if.end442.i
   %111 = load ptr, ptr @Curl_cfree, align 8
-  %contenttype447.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 4
+  %contenttype447.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 32
   %112 = load ptr, ptr %contenttype447.i, align 8
   call void %111(ptr noundef %112) #6
   store ptr null, ptr %contenttype447.i, align 8
@@ -883,7 +880,7 @@ do.body446.i:                                     ; preds = %if.end442.i
   br label %if.end451.i
 
 if.end451.i:                                      ; preds = %do.body446.i, %if.end442.i
-  %showfilename_alloc452.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 15
+  %showfilename_alloc452.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 99
   %113 = load i8, ptr %showfilename_alloc452.i, align 1
   %114 = and i8 %113, 1
   %tobool453.not.i = icmp eq i8 %114, 0
@@ -891,7 +888,7 @@ if.end451.i:                                      ; preds = %do.body446.i, %if.e
 
 do.body455.i:                                     ; preds = %if.end451.i
   %115 = load ptr, ptr @Curl_cfree, align 8
-  %showfilename456.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 8
+  %showfilename456.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 64
   %116 = load ptr, ptr %showfilename456.i, align 8
   call void %115(ptr noundef %116) #6
   store ptr null, ptr %showfilename456.i, align 8
@@ -899,7 +896,7 @@ do.body455.i:                                     ; preds = %if.end451.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.body455.i, %if.end451.i
-  %more.i = getelementptr inbounds %struct.FormInfo, ptr %ptr.0289.i, i64 0, i32 11
+  %more.i = getelementptr inbounds i8, ptr %ptr.0289.i, i64 88
   %117 = load ptr, ptr %more.i, align 8
   %cmp427.not.i = icmp eq ptr %117, null
   br i1 %cmp427.not.i, label %if.end684.i, label %for.body.i, !llvm.loop !6
@@ -913,7 +910,7 @@ for.body466.i:                                    ; preds = %vaarg.end.i, %if.en
   br i1 %tobool468.not.i, label %land.lhs.true471.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body466.i
-  %value469.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 2
+  %value469.i = getelementptr inbounds i8, ptr %form.0293.i, i64 16
   %119 = load ptr, ptr %value469.i, align 8
   %tobool470.i = icmp ne ptr %119, null
   %tobool472.i = icmp ne ptr %post.0291.i, null
@@ -925,10 +922,10 @@ land.lhs.true471.i:                               ; preds = %for.body466.i
   br i1 %tobool472.old.not.i, label %for.end637.i, label %lor.lhs.false473.i
 
 lor.lhs.false473.i:                               ; preds = %land.lhs.true471.i, %lor.lhs.false.i
-  %contentslength474.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 3
+  %contentslength474.i = getelementptr inbounds i8, ptr %form.0293.i, i64 24
   %120 = load i64, ptr %contentslength474.i, align 8
   %tobool475.not.i = icmp ne i64 %120, 0
-  %flags481.phi.trans.insert.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 5
+  %flags481.phi.trans.insert.i = getelementptr inbounds i8, ptr %form.0293.i, i64 40
   %.pre.i = load i64, ptr %flags481.phi.trans.insert.i, align 8
   %and478.i = and i64 %.pre.i, 1
   %tobool479.not.i = icmp ne i64 %and478.i, 0
@@ -939,7 +936,7 @@ lor.lhs.false473.i:                               ; preds = %land.lhs.true471.i,
   br i1 %or.cond, label %for.end637.i, label %lor.lhs.false488.i
 
 lor.lhs.false488.i:                               ; preds = %lor.lhs.false473.i
-  %buffer489.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 6
+  %buffer489.i = getelementptr inbounds i8, ptr %form.0293.i, i64 48
   %122 = load ptr, ptr %buffer489.i, align 8
   %tobool490.not.i = icmp eq ptr %122, null
   %123 = and i64 %.pre.i, 48
@@ -958,15 +955,14 @@ if.end508.i:                                      ; preds = %lor.lhs.false488.i
   br i1 %or.cond236.i, label %if.end544.i, label %land.lhs.true516.i
 
 land.lhs.true516.i:                               ; preds = %if.end508.i
-  %contenttype517.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 4
+  %contenttype517.i = getelementptr inbounds i8, ptr %form.0293.i, i64 32
   %126 = load ptr, ptr %contenttype517.i, align 8
   %tobool518.not.i = icmp eq ptr %126, null
   br i1 %tobool518.not.i, label %if.then519.i, label %if.end544.i
 
 if.then519.i:                                     ; preds = %land.lhs.true516.i
-  %showfilename524.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 8
-  %value526.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 2
-  %cond528.in.i = select i1 %tobool515.not.i, ptr %value526.i, ptr %showfilename524.i
+  %cond528.in.v.i = select i1 %tobool515.not.i, i64 16, i64 64
+  %cond528.in.i = getelementptr inbounds i8, ptr %form.0293.i, i64 %cond528.in.v.i
   %cond528.i = load ptr, ptr %cond528.in.i, align 8
   %call530.i = call ptr @Curl_mime_contenttype(ptr noundef %cond528.i) #6
   %tobool531.not.i = icmp eq ptr %call530.i, null
@@ -980,7 +976,7 @@ if.then519.i:                                     ; preds = %land.lhs.true516.i
   br i1 %tobool540.not.i, label %for.end637.i, label %if.end542.i
 
 if.end542.i:                                      ; preds = %if.then519.i
-  %contenttype_alloc543.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 14
+  %contenttype_alloc543.i = getelementptr inbounds i8, ptr %form.0293.i, i64 98
   store i8 1, ptr %contenttype_alloc543.i, align 2
   %.pre320.i = load ptr, ptr %form.0293.i, align 8
   br label %if.end544.i
@@ -991,7 +987,7 @@ if.end544.i:                                      ; preds = %if.end542.i, %land.
   br i1 %tobool546.not.i, label %if.end564.thread255.i, label %land.lhs.true547.i
 
 land.lhs.true547.i:                               ; preds = %if.end544.i
-  %namelength548.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 1
+  %namelength548.i = getelementptr inbounds i8, ptr %form.0293.i, i64 8
   %129 = load i64, ptr %namelength548.i, align 8
   %tobool549.not.i = icmp eq i64 %129, 0
   br i1 %tobool549.not.i, label %if.end564.thread.i, label %for.body554.i
@@ -1053,7 +1049,7 @@ if.end586.i:                                      ; preds = %if.end586thread-pre
   br i1 %tobool588.not.i, label %for.end637.i, label %if.end590.i
 
 if.end590.i:                                      ; preds = %if.end586.i
-  %name_alloc591.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 12
+  %name_alloc591.i = getelementptr inbounds i8, ptr %form.0293.i, i64 96
   store i8 1, ptr %name_alloc591.i, align 8
   %.pre321.i = load i64, ptr %flags481.phi.trans.insert.i, align 8
   br label %if.end592.i
@@ -1063,7 +1059,7 @@ if.end592.i:                                      ; preds = %if.end590.i, %if.en
   %137 = phi i64 [ %132, %if.end564.thread255.i ], [ %133, %if.end564.thread.i ], [ %.pre321.i, %if.end590.i ], [ %131, %if.end564.i ]
   %and594.i = and i64 %137, 107
   %tobool595.not.i = icmp eq i64 %and594.i, 0
-  %value597.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 2
+  %value597.i = getelementptr inbounds i8, ptr %form.0293.i, i64 16
   %138 = load ptr, ptr %value597.i, align 8
   br i1 %tobool595.not.i, label %land.lhs.true596.i, label %if.end614.i
 
@@ -1089,7 +1085,7 @@ if.end605.i:                                      ; preds = %if.then602.i, %if.t
   br i1 %tobool610.not.i, label %for.end637.i, label %if.end612.i
 
 if.end612.i:                                      ; preds = %if.end605.i
-  %value_alloc613.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 13
+  %value_alloc613.i = getelementptr inbounds i8, ptr %form.0293.i, i64 97
   store i8 1, ptr %value_alloc613.i, align 1
   %.pre322.i = load ptr, ptr %form.0293.i, align 8
   %.pre324.i = load i64, ptr %flags481.phi.trans.insert.i, align 8
@@ -1099,17 +1095,17 @@ if.end614.i:                                      ; preds = %if.end612.i, %land.
   %140 = phi i64 [ %.pre324.i, %if.end612.i ], [ %137, %land.lhs.true596.i ], [ %137, %if.end592.i ]
   %141 = phi ptr [ %call607.i, %if.end612.i ], [ null, %land.lhs.true596.i ], [ %138, %if.end592.i ]
   %142 = phi ptr [ %.pre322.i, %if.end612.i ], [ %136, %land.lhs.true596.i ], [ %136, %if.end592.i ]
-  %namelength616.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 1
+  %namelength616.i = getelementptr inbounds i8, ptr %form.0293.i, i64 8
   %143 = load i64, ptr %namelength616.i, align 8
   %144 = load i64, ptr %contentslength474.i, align 8
   %145 = load ptr, ptr %buffer489.i, align 8
-  %bufferlength620.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 7
+  %bufferlength620.i = getelementptr inbounds i8, ptr %form.0293.i, i64 56
   %146 = load i64, ptr %bufferlength620.i, align 8
-  %contenttype621.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 4
+  %contenttype621.i = getelementptr inbounds i8, ptr %form.0293.i, i64 32
   %147 = load ptr, ptr %contenttype621.i, align 8
-  %contentheader623.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 10
+  %contentheader623.i = getelementptr inbounds i8, ptr %form.0293.i, i64 80
   %148 = load ptr, ptr %contentheader623.i, align 8
-  %showfilename624.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 8
+  %showfilename624.i = getelementptr inbounds i8, ptr %form.0293.i, i64 64
   %149 = load <2 x ptr>, ptr %showfilename624.i, align 8
   %tobool.i.i = icmp eq i64 %143, 0
   %tobool1.i.i = icmp ne ptr %142, null
@@ -1134,34 +1130,34 @@ if.end4.i247.i:                                   ; preds = %if.end.i246.i
   br i1 %tobool6.not.i.i, label %for.end637.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end4.i247.i
-  %name8.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 1
+  %name8.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 8
   store ptr %142, ptr %name8.i.i, align 8
-  %namelength9.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 2
+  %namelength9.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
   store i64 %namelength.addr.0.i.i, ptr %namelength9.i.i, align 8
-  %contents.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 3
+  %contents.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 24
   store ptr %141, ptr %contents.i.i, align 8
-  %contentlen.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 13
+  %contentlen.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 104
   store i64 %144, ptr %contentlen.i.i, align 8
-  %buffer10.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 5
+  %buffer10.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 40
   store ptr %145, ptr %buffer10.i.i, align 8
-  %bufferlength11.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 6
+  %bufferlength11.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 48
   store i64 %146, ptr %bufferlength11.i.i, align 8
-  %contenttype12.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 7
+  %contenttype12.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 56
   store ptr %147, ptr %contenttype12.i.i, align 8
-  %contentheader.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 8
+  %contentheader.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 64
   store ptr %148, ptr %contentheader.i.i, align 8
-  %showfilename13.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 11
+  %showfilename13.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 88
   store <2 x ptr> %149, ptr %showfilename13.i.i, align 8
   %or.i.i = or i64 %140, 128
-  %flags15.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 10
+  %flags15.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 80
   store i64 %or.i.i, ptr %flags15.i.i, align 8
   %tobool17.not.i.i = icmp eq ptr %post.0291.i, null
   br i1 %tobool17.not.i.i, label %if.else21.i.i, label %if.then18.i.i
 
 if.then18.i.i:                                    ; preds = %if.then7.i.i
-  %more.i248.i = getelementptr inbounds %struct.curl_httppost, ptr %post.0291.i, i64 0, i32 9
+  %more.i248.i = getelementptr inbounds i8, ptr %post.0291.i, i64 72
   %151 = load ptr, ptr %more.i248.i, align 8
-  %more19.i.i = getelementptr inbounds %struct.curl_httppost, ptr %call5.i.i, i64 0, i32 9
+  %more19.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 72
   store ptr %151, ptr %more19.i.i, align 8
   br label %if.end629.i
 
@@ -1178,7 +1174,7 @@ if.end629.i:                                      ; preds = %if.else21.i.i, %if.
   %153 = load ptr, ptr %contenttype621.i, align 8
   %tobool631.not.i = icmp eq ptr %153, null
   %spec.select.i = select i1 %tobool631.not.i, ptr %prevtype.0292.i, ptr %153
-  %more636.i = getelementptr inbounds %struct.FormInfo, ptr %form.0293.i, i64 0, i32 11
+  %more636.i = getelementptr inbounds i8, ptr %form.0293.i, i64 88
   %154 = load ptr, ptr %more636.i, align 8
   %cmp465.not.i = icmp eq ptr %154, null
   br i1 %cmp465.not.i, label %if.end684.i, label %for.body466.i, !llvm.loop !8
@@ -1189,7 +1185,7 @@ for.end637.i:                                     ; preds = %if.end4.i247.i, %if
 
 for.body643.i:                                    ; preds = %for.inc680.i, %for.end637.i
   %ptr640.0296.i = phi ptr [ %form.0293.i, %for.end637.i ], [ %171, %for.inc680.i ]
-  %name_alloc644.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 12
+  %name_alloc644.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 96
   %155 = load i8, ptr %name_alloc644.i, align 8
   %156 = and i8 %155, 1
   %tobool645.not.i = icmp eq i8 %156, 0
@@ -1204,7 +1200,7 @@ do.body647.i:                                     ; preds = %for.body643.i
   br label %if.end652.i
 
 if.end652.i:                                      ; preds = %do.body647.i, %for.body643.i
-  %value_alloc653.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 13
+  %value_alloc653.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 97
   %159 = load i8, ptr %value_alloc653.i, align 1
   %160 = and i8 %159, 1
   %tobool654.not.i = icmp eq i8 %160, 0
@@ -1212,7 +1208,7 @@ if.end652.i:                                      ; preds = %do.body647.i, %for.
 
 do.body656.i:                                     ; preds = %if.end652.i
   %161 = load ptr, ptr @Curl_cfree, align 8
-  %value657.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 2
+  %value657.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 16
   %162 = load ptr, ptr %value657.i, align 8
   call void %161(ptr noundef %162) #6
   store ptr null, ptr %value657.i, align 8
@@ -1220,7 +1216,7 @@ do.body656.i:                                     ; preds = %if.end652.i
   br label %if.end661.i
 
 if.end661.i:                                      ; preds = %do.body656.i, %if.end652.i
-  %contenttype_alloc662.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 14
+  %contenttype_alloc662.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 98
   %163 = load i8, ptr %contenttype_alloc662.i, align 2
   %164 = and i8 %163, 1
   %tobool663.not.i = icmp eq i8 %164, 0
@@ -1228,7 +1224,7 @@ if.end661.i:                                      ; preds = %do.body656.i, %if.e
 
 do.body665.i:                                     ; preds = %if.end661.i
   %165 = load ptr, ptr @Curl_cfree, align 8
-  %contenttype666.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 4
+  %contenttype666.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 32
   %166 = load ptr, ptr %contenttype666.i, align 8
   call void %165(ptr noundef %166) #6
   store ptr null, ptr %contenttype666.i, align 8
@@ -1236,7 +1232,7 @@ do.body665.i:                                     ; preds = %if.end661.i
   br label %if.end670.i
 
 if.end670.i:                                      ; preds = %do.body665.i, %if.end661.i
-  %showfilename_alloc671.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 15
+  %showfilename_alloc671.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 99
   %167 = load i8, ptr %showfilename_alloc671.i, align 1
   %168 = and i8 %167, 1
   %tobool672.not.i = icmp eq i8 %168, 0
@@ -1244,7 +1240,7 @@ if.end670.i:                                      ; preds = %do.body665.i, %if.e
 
 do.body674.i:                                     ; preds = %if.end670.i
   %169 = load ptr, ptr @Curl_cfree, align 8
-  %showfilename675.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 8
+  %showfilename675.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 64
   %170 = load ptr, ptr %showfilename675.i, align 8
   call void %169(ptr noundef %170) #6
   store ptr null, ptr %showfilename675.i, align 8
@@ -1252,7 +1248,7 @@ do.body674.i:                                     ; preds = %if.end670.i
   br label %for.inc680.i
 
 for.inc680.i:                                     ; preds = %do.body674.i, %if.end670.i
-  %more681.i = getelementptr inbounds %struct.FormInfo, ptr %ptr640.0296.i, i64 0, i32 11
+  %more681.i = getelementptr inbounds i8, ptr %ptr640.0296.i, i64 88
   %171 = load ptr, ptr %more681.i, align 8
   %cmp642.not.i = icmp eq ptr %171, null
   br i1 %cmp642.not.i, label %if.end684.i, label %for.body643.i, !llvm.loop !9
@@ -1263,7 +1259,7 @@ if.end684.i:                                      ; preds = %for.inc.i, %if.end6
 
 while.body687.i:                                  ; preds = %while.body687.i, %if.end684.i
   %first_form.0297.i = phi ptr [ %call.i, %if.end684.i ], [ %172, %while.body687.i ]
-  %more689.i = getelementptr inbounds %struct.FormInfo, ptr %first_form.0297.i, i64 0, i32 11
+  %more689.i = getelementptr inbounds i8, ptr %first_form.0297.i, i64 88
   %172 = load ptr, ptr %more689.i, align 8
   %173 = load ptr, ptr @Curl_cfree, align 8
   call void %173(ptr noundef nonnull %first_form.0297.i) #6
@@ -1338,12 +1334,12 @@ if.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %if.end
   %call6 = tail call i32 @curl_mime_subparts(ptr noundef %finalform, ptr noundef nonnull %call) #6
-  %tobool8.not115 = icmp eq i32 %call6, 0
-  br i1 %tobool8.not115, label %for.body, label %if.then131
+  %tobool8.not114 = icmp eq i32 %call6, 0
+  br i1 %tobool8.not114, label %for.body, label %if.then131
 
 for.body:                                         ; preds = %if.end7, %for.inc128
-  %post.addr.0116 = phi ptr [ %23, %for.inc128 ], [ %post, %if.end7 ]
-  %more = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 9
+  %post.addr.0115 = phi ptr [ %23, %for.inc128 ], [ %post, %if.end7 ]
+  %more = getelementptr inbounds i8, ptr %post.addr.0115, i64 72
   %0 = load ptr, ptr %more, align 8
   %tobool10.not = icmp eq ptr %0, null
   br i1 %tobool10.not, label %for.body37.lr.ph, label %if.then11
@@ -1354,9 +1350,9 @@ if.then11:                                        ; preds = %for.body
   br i1 %tobool13.not.not, label %if.end31, label %if.then17
 
 if.then17:                                        ; preds = %if.then11
-  %name = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %post.addr.0115, i64 8
   %1 = load ptr, ptr %name, align 8
-  %namelength = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 2
+  %namelength = getelementptr inbounds i8, ptr %post.addr.0115, i64 16
   %2 = load i64, ptr %namelength, align 8
   %tobool.i = icmp ne ptr %1, null
   %tobool1.i = icmp ne i64 %2, 0
@@ -1399,34 +1395,32 @@ if.end31:                                         ; preds = %if.then11, %if.then
   br i1 %tobool33.not111, label %for.body37.lr.ph, label %if.then131
 
 for.body37.lr.ph:                                 ; preds = %for.body, %if.end31
-  %multipart.1130 = phi ptr [ %multipart.1, %if.end31 ], [ %call, %for.body ]
-  %name57 = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 1
-  %namelength58 = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 2
-  %contentslength = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 4
-  %flags = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 10
-  %contentlen = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 13
-  %buffer = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 5
-  %bufferlength = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 6
-  %userp = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 12
-  %contents107 = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 3
-  %showfilename = getelementptr inbounds %struct.curl_httppost, ptr %post.addr.0116, i64 0, i32 11
+  %multipart.1129 = phi ptr [ %multipart.1, %if.end31 ], [ %call, %for.body ]
+  %name57 = getelementptr inbounds i8, ptr %post.addr.0115, i64 8
+  %namelength58 = getelementptr inbounds i8, ptr %post.addr.0115, i64 16
+  %flags = getelementptr inbounds i8, ptr %post.addr.0115, i64 80
+  %buffer = getelementptr inbounds i8, ptr %post.addr.0115, i64 40
+  %bufferlength = getelementptr inbounds i8, ptr %post.addr.0115, i64 48
+  %userp = getelementptr inbounds i8, ptr %post.addr.0115, i64 96
+  %contents107 = getelementptr inbounds i8, ptr %post.addr.0115, i64 24
+  %showfilename = getelementptr inbounds i8, ptr %post.addr.0115, i64 88
   br label %for.body37
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %for.inc
-  %file.0113 = phi ptr [ %post.addr.0116, %for.body37.lr.ph ], [ %21, %for.inc ]
-  %call38 = tail call ptr @curl_mime_addpart(ptr noundef %multipart.1130) #6
+  %file.0113 = phi ptr [ %post.addr.0115, %for.body37.lr.ph ], [ %21, %for.inc ]
+  %call38 = tail call ptr @curl_mime_addpart(ptr noundef %multipart.1129) #6
   %tobool39.not.not = icmp eq ptr %call38, null
   br i1 %tobool39.not.not, label %for.inc, label %if.end45
 
 if.end45:                                         ; preds = %for.body37
-  %contentheader = getelementptr inbounds %struct.curl_httppost, ptr %file.0113, i64 0, i32 8
+  %contentheader = getelementptr inbounds i8, ptr %file.0113, i64 64
   %4 = load ptr, ptr %contentheader, align 8
   %call44 = tail call i32 @curl_mime_headers(ptr noundef nonnull %call38, ptr noundef %4, i32 noundef 0) #6
   %tobool46.not = icmp eq i32 %call44, 0
   br i1 %tobool46.not, label %land.lhs.true, label %if.then131
 
 land.lhs.true:                                    ; preds = %if.end45
-  %contenttype = getelementptr inbounds %struct.curl_httppost, ptr %file.0113, i64 0, i32 7
+  %contenttype = getelementptr inbounds i8, ptr %file.0113, i64 56
   %5 = load ptr, ptr %contenttype, align 8
   %tobool47.not = icmp eq ptr %5, null
   br i1 %tobool47.not, label %land.lhs.true53, label %if.end51
@@ -1473,14 +1467,15 @@ if.then62:                                        ; preds = %land.lhs.true53, %i
   %10 = load i64, ptr %flags, align 8
   %and = and i64 %10, 128
   %tobool63.not = icmp eq i64 %and, 0
-  %spec.select75 = select i1 %tobool63.not, ptr %contentslength, ptr %contentlen
+  %spec.select75.v = select i1 %tobool63.not, i64 32, i64 104
+  %spec.select75 = getelementptr inbounds i8, ptr %post.addr.0115, i64 %spec.select75.v
   %clen.0 = load i64, ptr %spec.select75, align 8
   %and67 = and i64 %10, 3
   %tobool68.not = icmp eq i64 %and67, 0
   br i1 %tobool68.not, label %if.else85, label %if.then69
 
 if.then69:                                        ; preds = %if.then62
-  %contents = getelementptr inbounds %struct.curl_httppost, ptr %file.0113, i64 0, i32 3
+  %contents = getelementptr inbounds i8, ptr %file.0113, i64 24
   %11 = load ptr, ptr %contents, align 8
   %call70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(2) @.str.1) #7
   %tobool71.not = icmp eq i32 %call70, 0
@@ -1567,7 +1562,7 @@ if.then122:                                       ; preds = %lor.lhs.false, %if.
 
 for.inc:                                          ; preds = %for.body37, %land.lhs.true114, %if.then122, %lor.lhs.false
   %result.14 = phi i32 [ %call124, %if.then122 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true114 ], [ 27, %for.body37 ]
-  %more127 = getelementptr inbounds %struct.curl_httppost, ptr %file.0113, i64 0, i32 9
+  %more127 = getelementptr inbounds i8, ptr %file.0113, i64 72
   %21 = load ptr, ptr %more127, align 8
   %tobool33.not = icmp eq i32 %result.14, 0
   %tobool35 = icmp ne ptr %21, null
@@ -1575,7 +1570,7 @@ for.inc:                                          ; preds = %for.body37, %land.l
   br i1 %22, label %for.body37, label %for.inc128, !llvm.loop !12
 
 for.inc128:                                       ; preds = %for.inc
-  %23 = load ptr, ptr %post.addr.0116, align 8
+  %23 = load ptr, ptr %post.addr.0115, align 8
   %tobool8.not = icmp eq i32 %result.14, 0
   %tobool9 = icmp ne ptr %23, null
   %24 = select i1 %tobool8.not, i1 %tobool9, i1 false
@@ -1585,12 +1580,12 @@ for.end129:                                       ; preds = %for.inc128
   br i1 %tobool8.not, label %return, label %if.then131
 
 if.then131:                                       ; preds = %if.then21, %if.end.i, %if.end19, %if.end31, %if.end45, %if.end51, %if.end.i83, %if.end60, %if.end76, %if.end112, %if.end, %if.end7, %for.end129
-  %result.2.lcssa143 = phi i32 [ %result.14, %for.end129 ], [ %call6, %if.end7 ], [ 27, %if.end ], [ %result.13, %if.end112 ], [ %result.12, %if.end76 ], [ %result.11, %if.end60 ], [ 27, %if.end.i83 ], [ %call50, %if.end51 ], [ %call44, %if.end45 ], [ %result.4, %if.end19 ], [ 27, %if.end.i ], [ 27, %if.then21 ], [ %result.6, %if.end31 ]
+  %result.2.lcssa142 = phi i32 [ %result.14, %for.end129 ], [ %call6, %if.end7 ], [ 27, %if.end ], [ %result.13, %if.end112 ], [ %result.12, %if.end76 ], [ %result.11, %if.end60 ], [ 27, %if.end.i83 ], [ %call50, %if.end51 ], [ %call44, %if.end45 ], [ %result.4, %if.end19 ], [ 27, %if.end.i ], [ 27, %if.then21 ], [ %result.6, %if.end31 ]
   tail call void @Curl_mime_cleanpart(ptr noundef %finalform) #6
   br label %return
 
 return:                                           ; preds = %for.end129, %if.then131, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %result.2.lcssa143, %if.then131 ], [ 0, %for.end129 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %result.2.lcssa142, %if.then131 ], [ 0, %for.end129 ]
   ret i32 %retval.0
 }
 
@@ -1609,10 +1604,10 @@ entry:
 do.body:                                          ; preds = %entry, %if.end9
   %form.addr.0 = phi ptr [ %0, %if.end9 ], [ %form, %entry ]
   %0 = load ptr, ptr %form.addr.0, align 8
-  %more = getelementptr inbounds %struct.curl_httppost, ptr %form.addr.0, i64 0, i32 9
+  %more = getelementptr inbounds i8, ptr %form.addr.0, i64 72
   %1 = load ptr, ptr %more, align 8
   tail call void @curl_formfree(ptr noundef %1)
-  %flags = getelementptr inbounds %struct.curl_httppost, ptr %form.addr.0, i64 0, i32 10
+  %flags = getelementptr inbounds i8, ptr %form.addr.0, i64 80
   %2 = load i64, ptr %flags, align 8
   %and = and i64 %2, 4
   %tobool2.not = icmp eq i64 %and, 0
@@ -1620,7 +1615,7 @@ do.body:                                          ; preds = %entry, %if.end9
 
 if.then3:                                         ; preds = %do.body
   %3 = load ptr, ptr @Curl_cfree, align 8
-  %name = getelementptr inbounds %struct.curl_httppost, ptr %form.addr.0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %form.addr.0, i64 8
   %4 = load ptr, ptr %name, align 8
   tail call void %3(ptr noundef %4) #6
   %.pre = load i64, ptr %flags, align 8
@@ -1634,18 +1629,18 @@ if.end4:                                          ; preds = %if.then3, %do.body
 
 if.then8:                                         ; preds = %if.end4
   %6 = load ptr, ptr @Curl_cfree, align 8
-  %contents = getelementptr inbounds %struct.curl_httppost, ptr %form.addr.0, i64 0, i32 3
+  %contents = getelementptr inbounds i8, ptr %form.addr.0, i64 24
   %7 = load ptr, ptr %contents, align 8
   tail call void %6(ptr noundef %7) #6
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end4
   %8 = load ptr, ptr @Curl_cfree, align 8
-  %contenttype = getelementptr inbounds %struct.curl_httppost, ptr %form.addr.0, i64 0, i32 7
+  %contenttype = getelementptr inbounds i8, ptr %form.addr.0, i64 56
   %9 = load ptr, ptr %contenttype, align 8
   tail call void %8(ptr noundef %9) #6
   %10 = load ptr, ptr @Curl_cfree, align 8
-  %showfilename = getelementptr inbounds %struct.curl_httppost, ptr %form.addr.0, i64 0, i32 11
+  %showfilename = getelementptr inbounds i8, ptr %form.addr.0, i64 88
   %11 = load ptr, ptr %showfilename, align 8
   tail call void %10(ptr noundef %11) #6
   %12 = load ptr, ptr @Curl_cfree, align 8

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.block_ = type { [128 x i64] }
-%struct.Argon2_instance_t = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.block_region_ = type { ptr, ptr, i64 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_sodium_argon2_fill_segment_ref(ptr noundef readonly %instance, i64 %position.coerce0, i64 %position.coerce1) local_unnamed_addr #0 {
@@ -24,13 +22,13 @@ entry:
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 9
+  %type = getelementptr inbounds i8, ptr %instance, i64 44
   %0 = load i32, ptr %type, align 4
   %cmp1 = icmp eq i32 %0, 2
   br i1 %cmp1, label %if.end6, label %if.end6.thread
 
 if.end6.thread:                                   ; preds = %if.end
-  %pseudo_rands765 = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 1
+  %pseudo_rands765 = getelementptr inbounds i8, ptr %instance, i64 8
   %1 = load ptr, ptr %pseudo_rands765, align 8
   br label %if.then8
 
@@ -38,12 +36,12 @@ if.end6:                                          ; preds = %if.end
   %cmp2 = icmp ne i32 %position.sroa.0.0.extract.trunc, 0
   %cmp3 = icmp ugt i8 %position.sroa.11.8.extract.trunc, 1
   %or.cond = select i1 %cmp2, i1 true, i1 %cmp3
-  %pseudo_rands7 = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 1
+  %pseudo_rands7 = getelementptr inbounds i8, ptr %instance, i64 8
   %2 = load ptr, ptr %pseudo_rands7, align 8
   br i1 %or.cond, label %if.end6.if.end9_crit_edge, label %if.then8
 
 if.end6.if.end9_crit_edge:                        ; preds = %if.end6
-  %segment_length.phi.trans.insert = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 5
+  %segment_length.phi.trans.insert = getelementptr inbounds i8, ptr %instance, i64 28
   %.pre = load i32, ptr %segment_length.phi.trans.insert, align 4
   br label %if.end9
 
@@ -58,42 +56,42 @@ if.then8:                                         ; preds = %if.end6.thread, %if
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 968, i1 false)
   %conv.i = and i64 %position.coerce0, 4294967295
   store i64 %conv.i, ptr %input_block.i, align 8
-  %arrayidx4.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %input_block.i, i64 8
   store i64 %position.sroa.7.0.extract.shift, ptr %arrayidx4.i, align 8
   %conv5.i = and i64 %position.coerce1, 255
-  %arrayidx7.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 2
+  %arrayidx7.i = getelementptr inbounds i8, ptr %input_block.i, i64 16
   store i64 %conv5.i, ptr %arrayidx7.i, align 8
-  %memory_blocks.i = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 4
+  %memory_blocks.i = getelementptr inbounds i8, ptr %instance, i64 24
   %5 = load i32, ptr %memory_blocks.i, align 8
   %conv8.i = zext i32 %5 to i64
-  %arrayidx10.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 3
+  %arrayidx10.i = getelementptr inbounds i8, ptr %input_block.i, i64 24
   store i64 %conv8.i, ptr %arrayidx10.i, align 8
-  %passes.i = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 2
+  %passes.i = getelementptr inbounds i8, ptr %instance, i64 16
   %6 = load i32, ptr %passes.i, align 8
   %conv11.i = zext i32 %6 to i64
-  %arrayidx13.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 4
+  %arrayidx13.i = getelementptr inbounds i8, ptr %input_block.i, i64 32
   store i64 %conv11.i, ptr %arrayidx13.i, align 8
   %conv14.i = zext i32 %0 to i64
-  %arrayidx16.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 5
+  %arrayidx16.i = getelementptr inbounds i8, ptr %input_block.i, i64 40
   store i64 %conv14.i, ptr %arrayidx16.i, align 8
-  %segment_length.i = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 5
+  %segment_length.i = getelementptr inbounds i8, ptr %instance, i64 28
   %7 = load i32, ptr %segment_length.i, align 4
   %cmp1712.not.i = icmp eq i32 %7, 0
   br i1 %cmp1712.not.i, label %generate_addresses.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then8
-  %arrayidx23.i = getelementptr inbounds [128 x i64], ptr %input_block.i, i64 0, i64 6
+  %arrayidx23.i = getelementptr inbounds i8, ptr %input_block.i, i64 48
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end.i ]
-  %8 = phi i64 [ 0, %for.body.lr.ph.i ], [ %9, %if.end.i ]
-  %rem15.i = and i64 %indvars.iv.i, 127
-  %cmp19.i = icmp eq i64 %rem15.i, 0
+  %inc15.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc14.i, %if.end.i ]
+  %rem17.i = and i64 %indvars.iv.i, 127
+  %cmp19.i = icmp eq i64 %rem17.i, 0
   br i1 %cmp19.i, label %if.then21.i, label %if.end.i
 
 if.then21.i:                                      ; preds = %for.body.i
-  %inc.i = add i64 %8, 1
+  %inc.i = add i64 %inc15.i, 1
   store i64 %inc.i, ptr %arrayidx23.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %tmp_block.i, i8 0, i64 1024, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %address_block.i, i8 0, i64 1024, i1 false)
@@ -102,19 +100,19 @@ if.then21.i:                                      ; preds = %for.body.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then21.i, %for.body.i
-  %9 = phi i64 [ %inc.i, %if.then21.i ], [ %8, %for.body.i ]
-  %arrayidx26.i = getelementptr [128 x i64], ptr %address_block.i, i64 0, i64 %rem15.i
-  %10 = load i64, ptr %arrayidx26.i, align 8
+  %inc14.i = phi i64 [ %inc.i, %if.then21.i ], [ %inc15.i, %for.body.i ]
+  %arrayidx26.i = getelementptr [128 x i64], ptr %address_block.i, i64 0, i64 %rem17.i
+  %8 = load i64, ptr %arrayidx26.i, align 8
   %arrayidx28.i = getelementptr i64, ptr %3, i64 %indvars.iv.i
-  store i64 %10, ptr %arrayidx28.i, align 8
+  store i64 %8, ptr %arrayidx28.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = load i32, ptr %segment_length.i, align 4
-  %12 = zext i32 %11 to i64
-  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %12
+  %9 = load i32, ptr %segment_length.i, align 4
+  %10 = zext i32 %9 to i64
+  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %10
   br i1 %cmp17.i, label %for.body.i, label %generate_addresses.exit, !llvm.loop !4
 
 generate_addresses.exit:                          ; preds = %if.end.i, %if.then8
-  %13 = phi i32 [ 0, %if.then8 ], [ %11, %if.end.i ]
+  %11 = phi i32 [ 0, %if.then8 ], [ %9, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %zero_block.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %input_block.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %address_block.i)
@@ -122,68 +120,68 @@ generate_addresses.exit:                          ; preds = %if.end.i, %if.then8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end6.if.end9_crit_edge, %generate_addresses.exit
-  %14 = phi i32 [ %13, %generate_addresses.exit ], [ %.pre, %if.end6.if.end9_crit_edge ]
-  %15 = phi ptr [ %3, %generate_addresses.exit ], [ %2, %if.end6.if.end9_crit_edge ]
+  %12 = phi i32 [ %11, %generate_addresses.exit ], [ %.pre, %if.end6.if.end9_crit_edge ]
+  %13 = phi ptr [ %3, %generate_addresses.exit ], [ %2, %if.end6.if.end9_crit_edge ]
   %tobool.not67 = phi i1 [ false, %generate_addresses.exit ], [ true, %if.end6.if.end9_crit_edge ]
   %cmp11 = icmp eq i32 %position.sroa.0.0.extract.trunc, 0
   %cmp16 = icmp eq i8 %position.sroa.11.8.extract.trunc, 0
   %or.cond1 = select i1 %cmp11, i1 %cmp16, i1 false
   %spec.select39 = select i1 %or.cond1, i32 2, i32 0
-  %lane_length = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 6
-  %16 = trunc i64 %position.coerce1 to i32
-  %conv21 = and i32 %16, 255
-  %segment_length = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 5
-  %cmp3369 = icmp ult i32 %spec.select39, %14
+  %lane_length = getelementptr inbounds i8, ptr %instance, i64 32
+  %14 = trunc i64 %position.coerce1 to i32
+  %conv21 = and i32 %14, 255
+  %segment_length = getelementptr inbounds i8, ptr %instance, i64 28
+  %cmp3369 = icmp ult i32 %spec.select39, %12
   br i1 %cmp3369, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end9
-  %17 = load i32, ptr %lane_length, align 8
-  %mul = mul i32 %17, %position.sroa.7.0.extract.trunc
+  %15 = load i32, ptr %lane_length, align 8
+  %mul = mul i32 %15, %position.sroa.7.0.extract.trunc
   %add = add i32 %mul, %spec.select39
-  %mul22 = mul i32 %14, %conv21
+  %mul22 = mul i32 %12, %conv21
   %add23 = add i32 %add, %mul22
-  %rem = urem i32 %add23, %17
+  %rem = urem i32 %add23, %15
   %cmp25 = icmp eq i32 %rem, 0
-  %18 = add i32 %17, -1
-  %prev_offset.0.in = select i1 %cmp25, i32 %18, i32 -1
+  %16 = add i32 %15, -1
+  %prev_offset.0.in = select i1 %cmp25, i32 %16, i32 -1
   %prev_offset.0 = add i32 %prev_offset.0.in, %add23
-  %lanes = getelementptr inbounds %struct.Argon2_instance_t, ptr %instance, i64 0, i32 7
+  %lanes = getelementptr inbounds i8, ptr %instance, i64 36
   %cmp52.i = icmp eq i8 %position.sroa.11.8.extract.trunc, 3
   %add56.i = add nuw nsw i32 %conv21, 1
-  %19 = zext nneg i32 %spec.select39 to i64
+  %17 = zext nneg i32 %spec.select39 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ %19, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %20 = phi i32 [ %14, %for.body.lr.ph ], [ %100, %for.inc ]
+  %indvars.iv = phi i64 [ %17, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %18 = phi i32 [ %12, %for.body.lr.ph ], [ %98, %for.inc ]
   %curr_offset.071 = phi i32 [ %add23, %for.body.lr.ph ], [ %inc92, %for.inc ]
   %prev_offset.170 = phi i32 [ %prev_offset.0, %for.body.lr.ph ], [ %inc93, %for.inc ]
-  %21 = load i32, ptr %lane_length, align 8
-  %rem36 = urem i32 %curr_offset.071, %21
+  %19 = load i32, ptr %lane_length, align 8
+  %rem36 = urem i32 %curr_offset.071, %19
   %cmp37 = icmp eq i32 %rem36, 1
   %sub40 = add i32 %curr_offset.071, -1
   %spec.select40 = select i1 %cmp37, i32 %sub40, i32 %prev_offset.170
   br i1 %tobool.not67, label %if.else44, label %if.then43
 
 if.then43:                                        ; preds = %for.body
-  %arrayidx = getelementptr i64, ptr %15, i64 %indvars.iv
+  %arrayidx = getelementptr i64, ptr %13, i64 %indvars.iv
   br label %if.end48
 
 if.else44:                                        ; preds = %for.body
-  %22 = load ptr, ptr %instance, align 8
-  %memory = getelementptr inbounds %struct.block_region_, ptr %22, i64 0, i32 1
-  %23 = load ptr, ptr %memory, align 8
+  %20 = load ptr, ptr %instance, align 8
+  %memory = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = load ptr, ptr %memory, align 8
   %idxprom45 = zext i32 %spec.select40 to i64
-  %arrayidx46 = getelementptr %struct.block_, ptr %23, i64 %idxprom45
+  %arrayidx46 = getelementptr %struct.block_, ptr %21, i64 %idxprom45
   br label %if.end48
 
 if.end48:                                         ; preds = %if.else44, %if.then43
   %pseudo_rand.0.in = phi ptr [ %arrayidx, %if.then43 ], [ %arrayidx46, %if.else44 ]
   %pseudo_rand.0 = load i64, ptr %pseudo_rand.0.in, align 8
   %shr = lshr i64 %pseudo_rand.0, 32
-  %24 = load i32, ptr %lanes, align 4
+  %22 = load i32, ptr %lanes, align 4
   %rem50.lhs.trunc = trunc i64 %shr to i32
-  %rem5068 = urem i32 %rem50.lhs.trunc, %24
+  %rem5068 = urem i32 %rem50.lhs.trunc, %22
   %rem50.zext = zext i32 %rem5068 to i64
   %ref_lane.0 = select i1 %or.cond1, i64 %position.sroa.7.0.extract.shift, i64 %rem50.zext
   %cmp66.not = icmp eq i64 %ref_lane.0, %position.sroa.7.0.extract.shift
@@ -193,17 +191,17 @@ if.then.i:                                        ; preds = %if.end48
   br i1 %cmp16, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %25 = trunc i64 %indvars.iv to i32
-  %sub.i = add i32 %25, -1
+  %23 = trunc i64 %indvars.iv to i32
+  %sub.i = add i32 %23, -1
   br label %index_alpha.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %mul13.i = mul i32 %20, %conv21
+  %mul13.i = mul i32 %18, %conv21
   br i1 %cmp66.not, label %if.then4.i, label %if.else9.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %26 = trunc i64 %indvars.iv to i32
-  %add.i = add i32 %26, -1
+  %24 = trunc i64 %indvars.iv to i32
+  %add.i = add i32 %24, -1
   %sub8.i = add i32 %add.i, %mul13.i
   br label %index_alpha.exit
 
@@ -217,30 +215,30 @@ if.else19.i:                                      ; preds = %if.end48
   br i1 %cmp66.not, label %if.then21.i41, label %if.else27.i
 
 if.then21.i41:                                    ; preds = %if.else19.i
-  %27 = xor i32 %20, -1
-  %28 = trunc i64 %indvars.iv to i32
-  %add25.i = add i32 %28, %27
+  %25 = xor i32 %18, -1
+  %26 = trunc i64 %indvars.iv to i32
+  %add25.i = add i32 %26, %25
   br label %if.then49.i
 
 if.else27.i:                                      ; preds = %if.else19.i
   %cmp32.i = icmp eq i64 %indvars.iv, 0
   %cond34.i = sext i1 %cmp32.i to i32
-  %sub30.i = sub i32 %cond34.i, %20
+  %sub30.i = sub i32 %cond34.i, %18
   br label %if.then49.i
 
 if.then49.i:                                      ; preds = %if.else27.i, %if.then21.i41
   %add25.i.pn = phi i32 [ %add25.i, %if.then21.i41 ], [ %sub30.i, %if.else27.i ]
-  %reference_area_size.0.i = add i32 %add25.i.pn, %21
+  %reference_area_size.0.i = add i32 %add25.i.pn, %19
   br i1 %cmp52.i, label %index_alpha.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.then49.i
-  %mul58.i = mul i32 %20, %add56.i
-  %29 = zext i32 %mul58.i to i64
+  %mul58.i = mul i32 %18, %add56.i
+  %27 = zext i32 %mul58.i to i64
   br label %index_alpha.exit
 
 index_alpha.exit:                                 ; preds = %if.then3.i, %if.then4.i, %if.else9.i, %if.then49.i, %cond.false.i
   %reference_area_size.025.i = phi i32 [ %reference_area_size.0.i, %cond.false.i ], [ %reference_area_size.0.i, %if.then49.i ], [ %add17.i, %if.else9.i ], [ %sub8.i, %if.then4.i ], [ %sub.i, %if.then3.i ]
-  %start_position.0.i = phi i64 [ %29, %cond.false.i ], [ 0, %if.then49.i ], [ 0, %if.else9.i ], [ 0, %if.then4.i ], [ 0, %if.then3.i ]
+  %start_position.0.i = phi i64 [ %27, %cond.false.i ], [ 0, %if.then49.i ], [ 0, %if.else9.i ], [ 0, %if.then4.i ], [ 0, %if.then3.i ]
   %sub40.i = add i32 %reference_area_size.025.i, -1
   %conv41.i = zext i32 %sub40.i to i64
   %conv38.i = and i64 %pseudo_rand.0, 4294967295
@@ -251,18 +249,18 @@ index_alpha.exit:                                 ; preds = %if.then3.i, %if.the
   %shr44.i = lshr i64 %mul43.i, 32
   %sub45.i = add nuw nsw i64 %start_position.0.i, %conv41.i
   %add62.i = sub nsw i64 %sub45.i, %shr44.i
-  %conv64.i = zext i32 %21 to i64
+  %conv64.i = zext i32 %19 to i64
   %rem.i = urem i64 %add62.i, %conv64.i
-  %30 = load ptr, ptr %instance, align 8
-  %memory70 = getelementptr inbounds %struct.block_region_, ptr %30, i64 0, i32 1
-  %31 = load ptr, ptr %memory70, align 8
+  %28 = load ptr, ptr %instance, align 8
+  %memory70 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = load ptr, ptr %memory70, align 8
   %mul73 = mul nuw i64 %ref_lane.0, %conv64.i
-  %add.ptr = getelementptr %struct.block_, ptr %31, i64 %mul73
+  %add.ptr = getelementptr %struct.block_, ptr %29, i64 %mul73
   %add.ptr74 = getelementptr %struct.block_, ptr %add.ptr, i64 %rem.i
   %idx.ext = zext i32 %curr_offset.071 to i64
-  %add.ptr77 = getelementptr %struct.block_, ptr %31, i64 %idx.ext
+  %add.ptr77 = getelementptr %struct.block_, ptr %29, i64 %idx.ext
   %idx.ext89 = zext i32 %spec.select40 to i64
-  %add.ptr90 = getelementptr %struct.block_, ptr %31, i64 %idx.ext89
+  %add.ptr90 = getelementptr %struct.block_, ptr %29, i64 %idx.ext89
   br i1 %cmp11, label %if.else86, label %if.then81
 
 if.then81:                                        ; preds = %index_alpha.exit
@@ -278,10 +276,10 @@ if.else86:                                        ; preds = %index_alpha.exit
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.else86
   %indvars.iv.i.i = phi i64 [ 0, %if.else86 ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr [128 x i64], ptr %add.ptr90, i64 0, i64 %indvars.iv.i.i
-  %32 = load i64, ptr %arrayidx.i.i, align 8
+  %30 = load i64, ptr %arrayidx.i.i, align 8
   %arrayidx3.i.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %indvars.iv.i.i
-  %33 = load i64, ptr %arrayidx3.i.i, align 8
-  %xor.i.i = xor i64 %33, %32
+  %31 = load i64, ptr %arrayidx3.i.i, align 8
+  %xor.i.i = xor i64 %31, %30
   store i64 %xor.i.i, ptr %arrayidx3.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
@@ -293,33 +291,33 @@ xor_block.exit.i:                                 ; preds = %for.body.i.i
 
 do.body1.i:                                       ; preds = %do.body1.i, %xor_block.exit.i
   %indvars.iv.i44 = phi i64 [ 0, %xor_block.exit.i ], [ %indvars.iv.next.i45, %do.body1.i ]
-  %34 = shl nuw nsw i64 %indvars.iv.i44, 4
-  %arrayidx.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %34
-  %35 = load i64, ptr %arrayidx.i, align 8
-  %36 = or disjoint i64 %34, 4
-  %arrayidx5.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %36
-  %37 = load i64, ptr %arrayidx5.i, align 8
-  %and1.i.i = and i64 %37, 4294967295
-  %add.i.i = add i64 %37, %35
-  %and.i.i = shl i64 %35, 1
+  %32 = shl nuw nsw i64 %indvars.iv.i44, 4
+  %arrayidx.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %32
+  %33 = load i64, ptr %arrayidx.i, align 8
+  %34 = or disjoint i64 %32, 4
+  %arrayidx5.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %34
+  %35 = load i64, ptr %arrayidx5.i, align 8
+  %and1.i.i = and i64 %35, 4294967295
+  %add.i.i = add i64 %35, %33
+  %and.i.i = shl i64 %33, 1
   %mul.i.i = and i64 %and.i.i, 8589934590
   %mul2.i.i = mul i64 %mul.i.i, %and1.i.i
   %add3.i.i = add i64 %add.i.i, %mul2.i.i
-  %38 = or disjoint i64 %34, 12
-  %arrayidx14.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %38
-  %39 = load i64, ptr %arrayidx14.i, align 8
-  %xor.i = xor i64 %add3.i.i, %39
+  %36 = or disjoint i64 %32, 12
+  %arrayidx14.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %36
+  %37 = load i64, ptr %arrayidx14.i, align 8
+  %xor.i = xor i64 %add3.i.i, %37
   %or.i.i = tail call i64 @llvm.fshl.i64(i64 %xor.i, i64 %xor.i, i64 32)
-  %40 = or disjoint i64 %34, 8
-  %arrayidx29.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %40
-  %41 = load i64, ptr %arrayidx29.i, align 8
+  %38 = or disjoint i64 %32, 8
+  %arrayidx29.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %38
+  %39 = load i64, ptr %arrayidx29.i, align 8
   %and1.i389.i = and i64 %or.i.i, 4294967295
-  %add.i390.i = add i64 %or.i.i, %41
-  %and.i391.i = shl i64 %41, 1
+  %add.i390.i = add i64 %or.i.i, %39
+  %and.i391.i = shl i64 %39, 1
   %mul.i392.i = and i64 %and.i391.i, 8589934590
   %mul2.i393.i = mul i64 %and1.i389.i, %mul.i392.i
   %add3.i394.i = add i64 %add.i390.i, %mul2.i393.i
-  %xor51.i = xor i64 %add3.i394.i, %37
+  %xor51.i = xor i64 %add3.i394.i, %35
   %or.i397.i = tail call i64 @llvm.fshl.i64(i64 %xor51.i, i64 %xor51.i, i64 40)
   %and1.i398.i = and i64 %or.i397.i, 4294967295
   %add.i399.i = add i64 %or.i397.i, %add3.i.i
@@ -337,33 +335,33 @@ do.body1.i:                                       ; preds = %do.body1.i, %xor_bl
   %add3.i412.i = add i64 %add.i408.i, %mul2.i411.i
   %xor114.i = xor i64 %add3.i412.i, %or.i397.i
   %or.i415.i = tail call i64 @llvm.fshl.i64(i64 %xor114.i, i64 %xor114.i, i64 1)
-  %42 = or disjoint i64 %34, 1
-  %arrayidx126.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %42
-  %43 = load i64, ptr %arrayidx126.i, align 8
-  %44 = or disjoint i64 %34, 5
-  %arrayidx131.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %44
-  %45 = load i64, ptr %arrayidx131.i, align 8
-  %and1.i416.i = and i64 %45, 4294967295
-  %add.i417.i = add i64 %45, %43
-  %and.i418.i = shl i64 %43, 1
+  %40 = or disjoint i64 %32, 1
+  %arrayidx126.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %40
+  %41 = load i64, ptr %arrayidx126.i, align 8
+  %42 = or disjoint i64 %32, 5
+  %arrayidx131.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %42
+  %43 = load i64, ptr %arrayidx131.i, align 8
+  %and1.i416.i = and i64 %43, 4294967295
+  %add.i417.i = add i64 %43, %41
+  %and.i418.i = shl i64 %41, 1
   %mul.i419.i = and i64 %and.i418.i, 8589934590
   %mul2.i420.i = mul i64 %mul.i419.i, %and1.i416.i
   %add3.i421.i = add i64 %add.i417.i, %mul2.i420.i
-  %46 = or disjoint i64 %34, 13
-  %arrayidx142.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %46
-  %47 = load i64, ptr %arrayidx142.i, align 8
-  %xor148.i = xor i64 %add3.i421.i, %47
+  %44 = or disjoint i64 %32, 13
+  %arrayidx142.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %44
+  %45 = load i64, ptr %arrayidx142.i, align 8
+  %xor148.i = xor i64 %add3.i421.i, %45
   %or.i424.i = tail call i64 @llvm.fshl.i64(i64 %xor148.i, i64 %xor148.i, i64 32)
-  %48 = or disjoint i64 %34, 9
-  %arrayidx159.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %48
-  %49 = load i64, ptr %arrayidx159.i, align 8
+  %46 = or disjoint i64 %32, 9
+  %arrayidx159.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %46
+  %47 = load i64, ptr %arrayidx159.i, align 8
   %and1.i425.i = and i64 %or.i424.i, 4294967295
-  %add.i426.i = add i64 %or.i424.i, %49
-  %and.i427.i = shl i64 %49, 1
+  %add.i426.i = add i64 %or.i424.i, %47
+  %and.i427.i = shl i64 %47, 1
   %mul.i428.i = and i64 %and.i427.i, 8589934590
   %mul2.i429.i = mul i64 %and1.i425.i, %mul.i428.i
   %add3.i430.i = add i64 %add.i426.i, %mul2.i429.i
-  %xor181.i = xor i64 %add3.i430.i, %45
+  %xor181.i = xor i64 %add3.i430.i, %43
   %or.i433.i = tail call i64 @llvm.fshl.i64(i64 %xor181.i, i64 %xor181.i, i64 40)
   %and1.i434.i = and i64 %or.i433.i, 4294967295
   %add.i435.i = add i64 %or.i433.i, %add3.i421.i
@@ -381,33 +379,33 @@ do.body1.i:                                       ; preds = %do.body1.i, %xor_bl
   %add3.i448.i = add i64 %add.i444.i, %mul2.i447.i
   %xor247.i = xor i64 %add3.i448.i, %or.i433.i
   %or.i451.i = tail call i64 @llvm.fshl.i64(i64 %xor247.i, i64 %xor247.i, i64 1)
-  %50 = or disjoint i64 %34, 2
-  %arrayidx260.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %50
-  %51 = load i64, ptr %arrayidx260.i, align 8
-  %52 = or disjoint i64 %34, 6
-  %arrayidx265.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %52
-  %53 = load i64, ptr %arrayidx265.i, align 8
-  %and1.i452.i = and i64 %53, 4294967295
-  %add.i453.i = add i64 %53, %51
-  %and.i454.i = shl i64 %51, 1
+  %48 = or disjoint i64 %32, 2
+  %arrayidx260.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %48
+  %49 = load i64, ptr %arrayidx260.i, align 8
+  %50 = or disjoint i64 %32, 6
+  %arrayidx265.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %50
+  %51 = load i64, ptr %arrayidx265.i, align 8
+  %and1.i452.i = and i64 %51, 4294967295
+  %add.i453.i = add i64 %51, %49
+  %and.i454.i = shl i64 %49, 1
   %mul.i455.i = and i64 %and.i454.i, 8589934590
   %mul2.i456.i = mul i64 %mul.i455.i, %and1.i452.i
   %add3.i457.i = add i64 %add.i453.i, %mul2.i456.i
-  %54 = or disjoint i64 %34, 14
-  %arrayidx276.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %54
-  %55 = load i64, ptr %arrayidx276.i, align 8
-  %xor282.i = xor i64 %add3.i457.i, %55
+  %52 = or disjoint i64 %32, 14
+  %arrayidx276.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %52
+  %53 = load i64, ptr %arrayidx276.i, align 8
+  %xor282.i = xor i64 %add3.i457.i, %53
   %or.i460.i = tail call i64 @llvm.fshl.i64(i64 %xor282.i, i64 %xor282.i, i64 32)
-  %56 = or disjoint i64 %34, 10
-  %arrayidx293.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %56
-  %57 = load i64, ptr %arrayidx293.i, align 8
+  %54 = or disjoint i64 %32, 10
+  %arrayidx293.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %54
+  %55 = load i64, ptr %arrayidx293.i, align 8
   %and1.i461.i = and i64 %or.i460.i, 4294967295
-  %add.i462.i = add i64 %or.i460.i, %57
-  %and.i463.i = shl i64 %57, 1
+  %add.i462.i = add i64 %or.i460.i, %55
+  %and.i463.i = shl i64 %55, 1
   %mul.i464.i = and i64 %and.i463.i, 8589934590
   %mul2.i465.i = mul i64 %and1.i461.i, %mul.i464.i
   %add3.i466.i = add i64 %add.i462.i, %mul2.i465.i
-  %xor315.i = xor i64 %add3.i466.i, %53
+  %xor315.i = xor i64 %add3.i466.i, %51
   %or.i469.i = tail call i64 @llvm.fshl.i64(i64 %xor315.i, i64 %xor315.i, i64 40)
   %and1.i470.i = and i64 %or.i469.i, 4294967295
   %add.i471.i = add i64 %or.i469.i, %add3.i457.i
@@ -425,33 +423,33 @@ do.body1.i:                                       ; preds = %do.body1.i, %xor_bl
   %add3.i484.i = add i64 %add.i480.i, %mul2.i483.i
   %xor381.i = xor i64 %add3.i484.i, %or.i469.i
   %or.i487.i = tail call i64 @llvm.fshl.i64(i64 %xor381.i, i64 %xor381.i, i64 1)
-  %58 = or disjoint i64 %34, 3
-  %arrayidx394.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %58
-  %59 = load i64, ptr %arrayidx394.i, align 8
-  %60 = or disjoint i64 %34, 7
-  %arrayidx399.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %60
-  %61 = load i64, ptr %arrayidx399.i, align 8
-  %and1.i488.i = and i64 %61, 4294967295
-  %add.i489.i = add i64 %61, %59
-  %and.i490.i = shl i64 %59, 1
+  %56 = or disjoint i64 %32, 3
+  %arrayidx394.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %56
+  %57 = load i64, ptr %arrayidx394.i, align 8
+  %58 = or disjoint i64 %32, 7
+  %arrayidx399.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %58
+  %59 = load i64, ptr %arrayidx399.i, align 8
+  %and1.i488.i = and i64 %59, 4294967295
+  %add.i489.i = add i64 %59, %57
+  %and.i490.i = shl i64 %57, 1
   %mul.i491.i = and i64 %and.i490.i, 8589934590
   %mul2.i492.i = mul i64 %mul.i491.i, %and1.i488.i
   %add3.i493.i = add i64 %add.i489.i, %mul2.i492.i
-  %62 = or disjoint i64 %34, 15
-  %arrayidx410.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %62
-  %63 = load i64, ptr %arrayidx410.i, align 8
-  %xor416.i = xor i64 %add3.i493.i, %63
+  %60 = or disjoint i64 %32, 15
+  %arrayidx410.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %60
+  %61 = load i64, ptr %arrayidx410.i, align 8
+  %xor416.i = xor i64 %add3.i493.i, %61
   %or.i496.i = tail call i64 @llvm.fshl.i64(i64 %xor416.i, i64 %xor416.i, i64 32)
-  %64 = or disjoint i64 %34, 11
-  %arrayidx427.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %64
-  %65 = load i64, ptr %arrayidx427.i, align 8
+  %62 = or disjoint i64 %32, 11
+  %arrayidx427.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %62
+  %63 = load i64, ptr %arrayidx427.i, align 8
   %and1.i497.i = and i64 %or.i496.i, 4294967295
-  %add.i498.i = add i64 %or.i496.i, %65
-  %and.i499.i = shl i64 %65, 1
+  %add.i498.i = add i64 %or.i496.i, %63
+  %and.i499.i = shl i64 %63, 1
   %mul.i500.i = and i64 %and.i499.i, 8589934590
   %mul2.i501.i = mul i64 %and1.i497.i, %mul.i500.i
   %add3.i502.i = add i64 %add.i498.i, %mul2.i501.i
-  %xor449.i = xor i64 %add3.i502.i, %61
+  %xor449.i = xor i64 %add3.i502.i, %59
   %or.i505.i = tail call i64 @llvm.fshl.i64(i64 %xor449.i, i64 %xor449.i, i64 40)
   %and1.i506.i = and i64 %or.i505.i, 4294967295
   %add.i507.i = add i64 %or.i505.i, %add3.i493.i
@@ -619,33 +617,33 @@ do.body1.i:                                       ; preds = %do.body1.i, %xor_bl
 
 do.body1058.i:                                    ; preds = %do.body1.i, %do.body1058.i
   %indvars.iv983.i = phi i64 [ %indvars.iv.next984.i, %do.body1058.i ], [ 0, %do.body1.i ]
-  %66 = shl nuw nsw i64 %indvars.iv983.i, 1
-  %arrayidx1062.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %66
-  %67 = load i64, ptr %arrayidx1062.i, align 8
-  %68 = or disjoint i64 %66, 32
-  %arrayidx1067.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %68
-  %69 = load i64, ptr %arrayidx1067.i, align 8
-  %and1.i668.i = and i64 %69, 4294967295
-  %add.i669.i = add i64 %69, %67
-  %and.i670.i = shl i64 %67, 1
+  %64 = shl nuw nsw i64 %indvars.iv983.i, 1
+  %arrayidx1062.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %64
+  %65 = load i64, ptr %arrayidx1062.i, align 8
+  %66 = or disjoint i64 %64, 32
+  %arrayidx1067.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %66
+  %67 = load i64, ptr %arrayidx1067.i, align 8
+  %and1.i668.i = and i64 %67, 4294967295
+  %add.i669.i = add i64 %67, %65
+  %and.i670.i = shl i64 %65, 1
   %mul.i671.i = and i64 %and.i670.i, 8589934590
   %mul2.i672.i = mul i64 %mul.i671.i, %and1.i668.i
   %add3.i673.i = add i64 %add.i669.i, %mul2.i672.i
-  %70 = or disjoint i64 %66, 96
-  %arrayidx1077.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %70
-  %71 = load i64, ptr %arrayidx1077.i, align 8
-  %xor1082.i = xor i64 %add3.i673.i, %71
+  %68 = or disjoint i64 %64, 96
+  %arrayidx1077.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %68
+  %69 = load i64, ptr %arrayidx1077.i, align 8
+  %xor1082.i = xor i64 %add3.i673.i, %69
   %or.i676.i = tail call i64 @llvm.fshl.i64(i64 %xor1082.i, i64 %xor1082.i, i64 32)
-  %72 = or disjoint i64 %66, 64
-  %arrayidx1093.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %72
-  %73 = load i64, ptr %arrayidx1093.i, align 8
+  %70 = or disjoint i64 %64, 64
+  %arrayidx1093.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %70
+  %71 = load i64, ptr %arrayidx1093.i, align 8
   %and1.i677.i = and i64 %or.i676.i, 4294967295
-  %add.i678.i = add i64 %or.i676.i, %73
-  %and.i679.i = shl i64 %73, 1
+  %add.i678.i = add i64 %or.i676.i, %71
+  %and.i679.i = shl i64 %71, 1
   %mul.i680.i = and i64 %and.i679.i, 8589934590
   %mul2.i681.i = mul i64 %and1.i677.i, %mul.i680.i
   %add3.i682.i = add i64 %add.i678.i, %mul2.i681.i
-  %xor1115.i = xor i64 %add3.i682.i, %69
+  %xor1115.i = xor i64 %add3.i682.i, %67
   %or.i685.i = tail call i64 @llvm.fshl.i64(i64 %xor1115.i, i64 %xor1115.i, i64 40)
   %and1.i686.i = and i64 %or.i685.i, 4294967295
   %add.i687.i = add i64 %or.i685.i, %add3.i673.i
@@ -663,33 +661,33 @@ do.body1058.i:                                    ; preds = %do.body1.i, %do.bod
   %add3.i700.i = add i64 %add.i696.i, %mul2.i699.i
   %xor1178.i = xor i64 %add3.i700.i, %or.i685.i
   %or.i703.i = tail call i64 @llvm.fshl.i64(i64 %xor1178.i, i64 %xor1178.i, i64 1)
-  %74 = or disjoint i64 %66, 1
-  %arrayidx1191.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %74
-  %75 = load i64, ptr %arrayidx1191.i, align 8
-  %76 = or disjoint i64 %66, 33
-  %arrayidx1196.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %76
-  %77 = load i64, ptr %arrayidx1196.i, align 8
-  %and1.i704.i = and i64 %77, 4294967295
-  %add.i705.i = add i64 %77, %75
-  %and.i706.i = shl i64 %75, 1
+  %72 = or disjoint i64 %64, 1
+  %arrayidx1191.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %72
+  %73 = load i64, ptr %arrayidx1191.i, align 8
+  %74 = or disjoint i64 %64, 33
+  %arrayidx1196.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %74
+  %75 = load i64, ptr %arrayidx1196.i, align 8
+  %and1.i704.i = and i64 %75, 4294967295
+  %add.i705.i = add i64 %75, %73
+  %and.i706.i = shl i64 %73, 1
   %mul.i707.i = and i64 %and.i706.i, 8589934590
   %mul2.i708.i = mul i64 %mul.i707.i, %and1.i704.i
   %add3.i709.i = add i64 %add.i705.i, %mul2.i708.i
-  %78 = or disjoint i64 %66, 97
-  %arrayidx1207.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %78
-  %79 = load i64, ptr %arrayidx1207.i, align 8
-  %xor1213.i = xor i64 %add3.i709.i, %79
+  %76 = or disjoint i64 %64, 97
+  %arrayidx1207.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %76
+  %77 = load i64, ptr %arrayidx1207.i, align 8
+  %xor1213.i = xor i64 %add3.i709.i, %77
   %or.i712.i = tail call i64 @llvm.fshl.i64(i64 %xor1213.i, i64 %xor1213.i, i64 32)
-  %80 = or disjoint i64 %66, 65
-  %arrayidx1224.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %80
-  %81 = load i64, ptr %arrayidx1224.i, align 8
+  %78 = or disjoint i64 %64, 65
+  %arrayidx1224.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %78
+  %79 = load i64, ptr %arrayidx1224.i, align 8
   %and1.i713.i = and i64 %or.i712.i, 4294967295
-  %add.i714.i = add i64 %or.i712.i, %81
-  %and.i715.i = shl i64 %81, 1
+  %add.i714.i = add i64 %or.i712.i, %79
+  %and.i715.i = shl i64 %79, 1
   %mul.i716.i = and i64 %and.i715.i, 8589934590
   %mul2.i717.i = mul i64 %and1.i713.i, %mul.i716.i
   %add3.i718.i = add i64 %add.i714.i, %mul2.i717.i
-  %xor1246.i = xor i64 %add3.i718.i, %77
+  %xor1246.i = xor i64 %add3.i718.i, %75
   %or.i721.i = tail call i64 @llvm.fshl.i64(i64 %xor1246.i, i64 %xor1246.i, i64 40)
   %and1.i722.i = and i64 %or.i721.i, 4294967295
   %add.i723.i = add i64 %or.i721.i, %add3.i709.i
@@ -707,33 +705,33 @@ do.body1058.i:                                    ; preds = %do.body1.i, %do.bod
   %add3.i736.i = add i64 %add.i732.i, %mul2.i735.i
   %xor1312.i = xor i64 %add3.i736.i, %or.i721.i
   %or.i739.i = tail call i64 @llvm.fshl.i64(i64 %xor1312.i, i64 %xor1312.i, i64 1)
-  %82 = or disjoint i64 %66, 16
-  %arrayidx1325.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %82
-  %83 = load i64, ptr %arrayidx1325.i, align 8
-  %84 = or disjoint i64 %66, 48
-  %arrayidx1330.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %84
-  %85 = load i64, ptr %arrayidx1330.i, align 8
-  %and1.i740.i = and i64 %85, 4294967295
-  %add.i741.i = add i64 %85, %83
-  %and.i742.i = shl i64 %83, 1
+  %80 = or disjoint i64 %64, 16
+  %arrayidx1325.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %80
+  %81 = load i64, ptr %arrayidx1325.i, align 8
+  %82 = or disjoint i64 %64, 48
+  %arrayidx1330.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %82
+  %83 = load i64, ptr %arrayidx1330.i, align 8
+  %and1.i740.i = and i64 %83, 4294967295
+  %add.i741.i = add i64 %83, %81
+  %and.i742.i = shl i64 %81, 1
   %mul.i743.i = and i64 %and.i742.i, 8589934590
   %mul2.i744.i = mul i64 %mul.i743.i, %and1.i740.i
   %add3.i745.i = add i64 %add.i741.i, %mul2.i744.i
-  %86 = or disjoint i64 %66, 112
-  %arrayidx1341.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %86
-  %87 = load i64, ptr %arrayidx1341.i, align 8
-  %xor1347.i = xor i64 %add3.i745.i, %87
+  %84 = or disjoint i64 %64, 112
+  %arrayidx1341.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %84
+  %85 = load i64, ptr %arrayidx1341.i, align 8
+  %xor1347.i = xor i64 %add3.i745.i, %85
   %or.i748.i = tail call i64 @llvm.fshl.i64(i64 %xor1347.i, i64 %xor1347.i, i64 32)
-  %88 = or disjoint i64 %66, 80
-  %arrayidx1358.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %88
-  %89 = load i64, ptr %arrayidx1358.i, align 8
+  %86 = or disjoint i64 %64, 80
+  %arrayidx1358.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %86
+  %87 = load i64, ptr %arrayidx1358.i, align 8
   %and1.i749.i = and i64 %or.i748.i, 4294967295
-  %add.i750.i = add i64 %or.i748.i, %89
-  %and.i751.i = shl i64 %89, 1
+  %add.i750.i = add i64 %or.i748.i, %87
+  %and.i751.i = shl i64 %87, 1
   %mul.i752.i = and i64 %and.i751.i, 8589934590
   %mul2.i753.i = mul i64 %and1.i749.i, %mul.i752.i
   %add3.i754.i = add i64 %add.i750.i, %mul2.i753.i
-  %xor1380.i = xor i64 %add3.i754.i, %85
+  %xor1380.i = xor i64 %add3.i754.i, %83
   %or.i757.i = tail call i64 @llvm.fshl.i64(i64 %xor1380.i, i64 %xor1380.i, i64 40)
   %and1.i758.i = and i64 %or.i757.i, 4294967295
   %add.i759.i = add i64 %or.i757.i, %add3.i745.i
@@ -751,33 +749,33 @@ do.body1058.i:                                    ; preds = %do.body1.i, %do.bod
   %add3.i772.i = add i64 %add.i768.i, %mul2.i771.i
   %xor1446.i = xor i64 %add3.i772.i, %or.i757.i
   %or.i775.i = tail call i64 @llvm.fshl.i64(i64 %xor1446.i, i64 %xor1446.i, i64 1)
-  %90 = or disjoint i64 %66, 17
-  %arrayidx1459.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %90
-  %91 = load i64, ptr %arrayidx1459.i, align 8
-  %92 = or disjoint i64 %66, 49
-  %arrayidx1464.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %92
-  %93 = load i64, ptr %arrayidx1464.i, align 8
-  %and1.i776.i = and i64 %93, 4294967295
-  %add.i777.i = add i64 %93, %91
-  %and.i778.i = shl i64 %91, 1
+  %88 = or disjoint i64 %64, 17
+  %arrayidx1459.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %88
+  %89 = load i64, ptr %arrayidx1459.i, align 8
+  %90 = or disjoint i64 %64, 49
+  %arrayidx1464.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %90
+  %91 = load i64, ptr %arrayidx1464.i, align 8
+  %and1.i776.i = and i64 %91, 4294967295
+  %add.i777.i = add i64 %91, %89
+  %and.i778.i = shl i64 %89, 1
   %mul.i779.i = and i64 %and.i778.i, 8589934590
   %mul2.i780.i = mul i64 %mul.i779.i, %and1.i776.i
   %add3.i781.i = add i64 %add.i777.i, %mul2.i780.i
-  %94 = or disjoint i64 %66, 113
-  %arrayidx1475.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %94
-  %95 = load i64, ptr %arrayidx1475.i, align 8
-  %xor1481.i = xor i64 %add3.i781.i, %95
+  %92 = or disjoint i64 %64, 113
+  %arrayidx1475.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %92
+  %93 = load i64, ptr %arrayidx1475.i, align 8
+  %xor1481.i = xor i64 %add3.i781.i, %93
   %or.i784.i = tail call i64 @llvm.fshl.i64(i64 %xor1481.i, i64 %xor1481.i, i64 32)
-  %96 = or disjoint i64 %66, 81
-  %arrayidx1492.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %96
-  %97 = load i64, ptr %arrayidx1492.i, align 8
+  %94 = or disjoint i64 %64, 81
+  %arrayidx1492.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %94
+  %95 = load i64, ptr %arrayidx1492.i, align 8
   %and1.i785.i = and i64 %or.i784.i, 4294967295
-  %add.i786.i = add i64 %or.i784.i, %97
-  %and.i787.i = shl i64 %97, 1
+  %add.i786.i = add i64 %or.i784.i, %95
+  %and.i787.i = shl i64 %95, 1
   %mul.i788.i = and i64 %and.i787.i, 8589934590
   %mul2.i789.i = mul i64 %and1.i785.i, %mul.i788.i
   %add3.i790.i = add i64 %add.i786.i, %mul2.i789.i
-  %xor1514.i = xor i64 %add3.i790.i, %93
+  %xor1514.i = xor i64 %add3.i790.i, %91
   %or.i793.i = tail call i64 @llvm.fshl.i64(i64 %xor1514.i, i64 %xor1514.i, i64 40)
   %and1.i794.i = and i64 %or.i793.i, 4294967295
   %add.i795.i = add i64 %or.i793.i, %add3.i781.i
@@ -950,10 +948,10 @@ for.end2121.i:                                    ; preds = %do.body1058.i
 for.body.i956.i:                                  ; preds = %for.body.i956.i, %for.end2121.i
   %indvars.iv.i957.i = phi i64 [ 0, %for.end2121.i ], [ %indvars.iv.next.i961.i, %for.body.i956.i ]
   %arrayidx.i958.i = getelementptr [128 x i64], ptr %blockR.i, i64 0, i64 %indvars.iv.i957.i
-  %98 = load i64, ptr %arrayidx.i958.i, align 8
+  %96 = load i64, ptr %arrayidx.i958.i, align 8
   %arrayidx3.i959.i = getelementptr [128 x i64], ptr %add.ptr77, i64 0, i64 %indvars.iv.i957.i
-  %99 = load i64, ptr %arrayidx3.i959.i, align 8
-  %xor.i960.i = xor i64 %99, %98
+  %97 = load i64, ptr %arrayidx3.i959.i, align 8
+  %xor.i960.i = xor i64 %97, %96
   store i64 %xor.i960.i, ptr %arrayidx3.i959.i, align 8
   %indvars.iv.next.i961.i = add nuw nsw i64 %indvars.iv.i957.i, 1
   %exitcond.not.i962.i = icmp eq i64 %indvars.iv.next.i961.i, 128
@@ -968,9 +966,9 @@ for.inc:                                          ; preds = %if.then81, %fill_bl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc92 = add i32 %curr_offset.071, 1
   %inc93 = add i32 %spec.select40, 1
-  %100 = load i32, ptr %segment_length, align 4
-  %101 = zext i32 %100 to i64
-  %cmp33 = icmp ult i64 %indvars.iv.next, %101
+  %98 = load i32, ptr %segment_length, align 4
+  %99 = zext i32 %98 to i64
+  %cmp33 = icmp ult i64 %indvars.iv.next, %99
   br i1 %cmp33, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %if.end9, %entry

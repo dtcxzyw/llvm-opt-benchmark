@@ -13,15 +13,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4core3fmt9Arguments16new_v1_formatted17h2f7a0a727ad96bcbE(ptr nocapture writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3, i64 %4, ptr align 8 %5, i64 %6) unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 2, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %6, ptr %10, align 8
-  %11 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %4, ptr %12, align 8
   ret void
 }
@@ -37,25 +37,25 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h70ff4e7d6a51bed3E(ptr nocapt
 
 10:                                               ; preds = %5
   store ptr %1, ptr %0, align 8
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %4, ptr %14, align 8
   ret void
 
 15:                                               ; preds = %5
   store ptr @anon.889d2738d478163be1af40208bcf732f.1, ptr %6, align 8
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %6, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %6, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr @anon.889d2738d478163be1af40208bcf732f.2, ptr %18, align 8
-  %19 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %6, i64 0, i32 1, i32 1
+  %19 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 0, ptr %19, align 8
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.889d2738d478163be1af40208bcf732f.4) #4
   unreachable
@@ -69,25 +69,25 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17head3ae0f5f69c0e0E(ptr noc
 
 6:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 2
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.889d2738d478163be1af40208bcf732f.2, ptr %9, align 8
-  %10 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %10, align 8
   ret void
 
 11:                                               ; preds = %3
   store ptr @anon.889d2738d478163be1af40208bcf732f.1, ptr %4, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr @anon.889d2738d478163be1af40208bcf732f.2, ptr %14, align 8
-  %15 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, ptr %4, i64 0, i32 1, i32 1
+  %15 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8
   call void @_ZN4core9panicking9panic_fmt17hbf0e066aabfa482cE(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.889d2738d478163be1af40208bcf732f.5) #4
   unreachable

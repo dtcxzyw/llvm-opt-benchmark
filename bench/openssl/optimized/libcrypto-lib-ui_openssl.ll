@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sigaction = type { %union.anon, %struct.__sigset_t, i32, ptr }
 %union.anon = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.ui_st = type { ptr, ptr, ptr, %struct.crypto_ex_data_st, i32, ptr }
 
 @ui_openssl = internal global %struct.ui_method_st { ptr @.str, ptr @open_console, ptr @write_string, ptr null, ptr @read_string, ptr @close_console, ptr null, ptr null, ptr null, %struct.crypto_ex_data_st zeroinitializer }, align 8
 @default_UI_meth = internal unnamed_addr global ptr @ui_openssl, align 8
@@ -34,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @tty_new = internal global %struct.termios zeroinitializer, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @UI_OpenSSL() local_unnamed_addr #0 {
+define noundef nonnull ptr @UI_OpenSSL() local_unnamed_addr #0 {
 entry:
   ret ptr @ui_openssl
 }
@@ -54,9 +53,9 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @open_console(ptr nocapture noundef readonly %ui) #3 {
+define internal noundef i32 @open_console(ptr nocapture noundef readonly %ui) #3 {
 entry:
-  %lock = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 5
+  %lock = getelementptr inbounds i8, ptr %ui, i64 48
   %0 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #15
   %tobool.not = icmp eq i32 %call, 0
@@ -141,7 +140,7 @@ return:                                           ; preds = %if.end7, %if.then17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @write_string(ptr nocapture readnone %ui, ptr noundef %uis) #3 {
+define internal noundef i32 @write_string(ptr nocapture readnone %ui, ptr noundef %uis) #3 {
 entry:
   %call = tail call i32 @UI_get_string_type(ptr noundef %uis) #15
   %0 = and i32 %call, -2
@@ -227,7 +226,7 @@ return:                                           ; preds = %entry, %if.end, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @close_console(ptr nocapture noundef readonly %ui) #3 {
+define internal noundef i32 @close_console(ptr nocapture noundef readonly %ui) #3 {
 entry:
   %0 = load ptr, ptr @tty_in, align 8
   %1 = load ptr, ptr @stdin, align 8
@@ -249,7 +248,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %lock = getelementptr inbounds %struct.ui_st, ptr %ui, i64 0, i32 5
+  %lock = getelementptr inbounds i8, ptr %ui, i64 48
   %4 = load ptr, ptr %lock, align 8
   %call5 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #15
   ret i32 1

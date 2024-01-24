@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hd99abcfcbdbb313aE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds { i64, { i8, i8 }, [6 x i8] }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %3, align 8
   %5 = call zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h976633cb9325d9dfE(ptr align 8 %1, ptr nonnull align 1 @anon.6d94176da177a782eee988cd4bc1ed51.0, i64 9, ptr nonnull align 1 @anon.6d94176da177a782eee988cd4bc1ed51.1, i64 11, ptr align 1 %0, ptr nonnull align 8 @anon.6d94176da177a782eee988cd4bc1ed51.2, ptr nonnull align 1 @anon.6d94176da177a782eee988cd4bc1ed51.3, i64 9, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.6d94176da177a782eee988cd4bc1ed51.4)
   ret i1 %5

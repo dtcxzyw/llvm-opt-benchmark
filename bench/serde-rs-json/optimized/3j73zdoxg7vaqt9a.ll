@@ -39,25 +39,25 @@ default.unreachable5:                             ; preds = %2
   br label %27
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %13, ptr %8, align 8
   store ptr %8, ptr %6, align 8
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h473510d492030590E", ptr %14, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h68cb99eea9c8258bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr nonnull align 8 @anon.9c55dc805e51c4b38935d458415cbc0a.3, i64 2, ptr nonnull align 8 %6, i64 1)
   %15 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %7)
   br label %27
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = tail call zeroext i1 @"_ZN63_$LT$serde_json..number..Number$u20$as$u20$core..fmt..Debug$GT$3fmt17h059ddb8ecd9b2ec7E"(ptr nonnull align 8 %17, ptr align 8 %1)
   br label %27
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %20, ptr %5, align 8
   store ptr %5, ptr %3, align 8
-  %21 = getelementptr inbounds { ptr, ptr }, ptr %3, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h589015da52010d2bE", ptr %21, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h68cb99eea9c8258bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.9c55dc805e51c4b38935d458415cbc0a.5, i64 2, ptr nonnull align 8 %3, i64 1)
   %22 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -76,12 +76,12 @@ default.unreachable5:                             ; preds = %2
   ret i1 %.0.shrunk
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = tail call zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h248319ad96ad3c67E"(ptr nonnull align 8 %29, ptr align 8 %1)
   br label %27
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = tail call zeroext i1 @"_ZN113_$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0d1f0170db838d7aE"(ptr nonnull align 8 %32, ptr align 8 %1)
   br label %27
 }
@@ -116,22 +116,13 @@ define void @"_ZN119_$LT$$LT$serde_json..value..Value$u20$as$u20$core..fmt..Disp
   %8 = load ptr, ptr %1, align 8, !nonnull !6, !align !7, !noundef !6
   %9 = tail call zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr nonnull align 8 %8, ptr align 1 %6, i64 %7)
   %10 = tail call ptr @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hfa0eabde1110fbebE"(i1 zeroext %9)
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %14
-
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds { [1 x i64], i64 }, ptr %0, i64 0, i32 1
-  store i64 %3, ptr %13, align 8
-  br label %16
-
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds { [1 x i64], ptr }, ptr %0, i64 0, i32 1
-  store ptr %10, ptr %15, align 8
-  br label %16
-
-16:                                               ; preds = %14, %12
-  %storemerge = phi i64 [ 1, %14 ], [ 0, %12 ]
-  store i64 %storemerge, ptr %0, align 8
+  %11 = icmp ne ptr %10, null
+  %12 = inttoptr i64 %3 to ptr
+  %spec.select = select i1 %11, ptr %10, ptr %12
+  %spec.select4 = zext i1 %11 to i64
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %spec.select, ptr %13, align 8
+  store i64 %spec.select4, ptr %0, align 8
   ret void
 }
 
@@ -181,7 +172,7 @@ define zeroext i1 @_ZN10serde_json5value5Value9is_object17h1cec69999dfc8e12E(ptr
   %2 = alloca ptr, align 8
   %3 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 5
-  %5 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %.0.i = select i1 %4, ptr %5, ptr null
   store ptr %.0.i, ptr %2, align 8
   %6 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17hc6b4d61b141036a6E"(ptr nonnull align 8 %2)
@@ -192,7 +183,7 @@ define zeroext i1 @_ZN10serde_json5value5Value9is_object17h1cec69999dfc8e12E(ptr
 define align 8 ptr @_ZN10serde_json5value5Value9as_object17h399b7f8b1efcfc0eE(ptr readonly align 8 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 5
-  %4 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -201,7 +192,7 @@ define align 8 ptr @_ZN10serde_json5value5Value9as_object17h399b7f8b1efcfc0eE(pt
 define align 8 ptr @_ZN10serde_json5value5Value13as_object_mut17hae694e1ce6d55c46E(ptr readonly align 8 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 5
-  %4 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -211,7 +202,7 @@ define zeroext i1 @_ZN10serde_json5value5Value8is_array17h872b2a976295b6ecE(ptr 
   %2 = alloca ptr, align 8
   %3 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 4
-  %5 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %.0.i = select i1 %4, ptr %5, ptr null
   store ptr %.0.i, ptr %2, align 8
   %6 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h1aad96bcb55c3c43E"(ptr nonnull align 8 %2)
@@ -222,7 +213,7 @@ define zeroext i1 @_ZN10serde_json5value5Value8is_array17h872b2a976295b6ecE(ptr 
 define align 8 ptr @_ZN10serde_json5value5Value8as_array17hf67571b6fa0068adE(ptr readonly align 8 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 4
-  %4 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -231,7 +222,7 @@ define align 8 ptr @_ZN10serde_json5value5Value8as_array17hf67571b6fa0068adE(ptr
 define align 8 ptr @_ZN10serde_json5value5Value12as_array_mut17h350e320caacd14faE(ptr readonly align 8 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 4
-  %4 = getelementptr inbounds { [1 x i64], { { ptr, i64 }, i64 } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -244,7 +235,7 @@ define zeroext i1 @_ZN10serde_json5value5Value9is_string17hdaa11f86ed48d7ccE(ptr
   br i1 %4, label %5, label %_ZN10serde_json5value5Value6as_str17h824433f0d0467987E.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = tail call { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h224e1fdb175ff698E"(ptr nonnull align 8 %6)
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
@@ -254,7 +245,7 @@ _ZN10serde_json5value5Value6as_str17h824433f0d0467987E.exit: ; preds = %1, %5
   %.sroa.3.0.i = phi i64 [ %9, %5 ], [ undef, %1 ]
   %.sroa.0.0.i = phi ptr [ %8, %5 ], [ null, %1 ]
   store ptr %.sroa.0.0.i, ptr %2, align 8
-  %.fca.1.gep = getelementptr inbounds { ptr, i64 }, ptr %2, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %.sroa.3.0.i, ptr %.fca.1.gep, align 8
   %10 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h39449b3c39a1e00dE"(ptr nonnull align 8 %2)
   ret i1 %10
@@ -267,7 +258,7 @@ define { ptr, i64 } @_ZN10serde_json5value5Value6as_str17h824433f0d0467987E(ptr 
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h224e1fdb175ff698E"(ptr nonnull align 8 %5)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = extractvalue { ptr, i64 } %6, 1
@@ -292,7 +283,7 @@ define noundef zeroext i1 @_ZN10serde_json5value5Value9is_number17hedbc6f84cdec9
 define align 8 ptr @_ZN10serde_json5value5Value9as_number17hf94f35c76469749fE(ptr readonly align 8 %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %3 = icmp eq i8 %2, 2
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -304,7 +295,7 @@ define zeroext i1 @_ZN10serde_json5value5Value6is_i6417h84b3283b3605f465E(ptr al
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call zeroext i1 @_ZN10serde_json6number6Number6is_i6417ha6fcfb02385a8f49E(ptr nonnull align 8 %5)
   br label %7
 
@@ -320,7 +311,7 @@ define zeroext i1 @_ZN10serde_json5value5Value6is_u6417hb47f64afef490ec3E(ptr al
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call zeroext i1 @_ZN10serde_json6number6Number6is_u6417ha2168154a6348ddfE(ptr nonnull align 8 %5)
   br label %7
 
@@ -336,7 +327,7 @@ define zeroext i1 @_ZN10serde_json5value5Value6is_f6417h6e2f0569b4cd7a24E(ptr al
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call zeroext i1 @_ZN10serde_json6number6Number6is_f6417h572611a76d4721acE(ptr nonnull align 8 %5)
   br label %7
 
@@ -352,7 +343,7 @@ define { i64, i64 } @_ZN10serde_json5value5Value6as_i6417h31acd59c54c30bebE(ptr 
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call { i64, i64 } @_ZN10serde_json6number6Number6as_i6417h223d7a79c0c28b52E(ptr nonnull align 8 %5)
   %.fca.0.extract = extractvalue { i64, i64 } %6, 0
   %.fca.1.extract = extractvalue { i64, i64 } %6, 1
@@ -373,7 +364,7 @@ define { i64, i64 } @_ZN10serde_json5value5Value6as_u6417h88bd5c1e0d8706b7E(ptr 
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call { i64, i64 } @_ZN10serde_json6number6Number6as_u6417h99a089823c0fe50fE(ptr nonnull align 8 %5)
   %.fca.0.extract = extractvalue { i64, i64 } %6, 0
   %.fca.1.extract = extractvalue { i64, i64 } %6, 1
@@ -394,7 +385,7 @@ define { i64, double } @_ZN10serde_json5value5Value6as_f6417hc04adbb8ee7bcd1fE(p
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call { i64, double } @_ZN10serde_json6number6Number6as_f6417h0bff609a690e3756E(ptr nonnull align 8 %5)
   %.fca.0.extract = extractvalue { i64, double } %6, 0
   %.fca.1.extract = extractvalue { i64, double } %6, 1
@@ -416,7 +407,7 @@ define zeroext i1 @_ZN10serde_json5value5Value10is_boolean17h0696a1c394f2c501E(p
   br i1 %4, label %5, label %_ZN10serde_json5value5Value7as_bool17h66dd0576b044e2f4E.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1, !range !8, !noundef !6
   br label %_ZN10serde_json5value5Value7as_bool17h66dd0576b044e2f4E.exit
 
@@ -434,7 +425,7 @@ define noundef i8 @_ZN10serde_json5value5Value7as_bool17h66dd0576b044e2f4E(ptr n
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1, !range !8, !noundef !6
   br label %7
 
@@ -560,26 +551,26 @@ default.unreachable1:                             ; preds = %2
   br label %20
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds { [1 x i8], i8 }, ptr %1, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1, !range !8, !noundef !6
-  %8 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %7, ptr %8, align 1
   store i8 0, ptr %0, align 8
   br label %20
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %1, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN10serde_json6number6Number10unexpected17hb9b351ad6bebbf53E(ptr sret({ i8, [23 x i8] }) align 8 %0, ptr nonnull align 8 %10)
   br label %20
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %1, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = tail call { ptr, i64 } @"_ZN65_$LT$alloc..string..String$u20$as$u20$core..ops..deref..Deref$GT$5deref17h224e1fdb175ff698E"(ptr nonnull align 8 %12)
   %14 = extractvalue { ptr, i64 } %13, 0
   %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds { [1 x i64], { ptr, i64 } }, ptr %0, i64 0, i32 1, i32 1
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %15, ptr %17, align 8
   store i8 5, ptr %0, align 8
   br label %20
@@ -618,7 +609,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$f
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN10serde_json5value4from86_$LT$impl$u20$core..convert..From$LT$bool$GT$$u20$for$u20$serde_json..value..Value$GT$4from17hc0a7e8c6bc333c70E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i1 zeroext %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds { [1 x i8], i8 }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
   store i8 1, ptr %0, align 8
@@ -627,7 +618,7 @@ define void @"_ZN10serde_json5value4from86_$LT$impl$u20$core..convert..From$LT$b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN10serde_json5value4from103_$LT$impl$u20$core..convert..From$LT$alloc..string..String$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h0c5740f409d88d23E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i8 3, ptr %0, align 8
   ret void
@@ -637,7 +628,7 @@ define void @"_ZN10serde_json5value4from103_$LT$impl$u20$core..convert..From$LT$
 define void @"_ZN10serde_json5value4from89_$LT$impl$u20$core..convert..From$LT$$RF$str$GT$$u20$for$u20$serde_json..value..Value$GT$4from17hdc23f9886793cf84E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @"_ZN47_$LT$str$u20$as$u20$alloc..string..ToString$GT$9to_string17h3d3f381bdbe26ab5E"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr align 1 %1, i64 %2)
-  %5 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i8 3, ptr %0, align 8
   ret void
@@ -647,7 +638,7 @@ define void @"_ZN10serde_json5value4from89_$LT$impl$u20$core..convert..From$LT$$
 define void @"_ZN10serde_json5value4from111_$LT$impl$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h848e9f4633771c89E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h1ee7c88d5b539925E"(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64 } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i8 3, ptr %0, align 8
   ret void
@@ -655,7 +646,7 @@ define void @"_ZN10serde_json5value4from111_$LT$impl$u20$core..convert..From$LT$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN10serde_json5value4from108_$LT$impl$u20$core..convert..From$LT$serde_json..number..Number$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h57d5f9c43ae48c62E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -663,7 +654,7 @@ define void @"_ZN10serde_json5value4from108_$LT$impl$u20$core..convert..From$LT$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN10serde_json5value4from158_$LT$impl$u20$core..convert..From$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$$u20$for$u20$serde_json..value..Value$GT$4from17hdf48dce3d62c2e70E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds { [1 x i64], { { { ptr, i64 }, i64, { {} }, {} } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i8 5, ptr %0, align 8
   ret void
@@ -684,7 +675,7 @@ define zeroext i1 @"_ZN10serde_json5value10partial_eq86_$LT$impl$u20$core..cmp..
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN10serde_json5value10partial_eq90_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$str$GT$$u20$for$u20$serde_json..value..Value$GT$2eq17he24bde1e06705ae6E"(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !nonnull !6, !align !9, !noundef !6
-  %4 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = tail call zeroext i1 @_ZN10serde_json5value10partial_eq6eq_str17h99dcc555392e53a7E(ptr align 8 %0, ptr nonnull align 1 %3, i64 %5)
   ret i1 %6
@@ -701,7 +692,7 @@ define zeroext i1 @"_ZN10serde_json5value10partial_eq104_$LT$impl$u20$core..cmp.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN10serde_json5value5Value6Number17h5e6d98c2d8418fdaE(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #6 {
-  %3 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -711,7 +702,7 @@ define hidden void @_ZN10serde_json5value5Value6Number17h5e6d98c2d8418fdaE(ptr n
 define void @"_ZN10serde_json5value4from84_$LT$impl$u20$core..convert..From$LT$i8$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h8b5fa2f458ae4d70E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hcbb4aa4c1e315ae2E"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i8 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -721,7 +712,7 @@ define void @"_ZN10serde_json5value4from84_$LT$impl$u20$core..convert..From$LT$i
 define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$i16$GT$$u20$for$u20$serde_json..value..Value$GT$4from17hd44230f3f4d04a90E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i16 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h15749d16f778bca1E"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i16 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -731,7 +722,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$i
 define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$i32$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h73831c85ef95ce8eE"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i32 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdb88b5be85926043E"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i32 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -741,7 +732,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$i
 define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$i64$GT$$u20$for$u20$serde_json..value..Value$GT$4from17ha51402bb8eb9e3b8E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hbdf63ee6a1a53b04E"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i64 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -751,7 +742,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$i
 define void @"_ZN10serde_json5value4from87_$LT$impl$u20$core..convert..From$LT$isize$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h581a53da9e9f5ec5E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h51e8b03a2efdfe4bE"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i64 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -761,7 +752,7 @@ define void @"_ZN10serde_json5value4from87_$LT$impl$u20$core..convert..From$LT$i
 define void @"_ZN10serde_json5value4from84_$LT$impl$u20$core..convert..From$LT$u8$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h615dedc490b0f67cE"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3c11b037f515643aE"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i8 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -771,7 +762,7 @@ define void @"_ZN10serde_json5value4from84_$LT$impl$u20$core..convert..From$LT$u
 define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$u16$GT$$u20$for$u20$serde_json..value..Value$GT$4from17hc18222655197aff1E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i16 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h2a3e674717c377f6E"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i16 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -781,7 +772,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$u
 define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$u32$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h728d138ef70b55edE"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i32 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h21280a5aab811e5aE"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i32 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -791,7 +782,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$u
 define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$u64$GT$$u20$for$u20$serde_json..value..Value$GT$4from17h8bb71ca72805855bE"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h116624ebd31020b2E"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i64 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void
@@ -801,7 +792,7 @@ define void @"_ZN10serde_json5value4from85_$LT$impl$u20$core..convert..From$LT$u
 define void @"_ZN10serde_json5value4from87_$LT$impl$u20$core..convert..From$LT$usize$GT$$u20$for$u20$serde_json..value..Value$GT$4from17hb7c5758731dd07a9E"(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [1 x i64] } }, align 8
   call void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h2229d5e5b1a24f8cE"(ptr nonnull sret({ { i64, [1 x i64] } }) align 8 %3, i64 %1)
-  %4 = getelementptr inbounds { [1 x i64], { { i64, [1 x i64] } } }, ptr %0, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   store i8 2, ptr %0, align 8
   ret void

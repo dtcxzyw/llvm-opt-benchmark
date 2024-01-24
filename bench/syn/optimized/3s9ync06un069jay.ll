@@ -12,10 +12,10 @@ define hidden void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$syn..ext..IdentExt$
   %5 = alloca { [24 x i8], i8, [23 x i8] }, align 8
   %6 = tail call align 8 ptr @"_ZN66_$LT$syn..parse..StepCursor$u20$as$u20$core..ops..deref..Deref$GT$5deref17h53f065b65b32a41aE"(ptr align 8 %1)
   %7 = load ptr, ptr %6, align 8, !noundef !5
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %6, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !noundef !5
   call void @_ZN3syn6buffer6Cursor5ident17hac8c92299a38498cE(ptr nonnull sret({ [24 x i8], i8, [23 x i8] }) align 8 %5, ptr %7, ptr %9)
-  %10 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %5, i64 0, i32 1
+  %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = load i8, ptr %10, align 8, !range !6, !noundef !5
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %13, label %15
@@ -24,12 +24,12 @@ define hidden void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$syn..ext..IdentExt$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @_ZN3syn5parse10StepCursor5error17h97380b7b623ac4d4E(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %4, ptr nonnull align 8 %3, ptr nonnull align 1 @anon.ee7bc62f73c2d55767802ca2ce9c42b3.0, i64 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %14 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %0, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 3, ptr %14, align 8
   br label %18
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds { { { [24 x i8], i8, [7 x i8] }, {} }, { ptr, ptr } }, ptr %5, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load <2 x ptr>, ptr %16, align 8

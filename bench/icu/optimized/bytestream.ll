@@ -3,9 +3,6 @@ source_filename = "bench/icu/original/bytestream.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::CheckedArrayByteSink" = type <{ %"class.icu_75::ByteSink", ptr, i32, i32, i32, i8, [3 x i8] }>
-%"class.icu_75::ByteSink" = type { ptr }
-
 $_ZTSN6icu_757UMemoryE = comdat any
 
 $_ZTIN6icu_757UMemoryE = comdat any
@@ -34,7 +31,7 @@ entry:
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_758ByteSinkD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 entry:
-  tail call void @llvm.trap() #12
+  tail call void @llvm.trap() #11
   unreachable
 }
 
@@ -59,16 +56,16 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %outbuf_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 1
+  %outbuf_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %outbuf, ptr %outbuf_, align 8
-  %capacity_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 2
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 16
   %cond = tail call i32 @llvm.smax.i32(i32 %capacity, i32 0)
   store i32 %cond, ptr %capacity_, align 8
-  %size_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %size_, i8 0, i64 9, i1 false)
   ret void
 }
@@ -80,32 +77,32 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7520CheckedArrayByteSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7520CheckedArrayByteSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #4 align 2 {
 entry:
-  tail call void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) #13
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
+  tail call void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) #12
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #12
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(29) ptr @_ZN6icu_7520CheckedArrayByteSink5ResetEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(29) %this) unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef nonnull align 8 dereferenceable(29) ptr @_ZN6icu_7520CheckedArrayByteSink5ResetEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(29) %this) unnamed_addr #3 align 2 {
 entry:
-  %size_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %size_, i8 0, i64 9, i1 false)
   ret ptr %this
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7520CheckedArrayByteSink6AppendEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(29) %this, ptr noundef readonly %bytes, i32 noundef %n) unnamed_addr #7 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN6icu_7520CheckedArrayByteSink6AppendEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(29) %this, ptr noundef readonly %bytes, i32 noundef %n) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp slt i32 %n, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %appended_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 4
+  %appended_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %appended_, align 8
   %sub = sub nsw i32 2147483647, %0
   %cmp2 = icmp ult i32 %sub, %n
@@ -113,30 +110,30 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store i32 2147483647, ptr %appended_, align 8
-  %overflowed_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 5
+  %overflowed_ = getelementptr inbounds i8, ptr %this, i64 28
   store i8 1, ptr %overflowed_, align 4
   br label %return
 
 if.end5:                                          ; preds = %if.end
   %add = add nsw i32 %0, %n
   store i32 %add, ptr %appended_, align 8
-  %capacity_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 2
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %capacity_, align 8
-  %size_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %size_, align 4
   %sub7 = sub nsw i32 %1, %2
   %cmp8 = icmp slt i32 %sub7, %n
   br i1 %cmp8, label %if.end11, label %land.lhs.true
 
 if.end11:                                         ; preds = %if.end5
-  %overflowed_10 = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 5
+  %overflowed_10 = getelementptr inbounds i8, ptr %this, i64 28
   store i8 1, ptr %overflowed_10, align 4
   %cmp12 = icmp sgt i32 %sub7, 0
   br i1 %cmp12, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.end5, %if.end11
   %n.addr.012 = phi i32 [ %sub7, %if.end11 ], [ %n, %if.end5 ]
-  %outbuf_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 1
+  %outbuf_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %outbuf_, align 8
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
@@ -161,10 +158,10 @@ return:                                           ; preds = %entry, %if.end20, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7520CheckedArrayByteSink15GetAppendBufferEiiPciPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly %result_capacity) unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6icu_7520CheckedArrayByteSink15GetAppendBufferEiiPciPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly %result_capacity) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %min_capacity, 1
   %cmp2 = icmp slt i32 %scratch_capacity, %min_capacity
@@ -176,9 +173,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %capacity_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 2
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %capacity_, align 8
-  %size_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %size_, align 4
   %sub = sub nsw i32 %1, %2
   %cmp3.not = icmp slt i32 %sub, %min_capacity
@@ -186,7 +183,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   store i32 %sub, ptr %result_capacity, align 4
-  %outbuf_ = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %this, i64 0, i32 1
+  %outbuf_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %outbuf_, align 8
   %4 = load i32, ptr %size_, align 4
   %idx.ext = sext i32 %4 to i64
@@ -205,25 +202,24 @@ return:                                           ; preds = %if.else, %if.then4,
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
